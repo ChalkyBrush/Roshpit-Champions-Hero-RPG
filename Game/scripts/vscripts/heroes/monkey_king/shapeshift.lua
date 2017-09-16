@@ -1,6 +1,7 @@
 LinkLuaModifier("modifier_draghor_shapeshift_shrink", "modifiers/draghor/modifier_draghor_shapeshift_shrink", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_draghor_shapeshift_hawk_lua", "modifiers/draghor/modifier_draghor_shapeshift_hawk_lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_draghor_shapeshift_cat_lua", "modifiers/draghor/modifier_draghor_shapeshift_cat_lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_draghor_shapeshift_bear_lua", "modifiers/draghor/modifier_draghor_shapeshift_bear_lua", LUA_MODIFIER_MOTION_NONE)
 
 function start_channel(event)
 	local caster = event.caster
@@ -86,7 +87,7 @@ function shapeshift_start_bear(event)
 	caster:SetOriginalModel("models/heroes/lone_druid/spirit_bear.vmdl")
 	caster:SetModel("models/heroes/lone_druid/spirit_bear.vmdl")
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_bear", "draghor_monkey_form", 3)
-	-- caster:AddNewModifier( caster, ability, "modifier_draghor_shapeshift_cat_lua", {} )
+	caster:AddNewModifier( caster, ability, "modifier_draghor_shapeshift_bear_lua", {} )
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Draghor.ShapeshiftIn.Finish", caster)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_bear", {})
 	if caster:HasModifier("modifier_mark_of_the_fang") then
@@ -164,6 +165,7 @@ function monkey_form(event)
 	end
 	caster:RemoveModifierByName("modifier_draghor_shapeshift_hawk_lua")
 	caster:RemoveModifierByName("modifier_draghor_shapeshift_cat_lua")
+	caster:RemoveModifierByName("modifier_draghor_shapeshift_bear_lua")
 	StartAnimation(caster, {duration=1.2, activity=ACT_DOTA_MK_SPRING_END, rate=0.8})
 	Timers:CreateTimer(0.24, function()
 		local pfx2 = ParticleManager:CreateParticle(  "particles/roshpit/mountain_protector/unshakable_stone_dust.vpcf", PATTACH_CUSTOMORIGIN, caster)

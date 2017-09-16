@@ -365,55 +365,13 @@ function GameMode:OnPlayerChat(keys)
   -- if string.match(text, "superdebug11") then
   --   Redfall:Debug()
   -- end
-  if string.match(text, "ancient") then
+  if string.match(text, "spawnunit") then
        if Beacons.cheats then
-
-        Events:EarnKey("forest")
-        Events:EarnKey("desert")
-        if GameState:IsWorld1() then
-          Beacons:ActivatePortalsForKeys()
-        end
-          if MAIN_HERO_TABLE[1] then
-            MAIN_HERO_TABLE[1]:SetBaseStrength(20000)
-            MAIN_HERO_TABLE[1]:SetBaseAgility(5000)
-            MAIN_HERO_TABLE[1]:SetBaseIntellect(25000)
-            MAIN_HERO_TABLE[1]:SetPhysicalArmorBaseValue(5000)
-            -- MAIN_HERO_TABLE[1]:SetBaseDamageMax(500000)
-            -- MAIN_HERO_TABLE[1]:SetBaseDamageMin(500000)
-            MAIN_HERO_TABLE[1]:CalculateStatBonus()
-          end
-          local AVAILABLE_RUNE_TABLE = {"rune_a_a", "rune_a_b", "rune_a_c", "rune_a_d", "rune_b_a", "rune_b_b", "rune_b_c", "rune_b_d", "rune_c_a", "rune_c_b", "rune_c_c", "rune_c_d"}
-          for i = 1, #AVAILABLE_RUNE_TABLE, 1 do
-            Amulet:runeProperty(AVAILABLE_RUNE_TABLE[i], 100, MAIN_HERO_TABLE[1])
-          end
-          Events:wave21()
-          -- SaveLoad:DebugGear(0)
-          -- RPCItems:RollFractionalEnhancementGeode(Vector(-14528, 14528))
-          -- RPCItems:RollFractionalEnhancementGeode(Vector(-14528, 14528))
-          -- RPCItems:RollFractionalEnhancementGeode(Vector(-14528, 14528))
-          -- Challenges:CompleteChallenge(Vector(-14228, 14228))
-          -- local xpNeeded = CustomNetTables:GetTableValue("xp_table", tostring(MAIN_HERO_TABLE[1]:GetLevel())).xpNeeded
-          -- Quests:QuestComplete(90, MAIN_HERO_TABLE[1], MAIN_HERO_TABLE[1]:GetAbsOrigin())
-            -- for i = 0, 5, 1 do
-            --   Timers:CreateTimer(0.4*i, function()
-            --     RPCItems:RollItemtype(300, Vector(-14528, 14528), 5, 2)
-            --   end)
-            -- end
-            -- RPCItems:RollNecromancerMask(Vector(-14528, 14528), false)
-            -- RPCItems:RollPhantomSorcererMask(Vector(-14528, 14528), false)
-            -- Glyphs:DropArcaneCrystals(Vector(-14528, 14528), 1)
-            -- Glyphs:RollRandomGlyph(Vector(-14528, 14528))
-            -- Paragon:SpawnParagonPack("dark_fighter", Vector(-14528, 14528))
-            -- Paragon:SpawnParagonUnit("dark_fighter", Vector(-14528, 14528))
-            -- Glyphs:RollGlyphAll("item_rpc_bahamut_glyph_2_1", Vector(-14528, 14528), 0)
-          GameState:Debug()
-          -- Dungeons:SpawnRuinsBoss()
-          -- Weapons:RollWeapon(Vector(-14528, 14528))
-          --         -- Weapons:UpdateWeaponXP(500)
-          -- Dungeons:DebugGrizzlyFalls()
-          -- Dungeons:CastleStageFour()
-          -- Dungeons:DebugPhoenixNest()
-        end
+          local position = MAIN_HERO_TABLE[1]:GetAbsOrigin() + MAIN_HERO_TABLE[1]:GetForwardVector()*600
+          local unitName = string.gsub(text, "spawnunit ", '')
+          local unit = CreateUnitByName(unitName, position, true, nil, nil, DOTA_TEAM_NEUTRALS)
+          Events:AdjustDeathXP(unit)          
+       end
   elseif string.match(text, "tanari") then
         if Beacons.cheats then
           Tanari:Debug()
@@ -1289,7 +1247,7 @@ end
 
 function Events:beginQuests()
   -- print("BEGINQUESTS IS HAPPENING")
-  -- Beacons:DEBUG()
+  Beacons:DEBUG()
 end
 
 function Events:InitGameEntities()
