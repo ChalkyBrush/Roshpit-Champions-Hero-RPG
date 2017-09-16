@@ -1,7 +1,9 @@
 function bear_roar_pre(event)
 	local caster = event.caster
 	EmitSoundOn("Draghor.Bear.Roar", caster)
-	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_axe/axe_beserkers_call_owner.vpcf", caster, 3)
+	local pfx = CustomAbilities:QuickAttachParticle("particles/econ/items/axe/axe_helm_shoutmask/axe_beserkers_call_owner_shoutmask.vpcf", caster, 3)
+	
+	ParticleManager:SetParticleControl(pfx, 2, Vector(280,280,280))
 end
 
 function bear_roar(event)
@@ -30,8 +32,9 @@ end
 function bear_warstomp_pre(event)
 	local caster = event.caster
 	EmitSoundOn("Draghor.Bear.Warstomp.Pre", caster)
-	StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_IDLE_RARE, rate=2.5})
-	CustomAbilities:QuickAttachParticle("particles/econ/items/axe/axe_helm_shoutmask/axe_beserkers_call_owner_shoutmask.vpcf", caster, 3)
+	StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_IDLE_RARE, rate=2.2})
+	local pfx = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_axe/axe_beserkers_call_owner.vpcf", caster, 3)
+	ParticleManager:SetParticleControl(pfx, 2, Vector(260,260,260))
 end
 
 function bear_warstomp(event)
@@ -42,12 +45,13 @@ function bear_warstomp(event)
 
 	local position = caster:GetAbsOrigin()
 	local splitEarthParticle = "particles/roshpit/draghor/bear_warstomp.vpcf"
+	local radius = 280
 	local pfx = ParticleManager:CreateParticle( splitEarthParticle, PATTACH_CUSTOMORIGIN, caster )
 	ParticleManager:SetParticleControl( pfx, 0, position )
 	ParticleManager:SetParticleControl( pfx, 1, Vector(radius, radius, radius) )
-	EmitSoundOn("Seafortress.Barnacle.Quake", caster)
+	EmitSoundOn("Draghor.Bear.Warstomp", caster)
 	-- FindClearSpaceForUnit(caster, position, false)
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, 280, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NATURE, RPC_ELEMENT_EARTH)
@@ -55,4 +59,89 @@ function bear_warstomp(event)
 		end
 	end 
 	
+end
+
+function begin_bear_charge(event)
+	local caster = event.caster
+	-- caster:Stop()
+	local ability = event.ability
+	local target = event.target_points[1]
+	local chargeSpeed = 1000
+	local distance = WallPhysics:GetDistance2d(target,caster:GetAbsOrigin())
+	local duration = distance/chargeSpeed
+	StartAnimation(caster, {duration=duration+0.39, activity=ACT_DOTA_RUN, rate=1.4, translate="charge"})
+	ability.fv = ((target-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+
+	EmitSoundOn("Draghor.Bear.Charge", caster)
+	ability.interval = 0
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_bear_charging", {duration = duration})
+
+	Filters:CastSkillArguments(3, caster)
+end
+
+function bear_charge_thinking(event)
+	local ability = event.ability
+	local caster = event.caster
+	local movement = 1000*0.03
+	caster.EFV = ability.fv
+	local newPos = GetGroundPosition(caster:GetAbsOrigin() + ability.fv*movement, caster)
+	local obstruction = WallPhysics:FindNearestObstruction(caster:GetAbsOrigin()*Vector(1,1,0))
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPos*Vector(1,1,0), caster)
+	if not blockUnit then
+		caster:SetAbsOrigin(newPos)
+	end
+
+	if ability.interval%9==0 then
+		local casterOrigin = caster:GetAbsOrigin()
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), casterOrigin, nil, 380, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+		if #enemies > 0 then
+			-- EmitSoundOn("Hero_Spirit_Breaker.GreaterBash", caster)
+			-- local damage = ability.c_c_level*1000 + caster:GetAgility()*8*ability.c_c_level
+			-- for _,enemy in pairs(enemies) do
+
+			-- 	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
+			-- 	if not enemy.jumpLock then
+			-- 		enemy:AddNewModifier( caster, nil, "modifier_knockback", modifierKnockback )
+			-- 	end
+			-- 	local particleName = "particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash.vpcf"
+			-- 	local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, enemy )
+			-- 	ParticleManager:SetParticleControlEnt(pfx, 0, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
+			-- 	Timers:CreateTimer(0.8, function() 
+			-- 	  ParticleManager:DestroyParticle( pfx, false )
+			-- 	end)
+
+			-- end
+		end 			
+	end
+	ability.interval = ability.interval + 1
+end
+
+function bear_charge_end(event)
+	local ability = event.ability
+	local caster = event.caster
+	ability.slideVelocity = 30
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_bear_sliding", {duration = 0.45})
+end
+
+function charge_slide_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local newPos = GetGroundPosition(caster:GetAbsOrigin() + ability.fv*ability.slideVelocity, caster)
+	local obstruction = WallPhysics:FindNearestObstruction(caster:GetAbsOrigin()*Vector(1,1,0))
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPos*Vector(1,1,0), caster)
+	if not blockUnit then
+		FindClearSpaceForUnit(caster, newPos, false)
+	else
+		ability.slideVelocity = 0
+	end	
+	if ability.slideVelocity > 0 then
+		ability.slideVelocity = ability.slideVelocity - 2
+	end
+	print("slide think")
+end
+
+function charge_slide_end(event)
+	print("slide END")
+	local caster = event.caster
+	caster.EFV = nil
 end

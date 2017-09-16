@@ -35510,6 +35510,7 @@
 				"States"
 				{
 					"MODIFIER_STATE_FLYING"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"OnDeath"
 				{
@@ -35943,6 +35944,12 @@
 			"particle"				"particles/status_fx/status_effect_beserkers_call.vpcf" 
 			"particle"				"particles/units/heroes/hero_axe/axe_beserkers_call_owner.vpcf"
 			"particle"				"particles/roshpit/draghor/bear_warstomp.vpcf"
+			"particle"				"particles/roshpit/draghor/bear_charge_wave.vpcf"
+			"particle"				"particles/roshpit/draghor/hawk_screech.vpcf"
+			"particle"				"particles/roshpit/draghor/hawk_screen_preshoutmask.vpcf"
+			"particle"				"particles/roshpit/draghor/hawk_tornado_big.vpcf"
+			"particle"				"particles/roshpit/draghor/hawk_precast_tornado.vpcf"
+			"particle"				"particles/roshpit/draghor/hawk_soar_buff.vpcf"
 		}
 		//-------------------------------------------------------------------------------------------------------------
 		// Casting
@@ -36421,7 +36428,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"lone_druid_savage_roar"
+		"AbilityTextureName"			"centaur_hoof_stomp"
 		"AbilityCastAnimation"			"ACT_DOTA_IDLE_RARE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"LevelsBetweenUpgrades"  "0"
@@ -36441,7 +36448,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"2"
+		"AbilityCooldown"				"1.2"
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"40 90 150 250 380 550 800"
@@ -36458,7 +36465,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"stun_duration"			"2.1 2.25 2.4 2.55 2.7 2.85 3.0"
+				"stun_duration"			"0.45 0.5 0.55 0.6 0.65 0.7 0.75"
 			}
 			"03"
 			{
@@ -36508,6 +36515,449 @@
 				"Function"		"bear_warstomp"
 				"stun_duration"		"%stun_duration"
 				"damage"			"%damage"
+			}
+		}
+	}
+
+	"djanghor_bear_charge"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rpc/specter_rush"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"  
+		"AbilityCastAnimation"			"ACT_DOTA_SPIRIT_BREAKER_CHARGE_POSE"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"6.0 5.8 5.6 5.4 5.2 5.0 4.8"
+		"AbilityCastRange"				"700 750 800 850 900 950 1000"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		"precache"
+		{
+
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"340 1800 4240 8420 15870 32460 50000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"charge_duration"				"0.8 0.9 1.0 1.1 1.2 1.3 1.3"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_distance"				"800 900 1000 1100 1200 1300 1400"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/monkey_king/bear"
+        		"Function"		"begin_bear_charge"
+        		"target"		"POINT"
+			}
+
+		}
+        "Modifiers"
+        {
+        	"modifier_bear_charging"
+        	{
+        		"IsHidden"	"0"
+        		"IsBuff"	"1"
+        		"ThinkInterval"  "0.03"
+        		"EffectName"  "particles/roshpit/draghor/bear_charge_wave.vpcf"
+        		"EffectAttachType"	"attach_origin"
+        		"OnIntervalThink"
+        		{
+        			"RunScript"
+        			{
+        				"ScriptFile"	"heroes/monkey_king/bear"
+        				"Function"		"bear_charge_thinking"
+        			}
+        		}
+        		"States"
+        		{
+        			"MODIFIER_STATE_ROOTED"					"MODIFIER_STATE_VALUE_ENABLED"
+        		}
+        		"Properties"
+        		{
+        			"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-10000"
+        			"MODIFIER_PROPERTY_DISABLE_TURNING"		"1"
+        		}
+        		"OnDestroy"
+        		{
+        			"RunScript"
+        			{
+        				"ScriptFile"	"heroes/monkey_king/bear"
+        				"Function"		"bear_charge_end"
+        			}
+        		}
+        	}
+            "modifier_bear_sliding"
+            {
+                "Passive"            "0"
+                "IsHidden"            "1"
+                "IsDebuff"            "0"   
+        		"Properties"
+        		{
+        			"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-800"
+        		}
+        		"States"
+        		{
+        			"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+        		}
+                "ThinkInterval"  "0.03"
+             	"OnIntervalThink"
+             	{
+        			"RunScript"
+        			{
+	            		"ScriptFile"	"heroes/monkey_king/bear"
+	            		"Function"		"charge_slide_think"
+        			}
+             	}   
+             	"OnDestroy"
+             	{
+        			"RunScript"
+        			{
+	            		"ScriptFile"	"heroes/monkey_king/bear"
+	            		"Function"		"charge_slide_end"
+        			}	
+        		}
+            }
+        }
+
+	}
+
+	"draghor_hawk_screech"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"queenofpain_scream_of_pain"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"  
+		"AbilityCastAnimation"			"ACT_DOTA_DISABLE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.4"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"6.0"
+		"AbilityCastRange"				"700 750 800 850 900 950 1000"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		"precache"
+		{
+
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"1000 5000 25000 60000 140000 300000 650000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"debuff_duration"				"6 8 10 12 14 16 18"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"postmitigation"			"100"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/monkey_king/hawk"
+        		"Function"		"hawk_screech_pre"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/monkey_king/hawk"
+        		"Function"		"hawk_screech"
+        		"target"		"POINT"
+			}
+
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/monkey_king/hawk"
+				"Function"		"hawk_screech_hit"
+				"target"		"TARGET"
+				"debuff_duration"	"%debuff_duration"
+				"damage"		"%damage"
+			}
+		}
+        "Modifiers"
+        {
+        	"modifier_draghor_hawk_screech"
+        	{
+        		"Passive"			"0"
+        		"IsHidden"			"0"
+        		"IsDebuff"			"1"
+        	
+        		"EffectName"		"particles/roshpit/draghor/hawk_screech_debuff_knockback_debuff.vpcf"
+        		"EffectAttachType"	"follow_origin"
+        	}
+        }
+
+	}
+
+	"draghor_hawk_tornado"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"invoker_tornado"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"  
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 200 400 700 1200 1700 2600"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_movement_speed"			"-5 -7 -9 -11 -13 -15 -17"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attack_speed"			"-15"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"300 1000 5000 12000 40000 90000 150000"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"int_mult"			"2.0 2.5 3.0 3.5 4.0 4.5 5.0"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/monkey_king/hawk"
+				"Function"		"tornado_phase"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/monkey_king/hawk"
+				"Function"		"tornado_start"
+				"damage_mult"	"%damage_mult"
+				"stun_duration"	"%stun_duration"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/monkey_king/hawk"
+				"Function"		"tornado_hit"
+				"target"		"TARGET"
+				"damage"		"%damage"
+				"int_mult"		"%int_mult"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_tornado_cast_stack"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			}
+			"modifier_hawk_tornado_debuff"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed" 
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"					"TARGET"
+						"EffectName"				"particles/econ/generic/generic_buff_1/monk_ulti_debuff.vpcf"
+						"EffectAttachType"			"attach_hitloc"
+						"EffectLifeDurationScale"	"1"
+						"EffectColorA"				"180 255 150"
+						"EffectAlphaScale"			"0.5"
+					}
+				}
+			}
+		}
+	}
+
+	"djanghor_hawk_soar"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"skywrath_mage_arcane_bolt"
+		"AbilityCastAnimation"			"ACT_DOTA_RUN"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"  
+
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"16"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"		"6.0 6.3 6.6 6.9 7.2 7.5 7.8"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_hawk_soar"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+		
+				"EffectName"		"particles/roshpit/draghor/hawk_soar_buff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_hawk_soar_visual_z"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_VISUAL_Z_DELTA" "1"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/monkey_king/hawk"
+						"Function"		"soar_visual_end"
+					}
+				}
+			}
+			"modifier_hawk_soar_visual_z_down"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_VISUAL_Z_DELTA" "1"
+				}
+			}			
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/monkey_king/hawk"
+				"Function"		"soar_start"
+				"duration"		"%duration"
 			}
 		}
 	}

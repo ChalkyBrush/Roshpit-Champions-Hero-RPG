@@ -16,7 +16,7 @@ function start_channel(event)
 		colorVector = Vector(0.8, 0.45, 0.45)
 	elseif caster:HasModifier("modifier_mark_of_the_talon") then
 		springParticle = "particles/roshpit/draghor/shapeshift_effect_blue_base.vpcf"
-		colorVector = Vector(0.3, 0.45, 0.85)
+		colorVector = Vector(0.4, 0.55, 0.7)
 	end
 
 	if ability.pfx then
@@ -66,8 +66,8 @@ function shapeshift_start_cat(event)
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_bear", "draghor_monkey_form", 3)
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_talon", "djanghor_wolf_howl", 0)
 	elseif caster:HasModifier("modifier_mark_of_the_talon") then
-		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_fang", "djanghor_wolf_howl", 0)
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_crow", "draghor_monkey_form", 3)
+		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_fang", "djanghor_wolf_howl", 0)
 	end
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_jin_bo", "draghor_wolf_rend", 1)
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_monkey_leap", "djanghor_feral_sprint", 2)
@@ -100,7 +100,8 @@ function shapeshift_start_bear(event)
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_crow", "draghor_monkey_form", 3)
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_fang", "djanghor_bear_roar", 0)
 	end
-
+	CustomAbilities:AddAndOrSwapSkill(caster,"draghor_jin_bo", "djanghor_bear_war_stomp", 1)
+	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_monkey_leap", "djanghor_bear_charge", 2)
 	
 end
 
@@ -122,11 +123,17 @@ function shapeshift_start_crow(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_crow", {})
 	if caster:HasModifier("modifier_mark_of_the_fang") then
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_cat", "draghor_monkey_form", 3)
+		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_claw", "draghor_hawk_screech", 0)
 	elseif caster:HasModifier("modifier_mark_of_the_claw") then
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_bear", "draghor_monkey_form", 3)
+		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_talon", "draghor_hawk_screech", 0)
 	elseif caster:HasModifier("modifier_mark_of_the_talon") then
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_crow", "draghor_monkey_form", 3)
+		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_fang", "draghor_hawk_screech", 0)
 	end
+	CustomAbilities:AddAndOrSwapSkill(caster,"draghor_jin_bo", "draghor_hawk_tornado", 1)
+	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_monkey_leap", "djanghor_hawk_soar", 2)
+
 end
 
 function monkey_form(event)
@@ -137,18 +144,23 @@ function monkey_form(event)
 	local springParticle = "particles/econ/items/monkey_king/arcana/death/monkey_king_spring_death_base.vpcf"
 	if caster:HasModifier("modifier_mark_of_the_fang") then
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_monkey_form", "draghor_shapeshift_cat", 3)
-		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_wolf_rend", "draghor_jin_bo", 1)
 		CustomAbilities:AddAndOrSwapSkill(caster, "djanghor_wolf_howl", "draghor_mark_of_the_claw", 0)
+		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_wolf_rend", "draghor_jin_bo", 1)
 		CustomAbilities:AddAndOrSwapSkill(caster, "djanghor_feral_sprint", "draghor_monkey_leap", 2)
 	elseif caster:HasModifier("modifier_mark_of_the_claw") then
 		colorVector = Vector(0.8, 0.45, 0.45)
 		springParticle = "particles/roshpit/draghor/shapeshift_effect_red_base.vpcf"
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_monkey_form", "draghor_shapeshift_bear", 3)
-		CustomAbilities:AddAndOrSwapSkill(caster, "djanghor_bear_roar", "draghor_mark_of_the_claw", 0)
+		CustomAbilities:AddAndOrSwapSkill(caster, "djanghor_bear_roar", "draghor_mark_of_the_talon", 0)
+		CustomAbilities:AddAndOrSwapSkill(caster, "djanghor_bear_war_stomp", "draghor_jin_bo", 1)
+		CustomAbilities:AddAndOrSwapSkill(caster, "djanghor_bear_charge", "draghor_monkey_leap", 2)
 	elseif caster:HasModifier("modifier_mark_of_the_talon") then
-		colorVector = Vector(0.3, 0.45, 0.85)
+		colorVector = Vector(0.4, 0.55, 0.7)
 		springParticle = "particles/roshpit/draghor/shapeshift_effect_blue_base.vpcf"
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_monkey_form", "draghor_shapeshift_crow", 3)
+		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_hawk_screech", "draghor_mark_of_the_fang", 0)
+		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_hawk_tornado", "draghor_jin_bo", 1)
+		CustomAbilities:AddAndOrSwapSkill(caster, "djanghor_hawk_soar", "draghor_monkey_leap", 2)
 	end
 
 	CustomAbilities:QuickParticleAtPoint(springParticle, caster:GetAbsOrigin(), 4)
@@ -172,6 +184,11 @@ function monkey_form(event)
 	caster:RemoveModifierByName("modifier_draghor_shapeshift_hawk_lua")
 	caster:RemoveModifierByName("modifier_draghor_shapeshift_cat_lua")
 	caster:RemoveModifierByName("modifier_draghor_shapeshift_bear_lua")
+	caster:RemoveModifierByName("modifier_hawk_soar")
+	caster:RemoveModifierByName("modifier_hawk_soar_visual_z")
+	Timers:CreateTimer(0.03, function()
+		caster:RemoveModifierByName("modifier_hawk_soar_visual_z_down")
+	end)
 	StartAnimation(caster, {duration=1.2, activity=ACT_DOTA_MK_SPRING_END, rate=0.8})
 	Timers:CreateTimer(0.24, function()
 		local pfx2 = ParticleManager:CreateParticle(  "particles/roshpit/mountain_protector/unshakable_stone_dust.vpcf", PATTACH_CUSTOMORIGIN, caster)
