@@ -1,6 +1,7 @@
 if RPCItems == nil then
   RPCItems = class({})
 end
+-- Test
 
 RPCItems.DROP_LOCATION = Vector(-8000,2000)
 
