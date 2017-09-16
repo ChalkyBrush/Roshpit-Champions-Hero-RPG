@@ -1,0 +1,5 @@
+soundscaples_manifest
+{
+		"file"		"scripts/soundscapes_custom.txt"
+		"file"		"scripts/soundscapes_dota_tutorial.txt"
+}

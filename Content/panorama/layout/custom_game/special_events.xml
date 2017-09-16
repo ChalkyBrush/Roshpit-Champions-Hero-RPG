@@ -1,0 +1,53 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/special_events.css" />
+		<include src="file://{resources}/styles/custom_game/shop.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/special_events.js" />
+	</scripts>
+	<Panel class="special_container" hittest="false">
+		<Image class="special_event_image" id="special_event_image" src="" hittest="false"/>
+		<Panel id="yellow_panel" class="invisible" hittest="false">
+		</Panel>
+		<Panel id="black_panel" class="invisible" hittest="false">
+		</Panel>
+		<Panel id="red_panel" class="invisible" hittest="false">
+		</Panel>
+		<Panel id="generic_panel" class="invisible" hittest="false">
+		</Panel>
+		<Panel id="rare_shop" class="invisible">
+			<Panel class="shop_background">
+			</Panel>
+			<Panel class="rare_shop_title">
+				<Label class="rare_shop_title_text" text="Mystery Merchant"></Label>
+			</Panel>
+			<Panel class="rare_item_container" id="rare_item_panel1">
+				<Button class="item_buy_button"
+					onactivate="buy_item(1)"
+					onmouseover="ShopTooltip('DOTA_Tooltip_ability_random_immortal_helm', 'secret_shop_immortal', 1)"
+					onmouseout="ShopHideTooltip(1)"
+					>
+					<DOTAItemImage hittest="false" class="shop_item_image" src="file://{images}/items/wraith_crown.png"/>
+					<Label class="item_name_text immortal_item" id="rare_item_name1" text="Helm" html="true"></Label>
+					<Image class="item_gold_price_image" src="file://{images}/custom_game/ui/gold_icon.png" />
+					<Label class="item_price_text" id="rare_item_price1" text="25000" html="true"></Label>
+				</Button>
+			</Panel>
+			<Panel id="rare_shop_close_button">
+					<Image class="close_button_image" src="file://{images}/custom_game/ui/narrow_panel2.png" />
+					<Button class="close_button"
+						onactivate='ClosePanel()'
+						>
+						<Label class="close_button_text" text="Decline" html="true"></Label>
+					</Button>
+			</Panel>
+		</Panel>
+		<Panel id="big_text_container" class="invisible" text="" hittest="false">
+			<Label id="big_text" text="" hittest="false"></Label>
+		</Panel>
+		<Panel id="special_event" hittest="false">
+		</Panel>
+	</Panel>
+
+</root>

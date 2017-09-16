@@ -1,0 +1,33 @@
+<root>
+  <styles>
+    <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+    <include src="file://{resources}/styles/custom_game/ability_tree.css" />
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/menu/hero_level.js" /> 
+  </scripts>
+  <Panel hittest="false" class="hero_level_root">
+    <Panel id="hero_level_container">
+
+      <Panel id="hero_level_bubble">
+      	<Label id="hero_level_label" text="0"></Label>
+      </Panel>
+      <Panel id="hero_connector">
+      </Panel>
+      <Panel id="hero_level_exp_bar_container">
+        <Panel id="hero_exp_progress">
+        </Panel>
+        <Label id="hero_exp_progress_label" text="0/0"></Label>
+      </Panel>
+      <Panel id="blue-line">
+      </Panel>
+      <Panel id="black-line">
+      </Panel>
+      <Panel id="black-line2">
+      </Panel>
+    </Panel>
+  </Panel>
+</root>
+
+    
+

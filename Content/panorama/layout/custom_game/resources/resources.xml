@@ -1,0 +1,23 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+		<include src="file://{resources}/styles/custom_game/menu/resources.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/resources/resources.js" />
+	</scripts>
+	<Panel class="resources_root" hittest="false">
+		<Panel id="extra_resource_gain" class="invisible">
+			<Panel id="resource_gain_bg">
+			</Panel>
+			<Panel id="resource_gain_container">
+				<Image id="resource_gain_icon" src="file://{images}/custom_game/ui/arcane_crystal.png" />
+				<Label id="resource_gain_label" text="+0">
+				</Label>	
+			</Panel>
+		</Panel>		
+	</Panel>
+
+
+</root>

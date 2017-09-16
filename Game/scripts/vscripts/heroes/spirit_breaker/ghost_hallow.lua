@@ -1,0 +1,138 @@
+require('heroes/spirit_breaker/whirling_flail')
+
+function begin_ghost_hallow(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target_points[1]
+	Filters:CastSkillArguments(2, caster)
+	ability.a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a", "duskbringer")
+	EmitSoundOnLocationWithCaster(target, "Duskbringer.GhostHallow", caster)
+	ability:ApplyDataDrivenThinker(caster, GetGroundPosition(target, caster), "ghost_hallow", {duration = 6})
+	StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_ATTACK, rate=2.1})
+	ability.d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "duskbringer")
+	caster.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "duskbringer")
+	if ability.d_b_level > 0 then
+		d_b_ghost_blast(caster, ability, target)
+	end
+end
+
+function d_b_ghost_blast(caster, ability, target)
+	local fv = ((target - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	local projectileParticle = "particles/roshpit/duskbringer/ghostfire_blast.vpcf"
+	local start_radius = 95
+	local end_radius = 95
+	local range = WallPhysics:GetDistance2d(target,caster:GetAbsOrigin())+140
+	local speed = 1200
+	local info = 
+	{
+			Ability = ability,
+        	EffectName = projectileParticle,
+        	vSpawnOrigin = caster:GetAbsOrigin()+Vector(0,0,70),
+        	fDistance = range,
+        	fStartRadius = start_radius,
+        	fEndRadius = end_radius,
+        	Source = caster,
+        	StartPosition = "attach_origin",
+        	bHasFrontalCone = true,
+        	bReplaceExisting = false,
+        	iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+        	iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+        	iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+        	fExpireTime = GameRules:GetGameTime() + 4.0,
+		bDeleteOnHit = false,
+		vVelocity = fv * speed,
+		bProvidesVision = false,
+	}
+	projectile = ProjectileManager:CreateLinearProjectile(info)
+end
+
+function d_b_projectile_hit(event)
+	local target = event.target
+	local caster = event.caster
+	local ability = event.ability
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 280, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	if #enemies > 0 then
+		EmitSoundOn("Duskbringer.GhostBlastImpact", target)
+		local particleName = "particles/units/heroes/hero_abaddon/abaddon_aphotic_shield_explosion.vpcf"
+			local pfx2 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN,target )
+			ParticleManager:SetParticleControlEnt(pfx2, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin()+Vector(0,0,40), true)
+			Timers:CreateTimer(1, function() 
+			  ParticleManager:DestroyParticle( pfx2, false )
+			end) 
+		local damage = caster:GetAverageTrueAttackDamage(caster)*ability.d_b_level*0.25
+		local flailAbility = caster:FindAbilityByName("whirling_flail")
+		for _,enemy in pairs(enemies) do
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_GHOST, RPC_ELEMENT_FIRE)
+			increment_duskfire_stacks(caster, enemy, flailAbility, ability.d_b_level)
+		end
+	end 	
+end
+
+function ghost_trap_enter(event)
+	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+	local duration = event.duration
+	if not target:HasModifier("modifier_ghost_trap_immune") then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_ghost_trap_immune", {duration = duration+3})
+		ability:ApplyDataDrivenModifier(caster, target, "ghost_hallow_stun", {duration = duration})
+		local b_b_level = Runes:GetTotalRuneLevel(caster, 2, "b_b", "duskbringer")
+		if b_b_level > 0 then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_ghost_hallow_magic_resist_loss", {duration = duration})
+			target:SetModifierStackCount("modifier_ghost_hallow_magic_resist_loss", caster, b_b_level)
+		end
+		if caster:HasModifier("modifier_duskbringer_glyph_4_1") then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_ghost_hallow_disarm", {duration = duration})
+		end
+		local a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "duskbringer")
+		if a_b_level > 0 then
+			CustomAbilities:QuickAttachParticle("particles/roshpit/duskbringer/duskbringer_rune_a_b.vpcf", target, 2.5)
+			local damage = caster:GetAverageTrueAttackDamage(caster)*a_b_level*0.4
+			Timers:CreateTimer(1.0, function()
+				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash.vpcf", target, 1.0)
+				EmitSoundOn("Duskbringer.GhostHallowAB", target)
+				Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
+			end)
+		end
+		-- local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "duskbringer")
+		-- if d_b_level > 0 then
+		-- 	local runeAbility = caster.runeUnit4:FindAbilityByName("duskbringer_rune_d_b")
+		-- 	runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, target, "modifier_duskbringer_rune_d_b_visible", {duration = duration})
+		-- 	runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, target, "modifier_duskbringer_rune_d_b_invisible", {duration = duration})
+		-- 	target:SetModifierStackCount("modifier_duskbringer_rune_d_b_invisible", caster.runeUnit4, d_b_level)
+		-- end
+	end
+end
+
+function ghost_hallow_think(event)
+	local target = event.target
+	local caster = event.caster
+	local ability = caster:FindAbilityByName("whirling_flail")
+	if caster:HasModifier("modifier_duskbringer_glyph_2_1") and event.ability.a_a_level > 0 then
+		if not ability.a_a_level then
+			ability.a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a", "duskbringer")
+			ability.d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "duskbringer")
+		end
+		increment_duskfire_stacks(caster, target, ability, 3)
+	end
+end
+
+function update_c_b_level(event)
+	local ability = event.ability
+	local caster = event.caster
+	ability.c_b_level = Runes:GetTotalRuneLevel(caster, 3, "c_b", "duskbringer")
+end
+
+function duskbringer_take_damage(event)
+	local target = event.caster
+	local ability = event.ability
+	if ability.c_b_level > 0 then
+		Timers:CreateTimer(0.06, function()
+			if target:IsAlive() then
+				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/duskbringer_c_a_heal_heal_core.vpcf", target, 1)
+				local healAmount = ability.c_b_level*200
+				Filters:ApplyHeal(target, target, healAmount, true)
+			end
+		end)
+	end
+end

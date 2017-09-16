@@ -1,0 +1,44 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/menu/skilltree.css" />
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/menu/skilltree.js" />
+		<include src="file://{resources}/scripts/custom_game/ability_tree.js" />
+		<include src="file://{resources}/scripts/custom_game/action_bar.js" />
+		<include src="file://{resources}/scripts/custom_game/rune_bar.js" />
+	</scripts>
+	<Panel class="skilltree_panel" hittest="false">
+		<Panel id="skilltree_panel_parent" hittest="false">
+			<Panel id="skilltree_bg" hittest="false">
+			</Panel>
+			<Panel id="skilltree_container" hittest="false">
+				<Label class="skill_tree_label" id="basic_skills_text" text="Test" html="true" hittest="false">
+					<Label class="points_up" id="basic_skills_text_up" text="Test" html="true" hittest="false"></Label>
+				</Label>
+				
+				<Panel class="AbilityOverlayRoot">
+					<Panel id="ability_list" />
+				</Panel>
+				<Label class="skill_tree_label" id="rune_text" text="Te" html="true" hittest="false">
+					<Label class="points_up" id="runes_text_up" text="Test" html="true" hittest="false"></Label>
+				</Label>
+				<Panel class="RuneOverlayRoot">
+					<Panel id="rune_list" />
+				</Panel>
+				<Panel class="RuneOverlayRoot">
+					<Panel id="rune_list_tier2" />
+				</Panel>			
+				<Panel class="RuneOverlayRoot">
+					<Panel id="rune_list_tier3" />
+				</Panel>
+				<Panel class="RuneOverlayRoot">
+					<Panel id="rune_list_tier4" />
+				</Panel>
+			</Panel>
+		</Panel>
+	</Panel>
+
+</root>

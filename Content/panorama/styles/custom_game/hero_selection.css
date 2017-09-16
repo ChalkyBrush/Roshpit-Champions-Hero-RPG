@@ -1,0 +1,491 @@
+.hero_selection_root{
+	width:100%;
+	height:100%;
+}
+
+#hero_select_parent{
+    width:100%;
+    height:100%;
+}
+
+#HeroSelectBGScene{
+    width: 50%;
+    height: 51%;
+    pre-transform-scale2d: 2;
+    vertical-align: middle;
+    horizontal-align: center;
+    background-color: rgb(29, 39, 46);
+
+    transform: none;
+    transition-property: transform, blur, opacity, wash-color;
+    transition-duration: 0.45s;
+    transition-delay: 0.0s;
+    transition-timing-function: ease-in;
+}
+
+#herolist-container{
+	flow-children:right;
+}
+
+
+.HeroPreviewScene{
+	height:300px;
+	width:240px;
+    opacity-mask: url('s2r://panorama/images/masks/softedge_box_png.vtex');
+/*    transform: translateX(-50px);
+    opacity: 0.0;
+    transition-property: opacity, transform;
+    transition-duration: 0.1s;*/
+}
+
+@keyframes 'fromBottom'{
+  0%   { position: 0px 120px 0px; opacity:0; }
+  100% { position: 0px 0px 0px; opacity: 1;}
+}
+
+@keyframes 'outBottom'{
+  0%   { position: 0px 0px 0px; opacity: 1;}
+  100% { position: 0px 280px 0px; opacity:0;}
+}
+
+@keyframes 'slideOutRight'{
+  0%   { position: 0px 0px 0px; opacity:1; }
+  100% { position: 800px 0px 0px; opacity: 0;}
+}
+
+@keyframes 'slideInFromLeft'{
+  0%   { position: -800px 0px 0px; opacity:0; }
+  100% { position: 0px 0px 0px; opacity: 1;}
+}
+
+@keyframes 'fromTopSmall'{
+  0%   { position: 0px -40px 0px; opacity:0; }
+  100% { position: 0px 0px 0px; opacity: 1;}
+}
+
+
+@keyframes 'fadeIn'{
+  0%   { opacity:0; }
+  100% { opacity: 1;}
+}
+
+.animateSlideOutRight{
+    animation-name: slideOutRight;
+    animation-duration: .3s;
+    animation-timing-function: linear;  
+}
+
+.animateSlideInFromLeft{
+    animation-name: slideInFromLeft;
+    animation-duration: .3s;
+    animation-timing-function: linear;  
+}
+
+.animateFromBottom{
+    animation-name: fromBottom;
+    animation-duration: .3s;
+    animation-timing-function: linear;  
+}
+
+.animateFromBottomEpic{
+    animation-name: fromBottom;
+    animation-duration: 1.2s;
+    animation-timing-function: linear;  
+}
+
+.animateOutBottom{
+    animation-name: outBottom;
+    animation-duration: .3s;
+    animation-timing-function: linear;  
+}
+
+.animateFromTopSmall{
+    animation-name: fromTopSmall;
+    animation-duration: .2s;
+    animation-timing-function: linear;      
+}
+
+.fadeInSmall{
+    animation-name: fadeIn;
+    animation-duration: .3s;
+    animation-timing-function: linear;       
+}
+
+#hero_select_content{
+    width:100%;
+    height:100%;
+}
+.new-or-load-container{
+    flow-children:down;
+    horizontal-align:center;
+    vertical-align: top;
+    width:800px;
+    margin-top:100px;
+}
+
+.dummy_option_button{
+    width:400px;
+    height:80px;
+    background-color: gradient( linear, 0px 0%, 260px 0%, from( #1C4FA0 ), to( #0d326d ) );
+    border-radius:4px;
+    border: 1px solid #131313;
+    horizontal-align:center;
+}
+
+.dummy_option_text{
+    width:100%;
+    text-align: center;
+    text-shadow: 1px 1px 2px 3 #00000066;
+    text-transform:uppercase;
+    font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+    color:white;
+    font-size:20px;
+    vertical-align: center;
+}
+
+.dummy_option_button:hover{
+    background-color: gradient( linear, 0px 0%, 260px 0%, from( #3f6eba ), to( #1C4FA0 ) );
+}
+
+.rpc_image{
+    width:700px;
+    height:420px;
+    horizontal-align:center;
+}
+
+#load-character{
+    margin-top:20px;
+}
+
+@keyframes 'fadeOut'{
+  0%   { opacity:1; }
+  100% { opacity:0;}
+}
+
+#back-button{
+    width:100px;
+    height:60px;
+    background-color: gradient( linear, 0px 0%, 260px 0%, from( #1C4FA0 ), to( #0d326d ) );
+    border-radius:4px;
+    border: 1px solid #131313;    
+    margin-left:80px;
+}
+
+#back-button:hover{
+    background-color: gradient( linear, 0px 0%, 260px 0%, from( #3f6eba ), to( #1C4FA0 ) );
+}
+.animateFadeOut{
+    animation-name: fadeOut;
+    animation-duration: .3s;
+    animation-timing-function: linear;  
+}
+
+.animateFadeOutSlow{
+    animation-name: fadeOut;
+    animation-duration: 2.9s;
+    animation-timing-function: linear;  
+}
+
+.hero_portrait_container{
+    width:120px;
+    height:70px;
+    border-radius:8px;
+    margin-right:20px;
+    margin-top:10px;
+    box-shadow: 1px 1px 2px black;
+    border: 2px solid #121212;
+}
+
+.hero_portrait_image{
+    height:100%;
+    width:100%;
+}
+
+.hero_portrait_image:hover{
+    border:1px solid yellow;
+    border-radius:8px;
+}
+
+.hero_selection_content{
+    horizontal-align:center;
+    margin-top:80px;
+    width:1200px;
+    height:1100px;
+    flow-children:down;
+}
+
+.hero_selection_row{
+    flow-children:right;
+    horizontal-align:center;
+}
+
+#top_hero_selection_content{
+    width:100%;
+}
+
+#hero_select_new_title{
+    horizontal-align:center;
+    text-align: center;
+    text-shadow: 1px 1px 2px 3 #00000066;
+    text-transform:uppercase;
+    font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+    color:white;
+    font-size:48px;   
+    margin-bottom:30px;
+}
+
+#hero_portrait_name_label{
+    horizontal-align:center;
+    text-align: center;
+    text-shadow: 1px 1px 2px 3 #00000066;
+    text-transform:uppercase;
+    font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+    color:white;
+    font-size:18px;
+    width:100%;       
+    vertical-align: center;
+    line-height:14px;
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+}
+
+.faded{
+    opacity:0.4;
+}
+
+.invisible{
+    visibility:collapse;
+}
+
+#hero_preview_box{
+    width:820px;
+    height:300px;
+    horizontal-align:center;
+}
+
+#hero_preview_scene{
+    width:30%;
+    height:100%;
+}
+
+.HeroPreview{
+    height:300px;
+    width:100%;
+}
+
+.hero_preview_container{
+/*    width:200px;
+    height:400px;*/
+}
+
+#hero_preview_info{
+    width:70%;
+    height:100%;
+    horizontal-align:right;
+}
+
+#hero_preview_name_label{
+    horizontal-align:center;
+    text-align: center;
+    text-shadow: 1px 1px 2px 3 #00000066;
+    text-transform:uppercase;
+    font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+    color:white;
+    font-size:48px;
+    width:100%;       
+    line-height:14px;
+    opacity: 1;
+    margin-top:20px;
+}
+
+#ability-preview-row{
+    margin-top:120px;
+    width:325px;
+    flow-children:right;
+}
+
+#AbilityButton
+{
+    width: 80px;
+    height: 80px;
+    border: 2px solid #444444;
+    border-radius:10px;
+    box-shadow:0px 0px 10px black;
+}
+
+#AbilityButton:hover{
+    border: 2px solid #CCCCCC;
+}
+
+#enter-world-button{
+    margin-top:60px;
+    width:480px;
+    height:70px;
+    background-color: gradient( linear, 0px 0%, 260px 0%, from( #D44F3D ), to( #8A2215 ) );
+    border-radius:4px;
+    border: 1px solid #131313;    
+    horizontal-align:center;
+}
+
+#enter-world-button:hover{
+    background-color: gradient( linear, 0px 0%, 260px 0%, from( #E35946 ), to( #B52F1D ) );
+}
+
+.loading_characters{
+    margin-top:160px;
+    width:100%;
+    text-align: center;
+}
+
+.loading_text{
+    width:100%;
+    text-align: center;
+    text-shadow: 1px 1px 2px 3 #00000066;
+    text-transform:uppercase;
+    font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+    color:white;
+    font-size:40px;
+    vertical-align: center;
+}
+
+#hero_portrait_level_label{
+    vertical-align: bottom;
+    horizontal-align:right;
+    border-radius:6px;
+    font-size:16px;
+    opacity-mask: url('s2r://panorama/images/masks/softedge_box_png.vtex');
+    text-shadow: 1px 1px 2px 3 #00000066;
+    text-transform:uppercase;
+    font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+    color:white;
+    background-color: #222222;
+    padding:3px;
+    padding-left:8px;
+}
+
+#hero_portrait_slot_label{
+    horizontal-align:left;
+    border-radius:6px;
+    font-size:16px;
+    opacity-mask: url('s2r://panorama/images/masks/softedge_box_png.vtex');
+    text-shadow: 1px 1px 2px 3 #00000066;
+    text-transform:uppercase;
+    font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+    color:white;
+    background-color: #000000;
+    padding:3px;
+    padding-left:7px;   
+}
+
+#hero_preview_level_label{
+    horizontal-align:center;
+    text-align: center;
+    text-shadow: 1px 1px 2px 3 #00000066;
+    text-transform:uppercase;
+    font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+    color:#EEEEEE;
+    font-size:30px;
+    width:100%;       
+    line-height:14px;
+    opacity: 1;
+    margin-top:73px;
+}
+
+#premium_notifier{
+    horizontal-align:center;
+    width:100%;       
+    opacity: 1;
+    margin-top:5px;
+    margin-bottom:0px;
+    height:40px;
+}
+
+#premium_notifier_text{
+    text-align: center;
+    horizontal-align:center;
+    text-shadow: 1px 1px 2px 3 #00000066;
+    text-transform:uppercase;
+    font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+    color:#e9ed1e;
+    font-size:30px;    
+}
+
+#premium_notifier_band{
+    background-color: #3f3f3a;
+    border-radius:4px;
+    height:5px;
+    width:400px;
+    opacity-mask: url('s2r://panorama/images/masks/softedge_box_png.vtex');
+    horizontal-align:center;
+    margin-top:16px;
+    opacity:0.9;
+}
+
+#hero_portrait_overlay{
+    width:100%;
+    height:100%;
+    background-color: #111111;
+    opacity: 0.9;
+}
+
+#reload-characters{
+    width:240px;
+    height:80px;
+    background-color: gradient( linear, 0px 0%, 260px 0%, from( #1C4FA0 ), to( #0d326d ) );
+    border-radius:4px;
+    border: 1px solid #131313;    
+    margin-top:150px;
+    horizontal-align:center;
+}
+
+#reload-characters:hover{
+    background-color: gradient( linear, 0px 0%, 260px 0%, from( #3f6eba ), to( #1C4FA0 ) );
+}
+
+#mute_music_option_panel{
+    flow-children:right;
+    horizontal-align:center;
+    height:40px;
+    width:240px;
+    margin-top:60px;
+}
+
+#mute_music_button{
+    height:40px;
+    width:40px;
+    border-radius: 4px;
+    border:1px solid white;
+    box-shadow:2px 2px 2px black;
+}
+
+#mute_music_button:hover{
+    border:1px solid yellow;
+}
+
+.music_button_active{
+    background-color: black;
+}
+
+.mute_music_text{
+    text-align: center;
+    text-shadow: 1px 1px 2px 3 #00000066;
+    text-transform:uppercase;
+    font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+    color:white;
+    font-size:18px;
+    vertical-align: center;
+    margin-left:8px;
+}
+
+#button_check{
+    width:70%;
+    height:70%;
+    margin-top:5px;
+    margin-left:5px;
+}
+
+.DOTAShowDashboardButton{
+    width:60px;
+    height:60px;
+}

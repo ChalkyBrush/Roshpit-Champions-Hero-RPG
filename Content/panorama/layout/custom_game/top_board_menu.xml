@@ -1,0 +1,22 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/multiteam_top_scoreboard.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/top_board_menu.js" />
+	</scripts>
+	<Panel class="HeroMenu">
+		<Panel id="boxer">
+		</Panel>
+		<Button class="ItemMenuButton" id="trade-request" onmouseactivate="traderequest()">
+			<Label class="menu-label" id="trade-request-label" text="Trade" />
+		</Button>
+		<Button class="ItemMenuButton" id="stars-request" onmouseactivate="star_request()">
+			<Label class="menu-label" id="stars-request-label" text="stars_menu" />
+		</Button>
+		<Button class="ItemMenuButton" id="close" onmouseactivate="closeMenu()">
+			<Label class="menu-label" id="close-label" text="Close" />
+		</Button>
+	</Panel>
+</root>

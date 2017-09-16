@@ -1,0 +1,97 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/equipment.css" />
+		<include src="file://{resources}/styles/custom_game/tooltips.css" />
+		<include src="file://{resources}/styles/custom_game/weapons.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/equipment_manager.js" />
+		<include src="file://{resources}/scripts/custom_game/equipment_item.js" />
+		<include src="file://{resources}/scripts/custom_game/heroes_custom/heroes_custom.js" />
+	</scripts>
+	<snippets>
+		<snippet name="equipment_query">
+			<Panel class="equipment_query_container" hittest="false">
+				<Panel class="equipment_query_bg" hittest="false">
+				</Panel>
+			</Panel>
+		</snippet>
+	</snippets>
+	<Panel class="equipment_panel">
+		
+		<Button id="open_equipment"
+			onactivate="OpenEquipment()"
+			onload="InitializeEquipment(0)"
+			>
+			<Image class="equipment_panel_image" id="equipment_panel_image" src="file://{images}/custom_game/ui/narrow_panel.png" />
+<!-- 			<Image src="file://{images}/custom_game/ui/narrow_panel.png" /> -->
+			
+			<Label id="equipment_button_label" text="Open Equipment" />
+		</Button>
+		<Panel class="large_equipment_panel" id="large_equipment_panel">
+			<Image class="equipment_panel_image_large" src="file://{images}/custom_game/ui/large_panel.png" />
+			<Panel class="helm_container" id="helm_container" draggable="false"
+				onmouseover="ItemShowTooltip(0)"
+				onmouseout="ItemHideTooltip(0)">
+				<DOTAItemImage hittest="false" id="ItemImageHelm" draggable="true"/>
+				<Image class="slot_image_helm" src="file://{images}/custom_game/ui/helm.png" />
+			</Panel>
+			<Panel class="weapon_container" id="weapon_container" draggable="false"
+				onmouseover="ItemShowTooltip(1)"
+				onmouseout="ItemHideTooltip(1)">
+				<DOTAItemImage hittest="false" id="ItemImageWeapon" draggable="true"/>
+				<Image class="slot_image_weapon" src="file://{images}/custom_game/ui/weapon.png" />
+			</Panel>
+			<Panel class="glove_container" id="glove_container" draggable="false"
+				onmouseover="ItemShowTooltip(2)"
+				onmouseout="ItemHideTooltip(2)">
+				<DOTAItemImage hittest="false" id="ItemImageGlove" draggable="true"/>
+				<Image class="slot_image_glove" src="file://{images}/custom_game/ui/gloves.png" />
+			</Panel>
+			<Panel class="boot_container" id="boot_container" draggable="false"
+				onmouseover="ItemShowTooltip(3)"
+				onmouseout="ItemHideTooltip(3)">
+				<DOTAItemImage hittest="false" id="ItemImageBoot" draggable="true"/>
+				<Image class="slot_image_boot" src="file://{images}/custom_game/ui/feet.png" />
+			</Panel>
+			<Panel class="armor_container" id="armor_container" draggable="false"
+				onmouseover="ItemShowTooltip(4)"
+				onmouseout="ItemHideTooltip(4)">
+				<DOTAItemImage hittest="false" id="ItemImageArmor" draggable="true"/>
+				<Image class="slot_image_armor" src="file://{images}/custom_game/ui/shirt.png" />
+			</Panel>
+			<Panel class="amulet_container" id="amulet_container" draggable="false"
+				onmouseover="ItemShowTooltip(5)"
+				onmouseout="ItemHideTooltip(5)">
+				<DOTAItemImage hittest="false" id="ItemImageAmulet" draggable="false"/>
+				<Image class="slot_image_amulet" src="file://{images}/custom_game/ui/amulet.png" />
+			</Panel>
+			<Panel id="recalculate_button_panel">
+					<Image class="recalculate_button_image" src="file://{images}/custom_game/ui/narrow_panel2.png" />
+					<Button class="recalculate_button" id="recalculate_button"
+						onmouseover="recalculate_tooltip()"
+						onmouseout="hide_recalculate_tooltip()"
+						onactivate="recalculate_items()"
+						>
+						<Label class="recalculate_button_text" id="recalculate_button_text" text="Recalcuate Items" html="true"></Label>
+					</Button>
+			</Panel>
+		</Panel>
+<!-- 		<Panel class="invisible" id="weapon_lvlup" hittest="false">
+			<Label class="weapon_title" id="weapon_title" text="Weapon" html="true" hittest="false"></Label>
+			<DOTAItemImage hittest="false" class="weapon_lvlup_item" id="weapon_lvlup_item" src="file://{images}/items/death_whisper_helm.png"/>
+			<Label class="weapon_lvl" id="weapon_level" text="Lv X" html="true" hittest="false"></Label>
+			<Label class="weapon_lvl_message" id="weapon_lvl_message" text="" html="true" hittest="false"></Label>
+			<Label class="weapon_lvl_message2" id="weapon_lvl_message2" text="" html="true" hittest="false"></Label>
+			<Panel class="weapon_xp_bar_container" id="weapon_xp_bar_container">
+				<Panel class="weapon_xp_bar" id="weapon_xp_bar">
+				</Panel>
+				<Label class="weapon_xp_text" id="weapon_xp_text" text="0/1000" html="true" hittest="false"></Label>
+			</Panel>
+			<Label class="weapon_upgrade_available" id="weapon_upgrade_available" text="" html="true" hittest="false"></Label>
+			<Label class="weapon_tip" id="weapon_tip" text="" html="true" hittest="false"></Label>
+		</Panel> -->
+	</Panel>
+
+</root>

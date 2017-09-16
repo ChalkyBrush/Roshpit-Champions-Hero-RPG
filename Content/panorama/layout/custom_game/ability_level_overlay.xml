@@ -1,0 +1,16 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/ability_tree.css" />
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/ability_tree.js" /> 
+    <include src="file://{resources}/scripts/custom_game/action_bar_ability.js" />
+  </scripts>
+  <Panel hittest="false" class="ability_level_overlay">
+    <Panel id="ability_level_overlay_container">
+      <Panel id="talent-tree-panel">
+      </Panel>
+    </Panel>
+  </Panel>
+</root>
+

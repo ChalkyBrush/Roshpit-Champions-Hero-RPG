@@ -1,0 +1,40 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/quests/quests.css" />
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/quests/quests.js" />
+		<include src="file://{resources}/scripts/custom_game/heroes_custom/heroes_custom.js" />
+	</scripts>
+	<Panel class="crusader_root" hittest="false">
+		<Panel id="crusader_container" hittest="false">
+			<Panel id="header_image_container">
+				<Image id="header_image" src="file://{images}/custom_game/ui/crusader_header.jpg"/>
+				<Label id="header_text" text="The Crusader" html="true"></Label>
+			</Panel>
+			<Panel id="quest_main_tooltip_container" html="true" hittest="false">
+				<Label id="crusader_loading_label" class="menu_button_text">
+				</Label>
+				<Image id="challenge_info" src="file://{images}/custom_game/ui/information-button.png"
+					onmouseover="QuestTooltip()"
+					onmouseout="HideQuestsTooltip()"/>
+			</Panel>
+
+			<Panel id="crusader_content">
+
+			</Panel>
+			<Panel id="challenge_content">
+
+			</Panel>
+			<Button class="main_menu_button" id="close_crusader" hittest="true"
+				onactivate='CloseCrusader()'>
+<!-- 				<Image class="menu_buttom_image" src="file://{images}/custom_game/ui/book.png" /> -->
+				<Label id="close_button_label" class="menu_button_text" text="Close">
+				</Label>			
+			</Button>
+		</Panel>
+	</Panel>
+
+
+</root>

@@ -1,0 +1,8 @@
+rpc_roshpit_arena
+{
+	material materials/overviews/rpc_roshpit_arena.vmat
+	pos_x -16384
+	pos_y 16384
+	scale 32.000
+}
+

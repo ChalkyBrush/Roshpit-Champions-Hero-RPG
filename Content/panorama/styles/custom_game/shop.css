@@ -1,0 +1,265 @@
+.root_shop_panel{
+	width:100%;
+	height:100%;
+}
+
+#root_shop_panel_inner{
+	width:60%;
+	height:60%;
+	border-radius:12px;
+	margin-left:30%;
+	margin-top:6%;
+}
+
+
+.shop_background{
+	background-color:#000000;
+	opacity: 0.98;
+	width:100%;
+	height:100%;
+	box-shadow: 0px 0px 12px #000000;
+}
+
+.shop_title{
+	horizontal-align: center;
+	margin-top:20px;
+}
+
+.shop_title_text{
+	color: white;
+	font-size:26px;
+	text-align: center;
+}
+
+#uncommon_panel{
+	margin-top:80px;
+	width:280px;
+	margin-left:40px;
+}
+
+#rare_panel{
+	margin-top:80px;
+	width:280px;
+	margin-left:380px;
+}
+
+#mythical_panel{
+	margin-top:80px;
+	width:280px;
+	margin-left:720px;
+}
+
+.AspectRatio5x4 #uncommon_panel{
+	margin-top:80px;
+	width:200px;
+	margin-left:40px;
+}
+
+.AspectRatio5x4 #rare_panel{
+	margin-top:80px;
+	width:200px;
+	margin-left:280px;
+}
+
+.AspectRatio5x4 #mythical_panel{
+	margin-top:80px;
+	width:200px;
+	margin-left:520px;
+}
+
+.AspectRatio4x3 #uncommon_panel{
+	margin-top:80px;
+	width:200px;
+	margin-left:80px;
+}
+
+.AspectRatio4x3 #rare_panel{
+	margin-top:80px;
+	width:200px;
+	margin-left:300px;
+}
+
+.AspectRatio4x3 #mythical_panel{
+	margin-top:80px;
+	width:200px;
+	margin-left:520px;
+}
+
+
+#uncommon_button_text{
+	color: #99FF33;
+}
+
+#rare_button_text{
+	color: #4B69FF;
+}
+
+#mythical_button_text{
+	color: #8847FF;
+	horizontal-align: center;
+}
+
+.shop_rarity_button_text{
+	horizontal-align: center;
+	width:280px;
+	text-align: center;
+	margin-top:12px;
+}
+
+.button_glow{
+	box-shadow: 0px 0px 12px #8A8F96;
+}
+
+.rarity_panel_button_image{
+	border-radius:8px;
+}
+
+.all_items_container{
+	flow-children: right;
+	margin-top:140px;
+}
+
+.item_column{
+	flow-children: down;
+}
+
+.shop_item_image{
+	box-shadow: 0px 0px 8px #000000;
+}
+
+.item_name_text{
+	margin-left:100px;
+	color:#EEEEEE;
+	margin-top:10px;
+}
+
+.item_gold_price_image{
+	width:18px;
+	height:14px;
+	margin-top:34px;
+	margin-left:100px;
+}
+
+.item_price_text{
+	margin-top:30px;
+	margin-left:120px;
+	color:#D6D333;
+}
+
+.item_container{
+	margin-left:60px;
+	margin-top:10px;
+	width:200px;
+	border-radius:10px;
+}
+
+.AspectRatio5x4 .item_container{
+	margin-left:10px;
+	margin-top:10px;
+	width:200px;
+	border-radius:10px;
+}
+
+.AspectRatio4x3 .item_container{
+	margin-left:10px;
+	margin-top:10px;
+	width:200px;
+	border-radius:10px;
+}
+
+
+.item_container:hover{
+	background-color: #333333;
+	opacity:0.6;
+}
+
+.horizontal_break{
+	width:100%;
+	height:40px;
+}
+
+.vertical_break{
+	height:100%;
+	width:90px;
+}
+
+.AspectRatio5x4 .vertical_break{
+	width: 45px;
+}
+
+.AspectRatio4x3 .vertical_break{
+	width: 45px;
+}
+
+.uncommon_color{
+	color: #99FF33;
+}
+
+.rare_color{
+	color: #4B69FF;
+}
+
+.mythical_color{
+	color: #8847FF;
+}
+
+.collapsed{
+	visibility: collapse;
+}
+
+.animateEaseClass{
+    animation-name: easeIn;
+    animation-duration: .5s;
+    animation-timing-function: linear;	
+}
+
+.animateEaseOutClass{
+    animation-name: easeOut;
+    animation-duration: .5s;
+    animation-timing-function: linear;	
+}
+
+@keyframes 'easeIn'{
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes 'easeOut'{
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+#click_rarity_notification{
+	margin-top:300px;
+	width:100%;
+	z-index:20;
+}
+
+.rarity_notification_label{
+	width:100%;
+	text-align:center;
+	font-size:34px;
+	color: white;
+	text-shadow: 0px 0px 1px #000000;
+}
+
+#close_button{
+	background-color: #8C1919;
+	width:140px;
+	height:40px;
+	horizontal-align: right;
+	border-bottom-left-radius:12px;
+	box-shadow: 0px 0px 0px #000000;
+	vertical-align: bottom;
+	margin-bottom:10px;
+	margin-right:10px;
+	z-index:20;
+}
+
+.close_button_text{
+	color: #F7ABAB;
+	horizontal-align: center;
+	width:140px;
+	text-align: center;
+	margin-top:8px;
+}

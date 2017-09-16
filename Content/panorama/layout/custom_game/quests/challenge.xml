@@ -1,0 +1,50 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/quests/quests.css" />
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/heroes_custom/heroes_custom.js" />
+		<include src="file://{resources}/scripts/custom_game/quests/challenge.js" />
+	</scripts>
+	<Panel class="challenge_root" hittest="false">
+				<Panel id="challenge_title_box">
+					<Label id="challenge_main_tooltip" text="" html="true" hittest="false"></Label>
+					<Image id="challenge_info" src="file://{images}/custom_game/ui/information-button.png"
+						onmouseover="ChallengeTooltip()"
+						onmouseout="HideChallengeTooltip()"/>
+				</Panel>
+<!-- 				<Label id="challenge_information" text="" html="true" hittest="false"></Label> -->
+				<Panel id="challenge_container" hittest="false">
+					<Label id="challenge_detail_information" text="" html="true" hittest="false"></Label>
+				</Panel>
+				<Panel id="challenge_reward_container" hittest="false">
+					<Label id="challenge_reward_title" text="" html="true" hittest="false"></Label>
+					<Panel id="challenge_reward_shards_box">
+						<Panel class="individual_shards_rewards">
+							<Label id="challenge_reward_normal" class="normal_color shards_difficulty" text="" html="true" hittest="false"></Label>
+							<Panel class="shards_amounts_box">
+									<Image class="mithril_shards_image" src="file://{images}/custom_game/ui/mithril_shard.png" />
+									<Label class="shards_reward_amount" id="mithril_shards_value_normal" text="0"></Label>
+							</Panel>
+						</Panel>
+						<Panel class="individual_shards_rewards">
+							<Label id="challenge_reward_elite" class="elite_color shards_difficulty" text="" html="true" hittest="false"></Label>
+							<Panel class="shards_amounts_box">
+									<Image class="mithril_shards_image" src="file://{images}/custom_game/ui/mithril_shard.png" />
+									<Label class="shards_reward_amount" id="mithril_shards_value_elite" text="0"></Label>
+							</Panel>
+						</Panel>
+						<Panel class="individual_shards_rewards">
+							<Label id="challenge_reward_legend" class="legend_color shards_difficulty" text="" html="true" hittest="false"></Label>
+							<Panel class="shards_amounts_box">
+									<Image class="mithril_shards_image" src="file://{images}/custom_game/ui/mithril_shard.png" />
+									<Label class="shards_reward_amount" id="mithril_shards_value_legend" text="0"></Label>
+							</Panel>
+						</Panel>
+					</Panel>
+				</Panel>
+	</Panel>
+
+
+</root>

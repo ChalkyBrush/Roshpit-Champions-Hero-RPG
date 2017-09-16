@@ -1,0 +1,20 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/boss_health.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/boss_health.js" />
+	</scripts>
+	<Panel class="boss_health_container" hittest="false">
+
+		<Panel id="boss_health_outer" class="invisible" hittest="false">
+			<Panel id="boss_current_health" hittest="false">
+
+			</Panel>
+			<Label id="boss_name" text="boss_name" />
+		</Panel>
+	</Panel>
+
+</root>
+

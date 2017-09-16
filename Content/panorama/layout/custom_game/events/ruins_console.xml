@@ -1,0 +1,84 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/special_events.css" />
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/events/ruins_console.js" />
+	</scripts>
+	<Panel class="ruins_console_root" hittest="false">
+		<Panel id="ruins_console_outer">
+			<Panel id="ruins_console_bg"></Panel>
+			<Label id="ruins_console_label" text="" html="true"></Label>
+			<Panel id="ruins_buttons_container">
+				<Panel class="ruins_button_row">
+					<Panel class="ruins_button" id="ruins_button1">
+						<Button class="ruins_button_button"
+						onactivate="ruins_button(1)"
+						onmouseover="ruins_button_tooltip(1)"
+						onmouseout="ruins_hide_tooltip(1)"
+						/>
+					</Panel>
+					<Panel class="ruins_button" id="ruins_button2">
+						<Button class="ruins_button_button"
+						onactivate="ruins_button(2)"
+						onmouseover="ruins_button_tooltip(2)"
+						onmouseout="ruins_hide_tooltip(2)"
+						/>
+					</Panel>
+				</Panel>
+				<Panel class="ruins_button_row">
+					<Panel class="ruins_button" id="ruins_button3">
+						<Button class="ruins_button_button"
+						onactivate="ruins_button(3)"
+						onmouseover="ruins_button_tooltip(3)"
+						onmouseout="ruins_hide_tooltip(3)"
+						/>
+					</Panel>
+					<Panel class="ruins_button" id="ruins_button4">
+						<Button class="ruins_button_button"
+						onactivate="ruins_button(4)"
+						onmouseover="ruins_button_tooltip(4)"
+						onmouseout="ruins_hide_tooltip(4)"
+						/>
+					</Panel>
+					<Panel class="ruins_button" id="ruins_button5">
+						<Button class="ruins_button_button"
+						onactivate="ruins_button(5)"
+						onmouseover="ruins_button_tooltip(5)"
+						onmouseout="ruins_hide_tooltip(5)"
+						/>
+					</Panel>
+				</Panel>
+				<Panel class="ruins_button_row">
+					<Panel class="ruins_button" id="ruins_button6">
+						<Button class="ruins_button_button"
+						onactivate="ruins_button(6)"
+						onmouseover="ruins_button_tooltip(6)"
+						onmouseout="ruins_hide_tooltip(6)"
+						/>
+					</Panel>
+					<Panel class="ruins_button" id="ruins_button7">
+						<Button class="ruins_button_button"
+						onactivate="ruins_button(7)"
+						onmouseover="ruins_button_tooltip(7)"
+						onmouseout="ruins_hide_tooltip(7)"
+						/>
+					</Panel>
+					<Panel class="ruins_button" id="ruins_button8">
+						<Button class="ruins_button_button"
+						onactivate="ruins_button(8)"
+						onmouseover="ruins_button_tooltip(8)"
+						onmouseout="ruins_hide_tooltip(8)"
+						/>
+					</Panel>
+				</Panel>
+			</Panel>
+		</Panel>
+		<Panel id="ruins_console_label_container">
+			<Label id="ruins_room_label"></Label>
+		</Panel>
+	</Panel>
+
+</root>

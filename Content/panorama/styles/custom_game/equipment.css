@@ -1,0 +1,534 @@
+.equipment_panel{
+	margin-top: 6%;
+	margin-left:1%;
+	width:400px;
+}
+
+#open_equipment{
+	width:400px;
+	height:50px;
+	color:white;
+}
+
+#equipment_button_label{
+	margin-left:0px;
+	margin-top:12px;
+	width:320px;
+	text-align: center;
+}
+
+.large_equipment_panel{
+	width:100%;
+	height:520px;
+	margin-top:42px;
+    max-height: 520px;
+
+}
+
+#equipment_panel_image_overlay{
+width:700px;
+margin-right:-119px;
+}
+
+.equipment_panel_image_glow{
+	box-shadow: 0px 0px 6px #4040EA;
+}
+
+#ItemImageGlove{
+	clip: rect(0px,84px,64px,0px);
+}
+
+#ItemImageWeapon{
+	clip: rect(0px,84px,64px,0px);
+}
+
+#ItemImageArmor{
+	clip: rect(0px,84px,64px,0px);
+}
+
+#ItemImageHelm{
+	clip: rect(0px,84px,64px,0px);
+}
+
+#ItemImageBoot{
+	clip: rect(0px,84px,64px,0px);
+}
+
+#ItemImageAmulet{
+	clip: rect(0px,84px,64px,0px);
+}
+
+.glow_class{
+
+}
+
+.ItemImageSwap{
+	clip: rect(0px,84px,64px,0px);
+}
+
+.invisible{
+	transition-delay: .5s;
+	visibility: collapse;
+}
+
+.animateEaseClass{
+    animation-name: easeIn;
+    animation-duration: .5s;
+    animation-timing-function: linear;	
+}
+
+.animateEaseOutClass{
+    animation-name: easeOut;
+    animation-duration: .5s;
+    animation-timing-function: linear;	
+}
+
+@keyframes 'easeIn'{
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes 'easeOut'{
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.helm_container{
+	margin-top: 50px;
+	margin-left: 115px;
+}
+
+.weapon_container{
+	margin-top: 160px;
+	margin-left: 115px;
+}
+
+.slot_image_weapon{
+	margin-top:-30px;
+	margin-left:15px;
+	width:60px;
+	height:60px;
+	z-index:-5;
+}
+
+.slot_image_helm{
+	margin-top:-30px;
+	margin-left:15px;
+	width:60px;
+	height:60px;
+	z-index:-5;
+}
+
+.glove_container{
+	margin-top: 400px;
+	margin-left: 50px;
+}
+
+.slot_image_glove{
+	margin-top:-30px;
+	margin-left:15px;
+	width:60px;
+	height:60px;
+	z-index:-5;
+}
+
+.boot_container{
+	margin-top: 400px;
+	margin-left: 190px;
+}
+
+.slot_image_boot{
+	margin-top:-30px;
+	margin-left:15px;
+	width:60px;
+	height:60px;
+	z-index:-5;
+}
+
+.armor_container{
+	margin-top: 270px;
+	margin-left: 50px;
+}
+
+.slot_image_armor{
+	margin-top:-30px;
+	margin-left:15px;
+	width:60px;
+	height:60px;
+	z-index:-5;
+}
+
+.amulet_container{
+	margin-top: 270px;
+	margin-left: 190px;
+}
+
+.slot_image_amulet{
+	margin-top:-30px;
+	margin-left:15px;
+	width:60px;
+	height:60px;
+	z-index:-5;
+}
+
+.equipment_swap_panel{
+	width:340px;
+
+}
+
+.equipment_swap_panel2{
+	width:340px;
+	margin-left:330px;
+
+}
+
+.full_swap_hud{
+	margin-top:120px;
+	margin-left:500px;
+}
+
+#full_swap_container{
+
+	width:700px;
+	height:570px;	
+}
+
+.swap_item_container{
+/*	margin-left:120px;*/
+	margin-top:50px;
+}
+
+.swap_item_contents{
+	margin-left: 120px;
+}
+
+.equipment_panel_image_swap{
+	box-shadow: 0px 0px 6px #404099, 0px 0px 6px #404099, 0px 0px 6px #404099;
+}
+
+.swap_button{
+	margin-top:380px;
+
+	horizontal-align: left;
+	width:240px;
+	height:50px;
+	text-align: center;
+	margin-left:40px;
+
+}
+
+.swap_button_image{
+	box-shadow: 0px 0px 6px #404099;
+}
+
+.button_label{
+	width: 100%;
+	text-align: center;
+	margin-top:12px;
+}
+
+.swap_item_name{
+	background-color: #000000;
+	border-radius: 8px;
+	width:240px;
+	padding:2px;
+	margin-top:70px;
+	margin-left:-76px;
+	text-align: center;
+}
+
+.swap_item_title{
+	width:240px;
+	padding:2px;
+	margin-top:-26px;
+	margin-left:-76px;
+	text-align: center;
+}
+
+.swap_item_property1name{
+	background-color: #000000;
+	border-radius: 8px;
+	width:180px;
+	padding:2px;
+	margin-top:120px;
+	margin-left:-100px;
+	text-align: center;
+}
+
+.swap_item_property1value{
+	background-color: #000000;
+	border-radius: 8px;
+	width:104px;
+	padding:2px;
+	margin-top:120px;
+	margin-left:80px;
+	text-align: center;
+}
+
+.swap_item_property2name{
+	background-color: #000000;
+	border-radius: 8px;
+	width:180px;
+	padding:2px;
+	margin-top:150px;
+	margin-left:-100px;
+	text-align: center;
+}
+
+.swap_item_property2value{
+	background-color: #000000;
+	border-radius: 8px;
+	width:104px;
+	padding:2px;
+	margin-top:150px;
+	margin-left:80px;
+	text-align: center;
+}
+
+.swap_item_property3name{
+	background-color: #000000;
+	border-radius: 8px;
+	width:180px;
+	padding:2px;
+	margin-top:180px;
+	margin-left:-100px;
+	text-align: center;
+}
+
+.swap_item_property3value{
+	background-color: #000000;
+	border-radius: 8px;
+	width:104px;
+	padding:2px;
+	margin-top:180px;
+	margin-left:80px;
+	text-align: center;
+}
+
+.swap_item_property4name{
+	background-color: #000000;
+	border-radius: 8px;
+	width:180px;
+	padding:2px;
+	margin-top:210px;
+	margin-left:-100px;
+	text-align: center;
+}
+
+.swap_item_property4value{
+	background-color: #000000;
+	border-radius: 8px;
+	width:104px;
+	padding:2px;
+	margin-top:210px;
+	margin-left:80px;
+	text-align: center;
+}
+
+.swap_item_property5name{
+	background-color: #000000;
+	border-radius: 8px;
+	width:180px;
+	padding:2px;
+	margin-top:240px;
+	margin-left:-100px;
+	text-align: center;
+}
+
+.swap_item_property5value{
+	background-color: #000000;
+	border-radius: 8px;
+	width:104px;
+	padding:2px;
+	margin-top:240px;
+	margin-left:80px;
+	text-align: center;
+}
+
+
+
+#picked_up_panel{
+	width:320px;
+	height:520px;
+/*	box-shadow: -4px -4px 8px blue;*/
+}
+
+.AspectRatio5x4 #picked_up_panel{
+	width:260px;
+}
+
+.AspectRatio5x4 .full_swap_hud{
+	margin-left:360px;
+}
+
+.AspectRatio4x3 #picked_up_panel{
+	width:280px;
+}
+
+.AspectRatio4x3 .full_swap_hud{
+	margin-left:360px;
+}
+
+.pickup_popup{
+/*	box-shadow: 0px 0px 8px green;*/
+	horizontal-align: right;
+	vertical-align: top;
+	margin-top: 100px;
+	margin-right: 40px;
+	flow-children: down;
+}
+
+#by_text{
+	width:320px;
+	padding:2px;
+	margin-top:300px;
+	text-align: center;
+	margin-left:-120px;
+}
+
+#pickup_player_name{
+	width:320px;
+	padding:2px;
+	margin-top:310px;
+	text-align: center;
+	margin-left:-120px;
+	font-size:20px;
+}
+
+#pickup_player_portrait{
+	width:140px;
+	padding:2px;
+	margin-top:340px;
+	text-align: center;
+	margin-left:-30px;
+	box-shadow: 0px 0px 12px #000000;
+}
+
+#pickup_hero_name{
+	width:200px;
+	padding:2px;
+	margin-top:425px;
+	text-align: center;
+	margin-left:-60px;	
+}
+
+.AspectRatio5x4 #pickup_hero_name{
+	width:200px;
+	padding:2px;
+	margin-top:425px;
+	text-align: center;
+	margin-left:-120px;
+}
+
+.AspectRatio5x4 #by_text{
+	width:200px;
+	padding:2px;
+	margin-top:300px;
+	text-align: center;
+	margin-left:-120px;
+}
+
+.AspectRatio5x4 #pickup_player_name{
+	width:200px;
+	padding:2px;
+	margin-top:310px;
+	text-align: center;
+	margin-left:-120px;
+	font-size:20px;
+}
+
+.AspectRatio5x4 #pickup_player_portrait{
+	width:140px;
+	padding:2px;
+	margin-top:340px;
+	text-align: center;
+	margin-left:-70px;
+	box-shadow: 0px 0px 12px #000000;
+}
+
+.AspectRatio4x3 #pickup_hero_name{
+	width:200px;
+	padding:2px;
+	margin-top:425px;
+	text-align: center;
+	margin-left:-120px;
+}
+
+.AspectRatio4x3 #by_text{
+	width:200px;
+	padding:2px;
+	margin-top:300px;
+	text-align: center;
+	margin-left:-120px;
+}
+
+.AspectRatio4x3 #pickup_player_name{
+	width:200px;
+	padding:2px;
+	margin-top:310px;
+	text-align: center;
+	margin-left:-120px;
+	font-size:20px;
+}
+
+.AspectRatio4x3 #pickup_player_portrait{
+	width:140px;
+	padding:2px;
+	margin-top:340px;
+	text-align: center;
+	margin-left:-70px;
+	box-shadow: 0px 0px 12px #000000;
+}
+
+
+
+@keyframes 'slideIn' {
+  from {
+    width: 0%;
+  }
+
+  to {
+  	width: 100%;
+  }
+}
+
+
+
+
+.slideIn{
+	animation-name: slideIn;
+    animation-duration: .5s;
+    animation-timing-function: linear;
+}
+
+
+#recalculate_button_panel{
+	margin-top:475px;
+	width:40%;
+	margin-left:82px;
+	height:30px;
+}
+
+#recalculate_button{
+ width:100%;
+ height:100%;
+}
+
+#recalculate_button_text{
+width:100%;
+text-align:center;
+margin-top:3px;
+}
+
+.calculating_color{
+	color:#D11717;
+}
+
+#recalculate_button_image{
+
+}
+
+
+
+
+

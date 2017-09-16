@@ -1,0 +1,45 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+		<include src="file://{resources}/styles/custom_game/menu/resources.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/resources/resources_display.js" />
+	</scripts>
+	<Panel class="resources_display_root" hittest="false">
+		<Panel id="resources_display_bg">
+			
+		</Panel>	
+		<Panel id="resources_display_parent">
+			<Panel id="resources_title_panel">
+				<Label id="resources_title_label" text="tooltip_resources">
+				</Label>	
+			</Panel>
+			<Panel id="mithril_shards_container">
+				<Panel id="mithril_shards_title_container">
+						<Label id="mithril_shards_title_label" text="ui_mithril_shards"></Label>
+				</Panel>
+				<Panel id="mithril_shards_value_container">
+						<Image id="mithril_shards_image_resources" src="file://{images}/custom_game/ui/mithril_shard.png" />
+						<Label id="mithril_shards_value" text="Loading"></Label>
+						<Label id="mithril_shards_increment" text="(+0)"></Label>
+				</Panel>
+
+			</Panel>
+			<Panel id="arcane_crystals_container">
+				<Panel id="arcane_crystals_title_container">
+						<Label id="arcane_crystals_title_label" text="tooltip_arcane_crystals"></Label>
+				</Panel>
+				<Panel id="arcane_crystals_value_container">
+						<Image id="arcane_crystal_image_resources" src="file://{images}/custom_game/ui/arcane_crystal.png" />
+						<Label id="arcane_crystals_value" text="Loading"></Label>
+						<Label id="arcane_crystals_increment" text="(+0)"></Label>
+				</Panel>
+
+			</Panel>
+		</Panel>	
+	</Panel>
+
+
+</root>

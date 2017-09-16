@@ -1,0 +1,116 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/resources/glyphs.css" />
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/heroes_custom/heroes_custom.js" />
+		<include src="file://{resources}/scripts/custom_game/glyphs/glyph_main.js" />
+	</scripts>
+	<snippets>
+		<snippet name="shop_hero">
+			<Panel class="shop_button" hittest="false">
+				<Button class="save_slot" hittest="true"
+					onactivate='OpenGlyphShopForHero()'>
+				<Image id="shop_portrait"/>
+				</Button>
+				
+				<Label class="slot_label_name" id="slot_label_name" text="hero_name">
+				</Label>
+
+			</Panel>
+		</snippet>
+	</snippets>
+	<Panel class="glyphs_root" hittest="false">
+		<Panel id="glyphs_main_container" hittest="false">
+			<Panel id="glyphs_container" hittest="false">
+				<Panel id="header_image_container">
+					<Image id="header_image" src="file://{images}/custom_game/ui/glyph_enchanter_header.jpg"/>
+					<Label id="header_text" text="glyph_header" html="true"></Label>
+				</Panel>
+					<Label id="glyph_loading_label" class="menu_button_text">
+					</Label>
+				<Panel id="glyph_content">
+					<Panel id="resources-box">
+						<Panel id="resources-box-bg">
+						</Panel>
+						<Panel id="resources-box-rows">
+							<Panel class="resources-box-row">
+								<Label id="current_crystals_label" text="tooltip_arcane_crystals:"></Label>
+								<Panel id="crystal-image-container">
+									<Image id="current_arcane_crystals_image" src="file://{images}/custom_game/ui/arcane_crystal.png" />
+									<Label id="current_crystals_label_value" text="0"></Label>
+								</Panel>
+							</Panel>
+							<Panel class="resources-box-row">
+								<Label id="current_crystals_tier_label" text="tooltip_arcane_tier"></Label>
+								<Label id="current_crystals_tier_label_value" text="0"></Label>
+							</Panel>
+							<Panel class="resources-box-row-bottom" id="upgrade-tiers-box">
+								<Panel id="upgrade-cost-container">
+									<Label id="upgrade_crystals_label_value" text="0"></Label>
+									<Image id="upgrade_arcane_crystals_image" src="file://{images}/custom_game/ui/arcane_crystal.png" />
+								</Panel>
+								<Button id="upgrade-resource-button" hittest="true"
+									onactivate='UpgradeGlyphEnchanter()'
+									onmouseover="UpgradeTooltip()"
+									onmouseout="HideUpgradeTooltip()">
+									<Label id="upgrade-resource-button-label" class="menu_button_text" text="tooltip_upgrade_enchanter">
+									</Label>			
+								</Button>
+							</Panel>
+						</Panel>
+					</Panel>
+					<Panel id="browse-label-container">
+						<Label id="browse-label" class="" text="tooltip_shop_glyphs">
+						</Label>	
+					</Panel>
+					<Panel id="herolist-box">
+						<Panel id="herolist-row-1" class="herolist-row">
+						</Panel>
+						<Panel id="herolist-row-2" class="herolist-row">
+						</Panel>
+						<Panel id="herolist-row-3" class="herolist-row">
+						</Panel>
+						<Panel id="herolist-row-4" class="herolist-row">
+						</Panel>
+					</Panel>
+					<Panel id="reanimation-box">
+						<Panel id="reanimation-box-bg" class="reanimation_no_hover">
+						</Panel>
+						<Panel id="reanimation-contents">
+							<Image id="reanimation-image" src="file://{images}/items/reanimation_stone.png"
+										onmouseover="ReanimationTooltip()"
+										onmouseout="HideReanimationTooltip()"/>
+								<Button id="reanimation-text-box"
+									onactivate='PurchaseReanimation()'
+									onmouseover="ReanimationHover()"
+									onmouseout="ReanimationHoverEnd()">
+									<Label id="purchase-reanimation-stone" class="" text=""/>
+									<Panel id="reanimation-price-box">
+										<Label id="reanimation-price-amount" class="" text="30,000"/>
+										<Image id="reanimation-price-crystal" src="file://{images}/custom_game/ui/arcane_crystal.png" />
+									</Panel>
+								</Button>
+						</Panel>
+
+					</Panel>
+				</Panel>
+				<Button class="main_menu_button" id="close_glyph_shop" hittest="true"
+					onactivate='CloseGlyphs()'>
+	<!-- 				<Image class="menu_buttom_image" src="file://{images}/custom_game/ui/book.png" /> -->
+					<Label id="close_button_label" class="menu_button_text" text="Close">
+					</Label>			
+				</Button>
+			</Panel>
+			<Panel id="glyphs_details_container" class="glyphs_details_container" hittest="false">
+				<Panel id="glyph_details_bg" hittest="false">
+				</Panel>
+				<Panel id="glyph_tiers_container" hittest="false">
+				</Panel>
+			</Panel>
+		</Panel>
+	</Panel>
+
+
+</root>

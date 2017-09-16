@@ -1,0 +1,116 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/dungeon_vote.css" />
+		<include src="file://{resources}/styles/custom_game/main.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/dungeon_vote.js" />
+	</scripts>
+	<Panel class="dungeon_vote_panel">
+		<Panel id="dungeon_vote_box" class="invisible">
+			<Image class="ability_tree_image" src="file://{images}/custom_game/ui/dungeon-panel.png" />
+			<Panel id="dungeon_vote_content">
+				<Panel id="initiator_panel_container">
+					<Panel class="initiator_panel_background"></Panel>
+					<Panel id="initiator_panel">
+
+						<DOTAHeroImage id="hero_portrait_vote_initiator" heroid="5" />
+
+						<Panel id="initiator_panel_text">
+							<Label id="initiator_hero_text" text="Axe" html="true"></Label>
+							<Label id="initiation_text" text="Wants to Initiate a Dungeon" html="true"></Label>
+						</Panel>
+
+
+						
+					</Panel>
+				</Panel>
+				<Label id="dungeon_title" text="Dungeon Title" html="true"></Label>
+					
+				<Panel id="dungeon_vote_image">
+					<Image id="dungeon_image" src="file://{images}/custom_game/dungeons/graveyard.jpg"/>
+					<Label id="recommended_level_text" text="Recommended Level: " html="true"></Label>
+				</Panel>
+
+				<Panel id="votes_container">
+					<Panel class="player_vote_main_container">
+						<Panel class="initiator_panel_background" id="vote_color_1"></Panel>
+						<Panel class="player_vote_container" id="player_vote_1">
+							<DOTAHeroImage class="hero_portrait_voter" id="hero_portrait_voter1" heroid="5" />
+							<Label class="player_voter_name" id="player_voter_name1" text="Chalk" html="true"></Label>
+							<Panel class="vote_options invisible" id="vote_options1">
+								<Button class="vote_button"
+									onactivate="vote(true, 1)">
+									<Image class="vote_option" src="file://{images}/custom_game/ui/green-check.png"/>
+								</Button>
+								<Button class="vote_button"
+									onactivate="vote(false, 1)">
+									<Image class="vote_option" src="file://{images}/custom_game/ui/red-x.png"/>
+								</Button>
+							</Panel>
+						</Panel>
+					</Panel>
+					<Panel class="player_vote_main_container">
+						<Panel class="initiator_panel_background" id="vote_color_2"></Panel>
+						<Panel class="player_vote_container" id="player_vote_2">
+							<DOTAHeroImage class="hero_portrait_voter" id="hero_portrait_voter2" heroid="5" />
+							<Label class="player_voter_name" id="player_voter_name2" text="Chalk" html="true"></Label>
+							<Panel class="vote_options invisible" id="vote_options2">
+								<Button class="vote_button"
+									onactivate="vote(true, 2)">
+									<Image class="vote_option" src="file://{images}/custom_game/ui/green-check.png"/>
+								</Button>
+								<Button class="vote_button"
+									onactivate="vote(false, 2)">
+									<Image class="vote_option" src="file://{images}/custom_game/ui/red-x.png"/>
+								</Button>
+							</Panel>
+						</Panel>
+					</Panel>
+					<Panel class="player_vote_main_container">
+						<Panel class="initiator_panel_background" id="vote_color_3"></Panel>
+						<Panel class="player_vote_container" id="player_vote_3">
+							<DOTAHeroImage class="hero_portrait_voter" id="hero_portrait_voter3" heroid="5" />
+							<Label class="player_voter_name" id="player_voter_name3" text="Chalk" html="true"></Label>
+							<Panel class="vote_options invisible" id="vote_options3">
+								<Button class="vote_button"
+									onactivate="vote(true, 3)">
+									<Image class="vote_option" src="file://{images}/custom_game/ui/green-check.png"/>
+								</Button>
+								<Button class="vote_button"
+									onactivate="vote(false, 3)">
+									<Image class="vote_option" src="file://{images}/custom_game/ui/red-x.png"/>
+								</Button>
+							</Panel>
+						</Panel>
+					</Panel>
+					<Panel class="player_vote_main_container">
+						<Panel class="initiator_panel_background" id="vote_color_4"></Panel>
+						<Panel class="player_vote_container" id="player_vote_4">
+							<DOTAHeroImage class="hero_portrait_voter" id="hero_portrait_voter4" heroid="5" />
+							<Label class="player_voter_name" id="player_voter_name4" text="Chalk" html="true"></Label>
+							<Panel class="vote_options invisible" id="vote_options4">
+								<Button class="vote_button"
+									onactivate="vote(true, 4)">
+									<Image class="vote_option" src="file://{images}/custom_game/ui/green-check.png"/>
+								</Button>
+								<Button class="vote_button"
+									onactivate="vote(false, 4)">
+									<Image class="vote_option" src="file://{images}/custom_game/ui/red-x.png"/>
+								</Button>
+							</Panel>
+						</Panel>
+					</Panel>
+
+				</Panel>
+
+
+				<Label id="timer_text" text="30" html="true"></Label>
+				<Label id="vote_tip_text" text="Tip" html="true"></Label>
+				
+			</Panel>
+		</Panel>
+	</Panel>
+
+</root>

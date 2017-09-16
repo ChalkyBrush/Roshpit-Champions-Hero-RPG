@@ -1,0 +1,65 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/save_load/save_load.css" />
+		<include src="file://{resources}/styles/custom_game/trade.css" />
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/trade/trade.js" />
+	</scripts>
+	<Panel class="trade_root" hittest="false">
+		<Label class="trade_menu_title" id="treade_menu_title" text="">
+		</Label>
+		<Label class="trade_description_label" id="treade_description_label" text="">
+		</Label>
+		
+		<Panel id="trade_container" hittest="false">
+			<Panel class="trade_player_container" id="trade_player1_container" hittest="false">
+				<Panel id="trade-bg-p1" class="base-bg" hittest="false">
+				</Panel>
+				<Panel class="trade_player_sub_container" id="trade_player1_sub_container" hittest="false">
+					<DOTAHeroImage class="hero_portrait_trade" id="hero_portrait_trade1" heroid="5" />
+					<Label class="hero_portrait_trade_label" id="hero_portrait_trade1_label" text="Chalk" html="true"></Label>				
+					<Panel class="stash_items_box" id="stash_items" hittest="false">
+						<Panel class="trade_row" id="trade_row_1" hittest="false"/>
+						<Panel class="trade_row" id="trade_row_2" />
+					</Panel>
+					<Panel class="trade_buttons_container" id="trade_buttons_container">
+						<Panel hittest="false" class="trade-button-accept" id="accept-button" >
+							<Button id="trade-accept"
+									onactivate="trade_accept()"
+									>
+							<Image class="button-image" id="trade-accept-image" src="file://{images}/custom_game/ui/trade-lock.png"/>
+				
+							</Button>
+						</Panel>
+						<Panel hittest="false" class="trade-button" >
+							<Button id="trade-cancel"
+									onactivate="trade_cancel()"
+									>
+							<Image class="button-image" src="file://{images}/custom_game/ui/trade-x.png"/>
+				
+							</Button>
+						</Panel>
+					</Panel>
+				</Panel>
+			</Panel>
+			<Panel class="trade_player_container" id="trade_player2_container" hittest="false">
+				<Panel id="trade-bg-p2" class="base-bg" hittest="false">
+				</Panel>
+				<Panel class="trade_player_sub_container" id="trade_player2_sub_container" hittest="false">
+					<DOTAHeroImage class="hero_portrait_trade" id="hero_portrait_trade2" heroid="5" />
+					<Label class="hero_portrait_trade_label" id="hero_portrait_trade2_label" text="Chalk" html="true"></Label>		
+					<Panel class="stash_items_box" id="stash_items_p2">
+						<Panel class="trade_row" id="trade_row_1_p2" />
+						<Panel class="trade_row" id="trade_row_2_p2" />
+					</Panel>
+				</Panel>
+			</Panel>
+		</Panel>
+		<Image class="trade-arrows" src="file://{images}/custom_game/ui/left-right-arrows.png"/>
+	</Panel>
+
+
+</root>

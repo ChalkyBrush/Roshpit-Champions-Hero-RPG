@@ -1,0 +1,30 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/quests/basic_dialogue.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/quests/dialogue.js" />
+	</scripts>
+	<snippets>
+		<snippet name="basic_dialogue">
+			<Panel class="basic_dialogue_container" hittest="false">
+				<Panel class="basic_dialogue_main_bg" hittest="false">
+				</Panel>
+<!-- 				<DOTAScenePanel hittest="false" id="dialogue_background" map="backgrounds/dashboard_parallax_test" camera="shot_cameraC"/> -->
+				<Panel id="dialogue_contents">
+					<DOTAQueryUnitPortraitContainer id="dialogue_portrait_scene" class="HeroButton">
+					</DOTAQueryUnitPortraitContainer>
+					<Panel id="name_and_dialogue_container">
+						<Label id="dialoge_name_label"></Label>
+						<Label id="dialogue_text"></Label>
+					</Panel>
+				</Panel>
+		</Panel>
+		</snippet>
+	</snippets>
+	<Panel class="hud_dialogue_content" hittest="false">
+		<Panel id="hud_dialogue_container" hittest="false">
+
+		</Panel>
+	</Panel>
+</root>

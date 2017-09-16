@@ -1,0 +1,8 @@
+redfall_ridge_work
+{
+	material materials/overviews/redfall_ridge_work.vmat
+	pos_x -16384
+	pos_y 16384
+	scale 32.000
+}
+

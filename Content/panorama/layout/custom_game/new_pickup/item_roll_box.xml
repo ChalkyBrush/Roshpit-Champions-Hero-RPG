@@ -1,0 +1,87 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/pickup/pickup.css" />
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/pickup/item_roll_box.js" />
+		<include src="file://{resources}/scripts/custom_game/equipment/item_tooltip.js" />
+		<include src="file://{resources}/scripts/custom_game/heroes_custom/heroes_custom.js" />
+	</scripts>
+	<Panel class="ItemRollBoxRoot" hittest="false">
+		<Panel id="item-roll-bg" hittest="false">
+		</Panel>
+		<Panel id="itemrollbox-parent" hittest="false">
+			<Panel id="roll-item-image-container"
+					onmouseover="ItemShowTooltip('#roll-item-image')"
+					onmouseout="ItemHideTooltip('#roll-item-image')">
+				<DOTAItemImage hittest="true" class="roll-item-image" id="roll-item-image"/>
+			</Panel>
+			<Panel class="doubleHeroContainer">
+				<Panel class="player_portrait_container">
+					<DOTAHeroImage class="roll_player_portrait" heroid="5" id="roll_portrait_1" />
+
+					<Panel class="portrait_overlay" id="portrait_overlay_1">	
+					</Panel>
+					<Label class="roll-label" id="roll_label_1"></Label>
+				</Panel>
+				<Panel class="player_portrait_container">
+					<DOTAHeroImage class="roll_player_portrait" heroid="5" id="roll_portrait_2"/>
+					<Panel class="portrait_overlay" id="portrait_overlay_2">
+						
+					</Panel>
+					<Label class="roll-label" id="roll_label_2"></Label>
+				</Panel>
+			</Panel>
+			<Panel class="doubleHeroContainer">
+				<Panel class="player_portrait_container">
+					<DOTAHeroImage class="roll_player_portrait" heroid="5" id="roll_portrait_3"/>
+					<Panel class="portrait_overlay" id="portrait_overlay_3">
+						
+					</Panel>
+					<Label class="roll-label" id="roll_label_3"></Label>
+				</Panel>
+				<Panel class="player_portrait_container">
+					<DOTAHeroImage class="roll_player_portrait" heroid="5" id="roll_portrait_4"/>
+					<Panel class="portrait_overlay" id="portrait_overlay_4">
+						
+					</Panel>
+					<Label class="roll-label" id="roll_label_4"></Label>
+				</Panel>
+			</Panel>
+			<Panel class="doubleHeroContainer" id="roll-options">
+				<Button class="item_vote_button" id="option-need"
+					onmouseover="RollTooltip('ui_need_roll', 'ui_need_roll_description', '#option-need', '#FFC107')"
+					onmouseout="RollHideTooltip('#option-need')"
+					onactivate="roll('need')">
+					<Image class="roll-option" src="file://{images}/custom_game/ui/need.png"/>
+				</Button>
+				<Button class="item_vote_button" id="option-greed"
+					onmouseover="RollTooltip('ui_greed_roll', 'ui_greed_roll_description', '#option-greed', '#2EFF2E')"
+					onmouseout="RollHideTooltip('#option-greed')"
+					onactivate="roll('greed')">
+					<Image class="roll-option" src="file://{images}/custom_game/ui/greed.png"/>
+				</Button>
+				<Button class="item_vote_button" id="option-pass"
+					onmouseover="RollTooltip('ui_pass_roll', 'ui_pass_roll_description', '#option-pass', '#FF0000')"
+					onmouseout="RollHideTooltip('#option-pass')"
+					onactivate="roll('pass')">
+					<Image class="roll-option" src="file://{images}/custom_game/ui/pass.png"/>
+				</Button>
+			</Panel>
+			<Panel id="countdown">
+				<Panel id="countdown-progress">
+				</Panel>
+				<Label id="countdown-timer" html="true" hittest="false"></Label>
+			</Panel>
+		</Panel>
+<!-- 		<Label id="roll_item_rarity" html="true" hittest="false"></Label> -->
+<!-- 		<Label id="roll_player_name" hittest="false"></Label> -->
+<!-- 		<Image id="pickup-arrow" src="file://{images}/custom_game/ui/right-arrow.png" hittest="false"/> -->
+<!-- 		<Label id="pickup_label" hittest="false"></Label> -->
+		
+	</Panel>
+</root>
+
+

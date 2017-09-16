@@ -1,0 +1,84 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/save_load/save_load.css" />
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/save_load/save_load.js" />
+	</scripts>
+	<snippets>
+		<snippet name="key_bank">
+			<Panel class="keybank">
+				<Label id="keybank_description" text="keybank_description"/>
+				<Panel class="keys_row" id="keys_row1" hittest="true"/>
+				<Panel class="keys_row" id="keys_row2" hittest="true"/>
+				<Panel class="keys_row" id="keys_row3" hittest="true"/>
+<!-- 				<Panel class="keys_row" id="keys_row4" hittest="true"/> -->
+
+				<Label id="key_deposit_slot_text" text="key_deposit" hittest="false"/>
+				<DOTAItemImage id="key_deposit_slot" src="file://{images}/custom_game/ui/empty-inventory-slot.png" hittest="true"/>
+			</Panel>
+		</snippet>
+		<snippet name="key_bank_item">
+			<Panel class="keybankitem" hittest="true">
+				<Button id="keybank_button" hittest="true">
+					<Image class="key_image" id="key_image" src="file://{images}/items/wind_temple_key.png" hittest="false"/>
+					<Panel id="key_text_contents" hittest="false">
+	<!-- 					<Label id="key_title" class="key_text" text="key_title"/> -->
+						<Label id="key_quantity" class="key_text" text="x0" hittest="false"/>
+					</Panel>
+				</Button>
+			</Panel>
+		</snippet>
+	</snippets>
+	<Panel class="oracle_root" hittest="false">
+		<Panel id="oracle_container" class="invisible" hittest="false">
+			<Panel id="header_image_container">
+				<Image id="header_image" src="file://{images}/custom_game/ui/oracle_header.jpg"/>
+				<Label id="header_text" text="The Oracle" html="true"></Label>
+			</Panel>
+			<Button class="main_menu_button_oracle" id="oracle_save" hittest="true"
+				onactivate='SaveButton()'>
+<!-- 				<Image class="menu_buttom_image" src="file://{images}/custom_game/ui/book.png" /> -->
+				<Label id="save_button_label" class="menu_button_text" text="Save">
+				</Label>			
+				<Label class="menu_button_hotkey" text="▼">
+				</Label>
+			</Button>
+			<Button class="main_menu_button_oracle invisible" id="oracle_load" hittest="true"
+				onactivate='LoadCharButton()'>
+				<Label id="load_button_label" class="menu_button_text" text="Load">
+				</Label>			
+				<Label class="menu_button_hotkey" text="▼">
+				</Label>
+			</Button>
+			<Button class="main_menu_button_oracle" id="oracle_stash" hittest="true"
+				onactivate='OpenStash()'>
+<!-- 				<Image class="menu_buttom_image" src="file://{images}/custom_game/ui/book.png" /> -->
+				<Label id="stash_button_label" class="menu_button_text" text="Stash">
+				</Label>			
+				<Label class="menu_button_hotkey" text="▼">
+				</Label>
+			</Button>
+			<Button class="main_menu_button_oracle" id="oracle_keybank" hittest="true"
+				onactivate='OpenKeyBank()'>
+<!-- 				<Image class="menu_buttom_image" src="file://{images}/custom_game/ui/book.png" /> -->
+				<Label id="stash_button_label" class="menu_button_text" text="keybank_label">
+				</Label>			
+				<Label class="menu_button_hotkey" text="▼">
+				</Label>
+			</Button>
+			<Panel id="oracle_content">
+
+			</Panel>
+			<Button class="main_menu_button_oracle" id="close_oracle" hittest="true"
+				onactivate='CloseOracle()'>
+<!-- 				<Image class="menu_buttom_image" src="file://{images}/custom_game/ui/book.png" /> -->
+				<Label id="close_button_label" class="menu_button_text" text="Close">
+				</Label>			
+			</Button>
+		</Panel>
+	</Panel>
+
+
+</root>

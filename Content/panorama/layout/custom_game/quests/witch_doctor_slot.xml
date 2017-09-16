@@ -1,0 +1,16 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/quests/quests.css" />
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/quests/witch_doctor_slot.js" />
+	</scripts>
+	<Panel class="witch_doctor_slot_root" hittest="false">
+	
+			<DOTAItemImage hittest="true" id="item_witch_doctor_slot"/>
+					
+	</Panel>
+
+
+</root>

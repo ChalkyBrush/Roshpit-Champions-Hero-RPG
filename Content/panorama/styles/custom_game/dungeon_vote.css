@@ -1,0 +1,173 @@
+.dungeon_vote_panel{
+	horizontal-align: right;
+	margin-top:80px;
+	margin-right:30%;
+	border-radius:20px;
+}
+
+#dungeon_vote_box{
+	width:600px;
+	height:740px;
+	text-align: center;
+}
+
+#dungeon_vote_content{
+	width:100%;
+	flow-children:down;
+}
+
+#hero_portrait_vote_initiator{
+
+}
+
+.initiator_panel_background{
+	background-color:#000000;
+	opacity:0.7;
+	width:100%;
+	height:100%;
+}
+
+#initiator_panel_container{
+	margin-left:50px;
+	margin-top:20px;
+	border-radius:16px;
+	width:500px;
+}
+
+#initiator_panel_text{
+	flow-children:down;
+	color:white;
+	margin-left:10px;
+	width:400px;
+}
+
+#initiator_panel{
+	padding:1px;
+	flow-children:right;
+}
+
+#dungeon_vote_image{
+	width:500px;
+	height:280px;
+	border-radius: 16px;
+	text-align: center;
+	margin-left:50px;
+	box-shadow:0px 0px 10px black;
+}
+
+#dungeon_title{
+	font-size:32px;
+	width:100%;
+	text-align:center;
+	height:40px;
+	color:#C75252;
+	margin-top:10px;
+}
+
+#dungeon_title_container{
+	height:40px;
+}
+
+#initiator_hero_text{
+	width:100%;
+	color:white;
+	font-size:22px;
+	margin-top:6px;
+}
+
+#initiation_text{
+	width:100%;
+	color:#DDDDDD;
+}
+
+#timer_text{
+	margin-top:14px;
+	width:74px;
+	height:74px;
+	margin-left: 260px;
+	color:white;
+	line-height: 62px;
+	font-size:40px;
+	text-align: center;
+	background-color: black;
+	border: 2px solid #CCCCCC;
+	border-radius:100%;
+	box-shadow: 0px 0px 5px #555555;
+}
+
+#recommended_level_text{
+	font-size:28px;
+	color:white;
+	vertical-align: bottom;
+	margin-left:10px;
+	margin-bottom:5px;
+}
+
+#votes_container{
+	margin-left:50px;
+	margin-right:40px;
+	margin-top:10px;
+	flow-children:right;
+}
+
+.hero_portrait_voter{
+	width:117px;
+	height:70px;
+}
+
+.player_vote_container{
+	flow-children:down;
+}
+
+.player_voter_name{
+	width:100%;
+	text-align: center;
+	color:white;
+	margin-top:5px;
+	margin-bottom:10px;
+}
+
+.player_vote_main_container{
+	border-radius:10px;
+	margin-right:10px;
+}
+
+.accept_or_reject{
+	width:40px;
+	height:40px;
+}
+
+#vote_tip_text{
+	width:100%;
+	margin-top:15px;
+	text-align: center;
+}
+
+.vote_options{
+	margin-left:21px;
+	flow-children:right;
+	margin-top:5px;
+	margin-bottom:10px;
+}
+
+.vote_option{
+	margin-right:15px;
+}
+
+.vote_option:hover{
+	box-shadow: 0px 0px 2px white;
+}
+
+.vote_green{
+	background-color:#56C748;
+	opacity:0.7;
+	width:100%;
+	height:100%;
+}
+
+.vote_red{
+	background-color:#D14343;
+	opacity:0.7;
+	width:100%;
+	height:100%;
+}

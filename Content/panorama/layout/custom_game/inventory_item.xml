@@ -1,0 +1,33 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/inventory.css" />
+		<include src="file://{resources}/styles/custom_game/ability_shared.css" />
+		<include src="file://{resources}/styles/custom_game/tooltips.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/inventory_item.js" />
+		<include src="file://{resources}/scripts/custom_game/heroes_custom/heroes_custom.js" />
+		<include src="file://{resources}/scripts/custom_game/equipment/item_tooltip.js" />
+	</scripts>
+	<Panel class="ItemPanel" draggable="true">
+		<Button id="ItemButton"
+				onmouseover="ItemShowTooltipInit()"
+				onmouseout="ItemHideTooltipInit()"
+				onactivate="ActivateItem()"
+				ondblclick="DoubleClickItem()"
+				oncontextmenu="RightClickItem()"
+				>
+			<DOTAItemImage hittest="false" id="ItemImage" class="inventory-item-image" />
+			<Panel hittest="false" id="Cooldown">
+				<Panel hittest="false" id="CooldownOverlay" />
+				<Label hittest="false" id="CooldownTimer" />
+			</Panel>
+			<Label hittest="false" class="Charges" id="ChargeCount" />
+			<Label hittest="false" class="Charges" id="AltChargeCount" />
+			<Panel hittest="false" id="DropTargetHighlight" />
+		</Button>
+		<Panel hittest="false" id="Hotkey">
+			<Label hittest="false" id="HotkeyText" />
+		</Panel>
+	</Panel>
+</root>

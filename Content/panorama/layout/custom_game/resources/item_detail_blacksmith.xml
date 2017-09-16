@@ -1,0 +1,31 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/resources/blacksmith.css" />
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/heroes_custom/heroes_custom.js" />
+		<include src="file://{resources}/scripts/custom_game/resources/item_detail_blacksmith.js" />
+	</scripts>
+	<Panel class="item_detail_blacksmith_root" hittest="false">
+
+			<DOTAItemImage hittest="true" id="item_image"/>
+				<Label id="item_name" text="item_name" html="true">
+				</Label>	
+			<Panel id="item_properties_container">
+			</Panel>		
+			<Panel id="min_level_container">
+				<Label id="min_level_label" text="item_name" html="true"></Label>
+				<Label id="min_level_label_value" text="item_name" html="true"></Label>
+			</Panel>	
+			<Panel id="forge_price_container">
+				<Label id="forge_price_label" text="item_name" html="true"></Label>
+				<Panel id="forge_price_box_container" hittest="false">
+					<Image id="forge_price_image" src="file://{images}/custom_game/ui/mithril_shard.png" />
+					<Label id="forge_price_label_value" text="" html="true"></Label>
+				</Panel>
+			</Panel>				
+	</Panel>
+
+
+</root>

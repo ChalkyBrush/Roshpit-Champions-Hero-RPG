@@ -1,0 +1,16 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/special_events.css" />
+		<include src="file://{resources}/styles/custom_game/shop.css" />
+		<include src="file://{resources}/styles/custom_game/trade.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/overlay_events.js" />
+	</scripts>
+	<Panel class="overlay_container" hittest="false">
+		<Panel id="overlay_event" hittest="false">
+		</Panel>
+	</Panel>
+
+</root>

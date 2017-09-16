@@ -1,0 +1,41 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/quests/quests.css" />
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/quests/witch_doctor.js" />
+		<include src="file://{resources}/scripts/custom_game/heroes_custom/heroes_custom.js" />
+	</scripts>
+	<Panel class="witch_doctor_root" hittest="false">
+		<Panel id="witch_doctor_container" hittest="false">
+			<Panel id="header_image_container">
+				<Image id="header_image" src="file://{images}/custom_game/ui/tanari_witch_doctor_header.jpg"/>
+				<Label id="header_text" text="witch_doctor_title" html="true"></Label>
+			</Panel>
+			<Panel id="quest_main_tooltip_container" html="true" hittest="false">
+				<Label id="witch_doctor_tooltip" class="menu_button_text">
+				</Label>
+			</Panel>
+
+			<Panel id="witch_doctor_content">
+
+			</Panel>
+			<Panel id="final_combine_button_container" class="invisible">
+				<Button id="final_combine_button" class="combine_button_color_main" hittest="true"
+					onactivate='FinalCombine()'>
+					<Label id="final_combine_button_label" class="menu_button_text" text="combine_tanari_elements_button_label">
+					</Label>		
+				</Button>						
+			</Panel>
+			<Button class="main_menu_button" id="close_witch_doctor" hittest="true"
+				onactivate='CloseWitchDoctor(1)'>
+<!-- 				<Image class="menu_buttom_image" src="file://{images}/custom_game/ui/book.png" /> -->
+				<Label id="close_button_label" class="menu_button_text" text="Close">
+				</Label>			
+			</Button>
+		</Panel>
+	</Panel>
+
+
+</root>

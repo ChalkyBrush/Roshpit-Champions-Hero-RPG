@@ -1,0 +1,120 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/menu/equipment.css" />
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+		<include src="file://{resources}/styles/custom_game/weapons.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/glyphs/glyphs.js" />
+		<include src="file://{resources}/scripts/custom_game/menu/equipment.js" />
+		<include src="file://{resources}/scripts/custom_game/equipment_manager.js" />
+		<include src="file://{resources}/scripts/custom_game/equipment_item.js" />
+		<include src="file://{resources}/scripts/custom_game/equipment/item_tooltip.js" />
+		<include src="file://{resources}/scripts/custom_game/heroes_custom/heroes_custom.js" />
+		<include src="file://{resources}/scripts/custom_game/weapons.js" />
+	</scripts>
+	<snippets>
+		<snippet name="equipment_query">
+			<Panel class="equipment_query_container" hittest="false">
+				<Panel class="equipment_query_bg" hittest="false">
+				</Panel>
+			</Panel>
+		</snippet>
+	</snippets>
+	<Panel class="main_equipment" hittest="false">
+		<Panel id="glyph_parent">
+			<Panel id="main_glyph_bg" hittest="false">
+			</Panel>
+			<Panel id="glyph-line-1" hittest="false">
+			</Panel>
+			<Panel id="glyph-line-2" hittest="false">
+			</Panel>
+			<Panel id="glyph-line-3" hittest="false">
+			</Panel>
+			<Panel id="glyph_container" hittest="false">
+				<Label id="glyph_title_label" text="ui_glyphs_title"></Label>
+				<Panel id="glyph-row-1" hittest="false">
+
+				</Panel>
+				<Panel id="glyph-row-2" hittest="false">
+
+				</Panel>
+			</Panel>
+		</Panel>
+		<Panel id="main_equipment_parent" hittest="false">
+			<Panel id="main_equipment_bg" hittest="false">
+				<Image id="equipment_doll" src="file://{images}/custom_game/ui/silhouette-white.png" hittest="false"/>
+			</Panel>
+			<Panel id="main_equipment_container" hittest="false">
+				<Panel class="item_container" id="helm_main_container" hittest="false">
+					<Panel class="item_image" id="helm_container" draggable="false"
+						onactivate='EquipmentClick(0)'
+						onmouseover="ItemShowTooltipInit(0)"
+						onmouseout="ItemHideTooltipInit(0)">
+						<DOTAItemImage hittest="false" id="ItemImageHelm" draggable="true"/>
+
+					</Panel>
+				</Panel>
+				<Panel class="item_container" id="armor_main_container" hittest="false">
+					<Panel class="item_image" id="armor_container" draggable="false"
+						onactivate='EquipmentClick(4)'
+						onmouseover="ItemShowTooltipInit(4)"
+						onmouseout="ItemHideTooltipInit(4)">
+						<DOTAItemImage hittest="false" id="ItemImageArmor" draggable="true"/>
+
+					</Panel>
+				</Panel>
+				<Panel class="item_container"  id="weapon_glove_main_container" hittest="false">
+					<Panel class="item_image" id="weapon_container" draggable="false"
+						onactivate='EquipmentClick(1)'
+						onmouseover="ItemShowTooltipInit(1)"
+						onmouseout="ItemHideTooltipInit(1)">
+						<DOTAItemImage hittest="false" id="ItemImageWeapon" draggable="true"/>
+
+					</Panel>
+					<Panel class="item_image" id="glove_container" draggable="false"
+						onactivate='EquipmentClick(2)'
+						onmouseover="ItemShowTooltipInit(2)"
+						onmouseout="ItemHideTooltipInit(2)">
+						<DOTAItemImage hittest="false" id="ItemImageGlove" draggable="true"/>
+
+					</Panel>
+				</Panel>
+				<Panel class="item_container" id="boot_amulet_main_container" hittest="false">
+					<Panel class="item_image" id="boot_container" draggable="false"
+						onactivate='EquipmentClick(3)'
+						onmouseover="ItemShowTooltipInit(3)"
+						onmouseout="ItemHideTooltipInit(3)">
+						<DOTAItemImage hittest="false" id="ItemImageBoot" draggable="true"/>
+
+					</Panel>
+					<Panel class="item_image" id="amulet_container" draggable="false"
+						onactivate='EquipmentClick(5)'
+						onmouseover="ItemShowTooltipInit(5)"
+						onmouseout="ItemHideTooltipInit(5)">
+						<DOTAItemImage hittest="false" id="ItemImageAmulet" draggable="true"/>
+
+					</Panel>
+				</Panel>
+			</Panel>
+
+		</Panel>
+<!-- 			<Panel id="weapon_lvlup" hittest="false" class="invisible">
+				<Label class="weapon_title" id="weapon_title" text="Weapon" html="true" hittest="false"></Label>
+				<DOTAItemImage hittest="false" class="weapon_lvlup_item" id="weapon_lvlup_item" src="file://{images}/items/death_whisper_helm.png"/>
+				<Label class="weapon_lvl" id="weapon_level" text="Lv X" html="true" hittest="false"></Label>
+				<Label class="weapon_lvl_message" id="weapon_lvl_message" text="" html="true" hittest="false"></Label>
+				<Label class="weapon_lvl_message2" id="weapon_lvl_message2" text="" html="true" hittest="false"></Label>
+				<Panel class="weapon_xp_bar_container" id="weapon_xp_bar_container">
+					<Panel class="weapon_xp_bar" id="weapon_xp_bar">
+					</Panel>
+					<Label class="weapon_xp_text" id="weapon_xp_text" text="0/1000" html="true" hittest="false"></Label>
+				</Panel>
+				<Label class="weapon_upgrade_available" id="weapon_upgrade_available" text="" html="true" hittest="false"></Label>
+				<Label class="weapon_tip" id="weapon_tip" text="" html="true" hittest="false"></Label>
+			</Panel> -->
+	</Panel>
+
+
+</root>

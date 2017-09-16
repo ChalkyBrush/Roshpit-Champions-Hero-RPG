@@ -1,0 +1,441 @@
+.weapon_lvlup_main_container{
+	flow-children:down;
+	horizontal-align:right;
+  text-align: center;
+}
+
+.main_weapons{
+  flow-children:down;
+  horizontal-align:right;
+  margin-right:0px;
+  margin-top:0px;
+  text-align: center;
+}
+
+#weapon_lvlup{
+  background-color: #121212;
+  width:222px;
+  padding:10px;
+  margin-bottom:200px;
+  text-align:center;
+  border-radius:10px;
+  flow-children:down;
+  border: 2px solid black;
+}
+
+/*#weapon_lvlup .AspectRatio4x3{
+  margin-bottom:280px;
+}
+
+#weapon_lvlup .AspectRatio5x4{
+  margin-bottom:280px;
+}*/
+
+.weapon_title{
+  color: white;
+  text-align:center;
+  width:100%;
+}
+
+.weapon_lvlup_item{
+  color:white;
+  text-align:center;
+  width:100%;
+  border-radius:12px;
+}
+
+.weapon_lvl{
+  color:white;
+  text-align:center;
+  width:100%;
+  margin-top:5px;
+}
+
+
+
+.weapon_lvl_message{
+  color:white;
+  text-align:center;
+  width:100%;
+  color:yellow;
+}
+.weapon_lvl_message2{
+  color:white;
+  text-align:center;
+  width:100%;
+  color:#90B9D4;
+  font-size:14px;
+}
+
+.weapon_xp_bar_container{
+  width:100%;
+  border-radius:4px;
+  box-shadow:0px 0px 1px purple;
+}
+
+.weapon_xp_bar{
+ width:50%;
+ background-color: purple;
+ height:100%;
+}
+
+.weapon_xp_text{
+  color:white;
+  text-align:center;
+  width:100%;
+}
+
+.blacksmith{
+  box-shadow:0px 0px 8px yellow;
+}
+
+.weapon_upgrade_available{
+  color:white;
+  text-align:center;
+  width:100%;
+  margin-top:5px;  
+  color:#C190D4;
+  text-shadow: 0px 0px 1px purple;
+}
+
+.weapon_tip{
+  color:white;
+  text-align:center;
+  width:100%;
+  margin-top:5px;
+  font-size:14px;
+}
+
+#blacksmith_panel{
+  width:340px;
+  height:590px;
+  margin-top:260px;
+  margin-right:240px;
+  border-radius:8px;
+}
+
+#blacksmith_close_button{
+  background-color: #8C1919;
+  width:140px;
+  height:40px;
+  horizontal-align: center;
+  border-bottom-left-radius:12px;
+  box-shadow: 0px 0px 0px #000000;
+  vertical-align: bottom;
+  margin-bottom:10px;
+  margin-right:10px;
+  z-index:20;
+}
+
+.blacksmith_title{
+  width:100%;
+  text-align: center;
+  margin-top:20px;
+}
+.blacksmith_title_text{
+  width:100%;
+  text-align: center;
+  font-size:24px;
+  color:white;
+}
+
+.weapon_info_container{
+  flow-children:down;
+  width:100%;
+  padding-left:20px;
+  padding-right:20px;
+  margin-top:50px;
+  text-align: center;
+}
+
+.weapon_property_line{
+  flow-children:right;
+}
+
+.weapon_propertyname{
+  horizontal-align:left;
+  padding-left:4px;
+  padding-right:4px;
+  border-radius:6px;
+  width:240px;
+}
+
+.weapon_lvl_blacksmith{
+  horizontal-align:center;
+  color:#FFFFFF;
+  text-shadow: 0px 0px 1px #999999;
+}
+.weapon_properties_container{
+  margin-top:20px;
+  height:150px;
+  flow-children:down;
+}
+
+.weapon_propertyvalue{
+  color:white;
+  text-shadow: 0px 0px 1px #999999;
+  horizontal-align:right;
+  width:50px;
+}
+
+.weapon_name_blacksmith{
+  horizontal-align:center;
+}
+
+.WeaponImage{
+  horizontal-align:center;
+}
+
+#weapon_upgrade_tip{
+  horizontal-align:center;
+  text-align: center;
+  color:yellow;
+  font-size:22px;
+}
+
+#weapon_upgrade_tip_two{
+  horizontal-align:center;
+  text-align: center;
+  color:#EEEEEE;
+}
+
+.weapon_upgrade_option{
+  width:86px;
+  height:64px;
+  margin-left:11px;
+  border-radius:6px;
+}
+
+.weapon_upgrade_option:hover{
+ box-shadow:0px 0px 4px white;
+}
+
+.weapon_upgrades{
+  flow-children:down;
+  horizontal-align:center;
+}
+
+.upgrade_button{
+  width:100%;
+  height:100%;
+}
+
+.weapon_upgrade_phase_panel{
+  margin-top:25px;
+  flow-children:right;
+}
+
+/*NEW WEAPONS*/
+
+.weapons_root{
+  horizontal-align:right;
+  vertical-align: bottom;
+  margin-right:220px;
+  margin-bottom:533px;
+  visibility: collapse;
+}
+
+.AspectRatio4x3 .weapons_root{
+  horizontal-align:right;
+  vertical-align: bottom;
+  margin-right:220px;
+  margin-bottom:675px;
+  visibility: collapse;
+}
+
+.AspectRatio5x4 .weapons_root{
+  horizontal-align:right;
+  vertical-align: bottom;
+  margin-right:220px;
+  margin-bottom:675px;
+  visibility: collapse;
+}
+
+#weapons_container_bg{
+  width:225px;
+  height:100px;
+  background-color: gradient( linear, 0px 0%, 225px 0%, from( #13538A ), to( #1D6AAB ) );
+  opacity:0.9;
+  border-top-left-radius:8px;
+  border:1px solid black;
+}
+
+#weapons_container{
+  width:100%;
+  height:100%;
+  padding:10px;
+  flow-children:down;
+}
+
+.weapon_stat_row{
+  flow-children:right;
+  width:100%;
+}
+
+#weapon_exp_bar_container{
+  width:100%;
+  height:22px;
+  margin-top:8px;
+  background-color: gradient( linear, 0px 0%, 200px 0%, from( #111111 ), to( #222222 ) );
+  border: 1px solid black;
+}
+
+.weapon_label{
+  color:white;
+  width:70%;
+  text-shadow: 0px 0px 1px black;
+}
+
+.weapon_label_value{
+  color:#FF5F3B;
+  width:25%;
+  text-shadow: 0px 0px 2px #000000;
+  text-align:right;
+}
+
+#weapon_exp_label{
+  width:100%;
+  text-align: center;
+  color:white;
+}
+
+#weapon_exp_bar_progress{
+  height:100%;
+  background-color: gradient( linear, 0px 0%, 200px 0%, from( #FF0A0A ), to( #EB1E13 ) );
+}
+
+@keyframes 'weaponFromRight'{
+  0%   { position: 220px 0px 0px; }
+  100% { position: 0px 0px 0px; }
+}
+
+
+.animateWeaponPanel{
+    animation-name: weaponFromRight;
+    animation-duration: .15s;
+    animation-timing-function: linear;  
+}
+
+.invisible{
+  visibility: collapse;
+}
+
+#glyph_parent{
+  width:100%;
+  height:170px;
+  border-bottom-left-radius:8px;
+  border-top-left-radius:8px;
+  border: 1px solid #000000;
+}
+
+.main_equipment{
+  flow-children:down;
+}
+
+#main_glyph_bg{
+  border-top-left-radius:8px;
+  width:100%;
+  height:100%;
+  background-color: gradient( linear, 0px 0%, 260px 0%, from( #1C4FA0 ), to( #0d326d ) );
+  opacity:0.8;
+
+}
+
+#glyph-line-1{
+  transform: rotateZ( 32deg ) rotateX( 0deg );
+  width:6px;
+  height:120px;
+  background-color: white;
+  margin-left:73px;
+  margin-top:25px;
+  box-shadow:1px 1px 1px black;
+  border:2px solid #333333;
+}
+
+#glyph-line-2{
+  transform: rotateZ( -32deg ) rotateX( 0deg );
+  width:6px;
+  height:120px;
+  background-color: white;
+  margin-right:76px;
+  margin-top:25px;
+  box-shadow:1px 1px 1px black;
+  border:2px solid #333333;
+  horizontal-align:right;
+}
+
+#glyph-line-3{
+  width:124px;
+  height:6px;
+  background-color: white;
+  margin-left:45px;
+  box-shadow:1px 1px 1px black;
+  border:2px solid #333333;
+  margin-top:133px;
+}
+#glyph_container{
+  flow-children:down;
+  width:100%;
+}
+
+#glyph-row-1{
+  horizontal-align:center;
+}
+
+#glyph-row-2{
+  margin-top:20px;
+  flow-children:right;
+}
+
+.glyph_image{
+  border-radius:100%;
+  width:60px;
+  height:60px;
+  border:2px solid #111111;
+}
+
+.glyph2{
+  margin-left:25px;
+}
+
+.glyph3{
+  margin-left:50px;
+}
+
+#glyph_title_label{
+  horizontal-align:center;
+  color:white;
+  font-size:16px;
+  vertical-align: center;
+
+
+  text-shadow: 1px 1px 2px 3 #00000066;
+  text-transform:uppercase;
+  font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+}
+
+.glyph_ready{
+  border:1px solid #EEEEEE;
+  box-shadow: 0px 0px 2px #DDDDDD;
+}
+
+.glyph_highlighted{
+  border:1px solid yellow;
+  box-shadow: 0px 0px 3px yellow;
+}
+
+@keyframes 'glyphActivate'{
+  0%   { opacity: 1; }
+  30%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+
+.lightUpGlyph{
+    animation-name: glyphActivate;
+    animation-duration: 1.5s;
+    animation-timing-function: linear; 
+    background-color: white; 
+    box-shadow: 0px 0px 10px white;
+}
+

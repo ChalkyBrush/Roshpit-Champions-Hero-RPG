@@ -1,0 +1,119 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/menu/equipment.css" />
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/util/util.js" />
+		<include src="file://{resources}/scripts/custom_game/menu/menu.js" />
+	</scripts>
+	<Panel class="main_menu" hittest="false">
+		<Panel id="main_menu_bg" hittest="false">
+			<Button class="main_menu_button" id="menu_button_equipment" hittest="true"
+				onactivate='equipment_button()'>
+				<Image class="menu_buttom_image" src="file://{images}/custom_game/ui/swords.png" />
+				<Label id="equipment_button_label" class="main_menu_button_text" text="Equipment">
+				</Label>
+				<Label class="menu_button_hotkey" text="(P)">
+				</Label>
+			</Button>
+			<Button class="main_menu_button" id="menu_button_skills" hittest="true"
+				onactivate='skills_button()'>
+				<Image class="menu_buttom_image" src="file://{images}/custom_game/ui/book.png" />
+				<Label id="skills_button_label" class="main_menu_button_text" text="Skills">
+				</Label>			
+				<Label class="menu_button_hotkey" text="(L)">
+				</Label>
+			</Button>
+			<Button class="main_menu_button" id="menu_button_resources" hittest="true"
+				onactivate='resources_button()'>
+				<Image class="menu_buttom_image" src="file://{images}/custom_game/ui/gemstone.png" />
+				<Label id="resource_button_label" class="main_menu_button_text" text="tooltip_resources">
+				</Label>			
+				<Label class="menu_button_hotkey" text="(O)">
+				</Label>
+			</Button>
+			<Button class="main_menu_button" id="menu_button_stars" hittest="true"
+				onactivate='stars_button()'>
+				<Image class="menu_buttom_image" src="file://{images}/custom_game/ui/star.png" />
+				<Label id="stars_button_label" class="main_menu_button_text" text="stars_menu">
+				</Label>			
+				<Label class="menu_button_hotkey" text="(K)">
+				</Label>
+			</Button>
+			<Panel id="horizontal_rule"></Panel>
+			<Panel class="menu_stats_panel">
+				<Label class="menu_stats" id="menu_gold_label" text="Gold:">
+				</Label>
+				<Label class="menu_stats_value gold_color" id="gold_menu_label" text="Gold:">
+				</Label>
+			</Panel>
+<!-- 			<Panel class="menu_stats_panel">
+				<Label class="menu_stats" id="menu_skill_points_label" text="Skill Points:">
+				</Label>
+				<Label class="menu_stats_value rune_color" id="skill_points_menu_level" text="Gold:">
+				</Label>
+			</Panel>
+			<Panel class="menu_stats_panel">
+				<Label class="menu_stats" id="menu_rune_points_label" text="Rune Points:">
+				</Label>	
+				<Label class="menu_stats_value rune_color" id="rune_points_menu_level" text="Gold:">
+				</Label>
+			</Panel> -->
+			<Panel class="portal_key_container">
+				<Panel class="portal_key hidden" id="portal_key_forest">
+					<Image class="portal_key_image" src="file://{images}/custom_game/ui/key-forest.png"
+					onmouseover="KeyShowTooltip('forest')"
+					onmouseout="KeyHideTooltip('forest')"/>
+				</Panel>
+				<Panel class="portal_key hidden" id="portal_key_desert">
+					<Image class="portal_key_image" src="file://{images}/custom_game/ui/key-desert.png"
+					onmouseover="KeyShowTooltip('desert')"
+					onmouseout="KeyHideTooltip('desert')"/>
+				</Panel>
+				<Panel class="portal_key hidden" id="portal_key_mines">
+					<Image class="portal_key_image" src="file://{images}/custom_game/ui/key-mines.png"
+					onmouseover="KeyShowTooltip('mines')"
+					onmouseout="KeyHideTooltip('mines')"/>
+				</Panel>
+			</Panel>
+			<Panel class="menu_special_buttons">
+				<Panel class="town_portal_container">
+					<Panel id="portal_hover" class="invisible portal-hover">
+					</Panel>
+					<Button class="town_portal_button" id="tp_button"
+						onmouseover="TownPortalTooltip()"
+						onmouseout="HideTownPortalTooltip()"
+						onactivate="UseTownPortal()">
+						<Image class="tp-scroll-picture" src="file://{images}/custom_game/ui/tp_scroll_ui.png"/>
+					</Button>
+
+				</Panel>
+				<Panel class="town_portal_container">
+					<Panel id="portal_hover" class="invisible portal-hover">
+					</Panel>
+					<Button class="town_portal_button" id="respawn_button"
+						onmouseover="RespawnTooltip()"
+						onmouseout="HideRespawnTooltip()"
+						onactivate="UseRespawnFlag()">
+						<Image class="tp-scroll-picture" src="file://{images}/custom_game/ui/respawn_flag_ui.png"/>
+					</Button>
+
+				</Panel>
+				<Panel class="quest_log_button invisible quest-log-no-highlight" id="quest_log_button">
+					<Panel id="portal_hover2" class="invisible portal-hover">
+					</Panel>
+					<Button class="town_portal_button" id="tp_button2"
+						onmouseover="QuestlogTooltip()"
+						onmouseout="HideQuestlogTooltip()"
+						onactivate="OpenQuestLog()">
+						<Image class="tp-scroll-picture" src="file://{images}/custom_game/ui/redfall_quest_log.png"/>
+					</Button>
+
+				</Panel>
+			</Panel>
+		</Panel>
+
+	</Panel>
+
+</root>

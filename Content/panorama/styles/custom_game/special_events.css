@@ -1,0 +1,381 @@
+.special_container{
+  width:100%;
+  height:100%;
+}
+
+#yellow_panel{
+	background-color:yellow;
+	opacity: 0.5;
+	width:5000px;
+	height:5000px;
+}
+
+#black_panel{
+	background-color:black;
+	width:5000px;
+	height:5000px;
+}
+
+#red_panel{
+  background-color:red;
+  width:5000px;
+  height:5000px;
+  opacity:0.5;
+}
+
+#generic_panel{
+  width:5000px;
+  height:5000px; 
+}
+
+.white_panel{
+  background-color: white;
+  opacity:1.0;
+}
+
+.red_panel{
+  background-color: #CC3333;
+  opacity:1.0;
+}
+
+
+.invisible{
+	visibility: collapse;
+}
+
+.animateEaseClass{
+    animation-name: easeIn;
+    animation-duration: 4s;
+    animation-timing-function: linear;	
+}
+
+.animateEaseClassHalf{
+    animation-name: easeInHalf;
+    animation-duration: 3s;
+    animation-timing-function: linear;		
+}
+
+.animateEaseOutClass{
+    animation-name: easeOut;
+    animation-duration: 4s;
+    animation-timing-function: linear;	
+}
+
+.animateEaseClassSpecial{
+    animation-name: easeIn;
+    animation-duration: 4s;
+    animation-timing-function: linear;  
+}
+
+.animateEaseOutClassSpecial{
+    animation-name: easeOut;
+    animation-duration: 4s;
+    animation-timing-function: linear;  
+}
+
+@keyframes 'easeIn'{
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes 'easeOut'{
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes 'easeInHalf'{
+  0%   { opacity: 0; }
+  100% { opacity: 0.5; }
+}
+
+@keyframes 'easeOutHalf'{
+  0%   { opacity: 0.5; }
+  100% { opacity: 0; }
+}
+
+.animateEaseClassHalfSecond{
+    animation-name: easeInHalf;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;  
+}
+
+.animateEaseOutClassHalfSecond{
+    animation-name: easeOutHalf;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;  
+}
+
+.animateEaseClassOneSecond{
+    animation-name: easeIn;
+    animation-duration: 1s;
+    animation-timing-function: linear;  
+}
+
+.animateEaseOutClassOneSecond{
+    animation-name: easeOut;
+    animation-duration: 1s;
+    animation-timing-function: linear;  
+}
+
+
+#rare_shop{
+  border-radius:8px;
+  margin-left:600px;
+  margin-top:180px;
+  width:330px;
+  height:340px;
+}
+
+.rare_shop_title{
+  horizontal-align: center;
+  margin-top:20px;
+  height:40px;
+}
+
+.rare_shop_title_text{
+  color: white;
+  font-size:26px;
+  text-align: center;
+}
+
+
+.immortal_item{
+  color: #7DFF12;
+}
+
+#rare_shop_close_button{
+  background-color: #8C1919;
+  width:140px;
+  height:40px;
+  horizontal-align: center;
+  border-bottom-left-radius:12px;
+  box-shadow: 0px 0px 0px #000000;
+  vertical-align: bottom;
+  margin-bottom:10px;
+  margin-right:10px;
+  z-index:20;
+}
+
+.rare_item_container{
+  margin-left:60px;
+  margin-top:120px;
+  width:200px;
+  border-radius:10px;
+}
+
+.rare_item_container:hover{
+  background-color: #333333;
+  opacity:0.6;
+}
+
+#big_text{
+  vertical-align: bottom;
+  margin-bottom:325px;  
+  horizontal-align:center;
+  font-size:68px;
+  text-shadow: 6px 6px 4px #000000;
+  color:white;
+}
+
+#big_text_container{
+  width:100%;
+  height:100%;
+}
+
+.special_container{
+  width:100%;
+  height:100%;
+}
+
+.ruins_console_root{
+  margin-left:500px;
+  margin-top:200px;
+}
+
+#ruins_console_bg{
+  width:86%;
+  height:90%;
+  margin-left:7%;
+  margin-right:7%;
+  margin-top:5%;
+  margin-bottom:5%;
+  background-color: #453117;
+  opacity:1;
+}
+
+#ruins_buttons_container{
+  height:100%;
+  width:100%;
+  margin-left:7%;
+  margin-right:7%;
+  margin-top:5%;
+  margin-bottom:5%;
+  flow-children:down;
+}
+#ruins_console_outer{
+  width:300px;
+  height:400px;
+  background-color: #7A5D37;
+  opacity:0.95;
+  background-color: gradient( linear, 0px 0%, 150px 0%, from( #7A5D37 ), to( #4F330F ) );
+  
+}
+
+.ruins_button_row{
+  width:100%;
+  flow-children:right;
+  height:33%;
+}
+
+.ruins_button{
+  width:33%;
+  height:100%;
+  background-color: gradient( linear, 0px 0%, 90px 0%, from( #888888 ), to( #777777 ) );
+  border: 1px solid #4F330F;
+}
+
+.ruins_button_selected{
+  background-color: red;
+}
+
+.ruins_button:hover{
+  border: 1px solid #FFFFFF;
+}
+
+#ruins_console_label_container{
+  background-color: gradient( linear, 0px 0%, 150px 0%, from( #4F330F ), to( #2E1B02 ) );
+  height:60px;
+  width:300px;
+  margin-top:400px;
+  border-top:1px solid black;
+}
+
+#ruins_room_label{
+  width:100%;
+  vertical-align: center;
+  text-align: center;
+  color:white;
+  font-size:30px;
+  text-shadow:0px 0px 1px #000000;
+}
+
+.ruins_button_button{
+  width:100%;
+  height:100%;
+}
+
+#special_event_image{
+/*  width:100%;
+  height:100%;*/
+  width:2000px;
+  height:1600px;
+  visibility:collapse;
+}
+
+/*PHOENIX*/
+
+.phoenix_nest_root{
+  margin-top:70px;
+  horizontal-align:center;
+}
+
+#phoenix_container{
+  width:100%;
+  horizontal-align:center;
+}
+
+#phoenix_health_outer{
+  horizontal-align:center;
+  height:40px;
+  background-color: red;
+  width:600px;
+  border-radius:8px;
+  border:1px solid #ACBDE3;
+  background-color: #222222;
+}
+
+#phoenix_current_health{
+  width:100%;
+  height:100%;
+  
+}
+
+.phoenix_current_health{
+  background-color: gradient( linear, 0px 0%, 600px 0%, from( #2C4685 ), to( #3C6CDE ) );
+}
+
+#phoenix_fill_image{
+  width:100%;
+  height:100%;
+}
+
+#phoenix_name_label{
+  color:white;
+  font-size:24px;
+  text-align: center;
+  width:100%;
+  margin-top:3px;
+  text-shadow:1px 1px 2px black;
+}
+
+#phoenix_wave_number{
+  horizontal-align:left;
+  height:100px;
+  width:200px;
+  margin-left:40px;
+}
+
+#phoenix_wave_label{
+  font-size:36px;
+  text-shadow:1px 1px 2px black;
+  color:white;
+}
+
+.align-right{
+  width:100%;
+}
+
+#guardian_container{
+  width:600px;
+  height:35px;
+  margin-top:44px;
+  horizontal-align:center;
+  flow-children:right;
+}
+
+.phoenix_guardian_health_outer{
+  width:146px;
+  height:100%;
+  background-color: #222222;
+  margin-right:2px;
+  margin-left:2px;
+  border-radius:6px;
+  border:1px solid #ACBDE3;
+}
+
+.phoenix_guardian_current_health{
+  width:100%;
+  height:100%;
+  background-color: gradient( linear, 0px 0%, 145px 0%, from( #C28F3C ), to( #B07619 ) );
+}
+
+.phoenix_guardian_label{
+  color:white;
+  width:100%;
+  text-align:center;
+  margin-top:7px;
+  text-shadow:1px 1px 2px black;
+  font-size:16px;
+}
+
+.regenning_health{
+  background-color: gradient( linear, 0px 0%, 145px 0%, from( #5FAFC9 ), to( #258FB3 ) );
+}
+
+.phoenix_boss_health{
+  background-color: gradient( linear, 0px 0%, 600px 0%, from( #CC0808 ), to( #CC4908 ) );
+}
+
+.phoenix_subboss_health{
+  background-color: gradient( linear, 0px 0%, 145px 0%, from( #E6CA17 ), to( #ADAD00 ) );
+}

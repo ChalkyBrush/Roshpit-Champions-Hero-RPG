@@ -1,0 +1,462 @@
+@define TotalLength: 30s;
+@define TimingFunc: linear;
+@define IterationCount: 1;
+
+.OverthrowLoadingRoot
+{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+#GameModeDescription
+{
+    font-size: 27px;
+	text-transform: uppercase;
+	color: #cccccc;
+}
+
+#GameModeHints
+{
+	margin: 10px;
+	font-size: 18px;
+	color: #8f9092;
+}
+
+#GameModeImage
+{
+	horizontal-align: center;
+	width: 200px;
+	height: 150px;
+
+	box-shadow: inset black 5px 5px 10px 10px;
+}
+
+#TitlePanel
+{
+	horizontal-align: left;
+	vertical-align: bottom;
+	margin-bottom: 150px;
+	margin-left: 100px;
+	flow-children: right;
+}
+
+#OverthrowIcon
+{
+	width: 80px;
+	height: 80px;
+	vertical-align: center;
+	margin-right: 15px;
+}
+
+#OverthrowTitle
+{
+	margin-bottom: -15px;
+	vertical-align: center;
+	text-transform: uppercase;
+	font-size: 80px;
+	color: #cccccc;
+	text-shadow: 2px 2px 2px #000000;
+}
+
+.SeqImg
+{
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: 100% 100%;
+}
+
+.SeqBg
+{
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	width:100%;
+	height:100%;
+}
+
+.SeqFg
+{
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+/*	position: 0px -500px 0px;*/
+/*	pre-transform-scale2d: 1.3;*/
+}
+
+#seq
+{
+/*    overflow: clip;
+	pre-transform-scale2d: 1.35, 1.35;*/
+	overflow: clip;
+	width:100%;
+	height:100%;
+}
+
+@keyframes 'x' {}
+
+#seq_bg
+{
+	animation-name: seq_bg_anim;
+	animation-duration: 10s;
+	animation-timing-function: TimingFunc;
+	animation-iteration-count: IterationCount;
+    margin-left: 0px;
+}
+
+@keyframes 'seq_bg_anim'
+{
+	0%
+	{
+	}
+
+	100%
+	{
+	}
+}
+
+#seq_sparks
+{
+
+	animation-name: seq_sparks_anim;
+	animation-duration: TotalLength;
+	animation-timing-function: TimingFunc;
+	animation-iteration-count: IterationCount;
+	opacity:0.4;
+}
+
+@keyframes 'seq_sparks_anim'
+{
+	0%
+	{
+		transform: translateX( 0px ) translateY( 1000px );
+	}
+
+	100%
+	{
+	}
+}
+
+#seq_sparks2
+{
+
+	animation-name: seq_sparks_anim;
+	animation-duration: TotalLength;
+	animation-timing-function: TimingFunc;
+	animation-iteration-count: IterationCount;
+	opacity:0.4;
+}
+
+@keyframes 'seq_sparks2_anim'
+{
+	0%
+	{
+		transform: translateX( 0px ) translateY( 1000px );
+	}
+
+	100%
+	{
+	}
+}
+
+#seq_neverlord
+{
+	margin-left: 435px;
+	margin-top: -100px;
+	animation-name: seq_neverlord_anim;
+	animation-duration: TotalLength;
+	animation-timing-function: TimingFunc;
+	animation-iteration-count: IterationCount;
+}
+
+@keyframes 'seq_neverlord_anim'
+{
+	0%
+	{
+		transform: translateX( 200px ) translateY( -20px );
+		pre-transform-scale2d: 1.2;
+	}
+
+	100%
+	{
+	}
+}
+
+#seq_sorceress
+{
+	margin-left: 160px;
+	margin-top:400px;
+	animation-name: seq_sorceress_anim;
+	animation-duration: TotalLength;
+	animation-timing-function: TimingFunc;
+	animation-iteration-count: IterationCount;
+	pre-transform-scale2d: 0.90;
+
+}
+
+@keyframes 'seq_sorceress_anim'
+{
+	0%
+	{
+		transform: translateX( -460px ) translateY( -20px );
+	}
+
+	100%
+	{
+	}
+}
+
+#seq_seinaru
+{
+	margin-left: -100px;
+	margin-bottom: -80px;
+	animation-name: seq_seinaru_anim;
+	animation-duration: TotalLength;
+	animation-timing-function: TimingFunc;
+	animation-iteration-count: IterationCount;
+	vertical-align: bottom;
+	pre-transform-scale2d: 1.05;
+}
+
+@keyframes 'seq_seinaru_anim'
+{
+	0%
+	{
+		transform: translateX( -400px ) translateY( 50px );
+	}
+
+	100%
+	{
+	}
+}
+
+#seq_general
+{
+	margin-left: 560px;
+	margin-bottom: -400px;
+	animation-name: seq_general_anim;
+	animation-duration: TotalLength;
+	animation-timing-function: TimingFunc;
+	animation-iteration-count: IterationCount;
+	vertical-align: bottom;
+	pre-transform-scale2d: 1.05;
+}
+
+@keyframes 'seq_general_anim'
+{
+	0%
+	{
+		transform: translateX( 240px ) translateY( 80px );
+	}
+
+	100%
+	{
+	}
+}
+
+#seq_astral
+{
+	horizontal-align:right;
+	margin-bottom: -160px;
+	animation-name: seq_astral_anim;
+	animation-duration: TotalLength;
+	animation-timing-function: TimingFunc;
+	animation-iteration-count: IterationCount;
+	vertical-align: bottom;
+	margin-right:200px;
+	pre-transform-scale2d: 1.05;
+}
+
+@keyframes 'seq_astral_anim'
+{
+	0%
+	{
+		transform: translateX( 400px ) translateY( 50px );
+	}
+
+	100%
+	{
+	}
+}
+
+#seq_logo
+{
+	margin-left: -140px;
+	margin-top: -140px;
+	animation-name: seq_logo_anim;
+	animation-duration: TotalLength;
+	animation-timing-function: TimingFunc;
+	animation-iteration-count: IterationCount;
+	pre-transform-scale2d: 0.7;
+}
+
+@keyframes 'seq_logo_anim'
+{
+	0%
+	{
+		transform: translateX( 0px ) translateY( 80px );
+	}
+
+	100%
+	{
+	}
+}
+
+
+#difficulty_tip{
+	min-height:125px;
+	width:50%;
+	background-color: #121212;
+	border-radius:8px;
+	margin-bottom:12%;
+	margin-left:10px;
+	
+	padding:8px;
+	vertical-align:bottom;
+	border:1px solid yellow;
+}
+
+#tip_contents{
+	flow-children:down;
+	width:100%;
+	height:100%;
+}
+
+#difficulty_tip_text_title{
+	color:#50FA64;
+	font-size:22px;
+	width:100%;
+	text-align: center;
+}
+
+#difficulty_tip_text{
+	color:white;
+	font-size:20px;
+	width:100%;
+	text-align: center;
+}
+
+#tip_click_text{
+	color:#1874CD;
+	font-size:18px;
+	width:100%;
+	text-align: center;	
+	vertical-align: bottom;
+	margin-bottom:4px;
+}
+#tip_button{
+	width:100%;
+	height:100%;
+}
+
+/*DIFFICULTY VOTE*/
+
+.normal_color{
+	color:#CCCCCC;
+}
+
+.elite_color{
+	color:#2B8DE3;
+}
+
+.legend_color{
+	color:#fdb53f;
+}
+
+.difficulty_vote_button_label{
+	text-align:center;
+	text-shadow: 1px 1px 2px black;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;	
+	width:100%;
+	vertical-align: center;
+	font-size:24px;
+}
+
+#difficulty_vote_container{
+	width:640px;
+	margin-left:60px;
+	height:170px;
+	margin-top:440px;
+}
+
+#difficulty_vote_contents{
+	width:100%;
+	height:100%;
+	flow-children:down;
+}
+
+#difficulty_vote_bg{
+	background-color: #111111;
+	width:100%;
+	height:100%;
+	opacity:0.8;
+	border-radius:12px;
+}
+
+#difficulty_contents_container{
+	width:100%;
+	height:100%;
+	flow-children:right;
+	
+}
+
+#difficulty_select_label{
+	color:#FFEB3B;
+	text-shadow: 1px 1px 2px black;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;	
+	font-size:32px;
+	width:100%;
+	text-align:center;
+
+}
+
+#difficulty_select_tip_label{
+	color:#DDDDDD;
+	text-shadow: 1px 1px 2px black;
+	font-family: TH Sarabun New, Radiance, FZLanTingHei-R-GBK, Gulim,MingLiU;	
+	font-size:18px;
+	margin-bottom:10px;
+	width:100%;
+	text-align:center;	
+	margin-bottom:10px;
+}
+
+.difficulty_vote_button_container{
+	width:30%;
+	height:100%;
+	margin-left:1.5%;
+	margin-right:1.5%;
+	flow-children:down;
+	horizontal-align:center;
+}
+
+.active_vote_button{
+	box-shadow: 0px 0px 4px #DDDDDD;
+}
+
+.difficulty_vote_button{
+	width:100%;
+	height:50%;
+	border-radius:6px;
+	border: 1px solid #666666;
+	background-color: #333333;
+}
+
+.difficulty_vote_button:hover{
+	background-color: #444444;
+	border: 1px solid yellow;
+}
+
+.difficulty_button_additional_info{
+	color:#DDDDDD;
+	text-shadow: 1px 1px 2px black;
+	font-family: TH Sarabun New, Radiance, FZLanTingHei-R-GBK, Gulim,MingLiU;	
+	font-size:20px;
+	font-weight:bold;
+	margin-bottom:20px;
+	width:100%;
+	text-align:center;	
+	height:25%;
+}
+
+.invisible{
+	visibility: collapse;
+}

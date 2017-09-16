@@ -1,0 +1,131 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/resources/blacksmith.css" />
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/heroes_custom/heroes_custom.js" />
+		<include src="file://{resources}/scripts/custom_game/resources/blacksmith.js" />
+	</scripts>
+	<snippets>
+		<snippet name="item_detail_blacksmith">
+			<Panel class="item_detail_blacksmith_root" hittest="false">
+					<DOTAItemImage hittest="true" id="item_image"/>
+						<Label id="item_name" text="item_name" html="true">
+						</Label>	
+					<Panel id="item_properties_container">
+					</Panel>		
+					<Panel id="min_level_container">
+						<Label id="min_level_label" text="item_name" html="true"></Label>
+						<Label id="min_level_label_value" text="item_name" html="true"></Label>
+					</Panel>	
+					<Panel id="forge_price_container">
+						<Label id="forge_price_label" text="item_name" html="true"></Label>
+						<Panel id="forge_price_box_container" hittest="false">
+							<Image id="forge_price_image" src="file://{images}/custom_game/ui/mithril_shard.png" />
+							<Label id="forge_price_label_value" text="" html="true"></Label>
+						</Panel>
+					</Panel>				
+			</Panel>
+		</snippet>
+		<snippet name="blacksmith_item_row">
+			<Panel class="blacksmith_attribute_row" hittest="true">
+				<Image id="property-lock-image" class="invisible" src="file://{images}/custom_game/ui/trade-lock.png"/>
+				<Label id="property_name" text="item_name" html="true">
+				</Label>	
+				<Label id="property_value" text="0" html="true">
+				</Label>	
+				<Button id="property_row_button" hittest="true">
+				</Button>								
+			</Panel>
+		</snippet>
+	</snippets>
+	<Panel class="blacksmith_root" hittest="false">
+		<Panel id="blacksmith_main_container" hittest="false">
+			<Panel id="blacksmith_container" hittest="false">
+				<Panel id="header_image_container">
+					<Image id="header_image" src="file://{images}/custom_game/ui/blacksmith_header.jpg"/>
+					<Label id="header_text" text="glyph_header" html="true"></Label>
+				</Panel>
+				<Label id="glyph_loading_label" class="menu_button_text">
+				</Label>
+				<Panel id="blacksmith_content">
+					<Panel id="resources-box">
+						<Panel id="resources-box-bg">
+						</Panel>
+						<Panel id="resources-box-rows">
+							<Panel class="resources-box-row" id="resources-box-row">
+								<Label id="current_crystals_label" text="tooltip_daily_income:"></Label>
+								<Panel id="crystal-image-container">
+									<Image id="current_arcane_crystals_image" src="file://{images}/custom_game/ui/mithril_shard.png" />
+									<Label id="current_crystals_label_value" text="-"></Label>
+								</Panel>
+							</Panel>
+							<Panel class="resources-box-row-bottom" id="upgrade-tiers-box">
+								<Panel id="upgrade-cost-container">
+									<Label id="income_crystals_label_value" text="0"></Label>
+									<Image id="income_arcane_crystals_image" src="file://{images}/custom_game/ui/mithril_shard.png" />
+								</Panel>
+								<Button id="upgrade-resource-button" hittest="true"
+									onactivate='CollectMithrilIncome()'
+									onmouseover="IncomeTooltip()"
+									onmouseout="HideIncomeTooltip()">
+									<Label id="upgrade-resource-button-label" class="menu_button_text" text="tooltip_collect_income">
+									</Label>			
+								</Button>
+							</Panel>
+						</Panel>
+					</Panel>
+
+					<Panel id="chisel_button_container">
+						<Button id="chisel_button" hittest="true"
+							onactivate='ChiselButtonActivate()'
+							onmouseover="ChiselTooltip()"
+							onmouseout="HideChiselTooltip()">
+							<Label id="chisel_button_label" class="menu_button_text" text="chisel_button">
+							</Label>			
+						</Button>						
+					</Panel>
+
+					<Panel id="reroll_button_container">
+						<Button id="reroll_button" hittest="true"
+							onactivate='RerollButtonActivate()'
+							onmouseover="RerollTooltip()"
+							onmouseout="HideRerollTooltip()">
+							<Label id="reroll_button_label" class="menu_button_text" text="reroll_button">
+							</Label>			
+						</Button>						
+					</Panel>
+
+					<Panel id="item-display-box" hittest="true">
+						<Panel id="item-display-box-bg" hittest="true">
+						</Panel>
+						<Panel id="item-display-content" hittest="true">
+						</Panel>
+					</Panel>
+
+					<Panel id="final_forge_button_container" class="invisible">
+						<Button id="final_forge_button" class="forge_button_color_main" hittest="true"
+							onactivate='FinalForgeActivate()'>
+							<Label id="final_forge_button_label" class="menu_button_text" text="reroll_button">
+							</Label>
+							<Panel id="forge_price_box_container_main" hittest="false">
+								
+								<Label id="forge_price_label_value_main" text="" html="true"></Label>
+								<Image id="forge_price_image_main" class="invisible" src="file://{images}/custom_game/ui/mithril_shard.png" />
+							</Panel>			
+						</Button>						
+					</Panel>
+				</Panel>
+				<Button class="main_menu_button" id="close_blacksmith_shop" hittest="true"
+					onactivate='CloseBlacksmith()'>
+	<!-- 				<Image class="menu_buttom_image" src="file://{images}/custom_game/ui/book.png" /> -->
+					<Label id="close_button_label" class="menu_button_text" text="Close">
+					</Label>			
+				</Button>
+			</Panel>
+		</Panel>
+	</Panel>
+
+
+</root>

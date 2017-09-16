@@ -1,0 +1,16 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/top_left.js" />
+	</scripts>
+	<Panel class="top_left_root" hittest="false">
+		<Panel id="timer_container" class="invisible" hittest="false">
+			<Label id="timer_title" text="CHALLENGE" hittest="false"></Label>
+			<Label id="timer_value" text="0:00" hittest="false"></Label>
+		</Panel>	
+	</Panel>
+
+</root>

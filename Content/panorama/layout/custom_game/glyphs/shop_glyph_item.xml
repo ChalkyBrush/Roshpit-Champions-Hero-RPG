@@ -1,0 +1,28 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/resources/glyphs.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/heroes_custom/heroes_custom.js" />
+		<include src="file://{resources}/scripts/custom_game/glyphs/glyphs_custom2.js" />
+		<include src="file://{resources}/scripts/custom_game/glyphs/shop_glyph_item.js" />
+	</scripts>
+	<Panel class="shop_glyph_button" hittest="false">
+		<Panel id="glyph_total_container">
+		<Button class="glyph_purchase" hittest="true"
+			onactivate='PurchaseGlyph()'
+			onmouseover="GlyphTooltip()"
+			onmouseout="HideGlyphTooltip()">		
+			<Image id="glyph-image"/>
+			</Button>
+
+			<Panel id="shop-price-container">
+				<Label id="glyph_purchase_price_value" text="0"></Label>
+				<Image id="glyph_purchase_crystal_image" src="file://{images}/custom_game/ui/arcane_crystal.png" />
+			</Panel>
+		</Panel>
+
+	</Panel>
+
+
+</root>

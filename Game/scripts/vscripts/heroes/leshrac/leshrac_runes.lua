@@ -1,0 +1,216 @@
+function rune_think(event)
+	local caster = event.caster
+	rune_a_b(caster)
+	rune_b_a(caster)
+end
+
+function rune_a_b(caster)
+  local runeUnit = caster.runeUnit
+  local runeAbility = runeUnit:FindAbilityByName("bahamut_rune_a_b")
+  local abilityLevel = runeAbility:GetLevel()
+  local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_b")
+  local totalLevel = abilityLevel + bonusLevel
+  if totalLevel > 0 then
+  	runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_bahamut_a_b_buff", {})
+  	caster:SetModifierStackCount( "modifier_bahamut_a_b_buff", runeAbility, totalLevel )
+  else
+  	caster:RemoveModifierByName("modifier_bahamut_a_b_buff")
+  end
+end
+
+function rune_b_a(caster)
+  local runeUnit = caster.runeUnit2
+  local runeAbility = runeUnit:FindAbilityByName("bahamut_rune_b_a")
+  local abilityLevel = runeAbility:GetLevel()
+  local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_a")
+  local totalLevel = abilityLevel + bonusLevel
+  if totalLevel > 0 then
+  	runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_bahamut_b_a_buff", {})
+  	caster:SetModifierStackCount( "modifier_bahamut_b_a_buff", runeAbility, totalLevel )
+  else
+  	caster:RemoveModifierByName("modifier_bahamut_b_a_buff")
+  end
+end
+
+function WallAllyBuff(event)
+	local caster = event.caster
+	local target = event.target
+	local ability = event.ability
+	print("WALL ALLY BUFF")
+	local a_a_level = ability.a_a_level
+	local a_d_level = ability.a_d_level
+	local b_d_level = ability.b_d_level
+	if caster:GetEntityIndex() == target:GetEntityIndex() then
+		if a_a_level then
+			if a_a_level > 0 then
+				local maxBound = WallPhysics:round(ability.wallLength/2.5, 0)
+				local attachPoint = ability.wallCenter+ability.ninetyDegrees*RandomInt(-maxBound, maxBound)
+				EmitSoundOnLocationWithCaster(attachPoint, "Hero_VengefulSpirit.ProjectileImpact", caster)
+				CreateLightningBeam(attachPoint+Vector(0,0,100), caster:GetAbsOrigin()+Vector(0,0,80))
+				caster:GiveMana(a_a_level)
+				PopupMana(caster, a_a_level)
+			end
+		end
+		if a_d_level then
+			print("AD LEVEL")
+			print(caster:HasModifier("modifier_charge_of_light_hyper_state_cooldown"))
+			print(hasChargingOrSlide(caster))
+			if a_d_level > 0 and hasChargingOrSlide(caster, event.guarantee) then
+				print("GOT IN CONDITION!")
+				local hyperStateDuration = Filters:GetAdjustedBuffDuration(caster, 12, false)
+				ability:ApplyDataDrivenModifier(caster, caster, "modifier_charge_of_light_hyper_state", {duration = hyperStateDuration})
+				caster:SetModifierStackCount( "modifier_charge_of_light_hyper_state", ability, a_d_level )
+				EmitSoundOn("DOTA_Item.AbyssalBlade.Activate", caster)
+			end
+		end
+		if b_d_level then
+			if b_d_level > 0 and hasChargingOrSlide(caster, event.guarantee) then
+				local point = caster:GetAbsOrigin()
+				local radius = 1100
+				local chargeAbility = caster:FindAbilityByName("charge_of_light")
+				local damage = chargeAbility:GetSpecialValueFor("damage")*(1+b_d_level*0.15)
+				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+				if #enemies > 0 then	
+					for _,enemy in pairs(enemies) do
+						Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, caster, "modifier_backstab_jumping", {duration = 0.2})
+						Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+						caster:RemoveModifierByName("modifier_backstab_jumping")
+						Filters:ApplyStun(caster, 1, enemy)
+						local particleName = "particles/units/heroes/hero_leshrac/bahamut_nova.vpcf"
+						local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, enemy )
+						ParticleManager:SetParticleControlEnt(pfx, 0, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
+						Timers:CreateTimer(0.9, function() 
+						  ParticleManager:DestroyParticle( pfx, false )
+						end) 	
+					end				
+				end 
+				EmitSoundOnLocationWithCaster(point+Vector(2,2,2), "Hero_Gyrocopter.HomingMissile.Destroy", caster)
+				local particleName = "particles/items_fx/leshrac_blink.vpcf"
+				local pfx2 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
+				ParticleManager:SetParticleControlEnt(pfx2, 0, caster, PATTACH_OVERHEAD_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+				Timers:CreateTimer(0.9, function() 
+				  ParticleManager:DestroyParticle( pfx2, false )
+				end) 
+			end
+		end
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_charge_of_light_hyper_state_cooldown", {duration = 0.35})
+
+	end
+end
+
+function hasChargingOrSlide(caster, guarantee)
+	if guarantee then
+		return true
+	end
+	if caster:HasModifier("modifier_light_charging") or caster:HasModifier("modifier_charge_of_light_sliding") then
+		if not caster:HasModifier("modifier_charge_of_light_hyper_state_cooldown") then
+	 		return true
+	 	end
+	else
+	 return false
+	end
+end
+
+
+
+function CreateLightningBeam(attachPointA, attachPointB)
+      local particleName = "particles/items_fx/leshrac_wall_beam.vpcf"
+      local lightningBolt = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster) 
+      ParticleManager:SetParticleControl(lightningBolt,0,Vector(attachPointA.x,attachPointA.y,attachPointA.z))   
+      ParticleManager:SetParticleControl(lightningBolt,1,Vector(attachPointB.x,attachPointB.y,attachPointB.z))
+      Timers:CreateTimer(2, function()
+        ParticleManager:DestroyParticle(lightningBolt, false)
+      end)
+end
+
+function leshrac_attack_start(event)
+	local target = event.target
+	local caster = event.attacker
+	local ability = event.ability
+	local radius = 700
+	if ability.b_b_level and not target:IsNull() then
+		if ability.b_b_level > 0 and target:HasModifier("modifier_leshrac_nuke_judged") then
+			local targetPoint = target:GetAbsOrigin()
+			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), targetPoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+			if #enemies > 0 then
+				for _,enemy in pairs(enemies) do
+					if enemy:HasModifier("modifier_leshrac_nuke_judged") then
+						if not (enemy:GetEntityIndex() == target:GetEntityIndex()) then
+							local info = 
+							{
+								Target = enemy,
+								Source = caster,
+								Ability = ability,	
+								EffectName = "particles/roshpit/bahamut/split_attack_particle.vpcf",
+								StartPosition = "attach_attack1",
+								bDrawsOnMinimap = false, 
+							        bDodgeable = true,
+							        bIsAttack = true, 
+							        bVisibleToEnemies = true,
+							        bReplaceExisting = false,
+							        flExpireTime = GameRules:GetGameTime() + 5,
+								bProvidesVision = false,
+								iVisionRadius = 0,
+								iMoveSpeed = 600,
+							}
+							projectile = ProjectileManager:CreateTrackingProjectile(info)
+						end
+					end
+				end
+			end 
+		end
+	end
+end
+
+function leshrac_attack_land(event)
+	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+	local damage = ability.b_b_level*caster:GetAverageTrueAttackDamage(caster)*0.05
+	if caster:HasModifier("modifier_bahamut_immortal_weapon_1") then
+		local luck = RandomInt(1,5)
+		if luck == 1 then
+			local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_invoker/invoker_death_end.vpcf", PATTACH_CUSTOMORIGIN, target )
+			ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+			ParticleManager:SetParticleControl(pfx, 1, Vector(255,255,255))
+			Timers:CreateTimer(2.5, function() 
+			  ParticleManager:DestroyParticle( pfx, false )
+			end) 	
+			Filters:TakeArgumentsAndApplyDamage(target, caster, damage*4, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+		end
+	end
+	
+	Filters:ApplyDamageBasic(target,caster,damage,DAMAGE_TYPE_PHYSICAL)
+	-- ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL })
+end
+
+function rune_unit_4_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = caster.hero
+	local totalLevel = Runes:GetTotalRuneLevel(hero, 4, "d_a", "bahamut")
+	if totalLevel > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_bahamut_rune_d_a", {})
+		hero:SetModifierStackCount( "modifier_bahamut_rune_d_a", ability, totalLevel )
+	end
+end
+
+function d_d_shell_think(event)
+	local caster = event.caster
+	local target = event.target
+	local ability = event.ability
+	local d_d_level = ability.d_d_level
+	local d_d_duration = Filters:GetAdjustedBuffDuration(caster, 9, false)
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_bahamut_rune_d_d_buff_visible", {duration = d_d_duration})
+	local current_stack = target:GetModifierStackCount( "modifier_bahamut_rune_d_d_buff_visible", ability )
+	local newStack = current_stack + 1
+	target:SetModifierStackCount( "modifier_bahamut_rune_d_d_buff_visible", ability, newStack )   
+
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_bahamut_rune_d_d_buff_invisible", {duration = d_d_duration})
+	target:SetModifierStackCount( "modifier_bahamut_rune_d_d_buff_invisible", ability, newStack*d_d_level )   	
+	if target:HasModifier("modifier_charge_of_light_hyper_state") then
+		local wallAbility = target:FindAbilityByName("leshrac_wall")
+		local hyperStateDuration = Filters:GetAdjustedBuffDuration(caster, 12, false)
+		wallAbility:ApplyDataDrivenModifier(target, target, "modifier_charge_of_light_hyper_state", {duration = hyperStateDuration})
+	end
+end

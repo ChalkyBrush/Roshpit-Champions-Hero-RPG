@@ -1,0 +1,172 @@
+.resources_root{
+	vertical-align:bottom;
+}
+
+#extra_resource_gain{
+	width:140px;
+	height:50px;
+	box-shadow:0px 0px 3px black;
+	margin-left:290px;
+	margin-bottom:0px;
+	border-top-left-radius:6px;
+	border-top-right-radius:6px;
+}
+
+#extra_resource_gain:hover{
+	background-color: gradient( linear, 0px 0%, 140px 0%, from( #DEF227 ), to( #D9B71E) );
+}
+
+#resource_gain_container{
+	flow-children:right;
+	margin-top:8px;
+	width:100%;
+}
+
+#resource_gain_label{
+  color:#BBBBBB;
+  font-size:36px;
+  vertical-align: center;
+  text-shadow: 1px 1px 2px 3 #00000066;
+  font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+  width:150px;
+  margin-bottom:2px;
+}
+
+#resource_gain_bg{
+	background-color: gradient( linear, 0px 0%, 140px 0%, from( #343434 ), to( #111111 ) );
+	width:100%;
+	height:100%;
+	opacity:0.9;
+}
+
+#resource_gain_icon{
+	horizontal-align:left;
+	margin-left:14px;
+	margin-top:2px;
+}
+
+@keyframes 'fallFromNewPosition'{
+  0%   { position: 0px 0px 0px; opacity: 1;}
+  100% { position: 0px -70px 0px; opacity: 0.1;}
+}
+
+@keyframes 'riseFromNeutral'{
+  0%   { position: 0px 70px 0px; opacity: 0.1;}
+  100% { position: 0px 0px 0px; opacity: 1;}
+}
+
+
+.resourceIn{
+    animation-name: riseFromNeutral;
+    animation-duration: .7s;
+    animation-timing-function: linear;	
+}
+
+.resourceOut{
+    animation-name: fallFromNewPosition;
+    animation-duration: .7s;
+    animation-timing-function: linear;	
+}
+
+#resources_display_bg{
+	width:100%;
+	height:100%;
+	background-color: black;
+	opacity:0.8;
+}
+
+.resources_display_root{
+	width:280px;
+	height:75px;
+	margin-top:45px;
+	border-bottom-right-radius:6px;
+	box-shadow: 0px 0px 2px black;
+}
+
+#resources_display_parent{
+	flow-children:down;
+	height:100%;
+	width:100%;
+}
+
+#resources_title_panel{
+	background-color: gradient( linear, 0px 0%, 260px 0%, from( #1764A6 ), to( #4C7EA8 ) );
+	width:100%;
+	height:25px;
+}
+
+#resources_title_label{
+	color:white;
+	text-align:center;
+	width:100%;
+	color:white;
+	font-size:16px;
+	vertical-align: center;
+	margin-top:2px;
+
+	text-shadow: 1px 1px 2px 3 #00000066;
+	text-transform:uppercase;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+}
+
+#arcane_crystals_container{
+	flow-children:right;
+	width:100%;
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:2px;
+}
+
+#arcane_crystals_value_container{
+	horizontal-align:right;
+	flow-children:right;
+}
+
+#arcane_crystals_title_label{
+	color:white;
+	font-size:16px;
+	vertical-align: center;
+	margin-top:2px;
+
+	text-shadow: 1px 1px 2px 3 #00000066;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+}
+#arcane_crystal_image_resources{
+	width:20px;
+	height:20px;
+}
+
+#arcane_crystals_value{
+	color:#C363D4;
+}
+
+#mithril_shards_container{
+	flow-children:right;
+	width:100%;
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:2px;
+}
+
+#mithril_shards_value_container{
+	horizontal-align:right;
+	flow-children:right;
+}
+
+#mithril_shards_title_label{
+	color:white;
+	font-size:16px;
+	vertical-align: center;
+	margin-top:2px;
+
+	text-shadow: 1px 1px 2px 3 #00000066;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+}
+#mithril_shards_image_resources{
+	width:20px;
+	height:20px;
+}
+
+#mithril_shards_value{
+	color:#57B3FF;
+}

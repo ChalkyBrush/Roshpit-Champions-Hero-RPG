@@ -1,0 +1,443 @@
+.crusader_root{
+	horizontal-align:left;
+	vertical-align: top;
+	margin-top:60px;
+	height:770px;
+	width:100%;
+	visibility: collapse;
+}
+
+#crusader_container{
+	width:380px;
+	height:100%;
+	horizontal-align:center;
+	background-color: gradient( linear, 0px 0%, 400px 0%, from( #313131 ), to( #000000 ) );
+	border-radius:8px;
+	box-shadow: 0px 0px 2px #000000;
+	flow-children:down;
+}
+
+.invisible{
+	visibility: collapse;
+}
+
+#header_image_container{
+	height:120px;
+
+}
+
+#header_image{
+	border-bottom: 2px solid #222222;
+}
+
+#header_text{
+	vertical-align: bottom;
+	horizontal-align:left;
+	font-size:32px;
+	color:white;
+	margin-left:10px;
+	text-shadow:0px 0px 2px #000000;
+}
+
+#close_crusader{
+	vertical-align: bottom;
+}
+
+.oracle_content_label{
+	width:100%;
+	text-align: center;
+	color: white;
+	font-size:24px;
+	margin-top:50px;
+}
+
+#quest_main_tooltip_container{
+	width:100%;
+}
+
+.save_root{
+	width:100%;
+	height:100%;
+	flow-children:down;
+}
+
+#crusader_content{
+	width:100%;
+	height:260px;
+}
+
+#crusader_loading_label{
+	width:100%;
+	text-align: center;
+	text-shadow: 1px 1px 1px;
+	font-size:24px;
+	color:#3D84FF;
+	height:25px;
+}
+
+#quest_main_tooltip{
+	width:100%;
+	text-align: center;
+	color:white;
+	text-shadow:1px 1px 1px black;
+	font-size:16px;
+	margin-top:5px;
+}
+
+#quest_content{
+	height:100%;
+	width:100%;
+}
+
+#quest_items_container{
+	horizontal-align:center;
+	width:80%;
+	height:210px;
+	background-color: #111111;
+	margin-top:10px;
+	border-radius:8px;
+	box-shadow: 0px 0px 2px #444444;
+	flow-children:down;
+	border:2px solid black;
+}
+
+#quest_no_quest{
+	width:100%;
+	text-align: center;
+	color: white;
+	text-shadow: 1px 1px 1px black;
+	margin-top:50px;
+	color:yellow;
+}
+
+#quest_capacity{
+	vertical-align: bottom;
+	horizontal-align:right;
+	margin-bottom:15px;
+	margin-right:35px;
+	color:white;
+	font-size:14px;
+}
+
+.quest_item{
+	width:100%;
+	height:69px;
+	background-color: #333333;
+	flow-children:down;
+}
+
+.quest_item:hover{
+	background-color: #555555;
+}
+
+.quest_item_complete{
+	background-color: #314232;
+}
+
+.first_quest_item{
+	border-top-left-radius:8px;
+	border-top-right-radius:8px;
+}
+
+.middle_quest_item{
+	border-top:1px solid black;
+}
+
+.last_quest_item{
+	border-bottom-left-radius:8px;
+	border-bottom-right-radius:8px;
+	border-top:1px solid black;
+}
+
+
+
+#quest_description{
+	padding-top:5px;
+	padding-bottom:5px;
+	height:45px;
+	width:100%;
+	padding-left:5px;
+	padding-right:5px;
+	font-size:16px;
+	line-height:14px;
+}
+
+.quest_status_container{
+	width:100%;
+	height:25px;
+	flow-children:right;
+
+}
+
+#quest_status_level{
+	vertical-align: bottom;
+	font-size:14px;
+	color:white;
+}
+
+#quest_status_level_number{
+	vertical-align: bottom;
+	font-size:14px;
+	color:yellow;
+	horizontal-align:right;
+	margin-right:8px;
+}
+
+#quest_status_box{
+ width:70%;
+ flow-children:right;
+}
+
+#quest_level_box{
+ width:30%;
+}
+
+.quest_status_complete{
+	color: #5ECC65;
+}
+
+.quest_status_incomplete{
+	color: #C43B3B;
+}
+
+#quest_status_label{
+	font-size:16px;
+	margin-left:5px;
+}
+
+#quest_delete_button{
+	height:14px;
+	width:14px;
+	margin-left:8px;
+	margin-top:2px;
+}
+
+#quest_delete_button:hover{
+	background-color: #C43B3B;
+}
+
+#entire_quest_button{
+	height:100%;
+	width:100%;
+	flow-children:down;
+}
+
+#challenge_main_tooltip{
+	width:100%;
+	text-align: center;
+	text-shadow: 1px 1px 1px;
+	font-size:24px;
+	color:#3D84FF;
+	height:25px;
+}
+
+#challenge_information{
+	width:100%;
+	text-align: center;
+	color:white;
+	text-shadow:1px 1px 1px black;
+	font-size:14px;
+	margin-top:5px;
+	padding-left:10%;
+	padding-right:10%;
+}
+
+#challenge_container{
+	horizontal-align:center;
+	width:80%;
+	background-color: #111111;
+	border-radius:8px;
+	box-shadow: 0px 0px 2px #444444;
+	flow-children:down;
+	border:2px solid black;
+	margin-top:10px;
+}
+
+#challenge_content{
+	width:100%;
+	flow-children:down;
+}
+
+.challenge_root{
+	width:100%;
+	flow-children:down;
+}
+
+#challenge_detail_information{
+	padding:5px;
+	font-size:13px;
+	color:white;
+	font-weight: thin;
+}
+
+#challenge_title_box{
+	width:100%;
+}
+
+#challenge_info{
+	horizontal-align:right;
+	margin-right:10%;
+}
+
+#challenge_reward_container{
+	horizontal-align:center;
+	width:80%;
+	background-color: #111111;
+	border-radius:8px;
+	box-shadow: 0px 0px 2px #444444;
+	padding-top:5px;
+	flow-children:down;
+	border:2px solid black;
+	margin-top:10px;	
+}
+
+#challenge_reward_title{
+	width:100%;
+	text-align:center;
+	color:white;
+	font-size:16px;
+}
+
+#challenge_reward_shards_box{
+	width:100%;
+	horizontal-align:center;
+	height:36px;
+	margin-top:5px;
+	flow-children:right;
+}
+
+.individual_shards_rewards{
+	flow-children:down;
+	width:33%;
+}
+
+.shards_amounts_box{
+	flow-children:right;
+	text-align:center;
+	horizontal-align:center;
+}
+
+.mithril_shards_image{
+	height:16px;
+	width:16px;
+	horizontal-align:center;
+}
+
+.shards_reward_amount{
+	color:#57B3FF;
+	font-size:14px;
+	horizontal-align:center;
+}
+
+.normal_color{
+	color:#CCCCCC;
+}
+
+.elite_color{
+	color:#2B8DE3;
+}
+
+.legend_color{
+	color:#fdb53f;
+}
+
+.shards_difficulty{
+	width:100%;
+	text-align:center;
+}
+
+.witch_doctor_root{
+	horizontal-align:left;
+	vertical-align: top;
+	margin-top:160px;
+	height:470px;
+	width:100%;
+	visibility: collapse;
+}
+
+#witch_doctor_container{
+	width:380px;
+	height:100%;
+	horizontal-align:center;
+	background-color: gradient( linear, 0px 0%, 400px 0%, from( #313131 ), to( #000000 ) );
+	border-radius:8px;
+	box-shadow: 0px 0px 2px #000000;
+	flow-children:down;
+}
+
+#witch_doctor_tooltip{
+	margin-top:40px;
+	font-size:16px;
+	color:yellow;
+}
+
+#close_witch_doctor{
+	vertical-align:bottom;
+}
+
+.white_glow{
+	box-shadow:0px 0px 3px #E4AE33;
+}
+
+.item_highlight{
+	box-shadow:0px 0px 5px #E4AE33;
+}
+
+#witch_doctor_content{
+	flow-children:right;
+	horizontal-align:center;
+	padding-top:30px;
+}
+
+.witch_doctor_slot_root{
+
+}
+
+.green_border{
+	box-shadow:0px 0px 5px #6BBF84;
+	margin-right:10px;
+}
+
+.blue_border{
+	box-shadow:0px 0px 5px #6B8EBF;
+	margin-right:10px;
+}
+
+.red_border{
+	box-shadow:0px 0px 5px #C47878;
+}
+
+.item_highlight{
+	box-shadow:0px 0px 7px white;
+}
+
+#final_combine_button_container{
+	width:100%;
+	height:40px;
+	margin-top:10px;
+}
+
+#final_combine_button{
+	width:80%;
+	height:100%;
+	
+	border: 1px solid white;
+	horizontal-align:center;
+	border-radius:6px;
+}
+
+.combine_button_color_main{
+	background-color: gradient( linear, 0px 0%, 140px 0%, from( #934141 ), to( #8F413F ) );
+}
+
+.combine_button_color_main:hover{
+	background-color: gradient( linear, 0px 0%, 140px 0%, from( #794C4B ), to( #8F5957 ) );
+}
+
+.combine_button_deactivated{
+	background-color: #222222;
+}
+
+#final_combine_button_label{
+	vertical-align:center;
+}

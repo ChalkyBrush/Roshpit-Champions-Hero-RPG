@@ -1,0 +1,242 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/pvp/pvp.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/pvp/pvp.js" />
+	</scripts>
+	<snippets>
+		<snippet name="pvp_vote">
+			<Panel class="pvp_vote" hittest="false">
+				<Panel id="pvp_vote_background" hittest="false">
+				</Panel>
+				<Label id="pvp_title" text="rpc_tooltip_pvp_menu" hittest="false"></Label>
+				<Panel id="game_options_row_1" hittest="false">
+					<Panel id="game_type_container" hittest="false">
+						<Label id="game_type_title" class="section_type_title" text="rpc_tooltip_pvp_game_type_title"></Label>
+						<Button id="mode_selection_deathmatch" class="mode_selection_button" hittest="true">
+						  <Label text="rpc_tooltip_deathmatch" id="deathmatch_label" class="dropdown_selection"></Label>
+						</Button>
+						<Button id="mode_selection_line_war" class="mode_selection_button" hittest="true">
+						  <Label text="rpc_tooltip_linewar" id="linewar_label" class="dropdown_selection"></Label>
+						</Button>
+<!-- 						<Button id="mode_selection_deathmatch" hittest="true">
+						  <Label text="rpc_tooltip_deathmatch" id="1" class="dropdown_selection"></Label>
+						</Button> -->
+					</Panel>
+					<Panel id="game_option_2_container">
+
+					</Panel>
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="deathmatch_count">
+			<Panel class="deathmatch_root">
+				<Label text="rpc_deathmatch_kill_count_title" class="section_type_title"></Label>
+				<Panel class="pvp_options_row">
+					<Button id="deathmatch_selection_count_5" class="option2_selection_button" hittest="true">
+					  <Label text="5" class="dropdown_selection"></Label>
+					</Button>
+					<Button id="deathmatch_selection_count_10" class="option2_selection_button" hittest="true">
+					  <Label text="10" class="dropdown_selection"></Label>
+					</Button>
+					<Button id="deathmatch_selection_count_20" class="option2_selection_button" hittest="true">
+					  <Label text="20" class="dropdown_selection"></Label>
+					</Button>
+					<Button id="deathmatch_selection_count_50" class="option2_selection_button" hittest="true">
+					  <Label text="50" class="dropdown_selection"></Label>
+					</Button>
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="linewar_monster_power">
+			<Panel class="deathmatch_root">
+				<Label text="rpc_tooltip_linewar_option_1_title" class="section_type_title"></Label>
+				<Panel class="pvp_options_row">
+					<Button id="linewar_option_normal" class="option2_selection_button" hittest="true">
+					  <Label text="ui_normal" class="dropdown_selection"></Label>
+					</Button>
+					<Button id="linewar_option_elite" class="option2_selection_button" hittest="true">
+					  <Label text="ui_elite" class="dropdown_selection"></Label>
+					</Button>
+					<Button id="linewar_option_legend" class="option2_selection_button" hittest="true">
+					  <Label text="ui_legend" class="dropdown_selection"></Label>
+					</Button>
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="pvp_goal">
+			<Panel class="pvp_goal_container">
+				<Panel id="pvp_goal_bg">
+				</Panel>
+				<Panel id="pvp_goal_contents">
+					<Label id="goal-name" text="rpc_tooltip_goal">
+					</Label>
+					<Label id="goal-label">
+					</Label>
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="builder_menu">
+			<Panel class="builder_menu_container" hittest="false">
+				<Panel id="builder_menu_bg" hittest="false">
+				</Panel>
+				<Panel id="builder-contents" hittest="false">
+
+				</Panel>
+				<Button id="close_builder_button" hittest="true">
+				  <Label text="ui_close_panel" class="dropdown_selection"></Label>
+				</Button>
+				<Panel id="bottom_arrow">
+				</Panel>
+
+				<Panel id="food_info">
+					<Label id="food_info_label" class="dropdown_selection" text="pvp_max_units"></Label>
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="builder_row">
+			<Panel class="builder-row">
+				<Panel class="builder-row-arrow-right">
+				</Panel>
+				<Panel class="builder-row-bg">
+				</Panel>
+				<Panel class="builder-row-contents" id="builder-row-contents">
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="builder_item">
+			<Panel class="builder_item_container">
+				<Button id="builder-item-button">
+					<Image id="builder-item-image"/>
+				</Button>
+				<Panel id="builder_item_gold_cost" hittest="false">
+					<Label text="0" id="builder_item_gold_cost_label" hittest="false"></Label>
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="primary_build_menu">
+			<Panel class="primary_build_menu">
+				<Button id="primary_build_button" class="builder_button" hittest="true">
+				  <Label text="DOTA_Tooltip_ability_pvp_tanari_builder_open_menu" class="dropdown_selection"></Label>
+				</Button>
+				<Button id="primary_build_button_2" class="builder_button" hittest="true">
+				  <Label text="DOTA_Tooltip_ability_pvp_redfall_builder_open_menu" class="dropdown_selection"></Label>
+				</Button>
+			</Panel>
+		</snippet>
+		<snippet name="target_dummy">
+			<Panel class="target_dummy_container" hittest="false">
+				<Panel id="target_dummy_bg" hittest="false"/>
+				<Panel id="target_dummy_contents" hittest="false"> 
+					<Label text="arena_training_dummy" class="dummy_title"></Label>
+					<Panel id="target_dummy_center_box">
+						<Panel id="dps_box">
+							<Panel id="dps_box_bg">
+							</Panel>
+							<Panel id="dps_box_text_container">
+								<Label id="dps_text" html="true"/>
+							</Panel>
+							<Label id="capacity_text" html="true"/>
+						</Panel>
+						<Panel id="dps_info_box">
+							<Label id="dps-title" html="true" class="dummy_info_text" text="arena_log_dps"/>
+							<Label id="dps-value" text="--" class="dummy_info_text"/>
+							<Label id="dps-timer-2" class="dummy_info_text invisible"/>
+
+							<Label id="armor-input-title" html="true" class="dummy_info_text2" text="arena_armor_title"/>
+							<TextEntry id="armor-input" maxchars="7"/>
+
+							<Button id="target-dummy-button-update-dummy-stats" class="dummy_option_button2" hittest="true">
+							  <Label text="arena_update_dummy" class="dummy_option_text"></Label>
+							</Button>
+						</Panel>
+					</Panel>
+					<Panel id="target-dummy-button-box">
+						<Button id="target-dummy-button-clear" class="dummy_option_button" hittest="true">
+						  <Label text="arena_training_button_1" class="dummy_option_text"></Label>
+						</Button>
+						<Button id="target-dummy-button-timer" class="dummy_option_button" hittest="true">
+						  <Label text="arena_training_button_2" class="dummy_option_text" id="timer_button_label"></Label>
+						</Button>
+						<Button id="target-dummy-button-exit" class="dummy_option_button" hittest="true">
+						  <Label text="arena_training_button_3" class="dummy_option_text"></Label>
+						</Button>
+					</Panel>
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="serengaard_wave_status">
+			<Panel class="serengaard_wave_container" hittest="false">
+				<Label text="wave_starting_timer" class="serengaard_wave_label" id="serengaard_wave_label"></Label>
+				<Label text="enemies_slain" class="serengaard_wave_label" id="serengaard_enemies_label"></Label>
+				<Panel id="wave_box_outside">
+					<Panel id="wave_box_inner_bg">
+					</Panel>
+					<Panel id="wave_box_contents" class="wave_box_inner_base">
+					</Panel>
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="serengaard_wave_spawning">
+			<Panel class="serengaard_wave_spawning_message">
+				<Panel class="wave_spawning_bg">
+				</Panel>
+				<Label text="enemies_slain" class="serengaard_wave_label" id="serengaard_wave_spawn_label"></Label>
+			</Panel>
+		</snippet>
+		<snippet name="serengaard_leaderboard">
+			<Panel class="serengaard_leaderboard_container" hittest="false">
+				<Panel id="serengaard_leaderboard_bg">
+				</Panel>
+				<Panel id="serengaard_contents" hittest="false">
+					<Label id="serengaard_board_title" text="serengaard_leaderboard_title" hittest="false"/>
+					<Panel id="serengaard_leader_buttons_container" hittest="false">
+						<Button class="serengaard_leader_button" id="serengaard_leader_button_1" hittest="true">
+							<Label class="serengaard_leader_category_text" text="serengaard_leaderboard_7days" hittest="false"/>
+						</Button>
+						<Button class="serengaard_leader_button" id="serengaard_leader_button_2" hittest="true">
+							<Label class="serengaard_leader_category_text" text="serengaard_leaderboard_month" hittest="false"/>
+						</Button>
+						<Button class="serengaard_leader_button" id="serengaard_leader_button_3" hittest="true">
+							<Label class="serengaard_leader_category_text" text="serengaard_leaderboard_all_time" hittest="false"/>
+						</Button>
+					</Panel>
+					<Panel id="serengaard_leaders_contents">
+					</Panel>
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="serengaard_record">
+			<Panel class="serengaard_record_container">
+				<Label class="rank_text" id="rank_text" text="1"/>
+				<Panel id="serengaard_individual_hero_container">
+				</Panel>
+				<Label class="wave_text" id="wave_text" text="Wave: 24" html="true"/>
+			</Panel>
+		</snippet>
+		<snippet name="serengaard_hero">
+			<Panel class="serengaard_hero_container">
+				<DOTAAvatarImage id="player_avatar"></DOTAAvatarImage>
+				<Panel id="hero_other_data_container">
+					<DOTAHeroImage class="hero_portrait" id="hero_portrait" heroid="5" />
+					<Label class="dota_player_name" id="dota_player_name" text="playername"/>
+				</Panel>
+			</Panel>
+		</snippet>
+	</snippets>
+	<Panel class="pvp_content" hittest="false">
+<!-- 		<Panel id="pvp_content_background" hittest="false">
+		</Panel> -->
+		<Panel id="pvp_container" hittest="false">
+
+		</Panel>
+		<Panel id="pvp_container_no_margin" hittest="false">
+
+		</Panel>
+		<Panel id="pvp_builder_meta_container" hittest="false">
+
+		</Panel>
+
+	</Panel>
+</root>

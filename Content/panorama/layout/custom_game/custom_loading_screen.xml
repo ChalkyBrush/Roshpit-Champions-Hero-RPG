@@ -1,0 +1,64 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/custom_loading_screen.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/loading_screen/loading_screen.js" />
+	</scripts>
+	<Panel class="OverthrowLoadingRoot">
+		<Panel id="seq" >
+<!-- 			<Image id="seq_bg" class="SeqBg" src="file://{images}/custom_game/loading_screen/rpc-game-screenv3-0.jpg" /> -->
+			<Image id="seq_bg" class="SeqBg" />
+<!-- 			<Image id="seq_sparks" class="SeqFg" src="file://{images}/custom_game/loading_screen/sparks_layer_1.png" />
+			<Image id="seq_neverlord" class="SeqImg" src="file://{images}/custom_game/loading_screen/neverlord.png" />
+			
+			<Image id="seq_seinaru" class="SeqImg" src="file://{images}/custom_game/loading_screen/seinaru.png" />
+			<Image id="seq_sorceress" class="SeqImg" src="file://{images}/custom_game/loading_screen/epoch_guardian_attack2.png" />
+			<Image id="seq_astral" class="SeqImg" src="file://{images}/custom_game/loading_screen/astral_ranger.png" />
+			<Image id="seq_general" class="SeqImg" src="file://{images}/custom_game/loading_screen/voltex.png" />
+			<Image id="seq_sparks2" class="SeqFg" src="file://{images}/custom_game/loading_screen/sparks_layer_2.png" /> -->
+			<Image id="seq_logo" class="SeqImg" src="file://{images}/custom_game/loading_screen/rpc-logo-white.png" />
+		</Panel>
+		<Panel id="difficulty_vote_container" hittest="false">
+			<Panel id="difficulty_vote_bg">
+			</Panel>
+			<Panel id="difficulty_vote_contents">
+				<Label id="difficulty_select_label" text="ui_difficulty_select" hittest="false"/>
+				<Label id="difficulty_select_tip_label" text="ui_difficulty_select_tip" hittest="false"/>
+				<Panel id="difficulty_contents_container" hittest="false">
+					<Panel class="difficulty_vote_button_container invisible" id="difficulty_container1" hittest="false">
+						<Panel class="difficulty_vote_button" id="difficulty_button1" hittest="true"
+							onactivate="ActivateDifficultyButton(1)">
+							<Label class="difficulty_vote_button_label normal_color" text="ui_normal"/>
+						</Panel>
+						<Label class="difficulty_button_additional_info" text="ui_normal_tip"/>
+					</Panel>
+					<Panel class="difficulty_vote_button_container invisible" id="difficulty_container2" hittest="false">
+						<Panel class="difficulty_vote_button" id="difficulty_button2" hittest="true"
+							onactivate="ActivateDifficultyButton(2)">
+							<Label class="difficulty_vote_button_label elite_color" text="ui_elite"/>
+						</Panel>
+						<Label class="difficulty_button_additional_info" text="ui_elite_tip"/>
+					</Panel>
+					<Panel class="difficulty_vote_button_container invisible" id="difficulty_container3" hittest="false">
+						<Panel class="difficulty_vote_button" hittest="true" id="difficulty_button3"
+							onactivate="ActivateDifficultyButton(3)">
+							<Label class="difficulty_vote_button_label legend_color" text="ui_legend"/>
+						</Panel>
+						<Label class="difficulty_button_additional_info" text="ui_legend_tip"/>
+					</Panel>
+				</Panel>
+			</Panel>
+		</Panel>
+		<Panel id="difficulty_tip">
+			<Button id="tip_button"
+				onactivate="updateTip()">
+			</Button>
+			<Panel id="tip_contents">
+				<Label id="difficulty_tip_text_title" html="true"></Label>
+				<Label id="difficulty_tip_text" html="true"></Label>
+				<Label id="tip_click_text" html="true"></Label>
+			</Panel>
+		</Panel>
+	</Panel>
+</root>

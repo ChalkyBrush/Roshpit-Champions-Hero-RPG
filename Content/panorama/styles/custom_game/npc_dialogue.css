@@ -1,0 +1,222 @@
+.npc_dialogue_root{
+/*	horizontal-align:center;
+	vertical-align: center;	
+	*/
+	width:100%;
+	height:100%;
+}
+
+#npc_dialogue_container{
+	horizontal-align:center;
+	vertical-align: center;
+	margin-bottom:140px;
+}
+
+.supplies_dealer_root{
+	width:340px;
+	height:520px;
+	horizontal-align:center;
+	background-color: gradient( linear, 0px 0%, 400px 0%, from( #313131 ), to( #000000 ) );
+	border-radius:8px;
+	box-shadow: 0px 0px 2px #000000;
+	flow-children:down;	
+}
+
+#close_npc_dialogue{
+	vertical-align: bottom;
+}
+
+.animateEaseClass{
+    animation-name: easeIn;
+    animation-duration: .3s;
+    animation-timing-function: linear;	
+}
+
+.animateEaseOutClass{
+    animation-name: easeOut;
+    animation-duration: .5s;
+    animation-timing-function: linear;	
+}
+
+@keyframes 'easeIn'{
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes 'easeOut'{
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+#supplies_dealer_content{
+	width: 90%;
+	horizontal-align:center;
+	flow-children:down;
+}
+
+#supplies_potion_row_1{
+	width:100%;
+	flow-children:right;
+}
+
+#supplies_potion_row_2{
+	width:100%;
+	flow-children:right;
+}
+
+#supplies_potion_row_3{
+	width:100%;
+	flow-children:right;
+}
+
+.supplies_potion_root{
+	width:86px;
+	height:64px;
+	border-radius:6px;
+	box-shadow: 0px 0px 2px #000000;
+}
+
+.potion_margin{
+	margin-right:22px;
+}
+
+#supplies_potion_button{
+	width:100%;
+	height:100%;
+}
+
+#potion_image{
+	height:64px;
+	width:86px;
+}
+
+.supplies_potion_root:hover{
+	box-shadow: 0px 0px 4px #FFFFFF;
+}
+.potion_row_title{
+	color:#EEEEEE;
+	text-align: center;
+	width:100%;
+	font-size:20px;
+	font-family: TH Sarabun New, Radiance, FZLanTingHei-R-GBK, Gulim,MingLiU;
+	vertical-align: center;
+	text-shadow:2px 2px 2px solid black;
+	margin-bottom:7px;
+	margin-top:7px;
+}
+
+#price_container{
+	height:20px;
+	vertical-align:bottom;
+	flow-children:right;
+	padding-left:6px;
+	horizontal-align:center;
+	margin-right:8px;
+}
+
+.item_price_text{
+	color:#FFFFFF;
+	text-align: center;
+	font-size:16px;
+	vertical-align: center;
+	text-shadow:2px 2px 2px solid #000000;
+}
+
+.item_gold_price_image{
+	width:18px;
+	height:14px;
+	margin-top:4px;
+}
+
+#price_container_bg{
+	width:86px;
+	height:20px;
+	background-color: #222222;
+	opacity:0.9;
+	vertical-align: bottom;
+}
+
+#npc_dialogue_big{
+	width:100%;
+	height:100%;
+}
+
+.curator_root{
+	horizontal-align:left;
+	vertical-align: top;
+	margin-top:120px;
+	width:100%;
+}
+
+#header_image_container_curator{
+	height:140px;
+
+}
+
+#header_image_curator{
+	height:140px;
+	border-bottom: 2px solid #222222;
+}
+
+#curator_main_container{
+
+	height:650px;
+	width:380px;
+	horizontal-align:center;
+	flow-children:right;
+}
+
+#curator_container{
+	width:450px;
+	height:100%;
+	background-color: gradient( linear, 0px 0%, 400px 0%, from( #313131 ), to( #000000 ) );
+	border-radius:8px;
+	box-shadow: 0px 0px 2px #000000;
+	flow-children:down;
+}
+
+#curator_content{
+	width:100%;
+	height:480px;
+	flow-children:down;
+}
+
+.curate_prescreen_root{
+	flow-children:down;
+	padding-top:12px;
+	width:100%;
+}
+
+#item_image{
+	width:86px;
+	height:64px;
+}
+
+#curate_tip_container{
+	text-align: center;
+	width:100%;
+}
+
+.item_property_curate{
+	height:20px;
+	width:100%;
+}
+
+#final_curate_button_container{
+	width:100%;
+	height:50px;
+	margin-top:15px;
+	horizontal-align:center;
+}
+
+#curator-item-display-box{
+	width:80%;
+	horizontal-align:center;
+	padding-top:10px;
+	height:280px;
+}
+
+#curate_tip1{
+	color:#DDDDDD;
+	padding:10px;
+}

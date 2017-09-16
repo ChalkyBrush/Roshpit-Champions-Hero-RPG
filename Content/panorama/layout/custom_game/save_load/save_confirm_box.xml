@@ -1,0 +1,20 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/save_load/save_load.css" />
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/save_load/save_confirm_box.js" />
+	</scripts>
+	<Panel class="save_confirm_box" hittest="false">
+		<Panel class="save_confirm_boxbg" hittest="false">
+		</Panel>
+		<Button class="save_slot" hittest="true"
+			onactivate='SaveInSlot()'>
+
+
+	</Panel>
+
+
+</root>

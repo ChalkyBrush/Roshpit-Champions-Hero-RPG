@@ -1,0 +1,214 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/weapons.css" />
+		<include src="file://{resources}/styles/custom_game/equipment.css" />
+		<include src="file://{resources}/styles/custom_game/shop.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/heroes_custom/custom_weapons.js" />
+		<include src="file://{resources}/scripts/custom_game/weapons.js" />
+	</scripts>
+	<Panel class="weapon_lvlup_main_container" hittest="false">
+		<Panel id="blacksmith_panel" class="invisible">
+			<Panel class="shop_background">
+			</Panel>
+			<Panel class="blacksmith_title">
+				<Label class="blacksmith_title_text" id="blacksmith_title_text" text="Blacksmith"></Label>
+			</Panel>
+			<Panel class="weapon_info_container" id="weapon_info_container">
+							<DOTAItemImage hittest="false" class="WeaponImage" id="WeaponImage" draggable="true"/>
+							<Label class="weapon_name_blacksmith" id="weapon_name_blacksmith" text="Item Name" html="true"></Label>
+							<Label class="weapon_lvl_blacksmith" id="weapon_lvl_blacksmith" text="LV" html="true"></Label>
+							<Panel class="weapon_properties_container">
+								<Panel class="weapon_property_line">
+									<Label class="weapon_propertyname" id="weapon_property1name" text="Property" html="true"></Label>
+									<Label class="weapon_propertyvalue" id="weapon_property1value" text="0" html="true"></Label>
+								</Panel>
+								<Panel class="weapon_property_line">
+									<Label class="weapon_propertyname invisible" id="weapon_property2name" text="Property" html="true"></Label>
+									<Label class="weapon_propertyvalue invisible" id="weapon_property2value" text="0" html="true"></Label>	
+								</Panel>
+								<Panel class="weapon_property_line">
+									<Label class="weapon_propertyname invisible" id="weapon_property3name" text="Property" html="true"></Label>
+									<Label class="weapon_propertyvalue invisible" id="weapon_property3value" text="0" html="true"></Label>	
+								</Panel>
+								<Panel class="weapon_property_line">
+									<Label class="weapon_propertyname invisible" id="weapon_property4name" text="Property" html="true"></Label>
+									<Label class="weapon_propertyvalue invisible" id="weapon_property4value" text="0" html="true"></Label>	
+								</Panel>	
+							</Panel>
+							<Panel class="weapon_upgrades">
+								<Label class="weapon_upgrade_tip" id="weapon_upgrade_tip" text="" html="true"></Label>
+								<Label class="weapon_upgrade_tip_two" id="weapon_upgrade_tip_two" text="" html="true"></Label>
+<!-- 								PHASE 1 -->
+								<Panel class="invisible weapon_upgrade_phase_panel" id="weapon_upgrade_phase1">
+									<Panel class="weapon_upgrade_option" id="upgrade_option_01">
+										<Image class="upgrade_image" id="upgrade_image_01" src="file://{images}/custom_game/ui/upgrade_strength.png" />
+										<Button class="upgrade_button"
+											onmouseover='ShowUpgradeTooltip("01")'
+											onmouseout='HideUpgradeTooltip("01")'
+											onactivate='select_upgrade("01")'>
+										</Button>
+									</Panel>
+									<Panel class="weapon_upgrade_option" id="upgrade_option_02">
+										<Image class="upgrade_image" id="upgrade_image_02" src="file://{images}/custom_game/ui/upgrade_agility.png" />
+										<Button class="upgrade_button"
+											onmouseover='ShowUpgradeTooltip("02")'
+											onmouseout='HideUpgradeTooltip("02")'
+											onactivate='select_upgrade("02")'>
+										</Button>
+									</Panel>
+									<Panel class="weapon_upgrade_option" id="upgrade_option_03">
+										<Image class="upgrade_image" id="upgrade_image_03" src="file://{images}/custom_game/ui/upgrade_int.png" />
+										<Button class="upgrade_button"
+											onmouseover='ShowUpgradeTooltip("03")'
+											onmouseout='HideUpgradeTooltip("03")'
+											onactivate='select_upgrade("03")'>
+										</Button>
+									</Panel>
+								</Panel>
+<!-- 								PHASE 2 -->
+								<Panel class="invisible weapon_upgrade_phase_panel" id="weapon_upgrade_phase21">
+									<Panel class="weapon_upgrade_option" id="upgrade_option_11">
+										<Image class="upgrade_image" id="upgrade_image_11" src="file://{images}/custom_game/ui/upgrade_strength.png" />
+										<Button class="upgrade_button"
+											onmouseover='ShowUpgradeTooltip("11")'
+											onmouseout='HideUpgradeTooltip("11")'
+											onactivate='select_upgrade("11")'>
+										</Button>
+									</Panel>
+									<Panel class="weapon_upgrade_option" id="upgrade_option_12">
+										<Image class="upgrade_image" id="upgrade_image_12" src="file://{images}/custom_game/ui/upgrade_agility.png" />
+										<Button class="upgrade_button"
+											onmouseover='ShowUpgradeTooltip("12")'
+											onmouseout='HideUpgradeTooltip("12")'
+											onactivate='select_upgrade("12")'>
+										</Button>
+									</Panel>
+								</Panel>
+								<Panel class="invisible weapon_upgrade_phase_panel" id="weapon_upgrade_phase22">
+									<Panel class="weapon_upgrade_option" id="upgrade_option_122">
+										<Image class="upgrade_image" id="upgrade_image_122" src="file://{images}/custom_game/ui/upgrade_strength.png" />
+										<Button class="upgrade_button"
+											onmouseover='ShowUpgradeTooltip("12")'
+											onmouseout='HideUpgradeTooltip("12")'
+											onactivate='select_upgrade("12")'>
+										</Button>
+									</Panel>
+									<Panel class="weapon_upgrade_option" id="upgrade_option_13">
+										<Image class="upgrade_image" id="upgrade_image_13" src="file://{images}/custom_game/ui/upgrade_agility.png" />
+										<Button class="upgrade_button"
+											onmouseover='ShowUpgradeTooltip("13")'
+											onmouseout='HideUpgradeTooltip("13")'
+											onactivate='select_upgrade("13")'>
+										</Button>
+									</Panel>
+								</Panel>
+								<Panel class="invisible weapon_upgrade_phase_panel" id="weapon_upgrade_phase23">
+									<Panel class="weapon_upgrade_option" id="upgrade_option_132">
+										<Image class="upgrade_image" id="upgrade_image_132" src="file://{images}/custom_game/ui/upgrade_strength.png" />
+										<Button class="upgrade_button"
+											onmouseover='ShowUpgradeTooltip("13")'
+											onmouseout='HideUpgradeTooltip("13")'
+											onactivate='select_upgrade("13")'>
+										</Button>
+									</Panel>
+									<Panel class="weapon_upgrade_option" id="upgrade_option_14">
+										<Image class="upgrade_image" id="upgrade_image_14" src="file://{images}/custom_game/ui/upgrade_agility.png" />
+										<Button class="upgrade_button"
+											onmouseover='ShowUpgradeTooltip("14")'
+											onmouseout='HideUpgradeTooltip("14")'
+											onactivate='select_upgrade("14")'>
+										</Button>
+									</Panel>
+								</Panel>
+<!-- 								PHASE 3 -->
+								<Panel class="invisible weapon_upgrade_phase_panel" id="weapon_upgrade_phase31">
+									<Panel class="weapon_upgrade_option" id="upgrade_option_21">
+										<Image class="upgrade_image" id="upgrade_image_21" src="file://{images}/custom_game/ui/upgrade_strength.png" />
+										<Button class="upgrade_button"
+											onmouseover='ShowUpgradeTooltip("21")'
+											onmouseout='HideUpgradeTooltip("21")'
+											onactivate='select_upgrade("21")'>
+										</Button>
+									</Panel>
+									<Panel class="weapon_upgrade_option" id="upgrade_option_22">
+										<Image class="upgrade_image" id="upgrade_image_22" src="file://{images}/custom_game/ui/upgrade_agility.png" />
+										<Button class="upgrade_button"
+											onmouseover='ShowUpgradeTooltip("22")'
+											onmouseout='HideUpgradeTooltip("22")'
+											onactivate='select_upgrade("22")'>
+										</Button>
+									</Panel>
+								</Panel>
+								<Panel class="invisible weapon_upgrade_phase_panel" id="weapon_upgrade_phase32">
+									<Panel class="weapon_upgrade_option" id="upgrade_option_222">
+										<Image class="upgrade_image" id="upgrade_image_222" src="file://{images}/custom_game/ui/upgrade_strength.png" />
+										<Button class="upgrade_button"
+											onmouseover='ShowUpgradeTooltip("22")'
+											onmouseout='HideUpgradeTooltip("22")'
+											onactivate='select_upgrade("22")'>
+										</Button>
+									</Panel>
+									<Panel class="weapon_upgrade_option" id="upgrade_option_23">
+										<Image class="upgrade_image" id="upgrade_image_23" src="file://{images}/custom_game/ui/upgrade_agility.png" />
+										<Button class="upgrade_button"
+											onmouseover='ShowUpgradeTooltip("23")'
+											onmouseout='HideUpgradeTooltip("23")'
+											onactivate='select_upgrade("23")'>
+										</Button>
+									</Panel>
+								</Panel>
+								<Panel class="invisible weapon_upgrade_phase_panel" id="weapon_upgrade_phase33">
+									<Panel class="weapon_upgrade_option" id="upgrade_option_232">
+										<Image class="upgrade_image" id="upgrade_image_232" src="file://{images}/custom_game/ui/upgrade_strength.png" />
+										<Button class="upgrade_button"
+											onmouseover='ShowUpgradeTooltip("23")'
+											onmouseout='HideUpgradeTooltip("23")'
+											onactivate='select_upgrade("23")'>
+										</Button>
+									</Panel>
+									<Panel class="weapon_upgrade_option" id="upgrade_option_24">
+										<Image class="upgrade_image" id="upgrade_image_24" src="file://{images}/custom_game/ui/upgrade_agility.png" />
+										<Button class="upgrade_button"
+											onmouseover='ShowUpgradeTooltip("24")'
+											onmouseout='HideUpgradeTooltip("24")'
+											onactivate='select_upgrade("24")'>
+										</Button>
+									</Panel>
+								</Panel>
+								<Panel class="invisible weapon_upgrade_phase_panel" id="weapon_upgrade_phase34">
+									<Panel class="weapon_upgrade_option" id="upgrade_option_242">
+										<Image class="upgrade_image" id="upgrade_image_242" src="file://{images}/custom_game/ui/upgrade_strength.png" />
+										<Button class="upgrade_button"
+											onmouseover='ShowUpgradeTooltip("24")'
+											onmouseout='HideUpgradeTooltip("24")'
+											onactivate='select_upgrade("24")'>
+										</Button>
+									</Panel>
+									<Panel class="weapon_upgrade_option" id="upgrade_option_25">
+										<Image class="upgrade_image" id="upgrade_image_25" src="file://{images}/custom_game/ui/upgrade_agility.png" />
+										<Button class="upgrade_button"
+											onmouseover='ShowUpgradeTooltip("25")'
+											onmouseout='HideUpgradeTooltip("25")'
+											onactivate='select_upgrade("25")'>
+										</Button>
+									</Panel>
+								</Panel>
+							</Panel>
+			</Panel>
+			<Panel id="blacksmith_close_button">
+					<Image class="close_button_image" src="file://{images}/custom_game/ui/narrow_panel2.png" />
+					<Button class="close_button"
+						onactivate='CloseBlacksmith()'
+						>
+						<Label class="close_button_text" text="Close" html="true"></Label>
+					</Button>
+			</Panel>
+		</Panel>
+
+	</Panel>
+
+</root>
+

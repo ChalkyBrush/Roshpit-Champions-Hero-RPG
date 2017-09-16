@@ -1,0 +1,14 @@
+"waterfall_loop"
+{
+	"dsp"	"1"
+	"fadetime" "1"
+
+	"playlooping"
+	{
+		"volume"		".15"
+		"pitch"		"100"
+		"wave"		"sounds/waterfall.vsnd"
+	}
+
+
+}

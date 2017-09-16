@@ -1,0 +1,38 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/equipment.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/pickup_popup.js" />
+	</scripts>
+	<Panel class="pickup_popup">
+		<Panel class="picked_up_panel" id="picked_up_panel"
+			onload="InitializePropertyPanels()">
+			<Image class="equipment_panel_image_large" id="pickup_panel_image" src="file://{images}/custom_game/ui/large_panel2.png" />
+					<Panel class="swap_item_container" id="swap_item_container" draggable="false">
+						<Panel class="swap_item_contents" draggable="false">
+							<Label class="swap_item_title" id="picked_up_title" text="Picked Up"></Label>
+							<DOTAItemImage hittest="false" class="ItemImageSwap" id="ItemImageSwap3" draggable="true"/>
+							<Label class="swap_item_name" id="swap_item_name1" text="Item Name" html="true"></Label>
+							<Label class="swap_item_property1name" id="swap_item_property1name3" text="Property" html="true"></Label>
+							<Label class="swap_item_property1value" id="swap_item_property1value3" text="0" html="true"></Label>
+							<Label class="swap_item_property2name" id="swap_item_property2name3" text="Property" html="true"></Label>
+							<Label class="swap_item_property2value" id="swap_item_property2value3" text="0" html="true"></Label>	
+							<Label class="swap_item_property3name" id="swap_item_property3name3" text="Property" html="true"></Label>
+							<Label class="swap_item_property3value" id="swap_item_property3value3" text="0" html="true"></Label>	
+							<Label class="swap_item_property4name" id="swap_item_property4name3" text="Property" html="true"></Label>
+							<Label class="swap_item_property4value" id="swap_item_property4value3" text="0" html="true"></Label>	
+							<Label class="swap_item_property5name" id="swap_item_property5name3" text="Property" html="true"></Label>
+							<Label class="swap_item_property5value" id="swap_item_property5value3" text="0" html="true"></Label>	
+
+		<!-- 					<Label id="by_text" text="by" html="true"></Label> -->
+							<Label id="pickup_player_name" text="Player Name" html="true"></Label>
+							<DOTAHeroImage id="pickup_player_portrait" heroid="5" />
+							<Label id="pickup_hero_name" text="Hero Name" html="true"></Label>
+						</Panel>		
+					</Panel>
+		</Panel>
+	</Panel>
+
+</root>

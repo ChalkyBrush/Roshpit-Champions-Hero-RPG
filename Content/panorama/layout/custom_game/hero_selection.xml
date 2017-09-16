@@ -1,0 +1,106 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/hero_selection.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/hero_selection.js" />
+		<include src="file://{resources}/scripts/custom_game/heroes_custom/heroes_custom.js" />
+	</scripts>
+	<snippets>
+		<snippet name="hero_preview">
+			<Panel class="hero_preview_container" hittest="false">
+				<!-- <DOTAScenePanel id="Preview3DItems" antialias='true' class='HeroPreviewScene SceneLoaded' always-cache-composition-layer='true'/> -->
+			</Panel>
+		</snippet>
+		<snippet name="hero_select_new">
+			<Panel class="hero_selection_content" hittest="false">
+				<Panel id="top_hero_selection_content">
+					<Button id="back-button"  hittest="true">
+					  <Label text="←" class="dummy_option_text"></Label>
+					</Button>
+					<Label id="hero_select_new_title" text="hero_select_new_character"/>
+				</Panel>
+				<Panel id="hero_selection_row1" class="hero_selection_row"/>
+				<Panel id="premium_notifier" class="invisible">
+					<Panel id="premium_notifier_band"/>
+					<Label id="premium_notifier_text" text="saveload_premium_slots"/>
+
+				</Panel>
+				<Panel id="hero_selection_row2" class="hero_selection_row"/>
+				<Panel id="hero_selection_row3" class="hero_selection_row"/>
+				<Panel id="hero_selection_row4" class="hero_selection_row"/>
+				<Panel id="hero_selection_row5" class="hero_selection_row"/>
+				<Panel id="hero_preview_box">
+					<Panel id="hero_preview_scene">
+					</Panel>
+					<Label id="hero_preview_name_label"/>
+					<Label id="hero_preview_level_label" class="invisible" hittest="false"/>
+					<Panel id="hero_preview_info">
+						<Panel id="ability-preview-row">
+						</Panel>
+					</Panel>
+				</Panel>
+				<Button id="enter-world-button" hittest="true" class="invisible">
+				  <Label text="hero_select_enter_world" class="dummy_option_text"></Label>
+				</Button>
+			</Panel>
+		</snippet>
+		<snippet name="loading_characters">
+			<Panel class='loading_characters'>
+				<Button id="back-button"  hittest="true">
+				  <Label text="←" class="dummy_option_text"></Label>
+				</Button>
+				<Label text="hero_select_loading_heroes" class="loading_text" id="loading_mesage"></Label>
+					<Button id="reload-characters"  hittest="true" class="invisible">
+					  <Label text="ui_reload" class="dummy_option_text"></Label>
+					</Button>
+			</Panel>
+		</snippet>
+		<snippet name="ability_preview">
+			<Panel class="ability_preview">
+				<Button id="AbilityButton">
+					<DOTAAbilityImage id="AbilityImage" />
+				</Button>			
+			</Panel>
+		</snippet>
+		<snippet name="hero_select_portrait">
+			<Panel class="hero_portrait_container" hittest="false">
+				<Image class="hero_portrait_image" id="hero_portrait_image" hittest="true">
+				</Image>
+				<Label id="hero_portrait_name_label" class="invisible" hittest="false"/>
+				<Label id="hero_portrait_level_label" class="invisible" hittest="false"/>
+				<Label id="hero_portrait_slot_label" class="invisible" hittest="false"/>
+				<Panel id="hero_portrait_overlay" class="invisible">
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="new-or-load">
+			<Panel class="new-or-load-container" hittest="false">
+				<Image class="rpc_image" src="file://{images}/custom_game/loading_screen/rpc-logo-white.png" />
+				<Button id="new-character" class="dummy_option_button" hittest="true">
+				  <Label text="hero_select_new_character" class="dummy_option_text" id="new-character-button-label"></Label>
+				</Button>
+				<Button id="load-character" class="dummy_option_button" hittest="true">
+				  <Label text="hero_select_load_character" class="dummy_option_text"></Label>
+				</Button>
+				<Panel id="mute_music_option_panel">
+					<Button id="mute_music_button">
+						<Image id="button_check" class="invisible" src="file://{images}/custom_game/ui/green-check.png" />
+					</Button>
+					<Label text="ui_mute_music" class="mute_music_text"></Label>
+				</Panel>
+			</Panel>
+		</snippet>
+	</snippets>
+	<Panel class="hero_selection_root" hittest="false">
+		<Panel id="hero_select_parent" hittest="false">
+<!-- 		<Button class="DOTAShowDashboardButton"/> -->
+		 <DOTAScenePanel id="HeroSelectBGScene" map="maps/backgrounds/dashboard_test.vmap" camera="shot_cameraC" onactivate="DropInputFocus()" always-cache-composition-layer="true" hittest="true"/>
+		 <DOTAScenePanel id="HeroSelectedRays" class="Hidden" hittest="false" map="scenes/loadout_preview_rays" camera="camera_1"/>
+		 <Panel id="hero_select_content" hittest="false">
+
+		 </Panel>
+		</Panel>
+	</Panel>
+
+</root>

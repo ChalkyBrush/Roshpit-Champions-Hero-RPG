@@ -1,0 +1,96 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/ability_tree.css" />
+		<include src="file://{resources}/styles/custom_game/tooltips.css" />
+		<include src="file://{resources}/styles/custom_game/action_bar.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/ability_tree.js" />
+		<include src="file://{resources}/scripts/custom_game/action_bar.js" />
+		<include src="file://{resources}/scripts/custom_game/rune_bar.js" />
+	</scripts>
+	<Panel class="ability_tree_panel">
+		<Panel id="full_ability_tree_hud_container">
+			<Panel id="ability_up_button_container">
+			<Image class="ability_up_image_glow" id="ability_up_image" src="file://{images}/custom_game/ui/level-up.png" />
+				<Button id="ability_up_button"
+					onactivate="OpenAbilityTree()"
+					>
+					
+		<!-- 			<Image src="file://{images}/custom_game/ui/narrow_panel.png" /> -->
+					<Label id="ability_up_button_label" text="+1" />
+					<Label id="rune_up_button_label" text="+1" />
+				</Button>
+			</Panel>
+		</Panel>
+		<Panel id="full_ability_tree_skills_container" class="invisible">
+			<Panel id="ability_tree">	
+			<Image class="ability_tree_image" src="file://{images}/custom_game/ui/ability_panel.png" />
+			<Panel id="hero_summary">
+				<Panel id="hero_summary_bg">
+				</Panel>
+				<Panel id="hero_text">
+					<DOTAHeroImage id="hero_portrait_skill_tree" heroid="5" />
+					<Label id="skill_hero_name" text="The Red General" html="true"></Label>
+					<Label id="skill_hero_level_text" text="36" html="true"></Label>
+					<Label id="basic_skills_text_points" text="Skill Points Available: 0" html="true"></Label>
+					<Label id="rune_text_points" text="Runic Points Available: 0" html="true"></Label>
+
+<!-- 					<Panel id="character_button">
+							<Image class="character_button_image" src="file://{images}/custom_game/ui/narrow_panel2.png" />
+							<Button class="character_button"
+								onactivate="OpenCharacterPanel()"
+								onmouseover="highlightButton()"
+								onmouseout="unhighlightButton()"
+								>
+								<Label class="character_button_text" text="Character" html="true"></Label>
+							</Button>
+					</Panel>
+					<Panel id="skills_button">
+							<Image class="skills_button_image" src="file://{images}/custom_game/ui/narrow_panel2.png" />
+							<Button class="skills_button"
+								onactivate="OpenSkillsPanel()"
+								>
+								<Label class="skills_button_text" text="Talents" html="true"></Label>
+							</Button>
+					</Panel>	 -->			
+				</Panel>
+
+			</Panel>
+			<Panel id="tree_container">
+				<Label id="basic_skills_text" text="Base Skills" html="true"></Label>
+				
+				<Panel class="AbilityOverlayRoot">
+					<Panel id="ability_list" />
+				</Panel>
+				<Label id="rune_text" text="Runes" html="true"></Label>
+				<Panel class="RuneOverlayRoot">
+					<Panel id="rune_list" />
+				</Panel>
+				<Panel class="RuneOverlayRoot">
+					<Panel id="rune_list_tier2" />
+				</Panel>			
+				<Panel class="RuneOverlayRoot">
+					<Panel id="rune_list_tier3" />
+				</Panel>
+				<Panel class="RuneOverlayRoot">
+					<Panel id="rune_list_tier4" />
+				</Panel>
+				<Label id="future_patch" text="More Runes in future patches" html="true"></Label>
+			</Panel>
+			<Panel id="tree_container_character">
+			</Panel>
+				<Panel id="close_button">
+						<Image class="close_button_image" src="file://{images}/custom_game/ui/narrow_panel2.png" />
+						<Button class="close_button"
+							onactivate="OpenAbilityTree()"
+							>
+							<Label class="close_button_text" id="close_button_text" text="Close" html="true"></Label>
+						</Button>
+				</Panel>
+			</Panel>
+		</Panel>
+	</Panel>
+
+</root>

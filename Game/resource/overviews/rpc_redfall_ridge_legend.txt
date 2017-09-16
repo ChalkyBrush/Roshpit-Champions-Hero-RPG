@@ -1,0 +1,8 @@
+rpc_redfall_ridge_legend
+{
+	material materials/overviews/rpc_redfall_ridge_legend.vmat
+	pos_x -16384
+	pos_y 16384
+	scale 32.000
+}
+

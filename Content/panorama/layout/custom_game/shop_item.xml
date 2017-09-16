@@ -1,0 +1,15 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/shop.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/shop.js" />
+	</scripts>
+	<Panel class="item_container">
+		<DOTAItemImage hittest="false" class="shop_item_image" src="file://{images}/items/cap.png"/>
+		<Label class="item_name_text" text="Cap" html="true"></Label>
+		<Label class="item_price_text" text="1000" html="true"></Label>
+	</Panel>
+
+</root>

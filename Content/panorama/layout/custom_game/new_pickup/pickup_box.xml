@@ -1,0 +1,30 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/pickup/pickup.css" />
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/pickup/pickup_box.js" />
+		<include src="file://{resources}/scripts/custom_game/equipment/item_tooltip.js" />
+		<include src="file://{resources}/scripts/custom_game/heroes_custom/heroes_custom.js" />
+	</scripts>
+	<Panel class="PickupBoxRoot" hittest="false">
+		<Panel id="pickup-bg" hittest="false">
+		</Panel>
+		<Panel id="pickupbox-parent" hittest="false">
+			<DOTAHeroImage id="pickup_player_portrait" heroid="5" />
+			<Panel id="ItemImagePickup-container"
+				onmouseover="ItemShowTooltip('#ItemImagePickup')"
+				onmouseout="ItemHideTooltip('#ItemImagePickup')">
+			<DOTAItemImage hittest="true" class="ItemImagePickup" id="ItemImagePickup"/>
+			</Panel>
+		</Panel>
+		<Label id="pickup_player_name" hittest="false"></Label>
+		<Image id="pickup-arrow" src="file://{images}/custom_game/ui/right-arrow.png" hittest="false"/>
+		<Label id="pickup_label" hittest="false"></Label>
+		<Label id="pickup_item_rarity" html="true" hittest="false"></Label>
+	</Panel>
+</root>
+
+

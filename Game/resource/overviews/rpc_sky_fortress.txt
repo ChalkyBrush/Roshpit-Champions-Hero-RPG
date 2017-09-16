@@ -1,0 +1,8 @@
+rpc_sky_fortress
+{
+	material materials/overviews/rpc_sky_fortress.vmat
+	pos_x -16384
+	pos_y 16384
+	scale 32.000
+}
+

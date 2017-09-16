@@ -1,0 +1,550 @@
+.ability_up_icon{
+
+}
+
+/*.ability_up_image_glow{
+	box-shadow: 0px 0px 6px #4040EA;
+}*/
+
+#ability_up_button{
+	width:180px;
+	height:48px;
+	color:white;
+}
+
+#ability_up_button:hover{
+	box-shadow: 0px 0px 6px #4040EA;
+}
+
+#ability_up_button_container{
+	width:180px;
+	height:48px;
+}
+
+.ability_tree_panel{
+	vertical-align: bottom;
+	margin-bottom:240px;
+	margin-left:470px;
+}
+
+.AspectRatio16x10 .ability_tree_panel{
+	vertical-align: bottom;
+	margin-bottom:240px;
+	margin-left:360px;
+}
+
+.AspectRatio5x4 .ability_tree_panel{
+	vertical-align: bottom;
+	margin-bottom:240px;
+	margin-left:290px;
+}
+
+.AspectRatio4x3 .ability_tree_panel{
+	vertical-align: bottom;
+	margin-bottom:240px;
+	margin-left:300px;
+}
+
+.AspectRatio5x4 .ability_tree_image{
+	width:900px;
+}
+
+.AspectRatio4x3 .ability_tree_image{
+	width:900px;
+}
+
+
+#full_ability_tree_hud_container{
+	vertical-align: bottom;
+}
+
+.ability_up_image_glow{
+    background-color: #ccc;  
+}
+
+#ability_up_image_glow.active {
+    border-color: blue;
+            box-shadow: 0 0 5px blue;
+}
+
+#ability_up_button_label{
+	margin-top:3px;
+	font-size:18px;
+	color:white;
+	horizontal-align:right;
+	text-align: center;
+	width:50px;
+	text-shadow:0px 0px 2px blue;
+}
+
+#rune_up_button_label{
+	margin-bottom:3px;
+	font-size:18px;
+	color:white;
+	horizontal-align:right;
+	vertical-align: bottom;
+	text-align: center;
+	width:50px;
+	text-shadow:0px 0px 2px blue;
+}
+
+.individual_ability_level_overlay{
+	width:84px;
+	height:20px;
+	background-color: gradient( linear, 0px 0%, 84px 0%, from( #1D1D1D ), to( #313131 ) );
+	box-shadow: 0px 0px 3px #555555;
+}
+
+.ability_level_overlay_text{
+	color:white;
+	width:100%;
+	text-align:center;
+	font-size:16px;
+	text-shadow:0px 0px 1px #222222;
+}
+.ability_level_overlay{
+	vertical-align: bottom;
+	horizontal-align:right;
+	margin-bottom: 7px;
+	margin-right: 592px;
+}
+
+.AspectRatio16x10 .ability_level_overlay{
+	margin-right:502px;
+}
+
+.AspectRatio5x4 .ability_level_overlay{
+	margin-right:340px;
+}
+
+.AspectRatio4x3 .ability_level_overlay{
+	margin-right:366px;
+}
+
+
+#ability_level_overlay2{
+	margin-left: 105px;
+}
+
+#ability_level_overlay3{
+	margin-left: 210px;
+}
+
+#ability_level_overlay4{
+	margin-left: 315px;
+}
+
+.AspectRatio16x10 #ability_level_overlay2{
+	margin-left: 106px;
+}
+
+.AspectRatio16x10 #ability_level_overlay3{
+	margin-left: 212px;
+}
+
+.AspectRatio16x10 #ability_level_overlay4{
+	margin-left: 318px;
+}
+
+.AspectRatio5x4 #ability_level_overlay2{
+	margin-left: 100px;
+}
+
+.AspectRatio5x4 #ability_level_overlay3{
+	margin-left: 200px;
+}
+
+.AspectRatio5x4 #ability_level_overlay4{
+	margin-left: 300px;
+}
+
+#full_ability_tree_skills_container{
+	margin-bottom:80px;
+	z-index:-20;
+}
+
+.invisible{
+	transition-delay: .5s;
+	visibility: collapse;
+}
+
+.animateEaseClass{
+    animation-name: easeIn;
+    animation-duration: .5s;
+    animation-timing-function: linear;	
+}
+
+.animateEaseOutClass{
+    animation-name: easeOut;
+    animation-duration: .5s;
+    animation-timing-function: linear;	
+}
+
+@keyframes 'easeIn'{
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes 'easeOut'{
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+#hero_portrait_skill_tree{
+	border-radius:6px;
+	width:180px;
+	height:110px;
+}
+
+#hero_summary{
+	margin-top:40px;
+	margin-left:40px;
+	width:180px;
+	height:600px;
+	border:1px solid #444444;
+	border-radius:6px;
+
+}
+
+#hero_text{
+	flow-children: down;
+	width:100%;
+	text-align: center;
+}
+
+#hero_summary_bg{
+	opacity: 0.75;
+	width:100%;
+	height:100%;
+	background-color: black;
+}
+
+#skill_hero_name{
+	margin-top:10px;
+	width:100%;
+	color:white;
+	font-size:24px;
+	text-align: center;
+}
+
+#skill_hero_level_text{
+	margin-top:10px;
+	width:74px;
+	height:74px;
+	margin-left: 52px;
+	color:white;
+	line-height: 62px;
+	font-size:40px;
+	text-align: center;
+	background-color: black;
+	border: 2px solid #CCCCCC;
+	border-radius:100%;
+	box-shadow: 0px 0px 5px #555555;
+}
+
+#tree_container{
+	flow-children:down;
+	margin-left:80px;
+	width:1100px;
+	text-align: center;
+	margin-top:40px;
+}
+
+.AspectRatio5x4 #tree_container{
+	flow-children:down;
+	margin-left:80px;
+	width:900px;
+	text-align: center;
+	margin-top:40px;
+}
+
+.AspectRatio4x3 #tree_container{
+	flow-children:down;
+	margin-left:80px;
+	width:900px;
+	text-align: center;
+	margin-top:40px;
+}
+
+#tree_container_character{
+	flow-children:down;
+	margin-left:80px;
+	width:1100px;
+	text-align: center;
+	margin-top:40px;
+	visibility: collapse;
+}
+
+#basic_skills_text{
+	color:white;
+	width:100%;
+	font-size:36px;
+	text-align: center;
+	letter-spacing:4px;
+	text-shadow:0px 0px 3px #444444;
+}
+
+#basic_skills_text_points{
+	color:white;
+	width:100%;
+	font-size:18px;
+	text-align: center;
+	letter-spacing:2px;
+	text-shadow:0px 0px 3px #444444;
+	margin-top:15px;
+}
+
+#rune_text_points{
+	color:white;
+	width:100%;
+	font-size:18px;
+	text-align: center;
+	letter-spacing:2px;
+	text-shadow:0px 0px 3px #444444;
+}
+
+#rune_text{
+	color:white;
+	width:100%;
+	font-size:36px;
+	text-align: center;
+	letter-spacing:4px;
+	text-shadow:0px 0px 3px #444444;
+}
+
+.can_level_up{
+	border: 6px solid yellow;
+}
+
+#close_button{
+	background-color: #8C1919;
+	width:140px;
+	height:40px;
+	horizontal-align: right;
+	border-bottom-left-radius:12px;
+	box-shadow: 0px 0px 0px #000000;
+	vertical-align: bottom;
+	margin-bottom:30px;
+	margin-right:120px;
+	z-index:20;
+}
+
+.close_button_text{
+	color: #F7ABAB;
+	horizontal-align: center;
+	width:140px;
+	text-align: center;
+	margin-top:8px;
+}
+
+#future_patch{
+	margin-top: 10px;
+	margin-left: 450px;
+}
+
+#character_button{
+	background-color: #8C1919;
+	width:100%;
+	border-bottom-left-radius:12px;
+	box-shadow: 0px 0px 0px #000000;
+	z-index:50;
+}
+
+.character_button_text{
+	color: #FFFFFF;
+	horizontal-align: center;
+	width:200px;
+	text-align: center;
+	margin-top:12px;
+}
+
+#skills_button{
+	background-color: #8C1919;
+	width:100%;
+	border-bottom-left-radius:12px;
+	box-shadow: 0px 0px 0px #000000;
+	z-index:20;
+}
+
+.skills_button_text{
+	color: #FFFFFF;
+	horizontal-align: center;
+	width:200px;
+	text-align: center;
+	margin-top:12px;
+}
+
+.hero_level_root{
+	vertical-align: bottom;
+	horizontal-align:center;
+}
+
+
+#hero_level_container{
+	width:205px;
+	height:50px;
+
+
+	margin-bottom:0px;
+	vertical-align: bottom;
+	horizontal-align:center;
+	margin-right:460px;
+}
+
+/*.AspectRatio16x10 #hero_level_container{
+	width:205px;
+	height:50px;
+
+	margin-left:475px;
+	margin-bottom:0px;
+	vertical-align: bottom;
+}
+*/
+/*.AspectRatio16x10 #hero_level_container{
+	width:205px;
+	height:50px;
+
+	margin-left:350px;
+	margin-bottom:0px;
+	vertical-align: bottom;
+}*/
+
+/*.AspectRatio5x4 #hero_level_container
+{
+	width:205px;
+	height:50px;
+
+	margin-left:275px;
+	margin-bottom:0px;
+	vertical-align: bottom;
+}
+
+.AspectRatio4x3 #hero_level_container
+{
+	width:205px;
+	height:50px;
+
+	margin-left:335px;
+	margin-bottom:0px;
+	vertical-align: bottom;
+}*/
+
+#hero_level_bubble{
+	width:36px;
+	height:36px;
+	border-radius:100%;
+	background-color: #1764A6;
+	box-shadow: 0px 2px 2px black;
+	border: 2px solid #111111;
+	vertical-align: bottom;
+	margin-left:15px;
+	z-index:10;
+}
+
+#hero_level_label{
+	color:white;
+	text-shadow:1px 1px 2px black;
+	width:100%;
+	text-align: center;
+	font-size:14px;
+	vertical-align: center;
+	margin-top:2px;
+}
+
+#hero_level_exp_bar_container{
+	height:17px;
+	vertical-align: bottom;
+	width:130px;
+	margin-left:40px;
+	background-color: gradient( linear, 0px 0%, 260px 0%, from( #111111 ), to( #333333 ) );
+	border-top-right-radius:4px;
+	border-bottom-right-radius:4px;
+/*	border-bottom:1px solid #000000;
+	border-right:0px solid #000000;
+	border-top:0px solid #222222;
+	border-left:0px solid #000000;*/
+	box-shadow: 1px -1px 1px #000000;
+	box-shadow: 1px 1px 1px #000000;
+	box-shadow: 1px 1px 1px #000000;
+	box-shadow: 1px 1px 1px #000000;
+	box-shadow: 2px 0px 0px #000000;
+	border:1px solid black;
+	margin-bottom: 1px;
+}
+
+#hero_exp_progress{
+	background-color: gradient( linear, 0px 0%, 260px 0%, from( #1764A6 ), to( #4C7EA8 ) );
+	height:100%;
+	border-top:1px solid black;
+	border-bottom:1px solid black;
+}
+
+#hero_exp_progress_label{
+	width:100%;
+	text-align: center;
+	color:white;
+	font-size:12px;
+	height:14px;
+	text-shadow: 1px 1px 2px black;
+	vertical-align:center;
+}
+
+
+/*.AspectRatio16x10 #hero_connector{
+	margin-left:23px;
+	border-bottom:1px solid #222222;
+	height:14px;
+	background-color: #1764A6;
+	width:52px;
+	margin-top:35px;
+}
+*/
+/*#hero_connector{
+	margin-left:23px;
+	height:10px;
+	background-color: #1764A6;
+	width:52px;
+	margin-top:37px;
+}*/
+
+/*#black-line{
+	width:137px;
+	vertical-align: bottom;
+	margin-left:32px;
+	margin-bottom:15px;
+	height:2px;
+	background-color: #111111;
+	border-bottom-right-radius: 4px;
+}
+
+#black-line2{
+	width:268px;
+	margin-left:20px;
+	height:2px;
+	vertical-align: bottom;
+	margin-bottom:1px;
+	background-color: #111111;
+	border-top-right-radius: 4px;
+}*/
+
+/*#blue-line{
+	height:11px;
+	width:16px;
+	background-color: #1764A6;
+	margin-left:32px;
+	vertical-align: bottom;
+	margin-bottom: 3px;
+		border-bottom-right-radius:6px;
+}*/
+
+.ability_level_overlay{
+
+}
+
+#ability_level_overlay_container{
+
+}
+
+#talent-tree-panel{
+
+}

@@ -1,0 +1,29 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/save_load/save_load.css" />
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/save_load/load_slot.js" />
+	</scripts>
+	<Panel class="save_slot" hittest="false">
+		<Button class="save_slot" hittest="true"
+			onactivate='LoadFromSlot()'>
+		<Image id="slot_portrait"/>
+		<Panel id="slot_overlay">
+		</Panel>
+		</Button>
+
+		<Label class="slot_label" id="slot_label" text="Empty">
+		</Label>
+
+		<Panel class="level_container" id="level_container">
+		</Panel>		
+		<Label class="slot_label_level" id="slot_label_level" text="Lv 1">
+		</Label>
+
+	</Panel>
+
+
+</root>

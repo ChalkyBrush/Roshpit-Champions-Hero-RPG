@@ -1,0 +1,79 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/stars/stars.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/heroes_custom/heroes_custom.js" />
+		<include src="file://{resources}/scripts/custom_game/stars/stars.js" />
+	</scripts>
+	<snippets>
+		<snippet name="stars_main_page">
+			<Panel class="stars_main_snippet" hittest="false">
+				<Panel id="stars_background" hittest="false">
+				</Panel>
+				<Button id="close-button" class="close-button" hittest="true">
+					  <Label text="X" class="dummy_option_text" hittest="false"></Label>
+				</Button>
+				<Panel id="stars_content_container">
+<!-- 					<Label id="stars_main_title" text="stars_menu" hittest="false"></Label> -->
+					<Panel id="player_data">
+						<DOTAAvatarImage id="player_avatar"></DOTAAvatarImage>
+						<Panel id="player_data_text">
+							<Label id="player_name" text="stars_menu" hittest="false"></Label>
+							<Label id="total_stars_label" text="" hittest="false"></Label>
+						</Panel>
+					</Panel>
+					<Panel id="stars_buttons_container">
+					</Panel>
+					<Panel id="stars_details_meta_container">
+						<Label id="stars_category_text" text="" hittest="false" html="true"></Label>
+						<Panel id="stars_details_left_side">
+						</Panel>
+						<Panel id="stars_details_right_side">
+						</Panel>
+					</Panel>
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="stars_category_row">
+			<Panel class="stars_category_row">
+				<Panel id="stars_category_row_container">
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="stars_category_button">
+			<Panel class="stars_category_button">
+				<Image id="stars_button_image"/>
+				<Panel id="stars_button_image_overlay" hittest="false"/>
+			</Panel>
+		</snippet>
+		<snippet name="stars_detail">
+			<Panel class="stars_detail_box" hittest="true">
+				<DOTAHeroImage id="star_item_icon"/>
+				<Panel id="stars_text_container" hittest="false">
+					<Label id="stars_title"/>
+					<Label id="stars_description" html="true"/>
+				</Panel>
+				<Panel id="stars_visual" hittest="false">
+					<Label id="star1" class="individual_star_visual" html="true" hittest="true"/>
+					<Label id="star2" class="individual_star_visual" html="true" hittest="true"/>
+					<Label id="star3" class="individual_star_visual" html="true" hittest="true"/>
+				</Panel>
+<!-- 				<Label id="stars_visual" html="true"/> -->
+			</Panel>
+		</snippet>
+		<snippet name="image_icon">
+			<Panel class="image_icon_container">
+				<Image id="image_icon"/>
+			</Panel>
+		</snippet>
+	</snippets>
+	<Panel class="stars_content" hittest="false">
+		<Panel id="stars_container" class="stars_closed invisible" hittest="false">
+
+		</Panel>
+		<Panel id="star_popout_container" hittest="false">
+
+		</Panel>
+	</Panel>
+</root>

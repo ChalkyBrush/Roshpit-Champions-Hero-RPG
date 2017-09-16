@@ -1,0 +1,64 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/save_load/save_load.css" />
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/save_load/pool_of_eternity.js" />
+		<include src="file://{resources}/scripts/custom_game/equipment/item_tooltip.js" />
+		<include src="file://{resources}/scripts/custom_game/heroes_custom/heroes_custom.js" />
+	</scripts>
+	<snippets>
+		<snippet name="pool_item">
+			<Panel class="ItemPanel" draggable="true" hittest="true">
+				<DOTAItemImage id="ItemImage" class="inventory-item-image" hittest="false"/>
+				<Panel hittest="false" id="DropTargetHighlight" />
+			</Panel>
+		</snippet>
+	</snippets>
+	<Panel class="pool_of_eternity_root" hittest="false">
+		<Label class="load_menu_title" id="pool_menu_title" text="">
+		</Label>
+		<Label class="pool_description_label" id="pool_description_label" text="">
+		</Label>
+		<Panel id="pool_container" hittest="false">
+			<Panel class="stash_items_box" id="stash_items">
+				<Panel class="stash_row" id="stash_row_1" />
+				<Panel class="stash_row" id="stash_row_2" />
+			</Panel>
+			<Panel id="premium_stash">
+			<Panel class="premium_label_container">
+				<Label class="premium_stash_label" id="premium_stash_label" text="">
+					<Image id="premium_info" src="file://{images}/custom_game/ui/information-button.png"
+						onmouseover="PremiumTooltip()"
+						onmouseout="HidePremiumTooltip()"/>
+				</Label>
+				
+			</Panel>
+				<Panel class="stash_items_box" id="stash_items_premium1">
+					<Panel class="stash_row" id="stash_row_3" />
+					<Panel class="stash_row" id="stash_row_4" />
+				</Panel>
+				<Panel class="stash_items_box" id="stash_items_premium2">
+					<Panel class="stash_row" id="stash_row_5" />
+					<Panel class="stash_row" id="stash_row_6" />
+				</Panel>
+				<Panel class="stash_items_box" id="stash_items_premium3">
+					<Panel class="stash_row" id="stash_row_7" />
+					<Panel class="stash_row" id="stash_row_8" />
+				</Panel>
+				<Panel class="stash_items_box" id="stash_items_premium4">
+					<Panel class="stash_row" id="stash_row_9" />
+					<Panel class="stash_row" id="stash_row_10" />
+				</Panel>
+				<Panel class="stash_items_box" id="stash_items_premium5">
+					<Panel class="stash_row" id="stash_row_11" />
+					<Panel class="stash_row" id="stash_row_12" />
+				</Panel>
+			</Panel>
+		</Panel>
+
+	</Panel>
+
+
+</root>

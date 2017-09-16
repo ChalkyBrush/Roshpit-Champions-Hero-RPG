@@ -1,0 +1,146 @@
+require('heroes/leshrac/bahamut_arcana_ult')
+
+function begin_judgement(event)
+	local caster = event.caster
+	local ability = event.ability
+	local radius = event.radius
+	local damage = event.damage
+
+	local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "bahamut")
+	if d_b_level > 0 then
+		local manaDrain = caster:GetMaxMana()*0.1
+		if caster:GetMana() < manaDrain then
+			manaDrain = caster:GetMana()
+		end
+		caster:ReduceMana(manaDrain)
+		damage = damage*(manaDrain/100)*0.004*d_b_level + damage
+		ability.damageAmp = (manaDrain/100)*0.004*d_b_level + 1
+	else
+		ability.damageAmp = 1
+	end
+	caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "bahamut")
+	ability.d_b_level = d_b_level
+	local casterOrigin = caster:GetAbsOrigin() 
+	local fv = caster:GetForwardVector()
+	local nukeRange = Filters:GetAdjustedRange(caster, 500)
+	local targetPoint = casterOrigin + fv*nukeRange
+	targetPoint = GetGroundPosition(targetPoint, caster)
+	if caster:HasModifier("modifier_bahamut_glyph_3_1") then
+		radius = radius * 1.3
+		targetPoint = GetGroundPosition(casterOrigin, caster)
+	end
+	blast(caster, targetPoint, radius, damage, ability)
+	Filters:CastSkillArguments(2, caster)
+	local animationTable = {ACT_DOTA_ATTACK, ACT_DOTA_ATTACK2}
+	StartAnimation(caster, {duration=0.25, activity=animationTable[RandomInt(1, #animationTable)], rate=2.5})
+	ability.b_b_level = Runes:GetTotalRuneLevel(caster, 2, "b_b", "bahamut")
+	rune_c_b(caster, ability, caster:GetForwardVector())
+end
+
+function blast(caster, point, radius, damage, ability)
+	EmitSoundOnLocationWithCaster(point, "Hero_Terrorblade.Metamorphosis", caster)
+	local particle = "particles/units/heroes/hero_legion_commander/leshrac_nuke.vpcf"
+	local pfx10 = ParticleManager:CreateParticle( particle, PATTACH_CUSTOMORIGIN, caster )
+	ParticleManager:SetParticleControl( pfx10, 0, point )
+	ParticleManager:SetParticleControl( pfx10, 4, Vector(radius, 0, 0))
+	for i = 5, 12, 1 do
+		ParticleManager:SetParticleControl( pfx10, i, point+Vector(0,0,280))
+	end
+	for i = 1, 3, 1 do
+		ParticleManager:SetParticleControl( pfx10, i, point+Vector(0,0,280))
+	end
+	Timers:CreateTimer(3.5, function()
+		ParticleManager:DestroyParticle(pfx10, true)
+	end)
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+		if #enemies > 0 then
+			Timers:CreateTimer(0.1,function()
+				for _,enemy in pairs(enemies) do
+					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+					if ability.b_b_level > 0 then
+						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_leshrac_nuke_judged", {duration = 5}) 
+					end
+					if caster:HasModifier("modifier_leshrac_arcana_effect") then
+						local arcanaAbility = caster:FindAbilityByName("bahamut_arcana_ulti")
+						local arcanaDamage = arcanaAbility:GetSpecialValueFor("damage")
+						leshrac_ult_go(arcanaAbility, caster, arcanaDamage, true, enemy)
+					end
+				end
+			end)
+		end 
+end
+
+function c_b_attack_land(event)
+	local caster = event.attacker
+	local ability = event.ability
+	local target = event.target
+	local fv = ((target:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	ability.damageAmp = 1
+	rune_c_b(caster, ability, fv)
+	if not ability.b_b_level then
+		ability.b_b_level = Runes:GetTotalRuneLevel(caster, 2, "b_b", "bahamut")
+	end
+end
+
+function rune_c_b(caster, ability, fv)
+
+    local runeUnit = caster.runeUnit3
+    local runeAbility = runeUnit:FindAbilityByName("bahamut_rune_c_b")
+    local abilityLevel = runeAbility:GetLevel()
+    local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_b")
+    local totalLevel = abilityLevel + bonusLevel
+    runeAbility.totalLevel = totalLevel
+    runeAbility.origCaster = caster
+    runeAbility.damageAmp = ability.damageAmp
+    if totalLevel > 0 then
+    	local startPoint = caster:GetAbsOrigin()
+    	local particle = "particles/units/heroes/hero_alchemist/charge_of_light_linear_projectile_concoction_projectile_linear.vpcf"
+		local start_radius = 135
+		local end_radius = 135
+		local range = 1400
+		local speed = 900
+
+			EmitSoundOn("Hero_TrollWarlord.PreAttack", caster)
+			
+			local casterOrigin = caster:GetAbsOrigin()
+
+			local info = 
+			{
+					Ability = runeAbility,
+		        	EffectName = particle,
+		        	vSpawnOrigin = startPoint+Vector(0,0,80),
+		        	fDistance = range,
+		        	fStartRadius = start_radius,
+		        	fEndRadius = end_radius,
+		        	Source = caster,
+		        	StartPosition = "attach_attack1",
+		        	bHasFrontalCone = true,
+		        	bReplaceExisting = false,
+		        	iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		        	iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+		        	iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		        	fExpireTime = GameRules:GetGameTime() + 5.0,
+				bDeleteOnHit = false,
+				vVelocity = fv*Vector(1,1,0) * speed,
+				bProvidesVision = false,
+			}
+			projectile = ProjectileManager:CreateLinearProjectile(info)
+			print("projectile fire")
+    end
+end
+
+function c_b_strike(event)
+	local target = event.target
+	local ability = event.ability
+	local caster = ability.origCaster
+	local damage = 5000 + ability.totalLevel*3020
+	damage = damage*ability.damageAmp
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+
+	ability = caster:FindAbilityByName("leshrac_nuke")
+	if ability.b_b_level then
+		if ability.b_b_level > 0 then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_leshrac_nuke_judged", {duration = 5}) 
+		end
+	end
+end

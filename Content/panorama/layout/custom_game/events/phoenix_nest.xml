@@ -1,0 +1,49 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/special_events.css" />
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/events/phoenix_egg.js" />
+	</scripts>
+	<Panel class="phoenix_nest_root" hittest="false">
+		<Panel id="phoenix_health_outer" hittest="false">
+			<Panel id="phoenix_current_health" class="phoenix_current_health" hittest="false">
+
+			</Panel>
+			<Label id="phoenix_name_label" text="phoenix_name" />
+		</Panel>
+		<Panel id="phoenix_wave_number" hittest="false">
+			<Label id="phoenix_wave_label" text="phoenix_wave" />
+		</Panel>
+		<!-- GUARDIAN HEALTH -->
+		<Panel id="guardian_container">
+			<Panel class="phoenix_guardian_health_outer" id="guardian_health_outer1" hittest="false">
+				<Panel class="phoenix_guardian_current_health" id="guardian_current_health1" hittest="false">
+
+				</Panel>
+				<Label class="phoenix_guardian_label" id="guardian_name_label1" text="phoenix_name" />
+			</Panel>
+			<Panel class="phoenix_guardian_health_outer" id="guardian_health_outer2" hittest="false">
+				<Panel class="phoenix_guardian_current_health" id="guardian_current_health2" hittest="false">
+
+				</Panel>
+				<Label class="phoenix_guardian_label" id="guardian_name_label2" text="phoenix_name" />
+			</Panel>
+			<Panel class="phoenix_guardian_health_outer" id="guardian_health_outer3" hittest="false">
+				<Panel class="phoenix_guardian_current_health" id="guardian_current_health3" hittest="false">
+
+				</Panel>
+				<Label class="phoenix_guardian_label" id="guardian_name_label3" text="phoenix_name" />
+			</Panel>
+			<Panel class="phoenix_guardian_health_outer" id="guardian_health_outer4" hittest="false">
+				<Panel class="phoenix_guardian_current_health" id="guardian_current_health4" hittest="false">
+
+				</Panel>
+				<Label class="phoenix_guardian_label" id="guardian_name_label4" text="phoenix_name" />
+			</Panel>
+		</Panel>
+	</Panel>
+
+</root>

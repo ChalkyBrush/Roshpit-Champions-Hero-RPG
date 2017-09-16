@@ -1,0 +1,118 @@
+.BarebonesBaseHud
+{
+    width: 100%;
+    height: 100%;
+}
+
+.BarebonesTopNotifications
+{
+    width: 100%;
+    height: 100%;
+    flow-children: down;
+}
+
+.BarebonesBottomNotifications
+{
+    width: 100%;
+    height: 100%;
+    flow-children: down;
+}
+
+.NotificationLine
+{
+    margin-top: 15px;
+    flow-children: right;
+    horizontal-align: center;
+    vertical-align: middle;
+    animation-name: scalein;
+    animation-duration: .5s;
+    animation-timing-function: linear;
+}
+
+#TopNotifications
+{
+    flow-children: down;
+    horizontal-align: center;
+    width:50%;
+    height:50%;
+    opacity: 1;
+    margin-top: -120px;
+    visibility: visible;
+    border: 0px solid blue;
+}
+
+#BottomNotifications
+{
+    flow-children: down;
+    horizontal-align: center;
+    vertical-align: bottom;
+    width: 100%;
+    opacity: 1;
+    margin-bottom: 375px;
+    visibility: visible;
+    border: 0px solid blue;
+}
+
+.NotificationMessage
+{
+    color: white;
+    vertical-align: center;
+    horizontal-align: center;
+    text-shadow: 4px 4px 4px #121212;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.HeroImage
+{
+    vertical-align: center;
+    horizontal-align: center;
+}
+
+@keyframes 'scalein' {
+  from {
+    opacity:0;
+    transform: scaleX(2) scaleY(2);
+  }
+
+  to {
+    opacity:1;
+    transform: scaleX(1) scaleY(1);
+  }
+}
+
+@keyframes 'scaleout' {
+  from {
+    opacity:1;
+    transform: scaleX(1) scaleY(1);
+  }
+
+  to {
+    opacity:0;
+    transform: scaleX(2) scaleY(2);
+  }
+}
+
+.fade-out {
+    animation-name: scaleout;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+}
+
+.shrink{
+    width:700px;
+    height:500px;
+    margin-top:200px;
+    box-shadow:0px 0px 4px red;
+    border-radius:10px;
+}
+
+.dungeon_label{
+    font-size:50px;
+    vertical-align: bottom;
+    color:white;
+    text-shadow: 0px 0px 2px red;
+    margin-left:20px;
+    margin-bottom:15px;
+}

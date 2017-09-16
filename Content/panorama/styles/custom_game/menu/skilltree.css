@@ -1,0 +1,289 @@
+.skilltree_panel{
+	horizontal-align:left;
+	vertical-align:bottom;
+	height:435px; /*350px*/
+	width:280px;
+	margin-bottom:260px;
+}
+
+/*.skilltree_panel{
+	horizontal-align:left;
+	vertical-align:bottom;
+	height:425px;
+	width:280px;
+	margin-bottom:260px;
+}*/
+
+.AspectRatio4x3 .skilltree_panel{
+	horizontal-align:left;
+	vertical-align:bottom;
+	height:435px; /*350px*/
+	width:280px;
+	margin-bottom:270px;
+}
+
+.AspectRatio5x4 .skilltree_panel{
+	horizontal-align:left;
+	vertical-align:bottom;
+	height:435px; /*350px*/
+	width:280px;
+	margin-bottom:270px;
+}
+
+#skilltree_panel_parent{
+	horizontal-align:left;
+	vertical-align:bottom;
+	height:100%;
+	width:100%;
+	border:1px solid #333333;
+	border-top-right-radius:8px;
+	border-bottom-right-radius:8px;	
+}
+
+#skilltree_bg{
+	border-top-right-radius:8px;
+	border-bottom-right-radius:8px;
+	width:100%;
+	height:100%;
+	background-color: gradient( linear, 0px 0%, 260px 0%, from( #222222 ), to( #111111 ) );
+	opacity:0.9;
+}
+
+.points_up{
+	horizontal-align:right;
+	color:#7DFF12;
+	font-size:16px;
+	vertical-align: center;
+	margin-bottom:2px;
+
+	text-shadow: 1px 1px 2px 3 #00000066;
+	text-transform:uppercase;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+}
+
+#skilltree_parent{
+
+}
+
+#skilltree_container{
+	flow-children: down;
+
+}
+
+.AbilityOverlayRoot
+{
+	vertical-align: bottom;
+	margin-bottom:5px;
+	flow-children: down;
+	horizontal-align:center;
+}
+
+.RuneOverlayRoot
+{
+	vertical-align: bottom;
+	margin-bottom:5px;
+	flow-children: down;
+	horizontal-align:center;
+}
+
+#ability_list
+{
+	flow-children: right;
+}
+
+#rune_list
+{
+	flow-children: right;
+}
+
+#rune_list_tier2
+{
+	flow-children: right;
+}
+
+#rune_list_tier3
+{
+	flow-children: right;
+}
+
+#rune_list_tier4
+{
+	flow-children: right;
+}
+
+.AbilityPanel
+{
+	margin-left: 2px;
+	margin-right: 2px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	width:64px;
+	height:64px;
+}
+
+.skill_tree_label{
+	padding-top:6px;
+	width:290px;
+	text-align: center;
+	border: 1px solid #111111;
+	background-color: gradient( linear, 0px 0%, 260px 0%, from( #13538A ), to( #1D6AAB ) );
+
+	color:white;
+	font-size:16px;
+
+	text-shadow: 1px 1px 2px 3 #00000066;
+	text-transform:uppercase;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+}
+
+.AbilityPanel.no_ability
+{
+	visibility: collapse;
+}
+
+#LevelUpButton
+{
+	border: 1px solid black;
+    background-color: #c4a529;
+	width: 114px;
+	height: 28px;
+	margin-bottom: 6px;
+	visibility: collapse;
+}
+
+.could_level_up #LevelUpButton
+{
+	visibility: visible;
+}
+
+#LevelUpButton:hover
+{
+    background-color: #9e8b2c;
+}
+
+#LevelUpButtonInset
+{
+	width: 100%;
+	height: 100%;
+	border: 2px solid black;
+    background-color: gradient( linear, 0% 0%, 0% 100%, from( #ffffff ), color-stop( 0.1, #c4a529 ), color-stop( 0.75, #9e8b2c ), color-stop( 0.9, #c4a529 ), to( #ffffff ) );
+	margin: 1px;
+}
+
+#LevelUpButton:hover #LevelUpButtonInset
+{
+    background-color: gradient( linear, 0% 0%, 0% 100%, from( #ffffff ), color-stop( 0.2, #c4a529 ), color-stop( 0.75, #9e8b2c ), color-stop( 0.8, #c4a529 ), to( #ffffff ) );
+}
+
+#LevelUpButton Label
+{
+	text-transform: uppercase;
+	text-shadow: 0px 1px 3px 2.5 #000000;
+	color: white;
+	vertical-align: center;
+	horizontal-align: center;
+}
+
+#ButtonAndLevel
+{
+	flow-children: down;
+}
+
+#AbilityButton
+{
+	width: 80px;
+	height: 80px;
+	border: 2px solid #444444;
+	border-radius:10px;
+	box-shadow:0px 0px 10px black;
+}
+
+.is_passive #AbilityButton
+{
+	border: 2px solid #00000000;
+}
+
+#UpgradeBorder
+{
+	background-color: transparent;
+}
+
+.learnable_ability #UpgradeBorder
+{
+/*   background-color: gradient( linear, 0% 0%, 0% 100%, from( #ffffff ), color-stop( 0.1, #c4a529 ), color-stop( 0.75, #9e8b2c ), color-stop( 0.9, #c4a529 ), to( #ffffff ) );*/
+   box-shadow: 0px 0px 1px yellow;
+   border-radius:12px;
+}
+
+#AbilityButton:hover
+{
+	border: 2px solid white;
+}
+
+#AbilityButton:active
+{
+	border: 4px solid white;
+}
+
+.no_level DOTAAbilityImage
+{
+	saturation: 0;
+	wash-color: #303030;
+}
+
+.insufficient_mana DOTAAbilityImage
+{
+	saturation: 0;
+	wash-color: #1569be;
+}
+
+.potential_upgrade.no_level DOTAAbilityImage
+{
+	saturation: 1;
+	wash-color: white;
+}
+
+#AbilityStatusBorder
+{
+	border: 2px solid transparent;
+}
+
+.auto_cast_enabled #AbilityStatusBorder
+{
+	border: 4px solid orange;
+}
+
+.toggle_enabled #AbilityStatusBorder
+{
+	border: 4px solid green;
+}
+
+#AbilityLevelContainer
+{
+	horizontal-align: center;
+	flow-children: right;
+}
+
+.LevelPanel
+{
+	width: 12px;
+	height: 12px;
+	margin-left: 1px;
+	margin-right: 1px;
+
+	border-radius: 3px;
+
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #2e2716 ), to( #020302 ) );
+	border: 2px solid #ffffff05;
+}
+
+.active_level.LevelPanel
+{
+	background-color: #ceaa31;
+	border: 2px solid #734918;
+}
+
+.can_level_up{
+	border: 6px solid yellow;
+}
+

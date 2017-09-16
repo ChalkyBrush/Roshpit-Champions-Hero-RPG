@@ -1,0 +1,92 @@
+.hero_stats_root{
+	horizontal-align:center;
+	vertical-align: bottom;
+	height:60px;
+	width:240px;
+	margin-bottom:36px;
+	margin-left: 400px;
+}
+
+#Hero_Strength_Icon{
+	background-image: url("s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_strength_psd.vtex");
+	width:32px;
+	height:32px;
+	horizontal-align:center;
+	background-size: contain;
+
+	border-radius:100%;
+	box-shadow: 1px 1px 2px black;
+}
+
+#Hero_Agility_Icon{
+	background-image: url("s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_agility_psd.vtex");
+	width:32px;
+	height:32px;
+	horizontal-align:center;
+	background-size: contain;
+
+	border-radius:100%;
+	box-shadow: 1px 1px 2px black;
+}
+
+#Hero_Intelligence_Icon{
+	background-image: url("s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_intelligence_psd.vtex");
+	width:32px;
+	height:32px;
+	horizontal-align:center;
+	background-size: contain;
+
+	border-radius:100%;
+	box-shadow: 1px 1px 2px black;
+}
+
+.primary_attribute{
+	border:1px solid white;
+}
+
+.attribute_data{
+	width:72px;
+	height:90px;
+	flow-children:down;
+}
+
+#hero_stats_container{
+	width:220px;
+	height:100%;
+	horizontal-align:center;
+	margin-top:10px;
+}
+
+#attributes_image_row{
+	width:100%;
+	flow-children:right;
+}
+
+.hero_attribute_label{
+	font-size:16px;
+	font-weight:medium;
+	letter-spacing: 1px;
+	text-shadow : 1px 1px 2px 3 #00000066;
+	transition-property: transform, opacity, width;
+	transition-duration: 0.12s;
+	transition-timing-function:ease-in-out;
+	horizontal-align:center;
+	margin-top:2px;
+	margin-left:4px;
+}
+
+#strength_label{
+	color: #F75959;
+}
+
+#agility_label{
+	color: #2EB82E;
+}
+
+#intelligence_label{
+	color: #33CCFF;
+}
+
+.invisible{
+  visibility: collapse;
+}

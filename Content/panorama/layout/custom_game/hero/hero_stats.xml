@@ -1,0 +1,51 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/hero/hero_stats.css" />
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/hero_stats.js" /> 
+  </scripts>
+  <snippets>
+    <snippet name="recreation_of_stats_panel">
+      <Panel hittest="false" class="hero_stats_root invisible">
+        <Panel id="hero_stats_container" hittest="false">
+          <Panel id="attributes_image_row" hittest="false">
+            <Panel class="attribute_data">
+              <Panel id="Hero_Strength_Icon"/>
+              <Label class="hero_attribute_label" id="strength_label" text="0"/>
+            </Panel>
+            <Panel class="attribute_data">
+              <Panel id="Hero_Agility_Icon"/>
+              <Label class="hero_attribute_label" id="agility_label"  text="0"/>
+            </Panel>
+            <Panel class="attribute_data">
+              <Panel id="Hero_Intelligence_Icon"/>
+              <Label class="hero_attribute_label" id="intelligence_label"  text="0"/>
+            </Panel>
+          </Panel>
+        </Panel>
+      </Panel>
+    </snippet>   
+  </snippets>
+  <Panel hittest="false" class="hero_stats_root invisible">
+    <Panel id="hero_stats_container" hittest="false" class="invisible">
+      <Panel id="attributes_image_row" hittest="false">
+        <Panel class="attribute_data">
+          <Panel id="Hero_Strength_Icon"/>
+          <Label class="hero_attribute_label" id="strength_label" text="0"/>
+        </Panel>
+        <Panel class="attribute_data">
+          <Panel id="Hero_Agility_Icon"/>
+          <Label class="hero_attribute_label" id="agility_label"  text="0"/>
+        </Panel>
+        <Panel class="attribute_data">
+          <Panel id="Hero_Intelligence_Icon"/>
+          <Label class="hero_attribute_label" id="intelligence_label"  text="0"/>
+        </Panel>
+      </Panel>
+    </Panel>
+  </Panel>
+</root>
+
+    
+

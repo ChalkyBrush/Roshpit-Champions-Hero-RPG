@@ -1,0 +1,400 @@
+.glyphs_root{
+	horizontal-align:left;
+	vertical-align: top;
+	margin-top:120px;
+	margin-left:580px;
+	height:640px;
+	width:680px;
+	visibility: collapse;
+	
+}
+
+#glyphs_main_container{
+
+	height:640px;
+	width:680px;
+	flow-children:right;
+}
+
+.glyphs_details_container{
+	width:300px;
+	height:640px;
+	border-top-right-radius:8px;
+	border-bottom-right-radius:8px;
+	box-shadow: 0px 0px 2px #6E482A;
+	z-index: -1;
+}
+
+#glyph_details_bg{
+	height:100%;
+	width:100%;
+	background-color: gradient( linear, 0px 0%, 300px 0%, from( #000000 ), to( #313131 ) );
+	opacity:0.97;
+	box-shadow: 0px 0px 2px #6E482A;
+	border-top-right-radius:8px;
+	border-bottom-right-radius:8px;
+}
+
+#glyphs_container{
+	width:380px;
+	height:100%;
+	background-color: gradient( linear, 0px 0%, 400px 0%, from( #313131 ), to( #000000 ) );
+	border-radius:8px;
+	box-shadow: 0px 0px 2px #000000;
+	flow-children:down;
+}
+
+.invisible{
+	visibility: collapse;
+}
+
+#header_image_container{
+	height:120px;
+
+}
+
+#header_image{
+	border-bottom: 2px solid #222222;
+}
+
+#header_text{
+	vertical-align: bottom;
+	horizontal-align:left;
+	font-size:32px;
+	color:white;
+	margin-left:10px;
+	text-shadow:0px 0px 1px #000000;
+}
+
+#close_glyph_shop{
+	vertical-align: bottom;
+}
+
+#glyph_content{
+	width:100%;
+	height:400px;
+	flow-children:down;
+}
+
+#glyph_loading_label{
+	width:100%;
+	text-align: center;
+	text-shadow: 1px 1px 1px;
+	font-size:24px;
+	color:#3D84FF;
+	height:25px;
+}
+
+
+#resources-box{
+	width:80%;
+	height:100px;
+	horizontal-align:center;
+	
+}
+
+#resources-box-bg{
+	width:100%;
+	height:100%;
+	opacity:0.7;
+	background-color: #000000;
+	border-radius:4px;
+	box-shadow: 0px 0px 1px #444444;
+}
+
+#resources-box-rows{
+	flow-children:down;
+	height:100%;
+	width:100%;
+	padding:8px;
+}
+
+.resources-box-row{
+	height:35%;
+	width:100%;
+	flow-children:right;
+}
+
+.resources-box-row-bottom{
+	height:30%;
+	width:100%;
+}
+
+#current_crystals_label{
+	horizontal-align:left;
+	color:#FFFFFF;
+	font-size:18px;
+}
+
+#current_crystals_label_value{
+	horizontal-align:right;
+	color:#C363D4;
+	font-size:18px;
+}
+
+#current_crystals_tier_label{
+	horizontal-align:left;
+	color:#FFFFFF;
+	font-size:18px;
+}
+
+#crystal-image-container{
+	horizontal-align:right;
+	flow-children:right;
+}
+
+#current_crystals_tier_label_value{
+	horizontal-align:right;
+	color:#B4C2ED;
+	font-size:18px;
+}
+
+#current_arcane_crystals_image{
+	height:18px;
+	width:18px;
+	horizontal-align:left;
+}
+
+#upgrade-resource-button-label{
+	color:white;
+	font-size:14px;
+	margin-top:4px;
+}
+#upgrade-resource-button{
+	width:120px;
+	height:100%;
+	border-radius:2px;
+	background-color: #333333;
+	horizontal-align:right;
+	box-shadow:0px 0px 1px white;
+}
+
+#upgrade-resource-button:hover{
+	background-color: #555555;
+	box-shadow:0px 0px 2px white;
+}
+
+#upgrade-cost-container{
+	horizontal-align:left;
+	width:165px;
+	flow-children:right;
+}
+
+#upgrade_arcane_crystals_image{
+	height:14px;
+	width:14px;
+	margin-top:7px;
+}
+
+#upgrade_crystals_label_value{
+	color:white;
+	margin-top:7px;
+}
+
+#browse-label-container{
+	padding:5px;
+	height:30px;
+	width:100%;
+}
+
+#browse-label{
+	font-size:16px;
+	letter-spacing:1px;
+	color:white;
+	horizontal-align:center;
+}
+
+#herolist-box{
+	width:95%;
+	horizontal-align:center;
+	flow-children:down;
+}
+
+.herolist-row{
+	flow-children:right;
+}
+
+.shop_button{
+	width:60px;
+	height:36px;	
+}
+#shop_portrait{
+	width:60px;
+	height:36px;
+	border-radius:4px;
+	border: 1px solid black;
+}
+
+#shop_portrait:hover{
+	box-shadow: 0px 0px 2px #FFFFFF;
+}
+
+#slot_label_name{
+	color:white;
+	text-shadow:0px 0px 1px black;
+	font-size:12px;
+	horizontal-align:center;
+	vertical-align: center;
+}
+
+@keyframes 'fromLeftGlyph'{
+  0%   { position: 0px 0px 0px; opacity: 0.2;}
+  100% { position: 280px 0px 0px; opacity: 1;}
+}
+
+.animateInGlyph{
+    animation-name: fromLeftGlyph;
+    animation-duration: .3s;
+    animation-timing-function: linear;	
+}
+
+.shop_row{
+	width:100%;
+	height:80px;
+}
+
+#shop-row-contents{
+	width:97%;
+	horizontal-align:center;
+	background-color: #040404;
+	height:70px;
+	border-radius:4px;
+	flow-children:right;
+}
+
+#shop-price-container{
+	flow-children:right;
+	horizontal-align:center;
+}
+
+#glyph_tiers_container{
+	width:100%;
+	height:100%;
+	flow-children:down;
+	padding-top:30px;
+}
+
+#shop-row-tier-label{
+	color:#B4C2ED;
+	margin-top:2px;
+	margin-left:10px;
+	font-size:12px;
+	letter-spacing:1px;
+}
+
+#glyph-image{
+	width:52px;
+	height:40px;
+	border:1px solid black;
+	box-shadow: 0px 0px 2px black;
+	border-radius:2px;
+	margin-top:14px;
+	margin-left:5px;
+}
+
+#glyph-image:hover{
+	box-shadow:0px 0px 2px #DDDDDD;
+}
+
+
+#glyph_total_container{
+	flow-children:down;
+	horizontal-align:center;
+}
+
+.shop_glyph_button{
+}
+
+#glyph_purchase_price_value{
+	color:white;
+	margin-top:1px;
+}
+
+#glyph_purchase_crystal_image{
+	height:14px;
+	width:14px;
+	margin-top:1px;
+}
+
+.shop-row-overlay-cant-use{
+	width:97%;
+	horizontal-align:center;
+	border-radius:4px;
+	height:70px;
+	background-color: #111111;
+	opacity: 0.8;
+}
+
+#reanimation-box{
+	width:80%;
+	border-radius:4px;
+	height:48px;
+	horizontal-align:center;
+	margin-top:40px;
+}
+
+#reanimation-box-bg{
+	width:100%;
+	height:100%;
+	opacity:0.7;
+	border-radius:4px;
+	
+}
+
+.reanimation_no_hover{
+	background-color: #000000;
+	box-shadow: 0px 0px 1px #444444;
+}
+
+.reanimation_hover{
+	background-color: #454545;
+	box-shadow: 0px 0px 1px #A2EBB9;
+}
+
+#reanimation-image{
+	height:48px;
+	width:68px;
+	vertical-align: center;
+	border-radius:4px;
+	border:1px solid #333333;
+}
+
+#reanimation-text-box{
+	horizontal-align:right;
+	width:300px;
+	flow-children:down;
+}
+
+#reanimation-price-box{
+	flow-children:right;
+	horizontal-align:center;
+}
+
+#purchase-reanimation-stone{
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+	color:white;
+	font-size:20px;
+	horizontal-align:center;
+}
+
+#reanimation-price-amount{
+	color:#C363D4;
+	font-size:16px;
+}
+
+#reanimation-price-crystal{
+	height:18px;
+	width:18px;
+}
+
+#reanimation-contents{
+	height:100%;
+	width:100%;
+	flow-children:right;
+}
+
+#reanimation_purchase_button{
+	width:100%;
+	height:100%;
+}
+

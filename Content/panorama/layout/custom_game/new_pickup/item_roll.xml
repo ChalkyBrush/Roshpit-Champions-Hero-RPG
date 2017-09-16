@@ -1,0 +1,17 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/pickup/pickup.css" />
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/pickup/item_roll.js" />
+	</scripts>
+	<Panel class="itemroll_root" hittest="false">
+		<Panel id="item_roll_container" hittest="false">
+
+		</Panel>
+	</Panel>
+
+
+</root>

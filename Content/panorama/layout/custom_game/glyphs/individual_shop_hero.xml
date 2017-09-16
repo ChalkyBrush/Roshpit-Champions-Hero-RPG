@@ -1,0 +1,20 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/resources/glyphs.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/glyphs/individual_shop_hero.js" />
+	</scripts>
+	<Panel class="shop_button" hittest="false">
+		<Button class="save_slot" hittest="true"
+			onactivate='OpenGlyphShopForHero()'>
+		<Image id="shop_portrait"/>
+		</Button>
+		
+		<Label class="slot_label_name" id="slot_label_name" text="hero_name">
+		</Label>
+
+	</Panel>
+
+
+</root>

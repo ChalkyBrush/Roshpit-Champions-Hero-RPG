@@ -1,0 +1,33 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/quests/quests.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/quests/quest_item.js" />
+	</scripts>
+	<Panel class="quest_item" hittest="true">
+		<Button id="entire_quest_button"
+			onactivate="CompleteQuest()">
+			<Label id="quest_description" text="" html="true" hittest="false"></Label>
+			<Panel class="quest_status_container" hittest="false">
+				<Panel id="quest_status_box" hittest="false">
+					<Label id="quest_status_label" text="" html="true" hittest="false"></Label>
+					<Button class="quest_delete_button" id="quest_delete_button"
+						onmouseover="DeleteQuestTooltip()"
+						onmouseout="HideDeleteQuestTooltip()"
+						onactivate="DeleteQuest()">
+						<Image class="roll-option" src="file://{images}/custom_game/ui/pass.png"/>
+					</Button>
+				</Panel>
+				<Panel id="quest_level_box" hittest="false">
+					<Label id="quest_status_level" text="" html="true" hittest="false"></Label>
+					<Label id="quest_status_level_number" text="" html="true" hittest="false"></Label>
+				</Panel>
+			</Panel>
+		</Button>
+	</Panel>
+
+
+
+</root>

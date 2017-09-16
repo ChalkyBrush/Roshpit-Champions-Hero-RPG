@@ -1,0 +1,21 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/resources/blacksmith.css" />
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/heroes_custom/heroes_custom.js" />
+		<include src="file://{resources}/scripts/custom_game/resources/reroll_pre_screen.js" />
+	</scripts>
+	<Panel class="reroll_prescreen_root" hittest="false">
+	
+			<DOTAItemImage hittest="true" id="item_image" class="white_glow"/>
+				<Label id="item_placement_tip" text="item_name" html="true">
+				</Label>	
+			<Panel id="reroll_tip_container">
+				<Label id="reroll_other_tip" text="reroll_tip" html="true"></Label>
+			</Panel>						
+	</Panel>
+
+
+</root>

@@ -1,0 +1,8 @@
+rpc_test_map
+{
+	material materials/overviews/rpc_test_map.vmat
+	pos_x -15360
+	pos_y 15360
+	scale 30.000
+}
+

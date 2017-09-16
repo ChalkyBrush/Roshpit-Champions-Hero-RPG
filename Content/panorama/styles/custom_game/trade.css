@@ -1,0 +1,144 @@
+.overlay_container{
+	width:100%;
+}
+
+#overlay_event{
+	width:100%;
+}
+
+.trade_root{
+	horizontal-align:center;
+	margin-top:200px;
+	width:600px;
+	height:260px;
+	border-radius:8px;
+	box-shadow: 2px 2px 8px solid black;
+}
+
+#trade_container{
+	flow-children:right;
+	width:100%;
+	height:100%;
+}
+
+.trade_player_container{
+	width:50%;
+	height:100%;
+}
+
+.trade_player_sub_container{
+	width:100%;
+	flow-children:down;
+}
+.stash_items_box{
+
+}
+
+.hero_portrait_trade{
+	height:50px;
+	width:90px;
+	border-radius:8px;
+	horizontal-align:center;
+	margin-top:10px;
+	box-shadow: 1px 1px 4px solid black;
+}
+
+.hero_portrait_trade_label{
+	text-align:center;
+	width:100%;
+	color:white;
+}
+
+#trade-bg-p1{
+	width:100%;
+	height:100%;
+	opacity:0.6;
+}
+
+#trade-bg-p2{
+	width:100%;
+	height:100%;
+	opacity:0.6;
+}
+
+.base-bg{
+	background-color: gradient( linear, 0px 0%, 600px 0%, from( #13538A ), to( #1D6AAB ) );
+}
+
+.trade-arrows{
+	horizontal-align:center;
+	margin-top:5px;
+}
+
+.trade_buttons_container{
+	flow-children:right;
+	width:100%;
+	margin-top:8px;
+}
+
+.trade-button{
+	border-radius:8px;
+	box-shadow:1px 1px 4px black;
+	background-color: #C93E51;
+	width:32px;
+	height:32px;
+	horizontal-align:right;
+	margin-right:30px;
+}
+
+.trade-button:hover{
+	background-color: #D46171;
+}
+
+.trade-button-accept{
+	border-radius:8px;
+	box-shadow:1px 1px 4px black;
+	background-color: #359615;
+	margin-right:35px;
+	width:32px;
+	height:32px;
+	margin-left:32px;
+}
+
+.trade-button-accept:hover{
+	background-color: #51B52F;
+}
+
+.trade-button-unlock{
+	border-radius:8px;
+	box-shadow:1px 1px 4px black;
+	background-color: #C7C424;
+	margin-right:35px;
+	width:32px;
+	height:32px;
+	margin-left:32px;
+}
+
+.trade-button-unlock:hover{
+	background-color: #FCF923;
+}
+
+.button-image{
+	width:16px;
+	height:16px;
+	margin-left:8px;
+	margin-top:8px;
+}
+
+.cancel-bg{
+	 background-color: gradient( linear, 0px 0%, 600px 0%, from( #C93E51 ), to( #D46171 ) );	
+}
+
+.accept-bg{
+	 background-color: gradient( linear, 0px 0%, 600px 0%, from( #359615 ), to( #51B52F ) );	
+}
+
+
+#ItemButton{
+/*	width:100%;
+	height:100%;*/
+}
+.trade_row{
+	flow-children: right;
+	background-color: #222222;	
+}

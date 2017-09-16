@@ -1,0 +1,53 @@
+.invisible{
+	transition-delay: .5s;
+	visibility: collapse;
+}
+
+.animateEaseClass{
+    animation-name: easeIn;
+    animation-duration: .5s;
+    animation-timing-function: linear;	
+}
+
+.animateEaseOutClass{
+    animation-name: easeOut;
+    animation-duration: .5s;
+    animation-timing-function: linear;	
+}
+
+@keyframes 'easeIn'{
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes 'easeOut'{
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.center-block{
+	text-align: center;
+	width:100%;
+}
+
+@keyframes 'shadowIn'{
+  0%   { box-shadow: 0px 0px 0px white; }
+  100% { box-shadow: 0px 0px 3px white; }
+}
+
+@keyframes 'shadowOut'{
+  0%   { box-shadow: 0px 0px 3px white; }
+  100% { box-shadow: 0px 0px 0px white; }
+}
+
+.animateShadowClass{
+    animation-name: shadowIn;
+    animation-duration: .5s;
+    animation-timing-function: linear;	
+}
+
+.animateShadowOutClass{
+    animation-name: shadowOut;
+    animation-duration: .5s;
+    animation-timing-function: linear;	
+}

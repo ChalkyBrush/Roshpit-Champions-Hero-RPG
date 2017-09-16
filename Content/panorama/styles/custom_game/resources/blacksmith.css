@@ -1,0 +1,477 @@
+.blacksmith_root{
+	horizontal-align:left;
+	vertical-align: top;
+	margin-top:120px;
+	width:100%;
+	visibility: collapse;
+	
+}
+
+#blacksmith_main_container{
+
+	height:660px;
+	width:380px;
+	horizontal-align:center;
+	flow-children:right;
+}
+
+.blacksmith_details_container{
+	width:300px;
+	height:660px;
+	border-top-right-radius:8px;
+	border-bottom-right-radius:8px;
+	box-shadow: 0px 0px 2px #6E482A;
+	z-index: -1;
+}
+
+#blacksmith_details_bg{
+	height:100%;
+	width:100%;
+	background-color: gradient( linear, 0px 0%, 300px 0%, from( #000000 ), to( #313131 ) );
+	opacity:0.97;
+	box-shadow: 0px 0px 2px #6E482A;
+	border-top-right-radius:8px;
+	border-bottom-right-radius:8px;
+}
+
+#blacksmith_container{
+	width:380px;
+	height:100%;
+	background-color: gradient( linear, 0px 0%, 400px 0%, from( #313131 ), to( #000000 ) );
+	border-radius:8px;
+	box-shadow: 0px 0px 2px #000000;
+	flow-children:down;
+}
+
+.invisible{
+	visibility: collapse;
+}
+
+#header_image_container{
+	height:120px;
+
+}
+
+#header_image{
+	height:120px;
+	border-bottom: 2px solid #222222;
+}
+
+#header_text{
+	vertical-align: bottom;
+	horizontal-align:left;
+	font-size:32px;
+	color:white;
+	margin-left:10px;
+	text-shadow:0px 0px 1px #000000;
+}
+
+#close_blacksmith_shop{
+	vertical-align: bottom;
+}
+
+#blacksmith_content{
+	width:100%;
+	height:500px;
+	flow-children:down;
+}
+
+#resources-box{
+	width:80%;
+	horizontal-align:center;
+	padding-top:10px;
+	height:80px;
+}
+
+#resources-box-bg{
+	width:100%;
+	height:100%;
+	opacity:0.7;
+	background-color: #000000;
+	border-radius:4px;
+	box-shadow: 0px 0px 1px #444444;
+}
+
+#resources-box-rows{
+	flow-children:down;
+	height:100%;
+	width:100%;
+	padding:8px;
+}
+
+.resources-box-row{
+	height:35%;
+	width:100%;
+	flow-children:right;
+}
+
+.resources-box-row-bottom{
+	height:30px;
+	width:100%;
+	margin-top:5px;
+}
+
+#current_crystals_label{
+	horizontal-align:left;
+	color:#FFFFFF;
+	font-size:18px;
+}
+
+#current_crystals_label_value{
+	horizontal-align:right;
+	color:#57B3FF;
+	font-size:18px;
+}
+
+#current_crystals_tier_label{
+	horizontal-align:left;
+	color:#FFFFFF;
+	font-size:18px;
+}
+
+#crystal-image-container{
+	horizontal-align:right;
+	flow-children:right;
+}
+
+#current_crystals_tier_label_value{
+	horizontal-align:right;
+	color:#57B3FF;
+	font-size:18px;
+}
+
+#current_arcane_crystals_image{
+	height:18px;
+	width:18px;
+	horizontal-align:left;
+}
+
+#upgrade-resource-button-label{
+	color:white;
+	font-size:14px;
+	margin-top:4px;
+}
+#upgrade-resource-button{
+	width:120px;
+	height:24px;
+	border-radius:2px;
+	background-color: #333333;
+	horizontal-align:right;
+	box-shadow:0px 0px 1px white;
+}
+
+#upgrade-resource-button:hover{
+	background-color: #555555;
+	box-shadow:0px 0px 2px white;
+}
+
+#upgrade-cost-container{
+	horizontal-align:left;
+	width:165px;
+	flow-children:right;
+}
+
+#income_arcane_crystals_image{
+	height:14px;
+	width:14px;
+	margin-top:7px;
+}
+
+#income_crystals_label_value{
+	color:white;
+	margin-top:7px;
+}
+
+.no_income{
+	margin-top:15px;
+}
+
+.active_button{
+	box-shadow: 0px 0px 4px #FFFFFF;
+	background-color: gradient( linear, 0px 0%, 140px 0%, from( #444444 ), to( #333333 ) );
+}
+
+#chisel_button_container{
+	width:100%;
+	height:40px;
+	margin-top:10px;
+}
+
+#chisel_button{
+	width:80%;
+	height:100%;
+	background-color: gradient( linear, 0px 0%, 140px 0%, from( #333333 ), to( #222222 ) );
+	border: 1px solid #666666;
+	horizontal-align:center;
+	border-radius:6px;
+}
+
+#chisel_button:hover{
+	width:80%;
+	height:100%;
+	background-color: #666666;
+	border: 1px solid white;
+	background-color: gradient( linear, 0px 0%, 140px 0%, from( #444444 ), to( #333333 ) );
+}
+
+#chisel_button_label{
+	vertical-align: center;
+}
+
+#reroll_button_container{
+	width:100%;
+	height:40px;
+	margin-top:10px;
+}
+
+#reroll_button{
+	width:80%;
+	height:100%;
+	background-color: gradient( linear, 0px 0%, 140px 0%, from( #333333 ), to( #222222 ) );
+	border: 1px solid #666666;
+	horizontal-align:center;
+	border-radius:6px;
+}
+
+#reroll_button:hover{
+	width:80%;
+	height:100%;
+	background-color: #666666;
+	border: 1px solid white;
+	background-color: gradient( linear, 0px 0%, 140px 0%, from( #444444 ), to( #333333 ) );
+}
+
+#reroll_button_label{
+	vertical-align: center;
+}
+
+#item-display-box{
+	width:80%;
+	horizontal-align:center;
+	padding-top:10px;
+	height:260px;
+}
+
+#item-display-box-bg{
+	width:100%;
+	height:100%;
+	opacity:0.7;
+	background-color: #000000;
+	border-radius:4px;
+	box-shadow: 0px 0px 1px #444444;
+}
+
+.item_detail_blacksmith_root{
+	height:100%;
+	width:100%;
+	flow-children:down;
+}
+
+#item_top_row{
+	width:100%;
+	height:60px;
+	flow-children:right;
+}
+
+#item-display-content{
+	width:100%;
+	height:100%;
+}
+
+
+
+#final_forge_button_container{
+	width:100%;
+	height:40px;
+	margin-top:10px;
+}
+
+#final_forge_button{
+	width:80%;
+	height:100%;
+	
+	border: 1px solid white;
+	horizontal-align:center;
+	border-radius:6px;
+}
+
+.forge_button_color_main{
+	background-color: gradient( linear, 0px 0%, 140px 0%, from( #934141 ), to( #8F413F ) );
+}
+
+.forge_button_color_main:hover{
+	background-color: gradient( linear, 0px 0%, 140px 0%, from( #794C4B ), to( #8F5957 ) );
+}
+
+.forge_button_deactivated{
+	background-color: #222222;
+}
+
+#final_forge_button_label{
+	vertical-align:center;
+}
+
+#item_image{
+	margin-top:5px;
+	border-radius:4px;
+	horizontal-align:center;
+}
+#item_name{
+	font-size:18px;
+	text-shadow: 1px 1px black;
+	horizontal-align:center;
+}
+
+.blacksmith_attribute_row{
+	width:100%;
+	height:18px;
+	padding-left:10%;
+	padding-right:10%;
+
+}
+
+#property_name{
+	horizontal-align:left;
+	font-size:13px;
+	vertical-align: center;
+}
+
+#property_value{
+	horizontal-align:right;
+	font-size:13px;
+	vertical-align:center;
+}
+
+#item_properties_container{
+	flow-children:down;
+	width:100%;
+	horizontal-align:center;
+	margin-top:8px;
+}
+
+#min_level_container{
+	width:80%;
+	height:18px;
+	margin-top:10px;
+	horizontal-align:center;
+}
+
+#min_level_label{
+	horizontal-align:left;
+	font-size:13px;
+	color: #DB2766;
+}
+
+#min_level_label_value{
+	horizontal-align:right;
+	font-size:13px;	
+	color: #DB2766;
+}
+
+#forge_price_container{
+	width:80%;
+	height:18px;
+	margin-top:10px;
+	horizontal-align:center;
+}
+
+#forge_price_label{
+	horizontal-align:left;
+	font-size:13px;
+	color: #FFFFFF;
+}
+
+#forge_price_label_value{
+	horizontal-align:right;
+	font-size:13px;	
+	color: #57B3FF;
+}
+
+#forge_price_box_container{
+	flow-children:right;
+	horizontal-align:right;
+	vertical-align:center;
+}
+
+#forge_price_image{
+	height:14px;
+	width:14px;
+}
+
+#forge_price_box_container_main{
+	flow-children:right;
+	horizontal-align:right;
+	vertical-align:center;
+	margin-right:8px;
+}
+
+#forge_price_label_value_main{
+	horizontal-align:right;
+	font-size:16px;	
+	text-shadow: 0px 0px 2px #000000;
+	color: #57B3FF;
+}
+
+#forge_price_image_main{
+	height:16px;
+	width:16px;
+}
+
+.reroll_prescreen_root{
+	flow-children:down;
+	padding-top:12px;
+}
+
+#item_placement_tip{
+	color:white;
+	width:90%;
+	horizontal-align:center;
+	text-align:center;
+	font-size:16px;
+	margin-top:10px;
+}
+#reroll_other_tip{
+	margin-top:10px;
+	color:yellow;
+	horizontal-align:center;
+	text-align:center;
+	font-size:14px;
+}
+
+.white_glow{
+	box-shadow:0px 0px 3px #E4AE33;
+}
+
+.item_highlight{
+	box-shadow:0px 0px 5px #E4AE33;
+}
+
+.locked_property{
+	background-color: #345A66;
+	border-radius:4px;
+}
+
+#property_row_button{
+	width:100%;
+	height:100%;
+	border-radius:4px;
+}
+
+.property_row_button_hover{
+	box-shadow: 0px 0px 2px #9C3B48;
+}
+
+.locked_property:hover{
+	background-color: #345A66;
+}
+
+#property-lock-image{
+	width:13px;
+	height:13px;
+	vertical-align:center;
+	position: -20px 0px 0px;
+}
+
+.inactive{
+	background-color: #333333;
+}

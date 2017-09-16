@@ -1,0 +1,77 @@
+"AddonInfo"
+{
+  "TeamCount" "1"
+  "maps"      "rpc_redfall_ridge rpc_tanari_jungle rpc_battle_of_serengaard rpc_roshpit_arena rpc_sea_fortress"
+  "IsPlayable"  "1"
+  "rpc_redfall_ridge"
+  {
+          "MaxPlayers"                    "4"
+  }
+  "rpc_tanari_jungle"
+  {
+          "MaxPlayers"                    "4"
+  }
+  "rpc_battle_of_serengaard"
+  {
+          "MaxPlayers"                    "4"
+  }
+  //"rpc_world_1_normal"
+  //{
+  //        "MaxPlayers"                    "4"
+  //}
+  //"rpc_world_1_elite"
+  //{
+  //        "MaxPlayers"                    "4"
+  //}
+  //"rpc_world_1_legend"
+  //{
+  //        "MaxPlayers"                    "4"
+  //}
+  "rpc_roshpit_arena"
+  {
+          "MaxPlayers"                    "4"
+  }
+  //"rpc_pvp_alpha_3v3_open"
+  //{
+  //        "MaxPlayers"                    "6"
+  //}
+  "rpc_sea_fortress"
+  {
+          "MaxPlayers"                    "4"
+  }
+  "Default_Keys"
+  {
+      "01"
+      {
+          "Key"       "P"
+          "Command"   "+OpenEquipment"
+          "Name"      "Open Equipment"
+      }
+      "02"
+      {
+          "Key"       "L"
+          "Command"   "+OpenSkills"
+          "Name"      "Open Skills"
+      }
+      "03"
+      {
+          "Key"       "O"
+          "Command"   "+OpenResources"
+          "Name"      "Open Resources"
+      }
+      "04"
+      {
+          "Key"       "K"
+          "Command"   "+OpenStars"
+          "Name"      "Open Stars"
+      }
+  }
+//  "desert_duo"
+//  {
+//          "MaxPlayers"                    "10"
+//  }
+//  "forest_solo"
+//  {
+//          "MaxPlayers"                    "10"
+//  }
+}

@@ -1,0 +1,69 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/save_load/save_load.css" />
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/save_load/save_menu.js" />
+	</scripts>
+	<Panel class="save_root" hittest="false">
+		<Label class="save_menu_title" id="save_menu_title" text="" html="true">
+		</Label>
+		<Label class="oracle_content_label" id="oracle_content_label" text="" html="true">
+		</Label>
+		<Panel id="save_container" hittest="false">
+
+		</Panel>
+		<Panel id="line_break">
+		</Panel>
+		<Panel id="save_container2" hittest="false">
+
+		</Panel>
+		<Panel id="premium_save_container">
+			<Panel class="premium_label_container">
+				<Label class="save_premium_label" id="save_premium_label" text="">
+					<Image id="premium_info" src="file://{images}/custom_game/ui/information-button.png"
+						onmouseover="PremiumTooltip()"
+						onmouseout="HidePremiumTooltip()"/>
+				</Label>
+				
+			</Panel>
+			<Panel id="save_container_premium1" hittest="false">
+
+			</Panel>
+			<Panel id="line_break">
+			</Panel>
+			<Panel id="save_container_premium2" hittest="false">
+
+			</Panel>
+
+			<Panel class="line_break">
+			</Panel>
+			<Panel id="save_container_premium3" hittest="false">
+
+			</Panel>
+			<Panel class="line_break">
+			</Panel>
+			<Panel id="save_container_premium4" hittest="false">
+
+			</Panel>
+			<Panel class="line_break">
+			</Panel>
+			<Panel id="save_container_premium5" hittest="false">
+
+			</Panel>
+			<Panel class="line_break">
+			</Panel>
+			<Panel id="save_container_premium6" hittest="false">
+
+			</Panel>
+		</Panel>
+		<Panel id="save_extras" hittest="false">
+			<Label class="save_extras_label" id="save_extras_label" text="">
+			</Label>
+		</Panel>
+	</Panel>
+
+
+</root>
