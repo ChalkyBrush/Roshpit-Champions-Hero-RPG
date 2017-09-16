@@ -387,6 +387,38 @@ function Runes:GetTotalRuneLevelGeneric(caster, tier, index)
 	end
 end
 
+function Runes:GetRuneAbility(caster, tier, index)
+	local runeUnit = ""
+	if tier == 1 then
+		runeUnit = caster.runeUnit
+	elseif tier == 2 then
+		runeUnit = caster.runeUnit2
+	elseif tier == 3 then
+		runeUnit = caster.runeUnit3
+	elseif tier == 4 then
+		runeUnit = caster.runeUnit4
+	end
+	local runeID = Runes:ConvertTierAndIndexToRune(tier, index)
+	local runeAbility = runeUnit:GetAbilityByIndex(index)
+	return runeAbility
+end
+
+function Runes:GetRunePropertyValue(caster, tier, index, propertyName)
+	local runeUnit = ""
+	if tier == 1 then
+		runeUnit = caster.runeUnit
+	elseif tier == 2 then
+		runeUnit = caster.runeUnit2
+	elseif tier == 3 then
+		runeUnit = caster.runeUnit3
+	elseif tier == 4 then
+		runeUnit = caster.runeUnit4
+	end
+	local runeID = Runes:ConvertTierAndIndexToRune(tier, index)
+	local runeAbility = runeUnit:GetAbilityByIndex(index)
+	return runeAbility:GetSpecialValueFor(propertyName)
+end
+
 function Runes:ConvertTierAndIndexToRune(tier, index)
 	local runeID = ""
 	if tier == 1 and index == 0 then

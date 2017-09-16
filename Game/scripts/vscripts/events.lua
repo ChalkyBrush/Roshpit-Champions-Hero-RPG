@@ -377,6 +377,7 @@ function GameMode:OnPlayerChat(keys)
           unit.targetFindOrder = FIND_ANY_ORDER     
           unit.targetRadius = 620
           unit.autoAbilityCD = 1
+          unit.aggro = true
        end
   elseif string.match(text, "tanari") then
         if Beacons.cheats then
@@ -1253,7 +1254,7 @@ end
 
 function Events:beginQuests()
   -- print("BEGINQUESTS IS HAPPENING")
-  -- Beacons:DEBUG()
+  Beacons:DEBUG()
 end
 
 function Events:InitGameEntities()

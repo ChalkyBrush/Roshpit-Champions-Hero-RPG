@@ -27,6 +27,9 @@ function wolf_howl(event)
 			ability:ApplyDataDrivenModifier(caster, ally, modifierName, {duration = duration})
 		end
 	end
+	Timers:CreateTimer(2, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_abaddon/abaddon_aphotic_shield_explosion_wave.vpcf", caster, 3)
 end
 

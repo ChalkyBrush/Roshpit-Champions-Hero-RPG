@@ -35940,6 +35940,9 @@
 			"particle"				"particles/units/heroes/hero_abaddon/abaddon_aphotic_shield_explosion_wave.vpcf"
 			"particle"				"particles/roshpit/draghor/wolf_rend_preb.vpcf"
 			"particle"				"particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf"
+			"particle"				"particles/status_fx/status_effect_beserkers_call.vpcf" 
+			"particle"				"particles/units/heroes/hero_axe/axe_beserkers_call_owner.vpcf"
+			"particle"				"particles/roshpit/draghor/bear_warstomp.vpcf"
 		}
 		//-------------------------------------------------------------------------------------------------------------
 		// Casting
@@ -36311,6 +36314,200 @@
 						"target"		"TARGET"
 					}
 				}
+			}
+		}
+	}
+
+	"djanghor_bear_roar"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"lone_druid_savage_roar"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"  
+		"AOERadius"				 "360"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.2"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"8"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_increase_percent"		"150 200 250 300 350 400 450"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"2.1 2.25 2.4 2.55 2.7 2.85 3.0"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"armor_bonus"		"30 70 150 450 1000 3000 5000"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_bear_roar_taunt"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_beserkers_call.vpcf" 	   
+				"StatusEffectPriority"  "10"
+				"States"
+				{
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_bear_armor_buff"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"EffectName"	"particles/units/heroes/hero_axe/axe_beserkers_call_owner.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
+				}
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/monkey_king/bear"
+				"Function"		"bear_roar_pre"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/monkey_king/bear"
+				"Function"		"bear_roar"
+				"duration"		"%duration"
+			}
+		}
+	}
+
+	"djanghor_bear_war_stomp"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"lone_druid_savage_roar"
+		"AbilityCastAnimation"			"ACT_DOTA_IDLE_RARE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"  
+		"AOERadius"				 "280"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"2"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"40 90 150 250 380 550 800"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"		"600 1500 5000 15000 50000 100000 200000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_duration"			"2.1 2.25 2.4 2.55 2.7 2.85 3.0"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"armor_bonus"		"30 70 150 450 1000 3000 5000"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_bear_roar_taunt"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_beserkers_call.vpcf" 	   
+				"StatusEffectPriority"  "10"
+				"States"
+				{
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_bear_armor_buff"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"EffectName"	"particles/units/heroes/hero_axe/axe_beserkers_call_owner.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
+				}
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/monkey_king/bear"
+				"Function"		"bear_warstomp_pre"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/monkey_king/bear"
+				"Function"		"bear_warstomp"
+				"stun_duration"		"%stun_duration"
+				"damage"			"%damage"
 			}
 		}
 	}

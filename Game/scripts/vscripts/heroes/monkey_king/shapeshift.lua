@@ -92,11 +92,16 @@ function shapeshift_start_bear(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_bear", {})
 	if caster:HasModifier("modifier_mark_of_the_fang") then
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_cat", "draghor_monkey_form", 3)
+		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_claw", "djanghor_bear_roar", 0)
 	elseif caster:HasModifier("modifier_mark_of_the_claw") then
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_bear", "draghor_monkey_form", 3)
+		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_talon", "djanghor_bear_roar", 0)
 	elseif caster:HasModifier("modifier_mark_of_the_talon") then
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_crow", "draghor_monkey_form", 3)
+		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_fang", "djanghor_bear_roar", 0)
 	end
+
+	
 end
 
 function shapeshift_start_crow(event)
@@ -139,6 +144,7 @@ function monkey_form(event)
 		colorVector = Vector(0.8, 0.45, 0.45)
 		springParticle = "particles/roshpit/draghor/shapeshift_effect_red_base.vpcf"
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_monkey_form", "draghor_shapeshift_bear", 3)
+		CustomAbilities:AddAndOrSwapSkill(caster, "djanghor_bear_roar", "draghor_mark_of_the_claw", 0)
 	elseif caster:HasModifier("modifier_mark_of_the_talon") then
 		colorVector = Vector(0.3, 0.45, 0.85)
 		springParticle = "particles/roshpit/draghor/shapeshift_effect_blue_base.vpcf"
