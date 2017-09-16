@@ -370,7 +370,13 @@ function GameMode:OnPlayerChat(keys)
           local position = MAIN_HERO_TABLE[1]:GetAbsOrigin() + MAIN_HERO_TABLE[1]:GetForwardVector()*600
           local unitName = string.gsub(text, "spawnunit ", '')
           local unit = CreateUnitByName(unitName, position, true, nil, nil, DOTA_TEAM_NEUTRALS)
-          Events:AdjustDeathXP(unit)          
+          Events:AdjustDeathXP(unit)     
+          unit.targetRadius = 800
+          unit.minRadius = 0
+          unit.targetAbilityCD = 1
+          unit.targetFindOrder = FIND_ANY_ORDER     
+          unit.targetRadius = 620
+          unit.autoAbilityCD = 1
        end
   elseif string.match(text, "tanari") then
         if Beacons.cheats then
@@ -1247,7 +1253,7 @@ end
 
 function Events:beginQuests()
   -- print("BEGINQUESTS IS HAPPENING")
-  Beacons:DEBUG()
+  -- Beacons:DEBUG()
 end
 
 function Events:InitGameEntities()
