@@ -1,4 +1,5 @@
-require('heroes/moon_ranger/moon_shroud')
+require('heroes/moon_ranger/common')
+
 
 function a_b_attack_land(event)
 	local attacker = event.attacker
@@ -42,16 +43,16 @@ end
 
 
 function create_arrow(attacker, damage, enemy, target, ability, arrowParticle)
-local info = 
+local info =
 {
 	Target = enemy,
 	Source = target,
-	Ability = ability,	
+	Ability = ability,
 	EffectName = arrowParticle,
 	vSourceLoc= target:GetAbsOrigin(),
-	bDrawsOnMinimap = false, 
+	bDrawsOnMinimap = false,
         bDodgeable = true,
-        bIsAttack = false, 
+        bIsAttack = false,
         bVisibleToEnemies = true,
         bReplaceExisting = false,
         flExpireTime = GameRules:GetGameTime() + 10,
@@ -80,7 +81,7 @@ function arrow_strike(event)
 	  Filters:TakeArgumentsAndApplyDamage(event.target, ability.attacker, ability.damage, DAMAGE_TYPE_PHYSICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 	  local eventTable = {}
 	  eventTable.attacker = ability.attacker
-	  eventTable.ability = ability.attacker:FindAbilityByName("moon_shroud")
+	  eventTable.ability = ability.attacker:FindAbilityByName("q")
 	  eventTable.target = event.target
 	  eventTable.attack_damage = ability.damage
 	  moon_shroud_attack_land(eventTable)
@@ -112,7 +113,7 @@ function c_d_enter(event)
  	local ability = event.ability
  	local caster = ability.origCaster
 
- 	local damage = ability.c_d_level * 1270 + 130
+ 	local damage = ability.c_d_level * 0.02 * caster:GetAverageTrueAttackDamage(caster)
     local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "astral")
     -- damage = damage + 0.001*caster:GetAgility()/10*d_c_level*damage
     print(caster:GetUnitName())
@@ -200,9 +201,9 @@ function astral_think(event)
 	local d_d_level = caster.d_d_level
 	local d_d_ability = caster.runeUnit4:FindAbilityByName("astral_rune_d_d")
 	if d_d_level > 0 then
-		d_d_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_astral_rune_d_d_visible", {})
-		caster:SetModifierStackCount( "modifier_astral_rune_d_d_visible", d_d_ability, d_d_level )
+		d_d_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_astral_rune_d_d_invisible", {})
+		caster:SetModifierStackCount( "modifier_astral_rune_d_d_invisible", d_d_ability, d_d_level )
 	else
-		caster:RemoveModifierByName("modifier_astral_rune_d_d_visible")
+		caster:RemoveModifierByName("modifier_astral_rune_d_d_invisible")
 	end
 end

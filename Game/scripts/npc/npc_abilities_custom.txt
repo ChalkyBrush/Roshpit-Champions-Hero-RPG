@@ -8190,6 +8190,25 @@
 				"IsHidden"	"1"
 
 			}
+			"modifier_astral_a_b_visible"
+			{
+				"IsBuff"	        "1"
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"TextureName"		"rpc/astral_a_b"
+			}
+			"modifier_astral_a_b_invisible"
+			{
+			    "IsHidden"          "1"
+				"IsBuff"	        "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "1"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "1"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "1"
+				}
+			}
 		}
 
 	}
@@ -8486,20 +8505,6 @@
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
-			"modifier_star_blink_root"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"1"
-		
-				"EffectName"		"particles/econ/items/faceless_void/faceless_void_jewel_of_aeons/fv_time_walk_debuff_jewel.vpcf"
-				"EffectAttachType"	"follow_origin"
-		
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
 			"star_thinker"
 			{
 				"Duration"				"5"
@@ -8533,6 +8538,27 @@
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
+			}
+
+			"modifier_astral_rune_a_c_invisible"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"1"
+			}
+			"modifier_astral_rune_a_c_visible"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+
+				"EffectName"		"particles/econ/items/faceless_void/faceless_void_jewel_of_aeons/fv_time_walk_debuff_jewel.vpcf"
+				"EffectAttachType"	"follow_origin"
+
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
 			}
 		}
 	}
@@ -8656,8 +8682,8 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/moon_ranger/moon_shroud.lua"
-						"Function"		"moon_shroud_attack_land"
+						"ScriptFile"	"heroes/moon_ranger/abilities/q/q2_biting_star.lua"
+						"Function"		"attackLand"
 						"attack_damage" "%attack_damage"
 					}
 				}
@@ -8861,7 +8887,6 @@
 					}
 				}
 			}
-
 		}
 
 	}
@@ -48210,15 +48235,6 @@
 			{
 				"Passive"	"0"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/moon_ranger/astral_runes.lua"
-						"Function"		"a_b_attack_land"
-						"damage"		"%attack_damage"
-					}
-				} 
 			}
 		}
 	}
@@ -48237,27 +48253,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"270"
+				"property_one"			"1"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.1"
+				"property_two"			"0.07"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two_base"		"0.5"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"base_ability"			"3"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"8"
+				"property_two_base"		"1"
 			}
 		}
 	}
@@ -48320,7 +48326,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6"
+				"property_one"			"3"
 			}
 			"02"
 			{
@@ -48366,12 +48372,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"20"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1200"
+				"property_two"			"7500"
 			}
 		}
 		"Modifiers"
@@ -48405,7 +48411,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10500"
+				"property_one"			"52500"
 			}
 			"02"
 			{
@@ -48438,7 +48444,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -48456,12 +48462,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"8"
+				"property_one"			"10"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -48488,13 +48489,13 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"150"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.08"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"3"
+				"property_one_base"		"1"
 			}
 		}
 		"Modifiers"
@@ -48507,10 +48508,16 @@
 				
 				"EffectName"		"particles/econ/courier/courier_faceless_rex/astral_rune_c_c_effect.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"Properties"
+
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" 		"%property_one"
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" 	"%property_two" 
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/moon_ranger/astral_runes.lua"
+						"Function"		"c_c_think"
+						"Target"		"TARGET"
+					}
 				}
 
 			}
@@ -48531,12 +48538,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1270"
+				"property_one"			"2"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"130"
+				"property_one_base"		"0"
 			}
 			"03"
 			{
@@ -48688,12 +48695,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
+				"property_one"			"100"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.2"
+				"property_two"			"0.015"
 			}
 		}
 		"Modifiers"
@@ -48706,6 +48713,8 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%property_one"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%property_one"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%property_one"
 				}
 			}
 		}
@@ -48723,26 +48732,17 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"240"
-			}
-			"02"
-			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.2"
+				"property_one"			"0.5"
 			}
 		}
 		"Modifiers"
 		{
-			"modifier_astral_rune_d_d_visible"
+			"modifier_astral_rune_d_d_invisible"
 			{
 				"Passive"			"0"
-				"IsHidden"			"0"
+				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%property_one"
-				}
 			}
 		}
 	}
@@ -48781,7 +48781,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"5"
 			}
 			"02"
 			{
@@ -48809,7 +48809,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -102161,8 +102161,8 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/moon_ranger/moon_shroud.lua"
-						"Function"		"moon_shroud_attack_land"
+						"ScriptFile"	"heroes/moon_ranger/abilities/q/q2_biting_star.lua"
+						"Function"		"attackLand"
 						"attack_damage" "%attack_damage"
 					}
 				}

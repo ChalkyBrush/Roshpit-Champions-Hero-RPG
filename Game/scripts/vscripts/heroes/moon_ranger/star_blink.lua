@@ -1,5 +1,5 @@
 require('heroes/moon_ranger/astral_arcana_ability')
-
+require('heroes/moon_ranger/init')
 function star_blink_impact(event)
 
 	local caster = event.caster
@@ -100,13 +100,12 @@ function rune_a_c_projectile(caster, targetPoint, totalLevel, starAbility, start
   local end_radius = 350
   local range = getDistance(casterOrigin, targetPoint)
   local speed = (range*7)/11
-  local damage = totalLevel*270
   local fv = getFacingVector(casterOrigin, targetPoint)
   -- local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "astral")
   -- damage = damage + 0.002*caster:GetAgility()/10*d_c_level*damage
-  starAbility.damage = damage
 
-  starAbility.rootDuration = totalLevel*0.1 + 0.5
+  starAbility.rootDuration = totalLevel*E1_ADD_DURATION + E1_START_DURATION
+  starAbility.level = totalLevel
   if starAbility.rootDuration > 9 then
     starAbility.rootDuration = 9
   end
@@ -145,16 +144,21 @@ function getFacingVector(a, b)
 end
 
 function rune_a_c_strike(event)
-  print('hello')
   local target = event.target
   local caster = event.caster
   local ability = event.ability
-  local damage = ability.damage
-
-  Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
 
   if ability.rootDuration > 0 then
-    ability:ApplyDataDrivenModifier(caster, target, "modifier_star_blink_root", {duration = ability.rootDuration})
+      local newStacks = math.min(target:GetModifierStackCount("modifier_astral_rune_a_c_visible", caster) + 1, 10)
+
+      caster:RemoveModifierByName("modifier_astral_rune_a_c_invisible")
+      caster:RemoveModifierByName("modifier_astral_rune_a_c_visible")
+
+      ability:ApplyDataDrivenModifier(caster, target, "modifier_astral_rune_a_c_invisible", {duration = ability.rootDuration})
+      ability:ApplyDataDrivenModifier(caster, target, "modifier_astral_rune_a_c_visible", {duration = ability.rootDuration})
+
+      target:SetModifierStackCount("modifier_astral_rune_a_c_visible", caster, newStacks);
+      target:SetModifierStackCount("modifier_astral_rune_a_c_invisible", caster, newStacks * ability.level);
   end
 end
 
@@ -178,11 +182,15 @@ function rune_c_c(caster, targetPoint)
   local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_c")
   local totalLevel = abilityLevel + bonusLevel
   if totalLevel > 0 then
-      local c_c_duration = Filters:GetAdjustedBuffDuration(caster, 6.0, false)
+      local c_c_duration = Filters:GetAdjustedBuffDuration(caster, E3_START_DURATION + E3_ADD_DURATION * totalLevel, false)
       ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_astral_rune_c_c", {duration = c_c_duration})
-      caster:SetModifierStackCount( "modifier_astral_rune_c_c", ability, totalLevel )
   end
-  
+end
+
+function rune_c_c_think(event)
+    print('test think')
+    Filters:CleanseStuns(event.target)
+    Filters:CleanseSilences(event.target)
 end
 
 function rotateVector(vector, radians)

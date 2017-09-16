@@ -38118,12 +38118,22 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"items/glyph_abilities.lua"
-						"Function"		"astral_glyph_6_1_attack_land"
+						"ScriptFile"	"/heroes/moon_ranger/glyphs/t6_separate_attacks.lua"
+						"Function"		"attackLand"
 					}
 				}
 			}		
 		}
+        "OnProjectileHitUnit"
+        {
+            "DeleteOnHit"	"1"
+            "RunScript"
+            {
+                "ScriptFile"	"/heroes/moon_ranger/glyphs/t6_separate_attacks.lua"
+                "Function"		"projectileHit"
+                "target"		"TARGET"
+            }
+        }
 		"AbilitySpecial"
 		{
 			"01"

@@ -1,3 +1,6 @@
+require('heroes/moon_ranger/init')
+local AstralSteal = require('heroes/moon_ranger/abilities/w/w1_astral_steal')
+
 function begin_splitshot(event)
 	-- Dungeons:Debug()
 	-- local cheats = Convars:GetBool("developer")
@@ -10,7 +13,10 @@ function begin_splitshot(event)
 	local damage = event.damage
 	local range = event.range
 	local b_b_level = b_b_level(caster)
-	local procs = Runes:Procs(b_b_level, 10, 1)
+
+    local procChance = getProcChance(caster, 10);
+	local procs = Runes:Procs(b_b_level, procChance, 1)
+
 	ability.c_b_level = rune_c_b(caster, ability, forwardVector)
     local c_b_ability = caster.runeUnit3:FindAbilityByName("astral_rune_c_b")
     caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "astral")
@@ -24,6 +30,8 @@ function begin_splitshot(event)
 	-- local d_b_ability = caster.runeUnit4:FindAbilityByName("astral_rune_d_b")
 	caster:RemoveModifierByName("modifier_astral_rune_d_b_visible")
 	caster:RemoveModifierByName("modifier_astral_rune_d_b_invisible")
+
+	ability.a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "astral")
 
 	local minArrows = -7
 	local maxArrows = 7
@@ -112,7 +120,9 @@ function create_shot2(abilityLevel, caster, arrowOrigin, fv, arrowAbility, arrow
 		local threshold = 15
 		if caster:HasModifier("modifier_astral_glyph_3_1") then
 			threshold = 30
-		end
+        end
+        threshold = getProcChance(caster, threshold)
+
 		if luck <= threshold then
 			shotType = 1
 		end
@@ -170,18 +180,20 @@ function create_shot2(abilityLevel, caster, arrowOrigin, fv, arrowAbility, arrow
 end
 
 function arrow_strike(event)
+	AstralSteal.start(event)
+
 	local target = event.target
 	local caster = event.caster
 	local ability = event.ability
 	local damage = event.ability.damage
 	if ability.d_b_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_astral_d_b_visible", {duration = 7})
-		local newStacks = math.min(target:GetModifierStackCount("modifier_astral_d_b_visible", caster) + 1, 20)
+		local newStacks = math.min(target:GetModifierStackCount("modifier_astral_d_b_visible", caster) + 1, W4_MAX_STACKS_COUNT)
 		target:SetModifierStackCount("modifier_astral_d_b_visible", caster, newStacks)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_astral_d_b_invisible", {duration = 7})
 		target:SetModifierStackCount("modifier_astral_d_b_invisible", caster, newStacks*ability.d_b_level)
 	end
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_COSMOS)
 	-- if ability.c_b_level > 0 then
 	-- 	local point = target:GetAbsOrigin()-ability.fv*100
 	-- 	local knockbackDuration = ability.c_b_level*0.05
@@ -207,8 +219,8 @@ function split_shot_crit(event)
 	local target = event.target
 	local caster = event.caster
 	local ability = caster.hero:FindAbilityByName("split_shot")
-	local damage = ability:GetSpecialValueFor("damage")*(1+ability.c_b_level*0.25)
-	Filters:TakeArgumentsAndApplyDamage(target, caster.hero, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+	local damage = ability:GetSpecialValueFor("damage")*(1+ability.c_b_level*W3_MULTIPLY_PERCENT)
+	Filters:TakeArgumentsAndApplyDamage(target, caster.hero, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
 	PopupDamage(target, damage)
 end
 

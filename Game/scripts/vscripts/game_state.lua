@@ -978,11 +978,17 @@ function GameState:FilterDamage(filterTable)
 		local reduction = math.min(victim.summonCount*0.05, 1)
 		filterTable["damage"] = filterTable["damage"]*(1-reduction)
 	end
-	if victim:HasModifier("modifier_astral_d_b_visible") then
-		local modifier = victim:FindModifierByName("modifier_astral_d_b_invisible")
+	if victim:HasModifier("modifier_astral_rune_a_c_visible") then
+		local modifier = victim:FindModifierByName("modifier_astral_rune_a_c_invisible")
+		local stacks = modifier:GetStackCount()
+		local multIncrease = 0.005*stacks
+		mult = mult + multIncrease
+	end
+	if victim:HasModifier("modifier_astral_rune_d_b_visible") then
+		local modifier = victim:FindModifierByName("modifier_astral_rune_d_b_invisible")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetStackCount()
-			local multIncrease = 0.008*stacks
+			local multIncrease = 0.005*stacks
 			mult = mult + multIncrease
 		end
 	end
@@ -1480,6 +1486,9 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_axe_immortal_weapon_1") then
 		filterTable["damage"] = filterTable["damage"]*0.5
+	end
+	if victim:HasModifier("modifier_astral_rune_c_c") then
+		filterTable["damage"] = filterTable["damage"]*0.25
 	end
 	if attacker:HasModifier("modifier_seinaru_immortal_weapon_1") then
 		if damagetype == DAMAGE_TYPE_PHYSICAL then
