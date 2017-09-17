@@ -55,12 +55,12 @@ function shapeshift_start_cat(event)
 	CustomAbilities:QuickParticleAtPoint("particles/econ/items/monkey_king/arcana/death/monkey_king_spring_death_base.vpcf", caster:GetAbsOrigin(), 4)
 	EmitSoundOn("Draghor.ShapeshiftCat.Growl", caster)
 	caster:RemoveModifierByName("modifier_draghor_shapeshift_shrink")
-	local wolfModel = "models/items/lycan/ultimate/alpha_trueform9/alpha_trueform9.vmdl"
-	if caster:HasModifier("modifier_djanghor_immortal_weapon_1") then
-		wolfModel = "models/items/lycan/ultimate/hunter_kings_trueform/hunter_kings_trueform.vmdl"
-	end
-	caster:SetOriginalModel(wolfModel)
-	caster:SetModel(wolfModel)
+	-- local wolfModel = "models/items/lycan/ultimate/alpha_trueform9/alpha_trueform9.vmdl"
+	-- if caster:HasModifier("modifier_djanghor_immortal_weapon_1") then
+	-- 	wolfModel = "models/items/lycan/ultimate/hunter_kings_trueform/hunter_kings_trueform.vmdl"
+	-- end
+	-- caster:SetOriginalModel(wolfModel)
+	-- caster:SetModel(wolfModel)
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_cat", "draghor_monkey_form", 3)
 	caster:AddNewModifier( caster, ability, "modifier_draghor_shapeshift_cat_lua", {} )
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Draghor.ShapeshiftIn.Finish", caster)
@@ -103,12 +103,12 @@ function shapeshift_start_bear(event)
 	CustomAbilities:QuickParticleAtPoint("particles/roshpit/draghor/shapeshift_effect_red_base.vpcf", caster:GetAbsOrigin(), 4)
 	EmitSoundOn("Draghor.ShapeshiftBear.Growl", caster)
 	caster:RemoveModifierByName("modifier_draghor_shapeshift_shrink")
-	local bearModel = "models/heroes/lone_druid/spirit_bear.vmdl"
-	if caster:HasModifier("modifier_djanghor_immortal_weapon_2") then
-		bearModel = "models/items/lone_druid/bear/iron_claw_spirit_bear/iron_claw_spirit_bear.vmdl"
-	end
-	caster:SetOriginalModel(bearModel)
-	caster:SetModel(bearModel)
+	-- local bearModel = "models/heroes/lone_druid/spirit_bear.vmdl"
+	-- if caster:HasModifier("modifier_djanghor_immortal_weapon_2") then
+	-- 	bearModel = "models/items/lone_druid/bear/iron_claw_spirit_bear/iron_claw_spirit_bear.vmdl"
+	-- end
+	-- caster:SetOriginalModel(bearModel)
+	-- caster:SetModel(bearModel)
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_bear", "draghor_monkey_form", 3)
 	caster:AddNewModifier( caster, ability, "modifier_draghor_shapeshift_bear_lua", {} )
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Draghor.ShapeshiftIn.Finish", caster)
@@ -152,12 +152,12 @@ function shapeshift_start_crow(event)
 	CustomAbilities:QuickParticleAtPoint("particles/roshpit/draghor/shapeshift_effect_blue_base.vpcf", caster:GetAbsOrigin(), 4)
 	EmitSoundOn("Draghor.ShapeshiftHawk.Growl", caster)
 	caster:RemoveModifierByName("modifier_draghor_shapeshift_shrink")
-	local hawkModel = "models/heroes/beastmaster/beastmaster_bird.vmdl"
-	if caster:HasModifier("modifier_djanghor_immortal_weapon_3") then
-		hawkModel = "models/items/beastmaster/hawk/beast_heart_marauder_beast_heart_marauder_raven/beast_heart_marauder_beast_heart_marauder_raven.vmdl"
-	end
-	caster:SetOriginalModel(hawkModel)
-	caster:SetModel(hawkModel)
+	-- local hawkModel = "models/heroes/beastmaster/beastmaster_bird.vmdl"
+	-- if caster:HasModifier("modifier_djanghor_immortal_weapon_3") then
+	-- 	hawkModel = "models/items/beastmaster/hawk/beast_heart_marauder_beast_heart_marauder_raven/beast_heart_marauder_beast_heart_marauder_raven.vmdl"
+	-- end
+	-- caster:SetOriginalModel(hawkModel)
+	-- caster:SetModel(hawkModel)
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_crow", "draghor_monkey_form", 3)
 	caster:AddNewModifier( caster, ability, "modifier_draghor_shapeshift_hawk_lua", {} )
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Draghor.ShapeshiftIn.Finish", caster)

@@ -120,7 +120,7 @@ function Tanari:Debug()
     -- Curator:CurateHero(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
 
     -- Timers:CreateTimer(10, function()
-    --     Curator:CurateAllGlyphsForHero("duskbringer")
+    --     Curator:CurateAllGlyphsForHero("djanghor")
     -- end)
     -- Events.DifficultyFactor = 3
     -- Events.SpiritRealm = true
