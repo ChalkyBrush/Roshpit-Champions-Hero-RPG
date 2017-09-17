@@ -8096,8 +8096,8 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/moon_ranger/split_shot.lua"
-				"Function"		"begin_channel"
+				"ScriptFile"	"heroes/moon_ranger/abilities/w/w_split_shot.lua"
+				"Function"		"beginChannel"
 			}
 
 		}
@@ -8110,8 +8110,8 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/moon_ranger/split_shot.lua"
-				"Function"		"begin_splitshot"
+				"ScriptFile"	"heroes/moon_ranger/abilities/w/w_split_shot.lua"
+				"Function"		"beginCast"
 				"damage"		"%damage"
 				"range"			"%range"
 			}
@@ -8131,8 +8131,8 @@
 
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/moon_ranger/split_shot.lua"
-				"Function"		"arrow_strike"
+				"ScriptFile"	"heroes/moon_ranger/abilities/w/w_split_shot.lua"
+				"Function"		"projectileHit"
 				"Target"		"TARGET"
 			}
 		}
@@ -8409,8 +8409,8 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/moon_ranger/star_blink.lua"
-						"Function"		"star_blink_impact"
+						"ScriptFile"	"heroes/moon_ranger/abilities/e/e_astral_lift.lua"
+						"Function"		"cast"
 						"Target"		"POINT"
 						"Radius"		"%star_aoe"
 					}
@@ -8467,8 +8467,8 @@
 			            {
 			            	"RunScript"
 			            	{
-			            		"ScriptFile"	"heroes/moon_ranger/star_blink.lua"
-			            		"Function"		"star_blink_damage"
+			            		"ScriptFile"	"heroes/moon_ranger/abilities/e/e_astral_lift.lua"
+			            		"Function"		"projectileHit"
 			            		"target"		"TARGET"
 			            		"damage"		"%AbilityDamage"
 			            		"stun_duration"	"%star_stun_duration"
@@ -48208,13 +48208,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.5"
 			}
 		}
 
@@ -48253,7 +48248,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"0.5%"
 			}
 			"02"
 			{
@@ -48262,7 +48257,7 @@
 			}
 			"03"
 			{
-				"var_type"				"FIELD_FLOAT"
+				"var_type"				"FIELD_INTEGER"
 				"property_two_base"		"1"
 			}
 		}
@@ -48444,7 +48439,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"5"
 			}
 		}
 	}
@@ -48470,8 +48465,8 @@
 			"DeleteOnHit"	"0"
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/moon_ranger/split_shot.lua"
-				"Function"		"split_shot_crit"
+				"ScriptFile"	"heroes/moon_ranger/abilities/w/w3_empyral_arrows.lua"
+				"Function"		"projectileHit"
 				"target"		"TARGET"
 			}
 		}
@@ -48677,7 +48672,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.8"
+				"property_one"			"0.5"
 			}
 		}
 	}
@@ -48700,7 +48695,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.015"
+				"property_two"			"0.01"
 			}
 		}
 		"Modifiers"
@@ -48733,7 +48728,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"1"
 			}
 		}
 		"Modifiers"
@@ -48809,7 +48804,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"7"
 			}
 		}
 	}

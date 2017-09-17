@@ -984,8 +984,9 @@ function GameState:FilterDamage(filterTable)
 		local multIncrease = 0.005*stacks
 		mult = mult + multIncrease
 	end
-	if victim:HasModifier("modifier_astral_rune_d_b_visible") then
-		local modifier = victim:FindModifierByName("modifier_astral_rune_d_b_invisible")
+	if victim:HasModifier("modifier_astral_d_b_visible") then
+		local modifier = victim:FindModifierByName("modifier_astral_d_b_invisible")
+		print('here')
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetStackCount()
 			local multIncrease = 0.005*stacks
