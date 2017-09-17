@@ -1080,6 +1080,10 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_auriun_immortal_weapon_3_effect") then
             damageMult = damageMult + 2
         end
+        if attacker:HasModifier("modifier_hawk_c_d") then
+            local current_stack = attacker:GetModifierStackCount( "modifier_hawk_c_d", attacker)
+            damageMult = damageMult + 0.08*current_stack
+        end
     end
 
     if slot == 1 then

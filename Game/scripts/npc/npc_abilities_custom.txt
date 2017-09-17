@@ -35247,6 +35247,36 @@
 						"Function"		"monkey_form"
 					}
 				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%agility_bonus"
+				}
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/monkey_king/shapeshift"
+						"Function"		"general_shapeshift_think"
+						"index"			"1"
+					}
+				}
+			}
+			"modifier_shapeshift_attack_power_a_d"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
+			}
+			"modifier_shapeshift_cat_d_d"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "500"
+				}
 			}
 		}
 
@@ -35386,6 +35416,45 @@
 						"Function"		"monkey_form"
 					}
 				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%strength_bonus"
+				}
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/monkey_king/shapeshift"
+						"Function"		"general_shapeshift_think"
+						"index"			"2"
+					}
+				}
+			}
+			"modifier_shapeshift_attack_power_a_d"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
+			}
+			"modifier_bear_b_d"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "6000"
+				}
+			}
+			"modifier_shapeshift_bear_d_d"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "500"
+				}
 			}
 		}
 
@@ -35504,6 +35573,12 @@
 						"ScriptFile"	"heroes/monkey_king/shapeshift"
 						"Function"		"shapeshifting_think"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/monkey_king/shapeshift"
+						"Function"		"general_shapeshift_think"
+						"index"			"3"
+					}
 				}
 				"OnDestroy"
 				{
@@ -35541,6 +35616,31 @@
 						"Function"		"crow_think"
 					}
 				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%int_bonus"
+				}
+			}
+			"modifier_shapeshift_attack_power_a_d"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
+			}
+			"modifier_hawk_c_d"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+			}
+			"modifier_shapeshift_crow_d_d"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "500"
+				}
 			}
 		}
 
@@ -35549,7 +35649,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"strength_bonus"			"100 200 500 1000 3000 6000 10000"
+				"int_bonus"			"100 200 500 1000 3000 6000 10000"
 			}
 		}
 
@@ -35652,7 +35752,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_damage_base"			"300 1000 5000 25000 75000 150000"
+				"attack_damage_base"			"300 1000 5000 20000 40000 80000"
 			}
 			"03"
 			{
@@ -35662,7 +35762,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_damage_base_rune"			"6 20 100 500 1500 3000"
+				"attack_damage_base_rune"			"6 20 100 400 800 1600"
 			}
 		}
 		"Modifiers"
@@ -35740,7 +35840,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_bonus"			"30 60 200 400 800 1300 2000"
+				"armor_bonus"			"30 60 200 400 700 1000 1400"
 			}
 			"02"
 			{
@@ -35750,7 +35850,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"armor_bonus_rune"			"0.6 1.2 4.0 8.0 16.0 26.0 40.0"
+				"armor_bonus_rune"			"0.6 1.2 4.0 8.0 14.0 20.0 28.0"
 			}
 			"04"
 			{
@@ -36021,7 +36121,7 @@
 			"particle"				"particles/roshpit/draghor/hawk_soar_buff.vpcf"
 			"particle"				"particles/roshpit/draghor/rune_a_a_regen.vpcf"
 			"particle"				"particles/roshpit/draghor/a_c_pool_base.vpcf"
-			"particle"				"particles/frostivus_gameplay/wraith_king_heal.vpcf"
+			"particle"				"particles/units/heroes/hero_morphling/morphling_morph_agi.vpcf"
 		}
 		//-------------------------------------------------------------------------------------------------------------
 		// Casting
@@ -36163,7 +36263,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"duration"			"24"
+				"duration"			"16"
 			}
 			"03"
 			{
@@ -64267,6 +64367,78 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_one"			"0.15"
+			}
+		}
+	}
+
+	"djanghor_rune_a_d"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0" 
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.15"
+			}
+		}
+	}
+
+	"djanghor_rune_b_d"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0" 
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"6000"
+			}
+		}
+	}
+
+	"djanghor_rune_c_d"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0" 
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"8"
+			}
+		}
+	}
+
+	"djanghor_rune_d_d"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0" 
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"500"
 			}
 		}
 	}

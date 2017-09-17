@@ -1,3 +1,5 @@
+require('/heroes/monkey_king/constants')
+
 LinkLuaModifier("modifier_draghor_shapeshift_shrink", "modifiers/draghor/modifier_draghor_shapeshift_shrink", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_draghor_shapeshift_hawk_lua", "modifiers/draghor/modifier_draghor_shapeshift_hawk_lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_draghor_shapeshift_cat_lua", "modifiers/draghor/modifier_draghor_shapeshift_cat_lua", LUA_MODIFIER_MOTION_NONE)
@@ -71,7 +73,12 @@ function shapeshift_start_cat(event)
 	end
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_jin_bo", "draghor_wolf_rend", 1)
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_monkey_leap", "djanghor_feral_sprint", 2)
-	
+	local d_d_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+	if d_d_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_cat_d_d", {})
+		caster:SetModifierStackCount("modifier_shapeshift_cat_d_d", caster, d_d_level)
+	end	
+
 end
 
 function shapeshift_start_bear(event)
@@ -102,7 +109,16 @@ function shapeshift_start_bear(event)
 	end
 	CustomAbilities:AddAndOrSwapSkill(caster,"draghor_jin_bo", "djanghor_bear_war_stomp", 1)
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_monkey_leap", "djanghor_bear_charge", 2)
-	
+	local b_d_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
+	if b_d_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_bear_b_d", {})
+		caster:SetModifierStackCount("modifier_bear_b_d", caster, b_d_level)
+	end
+	local d_d_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+	if d_d_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_bear_d_d", {})
+		caster:SetModifierStackCount("modifier_shapeshift_bear_d_d", caster, d_d_level)
+	end
 end
 
 function shapeshift_start_crow(event)
@@ -133,15 +149,33 @@ function shapeshift_start_crow(event)
 	end
 	CustomAbilities:AddAndOrSwapSkill(caster,"draghor_jin_bo", "draghor_hawk_tornado", 1)
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_monkey_leap", "djanghor_hawk_soar", 2)
-
+	local c_d_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
+	if c_d_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_hawk_c_d", {})
+		caster:SetModifierStackCount("modifier_hawk_c_d", caster, c_d_level)
+	end
+	local d_d_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+	if d_d_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_crow_d_d", {})
+		caster:SetModifierStackCount("modifier_shapeshift_crow_d_d", caster, d_d_level)
+	end
 end
 
 function monkey_form(event)
 	local caster = event.caster
 	local ability = event.ability
 
+	if caster:HasModifier("modifier_bear_b_d") then
+		local bearShiftAbility = caster:FindAbilityByName("draghor_shapeshift_bear")
+		bearShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_bear_b_d", {duration = 7})
+	end
+	if caster:HasModifier("modifier_hawk_c_d") then
+		local hawkShiftAbility = caster:FindAbilityByName("draghor_shapeshift_crow")
+		hawkShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_hawk_c_d", {duration = 7})
+	end
 	local colorVector = Vector(0.45,0.8,0.6)
 	local springParticle = "particles/econ/items/monkey_king/arcana/death/monkey_king_spring_death_base.vpcf"
+
 	if caster:HasModifier("modifier_mark_of_the_fang") then
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_monkey_form", "draghor_shapeshift_cat", 3)
 		CustomAbilities:AddAndOrSwapSkill(caster, "djanghor_wolf_howl", "draghor_mark_of_the_claw", 0)
@@ -186,7 +220,12 @@ function monkey_form(event)
 	caster:RemoveModifierByName("modifier_draghor_shapeshift_bear_lua")
 	caster:RemoveModifierByName("modifier_hawk_soar")
 	caster:RemoveModifierByName("modifier_hawk_soar_visual_z")
+	caster:RemoveModifierByName("modifier_shapeshift_attack_power_a_d")
+	caster:RemoveModifierByName("modifier_shapeshift_cat_d_d")
+	caster:RemoveModifierByName("modifier_shapeshift_bear_d_d")
+	caster:RemoveModifierByName("modifier_shapeshift_crow_d_d")
 	Timers:CreateTimer(0.03, function()
+		caster:RemoveModifierByName("modifier_shapeshift_attack_power_a_d")
 		caster:RemoveModifierByName("modifier_hawk_soar_visual_z_down")
 	end)
 	StartAnimation(caster, {duration=1.2, activity=ACT_DOTA_MK_SPRING_END, rate=0.8})
@@ -200,6 +239,7 @@ function monkey_form(event)
 		end)
 
 	end)
+
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Draghor.ShapeshiftOut.Sound", caster)
 
 end
@@ -231,5 +271,28 @@ function shapeshifting_think(event)
 		print(time)
 		modifier:SetDuration(time+0.1, true)
 		modifier2:SetDuration(time+0.1, true)
+	end
+end
+
+function general_shapeshift_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local a_d_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
+	if a_d_level > 0 then
+		if not caster:HasModifier("modifier_shapeshift_attack_power_a_d") then
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_attack_power_a_d", {})
+		end
+		local attribute = 0
+		if event.index == 1 then
+			attribute = caster:GetAgility()
+		elseif event.index == 2 then
+			attribute = caster:GetStrength()
+		elseif event.index == 3 then
+			attribute = caster:GetIntellect()
+		end
+		local attackBonus = attribute*a_d_level*DJANGHOR_R1_ATTACK_POWER_PER_STAT
+		caster:SetModifierStackCount("modifier_shapeshift_attack_power_a_d", caster, attackBonus)
+	else
+		caster:RemoveModifierByName("modifier_shapeshift_attack_power_a_d")
 	end
 end
