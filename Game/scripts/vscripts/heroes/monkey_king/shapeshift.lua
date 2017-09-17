@@ -203,7 +203,13 @@ end
 function monkey_form(event)
 	local caster = event.caster
 	local ability = event.ability
-
+	if caster.monkeyLock then
+		return false
+	end
+	caster.monkeyLock = true
+	Timers:CreateTimer(0.05, function()
+		caster.monkeyLock = false
+	end)
 	caster:RemoveModifierByName("modifier_glyph_3_evasion_wolf")
 	if caster:HasModifier("modifier_bear_b_d") then
 		local bearShiftAbility = caster:FindAbilityByName("draghor_shapeshift_bear")
