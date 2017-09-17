@@ -213,7 +213,7 @@ function crow_think(event)
 		caster:SetAbsOrigin(caster:GetAbsOrigin()-caster:GetForwardVector()*60)
 		monkey_form(event)
 	end
-	local manaDrain = math.ceil(caster:GetMaxMana()*0.004)
+	local manaDrain = math.ceil(caster:GetMaxMana()*0.003)
 	if caster:GetMana() < manaDrain then
 		monkey_form(event)
 	else

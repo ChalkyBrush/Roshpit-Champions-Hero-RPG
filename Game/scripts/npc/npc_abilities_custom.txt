@@ -36020,6 +36020,8 @@
 			"particle"				"particles/roshpit/draghor/hawk_precast_tornado.vpcf"
 			"particle"				"particles/roshpit/draghor/hawk_soar_buff.vpcf"
 			"particle"				"particles/roshpit/draghor/rune_a_a_regen.vpcf"
+			"particle"				"particles/roshpit/draghor/a_c_pool_base.vpcf"
+			"particle"				"particles/frostivus_gameplay/wraith_king_heal.vpcf"
 		}
 		//-------------------------------------------------------------------------------------------------------------
 		// Casting
@@ -36091,6 +36093,29 @@
 						"Function"		"jump_end"
 					}
 				}
+			}
+			"modifier_monkey_a_c_thinker"
+			{
+				"Aura"					"modifier_monkey_a_c_effect"
+				"Aura_Radius"			"250"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Duration"				"20"
+
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"		"particles/roshpit/draghor/a_c_pool_base.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"TARGET"
+					}
+				}		
+			}
+			"modifier_monkey_a_c_effect"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
 			}
 		}
 	}
@@ -64170,6 +64195,78 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_one"			"0.05"
+			}
+		}
+	}
+
+	"djanghor_rune_a_c"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0" 
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"15"
+			}
+		}
+	}
+
+	"djanghor_rune_b_c"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0" 
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"12"
+			}
+		}
+	}
+
+	"djanghor_rune_c_c"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0" 
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"5"
+			}
+		}
+	}
+
+	"djanghor_rune_d_c"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0" 
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.15"
 			}
 		}
 	}

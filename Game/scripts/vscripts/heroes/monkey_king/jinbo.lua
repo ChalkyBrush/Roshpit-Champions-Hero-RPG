@@ -56,6 +56,12 @@ function jinbo_start(event)
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin()+caster:GetForwardVector()*300, "Draghor.JinBo.HeavySwing.Impact", caster)
 		local position = caster:GetAbsOrigin()
 		local damage = caster:GetAverageTrueAttackDamage(caster)*2*(event.damage_mult/100)
+		if caster:HasModifier("modifier_monkey_jump") then
+			local b_c_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
+			if b_c_level > 0 then
+				damage = damage + damage*DJANGHOR_E2_JINBO_BOOST_IN_LEAP*b_c_level
+			end
+		end
 		local endFV = caster:GetForwardVector()
 		local range = 1200
 		local enemies = FindUnitsInLine(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster:GetAbsOrigin()+endFV*range, nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0)

@@ -47,6 +47,9 @@ function wolf_sprint(event)
 	local caster = event.caster
 	local ability = event.ability
 	local duration = event.duration
+	local d_c_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
+	if d_c_level > 0 then
+	end
 	StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.5})
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_wolf_sprint", {duration = duration})

@@ -1927,7 +1927,7 @@ function Events:AdjustDeathXP(unit)
         ability:SetLevel(difficulty)
       end
     end
-    
+    unit.regularEnemy = true
 end
 
 function Events:TownSiegeXP(unit)

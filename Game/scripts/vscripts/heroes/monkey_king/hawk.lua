@@ -87,9 +87,9 @@ function tornado_start(event)
 	local caster = event.caster
 	local ability = event.ability
 
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_tornado_cast_stack", {duration = 1})
-	local newStacks = math.min(caster:GetModifierStackCount("modifier_tornado_cast_stack", caster) + 1, 2)
-	caster:SetModifierStackCount("modifier_tornado_cast_stack", caster, newStacks)
+	-- ability:ApplyDataDrivenModifier(caster, caster, "modifier_tornado_cast_stack", {duration = 1})
+	-- local newStacks = math.min(caster:GetModifierStackCount("modifier_tornado_cast_stack", caster) + 1, 2)
+	-- caster:SetModifierStackCount("modifier_tornado_cast_stack", caster, newStacks)
 	EmitSoundOn("Draghor.Tornado.Cast", caster)
 	local projectileParticle = "particles/roshpit/draghor/hawk_tornado_big.vpcf"
 	local fv = caster:GetForwardVector()
@@ -98,12 +98,12 @@ function tornado_start(event)
 	local projectileOrigin = caster:GetAbsOrigin()+perpFV*RandomInt(-160, 160)
 	local range = 1200
 	local tornadoRadius = 200
-	if newStacks < 3 and not caster:HasModifier("modifier_monkey_jump") then
+	-- if newStacks < 3 and not caster:HasModifier("modifier_monkey_jump") then
 
-	else
-		range = 1500
-		tornadoRadius = 280
-	end
+	-- else
+	-- 	range = 1500
+	-- 	tornadoRadius = 280
+	-- end
 	local projectileFV = (((caster:GetAbsOrigin()+fv*range) - projectileOrigin)*Vector(1,1,0)):Normalized()
 	local info = 
 	{
@@ -138,7 +138,7 @@ function tornado_hit(event)
 	local damage = event.damage
 	damage = damage + event.int_mult*caster:GetIntellect()
 	if ability.c_b_level > 0 then
-		damage = damage + damage*DJANGHOR_W3_ATTACK_PERCENT_ADDED_TO_TORNADO*ability.c_b_level
+		damage = damage + damage*DJANGHOR_W3_ATTACK_PERCENT_ADDED_TO_TORNADO_AND_STOMP*ability.c_b_level
 	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_WIND, RPC_ELEMENT_NATURE)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_hawk_tornado_debuff", {duration = 7})
@@ -148,8 +148,13 @@ function soar_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local duration = event.duration
+	local d_c_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
+	if d_c_level > 0 then
+		duration = duration + d_c_level*DJANGHOR_E4_DURATION_INCREASE
+	end
 	StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_RUN, rate=1.5})
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
+
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_hawk_soar", {duration = duration})
 	EmitSoundOn("Draghor.Hawk.Soar", caster)
 	for i = 0, 6, 1 do

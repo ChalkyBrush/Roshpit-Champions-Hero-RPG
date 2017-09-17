@@ -49,7 +49,10 @@ function bear_warstomp(event)
 	local ability = event.ability
 	local stun_duration = event.stun_duration
 	local damage = event.damage
-
+	local c_b_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+	if c_b_level > 0 then
+		damage = damage + damage*DJANGHOR_W3_ATTACK_PERCENT_ADDED_TO_TORNADO_AND_STOMP*c_b_level
+	end
 	local position = caster:GetAbsOrigin()
 	local splitEarthParticle = "particles/roshpit/draghor/bear_warstomp.vpcf"
 	local radius = 280
@@ -65,7 +68,6 @@ function bear_warstomp(event)
 			Filters:ApplyStun(caster, stun_duration, enemy)
 		end
 	end 
-	
 end
 
 function begin_bear_charge(event)
@@ -78,7 +80,8 @@ function begin_bear_charge(event)
 	local duration = distance/chargeSpeed
 	StartAnimation(caster, {duration=duration+0.39, activity=ACT_DOTA_RUN, rate=1.4, translate="charge"})
 	ability.fv = ((target-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-
+	caster:SetForwardVector(ability.fv)
+	ability.pushTable = {}
 	EmitSoundOn("Draghor.Bear.Charge", caster)
 	ability.interval = 0
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_bear_charging", {duration = duration})
@@ -97,27 +100,25 @@ function bear_charge_thinking(event)
 	if not blockUnit then
 		caster:SetAbsOrigin(newPos)
 	end
-
+	for _,pushUnit in pairs(ability.pushTable) do
+		local pushPos = GetGroundPosition(pushUnit:GetAbsOrigin() + ability.fv*movement, caster)
+		pushUnit:SetAbsOrigin(pushPos)
+	end
 	if ability.interval%9==0 then
 		local casterOrigin = caster:GetAbsOrigin()
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), casterOrigin, nil, 380, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), casterOrigin, nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
-			-- EmitSoundOn("Hero_Spirit_Breaker.GreaterBash", caster)
-			-- local damage = ability.c_c_level*1000 + caster:GetAgility()*8*ability.c_c_level
-			-- for _,enemy in pairs(enemies) do
-
-			-- 	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
-			-- 	if not enemy.jumpLock then
-			-- 		enemy:AddNewModifier( caster, nil, "modifier_knockback", modifierKnockback )
-			-- 	end
-			-- 	local particleName = "particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash.vpcf"
-			-- 	local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, enemy )
-			-- 	ParticleManager:SetParticleControlEnt(pfx, 0, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
-			-- 	Timers:CreateTimer(0.8, function() 
-			-- 	  ParticleManager:DestroyParticle( pfx, false )
-			-- 	end)
-
-			-- end
+			EmitSoundOn("Draghor.BearCharge.Impact", caster)
+			for _,enemy in pairs(enemies) do
+				Filters:ApplyStun(caster, 0.5, enemy)
+				ability.pushTable[tostring(enemy:GetEntityIndex())] = enemy
+			      local pfx = ParticleManager:CreateParticle( "particles/econ/events/ti5/teleport_end_dust_ti5.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster )
+			      ParticleManager:SetParticleControl( pfx, 0, enemy:GetAbsOrigin())
+			      ParticleManager:SetParticleControl( pfx, 1, Vector(200, 200, 200) )
+			      Timers:CreateTimer(2, function()
+			        ParticleManager:DestroyParticle(pfx, false)
+			      end)
+			end
 		end 			
 	end
 	ability.interval = ability.interval + 1
@@ -128,6 +129,10 @@ function bear_charge_end(event)
 	local caster = event.caster
 	ability.slideVelocity = 30
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_bear_sliding", {duration = 0.45})
+	for _,pushUnit in pairs(ability.pushTable) do
+		FindClearSpaceForUnit(pushUnit, pushUnit:GetAbsOrigin(), false)
+	end
+	ability.pushTable = {}
 end
 
 function charge_slide_think(event)
