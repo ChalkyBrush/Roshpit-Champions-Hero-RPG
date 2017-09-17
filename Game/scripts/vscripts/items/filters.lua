@@ -1884,6 +1884,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
     end
     if element1 == RPC_ELEMENT_NATURE or element2 == RPC_ELEMENT_NATURE then
+        if unitName == "npc_dota_hero_monkey_king" then
+           local d_b_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
+           mult = mult + 0.0005*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_b_level
+        end
         if attacker:HasModifier("modifier_trinket_nature") then
             local stacks = attacker:GetModifierStackCount("modifier_trinket_nature", attacker.InventoryUnit)
             mult = mult + stacks/100

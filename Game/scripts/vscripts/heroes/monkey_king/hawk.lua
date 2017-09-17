@@ -126,6 +126,8 @@ function tornado_start(event)
 		bProvidesVision = false,
 	}
 	projectile = ProjectileManager:CreateLinearProjectile(info)
+
+	ability.c_b_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
 end
 
 function tornado_hit(event)
@@ -135,6 +137,9 @@ function tornado_hit(event)
 
 	local damage = event.damage
 	damage = damage + event.int_mult*caster:GetIntellect()
+	if ability.c_b_level > 0 then
+		damage = damage + damage*DJANGHOR_W3_ATTACK_PERCENT_ADDED_TO_TORNADO*ability.c_b_level
+	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_WIND, RPC_ELEMENT_NATURE)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_hawk_tornado_debuff", {duration = 7})
 end

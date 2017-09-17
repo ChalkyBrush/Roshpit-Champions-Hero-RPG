@@ -39,7 +39,8 @@ function wolf_howl(event)
 	Timers:CreateTimer(2, function()
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
-	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_abaddon/abaddon_aphotic_shield_explosion_wave.vpcf", caster, 3)
+	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_abaddon/abaddon_aphotic_shield_explosion_wave.vpcf", caster, 1.2)
+	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_lone_druid/hermit_roar.vpcf", caster:GetAbsOrigin()+Vector(0,0,20), 1.2)
 end
 
 function wolf_sprint(event)
@@ -117,6 +118,7 @@ function rend_start(event)
 			enemy:SetModifierStackCount("modifier_wolf_rend_armor_loss", caster, armorLoss*newStacks)
 			if rendStacks == 2 then
 				enemy.rendBleed = event.bleed_damage*damage/100
+				ability.b_b_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_wolf_rend_bleed", {duration = 12})
 				local particleName = "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
 				local pfx = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN_FOLLOW, enemy )

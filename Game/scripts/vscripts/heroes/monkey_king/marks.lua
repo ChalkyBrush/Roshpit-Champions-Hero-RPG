@@ -1,3 +1,5 @@
+require('/heroes/monkey_king/constants')
+
 function draghor_main_think(event)
 	local caster = event.caster
 	local catAbility = caster:FindAbilityByName("draghor_shapeshift_cat")
@@ -109,4 +111,15 @@ function mark_of_the_talon(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_mark_of_the_talon_rune", {})
 		caster:SetModifierStackCount("modifier_mark_of_the_talon_rune", caster, ability.d_a_level)
 	end
+end
+
+function draghor_attack_land(event)
+	local attacker = event.attacker
+	local target = event.target
+	local a_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 1)
+	if a_b_level > 0 then
+		local damage = event.damage*DJANGHOR_W1_DAMAGE_MULT
+		Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NATURE, RPC_ELEMENT_NONE)
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_venomancer/venomancer_venomous_gale_impact.vpcf", target, 0.4)
+	end 
 end

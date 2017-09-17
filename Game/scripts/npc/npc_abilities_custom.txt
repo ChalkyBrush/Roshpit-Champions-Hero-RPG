@@ -35114,6 +35114,7 @@
 			"model"		"models/heroes/beastmaster/beastmaster_bird.vmdl"
 			"particle"	"particles/roshpit/draghor/shapeshift_effect_blue_base.vpcf"
 			"particle"	"particles/roshpit/draghor/shapeshift_effect_red_base.vpcf"
+			"particle"	"particles/units/heroes/hero_lone_druid/hermit_roar.vpcf"
 		}
 
 		"AbilityManaCost"	"0"
@@ -35222,6 +35223,16 @@
 					{
 						"ScriptFile"	"heroes/monkey_king/marks"
 						"Function"		"draghor_main_think"
+					}
+				}
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/monkey_king/marks"
+						"Function"		"draghor_attack_land"
+						"damage"		"%attack_damage"
 					}
 				}
 			}
@@ -64068,7 +64079,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"0.12"
 			}
 		}
 	}
@@ -64087,6 +64098,78 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"2"
+			}
+		}
+	}
+
+	"djanghor_rune_a_b"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0" 
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"15"
+			}
+		}
+	}
+
+	"djanghor_rune_b_b"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0" 
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"4"
+			}
+		}
+	}
+
+	"djanghor_rune_c_b"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0" 
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"3"
+			}
+		}
+	}
+
+	"djanghor_rune_d_b"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0" 
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.05"
 			}
 		}
 	}

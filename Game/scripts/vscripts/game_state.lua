@@ -994,6 +994,13 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + multIncrease
 		end
 	end
+	if victim:HasModifier("modifier_wolf_rend_bleed") then
+		local modifier = victim:FindModifierByName("modifier_wolf_rend_bleed")
+		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
+			local multIncrease = 0.04*modifier:GetAbility().b_b_level
+			mult = mult + multIncrease
+		end
+	end
 	if victim:HasModifier("modifier_overload_damage_resistance") then
 		filterTable["damage"] = filterTable["damage"]*0.1
 	end
