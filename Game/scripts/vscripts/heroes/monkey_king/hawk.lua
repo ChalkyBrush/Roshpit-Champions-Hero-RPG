@@ -50,6 +50,7 @@ function hawk_screech(event)
 			end
 		end
 	end
+	Filters:CastSkillArguments(1, caster)
 end
 
 function hawk_screech_hit(event)
@@ -128,6 +129,7 @@ function tornado_start(event)
 	projectile = ProjectileManager:CreateLinearProjectile(info)
 
 	ability.c_b_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+	Filters:CastSkillArguments(2, caster)
 end
 
 function tornado_hit(event)
@@ -142,6 +144,9 @@ function tornado_hit(event)
 	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_WIND, RPC_ELEMENT_NATURE)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_hawk_tornado_debuff", {duration = 7})
+	if caster:HasModifier("modifier_djanghor_immortal_weapon_3") then
+		target:SetModifierStackCount("modifier_hawk_tornado_debuff", caster, 2)
+	end
 end
 
 function soar_start(event)
@@ -172,6 +177,7 @@ function soar_start(event)
 			end
 		end)
 	end
+	Filters:CastSkillArguments(3, caster)
 end
 
 function soar_visual_end(event)

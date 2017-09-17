@@ -287,6 +287,15 @@ function Weapons:RollLegendWeapon1(deathLocation, class)
 	    weapon.property2 = value
 	    weapon.property2name = "agility"
 	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_agility", "#2EB82E",  2)
+	elseif internalName == "djanghor" then
+	    weapon.property1 = 1
+	    weapon.property1name = "!immortal_weapon!"
+		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_djanghor_immortal_weapon", "#A4EDA3",  1, "#property_djanghor_immortal_weapon_description")
+
+		local value = Weapons:GetDeviation(24+RandomInt(1,Arena.PitLevel*2), rarityFactor)
+	    weapon.property2 = value
+	    weapon.property2name = "agility"
+	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_agility", "#2EB82E",  2)
 	end
 	-- if mainAttrRoll == 1 then
 	-- 	local value = Weapons:GetDeviation(15, rarityFactor)
@@ -645,6 +654,15 @@ function Weapons:RollLegendWeapon2(deathLocation, class)
 	    weapon.property2 = value
 	    weapon.property2name = "attack_damage"
 	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_bonus_attack_damage", "#343EC9",  2) 
+	elseif internalName == "djanghor" then
+	    weapon.property1 = 1
+	    weapon.property1name = "!immortal_weapon!"
+	    RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_djanghor_immortal_weapon2", "#E54E4E",  1, "#property_djanghor_immortal_weapon2_description")
+
+		local value = Weapons:GetDeviation(14+RandomInt(6,18), rarityFactor)
+	    weapon.property2 = value
+	    weapon.property2name = "strength"
+	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_strength", "#CC0000",  2)
 	end
 
 	print("----------")
@@ -909,6 +927,15 @@ function Weapons:RollLegendWeapon3(deathLocation, class)
 	    weapon.property2 = value
 	    weapon.property2name = "agility"
 	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_agility", "#2EB82E",  2)
+	elseif internalName == "djanghor" then
+	    weapon.property1 = 1
+	    weapon.property1name = "!immortal_weapon!"
+	    RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_djanghor_immortal_weapon3", "#4D7EC6",  1, "#property_djanghor_immortal_weapon3_description")
+
+		local value = Weapons:GetDeviation(12+RandomInt(5,24), rarityFactor)
+	    weapon.property2 = value
+	    weapon.property2name = "intelligence"
+	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_intelligence", "#33CCFF",  2)
 	end
 
 	print("----------")

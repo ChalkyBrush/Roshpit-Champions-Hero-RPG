@@ -35115,6 +35115,9 @@
 			"particle"	"particles/roshpit/draghor/shapeshift_effect_blue_base.vpcf"
 			"particle"	"particles/roshpit/draghor/shapeshift_effect_red_base.vpcf"
 			"particle"	"particles/units/heroes/hero_lone_druid/hermit_roar.vpcf"
+			"particle"	"particles/roshpit/draghor/wolf_crit.vpcf"
+			"particle"	"particles/roshpit/djanghor/shapeshift_shield.vpcf"
+			"particle"	"particles/roshpit/draghor/bear_bash.vpcf"
 		}
 
 		"AbilityManaCost"	"0"
@@ -35234,6 +35237,55 @@
 						"Function"		"draghor_attack_land"
 						"damage"		"%attack_damage"
 					}
+				}
+			}
+			"modifier_glyph_2_critical"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"djanghor/rend"
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/monkey_king/shapeshift"
+						"Function"		"wolf_pre_attack"
+					}
+				}
+			}
+			"modifier_glyph_2_critical_effect"
+			{
+				"IsBuff"	"1"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1000"
+				}
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/monkey_king/shapeshift"
+						"Function"		"wolf_crit_land"
+						"damage"		"%attack_damage"
+					}
+				}
+			}
+			"modifier_glyph_3_evasion_wolf"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT" "60"
+				}
+			}
+			"modifier_glyph_3_evasion_monkey"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT" "30"
 				}
 			}
 			"modifier_shapeshift_cat"
@@ -35455,6 +35507,39 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "500"
+				}
+			}
+			"modifier_glyph_7_bash"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"djanghor/draghor_bash"
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/monkey_king/shapeshift"
+						"Function"		"bear_pre_attack"
+					}
+				}
+			}
+			"modifier_glyph_7_bash_effect"
+			{
+				"IsBuff"	"1"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "400"
+				}
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/monkey_king/shapeshift"
+						"Function"		"bear_crit_land"
+						"damage"		"%attack_damage"
+					}
 				}
 			}
 		}
@@ -35705,6 +35790,18 @@
 			{
 				"ScriptFile"	"heroes/monkey_king/shapeshift"
 				"Function"		"monkey_form"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_djanghor_4_1_shield"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+		
+				"EffectName"		"particles/roshpit/djanghor/shapeshift_shield.vpcf"
+				"EffectAttachType"	"follow_origin"
 			}
 		}
 	}

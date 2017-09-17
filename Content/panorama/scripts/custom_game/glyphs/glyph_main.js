@@ -67,6 +67,7 @@ function InitializeHeroMenu(){
 	$('#herolist-row-2').RemoveAndDeleteChildren()
 	$('#herolist-row-3').RemoveAndDeleteChildren()
 	$('#herolist-row-4').RemoveAndDeleteChildren()
+	$('#herolist-row-5').RemoveAndDeleteChildren()
 	var availabileHeroArray = getHeroList();
 	var parentPanel1 = $('#herolist-row-1')
 	for (var i = 1; i <= 6; i++) {
@@ -98,8 +99,17 @@ function InitializeHeroMenu(){
 		newChildPanel.BLoadLayout( "file://{resources}/layout/custom_game/glyphs/individual_shop_hero.xml", false, false );	
 	}
 	var parentPanel4 = $('#herolist-row-4')
-	for (var i = 19; i <= availabileHeroArray.length; i++) {
+	for (var i = 19; i <= 24; i++) {
 		var newChildPanel = $.CreatePanel( "Panel", parentPanel4, "character"+i );
+		newChildPanel.heroName = availabileHeroArray[i-1];
+		newChildPanel.playerTier = mTier
+		newChildPanel.popoutContainer = $('#glyphs_details_container')
+		newChildPanel.shopContentsContainer = $('#glyph_tiers_container')
+		newChildPanel.BLoadLayout( "file://{resources}/layout/custom_game/glyphs/individual_shop_hero.xml", false, false );	
+	}
+	var parentPanel5 = $('#herolist-row-5')
+	for (var i = 25; i <= availabileHeroArray.length; i++) {
+		var newChildPanel = $.CreatePanel( "Panel", parentPanel5, "character"+i );
 		newChildPanel.heroName = availabileHeroArray[i-1];
 		newChildPanel.playerTier = mTier
 		newChildPanel.popoutContainer = $('#glyphs_details_container')

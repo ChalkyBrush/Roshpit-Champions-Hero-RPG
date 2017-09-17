@@ -51,11 +51,16 @@ function shapeshift_start_cat(event)
 		ParticleManager:DestroyParticle(ability.pfx, false)
 		ability.pfx = false
 	end
+	all_shift(caster)
 	CustomAbilities:QuickParticleAtPoint("particles/econ/items/monkey_king/arcana/death/monkey_king_spring_death_base.vpcf", caster:GetAbsOrigin(), 4)
 	EmitSoundOn("Draghor.ShapeshiftCat.Growl", caster)
 	caster:RemoveModifierByName("modifier_draghor_shapeshift_shrink")
-	caster:SetOriginalModel("models/items/lycan/ultimate/alpha_trueform9/alpha_trueform9.vmdl")
-	caster:SetModel("models/items/lycan/ultimate/alpha_trueform9/alpha_trueform9.vmdl")
+	local wolfModel = "models/items/lycan/ultimate/alpha_trueform9/alpha_trueform9.vmdl"
+	if caster:HasModifier("modifier_djanghor_immortal_weapon_1") then
+		wolfModel = "models/items/lycan/ultimate/hunter_kings_trueform/hunter_kings_trueform.vmdl"
+	end
+	caster:SetOriginalModel(wolfModel)
+	caster:SetModel(wolfModel)
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_cat", "draghor_monkey_form", 3)
 	caster:AddNewModifier( caster, ability, "modifier_draghor_shapeshift_cat_lua", {} )
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Draghor.ShapeshiftIn.Finish", caster)
@@ -71,6 +76,12 @@ function shapeshift_start_cat(event)
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_crow", "draghor_monkey_form", 3)
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_fang", "djanghor_wolf_howl", 0)
 	end
+	if caster:HasModifier("modifier_djanghor_glyph_2_1") then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_glyph_2_critical", {})
+	end
+	if caster:HasModifier("modifier_djanghor_glyph_3_1") then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_glyph_3_evasion_wolf", {})
+	end
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_jin_bo", "draghor_wolf_rend", 1)
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_monkey_leap", "djanghor_feral_sprint", 2)
 	local d_d_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
@@ -78,7 +89,7 @@ function shapeshift_start_cat(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_cat_d_d", {})
 		caster:SetModifierStackCount("modifier_shapeshift_cat_d_d", caster, d_d_level)
 	end	
-
+	all_shift_after(caster)
 end
 
 function shapeshift_start_bear(event)
@@ -88,11 +99,16 @@ function shapeshift_start_bear(event)
 		ParticleManager:DestroyParticle(ability.pfx, false)
 		ability.pfx = false
 	end
+	all_shift(caster)
 	CustomAbilities:QuickParticleAtPoint("particles/roshpit/draghor/shapeshift_effect_red_base.vpcf", caster:GetAbsOrigin(), 4)
 	EmitSoundOn("Draghor.ShapeshiftBear.Growl", caster)
 	caster:RemoveModifierByName("modifier_draghor_shapeshift_shrink")
-	caster:SetOriginalModel("models/heroes/lone_druid/spirit_bear.vmdl")
-	caster:SetModel("models/heroes/lone_druid/spirit_bear.vmdl")
+	local bearModel = "models/heroes/lone_druid/spirit_bear.vmdl"
+	if caster:HasModifier("modifier_djanghor_immortal_weapon_2") then
+		bearModel = "models/items/lone_druid/bear/iron_claw_spirit_bear/iron_claw_spirit_bear.vmdl"
+	end
+	caster:SetOriginalModel(bearModel)
+	caster:SetModel(bearModel)
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_bear", "draghor_monkey_form", 3)
 	caster:AddNewModifier( caster, ability, "modifier_draghor_shapeshift_bear_lua", {} )
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Draghor.ShapeshiftIn.Finish", caster)
@@ -107,6 +123,9 @@ function shapeshift_start_bear(event)
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_crow", "draghor_monkey_form", 3)
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_fang", "djanghor_bear_roar", 0)
 	end
+	if caster:HasModifier("modifier_djanghor_glyph_7_1") then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_glyph_7_bash", {})
+	end
 	CustomAbilities:AddAndOrSwapSkill(caster,"draghor_jin_bo", "djanghor_bear_war_stomp", 1)
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_monkey_leap", "djanghor_bear_charge", 2)
 	local b_d_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
@@ -119,6 +138,7 @@ function shapeshift_start_bear(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_bear_d_d", {})
 		caster:SetModifierStackCount("modifier_shapeshift_bear_d_d", caster, d_d_level)
 	end
+	all_shift_after(caster)
 end
 
 function shapeshift_start_crow(event)
@@ -128,11 +148,16 @@ function shapeshift_start_crow(event)
 		ParticleManager:DestroyParticle(ability.pfx, false)
 		ability.pfx = false
 	end
+	all_shift(caster)
 	CustomAbilities:QuickParticleAtPoint("particles/roshpit/draghor/shapeshift_effect_blue_base.vpcf", caster:GetAbsOrigin(), 4)
 	EmitSoundOn("Draghor.ShapeshiftHawk.Growl", caster)
 	caster:RemoveModifierByName("modifier_draghor_shapeshift_shrink")
-	caster:SetOriginalModel("models/heroes/beastmaster/beastmaster_bird.vmdl")
-	caster:SetModel("models/heroes/beastmaster/beastmaster_bird.vmdl")
+	local hawkModel = "models/heroes/beastmaster/beastmaster_bird.vmdl"
+	if caster:HasModifier("modifier_djanghor_immortal_weapon_3") then
+		hawkModel = "models/items/beastmaster/hawk/beast_heart_marauder_beast_heart_marauder_raven/beast_heart_marauder_beast_heart_marauder_raven.vmdl"
+	end
+	caster:SetOriginalModel(hawkModel)
+	caster:SetModel(hawkModel)
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_crow", "draghor_monkey_form", 3)
 	caster:AddNewModifier( caster, ability, "modifier_draghor_shapeshift_hawk_lua", {} )
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Draghor.ShapeshiftIn.Finish", caster)
@@ -159,12 +184,27 @@ function shapeshift_start_crow(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_crow_d_d", {})
 		caster:SetModifierStackCount("modifier_shapeshift_crow_d_d", caster, d_d_level)
 	end
+	all_shift_after(caster)
+end
+
+function all_shift(caster)
+	caster:RemoveModifierByName("modifier_glyph_3_evasion_monkey")
+end
+
+function all_shift_after(caster)
+	if caster:HasModifier("modifier_djanghor_glyph_4_1") then
+		local monkeyForm = caster:FindAbilityByName("draghor_monkey_form")
+		monkeyForm:ApplyDataDrivenModifier(caster, caster, "modifier_djanghor_4_1_shield", {duration = 12})
+		caster:SetModifierStackCount("modifier_djanghor_4_1_shield", caster, DJANGHOR_GLYPH_4_1_SHIELD_STACKS)
+	end
+	Filters:CastSkillArguments(4, caster)
 end
 
 function monkey_form(event)
 	local caster = event.caster
 	local ability = event.ability
 
+	caster:RemoveModifierByName("modifier_glyph_3_evasion_wolf")
 	if caster:HasModifier("modifier_bear_b_d") then
 		local bearShiftAbility = caster:FindAbilityByName("draghor_shapeshift_bear")
 		bearShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_bear_b_d", {duration = 7})
@@ -172,6 +212,18 @@ function monkey_form(event)
 	if caster:HasModifier("modifier_hawk_c_d") then
 		local hawkShiftAbility = caster:FindAbilityByName("draghor_shapeshift_crow")
 		hawkShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_hawk_c_d", {duration = 7})
+	end
+	if caster:HasModifier("modifier_glyph_2_critical") then
+		local wolfShiftAbility = caster:FindAbilityByName("draghor_shapeshift_cat")
+		wolfShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_glyph_2_critical", {duration = 7})
+	end
+	if caster:HasModifier("modifier_djanghor_glyph_3_1") then
+		local wolfShiftAbility = caster:FindAbilityByName("draghor_shapeshift_cat")
+		wolfShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_glyph_3_evasion_monkey", {})
+	end
+	if caster:HasModifier("modifier_glyph_7_bash") then
+		local bearShiftAbility = caster:FindAbilityByName("draghor_shapeshift_bear")
+		bearShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_glyph_7_bash", {duration = 10})
 	end
 	local colorVector = Vector(0.45,0.8,0.6)
 	local springParticle = "particles/econ/items/monkey_king/arcana/death/monkey_king_spring_death_base.vpcf"
@@ -253,11 +305,13 @@ function crow_think(event)
 		caster:SetAbsOrigin(caster:GetAbsOrigin()-caster:GetForwardVector()*60)
 		monkey_form(event)
 	end
-	local manaDrain = math.ceil(caster:GetMaxMana()*0.003)
-	if caster:GetMana() < manaDrain then
-		monkey_form(event)
-	else
-		caster:ReduceMana(manaDrain)
+	if not caster:HasModifier("modifier_djanghor_immortal_weapon_3") then
+		local manaDrain = math.ceil(caster:GetMaxMana()*0.003)
+		if caster:GetMana() < manaDrain then
+			monkey_form(event)
+		else
+			caster:ReduceMana(manaDrain)
+		end
 	end
 
 end
@@ -291,8 +345,52 @@ function general_shapeshift_think(event)
 			attribute = caster:GetIntellect()
 		end
 		local attackBonus = attribute*a_d_level*DJANGHOR_R1_ATTACK_POWER_PER_STAT
+		if caster:HasModifier("modifier_djanghor_immortal_weapon_1") then
+			attackBonus = attackBonus + attribute*5
+		end
 		caster:SetModifierStackCount("modifier_shapeshift_attack_power_a_d", caster, attackBonus)
 	else
 		caster:RemoveModifierByName("modifier_shapeshift_attack_power_a_d")
 	end
+end
+
+function wolf_pre_attack(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local luck = RandomInt(1,5)
+	if luck == 1 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_glyph_2_critical_effect", {duration = 1.5})
+		
+		EmitSoundOn("Draghor.Crit.Pre", target)
+		CustomAbilities:QuickAttachParticle("particles/roshpit/draghor/wolf_crit.vpcf", caster, 0.5)
+	end
+end
+
+function wolf_crit_land(event)
+	local caster = event.caster
+	local target = event.target
+	local damage = event.damage
+	PopupDamage(target, math.floor(damage))
+	caster:RemoveModifierByName("modifier_glyph_2_critical_effect")
+end
+
+function bear_pre_attack(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local luck = RandomInt(1,5)
+	if luck == 1 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_glyph_7_bash_effect", {duration = 1.5})
+		CustomAbilities:QuickAttachParticle("particles/roshpit/draghor/bear_bash.vpcf", caster, 0.5)
+	end
+end
+
+function bear_crit_land(event)
+	local caster = event.caster
+	local target = event.target
+	local damage = event.damage
+	Filters:ApplyStun(caster, 1.5, target)
+	EmitSoundOn("Draghor.Bear.Bash", target)
+	caster:RemoveModifierByName("modifier_glyph_7_bash_effect")
 end

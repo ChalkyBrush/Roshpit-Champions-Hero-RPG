@@ -1311,9 +1311,18 @@ function GameState:FilterDamage(filterTable)
 		CustomAbilities:HitShieldGeneric(victim, attacker, shieldCaster, "modifier_black_dominion_shield")
 	end
 	if victim:HasModifier("modifier_light_seer_shield") then
-		filterTable["damage"] = 0
-		local shieldCaster = victim:FindModifierByName("modifier_light_seer_shield"):GetCaster()
-		CustomAbilities:HitShieldGeneric(victim, attacker, victim.InventoryUnit, "modifier_light_seer_shield")
+		if filterTable["damage"] > 0 then
+			filterTable["damage"] = 0
+			local shieldCaster = victim:FindModifierByName("modifier_light_seer_shield"):GetCaster()
+			CustomAbilities:HitShieldGeneric(victim, attacker, victim.InventoryUnit, "modifier_light_seer_shield")
+		end
+	end
+	if victim:HasModifier("modifier_djanghor_4_1_shield") then
+		if filterTable["damage"] > 0 then
+			filterTable["damage"] = 0
+			local shieldCaster = victim:FindModifierByName("modifier_djanghor_4_1_shield"):GetCaster()
+			CustomAbilities:HitShieldGeneric(victim, attacker, victim, "modifier_djanghor_4_1_shield")
+		end
 	end
 	if victim:HasModifier("modifier_ice_throw_b_b_frozen") then
 		local modifier = victim:FindModifierByName("modifier_ice_throw_b_b_frozen")
@@ -2013,6 +2022,13 @@ function GameState:FilterDamage(filterTable)
 			end
 			if filterTable["damage"] > victim:GetMaxHealth()*thresh then
 				filterTable["damage"] = victim:GetMaxHealth()*thresh
+			end
+		end
+	end
+	if victim:HasModifier("modifier_djanghor_immortal_weapon_2") then
+		if victim:HasModifier("modifier_shapeshift_bear") then
+			if filterTable["damage"] < victim:GetMaxHealth()*100 then
+				filterTable["damage"] = victim:GetMaxHealth()*0.1
 			end
 		end
 	end

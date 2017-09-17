@@ -70,6 +70,9 @@ function jinbo_start(event)
 				Filters:ApplyStun(caster, event.stun_duration, enemy)	
 				Filters:ApplyItemDamage(enemy,caster,damage,DAMAGE_TYPE_PURE,ability,RPC_ELEMENT_NATURE,RPC_ELEMENT_NORMAL)
 			end
+			if caster:HasModifier("modifier_djanghor_glyph_1_1") then
+				caster:GetAbilityByIndex(2):EndCooldown()
+			end
 		end 
 		local colorVector = Vector(180, 180, 180)
 		if caster:HasModifier("modifier_mark_of_the_fang") then
@@ -90,6 +93,7 @@ function jinbo_start(event)
 		end)
 
 	end
+	Filters:CastSkillArguments(2, caster)
 end
 
 function heavy_boulder_pushback(event)

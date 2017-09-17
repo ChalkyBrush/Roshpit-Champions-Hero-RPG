@@ -67,6 +67,14 @@ function getSkillSlot2(queryUnit, slot)
 		abilityName = "solunia_e"
 	}else if(abilityName == "solunia_supernova" || abilityName == "solunia_eclipse"){
 		abilityName = "solunia_r"
+	}else if(abilityName == "draghor_mark_of_the_fang" || abilityName == "draghor_mark_of_the_claw" || abilityName == "draghor_mark_of_the_talon" || abilityName == "djanghor_wolf_howl" || abilityName == "djanghor_bear_roar" || abilityName == "draghor_hawk_screech"){
+		abilityName = "djanghor_q_abilities"
+	}else if(abilityName == "draghor_jin_bo" || abilityName == "draghor_wolf_rend" || abilityName == "djanghor_bear_war_stomp" || abilityName == "draghor_hawk_tornado"){
+		abilityName = "djanghor_w_abilities"
+	}else if(abilityName == "draghor_monkey_leap"|| abilityName == "djanghor_feral_sprint" || abilityName == "djanghor_bear_charge" || abilityName == "djanghor_hawk_soar"){
+		abilityName = "djanghor_e_abilities"
+	}else if(abilityName == "draghor_monkey_form"|| abilityName == "draghor_shapeshift_cat" || abilityName == "draghor_shapeshift_bear" || abilityName == "draghor_shapeshift_crow"){
+		abilityName = "djanghor_r_abilities"
 	}else{
 		abilityName = "DOTA_Tooltip_ability_"+abilityName
 	}
@@ -538,6 +546,8 @@ function convertFullHeroNameToRPC(heroName){
 		rpcName = "zonik"	
 	}else if (heroName == "npc_dota_hero_antimage"){
 		rpcName = "arkimus"	
+	}else if (heroName == "npc_dota_hero_monkey_king"){
+		rpcName = "djanghor"	
 	}else if (heroName == "tooltip_neutral"){
 		rpcName = "neutral"
 	}

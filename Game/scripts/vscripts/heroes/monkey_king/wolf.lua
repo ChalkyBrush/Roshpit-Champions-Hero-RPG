@@ -41,6 +41,7 @@ function wolf_howl(event)
 	end)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_abaddon/abaddon_aphotic_shield_explosion_wave.vpcf", caster, 1.2)
 	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_lone_druid/hermit_roar.vpcf", caster:GetAbsOrigin()+Vector(0,0,20), 1.2)
+	Filters:CastSkillArguments(1, caster)
 end
 
 function wolf_sprint(event)
@@ -81,6 +82,7 @@ function wolf_sprint(event)
 		  end)
 		end)
       end
+      Filters:CastSkillArguments(3, caster)
 end
 
 function wolf_slide_think(event)
@@ -106,11 +108,28 @@ function rend_start(event)
 	local position = caster:GetAbsOrigin()
 	local damage = caster:GetAverageTrueAttackDamage(caster)*(event.damage_mult/100)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin()+caster:GetForwardVector()*180, nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+	local element1 = RPC_ELEMENT_NORMAL
+	local element2 = RPC_ELEMENT_NONE
+	if caster:HasModifier("modifier_djanghor_immortal_weapon_1") then
+        local pfx = ParticleManager:CreateParticle( "particles/roshpit/dreghor/jinbo_heavy.vpcf", PATTACH_POINT, caster )
+        ParticleManager:SetParticleControl(0, pfx, caster:GetAbsOrigin())
+        -- ParticleManager:SetParticleControl(1, pfx, caster:GetAbsOrigin()+endFV*range)
+        ParticleManager:SetParticleControl(2, pfx, Vector(range, 0, 0))
+		Timers:CreateTimer(4, function() 
+		  ParticleManager:DestroyParticle( pfx, false )
+		end)
+		local element1 = RPC_ELEMENT_NATURE
+		local element2 = RPC_ELEMENT_NONE
+		local endFV = caster:GetForwardVector()
+		local range = 1200
+		EmitSoundOn("Draghor.RendRange", caster)
+		enemies = FindUnitsInLine(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster:GetAbsOrigin()+endFV*range, nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0)		
+	end
 	if #enemies > 0 then
 		EmitSoundOn("Draghor.Wolf.RendHitBasic", enemies[1])
 		local bBloodSound = false	
 		for _,enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 2, element1, element2)
 
 			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_wolf_rend_stack", {duration = 8})
 			local rendStacks = enemy:GetModifierStackCount("modifier_wolf_rend_stack", caster)
@@ -139,7 +158,7 @@ function rend_start(event)
 			EmitSoundOnLocationWithCaster(enemies[1]:GetAbsOrigin(), "Draghor.Wolf.RendBleed", caster)
 		end			
 	end 
-		
+	Filters:CastSkillArguments(2, caster)
 end
 
 function rend_bleed_think(event)

@@ -251,6 +251,20 @@ function Filters:ReduceCooldownAll(caster, ability, baseCD)
     end
 end
 
+function Filters:ReduceCooldownGeneric(caster, ability, CDreduce)
+    local abilityCooldown = ability:GetCooldownTimeRemaining()
+    if caster:HasModifier("modifier_hood_of_lords_lua") then
+        abilityCooldown = abilityCooldown + 1
+    end
+    local abilityCooldown = abilityCooldown - CDreduce
+    if abilityCooldown > 0 then
+        ability:EndCooldown()
+        ability:StartCooldown(abilityCooldown)
+    else
+        ability:EndCooldown()
+    end
+end
+
 function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
     local abilityCooldown = baseCD
     local CDreduce = 0
@@ -637,6 +651,12 @@ function Filters:ApplyQskills(caster)
             caster:ReduceMana(caster:GetMaxMana()*0.5)
             caster.amulet:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_mana_relic_damage_boost", {duration = 5})
             CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_keeper_of_the_light/keeper_mana_leak.vpcf", caster, 5)
+        end
+    end
+    if caster:HasModifier("modifier_djanghor_glyph_5_1") then
+        if caster:GetUnitName() == "npc_dota_hero_monkey_king" then
+            local qAbility = caster:GetAbilityByIndex(0)
+            Filters:ReduceCooldownGeneric(caster, qAbility, 3)
         end
     end
     if caster:HasModifier("modifier_royal_wristguards") then
@@ -1363,6 +1383,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             mult = mult + stacks/100
         end
     end
+    if element1 == RPC_ELEMENT_NORMAL then
+        if attacker:HasModifier("modifier_djanghor_glyph_5_a") then
+            element2 = RPC_ELEMENT_NATURE
+        end
+    end
     if element1 == RPC_ELEMENT_NORMAL or element2 == RPC_ELEMENT_NORMAL then
         if attacker:HasModifier("modifier_neutral_glyph_6_2") then
             mult = mult + 0.5
@@ -1384,6 +1409,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local stacks = attacker:GetModifierStackCount("modifier_weapon_normal", attacker.InventoryUnit)
             mult = mult + stacks/100
         end
+
     end
     if element1 == RPC_ELEMENT_FIRE or element2 == RPC_ELEMENT_FIRE then
         if unitName == "npc_dota_hero_dragon_knight" then
