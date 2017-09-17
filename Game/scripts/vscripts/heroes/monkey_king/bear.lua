@@ -1,3 +1,5 @@
+require('/heroes/monkey_king/constants')
+
 function bear_roar_pre(event)
 	local caster = event.caster
 	EmitSoundOn("Draghor.Bear.Roar", caster)
@@ -26,7 +28,12 @@ function bear_roar(event)
 	end)
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_bear_armor_buff", {duration = duration})
-	
+	ability.a_a_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
+	if ability.a_a_level > 0 then
+		caster:RemoveModifierByName("modifier_bear_regen")
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_bear_regen", {duration = 12})
+		EmitSoundOn("Draghor.Bear.Regeneration", caster)
+	end
 end
 
 function bear_warstomp_pre(event)
@@ -144,4 +151,11 @@ function charge_slide_end(event)
 	print("slide END")
 	local caster = event.caster
 	caster.EFV = nil
+end
+
+function bear_regen_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local healAmount = ability.a_a_level*DJANGHOR_Q1_REGEN_FLAT
+	Filters:ApplyHeal(caster, caster, healAmount, true)
 end

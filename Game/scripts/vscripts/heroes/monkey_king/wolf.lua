@@ -1,3 +1,5 @@
+require('/heroes/monkey_king/constants')
+
 LinkLuaModifier("modifier_draghor_feral_sprint", "modifiers/draghor/modifier_draghor_feral_sprint", LUA_MODIFIER_MOTION_NONE)
 
 function wolf_howl_pre(event)
@@ -12,6 +14,7 @@ function wolf_howl(event)
 	local caster = event.caster
 	local ability = event.ability
 	local duration = event.duration
+	local b_a_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	local pfx = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_lycan/lycan_howl_cast.vpcf", caster, 3)
 	ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin())
@@ -21,10 +24,16 @@ function wolf_howl(event)
 		EmitSoundOn("Draghor.WolfHowl.Activate", caster)
 		for _,ally in pairs(allies) do
 			local modifierName = "modifier_wolf_howl_ally"
+			local b_a_multiple = 1
 			if ally:GetEntityIndex() == caster:GetEntityIndex() or ally:GetOwner() == caster:GetOwner() then
 				modifierName = "modifier_wolf_howl"
+				b_a_multiple = DJANGHOR_Q2_SELF_MULTIPLE
 			end
 			ability:ApplyDataDrivenModifier(caster, ally, modifierName, {duration = duration})
+			if b_a_level > 0 then
+				ability:ApplyDataDrivenModifier(caster, ally, "modifier_wolf_howl_flat_b_b", {duration = duration})
+				ally:SetModifierStackCount("modifier_wolf_howl_flat_b_b", caster, b_a_level*b_a_multiple)
+			end
 		end
 	end
 	Timers:CreateTimer(2, function()

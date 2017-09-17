@@ -31,7 +31,9 @@ function mark_of_the_fang(event)
 		end
 	end
 	caster:RemoveModifierByName("modifier_mark_of_the_claw")
+	caster:RemoveModifierByName("modifier_mark_of_the_claw_rune")
 	caster:RemoveModifierByName("modifier_mark_of_the_talon")
+	caster:RemoveModifierByName("modifier_mark_of_the_talon_rune")
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_mark_of_the_fang", {})
 
 
@@ -39,9 +41,16 @@ function mark_of_the_fang(event)
 	if caster:HasAbility("draghor_shapeshift_crow") then
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_crow", "draghor_shapeshift_cat", 3)
 	end
+
 	EmitSoundOn("Draghor.MarkBG.Med", caster)
 
 	StartAnimation(caster, {duration=0.64, activity=ACT_DOTA_MK_FUR_ARMY, rate=1.0})
+
+	ability.d_a_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+	if ability.d_a_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_mark_of_the_fang_rune", {})
+		caster:SetModifierStackCount("modifier_mark_of_the_fang_rune", caster, ability.d_a_level)
+	end
 end
 
 function mark_of_the_claw(event)
@@ -55,7 +64,9 @@ function mark_of_the_claw(event)
 		end
 	end
 	caster:RemoveModifierByName("modifier_mark_of_the_fang")
+	caster:RemoveModifierByName("modifier_mark_of_the_fang_rune")
 	caster:RemoveModifierByName("modifier_mark_of_the_talon")
+	caster:RemoveModifierByName("modifier_mark_of_the_talon_rune")
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_mark_of_the_claw", {})
 
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_claw", "draghor_mark_of_the_talon", 0)
@@ -63,6 +74,12 @@ function mark_of_the_claw(event)
 	EmitSoundOn("Draghor.MarkBG.Low", caster)
 
 	StartAnimation(caster, {duration=0.64, activity=ACT_DOTA_MK_FUR_ARMY, rate=1.0})
+
+	ability.d_a_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+	if ability.d_a_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_mark_of_the_claw_rune", {})
+		caster:SetModifierStackCount("modifier_mark_of_the_claw_rune", caster, ability.d_a_level)
+	end
 end
 
 function mark_of_the_talon(event)
@@ -76,7 +93,9 @@ function mark_of_the_talon(event)
 		end
 	end
 	caster:RemoveModifierByName("modifier_mark_of_the_fang")
+	caster:RemoveModifierByName("modifier_mark_of_the_fang_rune")
 	caster:RemoveModifierByName("modifier_mark_of_the_claw")
+	caster:RemoveModifierByName("modifier_mark_of_the_claw_rune")
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_mark_of_the_talon", {})
 
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_talon", "draghor_mark_of_the_fang", 0)
@@ -84,4 +103,10 @@ function mark_of_the_talon(event)
 	EmitSoundOn("Draghor.MarkBG.High", caster)
 
 	StartAnimation(caster, {duration=0.64, activity=ACT_DOTA_MK_FUR_ARMY, rate=1.0})
+
+	ability.d_a_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+	if ability.d_a_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_mark_of_the_talon_rune", {})
+		caster:SetModifierStackCount("modifier_mark_of_the_talon_rune", caster, ability.d_a_level)
+	end
 end

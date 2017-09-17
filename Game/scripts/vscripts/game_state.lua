@@ -823,6 +823,14 @@ function GameState:FilterDamage(filterTable)
 				attacker:RemoveModifierByName("modifier_tempest_falcon_ring_effect")
 			end)
 		end
+		if attacker:HasModifier("modifier_mark_of_the_talon") then
+			local talonAbility = attacker:FindModifierByName("modifier_mark_of_the_talon"):GetAbility()
+			local multIncrease = talonAbility:GetLevelSpecialValueFor("post_mitigation_magic", talonAbility:GetLevel())/100
+			if talonAbility.d_a_level then
+				multIncrease = multIncrease + multIncrease*talonAbility.d_a_level*0.02
+			end
+			mult = mult + multIncrease
+		end
 		if attacker:HasModifier("modifier_hood_of_the_black_mage") then
 			mult = mult + 2.8
 		end

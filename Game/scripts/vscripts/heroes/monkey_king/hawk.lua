@@ -1,3 +1,5 @@
+require('/heroes/monkey_king/constants')
+
 function hawk_screech_pre(event)
 	local caster = event.caster
 	EmitSoundOn("Draghor.Hawk.PreScreech", caster)
@@ -34,6 +36,20 @@ function hawk_screech(event)
 		bProvidesVision = false,
 	}
 	projectile = ProjectileManager:CreateLinearProjectile(info)
+	local c_a_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
+	if c_a_level > 0 then
+		local modifiers = caster:FindAllModifiers()
+		for i = 1, #modifiers, 1 do
+			local modifier = modifiers[i]
+			local modifierMaker = modifier:GetCaster()
+			if modifierMaker:GetEntityIndex() == caster:GetEntityIndex() or modifierMaker:GetEntityIndex() == caster.InventoryUnit:GetEntityIndex() then
+				local durationRemaining = modifier:GetRemainingTime()
+				if durationRemaining > 0 then
+					modifier:SetDuration(durationRemaining + DJANGHOR_Q3_BUFF_DURATION_INCREASE*c_a_level, true)
+				end
+			end
+		end
+	end
 end
 
 function hawk_screech_hit(event)

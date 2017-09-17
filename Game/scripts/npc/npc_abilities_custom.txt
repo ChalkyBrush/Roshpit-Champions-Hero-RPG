@@ -35214,6 +35214,7 @@
 			{
 				"IsHidden"	"1"
 				"Passive"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"ThinkInterval"  "0.1"
 				"OnIntervalThink"
 				{
@@ -35642,6 +35643,16 @@
 				"var_type"			"FIELD_INTEGER"
 				"attack_damage_base"			"300 1000 5000 25000 75000 150000"
 			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"attack_speed_rune"			"1.2 1.6 2.0 2.4 2.8 3.2 3.6"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attack_damage_base_rune"			"6 20 100 500 1500 3000"
+			}
 		}
 		"Modifiers"
 		{
@@ -35657,6 +35668,17 @@
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed"
 				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%attack_damage_base" 
+				}
+			}
+			"modifier_mark_of_the_fang_rune"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed_rune"
+				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%attack_damage_base_rune" 
 				}
 			}
 		}
@@ -35714,6 +35736,16 @@
 				"var_type"			"FIELD_INTEGER"
 				"health_regen"			"30 80 150 250 500 1000"
 			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"armor_bonus_rune"			"0.6 1.2 4.0 8.0 16.0 26.0 40.0"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"health_regen_rune"			"0.6 1.6 3.0 5.0 10.0 20.0"
+			}
 		}
 		"Modifiers"
 		{
@@ -35729,6 +35761,17 @@
 				{
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
 				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%health_regen" 
+				}
+			}
+			"modifier_mark_of_the_claw_rune"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus_rune"
+				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%health_regen_rune" 
 				}
 			}
 		}
@@ -35787,6 +35830,11 @@
 				"var_type"			"FIELD_INTEGER"
 				"post_mitigation_magic"			"25 50 75 100 125 150 175"
 			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"mana_regen_rune"			"0.6 1.2 2.0 3.0 4.8 8.0 14.0"
+			}
 		}
 		"Modifiers"
 		{
@@ -35801,6 +35849,16 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%mana_regen"
+				}
+			}
+			"modifier_mark_of_the_talon_rune"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%mana_regen_rune"
 				}
 			}
 		}
@@ -35950,6 +36008,7 @@
 			"particle"				"particles/roshpit/draghor/hawk_tornado_big.vpcf"
 			"particle"				"particles/roshpit/draghor/hawk_precast_tornado.vpcf"
 			"particle"				"particles/roshpit/draghor/hawk_soar_buff.vpcf"
+			"particle"				"particles/roshpit/draghor/rune_a_a_regen.vpcf"
 		}
 		//-------------------------------------------------------------------------------------------------------------
 		// Casting
@@ -36051,7 +36110,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"14"
+		"AbilityCooldown"				"12"
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
@@ -36068,7 +36127,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"duration"			"20"
+				"duration"			"24"
 			}
 			"03"
 			{
@@ -36102,6 +36161,14 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%damage_increase_percent_ally"
+				}
+			}
+			"modifier_wolf_howl_flat_b_b"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "200"
 				}
 			}
 		}
@@ -36399,6 +36466,22 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
+				}
+			}
+			"modifier_bear_regen"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"EffectName"	"particles/roshpit/draghor/rune_a_a_regen.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/monkey_king/bear"
+						"Function"		"bear_regen_think"
+					}
 				}
 			}
 		}
@@ -63934,7 +64017,81 @@
 		}
 
 	}
-	//-----------------
+	//----------------- DRAGHOR
+
+	"djanghor_rune_a_a"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0" 
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"80"
+			}
+		}
+	}
+
+	"djanghor_rune_b_a"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0" 
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"2000"
+			}
+		}
+	}
+
+	"djanghor_rune_c_a"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0" 
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.1"
+			}
+		}
+	}
+
+	"djanghor_rune_d_a"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0" 
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"2"
+			}
+		}
+	}
+
+	//-------------------------
 
 	"graveyard_boss_skill"
 	{

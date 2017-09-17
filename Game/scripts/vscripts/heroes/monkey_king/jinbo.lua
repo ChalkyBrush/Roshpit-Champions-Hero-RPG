@@ -4,7 +4,7 @@ function jinbo_phase(event)
 
 	local stacks = caster:GetModifierStackCount("modifier_jinbo_stack", caster)
 	if stacks < 2 and not caster:HasModifier("modifier_monkey_jump") then
-		StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_ATTACK, rate=2.0, translate="attack_normal_range"})
+		StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_ATTACK, rate=1.6, translate="attack_normal_range"})
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Draghor.JinBo.Swing", caster)
 	else
 		local colorVector = Vector(180, 180, 180)
