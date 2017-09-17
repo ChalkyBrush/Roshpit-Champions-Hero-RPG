@@ -49,6 +49,7 @@ function wolf_sprint(event)
 	local duration = event.duration
 	local d_c_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
 	if d_c_level > 0 then
+		duration = duration + d_c_level*DJANGHOR_E4_DURATION_INCREASE
 	end
 	StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.5})
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
@@ -146,5 +147,5 @@ function rend_bleed_think(event)
 	local ability = event.ability
 	local caster = event.caster
 	local damage = target.rendBleed
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+	Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 end

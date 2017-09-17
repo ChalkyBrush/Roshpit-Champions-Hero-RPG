@@ -35092,7 +35092,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"lycan_summon_wolves"
+		"AbilityTextureName"	"djanghor/shapeshift_wolf"
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"6"
 		"AbilityChannelTime"	"1.75"
@@ -35295,7 +35295,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"lone_druid_spirit_bear"
+		"AbilityTextureName"	"djanghor/shapeshift_bear"
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"6"
 		"AbilityChannelTime"	"1.75"
@@ -35443,6 +35443,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
+				"TextureName"	"djanghor/djanghor_rune_b_d"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "6000"
@@ -35473,7 +35474,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"beastmaster_call_of_the_wild"
+		"AbilityTextureName"	"djanghor/shapeshift_hawk"
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"6"
 		"AbilityChannelTime"	"1.75"
@@ -35633,6 +35634,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
+				"TextureName"	"djanghor/djanghor_rune_c_d"
 			}
 			"modifier_shapeshift_crow_d_d"
 			{
@@ -35662,7 +35664,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"monkey_king_boundless_strike"
+		"AbilityTextureName"			"djanghor/monkey_form"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityType"           		 "DOTA_ABILITY_TYPE_ULTIMATE" 
 		"LevelsBetweenUpgrades"  "0"
@@ -35714,7 +35716,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"ogre_magi_ignite"
+		"AbilityTextureName"			"djanghor/mark_of_the_fang"
 		"AbilityCastAnimation"			"ACT_DOTA_MK_FUR_ARMY"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"  
@@ -35747,7 +35749,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_speed"			"60 80 100 120 140 160 180"
+				"attack_speed"			"60 75 90 105 120 135 150"
 			}
 			"02"
 			{
@@ -35811,7 +35813,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"ogre_magi_bloodlust"
+		"AbilityTextureName"			"djanghor/mark_of_the_claw"
 		"AbilityCastAnimation"			"ACT_DOTA_MK_FUR_ARMY"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"  
@@ -35904,7 +35906,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"invoker_cold_snap"
+		"AbilityTextureName"			"djanghor/mark_of_the_talon"
 		"AbilityCastAnimation"			"ACT_DOTA_MK_FUR_ARMY"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"  
@@ -36169,7 +36171,7 @@
 			"modifier_monkey_jump"
 			{
 				"Passive"			"0"
-				"IsHidden"			"0"
+				"IsHidden"			"1"
 				"ThinkInterval"  "0.03"
 				"OverrideAnimation"     "ACT_DOTA_MK_SPRING_SOAR"
 				"OnIntervalThink"
@@ -36216,6 +36218,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"TextureName"	"djanghor/djanghor_rune_a_c"
 			}
 		}
 	}
@@ -36227,7 +36230,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"lycan_howl"
+		"AbilityTextureName"			"djanghor/wolf_howl"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_6"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"  
@@ -36334,7 +36337,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"dark_seer_surge"
+		"AbilityTextureName"			"djanghor/feral_sprint"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"  
@@ -36433,7 +36436,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"lycan_feral_impulse"
+		"AbilityTextureName"			"djanghor/rend"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"  
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
@@ -36470,6 +36473,11 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"bleed_damage"			"5 8 11 14 17 20 23"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bleed_duration"			"12"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -36512,6 +36520,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"TextureName"	"djanghor/djanghor_rune_b_b"
 				"ThinkInterval"  "0.5"
 				"EffectName"	"particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf"
 				"EffectAttachType"	"attach_origin"
@@ -36535,7 +36544,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"lone_druid_savage_roar"
+		"AbilityTextureName"			"djanghor/bear_roar"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"  
@@ -36565,15 +36574,10 @@
 		{
 			"01"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_increase_percent"		"150 200 250 300 350 400 450"
-			}
-			"02"
-			{
 				"var_type"			"FIELD_FLOAT"
 				"duration"			"2.1 2.25 2.4 2.55 2.7 2.85 3.0"
 			}
-			"03"
+			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"armor_bonus"		"30 70 150 450 1000 3000 5000"
@@ -36608,6 +36612,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
+				"TextureName"	"djanghor/djanghor_rune_a_a"
 				"EffectName"	"particles/roshpit/draghor/rune_a_a_regen.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"ThinkInterval"  "0.1"
@@ -36647,7 +36652,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"centaur_hoof_stomp"
+		"AbilityTextureName"			"djanghor/war_stomp"
 		"AbilityCastAnimation"			"ACT_DOTA_IDLE_RARE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"LevelsBetweenUpgrades"  "0"
@@ -36686,37 +36691,10 @@
 				"var_type"			"FIELD_FLOAT"
 				"stun_duration"			"0.45 0.5 0.55 0.6 0.65 0.7 0.75"
 			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"armor_bonus"		"30 70 150 450 1000 3000 5000"
-			}
 		}
 		"Modifiers"
 		{
-			"modifier_bear_roar_taunt"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"StatusEffectName" 		"particles/status_fx/status_effect_beserkers_call.vpcf" 	   
-				"StatusEffectPriority"  "10"
-				"States"
-				{
-					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_bear_armor_buff"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"EffectName"	"particles/units/heroes/hero_axe/axe_beserkers_call_owner.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
-				}
-			}
+
 		}
 		"OnAbilityPhaseStart"
 		{
@@ -36745,7 +36723,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"rpc/specter_rush"
+		"AbilityTextureName"			"djanghor/bear_charge"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"  
@@ -36777,15 +36755,10 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"340 1800 4240 8420 15870 32460 50000"
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"				"0.5"
 			}
 			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"charge_duration"				"0.8 0.9 1.0 1.1 1.2 1.3 1.3"
-			}
-			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"max_distance"				"800 900 1000 1100 1200 1300 1400"
@@ -36879,7 +36852,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"queenofpain_scream_of_pain"
+		"AbilityTextureName"			"djanghor/hawk_screech"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"  
@@ -36894,8 +36867,8 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"6.0"
-		"AbilityCastRange"				"700 750 800 850 900 950 1000"
+		"AbilityCooldown"				"7.0"
+		"AbilityCastRange"				"1000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -36978,7 +36951,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"invoker_tornado"
+		"AbilityTextureName"			"djanghor/hawk_tornado"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"  
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -37096,7 +37069,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"skywrath_mage_arcane_bolt"
+		"AbilityTextureName"			"djanghor/soar"
 		"AbilityCastAnimation"			"ACT_DOTA_RUN"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"  
@@ -64160,7 +64133,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"AbilityTextureName"	"djanghor/djanghor_rune_a_a"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0" 
 		"AbilitySpecial"
@@ -64178,7 +64151,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"AbilityTextureName"	"djanghor/djanghor_rune_b_a"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0" 
 		"AbilitySpecial"
@@ -64196,7 +64169,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"AbilityTextureName"	"djanghor/djanghor_rune_c_a"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0" 
 		"AbilitySpecial"
@@ -64214,7 +64187,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"AbilityTextureName"	"djanghor/djanghor_rune_d_a"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0" 
 		"AbilitySpecial"
@@ -64232,15 +64205,21 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"AbilityTextureName"	"djanghor/djanghor_rune_a_b"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0" 
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"15"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"2"
 			}
 		}
 	}
@@ -64250,7 +64229,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"AbilityTextureName"	"djanghor/djanghor_rune_b_b"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0" 
 		"AbilitySpecial"
@@ -64268,7 +64247,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"AbilityTextureName"	"djanghor/djanghor_rune_c_b"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0" 
 		"AbilitySpecial"
@@ -64286,7 +64265,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"AbilityTextureName"	"djanghor/djanghor_rune_d_b"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0" 
 		"AbilitySpecial"
@@ -64304,7 +64283,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"AbilityTextureName"	"djanghor/djanghor_rune_a_c"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0" 
 		"AbilitySpecial"
@@ -64322,7 +64301,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"AbilityTextureName"	"djanghor/djanghor_rune_b_c"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0" 
 		"AbilitySpecial"
@@ -64340,7 +64319,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"AbilityTextureName"	"djanghor/djanghor_rune_c_c"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0" 
 		"AbilitySpecial"
@@ -64358,7 +64337,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"AbilityTextureName"	"djanghor/djanghor_rune_d_c"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0" 
 		"AbilitySpecial"
@@ -64376,7 +64355,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"AbilityTextureName"	"djanghor/djanghor_rune_a_d"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0" 
 		"AbilitySpecial"
@@ -64394,7 +64373,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"AbilityTextureName"	"djanghor/djanghor_rune_b_d"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0" 
 		"AbilitySpecial"
@@ -64412,7 +64391,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"AbilityTextureName"	"djanghor/djanghor_rune_c_d"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0" 
 		"AbilitySpecial"
@@ -64430,7 +64409,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"arkimus/arkimus_rune_a_a"
+		"AbilityTextureName"	"djanghor/djanghor_rune_d_d"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0" 
 		"AbilitySpecial"
