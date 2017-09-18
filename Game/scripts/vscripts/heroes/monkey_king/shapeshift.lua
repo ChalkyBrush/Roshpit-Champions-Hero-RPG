@@ -207,7 +207,7 @@ function monkey_form(event)
 		return false
 	end
 	caster.monkeyLock = true
-	Timers:CreateTimer(0.05, function()
+	Timers:CreateTimer(0.1, function()
 		caster.monkeyLock = false
 	end)
 	caster:RemoveModifierByName("modifier_glyph_3_evasion_wolf")
