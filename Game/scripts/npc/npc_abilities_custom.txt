@@ -8468,7 +8468,7 @@
 			            	"RunScript"
 			            	{
 			            		"ScriptFile"	"heroes/moon_ranger/abilities/e/e_astral_lift.lua"
-			            		"Function"		"projectileHit"
+			            		"Function"		"damage"
 			            		"target"		"TARGET"
 			            		"damage"		"%AbilityDamage"
 			            		"stun_duration"	"%star_stun_duration"
@@ -8484,8 +8484,8 @@
 			"DeleteOnHit"	"0"
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/moon_ranger/star_blink.lua"
-				"Function"		"rune_a_c_strike"
+				"ScriptFile"	"heroes/moon_ranger/abilities/e/e1_pegasus.lua"
+				"Function"		"projectileHit"
 				"Target"		"TARGET"
 			}
 		}
@@ -8517,6 +8517,7 @@
 						"EffectAttachType"	"follow_origin"
 						"Target"			"TARGET"
 					}
+
 				}
 			}
 			"modifier_astral_passive"
@@ -8534,7 +8535,7 @@
 					}
 				}
 			}
-			"modifier_star_blink_moving"
+			"modifier_astral_e_lift_moving"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
@@ -8559,6 +8560,40 @@
 				{
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
+			}
+
+			"modifier_astral_rune_b_c_visible"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+		
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" 		"20"
+				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" 			"7500"
+				}
+			}
+			"modifier_astral_rune_c_c_visible"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				
+				"EffectName"		"particles/econ/courier/courier_faceless_rex/astral_rune_c_c_effect.vpcf"
+				"EffectAttachType"	"attach_origin"
+
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/moon_ranger/abilities/e/e3_astral_shroud.lua"
+						"Function"		"think"
+						"Target"		"TARGET"
+					}
+				}
+
 			}
 		}
 	}
@@ -8866,7 +8901,7 @@
 				"TextureName"		"drow_ranger/dragons_touch_ability_icons/drow_ranger_frost_arrows"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "30"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "5"
 				}
 				"OnCreated"
 				{
@@ -9059,7 +9094,7 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "30"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "7"
 				}
 				"OnCreated"
 				{
@@ -45072,12 +45107,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"2"
 			}
 			"02"
 			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"2"
+			}
+			"03"
+			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"2.5"
+				"property_two"			"0.4"
 			}
 		}
 	}
@@ -48375,21 +48415,6 @@
 				"property_two"			"7500"
 			}
 		}
-		"Modifiers"
-		{
-			"modifier_astral_rune_b_c"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-		
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%property_one"
-				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" 		"%property_two" 
-				}
-			}
-		}
 	}
 
 	"astral_rune_b_d"
@@ -48491,30 +48516,6 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_one_base"		"1"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_astral_rune_c_c"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				
-				"EffectName"		"particles/econ/courier/courier_faceless_rex/astral_rune_c_c_effect.vpcf"
-				"EffectAttachType"	"attach_origin"
-
-				"ThinkInterval"  "0.03"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/moon_ranger/astral_runes.lua"
-						"Function"		"c_c_think"
-						"Target"		"TARGET"
-					}
-				}
-
 			}
 		}
 	}
@@ -48695,7 +48696,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.01"
+				"property_two"			"0.08"
 			}
 		}
 		"Modifiers"
@@ -101385,12 +101386,12 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"strength_mult"	"50 90 120 200 300 440 600"
+				"strength_mult"	"50 75 100 150 200 250 300"
 			}
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"		"3000 8000 30000 80000 160000 280000 600000"
+				"damage"		"3000 8000 30000 60000 100000 140000 200000"
 			}
 		}
 		"OnSpellStart"
@@ -102189,7 +102190,7 @@
 				"TextureName"		"drow_ranger/dragons_touch_ability_icons/drow_ranger_frost_arrows"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "50"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "7"
 				}
 			}
 			"modifier_astral_rune_d_a"

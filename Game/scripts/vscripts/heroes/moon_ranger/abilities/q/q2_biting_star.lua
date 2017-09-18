@@ -33,10 +33,6 @@ function attackLand(event)
         return false
     end
 
-    print(Q2_PROC_CHANCE)
-    print(WEAPON2_ARCANA1_Q2_PROC_CHANCE)
-    print(ARCANA1_Q2_PROC_CHANCE)
-    print(Q2_PROC_CHANCE)
     local luck = RandomInt(1, 100)
     if luck <= procChance then
         local ability = event.ability

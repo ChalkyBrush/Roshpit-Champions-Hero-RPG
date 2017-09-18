@@ -1,4 +1,4 @@
-require('heroes/moon_ranger/common')
+require('heroes/moon_ranger/init')
 
 
 
@@ -28,12 +28,11 @@ function c_d_enter(event)
  	local ability = event.ability
  	local caster = ability.origCaster
 
- 	local damage = ability.c_d_level * 0.02 * caster:GetAverageTrueAttackDamage(caster)
+ 	local damage = ability.c_d_level * R3_ATTACK_DAMAGE_PERCENT * caster:GetAverageTrueAttackDamage(caster)
     local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "astral")
     -- damage = damage + 0.001*caster:GetAgility()/10*d_c_level*damage
     print(caster:GetUnitName())
     if caster:HasModifier("modifier_astral_glyph_2_1") then
-    	print("GLYPHED??")
     	damage = damage*3
     	ability.glyphed = true
     else
@@ -56,7 +55,7 @@ function c_d_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local orig_caster = ability.origCaster
-	local radius = 2000
+	local radius = R3_RADIUS
 	local projectileParticle = "particles/base_attacks/ranged_tower_good.vpcf"
 	if phoenix.glyphed then
 		projectileParticle =  "particles/base_attacks/astral_glyph_2_1_projectile.vpcf"

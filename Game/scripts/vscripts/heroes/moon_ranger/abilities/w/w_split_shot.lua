@@ -10,6 +10,9 @@ end
 
 function beginCast(event)
     local caster = event.caster
+    Helper.initializeAbilityRunes(event.caster, 'astral', 'b')
+    Helper.initializeAbilityRunes(event.caster, 'astral', 'c')
+    Helper.initializeAbilityRunes(event.caster, 'astral', 'd')
     local ability = event.ability
     local damage = event.damage
     local range = event.range
@@ -26,10 +29,16 @@ function beginCast(event)
     if caster:HasModifier("modifier_astral_glyph_3_1") then
         empyralArrowsProcChance = getProcChance(caster, T31_PROC_CHANCE)
         arrowCount = T31_ARROWS_COUNT
-        damage = damage * 2
+        damage = damage * T31_DAMAGE_MULTIPLAYER
     else
         empyralArrowsProcChance = getProcChance(caster, W3_PROC_CHANCE)
         arrowCount = W_ARROWS_COUNT
+    end
+
+    local empyralArrowsRunesCount = Runes:GetTotalRuneLevel(caster, 3, "c_b", "astral")
+
+    if empyralArrowsRunesCount == nil or empyralArrowsRunesCount <= 0 then
+        empyralArrowsProcChance = 0
     end
 
     local maxArrow = math.floor(arrowCount/2)
@@ -111,7 +120,6 @@ function projectileHit(event)
     local caster = event.caster
     local damage = event.ability.damage
     Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_COSMOS)
-
     AstralSteal.projectileHit(event)
     ClusterArrow.projectileHit(event)
 end

@@ -1,3 +1,4 @@
 function getProcChance(caster, baseChance)
-    return baseChance * (1 + R4_PROC_CHANCE_INCREASE * caster.d_d_level)
+	local runeCount = Runes:GetTotalRuneLevel(caster, 4, "d_d", "astral")
+    return baseChance * (1 + R4_PROC_CHANCE_INCREASE * runeCount)
 end

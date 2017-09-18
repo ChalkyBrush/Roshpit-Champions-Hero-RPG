@@ -10,7 +10,7 @@ local function projectileHit(event)
         return
     end
 
-    Helper.updateStackModier(caster, caster, ability, 'astral_a_b', W1_DURATION, W1_MAX_STACKS_COUNT, runesCount * W1_ATTRIBUTES_PER_STACK)
+    Helper.updateStackModifier(caster, caster, ability, 'astral_a_b', W1_DURATION, W1_MAX_STACKS_COUNT, runesCount * W1_ATTRIBUTES_PER_STACK)
 end
 
 local module = {}
