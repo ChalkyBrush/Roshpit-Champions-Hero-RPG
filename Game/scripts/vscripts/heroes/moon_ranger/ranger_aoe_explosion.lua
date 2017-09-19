@@ -21,7 +21,7 @@ function begin_explosion(event)
 	end
 	local smashLevel = rune_b_d(caster, ability)
 	if smashLevel > 0 then
-    local b_d_damage = smashLevel*10500
+    local b_d_damage = smashLevel*R2_DAMAGE
     -- b_d_damage = b_d_damage + 0.002*caster:GetStrength()/10*d_d_level*b_d_damage
     if caster:HasModifier("modifier_astral_glyph_7_1") then
       b_d_damage = b_d_damage*10
@@ -63,7 +63,7 @@ function rune_b_d_strike(event)
 	local target = event.target
 	local caster = event.caster
 	local damage = ability.damage
-	local duration = ability.smashLevel*0.1
+	local duration = ability.smashLevel*R2_ADD_DURATION + R2_START_DURATION
   if duration > 3.5 then
     duration = 3.5
   end

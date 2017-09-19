@@ -1,3 +1,4 @@
+require ('heroes/moon_ranger/common')
 function shroud_animation(event)
   local caster = event.caster
   StartAnimation(caster, {duration=0.6, activity=ACT_DOTA_CAST_ABILITY_2, rate=2})
@@ -188,16 +189,17 @@ function moon_shroud_attack_land(event)
     return false
   end
   if b_a_level > 0 then
-    local procMin = 1
+    local procMin = 20
     if caster:HasModifier("modifier_astral_immortal_weapon_2") then
-      procMin = 2
+      procMin = 40
     end
-    local luck = RandomInt(1,5)
+    procMin = getProcChance(caster, procMin)
+    local luck = RandomInt(1, 100)
     if luck <= procMin then
       local ability = event.ability
-      local mult = 0.06
+      local mult = 0.03
       if caster:HasModifier("modifier_astral_arcana1") then
-        mult = 0.12
+        mult = 0.05
       end
       local pureDamage = damage*(b_a_level*mult)
       local particleName = "particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf"

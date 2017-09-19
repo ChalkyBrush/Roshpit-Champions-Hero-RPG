@@ -10,7 +10,7 @@ function star_blink_impact(event)
     rune_a_c(caster, target, ability)
     rune_b_c(caster)
     rune_c_c(caster, target)
-    print("particle attached")	
+    print("particle attached")
     caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "astral")
     caster.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "astral")
     local delay = 2
@@ -42,7 +42,7 @@ function star_blink_impact(event)
       if caster:HasModifier("modifier_astral_arcana_on_platform") then
         arcana_star_blink_move(caster, ability)
       end
-    end)  
+    end)
     local b_c_level = Runes:GetTotalRuneLevel(caster, 2, "b_c", "astral")
     if b_c_level > 0 then
       local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target, nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
@@ -51,7 +51,7 @@ function star_blink_impact(event)
           CustomAbilities:QuickAttachParticle("particles/roshpit/astral_ranger/e2_flash.vpcf", enemy, 1)
           caster:PerformAttack(enemy, true, true, true, false, true, false, false)
         end
-      end   
+      end
 
     end
     Filters:CastSkillArguments(3, caster)
@@ -100,13 +100,12 @@ function rune_a_c_projectile(caster, targetPoint, totalLevel, starAbility, start
   local end_radius = 350
   local range = getDistance(casterOrigin, targetPoint)
   local speed = (range*7)/11
-  local damage = totalLevel*270
   local fv = getFacingVector(casterOrigin, targetPoint)
   -- local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "astral")
   -- damage = damage + 0.002*caster:GetAgility()/10*d_c_level*damage
-  starAbility.damage = damage
 
-  starAbility.rootDuration = totalLevel*0.1 + 0.5
+  starAbility.rootDuration = totalLevel*0.05 + 0.5
+  starAbility.level = totalLevel
   if starAbility.rootDuration > 9 then
     starAbility.rootDuration = 9
   end
@@ -145,16 +144,26 @@ function getFacingVector(a, b)
 end
 
 function rune_a_c_strike(event)
-  print('hello')
   local target = event.target
   local caster = event.caster
   local ability = event.ability
-  local damage = ability.damage
-
-  Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
 
   if ability.rootDuration > 0 then
-    ability:ApplyDataDrivenModifier(caster, target, "modifier_star_blink_root", {duration = ability.rootDuration})
+      local newStacks = math.min(target:GetModifierStackCount("modifier_astral_rune_a_c_visible", caster) + 1, 10)
+
+      caster:RemoveModifierByName("modifier_astral_rune_a_c_invisible")
+      caster:RemoveModifierByName("modifier_astral_rune_a_c_visible")
+
+      ability:ApplyDataDrivenModifier(caster, target, "modifier_astral_rune_a_c_invisible", {duration = ability.rootDuration})
+      ability:ApplyDataDrivenModifier(caster, target, "modifier_astral_rune_a_c_visible", {duration = ability.rootDuration})
+
+      target:SetModifierStackCount("modifier_astral_rune_a_c_visible", caster, newStacks);
+      target:SetModifierStackCount("modifier_astral_rune_a_c_invisible", caster, newStacks * ability.level);
+      print('stacksCount')
+      print(newStacks)
+      print(newStacks * ability.level)
+      print('duration')
+      print(ability.rootDuration)
   end
 end
 
@@ -182,7 +191,12 @@ function rune_c_c(caster, targetPoint)
       ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_astral_rune_c_c", {duration = c_c_duration})
       caster:SetModifierStackCount( "modifier_astral_rune_c_c", ability, totalLevel )
   end
-  
+
+end
+
+function rune_c_c_think(event)
+    Filters:CleanseStuns(eventtarget)
+    Filters:CleanseSilences(target)
 end
 
 function rotateVector(vector, radians)

@@ -141,6 +141,11 @@ function Filters:GetProc(caster, percentageChance)
     if caster:HasModifier("modifier_fortunes_talisman_of_truth") then
         percentageChance = math.ceil(percentageChance*1.5)
     end
+    if caster:HasModifier("modifier_astral_rune_d_d_invisible") then
+        local chanceModifier = 1 + 0.01 * caster:GetModifierStackCount("modifier_astral_rune_d_d_invisible", Events.GameMaster)
+        percentageChance = math.ceil(percentageChance * chanceModifier)
+    end
+
     if luck <= percentageChance then
         return true
     else
@@ -1654,8 +1659,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     end
     if element1 == RPC_ELEMENT_COSMOS or element2 == RPC_ELEMENT_COSMOS then
         if unitName == "npc_dota_hero_drow_ranger" then
-            mult = mult + 0.002*attacker:GetStrength()/10*attacker.d_d_level
-            mult = mult + 0.002*attacker:GetAgility()/10*attacker.d_c_level
+            mult = mult + 0.0008*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_c_level
         end
         if unitName == "npc_dota_hero_vengefulspirit" then
             local d_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 0)
