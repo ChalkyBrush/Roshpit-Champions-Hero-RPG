@@ -37,7 +37,7 @@ function projectileHit(event)
     local ability = event.ability
 
     print(ability.damage)
-    Filters:TakeArgumentsAndApplyDamage(event.target, ability.attacker, ability.damage, DAMAGE_TYPE_PHYSICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+    Filters:TakeArgumentsAndApplyDamage(event.target, ability.attacker, ability.damage, DAMAGE_TYPE_PHYSICAL, 0, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
     local eventTable = {}
     eventTable.attacker = ability.attacker
     eventTable.ability = ability.attacker:FindAbilityByName("q")
