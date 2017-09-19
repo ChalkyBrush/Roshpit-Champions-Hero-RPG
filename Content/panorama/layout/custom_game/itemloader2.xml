@@ -56,14 +56,15 @@
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/scorched_gauntlets_2.png" />
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/frostburn_gauntlets.png" />
 
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_arkimus_1_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_arkimus_2_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_arkimus_3_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_arkimus_4_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_arkimus_5_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_arkimus_5_a.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_arkimus_6_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_arkimus_7_1.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_1_1.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_2_1.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_3_1.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_4_1.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_5_1.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_5_a.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_6_1.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_7_1.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_5_a.png" />
 
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_hydroxis_1_1.png" />
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_hydroxis_2_1.png" />

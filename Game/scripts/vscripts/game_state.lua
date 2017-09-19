@@ -823,6 +823,14 @@ function GameState:FilterDamage(filterTable)
 				attacker:RemoveModifierByName("modifier_tempest_falcon_ring_effect")
 			end)
 		end
+		if attacker:HasModifier("modifier_mark_of_the_talon") then
+			local talonAbility = attacker:FindModifierByName("modifier_mark_of_the_talon"):GetAbility()
+			local multIncrease = talonAbility:GetLevelSpecialValueFor("post_mitigation_magic", talonAbility:GetLevel())/100
+			if talonAbility.d_a_level then
+				multIncrease = multIncrease + multIncrease*talonAbility.d_a_level*0.02
+			end
+			mult = mult + multIncrease
+		end
 		if attacker:HasModifier("modifier_hood_of_the_black_mage") then
 			mult = mult + 2.8
 		end
@@ -992,6 +1000,13 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + multIncrease
 		end
 	end
+	if victim:HasModifier("modifier_wolf_rend_bleed") then
+		local modifier = victim:FindModifierByName("modifier_wolf_rend_bleed")
+		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
+			local multIncrease = 0.04*modifier:GetAbility().b_b_level
+			mult = mult + multIncrease
+		end
+	end
 	if victim:HasModifier("modifier_overload_damage_resistance") then
 		filterTable["damage"] = filterTable["damage"]*0.1
 	end
@@ -1018,6 +1033,9 @@ function GameState:FilterDamage(filterTable)
 		local stacks = modifier:GetStackCount()
 		local multIncrease = 0.15*stacks
 		mult = mult + multIncrease
+	end
+	if victim:HasModifier("modifier_draghor_hawk_screech") then
+		mult = mult + 1
 	end
 	if victim:HasModifier("modifier_drowning_pool_actual_effect") then
 		local modifier = victim:FindModifierByName("modifier_drowning_pool_actual_effect")
@@ -1299,9 +1317,18 @@ function GameState:FilterDamage(filterTable)
 		CustomAbilities:HitShieldGeneric(victim, attacker, shieldCaster, "modifier_black_dominion_shield")
 	end
 	if victim:HasModifier("modifier_light_seer_shield") then
-		filterTable["damage"] = 0
-		local shieldCaster = victim:FindModifierByName("modifier_light_seer_shield"):GetCaster()
-		CustomAbilities:HitShieldGeneric(victim, attacker, victim.InventoryUnit, "modifier_light_seer_shield")
+		if filterTable["damage"] > 0 then
+			filterTable["damage"] = 0
+			local shieldCaster = victim:FindModifierByName("modifier_light_seer_shield"):GetCaster()
+			CustomAbilities:HitShieldGeneric(victim, attacker, victim.InventoryUnit, "modifier_light_seer_shield")
+		end
+	end
+	if victim:HasModifier("modifier_djanghor_4_1_shield") then
+		if filterTable["damage"] > 0 then
+			filterTable["damage"] = 0
+			local shieldCaster = victim:FindModifierByName("modifier_djanghor_4_1_shield"):GetCaster()
+			CustomAbilities:HitShieldGeneric(victim, attacker, victim, "modifier_djanghor_4_1_shield")
+		end
 	end
 	if victim:HasModifier("modifier_ice_throw_b_b_frozen") then
 		local modifier = victim:FindModifierByName("modifier_ice_throw_b_b_frozen")
@@ -1487,7 +1514,7 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_axe_immortal_weapon_1") then
 		filterTable["damage"] = filterTable["damage"]*0.5
 	end
-	if victim:HasModifier("modifier_astral_rune_c_c") then
+	if victim:HasModifier("modifier_astral_c_c_visible") then
 		filterTable["damage"] = filterTable["damage"]*0.25
 	end
 	if attacker:HasModifier("modifier_seinaru_immortal_weapon_1") then
@@ -2004,6 +2031,13 @@ function GameState:FilterDamage(filterTable)
 			end
 			if filterTable["damage"] > victim:GetMaxHealth()*thresh then
 				filterTable["damage"] = victim:GetMaxHealth()*thresh
+			end
+		end
+	end
+	if victim:HasModifier("modifier_djanghor_immortal_weapon_2") then
+		if victim:HasModifier("modifier_shapeshift_bear") then
+			if filterTable["damage"] < victim:GetMaxHealth()*100 then
+				filterTable["damage"] = victim:GetMaxHealth()*0.1
 			end
 		end
 	end

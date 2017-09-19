@@ -80,7 +80,9 @@ function Weapons:weaponRedirect(hero)
 	elseif heroName == "npc_dota_hero_dark_seer" then
 		Weapons:InitialWeapon(hero, "item_rpc_zonik_weapon_00", "Punch Glove")
 	elseif heroName == "npc_dota_hero_antimage" then
-		Weapons:InitialWeapon(hero, "item_rpc_arkimus_weapon_00", "Punch Glove")
+		Weapons:InitialWeapon(hero, "item_rpc_arkimus_weapon_00", "Blade")
+	elseif heroName == "npc_dota_hero_monkey_king" then
+		Weapons:InitialWeapon(hero, "item_rpc_djanghor_weapon_00", "Staff")
 	end
 end
 

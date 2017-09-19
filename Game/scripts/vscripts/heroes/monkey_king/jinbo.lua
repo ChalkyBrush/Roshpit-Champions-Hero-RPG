@@ -4,7 +4,7 @@ function jinbo_phase(event)
 
 	local stacks = caster:GetModifierStackCount("modifier_jinbo_stack", caster)
 	if stacks < 2 and not caster:HasModifier("modifier_monkey_jump") then
-		StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_ATTACK, rate=2.0, translate="attack_normal_range"})
+		StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_ATTACK, rate=1.6, translate="attack_normal_range"})
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Draghor.JinBo.Swing", caster)
 	else
 		local colorVector = Vector(180, 180, 180)
@@ -56,6 +56,12 @@ function jinbo_start(event)
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin()+caster:GetForwardVector()*300, "Draghor.JinBo.HeavySwing.Impact", caster)
 		local position = caster:GetAbsOrigin()
 		local damage = caster:GetAverageTrueAttackDamage(caster)*2*(event.damage_mult/100)
+		if caster:HasModifier("modifier_monkey_jump") then
+			local b_c_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
+			if b_c_level > 0 then
+				damage = damage + damage*DJANGHOR_E2_JINBO_BOOST_IN_LEAP*b_c_level
+			end
+		end
 		local endFV = caster:GetForwardVector()
 		local range = 1200
 		local enemies = FindUnitsInLine(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster:GetAbsOrigin()+endFV*range, nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0)
@@ -63,6 +69,9 @@ function jinbo_start(event)
 			for _,enemy in pairs(enemies) do
 				Filters:ApplyStun(caster, event.stun_duration, enemy)	
 				Filters:ApplyItemDamage(enemy,caster,damage,DAMAGE_TYPE_PURE,ability,RPC_ELEMENT_NATURE,RPC_ELEMENT_NORMAL)
+			end
+			if caster:HasModifier("modifier_djanghor_glyph_1_1") then
+				caster:GetAbilityByIndex(2):EndCooldown()
 			end
 		end 
 		local colorVector = Vector(180, 180, 180)
@@ -84,6 +93,7 @@ function jinbo_start(event)
 		end)
 
 	end
+	Filters:CastSkillArguments(2, caster)
 end
 
 function heavy_boulder_pushback(event)

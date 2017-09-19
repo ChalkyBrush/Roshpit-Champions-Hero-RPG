@@ -815,3 +815,559 @@
         }
     }
 }
+
+"Draghor.Bear.BasicAttack"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/weapons/hero/lifestealer/attack01.vsnd"
+                            "value1"        "sounds/weapons/hero/lifestealer/attack02.vsnd"
+                            "value2"        "sounds/weapons/hero/lifestealer/attack03.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.22000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.10000"  }
+                    "soundlevel"        {   "value"     "91.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Draghor.Bear.Roar"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/weapons/hero/lone_druid/savage_roar.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.02000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.00000"  }
+                    "soundlevel"        {   "value"     "91.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Draghor.Bear.Warstomp.Pre"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/weapons/hero/lone_druid/spirit_bear_preattack01.vsnd"
+                            "value1"        "sounds/weapons/hero/lone_druid/spirit_bear_preattack02.vsnd"
+                            "value2"        "sounds/weapons/hero/lone_druid/spirit_bear_preattack03.vsnd"
+                            "value3"        "sounds/weapons/hero/lone_druid/spirit_bear_preattack04.vsnd"
+                            "value4"        "sounds/weapons/hero/lone_druid/spirit_bear_preattack05.vsnd"
+                            "value5"        "sounds/weapons/hero/lone_druid/spirit_bear_preattack06.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.28000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.80000"  }
+                    "soundlevel"        {   "value"     "91.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Draghor.Bear.Warstomp"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/weapons/creep/neutral/thunderlizard_stomp.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.00000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.10000"  }
+                    "soundlevel"        {   "value"     "89.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Draghor.Bear.Charge"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/weapons/hero/lone_druid/battle_cry_bear.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.00000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.13000"  }
+                    "soundlevel"        {   "value"     "89.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Draghor.Hawk.Screech"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/vo/phoenix/phoenix_bird_victory.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.30000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.08000"  }
+                    "soundlevel"        {   "value"     "89.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Draghor.Hawk.PreScreech"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/vo/phoenix/phoenix_bird_kill.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.70000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.14000"  }
+                    "soundlevel"        {   "value"     "89.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Draghor.Tornado.Cast"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/weapons/hero/invoker/tornado_cast.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.90000"  }
+                    "pitch_rand_min"    {   "value"     "-0.05000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.11000"  }
+                    "soundlevel"        {   "value"     "88.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Draghor.Tornado.CastVO"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/vo/phoenix/phoenix_bird_last_hit.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.50000"  }
+                    "pitch_rand_min"    {   "value"     "-0.06000"  }
+                    "pitch_rand_max"    {   "value"     "0.060000"  }
+                    "pitch"             {   "value"     "1.14000"  }
+                    "soundlevel"        {   "value"     "88.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Draghor.WingFlap.Soar"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/physics/movement/wings/wingflaps_light_01.vsnd"
+                            "value1"        "sounds/physics/movement/wings/wingflaps_light_02.vsnd"
+                            "value2"        "sounds/physics/movement/wings/wingflaps_light_03.vsnd"
+                            "value3"        "sounds/physics/movement/wings/wingflaps_light_04.vsnd"
+                            "value4"        "sounds/physics/movement/wings/wingflaps_light_05.vsnd"
+                            "value5"        "sounds/physics/movement/wings/wingflaps_light_06.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.70000"  }
+                    "pitch_rand_min"    {   "value"     "-0.05000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.14000"  }
+                    "soundlevel"        {   "value"     "92.00000" }
+                    "distance_max"      {   "value"     "3100.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Draghor.Hawk.Soar"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/vo/phoenix/phoenix_bird_rune.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.92000"  }
+                    "pitch_rand_min"    {   "value"     "-0.02000"  }
+                    "pitch_rand_max"    {   "value"     "0.020000"  }
+                    "pitch"             {   "value"     "1.15000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Draghor.Bear.Regeneration"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/draghor/bear_regen3.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.12000"  }
+                    "pitch_rand_min"    {   "value"     "-0.02000"  }
+                    "pitch_rand_max"    {   "value"     "0.020000"  }
+                    "pitch"             {   "value"     "1.10000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Draghor.BearCharge.Impact"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/items/skull_basher.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.12000"  }
+                    "pitch_rand_min"    {   "value"     "-0.02000"  }
+                    "pitch_rand_max"    {   "value"     "0.020000"  }
+                    "pitch"             {   "value"     "0.75000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Draghor.Cleanse"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/draghor/refresh2.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.9000"  }
+                    "pitch_rand_min"    {   "value"     "-0.02000"  }
+                    "pitch_rand_max"    {   "value"     "0.020000"  }
+                    "pitch"             {   "value"     "1.00000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Draghor.Crit.Pre"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/weapons/hero/phantom_assassin/coup_de_grace.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.9000"  }
+                    "pitch_rand_min"    {   "value"     "-0.02000"  }
+                    "pitch_rand_max"    {   "value"     "0.020000"  }
+                    "pitch"             {   "value"     "1.12000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Draghor.Bear.Bash"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/weapons/hero/slardar/bash_stun.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.92000"  }
+                    "pitch_rand_min"    {   "value"     "-0.02000"  }
+                    "pitch_rand_max"    {   "value"     "0.020000"  }
+                    "pitch"             {   "value"     "0.90000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Draghor.RendRange"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/weapons/creep/good/range_projectile_impact2.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.82000"  }
+                    "pitch_rand_min"    {   "value"     "-0.02000"  }
+                    "pitch_rand_max"    {   "value"     "0.020000"  }
+                    "pitch"             {   "value"     "0.90000"  }
+                    "soundlevel"        {   "value"     "87.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}

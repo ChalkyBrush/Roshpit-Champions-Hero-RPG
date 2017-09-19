@@ -32196,7 +32196,7 @@
 				"property_one"			"50"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_voltex_immortal_weapon_1"
 	{
@@ -32235,7 +32235,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_venomort_immortal_weapon_1"
 	{
@@ -32274,7 +32274,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_axe_immortal_weapon_1"
 	{
@@ -32313,7 +32313,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_astral_immortal_weapon_1"
 	{
@@ -32352,7 +32352,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_epoch_immortal_weapon_1"
 	{
@@ -32673,10 +32673,10 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
-				
+
 				"EffectName"		"particles/units/heroes/hero_puck/wraith_crown.vpcf"
 				"EffectAttachType"	"attach_origin"
-				
+
 				"OnCreated"
 				{
 					"FireSound"
@@ -32684,7 +32684,7 @@
 						"EffectName"	"Auriun.ImmortalWeapon.Fade"
 						"Target"		"TARGET"
 					}
-					
+
 					"RunScript"
 					{
 						"ScriptFile"		"items/special_item_effects.lua"
@@ -32710,7 +32710,7 @@
 					"MODIFIER_STATE_ROOTED"					"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_DISARMED"				"MODIFIER_STATE_VALUE_ENABLED"
 				}
-			}		
+			}
 		}
 	}
 
@@ -33243,7 +33243,7 @@
 				"property_two"			"50000"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_voltex_immortal_weapon_2"
 	{
@@ -33282,7 +33282,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_venomort_immortal_weapon_2"
 	{
@@ -33329,7 +33329,7 @@
 				"property_one"			"100"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_axe_immortal_weapon_2"
 	{
@@ -33381,7 +33381,7 @@
 				"property_two"		"400"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_astral_immortal_weapon_2"
 	{
@@ -33428,7 +33428,7 @@
 				"property_one"			"40"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_epoch_immortal_weapon_2"
 	{
@@ -33587,8 +33587,8 @@
 			"modifier_sorceress_immortal_ice_avatar"
 			{
 				"IsHidden"	"1"
-				"StatusEffectName" 		"particles/roshpit/tanari/status_effect_spirit_blue.vpcf"  
-				"StatusEffectPriority"  "80"				
+				"StatusEffectName" 		"particles/roshpit/tanari/status_effect_spirit_blue.vpcf"
+				"StatusEffectPriority"  "80"
 				"EffectName"			"particles/roshpit/sorceress/ice_avatar.vpcf"
 				"EffectAttachType"		"attach_origin"
 				"ThinkInterval"  "0.2"
@@ -33728,7 +33728,7 @@
 				}
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "80" 
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "80"
 				}
 			}
 		}
@@ -33828,7 +33828,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%property_one" 
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%property_one"
 				}
 			}
 		}
@@ -33891,7 +33891,7 @@
 						"Function"		"auriun_immortal_2_think"
 					}
 				}
-			}	
+			}
 			"modifier_auriun_immortal_weapon_2_insight"
 			{
 				"IsHidden"	"0"
@@ -34493,7 +34493,7 @@
 				"property_one"			"150"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_voltex_immortal_weapon_3"
 	{
@@ -34537,10 +34537,10 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
-			
+
 				"StatusEffectName"	"particles/status_fx/status_effect_electrical.vpcf"
 				"StatusEffectPriority"	"10"
-			
+
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -34556,7 +34556,7 @@
 				"property_one"			"4.5"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_venomort_immortal_weapon_3"
 	{
@@ -34603,7 +34603,7 @@
 				"property_one"		"2"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_axe_immortal_weapon_3"
 	{
@@ -34659,7 +34659,7 @@
 				"property_two"		"0.4"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_astral_immortal_weapon_3"
 	{
@@ -34700,7 +34700,7 @@
 				{
 					"MODIFIER_PROPERTY_BONUS_DAY_VISION" "%property_two"
 				    "MODIFIER_PROPERTY_BONUS_NIGHT_VISION" "%property_two"
-				    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "%property_two" 
+				    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "%property_two"
 				}
 				"ThinkInterval"  "0.5"
 				"OnIntervalThink"
@@ -34727,7 +34727,7 @@
 				"property_two"			"400"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_epoch_immortal_weapon_3"
 	{
@@ -34889,8 +34889,8 @@
 			"modifier_sorceress_immortal_fire_avatar"
 			{
 				"IsHidden"	"1"
-				"StatusEffectName" 		"particles/roshpit/tanari/status_effect_spirit_red.vpcf" 
-				"StatusEffectPriority"  "80"				
+				"StatusEffectName" 		"particles/roshpit/tanari/status_effect_spirit_red.vpcf"
+				"StatusEffectPriority"  "80"
 				"EffectName"			"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType"		"attach_origin"
 				"ThinkInterval"  "0.2"
@@ -34995,7 +34995,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%property_two" 
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%property_two"
 				}
 				"ThinkInterval"  "0.2"
 				"OnIntervalThink"
@@ -35213,7 +35213,7 @@
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%property_one"
 				}
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -35771,7 +35771,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-		
+
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "500"
@@ -35854,7 +35854,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-		
+
 				"OnCreated"
 				{
 					"RunScript"
@@ -35912,7 +35912,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-		
+
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "1500"
@@ -36043,7 +36043,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-		
+
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "3500"
@@ -36087,7 +36087,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-		
+
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "500"
@@ -36170,7 +36170,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-		
+
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_EVASION_CONSTANT" "25"
@@ -36215,7 +36215,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-		
+
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "1500"
@@ -36342,7 +36342,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-		
+
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "3500"
@@ -36386,7 +36386,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-		
+
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "500"
@@ -36508,7 +36508,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-		
+
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "1500"
@@ -36635,7 +36635,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-		
+
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "3500"
@@ -37417,7 +37417,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-300"
-				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "300" 
+				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "300"
 				}
 			}
 		}
@@ -37830,7 +37830,7 @@
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
 				}
-			}			
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -38122,7 +38122,7 @@
 						"Function"		"attackLand"
 					}
 				}
-			}		
+			}
 		}
         "OnProjectileHitUnit"
         {
@@ -38434,7 +38434,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -38609,7 +38609,7 @@
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "20"
 				}
-			}	
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -38744,7 +38744,7 @@
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "70"
 				}
-			}	
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -39069,7 +39069,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -39353,7 +39353,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -39651,7 +39651,7 @@
 						"target"        "TARGET"
 					}
 				}
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -39963,7 +39963,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -40246,7 +40246,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -40529,7 +40529,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -40585,7 +40585,7 @@
 						"Function"		"duskbringer_glyph_7_1_end"
 						"target"		"TARGET"
 					}
-				}				
+				}
 			}
 		}
 		"AbilitySpecial"
@@ -40830,7 +40830,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -41132,7 +41132,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -41240,7 +41240,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -41279,7 +41279,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 	}
 
@@ -41310,7 +41310,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 	}
 
@@ -41341,7 +41341,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -41385,7 +41385,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -41424,7 +41424,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 	}
 
@@ -41455,7 +41455,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -41496,7 +41496,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -41535,7 +41535,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -41574,7 +41574,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -41613,7 +41613,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -41652,7 +41652,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -41691,7 +41691,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -41738,7 +41738,7 @@
 						"Function"		"glyph_7_1_damage"
 					}
 				}
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -41779,7 +41779,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -41818,7 +41818,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -41857,7 +41857,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -41896,7 +41896,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -41935,7 +41935,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -41974,7 +41974,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -42023,7 +42023,7 @@
 						"target"		"TARGET"
 					}
 				}
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -42064,7 +42064,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -42103,7 +42103,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -42142,7 +42142,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -42181,7 +42181,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -42220,7 +42220,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -42259,7 +42259,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -42298,7 +42298,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -42339,7 +42339,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -42378,7 +42378,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -42417,7 +42417,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -42456,7 +42456,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -42495,7 +42495,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -42539,7 +42539,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -42578,7 +42578,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -42619,7 +42619,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -42658,7 +42658,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -42697,7 +42697,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -42736,7 +42736,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -42780,7 +42780,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -42819,7 +42819,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -42858,7 +42858,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -42899,7 +42899,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -42938,7 +42938,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -42977,7 +42977,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -43016,7 +43016,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -43055,7 +43055,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -43094,7 +43094,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -43138,7 +43138,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -43179,7 +43179,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -43222,7 +43222,7 @@
 				{
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%property_one"
 				}
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -43261,7 +43261,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -43300,7 +43300,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -43339,7 +43339,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -43383,7 +43383,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -43422,7 +43422,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -44074,7 +44074,7 @@
 				}
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-20" 
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-20"
 				}
 			}
 		}
@@ -44174,7 +44174,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%property_one"
-				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%property_two" 
+				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%property_two"
 				    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"	"%property_three"
 				}
 			}

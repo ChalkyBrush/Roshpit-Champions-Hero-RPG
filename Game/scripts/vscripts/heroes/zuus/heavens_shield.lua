@@ -42,7 +42,17 @@ function heavens_shield_cast(event)
 		local glyph_duration = 2.0
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_auriun_glyph_6_1_effect", {duration = glyph_duration})
 	end
-
+	if caster:HasModifier("modifier_auriun_glyph_3_1") then
+		local modifiers = target:FindAllModifiers()
+		for j = 1, #modifiers, 1 do
+			local modifier = modifiers[j]
+			local modifierMaker = modifier:GetCaster()
+			if modifierMaker.regularEnemy then
+				target:RemoveModifierByName(modifier:GetName())
+				break
+			end
+		end	
+	end
 end
 
 function immortal_weapon_3_effect(caster, ability)
@@ -110,19 +120,19 @@ function rune_c_a_think(event)
 end
 
 function heavens_shield_think(event)
-	local caster = event.caster
-	local target = event.target
-	if caster:HasModifier("modifier_auriun_glyph_3_1") then
-		if target:IsStunned() then
-			Filters:RemoveStuns(target)
-			local newStacks = target:GetModifierStackCount("modifier_heavens_shield", caster) - 3
-			if newStacks > 0 then
-				EmitSoundOn("Auriun.GlyphedShieldBreak", target)
-				target:SetModifierStackCount("modifier_heavens_shield", caster, newStacks)
-			else
-				target:RemoveModifierByName("modifier_heavens_shield")
-				EmitSoundOn("Auriun.GlyphedShieldBreak", target)
-			end
-		end
-	end
+	-- local caster = event.caster
+	-- local target = event.target
+	-- if caster:HasModifier("modifier_auriun_glyph_3_1") then
+	-- 	if target:IsStunned() then
+	-- 		Filters:RemoveStuns(target)
+	-- 		local newStacks = target:GetModifierStackCount("modifier_heavens_shield", caster) - 3
+	-- 		if newStacks > 0 then
+	-- 			EmitSoundOn("Auriun.GlyphedShieldBreak", target)
+	-- 			target:SetModifierStackCount("modifier_heavens_shield", caster, newStacks)
+	-- 		else
+	-- 			target:RemoveModifierByName("modifier_heavens_shield")
+	-- 			EmitSoundOn("Auriun.GlyphedShieldBreak", target)
+	-- 		end
+	-- 	end
+	-- end
 end

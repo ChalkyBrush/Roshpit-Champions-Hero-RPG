@@ -4,10 +4,6 @@ local ClusterArrow = require('heroes/moon_ranger/abilities/w/w4_cluster_arrow')
 function projectileHit(event)
     local target = event.target
     local caster = event.caster.hero
-    Helper.initializeAbilityRunes(caster, 'astral', 'c')
-    Helper.initializeAbilityRunes(caster, 'astral', 'd')
-
-    print(caster.rune_d_c_level .. ' Runes count')
     local ability = caster:FindAbilityByName("split_shot")
     local runesCount = caster.c_b_level
 

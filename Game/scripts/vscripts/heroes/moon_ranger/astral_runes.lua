@@ -101,23 +101,13 @@ end
 function astral_think(event)
 	local caster = event.caster
     caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "astral")
-    caster.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "astral")
 
 	local d_c_level = caster.d_c_level
 	local d_c_ability = caster.runeUnit4:FindAbilityByName("astral_rune_d_c")
 	if d_c_level > 0 then
-		d_c_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_astral_rune_d_c_visible", {})
-		caster:SetModifierStackCount( "modifier_astral_rune_d_c_visible", d_c_ability, d_c_level )
+		d_c_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_astral_d_c_visible", {})
+		caster:SetModifierStackCount( "modifier_astral_d_c_visible", d_c_ability, d_c_level )
 	else
-		caster:RemoveModifierByName("modifier_astral_rune_d_c_visible")
-	end
-
-	local d_d_level = caster.d_d_level
-	local d_d_ability = caster.runeUnit4:FindAbilityByName("astral_rune_d_d")
-	if d_d_level > 0 then
-		d_d_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_astral_rune_d_d_invisible", {})
-		caster:SetModifierStackCount( "modifier_astral_rune_d_d_invisible", d_d_ability, d_d_level )
-	else
-		caster:RemoveModifierByName("modifier_astral_rune_d_d_invisible")
+		caster:RemoveModifierByName("modifier_astral_d_c_visible")
 	end
 end

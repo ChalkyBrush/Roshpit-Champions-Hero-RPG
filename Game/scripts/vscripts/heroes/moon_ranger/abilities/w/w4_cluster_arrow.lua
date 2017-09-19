@@ -15,6 +15,4 @@ end
 
 local module = {}
 module.projectileHit = projectileHit
-module.getPostMultiplayer = getPostMultiplayer
-
 return module

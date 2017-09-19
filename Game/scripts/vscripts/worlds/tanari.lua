@@ -50,8 +50,13 @@ function Tanari:Debug()
         -- RPCItems:RollZhonikArcana1(Vector(-4928, 2048))
     -- end
     -- RPCItems:RollMountainProtectorArcana1(Vector(-4928, 2048))
-    Weapons:RollLegendWeapon2(Vector(-4928, 2048), "ekkan")
-    Weapons:RollLegendWeapon3(Vector(-4928, 2048), "ekkan")
+    Arena = {}
+    Arena.PitLevel = 7
+    Weapons:RollLegendWeapon1(Vector(-4928, 2048), "djanghor")
+    Weapons:RollLegendWeapon2(Vector(-4928, 2048), "djanghor")
+    Weapons:RollLegendWeapon3(Vector(-4928, 2048), "djanghor")
+    -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "ekkan")
+    -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "ekkan")
     -- for i = 1, 3, 1 do
     --     RPCItems:RollWarlordArcana1(Vector(-4928, 2048))
     -- end
@@ -68,10 +73,10 @@ function Tanari:Debug()
     -- RPCItems:RollMountainProtectorArcana2(Vector(-4928, 2048))
     -- RPCItems:RollSpiritWarriorArcana3(Vector(-4928, 2048))
     -- RPCItems:RollSeinaruArcana1(Vector(-4928, 2048))
-    RPCItems:RollOutlandStoneCuirass(Vector(-4928, 2048))
+    -- RPCItems:RollOutlandStoneCuirass(Vector(-4928, 2048))
     -- Arena = {}
     -- Arena.PitLevel = 7
-    RPCItems:RollMageplate(Vector(-4928, 2048))
+    -- RPCItems:RollMageplate(Vector(-4928, 2048))
     -- Dungeons.itemLevel = 300
     -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "zonik")
     -- RPCItems:RollMountainProtectorArcana1(Vector(-4928, 2048))
@@ -79,7 +84,7 @@ function Tanari:Debug()
     -- Dungeons.itemLevel = 300
     -- RPCItems:RollAuriunArcana1(Vector(-4928, 2048))
     -- RPCItems:RollAuriunArcana2(Vector(-4928, 2048))
-    RPCItems:RollBurningSpiritHelmet(Vector(-4928, 2048))
+    -- RPCItems:RollBurningSpiritHelmet(Vector(-4928, 2048))
     -- RPCItems:RollFlamewakerArcana1(Vector(-4928, 2048))
     -- Dungeons.itemLevel = 300
     -- RPCItems:RollVoltexArcana1(Vector(-4928, 2048))
@@ -90,9 +95,9 @@ function Tanari:Debug()
     -- RPCItems:RollBladestormVest(Vector(-4928, 2048))
     -- RPCItems:RollIronColossus(Vector(-4928, 2048), false)
     -- RPCItems:RollChernobogArcana1(Vector(-4928, 2048))
-    RPCItems:RollAquasteelBracers(Vector(-4928, 2048))
+    -- RPCItems:RollAquasteelBracers(Vector(-4928, 2048))
     -- Runes:EquipArcana(Vector(-4928, 2048), 2)
-    -- Glyphs:DebugRollHeroGlyphs("spirit_warrior", Vector(-4928, 2048))
+    Glyphs:DebugRollHeroGlyphs("djanghor", Vector(-4928, 2048))
     -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "arkimus")
     -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "solunia")
     -- RPCItems:RollWindDeityCrown(Vector(-4928, 2048), true, 7)
@@ -115,7 +120,7 @@ function Tanari:Debug()
     -- Curator:CurateHero(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
 
     -- Timers:CreateTimer(10, function()
-    --     Curator:CurateAllGlyphsForHero("duskbringer")
+    --     Curator:CurateAllGlyphsForHero("djanghor")
     -- end)
     -- Events.DifficultyFactor = 3
     -- Events.SpiritRealm = true

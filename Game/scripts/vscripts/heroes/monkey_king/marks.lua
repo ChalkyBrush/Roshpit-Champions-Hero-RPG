@@ -1,3 +1,5 @@
+require('/heroes/monkey_king/constants')
+
 function draghor_main_think(event)
 	local caster = event.caster
 	local catAbility = caster:FindAbilityByName("draghor_shapeshift_cat")
@@ -31,7 +33,9 @@ function mark_of_the_fang(event)
 		end
 	end
 	caster:RemoveModifierByName("modifier_mark_of_the_claw")
+	caster:RemoveModifierByName("modifier_mark_of_the_claw_rune")
 	caster:RemoveModifierByName("modifier_mark_of_the_talon")
+	caster:RemoveModifierByName("modifier_mark_of_the_talon_rune")
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_mark_of_the_fang", {})
 
 
@@ -39,9 +43,16 @@ function mark_of_the_fang(event)
 	if caster:HasAbility("draghor_shapeshift_crow") then
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_crow", "draghor_shapeshift_cat", 3)
 	end
+
 	EmitSoundOn("Draghor.MarkBG.Med", caster)
 
 	StartAnimation(caster, {duration=0.64, activity=ACT_DOTA_MK_FUR_ARMY, rate=1.0})
+
+	ability.d_a_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+	if ability.d_a_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_mark_of_the_fang_rune", {})
+		caster:SetModifierStackCount("modifier_mark_of_the_fang_rune", caster, ability.d_a_level)
+	end
 end
 
 function mark_of_the_claw(event)
@@ -55,7 +66,9 @@ function mark_of_the_claw(event)
 		end
 	end
 	caster:RemoveModifierByName("modifier_mark_of_the_fang")
+	caster:RemoveModifierByName("modifier_mark_of_the_fang_rune")
 	caster:RemoveModifierByName("modifier_mark_of_the_talon")
+	caster:RemoveModifierByName("modifier_mark_of_the_talon_rune")
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_mark_of_the_claw", {})
 
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_claw", "draghor_mark_of_the_talon", 0)
@@ -63,6 +76,12 @@ function mark_of_the_claw(event)
 	EmitSoundOn("Draghor.MarkBG.Low", caster)
 
 	StartAnimation(caster, {duration=0.64, activity=ACT_DOTA_MK_FUR_ARMY, rate=1.0})
+
+	ability.d_a_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+	if ability.d_a_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_mark_of_the_claw_rune", {})
+		caster:SetModifierStackCount("modifier_mark_of_the_claw_rune", caster, ability.d_a_level)
+	end
 end
 
 function mark_of_the_talon(event)
@@ -76,7 +95,9 @@ function mark_of_the_talon(event)
 		end
 	end
 	caster:RemoveModifierByName("modifier_mark_of_the_fang")
+	caster:RemoveModifierByName("modifier_mark_of_the_fang_rune")
 	caster:RemoveModifierByName("modifier_mark_of_the_claw")
+	caster:RemoveModifierByName("modifier_mark_of_the_claw_rune")
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_mark_of_the_talon", {})
 
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_talon", "draghor_mark_of_the_fang", 0)
@@ -84,4 +105,21 @@ function mark_of_the_talon(event)
 	EmitSoundOn("Draghor.MarkBG.High", caster)
 
 	StartAnimation(caster, {duration=0.64, activity=ACT_DOTA_MK_FUR_ARMY, rate=1.0})
+
+	ability.d_a_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+	if ability.d_a_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_mark_of_the_talon_rune", {})
+		caster:SetModifierStackCount("modifier_mark_of_the_talon_rune", caster, ability.d_a_level)
+	end
+end
+
+function draghor_attack_land(event)
+	local attacker = event.attacker
+	local target = event.target
+	local a_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 1)
+	if a_b_level > 0 then
+		local damage = event.damage*DJANGHOR_W1_DAMAGE_MULT*a_b_level
+		Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NATURE, RPC_ELEMENT_NONE)
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_venomancer/venomancer_venomous_gale_impact.vpcf", target, 0.4)
+	end 
 end

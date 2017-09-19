@@ -27,6 +27,30 @@ function jump_start(event)
 	ability.jumpFV = ((ability.targetPoint - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 
 	ability.interval = 0
+
+	local c_c_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
+	if c_c_level > 0 then
+		local procs = Runes:Procs(c_c_level, 5, 1)
+		if procs > 0 then
+			local particle = false
+			for i = 1, procs, 1 do
+				local modifiers = caster:FindAllModifiers()
+				for j = 1, #modifiers, 1 do
+					local modifier = modifiers[j]
+					local modifierMaker = modifier:GetCaster()
+					if modifierMaker.regularEnemy then
+						caster:RemoveModifierByName(modifier:GetName())
+						particle = true
+						break
+					end
+				end				
+			end
+			if particle then
+				EmitSoundOn("Draghor.Cleanse", caster)
+				local pfx = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_morphling/morphling_morph_agi.vpcf", caster, 1.2)
+			end
+		end
+	end
 	-- StartAnimation(caster, {duration=2.0, ACT_DOTA_MK_SPRING_SOAR, rate=1.0})
 	-- StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_2, rate=1})
 	-- EmitSoundOn("Akrimus.Jump.VO", caster)
@@ -82,6 +106,9 @@ function jump_end(event)
 		StartAnimation(caster, {duration=1, activity=ACT_DOTA_MK_SPRING_END, rate=1})
 		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 	end)
-
+	ability.a_c_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
+	if ability.a_c_level > 0 then
+		ability:ApplyDataDrivenThinker(caster, caster:GetAbsOrigin(), "modifier_monkey_a_c_thinker", {duration = 20})
+	end
 end
 

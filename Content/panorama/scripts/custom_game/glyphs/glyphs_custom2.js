@@ -292,6 +292,18 @@ function getGlyphProperty1(glyphName){
 		property = 1
 	}else if(glyphName == "item_rpc_arkimus_glyph_7_1"){
 		property = 1000
+	}else if(glyphName == "item_rpc_djanghor_glyph_2_1"){
+		property = 20
+	}else if(glyphName == "item_rpc_djanghor_glyph_3_1"){
+		property = 60
+	}else if(glyphName == "item_rpc_djanghor_glyph_4_1"){
+		property = 4
+	}else if(glyphName == "item_rpc_djanghor_glyph_5_1"){
+		property = 3
+	}else if(glyphName == "item_rpc_djanghor_glyph_6_1"){
+		property = 2
+	}else if(glyphName == "item_rpc_djanghor_glyph_7_1"){
+		property = 25
 	}
 	return property
 }
@@ -360,6 +372,12 @@ function getGlyphProperty2(glyphName){
 		property = 200
 	}else if(glyphName == "item_rpc_arkimus_glyph_5_1"){
 		property = 80
+	}else if(glyphName == "item_rpc_djanghor_glyph_2_1"){
+		property = 1000
+	}else if(glyphName == "item_rpc_djanghor_glyph_3_1"){
+		property = 30
+	}else if(glyphName == "item_rpc_djanghor_glyph_7_1"){
+		property = 400
 	}
 	return property
 }
@@ -422,6 +440,8 @@ function getGlyphProperty3(glyphName){
 		property = 3
 	}else if(glyphName == "item_rpc_hydroxis_glyph_5_1"){
 		property = 400
+	}else if(glyphName == "item_rpc_djanghor_glyph_7_1"){
+		property = 1.5
 	}
 	return property
 }

@@ -50,6 +50,8 @@ function Runes:RedirectRunes(hero, runeUnit, runeUnit2, runeUnit3, runeUnit4, pl
 		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "zonik")
 	elseif heroName == "npc_dota_hero_antimage" then
 		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "arkimus")
+	elseif heroName == "npc_dota_hero_monkey_king" then
+		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "djanghor")
 	end
 	
     runeUnit:AddAbility("town_unit"):SetLevel(1)
@@ -385,6 +387,38 @@ function Runes:GetTotalRuneLevelGeneric(caster, tier, index)
 	else
 		return 0
 	end
+end
+
+function Runes:GetRuneAbility(caster, tier, index)
+	local runeUnit = ""
+	if tier == 1 then
+		runeUnit = caster.runeUnit
+	elseif tier == 2 then
+		runeUnit = caster.runeUnit2
+	elseif tier == 3 then
+		runeUnit = caster.runeUnit3
+	elseif tier == 4 then
+		runeUnit = caster.runeUnit4
+	end
+	local runeID = Runes:ConvertTierAndIndexToRune(tier, index)
+	local runeAbility = runeUnit:GetAbilityByIndex(index)
+	return runeAbility
+end
+
+function Runes:GetRunePropertyValue(caster, tier, index, propertyName)
+	local runeUnit = ""
+	if tier == 1 then
+		runeUnit = caster.runeUnit
+	elseif tier == 2 then
+		runeUnit = caster.runeUnit2
+	elseif tier == 3 then
+		runeUnit = caster.runeUnit3
+	elseif tier == 4 then
+		runeUnit = caster.runeUnit4
+	end
+	local runeID = Runes:ConvertTierAndIndexToRune(tier, index)
+	local runeAbility = runeUnit:GetAbilityByIndex(index)
+	return runeAbility:GetSpecialValueFor(propertyName)
 end
 
 function Runes:ConvertTierAndIndexToRune(tier, index)

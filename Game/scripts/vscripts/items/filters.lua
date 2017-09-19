@@ -256,6 +256,20 @@ function Filters:ReduceCooldownAll(caster, ability, baseCD)
     end
 end
 
+function Filters:ReduceCooldownGeneric(caster, ability, CDreduce)
+    local abilityCooldown = ability:GetCooldownTimeRemaining()
+    if caster:HasModifier("modifier_hood_of_lords_lua") then
+        abilityCooldown = abilityCooldown + 1
+    end
+    local abilityCooldown = abilityCooldown - CDreduce
+    if abilityCooldown > 0 then
+        ability:EndCooldown()
+        ability:StartCooldown(abilityCooldown)
+    else
+        ability:EndCooldown()
+    end
+end
+
 function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
     local abilityCooldown = baseCD
     local CDreduce = 0
@@ -642,6 +656,12 @@ function Filters:ApplyQskills(caster)
             caster:ReduceMana(caster:GetMaxMana()*0.5)
             caster.amulet:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_mana_relic_damage_boost", {duration = 5})
             CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_keeper_of_the_light/keeper_mana_leak.vpcf", caster, 5)
+        end
+    end
+    if caster:HasModifier("modifier_djanghor_glyph_5_1") then
+        if caster:GetUnitName() == "npc_dota_hero_monkey_king" then
+            local qAbility = caster:GetAbilityByIndex(0)
+            Filters:ReduceCooldownGeneric(caster, qAbility, 3)
         end
     end
     if caster:HasModifier("modifier_royal_wristguards") then
@@ -1085,6 +1105,10 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_auriun_immortal_weapon_3_effect") then
             damageMult = damageMult + 2
         end
+        if attacker:HasModifier("modifier_hawk_c_d") then
+            local current_stack = attacker:GetModifierStackCount( "modifier_hawk_c_d", attacker)
+            damageMult = damageMult + 0.08*current_stack
+        end
     end
 
     if slot == 1 then
@@ -1364,6 +1388,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             mult = mult + stacks/100
         end
     end
+    if element1 == RPC_ELEMENT_NORMAL then
+        if attacker:HasModifier("modifier_djanghor_glyph_5_a") then
+            element2 = RPC_ELEMENT_NATURE
+        end
+    end
     if element1 == RPC_ELEMENT_NORMAL or element2 == RPC_ELEMENT_NORMAL then
         if attacker:HasModifier("modifier_neutral_glyph_6_2") then
             mult = mult + 0.5
@@ -1385,6 +1414,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local stacks = attacker:GetModifierStackCount("modifier_weapon_normal", attacker.InventoryUnit)
             mult = mult + stacks/100
         end
+
     end
     if element1 == RPC_ELEMENT_FIRE or element2 == RPC_ELEMENT_FIRE then
         if unitName == "npc_dota_hero_dragon_knight" then
@@ -1629,7 +1659,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     end
     if element1 == RPC_ELEMENT_COSMOS or element2 == RPC_ELEMENT_COSMOS then
         if unitName == "npc_dota_hero_drow_ranger" then
-            mult = mult + 0.00015*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_c_level
+            mult = mult + 0.0008*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_c_level
         end
         if unitName == "npc_dota_hero_vengefulspirit" then
             local d_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 0)
@@ -1888,9 +1918,17 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
     end
     if element1 == RPC_ELEMENT_NATURE or element2 == RPC_ELEMENT_NATURE then
+        if unitName == "npc_dota_hero_monkey_king" then
+           local d_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
+           mult = mult + 0.0005*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_b_level
+        end
         if attacker:HasModifier("modifier_trinket_nature") then
             local stacks = attacker:GetModifierStackCount("modifier_trinket_nature", attacker.InventoryUnit)
             mult = mult + stacks/100
+        end
+        if victim:HasModifier("modifier_monkey_a_c_effect") then
+            local monkeyAbility = victim:FindModifierByName("modifier_monkey_a_c_effect"):GetAbility()
+            mult = mult + 0.15*monkeyAbility.a_c_level
         end
     end
     if element1 == RPC_ELEMENT_UNDEAD or element2 == RPC_ELEMENT_UNDEAD then
