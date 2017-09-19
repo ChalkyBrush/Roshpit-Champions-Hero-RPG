@@ -8172,7 +8172,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-				"TextureName"		"rpc/astral_a_b"
+		        "TextureName"	"medusa/blueice_abilityicons/medusa_split_shot"
 			}
 			"modifier_astral_a_b_invisible"
 			{
@@ -8556,6 +8556,7 @@
 			}
             "modifier_astral_rune_a_c_visible"
 			{
+		        "TextureName"	"vengefulspirit/huangs_umbra_icons/vengefulspirit_wave_of_terror"
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
@@ -8585,6 +8586,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
+		        "TextureName"	"luna/zodiac_sigils_skills/luna_lunar_blessing"
 
 				"EffectName"		"particles/econ/courier/courier_faceless_rex/astral_rune_c_c_effect.vpcf"
 				"EffectAttachType"	"attach_origin"
@@ -13015,7 +13017,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0.15"
+		"AbilityCooldown"				"0.1"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -49225,7 +49227,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two_base"		"1.00"
+				"property_two_base"		"1"
 			}
 		}
 	}
