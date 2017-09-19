@@ -35659,12 +35659,6 @@
 						"ScriptFile"	"heroes/monkey_king/shapeshift"
 						"Function"		"shapeshifting_think"
 					}
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/monkey_king/shapeshift"
-						"Function"		"general_shapeshift_think"
-						"index"			"3"
-					}
 				}
 				"OnDestroy"
 				{
@@ -35701,10 +35695,25 @@
 						"ScriptFile"	"heroes/monkey_king/shapeshift"
 						"Function"		"crow_think"
 					}
+
 				}
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%int_bonus"
+				}
+			}
+			"modifier_shapeshift_crow_r1_thinker"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/monkey_king/shapeshift"
+						"Function"		"general_shapeshift_think"
+						"index"			"3"
+					}
 				}
 			}
 			"modifier_shapeshift_attack_power_a_d"
@@ -64274,7 +64283,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.12"
+				"property_one"			"0.05"
 			}
 		}
 	}
