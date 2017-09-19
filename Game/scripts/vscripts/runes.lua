@@ -437,9 +437,6 @@ function Runes:apply_runes(ability, unit, PlayerID)
 		-- if ability:GetName() == "venomort_rune_b_a" then
 		-- 	ability:ApplyDataDrivenModifier(unit, hero, "modifier_venomort_rune_b_a", {})
 		-- end
-		if ability:GetName() == "astral_rune_a_b" then
-			ability:ApplyDataDrivenModifier(unit, hero, "modifier_astral_rune_a_b", {})
-		end
 		if ability:GetName() == "paladin_rune_a_c" and not hero:HasModifier("modifier_paladin_rune_a_c_revive_cooldown") then
 			ability:ApplyDataDrivenModifier(unit, hero, "modifier_paladin_rune_a_c_revivable", {})
 		end
