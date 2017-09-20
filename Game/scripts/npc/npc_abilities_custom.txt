@@ -8603,6 +8603,10 @@
 						"Function"		"think"
 					}
 				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "95"
+				}
 			}
 		}
 	}
@@ -49228,7 +49232,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"0.6"
 			}
 			"02"
 			{
@@ -49455,7 +49459,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.08"
+				"property_one"			"0.1"
 			}
 			"02"
 			{
@@ -49628,7 +49632,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.8"
+				"property_one"			"0.9"
 			}
 		}
 	}
@@ -49646,7 +49650,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
+				"property_one"			"160"
 			}
 			"02"
 			{
