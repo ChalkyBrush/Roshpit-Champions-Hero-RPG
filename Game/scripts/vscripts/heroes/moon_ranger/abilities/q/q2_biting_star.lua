@@ -29,7 +29,7 @@ function attackLand(event)
         damageMultiply = Q2_ATTACK_DAMAGE_PERCENT
     end
 
-    if b_a_level == nill or b_a_level <= 0 then
+    if b_a_level == nil or b_a_level <= 0 then
         return false
     end
 

@@ -109,11 +109,11 @@ function rune_a_c_projectile(caster, targetPoint, totalLevel, starAbility, start
   if starAbility.rootDuration > 9 then
     starAbility.rootDuration = 9
   end
-  -- "particles/econ/items/keeper_of_the_light/kotl_ti7_illuminate/kotl_ti7_illuminate.vpcf"
+  
   local info = 
   {
       Ability = starAbility,
-          EffectName = "particles/econ/items/keeper_of_the_light/kotl_ti7_illuminate/kotl_ti7_illuminate.vpcf",
+          EffectName = "particles/units/heroes/hero_vengeful/astral_wave_terror.vpcf",
           vSpawnOrigin = casterOrigin,
           fDistance = range,
           fStartRadius = start_radius,

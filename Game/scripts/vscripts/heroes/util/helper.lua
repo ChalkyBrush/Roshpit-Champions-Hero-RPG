@@ -1,8 +1,7 @@
-function updateStackModier(target, caster, ability, modifierName, duration, maxStacksCount, multiplyForInvisibleModifier)
+local function updateStackModifier(target, caster, ability, modifierName, duration, maxStacksCount, multiplyForInvisibleModifier)
     local visibleModifier = "modifier_" .. modifierName .. "_visible"
     local newStacks = math.min(target:GetModifierStackCount(visibleModifier, caster) + 1, maxStacksCount)
 
-    target:RemoveModifierByName(visibleModifier)
     ability:ApplyDataDrivenModifier(caster, target, visibleModifier, {duration = duration})
     target:SetModifierStackCount(visibleModifier, caster, newStacks)
 
@@ -11,11 +10,23 @@ function updateStackModier(target, caster, ability, modifierName, duration, maxS
     end
 
     local invisibleModifier =  "modifier_" .. modifierName .. "_invisible"
-    target:RemoveModifierByName(invisibleModifier)
     ability:ApplyDataDrivenModifier(caster, target, invisibleModifier, {duration = duration})
     target:SetModifierStackCount(invisibleModifier, caster, newStacks * multiplyForInvisibleModifier)
 end
 
+local function initializeAbilityRunes(caster, casterName, abilityLetter)
+    local runeLetters = {}
+    runeLetters[1] = 'a'
+    runeLetters[2] = 'b'
+    runeLetters[3] = 'c'
+    runeLetters[4] = 'd'
+    for tier, runeLetter in pairs(runeLetters) do
+        local runeName = runeLetter .. '_' .. abilityLetter
+        caster[runeName .. '_level'] = Runes:GetTotalRuneLevel(caster, tier, runeName, "astral")
+    end
+end
+
 local module = {}
-module.updateStackModier = updateStackModier;
+module.updateStackModifier = updateStackModifier;
+module.initializeAbilityRunes = initializeAbilityRunes
 return module
