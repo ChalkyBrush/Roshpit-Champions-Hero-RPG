@@ -20,7 +20,7 @@ E_DELAY = 2
 E1_START_DURATION = 1
 E1_ADD_DURATION = 0.07
 E1_MAX_STACKS_COUNT = 10
-E1_PARTICLE = "particles/units/heroes/hero_vengeful/astral_wave_terror.vpcf"
+E1_PARTICLE = "particles/econ/generic/generic_projectile_linear_1/generic_projectile_linear_1.vpcf"
 E1_RADIUS = 350
 E1_SPEED_FROM_RANGE = 7/10
 E1_TRAVELS_COUNT = 1
@@ -57,3 +57,5 @@ T61_TARGETS = 4
 T61_DAMAGE_PERCENT = 0.5
 T61_ENEMIES_SEARCH_RADIUS = 550
 T11_TRAVELS_COUNT = 4
+
+--change E2 to R4 icon

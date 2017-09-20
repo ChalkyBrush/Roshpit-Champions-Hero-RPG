@@ -5,7 +5,7 @@ local function updateStackModifier(target, caster, ability, modifierName, durati
     ability:ApplyDataDrivenModifier(caster, target, visibleModifier, {duration = duration})
     target:SetModifierStackCount(visibleModifier, caster, newStacks)
 
-    if multiplyForInvisibleModifier == nill or multiplyForInvisibleModifier <= 0 then
+    if multiplyForInvisibleModifier == nil or multiplyForInvisibleModifier <= 0 then
         return
     end
 

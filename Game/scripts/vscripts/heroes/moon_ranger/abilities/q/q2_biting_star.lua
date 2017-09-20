@@ -32,6 +32,8 @@ function attackLand(event)
     if b_a_level == nil or b_a_level <= 0 then
         return false
     end
+    
+    procChance = getProcChance(caster, procChance)
 
     local luck = RandomInt(1, 100)
     if luck <= procChance then

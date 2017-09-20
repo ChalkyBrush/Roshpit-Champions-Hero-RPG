@@ -116,10 +116,9 @@ function Weapons:RollLegendWeapon1(deathLocation, class)
 	    weapon.property2name = "strength"
 	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_strength", "#CC0000",  2)
 	elseif internalName == "astral" then
-		local value = Weapons:GetDeviation(500+RandomInt(1,Arena.PitLevel*70), 0)
-	    weapon.property1 = value
-	    weapon.property1name = "attack_damage"
-	    RPCItems:SetPropertyValues(weapon, weapon.property1, "#item_bonus_attack_damage", "#343EC9",  1) 
+	    weapon.property1 = 1
+	    weapon.property1name = "!immortal_weapon!"
+		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_astral_immortal_weapon", "#BCA7E8",  1, "#property_astral_immortal_weapon_description")
 
 	    local value = Weapons:GetDeviation(23+RandomInt(1,Arena.PitLevel*2), rarityFactor)
 	    weapon.property2 = value

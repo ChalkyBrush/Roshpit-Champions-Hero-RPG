@@ -7718,7 +7718,7 @@
 
     "phoenix_summon"
     {
-        "BaseClass" "npc_dota_base_additive"
+        "BaseClass" "npc_dota_creature"
         "Model" "models/heroes/phoenix/phoenix_bird.vmdl"
         "Level" "1"
         "UnitLabel" "healing_ward"
@@ -7770,6 +7770,23 @@
         "VisionDaytimeRange"    "300"
         "VisionNighttimeRange"  "200"
         "PathfindingSearchDepthScale" "0.2"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                //head
+                "Wearable1"
+                {
+                    "ItemDef"   "626"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "592"
+                }
+            }
+
+        }
     }
 
     "prop_unit"

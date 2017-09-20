@@ -1,5 +1,6 @@
 require('heroes/moon_ranger/init')
-local function createPegasus(caster, ability, startPoint, endPoint, delay)
+
+function createPegasus(caster, ability, startPoint, endPoint, delay)
     local runesCount = caster.a_c_level
     if runesCount == nil or runesCount <= 0 then
         return
@@ -15,22 +16,29 @@ local function createPegasus(caster, ability, startPoint, endPoint, delay)
     ability.runesCount = runesCount
     ability.duration = E1_START_DURATION + runesCount * E1_ADD_DURATION
 
-    for travelIndex = 1, travelsCount, 2 do
+    for travelIndex = 1, travelsCount, 1 do
         Timers:CreateTimer(delay * (travelIndex - 1), function()
-            createProjectile(caster, ability, startPoint, endPoint)
-        end)
-        if (travelIndex + 1 <= travelsCount) then
-            Timers:CreateTimer(delay * travelIndex, function()
+            if travelIndex%2 == 1 then
+                createProjectile(caster, ability, startPoint, endPoint)
+            else
                 createProjectile(caster, ability, endPoint, startPoint)
-            end)
-        end
+            end
+        end)
+        -- if (travelIndex + 1 <= travelsCount) then
+        --     Timers:CreateTimer(delay * travelIndex, function()
+        --         createProjectile(caster, ability, endPoint, startPoint)
+        --     end)
+        -- end
     end
 end
 
 function createProjectile(caster, ability, startPoint, endPoint)
     local range = getDistance(startPoint, endPoint)
     local forwardVector = getForwardVector(startPoint, endPoint)
-    local speed = range * E1_SPEED_FROM_RANGE
+    if forwardVector == Vector(0,0) then
+        forwardVector = caster:GetForwardVector()
+    end
+    local speed = math.max(range * E1_SPEED_FROM_RANGE, 300)
     local info =
     {
         Ability = ability,
@@ -53,6 +61,16 @@ function createProjectile(caster, ability, startPoint, endPoint)
         bProvidesVision = true,
     }
     ProjectileManager:CreateLinearProjectile(info)
+
+  local pegasusVisual = ParticleManager:CreateParticle("particles/roshpit/astral/pegasus.vpcf", PATTACH_WORLDORIGIN, nil)
+  ParticleManager:SetParticleControl(pegasusVisual, 0, startPoint)
+  ParticleManager:SetParticleControl(pegasusVisual, 1, forwardVector*speed)
+  ParticleManager:SetParticleControl(pegasusVisual, 3, startPoint)
+  ParticleManager:SetParticleControl(pegasusVisual, 8, Vector(1,1,1))
+  ParticleManager:SetParticleControl(pegasusVisual, 10, Vector(range/speed,range/speed,range/speed))
+  Timers:CreateTimer(range/speed, function()
+    ParticleManager:DestroyParticle(pegasusVisual, false)
+  end)
 end
 
 function projectileHit(event)
@@ -62,6 +80,8 @@ function projectileHit(event)
     local runesCount = ability.runesCount
 
     local duration = ability.duration
+    print(duration)
+    ability:ApplyDataDrivenModifier(caster, target, "modifier_star_blink_root", {duration = duration})
     if duration > 0 then
         Helper.updateStackModifier(target, caster, ability, 'astral_rune_a_c', duration, E1_MAX_STACKS_COUNT, runesCount)
     end
@@ -69,7 +89,7 @@ end
 
 function getForwardVector(startPoint, endPoint)
     local netVector = endPoint - startPoint
-    return netVector:Normalized()*Vector(1,1,0)
+    return (netVector*Vector(1,1,0)):Normalized()
 end
 
 function getDistance(a,b)

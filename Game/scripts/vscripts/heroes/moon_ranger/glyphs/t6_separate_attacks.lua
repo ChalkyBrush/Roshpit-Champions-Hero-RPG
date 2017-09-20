@@ -1,4 +1,6 @@
 require('heroes/moon_ranger/init')
+require('heroes/moon_ranger/common')
+
 local BitingStar = require('heroes/moon_ranger/abilities/q/q2_biting_star')
 
 function attackLand(event)
@@ -44,6 +46,7 @@ function projectileHit(event)
     eventTable.target = event.target
     eventTable.attack_damage = ability.damage
     BitingStar.attackLand(eventTable)
+    astral_immortal_1_attack_land(eventTable)
 end
 
 function createArrow(attacker, damage, enemy, target, ability, arrowParticle)

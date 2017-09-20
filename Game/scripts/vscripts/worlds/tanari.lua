@@ -52,9 +52,10 @@ function Tanari:Debug()
     -- RPCItems:RollMountainProtectorArcana1(Vector(-4928, 2048))
     Arena = {}
     Arena.PitLevel = 7
-    Weapons:RollLegendWeapon1(Vector(-4928, 2048), "djanghor")
-    Weapons:RollLegendWeapon2(Vector(-4928, 2048), "djanghor")
-    Weapons:RollLegendWeapon3(Vector(-4928, 2048), "djanghor")
+    Weapons:RollLegendWeapon1(Vector(-4928, 2048), "astral")
+    Weapons:RollLegendWeapon2(Vector(-4928, 2048), "astral")
+    Weapons:RollLegendWeapon3(Vector(-4928, 2048), "astral")
+    Glyphs:DebugRollHeroGlyphs("astral", Vector(-4928, 2048))
     -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "ekkan")
     -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "ekkan")
     -- for i = 1, 3, 1 do
@@ -97,7 +98,7 @@ function Tanari:Debug()
     -- RPCItems:RollChernobogArcana1(Vector(-4928, 2048))
     -- RPCItems:RollAquasteelBracers(Vector(-4928, 2048))
     -- Runes:EquipArcana(Vector(-4928, 2048), 2)
-    Glyphs:DebugRollHeroGlyphs("djanghor", Vector(-4928, 2048))
+    
     -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "arkimus")
     -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "solunia")
     -- RPCItems:RollWindDeityCrown(Vector(-4928, 2048), true, 7)

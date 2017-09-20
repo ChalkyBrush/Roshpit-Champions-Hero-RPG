@@ -32321,6 +32321,10 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
 		"BaseClass"	"item_datadriven"
+		"precache"
+		{
+			"particle"  "particles/roshpit/astral/astral_immo1_heal.vpcf"
+		}
 		"AbilityTextureName"	"weapons/legends/astral_immortal_weapon_1"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -32350,6 +32354,23 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/moon_ranger/common.lua"
+						"Function"		"astral_immortal_1_attack_land"
+					}
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"			"1"
 			}
 		}
 	}
@@ -38139,7 +38160,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"4"
 			}
 		}
 	}

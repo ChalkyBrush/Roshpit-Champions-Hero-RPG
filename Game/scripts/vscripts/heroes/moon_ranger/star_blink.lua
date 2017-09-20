@@ -109,7 +109,7 @@ function rune_a_c_projectile(caster, targetPoint, totalLevel, starAbility, start
   if starAbility.rootDuration > 9 then
     starAbility.rootDuration = 9
   end
-  
+
   local info = 
   {
       Ability = starAbility,
@@ -132,6 +132,8 @@ function rune_a_c_projectile(caster, targetPoint, totalLevel, starAbility, start
     bProvidesVision = true,
   }
   projectile = ProjectileManager:CreateLinearProjectile(info)
+
+
 end
 
 function getDistance(a,b)
