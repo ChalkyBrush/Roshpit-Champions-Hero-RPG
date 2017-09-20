@@ -46,7 +46,9 @@ function projectileHit(event)
     eventTable.target = event.target
     eventTable.attack_damage = ability.damage
     BitingStar.attackLand(eventTable)
-    astral_immortal_1_attack_land(eventTable)
+    if ability.attacker:HasModifier("modifier_astral_immortal_weapon_1") then
+        astral_immortal_1_attack_land(eventTable)
+    end
 end
 
 function createArrow(attacker, damage, enemy, target, ability, arrowParticle)

@@ -50,7 +50,6 @@ function beginCast(event)
 
     local abilityLevel = ability:GetLevel()
     local manaCost = ability:GetManaCost(abilityLevel)
-
     for shotIndex = 0, shotsCount, 1 do
         Timers:CreateTimer(shotIndex * W_DELAY, function()
             makeShot(caster, ability, w3ability, manaCost, range, minArrow, maxArrow,empyralArrowsProcChance, shotIndex ~= 0)
@@ -62,8 +61,9 @@ function beginCast(event)
 end
 
 function makeShot(caster, ability, w3ability, manaCost, range, minArrow, maxArrow,empyralArrowsProcChance, playSound)
+    Filters:CastSkillArguments(2, caster)
     for arrowNumber = minArrow, maxArrow, 1 do
-        local arrowOrigin = caster:GetOrigin() + caster:GetForwardVector()*Vector(80,80,0)
+        local arrowOrigin = caster:GetOrigin() + caster:GetForwardVector()*Vector(50,50,0)
         local rotatedVector = rotateVector(caster:GetForwardVector(), math.pi/40*arrowNumber)
 
         local luck = RandomInt(1, 100)
@@ -78,7 +78,7 @@ function makeShot(caster, ability, w3ability, manaCost, range, minArrow, maxArro
 
     end
     if playSound then
-        StartAnimation(caster, {duration=delay, activity=ACT_DOTA_ATTACK, rate=3.6})
+        StartAnimation(caster, {duration=W_DELAY-0.03, activity=ACT_DOTA_ATTACK, rate=5.4})
         EmitSoundOn("Astral.AstralVolleySmall", caster)
     end
     caster:ReduceMana(manaCost)
