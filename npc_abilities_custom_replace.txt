@@ -1,0 +1,1 @@
+SORCERESS:Game\scripts\vscripts\heroes\crystal_maiden\abilities\npc_abilities.txt
