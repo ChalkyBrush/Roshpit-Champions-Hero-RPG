@@ -1,3 +1,4 @@
+<% heroes\crystal_maiden\constants.lua %>
 SORCERESS_ABILITIES:heroes\crystal_maiden\npc\sorceress_abilities.txt
 SORCERESS_RUNES:heroes\crystal_maiden\npc\sorceress_runes.txt
 SORCERESS_ARCANA_1_ABILITIES:heroes\crystal_maiden\npc\sorceress_arcana_1_abilities.txt

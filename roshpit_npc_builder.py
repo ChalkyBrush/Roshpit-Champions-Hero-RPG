@@ -1,5 +1,19 @@
 import os.path
 settings = {}
+settings['constants'] = {}
+
+def parse_constants(file_path):
+    constants = {}
+    file = open(file_path, 'r')
+    for line in file:
+        if '=' not in line:
+            continue
+        if '--' in line:
+            continue
+        temp = line.split('=')
+        constants[temp[0].strip()] = temp[1].strip().replace("'","").replace('"', '')
+    return constants
+
 
 def parse_settings(file_path):
     replaces = {}
@@ -12,12 +26,16 @@ def parse_settings(file_path):
 
 def parse_replaces(file_path):
     replaces = {}
+    current_constants = {}
     file = open(file_path, 'r')
     for line in file:
+        if '<%' in line:
+            line = line.replace('<% ','').replace(' %>','').strip()
+            current_constants = parse_constants(settings['base_path'] + line)
+            continue
         temp = line.split(':')
-        temp_file = open(settings['base_path'] + temp[1].strip(), 'r')
-        replaces['##' + temp[0].strip() + '##'] = temp_file.read()
-        temp_file.close()
+        addition_file_path = settings['base_path'] + temp[1].strip()
+        replaces['##' + temp[0].strip() + '##'] = prepare_file(addition_file_path, current_constants)
     file.close()
     return replaces
 
@@ -32,6 +50,16 @@ def replace_in_file(input_file_patch, output_file_path, replaces):
             output_file.write(line)
     input_file.close()
     output_file.close()
+
+
+def prepare_file(file_path, constants):
+    file = open(file_path, 'r')
+    content = file.read()
+    for constant, value in constants.items():
+        content = content.replace('<% ' + constant + ' %>', value)
+    if '<%' in content:
+        raise Exception("seems that some constants in " + file_path + " don't parsed. There should be space after <% and before %>")
+    return content
 
 settings = parse_settings('builder_settings.txt')
 
