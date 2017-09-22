@@ -51,8 +51,6 @@ function beginCast(event)
     local abilityLevel = ability:GetLevel()
     local manaCost = ability:GetManaCost(abilityLevel)
 
-    manaCost = 0
-    shotsCount = 10
     for shotIndex = 0, shotsCount, 1 do
         Timers:CreateTimer(shotIndex * W_DELAY, function()
             makeShot(caster, ability, w3ability, manaCost, range, minArrow, maxArrow,empyralArrowsProcChance, shotIndex ~= 0)
@@ -124,7 +122,7 @@ function projectileHit(event)
     local target = event.target
     local caster = event.caster
     local damage = event.ability.damage
-    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_COSMOS)
+    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
     AstralSteal.projectileHit(event)
     ClusterArrow.projectileHit(event)
 end

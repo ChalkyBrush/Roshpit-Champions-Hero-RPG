@@ -50,12 +50,12 @@ function Tanari:Debug()
         -- RPCItems:RollZhonikArcana1(Vector(-4928, 2048))
     -- end
     -- RPCItems:RollMountainProtectorArcana1(Vector(-4928, 2048))
-    Arena = {}
-    Arena.PitLevel = 7
-    Weapons:RollLegendWeapon1(Vector(-4928, 2048), "astral")
-    Weapons:RollLegendWeapon2(Vector(-4928, 2048), "astral")
-    Weapons:RollLegendWeapon3(Vector(-4928, 2048), "astral")
-    Glyphs:DebugRollHeroGlyphs("astral", Vector(-4928, 2048))
+    -- Arena = {}
+    -- Arena.PitLevel = 7
+    -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "djanghor")
+    -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "djanghor")
+    -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "djanghor")
+    -- Glyphs:DebugRollHeroGlyphs("djanghor", Vector(-4928, 2048))
     -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "ekkan")
     -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "ekkan")
     -- for i = 1, 3, 1 do
@@ -118,11 +118,11 @@ function Tanari:Debug()
     -- RPCItems:RollAvalanchePlate(Vector(-4928, 2048))
     -- RPCItems:RollTrapperArcana1(Vector(-4928, 2048))
 
-    -- Curator:CurateHero(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
+    Curator:CurateHero(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
 
-    -- Timers:CreateTimer(10, function()
-    --     Curator:CurateAllGlyphsForHero("astral")
-    -- end)
+    Timers:CreateTimer(10, function()
+        Curator:CurateAllGlyphsForHero("astral")
+    end)
     -- Events.DifficultyFactor = 3
     -- Events.SpiritRealm = true
     -- Tanari.WaterTemple = {}
