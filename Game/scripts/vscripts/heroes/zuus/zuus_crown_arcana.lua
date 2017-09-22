@@ -4,6 +4,9 @@ function start_holy_arcana(event)
 	local caster = event.caster
 	local ability = event.ability
 	local point = event.target_points[1]
+	if IsValidEntity(event.target) then
+		point = event.target:GetAbsOrigin()
+	end
 	local modifierName = "modifier_holy_wrath_buff"
 	local allies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, 280, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
 	if #allies == 0 then

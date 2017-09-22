@@ -49186,7 +49186,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"1.5"
 			}
 		}
 
