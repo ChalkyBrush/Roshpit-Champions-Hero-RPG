@@ -30,7 +30,8 @@ function Tanari:Debug()
     local position = Vector(-4928, 2048)
     RPCItems:DropItem(item, Vector(-4928, 2048))
 
-    -- RPCItems:RollSorceressArcana1(Vector(-4928, 2048))
+    RPCItems:RollAuriunArcana1(Vector(-4928, 2048))
+    RPCItems:RollAuriunArcana2(Vector(-4928, 2048))
     -- Glyphs:RollGlyphAll("item_rpc_warlord_glyph_2_1", Vector(-4928, 2048), 0)
 
     -- RPCItems:RollTwistedMaskOfAhnqhirBlue(Vector(-4928, 2048))
@@ -118,11 +119,11 @@ function Tanari:Debug()
     -- RPCItems:RollAvalanchePlate(Vector(-4928, 2048))
     -- RPCItems:RollTrapperArcana1(Vector(-4928, 2048))
 
-    Curator:CurateHero(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
+    -- Curator:CurateHero(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
 
-    Timers:CreateTimer(10, function()
-        Curator:CurateAllGlyphsForHero("astral")
-    end)
+    -- Timers:CreateTimer(10, function()
+    --     Curator:CurateAllGlyphsForHero("astral")
+    -- end)
     -- Events.DifficultyFactor = 3
     -- Events.SpiritRealm = true
     -- Tanari.WaterTemple = {}

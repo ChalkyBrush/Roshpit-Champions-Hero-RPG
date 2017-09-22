@@ -12,7 +12,7 @@ function start_holy_arcana(event)
 	if #allies == 0 then
 		local nearbyAllies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, 2000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_CLOSEST, false )
 		if #nearbyAllies > 0 then
-			allies = nearbyAllies[1]
+			allies = {nearbyAllies[1]}
 		end
 	end
 	for i = 1, #allies, 1 do
