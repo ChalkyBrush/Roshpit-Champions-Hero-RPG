@@ -63,6 +63,15 @@ function WallPhysics:FindEventObstructions(point)
 	return false
 end
 
+function WallPhysics:DoesTableHaveValue(table, val)
+	for index, value in ipairs(table) do
+		if value == val then
+			return true
+		end
+	end
+	return false
+end
+
 function WallPhysics:vectorToAngle(vector)
 	return math.atan2(vector.y, vector.x)*180/math.pi
 end

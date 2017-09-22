@@ -140,8 +140,10 @@ function d_d_apply_shield(caster, ability, target, shieldStacks)
 	local duration = 9+(b_a_level*0.3)
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_heavens_shield", {duration = duration})
-
-	target:SetModifierStackCount( "modifier_heavens_shield", ability, shieldStacks)
+	local currentStacks = target:GetModifierStackCount("modifier_heavens_shield", caster)
+	if shieldStacks > currentStacks then
+		target:SetModifierStackCount( "modifier_heavens_shield", ability, shieldStacks)
+	end
 
 	ability.a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a", "auriun")
 

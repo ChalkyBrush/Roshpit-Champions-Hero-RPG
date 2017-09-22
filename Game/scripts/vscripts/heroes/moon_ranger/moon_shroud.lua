@@ -42,9 +42,17 @@ end
 function create_moon_shroud_dummy(abilityLevel, location, caster, totalLevel, c_a_level, duration, ability)
       ability:ApplyDataDrivenThinker(caster, location, "modifier_moon_shroud_thinker", {duration = duration})
       ability:ApplyDataDrivenThinker(caster, location, "friendly_moon_shroud_thinker", {duration = duration})
+
       ability.caster = caster
       ability.rune_a_a_level = totalLevel
       ability.rune_c_a_level = c_a_level
+
+      local cloudParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_riki/astral_smoke.vpcf", PATTACH_CUSTOMORIGIN, nil)
+      ParticleManager:SetParticleControl(cloudParticle, 0, location+Vector(0,0,80))
+      ParticleManager:SetParticleControl(cloudParticle, 1, Vector(400, 400, 200))
+      Timers:CreateTimer(duration, function()
+        ParticleManager:DestroyParticle(cloudParticle, false)
+      end)
  --  	local dummy = CreateUnitByName("npc_dummy_unit", location, true, caster, caster, caster:GetTeamNumber())
  --  	dummy.owner = caster:GetPlayerOwnerID()
 

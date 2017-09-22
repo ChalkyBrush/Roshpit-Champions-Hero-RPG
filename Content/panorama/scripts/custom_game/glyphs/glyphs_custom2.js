@@ -97,7 +97,7 @@ function getGlyphProperty1(glyphName){
 	}else if(glyphName == "item_rpc_astral_glyph_5_1"){
 		property = 2.5
 	}else if(glyphName == "item_rpc_astral_glyph_6_1"){
-		property = 4
+		property = 10
 	}else if(glyphName == "item_rpc_astral_glyph_7_1"){
 		property = 10
 	}else if(glyphName == "item_rpc_epoch_glyph_1_1"){

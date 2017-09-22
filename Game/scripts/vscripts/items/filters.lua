@@ -22,6 +22,11 @@ function Filters:ApplyItemDamage(victim,attacker,damage,damage_type,item,element
     -- ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = item })
 end
 
+function Filters:GetUnpurgableDebuffNames()
+    local unpurgable = {"modifier_shipyard_boss_aura_effect"}
+    return unpurgable
+end
+
 function Filters:CleanseStuns(unit)
     unit:RemoveModifierByName("modifier_stunned")
     unit:RemoveModifierByName("modifier_knockback")

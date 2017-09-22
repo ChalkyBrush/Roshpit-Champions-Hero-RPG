@@ -50,6 +50,9 @@ function beginCast(event)
 
     local abilityLevel = ability:GetLevel()
     local manaCost = ability:GetManaCost(abilityLevel)
+
+    manaCost = 0
+    shotsCount = 10
     for shotIndex = 0, shotsCount, 1 do
         Timers:CreateTimer(shotIndex * W_DELAY, function()
             makeShot(caster, ability, w3ability, manaCost, range, minArrow, maxArrow,empyralArrowsProcChance, shotIndex ~= 0)
@@ -78,8 +81,10 @@ function makeShot(caster, ability, w3ability, manaCost, range, minArrow, maxArro
 
     end
     if playSound then
-        StartAnimation(caster, {duration=W_DELAY-0.03, activity=ACT_DOTA_ATTACK, rate=5.4})
+        StartAnimation(caster, {duration=W_DELAY-0.06, activity=ACT_DOTA_ATTACK, rate=5.4, translate="ti6"})
         EmitSoundOn("Astral.AstralVolleySmall", caster)
+    else
+        -- StartAnimation(caster, {duration=W_DELAY-0.06, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.8, translate="ti6"})
     end
     caster:ReduceMana(manaCost)
     local event = {}

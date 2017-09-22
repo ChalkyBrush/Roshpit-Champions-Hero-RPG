@@ -37,7 +37,7 @@ function cast(event)
             local particle3 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
             ParticleManager:SetParticleControl( particle3, 0, target )
 
-            caster:SetAbsOrigin(target)
+            EmitSoundOn("Astral.BlinkMovement", caster)
             FindClearSpaceForUnit(caster, target, true)
 
             ProjectileManager:ProjectileDodge(caster)
@@ -46,15 +46,29 @@ function cast(event)
                     ParticleManager:DestroyParticle( particle2, false )
                     ParticleManager:DestroyParticle( particle3, false )
                 end)
-            if caster:HasModifier("modifier_astral_arcana_on_platform") then
-                arcana_star_blink_move(caster, ability)
-            end
+                if caster:HasModifier("modifier_astral_arcana_on_platform") then
+                    arcana_star_blink_move(caster, ability)
+                end
+                -- dustParticle(caster:GetAbsOrigin(), caster)
         end)
     astralEmpowerment.hitUnitsAndApplyMidifier(caster, ability, target)
     pegasus.createPegasus(caster, ability, caster:GetAbsOrigin(), target, delay)
     astralShroud.cast(caster, ability)
 
     Filters:CastSkillArguments(3, caster)
+    Timers:CreateTimer(0.2, function()
+        dustParticle(target, caster)
+    end)
+end
+
+function dustParticle(position, caster)
+    local pfx2 = ParticleManager:CreateParticle(  "particles/roshpit/mountain_protector/unshakable_stone_dust.vpcf", PATTACH_CUSTOMORIGIN, caster)
+    ParticleManager:SetParticleControl(pfx2, 0, position)
+    ParticleManager:SetParticleControl(pfx2, 5, Vector(0.3,0.3,0.9))
+    ParticleManager:SetParticleControl(pfx2, 2, Vector(0.15,0.15,0.15))    
+    Timers:CreateTimer(0.8, function()
+        ParticleManager:DestroyParticle(pfx2, false)
+    end)
 end
 
 function damage(event)

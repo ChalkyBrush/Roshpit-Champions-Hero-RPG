@@ -6,6 +6,12 @@ function start_holy_arcana(event)
 	local point = event.target_points[1]
 	local modifierName = "modifier_holy_wrath_buff"
 	local allies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, 280, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
+	if #allies == 0 then
+		local nearbyAllies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, 2000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_CLOSEST, false )
+		if #nearbyAllies > 0 then
+			allies = nearbyAllies[1]
+		end
+	end
 	for i = 1, #allies, 1 do
 		local eventTable = {}
 		eventTable.caster = caster

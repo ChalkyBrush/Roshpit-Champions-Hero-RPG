@@ -48,6 +48,11 @@ function begin_arcana_ult(event)
 		local procs = Runes:Procs(d_d_level, 10, 1)
 		for j = 0, procs, 1 do
 			Timers:CreateTimer(j*0.5, function()
+				if a_d_level > 0 then
+					Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, caster, "modifier_general_postmitigation", {duration = 0.3})
+					local amp = 15*a_d_level
+					caster:SetModifierStackCount("modifier_general_postmitigation", Events.GameMaster, amp)
+				end
 				for i = min, max, 1 do
 					Timers:CreateTimer(0.15, function()
 
@@ -68,11 +73,7 @@ function begin_arcana_ult(event)
 							for i = 1, 3, 1 do
 								EmitSoundOnLocationWithCaster(startPoint, "RedGeneral.ArcanaSunder.Explode"..i, caster)
 							end
-							if a_d_level > 0 then
-								Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, caster, "modifier_general_postmitigation", {duration = 0.3})
-								local amp = 15*a_d_level
-								caster:SetModifierStackCount("modifier_general_postmitigation", Events.GameMaster, amp)
-							end
+	
 							local enemies = FindUnitsInLine(caster:GetTeamNumber(), startPoint, startPoint+forkDirection*1500, nil, 150, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0)
 					        for _,enemy in pairs(enemies) do
 					            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)

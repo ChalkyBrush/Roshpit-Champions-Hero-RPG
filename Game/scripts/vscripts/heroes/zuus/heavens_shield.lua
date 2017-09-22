@@ -47,9 +47,11 @@ function heavens_shield_cast(event)
 		for j = 1, #modifiers, 1 do
 			local modifier = modifiers[j]
 			local modifierMaker = modifier:GetCaster()
-			if modifierMaker.regularEnemy then
-				target:RemoveModifierByName(modifier:GetName())
-				break
+			if not WallPhysics:DoesTableHaveValue(Filters:GetUnpurgableDebuffNames(), modifier:GetName()) then
+				if modifierMaker.regularEnemy then
+					target:RemoveModifierByName(modifier:GetName())
+					break
+				end
 			end
 		end	
 	end

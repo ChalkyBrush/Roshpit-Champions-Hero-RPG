@@ -7,10 +7,12 @@ function cleanse(event)
 	for j = 1, #modifiers, 1 do
 		local modifier = modifiers[j]
 		local modifierMaker = modifier:GetCaster()
-		if modifierMaker.regularEnemy then
-			caster:RemoveModifierByName(modifier:GetName())
-			particle = true
-			break
+		if not WallPhysics:DoesTableHaveValue(Filters:GetUnpurgableDebuffNames(), modifier:GetName()) then
+			if modifierMaker.regularEnemy then
+				caster:RemoveModifierByName(modifier:GetName())
+				particle = true
+				break
+			end
 		end
 	end				
 

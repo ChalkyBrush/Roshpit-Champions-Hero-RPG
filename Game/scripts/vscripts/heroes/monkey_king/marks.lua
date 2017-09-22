@@ -116,6 +116,9 @@ end
 function draghor_attack_land(event)
 	local attacker = event.attacker
 	local target = event.target
+	if target.dummy then
+		return false
+	end
 	local a_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 1)
 	if a_b_level > 0 then
 		local damage = event.damage*DJANGHOR_W1_DAMAGE_MULT*a_b_level
