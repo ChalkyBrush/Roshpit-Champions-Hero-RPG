@@ -30,16 +30,16 @@ function Tanari:Debug()
     local position = Vector(-4928, 2048)
     RPCItems:DropItem(item, Vector(-4928, 2048))
 
-    RPCItems:RollAuriunArcana1(Vector(-4928, 2048))
-    RPCItems:RollAuriunArcana2(Vector(-4928, 2048))
+     
     -- Glyphs:RollGlyphAll("item_rpc_warlord_glyph_2_1", Vector(-4928, 2048), 0)
 
     -- RPCItems:RollTwistedMaskOfAhnqhirBlue(Vector(-4928, 2048))
     --  RPCItems:RollTwistedMaskOfAhnqhirYellow(Vector(-4928, 2048))
     --   RPCItems:RollTwistedMaskOfAhnqhirPurple(Vector(-4928, 2048))
-    -- for i = 1, 3, 1 do
-        -- RPCItems:RollAxeArcana1(Vector(-4928, 2048))
-    -- end
+    Dungeons.itemLevel = 300
+    for i = 1, 3, 1 do
+        RPCItems:RollHydroxisArcana1(Vector(-4928, 2048))
+    end
     -- RPCItems:RollAquastoneRing(Vector(-4928, 2048))
     -- RPCItems:RollAuriunArcana2(Vector(-4928, 2048))
     -- RPCItems:RollDemonMask(Vector(-4928, 2048), false, 60)

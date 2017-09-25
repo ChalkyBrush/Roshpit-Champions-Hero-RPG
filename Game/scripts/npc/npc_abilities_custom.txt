@@ -14938,6 +14938,22 @@
 					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
+			"modifier_conjuror_rune_c_b_effect"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/invoker/immolation.lua"
+						"Function"		"fire_aspect_attack_land"
+						"attack_damage"	"%attack_damage"
+					}
+				}
+			}
 		}
 
 	}
@@ -31422,6 +31438,258 @@
 		}
 
 	}
+
+	"hydroxis_arcana_ability_1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"hydroxis/hydroxis_whitewater_mist"
+		"AbilityCastAnimation"			"ACT_DOTA_RUN"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.1"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"blind"						"100"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"magic_resist"				"47 51 55 59 63 67 71 75"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"mana_drain"				"40 80 120 180 260 360 500"
+			}
+		}
+		"OnToggleOn"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_hydroxis_mist"
+				"Target" 		"CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/slardar/arcana_ability"
+				"Function"		"turn_toggle_on"
+			}
+		}
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_hydroxis_mist"
+				"Target" 		"CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/slardar/arcana_ability"
+				"Function"		"turn_toggle_off"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_hydroxis_slither"
+			{
+				"IsBuff"	"1"
+				"ThinkInterval"  "0.03"
+				"OverrideAnimation"     "ACT_DOTA_RUN"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slardar/arcana_ability"
+						"Function"		"slither_think"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slardar/arcana_ability"
+						"Function"		"slither_start"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slardar/arcana_ability"
+						"Function"		"slither_end"
+					}
+				}
+			}
+			"modifier_hydroxis_mist"
+			{
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slardar/arcana_ability"
+						"Function"		"mist_start"
+					}
+					"AttachEffect"
+					{
+						"EffectName"        "particles/roshpit/hydroxis/hydroxis_arcana_mist.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "TARGET"
+						"ControlPointEntities"
+						{
+							"CASTER"	"attach_origin"
+							"CASTER"	"attach_origin"
+							"CASTER"	"attach_origin"
+							"CASTER"	"attach_origin"
+						}
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slardar/arcana_ability"
+						"Function"		"mist_end"
+					}
+				}
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slardar/arcana_ability"
+						"Function"		"mist_attack_land"
+					}
+				}
+				"IsHidden"	"0"
+				"IsDebuff"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist"
+				}
+				"Aura"          	"modifier_hydroxis_mist_debuff"
+				"Aura_Radius"   	"340"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Aura_ApplyToCaster" "0"
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slardar/arcana_ability"
+						"Function"		"mist_active_think"
+						"mana_drain"	"%mana_drain"
+					}
+				}
+			}
+			"modifier_hydroxis_mist_debuff"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"        "particles/roshpit/hydroxis/hydroxis_mist_debuff.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "TARGET"
+						"ControlPointEntities"
+						{
+							"TARGET"	"attach_origin"
+							"TARGET"	"attach_origin"
+							"TARGET"	"attach_origin"
+							"TARGET"	"attach_origin"
+						}
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MISS_PERCENTAGE" "%blind"
+				}
+				"OnDestroy"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_hydroxis_mist_debuff_timered"
+						"Target" 		"TARGET"
+						"Duration"		"3"
+					}
+				}
+			}
+			"modifier_hydroxis_mist_debuff_timered"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/roshpit/hydroxis/hydroxis_mist_debuff.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MISS_PERCENTAGE" "%blind"
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"        "particles/roshpit/hydroxis/hydroxis_mist_debuff.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "TARGET"
+						"ControlPointEntities"
+						{
+							"TARGET"	"attach_origin"
+							"TARGET"	"attach_origin"
+							"TARGET"	"attach_origin"
+							"TARGET"	"attach_origin"
+						}
+					}
+				}
+			}
+			"modifier_hydroxis_d_b_arcana_visible"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"hydroxis/hydroxis_rune_d_b_arcana1"
+			}
+			"modifier_hydroxis_d_b_arcana_invisible"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "2500"
+				}
+			}
+		}
+	}
+
 
 	//Ekkan
 
@@ -55077,22 +55345,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_conjuror_rune_c_b_effect"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
 
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/invoker/immolation.lua"
-						"Function"		"fire_aspect_attack_land"
-						"attack_damage"	"%attack_damage"
-					}
-				}
-			}
 		}
 	}
 
@@ -62800,6 +63053,114 @@
 		}
 	}
 
+	"hydroxis_rune_a_b_arcana1"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"hydroxis/hydroxis_rune_a_b_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"7.5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"2"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"14"
+			}
+		}
+	}
+
+	"hydroxis_rune_b_b_arcana1"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"hydroxis/hydroxis_rune_b_b_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"2"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"14"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"2"
+			}
+		}
+	}
+
+	"hydroxis_rune_c_b_arcana1"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"hydroxis/hydroxis_rune_c_b_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"6"
+			}
+		}
+	}
+
+	"hydroxis_rune_d_b_arcana1"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"hydroxis/hydroxis_rune_d_b_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.15"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one_base"			"0.5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"2500"
+			}
+		}
+	}
 	//------EKKAN RUNES RUNES
 
 	"ekkan_rune_a_a"

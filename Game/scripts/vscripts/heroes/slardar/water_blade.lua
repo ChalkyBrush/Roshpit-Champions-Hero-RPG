@@ -167,7 +167,7 @@ function hydroxis_attack_land(event)
 	local ability = event.ability
 	local target = event.target
 	local caster = attacker
-	local a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "hydroxis")
+	local a_b_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
 	if a_b_level > 0 then
 		local crit = false
 		if caster:HasModifier("modifier_hydroxis_glyph_5_1") then
@@ -179,6 +179,9 @@ function hydroxis_attack_land(event)
 		end
 		local fv = ((target:GetAbsOrigin()-attacker:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 		local damage = event.attack_damage*a_b_level*0.05
+		if caster:HasAbility("hydroxis_arcana_ability_1") then
+			damage = event.attack_damage*a_b_level*0.075
+		end
 		-- CustomAbilities:QuickAttachParticle("particles/econ/items/kunkka/divine_anchor/hero_kunkka_dafx_weapon/kunkka_spell_tidebringer_fxset.vpcf", attacker, 2)
 		local pfx = ParticleManager:CreateParticle( "particle/roshpit/hydroxis/hydroxis_a_b.vpcf", PATTACH_CUSTOMORIGIN, caster )
 		ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin()+fv*200, true)

@@ -1,4 +1,5 @@
 require('heroes/slardar/water_blade')
+require('heroes/slardar/arcana_ability')
 
 function slippery_tail_start(event)
 	local caster = event.caster
@@ -87,8 +88,12 @@ function slippery_tail_think(event)
 		if ability.radians%modulos == 0 then
 			local target = caster:GetAbsOrigin()+RandomVector(RandomInt(80, 500))
 			local waterBombAbility = caster:FindAbilityByName("hydroxis_water_blade")
-			local damage = waterBombAbility:GetSpecialValueFor("damage")
-			water_bomb_throw(caster, waterBombAbility, target, damage, ability.a_c_level*0.1)
+			if waterBombAbility then
+				local damage = waterBombAbility:GetSpecialValueFor("damage")
+				water_bomb_throw(caster, waterBombAbility, target, damage, ability.a_c_level*0.1)
+			elseif caster:HasAbility("hydroxis_arcana_ability_1") then
+				arcana1_b_b_spin(caster, caster:FindAbilityByName("hydroxis_arcana_ability_1"), ability.a_c_level*0.1)
+			end
 		end
 	end
 	if ability.b_c_level > 0 then

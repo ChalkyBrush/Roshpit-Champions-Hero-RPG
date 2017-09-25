@@ -5208,6 +5208,14 @@ function tri_boss_die(caster)
 			RPCItems:RollSeaGiantsPlate(caster:GetAbsOrigin())
 		end
 	end
+	Timers:CreateTimer(0.2, function()
+		local maxRoll = 220
+		local requirement = 2 + GameState:GetPlayerPremiumStatusCount()
+		local luck = RandomInt(1, maxRoll)
+		if luck <= requirement then
+			RPCItems:RollHydroxisArcana1(caster:GetAbsOrigin())
+		end
+	end)
 	Weapons:RollRandomLegendWeapon2(caster:GetAbsOrigin())
 	Seafortress.MainBossesSlain = Seafortress.MainBossesSlain + 1
 	if Seafortress.MainBossesSlain == 3 then

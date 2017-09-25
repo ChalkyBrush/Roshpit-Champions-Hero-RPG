@@ -835,6 +835,10 @@ function Runes:EquipArcana(hero, index)
 		if index == 1 then
 			Runes:EasySwapArcanaSkills(hero, 2, "zonik_lightspeed", "zhonik_temporal_field", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		end
+	elseif hero:GetUnitName() == "npc_dota_hero_slardar" then
+		if index == 1 then
+			Runes:EasySwapArcanaSkills(hero, 1, "hydroxis_water_blade", "hydroxis_arcana_ability_1", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+		end
 	end
 end
 
@@ -1238,6 +1242,10 @@ function Runes:UnequipArcana(hero, index)
 	elseif hero:GetUnitName() == "npc_dota_hero_dark_seer" then
 		if index == 1 then
 			Runes:EasyRevertArcanaSkills(hero, 2, "zonik_lightspeed", "zhonik_temporal_field", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+		end
+	elseif hero:GetUnitName() == "npc_dota_hero_slardar" then
+		if index == 1 then
+			Runes:EasyRevertArcanaSkills(hero, 1, "hydroxis_water_blade", "hydroxis_arcana_ability_1", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		end
 	end
 	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "ability_tree_upgrade", {playerId=hero:GetPlayerOwnerID()})
