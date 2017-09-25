@@ -878,9 +878,6 @@ function GameState:FilterDamage(filterTable)
 				end
 			end
 		end
-		if victim:HasModifier("modifier_arkimus_glyph_5_a") then
-			filterTable["damage"] = Filters:ArkimusGlyph5a(victim, filterTable["damage"])
-		end
 		if victim:HasModifier("modifier_ivory_gryffin_aura_effect") then
 			filterTable["damage"] = filterTable["damage"] * 0.7
 		end
@@ -1765,7 +1762,18 @@ function GameState:FilterDamage(filterTable)
     		CustomAbilities:QuickAttachParticle("particles/roshpit/redfall/tree_healed_explosion_glow_fb_mid.vpcf", victim, 3)
     	end
     end
-
+    if victim:HasModifier("modifier_hydroxis_mist_debuff") or victim:HasModifier("modifier_hydroxis_mist_debuff_timered") then
+    	local modifier = victim:FindModifierByName("modifier_hydroxis_mist_debuff")
+    	if not modifier then
+    		modifier = victim:FindModifierByName("modifier_hydroxis_mist_debuff_timered")
+    	end
+    	if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
+    		local c_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 3, 1)
+    		if c_b_level > 0 then
+    			mult = mult + 0.06*c_b_level
+    		end
+    	end
+    end
     if attacker:HasModifier("modifier_boss_illusion_ability_effect") then
     	filterTable["damage"] = filterTable["damage"]*0.1
     end
@@ -1874,7 +1882,11 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
-
+	if victim:HasModifier("modifier_arkimus_glyph_5_a") then
+		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PHYSICAL then
+			filterTable["damage"] = Filters:ArkimusGlyph5a(victim, filterTable["damage"])
+		end
+	end
 	if attacker:HasModifier("modifier_trapper_immortal_weapon_2") then
 		if victim:HasModifier("modifier_fulminating_burn_effect") or victim:HasModifier("modifier_poison_trap_effect") or victim:HasModifier("modifier_net_trap_netted_effect") or victim:HasModifier("modifier_torrent_trap_slowed_effect") then
 			mult = mult + 1.25

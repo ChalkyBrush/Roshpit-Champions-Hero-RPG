@@ -14,6 +14,9 @@ function hawk_screech(event)
 	EmitSoundOn("Draghor.Hawk.Screech", caster)
 	local fv = ((event.target_points[1]-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 	local altitude = 190
+	if caster:HasModifier("modifier_hawk_soar") then
+		altitude = altitude + caster:GetModifierStackCount("modifier_hawk_soar_visual_z", caster)
+	end
 	StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_SPAWN, rate=1.7})
 	local info = 
 	{
@@ -140,7 +143,7 @@ function tornado_hit(event)
 	local damage = event.damage
 	damage = damage + event.int_mult*caster:GetIntellect()
 	if ability.c_b_level > 0 then
-		damage = damage + damage*DJANGHOR_W3_ATTACK_PERCENT_ADDED_TO_TORNADO_AND_STOMP*ability.c_b_level
+		damage = damage + caster:GetAverageTrueAttackDamage(caster)*DJANGHOR_W3_ATTACK_PERCENT_ADDED_TO_TORNADO_AND_STOMP*ability.c_b_level
 	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_WIND, RPC_ELEMENT_NATURE)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_hawk_tornado_debuff", {duration = 7})

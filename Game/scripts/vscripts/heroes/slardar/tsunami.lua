@@ -64,11 +64,10 @@ function channel_complete(event)
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_hydroxis_c_d_poseidons_wrath", {duration = c_d_duration})
 				caster:SetRenderColor(90, 90, 255)
 			end
-			local waterBombAbility = caster:FindAbilityByName("hydroxis_water_blade")
-			waterBombAbility.c_d_level = c_d_level
-
-
-			
+			if caster:HasAbility("hydroxis_water_blade") then
+				local waterBombAbility = caster:FindAbilityByName("hydroxis_water_blade")
+				waterBombAbility.c_d_level = c_d_level
+			end
 		end)
 	end
 	ability.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "hydroxis")

@@ -1869,6 +1869,19 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker.d_c_level then
                 mult = mult + 0.001*(attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_c_Level
             end
+            if attacker:HasAbility("hydroxis_arcana_ability_1") then
+                local d_b_level = Runes:GetTotalRuneLevelGeneric(attacker,4, 1)
+                if d_b_level > 0 then
+                    local duration = 0.5 + d_b_level*0.15
+                    local mist_mod = victim:FindModifierByName("modifier_hydroxis_mist_debuff_timered")
+                    if mist_mod then
+                        duration = math.max(duration, mist_mod:GetRemainingTime())
+                    end
+                    local mistAbility = attacker:FindAbilityByName("hydroxis_arcana_ability_1")
+                    mistAbility:ApplyDataDrivenModifier(attacker, victim, "modifier_hydroxis_mist_debuff_timered", {duration = duration})
+                    
+                end
+            end
         elseif unitName == "npc_dota_hero_templar_assassin" then
             if attacker:HasModifier("modifier_trapper_arcana1") then
                 if attacker.d_b_arcana_level then
