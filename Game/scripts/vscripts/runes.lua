@@ -485,9 +485,6 @@ function Runes:apply_runes(ability, unit, PlayerID)
 		if ability:GetName() == "conjuror_rune_a_a" then
 			ability:ApplyDataDrivenModifier(unit, hero, "modifier_earth_guardian", {})
 		end
-		if ability:GetName() == "conjuror_rune_a_a" then
-			ability:ApplyDataDrivenModifier(unit, hero, "modifier_earth_guardian", {})
-		end
 	end
 	
 end
