@@ -88,9 +88,9 @@ function begin_pyro(event)
 	local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "sorceress") 
 	if c_d_level > 0 then
 		-- local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "sorceress")
-		local damage = 25000 + c_d_level*3000
+		local runesCount  =c_d_level
 		-- damage = damage + 0.0001*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*d_d_level*damage
-		sorceress_c_d(caster, target, 560, damage)
+		sorceress_c_d(caster, target, 560, runesCount)
 	end
 end
 

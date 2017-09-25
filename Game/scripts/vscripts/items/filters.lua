@@ -433,7 +433,7 @@ function Filters:ApplyStun(caster, duration, target)
         if currentResistanceStacks <= resistThresh then
             Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, target, "modifier_stun_resistance", {duration = 7+duration})
             local resistDivisor = 1
-            if caster:HasModifier("modifier_knight_crusher_armor") then
+            if caster:HasModifier("modifier_knight_crusher_armor") or caster:HasModifier("modifier_sorceress_glyph_5_2") then
                 resistDivisor = 2
             end
             local newResistanceStacks = currentResistanceStacks + math.ceil((duration*10)/resistDivisor)
@@ -1431,6 +1431,13 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker.d_d_level then
                 mult = mult + 0.0001*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_d_level
             end
+        end
+        if victim:HasModifier("modifier_sorceress_rune_c_d") then
+            local runesCount = victim:GetModifierStackCount("modifier_sorceress_rune_c_d", attacker)
+            if attacker:HasModifier("modifier_sorceress_glyph_6_2") then
+                runesCount = runesCount * 2
+            end
+            mult = mult + 0.1 * runesCount
         end
         if unitName == "npc_dota_hero_huskar" then
             if attacker.d_a_level then
@@ -3665,7 +3672,7 @@ function Filters:AlaranaFrostNova(caster)
 end
 
 function Filters:IsIceFrozen(target)
-    if target:HasModifier("modifier_ice_lance_frozen") or target:HasModifier("modifier_frost_nova") or target:HasModifier("modifier_eternal_frost_nova") or target:HasModifier("modifier_ice_throw_b_b_frozen") or target:HasModifier("modifier_elemental_overload_frozen") or target:HasModifier("modifier_alarana_frost_nova") or target:HasModifier("modifier_solunia_cryoshock") then
+    if target:HasModifier("modifier_ice_lance_frozen") or target:HasModifier("modifier_frost_nova") or target:HasModifier("modifier_eternal_frost_nova") or target:HasModifier("modifier_ice_throw_b_b_frozen") or target:HasModifier("modifier_elemental_overload_frozen") or target:HasModifier("modifier_alarana_frost_nova") or target:HasModifier("modifier_solunia_cryoshock") or target:HasModifier("modifier_elemental_freeze") or target:HasModifier("modifier_sorceress_arcana_b_d_visible") then
         return true
     else
         return false

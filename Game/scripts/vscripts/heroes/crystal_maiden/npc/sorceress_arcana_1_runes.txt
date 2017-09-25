@@ -1,0 +1,125 @@
+	"sorceress_rune_a_d_arcana1"
+    	{
+    		// General
+    		//-------------------------------------------------------------------------------------------------------------
+    		"BaseClass"				"ability_datadriven"
+    		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+    		"AbilityTextureName"	"sorceress/sorceress_rune_a_d_arcana1"
+    		"MaxLevel"				"20"
+    		"LevelsBetweenUpgrades" "0"
+    		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+    		"AbilitySpecial"
+    		{
+    			"01"
+    			{
+    				"var_type"				"FIELD_INTEGER"
+    				"property_one"			"5"
+    			}
+    			"02"
+    			{
+    				"var_type"				"FIELD_INTEGER"
+    				"property_two"			"3"
+    			}
+    			"03"
+    			{
+    				"var_type"				"FIELD_INTEGER"
+    				"property_two_base"		"600"
+    			}
+    			"05"
+    			{
+    				"var_type"				"FIELD_INTEGER"
+    				"base_ability"			"4"
+    			}
+    			"06"
+    			{
+    				"var_type"				"FIELD_INTEGER"
+    				"element_one"		 	"9"
+    			}
+    		}
+
+    	}
+
+    	"sorceress_rune_b_d_arcana1"
+    	{
+    		// General
+    		//-------------------------------------------------------------------------------------------------------------
+    		"BaseClass"				"ability_datadriven"
+    		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+    		"AbilityTextureName"	"sorceress/sorceress_rune_b_d_arcana1"
+    		"MaxLevel"				"20"
+    		"LevelsBetweenUpgrades" "0"
+
+    		"AbilitySpecial"
+    		{
+    			"01"
+    			{
+    				"var_type"				"FIELD_FLOAT"
+    				"property_one"			"<% ARCANA1_R2_ADD_DURATION %>"
+    			}
+    			"02"
+    			{
+    				"var_type"				"FIELD_FLOAT"
+    				"property_one_base"		"<% ARCANA1_R2_START_DURATION %>"
+    			}
+    			"03"
+    			{
+    				"var_type"				"FIELD_INTEGER"
+    				"property_two"			"<% ARCANA1_R2_CRIT_DAMAGE %>"
+    			}
+    		}
+    	}
+
+    	"sorceress_rune_c_d_arcana1"
+    	{
+    		// General
+    		//-------------------------------------------------------------------------------------------------------------
+    		"BaseClass"				"ability_datadriven"
+    		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+    		"AbilityTextureName"	"sorceress/sorceress_rune_c_d_arcana1"
+    		"MaxLevel"				"20"
+    		"LevelsBetweenUpgrades" "0"
+
+    		"AbilitySpecial"
+    		{
+    			"01"
+    			{
+    				"var_type"				"FIELD_FLOAT"
+    				"property_one"			"0.5"
+    			}
+    		}
+    	}
+
+    	"sorceress_rune_d_d_arcana1"
+    	{
+    		// General
+    		//-------------------------------------------------------------------------------------------------------------
+    		"BaseClass"				"ability_datadriven"
+    		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+    		"AbilityTextureName"	"sorceress/sorceress_rune_d_d_arcana1"
+    		"MaxLevel"				"20"
+    		"LevelsBetweenUpgrades" "0"
+
+    		"AbilitySpecial"
+    		{
+    			"01"
+    			{
+    				"var_type"				"FIELD_FLOAT"
+    				"property_one_base"			"7.0"
+    			}
+    			"02"
+    			{
+    				"var_type"				"FIELD_FLOAT"
+    				"property_one"			"0.2"
+    			}
+    			"03"
+    			{
+    				"var_type"				"FIELD_INTEGER"
+    				"property_two"			"10"
+    			}
+    		}
+    	}

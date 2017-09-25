@@ -1,0 +1,2 @@
+<% heroes\crystal_maiden\constants.lua %>
+SORCERESS_2TIER_GLYPHS:heroes\crystal_maiden\npc\sorceress_2tier_glyphs.txt

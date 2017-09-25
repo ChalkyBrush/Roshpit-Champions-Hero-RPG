@@ -6,7 +6,7 @@ function start_channel(event)
 	EmitSoundOn("Sorceress.Tornado.VO", caster)
 
 	ability.a_d_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
-	caster.b_d_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
+	ability.b_d_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
 	ability.c_d_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
 	ability.d_d_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
 
@@ -201,6 +201,17 @@ function splinter_hit(event)
 		caster = caster.origCaster
 	end
 	local damage = caster:GetIntellect()*5*ability.a_d_level
+	local luck = RandomInt(1, 100)
+	if ability.b_d_level > 0  and luck < ARCANA1_R2_CHANCE then
+		damage = damage * (1 + ARCANA1_R2_CRIT_DAMAGE/100 * ability.b_d_level)
+		local durationWithoutImmune = ARCANA1_R2_START_DURATION + ARCANA1_R2_ADD_DURATION * ability.b_d_level
+		if Immune.shouldApplyImmune(caster, target, 'modifier_sorceress_arcana_b_d', durationWithoutImmune) then
+			Immune.applyImmune(caster, target, ability, 'modifier_sorceress_arcana_b_d', ARCANA1_R2_IMMUNE_DURATION)
+		elseif not Immune.targetHasImmune(target, 'modifier_sorceress_arcana_b_d') and not target:HasModifier('modifier_sorceress_arcana_b_d_visible') then
+			Immune.addEffectDuration(caster, target, ability, 'modifier_sorceress_arcana_b_d', 1)
+			ability:ApplyDataDrivenModifier(caster, target, 'modifier_sorceress_arcana_b_d_visible', {duration = 1})
+		end
+	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
 end
 

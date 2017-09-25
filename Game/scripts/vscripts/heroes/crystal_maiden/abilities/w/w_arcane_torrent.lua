@@ -1,0 +1,90 @@
+require('heroes/crystal_maiden/init')
+local ArcaneShell = require('heroes/crystal_maiden/abilities/w/w1_arcane_shell')
+local AmplifyMagic = require('heroes/crystal_maiden/abilities/w/w2_amplify_magic')
+
+function calculateDamage(event)
+    local caster = event.caster
+    local ability = event.ability
+    local target = event.target
+
+    ability.target = target
+
+    Helper.initializeAbilityRunes(caster, 'sorceress', 'a')
+    Helper.initializeAbilityRunes(caster, 'sorceress', 'b')
+    Helper.initializeAbilityRunes(caster, 'sorceress', 'c')
+    Helper.initializeAbilityRunes(caster, 'sorceress', 'd')
+
+    Filters:CastSkillArguments(2, caster)
+
+    local arcane_explosion_damage = caster:FindAbilityByName("arcane_explosion"):GetLevelSpecialValueFor("damage", ability:GetLevel())
+    arcane_explosion_damage = arcane_explosion_damage * T51_AMPLIFY * caster:GetMaxMana()/100
+
+    if caster.d_b_level > 0 then
+        arcane_explosion_damage = arcane_explosion_damage * (1 + W4_AMPLIFY_PERCENT/100 * caster.d_b_level)
+    end
+
+    ability.manacost = event.mana_drain/5
+    if caster:HasModifier("modifier_sorceress_glyph_7_2") then
+        arcane_explosion_damage = damage * T72_DAMAGE_AMPLIFY
+        ability.manacost = ability.manacost + caster:GetMaxMana() * T72_MANA_DRAIN_PERCENT/100
+    end
+    ability.damage = arcane_explosion_damage * T51_AMPLIFY
+end
+
+function think(event)
+    local caster = event.caster
+    local ability = event.ability
+    local origin = caster:GetAbsOrigin()
+
+    local manaDrain = math.min(ability.manacost, caster:GetMana())
+    manaDrain = math.floor(manaDrain)
+    caster:ReduceMana(manaDrain)
+
+    if caster:GetMana() < manaDrain then
+        ability:ToggleAbility()
+    end
+
+    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), origin, nil, 1400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
+
+    if #enemies == 0 then
+        return
+    end
+
+    local target = enemies[1]
+
+    ArcaneShell.cast(caster)
+
+    EmitSoundOn("Sorceress.ArcaneTorrentLaunch", caster)
+    local info =
+    {
+        Target = target,
+        Source = caster,
+        Ability = ability,
+        EffectName = "particles/units/heroes/hero_leshrac/leshrac_base_attack.vpcf",
+        StartPosition = "attach_staff_tip",
+        bDrawsOnMinimap = false,
+        bDodgeable = true,
+        bIsAttack = false,
+        bVisibleToEnemies = true,
+        bReplaceExisting = false,
+        flExpireTime = GameRules:GetGameTime() + 5,
+        bProvidesVision = false,
+        iVisionRadius = 0,
+        iMoveSpeed = 800,
+        iVisionTeamNumber = caster:GetTeamNumber()
+    }
+
+    ProjectileManager:CreateTrackingProjectile(info)
+end
+
+function projectileHit(event)
+    local caster = event.caster
+    local ability = event.ability
+    local target = event.target
+    local damage = ability.damage * caster:GetMana()/caster:GetMaxMana()
+
+    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
+    CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/duskbringer_c_a_heal_heal_core.vpcf", target, 0.5)
+
+    AmplifyMagic.cast(caster, target, ability)
+end

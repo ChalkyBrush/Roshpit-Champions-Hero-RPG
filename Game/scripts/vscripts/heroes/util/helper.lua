@@ -22,7 +22,7 @@ local function initializeAbilityRunes(caster, casterName, abilityLetter)
     runeLetters[4] = 'd'
     for tier, runeLetter in pairs(runeLetters) do
         local runeName = runeLetter .. '_' .. abilityLetter
-        caster[runeName .. '_level'] = Runes:GetTotalRuneLevel(caster, tier, runeName, "astral")
+        caster[runeName .. '_level'] = Runes:GetTotalRuneLevel(caster, tier, runeName, casterName)
     end
 end
 

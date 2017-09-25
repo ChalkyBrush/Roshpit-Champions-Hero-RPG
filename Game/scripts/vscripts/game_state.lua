@@ -810,10 +810,6 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_neutral_glyph_6_3") then
 			mult = mult+0.25
 		end
-		if attacker:HasModifier("modifier_sorceress_spell_damage_amp") then
-			local multBonus = attacker:GetModifierStackCount("modifier_sorceress_spell_damage_amp", attacker)*0.04
-			mult = mult+multBonus
-		end
 		if attacker:HasModifier("modifier_far_seers_gloves") then
 			Filters:FarSeerGloves(attacker, filterTable["damage"], filterTable["entindex_inflictor_const"])
 		end
@@ -1283,10 +1279,8 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
-	if attacker:HasModifier("modifier_ice_tornado_passive") then
-		if Filters:IsIceFrozen(victim) then
-			mult = mult + 0.04*attacker.b_d_level
-		end
+	if Filters:IsIceFrozen(victim) and attacker:HasModifier('modifier_frost_nova_passive') then
+		mult = mult + 0.035*attacker.b_a_level
 	end
 	if victim:HasModifier("modifier_tachyon_shell") then
 		local modifier = victim:FindModifierByName("modifier_tachyon_shell")

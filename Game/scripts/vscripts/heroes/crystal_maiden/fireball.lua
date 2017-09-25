@@ -1,3 +1,4 @@
+require('heroes/crystal_maiden/init')
 function begin_fireball(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -36,9 +37,8 @@ function begin_fireball(event)
 	caster.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "sorceress")
 	if c_d_level > 0 then
 		-- local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "sorceress")
-		local damage = 25000 + c_d_level*3000
 		-- damage = damage + 0.0001*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*d_d_level*damage
-		sorceress_c_d(caster, target, 280, damage)
+		sorceress_c_d(caster, target, 280, c_d_level)
 	end
 	Filters:CastSkillArguments(4, caster)
 
@@ -58,7 +58,7 @@ function sorceressGetArcaneDB(caster)
 	end
 end
 
-function sorceress_c_d(caster, point, radius, damage)
+function sorceress_c_d(caster, point, radius, runesCount)
 	EmitSoundOnLocationWithCaster(point, "Sorceress.NuclearSolosPresound", caster)
 
       local particleName = "particles/units/heroes/hero_lina/lina_spell_light_strike_array_ray.vpcf"
@@ -70,12 +70,14 @@ function sorceress_c_d(caster, point, radius, damage)
       function()
         ParticleManager:DestroyParticle( particle1, false )
       end)
+	local ability = caster:FindAbilityByName("fireball")
 	
 	Timers:CreateTimer(0.5, function()
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )	
 		if #enemies > 0 then	
 			for i = 1, #enemies, 1 do
-				Filters:TakeArgumentsAndApplyDamage(enemies[i], caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+				ability:ApplyDataDrivenModifier(caster, enemies[i], "modifier_sorceress_rune_c_d", {duration = R3_DURATION})
+				enemies[i]:SetModifierStackCount("modifier_sorceress_rune_c_d", caster, runesCount)
 				Filters:ApplyStun(caster, 0.5, enemies[i])
 			end
 		end
@@ -134,7 +136,7 @@ function fireball_hit(event)
 	if not ability.rune_a_d_level then
 		ability.rune_a_d_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
 	end
-	local damage = ability.rune_a_d_level*9000 + 2000
+	local damage = ability.rune_a_d_level*R1_ADD_DAMAGE + R1_BASE_DAMAGE
 
     local blinkAbility = caster:FindAbilityByName("sorceress_blink")
     blinkAbility.d_b_damage = damage
