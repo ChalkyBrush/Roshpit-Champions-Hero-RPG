@@ -13255,7 +13255,7 @@
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"ice_resist_loss"			"10 20 30 40 50 60 70"
+				"ice_resist_loss"			"50 100 150 200 250 300 350"
 			}
 		}
 
