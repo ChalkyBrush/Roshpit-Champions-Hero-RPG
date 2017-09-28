@@ -156,7 +156,7 @@ function BlizzardWave( event )
 						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_sorceress_glyph_1_1_effect", {duration = event.slow_duration})
 					end
 					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_blizzard_ice_resist_loss", {duration = 8})
-					local newStacks = enemy:GetModifierStackCount("modifier_blizzard_ice_resist_loss", caster) + 1
+					local newStacks = enemy:GetModifierStackCount("modifier_blizzard_ice_resist_loss", caster) + (event.ice_resist_loss)/10
 					enemy:SetModifierStackCount("modifier_blizzard_ice_resist_loss", caster, newStacks)
 				end
 			end 

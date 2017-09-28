@@ -241,7 +241,11 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 		-- local itemName = string.gsub(itemTable.itemName, "%s+", '%%20')
 		local itemName = escape(itemTable.itemName)
 		local internalMinLevel = math.max(item.minLevel+RPCItems:GetPrereductionMinLevel(item), 1)
-		url = url.."&build_number"..gearSlot.."=".."1"
+		local buildNumber = "1"
+		if item.glyphBook then
+			buildNumber = "-2"
+		end
+		url = url.."&build_number"..gearSlot.."="..buildNumber
 		url = url.."&is_stash"..gearSlot.."="..is_stash
 		url = url.."&stash_slot"..gearSlot.."="..stash_slot
 		url = url.."&item_variant"..gearSlot.."="..item:GetAbilityName()
@@ -580,6 +584,11 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			local key = RPCItems:CreateConsumable(gearTable.item_variant, "rare", "redfall_key", "consumable", false, "Consumable", gearTable.item_variant.."_desc")
 			key.pickedUp = true
 			return key
+		elseif gearTable.item_name == "glyph_book" then
+			print("ITEM NAME == GLYPH BOOK")
+			local item = Glyphs:CreateGlyphBook(gearTable.item_variant, gearTable.property1, gearTable.property2)
+			item.pickedUp = true
+			return item
 		end
 	end
 
@@ -664,9 +673,9 @@ function SaveLoad:StashOpen(keys)
 	if hero.stashTable then
 		for i = 1, #hero.stashTable, 1 do
 			if IsValidEntity(hero.stashTable[i]) then
-				print("------")
-				print(hero.stashTable[i]:GetEntityIndex())
-				print(hero.pullStashItem)
+				-- print("------")
+				-- print(hero.stashTable[i]:GetEntityIndex())
+				-- print(hero.pullStashItem)
 				if hero.stashTable[i]:GetEntityIndex() == hero.pullStashItem then
 					hero.pullStashItem = nil
 				else

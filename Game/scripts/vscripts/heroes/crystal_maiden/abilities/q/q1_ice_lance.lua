@@ -67,6 +67,15 @@ function projectileHit(event)
     local damage = caster.a_a_level * Q1_ADD_DAMAGE + Q1_BASE_DAMAGE
     damage = damage*event.mult
 
+    
+
+    local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_winter_wyvern/winter_wyvern_base_attack.vpcf", PATTACH_CUSTOMORIGIN, caster)
+    ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin()+Vector(0,0,70))
+    ParticleManager:SetParticleControl(pfx, 1, target:GetAbsOrigin()+Vector(0,0,70))
+    Timers:CreateTimer(0.1, function()
+        ParticleManager:DestroyParticle(pfx, false)
+    end)
+
     if Filters:IsIceFrozen(target) then
         local damageMult = 1
         if caster:HasModifier("modifier_sorceress_glyph_5_a") then
@@ -82,6 +91,9 @@ function projectileHit(event)
         Timers:CreateTimer(1, function()
             ParticleManager:DestroyParticle(particle1, false)
         end)
+        EmitSoundOn("Sorceress.IceFrozen.LanceHit", target)
+    else
+        EmitSoundOn("hero_Crystal.projectileImpact", target)
     end
 
     local chance = Q3_CHANCE
@@ -89,12 +101,58 @@ function projectileHit(event)
         chance = T22_CHANCE
         damage = damage * T22_DAMAGE_AMPLIFY
     end
+    local chillStacks = 2
+    if ability:GetAbilityName() == "blizzard" then
+        damage = damage/2
+        chillStacks = 1
+    end
+    lanceAbility = caster:FindAbilityByName("ice_lance")
+    lanceAbility:ApplyDataDrivenModifier(caster, target, "modifier_ice_lance_cold", {duration = 3})
+    local stacks = math.min(target:GetModifierStackCount("modifier_ice_lance_cold", caster) + chillStacks, 10)
+    target:SetModifierStackCount("modifier_ice_lance_cold", caster, stacks)
 
     local luck = RandomInt(1, 100)
     if chance > luck and caster.c_a_level > 0 then
         IceExplode.cast(caster, target, ability, damage)
     else
         Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
+    end
+    
+    if ability:GetAbilityName() == "ice_lance" then
+        local blizzardAbility = caster:FindAbilityByName("blizzard")
+        local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 360, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+        local shards = 0
+        EmitSoundOn("Sorceress.IceLanceFracture", target)
+        for i = 1, #enemies, 1 do
+            local enemy = enemies[i]
+            if enemy:GetEntityIndex() == target:GetEntityIndex() then
+            else
+                local info = 
+                {
+                    Target = enemy,
+                    Source = enemy,
+                    Ability = blizzardAbility,  
+                    EffectName = "particles/roshpit/sorceress/ice_lance_fracture.vpcf",
+                    vSourceLoc= target:GetAbsOrigin(),
+                    bDrawsOnMinimap = false, 
+                        bDodgeable = true,
+                        bIsAttack = false, 
+                        bVisibleToEnemies = true,
+                        bReplaceExisting = false,
+                        flExpireTime = GameRules:GetGameTime() + 4,
+                    bProvidesVision = false,
+                    iVisionRadius = 0,
+                    iMoveSpeed = 720,
+                    iVisionTeamNumber = caster:GetTeamNumber()
+                }
+                local projectile = ProjectileManager:CreateTrackingProjectile(info)
+                shards = shards + 1
+
+                if shards == 2 then
+                    break
+                end
+            end
+        end
     end
 end
 

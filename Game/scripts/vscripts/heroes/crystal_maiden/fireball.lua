@@ -4,7 +4,7 @@ function begin_fireball(event)
 	local ability = event.ability
 	local target = event.target_points[1]
 	local fv = ((target-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-	EmitSoundOn("Hero_OgreMagi.Fireblast.Target", caster)
+	EmitSoundOn("Sorceress.FireBall.Cast", caster)
 	local bArcane = sorceressGetArcaneDB(caster)
 
 	if caster:HasModifier("modifier_sorceress_immortal_fire_avatar") then
@@ -16,16 +16,19 @@ function begin_fireball(event)
 		launchFireBall(caster, caster:FindAbilityByName("sorceress_blink"), fv, "particles/roshpit/sorceress/arcane_enchantment.vpcf", 90)
 	end
 	if caster:HasModifier("modifier_sorceress_glyph_3_1") then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_fireball_precast", {duration = 0.5})
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_fireball_multishot", {duration = 0.4})
 		Timers:CreateTimer(0.2, function()
-			StartAnimation(caster, {duration=0.2, activity=ACT_DOTA_CAST_ABILITY_2, rate=3})
+			EmitSoundOn("Sorceress.FireBall.Cast", caster)
+			StartAnimation(caster, {duration=0.15, activity=ACT_DOTA_CAST_ABILITY_2, rate=4})
 			
 			launchFireBall(caster, ability, fv, "particles/units/heroes/hero_jakiro/fireball.vpcf", 140)
 			if bArcane then
 				launchFireBall(caster, caster:FindAbilityByName("sorceress_blink"), fv, "particles/roshpit/sorceress/arcane_enchantment.vpcf", 90)
 			end
 			Timers:CreateTimer(0.2, function()
-				StartAnimation(caster, {duration=0.2, activity=ACT_DOTA_CAST_ABILITY_2, rate=3})
+				EmitSoundOn("Sorceress.FireBall.Cast", caster)
+				StartAnimation(caster, {duration=0.15, activity=ACT_DOTA_CAST_ABILITY_2, rate=4})
 				launchFireBall(caster, ability, fv, "particles/units/heroes/hero_jakiro/fireball.vpcf", 140)
 				if bArcane then
 					launchFireBall(caster, caster:FindAbilityByName("sorceress_blink"), fv, "particles/roshpit/sorceress/arcane_enchantment.vpcf", 90)
@@ -70,7 +73,7 @@ function sorceress_c_d(caster, point, radius, runesCount)
       function()
         ParticleManager:DestroyParticle( particle1, false )
       end)
-	local ability = caster:FindAbilityByName("fireball")
+	local ability = caster:FindAbilityByName("pyroblast")
 	
 	Timers:CreateTimer(0.5, function()
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )	

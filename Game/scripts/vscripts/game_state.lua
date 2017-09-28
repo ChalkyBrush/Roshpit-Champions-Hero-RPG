@@ -752,7 +752,7 @@ function GameState:FilterDamage(filterTable)
 			attacker.amulet:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_tempest_falcon_ring_effect", {duration = 8})
 		end
 		if attacker:HasModifier("modifier_firelock_pendant") then
-			local multIncrease = (attacker:GetStrength()/10)*0.007
+			local multIncrease = (attacker:GetStrength()/10)*0.005
 			mult = mult + multIncrease
 		end
 		if attacker:HasModifier("modifier_power_ranger") then
@@ -1277,7 +1277,9 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if Filters:IsIceFrozen(victim) and attacker:HasModifier('modifier_frost_nova_passive') then
-		mult = mult + 0.035*attacker.b_a_level
+		if attacker.b_a_level then
+			mult = mult + 0.035*attacker.b_a_level
+		end
 	end
 	if victim:HasModifier("modifier_tachyon_shell") then
 		local modifier = victim:FindModifierByName("modifier_tachyon_shell")

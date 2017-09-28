@@ -43,7 +43,7 @@ function ItemShowTooltipOnPanel(itemPanel)
 		if (!(itemValues.useDescription === undefined)){
 			var tooltip = CreateCustomTooltip(itemValues, itemName, itemProperty1)
 			tooltip = tooltip + "<br><font color='#A3D4A1'>"+$.Localize(itemValues.useDescription)+"</font>"
-			tooltip = breakUpTooltip(tooltip)
+			tooltip = replaceConsumableText(item, tooltip)
 		}else{
 			var itemProperty1 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-1" )
 			var tooltip = CreateCustomTooltip(itemValues, itemName, itemProperty1)
@@ -126,7 +126,7 @@ function ItemShowTooltip(panelId)
 		if (!(itemValues.useDescription === undefined)){
 			var tooltip = CreateCustomTooltip(itemValues, itemName, itemProperty1)
 			tooltip = tooltip + "<br><font color='#A3D4A1'>"+$.Localize(itemValues.useDescription)+"</font>"
-			tooltip = breakUpTooltip(tooltip)
+			tooltip = replaceConsumableText(item, tooltip)
 		}else{
 			var itemProperty1 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-1" )
 			var tooltip = CreateCustomTooltip(itemValues, itemName, itemProperty1)
@@ -239,6 +239,15 @@ function AddMinLevelToTooltip(itemValues, tooltip, item)
 		else{
 			tooltip = tooltip + "<br><br><font color='#DB2766'>"+$.Localize('#item_min_level')+": "+minLevel+"</font>"
 		}
+	}
+	return tooltip
+}
+
+function replaceConsumableText(item, tooltip)
+{
+	var itemProperty3 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-3" )
+	if (!(itemProperty3===undefined)){
+		tooltip = tooltip.replace("@consumableProperty3", "<font color='"+itemProperty3.propertyColor+"'>"+$.Localize(itemProperty3.propertyName)+"</font>")
 	}
 	return tooltip
 }

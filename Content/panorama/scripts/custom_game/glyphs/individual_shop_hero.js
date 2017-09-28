@@ -24,6 +24,21 @@ function OpenGlyphShopForHero()
 	mPopoutContainer.RemoveClass('invisible')
 	mPopoutContainer.style.visibility = "visible"
 	mPopoutContainer.AddClass('animateInGlyph')
+	GameEvents.SendCustomGameEventToServer( "get_glyph_availability", {playerID: Players.GetLocalPlayer(), hero: mHeroName});
+	// var parent = mShopContentsContainer
+	// parent.RemoveAndDeleteChildren();
+	// for (var i = 1; i <= MAX_TIERS; i++) {
+	// 	var newChildPanel = $.CreatePanel( "Panel", parent, "shop-row"+i );
+	// 	newChildPanel.heroName = mHeroName
+	// 	newChildPanel.playerTier = mPlayerTier
+	// 	newChildPanel.rowTier = i
+	// 	newChildPanel.BLoadLayout( "file://{resources}/layout/custom_game/glyphs/shop_row.xml", false, false );	
+	// }
+}
+
+function OpenGlyphShopForHeroAfterServerLoads(msg)
+{
+	$.Msg(msg)
 	var parent = mShopContentsContainer
 	parent.RemoveAndDeleteChildren();
 	for (var i = 1; i <= MAX_TIERS; i++) {
@@ -37,5 +52,6 @@ function OpenGlyphShopForHero()
 
 (function()
 {
+	// GameEvents.Subscribe( "glyph_recipes_loaded", OpenGlyphShopForHeroAfterServerLoads() );
 	InitializeshopHero();
 })();

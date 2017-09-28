@@ -105,10 +105,15 @@ PrecacheResource("particle", "particles/econ/items/monkey_king/arcana/water/mk_s
 PrecacheResource("particle", "particles/roshpit/respawn_channel.vpcf", context)
 PrecacheResource("particle", "particles/econ/items/centaur/centaur_ti6_gold/centaur_ti6_warstomp_gold.vpcf", context)
 PrecacheResource("particle", "particles/units/heroes/hero_chaos_knight/chaos_knight_weapon_blur_critical.vpcf", context)
-
+PrecacheResource("particle", "particles/roshpit/learn_glyph_recipe.vpcf", context)
 
 
 PrecacheResource("model", "models/props_teams/banner_radiant.vmdl", context)
+
+PrecacheResource("model", "models/gameplay/attrib_tome_int.vmdl", context)
+PrecacheResource("model", "models/gameplay/attrib_tome_agi.vmdl", context)
+PrecacheResource("model", "models/gameplay/attrib_tome_str.vmdl", context)
+
 
 -- PrecacheResource("model", "models/items/courier/shroomy/shroomy.vmdl", context)
 -- PrecacheResource("model", "models/items/courier/teron/teron.vmdl", context)

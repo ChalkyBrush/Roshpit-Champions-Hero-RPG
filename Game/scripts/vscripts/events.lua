@@ -306,7 +306,7 @@ function Events:PickUpTest(heroEntity, itemEntity, itemname)
     if IsValidEntity(itemEntity) then
       if itemEntity:GetAbilityName() == "item_reanimation_stone" then
         RPCItems:LegendaryPickup(itemEntity, heroEntity)
-      elseif itemEntity.glyph then
+      elseif itemEntity.glyph or itemEntity.glyphBook then
         if rarityFactor < 5 then
           RPCItems:LegendaryPickup(itemEntity, heroEntity)
         end

@@ -6,17 +6,43 @@
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/heroes_custom/heroes_custom.js" />
 		<include src="file://{resources}/scripts/custom_game/glyphs/glyph_main.js" />
+		<include src="file://{resources}/scripts/custom_game/equipment/item_tooltip.js" />
 	</scripts>
 	<snippets>
 		<snippet name="shop_hero">
 			<Panel class="shop_button" hittest="false">
-				<Button class="save_slot" hittest="true"
+				<Button class="save_slot" id="glyph_hero_button" hittest="true"
 					onactivate='OpenGlyphShopForHero()'>
 				<Image id="shop_portrait"/>
 				</Button>
 				
-				<Label class="slot_label_name" id="slot_label_name" text="hero_name">
+				<Label class="slot_label_name" id="slot_label_name" text="hero_name" hittest="false">
 				</Label>
+
+			</Panel>
+		</snippet>
+		<snippet name="shop_row">
+			<Panel class="shop_row" hittest="false">
+				<Panel id="shop-row-contents">
+				</Panel>
+				<Label id="shop-row-tier-label" text="Tier 0">
+				</Label>
+				<Panel id="shop-row-overlay">
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="glyph_item">
+			<Panel class="shop_glyph_button" hittest="false">
+				<Panel id="glyph_total_container">
+				<Button class="glyph_purchase" id="glyph-item-shop-button" hittest="true">		
+					<Image id="glyph-image"/>
+					</Button>
+
+					<Panel id="shop-price-container">
+						<Label id="glyph_purchase_price_value" text="0"></Label>
+						<Image id="glyph_purchase_crystal_image" src="file://{images}/custom_game/ui/arcane_crystal.png" />
+					</Panel>
+				</Panel>
 
 			</Panel>
 		</snippet>

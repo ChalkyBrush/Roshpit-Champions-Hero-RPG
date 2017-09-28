@@ -181,6 +181,7 @@ function GameMode:_InitGameMode()
   CustomGameEventManager:RegisterListener( "upgrade_arcane_tier", Dynamic_Wrap(Glyphs, "UpgradeArcaneTier"))
   CustomGameEventManager:RegisterListener( "glyph_purchase", Dynamic_Wrap(Glyphs, "GlyphPurchase"))
   CustomGameEventManager:RegisterListener( "purchase_reanimation_stone", Dynamic_Wrap(Glyphs, "ReanimationPurchase"))
+  CustomGameEventManager:RegisterListener( "get_glyph_availability", Dynamic_Wrap(Glyphs, "GetGlyphAvailability"))
 
   CustomGameEventManager:RegisterListener( "collect_mithril_income", Dynamic_Wrap(Challenges, "CollectMithrilIncome"))
   CustomGameEventManager:RegisterListener( "clicked_chisel_gear", Dynamic_Wrap(Challenges, "ChiselableGearClicked"))

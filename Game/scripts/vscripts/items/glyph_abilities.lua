@@ -226,7 +226,9 @@ end
 function sorceress_glyph_5_1_end(event)
 	local caster = event.target
 	local level = caster:FindAbilityByName("arcane_torrent"):GetLevel()
-  	caster:FindAbilityByName("arcane_explosion"):SetLevel(level)
+	local arcaneExplosion = caster:FindAbilityByName("arcane_explosion")
+  	arcaneExplosion:SetLevel(level)
+  	arcaneExplosion:SetAbilityIndex(1)
   	caster:SwapAbilities("arcane_explosion", "arcane_torrent", true, false)
 end
 
@@ -307,3 +309,40 @@ function auriun_glyph_7_1_think(event)
 	target:SetModifierStackCount( "modifier_auriun_glyph_7_1_effect", ability, damageBonus )
 end
 
+function use_glyph_book(event)
+	local caster = event.caster
+	local book = event.ability
+	local heroName = event.hero
+	local playerID = caster:GetPlayerOwnerID()
+	local steamID = PlayerResource:GetSteamAccountID(playerID)
+
+	local class = string.gsub(book:GetAbilityName(), "item_rpc_", "")
+	class = string.gsub(class, "_glyph_book", "")
+	caster:TakeItem(book)
+	local url = ROSHPIT_URL.."/champions/updateGlyphRecipe?"
+	url = url.."steam_id="..steamID
+	url = url.."&hero="..HerosCustom:ConvertRPCNameToStringHeroName(class)
+	url = url.."&tier="..book.property1
+	url = url.."&column="..book.property2
+	print(url)
+	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+		local resultTable = {}
+		print( "GET response:\n" )
+		for k,v in pairs( result ) do
+			print( string.format( "%s : %s\n", k, v ) )
+		end
+		print( "Done." )
+		local resultTable = JSON:decode(result.Body)
+		-- resultTable = Quests:GetQuestDataFromJSON(resultTable)
+		print(resultTable)
+		if resultTable == 1 then
+			EmitSoundOn("RPC.Glyph.LearnRecipe", caster)
+			CustomAbilities:QuickAttachParticle("particles/roshpit/learn_glyph_recipe.vpcf", caster, 5)
+			Notifications:Top(caster:GetPlayerOwnerID(), {text="Recipe Learned!", duration=3, style={color="#D378ED"}, continue=true})
+			UTIL_Remove(book)
+		else
+			Notifications:Top(caster:GetPlayerOwnerID(), {text="Already Learned", duration=3, style={color="red"}, continue=true})
+			RPCItems:GiveItemToHeroWithSlotCheck(caster, book)
+		end
+	end )
+end

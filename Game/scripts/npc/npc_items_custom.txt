@@ -10,65 +10,65 @@
 
 			"modifier_health_bonus"
 			{
-				"IsHidden"			"1"  
+				"IsHidden"			"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
-					
+
 					"MODIFIER_PROPERTY_HEALTH_BONUS"	"1"
 				}
 			}
 
 			"modifier_health_regen_constant"
 			{
-				"IsHidden"			"1"  
+				"IsHidden"			"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
-					
+
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"0.01"
 				}
 			}
 
 			"modifier_mana_bonus"
 			{
-				"IsHidden"			"1"  
+				"IsHidden"			"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
-					
+
 					"MODIFIER_PROPERTY_MANA_BONUS"	"-1"
 				}
 			}
 
 			"modifier_base_mana_regen"
 			{
-				"IsHidden"			"1"  
+				"IsHidden"			"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
-					
+
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"0.01"
 				}
 			}
 
 			"modifier_attackspeed_bonus_constant"
 			{
-				"IsHidden"			"1"  
+				"IsHidden"			"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
-					
+
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-1"
 				}
 			}
 			"modifier_spell_damage_constant"
 			{
-				"IsHidden"			"1"  
+				"IsHidden"			"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
-					
+
 					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"	"-1"
 				}
 			}
@@ -577,7 +577,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-		
+
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "30"
@@ -665,7 +665,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-		
+
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "60"
@@ -753,7 +753,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-		
+
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "90"
@@ -841,7 +841,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-		
+
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0.25"
@@ -929,7 +929,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-		
+
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0.5"
@@ -1017,7 +1017,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-		
+
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0.75"
@@ -1586,7 +1586,7 @@
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/dust.vmdl"
 
-		
+
 	}
 
 	"item_tanari_essence_of_wind_elite"
@@ -1610,7 +1610,7 @@
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/dust.vmdl"
 
-		
+
 	}
 
 	"item_tanari_essence_of_wind_legend"
@@ -1634,7 +1634,7 @@
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/dust.vmdl"
 
-		
+
 	}
 
 	"item_tanari_heart_of_water_normal"
@@ -1656,7 +1656,7 @@
 		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/dust.vmdl"	
+		"Model" 		"models/props_gameplay/dust.vmdl"
 	}
 	"item_tanari_heart_of_water_elite"
 	{
@@ -1677,7 +1677,7 @@
 		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/dust.vmdl"	
+		"Model" 		"models/props_gameplay/dust.vmdl"
 	}
 
 	"item_tanari_heart_of_water_legend"
@@ -1699,7 +1699,7 @@
 		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/dust.vmdl"	
+		"Model" 		"models/props_gameplay/dust.vmdl"
 	}
 
 	"item_tanari_core_of_fire_normal"
@@ -1721,7 +1721,7 @@
 		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/dust.vmdl"	
+		"Model" 		"models/props_gameplay/dust.vmdl"
 	}
 	"item_tanari_core_of_fire_elite"
 	{
@@ -1742,7 +1742,7 @@
 		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/dust.vmdl"	
+		"Model" 		"models/props_gameplay/dust.vmdl"
 	}
 
 	"item_tanari_core_of_fire_legend"
@@ -1764,7 +1764,7 @@
 		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/dust.vmdl"	
+		"Model" 		"models/props_gameplay/dust.vmdl"
 	}
 
 	"item_tanari_spirit_stones_normal"
@@ -1786,7 +1786,7 @@
 		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/dust.vmdl"	
+		"Model" 		"models/props_gameplay/dust.vmdl"
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1818,7 +1818,7 @@
 		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/dust.vmdl"	
+		"Model" 		"models/props_gameplay/dust.vmdl"
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1850,7 +1850,7 @@
 		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/dust.vmdl"	
+		"Model" 		"models/props_gameplay/dust.vmdl"
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -2394,7 +2394,7 @@
 		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/dust.vmdl"	
+		"Model" 		"models/props_gameplay/dust.vmdl"
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -2426,7 +2426,7 @@
 		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/dust.vmdl"	
+		"Model" 		"models/props_gameplay/dust.vmdl"
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -2458,7 +2458,7 @@
 		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/dust.vmdl"	
+		"Model" 		"models/props_gameplay/dust.vmdl"
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -2552,7 +2552,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
-		
+
 				"EffectName"		"particles/units/heroes/hero_phoenix/phoenix_fire_spirit_burn_fire.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"ThinkInterval"  "1.0"
@@ -2564,14 +2564,14 @@
 						"Function"		"FireBlasterBurn"
 					}
 				}
-		
+
 			}
 			"modifier_blaster_blink"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
-		
+
 				"EffectName"		"particles/items_fx/blink_dagger_end.vpcf"
 				"EffectAttachType"	"follow_origin"
 			}
@@ -2580,14 +2580,14 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-		
+
 				"EffectName"		"particles/generic_gameplay/rune_haste.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "300" 
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "300"
 				}
-		
+
 			}
 			"modifier_blaster_knockback"
 			{
@@ -2606,7 +2606,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-100"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-100" 
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-100"
 				}
 				"OnCreated"
 				{
@@ -2690,21 +2690,21 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
-		
+
 				"EffectName"		"particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_blinding_light_debuff.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MISS_PERCENTAGE" "1" 
+				    "MODIFIER_PROPERTY_MISS_PERCENTAGE" "1"
 				}
-		
+
 			}
 			"modifier_blaster_blink"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
-		
+
 				"EffectName"		"particles/items_fx/blink_dagger_end.vpcf"
 				"EffectAttachType"	"follow_origin"
 			}
@@ -2713,21 +2713,21 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
-		
+
 				"EffectName"		"particles/generic_gameplay/rune_haste.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "300" 
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "300"
 				}
-		
+
 			}
 			"modifier_blaster_root"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
-		
+
 				"States"
 				{
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -2750,7 +2750,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-100"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-100" 
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-100"
 				}
 				"OnCreated"
 				{
@@ -2836,21 +2836,21 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
-		
+
 				"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-1" 
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-1"
 				}
-		
+
 			}
 			"modifier_blaster_blink"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
-		
+
 				"EffectName"		"particles/items_fx/blink_dagger_end.vpcf"
 				"EffectAttachType"	"follow_origin"
 			}
@@ -2859,21 +2859,21 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
-		
+
 				"EffectName"		"particles/generic_gameplay/rune_haste.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "300" 
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "300"
 				}
-		
+
 			}
 			"modifier_blaster_root"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
-		
+
 				"States"
 				{
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -2896,7 +2896,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-100"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-100" 
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-100"
 				}
 				"OnCreated"
 				{
@@ -3609,7 +3609,7 @@
 			}
 			"modifier_berserker_gloves_buff_visible"
 			{
-				"StatusEffectName" 		"particles/status_fx/status_effect_battle_hunger.vpcf"  
+				"StatusEffectName" 		"particles/status_fx/status_effect_battle_hunger.vpcf"
 				"StatusEffectPriority"  "10"
 				"OnCreated"
 				{
@@ -3780,7 +3780,7 @@
 							"16" "1 0 0"
 						}
 					}
-				}		
+				}
 			}
 			"scorched_earth_aura"
 			{
@@ -3900,7 +3900,7 @@
 							"16" "1 0 0"
 						}
 					}
-				}		
+				}
 			}
 			"scorched_earth_aura"
 			{
@@ -3955,7 +3955,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"  
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"BaseClass"	"item_datadriven"
 		"AbilityTextureName"	"rpc/rpc_hand_of_midas"
 		"AbilityCastRange"	"900"
@@ -3993,12 +3993,12 @@
 						"Function"		"midas_attack_land"
 					}
 				}
-			}		
+			}
 			"modifier_midas_freeze"
 			{
 				"IsDebuff"	"1"
 				"IsHidden"	"0"
-				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_gold.vpcf" 	   
+				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_gold.vpcf"
 				"StatusEffectPriority"  "10"
 				"EffectName"			"particles/econ/courier/courier_mechjaw/courier_mechjaw_ambient_gold_twinkle.vpcf"
 				"EffectAttachType"		"attach_hitloc"
@@ -4015,7 +4015,7 @@
 				"IsBuff"	"1"
 				"IsPurgable"		"0"
 			}
-		}	
+		}
 		"AbilitySpecial"
 		{
 			"01"
@@ -4252,12 +4252,12 @@
 						"Function"		"mountain_vambrace_attack"
 					}
 				}
-			}	
+			}
 			"modifier_mountain_vambrace_immunity"
 			{
 				"IsBuff"	"1"
 				"IsHidden"	"1"
-			}	
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -4314,7 +4314,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}	
+			}
 			"modifier_cytopian_stacks"
 			{
 				"IsHidden"	"0"
@@ -4391,7 +4391,7 @@
 						"target"		"TARGET"
 					}
 				}
-			}	
+			}
 			"modifier_spiritual_empowerment_stack"
 			{
 				"IsHidden"	"0"
@@ -4466,7 +4466,7 @@
 						"Target" 		"TARGET"
 					}
 				}
-			}	
+			}
 			"modifier_sweeping_wind_stackable"
 			{
 				"IsBuff"	"1"
@@ -4505,7 +4505,7 @@
 			}
 		}
 	}
-	
+
 
 	"item_rpc_power_ranger_gloves"
 	{
@@ -4545,7 +4545,7 @@
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "150"
 				}
-			}	
+			}
 		}
 	}
 
@@ -4589,7 +4589,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}	
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -4654,7 +4654,7 @@
 						"Target" 		"TARGET"
 					}
 				}
-			}	
+			}
 			"modifier_chitinous_skin_stack"
 			{
 				"TextureName"	"seafortress/chitinous_skin"
@@ -4710,7 +4710,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}	
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -4769,12 +4769,12 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}	
+			}
 			"modifier_dark_emissary_invis"
 			{
 				"IsHidden"	"0"
 				"TextureName"	"seafortress/dark_emissary_ability"
-				"StatusEffectName" 		"particles/status_fx/status_effect_ghost.vpcf" 	   
+				"StatusEffectName" 		"particles/status_fx/status_effect_ghost.vpcf"
 				"StatusEffectPriority"  "20"
 				"States"
 				{
@@ -4855,7 +4855,7 @@
 						"Function"		"shark_helmet_attack_land"
 					}
 				}
-			}	
+			}
 			"modifier_dark_reef_shark_stacks"
 			{
 				"IsHidden"	"0"
@@ -4867,7 +4867,7 @@
 				"TextureName"	"kunkka_ghostship_immortal"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "%property_one" 
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "%property_one"
 				}
 				"OnCreated"
 				{
@@ -4928,7 +4928,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}	
+			}
 		}
 	}
 
@@ -4994,7 +4994,7 @@
 						"target"        "TARGET"
 					}
 				}
-			}	
+			}
 			"modifier_empyreal_str"
 			{
 				"IsHidden"	"1"
@@ -5076,7 +5076,7 @@
 						"Function"		"sea_oracle_attack_land"
 					}
 				}
-			}	
+			}
 			"modifier_sea_oracle_stacker"
 			{
 				"IsHidden"	"0"
@@ -5160,7 +5160,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}	
+			}
 		}
 	}
 
@@ -5198,7 +5198,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}	
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -5244,7 +5244,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}	
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -5290,7 +5290,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}	
+			}
 		}
 	}
 
@@ -5328,7 +5328,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}	
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -5398,7 +5398,7 @@
 						"Target" 		"TARGET"
 					}
 				}
-			}	
+			}
 			"modifier_templar_channeling"
 			{
 				"IsHidden"	"1"
@@ -5478,7 +5478,7 @@
 						"index"         "2"
 						"target"        "TARGET"
 					}
-				}	
+				}
 				"OnDestroy"
 				{
 					"ApplyModifier"
@@ -5487,7 +5487,7 @@
 						"Target" 		"TARGET"
 					}
 				}
-			}	
+			}
 			"modifier_mask_off_blue"
 			{
 				"IsHidden"	"1"
@@ -5502,7 +5502,7 @@
 						"index"         "2"
 						"target"        "TARGET"
 					}
-				}	
+				}
 			}
 		}
 	}
@@ -5551,7 +5551,7 @@
 						"index"         "0"
 						"target"        "TARGET"
 					}
-				}	
+				}
 				"OnDestroy"
 				{
 					"ApplyModifier"
@@ -5560,7 +5560,7 @@
 						"Target" 		"TARGET"
 					}
 				}
-			}	
+			}
 			"modifier_mask_off_purple"
 			{
 				"IsHidden"	"1"
@@ -5575,7 +5575,7 @@
 						"index"         "0"
 						"target"        "TARGET"
 					}
-				}	
+				}
 			}
 		}
 	}
@@ -5624,7 +5624,7 @@
 						"index"         "1"
 						"target"        "TARGET"
 					}
-				}	
+				}
 				"OnDestroy"
 				{
 					"ApplyModifier"
@@ -5633,7 +5633,7 @@
 						"Target" 		"TARGET"
 					}
 				}
-			}	
+			}
 			"modifier_mask_off_yellow"
 			{
 				"IsHidden"	"1"
@@ -5648,7 +5648,7 @@
 						"index"         "1"
 						"target"        "TARGET"
 					}
-				}	
+				}
 			}
 		}
 	}
@@ -5692,7 +5692,7 @@
 				{
 					"MODIFIER_PROPERTY_CASTTIME_PERCENTAGE" "%property_one"
 				}
-			}	
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -5756,7 +5756,7 @@
 						"Target" 		"TARGET"
 					}
 				}
-			}	
+			}
 			"modifier_halcyon_soul_glove_effect"
 			{
 				"IsHidden"	"1"
@@ -5863,7 +5863,7 @@
 						"Target" 		"TARGET"
 					}
 				}
-			}	
+			}
 			"modifier_grand_arcanist_damage"
 			{
 				"Passive"	"0"
@@ -5921,7 +5921,7 @@
 						"target"		"TARGET"
 					}
 				}
-			}	
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -6003,7 +6003,7 @@
 						"Target" 		"TARGET"
 					}
 				}
-			}	
+			}
 			"modifier_malachite_shade_regen"
 			{
 				"IsHidden"	"1"
@@ -6067,7 +6067,7 @@
 						"target"		"TARGET"
 					}
 				}
-			}	
+			}
 			"modifier_royal_wristguards_stack_effect"
 			{
 				"Passive"	"0"
@@ -6158,7 +6158,7 @@
 						}
 					}
 				}
-			}	
+			}
 			"modifier_bladeforge_debuff"
 			{
 				"Passive"	"0"
@@ -6180,7 +6180,7 @@
 					"EffectName"        "particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf"
 					"EffectAttachType"  "attach_origin"
 					"Target"            "TARGET"
-				}	
+				}
 				"ThinkInterval"  "0.5"
 				"OnIntervalThink"
 				{
@@ -6189,7 +6189,7 @@
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"bladeforge_bleed_think"
 					}
-				}			
+				}
 				"OnDestroy"
 				{
 					"RunScript"
@@ -6273,7 +6273,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}	
+			}
 			"modifier_druid_channel"
 			{
 				"IsBuff"	"1"
@@ -6338,7 +6338,7 @@
 				"IsBuff" "1"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "150" 
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "150"
 				}
 			}
 		}
@@ -6614,11 +6614,11 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
-	
+
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-100"
-				    "MODIFIER_PROPERTY_MISS_PERCENTAGE" 		"-30" 
+				    "MODIFIER_PROPERTY_MISS_PERCENTAGE" 		"-30"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-80"
 				}
 			}
@@ -6681,7 +6681,7 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"	
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 			"modifier_avalanche_thinker"
 			{
@@ -6765,7 +6765,7 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"	
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 			"modifier_avalanche_thinker"
 			{
@@ -6860,7 +6860,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-			
+
 				"EffectName"		"particles/roshpit/items/violet_guard_2.vpcf"
 				"EffectAttachType"	"follow_origin"
 			}
@@ -7874,7 +7874,7 @@
 						"Function"		"iron_colossus_attack"
 					}
 				}
-			}		
+			}
 			"modifier_iron_colossus_attack_speed_loss"
 			{
 				"Passive"	"0"
@@ -7884,16 +7884,16 @@
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-1"
 				}
-			}		
+			}
 			"modifier_colossus_attack_range_gain"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"		
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "1"
-				}		
+				}
 			}
 			"modifier_iron_colossus_attack_range_loss"
 			{
@@ -7903,9 +7903,9 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "-1"
-				}	
-			}	
-			"modifier_iron_colossus_attack_damage_increase"	
+				}
+			}
+			"modifier_iron_colossus_attack_damage_increase"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
@@ -7914,7 +7914,7 @@
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%property_one"
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%property_two"
-				}	
+				}
 			}
 		}
 		"AbilitySpecial"
@@ -7936,7 +7936,7 @@
 			}
 		}
 	}
-	
+
 	"item_rpc_mask_of_mugato"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -7975,7 +7975,7 @@
 				{
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "-5000"
 				}
-			}	
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -8032,7 +8032,7 @@
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
 				"Aura_ApplyToCaster" "0"
-			}	
+			}
 			"modifier_autumn_sleeper_aura_effect"
 			{
 				"IsHidden"	"1"
@@ -8117,7 +8117,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}	
+			}
 		}
 	}
 
@@ -8165,14 +8165,14 @@
 						"target"		"TARGET"
 					}
 				}
-			}	
+			}
 			"modifier_eye_of_seasons_stats"
 			{
 				"IsHidden"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "1"
-				    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "1" 
+				    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "1"
 				}
 			}
 		}
@@ -8224,7 +8224,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}	
+			}
 		}
 	}
 
@@ -8276,7 +8276,7 @@
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
 				"Aura_ApplyToCaster" "0"
-			}	
+			}
 			"modifier_basilisk_plague_helm_effect"
 			{
 				"Passive"	"0"
@@ -8285,7 +8285,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-260"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-50" 
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-50"
 				}
 				"ThinkInterval"  "0.5"
 				"OnIntervalThink"
@@ -8307,7 +8307,7 @@
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
 				"TextureName"	"pudge_rot"
-				"StatusEffectName" 		"particles/status_fx/status_effect_earth_spirit_petrify.vpcf" 	   
+				"StatusEffectName" 		"particles/status_fx/status_effect_earth_spirit_petrify.vpcf"
 				"StatusEffectPriority"  "30"
 				"OnCreated"
 				{
@@ -8370,7 +8370,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}	
+			}
 			"modifier_witch_hat_damage_amp"
 			{
 				"IsHidden"	"0"
@@ -8443,12 +8443,12 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}	
+			}
 			"modifier_trickster_mask_effect"
 			{
 				"Passive"	"0"
 				"IsHidden"	"0"
-				"Duration"  "1"		
+				"Duration"  "1"
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -8457,10 +8457,10 @@
 						"EffectAttachType"  "follow_origin"
 						"Target"            "TARGET"
 					}
-				}		
+				}
 			}
 		}
-	}		
+	}
 
 
 	"item_rpc_emerald_douli"
@@ -8499,7 +8499,7 @@
 				"IsDebuff"			"0"
 				"Duration"  		"99999"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-		
+
 				"EffectName"		"particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
 				"EffectAttachType"	"follow_origin"
 			}
@@ -8617,7 +8617,7 @@
 						"target"		"TARGET"
 					}
 				}
-			}		
+			}
 			"modifier_tyrius_buff"
 			{
 				"Passive"	"0"
@@ -8629,7 +8629,7 @@
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "10"
 					"MODIFIER_PROPERTY_MANA_BONUS"	 "4"
 				}
-			}	
+			}
 		}
 	}
 
@@ -8682,7 +8682,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
-		
+
 				"OnAbilityExecuted"
 				{
 					"RunScript"
@@ -8961,7 +8961,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"EffectName"		"particles/items_fx/flurry_aura_ring.vpcf"
 				"EffectAttachType" 	"follow_origin"
-			}	
+			}
 		}
 	}
 
@@ -9019,7 +9019,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"1"
-				}				
+				}
 			}
 		}
 	}
@@ -9095,7 +9095,7 @@
 				{
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"1"
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"1"
-				}				
+				}
 			}
 		}
 	}
@@ -9177,7 +9177,7 @@
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%property_one"
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%property_two"
-				}				
+				}
 			}
 		}
 	}
@@ -9259,7 +9259,7 @@
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%property_one"
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%property_two"
-				}				
+				}
 			}
 		}
 	}
@@ -9341,7 +9341,7 @@
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%property_one"
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%property_two"
-				}				
+				}
 			}
 		}
 	}
@@ -9412,8 +9412,8 @@
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
-				"IsDebuff"			"0"	
-				"Duration"			"3"	
+				"IsDebuff"			"0"
+				"Duration"			"3"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
 				"ThinkInterval"  "0.5"
@@ -9434,8 +9434,8 @@
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
-				"IsDebuff"			"0"	
-				"Duration"			"3"	
+				"IsDebuff"			"0"
+				"Duration"			"3"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
 				"ThinkInterval"  "0.5"
@@ -9499,8 +9499,8 @@
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
-				"IsDebuff"			"0"	
-				"Duration"			"7"	
+				"IsDebuff"			"0"
+				"Duration"			"7"
 				"EffectName"		"particles/units/heroes/hero_ogre_magi/solar_cape_buff.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"OnCreated"
@@ -9689,7 +9689,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"1"
-				}				
+				}
 			}
 			"modifier_legion_vestments_effect_agi"
 			{
@@ -9699,7 +9699,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"1"
-				}				
+				}
 			}
 			"modifier_legion_vestments_effect_int"
 			{
@@ -9709,7 +9709,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"1"
-				}				
+				}
 			}
 		}
 	}
@@ -9786,7 +9786,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"1"
-				}				
+				}
 			}
 			"modifier_gold_plate_of_leon_agi"
 			{
@@ -9796,7 +9796,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"1"
-				}				
+				}
 			}
 			"modifier_gold_plate_of_leon_int"
 			{
@@ -9806,7 +9806,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"1"
-				}				
+				}
 			}
 		}
 	}
@@ -9867,7 +9867,7 @@
 				"EffectAttachType"	"attach_hitloc"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-40" 
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-40"
 				}
 			}
 			"modifier_nightmare_rider_invisible"
@@ -9899,7 +9899,7 @@
 					}
 
 				}
-				"StatusEffectName" 		"particles/status_fx/status_effect_ghost.vpcf"	   
+				"StatusEffectName" 		"particles/status_fx/status_effect_ghost.vpcf"
 				"StatusEffectPriority"  "10"
 				"ThinkInterval"  "0.06"
 				"OnIntervalThink"
@@ -9922,7 +9922,7 @@
 					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-			}	
+			}
 		}
 	}
 
@@ -10019,7 +10019,7 @@
 					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-			}	
+			}
 		}
 	}
 
@@ -10134,7 +10134,7 @@
 					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-			}	
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -10190,7 +10190,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 			"modifier_space_tech_channel"
 			{
 				"IsBuff"		"1"
@@ -10206,8 +10206,8 @@
 						"target"		"TARGET"
 					}
 				}
-			}	
-			"modifier_space_tech_slow"	
+			}
+			"modifier_space_tech_slow"
 			{
 				"IsBuff"		"0"
 				"IsPurgable"	"0"
@@ -10215,7 +10215,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-180"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-50" 
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-50"
 				}
 				"EffectName"		"particles/units/heroes/hero_faceless_void/faceless_void_dialatedebuf.vpcf"
 				"EffectAttachType"	"attach_hitloc"
@@ -10479,7 +10479,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "2"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "2" 
+				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "2"
 				}
 			}
 		}
@@ -10660,7 +10660,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1"
-				}				
+				}
 			}
 		}
 		"AbilitySpecial"
@@ -10773,7 +10773,7 @@
 				{
 					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "-95"
 				}
-			}			
+			}
 		}
 	}
 
@@ -10834,7 +10834,7 @@
 						"Target" 		"TARGET"
 					}
 				}
-			}		
+			}
 			"modifier_mystic_mana_wall_armor"
 			{
 				"IsHidden"		"1"
@@ -11066,11 +11066,11 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"StatusEffectName" 		"particles/status_fx/status_effect_gush.vpcf" 	   
+				"StatusEffectName" 		"particles/status_fx/status_effect_gush.vpcf"
 				"StatusEffectPriority"  "10"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-50" 
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-50"
 				}
 			}
 		}
@@ -11165,7 +11165,7 @@
 						"EffectColorA"				"50 50 255"
 						"EffectAlphaScale"			"1"
 					}
-				}		
+				}
 				"OnDestroy"
 				{
 					"RunScript"
@@ -11174,7 +11174,7 @@
 						"Function"		"findClearSpace"
 						"target"		"TARGET"
 					}
-				}		
+				}
 			}
 		}
 	}
@@ -11395,7 +11395,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_EVASION_CONSTANT" "50"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "100" 
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "100"
 				}
 			}
 			"modifier_windsteel_cooldown"
@@ -11582,7 +11582,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"1"
-				}				
+				}
 			}
 		}
 	}
@@ -11649,7 +11649,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"5"
-				}				
+				}
 			}
 		}
 		"AbilitySpecial"
@@ -11714,7 +11714,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"1"
-				}				
+				}
 			}
 		}
 	}
@@ -12245,7 +12245,7 @@
 			{
 				"TextureName"	"visage_gravekeepers_cloak"
 				"IsHidden"	"0"
-				"IsDebuff"	"1"				
+				"IsDebuff"	"1"
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -12263,7 +12263,7 @@
 				}
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "3" 
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "3"
 				}
 			}
 			"modifier_gravekeeper_gauntlet_target"
@@ -12288,7 +12288,7 @@
 				}
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-3" 
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-3"
 				}
 			}
 		}
@@ -12481,7 +12481,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"1"
-				}				
+				}
 			}
 			"modifier_phoenix_gloves_attack_damage"
 			{
@@ -13221,13 +13221,13 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
-            	"StatusEffectName" 		"particles/status_fx/status_effect_iceblast.vpcf"  	   
+            	"StatusEffectName" 		"particles/status_fx/status_effect_iceblast.vpcf"
             	"StatusEffectPriority"  "10"
             	"TextureName"		"crystal_maiden_crystal_nova"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-100"
-				}	
+				}
 			}
 		}
 	}
@@ -13541,15 +13541,15 @@
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
-				"IsDebuff"			"1"		
+				"IsDebuff"			"1"
 				"TextureName"		"crystal_maiden_crystal_nova"
 				"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
 				"EffectAttachType"	"follow_origin"
-		
+
 				"States"
 				{
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}	
+				}
 			}
 		}
 		"AbilitySpecial"
@@ -13630,12 +13630,12 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"property_three"	"3"
-			}	
+			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"property_four"		"500"
-			}				
+			}
 		}
 		"Modifiers"
 		{
@@ -13748,12 +13748,12 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"property_three"	"3"
-			}	
+			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"property_four"		"500"
-			}				
+			}
 		}
 		"Modifiers"
 		{
@@ -13866,7 +13866,7 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"property_three"	"3"
-			}	
+			}
 		}
 		"Modifiers"
 		{
@@ -13976,7 +13976,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-				"StatusEffectName" 		"particles/roshpit/redfall/status_effect_experimental_fire.vpcf"   
+				"StatusEffectName" 		"particles/roshpit/redfall/status_effect_experimental_fire.vpcf"
 				"StatusEffectPriority"  "10"
 			}
 			"modifier_redfall_runners_hidden_buff"
@@ -14499,7 +14499,7 @@
             	"IsBuff"	"1"
             	"EffectName"			"particles/items_fx/black_king_bar_avatar.vpcf"
             	"EffectAttachType"		"attach_hitloc"
-            	"StatusEffectName" 		"particles/status_fx/status_effect_mjollnir_shield.vpcf"	   
+            	"StatusEffectName" 		"particles/status_fx/status_effect_mjollnir_shield.vpcf"
             	"StatusEffectPriority"  "10"
             	"OnCreated"
             	{
@@ -14601,7 +14601,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
-				"StatusEffectName" 		"particles/status_fx/status_effect_battle_hunger.vpcf"  
+				"StatusEffectName" 		"particles/status_fx/status_effect_battle_hunger.vpcf"
 				"StatusEffectPriority"  "10"
 				"EffectName"		"particles/items2_fx/satanic_buff.vpcf"
 				"EffectAttachType"	"attach_hitloc"
@@ -14886,7 +14886,7 @@
 					"MODIFIER_STATE_FROZEN"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"StatusEffectName" 		"particles/status_fx/status_effect_guardian_angel.vpcf"	   
+				"StatusEffectName" 		"particles/status_fx/status_effect_guardian_angel.vpcf"
 				"StatusEffectPriority"  "10"
 			}
 			"modifier_falcon_freeze_self"
@@ -14899,7 +14899,7 @@
 					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"StatusEffectName" 		"particles/status_fx/status_effect_guardian_angel.vpcf"	   
+				"StatusEffectName" 		"particles/status_fx/status_effect_guardian_angel.vpcf"
 				"StatusEffectPriority"  "10"
 			}
 			"modifier_falcon_immune"
@@ -15028,7 +15028,7 @@
 				{
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1"
 				}
-			}			
+			}
 		}
 	}
 
@@ -15107,8 +15107,8 @@
 						"EffectColorA"				"255 255 255"
 						"EffectAlphaScale"			"1"
 					}
-				}	
-			}			
+				}
+			}
 		}
 	}
 
@@ -15184,14 +15184,14 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"StatusEffectName" 		"particles/status_fx/status_effect_gush.vpcf" 	   
-				"StatusEffectPriority"  "10"		
+				"StatusEffectName" 		"particles/status_fx/status_effect_gush.vpcf"
+				"StatusEffectPriority"  "10"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-30" 
-				}		
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-30"
+				}
 			}
-			
+
 		}
 	}
 
@@ -15265,7 +15265,7 @@
 					"MODIFIER_PROPERTY_EVASION_CONSTANT" "85"
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"350"
 				}
-			}			
+			}
 		}
 	}
 
@@ -15313,7 +15313,7 @@
 						"target"		"TARGET"
 					}
 				}
-			}		
+			}
 			"modifier_rpc_sange_buff"
 			{
 				"Passive"	"0"
@@ -15322,7 +15322,7 @@
 				{
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "8"
 				}
-			}	
+			}
 		}
 	}
 
@@ -15360,7 +15360,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 			"modifier_rpc_terrasic_lava_boot_effect"
 			{
 				"EffectName"	"particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff.vpcf"
@@ -15369,7 +15369,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "200"
-				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "100" 
+				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "100"
 				    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"	"150"
 				}
 				"OnCreated"
@@ -15429,7 +15429,7 @@
 						"target"		"TARGET"
 					}
 				}
-			}		
+			}
 			"modifier_rpc_yasha_buff"
 			{
 				"Passive"	"0"
@@ -15439,7 +15439,7 @@
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
 				}
-			}	
+			}
 		}
 	}
 
@@ -15488,7 +15488,7 @@
 						"target"		"TARGET"
 					}
 				}
-			}			
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -15545,7 +15545,7 @@
 						"target"		"TARGET"
 					}
 				}
-			}			
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -15636,7 +15636,7 @@
 							"16" "1 0 0"
 						}
 					}
-				}		
+				}
 			}
 			"fire_walker_aura"
 			{
@@ -15652,7 +15652,7 @@
 						"Target"		"TARGET"
 					}
 				}
-			}			
+			}
 		}
 	}
 
@@ -15720,7 +15720,7 @@
 							"16" "1 0 0"
 						}
 					}
-				}		
+				}
 			}
 			"moon_tech_aura"
 			{
@@ -15728,9 +15728,9 @@
 				"IsPurgable"	"0"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-50" 
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-50"
 				}
-			}			
+			}
 		}
 	}
 
@@ -15782,7 +15782,7 @@
 				}
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "25" 
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "25"
 				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "200"
 				}
 				"OnCreated"
@@ -15797,7 +15797,7 @@
 						"EffectAlphaScale"			"1"
 					}
 				}
-			}			
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -15844,7 +15844,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 	}
 
@@ -15897,7 +15897,7 @@
 						"target"		"TARGET"
 					}
 				}
-			}		
+			}
 			"modifier_temporal_warp_cooldown"
 			{
 				"IsHidden"	"0"
@@ -15942,7 +15942,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 	}
 
@@ -16005,7 +16005,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "120"
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"70"
 				}
-			}	
+			}
 		}
 	}
 
@@ -16069,7 +16069,7 @@
 				{
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"1"
 				}
-			}	
+			}
 		}
 	}
 
@@ -16143,7 +16143,7 @@
 						"target"		"TARGET"
 					}
 				}
-			}	
+			}
 			"modifier_arcanys_slipper_buff"
 			{
 				"IsBuff"				"1"
@@ -16152,7 +16152,7 @@
 				"EffectAttachType"		"attach_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1" 
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
 				}
 			}
 		}
@@ -16347,7 +16347,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 	}
 
@@ -16387,7 +16387,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 	}
 
@@ -16464,7 +16464,7 @@
 						"target"		"TARGET"
 					}
 				}
-			}		
+			}
 			"modifier_sapphire_lotus_buff"
 			{
 				"Passive"	"0"
@@ -16474,7 +16474,7 @@
 				{
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "10"
 				}
-			}		
+			}
 		}
 	}
 
@@ -16484,7 +16484,7 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
 		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"rpc/arbor_dragonfly" 
+		"AbilityTextureName"	"rpc/arbor_dragonfly"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
 		"AbilityCooldown"	"0"
@@ -16513,7 +16513,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -16592,7 +16592,7 @@
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
 				"Aura_ApplyToCaster" "0"
-			}		
+			}
 			"modifier_eternal_frost_slowing"
 			{
 				"IsHidden"	"0"
@@ -16620,25 +16620,25 @@
 			{
 				"IsHidden"	"1"
 				"EffectName"	"particles/units/heroes/hero_ancient_apparition/ancient_apparition_cold_feet.vpcf"
-				"EffectAttachType"	"attach_overhead"	
+				"EffectAttachType"	"attach_overhead"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-12"
-				}			
+				}
 			}
 			"modifier_eternal_frost_nova"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
-				"IsDebuff"			"1"		
+				"IsDebuff"			"1"
 				"TextureName"		"crystal_maiden_crystal_nova"
 				"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
 				"EffectAttachType"	"follow_origin"
-		
+
 				"States"
 				{
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}	
+				}
 			}
 		}
 	}
@@ -16678,7 +16678,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -16740,7 +16740,7 @@
 						"target"		"TARGET"
 					}
 				}
-			}		
+			}
 		}
 	}
 
@@ -16810,7 +16810,7 @@
 						"Target" 		"TARGET"
 					}
 				}
-			}		
+			}
 			"modifier_ring_of_nobility_buff"
 			{
 				"IsBuff"	"1"
@@ -16879,7 +16879,7 @@
 						"Target" 		"TARGET"
 					}
 				}
-			}		
+			}
 			"modifier_ring_of_nobility_buff_augmented"
 			{
 				"IsBuff"	"1"
@@ -16939,7 +16939,7 @@
 						"target"		"TARGET"
 					}
 				}
-			}		
+			}
 			"modifier_lifesource_vessel_buff"
 			{
 				"Passive"	"0"
@@ -16949,7 +16949,7 @@
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "1"
 				}
-			}		
+			}
 		}
 	}
 
@@ -16987,7 +16987,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}			
+			}
 		}
 	}
 
@@ -17043,7 +17043,7 @@
 						"target"		"TARGET"
 					}
 				}
-			}		
+			}
 			"modifier_tome_of_chaos_cooldown"
 			{
 				"Passive"	"0"
@@ -17051,7 +17051,7 @@
 				"IsDebuff"	"1"
 				"Duration"  "30"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}	
+			}
 			"modifier_infernal_effect"
 			{
 				"IsHidden"	"1"
@@ -17068,7 +17068,7 @@
 					}
 				}
 
-			}	
+			}
 		}
 	}
 
@@ -17115,7 +17115,7 @@
 						"target"		"TARGET"
 					}
 				}
-			}		
+			}
 			"modifier_torch_of_gengar_effect"
 			{
 				"Passive"	"0"
@@ -17133,7 +17133,7 @@
 				{
 					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"75"
 				}
-			}	
+			}
 		}
 	}
 
@@ -17190,7 +17190,7 @@
 						"Function"		"raven_idol_take_damage"
 					}
 				}
-			}		
+			}
 		}
 	}
 
@@ -17238,7 +17238,7 @@
 						"target"		"TARGET"
 					}
 				}
-			}		
+			}
 		}
 	}
 
@@ -17276,7 +17276,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -17322,7 +17322,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -17394,7 +17394,7 @@
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "1"
 				}
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -17444,7 +17444,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 	}
 
@@ -17486,12 +17486,12 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}	
+			}
 			"modifier_world_tree_cache_cooldown"
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"TextureName"	"redfall/autumn_spawner"	
+				"TextureName"	"redfall/autumn_spawner"
 			}
 			"modifier_ankh_of_ancients_shield"
 			{
@@ -17519,7 +17519,7 @@
 						"EffectColorA"				"255 170 130"
 						"EffectAlphaScale"			"1"
 					}
-				}				
+				}
 			}
 		}
 	}
@@ -17566,7 +17566,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 	}
 
@@ -17627,7 +17627,7 @@
 						"Target" 		"TARGET"
 					}
 				}
-			}	
+			}
 			"modifier_epsilons_eyeglass_range_effect"
 			{
 				"IsHidden"	"1"
@@ -17635,7 +17635,7 @@
 				{
 					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "240"
 				}
-			}	
+			}
 		}
 	}
 
@@ -17685,7 +17685,7 @@
 				"Aura_ApplyToCaster" "1"
 				"EffectName"		"particles/roshpit/redfall/fenrir_fang.vpcf"
 				"EffectAttachType"	"attach_origin"
-			}	
+			}
 			"modifier_fenrir_fang_buff"
 			{
 				"IsHidden"	"0"
@@ -17754,7 +17754,7 @@
 						"Target" 		"TARGET"
 					}
 				}
-			}	
+			}
 			"modifier_fuchsia_damage_resistance"
 			{
 				"IsHidden"	"0"
@@ -17800,7 +17800,7 @@
 		{
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_sandking.vsndevts"
 			"particle"		"particles/units/heroes/hero_sandking/sandking_sandstorm_start.vpcf"
-			"particle"		"particles/units/heroes/hero_sandking/sandking_sandstorm.vpcf"	
+			"particle"		"particles/units/heroes/hero_sandking/sandking_sandstorm.vpcf"
 		}
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
@@ -17830,15 +17830,15 @@
 						"target"		"TARGET"
 					}
 				}
-			}	
+			}
 			"modifier_ruinfall_skull_token_cooldown"
 			{
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
 				"Duration"  "40"
-			}		
-			
+			}
+
 			"modifier_skull_sand_storm"
 			{
 				"IsHidden"				"1"
@@ -17857,7 +17857,7 @@
 						"EffectAttachType"	"start_at_customorigin"
 						"Target"			"TARGET"
 					}
-				
+
 					"AttachEffect"
 					{
 						"EffectName"		"particles/units/heroes/hero_sandking/sandking_sandstorm.vpcf"
@@ -17951,7 +17951,7 @@
 						"damage"		"%attack_damage"
 					}
 				}
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -18017,7 +18017,7 @@
 					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-			}		
+			}
 			"modifier_phoenix_emblem_cooldown"
 			{
 				"Passive"	"0"
@@ -18025,7 +18025,7 @@
 				"IsDebuff"	"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"TextureName"	"phoenix_supernova"
-			}	
+			}
 			"modifier_egg_reviving"
 			{
 				"IsHidden" "1"
@@ -18058,7 +18058,7 @@
 						"target"		"TARGET"
 					}
 				}
-			}	
+			}
 		}
 	}
 
@@ -18106,7 +18106,7 @@
 						"target"		"TARGET"
 					}
 				}
-			}		
+			}
 			"modifier_hope_of_saytaru_effect"
 			{
 				"IsBuff"		"1"
@@ -18117,7 +18117,7 @@
 				{
 					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
-			}		
+			}
 		}
 	}
 
@@ -18160,7 +18160,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}			
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -18219,7 +18219,7 @@
 						"Function"		"crimson_skull_cap_kill"
 					}
 				}
-			}			
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -18284,7 +18284,7 @@
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"EffectName"	"particles/econ/items/juggernaut/bladekeeper_healing_ward/aeriths_tear.vpcf"
 				"EffectAttachType"	"follow_origin"
-			}			
+			}
 		}
 	}
 
@@ -18342,7 +18342,7 @@
 						"EffectAlphaScale"			"1"
 					}
 				}
-			}	
+			}
 			"modifier_crest_of_the_umbral_sentinel_effect_invisible"
 			{
 				"IsDebuff"	"1"
@@ -18351,12 +18351,12 @@
 				{
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-1"
 				}
-			}	
+			}
 			"modifier_umbral_sentinel_magic_amp"
 			{
 				"IsDebuff"	"1"
 				"IsHidden"	"1"
-			}			
+			}
 		}
 	}
 
@@ -18414,7 +18414,7 @@
 						"EffectAlphaScale"			"1"
 					}
 				}
-			}				
+			}
 		}
 	}
 
@@ -18457,7 +18457,7 @@
 				{
 					"MODIFIER_PROPERTY_IGNORE_CAST_ANGLE" "100"
 				}
-			}	
+			}
 			"modifier_burning_spirit_helmet_flamethrower"
 			{
 				"IsHidden"	"1"
@@ -18480,7 +18480,7 @@
 						"target"        "TARGET"
 					}
 				}
-			}		
+			}
 		}
 		"OnProjectileHitUnit"
 		{
@@ -18550,7 +18550,7 @@
 				{
 					"MODIFIER_PROPERTY_IGNORE_CAST_ANGLE" "100"
 				}
-			}			
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -18631,7 +18631,7 @@
 							"02" "5 5 5"
 						}
 					}
-				}		
+				}
 			}
 			"igneous_canine_aura"
 			{
@@ -18651,9 +18651,9 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%property_one"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%property_two" 
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%property_two"
 				}
-			}				
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -18776,7 +18776,7 @@
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "5"
 				}
-			}				
+			}
 		}
 	}
 
@@ -18818,7 +18818,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 			"modifier_galaxy_orb_channel"
 			{
 				"IsBuff"		"1"
@@ -18852,7 +18852,7 @@
 						"target"		"TARGET"
 					}
 				}
-			}		
+			}
 		}
 	}
 
@@ -18934,13 +18934,13 @@
 						"target"		"TARGET"
 					}
 				}
-			}		
+			}
 			"modifier_azure_empire_buff"
 			{
 				"IsBuff"		"1"
 				"IsPurgable"	"0"
 
-				"StatusEffectName" 		"particles/status_fx/status_effect_ghost.vpcf"	   
+				"StatusEffectName" 		"particles/status_fx/status_effect_ghost.vpcf"
 				"StatusEffectPriority"  "10"
 				"ThinkInterval"  "0.08"
 				"OnIntervalThink"
@@ -18980,7 +18980,7 @@
 						"EffectAlphaScale"			"1"
 					}
 				}
-			}		
+			}
 			"modifier_azure_hawk_blue"
 			{
 				"IsHidden"	"1"
@@ -18996,7 +18996,7 @@
 						"EffectAlphaScale"			"1"
 					}
 				}
-			}	
+			}
 			"modifier_azure_hawk_green"
 			{
 				"IsHidden"	"1"
@@ -19137,7 +19137,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}			
+			}
 		}
 	}
 
@@ -19199,7 +19199,7 @@
 						"target"		"TARGET"
 					}
 				}
-			}			
+			}
 			"modifier_twig_of_the_enlightened_shield"
 			{
 				"IsHidden"	"0"
@@ -19272,14 +19272,14 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 			"modifier_tempest_falcon_ring_effect"
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
 				"EffectName"	"particles/econ/courier/courier_onibi/courier_onibi_green_lvl4_ambient.vpcf"
 				"EffectAttachType"	"attach_hitloc"
-			}	
+			}
 		}
 	}
 
@@ -19318,14 +19318,14 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_one"			"0.7"
+				"property_one"			"0.5"
 			}
 		}
 	}
@@ -19364,7 +19364,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}			
+			}
 		}
 	}
 
@@ -19402,7 +19402,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}			
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -19452,7 +19452,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 			"modifier_ankh_of_ancients_shield"
 			{
 				"IsHidden"	"0"
@@ -19554,7 +19554,7 @@
 						"Target" 		"TARGET"
 					}
 				}
-			}	
+			}
 			"modifier_wind_orchid_agility_bonus"
 			{
 				"IsHidden"	"1"
@@ -19562,7 +19562,7 @@
 				{
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%property_one"
 				}
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -19626,7 +19626,7 @@
 						"Target" 		"TARGET"
 					}
 				}
-			}	
+			}
 			"modifier_aqua_lily_intelligence_bonus"
 			{
 				"IsHidden"	"1"
@@ -19634,7 +19634,7 @@
 				{
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%property_one"
 				}
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -19698,7 +19698,7 @@
 						"Target" 		"TARGET"
 					}
 				}
-			}	
+			}
 			"modifier_fire_blossom_strength_bonus"
 			{
 				"IsHidden"	"1"
@@ -19706,7 +19706,7 @@
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%property_one"
 				}
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -19776,12 +19776,12 @@
 						"target"		"TARGET"
 					}
 				}
-			}	
+			}
 			"modifier_mana_relic_damage_boost"
 			{
 				"IsHidden"	"1"
 				"Passive"	"0"
-			}		
+			}
 			"modifier_mana_relic_attack_damage"
 			{
 				"IsHidden"	"1"
@@ -19856,7 +19856,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}			
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -19917,7 +19917,7 @@
 						"target"		"TARGET"
 					}
 				}
-			}			
+			}
 		}
 	}
 
@@ -19976,7 +19976,7 @@
 						"Function"		"lava_forge_take_damage"
 					}
 				}
-			}			
+			}
 		}
 		"OnProjectileHitUnit"
 		{
@@ -20025,19 +20025,19 @@
 				"IsHidden"	"1"
 				"Duration"  "99999"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 			"modifier_thorok_enraged"
 			{
 				"IsHidden" "1"
-				"StatusEffectName" 		"particles/status_fx/status_effect_battle_hunger.vpcf"     
+				"StatusEffectName" 		"particles/status_fx/status_effect_battle_hunger.vpcf"
 				"StatusEffectPriority"  "15"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "160"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "100" 
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "100"
 				    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"			"60"
 				}
-			}	
+			}
 		}
 	}
 
@@ -20079,7 +20079,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}	
+			}
 			"modifier_ascendency_projectile_speed_stacks"
 			{
 				"OnAttackStart"
@@ -20103,7 +20103,7 @@
 			"modifier_super_ascendency_trigger"
 			{
 				"Passive"	"0"
-				"IsHidden"	"0"		
+				"IsHidden"	"0"
 				"TextureName"	"earthaker_aftershock"
 				"OnCreated"
 				{
@@ -20127,12 +20127,12 @@
 						"Function"		"super_ascension_init"
 						"target"		"TARGET"
 					}
-				}	
+				}
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "100"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "100"
-				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"240" 
+				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"240"
 				    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"			"500"
 				}
 				"OnDestroy"
@@ -20161,12 +20161,12 @@
 						"Function"		"super_ascension_attack_start"
 					}
 				}
-			}	
+			}
 			"modifier_ascendency_dont_split"
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
-			}	
+			}
 		}
 	}
 
@@ -20204,7 +20204,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}			
+			}
 		}
 	}
 
@@ -20265,8 +20265,8 @@
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
-			}	
-			"modifier_arcane_cascade_debuff"		
+			}
+			"modifier_arcane_cascade_debuff"
 			{
 				"Passive"	"0"
 				"IsDebuff"	"1"
@@ -20346,16 +20346,16 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}	
+			}
 			"modifier_wraith_crown_phased"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Duration"		"0.75"
-				
+
 				"EffectName"		"particles/units/heroes/hero_puck/wraith_crown.vpcf"
 				"EffectAttachType"	"attach_origin"
-				
+
 				"OnCreated"
 				{
 					"FireSound"
@@ -20363,7 +20363,7 @@
 						"EffectName"	"Item.WraithCrown"
 						"Target"		"TARGET"
 					}
-					
+
 					"RunScript"
 					{
 						"ScriptFile"		"items/special_item_effects.lua"
@@ -20390,13 +20390,13 @@
 					"MODIFIER_STATE_ROOTED"					"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_DISARMED"				"MODIFIER_STATE_VALUE_ENABLED"
 				}
-			}		
+			}
 			"modifier_wraith_crown_cooldown"
 			{
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-			}	
+			}
 		}
 	}
 
@@ -20491,10 +20491,18 @@
 			                "ApplyModifier"
 			                {
 			                    "ModifierName" 	"modifier_samurai_crit"
-			                    "Target"    	"ATTACKER"   
-			                }        
+			                    "Target"    	"ATTACKER"
+			                }
 			            }
 			        }
+			    }
+			    "OnDestroy"
+			    {
+			    	"RemoveModifier"
+			    	{
+			    		"ModifierName"	"modifier_samurai_damage"
+			    		"Target" 		"TARGET"
+			    	}
 			    }
 			}
 			"modifier_samurai_damage"
@@ -20518,10 +20526,10 @@
 			        "RemoveModifier"
 			        {
 			            "ModifierName"  "modifier_samurai_crit"
-			            "Target"   		"ATTACKER"    
+			            "Target"   		"ATTACKER"
 			        }
 			    }
-			}			
+			}
 		}
 	}
 
@@ -20559,7 +20567,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}			
+			}
 		}
 	}
 
@@ -20770,7 +20778,7 @@
 						"index"			"1"
 					}
 				}
-			}			
+			}
 		}
 	}
 
@@ -20835,7 +20843,7 @@
 						"index"			"1"
 					}
 				}
-			}			
+			}
 		}
 	}
 
@@ -20900,7 +20908,7 @@
 						"index"			"1"
 					}
 				}
-			}			
+			}
 		}
 	}
 
@@ -20967,7 +20975,7 @@
 						"index"			"1"
 					}
 				}
-			}			
+			}
 		}
 	}
 
@@ -21035,7 +21043,7 @@
 						"index"			"2"
 					}
 				}
-			}			
+			}
 		}
 	}
 
@@ -21098,7 +21106,7 @@
 						"index"			"1"
 					}
 				}
-			}			
+			}
 		}
 	}
 
@@ -21161,7 +21169,7 @@
 						"index"			"1"
 					}
 				}
-			}			
+			}
 		}
 	}
 
@@ -21224,7 +21232,7 @@
 						"index"			"1"
 					}
 				}
-			}			
+			}
 		}
 	}
 
@@ -21290,7 +21298,7 @@
 						"index"			"1"
 					}
 				}
-			}			
+			}
 		}
 	}
 
@@ -21360,7 +21368,7 @@
 						"index"			"1"
 					}
 				}
-			}			
+			}
 		}
 	}
 
@@ -21427,7 +21435,7 @@
 						"index"			"1"
 					}
 				}
-			}			
+			}
 		}
 	}
 
@@ -21457,6 +21465,7 @@
 			"particle"	"particles/units/heroes/hero_winter_wyvern/wyvern_splinter_blast.vpcf"
 			"particle"	"particles/status_fx/status_effect_iceblast.vpcf"
 			"particle"	"particles/roshpit/sorceress/ice_avatar.vpcf"
+			"particle"	"particles/roshpit/sorceress/chaos_tornado_arcana_tornado_ti6.vpcf"
 		}
 		"OnSpellStart"
 		{
@@ -21493,7 +21502,7 @@
 						"index"			"1"
 					}
 				}
-			}			
+			}
 		}
 	}
 
@@ -21556,7 +21565,7 @@
 						"index"			"1"
 					}
 				}
-			}			
+			}
 		}
 	}
 
@@ -21624,7 +21633,7 @@
 						"index"			"1"
 					}
 				}
-			}			
+			}
 		}
 	}
 
@@ -21695,7 +21704,7 @@
 						"index"			"1"
 					}
 				}
-			}			
+			}
 		}
 	}
 
@@ -21758,7 +21767,7 @@
 						"index"			"1"
 					}
 				}
-			}			
+			}
 		}
 	}
 
@@ -21826,7 +21835,7 @@
 						"index"			"1"
 					}
 				}
-			}			
+			}
 		}
 	}
 
@@ -21889,7 +21898,7 @@
 						"index"			"2"
 					}
 				}
-			}			
+			}
 		}
 	}
 
@@ -21956,7 +21965,7 @@
 						"index"			"3"
 					}
 				}
-			}			
+			}
 		}
 	}
 
@@ -22019,7 +22028,7 @@
 						"index"			"1"
 					}
 				}
-			}			
+			}
 		}
 	}
 
@@ -22083,7 +22092,7 @@
 						"index"			"1"
 					}
 				}
-			}			
+			}
 		}
 	}
 
@@ -22149,7 +22158,7 @@
 						"index"			"1"
 					}
 				}
-			}			
+			}
 		}
 	}
 
@@ -22213,7 +22222,7 @@
 						"index"			"1"
 					}
 				}
-			}			
+			}
 		}
 	}
 
@@ -22280,7 +22289,7 @@
 						"index"			"1"
 					}
 				}
-			}			
+			}
 		}
 	}
 
@@ -22345,7 +22354,7 @@
 						"index"			"2"
 					}
 				}
-			}			
+			}
 		}
 	}
 
@@ -22409,7 +22418,7 @@
 						"index"			"1"
 					}
 				}
-			}			
+			}
 		}
 	}
 
@@ -22460,7 +22469,7 @@
 						"Function"		"undertaker_attack"
 					}
 				}
-			}			
+			}
 		}
 		"OnProjectileHitUnit"
 		{
@@ -22562,7 +22571,7 @@
 						"Function"		"eternal_night_take_damage"
 					}
 				}
-			}		
+			}
 			"modifier_eternal_night_sleep_unwakable"
 			{
 				"IsDebuff"	"1"
@@ -22572,7 +22581,7 @@
 					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
-			}	
+			}
 		}
 	}
 
@@ -22617,7 +22626,7 @@
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"onu_attack_land"
 					}
-				}				
+				}
 			}
 			"modifier_blinded_glint_buff"
 			{
@@ -22626,11 +22635,11 @@
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1200"
 				}
-			}	
+			}
 			"modifier_glint_no_proc"
 			{
 				"IsHidden"	"1"
-			}		
+			}
 		}
 	}
 
@@ -22672,7 +22681,7 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"		
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 			"modifier_hood_of_defiler_effect_visible"
 			{
@@ -22688,7 +22697,7 @@
 						"Function"		"defiler_end"
 					}
 				}
-			}			
+			}
 			"modifier_hood_of_defiler_armor_loss"
 			{
 				"IsDebuff"	"1"
@@ -22703,11 +22712,11 @@
 				"IsDebuff"	"0"
 				"IsHidden"	"0"
 				"EffectName"	"particles/roshpit/items/hood_of_defiler_od_of_defiance.vpcf"
-				"EffectAttachType"	"attach_origin"		
+				"EffectAttachType"	"attach_origin"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.5"
-				}	
+				}
 			}
 		}
 	}
@@ -22745,7 +22754,7 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"	
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"ThinkInterval"  "0.25"
 				"OnIntervalThink"
 				{
@@ -22755,8 +22764,8 @@
 						"Function"		"roknar_think"
 						"target"		"TARGET"
 					}
-				}		
-			}		
+				}
+			}
 		}
 	}
 
@@ -22812,8 +22821,8 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"		
-			}		
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
 		}
 	}
 
@@ -22869,8 +22878,8 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"		
-			}		
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
 		}
 	}
 
@@ -22907,8 +22916,8 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"	
-			}		
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
 		}
 	}
 
@@ -22949,7 +22958,7 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"	
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"ThinkInterval"  "1.2"
 				"OnIntervalThink"
 				{
@@ -22967,7 +22976,7 @@
 						"Function"		"init_wind_deity"
 					}
 				}
-			}	
+			}
 			"modifier_wind_deity_damage_buff"
 			{
 				"IsHidden"	"0"
@@ -22980,7 +22989,7 @@
 				{
 					"MODIFIER_STATE_CANNOT_MISS"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-			}	
+			}
 		}
 	}
 
@@ -23022,14 +23031,14 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"	
-			}		
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
 			"modifier_water_deity_crown_slow"
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
 				"TextureName"	"tanari/ancient_hero_water_god"
-				"StatusEffectName" 		"particles/status_fx/status_effect_gush.vpcf" 	   
+				"StatusEffectName" 		"particles/status_fx/status_effect_gush.vpcf"
 				"StatusEffectPriority"  "10"
 				"Properties"
 				{
@@ -23089,8 +23098,8 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"	
-			}		
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
 		}
 	}
 
@@ -23146,8 +23155,8 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"	
-			}		
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
 			"modifier_helm_of_silent_templar_effect"
 			{
 				"IsHidden"	"0"
@@ -23217,7 +23226,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Duration"  "99999"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"	
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"ThinkInterval"  "0.5"
 				"OnIntervalThink"
 				{
@@ -23227,7 +23236,7 @@
 						"Function"		"swamp_doctor_think"
 						"target"		"TARGET"
 					}
-				}		
+				}
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -23242,7 +23251,7 @@
 						}
 					}
 				}
-			}		
+			}
 		}
 	}
 
@@ -23280,12 +23289,12 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"Model"							"models/props_gameplay/rune_arcane.vmdl"
 		"ItemKillable"					"0"
-		
+
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"100"
 		"AbilityCastPoint"				"0.0"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"99"
@@ -23308,7 +23317,7 @@
 				"ScriptFile"	"ai/desert_ruins/desert_ruins.lua"
 				"Function"		"ruins_key_pickup"
 			}
-		}		
+		}
 	}
 
 	"item_arcane_crystal"
@@ -23321,12 +23330,12 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"Model"							"models/props_gameplay/rune_arcane.vmdl"
 		"ItemKillable"					"0"
-		
+
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"100"
 		"AbilityCastPoint"				"0.0"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"99"
@@ -23369,12 +23378,12 @@
 			"SpendCharge"
 			{}
 
-		}		
+		}
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"100"
 		"AbilityCastPoint"				"0.0"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"99"
@@ -23406,7 +23415,7 @@
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"0"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"2250"
@@ -23415,8 +23424,8 @@
 		"ItemAliases"					"blink dagger"
 		"SideShop"						"1"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -23467,7 +23476,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	//flamewaker
 
@@ -23498,7 +23507,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_flamewaker_weapon_01"
 	{
@@ -23527,7 +23536,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_flamewaker_weapon_02"
 	{
@@ -23556,7 +23565,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_flamewaker_weapon_03"
 	{
@@ -23585,7 +23594,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_flamewaker_weapon_11"
 	{
@@ -23614,7 +23623,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_flamewaker_weapon_12"
 	{
@@ -23643,7 +23652,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_flamewaker_weapon_13"
 	{
@@ -23701,7 +23710,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_flamewaker_weapon_21"
 	{
@@ -23759,7 +23768,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_flamewaker_weapon_23"
 	{
@@ -23788,7 +23797,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_flamewaker_weapon_24"
 	{
@@ -23817,7 +23826,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_flamewaker_weapon_25"
 	{
@@ -23846,7 +23855,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}		
+	}
 
 	//epoch
 
@@ -23877,7 +23886,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_epoch_weapon_01"
 	{
@@ -23906,7 +23915,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_epoch_weapon_02"
 	{
@@ -23935,7 +23944,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_epoch_weapon_03"
 	{
@@ -23964,7 +23973,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_epoch_weapon_11"
 	{
@@ -23993,7 +24002,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_epoch_weapon_12"
 	{
@@ -24022,7 +24031,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_epoch_weapon_13"
 	{
@@ -24080,7 +24089,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_epoch_weapon_21"
 	{
@@ -24138,7 +24147,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_epoch_weapon_23"
 	{
@@ -24167,7 +24176,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_epoch_weapon_24"
 	{
@@ -24196,7 +24205,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_epoch_weapon_25"
 	{
@@ -24225,7 +24234,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}		
+	}
 
 	//voltex
 
@@ -24256,7 +24265,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_voltex_weapon_01"
 	{
@@ -24285,7 +24294,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_voltex_weapon_02"
 	{
@@ -24314,7 +24323,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_voltex_weapon_03"
 	{
@@ -24343,7 +24352,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_voltex_weapon_11"
 	{
@@ -24372,7 +24381,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_voltex_weapon_12"
 	{
@@ -24401,7 +24410,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_voltex_weapon_13"
 	{
@@ -24430,7 +24439,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_voltex_weapon_14"
 	{
@@ -24459,7 +24468,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_voltex_weapon_21"
 	{
@@ -24517,7 +24526,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_voltex_weapon_23"
 	{
@@ -24546,7 +24555,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_voltex_weapon_24"
 	{
@@ -24575,7 +24584,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_voltex_weapon_25"
 	{
@@ -24604,7 +24613,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 //conjuror
 
@@ -24635,7 +24644,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_conjuror_weapon_01"
 	{
@@ -24664,7 +24673,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_conjuror_weapon_02"
 	{
@@ -24693,7 +24702,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_conjuror_weapon_03"
 	{
@@ -24722,7 +24731,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_conjuror_weapon_11"
 	{
@@ -24751,7 +24760,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_conjuror_weapon_12"
 	{
@@ -24780,7 +24789,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_conjuror_weapon_13"
 	{
@@ -24809,7 +24818,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_conjuror_weapon_14"
 	{
@@ -24838,7 +24847,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_conjuror_weapon_21"
 	{
@@ -24896,7 +24905,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_conjuror_weapon_23"
 	{
@@ -24925,7 +24934,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_conjuror_weapon_24"
 	{
@@ -24954,7 +24963,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_conjuror_weapon_25"
 	{
@@ -24983,7 +24992,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 
 	//astral
@@ -25015,7 +25024,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_astral_weapon_01"
 	{
@@ -25044,7 +25053,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_astral_weapon_02"
 	{
@@ -25073,7 +25082,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_astral_weapon_03"
 	{
@@ -25102,7 +25111,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_astral_weapon_11"
 	{
@@ -25131,7 +25140,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_astral_weapon_12"
 	{
@@ -25160,7 +25169,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_astral_weapon_13"
 	{
@@ -25189,7 +25198,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_astral_weapon_14"
 	{
@@ -25218,7 +25227,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_astral_weapon_21"
 	{
@@ -25276,7 +25285,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_astral_weapon_23"
 	{
@@ -25305,7 +25314,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_astral_weapon_24"
 	{
@@ -25334,7 +25343,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_astral_weapon_25"
 	{
@@ -25363,7 +25372,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	//sorceress
 
@@ -25394,7 +25403,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_sorceress_weapon_01"
 	{
@@ -25423,7 +25432,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_sorceress_weapon_02"
 	{
@@ -25452,7 +25461,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_sorceress_weapon_03"
 	{
@@ -25481,7 +25490,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_sorceress_weapon_11"
 	{
@@ -25510,7 +25519,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_sorceress_weapon_12"
 	{
@@ -25539,7 +25548,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_sorceress_weapon_13"
 	{
@@ -25568,7 +25577,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_sorceress_weapon_14"
 	{
@@ -25597,7 +25606,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_sorceress_weapon_21"
 	{
@@ -25655,7 +25664,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_sorceress_weapon_23"
 	{
@@ -25684,7 +25693,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_sorceress_weapon_24"
 	{
@@ -25713,7 +25722,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_sorceress_weapon_25"
 	{
@@ -25742,7 +25751,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 
 	//venomort
@@ -25774,7 +25783,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_venomort_weapon_01"
 	{
@@ -25803,7 +25812,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_venomort_weapon_02"
 	{
@@ -25832,7 +25841,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_venomort_weapon_03"
 	{
@@ -25861,7 +25870,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_venomort_weapon_11"
 	{
@@ -25890,7 +25899,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_venomort_weapon_12"
 	{
@@ -25919,7 +25928,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_venomort_weapon_13"
 	{
@@ -25948,7 +25957,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_venomort_weapon_14"
 	{
@@ -25977,7 +25986,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_venomort_weapon_21"
 	{
@@ -26035,7 +26044,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_venomort_weapon_23"
 	{
@@ -26064,7 +26073,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_venomort_weapon_24"
 	{
@@ -26093,7 +26102,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_venomort_weapon_25"
 	{
@@ -26122,7 +26131,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	//axe
 
@@ -26153,7 +26162,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_axe_weapon_00"
 	{
@@ -26211,7 +26220,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_axe_weapon_02"
 	{
@@ -26240,7 +26249,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_axe_weapon_03"
 	{
@@ -26269,7 +26278,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_axe_weapon_11"
 	{
@@ -26298,7 +26307,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_axe_weapon_12"
 	{
@@ -26327,7 +26336,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_axe_weapon_13"
 	{
@@ -26356,7 +26365,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_axe_weapon_14"
 	{
@@ -26385,7 +26394,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_axe_weapon_21"
 	{
@@ -26443,7 +26452,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_axe_weapon_23"
 	{
@@ -26472,7 +26481,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_axe_weapon_24"
 	{
@@ -26501,7 +26510,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_axe_weapon_25"
 	{
@@ -26530,7 +26539,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	//warlord
 
@@ -26561,7 +26570,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_warlord_weapon_02"
 	{
@@ -26590,7 +26599,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_warlord_weapon_03"
 	{
@@ -26619,7 +26628,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_warlord_weapon_11"
 	{
@@ -26648,7 +26657,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_warlord_weapon_12"
 	{
@@ -26677,7 +26686,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_warlord_weapon_13"
 	{
@@ -26706,7 +26715,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_warlord_weapon_14"
 	{
@@ -26735,7 +26744,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_warlord_weapon_21"
 	{
@@ -26793,7 +26802,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_warlord_weapon_23"
 	{
@@ -26822,7 +26831,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_warlord_weapon_24"
 	{
@@ -26851,7 +26860,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_warlord_weapon_25"
 	{
@@ -26880,7 +26889,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 
 	//paladin
@@ -26912,7 +26921,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_paladin_weapon_00"
 	{
@@ -26970,7 +26979,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_paladin_weapon_02"
 	{
@@ -26999,7 +27008,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_paladin_weapon_03"
 	{
@@ -27028,7 +27037,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_paladin_weapon_11"
 	{
@@ -27057,7 +27066,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_paladin_weapon_12"
 	{
@@ -27086,7 +27095,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_paladin_weapon_13"
 	{
@@ -27115,7 +27124,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_paladin_weapon_14"
 	{
@@ -27144,7 +27153,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_paladin_weapon_21"
 	{
@@ -27202,7 +27211,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_paladin_weapon_23"
 	{
@@ -27231,7 +27240,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_paladin_weapon_24"
 	{
@@ -27260,7 +27269,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_paladin_weapon_25"
 	{
@@ -27289,7 +27298,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	//seinaru
 
@@ -27320,7 +27329,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_seinaru_weapon_01"
 	{
@@ -27349,7 +27358,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_seinaru_weapon_02"
 	{
@@ -27378,7 +27387,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_seinaru_weapon_03"
 	{
@@ -27407,7 +27416,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_seinaru_weapon_11"
 	{
@@ -27436,7 +27445,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_seinaru_weapon_12"
 	{
@@ -27465,7 +27474,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_seinaru_weapon_13"
 	{
@@ -27494,7 +27503,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_seinaru_weapon_14"
 	{
@@ -27523,7 +27532,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_seinaru_weapon_21"
 	{
@@ -27581,7 +27590,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_seinaru_weapon_23"
 	{
@@ -27610,7 +27619,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_seinaru_weapon_24"
 	{
@@ -27639,7 +27648,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_seinaru_weapon_25"
 	{
@@ -27668,7 +27677,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	//bahamut
 
@@ -27699,7 +27708,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_bahamut_weapon_01"
 	{
@@ -27728,7 +27737,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_bahamut_weapon_02"
 	{
@@ -27757,7 +27766,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_bahamut_weapon_03"
 	{
@@ -27786,7 +27795,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_bahamut_weapon_11"
 	{
@@ -27815,7 +27824,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_bahamut_weapon_12"
 	{
@@ -27844,7 +27853,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_bahamut_weapon_13"
 	{
@@ -27873,7 +27882,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_bahamut_weapon_14"
 	{
@@ -27902,7 +27911,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_bahamut_weapon_21"
 	{
@@ -27960,7 +27969,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_bahamut_weapon_23"
 	{
@@ -27989,7 +27998,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_bahamut_weapon_24"
 	{
@@ -28018,7 +28027,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_bahamut_weapon_25"
 	{
@@ -28078,7 +28087,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_duskbringer_weapon_01"
 	{
@@ -28107,7 +28116,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_duskbringer_weapon_02"
 	{
@@ -28136,7 +28145,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_duskbringer_weapon_03"
 	{
@@ -28165,7 +28174,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_duskbringer_weapon_11"
 	{
@@ -28194,7 +28203,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_duskbringer_weapon_12"
 	{
@@ -28223,7 +28232,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_duskbringer_weapon_13"
 	{
@@ -28252,7 +28261,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_duskbringer_weapon_14"
 	{
@@ -28281,7 +28290,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_duskbringer_weapon_21"
 	{
@@ -28339,7 +28348,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_duskbringer_weapon_23"
 	{
@@ -28368,7 +28377,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_duskbringer_weapon_24"
 	{
@@ -28397,7 +28406,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_duskbringer_weapon_25"
 	{
@@ -28457,7 +28466,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_auriun_weapon_01"
 	{
@@ -28486,7 +28495,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_auriun_weapon_02"
 	{
@@ -28515,7 +28524,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_auriun_weapon_03"
 	{
@@ -28544,7 +28553,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_auriun_weapon_11"
 	{
@@ -28573,7 +28582,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_auriun_weapon_12"
 	{
@@ -28602,7 +28611,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_auriun_weapon_13"
 	{
@@ -28631,7 +28640,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_auriun_weapon_14"
 	{
@@ -28660,7 +28669,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_auriun_weapon_21"
 	{
@@ -28718,7 +28727,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_auriun_weapon_23"
 	{
@@ -28747,7 +28756,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_auriun_weapon_24"
 	{
@@ -28776,7 +28785,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_auriun_weapon_25"
 	{
@@ -28836,7 +28845,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_trapper_weapon_01"
 	{
@@ -28865,7 +28874,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_trapper_weapon_02"
 	{
@@ -28894,7 +28903,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_trapper_weapon_03"
 	{
@@ -28923,7 +28932,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_trapper_weapon_11"
 	{
@@ -28952,7 +28961,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_trapper_weapon_12"
 	{
@@ -28981,7 +28990,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_trapper_weapon_13"
 	{
@@ -29010,7 +29019,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_trapper_weapon_14"
 	{
@@ -29039,7 +29048,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_trapper_weapon_21"
 	{
@@ -29097,7 +29106,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_trapper_weapon_23"
 	{
@@ -29126,7 +29135,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_trapper_weapon_24"
 	{
@@ -29155,7 +29164,7 @@
 				"Function"		"equip_item"
 			}
 		}
-	}	
+	}
 
 	"item_rpc_trapper_weapon_25"
 	{
@@ -39438,7 +39447,342 @@
 	}
 
 	//SORCERESS GLYPHS
-	"item_rpc_sorceress_glyph_1_1"
+    "item_rpc_sorceress_glyph_book"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/book/glyph_book_sorceress"
+		"AbilityCastRange"	"900"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"10"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/gameplay/attrib_tome_int.vmdl"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/glyph_abilities.lua"
+				"Function"		"use_glyph_book"
+				"hero"          "sorceress"
+			}
+		}
+	}
+
+    "item_rpc_sorceress_glyph_1_2"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/glyph_sorceress_1_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"Modifiers"
+		{
+			"modifier_sorceress_glyph_1_2"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"15"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"1"
+			}
+		}
+	}
+
+	"item_rpc_sorceress_glyph_2_2"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/glyph_sorceress_2_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"Modifiers"
+		{
+			"modifier_sorceress_glyph_2_2"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"40"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"50"
+			}
+		}
+	}
+
+	"item_rpc_sorceress_glyph_3_2"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/glyph_sorceress_3_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"Modifiers"
+		{
+			"modifier_sorceress_glyph_3_2"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"2"
+			}
+		}
+	}
+
+	"item_rpc_sorceress_glyph_4_2"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/glyph_sorceress_4_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"Modifiers"
+		{
+			"modifier_sorceress_glyph_4_2"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"7"
+			}
+		}
+	}
+
+	"item_rpc_sorceress_glyph_5_2"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/glyph_sorceress_5_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"Modifiers"
+		{
+			"modifier_sorceress_glyph_5_2"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/glyph_abilities.lua"
+						"Function"		"sorceress_glyph_5_1_initialize"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/glyph_abilities.lua"
+						"Function"		"sorceress_glyph_5_1_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"50"
+			}
+		}
+	}
+
+	"item_rpc_sorceress_glyph_6_2"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/glyph_sorceress_6_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"Modifiers"
+		{
+			"modifier_sorceress_glyph_6_2"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"100"
+			}
+		}
+	}
+
+	"item_rpc_sorceress_glyph_7_2"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/glyph_sorceress_7_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"Modifiers"
+		{
+			"modifier_sorceress_glyph_7_2"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"150"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"5"
+			}
+		}
+	}	"item_rpc_sorceress_glyph_1_1"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -44081,7 +44425,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -44120,7 +44464,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -44164,7 +44508,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -44208,7 +44552,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -44247,7 +44591,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -44296,7 +44640,7 @@
 						"target"		"TARGET"
 					}
 				}
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -44335,7 +44679,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}		
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -45490,14 +45834,14 @@
 		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemKillable"					"0"
-		
+
 		// Sound
-		//-------------------------------------------------------------------------------------------------------------			
+		//-------------------------------------------------------------------------------------------------------------
 		"UIPickupSound"					"Item.PickUpGemShop"
 		"UIDropSound"					"Item.DropGemShop"
 		"WorldDropSound"				"Item.DropGemWorld"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -45514,7 +45858,7 @@
 			{
 				"Passive"			"1"
 				"IsHidden"			"1"
-		
+
 				"ThinkInterval"  "0.3"
 				"OnIntervalThink"
 				{
@@ -45524,7 +45868,7 @@
 						"Function"		"thicket_bat_egg_think"
 						"target"		"TARGET"
 					}
-				}		
+				}
 			}
 			"modifier_egg_hatching"
 			{
@@ -45555,14 +45899,14 @@
 		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemKillable"					"0"
-		
+
 		// Sound
-		//-------------------------------------------------------------------------------------------------------------			
+		//-------------------------------------------------------------------------------------------------------------
 		"UIPickupSound"					"Item.PickUpGemShop"
 		"UIDropSound"					"Item.DropGemShop"
 		"WorldDropSound"				"Item.DropGemWorld"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{

@@ -23,6 +23,7 @@ function startCast(event)
 
     Blink.cast(caster, ability)
     clearCast(caster, ability)
+    ability.amp = event.amp
 
     if not caster:HasModifier("modifier_sorceress_immortal_ice_avatar") and not caster:HasModifier("modifier_sorceress_immortal_fire_avatar") then
         WaterElemental.summon(caster, ability, newPosition)
@@ -47,10 +48,7 @@ function clearCast(caster, ability)
     EmitSoundOn("Sorceress.ClearCast", caster)
     caster:RemoveModifierByName("modifier_pyro_cooldown")
 
---    @TODO: Can't get the value
---    local amplify = ability.amp
-
-    local amplify = 3
+    local amplify = ability.amp
     local clearCastDuration = Filters:GetAdjustedBuffDuration(caster, E_CLEAR_CAST_DURATION, false)
 
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_clear_cast", {duration = clearCastDuration})

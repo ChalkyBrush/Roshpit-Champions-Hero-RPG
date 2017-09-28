@@ -104,10 +104,16 @@ function RPCItems:RollItemtype(xpBounty, deathLocation, rarityValue, unitLevel)
 		elseif rarityValue == 5 then
 			chanceImprover = 2
 		end
-		local luck2 = RandomInt(1, 250-(chanceImprover*100))
+		local luck2 = RandomInt(1, 240-(chanceImprover*100))
 		if luck2 == 1 then
-			Glyphs:RollRandomGlyph(deathLocation)
-			return
+			local luck3 = RandomInt(1,3)
+			if luck3 == 1 then
+				Glyphs:RollRandomGlyphBook(deathLocation)
+				return
+			else
+				Glyphs:RollRandomGlyph(deathLocation)
+				return
+			end
 		end
 	end
 	if luck >= 200 then

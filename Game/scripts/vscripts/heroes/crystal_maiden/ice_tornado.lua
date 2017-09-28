@@ -1,4 +1,4 @@
--- require('heroes/crystal_maiden/ice_lance')
+require('heroes/crystal_maiden/init')
 
 function start_channel(event)
 	local caster = event.caster
@@ -79,7 +79,11 @@ function channel_complete(event)
 		local dummy = CreateUnitByName("npc_dummy_unit", casterOrigin, false, nil, nil, caster:GetTeamNumber())
 		ability:ApplyDataDrivenModifier(caster, dummy, "modifier_tornado_thinker", {duration = 14})
 		local projectileFV = ((startPoint-casterOrigin)*Vector(1,1,0)):Normalized()
-		local pfx = ParticleManager:CreateParticle("particles/roshpit/sorceress/ice_tornado_arcana_tornado_ti6.vpcf", PATTACH_CUSTOMORIGIN, caster)
+		local tornadoParticle = "particles/roshpit/sorceress/ice_tornado_arcana_tornado_ti6.vpcf"
+		if caster:HasModifier("modifier_sorceress_glyph_7_1") then
+			tornadoParticle = "particles/roshpit/sorceress/chaos_tornado_arcana_tornado_ti6.vpcf"
+		end
+		local pfx = ParticleManager:CreateParticle(tornadoParticle, PATTACH_CUSTOMORIGIN, caster)
 		ParticleManager:SetParticleControl(pfx, 0, casterOrigin)
 		-- ParticleManager:SetParticleControl(pfx, 1, Vector(ability.velocity, ability.velocity, ability.velocity))
 		-- ParticleManager:SetParticleControl(pfx, 1, startPoint)
@@ -126,6 +130,9 @@ function tornado_thinker(event)
 	local ability = event.ability
 	local target = event.target
 	local dummy = target
+	if not IsValidEntity(ability) then
+		return false
+	end
 	dummy.interval = dummy.interval + 1
 	dummy.hardInterval = dummy.hardInterval + 1
 	if dummy.hardInterval == 140 then
@@ -200,7 +207,10 @@ function splinter_hit(event)
 	if caster:HasModifier("modifier_sorceress_immortal_fire_avatar") then
 		caster = caster.origCaster
 	end
-	local damage = caster:GetIntellect()*5*ability.a_d_level
+	local damage = caster:GetIntellect()*3*ability.a_d_level
+	if caster:HasModifier("modifier_sorceress_glyph_7_1") then
+		damage = damage*1.5
+	end
 	local luck = RandomInt(1, 100)
 	if ability.b_d_level > 0  and luck < ARCANA1_R2_CHANCE then
 		damage = damage * (1 + ARCANA1_R2_CRIT_DAMAGE/100 * ability.b_d_level)
@@ -210,7 +220,9 @@ function splinter_hit(event)
 		elseif not Immune.targetHasImmune(target, 'modifier_sorceress_arcana_b_d') and not target:HasModifier('modifier_sorceress_arcana_b_d_visible') then
 			Immune.addEffectDuration(caster, target, ability, 'modifier_sorceress_arcana_b_d', 1)
 			ability:ApplyDataDrivenModifier(caster, target, 'modifier_sorceress_arcana_b_d_visible', {duration = 1})
+			EmitSoundOn("Sorceress.IceTornadoShard.Freeze", caster)
 		end
+		CustomAbilities:QuickAttachParticle("particles/roshpit/sorceress/ice_lance_fracture.vpcf", target, 0.3)
 	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
 end
@@ -266,6 +278,9 @@ function tornado_damage_think(event)
 	local target = event.target
 	local damage = event.damage
 	local ability = event.ability
+	if caster:HasModifier("modifier_sorceress_glyph_7_1") then
+		damage = damage*1.5
+	end
 	if caster:HasModifier("modifier_clear_cast") then
 		if ability.c_c_amp then
 			damage = damage + damage*ability.c_c_amp

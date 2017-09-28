@@ -434,7 +434,7 @@ function Filters:ApplyStun(caster, duration, target)
             Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, target, "modifier_stun_resistance", {duration = 7+duration})
             local resistDivisor = 1
             if caster:HasModifier("modifier_knight_crusher_armor") or caster:HasModifier("modifier_sorceress_glyph_5_2") then
-                resistDivisor = 2
+                resistDivisor = resistDivisor/2
             end
             local newResistanceStacks = currentResistanceStacks + math.ceil((duration*10)/resistDivisor)
             target:SetModifierStackCount("modifier_stun_resistance", Events.GameMaster, newResistanceStacks)

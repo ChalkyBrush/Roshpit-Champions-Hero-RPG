@@ -1,6 +1,6 @@
 local function cast(caster, target, ability, damage)
-    EmitSoundOn("Hero_Lich.ChainFrostImpact.Hero", target)
-    local particleName = "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
+    EmitSoundOn("Sorceress.IceLance.Crit", target)
+    local particleName = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
     local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
     local origin = target:GetAbsOrigin()
     local runesCount = caster.c_a_level
@@ -14,9 +14,7 @@ local function cast(caster, target, ability, damage)
     local freezeDuration = Q3_BASE_DURATION + runesCount * Q3_ADD_DURATION
     local damage = damage * Q3_AMPLIFY_PERCENT/100 * runesCount
     local radius = Q3_RADIUS
-    if caster:HasModifier("modifier_sorceress_glyph_6_2") then
-        radius = T62_RADIUS
-    end
+
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), origin, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 
     if #enemies > 0 then

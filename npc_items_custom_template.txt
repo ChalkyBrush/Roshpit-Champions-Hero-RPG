@@ -19325,7 +19325,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_one"			"0.7"
+				"property_one"			"0.5"
 			}
 		}
 	}
@@ -20496,6 +20496,14 @@
 			            }
 			        }
 			    }
+			    "OnDestroy"
+			    {
+			    	"RemoveModifier"
+			    	{
+			    		"ModifierName"	"modifier_samurai_damage"
+			    		"Target" 		"TARGET"
+			    	}
+			    }
 			}
 			"modifier_samurai_damage"
 			{
@@ -21457,6 +21465,7 @@
 			"particle"	"particles/units/heroes/hero_winter_wyvern/wyvern_splinter_blast.vpcf"
 			"particle"	"particles/status_fx/status_effect_iceblast.vpcf"
 			"particle"	"particles/roshpit/sorceress/ice_avatar.vpcf"
+			"particle"	"particles/roshpit/sorceress/chaos_tornado_arcana_tornado_ti6.vpcf"
 		}
 		"OnSpellStart"
 		{

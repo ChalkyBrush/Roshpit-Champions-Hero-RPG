@@ -23,7 +23,8 @@ local function cast(caster, ability, runesCount)
         local enemies2 = FindUnitsInRadius( caster:GetTeamNumber(), elementalOrigin, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
         if #enemies2 > 0 then
             for _,enemy in pairs(enemies2) do
-                Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE) ability:ApplyDataDrivenModifier(caster, enemy, "modifier_frost_nova", {duration = freezeDuration})
+                -- Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE) 
+                ability:ApplyDataDrivenModifier(caster, enemy, "modifier_frost_nova", {duration = freezeDuration})
             end
         end
         local particle2 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )

@@ -327,6 +327,14 @@ function Glyphs:RollRandomGlyph(position)
 	Glyphs:RollGlyphAll(glyphName, position, 0)
 end
 
+function Glyphs:RollRandomGlyphBook(position)
+	local tier = Glyphs:RollRandomTier()
+	local column = 2
+	local heroName = Glyphs:GetRandomHeronameForBook()
+	-- local bookName = "item_rpc_"..heroName.."_glyph_"..tier.."_"..column
+	Glyphs:RollGlyphBook(position, heroName, tier, column)
+end
+
 function Glyphs:RollRandomTier()
 	local difficulty = GameState:GetDifficultyFactor()
 	local rollIncreaser = 0
@@ -334,7 +342,7 @@ function Glyphs:RollRandomTier()
 	if difficulty == 2 then
 		rollIncreaser = 25
 	elseif difficulty == 3 then
-		rollIncreaser = 32
+		rollIncreaser = 35
 	end
 	local luck = RandomInt(1,100+rollIncreaser)
 	if luck <= 50 then
@@ -349,7 +357,7 @@ function Glyphs:RollRandomTier()
 		tier = 5
 	elseif luck <= 130 then
 		tier = 6
-	elseif luck <= 132 then
+	elseif luck <= 135 then
 		tier = 7
 	end
 	return tier
@@ -363,6 +371,12 @@ function Glyphs:GetRandomHeroname()
 		heroname = heroNameTable[luck]
 	end
 	return heroname
+end
+
+function Glyphs:GetRandomHeronameForBook()
+	local heroNameTable = {"sorceress"}
+	local random = RandomInt(1, #heroNameTable)
+	return heroNameTable[random]
 end
 
 
@@ -458,9 +472,19 @@ end
 function Glyphs:GlyphPurchase(msg)
 	local hero = EntIndexToHScript(msg.heroIndex)
 	local tier = tonumber(msg.tier)
+	local column = tonumber(msg.column)
 	local glyphName = msg.glyphName
-	local cost = Glyphs:GetGlyphCostByTier(tier)
+	local cost = Glyphs:GetGlyphCostByTier(tier, column, msg.glyphHero)
 	local crystalReduce = cost*-1
+	local glyphHero = HerosCustom:GetInternalHeroName(msg.glyphHero)
+	if hero.glyphRecipes[glyphHero] then
+		if column == 2 then
+			if hero.glyphRecipes[glyphHero][2][tier] == 0 then
+				Notifications:Top(hero:GetPlayerOwnerID(), {text="Not Learned", duration=3, style={color="red"}, continue=true})
+				return false
+			end
+		end
+	end
 	local playerID = hero:GetPlayerOwnerID()
 	local currentCrystals = CustomNetTables:GetTableValue("player_stats", tostring(playerID).."-resources").arcane
 	if currentCrystals >= cost then
@@ -492,7 +516,7 @@ function Glyphs:GlyphPurchase(msg)
 	print("spend "..cost.." crystals to buy "..glyphName)
 end
 
-function Glyphs:GetGlyphCostByTier(tier)
+function Glyphs:GetGlyphCostByTier(tier, column, heroName)
 	local cost = 0
 	if tier == 1 then
 		cost = 200
@@ -509,8 +533,13 @@ function Glyphs:GetGlyphCostByTier(tier)
 	elseif tier == 7 then
 		cost = 25000
 	end
+	if column == 2 then
+		if heroName == "neutral" then
+		else
+			cost = cost*5
+		end
+	end
 	return cost
-
 end
 
 function Glyphs:RollGlyphAll(variantName, position, heroIndex)
@@ -698,4 +727,128 @@ function Glyphs:DebugArchivistGlyph(position)
 		local variantName = "item_rpc_"..heroName.."_glyph_5_a"
 		Glyphs:RollGlyphAll(variantName, position, 0)
 	end
+end
+
+function Glyphs:GetGlyphAvailability(msg)
+	local playerID = msg.playerID
+	local heroName = msg.hero
+	local rpcHeroName = HerosCustom:GetInternalHeroNameMain(heroName)
+	if msg.hero == "tooltip_neutral" then
+		rpcHeroName = "neutral"
+	end
+	local steamID = PlayerResource:GetSteamAccountID(playerID)
+	local player = PlayerResource:GetPlayer(playerID)
+	local hero = player:GetAssignedHero()	
+	local url = ROSHPIT_URL.."/champions/getGlyphRecipes?"
+	url = url.."steam_id="..steamID
+	url = url.."&hero="..heroName
+	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+		local resultTable = {}
+		print( "GET response:\n" )
+		for k,v in pairs( result ) do
+			print( string.format( "%s : %s\n", k, v ) )
+		end
+		print( "Done." )
+		local resultTable = JSON:decode(result.Body)
+		-- resultTable = Quests:GetQuestDataFromJSON(resultTable)
+		print(resultTable)
+		local recipeResults = Glyphs:FormatRecipeResults(resultTable)
+		DeepPrintTable(recipeResults)
+		if not hero.glyphRecipes then
+			hero.glyphRecipes = {}
+		end
+		if hero.loadedGlyphDisplay then
+			for i = 1, #hero.loadedGlyphDisplay, 1 do
+				UTIL_Remove(hero.loadedGlyphDisplay[i])
+			end
+		end
+		local columnsToLoad = Glyphs:GetAvailableColumnCount(rpcHeroName)
+		hero.loadedGlyphDisplay = {}
+		for i = 1, 7, 1 do
+			for j = 1, columnsToLoad, 1 do
+				local glyphName = "item_rpc_"..rpcHeroName.."_glyph_"..i.."_"..j
+				local tempGlyph = Glyphs:RollGlyphAll(glyphName, hero:GetAbsOrigin(), -1)
+				hero.loadedGlyphDisplay[i.."_"..j] = tempGlyph:GetEntityIndex()
+			end
+		end
+		hero.glyphRecipes[rpcHeroName] = recipeResults
+		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "glyph_recipes_loaded", {heroName = heroName, data=recipeResults, glyphDisplay=hero.loadedGlyphDisplay})
+		DeepPrintTable(hero.glyphRecipes)
+	end )
+end
+
+function Glyphs:FormatRecipeResults(resultTable)
+	DeepPrintTable(resultTable)
+	if next(resultTable) == nil then
+		return {}
+	end
+	recipeResults = {}
+	recipeResults[1] = nil
+	recipeResults[2] = {}
+	for i = 1, 7, 1 do
+		recipeResults[2][i] = resultTable[1]["t"..i.."_2"]
+	end
+
+	return recipeResults
+end
+
+function Glyphs:GetAvailableColumnCount(rpcHeroName)
+	local columns = 1
+	if rpcHeroName == "neutral" then
+		columns = 3
+	elseif rpcHeroName == "sorceress" then
+		columns = 2
+	end
+	return columns
+end
+
+function Glyphs:RollGlyphBook(deathLocation, class, row, column)
+	local rarityName = Glyphs:GetRarityFromGlyphTier(row, column)
+    local item = RPCItems:CreateConsumable("item_rpc_"..class.."_glyph_book", rarityName, "glyph_book", "glyph_book", false, "Consumable", "DOTA_Tooltip_ability_glyph_book_desc")
+    item.glyphBook = true
+	item.property1 = row
+	item.property1name = "row"
+	RPCItems:SetPropertyValues(item, item.property1, "item_row", "#99FF66",  1)
+
+	item.property2 = column
+	item.property2name = "column"
+	RPCItems:SetPropertyValues(item, item.property2, "item_column", "#99FF66",  2)
+
+	local glyphName = "DOTA_Tooltip_ability_item_rpc_"..class.."_glyph_"..row.."_"..column
+	item.property3 = 0
+	item.property3name = glyphName
+	RPCItems:SetPropertyValues(item, 0, glyphName, "#D378ED",  3)
+
+	item.property4 = 0
+	item.property4name = ""
+	RPCItems:SetPropertyValues(item, 0, "", "#FFFFFF",  4)
+    local drop = CreateItemOnPositionSync( deathLocation, item )
+    local position = deathLocation
+    RPCItems:DropItem(item, position)
+end
+
+function Glyphs:CreateGlyphBook(itemName, row, column)
+	local class = string.gsub(itemName, "item_rpc_", "")
+	class = string.gsub(class, "_glyph_book", "")
+	local rarityName = Glyphs:GetRarityFromGlyphTier(row, column)
+    local item = RPCItems:CreateConsumable(itemName, rarityName, "glyph_book", "glyph_book", false, "Consumable", "DOTA_Tooltip_ability_glyph_book_desc")
+    item.glyphBook = true
+	item.property1 = row
+	item.property1name = "row"
+	RPCItems:SetPropertyValues(item, item.property1, "item_row", "#99FF66",  1)
+
+	item.property2 = column
+	item.property2name = "column"
+	RPCItems:SetPropertyValues(item, item.property2, "item_column", "#99FF66",  2)
+
+	local glyphName = "DOTA_Tooltip_ability_item_rpc_"..class.."_glyph_"..row.."_"..column
+	item.property3 = 0
+	item.property3name = glyphName
+	RPCItems:SetPropertyValues(item, 0, glyphName, "#D378ED",  3)
+
+	item.property4 = 0
+	item.property4name = ""
+	RPCItems:SetPropertyValues(item, 0, "", "#FFFFFF",  4)
+
+	return item
 end

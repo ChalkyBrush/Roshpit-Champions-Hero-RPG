@@ -36,10 +36,10 @@ function Tanari:Debug()
     -- RPCItems:RollTwistedMaskOfAhnqhirBlue(Vector(-4928, 2048))
     --  RPCItems:RollTwistedMaskOfAhnqhirYellow(Vector(-4928, 2048))
     --   RPCItems:RollTwistedMaskOfAhnqhirPurple(Vector(-4928, 2048))
-    Dungeons.itemLevel = 300
-    for i = 1, 3, 1 do
-        RPCItems:RollHydroxisArcana1(Vector(-4928, 2048))
-    end
+    -- Dungeons.itemLevel = 300
+    -- for i = 1, 3, 1 do
+    --     RPCItems:RollSorceressArcana1(Vector(-4928, 2048))
+    -- end
     -- RPCItems:RollAquastoneRing(Vector(-4928, 2048))
     -- RPCItems:RollAuriunArcana2(Vector(-4928, 2048))
     -- RPCItems:RollDemonMask(Vector(-4928, 2048), false, 60)
@@ -56,7 +56,12 @@ function Tanari:Debug()
     -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "djanghor")
     -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "djanghor")
     -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "djanghor")
-    -- Glyphs:DebugRollHeroGlyphs("djanghor", Vector(-4928, 2048))
+    Glyphs:RollGlyphBook(Vector(-4928, 2048), "sorceress", 5, 2)
+    Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
+    Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
+    Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
+    Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
+    -- Glyphs:DebugRollHeroGlyphs("sorceress", Vector(-4928, 2048))
     -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "ekkan")
     -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "ekkan")
     -- for i = 1, 3, 1 do
