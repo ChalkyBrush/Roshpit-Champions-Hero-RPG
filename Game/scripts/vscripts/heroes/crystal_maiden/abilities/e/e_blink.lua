@@ -23,7 +23,7 @@ function startCast(event)
 
     Blink.cast(caster, ability)
     clearCast(caster, ability)
-    ability.amp = event.amp/100
+    ability.amp = 1 + event.amp/100
 
     if not caster:HasModifier("modifier_sorceress_immortal_ice_avatar") and not caster:HasModifier("modifier_sorceress_immortal_fire_avatar") then
         WaterElemental.summon(caster, ability, newPosition)

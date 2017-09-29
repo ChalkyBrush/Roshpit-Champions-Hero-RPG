@@ -738,6 +738,13 @@ function HerosCustom:GetAvailableRunes(heroName)
 		table.insert(tooltipTable, "rune")
 		table.insert(colorTable, "#7DFF12")
 
+		table.insert(runeTable, "rune_c_b")
+		table.insert(baseValueTable, 10)
+		table.insert(propensityTable, 1)
+		table.insert(tooltipTable, "rune")
+		table.insert(colorTable, "#7DFF12")
+
+
 		table.insert(runeTable, "rune_a_c")
 		table.insert(baseValueTable, 12)
 		table.insert(propensityTable, 0)
@@ -745,6 +752,12 @@ function HerosCustom:GetAvailableRunes(heroName)
 		table.insert(colorTable, "#7DFF12")
 
 		table.insert(runeTable, "rune_b_c")
+		table.insert(baseValueTable, 15)
+		table.insert(propensityTable, 2)
+		table.insert(tooltipTable, "rune")
+		table.insert(colorTable, "#7DFF12")
+
+		table.insert(runeTable, "rune_c_c")
 		table.insert(baseValueTable, 15)
 		table.insert(propensityTable, 2)
 		table.insert(tooltipTable, "rune")

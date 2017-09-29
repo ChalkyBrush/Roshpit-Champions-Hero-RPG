@@ -600,7 +600,6 @@
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
 				"Duration"			"3.1"
-				"TextureName"		"keeper_of_the_light_chakra_magic"
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -726,6 +725,7 @@
 				"IsDebuff"			"1"
 				"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
 				"EffectAttachType"	"follow_origin"
+				"TextureName"		"rpc/sorceress_c_a_2"
 
 				"States"
 				{
@@ -1123,6 +1123,7 @@
 			{
 				"IsHidden"	        "0"
 				"IsDebuff"			"1"
+				"TextureName"		"lina_light_strike_array"
 			}
 		}
 

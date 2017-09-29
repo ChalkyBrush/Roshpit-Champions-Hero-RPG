@@ -44,7 +44,7 @@ function arcana1_b_b_spin(caster, ability, amp)
 			increment_d_b_stacks(caster, #enemies, ability)
 			EmitSoundOn("Hydroxis.Arcana.SpinImpact", enemies[1])
 			for _,enemy in pairs(enemies) do
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_WATER, RPC_ELEMENT_FIRE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 2, RPC_ELEMENT_WATER, RPC_ELEMENT_FIRE)
 			end				
 		end 		
 	else
