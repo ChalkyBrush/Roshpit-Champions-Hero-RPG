@@ -1,4 +1,5 @@
 require('heroes/crystal_maiden/init')
+local FrostNova = require('heroes/crystal_maiden/abilities/q/q2_frost_nova')
 local ArcaneShell = require('heroes/crystal_maiden/abilities/w/w1_arcane_shell')
 local AmplifyMagic = require('heroes/crystal_maiden/abilities/w/w2_amplify_magic')
 
@@ -31,6 +32,14 @@ function calculateDamage(event)
     ability.damage = arcane_explosion_damage * T51_AMPLIFY
 end
 
+function toggle_on(event)
+    local caster = event.caster
+    local ability = caster:FindAbilityByName("arcane_explosion")
+    if IsValidEntity(ability) then
+        FrostNova.tryToCast(caster, ability, true)
+    end
+end
+
 function think(event)
     local caster = event.caster
     local ability = event.ability
@@ -52,7 +61,7 @@ function think(event)
 
     local target = enemies[1]
 
-    ArcaneShell.cast(caster)
+    ArcaneShell.cast(caster, ability:GetLevel()/7)
 
     EmitSoundOn("Sorceress.ArcaneTorrentLaunch", caster)
     local info =

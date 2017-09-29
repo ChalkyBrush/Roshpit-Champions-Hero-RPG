@@ -534,7 +534,7 @@ function Glyphs:GetGlyphCostByTier(tier, column, heroName)
 		cost = 25000
 	end
 	if column == 2 then
-		if heroName == "neutral" then
+		if heroName == "tooltip_neutral" then
 		else
 			cost = cost*5
 		end

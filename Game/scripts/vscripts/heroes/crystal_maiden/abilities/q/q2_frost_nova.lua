@@ -40,17 +40,25 @@ local function cast(caster, ability, runesCount)
     end
 end
 
-local function tryToCast(caster, ability)
+local function tryToCast(caster, ability, bInstant)
     local runesCount = caster.b_a_level
     if runesCount == nil or runesCount <= 0 then
         return
     end
-    if caster:HasModifier("modifier_frost_nova_ready") then
-        cast(caster, ability, runesCount)
-        ability:ApplyDataDrivenModifier(caster, caster, "modifier_frost_nova_down", {duration = 10})
-    elseif not caster:HasModifier("modifier_frost_nova_down") then
-        ability:ApplyDataDrivenModifier(caster, caster, "modifier_frost_nova_ready", {duration = 0.6})
+    if bInstant then
+        if not caster:HasModifier("modifier_frost_nova_down") then
+            cast(caster, ability, runesCount)
+            ability:ApplyDataDrivenModifier(caster, caster, "modifier_frost_nova_down", {duration = 10})
+        end
+    else
+        if caster:HasModifier("modifier_frost_nova_ready") then
+            cast(caster, ability, runesCount)
+            ability:ApplyDataDrivenModifier(caster, caster, "modifier_frost_nova_down", {duration = 10})
+        elseif not caster:HasModifier("modifier_frost_nova_down") then
+            ability:ApplyDataDrivenModifier(caster, caster, "modifier_frost_nova_ready", {duration = 0.6})
+        end
     end
+
 end
 
 local module = {}

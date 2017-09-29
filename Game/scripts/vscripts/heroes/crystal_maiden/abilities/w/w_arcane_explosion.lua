@@ -44,8 +44,8 @@ function cast(event)
             ParticleManager:DestroyParticle( particle2, false )
         end
     )
-    ArcaneShell.cast(caster)
-    FrostNova.tryToCast(caster, ability)
+    ArcaneShell.cast(caster, 1)
+    FrostNova.tryToCast(caster, ability, false)
 end
 
 function projectileHit(event)

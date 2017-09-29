@@ -183,7 +183,7 @@ function InitializeShopGlyphItem(glyphPanel, msg)
 	if (heroName == "neutral"){
 		heroName = "tooltip_neutral"
 	}
-	glyphPanel.FindChildTraverse('glyph_purchase_price_value').text = numberWithCommas(getTierCost(glyphPanel.rowTier, glyphPanel.column))
+	glyphPanel.FindChildTraverse('glyph_purchase_price_value').text = numberWithCommas(getTierCost(glyphPanel.rowTier, glyphPanel.column, heroName))
 	glyphPanel.SetAttributeInt('item', item)
 	glyphPanel.itemName = mItemName
 	SetShopGlyphEvents(glyphPanel)
@@ -220,7 +220,7 @@ function GlyphPurchaseConfirm()
 {
 	GameUI.CustomUIConfig().glyphShopLock = 0
 }
-function getTierCost(tier, column)
+function getTierCost(tier, column, heroName)
 {
 	var cost = 0
 	if (tier == 1){
@@ -239,7 +239,9 @@ function getTierCost(tier, column)
 		cost = 25000
 	}
 	if (column==2){
-		cost = cost*5
+		if (!(heroName=="tooltip_neutral")){
+			cost = cost*5
+		}
 	}
 	return cost
 }

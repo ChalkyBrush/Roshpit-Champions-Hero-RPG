@@ -13099,7 +13099,7 @@
 				"IsDebuff"			"1"
 				"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
 				"EffectAttachType"	"follow_origin"
-
+				"TextureName"		"crystal_maiden_crystal_nova_icecowl"
 				"States"
 				{
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -13110,24 +13110,28 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsBuff"			"1"
+				"TextureName"		"crystal_maiden_crystal_nova_icecowl"
 			}
 			"modifier_frost_nova_immune_stacks"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsBuff"			"1"
+				"TextureName"		"crystal_maiden_crystal_nova_icecowl"
 			}
             "modifier_frost_nova_passive"
 			{
 				"Passive"			"1"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
+				"TextureName"		"crystal_maiden_crystal_nova_icecowl"
 			}
 			"modifier_frost_nova_ready"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
+				"TextureName"		"crystal_maiden_crystal_nova_icecowl"
 			}
 			"modifier_frost_nova_down"
 			{
@@ -13135,6 +13139,7 @@
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
 				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"TextureName"		"crystal_maiden_crystal_nova_icecowl"
 			}
 
 			"modifier_sorceress_rune_b_b_visible"
@@ -13572,7 +13577,6 @@
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
 				"Duration"			"3.1"
-				"TextureName"		"keeper_of_the_light_chakra_magic"
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -13698,6 +13702,7 @@
 				"IsDebuff"			"1"
 				"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
 				"EffectAttachType"	"follow_origin"
+				"TextureName"		"rpc/sorceress_c_a_2"
 
 				"States"
 				{
@@ -14095,6 +14100,7 @@
 			{
 				"IsHidden"	        "0"
 				"IsDebuff"			"1"
+				"TextureName"		"lina_light_strike_array"
 			}
 		}
 
@@ -14168,6 +14174,11 @@
             	"Function"		"calculateDamage"
 				"mana_drain"	"%mana_drain_per_second"
             }
+            "RunScript"
+            {
+            	"ScriptFile"	"heroes/crystal_maiden/abilities/w/w_arcane_torrent.lua"
+            	"Function"		"toggle_on"
+            }
 		}
 		"OnToggleOff"
 		{
@@ -14200,7 +14211,6 @@
 			{
 				"EffectName"	"particles/units/heroes/hero_huskar/arcane_torrent_channel.vpcf"
 				"EffectAttachType" "attach_staff_tip"
-				"OverrideAnimation"     "ACT_DOTA_TELEPORT_STATUE"
 				"ThinkInterval"  "0.2"
 				"OnIntervalThink"
 				{
