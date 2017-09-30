@@ -817,28 +817,32 @@ function SaveLoad:DraggedToStash(keys)
 							UTIL_Remove(itemEntity)
 							-- Weapons:ValidateGear(hero)
 							local resultTable = JSON:decode(result.Body)
+							print("@@@@ WITHDRAW RESULTS @@@@")
+							print(resultTable)
 							local keys = {}
-							local inventoryItem = CustomNetTables:GetTableValue("stash", tostring(playerID).."-"..tostring(stashSlot))
-							if inventoryItem.itemIndex == 0 then
-							else
-								if not Challenges:CheckIfHeroHasItemByItemIndex(hero, inventoryItem.itemIndex) then
-									SaveLoad:PutItemInInventory(hero, inventoryItem.itemIndex)
-									local returnItem = EntIndexToHScript(inventoryItem.itemIndex)
+							-- local inventoryItem = CustomNetTables:GetTableValue("stash", tostring(playerID).."-"..tostring(stashSlot))
+							if resultTable then
+								local withdrawnItem = SaveLoad:LoadGear(resultTable, playerID, false)
+								withdrawnItem.itemIndex = withdrawnItem:GetEntityIndex()
+								if not Challenges:CheckIfHeroHasItemByItemIndex(hero, withdrawnItem.itemIndex) then
+									SaveLoad:PutItemInInventory(hero, withdrawnItem.itemIndex)
+									local returnItem = EntIndexToHScript(withdrawnItem.itemIndex)
 									if IsValidEntity(returnItem:GetContainer()) then
 										UTIL_Remove(returnItem:GetContainer())
 									end
 								end
+							else
 							end
 							keys.playerID = playerID
 							-- CustomGameEventManager:Send_ServerToPlayer(player, "stash_item_upated", {stashSlot = stashSlot, item = itemIndex} )
 							SaveLoad:StashOpen(keys)
 						else
-							if not Challenges:CheckIfHeroHasItemByItemIndex(hero, itemEntity:GetEntityIndex()) then
-								RPCItems:GiveItemToHeroWithSlotCheck(hero, itemEntity)
-								if IsValidEntity(itemEntity:GetContainer()) then
-									UTIL_Remove(itemEntity:GetContainer())
-								end
-							end
+							-- if not Challenges:CheckIfHeroHasItemByItemIndex(hero, itemEntity:GetEntityIndex()) then
+							-- 	RPCItems:GiveItemToHeroWithSlotCheck(hero, itemEntity)
+							-- 	if IsValidEntity(itemEntity:GetContainer()) then
+							-- 		UTIL_Remove(itemEntity:GetContainer())
+							-- 	end
+							-- end
 						end
 					end )
 			else
@@ -914,16 +918,17 @@ function SaveLoad:DraggedFromStash(keys)
 							if result.StatusCode == 200 then
 								local resultTable = JSON:decode(result.Body)
 								local keys = {}
-								local inventoryItem = CustomNetTables:GetTableValue("stash", tostring(playerID).."-"..tostring(stashSlot))
-								print('stashSLOT')
-								print('stashSlot')
-								print("INVENTORY ITEM INDEX")
-								print(inventoryItem.itemIndex)
-								if inventoryItem.itemIndex == 0 then
-								else
-									if not Challenges:CheckIfHeroHasItemByItemIndex(hero, inventoryItem.itemIndex) then
-										SaveLoad:PutItemInInventory(hero, inventoryItem.itemIndex)
+								if resultTable then
+									local withdrawnItem = SaveLoad:LoadGear(resultTable, playerID, false)
+									withdrawnItem.itemIndex = withdrawnItem:GetEntityIndex()
+									if not Challenges:CheckIfHeroHasItemByItemIndex(hero, withdrawnItem.itemIndex) then
+										SaveLoad:PutItemInInventory(hero, withdrawnItem.itemIndex)
+										local returnItem = EntIndexToHScript(withdrawnItem.itemIndex)
+										if IsValidEntity(returnItem:GetContainer()) then
+											UTIL_Remove(returnItem:GetContainer())
+										end
 									end
+								else
 								end
 								keys.playerID = playerID
 								-- CustomGameEventManager:Send_ServerToPlayer(player, "stash_item_upated", {stashSlot = stashSlot, item = itemIndex} )
@@ -954,11 +959,13 @@ function SaveLoad:DraggedFromStash(keys)
 						if result.StatusCode == 200 then
 							local resultTable = JSON:decode(result.Body)
 							local keys = {}
-							local inventoryItem = CustomNetTables:GetTableValue("stash", tostring(playerID).."-"..tostring(stashSlot))
-							if inventoryItem.itemIndex == 0 then
+							print(resultTable)
+							local withdrawnItem = SaveLoad:LoadGear(resultTable, playerID, false)
+							withdrawnItem.itemIndex = withdrawnItem:GetEntityIndex()
+							if withdrawnItem.itemIndex == 0 then
 							else
-								if not Challenges:CheckIfHeroHasItemByItemIndex(hero, inventoryItem.itemIndex) then
-									SaveLoad:PutItemInInventory(hero, inventoryItem.itemIndex)
+								if not Challenges:CheckIfHeroHasItemByItemIndex(hero, withdrawnItem.itemIndex) then
+									SaveLoad:PutItemInInventory(hero, withdrawnItem.itemIndex)
 								end
 							end
 							keys.playerID = playerID
