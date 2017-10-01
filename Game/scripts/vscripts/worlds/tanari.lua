@@ -38,7 +38,7 @@ function Tanari:Debug()
       RPCItems:RollTwistedMaskOfAhnqhirPurple(Vector(-4928, 2048))
     -- Dungeons.itemLevel = 300
     for i = 1, 3, 1 do
-        RPCItems:RollSorceressArcana1(Vector(-4928, 2048))
+        RPCItems:RollAstralArcana1(Vector(-4928, 2048))
     end
     -- RPCItems:RollAquastoneRing(Vector(-4928, 2048))
     -- RPCItems:RollAuriunArcana2(Vector(-4928, 2048))
@@ -52,17 +52,17 @@ function Tanari:Debug()
         -- RPCItems:RollZhonikArcana1(Vector(-4928, 2048))
     -- end
     -- RPCItems:RollMountainProtectorArcana1(Vector(-4928, 2048))
-    Arena = {}
-    Arena.PitLevel = 7
-    Weapons:RollLegendWeapon1(Vector(-4928, 2048), "djanghor")
-    Weapons:RollLegendWeapon2(Vector(-4928, 2048), "djanghor")
-    Weapons:RollLegendWeapon3(Vector(-4928, 2048), "djanghor")
-    -- Glyphs:RollGlyphBook(Vector(-4928, 2048), "sorceress", 5, 2)
+    -- Arena = {}
+    -- Arena.PitLevel = 7
+    -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "djanghor")
+    -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "djanghor")
+    -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "djanghor")
+    -- -- Glyphs:RollGlyphBook(Vector(-4928, 2048), "sorceress", 5, 2)
+    -- -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
     -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
-    Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
-    -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
-    -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
-    Glyphs:DebugRollHeroGlyphs("sorceress", Vector(-4928, 2048))
+    -- -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
+    -- -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
+    -- Glyphs:DebugRollHeroGlyphs("sorceress", Vector(-4928, 2048))
     -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "ekkan")
     -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "ekkan")
     -- for i = 1, 3, 1 do
@@ -100,6 +100,7 @@ function Tanari:Debug()
     -- for i = 1, 3, 1 do
     --     RPCItems:RollSorceressArcana1(Vector(-4928, 2048))
     -- end
+    -- RPCItems:RollGarnetWarfareRing(Vector(-4928, 2048))
     -- RPCItems:RollBladestormVest(Vector(-4928, 2048))
     -- RPCItems:RollIronColossus(Vector(-4928, 2048), false)
     -- RPCItems:RollChernobogArcana1(Vector(-4928, 2048))
@@ -110,7 +111,7 @@ function Tanari:Debug()
     -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "solunia")
     -- RPCItems:RollWindDeityCrown(Vector(-4928, 2048), true, 7)
     -- RPCItems:RollAstralArcana1(Vector(-4928, 2048))
-    -- Glyphs:DebugRollHeroGlyphs("zonik", Vector(-4928, 2048))
+    Glyphs:DebugRollHeroGlyphs("zonik", Vector(-4928, 2048))
     -- RPCItems:RollSeinaruArcana1(Vector(-4928, 2048))
     -- RPCItems:RollScorchedGauntlets(Vector(-4928, 2048))
     -- RPCItems:RollWhiteMageHat(Vector(-4928, 2048), false)

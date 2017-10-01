@@ -238,7 +238,7 @@ function AbilityShowTooltip()
 	// 	scale = attribute_scaler[1]
 	// }
 	var property_one_base = Abilities.GetLevelSpecialValueFor( r_Ability, "property_one_base", 1)
-	property_one_base = Math.round(property_one_base * 100) / 100
+	property_one_base = Math.round(property_one_base * 100, 1) / 100
 	var level_line = "Level: "+abilityLevel+"<br>"
 	if (abilityLevel == 0){
 		property_one_base = 0
@@ -251,7 +251,7 @@ function AbilityShowTooltip()
 			propertyValue = property_one_max
 		}
 	}
-	propertyValue = Math.round(propertyValue * 100) / 100
+	propertyValue = Math.round(propertyValue * 100, 1) / 100
 	var firstProperty = buildPropertyLine(abilityName, propertyValue, "Current:", scale)
 	var property_one_base = Abilities.GetLevelSpecialValueFor( r_Ability, "property_one_base", 1)
 	propertyValue = amount_per_level*(abilityLevel+1)+property_one_base
@@ -260,16 +260,16 @@ function AbilityShowTooltip()
 			propertyValue = property_one_max
 		}
 	}	
-	propertyValue = Math.round(propertyValue * 100) / 100
+	propertyValue = Math.round(propertyValue * 100, 1) / 100
 	var secondProperty = buildPropertyLine(abilityName, propertyValue, "Next Level:", scale)
 	if (abilityLevel == 20){
 		secondProperty = ""
 	}
 	var amount_per_level2 = Abilities.GetLevelSpecialValueFor( r_Ability, "property_two", 1)
-	amount_per_level2 = Math.round(amount_per_level2 * 100) / 100
+	amount_per_level2 = Math.round(amount_per_level2 * 100, 1) / 100
 	if (amount_per_level2!=0){
 		var property_two_base = Abilities.GetLevelSpecialValueFor( r_Ability, "property_two_base", 1)
-		property_two_base = Math.round(property_two_base * 100) / 100
+		property_two_base = Math.round(property_two_base * 100, 1) / 100
 		if (abilityLevel == 0){
 			property_two_base = 0
 		}

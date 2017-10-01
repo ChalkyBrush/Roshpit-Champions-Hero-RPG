@@ -591,6 +591,8 @@ function Runes:EquipArcana(hero, index)
 	elseif hero:GetUnitName() == "npc_dota_hero_drow_ranger" then
 		if index == 1 then
 			hero:RemoveModifierByName("modifier_moon_shroud_passive")
+			hero:RemoveModifierByName("modifier_astral_rune_d_a_visible")
+			hero:RemoveModifierByName("modifier_astral_rune_d_a_invisible")
 			local abilityIndex = 0
 			local origAbility = hero:GetAbilityByIndex(abilityIndex)
 			local abilityLevel = hero:GetAbilityByIndex(abilityIndex):GetLevel()

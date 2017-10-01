@@ -105,6 +105,12 @@ function initializeTooltip(func){
 			$('#properties_value4').RemoveClass('invisible')
 
 			handleSpecialProperty(itemProperty4, 4, item, queryUnit, itemValues, itemProperty4)
+
+			if(!(itemValues.glyph ===undefined)){
+				if (itemValues.glyph == 1){
+					$('#properties_special1').AddClass('invisible')
+				}
+			}
 		}
 
 		//MINLEVEL
@@ -240,6 +246,11 @@ function handleSpecialProperty(itemProperty, index, item, queryUnit, itemValues,
 		$('#properties_name'+index).AddClass('invisible')
 		$('#properties_value'+index).AddClass('invisible')
 		$('#properties_special'+index).AddClass('invisible')				
+	}
+	if (itemValues.rarityFactor < index){
+		$('#properties_name'+index).AddClass('invisible')
+		$('#properties_value'+index).AddClass('invisible')
+		$('#properties_special'+index).AddClass('invisible')		
 	}
 }
 
@@ -393,22 +404,23 @@ function SpecialDescriptionValues(specialText, item)
 {
 	if (specialText.indexOf("@special_property1") > -1){
 		var value = Abilities.GetSpecialValueFor( item, "property_one" )
-		value = Math.round(value, 1)
+		$.Msg("$$$VALUE: "+value)
+		value = Math.round(value*100, 1)/100
 		specialText = specialText.replace("@special_property1", "<font color='#CCFF66'>"+value+"</font>");
 	}	
 	if (specialText.indexOf("@special_property2") > -1){
 		var value = Abilities.GetSpecialValueFor( item, "property_two" )
-		value = Math.round(value, 1)
+		value = Math.round(value*100, 1)/100
 		specialText = specialText.replace("@special_property2", "<font color='#CCFF66'>"+value+"</font>");
 	}	
 	if (specialText.indexOf("@special_property3") > -1){
 		var value = Abilities.GetSpecialValueFor( item, "property_three" )
-		value = Math.round(value, 1)
+		value = Math.round(value*100, 1)/100
 		specialText = specialText.replace("@special_property3", "<font color='#CCFF66'>"+value+"</font>");
 	}	
 	if (specialText.indexOf("@special_property4") > -1){
 		var value = Abilities.GetSpecialValueFor( item, "property_four" )
-		value = Math.round(value, 1)
+		value = Math.round(value*100, 1)/100
 		specialText = specialText.replace("@special_property4", "<font color='#CCFF66'>"+value+"</font>");
 	}
 	return specialText
