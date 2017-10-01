@@ -15,8 +15,8 @@
 		<Panel id="pickupbox-parent" hittest="false">
 			<DOTAHeroImage id="pickup_player_portrait" heroid="5" />
 			<Panel id="ItemImagePickup-container"
-				onmouseover="ItemShowTooltip('#ItemImagePickup')"
-				onmouseout="ItemHideTooltip('#ItemImagePickup')">
+				onmouseover="ItemShowTooltipPickup()"
+				onmouseout="ItemHideTooltipPickup()">
 			<DOTAItemImage hittest="true" class="ItemImagePickup" id="ItemImagePickup"/>
 			</Panel>
 		</Panel>

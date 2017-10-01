@@ -33,16 +33,17 @@ function Tanari:Debug()
      
     -- Glyphs:RollGlyphAll("item_rpc_warlord_glyph_2_1", Vector(-4928, 2048), 0)
 
-    -- RPCItems:RollTwistedMaskOfAhnqhirBlue(Vector(-4928, 2048))
-    --  RPCItems:RollTwistedMaskOfAhnqhirYellow(Vector(-4928, 2048))
-    --   RPCItems:RollTwistedMaskOfAhnqhirPurple(Vector(-4928, 2048))
+    RPCItems:RollTwistedMaskOfAhnqhirBlue(Vector(-4928, 2048))
+     RPCItems:RollTwistedMaskOfAhnqhirYellow(Vector(-4928, 2048))
+      RPCItems:RollTwistedMaskOfAhnqhirPurple(Vector(-4928, 2048))
     -- Dungeons.itemLevel = 300
-    -- for i = 1, 3, 1 do
-    --     RPCItems:RollSorceressArcana1(Vector(-4928, 2048))
-    -- end
+    for i = 1, 3, 1 do
+        RPCItems:RollSorceressArcana1(Vector(-4928, 2048))
+    end
     -- RPCItems:RollAquastoneRing(Vector(-4928, 2048))
     -- RPCItems:RollAuriunArcana2(Vector(-4928, 2048))
-    -- RPCItems:RollDemonMask(Vector(-4928, 2048), false, 60)
+    RPCItems:RollDemonMask(Vector(-4928, 2048), false, 60)
+    RPCItems:RollWatcherPlate(Vector(-4928, 2048))
     -- for i = 1, 3, 1 do
     --     RPCItems:RollEkkanArcana1(Vector(-4928, 2048))
     -- end
@@ -51,14 +52,14 @@ function Tanari:Debug()
         -- RPCItems:RollZhonikArcana1(Vector(-4928, 2048))
     -- end
     -- RPCItems:RollMountainProtectorArcana1(Vector(-4928, 2048))
-    -- Arena = {}
-    -- Arena.PitLevel = 7
-    -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "djanghor")
-    -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "djanghor")
-    -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "djanghor")
+    Arena = {}
+    Arena.PitLevel = 7
+    Weapons:RollLegendWeapon1(Vector(-4928, 2048), "djanghor")
+    Weapons:RollLegendWeapon2(Vector(-4928, 2048), "djanghor")
+    Weapons:RollLegendWeapon3(Vector(-4928, 2048), "djanghor")
     -- Glyphs:RollGlyphBook(Vector(-4928, 2048), "sorceress", 5, 2)
     -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
-    -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
+    Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
     -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
     -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
     Glyphs:DebugRollHeroGlyphs("sorceress", Vector(-4928, 2048))

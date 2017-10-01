@@ -1,0 +1,214 @@
+.item_tooltip_root{
+
+}
+
+.invisible{
+	visibility: collapse;
+}
+
+#tooltip_main_container{
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+	flow-children:down;
+	width:260px;
+}
+
+#tooltip_title{
+	font-size:20px;
+	color:white;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+	text-shadow: 2px 2px 2px solid black;
+	text-align: center;
+	width:100%;
+}
+
+#tooltip_special_right2{
+	color:#DDDDDD;
+}
+
+#tooltip_title_container{
+	width:100%;
+	text-align: center;
+}
+
+#tooltip_slot_container{
+	width:100%;
+}
+
+#tooltip_quality_left{
+	width:100%;
+	horizontal-align:left;
+	text-align:left;
+	color:white;
+	font-size:14px;
+}
+
+#tooltip_quality_right{
+	width:100%;
+	horizontal-align:right;
+	text-align:right;
+	color:#AAAAAA;
+	font-size:14px;
+}
+
+#consumable-text{
+	width:100%;
+	font-size:18px;
+
+}
+
+#properties_container{
+	width:100%;
+	flow-children:down;
+	margin-top:5px;
+}
+
+.property_container{
+	width:100%;
+}
+
+.properties_name{
+	width:100%;
+	font-size:18px;
+}
+
+.properties_value{
+	font-size:18px;
+	width:100%;
+	text-align: right;
+}
+
+.class-splitter{
+	width:100%;
+	margin-top:2px;
+	margin-bottom:2px;
+	height:1px;
+	background-color: #555555;
+}
+
+#tooltip_requirements_left{
+	width:100%;
+	text-align:left;
+	font-size:14px;
+}
+
+#tooltip_requirements_right{
+	width:100%;
+	text-align:right;
+	color: #FFFFFF;
+	font-size:14px;
+}
+
+#tooltip_requirements_container{
+	width:100%;
+}
+
+#class-splitter3{
+	margin-top:8px;
+}
+
+#specials_container{
+	flow-children:down;
+}
+
+.special-property{
+	margin-top:8px;
+	color:#DDDDDD;
+	font-size:14px;
+}
+
+.properties_special_container{
+	flow-children:down;
+}
+
+.special-property-title{
+	width:100%;
+	text-align: center;
+}
+
+.properties_special_container{
+	padding:8px;
+	background-color: #0D0D0D;
+	border-radius:6px;
+	margin-left:4px;
+	margin-right:4px;
+	margin-top:5px;
+	box-shadow: 0px 0px 2px #2D2D2D;
+}
+
+.tooltip_special_element_container{
+	width:100%;
+	flow-children:down;
+}
+
+.tooltip_special_element_horizontalcontainer{
+	width:100%;
+}
+
+.tooltip_element_left{
+	width:100%;
+	text-align: left;
+	horizontal-align:left;
+}
+
+.tooltip_element_right{
+	width:100%;
+	text-align: right;
+	horizontal-align:right;
+}
+
+.dark_tooltip{
+	background-color: #0D0D0D;
+}
+
+#tooltip_weapons_data_container{
+	width:100%;
+	background-color: #231414;
+	padding:8px;
+	margin-left:4px;
+	margin-right:4px;
+	border-radius:6px;
+	box-shadow: 0px 0px 2px #000000;
+	margin-top:8px;
+	flow-children:down;
+}
+
+.tooltip_weapon_left{
+	width:100%;
+	text-align: left;
+	horizontal-align:left;
+	font-size:18px;
+	text-shadow: 2px 2px 2px solid black;
+}
+
+.tooltip_weapon_right{
+	width:100%;
+	text-align: right;
+	horizontal-align:right;
+	font-size:18px;
+	text-shadow: 2px 2px 2px solid black;
+}
+
+#weapon_exp_bar{
+	width:100%;
+	margin-left:4px;
+	margin-right:4px;
+	height:24px;
+	box-shadow: 0px 0px 2px #000000;
+	background-color: black;
+	border-radius:4px;
+}
+
+#weapon_exp_bar_inner{
+	width:95%;
+	height:100%;
+	background-color: gradient( linear, 0px 0%, 240px 0%, from(#3e367c), to( #140e49 ) );
+}
+
+#weapon_exp_bar_text{
+	width:100%;
+	height:100%;
+	text-align: center;
+	color:white;
+	font-size:16px;
+	margin-top:2px;
+}

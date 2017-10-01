@@ -1,6 +1,5 @@
 <root>
 	<styles>
-		<include src="file://{resources}/styles/dotastyles.css" />
 		<include src="file://{resources}/styles/custom_game/menu/equipment.css" />
 		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
 		<include src="file://{resources}/styles/custom_game/weapons.css" />
@@ -11,13 +10,22 @@
 		<include src="file://{resources}/scripts/custom_game/equipment_manager.js" />
 		<include src="file://{resources}/scripts/custom_game/equipment_item.js" />
 		<include src="file://{resources}/scripts/custom_game/equipment/item_tooltip.js" />
-		<include src="file://{resources}/scripts/custom_game/heroes_custom/heroes_custom.js" />
-		<include src="file://{resources}/scripts/custom_game/weapons.js" />
 	</scripts>
 	<snippets>
 		<snippet name="equipment_query">
 			<Panel class="equipment_query_container" hittest="false">
 				<Panel class="equipment_query_bg" hittest="false">
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="equipment_item_snippet">
+			<Panel class="item_container" hittest="false">
+				<Panel class="item_image" id="item_container" hittest="true"
+					onactivate='EquipmentClick(0)'
+					onmouseover="ItemShowTooltipInit(0)"
+					onmouseout="ItemHideTooltipInit(0)">
+					<DOTAItemImage hittest="false" id="ItemImage" draggable="true"/>
+
 				</Panel>
 			</Panel>
 		</snippet>
@@ -48,52 +56,52 @@
 			</Panel>
 			<Panel id="main_equipment_container" hittest="false">
 				<Panel class="item_container" id="helm_main_container" hittest="false">
-					<Panel class="item_image" id="helm_container" draggable="false"
+					<Panel class="item_image" id="helm_container" hittest="true"
 						onactivate='EquipmentClick(0)'
 						onmouseover="ItemShowTooltipInit(0)"
 						onmouseout="ItemHideTooltipInit(0)">
-						<DOTAItemImage hittest="false" id="ItemImageHelm" draggable="true"/>
+						<DOTAItemImage hittest="false" id="ItemImageHelm"/>
 
 					</Panel>
 				</Panel>
 				<Panel class="item_container" id="armor_main_container" hittest="false">
-					<Panel class="item_image" id="armor_container" draggable="false"
+					<Panel class="item_image" id="armor_container" hittest="true"
 						onactivate='EquipmentClick(4)'
 						onmouseover="ItemShowTooltipInit(4)"
 						onmouseout="ItemHideTooltipInit(4)">
-						<DOTAItemImage hittest="false" id="ItemImageArmor" draggable="true"/>
+						<DOTAItemImage hittest="false" id="ItemImageArmor"/>
 
 					</Panel>
 				</Panel>
 				<Panel class="item_container"  id="weapon_glove_main_container" hittest="false">
-					<Panel class="item_image" id="weapon_container" draggable="false"
+					<Panel class="item_image" id="weapon_container" hittest="true"
 						onactivate='EquipmentClick(1)'
 						onmouseover="ItemShowTooltipInit(1)"
 						onmouseout="ItemHideTooltipInit(1)">
-						<DOTAItemImage hittest="false" id="ItemImageWeapon" draggable="true"/>
+						<DOTAItemImage hittest="false" id="ItemImageWeapon"/>
 
 					</Panel>
-					<Panel class="item_image" id="glove_container" draggable="false"
+					<Panel class="item_image" id="glove_container" hittest="true"
 						onactivate='EquipmentClick(2)'
 						onmouseover="ItemShowTooltipInit(2)"
 						onmouseout="ItemHideTooltipInit(2)">
-						<DOTAItemImage hittest="false" id="ItemImageGlove" draggable="true"/>
+						<DOTAItemImage hittest="false" id="ItemImageGlove"/>
 
 					</Panel>
 				</Panel>
 				<Panel class="item_container" id="boot_amulet_main_container" hittest="false">
-					<Panel class="item_image" id="boot_container" draggable="false"
+					<Panel class="item_image" id="boot_container" hittest="true"
 						onactivate='EquipmentClick(3)'
 						onmouseover="ItemShowTooltipInit(3)"
 						onmouseout="ItemHideTooltipInit(3)">
-						<DOTAItemImage hittest="false" id="ItemImageBoot" draggable="true"/>
+						<DOTAItemImage hittest="false" id="ItemImageBoot"/>
 
 					</Panel>
-					<Panel class="item_image" id="amulet_container" draggable="false"
+					<Panel class="item_image" id="amulet_container" hittest="true"
 						onactivate='EquipmentClick(5)'
 						onmouseover="ItemShowTooltipInit(5)"
 						onmouseout="ItemHideTooltipInit(5)">
-						<DOTAItemImage hittest="false" id="ItemImageAmulet" draggable="true"/>
+						<DOTAItemImage hittest="false" id="ItemImageAmulet"/>
 
 					</Panel>
 				</Panel>

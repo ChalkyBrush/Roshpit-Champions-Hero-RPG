@@ -131,6 +131,29 @@ function recalculate_items(){
 	}
 }
 
+function ItemShowTooltipInit(slot)
+{
+	var itemPanel = getSlot(slot)
+	var item = itemPanel.GetAttributeInt( "item", -1 );
+	if ( item == -1 )
+		return;
+	// $.GetContextPanel().SetAttributeInt( "item", item)
+	// ItemShowTooltipOnPanel(itemPanel)
+	// var itemName = Abilities.GetAbilityName( item );
+	GameUI.CustomUIConfig.itemTooltip = item
+	$.DispatchEvent("UIShowCustomLayoutTooltip", itemPanel, "ItemTooltipEquip", "file://{resources}/layout/custom_game/equipment/item_tooltip.xml");
+
+}
+
+function ItemHideTooltipInit(slot)
+{
+	var itemPanel = getSlot(slot)
+	$.DispatchEvent("UIHideCustomLayoutTooltip", "ItemTooltipEquip");
+	// if (slot == 1){
+	// 	weaponDetailsOut()
+	// }
+}
+
 
 (function()
 {

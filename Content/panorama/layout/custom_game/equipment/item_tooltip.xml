@@ -1,0 +1,105 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/item_tooltip.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/equipment/item_tooltip_popout.js" />
+		<include src="file://{resources}/scripts/custom_game/heroes_custom/heroes_custom.js" />
+	</scripts>
+	<Panel class="item_tooltip_new_root" ontooltiploaded="initializeTooltip()">
+		<Panel id="tooltip_main_container">
+			<Panel id="tooltip_title_container">
+				<Label id="tooltip_title" text="HIGH THIS IS CUSTOM" html="true">
+
+				</Label>
+			</Panel>
+			<Panel class="class-splitter"/>
+			<Panel id="tooltip_slot_container">
+				<Label id="tooltip_quality_left" html="true"/>
+				<Label id="tooltip_quality_right" html="true"/>
+			</Panel>
+			<Panel class="class-splitter"/>
+			<Panel id="properties_container">
+				<Label id="consumable-text" html="true">
+				</Label>
+				<Panel id="property1" class="property_container">
+					<Label id="properties_name1" class="properties_name" html="true">
+					</Label>
+					<Label id="properties_value1" class="properties_value" html="true">
+					</Label>
+				</Panel>
+				<Panel id="property2" class="property_container">
+					<Label id="properties_name2" class="properties_name" html="true">
+					</Label>
+					<Label id="properties_value2" class="properties_value" html="true">
+					</Label>
+				</Panel>
+				<Panel id="property3" class="property_container">
+					<Label id="properties_name3" class="properties_name" html="true">
+					</Label>
+					<Label id="properties_value3" class="properties_value" html="true">
+					</Label>
+				</Panel>
+				<Panel id="property4" class="property_container">
+					<Label id="properties_name4" class="properties_name" html="true">
+					</Label>
+					<Label id="properties_value4" class="properties_value" html="true">
+					</Label>
+				</Panel>
+			</Panel>
+			<Panel id="specials_container">
+				<Panel class="properties_special_container" id="properties_special1">
+					<Label id="properties_special_title1" class="special-property-title" html="true"/>
+					<Label id="properties_special_text1" class="special-property" html="true"/>
+					<Panel id="tooltip_special_element_container1" class="tooltip_special_element_container">
+						<Panel class="class-splitter"/>
+						<Panel class="tooltip_special_element_horizontalcontainer">
+							<Label id="tooltip_special_left1" html="true" class="tooltip_element_left"/>
+							<Label id="tooltip_special_right1" html="true" class="tooltip_element_right"/>						
+						</Panel>		
+						<Panel class="tooltip_special_element_horizontalcontainer">
+							<Label id="tooltip_special_left2" html="true" class="tooltip_element_left"/>
+							<Label id="tooltip_special_right2" html="true" class="tooltip_element_right"/>						
+						</Panel>			
+						<Panel class="class-splitter" id="class-splitter-inner-special2-1"/>
+					</Panel>	
+				</Panel>
+				<Panel class="properties_special_container" id="properties_special2">
+					<Label id="properties_special_title2" class="special-property-title" html="true"/>
+					<Label id="properties_special_text2" class="special-property" html="true"/>
+				</Panel>
+				<Panel class="properties_special_container" id="properties_special3">
+					<Label id="properties_special_title3" class="special-property-title" html="true"/>
+					<Label id="properties_special_text3" class="special-property" html="true"/>
+				</Panel>
+				<Panel class="properties_special_container" id="properties_special4">
+					<Label id="properties_special_title4" class="special-property-title" html="true"/>
+					<Label id="properties_special_text4" class="special-property" html="true"/>
+				</Panel>
+			</Panel>
+			<Panel id="tooltip_weapons_data_container">
+				<Panel class="tooltip_special_element_horizontalcontainer">
+					<Label id="tooltip_weapon_left1" html="true" class="tooltip_weapon_left"/>
+					<Label id="tooltip_weapon_right1" html="true" class="tooltip_weapon_right"/>						
+				</Panel>		
+				<Panel class="tooltip_special_element_horizontalcontainer">
+					<Label id="tooltip_weapon_left2" html="true" class="tooltip_weapon_left"/>
+					<Label id="tooltip_weapon_right2" html="true" class="tooltip_weapon_right"/>						
+				</Panel>	
+				<Panel id="weapon_exp_bar">
+					<Panel id="weapon_exp_bar_inner">
+					</Panel>
+					<Label id="weapon_exp_bar_text" html="true"/>
+				</Panel> 				
+			</Panel>
+			<Panel class="class-splitter" id="class-splitter3"/>
+			<Panel id="tooltip_requirements_container">
+				<Label id="tooltip_requirements_left" html="true"/>
+				<Label id="tooltip_requirements_right" html="true"/>
+			</Panel>
+			<Panel class="class-splitter" id="class-splitter4"/>
+		</Panel>
+	</Panel>
+
+
+</root>

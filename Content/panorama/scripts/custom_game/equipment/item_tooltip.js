@@ -1,26 +1,3 @@
-function getSlot(slot)
-{
-		if (slot == 0){
-			var itemPanel = $("#helm_container");
-		}
-		if (slot == 1){
-			var itemPanel = $("#weapon_container");
-		}
-		if (slot == 2){
-			var itemPanel = $("#glove_container");
-		}
-		if (slot == 3){
-			var itemPanel = $("#boot_container");
-		}
-		if (slot == 4){
-			var itemPanel = $("#armor_container");
-		}
-		if (slot == 5){
-			var itemPanel = $("#amulet_container");
-		}	
-		return itemPanel;
-}
-
 function ItemShowTooltipOnPanel(itemPanel)
 {
 	var item = itemPanel.GetAttributeInt( "item", -1 );
@@ -31,75 +8,79 @@ function ItemShowTooltipOnPanel(itemPanel)
 	}
 	if ( item == -1 )
 		return;
+	$.Msg(itemPanel)
+	// var itemName = Abilities.GetAbilityName( item );
+	// var queryUnit = Players.GetLocalPlayerPortraitUnit();
+	// //var property1 = RPCItems.GetProperty1( item )
+	// var itemValues = CustomNetTables.GetTableValue( "item_basics", item.toString() )
+	// var itemProperty1 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-1" )
+	// itemValues = itemValuesCheck(itemValues)
+	// var tooltip = CreateCustomTooltip(itemValues, itemName, itemProperty1)
+	// tooltip = AddAffixToItem(tooltip, itemProperty1, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
+	// 	if (!(itemValues.useDescription === undefined)){
+	// 		var tooltip = CreateCustomTooltip(itemValues, itemName, itemProperty1)
+	// 		tooltip = tooltip + "<br><font color='#A3D4A1'>"+$.Localize(itemValues.useDescription)+"</font>"
+	// 		tooltip = replaceConsumableText(item, tooltip)
+	// 	}else{
+	// 		var itemProperty1 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-1" )
+	// 		var tooltip = CreateCustomTooltip(itemValues, itemName, itemProperty1)
+	// 		tooltip = AddAffixToItem(tooltip, itemProperty1, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
+	// 		if (itemValues.rarityFactor >= 2 )
+	// 		{
+	// 			var itemProperty2 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-2" )
+	// 			tooltip = AddAffixToItem(tooltip, itemProperty2, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
+	// 		}
+	// 		if (itemValues.rarityFactor >= 3 )
+	// 		{
+	// 			var itemProperty3 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-3" )
+	// 			tooltip = AddAffixToItem(tooltip, itemProperty3, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
+	// 		}
+	// 		if (itemValues.rarityFactor >= 4 )
+	// 		{
+	// 			var itemProperty4 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-4" )
+	// 			tooltip = AddAffixToItem(tooltip, itemProperty4, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
+	// 		}
+	// 	}
+	// 	var itemPrefix = itemValues.itemPrefix
+	// 	var itemSuffix = itemValues.itemSuffix
+	// 	//$.Msg( itemValues.property1 );
+	// 	//$.DispatchEvent( "DOTAShowAbilityTooltipForEntityIndex", $.GetContextPanel(), itemName, queryUnit );
+	// 	var localizedItemName = $.Localize("#DOTA_Tooltip_ability_"+Abilities.GetAbilityName(item))
+	// 	var title = "<font color='"+itemValues.qualityColor+"'>"+itemPrefix+" "+localizedItemName+" "+itemSuffix+"</font>"
+	// if (!(itemValues.minLevel ===undefined)){
+	// 	tooltip = AddMinLevelToTooltip(itemValues, tooltip, item)
+	// }
 
-	var itemName = Abilities.GetAbilityName( item );
-	var queryUnit = Players.GetLocalPlayerPortraitUnit();
-	//var property1 = RPCItems.GetProperty1( item )
-	var itemValues = CustomNetTables.GetTableValue( "item_basics", item.toString() )
-	var itemProperty1 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-1" )
-	itemValues = itemValuesCheck(itemValues)
-	var tooltip = CreateCustomTooltip(itemValues, itemName, itemProperty1)
-	tooltip = AddAffixToItem(tooltip, itemProperty1, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
-		if (!(itemValues.useDescription === undefined)){
-			var tooltip = CreateCustomTooltip(itemValues, itemName, itemProperty1)
-			tooltip = tooltip + "<br><font color='#A3D4A1'>"+$.Localize(itemValues.useDescription)+"</font>"
-			tooltip = replaceConsumableText(item, tooltip)
-		}else{
-			var itemProperty1 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-1" )
-			var tooltip = CreateCustomTooltip(itemValues, itemName, itemProperty1)
-			tooltip = AddAffixToItem(tooltip, itemProperty1, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
-			if (itemValues.rarityFactor >= 2 )
-			{
-				var itemProperty2 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-2" )
-				tooltip = AddAffixToItem(tooltip, itemProperty2, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
-			}
-			if (itemValues.rarityFactor >= 3 )
-			{
-				var itemProperty3 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-3" )
-				tooltip = AddAffixToItem(tooltip, itemProperty3, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
-			}
-			if (itemValues.rarityFactor >= 4 )
-			{
-				var itemProperty4 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-4" )
-				tooltip = AddAffixToItem(tooltip, itemProperty4, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
-			}
-		}
-		var itemPrefix = itemValues.itemPrefix
-		var itemSuffix = itemValues.itemSuffix
-		//$.Msg( itemValues.property1 );
-		//$.DispatchEvent( "DOTAShowAbilityTooltipForEntityIndex", $.GetContextPanel(), itemName, queryUnit );
-		var localizedItemName = $.Localize("#DOTA_Tooltip_ability_"+Abilities.GetAbilityName(item))
-		var title = "<font color='"+itemValues.qualityColor+"'>"+itemPrefix+" "+localizedItemName+" "+itemSuffix+"</font>"
-	if (!(itemValues.minLevel ===undefined)){
-		tooltip = AddMinLevelToTooltip(itemValues, tooltip, item)
-	}
+	// if (!(itemValues.requiredHero === undefined)){
+	// 	if (itemValues.glyph){
+	// 		tooltip = tooltip + "<br><br><font color='#F7501E'>"+$.Localize('#'+itemValues.requiredHero)+" "+$.Localize('#tooltip_glyph')+"</font>"
+	// 	}else if(itemValues.rarityFactor == 6){
+	// 		tooltip = tooltip + "<br><br><font color='#F7501E'>"+$.Localize('#'+itemValues.requiredHero)+" "+$.Localize('#item_only')+"</font>"
+	// 	}else{
+	// 		tooltip = AddWeaponDataToTooltip(tooltip, itemValues, item)
+	// 	}
+	// }
+	// tooltip = AddSpecialDescriptionToTooltip(tooltip, itemProperty1, itemProperty2, itemProperty3, itemProperty4, itemValues.rarityFactor, item)
+	// if (!(itemValues.requiredHero === undefined)){
+	// 	if (Entities.GetUnitName( queryUnit ) == itemValues.requiredHero){
+	// 		tooltip = updateSkillInTooltip(tooltip, queryUnit)
+	// 	}else{
+	// 		tooltip = updateSkillInTooltipByName(tooltip, itemValues.requiredHero)
+	// 	}
+	// }else{
+	// 	$.Msg("fsdfdfe?")
+	// 	tooltip = updateSkillInTooltip(tooltip, queryUnit)
+	// }
 
-	if (!(itemValues.requiredHero === undefined)){
-		if (itemValues.glyph){
-			tooltip = tooltip + "<br><br><font color='#F7501E'>"+$.Localize('#'+itemValues.requiredHero)+" "+$.Localize('#tooltip_glyph')+"</font>"
-		}else if(itemValues.rarityFactor == 6){
-			tooltip = tooltip + "<br><br><font color='#F7501E'>"+$.Localize('#'+itemValues.requiredHero)+" "+$.Localize('#item_only')+"</font>"
-		}else{
-			tooltip = AddWeaponDataToTooltip(tooltip, itemValues, item)
-		}
-	}
-	tooltip = AddSpecialDescriptionToTooltip(tooltip, itemProperty1, itemProperty2, itemProperty3, itemProperty4, itemValues.rarityFactor, item)
-	if (!(itemValues.requiredHero === undefined)){
-		if (Entities.GetUnitName( queryUnit ) == itemValues.requiredHero){
-			tooltip = updateSkillInTooltip(tooltip, queryUnit)
-		}else{
-			tooltip = updateSkillInTooltipByName(tooltip, itemValues.requiredHero)
-		}
-	}else{
-		$.Msg("fsdfdfe?")
-		tooltip = updateSkillInTooltip(tooltip, queryUnit)
-	}
-
-	tooltip = updateGlyphInTooltip(tooltip, item)
+	// tooltip = updateGlyphInTooltip(tooltip, item)
 	
-	title = title.replace(/(['"])/g, "\\$1");
-	tooltip = tooltip.replace(/(['"])/g, "\\$1");
-	$.DispatchEvent("DOTAShowTitleTextTooltip", itemPanel, title, tooltip);
+	// title = title.replace(/(['"])/g, "\\$1");
+	// tooltip = tooltip.replace(/(['"])/g, "\\$1");
+
+	// $.DispatchEvent("UIShowCustomLayoutParametersTooltip", itemPanel, "ItemTooltip","file://{resources}/layout/custom_game/equipment/item_tooltip.xml",name2="ay lmao");
+	var tooltipArgs = "item="+item+"&queryUnit="+queryUnit
+	$.DispatchEvent("UIShowCustomLayoutParametersTooltip", itemPanel, "file://{resources}/layout/custom_game/equipment/item_tooltip.xml", tooltipArgs);
+	// $.DispatchEvent("DOTAShowTitleTextTooltip", itemPanel, title, tooltip);
 	//$.DispatchEvent("DOTAShowTitleTextTooltip", $.GetContextPanel(),  "#DOTA_Tooltip_ability_"+itemName, tooltip );
 }
 
@@ -115,73 +96,79 @@ function ItemShowTooltip(panelId)
 	if ( item == -1 )
 		return;
 
-	var itemName = Abilities.GetAbilityName( item );
-	var queryUnit = Players.GetLocalPlayerPortraitUnit();
-	//var property1 = RPCItems.GetProperty1( item )
-	var itemValues = CustomNetTables.GetTableValue( "item_basics", item.toString() )
-	var itemProperty1 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-1" )
-	itemValues = itemValuesCheck(itemValues)
-	var tooltip = CreateCustomTooltip(itemValues, itemName, itemProperty1)
-	tooltip = AddAffixToItem(tooltip, itemProperty1, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
-		if (!(itemValues.useDescription === undefined)){
-			var tooltip = CreateCustomTooltip(itemValues, itemName, itemProperty1)
-			tooltip = tooltip + "<br><font color='#A3D4A1'>"+$.Localize(itemValues.useDescription)+"</font>"
-			tooltip = replaceConsumableText(item, tooltip)
-		}else{
-			var itemProperty1 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-1" )
-			var tooltip = CreateCustomTooltip(itemValues, itemName, itemProperty1)
-			tooltip = AddAffixToItem(tooltip, itemProperty1, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
-			if (itemValues.rarityFactor >= 2 )
-			{
-				var itemProperty2 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-2" )
-				tooltip = AddAffixToItem(tooltip, itemProperty2, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
-			}
-			if (itemValues.rarityFactor >= 3 )
-			{
-				var itemProperty3 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-3" )
-				tooltip = AddAffixToItem(tooltip, itemProperty3, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
-			}
-			if (itemValues.rarityFactor >= 4 )
-			{
-				var itemProperty4 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-4" )
-				tooltip = AddAffixToItem(tooltip, itemProperty4, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
-			}
-		}
-		var itemPrefix = itemValues.itemPrefix
-		var itemSuffix = itemValues.itemSuffix
-		//$.Msg( itemValues.property1 );
-		//$.DispatchEvent( "DOTAShowAbilityTooltipForEntityIndex", $.GetContextPanel(), itemName, queryUnit );
-		var localizedItemName = $.Localize("#DOTA_Tooltip_ability_"+Abilities.GetAbilityName(item))
-		var title = "<font color='"+itemValues.qualityColor+"'>"+itemPrefix+" "+localizedItemName+" "+itemSuffix+"</font>"
-	if (!(itemValues.minLevel ===undefined)){
-		tooltip = AddMinLevelToTooltip(itemValues, tooltip, item)
-	}
-	if (!(itemValues.requiredHero === undefined)){
-		if (itemValues.glyph){
-			tooltip = tooltip + "<br><br><font color='#F7501E'>"+$.Localize('#'+itemValues.requiredHero)+" "+$.Localize('#tooltip_glyph')+"</font>"
-		}else if(itemValues.rarityFactor == 6){
-			$.Msg(itemValues.requiredHero)
-			tooltip = tooltip + "<br><br><font color='#F7501E'>"+$.Localize('#'+itemValues.requiredHero)+" "+$.Localize('#item_only')+"</font>"
-		}else{
-			tooltip = AddWeaponDataToTooltip(tooltip, itemValues, item)
-		}
-	}
-	tooltip = AddSpecialDescriptionToTooltip(tooltip, itemProperty1, itemProperty2, itemProperty3, itemProperty4, itemValues.rarityFactor, item)
-	if (!(itemValues.requiredHero === undefined)){
-		if (Entities.GetUnitName( queryUnit ) == itemValues.requiredHero){
-			tooltip = updateSkillInTooltip(tooltip, queryUnit)
-		}else{
-			tooltip = updateSkillInTooltipByName(tooltip, itemValues.requiredHero)
-		}
-	}else{
-		$.Msg("fsdfdfe?")
-		tooltip = updateSkillInTooltip(tooltip, queryUnit)
-	}
-	tooltip = updateGlyphInTooltip(tooltip, item)
+	// var itemName = Abilities.GetAbilityName( item );
+	// var queryUnit = Players.GetLocalPlayerPortraitUnit();
+	// //var property1 = RPCItems.GetProperty1( item )
+	// var itemValues = CustomNetTables.GetTableValue( "item_basics", item.toString() )
+	// var itemProperty1 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-1" )
+	// itemValues = itemValuesCheck(itemValues)
+	// var tooltip = CreateCustomTooltip(itemValues, itemName, itemProperty1)
+	// tooltip = AddAffixToItem(tooltip, itemProperty1, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
+	// 	if (!(itemValues.useDescription === undefined)){
+	// 		var tooltip = CreateCustomTooltip(itemValues, itemName, itemProperty1)
+	// 		tooltip = tooltip + "<br><font color='#A3D4A1'>"+$.Localize(itemValues.useDescription)+"</font>"
+	// 		tooltip = replaceConsumableText(item, tooltip)
+	// 	}else{
+	// 		var itemProperty1 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-1" )
+	// 		var tooltip = CreateCustomTooltip(itemValues, itemName, itemProperty1)
+	// 		tooltip = AddAffixToItem(tooltip, itemProperty1, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
+	// 		if (itemValues.rarityFactor >= 2 )
+	// 		{
+	// 			var itemProperty2 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-2" )
+	// 			tooltip = AddAffixToItem(tooltip, itemProperty2, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
+	// 		}
+	// 		if (itemValues.rarityFactor >= 3 )
+	// 		{
+	// 			var itemProperty3 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-3" )
+	// 			tooltip = AddAffixToItem(tooltip, itemProperty3, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
+	// 		}
+	// 		if (itemValues.rarityFactor >= 4 )
+	// 		{
+	// 			var itemProperty4 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-4" )
+	// 			tooltip = AddAffixToItem(tooltip, itemProperty4, queryUnit, itemValues.requiredHero, itemValues.rarityFactor, itemName)
+	// 		}
+	// 	}
+	// 	var itemPrefix = itemValues.itemPrefix
+	// 	var itemSuffix = itemValues.itemSuffix
+	// 	//$.Msg( itemValues.property1 );
+	// 	//$.DispatchEvent( "DOTAShowAbilityTooltipForEntityIndex", $.GetContextPanel(), itemName, queryUnit );
+	// 	var localizedItemName = $.Localize("#DOTA_Tooltip_ability_"+Abilities.GetAbilityName(item))
+	// 	var title = "<font color='"+itemValues.qualityColor+"'>"+itemPrefix+" "+localizedItemName+" "+itemSuffix+"</font>"
+	// if (!(itemValues.minLevel ===undefined)){
+	// 	tooltip = AddMinLevelToTooltip(itemValues, tooltip, item)
+	// }
+	// if (!(itemValues.requiredHero === undefined)){
+	// 	if (itemValues.glyph){
+	// 		tooltip = tooltip + "<br><br><font color='#F7501E'>"+$.Localize('#'+itemValues.requiredHero)+" "+$.Localize('#tooltip_glyph')+"</font>"
+	// 	}else if(itemValues.rarityFactor == 6){
+	// 		$.Msg(itemValues.requiredHero)
+	// 		tooltip = tooltip + "<br><br><font color='#F7501E'>"+$.Localize('#'+itemValues.requiredHero)+" "+$.Localize('#item_only')+"</font>"
+	// 	}else{
+	// 		tooltip = AddWeaponDataToTooltip(tooltip, itemValues, item)
+	// 	}
+	// }
+	// tooltip = AddSpecialDescriptionToTooltip(tooltip, itemProperty1, itemProperty2, itemProperty3, itemProperty4, itemValues.rarityFactor, item)
+	// if (!(itemValues.requiredHero === undefined)){
+	// 	if (Entities.GetUnitName( queryUnit ) == itemValues.requiredHero){
+	// 		tooltip = updateSkillInTooltip(tooltip, queryUnit)
+	// 	}else{
+	// 		tooltip = updateSkillInTooltipByName(tooltip, itemValues.requiredHero)
+	// 	}
+	// }else{
+	// 	$.Msg("fsdfdfe?")
+	// 	tooltip = updateSkillInTooltip(tooltip, queryUnit)
+	// }
+	// tooltip = updateGlyphInTooltip(tooltip, item)
 	
-	title = title.replace(/(['"])/g, "\\$1");
-	tooltip = tooltip.replace(/(['"])/g, "\\$1");
-	$.DispatchEvent("DOTAShowTitleTextTooltip", itemPanel, title, tooltip);
+	// title = title.replace(/(['"])/g, "\\$1");
+	// tooltip = tooltip.replace(/(['"])/g, "\\$1");
+
+	var tooltipArgs = "item="+item+"&queryUnit="+queryUnit
+	$.DispatchEvent("UIShowCustomLayoutParametersTooltip", itemPanel, "file://{resources}/layout/custom_game/equipment/item_tooltip.xml", tooltipArgs);
+
+	// $.DispatchEvent("DOTAShowTitleTextTooltip", itemPanel, title, tooltip);
+
+
 	//$.DispatchEvent("DOTAShowTitleTextTooltip", $.GetContextPanel(),  "#DOTA_Tooltip_ability_"+itemName, tooltip );
 }
 
@@ -621,13 +608,13 @@ function ItemHideTooltip(panelId)
 {
 	if (panelId){
 		var itemPanel = $(panelId)
-		$.DispatchEvent( "DOTAHideTitleTextTooltip", itemPanel );
+		$.DispatchEvent( "UIHideCustomLayoutTooltip", itemPanel );
 	}
 }
 
 function ItemHideTooltipByPanel(itemPanel)
 {
-	$.DispatchEvent( "DOTAHideTitleTextTooltip", itemPanel );
+	$.DispatchEvent( "UIHideCustomLayoutTooltip", itemPanel );
 }
 
 function getControllingPlayerIndex()

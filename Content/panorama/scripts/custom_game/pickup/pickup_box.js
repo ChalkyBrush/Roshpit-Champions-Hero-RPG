@@ -69,6 +69,17 @@ function InitializePickupBox(){
 	});			
 }
 
+function ItemShowTooltipPickup(){
+	var tooltipPanel = $('#ItemImagePickup')
+	var item = tooltipPanel.GetAttributeInt("item", 0)
+	GameUI.CustomUIConfig.itemTooltip = item
+	$.DispatchEvent("UIShowCustomLayoutTooltip", tooltipPanel, "ItemTooltipPickup", "file://{resources}/layout/custom_game/equipment/item_tooltip.xml");
+}
+
+function ItemHideTooltipPickup(){
+	$.DispatchEvent("UIHideCustomLayoutTooltip", "ItemTooltipPickup");
+}
+
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }

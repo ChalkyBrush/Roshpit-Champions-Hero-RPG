@@ -12,11 +12,11 @@ function updateSkillInTooltip(tooltip, queryUnit){
 
 function updateSkillInTooltipByName(tooltip, heroName){
 	if (tooltip.indexOf("@Ability") > -1){
-			for (i = 1; i <= 4; i++) { 
-				var skillName = getSkillSlot(heroName, i)
-				tooltip = tooltip.replace("@Ability"+i, "<font color='#CCFF66'>"+$.Localize(skillName)+"</font>");
-				tooltip = tooltip.replace("@Ability"+i, "<font color='#CCFF66'>"+$.Localize(skillName)+"</font>");
-			}
+		for (i = 1; i <= 4; i++) { 
+			var skillName = getSkillSlot(heroName, i)
+			tooltip = tooltip.replace("@Ability"+i, "<font color='#CCFF66'>"+$.Localize(skillName)+"</font>");
+			tooltip = tooltip.replace("@Ability"+i, "<font color='#CCFF66'>"+$.Localize(skillName)+"</font>");
+		}
 	}
 	return tooltip
 }

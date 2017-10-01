@@ -354,8 +354,9 @@ function AddAffixToItem(tooltip, itemProperty)
 
 function ItemHideTooltipInit()
 {
-	$.DispatchEvent( "DOTAHideTitleTextTooltip", $.GetContextPanel() );
-	$.DispatchEvent( "DOTAHideAbilityTooltip", $.GetContextPanel() );
+	ItemHideTooltipByPanel($.GetContextPanel())
+	// $.DispatchEvent( "DOTAHideTitleTextTooltip", $.GetContextPanel() );
+	// $.DispatchEvent( "DOTAHideAbilityTooltip", $.GetContextPanel() );
 }
 
 function ActivateItem()
@@ -381,7 +382,7 @@ function IsInStash()
 
 function RightClickItem()
 {
-	ItemHideTooltip();
+	ItemHideTooltipInit();
 
 	var bSlotInStash = IsInStash();
 	var bControllable = Entities.IsControllableByPlayer( m_QueryUnit, Game.GetLocalPlayerID() );
@@ -516,7 +517,7 @@ function OnDragStart( panelId, dragCallbacks )
 	}
 	var itemName = Abilities.GetAbilityName( m_Item );
 
-	ItemHideTooltip(); // tooltip gets in the way
+	ItemHideTooltipInit(); // tooltip gets in the way
 
 	// create a temp panel that will be dragged around
 	var displayPanel = $.CreatePanel( "DOTAItemImage", $.GetContextPanel(), "dragImage" );

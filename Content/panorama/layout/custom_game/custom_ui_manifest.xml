@@ -48,7 +48,7 @@
     <CustomUIElement type="HudTopBar"       layoutfile="file://{resources}/layout/custom_game/ability_level_overlay.xml" /> 
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/menu_two.xml" />
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/resources/resources.xml" />
-    <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/equipment/weapons.xml" />
+
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/equipment/equipment.xml" />
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/new_pickup/pickup_two.xml" />
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/new_pickup/item_roll.xml" />
