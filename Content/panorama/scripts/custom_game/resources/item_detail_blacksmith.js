@@ -1,4 +1,5 @@
 mItemIndex = $.GetContextPanel().itemIndex
+mSlot = $.GetContextPanel().slot
 mChisel = $.GetContextPanel().chisel
 mReroll = $.GetContextPanel().reroll
 mMinLevel = 1
@@ -24,6 +25,7 @@ function InitializeItemDisplay()
 		$('#forge_price_label_value').text = chiselPrice
 		mForgeButton.chiselItemIndex = mItemIndex
 		mForgeButton.chiselCost = chiselPrice
+		mForgeButton.chiselSlot = mSlot
 		if (mShards >= chiselPrice){
 			mForgeButton.AddClass('forge_button_color_main')
 			mForgeButton.RemoveClass('forge_button_deactivated')

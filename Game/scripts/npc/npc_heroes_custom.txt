@@ -982,7 +982,7 @@
 		"Ability15"		""
 		"Ability16"		""
 		"Ability17"		""
-		"ModelScale"    "0.94"
+		"ModelScale"    "0.88"
 		"AttackRange"   "240"
 		"ArmorPhysical"	"12"
 		"MagicalResistance"	"0"

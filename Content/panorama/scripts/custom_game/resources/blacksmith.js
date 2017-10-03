@@ -250,6 +250,7 @@ function chiselGearSelected(msg)
 	parentPanel.RemoveAndDeleteChildren()
 	var newChildPanel = $.CreatePanel( "Panel", parentPanel, "chisel-item" );
 	newChildPanel.itemIndex = itemIndex
+	newChildPanel.slot = msg.slot
 	newChildPanel.chisel = 1
 	newChildPanel.reroll = 0
 	newChildPanel.forgeButton = forgeButton
@@ -268,6 +269,7 @@ function FinalForgeActivate()
 		if (GameUI.CustomUIConfig().chisel == 1){
 			var forgeButton = $('#final_forge_button')
 			var cost = forgeButton.chiselCost
+			var slot = forgeButton.chiselSlot
 			if (mShards>=cost){
 			//Complete Chiseling
 				GameUI.CustomUIConfig().blacksmithLock = 1
@@ -277,7 +279,7 @@ function FinalForgeActivate()
 
 				var itemIndex = forgeButton.chiselItemIndex
 				Game.EmitSound("ui.crafting_confirm_socket")
-				GameEvents.SendCustomGameEventToServer( "final_chisel", {playerID: Game.GetLocalPlayerID(), itemIndex: itemIndex, cost: cost});
+				GameEvents.SendCustomGameEventToServer( "final_chisel", {playerID: Game.GetLocalPlayerID(), itemIndex: itemIndex, cost: cost, slot: slot});
 			}else{
 				Game.EmitSound("General.Cancel")
 			}

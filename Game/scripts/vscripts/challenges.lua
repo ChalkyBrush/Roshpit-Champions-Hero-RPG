@@ -26,12 +26,16 @@ function Challenges:ChiselItem(msg)
 	local player = hero:GetPlayerOwner()
 	local saveSlot = hero.saveSlot
 	local itemIndex = msg.itemIndex
-	local item = EntIndexToHScript(itemIndex)
-	local itemSlot = RPCItems:getGearSlot(item.slot)
+	local item = nil
+	local itemSlot = msg.slot
 
 	local itemEntity = CustomNetTables:GetTableValue("equipment", tostring(playerID).."-"..tostring(itemSlot))
 	if itemEntity.itemIndex == itemIndex then
+		item = EntIndexToHScript(itemEntity.itemIndex)
 	else
+		return false
+	end
+	if hero:HasModifier("modifier_cant_equip") then
 		return false
 	end
 
@@ -39,7 +43,7 @@ function Challenges:ChiselItem(msg)
 	-- 	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_blacksmith", {})
 	-- 	return false
 	-- end
-	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, hero, "modifier_cant_equip", {duration = 10})
+	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, hero, "modifier_cant_equip", {duration = 6})
 	local steamID = PlayerResource:GetSteamAccountID(playerID)
 	local cost = math.max(msg.cost, 1)
 	CustomGameEventManager:Send_ServerToPlayer(player, "close_swap_ui", {} )
@@ -197,8 +201,9 @@ end
 function Challenges:ChiselableGearClicked(msg)
 	local playerID = msg.playerID
 	local itemIndex = msg.itemIndex
+	local slot = msg.slot
 	local player = PlayerResource:GetPlayer(playerID)
-	CustomGameEventManager:Send_ServerToPlayer(player, "chiselable_gear_clicked", {itemIndex = itemIndex} )
+	CustomGameEventManager:Send_ServerToPlayer(player, "chiselable_gear_clicked", {itemIndex = itemIndex, slot=slot} )
 end
 
 function Challenges:CollectMithrilIncome(msg)

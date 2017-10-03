@@ -44,6 +44,7 @@ function Tanari:Debug()
     -- RPCItems:RollAuriunArcana2(Vector(-4928, 2048))
     RPCItems:RollDemonMask(Vector(-4928, 2048), false, 60)
     RPCItems:RollWatcherPlate(Vector(-4928, 2048))
+    RPCItems:RollEmpyrealSunriseRobe(Vector(-4928, 2048))
     -- for i = 1, 3, 1 do
     --     RPCItems:RollEkkanArcana1(Vector(-4928, 2048))
     -- end

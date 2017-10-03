@@ -266,7 +266,7 @@ function getPosition(str, m, i) {
 
 function CreateCustomTooltip(itemValues, itemName, itemProperty1)
 {
-	$.Msg( itemValues );
+	// $.Msg( itemValues );
 	//var tooltip = "<Label style='color:"+itemValues.qualityColor+";font-size:16px;'>"+itemValues.itemName+"</Label><br>";
 	var tooltip = "<i>"+itemValues.qualityName+"</i><br>"
 	if (itemValues.consumable == 1)
@@ -381,7 +381,7 @@ function OnDragEnter( a, draggedPanel )
 function OnDragDrop( panelId, draggedPanel )
 {
 	var draggedItem = draggedPanel.m_DragItem;
-	$.Msg(draggedItem)
+	// $.Msg(draggedItem)
 	// only care about dragged items other than us
 	if ( draggedItem === null )
 		return true;
@@ -401,10 +401,10 @@ function OnDragDrop( panelId, draggedPanel )
 	// 	AbilityIndex: draggedItem
 	// };
 	// Game.PrepareUnitOrders( moveItemOrder );
-	$.Msg("slot: "+$.GetContextPanel().slot)
+	// $.Msg("slot: "+$.GetContextPanel().slot)
 	var playerID = Game.GetLocalPlayerID();
-	$.Msg("FROM SLOT")
-	$.Msg(draggedPanel.m_fromSlot)
+	// $.Msg("FROM SLOT")
+	// $.Msg(draggedPanel.m_fromSlot)
 	if ((draggedPanel.m_type == "inventory") || (draggedPanel.m_type == "stash")){
 		if (draggedPanel.m_fromSlot === undefined){
 			draggedPanel.m_fromSlot = 0

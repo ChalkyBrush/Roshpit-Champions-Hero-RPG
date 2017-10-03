@@ -55,7 +55,7 @@ function EquipmentClick(slot)
 			return			
 		}
 
-		GameEvents.SendCustomGameEventToServer( "clicked_chisel_gear", {playerID: Game.GetLocalPlayerID(), itemIndex: item});
+		GameEvents.SendCustomGameEventToServer( "clicked_chisel_gear", {playerID: Game.GetLocalPlayerID(), itemIndex: item, slot: slot});
 	}
 }
 
@@ -304,7 +304,7 @@ function getPosition(str, m, i) {
 
 function itemValuesCheck(itemValues)
 {
-	$.Msg(itemValues)
+	// $.Msg(itemValues)
 	if (itemValues === undefined){
 		itemValues = {}
 	}
@@ -355,7 +355,7 @@ function itemPropertyCheck(itemProperty){
 
 function CreateCustomTooltip(itemValues, itemName, itemProperty1)
 {
-	$.Msg( itemValues );
+	// $.Msg( itemValues );
 	//var tooltip = "<Label style='color:"+itemValues.qualityColor+";font-size:16px;'>"+itemValues.itemName+"</Label><br>";
 
 	var tooltip = "<i>"+itemValues.qualityName+"</i><br>"

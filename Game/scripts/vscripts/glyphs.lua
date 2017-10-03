@@ -215,8 +215,11 @@ function Glyphs:CreateGlyphItem(variantName, rarityName, itemNameText, slotText,
     item.minLevel = minLevel
     item.requiredHero = requiredHero
     RPCItems:SetTableValues(item, itemName, false, slotText, RPCItems:GetRarityColor(item.rarity), item.rarity, "", "", RPCItems:GetRarityFactor(item.rarity))
-    
-    CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemName, consumable = false, itemDescription = description, qualityColor = RPCItems:GetRarityColor(item.rarity), itemDescription = slotText, qualityName = rarityName, itemPrefix = prefix, itemSuffix = suffix, rarityFactor = RPCItems:GetRarityFactor(item.rarity), stackedConsumable = true, minLevel = minLevel, useDescription = useDescription, requiredHero = requiredHero, glyph = 1 } )
+    if requiredHero == "tooltip_neutral" then
+    	CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemName, consumable = false, itemDescription = description, qualityColor = RPCItems:GetRarityColor(item.rarity), itemDescription = slotText, qualityName = rarityName, itemPrefix = prefix, itemSuffix = suffix, rarityFactor = RPCItems:GetRarityFactor(item.rarity), stackedConsumable = true, minLevel = minLevel, useDescription = useDescription, glyph = 1 } )
+    else
+    	CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemName, consumable = false, itemDescription = description, qualityColor = RPCItems:GetRarityColor(item.rarity), itemDescription = slotText, qualityName = rarityName, itemPrefix = prefix, itemSuffix = suffix, rarityFactor = RPCItems:GetRarityFactor(item.rarity), stackedConsumable = true, minLevel = minLevel, useDescription = useDescription, requiredHero = requiredHero, glyph = 1 } )
+    end
     if dropIndex == 0 then
 	    local drop = CreateItemOnPositionSync( deathLocation, item )
 	    local position = deathLocation

@@ -52,6 +52,7 @@ function initializeTooltip(func){
 			tooltip = tooltip + "<font color='#A3D4A1'>"+$.Localize(itemValues.useDescription)+"</font>"
 			tooltip = replaceConsumableText(item, tooltip)
 			tooltip = updateGlyphInTooltip(tooltip, item)
+			$.Msg("AGAIN HI:"+queryUnit)
 			tooltip = updateSkillInTooltipHandler(tooltip, itemValues, queryUnit)
 			$('#consumable-text').text = tooltip
 			$('#consumable-text').RemoveClass('invisible')
@@ -209,6 +210,7 @@ function updateSkillInTooltipHandler(tooltip, itemValues, queryUnit){
 		if (Entities.GetUnitName( queryUnit ) == itemValues.requiredHero){
 			tooltip = updateSkillInTooltip(tooltip, queryUnit)
 		}else{
+			$.Msg("OH DEAR REQUIRED HERO.."+itemValues.requiredHero)
 			tooltip = updateSkillInTooltipByName(tooltip, itemValues.requiredHero)
 		}
 	}else{

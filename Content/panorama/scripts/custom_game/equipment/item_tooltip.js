@@ -78,6 +78,7 @@ function ItemShowTooltipOnPanel(itemPanel)
 	// tooltip = tooltip.replace(/(['"])/g, "\\$1");
 
 	// $.DispatchEvent("UIShowCustomLayoutParametersTooltip", itemPanel, "ItemTooltip","file://{resources}/layout/custom_game/equipment/item_tooltip.xml",name2="ay lmao");
+	$.Msg("TOOLTIP GLYPH.."+queryUnit)
 	var tooltipArgs = "item="+item+"&queryUnit="+queryUnit
 	$.DispatchEvent("UIShowCustomLayoutParametersTooltip", itemPanel, "file://{resources}/layout/custom_game/equipment/item_tooltip.xml", tooltipArgs);
 	// $.DispatchEvent("DOTAShowTitleTextTooltip", itemPanel, title, tooltip);

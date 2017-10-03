@@ -183,8 +183,8 @@ function recalculatePriceReroll(detail_parent){
 
 function populateItem(detail_parent)
 {
-	$.Msg(detail_parent)
-	$.Msg(mItemIndex)
+	// $.Msg(detail_parent)
+	// $.Msg(mItemIndex)
 	detail_parent.FindChildTraverse('item_image').contextEntityIndex = mItemIndex;
 	detail_parent.FindChildTraverse('item_image').SetAttributeInt("item", mItemIndex)
 	var itemName = Abilities.GetAbilityName( mItemIndex);
@@ -282,7 +282,6 @@ function lockSlotsFromServerCall(msg)
 		PropertyButtonActivate(mButtonTable[1], mDetailParent, mChildPanelTable[1])
 	}
 	if (msg.lock2==1){
-		$.Msg("999999999WTF?99999999")
 		PropertyButtonActivate(mButtonTable[2], mDetailParent, mChildPanelTable[2])
 	}
 	if (msg.lock3==1){

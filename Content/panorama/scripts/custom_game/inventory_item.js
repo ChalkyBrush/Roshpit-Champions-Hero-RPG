@@ -331,7 +331,7 @@ function getPosition(str, m, i) {
 
 function CreateCustomTooltip(itemValues, itemName, itemProperty1)
 {
-	$.Msg( itemValues );
+	// $.Msg( itemValues );
 	//var tooltip = "<Label style='color:"+itemValues.qualityColor+";font-size:16px;'>"+itemValues.itemName+"</Label><br>";
 	var tooltip = "<i>"+itemValues.qualityName+"</i><br>"
 	if (itemValues.consumable == 1)

@@ -287,12 +287,12 @@ function UpdateItem(itemImage)
 
 function OnDragEnter( panelId, draggedPanel, data3 )
 {
-	$.Msg(panelId)
-	$.Msg(draggedPanel)
+	// $.Msg(panelId)
+	// $.Msg(draggedPanel)
 	var panel = $('#'+panelId)
 	var m_Item = panel.m_Item
 	var draggedItem = draggedPanel.m_Item
-	$.Msg(draggedItem)
+	// $.Msg(draggedItem)
 	// only care about dragged items other than us
 	if ( draggedItem === null || draggedItem == m_Item )
 		return true;
@@ -311,9 +311,9 @@ function OnDragDrop( panelId, draggedPanel )
 	var panel = $('#'+panelId).FindChildTraverse('ItemImage')
 	var m_Item = panel.m_Item
 	var draggedItem = draggedPanel.m_Item
-	$.Msg(draggedItem)
-	$.Msg("STASH DRAG DROP")
-	$.Msg(draggedItem)
+	// $.Msg(draggedItem)
+	// $.Msg("STASH DRAG DROP")
+	// $.Msg(draggedItem)
 	// only care about dragged items other than us
 	if ( draggedItem === null )
 		return true;
@@ -325,10 +325,10 @@ function OnDragDrop( panelId, draggedPanel )
 	if ( draggedItem == m_Item )
 		return true;
 
-	$.Msg("slot: "+panel.m_slot)
+	// $.Msg("slot: "+panel.m_slot)
 	var playerID = Game.GetLocalPlayerID();
-	$.Msg("FROM SLOT")
-	$.Msg(draggedPanel.m_fromSlot)
+	// $.Msg("FROM SLOT")
+	// $.Msg(draggedPanel.m_fromSlot)
 	if ((draggedPanel.m_type == "inventory") || (draggedPanel.m_type == "stash")){
 		if (draggedPanel.m_fromSlot === undefined){
 			draggedPanel.m_fromSlot = 0
@@ -366,7 +366,7 @@ function OnDragStart( panelId, dragCallbacks )
 	}
 	var panel = $('#'+panelId).FindChildTraverse('ItemImage')
 	var m_Item = panel.m_Item
-	$.Msg(m_Item)
+	// $.Msg(m_Item)
 	if ( m_Item == -1 )
 	{
 		return true;
