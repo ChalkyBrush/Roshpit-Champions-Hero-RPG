@@ -177,9 +177,11 @@ function dominion_unit_think(event)
 	end
 	if target:IsAlive() then
 		local leashDistance = 2000
+		local distanceModification = 0
 		if caster:HasModifier("modifier_ekkan_glyph_5_a") then
-			leashDistance = leashDistance + 1000
+			 distanceModification = 1000
 		end
+		leashDistance = leashDistance + distanceModification
 		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target:GetAbsOrigin())
 		if distance > leashDistance then
 			FindClearSpaceForUnit(target, caster:GetAbsOrigin()+RandomVector(180), false)
@@ -194,8 +196,8 @@ function dominion_unit_think(event)
 			target:MoveToPosition(caster:GetAbsOrigin()+RandomVector(180))
 			return false
 		else
-			if distance > 800 then
-				local enemies = FindUnitsInRadius( target:GetTeamNumber(), target:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+			if distance > 800+distanceModification then
+				local enemies = FindUnitsInRadius( target:GetTeamNumber(), target:GetAbsOrigin(), nil, 600+distanceModification, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 				if #enemies == 0 then
 					target:MoveToPosition(caster:GetAbsOrigin()+RandomVector(180))
 				end

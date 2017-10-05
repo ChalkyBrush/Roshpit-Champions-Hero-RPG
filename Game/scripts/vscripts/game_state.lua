@@ -914,7 +914,14 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if attacker:HasModifier("modifier_trickster_mask") then
-		local tricksterFactor = RandomInt(-5, 15)
+		local minBoost = 0
+		if attacker:HasModifier("modifier_boots_of_great_fortune") then
+			minBoost = minBoost + 2
+		end
+		if attacker:HasModifier("modifier_fortunes_talisman_of_truth") then
+			minBoost = minBoost*1.5 + 2
+		end
+		local tricksterFactor = RandomInt(-5+minBoost, 15)
 		mult = mult + tricksterFactor/10
 	end
 	if victim:HasModifier("modifier_nights_procession_a_d_rune") then

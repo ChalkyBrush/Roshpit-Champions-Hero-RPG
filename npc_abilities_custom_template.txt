@@ -12238,12 +12238,6 @@
 				"EffectAttachType"	"follow_origin"
 				"Target"		"CASTER"
 			}
-
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_holy_wings"
-				"Target"		"CASTER"
-			}
 			"RunScript"
 			{
 				"ScriptFile"	"heroes/omniknight/holy_wings"
@@ -12258,7 +12252,6 @@
 			{
 				"IsBuff"			"1"
 				"IsPurgable"		"1"
-				"Duration"			"%duration"
 				"StatusEffectName"     "particles/status_fx/status_effect_guardian_angel.vpcf"
 				"StatusEffectPriority" "10"
 
@@ -29973,6 +29966,14 @@
 							"CASTER"	"attach_origin"
 							"CASTER"	"attach_origin"
 						}
+					}
+				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slardar/arcana_ability"
+						"Function"		"mist_death"
 					}
 				}
 				"OnDestroy"

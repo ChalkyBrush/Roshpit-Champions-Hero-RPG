@@ -38,7 +38,7 @@ function Tanari:Debug()
       RPCItems:RollTwistedMaskOfAhnqhirPurple(Vector(-4928, 2048))
     -- Dungeons.itemLevel = 300
     for i = 1, 3, 1 do
-        RPCItems:RollAstralArcana1(Vector(-4928, 2048))
+        RPCItems:RollHydroxisArcana1(Vector(-4928, 2048))
     end
     -- RPCItems:RollAquastoneRing(Vector(-4928, 2048))
     -- RPCItems:RollAuriunArcana2(Vector(-4928, 2048))
@@ -64,8 +64,8 @@ function Tanari:Debug()
     -- -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
     -- -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
     -- Glyphs:DebugRollHeroGlyphs("sorceress", Vector(-4928, 2048))
-    -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "ekkan")
-    -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "ekkan")
+    Weapons:RollLegendWeapon2(Vector(-4928, 2048), "sorceress")
+    Weapons:RollLegendWeapon3(Vector(-4928, 2048), "sorceress")
     -- for i = 1, 3, 1 do
     --     RPCItems:RollWarlordArcana1(Vector(-4928, 2048))
     -- end

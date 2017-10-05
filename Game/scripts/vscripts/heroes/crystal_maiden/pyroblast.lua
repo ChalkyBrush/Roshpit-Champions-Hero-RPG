@@ -151,7 +151,9 @@ function pyroblast_impact(event)
 	local target = event.target
 	local damage = event.damage
 	if caster:HasModifier("modifier_clear_cast") then
-		damage = damage*ability.c_c_amp
+		if ability.c_c_amp then
+			damage = damage*ability.c_c_amp
+		end
 	end
 	if caster:HasModifier("modifier_sorceress_glyph_7_1") then
 		damage = damage*2

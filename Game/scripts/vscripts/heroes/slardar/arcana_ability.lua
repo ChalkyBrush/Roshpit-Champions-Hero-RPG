@@ -110,3 +110,12 @@ function mist_active_think(event)
 		ability:ToggleAbility()
 	end
 end
+
+function mist_death(event)
+	local caster = event.caster
+	local ability = event.ability
+	print(" THIS SHIZ?")
+	Timers:CreateTimer(0.03, function()
+		caster:RemoveModifierByName("modifier_hydroxis_mist")
+	end)
+end

@@ -695,6 +695,10 @@ function Filters:ApplyQskills(caster)
                 avatar:SetOwner(caster)
                 avatar:SetControllableByPlayer(caster:GetPlayerID(), true)
                 caster.avatar = avatar
+                avatar.runeUnit = caster.runeUnit
+                avatar.runeUnit2 = caster.runeUnit2
+                avatar.runeUnit3 = caster.runeUnit3
+                avatar.runeUnit4 = caster.runeUnit4
                 local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
                 local pfx = ParticleManager:CreateParticle( particle, PATTACH_WORLDORIGIN, caster )
                 local position = avatar:GetAbsOrigin()
@@ -953,6 +957,10 @@ function Filters:ApplyRskills(caster)
                 avatar:SetOwner(caster)
                 avatar:SetControllableByPlayer(caster:GetPlayerID(), true)
                 caster.avatar = avatar
+                avatar.runeUnit = caster.runeUnit
+                avatar.runeUnit2 = caster.runeUnit2
+                avatar.runeUnit3 = caster.runeUnit3
+                avatar.runeUnit4 = caster.runeUnit4
                   local particleName = "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
                   local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
                   ParticleManager:SetParticleControl( particle1, 0, avatar:GetAbsOrigin() )
@@ -1867,7 +1875,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     if element1 == RPC_ELEMENT_WATER or element2 == RPC_ELEMENT_WATER then
         if unitName == "npc_dota_hero_slardar" then
             if attacker.d_c_level then
-                mult = mult + 0.001*(attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_c_Level
+                mult = mult + 0.001*(attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_c_level
             end
             if attacker:HasAbility("hydroxis_arcana_ability_1") then
                 local d_b_level = Runes:GetTotalRuneLevelGeneric(attacker,4, 1)

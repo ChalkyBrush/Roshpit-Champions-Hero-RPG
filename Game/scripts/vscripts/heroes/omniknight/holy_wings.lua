@@ -12,6 +12,7 @@ function cast_wings(event)
 		duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_paladin_b_a_radiance", {duration = duration})
 	end
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_holy_wings", {duration = duration})
 	if caster:HasModifier("modifier_paladin_immortal_weapon_1") then
 		local coneAbility = caster:FindAbilityByName("holy_cone")
 		if caster:HasAbility("paladin_penance") then
