@@ -27,6 +27,296 @@ function Curator:GetItemInfoFromClientAndSendToWeb(item, playerID)
 	end
 end
 
+function Curator:CurateALLBasicWeapons(playerID)
+	local heroTable = HerosCustom:GetInternalNameTable()
+	local weaponsSuffixTable = {"00", "01", "02", "03", "11", "12", "13", "14", "21", "22", "23", "24", "25"}
+	for i = 1, #heroTable, 1 do
+		for j = 1, #weaponsSuffixTable, 1 do
+			Timers:CreateTimer((i-1)*15 + j, function()
+				local weapon = Curator:RollBasicWeapon(heroTable[i], weaponsSuffixTable[j])
+				Curator:GetItemInfoFromClientAndSendToWeb(weapon, playerID)
+			end)
+		end
+	end
+end
+
+function Curator:CurateBasicEquipment(playerID)
+	local xpBounty = 300
+	local randomHelm = RandomInt(1, 3)
+	local itemVariant = BASE_BOOT_TABLE[randomHelm]
+    local item = CreateItem(itemVariant, nil, nil)
+    local rarity = "uncommon"
+
+
+    item.rarity = rarity
+    local rarityValue = 2
+    local itemName = BASE_BOOT_NAME_TABLE[randomHelm]
+    item.slot = "feet"
+    item.gear = true
+    local prefix = ""
+    local additional_prefix = ""
+    local suffix = RPCItems:RollFootProperty1(item, xpBounty, randomHelm)
+    if rarityValue >= 2 then
+    	prefix = RPCItems:RollFootProperty2(item, xpBounty)
+    else
+    	prefix = ""
+    end
+    if rarityValue>=3 then
+    	RPCItems:RollFootProperty3(item, xpBounty)
+    end
+    if rarityValue>=4 then
+    	additional_prefix = RPCItems:RollFootProperty4(item, xpBounty)
+    	itemName = additional_prefix.." "..itemName
+    end
+
+    RPCItems:SetTableValues(item, itemName, false, "Slot: Feet", RPCItems:GetRarityColor(rarity), rarity, prefix, suffix, RPCItems:GetRarityFactor(rarity))
+    Curator:GetItemInfoFromClientAndSendToWeb(item, playerID)
+    --
+
+   	local randomHelm = RandomInt(1, 3)
+	local itemVariant = BASE_HEAD_TABLE[randomHelm]
+    local item = CreateItem(itemVariant, nil, nil)
+
+    item.rarity = rarity
+    local rarityValue = 2
+    local itemName = BASE_HEAD_NAME_TABLE[randomHelm]
+    item.slot = "head"
+    item.gear = true
+
+    local prefix = ""
+    local additional_prefix = ""
+    local suffix = RPCItems:RollHoodProperty1(item, xpBounty, randomHelm)
+    if rarityValue >= 2 then
+    	prefix = RPCItems:RollHoodProperty2(item, xpBounty)
+    else
+    	prefix = ""
+    end
+    if rarityValue>=3 then
+    	RPCItems:RollHoodProperty3(item, xpBounty)
+    end
+    if rarityValue>=4 then
+    	additional_prefix = RPCItems:RollHoodProperty4(item, xpBounty)
+    	itemName = additional_prefix.." "..itemName
+    end
+
+    RPCItems:SetTableValues(item, itemName, false, "Slot: Head", RPCItems:GetRarityColor(rarity), rarity, prefix, suffix, RPCItems:GetRarityFactor(rarity))
+    Curator:GetItemInfoFromClientAndSendToWeb(item, playerID)
+
+    --
+
+	local randomHelm = RandomInt(1, 3)
+	local itemVariant = BASE_HAND_TABLE[randomHelm]
+    local item = CreateItem(itemVariant, nil, nil)
+
+    item.rarity = rarity
+    local rarityValue = 2
+    local itemName = BASE_HAND_NAME_TABLE[randomHelm]
+    item.slot = "hands"
+    item.gear = true
+    local suffix = RPCItems:RollHandProperty1(item, xpBounty, randomHelm)
+    local prefix = ""
+    local additional_prefix = ""
+    
+    if rarityValue >= 2 then
+    	prefix = RPCItems:RollHandProperty2(item, xpBounty)
+    else
+    	prefix = ""
+    end
+    if rarityValue>=3 then
+    	RPCItems:RollHandProperty3(item, xpBounty)
+    end
+    if rarityValue>=4 then
+    	additional_prefix = RPCItems:RollHandProperty4(item, xpBounty)
+    	itemName = additional_prefix.." "..itemName
+    end
+
+    RPCItems:SetTableValues(item, itemName, false, "Slot: Hands", RPCItems:GetRarityColor(rarity), rarity, prefix, suffix, RPCItems:GetRarityFactor(rarity))
+    Curator:GetItemInfoFromClientAndSendToWeb(item, playerID)
+
+    --
+
+	local randomHelm = RandomInt(1, 3)
+	local itemVariant = BASE_BODY_TABLE[randomHelm]
+    local item = CreateItem(itemVariant, nil, nil)
+
+    item.rarity = rarity
+    local rarityValue = 2
+    local itemName = BASE_BODY_NAME_TABLE[randomHelm]
+
+    item.slot = "body"
+    item.gear = true
+    local prefix = ""
+    local additional_prefix = ""
+    local suffix = RPCItems:RollBodyProperty1(item, xpBounty, randomHelm)
+    if rarityValue >= 2 then
+    	prefix = RPCItems:RollBodyProperty2(item, xpBounty)
+    else
+    	prefix = ""
+    end
+    if rarityValue>=3 then
+    	RPCItems:RollBodyProperty3(item, xpBounty)
+    end
+    if rarityValue>=4 then
+    	additional_prefix = RPCItems:RollBodyProperty4(item, xpBounty)
+    	itemName = additional_prefix.." "..itemName
+    end
+
+    RPCItems:SetTableValues(item, itemName, false, "Slot: Body", RPCItems:GetRarityColor(rarity), rarity, prefix, suffix, RPCItems:GetRarityFactor(rarity))
+    Curator:GetItemInfoFromClientAndSendToWeb(item, playerID)
+    --
+
+
+
+	local randomHelm = RandomInt(1, 3)
+	local itemVariant = BASE_AMULET_TABLE[randomHelm]
+    local item = CreateItem(itemVariant, nil, nil)
+
+
+
+    item.rarity = rarity
+    local rarityValue = 2
+    local itemName = BASE_AMULET_NAME_TABLE[randomHelm]
+    local suffix = ""
+    local prefix = ""
+    item.slot = "amulet"
+    item.gear = true
+    local tier, value, propertyName = RPCItems:RollAmuletProperty1(item, xpBounty, randomHelm)
+    if tier == 1 then
+        suffix = SUFFIX_TIER_1_SKILL_TABLE[RandomInt(1, 5)]
+    elseif tier == 2 then
+        suffix = SUFFIX_TIER_2_SKILL_TABLE[RandomInt(1, 5)]
+    elseif tier == 0 then
+        suffix = propertyName
+    end
+    if tier > 0 then
+        item.property1 = value
+        item.property1name = propertyName
+        RPCItems:SetPropertyValues(item, item.property1, "rune", "#7DFF12",  1)
+    end
+
+    if rarityValue >= 2 then
+        local tier, value, propertyName = RPCItems:RollAmuletProperty2(item, xpBounty, randomHelm)
+        if tier == 1 then
+            prefix = PREFIX_TIER_1_SKILL_TABLE[RandomInt(1, 5)]
+        elseif tier == 2 then
+            prefix = PREFIX_TIER_2_SKILL_TABLE[RandomInt(1, 5)]
+        elseif tier == 0 then
+            prefix = propertyName
+        end
+        if tier > 0 then
+            item.property2 = value
+            item.property2name = propertyName
+            RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
+        end
+    end
+    if rarityValue>=3 then
+        local tier, value, propertyName = RPCItems:RollSkillProperty()
+        if tier > 0 then
+            item.property3 = value
+            item.property3name = propertyName
+            RPCItems:SetPropertyValues(item, item.property3, "rune", "#7DFF12",  3)
+        end
+    end
+    if rarityValue>=4 then
+        local tier, value, propertyName = RPCItems:RollSkillProperty()
+        if tier > 0 then
+            item.property4 = value
+            item.property4name = propertyName
+            RPCItems:SetPropertyValues(item, item.property4, "rune", "#7DFF12",  4)
+        end
+    end
+
+    RPCItems:SetTableValues(item, itemName, false, "Slot: Trinket", RPCItems:GetRarityColor(rarity), rarity, prefix, suffix, RPCItems:GetRarityFactor(rarity))
+    Curator:GetItemInfoFromClientAndSendToWeb(item, playerID)
+end
+
+function Curator:GetWeaponRarityFromDigits(digits)
+	if string.sub(digits, 1, 1) == "0" then
+		return "uncommon"
+	elseif string.sub(digits, 1, 1) == "1" then
+		return "rare"
+	elseif string.sub(digits, 1, 1) == "2" then
+		return "mythical"
+	end
+end
+
+function Curator:RollBasicWeapon(heroName, digits)
+	
+	local maxFactor = RPCItems:GetMaxFactor()
+
+	local itemName = ""
+	local internalName = heroName
+
+	local basicHeroName = HerosCustom:ConvertRPCNameToStringHeroNameSeinaru(heroName)
+	local rarity = Curator:GetWeaponRarityFromDigits(digits)
+	local rarityFactor = RPCItems:GetRarityFactor(rarity)
+	local propertyTable, baseValueTable, propensityTable, tooltipTable, colorTable = HerosCustom:GetAvailableRunes(basicHeroName)
+
+
+	local mainAttrRoll = RandomInt(1, 3)
+	local propensity = (mainAttrRoll-2)*2
+
+	local specialProperty1 = RandomInt(1, #propensityTable)
+	local specialProperty2 = RandomInt(1, #propensityTable)
+	if rarityFactor >= 3 then
+		propensity = propensity + propensityTable[specialProperty1]
+	end
+	if rarityFactor >= 4 then
+		while specialProperty1 == specialProperty2 do
+			specialProperty2 = RandomInt(1, #propensityTable)
+		end
+		propensity = propensity + propensityTable[specialProperty2]
+	end
+	local digit2 = Weapons:GetDigit2(propensity, rarityFactor)
+	local weaponIndexString = tostring(rarityFactor-2)
+
+	local weaponName = "item_rpc_"..internalName.."_weapon_"..digits
+	print(weaponName)
+	local weapon = Weapons:CreateWeaponVariant(weaponName, rarity, "", "weapon", true, "Slot: Weapon", whichHero, Weapons:GetMaxWeaponLevel(), 0)
+
+	if internalName == "conjuror" then
+		local value = Weapons:GetDeviation(2000, 0)
+	    weapon.property1 = value
+	    weapon.property1name = "aspect_health"
+	    RPCItems:SetPropertyValues(weapon, weapon.property1, "#item_aspect_health", "#3D82CC",  1) 
+	else
+		local value = Weapons:GetDeviation(100, 0)
+	    weapon.property1 = value
+	    weapon.property1name = "attack_damage"
+	    RPCItems:SetPropertyValues(weapon, weapon.property1, "#item_bonus_attack_damage", "#343EC9",  1) 
+	end
+	if mainAttrRoll == 1 then
+		local value = Weapons:GetDeviation(15, rarityFactor)
+	    weapon.property2 = value
+	    weapon.property2name = "strength"
+	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_strength", "#CC0000",  2)
+	elseif mainAttrRoll == 2 then
+		local value = Weapons:GetDeviation(15, rarityFactor)
+	    weapon.property2 = value
+	    weapon.property2name = "agility"
+	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_agility", "#2EB82E",  2)
+	else
+		local value = Weapons:GetDeviation(15, rarityFactor)
+	    weapon.property2 = value
+	    weapon.property2name = "intelligence"
+	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_intelligence", "#33CCFF",  2)
+	end
+	if rarityFactor >= 3 then
+		local value = Weapons:GetDeviation(baseValueTable[specialProperty1], rarityFactor)
+		weapon.property3 = value
+		weapon.property3name = propertyTable[specialProperty1]
+		RPCItems:SetPropertyValues(weapon, weapon.property3, tooltipTable[specialProperty1], colorTable[specialProperty1],  3)
+	end
+	if rarityFactor >= 4 then
+		local value = Weapons:GetDeviation(baseValueTable[specialProperty2], rarityFactor)
+		weapon.property4 = value
+		weapon.property4name = propertyTable[specialProperty2]
+		RPCItems:SetPropertyValues(weapon, weapon.property4, tooltipTable[specialProperty2], colorTable[specialProperty2],  4)
+	end
+
+    return weapon
+end
+
 function Curator:FinishGettingClientData(msg)
 	local playerID = msg.playerID
 	local item = EntIndexToHScript(msg.item)
@@ -34,77 +324,120 @@ function Curator:FinishGettingClientData(msg)
 	local localizedItemName = Curator:urlencode(msg.localizedName)
 	local itemTexture = msg.itemTexture
 
-	-- DeepPrintTable(msg)
-	-- DeepPrintTable(msg.property1)
-	-- print(msg.property1["0"])
-	local property1color = msg.property1["0"]:gsub('#', "")
-	local property1name = item.property1name
-	local property1localized = Curator:urlencode(msg.property1["2"])
-	local property1special = msg.property1["3"]
-	if property1special == nil then
-		property1special = ""
-	else
-		property1special = property1special:gsub('#', "")
+	DeepPrintTable(msg)
+	DeepPrintTable(msg.property1)
+	print(msg.property1["0"])
+	if msg.property1 then
+		if next(msg.property1) == nil then
+			property1color = ""
+			property1name = ""
+			property1localized = ""
+			property1special = ""
+			property1specialLocalized = ""
+			property1value = ""
+		else
+			property1color = msg.property1["0"]:gsub('#', "")
+			property1name = item.property1name
+			property1localized = Curator:urlencode(msg.property1["2"])
+			property1special = msg.property1["3"]
+			if type(property1special) == "table" then
+				property1special = ""
+			else
+				DeepPrintTable(property1special)
+				property1special = property1special:gsub('#', "")
+			end
+			property1specialLocalized = msg.property1["4"]
+			if property1specialLocalized == "undefined" then
+				property1specialLocalized = ""
+			else
+				property1specialLocalized = Curator:urlencode(property1specialLocalized)
+			end
+			property1value = item.property1
+		end
 	end
-	local property1specialLocalized = msg.property1["4"]
-	if property1specialLocalized == "undefined" then
-		property1specialLocalized = ""
-	else
-		property1specialLocalized = Curator:urlencode(property1specialLocalized)
+	if msg.property2 then
+		if next(msg.property2) == nil then
+			property2color = ""
+			property2name = ""
+			property2localized = ""
+			property2special = ""
+			property2specialLocalized = ""
+			property2value = ""
+		else
+			property2color = msg.property2["0"]:gsub('#', "")
+			property2name = item.property2name
+			property2localized = Curator:urlencode(msg.property2["2"])
+			property2special = msg.property2["3"]
+			if type(property2special) == "table" then
+				property2special = ""
+			else
+				property2special = property2special:gsub('#', "")
+			end
+			property2specialLocalized = msg.property2["4"]
+			if property2specialLocalized == "undefined" then
+				property2specialLocalized = ""
+			else
+				property2specialLocalized = Curator:urlencode(property2specialLocalized)
+			end
+			property2value = item.property2
+		end
 	end
-	local property1value = item.property1
-
-	local property2color = msg.property2["0"]:gsub('#', "")
-	local property2name = item.property2name
-	local property2localized = Curator:urlencode(msg.property2["2"])
-	local property2special = msg.property2["3"]
-	if type(property2special) == "table" then
-		property2special = ""
-	else
-		property2special = property2special:gsub('#', "")
+	if msg.property3 then
+		if next(msg.property3) == nil then
+			property3color = ""
+			property3name = ""
+			property3localized = ""
+			property3special = ""
+			property3specialLocalized = ""
+			property3value = ""
+		else
+			DeepPrintTable(msg.property3)
+			property3color = msg.property3["0"]:gsub('#', "")
+			property3name = item.property3name
+			property3localized = Curator:urlencode(msg.property3["2"])
+			property3special = msg.property3["3"]
+			if type(property3special) == "table" then
+				property3special = ""
+			else
+				property3special = property3special:gsub('#', "")
+			end
+			property3specialLocalized = msg.property3["4"]
+			if property3specialLocalized == "undefined" then
+				property3specialLocalized = ""
+			else
+				property3specialLocalized = Curator:urlencode(property3specialLocalized)
+			end
+			property3value =item.property3
+		end
 	end
-	local property2specialLocalized = msg.property2["4"]
-	if property2specialLocalized == "undefined" then
-		property2specialLocalized = ""
-	else
-		property2specialLocalized = Curator:urlencode(property2specialLocalized)
+	if msg.property4 then
+		if next(msg.property4) == nil then
+			property4color = ""
+			property4name = ""
+			property4localized = ""
+			property4special = ""
+			property4specialLocalized = ""
+			property4value = ""
+		else
+			property4color = msg.property4["0"]:gsub('#', "")
+			property4name = item.property4name
+			property4localized = Curator:urlencode(msg.property4["2"])
+			property4special = msg.property4["3"]
+			if type(property4special) == "table" then
+				property4special = ""
+			else
+				property4special = property4special:gsub('#', "")
+			end
+			property4specialLocalized = msg.property4["4"]
+			print(property4specialLocalized)
+			if property4specialLocalized == "undefined" then
+				property4specialLocalized = ""
+			else
+				property4specialLocalized = Curator:urlencode(property4specialLocalized)
+			end
+			property4value = item.property4
+		end
 	end
-	local property2value = item.property2
-
-	local property3color = msg.property3["0"]:gsub('#', "")
-	local property3name = item.property3name
-	local property3localized = Curator:urlencode(msg.property3["2"])
-	local property3special = msg.property3["3"]
-	if type(property3special) == "table" then
-		property3special = ""
-	else
-		property3special = property3special:gsub('#', "")
-	end
-	local property3specialLocalized = msg.property3["4"]
-	if property3specialLocalized == "undefined" then
-		property3specialLocalized = ""
-	else
-		property3specialLocalized = Curator:urlencode(property3specialLocalized)
-	end
-	local property3value =item.property3
-
-	local property4color = msg.property4["0"]:gsub('#', "")
-	local property4name = item.property4name
-	local property4localized = Curator:urlencode(msg.property4["2"])
-	local property4special = msg.property4["3"]
-	if type(property4special) == "table" then
-		property4special = ""
-	else
-		property4special = property4special:gsub('#', "")
-	end
-	local property4specialLocalized = msg.property4["4"]
-	print(property4specialLocalized)
-	if property4specialLocalized == "undefined" then
-		property4specialLocalized = ""
-	else
-		property4specialLocalized = Curator:urlencode(property4specialLocalized)
-	end
-	local property4value = item.property4
 
 	local steamID = PlayerResource:GetSteamAccountID(playerID)
 	local player = PlayerResource:GetPlayer(playerID)

@@ -114,39 +114,47 @@ function GetItemDataForCurator(msg)
 
     //PROPERTY1
     var property = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-1" )
-    var property1special = SpecialDescriptionValues($.Localize(property.specialDescription), item)
-    var property1localized = $.Localize(property.propertyName)
-    if (property.propertyName.indexOf("rune_") > 0){
-        property1localized = $.Localize(property.propertyName.substr(property.propertyName.length - 8))
+    if (!(property===undefined)){
+        var property1special = SpecialDescriptionValues($.Localize(property.specialDescription), item)
+        var property1localized = $.Localize(property.propertyName)
+        if (property.propertyName.indexOf("rune_") > 0){
+            property1localized = $.Localize(property.propertyName.substr(property.propertyName.length - 8))
+        }
+        var property1data = [property.propertyColor, property.propertyName, property1localized, property.specialDescription, property1special, property.propertyValue]
     }
-    var property1data = [property.propertyColor, property.propertyName, property1localized, property.specialDescription, property1special, property.propertyValue]
 
     //PROPERTY2
     var property = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-2" )
-    var property2special = SpecialDescriptionValues($.Localize(property.specialDescription), item)
-    var property2localized = $.Localize(property.propertyName)
-    if (property.propertyName.indexOf("rune_") > 0){
-        property2localized = $.Localize(property.propertyName.substr(property.propertyName.length - 8))
+    if (!(property===undefined)){
+        var property2special = SpecialDescriptionValues($.Localize(property.specialDescription), item)
+        var property2localized = $.Localize(property.propertyName)
+        if (property.propertyName.indexOf("rune_") > 0){
+            property2localized = $.Localize(property.propertyName.substr(property.propertyName.length - 8))
+        }
+        var property2data = [property.propertyColor, property.propertyName, property2localized, property.specialDescription, property2special, property.propertyValue]
     }
-    var property2data = [property.propertyColor, property.propertyName, property2localized, property.specialDescription, property2special, property.propertyValue]
 
     //PROPERTY3
     var property = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-3" )
-    var property3special = SpecialDescriptionValues($.Localize(property.specialDescription), item)
-    var property3localized = $.Localize(property.propertyName)
-    if (property.propertyName.indexOf("rune_") > 0){
-        property3localized = $.Localize(property.propertyName.substr(property.propertyName.length - 8))
+    if (!(property===undefined)){
+        var property3special = SpecialDescriptionValues($.Localize(property.specialDescription), item)
+        var property3localized = $.Localize(property.propertyName)
+        if (property.propertyName.indexOf("rune_") > 0){
+            property3localized = $.Localize(property.propertyName.substr(property.propertyName.length - 8))
+        }
+        var property3data = [property.propertyColor, property.propertyName, property3localized, property.specialDescription, property3special, property.propertyValue]
     }
-    var property3data = [property.propertyColor, property.propertyName, property3localized, property.specialDescription, property3special, property.propertyValue]
 
     //PROPERTY4
     var property = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-4" )
-    var property4special = SpecialDescriptionValues($.Localize(property.specialDescription), item)
-    var property4localized = $.Localize(property.propertyName)
-    if (property.propertyName.indexOf("rune_") > 0){
-        property4localized = $.Localize(property.propertyName.substr(property.propertyName.length - 8))
+    if (!(property===undefined)){
+        var property4special = SpecialDescriptionValues($.Localize(property.specialDescription), item)
+        var property4localized = $.Localize(property.propertyName)
+        if (property.propertyName.indexOf("rune_") > 0){
+            property4localized = $.Localize(property.propertyName.substr(property.propertyName.length - 8))
+        }
+        var property4data = [property.propertyColor, property.propertyName, property4localized, property.specialDescription, property4special, property.propertyValue]
     }
-    var property4data = [property.propertyColor, property.propertyName, property4localized, property.specialDescription, property4special, property.propertyValue]
     Game.EmitSound("RPC.Curate")
     BigChanges()
     GameEvents.SendCustomGameEventToServer( "curator_client", {item: item, language: language, localizedName: localizedName, itemTexture: itemTexture, property1: property1data, property2: property2data, property3: property3data, property4: property4data, playerID: Game.GetLocalPlayerID()} );

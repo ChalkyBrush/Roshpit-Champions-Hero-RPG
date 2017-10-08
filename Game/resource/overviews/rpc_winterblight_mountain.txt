@@ -1,0 +1,8 @@
+rpc_winterblight_mountain
+{
+	material materials/overviews/rpc_winterblight_mountain.vmat
+	pos_x -16384
+	pos_y 16384
+	scale 32.000
+}
+

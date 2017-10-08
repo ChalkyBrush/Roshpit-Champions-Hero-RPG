@@ -172,14 +172,16 @@ function ignite_think(event)
 	local target = event.target
 	local ability = event.ability
 	local damage = target.igniteDPS
-	Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+	Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, -2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 
 function applyIgnite(caster, ability, damage, target, b_d_level, duration)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_pyroblast_ignite", {duration = duration})
 	local igniteDPS = damage*0.01*b_d_level
 	if caster:HasModifier("modifier_clear_cast") then
-		igniteDPS = igniteDPS*ability.c_c_amp
+		if ability.c_c_amp then
+			igniteDPS = igniteDPS*ability.c_c_amp
+		end
 	end
 	if target:HasModifier("modifier_pyroblast_ignite") and target.igniteDPS then
 		target.igniteDPS = math.max(target.igniteDPS, igniteDPS)

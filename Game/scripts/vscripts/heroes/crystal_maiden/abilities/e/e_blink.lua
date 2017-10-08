@@ -53,9 +53,6 @@ function clearCast(caster, ability)
 
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_clear_cast", {duration = clearCastDuration})
 
-    if caster:HasModifier("modifier_sorceress_immortal_ice_avatar") or caster:HasModifier("modifier_sorceress_immortal_fire_avatar") then
-        caster = caster.origCaster
-    end
     local pyroblast = caster:FindAbilityByName("pyroblast")
     if pyroblast then
         pyroblast.c_c_amp = amplify

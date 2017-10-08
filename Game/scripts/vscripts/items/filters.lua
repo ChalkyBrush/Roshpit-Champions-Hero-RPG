@@ -526,6 +526,8 @@ function Filters:ApplyDotDamage(caster, ability, target, damage, damage_type, sl
         Filters:ApplyItemDamage(target,caster,damage,damage_type,ability, element1, element2)
     elseif slot == 0 then
         ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = damage_type })
+    elseif slot == -2 then
+        Filters:TakeArgumentsAndApplyDamage(target, caster, damage, damage_type, 0, element1, element2)
     else
         Filters:TakeArgumentsAndApplyDamage(target, caster, damage, damage_type, slot, element1, element2)
     end

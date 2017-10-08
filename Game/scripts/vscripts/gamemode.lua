@@ -184,6 +184,9 @@ function GameMode:PostLoadPrecache()
   if GameState:IsSeaFortress() then
     Precache:SeaFortress()
   end
+  if GameState:IsWinterblight() then
+    Precache:Winterblight()
+  end
 end
 
 function superPrecache()
@@ -259,6 +262,8 @@ function GameMode:OnAllPlayersLoaded()
     require('worlds/serengaard/serengaard')
   elseif GameState:IsSeaFortress() then
     require('worlds/sea_fortress/seafortress')
+  elseif GameState:IsWinterblight() then
+    require('worlds/winterblight/winterblight')
   end
 end
 

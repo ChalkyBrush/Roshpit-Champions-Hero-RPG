@@ -29913,6 +29913,16 @@
 				"Function"		"turn_toggle_off"
 			}
 		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/slardar/tsunami.lua"
+				"Function"		"poseidon_wrath_attack_hit"
+				"target"		"TARGET"
+			}
+		}
 		"Modifiers"
 		{
 			"modifier_hydroxis_slither"

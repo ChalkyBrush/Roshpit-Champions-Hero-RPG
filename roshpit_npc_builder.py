@@ -71,3 +71,7 @@ if os.path.isfile('npc_items_custom_template.txt') and os.path.isfile('npc_items
     items_replace = parse_replaces('npc_items_custom_replace.txt')
     replace_in_file('npc_items_custom_template.txt', 'npc_items_custom.txt', items_replace)
     print('items done')
+if os.path.isfile('npc_units_custom_template.txt') and os.path.isfile('npc_units_custom_replace.txt'):
+    units_replace = parse_replaces('npc_units_custom_replace.txt')
+    replace_in_file('npc_units_custom_template.txt', 'npc_units_custom.txt', units_replace)
+    print('units done')

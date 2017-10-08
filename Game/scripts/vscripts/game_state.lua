@@ -91,6 +91,15 @@ function GameState:IsSeaFortress()
 	end
 end
 
+function GameState:IsWinterblight()
+	local mapName = Events.MapName
+	if mapName == "rpc_winterblight_mountain" then
+		return true
+	else
+		return false
+	end
+end
+
 function GameState:IsSerengaard()
 	local mapName = Events.MapName
 	if mapName == "rpc_battle_of_serengaard" then

@@ -107,6 +107,8 @@ function GameMode:OnGameRulesStateChange(keys)
         Serengaard:Init()
     elseif GameState:IsSeaFortress() then
         Seafortress:Init()
+    elseif GameState:IsWinterblight() then
+        Winterblight:InitCamp()
     end
 
     if GameState:IsPVPAlpha() then
@@ -171,7 +173,7 @@ function GameMode:CorrectRespawn(npc)
         if Dungeons.entryPoint and not Beacons.expireVote then
           npc:SetOrigin(Dungeons.entryPoint)
         end
-      elseif GameState:IsTanariJungle() or GameState:IsRedfallRidge() or GameState:IsSeaFortress() then
+      elseif GameState:IsTanariJungle() or GameState:IsRedfallRidge() or GameState:IsSeaFortress() or GameState:IsWinterblight() then
         if npc.respawnFlag then
           Events:RespawnFlag(npc)
         else
@@ -650,8 +652,15 @@ function Events:BGMmanager(player, hero)
     if GameState:IsRPCArena() then
       CustomGameEventManager:Send_ServerToPlayer(player, "BGMstart", {songName = "Arena.StartingMusic"})
     elseif GameState:IsRedfallRidge() then
-      CustomGameEventManager:Send_ServerToPlayer(player, "BGMstart", {songName = "Music.Redfall.Village"})
+      if GameRules:GetGameTime() > 0 then
+        CustomGameEventManager:Send_ServerToPlayer(player, "BGMstart", {songName = "Music.Redfall.Village"})
+      end
       hero.bgm = "Music.Redfall.Village"
+    elseif GameState:IsWinterblight() then
+      if GameRules:GetGameTime() > 0 then
+        CustomGameEventManager:Send_ServerToPlayer(player, "BGMstart", {songName = "Music.Winterblight.Start"})
+      end
+      hero.bgm = "Music.Winterblight.Start"
     end
   end)
 end

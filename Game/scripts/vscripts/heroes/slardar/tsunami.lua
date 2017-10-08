@@ -67,6 +67,9 @@ function channel_complete(event)
 			if caster:HasAbility("hydroxis_water_blade") then
 				local waterBombAbility = caster:FindAbilityByName("hydroxis_water_blade")
 				waterBombAbility.c_d_level = c_d_level
+			else
+				local arcanaAbility = caster:FindAbilityByName("hydroxis_arcana_ability_1")
+				arcanaAbility.c_d_level = c_d_level
 			end
 		end)
 	end
@@ -204,6 +207,9 @@ function poseidons_wrath_attack_land(event)
 	local attacker = event.attacker
 	local target = event.target
 	local ability = attacker:FindAbilityByName("hydroxis_water_blade")
+	if attacker:HasAbility("hydroxis_arcana_ability_1") then
+		ability = attacker:FindAbilityByName("hydroxis_arcana_ability_1")
+	end
 	EmitSoundOn("Hydroxis.CDGush", target)
 	local fv = attacker:GetForwardVector()
 	local radius = 600
