@@ -1833,10 +1833,27 @@ function RPCItems:RollTwilightVestments(deathLocation)
     item.property1name = "twilight"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_twilight_vestments", "#BCD8E6",  1, "#property_twilight_vestments_description")
 
-    local evasionValue = RandomInt(12, 20)
-    item.property2 = evasionValue
-    item.property2name = "evasion"
-    RPCItems:SetPropertyValues(item, item.property2, "#item_evasion", "#759C7C",  2)
+    item.hasRunePoints = true
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+    item.property2 = value*1.5
+    local luck = RandomInt(1, 10)
+    if luck <= 4 then
+        propertyName = "rune_a_d"
+    elseif luck <=7 then
+        propertyName = "rune_b_d"
+    elseif luck <= 9 then
+        item.property2 = math.ceil(item.property2/2)
+        propertyName = "rune_c_d"
+    else
+        if GameState:GetDifficultyFactor() > 2 then
+            item.property2 = RPCItems:GetLogarithmicVarianceValue(12, 0, 0, 0, 0)
+            propertyName = "rune_d_d"
+        else
+            propertyName = "rune_a_d"
+        end
+    end
+    item.property2name = propertyName
+    RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
 
     RPCItems:RollBodyProperty3(item, 0)
     RPCItems:RollBodyProperty4(item, 0)
@@ -1853,10 +1870,11 @@ function RPCItems:RollRadiantRuinsLeather(deathLocation)
     item.property1name = "radiant_ruins"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_radiant_ruins", "#EDB940",  1, "#property_radiant_ruins_description")
 
-    local evasionValue = RandomInt(12, 20)
-    item.property2 = evasionValue
-    item.property2name = "evasion"
-    RPCItems:SetPropertyValues(item, item.property2, "#item_evasion", "#759C7C",  2)
+    item.hasRunePoints = true
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+    item.property2 = math.ceil(value*1.5)
+    item.property2name = propertyName
+    RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
 
     RPCItems:RollBodyProperty3(item, 0)
     RPCItems:RollBodyProperty4(item, 0)
@@ -3688,13 +3706,13 @@ function RPCItems:RollDemonMask(deathLocation, isShop, waveBonus)
     end
     local difficulty = GameState:GetDifficultyFactor()
     if difficulty == 1 then
-        waveBonus = math.max(waveBonus-40, 10)
+        waveBonus = math.max(waveBonus-40, 15)
     elseif difficulty == 2 then
-        waveBonus = math.max(waveBonus-30, 10)
+        waveBonus = math.max(waveBonus-30, 15)
     elseif difficulty == 3 then
-        waveBonus = math.max(waveBonus-20, 10)
+        waveBonus = math.max(waveBonus-20, 15)
     end
-    waveBonus = math.min(waveBonus, 60)
+    waveBonus = math.min(waveBonus, 20)
     item.property2 = RPCItems:GetLogarithmicVarianceValue(waveBonus, 0, 0, 0, 0)
     item.property2name = propertyName
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -4171,13 +4189,14 @@ function RPCItems:RollUndertakersHood(deathLocation, isShop)
     item.property1name = "undertaker"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_undertaker", "#3E8A2B",  1, "#property_undertaker_description")
 
-    local value = RandomInt(maxFactor*15, maxFactor*36)
+    local value = RandomInt(maxFactor*120, maxFactor*250)
+    value = math.floor(RPCItems:GetLogarithmicVarianceValue(value, 0, 0, 0, 0))
     item.property2 = value
     item.property2name = "attack_damage"
     RPCItems:SetPropertyValues(item, item.property2, "#item_bonus_attack_damage", "#343EC9",  2)  
 
  
-    local value, nameLevel = RPCItems:RollAttribute(0, 8, 15, 0, 0, item.rarity, false, maxFactor*15)
+    local value, nameLevel = RPCItems:RollAttribute(0, 8, 15, 0, 0, item.rarity, false, maxFactor*17)
     item.property3 = value
     item.property3name = "intelligence"
     RPCItems:SetPropertyValues(item, item.property3, "#item_intelligence", "#33CCFF",  3)
@@ -6231,7 +6250,7 @@ function RPCItems:RollPhoenixEmblem(deathLocation)
     item.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_phoenix_emblem", "#C98920",  1, "#property_phoenix_emblem")
 
-    local value, prefixLevel = RPCItems:RollAttribute(100, 5, 10, 0, 0, item.rarity, false, maxFactor*5)
+    local value, prefixLevel = RPCItems:RollAttribute(100, 5, 10, 0, 0, item.rarity, false, maxFactor*30)
     item.property2 = value
     item.property2name = "health_regen"
     RPCItems:SetPropertyValues(item, item.property2, "#item_health_regen", "#6AA364",  2)  
@@ -6864,29 +6883,29 @@ function RPCItems:RollSunCrystal(deathLocation, infiniteWave)
     
 
     local initRoll = RandomInt(1000, 1000+infiniteWave*40)
-    local value = math.min(RPCItems:GetLogarithmicVarianceValue(initRoll, 0, 0, 0, 0), 6500)
+    local value = math.min(RPCItems:GetLogarithmicVarianceValue(initRoll, 0, 0, 0, 0), 9000)
     item.property1 = value
     item.property1name = "strength"
     RPCItems:SetPropertyValues(item, item.property1, "#item_strength", "#CC0000",  1)
 
     local initRoll = RandomInt(1000, 1000+infiniteWave*40)
-    local value = math.min(RPCItems:GetLogarithmicVarianceValue(initRoll, 0, 0, 0, 0), 6500)
+    local value = math.min(RPCItems:GetLogarithmicVarianceValue(initRoll, 0, 0, 0, 0), 9000)
     item.property2 = value
     item.property2name = "agility"
     RPCItems:SetPropertyValues(item, item.property2, "#item_agility", "#2EB82E",  2)
 
     local initRoll = RandomInt(1000, 1000+infiniteWave*40)
-    local value = math.min(RPCItems:GetLogarithmicVarianceValue(initRoll, 0, 0, 0, 0), 6500)
+    local value = math.min(RPCItems:GetLogarithmicVarianceValue(initRoll, 0, 0, 0, 0), 9000)
     item.property3 = value
-    item.property3name = "agility"
+    item.property3name = "intelligence"
     RPCItems:SetPropertyValues(item, item.property3, "#item_intelligence", "#33CCFF",  3)
 
 
-    local initRoll = RandomInt(1000, 1000+infiniteWave*20)
-    local value = math.min(RPCItems:GetLogarithmicVarianceValue(initRoll, 0, 0, 0, 0), 4500)
+    local initRoll = RandomInt(50, 50+infiniteWave*5)
+    local value = math.min(RPCItems:GetLogarithmicVarianceValue(initRoll, 0, 0, 0, 0), 1000)
     item.property4 = value
-    item.property4name = "all_attributes"
-    RPCItems:SetPropertyValues(item, item.property4, "#item_all_attributes", "#FFFFFF",  4)
+    item.property4name = "all_elements"
+    RPCItems:SetPropertyValues(item, item.property4, "#property_all_elements", "#BED5E5", 4)
 
     local drop = CreateItemOnPositionSync( deathLocation, item )
     local position = deathLocation

@@ -39,6 +39,8 @@ function wave_unit_die(event)
 			if Serengaard.InfiniteWaveCount then
 				RPCItems:RollSunCrystal(deathLocation, Serengaard.InfiniteWaveCount)
 			end
+		elseif luck == 2995 then
+			RPCItems:RollUndertakersHood(deathLocation, false)
 		end
 	end
 end

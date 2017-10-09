@@ -30,12 +30,13 @@ function Tanari:Debug()
     local position = Vector(-4928, 2048)
     RPCItems:DropItem(item, Vector(-4928, 2048))
 
+    -- Curator:CurateAllGlyphsForHeroWithTiers("neutral", 3)
     -- Curator:CurateALLBasicWeapons(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
-    for i = 1, 50, 1 do
-        Timers:CreateTimer(i*2, function()
-             Curator:CurateBasicEquipment(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
-        end)
-    end
+    -- for i = 1, 50, 1 do
+    --     Timers:CreateTimer(i*2, function()
+    --          Curator:CurateBasicEquipment(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
+    --     end)
+    -- end
     -- Glyphs:RollGlyphAll("item_rpc_warlord_glyph_2_1", Vector(-4928, 2048), 0)
     -- RPCItems:RollMageBaneGloves(Vector(-4928, 2048))
     -- RPCItems:RollTwistedMaskOfAhnqhirBlue(Vector(-4928, 2048))
@@ -57,7 +58,8 @@ function Tanari:Debug()
     -- for i = 1, 3, 1 do
         -- RPCItems:RollZhonikArcana1(Vector(-4928, 2048))
     -- end
-    -- RPCItems:RollHydroxisArcana1(Vector(-4928, 2048))
+    -- RPCItems:RollVoltexArcana1(Vector(-4928, 2048))
+    RPCItems:RollTwilightVestments(Vector(-4928, 2048))
     -- Arena = {}
     -- Arena.PitLevel = 7
     -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "hydroxis")

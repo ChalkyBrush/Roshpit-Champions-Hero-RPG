@@ -114,7 +114,7 @@ function dash_end(event)
 	local b_c_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
 	if b_c_level > 0 then
 		local particleName = "particles/roshpit/voltex/lightning_dash_end.vpcf"
-		local pfxB = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+		local pfxB = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(pfxB, 0, caster:GetAbsOrigin())
 		ParticleManager:SetParticleControl(pfxB, 1, Vector(200, 2, 200))
 		Timers:CreateTimer(0.8, function()

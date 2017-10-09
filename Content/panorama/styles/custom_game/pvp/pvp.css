@@ -881,3 +881,55 @@
 .width_maker{
 	width:200px;
 }
+
+.serengaard_vote_skip_root{
+	margin-top:105px;
+	width:200px;
+	height:100px;
+	horizontal-align:center;
+	flow-children:down;
+}
+
+.serengaard_wave_vote_skip{
+	width:180px;
+	height:40px;
+	border: 1px solid #CCCCCC;
+	border-radius:6px;
+	horizontal-align:center;
+	background-color: gradient( linear, 0px 0%, 180px 0%, from( #111111 ), to( #333333 ) );
+}
+
+.serengaard_wave_vote_skip:hover{
+	background-color: gradient( linear, 0px 0%, 180px 0%, from( #333333 ), to( #555555 ) );
+}
+
+#serengaard_vote_skip_button_label{
+	text-shadow: 1px 1px 1px 3 #00000066;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;	
+	color:white;	
+	font-size:16px;
+	width:100%;
+	vertical-align: center;
+	text-align: center;	
+}
+
+#vote_skip_result_container{
+	flow-children:right;
+	height:40px;
+	horizontal-align:center;
+	margin-top:5px;
+}
+
+.vote_skip_result{
+	border-radius:100%;
+	border:1px solid #CCCCCC;
+	width:36px;
+	height:36px;
+	background-color: #333333;
+	margin-right:5px;
+}
+
+.skip_voted{
+	background-color: #BBBBBB;
+	box-shadow: 0px 0px 1px white;
+}

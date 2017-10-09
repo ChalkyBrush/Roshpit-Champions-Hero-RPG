@@ -210,6 +210,8 @@ function GameMode:_InitGameMode()
   CustomGameEventManager:RegisterListener( "pvp_vote", Dynamic_Wrap(Events, "PVPVote"))
   CustomGameEventManager:RegisterListener( "pvp_build", Dynamic_Wrap(Events, "PVPBuild"))
 
+  CustomGameEventManager:RegisterListener( "serengaard_vote", Dynamic_Wrap(Events, "SerengaardVote"))
+
   CustomGameEventManager:RegisterListener( "hero_selection_event", Dynamic_Wrap(SaveLoad, "HeroSelectOption"))
 
   CustomGameEventManager:RegisterListener( "stars_menu", Dynamic_Wrap(Stars, "ActivateStarsMenu"))

@@ -103769,6 +103769,14 @@
 			{
 				"IsHidden"	"1"
 			}
+			"modifier_serengaard_unit_spawned"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 		}
 	}
 
@@ -104041,10 +104049,6 @@
 			"modifier_ancient_range_aura"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "320"
-				}
 			}
 		}
 		"OnOwnerDied"
@@ -105138,7 +105142,7 @@
 			{
 				"IsHidden"	"1"
 				"Passive"	"1"
-				"OnAttack"
+				"OnAttackLanded"
 				// "%attack_damage" is set to the damage value before mitigation
 				{
 					"RunScript"

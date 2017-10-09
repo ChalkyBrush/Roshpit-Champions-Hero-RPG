@@ -85,7 +85,7 @@ function attack(event)
         damage = damage * (1 + E4_AMPLIFY_PERCENT/100 * creator:GetAverageTrueAttackDamage(creator))
     end
     if creator.c_c_level > 0 then
-        frozenDamage = frozenDamage * (1 + E3_AMPLIFY_PERCENT/100 * creator.c_c_level)
+        frozenDamage = damage * (1 + E3_AMPLIFY_PERCENT/100 * creator.c_c_level)
     end
 
     local attacksFreeze = false

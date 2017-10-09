@@ -185,6 +185,24 @@
 				<Label text="enemies_slain" class="serengaard_wave_label" id="serengaard_wave_spawn_label"></Label>
 			</Panel>
 		</snippet>
+		<snippet name="serengaard_vote_skip">
+			<Panel class="serengaard_vote_skip_root">
+				<Button id="button_vote_skip_wave" class="serengaard_wave_vote_skip">
+					<Label id="serengaard_vote_skip_button_label" text="serengaard_vote_skip_wave">
+					</Label>
+				</Button>
+				<Panel id="vote_skip_result_container">
+					<Panel class="vote_skip_result" id="vote_skip_result1">
+					</Panel>
+					<Panel class="vote_skip_result" id="vote_skip_result2">
+					</Panel>
+					<Panel class="vote_skip_result" id="vote_skip_result3">
+					</Panel>
+					<Panel class="vote_skip_result" id="vote_skip_result4">
+					</Panel>
+				</Panel>
+			</Panel>
+		</snippet>	
 		<snippet name="serengaard_leaderboard">
 			<Panel class="serengaard_leaderboard_container" hittest="false">
 				<Panel id="serengaard_leaderboard_bg">

@@ -30,3 +30,75 @@
         }
     }
 }
+
+
+"Winterblight.Wind"
+{
+    "channel"       "CHAN_AUTO"
+    "soundlevel"    "SNDLVL_NONE"
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/ambient/soundscapes/snowy_wind_lp.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "3.05000"  }
+                    "pitch_rand_min"    {   "value"     "-0.00000"  }
+                    "pitch_rand_max"    {   "value"     "0.000000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "distance_max"      {   "value"     "4500.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "100.00000" }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.RandWind"
+{
+    "channel"       "CHAN_AUTO"
+    "soundlevel"    "SNDLVL_NONE"
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/ambient/soundscapes/snowy_gust01.vsnd"
+                              "value1"        "sounds/ambient/soundscapes/snowy_gust02.vsnd"
+                              "value2"        "sounds/ambient/soundscapes/snowy_gust03.vsnd"
+                              "value3"        "sounds/ambient/soundscapes/snowy_gust04.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "3.45000"  }
+                    "pitch_rand_min"    {   "value"     "-0.00000"  }
+                    "pitch_rand_max"    {   "value"     "0.000000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "distance_max"      {   "value"     "5500.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "84.00000" }
+                }
+            }
+        }
+    }
+}

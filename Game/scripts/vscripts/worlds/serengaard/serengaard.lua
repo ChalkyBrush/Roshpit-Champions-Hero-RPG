@@ -9,7 +9,7 @@ function Serengaard:Debug()
   -- Serengaard.wave = 20
   -- Serengaard:TimerEnd()
   -- Serengaard:GiveSunstone(MAIN_HERO_TABLE[1], Serengaard.mainAncient)
-  Serengaard:SubmitStats()
+  -- Serengaard:SubmitStats()
 end
 
 function Serengaard:Debug2()
@@ -62,8 +62,8 @@ function Serengaard:Init()
   
   Serengaard.wave = 0
   if Beacons.cheats then
-      Serengaard.wave = 30
-      Serengaard:LinewarIncomeFunction(30)
+      Serengaard.wave = 5
+      Serengaard:LinewarIncomeFunction(60)
   else
     Serengaard:LinewarIncomeFunction(startTime)
     Serengaard:ZoneDisplayAndMusic()
@@ -136,16 +136,29 @@ function Serengaard:LinewarIncomeFunction(timerActivate)
     CustomGameEventManager:Send_ServerToAllClients("BGMend", {})
     CustomGameEventManager:Send_ServerToAllClients("BGMstart", {songName = "Serengaard.Music.WaveWin"})
     Timers:CreateTimer(14, function()
-      CustomGameEventManager:Send_ServerToAllClients("BGMend", {})
-      CustomGameEventManager:Send_ServerToAllClients("BGMstart", {songName = "Serengaard.Music.BetweenWaves"})
+      if Serengaard.IncomeTimer > 5 then
+        CustomGameEventManager:Send_ServerToAllClients("BGMend", {})
+        CustomGameEventManager:Send_ServerToAllClients("BGMstart", {songName = "Serengaard.Music.BetweenWaves"})
+      end
     end)
   end
-
+  print("MAKE VOTE?")
+  Serengaard.SkipVotes = 0
+  if Beacons.cheats then
+    CustomGameEventManager:Send_ServerToAllClients("serengaard_vote_skip", {playerCount = 3} )
+  else
+    for i = 1, #MAIN_HERO_TABLE, 1 do
+      local hero = MAIN_HERO_TABLE[i]
+      CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "serengaard_vote_skip", {playerCount = #MAIN_HERO_TABLE} )
+    end
+  end
+  
   
 	Timers:CreateTimer(0, function()
 		CustomGameEventManager:Send_ServerToAllClients("updateLineWarIncomeTimer", {incomeTimer = Serengaard.IncomeTimer} )
 		Serengaard.IncomeTimer = Serengaard.IncomeTimer - 1
 		if Serengaard.IncomeTimer < 0 then
+      CustomGameEventManager:Send_ServerToAllClients("BGMend", {})
 			Serengaard:TimerEnd()
 		else
       if not Serengaard.timerBlock then
@@ -155,10 +168,22 @@ function Serengaard:LinewarIncomeFunction(timerActivate)
 	end)
 end
 
+function Serengaard:Vote(msg)
+  local player = PlayerResource:GetPlayer(msg.player)
+  print("SERENGAARD VOTE???")
+  Serengaard.SkipVotes = Serengaard.SkipVotes + 1
+  if Serengaard.SkipVotes > #MAIN_HERO_TABLE/2 then
+    Serengaard.IncomeTimer = 0
+  else
+    CustomGameEventManager:Send_ServerToAllClients("serengaard_update_skip_votes", {number = Serengaard.SkipVotes} )
+  end
+end
+
 SERENGAARD_SPAWN_POINTS = {Vector(0, -7772), Vector(7772, 0), Vector(-288, 7736), Vector(-7736, 64)}
 
 function Serengaard:TimerEnd()
   CustomGameEventManager:Send_ServerToAllClients("updateLineWarIncomeTimer", {incomeTimer = "-"} )
+  CustomGameEventManager:Send_ServerToAllClients("serengaard_between_wave_end", {} )
 	if Serengaard.wave == 0 then
     Serengaard.wave = Serengaard.wave + 1
     Serengaard.waveProgress = 0
@@ -754,6 +779,13 @@ function Serengaard:NextWave()
             Stars:StarEventPlayer("serengaard_infinite", MAIN_HERO_TABLE[i])
           end
         end
+        if Serengaard.InfiniteWaveCount%30 == 0 then
+          Timers:CreateTimer(2, function()
+            for i = 1, #MAIN_HERO_TABLE, 1 do
+              Serengaard:GiveSunstone(MAIN_HERO_TABLE[i], Serengaard.mainAncient:GetAbsOrigin())
+            end
+          end)
+        end
       else
         Serengaard:InfiniteWave()
       end
@@ -888,6 +920,7 @@ end
 
 function Serengaard:AdjustUnit(unit)
   Serengaard.SerengaardMasterAbility:ApplyDataDrivenModifier(Serengaard.SerengaardMaster, unit, "modifier_serengaard_wave_unit", {})
+  Serengaard.SerengaardMasterAbility:ApplyDataDrivenModifier(Serengaard.SerengaardMaster, unit, "modifier_serengaard_unit_spawned", {duration = 3})
   unit.aggro = true
   unit:SetAcquisitionRange(6000)
   Timers:CreateTimer(0.1, function()
@@ -952,7 +985,7 @@ function Serengaard:AdjustUnit(unit)
     unit:SetDeathXP(bountyXP)
   end
   if Serengaard.InfiniteWaveCount then
-    local bountyXP = math.ceil(unit:GetDeathXP()+unit:GetDeathXP()*0.05*Serengaard.InfiniteWaveCount)
+    local bountyXP = math.ceil(unit:GetDeathXP()+unit:GetDeathXP()*0.1*Serengaard.InfiniteWaveCount)
     unit:SetDeathXP(bountyXP)
     unit:SetRenderColor(120, 120, 120)
     Events:ColorWearables(unit, Vector(120,120,120))

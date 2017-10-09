@@ -552,7 +552,23 @@ function Curator:CurateAllGlyphsForHero(heroName)
 	end)
 end
 
-
+function Curator:CurateAllGlyphsForHeroWithTiers(heroName, tiers)
+	for j = 1, tiers, 1 do
+		for i = 1, 7, 1 do
+			Timers:CreateTimer(i*2, function()
+				local variantName = "item_rpc_"..heroName.."_glyph_"..i.."_"..j
+				print(variantName)
+				local glyph = Glyphs:RollGlyphAll(variantName, Vector(0,0), 0)
+				Curator:CurateGlyph(glyph, heroName)
+			end)
+		end
+	end
+	Timers:CreateTimer(16, function()
+		local variantName = "item_rpc_"..heroName.."_glyph_5_a"
+		local glyph = Glyphs:RollGlyphAll(variantName, Vector(0,0), 0)
+		Curator:CurateGlyph(glyph, heroName)
+	end)
+end
 
 function Curator:CurateGlyph(glyph, heroName)
 	local player = MAIN_HERO_TABLE[1]:GetPlayerOwner()

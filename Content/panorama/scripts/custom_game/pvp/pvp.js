@@ -209,6 +209,8 @@ function recreateLineWarIncomeTimer(msg){
 		    board2.FindChildTraverse('primary_build_button_2').SetPanelEvent('onactivate', function OpenBuilder() {
 		    	openBuilderMenu(msg, "redfall");
 			});
+
+
 		}
 	}
 }
@@ -570,6 +572,58 @@ function serengaardLeaderboardCategoryActivate(index, results, leaderContentsCon
 	}
 }
 
+mVoteSkip = undefined;
+
+function createSerengaardVoteSkip(msg){
+	var parent = $.GetContextPanel()
+	$.Msg("ARE WE CREATING THIS?")
+	if (mVoteSkip === undefined){
+		var voteBoard = $.CreatePanel("Panel", parent, "vote_skip")
+		voteBoard.BLoadLayoutSnippet("serengaard_vote_skip")
+		mVoteSkip = voteBoard
+	}else{
+		mVoteSkip.BLoadLayoutSnippet("serengaard_vote_skip")
+	}
+	if (msg.playerCount < 2){
+		mVoteSkip.FindChildTraverse('vote_skip_result2').AddClass('invisible')
+	}
+	if (msg.playerCount < 3){
+		mVoteSkip.FindChildTraverse('vote_skip_result3').AddClass('invisible')
+	}
+	if (msg.playerCount < 4){
+		mVoteSkip.FindChildTraverse('vote_skip_result4').AddClass('invisible')
+	}
+	var skipButton = mVoteSkip.FindChildTraverse('button_vote_skip_wave')
+	$.Msg(skipButton)
+	skipButton.SetPanelEvent('onactivate', function VoteSkip() {
+		GameEvents.SendCustomGameEventToServer( "serengaard_vote", {player: Game.GetLocalPlayerID()} );	
+		skipButton.AddClass('invisible')
+	});
+}
+
+function updateSkipVotes(msg){
+	var count = msg.number
+	$.Msg("UPDATE COLORS???")
+	if (count >= 1){
+		mVoteSkip.FindChildTraverse('vote_skip_result1').AddClass('skip_voted')
+	}
+	if (count >= 2){
+		mVoteSkip.FindChildTraverse('vote_skip_result2').AddClass('skip_voted')
+	}
+	if (count >= 3){
+		mVoteSkip.FindChildTraverse('vote_skip_result3').AddClass('skip_voted')
+	}
+	if (count >= 4){
+		mVoteSkip.FindChildTraverse('vote_skip_result4').AddClass('skip_voted')
+	}
+}
+
+function destroySerengaardVoteSkip(){
+	if (!(mVoteSkip===undefined)){
+		mVoteSkip.RemoveAndDeleteChildren();
+	}
+}
+
 (function () {
   createLineWarIncomeTimer();
 
@@ -581,6 +635,10 @@ function serengaardLeaderboardCategoryActivate(index, results, leaderContentsCon
   GameEvents.Subscribe( "updateLineWarFoodCap", updateLineWarFoodCap );
   GameEvents.Subscribe( "createLineWarIncomeTimer", createLineWarIncomeTimer );
   GameEvents.Subscribe( "updateLineWarIncomeTimer", updateLineWarIncomeTimer );
+
+  GameEvents.Subscribe( "serengaard_vote_skip", createSerengaardVoteSkip );
+  GameEvents.Subscribe( "serengaard_between_wave_end", destroySerengaardVoteSkip );
+  GameEvents.Subscribe( "serengaard_update_skip_votes", updateSkipVotes)
 
   GameEvents.Subscribe( "updateTargetDummy", updateTargetDummy );
   GameEvents.Subscribe( "updateDPSLabel", updateDPSLabel );

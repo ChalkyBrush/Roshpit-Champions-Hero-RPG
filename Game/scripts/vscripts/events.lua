@@ -3499,3 +3499,7 @@ function Events:CreateCollectionBeam(attachPointA, attachPointB)
       ParticleManager:DestroyParticle(lightningBolt, false)
     end)
 end
+
+function Events:SerengaardVote(msg)
+  Serengaard:Vote(msg)
+end

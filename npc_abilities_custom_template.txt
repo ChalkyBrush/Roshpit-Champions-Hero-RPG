@@ -101429,6 +101429,14 @@
 			{
 				"IsHidden"	"1"
 			}
+			"modifier_serengaard_unit_spawned"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 		}
 	}
 
@@ -101676,7 +101684,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"luna_lucent_beam"
+		"AbilityTextureName"	"earthshaker_aftershock"
 		"MaxLevel"	"3"
 		"Modifiers"
 		{
@@ -101685,7 +101693,7 @@
 				"IsHidden"	"1"
 				"Passive"	"1"
 				"Aura"          	"modifier_ancient_range_aura"
-				"Aura_Radius"   	"700"
+				"Aura_Radius"   	"600"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -101703,7 +101711,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "320"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "220"
 				}
 			}
 		}
@@ -102798,7 +102806,7 @@
 			{
 				"IsHidden"	"1"
 				"Passive"	"1"
-				"OnAttack"
+				"OnAttackLanded"
 				// "%attack_damage" is set to the damage value before mitigation
 				{
 					"RunScript"

@@ -65625,7 +65625,7 @@
         "BountyGoldMin" "0"
         "BountyGoldMax" "0"
         "CollisionSize" "0"
-        "BoundsHullName"            "DOTA_HULL_SIZE_HUGE"
+        "BoundsHullName"            "DOTA_HULL_SIZE_TOWER"
         "ProjectileCollisionSize"   "50"
         "RingRadius"                "350"
         "HealthBarOffset"           "400"
