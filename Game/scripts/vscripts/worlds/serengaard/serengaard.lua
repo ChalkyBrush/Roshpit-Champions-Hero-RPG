@@ -149,7 +149,7 @@ function Serengaard:LinewarIncomeFunction(timerActivate)
   else
     for i = 1, #MAIN_HERO_TABLE, 1 do
       local hero = MAIN_HERO_TABLE[i]
-      CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "serengaard_vote_skip", {playerCount = #MAIN_HERO_TABLE} )
+      CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "serengaard_vote_skip", {playerCount = RPCItems:GetConnectedPlayerCount()} )
     end
   end
   
@@ -172,7 +172,7 @@ function Serengaard:Vote(msg)
   local player = PlayerResource:GetPlayer(msg.player)
   print("SERENGAARD VOTE???")
   Serengaard.SkipVotes = Serengaard.SkipVotes + 1
-  if Serengaard.SkipVotes > #MAIN_HERO_TABLE/2 then
+  if Serengaard.SkipVotes > RPCItems:GetConnectedPlayerCount()/2 then
     Serengaard.IncomeTimer = 0
   else
     CustomGameEventManager:Send_ServerToAllClients("serengaard_update_skip_votes", {number = Serengaard.SkipVotes} )

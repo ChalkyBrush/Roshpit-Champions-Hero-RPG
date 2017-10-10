@@ -4595,6 +4595,7 @@ function RPCItems:RollHarvesterBoots(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_harvester_boots", "immortal", "Harvester Boots", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
     
+    item.hasRunePoints = true
     RPCItems:RollFootProperty1(item, 0)
     local luck = RandomInt(1,3)
     if luck == 3 then

@@ -80,10 +80,10 @@ function attack(event)
     end)
     -- EmitSoundOn("Hero_Ancient_Apparition.IceBlast.Target", caster)
     local damage = attacker:GetAverageTrueAttackDamage(attacker)
-    local frozenDamage = damage
     if creator.d_c_level then
         damage = damage * (1 + E4_AMPLIFY_PERCENT/100 * creator:GetAverageTrueAttackDamage(creator))
     end
+    local frozenDamage = damage
     if creator.c_c_level > 0 then
         frozenDamage = damage * (1 + E3_AMPLIFY_PERCENT/100 * creator.c_c_level)
     end

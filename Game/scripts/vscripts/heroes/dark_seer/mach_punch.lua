@@ -191,6 +191,9 @@ end
 function zonik_echo_end(event)
 	local caster = event.caster
 	local target = event.target
+	if target.dummy then
+		return false
+	end
 	if target:IsAlive() then
 		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, caster, "modifier_backstab_jumping", {duration = 0.2})
 		Filters:TakeArgumentsAndApplyDamage(target, caster, target.zonikEcho, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)

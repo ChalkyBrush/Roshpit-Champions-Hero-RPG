@@ -277,7 +277,7 @@ function Foot:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_spirit_warrior_arcana3")
 	hero:RemoveModifierByName("modifier_voltex_arcana1")
 	hero:RemoveModifierByName("modifier_red_october_boots")
-	hero:RemoveModifierByName("modifier_zhonik_arcana1")
+	hero:RemoveModifierByName("modifier_zonik_arcana1")
 	hero:RemoveModifierByName("modifier_crystalline_slippers")
 	hero:RemoveModifierByName("modifier_oceanrunner_boots")
 	hero.arcanys = nil
