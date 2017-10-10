@@ -86522,7 +86522,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"2000 10000 25000"
+				"damage"				"2000 10000 95000"
 			}
 			"03"
 			{
@@ -103924,10 +103924,17 @@
 				}
 				"OnCreated"
 				{
-					"RunScript"
+					"DelayedAction"
 					{
-						"ScriptFile"	"worlds/serengaard/serengaard_events"
-						"Function"		"barracks_spawn"
+						"Delay"     "5"
+						"Action"    
+						{
+							"RunScript"
+							{
+								"ScriptFile"	"worlds/serengaard/serengaard_events"
+								"Function"		"barracks_spawn"
+							}
+						}
 					}
 				}
 				"ThinkInterval"  "30"
@@ -104024,7 +104031,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"luna_lucent_beam"
+		"AbilityTextureName"	"earthshaker_aftershock"
 		"MaxLevel"	"3"
 		"Modifiers"
 		{
@@ -104033,7 +104040,7 @@
 				"IsHidden"	"1"
 				"Passive"	"1"
 				"Aura"          	"modifier_ancient_range_aura"
-				"Aura_Radius"   	"700"
+				"Aura_Radius"   	"720"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -104045,10 +104052,42 @@
 				{
 					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/serengaard/serengaard_events"
+						"Function"		"serengaard_ancient_think"
+					}
+				}
+			}
+			"modifier_ancient_moving_back"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/serengaard/serengaard_events"
+						"Function"		"serengaard_ancient_moveback"
+					}
+				}
 			}
 			"modifier_ancient_range_aura"
 			{
 				"IsHidden"	"1"
+				"ThinkInterval"  "5.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/serengaard/serengaard_events"
+						"Function"		"enemy_near_ancient_think"
+						"target"		"TARGET"
+					}
+				}
 			}
 		}
 		"OnOwnerDied"

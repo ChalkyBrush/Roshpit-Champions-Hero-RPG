@@ -244,3 +244,49 @@ function use_sunstone(event)
 	    end
 	end	
 end
+
+function serengaard_ancient_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not caster.origPos then
+		caster.origPos = caster:GetAbsOrigin()
+		caster:SetHullRadius(340)
+	end
+	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), caster.origPos)
+	if distance > 100 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_ancient_moving_back", {duration = 2})
+	end
+end
+
+function serengaard_ancient_moveback(event)
+	local caster = event.caster
+	local ability = event.ability
+
+	local movement = (caster.origPos - caster:GetAbsOrigin())/30
+	caster:SetAbsOrigin(caster:GetAbsOrigin()+movement)
+	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), caster.origPos)
+	if distance < 100 then
+		caster:RemoveModifierByName("modifier_ancient_moving_back")
+	end
+end
+
+function enemy_near_ancient_think(event)
+	local unit = event.target
+	local caster = event.caster
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )	
+	local aliveHero = false
+	if #enemies > 0 then
+		for i = 1, #enemies, 1 do
+			if enemies[i]:IsAlive() then
+				aliveHero = true
+			end
+		end
+		if aliveHero then
+			unit:Stop()
+		else
+			unit:MoveToTargetToAttack(caster)
+		end
+	else
+		unit:MoveToTargetToAttack(caster)
+	end
+end

@@ -1835,7 +1835,7 @@ function RPCItems:RollTwilightVestments(deathLocation)
 
     item.hasRunePoints = true
     local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.property2 = value*1.5
+    item.property2 = math.floor(value*1.5)
     local luck = RandomInt(1, 10)
     if luck <= 4 then
         propertyName = "rune_a_d"
@@ -3767,14 +3767,22 @@ function RPCItems:RollCarbuncleHelm(deathLocation, isShop)
     item.hasRunePoints = true
 
     local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.property2 = value
+    item.property2 = math.ceil(value*1.2)
     item.property2name = propertyName
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
 
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.property3 = value
-    item.property3name = propertyName
-    RPCItems:SetPropertyValues(item, item.property3, "rune", "#7DFF12",  3)
+    local luck = RandomInt(1,10)
+    if luck < 10 then
+        local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+        item.property3 = math.ceil(value*1.5)
+        item.property3name = propertyName
+        RPCItems:SetPropertyValues(item, item.property3, "rune", "#7DFF12",  3)
+    else
+        local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+        item.property3 = math.ceil(value*2.0)
+        item.property3name = propertyName
+        RPCItems:SetPropertyValues(item, item.property3, "rune", "#7DFF12",  3)
+    end
 
     RPCItems:RollHoodProperty4(item, 0)
     RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)

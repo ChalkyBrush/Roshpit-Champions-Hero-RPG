@@ -58,7 +58,7 @@ function Tanari:Debug()
     -- for i = 1, 3, 1 do
         -- RPCItems:RollZhonikArcana1(Vector(-4928, 2048))
     -- end
-    -- RPCItems:RollVoltexArcana1(Vector(-4928, 2048))
+    RPCItems:RollCarbuncleHelm(Vector(-4928, 2048), false)
     RPCItems:RollTwilightVestments(Vector(-4928, 2048))
     -- Arena = {}
     -- Arena.PitLevel = 7

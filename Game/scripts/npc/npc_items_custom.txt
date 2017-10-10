@@ -18365,6 +18365,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"BaseClass"	"item_datadriven"
 		"AbilityTextureName"	"rpc/carbuncles_helm_of_reflection"
 		"AbilityCastRange"	"900"
@@ -18382,6 +18383,7 @@
 		"precache"
 		{
 			"particle"	"particles/units/heroes/hero_medusa/carbuncle_ruby_shell.vpcf"
+			"particle"	"particles/roshpit/items/carbuncle_reflect.vpcf"
 		}
 		"OnSpellStart"
 		{
@@ -18389,6 +18391,39 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"			"1000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"property_two"		"3.0"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_three"			"35"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_one"			"2"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_two"			"10"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_four"			"3"
 			}
 		}
 		"Modifiers"
@@ -18403,6 +18438,7 @@
 			{
 				"IsDebuff"	"1"
 				"IsHidden"	"0"
+				"TextureName"	"itemicons/carbuncle_buff"
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -18414,6 +18450,10 @@
 						"EffectAlphaScale"			"1"
 					}
 				}
+			}
+			"modifier_carbuncle_immunity"
+			{
+				"IsHidden"	"1"
 			}
 		}
 	}
@@ -22487,6 +22527,11 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"element_one"			"17"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_two"			"13"
 			}
 		}
 	}
@@ -39671,24 +39716,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/glyph_abilities.lua"
-						"Function"		"sorceress_glyph_5_1_initialize"
-						"target"		"TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/glyph_abilities.lua"
-						"Function"		"sorceress_glyph_5_1_end"
-						"target"		"TARGET"
-					}
-				}
 			}
 		}
 		"AbilitySpecial"

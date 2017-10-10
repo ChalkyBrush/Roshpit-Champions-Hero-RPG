@@ -851,9 +851,16 @@ function GameState:FilterDamage(filterTable)
 		end
 		if victim:HasModifier("modifier_carbuncles_helm_of_reflection_effect") then
 			if not attacker:HasModifier("modifier_carbuncles_helm_of_reflection_effect") then
-				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_medusa/carbuncle_ruby_shell_cast.vpcf", victim, 0.8)
-				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_medusa/carbuncle_ruby_shell_cast.vpcf", attacker, 0.8)
-				ApplyDamage({ victim = attacker, attacker = victim, damage = filterTable["damage"], damage_type = DAMAGE_TYPE_MAGICAL })
+				if not attacker:HasModifier("modifier_carbuncle_immunity") then
+					CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_medusa/carbuncle_ruby_shell_cast.vpcf", victim, 0.8)
+					CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_medusa/carbuncle_ruby_shell_cast.vpcf", attacker, 0.8)
+					Filters:ApplyItemDamage(attacker,victim,filterTable["damage"]*1000,DAMAGE_TYPE_MAGICAL,victim.headItem,RPC_ELEMENT_FIRE,RPC_ELEMENT_ARCANE)
+					victim.headItem:ApplyDataDrivenModifier(victim.InventoryUnit, attacker, "modifier_carbuncle_immunity", {duration = 3})
+					Filters:ApplyStun(victim, 3, attacker)
+					EmitSoundOn("RPC.Carbuncle.Reflect", attacker)
+					local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/items/carbuncle_reflect.vpcf", attacker, 3)
+					ParticleManager:SetParticleControlEnt(pfx, 1, attacker, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true)
+				end
 			end
 			filterTable["damage"] = 0
 		end

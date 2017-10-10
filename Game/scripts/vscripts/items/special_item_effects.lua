@@ -1790,7 +1790,7 @@ function undertaker_projectile_strike(event)
 	local target = event.target
 	local caster = event.ability.caster
 	local damage = caster:GetIntellect()*30
-	Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,event.ability,RPC_ELEMENT_UNDEAD,RPC_ELEMENT_NONE)
+	Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,event.ability,RPC_ELEMENT_UNDEAD,RPC_ELEMENT_GHOST)
 end
 
 function mountain_vambrace_attack(event)
@@ -2254,7 +2254,7 @@ function hermit_spike_damage_taken(event)
 				end)
 				local radius = 550
 				local damage = spineThreshold*30
-				local enemies = FindUnitsInRadius( target:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+				local enemies = FindUnitsInRadius( target:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 				if #enemies > 0 then
 					for _,enemy in pairs(enemies) do
 						Filters:ApplyItemDamage(enemy,target,damage,DAMAGE_TYPE_PHYSICAL,event.ability,RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)

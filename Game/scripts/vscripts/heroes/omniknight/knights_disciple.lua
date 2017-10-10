@@ -119,7 +119,7 @@ function disciple_think(event)
 		local target_teams = DOTA_UNIT_TARGET_TEAM_FRIENDLY
 		local target_types = DOTA_UNIT_TARGET_HERO
 		local target_flags = DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS
-		local allies = FindUnitsInRadius(summon:GetTeamNumber(), summon:GetAbsOrigin(), nil, 800, target_teams, target_types, target_flags, FIND_ANY_ORDER, false)
+		local allies = FindUnitsInRadius(summon:GetTeamNumber(), summon:GetAbsOrigin(), nil, 900, target_teams, target_types, target_flags, FIND_ANY_ORDER, false)
 		if #allies > 0 then
 			local ally = allies[1]
 			if #allies >= 2 then
@@ -131,6 +131,15 @@ function disciple_think(event)
 						end
 					end
 				end
+			end
+
+			local buff = paladin:FindModifierByName("modifier_knights_disciple_heal")
+			if buff then
+				if buff:GetRemainingTime() < 7 then
+					ally = paladin
+				end
+			else
+				ally = paladin
 			end
 			local newOrder = {
 		 		UnitIndex = summon:entindex(), 
