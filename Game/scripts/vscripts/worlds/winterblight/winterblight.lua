@@ -33,6 +33,9 @@ function Winterblight:InitCamp()
   Winterblight:CalculateHeroZones()
   Winterblight:StarterMusic()
   Winterblight:HowlingWind()
+  Timers:CreateTimer(1, function()
+    Winterblight:SpawnStartWorld()
+  end)
   -- Timers:CreateTimer(8, function()
   --   Redfall:InitializeForest()
     
@@ -98,4 +101,8 @@ function Winterblight:HowlingWind()
     end
     return 6
   end)
+end
+
+function Winterblight:SpawnStartWorld()
+  local spawnerKid = CreateUnitByName("winterblight_snowball_kid", Vector(-12672, -1024), false, nil, nil, DOTA_TEAM_NEUTRALS)
 end

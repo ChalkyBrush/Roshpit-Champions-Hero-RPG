@@ -110535,6 +110535,74 @@
 		}
 	}
 
+	"winterblight_snowball_thrower"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"juggernaut_blade_fury"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"300000"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_snowball_thrower"
+			{
+				"IsHidden"	"0"
+				"Passive"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
+				}
+				"OnAttackLanded"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_snowball_slow"
+						"Target" 		"TARGET"
+						"Duration"		"3"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/village"
+						"Function"		"village_snowball_hit"
+					}
+				}
+				"OnAttackStart"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Snowball.Throw"
+						"Target" 		"CASTER"
+					}
+				}
+			}
+			"modifier_snowball_slow"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			
+				"StatusEffectName" 		"particles/econ/items/winter_wyvern/winter_wyvern_ti7/status_effect_winter_wyvern_cold_embrace_ti7.vpcf" 	   
+				"StatusEffectPriority"  "20"
+			
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-35"
+				}
+			}
+		}
+	}
 	//SEA FORTRESS
 
 	"sea_fortress_ability"

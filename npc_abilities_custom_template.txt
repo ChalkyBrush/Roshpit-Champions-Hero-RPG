@@ -108195,6 +108195,8 @@
 		}
 	}
 
+	##WINTERBLIGHT_ABILITIES##
+
 	//SEA FORTRESS
 
 	"sea_fortress_ability"

@@ -283,6 +283,7 @@ function enemy_near_ancient_think(event)
 		end
 		if aliveHero then
 			unit:Stop()
+			unit:MoveToTargetToAttack(enemies[1])
 		else
 			unit:MoveToTargetToAttack(caster)
 		end

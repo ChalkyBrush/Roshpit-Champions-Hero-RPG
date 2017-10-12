@@ -14,6 +14,9 @@ function modifier_trapper_immo3_effect:GetModifierCastRangeBonus( params )
 	if hero:HasModifier("modifier_hood_of_lords_lua") then
 		range = range + 140
 	end
+    if hero:HasModifier("modifier_vermillion_dream_lua") then
+        range = range + 420
+    end
     return range
 end
 

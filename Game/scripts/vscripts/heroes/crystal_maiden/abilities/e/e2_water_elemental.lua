@@ -81,7 +81,7 @@ function attack(event)
     -- EmitSoundOn("Hero_Ancient_Apparition.IceBlast.Target", caster)
     local damage = attacker:GetAverageTrueAttackDamage(attacker)
     if creator.d_c_level then
-        damage = damage * (1 + E4_AMPLIFY_PERCENT/100 * creator:GetAverageTrueAttackDamage(creator))
+        damage = damage * (1 + E4_AMPLIFY_PERCENT/100 * creator:GetAverageTrueAttackDamage(creator) * creator.d_c_level)
     end
     local frozenDamage = damage
     if creator.c_c_level > 0 then
@@ -115,9 +115,14 @@ function attack(event)
     if creator.d_c_level > 0 then
         local luck = RandomInt(1, 100)
         if luck < creator.d_c_level then
-            createProjectile(attacker, target, ability)
+            StartAnimation(attacker, {duration=0.6, activity=ACT_DOTA_ATTACK, rate=1.8})
+            Timers:CreateTimer(0.24, function()
+                Filters:PerformAttackSpecial(attacker, target, true, true, true, false, true, false, false)
+            end)
+            -- createProjectile(attacker, target, ability)
         end
     end
+
 end
 
 function createProjectile(attacker, enemy, ability)
