@@ -2129,10 +2129,10 @@ function bluestar_slide(event)
 	local position = target:GetAbsOrigin()
   position = GetGroundPosition( position, target )
 
-  local obstruction = WallPhysics:FindNearestObstruction(position*Vector(1,1,0))
-  local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, position*Vector(1,1,0), target)
   local newPosition = position+target:GetForwardVector()*target.bluestarSlideVelocity
-  if not blockUnit then
+  local afterWallPosition = WallPhysics:WallSearch(target:GetAbsOrigin(), newPosition, target)
+
+  if afterWallPosition == newPosition then
     target:SetOrigin(newPosition)
   end
   target.bluestarSlideVelocity = target.bluestarSlideVelocity - 1.25
