@@ -1215,6 +1215,7 @@ function Runes:UnequipArcana(hero, index)
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_obsidian_destroyer" then
 		if index == 1 then
+			hero:RemoveModifierByName("modifier_epoch_arcana_passive")
 			Runes:EasyRevertArcanaSkills(hero, 0, "time_binder", "epoch_arcana_ability", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_axe" then

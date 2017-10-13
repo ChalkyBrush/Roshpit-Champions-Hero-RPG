@@ -41,6 +41,13 @@ end
 function zap_field_modifier_thinker(event)
 	local caster = event.caster
 	local ability = event.ability
+	if not ability then
+		if ability.pfx then
+			ParticleManager:DestroyParticle(ability.pfx, true)
+		end
+		caster:RemoveModifierByName("modifier_zap_field")
+		return false
+	end
 	if not ability.interval then
 		ability.interval = 0
 	end

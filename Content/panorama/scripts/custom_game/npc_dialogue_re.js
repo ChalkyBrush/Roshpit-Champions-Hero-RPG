@@ -390,7 +390,7 @@ function GetAbilityDataForCurator(msg)
     var runeData4 = GetRuneData(msg.rune4)
     GameEvents.SendCustomGameEventToServer( "curateAbility", {hero: hero, playerID: Game.GetLocalPlayerID(), language: language, ability:ability, abilityNameLocalized: abilityNameLocalized,
         abilityDescription: abilityDescription, abilityTargetType: abilityTargetType, abilityDamageType: Abilities.GetAbilityDamageType( ability ), abilityTexture: abilityTexture, runeData1: runeData1,
-        runeData2: runeData2, runeData3: runeData3, runeData4: runeData4, abilityIndex: msg.abilitySlotIndex} );
+        runeData2: runeData2, runeData3: runeData3, runeData4: runeData4, abilityIndex: msg.abilitySlotIndex, arcanaIndex: msg.arcanaIndex, item_reference: msg.item_reference} );
 }
 
 function GetRuneData(runeIndex)

@@ -1037,3 +1037,58 @@ function RPCItems:PreacheArcanaResources(item)
         PrecacheItemByNameAsync(item:GetAbilityName(), function(...) end)
     end)
 end
+
+function RPCItems:GetAvailableArcanaData(hero)
+    local unitName = hero:GetUnitName()
+    local arcanaData = {}
+    if unitName == "npc_dota_hero_dragon_knight" then
+        table.insert(arcanaData, {1, 0})
+    elseif unitName == "npc_dota_hero_phantom_assassin" then
+        table.insert(arcanaData, {1, 2})
+    elseif unitName == "npc_dota_hero_necrolyte" then
+        table.insert(arcanaData, {1, 3})
+    elseif unitName == "npc_dota_hero_axe" then
+        table.insert(arcanaData, {1, 3})
+    elseif unitName == "npc_dota_hero_drow_ranger" then
+        table.insert(arcanaData, {1, 0})
+    elseif unitName == "npc_dota_hero_obsidian_destroyer" then
+        table.insert(arcanaData, {1, 0})
+    elseif unitName == "npc_dota_hero_omniknight" then
+        table.insert(arcanaData, {1, 1})
+    elseif unitName == "npc_dota_hero_crystal_maiden" then
+        table.insert(arcanaData, {1, 3})
+    elseif unitName == "npc_dota_hero_invoker" then
+        table.insert(arcanaData, {1, 3})
+    elseif unitName == "npc_dota_hero_juggernaut" then
+        table.insert(arcanaData, {1, 0})
+    elseif unitName == "npc_dota_hero_beastmaster" then
+        table.insert(arcanaData, {1, 3})
+    elseif unitName == "npc_dota_hero_leshrac" then
+        table.insert(arcanaData, {1, 3})
+    elseif unitName == "npc_dota_hero_spirit_breaker" then
+        table.insert(arcanaData, {1, 1})
+    elseif unitName == "npc_dota_hero_zuus" then
+        table.insert(arcanaData, {1, 0})
+        table.insert(arcanaData, {2, 0})
+    elseif unitName == "npc_dota_hero_templar_assassin" then
+        table.insert(arcanaData, {1, 1})
+    elseif unitName == "npc_dota_hero_huskar" then
+        table.insert(arcanaData, {1, 3})
+        table.insert(arcanaData, {2, 1})
+        table.insert(arcanaData, {3, 2})
+    elseif unitName == "npc_dota_hero_legion_commander" then
+        table.insert(arcanaData, {1, 1})
+        table.insert(arcanaData, {2, 3})
+    elseif unitName == "npc_dota_hero_night_stalker" then
+        table.insert(arcanaData, {1, 3})
+    elseif unitName == "npc_dota_hero_slardar" then
+        table.insert(arcanaData, {1, 1})
+    elseif unitName == "npc_dota_hero_visage" then
+        table.insert(arcanaData, {1, 0})
+    elseif unitName == "npc_dota_hero_dark_seer" then
+        table.insert(arcanaData, {1, 2})
+    elseif unitName == "npc_dota_hero_antimage" then
+        table.insert(arcanaData, {1, 1})        
+    end
+    return arcanaData
+end

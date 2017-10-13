@@ -343,7 +343,7 @@ function Curator:FinishGettingClientData(msg)
 			if type(property1special) == "table" then
 				property1special = ""
 			else
-				DeepPrintTable(property1special)
+				-- DeepPrintTable(property1special)
 				property1special = property1special:gsub('#', "")
 			end
 			property1specialLocalized = msg.property1["4"]
@@ -610,6 +610,38 @@ function Curator:ClientDataGlyph(msg)
 	end )
 end
 
+function Curator:CurateArcanaAbilities(hero)
+	local available_arcanas = RPCItems:GetAvailableArcanaData(hero)
+	for i = 1, #available_arcanas, 1 do
+		Timers:CreateTimer(8*(i-1), function()
+			Runes:EquipArcana(hero, available_arcanas[i][1])
+			Timers:CreateTimer(2, function()
+				local index = available_arcanas[i][2]
+				local ability = hero:GetAbilityByIndex(index)
+				local abilitySpecial = ability:GetAbilityKeyValues()["AbilitySpecial"]
+				local player = PlayerResource:GetPlayer(hero:GetPlayerOwnerID())
+				local rune1 = hero.runeUnit:GetAbilityByIndex(index)
+				local rune2 = hero.runeUnit2:GetAbilityByIndex(index)
+				local rune3 = hero.runeUnit3:GetAbilityByIndex(index)
+				local rune4 = hero.runeUnit4:GetAbilityByIndex(index)
+
+				local internalHeroName = HerosCustom:GetInternalHeroName(hero:GetUnitName())
+				local item_reference = "item_rpc_"..internalHeroName.."_arcana"..available_arcanas[i][1]
+				-- for _,kv in pairs(abilitySpecial) do
+				-- 	DeepPrintTable(kv)
+				-- end
+
+				print("curate_ability")
+				print(ability:GetEntityIndex())
+				CustomGameEventManager:Send_ServerToPlayer(player, "get_ability_curator", {heroIndex = hero:GetEntityIndex(), abilityIndex = ability:GetEntityIndex(), abilitySpecial = abilitySpecial, rune1 = rune1:GetEntityIndex(), rune2 = rune2:GetEntityIndex(), rune3 = rune3:GetEntityIndex(), rune4 = rune4:GetEntityIndex(), abilitySlotIndex = index, arcanaIndex = index, item_reference = item_reference} )	
+			end)
+			Timers:CreateTimer(5, function()
+				Runes:UnequipArcana(hero, available_arcanas[i][1])
+			end)
+		end)
+	end
+end
+
 function Curator:CurateAbility(hero, index)
 	local ability = hero:GetAbilityByIndex(index)
 	local abilitySpecial = ability:GetAbilityKeyValues()["AbilitySpecial"]
@@ -624,7 +656,7 @@ function Curator:CurateAbility(hero, index)
 
 	print("curate_ability")
 	print(ability:GetEntityIndex())
-	CustomGameEventManager:Send_ServerToPlayer(player, "get_ability_curator", {heroIndex = hero:GetEntityIndex(), abilityIndex = ability:GetEntityIndex(), abilitySpecial = abilitySpecial, rune1 = rune1:GetEntityIndex(), rune2 = rune2:GetEntityIndex(), rune3 = rune3:GetEntityIndex(), rune4 = rune4:GetEntityIndex(), abilitySlotIndex = index} )	
+	CustomGameEventManager:Send_ServerToPlayer(player, "get_ability_curator", {heroIndex = hero:GetEntityIndex(), abilityIndex = ability:GetEntityIndex(), abilitySpecial = abilitySpecial, rune1 = rune1:GetEntityIndex(), rune2 = rune2:GetEntityIndex(), rune3 = rune3:GetEntityIndex(), rune4 = rune4:GetEntityIndex(), abilitySlotIndex = index, arcanaIndex = -1, item_reference = ""} )	
 end
 
 function Curator:ClientDataAbility(msg)
@@ -638,12 +670,13 @@ function Curator:ClientDataAbility(msg)
 	local abilityTargetType = msg.abilityTargetType
 	local abilityDamageType = msg.abilityDamageType
 
+	local arcanaIndex = msg.arcanaIndex
 -- [ability, abilityName, abilityTexture, abilityNameLocalized, abilityDescription, baseAbility, damageType, property1, property2, element1, element2, property1max, property2max, property1base, property2base]
 
 	local steamID = PlayerResource:GetSteamAccountID(playerID)
 	local player = PlayerResource:GetPlayer(playerID)
 	local url = ROSHPIT_URL.."/champions/curatorAbilitySubmit?"
-	url = url.."steam_id="..steamID	
+	url = url.."steam_id="..steamID
 	url = url.."&language="..language
 	url = url.."&heroName="..hero:GetUnitName()
 	url = url.."&abilityNameInternal="..ability:GetAbilityName()
@@ -654,6 +687,8 @@ function Curator:ClientDataAbility(msg)
 	url = url.."&abilityTargetType="..abilityTargetType
 	url = url.."&abilityDamageType="..abilityDamageType
 	url = url.."&abilityIndex="..msg.abilityIndex
+	url = url.."&arcanaIndex="..arcanaIndex
+	url = url.."&item_reference="..msg.item_reference
 	for i = 1, 4, 1 do
 		local runeData = msg.runeData1
 		if i == 2 then

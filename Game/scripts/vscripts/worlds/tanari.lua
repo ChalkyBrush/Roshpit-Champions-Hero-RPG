@@ -30,6 +30,8 @@ function Tanari:Debug()
     local position = Vector(-4928, 2048)
     RPCItems:DropItem(item, Vector(-4928, 2048))
 
+
+    Curator:CurateArcanaAbilities(MAIN_HERO_TABLE[1])
     -- Curator:CurateAllGlyphsForHeroWithTiers("neutral", 3)
     -- Curator:CurateALLBasicWeapons(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
     -- for i = 1, 50, 1 do
@@ -58,8 +60,8 @@ function Tanari:Debug()
     -- for i = 1, 3, 1 do
         -- RPCItems:RollZhonikArcana1(Vector(-4928, 2048))
     -- end
-    RPCItems:RollCarbuncleHelm(Vector(-4928, 2048), false)
-    RPCItems:RollTwilightVestments(Vector(-4928, 2048))
+    -- RPCItems:RollCarbuncleHelm(Vector(-4928, 2048), false)
+    -- RPCItems:RollTwilightVestments(Vector(-4928, 2048))
     -- Arena = {}
     -- Arena.PitLevel = 7
     -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "hydroxis")
@@ -71,7 +73,7 @@ function Tanari:Debug()
     -- -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
     -- -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
     -- Glyphs:DebugRollHeroGlyphs("sorceress", Vector(-4928, 2048))
-    Weapons:RollLegendWeapon2(Vector(-4928, 2048), "venomort")
+    -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "venomort")
     -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "sorceress")
     -- for i = 1, 3, 1 do
     --     RPCItems:RollWarlordArcana1(Vector(-4928, 2048))
@@ -101,7 +103,7 @@ function Tanari:Debug()
     -- RPCItems:RollAuriunArcana1(Vector(-4928, 2048))
     -- RPCItems:RollAuriunArcana2(Vector(-4928, 2048))
     -- RPCItems:RollBurningSpiritHelmet(Vector(-4928, 2048))
-    -- RPCItems:RollFlamewakerArcana1(Vector(-4928, 2048))
+    RPCItems:RollFlamewakerArcana1(Vector(-4928, 2048))
     -- Dungeons.itemLevel = 300
     -- RPCItems:RollVoltexArcana1(Vector(-4928, 2048))
     -- RPCItems:RollAlaranaIceBoot(Vector(-4928, 2048))
