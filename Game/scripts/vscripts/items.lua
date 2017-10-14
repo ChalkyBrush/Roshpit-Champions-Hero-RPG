@@ -1362,6 +1362,18 @@ end
 function RPCItems:EndRoll(rollSlot, itemIndex)
 	if not RPCItems.indexesRolled[itemIndex] then
 		local item = EntIndexToHScript(itemIndex)
+		if not IsValidEntity(item) then
+			CustomGameEventManager:Send_ServerToAllClients("empty_roll_slot", {rollSlot=rollSlot} )
+			if #RPCItems.item_roll_queue > 0 then
+				RPCItems:LegendaryPickup(RPCItems.item_roll_queue[1], false)
+				local newQueue = {}
+				for i = 2, #RPCItems.item_roll_queue, 1 do
+					table.insert(newQueue, RPCItems.item_roll_queue[i])
+				end
+				RPCItems.item_roll_queue = newQueue	
+			end
+			return false
+		end
 		local winningRoll = nil
 		local winningPlayer = nil
 		local rollType = nil
@@ -1385,8 +1397,10 @@ function RPCItems:EndRoll(rollSlot, itemIndex)
 		local playerID = nil
 		if winningPlayer then
 			hero = GameState:GetHeroByPlayerID(winningPlayer)
-			heroId = hero:GetClassname()
-			playerID = winningPlayer
+			if hero then
+				heroId = hero:GetClassname()
+				playerID = winningPlayer
+			end
 		end
 		if rolltype == "pass" then
 			if IsValidEntity(item:GetContainer()) then
@@ -1518,10 +1532,12 @@ end
 function RPCItems:GetConnectedPlayerCount()
 	local disconnected_count = 0 
 	for i = 1, #MAIN_HERO_TABLE, 1 do
-		if (PlayerResource:GetConnectionState(MAIN_HERO_TABLE[i]:GetPlayerOwnerID()) == 2) or (PlayerResource:GetConnectionState(MAIN_HERO_TABLE[i]:GetPlayerOwnerID()) ==1) then
-		else
-			disconnected_count = disconnected_count+1
-		end
+			if MAIN_HERO_TABLE:GetPlayerOwnerID() then
+				if (PlayerResource:GetConnectionState(MAIN_HERO_TABLE[i]:GetPlayerOwnerID()) == 2) or (PlayerResource:GetConnectionState(MAIN_HERO_TABLE[i]:GetPlayerOwnerID()) ==1) then
+				else
+					disconnected_count = disconnected_count+1
+				end
+			end
 	end
 	return #MAIN_HERO_TABLE - disconnected_count
 end
