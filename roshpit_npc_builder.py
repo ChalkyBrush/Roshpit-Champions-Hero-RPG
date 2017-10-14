@@ -6,9 +6,9 @@ def parse_constants(file_path):
     constants = {}
     file = open(file_path, 'r')
     for line in file:
-        if '=' not in line:
-            continue
         if '--' in line:
+            line = line[:line.index('--')]
+        if '=' not in line:
             continue
         temp = line.split('=')
         constants[temp[0].strip()] = temp[1].strip().replace("'","").replace('"', '')
@@ -58,7 +58,8 @@ def prepare_file(file_path, constants):
     for constant, value in constants.items():
         content = content.replace('<% ' + constant + ' %>', value)
     if '<%' in content:
-        raise Exception("seems that some constants in " + file_path + " don't parsed. There should be space after <% and before %>")
+        constant_name = content[content.index("<%") + 2:content.index("%>")]
+        raise Exception("Constants " + constant_name + " in " + file_path + " don't parsed. There should be space after <% and before %>")
     return content
 
 settings = parse_settings('builder_settings.txt')
