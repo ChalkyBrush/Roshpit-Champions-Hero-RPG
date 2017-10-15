@@ -979,7 +979,7 @@ function RPCItems:RollSoluniaArcana2(deathLocation)
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
 
 
-    local value, prefixLevel = RPCItems:RollAttribute(100, 8, 20, 0, 0, item.rarity, false, maxFactor*16)
+    local value, prefixLevel = RPCItems:RollAttribute(100, 8, 24, 0, 0, item.rarity, false, maxFactor*30)
     item.property3 = value
     item.property3name = "all_attributes"
     RPCItems:SetPropertyValues(item, item.property3, "#item_all_attributes", "#FFFFFF",  3)
