@@ -5,3 +5,4 @@ SORCERESS_RUNES:heroes\crystal_maiden\npc\sorceress_runes.txt
 SORCERESS_ARCANA_1_ABILITIES:heroes\crystal_maiden\npc\sorceress_arcana_1_abilities.txt
 SORCERESS_ARCANA_1_RUNES:heroes\crystal_maiden\npc\sorceress_arcana_1_runes.txt
 WINTERBLIGHT_ABILITIES:worlds\winterblight\winterblight_abilities.txt
+SOLUNIA_ABILITIES:heroes\vengeful_spirit\npc\npc_solunia_abilities.txt

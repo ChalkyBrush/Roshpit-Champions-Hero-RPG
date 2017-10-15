@@ -1532,7 +1532,7 @@ end
 function RPCItems:GetConnectedPlayerCount()
 	local disconnected_count = 0 
 	for i = 1, #MAIN_HERO_TABLE, 1 do
-			if MAIN_HERO_TABLE:GetPlayerOwnerID() then
+			if MAIN_HERO_TABLE[i]:GetPlayerOwnerID() then
 				if (PlayerResource:GetConnectionState(MAIN_HERO_TABLE[i]:GetPlayerOwnerID()) == 2) or (PlayerResource:GetConnectionState(MAIN_HERO_TABLE[i]:GetPlayerOwnerID()) ==1) then
 				else
 					disconnected_count = disconnected_count+1

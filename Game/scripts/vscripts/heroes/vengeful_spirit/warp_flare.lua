@@ -1,4 +1,5 @@
 require('heroes/vengeful_spirit/supernova')
+require('heroes/vengeful_spirit/alpha_spark')
 
 function warp_flare_phase_start(event)
 	local caster = event.caster
@@ -43,7 +44,9 @@ function warp_flare_start(event)
 	if caster:HasAbility("solunia_lunarang") then
 		caster:FindAbilityByName("solunia_lunarang"):SetActivated(false)
 	end
-	caster:FindAbilityByName("solunia_solar_glow"):SetActivated(false)
+	if caster:HasAbility("solunia_solar_glow") then
+		caster:FindAbilityByName("solunia_solar_glow"):SetActivated(false)
+	end
 	if caster:HasAbility("solunia_lunar_glow") then
 		caster:FindAbilityByName("solunia_lunar_glow"):SetActivated(false)
 	end
@@ -189,7 +192,9 @@ function end_warp_flare(ability,caster)
 	end
 	reactivateBoomerangAbility("solunia_solarang", caster)
 	reactivateBoomerangAbility("solunia_lunarang", caster)
-	caster:FindAbilityByName("solunia_solar_glow"):SetActivated(true)
+	if caster:HasAbility("solunia_solar_glow") then
+		caster:FindAbilityByName("solunia_solar_glow"):SetActivated(true)
+	end
 	if caster:HasAbility("solunia_lunar_glow") then
 		caster:FindAbilityByName("solunia_lunar_glow"):SetActivated(true)
 	end
@@ -313,34 +318,68 @@ function max_flares_achieved(caster, ability)
 		local ability1name = "solunia_warp_flare"
 		local ability2name = "solunia_lunar_warp_flare"
 		if ability:GetAbilityName() == ability1name then
-			local ultAbility = caster:FindAbilityByName("solunia_supernova")
-			ultAbility.rotationIndex = 0
-			ultAbility.fallVelocity = 1
-			ultAbility.startRotation = vectorToAngle(caster:GetForwardVector())
-			if ultAbility:GetCooldownTimeRemaining() == 0 then
-				local eventTable = {}
-				eventTable.caster = caster
-				eventTable.ability = ultAbility
-				eventTable.radius = 450
-				eventTable.damage = ultAbility:GetLevelSpecialValueFor("damage", ultAbility:GetLevel())
-				eventTable.stun_duration = ultAbility:GetLevelSpecialValueFor("stun_duration", ultAbility:GetLevel())
-				begin_supernova(eventTable)
-				ultAbility:StartCooldown(ultAbility:GetCooldown(ultAbility:GetLevel()))
+			if caster:HasModifier("modifier_solunia_arcana2") then
+				local ultAbility = caster:FindAbilityByName("solunia_solar_alpha_spark")
+				if ultAbility:GetCooldownTimeRemaining() == 0 then
+					local eventTable = {}
+					eventTable.caster = caster
+					eventTable.ability = ultAbility
+					eventTable.target_points = {}
+					eventTable.target_points[1] = caster:GetAbsOrigin()
+					eventTable.radius = 450
+					eventTable.type = "sun"
+					eventTable.damage = ultAbility:GetLevelSpecialValueFor("damage", ultAbility:GetLevel())
+					eventTable.stun_duration = ultAbility:GetLevelSpecialValueFor("stun_duration", ultAbility:GetLevel())
+					begin_alpha_spark(eventTable)
+					ultAbility:StartCooldown(ultAbility:GetCooldown(ultAbility:GetLevel()))
+				end
+			else
+				local ultAbility = caster:FindAbilityByName("solunia_supernova")
+				ultAbility.rotationIndex = 0
+				ultAbility.fallVelocity = 1
+				ultAbility.startRotation = vectorToAngle(caster:GetForwardVector())
+				if ultAbility:GetCooldownTimeRemaining() == 0 then
+					local eventTable = {}
+					eventTable.caster = caster
+					eventTable.ability = ultAbility
+					eventTable.radius = 450
+					eventTable.damage = ultAbility:GetLevelSpecialValueFor("damage", ultAbility:GetLevel())
+					eventTable.stun_duration = ultAbility:GetLevelSpecialValueFor("stun_duration", ultAbility:GetLevel())
+					begin_supernova(eventTable)
+					ultAbility:StartCooldown(ultAbility:GetCooldown(ultAbility:GetLevel()))
+				end
 			end
 		elseif ability:GetAbilityName() == ability2name then
-			local ultAbility = caster:FindAbilityByName("solunia_eclipse")
-			ultAbility.rotationIndex = 0
-			ultAbility.fallVelocity = 1
-			ultAbility.startRotation = vectorToAngle(caster:GetForwardVector())
-			if ultAbility:GetCooldownTimeRemaining() == 0 then
-				local eventTable = {}
-				eventTable.caster = caster
-				eventTable.ability = ultAbility
-				eventTable.radius = 450
-				eventTable.damage = ultAbility:GetLevelSpecialValueFor("damage", ultAbility:GetLevel())
-				eventTable.stun_duration = ultAbility:GetLevelSpecialValueFor("stun_duration", ultAbility:GetLevel())
-				begin_eclipse(eventTable)
-				ultAbility:StartCooldown(ultAbility:GetCooldown(ultAbility:GetLevel()))
+			if caster:HasModifier("modifier_solunia_arcana2") then
+				local ultAbility = caster:FindAbilityByName("solunia_lunar_alpha_spark")
+				if ultAbility:GetCooldownTimeRemaining() == 0 then
+					local eventTable = {}
+					eventTable.caster = caster
+					eventTable.ability = ultAbility
+					eventTable.target_points = {}
+					eventTable.target_points[1] = caster:GetAbsOrigin()
+					eventTable.radius = 450
+					eventTable.type = "moon"
+					eventTable.damage = ultAbility:GetLevelSpecialValueFor("damage", ultAbility:GetLevel())
+					eventTable.stun_duration = ultAbility:GetLevelSpecialValueFor("stun_duration", ultAbility:GetLevel())
+					begin_alpha_spark(eventTable)
+					ultAbility:StartCooldown(ultAbility:GetCooldown(ultAbility:GetLevel()))
+				end
+			else
+				local ultAbility = caster:FindAbilityByName("solunia_eclipse")
+				ultAbility.rotationIndex = 0
+				ultAbility.fallVelocity = 1
+				ultAbility.startRotation = vectorToAngle(caster:GetForwardVector())
+				if ultAbility:GetCooldownTimeRemaining() == 0 then
+					local eventTable = {}
+					eventTable.caster = caster
+					eventTable.ability = ultAbility
+					eventTable.radius = 450
+					eventTable.damage = ultAbility:GetLevelSpecialValueFor("damage", ultAbility:GetLevel())
+					eventTable.stun_duration = ultAbility:GetLevelSpecialValueFor("stun_duration", ultAbility:GetLevel())
+					begin_eclipse(eventTable)
+					ultAbility:StartCooldown(ultAbility:GetCooldown(ultAbility:GetLevel()))
+				end
 			end
 		end
 	end

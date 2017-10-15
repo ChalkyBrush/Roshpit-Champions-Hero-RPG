@@ -17,6 +17,20 @@ function Filters:ApplyItemDamage(victim,attacker,damage,damage_type,item,element
             damage = damage*victim.itemReduc
         end
     end
+    if attacker:HasModifier("modifier_solunia_arcana2") then
+        local b_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 3)
+        if b_d_level > 0 then
+            if attacker.sunMoon == "moon" then
+                victim.SoluniaBurnLunar = damage*0.05*b_d_level
+                local alphaAbility = attacker:FindAbilityByName("solunia_lunar_alpha_spark")
+                alphaAbility:ApplyDataDrivenModifier(attacker, victim, "modifier_solunia_lunar_burn", {duration = 8})
+            else
+                victim.SoluniaBurnSolar = damage*0.05*b_d_level
+                local alphaAbility = attacker:FindAbilityByName("solunia_solar_alpha_spark")
+                alphaAbility:ApplyDataDrivenModifier(attacker, victim, "modifier_solunia_solar_burn", {duration = 8})
+            end
+        end
+    end
     damage = damage*mult
     Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, 0, element1, element2)
     -- ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = item })
@@ -1046,6 +1060,12 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_boots_of_old_wisdom_active") then
             damageMult = damageMult + 6.5
         end
+        if attacker:HasModifier("modifier_solunia_arcana1") then
+            local b_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 0)
+            if b_a_level > 0 then
+                damage = damage + attacker:GetHealth()*0.1*b_a_level
+            end
+        end
         if attacker:HasModifier("modifier_ogthun_visible") then
             local current_stack = attacker:GetModifierStackCount( "modifier_ogthun_visible", attacker.body )
             damageMult = damageMult + 0.02*current_stack
@@ -1490,6 +1510,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             --     local multIncrease = ratio * 0.5 * c_d_level
             --     mult = mult + multIncrease
             -- end
+        elseif unitName == "npc_dota_hero_vengefulspirit" then
+            if attacker:HasModifier("modifier_solunia_arcana2") then
+                local d_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 3)
+                mult = mult + 0.0005*attacker:GetStrength()/10*d_d_level
+            end
         end
         if attacker:HasModifier("modifier_trinket_fire") then
             local stacks = attacker:GetModifierStackCount("modifier_trinket_fire", attacker.InventoryUnit)
@@ -1685,7 +1710,15 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if unitName == "npc_dota_hero_vengefulspirit" then
             local d_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 0)
-            mult = mult + 0.002*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_a_level
+            local d_a_mult = 0.002
+            if attacker:HasModifier("modifier_solunia_arcana1") then
+                d_a_mult = 0.004
+            end
+            mult = mult + d_a_mult*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_a_level
+            if attacker:HasModifier("modifier_solunia_arcana2") then
+                local d_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 3)
+                mult = mult + 0.0005*attacker:GetIntellect()/10*d_d_level
+            end
         end
         if attacker:HasModifier("modifier_body_cosmos") then
             local stacks = attacker:GetModifierStackCount("modifier_body_cosmos", attacker.InventoryUnit)
@@ -1735,6 +1768,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 if attacker.d_d_level then
                     mult = mult + 0.0008*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_d_level
                 end
+            end
+        elseif unitName == "npc_dota_hero_vengefulspirit" then
+            if attacker:HasModifier("modifier_solunia_arcana2") then
+                local d_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 3)
+                mult = mult + 0.0005*attacker:GetAgility()/10*d_d_level
             end
         end
         if attacker:HasModifier("modifier_trinket_ice") then

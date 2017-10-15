@@ -913,6 +913,83 @@ function RPCItems:RollEkkanArcana1(deathLocation)
     return item
 end
 
+function RPCItems:RollSoluniaArcana1(deathLocation)
+    local item = RPCItems:CreateVariantArcana("item_rpc_solunia_arcana1", "arcana", "Solunia Arcana 1", "head", true, "Slot: Head", "npc_dota_hero_vengefulspirit", 0)
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.property1 = 1
+    item.property1name = "!arcana!_solunia_arcana1"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_solunia_arcana1", "#F442E8",  1, "#property_solunia_arcana1_description")
+
+
+    item.hasRunePoints = true
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+    
+    local luck = RandomInt(1, 100)
+    if luck <= 35 then
+        item.property2name = "rune_a_a"
+        item.property2 = math.ceil(value*1.1)
+    elseif luck <= 70 then
+        item.property2name = "rune_b_a"
+        item.property2 = math.ceil(value*1.1)       
+    elseif luck <= 90 then
+        item.property2name = "rune_c_a"
+        item.property2 = math.ceil(value*1.0) 
+    else
+        item.property2name = "rune_d_a"
+        item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(8, 12), 0, 0, 0, 0)
+    end
+    RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
+
+    local value, prefixLevel = RPCItems:RollAttribute(300, 400, 1200, 1, 1, item.rarity, false, maxFactor*1500)
+    item.property3 = value
+    item.property3name = "max_health"
+    RPCItems:SetPropertyValues(item, item.property3, "#item_max_health", "#B02020",  3)
+
+    RPCItems:RollHoodProperty4(item, 0)
+
+    RPCItems:DropOrGiveItem(hero, item, false, deathLocation)
+    return item
+end
+
+function RPCItems:RollSoluniaArcana2(deathLocation)
+    local item = RPCItems:CreateVariantArcana("item_rpc_solunia_arcana2", "arcana", "Solunia Arcana 2", "body", true, "Slot: Body", "npc_dota_hero_vengefulspirit", 0)
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.property1 = 1
+    item.property1name = "!arcana!_solunia_arcana2"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_solunia_arcana2", "#E84A7C",  1, "#property_solunia_arcana2_description")
+
+
+    item.hasRunePoints = true
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+    
+    local luck = RandomInt(1, 100)
+    if luck <= 35 then
+        item.property2name = "rune_a_d"
+        item.property2 = math.ceil(value*1.2)
+    elseif luck <= 70 then
+        item.property2name = "rune_b_d"
+        item.property2 = math.ceil(value*1.2)       
+    elseif luck <= 90 then
+        item.property2name = "rune_c_d"
+        item.property2 = math.ceil(value*1) 
+    else
+        item.property2name = "rune_d_d"
+        item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
+    end
+    RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
+
+
+    local value, prefixLevel = RPCItems:RollAttribute(100, 8, 20, 0, 0, item.rarity, false, maxFactor*16)
+    item.property3 = value
+    item.property3name = "all_attributes"
+    RPCItems:SetPropertyValues(item, item.property3, "#item_all_attributes", "#FFFFFF",  3)
+
+    RPCItems:RollBodyProperty4(item, 0)
+
+    RPCItems:DropOrGiveItem(hero, item, false, deathLocation)
+    return item
+end
+
 function RPCItems:RollArkimusArcana1(deathLocation)
     local item = RPCItems:CreateVariantArcana("item_rpc_arkimus_arcana1", "arcana", "Arkimus Arcana 1", "head", true, "Slot: Head", "npc_dota_hero_antimage", 0)
     local maxFactor = RPCItems:GetMaxFactor()
@@ -1088,7 +1165,10 @@ function RPCItems:GetAvailableArcanaData(hero)
     elseif unitName == "npc_dota_hero_dark_seer" then
         table.insert(arcanaData, {1, 2})
     elseif unitName == "npc_dota_hero_antimage" then
-        table.insert(arcanaData, {1, 0})        
+        table.insert(arcanaData, {1, 0})   
+    elseif unitName == "npc_dota_hero_vengefulspirit" then
+        table.insert(arcanaData, {1, 0})    
+        table.insert(arcanaData, {2, 3}) 
     end
     return arcanaData
 end

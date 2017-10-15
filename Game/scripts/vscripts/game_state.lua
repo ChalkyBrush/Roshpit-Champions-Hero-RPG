@@ -813,6 +813,9 @@ function GameState:FilterDamage(filterTable)
 				mult = mult + 0.02*attacker.a_c_level
 			end
 		end
+		if victim:HasModifier("modifier_solunia_c_d_arcana_shell") then
+			filterTable["damage"] = filterTable["damage"]*0.05
+		end
 		if attacker:HasModifier("modifier_sorcerers_regalia") then
 			mult = mult+0.4
 		end
@@ -1895,6 +1898,18 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = 0
 		victim:Heal(healAmount, victim)
 	end
+	if victim:HasModifier("modifier_solar_compression_invisible") then
+		local modifier = victim:FindModifierByName("modifier_solar_compression_invisible")
+		local modifierCaster = modifier:GetCaster()
+		local stacks = victim:GetModifierStackCount("modifier_solar_compression_invisible", modifierCaster)
+		mult = mult + stacks*0.003
+	end
+	if victim:HasModifier("modifier_lunar_compression_invisible") then
+		local modifier = victim:FindModifierByName("modifier_lunar_compression_invisible")
+		local modifierCaster = modifier:GetCaster()
+		local stacks = victim:GetModifierStackCount("modifier_lunar_compression_invisible", modifierCaster)
+		mult = mult + stacks*0.003
+	end
 	if victim:HasModifier("modifier_in_hydrogen_field") then
 		if filterTable["entindex_inflictor_const"] then
 			local ability = EntIndexToHScript(filterTable["entindex_inflictor_const"])
@@ -1908,7 +1923,7 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if victim:HasModifier("modifier_arkimus_glyph_5_a") then
-		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PHYSICAL then
+		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 			filterTable["damage"] = Filters:ArkimusGlyph5a(victim, filterTable["damage"])
 		end
 	end

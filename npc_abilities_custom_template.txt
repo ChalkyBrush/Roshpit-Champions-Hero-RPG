@@ -58419,7 +58419,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"2000"
 			}
 			"02"
 			{
@@ -58617,7 +58617,7 @@
 				"EffectAttachType" 		"follow_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"5"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"					"2000"
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"10"
 				}
 				"OnCreated"
@@ -60002,6 +60002,7 @@
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"	"solunia/solunia_rune_b_d"
 		"MaxLevel"				"20"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
 		{
@@ -60259,6 +60260,8 @@
 			}
 		}
 	}
+
+	##SOLUNIA_ABILITIES##
 
 	//------HYDROXIS RUNES RUNES
 

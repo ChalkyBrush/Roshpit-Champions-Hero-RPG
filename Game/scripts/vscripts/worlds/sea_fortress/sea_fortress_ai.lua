@@ -5311,7 +5311,7 @@ function sea_fortress_final_boss_think(event)
 		return false
 	end
 	caster.interval = caster.interval + 1
-	if caster.interval%30 == 0 then
+	if caster.interval%40 == 0 then
 		if not caster.backHits then
 			caster.backHits = 0
 		end
@@ -5341,7 +5341,7 @@ function sea_fortress_final_boss_think(event)
 		unit.fv = caster:GetForwardVector()
 		unit.origCaster = caster
 	end
-	if caster.interval == 90 then
+	if caster.interval == 120 then
 		caster.interval = 0
 	end
 	if caster:GetHealth() < caster:GetMaxHealth()*0.9 then
@@ -5573,7 +5573,7 @@ function lightning_ball_think(event)
 	end
 	local newPosition = caster:GetAbsOrigin()+caster.fv*caster.speed
 	caster:SetAbsOrigin(GetGroundPosition(newPosition, caster) + Vector(0,0,80))
-	caster.speed = math.max(caster.speed - 0.4, 20)
+	caster.speed = math.max(caster.speed - 0.4, 17)
 	local bossDistance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), caster.origCaster:GetAbsOrigin())
 	if bossDistance > 3200 then
 		caster.fv = ((caster.origCaster:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()

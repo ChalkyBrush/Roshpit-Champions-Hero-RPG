@@ -1,0 +1,772 @@
+	"solunia_arcana_solar_comet"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"solunia/solunia_solar_comet"
+		"RequiredLevel"          		"0"
+		"LevelsBetweenUpgrades"  		"0"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityCastRange"				"1400"
+		"AOERadius"						"240"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"9200 24000 80000 120000 180000 320000 550000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_charges"		"6 7 8 9 10 11 12"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_duration"		"0.3"
+			}
+		}
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/vengeful_spirit/arcana_comet.lua"
+				"Function"		"arcana_comet_phase"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/vengeful_spirit/arcana_comet.lua"
+				"Function"		"begin_arcana_comet"
+				"target"		"POINT"
+				"damage"		"%damage"
+				"projectiles"	"%projectiles"
+				"stun_duration"	"%stun_duration"
+				"sun_moon"			"sun"
+			}
+
+		}
+		"Modifiers"
+		{
+			"modifier_solar_comet_free_cast"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_solar_comet_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnDealDamage"
+				// "%attack_damage" is set to the damage value after mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/vengeful_spirit/arcana_comet.lua"
+						"Function"		"deal_damage_with_arcana_equipped"
+					}
+				}
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/vengeful_spirit/arcana_comet.lua"
+						"Function"		"arcana_passive_think"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/vengeful_spirit/arcana_comet.lua"
+						"Function"		"apply_arcana_comet_stacks"
+						"max_charges"	"%max_charges"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_polythea_damage"
+						"Target" 		"CASTER"
+					}
+				}
+			}
+			"modifier_polythea_damage"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
+			}
+			"modifier_solunia_ultraviolet"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"EffectName"	"particles/roshpit/solunia/ultraviolet.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"TextureName"	"solunia/solunia_rune_a_a_arcana1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "3000"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "3"
+				}
+			}
+			"modifier_solar_compression_visible"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/roshpit/solunia/solunia_compression_solar_heal.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"TextureName"	"solunia/solunia_rune_c_a_arcana1"
+			}
+			"modifier_solar_compression_invisible"
+			{
+				"IsHidden"	"1"
+			}
+		}
+
+	}
+
+	"solunia_arcana_lunar_comet"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"solunia/solunia_lunar_comet"
+		"RequiredLevel"          		"0"
+		"LevelsBetweenUpgrades"  		"0"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityCastRange"				"1400"
+		"AOERadius"						"240"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"8000 18000 60000 90000 130000 240000 440000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_charges"		"6 7 8 9 10 11 12"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_duration"		"0.3"
+			}
+		}
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/vengeful_spirit/arcana_comet.lua"
+				"Function"		"arcana_comet_phase"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/vengeful_spirit/arcana_comet.lua"
+				"Function"		"begin_arcana_comet"
+				"target"		"POINT"
+				"damage"		"%damage"
+				"projectiles"	"%projectiles"
+				"stun_duration"	"%stun_duration"
+				"sun_moon"			"moon"
+			}
+
+		}
+		"Modifiers"
+		{
+			"modifier_lunar_comet_free_cast"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_solunia_ultraviolet"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"EffectName"	"particles/roshpit/solunia/ultraviolet.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"TextureName"	"solunia/solunia_rune_a_a_arcana1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "3000"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "3"
+				}
+			}
+			"modifier_lunar_compression_visible"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/roshpit/solunia/solunia_compression_lunar_heal.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"TextureName"	"solunia/solunia_rune_c_a_arcana1"
+			}
+			"modifier_lunar_compression_invisible"
+			{
+				"IsHidden"	"1"
+			}
+		}
+
+	}
+
+	"solunia_rune_a_a_arcana1"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"solunia/solunia_rune_a_a_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"3000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"3"
+			}
+		}
+	}
+
+	"solunia_rune_b_a_arcana1"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"solunia/solunia_rune_b_a_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.05"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"10"
+			}
+		}
+	}
+
+	"solunia_rune_c_a_arcana1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"solunia/solunia_rune_c_a_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"2"
+			}
+		}
+	}
+
+	"solunia_rune_d_a_arcana1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"solunia/solunia_rune_d_a_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.04"
+			}
+		}
+	}
+
+	"solunia_solar_alpha_spark"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"solunia/solunia_solar_alpha_spark"
+		"AbilityCastPoint"	"0.1"
+		"AbilityCooldown"	"21"
+		"AbilityCastRange"				"800 900 1000 1100 1200 1300 1400"
+		"AOERadius"						"450"
+		"AbilityCastAnimation"	"ACT_DOTA_CHANNEL_START_ABILITY_4"
+		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+
+		"precache"
+		{
+
+		}
+
+		"AbilityManaCost"	"0"
+		"OnAbilityPhaseStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Solunia.Arcana2.Warp"
+				"Target" 		"CASTER"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/vengeful_spirit/alpha_spark.lua"
+				"Function"		"begin_alpha_spark"
+				"radius"		"%AOERadius"
+				"damage"		"%damage"
+				"stun_duration"	"%stun_duration"
+				"target"		"POINT"
+				"type"			"sun"
+			}
+
+		}
+
+
+		"Modifiers"
+		{
+
+			"modifier_solunia_solar_burn"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"ThinkInterval"  "1.0"
+				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+				"EffectAttachType" 	"attach_origin"
+				"TextureName"	"solunia/solunia_rune_b_d_arcana2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/vengeful_spirit/supernova.lua"
+						"Function"		"supernova_burn_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/vengeful_spirit/supernova.lua"
+						"Function"		"supernova_burn_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_solunia_glyph_6_1_ready"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+			}
+			"modifier_solunia_arcana_a_d_health_visible"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"solunia/solunia_rune_a_d_arcana2"
+			}
+			"modifier_solunia_arcana_a_d_health_invisible"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "10"
+				}
+			}
+			"modifier_solunia_c_d_arcana_shell"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"solunia/solunia_rune_c_d_arcana2"
+				"StatusEffectName" 		"particles/roshpit/solunia/status_arcana_shell.vpcf" 	   
+				"StatusEffectPriority"  "240"
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "100" 
+				}
+			}
+			"modifier_solunia_warp_flare_falling"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/vengeful_spirit/warp_flare.lua"
+						"Function"		"after_flare_falling"
+					}
+				}
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"3000 10000 35000 105000 250000 500000 800000"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_duration"	"1.6 1.8 2.0 2.2 2.4 2.6 2.8"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"cast_range"	"800 900 1000 1100 1200 1300 1400"
+			}
+		}
+
+	}
+
+	"solunia_lunar_alpha_spark"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"solunia/solunia_lunar_alpha_spark"
+		"AbilityCastPoint"	"0.1"
+		"AbilityCooldown"	"21"
+		"AbilityCastRange"				"800 900 1000 1100 1200 1300 1400"
+		"AOERadius"						"450"
+		"AbilityCastAnimation"	"ACT_DOTA_CHANNEL_START_ABILITY_4"
+		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+
+		"precache"
+		{
+
+		}
+
+		"AbilityManaCost"	"0"
+		"OnAbilityPhaseStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Solunia.Arcana2.Warp"
+				"Target" 		"CASTER"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/vengeful_spirit/alpha_spark.lua"
+				"Function"		"begin_alpha_spark"
+				"radius"		"%AOERadius"
+				"damage"		"%damage"
+				"stun_duration"	"%stun_duration"
+				"target"		"POINT"
+				"type"			"moon"
+			}
+
+		}
+
+
+		"Modifiers"
+		{
+
+			"modifier_solunia_lunar_burn"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"ThinkInterval"  "1.0"
+				"EffectName"		"particles/roshpit/solunia/lunarang_ambient.vpcf"
+				"EffectAttachType" 	"attach_origin"
+				"TextureName"	"solunia/solunia_rune_b_d_arcana2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/vengeful_spirit/supernova.lua"
+						"Function"		"supernova_burn_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/vengeful_spirit/supernova.lua"
+						"Function"		"supernova_burn_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_solunia_glyph_6_1_ready"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+			}
+			"modifier_solunia_arcana_a_d_health_visible"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"solunia/solunia_rune_a_d_arcana2"
+			}
+			"modifier_solunia_arcana_a_d_health_invisible"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "10"
+				}
+			}
+			"modifier_solunia_c_d_arcana_shell"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"solunia/solunia_rune_c_d_arcana2"
+				"StatusEffectName" 		"particles/roshpit/solunia/status_arcana_shell.vpcf" 	   
+				"StatusEffectPriority"  "240"
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "100" 
+				}
+			}
+			"modifier_solunia_warp_flare_falling"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/vengeful_spirit/warp_flare.lua"
+						"Function"		"after_flare_falling"
+					}
+				}
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"3000 10000 35000 105000 250000 500000 800000"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_duration"	"1.6 1.8 2.0 2.2 2.4 2.6 2.8"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"cast_range"	"800 900 1000 1100 1200 1300 1400"
+			}
+		}
+
+	}
+
+	"solunia_rune_a_d_arcana2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"solunia/solunia_rune_a_d_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"10000"
+			}
+		}
+	}
+
+	"solunia_rune_b_d_arcana2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"solunia/solunia_rune_b_d_arcana2"
+		"MaxLevel"				"20"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"2.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"10"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"8"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"2"
+			}
+		}
+	}
+
+	"solunia_rune_c_d_arcana2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"solunia/solunia_rune_c_d_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.08"
+			}
+		}
+	}
+
+	"solunia_rune_d_d_arcana2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"solunia/solunia_rune_d_d_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.05"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"500"
+			}
+		}
+	}

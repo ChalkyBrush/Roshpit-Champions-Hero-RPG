@@ -171,6 +171,11 @@ function RPCItems:BodyLegendary(itemVariant, deathLocation)
             RPCItems:RollAvalanchePlate(deathLocation)
             return true 
         elseif luck == 6 then
+            local arcanaLuck = RandomInt(1, 880)
+            if arcanaLuck <= (2 + GameState:GetPlayerPremiumStatusCount()) then
+                RPCItems:RollSoluniaArcana2(deathLocation)
+                return true
+            end
             RPCItems:RollSpaceTechVest(deathLocation)
             return true
         elseif luck == 7 then

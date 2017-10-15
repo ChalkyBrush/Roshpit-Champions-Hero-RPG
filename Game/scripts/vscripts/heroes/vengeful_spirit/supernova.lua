@@ -1,3 +1,5 @@
+require('heroes/vengeful_spirit/arcana_comet')
+
 function start_channel(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -23,14 +25,16 @@ function vectorToAngle(vector)
 end
 
 function supernova_a_d(caster, ability)
-	local a_d_level =  Runes:GetTotalRuneLevel(caster, 1, "a_d", "solunia")
-	if a_d_level > 0 then
-		local healthRestore = a_d_level*6000
-		local manaRestore = a_d_level*2000
-		caster:Heal(healthRestore, caster)
-		caster:GiveMana(manaRestore)
-		PopupHealing(caster, healthRestore)
-		PopupMana(caster, manaRestore)
+	if not caster:HasModifier("modifier_solunia_arcana2") then
+		local a_d_level =  Runes:GetTotalRuneLevel(caster, 1, "a_d", "solunia")
+		if a_d_level > 0 then
+			local healthRestore = a_d_level*6000
+			local manaRestore = a_d_level*2000
+			caster:Heal(healthRestore, caster)
+			caster:GiveMana(manaRestore)
+			PopupHealing(caster, healthRestore)
+			PopupMana(caster, manaRestore)
+		end
 	end
 end
 
@@ -147,9 +151,11 @@ function novaExplosion(event)
 	end
 	local b_d_level =  Runes:GetTotalRuneLevel(caster, 2, "b_d", "solunia")
 	ability.b_d_level = b_d_level
-	local d_d_level =  Runes:GetTotalRuneLevel(caster, 4, "d_d", "solunia")
-	if d_d_level > 0 then
-		stun_duration = stun_duration + 0.1*d_d_level
+	if not caster:HasModifier("modifier_solunia_arcana2") then
+		local d_d_level =  Runes:GetTotalRuneLevel(caster, 4, "d_d", "solunia")
+		if d_d_level > 0 then
+			stun_duration = stun_duration + 0.1*d_d_level
+		end
 	end
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 580, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
@@ -158,10 +164,12 @@ function novaExplosion(event)
 			Filters:ApplyStun(caster, stun_duration, enemy)
 			if b_d_level > 0 then
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_solunia_"..element.."_burn", {duration = 8})
-				if element == "solar" then
-					enemy.SoluniaBurnSolar = damage*0.016*b_d_level
-				else
-					enemy.SoluniaBurnLunar = damage*0.016*b_d_level
+				if not caster:HasModifier("modifier_solunia_arcana2") then
+					if element == "solar" then
+						enemy.SoluniaBurnSolar = damage*0.016*b_d_level
+					else
+						enemy.SoluniaBurnLunar = damage*0.016*b_d_level
+					end
 				end
 			end
 		end
@@ -185,10 +193,22 @@ function supernova_burn_think(event)
 			damage = damage + 0.24*ability.b_d_level*damage
 		end
 		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_COSMOS, RPC_ELEMENT_FIRE)
-	else
+	elseif ability:GetAbilityName() == "solunia_supernova" then
 		local damage = target.SoluniaBurnSolar
 		if target:HasModifier("modifier_solunia_lunar_burn") then
 			damage = damage + 0.24*ability.b_d_level*damage
+		end
+		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_COSMOS, RPC_ELEMENT_FIRE)
+	elseif ability:GetAbilityName() == "solunia_lunar_alpha_spark" then
+		local damage = target.SoluniaBurnLunar
+		if target:HasModifier("modifier_solunia_solar_burn") then
+			damage = damage + 0.20*ability.b_d_level*damage
+		end
+		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_COSMOS, RPC_ELEMENT_FIRE)
+	elseif ability:GetAbilityName() == "solunia_solar_alpha_spark" then	
+		local damage = target.SoluniaBurnSolar
+		if target:HasModifier("modifier_solunia_lunar_burn") then
+			damage = damage + 0.20*ability.b_d_level*damage
 		end
 		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_COSMOS, RPC_ELEMENT_FIRE)
 	end
@@ -199,7 +219,11 @@ function supernova_burn_end(event)
 	local ability = event.ability
 	if ability:GetAbilityName() == "solunia_eclipse" then
 		target.SoluniaBurnLunar = nil
-	else
+	elseif ability:GetAbilityName() == "solunia_supernova" then
+		target.SoluniaBurnSolar = nil
+	elseif ability:GetAbilityName() == "solunia_lunar_alpha_spark" then
+		target.SoluniaBurnLunar = nil
+	elseif ability:GetAbilityName() == "solunia_solar_alpha_spark" then	
 		target.SoluniaBurnSolar = nil
 	end
 end
@@ -217,24 +241,64 @@ function swap_sun_moon(currentType, caster)
 	if currentType == "sun" then
 		caster:RemoveModifierByName("modifier_selethas_sun_active")
 		caster.sunMoon = "moon"
-		swapAbility(caster, "solunia_solar_glow", "solunia_lunar_glow", 0)
+		if caster:HasModifier("modifier_solunia_arcana1") then
+			swapAbility(caster, "solunia_arcana_solar_comet", "solunia_arcana_lunar_comet", 0)
+			local eventTable = {}
+			eventTable.caster = caster
+			eventTable.ability = caster:FindAbilityByName("solunia_arcana_lunar_comet")
+			eventTable.max_charges = eventTable.ability:GetLevelSpecialValueFor("max_charges", eventTable.ability:GetLevel())
+			apply_arcana_comet_stacks(eventTable)
+		else
+			swapAbility(caster, "solunia_solar_glow", "solunia_lunar_glow", 0)
+		end
 		swapAbility(caster, "solunia_solarang", "solunia_lunarang", 1)
 		swapAbility(caster, "solunia_warp_flare", "solunia_lunar_warp_flare", 2)
-		
-		swapAbility(caster, "solunia_supernova", "solunia_eclipse", 3)
+		if caster:HasModifier("modifier_solunia_arcana2") then
+			swapAbility(caster, "solunia_solar_alpha_spark", "solunia_lunar_alpha_spark", 3)
+			arcana2runes(caster, caster:FindAbilityByName("solunia_solar_alpha_spark"))
+		else
+			swapAbility(caster, "solunia_supernova", "solunia_eclipse", 3)
+		end
 
 	  elseif currentType == "moon" then
 	  	caster.sunMoon = "sun"
-	  	swapAbility(caster, "solunia_lunar_glow", "solunia_solar_glow", 0)
+		if caster:HasModifier("modifier_solunia_arcana1") then
+			swapAbility(caster, "solunia_arcana_lunar_comet", "solunia_arcana_solar_comet", 0)
+			local eventTable = {}
+			eventTable.caster = caster
+			eventTable.ability = caster:FindAbilityByName("solunia_arcana_solar_comet")
+			eventTable.max_charges = eventTable.ability:GetLevelSpecialValueFor("max_charges", eventTable.ability:GetLevel())
+			apply_arcana_comet_stacks(eventTable)
+		else
+	  		swapAbility(caster, "solunia_lunar_glow", "solunia_solar_glow", 0)
+	  	end
 	  	swapAbility(caster, "solunia_lunarang", "solunia_solarang", 1)
 	  	swapAbility(caster, "solunia_lunar_warp_flare", "solunia_warp_flare", 2)
-		swapAbility(caster, "solunia_eclipse", "solunia_supernova", 3)
+	  	if caster:HasModifier("modifier_solunia_arcana2") then
+	  		swapAbility(caster, "solunia_lunar_alpha_spark", "solunia_solar_alpha_spark", 3)
+	  		arcana2runes(caster, caster:FindAbilityByName("solunia_lunar_alpha_spark"))
+	  	else
+			swapAbility(caster, "solunia_eclipse", "solunia_supernova", 3)
+		end
 
 	  	local wAbility = caster:FindAbilityByName("solunia_solarang")
 	  	wAbility:ApplyDataDrivenModifier(caster, caster, "modifier_selethas_sun_active", {})
 	 end
 
 
+end
+
+function arcana2runes(caster, ability)
+	local a_d_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
+	if a_d_level > 0 then
+		local healthStacks = RandomInt(1*a_d_level,1000*a_d_level)
+		local healAmount = healthStacks*10
+		Filters:ApplyHeal(caster, caster, healAmount, true)
+		local duration = Filters:GetAdjustedBuffDuration(caster, 20, false)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_solunia_arcana_a_d_health_visible", {duration = duration})
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_solunia_arcana_a_d_health_invisible", {duration = duration})
+		caster:SetModifierStackCount("modifier_solunia_arcana_a_d_health_invisible", caster, healthStacks)
+	end
 end
 
 function swapAbility(caster, currentAbilityName, newAbilityName, abilityIndex)
@@ -281,19 +345,37 @@ function protostar_lift_think(event)
 		target:SetAbsOrigin(target:GetAbsOrigin() + Vector(0,0,glyph.liftVelocity))
 		if (target:GetAbsOrigin().z - GetGroundHeight(target:GetAbsOrigin(), target)) > 220 then
 			target:RemoveModifierByName("modifier_soluna_protostar_lifting")
-			local abilityName = "solunia_supernova"
-			if target.sunMoon == "moon" then
-				abilityName = "solunia_eclipse"
+			if target:HasModifier("modifier_solunia_arcana2") then
+				local abilityName = "solunia_solar_alpha_spark"
+				if target.sunMoon == "moon" then
+					abilityName = "solunia_lunar_alpha_spark"
+				end
+				local ability = target:FindAbilityByName(abilityName)
+				ability:EndCooldown()
+				local newOrder =
+				{
+					UnitIndex = target:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+					AbilityIndex = ability:entindex(),
+					Position = target:GetAbsOrigin()
+				}
+				 
+				ExecuteOrderFromTable(newOrder)	
+			else
+				local abilityName = "solunia_supernova"
+				if target.sunMoon == "moon" then
+					abilityName = "solunia_eclipse"
+				end
+				local ability = target:FindAbilityByName(abilityName)
+				ability:EndCooldown()
+				local newOrder = {
+				 		UnitIndex = target:entindex(), 
+				 		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+				 		AbilityIndex = ability:entindex(),
+			 	}
+				 
+				ExecuteOrderFromTable(newOrder)	
 			end
-			local ability = target:FindAbilityByName(abilityName)
-			ability:EndCooldown()
-			local newOrder = {
-			 		UnitIndex = target:entindex(), 
-			 		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-			 		AbilityIndex = ability:entindex(),
-		 	}
-			 
-			ExecuteOrderFromTable(newOrder)	
 		end
 	end
 end

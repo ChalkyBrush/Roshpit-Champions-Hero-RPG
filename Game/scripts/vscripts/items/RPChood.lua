@@ -69,6 +69,11 @@ function RPCItems:HoodLegendary(itemVariant, deathLocation, isShop)
             RPCItems:RollDeathWhisperHelm(deathLocation, isShop)
             return true
         elseif luck == 3 then
+            local arcanaLuck = RandomInt(1, 880)
+            if arcanaLuck <= (2 + GameState:GetPlayerPremiumStatusCount()) then
+                RPCItems:RollSoluniaArcana1(deathLocation)
+                return true
+            end
             RPCItems:RollLumaGuard(deathLocation, isShop)
             return true
         elseif luck == 4 then
