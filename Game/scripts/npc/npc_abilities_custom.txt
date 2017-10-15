@@ -31435,7 +31435,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"magic_resist"				"47 51 55 59 63 67 71 75"
+				"magic_resist"				"51 55 59 63 67 71 75"
 			}
 			"03"
 			{
