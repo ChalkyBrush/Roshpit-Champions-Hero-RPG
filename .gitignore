@@ -1,6 +1,5 @@
 Content/maps
 Content/materials
-Content/particles
 Content/models
 Content/particle
 Content/particles
@@ -8,7 +7,15 @@ Content/sounds
 Game/maps
 Game/materials
 Game/models
+Game/panorama
+Content/particle
 Game/particles
 Game/screenshots
-*.bin
-*.bin
+Game/soundevents
+Game/sounds
+Game/server_log.txt
+Game/network_measurement.txt
+**/*.bin
+Game/demoheader.tmp
+Game/dota_addons - Shortcut.lnk
+Game/server_log.txt
