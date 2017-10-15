@@ -1343,12 +1343,14 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_mach_punch_passive") then
             local d_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
             if d_b_level > 0 then
-                local ability = attacker:FindAbilityByName("zonik_mach_punch")
-                ability:ApplyDataDrivenModifier(attacker, victim, "modifier_zonik_echo", {duration = 4})
-                if not victim.zonikEcho then
-                    victim.zonikEcho = 0
+                if not victim.dummy then
+                    local ability = attacker:FindAbilityByName("zonik_mach_punch")
+                    ability:ApplyDataDrivenModifier(attacker, victim, "modifier_zonik_echo", {duration = 4})
+                    if not victim.zonikEcho then
+                        victim.zonikEcho = 0
+                    end
+                    victim.zonikEcho = victim.zonikEcho + damage*d_b_level*0.005
                 end
-                victim.zonikEcho = victim.zonikEcho + damage*d_b_level*0.005
             end
         end
     end
