@@ -415,7 +415,7 @@ end
 
 --WINTERBLIGHT--
 function Precache:Winterblight()
-	local unitTable = {"winterblight_unit"}
+	local unitTable = {"winterblight_snowball_kid"}
 	for i = 1, #unitTable, 1 do
 		Timers:CreateTimer(i*0.3, 
 		function()

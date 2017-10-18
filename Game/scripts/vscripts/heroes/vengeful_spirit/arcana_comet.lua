@@ -124,6 +124,7 @@ function deal_damage_with_arcana_equipped(event)
 	if a_a_level > 0 then
 		local duration = Filters:GetAdjustedBuffDuration(attacker, 0.5, false)
 		ability:ApplyDataDrivenModifier(attacker, attacker, "modifier_solunia_ultraviolet", {duration = duration})
+		attacker:SetModifierStackCount("modifier_solunia_ultraviolet", attacker, a_a_level)
 	end
 end
 

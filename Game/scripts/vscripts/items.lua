@@ -1403,11 +1403,13 @@ function RPCItems:EndRoll(rollSlot, itemIndex)
 			end
 		end
 		if rolltype == "pass" then
-			if IsValidEntity(item:GetContainer()) then
-				UTIL_Remove(item:GetContainer())
-			end
-			if IsValidEntity(item) then
-				UTIL_Remove(item)
+			if item then
+				if IsValidEntity(item:GetContainer()) then
+					UTIL_Remove(item:GetContainer())
+				end
+				if IsValidEntity(item) then
+					UTIL_Remove(item)
+				end
 			end
 		elseif rollType == "greed" then
 			CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item=itemIndex, heroId=heroId, playerId=playerID, pickup="greed", roll=winningRoll} )
@@ -1534,6 +1536,9 @@ function RPCItems:GetConnectedPlayerCount()
 	for i = 1, #MAIN_HERO_TABLE, 1 do
 			if MAIN_HERO_TABLE[i]:GetPlayerOwnerID() then
 				if (PlayerResource:GetConnectionState(MAIN_HERO_TABLE[i]:GetPlayerOwnerID()) == 2) or (PlayerResource:GetConnectionState(MAIN_HERO_TABLE[i]:GetPlayerOwnerID()) ==1) then
+					if MAIN_HERO_TABLE[i]:GetUnitName() == "npc_dota_hero_wisp" then
+						disconnected_count = disconnected_count+1
+					end
 				else
 					disconnected_count = disconnected_count+1
 				end

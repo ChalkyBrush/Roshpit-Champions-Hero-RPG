@@ -12,3 +12,5 @@ Game/particles
 Game/screenshots
 *.bin
 *.bin
+Game/tool_asset_info
+Game/tools_thumbnail_cache

@@ -2319,7 +2319,7 @@ function Filters:LumaGuardStrike(attacker, victim, damage)
         -- Timers:CreateTimer(4, function()
         --  ParticleManager:DestroyParticle(pfx, false)
         -- end)
-        local damage = damage*3
+        local damage = damage*4
         Filters:ApplyItemDamage(victim,attacker,damage,DAMAGE_TYPE_PURE,nil,RPC_ELEMENT_COSMOS,RPC_ELEMENT_NONE)
         print("MOONBEAM HAS FIRED")
     end

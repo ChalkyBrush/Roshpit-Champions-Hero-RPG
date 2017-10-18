@@ -530,6 +530,9 @@ function Events:HeroLevelUp(player, hero, level)
   hero:SetAbilityPoints(0)
 
   local player_stats = CustomNetTables:GetTableValue("player_stats", tostring(player:GetPlayerID()))
+  -- if not player_stats then
+  --   return false
+  -- end
   local current_rune_points = player_stats.runePoints
   local current_skill_points = player_stats.skillPoints
   if level%5 == 0 then

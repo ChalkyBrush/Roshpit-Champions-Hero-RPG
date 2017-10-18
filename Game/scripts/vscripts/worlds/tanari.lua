@@ -47,9 +47,10 @@ function Tanari:Debug()
     -- RPCItems:RollTwistedMaskOfAhnqhirBlue(Vector(-4928, 2048))
      RPCItems:RollTwistedMaskOfAhnqhirYellow(Vector(-4928, 2048))
     --   RPCItems:RollTwistedMaskOfAhnqhirPurple(Vector(-4928, 2048))
-    -- Dungeons.itemLevel = 300
+    Dungeons.itemLevel = 300
     -- for i = 1, 3, 1 do
-    --     RPCItems:RollHydroxisArcana1(Vector(-4928, 2048))
+        RPCItems:RollSoluniaArcana1(Vector(-4928, 2048))
+        RPCItems:RollSoluniaArcana2(Vector(-4928, 2048))
     -- end
     -- RPCItems:RollAquastoneRing(Vector(-4928, 2048))
     -- RPCItems:RollAuriunArcana2(Vector(-4928, 2048))
@@ -146,7 +147,7 @@ function Tanari:Debug()
     --     Curator:CurateAllGlyphsForHero("solunia")
     -- end)
     -- Timers:CreateTimer(20, function()
-    --     Curator:CurateArcanaAbilities(MAIN_HERO_TABLE[1])
+        -- Curator:CurateArcanaAbilities(MAIN_HERO_TABLE[1])
     -- end)
 
 

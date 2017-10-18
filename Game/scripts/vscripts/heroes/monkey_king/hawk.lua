@@ -13,9 +13,9 @@ function hawk_screech(event)
 	local ability = event.ability
 	EmitSoundOn("Draghor.Hawk.Screech", caster)
 	local fv = ((event.target_points[1]-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-	local altitude = 190
+	local altitude = 140
 	if caster:HasModifier("modifier_hawk_soar") then
-		altitude = altitude + caster:GetModifierStackCount("modifier_hawk_soar_visual_z", caster)
+		altitude = altitude + caster:GetModifierStackCount("modifier_hawk_soar_visual_z", caster)*0.7
 	end
 	StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_SPAWN, rate=1.7})
 	local info = 
