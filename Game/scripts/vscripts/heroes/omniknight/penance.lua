@@ -11,6 +11,18 @@ function penance_start(event)
 	if ability:GetAbilityName() == "paladin_penance" then
 		ability.d_b_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
 		dummyAbility = caster.InventoryUnit:AddAbility("paladin_penance_dummy")
+		if not dummyAbility then
+			local remove = caster.InventoryUnit:FindAbilityByName("paladin_penance_dummy")
+			UTIL_Remove(remove)
+			dummyAbility = caster.InventoryUnit:AddAbility("paladin_penance_dummy")
+		end
+		if not ability.projectileCount then
+			ability.projectileCount = 0
+		end
+		ability.projectileCount = ability.projectileCount + 1
+		if ability.projectileCount >= 10 then
+			ability:SetActivated(false)
+		end
 		dummyAbility:SetLevel(ability:GetLevel())
 		dummyAbility.penanceProcs = Runes:Procs(ability.d_b_level, 10, 1)
 	else
@@ -50,8 +62,9 @@ function penance_start(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_paladin_a_b_damage_growth_invisible", {duration = 4})
 		caster:SetModifierStackCount("modifier_paladin_a_b_damage_growth_invisible", caster, ability.a_b_level)
 	end
-
-	Filters:CastSkillArguments(2, caster)
+	if ability:GetAbilityName() == "paladin_penance" then
+		Filters:CastSkillArguments(2, caster)
+	end
 end
 
 function passive_think(event)
@@ -186,6 +199,7 @@ function penance_impact(event)
 		if dummyAbility.penanceProcs then
 			if dummyAbility.penanceProcs > 0 then
 				print("BOUNCE?")
+				local remove = true
 				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 650, DOTA_UNIT_TARGET_TEAM_ENEMY+DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 				if #enemies > 0 then
 					for _,enemy in pairs(enemies) do
@@ -198,15 +212,29 @@ function penance_impact(event)
 							eventTable.source = target
 							eventTable.ability = dummyAbility
 							penance_start(eventTable)
+							remove = false
 							break
 						end
 					end
+					if remove then
+						ability.projectileCount = ability.projectileCount - 1
+						UTIL_Remove(dummyAbility)
+						ability:SetActivated(true)
+					end
+				else
+					ability.projectileCount = ability.projectileCount - 1
+					UTIL_Remove(dummyAbility)
+					ability:SetActivated(true)
 				end	
 			else
-				UTIL_Remove(dummyAbility)	
+				ability.projectileCount = ability.projectileCount - 1
+				UTIL_Remove(dummyAbility)
+				ability:SetActivated(true)	
 			end
 		else
+			ability.projectileCount = ability.projectileCount - 1
 			UTIL_Remove(dummyAbility)
+			ability:SetActivated(true)
 		end
 	end
 

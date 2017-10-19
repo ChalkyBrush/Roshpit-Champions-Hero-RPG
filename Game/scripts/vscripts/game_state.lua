@@ -1284,7 +1284,7 @@ function GameState:FilterDamage(filterTable)
 		local modifier = victim:FindModifierByName("modifier_hailstorm_enemy_amp")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetStackCount()
-			mult = mult + 0.02*stacks
+			mult = mult + 0.06*stacks
 		end
 	end
 	if victim:HasModifier("modifier_sea_giants_plate") then
@@ -1321,7 +1321,7 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_duskbringer_arcana_armor") then
 		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 			local stackCount = victim:GetModifierStackCount("modifier_duskbringer_arcana_armor", victim)
-			local consideredArmor = victim:GetPhysicalArmorValue()*0.005*stackCount
+			local consideredArmor = victim:GetPhysicalArmorValue()*0.01*stackCount
 			filterTable["damage"] = GameState:GetPostReductionPhysicalDamage(filterTable["damage"], consideredArmor)
 		end
 	end

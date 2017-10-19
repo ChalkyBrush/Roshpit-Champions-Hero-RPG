@@ -12220,7 +12220,7 @@
 			"06"
 			{
 				"var_type" 				"FIELD_INTEGER"
-				"attack_damage"			"75 150 225 300 375 450 525"
+				"attack_damage_bonus"	"50 75 100 125 150 175 200"
 			}
 		}
 
@@ -12276,7 +12276,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "500"
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%attack_damage"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%attack_damage_bonus"
 				}
 				"OnAttackStart"
 				{
@@ -25675,15 +25675,6 @@
 					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
-			"modifier_ancient_spirit_attackspeed"
-			{
-				"IsHidden"	"1"
-				"IsBuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "15"
-				}
-			}
 			"modifier_spirit_moving_out"
 			{
 				"IsHidden"	"1"
@@ -25908,6 +25899,15 @@
 						"Function"		"vigor_deal_damage"
 						"damage"		"%attack_damage"
 					}
+				}
+			}
+			"modifier_ancient_spirit_attackspeed"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "12"
 				}
 			}
 			"modifier_ancient_vigor_regen"
@@ -26477,15 +26477,6 @@
 				"States"
 				{
 					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_ancient_spirit_attackspeed"
-			{
-				"IsHidden"	"1"
-				"IsBuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "15"
 				}
 			}
 			"modifier_spirit_moving_out"
@@ -58488,7 +58479,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -58513,7 +58504,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.5"
+				"property_two"			"1.0"
 			}
 		}
 	}
@@ -60639,7 +60630,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"50"
 			}
 			"02"
 			{
@@ -60671,7 +60662,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"12"
 			}
 		}
 
@@ -61803,7 +61794,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"2.0"
+				"property_one"			"6.0"
 			}
 		}
 	}

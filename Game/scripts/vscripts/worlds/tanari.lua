@@ -46,12 +46,12 @@ function Tanari:Debug()
     -- RPCItems:RollMageBaneGloves(Vector(-4928, 2048))
     -- RPCItems:RollTwistedMaskOfAhnqhirBlue(Vector(-4928, 2048))
      RPCItems:RollTwistedMaskOfAhnqhirYellow(Vector(-4928, 2048))
+     -- RPCItems:RollArborDragonfly(Vector(-4928, 2048))
     --   RPCItems:RollTwistedMaskOfAhnqhirPurple(Vector(-4928, 2048))
-    Dungeons.itemLevel = 300
+    -- Dungeons.itemLevel = 300
     -- for i = 1, 3, 1 do
         RPCItems:RollPaladinArcana1(Vector(-4928, 2048))
-        RPCItems:RollSoluniaArcana1(Vector(-4928, 2048))
-        RPCItems:RollSoluniaArcana2(Vector(-4928, 2048))
+        RPCItems:RollMountainProtectorArcana2(Vector(-4928, 2048))
     -- end
     -- RPCItems:RollAquastoneRing(Vector(-4928, 2048))
     -- RPCItems:RollAuriunArcana2(Vector(-4928, 2048))
@@ -142,6 +142,7 @@ function Tanari:Debug()
     -- RPCItems:RollTrapperArcana1(Vector(-4928, 2048))
 
             ---------MAX CURATION----------
+    -- Curator:FullCurateHero(MAIN_HERO_TABLE[1])
     -- Curator:CurateHero(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
 
     -- Timers:CreateTimer(10, function()

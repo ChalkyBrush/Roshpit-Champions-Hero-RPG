@@ -49,7 +49,7 @@ function smashing_end(event)
 	local damage = event.damage
 	local a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b_arcana1", "duskbringer")
 	if a_b_level > 0 then
-		damage = damage + a_b_level*caster:GetAverageTrueAttackDamage(caster)*0.05*ability:GetLevel()
+		damage = damage + a_b_level*caster:GetAverageTrueAttackDamage(caster)*0.1*ability:GetLevel()
 	end
 
 	local b_b_level = Runes:GetTotalRuneLevel(caster, 2, "b_b_arcana1", "duskbringer")

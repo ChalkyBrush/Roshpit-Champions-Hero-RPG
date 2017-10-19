@@ -820,6 +820,18 @@ function Curator:ClientDataHero(msg)
 	end )
 end
 
+function Curator:FullCurateHero(hero)
+    Curator:CurateHero(hero:GetPlayerOwnerID())
+
+    Timers:CreateTimer(10, function()
+    	local internalName = HerosCustom:GetInternalHeroName(hero:GetUnitName())
+        Curator:CurateAllGlyphsForHero(internalName)
+    end)
+    Timers:CreateTimer(20, function()
+        Curator:CurateArcanaAbilities(hero)
+    end)
+end
+
 --ABILITIES 
 
 --SOUL BANK 

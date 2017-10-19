@@ -127,7 +127,9 @@ function disciple_think(event)
 					if (allies[i]:GetHealth()/allies[i]:GetMaxHealth()) < (ally:GetHealth()/ally:GetMaxHealth()) then
 						if allies[i]:HasModifier("modifier_paladin_rune_b_d_effect_visible") or allies[i]:GetEntityIndex() == caster:GetEntityIndex() then
 						else
-							ally = allies[i]
+							if allies[i]:IsAlive() then
+								ally = allies[i]
+							end
 						end
 					end
 				end
@@ -136,23 +138,29 @@ function disciple_think(event)
 			local buff = paladin:FindModifierByName("modifier_knights_disciple_heal")
 			if buff then
 				if buff:GetRemainingTime() < 7 then
-					ally = paladin
+					if paladin:IsAlive() then
+						ally = paladin
+					end
 				end
 			else
-				ally = paladin
+				if paladin:IsAlive() then
+					ally = paladin
+				end
 			end
-			local newOrder = {
-		 		UnitIndex = summon:entindex(), 
-		 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-		 		TargetIndex = ally:entindex(),
-		 		AbilityIndex = healAbility:entindex(),
-		 	}
-			ExecuteOrderFromTable(newOrder)	
-			summon.casting = true
-			Timers:CreateTimer(healAbility:GetCastPoint()+0.1, function()
-				summon.casting = false
-			end)	
-			return				
+			if IsValidEntity(ally) then
+				local newOrder = {
+			 		UnitIndex = summon:entindex(), 
+			 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+			 		TargetIndex = ally:entindex(),
+			 		AbilityIndex = healAbility:entindex(),
+			 	}
+				ExecuteOrderFromTable(newOrder)	
+				summon.casting = true
+				Timers:CreateTimer(healAbility:GetCastPoint()+0.1, function()
+					summon.casting = false
+				end)	
+				return	
+			end			
 		end
 	end
 end
