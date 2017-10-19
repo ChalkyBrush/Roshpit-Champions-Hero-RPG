@@ -6,18 +6,19 @@ function begin_judgement(event)
 	local radius = event.radius
 	local damage = event.damage
 
-	local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "bahamut")
-	if d_b_level > 0 then
-		local manaDrain = caster:GetMaxMana()*0.1
-		if caster:GetMana() < manaDrain then
-			manaDrain = caster:GetMana()
-		end
-		caster:ReduceMana(manaDrain)
-		damage = damage*(manaDrain/100)*0.004*d_b_level + damage
-		ability.damageAmp = (manaDrain/100)*0.004*d_b_level + 1
-	else
-		ability.damageAmp = 1
-	end
+	-- local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "bahamut")
+	-- if d_b_level > 0 then
+	-- 	local manaDrain = caster:GetMaxMana()*0.1
+	-- 	if caster:GetMana() < manaDrain then
+	-- 		manaDrain = caster:GetMana()
+	-- 	end
+	-- 	caster:ReduceMana(manaDrain)
+	-- 	damage = damage*(manaDrain/100)*0.004*d_b_level + damage
+	-- 	ability.damageAmp = (manaDrain/100)*0.004*d_b_level + 1
+	-- else
+	-- 	ability.damageAmp = 1
+	-- end
+	ability.damageAmp = 1
 	caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "bahamut")
 	ability.d_b_level = d_b_level
 	local casterOrigin = caster:GetAbsOrigin() 
@@ -57,9 +58,9 @@ function blast(caster, point, radius, damage, ability)
 			Timers:CreateTimer(0.1,function()
 				for _,enemy in pairs(enemies) do
 					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
-					if ability.b_b_level > 0 then
-						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_leshrac_nuke_judged", {duration = 5}) 
-					end
+
+					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_leshrac_nuke_judged", {duration = 5}) 
+
 					if caster:HasModifier("modifier_leshrac_arcana_effect") then
 						local arcanaAbility = caster:FindAbilityByName("bahamut_arcana_ulti")
 						local arcanaDamage = arcanaAbility:GetSpecialValueFor("damage")

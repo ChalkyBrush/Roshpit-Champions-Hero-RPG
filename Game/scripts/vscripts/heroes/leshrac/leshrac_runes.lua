@@ -47,8 +47,13 @@ function WallAllyBuff(event)
 				local attachPoint = ability.wallCenter+ability.ninetyDegrees*RandomInt(-maxBound, maxBound)
 				EmitSoundOnLocationWithCaster(attachPoint, "Hero_VengefulSpirit.ProjectileImpact", caster)
 				CreateLightningBeam(attachPoint+Vector(0,0,100), caster:GetAbsOrigin()+Vector(0,0,80))
-				caster:GiveMana(a_a_level)
-				PopupMana(caster, a_a_level)
+				caster:GiveMana(a_a_level*3)
+				PopupMana(caster, a_a_level*3)
+				ability:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_wall_max_mana", {duration = 20})
+				local stacks = math.min(caster:GetModifierStackCount("modifier_bahamut_wall_max_mana", caster) + 1, 600)
+				caster:SetModifierStackCount("modifier_bahamut_wall_max_mana", caster, stacks)
+				ability:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_wall_max_mana_invisible", {duration = 20})
+				caster:SetModifierStackCount("modifier_bahamut_wall_max_mana_invisible", caster, stacks*a_a_level)
 			end
 		end
 		if a_d_level then
@@ -69,21 +74,24 @@ function WallAllyBuff(event)
 				local radius = 1100
 				local chargeAbility = caster:FindAbilityByName("charge_of_light")
 				local damage = chargeAbility:GetSpecialValueFor("damage")*(1+b_d_level*0.15)
-				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-				if #enemies > 0 then	
-					for _,enemy in pairs(enemies) do
-						Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, caster, "modifier_backstab_jumping", {duration = 0.2})
-						Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
-						caster:RemoveModifierByName("modifier_backstab_jumping")
-						Filters:ApplyStun(caster, 1, enemy)
-						local particleName = "particles/units/heroes/hero_leshrac/bahamut_nova.vpcf"
-						local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, enemy )
-						ParticleManager:SetParticleControlEnt(pfx, 0, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
-						Timers:CreateTimer(0.9, function() 
-						  ParticleManager:DestroyParticle( pfx, false )
-						end) 	
-					end				
-				end 
+				local post_mit_duration = Filters:GetAdjustedBuffDuration(caster, 3, false)
+				chargeAbility:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_charge_of_light_postmitigation", {duration = post_mit_duration})
+				caster:SetModifierStackCount("modifier_bahamut_charge_of_light_postmitigation", caster, b_d_level)
+				Timers:CreateTimer(0.03, function()
+					local enemies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+					if #enemies > 0 then	
+						for _,enemy in pairs(enemies) do
+							Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+							Filters:ApplyStun(caster, 1, enemy)
+							local particleName = "particles/units/heroes/hero_leshrac/bahamut_nova.vpcf"
+							local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, enemy )
+							ParticleManager:SetParticleControlEnt(pfx, 0, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
+							Timers:CreateTimer(0.9, function() 
+							  ParticleManager:DestroyParticle( pfx, false )
+							end) 	
+						end				
+					end 
+				end)
 				EmitSoundOnLocationWithCaster(point+Vector(2,2,2), "Hero_Gyrocopter.HomingMissile.Destroy", caster)
 				local particleName = "particles/items_fx/leshrac_blink.vpcf"
 				local pfx2 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
@@ -212,5 +220,24 @@ function d_d_shell_think(event)
 		local wallAbility = target:FindAbilityByName("leshrac_wall")
 		local hyperStateDuration = Filters:GetAdjustedBuffDuration(caster, 12, false)
 		wallAbility:ApplyDataDrivenModifier(target, target, "modifier_charge_of_light_hyper_state", {duration = hyperStateDuration})
+	end
+	caster = target
+	local modifiers = caster:FindAllModifiers()
+	for i = 1, #modifiers, 1 do
+		local modifier = modifiers[i]
+		local modifierMaker = modifier:GetCaster()
+		
+		if modifier:GetName() == "modifier_bahamut_rune_d_d_shell" or modifier:GetName() == "modifier_charge_of_light_sliding" then
+		else
+			if modifierMaker:GetEntityIndex() == caster:GetEntityIndex() or modifierMaker:GetEntityIndex() == caster.InventoryUnit:GetEntityIndex() then
+
+				local durationRemaining = modifier:GetRemainingTime()
+				if durationRemaining > 0 then
+					print("INCREASING:")
+					print(modifier:GetName())
+					modifier:SetDuration(durationRemaining + 0.1, true)
+				end
+			end
+		end
 	end
 end

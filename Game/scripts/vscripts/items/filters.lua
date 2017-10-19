@@ -12,6 +12,9 @@ function Filters:ApplyItemDamage(victim,attacker,damage,damage_type,item,element
             mult = mult + 0.006*(attacker:GetStrength()/10)
         end
     end
+    if attacker:GetUnitName() == "npc_dota_hero_leshrac" then
+        damage = Filters:Bahamut_DB_rune(attacker, damage, 0, victim)
+    end
     if victim:HasModifier("modifier_item_resistance") then
         if victim.itemReduc then
             damage = damage*victim.itemReduc
@@ -1021,6 +1024,14 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     if damage_type == DAMAGE_TYPE_PHYSICAL then
         damage = damage/(1+((attacker:GetIntellect()/16)/100))
     end
+    local attackerName = attacker:GetUnitName()
+    if attackerName == "npc_dota_hero_leshrac" then
+        if slot > 0 then
+            damage = Filters:Bahamut_DB_rune(attacker, damage, slot, victim)
+        end
+    end
+   
+
     damage, element1, element2 = Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, element1, element2)
     attacker.element1 = element1
     attacker.element2 = element2
@@ -1029,6 +1040,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     if attacker:HasModifier("modifier_sorceress_immortal_fire_avatar") or attacker:HasModifier("modifier_sorceress_immortal_ice_avatar") then
         attacker = attacker.origCaster
     end
+    
     if slot > 0 then
         if attacker:HasModifier("modifier_watcher_two") then
             damageMult = damageMult + 0.15
@@ -3782,3 +3794,22 @@ function Filters:DarkEmissary(caster)
         end
     end       
 end
+
+function Filters:Bahamut_DB_rune(caster, damage, slot, enemy)
+    local property_one = 0.1
+    local property_two = 0.02
+    local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "bahamut")
+    if enemy:HasModifier("modifier_leshrac_nuke_judged") then
+        if d_b_level > 0 then
+            local bonusDamage = caster:GetMaxMana()*property_one*d_b_level
+            if slot == 2 then
+                bonusDamage = bonusDamage*10
+            end
+            damage = damage + bonusDamage
+            local manaDrain = math.ceil(caster:GetMaxMana()/100*property_two)*d_b_level
+            caster:ReduceMana(manaDrain)
+        end
+    end
+    return damage
+end
+

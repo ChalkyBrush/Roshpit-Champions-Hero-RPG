@@ -24,6 +24,7 @@ end
 function beginCharge(event)
 	local ability = event.ability
 	local caster = event.caster
+	caster:RemoveModifierByName("modifier_pulse_slow")
 	ability.fv = caster:GetForwardVector()
 	ability.slideSpeed = 25
 	ability.interval = 0

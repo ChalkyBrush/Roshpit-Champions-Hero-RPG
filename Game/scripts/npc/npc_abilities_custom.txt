@@ -12863,6 +12863,7 @@
 				"target"		"TARGET"
 				"damage"		"%damage"
 				"heal_percentage"	"%heal_percentage"
+				"projectile"	"PROJECTILE"
 			}
 		}
 		"Modifiers"
@@ -12958,6 +12959,86 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "100"
 				}
 			}
+		}
+	}
+
+	"paladin_penance_dummy"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_UNRESTRICTED"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"1"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityTextureName"			"paladin/paladin_penance"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"1000 5000 25000 80000 150000 250000 500000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"heal_percentage"				"10"
+			}
+		}
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"99999"
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/omniknight/penance.lua"
+				"Function"		"penance_start"
+				"target"		"TARGET"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/omniknight/penance.lua"
+				"Function"		"penance_impact"
+				"target"		"TARGET"
+				"damage"		"%damage"
+				"heal_percentage"	"%heal_percentage"
+				"projectile"	"PROJECTILE"
+			}
+		}
+		"Modifiers"
+		{
+
 		}
 	}
 
@@ -20173,6 +20254,7 @@
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_luna.vsndevts"
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_death_prophet.vsndevts"
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_vengefulspirit.vsndevts"
+			"particle"	"particles/roshpit/bahamut/bahamut_wall_spawn.vpcf"
 		}
 
 		// Precache
@@ -20358,6 +20440,33 @@
 				"IsHidden"	"0"
 				"IsBuff"	"1"
 			}
+			"modifier_bahamut_wall_max_mana_invisible"
+			{
+				"IsHidden"							"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS" "2"
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"					"TARGET"
+						"EffectName"				"particles/econ/generic/generic_buff_1/generic_buff_1.vpcf"
+						"EffectAttachType"			"attach_hitloc"
+						"EffectLifeDurationScale"	"1"
+						"EffectColorA"				"100 140 230"
+						"EffectAlphaScale"			"0.26"
+					}
+				}
+			}
+			"modifier_bahamut_wall_max_mana"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"nyx_assassin_mana_burn"
+
+			}
 		}
 	}
 
@@ -20413,6 +20522,9 @@
 			"particle"		"particles/units/heroes/hero_invoker/invoker_death_end.vpcf"
 			"particle"		"particles/econ/items/tinker/boots_of_travel/teleport_end_bots_ground_glow.vpcf"
 			"particle"		"particles/roshpit/bahamut/glyphed_pulse_explosion_fallback_mid_egset.vpcf"
+			"particle"		"particles/roshpit/bahamut/purity_freeze_debuff.vpcf"
+			"particle" 		"particles/status_fx/status_effect_guardian_angel.vpcf"
+			"particle"		"particles/roshpit/bahamut/purity_impact.vpcf"
 		}
 
 		"OnSpellStart"
@@ -20516,6 +20628,34 @@
 	            	"ModifierName"	"modifier_bahamut_pulse_on"
 	            	"Target" 		"TARGET"
 	            }
+			}
+			"modifier_purity_freeze"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"		"particles/roshpit/bahamut/purity_freeze_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"StatusEffectName" 		"particles/status_fx/status_effect_guardian_angel.vpcf"
+				"StatusEffectPriority"  "10"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"TextureName"	"luna_lucent_beam_alt"
+				"OnCreated"
+				{
+					"FireEffect"
+					{
+						"EffectName"        "particles/roshpit/bahamut/purity_impact.vpcf"
+						"EffectAttachType"  "start_at_customorigin"
+						"ControlPointEntities"
+						{
+							"CASTER"	"follow_origin"
+							"TARGET"	"follow_origin"
+						}
+					}
+				}
 			}
 		}
 	}
@@ -20924,6 +21064,12 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-8"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-10"
 				}
+			}
+			"modifier_bahamut_charge_of_light_postmitigation"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"templar_assassin_refraction"
 			}
 		}
 
@@ -57027,7 +57173,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"60"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"1200"
 			}
 		}
 		"Modifiers"
@@ -57225,9 +57376,12 @@
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"7"
 			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.05"
+			}
 		}
-
-
 	}
 
 	"bahamut_rune_b_d"
@@ -57263,6 +57417,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"7"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"15"
 			}
 		}
 
@@ -57469,8 +57628,13 @@
 		{
 			"01"
 			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"10"
+			}
+			"02"
+			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.4"
+				"property_two"			"0.02"
 			}
 		}
 
@@ -57514,7 +57678,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
+				"property_one"			"7"
 			}
 		}
 		"Modifiers"

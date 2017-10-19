@@ -8,11 +8,21 @@ function penance_start(event)
 	if not event.source then
 		source = caster
 	end
+	if ability:GetAbilityName() == "paladin_penance" then
+		ability.d_b_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
+		dummyAbility = caster.InventoryUnit:AddAbility("paladin_penance_dummy")
+		dummyAbility:SetLevel(ability:GetLevel())
+		dummyAbility.penanceProcs = Runes:Procs(ability.d_b_level, 10, 1)
+	else
+		dummyAbility = ability
+		caster = caster.hero
+		ability = caster:FindAbilityByName("paladin_penance")
+	end
 	local info = 
 	{
 		Target = target,
 		Source = source,
-		Ability = ability,	
+		Ability = dummyAbility,	
 		EffectName = "particles/roshpit/paladin/penance.vpcf",
 		StartPosition = "attach_attack2",
 		bDrawsOnMinimap = false, 
@@ -32,7 +42,7 @@ function penance_start(event)
 	ability.a_b_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
 	ability.b_b_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
 	ability.c_b_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
-	ability.d_b_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
+	
 	if ability.a_b_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_paladin_a_b_damage_growth_visible", {duration = 4})
 		local newStacks = caster:GetModifierStackCount("modifier_paladin_a_b_damage_growth_visible", caster) + 1
@@ -40,11 +50,7 @@ function penance_start(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_paladin_a_b_damage_growth_invisible", {duration = 4})
 		caster:SetModifierStackCount("modifier_paladin_a_b_damage_growth_invisible", caster, ability.a_b_level)
 	end
-	if ability.d_b_level > 0 then
-		if not target.penanceProcs then
-			target.penanceProcs = Runes:Procs(ability.d_b_level, 10, 1)
-		end
-	end
+
 	Filters:CastSkillArguments(2, caster)
 end
 
@@ -75,7 +81,14 @@ end
 
 function penance_impact(event)
 	local caster = event.caster
+	local origCaster = caster
 	local ability = event.ability
+	local dummyAbility = nil
+	if ability:GetAbilityName() == "paladin_penance_dummy" then
+		dummyAbility = ability
+		caster = caster.hero
+		ability = caster:FindAbilityByName("paladin_penance")
+	end
 	local target = event.target
 	EmitSoundOn("Paladin.PenanceImpact", target)
 	local radius = 300
@@ -169,29 +182,31 @@ function penance_impact(event)
 			end  			
 		end
 	end
-	if target.penanceProcs then
-		if target.penanceProcs > 0 then
-			print("BOUNCE?")
-			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 650, DOTA_UNIT_TARGET_TEAM_ENEMY+DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-			if #enemies > 0 then
-				for _,enemy in pairs(enemies) do
-					if enemy:GetEntityIndex() == target:GetEntityIndex() then
-					else
-						enemy.penanceProcs = target.penanceProcs - 1
-						local eventTable = {}
-						eventTable.caster = caster
-						eventTable.target = enemy
-						eventTable.source = target
-						eventTable.ability = ability
-						target.penanceProcs = 0
-						penance_start(eventTable)
-						Timers:CreateTimer(0.3, function()
-							target.penanceProcs = nil
-						end)
-						break
+	if dummyAbility then
+		if dummyAbility.penanceProcs then
+			if dummyAbility.penanceProcs > 0 then
+				print("BOUNCE?")
+				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 650, DOTA_UNIT_TARGET_TEAM_ENEMY+DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+				if #enemies > 0 then
+					for _,enemy in pairs(enemies) do
+						if enemy:GetEntityIndex() == target:GetEntityIndex() then
+						else
+							dummyAbility.penanceProcs = dummyAbility.penanceProcs - 1
+							local eventTable = {}
+							eventTable.caster = origCaster
+							eventTable.target = enemy
+							eventTable.source = target
+							eventTable.ability = dummyAbility
+							penance_start(eventTable)
+							break
+						end
 					end
-				end
-			end		
+				end	
+			else
+				UTIL_Remove(dummyAbility)	
+			end
+		else
+			UTIL_Remove(dummyAbility)
 		end
 	end
 

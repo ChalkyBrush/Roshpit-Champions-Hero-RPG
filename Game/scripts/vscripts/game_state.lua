@@ -738,7 +738,7 @@ function GameState:FilterDamage(filterTable)
 
 	if attacker:IsHero() then
 		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
-			filterTable["damage"] = filterTable["damage"]/(1+((attacker:GetIntellect()/14)/100))
+			filterTable["damage"] = math.ceil(filterTable["damage"]/(1+((attacker:GetIntellect()/14)/100)))
 		end
 	end
 	if GameState:IsPVPAlpha() then
@@ -1126,6 +1126,10 @@ function GameState:FilterDamage(filterTable)
 		if waterheart then
 			mult = mult + 0.03*waterheart.c_d_level
 		end
+	end
+	if attacker:HasModifier("modifier_bahamut_charge_of_light_postmitigation") then
+		local stacks = attacker:GetModifierStackCount("modifier_bahamut_charge_of_light_postmitigation", attacker)
+		mult = mult + 0.15*stacks
 	end
 	if victim:HasModifier("tanari_mountain_specter_ai") then
 		local reduc = 0.1
