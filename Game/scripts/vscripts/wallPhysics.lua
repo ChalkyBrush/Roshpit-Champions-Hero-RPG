@@ -2,6 +2,8 @@ if WallPhysics == nil then
   WallPhysics = class({})
 end
 
+-- knockup formula: sin((current_time - time_knock_up_started) / total_knock_up_time * PI) * max_height
+
 function WallPhysics:FindNearestObstruction(point)
 	if GameState:IsWorld1() then
 		local eventBlocker = WallPhysics:FindEventObstructions(point)

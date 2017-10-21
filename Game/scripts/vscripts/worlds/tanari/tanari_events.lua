@@ -1,3 +1,11 @@
+function ancient_god_water_take_damage(event)
+	local caster = event.caster
+	if caster:GetHealth() < 120000 then
+		event.element = 2
+		ancient_god_think(event)
+	end
+end
+
 function ancient_god_think(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -13,7 +21,12 @@ function ancient_god_think(event)
 	if caster.dying then
 		return
 	end
-	if caster:GetHealth() < 15000 then
+	local thresh = 15000
+	if element == 2 then
+		thresh = 120000
+	end
+	if caster:GetHealth() < thresh then
+		caster:SetHealth(1)
 		caster.dying = true
 		local steadfastAbility = caster:FindAbilityByName("ancient_god_steadfast")
 		steadfastAbility:ApplyDataDrivenModifier(caster, caster, "modifier_steadfast_boss_dying", {})

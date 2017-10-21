@@ -5,12 +5,17 @@ function penance_start(event)
 	local ability = event.ability
 	local target = event.target
 	local source = event.source
+	local castArgs = false
 	if not event.source then
+		castArgs = true
 		source = caster
 	end
 	if ability:GetAbilityName() == "paladin_penance" then
 		ability.d_b_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
 		dummyAbility = caster.InventoryUnit:AddAbility("paladin_penance_dummy")
+		dummyAbility.creationTime = GameRules:GetGameTime()
+		print("---------")
+		print(dummyAbility.creationTime)
 		if not dummyAbility then
 			local remove = caster.InventoryUnit:FindAbilityByName("paladin_penance_dummy")
 			UTIL_Remove(remove)
@@ -30,6 +35,7 @@ function penance_start(event)
 		caster = caster.hero
 		ability = caster:FindAbilityByName("paladin_penance")
 	end
+	local extraData = {1}
 	local info = 
 	{
 		Target = target,
@@ -58,12 +64,14 @@ function penance_start(event)
 	if ability.a_b_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_paladin_a_b_damage_growth_visible", {duration = 4})
 		local newStacks = caster:GetModifierStackCount("modifier_paladin_a_b_damage_growth_visible", caster) + 1
-		caster:SetModifierStackCount("modifier_paladin_a_b_damage_growth_visible", caster, newStacks)
+		-- caster:SetModifierStackCount("modifier_paladin_a_b_damage_growth_visible", caster, newStacks)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_paladin_a_b_damage_growth_invisible", {duration = 4})
 		caster:SetModifierStackCount("modifier_paladin_a_b_damage_growth_invisible", caster, ability.a_b_level)
 	end
-	if ability:GetAbilityName() == "paladin_penance" then
-		Filters:CastSkillArguments(2, caster)
+	if castArgs then
+		if ability:GetAbilityName() == "paladin_penance" then
+			Filters:CastSkillArguments(2, caster)
+		end
 	end
 end
 
@@ -89,6 +97,37 @@ function passive_think(event)
 		if caster:HasModifier("modifier_paladin_arcana_armor") then
 			caster:RemoveModifierByName("modifier_paladin_arcana_armor")
 		end
+	end
+	if caster.InventoryUnit:HasAbility("paladin_penance_dummy") then
+		local penanceCount = 0
+		for i = 0, 23, 1 do
+			local dummyPenance = caster.InventoryUnit:GetAbilityByIndex(i)
+			if dummyPenance then
+				if dummyPenance:GetAbilityName() == "paladin_penance_dummy" then
+					penanceCount = penanceCount + 1
+					if dummyAbility.creationTime > GameRules:GetGameTime() + 30 then
+						UTIL_Remove(dummyAbility)
+						
+						ability:SetActivated(true)
+					end
+				end
+			end
+		end
+		print("-----P-----")
+		ability.projectileCount = penanceCount
+		set_penance_projectiles(ability, caster)
+		print(penanceCount)
+		
+	end
+end
+
+function set_penance_projectiles(ability, caster)
+	if ability.projectileCount > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_penance_projectiles", {})
+		print(ability.projectileCount)
+		caster:SetModifierStackCount("modifier_penance_projectiles", caster, ability.projectileCount)
+	else
+		caster:RemoveModifierByName("modifier_penance_projectiles")
 	end
 end
 
@@ -218,24 +257,34 @@ function penance_impact(event)
 					end
 					if remove then
 						ability.projectileCount = ability.projectileCount - 1
+						set_penance_projectiles(ability, caster)
 						UTIL_Remove(dummyAbility)
 						ability:SetActivated(true)
 					end
 				else
 					ability.projectileCount = ability.projectileCount - 1
+					set_penance_projectiles(ability, caster)
 					UTIL_Remove(dummyAbility)
 					ability:SetActivated(true)
 				end	
 			else
 				ability.projectileCount = ability.projectileCount - 1
+				set_penance_projectiles(ability, caster)
 				UTIL_Remove(dummyAbility)
 				ability:SetActivated(true)	
 			end
 		else
 			ability.projectileCount = ability.projectileCount - 1
+			set_penance_projectiles(ability, caster)
 			UTIL_Remove(dummyAbility)
 			ability:SetActivated(true)
 		end
+	else
+		ability:SetActivated(true)
 	end
 
+end
+
+function penance_die(event)
+	event.ability:SetActivated(true)
 end

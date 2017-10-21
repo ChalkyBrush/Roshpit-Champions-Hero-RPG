@@ -74,6 +74,7 @@ function flareImpact(caster, ability, damage, element2, damageType, position, st
 	local damageType = DAMAGE_TYPE_MAGICAL
 	if sun_moon == "moon" then
 		damageType = DAMAGE_TYPE_PURE
+		element2 = RPC_ELEMENT_ICE
 	end
     if caster:HasModifier("modifier_solunia_glyph_3_1") then
     	stun_duration = stun_duration + 1

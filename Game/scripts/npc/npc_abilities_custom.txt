@@ -12853,7 +12853,7 @@
 				"target"		"TARGET"
 			}
 		}
-		"OnProjectileHitUnit"
+		"OnProjectileHit_ExtraData"
 		{
 			"DeleteOnHit"	"1"
 			"RunScript"
@@ -12871,6 +12871,7 @@
 			"modifier_paladin_arcana_glove_passive"
 			{
 				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"Passive"	"1"
 				"OnDestroy"
 				{
@@ -12896,6 +12897,14 @@
 					{
 						"ScriptFile"	"heroes/omniknight/holy_cone"
 						"Function"		"paladin_attack_land"
+					}
+				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/omniknight/penance.lua"
+						"Function"		"penance_die"
 					}
 				}
 			}
@@ -12958,6 +12967,11 @@
 				{
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "100"
 				}
+			}
+			"modifier_penance_projectiles"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
 			}
 		}
 	}
@@ -33704,6 +33718,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"FightRecapLevel"				"1"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
@@ -33850,6 +33865,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"FightRecapLevel"				"1"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
@@ -95400,6 +95416,15 @@
 						"ScriptFile"	"worlds/tanari/tanari_events"
 						"Function"		"ancient_god_think"
 						"element"       "2"
+					}
+				}
+				"OnTakeDamage"
+				// "%attack_damage" is set to the damage value after mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/tanari/tanari_events"
+						"Function"		"ancient_god_water_take_damage"
 					}
 				}
 				"OnCreated"

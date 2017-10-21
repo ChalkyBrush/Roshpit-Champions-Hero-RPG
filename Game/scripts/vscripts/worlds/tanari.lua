@@ -24,13 +24,13 @@ function Tanari:Debug()
       MAIN_HERO_TABLE[1]:CalculateStatBonus()
       -- Runes:EquipArcana(MAIN_HERO_TABLE[1], 2)
     end
-    -- Tanari:DefeatDungeonBoss("wind", Vector(-4928, 2048))
+    -- Tanari:DefeatDungeonBoss("fire", Vector(-4928, 2048))
     local item = CreateItem("item_debug_blink", nil, nil)
     local drop = CreateItemOnPositionSync( Vector(-4928, 2048), item )
     local position = Vector(-4928, 2048)
     RPCItems:DropItem(item, Vector(-4928, 2048))
 
-    -- RPCItems:RollSpiritWarriorArcana3(Vector(-4928, 2048))
+    RPCItems:RollPaladinArcana1(Vector(-4928, 2048))
 
     -- Glyphs:RollGlyphAll("item_rpc_solunia_glyph_5_a", Vector(-4928, 2048), 0)
 
@@ -42,21 +42,22 @@ function Tanari:Debug()
     --          Curator:CurateBasicEquipment(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
     --     end)
     -- end
-    -- Glyphs:RollGlyphAll("item_rpc_warlord_glyph_2_1", Vector(-4928, 2048), 0)
-    -- RPCItems:RollMageBaneGloves(Vector(-4928, 2048))
-    -- RPCItems:RollTwistedMaskOfAhnqhirBlue(Vector(-4928, 2048))
-     RPCItems:RollTwistedMaskOfAhnqhirYellow(Vector(-4928, 2048))
-     -- RPCItems:RollArborDragonfly(Vector(-4928, 2048))
-    --   RPCItems:RollTwistedMaskOfAhnqhirPurple(Vector(-4928, 2048))
-    -- Dungeons.itemLevel = 300
-    -- for i = 1, 3, 1 do
-        RPCItems:RollPaladinArcana1(Vector(-4928, 2048))
-        RPCItems:RollMountainProtectorArcana2(Vector(-4928, 2048))
+    -- Glyphs:RollGlyphAll("item_rpc_venomort_glyph_5_a", Vector(-4928, 2048), 0)
+    -- -- RPCItems:RollMageBaneGloves(Vector(-4928, 2048))
+    -- -- RPCItems:RollTwistedMaskOfAhnqhirBlue(Vector(-4928, 2048))
+    --  RPCItems:RollTwistedMaskOfAhnqhirYellow(Vector(-4928, 2048))
+    --  -- RPCItems:RollArborDragonfly(Vector(-4928, 2048))
+    -- --   RPCItems:RollTwistedMaskOfAhnqhirPurple(Vector(-4928, 2048))
+    -- -- Dungeons.itemLevel = 300
+    -- -- for i = 1, 3, 1 do
+    --     RPCItems:RollSoluniaArcana1(Vector(-4928, 2048))
+    --     RPCItems:RollSignusCharm(Vector(-4928, 2048))
+        -- RPCItems:RollMountainProtectorArcana2(Vector(-4928, 2048))
     -- end
     -- RPCItems:RollAquastoneRing(Vector(-4928, 2048))
     -- RPCItems:RollAuriunArcana2(Vector(-4928, 2048))
     -- RPCItems:RollDemonMask(Vector(-4928, 2048), false, 60)
-    RPCItems:RollWatcherPlate(Vector(-4928, 2048))
+    -- RPCItems:RollWatcherPlate(Vector(-4928, 2048))
     -- RPCItems:RollEmpyrealSunriseRobe(Vector(-4928, 2048))
     -- for i = 1, 3, 1 do
     --     RPCItems:RollEkkanArcana1(Vector(-4928, 2048))
@@ -734,9 +735,9 @@ function Tanari:DefeatDungeonBoss(element, position)
         --  end
         -- end
         if #crystal.winnerTable > 0 then
-          for i = 1, #crystal.winnerTable, 1 do
-            crystal.winnerTable[i].shardsPickedUp = 0
-          end
+          -- for i = 1, #crystal.winnerTable, 1 do
+          --   crystal.winnerTable[i].shardsPickedUp = 0
+          -- end
           Timers:CreateTimer(1.4, function()
             EmitSoundOn("Resource.MithrilShardEnter", crystal)
           end)

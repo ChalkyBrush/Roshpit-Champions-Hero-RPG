@@ -4414,9 +4414,9 @@ function Seafortress:DefeatFinalBoss(position)
         --  end
         -- end
         if #crystal.winnerTable > 0 then
-          for i = 1, #crystal.winnerTable, 1 do
-            crystal.winnerTable[i].shardsPickedUp = 0
-          end
+          -- for i = 1, #crystal.winnerTable, 1 do
+          --   crystal.winnerTable[i].shardsPickedUp = 0
+          -- end
           Timers:CreateTimer(1.4, function()
             EmitSoundOn("Resource.MithrilShardEnter", crystal)
           end)

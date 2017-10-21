@@ -15,7 +15,7 @@ function ghost_warp_start(event)
     local phaseWalk = caster:FindAbilityByName("phase_walk")
     phaseWalk:SetLevel(ability:GetLevel())
     phaseWalk:SetAbilityIndex(2)
-    caster:SwapAbilities("phase_walk", "venomort_ghost_warp", true, false)
+    
 
     EmitSoundOn("Venomort.GhostWarp", caster)
     local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "a_c", "venomort")
@@ -26,6 +26,7 @@ function ghost_warp_start(event)
     ParticleManager:SetParticleControlEnt(ability.pfx, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
     ParticleManager:SetParticleControl(ability.pfx, 15, Vector(100, 220, 100))
     Filters:CastSkillArguments(3, caster)
+    caster:SwapAbilities("phase_walk", "venomort_ghost_warp", true, false)
 end
 
 function ghost_warping_think(event)
