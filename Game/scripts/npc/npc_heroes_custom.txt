@@ -804,7 +804,7 @@
 		"BountyGoldMin"	"0"
 		"BountyGoldMax"	"0"
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"	"390"
+		"MovementSpeed"	"420"
 		"MovementTurnRate"	"1.0"
 		"StatusHealth"	"1400"
 		"StatusHealthRegen"	"35"
