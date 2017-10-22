@@ -1142,7 +1142,7 @@ function RPCItems:RollBahamutArcana2(deathLocation)
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
 
 
-    local value, prefixLevel = RPCItems:RollAttribute(100, 10, 40, 0, 0, item.rarity, false, maxFactor*30)
+    local value, prefixLevel = RPCItems:RollAttribute(100, 12, 48, 0, 0, item.rarity, false, maxFactor*34)
     item.property3 = value
     item.property3name = "all_attributes"
     RPCItems:SetPropertyValues(item, item.property3, "#item_all_attributes", "#FFFFFF",  3)
