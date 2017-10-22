@@ -123,7 +123,9 @@ function ShowCaster( event )
 	local ability = event.ability
 	EmitSoundOn("leshrac_lesh_anger_05", event.caster)
 	EmitSoundOn("Hero_Terrorblade.Reflection", caster)
-    event.caster:RemoveNoDraw()
+	if not caster:HasModifier("modifier_lightning_dash") then
+    	caster:RemoveNoDraw()
+    end
     event.caster:SetMoveCapability(DOTA_UNIT_CAP_MOVE_GROUND)
     StartAnimation(event.caster, {duration=0.2, activity=ACT_DOTA_TELEPORT_END, rate=3})
 

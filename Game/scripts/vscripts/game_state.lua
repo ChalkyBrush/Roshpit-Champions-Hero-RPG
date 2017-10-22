@@ -908,6 +908,25 @@ function GameState:FilterDamage(filterTable)
 				mult = mult + multIncrease
 			end
 		end
+		if attacker:HasModifier("modifier_bahamut_arcana_passive") then
+			local a_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 1)
+			print("LESHRAC ABLEVEL!!")
+			if a_b_level > 0 then
+				local healAmount = math.ceil(filterTable["damage"]*0.001/100*a_b_level)
+				if healAmount > attacker:GetMaxHealth() - attacker:GetHealth() then
+					local allyHealAmount = healAmount - (attacker:GetMaxHealth() - attacker:GetHealth())
+					local arcanaAbility = attacker:FindAbilityByName("bahamut_arcana_orb")
+					arcanaAbility:ApplyDataDrivenModifier(attacker, attacker, "modifier_spellvamp_healing", {duration = 0.3})
+					local allies = FindUnitsInRadius( attacker:GetTeamNumber(), attacker:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
+					if #allies > 0 then
+						for _,ally in pairs(allies) do
+							Filters:ApplyHeal(attacker, ally, allyHealAmount/10, true)
+						end
+					end 
+				end
+				Filters:ApplyHeal(attacker, attacker, healAmount, true)
+			end
+		end
 
 	end
 	if victim:HasModifier("modifier_voltex_arcana1_passive") then
@@ -1018,6 +1037,11 @@ function GameState:FilterDamage(filterTable)
 			local multIncrease = 0.009*stacks
 			mult = mult + multIncrease
 		end
+	end
+	if attacker:HasModifier("modifier_bahamut_arcana_post_mit") then
+		local bahamut = attacker:FindModifierByName("modifier_bahamut_arcana_post_mit"):GetCaster()
+		local stacks = attacker:GetModifierStackCount("modifier_bahamut_arcana_post_mit", bahamut)
+		mult = mult + stacks * 0.035
 	end
 	if victim:HasModifier("modifier_wolf_rend_bleed") then
 		local modifier = victim:FindModifierByName("modifier_wolf_rend_bleed")
@@ -2228,12 +2252,12 @@ function GameState:FilterDamage(filterTable)
 	if Beacons.cheats then
 		-- if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 		-- 	if victim:IsHero() then
-		-- 		filterTable["damage"] = filterTable["damage"]*0.000001
+		-- 		filterTable["damage"] = 0
 		-- 	end
 		-- end
 		-- if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 		-- 	if attacker:IsHero() then
-		-- 		filterTable["damage"] = filterTable["damage"]*10000000*30*10000
+		-- 		filterTable["damage"] = filterTable["damage"]*10000000*30*10000*1000000
 		-- 	end
 		-- end
 	end

@@ -3799,17 +3799,31 @@ function Filters:Bahamut_DB_rune(caster, damage, slot, enemy)
     local property_one = 0.1
     local property_two = 0.02
     local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "bahamut")
-    if enemy:HasModifier("modifier_leshrac_nuke_judged") then
-        if d_b_level > 0 then
-            local bonusDamage = caster:GetMaxMana()*property_one*d_b_level
-            if slot == 2 then
-                bonusDamage = bonusDamage*10
+    if caster:HasAbility("leshrac_nuke") then
+        if enemy:HasModifier("modifier_leshrac_nuke_judged") then
+            if d_b_level > 0 then
+                local bonusDamage = caster:GetMaxMana()*property_one*d_b_level
+                if slot == 2 then
+                    bonusDamage = bonusDamage*10
+                end
+                damage = damage + bonusDamage
+                local manaDrain = math.ceil(caster:GetMaxMana()/100*property_two)*d_b_level
+                caster:ReduceMana(manaDrain)
             end
+        end
+    elseif caster:HasAbility("bahamut_arcana_orb") then
+        local property_one = 0.2
+        local d_b_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
+        if d_b_level > 0 then
+            local bonusDamage = (caster:GetMaxMana()-caster:GetMana())*property_one*d_b_level
             damage = damage + bonusDamage
-            local manaDrain = math.ceil(caster:GetMaxMana()/100*property_two)*d_b_level
-            caster:ReduceMana(manaDrain)
         end
     end
+    return damage
+end
+
+function Filters:Bahamut_DB_runeArcana(caster, damage, slot, enemy)
+
     return damage
 end
 

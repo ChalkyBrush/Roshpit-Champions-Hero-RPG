@@ -76805,6 +76805,104 @@
         }
     }
 
+    "seafortress_shadow_of_bahamut"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/leshrac/leshrac.vmdl"
+        "ModelScale"    "0.1"
+        "Level" "1"
+        "HealthBarOffset"   "350"
+        "SoundSet"          "Hero_Leshrac"
+        "precache"
+        {
+            "soundfile"     "soundevents/game_sounds_heroes/game_sounds_leshrac.vsndevts"
+            "particle"      "particles/roshpit/seafortress/shadow_of_bahamut_orb.vpcf"
+            "particle"      "particles/roshpit/seafortress/shadow_of_bahamut_indicator_portrait.vpcf"
+        }
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "ArmorPhysical" "15"
+        "MagicalResistance" "40"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "29500000"
+        "AttackDamageMax"   "32000000"
+        "AttackRate"    "1.0"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "2500"
+        "ProjectileSpeed"           "1200"
+        "ProjectileModel"           "particles/roshpit/sea_fortress/shadow_of_bahamut_attack_base_attack.vpcf"
+        "AttackRange"   "1300"
+        "BountyGoldMin" "550"
+        "BountyGoldMax" "570"
+        "BountyXP" "8875"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "440"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "93400000"
+        "StatusHealthRegen" "10"
+        "StatusMana"    "200000"
+        "StatusManaRegen"   "300000"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "DrawParticlesWhileHidden" "1"
+        "Ability1"          "seafortress_shadow_of_bahamut_passive"
+        "Ability2"          "shadow_of_bahamut_orb"
+        "Ability4"          "creature_pure_strike"
+        "Ability5"          "ability_mega_haste"
+        "Ability6"          "ability_stun_immunity"
+        "Ability7"          "ability_magic_immune_break"
+        "Ability8"          "dungeon_creep"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "7732"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "7731"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "7730"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "4992"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "7989"
+                }
+            }
+            "OffensiveAbilities"
+            {   
+
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+        }
+    }
+
     "seafortress_oracle_of_the_sea"
     {
         "BaseClass" "npc_dota_creature"

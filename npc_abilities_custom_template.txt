@@ -18714,6 +18714,7 @@
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_death_prophet.vsndevts"
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_vengefulspirit.vsndevts"
 			"particle"	"particles/roshpit/bahamut/bahamut_wall_spawn.vpcf"
+			"particle"	"particles/roshpit/bahamut/charge_through_wall.vpcf"
 		}
 
 		// Precache
@@ -18809,6 +18810,7 @@
 				"IsPurgable"	"0"
 				"IsHidden"		"1"
 				"ThinkInterval"	"0.05"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -18870,6 +18872,7 @@
 				"IsPurgable"		"0"
 				"StatusEffectName" 		"particles/status_fx/status_effect_hyper_state.vpcf"
 				"StatusEffectPriority"  "20"
+				"TextureName"			"rpc/bahamut_hyper_state"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "15"
@@ -101261,6 +101264,8 @@
 
 	}
 
+	##BAHAMUT_ARCANA_ABILITIES##
+
 	"ruby_dragon_ability"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -116324,6 +116329,172 @@
 				"stun_duration"			"2.0 2.3 2.6 2.9 3.2 3.5 3.8"
 			}
 		}
+	}
+
+	"seafortress_shadow_of_bahamut_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"terrorblade_metamorphosis"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"10000000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"stun_duration"			"3"
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+				"Function"		"shadow_of_bahamut_die"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_disable_player"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+
+			}
+			"modifier_shadow_of_bahamut_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "220"
+				}
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+						"Function"		"bahamut_attack_start"
+					}
+				}
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+						"Function"		"shadow_of_bahamut_think"
+					}
+				}
+			}
+		}
+	}
+
+	"shadow_of_bahamut_orb"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"bahamut/bahamut_arcana_orb"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastRange"				"80000"
+		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT_END"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+	    "precache"
+	    {
+
+	    }
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.1"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"6"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"400 700 1200 2400 4000 6000 9000"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mana_drain_per_second"	"75.0 60.0 50.0 40.0 25.0 15.0 5.0"
+			}
+
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/leshrac/arcana_orb_warp.lua"
+				"Function"		"begin_lightning_dash"
+				"Target"		"POINT"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_bahamut_sphere_of_divinity"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"OverrideAnimation"     "ACT_DOTA_VERSUS"
+				"EffectName"	"particles/roshpit/seafortress/shadow_of_bahamut_orb.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"ThinkInterval"  "0.03"
+				"IsHidden"		"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/leshrac/arcana_orb_warp.lua"
+						"Function"		"dash_think"
+						"mana_drain_per_second"	"%mana_drain_per_second"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/leshrac/arcana_orb_warp.lua"
+						"Function"		"dash_end"
+					}
+				}
+			}
+		}
+
 	}
 
 	"seafortress_oracle_of_the_sea_passive"

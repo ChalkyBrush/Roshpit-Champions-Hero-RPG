@@ -587,6 +587,9 @@ function Runes:EquipArcana(hero, index)
 			local newRune = hero.runeUnit4:AddAbility("bahamut_rune_d_d_arcana1")
 			newRune:SetLevel(runeLevel4)
 			newRune:SetAbilityIndex(3)
+		elseif index == 2 then
+			Runes:EasySwapArcanaSkills(hero, 1, "leshrac_nuke", "bahamut_arcana_orb", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			hero:RemoveModifierByName("modifiers_rune_b_b_modifier")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_drow_ranger" then
 		if index == 1 then
@@ -1053,6 +1056,10 @@ function Runes:UnequipArcana(hero, index)
 			local newRune = hero.runeUnit4:AddAbility("bahamut_rune_d_d")
 			newRune:SetLevel(runeLevel4)
 			newRune:SetAbilityIndex(3)
+		elseif index == 2 then
+			Runes:EasyRevertArcanaSkills(hero, 1, "leshrac_nuke", "bahamut_arcana_orb", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			hero:RemoveModifierByName("modifier_lightning_dash")
+			hero:RemoveModifierByName("modifier_bahamut_arcana_passive")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_drow_ranger" then
 		if index == 1 then

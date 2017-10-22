@@ -5,17 +5,19 @@ function rune_think(event)
 end
 
 function rune_a_b(caster)
-  local runeUnit = caster.runeUnit
-  local runeAbility = runeUnit:FindAbilityByName("bahamut_rune_a_b")
-  local abilityLevel = runeAbility:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_b")
-  local totalLevel = abilityLevel + bonusLevel
-  if totalLevel > 0 then
-  	runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_bahamut_a_b_buff", {})
-  	caster:SetModifierStackCount( "modifier_bahamut_a_b_buff", runeAbility, totalLevel )
-  else
-  	caster:RemoveModifierByName("modifier_bahamut_a_b_buff")
-  end
+  if caster:HasAbility("leshrac_nuke") then
+	  local runeUnit = caster.runeUnit
+	  local runeAbility = runeUnit:FindAbilityByName("bahamut_rune_a_b")
+	  local abilityLevel = runeAbility:GetLevel()
+	  local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_b")
+	  local totalLevel = abilityLevel + bonusLevel
+	  if totalLevel > 0 then
+	  	runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_bahamut_a_b_buff", {})
+	  	caster:SetModifierStackCount( "modifier_bahamut_a_b_buff", runeAbility, totalLevel )
+	  else
+	  	caster:RemoveModifierByName("modifier_bahamut_a_b_buff")
+	  end
+	 end
 end
 
 function rune_b_a(caster)
@@ -69,8 +71,12 @@ function WallAllyBuff(event)
 			end
 		end
 		if b_d_level then
-			if b_d_level > 0 and hasChargingOrSlide(caster, event.guarantee) then
-				local point = caster:GetAbsOrigin()
+			if b_d_level > 0 and hasChargingOrSlide(caster, event.guarantee) and caster:HasAbility("charge_of_light") then
+				local explosionForwardDirection = caster:GetForwardVector()
+				if caster:HasModifier("modifier_lightning_dash") then
+					explosionForwardDirection = caster:FindAbilityByName("bahamut_arcana_orb").moveDirection
+				end
+				local point = caster:GetAbsOrigin() + explosionForwardDirection*200
 				local radius = 1100
 				local chargeAbility = caster:FindAbilityByName("charge_of_light")
 				local damage = chargeAbility:GetSpecialValueFor("damage")*(1+b_d_level*0.15)
@@ -93,15 +99,22 @@ function WallAllyBuff(event)
 					end 
 				end)
 				EmitSoundOnLocationWithCaster(point+Vector(2,2,2), "Hero_Gyrocopter.HomingMissile.Destroy", caster)
-				local particleName = "particles/items_fx/leshrac_blink.vpcf"
-				local pfx2 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
-				ParticleManager:SetParticleControlEnt(pfx2, 0, caster, PATTACH_OVERHEAD_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
-				Timers:CreateTimer(0.9, function() 
-				  ParticleManager:DestroyParticle( pfx2, false )
-				end) 
+			      local particleName = "particles/roshpit/bahamut/charge_through_wall.vpcf"
+			      local particle2 = ParticleManager:CreateParticle( particleName, PATTACH_WORLDORIGIN, caster )
+			      ParticleManager:SetParticleControl( particle2, 0, point )
+			      Timers:CreateTimer(4.5, 
+			      function()
+			        ParticleManager:DestroyParticle( particle2, false )
+			      end)
+				-- local particleName = "particles/items_fx/leshrac_blink.vpcf"
+				-- local pfx2 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
+				-- ParticleManager:SetParticleControlEnt(pfx2, 0, caster, PATTACH_OVERHEAD_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+				-- Timers:CreateTimer(0.9, function() 
+				--   ParticleManager:DestroyParticle( pfx2, false )
+				-- end) 
 			end
 		end
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_charge_of_light_hyper_state_cooldown", {duration = 0.35})
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_charge_of_light_hyper_state_cooldown", {duration = 0.1})
 
 	end
 end
@@ -110,7 +123,7 @@ function hasChargingOrSlide(caster, guarantee)
 	if guarantee then
 		return true
 	end
-	if caster:HasModifier("modifier_light_charging") or caster:HasModifier("modifier_charge_of_light_sliding") then
+	if caster:HasModifier("modifier_light_charging") or caster:HasModifier("modifier_charge_of_light_sliding") or caster:HasModifier("modifier_lightning_dash") then
 		if not caster:HasModifier("modifier_charge_of_light_hyper_state_cooldown") then
 	 		return true
 	 	end

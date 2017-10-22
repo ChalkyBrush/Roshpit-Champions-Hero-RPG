@@ -24,7 +24,7 @@ function penance_start(event)
 		if not ability.projectileCount then
 			ability.projectileCount = 0
 		end
-		ability.projectileCount = ability.projectileCount + 1
+		penance_dummy_checker(caster, ability)
 		if ability.projectileCount >= 10 then
 			ability:SetActivated(false)
 		end
@@ -98,6 +98,10 @@ function passive_think(event)
 			caster:RemoveModifierByName("modifier_paladin_arcana_armor")
 		end
 	end
+	penance_dummy_checker(caster, ability)
+end
+
+function penance_dummy_checker(caster, ability)
 	if caster.InventoryUnit:HasAbility("paladin_penance_dummy") then
 		local penanceCount = 0
 		for i = 0, 23, 1 do
@@ -107,7 +111,7 @@ function passive_think(event)
 					penanceCount = penanceCount + 1
 					if dummyAbility.creationTime < GameRules:GetGameTime() - 30 then
 						UTIL_Remove(dummyAbility)
-						
+						penanceCount = penanceCount - 1
 						ability:SetActivated(true)
 					end
 				end

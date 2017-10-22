@@ -3061,6 +3061,11 @@ function wraith_hunter_think(event)
 	if not ability.wraith_mana then
 		ability.wraith_mana = 0
 	end
+	if target:HasModifier("modifier_bahamut_sphere_of_divinity") then
+		local divinityAbility = target:FindAbilityByName("bahamut_arcana_orb")
+		local manaDrainPerSecond = divinityAbility:GetLevelSpecialValueFor("mana_drain_per_second", divinityAbility:GetLevel())
+		ability.wraith_mana = math.max(ability.wraith_mana - target:GetMaxMana()*manaDrainPerSecond*0.03/100, 0)
+	end
 	target:SetMana(ability.wraith_mana)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_wraith_hunter_attack_increase", {})
 	target:SetModifierStackCount("modifier_wraith_hunter_attack_increase", ability, target:GetMana())

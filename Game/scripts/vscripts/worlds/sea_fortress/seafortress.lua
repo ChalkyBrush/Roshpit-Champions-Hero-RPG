@@ -12,11 +12,11 @@ function Seafortress:Debug()
     --   MAIN_HERO_TABLE[1]:CalculateStatBonus()
     -- end
 
-    -- local item = CreateItem("item_debug_blink", nil, nil)
-    -- local drop = CreateItemOnPositionSync( Vector(844, -15488), item )
-    -- local position = Vector(844, -15488)
-    -- RPCItems:DropItem(item, Vector(844, -15488))
-    -- AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(4800, -2176), 800, 300, false)
+    local item = CreateItem("item_debug_blink", nil, nil)
+    local drop = CreateItemOnPositionSync( Vector(844, -15488), item )
+    local position = Vector(844, -15488)
+    RPCItems:DropItem(item, Vector(844, -15488))
+    AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(4800, -2176), 800, 300, false)
 
    
     -- Dungeons.itemLevel = 300
@@ -27,8 +27,8 @@ function Seafortress:Debug()
     -- Seafortress:SpawnBehindMountainArea()
     -- Seafortress:SpawnCanyonRoom()
     -- Seafortress:SpawnAfterTempleRoom()
-    Weapons:RollLegendWeapon2(Vector(844, -15488), "ekkan")
-    Weapons:RollLegendWeapon3(Vector(844, -15488), "ekkan")     
+    -- Weapons:RollLegendWeapon2(Vector(844, -15488), "ekkan")
+    -- Weapons:RollLegendWeapon3(Vector(844, -15488), "ekkan")     
     -- Arena = {}
     -- Arena.PitLevel = 7
     -- Weapons:RollLegendWeapon1(Vector(844, -15488), "bahamut")
@@ -63,7 +63,9 @@ function Seafortress:Debug2()
     -- Seafortress:FinalRoom(3)
 
     -- Seafortress:AllBossesSlain()
-    Seafortress:SpawnFinalBoss()
+    -- Seafortress:SpawnShadowOfBahamut()
+    Seafortress:AllBossesSlain()
+    -- Seafortress:SpawnFinalBoss()
     -- Seafortress:SpawnGardenRoom()
 end
 
@@ -4283,6 +4285,13 @@ function Seafortress:AllBossesSlain()
         return 13
       end)
     end)
+    local bahamutMax = 18 - GameState:GetPlayerPremiumStatusCount()*2
+    local luck = RandomInt(1, bahamutMax)
+    if luck == 1 then
+      Timers:CreateTimer(17, function()
+        Seafortress:SpawnShadowOfBahamut()
+      end)
+    end
 end
 
 function Seafortress:SpawnLastArea()
@@ -4440,5 +4449,45 @@ function Seafortress:SpawnAhnQhir(position, fv)
   queen.reduc = 0.05
   Events:AdjustBossPower(queen, 8, 8, false)
   queen:AddNewModifier( queen, nil, 'modifier_movespeed_cap_sonic', {} )
+  return queen
+end
+
+function Seafortress:SpawnShadowOfBahamut()
+  local spawnPoint = Vector(-1280, 11392)
+  local bahamut = Seafortress:SpawnShadowOfBahamutMonster(spawnPoint, Vector(0,-1))
+  Seafortress:smoothSizeChange(bahamut, 0.1, 2.5, 50)
+
+  local pfx = ParticleManager:CreateParticle( "particles/roshpit/seafortress/big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster )
+  ParticleManager:SetParticleControl(pfx, 0, bahamut:GetAbsOrigin())
+  ParticleManager:SetParticleControl(pfx, 5, Vector(0.2, 0.2, 0.2))
+  ParticleManager:SetParticleControl(pfx, 2, Vector(0.9,0.9,0.9))
+  Timers:CreateTimer(10, function() 
+    ParticleManager:DestroyParticle( pfx, false )
+    ParticleManager:ReleaseParticleIndex(pfx)
+  end)
+  ScreenShake(bahamut:GetAbsOrigin(), 800, 1.0, 1.0, 9000, 0, true)
+  Timers:CreateTimer(0.5, function()
+    bahamut:RemoveModifierByName("modifier_bahamut_arcana_passive")
+    StartAnimation(bahamut, {duration=3, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.6})
+  end)
+  Timers:CreateTimer(1.0, function()
+      ScreenShake(bahamut:GetAbsOrigin(), 200, 0.5, 1, 9000, 0, true)
+      EmitSoundOnLocationWithCaster(bahamut:GetAbsOrigin(), "Seafortress.ShadowOfBahamut.TrapPop", caster)
+      CustomAbilities:QuickParticleAtPoint("particles/roshpit/seafortress/shadow_bahamut_spark.vpcf", bahamut:GetAbsOrigin(), 2.5)
+  end)
+  Timers:CreateTimer(1.5, function()
+    EmitGlobalSound("Seafortress.ShadowOfBahamut.Spawn")
+  end)
+  Timers:CreateTimer(3.3, function()
+    bahamut:RemoveModifierByName("modifier_disable_player")
+  end)
+end
+
+function Seafortress:SpawnShadowOfBahamutMonster(position, fv)
+  local queen = Seafortress:SpawnDungeonUnit("seafortress_shadow_of_bahamut", position, 3,4, "sounds/vo/leshrac/lesh_pain_06.vsnd", fv, false)
+  queen.reduc = 0.00001
+  Events:AdjustBossPower(queen, 8, 8, false)
+  queen:SetRenderColor(0, 0, 0)
+  Events:ColorWearables(queen, Vector(45, 45, 45))
   return queen
 end
