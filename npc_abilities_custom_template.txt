@@ -8340,6 +8340,7 @@
 			"particle"			"particles/econ/courier/courier_faceless_rex/astral_rune_c_c_effect.vpcf"
 			"particle"			"particles/roshpit/astral_ranger/e2_flash.vpcf"
 			"particle"			"particles/roshpit/astral/astral_b_c_effect.vpcf"
+			"particle"			"particles/roshpit/mountain_protector/unshakable_stone_dust.vpcf"
 		}
 
 		// Time

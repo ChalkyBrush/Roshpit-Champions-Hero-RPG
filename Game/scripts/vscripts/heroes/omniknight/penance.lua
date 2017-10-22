@@ -105,7 +105,7 @@ function passive_think(event)
 			if dummyPenance then
 				if dummyPenance:GetAbilityName() == "paladin_penance_dummy" then
 					penanceCount = penanceCount + 1
-					if dummyAbility.creationTime > GameRules:GetGameTime() + 30 then
+					if dummyAbility.creationTime < GameRules:GetGameTime() - 30 then
 						UTIL_Remove(dummyAbility)
 						
 						ability:SetActivated(true)

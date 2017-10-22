@@ -35736,6 +35736,14 @@
 						"target"        "TARGET"
 					}
 				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_seinaru_immo_weapon_3_strength"
+						"Target" 		"TARGET"
+					}
+				}
 			}
 			"modifier_seinaru_immo_weapon_3_strength"
 			{
@@ -36614,7 +36622,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"150"
+				"property_one"			"500"
 			}
 		}
 	}
@@ -36930,7 +36938,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"150"
+				"property_one"			"500"
 			}
 		}
 	}

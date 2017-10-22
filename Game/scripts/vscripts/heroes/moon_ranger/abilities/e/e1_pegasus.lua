@@ -17,11 +17,12 @@ function createPegasus(caster, ability, startPoint, endPoint, delay)
     ability.duration = E1_START_DURATION + runesCount * E1_ADD_DURATION
 
     for travelIndex = 1, travelsCount, 1 do
-        Timers:CreateTimer(delay * (travelIndex - 1), function()
+        local projectileDelay = delay * (travelIndex - 1)
+        Timers:CreateTimer(projectileDelay, function()
             if travelIndex%2 == 1 then
-                createProjectile(caster, ability, startPoint, endPoint)
+                createPegasusProjectile(caster, ability, startPoint, endPoint)
             else
-                createProjectile(caster, ability, endPoint, startPoint)
+                createPegasusProjectile(caster, ability, endPoint, startPoint)
             end
         end)
         -- if (travelIndex + 1 <= travelsCount) then
@@ -32,8 +33,8 @@ function createPegasus(caster, ability, startPoint, endPoint, delay)
     end
 end
 
-function createProjectile(caster, ability, startPoint, endPoint)
-    local range = getDistance(startPoint, endPoint)
+function createPegasusProjectile(caster, ability, startPoint, endPoint)
+    local range = WallPhysics:GetDistance2d(startPoint, endPoint)
     local forwardVector = getForwardVector(startPoint, endPoint)
     if forwardVector == Vector(0,0) then
         forwardVector = caster:GetForwardVector()
@@ -58,7 +59,8 @@ function createProjectile(caster, ability, startPoint, endPoint)
         fExpireTime = GameRules:GetGameTime() + 5.0,
         bDeleteOnHit = false,
         vVelocity = forwardVector * speed,
-        bProvidesVision = true,
+        iVisionTeamNumber = caster:GetTeamNumber(),
+        bProvidesVision = true
     }
     ProjectileManager:CreateLinearProjectile(info)
 

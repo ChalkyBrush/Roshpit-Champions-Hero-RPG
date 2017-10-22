@@ -27,7 +27,7 @@ function cast(event)
     ParticleManager:SetParticleControl( particle1, 0, particleLocation )
     Timers:CreateTimer(delay, -- Start this timer 10 game-time seconds later
         function()
-            ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_e_lift_moving", {duration = 0.3})
+            -- ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_e_lift_moving", {duration = 0.3})
             ParticleManager:DestroyParticle( particle1, false )
             particleName = E_PARTICLE2
 

@@ -508,6 +508,7 @@
 		{
 			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_antimage.vsndevts"
 			"particle"					"particles/econ/items/meepo/meepo_colossal_crystal_chorus/sorceress_blink.vpcf"
+			"particle"					"particles/units/heroes/hero_necrolyte/necrolyte_scythe_mist.vpcf"
 			"soundfile"					"items/hotd.wav"
 		}
 
