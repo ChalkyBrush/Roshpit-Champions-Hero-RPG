@@ -104587,8 +104587,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.02"
 			}
 		}
 
