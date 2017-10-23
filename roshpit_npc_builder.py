@@ -33,6 +33,8 @@ def parse_replaces(file_path):
             line = line.replace('<% ','').replace(' %>','').strip()
             current_constants = parse_constants(settings['base_path'] + line)
             continue
+        if ':' not in line:
+            continue
         temp = line.split(':')
         addition_file_path = settings['base_path'] + temp[1].strip()
         replaces['##' + temp[0].strip() + '##'] = prepare_file(addition_file_path, current_constants)
