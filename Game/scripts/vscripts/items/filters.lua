@@ -1417,12 +1417,16 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             mult = mult + b_b_level*0.03
         end
         if unitName == "npc_dota_hero_axe" then
-            if attacker:HasModifier("modifier_axe_immortal_weapon_3") then
-                local proc = Filters:GetProc(attacker, 15)
-                if proc then
-                    CustomAbilities:QuickAttachParticle("particles/roshpit/axe/thunderax.vpcf", victim, 0.3)
-                    Filters:ApplyStun(attacker, 0.4, victim)
+            if victim:HasModifier("modifier_axe_rune_d_a_invisible") then
+                local modifier = victim:FindModifierByName("modifier_axe_rune_d_a_invisible")
+                if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
+                    local stacks = modifier:GetStackCount()
+                    mult = mult + stacks * 0.02
                 end
+            end
+            if victim:HasModifier("modifier_axe_rune_c_d_arcana1_invisible") then
+                local stacks = victim:GetModifierStackCount("modifier_axe_rune_c_d_arcana1_invisible", attacker)
+                mult = mult + stacks * 0.1
             end
         end
         if attacker:HasModifier("modifier_weapon_normal") then
@@ -3238,11 +3242,11 @@ function Filters:MysticWaterShield(victim)
 end
 
 function Filters:HitAxeCCShield(victim, attacker)
-    local currentStacks = victim:GetModifierStackCount("modifier_axe_rune_c_c_shield", victim)
+    local currentStacks = victim:GetModifierStackCount("modifier_axe_rune_c_d_shield", victim)
     if currentStacks > 1 then
-        victim:SetModifierStackCount("modifier_axe_rune_c_c_shield", victim, currentStacks-1)
+        victim:SetModifierStackCount("modifier_axe_rune_c_d_shield", victim, currentStacks-1)
     else
-        victim:RemoveModifierByName("modifier_axe_rune_c_c_shield")
+        victim:RemoveModifierByName("modifier_axe_rune_c_d_shield")
         CustomAbilities:QuickAttachParticle("particles/roshpit/sorceress/shield_shatter.vpcf", victim, 1.2)
     end   
 end

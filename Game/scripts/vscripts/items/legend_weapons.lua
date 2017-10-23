@@ -331,7 +331,7 @@ function Weapons:RollLegendWeapon1(deathLocation, class)
     local drop = CreateItemOnPositionSync( deathLocation, weapon )
     local position = deathLocation
     RPCItems:DropItem(weapon, position)
-    
+    return weapon
 end
 
 function Weapons:RollInfernalStaff(deathLocation)
@@ -449,10 +449,11 @@ function Weapons:RollLegendWeapon2(deathLocation, class)
 	    weapon.property1name = "!immortal_weapon!"
 	    RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_axe_immortal_weapon2", "#FC643F",  1, "#property_axe_immortal_weapon2_description")
 
-		local value = Weapons:GetDeviation(14+RandomInt(6,20), rarityFactor)
-	    weapon.property2 = value
-	    weapon.property2name = "strength"
-	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_strength", "#CC0000",  2)
+		local value = RandomInt(1,5)
+		local name, color = Elements:GetElementNameAndColorByCode(RPC_ELEMENT_NORMAL)
+		weapon.property2 = value
+		weapon.property2name = name
+		RPCItems:SetPropertyValues(weapon, weapon.property2, "#rpc_item_element"..RPC_ELEMENT_NORMAL, color,  2)
 	elseif internalName == "astral" then
 	    weapon.property1 = 1
 	    weapon.property1name = "!immortal_weapon!"
@@ -745,7 +746,7 @@ function Weapons:RollLegendWeapon3(deathLocation, class)
 	    weapon.property1name = "!immortal_weapon!"
 	    RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_axe_immortal_weapon3", "#EDDFDC",  1, "#property_axe_immortal_weapon3_description")
 
-		local value = RandomInt(1,2)
+		local value = RandomInt(1,5)
 		local name, color = Elements:GetElementNameAndColorByCode(RPC_ELEMENT_NORMAL)
 	    weapon.property2 = value
 	    weapon.property2name = name

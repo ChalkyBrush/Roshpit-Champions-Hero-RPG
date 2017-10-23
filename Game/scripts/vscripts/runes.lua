@@ -811,6 +811,7 @@ function Runes:EquipArcana(hero, index)
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_axe" then
 		if index == 1 then
+			hero:RemoveModifierByName("modifier_axe_rune_d_d_think")
 			Runes:EasySwapArcanaSkills(hero, 3, "sunder", "axe_arcana_smash", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_beastmaster" then

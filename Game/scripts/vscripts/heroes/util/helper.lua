@@ -27,6 +27,6 @@ local function initializeAbilityRunes(caster, casterName, abilityLetter)
 end
 
 local module = {}
-module.updateStackModifier = updateStackModifier;
+module.updateStackModifier = updateStackModifier
 module.initializeAbilityRunes = initializeAbilityRunes
 return module
