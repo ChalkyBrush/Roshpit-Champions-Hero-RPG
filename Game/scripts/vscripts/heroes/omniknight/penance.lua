@@ -109,7 +109,7 @@ function penance_dummy_checker(caster, ability)
 			if dummyPenance then
 				if dummyPenance:GetAbilityName() == "paladin_penance_dummy" then
 					penanceCount = penanceCount + 1
-					if dummyAbility.creationTime < GameRules:GetGameTime() - 30 then
+					if dummyAbility.creationTime < GameRules:GetGameTime() - 24 then
 						UTIL_Remove(dummyAbility)
 						penanceCount = penanceCount - 1
 						ability:SetActivated(true)
@@ -126,6 +126,7 @@ function penance_dummy_checker(caster, ability)
 end
 
 function set_penance_projectiles(ability, caster)
+	penance_dummy_checker(caster, ability)
 	if ability.projectileCount > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_penance_projectiles", {})
 		print(ability.projectileCount)

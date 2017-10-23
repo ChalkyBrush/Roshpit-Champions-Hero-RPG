@@ -1,3 +1,5 @@
+require('heroes/leshrac/bahamut_arcana_ult')
+
 function begin_lightning_dash(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -30,7 +32,7 @@ function begin_lightning_dash(event)
 		Timers:CreateTimer(3, function()
 			ParticleManager:DestroyParticle(pfx2, false)
 		end)
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(2, caster)
 
 end
 
@@ -82,6 +84,12 @@ function dash_think(event)
 		end
 	end
 	if ability.c_b_level > 0 then
+		bUltNuke = false
+		if caster:HasModifier("modifier_leshrac_arcana_effect") then
+			local arcanaAbility = caster:FindAbilityByName("bahamut_arcana_ulti")
+			local arcanaDamage = arcanaAbility:GetSpecialValueFor("damage")
+			bUltNuke = true
+		end
 		if ability.interval%3 == 0 then
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )
 			if #enemies > 0 then
@@ -89,6 +97,9 @@ function dash_think(event)
 					if not enemy:HasModifier("modifier_arcana2_purity_freeze") then
 						local freezeDuration = ability.c_b_level*0.02
 						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_arcana2_purity_freeze", {duration = freezeDuration})
+						if bUltNuke
+							leshrac_ult_go(arcanaAbility, caster, arcanaDamage, true, enemy)
+						end
 					end
 				end
 			end 

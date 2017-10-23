@@ -6017,5 +6017,11 @@ function shadow_of_bahamut_die(event)
 	local caster = event.caster
 	local ability = event.ability
 	EmitSoundOn("Seafortress.ShadowOfBahamut.Die", caster)
-	RPCItems:RollBahamutArcana2(caster:GetAbsOrigin())
+	local drops = 1
+	if caster.paragon then
+		drops = 3
+	end
+	for i = 1, drops, 1 do
+		RPCItems:RollBahamutArcana2(caster:GetAbsOrigin())
+	end
 end

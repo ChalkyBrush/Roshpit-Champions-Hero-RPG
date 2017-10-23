@@ -372,7 +372,7 @@ function Hand:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_dark_emissary_glove")
 	hero:RemoveModifierByName("modifier_depth_demon_claw")
 	hero:RemoveModifierByName("modifier_hydroxis_arcana1")
-
+	hero:RemoveModifierByName("modifier_bahamut_arcana2")
 	hero.stormcloth = false
 	Hand:remove_rune_bonuses(hero)
 end
