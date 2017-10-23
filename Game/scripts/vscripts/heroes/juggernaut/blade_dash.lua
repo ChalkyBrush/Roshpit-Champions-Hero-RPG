@@ -237,9 +237,11 @@ end
 function arcana_passive_remove(event)
 	local caster = event.caster
 	local ability = event.ability
-	for i = 1, #caster.bladeTableArcana, 1 do
-		if IsValidEntity(caster.bladeTableArcana[i]) then
-			UTIL_Remove(caster.bladeTableArcana[i])
+	if caster.bladeTableArcana then
+		for i = 1, #caster.bladeTableArcana, 1 do
+			if IsValidEntity(caster.bladeTableArcana[i]) then
+				UTIL_Remove(caster.bladeTableArcana[i])
+			end
 		end
 	end
 	caster:RemoveModifierByName("modifier_seinaru_flying_sword_buff_visible")

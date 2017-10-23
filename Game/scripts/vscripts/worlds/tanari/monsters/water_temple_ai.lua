@@ -1215,14 +1215,22 @@ function WaterTempleBackroomTrigger(trigger)
 end
 
 function GardenSpawnTrigger()
-	if Tanari.WaterTemple.GardenOpen and not Tanari.WaterTemple.GardenSpawn then
-		Tanari.WaterTemple.GardenSpawn = true
-		Tanari:SpawnGardenArea()
+	if Tanari.WaterTemple then
+		if Tanari.WaterTemple.GardenOpen and not Tanari.WaterTemple.GardenSpawn then
+			Tanari.WaterTemple.GardenSpawn = true
+			Tanari:SpawnGardenArea()
+		end
 	end
 end
 
 function GardenSpawnTrigger2()
-	Tanari:SpawnGardenArea2()
+	if not Tanari.WaterTemple then
+		return false
+	end
+	if not Tanari.WaterTemple.GardenArea2Spawn then
+		Tanari.WaterTemple.GardenArea2Spawn = true
+		Tanari:SpawnGardenArea2()
+	end
 end
 
 function boss_statue_hit_final(event)

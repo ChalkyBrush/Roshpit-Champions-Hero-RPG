@@ -227,13 +227,13 @@ function falling_end(event)
 				end
 				if #ability.a_c_unit_table > 0 then
 					ability.startPosition = caster.foot.transportLocation
-					ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_a_c_dbz", {duration = 10})
+					ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_a_c_dbz", {duration = 0.1})
 					ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_a_c_dbz_attack_power", {duration = 10})
 					caster:SetModifierStackCount("modifier_seinaru_a_c_dbz_attack_power", caster, ability.a_c_level)
 				end
 			end)
 		else
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_a_c_dbz", {duration = 8})
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_a_c_dbz", {duration = 0.1})
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_a_c_dbz_attack_power", {duration = 8})
 			ability.startPosition = caster:GetAbsOrigin()
 			caster:SetModifierStackCount("modifier_seinaru_a_c_dbz_attack_power", caster, ability.a_c_level)
@@ -336,6 +336,8 @@ end
 function odachi_a_c_think(event)
 	local caster = event.caster
 	local ability = event.ability
+	local buff = caster:FindModifierByName("modifier_seinaru_a_c_dbz")
+	buff:SetDuration(0.1, false)
 	if #ability.a_c_unit_table > 0 then
 		local target = EntIndexToHScript(ability.a_c_unit_table[1])
 		local distance = 0

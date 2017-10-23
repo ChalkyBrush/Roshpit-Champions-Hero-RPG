@@ -66,6 +66,7 @@ function HideCaster( event )
 	ability.b_c_level = Runes:GetTotalRuneLevel(caster, 2, "b_c", "bahamut")
 	if ability.b_c_level > 0 then
 		ability.b_c_damage = ability.b_c_level*4200 + 6000
+		ability.b_c_duration = ability.b_c_level*0.05
 		b_c_sequence(caster, position, fv, ability)
 	end
 	caster:RemoveModifierByName("modifier_pulse_slow")
@@ -109,7 +110,11 @@ function b_c_strike(event)
 	local ability = event.ability
 	local caster = event.caster
 	local damage = ability.b_c_damage
+	EmitSoundOn("Bahamut.Purity.Hit", target)
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+	if not target:HasModifier("modifier_purity_freeze") then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_purity_freeze", {duration = ability.b_c_duration})
+	end
 end
 
 function ShowCaster( event )
@@ -118,7 +123,9 @@ function ShowCaster( event )
 	local ability = event.ability
 	EmitSoundOn("leshrac_lesh_anger_05", event.caster)
 	EmitSoundOn("Hero_Terrorblade.Reflection", caster)
-    event.caster:RemoveNoDraw()
+	if not caster:HasModifier("modifier_lightning_dash") then
+    	caster:RemoveNoDraw()
+    end
     event.caster:SetMoveCapability(DOTA_UNIT_CAP_MOVE_GROUND)
     StartAnimation(event.caster, {duration=0.2, activity=ACT_DOTA_TELEPORT_END, rate=3})
 

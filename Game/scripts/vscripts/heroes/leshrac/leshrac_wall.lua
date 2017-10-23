@@ -1,6 +1,13 @@
 function castAnimation(event)
 	local caster = event.caster
-	StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_2, rate=1})
+	StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.3})
+		local pfx = ParticleManager:CreateParticle("particles/roshpit/bahamut/bahamut_wall_spawn.vpcf", PATTACH_CUSTOMORIGIN, caster)
+		ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()+Vector(0,0,60))
+		ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin()+Vector(0,0,60))
+		ParticleManager:SetParticleControlEnt(pfx, 3, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+		Timers:CreateTimer(1.8, function()
+			ParticleManager:DestroyParticle(pfx, false)
+		end)
 end
 
 function createWall(event)
@@ -39,12 +46,12 @@ function createWall(event)
 	ParticleManager:SetParticleControl( pfx2, 1, wallPoint2 )
 
 	-- local obstructionTable = {}
-	local loopCount = WallPhysics:round(-wallLength/200, 0)
+	local loopCount = math.ceil(-wallLength/170)
 	local reduceLoop = 0
 
-	if wallLength%50 == 0 then
-		reduceLoop = 1
-	end
+	-- if wallLength%50 == 0 then
+	-- 	reduceLoop = 1
+	-- end
 
 	EmitSoundOnLocationWithCaster(point, "Hero_Luna.Eclipse.NoTarget", caster)
 	EmitSoundOnLocationWithCaster(point, "Hero_Luna.Eclipse.NoTarget", caster)
@@ -58,6 +65,14 @@ function createWall(event)
 		ability:ApplyDataDrivenThinker(caster, obstructionPoint, "modifier_leshrac_self_finder", {duration = wallDuration})
 		-- table.insert(obstructionTable, obstruction)
 		AddFOWViewer(caster:GetTeamNumber(), obstructionPoint, 250, wallDuration, false)
+
+		local pfx = ParticleManager:CreateParticle("particles/roshpit/bahamut/bahamut_wall_spawn.vpcf", PATTACH_CUSTOMORIGIN, caster)
+		ParticleManager:SetParticleControl(pfx, 0, obstructionPoint)
+		ParticleManager:SetParticleControl(pfx, 1, obstructionPoint)
+		ParticleManager:SetParticleControlEnt(pfx, 3, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+		Timers:CreateTimer(1.8, function()
+			ParticleManager:DestroyParticle(pfx, false)
+		end)
 	end
 	
 	Timers:CreateTimer(wallDuration, function()

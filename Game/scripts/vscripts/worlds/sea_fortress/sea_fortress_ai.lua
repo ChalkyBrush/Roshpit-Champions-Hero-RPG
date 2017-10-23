@@ -5311,7 +5311,7 @@ function sea_fortress_final_boss_think(event)
 		return false
 	end
 	caster.interval = caster.interval + 1
-	if caster.interval%30 == 0 then
+	if caster.interval%40 == 0 then
 		if not caster.backHits then
 			caster.backHits = 0
 		end
@@ -5341,7 +5341,7 @@ function sea_fortress_final_boss_think(event)
 		unit.fv = caster:GetForwardVector()
 		unit.origCaster = caster
 	end
-	if caster.interval == 90 then
+	if caster.interval == 120 then
 		caster.interval = 0
 	end
 	if caster:GetHealth() < caster:GetMaxHealth()*0.9 then
@@ -5573,7 +5573,7 @@ function lightning_ball_think(event)
 	end
 	local newPosition = caster:GetAbsOrigin()+caster.fv*caster.speed
 	caster:SetAbsOrigin(GetGroundPosition(newPosition, caster) + Vector(0,0,80))
-	caster.speed = math.max(caster.speed - 0.4, 20)
+	caster.speed = math.max(caster.speed - 0.4, 14)
 	local bossDistance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), caster.origCaster:GetAbsOrigin())
 	if bossDistance > 3200 then
 		caster.fv = ((caster.origCaster:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
@@ -5946,4 +5946,76 @@ function spikey_carapace_take_damage(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_no_reflect", {duration = 0.1})
 		table.insert(ability.entTable, attacker:GetEntityIndex())
 	end
+end
+
+function bahamut_attack_start(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+	if #enemies > 0 then
+		for _,enemy in pairs(enemies) do
+			if enemy:GetEntityIndex() == target:GetEntityIndex() then
+			else
+				Filters:PerformAttackSpecial(caster, enemy, true, true, true, false, true, false, false)
+			end
+		end
+	end 
+end
+
+function shadow_of_bahamut_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not ability.interval then
+		ability.interval = 0
+	end
+	ability.interval = ability.interval + 1
+	if caster.aggro then
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 3500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+		if #enemies > 0 then
+			local hookAbility = caster:FindAbilityByName("shadow_of_bahamut_orb")
+			if hookAbility:IsFullyCastable() then
+				local direction = ((enemies[1]:GetAbsOrigin()-caster:GetAbsOrigin()):Normalized())*Vector(1,1,0)
+				local targetPoint = enemies[1]:GetOrigin() + direction*700		
+				local order =
+				{
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+					AbilityIndex = hookAbility:entindex(),
+					Position = targetPoint
+				}
+				ExecuteOrderFromTable(order)
+				EmitSoundOn("Seafortress.ShadowOfBahamut.Orb", caster)
+				return false
+			end
+		end
+		if ability.interval > 20 then
+			ability.interval = 0
+			for i = 1, #enemies, 1 do
+				ability.blastTable = {}
+				table.insert(ability.blastTable, enemies[i]:GetAbsOrigin()+RandomVector(RandomInt(0, 200)))
+
+			end	
+			for j = 1, #ability.blastTable, 1 do
+				CustomAbilities:QuickParticleAtPoint("particles/roshpit/seafortress/shadow_of_bahamut_indicator_portrait.vpcf", GetGroundPosition(ability.blastTable[j], caster) + Vector(0,0,10), 1.2)
+				Timers:CreateTimer(1.1, function()
+					local enemies = FindUnitsInRadius( caster:GetTeamNumber(), ability.blastTable[j], nil, 380, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+					for i = 1, #enemies, 1 do
+						ApplyDamage({ victim = enemies[i], attacker = caster, damage = 10000000, damage_type = DAMAGE_TYPE_PURE })
+						Filters:ApplyStun(caster, 3, enemies[i])	
+					end
+					ScreenShake(ability.blastTable[j], 200, 0.5, 1, 9000, 0, true)
+					EmitSoundOnLocationWithCaster(ability.blastTable[j], "Seafortress.ShadowOfBahamut.TrapPop", caster)
+					CustomAbilities:QuickParticleAtPoint("particles/roshpit/seafortress/shadow_bahamut_spark.vpcf", ability.blastTable[j], 2.5)
+				end)
+			end
+		end
+	end
+end
+
+function shadow_of_bahamut_die(event)
+	local caster = event.caster
+	local ability = event.ability
+	EmitSoundOn("Seafortress.ShadowOfBahamut.Die", caster)
+	RPCItems:RollBahamutArcana2(caster:GetAbsOrigin())
 end

@@ -113,8 +113,10 @@ end
 
 function flareImpact(caster, ability)
 	local damageType = DAMAGE_TYPE_MAGICAL
+	local element2 = RPC_ELEMENT_FIRE
 	if caster.typeName == "moon" then
 		damageType = DAMAGE_TYPE_PURE
+		element2 = RPC_ELEMENT_ICE
 	end
 	local enemies = FindUnitsInRadius( caster.origCaster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	local b_a_stack_gain = 0
@@ -132,7 +134,7 @@ function flareImpact(caster, ability)
 					damage = damage + (enemy:GetMaxHealth()-enemy:GetHealth())*0.004*caster.c_a_level
 				end
 			end
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster.origCaster, damage, damageType, 1, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster.origCaster, damage, damageType, 1, RPC_ELEMENT_COSMOS, element2)
 			Filters:ApplyStun(caster.origCaster, caster.stun_duration, enemy)
 			b_a_stack_gain = b_a_stack_gain + 1
 		end

@@ -550,17 +550,17 @@ end
 function Challenges:SaveMithrilShards(winnerTable)
 	if SaveLoad:GetAllowSaving() then
 		for i = 1, #winnerTable, 1 do
-			local hero = winnerTable[i]
-			if hero.shardsPickedUp > 0 then
+			local hero = winnerTable[i][1]
+			if winnerTable[i][2] > 0 then
 				local playerID = hero:GetPlayerOwnerID()
 				local steamID = PlayerResource:GetSteamAccountID(playerID)
 				local player = PlayerResource:GetPlayer(playerID)
-				local amount = hero.shardsPickedUp
+				local amount = winnerTable[i][2]
 				local url = ROSHPIT_URL.."/champions/modifyMithrilShards?"
 				url = url.."steam_id="..steamID
 				url = url.."&amount="..amount
 				url = url.."&reason=".."challenge"
-				hero.shardsPickedUp = 0
+				hero.shardsPickedUp = hero.shardsPickedUp - amount
 				CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 					local resultTable = {}
 					print( "GET response:\n" )
@@ -572,7 +572,11 @@ function Challenges:SaveMithrilShards(winnerTable)
 						local resultTable = JSON:decode(result.Body)
 						
 						local shards = resultTable.mithril_shards
-						CustomGameEventManager:Send_ServerToAllClients("arcane_out", {})
+						if hero.shardsPickedUp <= 1 then
+							CustomGameEventManager:Send_ServerToAllClients("arcane_out", {})
+						else
+							CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "collect_mithril", {gain = hero.shardsPickedUp})
+						end
 						CustomNetTables:SetTableValue("player_stats", tostring(playerID).."-mithril", {mithril = shards})
 						CustomNetTables:SetTableValue("player_stats", tostring(playerID).."-challenge", {completed = resultTable.challenge_completed})
 						CustomGameEventManager:Send_ServerToPlayer(player, "update_main_mithril", {mithril = shards, player=playerID} )

@@ -200,13 +200,15 @@ function reduceNapalmCooldown(caster, napalmName)
 	if caster:HasAbility(napalmName) then
 		print("REDUCE NAPALM COOLDOWN")
 		local ability = caster:FindAbilityByName(napalmName)
-		if ability:GetCooldownTimeRemaining() > 0 then
-			local newCD = ability:GetCooldownTimeRemaining() - 2
-			if newCD > 0 then
-				ability:EndCooldown()
-				ability:StartCooldown(newCD)
-			else
-				ability:EndCooldown()
+		if ability then
+			if ability:GetCooldownTimeRemaining() > 0 then
+				local newCD = ability:GetCooldownTimeRemaining() - 2
+				if newCD > 0 then
+					ability:EndCooldown()
+					ability:StartCooldown(newCD)
+				else
+					ability:EndCooldown()
+				end
 			end
 		end
 	end

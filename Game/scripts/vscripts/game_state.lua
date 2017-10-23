@@ -835,7 +835,7 @@ function GameState:FilterDamage(filterTable)
 
 	if attacker:IsHero() then
 		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
-			filterTable["damage"] = filterTable["damage"]/(1+((attacker:GetIntellect()/14)/100))
+			filterTable["damage"] = math.ceil(filterTable["damage"]/(1+((attacker:GetIntellect()/14)/100)))
 		end
 	end
 	if GameState:IsPVPAlpha() then
@@ -909,6 +909,9 @@ function GameState:FilterDamage(filterTable)
 			if attacker.a_c_level then
 				mult = mult + 0.02*attacker.a_c_level
 			end
+		end
+		if victim:HasModifier("modifier_solunia_c_d_arcana_shell") then
+			filterTable["damage"] = filterTable["damage"]*0.05
 		end
 		if attacker:HasModifier("modifier_sorcerers_regalia") then
 			mult = mult+0.4
@@ -1000,6 +1003,25 @@ function GameState:FilterDamage(filterTable)
 				local stacks = modifier:GetStackCount()
 				local multIncrease = 0.01*stacks
 				mult = mult + multIncrease
+			end
+		end
+		if attacker:HasModifier("modifier_bahamut_arcana_passive") then
+			local a_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 1)
+			print("LESHRAC ABLEVEL!!")
+			if a_b_level > 0 then
+				local healAmount = math.ceil(filterTable["damage"]*0.001/100*a_b_level)
+				if healAmount > attacker:GetMaxHealth() - attacker:GetHealth() then
+					local allyHealAmount = healAmount - (attacker:GetMaxHealth() - attacker:GetHealth())
+					local arcanaAbility = attacker:FindAbilityByName("bahamut_arcana_orb")
+					arcanaAbility:ApplyDataDrivenModifier(attacker, attacker, "modifier_spellvamp_healing", {duration = 0.3})
+					local allies = FindUnitsInRadius( attacker:GetTeamNumber(), attacker:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
+					if #allies > 0 then
+						for _,ally in pairs(allies) do
+							Filters:ApplyHeal(attacker, ally, allyHealAmount/10, true)
+						end
+					end 
+				end
+				Filters:ApplyHeal(attacker, attacker, healAmount, true)
 			end
 		end
 
@@ -1120,6 +1142,11 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + multIncrease
 		end
 	end
+	if attacker:HasModifier("modifier_bahamut_arcana_post_mit") then
+		local bahamut = attacker:FindModifierByName("modifier_bahamut_arcana_post_mit"):GetCaster()
+		local stacks = attacker:GetModifierStackCount("modifier_bahamut_arcana_post_mit", bahamut)
+		mult = mult + stacks * 0.035
+	end
 	if victim:HasModifier("modifier_wolf_rend_bleed") then
 		local modifier = victim:FindModifierByName("modifier_wolf_rend_bleed")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
@@ -1227,6 +1254,10 @@ function GameState:FilterDamage(filterTable)
 		if waterheart then
 			mult = mult + 0.03*waterheart.c_d_level
 		end
+	end
+	if attacker:HasModifier("modifier_bahamut_charge_of_light_postmitigation") then
+		local stacks = attacker:GetModifierStackCount("modifier_bahamut_charge_of_light_postmitigation", attacker)
+		mult = mult + 0.15*stacks
 	end
 	if victim:HasModifier("tanari_mountain_specter_ai") then
 		local reduc = 0.1
@@ -1369,7 +1400,7 @@ function GameState:FilterDamage(filterTable)
 		local modifier = victim:FindModifierByName("modifier_hailstorm_enemy_amp")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetStackCount()
-			mult = mult + 0.02*stacks
+			mult = mult + 0.06*stacks
 		end
 	end
 	if attacker:HasModifier("modifier_hood_of_the_sea_oracle") then
@@ -1401,7 +1432,7 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_duskbringer_arcana_armor") then
 		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 			local stackCount = victim:GetModifierStackCount("modifier_duskbringer_arcana_armor", victim)
-			local consideredArmor = victim:GetPhysicalArmorValue()*0.005*stackCount
+			local consideredArmor = victim:GetPhysicalArmorValue()*0.01*stackCount
 			filterTable["damage"] = GameState:GetPostReductionPhysicalDamage(filterTable["damage"], consideredArmor)
 		end
 	end
@@ -1942,6 +1973,18 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = 0
 		victim:Heal(healAmount, victim)
 	end
+	if victim:HasModifier("modifier_solar_compression_invisible") then
+		local modifier = victim:FindModifierByName("modifier_solar_compression_invisible")
+		local modifierCaster = modifier:GetCaster()
+		local stacks = victim:GetModifierStackCount("modifier_solar_compression_invisible", modifierCaster)
+		mult = mult + stacks*0.003
+	end
+	if victim:HasModifier("modifier_lunar_compression_invisible") then
+		local modifier = victim:FindModifierByName("modifier_lunar_compression_invisible")
+		local modifierCaster = modifier:GetCaster()
+		local stacks = victim:GetModifierStackCount("modifier_lunar_compression_invisible", modifierCaster)
+		mult = mult + stacks*0.003
+	end
 	if victim:HasModifier("modifier_in_hydrogen_field") then
 		if filterTable["entindex_inflictor_const"] then
 			local ability = EntIndexToHScript(filterTable["entindex_inflictor_const"])
@@ -2252,12 +2295,12 @@ function GameState:FilterDamage(filterTable)
 	if Beacons.cheats then
 		-- if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 		-- 	if victim:IsHero() then
-		-- 		filterTable["damage"] = filterTable["damage"]*0.000001
+		-- 		filterTable["damage"] = 0
 		-- 	end
 		-- end
 		-- if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 		-- 	if attacker:IsHero() then
-		-- 		filterTable["damage"] = filterTable["damage"]*10000000*30*10000
+		-- 		filterTable["damage"] = filterTable["damage"]*10000000*30*10000*1000000
 		-- 	end
 		-- end
 	end

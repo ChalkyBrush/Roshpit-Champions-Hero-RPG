@@ -75,6 +75,14 @@ function mithril_shard_think(event)
 	local ability = event.ability
 	if not caster.interval then
 		caster.interval = 0
+		caster.rewardsTable = {}
+		local playerTable = RPCItems:GetConnectedPlayerTable()
+		for i = 1, #playerTable, 1 do
+			if not playerTable[i].shardsPickedUp then
+				playerTable[i].shardsPickedUp = 0
+			end
+			table.insert(caster.rewardsTable, {playerTable[i], 0})
+		end 
 	end
 	if caster.falling then
 		caster.fallVelocity = caster.fallVelocity - 1
@@ -109,6 +117,9 @@ function mithril_shard_think(event)
 				CustomGameEventManager:Send_ServerToPlayer(caster.winnerTable[i]:GetPlayerOwner(), "collect_mithril", {gain = caster.winnerTable[i].shardsPickedUp})
 				CustomGameEventManager:Send_ServerToPlayer(caster.winnerTable[i]:GetPlayerOwner(), "update_resources_increment", {increment = caster.winnerTable[i].shardsPickedUp, resource="mithril"})
 			end
+			for i = 1, #caster.rewardsTable, 1 do
+				caster.rewardsTable[i][2] = caster.rewardsTable[i][2] + collectionAmount
+			end
 			if collectionAmount == 1 then
 				EmitSoundOn("Resource.MithrilShardCollect", caster)
 			else
@@ -130,7 +141,7 @@ function mithril_shard_think(event)
 		caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,caster.fallVelocity))
 		if caster.fallVelocity >= 45 then
 			caster.leaving = false
-			Challenges:SaveMithrilShards(caster.winnerTable)
+			Challenges:SaveMithrilShards(caster.rewardsTable)
 			UTIL_Remove(caster)
 		end
 	end

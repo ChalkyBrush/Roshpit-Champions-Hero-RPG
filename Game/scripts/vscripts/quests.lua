@@ -257,6 +257,9 @@ function Quests:ArenaDialogue(msg)
 		Arena:ArenaDialogue(msg)
 	elseif GameState:IsRedfallRidge() then
 		Redfall:DialogueAnswer(msg)
+		if msg.dummy then
+			Quests:DummyFromClient(msg)
+		end
 	else
 		if msg.dummy then
 			Quests:DummyFromClient(msg)
@@ -270,6 +273,7 @@ function Quests:DummyFromClient(msg)
 	if playerID then
 		hero = GameState:GetHeroByPlayerID(playerID)
 	end
+	print("ANYTHNG?")
 	if msg.exit then
 		local dummy = hero.targetDummy
 		hero:RemoveModifierByName("modifier_attacking_dummy")

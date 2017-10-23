@@ -8340,6 +8340,7 @@
 			"particle"			"particles/econ/courier/courier_faceless_rex/astral_rune_c_c_effect.vpcf"
 			"particle"			"particles/roshpit/astral_ranger/e2_flash.vpcf"
 			"particle"			"particles/roshpit/astral/astral_b_c_effect.vpcf"
+			"particle"			"particles/roshpit/mountain_protector/unshakable_stone_dust.vpcf"
 		}
 
 		// Time
@@ -12220,7 +12221,7 @@
 			"06"
 			{
 				"var_type" 				"FIELD_INTEGER"
-				"attack_damage"			"75 150 225 300 375 450 525"
+				"attack_damage_bonus"	"50 75 100 125 150 175 200"
 			}
 		}
 
@@ -12276,7 +12277,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "500"
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%attack_damage"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%attack_damage_bonus"
 				}
 				"OnAttackStart"
 				{
@@ -12853,7 +12854,7 @@
 				"target"		"TARGET"
 			}
 		}
-		"OnProjectileHitUnit"
+		"OnProjectileHit_ExtraData"
 		{
 			"DeleteOnHit"	"1"
 			"RunScript"
@@ -12863,6 +12864,7 @@
 				"target"		"TARGET"
 				"damage"		"%damage"
 				"heal_percentage"	"%heal_percentage"
+				"projectile"	"PROJECTILE"
 			}
 		}
 		"Modifiers"
@@ -12870,6 +12872,7 @@
 			"modifier_paladin_arcana_glove_passive"
 			{
 				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"Passive"	"1"
 				"OnDestroy"
 				{
@@ -12895,6 +12898,14 @@
 					{
 						"ScriptFile"	"heroes/omniknight/holy_cone"
 						"Function"		"paladin_attack_land"
+					}
+				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/omniknight/penance.lua"
+						"Function"		"penance_die"
 					}
 				}
 			}
@@ -12958,6 +12969,91 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "100"
 				}
 			}
+			"modifier_penance_projectiles"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+			}
+		}
+	}
+
+	"paladin_penance_dummy"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_UNRESTRICTED"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"1"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityTextureName"			"paladin/paladin_penance"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"1000 5000 25000 80000 150000 250000 500000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"heal_percentage"				"10"
+			}
+		}
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"99999"
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/omniknight/penance.lua"
+				"Function"		"penance_start"
+				"target"		"TARGET"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/omniknight/penance.lua"
+				"Function"		"penance_impact"
+				"target"		"TARGET"
+				"damage"		"%damage"
+				"heal_percentage"	"%heal_percentage"
+				"projectile"	"PROJECTILE"
+			}
+		}
+		"Modifiers"
+		{
+
 		}
 	}
 
@@ -18617,6 +18713,8 @@
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_luna.vsndevts"
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_death_prophet.vsndevts"
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_vengefulspirit.vsndevts"
+			"particle"	"particles/roshpit/bahamut/bahamut_wall_spawn.vpcf"
+			"particle"	"particles/roshpit/bahamut/charge_through_wall.vpcf"
 		}
 
 		// Precache
@@ -18712,6 +18810,7 @@
 				"IsPurgable"	"0"
 				"IsHidden"		"1"
 				"ThinkInterval"	"0.05"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -18773,6 +18872,7 @@
 				"IsPurgable"		"0"
 				"StatusEffectName" 		"particles/status_fx/status_effect_hyper_state.vpcf"
 				"StatusEffectPriority"  "20"
+				"TextureName"			"rpc/bahamut_hyper_state"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "15"
@@ -18801,6 +18901,33 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
+			}
+			"modifier_bahamut_wall_max_mana_invisible"
+			{
+				"IsHidden"							"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS" "2"
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"					"TARGET"
+						"EffectName"				"particles/econ/generic/generic_buff_1/generic_buff_1.vpcf"
+						"EffectAttachType"			"attach_hitloc"
+						"EffectLifeDurationScale"	"1"
+						"EffectColorA"				"100 140 230"
+						"EffectAlphaScale"			"0.26"
+					}
+				}
+			}
+			"modifier_bahamut_wall_max_mana"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"nyx_assassin_mana_burn"
+
 			}
 		}
 	}
@@ -18857,6 +18984,9 @@
 			"particle"		"particles/units/heroes/hero_invoker/invoker_death_end.vpcf"
 			"particle"		"particles/econ/items/tinker/boots_of_travel/teleport_end_bots_ground_glow.vpcf"
 			"particle"		"particles/roshpit/bahamut/glyphed_pulse_explosion_fallback_mid_egset.vpcf"
+			"particle"		"particles/roshpit/bahamut/purity_freeze_debuff.vpcf"
+			"particle" 		"particles/status_fx/status_effect_guardian_angel.vpcf"
+			"particle"		"particles/roshpit/bahamut/purity_impact.vpcf"
 		}
 
 		"OnSpellStart"
@@ -18960,6 +19090,34 @@
 	            	"ModifierName"	"modifier_bahamut_pulse_on"
 	            	"Target" 		"TARGET"
 	            }
+			}
+			"modifier_purity_freeze"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"		"particles/roshpit/bahamut/purity_freeze_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"StatusEffectName" 		"particles/status_fx/status_effect_guardian_angel.vpcf"
+				"StatusEffectPriority"  "10"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"TextureName"	"luna_lucent_beam_alt"
+				"OnCreated"
+				{
+					"FireEffect"
+					{
+						"EffectName"        "particles/roshpit/bahamut/purity_impact.vpcf"
+						"EffectAttachType"  "start_at_customorigin"
+						"ControlPointEntities"
+						{
+							"CASTER"	"follow_origin"
+							"TARGET"	"follow_origin"
+						}
+					}
+				}
 			}
 		}
 	}
@@ -19368,6 +19526,12 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-8"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-10"
 				}
+			}
+			"modifier_bahamut_charge_of_light_postmitigation"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"templar_assassin_refraction"
 			}
 		}
 
@@ -23973,15 +24137,6 @@
 					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
-			"modifier_ancient_spirit_attackspeed"
-			{
-				"IsHidden"	"1"
-				"IsBuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "15"
-				}
-			}
 			"modifier_spirit_moving_out"
 			{
 				"IsHidden"	"1"
@@ -24206,6 +24361,15 @@
 						"Function"		"vigor_deal_damage"
 						"damage"		"%attack_damage"
 					}
+				}
+			}
+			"modifier_ancient_spirit_attackspeed"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "12"
 				}
 			}
 			"modifier_ancient_vigor_regen"
@@ -24775,15 +24939,6 @@
 				"States"
 				{
 					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_ancient_spirit_attackspeed"
-			{
-				"IsHidden"	"1"
-				"IsBuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "15"
 				}
 			}
 			"modifier_spirit_moving_out"
@@ -29879,7 +30034,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"magic_resist"				"47 51 55 59 63 67 71 75"
+				"magic_resist"				"51 55 59 63 67 71 75"
 			}
 			"03"
 			{
@@ -32011,6 +32166,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"FightRecapLevel"				"1"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
@@ -32157,6 +32313,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"FightRecapLevel"				"1"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
@@ -54687,7 +54844,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"60"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"1200"
 			}
 		}
 		"Modifiers"
@@ -54885,9 +55047,12 @@
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"7"
 			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.05"
+			}
 		}
-
-
 	}
 
 	"bahamut_rune_b_d"
@@ -54923,6 +55088,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"7"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"15"
 			}
 		}
 
@@ -55129,8 +55299,13 @@
 		{
 			"01"
 			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"10"
+			}
+			"02"
+			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.4"
+				"property_two"			"0.02"
 			}
 		}
 
@@ -55174,7 +55349,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
+				"property_one"			"7"
 			}
 		}
 		"Modifiers"
@@ -55984,7 +56159,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -56009,7 +56184,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.5"
+				"property_two"			"1.0"
 			}
 		}
 	}
@@ -58135,7 +58310,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"50"
 			}
 			"02"
 			{
@@ -58167,7 +58342,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"12"
 			}
 		}
 
@@ -58419,7 +58594,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"2000"
 			}
 			"02"
 			{
@@ -58617,7 +58792,7 @@
 				"EffectAttachType" 		"follow_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"5"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"					"2000"
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"10"
 				}
 				"OnCreated"
@@ -59299,7 +59474,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"2.0"
+				"property_one"			"6.0"
 			}
 		}
 	}
@@ -60002,6 +60177,7 @@
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"	"solunia/solunia_rune_b_d"
 		"MaxLevel"				"20"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
 		{
@@ -60259,6 +60435,8 @@
 			}
 		}
 	}
+
+	##SOLUNIA_ABILITIES##
 
 	//------HYDROXIS RUNES RUNES
 
@@ -92134,6 +92312,15 @@
 						"element"       "2"
 					}
 				}
+				"OnTakeDamage"
+				// "%attack_damage" is set to the damage value after mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/tanari/tanari_events"
+						"Function"		"ancient_god_water_take_damage"
+					}
+				}
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -101076,6 +101263,8 @@
 		}
 
 	}
+
+	##BAHAMUT_ARCANA_ABILITIES##
 
 	"ruby_dragon_ability"
 	{
@@ -116140,6 +116329,172 @@
 				"stun_duration"			"2.0 2.3 2.6 2.9 3.2 3.5 3.8"
 			}
 		}
+	}
+
+	"seafortress_shadow_of_bahamut_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"terrorblade_metamorphosis"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"10000000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"stun_duration"			"3"
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+				"Function"		"shadow_of_bahamut_die"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_disable_player"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+
+			}
+			"modifier_shadow_of_bahamut_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "220"
+				}
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+						"Function"		"bahamut_attack_start"
+					}
+				}
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+						"Function"		"shadow_of_bahamut_think"
+					}
+				}
+			}
+		}
+	}
+
+	"shadow_of_bahamut_orb"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"bahamut/bahamut_arcana_orb"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastRange"				"80000"
+		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT_END"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+	    "precache"
+	    {
+
+	    }
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.1"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"6"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"400 700 1200 2400 4000 6000 9000"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mana_drain_per_second"	"75.0 60.0 50.0 40.0 25.0 15.0 5.0"
+			}
+
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/leshrac/arcana_orb_warp.lua"
+				"Function"		"begin_lightning_dash"
+				"Target"		"POINT"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_bahamut_sphere_of_divinity"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"OverrideAnimation"     "ACT_DOTA_VERSUS"
+				"EffectName"	"particles/roshpit/seafortress/shadow_of_bahamut_orb.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"ThinkInterval"  "0.03"
+				"IsHidden"		"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/leshrac/arcana_orb_warp.lua"
+						"Function"		"dash_think"
+						"mana_drain_per_second"	"%mana_drain_per_second"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/leshrac/arcana_orb_warp.lua"
+						"Function"		"dash_end"
+					}
+				}
+			}
+		}
+
 	}
 
 	"seafortress_oracle_of_the_sea_passive"

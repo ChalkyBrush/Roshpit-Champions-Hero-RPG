@@ -51,7 +51,7 @@ function vigor_start(event)
 					spiritTable[i].c_d_level = c_d_level
 					if d_d_level > 0 then
 						ability:ApplyDataDrivenModifier(caster, spiritTable[i], "modifier_ancient_spirit_attackspeed", {duration = duration})
-						spiritTable[i]:SetModifierStackCount("modifier_ancient_spirit_attackspeed", caster, d_d_level)
+						spiritTable[i]:SetModifierStackCount("modifier_ancient_spirit_attackspeed", caster, d_d_level+80)
 					end
 				end
 			end
@@ -84,11 +84,11 @@ function vigor_deal_damage(event)
 		Timers:CreateTimer(0.5, function() 
 		  ParticleManager:DestroyParticle( pfx, false )
 		end)
-		ability.trollBloodDuration = 50  
 		if not ability.trollBloodHeal then
 			ability.trollBloodHeal = 0
 		end
 		local trollBloodDuration = Filters:GetAdjustedBuffDuration(caster, 5, false)
+		ability.trollBloodDuration = trollBloodDuration*10
 		ability.trollBloodHeal = ability.trollBloodHeal + damage*0.003*ability.a_d_level
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_ancient_vigor_troll_blood", {duration = trollBloodDuration})
 
@@ -114,7 +114,8 @@ function troll_blood_think(event)
 	local ability = event.ability
 	local weight = math.min(ability.trollBloodHeal/caster:GetMaxHealth(), 1)
 	ParticleManager:SetParticleControl(ability.trollBloodPFX, 14, Vector(1, 1*weight, weight))
-	local healAmount = math.min(math.ceil(ability.trollBloodHeal/(ability.trollBloodDuration+1)), caster:GetMaxHealth())
+	local divisor = math.max(ability.trollBloodDuration + 1, 1)
+	local healAmount = math.min(math.ceil(ability.trollBloodHeal/divisor), caster:GetMaxHealth())
 	ability.trollBloodHeal = ability.trollBloodHeal - healAmount
 	ability.trollBloodDuration = ability.trollBloodDuration - 1
 	healAmount = math.ceil(healAmount + 1)

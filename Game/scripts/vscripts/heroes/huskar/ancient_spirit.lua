@@ -38,6 +38,14 @@ function cast_ancient_spirit(event)
 			ability:ApplyDataDrivenModifier(caster, spirit, "modifier_spirit_attacking", {})
 			local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "spirit_warrior")
 			spirit.c_d_level = c_d_level
+			local vigor_ability = caster:FindAbilityByName("spirit_warrior_ancient_vigor")
+			if vigor_ability then
+				local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "spirit_warrior")
+				if d_d_level > 0 then
+					vigor_ability:ApplyDataDrivenModifier(caster, spirit, "modifier_ancient_spirit_attackspeed", {duration = duration})
+					spirit:SetModifierStackCount("modifier_ancient_spirit_attackspeed", caster, d_d_level)
+				end
+			end
 		end
 		-- spirit:AddNewModifier( spirit, nil, 'modifier_movespeed_cap', nil )
 		Timers:CreateTimer(0.05, function()
@@ -163,6 +171,9 @@ function spirit_moving_out(event)
 		spirit:SetAbsOrigin(newPosition)
 		local distance = WallPhysics:GetDistance(targetPoint*Vector(1,1,0), spirit:GetAbsOrigin()*Vector(1,1,0))
 		if distance < 60 then
+			Timers:CreateTimer(0.03, function()
+				spirit:SetAbsOrigin(GetGroundPosition(targetPoint, spirit))
+			end)
 			spirit:RemoveModifierByName("modifier_spirit_moving_out")
 			EndAnimation(spirit)
 			spirit:SetAbsOrigin(spirit:GetAbsOrigin()*Vector(1,1,0)+Vector(0,0,GetGroundHeight(spirit:GetAbsOrigin(), spirt)))
@@ -249,7 +260,7 @@ function ancient_spirit_attack_hit(event)
 	local attacker = event.attacker
 	local target = event.target
 	local origCaster = attacker.origCaster
-	local damage = attacker.c_d_level*0.2*origCaster:GetAverageTrueAttackDamage(origCaster)
+	local damage = attacker.c_d_level*0.5*origCaster:GetAverageTrueAttackDamage(origCaster)
 	Filters:TakeArgumentsAndApplyDamage(target, origCaster, damage, DAMAGE_TYPE_PHYSICAL, 4, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 end
 

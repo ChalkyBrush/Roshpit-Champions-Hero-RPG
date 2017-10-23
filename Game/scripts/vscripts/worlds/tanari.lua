@@ -22,14 +22,20 @@ function Tanari:Debug()
       -- MAIN_HERO_TABLE[1]:SetBaseDamageMax(500000)
       -- MAIN_HERO_TABLE[1]:SetBaseDamageMin(500000)
       MAIN_HERO_TABLE[1]:CalculateStatBonus()
-      -- Runes:EquipArcana(MAIN_HERO_TABLE[1], 1)
+      -- Runes:EquipArcana(MAIN_HERO_TABLE[1], 2)
     end
-    -- Tanari:DefeatDungeonBoss("wind", Vector(-4928, 2048))
+    -- Tanari:DefeatDungeonBoss("fire", Vector(-4928, 2048))
     local item = CreateItem("item_debug_blink", nil, nil)
     local drop = CreateItemOnPositionSync( Vector(-4928, 2048), item )
     local position = Vector(-4928, 2048)
     RPCItems:DropItem(item, Vector(-4928, 2048))
 
+    -- RPCItems:RollPaladinArcana1(Vector(-4928, 2048))
+    Dungeons.itemLevel = 300
+    RPCItems:RollBahamutArcana2(Vector(-4928, 2048))
+    -- Glyphs:RollGlyphAll("item_rpc_solunia_glyph_5_a", Vector(-4928, 2048), 0)
+
+    -- Curator:CurateArcanaAbilities(MAIN_HERO_TABLE[1])
     -- Curator:CurateAllGlyphsForHeroWithTiers("neutral", 3)
     -- Curator:CurateALLBasicWeapons(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
     -- for i = 1, 50, 1 do
@@ -37,14 +43,17 @@ function Tanari:Debug()
     --          Curator:CurateBasicEquipment(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
     --     end)
     -- end
-    -- Glyphs:RollGlyphAll("item_rpc_warlord_glyph_2_1", Vector(-4928, 2048), 0)
-    -- RPCItems:RollMageBaneGloves(Vector(-4928, 2048))
-    -- RPCItems:RollTwistedMaskOfAhnqhirBlue(Vector(-4928, 2048))
+    -- Glyphs:RollGlyphAll("item_rpc_venomort_glyph_5_a", Vector(-4928, 2048), 0)
+    -- -- RPCItems:RollMageBaneGloves(Vector(-4928, 2048))
+    -- -- RPCItems:RollTwistedMaskOfAhnqhirBlue(Vector(-4928, 2048))
     --  RPCItems:RollTwistedMaskOfAhnqhirYellow(Vector(-4928, 2048))
-    --   RPCItems:RollTwistedMaskOfAhnqhirPurple(Vector(-4928, 2048))
-    -- Dungeons.itemLevel = 300
-    -- for i = 1, 3, 1 do
-    --     RPCItems:RollHydroxisArcana1(Vector(-4928, 2048))
+    --  -- RPCItems:RollArborDragonfly(Vector(-4928, 2048))
+    -- --   RPCItems:RollTwistedMaskOfAhnqhirPurple(Vector(-4928, 2048))
+    -- -- Dungeons.itemLevel = 300
+    -- -- for i = 1, 3, 1 do
+    --     RPCItems:RollSoluniaArcana1(Vector(-4928, 2048))
+    --     RPCItems:RollSignusCharm(Vector(-4928, 2048))
+        -- RPCItems:RollMountainProtectorArcana2(Vector(-4928, 2048))
     -- end
     -- RPCItems:RollAquastoneRing(Vector(-4928, 2048))
     -- RPCItems:RollAuriunArcana2(Vector(-4928, 2048))
@@ -58,20 +67,20 @@ function Tanari:Debug()
     -- for i = 1, 3, 1 do
         -- RPCItems:RollZhonikArcana1(Vector(-4928, 2048))
     -- end
-    RPCItems:RollCarbuncleHelm(Vector(-4928, 2048), false)
-    RPCItems:RollTwilightVestments(Vector(-4928, 2048))
+    -- RPCItems:RollCarbuncleHelm(Vector(-4928, 2048), false)
+    -- RPCItems:RollTwilightVestments(Vector(-4928, 2048))
     -- Arena = {}
     -- Arena.PitLevel = 7
     -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "hydroxis")
     -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "hydroxis")
-    -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "djanghor")
+    Weapons:RollLegendWeapon3(Vector(-4928, 2048), "solunia")
     -- -- Glyphs:RollGlyphBook(Vector(-4928, 2048), "sorceress", 5, 2)
     -- -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
     -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
     -- -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
     -- -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
     -- Glyphs:DebugRollHeroGlyphs("sorceress", Vector(-4928, 2048))
-    Weapons:RollLegendWeapon2(Vector(-4928, 2048), "venomort")
+    -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "venomort")
     -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "sorceress")
     -- for i = 1, 3, 1 do
     --     RPCItems:RollWarlordArcana1(Vector(-4928, 2048))
@@ -134,11 +143,18 @@ function Tanari:Debug()
     -- RPCItems:RollAvalanchePlate(Vector(-4928, 2048))
     -- RPCItems:RollTrapperArcana1(Vector(-4928, 2048))
 
+            ---------MAX CURATION----------
+    -- Curator:FullCurateHero(MAIN_HERO_TABLE[1])
     -- Curator:CurateHero(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
 
     -- Timers:CreateTimer(10, function()
-    --     Curator:CurateAllGlyphsForHero("astral")
+    --     Curator:CurateAllGlyphsForHero("solunia")
     -- end)
+    -- Timers:CreateTimer(20, function()
+        -- Curator:CurateArcanaAbilities(MAIN_HERO_TABLE[1])
+    -- end)
+
+
     -- Events.DifficultyFactor = 3
     -- Events.SpiritRealm = true
     -- Tanari.WaterTemple = {}
@@ -720,9 +736,9 @@ function Tanari:DefeatDungeonBoss(element, position)
         --  end
         -- end
         if #crystal.winnerTable > 0 then
-          for i = 1, #crystal.winnerTable, 1 do
-            crystal.winnerTable[i].shardsPickedUp = 0
-          end
+          -- for i = 1, #crystal.winnerTable, 1 do
+          --   crystal.winnerTable[i].shardsPickedUp = 0
+          -- end
           Timers:CreateTimer(1.4, function()
             EmitSoundOn("Resource.MithrilShardEnter", crystal)
           end)

@@ -78,7 +78,7 @@
                     {
                         "value"
                         {
-                              "value0"        "sounds/sorceress_clearcast.mp3"
+                              "value0"        "sounds/sorceress_clearcast.vsnd"
                         }
                     }
                     "volume"            {   "value"     "0.72000"  }

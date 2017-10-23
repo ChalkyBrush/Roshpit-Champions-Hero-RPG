@@ -123,7 +123,7 @@ function rend_start(event)
 		local endFV = caster:GetForwardVector()
 		local range = 1200
 		EmitSoundOn("Draghor.RendRange", caster)
-		enemies = FindUnitsInLine(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster:GetAbsOrigin()+endFV*range, nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0)		
+		enemies = FindUnitsInLine(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster:GetAbsOrigin()+endFV*range, nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)		
 	end
 	if #enemies > 0 then
 		EmitSoundOn("Draghor.Wolf.RendHitBasic", enemies[1])

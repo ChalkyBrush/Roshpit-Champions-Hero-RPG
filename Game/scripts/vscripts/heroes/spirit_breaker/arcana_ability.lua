@@ -42,14 +42,17 @@ function smashing_end(event)
 	local caster = event.caster
 	local ability = event.ability
 	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_elder_titan/duskbringer_a_b.vpcf", PATTACH_CUSTOMORIGIN, caster)
-	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+	local landPoint = caster:GetAbsOrigin()
+	Timers:CreateTimer(0.03, function()
+		FindClearSpaceForUnit(caster, landPoint, false)
+	end)
 	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
 	EmitSoundOn("Duskbringer.Arcana1.Smash", caster)
 	local stunDuration = event.stun_duration
 	local damage = event.damage
 	local a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b_arcana1", "duskbringer")
 	if a_b_level > 0 then
-		damage = damage + a_b_level*caster:GetAverageTrueAttackDamage(caster)*0.05*ability:GetLevel()
+		damage = damage + a_b_level*caster:GetAverageTrueAttackDamage(caster)*0.1*ability:GetLevel()
 	end
 
 	local b_b_level = Runes:GetTotalRuneLevel(caster, 2, "b_b_arcana1", "duskbringer")
@@ -81,7 +84,8 @@ function smashing_end(event)
 			end)
 			StartAnimation(caster, {duration=1.1, activity=ACT_DOTA_VICTORY, rate=1.2})
 			Timers:CreateTimer(0.8, function()
-				ability:ApplyDataDrivenModifier(caster, caster, "modifier_duskbringer_arcana_damage_buff", {duration = 12})
+				local d_b_duration = Filters:GetAdjustedBuffDuration(caster, 18, false)
+				ability:ApplyDataDrivenModifier(caster, caster, "modifier_duskbringer_arcana_damage_buff", {duration = d_b_duration})
 				caster:SetModifierStackCount("modifier_duskbringer_arcana_damage_buff", caster, d_b_level)
 			end)
 		end
