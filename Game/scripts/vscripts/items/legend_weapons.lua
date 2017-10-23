@@ -331,7 +331,6 @@ function Weapons:RollLegendWeapon1(deathLocation, class)
     local drop = CreateItemOnPositionSync( deathLocation, weapon )
     local position = deathLocation
     RPCItems:DropItem(weapon, position)
-    return weapon
 end
 
 function Weapons:RollInfernalStaff(deathLocation)
