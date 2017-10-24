@@ -1460,7 +1460,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
             if victim:HasModifier("modifier_axe_rune_c_d_arcana1_invisible") then
                 local stacks = victim:GetModifierStackCount("modifier_axe_rune_c_d_arcana1_invisible", attacker)
-                mult = mult + stacks * 0.1
+                mult = mult + stacks * 0.15
             end
         end
         if attacker:HasModifier("modifier_weapon_normal") then
