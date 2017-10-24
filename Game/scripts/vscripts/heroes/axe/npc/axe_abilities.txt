@@ -707,7 +707,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"attack_power_mult_percent"			"300 400 500 600 700 800 900"
+				"attack_power_mult_percent"			"300 500 700 900 1100 1300 1500"
 			}
 			"02"
 			{
