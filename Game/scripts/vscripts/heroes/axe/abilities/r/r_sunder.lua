@@ -12,7 +12,7 @@ function startChannel(event)
     ImmortalWeapon3.amplifyShieldsCount(caster)
 end
 local function createDunk(caster, damage)
-    StartAnimation(caster, {duration=0.2, activity=ACT_DOTA_CAST_ABILITY_4, rate=2.5})
+    StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_CAST_ABILITY_4, rate=1.3})
     Timers:CreateTimer(0.2, function()
         local slamPoint = caster:GetAbsOrigin() + caster:GetForwardVector()*250
         EmitSoundOn("RedGeneral.Sunder", caster)

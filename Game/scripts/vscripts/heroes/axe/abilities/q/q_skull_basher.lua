@@ -21,8 +21,7 @@ function start(event)
 
     ability:ApplyDataDrivenModifier(caster, caster, "modfier_axe_jumping", {duration = 8})
     local targetPoint = event.target_points[1]
-    local distance = WallPhysics:GetDistance(targetPoint*Vector(1,1,0), caster:GetAbsOrigin()*Vector(1,1,0))
-    local jumpFV = ((targetPoint-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+    local distance = WallPhysics:GetDistance2d(targetPoint*Vector(1,1,0), caster:GetAbsOrigin()*Vector(1,1,0))
 
     local animationTime = math.min(500/distance, 1)
     StartAnimation(caster, {duration=jumpDuration, activity=ACT_DOTA_FLAIL, rate=animationTime, translate="forcestaff_friendly"})
@@ -32,7 +31,7 @@ function start(event)
     if caster:HasModifier("modifier_whirlwind") then
         ability.jump_velocity = ability.jump_velocity + 5
     end
-    ability.jumpFV = jumpFV
+    ability.jumpFV = ((targetPoint-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
     ability.distance = distance
     ability.targetPoint = targetPoint
     ability.lifting = true
@@ -40,12 +39,13 @@ function start(event)
     Timers:CreateTimer(0.3, function()
         ability.lifting = false
     end)
+    print("----NEW JUMP----")
 end
 
-function think(event)
+function heroic_leap_think(event)
     local caster = event.caster
     local ability = event.ability
-    local forwardSpeed  = ability.distance/60 + 20
+    local forwardSpeed = math.max(20, ability.distance/45 + 9)
 
     if caster:HasModifier("modifier_axe_rune_b_a_invisible") then
         local modifierDuration = caster:FindModifierByName("modifier_axe_rune_b_a_visible"):GetRemainingTime()
@@ -54,18 +54,22 @@ function think(event)
     end
     CycloneStorm.refreshBuff(caster)
 
-    local newPosition = caster:GetAbsOrigin()+Vector(0,0,ability.jump_velocity)+ability.jumpFV*forwardSpeed
-    local afterWallPosition = WallPhysics:WallSearch(caster:GetAbsOrigin(), newPosition, caster)
-    if afterWallPosition ~= newPosition then
-        newPosition = caster:GetAbsOrigin()+Vector(0,0,ability.jump_velocity)
+    local jumpToPosition = caster:GetAbsOrigin()+Vector(0,0,ability.jump_velocity)+(ability.jumpFV*forwardSpeed)
+    local afterWallPosition = WallPhysics:WallSearch(caster:GetAbsOrigin(), jumpToPosition, caster)
+    if afterWallPosition ~= jumpToPosition then
+        jumpToPosition = caster:GetAbsOrigin()+Vector(0,0,ability.jump_velocity)
     end
-
-    caster:SetAbsOrigin(newPosition)
-
+    caster:SetOrigin(jumpToPosition)
+    caster:SetForwardVector(ability.jumpFV)
     ability.jump_velocity = ability.jump_velocity - 3.3
 
-    if caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + 14 and not ability.lifting then
+    if caster:GetAbsOrigin().z < (GetGroundHeight(caster:GetAbsOrigin(), caster) + math.abs(ability.jump_velocity)+20) and not ability.lifting then
         caster:RemoveModifierByName("modfier_axe_jumping")
+        Timers:CreateTimer(0.03, function()
+            print(caster:GetAbsOrigin())
+            caster:SetAbsOrigin(GetGroundPosition(caster:GetAbsOrigin(), caster))
+            print(caster:GetAbsOrigin())
+        end)
         -- elseif caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + 54 and not ability.lifting then
         -- 	if not ability.jumpAnimated then
         -- 		EndAnimation(caster)
@@ -82,10 +86,10 @@ function drop(event)
     local ability = event.ability
     local location = caster:GetAbsOrigin()
 
-    Timers:CreateTimer(0.06, function()
-        -- EndAnimation(caster)
-        FindClearSpaceForUnit(caster, location, false)
-    end)
+    -- Timers:CreateTimer(0.06, function()
+    --     -- EndAnimation(caster)
+    --     FindClearSpaceForUnit(caster, location, false)
+    -- end)
 
     caster:RemoveModifierByName("modifier_whirlwind_flying_portion")
 

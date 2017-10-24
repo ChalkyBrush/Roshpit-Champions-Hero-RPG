@@ -31,19 +31,28 @@ function Tanari:Debug()
     RPCItems:DropItem(item, Vector(-4928, 2048))
 
     -- RPCItems:RollPaladinArcana1(Vector(-4928, 2048))
-    Dungeons.itemLevel = 300
-    RPCItems:RollBahamutArcana2(Vector(-4928, 2048))
+    -- Dungeons.itemLevel = 300
+    -- RPCItems:RollBahamutArcana2(Vector(-4928, 2048))
     -- Glyphs:RollGlyphAll("item_rpc_solunia_glyph_5_a", Vector(-4928, 2048), 0)
 
     -- Curator:CurateArcanaAbilities(MAIN_HERO_TABLE[1])
     -- Curator:CurateAllGlyphsForHeroWithTiers("neutral", 3)
+    -- Curator:CurateAllGlyphsForHeroWithTiers("axe", 2)
     -- Curator:CurateALLBasicWeapons(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
     -- for i = 1, 50, 1 do
     --     Timers:CreateTimer(i*2, function()
     --          Curator:CurateBasicEquipment(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
     --     end)
     -- end
-    -- Glyphs:RollGlyphAll("item_rpc_venomort_glyph_5_a", Vector(-4928, 2048), 0)
+
+    Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
+    Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
+    Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
+    Glyphs:DebugRollHeroGlyphs("axe", Vector(-4928, 2048))
+    for i = 1, 7, 1 do
+        Glyphs:RollGlyphAll("item_rpc_axe_glyph_"..tostring(i).."_2", Vector(-4928, 2048), 0)
+    end
+
     -- -- RPCItems:RollMageBaneGloves(Vector(-4928, 2048))
     -- -- RPCItems:RollTwistedMaskOfAhnqhirBlue(Vector(-4928, 2048))
     --  RPCItems:RollTwistedMaskOfAhnqhirYellow(Vector(-4928, 2048))
@@ -73,7 +82,7 @@ function Tanari:Debug()
     -- Arena.PitLevel = 7
     -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "hydroxis")
     -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "hydroxis")
-    Weapons:RollLegendWeapon3(Vector(-4928, 2048), "solunia")
+    -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "solunia")
     -- -- Glyphs:RollGlyphBook(Vector(-4928, 2048), "sorceress", 5, 2)
     -- -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
     -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))

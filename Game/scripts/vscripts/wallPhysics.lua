@@ -15,7 +15,7 @@ function WallPhysics:FindNearestObstruction(point)
 	else
 		local obstruction = Entities:FindByClassnameNearest("point_simple_obstruction", point, 1400)
 		if obstruction then
-			print(obstruction:GetAbsOrigin())
+			-- print(obstruction:GetAbsOrigin())
 			if obstruction:GetAbsOrigin().z < point.z - 300 then
 				local searchPos = Vector(point.x, point.y, GetGroundHeight(point, Events.GameMaster))
 				local obstruction2 = Entities:FindByClassnameNearest("point_simple_obstruction", searchPos, 500)

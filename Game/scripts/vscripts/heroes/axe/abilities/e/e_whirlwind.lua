@@ -15,8 +15,9 @@ function start(event)
 
     CycloneStorm.applyBuff(hero, ability)
     CyclonicShield.applyShield(hero, ability)
-
-    hero:StartGesture(ACT_DOTA_CAST_ABILITY_3)
+    if not hero:HasModifier("modfier_axe_jumping") then
+        StartAnimation(hero, {duration=1.0, activity=ACT_DOTA_CAST_ABILITY_3, rate=1.1})
+    end
 
     ability:ApplyDataDrivenModifier(hero, hero, "modifier_whirlwind", {duration = 1.5})
     ImmortalWeapon2.applyBuff(hero, 1.5)
@@ -28,6 +29,8 @@ function start(event)
     ability.forwardVelocity = math.max(movespeed/21, 20)
 
     ability.enemies = {}
+
+
 end
 
 local function onSpecificIntervalThink(ability, caster, position, heal)
@@ -68,14 +71,16 @@ function think(event)
     end
 
     if interval % 13 == 0 then
-        hero:StartGesture(ACT_DOTA_CAST_ABILITY_3)
-        EmitSoundOn("Hero_Beastmaster.Wild_Axes", hero)
+        if not hero:HasModifier("modfier_axe_jumping") then
+            StartAnimation(hero, {duration=1.0, activity=ACT_DOTA_CAST_ABILITY_3, rate=1.1})
+        end
+        -- hero:StartGesture(ACT_DOTA_CAST_ABILITY_3)
+        EmitSoundOn("RedGeneral.Whirlwind", hero)
         CustomAbilities:QuickAttachParticle("particles/econ/items/axe/axe_weapon_bloodchaser/axe_attack_blur_counterhelix_bloodchaser.vpcf", hero, 2)
     end
 
     local newPosition = position+ability.forwardVec*forwardVelocity
     local afterWallPosition = WallPhysics:WallSearch(hero:GetAbsOrigin(), newPosition, hero)
-
     if newPosition == afterWallPosition and not hero:HasModifier("modfier_axe_jumping") then
         hero:SetOrigin(newPosition)
         if #ability.enemies > 0 then

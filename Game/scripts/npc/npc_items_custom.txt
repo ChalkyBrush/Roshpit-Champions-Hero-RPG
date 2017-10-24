@@ -38488,6 +38488,37 @@
 
 	//AXE GLYPHS
 
+    "item_rpc_axe_glyph_book"
+     {
+          "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+          "AbilityUnitTargetTeam"  "DOTA_UNIT_TARGET_TEAM_ENEMY"
+          "AbilityUnitTargetType"  "DOTA_UNIT_TARGET_HERO"
+          "BaseClass"    "item_datadriven"
+          "AbilityTextureName"     "glyphs/book/glyph_book_axe"
+          "AbilityCastRange"  "900"
+          "AbilityCastAnimation"             "ACT_DOTA_ATTACK"
+          "AbilityCastPoint"  "0"
+          "AbilityCooldown"   "10"
+          "AbilityManaCost"   "0"
+          "ItemPermanent"               "0"
+          "ItemQuality"            "common"
+          "ItemDroppable"     "1"
+          "ItemShareability"  "ITEM_FULLY_SHAREABLE"
+          "ItemDeclarations"  "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+          "MaxUpgradeLevel"   "1"
+          "ItemBaseLevel"     "1"
+          "Model"        "models/gameplay/attrib_tome_str.vmdl"
+          "OnSpellStart"
+          {
+               "RunScript"
+               {
+                    "ScriptFile"   "items/glyph_abilities.lua"
+                    "Function"          "use_glyph_book"
+                    "hero"          "axe"
+               }
+          }
+     }
+
         "item_rpc_axe_glyph_1_1"
      	{
      		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"

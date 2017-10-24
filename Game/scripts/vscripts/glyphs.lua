@@ -377,7 +377,7 @@ function Glyphs:GetRandomHeroname()
 end
 
 function Glyphs:GetRandomHeronameForBook()
-	local heroNameTable = {"sorceress"}
+	local heroNameTable = {"sorceress", "axe"}
 	local random = RandomInt(1, #heroNameTable)
 	return heroNameTable[random]
 end
@@ -799,7 +799,7 @@ function Glyphs:GetAvailableColumnCount(rpcHeroName)
 	local columns = 1
 	if rpcHeroName == "neutral" then
 		columns = 3
-	elseif rpcHeroName == "sorceress" then
+	elseif rpcHeroName == "sorceress" or rpcHeroName == "axe" then
 		columns = 2
 	end
 	return columns

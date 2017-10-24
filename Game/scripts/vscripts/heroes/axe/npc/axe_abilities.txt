@@ -1236,7 +1236,7 @@
 					"RunScript"
 					{
 						"ScriptFile"	"heroes/axe/abilities/q/q_skull_basher.lua"
-						"Function"		"think"
+						"Function"		"heroic_leap_think"
 					}
 				}
 				"OnDestroy"
