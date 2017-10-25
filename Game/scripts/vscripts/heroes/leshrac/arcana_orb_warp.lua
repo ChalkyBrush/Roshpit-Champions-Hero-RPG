@@ -97,7 +97,7 @@ function dash_think(event)
 					if not enemy:HasModifier("modifier_arcana2_purity_freeze") then
 						local freezeDuration = ability.c_b_level*0.02
 						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_arcana2_purity_freeze", {duration = freezeDuration})
-						if bUltNuke
+						if bUltNuke then
 							leshrac_ult_go(arcanaAbility, caster, arcanaDamage, true, enemy)
 						end
 					end

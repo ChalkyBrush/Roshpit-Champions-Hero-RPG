@@ -6395,8 +6395,9 @@
 			"modifier_axe_rune_d_d_visible"
 			{
 				"Passive"			"0"
-				"IsHidden"			"1"
+				"IsHidden"			"0"
 				"IsBuff"			"1"
+				"TextureName"		"axe/axe_rune_d_d"
 			}
 
 			"modifier_axe_rune_d_d_invisible"

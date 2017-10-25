@@ -98,7 +98,7 @@ function passive_think(event)
 			caster:RemoveModifierByName("modifier_paladin_arcana_armor")
 		end
 	end
-	-- penance_dummy_checker(caster, ability)
+	penance_dummy_checker(caster, ability)
 end
 
 function penance_dummy_checker(caster, ability)
@@ -126,7 +126,7 @@ function penance_dummy_checker(caster, ability)
 end
 
 function set_penance_projectiles(ability, caster)
-	penance_dummy_checker(caster, ability)
+	
 	if ability.projectileCount > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_penance_projectiles", {})
 		print(ability.projectileCount)

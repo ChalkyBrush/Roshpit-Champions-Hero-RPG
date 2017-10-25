@@ -60,7 +60,8 @@ function Tanari:Debug()
     -- --   RPCItems:RollTwistedMaskOfAhnqhirPurple(Vector(-4928, 2048))
     -- -- Dungeons.itemLevel = 300
     -- -- for i = 1, 3, 1 do
-        RPCItems:RollAxeArcana1(Vector(-4928, 2048))
+        RPCItems:RollPaladinArcana1(Vector(-4928, 2048))
+        RPCItems:RollBahamutArcana2(Vector(-4928, 2048))
     --     RPCItems:RollSignusCharm(Vector(-4928, 2048))
         -- RPCItems:RollMountainProtectorArcana2(Vector(-4928, 2048))
     -- end
