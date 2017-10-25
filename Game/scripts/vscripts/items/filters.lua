@@ -1472,7 +1472,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     if element1 == RPC_ELEMENT_FIRE or element2 == RPC_ELEMENT_FIRE then
         if unitName == "npc_dota_hero_dragon_knight" then
             if attacker.d_d_level then
-                mult = mult + 0.0018*attacker:GetStrength()/10*attacker.d_d_level
+                mult = mult + 0.0015*attacker:GetStrength()/10*attacker.d_d_level
             end
         end
         if unitName == "npc_dota_hero_crystal_maiden" then
@@ -1503,7 +1503,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 mult = mult + stacks*0.06
             end
             if attacker.d_c_level then
-                mult = mult + 0.0006*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_c_level
+                mult = mult + 0.0005*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_c_level
             end
         elseif unitName == "npc_dota_hero_templar_assassin" then
             if attacker:HasModifier("modifier_trapper_arcana1") then
@@ -1601,7 +1601,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local d_c_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 2)
             local lightningRuneRate = 0.001
             if attacker:HasModifier("modifier_voltex_arcana1_passive") then
-                lightningRuneRate = 0.002
+                lightningRuneRate = 0.0015
             end
             mult = mult + lightningRuneRate*attacker:GetAgility()/10*d_c_level
             if attacker:HasAbility("lightning_attack") then

@@ -43552,7 +43552,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.18"
+				"property_one"			"0.15"
 			}
 		}
 	}
@@ -44956,7 +44956,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.2"
+				"property_one"			"0.15"
 			}
 		}
 	}
@@ -52645,7 +52645,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1000"
+				"property_one"			"750"
 			}
 		}
 		"Modifiers"
@@ -52730,7 +52730,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.06"
+				"property_one"			"0.05"
 			}
 		}
 
