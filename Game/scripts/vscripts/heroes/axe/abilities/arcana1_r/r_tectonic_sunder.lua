@@ -22,11 +22,11 @@ function startChannel(event)
     damage = damage*amp
 
 
+    local point = event.target_points[1]
+    local direction = ((point - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+
+
     Timers:CreateTimer(0.1, function()
-
-
-        local point = event.target_points[1]
-        local direction = ((point - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
         local startPoint = caster:GetAbsOrigin()+direction*200
         local max = 0
         local min = 0
@@ -76,7 +76,9 @@ function startChannel(event)
                 procs = T61_DUNKS_COUNT
             end
             if forks == 1 then
-                EarthShatter.applyBuff(caster)
+                Timers:CreateTimer(1.8 , function()
+                    EarthShatter.applyBuff(caster)
+                end)
             end
 
             for procNumber = 0, procs - 1, 1 do
@@ -118,7 +120,7 @@ function startChannel(event)
             end
 
             if forks == 1 then
-                Timers:CreateTimer(procs*0.5 , function()
+                Timers:CreateTimer(procs*0.5 + 2.2 , function()
                     EarthShatter.removeBuff(caster)
                 end)
             end

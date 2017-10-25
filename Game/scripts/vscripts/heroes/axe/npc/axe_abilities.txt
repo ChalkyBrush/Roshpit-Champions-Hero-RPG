@@ -1229,6 +1229,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-100"
+					"MODIFIER_PROPERTY_DISABLE_TURNING"         "1"
 				}
 				"EffectName"	"particles/units/heroes/hero_arc_warden/arc_warden_ambient.vpcf"
 				"EffectAttachType"	"follow_origin"

@@ -68,13 +68,9 @@ function heroic_leap_think(event)
     caster:SetForwardVector(ability.jumpFV)
     ability.jump_velocity = ability.jump_velocity - 3.3
 
-    if caster:GetAbsOrigin().z < (GetGroundHeight(caster:GetAbsOrigin(), caster) + math.abs(ability.jump_velocity)+20) and not ability.lifting then
+    if caster:GetAbsOrigin().z < (GetGroundHeight(caster:GetAbsOrigin(), caster) + math.abs(ability.jump_velocity) + 20) and not ability.lifting then
         caster:RemoveModifierByName("modfier_axe_jumping")
-        Timers:CreateTimer(0.03, function()
-            print(caster:GetAbsOrigin())
-            caster:SetAbsOrigin(GetGroundPosition(caster:GetAbsOrigin(), caster))
-            print(caster:GetAbsOrigin())
-        end)
+        caster:SetAbsOrigin(GetGroundPosition(caster:GetAbsOrigin(), caster))
         -- elseif caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + 54 and not ability.lifting then
         -- 	if not ability.jumpAnimated then
         -- 		EndAnimation(caster)
@@ -106,9 +102,10 @@ function drop(event)
     local skullBasherDuration = Filters:GetAdjustedBuffDuration(caster, event.duration, false)
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_stun_attack", {duration = skullBasherDuration})
 
-    if not HeroicLeap.cast(caster) then
+    if not HeroicLeap.cast(caster, ability) then
         StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_FORCESTAFF_END, rate=1})
     end
+    FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
 end
 
 function attackLand(event)

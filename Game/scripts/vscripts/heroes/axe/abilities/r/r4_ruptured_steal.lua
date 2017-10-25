@@ -14,8 +14,8 @@ function think(event)
         stacksCount = math.ceil( math.log( 1 / partOfIncomingDamage) / math.log(2))
     end
 
-    ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_d_d_visible", {duration = 3})
-    ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_d_d_invisible", {duration = 3})
+    ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_d_d_visible", {})
+    ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_d_d_invisible", {})
     caster:SetModifierStackCount("modifier_axe_rune_d_d_visible", caster, stacksCount)
     caster:SetModifierStackCount("modifier_axe_rune_d_d_invisible", caster, runesCount*stacksCount)
 end
