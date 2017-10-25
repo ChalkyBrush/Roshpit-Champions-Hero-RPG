@@ -90,7 +90,7 @@ function startChannel(event)
                         end
 
                         if procNumber == 0 then
-                            EmitSoundOnLocationWithCaster(startPoint, "RedGeneral.ArcanaSunder.Moving", caster)
+                            StartSoundEvent("RedGeneral.ArcanaSunder.Moving", caster)
                         end
                         local particleName = "particles/roshpit/axe/arcana_sunder.vpcf"
                         local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
@@ -154,7 +154,9 @@ function successfullCast(event)
 end
 
 function interruptCast(event)
+    local caster = event.caster
     Timers:CreateTimer(0.2, function()
+        StopSoundEvent("RedGeneral.ArcanaSunder.Moving", caster)
         local ability = event.ability
         ability.isInterrupted = true
         local pfx = ability.pfx

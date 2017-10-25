@@ -392,10 +392,28 @@
      				"Passive"			"0"
      				"IsHidden"			"1"
      				"IsDebuff"			"1"
-                    "Properties"
-                    {
-                        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-<% T22_ARMOR_DECREASE %>"
-                    }
+                         "TextureName"            "rpc/axe_d_d"
+                         "Properties"
+                         {
+                             "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-<% T22_ARMOR_DECREASE %>"
+                         }
+                         "OnCreated"
+                         {
+                              "RunScript"
+                              {
+                                   "ScriptFile"   "heroes/axe/sunder.lua"
+                                   "Function"          "AmplifyDamageParticle"
+                              }
+                         }
+
+                         "OnDestroy"
+                         {
+                              "RunScript"
+                              {
+                                   "ScriptFile"   "heroes/axe/sunder.lua"
+                                   "Function"          "EndAmplifyDamageParticle"
+                              }
+                         }
      			}
      		}
      		"AbilitySpecial"

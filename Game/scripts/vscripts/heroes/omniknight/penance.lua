@@ -98,7 +98,7 @@ function passive_think(event)
 			caster:RemoveModifierByName("modifier_paladin_arcana_armor")
 		end
 	end
-	penance_dummy_checker(caster, ability)
+	-- penance_dummy_checker(caster, ability)
 end
 
 function penance_dummy_checker(caster, ability)

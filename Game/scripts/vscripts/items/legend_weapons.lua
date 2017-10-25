@@ -400,7 +400,7 @@ function Weapons:RollLegendWeapon2(deathLocation, class)
 	local whichHero = HerosCustom:ConvertRPCNameToStringHeroNameSeinaru(class)
 	local rarityFactor = RPCItems:GetRarityFactor(rarity)
 	local maxLevel = math.min(RPCItems:GetLogarithmicVarianceValue(48, 0, 0, 0, 0), 50)
-	maxLevel = math.max(maxLevel, 45)
+	maxLevel = math.max(maxLevel, 50)
 	local maxLuck = RandomInt(1,200)
 
 
@@ -697,7 +697,7 @@ function Weapons:RollLegendWeapon3(deathLocation, class)
 	local whichHero = HerosCustom:ConvertRPCNameToStringHeroNameSeinaru(class)
 	local rarityFactor = RPCItems:GetRarityFactor(rarity)
 	local maxLevel = math.min(RPCItems:GetLogarithmicVarianceValue(48, 0, 0, 0, 0), 50)
-	maxLevel = math.max(maxLevel, 45)
+	maxLevel = math.max(maxLevel, 50)
 	local maxLuck = RandomInt(1,200)
 
 

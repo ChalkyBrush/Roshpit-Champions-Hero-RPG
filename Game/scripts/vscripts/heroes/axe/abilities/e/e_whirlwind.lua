@@ -17,6 +17,8 @@ function start(event)
     CyclonicShield.applyShield(hero, ability)
     if not hero:HasModifier("modfier_axe_jumping") then
         StartAnimation(hero, {duration=1.0, activity=ACT_DOTA_CAST_ABILITY_3, rate=1.1})
+    else
+        StartAnimation(hero, {duration=1.0, activity=ACT_DOTA_CAST_ABILITY_3, rate=1.1})
     end
 
     ability:ApplyDataDrivenModifier(hero, hero, "modifier_whirlwind", {duration = 1.5})
@@ -85,8 +87,10 @@ function think(event)
         hero:SetOrigin(newPosition)
         if #ability.enemies > 0 then
             for _,enemy in pairs(ability.enemies) do
-                local enemyPosition = enemy:GetAbsOrigin()+ability.forwardVec*forwardVelocity
-                FindClearSpaceForUnit(enemy, enemyPosition, true)
+                if not enemy.pushLock and not enemy.jumpLock then
+                    local enemyPosition = enemy:GetAbsOrigin()+ability.forwardVec*forwardVelocity
+                    enemy:SetAbsOrigin(enemyPosition)
+                end
             end
         end
 
@@ -98,10 +102,18 @@ function think(event)
 end
 
 function finish(event)
+    local ability = event.ability
     local hero = event.caster
     hero.EFV = false
     if not hero:HasModifier("modfier_axe_jumping") then
         hero:RemoveModifierByName("modifier_whirlwind_flying_portion")
         FindClearSpaceForUnit(hero, hero:GetAbsOrigin(), true)
+    end
+    if #ability.enemies > 0 then
+        for _,enemy in pairs(ability.enemies) do
+            if not enemy.pushLock and not enemy.jumpLock then
+                FindClearSpaceForUnit(enemy, enemy:GetAbsOrigin(), false)
+            end
+        end
     end
 end

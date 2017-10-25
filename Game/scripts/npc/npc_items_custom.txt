@@ -38882,10 +38882,28 @@
      				"Passive"			"0"
      				"IsHidden"			"1"
      				"IsDebuff"			"1"
-                    "Properties"
-                    {
-                        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-250"
-                    }
+                         "TextureName"            "rpc/axe_d_d"
+                         "Properties"
+                         {
+                             "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-250"
+                         }
+                         "OnCreated"
+                         {
+                              "RunScript"
+                              {
+                                   "ScriptFile"   "heroes/axe/sunder.lua"
+                                   "Function"          "AmplifyDamageParticle"
+                              }
+                         }
+
+                         "OnDestroy"
+                         {
+                              "RunScript"
+                              {
+                                   "ScriptFile"   "heroes/axe/sunder.lua"
+                                   "Function"          "EndAmplifyDamageParticle"
+                              }
+                         }
      			}
      		}
      		"AbilitySpecial"

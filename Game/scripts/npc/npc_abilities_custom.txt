@@ -6173,14 +6173,14 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"EffectName"	"particles/roshpit/red_general/cyclone_shield.vpcf"
+				"EffectName"	"axe/axe_rune_d_c"
 				"EffectAttachType"	"attach_orgin"
 				"TextureName"	"centaur_return"
 			}
 			"modifier_axe_rune_b_c_tornado"
 			{
 				"IsHidden"	"0"
-				"TextureName"	"juggernaut/bladekeeper/juggernaut_blade_fury"
+				"TextureName"	"axe/axe_rune_b_c"
 				"EffectName"	"particles/roshpit/axe_cyclone.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"IsBuff"	"1"
@@ -6215,6 +6215,8 @@
 			"particle"	"particles/units/heroes/hero_magnataur/red_general_shockwave.vpcf"
 			"particle"	"particles/units/heroes/hero_slardar/axe_d_d_amp_damage.vpcf"
 			"particle"	"particles/econ/items/earthshaker/egteam_set/hero_earthshaker_egset/earthshaker_echoslam_start_egset.vpcf"
+			"particle"	"particles/roshpit/red_general/berserker_timedialate.vpcf"
+			"particle"	"particles/roshpit/axe/adrenaline_a.vpcf"
 		}
 
 		"AbilityManaCost"	"0"
@@ -6229,7 +6231,7 @@
 
 			"FireSound"
 			{
-				"EffectName"	"Hero_Beastmaster.Primal_Roar"
+				"EffectName"	"RedGeneral.Sunder.StartRoar"
 				"Target"	"CASTER"
 			}
 			"AttachEffect"
@@ -6354,6 +6356,7 @@
 				"StatusEffectPriority"  "10"
 				"EffectName"		"particles/items2_fx/satanic_buff.vpcf"
 				"EffectAttachType"	"attach_hitloc"
+				"TextureName"		"axe/axe_rune_a_d"
 			}
 
 			"modifier_axe_rune_c_d_visible"
@@ -6361,6 +6364,9 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsBuff"			"1"
+				"EffectName"		"particles/roshpit/axe/adrenaline_a.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"TextureName"		"axe/axe_rune_c_d"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_BONUS"	"5000"
@@ -6370,9 +6376,9 @@
 
 			"modifier_axe_rune_b_d_visible"
             {
- 				"IsHidden"	"0"
+ 				"IsHidden"	"1"
  				"IsBuff"	"1"
-            	"TextureName"	"warlord/warlord_rune_c_d_arcana1"
+            	"TextureName"	"axe/axe_rune_b_d"
             	"OnTakeDamage"
             	// "%attack_damage" is set to the damage value after mitigation
             	{
@@ -6389,7 +6395,7 @@
 			"modifier_axe_rune_d_d_visible"
 			{
 				"Passive"			"0"
-				"IsHidden"			"0"
+				"IsHidden"			"1"
 				"IsBuff"			"1"
 			}
 
@@ -6638,7 +6644,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "10000"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "12000"
 				}
 			}
 			"modifier_prevent_turning_invisible"
@@ -6662,7 +6668,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"attack_power_mult_percent"			"300 400 500 600 700 800 900"
+				"attack_power_mult_percent"			"300 500 700 900 1100 1300 1500"
 			}
 			"02"
 			{
@@ -6679,7 +6685,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"chaos_knight_reality_rift"
+		"AbilityTextureName"			"axe/axe_shockwave"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
@@ -6739,7 +6745,7 @@
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"main_damage"				"500 1800 4000 90000 14000 20000 34000"
+				"main_damage"				"500 1800 4000 9000 14000 20000 34000"
 			}
 		}
 
@@ -6784,8 +6790,9 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"TextureName"		"chaos_knight_reality_rift"
 
-				"EffectName"		"particles/units/heroes/hero_medusa/medusa_stone_gaze_debuff_facing_glow.vpcf"
+				"EffectName"		"particles/units/heroes/hero_templar_assassin/templar_assassin_ambient_electric.vpcf"
 				"EffectAttachType"	"follow_origin"
 
 				"ThinkInterval"  "0.3"
@@ -6804,9 +6811,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"1"
 
-				"EffectName"		"particles/units/heroes/hero_medusa/medusa_stone_gaze_debuff_facing_glow.vpcf"
-				"EffectAttachType"	"follow_origin"
-
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-0.3"
@@ -6817,6 +6821,7 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"1"
+				"TextureName"		"axe/axe_rune_b_b"
 
 				"EffectName"		"particles/units/heroes/hero_medusa/medusa_stone_gaze_debuff_facing_glow.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -7208,7 +7213,7 @@
 			"modifier_axe_rune_b_a_invisible"
 			{
 				"Passive"			"0"
-				"TextureName"		"beastmaster_wild_axes"
+				"TextureName"		"axe/axe_rune_b_a"
 				"IsHidden"			"1"
 				"Properties"
 				{
@@ -7218,7 +7223,7 @@
 			}
 			"modifier_axe_rune_b_a_visible"
 			{
-				"TextureName"		"beastmaster_wild_axes"
+				"TextureName"		"axe/axe_rune_b_a"
 				"IsHidden"	"0"
 				"IsBuff"	"1"
 
@@ -7231,7 +7236,7 @@
 			}
 			"modifier_axe_rune_d_a_visible"
 			{
-				"TextureName"		"beastmaster_wild_axes"
+				"TextureName"		"rpc/axe_d_a"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
 			}
@@ -48939,7 +48944,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"invoker_sun_strike"
+		"AbilityTextureName"	"axe/axe_rune_a_a"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -48957,7 +48962,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"centaur_hoof_stomp"
+		"AbilityTextureName"	"chaos_knight_reality_rift"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -48986,7 +48991,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"doom_bringer_lvl_death"
+		"AbilityTextureName"	"axe/axe_rune_a_c"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -49025,7 +49030,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"troll_warlord_whirling_axes_melee"
+		"AbilityTextureName"	"axe/axe_rune_a_d"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
@@ -49054,7 +49059,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"beastmaster_wild_axes"
+		"AbilityTextureName"	"axe/axe_rune_b_a"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -49111,7 +49116,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"ogre_magi_ignite"
+		"AbilityTextureName"	"axe/axe_rune_b_b"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -49134,7 +49139,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"juggernaut/bladekeeper/juggernaut_blade_fury"
+		"AbilityTextureName"	"axe/axe_rune_b_c"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -49152,7 +49157,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rubick_telekinesis_land"
+		"AbilityTextureName"	"axe/axe_rune_b_d"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -49186,7 +49191,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"axe_berserkers_call_shoutmask"
+		"AbilityTextureName"	"axe/axe_rune_c_a"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -49274,7 +49279,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"sniper_shrapnel_muh_keen_gun"
+		"AbilityTextureName"	"axe/axe_rune_c_b"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -49323,7 +49328,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"centaur_return"
+		"AbilityTextureName"	"axe/axe_rune_c_c"
 		"MaxLevel"				"20"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"LevelsBetweenUpgrades" "0"
@@ -49373,7 +49378,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"earthshaker/sltv__earthshaker_ability_icons/earthshaker_fissure"
+		"AbilityTextureName"	"axe/axe_rune_c_d"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -49457,7 +49462,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"ogre_magi_fireblast"
+		"AbilityTextureName"	"axe/axe_rune_d_c"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -49475,7 +49480,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/axe_d_d"
+		"AbilityTextureName"	"axe/axe_rune_d_d"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -49501,7 +49506,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -49519,7 +49524,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10000"
+				"property_one"			"12000"
 			}
 		}
 	}
@@ -49537,7 +49542,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"15"
 			}
 		}
 	}

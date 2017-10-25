@@ -5,6 +5,8 @@ local function damageEnemies(caster, enemies)
         for _,enemy in pairs(enemies) do
             local damageWithWeapon = damage * ImmortalWeapon2.getAmp(caster, enemy)
             Filters:TakeArgumentsAndApplyDamage(enemy, caster, damageWithWeapon, DAMAGE_TYPE_PURE, 3, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+            EmitSoundOn("RedGeneral.HitSpin", enemy)
+            CustomAbilities:QuickParticleAtPoint("particles/roshpit/solunia/boomerang_impact.vpcf", enemy:GetAbsOrigin()+Vector(0,0,100), 0.5)
         end
     end
 end

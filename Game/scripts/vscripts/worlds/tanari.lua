@@ -45,13 +45,13 @@ function Tanari:Debug()
     --     end)
     -- end
 
-    Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
-    Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
-    Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
-    Glyphs:DebugRollHeroGlyphs("axe", Vector(-4928, 2048))
-    for i = 1, 7, 1 do
-        Glyphs:RollGlyphAll("item_rpc_axe_glyph_"..tostring(i).."_2", Vector(-4928, 2048), 0)
-    end
+    -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
+    -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
+    -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
+    -- Glyphs:DebugRollHeroGlyphs("axe", Vector(-4928, 2048))
+    -- for i = 1, 7, 1 do
+    --     Glyphs:RollGlyphAll("item_rpc_axe_glyph_"..tostring(i).."_2", Vector(-4928, 2048), 0)
+    -- end
 
     -- -- RPCItems:RollMageBaneGloves(Vector(-4928, 2048))
     -- -- RPCItems:RollTwistedMaskOfAhnqhirBlue(Vector(-4928, 2048))
@@ -60,7 +60,7 @@ function Tanari:Debug()
     -- --   RPCItems:RollTwistedMaskOfAhnqhirPurple(Vector(-4928, 2048))
     -- -- Dungeons.itemLevel = 300
     -- -- for i = 1, 3, 1 do
-    --     RPCItems:RollSoluniaArcana1(Vector(-4928, 2048))
+        RPCItems:RollAxeArcana1(Vector(-4928, 2048))
     --     RPCItems:RollSignusCharm(Vector(-4928, 2048))
         -- RPCItems:RollMountainProtectorArcana2(Vector(-4928, 2048))
     -- end
