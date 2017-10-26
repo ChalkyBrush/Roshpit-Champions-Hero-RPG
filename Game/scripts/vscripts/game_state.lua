@@ -832,6 +832,7 @@ function GameState:FilterDamage(filterTable)
 	local damagetype = filterTable["damagetype_const"]
 
 	local mult = 1
+	local divisor = 1
 
 	if attacker:IsHero() then
 		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
@@ -1937,8 +1938,15 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if victim:HasModifier("modifier_steadfast") then
+		local thresholdMult = 1
+		if attacker:HasModifier("modifier_neutral_glyph_4_2") then
+			thresholdMult = 10
+			mult = mult + thresholdMult - 1
+			divisor = divisor + thresholdMult - 1
+			print("threshold increase")
+		end
 		if not attacker:HasModifier("modifier_backstab_jumping") then
-			filterTable["damage"] = CustomAbilities:Steadfast(filterTable["damage"], victim)
+			filterTable["damage"] = CustomAbilities:Steadfast(filterTable["damage"], victim, thresholdMult)
 		end
 	end
 	if victim:HasModifier("modifier_ancient_steadfast") then
@@ -1947,8 +1955,14 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if victim:HasModifier("modifier_mega_steadfast") then
+		local thresholdMult = 1
+		if attacker:HasModifier("modifier_neutral_glyph_4_2") then
+			thresholdMult = 30
+			mult = mult + thresholdMult - 1
+			divisor = divisor + thresholdMult - 1
+		end
 		if not attacker:HasModifier("modifier_backstab_jumping") then
-			filterTable["damage"] = CustomAbilities:MegaSteadfast(filterTable["damage"], victim)
+			filterTable["damage"] = CustomAbilities:MegaSteadfast(filterTable["damage"], victim, thresholdMult)
 		end
 	end
 	if victim:HasModifier("modifier_exploder_freeze") then
@@ -2014,8 +2028,12 @@ function GameState:FilterDamage(filterTable)
 		local missingHealthPercent = math.floor((1-(attacker:GetHealth()/attacker:GetMaxHealth()))*100)
 		mult = mult + missingHealthPercent*1.5/100
 	end
+	if not victim:HasModifier("modifier_steadfast") and not victim:HasModifier("modifier_mega_steadfast") and attacker:HasModifier("modifier_neutral_glyph_4_2") then
+		filterTable["damage"] = filterTable["damage"] * 0.8
+	end
+
 	--APPLY MULT
-	filterTable["damage"] = filterTable["damage"]*mult
+	filterTable["damage"] = filterTable["damage"]*mult/divisor
 	--FINAL STAGE--
 	if victim:HasModifier("modifier_canyon_boss_ai") then
 		filterTable["damage"] = Redfall:CanyonBossTakeDamage(victim, filterTable["damage"])

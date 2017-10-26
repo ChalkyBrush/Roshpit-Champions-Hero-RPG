@@ -272,13 +272,16 @@ function CustomAbilities:IsWithinRegion(region, unit, tolerance)
 	-- end
 end
 
-function CustomAbilities:Steadfast(damage, victim)
+function CustomAbilities:Steadfast(damage, victim, thresholdMult)
 	local thresh = 0.05
 	if GameState:GetDifficultyFactor() == 2 then
 		thresh = 0.04
 	elseif GameState:GetDifficultyFactor() == 3 then
 		thresh = 0.03
 	end
+
+	thresh = thresh * thresholdMult
+
 	if damage > victim:GetMaxHealth()*thresh then
 		damage = victim:GetMaxHealth()*thresh
 	end
@@ -298,7 +301,7 @@ function CustomAbilities:AncientSteadfast(damage, victim)
 	return damage
 end
 
-function CustomAbilities:MegaSteadfast(damage, victim)
+function CustomAbilities:MegaSteadfast(damage, victim, thresholdMult)
 	local thresh = 0.02
 	if GameState:GetDifficultyFactor() == 2 then
 		thresh = 0.01
@@ -308,6 +311,9 @@ function CustomAbilities:MegaSteadfast(damage, victim)
 			thresh = 0.003
 		end
 	end
+
+	thresh = thresh * thresholdMult
+
 	if damage > victim:GetMaxHealth()*thresh then
 		damage = victim:GetMaxHealth()*thresh
 	end

@@ -174,7 +174,9 @@ function GameMode:CorrectRespawn(npc)
           npc:SetOrigin(Dungeons.entryPoint)
         end
       elseif GameState:IsTanariJungle() or GameState:IsRedfallRidge() or GameState:IsSeaFortress() or GameState:IsWinterblight() then
-        if npc.respawnFlag then
+        if npc:HasModifier("modifier_neutral_glyph_4_1") and (not npc.prelastDeathTime or (npc.lastDeathTime - npc.prelastDeathTime > 30)) then
+          npc:SetOrigin(npc.deathPosition)
+        elseif npc.respawnFlag then
           Events:RespawnFlag(npc)
         else
           if Dungeons.respawnPoint then
@@ -1074,6 +1076,12 @@ function GameMode:OnEntityKilled( keys )
         -- if killedUnit:HasModifier("modifier_duskbringer_glyph_2_1") then
         --   respawnTime = 20
         -- end
+        if killedUnit:HasModifier("modifier_neutral_glyph_4_1") then
+          respawnTime = respawnTime * 0.2
+          killedUnit.deathPosition = killedUnit:GetAbsOrigin()
+          killedUnit.prelastDeathTime = killedUnit.lastDeathTime
+          killedUnit.lastDeathTime = GameRules:GetGameTime()
+        end
         respawnTime = math.min(killedUnit:GetTimeUntilRespawn(), respawnTime)
         killedUnit:SetTimeUntilRespawn(respawnTime)
       end)
