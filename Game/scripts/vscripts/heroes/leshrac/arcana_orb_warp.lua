@@ -86,8 +86,7 @@ function dash_think(event)
 	if ability.c_b_level > 0 then
 		bUltNuke = false
 		if caster:HasModifier("modifier_leshrac_arcana_effect") then
-			local arcanaAbility = caster:FindAbilityByName("bahamut_arcana_ulti")
-			local arcanaDamage = arcanaAbility:GetSpecialValueFor("damage")
+			local arcanaAbility = caster:FindAbilityByName("bahamut_arcana_ulti")	
 			bUltNuke = true
 		end
 		if ability.interval%3 == 0 then
@@ -98,6 +97,8 @@ function dash_think(event)
 						local freezeDuration = ability.c_b_level*0.02
 						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_arcana2_purity_freeze", {duration = freezeDuration})
 						if bUltNuke then
+							local arcanaAbility = caster:FindAbilityByName("bahamut_arcana_ulti")
+							local arcanaDamage = arcanaAbility:GetSpecialValueFor("damage")
 							leshrac_ult_go(arcanaAbility, caster, arcanaDamage, true, enemy)
 						end
 					end
