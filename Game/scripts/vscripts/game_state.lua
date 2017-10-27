@@ -1940,7 +1940,7 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if not victim:HasModifier("modifier_steadfast") and not victim:HasModifier("modifier_mega_steadfast") and attacker:HasModifier("modifier_neutral_glyph_4_2") then
-		filterTable["damage"] = filterTable["damage"] * 0.5
+		filterTable["damage"] = filterTable["damage"] * 0.8
 	end
 	if victim:HasModifier("modifier_steadfast") then
 		local thresholdMult = 1

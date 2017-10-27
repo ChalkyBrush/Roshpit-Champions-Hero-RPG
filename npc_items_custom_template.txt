@@ -37015,12 +37015,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"900"
+				"property_one"			"30"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"2900"
+				"property_two"			"15"
 			}
 			"03"
 			{
@@ -37029,23 +37029,13 @@
 			}
 			"04"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_four"		    "30"
+				"var_type"				"FIELD_FLOAT"
+				"property_four"		    "3.3"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_five"		    "30"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_six"		    "15"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_seven"		"50"
+				"property_five"		    "20"
 			}
 		}
 	}
