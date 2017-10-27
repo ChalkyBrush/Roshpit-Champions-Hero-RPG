@@ -28,7 +28,7 @@ function second_heartbeat_damage(event)
     local damage = event.damage
     local ability = event.ability
     if caster:HasModifier("modifier_flamewaker_glyph_4_1") then
-    	damage = damage + ((caster:GetStrength() + caster:GetAgility() + caster:GetIntellect())*4 + caster:GetAverageTrueAttackDamage(caster)*0.1)*ability:GetLevel()
+    	damage = damage + ((caster:GetStrength() + caster:GetAgility() + caster:GetIntellect())*1.5 + caster:GetAverageTrueAttackDamage(caster)*0.07)*ability:GetLevel()
     	ability:ApplyDataDrivenModifier(caster, target, "modifier_flamewaker_glyph_4_1_effect", {duration = 3})
     end
     if ability.c_b_level > 0 then
