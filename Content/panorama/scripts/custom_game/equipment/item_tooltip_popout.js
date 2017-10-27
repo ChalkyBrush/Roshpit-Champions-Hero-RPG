@@ -143,7 +143,6 @@ function initializeTooltip(func){
 		}else{
 			$('#tooltip_requirements_left').AddClass('invisible')
 		}
-
 		//REQUIRED HERO
 		if (itemValues.requiredHero === undefined){
 			$('#tooltip_requirements_right').AddClass('invisible')
