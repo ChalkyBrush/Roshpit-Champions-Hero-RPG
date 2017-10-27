@@ -9547,6 +9547,26 @@
 				"var_type"			"FIELD_INTEGER"
 				"element_two"		"1"
 			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"		"10"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_two"		"40"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_three"	"4000"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"property_four"		"0.4"
+			}
 		}
 		"precache"
 		{
@@ -13361,7 +13381,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_three"	"4"
+				"property_three"	"3"
 			}
 			"04"
 			{
@@ -23350,6 +23370,21 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"element_one"			"2"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"			"10"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_two"			"250"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"property_three"	    "1"
 			}
 		}
 		"OnSpellStart"
@@ -36980,12 +37015,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"900"
+				"property_one"			"30"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"2900"
+				"property_two"			"15"
 			}
 			"03"
 			{
@@ -36994,23 +37029,13 @@
 			}
 			"04"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_four"		    "30"
+				"var_type"				"FIELD_FLOAT"
+				"property_four"		    "3.3"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_five"		    "30"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_six"		    "15"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_seven"		"20"
+				"property_six"		    "20"
 			}
 		}
 	}
@@ -37595,6 +37620,16 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"120"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"150"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_three"		"7"
 			}
 		}
 	}

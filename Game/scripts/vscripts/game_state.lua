@@ -1744,7 +1744,7 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_ethereal_revenant_link") then
 		if victim.revenantData then
 			if victim.revenantData[1] == attacker:GetEntityIndex() then
-				filterTable["damage"] = filterTable["damage"]*4
+				filterTable["damage"] = filterTable["damage"]*3
 			end
 		end
 	end
@@ -1937,6 +1937,9 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
+	if not victim:HasModifier("modifier_steadfast") and not victim:HasModifier("modifier_mega_steadfast") and attacker:HasModifier("modifier_neutral_glyph_4_2") then
+		filterTable["damage"] = filterTable["damage"] * 0.8
+	end
 	if victim:HasModifier("modifier_steadfast") then
 		local thresholdMult = 1
 		if attacker:HasModifier("modifier_neutral_glyph_4_2") then
@@ -2027,9 +2030,6 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_chernobog_immortal_weapon_2") then
 		local missingHealthPercent = math.floor((1-(attacker:GetHealth()/attacker:GetMaxHealth()))*100)
 		mult = mult + missingHealthPercent*1.5/100
-	end
-	if not victim:HasModifier("modifier_steadfast") and not victim:HasModifier("modifier_mega_steadfast") and attacker:HasModifier("modifier_neutral_glyph_4_2") then
-		filterTable["damage"] = filterTable["damage"] * 0.8
 	end
 
 	--APPLY MULT

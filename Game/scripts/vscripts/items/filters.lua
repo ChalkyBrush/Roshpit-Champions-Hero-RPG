@@ -9,7 +9,7 @@ function Filters:ApplyItemDamage(victim,attacker,damage,damage_type,item,element
     local mult = 1
     if attacker:HasModifier("modifier_depth_crest_armor") then
         if victim:IsStunned() then
-            mult = mult + 0.006*(attacker:GetStrength()/10)
+            mult = mult + 0.004*(attacker:GetStrength()/10)
         end
     end
     if attacker:GetUnitName() == "npc_dota_hero_leshrac" then
@@ -3445,7 +3445,7 @@ end
 function Filters:FireDeity(attacker, victim, damage)
     local proc = Filters:GetProc(attacker, 10)    
     if proc then
-        damage = damage*3.5
+        damage = damage*2.5
         local target = victim
         local radius = 220
         local particleNameS = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"

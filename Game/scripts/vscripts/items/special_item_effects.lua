@@ -3245,7 +3245,7 @@ function depth_crest_hit(event)
 		ParticleManager:SetParticleControl( pfx, 1, Vector(300, 0, 0))	
 		local enemies = FindUnitsInRadius( target:GetTeamNumber(), target:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
-			local damage = target:GetStrength()*40 + target:GetPhysicalArmorValue()*100
+			local damage = target:GetStrength()*40 + target:GetPhysicalArmorValue()*4000
 			for _,enemy in pairs(enemies) do
 				Filters:ApplyItemDamage(enemy,target,damage,DAMAGE_TYPE_MAGICAL,event.ability,RPC_ELEMENT_WATER,RPC_ELEMENT_NORMAL)
 				Filters:ApplyStun(target, 1.6, enemy)
