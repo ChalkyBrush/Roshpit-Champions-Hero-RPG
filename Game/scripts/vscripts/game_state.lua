@@ -817,6 +817,19 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			damage = damage*0.04
 		end
 	end
+
+	if victim:HasModifier("modifier_chitinous_skin_stack") then
+		local stacks = victim:GetModifierStackCount("modifier_chitinous_skin_stack", victim.InventoryUnit)
+		local reduction = 1 - stacks*0.03
+		damage = damage*reduction
+		local newStacks = stacks - 1
+		if newStacks > 0 then
+			victim:SetModifierStackCount("modifier_chitinous_skin_stack", victim.InventoryUnit, newStacks)
+		else
+			victim:RemoveModifierByName("modifier_chitinous_skin_stack")
+		end
+	end
+
 	return damage/BASE_VALUE_FOR_CALCULATE
 end
 
@@ -1494,17 +1507,6 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_golden_war_plate") then
 		if damagetype == DAMAGE_TYPE_MAGICAL then
 			filterTable["damage"] = filterTable["damage"]*0.35
-		end
-	end
-	if victim:HasModifier("modifier_chitinous_skin_stack") then
-		local stacks = victim:GetModifierStackCount("modifier_chitinous_skin_stack", victim.InventoryUnit)
-		local reduction = 1 - stacks*0.03
-		filterTable["damage"] = filterTable["damage"]*reduction
-		local newStacks = stacks - 1
-		if newStacks > 0 then
-			victim:SetModifierStackCount("modifier_chitinous_skin_stack", victim.InventoryUnit, newStacks)
-		else
-			victim:RemoveModifierByName("modifier_chitinous_skin_stack")
 		end
 	end
 	if victim:HasModifier("moon_tech_aura") then
