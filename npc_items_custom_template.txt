@@ -36670,11 +36670,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "1500"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -36682,7 +36677,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1500"
+				"property_one"			"80"
+			}
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"30"
 			}
 		}
 	}
@@ -36973,11 +36973,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "1500"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -36985,7 +36980,37 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1500"
+				"property_one"			"900"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"2900"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_three"		"10"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_four"		    "30"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_five"		    "30"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_six"		    "15"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_seven"		"20"
 			}
 		}
 	}
@@ -37266,11 +37291,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "1500"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -37278,7 +37298,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1500"
+				"property_one"			"300"
 			}
 		}
 	}

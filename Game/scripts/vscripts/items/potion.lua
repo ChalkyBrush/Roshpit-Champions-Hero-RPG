@@ -1,18 +1,23 @@
 function usePotion(event)
 	local caster = event.caster
 	local ability = event.ability
-	action(ability.property1name, ability.property1, caster)
+	local mult = 1
+	if caster:HasModifier("modifier_neutral_glyph_4_3") then
+		mult = mult + 3
+	end
+
+	action(ability.property1name, ability.property1 * mult, caster)
 	if ability.property2name then
-		action(ability.property2name, ability.property2, caster)
+		action(ability.property2name, ability.property2 * mult, caster)
 	end
 	if ability.property3name then
-		action(ability.property3name, ability.property3, caster)
+		action(ability.property3name, ability.property3 * mult, caster)
 	end
 	if ability.property4name then
-		action(ability.property4name, ability.property4, caster)
+		action(ability.property4name, ability.property4 * mult, caster)
 	end
 	if ability.property5name then
-		action(ability.property5name, ability.property5, caster)
+		action(ability.property5name, ability.property5 * mult, caster)
 	end
 end
 
