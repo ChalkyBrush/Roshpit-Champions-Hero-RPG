@@ -12274,6 +12274,11 @@
 				"var_type" 				"FIELD_INTEGER"
 				"attack_damage_bonus"	"50 75 100 125 150 175 200"
 			}
+			"07"
+			{
+				"var_type" 				"FIELD_INTEGER"
+				"movespeed"				"500"
+			}
 		}
 
 		"OnSpellStart"
@@ -46464,7 +46469,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.18"
+				"property_one"			"0.15"
 			}
 		}
 	}
@@ -47868,7 +47873,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.2"
+				"property_one"			"0.15"
 			}
 		}
 	}
@@ -54666,7 +54671,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"2.5"
 			}
 		}
 		"Modifiers"
@@ -56904,7 +56909,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1000"
+				"property_one"			"750"
 			}
 		}
 		"Modifiers"
@@ -56989,7 +56994,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.06"
+				"property_one"			"0.05"
 			}
 		}
 
@@ -62689,6 +62694,7 @@
 		"AbilityTextureName"	"spectre_haunt"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
 		"AbilitySpecial"
 		{

@@ -64,6 +64,7 @@ function Redfall:SpawnFarmlandThief(position, fv)
 	Redfall:ColorWearables(stone, Vector(255, 110, 110))
 	Events:AdjustBossPower(stone, 3, 3, false)
 	stone.itemLevel = 52
+	stone.dominion = true
 	return stone
 end
 

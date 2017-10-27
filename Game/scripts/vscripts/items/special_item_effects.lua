@@ -1140,6 +1140,9 @@ function fire_walker_damage(event)
 	local target = event.target
 	local caster = event.ability.hero
 	local ability = event.ability
+	if target.dummy then
+		return false
+	end
 	local damage = ability.damage
 	Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,event.ability,RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
