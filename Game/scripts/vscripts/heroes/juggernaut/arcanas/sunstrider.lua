@@ -2,7 +2,7 @@ require('heroes/juggernaut/gorudo')
 
 function sunstrider_start(event)
 	local caster = event.caster
-	local target = event.target_points[1]
+	local target = WallPhysics:WallSearch(caster:GetAbsOrigin(), event.target_points[1], caster)
 	local ability = event.ability
 	caster:AddNoDraw()
 	local travelTime = 0.5
