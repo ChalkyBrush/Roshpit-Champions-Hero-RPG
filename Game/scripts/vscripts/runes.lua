@@ -558,9 +558,17 @@ function Runes:EquipArcana(hero, index)
 			newRune:SetAbilityIndex(0)
 		elseif index == 2 then
 			if hero:HasAbility("spiral_leap") then
-				hero:RemoveAbility("spiral_leap")
+				if hero:GetAbilityByIndex(2):GetName() == "spiral_leap" then
+					hero:RemoveAbility("odachi_slice")
+					Runes:EasySwapArcanaSkills(hero, 2, "spiral_leap", "seinaru_sunstrider", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+				else
+					hero:RemoveAbility("spiral_leap")
+					Runes:EasySwapArcanaSkills(hero, 2, "odachi_slice", "seinaru_sunstrider", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+				end
+			else
+				Runes:EasySwapArcanaSkills(hero, 2, "odachi_slice", "seinaru_sunstrider", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 			end
-			Runes:EasySwapArcanaSkills(hero, 2, "odachi_slice", "seinaru_sunstrider", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_leshrac" then
 		if index == 1 then
