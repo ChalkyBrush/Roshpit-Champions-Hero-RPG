@@ -1458,7 +1458,7 @@ function super_ascension_init(event)
 	local target = event.target
 	local ability = event.ability
 	target:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
-	target:SetRangedProjectileName("particles/units/heroes/hero_phoenix/phoenix_base_attack.vpcf")
+	-- target:SetRangedProjectileName("particles/units/heroes/hero_phoenix/phoenix_base_attack.vpcf")
 
 	-- local baseProjectileSpeed = target.baseProjectileSpeed
 	-- ability:ApplyDataDrivenModifier(caster, target, "modifier_ascendency_projectile_speed_stacks", {duration = 10})
@@ -1484,8 +1484,11 @@ function super_ascension_end(event)
 	local caster = event.caster
 	local target = event.target
 	target:RemoveModifierByName("modifier_super_ascendency_lua")
-	target:SetAttackCapability(target.baseAttackCapability)
-	target:SetRangedProjectileName(target.originalProjectile)
+	if not target:HasModifier("modifier_tomahawk_buffs") and not target:HasModifier("modifier_chernobog_demonform_lua") then
+		print("SET TO MELEE")
+		target:SetAttackCapability(target.baseAttackCapability)
+	end
+	-- target:SetRangedProjectileName(target.originalProjectile)
 end
 
 function super_ascension_attack(event)

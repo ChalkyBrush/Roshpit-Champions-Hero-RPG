@@ -20165,6 +20165,12 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"TextureName"	"earthaker_aftershock"
+				"Orb"
+				{
+					"Priority"				"DOTA_ORB_PRIORITY_ITEM"
+					"ProjectileName"		"particles/units/heroes/hero_phoenix/phoenix_base_attack.vpcf"
+					"CastAttack"			"0"
+				}
 				"OnCreated"
 				{
 					"AttachEffect"

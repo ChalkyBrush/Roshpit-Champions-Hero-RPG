@@ -6173,7 +6173,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"EffectName"	"axe/axe_rune_d_c"
+				"EffectName"	"particles/roshpit/red_general/cyclone_shield.vpcf"
 				"EffectAttachType"	"attach_orgin"
 				"TextureName"	"centaur_return"
 			}

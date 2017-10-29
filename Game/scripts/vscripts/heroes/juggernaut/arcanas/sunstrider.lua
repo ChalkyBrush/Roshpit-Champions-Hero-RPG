@@ -1,4 +1,7 @@
 require('heroes/juggernaut/gorudo')
+require('heroes/juggernaut/blade_dash')
+
+
 
 function sunstrider_start(event)
 	local caster = event.caster
@@ -21,6 +24,13 @@ function sunstrider_start(event)
 					Timers:CreateTimer(i*0.06, function()
 						local enemy = enemies[i]
 						CustomAbilities:QuickAttachParticle("particles/roshpit/seinaru/sunblade.vpcf", enemy, 0.6)
+						if caster:HasAbility("seinaru_arcana_ability") then
+							local eventTable = {}
+							eventTable.caster = caster
+							eventTable.target = enemy
+							eventTable.ability = caster:FindAbilityByName("seinaru_arcana_ability")
+							arcana_attack_start(eventTable)
+						end
 						Timers:CreateTimer(0.2, function()
 							CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_legion_commander/legion_commander_courage_hit.vpcf", enemy, 0.5)
 							Filters:PerformAttackSpecial(caster, enemy, true, true, true, false, true, false, false)
