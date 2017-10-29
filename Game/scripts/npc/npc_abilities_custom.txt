@@ -56483,7 +56483,6 @@
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"AbilityCastRange"				"1000 1100 1200 1300 1400 1500 1600"
 		"AOERadius"						"440"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
 		"AbilitySpecial"
 		{
