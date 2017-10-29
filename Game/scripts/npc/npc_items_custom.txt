@@ -9547,6 +9547,26 @@
 				"var_type"			"FIELD_INTEGER"
 				"element_two"		"1"
 			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"		"10"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_two"		"40"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_three"	"4000"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"property_four"		"0.4"
+			}
 		}
 		"precache"
 		{
@@ -13361,7 +13381,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_three"	"4"
+				"property_three"	"3"
 			}
 			"04"
 			{
@@ -21150,6 +21170,73 @@
 		}
 	}
 
+	"item_rpc_seinaru_arcana2"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"arcana/seinaru_arcana2"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"ItemKillable" "0"
+		"precache"
+		{
+			"particle"	"particles/roshpit/seinaru/sunstrider_movement.vpcf"
+			"particle"	"particles/roshpit/seinaru/sunblade.vpcf"
+			"particle"	"particles/units/heroes/hero_legion_commander/legion_commander_courage_hit.vpcf"
+			"particle"	"particles/roshpit/seinaru/lightsword_omni.vpcf"
+			"particle"	"particles/roshpit/seinaru/sunwarrior_vengeance_cowlofice.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_seinaru_arcana2"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/equipment.lua"
+						"Function"		"equip_arcana"
+						"target"		"TARGET"
+						"index"			"2"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/equipment.lua"
+						"Function"		"unequip_arcana"
+						"target"		"TARGET"
+						"index"			"2"
+					}
+				}
+			}
+		}
+	}
+
 	"item_rpc_astral_arcana1"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -23350,6 +23437,21 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"element_one"			"2"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"			"10"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_two"			"250"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"property_three"	    "1"
 			}
 		}
 		"OnSpellStart"
@@ -37131,12 +37233,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"900"
+				"property_one"			"30"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"2900"
+				"property_two"			"15"
 			}
 			"03"
 			{
@@ -37145,23 +37247,13 @@
 			}
 			"04"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_four"		    "30"
+				"var_type"				"FIELD_FLOAT"
+				"property_four"		    "3.3"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_five"		    "30"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_six"		    "15"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_seven"		"20"
+				"property_five"		    "20"
 			}
 		}
 	}
@@ -37746,6 +37838,16 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"120"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"150"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_three"		"7"
 			}
 		}
 	}

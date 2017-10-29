@@ -31,7 +31,7 @@ function Tanari:Debug()
     RPCItems:DropItem(item, Vector(-4928, 2048))
 
     -- RPCItems:RollPaladinArcana1(Vector(-4928, 2048))
-    -- Dungeons.itemLevel = 300
+    Dungeons.itemLevel = 160
     -- RPCItems:RollBahamutArcana2(Vector(-4928, 2048))
     -- Glyphs:RollGlyphAll("item_rpc_solunia_glyph_5_a", Vector(-4928, 2048), 0)
 
@@ -84,7 +84,9 @@ function Tanari:Debug()
     -- Arena = {}
     -- Arena.PitLevel = 7
     -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "hydroxis")
-    Weapons:RollLegendWeapon2(Vector(-4928, 2048), "epoch")
+    -- RPCItems:RollChitinousLobsterClaw(Vector(-4928, 2048))
+    RPCItems:RollSeinaruArcana2(Vector(-4928, 2048))
+    -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "epoch")
     -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "solunia")
     -- -- Glyphs:RollGlyphBook(Vector(-4928, 2048), "sorceress", 5, 2)
     -- -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))

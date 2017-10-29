@@ -133,19 +133,36 @@ local knockback_distance = event.knockback_distance
 			  ParticleManager:DestroyParticle( pfx, false )
 			end) 	
 			if ability.a_a_level > 0 then
-				increment_duskfire_stacks(caster, enemy, ability, 1)
-				local particleName = "particles/units/heroes/hero_spirit_breaker/spirit_breaker_nether_strike_begin_flash.vpcf"
-				local pfx2 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, enemy )
-				ParticleManager:SetParticleControlEnt(pfx2, 0, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
-				local damage = ability.a_a_level*860
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_GHOST, RPC_ELEMENT_FIRE)
-				Timers:CreateTimer(0.4, function() 
-				  ParticleManager:DestroyParticle( pfx2, false )
-				end) 	
+				local eventTable = {}
+				eventTable.attacker = caster
+				eventTable.target = enemy
+				eventTable.ability = ability
+				flail_a_a_hit(eventTable)
 			end
 		end
 	end 	
 	  
+end
+
+function flail_a_a_hit(event)
+	local caster = event.attacker
+	local enemy = event.target
+	local ability = event.ability
+	local stack_increment = 1
+	if not ability.a_a_level then
+		ability.a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a", "duskbringer")
+	end
+	if ability.a_a_level > 0 then
+		increment_duskfire_stacks(caster, enemy, ability, 1)
+		local particleName = "particles/units/heroes/hero_spirit_breaker/spirit_breaker_nether_strike_begin_flash.vpcf"
+		local pfx2 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, enemy )
+		ParticleManager:SetParticleControlEnt(pfx2, 0, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
+		local damage = ability.a_a_level*860
+		Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_GHOST, RPC_ELEMENT_FIRE)
+		Timers:CreateTimer(0.4, function() 
+		  ParticleManager:DestroyParticle( pfx2, false )
+		end) 
+	end	
 end
 
 function whirling_flail_end(event)

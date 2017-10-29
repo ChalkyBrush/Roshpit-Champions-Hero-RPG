@@ -995,6 +995,9 @@ function GameState:FilterDamage(filterTable)
 		if victim:HasModifier("modifier_sparkling_token_of_oceanis") then
 			filterTable["damage"] = filterTable["damage"]*0.1
 		end
+		if victim:HasModifier("modifier_sunstrider_lightsworn") then
+			filterTable["damage"] = filterTable["damage"]*0.2
+		end
 	end
 	if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 		if victim:HasModifier("modifier_emerald_nullification_ring") then
@@ -1386,6 +1389,11 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_general_postmitigation") then
 		local stacks = attacker:GetModifierStackCount("modifier_general_postmitigation", Events.GameMaster)
 		local multIncrease = stacks/100
+		mult = mult + multIncrease
+	end
+	if attacker:HasModifier("modifier_sunstrider_sunwarrior_vengeance_post_mit") then
+		local stacks = attacker:GetModifierStackCount("modifier_sunstrider_sunwarrior_vengeance_post_mit", attacker)
+		local multIncrease = stacks*0.12
 		mult = mult + multIncrease
 	end
 	if victim:HasModifier("modifier_auriun_immortal_weapon_1") then

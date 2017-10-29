@@ -113,7 +113,7 @@ function rune_a_c_projectile(caster, targetPoint, totalLevel, starAbility, start
   local info = 
   {
       Ability = starAbility,
-          EffectName = "particles/units/heroes/hero_vengeful/astral_wave_terror.vpcf",
+          EffectName = "particles/roshpit/seinaru/sunstrider_movement.vpcf",
           vSpawnOrigin = casterOrigin,
           fDistance = range,
           fStartRadius = start_radius,

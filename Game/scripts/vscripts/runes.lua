@@ -556,6 +556,11 @@ function Runes:EquipArcana(hero, index)
 			local newRune = hero.runeUnit4:AddAbility("monk_rune_d_a_arcana1")
 			newRune:SetLevel(runeLevel4)
 			newRune:SetAbilityIndex(0)
+		elseif index == 2 then
+			if hero:HasAbility("spiral_leap") then
+				hero:RemoveAbility("spiral_leap")
+			end
+			Runes:EasySwapArcanaSkills(hero, 2, "odachi_slice", "seinaru_sunstrider", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_leshrac" then
 		if index == 1 then
@@ -884,6 +889,9 @@ end
 
 
 function Runes:EasySwapArcanaSkills(hero, abilityIndex, oldAbility, newAbility, internalName, rune_suffix)
+	if internalName == "seinaru" then
+		internalName = "monk"
+	end
 	local origAbility = hero:GetAbilityByIndex(abilityIndex)
 	local abilityLevel = hero:GetAbilityByIndex(abilityIndex):GetLevel()
 	local runeLevel1 = hero.runeUnit:GetAbilityByIndex(abilityIndex):GetLevel()
@@ -922,6 +930,9 @@ function Runes:EasySwapArcanaSkills(hero, abilityIndex, oldAbility, newAbility, 
 end
 
 function Runes:EasyRevertArcanaSkills(hero, abilityIndex, origAbility, arcanaAbility, internalName, rune_suffix)
+	if internalName == "seinaru" then
+		internalName = "monk"
+	end
 	local existingAbility = hero:FindAbilityByName(arcanaAbility)
 	local abilityLevel = existingAbility:GetLevel()
 	local runeLevel1 = hero.runeUnit:GetAbilityByIndex(abilityIndex):GetLevel()
@@ -1028,6 +1039,8 @@ function Runes:UnequipArcana(hero, index)
 			newRune:SetLevel(runeLevel4)
 			newRune:SetAbilityIndex(0)
 			hero:RemoveModifierByName("modifier_seinaru_arcana_passive")
+		elseif index == 2 then
+			Runes:EasyRevertArcanaSkills(hero, 2, "odachi_slice", "seinaru_sunstrider", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_leshrac" then
 		if index == 1 then
