@@ -31,7 +31,6 @@
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "1000"
-        "ProjectileModel"   ""
         "ProjectileSpeed"   "900"
         "BountyXP"  "0"
         "BountyGoldMin" "0"

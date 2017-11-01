@@ -461,7 +461,7 @@ function immortal_weapon_2_die(event)
     Timers:CreateTimer(3, function()
       if caster:IsAlive() then
       else
-        caster:RespawnHero(false, false, false)
+        caster:RespawnHero(false, false)
         caster:SetAbsOrigin(respawnPoint)
       end
     end)

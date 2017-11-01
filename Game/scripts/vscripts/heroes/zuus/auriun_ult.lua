@@ -12,7 +12,7 @@ function channel_succeed(event)
 		if not allAllies[i]:IsAlive() then
 			allAllies[i].revive = true
 			local rezPosition = allAllies[i]:GetAbsOrigin()
-			allAllies[i]:RespawnHero(false, false, false)
+			allAllies[i]:RespawnHero(false, false)
 			allAllies[i]:SetAbsOrigin(rezPosition)
 			
 			allAllies[i]:SetHealth(allAllies[i]:GetMaxHealth()*0.4)
