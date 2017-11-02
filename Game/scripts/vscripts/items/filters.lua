@@ -1014,16 +1014,16 @@ function Filters:ApplyRskills(caster)
 end
 
 function Filters:ApplyDamageBasic(victim,attacker,damage,damage_type)
-    if damage_type == DAMAGE_TYPE_PHYSICAL then
-        damage = damage/(1+((attacker:GetIntellect()/16)/100))
-    end
+    -- if damage_type == DAMAGE_TYPE_PHYSICAL then
+    --     damage = damage/(1+((attacker:GetIntellect()/16)/100))
+    -- end
     ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type })
 end
 
 function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, slot, element1, element2)
-    if damage_type == DAMAGE_TYPE_PHYSICAL then
-        damage = damage/(1+((attacker:GetIntellect()/16)/100))
-    end
+    -- if damage_type == DAMAGE_TYPE_PHYSICAL then
+    --     damage = damage/(1+((attacker:GetIntellect()/16)/100))
+    -- end
     local attackerName = attacker:GetUnitName()
     if attackerName == "npc_dota_hero_leshrac" then
         if slot > 0 then

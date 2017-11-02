@@ -440,7 +440,7 @@ function GameState:RecordMatch()
 end
 
 function GameState:GetPostReductionPhysicalDamage(damage, armor)
-	local damageMult = 1 - (0.06*armor/(1 + (0.06 * math.abs(armor))))
+	local damageMult = 1 - (0.05*armor/(1 + (0.05 * math.abs(armor))))
 	local damage = math.ceil(damage*damageMult)
 	return damage
 end
@@ -892,7 +892,7 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_hand_marauder") then
 			if victim:GetPhysicalArmorValue() > 0 then
 				local armor = victim:GetPhysicalArmorValue()
-				local damageMult = 1 - (0.06*armor/(1 + (0.06 * math.abs(armor))))
+				local damageMult = 1 - (0.05*armor/(1 + (0.05 * math.abs(armor))))
 				filterTable["damage"] = filterTable["damage"]/damageMult
 			end
 		end
