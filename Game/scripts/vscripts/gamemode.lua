@@ -307,11 +307,11 @@ function GameMode:OnGameInProgress()
       RPCItems:ClearItems()
       return 90 
     end)
-  Timers:CreateTimer(5, 
-    function()
-        Events:adjustStats()
-      return 0.3
-    end)
+  -- Timers:CreateTimer(5, 
+  --   function()
+  --       Events:adjustStats()
+  --     return 0.3
+  --   end)
   
 end
 
