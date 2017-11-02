@@ -1,11 +1,15 @@
 function general_hero_think(event)
 	local target = event.target
+	CustomAttributes:SetAttributes(target)
+	CustomAttributes:ApplyStatBonusesToHero(target)
 	local strength = math.floor(target:GetStrength())
 	local agility = math.floor(target:GetAgility())
 	local intelligence = math.floor(target:GetIntellect())
 	local primaryAttribute = target:GetPrimaryAttribute()
 	local healthRegen = target:GetHealthRegen()
-	local manaRegen = target:GetConstantBasedManaRegen() + target:GetManaRegen()
+	local manaRegen = (target:GetBaseManaRegen() + target:GetBonusManaRegen())
+	magaRegen = manaRegen + (manaRegen*target:GetManaRegenMultiplier())/100
+
 
 	local movespeedBase = target:GetBaseMoveSpeed()
 	local movespeed = target:GetMoveSpeedModifier(movespeedBase)

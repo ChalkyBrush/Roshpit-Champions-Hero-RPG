@@ -848,9 +848,9 @@ function GameState:FilterDamage(filterTable)
 	local divisor = 1
 
 	if attacker:IsHero() then
-		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
-			filterTable["damage"] = math.ceil(filterTable["damage"]/(1+((attacker:GetIntellect()/14)/100)))
-		end
+		-- if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
+		-- 	filterTable["damage"] = math.ceil(filterTable["damage"]/(1+((attacker:GetIntellect()/14)/100)))
+		-- end
 	end
 	if GameState:IsPVPAlpha() then
 		if victim:IsHero() and attacker:IsHero() then
@@ -2323,7 +2323,7 @@ function GameState:FilterDamage(filterTable)
 	if Beacons.cheats then
 		-- if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 		-- 	if victim:IsHero() then
-		-- 		filterTable["damage"] = 0
+		-- 		filterTable["damage"] = victim:GetMaxHealth()*0.1
 		-- 	end
 		-- end
 		-- if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then

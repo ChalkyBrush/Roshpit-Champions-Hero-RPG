@@ -72,6 +72,26 @@
 					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"	"-1"
 				}
 			}
+			"modifier_str_regen"
+			{
+				"IsHidden"			"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE_UNIQUE"	"-1"
+				}
+			}
+			"modifier_str_status"
+			{
+				"IsHidden"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+
+					"MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING"	"-1"
+				}
+			}
 		}
 	}
 
@@ -4998,26 +5018,14 @@
 			"modifier_empyreal_str"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "1"
-				}
 			}
 			"modifier_empyreal_agi"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "1"
-				}
 			}
 			"modifier_empyreal_int"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "1"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -8169,11 +8177,6 @@
 			"modifier_eye_of_seasons_stats"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "1"
-				    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "1"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -9016,10 +9019,6 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"1"
-				}
 			}
 		}
 	}
@@ -9091,11 +9090,6 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"1"
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"1"
-				}
 			}
 		}
 	}
@@ -9706,30 +9700,18 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"1"
-				}
 			}
 			"modifier_legion_vestments_effect_agi"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"1"
-				}
 			}
 			"modifier_legion_vestments_effect_int"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"1"
-				}
 			}
 		}
 	}
@@ -9803,30 +9785,18 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"1"
-				}
 			}
 			"modifier_gold_plate_of_leon_agi"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"1"
-				}
 			}
 			"modifier_gold_plate_of_leon_int"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"1"
-				}
 			}
 		}
 	}
@@ -10658,10 +10628,6 @@
 			"modifier_mageplate_intelligence"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "1"
-				}
 				"OnDestroy"
 				{
 					"RunScript"
@@ -16836,12 +16802,6 @@
 				"IsBuff"	"1"
 				"IsHidden"	"1"
 				"Passive"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "20"
-				    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "20"
-				    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "20"
-				}
 			}
 		}
 	}
@@ -16905,12 +16865,6 @@
 				"IsBuff"	"1"
 				"IsHidden"	"1"
 				"Passive"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "40"
-				    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "40"
-				    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "40"
-				}
 			}
 		}
 	}
@@ -19124,28 +19078,16 @@
 			{
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "25"
-				}
 			}
 			"modifier_azure_empire_strength"
 			{
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "25"
-				}
 			}
 			"modifier_azure_empire_intelligence"
 			{
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "25"
-				}
 			}
 			"modifier_azure_hawk_dead"
 			{
@@ -19618,10 +19560,6 @@
 			"modifier_wind_orchid_agility_bonus"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%property_one"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -19690,10 +19628,6 @@
 			"modifier_aqua_lily_intelligence_bonus"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%property_one"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -19762,10 +19696,6 @@
 			"modifier_fire_blossom_strength_bonus"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%property_one"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -21654,12 +21584,6 @@
 			"modifier_solunia_d_d_stats"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "200"
-				    "MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "200"
-				    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "200"
-				}
 			}
 		}
 	}
@@ -34088,10 +34012,6 @@
 			"modifier_flamewaker_weapon_agility"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%property_two"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -35776,10 +35696,6 @@
 			{
 				"IsHidden"	"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%property_one"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -36637,11 +36553,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "500"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -36909,11 +36820,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "3500"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -36953,11 +36859,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "500"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -37223,11 +37124,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "3500"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -37267,11 +37163,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "500"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -37511,11 +37402,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "3500"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -44744,10 +44630,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%property_one"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -45118,10 +45000,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%property_one"
-				}
 			}
 		}
 		"AbilitySpecial"

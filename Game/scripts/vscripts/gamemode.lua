@@ -40,6 +40,7 @@ require( 'precache')
 require( 'custom_abilities')
 require( 'challenges')
 require( 'stars')
+require( 'custom_attributes')
 
 
 
@@ -336,7 +337,7 @@ function GameMode:InitGameMode()
   LinkLuaModifier("modifier_hood_of_lords_lua", "modifiers/modifier_hood_of_lords_lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_trapper_immo3_effect", "modifiers/trapper/modifier_trapper_immo3_effect", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_black_portal_shrink", "modifiers/modifier_black_portal_shrink", LUA_MODIFIER_MOTION_NONE)
-
+  LinkLuaModifier( "modifier_rpc_attributes", "modifiers/modifier_rpc_attributes.lua", LUA_MODIFIER_MOTION_NONE )
   
 
 

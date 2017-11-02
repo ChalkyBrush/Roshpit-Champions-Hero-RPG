@@ -2466,6 +2466,26 @@ function Filters:GetPrimaryAttributeMultiple(hero, multiple)
     return math.ceil(damage)
 end
 
+function Filters:IsPrimaryAttribute(hero, attr)
+    local primeAttribute = hero:GetPrimaryAttribute()
+    if primeAttribute == 0 then
+        if attr == "str" then
+            return true
+        end
+    elseif primeAttribute == 1 then
+        if attr == "agi" then
+            return true
+        end
+    elseif primeAttribute == 2 then
+        if attr == "int" then
+            return true
+        end
+    else
+        return false
+    end
+end
+
+
 function Filters:VioletBoot(caster)
     if not caster:HasModifier("modifier_violet_boot_cooldown") then
         caster.violetBoot:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_violet_boot_cooldown", {duration = 1})
