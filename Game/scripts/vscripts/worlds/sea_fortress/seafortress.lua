@@ -138,6 +138,23 @@ function Seafortress:Init()
 
   Seafortress.Jumper2 = Entities:FindByNameNearest("SeaJumper", Vector(-6398, 14592, 652+Seafortress.ZFLOAT), 1200)
   Seafortress.Jumper2:SetAbsOrigin(Seafortress.Jumper2:GetAbsOrigin()-Vector(0,0,1000))
+  Timers:CreateTimer(5, function()
+    local particleName = "particles/econ/items/faceless_void/faceless_void_mace_of_aeons/fv_chronosphere_aeons.vpcf"
+    Seafortress.switchPFX = ParticleManager:CreateParticle("particles/econ/items/faceless_void/faceless_void_mace_of_aeons/fv_chronosphere_aeons.vpcf", PATTACH_CUSTOMORIGIN, caster)
+    ParticleManager:SetParticleControl(Seafortress.switchPFX, 0, Vector(-6638, 2503))
+    ParticleManager:SetParticleControl(Seafortress.switchPFX, 1, Vector(190, 190, 190))
+  end)
+end
+
+function Seafortress:LeftWingKill()
+  if not Seafortress.LeftWingKills then
+    Seafortress.LeftWingKills = 0
+  end
+  Seafortress.LeftWingKills = Seafortress.LeftWingKills + 1
+  if Seafortress.LeftWingKills == 3 then
+    Seafortress.CentaurSwitchActive = true
+    ParticleManager:DestroyParticle(Seafortress.switchPFX, false)
+  end
 end
 
 function Seafortress:ActivateSwitchGeneric(buttonPosition, buttonName, bDown, ms)

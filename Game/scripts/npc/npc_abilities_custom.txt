@@ -48954,12 +48954,6 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%property_one"
-				    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%property_one"
-				    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%property_one"
-				}
 			}
 		}
 	}
@@ -54574,7 +54568,6 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%property_one"
 				    "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%property_two"
 				}
 			}

@@ -657,8 +657,10 @@ function PlatformRoomSwitch(trigger)
 
 	local switchIndex = caller:GetName():gsub('PlatformRoomSwitch', "")
 	switchIndex = tonumber(switchIndex)
-
-	Seafortress:ActivateSwitchGeneric(hero:GetAbsOrigin(), "SeafortSwitch1", true, 0.4)
+	if switchIndex == 5 then
+	else
+		Seafortress:ActivateSwitchGeneric(hero:GetAbsOrigin(), "SeafortSwitch1", true, 0.4)
+	end
 	local mobTable = {}
 	if switchIndex == 1 then
 		Seafortress:RemoveBlockers(2.7, "Platform1Blocker", Vector(-9984, 4950, 151+Seafortress.ZFLOAT), 4400)
@@ -742,10 +744,22 @@ function PlatformRoomSwitch(trigger)
 			Seafortress.MasterAbility:ApplyDataDrivenModifier(Seafortress.Master, beast, "modifier_seafortress_rooted", {duration = 5.9})
 		end
 	elseif switchIndex == 5 then
-		local wall = Entities:FindByNameNearest("PlatformWall", Vector(-5960, 6005, -4+Seafortress.ZFLOAT), 900)
-		Seafortress:Walls(false, {wall}, true, 4)
-		Seafortress:RemoveBlockers(4, "PlatformDoorBlocker", Vector(-5952, 6016, 101+Seafortress.ZFLOAT), 1400)		
-		Seafortress:AfterPlatformRoom()
+		if Seafortress.CentaurSwitchActive then
+			if not Seafortress.CentaurSpawn then
+				Seafortress:ActivateSwitchGeneric(hero:GetAbsOrigin(), "SeafortSwitch1", true, 0.4)
+				Seafortress.CentaurSpawn = true
+				local wall = Entities:FindByNameNearest("PlatformWall", Vector(-5960, 6005, -4+Seafortress.ZFLOAT), 900)
+				Seafortress:Walls(false, {wall}, true, 4)
+				Seafortress:RemoveBlockers(4, "PlatformDoorBlocker", Vector(-5952, 6016, 101+Seafortress.ZFLOAT), 1400)		
+				Seafortress:AfterPlatformRoom()
+			end
+		else
+			EmitSoundOn("Seafortress.NoSwitchTouch", hero)
+			local jumpFV = ((Vector(256, -9792)-hero:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+			WallPhysics:Jump(hero, jumpFV, 90, 110, 200, 1)
+			local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/seafortress/boss_dying_effect.vpcf", hero, 4)
+			ParticleManager:SetParticleControl(pfx, 1, hero:GetAbsOrigin())
+		end
 	end
 	if switchIndex <= 4 then
 		for i = 1, 200, 1 do

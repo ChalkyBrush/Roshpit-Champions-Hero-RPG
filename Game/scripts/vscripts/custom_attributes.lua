@@ -26,6 +26,8 @@ CustomAttributes.MOUNTAIN_PROTECTOR_E2_STR = 120
 CustomAttributes.MOUNTAIN_PROTECTOR_R2_STR = 40
 CustomAttributes.SEINARU_Q3_ARCANA1_AGI = 400
 CustomAttributes.SOLUNIA_R4_STATS = 200
+CustomAttributes.AXE_E1_STATS = 10
+CustomAttributes.SORCERESS_ARCANE_INT = 50
 
 CustomAttributes.RING_OF_NOBILITY = 20
 CustomAttributes.RING_OF_NOBILITY2 = 40 
@@ -38,6 +40,7 @@ CustomAttributes.NEUTRAL_GLYPH_1 = 500
 CustomAttributes.NEUTRAL_GLYPH_7 = 3500
 CustomAttributes.SEINARU_GLYPH_5_A = 6000
 CustomAttributes.MOUNTAIN_PROTECTOR_GLYPH_5_A = 8000
+
 
 function CDOTA_BaseNPC_Hero:GetStrength()
 	local hero = self
@@ -88,7 +91,7 @@ function CustomAttributes:SetAttributes(hero)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_time_ulti_a_d_invisible_str_and_agi", CustomAttributes.EPOCH_R1_STR_AGI)
 	end
 	if hero:HasModifier("modifier_conjuror_a_c_buff_invisible") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_conjuror_a_c_buff_invisible", CustomAttributes.CONJUROR_E1_AGI)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_conjuror_a_c_buff_invisible", CustomAttributes.CONJUROR_E1_AGI)
 	end
 	if hero:HasModifier("modifier_warlord_rune_b_b") then
 		local stacks = hero:GetModifierStackCount("modifier_warlord_rune_b_b", hero)
@@ -106,7 +109,7 @@ function CustomAttributes:SetAttributes(hero)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_chernobog_rune_d_b_active", CustomAttributes.CHERNOBOG_W4_STR_OR_AGI)
 	end
 	if hero:HasModifier("modifier_hydroxis_d_c") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hydroxis_d_c", CustomAttributes.HYDROXIS_E4_AGI_INT)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hydroxis_d_c", CustomAttributes.HYDROXIS_E4_AGI_INT)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hydroxis_d_c", CustomAttributes.HYDROXIS_E4_AGI_INT)
 	end
 	if hero:HasModifier("modifier_speedball_d_d_strength") then
@@ -331,6 +334,14 @@ function CustomAttributes:SetAttributes(hero)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", CustomAttributes.SOLUNIA_R4_STATS)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", CustomAttributes.SOLUNIA_R4_STATS)
 	end
+	if hero:HasModifier("modifier_axe_rune_a_c_invisible") then
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_axe_rune_a_c_invisible", CustomAttributes.AXE_E1_STATS)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_axe_rune_a_c_invisible", CustomAttributes.AXE_E1_STATS)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_axe_rune_a_c_invisible", CustomAttributes.AXE_E1_STATS)
+	end
+	if hero:HasModifier("modifier_arcane_intellect_visible") then
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_arcane_intellect_visible", CustomAttributes.SORCERESS_ARCANE_INT)
+	end
 	if hero:HasModifier("modifier_flamewaker_weapon_agility") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_flamewaker_weapon_agility", CustomAttributes.FLAMEWAKER_WEAPON_2_AGI)
 	end
@@ -380,6 +391,7 @@ function CustomAttributes:AddStatsBonusFromStacks(hero, caster, modifierName, st
 		caster = hero:FindModifierByName(modifierName):GetCaster()
 	end
 	local stacks = hero:GetModifierStackCount(modifierName, caster)
+	stacks = math.max(stacks, 1)
 	return stacks*statPerStack
 end
 
@@ -396,19 +408,19 @@ function CustomAttributes:AddStatsBonusFromAbility(hero, caster, modifierName, a
 	local ability = caster:FindAbilityByName(abilityName)
 	if ability then
 		local stacks = hero:GetModifierStackCount(modifierName, caster)
-		stacks = math.min(stacks, 1)
+		stacks = math.max(stacks, 1)
 		bonus = ability:GetLevelSpecialValueFor(specialName, ability:GetLevel())*stacks
 	end
 	return bonus
 end
 
-CustomAttributes.HEALTH_PER_STR = 10
+CustomAttributes.HEALTH_PER_STR = 20
 CustomAttributes.HEALTH_REGEN_PER_STR = 0.1
 
 CustomAttributes.ATTACKSPEED_PER_AGI = 0.04
 CustomAttributes.ARMOR_PER_AGI = 0.1
 
-CustomAttributes.MANA_PER_INT = 3
+CustomAttributes.MANA_PER_INT = 5
 CustomAttributes.MANA_REGEN_PER_INT = 0.1
 
 CustomAttributes.ATK_DMG_PER_PRIMARY = 2
@@ -433,10 +445,12 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 	end
 	hero:SetModifierStackCount("modifier_agility_attackspeed", caster, agility*CustomAttributes.ATTACKSPEED_PER_AGI)
 
-	if not hero:HasModifier("modifier_agility_armor") then
-		ability:ApplyDataDrivenModifier(caster, hero, "modifier_agility_armor", {})
-	end
-	hero:SetModifierStackCount("modifier_agility_armor", caster, agility*CustomAttributes.ARMOR_PER_AGI)
+	-- if not hero:HasModifier("modifier_agility_armor") then
+	-- 	ability:ApplyDataDrivenModifier(caster, hero, "modifier_agility_armor", {})
+	-- end
+	-- hero:SetModifierStackCount("modifier_agility_armor", caster, agility*CustomAttributes.ARMOR_PER_AGI)
+	local armor = agility*CustomAttributes.ARMOR_PER_AGI + 10
+	hero:SetPhysicalArmorBaseValue(armor)
 
 	if not hero:HasModifier("modifier_int_mana") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_int_mana", {})

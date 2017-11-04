@@ -91,6 +91,15 @@ function GameState:IsSeaFortress()
 	end
 end
 
+function GameState:IsSeaEarlyCheck()
+	local mapName = GetMapName()
+	if mapName == "rpc_sea_fortress" then
+		return true
+	else
+		return false
+	end
+end
+
 function GameState:IsWinterblight()
 	local mapName = Events.MapName
 	if mapName == "rpc_winterblight_mountain" then

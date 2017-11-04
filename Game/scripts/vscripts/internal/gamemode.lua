@@ -82,6 +82,9 @@ function GameMode:_InitGameMode()
       end
     else
       local count = 0
+      if GameState:IsSeaEarlyCheck() then
+        CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_GOODGUYS] = 5
+      end
       for team,number in pairs(CUSTOM_TEAM_PLAYER_COUNT) do
         if count >= MAX_NUMBER_OF_TEAMS then
           GameRules:SetCustomGameTeamMaxPlayers(team, 0)

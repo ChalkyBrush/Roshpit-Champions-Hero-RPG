@@ -52,7 +52,7 @@ function Tanari:Debug()
     -- for i = 1, 7, 1 do
     --     Glyphs:RollGlyphAll("item_rpc_axe_glyph_"..tostring(i).."_2", Vector(-4928, 2048), 0)
     -- end
-
+    Glyphs:RollGlyphAll("item_rpc_neutral_glyph_7_2", Vector(-4928, 2048), 0)
     -- -- RPCItems:RollMageBaneGloves(Vector(-4928, 2048))
     -- -- RPCItems:RollTwistedMaskOfAhnqhirBlue(Vector(-4928, 2048))
     --  RPCItems:RollTwistedMaskOfAhnqhirYellow(Vector(-4928, 2048))
