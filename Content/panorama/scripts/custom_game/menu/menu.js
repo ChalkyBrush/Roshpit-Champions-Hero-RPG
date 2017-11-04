@@ -416,6 +416,7 @@ function UseRespawnFlag(){
 function AttributeTooltipHoverFromServer(msg){
 	var queryUnit = msg.unit
 	// var tooltipArgs = "queryUnit="+queryUnit
+	GameUI.StatQueryData = msg.extraData
 	GameUI.AttributeQueryUnit = queryUnit
 	$.DispatchEvent("UIShowCustomLayoutTooltip", GameUI.StatsTooltipAttachment, "AttributesTooltip", "file://{resources}/layout/custom_game/skills/attributes_tooltip.xml");
 	// $.DispatchEvent("UIShowCustomLayoutParametersTooltip", GameUI.StatsTooltipAttachment, "file://{resources}/layout/custom_game/skills/attributes_tooltip.xml", tooltipArgs);

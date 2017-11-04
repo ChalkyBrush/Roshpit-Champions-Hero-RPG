@@ -473,5 +473,20 @@ end
 function CustomAttributes:ActivateStatsTooltip(msg)
 	local unit = EntIndexToHScript(msg.queryunit)
 	local player = PlayerResource:GetPlayer(msg.playerID)
-	CustomGameEventManager:Send_ServerToPlayer(player, "attribute_tooltip", {unit = msg.queryunit, playerID = msg.playerID} )
+	local tableData = {}
+	tableData.phys = (1 - GameState:IncomingDamageDecreaseWithType(unit, Events.GameMaster, false, DAMAGE_TYPE_PHYSICAL))*10000
+	print(GameState:IncomingDamageDecreaseWithType(unit, Events.GameMaster, false, DAMAGE_TYPE_PHYSICAL))
+	tableData.magic = (1 - GameState:IncomingDamageDecreaseWithType(unit, Events.GameMaster, false, DAMAGE_TYPE_MAGICAL))*10000
+	tableData.pure = (1 - GameState:IncomingDamageDecreaseWithType(unit, Events.GameMaster, false, DAMAGE_TYPE_PURE))*10000
+
+	local baseDamage = 100000
+	local qDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, 1, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
+	tableData.qAmp = (qDamage/baseDamage)*10000
+	local wDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, 2, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
+	tableData.wAmp = (wDamage/baseDamage)*10000
+	local eDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, 3, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
+	tableData.eAmp = (eDamage/baseDamage)*10000
+	local rDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
+	tableData.rAmp = (rDamage/baseDamage)*10000
+	CustomGameEventManager:Send_ServerToPlayer(player, "attribute_tooltip", {unit = msg.queryunit, playerID = msg.playerID, extraData = tableData} )
 end

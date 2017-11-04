@@ -11,7 +11,6 @@ ATK_DMG_PER_PRIMARY = 2
 
 function initializeTooltip(func){
 	// $.Msg(func)
-	$.Msg("INIT Attributes")
 	var queryUnit = GameUI.AttributeQueryUnit
 	var name = Entities.GetUnitName( queryUnit )
 	var level = Entities.GetLevel( queryUnit )
@@ -93,13 +92,25 @@ function initializeTooltip(func){
 	var attackRange = Entities.GetAttackRange( queryUnit )
 	$('#atk_4_right').text = numberWithCommas(attackRange)
 
+	$('#attack_defense_subtitle_base_ability').text = $.Localize('#ui_base_ability_damage')
+	$('#base_ability_title_q').text = "Q"
+	$('#base_ability_value_q').text = parseInt(GameUI.StatQueryData.qAmp)/100 + "%"
+
+	$('#base_ability_title_w').text = "W"
+	$('#base_ability_value_w').text = parseInt(GameUI.StatQueryData.wAmp)/100 + "%"
+
+	$('#base_ability_title_e').text = "E"
+	$('#base_ability_value_e').text = parseInt(GameUI.StatQueryData.eAmp)/100 + "%"
+
+	$('#base_ability_title_r').text = "R"
+	$('#base_ability_value_r').text = parseInt(GameUI.StatQueryData.rAmp)/100 + "%"
 	//DEFENSE
 
 	$('#attack_defense_title_def').text = $.Localize("#ui_defense").toUpperCase()
 	$('#def_1_left').text = $.Localize("#item_armor")
-	var physArmor = parseInt(queryUnit)
+	var physArmor = parseInt(Entities.GetPhysicalArmorValue(queryUnit))
 	$('#def_1_right').text = numberWithCommas(physArmor)
-	var bonusArmor = Entities.GetBonusPhysicalArmor(queryUnit)
+	var bonusArmor = parseInt(Entities.GetBonusPhysicalArmor(queryUnit))
 	$('#def_2_right').text = "<font color='#68ff23'>+"+numberWithCommas(bonusArmor)+"</font>"
 
 	$('#def_3_left').text = $.Localize("#ui_physical_reduction")
@@ -112,6 +123,21 @@ function initializeTooltip(func){
 	var magRes = parseInt(Entities.GetMagicalArmorValue( queryUnit)*10000)/100
 	$('#def_4_right').text = magRes+"%"
 	
+	$.Msg(GameUI.StatQueryData)
+	$('#attack_defense_subtitle_resist').text = $.Localize('ui_additional_resistance')
+
+	var phys_resist = parseInt(GameUI.StatQueryData.phys)/100
+	$('#resist_title_phys').text = $.Localize("#DOTA_ToolTip_Damage_Physical")
+	$('#resist_value_phys').text = phys_resist+"%"
+
+	var magic_resist = parseInt(GameUI.StatQueryData.magic)/100
+	$('#resist_title_magic').text = $.Localize("#DOTA_ToolTip_Damage_Magical")
+	$('#resist_value_magic').text = magic_resist+"%"
+
+	var pure_resist = parseInt(GameUI.StatQueryData.pure)/100
+	$('#resist_title_pure').text = $.Localize("#DOTA_ToolTip_Damage_Pure")
+	$('#resist_value_pure').text = pure_resist+"%"
+
 }
 
 function init(){

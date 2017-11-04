@@ -106,6 +106,27 @@
 						<Label class="atk_def_property bonus_left" id="atk_4_left" html="true"/>
 						<Label class="atk_def_property bonus_right" id="atk_4_right" html="true"/>
 					</Panel>
+					<Panel class="class-splitter-thin-full">
+					</Panel>
+					<Label class="attack_defense_subtitle" id="attack_defense_subtitle_base_ability"/>
+					<Panel class="resistance_container">
+						<Panel class="base_ability_item_container">
+							<Label class="resistance_title" id="base_ability_title_q" html="true"/>
+							<Label class="resistance_value" id="base_ability_value_q"/>
+						</Panel>
+						<Panel class="base_ability_item_container">
+							<Label class="resistance_title" id="base_ability_title_w" html="true"/>
+							<Label class="resistance_value" id="base_ability_value_w"/>
+						</Panel>
+						<Panel class="base_ability_item_container">
+							<Label class="resistance_title" id="base_ability_title_e" html="true"/>
+							<Label class="resistance_value" id="base_ability_value_e"/>
+						</Panel>
+						<Panel class="base_ability_item_container">
+							<Label class="resistance_title" id="base_ability_title_r" html="true"/>
+							<Label class="resistance_value" id="base_ability_value_r"/>
+						</Panel>
+					</Panel>
 				</Panel>
 				<Panel class="attack_defense_panel panel_right">
 					<Label class="attack_defense_title" id="attack_defense_title_def"/>
@@ -124,6 +145,23 @@
 					<Panel class="atk_def_property_container">
 						<Label class="atk_def_property bonus_left" id="def_4_left" html="true"/>
 						<Label class="atk_def_property bonus_right" id="def_4_right" html="true"/>
+					</Panel>
+					<Panel class="class-splitter-thin-full">
+					</Panel>
+					<Label class="attack_defense_subtitle" id="attack_defense_subtitle_resist"/>
+					<Panel class="resistance_container">
+						<Panel class="resistance_item_container">
+							<Label class="resistance_title" id="resist_title_phys" html="true"/>
+							<Label class="resistance_value" id="resist_value_phys"/>
+						</Panel>
+						<Panel class="resistance_item_container">
+							<Label class="resistance_title" id="resist_title_magic" html="true"/>
+							<Label class="resistance_value" id="resist_value_magic"/>
+						</Panel>
+						<Panel class="resistance_item_container">
+							<Label class="resistance_title" id="resist_title_pure" html="true"/>
+							<Label class="resistance_value" id="resist_value_pure"/>
+						</Panel>
 					</Panel>
 				</Panel>
 			</Panel>

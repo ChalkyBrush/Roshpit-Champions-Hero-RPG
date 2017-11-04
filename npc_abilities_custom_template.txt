@@ -98864,7 +98864,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"900 975 1050 1125 1200 1275 1350"
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastPoint"				"0"
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
@@ -98877,7 +98877,6 @@
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
-
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -98892,6 +98891,15 @@
 		}
 		"Modifiers"
 		{
+			"modifier_seinaru_ignore_cast_angle"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"1000"
+					"MODIFIER_PROPERTY_IGNORE_CAST_ANGLE" "100"
+				}
+			}
 			"modifier_seinaru_arcana_dashing"
 			{
 				"OverrideAnimation"     "ACT_DOTA_OVERRIDE_ABILITY_1"

@@ -1020,17 +1020,19 @@ function Filters:ApplyDamageBasic(victim,attacker,damage,damage_type)
     ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type })
 end
 
-function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, slot, element1, element2)
+function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, slot, element1, element2, ignore_effects)
     -- if damage_type == DAMAGE_TYPE_PHYSICAL then
     --     damage = damage/(1+((attacker:GetIntellect()/16)/100))
     -- end
     local attackerName = attacker:GetUnitName()
-    if attackerName == "npc_dota_hero_leshrac" then
-        if slot > 0 then
-            damage = Filters:Bahamut_DB_rune(attacker, damage, slot, victim)
+
+    if not ignore_effects then
+        if attackerName == "npc_dota_hero_leshrac" then
+            if slot > 0 then
+                damage = Filters:Bahamut_DB_rune(attacker, damage, slot, victim)
+            end
         end
     end
-   
 
     damage, element1, element2 = Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, element1, element2)
     attacker.element1 = element1
@@ -1171,10 +1173,14 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + 4
         end
         if attacker:HasModifier("modifier_death_whisper") then
-            Filters:DeathWhisperApply(attacker, victim)
+            if not ignore_effects then
+                Filters:DeathWhisperApply(attacker, victim)
+            end
         end
         if attacker:HasModifier("modifier_vampiric_breastplate") then
-            Filters:VampiricBreastplate(attacker, damage)
+            if not ignore_effects then
+                Filters:VampiricBreastplate(attacker, damage)
+            end
         end
         if attacker:HasModifier("modifier_conjuror_immortal_weapon_2") then
             if attacker:GetUnitName() == "npc_dota_hero_invoker" then
@@ -1182,9 +1188,11 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             end
         end
         if attacker:HasModifier("modifier_shipyard_veil") then
-            local shipyardStacks = attacker:GetModifierStackCount("modifier_shipyard_veil_shield", attacker.InventoryUnit)
-            damageMult = damageMult + shipyardStacks
-            Filters:ShipyardVeilQHit(attacker, victim)
+            if not ignore_effects then
+                local shipyardStacks = attacker:GetModifierStackCount("modifier_shipyard_veil_shield", attacker.InventoryUnit)
+                damageMult = damageMult + shipyardStacks
+                Filters:ShipyardVeilQHit(attacker, victim)
+            end
         end
         if attacker:HasModifier("modifier_spirit_warrior_immortal_weapon_1") then
             damageMult = damageMult + 1
@@ -1198,12 +1206,15 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + 0.2*current_stack
         end
         damage = damage*(1+damageMult)
-        Filters:ApplyQdamage(victim, attacker, damage, damage_type)
-        if attacker:HasModifier("modifier_luma_guard") then
-            Filters:LumaGuardStrike(attacker, victim, damage)
-        end
-        if attacker:HasModifier("modifier_demon_mask") then
-            Filters:DemonMask(attacker, victim, damage)
+        if not ignore_effects then
+            Filters:ApplyQdamage(victim, attacker, damage, damage_type)
+
+            if attacker:HasModifier("modifier_luma_guard") then
+                Filters:LumaGuardStrike(attacker, victim, damage)
+            end
+            if attacker:HasModifier("modifier_demon_mask") then
+                Filters:DemonMask(attacker, victim, damage)
+            end
         end
     elseif slot == 2 then
         if attacker:HasModifier("modifier_watcher_three") then
@@ -1212,8 +1223,10 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_spellslinger_coat") then
             damageMult = damageMult + 1
         end
-        if attacker:HasModifier("modifier_wild_nature_two") then
-            Filters:WildNatureTwo(attacker, victim)
+        if not ignore_effects then
+            if attacker:HasModifier("modifier_wild_nature_two") then
+                Filters:WildNatureTwo(attacker, victim)
+            end
         end
         if attacker:HasModifier("modifier_phantom_sorcerer") then
             damageMult = damageMult + 7
@@ -1253,11 +1266,13 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damage = damage * randomFactor
         end
         if attacker:HasModifier("modifier_claws_of_the_ethereal_revenant") then
-            local proc = Filters:GetProc(attacker, 11)    
-            if proc then
-                Timers:CreateTimer(0.05, function()
-                    attacker.handItem:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_ethereal_revenant_link", {duration = 6}) 
-                end)           
+            if not ignore_effects then
+                local proc = Filters:GetProc(attacker, 11)    
+                if proc then
+                    Timers:CreateTimer(0.05, function()
+                        attacker.handItem:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_ethereal_revenant_link", {duration = 6}) 
+                    end)           
+                end
             end
         end
 
@@ -1265,16 +1280,18 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             Filters:DefilerHit(attacker, victim)
         end
         damage = damage*(1+damageMult)
-        Filters:ApplyWdamage(victim, attacker, damage, damage_type)
-        if attacker:HasModifier("modifier_fire_deity_crown") then
-            Filters:FireDeity(attacker, victim, damage)
-        end
-        if attacker:HasModifier("modifier_frostburn_gauntlets") then
-            CustomAbilities:QuickAttachParticle("particles/econ/items/crystal_maiden/crystal_maiden_maiden_of_icewrack/cm_arcana_pup_flee.vpcf", victim, 3)
-            attacker.handItem:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_frostburn_gauntlets_slow", {duration = 4})
-            local proc = Filters:GetProc(attacker, 20)
-            if proc then
-                Filters:FrostburnGauntlet(attacker, damage, victim)
+        if not ignore_effects then
+            Filters:ApplyWdamage(victim, attacker, damage, damage_type)
+            if attacker:HasModifier("modifier_fire_deity_crown") then
+                Filters:FireDeity(attacker, victim, damage)
+            end
+            if attacker:HasModifier("modifier_frostburn_gauntlets") then
+                CustomAbilities:QuickAttachParticle("particles/econ/items/crystal_maiden/crystal_maiden_maiden_of_icewrack/cm_arcana_pup_flee.vpcf", victim, 3)
+                attacker.handItem:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_frostburn_gauntlets_slow", {duration = 4})
+                local proc = Filters:GetProc(attacker, 20)
+                if proc then
+                    Filters:FrostburnGauntlet(attacker, damage, victim)
+                end
             end
         end
 
@@ -1284,15 +1301,17 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
 
         if attacker:HasModifier("modifier_wind_deity_crown") then
-            if attacker:IsAlive() then
-                if attacker.headItem.targetsHit < 7 then
-                    CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_ogre_magi/windstrike_weapon_buff_circle_flash.vpcf", victim, 1)
-                    Filters:PerformAttackSpecial(attacker, victim, true, true, true, false, true, false, false)
+            if not ignore_effects then
+                if attacker:IsAlive() then
+                    if attacker.headItem.targetsHit < 7 then
+                        CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_ogre_magi/windstrike_weapon_buff_circle_flash.vpcf", victim, 1)
+                        Filters:PerformAttackSpecial(attacker, victim, true, true, true, false, true, false, false)
+                    end
+                    attacker.headItem:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_wind_deity_damage_buff", {duration = 30})
+                    local currentStacks = attacker:GetModifierStackCount("modifier_wind_deity_damage_buff", attacker.InventoryUnit)
+                    attacker:SetModifierStackCount("modifier_wind_deity_damage_buff", attacker.InventoryUnit, currentStacks + 1)
+                    attacker.headItem.targetsHit = attacker.headItem.targetsHit + 1
                 end
-                attacker.headItem:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_wind_deity_damage_buff", {duration = 30})
-                local currentStacks = attacker:GetModifierStackCount("modifier_wind_deity_damage_buff", attacker.InventoryUnit)
-                attacker:SetModifierStackCount("modifier_wind_deity_damage_buff", attacker.InventoryUnit, currentStacks + 1)
-                attacker.headItem.targetsHit = attacker.headItem.targetsHit + 1
             end
         end
         if attacker:HasModifier("modifier_conjuror_immortal_weapon_2") then
@@ -1315,7 +1334,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         --         end
         --     end
         -- end
-        Filters:ApplyEdamage(victim, attacker, damage, damage_type)
+        if not ignore_effects then
+            Filters:ApplyEdamage(victim, attacker, damage, damage_type)
+        end
     elseif slot == 4 then
         if attacker:HasModifier("modifier_master_gloves") then
             damageMult = damageMult + 2
@@ -1332,51 +1353,53 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
 
         damage = damage*(1+damageMult)
+        if not ignore_effects then
+            Filters:ApplyRdamage(victim, attacker, damage, damage_type)
 
-        Filters:ApplyRdamage(victim, attacker, damage, damage_type)
-
-        if attacker:HasModifier("modifier_water_deity_crown") then
-            if not attacker.headItem.waterParticleCount then
-                attacker.headItem.waterParticleCount = 0
+            if attacker:HasModifier("modifier_water_deity_crown") then
+                if not attacker.headItem.waterParticleCount then
+                    attacker.headItem.waterParticleCount = 0
+                end
+                if attacker.headItem.waterParticleCount <= 9 then
+                    CustomAbilities:QuickAttachParticle("particles/roshpit/water_deity.vpcf", victim, 3)
+                    attacker.headItem.waterParticleCount = attacker.headItem.waterParticleCount + 1
+                    Timers:CreateTimer(1, function()
+                        attacker.headItem.waterParticleCount = attacker.headItem.waterParticleCount - 1
+                    end)
+                end
+                Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
+                attacker.headItem:ApplyDataDrivenModifier(attacker.headItem, victim, "modifier_water_deity_crown_slow", {duration = 6})
             end
-            if attacker.headItem.waterParticleCount <= 9 then
-                CustomAbilities:QuickAttachParticle("particles/roshpit/water_deity.vpcf", victim, 3)
-                attacker.headItem.waterParticleCount = attacker.headItem.waterParticleCount + 1
-                Timers:CreateTimer(1, function()
-                    attacker.headItem.waterParticleCount = attacker.headItem.waterParticleCount - 1
-                end)
-            end
-            Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
-            attacker.headItem:ApplyDataDrivenModifier(attacker.headItem, victim, "modifier_water_deity_crown_slow", {duration = 6})
         end
     end
-
-    if slot > 0 then
-        if attacker:HasModifier("modifier_mach_punch_passive") then
-            local d_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
-            if d_b_level > 0 then
-                if not victim.dummy then
-                    local ability = attacker:FindAbilityByName("zonik_mach_punch")
-                    ability:ApplyDataDrivenModifier(attacker, victim, "modifier_zonik_echo", {duration = 4})
-                    if not victim.zonikEcho then
-                        victim.zonikEcho = 0
+    if not ignore_effects then
+        if slot > 0 then
+            if attacker:HasModifier("modifier_mach_punch_passive") then
+                local d_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
+                if d_b_level > 0 then
+                    if not victim.dummy then
+                        local ability = attacker:FindAbilityByName("zonik_mach_punch")
+                        ability:ApplyDataDrivenModifier(attacker, victim, "modifier_zonik_echo", {duration = 4})
+                        if not victim.zonikEcho then
+                            victim.zonikEcho = 0
+                        end
+                        victim.zonikEcho = victim.zonikEcho + damage*d_b_level*0.005
                     end
-                    victim.zonikEcho = victim.zonikEcho + damage*d_b_level*0.005
                 end
             end
         end
-    end
-    if attacker:HasModifier("modifier_bahamut_immortal_weapon_1") then
-        local proc = Filters:GetProc(attacker, 20)    
-        if proc then
-            print("BIG IMMORTAL NUKE!")
-            local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_invoker/invoker_death_end.vpcf", PATTACH_CUSTOMORIGIN, victim )
-            ParticleManager:SetParticleControlEnt(pfx, 0, victim, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", victim:GetAbsOrigin(), true)
-            ParticleManager:SetParticleControl(pfx, 1, Vector(255,255,255))
-            Timers:CreateTimer(2.5, function() 
-              ParticleManager:DestroyParticle( pfx, false )
-            end)    
-            ApplyDamage({ victim = victim, attacker = attacker, damage = damage*4, damage_type = DAMAGE_TYPE_PURE })
+        if attacker:HasModifier("modifier_bahamut_immortal_weapon_1") then
+            local proc = Filters:GetProc(attacker, 20)    
+            if proc then
+                print("BIG IMMORTAL NUKE!")
+                local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_invoker/invoker_death_end.vpcf", PATTACH_CUSTOMORIGIN, victim )
+                ParticleManager:SetParticleControlEnt(pfx, 0, victim, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", victim:GetAbsOrigin(), true)
+                ParticleManager:SetParticleControl(pfx, 1, Vector(255,255,255))
+                Timers:CreateTimer(2.5, function() 
+                  ParticleManager:DestroyParticle( pfx, false )
+                end)    
+                ApplyDamage({ victim = victim, attacker = attacker, damage = damage*4, damage_type = DAMAGE_TYPE_PURE })
+            end
         end
     end
     if slot == 0 then
