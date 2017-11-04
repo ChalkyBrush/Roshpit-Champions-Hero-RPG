@@ -15174,6 +15174,10 @@
 			{
 				"IsHidden"	"1"
 				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"  "1"
+				}
 			}
 			"modifier_conjuror_c_c_damage"
 			{

@@ -227,6 +227,9 @@ function GameMode:_InitGameMode()
   CustomGameEventManager:RegisterListener( "curateAbility", Dynamic_Wrap(Curator, "ClientDataAbility"))
   CustomGameEventManager:RegisterListener( "curateGlyph", Dynamic_Wrap(Curator, "ClientDataGlyph"))
   CustomGameEventManager:RegisterListener( "stop_unit", Dynamic_Wrap(Curator, "StopUnit"))
+
+  CustomGameEventManager:RegisterListener("stats_hover", Dynamic_Wrap(CustomAttributes, "ActivateStatsTooltip"))
+  
   -- GameMode:SetTrackingProjectileFilter( Dynamic_Wrap( Attacks, "FilterProjectile" ), self )
   --ListenToGameEvent("dota_tutorial_shop_toggled", Dynamic_Wrap(GameMode, 'OnShopToggled'), self)
 

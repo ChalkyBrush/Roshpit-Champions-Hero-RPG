@@ -159,9 +159,9 @@ function CustomAttributes:SetAttributes(hero)
 		agi_bonus = agi_bonus + stacks*CustomAttributes.ASTRAL_E4_STATS
 		int_bonus = int_bonus + stacks*CustomAttributes.ASTRAL_E4_STATS
 	end
-	if hero:HasModifier("modifier_arcane_intellect_visible") then
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_arcane_intellect_visible", CustomAttributes.SORCERESS_ARCANE_INTELLECT)
-	end
+	-- if hero:HasModifier("modifier_arcane_intellect_visible") then
+	-- 	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_arcane_intellect_visible", CustomAttributes.SORCERESS_ARCANE_INTELLECT)
+	-- end
 	if heroName == "npc_dota_hero_beastmaster" then
 		if hero:HasModifier("modifier_warlord_rune_d_a_strength") then
 			str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_warlord_rune_d_a_strength", CustomAttributes.WARLORD_Q4_STATS)
@@ -468,4 +468,10 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 	end
 	hero:SetModifierStackCount("modifier_primary_attribute_damage", caster, damage_from_primary)	
 	hero:CalculateStatBonus()
+end
+
+function CustomAttributes:ActivateStatsTooltip(msg)
+	local unit = EntIndexToHScript(msg.queryunit)
+	local player = PlayerResource:GetPlayer(msg.playerID)
+	CustomGameEventManager:Send_ServerToPlayer(player, "attribute_tooltip", {unit = msg.queryunit, playerID = msg.playerID} )
 end
