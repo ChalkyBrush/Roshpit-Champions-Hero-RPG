@@ -221,12 +221,25 @@ function CorrectDotaUI(){
 	GameUI.StatsTooltipAttachment = stats_tooltip_panel
 	stats_tooltip_panel.SetPanelEvent('onmouseover', function StatsToolTip() {
 		$.Msg("NEW TOOLTIP?")
+		GameUI.ShouldAttributeTooltip = true
 		GameEvents.SendCustomGameEventToServer( "stats_hover", {playerID: Game.GetLocalPlayerID(), queryunit: Players.GetLocalPlayerPortraitUnit()});
 		// $.DispatchEvent("UIShowCustomLayoutParametersTooltip", stats_tooltip_panel, "file://{resources}/layout/custom_game/equipment/item_tooltip.xml", tooltipArgs);
 	});
 	stats_tooltip_panel.SetPanelEvent('onmouseout', function StatsToolTip() {
+		GameUI.ShouldAttributeTooltip = false
 		$.DispatchEvent("UIHideCustomLayoutTooltip", "AttributesTooltip");
 	});
+
+	// var stats_tooltip_panel = parent.FindChildTraverse('QueryInfo').FindChildTraverse('stats_container')
+	// GameUI.StatsTooltipAttachment = stats_tooltip_panel
+	// stats_tooltip_panel.SetPanelEvent('onmouseover', function StatsToolTip() {
+	// 	$.Msg("NEW TOOLTIP?")
+	// 	GameEvents.SendCustomGameEventToServer( "stats_hover", {playerID: Game.GetLocalPlayerID(), queryunit: Players.GetLocalPlayerPortraitUnit()});
+	// 	// $.DispatchEvent("UIShowCustomLayoutParametersTooltip", stats_tooltip_panel, "file://{resources}/layout/custom_game/equipment/item_tooltip.xml", tooltipArgs);
+	// });
+	// stats_tooltip_panel.SetPanelEvent('onmouseout', function StatsToolTip() {
+	// 	$.DispatchEvent("UIHideCustomLayoutTooltip", "AttributesTooltip");
+	// });
 }
 
 function InitializeMenu(){
@@ -414,12 +427,14 @@ function UseRespawnFlag(){
 }
 
 function AttributeTooltipHoverFromServer(msg){
-	var queryUnit = msg.unit
-	// var tooltipArgs = "queryUnit="+queryUnit
-	GameUI.StatQueryData = msg.extraData
-	GameUI.AttributeQueryUnit = queryUnit
-	$.DispatchEvent("UIShowCustomLayoutTooltip", GameUI.StatsTooltipAttachment, "AttributesTooltip", "file://{resources}/layout/custom_game/skills/attributes_tooltip.xml");
-	// $.DispatchEvent("UIShowCustomLayoutParametersTooltip", GameUI.StatsTooltipAttachment, "file://{resources}/layout/custom_game/skills/attributes_tooltip.xml", tooltipArgs);
+	if (GameUI.ShouldAttributeTooltip){
+		var queryUnit = msg.unit
+		// var tooltipArgs = "queryUnit="+queryUnit
+		GameUI.StatQueryData = msg.extraData
+		GameUI.AttributeQueryUnit = queryUnit
+		$.DispatchEvent("UIShowCustomLayoutTooltip", GameUI.StatsTooltipAttachment, "AttributesTooltip", "file://{resources}/layout/custom_game/skills/attributes_tooltip.xml");
+		// $.DispatchEvent("UIShowCustomLayoutParametersTooltip", GameUI.StatsTooltipAttachment, "file://{resources}/layout/custom_game/skills/attributes_tooltip.xml", tooltipArgs);
+	}
 }
 
 (function()

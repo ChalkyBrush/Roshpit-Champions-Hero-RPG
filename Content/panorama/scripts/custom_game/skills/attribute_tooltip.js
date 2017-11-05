@@ -22,6 +22,10 @@ function initializeTooltip(func){
 	}else{
 		$('#paragon-skull').AddClass('invisible')
 	}
+	var halcyonMult = 1
+	if (GameUI.StatQueryData.halcyon == 1){
+		halcyonMult = 1.5
+	}
 	$('#tooltip_title').text = "<font color='"+nameColor+"'>"+$.Localize(name)+"</font>"
 	$('#tooltip_level').text = "Lv "+level
 	if (Entities.IsHero( queryUnit )){
@@ -35,16 +39,16 @@ function initializeTooltip(func){
 		$('#attribute_value_agility').text = numberWithCommas(heroAttributes.agility)
 		$('#attribute_value_int').text = numberWithCommas(heroAttributes.intelligence)
 
-		var healthBonus = heroAttributes.strength*HEALTH_PER_STR
-		var healthRegenBonus = parseInt(heroAttributes.strength*HEALTH_REGEN_PER_STR)
+		var healthBonus = heroAttributes.strength*HEALTH_PER_STR*halcyonMult
+		var healthRegenBonus = parseInt(heroAttributes.strength*HEALTH_REGEN_PER_STR*halcyonMult)
 		$('#attribute_given_bonus_str_1_left').text = "<font color='#FFFFFF'>HP</font>"
 		$('#attribute_given_bonus_str_1_right').text = "+"+numberWithCommas(healthBonus)
 
 		$('#attribute_given_bonus_str_2_left').text = "<font color='#FFFFFF'>"+$.Localize('#ui_regen')+"</font>"
 		$('#attribute_given_bonus_str_2_right').text = "+"+numberWithCommas(healthRegenBonus)
 
-		var atkspdBonus = parseInt(heroAttributes.agility*ATTACKSPEED_PER_AGI)
-		var armorBonus = parseInt(heroAttributes.agility*ARMOR_PER_AGI)
+		var atkspdBonus = parseInt(heroAttributes.agility*ATTACKSPEED_PER_AGI*halcyonMult)
+		var armorBonus = parseInt(heroAttributes.agility*ARMOR_PER_AGI*halcyonMult)
 
 		$('#attribute_given_bonus_agi_1_left').text = "<font color='#FFFFFF'>"+$.Localize('#item_attack_speed')+"</font>"
 		$('#attribute_given_bonus_agi_1_right').text = "+"+numberWithCommas(atkspdBonus)
@@ -52,8 +56,8 @@ function initializeTooltip(func){
 		$('#attribute_given_bonus_agi_2_left').text = "<font color='#FFFFFF'>"+$.Localize('#item_armor')+"</font>"
 		$('#attribute_given_bonus_agi_2_right').text = "+"+numberWithCommas(armorBonus)
 
-		var manaBonus = parseInt(heroAttributes.intelligence*MANA_PER_INT)
-		var manaRegenBonus = parseInt(heroAttributes.intelligence*MANA_REGEN_PER_INT)
+		var manaBonus = parseInt(heroAttributes.intelligence*MANA_PER_INT*halcyonMult)
+		var manaRegenBonus = parseInt(heroAttributes.intelligence*MANA_REGEN_PER_INT*halcyonMult)
 
 		$('#attribute_given_bonus_int_1_left').text = "<font color='#FFFFFF'>"+"Mana"+"</font>"
 		$('#attribute_given_bonus_int_1_right').text = "+"+numberWithCommas(manaBonus)
@@ -63,17 +67,17 @@ function initializeTooltip(func){
 
 		var primaryAttribute = parseInt(heroAttributes.primaryAttribute)
 		if (primaryAttribute == 0){
-			var atkBonus = parseInt(heroAttributes.strength*ATK_DMG_PER_PRIMARY)
+			var atkBonus = parseInt(heroAttributes.strength*ATK_DMG_PER_PRIMARY*halcyonMult)
 			$('#attribute_given_bonus_str_3_left').text = "<font color='#FFFFFF'>"+$.Localize('#ui_attack_damage')+"</font>"
 			$('#attribute_given_bonus_str_3_right').text = "+"+numberWithCommas(atkBonus)
 			$('#attribute_image_strength').AddClass('primary_attribute')
 		}else if(primaryAttribute == 1){
-			var atkBonus = parseInt(heroAttributes.agility*ATK_DMG_PER_PRIMARY)
+			var atkBonus = parseInt(heroAttributes.agility*ATK_DMG_PER_PRIMARY*halcyonMult)
 			$('#attribute_given_bonus_agi_3_left').text = "<font color='#FFFFFF'>"+$.Localize('#ui_attack_damage')+"</font>"
 			$('#attribute_given_bonus_agi_3_right').text = "+"+numberWithCommas(atkBonus)
 			$('#attribute_image_agility').AddClass('primary_attribute')		
 		}else if(primaryAttribute == 2){
-			var atkBonus = parseInt(heroAttributes.intelligence*ATK_DMG_PER_PRIMARY)
+			var atkBonus = parseInt(heroAttributes.intelligence*ATK_DMG_PER_PRIMARY*halcyonMult)
 			$('#attribute_given_bonus_int_3_left').text = "<font color='#FFFFFF'>"+$.Localize('#ui_attack_damage')+"</font>"
 			$('#attribute_given_bonus_int_3_right').text = "+"+numberWithCommas(atkBonus)
 			$('#attribute_image_int').AddClass('primary_attribute')		

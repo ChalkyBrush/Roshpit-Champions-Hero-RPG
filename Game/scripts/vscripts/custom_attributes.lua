@@ -431,19 +431,23 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 	local strength = hero:GetStrength()
 	local agility = hero:GetAgility()
 	local intelligence = hero:GetIntellect()
+	local halcyon = 1
+	if caster:HasModifier("modifier_halcyon_soul_glove") then
+		halcyon = 1.5
+	end
 	if not hero:HasModifier("modifier_strength_health") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_strength_health", {})
 	end
-	hero:SetModifierStackCount("modifier_strength_health", caster, strength*CustomAttributes.HEALTH_PER_STR)
+	hero:SetModifierStackCount("modifier_strength_health", caster, strength*CustomAttributes.HEALTH_PER_STR*halcyon)
 	if not hero:HasModifier("modifier_strength_health_regen") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_strength_health_regen", {})
 	end
-	hero:SetModifierStackCount("modifier_strength_health_regen", caster, strength*CustomAttributes.HEALTH_REGEN_PER_STR)
+	hero:SetModifierStackCount("modifier_strength_health_regen", caster, strength*CustomAttributes.HEALTH_REGEN_PER_STR*halcyon)
 
 	if not hero:HasModifier("modifier_agility_attackspeed") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_agility_attackspeed", {})
 	end
-	hero:SetModifierStackCount("modifier_agility_attackspeed", caster, agility*CustomAttributes.ATTACKSPEED_PER_AGI)
+	hero:SetModifierStackCount("modifier_agility_attackspeed", caster, agility*CustomAttributes.ATTACKSPEED_PER_AGI*halcyon)
 
 	-- if not hero:HasModifier("modifier_agility_armor") then
 	-- 	ability:ApplyDataDrivenModifier(caster, hero, "modifier_agility_armor", {})
@@ -455,14 +459,14 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 	if not hero:HasModifier("modifier_int_mana") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_int_mana", {})
 	end
-	hero:SetModifierStackCount("modifier_int_mana", caster, intelligence*CustomAttributes.MANA_PER_INT)
+	hero:SetModifierStackCount("modifier_int_mana", caster, intelligence*CustomAttributes.MANA_PER_INT*halcyon)
 
 	if not hero:HasModifier("modifier_int_mana_regen") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_int_mana_regen", {})
 	end
-	hero:SetModifierStackCount("modifier_int_mana_regen", caster, intelligence*CustomAttributes.MANA_REGEN_PER_INT)
+	hero:SetModifierStackCount("modifier_int_mana_regen", caster, intelligence*CustomAttributes.MANA_REGEN_PER_INT*halcyon)
 
-	local damage_from_primary = Filters:GetPrimaryAttributeMultiple(hero, CustomAttributes.ATK_DMG_PER_PRIMARY)
+	local damage_from_primary = Filters:GetPrimaryAttributeMultiple(hero, CustomAttributes.ATK_DMG_PER_PRIMARY*halcyon)
 	if not hero:HasModifier("modifier_primary_attribute_damage") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_primary_attribute_damage", {})
 	end
@@ -497,6 +501,10 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 			tableData.magic = unit.resist_mag*100000
 			tableData.pure = unit.resist_pure*100000
 		end
+	end
+	tableData.halcyon = 0
+	if unit:HasModifier("modifier_halcyon_soul_glove") then
+		tableData.halcyon = 1
 	end
 	if unit.paragon then
 		tableData.paragon = 1
