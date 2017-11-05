@@ -43018,14 +43018,6 @@
 						"Function"		"DungeonCreep"
 					}
 				}
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"npc_abilities/dungeon_thinker.lua"
-						"Function"		"aggroUnit"
-					}
-				}
 			}
 
 		}

@@ -493,6 +493,7 @@ function Tanari:CreateDummyUnit(position, model, modelscale)
   return visionTracer
 end
 
+
 function Tanari:InitCamp()
   print("Initialize Tanari Jungle")
       Dungeons.phoenixCollision = true

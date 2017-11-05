@@ -1716,7 +1716,7 @@ function DungeonCreep(event)
 					local heightDiff = units[i]:GetAbsOrigin().z - caster:GetAbsOrigin().z
 					if math.abs(heightDiff) > 200 then
 					else
-						aggroUnit(event)
+						Dungeons:AggroUnit(caster)
 					end
 				end
 			end
@@ -1724,15 +1724,15 @@ function DungeonCreep(event)
 		local allies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		for i = 1, #allies, 1 do
 			if allies[i].aggro then
-				aggroUnit(event)
+				Dungeons:AggroUnit(caster)
 			end
 		end
 	end
 end
 
 function aggroUnit(event)
-	local caster = event.caster
-	Dungeons:AggroUnit(caster)
+	-- local caster = event.caster
+	-- Dungeons:AggroUnit(caster)
 end
 
 function aggroUnitInvis(event)

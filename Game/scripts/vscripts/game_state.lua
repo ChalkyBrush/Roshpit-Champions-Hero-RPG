@@ -946,16 +946,12 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 	if victim:HasModifier("modifier_task_armor") then
 		damage = damage*0.001
-		CustomAbilities:HitTaskShield(victim, attacker)
+		if applyEffects then
+			CustomAbilities:HitTaskShield(victim, attacker)
+		end
 	end
 	if victim:HasModifier("modifier_knights_disciple_heal") then
 		damage = damage*0.8
-	end
-	if victim:HasModifier("modifier_earth_guardian") then
-		if shouldConsumeShields then
-			Filters:EarthGuardian(victim, damage)
-		end
-		damage = damage*0.5
 	end
 	if victim:HasModifier("modifier_astral_c_c_visible") then
 		damage = damage*0.25
@@ -989,6 +985,23 @@ function GameState:FilterDamage(filterTable)
 		-- if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 		-- 	filterTable["damage"] = math.ceil(filterTable["damage"]/(1+((attacker:GetIntellect()/14)/100)))
 		-- end
+	end
+	local StartingDamage = filterTable["damage"]
+	local applyEffects = true
+	if filterTable["entindex_inflictor_const"] then
+		local ability = EntIndexToHScript(filterTable["entindex_inflictor_const"])
+		if IsValidEntity(ability) then
+			if ability:GetEntityIndex() == Events.GameMasterAbility:GetEntityIndex() then
+				print("APPLY EFFECTS FALSE!")
+				applyEffects = false
+			end
+		end
+	end
+	if applyEffects then
+		if victim:HasModifier("modifier_dungeon_thinker_creep") then
+			victim.aggro = true
+			Dungeons:AggroUnit(victim)
+		end
 	end
 	if GameState:IsPVPAlpha() then
 		if victim:IsHero() and attacker:IsHero() then
@@ -1346,6 +1359,10 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + multIncrease
 		end
 	end
+	if victim:HasModifier("modifier_earth_guardian") then
+		Filters:EarthGuardian(victim, filterTable["damage"])
+		filterTable["damage"] = filterTable["damage"]*0.5
+	end
 	if victim:HasModifier("modifier_warlord_b_d_effect") then
 		local modifier = victim:FindModifierByName("modifier_warlord_b_d_effect")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
@@ -1421,9 +1438,11 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = Filters:HeavensShieldTakeDamage(victim, filterTable["damage"])
 	end
 	if victim:HasModifier("modifier_shipyard_veil_shield") then
-		if filterTable["damage"] > 0 then
-			filterTable["damage"] = 0
-			CustomAbilities:HitShipyardShield(victim, attacker)
+		if applyEffects then
+			if filterTable["damage"] > 0 then
+				filterTable["damage"] = 0
+				CustomAbilities:HitShipyardShield(victim, attacker)
+			end
 		end
 	end
 	if attacker:HasModifier("modifier_neutral_glyph_5_3") then
@@ -1549,7 +1568,9 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_sadist_shield") then
 		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 			filterTable["damage"] = 0
-			CustomAbilities:HitShieldGeneric(victim, attacker, victim, "modifier_sadist_shield")
+			if applyEffects then
+				CustomAbilities:HitShieldGeneric(victim, attacker, victim, "modifier_sadist_shield")
+			end
 		end
 	end
 	if victim:HasModifier("modifier_black_dominion_shield") then
@@ -1907,13 +1928,15 @@ function GameState:FilterDamage(filterTable)
     		local damageReduc = victim:FindModifierByName("modifier_pure_resist"):GetAbility():GetSpecialValueFor("pure_resist")
     		damageReduc = 1 - (damageReduc/100)
     		filterTable["damage"] = filterTable["damage"]*damageReduc
-    		if not victim.particleLock then
-    			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_brewmaster/brewmaster_windwalk.vpcf", victim, 1)
-    			victim.particleLock = true
-    			Timers:CreateTimer(0.5, function()
-    				victim.particleLock = false
-    			end)
-    		end
+    		if applyEffects then
+	    		if not victim.particleLock then
+	    			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_brewmaster/brewmaster_windwalk.vpcf", victim, 1)
+	    			victim.particleLock = true
+	    			Timers:CreateTimer(0.5, function()
+	    				victim.particleLock = false
+	    			end)
+	    		end
+	    	end
     	end
     end
 
@@ -2102,7 +2125,9 @@ function GameState:FilterDamage(filterTable)
 	filterTable["damage"] = filterTable["damage"]*mult/divisor
 	--FINAL STAGE--
 	if victim:HasModifier("modifier_canyon_boss_ai") then
-		filterTable["damage"] = Redfall:CanyonBossTakeDamage(victim, filterTable["damage"])
+		if applyEffects then
+			filterTable["damage"] = Redfall:CanyonBossTakeDamage(victim, filterTable["damage"])
+		end
 	end
 	if victim:HasModifier("modifier_conquest_stone_falcon") then
     	if filterTable["damagetype_const"] == DAMAGE_TYPE_MAGICAL or filterTable["damagetype_const"] == DAMAGE_TYPE_PURE then
@@ -2122,10 +2147,12 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if victim:HasModifier("modifier_lava_specter_ai") then
-		local luck = RandomInt(1,2)
-		if luck == 1 then
-			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_spectre/spectre_death.vpcf", victim, 1.2)
-			filterTable["damage"] = 0
+		if applyEffects then
+			local luck = RandomInt(1,2)
+			if luck == 1 then
+				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_spectre/spectre_death.vpcf", victim, 1.2)
+				filterTable["damage"] = 0
+			end
 		end
 	end
 
@@ -2357,21 +2384,37 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	if victim:HasModifier("modifier_dummy_active") then
-		local heroOwner = CustomAbilities:getHeroFromUnit(attacker)
-		if victim.attackerIndex == attacker:GetEntityIndex() or victim.attackerIndex == heroOwner:GetEntityIndex() then
-			local dmgReport = math.floor(filterTable["damage"]/difficultyDamageReduce)
-			local element1 = attacker.element1
-			local element2 = attacker.element2
-			local inflictor = filterTable["entindex_inflictor_const"]
-			if not inflictor then
-				element1 = RPC_ELEMENT_NONE
-				element2 = RPC_ELEMENT_NONE
-			end
-			CustomGameEventManager:Send_ServerToPlayer(attacker:GetPlayerOwner(), "updateTargetDummy", {dmg = dmgReport, victim = victim:GetEntityIndex(), attacker = attacker:GetEntityIndex(), damagetype = damagetype, element1 = element1, element2 = element2})
-			if attacker:HasModifier("modifier_dummy_timer") then
-				victim.timerDamage = victim.timerDamage + dmgReport
+		if attacker == Events.GameMaster then
+		else
+			local heroOwner = CustomAbilities:getHeroFromUnit(attacker)
+			if heroOwner then
+				if victim.attackerIndex == attacker:GetEntityIndex() or victim.attackerIndex == heroOwner:GetEntityIndex() then
+					local dmgReport = math.floor(filterTable["damage"]/difficultyDamageReduce)
+					local element1 = attacker.element1
+					local element2 = attacker.element2
+					local inflictor = filterTable["entindex_inflictor_const"]
+					if not inflictor then
+						element1 = RPC_ELEMENT_NONE
+						element2 = RPC_ELEMENT_NONE
+					end
+					CustomGameEventManager:Send_ServerToPlayer(attacker:GetPlayerOwner(), "updateTargetDummy", {dmg = dmgReport, victim = victim:GetEntityIndex(), attacker = attacker:GetEntityIndex(), damagetype = damagetype, element1 = element1, element2 = element2})
+					if attacker:HasModifier("modifier_dummy_timer") then
+						victim.timerDamage = victim.timerDamage + dmgReport
+					end
+				end
 			end
 		end
+	end
+	local inflictor = filterTable["entindex_inflictor_const"]
+	if not applyEffects then
+		if damagetype == DAMAGE_TYPE_MAGICAL then
+			victim.resist_mag = 1-(filterTable["damage"]/StartingDamage)
+		elseif damagetype == DAMAGE_TYPE_PHYSICAL then
+			victim.resist_phys = 1-(filterTable["damage"]/StartingDamage)
+		elseif damagetype == DAMAGE_TYPE_PURE then
+			victim.resist_pure = 1-(filterTable["damage"]/StartingDamage)
+		end
+		filterTable["damage"] = 0
 	end
 	-- if attacker:HasModifier("modifier_line_unit_passive") then
 	-- 	filterTable["damage"] = filterTable["damage"]/GameState.PVP_REDUCTION

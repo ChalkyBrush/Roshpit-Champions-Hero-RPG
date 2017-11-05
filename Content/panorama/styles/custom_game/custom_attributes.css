@@ -36,7 +36,6 @@
 	width:100%;
 	text-align: center;
 	color:white;
-	flow-children:down;
 }
 
 .class-splitter{
@@ -55,6 +54,7 @@
 	text-shadow: 2px 2px 2px solid black;
 	text-align: center;
 	width:100%;	
+	margin-top:24px;
 }
 
 #tooltip_title_left{
@@ -302,7 +302,7 @@
 .resistance_value{
 	width:100%;
 	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
-	color: #EEEEEE;
+	color: #EEEEEE;	
 	font-size:14px;
 	margin-top:17px;
 	text-align:center;
@@ -317,4 +317,7 @@
 	margin-left:2px;
 	margin-right:2px;
 	padding:3px;
+}
+.paragon_skull{
+	margin-top:5px;
 }

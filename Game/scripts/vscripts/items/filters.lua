@@ -227,7 +227,6 @@ function Filters:SetAttackDamage(unit, damage)
 end
 
 function Filters:AbilityKills(attacker, victim, ability)
-    print("ABILITY KILLS")
     -- if ability:GetAbilityName() == "item_rpc_skulldigger_gauntlet_lv1" then
     --     if victim:GetDeathXP() < attacker:GetLevel()*2 then
     --         return false

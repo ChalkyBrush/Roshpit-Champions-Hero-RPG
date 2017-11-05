@@ -474,11 +474,34 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 	local unit = EntIndexToHScript(msg.queryunit)
 	local player = PlayerResource:GetPlayer(msg.playerID)
 	local tableData = {}
-	tableData.phys = (1 - GameState:IncomingDamageDecreaseWithType(unit, Events.GameMaster, false, DAMAGE_TYPE_PHYSICAL))*10000
+	tableData.phys = (1 - GameState:IncomingDamageDecreaseWithType(unit, Events.GameMaster, false, DAMAGE_TYPE_PHYSICAL))*100000
 	print(GameState:IncomingDamageDecreaseWithType(unit, Events.GameMaster, false, DAMAGE_TYPE_PHYSICAL))
-	tableData.magic = (1 - GameState:IncomingDamageDecreaseWithType(unit, Events.GameMaster, false, DAMAGE_TYPE_MAGICAL))*10000
-	tableData.pure = (1 - GameState:IncomingDamageDecreaseWithType(unit, Events.GameMaster, false, DAMAGE_TYPE_PURE))*10000
+	tableData.magic = (1 - GameState:IncomingDamageDecreaseWithType(unit, Events.GameMaster, false, DAMAGE_TYPE_MAGICAL))*100000
+	tableData.pure = (1 - GameState:IncomingDamageDecreaseWithType(unit, Events.GameMaster, false, DAMAGE_TYPE_PURE))*100000
 
+	local level = unit:GetLevel()
+	if unit:IsHero() then
+
+	else
+		if unit.itemLevel then
+			level = math.ceil(unit.itemLevel/4)
+		else
+			level = 20
+		end
+		level = math.min(level + (GameState:GetDifficultyFactor()-1)*35, 120)
+		if unit:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+			ApplyDamage({ victim = unit, attacker = Events.GameMaster, damage = 10000000, damage_type = DAMAGE_TYPE_PHYSICAL, ability = Events.GameMasterAbility })
+			ApplyDamage({ victim = unit, attacker = Events.GameMaster, damage = 10000000, damage_type = DAMAGE_TYPE_MAGICAL, ability = Events.GameMasterAbility })
+			ApplyDamage({ victim = unit, attacker = Events.GameMaster, damage = 10000000, damage_type = DAMAGE_TYPE_PURE, ability = Events.GameMasterAbility })
+			tableData.phys = unit.resist_phys*100000
+			tableData.magic = unit.resist_mag*100000
+			tableData.pure = unit.resist_pure*100000
+		end
+	end
+	if unit.paragon then
+		tableData.paragon = 1
+	end
+	tableData.level = level
 	local baseDamage = 100000
 	local qDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, 1, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
 	tableData.qAmp = (qDamage/baseDamage)*10000

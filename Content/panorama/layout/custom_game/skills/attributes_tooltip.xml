@@ -10,6 +10,7 @@
 			<Panel id="tooltip_title_container">
 				<Label id="tooltip_title" text="UnitName" html="true"/>
 				<Label id="tooltip_level" text="Lv" html="true"/>
+				<Image class="paragon_skull" id="paragon-skull" src="file://{images}/custom_game/ui/pargagon-skull.png"/>
 			</Panel>
 			<Panel class="class-splitter">
 			</Panel>
@@ -109,7 +110,7 @@
 					<Panel class="class-splitter-thin-full">
 					</Panel>
 					<Label class="attack_defense_subtitle" id="attack_defense_subtitle_base_ability"/>
-					<Panel class="resistance_container">
+					<Panel class="resistance_container" id="base_ability_container">
 						<Panel class="base_ability_item_container">
 							<Label class="resistance_title" id="base_ability_title_q" html="true"/>
 							<Label class="resistance_value" id="base_ability_value_q"/>
@@ -149,7 +150,7 @@
 					<Panel class="class-splitter-thin-full">
 					</Panel>
 					<Label class="attack_defense_subtitle" id="attack_defense_subtitle_resist"/>
-					<Panel class="resistance_container">
+					<Panel class="resistance_container" id="resistance_container">
 						<Panel class="resistance_item_container">
 							<Label class="resistance_title" id="resist_title_phys" html="true"/>
 							<Label class="resistance_value" id="resist_value_phys"/>
