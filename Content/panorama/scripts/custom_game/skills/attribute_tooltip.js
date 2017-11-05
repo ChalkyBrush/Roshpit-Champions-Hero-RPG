@@ -78,7 +78,11 @@ function initializeTooltip(func){
 	var baseDMG = parseInt((Entities.GetDamageMax(queryUnit)+Entities.GetDamageMin(queryUnit))/2)
 	$('#atk_1_right').text = numberWithCommas(baseDMG)
 	var bonusDMG = Entities.GetDamageBonus(queryUnit)
-	$('#atk_2_right').text = "<font color='#68ff23'>+"+numberWithCommas(bonusDMG)+"</font>"
+	if (bonusDMG >= 0){
+		$('#atk_2_right').text = "<font color='#68ff23'>+"+numberWithCommas(bonusDMG)+"</font>"
+	}else{
+		$('#atk_2_right').text = "<font color='#ff0000'>"+numberWithCommas(bonusDMG)+"</font>"
+	}
 
 	$('#atk_3_left').text = $.Localize("#ui_attack_speed")
 	var atkSpd =  parseInt(Entities.GetAttackSpeed( queryUnit )*100)
@@ -111,7 +115,11 @@ function initializeTooltip(func){
 	var physArmor = parseInt(Entities.GetPhysicalArmorValue(queryUnit))
 	$('#def_1_right').text = numberWithCommas(physArmor)
 	var bonusArmor = parseInt(Entities.GetBonusPhysicalArmor(queryUnit))
-	$('#def_2_right').text = "<font color='#68ff23'>+"+numberWithCommas(bonusArmor)+"</font>"
+	if (bonusArmor >= 0){
+		$('#def_2_right').text = "<font color='#68ff23'>+"+numberWithCommas(bonusArmor)+"</font>"
+	}else{
+		$('#def_2_right').text = "<font color='#ff0000'>"+numberWithCommas(bonusArmor)+"</font>"
+	}
 
 	$('#def_3_left').text = $.Localize("#ui_physical_reduction")
 	var totalArmor = physArmor + bonusArmor

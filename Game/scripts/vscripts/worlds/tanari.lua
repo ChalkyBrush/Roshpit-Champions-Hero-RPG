@@ -54,6 +54,7 @@ function Tanari:Debug()
     -- end
     Glyphs:RollGlyphAll("item_rpc_neutral_glyph_7_2", Vector(-4928, 2048), 0)
     -- RPCItems:RollPhantomSorcererMask(Vector(-4928, 2048), false)
+    RPCItems:RollMalachiteShadeBracer(Vector(-4928, 2048))
     RPCItems:RollSeinaruArcana1(Vector(-4928, 2048))
     -- -- RPCItems:RollMageBaneGloves(Vector(-4928, 2048))
     -- -- RPCItems:RollTwistedMaskOfAhnqhirBlue(Vector(-4928, 2048))

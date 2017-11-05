@@ -3694,7 +3694,7 @@ function malachite_shade_bracer_think(event)
 	local ability = event.ability
 
 	local regenStacks = math.ceil(target:GetAgility()*0.15)
-	local damageStacks = target:GetHealthRegen() + target:GetConstantBasedManaRegen() + target:GetManaRegen()
+	local damageStacks = target:GetHealthRegen() + target:GetBaseManaRegen() + target:GetBonusManaRegen ()
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_malachite_shade_regen", {})
 	target:SetModifierStackCount("modifier_malachite_shade_regen", caster, regenStacks)
 

@@ -6,7 +6,7 @@
 		<include src="file://{resources}/scripts/custom_game/skills/attribute_tooltip.js" />
 	</scripts>
 	<Panel class="item_tooltip_new_root" ontooltiploaded="initializeTooltip()">
-		<Panel id="tooltip_main_container">
+		<Panel id="tooltip_main_container" class="master_attribute_container">
 			<Panel id="tooltip_title_container">
 				<Label id="tooltip_title" text="UnitName" html="true"/>
 				<Label id="tooltip_level" text="Lv" html="true"/>

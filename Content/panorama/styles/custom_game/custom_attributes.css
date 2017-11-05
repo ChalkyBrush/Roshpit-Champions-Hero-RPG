@@ -6,11 +6,21 @@
 	visibility: collapse;
 }
 
-#tooltip_main_container{
+.master_attribute_container{
 	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
 	flow-children:down;
 	width:480px;
 }
+
+.AspectRatio4x3 .master_attribute_container{
+	width:640px;
+}
+
+.AspectRatio5x4 .master_attribute_container{
+	width:600px;
+}
+
+
 
 #tooltip_title{
 	font-size:20px;
@@ -207,6 +217,14 @@
 	height:100%;
 	padding:5px;
 	flow-children:down;
+}
+
+.AspectRatio4x3 .attack_defense_container{
+	height:220px;
+}
+
+.AspectRatio5x4 .attack_defense_container{
+	height:220px;
 }
 
 .panel_right{
