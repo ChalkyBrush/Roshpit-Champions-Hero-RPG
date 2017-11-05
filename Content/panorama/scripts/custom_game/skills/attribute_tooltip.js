@@ -112,16 +112,16 @@ function initializeTooltip(func){
 
 	$('#attack_defense_subtitle_base_ability').text = $.Localize('#ui_base_ability_damage')
 	$('#base_ability_title_q').text = "Q"
-	$('#base_ability_value_q').text = parseInt(GameUI.StatQueryData.qAmp)/100 + "%"
+	$('#base_ability_value_q').text = parseInt(GameUI.StatQueryData.qAmp)/1 + "%"
 
 	$('#base_ability_title_w').text = "W"
-	$('#base_ability_value_w').text = parseInt(GameUI.StatQueryData.wAmp)/100 + "%"
+	$('#base_ability_value_w').text = parseInt(GameUI.StatQueryData.wAmp)/1 + "%"
 
 	$('#base_ability_title_e').text = "E"
-	$('#base_ability_value_e').text = parseInt(GameUI.StatQueryData.eAmp)/100 + "%"
+	$('#base_ability_value_e').text = parseInt(GameUI.StatQueryData.eAmp)/1 + "%"
 
 	$('#base_ability_title_r').text = "R"
-	$('#base_ability_value_r').text = parseInt(GameUI.StatQueryData.rAmp)/100 + "%"
+	$('#base_ability_value_r').text = parseInt(GameUI.StatQueryData.rAmp)/1 + "%"
 	//DEFENSE
 
 	$('#attack_defense_title_def').text = $.Localize("#ui_defense").toUpperCase()

@@ -785,11 +785,9 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 			damage = damage*0.05
 		end
 		if victim:HasModifier("modifier_duskbringer_arcana_armor") then
-			if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
-				local stackCount = victim:GetModifierStackCount("modifier_duskbringer_arcana_armor", victim)
-				local consideredArmor = victim:GetPhysicalArmorValue()*0.01*stackCount
-				damage = GameState:GetPostReductionPhysicalDamage(damage, consideredArmor)
-			end
+			local stackCount = victim:GetModifierStackCount("modifier_duskbringer_arcana_armor", victim)
+			local consideredArmor = victim:GetPhysicalArmorValue()*0.01*stackCount
+			damage = GameState:GetPostReductionPhysicalDamage(damage, consideredArmor)
 		end
 	end
 	local decreaseAll = GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields)
@@ -946,7 +944,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 	if victim:HasModifier("modifier_task_armor") then
 		damage = damage*0.001
-		if applyEffects then
+		if shouldConsumeShields then
 			CustomAbilities:HitTaskShield(victim, attacker)
 		end
 	end

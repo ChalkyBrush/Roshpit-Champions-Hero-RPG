@@ -9,7 +9,7 @@
 .master_attribute_container{
 	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
 	flow-children:down;
-	width:480px;
+	width:540px;
 }
 
 .AspectRatio4x3 .master_attribute_container{
@@ -84,10 +84,10 @@
 
 .attribute_container{
 	width:33%;
-	height:115px;
 	border-radius:4px;
 	flow-children:down;
 	margin-right:0.3%;
+	padding-bottom:10px;
 }
 
 #container_strength{
@@ -194,6 +194,7 @@
 	font-weight:lighter;
 	padding-left:20px;
 	padding-right:20px;
+	height:20px;
 }
 
 .bonus_right{
@@ -206,7 +207,6 @@
 
 .attack_defense_container{
 	width:100%;
-	height:180px;
 	margin-top:5px;
 }
 
@@ -214,18 +214,18 @@
 	width:50%;
 	border-radius:4px;
 	background-color: #111111;
-	height:100%;
+/*	height:100%;*/
 	padding:5px;
 	flow-children:down;
 }
 
-.AspectRatio4x3 .attack_defense_container{
+/*.AspectRatio4x3 .attack_defense_container{
 	height:220px;
 }
 
 .AspectRatio5x4 .attack_defense_container{
 	height:220px;
-}
+}*/
 
 .panel_right{
 	horizontal-align:right;
@@ -239,7 +239,7 @@
 	text-align:center;
 	font-weight:lighter;
 	text-transform:uppercase;
-	
+	height:20px;
 }
 
 .atk_def_property_container{
@@ -310,7 +310,7 @@
 }
 
 .base_ability_item_container{
-	width:50px;
+	width:60px;
 	height:100%;
 	background-color: #1F1F1F;
 	border-radius:4px;

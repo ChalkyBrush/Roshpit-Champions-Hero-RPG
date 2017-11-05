@@ -162,7 +162,7 @@ function Tanari:Debug()
     -- RPCItems:RollMordiggusGauntlet(Vector(-4928, 2048))
     -- RPCItems:RollWaterDeityCrown(Vector(-4928, 2048), true, 0)
     -- RPCItems:RollTemporalWarpBoots(Vector(-4928, 2048))
-     -- Glyphs:RollGlyphAll("item_rpc_auriun_glyph_7_1", Vector(-4928, 2048), 0)
+     Glyphs:RollGlyphAll("item_rpc_astral_glyph_3_1", Vector(-4928, 2048), 0)
     -- RPCItems:RollAvalanchePlate(Vector(-4928, 2048))
     -- RPCItems:RollTrapperArcana1(Vector(-4928, 2048))
 
