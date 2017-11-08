@@ -41,7 +41,7 @@ function mark_of_the_fang(event)
 
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_fang", "draghor_mark_of_the_claw", 0)
 	if caster:HasAbility("draghor_shapeshift_crow") then
-		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_crow", "draghor_shapeshift_cat", 3)
+		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_crow", "draghor_shapeshift_cat", DOTA_ULTIMATE_SLOT)
 	end
 
 	EmitSoundOn("Draghor.MarkBG.Med", caster)
@@ -72,7 +72,7 @@ function mark_of_the_claw(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_mark_of_the_claw", {})
 
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_claw", "draghor_mark_of_the_talon", 0)
-	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_cat", "draghor_shapeshift_bear", 3)
+	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_cat", "draghor_shapeshift_bear", DOTA_ULTIMATE_SLOT)
 	EmitSoundOn("Draghor.MarkBG.Low", caster)
 
 	StartAnimation(caster, {duration=0.64, activity=ACT_DOTA_MK_FUR_ARMY, rate=1.0})
@@ -101,7 +101,7 @@ function mark_of_the_talon(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_mark_of_the_talon", {})
 
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_talon", "draghor_mark_of_the_fang", 0)
-	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_bear", "draghor_shapeshift_crow", 3)
+	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_bear", "draghor_shapeshift_crow", DOTA_ULTIMATE_SLOT)
 	EmitSoundOn("Draghor.MarkBG.High", caster)
 
 	StartAnimation(caster, {duration=0.64, activity=ACT_DOTA_MK_FUR_ARMY, rate=1.0})

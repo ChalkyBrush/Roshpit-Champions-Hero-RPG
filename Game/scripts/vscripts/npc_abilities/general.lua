@@ -31,6 +31,7 @@ function general_hero_think(event)
 			CustomNetTables:SetTableValue("equipment", tostring(playerID).."-"..tostring(i), {itemIndex = -1} )
 			CustomGameEventManager:Send_ServerToPlayer(target:GetPlayerOwner(), "update_inventory", {})
 		end
+
 	end
 end
 

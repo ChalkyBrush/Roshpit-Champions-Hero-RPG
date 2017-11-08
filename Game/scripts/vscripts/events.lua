@@ -690,9 +690,21 @@ end
 
 function Events:InitializeHero(heroEntity)
   local ability = nil
-  for i = 0, 3, 1 do
+  for i = 0, 5, 1 do
     ability = heroEntity:GetAbilityByIndex(i)
-    ability:SetLevel(1)
+    if ability then
+      ability:SetLevel(1)
+    end
+  end
+  if heroEntity:HasItemInInventory("item_tpscroll") then
+    for i = 0, 2, 1 do
+      local item = heroEntity:GetItemInSlot(i)
+      if item then
+        if IsValidEntity(item) then
+          UTIL_Remove(item)
+        end
+      end
+    end
   end
   heroEntity.saveSlot = 0
   heroEntity.loadEnabled = 1

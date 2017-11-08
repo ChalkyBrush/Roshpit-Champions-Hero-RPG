@@ -781,9 +781,6 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 				damage = damage*reduction
 			end
 		end
-		if victim:HasModifier("modifier_energy_field_c_d_shield") then
-			damage = damage*0.05
-		end
 		if victim:HasModifier("modifier_duskbringer_arcana_armor") then
 			local stackCount = victim:GetModifierStackCount("modifier_duskbringer_arcana_armor", victim)
 			local consideredArmor = victim:GetPhysicalArmorValue()*0.01*stackCount
@@ -814,7 +811,9 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_fuchsia_damage_resistance") then
 		damage = damage*0.15
 	end
-
+	if victim:HasModifier("modifier_energy_field_c_d_shield") then
+		damage = damage*0.05
+	end
 	if victim:HasModifier("modifier_rooted_feet_health_regen") then
 		damage = damage*0.5
 	end

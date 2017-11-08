@@ -61,6 +61,7 @@ function earth_aspect(event)
   	local earthquake = caster:FindAbilityByName("earthquake")
   	if not earthquake then
   		earthquake = caster:AddAbility("earthquake")
+  		earthquake:SetAbilityIndex(0)
   	end
   	earthquake:SetLevel(ability:GetLevel())
   	if caster:HasModifier("modifier_conjuror_immortal_weapon_3") then
@@ -131,6 +132,7 @@ function fire_aspect(event)
   	local immolation = caster:FindAbilityByName("immolation")
   	if not immolation then
   		immolation = caster:AddAbility("immolation")
+  		immolation:SetAbilityIndex(1)
   	end
   	if caster:HasModifier("modifier_conjuror_glyph_1_1") then
   		ability:ApplyDataDrivenModifier(caster, caster.fireAspect, "modifier_conjuror_glyph_1_1_effect", {})
@@ -201,6 +203,7 @@ function shadow_aspect(event)
   	local shadowGate = caster:FindAbilityByName("shadow_gate")
   	if not shadowGate then
   		shadowGate = caster:AddAbility("shadow_gate")
+  		shadowGate:SetAbilityIndex(2)
   	end
   	if caster:HasModifier("modifier_conjuror_immortal_weapon_3") then
   		caster.shadowAspect:AddAbility("fire_temple_steadfast"):SetLevel(1)

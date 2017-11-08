@@ -120,7 +120,7 @@ function rune_a_d(caster, ability)
   	end
   	ability:ApplyDataDrivenModifier(caster, caster, "modifier_pyro_cooldown", {duration = 17})
   	fireball:SetLevel(ability:GetLevel())
-  	fireball:SetAbilityIndex(0)
+  	fireball:SetAbilityIndex(DOTA_ULTIMATE_SLOT)
   	fireball.rune_a_d_level = totalLevel
   	caster:SwapAbilities("pyroblast", "fireball", false, true)
   	-- Timers:CreateTimer(17,function()
@@ -133,9 +133,11 @@ end
 function cooldownEnd(event)
 	local ability = event.ability
 	local caster = event.caster
-	local level = caster:FindAbilityByName("fireball"):GetLevel()
+	if caster:HasAbility("fireball") then
+		local level = caster:FindAbilityByName("fireball"):GetLevel()
   		ability:SetLevel(level)
   		caster:SwapAbilities("pyroblast", "fireball", true, false)	
+  	end
 end
 
 

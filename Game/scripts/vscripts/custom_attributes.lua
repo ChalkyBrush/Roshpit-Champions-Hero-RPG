@@ -438,7 +438,20 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 	if not hero:HasModifier("modifier_strength_health") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_strength_health", {})
 	end
-	hero:SetModifierStackCount("modifier_strength_health", caster, strength*CustomAttributes.HEALTH_PER_STR*halcyon)
+	local healthStacks = strength*CustomAttributes.HEALTH_PER_STR*halcyon
+	if not hero:GetModifierStackCount("modifier_strength_health", caster) == healthStacks then
+		local healthPercentFreeze = hero:GetHealth()/hero:GetMaxHealth()
+		Timers:CreateTimer(0.03, function()
+			if hero:IsAlive() then
+				hero:SetHealth(math.max(hero:GetMaxHealth()*healthPercentFreeze, 1))
+			else
+				if hero:GetHealth() == 0 then
+					hero:ForceKill(false)
+				end
+			end
+		end)
+	end
+	hero:SetModifierStackCount("modifier_strength_health", caster, healthStacks)
 	if not hero:HasModifier("modifier_strength_health_regen") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_strength_health_regen", {})
 	end

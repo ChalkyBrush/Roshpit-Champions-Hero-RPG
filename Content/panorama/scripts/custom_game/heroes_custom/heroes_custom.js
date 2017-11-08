@@ -23,6 +23,9 @@ function updateSkillInTooltipByName(tooltip, heroName){
 
 function getSkillSlot2(queryUnit, slot)
 {
+	if (slot == 4){
+		slot = 6
+	}
 	var ability = Entities.GetAbility( queryUnit, slot - 1)
 	var abilityName = Abilities.GetAbilityName( ability )
 	if (abilityName == "blizzard" || abilityName == "ice_lance"){
