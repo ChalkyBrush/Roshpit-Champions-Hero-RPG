@@ -1026,7 +1026,8 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 
-	end
+    end
+
 	if victim:HasModifier("modifier_voltex_arcana1_passive") then
 		local dash = victim:FindAbilityByName("voltex_lightning_dash")
 		local damage = filterTable["damage"]
@@ -1072,14 +1073,6 @@ function GameState:FilterDamage(filterTable)
 		mult = mult + stacksCount * 0.02
 	end
 
-
-	if victim:HasModifier("modifier_poison_whip") then
-		local modifier = victim:FindModifierByName("modifier_poison_whip")
-		local stacks = modifier:GetStackCount()
-		local ability = modifier:GetAbility()
-		local a_b_level = ability.a_b_level
-		mult = mult + 0.001*a_b_level*stacks
-	end
 	if attacker:HasModifier("modifier_ablecore_greaves_effect") then
 		mult = mult + 1.5
 	end
@@ -1107,6 +1100,10 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_energy_field_c_d_shield") then
 		filterTable["damage"] = filterTable["damage"]*0.05
 	end
+
+    if attacker:HasModifier("modifier_torrent_trap_immunity") and victim:HasModifier("modifier_trapper_glyph_3_2") then
+        filterTable["damage"] = filterTable["damage"]*0.05
+    end
 	if victim:HasModifier("modifier_seinaru_gorudo_rune_a_d") then
 		if victim:GetPhysicalArmorValue() < 0 then
 			if damagetype == DAMAGE_TYPE_PHYSICAL then
@@ -2016,11 +2013,6 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = Filters:ArkimusGlyph5a(victim, filterTable["damage"])
 		end
 	end
-	if attacker:HasModifier("modifier_trapper_immortal_weapon_2") then
-		if victim:HasModifier("modifier_fulminating_burn_effect") or victim:HasModifier("modifier_poison_trap_effect") or victim:HasModifier("modifier_net_trap_netted_effect") or victim:HasModifier("modifier_torrent_trap_slowed_effect") then
-			mult = mult + 1.25
-		end
-	end
 	if attacker:HasModifier("modifier_sea_fortress_ai") then
 		filterTable["damage"] = filterTable["damage"]*3
 	end
@@ -2030,6 +2022,26 @@ function GameState:FilterDamage(filterTable)
 	end
 	if not victim:HasModifier("modifier_steadfast") and not victim:HasModifier("modifier_mega_steadfast") and attacker:HasModifier("modifier_neutral_glyph_4_2") then
 		filterTable["damage"] = filterTable["damage"] * 0.8
+	end
+
+	--TRAPPER
+	local modifier = attacker:FindModifierByName("modifier_trapper_d_c_post_amp")
+	if modifier then
+		local stacks = modifier:GetStackCount()
+		mult = mult + stacks*0.7
+	end
+	if attacker:HasModifier("modifier_trapper_immortal_weapon_2") then
+		if victim:HasModifier("modifier_fulminating_burn_effect") or victim:HasModifier("modifier_poison_trap_effect") or victim:HasModifier("modifier_net_trap_netted_effect") or victim:HasModifier("modifier_torrent_trap_slowed_effect") then
+			filterTable["damage"] = filterTable["damage"] * 1.3
+		end
+	end
+
+	if victim:HasModifier("modifier_poison_whip") then
+		local modifier = victim:FindModifierByName("modifier_poison_whip")
+		local stacks = modifier:GetStackCount()
+		local ability = modifier:GetAbility()
+		local a_b_level = ability.a_b_level
+		mult = mult + 0.001*a_b_level*stacks
 	end
 
 	--APPLY MULT
@@ -2224,6 +2236,16 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("town_unit") then
 		filterTable["damage"] = 0
 	end
+	--TRAPPER DECOY
+
+	if victim:HasModifier("modifier_decoy_effect") then
+		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
+			filterTable["damage"] = 0
+		else
+			filterTable["damage"] = 1
+		end
+	end
+
 	--LETHAL CHECK
 	if filterTable["damage"] > victim:GetHealth() then
 		if victim:HasModifier("modifier_solunia_glyph_5_a") then

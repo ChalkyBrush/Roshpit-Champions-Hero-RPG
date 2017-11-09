@@ -7,6 +7,9 @@ require('items/special_item_effects')
 function Filters:ApplyItemDamage(victim,attacker,damage,damage_type,item,element1,element2)
     damage = Filters:AdjustItemDamage(attacker, damage)
     local mult = 1
+    if attacker:HasModifier("modifier_trapper_glyph_6_1") then
+        element2 = RPC_ELEMENT_NORMAL
+    end
     if attacker:HasModifier("modifier_depth_crest_armor") then
         if victim:IsStunned() then
             mult = mult + 0.006*(attacker:GetStrength()/10)
@@ -1156,6 +1159,11 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             local current_stack = attacker:GetModifierStackCount( "modifier_hawk_c_d", attacker)
             damageMult = damageMult + 0.08*current_stack
         end
+        if attacker:HasModifier("modifier_trapper_glyph_2_1") then
+            attacker:Heal(5000);
+            local manaRestore = attacker:GetMaxMana()*0.03
+            attacker:GiveMana(manaRestore)
+        end
     end
 
     if slot == 1 then
@@ -1443,31 +1451,35 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
     end
     if element1 == RPC_ELEMENT_NORMAL or element2 == RPC_ELEMENT_NORMAL then
+        local normalMult = 0
         if attacker:HasModifier("modifier_neutral_glyph_6_2") then
-            mult = mult + 0.5
+            normalMult = normalMult + 0.5
         end
         if attacker:HasModifier("modifier_trapper_arcana1") then
             local b_b_level = Runes:GetTotalRuneLevel(attacker, 2, "b_b_arcana1", "trapper")
-            mult = mult + b_b_level*0.03
+            normalMult = normalMult + b_b_level*0.05
         end
         if unitName == "npc_dota_hero_axe" then
             if victim:HasModifier("modifier_axe_rune_d_a_invisible") then
                 local modifier = victim:FindModifierByName("modifier_axe_rune_d_a_invisible")
                 if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
                     local stacks = modifier:GetStackCount()
-                    mult = mult + stacks * 0.02
+                    normalMult = normalMult + stacks * 0.02
                 end
             end
             if victim:HasModifier("modifier_axe_rune_c_d_arcana1_invisible") then
                 local stacks = victim:GetModifierStackCount("modifier_axe_rune_c_d_arcana1_invisible", attacker)
-                mult = mult + stacks * 0.15
+                normalMult = normalMult + stacks * 0.15
             end
         end
         if attacker:HasModifier("modifier_weapon_normal") then
             local stacks = attacker:GetModifierStackCount("modifier_weapon_normal", attacker.InventoryUnit)
-            mult = mult + stacks/100
+            normalMult = normalMult + stacks/100
         end
-
+        if attacker:HasModifier('modifier_trapper_glyph_6_1') then
+            normalMult = normalMult * 0.7
+        end
+        mult = mult + normalMult
     end
     if element1 == RPC_ELEMENT_FIRE or element2 == RPC_ELEMENT_FIRE then
         if unitName == "npc_dota_hero_dragon_knight" then
@@ -1555,7 +1567,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if victim:HasModifier("modifier_fulminating_magic_resist_loss") then
             local modifier = victim:FindModifierByName("modifier_fulminating_magic_resist_loss")
-            local multIncrease = modifier:GetStackCount()*0.08
+            local multIncrease = modifier:GetStackCount()*0.1
             mult = mult + multIncrease
         end
     end
@@ -1654,7 +1666,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if victim:HasModifier("modifier_fulminating_magic_resist_loss") then
             local modifier = victim:FindModifierByName("modifier_fulminating_magic_resist_loss")
-            local multIncrease = modifier:GetStackCount()*0.08
+            local multIncrease = modifier:GetStackCount()*0.1
             mult = mult + multIncrease
         end
     end
@@ -1980,7 +1992,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if victim:HasModifier("modifier_fulminating_magic_resist_loss") then
             local modifier = victim:FindModifierByName("modifier_fulminating_magic_resist_loss")
-            local multIncrease = modifier:GetStackCount()*0.08
+            local multIncrease = modifier:GetStackCount()*0.1
             mult = mult + multIncrease
         end
     end

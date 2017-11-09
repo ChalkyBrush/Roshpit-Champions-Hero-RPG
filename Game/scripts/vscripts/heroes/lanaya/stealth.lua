@@ -1,3 +1,6 @@
+Helper = require('heroes/util/helper')
+require('heroes/lanaya/constants')
+
 function channel_initialize(event)
 	local caster = event.caster
 	StartAnimation(caster, {duration=2.0, activity=ACT_DOTA_IDLE, rate=1, translate="meld"})
@@ -11,42 +14,6 @@ function channel_succeed(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_invisibility_datadriven", {duration = duration})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_invisible", {duration = duration})
 	switchIntoStealth(caster)
-	local b_d_level = Runes:GetTotalRuneLevel(caster, 2, "b_d", "trapper")
-	if b_d_level > 0 then
-		decoy(caster, b_d_level)
-	end
-	local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "trapper")
-	if d_d_level > 0 then
-		local d_d_duration = Filters:GetAdjustedBuffDuration(caster, 20, false)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_trapper_d_d_bonus", {duration = d_d_duration})
-		caster:SetModifierStackCount( "modifier_trapper_d_d_bonus", ability, d_d_level )
-	end
-end
-
-function decoy(caster, b_d_level)
-	local decoy = CreateUnitByName("lanaya_decoy", caster:GetAbsOrigin(), true, nil, nil, caster:GetTeamNumber())
-	decoy.owner = caster:GetPlayerOwnerID()
-	decoy.summoner = caster
-	decoy:SetOwner(caster)
-	decoy:SetControllableByPlayer(caster:GetPlayerID(), true)
-	decoy.dieTime = 10
-	decoy:AddAbility("ability_die_after_time_generic"):SetLevel(1)
-	StartAnimation(decoy, {duration=0.8, activity=ACT_DOTA_ATTACK, rate=1.0})
-	-- local summonAbil = decoy:AddAbility("ability_summoned_unit")
-	-- summonAbil:SetLevel(1)
-
-	local minionHealth = math.floor(caster:GetMaxHealth()*(0.05*b_d_level+0.5))
-	decoy:SetMaxHealth(minionHealth)
-	decoy:SetBaseMaxHealth(minionHealth)
-	decoy:SetHealth(minionHealth)
-	decoy:Heal(minionHealth, decoy)
-	decoy:SetPhysicalArmorBaseValue(caster:GetPhysicalArmorValue()*(0.05*b_d_level+0.5))
-
-	local runeAbility = caster.runeUnit2:FindAbilityByName("trapper_rune_b_d")
-	local decoyDuration = Filters:GetAdjustedBuffDuration(caster, 15, false)
-	Timers:CreateTimer(0.5, function()
-		runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, decoy, "modifier_decoy_effect", {duration = decoyDuration})	
-	end)
 end
 
 function channel_interrupt(event)
@@ -319,6 +286,16 @@ function backstab_channel_succeed(event)
 				rune_a_d(caster, ability, target:GetAbsOrigin())
 			end
 	end)
+	local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "trapper")
+	caster.c_d_level = c_d_level
+	if c_d_level > 0 then
+        local duration = R3_DURATION
+        if caster:HasModifier("modifier_trapper_glyph_7_2") then
+            duration = duration + T72_ADD_DURATION
+        end
+        duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_trapper_d_d_buff", {duration = duration})
+	end
 end
 
 function rune_a_d(caster, ability, position)
@@ -393,6 +370,9 @@ function backstab_target_check(event)
 	if caster:GetTeamNumber() == target:GetTeamNumber() then
 		print(target:GetUnitName())
 		if target:GetUnitName() == "lanaya_decoy" then
+			Timers:CreateTimer(1.6, function()
+				target:RemoveModifierByName("modifier_decoy_effect")
+			end)
 		else
 			Timers:CreateTimer(0.1, function()
 				caster:RemoveModifierByName("modifier_trapper_stealth")
@@ -403,4 +383,35 @@ function backstab_target_check(event)
 			end)
 		end
 	end
+end
+
+function invisible_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not caster:IsInvisible() then
+		return
+	end
+
+	local runesCount = Runes:GetTotalRuneLevel(caster, 2, "b_d", "trapper")
+	if runesCount > 0 then
+		local duration =  Filters:GetAdjustedBuffDuration(caster, R2_DURATION, false)
+		local maxStacksCount = R2_MAX_STACKS_COUNT
+        if caster:HasModifier("modifier_trapper_glyph_5_2") then
+            maxStacksCount = maxStacksCount + T52_STACKS_COUNT
+        end
+		Helper.updateStackModifier(caster, caster, ability, 'trapper_rune_b_d', duration, maxStacksCount, runesCount)
+	end
+	runesCount = Runes:GetTotalRuneLevel(caster, 4, "d_d", "trapper")
+	if runesCount > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_trapper_rune_d_d_bonus_agi", {duration = 0.6})
+		caster:SetModifierStackCount("modifier_trapper_rune_d_d_bonus_agi", caster, runesCount)
+	end
+end
+
+function crit_attack_start(event)
+	local caster = event.caster
+	local ability = event.ability
+	local runesCount = caster.c_d_level
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_trapper_d_d_crit", {})
+	caster:SetModifierStackCount("modifier_trapper_d_d_crit", caster, runesCount)
 end
