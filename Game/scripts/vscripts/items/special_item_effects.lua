@@ -1495,7 +1495,7 @@ function super_ascension_attack(event)
 	local caster = event.caster
 	local target = event.attacker
 
-	local ulti = target:GetAbilityByIndex(3)
+	local ulti = target:GetAbilityByIndex(DOTA_ULTIMATE_SLOT)
 	local currentCD = ulti:GetCooldownTimeRemaining()
 	ulti:EndCooldown()
 	ulti:StartCooldown(currentCD - 0.05)
@@ -4571,7 +4571,7 @@ function temporal_warp_boots_think(event)
 		ability.dataTable = {}
 	end
 	ability.interval = ability.interval + 1
-	local timeData = {target:GetMana(), target:GetHealth(), target:GetAbsOrigin(), target:GetAbilityByIndex(0):GetCooldownTimeRemaining(), target:GetAbilityByIndex(1):GetCooldownTimeRemaining(), target:GetAbilityByIndex(3):GetCooldownTimeRemaining()}
+	local timeData = {target:GetMana(), target:GetHealth(), target:GetAbsOrigin(), target:GetAbilityByIndex(0):GetCooldownTimeRemaining(), target:GetAbilityByIndex(1):GetCooldownTimeRemaining(), target:GetAbilityByIndex(DOTA_ULTIMATE_SLOT):GetCooldownTimeRemaining()}
 	if #ability.dataTable <= 40 then	
 		table.insert(ability.dataTable, timeData)
 	else
@@ -4745,7 +4745,7 @@ function flamethrower_impact(event)
 	local target = event.target
 	local ability = event.ability
 	Filters:ApplyItemDamage(target,ability.origCaster,ability.damage,DAMAGE_TYPE_MAGICAL,ability,RPC_ELEMENT_FIRE,RPC_ELEMENT_NONE)
-	local ulti = ability.origCaster:GetAbilityByIndex(3)
+	local ulti = ability.origCaster:GetAbilityByIndex(DOTA_ULTIMATE_SLOT)
 	local currentCD = ulti:GetCooldownTimeRemaining()
 	ulti:EndCooldown()
 	ulti:StartCooldown(currentCD - 0.4)

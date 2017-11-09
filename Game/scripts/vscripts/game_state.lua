@@ -1216,7 +1216,9 @@ function GameState:FilterDamage(filterTable)
 			mult = mult+multBonus
 		end
 	end
-
+	if victim:HasModifier("modifier_nightmare_rider_effect_visible") then
+		mult = mult + 2
+	end
 	if attacker:HasModifier("modifier_axe_rune_d_d_invisible") then
 		local stacksCount = attacker:GetModifierStackCount("modifier_axe_rune_d_d_invisible", attacker)
 		mult = mult + stacksCount * 0.02

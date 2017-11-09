@@ -604,7 +604,7 @@ function Filters:CastSkillArguments(slot, caster)
 end
 
 function Filters:BeginRChannel(caster)
-    local ability = caster:GetAbilityByIndex(3)
+    local ability = caster:GetAbilityByIndex(DOTA_ULTIMATE_SLOT)
     if not ability then
         return false
     end
@@ -1911,6 +1911,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local stacks = attacker:GetModifierStackCount("modifier_weapon_shadow", attacker.InventoryUnit)
             mult = mult + stacks/100
         end
+        if attacker:HasModifier("modifier_nightmare_rider_stacks") then
+            local stacks = attacker:GetModifierStackCount("modifier_nightmare_rider_stacks", attacker.InventoryUnit)
+            mult = mult + (stacks*30)/100
+        end
     end
     if element1 == RPC_ELEMENT_WIND or element2 == RPC_ELEMENT_WIND then
         if unitName == "npc_dota_hero_huskar" then
@@ -2218,7 +2222,7 @@ end
 function Filters:WatcherOne(caster)
     local proc = Filters:GetProc(caster, 25)    
     if proc then
-        local ability = caster:GetAbilityByIndex(3)
+        local ability = caster:GetAbilityByIndex(DOTA_ULTIMATE_SLOT)
         ability:EndCooldown()
     end
 end
@@ -2797,12 +2801,12 @@ function Filters:VoyagerBoots(caster)
     Filters:ReduceCDByPercentage(ability1, 0.3)
     local ability2 = caster:GetAbilityByIndex(1)
     Filters:ReduceCDByPercentage(ability2, 0.3)
-    local ability4 = caster:GetAbilityByIndex(3)
+    local ability4 = caster:GetAbilityByIndex(DOTA_ULTIMATE_SLOT)
     Filters:ReduceCDByPercentage(ability4, 0.3)
-    local blizzard = caster:FindAbilityByName("blizzard")
-    Filters:ReduceCDByPercentage(blizzard, 0.3)
-    local pyroblast = caster:FindAbilityByName("pyroblast")
-    Filters:ReduceCDByPercentage(pyroblast, 0.3)
+    -- local blizzard = caster:FindAbilityByName("blizzard")
+    -- Filters:ReduceCDByPercentage(blizzard, 0.3)
+    -- local pyroblast = caster:FindAbilityByName("pyroblast")
+    -- Filters:ReduceCDByPercentage(pyroblast, 0.3)
 end
 
 function Filters:ReduceCDByPercentage(ability, percentageReduction)
@@ -3760,9 +3764,9 @@ function Filters:TimeWarp(caster)
                     caster:GetAbilityByIndex(1):EndCooldown()
                 end
                 if cd4 > 0 then
-                    caster:GetAbilityByIndex(3):StartCooldown(cd4)
+                    caster:GetAbilityByIndex(DOTA_ULTIMATE_SLOT):StartCooldown(cd4)
                 else
-                    caster:GetAbilityByIndex(3):EndCooldown()
+                    caster:GetAbilityByIndex(DOTA_ULTIMATE_SLOT):EndCooldown()
                 end
             end
         end)

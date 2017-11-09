@@ -375,6 +375,9 @@ function addAbilityInfoToTooltip(ability, mainHero)
 	var baseAbilityIndex = Abilities.GetLevelSpecialValueFor( ability, "base_ability", 1)
 	var element1 = Abilities.GetLevelSpecialValueFor( ability, "element_one", 1)
 	var element2 = Abilities.GetLevelSpecialValueFor( ability, "element_two", 1)
+	if (baseAbilityIndex == 4){
+		baseAbilityIndex = 6
+	}
 	if (baseAbilityIndex > 0){
 		$.Msg("IN BLOCK!")
 		var baseAbility = Entities.GetAbility( mainHero, baseAbilityIndex-1 )

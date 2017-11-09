@@ -2635,7 +2635,7 @@ function RPCItems:RollNightmareRiderMantle(deathLocation)
     if luck == 1 then
         RPCItems:RollBodyProperty2(item, 0)
     else
-        Elements:RollElementAttribute(item, RPC_ELEMENT_SHADOW, 2.1, 1, 26, 2)
+        Elements:RollElementAttribute(item, RPC_ELEMENT_SHADOW, 2.1, 1, 30, 2)
     end
     RPCItems:RollBodyProperty3(item, 0)
     RPCItems:RollBodyProperty4(item, 0)

@@ -122,7 +122,7 @@ function SaveLoad:SaveCharacter(msg)
 		url = url.."&ability1level="..hero:GetAbilityByIndex(0):GetLevel()
 		url = url.."&ability2level="..hero:GetAbilityByIndex(1):GetLevel()
 		url = url.."&ability3level="..hero:GetAbilityByIndex(2):GetLevel()
-		url = url.."&ability4level="..hero:GetAbilityByIndex(3):GetLevel()
+		url = url.."&ability4level="..hero:GetAbilityByIndex(DOTA_ULTIMATE_SLOT):GetLevel()
 		url = url.."&ability_points="..current_skill_points
 		url = url.."&rune_points="..current_rune_points
 		-- if GameState:IsWorld1() then
@@ -635,7 +635,7 @@ function SaveLoad:ApplyDataToHero(results, playerID)
 	hero:GetAbilityByIndex(0):SetLevel(results.ability1level)
 	hero:GetAbilityByIndex(1):SetLevel(results.ability2level)
 	hero:GetAbilityByIndex(2):SetLevel(results.ability3level)
-	hero:GetAbilityByIndex(3):SetLevel(results.ability4level)
+	hero:GetAbilityByIndex(DOTA_ULTIMATE_SLOT):SetLevel(results.ability4level)
 
 	CustomNetTables:SetTableValue("player_stats", tostring(playerID), {skillPoints = results.ability_points, runePoints = results.rune_points} )
 

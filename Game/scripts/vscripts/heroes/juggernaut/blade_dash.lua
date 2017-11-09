@@ -121,9 +121,11 @@ function arcana_dashing_think(event)
 				if #caster.bladeTableArcana < 3 then
 					local sword = CreateUnitByName("selethas_boomerang", caster:GetAbsOrigin()+Vector(0,0,100), false, caster, nil, caster:GetTeamNumber())
 					ability:ApplyDataDrivenModifier(caster, sword, "modifier_seinaru_flying_sword_modifier", {})
-					sword:SetOriginalModel("models/seinaru/arcana_rune_sword.vmdl")
-					sword:SetModel("models/seinaru/arcana_rune_sword.vmdl")
+					sword:SetOriginalModel("models/props_gameplay/disarm.vmdl")
+					sword:SetModel("models/props_gameplay/disarm.vmdl")
+					sword:SetModelScale(8)
 					sword.interval = 0
+					sword:SetRenderColor(255, 255, 0)
 					sword.fv = caster:GetForwardVector()
 					sword.zFV = Vector(1,1)
 					table.insert(caster.bladeTableArcana, sword)
@@ -131,6 +133,7 @@ function arcana_dashing_think(event)
 					caster:SetModifierStackCount("modifier_seinaru_flying_sword_buff_visible", caster, #caster.bladeTableArcana)
 					ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_flying_sword_buff_invisible", {})
 					caster:SetModifierStackCount("modifier_seinaru_flying_sword_buff_invisible", caster, #caster.bladeTableArcana*ability.b_a_level)
+					sword.index = #caster.bladeTableArcana
 				end
 			end
 		end
@@ -209,6 +212,9 @@ function arcana_attack_land(event)
 				end
 			end
 			caster.bladeTableArcana = newTable
+			for i = 1, #caster.bladeTableArcana, 1 do
+				caster.bladeTableArcana[i].index = i
+			end
 			if #caster.bladeTableArcana > 0 then
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_flying_sword_buff_visible", {})
 				caster:SetModifierStackCount("modifier_seinaru_flying_sword_buff_visible", caster, #caster.bladeTableArcana)
@@ -226,12 +232,20 @@ end
 function flying_sword_think(event)
 	local caster = event.caster
 	local sword = event.target
-	sword.fv = WallPhysics:rotateVector(sword.fv, math.pi*2/60)
-	sword.zFV = WallPhysics:rotateVector(sword.zFV, math.pi*2/90)
-	local zFV = Vector(0, sword.zFV.x, sword.zFV.y)
-	sword:SetAbsOrigin(caster:GetAbsOrigin()+sword.fv*140+Vector(0,0,90)+zFV*40)
+	local ability = event.ability
+	sword.fv = WallPhysics:rotateVector(sword.fv, math.pi*2/36)
+	if sword.index == 1 then
+		ability.swordFV = sword.fv
+	else
+		sword.fv = WallPhysics:rotateVector(ability.swordFV, 2*math.pi*(sword.index-1)/3)
+	end
+	-- sword.zFV = WallPhysics:rotateVector(sword.zFV, math.pi*2/90)
+	-- local zFV = Vector(0, sword.zFV.x, sword.zFV.y)
+	-- sword:SetAbsOrigin(caster:GetAbsOrigin()+sword.fv*140+Vector(0,0,90)+zFV*40)
+	sword:SetAbsOrigin(caster:GetAbsOrigin()+sword.fv*120+Vector(0,0,100))
 	sword.interval = sword.interval + 1
-	sword:SetAngles(160,(sword.interval*6)%360, 0)
+	sword:SetForwardVector(sword.fv)
+	-- sword:SetAngles(160,(sword.interval*6)%360, 0)
 end
 
 function arcana_passive_remove(event)
