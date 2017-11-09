@@ -55,7 +55,7 @@ function paladin_die(event)
 			        dashAbility:ApplyDataDrivenModifier(caster, caster, "modifier_crusader_a_c_extension", {})
 			        caster:SetModifierStackCount("modifier_crusader_a_c_extension", caster, a_c_level)
         		caster.revive = true
-				caster:RespawnHero(false, false, false)
+				caster:RespawnHero(false, false)
 			        Timers:CreateTimer(0.1, 
 			        function()
 			        -- caster:SetHealth(1000+500*a_c_level)
@@ -89,7 +89,7 @@ function rune_a_c_death(event)
         function()
         	
 				dyingUnit:RemoveModifierByName("modifier_paladin_rune_a_c_revivable")
-				dyingUnit:RespawnHero(false, false, false)
+				dyingUnit:RespawnHero(false, false)
 			        Timers:CreateTimer(0.1, 
 			        function()
 			        dyingUnit:SetHealth(1000+500*a_c_level)

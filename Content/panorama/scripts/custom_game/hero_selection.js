@@ -347,6 +347,9 @@ function updateSkillPreview(msg)
     for ( var i = 0; i < 4; ++i )
     {
         $.Msg(queryUnit)
+        if (i == 3){
+            i = 5
+        }
         var ability = Entities.GetAbility( queryUnit, i );
         $.Msg(ability)
         $.Msg( Abilities.GetLevel(ability))

@@ -91,6 +91,15 @@ function GameState:IsSeaFortress()
 	end
 end
 
+function GameState:IsSeaEarlyCheck()
+	local mapName = GetMapName()
+	if mapName == "rpc_sea_fortress" then
+		return true
+	else
+		return false
+	end
+end
+
 function GameState:IsWinterblight()
 	local mapName = Events.MapName
 	if mapName == "rpc_winterblight_mountain" then
@@ -440,7 +449,7 @@ function GameState:RecordMatch()
 end
 
 function GameState:GetPostReductionPhysicalDamage(damage, armor)
-	local damageMult = 1 - (0.06*armor/(1 + (0.06 * math.abs(armor))))
+	local damageMult = 1 - (0.05*armor/(1 + (0.05 * math.abs(armor))))
 	local damage = math.ceil(damage*damageMult)
 	return damage
 end
@@ -621,6 +630,15 @@ function GameState:OrderFilter(orderTable)
 					end
 				end
 			end
+			if unit:GetUnitName() == "npc_dota_hero_juggernaut" then
+				local orderAbility = EntIndexToHScript(orderTable.entindex_ability)
+				if IsValidEntity(orderAbility) then
+					if orderAbility:GetAbilityName() == "seinaru_arcana_ability" then
+						print("IGNORE CAST ANGLE!!!")
+						orderAbility:ApplyDataDrivenModifier(unit, unit, "modifier_seinaru_ignore_cast_angle", {duration = 0.5})
+					end
+				end
+			end
 			if unit:GetUnitName() == "npc_dota_hero_visage" then
 				local orderAbility = EntIndexToHScript(orderTable.entindex_ability)
 				if IsValidEntity(orderAbility) then
@@ -728,6 +746,52 @@ function GameState:GetInputDamageMultDecrease(attacker, shouldConsumeShield)
 
 end
 
+function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsumeShields, damagetype)
+	local BASE_VALUE_FOR_CALCULATE = 1000000
+	local damage = BASE_VALUE_FOR_CALCULATE
+	if damagetype == DAMAGE_TYPE_PHYSICAL then
+		if victim:HasModifier("modifier_stormshield_cloak") then
+			damage = damage*0.5
+		end
+		if victim:HasModifier("modifier_bahamut_glyph_1_1") then
+			filterTable["damage"] = filterTable["damage"]*0.7
+		end
+		if victim:HasModifier("modifier_resplendent_rubber_boots") then
+			if damagetype == DAMAGE_TYPE_MAGICAL then
+				filterTable["damage"] = filterTable["damage"]*0.65
+			end
+		end
+	elseif damagetype == DAMAGE_TYPE_MAGICAL then
+		if victim:HasModifier("modifier_solunia_c_d_arcana_shell") then
+			damage = damage*0.05
+		end
+	elseif damagetype == DAMAGE_TYPE_PURE then
+		if victim:HasModifier("modifier_sparkling_token_of_oceanis") then
+			damage = damage*0.1
+		end
+		if victim:HasModifier("modifier_sunstrider_lightsworn") then
+			damage = damage*0.2
+		end
+	end
+	if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
+		if victim:HasModifier("modifier_lightning_dash") then
+			local dash = victim:FindAbilityByName("voltex_lightning_dash")
+			if dash then
+				local reduction = (100-dash:GetSpecialValueFor("damage_reduction_percent"))/100
+				damage = damage*reduction
+			end
+		end
+		if victim:HasModifier("modifier_duskbringer_arcana_armor") then
+			local stackCount = victim:GetModifierStackCount("modifier_duskbringer_arcana_armor", victim)
+			local consideredArmor = victim:GetPhysicalArmorValue()*0.01*stackCount
+			damage = GameState:GetPostReductionPhysicalDamage(damage, consideredArmor)
+		end
+	end
+	local decreaseAll = GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields)
+
+	return (damage/BASE_VALUE_FOR_CALCULATE)*decreaseAll
+end
+
 function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields)
 	local BASE_VALUE_FOR_CALCULATE = 1000000 -- for prevent calc errors with small values
 	local damage = BASE_VALUE_FOR_CALCULATE
@@ -747,7 +811,9 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_fuchsia_damage_resistance") then
 		damage = damage*0.15
 	end
-
+	if victim:HasModifier("modifier_energy_field_c_d_shield") then
+		damage = damage*0.05
+	end
 	if victim:HasModifier("modifier_rooted_feet_health_regen") then
 		damage = damage*0.5
 	end
@@ -761,7 +827,12 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			Filters:HitAxeCCShield(victim, attacker)
 		end
 	end
-
+	if victim:HasModifier("modifier_volcano_shield") then
+		damage = damage*0.1
+		if shouldConsumeShields then
+			CustomAbilities:HitVolcanoShield(victim, attacker)
+		end
+	end
 	if victim:HasModifier("modifier_whirlwind") and victim:HasModifier("modifier_axe_glyph_4_2") then
 		damage = damage*0.5
 	end
@@ -805,7 +876,9 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			damage = damage*0.2
 		end
 	end
-
+	if victim:HasModifier("modifier_dummy_aura1_effect_zhonik") then
+		damage = damage*0.2
+	end
 	if victim:HasModifier("modifier_damage_resistance") then
 		if victim.damageReduc then
 			damage = damage*victim.damageReduc
@@ -817,6 +890,77 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			damage = damage*0.04
 		end
 	end
+
+	if victim:HasModifier("modifier_chitinous_skin_stack") then
+		local stacks = victim:GetModifierStackCount("modifier_chitinous_skin_stack", victim.InventoryUnit)
+		local reduction = 1 - stacks*0.03
+		damage = damage*reduction
+		local newStacks = stacks - 1
+		if newStacks > 0 then
+			victim:SetModifierStackCount("modifier_chitinous_skin_stack", victim.InventoryUnit, newStacks)
+		else
+			victim:RemoveModifierByName("modifier_chitinous_skin_stack")
+		end
+	end
+
+	if victim:HasModifier("modifier_overload_damage_resistance") then
+		damage = damage*0.1
+	end
+
+	if victim:HasModifier("modifier_energy_channel") or victim:HasModifier("modifier_steelforge_stance") then
+		if victim:HasModifier("modifier_mountain_protector_glyph_2_1") then
+			damage = damage*0.7
+		end
+	end
+
+	if victim:HasModifier("modifier_tachyon_shell") then
+		local modifier = victim:FindModifierByName("modifier_tachyon_shell")
+		if modifier:GetCaster():GetTeamNumber() == victim:GetTeamNumber() then
+			local reduction = math.max(1 - modifier:GetAbility().d_a_level*0.005, 0.1)
+			damage = damage*reduction
+		end
+	end
+
+	if victim:HasModifier("modifier_ancient_tree_passive") then
+		damage = damage*0.004
+		if victim:HasModifier("modifier_ancient_tree_round_2") then
+			damage = damage*0.5
+		end
+		local reduction = math.min(victim.summonCount*0.05, 1)
+		damage = damage*(1-reduction)
+	end
+	if victim:HasModifier("modifier_drowning_pool_actual_effect") then
+		local modifier = victim:FindModifierByName("modifier_drowning_pool_actual_effect")
+		local stacks = modifier:GetStackCount()
+		local damageReduc = math.min(stacks*0.015, 0.9)
+		damage = damage - damage*damageReduc
+	end
+	if victim:HasModifier("modifier_steelforge_passive") then
+		local steelForge = victim:FindAbilityByName("mountain_protector_steelforge_stance")
+		local reduction = steelForge:GetLevelSpecialValueFor("damage_resist", steelForge:GetLevel())
+		reduction = (100-reduction)/100
+		damage = damage*reduction
+	end
+	if victim:HasModifier("modifier_task_armor") then
+		damage = damage*0.001
+		if shouldConsumeShields then
+			CustomAbilities:HitTaskShield(victim, attacker)
+		end
+	end
+	if victim:HasModifier("modifier_knights_disciple_heal") then
+		damage = damage*0.8
+	end
+	if victim:HasModifier("modifier_astral_c_c_visible") then
+		damage = damage*0.25
+	end
+	if victim:HasModifier("modifier_ancient_rain") then
+		local ancientRain = victim:FindAbilityByName("spirit_warrior_ancient_rain")
+		if ancientRain then
+			local reduction = (100-ancientRain:GetSpecialValueFor("damage_reduction_percent"))/100
+			damage = damage*reduction
+		end
+	end
+
 	return damage/BASE_VALUE_FOR_CALCULATE
 end
 
@@ -835,8 +979,25 @@ function GameState:FilterDamage(filterTable)
 	local divisor = 1
 
 	if attacker:IsHero() then
-		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
-			filterTable["damage"] = math.ceil(filterTable["damage"]/(1+((attacker:GetIntellect()/14)/100)))
+		-- if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
+		-- 	filterTable["damage"] = math.ceil(filterTable["damage"]/(1+((attacker:GetIntellect()/14)/100)))
+		-- end
+	end
+	local StartingDamage = filterTable["damage"]
+	local applyEffects = true
+	if filterTable["entindex_inflictor_const"] then
+		local ability = EntIndexToHScript(filterTable["entindex_inflictor_const"])
+		if IsValidEntity(ability) then
+			if ability:GetEntityIndex() == Events.GameMasterAbility:GetEntityIndex() then
+				print("APPLY EFFECTS FALSE!")
+				applyEffects = false
+			end
+		end
+	end
+	if applyEffects then
+		if victim:HasModifier("modifier_dungeon_thinker_creep") then
+			victim.aggro = true
+			Dungeons:AggroUnit(victim)
 		end
 	end
 	if GameState:IsPVPAlpha() then
@@ -879,7 +1040,7 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_hand_marauder") then
 			if victim:GetPhysicalArmorValue() > 0 then
 				local armor = victim:GetPhysicalArmorValue()
-				local damageMult = 1 - (0.06*armor/(1 + (0.06 * math.abs(armor))))
+				local damageMult = 1 - (0.05*armor/(1 + (0.05 * math.abs(armor))))
 				filterTable["damage"] = filterTable["damage"]/damageMult
 			end
 		end
@@ -910,9 +1071,6 @@ function GameState:FilterDamage(filterTable)
 			if attacker.a_c_level then
 				mult = mult + 0.02*attacker.a_c_level
 			end
-		end
-		if victim:HasModifier("modifier_solunia_c_d_arcana_shell") then
-			filterTable["damage"] = filterTable["damage"]*0.05
 		end
 		if attacker:HasModifier("modifier_sorcerers_regalia") then
 			mult = mult+0.4
@@ -979,9 +1137,6 @@ function GameState:FilterDamage(filterTable)
 			local modifier = victim:FindModifierByName("modifier_solunia_warp_core_aura_lunar")
 			mult = mult + modifier:GetAbility().c_c_level*0.05
 		end
-		if victim:HasModifier("modifier_sparkling_token_of_oceanis") then
-			filterTable["damage"] = filterTable["damage"]*0.1
-		end
 	end
 	if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 		if victim:HasModifier("modifier_emerald_nullification_ring") then
@@ -1043,13 +1198,7 @@ function GameState:FilterDamage(filterTable)
 			victim:SetModifierStackCount("modifier_voltex_lightning_dash_regen_hidden", victim, dash.regen)
 		end
 	end
-	if victim:HasModifier("modifier_lightning_dash") then
-		local dash = victim:FindAbilityByName("voltex_lightning_dash")
-		if dash then
-			local reduction = (100-dash:GetSpecialValueFor("damage_reduction_percent"))/100
-			filterTable["damage"] = filterTable["damage"]*reduction
-		end
-	end
+
 	if attacker:HasModifier("modifier_trickster_mask") then
 		local minBoost = 0
 		if attacker:HasModifier("modifier_boots_of_great_fortune") then
@@ -1097,13 +1246,6 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
-	if victim:HasModifier("modifier_energy_field_c_d_shield") then
-		filterTable["damage"] = filterTable["damage"]*0.05
-	end
-
-    if attacker:HasModifier("modifier_torrent_trap_immunity") and victim:HasModifier("modifier_trapper_glyph_3_2") then
-        filterTable["damage"] = filterTable["damage"]*0.05
-    end
 	if victim:HasModifier("modifier_seinaru_gorudo_rune_a_d") then
 		if victim:GetPhysicalArmorValue() < 0 then
 			if damagetype == DAMAGE_TYPE_PHYSICAL then
@@ -1117,14 +1259,6 @@ function GameState:FilterDamage(filterTable)
 				end
 			end
 		end
-	end
-	if victim:HasModifier("modifier_ancient_tree_passive") then
-		filterTable["damage"] = filterTable["damage"]*0.004
-		if victim:HasModifier("modifier_ancient_tree_round_2") then
-			filterTable["damage"] = filterTable["damage"]*0.5
-		end
-		local reduction = math.min(victim.summonCount*0.05, 1)
-		filterTable["damage"] = filterTable["damage"]*(1-reduction)
 	end
 	if victim:HasModifier("modifier_astral_rune_a_c_visible") then
 		local modifier = victim:FindModifierByName("modifier_astral_rune_a_c_invisible")
@@ -1152,9 +1286,7 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + multIncrease
 		end
 	end
-	if victim:HasModifier("modifier_overload_damage_resistance") then
-		filterTable["damage"] = filterTable["damage"]*0.1
-	end
+
 	if victim:HasModifier("modifier_water_mage_slow") then
 		local modifier = victim:FindModifierByName("modifier_water_mage_slow")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
@@ -1182,12 +1314,7 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_draghor_hawk_screech") then
 		mult = mult + 1
 	end
-	if victim:HasModifier("modifier_drowning_pool_actual_effect") then
-		local modifier = victim:FindModifierByName("modifier_drowning_pool_actual_effect")
-		local stacks = modifier:GetStackCount()
-		local damageReduc = math.min(stacks*0.015, 0.9)
-		filterTable["damage"] = filterTable["damage"] - filterTable["damage"]*damageReduc
-	end
+
 	if attacker:HasModifier("modifier_drowning_pool_actual_effect") then
 		local modifier = attacker:FindModifierByName("modifier_drowning_pool_actual_effect")
 		local stacks = modifier:GetStackCount()
@@ -1220,6 +1347,10 @@ function GameState:FilterDamage(filterTable)
 			local multIncrease = 0.02*stacks
 			mult = mult + multIncrease
 		end
+	end
+	if victim:HasModifier("modifier_earth_guardian") then
+		Filters:EarthGuardian(victim, filterTable["damage"])
+		filterTable["damage"] = filterTable["damage"]*0.5
 	end
 	if victim:HasModifier("modifier_warlord_b_d_effect") then
 		local modifier = victim:FindModifierByName("modifier_warlord_b_d_effect")
@@ -1287,11 +1418,6 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_windsteel_effect") then
 		filterTable["damage"] = Filters:WindSteelTakeDamage(victim, filterTable["damage"])
 	end
-	if victim:HasModifier("modifier_energy_channel") or victim:HasModifier("modifier_steelforge_stance") then
-		if victim:HasModifier("modifier_mountain_protector_glyph_2_1") then
-			filterTable["damage"] = filterTable["damage"]*0.7
-		end
-	end
 	if victim:HasModifier("modifier_secret_temple_refraction") then
 		print("DAMAGE BEFORE: "..filterTable["damage"])
 		filterTable["damage"] = Filters:SecretTempleTakeDamage(victim, filterTable["damage"])
@@ -1301,9 +1427,11 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = Filters:HeavensShieldTakeDamage(victim, filterTable["damage"])
 	end
 	if victim:HasModifier("modifier_shipyard_veil_shield") then
-		if filterTable["damage"] > 0 then
-			filterTable["damage"] = 0
-			CustomAbilities:HitShipyardShield(victim, attacker)
+		if applyEffects then
+			if filterTable["damage"] > 0 then
+				filterTable["damage"] = 0
+				CustomAbilities:HitShipyardShield(victim, attacker)
+			end
 		end
 	end
 	if attacker:HasModifier("modifier_neutral_glyph_5_3") then
@@ -1372,14 +1500,15 @@ function GameState:FilterDamage(filterTable)
 		local multIncrease = stacks/100
 		mult = mult + multIncrease
 	end
+	if attacker:HasModifier("modifier_sunstrider_sunwarrior_vengeance_post_mit") then
+		local stacks = attacker:GetModifierStackCount("modifier_sunstrider_sunwarrior_vengeance_post_mit", attacker)
+		local multIncrease = stacks*0.12
+		mult = mult + multIncrease
+	end
 	if victim:HasModifier("modifier_auriun_immortal_weapon_1") then
 		filterTable["damage"] = Filters:AuriunImmortalWeapon1(filterTable["damage"], victim)
 	end
-	if victim:HasModifier("modifier_bahamut_glyph_1_1") then
-		if damagetype == DAMAGE_TYPE_PHYSICAL then
-			filterTable["damage"] = filterTable["damage"]*0.7
-		end
-	end
+
 	if victim:HasModifier("modifier_paladin_d_c") then
 		local modifier = victim:FindModifierByName("modifier_paladin_d_c")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
@@ -1420,27 +1549,17 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + 0.035*attacker.b_a_level
 		end
 	end
-	if victim:HasModifier("modifier_tachyon_shell") then
-		local modifier = victim:FindModifierByName("modifier_tachyon_shell")
-		if modifier:GetCaster():GetTeamNumber() == victim:GetTeamNumber() then
-			local reduction = math.max(1 - modifier:GetAbility().d_a_level*0.005, 0.1)
-			filterTable["damage"] = filterTable["damage"]*reduction
-		end
-	end
-	if victim:HasModifier("modifier_duskbringer_arcana_armor") then
-		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
-			local stackCount = victim:GetModifierStackCount("modifier_duskbringer_arcana_armor", victim)
-			local consideredArmor = victim:GetPhysicalArmorValue()*0.01*stackCount
-			filterTable["damage"] = GameState:GetPostReductionPhysicalDamage(filterTable["damage"], consideredArmor)
-		end
-	end
+
+
 	if victim:HasModifier("modifier_recently_respawned") then
 		filterTable["damage"] = 0
 	end
 	if victim:HasModifier("modifier_sadist_shield") then
 		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 			filterTable["damage"] = 0
-			CustomAbilities:HitShieldGeneric(victim, attacker, victim, "modifier_sadist_shield")
+			if applyEffects then
+				CustomAbilities:HitShieldGeneric(victim, attacker, victim, "modifier_sadist_shield")
+			end
 		end
 	end
 	if victim:HasModifier("modifier_black_dominion_shield") then
@@ -1478,30 +1597,9 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
-	if victim:HasModifier("modifier_stormshield_cloak") then
-		if damagetype == DAMAGE_TYPE_PHYSICAL then
-			filterTable["damage"] = filterTable["damage"]*0.5
-		end
-	end
-	if victim:HasModifier("modifier_resplendent_rubber_boots") then
-		if damagetype == DAMAGE_TYPE_MAGICAL then
-			filterTable["damage"] = filterTable["damage"]*0.65
-		end
-	end
 	if attacker:HasModifier("modifier_golden_war_plate") then
 		if damagetype == DAMAGE_TYPE_MAGICAL then
 			filterTable["damage"] = filterTable["damage"]*0.35
-		end
-	end
-	if victim:HasModifier("modifier_chitinous_skin_stack") then
-		local stacks = victim:GetModifierStackCount("modifier_chitinous_skin_stack", victim.InventoryUnit)
-		local reduction = 1 - stacks*0.03
-		filterTable["damage"] = filterTable["damage"]*reduction
-		local newStacks = stacks - 1
-		if newStacks > 0 then
-			victim:SetModifierStackCount("modifier_chitinous_skin_stack", victim.InventoryUnit, newStacks)
-		else
-			victim:RemoveModifierByName("modifier_chitinous_skin_stack")
 		end
 	end
 	if victim:HasModifier("moon_tech_aura") then
@@ -1564,29 +1662,15 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = 0
 		Filters:GhostArmor(victim, attacker)
 	end
-	if victim:HasModifier("modifier_steelforge_passive") then
-		local steelForge = victim:FindAbilityByName("mountain_protector_steelforge_stance")
-		local reduction = steelForge:GetLevelSpecialValueFor("damage_resist", steelForge:GetLevel())
-		reduction = (100-reduction)/100
-		filterTable["damage"] = filterTable["damage"]*reduction
-	end
+
 	if attacker:HasModifier("modifier_soul_thrust_effect") then
 		local modifier = attacker:FindModifierByName("modifier_soul_thrust_effect"):GetCaster()
 		if modifier:GetEntityIndex() == victim:GetEntityIndex() then
 			filterTable["damage"] = filterTable["damage"]*0.5
 		end
 	end
-	if victim:HasModifier("modifier_task_armor") then
-		filterTable["damage"] = filterTable["damage"]*0.001
-		CustomAbilities:HitTaskShield(victim, attacker)
-	end
-	if victim:HasModifier("modifier_knights_disciple_heal") then
-		filterTable["damage"] = filterTable["damage"]*0.8
-	end
-	if victim:HasModifier("modifier_volcano_shield") then
-		filterTable["damage"] = filterTable["damage"]*0.1
-		CustomAbilities:HitVolcanoShield(victim, attacker)
-	end
+
+
 	if victim:HasModifier("modifier_paladin_rune_c_a_shield") then
 		filterTable["damage"] = 0
 		Filters:ShatterPaladinShell(victim, attacker)
@@ -1595,13 +1679,7 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = 0
 		Filters:ShatterVoltexShell(victim, attacker)
 	end
-	if victim:HasModifier("modifier_ancient_rain") then
-		local ancientRain = victim:FindAbilityByName("spirit_warrior_ancient_rain")
-		if ancientRain then
-			local reduction = (100-ancientRain:GetSpecialValueFor("damage_reduction_percent"))/100
-			filterTable["damage"] = filterTable["damage"]*reduction
-		end
-	end
+
 
 	if attacker:HasModifier("modifier_flurry_aura_debuff") then
 		filterTable["damage"] = filterTable["damage"]*0.7
@@ -1612,9 +1690,7 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_neutral_glyph_5_2") then
 		filterTable["damage"] = filterTable["damage"]*1.35
 	end
-	if victim:HasModifier("modifier_dummy_aura1_effect_zhonik") then
-		filterTable["damage"] = filterTable["damage"]*0.2
-	end
+
 	if victim:HasModifier("modifier_emerald_douli") then
 		local reductionPercent = Filters:EmeraldDouliHit(victim, filterTable["damage"])
 		filterTable["damage"] = filterTable["damage"] - filterTable["damage"]*reductionPercent
@@ -1623,13 +1699,7 @@ function GameState:FilterDamage(filterTable)
 		local damageReduction = Filters:SpellShieldHit(victim, filterTable["damage"])
 		filterTable["damage"] = filterTable["damage"] - damageReduction
 	end
-	if victim:HasModifier("modifier_earth_guardian") then
-		Filters:EarthGuardian(victim, filterTable["damage"])
-		filterTable["damage"] = filterTable["damage"]*0.5
-	end
-	if victim:HasModifier("modifier_astral_c_c_visible") then
-		filterTable["damage"] = filterTable["damage"]*0.25
-	end
+
 	if attacker:HasModifier("modifier_seinaru_immortal_weapon_1") then
 		if damagetype == DAMAGE_TYPE_PHYSICAL then
 			if not victim.dummy then
@@ -1741,7 +1811,7 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_ethereal_revenant_link") then
 		if victim.revenantData then
 			if victim.revenantData[1] == attacker:GetEntityIndex() then
-				filterTable["damage"] = filterTable["damage"]*4
+				filterTable["damage"] = filterTable["damage"]*3
 			end
 		end
 	end
@@ -1847,20 +1917,31 @@ function GameState:FilterDamage(filterTable)
     		local damageReduc = victim:FindModifierByName("modifier_pure_resist"):GetAbility():GetSpecialValueFor("pure_resist")
     		damageReduc = 1 - (damageReduc/100)
     		filterTable["damage"] = filterTable["damage"]*damageReduc
-    		if not victim.particleLock then
-    			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_brewmaster/brewmaster_windwalk.vpcf", victim, 1)
-    			victim.particleLock = true
-    			Timers:CreateTimer(0.5, function()
-    				victim.particleLock = false
-    			end)
-    		end
+    		if applyEffects then
+	    		if not victim.particleLock then
+	    			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_brewmaster/brewmaster_windwalk.vpcf", victim, 1)
+	    			victim.particleLock = true
+	    			Timers:CreateTimer(0.5, function()
+	    				victim.particleLock = false
+	    			end)
+	    		end
+	    	end
     	end
     end
 
     if victim:HasModifier("modifier_seinaru_b_c_wakizashi") then
     	filterTable["damage"] = 0
 	end
-	filterTable["damage"] = filterTable["damage"] * GameState:IncomingDamageDecrease(victim, attacker, true)
+	if damagetype == DAMAGE_TYPE_MAGICAL then
+		filterTable["damage"] = filterTable["damage"] * GameState:IncomingDamageDecreaseWithType(victim, attacker, true, DAMAGE_TYPE_MAGICAL)
+	elseif damagetype == DAMAGE_TYPE_PHYSICAL then
+		filterTable["damage"] = filterTable["damage"] * GameState:IncomingDamageDecreaseWithType(victim, attacker, true, DAMAGE_TYPE_PHYSICAL)
+	elseif damagetype == DAMAGE_TYPE_PURE then
+		filterTable["damage"] = filterTable["damage"] * GameState:IncomingDamageDecreaseWithType(victim, attacker, true, DAMAGE_TYPE_PURE)
+	else
+		filterTable["damage"] = filterTable["damage"] * GameState:IncomingDamageDecrease(victim, attacker, true)
+	end
+	
 
 	if victim:HasModifier("modifier_demon_hunter") then
 		filterTable["damage"] = CustomAbilities:ChernobogDemonHunter(victim, filterTable["damage"])
@@ -1933,6 +2014,9 @@ function GameState:FilterDamage(filterTable)
 				filterTable["damage"] = filterTable["damage"]*5000
 			end
 		end
+	end
+	if not victim:HasModifier("modifier_steadfast") and not victim:HasModifier("modifier_mega_steadfast") and attacker:HasModifier("modifier_neutral_glyph_4_2") then
+		filterTable["damage"] = filterTable["damage"] * 0.8
 	end
 	if victim:HasModifier("modifier_steadfast") then
 		local thresholdMult = 1
@@ -2020,15 +2104,12 @@ function GameState:FilterDamage(filterTable)
 		local missingHealthPercent = math.floor((1-(attacker:GetHealth()/attacker:GetMaxHealth()))*100)
 		mult = mult + missingHealthPercent*1.5/100
 	end
-	if not victim:HasModifier("modifier_steadfast") and not victim:HasModifier("modifier_mega_steadfast") and attacker:HasModifier("modifier_neutral_glyph_4_2") then
-		filterTable["damage"] = filterTable["damage"] * 0.8
-	end
 
 	--TRAPPER
 	local modifier = attacker:FindModifierByName("modifier_trapper_d_c_post_amp")
 	if modifier then
 		local stacks = modifier:GetStackCount()
-		mult = mult + stacks*0.7
+		mult = mult + stacks*0.1
 	end
 	if attacker:HasModifier("modifier_trapper_immortal_weapon_2") then
 		if victim:HasModifier("modifier_fulminating_burn_effect") or victim:HasModifier("modifier_poison_trap_effect") or victim:HasModifier("modifier_net_trap_netted_effect") or victim:HasModifier("modifier_torrent_trap_slowed_effect") then
@@ -2036,19 +2117,24 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 
-	if victim:HasModifier("modifier_poison_whip") then
-		local modifier = victim:FindModifierByName("modifier_poison_whip")
+	local modifier = victim:FindModifierByName("modifier_poison_whip")
+	if modifier then
 		local stacks = modifier:GetStackCount()
 		local ability = modifier:GetAbility()
 		local a_b_level = ability.a_b_level
-		mult = mult + 0.001*a_b_level*stacks
+		mult = mult + 0.01*a_b_level*stacks
 	end
 
+	if attacker:HasModifier("modifier_torrent_trap_immunity") and victim:HasModifier("modifier_trapper_glyph_3_2") then
+		filterTable["damage"] = filterTable["damage"]*0.05
+	end
 	--APPLY MULT
 	filterTable["damage"] = filterTable["damage"]*mult/divisor
 	--FINAL STAGE--
 	if victim:HasModifier("modifier_canyon_boss_ai") then
-		filterTable["damage"] = Redfall:CanyonBossTakeDamage(victim, filterTable["damage"])
+		if applyEffects then
+			filterTable["damage"] = Redfall:CanyonBossTakeDamage(victim, filterTable["damage"])
+		end
 	end
 	if victim:HasModifier("modifier_conquest_stone_falcon") then
     	if filterTable["damagetype_const"] == DAMAGE_TYPE_MAGICAL or filterTable["damagetype_const"] == DAMAGE_TYPE_PURE then
@@ -2068,10 +2154,12 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if victim:HasModifier("modifier_lava_specter_ai") then
-		local luck = RandomInt(1,2)
-		if luck == 1 then
-			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_spectre/spectre_death.vpcf", victim, 1.2)
-			filterTable["damage"] = 0
+		if applyEffects then
+			local luck = RandomInt(1,2)
+			if luck == 1 then
+				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_spectre/spectre_death.vpcf", victim, 1.2)
+				filterTable["damage"] = 0
+			end
 		end
 	end
 
@@ -2313,21 +2401,37 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	if victim:HasModifier("modifier_dummy_active") then
-		local heroOwner = CustomAbilities:getHeroFromUnit(attacker)
-		if victim.attackerIndex == attacker:GetEntityIndex() or victim.attackerIndex == heroOwner:GetEntityIndex() then
-			local dmgReport = math.floor(filterTable["damage"]/difficultyDamageReduce)
-			local element1 = attacker.element1
-			local element2 = attacker.element2
-			local inflictor = filterTable["entindex_inflictor_const"]
-			if not inflictor then
-				element1 = RPC_ELEMENT_NONE
-				element2 = RPC_ELEMENT_NONE
-			end
-			CustomGameEventManager:Send_ServerToPlayer(attacker:GetPlayerOwner(), "updateTargetDummy", {dmg = dmgReport, victim = victim:GetEntityIndex(), attacker = attacker:GetEntityIndex(), damagetype = damagetype, element1 = element1, element2 = element2})
-			if attacker:HasModifier("modifier_dummy_timer") then
-				victim.timerDamage = victim.timerDamage + dmgReport
+		if attacker == Events.GameMaster then
+		else
+			local heroOwner = CustomAbilities:getHeroFromUnit(attacker)
+			if heroOwner then
+				if victim.attackerIndex == attacker:GetEntityIndex() or victim.attackerIndex == heroOwner:GetEntityIndex() then
+					local dmgReport = math.floor(filterTable["damage"]/difficultyDamageReduce)
+					local element1 = attacker.element1
+					local element2 = attacker.element2
+					local inflictor = filterTable["entindex_inflictor_const"]
+					if not inflictor then
+						element1 = RPC_ELEMENT_NONE
+						element2 = RPC_ELEMENT_NONE
+					end
+					CustomGameEventManager:Send_ServerToPlayer(attacker:GetPlayerOwner(), "updateTargetDummy", {dmg = dmgReport, victim = victim:GetEntityIndex(), attacker = attacker:GetEntityIndex(), damagetype = damagetype, element1 = element1, element2 = element2})
+					if attacker:HasModifier("modifier_dummy_timer") then
+						victim.timerDamage = victim.timerDamage + dmgReport
+					end
+				end
 			end
 		end
+	end
+	local inflictor = filterTable["entindex_inflictor_const"]
+	if not applyEffects then
+		if damagetype == DAMAGE_TYPE_MAGICAL then
+			victim.resist_mag = 1-(filterTable["damage"]/StartingDamage)
+		elseif damagetype == DAMAGE_TYPE_PHYSICAL then
+			victim.resist_phys = 1-(filterTable["damage"]/StartingDamage)
+		elseif damagetype == DAMAGE_TYPE_PURE then
+			victim.resist_pure = 1-(filterTable["damage"]/StartingDamage)
+		end
+		filterTable["damage"] = 0
 	end
 	-- if attacker:HasModifier("modifier_line_unit_passive") then
 	-- 	filterTable["damage"] = filterTable["damage"]/GameState.PVP_REDUCTION
@@ -2335,7 +2439,7 @@ function GameState:FilterDamage(filterTable)
 	if Beacons.cheats then
 		-- if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 		-- 	if victim:IsHero() then
-		-- 		filterTable["damage"] = 0
+		-- 		filterTable["damage"] = victim:GetMaxHealth()*0.1
 		-- 	end
 		-- end
 		-- if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then

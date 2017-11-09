@@ -429,7 +429,9 @@ function time_ulti_script(event)
 
   EmitSoundOn("Epoch.UltiStart", caster)
   ability:ApplyDataDrivenThinker(caster, point, "modifier_time_ulti_vacuum_thinker_datadriven", {})
-
+  Timers:CreateTimer(4.0, function()
+    rune_a_d(caster, point, 3, ability)
+  end)
   local enemies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
   if #enemies > 0 then
     for _,enemy in pairs(enemies) do
@@ -459,7 +461,7 @@ function immortal_weapon_2_die(event)
     Timers:CreateTimer(3, function()
       if caster:IsAlive() then
       else
-        caster:RespawnHero(false, false, false)
+        caster:RespawnHero(false, false)
         caster:SetAbsOrigin(respawnPoint)
       end
     end)

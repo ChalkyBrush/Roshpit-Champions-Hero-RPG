@@ -38,15 +38,30 @@ function WallAllyBuff(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	print("WALL ALLY BUFF")
 	local a_a_level = ability.a_a_level
 	local a_d_level = ability.a_d_level
 	local b_d_level = ability.b_d_level
 	if caster:GetEntityIndex() == target:GetEntityIndex() then
 		if a_a_level then
 			if a_a_level > 0 then
+				local acceptable_particle_thinkers = {}
+				for i = 1, #ability.wallThinkerTable, 1 do
+					local wallThinker = ability.wallThinkerTable[i]
+					local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), wallThinker.position)
+					if distance <= 270 then
+						table.insert(acceptable_particle_thinkers, wallThinker)
+					end
+					print(wallThinker.index)
+				end
+				local wallCenter = ability.wallCenter
+				local wallNinety = ability.ninetyDegrees
+				if #acceptable_particle_thinkers > 0 then
+					local randomIndex = RandomInt(1, #acceptable_particle_thinkers)
+					wallCenter = acceptable_particle_thinkers[randomIndex].position
+					wallNinety = acceptable_particle_thinkers[randomIndex].ninetyDeg
+				end
 				local maxBound = WallPhysics:round(ability.wallLength/2.5, 0)
-				local attachPoint = ability.wallCenter+ability.ninetyDegrees*RandomInt(-maxBound, maxBound)
+				local attachPoint = wallCenter+wallNinety*RandomInt(-maxBound, maxBound)
 				EmitSoundOnLocationWithCaster(attachPoint, "Hero_VengefulSpirit.ProjectileImpact", caster)
 				CreateLightningBeam(attachPoint+Vector(0,0,100), caster:GetAbsOrigin()+Vector(0,0,80))
 				caster:GiveMana(a_a_level*3)
@@ -59,9 +74,6 @@ function WallAllyBuff(event)
 			end
 		end
 		if a_d_level then
-			print("AD LEVEL")
-			print(caster:HasModifier("modifier_charge_of_light_hyper_state_cooldown"))
-			print(hasChargingOrSlide(caster))
 			if a_d_level > 0 and hasChargingOrSlide(caster, event.guarantee) then
 				print("GOT IN CONDITION!")
 				local hyperStateDuration = Filters:GetAdjustedBuffDuration(caster, 12, false)

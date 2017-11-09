@@ -216,7 +216,30 @@ function CorrectDotaUI(){
 	// parent.FindChildTraverse("HeroFilters").style.visibility = "collapse"
 
 	//RANDOM TEST
+	// $.DispatchEvent("UIShowCustomLayoutParametersTooltip", itemPanel, "file://{resources}/layout/custom_game/equipment/item_tooltip.xml", tooltipArgs);
+	var stats_tooltip_panel = parent.FindChildTraverse('stats_tooltip_region')
+	GameUI.StatsTooltipAttachment = stats_tooltip_panel
+	stats_tooltip_panel.SetPanelEvent('onmouseover', function StatsToolTip() {
+		$.Msg("NEW TOOLTIP?")
+		GameUI.ShouldAttributeTooltip = true
+		GameEvents.SendCustomGameEventToServer( "stats_hover", {playerID: Game.GetLocalPlayerID(), queryunit: Players.GetLocalPlayerPortraitUnit()});
+		// $.DispatchEvent("UIShowCustomLayoutParametersTooltip", stats_tooltip_panel, "file://{resources}/layout/custom_game/equipment/item_tooltip.xml", tooltipArgs);
+	});
+	stats_tooltip_panel.SetPanelEvent('onmouseout', function StatsToolTip() {
+		GameUI.ShouldAttributeTooltip = false
+		$.DispatchEvent("UIHideCustomLayoutTooltip", "AttributesTooltip");
+	});
 
+	// var stats_tooltip_panel = parent.FindChildTraverse('QueryInfo').FindChildTraverse('stats_container')
+	// GameUI.StatsTooltipAttachment = stats_tooltip_panel
+	// stats_tooltip_panel.SetPanelEvent('onmouseover', function StatsToolTip() {
+	// 	$.Msg("NEW TOOLTIP?")
+	// 	GameEvents.SendCustomGameEventToServer( "stats_hover", {playerID: Game.GetLocalPlayerID(), queryunit: Players.GetLocalPlayerPortraitUnit()});
+	// 	// $.DispatchEvent("UIShowCustomLayoutParametersTooltip", stats_tooltip_panel, "file://{resources}/layout/custom_game/equipment/item_tooltip.xml", tooltipArgs);
+	// });
+	// stats_tooltip_panel.SetPanelEvent('onmouseout', function StatsToolTip() {
+	// 	$.DispatchEvent("UIHideCustomLayoutTooltip", "AttributesTooltip");
+	// });
 }
 
 function InitializeMenu(){
@@ -403,11 +426,23 @@ function UseRespawnFlag(){
 	GameEvents.SendCustomGameEventToServer( "respawn_flag", {playerID: playerID, heroIndex: heroIndex, color: color});
 }
 
+function AttributeTooltipHoverFromServer(msg){
+	if (GameUI.ShouldAttributeTooltip){
+		var queryUnit = msg.unit
+		// var tooltipArgs = "queryUnit="+queryUnit
+		GameUI.StatQueryData = msg.extraData
+		GameUI.AttributeQueryUnit = queryUnit
+		$.DispatchEvent("UIShowCustomLayoutTooltip", GameUI.StatsTooltipAttachment, "AttributesTooltip", "file://{resources}/layout/custom_game/skills/attributes_tooltip.xml");
+		// $.DispatchEvent("UIShowCustomLayoutParametersTooltip", GameUI.StatsTooltipAttachment, "file://{resources}/layout/custom_game/skills/attributes_tooltip.xml", tooltipArgs);
+	}
+}
+
 (function()
 {
 	// GameEvents.Subscribe( "dota_player_update_selected_unit", UpdateMenuValues );
 	// GameEvents.Subscribe( "dota_player_update_query_unit", UpdateMenuValues );
-	// GameEvents.Subscribe( "dota_money_changed", UpdateMenuValues );
+
+	GameEvents.Subscribe( "", UpdateMenuValues );
 	
 	GameEvents.Subscribe( "correct_dota_ui", CorrectDotaUI );
 	GameEvents.Subscribe( "update_key_display", SetKeyVisibility );
@@ -416,6 +451,7 @@ function UseRespawnFlag(){
 	GameEvents.Subscribe( "UpdateMenuValues", UpdateMenuValuesOnce );
 
 	GameEvents.Subscribe( "newQuest", highlightQuest)
+	GameEvents.Subscribe( "attribute_tooltip", AttributeTooltipHoverFromServer)
 	UpdateMenuValues();
 	InitializeMenu();
 	CorrectDotaUI();

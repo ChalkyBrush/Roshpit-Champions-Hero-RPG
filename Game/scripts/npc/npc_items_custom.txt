@@ -72,6 +72,26 @@
 					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"	"-1"
 				}
 			}
+			"modifier_str_regen"
+			{
+				"IsHidden"			"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE_UNIQUE"	"-1"
+				}
+			}
+			"modifier_str_status"
+			{
+				"IsHidden"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+
+					"MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING"	"-1"
+				}
+			}
 		}
 	}
 
@@ -4998,26 +5018,14 @@
 			"modifier_empyreal_str"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "1"
-				}
 			}
 			"modifier_empyreal_agi"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "1"
-				}
 			}
 			"modifier_empyreal_int"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "1"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -8169,11 +8177,6 @@
 			"modifier_eye_of_seasons_stats"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "1"
-				    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "1"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -9016,10 +9019,6 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"1"
-				}
 			}
 		}
 	}
@@ -9091,11 +9090,6 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"1"
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"1"
-				}
 			}
 		}
 	}
@@ -9547,6 +9541,26 @@
 				"var_type"			"FIELD_INTEGER"
 				"element_two"		"1"
 			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"		"10"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_two"		"40"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_three"	"4000"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"property_four"		"0.4"
+			}
 		}
 		"precache"
 		{
@@ -9686,30 +9700,18 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"1"
-				}
 			}
 			"modifier_legion_vestments_effect_agi"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"1"
-				}
 			}
 			"modifier_legion_vestments_effect_int"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"1"
-				}
 			}
 		}
 	}
@@ -9783,30 +9785,18 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"1"
-				}
 			}
 			"modifier_gold_plate_of_leon_agi"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"1"
-				}
 			}
 			"modifier_gold_plate_of_leon_int"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"1"
-				}
 			}
 		}
 	}
@@ -10638,10 +10628,6 @@
 			"modifier_mageplate_intelligence"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "1"
-				}
 				"OnDestroy"
 				{
 					"RunScript"
@@ -13361,7 +13347,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_three"	"4"
+				"property_three"	"3"
 			}
 			"04"
 			{
@@ -16816,12 +16802,6 @@
 				"IsBuff"	"1"
 				"IsHidden"	"1"
 				"Passive"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "20"
-				    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "20"
-				    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "20"
-				}
 			}
 		}
 	}
@@ -16885,12 +16865,6 @@
 				"IsBuff"	"1"
 				"IsHidden"	"1"
 				"Passive"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "40"
-				    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "40"
-				    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "40"
-				}
 			}
 		}
 	}
@@ -19104,28 +19078,16 @@
 			{
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "25"
-				}
 			}
 			"modifier_azure_empire_strength"
 			{
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "25"
-				}
 			}
 			"modifier_azure_empire_intelligence"
 			{
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "25"
-				}
 			}
 			"modifier_azure_hawk_dead"
 			{
@@ -19598,10 +19560,6 @@
 			"modifier_wind_orchid_agility_bonus"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%property_one"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -19670,10 +19628,6 @@
 			"modifier_aqua_lily_intelligence_bonus"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%property_one"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -19742,10 +19696,6 @@
 			"modifier_fire_blossom_strength_bonus"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%property_one"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -20145,6 +20095,12 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"TextureName"	"earthaker_aftershock"
+				"Orb"
+				{
+					"Priority"				"DOTA_ORB_PRIORITY_ITEM"
+					"ProjectileName"		"particles/units/heroes/hero_phoenix/phoenix_base_attack.vpcf"
+					"CastAttack"			"0"
+				}
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -21150,6 +21106,73 @@
 		}
 	}
 
+	"item_rpc_seinaru_arcana2"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"arcana/seinaru_arcana2"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"ItemKillable" "0"
+		"precache"
+		{
+			"particle"	"particles/roshpit/seinaru/sunstrider_movement.vpcf"
+			"particle"	"particles/roshpit/seinaru/sunblade.vpcf"
+			"particle"	"particles/units/heroes/hero_legion_commander/legion_commander_courage_hit.vpcf"
+			"particle"	"particles/roshpit/seinaru/lightsword_omni.vpcf"
+			"particle"	"particles/roshpit/seinaru/sunwarrior_vengeance_cowlofice.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_seinaru_arcana2"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/equipment.lua"
+						"Function"		"equip_arcana"
+						"target"		"TARGET"
+						"index"			"2"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/equipment.lua"
+						"Function"		"unequip_arcana"
+						"target"		"TARGET"
+						"index"			"2"
+					}
+				}
+			}
+		}
+	}
+
 	"item_rpc_astral_arcana1"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -21561,12 +21584,6 @@
 			"modifier_solunia_d_d_stats"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "200"
-				    "MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "200"
-				    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "200"
-				}
 			}
 		}
 	}
@@ -23350,6 +23367,21 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"element_one"			"2"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"			"10"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_two"			"250"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"property_three"	    "1"
 			}
 		}
 		"OnSpellStart"
@@ -34131,10 +34163,6 @@
 			"modifier_flamewaker_weapon_agility"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%property_two"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -35819,10 +35847,6 @@
 			{
 				"IsHidden"	"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%property_one"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -36680,11 +36704,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "500"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -36952,11 +36971,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "3500"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -36996,11 +37010,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "500"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -37131,12 +37140,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"900"
+				"property_one"			"30"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"2900"
+				"property_two"			"15"
 			}
 			"03"
 			{
@@ -37145,23 +37154,13 @@
 			}
 			"04"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_four"		    "30"
+				"var_type"				"FIELD_FLOAT"
+				"property_four"		    "3.3"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_five"		    "30"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_six"		    "15"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_seven"		"20"
+				"property_five"		    "20"
 			}
 		}
 	}
@@ -37276,11 +37275,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "3500"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -37320,11 +37314,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "500"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -37564,11 +37553,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "3500"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -37746,6 +37730,16 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"120"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"150"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_three"		"7"
 			}
 		}
 	}
@@ -45744,10 +45738,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%property_one"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -46118,10 +46108,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%property_one"
-				}
 			}
 		}
 		"AbilitySpecial"

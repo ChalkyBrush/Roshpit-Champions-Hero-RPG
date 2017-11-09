@@ -24,14 +24,17 @@ function penance_start(event)
 		if not ability.projectileCount then
 			ability.projectileCount = 0
 		end
+		print(ability.projectileCount)
 		penance_dummy_checker(caster, ability)
 		if ability.projectileCount >= 10 then
 			ability:SetActivated(false)
 		end
+		print(ability.projectileCount)
 		dummyAbility:SetLevel(ability:GetLevel())
 		dummyAbility.penanceProcs = Runes:Procs(ability.d_b_level, 10, 1)
 	else
 		dummyAbility = ability
+		dummyAbility.creationTime = GameRules:GetGameTime()
 		caster = caster.hero
 		ability = caster:FindAbilityByName("paladin_penance")
 	end
@@ -56,7 +59,7 @@ function penance_start(event)
 	}
 	projectile = ProjectileManager:CreateTrackingProjectile(info)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin()+RandomVector(RandomInt(1,400)), "Paladin.PenanceLaunch", caster)
-
+	print(ability.projectileCount)
 	ability.a_b_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
 	ability.b_b_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
 	ability.c_b_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
@@ -109,8 +112,14 @@ function penance_dummy_checker(caster, ability)
 			if dummyPenance then
 				if dummyPenance:GetAbilityName() == "paladin_penance_dummy" then
 					penanceCount = penanceCount + 1
-					if dummyAbility.creationTime < GameRules:GetGameTime() - 24 then
-						UTIL_Remove(dummyAbility)
+					if dummyPenance.creationTime then
+						if dummyPenance.creationTime < GameRules:GetGameTime() - 6 then
+							UTIL_Remove(dummyPenance)
+							penanceCount = penanceCount - 1
+							ability:SetActivated(true)
+						end
+					else
+						UTIL_Remove(dummyPenance)
 						penanceCount = penanceCount - 1
 						ability:SetActivated(true)
 					end

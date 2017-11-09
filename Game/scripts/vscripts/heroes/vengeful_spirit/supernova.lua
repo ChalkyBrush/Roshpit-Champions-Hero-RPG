@@ -254,10 +254,10 @@ function swap_sun_moon(currentType, caster)
 		swapAbility(caster, "solunia_solarang", "solunia_lunarang", 1)
 		swapAbility(caster, "solunia_warp_flare", "solunia_lunar_warp_flare", 2)
 		if caster:HasModifier("modifier_solunia_arcana2") then
-			swapAbility(caster, "solunia_solar_alpha_spark", "solunia_lunar_alpha_spark", 3)
+			swapAbility(caster, "solunia_solar_alpha_spark", "solunia_lunar_alpha_spark", DOTA_ULTIMATE_SLOT)
 			arcana2runes(caster, caster:FindAbilityByName("solunia_solar_alpha_spark"))
 		else
-			swapAbility(caster, "solunia_supernova", "solunia_eclipse", 3)
+			swapAbility(caster, "solunia_supernova", "solunia_eclipse", DOTA_ULTIMATE_SLOT)
 		end
 
 	  elseif currentType == "moon" then
@@ -275,10 +275,10 @@ function swap_sun_moon(currentType, caster)
 	  	swapAbility(caster, "solunia_lunarang", "solunia_solarang", 1)
 	  	swapAbility(caster, "solunia_lunar_warp_flare", "solunia_warp_flare", 2)
 	  	if caster:HasModifier("modifier_solunia_arcana2") then
-	  		swapAbility(caster, "solunia_lunar_alpha_spark", "solunia_solar_alpha_spark", 3)
+	  		swapAbility(caster, "solunia_lunar_alpha_spark", "solunia_solar_alpha_spark", DOTA_ULTIMATE_SLOT)
 	  		arcana2runes(caster, caster:FindAbilityByName("solunia_lunar_alpha_spark"))
 	  	else
-			swapAbility(caster, "solunia_eclipse", "solunia_supernova", 3)
+			swapAbility(caster, "solunia_eclipse", "solunia_supernova", DOTA_ULTIMATE_SLOT)
 		end
 
 	  	local wAbility = caster:FindAbilityByName("solunia_solarang")

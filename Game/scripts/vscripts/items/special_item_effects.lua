@@ -1140,6 +1140,9 @@ function fire_walker_damage(event)
 	local target = event.target
 	local caster = event.ability.hero
 	local ability = event.ability
+	if target.dummy then
+		return false
+	end
 	local damage = ability.damage
 	Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,event.ability,RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
@@ -1455,7 +1458,7 @@ function super_ascension_init(event)
 	local target = event.target
 	local ability = event.ability
 	target:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
-	target:SetRangedProjectileName("particles/units/heroes/hero_phoenix/phoenix_base_attack.vpcf")
+	-- target:SetRangedProjectileName("particles/units/heroes/hero_phoenix/phoenix_base_attack.vpcf")
 
 	-- local baseProjectileSpeed = target.baseProjectileSpeed
 	-- ability:ApplyDataDrivenModifier(caster, target, "modifier_ascendency_projectile_speed_stacks", {duration = 10})
@@ -1481,8 +1484,11 @@ function super_ascension_end(event)
 	local caster = event.caster
 	local target = event.target
 	target:RemoveModifierByName("modifier_super_ascendency_lua")
-	target:SetAttackCapability(target.baseAttackCapability)
-	target:SetRangedProjectileName(target.originalProjectile)
+	if not target:HasModifier("modifier_tomahawk_buffs") and not target:HasModifier("modifier_chernobog_demonform_lua") then
+		print("SET TO MELEE")
+		target:SetAttackCapability(target.baseAttackCapability)
+	end
+	-- target:SetRangedProjectileName(target.originalProjectile)
 end
 
 function super_ascension_attack(event)
@@ -3242,7 +3248,7 @@ function depth_crest_hit(event)
 		ParticleManager:SetParticleControl( pfx, 1, Vector(300, 0, 0))	
 		local enemies = FindUnitsInRadius( target:GetTeamNumber(), target:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
-			local damage = target:GetStrength()*40 + target:GetPhysicalArmorValue()*100
+			local damage = target:GetStrength()*40 + target:GetPhysicalArmorValue()*4000
 			for _,enemy in pairs(enemies) do
 				Filters:ApplyItemDamage(enemy,target,damage,DAMAGE_TYPE_MAGICAL,event.ability,RPC_ELEMENT_WATER,RPC_ELEMENT_NORMAL)
 				Filters:ApplyStun(target, 1.6, enemy)
@@ -3688,7 +3694,7 @@ function malachite_shade_bracer_think(event)
 	local ability = event.ability
 
 	local regenStacks = math.ceil(target:GetAgility()*0.15)
-	local damageStacks = target:GetHealthRegen() + target:GetConstantBasedManaRegen() + target:GetManaRegen()
+	local damageStacks = target:GetHealthRegen() + target:GetBaseManaRegen() + target:GetBonusManaRegen ()
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_malachite_shade_regen", {})
 	target:SetModifierStackCount("modifier_malachite_shade_regen", caster, regenStacks)
 

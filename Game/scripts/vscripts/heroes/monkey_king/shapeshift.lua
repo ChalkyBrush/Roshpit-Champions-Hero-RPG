@@ -61,19 +61,19 @@ function shapeshift_start_cat(event)
 	-- end
 	-- caster:SetOriginalModel(wolfModel)
 	-- caster:SetModel(wolfModel)
-	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_cat", "draghor_monkey_form", 3)
+	-- CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_cat", "draghor_monkey_form", DOTA_ULTIMATE_SLOT)
 	caster:AddNewModifier( caster, ability, "modifier_draghor_shapeshift_cat_lua", {} )
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Draghor.ShapeshiftIn.Finish", caster)
 	StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_OVERRIDE_ABILITY_4, rate=1.2})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_cat", {})
 	if caster:HasModifier("modifier_mark_of_the_fang") then
-		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_cat", "draghor_monkey_form", 3)
+		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_cat", "draghor_monkey_form", DOTA_ULTIMATE_SLOT)
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_claw", "djanghor_wolf_howl", 0)
 	elseif caster:HasModifier("modifier_mark_of_the_claw") then
-		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_bear", "draghor_monkey_form", 3)
+		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_bear", "draghor_monkey_form", DOTA_ULTIMATE_SLOT)
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_talon", "djanghor_wolf_howl", 0)
 	elseif caster:HasModifier("modifier_mark_of_the_talon") then
-		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_crow", "draghor_monkey_form", 3)
+		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_crow", "draghor_monkey_form", DOTA_ULTIMATE_SLOT)
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_fang", "djanghor_wolf_howl", 0)
 	end
 	if caster:HasModifier("modifier_djanghor_glyph_2_1") then
@@ -110,18 +110,18 @@ function shapeshift_start_bear(event)
 	-- end
 	-- caster:SetOriginalModel(bearModel)
 	-- caster:SetModel(bearModel)
-	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_bear", "draghor_monkey_form", 3)
+	-- CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_bear", "draghor_monkey_form", DOTA_ULTIMATE_SLOT)
 	caster:AddNewModifier( caster, ability, "modifier_draghor_shapeshift_bear_lua", {} )
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Draghor.ShapeshiftIn.Finish", caster)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_bear", {})
 	if caster:HasModifier("modifier_mark_of_the_fang") then
-		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_cat", "draghor_monkey_form", 3)
+		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_cat", "draghor_monkey_form", DOTA_ULTIMATE_SLOT)
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_claw", "djanghor_bear_roar", 0)
 	elseif caster:HasModifier("modifier_mark_of_the_claw") then
-		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_bear", "draghor_monkey_form", 3)
+		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_bear", "draghor_monkey_form", DOTA_ULTIMATE_SLOT)
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_talon", "djanghor_bear_roar", 0)
 	elseif caster:HasModifier("modifier_mark_of_the_talon") then
-		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_crow", "draghor_monkey_form", 3)
+		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_crow", "draghor_monkey_form", DOTA_ULTIMATE_SLOT)
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_fang", "djanghor_bear_roar", 0)
 	end
 	if caster:HasModifier("modifier_djanghor_glyph_7_1") then
@@ -161,19 +161,19 @@ function shapeshift_start_crow(event)
 	-- end
 	-- caster:SetOriginalModel(hawkModel)
 	-- caster:SetModel(hawkModel)
-	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_crow", "draghor_monkey_form", 3)
+	-- CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_crow", "draghor_monkey_form", DOTA_ULTIMATE_SLOT)
 	caster:AddNewModifier( caster, ability, "modifier_draghor_shapeshift_hawk_lua", {} )
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Draghor.ShapeshiftIn.Finish", caster)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_crow", {})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_crow_r1_thinker", {})
 	if caster:HasModifier("modifier_mark_of_the_fang") then
-		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_cat", "draghor_monkey_form", 3)
+		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_cat", "draghor_monkey_form", DOTA_ULTIMATE_SLOT)
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_claw", "draghor_hawk_screech", 0)
 	elseif caster:HasModifier("modifier_mark_of_the_claw") then
-		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_bear", "draghor_monkey_form", 3)
+		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_bear", "draghor_monkey_form", DOTA_ULTIMATE_SLOT)
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_talon", "draghor_hawk_screech", 0)
 	elseif caster:HasModifier("modifier_mark_of_the_talon") then
-		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_crow", "draghor_monkey_form", 3)
+		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_shapeshift_crow", "draghor_monkey_form", DOTA_ULTIMATE_SLOT)
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_mark_of_the_fang", "draghor_hawk_screech", 0)
 	end
 	CustomAbilities:AddAndOrSwapSkill(caster,"draghor_jin_bo", "draghor_hawk_tornado", 1)
@@ -240,21 +240,21 @@ function monkey_form(event)
 	local springParticle = "particles/econ/items/monkey_king/arcana/death/monkey_king_spring_death_base.vpcf"
 
 	if caster:HasModifier("modifier_mark_of_the_fang") then
-		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_monkey_form", "draghor_shapeshift_cat", 3)
+		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_monkey_form", "draghor_shapeshift_cat", DOTA_ULTIMATE_SLOT)
 		CustomAbilities:AddAndOrSwapSkill(caster, "djanghor_wolf_howl", "draghor_mark_of_the_claw", 0)
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_wolf_rend", "draghor_jin_bo", 1)
 		CustomAbilities:AddAndOrSwapSkill(caster, "djanghor_feral_sprint", "draghor_monkey_leap", 2)
 	elseif caster:HasModifier("modifier_mark_of_the_claw") then
 		colorVector = Vector(0.8, 0.45, 0.45)
 		springParticle = "particles/roshpit/draghor/shapeshift_effect_red_base.vpcf"
-		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_monkey_form", "draghor_shapeshift_bear", 3)
+		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_monkey_form", "draghor_shapeshift_bear", DOTA_ULTIMATE_SLOT)
 		CustomAbilities:AddAndOrSwapSkill(caster, "djanghor_bear_roar", "draghor_mark_of_the_talon", 0)
 		CustomAbilities:AddAndOrSwapSkill(caster, "djanghor_bear_war_stomp", "draghor_jin_bo", 1)
 		CustomAbilities:AddAndOrSwapSkill(caster, "djanghor_bear_charge", "draghor_monkey_leap", 2)
 	elseif caster:HasModifier("modifier_mark_of_the_talon") then
 		colorVector = Vector(0.4, 0.55, 0.7)
 		springParticle = "particles/roshpit/draghor/shapeshift_effect_blue_base.vpcf"
-		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_monkey_form", "draghor_shapeshift_crow", 3)
+		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_monkey_form", "draghor_shapeshift_crow", DOTA_ULTIMATE_SLOT)
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_hawk_screech", "draghor_mark_of_the_fang", 0)
 		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_hawk_tornado", "draghor_jin_bo", 1)
 		CustomAbilities:AddAndOrSwapSkill(caster, "djanghor_hawk_soar", "draghor_monkey_leap", 2)

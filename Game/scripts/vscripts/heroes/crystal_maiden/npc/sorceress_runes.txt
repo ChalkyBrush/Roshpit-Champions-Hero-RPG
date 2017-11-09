@@ -390,7 +390,6 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%property_one"
 				    "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%property_two"
 				}
 			}
@@ -412,7 +411,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% E3_AMPLIFY_PERCENT %>"
 			}
 		}

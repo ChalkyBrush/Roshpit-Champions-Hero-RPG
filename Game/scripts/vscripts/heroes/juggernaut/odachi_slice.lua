@@ -383,7 +383,9 @@ function odachi_a_c_think(event)
 			  ParticleManager:DestroyParticle( pfx, false )
 			end)
 			if ability.a_d_level > 0 then
-				apply_a_d(caster, target, caster:FindAbilityByName("seinaru_gorudo"), ability.a_d_level, ability.d_c_level) 
+				if caster:HasAbility("seinaru_gorudo") then
+					apply_a_d(caster, target, caster:FindAbilityByName("seinaru_gorudo"), ability.a_d_level, ability.d_c_level) 
+				end
 			end	
 			caster:PerformAttack(target, true, true, true, true, false, false, false)
 			if caster:HasModifier("modifier_monk_glyph_3_1") then

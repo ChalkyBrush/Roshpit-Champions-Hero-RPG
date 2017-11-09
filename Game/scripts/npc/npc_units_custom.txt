@@ -67579,6 +67579,7 @@
         "precache"
         {
             "soundfile" "soundevents/game_sounds_seafortress.vsndevts"
+            "particle"  "particles/econ/items/faceless_void/faceless_void_mace_of_aeons/fv_chronosphere_aeons.vpcf"
         }
         "HasInventory"  "0"
         "SelectionGroup"    "Dark_Fighter"
@@ -82157,7 +82158,6 @@
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "1000"
-        "ProjectileModel"   ""
         "ProjectileSpeed"   "900"
         "BountyXP"  "0"
         "BountyGoldMin" "0"

@@ -403,6 +403,7 @@ end
 function d_b_burn_think(event)
 	local target = event.target
 	local caster = event.caster.hero
+	local damage = target.flamewaker_d_c_burn
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 	
 end

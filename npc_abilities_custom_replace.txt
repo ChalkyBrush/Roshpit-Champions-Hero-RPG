@@ -8,6 +8,7 @@ SORCERESS_ARCANA_1_RUNES:heroes\crystal_maiden\npc\sorceress_arcana_1_runes.txt
 WINTERBLIGHT_ABILITIES:worlds\winterblight\winterblight_abilities.txt
 
 SOLUNIA_ABILITIES:heroes\vengeful_spirit\npc\npc_solunia_abilities.txt
+SEINARU_ABILITIES:heroes\juggernaut\npc\npc_seinaru_abilities.txt
 
 BAHAMUT_ARCANA_ABILITIES:heroes\leshrac\npc\bahamut_arcana_abilities.txt
 

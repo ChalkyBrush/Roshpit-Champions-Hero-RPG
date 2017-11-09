@@ -143,7 +143,6 @@ function initializeTooltip(func){
 		}else{
 			$('#tooltip_requirements_left').AddClass('invisible')
 		}
-
 		//REQUIRED HERO
 		if (itemValues.requiredHero === undefined){
 			$('#tooltip_requirements_right').AddClass('invisible')
@@ -398,6 +397,22 @@ function updateGlyphInTooltip(tooltip, item)
 	var value3 = Abilities.GetLevelSpecialValueFor( item, "property_three", 1)
 	if (tooltip.indexOf("@glyph_property3") > -1){
 		tooltip = tooltip.replace("@glyph_property3", "<font color='#CCFF66'>"+value3+"</font>");
+	}
+	var value4 = Abilities.GetLevelSpecialValueFor( item, "property_four", 1)
+	if (tooltip.indexOf("@glyph_property4") > -1){
+		tooltip = tooltip.replace("@glyph_property4", "<font color='#CCFF66'>"+value4+"</font>");
+	}
+	var value5 = Abilities.GetLevelSpecialValueFor( item, "property_five", 1)
+	if (tooltip.indexOf("@glyph_property5") > -1){
+		tooltip = tooltip.replace("@glyph_property5", "<font color='#CCFF66'>"+value5+"</font>");
+	}
+	var value6 = Abilities.GetLevelSpecialValueFor( item, "property_six", 1)
+	if (tooltip.indexOf("@glyph_property6") > -1){
+		tooltip = tooltip.replace("@glyph_property6", "<font color='#CCFF66'>"+value6+"</font>");
+	}
+	var value7 = Abilities.GetLevelSpecialValueFor( item, "property_seven", 1)
+	if (tooltip.indexOf("@glyph_property7") > -1){
+		tooltip = tooltip.replace("@glyph_property7", "<font color='#CCFF66'>"+value7+"</font>");
 	}
 	return tooltip
 }

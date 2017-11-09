@@ -290,11 +290,6 @@
 
 				"EffectName"		"particles/econ/items/axe/axe_helm_shoutmask/axe_beserkers_call_buff_shout_mask.vpcf"
 				"EffectAttachType"	"follow_origin"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "260"
-				}
 			}
 		}
 
@@ -3794,10 +3789,6 @@
 				"Passive"	"0"
 				"IsBuff"	"1"
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"1"
-				}
 			}
 		}
 	}
@@ -6173,7 +6164,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"EffectName"	"axe/axe_rune_d_c"
+				"EffectName"	"particles/roshpit/red_general/cyclone_shield.vpcf"
 				"EffectAttachType"	"attach_orgin"
 				"TextureName"	"centaur_return"
 			}
@@ -8230,12 +8221,6 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"     "1"
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"    "1"
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"   "1"
-				}
 			}
 			"modifier_astral_d_b_visible"
 			{
@@ -11043,10 +11028,6 @@
 			"modifier_epoch_rune_c_b_invisible"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "25"
-				}
 				"IsBuff"	"1"
 			}
 
@@ -11401,11 +11382,6 @@
 				"TextureName"		"rubick/harlequin_icons/rubick_telekinesis_land"
 				"IsHidden"	"1"
 				"IsBuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "15"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "15"
-				}
 			}
 			"OnDestroy"
 			{
@@ -12273,6 +12249,11 @@
 			{
 				"var_type" 				"FIELD_INTEGER"
 				"attack_damage_bonus"	"50 75 100 125 150 175 200"
+			}
+			"07"
+			{
+				"var_type" 				"FIELD_INTEGER"
+				"movespeed"				"500"
 			}
 		}
 
@@ -15195,8 +15176,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
-				    "MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "25"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"  "1"
 				}
 			}
 			"modifier_conjuror_c_c_damage"
@@ -19056,13 +19036,6 @@
             	"Passive"			"0"
             	"IsHidden"			"1"
             	"IsDebuff"			"0"
-
-            	"Properties"
-            	{
-            		"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "60"
-            	    "MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "60"
-            	    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "60"
-            	}
             }
 			"modifier_ice_throw_b_b_frozen"
 			{
@@ -20410,7 +20383,6 @@
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO"
 				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-				"Duration"				"8"
 			}
 			"modifier_leshrac_wall_self_aura"
 			{
@@ -21224,6 +21196,20 @@
 		}
 		"Modifiers"
 		{
+			"modifier_flail_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/spirit_breaker/whirling_flail.lua"
+						"Function"		"flail_a_a_hit"
+					}
+				}
+			}
 			"modifier_whirling_flail"
 			{
 				"IsPurgable"		"0"
@@ -27647,10 +27633,6 @@
 				"IsHidden"	"0"
 				"IsBuff"	"1"
 				"TextureName"	"mountain_protector/mountain_protector_rune_a_d_arcana2"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "250"
-				}
 			}
 			"modifier_hailstorm_passive"
 			{
@@ -28239,18 +28221,10 @@
 			"modifier_chernobog_rune_d_b_active"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"300"
-				}
 			}
 			"modifier_chernobog_rune_d_b_inactive"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"300"
-				}
 			}
 		}
 	}
@@ -30921,11 +30895,6 @@
 			"modifier_hydroxis_d_c"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "350"
-				    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "350"
-				}
 			}
 		}
 	}
@@ -34487,10 +34456,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "350"
-				}
 			}
 			"modifier_speedball_d_d_attack_power"
 			{
@@ -35066,10 +35031,6 @@
 				"IsHidden"	"0"
 				"IsBuff"	"1"
 				"TextureName"	"arkimus/arkimus_rune_d_a_arcana1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "400"
-				}
 			}
 		}
 	}
@@ -35382,7 +35343,6 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "250"
 				    "MODIFIER_PROPERTY_EVASION_CONSTANT" "1.2"
 				}
 			}
@@ -35804,10 +35764,6 @@
 						"Function"		"monkey_form"
 					}
 				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%agility_bonus"
-				}
 				"ThinkInterval"  "0.1"
 				"OnIntervalThink"
 				{
@@ -35830,10 +35786,6 @@
 			"modifier_shapeshift_cat_d_d"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "500"
-				}
 			}
 		}
 
@@ -35973,10 +35925,6 @@
 						"Function"		"monkey_form"
 					}
 				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%strength_bonus"
-				}
 				"ThinkInterval"  "0.1"
 				"OnIntervalThink"
 				{
@@ -36009,10 +35957,6 @@
 			"modifier_shapeshift_bear_d_d"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "500"
-				}
 			}
 			"modifier_glyph_7_bash"
 			{
@@ -36202,10 +36146,6 @@
 					}
 
 				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%int_bonus"
-				}
 			}
 			"modifier_shapeshift_crow_r1_thinker"
 			{
@@ -36238,10 +36178,6 @@
 			"modifier_shapeshift_crow_d_d"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "500"
-				}
 			}
 		}
 
@@ -38250,12 +38186,6 @@
 				"IsDebuff"  "1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_enigma_malefice.vpcf"
 				"StatusEffectPriority"  "10"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%stat_loss"
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%stat_loss"
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%stat_loss"
-				}
 			}
 		}
 
@@ -43088,14 +43018,6 @@
 						"Function"		"DungeonCreep"
 					}
 				}
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"npc_abilities/dungeon_thinker.lua"
-						"Function"		"aggroUnit"
-					}
-				}
 			}
 
 		}
@@ -43823,6 +43745,89 @@
 		}
 	}
 
+	"attribute_bonuses"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"abaddon_frostmourne"
+		"Modifiers"
+		{
+			"modifier_strength_health"
+			{
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "1"
+				}
+			}
+			"modifier_strength_health_regen"
+			{
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "1"
+				}
+			}
+			"modifier_primary_attribute_damage"
+			{
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}				
+			}
+			"modifier_agility_attackspeed"
+			{
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
+				}
+			}
+			"modifier_agility_armor"
+			{
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1"
+				}
+			}
+			"modifier_int_mana"
+			{
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS" "1"
+				}
+			}
+			"modifier_int_mana_regen"
+			{
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "1"
+				}
+			}
+		}
+	}
+
 	"helm_slot"
 	{
 		// General
@@ -43839,30 +43844,18 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"1"
-				}
 			}
 			"modifier_helm_agility"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"1"
-				}
 			}
 			"modifier_helm_intelligence"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"1"
-				}
 			}
 			"modifier_helm_magic_resist"
 			{
@@ -44196,30 +44189,18 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"1"
-				}
 			}
 			"modifier_hand_agility"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"1"
-				}
 			}
 			"modifier_hand_intelligence"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"1"
-				}
 			}
 			"modifier_hand_magic_resist"
 			{
@@ -44607,30 +44588,18 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"1"
-				}
 			}
 			"modifier_foot_agility"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"1"
-				}
 			}
 			"modifier_foot_intelligence"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"1"
-				}
 			}
 			"modifier_foot_magic_resist"
 			{
@@ -44803,30 +44772,18 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"1"
-				}
 			}
 			"modifier_body_agility"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"1"
-				}
 			}
 			"modifier_body_intelligence"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"1"
-				}
 			}
 			"modifier_body_magic_resist"
 			{
@@ -45141,30 +45098,18 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"1"
-				}
 			}
 			"modifier_trinket_agility"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"1"
-				}
 			}
 			"modifier_trinket_intelligence"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"1"
-				}
 			}
 			"modifier_trinket_armor"
 			{
@@ -45287,30 +45232,18 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"1"
-				}
 			}
 			"modifier_weapon_agility"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"1"
-				}
 			}
 			"modifier_weapon_intelligence"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"1"
-				}
 			}
 			"modifier_weapon_attack_damage"
 			{
@@ -46464,7 +46397,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.18"
+				"property_one"			"0.15"
 			}
 		}
 	}
@@ -47868,7 +47801,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.2"
+				"property_one"			"0.15"
 			}
 		}
 	}
@@ -48367,7 +48300,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"6"
+				"property_two"			"4"
 			}
 		}
 		"Modifiers"
@@ -49017,12 +48950,6 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%property_one"
-				    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%property_one"
-				    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%property_one"
-				}
 			}
 		}
 	}
@@ -50067,12 +49994,6 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%property_one"
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%property_one"
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%property_one"
-				}
 			}
 		}
 	}
@@ -52306,7 +52227,7 @@
 			{
 				"IsHidden"	"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "0.3"
+				"ThinkInterval"  "0.1"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -54643,7 +54564,6 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%property_one"
 				    "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%property_two"
 				}
 			}
@@ -54665,8 +54585,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"2.5"
 			}
 		}
 		"Modifiers"
@@ -56450,7 +56370,234 @@
 			}
 		}
 	}
-	//--------------------------------------------
+
+	"seinaru_sunstrider"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"seinaru/seinaru_sunstrider"
+		"RequiredLevel"          		"0"
+		"LevelsBetweenUpgrades"  		"0"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityCastRange"				"1000 1100 1200 1300 1400 1500 1600"
+		"AOERadius"						"440"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"cast_range"			"1000 1100 1200 1300 1400 1500 1600"
+			}
+		}
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"7.2 7.0 6.8 6.6 6.4 6.2 6.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/juggernaut/arcanas/sunstrider.lua"
+				"Function"		"sunstrider_phase"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/juggernaut/arcanas/sunstrider.lua"
+				"Function"		"sunstrider_start"
+				"target"		"POINT"
+			}
+
+		}
+		"Modifiers"
+		{
+			"modifier_sunstrider_in_air"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_COMMAND_RESTRICTED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_CANNOT_MISS"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/juggernaut/arcanas/sunstrider.lua"
+						"Function"		"sunstrider_end"
+					}					
+				}
+			}
+			"modifier_sunstrider_a_c_damage_bonus"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "25"
+				}
+			}
+			"modifier_sunstrider_lightsworn"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"seinaru/seinaru_rune_b_c_arcana2"
+				"EffectName"	"particles/roshpit/seinaru/lightsword_omni.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+			"modifier_sunstrider_sunwarrior_vengeance_attack"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"seinaru/seinaru_rune_c_c_arcana2"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/juggernaut/arcanas/sunstrider.lua"
+						"Function"		"vengeance_hit"
+					}
+				}
+			}
+			"modifier_sunstrider_sunwarrior_vengeance_post_mit"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"seinaru/seinaru_rune_c_c_arcana2"
+			}
+			"modifier_sunstrider_freecast"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"seinaru/seinaru_rune_d_c_arcana2"
+			}
+		}
+	}
+
+	"monk_rune_a_c_arcana2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"seinaru/seinaru_rune_a_c_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"25"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two_base"		"2"
+			}
+		}
+	}
+
+	"monk_rune_b_c_arcana2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"seinaru/seinaru_rune_b_c_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.08"
+			}
+		}
+	}
+
+	"monk_rune_c_c_arcana2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"seinaru/seinaru_rune_c_c_arcana2"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"30"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"12"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"3"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"7"
+			}
+		}
+	}
+
+	"monk_rune_d_c_arcana2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"seinaru/seinaru_rune_d_c_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"10"
+			}
+		}
+	}	//--------------------------------------------
 
 	"warlord_rune_a_a"
 	{
@@ -56904,7 +57051,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1000"
+				"property_one"			"750"
 			}
 		}
 		"Modifiers"
@@ -56915,32 +57062,18 @@
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
 
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%property_one"
-				}
 			}
 			"modifier_warlord_rune_d_a_agility"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%property_one"
-				}
 			}
 			"modifier_warlord_rune_d_a_intelligence"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%property_one"
-				}
 			}
 		}
 
@@ -56989,7 +57122,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.06"
+				"property_one"			"0.05"
 			}
 		}
 
@@ -57626,10 +57759,6 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%property_one"
-				}
 			}
 		}
 
@@ -57752,12 +57881,6 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%property_one"
-				    "MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%property_one"
-				    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%property_one"
-				}
 			}
 		}
 
@@ -58808,11 +58931,6 @@
 						"EffectAlphaScale"			"1"
 					}
 				}
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%property_one"
-				}
 				"OnDestroy"
 				{
 					"RunScript"
@@ -59003,12 +59121,6 @@
 			{
 				"IsBuff"	"1"
 				"IsHidden"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%property_one"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%property_one"
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%property_one"
-				}
 			}
 		}
 
@@ -59054,10 +59166,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "1"
-				}
 			}
 			"modifier_auriun_rune_c_d_effect_strength"
 			{
@@ -59065,10 +59173,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "1"
-				}
 			}
 		}
 
@@ -61362,10 +61466,7 @@
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
 
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%property_one"
-				}
+
 			}
 		}
 	}
@@ -61407,12 +61508,6 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%property_one"
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%property_two"
-				}
 			}
 		}
 	}
@@ -62689,6 +62784,7 @@
 		"AbilityTextureName"	"spectre_haunt"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
 		"AbilitySpecial"
 		{
@@ -74304,6 +74400,14 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"lion_mana_drain"
 		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"mana_regen_loss"			"-100 -1000 -5000"
+			}
+		}
 		"Modifiers"
 		{
 			"modifier_blue_viper_ai"
@@ -74327,7 +74431,7 @@
 				"IsDebuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "-5"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%mana_regen_loss"
 				}
 			}
 		}
@@ -75959,10 +76063,6 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%strength_loss"
-				}
 			}
 		}
 	}
@@ -80419,11 +80519,6 @@
 				"IsDebuff"	"1"
 				"EffectName"		"particles/units/heroes/hero_keeper_of_the_light/fire_temple_agility_debuff.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed_slow"
-				    "MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%agility_loss"
-				}
 			}
 
 		}
@@ -80865,10 +80960,6 @@
 				"IsDebuff"	"1"
 				"EffectName"		"particles/units/heroes/hero_keeper_of_the_light/fire_temple_doombringer_debuff.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%strengthloss"
-				}
 			}
 
 		}
@@ -91494,12 +91585,6 @@
 				"IsBuff"	"1"
 				"TextureName"	"redfall/redfall_shrine_of_maru"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%maru_blessing"
-				    "MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%maru_blessing"
-				    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%maru_blessing"
-				}
 			}
 			"modifier_redfall_tree_split"
 			{
@@ -97015,26 +97100,14 @@
 			"modifier_demon_farmer_aura_str"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "-1"
-				}
 			}
 			"modifier_demon_farmer_aura_agi"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "-1"
-				}
 			}
 			"modifier_demon_farmer_aura_int"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "-1"
-				}
 			}
 			"modifier_demon_surge"
 			{
@@ -104030,7 +104103,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"900 975 1050 1125 1200 1275 1350"
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastPoint"				"0"
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
@@ -104043,7 +104116,6 @@
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
-
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -104058,6 +104130,15 @@
 		}
 		"Modifiers"
 		{
+			"modifier_seinaru_ignore_cast_angle"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"1000"
+					"MODIFIER_PROPERTY_IGNORE_CAST_ANGLE" "100"
+				}
+			}
 			"modifier_seinaru_arcana_dashing"
 			{
 				"OverrideAnimation"     "ACT_DOTA_OVERRIDE_ABILITY_1"
@@ -104172,10 +104253,6 @@
 				"IsHidden"	"0"
 				"IsBuff"	"1"
 				"TextureName"	"seinaru/seinaru_c_a_arcana1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "400"
-				}
 			}
 			"modifier_seinaru_arcana_evasion_buff"
 			{
@@ -108942,12 +109019,6 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%attribute_loss"
-				    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%attribute_loss"
-				    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%attribute_loss"
-				}
 			}
 		}
 	}
@@ -112197,22 +112268,16 @@
 				}
 				"ApplyModifier"
 				{
-					"ModifierName"	"modifier_prison_shank_effect"
+					"ModifierName"	"modifier_prison_shank_effect_sea"
 					"Target" 		"TARGET"
 					"Duration"		"%duration"
 				}
 
 			}
-			"modifier_prison_shank_effect"
+			"modifier_prison_shank_effect_sea"
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%stats_loss"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%stats_loss"
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%stats_loss"
-				}
 			}
 		}
 	}
@@ -114510,12 +114575,6 @@
 				"IsHidden" "0"
 				"IsDebuff"	"1"
 				"ThinkInterval"  "0.5"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%stat_loss"
-				    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%stat_loss"
-				    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%stat_loss"
-				}
 			}
 		}
 
@@ -120008,26 +120067,14 @@
 			"modifier_demon_farmer_aura_str"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "-1"
-				}
 			}
 			"modifier_demon_farmer_aura_agi"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "-1"
-				}
 			}
 			"modifier_demon_farmer_aura_int"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "-1"
-				}
 			}
 		}
 	}

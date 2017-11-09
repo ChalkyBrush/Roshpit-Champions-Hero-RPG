@@ -132,6 +132,14 @@ function GameMode:OnNPCSpawned(keys)
   -- This internal handling is used to set up main barebones functions
   GameMode:_OnNPCSpawned(keys)
   local npc = EntIndexToHScript(keys.entindex)
+  if npc:IsRealHero() then
+    if not npc.strength_custom then
+      npc.strength_custom = 20
+      npc.agility_custom = 20
+      npc.intellect_custom = 20
+    end
+    CustomAttributes:SetAttributes(npc)
+  end
   if npc:IsRealHero() and Events.gameLoaded then
     GameMode:CorrectRespawn(npc)
     if GameState:IsSerengaard() then
@@ -721,9 +729,21 @@ end
 
 function Events:InitializeHero(heroEntity)
   local ability = nil
-  for i = 0, 3, 1 do
+  for i = 0, 5, 1 do
     ability = heroEntity:GetAbilityByIndex(i)
-    ability:SetLevel(1)
+    if ability then
+      ability:SetLevel(1)
+    end
+  end
+  if heroEntity:HasItemInInventory("item_tpscroll") then
+    for i = 0, 2, 1 do
+      local item = heroEntity:GetItemInSlot(i)
+      if item then
+        if IsValidEntity(item) then
+          UTIL_Remove(item)
+        end
+      end
+    end
   end
   heroEntity.saveSlot = 0
   heroEntity.loadEnabled = 1
@@ -748,7 +768,7 @@ function Events:InitializeHero(heroEntity)
     -- if not GameState:NoOracle() then
     --   CustomGameEventManager:Send_ServerToPlayer(player, "open_oracle", {player=playerID, loadEnabled = heroEntity.loadEnabled} )
     -- end
-    Attributes:ModifyBonuses(heroEntity)
+    -- Attributes:ModifyBonuses(heroEntity)
   end)
   Timers:CreateTimer(3, function()
     Glyphs:CreateGlyphModifierTable()
@@ -955,6 +975,7 @@ function Events:SetupHeroes(heroEntity)
       Events:CreateRuneUnits(heroEntity, ownerID)
       heroEntity.InventoryUnit = CreateUnitByName("inventory_unit", Vector(-8000,2000), true, heroEntity, PlayerResource:GetPlayer(ownerID), heroEntity:GetTeamNumber())
       heroEntity.InventoryUnit:AddAbility("town_unit"):SetLevel(1)
+      heroEntity.InventoryUnit:AddAbility("attribute_bonuses"):SetLevel(1)
       heroEntity.InventoryUnit.hero = heroEntity
       Events:SetupInventoryUnit(heroEntity.InventoryUnit)
       Events:InitializeHero(heroEntity)

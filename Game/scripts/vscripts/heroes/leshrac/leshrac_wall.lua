@@ -58,12 +58,23 @@ function createWall(event)
 	ability.wallCenter = point
 	ability.ninetyDegrees = ninetyDegrees
 	ability.wallLength = wallLength
+	if not ability.wallThinkerTable then
+		ability.interval = 0
+		ability.wallThinkerTable = {}
+	end
+	ability.interval = ability.interval + 1
+	local intervalForFunction = ability.interval
 	for i = loopCount, -loopCount-reduceLoop, 1 do
 		local obstructionPoint = point+ninetyDegrees*i*100
 		-- local obstruction = SpawnEntityFromTableSynchronous("point_simple_obstruction", {origin = obstructionPoint, Name ="wallObstruction"})
-		ability:ApplyDataDrivenThinker(caster, obstructionPoint, "modifier_leshrac_wall_thinker", {duration = wallDuration})
-		ability:ApplyDataDrivenThinker(caster, obstructionPoint, "modifier_leshrac_self_finder", {duration = wallDuration})
-		-- table.insert(obstructionTable, obstruction)
+		ability:ApplyDataDrivenThinker(caster, obstructionPoint, "modifier_leshrac_wall_thinker", {duration = wallDuration+0.03})
+		local wallHandle = ability:ApplyDataDrivenThinker(caster, obstructionPoint, "modifier_leshrac_self_finder", {duration = wallDuration+0.03})
+		wallHandle.position = point
+		wallHandle.index = intervalForFunction
+		wallHandle.ninetyDeg = ninetyDegrees
+		if i == loopCount then
+			table.insert(ability.wallThinkerTable, wallHandle)
+		end
 		AddFOWViewer(caster:GetTeamNumber(), obstructionPoint, 250, wallDuration, false)
 
 		local pfx = ParticleManager:CreateParticle("particles/roshpit/bahamut/bahamut_wall_spawn.vpcf", PATTACH_CUSTOMORIGIN, caster)
@@ -77,6 +88,17 @@ function createWall(event)
 	
 	Timers:CreateTimer(wallDuration, function()
 		ParticleManager:DestroyParticle(pfx2, false)
+		local newTable = {}
+		for i = 1, #ability.wallThinkerTable, 1 do
+			wallThinker = ability.wallThinkerTable[i]
+			if wallThinker.index == intervalForFunction then
+				print("remove one with walindex: "..wallThinker.index)
+			else
+				print("INSERT..."..wallThinker.index)
+				table.insert(newTable, wallThinker)
+			end
+		end
+		ability.wallThinkerTable = newTable
 		-- for k,obstruction in pairs(obstructionTable) do
 		-- 	UTIL_Remove(obstruction)
 		-- end

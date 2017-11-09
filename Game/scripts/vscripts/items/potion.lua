@@ -48,17 +48,17 @@ function restore_mana(amount, caster)
 end
 
 function add_strength(amount, caster)
-	caster:ModifyStrength(amount)
+	caster.strength_custom = caster.strength_custom + amount
 	PopupStrTome(caster, amount)
 end
 
 function add_agility(amount, caster)
-	caster:ModifyAgility(amount)
+	caster.agility_custom = caster.agility_custom + amount
 	PopupAgiTome(caster, amount)
 end
 
 function add_intelligence(amount, caster)
-	caster:ModifyIntellect(amount)
+	caster.intellect_custom = caster.intellect_custom + amount
 	PopupIntTome(caster, amount)
 end
 

@@ -337,3 +337,142 @@
         }
     }
 }
+
+"Seinaru.Sunstrider.Yell"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/juggernaut/jug_pain_01.vsnd"
+                              "value1"        "sounds/vo/juggernaut/jug_pain_02.vsnd"
+                              "value2"       "sounds/vo/juggernaut/jug_pain_03.vsnd"
+                              "value3"        "sounds/vo/juggernaut/jug_pain_04.vsnd"
+                              "value4"        "sounds/vo/juggernaut/jug_ability_omnislash_12.vsnd"
+                              "value5"        "sounds/vo/juggernaut/jug_ability_omnislash_13.vsnd"
+                              "value6"        "sounds/vo/juggernaut/jug_ability_omnislash_14.vsnd"
+                              "value7"        "sounds/vo/juggernaut/jug_ability_omnislash_15.vsnd"
+                              "value8"        "sounds/vo/juggernaut/jug_ability_omnislash_16.vsnd"
+                              "value9"        "sounds/vo/juggernaut/jug_ability_omnislash_17.vsnd"
+                              "value10"        "sounds/vo/juggernaut/jug_ability_omnislash_18.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.32000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.00000"  }
+                    "soundlevel"        {   "value"     "92.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Seinaru.Sunstrider.Cast"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/weapons/hero/underlord/firestorm01.vsnd"
+                            "value1"        "sounds/weapons/hero/underlord/firestorm02.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.70000"  }
+                    "pitch_rand_min"    {   "value"     "-0.06000"  }
+                    "pitch_rand_max"    {   "value"     "0.060000"  }
+                    "pitch"             {   "value"     "1.8000"  }
+                    "soundlevel"        {   "value"     "88.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Seinaru.Sunstrider.Launch"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/seinaru/arcana_sunstrider.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.32000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.100"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Seinaru.Sunstrider.Vengeance"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"         "sounds/weapons/hero/sven/warcry.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.22000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.10000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}

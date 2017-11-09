@@ -131,6 +131,7 @@ function seafortress_unit_die(event)
 			      end)
 			      EmitSoundOnLocationWithCaster(Seafortress.switchA:GetAbsOrigin(), "Seafortress.SwitchImpact", Events.GameMaster)
 			end)
+			Seafortress:LeftWingKill()
 			Seafortress.switchA:SetAbsOrigin(Seafortress.switchA:GetAbsOrigin()+Vector(0,0,3000))
 			for i = 1, 30, 1 do
 				Timers:CreateTimer(i*0.03, function()
@@ -158,6 +159,7 @@ function seafortress_unit_die(event)
 		elseif caster.deathCode == 8 then
 			EmitSoundOn("Seafortress.Zharkun.Death", caster)
 			EndAnimation(caster)
+			Seafortress:LeftWingKill()
 			Timers:CreateTimer(2.2, function()
 				local pfx = ParticleManager:CreateParticle( "particles/roshpit/seafortress/big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster )
 				ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()+caster:GetForwardVector()*520)
@@ -1147,6 +1149,7 @@ function sea_lady_think(event)
 	end
 	if caster:GetHealth() < 1000 then
 		caster.dying = true
+		Seafortress:LeftWingKill()
 		caster:RemoveModifierByName("modifier_swamp_shield_passive")
 		caster:RemoveModifierByName("modifier_water_emperor_ai")
 		StartAnimation(caster, {duration=5.0, activity=ACT_DOTA_FLAIL, rate=1.0})

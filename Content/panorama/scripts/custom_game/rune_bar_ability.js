@@ -144,7 +144,11 @@ function UpdateRune()
 	var runeIndex = $.GetContextPanel().GetAttributeInt( "index", -1 );
 	var runeTier = $.GetContextPanel().GetAttributeInt( "tier", -1 );
 	var mainHero = r_mainHero
-	var baseSkill = Entities.GetAbility( mainHero, runeIndex )
+	var baseAbilityIndex = runeIndex
+	if (baseAbilityIndex == 3){
+		baseAbilityIndex = 5
+	}
+	var baseSkill = Entities.GetAbility( mainHero, baseAbilityIndex )
 	var baseSkillLevel = Abilities.GetLevel( baseSkill )
 	//$.Msg("baseSkillLevel ="+baseSkillLevel+", runeTier ="+runeTier)
 	if (baseSkillLevel < runeTier){

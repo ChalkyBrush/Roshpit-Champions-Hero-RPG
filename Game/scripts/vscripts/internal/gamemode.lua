@@ -1,6 +1,8 @@
 -- This function initializes the game mode and is called before anyone loads into the game
 -- It can be used to pre-initialize any values/tables that will be needed later
 
+DOTA_ULTIMATE_SLOT = 5
+
 function GameMode:SetTeamData(playersPerTeam)
   local custom_team_player_count = {}
   custom_team_player_count[DOTA_TEAM_GOODGUYS] = playersPerTeam
@@ -82,6 +84,9 @@ function GameMode:_InitGameMode()
       end
     else
       local count = 0
+      if GameState:IsSeaEarlyCheck() then
+        CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_GOODGUYS] = 5
+      end
       for team,number in pairs(CUSTOM_TEAM_PLAYER_COUNT) do
         if count >= MAX_NUMBER_OF_TEAMS then
           GameRules:SetCustomGameTeamMaxPlayers(team, 0)
@@ -224,6 +229,9 @@ function GameMode:_InitGameMode()
   CustomGameEventManager:RegisterListener( "curateAbility", Dynamic_Wrap(Curator, "ClientDataAbility"))
   CustomGameEventManager:RegisterListener( "curateGlyph", Dynamic_Wrap(Curator, "ClientDataGlyph"))
   CustomGameEventManager:RegisterListener( "stop_unit", Dynamic_Wrap(Curator, "StopUnit"))
+
+  CustomGameEventManager:RegisterListener("stats_hover", Dynamic_Wrap(CustomAttributes, "ActivateStatsTooltip"))
+  
   -- GameMode:SetTrackingProjectileFilter( Dynamic_Wrap( Attacks, "FilterProjectile" ), self )
   --ListenToGameEvent("dota_tutorial_shop_toggled", Dynamic_Wrap(GameMode, 'OnShopToggled'), self)
 

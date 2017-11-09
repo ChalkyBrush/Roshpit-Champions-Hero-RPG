@@ -162,8 +162,8 @@ function switchIntoStealth(caster)
   	end
   	local stealth = caster:FindAbilityByName("trapper_stealth")
   	backstab:SetLevel(stealth:GetLevel())
-  	backstab:SetAbilityIndex(3)
-  	stealth:SetAbilityIndex(3) 
+  	backstab:SetAbilityIndex(DOTA_ULTIMATE_SLOT)
+  	stealth:SetAbilityIndex(DOTA_ULTIMATE_SLOT) 
   	caster:SwapAbilities("trapper_stealth", "trapper_backstab", false, true)
 
     if caster:HasModifier("modifier_trapper_arcana1") then
@@ -230,7 +230,7 @@ function switchOutOfStealth(caster)
 
 	local level = caster:FindAbilityByName("trapper_backstab"):GetLevel()
   	caster:FindAbilityByName("trapper_stealth"):SetLevel(level)
-  	caster:FindAbilityByName("trapper_stealth"):SetAbilityIndex(3)
+  	caster:FindAbilityByName("trapper_stealth"):SetAbilityIndex(DOTA_ULTIMATE_SLOT)
   	caster:SwapAbilities("trapper_stealth", "trapper_backstab", true, false)
   	CustomGameEventManager:Send_ServerToPlayer(caster:GetPlayerOwner(), "ability_tree_upgrade", {})
 

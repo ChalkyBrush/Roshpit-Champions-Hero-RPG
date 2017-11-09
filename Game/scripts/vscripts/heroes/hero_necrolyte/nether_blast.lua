@@ -73,8 +73,8 @@ function create_blast(abilityLevel, caster, targetPoint, radius, damage, ability
     local particleName =  "particles/units/heroes/hero_pugna/pugna_netherblast.vpcf"
     local particleVector = targetPoint
     if caster:HasModifier("modifier_venomort_rune_c_b_visible") then
-    	local stacks = caster:GetModifierStackCount("modifier_venomort_rune_c_b_visible", caster)
-    	damage = damage + damage*0.06*ability.c_b_level
+    	local stacks = caster:GetModifierStackCount("modifier_venomort_rune_c_b_visible", caster.runeUnit3)
+    	damage = damage + damage*0.04*ability.c_b_level*stacks
     end
     if caster:HasModifier("modifier_venomort_immortal_weapon_2") then
     	damage = damage + caster:GetAverageTrueAttackDamage(caster)
@@ -114,8 +114,9 @@ function b_b_skull(abilityLevel, caster, fv, casterOrigin, ability)
 	local speed = (range*7)/5
 	local damage = abilityLevel*800 + 400
     if caster:HasModifier("modifier_venomort_rune_c_b_visible") then
-    	local stacks = caster:GetModifierStackCount("modifier_venomort_rune_c_b_visible", caster)
-    	damage = damage + damage*0.06*ability.c_b_level
+    	local stacks = caster:GetModifierStackCount("modifier_venomort_rune_c_b_visible", caster.runeUnit3)
+    	print("STACKS: "..stacks)
+    	damage = damage + damage*0.04*ability.c_b_level*stacks
     end
 	local particleName = "particles/units/heroes/hero_vengeful/venomort_rune_b_b_wave.vpcf"
 	if caster:HasModifier("modifier_venomort_glyph_3_1") then

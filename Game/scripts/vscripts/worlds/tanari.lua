@@ -31,7 +31,7 @@ function Tanari:Debug()
     RPCItems:DropItem(item, Vector(-4928, 2048))
 
     -- RPCItems:RollPaladinArcana1(Vector(-4928, 2048))
-    -- Dungeons.itemLevel = 300
+
     -- RPCItems:RollBahamutArcana2(Vector(-4928, 2048))
     -- Glyphs:RollGlyphAll("item_rpc_solunia_glyph_5_a", Vector(-4928, 2048), 0)
 
@@ -52,7 +52,13 @@ function Tanari:Debug()
     -- for i = 1, 7, 1 do
     --     Glyphs:RollGlyphAll("item_rpc_axe_glyph_"..tostring(i).."_2", Vector(-4928, 2048), 0)
     -- end
-
+    Glyphs:RollGlyphAll("item_rpc_neutral_glyph_7_2", Vector(-4928, 2048), 0)
+    -- RPCItems:RollPhantomSorcererMask(Vector(-4928, 2048), false)
+   RPCItems:RollSorceressArcana1(Vector(-4928, 2048))
+   RPCItems:RollBahamutArcana1(Vector(-4928, 2048))
+   RPCItems:RollSoluniaArcana2(Vector(-4928, 2048))
+    -- RPCItems:RollSeinaruArcana1(Vector(-4928, 2048))
+    -- RPCItems:RollHalcyonSoulGlove(Vector(-4928, 2048))
     -- -- RPCItems:RollMageBaneGloves(Vector(-4928, 2048))
     -- -- RPCItems:RollTwistedMaskOfAhnqhirBlue(Vector(-4928, 2048))
     --  RPCItems:RollTwistedMaskOfAhnqhirYellow(Vector(-4928, 2048))
@@ -60,8 +66,10 @@ function Tanari:Debug()
     -- --   RPCItems:RollTwistedMaskOfAhnqhirPurple(Vector(-4928, 2048))
     -- -- Dungeons.itemLevel = 300
     -- -- for i = 1, 3, 1 do
-        RPCItems:RollPaladinArcana1(Vector(-4928, 2048))
-        RPCItems:RollBahamutArcana2(Vector(-4928, 2048))
+        -- RPCItems:RollPaladinArcana1(Vector(-4928, 2048))
+        -- RPCItems:RollBahamutArcana1(Vector(-4928, 2048))
+        -- RPCItems:RollBahamutArcana2(Vector(-4928, 2048))
+
     --     RPCItems:RollSignusCharm(Vector(-4928, 2048))
         -- RPCItems:RollMountainProtectorArcana2(Vector(-4928, 2048))
     -- end
@@ -82,7 +90,12 @@ function Tanari:Debug()
     -- Arena = {}
     -- Arena.PitLevel = 7
     -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "hydroxis")
-    -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "hydroxis")
+    -- RPCItems:RollChitinousLobsterClaw(Vector(-4928, 2048))
+    RPCItems:RollSeinaruArcana1(Vector(-4928, 2048))
+    RPCItems:RollSeinaruArcana2(Vector(-4928, 2048))
+    -- RPCItems:RollSeinaruArcana2(Vector(-4928, 2048))
+    RPCItems:RollSuperAscendency(Vector(-4928, 2048), false)
+    -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "epoch")
     -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "solunia")
     -- -- Glyphs:RollGlyphBook(Vector(-4928, 2048), "sorceress", 5, 2)
     -- -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
@@ -149,7 +162,7 @@ function Tanari:Debug()
     -- RPCItems:RollMordiggusGauntlet(Vector(-4928, 2048))
     -- RPCItems:RollWaterDeityCrown(Vector(-4928, 2048), true, 0)
     -- RPCItems:RollTemporalWarpBoots(Vector(-4928, 2048))
-     -- Glyphs:RollGlyphAll("item_rpc_auriun_glyph_7_1", Vector(-4928, 2048), 0)
+     Glyphs:RollGlyphAll("item_rpc_astral_glyph_3_1", Vector(-4928, 2048), 0)
     -- RPCItems:RollAvalanchePlate(Vector(-4928, 2048))
     -- RPCItems:RollTrapperArcana1(Vector(-4928, 2048))
 
@@ -480,6 +493,7 @@ function Tanari:CreateDummyUnit(position, model, modelscale)
   end
   return visionTracer
 end
+
 
 function Tanari:InitCamp()
   print("Initialize Tanari Jungle")

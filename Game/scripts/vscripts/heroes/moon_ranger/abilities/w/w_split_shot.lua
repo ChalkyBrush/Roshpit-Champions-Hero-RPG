@@ -21,7 +21,7 @@ function beginCast(event)
     EmitSoundOn("Astral.AstralVolleyBig", caster)
 
     ability:SetActivated(false)
-    ability.damage = damage
+    
 
     local arrowCount = 0
     local empyralArrowsProcChance = 0
@@ -29,12 +29,12 @@ function beginCast(event)
     if caster:HasModifier("modifier_astral_glyph_3_1") then
         empyralArrowsProcChance = getProcChance(caster, T31_PROC_CHANCE)
         arrowCount = T31_ARROWS_COUNT
-        damage = damage * T31_DAMAGE_MULTIPLAYER
+        damage = damage * T31_DAMAGE_MULTIPLIER
     else
         empyralArrowsProcChance = getProcChance(caster, W3_PROC_CHANCE)
         arrowCount = W_ARROWS_COUNT
     end
-
+    ability.damage = damage
     local empyralArrowsRunesCount = Runes:GetTotalRuneLevel(caster, 3, "c_b", "astral")
 
     if empyralArrowsRunesCount == nil or empyralArrowsRunesCount <= 0 then

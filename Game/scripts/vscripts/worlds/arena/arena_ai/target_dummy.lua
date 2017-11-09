@@ -5,6 +5,9 @@ function target_dummy_take_damage(event)
 	if event.attacker:IsHero() then
 		bInit = true
 	end
+	if event.attacker == Events.GameMaster then
+		return
+	end
 	local attacker = CustomAbilities:getHeroFromUnit(event.attacker)
 	if attacker:HasModifier("modifier_attacking_dummy") then
 		if caster.attackerIndex == attacker:GetEntityIndex() then

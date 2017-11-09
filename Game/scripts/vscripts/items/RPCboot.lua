@@ -139,6 +139,11 @@ function RPCItems:FootLegendary(itemVariant, deathLocation)
             RPCItems:RollRedrockFootwear(deathLocation)
             return true
         elseif luck == 7 then
+            local arcanaLuck = RandomInt(1, 860)
+            if arcanaLuck <= (2 + GameState:GetPlayerPremiumStatusCount()) then
+                RPCItems:RollSeinaruArcana2(deathLocation)
+                return true
+            end
             RPCItems:RollYashaBoots(deathLocation)
             return true
         elseif luck == 8 then
