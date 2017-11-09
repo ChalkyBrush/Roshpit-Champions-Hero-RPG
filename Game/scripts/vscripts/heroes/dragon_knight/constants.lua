@@ -1,3 +1,0 @@
-W1_DAMAGE = 0.03
-
-R2_DAMAGE = 2500

@@ -1161,8 +1161,8 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + 0.08*current_stack
         end
         if attacker:HasModifier("modifier_trapper_glyph_2_1") then
-            attacker:Heal(5000);
-            local manaRestore = attacker:GetMaxMana()*0.03
+            attacker:Heal(5000,attacker)
+            local manaRestore = attacker:GetMaxMana()*0.003
             attacker:GiveMana(manaRestore)
         end
     end

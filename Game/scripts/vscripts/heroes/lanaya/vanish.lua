@@ -29,9 +29,9 @@ function vanish_cast(event)
       end)
       Filters:CastSkillArguments(3, caster)
     vanish_paralize(caster, ability)
-    if caster:HasModifier("modifier_trapper_glyph_6_1") then
-        detonateBombs(caster)
-    end
+--    if caster:HasModifier("modifier_trapper_glyph_6_1") then
+--        detonateBombs(caster)
+--    end
 end
 
 function vanish_apply(event)

@@ -29,15 +29,15 @@ function bomb_throw_start(event)
     ability.total_bombs = ability.total_bombs + 1
     table.insert(ability.bombs, bomb)
     DeepPrintTable(ability.bombs)
-    if caster:HasModifier("modifier_trapper_glyph_6_1") then
-        bomb.detonate = false
-        if ability.total_bombs > 5 then
-            bomb_explode(ability.bombs[1])
-            Timers:CreateTimer(1.5, function()
-                ability.bombs = reindexBombs(ability)
-            end)
-        end
-    end
+--    if caster:HasModifier("modifier_trapper_glyph_6_1") then
+--        bomb.detonate = false
+--        if ability.total_bombs > 5 then
+--            bomb_explode(ability.bombs[1])
+--            Timers:CreateTimer(1.5, function()
+--                ability.bombs = reindexBombs(ability)
+--            end)
+--        end
+--    end
 
     bomb.a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "trapper")
     bomb.c_b_level = Runes:GetTotalRuneLevel(caster, 3, "c_b", "trapper")
@@ -133,8 +133,8 @@ end
 
 function bomb_explode(unit)
     EmitSoundOn("Trapper.BombImpactFinal", unit)
-    local explosionRadius = 500 * glyphs.t51_get_radius_amplify(caster)
     local caster = unit.origCaster
+    local explosionRadius = 500 * glyphs.t51_get_radius_amplify(caster)
     local ability = unit.origAbility
     local damage = unit.damage
     local stun_duration = unit.stun_duration

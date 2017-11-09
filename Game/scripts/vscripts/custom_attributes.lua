@@ -28,6 +28,7 @@ CustomAttributes.SEINARU_Q3_ARCANA1_AGI = 400
 CustomAttributes.SOLUNIA_R4_STATS = 200
 CustomAttributes.AXE_E1_STATS = 10
 CustomAttributes.SORCERESS_ARCANE_INT = 50
+CustomAttributes.TRAPPER_R4_AGI = 500
 
 CustomAttributes.RING_OF_NOBILITY = 20
 CustomAttributes.RING_OF_NOBILITY2 = 40 
@@ -200,6 +201,9 @@ function CustomAttributes:SetAttributes(hero)
 	end
 	if hero:HasModifier("modifier_mountain_protector_rune_b_d_invisible") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_mountain_protector_rune_b_d_invisible", CustomAttributes.MOUNTAIN_PROTECTOR_R2_STR)
+	end
+	if hero:HasModifier("modifier_trapper_rune_d_d_bonus_agi") then
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_trapper_rune_d_d_bonus_agi", CustomAttributes.TRAPPER_R4_AGI)
 	end
 
 	-- ENEMIES --

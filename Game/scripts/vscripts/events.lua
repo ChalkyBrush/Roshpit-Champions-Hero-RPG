@@ -388,7 +388,8 @@ function GameMode:OnPlayerChat(keys)
   elseif mapName == "rpc_sea_fortress" then
     position = Vector(844, -15488)
   end
-  if string.match(text, "debug glyphs") then
+  if string.match(text, "debug items") then
+
   end
 
   if string.match(text, "debug boss") then
@@ -413,7 +414,14 @@ function GameMode:OnPlayerChat(keys)
     RPCItems:RollTrapperArcana1(position)
   end
 
-  if string.match(text, "debug items") then
+  if string.match(text, "debug glyphs") then
+    local heroName = 'trapper'
+    for tier = 1,7 do
+      for rowItem = 1,2 do
+        local glyphName = "item_rpc_"..heroName.."_glyph_"..tier.."_"..rowItem
+        Glyphs:RollGlyphAll(glyphName, position, 0)
+      end
+    end
   end
 
   if string.match(text, "spawnunit") then

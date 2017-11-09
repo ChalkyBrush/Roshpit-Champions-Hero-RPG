@@ -294,7 +294,7 @@ function backstab_channel_succeed(event)
             duration = duration + T72_ADD_DURATION
         end
         duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_trapper_d_d_buff", {duration = duration})
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_trapper_c_d_buff", {duration = duration})
 	end
 end
 
@@ -412,6 +412,6 @@ function crit_attack_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local runesCount = caster.c_d_level
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_trapper_d_d_crit", {})
-	caster:SetModifierStackCount("modifier_trapper_d_d_crit", caster, runesCount)
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_trapper_c_d_crit", {})
+	caster:SetModifierStackCount("modifier_trapper_c_d_crit", caster, runesCount)
 end
