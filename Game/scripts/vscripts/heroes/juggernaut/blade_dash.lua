@@ -190,8 +190,10 @@ function arcana_attack_land(event)
 	if caster:HasModifier("modifier_seinaru_a_a_crit") then
 		local critDamage = caster:GetAverageTrueAttackDamage(caster)*1.5*ability.a_a_level
 		ApplyDamage({ victim = target, attacker = caster, damage = critDamage, damage_type = DAMAGE_TYPE_PHYSICAL })
-		PopupDamage(target, critDamage)	
-		caster:RemoveModifierByName("modifier_seinaru_a_a_crit")
+		PopupDamage(target, critDamage)
+		Timers:CreateTimer(0.06, function()
+			caster:RemoveModifierByName("modifier_seinaru_a_a_crit")
+		end)
 	end
 	
 
