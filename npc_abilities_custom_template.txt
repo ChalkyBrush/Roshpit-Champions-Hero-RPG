@@ -46544,7 +46544,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"36"
+				"property_one"			"50"
 			}
 		}
 	}
@@ -46562,7 +46562,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"0.75"
 			}
 		}
 	}
@@ -99337,7 +99337,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"18"
+		"AbilityCooldown"				"14"
 		"AbilityDuration"				"5"
 
 		// Cost
@@ -99350,8 +99350,8 @@
 		{
 			"01"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"duration"		"7 8 9 10 11 12 13"
+				"var_type"			"FIELD_FLOAT"
+				"duration"		"5 5.5 6 6.5 7 7.5 8"
 			}
 		}
 
