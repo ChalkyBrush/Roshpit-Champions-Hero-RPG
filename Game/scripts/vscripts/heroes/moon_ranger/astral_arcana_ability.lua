@@ -26,7 +26,7 @@ function astral_arcana_passive_think(event)
 	local d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a_arcana1", "astral")
 	if d_a_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_rune_d_a", {})
-		local damageStacks = (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect())*0.5*d_a_level
+		local damageStacks = (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect())*0.75*d_a_level
 		caster:SetModifierStackCount("modifier_astral_rune_d_a", caster, damageStacks)
 	end
 end

@@ -32,13 +32,15 @@ function startChannel(event)
         local min = 0
 
         local divisor = 9
+        local tremorsCount = SeismicAftershock.getTremorsCount(caster)
+        local additionalRadius = SeismicAftershock.getAdditionalRadius(caster)
         if forks == 1 then
-            divisor = 1
-        else
-            local tremorsCount = SeismicAftershock.getTremorsCount(caster)
-            min = -math.ceil((tremorsCount - 1) / 2)
-            max = tremorsCount + min - 1
+            tremorsCount = math.ceil(tremorsCount/2)
+            additionalRadius = math.ceil(additionalRadius/2)
         end
+        local damageRadius = ARCANA1_R_RADIUS + additionalRadius
+        min = -math.ceil((tremorsCount - 1) / 2)
+        max = tremorsCount + min - 1
 
         ability.pfx = {}
 
@@ -84,8 +86,8 @@ function startChannel(event)
             for procNumber = 0, procs - 1, 1 do
                 for i = min, max, 1 do
                     local forkDirection = WallPhysics:rotateVector(direction, math.pi*i/divisor)
-                    local endPoint = startPoint+forkDirection*(ARCANA1_R_RADIUS + SeismicAftershock.getAdditionalRadius(caster))
-                    local visualEndPoint = startPoint+1.69*forkDirection*(ARCANA1_R_RADIUS + SeismicAftershock.getAdditionalRadius(caster))
+                    local endPoint = startPoint+forkDirection*damageRadius
+                    local visualEndPoint = startPoint+1.69*forkDirection*damageRadius
                     Timers:CreateTimer(procNumber*0.5 + 0.15, function()
                         if ability.isInterrupted then
                             return
