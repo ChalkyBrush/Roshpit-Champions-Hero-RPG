@@ -374,9 +374,9 @@ function CustomAttributes:SetAttributes(hero)
 	end
 	
 
-	strength = strength + str_bonus
-	agility = agility + agi_bonus
-	intelligence = intelligence + int_bonus
+	strength = math.max(strength + str_bonus, 0)
+	agility = math.max(agility + agi_bonus, 0)
+	intelligence = math.max(intelligence + int_bonus, 0)
 	hero.str_bonus = str_bonus
 	hero.agi_bonus = agi_bonus
 	hero.int_bonus = int_bonus

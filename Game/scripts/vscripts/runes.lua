@@ -804,21 +804,36 @@ function Runes:EquipArcana(hero, index)
 			Runes:EasySwapArcanaSkills(hero, 1, "holy_cone", "paladin_penance", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_crystal_maiden" then
-		local fireball = hero:FindAbilityByName("fireball")
-		if fireball then
-			if hero:HasModifier("modifier_pyro_cooldown") then
-			  	local pyroblast = hero:FindAbilityByName("pyroblast")
-			  	pyroblast:SetLevel(fireball:GetLevel())
-			  	hero:SwapAbilities("fireball", "pyroblast", false, true)
-			  	pyroblast:SetAbilityIndex(DOTA_ULTIMATE_SLOT)
-				hero:RemoveAbility("fireball")
-			else
-				hero:RemoveAbility("fireball")
-			end
-			hero:RemoveModifierByName("modifier_fireball_passive")
-		end
 		if index == 1 then
+			local fireball = hero:FindAbilityByName("fireball")
+			if fireball then
+				if hero:HasModifier("modifier_pyro_cooldown") then
+				  	local pyroblast = hero:FindAbilityByName("pyroblast")
+				  	pyroblast:SetLevel(fireball:GetLevel())
+				  	hero:SwapAbilities("fireball", "pyroblast", false, true)
+				  	pyroblast:SetAbilityIndex(DOTA_ULTIMATE_SLOT)
+					hero:RemoveAbility("fireball")
+				else
+					hero:RemoveAbility("fireball")
+				end
+				hero:RemoveModifierByName("modifier_fireball_passive")
+			end
 			Runes:EasySwapArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "pyroblast", "sorceress_arcana_ice_tornado", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+		elseif index == 2 then
+			local ice_lance = hero:FindAbilityByName("ice_lance")
+			if ice_lance then
+				if hero:HasModifier("modifier_blizzard_cooldown") then
+				  	local blizzard = hero:FindAbilityByName("blizzard")
+				  	blizzard:SetLevel(ice_lance:GetLevel())
+				  	hero:SwapAbilities("ice_lance", "blizzard", false, true)
+				  	blizzard:SetAbilityIndex(DOTA_ULTIMATE_SLOT)
+					hero:RemoveAbility("ice_lance")
+				else
+					hero:RemoveAbility("ice_lance")
+				end
+				hero:RemoveModifierByName("modifier_ice_lance_passive")
+			end
+			Runes:EasySwapArcanaSkills(hero, 0, "blizzard", "sorceress_fire_arcana_q", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_obsidian_destroyer" then
 		hero:RemoveModifierByName("modifier_time_binder_passive")
@@ -1282,6 +1297,21 @@ function Runes:UnequipArcana(hero, index)
 		hero:RemoveModifierByName("modifier_ice_tornado_passive")
 		if index == 1 then
 			Runes:EasyRevertArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "pyroblast", "sorceress_arcana_ice_tornado", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+		elseif index == 2 then
+			local sun_lance = hero:FindAbilityByName("sorceress_sun_lance")
+			if sun_lance then
+				if hero.sunlance then
+				  	local incinerate = hero:FindAbilityByName("sorceress_fire_arcana_q")
+				  	incinerate:SetLevel(sun_lance:GetLevel())
+				  	hero:SwapAbilities("sorceress_sun_lance", "sorceress_fire_arcana_q", false, true)
+				  	incinerate:SetAbilityIndex(0)
+					hero:RemoveAbility("sorceress_sun_lance")
+				else
+					hero:RemoveAbility("sorceress_sun_lance")
+				end
+			end
+			hero:RemoveModifierByName("modifier_sunlance_passive")
+			Runes:EasyRevertArcanaSkills(hero, 0, "blizzard", "sorceress_fire_arcana_q", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_obsidian_destroyer" then
 		if index == 1 then

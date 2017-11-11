@@ -735,6 +735,12 @@ function Filters:ApplyQskills(caster)
                     avatar:RemoveModifierByName("modifier_sorceress_passive")
                     avatar:AddAbility("ice_lance"):SetLevel(abilityLevel)
                 end
+                if caster:HasAbility("sorceress_fire_arcana_q") then
+                    local ability1 = caster:FindAbilityByName("sorceress_fire_arcana_q")
+                    local abilityLevel = ability1:GetLevel()
+                    avatar:AddAbility(ability1:GetAbilityName()):SetLevel(abilityLevel)
+                    avatar:AddAbility("sorceress_sun_lance"):SetLevel(abilityLevel)
+                end
                 
                 if caster:HasAbility("sorceress_blink") then
                     local ability2 = caster:FindAbilityByName("sorceress_blink")
@@ -1451,6 +1457,14 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             element1 = RPC_ELEMENT_ICE
             element2 = RPC_ELEMENT_NONE
         end
+        if attacker:HasModifier("modifier_fire_avatar") then
+            element1 = RPC_ELEMENT_FIRE
+            element2 = RPC_ELEMENT_NONE
+        end
+        if attacker:HasModifier("modifier_fire_avatar") and attacker:HasModifier("modifier_ice_avatar") then
+            element1 = RPC_ELEMENT_ICE
+            element2 = RPC_ELEMENT_FIRE
+        end
         if victim:HasModifier("modifier_elemental_resistance") then
             damage = damage*0.01
         end
@@ -1500,6 +1514,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if unitName == "npc_dota_hero_crystal_maiden" then
             if attacker.d_d_level then
                 mult = mult + 0.0001*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_d_level
+            end
+            if attacker:HasModifier("modifier_fire_avatar") then
+                local stacks = attacker:GetModifierStackCount("modifier_fire_avatar", attacker)
+                mult = mult + stacks*0.1
             end
         end
         if victim:HasModifier("modifier_sorceress_rune_c_d") then
@@ -3798,6 +3816,14 @@ end
 
 function Filters:IsIceFrozen(target)
     if target:HasModifier("modifier_ice_lance_frozen") or target:HasModifier("modifier_frost_nova") or target:HasModifier("modifier_eternal_frost_nova") or target:HasModifier("modifier_ice_throw_b_b_frozen") or target:HasModifier("modifier_elemental_overload_frozen") or target:HasModifier("modifier_alarana_frost_nova") or target:HasModifier("modifier_solunia_cryoshock") or target:HasModifier("modifier_elemental_freeze") or target:HasModifier("modifier_sorceress_arcana_b_d_visible") then
+        return true
+    else
+        return false
+    end
+end
+
+function Filters:IsFireBurning(target)
+    if target:HasModifier("modifier_pyroblast_ignite") or target:HasModifier("modifier_fulminating_burn_effect") or target:HasModifier("modifier_flametongue_a_a_rune") or target:HasModifier("modifier_solunia_solar_burn") or target:HasModifier("modifier_on_fire_effect") or target:HasModifier("ruby_dragon_burn") or target:HasModifier("modifier_infernal_prison_effect_from_attack") or target:HasModifier("modifier_infernal_prison_nearby") or target:HasModifier("fire_walker_aura") or target:HasModifier("scorched_earth_aura") or target:HasModifier("modifier_ring_of_fire_burn") or target:HasModifier("modifier_sun_lance_burn") then
         return true
     else
         return false

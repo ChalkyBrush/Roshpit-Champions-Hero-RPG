@@ -29,6 +29,10 @@ function sorceress_avatar_think(event)
 
 	local blizzAbility = avatar:FindAbilityByName("blizzard")
 	local lanceAbility = avatar:FindAbilityByName("ice_lance")
+	if not blizzAbility then
+		blizzAbility = avatar:FindAbilityByName("sorceress_fire_arcana_q")
+		lanceAbility = avatar:FindAbilityByName("sorceress_sun_lance")
+	end
 	local blinkAbility = avatar:FindAbilityByName("sorceress_blink")
 	if avatar:IsChanneling() then
 		return false

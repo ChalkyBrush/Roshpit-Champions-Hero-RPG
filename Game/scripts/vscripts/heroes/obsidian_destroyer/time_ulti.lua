@@ -442,7 +442,7 @@ end
 
 function immortal_weapon_2_die(event)
   local caster = event.unit
-  local ulti = caster:GetAbilityByIndex(3)
+  local ulti = caster:GetAbilityByIndex(DOTA_ULTIMATE_SLOT)
   local respawnPoint = caster:GetAbsOrigin()
   print("IMMO DIE: "..ulti:GetCooldownTimeRemaining())
   if ulti:GetCooldownTimeRemaining() == 0 then

@@ -406,7 +406,8 @@ local _ANIMATION_TRANSLATE_TO_CODE = {
   attack_normal_range = 352,
   favor = 353,
   disco_gesture = 354,
-  basher = 355
+  basher = 355,
+  freeze = 356
 }
 
 local DoAnimation = function()

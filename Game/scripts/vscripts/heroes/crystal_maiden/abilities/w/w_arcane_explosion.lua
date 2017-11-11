@@ -2,6 +2,7 @@ require('heroes/crystal_maiden/init')
 local FrostNova = require('heroes/crystal_maiden/abilities/q/q2_frost_nova')
 local ArcaneShell = require('heroes/crystal_maiden/abilities/w/w1_arcane_shell')
 local AmplifyMagic = require('heroes/crystal_maiden/abilities/w/w2_amplify_magic')
+local RingOfFire = require('heroes/crystal_maiden/abilities/q2_arcana2_ring_of_fire')
 
 function cast(event)
     local caster = event.caster
@@ -45,7 +46,11 @@ function cast(event)
         end
     )
     ArcaneShell.cast(caster, 1)
-    FrostNova.tryToCast(caster, ability, false)
+    if caster:HasModifier("modifier_sorceress_arcana2") then
+        RingOfFire.tryToCast(caster, ability, false)
+    else
+        FrostNova.tryToCast(caster, ability, false)
+    end
 end
 
 function projectileHit(event)

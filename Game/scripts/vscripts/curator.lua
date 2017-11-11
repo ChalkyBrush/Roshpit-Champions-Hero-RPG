@@ -618,6 +618,9 @@ function Curator:CurateArcanaAbilities(hero)
 			Timers:CreateTimer(2, function()
 				local index = available_arcanas[i][2]
 				local ability = hero:GetAbilityByIndex(index)
+				if index == 3 then
+					ability = hero:GetAbilityByIndex(DOTA_ULTIMATE_SLOT)
+				end
 				local abilitySpecial = ability:GetAbilityKeyValues()["AbilitySpecial"]
 				local player = PlayerResource:GetPlayer(hero:GetPlayerOwnerID())
 				local rune1 = hero.runeUnit:GetAbilityByIndex(index)
@@ -644,6 +647,9 @@ end
 
 function Curator:CurateAbility(hero, index)
 	local ability = hero:GetAbilityByIndex(index)
+	if index == 3 then
+		ability = hero:GetAbilityByIndex(DOTA_ULTIMATE_SLOT)
+	end
 	local abilitySpecial = ability:GetAbilityKeyValues()["AbilitySpecial"]
 	local player = PlayerResource:GetPlayer(hero:GetPlayerOwnerID())
 	local rune1 = hero.runeUnit:GetAbilityByIndex(index)

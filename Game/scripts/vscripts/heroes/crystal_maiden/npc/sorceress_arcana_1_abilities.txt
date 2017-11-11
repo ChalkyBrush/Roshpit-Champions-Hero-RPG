@@ -276,3 +276,372 @@
 		}
 
 	}
+
+	"sorceress_fire_arcana_q"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"sorceress/sorceress_incinerate"
+		"RequiredLevel"          		"0"
+		"LevelsBetweenUpgrades"  		"0"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_INVALID"
+		"AbilityCastRange"				"1000"
+		"AOERadius"						"500 530 560 590 620 650 680"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"3200 12000 30000 65000 100000 165000 350000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"aoe_radius"		"500 530 560 590 620 650 680"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"duration"			"10"
+			}
+		}
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"16"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/crystal_maiden/firestorm_q"
+				"Function"		"firestorm_precast"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/crystal_maiden/firestorm_q"
+				"Function"		"begin_firestorm"
+				"target"		"POINT"
+				"radius"		"%aoe_radius"
+			}
+
+		}
+		"Modifiers"
+		{
+			"modifier_sorceress_firestorm"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+			
+				"ThinkInterval"  "0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/crystal_maiden/firestorm_q"
+						"Function"		"sorceress_firestorm_debuff_think"
+						"target"		"TARGET"
+						"damage"		"%damage"
+					}
+				}
+			}
+			"modifier_fire_avatar"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"EffectName"	"particles/roshpit/sorceress/fire_avatar.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"TextureName"	"sorceress/sorceress_rune_d_a_arcana2"
+				"StatusEffectName" 		"particles/status_fx/status_effect_burn.vpcf" 	   
+				"StatusEffectPriority"  "10"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/crystal_maiden/firestorm_q"
+						"Function"		"fire_avatar_start"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/crystal_maiden/firestorm_q"
+						"Function"		"fire_avatar_end"
+					}
+				}
+			}
+		}
+
+	}
+
+	"sorceress_sun_lance"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityTextureName"			"sorceress/sun_lance"
+		"AbilityType"           		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.4"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"5.0"
+		"AbilityCastRange"				"2000"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 240 500 800 1200 3000 6000"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"range"						"900 1000 1100 1200 1300 1400"
+			}
+		}
+
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+		"OnAbilityPhaseStart"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_fireball_precast"
+				"Target" 		"CASTER"
+				"Duration"		"0.5"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/crystal_maiden/sun_lance.lua"
+				"Function"		"begin_fireball"
+				"Target"			"POINT"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/crystal_maiden/sun_lance.lua"
+				"Function"		"fireball_hit"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_sunlance_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"IsPurgable"		"0"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/crystal_maiden/sun_lance.lua"
+						"Function"		"sunlance_think"
+					}
+				}
+			}
+			"modifier_fireball_precast"
+			{
+				"IsHidden"	"1"
+				"EffectName"	"particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff_e.vpcf"
+				"EffectAttachType"	"follow_origin"
+			}
+			"modifier_sun_lance_burn"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"TextureName"		"sorceress/sorceress_rune_c_a_arcana2"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-140"
+				}
+			}
+		}
+
+	}
+
+	"sorceress_rune_a_a_arcana2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"sorceress/sun_lance"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"12000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one_base"		"5000"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"		"1"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"		 	"2"
+			}
+		}
+
+	}
+
+	"sorceress_rune_b_a_arcana2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"sorceress/sorceress_rune_b_a_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"3.5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% Q2_ADD_DURATION %>"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two_base"		"<% Q2_BASE_DURATION %>"
+			}
+		}
+
+	}
+
+	"sorceress_rune_c_a_arcana2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"sorceress/sorceress_rune_c_a_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"20"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% Q3_ADD_DURATION %>"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two_base"		"<% Q3_BASE_DURATION %>"
+			}
+		}
+
+	}
+
+    	"sorceress_rune_d_a_arcana2"
+    	{
+    		// General
+    		//-------------------------------------------------------------------------------------------------------------
+    		"BaseClass"				"ability_datadriven"
+    		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+    		"AbilityTextureName"	"sorceress/sorceress_rune_d_a_arcana2"
+    		"MaxLevel"				"20"
+    		"LevelsBetweenUpgrades" "0"
+
+    		"AbilitySpecial"
+    		{
+    			"01"
+    			{
+    				"var_type"				"FIELD_FLOAT"
+    				"property_one_base"			"7.0"
+    			}
+    			"02"
+    			{
+    				"var_type"				"FIELD_FLOAT"
+    				"property_one"			"0.2"
+    			}
+    			"03"
+    			{
+    				"var_type"				"FIELD_INTEGER"
+    				"property_two"			"10"
+    			}
+    		}
+    	}

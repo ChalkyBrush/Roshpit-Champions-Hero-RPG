@@ -355,7 +355,8 @@ local _CODE_TO_ANIMATION_TRANSLATE = {
   [352]= "attack_normal_range",
   [353]= "favor",
   [354]= "disco_gesture",
-  [355]= "basher"
+  [355]= "basher",
+  [356]= "freeze"
 }
 
 function modifier_animation_translate:OnCreated(keys) 
