@@ -155,7 +155,7 @@
         "StatusManaRegen"   "0"
         "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
-        "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+        "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "VisionDaytimeRange"    "500"
         "VisionNighttimeRange"  "500"
         "PathfindingSearchDepthScale" "0.2"

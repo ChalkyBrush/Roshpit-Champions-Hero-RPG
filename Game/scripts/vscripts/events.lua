@@ -377,52 +377,52 @@ function GameMode:OnPlayerChat(keys)
   -- if string.match(text, "superdebug11") then
   --   Redfall:Debug()
   -- end
-  local mapName = GetMapName()
-  local position
-  if mapName == "rpc_roshpit_arena" then
-    position = Vector(-3136, -11200)
-  elseif mapName == "rpc_redfall_ridge" then
-    position = Vector(-15168, -14976)
-  elseif mapName == "rpc_tanari_jungle" then
-    position = Vector(-4928, 2048)
-  elseif mapName == "rpc_sea_fortress" then
-    position = Vector(844, -15488)
-  end
-  if string.match(text, "debug items") then
-
-  end
-
-  if string.match(text, "debug boss") then
-    if mapName == "rpc_roshpit_arena" then
-      Arena:OpenPit(7)
-      Arena.PitLevel = 7
-      Arena:SpawnPitFinalBoss()
-    elseif mapName == "rpc_redfall_ridge" then
-      Redfall:SpawnAncientTree()
-    elseif mapName == "rpc_tanari_jungle" then
-      Tanari:DebugSpawnBoss()
-    elseif mapName == "rpc_sea_fortress" then
-      Seafortress:SpawnFinalBoss()
-    end
-  end
-
-  if string.match(text, "debug main") then
-    local item = CreateItem("item_debug_blink", nil, nil)
-    local drop = CreateItemOnPositionSync( position, item )
-    RPCItems:DropItem(item, position)
-    RPCItems:RollReanimationStone(position)
-    RPCItems:RollTrapperArcana1(position)
-  end
-
-  if string.match(text, "debug glyphs") then
-    local heroName = 'trapper'
-    for tier = 1,7 do
-      for rowItem = 1,2 do
-        local glyphName = "item_rpc_"..heroName.."_glyph_"..tier.."_"..rowItem
-        Glyphs:RollGlyphAll(glyphName, position, 0)
-      end
-    end
-  end
+--  local mapName = GetMapName()
+--  local position
+--  if mapName == "rpc_roshpit_arena" then
+--    position = Vector(-3136, -11200)
+--  elseif mapName == "rpc_redfall_ridge" then
+--    position = Vector(-15168, -14976)
+--  elseif mapName == "rpc_tanari_jungle" then
+--    position = Vector(-4928, 2048)
+--  elseif mapName == "rpc_sea_fortress" then
+--    position = Vector(844, -15488)
+--  end
+--  if string.match(text, "debug items") then
+--
+--  end
+--
+--  if string.match(text, "debug boss") then
+--    if mapName == "rpc_roshpit_arena" then
+--      Arena:OpenPit(7)
+--      Arena.PitLevel = 7
+--      Arena:SpawnPitFinalBoss()
+--    elseif mapName == "rpc_redfall_ridge" then
+--      Redfall:SpawnAncientTree()
+--    elseif mapName == "rpc_tanari_jungle" then
+--      Tanari:DebugSpawnBoss()
+--    elseif mapName == "rpc_sea_fortress" then
+--      Seafortress:SpawnFinalBoss()
+--    end
+--  end
+--
+--  if string.match(text, "debug main") then
+--    local item = CreateItem("item_debug_blink", nil, nil)
+--    local drop = CreateItemOnPositionSync( position, item )
+--    RPCItems:DropItem(item, position)
+--    RPCItems:RollReanimationStone(position)
+--    RPCItems:RollTrapperArcana1(position)
+--  end
+--
+--  if string.match(text, "debug glyphs") then
+--    local heroName = 'trapper'
+--    for tier = 1,7 do
+--      for rowItem = 1,2 do
+--        local glyphName = "item_rpc_"..heroName.."_glyph_"..tier.."_"..rowItem
+--        Glyphs:RollGlyphAll(glyphName, position, 0)
+--      end
+--    end
+--  end
 
   if string.match(text, "spawnunit") then
        if Beacons.cheats then

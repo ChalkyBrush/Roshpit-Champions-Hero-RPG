@@ -11,7 +11,7 @@ W4_AMPLIFY_PERCENT = 0.07
 E1_BONUS_DAMAGE = 30
 E2_DECOY_DURATION = 10
 E2_DECOY_HEALTH = 10
-E2_STATS_DAMAGE = 70
+E2_STATS_DAMAGE = 200
 E2_EXPLODE_RADIUS = 300
 E4_POST_AMP_PERCENT = 10 -- don't affect game_state
 
@@ -24,7 +24,7 @@ R4_BONUS_AGI = 500 -- don't affect custom_abilities
 
 ARCANA1_W1_POST_AMP_PERCENT = 1.2 -- don't affect game_state
 ARCANA1_W2_AMP_PERCENT = 5 -- don't affect filters
-ARCANA1_W3_AGI_DAMAGE = 5
+ARCANA1_W3_AGI_DAMAGE = 20
 
 T21_HEAL = 5000 -- don't affect filters
 T21_MANA_RESTORE_PERCENT = 0.3 -- don't affect filters
