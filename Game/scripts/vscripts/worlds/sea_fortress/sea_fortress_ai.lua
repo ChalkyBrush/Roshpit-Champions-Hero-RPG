@@ -6028,3 +6028,14 @@ function shadow_of_bahamut_die(event)
 		RPCItems:RollBahamutArcana2(caster:GetAbsOrigin())
 	end
 end
+
+function pure_resist_take_damage(event)
+	local victim = event.target
+	if not victim.particleLock then
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_brewmaster/brewmaster_windwalk.vpcf", victim, 1)
+		victim.particleLock = true
+		Timers:CreateTimer(0.5, function()
+			victim.particleLock = false
+		end)
+	end
+end

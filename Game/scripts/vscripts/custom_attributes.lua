@@ -432,7 +432,7 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 	local agility = hero:GetAgility()
 	local intelligence = hero:GetIntellect()
 	local halcyon = 1
-	if caster:HasModifier("modifier_halcyon_soul_glove") then
+	if hero:HasModifier("modifier_halcyon_soul_glove") then
 		halcyon = 1.5
 	end
 	if not hero:HasModifier("modifier_strength_health") then

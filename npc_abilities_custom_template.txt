@@ -97576,6 +97576,12 @@
 				"var_type"		"FIELD_INTEGER"
 				"pure_resist"			"50 80 99"
 			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"physical_amp"			"-500"
+			}
+			
 		}
 		"Modifiers"
 		{
@@ -97583,6 +97589,16 @@
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
+				"OnTakeDamage"
+				// "%attack_damage" is set to the damage value after mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+						"Function"		"pure_resist_take_damage"
+						"target"		"TARGET"
+					}
+				}
 			}
 		}
 	}

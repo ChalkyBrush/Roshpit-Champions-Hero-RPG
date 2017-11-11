@@ -754,16 +754,17 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 			damage = damage*0.5
 		end
 		if victim:HasModifier("modifier_bahamut_glyph_1_1") then
-			filterTable["damage"] = filterTable["damage"]*0.7
+			damage = damage*0.7
 		end
-		if victim:HasModifier("modifier_resplendent_rubber_boots") then
-			if damagetype == DAMAGE_TYPE_MAGICAL then
-				filterTable["damage"] = filterTable["damage"]*0.65
-			end
+		if victim:HasModifier("modifier_pure_resist") then
+			damage = damage*6
 		end
 	elseif damagetype == DAMAGE_TYPE_MAGICAL then
 		if victim:HasModifier("modifier_solunia_c_d_arcana_shell") then
 			damage = damage*0.05
+		end
+		if victim:HasModifier("modifier_resplendent_rubber_boots") then
+			damage = damage*0.65
 		end
 	elseif damagetype == DAMAGE_TYPE_PURE then
 		if victim:HasModifier("modifier_sparkling_token_of_oceanis") then
@@ -786,6 +787,11 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 			local consideredArmor = victim:GetPhysicalArmorValue()*0.01*stackCount
 			damage = GameState:GetPostReductionPhysicalDamage(damage, consideredArmor)
 		end
+	    if victim:HasModifier("modifier_pure_resist") then
+    		local damageReduc = victim:FindModifierByName("modifier_pure_resist"):GetAbility():GetSpecialValueFor("pure_resist")
+    		damageReduc = 1 - (damageReduc/100)
+    		damage = damage*damageReduc
+	    end
 	end
 	local decreaseAll = GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields)
 
@@ -842,7 +848,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 
 	if victim:HasModifier("modifier_raven_idol") then
-		damage = damage*0.4
+		damage = damage*0.6
 	end
 	if victim:HasModifier("modifier_raven_idol2") then
 		damage = damage*0.5
@@ -858,7 +864,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 
 	if victim:HasModifier("modifier_red_october_boots") then
 		local EAbility = victim:GetAbilityByIndex(2)
-		if EAbility:GetCooldownTimeRemaining() == 0 then
+		if EAbility:GetCooldownTimeRemaining() > 0 then
 			damage = damage*0.5
 		end
 	end
@@ -1922,22 +1928,7 @@ function GameState:FilterDamage(filterTable)
     		filterTable["damage"] = 0
     	end
     end
-    if victim:HasModifier("modifier_pure_resist") then
-    	if filterTable["damagetype_const"] == DAMAGE_TYPE_MAGICAL or filterTable["damagetype_const"] == DAMAGE_TYPE_PURE then
-    		local damageReduc = victim:FindModifierByName("modifier_pure_resist"):GetAbility():GetSpecialValueFor("pure_resist")
-    		damageReduc = 1 - (damageReduc/100)
-    		filterTable["damage"] = filterTable["damage"]*damageReduc
-    		if applyEffects then
-	    		if not victim.particleLock then
-	    			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_brewmaster/brewmaster_windwalk.vpcf", victim, 1)
-	    			victim.particleLock = true
-	    			Timers:CreateTimer(0.5, function()
-	    				victim.particleLock = false
-	    			end)
-	    		end
-	    	end
-    	end
-    end
+
 
     if victim:HasModifier("modifier_seinaru_b_c_wakizashi") then
     	filterTable["damage"] = 0
@@ -2346,7 +2337,11 @@ function GameState:FilterDamage(filterTable)
 				victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_ankh_of_ancients_shield", {duration = 6})
 				victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_ankh_of_ancients_cooldown", {duration = 24})
 				for i = 0, 3, 1 do
-					victim:GetAbilityByIndex(i):EndCooldown()
+					local abilityIndex = i
+					if i == 3 then
+						abilityIndex = DOTA_ULTIMATE_SLOT
+					end
+					victim:GetAbilityByIndex(abilityIndex):EndCooldown()
 				end
 			end		
 		elseif victim:HasModifier("modifier_world_trees_flower_cache") then
