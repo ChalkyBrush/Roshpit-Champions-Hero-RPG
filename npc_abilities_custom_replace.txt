@@ -15,3 +15,9 @@ BAHAMUT_ARCANA_ABILITIES:heroes\leshrac\npc\bahamut_arcana_abilities.txt
 <% heroes\axe\constants.lua %>
 RED_GENERAL_ABILITIES:heroes\axe\npc\axe_abilities.txt
 RED_GENERAL_RUNES:heroes\axe\npc\axe_runes.txt
+
+
+<% heroes\lanaya\constants.lua %>
+TRAPPER_ABILITIES:heroes\lanaya\npc\abilities.txt
+TRAPPER_UNITS_ABILITIES:heroes\lanaya\npc\units_abilities.txt
+TRAPPER_RUNES:heroes\lanaya\npc\runes.txt

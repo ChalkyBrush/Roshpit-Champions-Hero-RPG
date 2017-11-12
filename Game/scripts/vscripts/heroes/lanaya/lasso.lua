@@ -1,3 +1,6 @@
+require('heroes/lanaya/constants')
+local glyphs = require('heroes/lanaya/glyphs')
+
 function trapper_lasso_start(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -65,18 +68,20 @@ function trapper_lasso_think(event)
 		end
 		jumpVelocity = 0
 	end
-	target:SetAbsOrigin(target:GetAbsOrigin() + Vector(0,0,target.lassoLiftSpeed) + jumpFV*jumpVelocity)
+	local oldTargetPosition = target:GetAbsOrigin()
+	local newTargetPosition = oldTargetPosition + Vector(0,0,target.lassoLiftSpeed) + jumpFV*jumpVelocity
+	local travelDistance = WallPhysics:GetDistance(oldTargetPosition, newTargetPosition)
+	target:SetAbsOrigin(newTargetPosition)
 	target.lassoLiftSpeed = target.lassoLiftSpeed - 2.4
+	if ability.c_b_level > 0 then
+		local damage = ability.c_b_level * travelDistance/100 * ARCANA1_W3_AGI_DAMAGE * caster:GetAgility()
+		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+	end
 	if not ability.lifting then
 		if target:GetAbsOrigin().z < GetGroundHeight(target:GetAbsOrigin(), target) + 40 then
 			target:RemoveModifierByName("modifier_lasso_pull")
 			FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
-			if ability.c_b_level > 0 then
-				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_leshrac/fulminating_effect.vpcf", target, 0.8)
-				local stunDuration = ability.c_b_level*0.08
-				Filters:ApplyStun(caster, stunDuration, target)
-				EmitSoundOn("Trapper.LassoStun", target)
-			end
+			Filters:ApplyStun(caster, 1, target)
 		end
 	end
 end
@@ -85,7 +90,7 @@ function trapper_poison_whip_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local point = event.target_points[1]
-	local radius = event.radius
+	local radius = event.radius * glyphs.t51_get_radius_amplify(caster)
 
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	Filters:CastSkillArguments(2, caster)

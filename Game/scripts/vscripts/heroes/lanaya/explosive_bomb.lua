@@ -1,3 +1,6 @@
+require('heroes/lanaya/constants')
+local glyphs = require('heroes/lanaya/glyphs')
+
 function bomb_throw_start(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -17,7 +20,7 @@ function bomb_throw_start(event)
     bomb.origAbility = ability
     bomb.damage = event.damage
     local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "trapper")
-    bomb.damage = bomb.damage + 0.0004*(caster:GetIntellect()+caster:GetStrength()+caster:GetAgility())/10*d_b_level*bomb.damage
+    bomb.damage = bomb.damage + W4_AMPLIFY_PERCENT/100*(caster:GetIntellect()+caster:GetStrength()+caster:GetAgility())/10*d_b_level*bomb.damage
     bomb.detonate = true
     if ability.total_bombs == nil then
         ability.total_bombs = 0
@@ -26,15 +29,15 @@ function bomb_throw_start(event)
     ability.total_bombs = ability.total_bombs + 1
     table.insert(ability.bombs, bomb)
     DeepPrintTable(ability.bombs)
-    if caster:HasModifier("modifier_trapper_glyph_6_1") then
-        bomb.detonate = false
-        if ability.total_bombs > 5 then
-            bomb_explode(ability.bombs[1])
-            Timers:CreateTimer(1.5, function()
-                ability.bombs = reindexBombs(ability)
-            end)
-        end
-    end
+--    if caster:HasModifier("modifier_trapper_glyph_6_1") then
+--        bomb.detonate = false
+--        if ability.total_bombs > 5 then
+--            bomb_explode(ability.bombs[1])
+--            Timers:CreateTimer(1.5, function()
+--                ability.bombs = reindexBombs(ability)
+--            end)
+--        end
+--    end
 
     bomb.a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "trapper")
     bomb.c_b_level = Runes:GetTotalRuneLevel(caster, 3, "c_b", "trapper")
@@ -130,8 +133,8 @@ end
 
 function bomb_explode(unit)
     EmitSoundOn("Trapper.BombImpactFinal", unit)
-    local explosionRadius = 500
     local caster = unit.origCaster
+    local explosionRadius = 500 * glyphs.t51_get_radius_amplify(caster)
     local ability = unit.origAbility
     local damage = unit.damage
     local stun_duration = unit.stun_duration
@@ -139,7 +142,7 @@ function bomb_explode(unit)
     local c_b_level = unit.c_b_level
     ability.total_bombs = ability.total_bombs - 1
     print("BOMB EXPLODE??")
-    Timers:CreateTimer(0.9, function()
+    Timers:CreateTimer(0.05, function()
                 local position = unit:GetAbsOrigin()
                 StopSoundEvent("Trapper.BombTicking", unit)
                 StopSoundOn("Trapper.BombTicking", unit)
@@ -170,7 +173,7 @@ function bomb_explode(unit)
                     if a_b_level > 0 then
                         local distance = WallPhysics:GetDistance(enemy:GetAbsOrigin(), position)
                         local damageBonusMult = 1 - (distance/explosionRadius)
-                        a_b_damage = damage + damage*damageBonusMult*a_b_level*0.03
+                        a_b_damage = damage + damage*damageBonusMult*a_b_level*W1_AMP_PERCENT/100
                     end
                     Filters:TakeArgumentsAndApplyDamage(enemy, caster, a_b_damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NORMAL)
                     Filters:ApplyStun(caster, stun_duration, enemy)
@@ -182,7 +185,7 @@ function bomb_explode(unit)
                 end
             end
     end)
-    Timers:CreateTimer(1.0, function()
+    Timers:CreateTimer(0.1, function()
         UTIL_Remove(unit)
         ability.bombs = reindexBombs(ability)
     end)
@@ -243,8 +246,8 @@ function bomb_land(unit, propulsion)
             end
         elseif unit.type == "smoke" then
             smoke_bomb_explode(unit)
-        elseif unit.type == "flash" then
-            flash_explode(unit)
+--        elseif unit.type == "flash" then
+--            flash_explode(unit)
         end
 	end
 end
@@ -280,35 +283,44 @@ function smoke_bomb_think(event)
     local origAbility = caster.origAbility
     local origCaster = caster.origCaster
     local radius = caster.radius
-      local particleName = "particles/items2_fx/smoke_of_deceit.vpcf"
-      local casterPos = caster:GetAbsOrigin()
-      local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
-      ParticleManager:SetParticleControl( particle1, 0, casterPos )
-      ParticleManager:SetParticleControl( particle1, 1, Vector(radius, radius/2, radius/2) )
-      Timers:CreateTimer(2, function()
+    local position = caster:GetAbsOrigin()
+    local particleName = "particles/items2_fx/smoke_of_deceit.vpcf"
+    local casterPos = caster:GetAbsOrigin()
+    local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
+    ParticleManager:SetParticleControl( particle1, 0, casterPos )
+    ParticleManager:SetParticleControl( particle1, 1, Vector(radius, radius/2, radius/2) )
+    Timers:CreateTimer(2, function()
         ParticleManager:DestroyParticle(particle1, false)
-      end)
+    end)
     local b_b_damage = caster.b_b_damage
     
-    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-    if #enemies > 0 then    
+    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+
+    local a_b_level = caster.a_b_level
+
+    local damage = b_b_damage
+
+    if #enemies > 0 then
         for _,enemy in pairs(enemies) do
              origAbility:ApplyDataDrivenModifier(origCaster, enemy, "modifier_smoke_bomb_effect", {duration = 0.6}) 
              if b_b_damage > 0 then
-                Filters:ApplyDotDamage(origCaster, ability, enemy, b_b_damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_POISON)
+                 if a_b_level > 0 then
+                     local distance = WallPhysics:GetDistance(enemy:GetAbsOrigin(), position)
+                     local damageBonusMult = 1 - (distance/radius)
+                     damage = b_b_damage + b_b_damage*damageBonusMult*a_b_level*W1_AMP_PERCENT/100
+                 end
+                Filters:ApplyDotDamage(origCaster, ability, enemy, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_POISON)
              end
         end
     end
-    if origCaster:HasModifier("modifier_trapper_glyph_2_1") then
-        local invisDuration = Filters:GetAdjustedBuffDuration(origCaster, 0.6, false)
-        local allies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
-        if #allies > 0 then    
-            for _,ally in pairs(allies) do
-                 if ally:GetEntityIndex() == origCaster:GetEntityIndex() then
-                    local stealthAbility = origCaster:FindAbilityByName("trapper_stealth")
-                    stealthAbility:ApplyDataDrivenModifier(origCaster, origCaster, "modifier_invisibility_datadriven", {duration = invisDuration})
-                    stealthAbility:ApplyDataDrivenModifier(origCaster, origCaster, "modifier_invisible", {duration = invisDuration})
-                 end
+    local invisDuration = Filters:GetAdjustedBuffDuration(origCaster, 0.6, false)
+    local allies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
+    if #allies > 0 then
+        for _,ally in pairs(allies) do
+            if ally:GetEntityIndex() == origCaster:GetEntityIndex() then
+                local stealthAbility = origCaster:FindAbilityByName("trapper_stealth")
+                stealthAbility:ApplyDataDrivenModifier(origCaster, origCaster, "modifier_invisibility_datadriven", {duration = invisDuration})
+                stealthAbility:ApplyDataDrivenModifier(origCaster, origCaster, "modifier_invisible", {duration = invisDuration})
             end
         end
     end
@@ -337,105 +349,106 @@ function bomb_throw_start_smoke(event)
     bomb.origCaster = caster
     bomb.origAbility = ability
     bomb.damage = event.damage
+    bomb.a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "trapper")
     local b_b_level = Runes:GetTotalRuneLevel(caster, 2, "b_b", "trapper")
-    bomb.b_b_damage = b_b_level*2980/2
+    bomb.b_b_damage = b_b_level*W2_DAMAGE
     local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "trapper")
-    bomb.b_b_damage = bomb.b_b_damage + 0.0004*(caster:GetIntellect()+caster:GetStrength()+caster:GetAgility())/10*d_b_level*bomb.b_b_damage
+    bomb.b_b_damage = bomb.b_b_damage + W4_AMPLIFY_PERCENT/100*(caster:GetIntellect()+caster:GetStrength()+caster:GetAgility())/10*d_b_level*bomb.b_b_damage
 
     EmitSoundOn("Trapper.BombThrow", caster)
     bomb_start(bomb, ability, target)
-    rune_c_d(caster)
+    -- rune_c_d(caster)
 end
 
-function bomb_throw_start_flash(event)
-    local caster = event.caster
-    local ability = event.ability
-    local target = event.target_points[1]
-    -- Filters:CastSkillArguments(2, caster)
-    local fv = (target*Vector(1,1,0)-caster:GetAbsOrigin()*Vector(1,1,0)):Normalized()
-    local bomb = CreateUnitByName("lanaya_explosive_bomb", caster:GetAbsOrigin(), false, caster, nil, caster:GetTeamNumber())
-    bomb:SetOriginalModel("models/items/techies/bigshot/bigshot_remotebomb.vmdl")
-    bomb:SetModel("models/items/techies/bigshot/bigshot_remotebomb.vmdl")
-    bomb:SetRenderColor(0, 0, 0)
-    bomb.phase = 1
-    
-    bomb.colorPhase = 0
-    bomb.fv = fv
-    bomb.radius = event.radius
-    bomb:AddAbility("lanaya_bomb_ability"):SetLevel(1)
-    local bombAbility = bomb:FindAbilityByName("lanaya_bomb_ability")
-    bombAbility:ApplyDataDrivenModifier(bomb, bomb, "modifier_bomb_motion", {})
-    bomb.type = "flash"
-    bomb.origCaster = caster
-    bomb.origAbility = ability
-    bomb.damage = event.damage
-    local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "trapper")
-    bomb.blind_duration = 2 + 0.1*c_d_level
-    EmitSoundOn("Trapper.BombThrow", caster)
-    bomb_start(bomb, ability, target)
+--function bomb_throw_start_flash(event)
+--    local caster = event.caster
+--    local ability = event.ability
+--    local target = event.target_points[1]
+--    -- Filters:CastSkillArguments(2, caster)
+--    local fv = (target*Vector(1,1,0)-caster:GetAbsOrigin()*Vector(1,1,0)):Normalized()
+--    local bomb = CreateUnitByName("lanaya_explosive_bomb", caster:GetAbsOrigin(), false, caster, nil, caster:GetTeamNumber())
+--    bomb:SetOriginalModel("models/items/techies/bigshot/bigshot_remotebomb.vmdl")
+--    bomb:SetModel("models/items/techies/bigshot/bigshot_remotebomb.vmdl")
+--    bomb:SetRenderColor(0, 0, 0)
+--    bomb.phase = 1
+--
+--    bomb.colorPhase = 0
+--    bomb.fv = fv
+--    bomb.radius = event.radius
+--    bomb:AddAbility("lanaya_bomb_ability"):SetLevel(1)
+--    local bombAbility = bomb:FindAbilityByName("lanaya_bomb_ability")
+--    bombAbility:ApplyDataDrivenModifier(bomb, bomb, "modifier_bomb_motion", {})
+--    bomb.type = "flash"
+--    bomb.origCaster = caster
+--    bomb.origAbility = ability
+--    bomb.damage = event.damage
+--    local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "trapper")
+--    bomb.blind_duration = 2 + 0.1*c_d_level
+--    EmitSoundOn("Trapper.BombThrow", caster)
+--    bomb_start(bomb, ability, target)
+--
+--        local level = ability:GetLevel()
+--        caster:FindAbilityByName("smoke_bomb"):SetLevel(level)
+--        caster:FindAbilityByName("smoke_bomb"):SetAbilityIndex(0)
+--        caster:SwapAbilities("smoke_bomb", "flash_grenade", true, false)
+--        caster.flash = false
+--end
+--
+--function flash_explode(unit)
+--    EmitSoundOn("Trapper.BombImpactFinal", unit)
+--    local explosionRadius = 500
+--    local caster = unit.origCaster
+--    local ability = unit.origAbility
+--    local blind_duration = unit.blind_duration
+--    print("BOMB EXPLODE??")
+--    Timers:CreateTimer(0.9, function()
+--                local position = unit:GetAbsOrigin()
+--                StopSoundEvent("Trapper.BombTicking", unit)
+--                EmitSoundOn("Trapper.BombExplode", unit)
+--              local particleName = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
+--              local particle2 = ParticleManager:CreateParticle( particleName, PATTACH_WORLDORIGIN, caster )
+--              ParticleManager:SetParticleControl( particle2, 0, position )
+--              ParticleManager:SetParticleControl( particle2, 1, Vector(explosionRadius,explosionRadius,explosionRadius) )
+--              ParticleManager:SetParticleControl( particle2, 2, Vector(2.0, 2.0, 2.0) )
+--              ParticleManager:SetParticleControl( particle2, 4, Vector(255, 255, 255) )
+--
+--              Timers:CreateTimer(1.9,
+--              function()
+--                ParticleManager:DestroyParticle( particle2, false )
+--              end)
+--              -- particleName = "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
+--              -- local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, unit )
+--              -- ParticleManager:SetParticleControl( particle1, 0, unit:GetAbsOrigin() )
+--              -- Timers:CreateTimer(2,
+--              -- function()
+--              --   ParticleManager:DestroyParticle( particle1, false )
+--              -- end)
+--
+--            local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, explosionRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+--            if #enemies > 0 then
+--                for _,enemy in pairs(enemies) do
+--                    ability:ApplyDataDrivenModifier(caster, enemy, "modifier_flash_grenade_blind", {duration = blind_duration})
+--                    Filters:ApplyStun(caster, 1, enemy)
+--                end
+--            end
+--    end)
+--    Timers:CreateTimer(1.0, function()
+--        UTIL_Remove(unit)
+--    end)
+--end
 
-        local level = ability:GetLevel()
-        caster:FindAbilityByName("smoke_bomb"):SetLevel(level)
-        caster:FindAbilityByName("smoke_bomb"):SetAbilityIndex(0)
-        caster:SwapAbilities("smoke_bomb", "flash_grenade", true, false)
-        caster.flash = false
-end
-
-function flash_explode(unit)
-    EmitSoundOn("Trapper.BombImpactFinal", unit)
-    local explosionRadius = 500
-    local caster = unit.origCaster
-    local ability = unit.origAbility
-    local blind_duration = unit.blind_duration
-    print("BOMB EXPLODE??")
-    Timers:CreateTimer(0.9, function()
-                local position = unit:GetAbsOrigin()
-                StopSoundEvent("Trapper.BombTicking", unit)
-                EmitSoundOn("Trapper.BombExplode", unit)
-              local particleName = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
-              local particle2 = ParticleManager:CreateParticle( particleName, PATTACH_WORLDORIGIN, caster )
-              ParticleManager:SetParticleControl( particle2, 0, position )
-              ParticleManager:SetParticleControl( particle2, 1, Vector(explosionRadius,explosionRadius,explosionRadius) )
-              ParticleManager:SetParticleControl( particle2, 2, Vector(2.0, 2.0, 2.0) )
-              ParticleManager:SetParticleControl( particle2, 4, Vector(255, 255, 255) )
-
-              Timers:CreateTimer(1.9, 
-              function()
-                ParticleManager:DestroyParticle( particle2, false )
-              end)
-              -- particleName = "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
-              -- local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, unit )
-              -- ParticleManager:SetParticleControl( particle1, 0, unit:GetAbsOrigin() )
-              -- Timers:CreateTimer(2, 
-              -- function()
-              --   ParticleManager:DestroyParticle( particle1, false )
-              -- end)
-
-            local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, explosionRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-            if #enemies > 0 then    
-                for _,enemy in pairs(enemies) do
-                    ability:ApplyDataDrivenModifier(caster, enemy, "modifier_flash_grenade_blind", {duration = blind_duration})
-                    Filters:ApplyStun(caster, 1, enemy)
-                end
-            end
-    end)
-    Timers:CreateTimer(1.0, function()
-        UTIL_Remove(unit)
-    end)
-end
-
-function rune_c_d(caster)
-    local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "trapper")
-    if c_d_level > 0 then
-        local flash_grenade = caster:FindAbilityByName("flash_grenade")
-        if not flash_grenade then
-            flash_grenade = caster:AddAbility("flash_grenade")
-        end
-        local smoke_bomb = caster:FindAbilityByName("smoke_bomb")
-        flash_grenade:SetLevel(smoke_bomb:GetLevel())
-        smoke_bomb:SetAbilityIndex(1)
-        flash_grenade:SetAbilityIndex(1)
-        caster:SwapAbilities("smoke_bomb", "flash_grenade", false, true)
-        caster.flash = true
-    end
-end
+--function rune_c_d(caster)
+--    local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "trapper")
+--    if c_d_level > 0 then
+--        local flash_grenade = caster:FindAbilityByName("flash_grenade")
+--        if not flash_grenade then
+--            flash_grenade = caster:AddAbility("flash_grenade")
+--        end
+--        local smoke_bomb = caster:FindAbilityByName("smoke_bomb")
+--        flash_grenade:SetLevel(smoke_bomb:GetLevel())
+--        smoke_bomb:SetAbilityIndex(1)
+--        flash_grenade:SetAbilityIndex(1)
+--        caster:SwapAbilities("smoke_bomb", "flash_grenade", false, true)
+--        caster.flash = true
+--    end
+--end

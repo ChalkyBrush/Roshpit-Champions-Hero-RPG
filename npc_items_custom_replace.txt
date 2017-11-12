@@ -1,5 +1,9 @@
 <% heroes\crystal_maiden\constants.lua %>
 SORCERESS_2TIER_GLYPHS:heroes\crystal_maiden\npc\sorceress_2tier_glyphs.txt
+
 <% heroes\axe\constants.lua %>
 RED_GENERAL_GLYPHS:heroes\axe\npc\axe_glyphs.txt
 RED_GENERAL_WEAPONS:heroes\axe\npc\axe_weapons.txt
+
+<% heroes\lanaya\constants.lua %>
+TRAPPER_GLYPHS:heroes\lanaya\npc\glyphs.txt
