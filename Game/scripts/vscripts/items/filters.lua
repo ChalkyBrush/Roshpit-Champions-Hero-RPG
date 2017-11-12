@@ -1520,7 +1520,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 mult = mult + stacks*0.1
             end
             if victim:HasModifier("modifier_ring_of_fire_burn") then
-                victim.ringOfFireBurn = victim.ringOfFireBurn + damage
+                if victim.ringOfFireTick then
+                    victim.ringOfFireTick = false
+                else
+                    victim.ringOfFireBurn = victim.ringOfFireBurn + damage*0.1
+                end
             end
         end
         if victim:HasModifier("modifier_sorceress_rune_c_d") then

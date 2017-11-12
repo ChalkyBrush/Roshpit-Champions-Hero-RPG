@@ -118,6 +118,7 @@ function ring_of_fire_burn(event)
 	local damage = target.ringOfFireBurn
 	print("RING OF FIRE BURN?")
 	if damage > 0 then
+		target.ringOfFireTick = true
 		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
 	end
 end

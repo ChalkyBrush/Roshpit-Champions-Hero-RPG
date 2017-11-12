@@ -73,7 +73,7 @@ function claw_projectile_hit(event)
 	local ability = event.ability
 	local damage = ability.damage
 	if caster:HasModifier("modifier_chernobog_glyph_3_1") then
-		local procession = caster:FindAbilityByName("chernobog_nights_procession")
+		local procession = caster:GetAbilityByIndex(DOTA_ULTIMATE_SLOT)
 		local cdRemaining = procession:GetCooldownTimeRemaining()
 		if cdRemaining > 0 then
 			local newCD = math.max(0, cdRemaining - 0.5)
