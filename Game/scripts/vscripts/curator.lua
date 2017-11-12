@@ -537,13 +537,19 @@ function Curator:CurateALLGlyphs()
 end
 
 function Curator:CurateAllGlyphsForHero(heroName)
-	for i = 1, 7, 1 do
-		Timers:CreateTimer(i*2, function()
-			local variantName = "item_rpc_"..heroName.."_glyph_"..i.."_1"
-			print(variantName)
-			local glyph = Glyphs:RollGlyphAll(variantName, Vector(0,0), 0)
-			Curator:CurateGlyph(glyph, heroName)
-		end)
+	local maxTiers = 1
+	if heroName == "trapper" or heroName == "sorceress" or heroName == "axe" then
+		maxTiers = 2
+	end
+	for j = 1, maxTiers, 1 do
+		for i = 1, 7, 1 do
+			Timers:CreateTimer(i*2, function()
+				local variantName = "item_rpc_"..heroName.."_glyph_"..i.."_"..j
+				print(variantName)
+				local glyph = Glyphs:RollGlyphAll(variantName, Vector(0,0), 0)
+				Curator:CurateGlyph(glyph, heroName)
+			end)
+		end
 	end
 	Timers:CreateTimer(16, function()
 		local variantName = "item_rpc_"..heroName.."_glyph_5_a"

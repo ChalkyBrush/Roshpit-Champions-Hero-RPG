@@ -102,10 +102,12 @@ function Tanari:Debug()
     -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "sorceress")
     -- -- Glyphs:RollGlyphBook(Vector(-4928, 2048), "sorceress", 5, 2)
     -- -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
-    -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
+    -- for i = 0, 10, 1 do
+    --     Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
+    -- end
     -- -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
     -- -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
-    -- Glyphs:DebugRollHeroGlyphs("sorceress", Vector(-4928, 2048))
+    Glyphs:DebugRollHeroGlyphs("trapper", Vector(-4928, 2048), 2)
     -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "venomort")
     -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "sorceress")
     -- for i = 1, 3, 1 do
@@ -170,7 +172,7 @@ function Tanari:Debug()
     -- RPCItems:RollTrapperArcana1(Vector(-4928, 2048))
 
             ---------MAX CURATION----------
-    -- Curator:FullCurateHero(MAIN_HERO_TABLE[1])
+    Curator:FullCurateHero(MAIN_HERO_TABLE[1])
     -- Curator:CurateHero(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
 
     -- Timers:CreateTimer(10, function()

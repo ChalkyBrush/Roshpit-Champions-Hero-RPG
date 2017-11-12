@@ -23832,7 +23832,7 @@
 
 	//TRAPPER
 
-	"explosive_bomb"
+"explosive_bomb"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -23856,7 +23856,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"2"
+		"AbilityCooldown"				"1.4"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -23881,12 +23881,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"2400 8400 24000 62000 115000 200000 3100000"
+				"damage"				"2400 8400 24000 62000 115000 200000 1000000"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"1.5 1.8 2.1 2.4 2.7 3.0 3.3"
+				"stun_duration"			"1 1.2 1.4 1.6 1.8 2.0 2.2"
 			}
 		}
 
@@ -24001,7 +24001,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"5"
+		"AbilityCooldown"				"3"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -24126,7 +24126,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"AbilityCastRange"				"900 950 1000 1050 1100 1150 1200"
-		"AOERadius"						"280"
+		"AOERadius"						"380"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -24149,12 +24149,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"radius"			"280"
+				"radius"			"380"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"range"			"900 950 1000 1050 1100 1150 1200"
+				"range"			    "900 950 1000 1050 1100 1150 1200"
 			}
 			"03"
 			{
@@ -24164,7 +24164,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_mult_per_stack"			"60 70 80 90 100 110 120"
+				"attack_mult_per_stack"			"80 100 120 140 160 180 200"
 			}
 			"05"
 			{
@@ -24232,7 +24232,7 @@
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-		"AbilityCastRange"				"900 950 1000 1050 1100 1150 1200"
+		"AbilityCastRange"				"600 700 800 900 1000 1100 1200"
 		"AOERadius"						"280"
 
 		// Precache
@@ -24243,11 +24243,11 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"3.5 3.4 3.3 3.2 3.1 3.0 2.9"
+		"AbilityCooldown"				"3.7 3.5 3.3 3.1 2.9 2.7 2.5"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"180 400 800 1400 2000 4800 9000"
+		"AbilityManaCost"				"180 400 800 1400 2000 2800 4000"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -24347,7 +24347,7 @@
 		"MaxLevel"				 		"7"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 		"AbilityCastRange"				"260"
-		"AOERadius"						"260"
+		"AOERadius"						"420"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -24357,7 +24357,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"12"
+		"AbilityCooldown"				"6"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -24387,7 +24387,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"700 3000 9000 15000 42000 85000 165000"
+				"damage"				"3000 16000 42000 120000 320000 685000 1000000"
 			}
 		}
 
@@ -24500,7 +24500,7 @@
 		"MaxLevel"				 		"7"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 		"AbilityCastRange"				"260"
-		"AOERadius"						"260"
+		"AOERadius"						"420"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -24510,7 +24510,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"8"
+		"AbilityCooldown"				"6"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -24523,6 +24523,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"root_duration"			"5.0 5.3 5.6 5.9 6.2 6.5 6.8"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_range_loss"				"-100 -140 -180 -220 -260 -300 -340"
 			}
 		}
 
@@ -24569,6 +24574,14 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"rubick_empty1"
 		"MaxLevel"	"1"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_range_loss"				"-100 -140 -180 -220 -260 -300 -340"
+			}
+		}
 		"Modifiers"
 		{
 			"lanaya_net_passive"
@@ -24629,9 +24642,19 @@
 				{
 					"MODIFIER_PROPERTY_DISABLE_TURNING" "1"
 				    "MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-2000"
+				    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "%attack_range_loss"
 				}
 			}
-
+			"modifier_net_trap_silence_effect"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 		}
 
 	}
@@ -24650,7 +24673,7 @@
 		"MaxLevel"				 		"7"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 		"AbilityCastRange"				"260"
-		"AOERadius"						"260"
+		"AOERadius"						"420"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -24660,7 +24683,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"12"
+		"AbilityCooldown"				"6"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -24793,7 +24816,7 @@
 		"MaxLevel"				 		"7"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 		"AbilityCastRange"				"260"
-		"AOERadius"						"260"
+		"AOERadius"						"420"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -24803,7 +24826,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"8"
+		"AbilityCooldown"				"6"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -24963,7 +24986,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"4.1 4.3 4.5 4.7 4.9 5.1 5.3"
+				"duration"				"5.1 5.4 5.7 6.0 6.3 6.6 6.9"
 			}
 		}
 
@@ -25007,13 +25030,13 @@
 						"Target" 		"TARGET"
 					}
 				}
-				"ThinkInterval"  "1"
+				"ThinkInterval"  "0.1"
 				"OnIntervalThink"
 				{
 					"RunScript"
 					{
 						"ScriptFile"	"heroes/lanaya/vanish.lua"
-						"Function"		"vanish_think"
+						"Function"		"vanish_thinking"
 					}
 				}
 				"States"
@@ -25050,6 +25073,29 @@
 					"MODIFIER_STATE_FROZEN"			"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
+			"modifier_trapper_d_c_post_amp"
+			{
+		        "TextureName"	"rpc/first_aid"
+				"IsHidden"	"0"
+				"Passive"	"0"
+				"IsBuff"	"1"
+			}
+			"modifier_trapper_rune_d_c_think"
+			{
+				"IsHidden"			"1"
+				"IsBuff"			"1"
+                "Passive"           "1"
+
+                "ThinkInterval"  "0.5"
+                "OnIntervalThink"
+                 {
+                    "RunScript"
+                    {
+                       "ScriptFile"	"heroes/lanaya/vanish.lua"
+                       "Function"		"invisible_think"
+                    }
+                 }
+			}
 		}
 	}
 
@@ -25062,7 +25108,7 @@
 		"AbilityCastRange"	"0"
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"5"
-		"AbilityChannelTime"	"1"
+		"AbilityChannelTime"	"0.5"
 		"AbilityDamage"	"%damage"
 		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
 		"RequiredLevel"          "-5"
@@ -25252,6 +25298,7 @@
 				"States"
 				{
 					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"ThinkInterval"  "0.03"
 				"OnIntervalThink"
@@ -25264,7 +25311,11 @@
 				}
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movespeed_loss_percentage"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed_loss_const"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 			"modifier_dont_kneel"
@@ -25320,16 +25371,47 @@
 					}
 				}
 			}
-			"modifier_trapper_d_d_bonus"
+			"modifier_trapper_ability_r_invisible_think"
 			{
-				"IsHidden"	"1"
-				"Passive"	"0"
-				"IsBuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "10"
-				}
+				"IsHidden"			"1"
+				"IsBuff"			"1"
+                "Passive"           "1"
+
+                "ThinkInterval"  "0.5"
+                "OnIntervalThink"
+                 {
+                    "RunScript"
+                    {
+                       "ScriptFile"	"heroes/lanaya/stealth.lua"
+                       "Function"		"invisible_think"
+                    }
+                 }
 			}
+			"modifier_trapper_rune_b_d_visible"
+        	{
+        		"Passive"			"0"
+        		"IsHidden"			"0"
+        		"IsDebuff"			"0"
+        		"TextureName"		"trapper/trapper_rune_b_d"
+        	}
+        	"modifier_trapper_rune_b_d_invisible"
+        	{
+        		"Passive"			"0"
+        		"IsHidden"			"1"
+        		"IsDebuff"			"0"
+
+        		"Properties"
+        		{
+        			"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1000"
+        		}
+        	}
+			"modifier_trapper_rune_d_d_bonus_agi"
+        	{
+        		"Passive"			"0"
+        		"IsHidden"			"0"
+        		"IsDebuff"			"0"
+        		"TextureName"		"rpc/trapper_action_leap"
+        	}
 		}
 
 		"AbilitySpecial"
@@ -25337,7 +25419,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"movespeed_loss_percentage"	"-60 -57 -54 -51 -48 -45 -42"
+				"movespeed_loss_const"	"-240 -220 -200 -180 -160 -140 -120"
 			}
 		}
 
@@ -25518,6 +25600,62 @@
 					"MODIFIER_STATE_ROOTED"			"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
+			"modifier_trapper_c_d_buff"
+			{
+				"Passive"	"0"
+				"IsHidden"	"0"
+				"TextureName"	"trapper/trapper_rune_c_d"
+				"OnAttackStart"
+			    {
+			        "RemoveModifier"
+			        {
+			            "ModifierName" 	"modifier_trapper_c_d_crit"
+			            "Target" 		"ATTACKER"
+			        }
+			        "Random"
+			        {
+			            "Chance" "40"
+			            "OnSuccess"
+			            {
+			            	"FireSound"
+					        {
+					        	"EffectName"	"Hero_SkeletonKing.CriticalStrike"
+					        	"Target"		"TARGET"
+					        }
+
+					        "FireEffect"
+					        {
+					       		"EffectName" 		"particles/units/heroes/hero_skeletonking/skeleton_king_weapon_blur_critical.vpcf"
+					            "EffectAttachType"  "follow_origin"
+					            "Target"    		"ATTACKER"
+					        }
+							"RunScript"
+							{
+								"ScriptFile"	"heroes/lanaya/stealth.lua"
+								"Function"		"crit_attack_start"
+								"target"		"TARGET"
+							}
+			            }
+			        }
+			    }
+			}
+			"modifier_trapper_c_d_crit"
+			{
+			    "IsHidden"  "1"
+			    "Properties"
+			    {
+			        "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "15"
+			    }
+
+			    "OnAttackLanded"
+			    {
+			        "RemoveModifier"
+			        {
+			            "ModifierName"  "modifier_trapper_c_d_crit"
+			            "Target"   		"ATTACKER"
+			        }
+			    }
+			}
 		}
 
 		"AbilitySpecial"
@@ -25588,8 +25726,19 @@
 			}
 		}
 
+	}    "lanaya_decoy_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	        "ability_datadriven"
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/lanaya/vanish.lua"
+				"Function"		"decoy_die"
+			}
+		}
 	}
-
 	//SPIRIT_WARRIOR
 
 	"spirit_warrior_flametongue"
@@ -59993,6 +60142,7 @@
 	}
 	//----TRAPPER-----
 
+
 	"trapper_rune_a_a"
 	{
 		// General
@@ -60010,7 +60160,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"220"
+				"property_one"			"5000"
 			}
 			"02"
 			{
@@ -60064,7 +60214,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
+				"property_one"			"30"
 			}
 		}
 		"Modifiers"
@@ -60091,7 +60241,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"templar_assassin_self_trap"
+		"AbilityTextureName"	"trapper/trapper_rune_a_d"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
@@ -60133,7 +60283,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12000"
+				"property_one"			"100000"
 			}
 			"02"
 			{
@@ -60166,7 +60316,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/nerve_gas"
+		"AbilityTextureName"	"trapper/nerve_gas2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -60176,7 +60326,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2980"
+				"property_one"			"10000"
 			}
 			"02"
 			{
@@ -60198,7 +60348,8 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/first_aid"
+		"AbilityTextureName"	"rpc/decoy"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -60207,7 +60358,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"250"
+				"property_one"			"200"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"base_ability"				"3"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"1"
 			}
 		}
 		"Modifiers"
@@ -60246,7 +60407,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/decoy"
+		"AbilityTextureName"	"trapper/trapper_rune_b_d"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -60255,12 +60416,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"50"
+				"property_one"			"1000"
 			}
 		}
 		"Modifiers"
@@ -60277,6 +60433,7 @@
 				{
 					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_FROZEN"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"  "MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 		}
@@ -60298,7 +60455,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -60423,7 +60580,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/flash_grenade"
+		"AbilityTextureName"	"trapper/trapper_rune_c_d"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -60432,12 +60589,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"2.0"
+				"property_one"			"15"
 			}
 		}
 	}
@@ -60470,7 +60622,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"invoker_deafening_blast"
+		"AbilityTextureName"	"trapper/trapper_rune_d_b"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -60479,7 +60631,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.04"
+				"property_one"			"0.07"
 			}
 		}
 	}
@@ -60500,12 +60652,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.15"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"0.85"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -60517,7 +60664,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/trapper_action_leap"
+		"AbilityTextureName"	"trapper/trapper_rune_d_d"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -60526,7 +60673,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"500"
 			}
 		}
 	}
@@ -60546,7 +60693,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"1.2"
 			}
 		}
 	}
@@ -60566,7 +60713,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
+				"property_one"			"5"
 			}
 		}
 	}
@@ -60586,7 +60733,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.08"
+				"property_one"			"20"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"base_ability"				"2"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"1"
 			}
 		}
 	}

@@ -435,7 +435,7 @@ function torrent_trap_think(event)
 						knockback_height = 400
 					}
 					enemy:AddNewModifier( caster, nil, "modifier_knockback", modifierKnockback )
-	            	
+	            	EmitSoundOn("Trapper.TorrentImpact", enemy)
 	            	ability:ApplyDataDrivenModifier(trap, enemy, "modifier_torrent_trap_slowed_effect", {duration = 2})
 	            	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 	            	enemy:SetModifierStackCount("modifier_torrent_trap_slowed_effect", ability, ability.b_a_level)

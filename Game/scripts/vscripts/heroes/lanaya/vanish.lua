@@ -203,3 +203,14 @@ function vanish_paralize(caster, ability)
         end
     end
 end
+
+function vanish_thinking(event)
+    local caster = event.caster
+    local ability = event.ability
+    if caster:HasModifier("modifier_trapper_glyph_2_1") then
+        local healAmount = caster:GetMaxHealth()*0.03
+        caster:Heal(healAmount, caster)
+        -- PopupHealing(caster, healAmount)
+        PopupFirstAid(caster)
+    end
+end

@@ -377,7 +377,7 @@ function Glyphs:GetRandomHeroname()
 end
 
 function Glyphs:GetRandomHeronameForBook()
-	local heroNameTable = {"sorceress", "axe"}
+	local heroNameTable = {"sorceress", "axe", "trapper"}
 	local random = RandomInt(1, #heroNameTable)
 	return heroNameTable[random]
 end
@@ -712,10 +712,12 @@ function Glyphs:RollArchivistT5Glyph(position)
 	Glyphs:RollGlyphAll(variantName, position, 0)
 end
 
-function Glyphs:DebugRollHeroGlyphs(heroName, position)
-	for i = 1, 7, 1 do
-		local variantName = "item_rpc_"..heroName.."_glyph_"..i.."_1"
-		Glyphs:RollGlyphAll(variantName, position, 0)
+function Glyphs:DebugRollHeroGlyphs(heroName, position, maxTiers)
+	for j = 1, maxTiers, 1 do
+		for i = 1, 7, 1 do
+			local variantName = "item_rpc_"..heroName.."_glyph_"..i.."_"..j
+			Glyphs:RollGlyphAll(variantName, position, 0)
+		end
 	end
 
 	local variantName = "item_rpc_"..heroName.."_glyph_5_a"
@@ -799,7 +801,7 @@ function Glyphs:GetAvailableColumnCount(rpcHeroName)
 	local columns = 1
 	if rpcHeroName == "neutral" then
 		columns = 3
-	elseif rpcHeroName == "sorceress" or rpcHeroName == "axe" then
+	elseif rpcHeroName == "sorceress" or rpcHeroName == "axe" or rpcHeroName == "trapper" then
 		columns = 2
 	end
 	return columns
