@@ -15,7 +15,8 @@ function begin_fireball(event)
         rotatedFV = WallPhysics:rotateVector(fv, -math.pi/10)
         launchFireBall(caster, ability, rotatedFV, "particles/roshpit/sorceress/sun_lance.vpcf", 110)
     end
-    ability.damage = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)*12000 + 5000
+    local a_a_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
+    ability.damage = a_a_level*12000 + 5000 + caster:GetAverageTrueAttackDamage(caster)*0.15*a_a_level
 	if caster:HasModifier("modifier_sorceress_immortal_ice_avatar") then
 	    if caster.origCaster:HasModifier("modifier_sorceress_glyph_2_1") then
 	        local rotatedFV = WallPhysics:rotateVector(fv, math.pi/10)
@@ -107,5 +108,16 @@ function sunlance_think(event)
 			CustomAbilities:AddAndOrSwapSkill(caster, "sorceress_sun_lance", "sorceress_fire_arcana_q", 0)
 			caster.sunlance = false
 		end
+	end
+end
+
+function ring_of_fire_burn(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local damage = target.ringOfFireBurn
+	print("RING OF FIRE BURN?")
+	if damage > 0 then
+		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
 	end
 end

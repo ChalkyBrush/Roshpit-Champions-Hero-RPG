@@ -187,7 +187,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% Q2_ADD_DURATION %>"
+				"property_two"			"0.1"
 			}
 			"03"
 			{

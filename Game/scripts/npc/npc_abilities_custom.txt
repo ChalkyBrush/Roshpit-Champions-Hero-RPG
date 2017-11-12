@@ -13286,6 +13286,16 @@
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"TextureName"		"sorceress/sorceress_rune_b_a_arcana2"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/crystal_maiden/sun_lance"
+						"Function"		"ring_of_fire_burn"
+						"target"        "TARGET"
+					}
+				}
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-140"
@@ -14822,7 +14832,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"5.0"
+		"AbilityCooldown"				"3.5"
 		"AbilityCastRange"				"2000"
 
 		// Cost
@@ -14948,6 +14958,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"element_one"		 	"2"
 			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"15"
+			}
 		}
 
 	}
@@ -14980,6 +14995,16 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_two_base"		"1"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"10"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"2"
 			}
 		}
 
@@ -54758,7 +54783,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.04"
+				"property_two"			"0.1"
 			}
 			"03"
 			{

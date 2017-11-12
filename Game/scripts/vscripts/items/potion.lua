@@ -69,7 +69,7 @@ end
 
 function use_reanimation_stone(event)
 	local caster = event.caster
-	for i = 0, 3, 1 do
+	for i = 0, 5, 1 do
 		local ability = caster:GetAbilityByIndex(i)
 		if ability then
 			ability:SetLevel(1)

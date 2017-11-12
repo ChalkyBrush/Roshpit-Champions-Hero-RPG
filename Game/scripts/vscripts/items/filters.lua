@@ -1519,6 +1519,9 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 local stacks = attacker:GetModifierStackCount("modifier_fire_avatar", attacker)
                 mult = mult + stacks*0.1
             end
+            if victim:HasModifier("modifier_ring_of_fire_burn") then
+                victim.ringOfFireBurn = victim.ringOfFireBurn + damage
+            end
         end
         if victim:HasModifier("modifier_sorceress_rune_c_d") then
             local runesCount = victim:GetModifierStackCount("modifier_sorceress_rune_c_d", attacker)

@@ -11,10 +11,11 @@ local function cast(caster, ability, runesCount)
     EmitSoundOn("Sorceress.RingOfFire.Cast", caster)
     local radius = 550
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), origin, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-    local burn_duration = Q2_BASE_DURATION + runesCount * Q2_ADD_DURATION
+    local burn_duration = Q2_BASE_DURATION + runesCount * 0.1
     if #enemies > 0 then
         for _,enemy in pairs(enemies) do
             ability:ApplyDataDrivenModifier(caster, enemy, "modifier_ring_of_fire_burn", {duration = burn_duration})
+            enemy.ringOfFireBurn = 0
         end
     end
     if caster.waterElemental then
@@ -25,6 +26,7 @@ local function cast(caster, ability, runesCount)
             for _,enemy in pairs(enemies2) do
                 -- Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE) 
                 ability:ApplyDataDrivenModifier(caster, enemy, "modifier_ring_of_fire_burn", {duration = burn_duration})
+                enemy.ringOfFireBurn = 0
             end
         end
         local particle2 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )

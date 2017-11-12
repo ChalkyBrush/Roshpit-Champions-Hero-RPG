@@ -100,6 +100,11 @@ function RPCItems:HoodLegendary(itemVariant, deathLocation, isShop)
             RPCItems:RollWraithCrown(deathLocation, isShop)
             return true
         elseif luck == 10 then
+            local arcanaLuck = RandomInt(1, 840)
+            if arcanaLuck <= (2 + GameState:GetPlayerPremiumStatusCount()) then
+               RPCItems:RollSorceressArcana2(deathLocation)
+                return true
+            end
             RPCItems:RollCarbuncleHelm(deathLocation, isShop)
             return true
         elseif luck == 11 then
