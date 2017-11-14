@@ -362,7 +362,7 @@
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
-				"IsDebuff"			"0"
+				"IsDebuff"			"1"
 
 				"EffectName"		"particles/units/heroes/hero_venomancer/venomancer_poison_debuff.vpcf"
 				"EffectAttachType"	"follow_origin"

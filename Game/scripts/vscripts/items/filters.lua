@@ -814,6 +814,7 @@ function Filters:ApplyWskills(caster)
             if not caster:HasModifier("modifier_auriun_immortal_weapon_3_effect") then
                 EmitSoundOn("Auriun.Immo3Activate", caster)
             end
+            caster:RemoveModifierByName("modifier_auriun_immortal_weapon_3_effect")
             caster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_auriun_immortal_weapon_3_effect", {duration = 10})
         end
     end

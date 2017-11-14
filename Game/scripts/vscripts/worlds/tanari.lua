@@ -55,9 +55,10 @@ function Tanari:Debug()
     -- Glyphs:RollGlyphAll("item_rpc_neutral_glyph_7_2", Vector(-4928, 2048), 0)
     -- RPCItems:RollPhantomSorcererMask(Vector(-4928, 2048), false)
    -- RPCItems:RollSorceressArcana1(Vector(-4928, 2048))
-   Dungeons.itemLevel = 300
-    RPCItems:RollSorceressArcana2(Vector(-4928, 2048))
-    RPCItems:RollRubyDragonCrown(Vector(-4928, 2048), false)
+   -- Dungeons.itemLevel = 300
+   RPCItems:RollWaterMageRobes(Vector(-4928, 2048))
+    -- RPCItems:RollSorceressArcana2(Vector(-4928, 2048))
+    -- RPCItems:RollRubyDragonCrown(Vector(-4928, 2048), false)
    -- RPCItems:RollSoluniaArcana2(Vector(-4928, 2048))
    -- RPCItems:RollNightmareRiderMantle(Vector(-4928, 2048))
     -- RPCItems:RollSeinaruArcana1(Vector(-4928, 2048))
@@ -172,7 +173,8 @@ function Tanari:Debug()
     -- RPCItems:RollTrapperArcana1(Vector(-4928, 2048))
 
             ---------MAX CURATION----------
-    Curator:FullCurateHero(MAIN_HERO_TABLE[1])
+    -- Curator:FullCurateHero(MAIN_HERO_TABLE[1])
+
     -- Curator:CurateHero(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
 
     -- Timers:CreateTimer(10, function()
