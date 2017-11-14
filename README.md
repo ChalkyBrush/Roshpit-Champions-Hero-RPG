@@ -17,3 +17,5 @@ git clone Roshpit Champions Hero Rpg repository
 
 
 now create your branch
+
+you will want to unpack the Roshpit Champions VPK downloaded from Dota and put all contents into "C:\Program Files\Steam\steamapps\common\dota 2 beta\game\dota_addons\roshpit_champions"
