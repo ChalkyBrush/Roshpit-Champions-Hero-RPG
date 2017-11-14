@@ -114,8 +114,8 @@ function fire_aspect_attack_land(event)
 	local target = event.target
 	local attack_damage = event.attack_damage
 	print("aspect_attack")
-	local luck = RandomInt(1, 5)
-	if luck == 1 then
+	local luck = RandomInt(1, 10)
+	if luck <= 3 then
 		local c_b_level = 0
 		if attacker.conjuror then
 			c_b_level = get_c_b_level(attacker.conjuror)
@@ -125,7 +125,7 @@ function fire_aspect_attack_land(event)
 		print("luck passed")
 		if c_b_level > 0 then
 			print("c_b_level is good lets go")
-			local bonusDamage = attack_damage*(c_b_level*0.07+0.1)
+			local bonusDamage = attack_damage*(c_b_level*0.45+0.1)
 			Filters:TakeArgumentsAndApplyDamage(target, attacker, bonusDamage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 			PopupDamage(target, bonusDamage+attack_damage)
 			EmitSoundOn("Hero_Batrider.Flamebreak", target)
