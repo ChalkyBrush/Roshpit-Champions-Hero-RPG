@@ -470,7 +470,7 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 	-- 	ability:ApplyDataDrivenModifier(caster, hero, "modifier_agility_armor", {})
 	-- end
 	-- hero:SetModifierStackCount("modifier_agility_armor", caster, agility*CustomAttributes.ARMOR_PER_AGI)
-	local armor = agility*CustomAttributes.ARMOR_PER_AGI + 10
+	local armor = agility*CustomAttributes.ARMOR_PER_AGI*halcyon + 10
 	hero:SetPhysicalArmorBaseValue(armor)
 
 	if not hero:HasModifier("modifier_int_mana") then

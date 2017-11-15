@@ -7781,7 +7781,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_three"	"50"
+				"property_three"	"5000"
 			}
 		}
 	}
@@ -23427,6 +23427,11 @@
 				"var_type"			"FIELD_INTEGER"
 				"property_one"			"50"
 			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_two"			"5000"
+			}
 		}
 	}
 
@@ -23475,7 +23480,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_four"	    "50"
+				"property_four"	    "5000"
 			}
 		}
 		"OnSpellStart"
