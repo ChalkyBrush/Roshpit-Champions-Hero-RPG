@@ -1514,18 +1514,19 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         mult = mult + normalMult
     end
     if element1 == RPC_ELEMENT_FIRE or element2 == RPC_ELEMENT_FIRE then
+        local fireMult = 0
         if unitName == "npc_dota_hero_dragon_knight" then
             if attacker.d_d_level then
-                mult = mult + 0.0015*attacker:GetStrength()/10*attacker.d_d_level
+                fireMult = fireMult + 0.0015*attacker:GetStrength()/10*attacker.d_d_level
             end
         end
         if unitName == "npc_dota_hero_crystal_maiden" then
             if attacker.d_d_level then
-                mult = mult + 0.0001*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_d_level
+                fireMult = fireMult + 0.0001*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_d_level
             end
             if attacker:HasModifier("modifier_fire_avatar") then
                 local stacks = attacker:GetModifierStackCount("modifier_fire_avatar", attacker)
-                mult = mult + stacks*0.1
+                fireMult = fireMult + stacks*0.1
             end
             if victim:HasModifier("modifier_ring_of_fire_burn") then
                 if victim.ringOfFireTick then
@@ -1540,40 +1541,40 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker:HasModifier("modifier_sorceress_glyph_6_2") then
                 runesCount = runesCount * 2
             end
-            mult = mult + 0.1 * runesCount
+            fireMult = fireMult + 0.1 * runesCount
         end
         if unitName == "npc_dota_hero_huskar" then
             if attacker.d_a_level then
-                mult = mult + 0.0002*attacker:GetStrength()/10*attacker.d_a_level
+                fireMult = fireMult + 0.0002*attacker:GetStrength()/10*attacker.d_a_level
             end
             if attacker:HasModifier("modifier_spirit_warrior_arcana1") then
                 local d_b_arcana_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
                 if d_b_arcana_level > 0 then
-                    mult = mult + 0.0008*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_b_arcana_level
+                    fireMult = fireMult + 0.0008*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_b_arcana_level
                 end
             end
         elseif unitName == "npc_dota_hero_beastmaster" then
             if attacker:HasModifier("modifier_warlord_fire_charge") then
                 local stacks = attacker:GetModifierStackCount("modifier_warlord_fire_charge", attacker)
-                mult = mult + stacks*0.06
+                fireMult = fireMult + stacks*0.06
             end
             if attacker.d_c_level then
-                mult = mult + 0.0005*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_c_level
+                fireMult = fireMult + 0.0005*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_c_level
             end
         elseif unitName == "npc_dota_hero_templar_assassin" then
             if attacker:HasModifier("modifier_trapper_arcana1") then
                 if attacker.d_b_arcana_level then
-                    mult = mult + 0.0003*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_b_arcana_level
+                    fireMult = fireMult + 0.0003*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_b_arcana_level
                 end
             end
         elseif unitName == "npc_dota_hero_invoker" then
             if attacker.d_a_level then
-                mult = mult + 0.0015*attacker:GetStrength()/10*attacker.d_a_level
+                fireMult = fireMult + 0.0015*attacker:GetStrength()/10*attacker.d_a_level
             end
         elseif unitName == "npc_dota_hero_legion_commander" then
             if attacker:HasAbility("mountain_protector_aeon_fracture") then
                 if attacker.d_d_level then
-                    mult = mult + 0.0005*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_d_level
+                    fireMult = fireMult + 0.0005*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_d_level
                 end
             end
         elseif unitName == "npc_dota_hero_axe" then
@@ -1586,33 +1587,38 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_vengefulspirit" then
             if attacker:HasModifier("modifier_solunia_arcana2") then
                 local d_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 3)
-                mult = mult + 0.0005*attacker:GetStrength()/10*d_d_level
+                fireMult = fireMult + 0.0005*attacker:GetStrength()/10*d_d_level
             end
         end
         if attacker:HasModifier("modifier_trinket_fire") then
             local stacks = attacker:GetModifierStackCount("modifier_trinket_fire", attacker.InventoryUnit)
-            mult = mult + stacks/100
+            fireMult = fireMult + stacks/100
         end
         if attacker:HasModifier("modifier_foot_fire") then
             local stacks = attacker:GetModifierStackCount("modifier_foot_fire", attacker.InventoryUnit)
-            mult = mult + stacks/100
+            fireMult = fireMult + stacks/100
         end
         if attacker:HasModifier("modifier_hand_fire") then
             local stacks = attacker:GetModifierStackCount("modifier_hand_fire", attacker.InventoryUnit)
-            mult = mult + stacks/100
+            fireMult = fireMult + stacks/100
         end
         if attacker:HasModifier("modifier_weapon_fire") then
             local stacks = attacker:GetModifierStackCount("modifier_weapon_fire", attacker.InventoryUnit)
-            mult = mult + stacks/100
+            fireMult = fireMult + stacks/100
         end
         if victim:HasModifier("fire_walker_aura") then
-            mult = mult + 6
+            fireMult = fireMult + 6
         end
         if victim:HasModifier("modifier_fulminating_magic_resist_loss") then
             local modifier = victim:FindModifierByName("modifier_fulminating_magic_resist_loss")
             local multIncrease = modifier:GetStackCount()*0.1
-            mult = mult + multIncrease
+            fireMult = fireMult + multIncrease
         end
+        if fireMult > 50 and attacker:HasModifier("modifier_fire_deity_crown") then
+            fireMult = 50
+        end
+
+        mult = mult + fireMult
     end
     if element1 == RPC_ELEMENT_EARTH or element2 == RPC_ELEMENT_EARTH then
         if unitName == "npc_dota_hero_dragon_knight" then
@@ -1778,8 +1784,9 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
     end
     if element1 == RPC_ELEMENT_COSMOS or element2 == RPC_ELEMENT_COSMOS then
+        local cosmosMult = 0
         if unitName == "npc_dota_hero_drow_ranger" then
-            mult = mult + 0.0012*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_c_level
+            cosmosMult = cosmosMult + 0.0012*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_c_level
         end
         if unitName == "npc_dota_hero_vengefulspirit" then
             local d_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 0)
@@ -1787,32 +1794,37 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker:HasModifier("modifier_solunia_arcana1") then
                 d_a_mult = 0.004
             end
-            mult = mult + d_a_mult*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_a_level
+            cosmosMult = cosmosMult + d_a_mult*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_a_level
             if attacker:HasModifier("modifier_solunia_arcana2") then
                 local d_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 3)
-                mult = mult + 0.0005*attacker:GetIntellect()/10*d_d_level
+                cosmosMult = cosmosMult + 0.0005*attacker:GetIntellect()/10*d_d_level
             end
         end
         if attacker:HasModifier("modifier_body_cosmos") then
             local stacks = attacker:GetModifierStackCount("modifier_body_cosmos", attacker.InventoryUnit)
-            mult = mult + stacks/100
+            cosmosMult = cosmosMult + stacks/100
         end
         if attacker:HasModifier("modifier_foot_cosmos") then
             local stacks = attacker:GetModifierStackCount("modifier_foot_cosmos", attacker.InventoryUnit)
-            mult = mult + stacks/100
+            cosmosMult = cosmosMult + stacks/100
         end
         if attacker:HasModifier("modifier_trinket_cosmos") then
             local stacks = attacker:GetModifierStackCount("modifier_trinket_cosmos", attacker.InventoryUnit)
-            mult = mult + stacks/100
+            cosmosMult = cosmosMult + stacks/100
         end
         if attacker:HasModifier("modifier_weapon_cosmos") then
             local stacks = attacker:GetModifierStackCount("modifier_weapon_cosmos", attacker.InventoryUnit)
-            mult = mult + stacks/100
+            cosmosMult = cosmosMult + stacks/100
         end
         if victim:HasModifier("modifier_starfall_a_d_visible") then
             local stacks = victim:GetModifierStackCount("modifier_starfall_a_d_visible", attacker)
-            mult = mult + stacks*0.1
+            cosmosMult = cosmosMult + stacks*0.1
         end
+        if cosmosMult > 50 and attacker:HasModifier("modifier_luma_guard") then
+            cosmosMult = 50
+        end
+
+        mult = mult + cosmosMult
     end
     if element1 == RPC_ELEMENT_ICE or element2 == RPC_ELEMENT_ICE then
        if unitName == "npc_dota_hero_crystal_maiden" then
@@ -1990,9 +2002,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
     end
     if element1 == RPC_ELEMENT_WATER or element2 == RPC_ELEMENT_WATER then
+        local waterMult = 0
         if unitName == "npc_dota_hero_slardar" then
             if attacker.d_c_level then
-                mult = mult + 0.001*(attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_c_level
+                waterMult = waterMult + 0.001*(attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_c_level
             end
             if attacker:HasAbility("hydroxis_arcana_ability_1") then
                 local d_b_level = Runes:GetTotalRuneLevelGeneric(attacker,4, 1)
@@ -2010,38 +2023,43 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_templar_assassin" then
             if attacker:HasModifier("modifier_trapper_arcana1") then
                 if attacker.d_b_arcana_level then
-                    mult = mult + 0.0003*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_b_arcana_level
+                    waterMult = waterMult + 0.0003*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_b_arcana_level
                 end
             end
         elseif unitName == "npc_dota_hero_huskar" then
             if attacker:HasModifier("modifier_spirit_warrior_arcana1") then
                 local d_d_arcana_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 3)
                 if d_d_arcana_level > 0 then
-                    mult = mult + 0.0008*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_d_arcana_level
+                    waterMult = waterMult + 0.0008*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_d_arcana_level
                 end
             end
         end
         if attacker:HasModifier("modifier_body_water") then
             local stacks = attacker:GetModifierStackCount("modifier_body_water", attacker.InventoryUnit)
-            mult = mult + stacks/100
+            waterMult = waterMult + stacks/100
         end
         if attacker:HasModifier("modifier_weapon_water") then
             local stacks = attacker:GetModifierStackCount("modifier_weapon_water", attacker.InventoryUnit)
-            mult = mult + stacks/100
+            waterMult = waterMult + stacks/100
         end
         if attacker:HasModifier("modifier_trinket_water") then
             local stacks = attacker:GetModifierStackCount("modifier_trinket_water", attacker.InventoryUnit)
-            mult = mult + stacks/100
+            waterMult = waterMult + stacks/100
         end
         if attacker:HasModifier("modifier_hand_water") then
             local stacks = attacker:GetModifierStackCount("modifier_hand_water", attacker.InventoryUnit)
-            mult = mult + stacks/100
+            waterMult = waterMult + stacks/100
         end
         if victim:HasModifier("modifier_fulminating_magic_resist_loss") then
             local modifier = victim:FindModifierByName("modifier_fulminating_magic_resist_loss")
             local multIncrease = modifier:GetStackCount()*0.1
-            mult = mult + multIncrease
+            waterMult = waterMult + multIncrease
         end
+        if waterMult > 50 and attacker:HasModifier("modifier_water_deity_crown") then
+            waterMult = 50
+        end
+
+        mult = mult + waterMult
     end
     if element1 == RPC_ELEMENT_DEMON or element2 == RPC_ELEMENT_DEMON then
         if unitName == "npc_dota_hero_night_stalker" then
@@ -2380,7 +2398,7 @@ function Filters:WildNatureTwo(attacker, victim)
 end
 
 function Filters:LumaGuardStrike(attacker, victim, damage)
-    local proc = Filters:GetProc(attacker, 15)    
+    local proc = Filters:GetProc(attacker, 70)
     if proc then
         local inventoryUnit = attacker.InventoryUnit
         local ability = inventoryUnit:FindAbilityByName("helm_slot")
@@ -2394,8 +2412,8 @@ function Filters:LumaGuardStrike(attacker, victim, damage)
         -- Timers:CreateTimer(4, function()
         --  ParticleManager:DestroyParticle(pfx, false)
         -- end)
-        local damage = damage*4
-        Filters:ApplyItemDamage(victim,attacker,damage,DAMAGE_TYPE_PURE,nil,RPC_ELEMENT_COSMOS,RPC_ELEMENT_NONE)
+        local damage = damage * 4
+        Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
         print("MOONBEAM HAS FIRED")
     end
 end
@@ -3522,7 +3540,7 @@ function Filters:ManawallDamageTaken(victim, damage)
 end
 
 function Filters:FireDeity(attacker, victim, damage)
-    local proc = Filters:GetProc(attacker, 10)    
+    local proc = Filters:GetProc(attacker, 20)
     if proc then
         damage = damage*2.5
         local target = victim
@@ -3549,8 +3567,8 @@ function Filters:FireDeity(attacker, victim, damage)
         local enemies = FindUnitsInRadius( attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
         if #enemies > 0 then
             for _,enemy in pairs(enemies) do
-                Filters:ApplyStun(attacker, 1.0, enemy)
-                Filters:ApplyItemDamage(enemy,attacker,damage,DAMAGE_TYPE_MAGICAL,attacker.headItem,RPC_ELEMENT_FIRE,RPC_ELEMENT_NONE)
+                Filters:ApplyStun(attacker, 0.6, enemy)
+                Filters:TakeArgumentsAndApplyDamage(enemy, attacker, damage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
             end
         end 
     end

@@ -5,8 +5,10 @@ function begin_second_heartbeat(event)
 	local abilityLevel = ability:GetLevel()
 	local forwardVector = caster:GetForwardVector() 
 	local fv = forwardVector
-	local rangeblast = rune_b_b(caster)
-		fire_projectile(abilityLevel, caster, fv, location, event, rangeblast)
+	local b_b_level = rune_b_b(caster)
+	local rangeblast = b_b_level * 10
+	fire_projectile(abilityLevel, caster, fv, location, event, rangeblast)
+	ability.b_b_level = b_b_level
 	ability.c_b_level = rune_c_b(caster)
 	rune_d_b(caster, ability)
 	caster.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "flamewaker")
@@ -25,12 +27,13 @@ end
 function second_heartbeat_damage(event)
     local target = event.target
     local caster = event.caster
-    local damage = event.damage
     local ability = event.ability
-    if caster:HasModifier("modifier_flamewaker_glyph_4_1") then
-    	damage = damage + ((caster:GetStrength() + caster:GetAgility() + caster:GetIntellect())*1.5 + caster:GetAverageTrueAttackDamage(caster)*0.07)*ability:GetLevel()
-    	ability:ApplyDataDrivenModifier(caster, target, "modifier_flamewaker_glyph_4_1_effect", {duration = 3})
-    end
+	local damage = event.damage
+	if caster:HasModifier("modifier_flamewaker_glyph_4_1") then
+		damage = damage + ((caster:GetStrength() + caster:GetAgility() + caster:GetIntellect())*5 + caster:GetAverageTrueAttackDamage(caster)*0.2)*ability:GetLevel()
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_flamewaker_glyph_4_1_effect", {duration = 3})
+	end
+	damage = damage * (1 + 0.2 * ability.b_b_level)
     if ability.c_b_level > 0 then
     	local additional_armorLoss = math.ceil(1.0*ability.c_b_level)
 	    ability:ApplyDataDrivenModifier(caster, target, "modifier_searing_heat", {duration = 6})
@@ -114,12 +117,7 @@ function rune_b_b(caster)
 	local abilityLevel = ability:GetLevel()
 	local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_b")
 	local totalLevel = abilityLevel + bonusLevel
-	if totalLevel > 0 then
-		local rangeIncrease = totalLevel*10
-		return rangeIncrease
-	else
-		return 0
-	end
+	return totalLevel
 end
 
 function rune_c_b(caster)

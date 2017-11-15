@@ -36,7 +36,7 @@ function waterheart_attack_land(event)
 	local target = event.target
 	local mult = event.mult
 	CustomAbilities:QuickAttachParticle("particles/econ/items/monkey_king/arcana/water/mk_spring_water_splash_c.vpcf", target, 1)
-	local damage = attacker:GetHealth()*ability.c_d_level*0.1*mult
+	local damage = attacker:GetHealth()*ability.c_d_level*0.6*mult
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 	EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "SpiritWarrior.Waterheart.Impact", attacker)
 end

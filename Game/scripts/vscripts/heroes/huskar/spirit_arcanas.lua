@@ -70,7 +70,7 @@ function ancient_rain_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	if ability.b_d_level > 0 then
-		local damage = ability.b_d_level*0.05*caster:GetAverageTrueAttackDamage(caster)
+		local damage = ability.b_d_level*0.35*caster:GetAverageTrueAttackDamage(caster)
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 900, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
 		if #enemies > 0 then
 			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "SpiritWarrior.RainLightning", caster)
