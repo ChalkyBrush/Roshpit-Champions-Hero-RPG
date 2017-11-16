@@ -5,6 +5,13 @@
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/skills/attribute_tooltip.js" />
 	</scripts>
+	<snippets>
+		<snippet name="element_box">
+			<Panel class="element_box">
+
+			</Panel>
+		</snippet>
+	</snippets>
 	<Panel class="item_tooltip_new_root" ontooltiploaded="initializeTooltip()">
 		<Panel id="tooltip_main_container" class="master_attribute_container">
 			<Panel id="tooltip_title_container">
@@ -163,6 +170,81 @@
 							<Label class="resistance_title" id="resist_title_pure" html="true"/>
 							<Label class="resistance_value" id="resist_value_pure"/>
 						</Panel>
+					</Panel>
+				</Panel>
+			</Panel>
+			<Panel class="elements_container" id='elements_container'>
+				<Label class="elements_title" id="attack_defense_title_def" text="ui_elements"/>
+				<Panel class="elements_row" id="element_row1">
+					<Panel id="element1" class="element-box">
+						<Image class="element_title" id="element_title1" html="true" src="file://{images}/custom_game/ui/elements/element1.png"/>
+						<Label class="element_value" id="element_value1" html="true"/>
+					</Panel>
+					<Panel id="element2" class="element-box">
+						<Image class="element_title" id="element_title2" html="true" src="file://{images}/custom_game/ui/elements/element2.png"/>
+						<Label class="element_value" id="element_value2" html="true"/>
+					</Panel>
+					<Panel id="element3" class="element-box">
+						<Image class="element_title" id="element_title3" html="true" src="file://{images}/custom_game/ui/elements/element3.png"/>
+						<Label class="element_value" id="element_value3" html="true"/>
+					</Panel>
+					<Panel id="element4" class="element-box">
+						<Image class="element_title" id="element_title4" html="true" src="file://{images}/custom_game/ui/elements/element4.png"/>
+						<Label class="element_value" id="element_value4" html="true"/>
+					</Panel>
+					<Panel id="element5" class="element-box">
+						<Image class="element_title" id="element_title5" html="true" src="file://{images}/custom_game/ui/elements/element5.png"/>
+						<Label class="element_value" id="element_value5" html="true"/>
+					</Panel>
+					<Panel id="element6" class="element-box">
+						<Image class="element_title" id="element_title6" html="true" src="file://{images}/custom_game/ui/elements/element6.png"/>
+						<Label class="element_value" id="element_value6" html="true"/>
+					</Panel>
+					<Panel id="element7" class="element-box">
+						<Image class="element_title" id="element_title7" html="true" src="file://{images}/custom_game/ui/elements/element7.png"/>
+						<Label class="element_value" id="element_value7" html="true"/>
+					</Panel>
+					<Panel id="element8" class="element-box">
+						<Image class="element_title" id="element_title8" html="true" src="file://{images}/custom_game/ui/elements/element8.png"/>
+						<Label class="element_value" id="element_value8" html="true"/>
+					</Panel>
+					<Panel id="element9" class="element-box">
+						<Image class="element_title" id="element_title9" html="true" src="file://{images}/custom_game/ui/elements/element9.png"/>
+						<Label class="element_value" id="element_value9" html="true"/>
+					</Panel>
+				</Panel>
+				<Panel class="elements_row" id="element_row2">
+					<Panel id="element10" class="element-box">
+						<Image class="element_title" id="element_title10" html="true" src="file://{images}/custom_game/ui/elements/element10.png"/>
+						<Label class="element_value" id="element_value10" html="true"/>
+					</Panel>
+					<Panel id="element11" class="element-box">
+						<Image class="element_title" id="element_title11" html="true" src="file://{images}/custom_game/ui/elements/element11.png"/>
+						<Label class="element_value" id="element_value11" html="true"/>
+					</Panel>
+					<Panel id="element12" class="element-box">
+						<Image class="element_title" id="element_title12" html="true" src="file://{images}/custom_game/ui/elements/element12.png"/>
+						<Label class="element_value" id="element_value12" html="true"/>
+					</Panel>
+					<Panel id="element13" class="element-box">
+						<Image class="element_title" id="element_title13" html="true" src="file://{images}/custom_game/ui/elements/element13.png"/>
+						<Label class="element_value" id="element_value13" html="true"/>
+					</Panel>
+					<Panel id="element14" class="element-box">
+						<Image class="element_title" id="element_title14" html="true" src="file://{images}/custom_game/ui/elements/element14.png"/>
+						<Label class="element_value" id="element_value14" html="true"/>
+					</Panel>
+					<Panel id="element15" class="element-box">
+						<Image class="element_title" id="element_title15" html="true" src="file://{images}/custom_game/ui/elements/element15.png"/>
+						<Label class="element_value" id="element_value15" html="true"/>
+					</Panel>
+					<Panel id="element16" class="element-box">
+						<Image class="element_title" id="element_title16" html="true" src="file://{images}/custom_game/ui/elements/element16.png"/>
+						<Label class="element_value" id="element_value16" html="true"/>
+					</Panel>
+					<Panel id="element17" class="element-box">
+						<Image class="element_title" id="element_title17" html="true" src="file://{images}/custom_game/ui/elements/element17.png"/>
+						<Label class="element_value" id="element_value17" html="true"/>
 					</Panel>
 				</Panel>
 			</Panel>

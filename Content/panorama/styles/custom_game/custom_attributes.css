@@ -321,3 +321,60 @@
 .paragon_skull{
 	margin-top:5px;
 }
+
+.elements_container{
+	width:100%;
+	text-align: center;
+	background-color: #111111;
+	border-radius:4px;
+	flow-children:down;
+	padding-top:8px;
+	padding-bottom:8px;
+	margin-top:4px;
+	padding-left:10px;
+}
+
+.elements_title{
+	width:100%;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	color: #EEEEEE;
+	font-size:18px;
+	text-align:center;
+	font-weight:lighter;
+	text-transform:uppercase;
+	height:20px;
+}
+
+.elements_row{
+	flow-children:right;
+	height:45px;
+	margin-top:5px;
+}
+
+.element-box{
+	width:50px;
+	height:45px;
+	height:100%;
+	background-color: #1F1F1F;
+	border-radius:4px;
+	margin-left:4px;
+	margin-right:4px;
+	padding:3px;
+}
+
+.element_value{
+	width:100%;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	color: #EEEEEE;	
+	font-size:12px;
+	margin-top:25px;
+	text-align:center;
+	font-weight:lighter;	
+}
+
+.element_title{
+	width:16px;
+	height:16px;
+	horizontal-align:center;
+	margin-top:5px;
+}

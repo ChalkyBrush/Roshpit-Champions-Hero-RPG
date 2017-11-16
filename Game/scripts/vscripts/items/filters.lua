@@ -1043,7 +1043,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
     end
 
-    damage, element1, element2 = Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, element1, element2)
+    damage, element1, element2 = Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, element1, element2, true)
     attacker.element1 = element1
     attacker.element2 = element2
     local damageMult = 0
@@ -1438,12 +1438,14 @@ function Filters:ApplyRdamage(victim, attacker, damage, damage_type)
     ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = attacker:GetAbilityByIndex(3) })
 end
 
-function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, element1, element2)
+function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, element1, element2, bIsRealDamage)
     local unitName = attacker:GetUnitName()
     local mult = 1
     if slot == 2 then
-        if attacker:HasModifier("modifier_depth_demon_claw") then
-            element2 = RPC_ELEMENT_DEMON
+        if bIsRealDamage then
+            if attacker:HasModifier("modifier_depth_demon_claw") then
+                element2 = RPC_ELEMENT_DEMON
+            end
         end
     end
     if element1 > 1 or element2 > 1 then
@@ -1457,17 +1459,19 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local stacks = attacker:GetModifierStackCount("modifier_demonfire_stack", attacker.InventoryUnit)
             mult = mult + stacks*0.3
         end
-        if attacker:HasModifier("modifier_ice_avatar") then
-            element1 = RPC_ELEMENT_ICE
-            element2 = RPC_ELEMENT_NONE
-        end
-        if attacker:HasModifier("modifier_fire_avatar") then
-            element1 = RPC_ELEMENT_FIRE
-            element2 = RPC_ELEMENT_NONE
-        end
-        if attacker:HasModifier("modifier_fire_avatar") and attacker:HasModifier("modifier_ice_avatar") then
-            element1 = RPC_ELEMENT_ICE
-            element2 = RPC_ELEMENT_FIRE
+        if bIsRealDamage then
+            if attacker:HasModifier("modifier_ice_avatar") then
+                element1 = RPC_ELEMENT_ICE
+                element2 = RPC_ELEMENT_NONE
+            end
+            if attacker:HasModifier("modifier_fire_avatar") then
+                element1 = RPC_ELEMENT_FIRE
+                element2 = RPC_ELEMENT_NONE
+            end
+            if attacker:HasModifier("modifier_fire_avatar") and attacker:HasModifier("modifier_ice_avatar") then
+                element1 = RPC_ELEMENT_ICE
+                element2 = RPC_ELEMENT_FIRE
+            end
         end
         if victim:HasModifier("modifier_elemental_resistance") then
             damage = damage*0.01
@@ -1478,8 +1482,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
     end
     if element1 == RPC_ELEMENT_NORMAL then
-        if attacker:HasModifier("modifier_djanghor_glyph_5_a") then
-            element2 = RPC_ELEMENT_NATURE
+        if bIsRealDamage then
+            if attacker:HasModifier("modifier_djanghor_glyph_5_a") then
+                element2 = RPC_ELEMENT_NATURE
+            end
         end
     end
     if element1 == RPC_ELEMENT_NORMAL or element2 == RPC_ELEMENT_NORMAL then
@@ -1529,10 +1535,12 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 fireMult = fireMult + stacks*0.1
             end
             if victim:HasModifier("modifier_ring_of_fire_burn") then
-                if victim.ringOfFireTick then
-                    victim.ringOfFireTick = false
-                else
-                    victim.ringOfFireBurn = victim.ringOfFireBurn + damage*0.1
+                if bIsRealDamage then
+                    if victim.ringOfFireTick then
+                        victim.ringOfFireTick = false
+                    else
+                        victim.ringOfFireBurn = victim.ringOfFireBurn + damage*0.1
+                    end
                 end
             end
         end
@@ -1548,10 +1556,8 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 fireMult = fireMult + 0.0002*attacker:GetStrength()/10*attacker.d_a_level
             end
             if attacker:HasModifier("modifier_spirit_warrior_arcana1") then
-                local d_b_arcana_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
-                if d_b_arcana_level > 0 then
-                    fireMult = fireMult + 0.0008*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_b_arcana_level
-                end
+                local d_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
+                fireMult = fireMult + 0.0008*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_b_level
             end
         elseif unitName == "npc_dota_hero_beastmaster" then
             if attacker:HasModifier("modifier_warlord_fire_charge") then
@@ -1563,9 +1569,8 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         elseif unitName == "npc_dota_hero_templar_assassin" then
             if attacker:HasModifier("modifier_trapper_arcana1") then
-                if attacker.d_b_arcana_level then
-                    fireMult = fireMult + 0.0003*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_b_arcana_level
-                end
+                local d_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
+                fireMult = fireMult + 0.0003*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_b_level
             end
         elseif unitName == "npc_dota_hero_invoker" then
             if attacker.d_a_level then
@@ -1666,10 +1671,12 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
             mult = mult + lightningRuneRate*attacker:GetAgility()/10*d_c_level
             if attacker:HasAbility("lightning_attack") then
-                local b_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 0)
-                if b_a_level > 0 then
-                    damage = damage + attacker:GetAgility()*0.02*b_a_level
-                end 
+                if bIsRealDamage then
+                    local b_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 0)
+                    if b_a_level > 0 then
+                        damage = damage + attacker:GetAgility()*0.02*b_a_level
+                    end 
+                end
             end
         elseif unitName == "npc_dota_hero_antimage" then
             if attacker:HasModifier("modifier_arkimus_glyph_7_1") then
@@ -1694,15 +1701,16 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker.d_b_level then
                 mult = mult + (attacker.d_b_level*attacker:GetAverageTrueAttackDamage(attacker)/100)*0.0006
             end
-            if attacker:HasModifier("modifier_venomort_immortal_weapon_3") then
-                local healAmount = damage*mult*0.02
-                Filters:ApplyHeal(attacker, attacker, healAmount, true)
+            if bIsRealDamage then
+                if attacker:HasModifier("modifier_venomort_immortal_weapon_3") then
+                    local healAmount = damage*mult*0.02
+                    Filters:ApplyHeal(attacker, attacker, healAmount, true)
+                end
             end
         elseif unitName == "npc_dota_hero_templar_assassin" then
             if attacker:HasModifier("modifier_trapper_arcana1") then
-                if attacker.d_b_arcana_level then
-                    mult = mult + 0.0003*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_b_arcana_level
-                end
+                local d_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
+                mult = mult + 0.0003*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_b_level
             end
         end
         if attacker:HasModifier("modifier_helm_poison") then
@@ -1893,14 +1901,16 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if unitName == "npc_dota_hero_antimage" then
             if attacker:HasAbility("arkimus_storm_weapon") then
-                local a_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 1)
-                if a_b_level > 0 then
-                    local specialDamage = damage*mult
-                    local damageBoost = math.min(specialDamage*0.002*a_b_level, a_b_level*50000)
-                    local stormAbility = attacker:FindAbilityByName("arkimus_storm_weapon")
-                    stormAbility:ApplyDataDrivenModifier(attacker, attacker, "modifier_damage_boost_a_a_visible", {duration = 15})
-                    stormAbility:ApplyDataDrivenModifier(attacker, attacker, "modifier_damage_boost_a_a_invisible", {duration = 15})
-                    attacker:SetModifierStackCount("modifier_damage_boost_a_a_invisible", attacker, damageBoost)
+                if bIsRealDamage then
+                    local a_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 1)
+                    if a_b_level > 0 then
+                        local specialDamage = damage*mult
+                        local damageBoost = math.min(specialDamage*0.002*a_b_level, a_b_level*50000)
+                        local stormAbility = attacker:FindAbilityByName("arkimus_storm_weapon")
+                        stormAbility:ApplyDataDrivenModifier(attacker, attacker, "modifier_damage_boost_a_a_visible", {duration = 15})
+                        stormAbility:ApplyDataDrivenModifier(attacker, attacker, "modifier_damage_boost_a_a_invisible", {duration = 15})
+                        attacker:SetModifierStackCount("modifier_damage_boost_a_a_invisible", attacker, damageBoost)
+                    end
                 end
             end
             if attacker:HasAbility("arkimus_energy_field") then
@@ -1908,14 +1918,16 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 mult = mult + 0.001*attacker:GetAgility()/10*d_d_level
             end
             if attacker:HasModifier("modifier_arkimus_immortal_weapon_2") then
-                local healAmount = damage*mult*0.005
-                Filters:ApplyHeal(attacker, attacker, healAmount, true)
-                local particleName = "particles/roshpit/arkimus/arkimus_immo_2_lifesteal.vpcf"
+                if bIsRealDamage then
+                    local healAmount = damage*mult*0.005
+                    Filters:ApplyHeal(attacker, attacker, healAmount, true)
+                    local particleName = "particles/roshpit/arkimus/arkimus_immo_2_lifesteal.vpcf"
                     local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, attacker )
                     ParticleManager:SetParticleControlEnt(pfx, 0, attacker, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true)
                     Timers:CreateTimer(0.2, function() 
                       ParticleManager:DestroyParticle( pfx, false )
                     end)  
+                end
             end
         end
     end
@@ -2008,23 +2020,24 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 waterMult = waterMult + 0.001*(attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_c_level
             end
             if attacker:HasAbility("hydroxis_arcana_ability_1") then
-                local d_b_level = Runes:GetTotalRuneLevelGeneric(attacker,4, 1)
-                if d_b_level > 0 then
-                    local duration = 0.5 + d_b_level*0.15
-                    local mist_mod = victim:FindModifierByName("modifier_hydroxis_mist_debuff_timered")
-                    if mist_mod then
-                        duration = math.max(duration, mist_mod:GetRemainingTime())
+                if bIsRealDamage then
+                    local d_b_level = Runes:GetTotalRuneLevelGeneric(attacker,4, 1)
+                    if d_b_level > 0 then
+                        local duration = 0.5 + d_b_level*0.15
+                        local mist_mod = victim:FindModifierByName("modifier_hydroxis_mist_debuff_timered")
+                        if mist_mod then
+                            duration = math.max(duration, mist_mod:GetRemainingTime())
+                        end
+                        local mistAbility = attacker:FindAbilityByName("hydroxis_arcana_ability_1")
+                        mistAbility:ApplyDataDrivenModifier(attacker, victim, "modifier_hydroxis_mist_debuff_timered", {duration = duration})
+                        
                     end
-                    local mistAbility = attacker:FindAbilityByName("hydroxis_arcana_ability_1")
-                    mistAbility:ApplyDataDrivenModifier(attacker, victim, "modifier_hydroxis_mist_debuff_timered", {duration = duration})
-                    
                 end
             end
         elseif unitName == "npc_dota_hero_templar_assassin" then
             if attacker:HasModifier("modifier_trapper_arcana1") then
-                if attacker.d_b_arcana_level then
-                    waterMult = waterMult + 0.0003*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_b_arcana_level
-                end
+                local d_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
+                waterMult = waterMult + 0.0003*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_b_level
             end
         elseif unitName == "npc_dota_hero_huskar" then
             if attacker:HasModifier("modifier_spirit_warrior_arcana1") then
@@ -2909,7 +2922,7 @@ function Filters:TomeOfChaos(caster)
 
                 local infernalDamage = (caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())*5
                 infernalDamage = Filters:AdjustItemDamage(caster, infernalDamage)
-                infernalDamage = Filters:ElementalDamage(infernal, caster, infernalDamage, DAMAGE_TYPE_PHYSICAL, 0, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
+                infernalDamage = Filters:ElementalDamage(infernal, caster, infernalDamage, DAMAGE_TYPE_PHYSICAL, 0, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE, true)
                 infernal:SetBaseDamageMin(infernalDamage)
                 infernal:SetBaseDamageMax(infernalDamage)   
 
