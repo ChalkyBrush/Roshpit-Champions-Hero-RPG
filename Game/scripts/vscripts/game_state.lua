@@ -1640,15 +1640,6 @@ function GameState:FilterDamage(filterTable)
 			victim:RemoveModifierByName("modifier_mach_punch_amp")
 		end
 	end
-	if attacker:HasModifier("modifier_helm_odin") then
-	    local proc = Filters:GetProc(attacker, 4)    
-	    if proc then
-	    	mult = mult + 20
-	        PopupOdin(victim, 20)
-	        CustomAbilities:QuickAttachParticle("particles/roshpit/items/odin_helmet.vpcf", victim, 1.2)
-	        EmitSoundOnLocationWithCaster(victim:GetAbsOrigin(), "RPCItem.OdinHelmet.Crit", attacker)
-	    end
-	end
 	if victim:HasModifier("modifier_enchanted_solar_cape") then
 		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 			victim.body:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_enchanted_solar_cape_effect", {duration = 15})
@@ -2128,6 +2119,18 @@ function GameState:FilterDamage(filterTable)
 	--APPLY MULT
 	filterTable["damage"] = filterTable["damage"]*mult/divisor
 	--FINAL STAGE--
+
+
+	if attacker:HasModifier("modifier_helm_odin") then
+		local proc = Filters:GetProc(attacker, 4)
+		if proc then
+			filterTable["damage"] = filterTable["damage"] * 20
+			PopupOdin(victim, 20)
+			CustomAbilities:QuickAttachParticle("particles/roshpit/items/odin_helmet.vpcf", victim, 1.2)
+			EmitSoundOnLocationWithCaster(victim:GetAbsOrigin(), "RPCItem.OdinHelmet.Crit", attacker)
+		end
+	end
+
 	if victim:HasModifier("modifier_canyon_boss_ai") then
 		if applyEffects then
 			filterTable["damage"] = Redfall:CanyonBossTakeDamage(victim, filterTable["damage"])

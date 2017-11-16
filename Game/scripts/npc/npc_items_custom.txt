@@ -4284,12 +4284,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"1500"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_two"		"0.5"
+				"property_two"		"0.3"
 			}
 			"03"
 			{
@@ -4818,7 +4818,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"1200"
+				"property_one"			"8000"
 			}
 			"02"
 			{
@@ -7726,6 +7726,21 @@
 				"var_type"			"FIELD_INTEGER"
 				"element_one"			"16"
 			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"		"30"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_two"		"3"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_three"	"750"
+			}
 		}
 	}
 
@@ -9557,22 +9572,27 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"		"10"
+				"property_one"		"30"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"		"40"
+				"property_two"		"120"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_three"	"4000"
+				"property_three"	"8000"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"property_four"		"0.4"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"property_five"		"0.1"
 			}
 		}
 		"precache"
@@ -11647,7 +11667,7 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"5"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"10"
 				}
 			}
 		}
@@ -11656,7 +11676,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"500"
+				"property_one"			"1000"
 			}
 		}
 	}
@@ -15410,34 +15430,12 @@
 				"Function"		"equip_item"
 			}
 		}
-		"Modifiers"
+		"AbilitySpecial"
 		{
-			"modifier_rpc_yasha_boots"
+			"01"
 			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Duration"  "99999"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "2.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"yasha_boots_think"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_rpc_yasha_buff"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Duration"  "99999"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
-				}
+				"var_type"			"FIELD_FLOAT"
+				"property_one"			"0.3"
 			}
 		}
 	}
@@ -16562,7 +16560,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"60"
+				"property_one"			"1000"
 			}
 			"02"
 			{
@@ -17762,7 +17760,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_two"		"8.0"
+				"property_two"		"45.0"
 			}
 		}
 	}
@@ -23166,6 +23164,16 @@
 				"var_type"			"FIELD_INTEGER"
 				"element_two"		"4"
 			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"		"10"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_two"		"100"
+			}
 		}
 		"AbilityManaCost"	"0"
 		"ItemPermanent"			"0"
@@ -23239,6 +23247,16 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"element_two"		"4"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"		"20"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_two"		"200"
 			}
 		}
 		"Modifiers"
@@ -23538,6 +23556,21 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"element_two"		"15"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"		"10"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_two"		"240"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_three"	"6000"
 			}
 		}
 		"OnSpellStart"

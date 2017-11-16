@@ -4977,10 +4977,10 @@ function RPCItems:RollYashaBoots(deathLocation)
     item.property1name = "yasha"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_yasha", "#4FD65A",  1, "#property_yasha_description")
 
-    value, prefixLevel = RPCItems:RollAttribute(100, 4, 12, 0, 0, item.rarity, false, maxFactor*10)
+    value, prefixLevel = RPCItems:RollAttribute(100, 4, 12, 0, 0, item.rarity, false, maxFactor*13)
     item.property2 = value
-    item.property2name = "strength"
-    RPCItems:SetPropertyValues(item, item.property2, "#item_strength", "#CC0000",  2)
+    item.property2name = "agility"
+    RPCItems:SetPropertyValues(item, item.property2, "#item_agility", "#2EB82E",  2)
 
     RPCItems:RollFootProperty3(item, 0)
     RPCItems:RollFootProperty4(item, 0)
