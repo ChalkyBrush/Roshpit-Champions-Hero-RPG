@@ -4439,7 +4439,19 @@ function Seafortress:DefeatFinalBoss(position)
         --    table.insert(crystal.winnerTable, potentialWinnerTable[i])
         --  end
         -- end
-        if #crystal.winnerTable > 0 then
+
+      local url = "https://roshpit.xyz/champions/defeatSeaFinalBoss?"
+      url = url .. "time=" .. math.ceil(GameRules:GetGameTime())
+      for i = 1, #GameState.HeroPlayerTable, 1 do
+          local dataTable = GameState.HeroPlayerTable[i]
+          local hero = EntIndexToHScript(dataTable[2])
+          local steamId = PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())
+          local heroId = hero.roshpitID
+          url = url .. "&hero_id[]=" .. heroId
+          url = url .. "&steam_id[]=" .. steamId
+      end
+      CreateHTTPRequestScriptVM( "GET", url ):Send(nil)
+      if #crystal.winnerTable > 0 then
           -- for i = 1, #crystal.winnerTable, 1 do
           --   crystal.winnerTable[i].shardsPickedUp = 0
           -- end
