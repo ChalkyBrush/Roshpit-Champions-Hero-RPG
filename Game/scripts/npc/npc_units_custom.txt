@@ -72882,7 +72882,7 @@
         "AttackDamageMin"   "600400"
         "AttackDamageMax"   "800400"
         "AttackRate"    "0.9"
-        "AttackAnimationPoint"  "0.2"
+        "AttackAnimationPoint"  "0.32"
         "AttackAcquisitionRange"    "0"
         "ProjectileSpeed"           "1400"
         "ProjectileModel"           "particles/units/heroes/hero_morphling/morphling_base_attack.vpcf"

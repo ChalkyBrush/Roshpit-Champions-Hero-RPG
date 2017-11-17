@@ -132,3 +132,17 @@ function demon_hunter_a_b_attack(event)
 		end
 	end
 end
+
+function chernobog_always_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	print(caster:IsAlive())
+	print(caster:GetTimeUntilRespawn())
+	if not caster:IsAlive() then
+		if caster:GetTimeUntilRespawn() == 0 then
+			print("KILL!")
+			caster:SetHealth(10)
+			caster:ForceKill(true)
+		end
+	end
+end

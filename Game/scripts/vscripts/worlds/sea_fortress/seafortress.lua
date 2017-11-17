@@ -18,7 +18,10 @@ function Seafortress:Debug()
     RPCItems:DropItem(item, Vector(844, -15488))
     AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(4800, -2176), 800, 300, false)
 
-   
+   -- local unit = Seafortress:SpawnCephapolos(Vector(844, -15488), Vector(1,0))
+   -- unit:AddAbility("paragon_abilities"):SetLevel(1)
+   -- local ability = unit:FindAbilityByName("paragon_abilities")
+   -- ability:ApplyDataDrivenModifier(unit, unit, "modifier_paragon_crippling", {})
     -- Dungeons.itemLevel = 300
     -- for i = 1, 6, 1 do
     --   RPCItems:RollSeinaruArcana1(Vector(844, -15488))

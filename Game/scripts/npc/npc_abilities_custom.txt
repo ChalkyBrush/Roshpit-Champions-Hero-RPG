@@ -17505,6 +17505,7 @@
             {
             	"IsHidden"	"1"
             	"IsBuff"	"1"
+            	"Duration"	"0.1"
             	"OnCreated"
             	{
 					"AttachEffect"
@@ -28730,6 +28731,15 @@
 						"damage"        "%attack_damage"
 						"mana_drain_per_attack"	"%mana_drain_per_attack"
 						"health_cost_percent"	"%health_cost_percent"
+					}
+				}
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/nightstalker/demon_hunter.lua"
+						"Function"		"chernobog_always_think"
 					}
 				}
 			}

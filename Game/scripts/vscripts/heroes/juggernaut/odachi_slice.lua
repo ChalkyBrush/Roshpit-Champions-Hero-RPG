@@ -337,6 +337,9 @@ function odachi_a_c_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local buff = caster:FindModifierByName("modifier_seinaru_a_c_dbz")
+	if not buff then
+		return false
+	end
 	buff:SetDuration(0.1, false)
 	if #ability.a_c_unit_table > 0 then
 		local target = EntIndexToHScript(ability.a_c_unit_table[1])
