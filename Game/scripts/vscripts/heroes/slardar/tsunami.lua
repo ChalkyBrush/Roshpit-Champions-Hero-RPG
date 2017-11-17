@@ -69,9 +69,11 @@ function channel_complete(event)
 			if caster:HasAbility("hydroxis_water_blade") then
 				local waterBombAbility = caster:FindAbilityByName("hydroxis_water_blade")
 				waterBombAbility.c_d_level = c_d_level
+				waterBombAbility.a_d_level = a_d_level
 			else
 				local arcanaAbility = caster:FindAbilityByName("hydroxis_arcana_ability_1")
 				arcanaAbility.c_d_level = c_d_level
+				arcanaAbility.a_d_level = a_d_level
 			end
 		end)
 	end
