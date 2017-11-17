@@ -4446,9 +4446,11 @@ function Seafortress:DefeatFinalBoss(position)
           local dataTable = GameState.HeroPlayerTable[i]
           local hero = EntIndexToHScript(dataTable[2])
           local steamId = PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())
-          local heroId = hero.roshpitID
-          url = url .. "&hero_id[]=" .. heroId
-          url = url .. "&steam_id[]=" .. steamId
+          local heroSlot = hero.saveSlot
+          if heroSlot ~= nil then
+            url = url .. "&hero_slot[]=" .. heroSlot
+            url = url .. "&steam_id[]=" .. steamId
+          end
       end
       CreateHTTPRequestScriptVM( "GET", url ):Send(nil)
       if #crystal.winnerTable > 0 then
