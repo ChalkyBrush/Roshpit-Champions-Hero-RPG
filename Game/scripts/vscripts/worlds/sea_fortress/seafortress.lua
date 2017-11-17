@@ -4440,16 +4440,18 @@ function Seafortress:DefeatFinalBoss(position)
         --  end
         -- end
 
-      local url = "https://roshpit.xyz/champions/defeatSeaFinalBoss?"
+      local url = "https://roshpit.xyz/stats/defeatSeaFinalBoss?"
       url = url .. "time=" .. math.ceil(GameRules:GetGameTime())
       for i = 1, #GameState.HeroPlayerTable, 1 do
           local dataTable = GameState.HeroPlayerTable[i]
           local hero = EntIndexToHScript(dataTable[2])
           local steamId = PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())
           local heroSlot = hero.saveSlot
-          if heroSlot ~= nil then
-            url = url .. "&hero_slot[]=" .. heroSlot
-            url = url .. "&steam_id[]=" .. steamId
+          local heroId = hero.roshpitID
+          if heroSlot ~= nil and heroId ~= nil then
+              url = url .. "&hero_slot[]=" .. heroSlot
+              url = url .. "&steam_id[]=" .. steamId
+              url = url .. "&hero_id[]=" .. heroId
           end
       end
       CreateHTTPRequestScriptVM( "GET", url ):Send(nil)
