@@ -114,7 +114,7 @@ function RPCItems:FootLegendary(itemVariant, deathLocation)
             return true
         end
     elseif itemVariant == "item_rpc_treads" then
-        local luck = RandomInt(1, 8)
+        local luck = RandomInt(1, 9)
         if luck == 1 then
             RPCItems:RollGuardianGreaves(deathLocation)
             return true
@@ -148,6 +148,9 @@ function RPCItems:FootLegendary(itemVariant, deathLocation)
             return true
         elseif luck == 8 then
             RPCItems:RollAblecoreGreaves(deathLocation)
+            return true
+        elseif luck == 9 then
+            RPCItems:RollNewBoots(deathLocation)
             return true
         end
     end

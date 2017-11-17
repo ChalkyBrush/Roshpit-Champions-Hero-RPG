@@ -15402,8 +15402,83 @@
 			}
 		}
 	}
-
 	"item_rpc_yasha_boots"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/yasha_boots" //"yasha_boots"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"property_one"			"20"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"property_two"		"1.1"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_rpc_yasha_boots"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Duration"  "99999"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "2.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"yasha_boots_think"
+						"target"		"TARGET"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"  "%property_two"
+				}
+			}
+			"modifier_rpc_yasha_buff"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Duration"  "99999"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
+				}
+			}
+		}
+	}
+
+	"item_rpc_new_boots"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -15438,8 +15513,16 @@
 				"property_one"			"0.3"
 			}
 		}
+		"Modifiers"
+		{
+			"modifier_rpc_new_boots"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
 	}
-
 	"item_rpc_tranquil_boots"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
