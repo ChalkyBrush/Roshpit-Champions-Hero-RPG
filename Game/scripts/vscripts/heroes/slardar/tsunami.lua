@@ -12,6 +12,8 @@ function start_channel(event)
 	caster.d_c_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
 end
 
+
+
 function channel_complete(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -37,7 +39,7 @@ function channel_complete(event)
 			local slow_duration = event.slow_duration + stunDuration
 			local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d", "hydroxis")
 			ability.a_d_level = a_d_level
-			damage = damage * (1 + 0.01 * a_d_level * caster:GetPhysicalArmorValue())
+			damage = damage * (1 + 0.0001 * a_d_level * caster:GetPhysicalArmorValue())
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do
 					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_WATER, RPC_ELEMENT_EARTH)
@@ -199,7 +201,7 @@ function tsunami_impact(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local damage = 85000*ability.b_d_level * (1 + 0.003 * ability.a_d_level * caster:GetPhysicalArmorValue())
+	local damage = 85000*ability.b_d_level * (1 + 0.00003 * ability.a_d_level * caster:GetPhysicalArmorValue())
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 	local slow_duration = event.slow_duration
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_ocean_quake_slowed", {duration = slow_duration})
@@ -260,7 +262,7 @@ function poseidon_wrath_attack_hit(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	local damage = ability.c_d_level*0.35*caster:GetAverageTrueAttackDamage(caster) * (1 + 0.003 * ability.a_d_level * caster:GetPhysicalArmorValue())
+	local damage = ability.c_d_level*0.35*caster:GetAverageTrueAttackDamage(caster) * (1 + 0.00003 * ability.a_d_level * caster:GetPhysicalArmorValue())
 	if caster:HasModifier("modifier_hydroxis_immortal_weapon_1") then
 		damage = damage*2
 	end

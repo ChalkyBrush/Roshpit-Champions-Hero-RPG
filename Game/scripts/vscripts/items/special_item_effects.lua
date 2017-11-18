@@ -2541,7 +2541,7 @@ function spirit_glove_think(event)
 end
 
 function ruby_attack(event)
-	local damage = event.damage*2
+	local damage = event.damage*8
 	local attacker = event.attacker
 	local target = event.target
 	local ability = event.ability
@@ -2888,7 +2888,7 @@ function cascade_hat_think(event)
 	if manaDrain > caster:GetMana() then
 		manaDrain = caster:GetMana()
 	end
-	ability.damage = manaDrain*80
+	ability.damage = manaDrain*8000
 	caster:ReduceMana(manaDrain)
 	-- local fv = caster:GetForwardVector()
 	-- if manaDrain < caster:GetMana() then

@@ -18,7 +18,10 @@ function Seafortress:Debug()
     RPCItems:DropItem(item, Vector(844, -15488))
     AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(4800, -2176), 800, 300, false)
 
-   
+   -- local unit = Seafortress:SpawnCephapolos(Vector(844, -15488), Vector(1,0))
+   -- unit:AddAbility("paragon_abilities"):SetLevel(1)
+   -- local ability = unit:FindAbilityByName("paragon_abilities")
+   -- ability:ApplyDataDrivenModifier(unit, unit, "modifier_paragon_crippling", {})
     -- Dungeons.itemLevel = 300
     -- for i = 1, 6, 1 do
     --   RPCItems:RollSeinaruArcana1(Vector(844, -15488))
@@ -4448,7 +4451,7 @@ function Seafortress:DefeatFinalBoss(position)
           local steamId = PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())
           local heroSlot = hero.saveSlot
           local heroId = hero.roshpitID
-          if heroSlot ~= nil and heroId ~= nil then
+          if heroSlot ~= nil then
               url = url .. "&hero_slot[]=" .. heroSlot
               url = url .. "&steam_id[]=" .. steamId
               url = url .. "&hero_id[]=" .. heroId

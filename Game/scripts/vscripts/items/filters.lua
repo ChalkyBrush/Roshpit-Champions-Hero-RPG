@@ -1247,7 +1247,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + 3.5
         end
         if attacker:HasModifier("modifier_cerulean_high_guard") then
-            damageMult = damageMult+4
+            damageMult = damageMult + 20
         end
         if attacker:HasModifier("modifier_stormcloth_bracer") then
             Filters:StormclothBracer(attacker, victim)

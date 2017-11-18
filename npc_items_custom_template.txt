@@ -4742,7 +4742,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"			"80"
+				"property_two"			"5"
 			}
 		}
 	}
@@ -4909,7 +4909,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"1400"
+				"property_one"			"9800"
 			}
 		}
 	}
@@ -17947,6 +17947,11 @@
 				"var_type"			"FIELD_INTEGER"
 				"element_one"			"2"
 			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"		"800"
+			}
 		}
 	}
 
@@ -19871,7 +19876,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"		"400"
+				"property_two"		"2000"
 			}
 		}
 	}
@@ -20303,6 +20308,26 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"element_one"			"10"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"		"2"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"property_two"		"0.5"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_three"		"8000"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_four"		"30"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -37892,8 +37917,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"1.5"
 			}
 			"02"
 			{
@@ -38037,7 +38062,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"12"
 			}
 			"02"
 			{
