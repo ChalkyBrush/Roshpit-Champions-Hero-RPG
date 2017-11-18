@@ -182,6 +182,8 @@ function Foot:action(propertyName, propertyValue, hero, inventory_unit, foot_abi
 	elseif propertyName == "red_october" then
 		Foot:addItemModifier(0, hero, inventory_unit, "modifier_red_october_boots", item)
 		RPCItems:PreacheArcanaResources(item)
+	elseif propertyName == "new" then
+		Foot:addItemModifier(0, hero, inventory_unit, "modifier_rpc_new_boots", item)
 	elseif string.match(propertyName, "!arcana!") then
 		RPCItems:PreacheArcanaResources(item)
 		local suffix = propertyName:gsub("!arcana!_", "")

@@ -4284,12 +4284,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"1500"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_two"		"0.5"
+				"property_two"		"0.3"
 			}
 			"03"
 			{
@@ -4818,7 +4818,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"1200"
+				"property_one"			"8000"
 			}
 			"02"
 			{
@@ -7726,6 +7726,21 @@
 				"var_type"			"FIELD_INTEGER"
 				"element_one"			"16"
 			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"		"30"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_two"		"3"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_three"	"750"
+			}
 		}
 	}
 
@@ -9557,22 +9572,27 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"		"10"
+				"property_one"		"30"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"		"40"
+				"property_two"		"120"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_three"	"4000"
+				"property_three"	"8000"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"property_four"		"0.4"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"property_five"		"0.1"
 			}
 		}
 		"precache"
@@ -11647,7 +11667,7 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"5"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"10"
 				}
 			}
 		}
@@ -11656,7 +11676,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"500"
+				"property_one"			"1000"
 			}
 		}
 	}
@@ -15382,7 +15402,6 @@
 			}
 		}
 	}
-
 	"item_rpc_yasha_boots"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -15410,6 +15429,19 @@
 				"Function"		"equip_item"
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"property_one"			"20"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"property_two"		"1.1"
+			}
+		}
 		"Modifiers"
 		{
 			"modifier_rpc_yasha_boots"
@@ -15428,6 +15460,10 @@
 						"target"		"TARGET"
 					}
 				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"  "%property_two"
+				}
 			}
 			"modifier_rpc_yasha_buff"
 			{
@@ -15442,6 +15478,51 @@
 		}
 	}
 
+	"item_rpc_new_boots"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/yasha_boots" //"yasha_boots"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"property_one"			"0.3"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_rpc_new_boots"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+	}
 	"item_rpc_tranquil_boots"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -16562,7 +16643,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"60"
+				"property_one"			"1000"
 			}
 			"02"
 			{
@@ -17762,7 +17843,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_two"		"8.0"
+				"property_two"		"45.0"
 			}
 		}
 	}
@@ -23166,6 +23247,16 @@
 				"var_type"			"FIELD_INTEGER"
 				"element_two"		"4"
 			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"		"10"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_two"		"100"
+			}
 		}
 		"AbilityManaCost"	"0"
 		"ItemPermanent"			"0"
@@ -23239,6 +23330,16 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"element_two"		"4"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"		"20"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_two"		"200"
 			}
 		}
 		"Modifiers"
@@ -23538,6 +23639,21 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"element_two"		"15"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"		"10"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_two"		"240"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_three"	"6000"
 			}
 		}
 		"OnSpellStart"

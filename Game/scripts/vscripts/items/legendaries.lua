@@ -4977,10 +4977,30 @@ function RPCItems:RollYashaBoots(deathLocation)
     item.property1name = "yasha"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_yasha", "#4FD65A",  1, "#property_yasha_description")
 
-    value, prefixLevel = RPCItems:RollAttribute(100, 4, 12, 0, 0, item.rarity, false, maxFactor*10)
+    value, prefixLevel = RPCItems:RollAttribute(100, 4, 12, 0, 0, item.rarity, false, maxFactor*13)
     item.property2 = value
     item.property2name = "strength"
     RPCItems:SetPropertyValues(item, item.property2, "#item_strength", "#CC0000",  2)
+
+    RPCItems:RollFootProperty3(item, 0)
+    RPCItems:RollFootProperty4(item, 0)
+    local drop = CreateItemOnPositionSync( deathLocation, item )
+    local position = deathLocation
+    RPCItems:DropItem(item, position)
+    return item
+end
+
+function RPCItems:RollNewBoots(deathLocation)
+    local item = RPCItems:CreateVariant("item_rpc_new_boots", "immortal", "New Boots", "feet", true, "Slot: Feet")
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.property1 = 1
+    item.property1name = "new"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_new", "#4FD65A",  1, "#property_new_description")
+
+    value, prefixLevel = RPCItems:RollAttribute(100, 4, 12, 0, 0, item.rarity, false, maxFactor*13)
+    item.property2 = value
+    item.property2name = "agility"
+    RPCItems:SetPropertyValues(item, item.property2, "#item_agility", "#2EB82E",  2)
 
     RPCItems:RollFootProperty3(item, 0)
     RPCItems:RollFootProperty4(item, 0)
@@ -7799,6 +7819,8 @@ function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, sl
         newItem = RPCItems:RollTwistedMaskOfAhnqhirYellow(deathLocation)
     elseif itemName == "item_rpc_twisted_purple_mask_of_ahnqhir" then
         newItem = RPCItems:RollTwistedMaskOfAhnqhirPurple(deathLocation)
+    elseif itemName == "item_rpc_new_boots" then
+        newItem = RPCItems:RollNewBoots(deathLocation)
     else
         newItem = false
         giveBackOldItem = true
@@ -7948,7 +7970,7 @@ function RPCItems:GetSoulBankableItemsList()
 "item_rpc_aquasteel_bracers", "item_rpc_demonfire_gauntlet", "item_rpc_emerald_speed_runners", "item_rpc_outland_stone_cuirass", "item_rpc_world_trees_flower_cache", "item_rpc_red_october_boots",
 "item_rpc_armor_of_atlantis", "item_rpc_chitinous_lobster_claw", "item_rpc_crystalline_slippers", "item_rpc_dark_emissary_glove", "item_rpc_dark_reef_shark_helmet", "item_rpc_depth_demon_claw", "item_rpc_empyreal_sunrise_robe",
 "item_rpc_hood_of_the_sea_oracle", "item_rpc_ocean_helm_of_valdun", "item_rpc_oceanrunner_boots", "item_rpc_sea_giants_plate", "item_rpc_sparkling_token_of_oceanis", "item_rpc_templar_light_seers_robe",
-"item_rpc_twisted_blue_mask_of_ahnqhir", "item_rpc_twisted_yellow_mask_of_ahnqhir", "item_rpc_twisted_purple_mask_of_ahnqhir"}
+"item_rpc_twisted_blue_mask_of_ahnqhir", "item_rpc_twisted_yellow_mask_of_ahnqhir", "item_rpc_twisted_purple_mask_of_ahnqhir", "item_rpc_new_boots"}
 
     return itemsList
 end

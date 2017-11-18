@@ -5,15 +5,10 @@ end
 require('items/special_item_effects')
 
 function Filters:ApplyItemDamage(victim,attacker,damage,damage_type,item,element1,element2)
-    damage = Filters:AdjustItemDamage(attacker, damage)
+    damage = Filters:AdjustItemDamage(attacker, damage, victim)
     local mult = 1
     if attacker:HasModifier("modifier_trapper_glyph_6_1") then
         element2 = RPC_ELEMENT_NORMAL
-    end
-    if attacker:HasModifier("modifier_depth_crest_armor") then
-        if victim:IsStunned() then
-            mult = mult + 0.004*(attacker:GetStrength()/10)
-        end
     end
     if attacker:GetUnitName() == "npc_dota_hero_leshrac" then
         damage = Filters:Bahamut_DB_rune(attacker, damage, 0, victim)
@@ -62,7 +57,7 @@ function Filters:CleanseSilences(unit)
     unit:RemoveModifierByName("modifier_kaze_gust_blind")
 end
 
-function Filters:AdjustItemDamage(caster, damage)
+function Filters:AdjustItemDamage(caster, damage, victim)
     -- if GameState:GetDifficultyFactor() == 2 then
     --     damage = damage*3
     -- elseif GameState:GetDifficultyFactor() == 3 then
@@ -85,7 +80,7 @@ function Filters:AdjustItemDamage(caster, damage)
         mult = mult + 0.002*(caster:GetIntellect()/10)
     end
     if caster:HasModifier("modifier_mountain_vambraces") then
-        mult = mult + 0.005*(caster:GetStrength()/10)
+        mult = mult + 0.003*(caster:GetStrength()/10)
     end
     if caster:HasModifier("modifier_ruby_dragon") then
         mult = mult + 0.003*(caster:GetStrength()/10)
@@ -100,11 +95,22 @@ function Filters:AdjustItemDamage(caster, damage)
     if caster:HasModifier("modifier_autumnrock_bracer") then
         mult = mult + 0.001*(caster:GetHealth()/100)
     end
+
+    if caster:HasModifier("modifier_depth_crest_armor") then
+        if victim and victim:IsStunned() then
+            mult = mult + 0.004*(caster:GetStrength()/10)
+        end
+    end
     if caster:HasModifier("modifier_hyper_visor") then
         if caster.headItem:GetAbilityName() == "item_rpc_hyper_visor2" then
             mult = mult + 0.003*(caster:GetAgility()/10)
         end
     end
+    if caster:HasModifier("modifier_rpc_new_boots") then
+        mult = mult + 0.003*(caster:GetAgility()/10)
+    end
+
+
     if caster:HasModifier("modifier_raven_idol2") then
         local multIncrease = ((caster:GetMaxHealth()-caster:GetHealth())/100)*0.001
         mult = mult + multIncrease
@@ -420,7 +426,7 @@ function Filters:ApplyStun(caster, duration, target)
             end)
         end
         
-        local damage = caster:GetAverageTrueAttackDamage(caster)*1.0 + (caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())*10
+        local damage = caster:GetAverageTrueAttackDamage(caster)*10 + (caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())*100
         Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,caster.headItem, RPC_ELEMENT_NORMAL, RPC_ELEMENT_LIGHTNING)
         Filters:stormcrack_upgrade(caster, caster.headItem, target)
     elseif caster:HasModifier("modifier_stormcrack_helm2") then
@@ -436,7 +442,7 @@ function Filters:ApplyStun(caster, duration, target)
             end)
         end
         
-        local damage = caster:GetAverageTrueAttackDamage(caster)*2.0 + (caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())*20
+        local damage = caster:GetAverageTrueAttackDamage(caster)*20 + (caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())*200
         Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,caster.headItem, RPC_ELEMENT_NORMAL, RPC_ELEMENT_LIGHTNING)
         mult = mult+0.35      
     end
@@ -2199,14 +2205,14 @@ function Filters:FloodRobe(caster)
 
     summonAbil:SetLevel(1)
     summonAbil:ApplyDataDrivenModifier(elemental, elemental, "modifier_summoned_unit_damage_increase", {duration = 30})
-    local eleDamage = Filters:AdjustItemDamage(caster, caster:GetIntellect()*damageMult)
+    local eleDamage = Filters:AdjustItemDamage(caster, caster:GetIntellect()*damageMult, nil)
 
-    skeleHealth = Filters:AdjustItemDamage(caster, caster:GetMaxHealth())
+    skeleHealth = Filters:AdjustItemDamage(caster, caster:GetMaxHealth(), nil)
     elemental:SetMaxHealth(skeleHealth)
     elemental:SetBaseMaxHealth(skeleHealth)
     elemental:SetHealth(skeleHealth)
 
-    elemental:SetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, 100))
+    elemental:SetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, 100, nil))
 
     Filters:SetAttackDamage(elemental, eleDamage)
 end
@@ -2733,7 +2739,7 @@ function Filters:EternalFrost(caster)
         local ability = caster.eternal_frost_gem
         EmitSoundOn("Ability.FrostNova", caster)
         
-        local damage = caster:GetIntellect()*60
+        local damage = caster:GetIntellect()*1000
         local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
         local freezeDuration = 2.5
         if #enemies > 0 then
@@ -2773,12 +2779,12 @@ function Filters:ScourgeKnight(caster)
         local summonAbil = archer:AddAbility("ability_summoned_unit")
         summonAbil:SetLevel(1)
         summonAbil:ApplyDataDrivenModifier(archer, archer, "modifier_summoned_unit_damage_increase", {duration = 30})
-        local skeleDamage = Filters:AdjustItemDamage(caster, caster:GetAttackDamage()/10)
+        local skeleDamage = Filters:AdjustItemDamage(caster, caster:GetAttackDamage()/10, nil)
         archer:SetModifierStackCount( "modifier_summoned_unit_damage_increase", summonAbil, skeleDamage)    
         archer:SetForwardVector(fv)
-        archer:SetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, 80))
+        archer:SetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, 80, nil))
         local skeleHealth = math.floor(caster:GetMaxHealth()*0.15)
-        skeleHealth = Filters:AdjustItemDamage(caster, skeleHealth)
+        skeleHealth = Filters:AdjustItemDamage(caster, skeleHealth, nil)
         archer:SetMaxHealth(skeleHealth)
         archer:SetBaseMaxHealth(skeleHealth)
         archer:SetHealth(skeleHealth)
@@ -2808,11 +2814,11 @@ function Filters:SetupSummonUnit(caster, position, damageMult, healthMult, lifeD
     local summonAbil = unit:AddAbility("ability_summoned_unit")
     summonAbil:SetLevel(1)
     local dmg = caster:GetAverageTrueAttackDamage(caster)*damageMult
-    dmg = Filters:AdjustItemDamage(caster, dmg)
+    dmg = Filters:AdjustItemDamage(caster, dmg, nil)
     Filters:SetAttackDamage(unit, dmg)
-    unit:SetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, caster:GetPhysicalArmorValue()*armorMult))
+    unit:SetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, caster:GetPhysicalArmorValue()*armorMult, nil))
     local wolfHealth = math.floor(caster:GetMaxHealth()*healthMult)
-    wolfHealth = Filters:AdjustItemDamage(caster, wolfHealth)
+    wolfHealth = Filters:AdjustItemDamage(caster, wolfHealth, nil)
     unit:SetMaxHealth(wolfHealth)
     unit:SetBaseMaxHealth(wolfHealth)
     unit:SetHealth(wolfHealth)
@@ -2921,20 +2927,20 @@ function Filters:TomeOfChaos(caster)
                 summonAbil:SetLevel(1)
 
                 local infernalDamage = (caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())*5
-                infernalDamage = Filters:AdjustItemDamage(caster, infernalDamage)
+                infernalDamage = Filters:AdjustItemDamage(caster, infernalDamage, nil)
                 infernalDamage = Filters:ElementalDamage(infernal, caster, infernalDamage, DAMAGE_TYPE_PHYSICAL, 0, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE, true)
                 infernal:SetBaseDamageMin(infernalDamage)
                 infernal:SetBaseDamageMax(infernalDamage)   
 
                 local minionHealth = math.floor(caster:GetMaxHealth()*2)
-                minionHealth = Filters:AdjustItemDamage(caster, minionHealth)
+                minionHealth = Filters:AdjustItemDamage(caster, minionHealth, nil)
                 infernal:SetMaxHealth(minionHealth)
                 infernal:SetBaseMaxHealth(minionHealth)
                 infernal:SetHealth(minionHealth)
                 infernal:Heal(minionHealth, infernal)
                 infernal:SetModelScale(0.9)
                 infernal:SetRenderColor(140, 255, 140)
-                infernal:SetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, caster:GetPhysicalArmorValue()/2))
+                infernal:SetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, caster:GetPhysicalArmorValue()/2, nil))
                 infernal:AddAbility("sven_great_cleave"):SetLevel(1)
                 infernal:SetAcquisitionRange(2800)
                 caster.tome_of_chaos:ApplyDataDrivenModifier(caster.InventoryUnit, infernal, "modifier_infernal_effect", {duration = 30})
@@ -2989,19 +2995,19 @@ function Filters:ReanimateThorok(caster)
     summonAbil:SetLevel(1)
     thorok:SetModelScale(1.19)
     local thorokDamage = caster:GetAverageTrueAttackDamage(caster)*8
-    thorokDamage = Filters:AdjustItemDamage(caster, thorokDamage)
+    thorokDamage = Filters:AdjustItemDamage(caster, thorokDamage, nil)
     thorok:SetBaseDamageMin(thorokDamage)
     thorok:SetBaseDamageMax(thorokDamage)   
     EmitSoundOn("life_stealer_lifest_ability_rage_03", thorok)
     local minionHealth = math.floor(caster:GetMaxHealth()*4)
-    minionHealth = Filters:AdjustItemDamage(caster, minionHealth)
+    minionHealth = Filters:AdjustItemDamage(caster, minionHealth, nil)
     thorok:SetMaxHealth(minionHealth)
     thorok:SetBaseMaxHealth(minionHealth)
     thorok:SetHealth(minionHealth)
     thorok:Heal(minionHealth, thorok)
     thorok:RemoveAbility("thorok_reborn_ai")
     thorok:RemoveModifierByName("modifier_thorok_reborn_ai")
-    thorok:SetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, caster:GetPhysicalArmorValue()))
+    thorok:SetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, caster:GetPhysicalArmorValue(), nil))
     thorok:SetAcquisitionRange(2900)
     if caster:GetHealth() < caster:GetMaxHealth()*0.4 then
         EmitSoundOn("Hero_LifeStealer.Rage", thorok)
@@ -3907,7 +3913,7 @@ function Filters:DarkEmissary(caster)
     EmitSoundOn("RPCItem.DarkEmissary.Activate", caster)
     caster.handItem:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_dark_emissary_invis", {duration = 2})
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-    local damage = caster:GetAverageTrueAttackDamage(caster)*12
+    local damage = caster:GetAverageTrueAttackDamage(caster)*80
     if #enemies > 0 then
         for _,enemy in pairs(enemies) do
             Filters:ApplyItemDamage(enemy,caster,damage,DAMAGE_TYPE_MAGICAL,caster.handItem, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)

@@ -50,7 +50,7 @@ function boneguard_attack_land(event)
 			skeleton:SetOwner(attacker)
 
 			local skeleHealth = 8400
-			skeleHealth = Filters:AdjustItemDamage(attacker, skeleHealth)
+			skeleHealth = Filters:AdjustItemDamage(attacker, skeleHealth, nil)
 			skeleton:SetMaxHealth(skeleHealth)
 			skeleton:SetBaseMaxHealth(skeleHealth)
 			skeleton:SetHealth(skeleHealth)
@@ -382,7 +382,7 @@ function flood_elemental_wave_hit(event)
 	local summoner = caster.summoner
 	if IsValidEntity(summoner) then
 		local ability = caster.summoner.body
-		local damage = Filters:AdjustItemDamage(summoner, summoner:GetAverageTrueAttackDamage(summoner))
+		local damage = Filters:AdjustItemDamage(summoner, summoner:GetAverageTrueAttackDamage(summoner), nil)
 		if caster:GetUnitName() == "water_elemental_flood_2" then
 			ApplyDamage({ victim = target, attacker = summoner, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
 		elseif caster:GetUnitName() == "water_elemental_flood_3" then
@@ -521,11 +521,11 @@ function wild_nature_entangle_think(event)
 	local primeAttribute = caster:GetPrimaryAttribute()
 	local damage = 0
 	if primeAttribute == 0 then
-		damage = caster:GetStrength()*15
+		damage = caster:GetStrength()*750
 	elseif primeAttribute == 1 then
-		damage = caster:GetAgility()*15
+		damage = caster:GetAgility()*750
 	elseif primeAttribute == 2 then
-		damage = caster:GetIntellect()*15
+		damage = caster:GetIntellect()*750
 	end	
 	Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,event.ability,RPC_ELEMENT_NATURE,RPC_ELEMENT_NONE)
 end
@@ -1077,7 +1077,7 @@ function yasha_boots_think(event)
 	if not target:HasModifier("modifier_rpc_yasha_buff") then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_rpc_yasha_buff", {})
 	end
-	target:SetModifierStackCount( "modifier_rpc_yasha_buff", ability, target:GetStrength()/30 )
+	target:SetModifierStackCount( "modifier_rpc_yasha_buff", ability, target:GetStrength()/20 )
 end
 
 function mana_striders_think(event)
@@ -1617,7 +1617,7 @@ function nightmare_rider_orb_think(event)
 	orb.offsetVector = WallPhysics:rotateVector(orb.offsetVector, math.pi/40)
 	orb:SetAbsOrigin(hero:GetAbsOrigin() + orb.offsetVector*120)
 	local damage = (hero:GetStrength() +hero:GetAgility() + hero:GetIntellect())*4
-	damage = Filters:AdjustItemDamage(hero, damage)
+	damage = Filters:AdjustItemDamage(hero, damage, nil)
 	orb:SetBaseDamageMin(damage)
 	orb:SetBaseDamageMax(damage)
 end
@@ -1811,15 +1811,12 @@ function mountain_vambrace_attack(event)
 	if proc then
 		EmitSoundOn("Hero_Sven.StormBoltImpact", target)
 		local radius = 290
-		local damage = caster:GetStrength()*30
+		local damage = caster:GetStrength()*1500
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
 				Filters:ApplyItemDamage(enemy,caster,damage,DAMAGE_TYPE_MAGICAL,event.ability,RPC_ELEMENT_NORMAL,RPC_ELEMENT_NONE)
-				if not enemy:HasModifier("modifier_mountain_vambrace_immunity") then
-					ability:ApplyDataDrivenModifier(item, enemy, "modifier_mountain_vambrace_immunity", {duration = 4})
-					Filters:ApplyStun(caster, 2, enemy)
-				end
+				Filters:ApplyStun(caster, 1, enemy)
 			end
 		end 	
 		local particleName = "particles/units/heroes/hero_sven/mountain_vambraces_storm_bolt_projectile_explosion.vpcf"	
@@ -1859,12 +1856,12 @@ function wolfir_druid_channel(event)
 	local summonAbil = wolf:AddAbility("ability_summoned_unit")
 	summonAbil:SetLevel(1)
 	local dmg = caster:GetAverageTrueAttackDamage(caster)*3.0
-	dmg = Filters:AdjustItemDamage(caster, dmg)
+	dmg = Filters:AdjustItemDamage(caster, dmg, nil)
 	dmg = Filters:ElementalDamage(wolf, caster, dmg, DAMAGE_TYPE_PHYSICAL, 0, RPC_ELEMENT_NATURE, RPC_ELEMENT_NONE)
 	Filters:SetAttackDamage(wolf, dmg)
-	wolf:SetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, caster:GetPhysicalArmorValue()))
+	wolf:SetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, caster:GetPhysicalArmorValue(), nil))
 	local wolfHealth = math.floor(caster:GetMaxHealth()*0.25)
-	wolfHealth = Filters:AdjustItemDamage(caster, wolfHealth)
+	wolfHealth = Filters:AdjustItemDamage(caster, wolfHealth, nil)
 	wolf:SetMaxHealth(wolfHealth)
 	wolf:SetBaseMaxHealth(wolfHealth)
 	wolf:SetHealth(wolfHealth)
@@ -3239,7 +3236,7 @@ end
 
 function depth_crest_hit(event)
 	local target = event.target
-	local proc = Filters:GetProc(target, 10)	
+	local proc = Filters:GetProc(target, 30)
 	if proc then
 		EmitSoundOn("Items.DepthCrest", target)
 		local particleName = "particles/units/heroes/hero_slardar/slardar_crush.vpcf"
@@ -3248,10 +3245,10 @@ function depth_crest_hit(event)
 		ParticleManager:SetParticleControl( pfx, 1, Vector(300, 0, 0))	
 		local enemies = FindUnitsInRadius( target:GetTeamNumber(), target:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
-			local damage = target:GetStrength()*40 + target:GetPhysicalArmorValue()*4000
+			local damage = target:GetStrength()*120 + target:GetPhysicalArmorValue()*8000
 			for _,enemy in pairs(enemies) do
 				Filters:ApplyItemDamage(enemy,target,damage,DAMAGE_TYPE_MAGICAL,event.ability,RPC_ELEMENT_WATER,RPC_ELEMENT_NORMAL)
-				Filters:ApplyStun(target, 1.6, enemy)
+				Filters:ApplyStun(target, 0.1, enemy)
 			end	
 		end
 	end
@@ -3655,7 +3652,7 @@ function silent_templar_attack_land(event)
 	if not target.dummy then
 		local ability = event.ability
 		local attacker = event.attacker
-		local damage = attacker:GetAverageTrueAttackDamage(attacker)*6
+		local damage = attacker:GetAverageTrueAttackDamage(attacker)*60
 		Filters:ApplyItemDamage(target,attacker,damage,DAMAGE_TYPE_MAGICAL,ability, RPC_ELEMENT_ARCANE, RPC_ELEMENT_DEMON)
 		CustomAbilities:QuickAttachParticle("particles/econ/items/nightstalker/nightstalker_black_nihility/nightstalker_black_nihility_void_hit.vpcf", target, 2.5)
 		EmitSoundOn("Item.SilentWatch.Hit", target)
@@ -3992,7 +3989,7 @@ function doom_summon_think(event)
 
 	if doomAbility:GetCooldownTimeRemaining() > 0 then
 	    local dmg = caster.caster:GetAverageTrueAttackDamage(caster)*2
-	    dmg = Filters:AdjustItemDamage(caster.caster, dmg)
+	    dmg = Filters:AdjustItemDamage(caster.caster, dmg, nil)
 	    Filters:SetAttackDamage(caster, dmg)
 		caster:SetTeam(caster.caster:GetTeamNumber())
 		caster:SetAcquisitionRange(0)
