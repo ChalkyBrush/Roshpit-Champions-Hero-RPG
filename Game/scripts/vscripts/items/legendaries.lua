@@ -4990,12 +4990,12 @@ function RPCItems:RollYashaBoots(deathLocation)
     return item
 end
 
-function RPCItems:RollNewBoots(deathLocation)
-    local item = RPCItems:CreateVariant("item_rpc_new_boots", "immortal", "New Boots", "feet", true, "Slot: Feet")
+function RPCItems:RollSteamboots(deathLocation)
+    local item = RPCItems:CreateVariant("item_rpc_steamboots", "immortal", "Steam Boots", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
     item.property1 = 1
-    item.property1name = "new"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_new", "#4FD65A",  1, "#property_new_description")
+    item.property1name = "steamboots"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_steamboots", "#4FD65A",  1, "#property_steamboots_description")
 
     value, prefixLevel = RPCItems:RollAttribute(100, 4, 12, 0, 0, item.rarity, false, maxFactor*13)
     item.property2 = value
@@ -7819,8 +7819,8 @@ function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, sl
         newItem = RPCItems:RollTwistedMaskOfAhnqhirYellow(deathLocation)
     elseif itemName == "item_rpc_twisted_purple_mask_of_ahnqhir" then
         newItem = RPCItems:RollTwistedMaskOfAhnqhirPurple(deathLocation)
-    elseif itemName == "item_rpc_new_boots" then
-        newItem = RPCItems:RollNewBoots(deathLocation)
+    elseif itemName == "item_rpc_steamboots" then
+        newItem = RPCItems:RollSteamboots(deathLocation)
     else
         newItem = false
         giveBackOldItem = true

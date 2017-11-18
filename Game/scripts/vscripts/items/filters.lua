@@ -106,7 +106,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
             mult = mult + 0.003*(caster:GetAgility()/10)
         end
     end
-    if caster:HasModifier("modifier_rpc_new_boots") then
+    if caster:HasModifier("modifier_rpc_steamboots") then
         mult = mult + 0.003*(caster:GetAgility()/10)
     end
 

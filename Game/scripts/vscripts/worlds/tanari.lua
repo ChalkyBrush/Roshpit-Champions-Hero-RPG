@@ -56,7 +56,8 @@ function Tanari:Debug()
     -- RPCItems:RollPhantomSorcererMask(Vector(-4928, 2048), false)
    -- RPCItems:RollSorceressArcana1(Vector(-4928, 2048))
    -- Dungeons.itemLevel = 300
-   RPCItems:RollWaterMageRobes(Vector(-4928, 2048))
+   RPCItems:RollSteamboots(Vector(-4928, 2048))
+   -- RPCItems:RollWaterMageRobes(Vector(-4928, 2048))
     -- RPCItems:RollSorceressArcana2(Vector(-4928, 2048))
     -- RPCItems:RollRubyDragonCrown(Vector(-4928, 2048), false)
    -- RPCItems:RollSoluniaArcana2(Vector(-4928, 2048))
@@ -108,7 +109,7 @@ function Tanari:Debug()
     -- end
     -- -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
     -- -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
-    Glyphs:DebugRollHeroGlyphs("trapper", Vector(-4928, 2048), 2)
+    -- Glyphs:DebugRollHeroGlyphs("trapper", Vector(-4928, 2048), 2)
     -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "venomort")
     -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "sorceress")
     -- for i = 1, 3, 1 do

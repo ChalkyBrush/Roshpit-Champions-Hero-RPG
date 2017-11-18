@@ -150,7 +150,7 @@ function RPCItems:FootLegendary(itemVariant, deathLocation)
             RPCItems:RollAblecoreGreaves(deathLocation)
             return true
         elseif luck == 9 then
-            RPCItems:RollNewBoots(deathLocation)
+            RPCItems:RollSteamboots(deathLocation)
             return true
         end
     end

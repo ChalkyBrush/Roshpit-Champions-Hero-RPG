@@ -15478,13 +15478,13 @@
 		}
 	}
 
-	"item_rpc_new_boots"
+	"item_rpc_steamboots"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
 		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"rpc/yasha_boots" //"yasha_boots"
+		"AbilityTextureName"	"rpc/steamboots" //"yasha_boots"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
 		"AbilityCooldown"	"0"
@@ -15515,7 +15515,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_rpc_new_boots"
+			"modifier_rpc_steamboots"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
