@@ -13,7 +13,7 @@ function lightning_attack_start(event)
         local ability = event.ability
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_glyph_2_1_effect_visible", {duration = buffDuration})
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_glyph_2_1_effect_invisible", {duration = buffDuration})
-        caster:SetModifierStackCount( "modifier_voltex_glyph_2_1_effect_invisible", ability, caster:GetAgility() *0.5 )
+        caster:SetModifierStackCount( "modifier_voltex_glyph_2_1_effect_invisible", ability, caster:GetAgility())
     end
 end
 
