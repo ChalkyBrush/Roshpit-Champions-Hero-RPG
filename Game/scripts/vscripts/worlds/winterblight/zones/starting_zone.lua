@@ -43,7 +43,7 @@ function Winterblight:FirstSpawns()
 	      Winterblight:SpawnWinterSeal(positionTable[i], lookToPoint)
 	    end
 	elseif luck == 2 then
-	    local positionTable = {Vector(-12416, -3776), Vector(-11968, -3648), Vector(-11520, -3456), Vector(-11712, -3072), Vector(-12096, -3136), Vector(-12544, -3200)}
+	    local positionTable = {Vector(-12416, -3776), Vector(-11968, -3648), Vector(-11520, -3456), Vector(-11712, -3272), Vector(-12096, -3336), Vector(-12544, -3400)}
 	    for i = 1, #positionTable, 1 do
 	      local lookToPoint = (Vector(-13120, -2304) - positionTable[i]):Normalized()
 	      Winterblight:SpawnWinterSeal(positionTable[i], lookToPoint)
