@@ -87,7 +87,7 @@ function think(event)
         hero:SetOrigin(newPosition)
         if #ability.enemies > 0 then
             for _,enemy in pairs(ability.enemies) do
-                if not enemy.pushLock and not enemy.jumpLock then
+                if not enemy.pushLock and not enemy.jumpLock and not enemy.mainBoss and not enemy.bossStatus then
                     local enemyPosition = enemy:GetAbsOrigin()+ability.forwardVec*forwardVelocity
                     enemy:SetAbsOrigin(enemyPosition)
                 end

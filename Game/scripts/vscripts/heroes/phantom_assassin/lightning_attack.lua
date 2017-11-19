@@ -13,7 +13,7 @@ function lightning_attack_start(event)
         local ability = event.ability
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_glyph_2_1_effect_visible", {duration = buffDuration})
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_glyph_2_1_effect_invisible", {duration = buffDuration})
-        caster:SetModifierStackCount( "modifier_voltex_glyph_2_1_effect_invisible", ability, caster:GetAgility() ) 
+        caster:SetModifierStackCount( "modifier_voltex_glyph_2_1_effect_invisible", ability, caster:GetAgility())
     end
 end
 
@@ -66,7 +66,7 @@ function LightningAttack( keys )
             end)    
         end    
         if ability.d_a_level then
-            damage = damage + attacker:GetAverageTrueAttackDamage(attacker)*0.03*ability.d_a_level
+            damage = damage + attacker:GetAverageTrueAttackDamage(attacker)*0.15*ability.d_a_level
         end
         -- Damage
         Filters:TakeArgumentsAndApplyDamage(unit, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)

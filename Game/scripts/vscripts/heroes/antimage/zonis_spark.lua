@@ -96,7 +96,7 @@ function zonis_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local radius = 600 + ability.b_a_level*2
-	local damage = ability.b_a_level*2000
+	local damage = ability.b_a_level*30000
 	local edges = 2 + math.ceil((ability.b_a_level+1)*0.05)
 	casterOrigin = caster:GetAbsOrigin()
 	local endPointTable = {}

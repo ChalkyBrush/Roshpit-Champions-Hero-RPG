@@ -90,7 +90,7 @@ function rune_c_d(caster)
     		EmitSoundOn("DOTA_Item.BlackKingBar.Activate", caster)
     		local duration = 12
     		if caster:HasModifier("modifier_voltex_glyph_5_1") then
-    			duration = duration + 4
+    			duration = duration + 12
  			end
  			duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
  			if caster:HasModifier("modifier_voltex_glyph_5_1") then
