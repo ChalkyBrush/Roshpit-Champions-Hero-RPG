@@ -877,11 +877,6 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage*0.05
 	end
 
-	if victim:HasModifier("modifier_crystalline_slippers") then
-		if victim:IsRooted() then
-			damage = damage*0.2
-		end
-	end
 	if victim:HasModifier("modifier_dummy_aura1_effect_zhonik") then
 		damage = damage*0.2
 	end
@@ -2290,11 +2285,18 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = 0
 	end
 
+	if attacker:HasModifier("modifier_crystalline_slippers") then
+		if victim:IsRooted() then
+			filterTable["damage"] = filterTable["damage"] * 3
+		end
+	end
+
 	if victim:HasModifier("modifier_crystalline_slippers") then
 		if attacker:IsRooted() then
 			filterTable["damage"] = filterTable["damage"]*0.2
 		end
 	end
+
 	if victim:HasModifier("modifier_armor_of_atlantis") then
 		if filterTable["damage"] > victim:GetMaxHealth() then
 			filterTable["damage"] = filterTable["damage"] * 0.05

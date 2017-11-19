@@ -42611,7 +42611,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
+				"property_one"			"15"
 			}
 			"02"
 			{
@@ -57553,7 +57553,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2000"
+				"property_one"			"30000"
 			}
 			"02"
 			{
