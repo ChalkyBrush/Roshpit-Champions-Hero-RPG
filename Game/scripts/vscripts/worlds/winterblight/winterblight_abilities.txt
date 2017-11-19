@@ -1,3 +1,31 @@
+	"winterblight_master_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"tusk_snowball"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"armor"			"4 100 1500"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_winterblight_passive"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+			}
+			"modifier_Winterblight_unit"
+			{
+				"IsHidden"	"1"
+			}
+		}
+	}
+
 	"winterblight_snowball_thrower"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -48,6 +76,11 @@
 						"EffectName"	"Snowball.Throw"
 						"Target" 		"CASTER"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/village"
+						"Function"		"snowball_kid_preattack"
+					}
 				}
 			}
 			"modifier_snowball_slow"
@@ -63,6 +96,125 @@
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-35"
 				}
+			}
+		}
+	}
+
+	"winterblight_crab_spawner_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"redfall/autumn_spawner"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"armor"			"4 100 1500"
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+				"Function"		"winter_spawner_die"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Winterblight.SpawnerDie"
+				"Target" 		"CASTER"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_autumn_spawner_passive"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"IsHidden"		"1"
+				"IsBuff"		"1"
+				"EffectName"	"particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon_offhand/bloodseeker_eztzhok_offhand_ambient_arc_glow.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"StatusEffectName" 		"particles/status_fx/status_effect_guardian_angel.vpcf"
+				"StatusEffectPriority"  "100"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
+				}
+				"ThinkInterval"  "10"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"winter_spawner_think"
+					}
+				}
+			}
+		}
+	}
+
+
+	"winterblight_ogre_armor"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"redfall/autumn_spawner"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_resist"			"10 50 90"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"300 5000 100000"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_duration"			"0.2 0.7 1.2"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"hits_for_counter"			"9 7 5"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ogre_armor"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"IsHidden"		"1"
+				"OnTakeDamage"
+				// "%attack_damage" is set to the damage value after mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"ogre_armor_take_damage"
+						"hits_for_counter"	"%hits_for_counter"
+					}
+				}
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+				"Function"		"ogre_armor_impact"
+				"target"		"TARGET"
+				"damage"		"%damage"
+				"stun_duration"	"%stun_duration"
 			}
 		}
 	}

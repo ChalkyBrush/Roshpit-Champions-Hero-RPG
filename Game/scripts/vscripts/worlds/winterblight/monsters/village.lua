@@ -1,3 +1,9 @@
+function snowball_kid_preattack(event)
+	local caster = event.caster
+	local ability = event.ability
+	AddFOWViewer(DOTA_TEAM_GOODGUYS, caster:GetAbsOrigin(), 300, 3, false)
+end
+
 function village_snowball_hit(event)
 	local target = event.target
 	local caster = event.caster

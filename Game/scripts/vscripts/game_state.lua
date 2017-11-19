@@ -823,7 +823,12 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_rooted_feet_health_regen") then
 		damage = damage*0.5
 	end
-
+	if victim:HasModifier("modifier_ogre_armor") then
+		local ogreArmor = victim:FindAbilityByName("winterblight_ogre_armor")
+		local reduction = ogreArmor:GetLevelSpecialValueFor("damage_resist", ogreArmor:GetLevel())
+		reduction = (100-reduction)/100
+		damage = damage*reduction
+	end
 	if victim:HasModifier("modifier_axe_rune_c_d_shield") then
 		damage = damage*0.2
 		if victim:HasModifier("modifier_axe_glyph_6_2") then

@@ -571,7 +571,17 @@ function WallPhysics:UnitLand(unit)
 			ParticleManager:SetParticleControl( pfx, 1, Vector(300, 300, 300) )
 			Timers:CreateTimer(2, function()
 				ParticleManager:DestroyParticle(pfx, false)
-			end)					
+			end)	
+		elseif caster.jumpEnd == "crab_land" then
+			caster.jumpEnd = false
+			local position = caster:GetAbsOrigin()
+			local pfx = ParticleManager:CreateParticle( "particles/econ/events/league_teleport_2014/teleport_end_dust_league.vpcf", PATTACH_CUSTOMORIGIN, caster )
+			ParticleManager:SetParticleControl( pfx, 0, position )
+			ParticleManager:SetParticleControl( pfx, 1, Vector(200, 200, 200) )
+			Timers:CreateTimer(2, function()
+				ParticleManager:DestroyParticle(pfx, false)
+			end)				
+			EmitSoundOn("Winterblight.Crab.Land", caster)
 		end
 	end
 end
