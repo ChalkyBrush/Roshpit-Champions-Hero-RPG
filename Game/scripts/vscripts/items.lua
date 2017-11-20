@@ -581,13 +581,15 @@ end
 
 
 function RPCItems:DropItem(item, position)
+    local basePosition = position
 	if Dungeons.lootLaunch then
 		position = GetGroundPosition(Dungeons.lootLaunch + RandomVector(RandomInt(10, 120)), nil)
 	elseif Dungeons.entryPoint then
 		position = GetGroundPosition(position+RandomVector(RandomInt(100, 220)), nil)
 	else
 		position = GetGroundPosition(position+RandomVector(RandomInt(100, 260)), nil)
-	end
+    end
+    position =  WallPhysics:WallSearch(basePosition, position, Events.SafeItemEntity)
 	FindClearSpaceForUnit(Events.SafeItemEntity, position, false)
 	position = Events.SafeItemEntity:GetAbsOrigin()
 	if determineIfOKdrop(item) then

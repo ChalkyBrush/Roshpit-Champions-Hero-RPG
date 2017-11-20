@@ -1059,6 +1059,12 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     end
     
     if slot > 0 then
+        if not ignore_effects and attacker:HasModifier("modifier_solunia_arcana1") then
+            local b_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 0)
+            if b_a_level > 0 then
+                damage = damage + attacker:GetHealth()*0.1*b_a_level
+            end
+        end
         if attacker:HasModifier("modifier_watcher_two") then
             damageMult = damageMult + 0.15
         end
@@ -1088,12 +1094,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_boots_of_old_wisdom_active") then
             damageMult = damageMult + 6.5
-        end
-        if attacker:HasModifier("modifier_solunia_arcana1") then
-            local b_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 0)
-            if b_a_level > 0 then
-                damage = damage + attacker:GetHealth()*0.1*b_a_level
-            end
         end
         if attacker:HasModifier("modifier_ogthun_visible") then
             local current_stack = attacker:GetModifierStackCount( "modifier_ogthun_visible", attacker.body )

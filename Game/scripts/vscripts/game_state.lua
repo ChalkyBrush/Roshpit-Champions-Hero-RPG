@@ -991,6 +991,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	local StartingDamage = filterTable["damage"]
 	local applyEffects = true
+	local applySturdyHornEffect = true
 	if filterTable["entindex_inflictor_const"] then
 		local ability = EntIndexToHScript(filterTable["entindex_inflictor_const"])
 		if IsValidEntity(ability) then
@@ -998,8 +999,15 @@ function GameState:FilterDamage(filterTable)
 				print("APPLY EFFECTS FALSE!")
 				applyEffects = false
 			end
+			local abilityName = ability:GetAbilityName()
+			local modifier = victim:FindModifierByName('modifier_centaur_horns')
+			if abilityName ~= 'item_rpc_centaur_horns' and modifier then
+				local centaurHornsAbility = modifier:GetAbility()
+				centaurHornsAbility:ApplyDataDrivenModifier(victim, victim, "modifier_centaur_horns_debuff", {duration = 1.5})
+			end
 		end
 	end
+
 	if applyEffects then
 		if victim:HasModifier("modifier_dungeon_thinker_creep") then
 			victim.aggro = true
@@ -2272,7 +2280,15 @@ function GameState:FilterDamage(filterTable)
 				filterTable["damage"] = victim:GetMaxHealth()*thresh
 			end
 		end
-	end
+    end
+
+    if victim:HasModifier("modifier_centaur_horns") then
+        local thresh = 0.15
+        if filterTable["damage"] > victim:GetMaxHealth() * thresh then
+            filterTable["damage"] = victim:GetMaxHealth() * thresh
+        end
+    end
+
 	if victim:HasModifier("modifier_djanghor_immortal_weapon_2") then
 		if victim:HasModifier("modifier_shapeshift_bear") then
 			if filterTable["damage"] < victim:GetMaxHealth()*100 then

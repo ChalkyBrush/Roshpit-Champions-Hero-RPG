@@ -87,7 +87,7 @@ function think(event)
         hero:SetOrigin(newPosition)
         if #ability.enemies > 0 then
             for _,enemy in pairs(ability.enemies) do
-                if not enemy.pushLock and not enemy.jumpLock and not enemy.mainBoss and not enemy.bossStatus then
+                if not enemy.pushLock and not enemy.jumpLock then
                     local enemyPosition = enemy:GetAbsOrigin()+ability.forwardVec*forwardVelocity
                     enemy:SetAbsOrigin(enemyPosition)
                 end
@@ -112,7 +112,13 @@ function finish(event)
     if #ability.enemies > 0 then
         for _,enemy in pairs(ability.enemies) do
             if not enemy.pushLock and not enemy.jumpLock then
-                FindClearSpaceForUnit(enemy, enemy:GetAbsOrigin(), false)
+                local enemyPosition = enemy:GetAbsOrigin()
+                local afterWallPosition = WallPhysics:WallSearch(hero:GetAbsOrigin(), enemyPosition, hero)
+                if afterWallPosition ~= enemyPosition then
+                    enemyPosition = afterWallPosition
+                end
+                FindClearSpaceForUnit(enemy, enemyPosition, false)
+
             end
         end
     end
