@@ -522,6 +522,56 @@ function centaur_horn_think(event)
 	end
 end
 
+function ankh_of_ancients_think(event)
+	local caster = event.target
+	local ability = event.ability
+	if not ability.interval then
+		ability.interval = 0
+	end
+	ability.interval = ability.interval + 1
+	if ability.interval == 30 then
+		ability.interval = 0
+		CustomAbilities:QuickAttachParticle("particles/roshpit/centaur_horns_lifesteal.vpcf", caster, 0.9)
+	end
+	if caster:IsStunned() then
+		Filters:CleanseStuns(caster)
+	end
+	if not caster:IsAlive() then
+		if caster:GetTimeUntilRespawn() == 0 then
+			if not caster:GetUnitName() == "npc_dota_hero_night_stalker" then
+				print("KILL!")
+				caster:SetHealth(10)
+				caster:ForceKill(true)
+			end
+		end
+	end
+end
+
+function chernobog_glyph_7_1_think(event)
+	local caster = event.target
+	local ability = event.ability
+	if not ability.interval then
+		ability.interval = 0
+	end
+	ability.interval = ability.interval + 1
+	if ability.interval == 30 then
+		ability.interval = 0
+		CustomAbilities:QuickAttachParticle("particles/roshpit/centaur_horns_lifesteal.vpcf", caster, 0.9)
+	end
+	if caster:IsStunned() then
+		Filters:CleanseStuns(caster)
+	end
+	if not caster:IsAlive() then
+		if caster:GetTimeUntilRespawn() == 0 then
+			if not caster:GetUnitName() == "npc_dota_hero_night_stalker" then
+				print("KILL!")
+				caster:SetHealth(10)
+				caster:ForceKill(true)
+			end
+		end
+	end
+end
+
 function wild_nature_struck(event)
 	local attacker = event.attacker
 	local ability = event.ability
