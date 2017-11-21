@@ -56,7 +56,7 @@ function Tanari:Debug()
     -- RPCItems:RollPhantomSorcererMask(Vector(-4928, 2048), false)
    -- RPCItems:RollSorceressArcana1(Vector(-4928, 2048))
    -- Dungeons.itemLevel = 300
-   RPCItems:RollSteamboots(Vector(-4928, 2048))
+   RPCItems:RollCentaurHorns(Vector(-4928, 2048))
    -- RPCItems:RollWaterMageRobes(Vector(-4928, 2048))
     -- RPCItems:RollSorceressArcana2(Vector(-4928, 2048))
     -- RPCItems:RollRubyDragonCrown(Vector(-4928, 2048), false)

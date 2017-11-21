@@ -7621,12 +7621,58 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"precache"
+		{
+			"particle"  "particles/roshpit/centaur_horns_lifesteal.vpcf"
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_centaur_horns"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"centaur_horn_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_centaur_horns_debuff"
+			{
+				"Passive"	"0"
+				"IsHidden"	"0"
+				"IsDebuff"  "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DISABLE_HEALING" "1"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"			"15"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"property_two"		"1.5"
 			}
 		}
 	}
@@ -17469,7 +17515,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"150"
+				"property_one"		"800"
 			}
 		}
 	}
@@ -19561,7 +19607,7 @@
 				"TextureName"	"itemicons/ankh_ability"
 				"EffectName"	"particles/roshpit/items/ankh_of_ancients_shield.vpcf"
 				"EffectAttachType"	"attach_hitloc"
-				"ThinkInterval"  "0.2"
+				"ThinkInterval"  "0.03"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -37678,7 +37724,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"300"
+				"property_one"			"200"
 			}
 		}
 	}

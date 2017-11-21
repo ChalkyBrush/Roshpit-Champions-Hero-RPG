@@ -498,9 +498,27 @@ end
 
 function centaur_horn_think(event)
 	local caster = event.target
+	local ability = event.ability
+	if not ability.interval then
+		ability.interval = 0
+	end
+	ability.interval = ability.interval + 1
+	if ability.interval == 30 then
+		ability.interval = 0
+		CustomAbilities:QuickAttachParticle("particles/roshpit/centaur_horns_lifesteal.vpcf", caster, 0.9)
+	end
 	ApplyDamage({ victim = caster, attacker = caster, damage = 1, damage_type = DAMAGE_TYPE_PURE})
 	if caster:IsStunned() then
 		Filters:CleanseStuns(caster)
+	end
+	if not caster:IsAlive() then
+		if caster:GetTimeUntilRespawn() == 0 then
+			if not caster:GetUnitName() == "npc_dota_hero_night_stalker" then
+				print("KILL!")
+				caster:SetHealth(10)
+				caster:ForceKill(true)
+			end
+		end
 	end
 end
 

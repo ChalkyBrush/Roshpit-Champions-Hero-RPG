@@ -7621,6 +7621,10 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"precache"
+		{
+			"particle"  "particles/roshpit/centaur_horns_lifesteal.vpcf"
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -7636,7 +7640,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "0.2"
+				"ThinkInterval"  "0.03"
 				"OnIntervalThink"
 				{
 					"RunScript"
