@@ -19613,7 +19613,7 @@
 					"RunScript"
 					{
 						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"centaur_horn_think"
+						"Function"		"ankh_of_ancients_think"
 						"target"		"TARGET"
 					}
 				}
@@ -42480,7 +42480,7 @@
 					"RunScript"
 					{
 						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"centaur_horn_think"
+						"Function"		"chernobog_glyph_7_1_think"
 						"target"		"TARGET"
 					}
 				}
