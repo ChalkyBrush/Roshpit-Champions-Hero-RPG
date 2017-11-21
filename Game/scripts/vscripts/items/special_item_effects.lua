@@ -498,6 +498,7 @@ end
 
 function centaur_horn_think(event)
 	local caster = event.target
+	ApplyDamage({ victim = caster, attacker = caster, damage = 1, damage_type = DAMAGE_TYPE_PURE})
 	if caster:IsStunned() then
 		Filters:CleanseStuns(caster)
 	end
@@ -4119,7 +4120,7 @@ function cobalt_serenity_think(event)
 	local ability = event.ability
 	local caster = event.caster
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_cobalt_serenity_health_regen", {})
-	local healthRegenStacks = Filters:GetHeroAttribute(target, "intellect")*1.5
+	local healthRegenStacks = Filters:GetHeroAttribute(target, "intellect") * 8
 	target:SetModifierStackCount("modifier_cobalt_serenity_health_regen", caster, healthRegenStacks)
 end
 

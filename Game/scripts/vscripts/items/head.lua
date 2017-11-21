@@ -95,7 +95,7 @@ function Head:action(propertyName, propertyValue, hero, inventory_unit, head_abi
 	elseif propertyName == "ruby_dragon" then
 		Head:addBasicModifier(1, hero, inventory_unit, "modifier_ruby_dragon", head_ability)
 	elseif propertyName == "centaur_horns" then
-		Head:addBasicModifier(1, hero, inventory_unit, "modifier_centaur_horns", head_ability)
+		Head:addItemModifier(0, hero, inventory_unit, "modifier_centaur_horns", item)
 	elseif propertyName == "death_whisper" then
 		Head:addBasicModifier(1, hero, inventory_unit, "modifier_death_whisper", head_ability)
 	elseif propertyName == "wild_nature_one" then
