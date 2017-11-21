@@ -1804,9 +1804,9 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if unitName == "npc_dota_hero_vengefulspirit" then
             local d_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 0)
-            local d_a_mult = 0.002
+            local d_a_mult = 0.0002
             if attacker:HasModifier("modifier_solunia_arcana1") then
-                d_a_mult = 0.004
+                d_a_mult = 0.0004
             end
             cosmosMult = cosmosMult + d_a_mult*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_a_level
             if attacker:HasModifier("modifier_solunia_arcana2") then
