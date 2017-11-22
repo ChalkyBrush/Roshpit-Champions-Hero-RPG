@@ -873,7 +873,9 @@ end
 
 function town_portal_take_damage(event)
 	local unit = event.unit
-	unit:Stop()
+	if event.damage > 10 then
+		unit:Stop()
+	end
 end
 
 function teleport_cancel(event)
