@@ -2474,9 +2474,9 @@ function GameState:FilterDamage(filterTable)
 		-- 		filterTable["damage"] = filterTable["damage"]*10000000*30*10000*1000000
 		-- 	end
 		-- end
-		if damagetype == DAMAGE_TYPE_PHYSICAL then
-			filterTable["damage"] = victim:GetHealth()-100
-		end
+		-- if damagetype == DAMAGE_TYPE_PHYSICAL then
+		-- 	filterTable["damage"] = victim:GetHealth()-100
+		-- end
 	end
 	
 	return true

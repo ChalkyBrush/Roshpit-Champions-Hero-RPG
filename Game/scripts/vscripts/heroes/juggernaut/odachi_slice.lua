@@ -428,7 +428,9 @@ function odachi_a_c_think(event)
 			else
 				pfx = ability.a_c_particleTable[#ability.a_c_particleTable]
 			end
-			ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin()+Vector(0,0,100)+caster:GetForwardVector()*ability.movespeed*2)
+			if pfx then
+				ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin()+Vector(0,0,100)+caster:GetForwardVector()*ability.movespeed*2)
+			end
 			local fv = (target:GetAbsOrigin()-caster:GetAbsOrigin()):Normalized()
 			caster:SetForwardVector(fv)
 			caster:SetAbsOrigin(caster:GetAbsOrigin()+fv*ability.movespeed)

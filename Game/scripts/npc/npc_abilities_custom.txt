@@ -63351,7 +63351,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.02"
+				"property_one"			"0.08"
 			}
 		}
 	}
@@ -63831,7 +63831,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.04"
+				"property_one"			"0.16"
 			}
 		}
 	}
@@ -82986,6 +82986,7 @@
                 	{
                 		"ScriptFile"	"worlds/tanari/tanari_trigger_areas"
                 		"Function"		"town_portal_take_damage"
+                		"damage"        "%attack_damage"
                 	}
                 }
 	        }
