@@ -90,6 +90,7 @@ function shapeshift_start_cat(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_cat_d_d", {})
 		caster:SetModifierStackCount("modifier_shapeshift_cat_d_d", caster, d_d_level)
 	end	
+	caster:SetPrimaryAttribute(1)
 	all_shift_after(caster)
 end
 
@@ -141,6 +142,7 @@ function shapeshift_start_bear(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_bear_d_d", {})
 		caster:SetModifierStackCount("modifier_shapeshift_bear_d_d", caster, d_d_level)
 	end
+	caster:SetPrimaryAttribute(0)
 	all_shift_after(caster)
 end
 
@@ -189,6 +191,7 @@ function shapeshift_start_crow(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_crow_d_d", {})
 		caster:SetModifierStackCount("modifier_shapeshift_crow_d_d", caster, d_d_level)
 	end
+	caster:SetPrimaryAttribute(2)
 	all_shift_after(caster)
 end
 
@@ -303,7 +306,7 @@ function monkey_form(event)
 		end)
 
 	end)
-
+	caster:SetPrimaryAttribute(1)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Draghor.ShapeshiftOut.Sound", caster)
 
 end

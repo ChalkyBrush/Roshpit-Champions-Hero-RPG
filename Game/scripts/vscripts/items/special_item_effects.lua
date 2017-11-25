@@ -5010,15 +5010,27 @@ function ahnqhir_mask_off_think(event)
 		end
 	end
 end
+
+function direwolf_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+
+	local stacks = Filters:GetPrimaryAttributeMultiple(target, 0.1)
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_direwolf_bulwark_effect", {})
+	target:SetModifierStackCount("modifier_direwolf_bulwark_effect", caster, math.ceil(stacks))
+end
+
 function eyeglass_attack(event)
-    local attacker = event.attacker
-    local target = event.target
+	local attacker = event.attacker
+	local target = event.target
 	local distance = math.min(WallPhysics:GetDistance(attacker:GetAbsOrigin(), target:GetAbsOrigin()), 5000)
-    local damage = 0.003 * attacker:GetLevel() * distance ^ 3
+	local damage = 0.003 * attacker:GetLevel() * distance ^ 3
 
 	Filters:ApplyItemDamage(target,attacker,damage,DAMAGE_TYPE_PHYSICAL, event.ability, RPC_ELEMENT_HOLY, RPC_ELEMENT_COSMOS)
 
 end
+
 function eyeglass_equip(event)
 	event.target:SetRangedProjectileName("particles/units/heroes/hero_drow/astral_c_a_particle_attackfrost_arrow.vpcf")
 end
