@@ -350,13 +350,9 @@ function b_c_think(event)
   local caster = event.target
   local totalLevel = event.ability.b_c_level
   local ability = event.ability
-  local damage = (totalLevel*1500 + 300)/2
+  local damage = (totalLevel*22500 + 300)/2
 
   local glyphed = false
-  if caster:HasModifier("modifier_voltex_glyph_5_a") then
-    glyphed = true
-    damage = damage * 9
-  end
   if not ability.particles then
     ability.particles = 0
   end

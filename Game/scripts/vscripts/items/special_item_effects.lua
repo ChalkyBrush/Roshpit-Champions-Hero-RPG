@@ -521,7 +521,11 @@ function centaur_horn_think(event)
 		end
 	end
 end
-
+function monkey_paw_think(event)
+	local caster = event.target
+	local ability = event.ability
+	ApplyDamage({ victim = caster, attacker = caster, damage = 1, damage_type = DAMAGE_TYPE_PURE})
+end
 function ankh_of_ancients_think(event)
 	local caster = event.target
 	local ability = event.ability
@@ -3046,7 +3050,7 @@ function nobility_think_augmented(event)
 	local target = event.target
 	local ability = event.ability
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_ring_of_nobility_buff_augmented", {})
-	target:SetModifierStackCount("modifier_ring_of_nobility_buff_augmented", ability, target:GetLevel()*2)
+	target:SetModifierStackCount("modifier_ring_of_nobility_buff_augmented", ability, target:GetLevel())
 end
 
 function nobility_kill(event)
@@ -5005,4 +5009,16 @@ function ahnqhir_mask_off_think(event)
 		else
 		end
 	end
+end
+function eyeglass_attack(event)
+    local attacker = event.attacker
+    local target = event.target
+	local distance = math.min(WallPhysics:GetDistance(attacker:GetAbsOrigin(), target:GetAbsOrigin()), 5000)
+    local damage = 0.003 * attacker:GetLevel() * distance ^ 3
+
+	Filters:ApplyItemDamage(target,attacker,damage,DAMAGE_TYPE_PHYSICAL, event.ability, RPC_ELEMENT_HOLY, RPC_ELEMENT_COSMOS)
+
+end
+function eyeglass_equip(event)
+	event.target:SetRangedProjectileName("particles/units/heroes/hero_drow/astral_c_a_particle_attackfrost_arrow.vpcf")
 end

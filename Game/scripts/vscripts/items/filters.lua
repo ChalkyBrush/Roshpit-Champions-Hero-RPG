@@ -37,6 +37,24 @@ function Filters:ApplyItemDamage(victim,attacker,damage,damage_type,item,element
     -- ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = item })
 end
 
+function Filters:ApplyItemDamageBasedOnAbility(victim,attacker,damage,damage_type,item,element1,element2)
+    if attacker:HasModifier("modifier_solunia_arcana2") then
+        local b_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 3)
+        if b_d_level > 0 then
+            if attacker.sunMoon == "moon" then
+                victim.SoluniaBurnLunar = damage*0.05*b_d_level
+                local alphaAbility = attacker:FindAbilityByName("solunia_lunar_alpha_spark")
+                alphaAbility:ApplyDataDrivenModifier(attacker, victim, "modifier_solunia_lunar_burn", {duration = 8})
+            else
+                victim.SoluniaBurnSolar = damage*0.05*b_d_level
+                local alphaAbility = attacker:FindAbilityByName("solunia_solar_alpha_spark")
+                alphaAbility:ApplyDataDrivenModifier(attacker, victim, "modifier_solunia_solar_burn", {duration = 8})
+            end
+        end
+    end
+    Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, 0, element1, element2)
+end
+
 function Filters:GetUnpurgableDebuffNames()
     local unpurgable = {"modifier_shipyard_boss_aura_effect"}
     return unpurgable
@@ -937,9 +955,6 @@ function Filters:ApplyRskills(caster)
     if caster:HasModifier("modifier_spirit_glove") then
         Filters:SpiritGlove(caster)
     end
-    if caster:HasModifier("modifier_monkey_paw") then
-        Filters:MonkeyPaw(caster)
-    end
     if caster:HasModifier("modifier_super_ascendency") then
         Filters:AscensionTrigger(caster)
     end
@@ -1382,7 +1397,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
                         attacker.headItem.waterParticleCount = attacker.headItem.waterParticleCount - 1
                     end)
                 end
-                Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
+                Filters:ApplyItemDamageBasedOnAbility(victim, attacker, damage, DAMAGE_TYPE_PURE, nil, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
                 attacker.headItem:ApplyDataDrivenModifier(attacker.headItem, victim, "modifier_water_deity_crown_slow", {duration = 6})
             end
         end
@@ -2432,7 +2447,7 @@ function Filters:LumaGuardStrike(attacker, victim, damage)
         --  ParticleManager:DestroyParticle(pfx, false)
         -- end)
         local damage = damage * 4
-        Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+        Filters:ApplyItemDamageBasedOnAbility(victim, attacker, damage, DAMAGE_TYPE_PURE, nil, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
         print("MOONBEAM HAS FIRED")
     end
 end
@@ -2544,7 +2559,7 @@ function Filters:FrostburnGauntlet(caster, damage, victim)
     if #enemies > 0 then    
         for _,enemy in pairs(enemies) do
             caster.frostburnItem:ApplyDataDrivenModifier(caster, enemy, "modifier_frostburn_gauntlets_slow", {duration = 3})
-            Filters:ApplyItemDamage(enemy,caster,damage,DAMAGE_TYPE_PURE,nil,RPC_ELEMENT_ICE,RPC_ELEMENT_NONE)
+            Filters:ApplyItemDamageBasedOnAbility(enemy,caster,damage,DAMAGE_TYPE_PURE,nil,RPC_ELEMENT_ICE,RPC_ELEMENT_NONE)
         end
     end
 end
@@ -2711,20 +2726,20 @@ function Filters:FalconProjectile(caster, fv, projectileOrigin)
     projectile = ProjectileManager:CreateLinearProjectile(info)
 end
 
-function Filters:MonkeyPaw(caster)
-    local item = caster.monkey_paw
-    local wishes = item.property1
-    if wishes == 1 then
-        caster:RemoveModifierByName("modifier_monkey_paw")
-        item.property1 = "-"
-        RPCItems:SetPropertyValuesSpecial(item, item.property1, "#item_broken_slot", "#444444",  1, "#property_monkey_paw_description")     
-    else
-        local newWishes = wishes - 1
-        item.property1 = newWishes
-        RPCItems:SetPropertyValuesSpecial(item, item.property1, "#item_property_monkey_paw", "#E4AE33",  1, "#property_monkey_paw_description")
-    end
-    RPCItems:RollItemtype(1, caster:GetAbsOrigin(), 5, 1)
-end
+--function Filters:MonkeyPaw(caster)
+--    local item = caster.monkey_paw
+--    local wishes = item.property1
+--    if wishes == 1 then
+--        caster:RemoveModifierByName("modifier_monkey_paw")
+--        item.property1 = "-"
+--        RPCItems:SetPropertyValuesSpecial(item, item.property1, "#item_broken_slot", "#444444",  1, "#property_monkey_paw_description")
+--    else
+--        local newWishes = wishes - 1
+--        item.property1 = newWishes
+--        RPCItems:SetPropertyValuesSpecial(item, item.property1, "#item_property_monkey_paw", "#E4AE33",  1, "#property_monkey_paw_description")
+--    end
+--    RPCItems:RollItemtype(1, caster:GetAbsOrigin(), 5, 1)
+--end
 
 function Filters:EternalFrost(caster)
         local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
@@ -3031,7 +3046,7 @@ end
 function Filters:DemonMask(caster, target, damage)
     local proc = Filters:GetProc(caster, 15)    
     if proc then
-        damage = damage*4
+        damage = damage*20
         EmitSoundOn("RPCItem.DemonMask", target)
         local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_arc_warden/demon_mask_3.vpcf", PATTACH_CUSTOMORIGIN, caster )
 
@@ -3047,7 +3062,7 @@ function Filters:DemonMask(caster, target, damage)
         Timers:CreateTimer(0.1, function()
             if #enemies > 0 then
                 for _,enemy in pairs(enemies) do
-                    Filters:ApplyItemDamage(enemy,caster,damage,DAMAGE_TYPE_MAGICAL,nil,RPC_ELEMENT_DEMON,RPC_ELEMENT_NONE)
+                    Filters:ApplyItemDamageBasedOnAbility(enemy,caster,damage,DAMAGE_TYPE_MAGICAL,nil,RPC_ELEMENT_DEMON,RPC_ELEMENT_NONE)
                 end
             end     
         end)        
@@ -3587,7 +3602,7 @@ function Filters:FireDeity(attacker, victim, damage)
         if #enemies > 0 then
             for _,enemy in pairs(enemies) do
                 Filters:ApplyStun(attacker, 0.6, enemy)
-                Filters:TakeArgumentsAndApplyDamage(enemy, attacker, damage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+                Filters:ApplyItemDamageBasedOnAbility(enemy, attacker, damage, DAMAGE_TYPE_MAGICAL, nil, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
             end
         end 
     end
