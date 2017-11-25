@@ -248,6 +248,8 @@ function Body:action(propertyName, propertyValue, hero, inventory_unit, body_abi
 	elseif propertyName == "light_seer" then
 		RPCItems:PreacheArcanaResources(item)
 		Body:addItemModifier(0, hero, inventory_unit, "modifier_templar_light_seers_robe", item)
+	elseif propertyName == "direwolf" then
+		Body:addItemModifier(0, hero, inventory_unit, "modifier_direwolf_bulwark", item)
 	end
 	hero.body = item
 	item.hero = hero
@@ -435,6 +437,7 @@ function Body:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_templar_light_seers_robe")
 	hero:RemoveModifierByName("modifier_warlord_arcana1")
 	hero:RemoveModifierByName("modifier_solunia_arcana2")
+	hero:RemoveModifierByName("modifier_direwolf_bulwark")
 	hero.ocean_tempest = nil
 
 	hero.space_tech = nil

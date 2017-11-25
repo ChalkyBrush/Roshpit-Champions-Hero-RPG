@@ -5006,3 +5006,13 @@ function ahnqhir_mask_off_think(event)
 		end
 	end
 end
+
+function direwolf_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+
+	local stacks = Filters:GetPrimaryAttributeMultiple(target, 0.1)
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_direwolf_bulwark_effect", {})
+	target:SetModifierStackCount("modifier_direwolf_bulwark_effect", caster, math.ceil(stacks))
+end
