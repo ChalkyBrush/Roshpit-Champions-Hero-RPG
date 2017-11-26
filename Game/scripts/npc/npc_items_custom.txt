@@ -7739,7 +7739,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"20"
 			}
 			"02"
 			{
@@ -7784,7 +7784,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1"
-				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "10" 
+				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "20" 
 				}
 			}
 		}
