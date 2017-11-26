@@ -2,7 +2,11 @@ function lightning_attack_start(event)
     local caster = event.caster
     Filters:CastSkillArguments(1, caster)
     caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "voltex")
-    local buffDuration = Filters:GetAdjustedBuffDuration(caster, 5, false)
+    local buffDuration = 5
+    if caster:HasModifier("modifier_voltex_glyph_5_a") then
+        buffDuration = buffDuration + 3
+    end
+    buffDuration = Filters:GetAdjustedBuffDuration(caster, buffDuration, false)
     if caster:HasModifier("modifier_voltex_glyph_1_1") then
         local ability = event.ability
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_glyph_1_1_effect", {duration = buffDuration})
@@ -13,7 +17,7 @@ function lightning_attack_start(event)
         local ability = event.ability
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_glyph_2_1_effect_visible", {duration = buffDuration})
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_glyph_2_1_effect_invisible", {duration = buffDuration})
-        caster:SetModifierStackCount( "modifier_voltex_glyph_2_1_effect_invisible", ability, caster:GetAgility())
+        caster:SetModifierStackCount( "modifier_voltex_glyph_2_1_effect_invisible", ability, caster:GetAgility() * 0.8)
     end
 end
 

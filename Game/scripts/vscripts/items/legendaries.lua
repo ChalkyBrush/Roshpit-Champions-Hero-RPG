@@ -7865,6 +7865,8 @@ function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, sl
         newItem = RPCItems:RollTwistedMaskOfAhnqhirPurple(deathLocation)
     elseif itemName == "item_rpc_steamboots" then
         newItem = RPCItems:RollSteamboots(deathLocation)
+    elseif itemName == "item_rpc_monkey_paw" then
+        newItem = RPCItems:RollMonkeyPaw(deathLocation)
     else
         newItem = false
         giveBackOldItem = true
@@ -7972,7 +7974,7 @@ function RPCItems:GetPrereductionMinLevel(item)
 end
 
 function RPCItems:GetSoulBankableItemsList()
-    local itemsList = {"item_rpc_magebane_gloves", "item_rpc_berserker_gloves", "item_rpc_shadow_armlet", "item_rpc_boneguard_gauntlets", "item_rpc_scorched_gauntlets",
+    local itemsList = {"item_rpc_monkey_paw", "item_rpc_magebane_gloves", "item_rpc_berserker_gloves", "item_rpc_shadow_armlet", "item_rpc_boneguard_gauntlets", "item_rpc_scorched_gauntlets",
 "item_rpc_hand_of_midas", "item_rpc_kappa_pride_gloves", "item_rpc_claw_of_azinoth", "item_rpc_gauntlet_of_divine_purity", "item_rpc_marauder_gloves", "item_rpc_grasp_of_elder",
 "item_rpc_scarecrow_gloves", "item_rpc_living_gauntlet", "item_rpc_silverspring_gloves", "item_rpc_mordiggus_gauntlet", "item_rpc_ironbound_gloves", "item_rpc_far_seers_enchanted_gloves",
 "item_rpc_master_gloves", "item_rpc_phoenix_gloves", "item_rpc_eternal_essence_gauntlet", "item_rpc_spirit_glove", "item_rpc_frostburn_gauntlets", "item_rpc_mountain_vambraces", "item_rpc_grand_arcanist_wraps",

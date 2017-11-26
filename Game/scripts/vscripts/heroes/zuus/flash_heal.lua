@@ -64,7 +64,7 @@ function cast_flash_heal(event)
 				EmitSoundOnLocationWithCaster(cursorPos, "Auriun.ShadowFlare", caster)
 			end
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), cursorPos, nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-			local damage = ability.a_b_level*480 + 400
+			local damage = ability.a_b_level*1920 + 400
 			damage = b_b_amp(damage, caster, ability)
 			for _,enemy in pairs(enemies) do
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)

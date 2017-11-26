@@ -30,8 +30,8 @@ CustomAttributes.AXE_E1_STATS = 10
 CustomAttributes.SORCERESS_ARCANE_INT = 50
 CustomAttributes.TRAPPER_R4_AGI = 500
 
-CustomAttributes.RING_OF_NOBILITY = 20
-CustomAttributes.RING_OF_NOBILITY2 = 40 
+CustomAttributes.RING_OF_NOBILITY = 30
+CustomAttributes.RING_OF_NOBILITY2 = 60
 CustomAttributes.AZURE_EMPIRE_STATS = 25
 CustomAttributes.TANARI_FLOWER_STATS = 300
 CustomAttributes.FLAMEWAKER_WEAPON_2_AGI = 50000
