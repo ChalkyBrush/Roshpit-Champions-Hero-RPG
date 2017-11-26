@@ -2424,33 +2424,6 @@ function GameState:FilterDamage(filterTable)
 					end 
 				end)
 			end
-		elseif victim.mainBoss then
-			local heroes = FindUnitsInRadius( victim:GetTeamNumber(), victim:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
-			for _,hero in pairs(heroes) do
-				if hero:HasModifier('modifier_monkey_paw') then
-					local gold = hero:GetGold();
-					local bossLocation = victim:GetAbsOrigin()
-					hero:SpendGold(gold/2, DOTA_ModifyGold_PurchaseItem)
-					local itemsCount = math.ceil(gold/3500/GameState:GetDifficultyFactor())
-					itemsCount = 20
-					RPCItems.LevelRoll = 30 * GameState:GetDifficultyFactor()
-					for i = 1, itemsCount, 1 do
-						local luck = RandomInt(200, 500)
-						if luck >= 200 and luck < 265 then
-							RPCItems:RollHood(0, bossLocation, "immortal", false, 0, nil, 0)
-						elseif luck >= 265 and luck < 330 then
-							RPCItems:RollHand(0, bossLocation, "immortal", false, 0, nil, 0)
-						elseif luck >= 330 and luck < 395 then
-							RPCItems:RollFoot(0, bossLocation, "immortal", false, 0, nil, 0)
-						elseif luck >= 395 and luck < 460 then
-							RPCItems:RollBody(0, bossLocation, "immortal", false, 0, nil, 0)
-						elseif luck <= 500 then
-							RPCItems:RollAmulet(0, bossLocation, "immortal", false, 0, nil, 0)
-						end
-					end
-					RPCItems.LevelRoll = nil
-				end
-			end
 		end
 
 	end
@@ -2492,16 +2465,16 @@ function GameState:FilterDamage(filterTable)
 	-- 	filterTable["damage"] = filterTable["damage"]/GameState.PVP_REDUCTION
 	-- end
 	if Beacons.cheats then
-		-- if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-		-- 	if victim:IsHero() then
-		-- 		filterTable["damage"] = victim:GetMaxHealth()*0.1
-		-- 	end
-		-- end
-		-- if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-		-- 	if attacker:IsHero() then
-		-- 		filterTable["damage"] = filterTable["damage"]*10000000*30*10000*1000000
-		-- 	end
-		-- end
+		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+			if victim:IsHero() then
+				filterTable["damage"] = 0
+			end
+		end
+		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+			if attacker:IsHero() then
+				filterTable["damage"] = filterTable["damage"]*10000000*30*10000*1000000
+			end
+		end
 		-- if damagetype == DAMAGE_TYPE_PHYSICAL then
 		-- 	filterTable["damage"] = victim:GetHealth()-100
 		-- end

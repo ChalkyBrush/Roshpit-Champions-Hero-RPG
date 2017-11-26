@@ -16549,6 +16549,10 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"precache"
+		{
+			"particle"  "particles/roshpit/items/monkey_paw_bounty.vpcf"
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -16572,6 +16576,24 @@
 					{
 						"ScriptFile"	"monkey_paw_think"
 						"target"		"TARGET"
+					}
+				}
+				"Aura"          	"modifier_monkey_paw_aura"
+				"Aura_Radius"   	"600"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Aura_ApplyToCaster" "0"
+			}
+			"modifier_monkey_paw_aura"
+			{
+				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"monkey_paw_unit_die"
 					}
 				}
 			}
@@ -17851,6 +17873,10 @@
 		"ItemBaseLevel"	"1"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"precache"
+		{
+			"particle"  "particles/roshpit/items/epsilon_impact.vpcf"
+		}
 		"OnSpellStart"
 		{
 			"RunScript"

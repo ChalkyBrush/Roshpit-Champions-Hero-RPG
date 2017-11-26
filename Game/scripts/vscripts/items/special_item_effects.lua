@@ -5045,3 +5045,38 @@ function eyeglass_equip(event)
 		event.target:SetRangedProjectileName("particles/units/heroes/hero_drow/astral_c_a_particle_attackfrost_arrow.vpcf")
 	end
 end
+
+function monkey_paw_unit_die(event)
+	local unit = event.unit
+	local caster = event.caster
+	local hero = caster.hero
+	local victim = unit
+	if unit.paragon then
+		local gold = hero:GetGold();
+		local bossLocation = victim:GetAbsOrigin()
+		hero:SpendGold(gold/2, DOTA_ModifyGold_PurchaseItem)
+		local itemsCount = math.ceil(gold/3500/GameState:GetDifficultyFactor())
+		
+		for i = 1, itemsCount, 1 do
+			Timers:CreateTimer((i-1)*0.3, function()
+				RPCItems.LevelRoll = 30 * GameState:GetDifficultyFactor()
+				EmitSoundOnLocationWithCaster(bossLocation, "RPC.MonkeyPaw.Bounty", caster)
+				CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/monkey_paw_bounty.vpcf", GetGroundPosition(bossLocation, Events.GameMaster), 1.2)
+				CustomAbilities:QuickAttachParticle("particles/roshpit/items/monkey_paw_bounty.vpcf", hero, 0.5)
+				local luck = RandomInt(200, 500)
+				if luck >= 200 and luck < 265 then
+					RPCItems:RollHood(0, bossLocation, "immortal", false, 0, nil, 0)
+				elseif luck >= 265 and luck < 330 then
+					RPCItems:RollHand(0, bossLocation, "immortal", false, 0, nil, 0)
+				elseif luck >= 330 and luck < 395 then
+					RPCItems:RollFoot(0, bossLocation, "immortal", false, 0, nil, 0)
+				elseif luck >= 395 and luck < 460 then
+					RPCItems:RollBody(0, bossLocation, "immortal", false, 0, nil, 0)
+				elseif luck <= 500 then
+					RPCItems:RollAmulet(0, bossLocation, "immortal", false, 0, nil, 0)
+				end
+				RPCItems.LevelRoll = nil
+			end)
+		end
+	end
+end

@@ -5496,15 +5496,9 @@ function RPCItems:RollMonkeyPaw(deathLocation)
     
     item.property1name = "monkey_paw"
     local value = 1
-    local luck = RandomInt(1, 20)
-    if luck > 18 then
-        value = 3
-    elseif luck > 15 then
-        value = 2
-    end
     item.property1 = value
 
-    RPCItems:SetPropertyValuesSpecial(item, item.property1, "#item_property_monkey_paw", "#E4AE33",  1, "#property_monkey_paw_description")
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_monkey_paw", "#E4AE33",  1, "#property_monkey_paw_description")
 
     item.hasRunePoints = true
     local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
