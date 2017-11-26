@@ -17849,6 +17849,7 @@
 		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
 		"OnSpellStart"
 		{
@@ -17873,17 +17874,27 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_three"		"1500"
+				"property_three"		"700"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_four"			"3"
 			}
-			"04"
+			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_five"			"5000"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"7"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"8"
 			}
 		}
 		"Modifiers"
@@ -17933,6 +17944,11 @@
 					"RemoveModifier"
 					{
 						"ModifierName"	"modifier_epsilons_eyeglass_range_effect"
+						"Target" 		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_epsilon"
 						"Target" 		"TARGET"
 					}
 				}

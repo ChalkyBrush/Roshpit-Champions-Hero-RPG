@@ -13353,6 +13353,16 @@
 				"var_type"			"FIELD_INTEGER"
 				"element_one"			"9"
 			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"		"20"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_two"		"200"
+			}
 		}
 		"Modifiers"
 		{
@@ -16555,6 +16565,39 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"monkey_paw_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"			"50"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_two"			"3500"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_three"		"7000"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_four"			"10500"
 			}
 		}
 	}
@@ -16984,6 +17027,20 @@
 				"Function"		"equip_item"
 			}
 		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"		"30"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_two"		"10000"
+			}
+		}
 		"Modifiers"
 		{
 			"modifier_ring_of_nobility"
@@ -17053,6 +17110,14 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"		"60"
 			}
 		}
 		"Modifiers"
@@ -17784,6 +17849,7 @@
 		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
 		"OnSpellStart"
 		{
@@ -17791,6 +17857,44 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"240"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"800"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_three"		"700"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_four"			"3"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_five"			"5000"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"7"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"8"
 			}
 		}
 		"Modifiers"
@@ -17805,6 +17909,16 @@
 					"MODIFIER_PROPERTY_BONUS_DAY_VISION" 	"800"
 					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"800"
 				}
+
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"eyeglass_equip"
+						"target"		"TARGET"
+					}
+				}
 				"ThinkInterval"  "1.0"
 				"OnIntervalThink"
 				{
@@ -17812,6 +17926,16 @@
 					{
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"eyeglass_think"
+						"target"		"TARGET"
+					}
+
+				}
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"eyeglass_attack"
 						"target"		"TARGET"
 					}
 				}
@@ -17822,6 +17946,11 @@
 						"ModifierName"	"modifier_epsilons_eyeglass_range_effect"
 						"Target" 		"TARGET"
 					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_epsilon"
+						"Target" 		"TARGET"
+					}
 				}
 			}
 			"modifier_epsilons_eyeglass_range_effect"
@@ -17830,6 +17959,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "240"
+					"MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS" "1500"
 				}
 			}
 		}
@@ -18369,6 +18499,16 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"element_one"			"15"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"		"15"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_two"		"20"
 			}
 		}
 	}
@@ -38313,7 +38453,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"2"
+				"property_one"			"1.8"
 			}
 			"02"
 			{

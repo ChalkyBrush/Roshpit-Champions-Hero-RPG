@@ -5034,9 +5034,14 @@ function eyeglass_attack(event)
 	local damage = 0.003 * attacker:GetLevel() * distance ^ 3
 
 	Filters:ApplyItemDamage(target,attacker,damage,DAMAGE_TYPE_PHYSICAL, event.ability, RPC_ELEMENT_HOLY, RPC_ELEMENT_COSMOS)
-
+	CustomAbilities:QuickAttachParticle("particles/roshpit/items/epsilon_impact.vpcf", target, 0.5)
 end
 
 function eyeglass_equip(event)
-	event.target:SetRangedProjectileName("particles/units/heroes/hero_drow/astral_c_a_particle_attackfrost_arrow.vpcf")
+	local target = event.target
+	local ability = event.ability
+	target:AddNewModifier( target, ability, "modifier_epsilon", {} )
+	if event.target:GetUnitName() == "npc_dota_hero_drow_ranger" then
+		event.target:SetRangedProjectileName("particles/units/heroes/hero_drow/astral_c_a_particle_attackfrost_arrow.vpcf")
+	end
 end

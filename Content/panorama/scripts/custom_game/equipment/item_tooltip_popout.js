@@ -440,6 +440,11 @@ function SpecialDescriptionValues(specialText, item)
 		value = Math.round(value*100, 1)/100
 		specialText = specialText.replace("@special_property4", "<font color='#CCFF66'>"+value+"</font>");
 	}
+	if (specialText.indexOf("@special_property5") > -1){
+		var value = Abilities.GetSpecialValueFor( item, "property_five" )
+		value = Math.round(value*100, 1)/100
+		specialText = specialText.replace("@special_property5", "<font color='#CCFF66'>"+value+"</font>");
+	}
 	return specialText
 }
 
