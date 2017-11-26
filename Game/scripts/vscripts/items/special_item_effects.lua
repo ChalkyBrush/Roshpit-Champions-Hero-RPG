@@ -3451,14 +3451,20 @@ function leon_think(event)
 		local strStacks = math.floor((target:GetStrength()-target:GetModifierStackCount( "modifier_gold_plate_of_leon_str", ability))*0.6, 0) 
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_gold_plate_of_leon_str", {})
 		target:SetModifierStackCount( "modifier_gold_plate_of_leon_str", ability, strStacks)
+		target:RemoveModifierByName("modifier_gold_plate_of_leon_agi")
+		target:RemoveModifierByName("modifier_gold_plate_of_leon_int")
 	elseif primeAttribute == 1 then
 		local agiStacks = math.floor((target:GetAgility()-target:GetModifierStackCount( "modifier_gold_plate_of_leon_agi", ability))*0.6, 0) 
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_gold_plate_of_leon_agi", {})
 		target:SetModifierStackCount( "modifier_gold_plate_of_leon_agi", ability, agiStacks)
+		target:RemoveModifierByName("modifier_gold_plate_of_leon_str")
+		target:RemoveModifierByName("modifier_gold_plate_of_leon_int")
 	elseif primeAttribute == 2 then
 		local intStacks = math.floor((target:GetIntellect()-target:GetModifierStackCount( "modifier_gold_plate_of_leon_int", ability))*0.6, 0) 
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_gold_plate_of_leon_int", {})
 		target:SetModifierStackCount( "modifier_gold_plate_of_leon_int", ability, intStacks)
+		target:RemoveModifierByName("modifier_gold_plate_of_leon_agi")
+		target:RemoveModifierByName("modifier_gold_plate_of_leon_str")
 	end
 end
 
