@@ -113,3 +113,23 @@ function ogre_armor_impact(event)
 	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
 	Filters:ApplyStun(caster, event.stun_duration, target)	
 end
+
+function monolith_found_enemy(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	if not caster.activated then
+		EmitSoundOn("Winterblight.Monolith.Detect", caster)
+		caster.actived = true
+		Winterblight:smoothColorTransition(caster, Vector(255,255,255), Vector(200,200,255), 20)
+		Timers:CreateTimer(0.6, function()
+			Winterblight:objectShake(caster, 25, 3, true, false, false, "Winterblight.Monolith.Shake", 6)
+			Timers:CreateTimer(0.75, function()
+				 CustomAbilities:QuickParticleAtPoint("particles/world_tower/tower_upgrade/ti7_radiant_tower_lvl2_dest.vpcf", caster:GetAbsOrigin(), 6)
+				 Timers:CreateTimer(0.1, function()
+				 	UTIL_Remove(caster)
+				 end)
+			end)
+		end)
+	end
+end

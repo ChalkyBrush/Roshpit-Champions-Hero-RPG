@@ -44571,22 +44571,6 @@
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
-			"modifier_centaur_horns"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "0.2"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"centaur_horn_think"
-						"target"		"TARGET"
-					}
-				}
-			}
 			"modifier_death_whisper"
 			{
 				"Passive"	"0"
@@ -47643,7 +47627,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1500"
+				"property_two"			"22500"
 			}
 			"04"
 			{
@@ -57469,7 +57453,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-15"
+				"property_one"			"-10"
 			}
 		}
 
@@ -59350,7 +59334,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"480"
+				"property_one"			"1920"
 			}
 			"02"
 			{
@@ -59450,7 +59434,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"8"
 			}
 		}
 
@@ -59984,7 +59968,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"8"
 			}
 			"02"
 			{
@@ -60102,7 +60086,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"8"
 			}
 		}
 
@@ -63367,7 +63351,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.02"
+				"property_one"			"0.08"
 			}
 		}
 	}
@@ -63847,7 +63831,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.04"
+				"property_one"			"0.16"
 			}
 		}
 	}
@@ -83002,6 +82986,7 @@
                 	{
                 		"ScriptFile"	"worlds/tanari/tanari_trigger_areas"
                 		"Function"		"town_portal_take_damage"
+                		"damage"        "%attack_damage"
                 	}
                 }
 	        }
@@ -112653,6 +112638,61 @@
 				"target"		"TARGET"
 				"damage"		"%damage"
 				"stun_duration"	"%stun_duration"
+			}
+		}
+	}
+
+	"winterblight_monolith_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"redfall/autumn_spawner"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"armor"			"4 100 1500"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_disable_player"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"IsHidden"		"1"
+				"IsBuff"		"1"
+				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_dire.vpcf"
+				"StatusEffectPriority"  "100"
+				"States"
+				{
+					"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
+				}
+				"Aura"          	"modifier_monolith_found_enemy"
+				"Aura_Radius"   	"800"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Aura_ApplyToCaster" "0"
+			}
+			"modifier_monolith_found_enemy"
+			{
+				"IsHidden"	"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"monolith_found_enemy"
+					}
+				}
 			}
 		}
 	}

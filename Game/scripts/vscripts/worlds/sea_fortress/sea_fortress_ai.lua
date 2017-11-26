@@ -3778,6 +3778,7 @@ function zealot_die(caster)
         EmitSoundOnLocationWithCaster(wallL:GetAbsOrigin(), "Seafortress.WallOpen", Events.GameMaster)
         EmitSoundOnLocationWithCaster(wallR:GetAbsOrigin(), "Seafortress.WallOpen", Events.GameMaster)
     end)
+    Seafortress.TempleEnergyState = 0
     local radiusCounter = 0
     for i = 1, 180, 1 do
         Timers:CreateTimer(i*0.03, function()
@@ -3808,6 +3809,12 @@ function zealot_die(caster)
         end)
     end
     Seafortress:AfterZealotRoom()
+
+	local darkSwitch = Vector(67, 131, 101)
+	local lightSwitch = Vector(199, 192, 75)
+	local switch = Entities:FindByNameNearest("BeamButton", Vector(-6242, -256), 800)
+	Seafortress:smoothColorTransition(switch, darkSwitch, lightSwitch, 30)
+	EmitSoundOnLocationWithCaster(switch:GetAbsOrigin(), "Seafortress.ButtonGlow", Seafortress.Master)
 end
 
 function sapphire_dragon_attack_start(event)

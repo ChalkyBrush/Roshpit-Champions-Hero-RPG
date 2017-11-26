@@ -185,3 +185,51 @@ function Winterblight:ColorWearables(unit, color)
     end 
   end 
 end
+
+function Winterblight:objectShake(object, ticks, strength, bX, bY, bZ, sound, soundInterval)
+  for i = 1, ticks, 1 do
+    Timers:CreateTimer(i*0.03, function()
+      local magnitudeX = 0
+      local magnitudeY = 0
+      local magnitudeZ = 0
+      if bX then
+        magnitudeX = strength
+      end
+      if bY then
+        magnitudeY = strength
+      end
+      if bZ then
+        magnitudeZ = strength
+      end
+      local moveVector = Vector(magnitudeX, magnitudeY, magnitudeZ)
+      if i%2 == 0 then
+        moveVector = moveVector*-1
+      end
+      if sound then
+        if i%soundInterval == 0 then
+          EmitSoundOnLocationWithCaster(object:GetAbsOrigin(), sound, Events.GameMaster)
+        end
+      end
+      object:SetAbsOrigin(object:GetAbsOrigin()+moveVector)
+    end)
+  end
+end
+
+function Winterblight:smoothColorTransition(object, startColor, endColor, ticks)
+  local colorChangeVector = (endColor-startColor)/ticks
+  for i = 0, ticks, 1 do
+    Timers:CreateTimer(i*0.03, function()
+      object:SetRenderColor(startColor.x + colorChangeVector.x * i, startColor.y + colorChangeVector.y * i, startColor.z + colorChangeVector.z * i)
+    end)
+  end
+end
+
+function Winterblight:smoothSizeChange(object, startSize, endSize, ticks)
+  local growth = (endSize-startSize)/ticks
+  for i = 0, ticks, 1 do
+    Timers:CreateTimer(i*0.03, function()
+      object:SetModelScale(startSize + growth*i)
+    end)
+  end
+end
+

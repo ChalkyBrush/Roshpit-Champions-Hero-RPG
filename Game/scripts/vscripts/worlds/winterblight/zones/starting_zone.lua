@@ -32,6 +32,13 @@ function Winterblight:SpawnMountainOgre(position, fv)
 	return stone
 end
 
+function Winterblight:SpawnMonolith(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_ancient_monolith", position, 1, 2, nil, fv, false)
+	Events:AdjustBossPower(stone, 1, 2, false)
+	stone.itemLevel = 20
+	return stone
+end
+
 
 
 function Winterblight:FirstSpawns()
@@ -100,4 +107,5 @@ function Winterblight:FirstSpawns()
 		    Winterblight:SpawnCrabSpawner(Vector(-11008, -4672), Vector(0,1), Vector(-12992, -3264))
 		end
 	end)
+	Winterblight:SpawnMonolith(Vector(-10357, -3776), Vector(0,-1))
 end

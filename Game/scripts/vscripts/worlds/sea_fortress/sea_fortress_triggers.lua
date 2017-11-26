@@ -385,7 +385,12 @@ function MazeExitTeleport2(trigger)
 end
 
 function DeepRoomSpawn()
-	Seafortress:SpawnDeepRoom()
+	if Seafortress.MazeExitPortalActive then
+		if not Seafortress.DeepRoomSpawned then
+			Seafortress.DeepRoomSpawned = true
+			Seafortress:SpawnDeepRoom()
+		end
+	end
 end
 
 function LightningZapper1(trigger)
@@ -791,9 +796,6 @@ function TempleEnergyButton(trigger)
 	local darkBlue = Vector(81, 119, 148)
 	local darkSwitch = Vector(67, 131, 101)
 	local lightSwitch = Vector(199, 192, 75)
-	if not Seafortress.TempleEnergyState then
-		Seafortress.TempleEnergyState = 0
-	end
 	print(Seafortress.TempleEnergyState)
 	if Seafortress.TempleEnergyState == 0 then
 		if switchIndex == 1 then

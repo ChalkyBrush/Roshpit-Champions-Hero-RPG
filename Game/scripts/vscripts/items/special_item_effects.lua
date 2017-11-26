@@ -498,6 +498,45 @@ end
 
 function centaur_horn_think(event)
 	local caster = event.target
+	local ability = event.ability
+	if not ability.interval then
+		ability.interval = 0
+	end
+	ability.interval = ability.interval + 1
+	if ability.interval == 30 then
+		ability.interval = 0
+		CustomAbilities:QuickAttachParticle("particles/roshpit/centaur_horns_lifesteal.vpcf", caster, 0.9)
+	end
+	ApplyDamage({ victim = caster, attacker = caster, damage = 1, damage_type = DAMAGE_TYPE_PURE})
+	if caster:IsStunned() then
+		Filters:CleanseStuns(caster)
+	end
+	if not caster:IsAlive() then
+		if caster:GetTimeUntilRespawn() == 0 then
+			if not caster:GetUnitName() == "npc_dota_hero_night_stalker" then
+				print("KILL!")
+				caster:SetHealth(10)
+				caster:ForceKill(true)
+			end
+		end
+	end
+end
+function monkey_paw_think(event)
+	local caster = event.target
+	local ability = event.ability
+	ApplyDamage({ victim = caster, attacker = caster, damage = 1, damage_type = DAMAGE_TYPE_PURE})
+end
+function ankh_of_ancients_think(event)
+	local caster = event.target
+	local ability = event.ability
+	if caster:IsStunned() then
+		Filters:CleanseStuns(caster)
+	end
+end
+
+function chernobog_glyph_7_1_think(event)
+	local caster = event.target
+	local ability = event.ability
 	if caster:IsStunned() then
 		Filters:CleanseStuns(caster)
 	end
@@ -3011,7 +3050,7 @@ function nobility_think_augmented(event)
 	local target = event.target
 	local ability = event.ability
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_ring_of_nobility_buff_augmented", {})
-	target:SetModifierStackCount("modifier_ring_of_nobility_buff_augmented", ability, target:GetLevel()*2)
+	target:SetModifierStackCount("modifier_ring_of_nobility_buff_augmented", ability, target:GetLevel())
 end
 
 function nobility_kill(event)
@@ -3416,14 +3455,20 @@ function leon_think(event)
 		local strStacks = math.floor((target:GetStrength()-target:GetModifierStackCount( "modifier_gold_plate_of_leon_str", ability))*0.6, 0) 
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_gold_plate_of_leon_str", {})
 		target:SetModifierStackCount( "modifier_gold_plate_of_leon_str", ability, strStacks)
+		target:RemoveModifierByName("modifier_gold_plate_of_leon_agi")
+		target:RemoveModifierByName("modifier_gold_plate_of_leon_int")
 	elseif primeAttribute == 1 then
 		local agiStacks = math.floor((target:GetAgility()-target:GetModifierStackCount( "modifier_gold_plate_of_leon_agi", ability))*0.6, 0) 
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_gold_plate_of_leon_agi", {})
 		target:SetModifierStackCount( "modifier_gold_plate_of_leon_agi", ability, agiStacks)
+		target:RemoveModifierByName("modifier_gold_plate_of_leon_str")
+		target:RemoveModifierByName("modifier_gold_plate_of_leon_int")
 	elseif primeAttribute == 2 then
 		local intStacks = math.floor((target:GetIntellect()-target:GetModifierStackCount( "modifier_gold_plate_of_leon_int", ability))*0.6, 0) 
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_gold_plate_of_leon_int", {})
 		target:SetModifierStackCount( "modifier_gold_plate_of_leon_int", ability, intStacks)
+		target:RemoveModifierByName("modifier_gold_plate_of_leon_agi")
+		target:RemoveModifierByName("modifier_gold_plate_of_leon_str")
 	end
 end
 
@@ -4119,7 +4164,7 @@ function cobalt_serenity_think(event)
 	local ability = event.ability
 	local caster = event.caster
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_cobalt_serenity_health_regen", {})
-	local healthRegenStacks = Filters:GetHeroAttribute(target, "intellect")*1.5
+	local healthRegenStacks = Filters:GetHeroAttribute(target, "intellect") * 8
 	target:SetModifierStackCount("modifier_cobalt_serenity_health_regen", caster, healthRegenStacks)
 end
 
@@ -4968,6 +5013,70 @@ function ahnqhir_mask_off_think(event)
 			pointAbility:SetOverrideCastPoint(pointAbility.ahnqhirPoint)
 			pointAbility.ahnqhirPoint = nil
 		else
+		end
+	end
+end
+
+function direwolf_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+
+	local stacks = Filters:GetPrimaryAttributeMultiple(target, 0.1)
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_direwolf_bulwark_effect", {})
+	target:SetModifierStackCount("modifier_direwolf_bulwark_effect", caster, math.ceil(stacks))
+end
+
+function eyeglass_attack(event)
+	local attacker = event.attacker
+	local target = event.target
+	local distance = math.min(WallPhysics:GetDistance(attacker:GetAbsOrigin(), target:GetAbsOrigin()), 5000)
+	local damage = 0.003 * attacker:GetLevel() * distance ^ 3
+
+	Filters:ApplyItemDamage(target,attacker,damage,DAMAGE_TYPE_PHYSICAL, event.ability, RPC_ELEMENT_HOLY, RPC_ELEMENT_COSMOS)
+	CustomAbilities:QuickAttachParticle("particles/roshpit/items/epsilon_impact.vpcf", target, 0.5)
+end
+
+function eyeglass_equip(event)
+	local target = event.target
+	local ability = event.ability
+	target:AddNewModifier( target, ability, "modifier_epsilon", {} )
+	if event.target:GetUnitName() == "npc_dota_hero_drow_ranger" then
+		event.target:SetRangedProjectileName("particles/units/heroes/hero_drow/astral_c_a_particle_attackfrost_arrow.vpcf")
+	end
+end
+
+function monkey_paw_unit_die(event)
+	local unit = event.unit
+	local caster = event.caster
+	local hero = caster.hero
+	local victim = unit
+	if unit.paragon then
+		local gold = hero:GetGold();
+		local bossLocation = victim:GetAbsOrigin()
+		hero:SpendGold(gold/2, DOTA_ModifyGold_PurchaseItem)
+		local itemsCount = math.ceil(gold/3500/GameState:GetDifficultyFactor())
+		
+		for i = 1, itemsCount, 1 do
+			Timers:CreateTimer((i-1)*0.3, function()
+				RPCItems.LevelRoll = 30 * GameState:GetDifficultyFactor()
+				EmitSoundOnLocationWithCaster(bossLocation, "RPC.MonkeyPaw.Bounty", caster)
+				CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/monkey_paw_bounty.vpcf", GetGroundPosition(bossLocation, Events.GameMaster), 1.2)
+				CustomAbilities:QuickAttachParticle("particles/roshpit/items/monkey_paw_bounty.vpcf", hero, 0.5)
+				local luck = RandomInt(200, 500)
+				if luck >= 200 and luck < 265 then
+					RPCItems:RollHood(0, bossLocation, "immortal", false, 0, nil, 0)
+				elseif luck >= 265 and luck < 330 then
+					RPCItems:RollHand(0, bossLocation, "immortal", false, 0, nil, 0)
+				elseif luck >= 330 and luck < 395 then
+					RPCItems:RollFoot(0, bossLocation, "immortal", false, 0, nil, 0)
+				elseif luck >= 395 and luck < 460 then
+					RPCItems:RollBody(0, bossLocation, "immortal", false, 0, nil, 0)
+				elseif luck <= 500 then
+					RPCItems:RollAmulet(0, bossLocation, "immortal", false, 0, nil, 0)
+				end
+				RPCItems.LevelRoll = nil
+			end)
 		end
 	end
 end

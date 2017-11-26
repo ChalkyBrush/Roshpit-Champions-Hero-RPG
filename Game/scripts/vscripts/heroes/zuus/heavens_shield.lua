@@ -9,7 +9,7 @@ function heavens_shield_cast(event)
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_heavens_shield", {duration = duration})
 	if b_a_level > 0 then
-		local procs = Runes:Procs(b_a_level, 15, 1)
+		local procs = Runes:Procs(b_a_level, 8, 1)
 		shieldStacks = shieldStacks + procs
 	end
 	target:SetModifierStackCount( "modifier_heavens_shield", ability, shieldStacks)

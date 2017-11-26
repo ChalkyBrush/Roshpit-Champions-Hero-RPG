@@ -147,6 +147,7 @@ function Seafortress:Init()
     ParticleManager:SetParticleControl(Seafortress.switchPFX, 0, Vector(-6638, 2503))
     ParticleManager:SetParticleControl(Seafortress.switchPFX, 1, Vector(190, 190, 190))
   end)
+  Seafortress.TempleEnergyState = -1
 end
 
 function Seafortress:LeftWingKill()

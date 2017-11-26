@@ -81,7 +81,7 @@ end
 
 function RPCItems:AmuletLegendary(itemVariant, deathLocation)
     if itemVariant == "item_rpc_talisman" then
-        local luck = RandomInt(1, 6)
+        local luck = RandomInt(1, 7)
         if luck == 1 then
             RPCItems:RollRavenIdol(deathLocation)
             return true
@@ -99,6 +99,9 @@ function RPCItems:AmuletLegendary(itemVariant, deathLocation)
             return true
         elseif luck == 6 then
             RPCItems:RollRingOfNobility(deathLocation)
+            return true
+        elseif luck == 7 then
+            RPCItems:RollMonkeyPaw(deathLocation)
             return true
         end
     elseif itemVariant == "item_rpc_ruby_ring" then

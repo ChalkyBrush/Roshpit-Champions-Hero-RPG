@@ -586,12 +586,17 @@ function RPCItems:RollDivinePurityGauntlets(deathLocation)
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_divine_purity", "#A8D3ED",  1, "#property_divine_purity_description")
     
     local maxFactor = RPCItems:GetMaxFactor()
-    local armorRoll = RandomInt(maxFactor*2, maxFactor*3)+5
-    item.property2 = armorRoll
-    item.property2name = "armor"
-    RPCItems:SetPropertyValues(item, item.property2, "#item_armor", "#D1D1D1",  2)
+    local luck = RandomInt(1,3)
+    if luck == 1 then
+        Elements:RollElementAttribute(item, RPC_ELEMENT_HOLY, 2.8, 2, 30, 2)
+    else
+        local armorRoll = RandomInt(maxFactor*4, maxFactor*8)+5
+        item.property2 = armorRoll
+        item.property2name = "armor"
+        RPCItems:SetPropertyValues(item, item.property2, "#item_armor", "#D1D1D1",  2)
+    end
 
-    local magicResistRoll = RandomInt(10, 15)
+    local magicResistRoll = RandomInt(20, 30)
     item.property3 = magicResistRoll
     item.property3name = "magic_resist"
     RPCItems:SetPropertyValues(item, item.property3, "#item_magic_resist", "#AC47DE",  3)
@@ -2688,13 +2693,13 @@ function RPCItems:RollStormshieldCloak(deathLocation)
     item.property1name = "stormshield"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_stormshield", "#BAD5DE",  1, "#property_stormshield_description")
 
-    local value = RandomInt(maxFactor*5, maxFactor*8)
+    local value = RandomInt(maxFactor*5, maxFactor*10)
     value = RPCItems:GetLogarithmicVarianceValue(value, 0, 0, 0, 0)
     item.property2 = value
     item.property2name = "armor"
     RPCItems:SetPropertyValues(item, item.property2, "#item_armor", "#D1D1D1",  2)
 
-    value = RandomInt(maxFactor*5, maxFactor*8)
+    value = RandomInt(maxFactor*5, maxFactor*10)
     value = RPCItems:GetLogarithmicVarianceValue(value, 0, 0, 0, 0)
     item.property3 = value
     item.property3name = "armor"
@@ -2706,6 +2711,45 @@ function RPCItems:RollStormshieldCloak(deathLocation)
     local position = deathLocation
     RPCItems:DropItem(item, position)
     return item
+end
+
+function RPCItems:RollDirewolfBulkwark(deathLocation)
+    local item = RPCItems:CreateVariant("item_rpc_direwolf_bulwark", "immortal", "Direwolf Bulwark", "body", true, "Slot: Body")
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.property1 = 1
+    item.property1name = "direwolf"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_direwolf", "#502AA3",  1, "#property_direwolf_description")
+
+    local luck = RandomInt(1,3)
+    if luck == 1 then
+        value, nameLevel = RPCItems:RollAttribute(100, 20, 100, 0, 0, item.rarity, false, maxFactor*17)
+        item.property2 = value
+        item.property2name = "strength"
+        RPCItems:SetPropertyValues(item, item.property2, "#item_strength", "#CC0000",  2)
+    elseif luck == 2 then
+        value, nameLevel = RPCItems:RollAttribute(100, 20, 100, 0, 0, item.rarity, false, maxFactor*17)
+        item.property2 = value
+        item.property2name = "agility"
+        RPCItems:SetPropertyValues(item, item.property2, "#item_agility", "#2EB82E",  2)
+    elseif luck == 3 then
+        value, nameLevel = RPCItems:RollAttribute(100, 20, 100, 0, 0, item.rarity, false, maxFactor*17)
+        item.property2 = value
+        item.property2name = "intelligence"
+        RPCItems:SetPropertyValues(item, item.property2, "#item_intelligence", "#33CCFF",  2)
+    end
+    item.hasRunePoints = true
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+    item.property3 = math.floor(value*1.2)
+    item.property3name = propertyName
+    RPCItems:SetPropertyValues(item, item.property3, "rune", "#7DFF12",  3)
+
+    RPCItems:RollBodyProperty4(item, 0)
+    
+    local drop = CreateItemOnPositionSync( deathLocation, item )
+    local position = deathLocation
+    RPCItems:DropItem(item, position)
+    return item
+
 end
 
 function RPCItems:RollInfernalPrison(deathLocation)
@@ -5452,15 +5496,9 @@ function RPCItems:RollMonkeyPaw(deathLocation)
     
     item.property1name = "monkey_paw"
     local value = 1
-    local luck = RandomInt(1, 20)
-    if luck > 18 then
-        value = 3
-    elseif luck > 15 then
-        value = 2
-    end
     item.property1 = value
 
-    RPCItems:SetPropertyValuesSpecial(item, item.property1, "#item_property_monkey_paw", "#E4AE33",  1, "#property_monkey_paw_description")
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_monkey_paw", "#E4AE33",  1, "#property_monkey_paw_description")
 
     item.hasRunePoints = true
     local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
@@ -7821,6 +7859,8 @@ function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, sl
         newItem = RPCItems:RollTwistedMaskOfAhnqhirPurple(deathLocation)
     elseif itemName == "item_rpc_steamboots" then
         newItem = RPCItems:RollSteamboots(deathLocation)
+    elseif itemName == "item_rpc_monkey_paw" then
+        newItem = RPCItems:RollMonkeyPaw(deathLocation)
     else
         newItem = false
         giveBackOldItem = true
@@ -7928,7 +7968,7 @@ function RPCItems:GetPrereductionMinLevel(item)
 end
 
 function RPCItems:GetSoulBankableItemsList()
-    local itemsList = {"item_rpc_magebane_gloves", "item_rpc_berserker_gloves", "item_rpc_shadow_armlet", "item_rpc_boneguard_gauntlets", "item_rpc_scorched_gauntlets",
+    local itemsList = {"item_rpc_monkey_paw", "item_rpc_magebane_gloves", "item_rpc_berserker_gloves", "item_rpc_shadow_armlet", "item_rpc_boneguard_gauntlets", "item_rpc_scorched_gauntlets",
 "item_rpc_hand_of_midas", "item_rpc_kappa_pride_gloves", "item_rpc_claw_of_azinoth", "item_rpc_gauntlet_of_divine_purity", "item_rpc_marauder_gloves", "item_rpc_grasp_of_elder",
 "item_rpc_scarecrow_gloves", "item_rpc_living_gauntlet", "item_rpc_silverspring_gloves", "item_rpc_mordiggus_gauntlet", "item_rpc_ironbound_gloves", "item_rpc_far_seers_enchanted_gloves",
 "item_rpc_master_gloves", "item_rpc_phoenix_gloves", "item_rpc_eternal_essence_gauntlet", "item_rpc_spirit_glove", "item_rpc_frostburn_gauntlets", "item_rpc_mountain_vambraces", "item_rpc_grand_arcanist_wraps",

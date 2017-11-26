@@ -4704,3 +4704,67 @@ Env.LavaHit
         }
     }
 }
+
+"RPC.Epsilon.AttackSound"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/weapons/hero/dark_willow/attack.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.60000"  }
+                    "pitch_rand_min"    {   "value"     "-0.0500000"  }
+                    "pitch_rand_max"    {   "value"     "0.0500000"  }
+                    "pitch"             {   "value"     "1.4000"  }
+                    "soundlevel"        {   "value"     "82.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"RPC.MonkeyPaw.Bounty"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/items/item_handofmidas.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.78000"  }
+                    "pitch_rand_min"    {   "value"     "-0.0400000"  }
+                    "pitch_rand_max"    {   "value"     "0.0400000"  }
+                    "pitch"             {   "value"     "0.8200"  }
+                    "soundlevel"        {   "value"     "95.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}

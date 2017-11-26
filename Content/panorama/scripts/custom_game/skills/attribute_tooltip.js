@@ -71,16 +71,32 @@ function initializeTooltip(func){
 			$('#attribute_given_bonus_str_3_left').text = "<font color='#FFFFFF'>"+$.Localize('#ui_attack_damage')+"</font>"
 			$('#attribute_given_bonus_str_3_right').text = "+"+numberWithCommas(atkBonus)
 			$('#attribute_image_strength').AddClass('primary_attribute')
+
+			$('#attribute_given_bonus_agi_3_left').text = ""
+			$('#attribute_given_bonus_agi_3_right').text = ""
+
+			$('#attribute_given_bonus_int_3_left').text = ""
+			$('#attribute_given_bonus_int_3_right').text = ""
 		}else if(primaryAttribute == 1){
 			var atkBonus = parseInt(heroAttributes.agility*ATK_DMG_PER_PRIMARY*halcyonMult)
 			$('#attribute_given_bonus_agi_3_left').text = "<font color='#FFFFFF'>"+$.Localize('#ui_attack_damage')+"</font>"
 			$('#attribute_given_bonus_agi_3_right').text = "+"+numberWithCommas(atkBonus)
-			$('#attribute_image_agility').AddClass('primary_attribute')		
+			$('#attribute_image_agility').AddClass('primary_attribute')	
+			$('#attribute_given_bonus_str_3_left').text = ""
+			$('#attribute_given_bonus_str_3_right').text = ""
+
+			$('#attribute_given_bonus_int_3_left').text = ""
+			$('#attribute_given_bonus_int_3_right').text = ""	
 		}else if(primaryAttribute == 2){
 			var atkBonus = parseInt(heroAttributes.intelligence*ATK_DMG_PER_PRIMARY*halcyonMult)
 			$('#attribute_given_bonus_int_3_left').text = "<font color='#FFFFFF'>"+$.Localize('#ui_attack_damage')+"</font>"
 			$('#attribute_given_bonus_int_3_right').text = "+"+numberWithCommas(atkBonus)
-			$('#attribute_image_int').AddClass('primary_attribute')		
+			$('#attribute_image_int').AddClass('primary_attribute')	
+			$('#attribute_given_bonus_agi_3_left').text = ""
+			$('#attribute_given_bonus_agi_3_right').text = ""
+
+			$('#attribute_given_bonus_str_3_left').text = ""
+			$('#attribute_given_bonus_str_3_right').text = ""	
 		}
 	}
 

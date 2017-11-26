@@ -39333,22 +39333,6 @@
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
-			"modifier_centaur_horns"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "0.2"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"centaur_horn_think"
-						"target"		"TARGET"
-					}
-				}
-			}
 			"modifier_death_whisper"
 			{
 				"Passive"	"0"
@@ -42405,7 +42389,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1500"
+				"property_two"			"22500"
 			}
 			"04"
 			{
@@ -50666,7 +50650,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-15"
+				"property_one"			"-10"
 			}
 		}
 
@@ -52547,7 +52531,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"480"
+				"property_one"			"1920"
 			}
 			"02"
 			{
@@ -52647,7 +52631,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"8"
 			}
 		}
 
@@ -53181,7 +53165,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"8"
 			}
 			"02"
 			{
@@ -53299,7 +53283,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"8"
 			}
 		}
 
@@ -55937,7 +55921,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.02"
+				"property_one"			"0.08"
 			}
 		}
 	}
@@ -74802,6 +74786,7 @@
                 	{
                 		"ScriptFile"	"worlds/tanari/tanari_trigger_areas"
                 		"Function"		"town_portal_take_damage"
+                		"damage"        "%attack_damage"
                 	}
                 }
 	        }
