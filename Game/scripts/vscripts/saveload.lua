@@ -469,11 +469,6 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			end
 			RPCItems:SetPropertyValues(item, gearTable.property1, gearTable.property1tooltip, gearTable.property1color, 1) 
 		end
-		if gearTable.property1name == "monkey_paw" then
-			item.property1name = ""
-			item.property1 = "-"
-			RPCItems:SetPropertyValuesSpecial(item, item.property1, "#item_broken_slot", "#444444",  1, "#property_monkey_paw_description")		
-		end
 		--PROPERTY2
 		if gearTable.property2 then
 			item.property2 = gearTable.property2

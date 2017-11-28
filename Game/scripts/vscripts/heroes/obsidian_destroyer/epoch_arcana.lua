@@ -30,9 +30,9 @@ function ability_start(event)
 					end
 				end
 			end 
+			Filters:CastSkillArguments(1, caster)
 		end)
 	end
-	Filters:CastSkillArguments(1, caster)
 end
 
 function a_a_end(event)
