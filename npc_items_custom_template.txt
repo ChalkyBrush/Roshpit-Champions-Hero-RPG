@@ -4655,7 +4655,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "0.5"
+				"ThinkInterval"  "0.2"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -4685,13 +4685,13 @@
 		{
 			"01"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"3"
+				"var_type"			"FIELD_FLOAT"
+				"property_one"			"1"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"			"30"
+				"property_two"			"96"
 			}
 		}
 	}
@@ -5471,7 +5471,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_mask_of_ahnqhir"
+			"modifier_mask_of_ahnqhir_blue"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
@@ -5513,6 +5513,14 @@
 				}
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"		"40"
+			}
+		}
 	}
 
 	"item_rpc_twisted_purple_mask_of_ahnqhir"
@@ -5544,7 +5552,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_mask_of_ahnqhir"
+			"modifier_mask_of_ahnqhir_purple"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
@@ -5586,6 +5594,14 @@
 				}
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"		"40"
+			}
+		}
 	}
 
 	"item_rpc_twisted_yellow_mask_of_ahnqhir"
@@ -5617,7 +5633,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_mask_of_ahnqhir"
+			"modifier_mask_of_ahnqhir_yellow"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
@@ -5657,6 +5673,14 @@
 						"target"        "TARGET"
 					}
 				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"		"1"
 			}
 		}
 	}

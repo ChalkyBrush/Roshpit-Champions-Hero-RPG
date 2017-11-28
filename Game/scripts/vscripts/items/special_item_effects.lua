@@ -4995,7 +4995,7 @@ function ahnqhir_think(event)
 		if pointAbility.ahnqhirPoint then
 		else
 			pointAbility.ahnqhirPoint = pointAbility:GetCastPoint()
-			pointAbility:SetOverrideCastPoint(0)
+			pointAbility:SetOverrideCastPoint(0.05)
 		end
 	end
 end
