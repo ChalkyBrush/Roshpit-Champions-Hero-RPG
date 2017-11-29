@@ -57,7 +57,7 @@ function zap_field_modifier_thinker(event)
 	ability.interval = ability.interval + 1
 	if ability.interval == 6 then
 		ability.interval = 0
-		local damage = event.damage
+		local damage = event.damage + event.int_damage * caster:GetIntellect()
 		local searchRadius = 500
 	    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, searchRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	    if #enemies > 0 then

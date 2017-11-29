@@ -140,7 +140,7 @@ function rune_a_a(location, ability, caster)
     local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_a")
     local totalLevel = abilityLevel + bonusLevel
     if totalLevel > 0 then
-		ability.a_a_dps = 30*totalLevel + 100
+		ability.a_a_dps = 450*totalLevel + 100
 		-- ability.a_a_dps = ability.a_a_dps + ability.d_b_level*caster:GetAverageTrueAttackDamage(caster)/100*0.0006*ability.a_a_dps
 		new_a_a_nova(caster, totalLevel, location, ability)
     end

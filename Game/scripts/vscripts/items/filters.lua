@@ -38,6 +38,9 @@ function Filters:ApplyItemDamage(victim,attacker,damage,damage_type,item,element
 end
 
 function Filters:ApplyItemDamageBasedOnAbility(victim,attacker,damage,damage_type,item,element1,element2)
+    if attacker:HasModifier("modifier_depth_demon_claw") then
+        damage = damage * 0.3
+    end
     if attacker:HasModifier("modifier_solunia_arcana2") then
         local b_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 3)
         if b_d_level > 0 then
@@ -350,6 +353,10 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
         CDreduce = CDreduce - 1
     end
     local abilityCooldown = abilityCooldown - CDreduce
+
+    if caster:HasModifier("modifier_mask_of_ahnqhir_blue") then
+        abilityCooldown  = abilityCooldown * 0.6
+    end
     if caster:HasModifier("modifier_bloodstone_boots") then
         if caster:GetHealth() <= caster:GetMaxHealth()*0.3 then
             abilityCooldown = 1
@@ -592,6 +599,8 @@ function Filters:CastSkillArguments(slot, caster)
     elseif slot == 4 then
         Filters:ApplyRskills(caster)
     end
+
+
     Challenges:AbilityUsed(slot)
     if caster:HasModifier("modifier_bladestorm_vest_buff") then
         local bladestormStacks = caster:GetModifierStackCount("modifier_bladestorm_vest_buff", caster.body)
@@ -698,6 +707,14 @@ function Filters:EndRChannel(caster)
 end
 
 function Filters:ApplyQskills(caster)
+    if caster:HasModifier("modifier_mask_of_ahnqhir_purple") then
+        local ability = caster:GetAbilityByIndex(0)
+        local baseCd = ability:GetCooldownTimeRemaining()
+        baseCd = baseCd * 0.6
+        ability:EndCooldown()
+
+        ability:StartCooldown(baseCd)
+    end
     if caster:HasModifier("modifier_watcher_one") then
         Filters:WatcherOne(caster)
     end
@@ -783,6 +800,14 @@ function Filters:ApplyQskills(caster)
 end
 
 function Filters:ApplyWskills(caster)
+    if caster:HasModifier("modifier_mask_of_ahnqhir_yellow") then
+        local ability = caster:GetAbilityByIndex(1)
+        ability:EndCooldown()
+
+        local baseCd = ability:GetCooldownTimeRemaining()
+        baseCd = math.max(baseCd - 1, 0)
+        ability:StartCooldown(baseCd)
+    end
     if caster:HasModifier("modifier_hand_elder") then
         Filters:ElderGrasp(caster)
     end
@@ -1465,11 +1490,9 @@ end
 function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, element1, element2, bIsRealDamage)
     local unitName = attacker:GetUnitName()
     local mult = 1
-    if slot == 2 then
-        if bIsRealDamage then
-            if attacker:HasModifier("modifier_depth_demon_claw") then
-                element2 = RPC_ELEMENT_DEMON
-            end
+    if bIsRealDamage then
+        if attacker:HasModifier("modifier_depth_demon_claw") then
+            element2 = RPC_ELEMENT_DEMON
         end
     end
     if element1 > 1 or element2 > 1 then
@@ -1723,7 +1746,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     if element1 == RPC_ELEMENT_POISON or element2 == RPC_ELEMENT_POISON then
         if unitName == "npc_dota_hero_necrolyte" then
             if attacker.d_b_level then
-                mult = mult + (attacker.d_b_level*attacker:GetAverageTrueAttackDamage(attacker)/100)*0.0006
+                mult = mult + (attacker.d_b_level*attacker:GetAverageTrueAttackDamage(attacker)/100)*0.0003
             end
             if bIsRealDamage then
                 if attacker:HasModifier("modifier_venomort_immortal_weapon_3") then

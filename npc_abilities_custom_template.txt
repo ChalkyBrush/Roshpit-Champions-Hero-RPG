@@ -5395,7 +5395,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_mult"			"3.0 3.5 4.0 4.5 5.0 5.5 6.0"
+				"damage_mult"			"9.0 10.5 12.0 13.5 15.0 16.5 18.0"
 			}
 		}
 	}
@@ -30352,6 +30352,11 @@
 				"var_type"			"FIELD_INTEGER"
 				"damage"			"200 500 2000 5000 12000 50000 90000"
 			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"int_damage"		"10 25 40 55 70 85 100"
+			}
 		}
 		"OnSpellStart"
 		{
@@ -30384,6 +30389,7 @@
 						"ScriptFile"	"heroes/antimage/arcana_zap_field.lua"
 						"Function"		"zap_field_modifier_thinker"
 						"damage"		"%damage"
+						"int_damage"    "%int_damage"
 					}
 				}
 				"OnDestroy"
@@ -43155,7 +43161,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"450"
 			}
 			"02"
 			{
@@ -43475,7 +43481,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"435"
+				"property_one"			"6500"
 			}
 			"02"
 			{
@@ -43854,7 +43860,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.06"
+				"property_one"			"0.03"
 			}
 		}
 
