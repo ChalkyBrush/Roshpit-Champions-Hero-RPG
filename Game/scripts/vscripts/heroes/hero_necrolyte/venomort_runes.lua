@@ -70,7 +70,7 @@ function b_c(event)
 
 	caster.d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "venomort")
 
-	local damage = 435*totalLevel + 105
+	local damage = 6500*totalLevel + 105
 	EmitSoundOn("hero_viper.projectileImpact", target)
 
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE)

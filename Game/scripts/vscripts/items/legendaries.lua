@@ -3103,7 +3103,7 @@ function RPCItems:RollTwistedMaskOfAhnqhirBlue(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_twisted_blue_mask_of_ahnqhir", "immortal", "Twisted Blue Mask of Ahn'qhir", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
     item.property1 = 0
-    item.property1name = "mask_of_ahnqir"
+    item.property1name = "mask_of_ahnqir_blue"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#property_twisted_mask_of_ahnqhir_c", "#6BB5F9",  1, "#property_twisted_mask_of_ahnqhir_c_Description")
 
     item.hasRunePoints = true
@@ -3125,7 +3125,7 @@ function RPCItems:RollTwistedMaskOfAhnqhirYellow(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_twisted_yellow_mask_of_ahnqhir", "immortal", "Twisted Yellow Mask of Ahn'qhir", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
     item.property1 = 0
-    item.property1name = "mask_of_ahnqir"
+    item.property1name = "mask_of_ahnqir_yellow"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#property_twisted_mask_of_ahnqhir_b", "#EBFF6D",  1, "#property_twisted_mask_of_ahnqhir_b_Description")
 
     item.hasRunePoints = true
@@ -3147,7 +3147,7 @@ function RPCItems:RollTwistedMaskOfAhnqhirPurple(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_twisted_purple_mask_of_ahnqhir", "immortal", "Twisted Purple Mask of Ahn'qhir", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
     item.property1 = 0
-    item.property1name = "mask_of_ahnqir"
+    item.property1name = "mask_of_ahnqir_purple"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#property_twisted_mask_of_ahnqhir_a", "#BC60F2",  1, "#property_twisted_mask_of_ahnqhir_a_Description")
 
     item.hasRunePoints = true
