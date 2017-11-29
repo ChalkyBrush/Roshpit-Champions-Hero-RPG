@@ -4950,6 +4950,14 @@
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"			"70"
+			}
+		}
 	}
 
 	"item_rpc_empyreal_sunrise_robe"

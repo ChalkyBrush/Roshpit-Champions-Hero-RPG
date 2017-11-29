@@ -365,50 +365,53 @@ function hawk_soldier_think(event)
 end
 
 function CastleSorceressTrigger(trigger)
-	local hero = trigger.activator
-	local sorceress = Redfall.CastleSorceress
-	EmitSoundOn("Redfall.CastleSorceress.Laugh", sorceress)
-	StartAnimation(sorceress, {duration=3.5, activity=ACT_DOTA_VICTORY, rate=0.9})
-	local sorcAbility = sorceress:FindAbilityByName("redfall_crimsyth_sorceress_ai")
-	sorcAbility:ApplyDataDrivenModifier(sorceress, sorceress, "modifier_sorceress_flying", {})
-	sorcAbility:ApplyDataDrivenModifier(sorceress, sorceress, "modifier_z_axis", {})
-	sorceress:RemoveModifierByName("modifier_crymsith_sorceress_waiting")
-	local allies = FindUnitsInRadius( hero:GetTeamNumber(), hero:GetAbsOrigin()+Vector(2000,0,0), nil, 4000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
-	Dungeons:LockCameraToUnitForPlayers(sorceress, 5, allies)
-	Quests:ShowDialogueText(allies, sorceress, "crimsyth_sorceress_dialogue_1", 6, false)
-	Timers:CreateTimer(2.4, function()
-		sorcAbility:ApplyDataDrivenModifier(sorceress, sorceress, "modifier_sorceress_moving", {})
-		sorceress.state = 0
-		sorceress.interval = 0
-		Timers:CreateTimer(1.5, function()
-			sorceress:MoveToPosition(Vector(5184, 12800))
-			sorceress.state = 1
-		end)
-		
-		Timers:CreateTimer(7, function()
-			EmitSoundOn("Redfall.CastleSorceress.Laugh2", sorceress)
-			StartAnimation(sorceress, {duration=3.5, activity=ACT_DOTA_VICTORY, rate=0.9})
-		end)
-		Timers:CreateTimer(7.5, function()
-			sorceress.state = 2
-			sorceress:MoveToPosition(Vector(5376, 9354))
-		end)
-		for i = 1, 15, 1 do
-			Timers:CreateTimer(i, function()
-				ScreenShake(sorceress:GetAbsOrigin(), 530, 0.9, 0.9, 9000, 2, true)
+	if not Redfall.SorceressActive then
+		Redfall.SorceressActive = true
+		local hero = trigger.activator
+		local sorceress = Redfall.CastleSorceress
+		EmitSoundOn("Redfall.CastleSorceress.Laugh", sorceress)
+		StartAnimation(sorceress, {duration=3.5, activity=ACT_DOTA_VICTORY, rate=0.9})
+		local sorcAbility = sorceress:FindAbilityByName("redfall_crimsyth_sorceress_ai")
+		sorcAbility:ApplyDataDrivenModifier(sorceress, sorceress, "modifier_sorceress_flying", {})
+		sorcAbility:ApplyDataDrivenModifier(sorceress, sorceress, "modifier_z_axis", {})
+		sorceress:RemoveModifierByName("modifier_crymsith_sorceress_waiting")
+		local allies = FindUnitsInRadius( hero:GetTeamNumber(), hero:GetAbsOrigin()+Vector(2000,0,0), nil, 4000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
+		Dungeons:LockCameraToUnitForPlayers(sorceress, 5, allies)
+		Quests:ShowDialogueText(allies, sorceress, "crimsyth_sorceress_dialogue_1", 6, false)
+		Timers:CreateTimer(2.4, function()
+			sorcAbility:ApplyDataDrivenModifier(sorceress, sorceress, "modifier_sorceress_moving", {})
+			sorceress.state = 0
+			sorceress.interval = 0
+			Timers:CreateTimer(1.5, function()
+				sorceress:MoveToPosition(Vector(5184, 12800))
+				sorceress.state = 1
 			end)
-		end
-		Timers:CreateTimer(13, function()
-			AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(5407, 7803), 800, 900, false)
-			local boss = BossIntroScene(allies)
-			sorceress.state = 3
-			Dungeons:LockCameraToUnitForPlayers(boss, 5, allies)
-			local mode = GameRules:GetGameModeEntity()        
-			mode:SetCameraDistanceOverride( 2000 )
-			Redfall.CastleBossIntro = boss
+			
+			Timers:CreateTimer(7, function()
+				EmitSoundOn("Redfall.CastleSorceress.Laugh2", sorceress)
+				StartAnimation(sorceress, {duration=3.5, activity=ACT_DOTA_VICTORY, rate=0.9})
+			end)
+			Timers:CreateTimer(7.5, function()
+				sorceress.state = 2
+				sorceress:MoveToPosition(Vector(5376, 9354))
+			end)
+			for i = 1, 15, 1 do
+				Timers:CreateTimer(i, function()
+					ScreenShake(sorceress:GetAbsOrigin(), 530, 0.9, 0.9, 9000, 2, true)
+				end)
+			end
+			Timers:CreateTimer(13, function()
+				AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(5407, 7803), 800, 900, false)
+				local boss = BossIntroScene(allies)
+				sorceress.state = 3
+				Dungeons:LockCameraToUnitForPlayers(boss, 5, allies)
+				local mode = GameRules:GetGameModeEntity()        
+				mode:SetCameraDistanceOverride( 2000 )
+				Redfall.CastleBossIntro = boss
 
+			end)
 		end)
-	end)
+	end
 end
 
 function sorceress_flying_think(event)
