@@ -103,7 +103,7 @@ function demon_form_attack_land(event)
 	local damage = event.attack_damage
 	local splashDamage = damage*0.02*ability.a_d_level
 	if ability.a_d_level > 0 then
-		if target:IsAlive() then
+		-- if target:IsAlive() then
 		    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 320, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		    if #enemies > 0 then
 		        for _,enemy in pairs(enemies) do
@@ -115,7 +115,7 @@ function demon_form_attack_land(event)
 		    else
 		    	CustomAbilities:QuickAttachParticle("particles/roshpit/chernobog/demon_form_splash.vpcf", target, 0.5)
 		    end
-		end
+		-- end
 	end
 end
 
