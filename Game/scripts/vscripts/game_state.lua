@@ -760,9 +760,6 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 			damage = damage*6
 		end
 	elseif damagetype == DAMAGE_TYPE_MAGICAL then
-		if victim:HasModifier("modifier_solunia_c_d_arcana_shell") then
-			damage = damage*0.05
-		end
 		if victim:HasModifier("modifier_resplendent_rubber_boots") then
 			damage = damage*0.65
 		end
@@ -805,7 +802,9 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_ablecore_greaves_effect") then
 		damage = damage*0.2
 	end
-
+	if victim:HasModifier("modifier_solunia_c_d_arcana_shell") then
+		damage = damage*0.05
+	end
 	if victim:HasModifier("modifier_neutral_glyph_5_1") then
 		damage = damage*0.65
 	end
@@ -1982,15 +1981,16 @@ function GameState:FilterDamage(filterTable)
     end
     if victim:HasModifier("modifier_serengaard_wave_unit") then
     	if Serengaard.InfiniteWaveCount then
-    		local flatFactor = math.max(1-(Serengaard.InfiniteWaveCount/30), 0.04)
-			local damageMult = 1 - (0.1*Serengaard.InfiniteWaveCount/(flatFactor + (0.1 * math.abs(Serengaard.InfiniteWaveCount))))
-			damageMult = damageMult/3
+   --  		local flatFactor = math.max(1-(Serengaard.InfiniteWaveCount/10), 0.04)
+			-- local damageMult = 1 - (0.1*Serengaard.InfiniteWaveCount/(flatFactor + (0.1 * math.abs(Serengaard.InfiniteWaveCount))))
+			-- damageMult = damageMult/3
+			local damageMult = 0.92^Serengaard.InfiniteWaveCount
 			filterTable["damage"] = filterTable["damage"]*damageMult
 		end
     end
     if attacker:HasModifier("modifier_serengaard_wave_unit") then
     	if Serengaard.InfiniteWaveCount then
-    		filterTable["damage"] = filterTable["damage"] + filterTable["damage"]*0.1*Serengaard.InfiniteWaveCount
+    		filterTable["damage"] = filterTable["damage"] + filterTable["damage"]*0.12*Serengaard.InfiniteWaveCount
     	end
     end
     if victim:HasModifier("modifier_deity_shadow_shield") then
