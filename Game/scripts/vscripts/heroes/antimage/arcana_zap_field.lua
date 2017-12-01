@@ -108,7 +108,7 @@ function damage_taken(event)
 	local c_a_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
 	if c_a_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_arcana1_q3", {duration = 3})
-		local newStacks = math.min(caster:GetModifierStackCount("modifier_arkimus_arcana1_q3", caster) + 1, c_a_level)
+		local newStacks = math.min(caster:GetModifierStackCount("modifier_arkimus_arcana1_q3", caster) + 1, c_a_level * 3)
 		caster:SetModifierStackCount("modifier_arkimus_arcana1_q3", caster, newStacks)
 		ability.c_a_stacks = newStacks
 	end
