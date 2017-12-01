@@ -16602,11 +16602,13 @@
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 
+				"ThinkInterval"  "0.03"
 				"OnIntervalThink"
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"monkey_paw_think"
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"monkey_paw_think"
 						"target"		"TARGET"
 					}
 				}
@@ -44559,7 +44561,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"800"
+				"property_one"			"3"
 			}
 			"02"
 			{
