@@ -335,6 +335,7 @@ function ancient_tree_main_think(event)
 	if caster:GetHealth() < 5000 then
 		caster.dying = true
 		if caster.phase2 then
+			Statistics.dispatch("redfall_ridge:kill:world_tree");
 			caster.deathStart = true
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_dying_generic", {duration = 20})
 			CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {})

@@ -1426,6 +1426,7 @@ function createRazeAtPosition(caster, point, ability, damage)
 end
 
 function fire_temple_boss_die(caster, ability)
+	Statistics.dispatch("tanari_jungle:kill:kolthun");
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_fire_temple_boss_dying", {duration = 8})
 	Tanari.FireTemple.KolthunBattleEnd = true
 	local kolthun = caster.kolthun
@@ -2707,6 +2708,7 @@ function fire_spirit_boss_think(event)
 end
 
 function fire_temple_spirit_boss_die_begin(event)
+	Statistics.dispatch("tanari_jungle:kill:fire_spirit");
 	local ability = event.ability
 	local caster = event.caster
 	Tanari.WaterSpiritBossDead = true

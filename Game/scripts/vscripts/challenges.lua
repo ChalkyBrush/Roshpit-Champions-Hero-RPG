@@ -67,6 +67,7 @@ function Challenges:ChiselItem(msg)
 			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_blacksmith", {})
 			hero:RemoveModifierByName("modifier_cant_equip")
 			Weapons:UnequipItem(hero, item)
+			Statistics.dispatch('items:chisel')
 		end
 	end )		
 end
@@ -121,6 +122,7 @@ function Challenges:FinalReroll(msg)
 	end
 	Events.reroll = false
 
+	Statistics.dispatch('items:reroll')
 	
 	DeepPrintTable(msg)
 	local url = ROSHPIT_URL.."/champions/modifyMithrilShards?"
@@ -151,9 +153,9 @@ function Challenges:FinalReroll(msg)
 
 			else
 				CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
-			end	
+			end
 
-			
+			Statistics.dispatch("mithril:change", {playerID = playerID});
 			-- local rerollTable = {}
 			-- rerollTable.playerID = playerID
 			-- rerollTable.heroIndex = hero:GetEntityIndex()
@@ -183,6 +185,7 @@ function Challenges:ModifyMithril(amount, hero, reason)
 		print( "Done." )
 		local resultTable = JSON:decode(result.Body)
 		local shards = resultTable.mithril_shards
+		Statistics.dispatch("mithril:change", {playerID = playerID});
 		CustomNetTables:SetTableValue("player_stats", tostring(playerID).."-mithril", {mithril = shards})
 		CustomGameEventManager:Send_ServerToPlayer(player, "update_main_mithril", {mithril = shards, player=playerID})
 	end )
@@ -228,6 +231,8 @@ function Challenges:CollectMithrilIncome(msg)
 		CustomNetTables:SetTableValue("player_stats", tostring(playerID).."-income", {available = 0})
 		CustomGameEventManager:Send_ServerToPlayer(player, "update_main_mithril", {mithril = shards, player=playerID} )
 		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_blacksmith", {})
+
+		Statistics.dispatch("mithril:change", {playerID = playerID});
 		for i = 1, 5, 1 do
 			Timers:CreateTimer(0.1*i, function()
 				EmitSoundOnClient("Resource.MithrilShardEnter", player)
@@ -577,6 +582,8 @@ function Challenges:SaveMithrilShards(winnerTable)
 						else
 							CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "collect_mithril", {gain = hero.shardsPickedUp})
 						end
+
+						Statistics.dispatch("mithril:change", {playerID = playerID});
 						CustomNetTables:SetTableValue("player_stats", tostring(playerID).."-mithril", {mithril = shards})
 						CustomNetTables:SetTableValue("player_stats", tostring(playerID).."-challenge", {completed = resultTable.challenge_completed})
 						CustomGameEventManager:Send_ServerToPlayer(player, "update_main_mithril", {mithril = shards, player=playerID} )

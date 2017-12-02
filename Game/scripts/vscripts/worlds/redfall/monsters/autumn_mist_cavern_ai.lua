@@ -849,6 +849,7 @@ function death_check(event)
 end
 
 function CanyonBossDeath(caster, ability)
+	Statistics.dispatch("redfall_ridge:kill:crimsyth_corruptor");
 	Redfall.BossBattle = false
 	Timers:CreateTimer(0.5, function()
 		EmitSoundOn("Redfall.CanyonBoss.DeathNO", caster)

@@ -65,7 +65,7 @@ function GameMode:OnDisconnect(keys)
   -- local player = EntIndexToHScript(userid)
   -- local hero = player:GetAssignedHero()
   -- hero.disconnectLevel = hero:GetLevel()
-
+  Statistics.dispatch("player:disconnect");
 end
 -- The overall game state has changed
 function GameMode:OnGameRulesStateChange(keys)
@@ -329,6 +329,7 @@ function Events:PickUpTest(heroEntity, itemEntity, itemname)
       end
     end
   end
+  Statistics.dispatch("items:backpack_change");
 end
 
 
@@ -336,6 +337,8 @@ end
 -- A player has reconnected to the game.  This function can be used to repaint Player-based particles or change
 -- state as necessary
 function GameMode:OnPlayerReconnect(keys)
+  Statistics.dispatch("player:reconnect");
+
   DebugPrint( '[BAREBONES] OnPlayerReconnect' )
   DebugPrintTable(keys) 
   local player = keys.player
@@ -681,6 +684,7 @@ function GameMode:OnPlayerPickHero(keys)
   local player = EntIndexToHScript(keys.player)
   if not GameState.HeroPlayerTable then
     GameState.HeroPlayerTable = {}
+    Statistics.dispatch('game:start')
   end
   Timers:CreateTimer(0.3, function()
     if heroEntity:GetTeamNumber() == DOTA_TEAM_NEUTRALS then

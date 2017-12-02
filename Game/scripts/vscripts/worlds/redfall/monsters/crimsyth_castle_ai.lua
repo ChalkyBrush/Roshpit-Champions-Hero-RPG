@@ -4641,6 +4641,7 @@ function castle_boss_split_attack_hit(event)
 end
 
 function castle_final_boss_death(caster, ability)
+	Statistics.dispatch("redfall_ridge:kill:lord_scarloth");
 	CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_dying_generic", {})
 	Timers:CreateTimer(0.5, function()
