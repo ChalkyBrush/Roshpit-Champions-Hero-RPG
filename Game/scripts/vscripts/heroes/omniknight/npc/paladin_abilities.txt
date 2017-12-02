@@ -65,7 +65,7 @@
 				"IsHidden"	"1"
 				"IsBuff"	"1"
 				"OverrideAnimation"     "ACT_DOTA_CAST_ABILITY_1"
-				"EffectName"	"particles/units/heroes/hero_pangolier/pangolier_gyroshell.vpcf"
+				"EffectName"	"particles/roshpit/paladin/comet_charge.vpcf"
 				"EffectAttachType"	"attach_hitloc"
 				"ThinkInterval"  "0.03"
 				"IsHidden"		"1"
@@ -86,7 +86,7 @@
 			{
 				"IsHidden"	"1"
 				"IsBuff"	"1"
-				"EffectName"	"particles/units/heroes/hero_pangolier/pangolier_gyroshell.vpcf"
+				"EffectName"	"particles/roshpit/paladin/comet_charge.vpcf"
 				"EffectAttachType"	"attach_hitloc"
 				"ThinkInterval"  "0.03"
 				"IsHidden"		"1"

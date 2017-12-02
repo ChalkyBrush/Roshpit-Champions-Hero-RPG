@@ -563,11 +563,11 @@
                               "value0"        "sounds/paladin/paladin_comet_land.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "0.70000"  }
-                    "pitch_rand_min"    {   "value"     "-0.05000"  }
-                    "pitch_rand_max"    {   "value"     "0.050000"  }
-                    "pitch"             {   "value"     "1.05000"  }
-                    "soundlevel"        {   "value"     "92.00000" }
+                    "volume"            {   "value"     "0.60000"  }
+                    "pitch_rand_min"    {   "value"     "-0.00000"  }
+                    "pitch_rand_max"    {   "value"     "0.000000"  }
+                    "pitch"             {   "value"     "1.25000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
                     "distance_max"      {   "value"     "2700.000"  }
                     "event_type"        {   "value"     "1.000000"  }
                 }
@@ -595,7 +595,7 @@
                               "value0"        "sounds/paladin/heavy_impact.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "0.70000"  }
+                    "volume"            {   "value"     "0.72000"  }
                     "pitch_rand_min"    {   "value"     "-0.05000"  }
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.05000"  }
@@ -627,11 +627,11 @@
                               "value0"        "sounds/items/meteor_fall.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "0.90000"  }
+                    "volume"            {   "value"     "0.40000"  }
                     "pitch_rand_min"    {   "value"     "-0.05000"  }
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.05000"  }
-                    "soundlevel"        {   "value"     "88.00000" }
+                    "soundlevel"        {   "value"     "87.00000" }
                     "distance_max"      {   "value"     "2700.000"  }
                     "event_type"        {   "value"     "1.000000"  }
                 }

@@ -22916,8 +22916,8 @@
 		"ItemKillable" "0"
 		"precache"
 		{
-			"particle"	"particles/roshpit/paladin/penance.vpcf"
-			"particle"	"particles/roshpit/paladin/penance_impact.vpcf"
+			"particle"	"particles/roshpit/paladin/arcana_comet_ground_impact.vpcf"
+			"particle"	"particles/roshpit/paladin/comet_charge.vpcf"
 		}
 		"OnSpellStart"
 		{

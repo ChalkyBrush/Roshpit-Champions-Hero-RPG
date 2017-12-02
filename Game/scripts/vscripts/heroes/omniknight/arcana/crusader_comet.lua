@@ -24,7 +24,7 @@ function jumping_think(event)
 		-- ability.fv = ((ability.point - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_comet_storming", {duration = 2})
 		local distanceToDash = WallPhysics:GetDistance2d(ability.point, caster:GetAbsOrigin())
-		local dashTicks = (caster:GetAbsOrigin().z-GetGroundHeight(caster:GetAbsOrigin(), caster))/40
+		local dashTicks = (caster:GetAbsOrigin().z-GetGroundHeight(ability.point, caster))/40
 		ability.dashSpeed = math.max(distanceToDash/dashTicks, ability.forwardMovement)
 		Timers:CreateTimer(0.1, function()
 			EmitSoundOn("Paladin.CometDash.VO", caster)
@@ -43,7 +43,7 @@ function comet_think(event)
 			print("ANIMATE")
 			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Paladin.CometLand", caster)
 			ability.landAnimated = true
-			StartAnimation(caster, {duration=0.7, activity=ACT_DOTA_ATTACK, rate=0.5})
+			StartAnimation(caster, {duration=0.7, activity=ACT_DOTA_ATTACK, rate=1.3})
 		end
 	end
 end
@@ -53,8 +53,8 @@ function comet_storm_end(event)
 	local ability = event.ability
 	local landPoint = GetGroundPosition(caster:GetAbsOrigin() + ability.fv*ability.forwardMovement, caster)
 	FindClearSpaceForUnit(caster, landPoint, false)
-	local pfx = CustomAbilities:QuickParticleAtPoint("particles/items4_fx/meteor_hammer_spell_ground_impact.vpcf", landPoint, 5)
-	ParticleManager:SetParticleControl(pfx, 3, landPoint)
+	local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/paladin/arcana_comet_ground_impact.vpcf", landPoint+Vector(0,0,20), 5)
+	ParticleManager:SetParticleControl(pfx, 3, landPoint+Vector(0,0,20))
 	EmitSoundOn("Paladin.CometLandGround", caster)
 
 end
