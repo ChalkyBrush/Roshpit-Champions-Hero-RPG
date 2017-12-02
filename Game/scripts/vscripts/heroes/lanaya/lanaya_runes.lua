@@ -43,7 +43,7 @@ function CheckAngles(keys)
 	local attack_spill_width = 50
 	
 	-- Units in radius
-	local units = FindUnitsInRadius(caster:GetTeamNumber(), first_target_origin, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	local units = FindUnitsInRadius(caster:GetTeamNumber(), first_target_origin, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 	
 	-- Calculates the position of each found unit in relation to the last target
 	for i,unit in ipairs(units) do

@@ -46027,6 +46027,8 @@
 		}
 	}
 
+	##PALADIN_ABILITIES##
+
 	"paladin_rune_a_b_arcana1"
 	{
 		"BaseClass"				"ability_datadriven"
