@@ -115,6 +115,44 @@ function RPCItems:RollSeinaruArcana2(deathLocation)
     return item
 end
 
+function RPCItems:RollPaladinArcana2(deathLocation)
+    local item = RPCItems:CreateVariantArcana("item_rpc_paladin_arcana2", "arcana", "Paladin Arcana 2", "feet", true, "Slot: Feet", "npc_dota_hero_omniknight", 0)
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.property1 = 1
+    item.property1name = "!arcana!_paladin_arcana2"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_paladin_arcana2", "#F7F767",  1, "#property_paladin_arcana2_description")
+
+
+    item.hasRunePoints = true
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+    
+    local luck = RandomInt(1, 100)
+    if luck <= 35 then
+        item.property2name = "rune_a_c"
+        item.property2 = math.ceil(value*1.1)
+    elseif luck <= 70 then
+        item.property2name = "rune_b_c"
+        item.property2 = math.ceil(value*1.1)       
+    elseif luck <= 90 then
+        item.property2name = "rune_c_c"
+        item.property2 = math.ceil(value*1) 
+    else
+        item.property2name = "rune_d_c"
+        item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
+    end
+    RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
+
+    local value, prefixLevel = RPCItems:RollAttribute(100, 10, 40, 0, 0, item.rarity, false, maxFactor*20)
+    item.property3 = value
+    item.property3name = "strength"
+    RPCItems:SetPropertyValues(item, item.property3, "#item_strength", "#CC0000",  3)
+
+    RPCItems:RollFootProperty4(item, 0)
+
+    RPCItems:DropOrGiveItem(hero, item, false, deathLocation)
+    return item
+end
+
 function RPCItems:RollAstralArcana1(deathLocation)
     local item = RPCItems:CreateVariantArcana("item_rpc_astral_arcana1", "arcana", "Astral Arcana 1", "head", true, "Slot: Head", "npc_dota_hero_drow_ranger", 0)
     local maxFactor = RPCItems:GetMaxFactor()

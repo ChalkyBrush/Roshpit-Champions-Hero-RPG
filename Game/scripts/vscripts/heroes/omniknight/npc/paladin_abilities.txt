@@ -1,0 +1,116 @@
+	"paladin_crusader_comet"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"voltex/voltex_storm_rush"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastRange"				"1000 1125 1250 1375 1500 1625 1750"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+	    "precache"
+	    {
+	    	"particle"	"particles/units/heroes/hero_pangolier/pangolier_gyroshell.vpcf"
+	    }
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"4"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_reduction_percent"	"45 50 55 60 65 70 75"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"	"1000 1125 1250 1375 1500 1625 1750"
+			}
+
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/omniknight/arcana/crusader_comet"
+				"Function"		"begin_crusader_comet"
+				"Target"		"POINT"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_comet_jumping"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"OverrideAnimation"     "ACT_DOTA_CAST_ABILITY_1"
+				"EffectName"	"particles/units/heroes/hero_pangolier/pangolier_gyroshell.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"ThinkInterval"  "0.03"
+				"IsHidden"		"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/omniknight/arcana/crusader_comet"
+						"Function"		"jumping_think"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_comet_storming"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"EffectName"	"particles/units/heroes/hero_pangolier/pangolier_gyroshell.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"ThinkInterval"  "0.03"
+				"IsHidden"		"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/omniknight/arcana/crusader_comet"
+						"Function"		"comet_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/omniknight/arcana/crusader_comet"
+						"Function"		"comet_storm_end"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+
+	}
