@@ -950,7 +950,7 @@ function RPCItems:GearPickup(heroEntity, itemEntity)
 	    end
         print(slot)
 	end
-	
+	Statistics.dispatch('items:equip')
 end
 
 function RPCItems:EquipItem(slot, hero, inventory_unit, itemEntity)

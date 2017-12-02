@@ -337,6 +337,7 @@ function ancient_water_passive_think(event)
 end
 
 function ancient_boss_die_begin(event)
+	Statistics.dispatch("tanari_jungle:kill:ancient_god");
 	local ability = event.ability
 	local caster = event.caster
 	local startingItemLevel = Dungeons.itemLevel
