@@ -1245,6 +1245,7 @@ function Redfall:ShipyardBossReadyForBattle()
 end
 
 function Redfall:ShipyardBossDeath(caster, ability)
+	Statistics.dispatch("redfall_ridge:kill:tyrant_thadelus");
 	Redfall.BossBattle = false
 	Timers:CreateTimer(0.5, function()
 		EmitSoundOn("Redfall.ShipyardMainBoss.DeathNO", caster)

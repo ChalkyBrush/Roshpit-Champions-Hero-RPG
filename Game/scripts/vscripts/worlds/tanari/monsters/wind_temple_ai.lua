@@ -1183,6 +1183,7 @@ function wind_temple_boss_trap_action(caster, ability)
 end
 
 function wind_temple_boss_die_begin(event)
+	Statistics.dispatch("tanari_jungle:kill:wind_goddess");
 	local ability = event.ability
 	local caster = event.caster
 	if ability.trapParticleTable then
@@ -2284,6 +2285,7 @@ function spirit_boss_fighting_think(event)
 end
 
 function wind_temple_spirit_boss_die_begin(event)
+	Statistics.dispatch("tanari_jungle:kill:wind_spirit");
 	local ability = event.ability
 	local caster = event.caster
 

@@ -207,7 +207,6 @@ end
 ]]
 function GameMode:OnFirstPlayerLoaded()
   DebugPrint("First Player has loaded")
-  Statistics.dispatch('game:start')
 end
 
 function GameMode:PlayerConnect(msg)
@@ -225,6 +224,7 @@ function GameMode:OnAllPlayersLoaded()
   DebugPrint("[BAREBONES] All Players have loaded into the game")
   CustomNetTables:SetTableValue("player_stats", "diff", {difficulty = DIFFICULTY_FACTOR} )
   Events.MapName = GetMapName()
+
   Events.DifficultyFactor = GameState:SetDifficultyFactor()
   Events.WaveNumber = 0
   Dungeons.itemLevel = 0
@@ -233,6 +233,7 @@ function GameMode:OnAllPlayersLoaded()
   print("ALL PLAYERS LOADED")
   CustomGameEventManager:Send_ServerToAllClients("update_selected_difficulty", {difficulty = DIFFICULTY_FACTOR} )
   CustomNetTables:SetTableValue("hero_index", "taken_heroes", {} )
+
   Events:SpawnGamemaster(Vector(0,0))
   if GameState:IsWorld1() then
     -- Events:initializeTown()

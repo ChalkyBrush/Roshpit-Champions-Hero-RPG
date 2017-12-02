@@ -1516,6 +1516,7 @@ function water_temple_boss_mob_spawn(boss)
 end
 
 function water_temple_boss_die_begin(event)
+	Statistics.dispatch("tanari_jungle:kill:king_kraethas");
 	local ability = event.ability
 	local caster = event.caster
 	if Tanari.FloodRobeBattle then
@@ -2888,6 +2889,7 @@ function spirit_boss_charge_end(event)
 end
 
 function water_temple_spirit_boss_die_begin(event)
+	Statistics.dispatch("tanari_jungle:kill:water_spirit");
 	local ability = event.ability
 	local caster = event.caster
 	Tanari.WaterSpiritBossDead = true

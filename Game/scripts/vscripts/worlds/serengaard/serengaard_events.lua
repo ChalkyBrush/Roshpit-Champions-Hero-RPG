@@ -14,6 +14,7 @@ function wave_unit_die(event)
 		end
 		print("WAVE UNIT DIE")
 		if Serengaard.waveProgress == Serengaard.waveMax then
+			Statistics.dispatch("serengard:finish_wave", {wave = Serengaard.wave});
 			Serengaard:NextWave()
 			Serengaard:UpdateTowers()
 		end

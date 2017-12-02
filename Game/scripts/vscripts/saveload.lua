@@ -148,6 +148,7 @@ function SaveLoad:SaveCharacter(msg)
 			end
 			Weapons:ValidateGear(hero)
 			CustomGameEventManager:Send_ServerToPlayer(player, "save_characters_loaded", {result=resultTable, message="save_success", heroSlot=hero.saveSlot, premium=premium} )
+			Statistics.dispatch('hero:oracle:save')
 		end )
 	end	
 end
@@ -387,6 +388,9 @@ function SaveLoad:LoadCharacter(msg)
 		if GameState:IsRPCArena() then
 			Arena:LoadChampionsLeagueData(hero, nil)
 		end
+		Timers:CreateTimer(5, function()
+			Statistics.dispatch('hero:oracle:load')
+		end)
 	end )
 end
 
@@ -831,6 +835,7 @@ function SaveLoad:DraggedToStash(keys)
 							keys.playerID = playerID
 							-- CustomGameEventManager:Send_ServerToPlayer(player, "stash_item_upated", {stashSlot = stashSlot, item = itemIndex} )
 							SaveLoad:StashOpen(keys)
+							Statistics.dispatch('items:oracle:push')
 						else
 							-- if not Challenges:CheckIfHeroHasItemByItemIndex(hero, itemEntity:GetEntityIndex()) then
 							-- 	RPCItems:GiveItemToHeroWithSlotCheck(hero, itemEntity)
@@ -929,6 +934,7 @@ function SaveLoad:DraggedFromStash(keys)
 								-- CustomGameEventManager:Send_ServerToPlayer(player, "stash_item_upated", {stashSlot = stashSlot, item = itemIndex} )
 								SaveLoad:StashOpen(keys)
 								UTIL_Remove(itemEntity)
+								Statistics.dispatch('items:oracle:get')
 								-- Weapons:ValidateGear(hero)
 							else
 								-- RPCItems:GiveItemToHeroWithSlotCheck(hero, itemEntity)
