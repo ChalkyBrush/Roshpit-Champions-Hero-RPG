@@ -42,7 +42,7 @@ require( 'challenges')
 require( 'stars')
 require( 'custom_attributes')
 
-
+Statistics = require('statistic')
 
 
 --[[
@@ -207,7 +207,7 @@ end
 ]]
 function GameMode:OnFirstPlayerLoaded()
   DebugPrint("First Player has loaded")
-
+  Statistics.dispatch('game:start')
 end
 
 function GameMode:PlayerConnect(msg)
