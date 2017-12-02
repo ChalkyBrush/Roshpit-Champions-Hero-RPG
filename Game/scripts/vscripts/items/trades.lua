@@ -34,6 +34,7 @@ function RPCItems:InitiateTrade(msg)
 
 				CustomGameEventManager:Send_ServerToPlayer(heroFrom:GetPlayerOwner(), "close_blacksmith", {})
 				CustomGameEventManager:Send_ServerToPlayer(heroTo:GetPlayerOwner(), "close_blacksmith", {})
+				Statistics.dispatch("trade:start");
 			else
 				local timeUntilCanTrade = math.floor(tradeTime-(GameRules:GetGameTime() - heroFrom.lastTrade))
 				Notifications:Top(heroFrom:GetPlayerOwnerID(), {text="Can't trade for "..timeUntilCanTrade.."s", duration=2, style={color="red"}, continue=true})
@@ -76,6 +77,7 @@ function RPCItems:CancelTrade(msg)
 		end
 		heroFrom.tradeTable = {}
 		heroTo.tradeTable = {}
+		Statistics.dispatch("trade:finish");
 	end)
 	CustomGameEventManager:Send_ServerToPlayer(heroFrom:GetPlayerOwner(), "trade_final_close", {sentBy = msg.sentBy})
 	CustomGameEventManager:Send_ServerToPlayer(heroTo:GetPlayerOwner(), "trade_final_close", {sentBy = msg.sentBy})
@@ -122,6 +124,7 @@ function RPCItems:CompleteTrade(heroFrom, heroTo)
 				end
 			end
 		end
+		Statistics.dispatch("trade:finish");
 	end)
 	CustomGameEventManager:Send_ServerToPlayer(heroFrom:GetPlayerOwner(), "trade_final_close_accept", {})
 	CustomGameEventManager:Send_ServerToPlayer(heroTo:GetPlayerOwner(), "trade_final_close_accept", {})

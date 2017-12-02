@@ -163,6 +163,8 @@ function Glyphs:SaveResources()
 					CustomNetTables:SetTableValue("player_stats", tostring(playerID).."-resources", {arcane = arcaneCrystals})
 					CustomNetTables:SetTableValue("player_stats", tostring(playerID).."-enchanter", {tier = enchanterTier})
 					CustomGameEventManager:Send_ServerToPlayer(player, "update_resources", {arcane_crystals= arcaneCrystals, enchanter_tier = enchanterTier, player=playerID} )
+
+					Statistics.dispatch("crystals:change", {playerID = playerID});
 				end )	
 				print("SAVING HERO CRYSTALS: "..hero.crystalsToSave)
 			end
@@ -513,6 +515,8 @@ function Glyphs:GlyphPurchase(msg)
 			CustomGameEventManager:Send_ServerToPlayer(player, "update_resources", {arcane_crystals= arcaneCrystals, enchanter_tier = enchanterTier, player=playerID} )
 			Glyphs:RollGlyphAll(glyphName, Vector(0, 0), msg.heroIndex)
 			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_glyph_shop", {})
+
+			Statistics.dispatch("crystals:change", {playerID = playerID});
 		end )
 	end
 	
@@ -701,6 +705,8 @@ function Glyphs:ReanimationPurchase(msg)
 			CustomGameEventManager:Send_ServerToPlayer(player, "update_resources", {arcane_crystals= arcaneCrystals, enchanter_tier = enchanterTier, player=playerID} )
 			RPCItems:GiveReanimationStoneToHero(hero)
 			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_glyph_shop", {})
+
+			Statistics.dispatch("crystals:change", {playerID = playerID});
 		end )
 	end
 end

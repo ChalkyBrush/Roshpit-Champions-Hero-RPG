@@ -5201,11 +5201,13 @@ function tri_boss_die(caster)
 		Seafortress.MainBossesSlain = 0
 	end
 	if caster:GetUnitName() == "seafortress_boss_siltbreaker" then
+		Statistics.dispatch("sea_fortress:kill:siltbreaker");
 		local luck = RandomInt(1,3)
 		if luck == 1 then
 			RPCItems:RollDarkReefSharkHelmet(caster:GetAbsOrigin(), false)
 		end
 	elseif caster:GetUnitName() == "seafortress_oracle_of_the_sea" then
+		Statistics.dispatch("sea_fortress:kill:sea_oracle");
 		local luck = RandomInt(1,9)
 		if luck == 1 then
 			RPCItems:RollEmpyrealSunriseRobe(caster:GetAbsOrigin())
@@ -5213,6 +5215,7 @@ function tri_boss_die(caster)
 	    	RPCItems:RollHoodOfTheSeaOracle(caster:GetAbsOrigin())
 	    end
 	elseif caster:GetUnitName() == "seafortress_boss_silver_sea_giant" then
+		Statistics.dispatch("sea_fortress:kill:sea_giant");
 		local luck = RandomInt(1,3)
 		if luck == 1 then
 			RPCItems:RollSeaGiantsPlate(caster:GetAbsOrigin())
