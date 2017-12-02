@@ -2,31 +2,21 @@ local listeners = {}
 local data = {}
 local matchId = nil
 local players = {};
+local packetSize = 10000
 
 local statsCollectUrl = 'https://roshpit.xyz/stats/collect/'
 local statsGetUtl = 'https://roshpit.xyz/stats/getData/'
 
 
-local function dispatch(event, data)
-    if listeners[event] == nil then
-        return
-    end
-    if not data then
-        data = {}
-    end
 
-    data['event'] = event
-    print("event dispatched " .. event)
-    for k, listener in pairs(listeners[event]) do
-        listener(data)
-    end
-end
-
-local function subscribe(event, func)
-    if not listeners[event] then
-        listeners[event] = {}
-    end
-    table.insert(listeners[event], func)
+local function getBaseGameData(eventInfo)
+    local eventData = {}
+    eventData['match_id'] = matchId
+    eventData['map'] = Events.MapName
+    eventData['game_duration'] = math.ceil(GameRules:GetGameTime())
+    eventData['difficult'] = GameState:GetDifficultyFactor()
+    eventData['event'] = eventInfo['event']
+    return eventData
 end
 
 local function send(jsonStats, repeatCount)
@@ -50,6 +40,18 @@ local function forceSend(eventInfo)
     data = {}
 end
 
+
+local function collect(eventInfo)
+    table.insert(data, eventInfo)
+    local jsonData = jsonEncode(data)
+    if (jsonData:len() < packetSize) then
+        return
+    end
+
+    send(jsonData, 5)
+    data = {}
+end
+
 -- usual json:encode send data as array if it is possible
 local function jsonEncode(data)
     local jsonString
@@ -69,26 +71,37 @@ local function jsonEncode(data)
     return jsonString
 end
 
-local function collect(eventInfo)
-    table.insert(data, eventInfo)
-    local jsonData = jsonEncode(data)
-    print("data len is " .. jsonData:len())
-    if (jsonData:len() < 1000) then
+local function dispatch(event, data)
+    if listeners[event] == nil then
         return
     end
+    if not data then
+        data = {}
+    end
 
-    send(jsonData, 5)
-    data = {}
+    data['event'] = event
+    print("event dispatched " .. event)
+
+    for k, listener in pairs(listeners[event]) do
+        local status, exception = pcall(function()
+            listener(data)
+        end)
+        if not status then
+            pcall(function()
+                local eventData = getBaseGameData({event = "stats:exception"})
+                eventData['exception'] = jsonEncode(exception)
+                collect(eventData)
+                forceSend(eventData)
+            end)
+        end
+    end
 end
 
-local function getBaseGameData(eventInfo)
-    local eventData = {}
-    eventData['match_id'] = matchId
-    eventData['map'] = Events.MapName
-    eventData['game_duration'] = math.ceil(GameRules:GetGameTime())
-    eventData['difficult'] = GameState:GetDifficultyFactor()
-    eventData['event'] = eventInfo['event']
-    return eventData
+local function subscribe(event, func)
+    if not listeners[event] then
+        listeners[event] = {}
+    end
+    table.insert(listeners[event], func)
 end
 
 local function getMatchId(eventInfo, repeatCount)
@@ -153,25 +166,27 @@ local function getItemsByIndexes(itemsIndexes)
     local items = {}
     for key, itemIndexOnly in pairs(itemsIndexes) do
         local luaItem = EntIndexToHScript(itemIndexOnly.itemIndex)
-        local clearedItem = {
-            itemName = luaItem.itemName,
-            property1 = luaItem.property1,
-            property1name = luaItem.property1name,
-            property2 = luaItem.property2,
-            property2name = luaItem.property2name,
-            property3 = luaItem.property3,
-            property3name = luaItem.property3name,
-            property4 = luaItem.property4,
-            property4name = luaItem.property4name,
-            minLevel = luaItem.minLevel,
-            slot = luaItem.slot,
-            itemVariant = luaItem:GetAbilityName(),
-            itemIndex = itemIndexOnly.itemIndex,
-        }
-        if items[itemIndexOnly.itemIndex] then
-            items[tostring(itemIndexOnly.itemIndex) .. '_copy'] = clearedItem
-        else
-            items[itemIndexOnly.itemIndex] = clearedItem
+        if luaItem and not luaItem.glyph and luaItem.property1 then
+            local clearedItem = {
+                itemName = luaItem.itemName,
+                property1 = luaItem.property1,
+                property1name = luaItem.property1name,
+                property2 = luaItem.property2,
+                property2name = luaItem.property2name,
+                property3 = luaItem.property3,
+                property3name = luaItem.property3name,
+                property4 = luaItem.property4,
+                property4name = luaItem.property4name,
+                minLevel = luaItem.minLevel,
+                slot = luaItem.slot,
+                itemVariant = luaItem:GetAbilityName(),
+                itemIndex = itemIndexOnly.itemIndex,
+            }
+            if items[itemIndexOnly.itemIndex] then
+                items[tostring(itemIndexOnly.itemIndex) .. '_copy'] = clearedItem
+            else
+                items[itemIndexOnly.itemIndex] = clearedItem
+            end
         end
     end
     return items
