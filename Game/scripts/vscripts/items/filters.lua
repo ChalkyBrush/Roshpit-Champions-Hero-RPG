@@ -1527,6 +1527,12 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local stacks = attacker:GetModifierStackCount("modifier_helm_all_elements", attacker.InventoryUnit)
             mult = mult + stacks/100
         end
+        if attacker:HasAbility("arkimus_archon_form") then
+            local c_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 3, 3)
+            if c_d_level > 0 then
+                mult = mult + 0.25*c_d_level
+            end
+        end
     end
     if element1 == RPC_ELEMENT_NORMAL then
         if bIsRealDamage then

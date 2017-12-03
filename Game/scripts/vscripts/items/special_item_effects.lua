@@ -1523,7 +1523,7 @@ function super_ascension_end(event)
 	local caster = event.caster
 	local target = event.target
 	target:RemoveModifierByName("modifier_super_ascendency_lua")
-	if not target:HasModifier("modifier_tomahawk_buffs") and not target:HasModifier("modifier_chernobog_demonform_lua") then
+	if not target:HasModifier("modifier_tomahawk_buffs") and not target:HasModifier("modifier_chernobog_demonform_lua") and not target:HasModifier("modifier_arkimus_archon_form") then
 		print("SET TO MELEE")
 		target:SetAttackCapability(target.baseAttackCapability)
 	end
@@ -4803,22 +4803,25 @@ function aquasteel_take_damage(event)
 	local stun_duration = event.stun_duration
 	local ability = event.ability
 	local proc = Filters:GetProc(caster, proc_chance)
-	if proc then
-		local dagon_particle = ParticleManager:CreateParticle("particles/econ/events/ti7/dagon_ti7.vpcf",  PATTACH_ABSORIGIN_FOLLOW, caster)
-		ParticleManager:SetParticleControlEnt(dagon_particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), false)
-		ParticleManager:SetParticleControlEnt(dagon_particle, 1, attacker, PATTACH_POINT_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), false)
-		local particle_effect_intensity = 700
-		ParticleManager:SetParticleControl(dagon_particle, 2, Vector(particle_effect_intensity, particle_effect_intensity, particle_effect_intensity))
-		Timers:CreateTimer(2.0, function()
-			ParticleManager:DestroyParticle(dagon_particle, false)
-			ParticleManager:ReleaseParticleIndex(dagon_particle)
-		end)
-		local damage = damage_mult*caster:GetAverageTrueAttackDamage(caster) + caster:GetPhysicalArmorValue()*armor_mult
-		EmitSoundOn("RPCItem.Aquasteel", attacker)
-		Timers:CreateTimer(0.1, function()
-			Filters:ApplyItemDamage(attacker,caster,damage,DAMAGE_TYPE_MAGICAL,ability,RPC_ELEMENT_WATER,RPC_ELEMENT_NONE)
-			Filters:ApplyStun(caster, stun_duration, attacker)
-		end)
+	if unit:GetEntityIndex() == attacker:GetEntityIndex() then
+	else
+		if proc then
+			local dagon_particle = ParticleManager:CreateParticle("particles/econ/events/ti7/dagon_ti7.vpcf",  PATTACH_ABSORIGIN_FOLLOW, caster)
+			ParticleManager:SetParticleControlEnt(dagon_particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), false)
+			ParticleManager:SetParticleControlEnt(dagon_particle, 1, attacker, PATTACH_POINT_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), false)
+			local particle_effect_intensity = 700
+			ParticleManager:SetParticleControl(dagon_particle, 2, Vector(particle_effect_intensity, particle_effect_intensity, particle_effect_intensity))
+			Timers:CreateTimer(2.0, function()
+				ParticleManager:DestroyParticle(dagon_particle, false)
+				ParticleManager:ReleaseParticleIndex(dagon_particle)
+			end)
+			local damage = damage_mult*caster:GetAverageTrueAttackDamage(caster) + caster:GetPhysicalArmorValue()*armor_mult
+			EmitSoundOn("RPCItem.Aquasteel", attacker)
+			Timers:CreateTimer(0.1, function()
+				Filters:ApplyItemDamage(attacker,caster,damage,DAMAGE_TYPE_MAGICAL,ability,RPC_ELEMENT_WATER,RPC_ELEMENT_NONE)
+				Filters:ApplyStun(caster, stun_duration, attacker)
+			end)
+		end
 	end
 end
 

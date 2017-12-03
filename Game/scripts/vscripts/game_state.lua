@@ -828,6 +828,12 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		reduction = (100-reduction)/100
 		damage = damage*reduction
 	end
+	if victim:HasModifier("modifier_arkimus_archon_form") then
+		local archonForm = victim:FindAbilityByName("arkimus_archon_form")
+		local reduction = archonForm:GetLevelSpecialValueFor("damage_resist", archonForm:GetLevel())
+		reduction = (100-reduction)/100
+		damage = damage*reduction
+	end
 	if victim:HasModifier("modifier_axe_rune_c_d_shield") then
 		damage = damage*0.2
 		if victim:HasModifier("modifier_axe_glyph_6_2") then
@@ -978,6 +984,10 @@ function GameState:FilterDamage(filterTable)
 	local difficultyDamageReduce = 1
 	local victim = EntIndexToHScript( victim_index )
 	local attacker = EntIndexToHScript( attacker_index )
+
+	if attacker:HasModifier("modifier_arkimus_archon_form") then
+		filterTable["damagetype_const"] = DAMAGE_TYPE_PURE
+	end
 	local damagetype = filterTable["damagetype_const"]
 
 	local mult = 1

@@ -3,7 +3,7 @@ function storm_weapon_cast(event)
 	local caster = event.caster
 	local duration = Filters:GetAdjustedBuffDuration(caster, 3, false)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_storm_weapon", {duration = duration})
-	StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.6})
+	
 	Filters:CastSkillArguments(2, caster)
 	if not ability.pfx then
 
@@ -14,7 +14,17 @@ function storm_weapon_cast(event)
 		ability.pfx2 = ParticleManager:CreateParticle("particles/roshpit/heroes/arkimus/weapon_enhance.vpcf", PATTACH_POINT_FOLLOW, caster)
 		ParticleManager:SetParticleControlEnt(ability.pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_h2", caster:GetAbsOrigin(), true)
 	end
-	EmitSoundOn("Akrimus.MagicWeapon", caster)
+	if not caster.stormWeaponSound then
+		local luck = 1
+		if luck == 1 then
+			caster.stormWeaponSound = true
+			EmitSoundOn("Akrimus.MagicWeapon", caster)
+			StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.6})
+			Timers:CreateTimer(0.6, function()
+				caster.stormWeaponSound = false
+			end)
+		end
+	end
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Akrimus.StormWeapon", caster)
 	ability.b_b_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
 	local d_b_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)

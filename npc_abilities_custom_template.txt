@@ -57956,6 +57956,8 @@
 		}
 
 	}
+
+	##ARKIMUS_ABILITIES##
 	//----------------- DRAGHOR
 
 	"djanghor_rune_a_a"
