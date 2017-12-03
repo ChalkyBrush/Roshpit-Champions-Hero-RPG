@@ -803,6 +803,10 @@ function Runes:EquipArcana(hero, index)
 			hero:RemoveModifierByName("modifier_paladin_c_b_passive")
 			Runes:EasySwapArcanaSkills(hero, 1, "holy_cone", "paladin_penance", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
+			hero:RemoveModifierByName("modifier_paladin_rune_b_c")
+			hero:RemoveModifierByName("modifier_paladin_rune_a_c_revivable")
+			hero:RemoveModifierByName("modifier_paladin_rune_a_c_reviving")
+			hero:RemoveModifierByName("modifier_paladin_rune_a_c_revive_cooldown")
 			Runes:EasySwapArcanaSkills(hero, 2, "crusader_dash", "paladin_crusader_comet", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_crystal_maiden" then
@@ -1294,6 +1298,9 @@ function Runes:UnequipArcana(hero, index)
 		if index == 1 then
 			hero:RemoveModifierByName("modifier_paladin_arcana_glove_passive")
 			Runes:EasyRevertArcanaSkills(hero, 1, "holy_cone", "paladin_penance", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+		elseif index == 2 then
+			hero:RemoveModifierByName("modifier_paladin_arcana2_passive")
+			Runes:EasyRevertArcanaSkills(hero, 2, "crusader_dash", "paladin_crusader_comet", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_crystal_maiden" then
 		hero:RemoveModifierByName("modifier_ice_tornado_passive")

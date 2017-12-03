@@ -51894,18 +51894,18 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"voltex/voltex_storm_rush"
+		"AbilityTextureName"			"paladin/wings_of_sanctity"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
-		"AbilityCastRange"				"1000 1125 1250 1375 1500 1625 1750"
+		"AbilityCastRange"				"1250 1375 1500 1625 1750 1875 2000"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
 	    "precache"
 	    {
-	    	"particle"	"particles/units/heroes/hero_pangolier/pangolier_gyroshell.vpcf"
+
 	    }
 
 		// Casting
@@ -51914,7 +51914,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"4"
+		"AbilityCooldown"				"3.2"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -51927,14 +51927,18 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_reduction_percent"	"45 50 55 60 65 70 75"
+				"cast_range"	"1250 1375 1500 1625 1750 1875 2000"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cast_range"	"1000 1125 1250 1375 1500 1625 1750"
+				"base_damage"	"3000 12000 35000 80000 160000 350000 600000"
 			}
-
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_from_str"	"20 40 80 160 240 320 400"
+			}
 		}
 
 		"OnSpellStart"
@@ -51949,6 +51953,38 @@
 
 		"Modifiers"
 		{
+			"modifier_paladin_arcana2_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_paladin_b_c_attackpower"
+						"Target" 		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_paladin_d_c_postmit"
+						"Target" 		"TARGET"
+					}
+				}
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/omniknight/arcana/crusader_comet"
+						"Function"		"calculate_and_apply_b_c_attack_power"
+					}
+				}
+			}
+			"modifier_paladin_heal_on_lethal_cooldown"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+			}
 			"modifier_comet_jumping"
 			{
 				"IsHidden"	"1"
@@ -51969,6 +52005,7 @@
 				"States"
 				{
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 			"modifier_comet_storming"
@@ -51993,15 +52030,134 @@
 					{
 						"ScriptFile"	"heroes/omniknight/arcana/crusader_comet"
 						"Function"		"comet_storm_end"
+						"damage"		"%base_damage"
+						"str_mult"		"%damage_from_str"
 					}
 				}
 				"States"
 				{
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
+			}
+			"modifier_paladin_b_c_attackpower"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
+			}
+			"modifier_black_King_bar_immunity"
+			{
+				"Passive"	"0"
+				"IsHidden" "0"
+				"ThinkInterval"  "4.0"
+				"TextureName"	"paladin/paladin_rune_c_c_arcana2"
+				"EffectName"	"particles/items_fx/black_king_bar_avatar.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Item.GiantHunterImmunity"
+						"Target" 		"TARGET"
+					}
+				}
+
+			}
+			"modifier_paladin_d_c_postmit"
+			{
+				"IsHidden"	"1"
 			}
 		}
 
+	}
+
+	"paladin_rune_a_c_arcana2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"paladin/paladin_rune_a_c_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"5000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"1000"
+			}
+		}
+	}
+
+	"paladin_rune_b_c_arcana2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"paladin/paladin_rune_b_c_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"1"
+			}
+		}
+	}
+
+	"paladin_rune_c_c_arcana2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"paladin/paladin_rune_c_c_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one_base"		"1.0"
+			}
+		}
+	}
+
+	"paladin_rune_d_c_arcana2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"paladin/paladin_rune_d_c_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.05"
+			}
+		}
 	}
 	"paladin_rune_a_b_arcana1"
 	{

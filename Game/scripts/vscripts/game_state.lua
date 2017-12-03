@@ -1531,6 +1531,10 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + 0.25*stacks
 		end
 	end
+	if attacker:HasModifier("modifier_paladin_d_c_postmit") then
+		local stacks = attacker:GetModifierStackCount("modifier_paladin_d_c_postmit", attacker)
+		mult = mult + 0.01*stacks
+	end
 	if victim:HasModifier("modifier_tachyon_amp") then
 		local modifier = victim:FindModifierByName("modifier_tachyon_amp")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
@@ -2424,6 +2428,27 @@ function GameState:FilterDamage(filterTable)
 					end 
 				end)
 			end
+		elseif victim:HasModifier("modifier_paladin_arcana2_passive") then
+			local a_c_level = Runes:GetTotalRuneLevelGeneric(victim, 1, 2)
+			if a_c_level > 0 then
+				if not victim:HasModifier("modifier_paladin_heal_on_lethal_cooldown") then
+					local arcanaAbility = victim:FindAbilityByName("paladin_crusader_comet")
+					arcanaAbility:ApplyDataDrivenModifier(victim, victim, "modifier_paladin_heal_on_lethal_cooldown", {duration = 5})
+					local healAmount = a_c_level * 5000
+					local manaRestore = a_c_level * 1000
+					EmitSoundOn("Paladin.ArcanaACHeal", victim)
+					Filters:ApplyHeal(victim, victim, healAmount, true)
+					victim:GiveMana(manaRestore)
+					local pfx = ParticleManager:CreateParticle( "particles/econ/items/omniknight/hammer_ti6_immortal/omniknight_purification_ti6_immortal.vpcf", PATTACH_CUSTOMORIGIN, target )
+					ParticleManager:SetParticleControlEnt(pfx, 0, victim, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", victim:GetAbsOrigin(), true)
+					ParticleManager:SetParticleControl(pfx, 1, Vector(300,1,300))
+					ParticleManager:SetParticleControl(pfx, 2, victim:GetForwardVector())
+					Timers:CreateTimer(4, function() 
+					  ParticleManager:DestroyParticle( pfx, false )
+					end) 	
+					filterTable["damage"] =  0
+				end
+			end
 		end
 
 	end
@@ -2465,16 +2490,16 @@ function GameState:FilterDamage(filterTable)
 	-- 	filterTable["damage"] = filterTable["damage"]/GameState.PVP_REDUCTION
 	-- end
 	if Beacons.cheats then
-		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-			if victim:IsHero() then
-				filterTable["damage"] = 0
-			end
-		end
-		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-			if attacker:IsHero() then
-				filterTable["damage"] = filterTable["damage"]*10000000*30*10000*1000000
-			end
-		end
+		-- if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+		-- 	if victim:IsHero() then
+		-- 		filterTable["damage"] = 0
+		-- 	end
+		-- end
+		-- if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+		-- 	if attacker:IsHero() then
+		-- 		filterTable["damage"] = filterTable["damage"]*10000000*30*10000*1000000
+		-- 	end
+		-- end
 		-- if damagetype == DAMAGE_TYPE_PHYSICAL then
 		-- 	filterTable["damage"] = victim:GetHealth()-100
 		-- end
