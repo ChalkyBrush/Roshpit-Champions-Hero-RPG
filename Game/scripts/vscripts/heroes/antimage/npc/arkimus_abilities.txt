@@ -136,7 +136,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1000"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "400"
 				}
 				"OnAttackLanded"
 				// "%attack_damage" is set to the damage value before mitigation

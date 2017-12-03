@@ -9882,3 +9882,424 @@
         }
     }
 }
+
+"Seafortress.ArchonWizard.Aggro"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/vo/antimage/anti_immort_02.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.415000"  }
+                    "pitch_rand_min"    {   "value"     "-0.02000"  }
+                    "pitch_rand_max"    {   "value"     "0.020000"  }
+                    "pitch"             {   "value"     "0.75000"  }
+                    "soundlevel"        {   "value"     "99.00000" }
+                    "distance_max"      {   "value"     "3400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Seafortress.ArchonWizardDie"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/vo/antimage/anti_death_01.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.415000"  }
+                    "pitch_rand_min"    {   "value"     "-0.02000"  }
+                    "pitch_rand_max"    {   "value"     "0.020000"  }
+                    "pitch"             {   "value"     "0.75000"  }
+                    "soundlevel"        {   "value"     "99.00000" }
+                    "distance_max"      {   "value"     "3400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Seafortress.ArchonGolemSpawn"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/electric_wall.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.415000"  }
+                    "pitch_rand_min"    {   "value"     "-0.02000"  }
+                    "pitch_rand_max"    {   "value"     "0.020000"  }
+                    "pitch"             {   "value"     "0.85000"  }
+                    "soundlevel"        {   "value"     "99.00000" }
+                    "distance_max"      {   "value"     "3400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Seafortress.ArchonGolemWindUp"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/ui/panorama/panorama_topmenu_select_03.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.215000"  }
+                    "pitch_rand_min"    {   "value"     "-0.02000"  }
+                    "pitch_rand_max"    {   "value"     "0.020000"  }
+                    "pitch"             {   "value"     "0.75000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "3400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Seafortress.ArchonGolemShaking"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/weapons/hero/zuus/arc_lightning.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.215000"  }
+                    "pitch_rand_min"    {   "value"     "-0.02000"  }
+                    "pitch_rand_max"    {   "value"     "0.020000"  }
+                    "pitch"             {   "value"     "1.40000"  }
+                    "soundlevel"        {   "value"     "86.00000" }
+                    "distance_max"      {   "value"     "3400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Paladin.CometLand"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/paladin/paladin_comet_land.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.60000"  }
+                    "pitch_rand_min"    {   "value"     "-0.00000"  }
+                    "pitch_rand_max"    {   "value"     "0.000000"  }
+                    "pitch"             {   "value"     "1.25000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "2700.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Paladin.CometLandGround"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/paladin/heavy_impact.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.72000"  }
+                    "pitch_rand_min"    {   "value"     "-0.05000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.05000"  }
+                    "soundlevel"        {   "value"     "94.00000" }
+                    "distance_max"      {   "value"     "2700.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Paladin.CometFlying"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/items/meteor_fall.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.40000"  }
+                    "pitch_rand_min"    {   "value"     "-0.05000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.05000"  }
+                    "soundlevel"        {   "value"     "87.00000" }
+                    "distance_max"      {   "value"     "2700.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Paladin.ArcanaACHeal"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/omniknight/wingfall.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.921000"  }
+                    "pitch_rand_min"    {   "value"     "-0.01000"  }
+                    "pitch_rand_max"    {   "value"     "0.010000"  }
+                    "pitch"             {   "value"     "0.80000"  }
+                    "soundlevel"        {   "value"     "84.00000" }
+                    "distance_max"      {   "value"     "2700.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Seafortress.HollowOne.Aggro"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/nevermore/nev_arc_kill_07.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.921000"  }
+                    "pitch_rand_min"    {   "value"     "-0.01000"  }
+                    "pitch_rand_max"    {   "value"     "0.010000"  }
+                    "pitch"             {   "value"     "0.80000"  }
+                    "soundlevel"        {   "value"     "84.00000" }
+                    "distance_max"      {   "value"     "2700.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Seafortress.CometDash.VO"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/nevermore/nev_arc_pain_01.vsnd"
+                              "value1"        "sounds/vo/nevermore/nev_arc_pain_02.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.321000"  }
+                    "pitch_rand_min"    {   "value"     "-0.05000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.00000"  }
+                    "soundlevel"        {   "value"     "87.00000" }
+                    "distance_max"      {   "value"     "2700.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Seafortress.CometLift.VO"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/nevermore/nev_arc_pain_03.vsnd"
+                              "value1"        "sounds/vo/nevermore/nev_arc_pain_04.vsnd"
+                              "value2"        "sounds/vo/nevermore/nev_arc_pain_05.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.7000"  }
+                    "pitch_rand_min"    {   "value"     "-0.05000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.05000"  }
+                    "soundlevel"        {   "value"     "82.00000" }
+                    "distance_max"      {   "value"     "2700.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Seafortress.DarkPaladinDie"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/nevermore/nev_arc_death_05.vsnd"
+                              "value1"        "sounds/vo/nevermore/nev_arc_pain_04.vsnd"
+                              "value2"        "sounds/vo/nevermore/nev_arc_pain_05.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.2000"  }
+                    "pitch_rand_min"    {   "value"     "-0.05000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.05000"  }
+                    "soundlevel"        {   "value"     "92.00000" }
+                    "distance_max"      {   "value"     "2700.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}

@@ -3,12 +3,13 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"paladin/wings_of_sanctity"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
+		"AOERadius"						"240"
 		"AbilityCastRange"				"1250 1375 1500 1625 1750 1875 2000"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 

@@ -18,10 +18,12 @@ function arkimus_archon_form_lua:GetModifierModelScale( params )
 end
 
 function arkimus_archon_form_lua:GetModifierAttackRangeBonus( params )
-    local ability = self:GetParent():FindAbilityByName("arkimus_archon_form")
     local range = 500
-    if IsValidEntity(ability) then
-     range = ability:GetLevelSpecialValueFor("attack_range", ability:GetLevel())
+    if self:GetParent() then
+        local ability = self:GetParent():FindAbilityByName("arkimus_archon_form")
+        if IsValidEntity(ability) then
+         range = ability:GetLevelSpecialValueFor("attack_range", ability:GetLevel())
+        end
     end
     return range
 end
@@ -32,10 +34,15 @@ end
 
 function arkimus_archon_form_lua:GetModifierBaseAttackTimeConstant( params )
     local bat = 1.1
-    if self:GetParent() then
-        local d_d_level = self:GetParent():FindAbilityByName("arkimus_archon_form").d_d_level
-        if d_d_level > 0 then
-            bat = bat - 0.01*d_d_level
+    local parent = self:GetParent()
+    if IsValidEntity(parent) and parent then
+        if parent:GetUnitName() == "npc_dota_hero_antimage" then
+            local d_d_level = self:GetParent():FindAbilityByName("arkimus_archon_form").d_d_level
+            if d_d_level > 0 then
+                bat = bat - 0.01*d_d_level
+            end
+        else
+            bat = 0.7
         end
     end
     return bat

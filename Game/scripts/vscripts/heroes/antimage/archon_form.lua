@@ -82,7 +82,11 @@ function archon_attack_land(event)
 	end
 	local a_d_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
 	ability.a_d_level = a_d_level
-	if a_d_level > 0 then
+	if caster:GetUnitName() == "seafortress_archon_wizard" then
+		ability.a_d_level = 10
+	end
+
+	if ability.a_d_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_archon_a_d_field_thinker", {duration = 3})
 		if WallPhysics:GetDistance2d(ability.aoePosition, target:GetAbsOrigin()) > 80 then
 			if ability.pfx then
@@ -137,4 +141,20 @@ function archon_a_d_end(event)
 		ParticleManager:DestroyParticle(ability.pfx, false)
 		ability.pfx = false
 	end
+end
+
+function archon_init_seafortress(event)
+	local caster = event.caster
+	local ability = event.ability
+	local baseFV = caster:GetForwardVector()
+
+	StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_4, rate=1})
+
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_archon_form", {})
+	caster:AddNewModifier( caster, ability, "arkimus_archon_form_lua", {} )
+	caster:SetRangedProjectileName("particles/base_attacks/arkimus_archon_form.vpcf")
+	Events:ColorWearablesAndBase(caster, Vector(0,0,0))
+	caster:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
+	ability.d_d_level = 20
+	EmitSoundOn("Arkimus.ArchonForm.Start", caster)
 end

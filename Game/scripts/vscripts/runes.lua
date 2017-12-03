@@ -378,12 +378,16 @@ function Runes:GetTotalRuneLevelGeneric(caster, tier, index)
 		runeUnit = caster.runeUnit4
 	end
 	local runeID = Runes:ConvertTierAndIndexToRune(tier, index)
-	local runeAbility = runeUnit:GetAbilityByIndex(index)
-	if runeAbility then
-		local abilityLevel = runeAbility:GetLevel()
-		local bonusLevel = Runes:GetTotalBonus(runeUnit, runeID)
-		local totalLevel = abilityLevel + bonusLevel
-		return totalLevel
+	if runeUnit then
+		local runeAbility = runeUnit:GetAbilityByIndex(index)
+		if runeAbility then
+			local abilityLevel = runeAbility:GetLevel()
+			local bonusLevel = Runes:GetTotalBonus(runeUnit, runeID)
+			local totalLevel = abilityLevel + bonusLevel
+			return totalLevel
+		else
+			return 0
+		end
 	else
 		return 0
 	end

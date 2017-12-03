@@ -1169,3 +1169,29 @@ function JumperTrigger(trigger)
 		end)
 	end
 end
+
+function ArkimusTeleportTrigger(trigger)
+	local hero = trigger.activator
+	print("teleport?")
+	if Seafortress.ArkimusActive then
+		if not hero:HasModifier("modifier_recently_teleported_portal") then
+			local portToVector = Vector(3104, 14272)
+			Events:TeleportUnit(hero, portToVector, Events.GameMaster.portal, Events.GameMaster, 1.2)
+			if not Seafortress.ArchonSpawned then
+				Seafortress.ArchonSpawned = true
+				Seafortress:InitArchon()
+			end
+		end
+	end
+end
+
+function ArkimusTeleportTrigger2(trigger)
+	local hero = trigger.activator
+	print("teleport?")
+	if Seafortress.ArchonSlain then
+		if not hero:HasModifier("modifier_recently_teleported_portal") then
+			local portToVector = Vector(-14674, 3428)
+			Events:TeleportUnit(hero, portToVector, Events.GameMaster.portal, Events.GameMaster, 1.2)
+		end
+	end
+end

@@ -17,7 +17,6 @@ function Seafortress:Debug()
     local position = Vector(844, -15488)
     RPCItems:DropItem(item, Vector(844, -15488))
     AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(4800, -2176), 800, 300, false)
-
    -- local unit = Seafortress:SpawnCephapolos(Vector(844, -15488), Vector(1,0))
    -- unit:AddAbility("paragon_abilities"):SetLevel(1)
    -- local ability = unit:FindAbilityByName("paragon_abilities")
@@ -70,6 +69,28 @@ function Seafortress:Debug2()
     Seafortress:AllBossesSlain()
     -- Seafortress:SpawnFinalBoss()
     -- Seafortress:SpawnGardenRoom()
+end
+
+function Seafortress:ActivateOrDeactiveArchon()
+  local archonMax = 20 - GameState:GetPlayerPremiumStatusCount()*2
+  local luck = RandomInt(1, archonMax)
+  if luck == 1 then
+    Seafortress.ArkimusActive = true
+    Beacons:CreateActiveParticle("particles/portals/green_portal.vpcf", Vector(-14683, 3444, 110+Seafortress.ZFLOAT), Events.GameMaster, 0, Vector(0.45, 0.45, 0.45))
+  else
+    local pad = Entities:FindByNameNearest("ArkimusTeleportPad", Vector(-14683, 3444), 600)
+    UTIL_Remove(pad)
+  end
+end
+
+function Seafortress:InitPaladinGolems()
+  local paladinMax = 19 - GameState:GetPlayerPremiumStatusCount()*2
+  local luck = RandomInt(1, paladinMax)
+  luck = 1
+  if luck == 1 then
+    Seafortress.PaladinGolems = 0
+    Seafortress.PaladinArcana = true
+  end
 end
 
 function Seafortress:Init()
@@ -148,6 +169,8 @@ function Seafortress:Init()
     ParticleManager:SetParticleControl(Seafortress.switchPFX, 1, Vector(190, 190, 190))
   end)
   Seafortress.TempleEnergyState = -1
+  Seafortress:ActivateOrDeactiveArchon()
+  Seafortress:InitPaladinGolems()
 end
 
 function Seafortress:LeftWingKill()
@@ -3790,6 +3813,12 @@ function Seafortress:FirstPirateRoom()
       end)
     end
   end)
+
+  Timers:CreateTimer(20, function()
+    if Seafortress.PaladinArcana then
+      Seafortress:SpawnPaladinArcanaGolems()
+    end
+  end)
 end
 
 function Seafortress:SpawnBarnacleColossus(position, fv)
@@ -4507,10 +4536,50 @@ function Seafortress:SpawnShadowOfBahamut()
 end
 
 function Seafortress:SpawnShadowOfBahamutMonster(position, fv)
-  local queen = Seafortress:SpawnDungeonUnit("seafortress_shadow_of_bahamut", position, 3,4, "sounds/vo/leshrac/lesh_pain_06.vsnd", fv, false)
+  local queen = Seafortress:SpawnDungeonUnit("seafortress_shadow_of_bahamut", position, 3,4, "Seafortress.ShadowOfBahamut.Aggro", fv, false)
   queen.reduc = 0.00001
   Events:AdjustBossPower(queen, 8, 8, false)
   queen:SetRenderColor(0, 0, 0)
   Events:ColorWearables(queen, Vector(45, 45, 45))
+  return queen
+end
+
+function Seafortress:InitArchon()
+  Seafortress:SpawnArchonWizard(Vector(4416, 15744), Vector(-0.7,-1))
+end
+
+function Seafortress:SpawnArchonWizard(position, fv)
+  local queen = Seafortress:SpawnDungeonUnit("seafortress_archon_wizard", position, 3,4, "Seafortress.ArchonWizard.Aggro", fv, false)
+  queen.reduc = 0.0001
+  queen.golemsSpawned = 0
+  Events:AdjustBossPower(queen, 8, 8, false)
+  queen:SetRenderColor(0, 0, 0)
+  Events:ColorWearables(queen, Vector(0, 0, 0))
+  return queen
+end
+
+function Seafortress:SpawnArchonGolem(position, fv)
+  local queen = Seafortress:SpawnDungeonUnit("sea_fortress_archon_golem", position, 5,6, "Seafortress.ArchonGolemSpawn", fv, true)
+  queen.reduc = 0.0001
+  Events:AdjustBossPower(queen, 8, 8, false)
+  queen:SetRenderColor(207, 94, 255)
+  Seafortress:SetTargetCastArgs(queen, 400, 0, 1, FIND_ANY_ORDER)
+  return queen
+end
+
+function Seafortress:SpawnPaladinArcanaGolems()
+  local golem1 = Seafortress:SpawnPaladinGolem(Vector(12032, 9920), Vector(-1,-1))
+  local golem2 = Seafortress:SpawnPaladinGolem(Vector(12294, 9305), Vector(-1,0.2))
+  local golem3 = Seafortress:SpawnPaladinGolem(Vector(11796, 9055), Vector(0,1))
+  local golem4 = Seafortress:SpawnPaladinGolem(Vector(11392, 9364), Vector(-1,1))
+  Seafortress.GolemsTable = {golem1, golem2, golem3, golem4}
+end
+
+function Seafortress:SpawnPaladinGolem(position, fv)
+  local queen = Seafortress:SpawnDungeonUnit("sea_fortress_paladin_golem", position, 5,6, "Seafortress.ArchonGolemSpawn", fv, false)
+  queen.reduc = 0.00008
+  Events:AdjustBossPower(queen, 8, 8, false)
+  queen:SetRenderColor(0, 0, 0)
+  Seafortress:SetPositionCastArgs(queen, 1800, 0, 1, FIND_ANY_ORDER)
   return queen
 end

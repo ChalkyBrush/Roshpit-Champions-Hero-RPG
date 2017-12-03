@@ -31715,7 +31715,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_damage_base"			"300 1000 5000 20000 40000 80000"
+				"attack_damage_base"			"300 1000 5000 20000 40000 80000 160000"
 			}
 			"03"
 			{
@@ -31725,7 +31725,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_damage_base_rune"			"6 20 100 400 800 1600"
+				"attack_damage_base_rune"			"6 20 100 400 800 1600 3200"
 			}
 		}
 		"Modifiers"
@@ -31808,7 +31808,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"health_regen"			"30 80 150 250 500 1000"
+				"health_regen"			"30 80 150 250 500 1000 1500"
 			}
 			"03"
 			{
@@ -31818,7 +31818,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"health_regen_rune"			"0.6 1.6 3.0 5.0 10.0 20.0"
+				"health_regen_rune"			"0.6 1.6 3.0 5.0 10.0 20.0 30.0"
 			}
 		}
 		"Modifiers"
@@ -104332,6 +104332,87 @@
 
 	}
 
+	"archon_golem_ground_slam"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlag"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"leshrac_split_earth"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"300"
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"6"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"600000"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"1000000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"340"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_duration"			"2.0"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+				"Function"		"archon_ground_slam_cast"
+				"target"		"TARGET"
+				"damage"		"%damage"
+			}
+
+		}
+		"Modifiers"
+		{
+			"modifier_barnacle_ground_slam"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"   "MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+
+	}
+
 	"sea_shank"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -112946,5 +113027,368 @@
 			}
 		}
 
+	}
+
+	"seafortress_archon_form"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"arkimus/arkimus_archon_form"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCooldown"	"0"
+		"AbilityCastRange"				"580"
+		"AOERadius"						"580"
+		"AbilityCastAnimation"	"ACT_DOTA_TELEPORT"
+		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"precache"
+		{
+
+		}
+
+		"AbilityManaCost"	"0"
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/antimage/archon_form.lua"
+				"Function"		"start_channel"
+
+			}
+
+		}
+		"OnChannelSucceeded"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/antimage/archon_form.lua"
+				"Function"		"channel_complete"
+				"duration"	"%duration"
+			}
+		}
+
+		"OnChannelFinish"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+		}
+
+		"OnChannelInterrupted"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/antimage/archon_form.lua"
+				"Function"		"channel_interrupt"
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+				"Function"		"archon_wizard_die"
+			}
+		}
+		"Modifiers"
+		{
+
+			"modifier_arkimus_archon_form_seafortress"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"EffectName"		"particles/roshpit/arkimus/channel_energy.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/antimage/archon_form.lua"
+						"Function"		"archon_init_seafortress"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/antimage/archon_form.lua"
+						"Function"		"archon_form_end"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_archone_b_d_mana_regen"
+						"Target" 		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_archone_b_d_attack_power"
+						"Target" 		"TARGET"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1000"
+				}
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/antimage/archon_form.lua"
+						"Function"		"archon_attack_land"
+					}
+				}
+				"ThinkInterval"  "0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+						"Function"		"archon_wizard_think"
+					}
+				}
+			}
+			"modifier_archon_pushback"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+			
+				"ThinkInterval"  	"0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/antimage/archon_form.lua"
+						"Function"		"archon_slide_think"
+					}
+				}
+			}
+			"modifier_archon_a_d_field_thinker"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/antimage/archon_form.lua"
+						"Function"		"a_d_field_thinker_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/antimage/archon_form.lua"
+						"Function"		"archon_a_d_end"
+					}
+				}
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attack_range"			"500 550 600 650 700 750 800"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_resist"			"58 60 62 64 66 68 70"
+			}
+		}
+	}
+
+	"seafortress_crusader_comet"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"paladin/wings_of_sanctity"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastRange"				"1800"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+	    "precache"
+	    {
+
+	    }
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"4.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"	"1250 1375 1500 1625 1750 1875 2000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_damage"	"1000000"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_from_str"	"20 40 80 160 240 320 400"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+				"Function"		"begin_crusader_comet"
+				"Target"		"POINT"
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+				"Function"		"dark_paladin_die"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_dark_paladin_passive"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+				"Passive"	"1"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+						"Function"		"dark_paladin_think"
+					}
+				}
+			}
+			"modifier_comet_jumping"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"OverrideAnimation"     "ACT_DOTA_CAST_ABILITY_1"
+				"EffectName"	"particles/roshpit/paladin/comet_charge.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"ThinkInterval"  "0.03"
+				"IsHidden"		"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+						"Function"		"jumping_think"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_comet_storming"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"EffectName"	"particles/roshpit/paladin/comet_charge.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"ThinkInterval"  "0.03"
+				"IsHidden"		"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+						"Function"		"comet_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+						"Function"		"comet_storm_end"
+						"damage"		"%base_damage"
+						"str_mult"		"%damage_from_str"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_black_King_bar_immunity"
+			{
+				"Passive"	"0"
+				"IsHidden" "0"
+				"ThinkInterval"  "4.0"
+				"TextureName"	"paladin/paladin_rune_c_c_arcana2"
+				"EffectName"	"particles/items_fx/black_king_bar_avatar.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Item.GiantHunterImmunity"
+						"Target" 		"TARGET"
+					}
+				}
+
+			}
+		}
 	}
 }

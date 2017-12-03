@@ -77165,6 +77165,244 @@
         }
     }
 
+    "seafortress_archon_wizard"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model"  "models/heroes/invoker/invoker.vmdl"
+        "ModelScale"    "1.2"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "champion"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"  "Hero_Morphling"
+        "precache"
+        {
+            "particle"  "particles/base_attacks/arkimus_archon_form.vpcf"
+            "particle"  "particles/roshpit/arkimus/archon_flare_ambient.vpcf"
+            "particle"  "particles/roshpit/arkimus/channel_energy.vpcf"
+        }
+        "ArmorPhysical" "800"
+        "MagicalResistance" "50"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "4000000"
+        "AttackDamageMax"   "5000000"
+        "AttackRate"    "0.8"
+        "AttackAnimationPoint"  "0.29"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "300"
+        "ProjectileModel"  "particles/base_attacks/arkimus_archon_form.vpcf"
+        "ProjectileSpeed"   "300"
+        "BountyGoldMin" "300"
+        "BountyGoldMax" "500"
+        "BountyXP"  "15000"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "70"
+        "CollisionSize" "32"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "520"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "50000000"
+        "StatusHealthRegen" "3"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"              "seafortress_archon_form"
+        "Ability2"              "dungeon_creep"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+            }
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "6579"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "6584"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "7979"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "6581"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "6582"
+                }
+            }
+        }
+    }
+
+    "sea_fortress_archon_golem"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/creeps/darkreef/gaoler/darkreef_gaoler.vmdl"
+        "ModelScale"    "1.5"
+        "Level" "1"
+        "HealthBarOffset"   "220"
+        "precache"
+        {
+            "particle"  "particles/roshpit/seafortress/archon_golem_slam.vpcf"
+        }
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"                  "Hero_ElderTitan"
+        "ArmorPhysical" "4"
+        "MagicalResistance" "15"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "955550"
+        "AttackDamageMax"   "1054500"
+        "AttackRate"    "1.2"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "180"
+        "BountyGoldMin" "150"
+        "BountyGoldMax" "200"
+        "BountyXP" "1700"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HUGE"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "380"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "32734400"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"      "archon_golem_ground_slam"
+        "Ability2"      "fire_temple_steadfast"
+        "Ability3"      "use_ability_1_target_ai"
+        "Ability4"      "dungeon_creep"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+        }
+    }
+
+    "sea_fortress_paladin_golem"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/creeps/omniknight_golem/omniknight_golem.vmdl"
+        "ModelScale"    "1.0"
+        "Level" "1"
+        "HealthBarOffset"   "500"
+        "precache"
+        {
+            "particle"  "particles/roshpit/paladin/arcana_comet_ground_impact.vpcf"
+            "particle"  "particles/roshpit/paladin/comet_charge.vpcf"
+        }
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"              "Hero_Slardar"  
+        "ArmorPhysical" "35"
+        "MagicalResistance" "25"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "22445000"
+        "AttackDamageMax"   "25555000"
+        "AttackRate"    "1.1"
+        "AttackAnimationPoint"  "0.45"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "450"
+        "BountyGoldMin" "15"
+        "BountyGoldMax" "20"
+        "BountyXP" "95"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "380"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "90440000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"     "seafortress_crusader_comet"
+        "Ability2"     "ability_mega_haste"
+        "Ability3"     "redfall_mega_steadfast"
+        "Ability4"     "use_ability_1_position_ai"
+        "Ability5"     "dungeon_creep"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "AttachWearables"
+            {
+
+            }
+            "OffensiveAbilities"
+            {   
+ 
+            }
+        }
+    }
+
+
     "seafortress_final_boss"
     {
         "BaseClass" "npc_dota_creature"

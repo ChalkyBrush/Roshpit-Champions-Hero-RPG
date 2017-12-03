@@ -6040,12 +6040,239 @@ function shadow_of_bahamut_die(event)
 end
 
 function pure_resist_take_damage(event)
-	local victim = event.target
+	local victim = event.unit
 	if not victim.particleLock then
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_brewmaster/brewmaster_windwalk.vpcf", victim, 1)
 		victim.particleLock = true
 		Timers:CreateTimer(0.5, function()
 			victim.particleLock = false
 		end)
+	end
+end
+
+
+
+function archon_wizard_die(event)
+	local caster = event.caster
+	Seafortress.ArchonSlain = true
+	EmitSoundOn("Seafortress.ArchonWizardDie", caster)
+	local arcanas = 1
+	if caster.paragon then
+		arcanas = 2
+	end
+	for i = 1, arcanas, 1 do
+		RPCItems:RollArkimusArcana2(caster:GetAbsOrigin())
+	end
+	Beacons:CreateActiveParticle("particles/portals/green_portal.vpcf", Vector(3104, 14272, 110+Seafortress.ZFLOAT), Events.GameMaster, 0, Vector(0.45, 0.45, 0.45))
+end
+
+function archon_ground_slam_cast(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local damage = event.damage
+	EmitSoundOn("Seafortress.ArchonGolemWindUp", caster)
+	StartAnimation(caster, {duration=0.9, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.1})
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_barnacle_ground_slam", {duration = 0.9})
+	Timers:CreateTimer(0.5, function()
+		if not caster:IsAlive() then
+			return false
+		end
+		local position = caster:GetAbsOrigin() + caster:GetForwardVector()*350
+		local radius = 240
+		local splitEarthParticle = "particles/roshpit/seafortress/archon_golem_slam.vpcf"
+		local pfx = ParticleManager:CreateParticle( splitEarthParticle, PATTACH_CUSTOMORIGIN, caster )
+		ParticleManager:SetParticleControl( pfx, 0, position )
+		ParticleManager:SetParticleControl( pfx, 1, Vector(radius, radius, radius) )
+		EmitSoundOn("Arkimus.ArchonGolem.Slam", caster)
+		-- FindClearSpaceForUnit(caster, position, false)
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+		if #enemies > 0 then
+			for _,enemy in pairs(enemies) do
+				ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })	
+				if not enemy:HasModifier("modifier_stunned") then
+					enemy:AddNewModifier(caster, event.ability, "modifier_stunned", {duration = 2})
+				end
+			end
+		end 
+	end)
+end
+
+function archon_wizard_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	ability.d_d_level = 20
+	if not caster.golems then
+		caster.interval = 0
+		caster.golemsSpawned = 0
+		caster.golems = Entities:FindAllByNameWithin("ArchonGolem", Vector(3876, 15028, 100+Seafortress.ZFLOAT), 3800)
+	end
+	if (caster:GetHealth()/caster:GetMaxHealth())*100 < 100-caster.golemsSpawned*10 then
+		local golemIndex = RandomInt(1, #caster.golems)
+		caster.golemsSpawned = caster.golemsSpawned + 1
+		local newTable = {}
+		for i = 1, #caster.golems, 1 do
+			if i == golemIndex then
+
+			else
+				table.insert(newTable, caster.golems[i])
+			end
+		end
+		local golem = caster.golems[golemIndex]
+		caster.golems = newTable
+		-- if golem then
+			CreateZonisBeamSeafort(caster:GetAbsOrigin()+Vector(0,0,60), golem:GetAbsOrigin()+Vector(0,0,60))
+			Seafortress:objectShake(golem, 60, 10, true, true, false, "Seafortress.ArchonGolemShaking", 20)
+			Seafortress:smoothColorTransition(golem, Vector(75, 53, 88), Vector(207, 94, 255), 60)
+			Timers:CreateTimer(1.9, function()
+				Seafortress:SpawnArchonGolem(golem:GetAbsOrigin(), RandomVector(1))
+				Timers:CreateTimer(0.1, function()
+					UTIL_Remove(golem)
+				end)
+			end)
+		-- end
+	end
+	if caster.aggro then
+		caster.interval = caster.interval + 1
+		if caster.interval == 14 then
+			caster.interval = 0
+			CustomAbilities:QuickAttachParticle("particles/items_fx/blink_dagger_start.vpcf", caster, 3)
+			FindClearSpaceForUnit(caster, Vector(3876, 15028, 128)+RandomVector(RandomInt(0,1000)), false)
+			ProjectileManager:ProjectileDodge(caster)
+			CustomAbilities:QuickAttachParticle("particles/items_fx/blink_dagger_end.vpcf", caster, 3)
+			StartAnimation(caster, {duration=2.0, activity=ACT_DOTA_SPAWN, rate=1.6})
+			EmitSoundOn("Seafortress.MountainBeast.Blink", caster)
+		end
+	end
+end
+
+function CreateZonisBeamSeafort(attachPointA, attachPointB)
+	for i = 0, 4, 1 do
+		Timers:CreateTimer(0.2*i, function()
+	      local particleName = "particles/roshpit/arkimus/zonis_lightning.vpcf"
+	      local lightningBolt = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster) 
+	      ParticleManager:SetParticleControl(lightningBolt,0,Vector(attachPointA.x,attachPointA.y,attachPointA.z))   
+	      ParticleManager:SetParticleControl(lightningBolt,1,Vector(attachPointB.x,attachPointB.y,attachPointB.z))
+	      Timers:CreateTimer(2, function()
+	        ParticleManager:DestroyParticle(lightningBolt, false)
+	        ParticleManager:ReleaseParticleIndex(lightningBolt)
+	      end)
+	    end)
+	end
+end
+
+function begin_crusader_comet(event)
+	local caster = event.caster
+	local ability = event.ability
+	local point = event.target_points[1]
+	ability.point = WallPhysics:WallSearch(caster:GetAbsOrigin(), point, caster)
+	ability.jumpVelocity = 60
+	ability.forwardMovement = 6
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_comet_jumping", {duration = 1})
+	ability.fv = ((ability.point - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	ability.landAnimated = false
+	EmitSoundOn("Seafortress.CometLift.VO", caster)
+	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_antimage/holy_blinkend.vpcf", caster, 1.7)
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Paladin.CometFlying", caster)
+	local c_c_level = 15
+	caster:RemoveModifierByName("modifier_comet_storming")
+	if c_c_level > 0 then
+		local c_c_duration = 1.0 + 0.1*c_c_level
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_black_King_bar_immunity", {duration = c_c_duration})
+	end
+end
+
+function jumping_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	ability.jumpVelocity = math.max(ability.jumpVelocity - 3, 20)
+	ability.forwardMovement = ability.forwardMovement + 2
+
+	local newPosition = caster:GetAbsOrigin()+Vector(0,0,ability.jumpVelocity) + ability.fv*ability.forwardMovement
+	local afterWallPosition = WallPhysics:WallSearch(caster:GetAbsOrigin(), newPosition, caster)
+
+	if afterWallPosition == newPosition then
+		caster:SetAbsOrigin(newPosition)
+	else
+		caster:SetAbsOrigin(newPosition-ability.fv*ability.forwardMovement)
+	end
+
+	if caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster) > 500 then
+		caster:RemoveModifierByName("modifier_comet_jumping")
+		-- ability.fv = ((ability.point - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_comet_storming", {duration = 2})
+		local distanceToDash = WallPhysics:GetDistance2d(ability.point, caster:GetAbsOrigin())
+		local dashTicks = (caster:GetAbsOrigin().z-GetGroundHeight(ability.point, caster))/40
+		ability.dashSpeed = math.max(distanceToDash/dashTicks, ability.forwardMovement)
+		Timers:CreateTimer(0.1, function()
+			EmitSoundOn("Seafortress.CometDash.VO", caster)
+		end)
+	end
+end
+
+function comet_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local moveVelocity = ability.dashSpeed
+
+	local newPosition = caster:GetAbsOrigin()+ability.fv*moveVelocity-Vector(0,0,40)
+	local afterWallPosition = WallPhysics:WallSearch(caster:GetAbsOrigin(), newPosition, caster)
+
+	if afterWallPosition == newPosition then
+		caster:SetAbsOrigin(newPosition)
+	else
+		caster:SetAbsOrigin(newPosition-ability.fv*moveVelocity)
+	end
+
+	-- caster:SetAbsOrigin(caster:GetAbsOrigin()+ability.fv*moveVelocity-Vector(0,0,40))
+	if caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster) < 80 then
+		caster:RemoveModifierByName("modifier_comet_storming")
+	elseif caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster) < 340 then
+		if not ability.landAnimated then
+			print("ANIMATE")
+			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Paladin.CometLand", caster)
+			ability.landAnimated = true
+			StartAnimation(caster, {duration=0.7, activity=ACT_DOTA_ATTACK, rate=1.3})
+		end
+	end
+end
+
+function comet_storm_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	local landPoint = GetGroundPosition(caster:GetAbsOrigin() + ability.fv*ability.forwardMovement, caster)
+	FindClearSpaceForUnit(caster, landPoint, false)
+	local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/paladin/arcana_comet_ground_impact.vpcf", landPoint+Vector(0,0,20), 5)
+	ParticleManager:SetParticleControl(pfx, 3, landPoint+Vector(0,0,20))
+	EmitSoundOn("Paladin.CometLandGround", caster)
+
+	local damage = event.damage + 100
+    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), landPoint, nil, 350, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+    if #enemies > 0 then
+        for _,enemy in pairs(enemies) do
+        	ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE })	
+        end
+    end 	
+
+end
+
+function dark_paladin_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster.aggro then
+		for i = 1, #Seafortress.GolemsTable, 1 do
+			if not Seafortress.GolemsTable[i].aggro then
+				Dungeons:AggroUnit(Seafortress.GolemsTable[i])
+			end
+		end
+	end
+end
+
+function dark_paladin_die(event)
+	local caster = event.caster
+	EmitSoundOn("Seafortress.DarkPaladinDie", caster)
+	Seafortress.PaladinGolems = Seafortress.PaladinGolems + 1
+	if Seafortress.PaladinGolems == 4 then
+		RPCItems:RollPaladinArcana2(caster:GetAbsOrigin())
 	end
 end

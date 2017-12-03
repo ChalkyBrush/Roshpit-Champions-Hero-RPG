@@ -1370,6 +1370,7 @@ function RPCItems:GetAvailableArcanaData(hero)
         table.insert(arcanaData, {1, 2})
     elseif unitName == "npc_dota_hero_antimage" then
         table.insert(arcanaData, {1, 0})   
+        table.insert(arcanaData, {2, 3})   
     elseif unitName == "npc_dota_hero_vengefulspirit" then
         table.insert(arcanaData, {1, 0})    
         table.insert(arcanaData, {2, 3}) 
