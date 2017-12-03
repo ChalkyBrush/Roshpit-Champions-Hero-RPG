@@ -86,7 +86,6 @@ end
 function Seafortress:InitPaladinGolems()
   local paladinMax = 19 - GameState:GetPlayerPremiumStatusCount()*2
   local luck = RandomInt(1, paladinMax)
-  luck = 1
   if luck == 1 then
     Seafortress.PaladinGolems = 0
     Seafortress.PaladinArcana = true

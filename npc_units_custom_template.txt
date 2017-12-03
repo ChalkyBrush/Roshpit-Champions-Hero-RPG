@@ -40735,7 +40735,11 @@
         "HealthBarOffset"   "170"
         "HasInventory"  "0"
         "SelectionGroup"    "exploding_warrior"
-        
+        "precache"
+        {
+            "particle"  "particles/units/heroes/hero_brewmaster/brewmaster_fire_immolation_child.vpcf"
+            "soundfile" "particles/units/heroes/hero_brewmaster/brewmaster_drunken_brawler_crit.vpcf"
+        }
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "ArmorPhysical" "100"
@@ -40784,7 +40788,6 @@
         }
 
         "Ability1"  "arena_challenger_17_immolation"
-        "Ability2"  "brewmaster_drunken_brawler"
     }
 
     "arena_league_challenger_17_earth"
