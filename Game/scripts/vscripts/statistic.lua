@@ -2,12 +2,30 @@ local listeners = {}
 local data = {}
 local matchId = nil
 local players = {};
-local packetSize = 10000
+local packetSize = 2500
 
 local statsCollectUrl = 'https://roshpit.xyz/stats/collect/'
 local statsGetUtl = 'https://roshpit.xyz/stats/getData/'
 
 
+-- usual json:encode send data as array if it is possible
+local function jsonEncode(data)
+    local jsonString
+    if type(data) == 'table' then
+        jsonString = "{"
+        for key, value in pairs(data) do
+            local jsonValue = jsonEncode(value)
+            jsonString = jsonString .. '"' .. key .. '":' .. jsonValue .. ','
+        end
+        if jsonString:len() > 1 then
+            jsonString = jsonString:sub(0, jsonString:len() - 1)
+        end
+        jsonString = jsonString .. "}"
+    else
+        jsonString = '"' .. data .. '"'
+    end
+    return jsonString
+end
 
 local function getBaseGameData(eventInfo)
     local eventData = {}
@@ -20,7 +38,7 @@ local function getBaseGameData(eventInfo)
 end
 
 local function send(jsonStats, repeatCount)
-    local request = CreateHTTPRequestScriptVM("GET", statsCollectUrl)
+    local request = CreateHTTPRequestScriptVM("POST", statsCollectUrl)
     request:SetHTTPRequestGetOrPostParameter("data", jsonStats)
     request:Send(function(result)
         if result.StatusCode ~= 200 then
@@ -52,24 +70,6 @@ local function collect(eventInfo)
     data = {}
 end
 
--- usual json:encode send data as array if it is possible
-local function jsonEncode(data)
-    local jsonString
-    if type(data) == 'table' then
-        jsonString = "{"
-        for key, value in pairs(data) do
-            local jsonValue = jsonEncode(value)
-            jsonString = jsonString .. '"' .. key .. '":' .. jsonValue .. ','
-        end
-        if jsonString:len() > 1 then
-            jsonString = jsonString:sub(0, jsonString:len() - 1)
-        end
-        jsonString = jsonString .. "}"
-    else
-        jsonString = '"' .. data .. '"'
-    end
-    return jsonString
-end
 
 local function dispatch(event, data)
     if listeners[event] == nil then
@@ -88,7 +88,7 @@ local function dispatch(event, data)
         end)
         if not status then
             pcall(function()
-                local eventData = getBaseGameData({event = "stats:exception"})
+                local eventData = getBaseGameData({event = "stats:exception:" .. event})
                 eventData['exception'] = jsonEncode(exception)
                 collect(eventData)
                 forceSend(eventData)
