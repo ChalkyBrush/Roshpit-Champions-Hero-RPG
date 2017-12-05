@@ -72,7 +72,7 @@ function Seafortress:Debug2()
 end
 
 function Seafortress:ActivateOrDeactiveArchon()
-  local archonMax = 20 - GameState:GetPlayerPremiumStatusCount()*2
+  local archonMax = 27 - GameState:GetPlayerPremiumStatusCount()*2
   local luck = RandomInt(1, archonMax)
   if luck == 1 then
     Seafortress.ArkimusActive = true
@@ -84,7 +84,7 @@ function Seafortress:ActivateOrDeactiveArchon()
 end
 
 function Seafortress:InitPaladinGolems()
-  local paladinMax = 19 - GameState:GetPlayerPremiumStatusCount()*2
+  local paladinMax = 24 - GameState:GetPlayerPremiumStatusCount()*2
   local luck = RandomInt(1, paladinMax)
   if luck == 1 then
     Seafortress.PaladinGolems = 0
@@ -4549,7 +4549,7 @@ end
 
 function Seafortress:SpawnArchonWizard(position, fv)
   local queen = Seafortress:SpawnDungeonUnit("seafortress_archon_wizard", position, 3,4, "Seafortress.ArchonWizard.Aggro", fv, false)
-  queen.reduc = 0.0001
+  queen.reduc = 0.00001
   queen.golemsSpawned = 0
   Events:AdjustBossPower(queen, 8, 8, false)
   queen:SetRenderColor(0, 0, 0)
@@ -4559,7 +4559,7 @@ end
 
 function Seafortress:SpawnArchonGolem(position, fv)
   local queen = Seafortress:SpawnDungeonUnit("sea_fortress_archon_golem", position, 5,6, "Seafortress.ArchonGolemSpawn", fv, true)
-  queen.reduc = 0.0001
+  queen.reduc = 0.00005
   Events:AdjustBossPower(queen, 8, 8, false)
   queen:SetRenderColor(207, 94, 255)
   Seafortress:SetTargetCastArgs(queen, 400, 0, 1, FIND_ANY_ORDER)
@@ -4576,7 +4576,7 @@ end
 
 function Seafortress:SpawnPaladinGolem(position, fv)
   local queen = Seafortress:SpawnDungeonUnit("sea_fortress_paladin_golem", position, 5,6, "Seafortress.ArchonGolemSpawn", fv, false)
-  queen.reduc = 0.00008
+  queen.reduc = 0.00005
   Events:AdjustBossPower(queen, 8, 8, false)
   queen:SetRenderColor(0, 0, 0)
   Seafortress:SetPositionCastArgs(queen, 1800, 0, 1, FIND_ANY_ORDER)

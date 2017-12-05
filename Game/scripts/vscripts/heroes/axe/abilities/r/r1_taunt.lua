@@ -46,20 +46,23 @@ function takeDamage(event)
     local range = 1500
     local speed = 1500
     if IsValidEntity(attacker) then
-        Events:CreateLightningBeamWithParticle(attacker:GetAbsOrigin()+Vector(0,0,60), caster:GetAbsOrigin()+Vector(0,0,140), "particles/econ/items/antimage/antimage_weapon_basher_ti5_gold/am_basher_lightning.vpcf", 1.5)
+        if attacker == caster then
+        else
+            Events:CreateLightningBeamWithParticle(attacker:GetAbsOrigin()+Vector(0,0,60), caster:GetAbsOrigin()+Vector(0,0,140), "particles/econ/items/antimage/antimage_weapon_basher_ti5_gold/am_basher_lightning.vpcf", 1.5)
 
-        local position = attacker:GetAbsOrigin()
-        local radius = 260
+            local position = attacker:GetAbsOrigin()
+            local radius = 260
 
-        local damage = math.min(event.damage, 20 * caster:GetHealth());
-        print("incoming damage = " .. event.damage)
-        damage = damage * caster.a_d_level*R1_DAMAGE
-        if caster:HasModifier("modifier_axe_glyph_5_a") then
-            damage = damage * (1 + T5A_AMPLIFY_PERCENT/100)
+            local damage = math.min(event.damage, 20 * caster:GetHealth());
+            print("incoming damage = " .. event.damage)
+            damage = damage * caster.a_d_level*R1_DAMAGE
+            if caster:HasModifier("modifier_axe_glyph_5_a") then
+                damage = damage * (1 + T5A_AMPLIFY_PERCENT/100)
+            end
+
+            print("damage from r1 = " .. damage)
+            Filters:TakeArgumentsAndApplyDamage(attacker, caster, damage, DAMAGE_TYPE_PHYSICAL, 4, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
         end
-
-        print("damage from r1 = " .. damage)
-        Filters:TakeArgumentsAndApplyDamage(attacker, caster, damage, DAMAGE_TYPE_PHYSICAL, 4, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
     end
 end
 

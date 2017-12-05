@@ -1592,13 +1592,13 @@ function RPCItems:GetMaxFactor()
     if RPCItems.LevelRoll then
     	maxFactor = math.floor(RPCItems.LevelRoll*2.6)
     end
-    if RPCItems.StrictItemLevel then
-    	maxFactor = RPCItems.StrictItemLevel
-    end
     if Arena then
     	if Arena.PitLevel then
     		maxFactor = maxFactor + 8*Arena.PitLevel
     	end
+    end
+    if RPCItems.StrictItemLevel then
+    	maxFactor = RPCItems.StrictItemLevel
     end
     -- local randomNumber = RandomInt(-100,50)
     -- local randomPercentage = randomNumber/100

@@ -216,6 +216,8 @@ function Body:action(propertyName, propertyValue, hero, inventory_unit, body_abi
 		Body:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_body_wind", body_ability)
 	elseif propertyName == "earth" then
 		Body:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_body_earth", body_ability)
+	elseif propertyName == "holy" then
+		Body:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_body_holy", body_ability)
 	elseif propertyName == "lightning" then
 		Body:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_body_lightning", body_ability)
 	elseif propertyName == "shadow" then
@@ -378,6 +380,7 @@ function Body:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_body_earth")
 	hero:RemoveModifierByName("modifier_body_lightning")
 	hero:RemoveModifierByName("modifier_body_shadow")
+	hero:RemoveModifierByName("modifier_body_holy")
 
 	hero:RemoveModifierByName("modifier_ice_quill_carapace")
 	hero:RemoveModifierByName("modifier_secret_temple")
@@ -438,6 +441,7 @@ function Body:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_warlord_arcana1")
 	hero:RemoveModifierByName("modifier_solunia_arcana2")
 	hero:RemoveModifierByName("modifier_direwolf_bulwark")
+	hero:RemoveModifierByName("modifier_arkimus_arcana2")
 	hero.ocean_tempest = nil
 
 	hero.space_tech = nil

@@ -96,14 +96,21 @@ function damage_taken(event)
 	local caster = event.caster
 	local ability = event.ability
 	local damage = event.damage
-
+	if not ability.pfxCount then
+		ability.pfxCount = 0
+	end
 	local a_a_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
 	if a_a_level > 0 then
 		local manaRestore = math.ceil(damage*0.01*a_a_level/100)
     	caster:GiveMana(manaRestore)
 		PopupMana(caster, manaRestore)
-
-		CustomAbilities:QuickAttachParticle("particles/items3_fx/mango_active.vpcf", caster, 1)		
+		if ability.pfxCount < 6 then
+			ability.pfxCount = ability.pfxCount + 1
+			CustomAbilities:QuickAttachParticle("particles/items3_fx/mango_active.vpcf", caster, 1)		
+			Timers:CreateTimer(0.7, function()
+				ability.pfxCount = ability.pfxCount - 1
+			end)
+		end
 	end
 	local c_a_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
 	if c_a_level > 0 then
