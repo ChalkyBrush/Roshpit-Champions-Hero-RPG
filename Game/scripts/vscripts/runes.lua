@@ -877,7 +877,7 @@ function Runes:EquipArcana(hero, index)
 			hero:RemoveModifierByName("modifier_zonis_freecast")
 			Runes:EasySwapArcanaSkills(hero, 0, "arkimus_zonis_spark", "arkimus_zap_ring", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
-			Runes:EasySwapArcanaSkills(hero, 3, "arkimus_energy_field", "arkimus_archon_form", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			Runes:EasySwapArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "arkimus_energy_field", "arkimus_archon_form", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_dark_seer" then
 		if index == 1 then
@@ -1357,7 +1357,7 @@ function Runes:UnequipArcana(hero, index)
 			hero:RemoveModifierByName("modifier_arkimus_arcana1_passive")
 			Runes:EasyRevertArcanaSkills(hero, 0, "arkimus_zonis_spark", "arkimus_zap_ring", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
-			Runes:EasyRevertArcanaSkills(hero, 3, "arkimus_energy_field", "arkimus_archon_form", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			Runes:EasyRevertArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "arkimus_energy_field", "arkimus_archon_form", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_dark_seer" then
 		if index == 1 then

@@ -151,7 +151,7 @@ function remnant_explode(event)
 
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 320, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	local b_c_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
-	local damage = caster:GetMana()*b_c_level*2
+	local damage = caster:GetMana()*b_c_level*20
 	if caster:HasModifier("modifier_zonik_glyph_6_1") and caster:HasModifier("modifier_zonik_speedball") then
 		damage = damage*3
 	end

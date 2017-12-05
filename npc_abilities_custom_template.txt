@@ -29170,7 +29170,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_mult"				"200 280 420 640 800 1000 1300"
+				"damage_mult"				"600 840 1300 1800 2400 4800 9600"
 			}
 		}
 		// Precache
@@ -29317,7 +29317,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_mult"				"800 1120 1680 2560 3200 4000 5200"
+				"damage_mult"				"1800 2520 3900 5400 7200 14400 28800"
 			}
 		}
 		// Precache
@@ -57286,7 +57286,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"20"
 			}
 			"02"
 			{

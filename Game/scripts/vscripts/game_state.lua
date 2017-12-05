@@ -928,6 +928,9 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		local modifier = victim:FindModifierByName("modifier_tachyon_shell")
 		if modifier:GetCaster():GetTeamNumber() == victim:GetTeamNumber() then
 			local reduction = math.max(1 - modifier:GetAbility().d_a_level*0.005, 0.1)
+			if victim:GetEntityIndex() == modifier:GetCaster():GetEntityIndex() then
+				reduction = reduction/2
+			end
 			damage = damage*reduction
 		end
 	end
@@ -1067,10 +1070,6 @@ function GameState:FilterDamage(filterTable)
 				filterTable["damage"] = filterTable["damage"]/damageMult
 			end
 		end
-		if victim:HasModifier("modifier_zonik_lightspeed") then
-			local c_c_level = victim:FindAbilityByName("zonik_lightspeed").c_c_level
-			filterTable["damage"] = math.max(filterTable["damage"] - Filters:GetHeroAttribute(victim, "agility")*c_c_level, 0)
-		end
 	elseif damagetype == DAMAGE_TYPE_MAGICAL then
 		local inflictor = filterTable["entindex_inflictor_const"]
 		if attacker:HasModifier("modifier_volcano_orb") then
@@ -1205,6 +1204,12 @@ function GameState:FilterDamage(filterTable)
 		end
 
     end
+    if damagetype == DAMAGE_TYPE_PHYSICAL or damagetype == DAMAGE_TYPE_MAGICAL then
+		if victim:HasModifier("modifier_zonik_lightspeed") then
+			local c_c_level = victim:FindAbilityByName("zonik_lightspeed").c_c_level
+			filterTable["damage"] = math.max(filterTable["damage"] - Filters:GetHeroAttribute(victim, "agility")*c_c_level, 0)
+		end
+	end
 
 	if victim:HasModifier("modifier_voltex_arcana1_passive") then
 		local dash = victim:FindAbilityByName("voltex_lightning_dash")
