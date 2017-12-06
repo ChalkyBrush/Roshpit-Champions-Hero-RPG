@@ -39,6 +39,13 @@ function Winterblight:SpawnMonolith(position, fv)
 	return stone
 end
 
+function Winterblight:SpawnRaxxus(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_ice_champion_raxxus", position, 2, 3, "Winterblight.Raxxus.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 3, 2, false)
+	stone.itemLevel = 27
+	return stone
+end
+
 
 
 function Winterblight:FirstSpawns()

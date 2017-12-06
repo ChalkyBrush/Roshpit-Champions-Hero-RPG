@@ -41,6 +41,7 @@ function channel_complete(event)
 		local stats = caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()
 		local manaRegen = stats*0.01*ability.b_d_level
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_archone_b_d_mana_regen", {duration = duration})
+		caster:SetModifierStackCount("modifier_archone_b_d_mana_regen", caster, manaRegen)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_archone_b_d_attack_power", {duration = duration})
 	end
 	ability.d_d_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)

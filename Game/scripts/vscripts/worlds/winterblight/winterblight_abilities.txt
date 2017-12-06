@@ -273,3 +273,83 @@
 			}
 		}
 	}
+
+	"winterblight_raxxus_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"rpc/axe_throw_ice"
+		"MaxLevel"	"3"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"120 3000 150000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_loss"			"-60 -140 -240"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_self"			"20 100 200"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_disable_player"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"EffectName"	"particles/roshpit/winterblight/immunity_shield.vpcf"
+				"EffectAttachType" "attach_hitloc"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+
+			}
+			"modifier_raxxus_passive"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"IsHidden"		"1"
+				"IsBuff"		"1"
+				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_dire.vpcf"
+				"StatusEffectPriority"  "100"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%ms_self"
+				}
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"raxxus_attack_land"
+						"damage"		"%damage"
+					}
+				}
+			}
+			"modifier_frostburn_gauntlets_slow"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+            	"StatusEffectName" 		"particles/status_fx/status_effect_iceblast.vpcf"
+            	"StatusEffectPriority"  "10"
+            	"TextureName"		"crystal_maiden_crystal_nova"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_loss"
+				}
+			}
+		}
+
+	}

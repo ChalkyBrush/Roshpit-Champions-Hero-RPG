@@ -123,13 +123,60 @@ function monolith_found_enemy(event)
 		caster.actived = true
 		Winterblight:smoothColorTransition(caster, Vector(255,255,255), Vector(200,200,255), 20)
 		Timers:CreateTimer(0.6, function()
-			Winterblight:objectShake(caster, 25, 3, true, false, false, "Winterblight.Monolith.Shake", 6)
-			Timers:CreateTimer(0.75, function()
+			Winterblight:objectShake(caster, 80, 5.2, true, false, false, "Winterblight.Monolith.Shake", 10)
+			Timers:CreateTimer(3.05, function()
 				 CustomAbilities:QuickParticleAtPoint("particles/world_tower/tower_upgrade/ti7_radiant_tower_lvl2_dest.vpcf", caster:GetAbsOrigin(), 6)
+				 local raxxus = Winterblight:SpawnRaxxus(caster:GetAbsOrigin(), caster:GetForwardVector())
+				 raxxusAbility = raxxus:FindAbilityByName("winterblight_raxxus_passive")
+				 raxxusAbility:ApplyDataDrivenModifier(raxxus, raxxus, "modifier_disable_player", {duration = 2.4})
+				 StartAnimation(raxxus, {duration=2.4, activity=ACT_DOTA_CAST_ABILITY_4, rate=0.9})
+				 EmitSoundOn("Winterblight.Monolith.Dest", caster)
+				 caster.aggroLock = true
+				 for i = 0, 3, 1 do
+				 	Timers:CreateTimer(0.4*i, function()
+						local pfx = ParticleManager:CreateParticle( "particles/roshpit/winterblight_dust.vpcf", PATTACH_CUSTOMORIGIN, nil)
+						ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()+Vector(0,0,80))
+						ParticleManager:SetParticleControl(pfx, 5, Vector(0.9, 0.9, 1.0))
+						ParticleManager:SetParticleControl(pfx, 2, Vector(0.8,0.8,0.8))
+						Timers:CreateTimer(10, function() 
+						  ParticleManager:DestroyParticle( pfx, false )
+						  ParticleManager:ReleaseParticleIndex(pfx)
+						end)
+					end)
+				 end
+				 Timers:CreateTimer(2.4, function()
+				 	caster.aggroLock = false
+				 	Dungeons:AggroUnit(raxxus)
+				 end)
 				 Timers:CreateTimer(0.1, function()
+				 	EmitSoundOn("Winterblight.Raxxus.Intro", raxxus)
 				 	UTIL_Remove(caster)
 				 end)
 			end)
 		end)
 	end
+end
+
+function raxxus_attack_land(event)
+	local caster = event.caster
+	local victim = event.target
+	local ability = event.ability
+	local damage = event.damage
+    local icePoint = victim:GetAbsOrigin()
+    local radius = 240
+    EmitSoundOnLocationWithCaster(icePoint, "hero_Crystal.freezingField.explosion", caster)
+    local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+    local pfx = ParticleManager:CreateParticle( particle, PATTACH_WORLDORIGIN, caster )
+    ParticleManager:SetParticleControl( pfx, 0, icePoint )
+    ParticleManager:SetParticleControl( pfx, 1, Vector(radius, 2, radius*2) )
+    Timers:CreateTimer(2.5, function()
+        ParticleManager:DestroyParticle(pfx, false)
+    end)
+    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), icePoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+    if #enemies > 0 then    
+        for _,enemy in pairs(enemies) do
+            ability:ApplyDataDrivenModifier(caster, enemy, "modifier_frostburn_gauntlets_slow", {duration = 3})
+            ApplyDamage({ victim = victim, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE })
+        end
+    end
 end
