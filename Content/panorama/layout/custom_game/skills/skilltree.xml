@@ -15,15 +15,15 @@
 			<Panel id="skilltree_bg" hittest="false">
 			</Panel>
 			<Panel id="skilltree_container" hittest="false">
-				<Label class="skill_tree_label" id="basic_skills_text" text="Test" html="true" hittest="false">
-					<Label class="points_up" id="basic_skills_text_up" text="Test" html="true" hittest="false"></Label>
+				<Label class="skill_tree_label" id="basic_skills_text" text="ui_base_skills" html="true" hittest="false">
+					<Label class="points_up" id="basic_skills_text_up" text="" html="true" hittest="false"></Label>
 				</Label>
 				
 				<Panel class="AbilityOverlayRoot">
 					<Panel id="ability_list" />
 				</Panel>
-				<Label class="skill_tree_label" id="rune_text" text="Te" html="true" hittest="false">
-					<Label class="points_up" id="runes_text_up" text="Test" html="true" hittest="false"></Label>
+				<Label class="skill_tree_label" id="rune_text" text="ui_runes" html="true" hittest="false">
+					<Label class="points_up" id="runes_text_up" text="" html="true" hittest="false"></Label>
 				</Label>
 				<Panel class="RuneOverlayRoot">
 					<Panel id="rune_list" />

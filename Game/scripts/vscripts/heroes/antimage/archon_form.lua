@@ -97,7 +97,7 @@ function archon_attack_land(event)
 			ability.pfx = ParticleManager:CreateParticle("particles/roshpit/arkimus/archon_flare_ambient.vpcf", PATTACH_CUSTOMORIGIN, nil)
 			ParticleManager:SetParticleControl(ability.pfx, 0, target:GetAbsOrigin())
 			ParticleManager:SetParticleControl(ability.pfx, 1, Vector(220, 220, 220))
-			ability.aoePosition = target:GetAbsOrigin()
+			ability.aoePosition = GetGroundPosition(target:GetAbsOrigin(), target) 
 			EmitSoundOnLocationWithCaster(ability.aoePosition, "Arkimus.ArchonFlare.Start", caster)
 			EmitSoundOn("Arkimus.ArchonFlare.Go", target)
 		end

@@ -2324,6 +2324,9 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_no_damage") then
 		filterTable["damage"] = 0
 	end
+	if victim:HasModifier("modifier_bahamut_rune_d_d_shell") then
+		filterTable["damage"] = 0
+	end
 
 	if attacker:HasModifier("modifier_crystalline_slippers") then
 		if victim:IsRooted() then

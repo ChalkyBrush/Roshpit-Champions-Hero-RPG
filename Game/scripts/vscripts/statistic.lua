@@ -2,7 +2,7 @@ local listeners = {}
 local data = {}
 local matchId = nil
 local players = {};
-local packetSize = 2500
+local packetSize = 1000
 
 local statsCollectUrl = 'https://roshpit.xyz/stats/collect/'
 local statsGetUtl = 'https://roshpit.xyz/stats/getData/'
@@ -38,7 +38,7 @@ local function getBaseGameData(eventInfo)
 end
 
 local function send(jsonStats, repeatCount)
-    local request = CreateHTTPRequestScriptVM("POST", statsCollectUrl)
+    local request = CreateHTTPRequestScriptVM("GET", statsCollectUrl)
     request:SetHTTPRequestGetOrPostParameter("data", jsonStats)
     request:Send(function(result)
         if result.StatusCode ~= 200 then
