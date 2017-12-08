@@ -115,8 +115,10 @@ function Challenges:FinalReroll(msg)
 	end
 	if IsValidEntity(item) then
 		newItem = RPCItems:RerollImmortal(hero, item, msg.lock1, msg.lock2, msg.lock3, msg.lock4, itemLevel)
-		newItem:StartCooldown(2)
-		UTIL_Remove(item)
+		if newItem then
+			newItem:StartCooldown(2)
+			UTIL_Remove(item)
+		end
 	else
 		return false
 	end
@@ -125,46 +127,48 @@ function Challenges:FinalReroll(msg)
 	Statistics.dispatch('items:reroll')
 	
 	DeepPrintTable(msg)
-	local url = ROSHPIT_URL.."/champions/modifyMithrilShards?"
-	url = url.."steam_id="..steamID
-	url = url.."&amount="..amount
-	url = url.."&reason=".."reroll"
-	print(url)
-	
-	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "playerReceivedItem", {})
-	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
-		local resultTable = {}
-		print( "GET response:\n" )
-		for k,v in pairs( result ) do
-			print( string.format( "%s : %s\n", k, v ) )
-		end
-		print( "Done." )
-		if result.StatusCode == 200 then
-			local resultTable = JSON:decode(result.Body)
-			local shards = resultTable.mithril_shards
-			CustomNetTables:SetTableValue("player_stats", tostring(playerID).."-mithril", {mithril = shards})
-			CustomGameEventManager:Send_ServerToPlayer(player, "update_main_mithril", {mithril = shards, player=playerID} )
-
-			if Challenges:CheckIfHeroHasItemByItemIndex(hero, newItem:GetEntityIndex()) then
-				Timers:CreateTimer(0, function()
-					CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith_after_reroll", {itemIndex = newItem:GetEntityIndex(), lock1 = msg.lock1, lock2 = msg.lock2, lock3 = msg.lock3, lock4 = msg.lock4})
-				end)
-				-- CustomGameEventManager:Send_ServerToPlayer(player, "lockSlotsFromServerCall", {itemIndex = newItem:GetEntityIndex(), lock1 = msg.lock1, lock2 = msg.lock2, lock3 = msg.lock3, lock4 = msg.lock4})
-
-			else
-				CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
+	if newItem then
+		local url = ROSHPIT_URL.."/champions/modifyMithrilShards?"
+		url = url.."steam_id="..steamID
+		url = url.."&amount="..amount
+		url = url.."&reason=".."reroll"
+		print(url)
+		
+		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "playerReceivedItem", {})
+		CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+			local resultTable = {}
+			print( "GET response:\n" )
+			for k,v in pairs( result ) do
+				print( string.format( "%s : %s\n", k, v ) )
 			end
+			print( "Done." )
+			if result.StatusCode == 200 then
+				local resultTable = JSON:decode(result.Body)
+				local shards = resultTable.mithril_shards
+				CustomNetTables:SetTableValue("player_stats", tostring(playerID).."-mithril", {mithril = shards})
+				CustomGameEventManager:Send_ServerToPlayer(player, "update_main_mithril", {mithril = shards, player=playerID} )
 
-			Statistics.dispatch("mithril:change", {playerID = playerID});
-			-- local rerollTable = {}
-			-- rerollTable.playerID = playerID
-			-- rerollTable.heroIndex = hero:GetEntityIndex()
-			-- rerollTable.itemIndex = newItem:GetEntityIndex()
-			-- rerollTable.ignoreLock = 1
-			-- Challenges:DragIntoRerollSlot(rerollTable)	
-		else
-		end	
-	end )
+				if Challenges:CheckIfHeroHasItemByItemIndex(hero, newItem:GetEntityIndex()) then
+					Timers:CreateTimer(0, function()
+						CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith_after_reroll", {itemIndex = newItem:GetEntityIndex(), lock1 = msg.lock1, lock2 = msg.lock2, lock3 = msg.lock3, lock4 = msg.lock4})
+					end)
+					-- CustomGameEventManager:Send_ServerToPlayer(player, "lockSlotsFromServerCall", {itemIndex = newItem:GetEntityIndex(), lock1 = msg.lock1, lock2 = msg.lock2, lock3 = msg.lock3, lock4 = msg.lock4})
+
+				else
+					CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
+				end
+
+				Statistics.dispatch("mithril:change", {playerID = playerID});
+				-- local rerollTable = {}
+				-- rerollTable.playerID = playerID
+				-- rerollTable.heroIndex = hero:GetEntityIndex()
+				-- rerollTable.itemIndex = newItem:GetEntityIndex()
+				-- rerollTable.ignoreLock = 1
+				-- Challenges:DragIntoRerollSlot(rerollTable)	
+			else
+			end	
+		end )
+    end
 end
 
 function Challenges:ModifyMithril(amount, hero, reason)
