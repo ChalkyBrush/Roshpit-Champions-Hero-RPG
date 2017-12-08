@@ -79,7 +79,7 @@ end
 function berserker_wind_up(event)
 	local caster = event.caster
 	StartAnimation(caster, {duration=1, activity=ACT_DOTA_FLAIL, rate=0.4})
-	EmitSoundOn("troll_warlord_troll_laugh_0"..RandomInt(1,6), caster)
+	EmitSoundOn("GazbinBerserker.WindUp", caster)
 	Timers:CreateTimer(0.9, function()
 		event.ability:ApplyDataDrivenModifier(caster, caster, "modifier_gazbin_berserker_buff", {duration = 6})	
 	end)

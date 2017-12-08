@@ -385,10 +385,11 @@ function MazeExitTeleport2(trigger)
 end
 
 function DeepRoomSpawn()
-	if Seafortress.MazeExitPortalActive then
+	if Seafortress.LastBlackPortalActive then
 		if not Seafortress.DeepRoomSpawned then
 			Seafortress.DeepRoomSpawned = true
 			Seafortress:SpawnDeepRoom()
+			Seafortress:InitPaladinGolems()
 		end
 	end
 end

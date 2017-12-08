@@ -168,8 +168,7 @@ function Seafortress:Init()
     ParticleManager:SetParticleControl(Seafortress.switchPFX, 1, Vector(190, 190, 190))
   end)
   Seafortress.TempleEnergyState = -1
-  Seafortress:ActivateOrDeactiveArchon()
-  Seafortress:InitPaladinGolems()
+
 end
 
 function Seafortress:LeftWingKill()
@@ -180,6 +179,7 @@ function Seafortress:LeftWingKill()
   if Seafortress.LeftWingKills == 3 then
     Seafortress.CentaurSwitchActive = true
     ParticleManager:DestroyParticle(Seafortress.switchPFX, false)
+    Seafortress:ActivateOrDeactiveArchon()
   end
 end
 
@@ -2037,6 +2037,7 @@ function Seafortress:CreateBlackPortalUnit(position, bStart)
     local portalIndex = Seafortress.blackPortalRoomTable[Seafortress.RoomsMoved]
     if Seafortress.RoomsMoved > 10 then
       portalUnit.portToPosition = Vector(5632, -2240)
+      Seafortress.LastBlackPortalActive = true
     else
       portalUnit.portToPosition = Seafortress.PORTAL_LOCATIONS_TABLE[portalIndex][Seafortress.altOrder]
     end

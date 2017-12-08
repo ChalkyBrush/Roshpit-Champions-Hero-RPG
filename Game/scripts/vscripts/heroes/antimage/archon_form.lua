@@ -107,8 +107,8 @@ end
 function archon_slide_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local newPosition = caster:GetAbsOrigin()+ability.pushFV*ability.pushVelocity
-	local afterWallPosition = WallPhysics:WallSearch(caster:GetAbsOrigin(), newPosition, caster)
+	local newPosition = GetGroundPosition(caster:GetAbsOrigin()+ability.pushFV*ability.pushVelocity, caster)
+	local afterWallPosition = WallPhysics:WallSearch(GetGroundPosition(caster:GetAbsOrigin(), caster), newPosition, caster)
 	if afterWallPosition == newPosition then
 		caster:SetAbsOrigin(newPosition)
 	end
@@ -130,7 +130,10 @@ function a_d_field_thinker_think(event)
     if #enemies > 0 then
     	local dividedDamage = damage/#enemies
         for _,enemy in pairs(enemies) do
-        	Filters:TakeArgumentsAndApplyDamage(enemy, caster, dividedDamage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
+        	if enemy.dummy then
+        	else
+        		Filters:TakeArgumentsAndApplyDamage(enemy, caster, dividedDamage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
+        	end
         end
     end 
 end

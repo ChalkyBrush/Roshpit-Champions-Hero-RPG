@@ -3012,7 +3012,16 @@ function mageplate_take_damage(event)
     local manaRestore = damage*0.05
     target:GiveMana(manaRestore)
     print("MANA RESTORE:"..manaRestore)
-    CustomAbilities:QuickAttachParticle("particles/items3_fx/mango_active.vpcf", target, 1)
+    if not ability.particles then
+    	ability.particles = 0
+    end
+    if ability.particles < 6 then
+    	CustomAbilities:QuickAttachParticle("particles/items3_fx/mango_active.vpcf", target, 1)
+    	ability.particles = ability.particles + 1
+    	Timers:CreateTimer(1, function()
+    		ability.particles - 1
+    	end)
+    end
 
     ability:ApplyDataDrivenModifier(caster, target, "modifier_mageplate_intelligence", {duration = 15})
     local intBonus = target:GetLevel()*1.2*newStack

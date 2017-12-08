@@ -2,7 +2,7 @@ local listeners = {}
 local data = {}
 local matchId = nil
 local players = {};
-local packetSize = 1000
+local packetSize = 50000
 
 local statsCollectUrl = 'https://roshpit.xyz/stats/collect/'
 local statsGetUtl = 'https://roshpit.xyz/stats/getData/'
