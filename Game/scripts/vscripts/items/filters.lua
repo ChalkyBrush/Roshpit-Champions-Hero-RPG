@@ -1003,7 +1003,7 @@ function Filters:ApplyRskills(caster)
         if IsValidEntity(shadowAbility) then
             shadowAbility.d_a_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
             if shadowAbility.d_a_level > 0 then
-                local duration = Filters:GetAdjustedBuffDuration(caster, 10, false)
+                local duration = Filters:GetAdjustedBuffDuration(caster, 18, false)
                 shadowAbility:ApplyDataDrivenModifier(caster, caster, "modifier_shadow_trap_d_a_buff", {duration = duration})
                 caster:SetModifierStackCount("modifier_shadow_trap_d_a_buff", caster, shadowAbility.d_a_level)
             end

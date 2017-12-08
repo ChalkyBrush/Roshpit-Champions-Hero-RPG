@@ -3019,7 +3019,7 @@ function mageplate_take_damage(event)
     	CustomAbilities:QuickAttachParticle("particles/items3_fx/mango_active.vpcf", target, 1)
     	ability.particles = ability.particles + 1
     	Timers:CreateTimer(1, function()
-    		ability.particles - 1
+    		ability.particles = ability.particles - 1
     	end)
     end
 
