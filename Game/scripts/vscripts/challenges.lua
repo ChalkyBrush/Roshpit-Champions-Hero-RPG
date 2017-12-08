@@ -166,6 +166,7 @@ function Challenges:FinalReroll(msg)
 				-- rerollTable.ignoreLock = 1
 				-- Challenges:DragIntoRerollSlot(rerollTable)	
 			else
+				CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
 			end	
 		end )
     end

@@ -1,11 +1,12 @@
 require('heroes/vengeful_spirit/supernova')
 
 function begin_alpha_spark(event)
-	local point = event.target_points[1]
+	local point = WallPhysics:WallSearch(caster:GetAbsOrigin(), event.target_points[1], caster)
 	local ability = event.ability
 	local caster = event.caster
 	ability.fallVelocity = 1
 	CustomAbilities:QuickAttachParticle("particles/roshpit/solunia/alpha_spark.vpcf", caster, 0.5)
+
 	if point.z < caster:GetAbsOrigin().z then
 		caster:SetAbsOrigin(Vector(point.x, point.y, caster:GetAbsOrigin().z))
 	else
