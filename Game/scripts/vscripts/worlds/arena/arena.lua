@@ -989,6 +989,7 @@ function Arena:SaveChampionsLeagueData(hero, battleRank, score)
 	url = url.."&key2="..SaveLoad.key2
 	if Arena:DetermineIfSaveIsNecessary(hero, battleRank, score) then
 		CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+			SaveLoad:NewKey()
 			local resultTable = {}
 			print( "GET response:\n" )
 			for k,v in pairs( result ) do

@@ -34,7 +34,7 @@ function Tanari:Debug()
     -- RPCItems:RollPaladinArcana2(Vector(-4928, 2048))
     -- RPCItems:RollArkimusArcana2(Vector(-4928, 2048))
     -- RPCItems:RollSoluniaArcana2(Vector(-4928, 2048))
-    SaveLoad:KeyDebug()
+    -- SaveLoad:KeyDebug()
     -- RPCItems:RollPaladinArcana1(Vector(-4928, 2048))
 
     -- RPCItems:RollBahamutArcana2(Vector(-4928, 2048))

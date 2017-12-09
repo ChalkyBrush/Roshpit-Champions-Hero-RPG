@@ -10,7 +10,8 @@ function UpdateDifficulty(){
 	}else if(difficulty == 3){
 		$('#difficulty_label').text = $.Localize("#ui_legend")+"★★★"
 		$('#difficulty_label').AddClass('legend_color')
-	}	
+	}
+	// GameEvents.SendCustomGameEventToServer( "get_key_3", {playerID: Players.GetLocalPlayer(), number: number});	
 }
 
 function UpdateZone(msg){

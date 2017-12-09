@@ -1172,6 +1172,7 @@ function Serengaard:SubmitStats()
           url = url.."wave_number="..Serengaard.InfiniteWaveCount
           url = url.."&key1="..SaveLoad.key1
           url = url.."&key2="..SaveLoad.key2
+          SaveLoad:NewKey()
           for i = 1, #MAIN_HERO_TABLE, 1 do
             if MAIN_HERO_TABLE[i]:GetPlayerOwner() then
               local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()

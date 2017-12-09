@@ -77,6 +77,7 @@ function Arena:UpdatePitLockout(hero)
 	-- url = url.."&score="..score
 
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+		SaveLoad:NewKey()
 		local resultTable = {}
 		print( "GET response:\n" )
 		for k,v in pairs( result ) do
@@ -102,6 +103,7 @@ function Arena:UpdatePitLevels()
 				print(MAIN_HERO_TABLE[i])
 				if MAIN_HERO_TABLE[i].pit.pit_level < Arena.PitLevel then
 					CreateHTTPRequestScriptVM( "GET", individualURL ):Send( function( result )
+						SaveLoad:NewKey()
 						local resultTable = {}
 						print( "GET response:\n" )
 						for k,v in pairs( result ) do

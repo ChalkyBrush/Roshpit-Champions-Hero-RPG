@@ -151,6 +151,7 @@ function Glyphs:SaveResources()
 				url = url.."&key1="..SaveLoad.key1
 				url = url.."&key2="..SaveLoad.key2
 				CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+					SaveLoad:NewKey()
 					local resultTable = {}
 					print( "GET response:\n" )
 					for k,v in pairs( result ) do
@@ -421,6 +422,7 @@ function Glyphs:UpgradeArcaneTier(msg)
 		url = url.."&key1="..SaveLoad.key1
 		url = url.."&key2="..SaveLoad.key2
 		CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+			SaveLoad:NewKey()
 			local resultTable = {}
 			print( "GET response:\n" )
 			for k,v in pairs( result ) do
@@ -505,6 +507,7 @@ function Glyphs:GlyphPurchase(msg)
 		url = url.."&key1="..SaveLoad.key1
 		url = url.."&key2="..SaveLoad.key2
 		CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+			SaveLoad:NewKey()
 			local resultTable = {}
 			print( "GET response:\n" )
 			for k,v in pairs( result ) do
@@ -697,6 +700,7 @@ function Glyphs:ReanimationPurchase(msg)
 		url = url.."&key1="..SaveLoad.key1
 		url = url.."&key2="..SaveLoad.key2
 		CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+			SaveLoad:NewKey()
 			local resultTable = {}
 			print( "GET response:\n" )
 			for k,v in pairs( result ) do

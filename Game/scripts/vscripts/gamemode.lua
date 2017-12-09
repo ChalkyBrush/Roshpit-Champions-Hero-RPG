@@ -209,12 +209,20 @@ function GameMode:OnFirstPlayerLoaded()
   DebugPrint("First Player has loaded")
 end
 
+function GameMode:OnPlayerReconnect(msg)
+   if SaveLoad.key1 then
+    if SaveLoad:GetAllowSaving() then
+      CustomGameEventManager:Send_ServerToAllClients("server_confirmed", {} )
+    end
+  end 
+end
+
 function GameMode:PlayerConnect(msg)
   print(msg)
   if DIFFICULTY_FACTOR then
     CustomGameEventManager:Send_ServerToAllClients("update_selected_difficulty", {difficulty = DIFFICULTY_FACTOR} )
   end
-  if SaveLoad.key2 then
+  if SaveLoad.key1 then
     if SaveLoad:GetAllowSaving() then
       CustomGameEventManager:Send_ServerToAllClients("server_confirmed", {} )
     end

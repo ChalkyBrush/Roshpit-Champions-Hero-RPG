@@ -6,15 +6,17 @@ end
 
 function SaveLoad:GetKey()
 	Timers:CreateTimer(2, function()
-		if not SaveLoad.key2 then
+		if not SaveLoad.key1 then
 			local url = ROSHPIT_URL.."/champions/key?"
 			CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 				if result.StatusCode == 200 then
 					local resultTable = {}
 					local resultTable = JSON:decode(result.Body)
 					SaveLoad.key1 = resultTable.key
+					SaveLoad.key2 = resultTable.id
 					SaveLoad.special_id = resultTable.id
-					SaveLoad:ProcessKey()
+					CustomGameEventManager:Send_ServerToAllClients("server_confirmed", {} )
+					-- SaveLoad:ProcessKey()
 				end
 			end )
 			return 30
@@ -24,6 +26,22 @@ function SaveLoad:GetKey()
 			end
 		end
 	end)
+end
+
+function SaveLoad:NewKey()
+	local url = ROSHPIT_URL.."/champions/key?"
+	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+		if result.StatusCode == 200 then
+			local resultTable = {}
+			local resultTable = JSON:decode(result.Body)
+			SaveLoad.key1 = resultTable.key
+			SaveLoad.special_id = resultTable.id
+			if SaveLoad:GetAllowSaving() then
+				CustomGameEventManager:Send_ServerToAllClients("server_confirmed", {} )
+			end
+			-- SaveLoad:ProcessKey()
+		end
+	end )
 end
 
 -- function SaveLoad:KeyDebug()
@@ -37,12 +55,17 @@ end
 -- end
 
 function SaveLoad:ProcessKey()
-	CustomGameEventManager:Send_ServerToAllClients("process_key", {key = SaveLoad.key1, special_id = SaveLoad.special_id} )
+	-- CustomGameEventManager:Send_ServerToAllClients("process_key", {key = SaveLoad.key1, special_id = SaveLoad.special_id} )
 end
 
 function SaveLoad:ProcessedKey(msg)
+	local alert = false
+	if not SaveLoad.key2 then
+		alert = true
+	end
+	print("NEW KEY")
 	SaveLoad.key2 = tostring(msg.number)
-	if SaveLoad:GetAllowSaving() then
+	if SaveLoad:GetAllowSaving() and alert then
 		CustomGameEventManager:Send_ServerToAllClients("server_confirmed", {} )
 	end
 end
@@ -183,6 +206,7 @@ function SaveLoad:SaveCharacter(msg)
 				print( string.format( "%s : %s\n", k, v ) )
 			end
 			print( "Done." )
+			SaveLoad:NewKey()
 			local resultTable = JSON:decode(result.Body)
 			SaveLoad:GetCharacterDataFromJSON(resultTable)
 			CustomGameEventManager:Send_ServerToPlayer(player, "recentlySaved", {} )
@@ -852,6 +876,7 @@ function SaveLoad:DraggedToStash(keys)
 						for k,v in pairs( result ) do
 							print( string.format( "%s : %s\n", k, v ) )
 						end
+						SaveLoad:NewKey()
 						print( "Done." )
 						print(result.StatusCode)
 						hero:RemoveModifierByName("modifier_stash_lock")
@@ -905,6 +930,7 @@ function SaveLoad:DraggedToStash(keys)
 				url = url.."&key1="..SaveLoad.key1
 				url = url.."&key2="..SaveLoad.key2
 					CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
+						SaveLoad:NewKey()
 						print( "POST response:\n" )
 						for k,v in pairs( result ) do
 							print( string.format( "%s : %s\n", k, v ) )
@@ -954,6 +980,7 @@ function SaveLoad:DraggedFromStash(keys)
 					url = url.."&key1="..SaveLoad.key1
 					url = url.."&key2="..SaveLoad.key2
 						CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
+							SaveLoad:NewKey()
 							print( "POST response:\n" )
 							for k,v in pairs( result ) do
 								print( string.format( "%s : %s\n", k, v ) )
@@ -997,6 +1024,7 @@ function SaveLoad:DraggedFromStash(keys)
 				url = url.."&key1="..SaveLoad.key1
 				url = url.."&key2="..SaveLoad.key2
 					CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
+						SaveLoad:NewKey()
 						print( "POST response:\n" )
 						for k,v in pairs( result ) do
 							print( string.format( "%s : %s\n", k, v ) )
@@ -1159,6 +1187,7 @@ function SaveLoad:WithdrawKey(msg)
 	-- local url = ROSHPIT_URL.."/champions/getPlayerKeys?"
 	-- url = url.."steam_id="..steamID
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+		SaveLoad:NewKey()
 		if result.StatusCode == 200 then
 			local resultTable = {}
 			print( "GET response:\n" )
@@ -1204,6 +1233,7 @@ function SaveLoad:DepositKey(msg)
 		-- local url = ROSHPIT_URL.."/champions/getPlayerKeys?"
 		-- url = url.."steam_id="..steamID
 		CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+			SaveLoad:NewKey()
 			if result.StatusCode == 200 then
 				local resultTable = {}
 				print( "GET response:\n" )
