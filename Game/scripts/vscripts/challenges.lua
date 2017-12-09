@@ -55,6 +55,7 @@ function Challenges:ChiselItem(msg)
 	url = url.."&key1="..SaveLoad.key1
 	url = url.."&key2="..SaveLoad.key2
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+		SaveLoad:NewKey()
 		local resultTable = {}
 		print( "GET response:\n" )
 		for k,v in pairs( result ) do
@@ -140,6 +141,7 @@ function Challenges:FinalReroll(msg)
 		
 		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "playerReceivedItem", {})
 		CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+			SaveLoad:NewKey()
 			local resultTable = {}
 			print( "GET response:\n" )
 			for k,v in pairs( result ) do
@@ -188,6 +190,7 @@ function Challenges:ModifyMithril(amount, hero, reason)
 	url = url.."&key2="..SaveLoad.key2
 	print(url)
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+		SaveLoad:NewKey()
 		local resultTable = {}
 		print( "GET response:\n" )
 		for k,v in pairs( result ) do
@@ -232,6 +235,7 @@ function Challenges:CollectMithrilIncome(msg)
 	url = url.."&key1="..SaveLoad.key1
 	url = url.."&key2="..SaveLoad.key2
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+		SaveLoad:NewKey()
 		local resultTable = {}
 		print( "GET response:\n" )
 		for k,v in pairs( result ) do
@@ -582,6 +586,7 @@ function Challenges:SaveMithrilShards(winnerTable)
 				url = url.."&key2="..SaveLoad.key2
 				hero.shardsPickedUp = hero.shardsPickedUp - amount
 				CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+					SaveLoad:NewKey()
 					local resultTable = {}
 					print( "GET response:\n" )
 					for k,v in pairs( result ) do

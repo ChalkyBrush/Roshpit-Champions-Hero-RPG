@@ -38,7 +38,7 @@ local function getBaseGameData(eventInfo)
 end
 
 local function send(jsonStats, repeatCount)
-    local request = CreateHTTPRequestScriptVM("GET", statsCollectUrl)
+    local request = CreateHTTPRequestScriptVM("POST", statsCollectUrl)
     request:SetHTTPRequestGetOrPostParameter("data", jsonStats)
     request:Send(function(result)
         if result.StatusCode ~= 200 then
