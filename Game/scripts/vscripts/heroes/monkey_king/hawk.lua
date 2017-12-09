@@ -63,6 +63,7 @@ function hawk_screech_hit(event)
 	local debuff_duration = event.debuff_duration
 	local damage = event.damage
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_draghor_hawk_screech", {duration = debuff_duration})
+	target:SetModifierStackCount("modifier_draghor_hawk_screech", caster, ability:GetLevel())
 
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 1, RPC_ELEMENT_TIME, RPC_ELEMENT_NATURE)
 end

@@ -168,7 +168,7 @@ function charons_claw_enemy_think(event)
 	local ability = event.ability
 	local caster = event.caster
 	if ability.b_a_level > 0 then
-		local damage = ability.b_a_level*700
+		local damage = ability.b_a_level*7000
 		CustomAbilities:QuickAttachParticle("particles/econ/items/nightstalker/nightstalker_black_nihility/nightstalker_black_nihility_void_hit_body_flash.vpcf", target, 2)
 		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_DEMON, RPC_ELEMENT_SHADOW)
 	end

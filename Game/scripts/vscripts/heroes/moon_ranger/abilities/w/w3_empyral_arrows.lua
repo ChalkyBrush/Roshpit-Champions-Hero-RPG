@@ -16,7 +16,7 @@ function projectileHit(event)
     AstralSteal.projectileHit(eventTable)
     ClusterArrow.projectileHit(eventTable)
 
-    local damage = ability:GetSpecialValueFor("damage")*(1 + runesCount * W3_MULTIPLY_PERCENT)
+    local damage = ability.damage * (1 + runesCount * W3_MULTIPLY_PERCENT)
     Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NORMAL)
     PopupDamage(target, damage)
 end

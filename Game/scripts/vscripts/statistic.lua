@@ -108,7 +108,7 @@ local function getMatchId(eventInfo, repeatCount)
     if not repeatCount then
         repeatCount = 5
     end
-    local request = CreateHTTPRequestScriptVM("GET", statsGetUtl)
+    local request = CreateHTTPRequestScriptVM("POST", statsGetUtl)
     request:SetHTTPRequestGetOrPostParameter("type", "getInitialMatchId")
     request:Send(function(result)
         if result.StatusCode ~= 200 then
@@ -197,7 +197,6 @@ local function getCurrentStashItems(hero)
         local items = {}
         for key, luaItem in pairs(hero.stashTable) do
             local itemIndex = luaItem:GetEntityIndex()
-
             local clearedItem = {
                 itemName = luaItem.itemName,
                 property1 = luaItem.property1,
@@ -214,8 +213,12 @@ local function getCurrentStashItems(hero)
                 itemVariant = luaItem:GetAbilityName(),
                 itemIndex = itemIndex,
             }
+            if luaItem.id then
+                clearedItem.id = luaItem.id
+            end
+
             if items[itemIndex] then
-                items[tostring(itemIndex) .. '_copy'] = clearedItem
+                items[tostring(itemIndex) .. '0000'] = clearedItem
             else
                 items[itemIndex] = clearedItem
             end
@@ -348,15 +351,18 @@ subscribe('arena:kill:pit_lord', killBoss)
 
 subscribe('items:reroll', itemsOrHeroesChange)
 subscribe('items:chisel', itemsOrHeroesChange)
+subscribe('items:chisel', forceSend)
 subscribe('items:equip', itemsOrHeroesChange)
 subscribe('items:backpack_change', itemsOrHeroesChange)
 subscribe('items:oracle:get', itemsOrHeroesChange)
+subscribe('items:oracle:get', forceSend)
 subscribe('items:oracle:push', itemsOrHeroesChange)
 
 subscribe('trade:start', itemsOrHeroesChange)
 subscribe('trade:finish', itemsOrHeroesChange)
 
 subscribe('hero:oracle:save', itemsOrHeroesChange)
+subscribe('hero:oracle:save', forceSend)
 subscribe('hero:oracle:load', itemsOrHeroesChange)
 
 subscribe('mithril:change', mithrilChange)

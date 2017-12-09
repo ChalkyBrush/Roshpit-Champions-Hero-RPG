@@ -6,6 +6,7 @@ function attackLand(event)
     local b_a_level = 0
     local procChance = 0
     local damageMultiply = 0
+    local baseAbilityFor = 0
 
     if target.dummy then
         return false
@@ -19,6 +20,7 @@ function attackLand(event)
             procChance = ARCANA1_Q2_PROC_CHANCE
         end
         damageMultiply = ARCANA1_Q2_ATTACK_DAMAGE_PERCENT
+        baseAbilityFor = 1
     else
         b_a_level = Runes:GetTotalRuneLevel(caster, 2, "b_a", "astral")
         if caster:HasModifier("modifier_astral_immortal_weapon_2") then
@@ -48,7 +50,7 @@ function attackLand(event)
         Timers:CreateTimer(0.45, -- Start this timer 10 game-time seconds later
             function()
                 if target:IsAlive() then
-                    Filters:TakeArgumentsAndApplyDamage(target, caster, pureDamage, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+                    Filters:TakeArgumentsAndApplyDamage(target, caster, pureDamage, DAMAGE_TYPE_PURE, baseAbilityFor, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
                     EmitSoundOn("Ability.StarfallImpact", target)
                     if caster:HasModifier("modifier_astral_arcana1") then
                         ability = caster:FindAbilityByName("astral_arcana_ability")

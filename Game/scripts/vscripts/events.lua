@@ -418,9 +418,10 @@ function GameMode:OnPlayerChat(keys)
 --  end
 --
 --  if string.match(text, "debug glyphs") then
---    local heroName = 'trapper'
+--    local heroName = 'astral'
+--    Glyphs:RollGlyphAll("item_rpc_" .. heroName .. "_glyph_5_a", position, 0)
 --    for tier = 1,7 do
---      for rowItem = 1,2 do
+--      for rowItem = 1,1 do
 --        local glyphName = "item_rpc_"..heroName.."_glyph_"..tier.."_"..rowItem
 --        Glyphs:RollGlyphAll(glyphName, position, 0)
 --      end
