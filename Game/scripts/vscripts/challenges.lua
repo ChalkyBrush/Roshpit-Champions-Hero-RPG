@@ -52,6 +52,8 @@ function Challenges:ChiselItem(msg)
 	url = url.."&hero_slot="..saveSlot
 	url = url.."&equip_slot="..itemSlot
 	url = url.."&cost="..cost
+	url = url.."&key1="..SaveLoad.key1
+	url = url.."&key2="..SaveLoad.key2
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 		local resultTable = {}
 		print( "GET response:\n" )
@@ -132,6 +134,8 @@ function Challenges:FinalReroll(msg)
 		url = url.."steam_id="..steamID
 		url = url.."&amount="..amount
 		url = url.."&reason=".."reroll"
+		url = url.."&key1="..SaveLoad.key1
+		url = url.."&key2="..SaveLoad.key2
 		print(url)
 		
 		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "playerReceivedItem", {})
@@ -180,6 +184,8 @@ function Challenges:ModifyMithril(amount, hero, reason)
 	url = url.."steam_id="..steamID
 	url = url.."&amount="..amount
 	url = url.."&reason="..reason
+	url = url.."&key1="..SaveLoad.key1
+	url = url.."&key2="..SaveLoad.key2
 	print(url)
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 		local resultTable = {}
@@ -223,6 +229,8 @@ function Challenges:CollectMithrilIncome(msg)
 	url = url.."steam_id="..steamID
 	url = url.."&amount="..amount
 	url = url.."&reason=".."income"
+	url = url.."&key1="..SaveLoad.key1
+	url = url.."&key2="..SaveLoad.key2
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 		local resultTable = {}
 		print( "GET response:\n" )
@@ -570,6 +578,8 @@ function Challenges:SaveMithrilShards(winnerTable)
 				url = url.."steam_id="..steamID
 				url = url.."&amount="..amount
 				url = url.."&reason=".."challenge"
+				url = url.."&key1="..SaveLoad.key1
+				url = url.."&key2="..SaveLoad.key2
 				hero.shardsPickedUp = hero.shardsPickedUp - amount
 				CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 					local resultTable = {}

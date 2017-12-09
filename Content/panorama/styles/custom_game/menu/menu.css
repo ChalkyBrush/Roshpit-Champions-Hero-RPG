@@ -130,6 +130,16 @@
   100% { position: 0px 70px 0px; }
 }
 
+@keyframes 'fadeOut'{
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.animateFadeOut{
+    animation-name: fadeOut;
+    animation-duration: 2.1s;
+    animation-timing-function: linear;  
+}
 
 .animateIn{
     animation-name: fromRight;
@@ -354,4 +364,49 @@
 
 .GGStats{
 	visibility: collapse;
+}
+
+.save_status_container{
+	
+	horizontal-align:right;
+	vertical-align: top;
+}
+
+.save_status_container_inner{
+	flow-children:right;
+}
+
+.difficulty_overlay_main_root{
+	width:100%;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+}
+
+.save_status_container{
+	margin-top:120px;
+}
+
+#server_status_text{
+	margin-left:10px;
+	font-size:18px;
+	width:200px;
+	text-shadow: 0px 0px 3px #000000;
+}
+
+.server_status_image{
+	margin-top:3px;
+}
+
+#save_status_bg{
+	width:100%;
+	height:100%;
+/*	background-color:#000000;
+	opacity:0.5;*/
+}
+
+.status_good{
+	color:#3ec146;
+}
+
+.status_bad{
+	color: #dd2e2e;
 }

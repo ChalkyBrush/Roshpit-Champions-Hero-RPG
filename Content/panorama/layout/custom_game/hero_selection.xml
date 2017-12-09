@@ -95,7 +95,7 @@
 	<Panel class="hero_selection_root" hittest="false">
 		<Panel id="hero_select_parent" hittest="false">
 <!-- 		<Button class="DOTAShowDashboardButton"/> -->
-			<Panel id="hero-select-bg-flat">
+			<Panel id="hero-select-bg-flat" hittest="false">
 			</Panel>
 <!-- 		 <DOTAScenePanel id="HeroSelectBGScene" map="maps/backgrounds/dashboard_test.vmap" camera="shot_cameraC" onactivate="DropInputFocus()" always-cache-composition-layer="true" hittest="true"/>
 		 <DOTAScenePanel id="HeroSelectedRays" class="Hidden" hittest="false" map="scenes/loadout_preview_rays" camera="camera_1"/> -->

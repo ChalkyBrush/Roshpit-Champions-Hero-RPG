@@ -148,6 +148,8 @@ function Glyphs:SaveResources()
 				local url = ROSHPIT_URL.."/champions/modifyArcaneCrystals?"
 				url = url.."steam_id="..steamID
 				url = url.."&amount="..amount
+				url = url.."&key1="..SaveLoad.key1
+				url = url.."&key2="..SaveLoad.key2
 				CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 					local resultTable = {}
 					print( "GET response:\n" )
@@ -178,7 +180,6 @@ function Glyphs:GetPlayerResources(playerID)
 	local player = PlayerResource:GetPlayer(playerID)
 	local url = ROSHPIT_URL.."/champions/getResources?"
 	url = url.."steam_id="..steamID
-	print(url)
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 		local resultTable = {}
 		print( "GET response:\n" )
@@ -417,6 +418,8 @@ function Glyphs:UpgradeArcaneTier(msg)
 		url = url.."steam_id="..steamID
 		url = url.."&newTier="..newTier
 		url = url.."&cost="..cost
+		url = url.."&key1="..SaveLoad.key1
+		url = url.."&key2="..SaveLoad.key2
 		CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 			local resultTable = {}
 			print( "GET response:\n" )
@@ -499,6 +502,8 @@ function Glyphs:GlyphPurchase(msg)
 		local url = ROSHPIT_URL.."/champions/modifyArcaneCrystals?"
 		url = url.."steam_id="..steamID
 		url = url.."&amount="..crystalReduce
+		url = url.."&key1="..SaveLoad.key1
+		url = url.."&key2="..SaveLoad.key2
 		CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 			local resultTable = {}
 			print( "GET response:\n" )
@@ -689,6 +694,8 @@ function Glyphs:ReanimationPurchase(msg)
 		local url = ROSHPIT_URL.."/champions/modifyArcaneCrystals?"
 		url = url.."steam_id="..steamID
 		url = url.."&amount="..-30000
+		url = url.."&key1="..SaveLoad.key1
+		url = url.."&key2="..SaveLoad.key2
 		CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 			local resultTable = {}
 			print( "GET response:\n" )

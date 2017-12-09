@@ -214,6 +214,11 @@ function GameMode:PlayerConnect(msg)
   if DIFFICULTY_FACTOR then
     CustomGameEventManager:Send_ServerToAllClients("update_selected_difficulty", {difficulty = DIFFICULTY_FACTOR} )
   end
+  if SaveLoad.key2 then
+    if SaveLoad:GetAllowSaving() then
+      CustomGameEventManager:Send_ServerToAllClients("server_confirmed", {} )
+    end
+  end
 end
 
 --[[
@@ -235,6 +240,7 @@ function GameMode:OnAllPlayersLoaded()
   CustomNetTables:SetTableValue("hero_index", "taken_heroes", {} )
 
   Events:SpawnGamemaster(Vector(0,0))
+  SaveLoad:GetKey()
   if GameState:IsWorld1() then
     -- Events:initializeTown()
     Timers:CreateTimer(1, function()

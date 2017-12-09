@@ -25,14 +25,16 @@ function Tanari:Debug()
       -- Runes:EquipArcana(MAIN_HERO_TABLE[1], 2)
     end
     -- Tanari:DefeatDungeonBoss("fire", Vector(-4928, 2048))
-    local item = CreateItem("item_debug_blink", nil, nil)
-    local drop = CreateItemOnPositionSync( Vector(-4928, 2048), item )
-    local position = Vector(-4928, 2048)
-    RPCItems:DropItem(item, Vector(-4928, 2048))
+    -- local item = CreateItem("item_debug_blink", nil, nil)
+    -- local drop = CreateItemOnPositionSync( Vector(-4928, 2048), item )
+    -- local position = Vector(-4928, 2048)
+    -- RPCItems:DropItem(item, Vector(-4928, 2048))
     -- RPCItems:RollMonkeyPaw(Vector(-4928, 2048))
     -- RPCItems:RollChernobogArcana1(Vector(-4928, 2048))
-    RPCItems:RollPaladinArcana2(Vector(-4928, 2048))
-    RPCItems:RollArkimusArcana2(Vector(-4928, 2048))
+    -- RPCItems:RollPaladinArcana2(Vector(-4928, 2048))
+    -- RPCItems:RollArkimusArcana2(Vector(-4928, 2048))
+    -- RPCItems:RollSoluniaArcana2(Vector(-4928, 2048))
+    SaveLoad:KeyDebug()
     -- RPCItems:RollPaladinArcana1(Vector(-4928, 2048))
 
     -- RPCItems:RollBahamutArcana2(Vector(-4928, 2048))
@@ -178,7 +180,7 @@ function Tanari:Debug()
     -- RPCItems:RollTrapperArcana1(Vector(-4928, 2048))
 
             ---------MAX CURATION----------
-    Curator:FullCurateHero(MAIN_HERO_TABLE[1])
+    -- Curator:FullCurateHero(MAIN_HERO_TABLE[1])
 
     -- Curator:CurateHero(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
 

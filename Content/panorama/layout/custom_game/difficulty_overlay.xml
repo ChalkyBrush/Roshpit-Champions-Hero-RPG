@@ -1,17 +1,26 @@
 <root>
 	<styles>
-		<include src="file://{resources}/styles/dotastyles.css" />
 		<include src="file://{resources}/styles/custom_game/menu/equipment.css" />
 		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/difficulty.js" />
 	</scripts>
-	<Panel class="difficulty_overlay_root" hittest="false">
-		<Label id="difficulty_label" text="" html="true" hittest="false"></Label>
-		<Panel class="zone_panel" hittest="false">
-			<Label id="spirit_realm_label" hittest="false"></Label>
-			<Label id="zone_label" hittest="false"></Label>
+	<Panel class="difficulty_overlay_main_root" hittest="false">
+		<Panel class="difficulty_overlay_root" hittest="false">
+			<Label id="difficulty_label" text="" html="true" hittest="false"></Label>
+			<Panel class="zone_panel" hittest="false">
+				<Label id="spirit_realm_label" hittest="false"></Label>
+				<Label id="zone_label" hittest="false"></Label>
+			</Panel>
+		</Panel>
+		<Panel class="save_status_container animateIn" id="save_status_container">
+			<Panel id="save_status_bg">
+			</Panel>
+			<Panel class="save_status_container_inner">
+				<Image class="server_status_image" id="server_status_image" src="file://{images}/custom_game/ui/pass.png" hittest="false"  />
+				<Label id="server_status_text" class="status_bad" hittest="false" text="server_status_no_save"></Label>
+			</Panel>
 		</Panel>
 	</Panel>
 

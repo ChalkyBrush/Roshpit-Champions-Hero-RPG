@@ -985,6 +985,8 @@ function Arena:SaveChampionsLeagueData(hero, battleRank, score)
 	url = url.."&rank="..battleRank
 	url = url.."&score="..score
 	url = url.."&hero_name="..hero:GetUnitName()
+	url = url.."&key1="..SaveLoad.key1
+	url = url.."&key2="..SaveLoad.key2
 	if Arena:DetermineIfSaveIsNecessary(hero, battleRank, score) then
 		CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 			local resultTable = {}

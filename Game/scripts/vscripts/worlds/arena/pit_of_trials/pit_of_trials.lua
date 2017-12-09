@@ -71,6 +71,8 @@ function Arena:UpdatePitLockout(hero)
 	end
 	url = url.."steam_id="..steamID
 	url = url.."&hero_id="..hero.roshpitID
+	url = url.."&key1="..SaveLoad.key1
+	url = url.."&key2="..SaveLoad.key2
 	-- url = url.."&rank="..battleRank
 	-- url = url.."&score="..score
 
@@ -94,6 +96,8 @@ function Arena:UpdatePitLevels()
 				local individualURL = url.."steam_id="..steamID
 				individualURL = individualURL.."&hero_id="..MAIN_HERO_TABLE[i].roshpitID
 				individualURL = individualURL.."&pit_level="..Arena.PitLevel
+				individualURL = individualURL.."&key1="..SaveLoad.key1
+				individualURL = individualURL.."&key2="..SaveLoad.key2
 				print(individualURL)
 				print(MAIN_HERO_TABLE[i])
 				if MAIN_HERO_TABLE[i].pit.pit_level < Arena.PitLevel then
