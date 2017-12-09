@@ -43,6 +43,7 @@ function Challenges:ChiselItem(msg)
 	-- 	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_blacksmith", {})
 	-- 	return false
 	-- end
+	SaveLoad:NewKey()
 	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, hero, "modifier_cant_equip", {duration = 6})
 	local steamID = PlayerResource:GetSteamAccountID(playerID)
 	local cost = math.max(msg.cost, 1)
@@ -89,6 +90,7 @@ function Challenges:FinalReroll(msg)
 	if (msg.lock1 + msg.lock2 + msg.lock3 + msg.lock4) > 2 then
 		return false
 	end
+	SaveLoad:NewKey()
 	local itemProperties = CustomNetTables:GetTableValue("item_basics", tostring(itemIndex))
 	local reductionTable = CustomNetTables:GetTableValue( "min_level_reduction", tostring(itemIndex) )
 	local minLevel = itemProperties.minLevel

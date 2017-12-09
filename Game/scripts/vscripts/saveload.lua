@@ -162,6 +162,7 @@ function SaveLoad:SaveCharacter(msg)
 	local runeUnit4 = hero.runeUnit4
 	hero.loadEnabled = 0
 	Weapons:ValidateGear(hero)
+	SaveLoad:NewKey()
 	if SaveLoad:GetAllowSaving() then
 		local url = ROSHPIT_URL.."/champions/saveCharacter?"
 		url = url.."slot="..slot
@@ -842,6 +843,7 @@ function SaveLoad:DraggedToStash(keys)
 		EmitSoundOnClient("General.Cancel", caster:GetPlayerOwner())
 		return false
 	end
+	SaveLoad:NewKey()
 	print("-----HAS ITEM OR NOT BELOW-----")
 	if keys.drag_type == "inventory" then
 		if Challenges:CheckIfHeroHasItemByItemIndex(hero, itemIndex) then
@@ -960,6 +962,7 @@ function SaveLoad:DraggedFromStash(keys)
 	local inventorySlot = keys.inventorySlot
 	local hero = GameState:GetHeroByPlayerID(playerID)
 	local steamID = PlayerResource:GetSteamAccountID(playerID)
+	SaveLoad:NewKey()
 	print("DRAGGED FROM STASH")
 	if SaveLoad:GetAllowSaving() then
 			if hero:GetItemInSlot(inventorySlot) then
