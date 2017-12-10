@@ -24,7 +24,7 @@ function Tanari:Debug()
       MAIN_HERO_TABLE[1]:CalculateStatBonus()
       -- Runes:EquipArcana(MAIN_HERO_TABLE[1], 2)
     end
-    -- Tanari:DefeatDungeonBoss("fire", Vector(-4928, 2048))
+    Tanari:DefeatDungeonBoss("fire", Vector(-4928, 2048))
     -- local item = CreateItem("item_debug_blink", nil, nil)
     -- local drop = CreateItemOnPositionSync( Vector(-4928, 2048), item )
     -- local position = Vector(-4928, 2048)

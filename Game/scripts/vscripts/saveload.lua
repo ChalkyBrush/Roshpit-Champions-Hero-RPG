@@ -1004,6 +1004,7 @@ function SaveLoad:DraggedFromStash(keys)
 										end
 									end
 								else
+									RPCItems:GiveItemToHeroWithSlotCheck(hero, itemEntity)
 								end
 								keys.playerID = playerID
 								-- CustomGameEventManager:Send_ServerToPlayer(player, "stash_item_upated", {stashSlot = stashSlot, item = itemIndex} )
