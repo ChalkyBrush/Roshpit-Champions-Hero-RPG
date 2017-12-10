@@ -139,7 +139,6 @@ function Challenges:FinalReroll(msg)
 		url = url.."&reason=".."reroll"
 		url = url.."&key1="..SaveLoad.key1
 		url = url.."&key2="..SaveLoad.key2
-		print(url)
 		
 		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "playerReceivedItem", {})
 		CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )

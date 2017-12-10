@@ -11,19 +11,13 @@ function SaveLoad:GetKey()
 				local url = ROSHPIT_URL.."/champions/key?"
 				url = url.."param1="..0
 				url = url.."&secret_key="..SaveLoad.key2
-				print("GET KEY1")
-				print(url)
 				CreateHTTPRequestScriptVM("POST", url ):Send( function( result )
 					if result.StatusCode == 200 then
 						SaveLoad.key1 = result.Body
 						CustomGameEventManager:Send_ServerToAllClients("server_confirmed", {} )
 						-- SaveLoad:ProcessKey()
 					else
-						print( "GET response:\n" )
-						for k,v in pairs( result ) do
-							print( string.format( "%s : %s\n", k, v ) )
-						end
-						print( "Done." )
+
 					end
 				end )
 				return 30

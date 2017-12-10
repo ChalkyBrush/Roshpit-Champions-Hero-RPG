@@ -25,19 +25,15 @@ function encrypt(number, base, open_key, chunk_size) {
     var result = '';
     var tempResult = '';
     while (slip < number.length - chunk_size) {
-        $.Msg('before encode ' + number.substr(slip, chunk_size));
         tempResult = '1'.concat(number.substr(slip, chunk_size));
         tempResult = bigInt(tempResult).modPow(bigInt(open_key), base).toString(radix = 10);
        // tempResult = '1'.concat(tempResult);
-        $.Msg('after encode ' + tempResult);
         result = result.concat(tempResult, '|');
         slip += chunk_size;
     }
-    $.Msg('before encode ' + number.substr(slip));
     tempResult = '1'.concat(number.substr(slip));
     tempResult = bigInt(tempResult).modPow(bigInt(open_key), base).toString(radix = 10);
     //tempResult = '1'.concat(tempResult);
-    $.Msg('after encode ' + tempResult);
     result = result.concat(tempResult, '|');
     return result;
 }
@@ -49,7 +45,6 @@ function decrypt(number, base, close_key) {
         //tempResult = tempResult.substr(1);
         tempResult = bigInt(chunks[chunkId]).modPow(bigInt(close_key), base).toString(radix = 10);
         tempResult = tempResult.substr(1);
-        $.Msg('after decode ' + tempResult);
         result = result.concat(tempResult);
     }
     return result
@@ -77,29 +72,12 @@ var jsonData = JSON.stringify(data);
 var numberData = convertStringToNumber(jsonData);
 
 var encryptData = encrypt(numberData, base, open_key, chunk_size);// the string send to server and make request with iz
-$.Msg("---THE GOODS--")
-$.Msg(encryptData)
-$.Msg("----GOOODS_---")
 GameEvents.SendCustomGameEventToServer( "processed_key", {playerID: Players.GetLocalPlayer(), number: encryptData});
 
 debugger;
 // the part do ruby
-$.Msg('separator');
-
-var decryptNumbers = decrypt(encryptData, base, close_key);
-$.Msg(decryptNumbers);
-var decryptData = convertNumberToString(decryptNumbers);
-$.Msg(decryptData)
 
 
-// var data = {
-//     mapName:Game.GetMapInfo().map_display_name,
-//     time:Game.Time(),
-// };
+// var decryptNumbers = decrypt(encryptData, base, close_key);
 
-// var allIds = Game.GetAllPlayerIDs();
-// for (var i = 1; i <= allIds.length; i++) {
-// 	var playerInfo = Game.GetPlayerInfo(allIds[i-1]);
-// 	$.Msg(playerInfo)
-// 	data["steam"+i] = playerInfo["player_steamid"] - 76561197960265728 + 2;
-// }
+// var decryptData = convertNumberToString(decryptNumbers);
