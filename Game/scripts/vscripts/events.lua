@@ -23,6 +23,8 @@ if MAIN_HERO_TABLE == nil then
   TAKEN_HERO_TABLE = {}
 end
 
+Events.ResourceBonus = 2
+
 ROSHPIT_URL = "https://www.roshpit.ca"
 
 

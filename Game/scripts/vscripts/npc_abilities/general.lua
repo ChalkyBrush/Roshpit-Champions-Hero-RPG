@@ -44,14 +44,14 @@ function arcane_crystal_think(event)
 			if #allies > 1 then
 				for i = 2, allies, 1 do
 					if pickUpPlayer.crystalsPickedUp then
-						if pickUpPlayer.crystalsPickedUp > pickUpPlayer.maxCrystals then
+						if pickUpPlayer.crystalsPickedUp > pickUpPlayer.maxCrystals*Events.ResourceBonus then
 							pickUpPlayer = allies[i]
 						end
 					end
 				end
 			end
-			if pickUpPlayer.crystalsPickedUp < pickUpPlayer.maxCrystals then
-				local crystalAmount = caster.quantity
+			if pickUpPlayer.crystalsPickedUp < pickUpPlayer.maxCrystals*Events.ResourceBonus then
+				local crystalAmount = caster.quantity*Events.ResourceBonus
 
 				PopupArcaneCrystals(pickUpPlayer, crystalAmount)
 				local particleName = "particles/units/heroes/hero_oracle/duskbringer_c_a_heal_heal_core.vpcf"

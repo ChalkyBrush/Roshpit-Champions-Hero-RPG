@@ -4443,7 +4443,7 @@ end
 
 function Seafortress:DefeatFinalBoss(position)
   Timers:CreateTimer(5, function()
-        local mithrilReward = 10000
+        local mithrilReward = 11000*Events.ResourceBonus
         local crystal = CreateUnitByName("arcane_crystal", position+Vector(0,0,1000), false, nil, nil, DOTA_TEAM_GOODGUYS)
         crystal:SetAbsOrigin(crystal:GetAbsOrigin()+Vector(0,0,1300))
         local crystalAbility = crystal:AddAbility("mithril_shard_ability")

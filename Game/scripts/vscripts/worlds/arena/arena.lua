@@ -742,7 +742,7 @@ function Arena:GetMithrilPrize(position, hero, mithrilReward)
         crystal:SetOriginalModel("models/props_gameplay/rune_doubledamage01.vmdl")
         crystal:SetModel("models/props_gameplay/rune_doubledamage01.vmdl")
         crystal.reward = mithrilReward
-        crystal.reward = math.floor(crystal.reward*(1+GameState:GetPlayerPremiumStatusCount()*0.1))
+        crystal.reward = math.floor(crystal.reward*(1+GameState:GetPlayerPremiumStatusCount()*0.1))*Events.ResourceBonus
         crystal.distributed = 0
         local baseModelSize = math.min(2.9, 1.2 + crystal.reward/200)
         crystal.modelScale = baseModelSize

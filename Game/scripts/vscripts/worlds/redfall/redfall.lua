@@ -782,7 +782,7 @@ function Redfall:DefeatDungeonBoss(dungeon, position)
         if Events.SpiritRealm then
           mithrilMult = mithrilMult*3
         end
-        mithrilReward = math.floor(mithrilReward*mithrilMult)
+        mithrilReward = math.floor(mithrilReward*mithrilMult)*Events.ResourceBonus
         local crystal = CreateUnitByName("arcane_crystal", position+Vector(0,0,1000), false, nil, nil, DOTA_TEAM_GOODGUYS)
         crystal:SetAbsOrigin(crystal:GetAbsOrigin()+Vector(0,0,1300))
         local crystalAbility = crystal:AddAbility("mithril_shard_ability")
