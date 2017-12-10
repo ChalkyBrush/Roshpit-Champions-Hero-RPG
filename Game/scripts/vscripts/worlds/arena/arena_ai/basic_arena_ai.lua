@@ -1849,3 +1849,9 @@ function command_restric_start(event)
 	local target = event.target
 	target:SetHealth(target:GetMaxHealth())
 end
+
+function phantom_strike(event)
+	print(event)
+	print("PHANTOM STRIKE")
+	DeepPrintTable(event)
+end

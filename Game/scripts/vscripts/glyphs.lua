@@ -150,7 +150,7 @@ function Glyphs:SaveResources()
 				url = url.."&amount="..amount
 				url = url.."&key1="..SaveLoad.key1
 				url = url.."&key2="..SaveLoad.key2
-				CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+				CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 					SaveLoad:NewKey()
 					local resultTable = {}
 					print( "GET response:\n" )
@@ -421,7 +421,7 @@ function Glyphs:UpgradeArcaneTier(msg)
 		url = url.."&cost="..cost
 		url = url.."&key1="..SaveLoad.key1
 		url = url.."&key2="..SaveLoad.key2
-		CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+		CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 			SaveLoad:NewKey()
 			local resultTable = {}
 			print( "GET response:\n" )
@@ -506,7 +506,7 @@ function Glyphs:GlyphPurchase(msg)
 		url = url.."&amount="..crystalReduce
 		url = url.."&key1="..SaveLoad.key1
 		url = url.."&key2="..SaveLoad.key2
-		CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+		CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 			SaveLoad:NewKey()
 			local resultTable = {}
 			print( "GET response:\n" )
@@ -699,7 +699,7 @@ function Glyphs:ReanimationPurchase(msg)
 		url = url.."&amount="..-30000
 		url = url.."&key1="..SaveLoad.key1
 		url = url.."&key2="..SaveLoad.key2
-		CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+		CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 			SaveLoad:NewKey()
 			local resultTable = {}
 			print( "GET response:\n" )

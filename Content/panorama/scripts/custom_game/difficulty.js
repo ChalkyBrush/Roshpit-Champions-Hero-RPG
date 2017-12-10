@@ -34,7 +34,7 @@ function KeyReceived(msg){
 	  number = number + msg.key.charCodeAt(i);
 	}
 	number = number - parseInt(msg.special_id)
-	GameEvents.SendCustomGameEventToServer( "processed_key", {playerID: Players.GetLocalPlayer(), number: number});
+	// GameEvents.SendCustomGameEventToServer( "processed_key", {playerID: Players.GetLocalPlayer(), number: number});
 }
 
 function ServerConfirmed(msg){

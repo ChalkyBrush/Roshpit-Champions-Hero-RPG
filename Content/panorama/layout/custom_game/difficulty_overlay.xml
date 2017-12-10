@@ -5,6 +5,7 @@
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/difficulty.js" />
+		<include src="file://{resources}/scripts/custom_game/loading_screen/key.js" />
 	</scripts>
 	<Panel class="difficulty_overlay_main_root" hittest="false">
 		<Panel class="difficulty_overlay_root" hittest="false">

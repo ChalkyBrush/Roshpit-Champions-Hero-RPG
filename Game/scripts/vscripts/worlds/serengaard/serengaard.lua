@@ -1191,7 +1191,7 @@ function Serengaard:SubmitStats()
         else
           url = ROSHPIT_URL.."/champions/get_serengaard?"
         end
-        CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+        CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
           local resultTable = {}
           print( "GET response:\n" )
           for k,v in pairs( result ) do

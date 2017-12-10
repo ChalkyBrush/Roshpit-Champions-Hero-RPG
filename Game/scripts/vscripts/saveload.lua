@@ -6,36 +6,46 @@ end
 
 function SaveLoad:GetKey()
 	Timers:CreateTimer(2, function()
-		if not SaveLoad.key1 then
-			local url = ROSHPIT_URL.."/champions/key?"
-			CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
-				if result.StatusCode == 200 then
-					local resultTable = {}
-					local resultTable = JSON:decode(result.Body)
-					SaveLoad.key1 = resultTable.key
-					SaveLoad.key2 = resultTable.id
-					SaveLoad.special_id = resultTable.id
+		if SaveLoad.key2 then
+			if not SaveLoad.key1 then
+				local url = ROSHPIT_URL.."/champions/key?"
+				url = url.."param1="..0
+				url = url.."&secret_key="..SaveLoad.key2
+				print("GET KEY1")
+				print(url)
+				CreateHTTPRequestScriptVM("POST", url ):Send( function( result )
+					if result.StatusCode == 200 then
+						SaveLoad.key1 = result.Body
+						CustomGameEventManager:Send_ServerToAllClients("server_confirmed", {} )
+						-- SaveLoad:ProcessKey()
+					else
+						print( "GET response:\n" )
+						for k,v in pairs( result ) do
+							print( string.format( "%s : %s\n", k, v ) )
+						end
+						print( "Done." )
+					end
+				end )
+				return 30
+			else
+				if SaveLoad:GetAllowSaving() then
 					CustomGameEventManager:Send_ServerToAllClients("server_confirmed", {} )
-					-- SaveLoad:ProcessKey()
 				end
-			end )
-			return 30
-		else
-			if SaveLoad:GetAllowSaving() then
-				CustomGameEventManager:Send_ServerToAllClients("server_confirmed", {} )
 			end
+		else
+			return 10
 		end
 	end)
+
 end
 
 function SaveLoad:NewKey()
 	local url = ROSHPIT_URL.."/champions/key?"
-	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+	url = url.."param1="..0
+	url = url.."&secret_key="..SaveLoad.key2
+	CreateHTTPRequestScriptVM("POST", url ):Send( function( result )
 		if result.StatusCode == 200 then
-			local resultTable = {}
-			local resultTable = JSON:decode(result.Body)
-			SaveLoad.key1 = resultTable.key
-			SaveLoad.special_id = resultTable.id
+			SaveLoad.key1 = result.Body
 			if SaveLoad:GetAllowSaving() then
 				CustomGameEventManager:Send_ServerToAllClients("server_confirmed", {} )
 			end
@@ -48,7 +58,7 @@ end
 -- 	local url = ROSHPIT_URL.."/champions/protection_test?"
 -- 	url = url.."key1="..SaveLoad.key1
 -- 	url = url.."&key2="..SaveLoad.key2
--- 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+-- 	CreateHTTPRequestScriptVM("POST", url ):Send( function( result )
 -- 		local resultTable = {}
 -- 		local resultTable = JSON:decode(result.Body)
 -- 	end )
@@ -59,12 +69,7 @@ function SaveLoad:ProcessKey()
 end
 
 function SaveLoad:ProcessedKey(msg)
-	local alert = false
-	if not SaveLoad.key2 then
-		alert = true
-	end
-	print("NEW KEY")
-	SaveLoad.key2 = tostring(msg.number)
+	SaveLoad.key2 = msg.number
 	if SaveLoad:GetAllowSaving() and alert then
 		CustomGameEventManager:Send_ServerToAllClients("server_confirmed", {} )
 	end
@@ -80,7 +85,7 @@ function SaveLoad:GetPlayerCharacters(msg)
 		local hero = GameState:GetHeroByPlayerID(playerID)
 		local url = ROSHPIT_URL.."/champions/getPlayerCharacters?"
 		url = url.."steam_id="..steamID
-		CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+		CreateHTTPRequestScriptVM("GET", url ):Send( function( result )
 			if result.StatusCode == 200 then
 				local resultTable = {}
 				print( "GET response:\n" )
@@ -430,7 +435,7 @@ function SaveLoad:LoadCharacter(msg)
 	local url = ROSHPIT_URL.."/champions/loadCharacter?"
 	url = url.."steam_id="..steamID
 	url = url.."&slot="..slot
-	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+	CreateHTTPRequestScriptVM("GET", url ):Send( function( result )
 		local resultTable = {}
 		print( "GET response:\n" )
 		for k,v in pairs( result ) do
@@ -751,7 +756,7 @@ function SaveLoad:StashOpen(keys)
 		end
 		hero.stashTable = nil
 	end
-	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+	CreateHTTPRequestScriptVM("GET", url ):Send( function( result )
 		local resultTable = {}
 		print( "GET response:\n" )
 		for k,v in pairs( result ) do
@@ -963,6 +968,7 @@ function SaveLoad:DraggedFromStash(keys)
 	local hero = GameState:GetHeroByPlayerID(playerID)
 	local steamID = PlayerResource:GetSteamAccountID(playerID)
 	SaveLoad:NewKey()
+
 	print("DRAGGED FROM STASH")
 	if SaveLoad:GetAllowSaving() then
 			if hero:GetItemInSlot(inventorySlot) then
@@ -982,6 +988,7 @@ function SaveLoad:DraggedFromStash(keys)
 					url = SaveLoad:AttachItemToURL(url, hero, 1, stashSlot, playerID, 0, itemEntity:GetEntityIndex())
 					url = url.."&key1="..SaveLoad.key1
 					url = url.."&key2="..SaveLoad.key2
+					print(url)
 						CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 							SaveLoad:NewKey()
 							print( "POST response:\n" )
@@ -1026,6 +1033,7 @@ function SaveLoad:DraggedFromStash(keys)
 				url = url.."&stash_slot="..stashSlot
 				url = url.."&key1="..SaveLoad.key1
 				url = url.."&key2="..SaveLoad.key2
+				print(url)
 					CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 						SaveLoad:NewKey()
 						print( "POST response:\n" )
@@ -1155,7 +1163,7 @@ function SaveLoad:OpenKeyBank(msg)
 	local hero = GameState:GetHeroByPlayerID(playerID)
 	local url = ROSHPIT_URL.."/champions/getPlayerKeys?"
 	url = url.."steam_id="..steamID
-	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+	CreateHTTPRequestScriptVM("GET", url ):Send( function( result )
 		if result.StatusCode == 200 then
 			local resultTable = {}
 			print( "GET response:\n" )
@@ -1189,7 +1197,7 @@ function SaveLoad:WithdrawKey(msg)
 
 	-- local url = ROSHPIT_URL.."/champions/getPlayerKeys?"
 	-- url = url.."steam_id="..steamID
-	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+	CreateHTTPRequestScriptVM("POST", url ):Send( function( result )
 		SaveLoad:NewKey()
 		if result.StatusCode == 200 then
 			local resultTable = {}
@@ -1235,7 +1243,7 @@ function SaveLoad:DepositKey(msg)
 
 		-- local url = ROSHPIT_URL.."/champions/getPlayerKeys?"
 		-- url = url.."steam_id="..steamID
-		CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+		CreateHTTPRequestScriptVM("POST", url ):Send( function( result )
 			SaveLoad:NewKey()
 			if result.StatusCode == 200 then
 				local resultTable = {}
