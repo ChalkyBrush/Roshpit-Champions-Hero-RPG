@@ -982,7 +982,7 @@ function SaveLoad:DraggedFromStash(keys)
 					url = SaveLoad:AttachItemToURL(url, hero, 1, stashSlot, playerID, 0, itemEntity:GetEntityIndex())
 					url = url.."&key1="..SaveLoad.key1
 					url = url.."&key2="..SaveLoad.key2
-					print(url)
+					
 						CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 							SaveLoad:NewKey()
 							print( "POST response:\n" )

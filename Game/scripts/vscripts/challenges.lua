@@ -55,7 +55,7 @@ function Challenges:ChiselItem(msg)
 	url = url.."&cost="..cost
 	url = url.."&key1="..SaveLoad.key1
 	url = url.."&key2="..SaveLoad.key2
-	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 		SaveLoad:NewKey()
 		local resultTable = {}
 		print( "GET response:\n" )

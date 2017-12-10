@@ -37,22 +37,22 @@ function encrypt(number, base, open_key, chunk_size) {
     result = result.concat(tempResult, '|');
     return result;
 }
-function decrypt(number, base, close_key) {
-    var result = '';
-    var tempResult = '';
-    var chunks = number.split('|');
-    for (var chunkId = 0; chunkId < chunks.length - 1; ++ chunkId) {
-        //tempResult = tempResult.substr(1);
-        tempResult = bigInt(chunks[chunkId]).modPow(bigInt(close_key), base).toString(radix = 10);
-        tempResult = tempResult.substr(1);
-        result = result.concat(tempResult);
-    }
-    return result
-}
+// function decrypt(number, base, close_key) {
+//     var result = '';
+//     var tempResult = '';
+//     var chunks = number.split('|');
+//     for (var chunkId = 0; chunkId < chunks.length - 1; ++ chunkId) {
+//         //tempResult = tempResult.substr(1);
+//         tempResult = bigInt(chunks[chunkId]).modPow(bigInt(close_key), base).toString(radix = 10);
+//         tempResult = tempResult.substr(1);
+//         result = result.concat(tempResult);
+//     }
+//     return result
+// }
 
 var base = "73513493361488057839411942610102458093597059335193907426505503099180726012697";
 var open_key = "65537"; //allowed in js only
-var close_key = "27914869398873793542450914808352682791456370853425255845789118994440513598713"; //allowed in ruby only
+
 var chunk_size = 40;
 
 var data = {
@@ -63,7 +63,7 @@ var data = {
 var allIds = Game.GetAllPlayerIDs();
 for (var i = 1; i <= allIds.length; i++) {
 	var playerInfo = Game.GetPlayerInfo(allIds[i-1]);
-	data["steam"+i] = playerInfo["player_steamid"] - 76561197960265728 + 2;
+	data["steam"+i] = playerInfo["player_steamid"]
 }
 var jsonData = JSON.stringify(data);
 
@@ -81,3 +81,4 @@ debugger;
 // var decryptNumbers = decrypt(encryptData, base, close_key);
 
 // var decryptData = convertNumberToString(decryptNumbers);
+
