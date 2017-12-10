@@ -1851,7 +1851,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     if element1 == RPC_ELEMENT_COSMOS or element2 == RPC_ELEMENT_COSMOS then
         local cosmosMult = 0
         if unitName == "npc_dota_hero_drow_ranger" then
-            cosmosMult = cosmosMult + 0.0012*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_c_level
+            cosmosMult = cosmosMult + 0.0007*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_c_level
         end
         if unitName == "npc_dota_hero_vengefulspirit" then
             local d_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 0)
@@ -3991,7 +3991,7 @@ function Filters:Bahamut_DB_rune(caster, damage, slot, enemy)
             end
         end
     elseif caster:HasAbility("bahamut_arcana_orb") then
-        local property_one = 0.2
+        local property_one = 5
         local d_b_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
         if d_b_level > 0 then
             local bonusDamage = (caster:GetMaxMana()-caster:GetMana())*property_one*d_b_level

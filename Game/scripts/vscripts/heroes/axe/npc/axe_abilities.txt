@@ -159,7 +159,7 @@
 				}
 				"States"
 				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+
 				}
 				"Properties"
 				{

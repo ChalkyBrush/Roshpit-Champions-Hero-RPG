@@ -1341,8 +1341,10 @@ function GameState:FilterDamage(filterTable)
 		local multIncrease = 0.15*stacks
 		mult = mult + multIncrease
 	end
-	if victim:HasModifier("modifier_draghor_hawk_screech") then
-		mult = mult + 1
+
+	local modifier = victim:FindModifierByName("modifier_draghor_hawk_screech")
+	if modifier then
+		mult = mult + modifier:GetStackCount()
 	end
 
 	if attacker:HasModifier("modifier_drowning_pool_actual_effect") then

@@ -32,7 +32,7 @@ function shadow_walk_start(event)
 			a_c_duration = a_c_duration + 1
 		end
 		a_c_duration = Filters:GetAdjustedBuffDuration(caster, a_c_duration, false)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_rune_a_c", {duration = a_c_duration})
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_rune_a_c", {})
 		caster:SetModifierStackCount("modifier_chernobog_rune_a_c", caster, rune_a_c_level)
 	end
     if ability.b_c_level > 0 then
@@ -65,6 +65,7 @@ function shadow_walk_end(event)
 	caster:RemoveModifierByName("modifier_chernobog_rune_a_c")
 	caster:RemoveModifierByName("modifier_chernobog_rune_b_c")
 	caster:RemoveModifierByName("modifier_chernobog_night_vision")
+	caster:RemoveModifierByName("modifier_chernobog_rune_a_c")
 	local rune_d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "chernobog")
 	if rune_d_c_level > 0 then
 		local d_c_duration = 0.7 + 0.2*rune_d_c_level

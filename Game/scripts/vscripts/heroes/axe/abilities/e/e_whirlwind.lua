@@ -10,6 +10,7 @@ function start(event)
 
     Helper.initializeAbilityRunes(hero, 'axe', 'c')
 
+    hero.oldEposition = hero:GetAbsOrigin()
     ability.forwardVec = hero:GetForwardVector()
     ability.interval = 0
 
@@ -81,20 +82,20 @@ function think(event)
         CustomAbilities:QuickAttachParticle("particles/econ/items/axe/axe_weapon_bloodchaser/axe_attack_blur_counterhelix_bloodchaser.vpcf", hero, 2)
     end
 
-    local newPosition = position+ability.forwardVec*forwardVelocity
-    local afterWallPosition = WallPhysics:WallSearch(hero:GetAbsOrigin(), newPosition, hero)
-    if newPosition == afterWallPosition and not hero:HasModifier("modfier_axe_jumping") then
-        hero:SetOrigin(newPosition)
+--    local newPosition = position+ability.forwardVec*forwardVelocity
+--    local afterWallPosition = WallPhysics:WallSearch(hero:GetAbsOrigin(), newPosition, hero)
+    if not hero:HasModifier("modfier_axe_jumping") then
+--        hero:SetOrigin(newPosition)
         if #ability.enemies > 0 then
             for _,enemy in pairs(ability.enemies) do
                 if not enemy.pushLock and not enemy.jumpLock then
-                    local enemyPosition = enemy:GetAbsOrigin()+ability.forwardVec*forwardVelocity
+                    local enemyPosition = enemy:GetAbsOrigin() + hero:GetAbsOrigin() - hero.oldEposition
                     enemy:SetAbsOrigin(enemyPosition)
                 end
             end
         end
-
     end
+    hero.oldEposition = hero:GetAbsOrigin()
 
     ability.forwardVec = ((ability.forwardVec*3+hero:GetForwardVector())/4):Normalized()
 

@@ -6823,7 +6823,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"1000 2000 5000 18000 36200 56200 99900"
+				"damage"					"2000 4000 8000 27000 46000 86000 180000"
 			}
 		}
 
@@ -23352,7 +23352,7 @@
 				"IsBuff"		"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "1.5"
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "3.5"
 				}
 				"OnUnitMoved"
 				{
@@ -23577,7 +23577,7 @@
 				"Passive"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1200"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "3600"
 				}
 			}
 			"modifier_demon_hunter_b_b_inner_beast_inactive"
@@ -23587,7 +23587,7 @@
 				"Passive"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "100"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "200"
 				}
 			}
 			"modifier_chernobog_rune_c_b_fervor_enemy_visible"
@@ -23605,7 +23605,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-6"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-15"
 				}
 			}
 			"modifier_chernobog_rune_c_b_fervor_self_visible"
@@ -23623,7 +23623,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "50"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "200"
 				}
 			}
 			"modifier_chernobog_rune_d_b_active"
@@ -23777,7 +23777,7 @@
 				"IsDebuff"			"0"
 
 				"Aura"          	"modifier_chernobog_rune_b_c_illusion"
-				"Aura_Radius"   	"70"
+				"Aura_Radius"   	"300"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
@@ -23889,7 +23889,7 @@
 		"AbilityTextureName"	"night_stalker_void"
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"25"
-		"AbilityChannelTime"	"3.0"
+		"AbilityChannelTime"	"0.5"
 		"AbilityCastRange"				"900"
 		"AOERadius"						"450 475 500 525 550 575 600"
 		"AbilityCastAnimation"	"ACT_DOTA_VICTORY"
@@ -24158,7 +24158,7 @@
 		"AbilityTextureName"	"chernobog/chernobog_demon_supremacy"
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"50"
-		"AbilityChannelTime"	"2.5"
+		"AbilityChannelTime"	"0.5"
 		"AbilityCastAnimation"	"ACT_DOTA_VICTORY"
 		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -29018,7 +29018,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"100 600 2000 8000 20000 55000 90000"
+				"damage"				"300 1800 6000 24000 60000 165000 270000"
 			}
 			"03"
 			{
@@ -32857,7 +32857,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"postmitigation"			"100"
+				"postmitigation"			"100 200 300 400 500 600 700"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -44477,7 +44477,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
+				"property_one"			"35"
 			}
 			"02"
 			{
@@ -44534,7 +44534,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8%"
+				"property_one"			"12%"
 			}
 			"02"
 			{
@@ -44783,6 +44783,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"8"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"1"
 			}
 		}
 	}
@@ -55125,7 +55130,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.5"
+				"property_one"			"3.5"
 			}
 		}
 	}
@@ -55144,7 +55149,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"700"
+				"property_one"			"7000"
 			}
 			"02"
 			{
@@ -55252,12 +55257,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
+				"property_one"			"200"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1200"
+				"property_two"			"3600"
 			}
 		}
 	}
@@ -55275,12 +55280,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-6"
+				"property_one"			"-15"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"50"
+				"property_two"			"200"
 			}
 		}
 	}
