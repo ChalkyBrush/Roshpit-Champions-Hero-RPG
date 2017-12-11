@@ -227,14 +227,14 @@ function Challenges:CollectMithrilIncome(msg)
 	local playerID = msg.playerID
 	local steamID = PlayerResource:GetSteamAccountID(playerID)
 	local player = PlayerResource:GetPlayer(playerID)
-	local amount = 120
+	local amount = 1000
 	local url = ROSHPIT_URL.."/champions/modifyMithrilShards?"
 	url = url.."steam_id="..steamID
 	url = url.."&amount="..amount
 	url = url.."&reason=".."income"
 	url = url.."&key1="..SaveLoad.key1
 	url = url.."&key2="..SaveLoad.key2
-	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 		SaveLoad:NewKey()
 		local resultTable = {}
 		print( "GET response:\n" )

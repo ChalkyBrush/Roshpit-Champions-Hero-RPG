@@ -51,7 +51,7 @@ function OpenBlacksmith(){
 			$('#upgrade-tiers-box').AddClass("invisible")
 			$('#resources-box-row').AddClass("no_income")
 		}
-		$('#income_crystals_label_value').text = $.Localize('#tooltip_daily_income')+": 120"
+		$('#income_crystals_label_value').text = $.Localize('#tooltip_daily_income')+": 1000"
 	}
 
 }
