@@ -64,6 +64,8 @@ end
 
 function SaveLoad:ProcessedKey(msg)
 	SaveLoad.key2 = msg.number
+	print(SaveLoad.key2)
+	print("WOOWWWWW OBFUSCATE")
 	if SaveLoad:GetAllowSaving() and alert then
 		CustomGameEventManager:Send_ServerToAllClients("server_confirmed", {} )
 	end

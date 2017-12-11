@@ -122,7 +122,7 @@ function Glyphs:CreateIndividualCrystal(position, size)
 		  		crystal:SetModelScale(1.0)
 		  	elseif size == 20 then
 		  		crystal:SetModelScale(1.2)
-		  	elseif size == 50 then
+		  	elseif size >= 50 then
 		  		crystal:SetModelScale(1.5)
 		  	end
 	  	end
