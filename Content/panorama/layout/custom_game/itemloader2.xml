@@ -8,7 +8,7 @@
 	<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/salve_red.png" /> -->
 
 		<Panel class="invisible">
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_1_1.png" />
+	<!-- 		<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_1_1.png" />
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_2_1.png" />
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_3_1.png" />
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_4_1.png" />
@@ -51,12 +51,19 @@
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_auriun_5_a.png" />
 
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/custom_game/ui/sword_icon_star.png" />
+ -->
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/ancient_tanari_wind_armor.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/brazen_kabuto_of_the_desert_realm.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/harvester_boots.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/ice_quill_carapace.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/skulldigger_gauntlet.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/vermillion_dream_robes.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/helm_of_the_silent_templar.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/harvester_boots.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/seinaru_arcana2.png" />
 
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/scorched_gauntlets.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/scorched_gauntlets_2.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/frostburn_gauntlets.png" />
 
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_1_1.png" />
+<!-- 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_1_1.png" />
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_2_1.png" />
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_3_1.png" />
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_4_1.png" />
@@ -82,7 +89,7 @@
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_zonik_5_1.png" />
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_zonik_5_a.png" />
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_zonik_6_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_zonik_7_1.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_zonik_7_1.png" /> -->
 
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_ekkan_1_1.png" />
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_ekkan_2_1.png" />

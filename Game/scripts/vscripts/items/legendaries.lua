@@ -628,6 +628,43 @@ function RPCItems:RollMarauderGloves(deathLocation)
     return item
 end
 
+function RPCItems:RollSkulldiggerGloves(deathLocation)
+    local item = RPCItems:CreateVariant("item_rpc_skulldigger_gauntlet", "immortal", "Skulldigger Gauntlet", "hands", true, "Slot: Hands")
+    item.property1 = 1
+    item.property1name = "skulldigger_v2"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_skulldigger", "#90E8E7",  1, "#property_skulldigger_description")
+    
+    local luck = RandomInt(1, 3)
+    if luck == 1 then
+        local maxFactor = RPCItems:GetMaxFactor()
+        local healthRoll, pref = RPCItems:RollAttribute(300, 300, 800, 1, 1, item.rarity, false, maxFactor*600)
+        item.property2 = healthRoll
+        item.property2name = "max_health"
+        RPCItems:SetPropertyValues(item, item.property2, "#item_max_health", "#B02020",  2)
+    elseif luck == 2 then
+        Elements:RollElementAttribute(item, RPC_ELEMENT_UNDEAD, 4, 3, 40, 2)
+    elseif luck == 3 then
+        item.hasRunePoints = true
+        local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+        item.property2 = math.ceil(value*2.0)
+        local luck = RandomInt(1, 2)
+        if luck == 1 then
+            propertyName = "rune_a_a"
+        elseif luck == 2 then
+            propertyName = "rune_b_a"
+        end
+        item.property2name = propertyName
+        RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
+    end
+
+    RPCItems:RollHandProperty3(item, 0)
+    RPCItems:RollHandProperty4(item, 0)
+    local drop = CreateItemOnPositionSync( deathLocation, item )
+    local position = deathLocation
+    RPCItems:DropItem(item, position)
+    return item
+end
+
 function RPCItems:RollSkulldiggerGlovesLV1(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_skulldigger_gauntlet_lv1", "immortal", "Skulldigger Gauntlet LV1", "hands", true, "Slot: Hands")
     item.property1 = 0
@@ -5490,6 +5527,52 @@ end
 
 --TRINKETS
 
+function RPCItems:RollArcaneCharm(deathLocation)
+    local item = RPCItems:CreateVariant("item_rpc_arcane_charm", "immortal", "Arcane Charm", "amulet", true, "Slot: Trinket")
+    local maxFactor = RPCItems:GetMaxFactor()
+    
+    item.property1name = "arcane_charm"
+    local value = 1
+    item.property1 = value
+
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_arcane_charm", "#c75ce8",  1, "#property_arcane_charm_description")
+    item.hasRunePoints = true
+    local luck = RandomInt(1, 3)
+    if luck == 1 then
+        Elements:RollElementAttribute(item, RPC_ELEMENT_ARCANE, 2.4, 2, 24, 2)
+    else
+        local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+        item.property2 = math.floor(value*1.3)
+        item.property2name = propertyName
+        RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2) 
+    end
+
+    local luck = RandomInt(1, 3)
+    if luck == 1 then
+        Elements:RollElementAttribute(item, RPC_ELEMENT_ARCANE, 2.4, 2, 24, 3)
+    else
+        local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+        item.property3 = math.floor(value*1.3)
+        item.property3name = propertyName
+        RPCItems:SetPropertyValues(item, item.property3, "rune", "#7DFF12",  3) 
+    end
+
+    local luck = RandomInt(1, 5)
+    if luck == 1 then
+        Elements:RollElementAttribute(item, RPC_ELEMENT_ARCANE, 3.5, 2, 35, 4)
+    else
+        local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+        item.property4 = math.floor(value*1.8)
+        item.property4name = propertyName
+        RPCItems:SetPropertyValues(item, item.property4, "rune", "#7DFF12",  4) 
+    end
+
+    local drop = CreateItemOnPositionSync( deathLocation, item )
+    local position = deathLocation
+    RPCItems:DropItem(item, position)
+    return item
+end
+
 function RPCItems:RollMonkeyPaw(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_monkey_paw", "immortal", "Monkey Paw", "amulet", true, "Slot: Trinket")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -7861,6 +7944,10 @@ function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, sl
         newItem = RPCItems:RollSteamboots(deathLocation)
     elseif itemName == "item_rpc_monkey_paw" then
         newItem = RPCItems:RollMonkeyPaw(deathLocation)
+    elseif itemName == "item_rpc_arcane_charm" then
+        newItem = RPCItems:RollArcaneCharm(deathLocation)
+    elseif itemName == "item_rpc_skulldigger_gauntlet" then
+        newItem = RPCItems:RollSkulldiggerGloves(deathLocation)
     else
         newItem = false
         giveBackOldItem = true

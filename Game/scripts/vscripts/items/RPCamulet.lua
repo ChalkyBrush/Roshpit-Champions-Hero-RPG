@@ -143,7 +143,7 @@ function RPCItems:AmuletLegendary(itemVariant, deathLocation)
             return true
         end
     elseif itemVariant == "item_rpc_steel_ring" then
-        local luck = RandomInt(1, 6)
+        local luck = RandomInt(1, 7)
         if luck == 1 then
             RPCItems:RollBlacksmithsTablet(deathLocation)
             return true
@@ -161,6 +161,9 @@ function RPCItems:AmuletLegendary(itemVariant, deathLocation)
             return true
         elseif luck == 6 then
             RPCItems:RollAntiqueManaRelic(deathLocation)
+            return true
+        elseif luck == 7 then
+            RPCItems:RollArcaneCharm(deathLocation)
             return true
         end
     end

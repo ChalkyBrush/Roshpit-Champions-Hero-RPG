@@ -163,7 +163,7 @@ function Hand:action(propertyName, propertyValue, hero, inventory_unit, hand_abi
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_autumnrock_bracer", item)
 	elseif propertyName == "malachite_shade" then
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_malachite_shade_bracer", item)
-	elseif propertyName == "skulldigger" then
+	elseif propertyName == "skulldigger_v2" then
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_skulldigger_gauntlet", item)
 	elseif propertyName == "ethereal_revenant" then
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_claws_of_the_ethereal_revenant", item)
@@ -185,6 +185,8 @@ function Hand:action(propertyName, propertyValue, hero, inventory_unit, hand_abi
 		Hand:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_hand_fire", hand_ability)
 	elseif propertyName == "water" then
 		Hand:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_hand_water", hand_ability)
+	elseif propertyName == "undead" then
+		Hand:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_hand_undead", hand_ability)
 	elseif propertyName == "trapper_arcana1" then
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_trapper_arcana1", item)
 	elseif propertyName == "blue_rain" then
@@ -357,6 +359,7 @@ function Hand:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_hand_demon")
 	hero:RemoveModifierByName("modifier_hand_lightning")
 	hero:RemoveModifierByName("modifier_hand_holy")
+	hero:RemoveModifierByName("modifier_hand_undead")
 	hero:RemoveModifierByName("modifier_hand_fire")
 	hero:RemoveModifierByName("modifier_trapper_arcana1")
 	hero:RemoveModifierByName("modifier_hand_water")

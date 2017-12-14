@@ -63,7 +63,7 @@ function zap_field_modifier_thinker(event)
 	    if #enemies > 0 then
 	    	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Arkimus.ZonisLightning", caster)
 	        for _,enemy in pairs(enemies) do
-	        	if ability.particleCount < 16 then
+	        	if ability.particleCount < 5 then
 	        		ability.particleCount = ability.particleCount + 1
 	        		CreateZonisBeam(caster:GetAbsOrigin()+Vector(0,0,120), enemy:GetAbsOrigin()+Vector(0,0,50))
 	        		Timers:CreateTimer(0.5, function()
@@ -104,7 +104,7 @@ function damage_taken(event)
 		local manaRestore = math.ceil(damage*0.01*a_a_level/100)
     	caster:GiveMana(manaRestore)
 		PopupMana(caster, manaRestore)
-		if ability.pfxCount < 6 then
+		if ability.pfxCount < 3 then
 			ability.pfxCount = ability.pfxCount + 1
 			CustomAbilities:QuickAttachParticle("particles/items3_fx/mango_active.vpcf", caster, 1)		
 			Timers:CreateTimer(0.7, function()

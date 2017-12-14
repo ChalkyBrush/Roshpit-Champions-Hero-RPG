@@ -481,7 +481,7 @@ function shipyard_gatekeeper_die(event)
 	EmitSoundOn("Redfall.ShipyardGatekeeper.Death", caster)
 	local luck = RandomInt(1, 4)
 	if luck == 1 then
-		RPCItems:RollSkulldiggerGlovesLV1(caster:GetAbsOrigin())
+		RPCItems:RollSkulldiggerGloves(caster:GetAbsOrigin())
 	end
 	Redfall:SpawnShipyardFerry()
 end

@@ -35,10 +35,11 @@ function general_hero_think(event)
 	end
 end
 
-function arcane_crystal_think(event)
-	local caster = event.caster
-	if caster.active then
-		local allies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 115, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
+function hero_aura_apply(event)
+	local caster = event.target
+	local pickUpPlayer = nil
+	if caster.active and caster:HasModifier("arcane_cystal_passive") then
+		local allies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, event.radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
 		if #allies > 0 then
 			pickUpPlayer = allies[1]
 			if #allies > 1 then
@@ -51,6 +52,37 @@ function arcane_crystal_think(event)
 				end
 			end
 			if pickUpPlayer.crystalsPickedUp < pickUpPlayer.maxCrystals*Events.ResourceBonus then
+				caster.pickUpPlayer = pickUpPlayer
+				caster.active = false
+				caster.moveSpeed = 25
+				if pickUpPlayer:HasModifier("modifier_arcane_charm") then
+					caster.moveSpeed = 35
+				end
+				caster:FindAbilityByName("arcane_crystal_ability"):ApplyDataDrivenModifier(caster, caster, "arcane_crystal_moving_to_target", {})
+			end
+		end  
+	end
+end
+
+function crystal_moving_to_target(event)
+	local caster = event.caster
+	if IsValidEntity(caster) and caster.pickUpPlayer then
+		if not caster.pickupLock then
+			local pickUpPlayer = caster.pickUpPlayer
+			if caster.scale then
+				caster.scale = math.max(caster.scale - 0.06, 0.2)
+				caster:SetModelScale(caster.scale)
+			end
+			local moveToDirection = pickUpPlayer:GetAbsOrigin()-caster:GetAbsOrigin()
+			moveToDirection = moveToDirection:Normalized()
+			moveToDirection = moveToDirection:Normalized()
+			caster:SetAbsOrigin(caster:GetAbsOrigin()+moveToDirection*caster.moveSpeed)
+			caster.moveSpeed = caster.moveSpeed + 1
+			-- local newPos = caster:GetAbsOrigin()*moveToDirection*40
+			-- caster:SetAbsOrigin(newPos)
+			local distance = WallPhysics:GetDistance(caster:GetAbsOrigin(), caster.pickUpPlayer:GetAbsOrigin())
+			if distance < (caster.moveSpeed+3) then
+				caster.pickupLock = true
 				local crystalAmount = caster.quantity*Events.ResourceBonus
 
 				PopupArcaneCrystals(pickUpPlayer, crystalAmount)
@@ -68,11 +100,20 @@ function arcane_crystal_think(event)
 				end
 				CustomGameEventManager:Send_ServerToPlayer(pickUpPlayer:GetPlayerOwner(), "collect_arcane", {gain = pickUpPlayer.crystalsPickedUp})
 				CustomGameEventManager:Send_ServerToPlayer(pickUpPlayer:GetPlayerOwner(), "update_resources_increment", {increment = pickUpPlayer.crystalsPickedUp, resource="arcane"})
-				
+				if pickUpPlayer:HasModifier("modifier_arcane_charm") then
+					local healPercent = caster.quantity/100
+					Filters:ApplyHeal(pickUpPlayer, pickUpPlayer, pickUpPlayer:GetMaxHealth()*healPercent, true)
+					pickUpPlayer:GiveMana(pickUpPlayer:GetMaxMana()*healPercent)
+				end
 				UTIL_Remove(caster)
 			end
-		end  
+		end
 	end
+end
+
+function arcane_crystal_think(event)
+	local caster = event.caster
+
 end
 
 function mithril_shard_think(event)

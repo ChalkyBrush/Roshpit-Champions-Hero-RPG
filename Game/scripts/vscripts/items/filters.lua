@@ -1946,6 +1946,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local stacks = attacker:GetModifierStackCount("modifier_foot_arcane", attacker.InventoryUnit)
             mult = mult + stacks/100
         end
+        if attacker:HasModifier("modifier_trinket_arcane") then
+            local stacks = attacker:GetModifierStackCount("modifier_trinket_arcane", attacker.InventoryUnit)
+            mult = mult + stacks/100
+        end
         if victim:HasModifier("modifier_sorceress_rune_b_b_invisible") then
             local modifier = victim:FindModifierByName("modifier_sorceress_rune_b_b_invisible")
             local multIncrease = modifier:GetStackCount()*0.03
@@ -2175,6 +2179,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             mult = mult + stacks/100
         end
         if attacker:HasModifier("modifier_weapon_undead") then
+            local stacks = attacker:GetModifierStackCount("modifier_weapon_undead", attacker.InventoryUnit)
+            mult = mult + stacks/100
+        end
+        if attacker:HasModifier("modifier_hand_undead") then
             local stacks = attacker:GetModifierStackCount("modifier_weapon_undead", attacker.InventoryUnit)
             mult = mult + stacks/100
         end
