@@ -638,15 +638,6 @@
 					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"ThinkInterval"  "0.15"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"npc_abilities/general.lua"
-						"Function"		"arcane_crystal_think"
-					}
-				}
 				"OverrideAnimation"     "ACT_DOTA_IDLE"
 				"OnCreated"
 				{
@@ -658,6 +649,19 @@
 						"EffectLifeDurationScale"	"1"
 						"EffectColorA"				"120 30 210"
 						"EffectAlphaScale"			"1"
+					}
+				}
+			}
+			"arcane_crystal_moving_to_target"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general"
+						"Function"		"crystal_moving_to_target"
 					}
 				}
 			}
@@ -39902,6 +39906,12 @@
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
+			"modifier_hand_undead"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
 		}
 	}
 
@@ -40547,6 +40557,12 @@
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 			"modifier_trinket_demon"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_trinket_arcane"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
@@ -46964,6 +46980,25 @@
 						"ScriptFile"	"npc_abilities/general.lua"
 						"Function"		"general_hero_think"
 						"target"		"TARGET"
+					}
+				}
+				"Aura"          	"modifier_hero_aura_apply"
+				"Aura_Radius"   	"270"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_ALL"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+			}
+			"modifier_hero_aura_apply"
+			{
+				"IsHidden"	"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general"
+						"Function"		"hero_aura_apply"
+						"target"		"TARGET"
+						"radius"		"280"
 					}
 				}
 			}

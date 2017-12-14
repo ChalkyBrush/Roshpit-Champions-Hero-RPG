@@ -26235,8 +26235,8 @@
         "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-        "Ability1"      "dungeon_creep"
-        "Ability2"      "ogre_magi_bloodlust"
+        "Ability1"      "ogre_magi_bloodlust"
+        "Ability2"      "dungeon_creep"
         "Ability3"      "tanari_water_troll_ai"
         "Creature"
         {

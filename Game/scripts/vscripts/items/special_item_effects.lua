@@ -2954,6 +2954,9 @@ function royal_wristguard_take_damage(event)
 	local target = event.unit
 	local ability = event.ability
 	local caster = event.caster
+	if target == event.attacker then
+		return false
+	end
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_royal_wristguards_stack_effect", {duration = 15})
     local current_stack = target:GetModifierStackCount( "modifier_royal_wristguards_stack_effect", ability )
     local newStack = math.min(current_stack + 1, 80)
@@ -3802,6 +3805,9 @@ function hellfire_stack_take_damage(event)
 	local target = event.unit
 	local caster = event.caster
 	local attacker = event.attacker
+	if target == attacker then
+		return false
+	end
 	ability.caster = target
 	local currentStacks = target:GetModifierStackCount("modifier_skulldigger_hellfire_stacks", caster)
 	local newStacks = currentStacks - 1
@@ -3842,65 +3848,61 @@ function skulldigger_hellfire_hit(event)
 	local damage = caster:GetAverageTrueAttackDamage(caster)*attack_mult
 
 	EmitSoundOn("RoshpitItem.SkulldiggerImpact", target)
-	if ability:GetAbilityName() == "item_rpc_skulldigger_gauntlet_lv3" then
-		local radius = 240
-		local particleNameS = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
-		local particle2 = ParticleManager:CreateParticle( particleNameS, PATTACH_WORLDORIGIN, target )
-		ParticleManager:SetParticleControl( particle2, 0, target:GetAbsOrigin() )
-		ParticleManager:SetParticleControl( particle2, 1, Vector(radius,radius,radius) )
-		ParticleManager:SetParticleControl( particle2, 2, Vector(2.0, 2.0, 2.0) )
-		ParticleManager:SetParticleControl( particle2, 4, Vector(0, 220, 100) )
-		Timers:CreateTimer(1.5, 
-			function()
-			ParticleManager:DestroyParticle( particle2, false )
-		end)
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-		if #enemies > 0 then
-			for _,enemy in pairs(enemies) do
-				Filters:ApplyStun(caster, stun_duration, enemy)
-				Filters:ApplyItemDamage(enemy,caster,damage,DAMAGE_TYPE_MAGICAL,ability,RPC_ELEMENT_UNDEAD,RPC_ELEMENT_NONE)
-			end
+
+	local radius = 240
+	local particleNameS = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
+	local particle2 = ParticleManager:CreateParticle( particleNameS, PATTACH_WORLDORIGIN, target )
+	ParticleManager:SetParticleControl( particle2, 0, target:GetAbsOrigin() )
+	ParticleManager:SetParticleControl( particle2, 1, Vector(radius,radius,radius) )
+	ParticleManager:SetParticleControl( particle2, 2, Vector(2.0, 2.0, 2.0) )
+	ParticleManager:SetParticleControl( particle2, 4, Vector(0, 220, 100) )
+	Timers:CreateTimer(1.5, 
+		function()
+		ParticleManager:DestroyParticle( particle2, false )
+	end)
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	if #enemies > 0 then
+		for _,enemy in pairs(enemies) do
+			Filters:ApplyStun(caster, stun_duration, enemy)
+			Filters:ApplyItemDamage(enemy,caster,damage,DAMAGE_TYPE_MAGICAL,ability,RPC_ELEMENT_UNDEAD,RPC_ELEMENT_NONE)
 		end
-	else
-		Filters:ApplyStun(caster, stun_duration, target)
-		Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,ability,RPC_ELEMENT_UNDEAD,RPC_ELEMENT_NONE)
 	end
-	
-	local victim = target
-	local attacker = caster
-    if ability:GetAbilityName() == "item_rpc_skulldigger_gauntlet_lv1" then
-        if victim:GetDeathXP() < attacker:GetLevel()*5 then
-            return false
-        end
-        local nextValue = ability.property1 + 1
-        local upgradeThreshold = 4000
-        if nextValue == upgradeThreshold then
-            ability.lock = true
-            attacker:RemoveModifierByName("modifier_skulldigger_gauntlet")
-            RPCItems:RollSkulldiggerGlovesLV2(attacker, ability)
-            -- Notifications:Top(attacker.summoner:GetPlayerOwnerID(), {text="Robe of Flooding Upgraded", duration=5, style={color="white"}, continue=true})
-            CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_jakiro/viper_explosion_liquid_fire_explosion.vpcf", attacker, 2)
-        else
-            ability.property1 = nextValue
-            RPCItems:SetPropertyValuesSpecial(ability, ability.property1, "#item_property_skulldigger1", "#90E8E7",  1, "#property_skulldigger1_description")
-        end
-    elseif ability:GetAbilityName() == "item_rpc_skulldigger_gauntlet_lv2" then
-        if victim:GetDeathXP() < attacker:GetLevel()*30 then
-            return false
-        end
-        local nextValue = ability.property1 + 1
-        local upgradeThreshold = 8000
-        if nextValue == upgradeThreshold then
-            ability.lock = true
-            attacker:RemoveModifierByName("modifier_skulldigger_gauntlet")
-            RPCItems:RollSkulldiggerGlovesLV3(attacker, ability)
-            -- Notifications:Top(attacker.summoner:GetPlayerOwnerID(), {text="Robe of Flooding Upgraded", duration=5, style={color="white"}, continue=true})
-            CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_jakiro/viper_explosion_liquid_fire_explosion.vpcf", attacker, 2)
-        else
-            ability.property1 = nextValue
-            RPCItems:SetPropertyValuesSpecial(ability, ability.property1, "#item_property_skulldigger2", "#90E8E7",  1, "#property_skulldigger2_description")
-        end
-    end
+
+	-- local victim = target
+	-- local attacker = caster
+ --    if ability:GetAbilityName() == "item_rpc_skulldigger_gauntlet_lv1" then
+ --        if victim:GetDeathXP() < attacker:GetLevel()*5 then
+ --            return false
+ --        end
+ --        local nextValue = ability.property1 + 1
+ --        local upgradeThreshold = 4000
+ --        if nextValue == upgradeThreshold then
+ --            ability.lock = true
+ --            attacker:RemoveModifierByName("modifier_skulldigger_gauntlet")
+ --            RPCItems:RollSkulldiggerGlovesLV2(attacker, ability)
+ --            -- Notifications:Top(attacker.summoner:GetPlayerOwnerID(), {text="Robe of Flooding Upgraded", duration=5, style={color="white"}, continue=true})
+ --            CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_jakiro/viper_explosion_liquid_fire_explosion.vpcf", attacker, 2)
+ --        else
+ --            ability.property1 = nextValue
+ --            RPCItems:SetPropertyValuesSpecial(ability, ability.property1, "#item_property_skulldigger1", "#90E8E7",  1, "#property_skulldigger1_description")
+ --        end
+ --    elseif ability:GetAbilityName() == "item_rpc_skulldigger_gauntlet_lv2" then
+ --        if victim:GetDeathXP() < attacker:GetLevel()*30 then
+ --            return false
+ --        end
+ --        local nextValue = ability.property1 + 1
+ --        local upgradeThreshold = 8000
+ --        if nextValue == upgradeThreshold then
+ --            ability.lock = true
+ --            attacker:RemoveModifierByName("modifier_skulldigger_gauntlet")
+ --            RPCItems:RollSkulldiggerGlovesLV3(attacker, ability)
+ --            -- Notifications:Top(attacker.summoner:GetPlayerOwnerID(), {text="Robe of Flooding Upgraded", duration=5, style={color="white"}, continue=true})
+ --            CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_jakiro/viper_explosion_liquid_fire_explosion.vpcf", attacker, 2)
+ --        else
+ --            ability.property1 = nextValue
+ --            RPCItems:SetPropertyValuesSpecial(ability, ability.property1, "#item_property_skulldigger2", "#90E8E7",  1, "#property_skulldigger2_description")
+ --        end
+ --    end
 end
 
 function shipyard_shield_lvl3_take_damage(event)
@@ -5096,4 +5098,14 @@ function monkey_paw_unit_die(event)
 			end
 		end
 	end
+end
+
+function arcane_charm_start(event)
+	local heroEntity = event.target
+	heroEntity:RemoveModifierByName("modifier_hero_thinker")
+end
+
+function arcane_charm_end(event)
+	local heroEntity = event.target
+	Events:GetGameMasterAbility():ApplyDataDrivenModifier(Events.GameMaster, heroEntity, "modifier_hero_thinker", {})
 end

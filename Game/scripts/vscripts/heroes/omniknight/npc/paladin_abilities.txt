@@ -267,7 +267,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.04"
+				"property_one"			"0.2"
 			}
 		}
 	}

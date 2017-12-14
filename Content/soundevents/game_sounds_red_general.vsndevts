@@ -244,7 +244,7 @@
                               "value0"        "sounds/weapons/hero/elder_titan/earth_split.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "0.75000"  }
+                    "volume"            {   "value"     "0.65000"  }
                     "pitch_rand_min"    {   "value"     "-0.05000"  }
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "0.900000"  }
@@ -471,13 +471,234 @@
                               "value0"        "sounds/weapons/hero/beastmaster/primal_roar.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "1.00000"  }
+                    "volume"            {   "value"     "0.90000"  }
                     "pitch_rand_min"    {   "value"     "-0.00000"  }
                     "pitch_rand_max"    {   "value"     "0.000000"  }
                     "pitch"             {   "value"     "1.000000"  }
-                    "soundlevel"        {   "value"     "92.00000" }
+                    "soundlevel"        {   "value"     "88.00000" }
                     "distance_max"      {   "value"     "2400.000"  }
                     "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Hero_Axe.Attack"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"      "sos_reference_stack"
+                "reference_stack"       "dota_update_default"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "wave0"     "sounds/weapons/hero/axe/attack01.vsnd"
+                            "wave1"     "sounds/weapons/hero/axe/attack02.vsnd"
+                            "wave2"     "sounds/weapons/hero/axe/attack03.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"     "0.4"
+                    }
+                    "pitch_rand_min"
+                    {
+                        "value"     "-0.050000"
+                    }
+                    "pitch_rand_max"
+                    {
+                        "value"     "0.050000"
+                    }
+                    "pitch"
+                    {
+                        "value"     "1.000000"
+                    }
+                    "soundlevel"
+                    {
+                        "value"     "78.000000"
+                    }
+                    "mixgroup"
+                    {
+                        "value"     "BaseAttacks"
+                    }
+                    "spread_radius"
+                    {
+                        "value"     "150.000000"
+                    }
+                    "distance_max"
+                    {
+                        "value"     "2500.000000"
+                    }
+                    "soundevent_layer2"
+                    {
+                        "value"     "Hero_Axe.Attack.Impact"
+                    }
+                    "soundevent_layer2_on"
+                    {
+                        "value"     "1.000000"
+                    }
+                    "soundevent_layer3"
+                    {
+                        "value"     "Hero_Axe.Attack.Post"
+                    }
+                    "soundevent_layer3_on"
+                    {
+                        "value"     "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+
+"Hero_Axe.Attack.Impact"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"      "sos_reference_stack"
+                "reference_stack"       "dota_update_default"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "wave0"     "sounds/weapons/hero/shared/large_blade/ring01.vsnd"
+                            "wave1"     "sounds/weapons/hero/shared/large_blade/ring04.vsnd"
+                            "wave2"     "sounds/null.vsnd"
+                        }
+                    }
+                    "volume_rand_min"
+                    {
+                        "value"     "-0.149902"
+                    }
+                    "volume_rand_max"
+                    {
+                        "value"     "0.149902"
+                    }
+                    "volume"
+                    {
+                        "value"     "0.149902"
+                    }
+                    "pitch_rand_min"
+                    {
+                        "value"     "-0.050000"
+                    }
+                    "pitch_rand_max"
+                    {
+                        "value"     "0.050000"
+                    }
+                    "pitch"
+                    {
+                        "value"     "0.900000"
+                    }
+                    "soundlevel"
+                    {
+                        "value"     "75.000000"
+                    }
+                    "mixgroup"
+                    {
+                        "value"     "BaseAttacks"
+                    }
+                    "spread_radius"
+                    {
+                        "value"     "150.000000"
+                    }
+                    "distance_max"
+                    {
+                        "value"     "2500.000000"
+                    }
+                    "soundevent_layer2"
+                    {
+                        "value"     "Damage_Melee.Gore"
+                    }
+                    "soundevent_layer2_on"
+                    {
+                        "value"     "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+
+"Hero_Axe.Attack.Post"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"      "sos_reference_stack"
+                "reference_stack"       "dota_update_default"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "wave0"     "sounds/weapons/hero/shared/large_blade/follow_thru01.vsnd"
+                            "wave1"     "sounds/weapons/hero/shared/large_blade/follow_thru02.vsnd"
+                            "wave2"     "sounds/weapons/hero/shared/large_blade/follow_thru03.vsnd"
+                        }
+                    }
+                    "volume_rand_min"
+                    {
+                        "value"     "-0.099976"
+                    }
+                    "volume_rand_max"
+                    {
+                        "value"     "0.099976"
+                    }
+                    "volume"
+                    {
+                        "value"     "0.199927"
+                    }
+                    "pitch_rand_min"
+                    {
+                        "value"     "-0.050000"
+                    }
+                    "pitch_rand_max"
+                    {
+                        "value"     "0.050000"
+                    }
+                    "pitch"
+                    {
+                        "value"     "1.000000"
+                    }
+                    "soundlevel"
+                    {
+                        "value"     "75.000000"
+                    }
+                    "mixgroup"
+                    {
+                        "value"     "BaseAttacks"
+                    }
+                    "delay"
+                    {
+                        "value"     "0.050000"
+                    }
+                    "spread_radius"
+                    {
+                        "value"     "100.000000"
+                    }
+                    "distance_max"
+                    {
+                        "value"     "1500.000000"
+                    }
                 }
             }
         }

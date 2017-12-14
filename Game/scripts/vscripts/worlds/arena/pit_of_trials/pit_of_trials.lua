@@ -75,7 +75,7 @@ function Arena:UpdatePitLockout(hero)
 	url = url.."&key2="..SaveLoad.key2
 	-- url = url.."&rank="..battleRank
 	-- url = url.."&score="..score
-
+	SaveLoad:NewKey()
 	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 		SaveLoad:NewKey()
 		local resultTable = {}
@@ -90,6 +90,7 @@ end
 
 function Arena:UpdatePitLevels()
 	if SaveLoad:GetAllowSaving() then
+		SaveLoad:NewKey()
 		local url = ROSHPIT_URL.."/champions/updatePitClear?"
 		for i = 1, #MAIN_HERO_TABLE, 1 do
 			Timers:CreateTimer(i, function()

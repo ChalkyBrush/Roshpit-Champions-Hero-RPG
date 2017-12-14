@@ -979,7 +979,7 @@ function Arena:SaveChampionsLeagueData(hero, battleRank, score)
 	if hero.roshpitID == nil then
 		return
 	end
-
+	SaveLoad:NewKey()
 	url = url.."steam_id="..steamID
 	url = url.."&hero_id="..hero.roshpitID
 	url = url.."&rank="..battleRank
@@ -997,7 +997,7 @@ function Arena:SaveChampionsLeagueData(hero, battleRank, score)
 			end
 			print( "Done." )
 			local resultTable = JSON:decode(result.Body)
-			Timers:CreateTimer(18, function()
+			Timers:CreateTimer(16, function()
 				Arena:LoadChampionsLeagueData(hero, resultTable)
 			end)
 		end )	

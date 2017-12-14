@@ -14,10 +14,10 @@ function Glyphs:DropArcaneCrystals(position, quantityScale)
 	local crystalQuantity = (maxFactor/2)*(1+connectedPlayerCount*0.5)*quantityScale
 	crystalQuantity = crystalQuantity*(1+GameState:GetPlayerPremiumStatusCount()*0.1)
 	crystalQuantity = RPCItems:GetLogarithmicVarianceValue(crystalQuantity, 0, 0, 0, 0)
-	local divisor = 4
+	local divisor = 3
   	if GameState:GetDifficultyFactor() == 1 then
   		if GameState:IsTanariJungle() then
-  			divisor = 3
+  			divisor = 2.5
   		end
   	end
   	if GameState:GetDifficultyFactor() == 2 then
@@ -27,7 +27,7 @@ function Glyphs:DropArcaneCrystals(position, quantityScale)
   		end
   	end
   	if GameState:GetDifficultyFactor() == 3 then
-  		divisor = 0.85
+  		divisor = 1.0
   	end
   	if Events.SpiritRealm then
   		crystalQuantity = crystalQuantity * 2
@@ -38,45 +38,45 @@ function Glyphs:DropArcaneCrystals(position, quantityScale)
 	for i = 1, #MAIN_HERO_TABLE, 1 do
 		MAIN_HERO_TABLE[i].maxCrystals = MAIN_HERO_TABLE[i].maxCrystals + crystalsPerPlayer
 	end
-	local massiveCrystalQuantity = math.max((crystalQuantity-100)/50,0)
-	crystalQuantity = crystalQuantity - massiveCrystalQuantity*50
-	local greatestCrystalQuantity = math.max((crystalQuantity-50)/20,0)
-	crystalQuantity = crystalQuantity - greatestCrystalQuantity*20
-	local greatCrystalQuantity = math.max((crystalQuantity-30)/10,0)
-	crystalQuantity = crystalQuantity - greatCrystalQuantity*10
-	local largeCrystalQuantity = math.max((crystalQuantity-5)/5,0)
-	crystalQuantity = crystalQuantity - largeCrystalQuantity*5
-	local smallCrystalQuantity = crystalQuantity
+	local massiveCrystalQuantity = math.max((crystalQuantity-200)/100,0)
+	crystalQuantity = crystalQuantity - massiveCrystalQuantity*100
+	local greatestCrystalQuantity = math.max((crystalQuantity-100)/50,0)
+	crystalQuantity = crystalQuantity - greatestCrystalQuantity*50
+	local greatCrystalQuantity = math.max((crystalQuantity-20)/20,0)
+	crystalQuantity = crystalQuantity - greatCrystalQuantity*20
+	local largeCrystalQuantity = math.max((crystalQuantity-0)/10,1)
+	crystalQuantity = crystalQuantity - largeCrystalQuantity*10
+	local smallCrystalQuantity = math.max(crystalQuantity/5,0)
 	for i = 1, largeCrystalQuantity, 1 do
 		Timers:CreateTimer(0.12*i, function()
-			Glyphs:CreateIndividualCrystal(position, 5)
+			Glyphs:CreateIndividualCrystal(position, 10)
 		end)
 	end
 	Timers:CreateTimer(0.53, function()
 		for i = 1, greatCrystalQuantity, 1 do
 			Timers:CreateTimer(0.12*i, function()
-				Glyphs:CreateIndividualCrystal(position, 10)
+				Glyphs:CreateIndividualCrystal(position, 20)
 			end)
 		end
 	end)
 	Timers:CreateTimer(2.03, function()
 		for i = 1, greatestCrystalQuantity, 1 do
 			Timers:CreateTimer(0.12*i, function()
-				Glyphs:CreateIndividualCrystal(position, 20)
+				Glyphs:CreateIndividualCrystal(position, 50)
 			end)
 		end
 	end)
 	Timers:CreateTimer(1.53, function()
 		for i = 1, massiveCrystalQuantity, 1 do
 			Timers:CreateTimer(0.12*i, function()
-				Glyphs:CreateIndividualCrystal(position, 50)
+				Glyphs:CreateIndividualCrystal(position, 100)
 			end)
 		end
 	end)
 	Timers:CreateTimer(1.06, function()
 		for i = 1, smallCrystalQuantity, 1 do
 			Timers:CreateTimer(0.12*i, function()
-				Glyphs:CreateIndividualCrystal(position, 1)
+				Glyphs:CreateIndividualCrystal(position, 5)
 			end)
 		end
 	end)
@@ -115,21 +115,27 @@ function Glyphs:CreateIndividualCrystal(position, size)
   	Timers:CreateTimer(1, function()
   		if IsValidEntity(crystal) then
 		    if size == 5 then
-		  		crystal:SetModelScale(0.7)
-		  	elseif size == 1 then
 		  		crystal:SetModelScale(0.5)
+		  		crystal.scale = 0.5
 		  	elseif size == 10 then
-		  		crystal:SetModelScale(1.0)
+		  		crystal:SetModelScale(0.7)
+		  		crystal.scale = 0.7
 		  	elseif size == 20 then
+		  		crystal:SetModelScale(1.0)
+		  		crystal.scale = 1
+		  	elseif size == 50 then
 		  		crystal:SetModelScale(1.2)
-		  	elseif size >= 50 then
+		  		crystal.scale = 1.2
+		  	elseif size >= 100 then
 		  		crystal:SetModelScale(1.5)
+		  		crystal.scale = 1.5
 		  	end
 	  	end
   	end)
   	Timers:CreateTimer(1.5, function()
 	  	if IsValidEntity(crystal) then
 	  		crystal.active = true
+	  		crystal:RemoveModifierByName("modifier_hero_aura_apply")
 	  	end
   	end)
   	StartAnimation(crystal, {duration=300, activity=ACT_DOTA_IDLE, rate=1})

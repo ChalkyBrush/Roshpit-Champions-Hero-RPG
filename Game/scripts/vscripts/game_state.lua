@@ -1550,7 +1550,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if attacker:HasModifier("modifier_paladin_d_c_postmit") then
 		local stacks = attacker:GetModifierStackCount("modifier_paladin_d_c_postmit", attacker)
-		mult = mult + 0.01*stacks
+		mult = mult + 0.005*stacks
 	end
 	if victim:HasModifier("modifier_tachyon_amp") then
 		local modifier = victim:FindModifierByName("modifier_tachyon_amp")
