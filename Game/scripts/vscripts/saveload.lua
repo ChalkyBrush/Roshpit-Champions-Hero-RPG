@@ -5,31 +5,36 @@ if SaveLoad == nil then
 end
 
 function SaveLoad:GetKey()
-	Timers:CreateTimer(2, function()
-		if SaveLoad.key2 then
-			if not SaveLoad.key1 then
-				local url = ROSHPIT_URL.."/champions/key?"
-				url = url.."param1="..0
-				url = url.."&secret_key="..SaveLoad.key2
-				CreateHTTPRequestScriptVM("POST", url ):Send( function( result )
-					if result.StatusCode == 200 then
-						SaveLoad.key1 = result.Body
-						CustomGameEventManager:Send_ServerToAllClients("server_confirmed", {} )
-						-- SaveLoad:ProcessKey()
-					else
+	if Beacons.cheats then
+		return false
+	end
+	if SaveLoad:GetAllowSaving() then
+		Timers:CreateTimer(2, function()
+			if SaveLoad.key2 then
+				if not SaveLoad.key1 then
+					local url = ROSHPIT_URL.."/champions/key?"
+					url = url.."param1="..0
+					url = url.."&secret_key="..SaveLoad.key2
+					CreateHTTPRequestScriptVM("POST", url ):Send( function( result )
+						if result.StatusCode == 200 then
+							SaveLoad.key1 = result.Body
+							CustomGameEventManager:Send_ServerToAllClients("server_confirmed", {} )
+							-- SaveLoad:ProcessKey()
+						else
 
+						end
+					end )
+					return 30
+				else
+					if SaveLoad:GetAllowSaving() then
+						CustomGameEventManager:Send_ServerToAllClients("server_confirmed", {} )
 					end
-				end )
-				return 30
-			else
-				if SaveLoad:GetAllowSaving() then
-					CustomGameEventManager:Send_ServerToAllClients("server_confirmed", {} )
 				end
+			else
+				return 10
 			end
-		else
-			return 10
-		end
-	end)
+		end)
+	end
 
 end
 
