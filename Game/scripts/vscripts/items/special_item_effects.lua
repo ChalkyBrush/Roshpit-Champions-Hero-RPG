@@ -2954,9 +2954,7 @@ function royal_wristguard_take_damage(event)
 	local target = event.unit
 	local ability = event.ability
 	local caster = event.caster
-	if target == event.attacker then
-		return false
-	end
+
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_royal_wristguards_stack_effect", {duration = 15})
     local current_stack = target:GetModifierStackCount( "modifier_royal_wristguards_stack_effect", ability )
     local newStack = math.min(current_stack + 1, 80)
@@ -3309,6 +3307,9 @@ function lava_forge_take_damage(event)
 	local ability = event.ability
 	local target = event.unit
 	local attacker = event.attacker
+	if target == event.attacker then
+		return false
+	end
 	if not ability.fireballs then
 		ability.fireballs = 0
 		ability.caster = target
@@ -3658,6 +3659,9 @@ end
 function autumnrock_bracer_take_damage(event)
 	local hero = event.unit
 	local ability = event.ability
+	if target == event.attacker then
+		return false
+	end
 	local proc = Filters:GetProc(hero, 10)	
 	if proc then
 		local attacker = event.attacker
