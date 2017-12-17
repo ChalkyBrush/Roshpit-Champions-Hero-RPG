@@ -172,6 +172,22 @@ function RPCItems:CreateVariant(variantName, rarityName, itemNameText, slot, gea
     return item
 end
 
+function RPCItems:CreateVariantWithHero(variantName, rarityName, itemNameText, slot, gear, slotText, requiredHero)
+    local itemVariant = variantName
+    local item = CreateItem(itemVariant, nil, nil)
+    item.rarity = rarityName
+    local rarityValue = RPCItems:GetRarityFactor(item.rarity)
+    local itemName = itemNameText
+    local suffix = ""
+    local prefix = ""
+    item.slot = slot
+    item.gear = gear
+    item.requiredHero = requiredHero
+    RPCItems:SetTableValues(item, itemName, false, slotText, RPCItems:GetRarityColor(item.rarity), item.rarity, "", "", RPCItems:GetRarityFactor(item.rarity))
+
+    return item
+end
+
 function RPCItems:CreateVariantWithMin(variantName, rarityName, itemNameText, slot, gear, slotText, minLevel, prefix, suffix)
     local itemVariant = variantName
     local item = CreateItem(itemVariant, nil, nil)
@@ -5527,6 +5543,55 @@ end
 
 --TRINKETS
 
+function RPCItems:RollWinterblightSkullRing(deathLocation)
+    local glyphName = Glyphs:RollRandomGlyphName()
+    local item = nil
+    if glyphName[2] == "neutral" then
+        item = RPCItems:CreateVariant("item_rpc_winterblight_skull_ring", "immortal", "Winterblight Skull Ring", "amulet", true, "Slot: Trinket")
+    else
+        local internalHeroName = HerosCustom:ConvertRPCNameToStringHeroName(glyphName[2])
+        item = RPCItems:CreateVariantWithHero("item_rpc_winterblight_skull_ring", "immortal", "Winterblight Skull Ring", "amulet", true, "Slot: Trinket", internalHeroName)
+    end
+    
+    local maxFactor = RPCItems:GetMaxFactor()
+    
+    item.property1name = "winterblight_skull_ring"
+    local value = 1
+    item.property1 = value
+    
+    
+    -- if glyphName[2] == "neutral" then
+    -- else
+    --     item.requiredHero = glyphName[2]
+    -- end
+    -- print(item.requiredHero)
+    local glyphTitle = "#DOTA_Tooltip_ability_"..glyphName[1]
+    local glyphDescrip = "#"..glyphName[1].."_description"
+    RPCItems:SetPropertyValuesSpecial(item, "★", glyphTitle, "#b383d1",  1, glyphDescrip)
+    item.hasRunePoints = true
+
+    Elements:RollElementAttribute(item, RPC_ELEMENT_UNDEAD, 3.2, 2, 24, 2)
+
+
+
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+    item.property3 = math.ceil(value*1.0)
+    item.property3name = propertyName
+    RPCItems:SetPropertyValues(item, item.property3, "rune", "#7DFF12",  3) 
+
+
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+    item.property4 = math.ceil(value*1.1)
+    item.property4name = propertyName
+    RPCItems:SetPropertyValues(item, item.property4, "rune", "#7DFF12",  4) 
+
+
+    local drop = CreateItemOnPositionSync( deathLocation, item )
+    local position = deathLocation
+    RPCItems:DropItem(item, position)
+    return item
+end
+
 function RPCItems:RollArcaneCharm(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_arcane_charm", "immortal", "Arcane Charm", "amulet", true, "Slot: Trinket")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -7948,6 +8013,8 @@ function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, sl
         newItem = RPCItems:RollArcaneCharm(deathLocation)
     elseif itemName == "item_rpc_skulldigger_gauntlet" then
         newItem = RPCItems:RollSkulldiggerGloves(deathLocation)
+    elseif itemName == "item_rpc_winterblight_skull_ring" then
+        newItem = RPCItems:RollWinterblightSkullRing(deathLocation)
     else
         newItem = false
         giveBackOldItem = true

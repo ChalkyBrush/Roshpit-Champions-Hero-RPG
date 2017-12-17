@@ -75,6 +75,9 @@ function heavens_shield_take_damage(event)
 	local target = event.unit
 	local ability = event.ability
 	if ability.a_a_level > 0 then
+		if event.attacker:GetEntityIndex() == target:GetEntityIndex() then
+			return false
+		end
 		local returnDamage = target:GetAverageTrueAttackDamage(target)*(1+0.15*ability.a_a_level)
 		local victim = event.attacker
 		Filters:TakeArgumentsAndApplyDamage(victim, caster, returnDamage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)

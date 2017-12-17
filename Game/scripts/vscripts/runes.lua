@@ -781,6 +781,9 @@ function Runes:EquipArcana(hero, index)
 	elseif hero:GetUnitName() == "npc_dota_hero_necrolyte" then
 		if index == 1 then
 			Runes:EasySwapArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "snake_trap", "venom_reaper_slice", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+		elseif index == 2 then
+			hero:RemoveModifierByName("modifier_venomort_rune_b_a")
+			Runes:EasySwapArcanaSkills(hero, 0, "gale_nova", "venomort_frostvenom_grasp", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_night_stalker" then
 		if index == 1 then
@@ -1290,6 +1293,8 @@ function Runes:UnequipArcana(hero, index)
 	elseif hero:GetUnitName() == "npc_dota_hero_necrolyte" then
 		if index == 1 then
 			Runes:EasyRevertArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "snake_trap", "venom_reaper_slice", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+		elseif index == 2 then
+			Runes:EasyRevertArcanaSkills(hero, 0, "gale_nova", "venomort_frostvenom_grasp", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_night_stalker" then
 		if index == 1 then

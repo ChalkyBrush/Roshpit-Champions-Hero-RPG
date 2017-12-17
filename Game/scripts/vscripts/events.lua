@@ -18,10 +18,14 @@ require('elements')
 if Events == nil then
   Events = class({})
 end
+
 if MAIN_HERO_TABLE == nil then
   MAIN_HERO_TABLE = {}
   TAKEN_HERO_TABLE = {}
 end
+
+--EVENTS
+require('worlds/events/descent_of_winterblight_dec_2017/descent_of_winterblight_core')
 
 Events.ResourceBonus = 1
 
@@ -3588,4 +3592,51 @@ end
 
 function Events:SerengaardVote(msg)
   Serengaard:Vote(msg)
+end
+
+function Events:smoothColorTransition(object, startColor, endColor, ticks)
+  local colorChangeVector = (endColor-startColor)/ticks
+  for i = 0, ticks, 1 do
+    Timers:CreateTimer(i*0.03, function()
+      object:SetRenderColor(startColor.x + colorChangeVector.x * i, startColor.y + colorChangeVector.y * i, startColor.z + colorChangeVector.z * i)
+    end)
+  end
+end
+
+function Events:smoothSizeChange(object, startSize, endSize, ticks)
+  local growth = (endSize-startSize)/ticks
+  for i = 0, ticks, 1 do
+    Timers:CreateTimer(i*0.03, function()
+      object:SetModelScale(startSize + growth*i)
+    end)
+  end
+end
+
+function Events:objectShake(object, ticks, strength, bX, bY, bZ, sound, soundInterval)
+  for i = 1, ticks, 1 do
+    Timers:CreateTimer(i*0.03, function()
+      local magnitudeX = 0
+      local magnitudeY = 0
+      local magnitudeZ = 0
+      if bX then
+        magnitudeX = strength
+      end
+      if bY then
+        magnitudeY = strength
+      end
+      if bZ then
+        magnitudeZ = strength
+      end
+      local moveVector = Vector(magnitudeX, magnitudeY, magnitudeZ)
+      if i%2 == 0 then
+        moveVector = moveVector*-1
+      end
+      if sound then
+        if i%soundInterval == 0 then
+          EmitSoundOnLocationWithCaster(object:GetAbsOrigin(), sound, Events.GameMaster)
+        end
+      end
+      object:SetAbsOrigin(object:GetAbsOrigin()+moveVector)
+    end)
+  end
 end

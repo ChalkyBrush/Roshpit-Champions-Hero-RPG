@@ -92,6 +92,7 @@ function GameMode:PostLoadPrecache()
     end
   Timers:CreateTimer(1, function()
     Precache:items()
+    
   end)
   if GameState:IsWorld1() then
     Timers:CreateTimer(8, function()
@@ -188,6 +189,10 @@ function GameMode:PostLoadPrecache()
   if GameState:IsWinterblight() then
     Precache:Winterblight()
   end
+
+  Timers:CreateTimer(10, function()
+    Events:GetWinterblightPositions()
+  end)
 end
 
 function superPrecache()

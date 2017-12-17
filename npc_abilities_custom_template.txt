@@ -5687,7 +5687,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.35"
+		"AbilityCastPoint"				"0.0"
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
@@ -40568,6 +40568,12 @@
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
+			"modifier_trinket_undead"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
 		}
 	}
 
@@ -43217,7 +43223,6 @@
 			}
 		}
 
-
 	}
 
 	"venomort_rune_a_b"
@@ -43978,6 +43983,8 @@
 			}
 		}
 	}
+
+	##VENOMORT_ABILITIES##
 
 	"venomort_rune_a_d_arcana1"
 	{
@@ -47498,6 +47505,10 @@
 				"IsHidden"	"1"
 			}
 			"modifier_general_postmitigation"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_sea_fortress_ai"
 			{
 				"IsHidden"	"1"
 			}

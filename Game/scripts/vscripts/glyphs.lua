@@ -331,13 +331,24 @@ end
 
 function Glyphs:RollRandomGlyph(position)
 	local tier = Glyphs:RollRandomTier()
-	local rowItem = 1
 	local heroName = Glyphs:GetRandomHeroname()
+	local rowItem = Glyphs:GetAvailableColumnCount(heroName)
 	if heroName == "neutral" then
 		rowItem = RandomInt(1,3)
 	end
 	local glyphName = "item_rpc_"..heroName.."_glyph_"..tier.."_"..rowItem
 	Glyphs:RollGlyphAll(glyphName, position, 0)
+end
+
+function Glyphs:RollRandomGlyphName()
+	local tier = Glyphs:RollRandomTier()
+	local heroName = Glyphs:GetRandomHeroname()
+	local rowItem = Glyphs:GetAvailableColumnCount(heroName)
+	if heroName == "neutral" then
+		rowItem = RandomInt(1,3)
+	end
+	local glyphName = "item_rpc_"..heroName.."_glyph_"..tier.."_"..rowItem
+	return {glyphName, heroName}
 end
 
 function Glyphs:RollRandomGlyphBook(position)
@@ -599,96 +610,6 @@ function Glyphs:GetRarityFromGlyphTier(tier, index)
 		rarity = "immortal"
 	end
 	return rarity
-end
-
-function Glyphs:GlyphRollLesserStrength(position, heroIndex)
-	local variantName = "item_rpc_neutral_glyph_1_1"
-	local rarityName = "uncommon"
-	local itemName = "Basic Glyph"
-	local slotText = "Glyph"
-	local useDescription = variantName.."_description"
-	local minLevel = 15
-	Glyphs:CreateGlyphItem(variantName, rarityName, itemNameText, slotText, useDescription, position, "tooltip_neutral", minLevel, "modifier_neutral_glyph_1_1", heroIndex)
-end
-
-function Glyphs:GlyphRollStrength(position, heroIndex)
-	local variantName = "item_rpc_neutral_glyph_2_1"
-	local rarityName = "uncommon"
-	local itemName = "Basic Glyph"
-	local slotText = "Glyph"
-	local useDescription = variantName.."_description"
-	local minLevel = 30
-	Glyphs:CreateGlyphItem(variantName, rarityName, itemNameText, slotText, useDescription, position, "tooltip_neutral", minLevel, "strength", heroIndex)
-end
-
-function Glyphs:GlyphRollGreaterStrength(position, heroIndex)
-	local variantName = "item_rpc_neutral_glyph_4_1"
-	local rarityName = "rare"
-	local itemName = "Basic Glyph"
-	local slotText = "Glyph"
-	local useDescription = variantName.."_description"
-	local minLevel = 60
-	Glyphs:CreateGlyphItem(variantName, rarityName, itemNameText, slotText, useDescription, position, "tooltip_neutral", minLevel, "greater_strength", heroIndex)
-end
-
-function Glyphs:GlyphRollLesserAgility(position, heroIndex)
-	local variantName = "item_rpc_neutral_glyph_1_2"
-	local rarityName = "uncommon"
-	local itemName = "Basic Glyph"
-	local slotText = "Glyph"
-	local useDescription = variantName.."_description"
-	local minLevel = 15
-	Glyphs:CreateGlyphItem(variantName, rarityName, itemNameText, slotText, useDescription, position, "tooltip_neutral", minLevel, "lesser_agility", heroIndex)
-end
-
-function Glyphs:GlyphRollAgility(position, heroIndex)
-	local variantName = "item_rpc_neutral_glyph_2_2"
-	local rarityName = "uncommon"
-	local itemName = "Basic Glyph"
-	local slotText = "Glyph"
-	local useDescription = variantName.."_description"
-	local minLevel = 30
-	Glyphs:CreateGlyphItem(variantName, rarityName, itemNameText, slotText, useDescription, position, "tooltip_neutral", minLevel, "agility", heroIndex)
-end
-
-function Glyphs:GlyphRollGreaterAgility(position, heroIndex)
-	local variantName = "item_rpc_neutral_glyph_4_2"
-	local rarityName = "rare"
-	local itemName = "Basic Glyph"
-	local slotText = "Glyph"
-	local useDescription = variantName.."_description"
-	local minLevel = 60
-	Glyphs:CreateGlyphItem(variantName, rarityName, itemNameText, slotText, useDescription, position, "tooltip_neutral", minLevel, "greater_agility", heroIndex)
-end
-
-function Glyphs:GlyphRollLesserIntelligence(position, heroIndex)
-	local variantName = "item_rpc_neutral_glyph_1_3"
-	local rarityName = "uncommon"
-	local itemName = "Basic Glyph"
-	local slotText = "Glyph"
-	local useDescription = variantName.."_description"
-	local minLevel = 15
-	Glyphs:CreateGlyphItem(variantName, rarityName, itemNameText, slotText, useDescription, position, "tooltip_neutral", minLevel, "lesser_intelligence", heroIndex)
-end
-
-function Glyphs:GlyphRollIntelligence(position, heroIndex)
-	local variantName = "item_rpc_neutral_glyph_2_3"
-	local rarityName = "uncommon"
-	local itemName = "Basic Glyph"
-	local slotText = "Glyph"
-	local useDescription = variantName.."_description"
-	local minLevel = 30
-	Glyphs:CreateGlyphItem(variantName, rarityName, itemNameText, slotText, useDescription, position, "tooltip_neutral", minLevel, "intelligence", heroIndex)
-end
-
-function Glyphs:GlyphRollGreaterIntelligence(position, heroIndex)
-	local variantName = "item_rpc_neutral_glyph_4_3"
-	local rarityName = "rare"
-	local itemName = "Basic Glyph"
-	local slotText = "Glyph"
-	local useDescription = variantName.."_description"
-	local minLevel = 60
-	Glyphs:CreateGlyphItem(variantName, rarityName, itemNameText, slotText, useDescription, position, "tooltip_neutral", minLevel, "greater_intelligence", heroIndex)
 end
 
 function Glyphs:ReanimationPurchase(msg)

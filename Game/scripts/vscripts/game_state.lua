@@ -2020,7 +2020,14 @@ function GameState:FilterDamage(filterTable)
     	end
     end
 	if victim:HasModifier("modifier_sea_fortress_ai") then
-		filterTable["damage"] = filterTable["damage"]*0.0007
+		local seaFortReduc = 0.0007
+		local difficulty = GameState:GetDifficultyFactor()
+		if difficulty == 1 then
+			seaFortReduc = 0.1
+		elseif difficulty == 2 then
+			seaFortReduc = 0.05
+		end
+		filterTable["damage"] = filterTable["damage"]*seaFortReduc
 		if victim.reduc then
 			filterTable["damage"] = filterTable["damage"]*victim.reduc
 		end
@@ -2510,16 +2517,16 @@ function GameState:FilterDamage(filterTable)
 	-- 	filterTable["damage"] = filterTable["damage"]/GameState.PVP_REDUCTION
 	-- end
 	if Beacons.cheats then
-		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-			if victim:IsHero() then
-				filterTable["damage"] = 0
-			end
-		end
-		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-			if attacker:IsHero() then
-				filterTable["damage"] = filterTable["damage"]*10000000*30*100000
-			end
-		end
+		-- if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+		-- 	if victim:IsHero() then
+		-- 		filterTable["damage"] = 0
+		-- 	end
+		-- end
+		-- if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+		-- 	if attacker:IsHero() then
+		-- 		filterTable["damage"] = 0
+		-- 	end
+		-- end
 	end
 	
 	return true

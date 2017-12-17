@@ -280,7 +280,7 @@
 #seq_logo
 {
 	margin-left: -140px;
-	margin-top: -140px;
+	margin-top: -80px;
 	animation-name: seq_logo_anim;
 	animation-duration: TotalLength;
 	animation-timing-function: TimingFunc;

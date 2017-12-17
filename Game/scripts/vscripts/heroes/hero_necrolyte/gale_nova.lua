@@ -1,3 +1,5 @@
+require('heroes/hero_necrolyte/arcana/frostvenom_grasp')
+
 function begin_gale_nova(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -45,12 +47,23 @@ function cobra_invasion_think(event)
 	local caster = event.caster
 	local ability = caster:FindAbilityByName("gale_nova")
 	local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d", "venomort")
+	local amp = 0.025*a_d_level
 	if a_d_level > 0 then
-		local galeData = {}
-		galeData.caster = caster
-		galeData.ability = caster:FindAbilityByName("gale_nova")
-		galeData.a_d_level = a_d_level
-		begin_gale_nova(galeData)
+		if caster:HasAbility("gale_nova") then
+			local galeData = {}
+			galeData.caster = caster
+			galeData.ability = caster:FindAbilityByName("gale_nova")
+			galeData.a_d_level = a_d_level
+			begin_gale_nova(galeData)
+		elseif caster:HasAbility("venomort_frostvenom_grasp") then
+			local frostVenomTable = {}
+			frostVenomTable.caster = caster
+			frostVenomTable.ability = caster:FindAbilityByName("venomort_frostvenom_grasp")
+			frostVenomTable.damage = frostVenomTable.ability:GetLevelSpecialValueFor("damage", frostVenomTable.ability:GetLevel())
+			frostVenomTable.explosions = frostVenomTable.ability:GetLevelSpecialValueFor("explosions", frostVenomTable.ability:GetLevel())
+			frostVenomTable.amp = amp
+			frostvenom_grasp_start(frostVenomTable)
+		end
 	end
 end
 

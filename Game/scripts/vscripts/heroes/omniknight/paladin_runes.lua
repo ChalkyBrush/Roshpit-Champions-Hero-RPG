@@ -132,6 +132,9 @@ function rune_b_c_attacked(event)
 	local attacker = event.attacker
 	local unit = event.unit
 	if not unit:HasModifier("modifier_secret_temple_refraction") and not unit:HasModifier("modifier_windsteel_effect") and not unit:HasModifier("modifier_heavens_shield") then
+		if attacker:GetEntityIndex() == unit:GetEntityIndex() then
+			return false
+		end
 		local level = ability:GetLevel()
 		local bonusLevels = Runes:GetTotalBonus(unit.runeUnit2, "b_c")
 		local totalLevel = level + bonusLevels
@@ -141,10 +144,10 @@ function rune_b_c_attacked(event)
 		if not unit.retributions then
 			unit.retributions = 0
 		end
+		Filters:TakeArgumentsAndApplyDamage(attacker, unit, damage, DAMAGE_TYPE_PHYSICAL, 0, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 		if unit.retributions < 10 then
 			if attacker:GetMaxHealth()>200 then
 				unit.retributions = unit.retributions + 1
-				Filters:TakeArgumentsAndApplyDamage(attacker, unit, damage, DAMAGE_TYPE_PHYSICAL, 0, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 				local particleName = "particles/items_fx/chain_lightning.vpcf"
 				local lightningBolt = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, unit)
 				ParticleManager:SetParticleControl(lightningBolt,0,Vector(unit:GetAbsOrigin().x,unit:GetAbsOrigin().y,unit:GetAbsOrigin().z + 100 ))	

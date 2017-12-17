@@ -93,7 +93,10 @@ function comet_storm_end(event)
         	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_HOLY, RPC_ELEMENT_EARTH)
         end
     end 	
-
+    Timers:CreateTimer(5, function()
+    	ParticleManager:DestroyParticle(pfx, false)
+    	ParticleManager:ReleaseParticleIndex(pfx)
+    end)
 end
 
 function calculate_and_apply_b_c_attack_power(event)

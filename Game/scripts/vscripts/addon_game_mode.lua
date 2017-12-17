@@ -109,6 +109,8 @@ PrecacheResource("particle", "particles/roshpit/learn_glyph_recipe.vpcf", contex
 
 
 PrecacheResource("model", "models/props_teams/banner_radiant.vmdl", context)
+PrecacheResource("model", "models/props_winter/present.vmdl", context)
+
 
 PrecacheResource("model", "models/gameplay/attrib_tome_int.vmdl", context)
 PrecacheResource("model", "models/gameplay/attrib_tome_agi.vmdl", context)

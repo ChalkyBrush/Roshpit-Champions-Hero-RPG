@@ -170,6 +170,8 @@ function Amulet:action(propertyName, propertyValue, hero, inventory_unit, trinke
 		Amulet:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_trinket_demon", trinket_ability)
 	elseif propertyName == "arcane" then
 		Amulet:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_trinket_arcane", trinket_ability)
+	elseif propertyName == "undead" then
+		Amulet:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_trinket_undead", trinket_ability)
 	elseif propertyName == "fire_blossom" then
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_fire_blossom", item)
 	elseif propertyName == "aqua_lily" then
@@ -190,6 +192,8 @@ function Amulet:action(propertyName, propertyValue, hero, inventory_unit, trinke
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_sparkling_token_of_oceanis", item)
 	elseif propertyName == "arcane_charm" then
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_arcane_charm", item)
+	elseif propertyName == "winterblight_skull_ring" then
+		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_winterblight_skull_ring", item)
 	end
 	hero.amulet = item
 end
@@ -332,6 +336,8 @@ function Amulet:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_sparkling_token_of_oceanis")
 	hero:RemoveModifierByName("modifier_arcane_charm")
 	hero:RemoveModifierByName("modifier_trinket_arcane")
+	hero:RemoveModifierByName("modifier_trinket_undead")
+	hero:RemoveModifierByName("modifier_winterblight_skull_ring")
 	hero.monkey_paw = false
 	hero.birdTable = false
 	hero.eternal_frost_gem = false

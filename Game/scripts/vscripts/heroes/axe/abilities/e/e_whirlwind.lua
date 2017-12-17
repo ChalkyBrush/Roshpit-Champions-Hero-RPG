@@ -81,9 +81,15 @@ function think(event)
         EmitSoundOn("RedGeneral.Whirlwind", hero)
         CustomAbilities:QuickAttachParticle("particles/econ/items/axe/axe_weapon_bloodchaser/axe_attack_blur_counterhelix_bloodchaser.vpcf", hero, 2)
     end
-
---    local newPosition = position+ability.forwardVec*forwardVelocity
---    local afterWallPosition = WallPhysics:WallSearch(hero:GetAbsOrigin(), newPosition, hero)
+    if hero:HasModifier("modifier_whirlwind_flying_portion") then
+       local newPosition = position+hero.EFV*40
+       local afterWallPosition = WallPhysics:WallSearch(hero:GetAbsOrigin(), newPosition, hero)
+        if newPosition.x == afterWallPosition.x and newPosition.y == afterWallPosition.y then
+        else
+            hero:SetAbsOrigin(hero:GetAbsOrigin()-hero.EFV*50)
+            hero:RemoveModifierByName("modifier_whirlwind_flying_portion")
+        end
+    end
     if not hero:HasModifier("modfier_axe_jumping") then
 --        hero:SetOrigin(newPosition)
         if #ability.enemies > 0 then

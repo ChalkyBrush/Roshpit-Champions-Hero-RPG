@@ -5113,3 +5113,27 @@ function arcane_charm_end(event)
 	local heroEntity = event.target
 	Events:GetGameMasterAbility():ApplyDataDrivenModifier(Events.GameMaster, heroEntity, "modifier_hero_thinker", {})
 end
+
+function skull_ring_init(event)
+	local heroEntity = event.target
+	local item = event.ability
+	local caster = event.caster
+	local propertyTable = CustomNetTables:GetTableValue("item_properties", tostring(item:GetEntityIndex()).."-"..tostring(1))
+	local tooltipGlyph = propertyTable.propertyName
+	local glyphName = string.gsub(tooltipGlyph, "#DOTA_Tooltip_ability_item_rpc_", "")
+	local glyphNameWithItem = string.gsub(tooltipGlyph, "#DOTA_Tooltip_ability_", "")
+	print(glyphNameWithItem)
+	caster.skullGlyph = Glyphs:RollGlyphAll(glyphNameWithItem, Vector(0, 0), 0)
+	UTIL_Remove(caster.skullGlyph:GetContainer())
+	local modifierName = "modifier_"..glyphName
+	caster.skyllGlyphModifier = modifierName
+	caster.skullGlyph:ApplyDataDrivenModifier(caster, heroEntity, modifierName, {})
+end
+
+function skull_ring_end(event)
+	local heroEntity = event.target
+	local item = event.ability
+	local caster = event.caster
+	heroEntity:RemoveModifierByName(caster.skyllGlyphModifier)
+	UTIL_Remove(caster.skullGlyph)
+end

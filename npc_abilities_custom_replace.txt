@@ -11,6 +11,7 @@ SOLUNIA_ABILITIES:heroes\vengeful_spirit\npc\npc_solunia_abilities.txt
 SEINARU_ABILITIES:heroes\juggernaut\npc\npc_seinaru_abilities.txt
 PALADIN_ABILITIES:heroes\omniknight\npc\paladin_abilities.txt
 ARKIMUS_ABILITIES:heroes\antimage\npc\arkimus_abilities.txt
+VENOMORT_ABILITIES:heroes\hero_necrolyte\npc\venomort_abilities.txt
 
 BAHAMUT_ARCANA_ABILITIES:heroes\leshrac\npc\bahamut_arcana_abilities.txt
 

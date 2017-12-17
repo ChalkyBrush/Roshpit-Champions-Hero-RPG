@@ -353,3 +353,796 @@
 		}
 
 	}
+
+	"winterblight_aertega_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"winter_wyvern_splinter_blast"
+		"MaxLevel"	"3"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"500 2500 500000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_loss"			"-140 -240 -480"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_self"			"20 100 200"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_aertega_passive"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"IsHidden"		"1"
+				"IsBuff"		"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%ms_self"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"raxxus_attack_land"
+						"damage"		"%damage"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/events/descent_of_winterblight_dec_2017/descent_of_winterblight_ai"
+						"Function"		"archon_attack_land"
+					}
+				}
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/events/descent_of_winterblight_dec_2017/descent_of_winterblight_ai"
+						"Function"		"aertega_think"
+					}
+				}
+			}
+			"modifier_frostburn_gauntlets_slow"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+            	"StatusEffectName" 		"particles/status_fx/status_effect_iceblast.vpcf"
+            	"StatusEffectPriority"  "10"
+            	"TextureName"		"crystal_maiden_crystal_nova"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_loss"
+				}
+			}
+			"modifier_disable_player"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_dire.vpcf"
+				"StatusEffectPriority"  "100"
+				"OverrideAnimation"     "ACT_DOTA_VERSUS"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_STUNNED"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "1.5"
+				}
+				"OnDestroy"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Aertega.IceShieldEnd"
+						"Target" 		"CASTER"
+					}
+				}
+			}
+			"modifier_archon_pushback"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+			
+				"ThinkInterval"  	"0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/events/descent_of_winterblight_dec_2017/descent_of_winterblight_ai"
+						"Function"		"archon_slide_think"
+					}
+				}
+			}
+		}
+
+	}
+
+	"aertega_frost_nova"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AOERadius"						"2000"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"ancient_apparition/shatterblast_crown/ancient_apparition_ice_blast"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"precache"
+		{
+
+		}
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"3.0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"18"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"freeze_duration"				"2 3 4"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"2000 50000 1000000"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/events/descent_of_winterblight_dec_2017/descent_of_winterblight_ai"
+				"Function"		"aertega_frost_nova_start"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"worlds/events/descent_of_winterblight_dec_2017/descent_of_winterblight_ai"
+        		"Function"		"aertega_frost_nova"
+        		"duration"		"%freeze_duration"
+        		"damage"		"%damage"
+			}
+		}
+        "Modifiers"
+        {
+			"modifier_aertega_frost_nova"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"TextureName"		"crystal_maiden_crystal_nova"
+				"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+				"EffectAttachType"	"follow_origin"
+
+				"States"
+				{
+					"MODIFIER_STATE_FROZEN"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+        }
+	}
+
+	"winterblight_torturok_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"sorceress/sorceress_rune_b_d_arcana1"
+		"MaxLevel"	"3"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"100 5000 500000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_loss"			"-100 -150 -200"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"as_loss"			"-60 -140 -340"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/events/descent_of_winterblight_dec_2017/descent_of_winterblight_ai"
+				"Function"		"torturok_projectile_hit"
+				"target"		"TARGET"
+				"damage"		"%damage"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_torturok_passive"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"IsHidden"		"1"
+				"IsBuff"		"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnTakeDamage"
+				// "%attack_damage" is set to the damage value after mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/events/descent_of_winterblight_dec_2017/descent_of_winterblight_ai"
+						"Function"		"torturok_take_damage"
+					}
+				}
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/events/descent_of_winterblight_dec_2017/descent_of_winterblight_ai"
+						"Function"		"torturok_think"
+					}
+				}
+			}
+			"modifier_chilled"
+			{
+				"IsDebuff"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
+				"StatusEffectPriority"  "20"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%as_loss"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_loss"
+				}
+			}
+		}
+
+	}
+
+	"torturok_comet"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"crystal_maiden_crystal_nova"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastRange"				"1800"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+	    "precache"
+	    {
+
+	    }
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"5.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"	"2500 2750 3000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_damage"	"1000000"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/events/descent_of_winterblight_dec_2017/descent_of_winterblight_ai"
+				"Function"		"begin_crusader_comet"
+				"Target"		"POINT"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_comet_jumping"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"OverrideAnimation"     "ACT_DOTA_CAST_ABILITY_1"
+				"EffectName"	"particles/roshpit/winterblight/torturok_charge.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"ThinkInterval"  "0.03"
+				"IsHidden"		"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/events/descent_of_winterblight_dec_2017/descent_of_winterblight_ai"
+						"Function"		"jumping_think"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_comet_storming"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"EffectName"	"particles/roshpit/winterblight/torturok_charge.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"ThinkInterval"  "0.03"
+				"IsHidden"		"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/events/descent_of_winterblight_dec_2017/descent_of_winterblight_ai"
+						"Function"		"comet_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/events/descent_of_winterblight_dec_2017/descent_of_winterblight_ai"
+						"Function"		"comet_storm_end"
+						"damage"		"%base_damage"
+						"str_mult"		"%damage_from_str"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_quick_root"
+			{
+				"Passive"	"0"
+				"IsHidden" "1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+
+			}
+		}
+	}
+
+	"torturok_aura"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"sorceress/sorceress_rune_d_d_arcana1"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_per_distance"		"2 20 1000"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_torturok_aura"
+			{
+				"IsHidden" "1"
+				"Passive"	"1"
+				"EffectName"		 "particles/roshpit/winterblight/torturok_aura.vpcf"
+				"EffectAttachType" 	"follow_origin"
+				"IsPurgable"			"0"
+				"IsBuff"			"1"
+				"Aura"					"modifier_torturok_aura_effect"
+				"Aura_Radius"			"800"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			}
+			"modifier_torturok_aura_effect"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_debuff.vpcf"
+				"EffectAttachType" 	"follow_origin"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/events/descent_of_winterblight_dec_2017/descent_of_winterblight_ai"
+						"Function"		"torturok_aura_think"
+						"target"		"TARGET"
+						"damage_per_distance"	"%damage_per_distance"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/events/descent_of_winterblight_dec_2017/descent_of_winterblight_ai"
+						"Function"		"torturok_aura_end"
+					}
+				}
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "200" 
+				}
+			}
+		}
+	}
+
+
+	"ozubu_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"broodmother_incapacitating_bite"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"300 5000 100000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_loss"			"-60 -90 -120"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"as_loss"			"-150 -340 -840"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ozubu_passive"
+			{
+				"IsHidden" "0"
+				"Passive"	"1"
+				"IsBuff"			"1"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/events/descent_of_winterblight_dec_2017/descent_of_winterblight_ai"
+						"Function"		"ozubu_think"
+						"damage"		"%damage"
+					}
+				}
+			}
+			"modifier_chilled"
+			{
+				"IsDebuff"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
+				"StatusEffectPriority"  "20"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%as_loss"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_loss"
+				}
+			}
+		}
+	}
+
+	"winterblight_ozubu_ice_venom"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlag"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"slardar/grasping_bludgeon/slardar_slithereen_crush"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"900"
+		"AbilityCastPoint"				"0.4"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"2.0"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"300 5000 100000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_loss"			"-60 -90 -120"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"as_loss"			"-150 -340 -840"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"TrackingProjectile"
+			{
+				"Target"           	"TARGET"
+				"EffectName"		"particles/roshpit/winterblight/ozubu_projectile.vpcf"
+				"Dodgeable"			"1"
+				"ProvidesVision"	"0"
+				"VisionRadius"		"0"
+				"MoveSpeed"        	"1500"
+				"SourceAttachment"	"DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Winterblight.Ozubu.IcePoison"
+				"Target" 		"CASTER"
+			}
+
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/events/descent_of_winterblight_dec_2017/descent_of_winterblight_ai"
+				"Function"		"ozubu_transfer_debuff"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/events/descent_of_winterblight_dec_2017/descent_of_winterblight_ai"
+				"Function"		"ozubu_projectile_hit"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Winterblight.Ozubu.IcePoison.Impact"
+				"Target" 		"TARGET"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_chilled"
+				"Target" 		"TARGET"
+				"Duration"		"4"
+			}
+			"Damage"
+			{
+				"Target"		"TARGET"
+				"Type"			"DAMAGE_TYPE_MAGICAL"
+				"Damage"		"%damage"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_chilled"
+			{
+				"IsDebuff"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
+				"StatusEffectPriority"  "20"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%as_loss"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_loss"
+				}
+			}
+		}
+	}
+
+	"ozubu_spiderling_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"broodmother_incapacitating_bite"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_per_distance"		"2 20 1000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"dot_damage"		"60 500 5000"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ozubu_spiderling_passive"
+			{
+				"IsHidden" "1"
+				"Passive"	"1"
+				"IsBuff"			"1"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/events/descent_of_winterblight_dec_2017/descent_of_winterblight_ai"
+						"Function"		"ozubu_transfer_debuff"
+					}
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_ozubu_spiderling_poison"
+						"Target" 		"TARGET"
+						"Duration"		"3"
+					}
+				}
+			}
+			"modifier_ozubu_spiderling_poison"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"ThinkInterval"  "0.1"
+				"EffectName"				"particles/neutral_fx/gnoll_poison_debuff.vpcf"
+				"EffectAttachType"			"attach_hitloc"
+				"OnIntervalThink"
+				{
+					"Damage"
+					{
+						"Target"		"TARGET"
+						"Type"			"DAMAGE_TYPE_MAGICAL"
+						"Damage"		"%dot_damage"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_generic_summon"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"BaseClass"	"ability_datadriven"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityTextureName"	"seafortress/generic_summon"
+		"AbilityCooldown"				"5"
+		"AbilityManaCost"				"0"
+		"AbilityCastPoint"				"0.5"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/events/descent_of_winterblight_dec_2017/descent_of_winterblight_ai"
+				"Function"		"winterblight_summon_ability"
+			}
+		}
+		"Modifiers"
+		{
+
+		}
+	}
+
+	"winterblight_descent_boss_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"redfall/autumn_spawner"
+		"MaxLevel"	"3"
+		"Modifiers"
+		{
+			"modifier_boss_passive"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
+				}
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/events/descent_of_winterblight_dec_2017/descent_of_winterblight_ai"
+						"Function"		"winterblight_boss_think"
+					}
+				}
+			}
+			"modifier_boss_dying"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"OverrideAnimation"     "ACT_DOTA_FLAIL"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STAET_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.8"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/events/descent_of_winterblight_dec_2017/descent_of_winterblight_ai"
+						"Function"		"winterblight_boss_dying_particle"
+					}
+				}
+			}
+		}
+	}
