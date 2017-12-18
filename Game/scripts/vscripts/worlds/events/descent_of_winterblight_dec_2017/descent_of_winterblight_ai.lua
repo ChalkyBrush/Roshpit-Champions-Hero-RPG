@@ -425,6 +425,21 @@ function ozubu_think(event)
 	end
 end
 
+function ozubu_take_damage(event)
+	local caster = event.caster
+	if caster.deathLock then
+		return false
+	end
+	local attacker = event.attacker
+	local distance = WallPhysics:GetDistance2d(caster, attacker)
+	if distance > 1000 then
+		CustomAbilities:QuickAttachParticle("particles/econ/events/nexon_hero_compendium_2014/blink_dagger_end_nexon_hero_cp_2014.vpcf", caster, 3)
+		caster:SetAbsOrigin(attacker:GetAbsOrigin()+RandomVector(RandomInt(100,500)))
+		CustomAbilities:QuickAttachParticle("particles/econ/events/nexon_hero_compendium_2014/blink_dagger_end_nexon_hero_cp_2014.vpcf", caster, 3)
+		EmitSoundOn("Winterblight.Ozubu.Teleport", caster)
+	end
+end
+
 function ozubu_projectile_hit(event)
 	local caster = event.caster
 	local target = event.target
@@ -490,7 +505,7 @@ function winterblight_summon_ability(event)
 				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_broodmother/broodmother_spiderlings_spawn_b_lv.vpcf", spider, 2)
 				Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, spider,"modifier_sea_fortress_ai", {})
 				if GameState:GetDifficultyFactor() == 3 then
-					spider.reduc = 0.0001
+					spider.reduc = 0.00001
 				end
 			end
 			Events:CreateLightningBeamWithParticle(caster:GetAbsOrigin()+Vector(0,0,80), spider:GetAbsOrigin(), "particles/units/heroes/hero_wisp/tether_green.vpcf", 0.9)
@@ -609,7 +624,7 @@ function winterblight_boss_dying_particle(event)
 			if caster.rewardMult > 0 then
 				EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Torturok.Death", caster)
 				caster.rewardsGranted = 1
-				Events:MithrilReward(caster:GetAbsOrigin(), 16000*caster.rewardMult)
+				Events:MithrilReward(caster:GetAbsOrigin(), 12000*caster.rewardMult)
 				Timers:CreateTimer(8, function()
 					caster.deathLock = true
 					winterblight_boss_final_death_animation(caster)
@@ -620,7 +635,7 @@ function winterblight_boss_dying_particle(event)
 		if caster.rewardsGranted < 5 then
 			if caster.rewardMult > 0 then
 				caster.rewardsGranted = caster.rewardsGranted + 1
-				Glyphs:DropArcaneCrystals(caster:GetAbsOrigin(), 20*caster.rewardMult)
+				Glyphs:DropArcaneCrystals(caster:GetAbsOrigin(), 11*caster.rewardMult)
 			end
 		else
 			caster.deathLock = true

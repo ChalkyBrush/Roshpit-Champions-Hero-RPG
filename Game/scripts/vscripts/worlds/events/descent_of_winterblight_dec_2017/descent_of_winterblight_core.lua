@@ -133,6 +133,9 @@ function Events:SpawnOzubu(position)
 		Events.Ozubu = Events:SpawnDescentOfWinterblightDungeonUnit("descent_of_winterblight_ozubu", position, 9, 12, "Winterblight.Ozubu.Aggro", RandomVector(1), false)
 		Events.Ozubu:SetRenderColor(200, 200, 255)
 		Events.Ozubu.maxSummons = (1 - (Events.Ozubu:GetHealth()/Events.Ozubu:GetMaxHealth()))*23 + 2
+    	if GameState:GetDifficultyFactor() == 3 then
+    		unit.reduc = 0.000002
+    	end
 	end)
 end
 

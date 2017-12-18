@@ -114195,6 +114195,15 @@
 						"damage"		"%damage"
 					}
 				}
+				"OnTakeDamage"
+				// "%attack_damage" is set to the damage value after mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/events/descent_of_winterblight_dec_2017/descent_of_winterblight_ai"
+						"Function"		"ozubu_take_damage"
+					}
+				}
 			}
 			"modifier_chilled"
 			{
@@ -114401,7 +114410,7 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityTextureName"	"seafortress/generic_summon"
-		"AbilityCooldown"				"5"
+		"AbilityCooldown"				"2.5"
 		"AbilityManaCost"				"0"
 		"AbilityCastPoint"				"0.5"
 		"OnSpellStart"

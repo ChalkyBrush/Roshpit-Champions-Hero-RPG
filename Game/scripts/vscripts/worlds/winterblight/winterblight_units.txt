@@ -666,6 +666,7 @@
             "particle"  "particles/units/heroes/hero_wisp/tether_green.vpcf"
             "particle"  "particles/roshpit/winterblight/boss_dying_tgt.vpcf"
             "particle"  "particles/roshpit/seafortress/big_dust.vpcf"
+            "particle"  "particles/econ/events/nexon_hero_compendium_2014/blink_dagger_end_nexon_hero_cp_2014.vpcf"
         }
         "HasInventory"  "0"
         "SelectionGroup"    "Dark_Fighter"
@@ -708,9 +709,10 @@
         "Ability4"      "fire_temple_steadfast"
         "Ability5"          "ability_mega_haste"
         "Ability6"          "ability_magic_immune_break"
-        "Ability7"      "winterblight_generic_summon"
-        "Ability8"      "dungeon_creep"
-        "Ability9"      "winterblight_descent_boss_ability"
+        "Ability7"      "creature_pure_strike"
+        "Ability8"      "winterblight_generic_summon"
+        "Ability9"      "dungeon_creep"
+        "Ability10"      "winterblight_descent_boss_ability"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
