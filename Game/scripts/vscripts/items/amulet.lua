@@ -194,6 +194,8 @@ function Amulet:action(propertyName, propertyValue, hero, inventory_unit, trinke
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_arcane_charm", item)
 	elseif propertyName == "winterblight_skull_ring" then
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_winterblight_skull_ring", item)
+	elseif string.match(propertyName, "_glyph_") then
+		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_winterblight_skull_ring", item)
 	end
 	hero.amulet = item
 end

@@ -490,7 +490,7 @@ function winterblight_summon_ability(event)
 				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_broodmother/broodmother_spiderlings_spawn_b_lv.vpcf", spider, 2)
 				Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, spider,"modifier_sea_fortress_ai", {})
 				if GameState:GetDifficultyFactor() == 3 then
-					spider.reduc = 0.9999
+					spider.reduc = 0.0001
 				end
 			end
 			Events:CreateLightningBeamWithParticle(caster:GetAbsOrigin()+Vector(0,0,80), spider:GetAbsOrigin(), "particles/units/heroes/hero_wisp/tether_green.vpcf", 0.9)
@@ -536,6 +536,7 @@ function winterblight_boss_think(event)
 		url = url.."boss="..bossName
 		url = url.."&key1="..SaveLoad.key1
 		url = url.."&key2="..SaveLoad.key2
+		url = url.."&mapname="..GetMapName()
 		CreateHTTPRequestScriptVM("POST", url ):Send( function( result )
 			if result.StatusCode == 200 then
 				local resultTable = JSON:decode(result.Body)
@@ -564,7 +565,11 @@ function winterblight_boss_think(event)
 						caster.rewardMult = 2
 					end
 				end
-				local luck = RandomInt(1, 50) - GameState:GetPlayerPremiumStatusCount()*2 - 15*(caster.rewardMult-1)
+				if GameState:GetDifficultyFactor() == 2 then
+					caster.rewardMult = caster.rewardMult/2
+				end
+				local max = 58 - GameState:GetPlayerPremiumStatusCount()*2 - 15*(caster.rewardMult-1)
+				local luck = RandomInt(1, max)
 				if luck <= 1 then
 					RPCItems:RollVenomortArcana2(caster:GetAbsOrigin())
 				end
@@ -587,7 +592,7 @@ function winterblight_boss_dying_particle(event)
 		return false
 	end
 	if caster:GetUnitName() == "descent_of_winterblight_aertega" then
-		if caster.rewardsGranted < 10 then
+		if caster.rewardsGranted < 11*caster.rewardMult then
 			if caster.rewardMult > 0 then
 				caster.rewardsGranted = caster.rewardsGranted + 1
 				for i = 1, caster.rewardMult, 1 do
@@ -603,7 +608,7 @@ function winterblight_boss_dying_particle(event)
 			if caster.rewardMult > 0 then
 				EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Torturok.Death", caster)
 				caster.rewardsGranted = 1
-				Events:MithrilReward(caster:GetAbsOrigin(), 12000*caster.rewardsGranted)
+				Events:MithrilReward(caster:GetAbsOrigin(), 16000*caster.rewardMult)
 				Timers:CreateTimer(8, function()
 					caster.deathLock = true
 					winterblight_boss_final_death_animation(caster)
@@ -614,7 +619,7 @@ function winterblight_boss_dying_particle(event)
 		if caster.rewardsGranted < 5 then
 			if caster.rewardMult > 0 then
 				caster.rewardsGranted = caster.rewardsGranted + 1
-				Glyphs:DropArcaneCrystals(caster:GetAbsOrigin(), 12*caster.rewardMult)
+				Glyphs:DropArcaneCrystals(caster:GetAbsOrigin(), 20*caster.rewardMult)
 			end
 		else
 			caster.deathLock = true
@@ -622,7 +627,7 @@ function winterblight_boss_dying_particle(event)
 		end
 	end
 	if caster.rewardMult > 0 then
-		local skullReward = math.ceil(GameState:GetPlayerPremiumStatusCount()/2) + 1
+		local skullReward = math.ceil(GameState:GetPlayerPremiumStatusCount()/3) + 1
 		if caster.skullRings < skullReward*caster.rewardMult then
 			 caster.skullRings = caster.skullRings + 1
 			 RPCItems:RollWinterblightSkullRing(caster:GetAbsOrigin())

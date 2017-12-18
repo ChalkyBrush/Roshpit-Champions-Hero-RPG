@@ -82828,6 +82828,7 @@
             "particle"  "particles/econ/items/crystal_maiden/crystal_maiden_maiden_of_icewrack/maiden_freezing_field_snow_arcana1.vpcf"
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_viper.vsndevts"
             "particle"  "particles/roshpit/winterblight/boss_dying_tgt.vpcf"
+            "particle"  "particles/roshpit/seafortress/big_dust.vpcf"
         }
         "HasInventory"  "0"
         "SelectionGroup"    "rabid_walker"
@@ -82925,6 +82926,8 @@
             "particle"  "particles/econ/items/crystal_maiden/ti7_immortal_shoulder/cm_ti7_immortal_frostbite_snow_explode.vpcf"
 
             "particle"  "particles/roshpit/winterblight/boss_dying_tgt.vpcf"
+            "particle"  "particles/roshpit/seafortress/big_dust.vpcf"
+            "model"     "models/items/tidehunter/living_iceberg_collection_belt/living_iceberg_collection_belt.vmdl"
         }
         "HasInventory"  "0"
         "SelectionGroup"    "Dark_Fighter"
@@ -83031,6 +83034,7 @@
             "particle"  "particles/units/heroes/hero_broodmother/broodmother_spiderlings_spawn_b_lv.vpcf"
             "particle"  "particles/units/heroes/hero_wisp/tether_green.vpcf"
             "particle"  "particles/roshpit/winterblight/boss_dying_tgt.vpcf"
+            "particle"  "particles/roshpit/seafortress/big_dust.vpcf"
         }
         "HasInventory"  "0"
         "SelectionGroup"    "Dark_Fighter"

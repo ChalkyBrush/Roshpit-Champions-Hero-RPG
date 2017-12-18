@@ -22,8 +22,6 @@ function Events:GetWinterblightPositions()
 end
 
 function Events:ProcessWinterblight(resultTable)
-	print("PROCESS")
-	DeepPrintTable(resultTable)
 	if not Events.Ozubu then
 		if not Events.OzubuSlain then
 			if GetMapName() == resultTable.ozubu_map then
@@ -111,7 +109,7 @@ end
 
 function Events:SpawnAertega(position)
 	PrecacheUnitByNameAsync("descent_of_winterblight_aertega", function(...) end)
-	Timers:CreateTimer(3, function()
+	Timers:CreateTimer(8, function()
 		Events.Aertega = Events:SpawnDescentOfWinterblightDungeonUnit("descent_of_winterblight_aertega", position, 9, 12, "Events.DescentOfWinterblight.Aertega.Aggro", RandomVector(1), false)
 		Events.Aertega:SetRenderColor(100, 100, 255)
 	end)
@@ -119,11 +117,11 @@ end
 
 function Events:SpawnTorturok(position)
 	PrecacheUnitByNameAsync("descent_of_winterblight_torturok", function(...) end)
-	Timers:CreateTimer(3, function()
+	Timers:CreateTimer(8, function()
 		Events.Torturok = Events:SpawnDescentOfWinterblightDungeonUnit("descent_of_winterblight_torturok", position, 9, 12, "Torturok.Aggro", RandomVector(1), false)
 		Events.Torturok:SetRenderColor(100, 100, 255)
 		if GameState:GetDifficultyFactor() == 3 then
-			Events.Torturok.reduc = 0.999999
+			Events.Torturok.reduc = 0.000005
 		end
 	end)
 end
@@ -131,7 +129,7 @@ end
 function Events:SpawnOzubu(position)
 	PrecacheUnitByNameAsync("descent_of_winterblight_ozubu", function(...) end)
 	PrecacheUnitByNameAsync("ozubu_spiderling", function(...) end)
-	Timers:CreateTimer(3, function()
+	Timers:CreateTimer(8, function()
 		Events.Ozubu = Events:SpawnDescentOfWinterblightDungeonUnit("descent_of_winterblight_ozubu", position, 9, 12, "Winterblight.Ozubu.Aggro", RandomVector(1), false)
 		Events.Ozubu:SetRenderColor(200, 200, 255)
 		Events.Ozubu.maxSummons = (1 - (Events.Ozubu:GetHealth()/Events.Ozubu:GetMaxHealth()))*23 + 2
@@ -161,9 +159,9 @@ function Events:SpawnDescentOfWinterblightDungeonUnit(unitName, spawnPoint, minD
     Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit,"modifier_sea_fortress_ai", {})
     -- unit.reduc = 0
     if GameState:GetDifficultyFactor() == 3 then
-    	unit.reduc = 0.99999
+    	unit.reduc = 0.00005
     elseif GameState:GetDifficultyFactor() == 2 then
-    	unit.reduc = 0.9
+    	unit.reduc = 0.5
     end
     return unit
 end

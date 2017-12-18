@@ -5555,7 +5555,7 @@ function RPCItems:RollWinterblightSkullRing(deathLocation)
     
     local maxFactor = RPCItems:GetMaxFactor()
     
-    item.property1name = "winterblight_skull_ring"
+    item.property1name = glyphName[1]
     local value = 1
     item.property1 = value
     
