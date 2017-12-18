@@ -557,16 +557,16 @@ function RPCItems:RollVenomortArcana1(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_a"
+        item.property2name = "rune_a_d"
         item.property2 = math.ceil(value*1.1)
     elseif luck <= 70 then
-        item.property2name = "rune_b_a"
+        item.property2name = "rune_b_d"
         item.property2 = math.ceil(value*1.1)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_a"
+        item.property2name = "rune_c_d"
         item.property2 = math.ceil(value*1) 
     else
-        item.property2name = "rune_d_a"
+        item.property2name = "rune_d_d"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)

@@ -531,6 +531,7 @@ function winterblight_boss_think(event)
 		elseif caster:GetUnitName() == "descent_of_winterblight_ozubu" then
 			EmitSoundOn("Ozubu.Death", caster)
 		end
+		Dungeons.itemLevel = math.max(Dungeons.itemLevel, 150)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_boss_dying", {})
 		local url = ROSHPIT_URL.."/champions/winterblight_update?"
 		url = url.."boss="..bossName
@@ -546,21 +547,21 @@ function winterblight_boss_think(event)
 				if bossName == "ozubu" then
 					Events.OzubuSlain = true
 					if resultTable.ozubu_discovered == 1 then
-						caster.rewardMult = 3
+						caster.rewardMult = 4
 					elseif resultTable.ozubu_discovered < resultTable.torturok_discovered and resultTable.ozubu_discovered < resultTable.aertega_discovered then
 						caster.rewardMult = 2
 					end
 				elseif bossName == "torturok" then
 					Events.TorturokSlain = true
 					if resultTable.torturok_discovered == 1 then
-						caster.rewardMult = 3
+						caster.rewardMult = 4
 					elseif resultTable.torturok_discovered < resultTable.ozubu_discovered and resultTable.torturok_discovered < resultTable.aertega_discovered then
 						caster.rewardMult = 2
 					end
 				elseif bossName == "aertega" then
 					Events.AertegaSlain = true
 					if resultTable.aertega_discovered == 1 then
-						caster.rewardMult = 3
+						caster.rewardMult = 4
 					elseif resultTable.aertega_discovered < resultTable.ozubu_discovered and resultTable.aertega_discovered < resultTable.torturok_discovered then
 						caster.rewardMult = 2
 					end
