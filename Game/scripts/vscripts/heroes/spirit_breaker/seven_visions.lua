@@ -1,20 +1,20 @@
 require('heroes/spirit_breaker/whirling_flail')
-
+require('/heroes/spirit_breaker/helpers')
+local Helper = require('/heroes/util/helper')
+function seven_visions_channel(event)
+	print('channel function')
+	phantomRaceRefresh(event.caster, 4)
+end
 function seven_visions_start(event)
 	local ability = event.ability
 	local attacks = event.attack_count
 	local caster = event.caster
 	local damage = event.damage
 	if caster:HasModifier("modifier_duskbringer_glyph_5_1") then
-		attacks = attacks + 2
+		attacks = attacks + 7
 	end
-	if caster:HasModifier("modifier_duskbringer_glyph_5_a") then
-		ability:EndCooldown()
-		ability:StartCooldown(ability:GetCooldown(ability:GetLevel())/2)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seven_visions_striking_glyphed", {duration = (attacks-1)*0.25})
-	else
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seven_visions_striking", {duration = (attacks-1)*0.5})
-	end
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_seven_visions_striking_glyphed", {duration = (attacks-1)*0.3})
+
 	ability.a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d", "duskbringer")
 	ability.b_d_level = Runes:GetTotalRuneLevel(caster, 2, "b_d", "duskbringer")
 	ability.c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "duskbringer")
@@ -28,13 +28,13 @@ end
 function seven_visions_think(event)
 	local ability = event.ability
 	local caster = event.caster
-	local damage = event.damage
 	seven_visions_strike(caster, caster:GetAbsOrigin(), damage, ability)
 end
 
 function seven_visions_strike(caster, position, damage, ability)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, 700, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	local enemy = enemies[RandomInt(1, #enemies)]
+	local damage = caster:GetAverageTrueAttackDamage(caster)
 	if #enemies > 0 then
 		caster:SetAbsOrigin(enemy:GetAbsOrigin()+RandomVector(120))
 		local fv = (enemy:GetAbsOrigin()-caster:GetAbsOrigin()):Normalized()
@@ -43,19 +43,10 @@ function seven_visions_strike(caster, position, damage, ability)
 		EmitSoundOn("Hero_Spirit_Breaker.NetherStrike.End", caster)
 		StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_ATTACK, rate=2.0})
 			Timers:CreateTimer(0.2, function()
-				local modifierKnockback =
-				{
-					center_x = casterPos.x,
-					center_y = casterPos.y,
-					center_z = casterPos.z,
-					duration = 1.0,
-					knockback_duration = 0.6,
-					knockback_distance = 220,
-					knockback_height = 50
-				}
 				if ability.b_d_level > 0 then
-					local flailAbility = caster:FindAbilityByName("whirling_flail")
-					increment_duskfire_stacks(caster, enemy, flailAbility, ability.b_d_level)
+					print('[GAME STATE] stacks')
+					Helper.updateStackModifier(enemy, caster, ability, 'duskbringer_b_d', R2_DURATION, R2_MAX_STACKS_COUNT, ability.b_d_level)
+
 				end
 				if ability.c_d_level > 0 then
 					local runeAbility = caster.runeUnit3:FindAbilityByName("duskbringer_rune_c_d")
@@ -64,7 +55,6 @@ function seven_visions_strike(caster, position, damage, ability)
 					local current_stack = caster:GetModifierStackCount("modifier_duskbringer_rune_c_d", runeAbility)
 					caster:SetModifierStackCount( "modifier_duskbringer_rune_c_d", runeAbility, current_stack + ability.c_d_level )
 				end
-				damage = damage
 				caster:PerformAttack(enemy, true, true, true, true, false, false, false)
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 4, RPC_ELEMENT_GHOST, RPC_ELEMENT_NORMAL)
 				EmitSoundOn("Hero_Spirit_Breaker.GreaterBash", enemy)
@@ -84,8 +74,8 @@ function seven_visions_strike(caster, position, damage, ability)
 					Timers:CreateTimer(0.8, function() 
 					  ParticleManager:DestroyParticle( pfx2, false )
 					end) 
-					local enemies_a_d = FindUnitsInRadius( caster:GetTeamNumber(), enemy:GetAbsOrigin(), nil, 480, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-					local a_d_damage = ability.a_d_level*470
+					local enemies_a_d = FindUnitsInRadius( caster:GetTeamNumber(), enemy:GetAbsOrigin(), nil, 680, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+					local a_d_damage = ability.a_d_level * R1_PERCENT/100 * damage
 					for _,enemy_a_d in pairs(enemies_a_d) do
 						Filters:TakeArgumentsAndApplyDamage(enemy_a_d, caster, a_d_damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
 					end

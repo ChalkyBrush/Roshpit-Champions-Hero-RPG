@@ -1,4 +1,5 @@
 require('heroes/spirit_breaker/specter_rush')
+require('/heroes/spirit_breaker/constants')
 
 function begin_manifestation(event)
 	local caster = event.caster
@@ -26,34 +27,13 @@ function begin_manifestation(event)
 	if c_c_level > 0 then
 		local casterOrigin = caster:GetAbsOrigin()
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), casterOrigin, nil, 360, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-		local modifierKnockback =
-		{
-			center_x = casterOrigin.x,
-			center_y = casterOrigin.y,
-			center_z = casterOrigin.z,
-			duration = 0.7,
-			knockback_duration = 0.5,
-			knockback_distance = knockback_distance,
-			knockback_height = 70
-		}
+
+		local flailAbility = caster:FindAbilityByName("whirling_flail")
 		if #enemies > 0 then
 			EmitSoundOn("Hero_Spirit_Breaker.GreaterBash", caster)
-			local damage = c_c_level*1000 + caster:GetAgility()*8*c_c_level
+			local stacksCount = T71_STACKS_INCREASE * Runes:Procs(c_c_level, E3_PROC_CHANCE, 1)
 			for _,enemy in pairs(enemies) do
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
-				if not enemy.jumpLock then
-					enemy:AddNewModifier( caster, nil, "modifier_knockback", modifierKnockback )
-				end
-				local particleName = "particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash.vpcf"
-				local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, enemy )
-				ParticleManager:SetParticleControlEnt(pfx, 0, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
-				Timers:CreateTimer(0.8, function() 
-				  ParticleManager:DestroyParticle( pfx, false )
-				end) 	
-				if d_c_level > 0 then
-					d_c_up(caster, d_c_level, damage)
-				end
-
+				increment_duskfire_stacks(caster,enemy, flailAbility, stacksCount)
 			end
 		end 			
 	end

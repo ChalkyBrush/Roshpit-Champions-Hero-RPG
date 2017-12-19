@@ -21554,6 +21554,7 @@
 
 	}
 
+
 	"whirling_flail"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -21619,11 +21620,43 @@
 		}
 		"Modifiers"
 		{
+
+			"modifier_duskbringer_think1"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/spirit_breaker/whirling_flail.lua"
+						"Function"		"duskbringer_passive_think"
+					}
+				}
+			}
 			"modifier_flail_passive"
 			{
 				"IsHidden"	"1"
 				"Passive"	"1"
 				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/spirit_breaker/whirling_flail.lua"
+						"Function"		"flail_a_a_hit"
+					}
+				}
+			}
+			"modifier_duskbringer_think"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"ThinkInterval" "1"
+				"OnThinkInterval"
 				// "%attack_damage" is set to the damage value before mitigation
 				{
 					"RunScript"
@@ -21766,7 +21799,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"800 4600 24000 40000 90000 200000 350000"
+				"damage"				"400 1200 1600 2000 2500 3000 3500"
 			}
 			"02"
 			{
@@ -21949,6 +21982,22 @@
 		}
         "Modifiers"
         {
+			"modifier_duskbringer_think2"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/spirit_breaker/ghost_hallow.lua"
+						"Function"		"duskbringer_passive_think"
+					}
+				}
+			}
         	"modifier_hidden_ghost_hallow_passive"
         	{
         		"Passive"	"1"
@@ -22079,8 +22128,8 @@
 		"MaxLevel"				 		"7"
 		"AbilityCastAnimation"			"ACT_DOTA_SPAWN"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AOERadius"						"300"
-		"AbilityCastRange"				"300"
+		"AOERadius"						"500"
+		"AbilityCastRange"				"500"
 		"precache"
 		{
 
@@ -22108,7 +22157,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"stun_duration"				"0.06 0.09 0.12 0.15 0.18 0.21 0.24"
+				"stun_duration"			"0.06 0.09 0.12 0.15 0.18 0.21 0.24"
 			}
 		}
 		"OnSpellStart"
@@ -22118,7 +22167,7 @@
         		"ScriptFile"	"heroes/spirit_breaker/arcana_ability.lua"
         		"Function"		"arcana_ability_start"
         		"damage"		"%damage"
-        		"Target"			"POINT"
+        		"Target"		"POINT"
 			}
 		}
         "Modifiers"
@@ -22211,7 +22260,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"4.7 4.5 4.3 4.1 3.9 3.7 3.5"
+		"AbilityCooldown"				"3.7 3.5 3.3 3.1 2.9 2.7 2.5"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -22395,7 +22444,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"5.7 5.5 5.3 5.1 4.9 4.7 4.5"
+		"AbilityCooldown"				"4.7 4.5 4.3 4.1 3.9 3.7 3.5"
 		"AbilityCastRange"				"800 900 1000 1100 1200 1300 1400"
 
 		// Cost
@@ -22516,6 +22565,16 @@
 				"EffectAttachType"	"follow_origin"
 
 			}
+			"modifier_duskbringer_ghost_form"
+			{
+			    "Passive"   "1"
+			    "IsHidden"  "1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
+                "Aura" "modifier_duskbringer_ghost_form_aura_lua"
+                "Aura_Radius" "600"
+                "Aura_Teams" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+                "Aura_Types" "DOTA_UNIT_TARGET_HERO"
+			}
         }
 
 	}
@@ -22610,6 +22669,13 @@
 		"SideShop"	"1"
 		"OnSpellStart"
 		{
+
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/spirit_breaker/seven_visions"
+				"Function"		"seven_visions_channel"
+			}
+
 			"ApplyModifier"
 			{
 				"Target"	"CASTER"
@@ -22752,6 +22818,16 @@
 					}
 				}
 			}
+			"modifier_duskbringer_b_d_visible"
+			{
+				"IsBuff"	"1"
+				"IsPurgable"	"0"
+			}
+			"modifier_duskbringer_b_d_invisible"
+			{
+				"IsBuff"	"1"
+				"IsPurgable"	"0"
+			}
 			"modifier_seven_visions_striking_glyphed"
 			{
 				"IsBuff"	"1"
@@ -22759,13 +22835,14 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL" "1"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%bonus_damage"
 				}
 				"States"
 				{
 					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"ThinkInterval"  "0.24"
+				"ThinkInterval"  "0.3"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -22812,7 +22889,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"bonus_damage"	"700 2400 7000 16000 28000 40000 60000"
+				"bonus_damage"	"7000 24000 100000 400000 1400000 2400000 5000000"
 			}
 			"03"
 			{
@@ -58821,8 +58898,7 @@
 		}
 	}
 	//-----------------------------------DUSKBRINGER--------------------
-
-	"duskbringer_rune_a_a"
+"duskbringer_rune_a_a"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -58914,12 +58990,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1000"
+				"property_one"			"4000"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"15"
+				"property_two"			"100"
 			}
 		}
 		"Modifiers"
@@ -58935,7 +59011,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/spirit_breaker/specter_rush.lua"
+						"ScriptFile"	"heroes/spirit_breaker/helpers.lua"
 						"Function"		"rune_unit_1_think"
 					}
 				}

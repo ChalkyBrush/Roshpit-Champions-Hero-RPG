@@ -144,43 +144,6 @@ function charge_slide_end(event)
 	caster.EFV = nil
 end
 
-function rune_unit_1_think(event)
-	local caster = event.caster
-	local ability = event.ability
-	local hero = caster.hero
-	local totalLevel = Runes:GetTotalRuneLevel(hero, 1, "a_c", "duskbringer")
-	if totalLevel > 0 then
-		local target = hero
-		local ability = event.ability
-		local caster = event.caster
-		if not ability.lastPos then
-			ability.lastPos = target:GetAbsOrigin()
-		end
-		if not ability.distanceMoved then
-			ability.distanceMoved = 0
-		end
-		ability.newPos = target:GetAbsOrigin()
-		ability.hero = target
-		local distance = WallPhysics:GetDistance(ability.newPos,ability.lastPos)
-		ability.distanceMoved = ability.distanceMoved + distance
-		local a_c_duration = Filters:GetAdjustedBuffDuration(caster, 4.5, false)
-		if ability.distanceMoved > 1000 then
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_duskbringer_rune_a_c_effect", {duration = a_c_duration})
-            local current_stack = target:GetModifierStackCount( "modifier_duskbringer_rune_a_c_effect", ability )
-            local newStacks = math.min(current_stack + 1, totalLevel)
-        	target:SetModifierStackCount( "modifier_duskbringer_rune_a_c_effect", ability, newStacks )
-        	ability.phantomPaceStacks = newStacks
-        	if target:HasModifier("modifier_duskbringer_glyph_3_1") then
-        		ability:ApplyDataDrivenModifier(caster, target, "modifier_duskbringer_glyph_3_1_effect", {duration = a_c_duration})
-        		target:SetModifierStackCount( "modifier_duskbringer_glyph_3_1_effect", ability, newStacks)
-        	end
-        	ability.distanceMoved = ability.distanceMoved%1000
-		end
-
-		ability.lastPos = target:GetAbsOrigin()
-	end
-end
-
 function rune_unit_2_think(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -204,21 +167,5 @@ function rune_unit_4_think(event)
 		d_a_ability.a_a_level = Runes:GetTotalRuneLevel(hero, 1, "a_a", "duskbringer")
 	else
 		hero:RemoveModifierByName("modifier_duskbringer_rune_d_a")
-	end
-end
-
-function phantom_pace_duration_end(event)
-	local ability = event.ability
-	local caster = event.caster
-	local target = event.target
-	ability.phantomPaceStacks = ability.phantomPaceStacks - 1
-	local a_c_duration = Filters:GetAdjustedBuffDuration(caster, 4.5, false)
-	if ability.phantomPaceStacks > 0 then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_duskbringer_rune_a_c_effect", {duration = a_c_duration})
-		target:SetModifierStackCount( "modifier_duskbringer_rune_a_c_effect", ability, ability.phantomPaceStacks )
-    	if target:HasModifier("modifier_duskbringer_glyph_3_1") then
-    		ability:ApplyDataDrivenModifier(caster, target, "modifier_duskbringer_glyph_3_1_effect", {duration = a_c_duration})
-    		target:SetModifierStackCount( "modifier_duskbringer_glyph_3_1_effect", ability, ability.phantomPaceStacks )
-    	end
 	end
 end

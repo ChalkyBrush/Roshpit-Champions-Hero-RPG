@@ -391,10 +391,6 @@ function GameMode:OnPlayerChat(keys)
 --  elseif mapName == "rpc_sea_fortress" then
 --    position = Vector(844, -15488)
 --  end
---  if string.match(text, "debug items") then
---
---  end
---
 --  if string.match(text, "debug boss") then
 --    if mapName == "rpc_roshpit_arena" then
 --      Arena:OpenPit(7)
@@ -414,14 +410,18 @@ function GameMode:OnPlayerChat(keys)
 --    local drop = CreateItemOnPositionSync( position, item )
 --    RPCItems:DropItem(item, position)
 --    RPCItems:RollReanimationStone(position)
---    RPCItems:RollTrapperArcana1(position)
+--    RPCItems:RollDuskbringerArcana1(position)
+--  end
+--
+--  if string.match(text, "debug items") then
+--    RPCItems:RollVoyagerBoots(position)
 --  end
 --
 --  if string.match(text, "debug glyphs") then
---    local heroName = 'astral'
+--    local heroName = 'duskbringer'
 --    Glyphs:RollGlyphAll("item_rpc_" .. heroName .. "_glyph_5_a", position, 0)
 --    for tier = 1,7 do
---      for rowItem = 1,1 do
+--      for rowItem = 1,2 do
 --        local glyphName = "item_rpc_"..heroName.."_glyph_"..tier.."_"..rowItem
 --        Glyphs:RollGlyphAll(glyphName, position, 0)
 --      end

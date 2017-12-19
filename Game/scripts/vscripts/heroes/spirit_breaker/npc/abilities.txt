@@ -1,0 +1,1364 @@
+
+	"whirling_flail"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"spirit_breaker_nether_strike"
+		"AbilityCastAnimation"	"ACT_DOTA_TELEPORT"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCooldown"	"7"
+		"AbilityChannelTime"	"3.5"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash.vpcf"
+			"particle"		"particles/units/heroes/hero_spirit_breaker/spirit_breaker_charge_wave.vpcf"
+			"particle"		"particles/units/heroes/hero_spirit_breaker/spirit_breaker_nether_strike_begin_flash.vpcf"
+			"particle"		"particles/units/heroes/hero_huskar/duskbringer_flail_fire.vpcf"
+			"particle"		"particles/units/heroes/hero_bloodseeker/duskbringer_b_a_spell_bloodbath_bubbles_.vpcf"
+			"particle"		"particles/units/heroes/hero_oracle/duskbringer_c_a_heal_heal.vpcf"
+		}
+
+		"AbilityManaCost"	"0"
+		"SideShop"	"1"
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_whirling_flail"
+				"Duration"		"3.5"
+			}
+
+		}
+
+		"OnChannelSucceeded"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_whirling_flail"
+			}
+		}
+
+		"OnChannelFinish"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_whirling_flail"
+			}
+
+		}
+
+		"OnChannelInterrupted"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_whirling_flail"
+			}
+		}
+		"Modifiers"
+		{
+
+			"modifier_duskbringer_think1"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/spirit_breaker/whirling_flail.lua"
+						"Function"		"duskbringer_passive_think"
+					}
+				}
+			}
+			"modifier_flail_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/spirit_breaker/whirling_flail.lua"
+						"Function"		"flail_a_a_hit"
+					}
+				}
+			}
+			"modifier_whirling_flail"
+			{
+				"IsPurgable"		"0"
+				"IsBuff"			"1"
+				"IsDebuff"			"0"
+				"IsHidden"			"0"
+				"OverrideAnimation"     "ACT_DOTA_TELEPORT"
+				"ThinkInterval"  "0.24"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/spirit_breaker/whirling_flail.lua"
+						"Function"		"whirling_flail_think"
+						"damage"		"%damage"
+						"knockback_distance"	"%knockback"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/spirit_breaker/whirling_flail.lua"
+						"Function"		"whirling_flail_start"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_whirling_flail_ghost_fire"
+						"Target" 		"TARGET"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/spirit_breaker/whirling_flail.lua"
+						"Function"		"whirling_flail_end"
+					}
+				}
+
+			}
+			"modifier_dusk_fire_flail"
+			{
+	        	"IsHidden"			"0"
+	            "IsBuff"			"0"
+	            "Duration"			"4"
+	            "TextureName"		"rpc/duskbringer_rune_a_a"
+				"EffectName"		"particles/units/heroes/hero_huskar/duskbringer_flail_fire.vpcf"
+				"EffectAttachType" 	"attach_origin"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+	            	"RunScript"
+	            	{
+	            		"ScriptFile"	"heroes/spirit_breaker/whirling_flail.lua"
+	            		"Function"		"a_a_fire_think"
+	            		"target"		"TARGET"
+	            	}
+				}
+			}
+			"modifier_whirling_flail_ghastly_wind"
+			{
+	        	"IsHidden"			"0"
+	            "IsBuff"			"0"
+	            "Duration"			"3.5"
+				"ThinkInterval"  	"0.2"
+				"OnIntervalThink"
+				{
+	            	"RunScript"
+	            	{
+	            		"ScriptFile"	"heroes/spirit_breaker/whirling_flail.lua"
+	            		"Function"		"ghastly_wind_think"
+	            	}
+				}
+			}
+			"modifier_whirling_flail_ghastly_wind_effect"
+			{
+				"IsHidden"		"0"
+				"IsDebuff"		"1"
+				"Duration"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-12"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-10"
+				}
+			}
+			"modifier_whirling_flail_imbue_shade"
+			{
+	        	"IsHidden"			"0"
+	            "IsBuff"			"0"
+	            "Duration"			"3.5"
+				"ThinkInterval"  	"0.5"
+				"OnIntervalThink"
+				{
+	            	"RunScript"
+	            	{
+	            		"ScriptFile"	"heroes/spirit_breaker/whirling_flail.lua"
+	            		"Function"		"imbue_shade_think"
+	            	}
+					"FireEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_oracle/duskbringer_c_a_heal_heal.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_whirling_flail_imbue_shade_armor"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_whirling_flail_imbue_shade_armor"
+			{
+	        	"IsHidden"			"0"
+	            "IsBuff"			"0"
+	            "Duration"			"3.5"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"100"
+				}
+			}
+
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"400 600 800 1000 1200 1400 1600"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"knockback"				"70 90 110 130 150 170 180"
+			}
+		}
+
+	}
+
+	"revenant_strikes"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"spirit_breaker_greater_bash"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_elder_titan/duskbringer_a_b.vpcf"
+			"particle"					"particles/units/heroes/hero_spirit_breaker/duskbringer_b_b_effect.vpcf"
+			"particle"					"particles/units/heroes/hero_slardar/duskbringer_d_d_amp_damage.vpcf"
+		}
+
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.3"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 240 400 700 1200 2400 3400"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"900 5400 13500 28800 44000 74000 132000"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/spirit_breaker/revenant_strikes.lua"
+        		"Function"		"begin_revenant_strikes"
+        		"damage"		"%damage"
+			}
+		}
+        "Modifiers"
+        {
+            "modifier_revenant_strikes_state"
+            {
+                "Passive"            "0"
+                "IsHidden"            "0"
+                "IsDebuff"            "0"
+                "OnDestroy"
+                {
+					"RunScript"
+					{
+		            		"ScriptFile"	"heroes/spirit_breaker/revenant_strikes.lua"
+		            		"Function"		"revenant_strikes_combo_end"
+					}
+                }
+            }
+            "modifier_revenant_strikes_swinging"
+            {
+            	"IsHidden"	"1"
+            	"IsPurgable" "0"
+            	"States"
+            	{
+            		"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+            		"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+            	}
+            }
+            "modifier_revanant_strikes_a_b_falling"
+            {
+                "Passive"             "0"
+                "IsHidden"            "1"
+                "IsDebuff"            "0"
+                "ThinkInterval"  	  "0.03"
+             	"OnIntervalThink"
+             	{
+					"RunScript"
+					{
+		            		"ScriptFile"	"heroes/spirit_breaker/revenant_strikes.lua"
+		            		"Function"		"revenant_strikes_a_b_falling"
+					}
+             	}
+             	"OnDestroy"
+     	    	{
+					"RunScript"
+					{
+		            		"ScriptFile"	"heroes/spirit_breaker/revenant_strikes.lua"
+		            		"Function"		"revenant_strikes_a_b_fall_end"
+		            }
+     	    	}
+            }
+        }
+	}
+
+	"ghost_hallow"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"abyssal_underlord_pit_of_malice"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AOERadius"						"150 160 170 180 190 200 210"
+		"AbilityCastRange"				"1200"
+		"precache"
+		{
+			"particle"		"particles/units/heroes/heroes_underlord/underlord_pitofmalice.vpcf"
+			"particle"		"particles/roshpit/duskbringer/duskbringer_rune_a_b.vpcf"
+			"particle"		"particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash.vpcf"
+			"particle"		"particles/units/heroes/hero_slardar/duskbringer_d_d_amp_damage.vpcf"
+			"particle"		"particles/roshpit/duskbringer/ghostfire_blast.vpcf"
+			"particle"		"particles/units/heroes/hero_elder_titan/duskbringer_a_b.vpcf"
+			"particle"		"particles/econ/courier/courier_roshan_darkmoon/courier_roshan_darkmoon.vpcf"
+		}
+
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"140 280 600 1500 3000 5400 8000"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"150 160 170 180 190 200 210"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"3.7 4.0 4.3 4.6 4.9 5.2 5.5"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/spirit_breaker/ghost_hallow.lua"
+        		"Function"		"begin_ghost_hallow"
+        		"damage"		"%damage"
+        		"Target"			"POINT"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/spirit_breaker/ghost_hallow.lua"
+				"Function"		"d_b_projectile_hit"
+				"target"        "TARGET"
+			}
+		}
+        "Modifiers"
+        {
+			"modifier_duskbringer_think2"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/spirit_breaker/ghost_hallow.lua"
+						"Function"		"duskbringer_passive_think"
+					}
+				}
+			}
+        	"modifier_hidden_ghost_hallow_passive"
+        	{
+        		"Passive"	"1"
+        		"IsHidden"	"1"
+        		"ThinkInterval"  "1.0"
+        		"OnIntervalThink"
+        		{
+        			"RunScript"
+        			{
+        				"ScriptFile"	"heroes/spirit_breaker/ghost_hallow.lua"
+        				"Function"		"update_c_b_level"
+        			}
+        		}
+        		"OnTakeDamage"
+        		{
+        			"RunScript"
+        			{
+        				"ScriptFile"	"heroes/spirit_breaker/ghost_hallow.lua"
+        				"Function"		"duskbringer_take_damage"
+        			}
+        		}
+        	}
+			"ghost_hallow"
+			{
+				"Aura"					"ghost_hallow_aura"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/heroes_underlord/underlord_pitofmalice.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"TARGET"
+						"Duration"			"6"
+						"ControlPoints"
+						{
+							"00" "0 0 0"
+							"01" "%radius 1 %radius"
+							"02" "6 6 6"
+							"15" "25 150 25"
+							"16" "1 0 0"
+						}
+					}
+				}
+			}
+			"ghost_hallow_aura"
+			{
+				"IsHidden"	"0"
+				"ThinkInterval" "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/spirit_breaker/ghost_hallow.lua"
+						"Function"		"ghost_trap_enter"
+						"target"		"TARGET"
+						"duration"		"%duration"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/spirit_breaker/ghost_hallow.lua"
+						"Function"		"ghost_trap_enter"
+						"target"		"TARGET"
+						"duration"		"%duration"
+					}
+				}
+			}
+			"modifier_ghost_trap_immune"
+			{
+				"IsHidden"	"1"
+			}
+			"ghost_hallow_stun"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Duskbringer.GhostHallowTrap"
+						"Target" 		"TARGET"
+					}
+				}
+				"EffectName"	"particles/units/heroes/heroes_underlord/abyssal_underlord_pitofmalice_stun.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/spirit_breaker/ghost_hallow.lua"
+						"Function"		"ghost_hallow_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_ghost_hallow_disarm"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_ghost_hallow_magic_resist_loss"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-4"
+				}
+			}
+        }
+	}
+
+	"duskbringer_arcana_ability"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"duskbringer/duskbringer_arcana_ability1"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_SPAWN"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AOERadius"						"500"
+		"AbilityCastRange"				"0"
+		"precache"
+		{
+
+		}
+
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"140 280 400 900 1600 2400 3200"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"5400 10000 40000 100000 240000 560000 900000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"0.06 0.09 0.12 0.15 0.18 0.21 0.24"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/spirit_breaker/arcana_ability.lua"
+        		"Function"		"arcana_ability_start"
+        		"damage"		"%damage"
+        		"Target"		"POINT"
+			}
+		}
+        "Modifiers"
+        {
+        	"modifier_hidden_ghost_hallow_smashing"
+        	{
+        		"Passive"	"0"
+        		"IsHidden"	"1"
+        		"States"
+        		{
+        			"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+        		}
+        		"ThinkInterval"  "0.03"
+        		"OnIntervalThink"
+        		{
+        			"RunScript"
+        			{
+        				"ScriptFile"	"heroes/spirit_breaker/arcana_ability.lua"
+        				"Function"		"smashing_think"
+        			}
+        		}
+        		"OnDestroy"
+        		{
+        			"RunScript"
+        			{
+        				"ScriptFile"	"heroes/spirit_breaker/arcana_ability.lua"
+        				"Function"		"smashing_end"
+        				"damage"		"%damage"
+        				"stun_duration"	"%stun_duration"
+        			}
+        		}
+        	}
+        	"modifier_duskbringer_arcana_armor"
+        	{
+        		"IsHidden"	"0"
+        		"IsBuff"	"1"
+        		"TextureName"	"duskbringer/duskbringer_rune_b_b_arcana"
+        		"Properties"
+        		{
+        			"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "120"
+        		}
+        	}
+        	"modifier_duskbringer_arcana_damage_buff"
+        	{
+        		"Passive"			"0"
+        		"IsHidden"			"0"
+        		"IsDebuff"			"0"
+        		"TextureName"		"duskbringer/duskbringer_rune_d_b_arcana"
+
+        		"EffectName"		"particles/econ/courier/courier_roshan_darkmoon/courier_roshan_darkmoon.vpcf"
+        		"EffectAttachType"	"follow_origin"
+
+        		"Properties"
+        		{
+        			"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "20000"
+        		    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "30"
+        		}
+        	}
+        	"modifer_duskbringer_d_b_charging_up"
+        	{
+        		"IsHidden"	"1"
+        		"States"
+        		{
+        			"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+        			"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+        			"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
+        		}
+        	}
+        }
+	}
+
+	"specter_rush"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"spirit_breaker_charge_of_darkness"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_SPIRIT_BREAKER_CHARGE_POSE"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"3.7 3.5 3.3 3.1 2.9 2.7 2.5"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_faceless_void/duskbringer_glyph_7_1_manifest_timedialate.vpcf"
+			"soundfile" 	"soundevents/game_sounds_duskbringer.vsndevts"
+			"particle"		"particles/roshpit/duskbringer/ghost_armor.vpcf"
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"340 1800 4240 8420 15870 32460 50000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"charge_duration"				"0.8 0.9 1.0 1.1 1.2 1.3 1.3"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/spirit_breaker/specter_rush.lua"
+        		"Function"		"begin_rush"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_begin_charge"
+				"Target" 		"CASTER"
+				"Duration"		"0.3"
+			}
+		}
+        "Modifiers"
+        {
+        	"modifier_begin_charge"
+        	{
+        		"IsHidden"	"1"
+        		"OnCreated"
+        		{
+        			"RunScript"
+        			{
+        				"ScriptFile"	"heroes/spirit_breaker/specter_rush.lua"
+        				"Function"		"charge_wind_up"
+        				"duration"		"%charge_duration"
+        			}
+        		}
+        		"ThinkInterval"  "0.03"
+        		"OnIntervalThink"
+        		{
+        			"RunScript"
+        			{
+        				"ScriptFile"	"heroes/spirit_breaker/specter_rush.lua"
+        				"Function"		"wind_up_think"
+        			}
+        		}
+        		"OnDestroy"
+        		{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_charging"
+						"Target" 		"CASTER"
+						"Duration"		"%charge_duration"
+					}
+        		}
+        		"States"
+        		{
+        			"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+        			"MODIFIER_STATE_ROOTED"					"MODIFIER_STATE_VALUE_ENABLED"
+        			"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"					"MODIFIER_STATE_VALUE_ENABLED"
+        		}
+        	}
+            "modifier_charging"
+            {
+                "Passive"            "0"
+                "IsHidden"            "0"
+                "IsDebuff"            "0"
+        		"Properties"
+        		{
+        			"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-800"
+        		}
+        		"EffectName"  "particles/units/heroes/hero_spirit_breaker/spirit_breaker_charge_wave.vpcf"
+        		"EffectAttachType"	"attach_origin"
+        		"ThinkInterval"  "0.03"
+        		"OnIntervalThink"
+        		{
+        			"RunScript"
+        			{
+	            		"ScriptFile"	"heroes/spirit_breaker/specter_rush.lua"
+	            		"Function"		"charge_think"
+	            		"damage"		"%damage"
+        			}
+        		}
+        		"States"
+        		{
+        			"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+        			"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"					"MODIFIER_STATE_VALUE_ENABLED"
+        			"MODIFIER_STATE_ROOTED"					"MODIFIER_STATE_VALUE_ENABLED"
+        		}
+        		"OnDestroy"
+        		{
+        			"RunScript"
+        			{
+	            		"ScriptFile"	"heroes/spirit_breaker/specter_rush.lua"
+	            		"Function"		"charge_end"
+	            		"damage"		"%damage"
+        			}
+        			"ApplyModifier"
+        			{
+        				"ModifierName"	"modifier_charge_sliding"
+        				"Target" 		"TARGET"
+        				"Duration"		"0.15"
+        			}
+        		}
+            }
+            "modifier_charge_sliding"
+            {
+                "Passive"            "0"
+                "IsHidden"            "1"
+                "IsDebuff"            "0"
+        		"Properties"
+        		{
+        			"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-800"
+        		}
+        		"States"
+        		{
+        			"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+        			"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"					"MODIFIER_STATE_VALUE_ENABLED"
+        			"MODIFIER_STATE_ROOTED"					"MODIFIER_STATE_VALUE_ENABLED"
+        		}
+                "ThinkInterval"  "0.03"
+             	"OnIntervalThink"
+             	{
+        			"RunScript"
+        			{
+	            		"ScriptFile"	"heroes/spirit_breaker/specter_rush.lua"
+	            		"Function"		"charge_slide_think"
+        			}
+             	}
+             	"OnDestroy"
+             	{
+        			"RunScript"
+        			{
+	            		"ScriptFile"	"heroes/spirit_breaker/specter_rush.lua"
+	            		"Function"		"charge_slide_end"
+        			}
+        		}
+            }
+
+        }
+
+	}
+
+	"specter_rush_two"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rpc/specter_rush"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_SPIRIT_BREAKER_CHARGE_POSE"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"4.7 4.5 4.3 4.1 3.9 3.7 3.5"
+		"AbilityCastRange"				"800 900 1000 1100 1200 1300 1400"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_faceless_void/duskbringer_glyph_7_1_manifest_timedialate.vpcf"
+			"soundfile" 	"soundevents/game_sounds_duskbringer.vsndevts"
+			"particle"		"particles/roshpit/duskbringer/ghost_armor.vpcf"
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"340 1800 4240 8420 15870 32460 50000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"charge_duration"				"0.8 0.9 1.0 1.1 1.2 1.3 1.3"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_distance"				"800 900 1000 1100 1200 1300 1400"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/spirit_breaker/specter_rush_two.lua"
+        		"Function"		"begin_specter_rush_two"
+        		"target"		"POINT"
+			}
+
+		}
+        "Modifiers"
+        {
+        	"modifier_specter_rush_charging"
+        	{
+        		"IsHidden"	"0"
+        		"IsBuff"	"1"
+        		"ThinkInterval"  "0.03"
+        		"EffectName"  "particles/units/heroes/hero_spirit_breaker/spirit_breaker_charge_wave.vpcf"
+        		"EffectAttachType"	"attach_origin"
+        		"OnIntervalThink"
+        		{
+        			"RunScript"
+        			{
+        				"ScriptFile"	"heroes/spirit_breaker/specter_rush_two.lua"
+        				"Function"		"specter_rush_thinking"
+        			}
+        		}
+        		"States"
+        		{
+        			"MODIFIER_STATE_ROOTED"					"MODIFIER_STATE_VALUE_ENABLED"
+        		}
+        		"Properties"
+        		{
+        			"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-2000"
+        		}
+        		"OnDestroy"
+        		{
+        			"RunScript"
+        			{
+        				"ScriptFile"	"heroes/spirit_breaker/specter_rush_two.lua"
+        				"Function"		"specter_rush_end"
+        			}
+        		}
+        	}
+            "modifier_specter_rush_sliding"
+            {
+                "Passive"            "0"
+                "IsHidden"            "1"
+                "IsDebuff"            "0"
+        		"Properties"
+        		{
+        			"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-800"
+        		}
+        		"States"
+        		{
+        			"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+        		}
+                "ThinkInterval"  "0.03"
+             	"OnIntervalThink"
+             	{
+        			"RunScript"
+        			{
+	            		"ScriptFile"	"heroes/spirit_breaker/specter_rush_two.lua"
+	            		"Function"		"charge_slide_think"
+        			}
+             	}
+             	"OnDestroy"
+             	{
+        			"RunScript"
+        			{
+	            		"ScriptFile"	"heroes/spirit_breaker/specter_rush_two.lua"
+	            		"Function"		"charge_slide_end"
+        			}
+        		}
+            }
+			"modifier_duskbringer_ghost_armor"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"TextureName"		"rpc/duskbringer_rune_b_c"
+
+				"EffectName"		"particles/roshpit/duskbringer/ghost_armor.vpcf"
+				"EffectAttachType"	"follow_origin"
+
+			}
+			"modifier_duskbringer_think3"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/spirit_breaker/specter_rush_two.lua"
+						"Function"		"duskbringer_passive_think"
+					}
+				}
+			}
+			"modifier_duskbringer_ghost_form_aura"
+			{
+			    "Passive"   "1"
+			    "IsHidden"  "1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
+                "Aura" "modifier_duskbringer_ghost_form_checker"
+                "Aura_Radius" "<% E4_RADIUS %>"
+                "Aura_Teams" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+                "Aura_Types" "DOTA_UNIT_TARGET_HERO"
+			}
+			"modifier_duskbringer_ghost_form_checker"
+			{
+			    "IsHidden"  "1"
+			}
+			"modifier_duskbringer_ghost_form_immune"
+			{
+			    "IsHidden"  "0"
+			}
+        }
+
+	}
+
+	"manifestation"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"spirit_breaker_charge_of_darkness_alt"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_SPIRIT_BREAKER_CHARGE_POSE"
+		"AbilityCastRange"				"1100"
+		"AOERadius"						"500"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"4.3 4.1 4.9 3.6 3.3 3.3 3.1"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		"precache"
+		{
+
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"4240 15870 32460 58790 134680 28520 585200"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"charge_duration"		"0.8 0.9 1.0 1.1 1.2 1.3 1.3"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/spirit_breaker/manifestation.lua"
+        		"Function"		"begin_manifestation"
+        		"Target"		"POINT"
+			}
+		}
+
+	}
+
+	"seven_visions"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"rpc/seven_visions"
+
+		"AbilityCastRange"	"700"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCooldown"	"17.0"
+		"AbilityChannelTime"	"2.0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityDamage"	"%damage"
+		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+		"RequiredLevel"          "-5"
+
+		"LevelsBetweenUpgrades"  "10"
+		"MaxLevel"				 "7"
+		"precache"
+		{
+			"particle" "particles/econ/items/spirit_breaker/spirit_breaker_iron_surge/spirit_breaker_charge_iron.vpcf"
+			"particle" "particles/units/heroes/hero_spirit_breaker/spirit_breaker_nether_strike_begin.vpcf"
+		}
+
+		"AbilityManaCost"	"0"
+		"SideShop"	"1"
+		"OnSpellStart"
+		{
+
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/spirit_breaker/seven_visions"
+				"Function"		"seven_visions_channel"
+			}
+
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+			"FireSound"
+			{
+				"EffectName"	"Hero_Spirit_Breaker.NetherStrike.Begin"
+				"Target"	"CASTER"
+			}
+
+		}
+
+		"OnChannelSucceeded"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/spirit_breaker/seven_visions"
+				"Function"		"seven_visions_start"
+				"attack_count"	"%attacks"
+				"damage"		"%bonus_damage"
+			}
+
+		}
+
+		"OnChannelFinish"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+		}
+		"OnChannelInterrupted"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+		}
+
+		"Modifiers"
+		{
+			"modifier_channel_start"
+			{
+				"IsHidden"	"1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"	"particles/econ/items/spirit_breaker/spirit_breaker_iron_surge/spirit_breaker_charge_iron.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"	"CASTER"
+						"ControlPointEntities"
+						{
+							"CASTER"	"attach_origin"
+							"CASTER"	"attach_origin"
+							"CASTER"	"attach_origin"
+						}
+
+					}
+					"AttachEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_spirit_breaker/spirit_breaker_nether_strike_begin.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "CASTER"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"beginChannel"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"endChannel"
+					}
+				}
+
+			}
+			"modifier_seven_visions_striking"
+			{
+				"IsBuff"	"1"
+				"IsPurgable"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL" "1"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.47"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/spirit_breaker/seven_visions"
+						"Function"		"seven_visions_think"
+						"damage"		"%bonus_damage"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/spirit_breaker/seven_visions"
+						"Function"		"seven_visions_end"
+					}
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"IsHidden"	"1"
+						"EffectName"	"particles/econ/items/spirit_breaker/spirit_breaker_iron_surge/spirit_breaker_charge_iron.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"	"CASTER"
+						"ControlPointEntities"
+						{
+							"CASTER"	"attach_origin"
+							"CASTER"	"attach_origin"
+							"CASTER"	"attach_origin"
+						}
+
+					}
+				}
+			}
+			"modifier_duskbringer_b_d_visible"
+			{
+				"IsBuff"	"1"
+				"IsPurgable"	"0"
+			}
+			"modifier_duskbringer_b_d_invisible"
+			{
+				"IsBuff"	"1"
+				"IsPurgable"	"0"
+			}
+			"modifier_seven_visions_striking_glyphed"
+			{
+				"IsBuff"	"1"
+				"IsPurgable"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL" "1"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%bonus_damage"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/spirit_breaker/seven_visions"
+						"Function"		"seven_visions_think"
+						"damage"		"%bonus_damage"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/spirit_breaker/seven_visions"
+						"Function"		"seven_visions_end"
+					}
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"IsHidden"	"1"
+						"EffectName"	"particles/econ/items/spirit_breaker/spirit_breaker_iron_surge/spirit_breaker_charge_iron.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"	"CASTER"
+						"ControlPointEntities"
+						{
+							"CASTER"	"attach_origin"
+							"CASTER"	"attach_origin"
+							"CASTER"	"attach_origin"
+						}
+
+					}
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"attacks"	"3 4 5 6 7 7 7"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"bonus_damage"	"7000 24000 100000 400000 1400000 2400000 5000000"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_duration"	"1.0"
+			}
+		}
+	}

@@ -975,6 +975,12 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		end
 	end
 
+	if victim:HasModifier("modifier_duskbringer_t42_visible") then
+		local stacks = victim:GetModifierStackCount("modifier_duskbringer_t42_visible", victim)
+		damage = damage * (1 - 0.03 * stacks)
+	end
+
+
 	return damage/BASE_VALUE_FOR_CALCULATE
 end
 
@@ -995,6 +1001,7 @@ function GameState:FilterDamage(filterTable)
 
 	local mult = 1
 	local divisor = 1
+	local modifier = nil
 
 	if attacker:IsHero() then
 		-- if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
@@ -1012,7 +1019,7 @@ function GameState:FilterDamage(filterTable)
 				applyEffects = false
 			end
 			local abilityName = ability:GetAbilityName()
-			local modifier = victim:FindModifierByName('modifier_centaur_horns')
+			modifier = victim:FindModifierByName('modifier_centaur_horns')
 			if abilityName ~= 'item_rpc_centaur_horns' and modifier then
 				local centaurHornsAbility = modifier:GetAbility()
 				centaurHornsAbility:ApplyDataDrivenModifier(victim, victim, "modifier_centaur_horns_debuff", {duration = 1.5})
@@ -1151,12 +1158,12 @@ function GameState:FilterDamage(filterTable)
 		end
 
 		if victim:HasModifier("modifier_solunia_warp_core_aura_solar") then
-			local modifier = victim:FindModifierByName("modifier_solunia_warp_core_aura_solar")
+			modifier = victim:FindModifierByName("modifier_solunia_warp_core_aura_solar")
 			mult = mult + modifier:GetAbility().c_c_level*0.05
 		end
 	elseif damagetype == DAMAGE_TYPE_PURE then
 		if victim:HasModifier("modifier_solunia_warp_core_aura_lunar") then
-			local modifier = victim:FindModifierByName("modifier_solunia_warp_core_aura_lunar")
+			modifier = victim:FindModifierByName("modifier_solunia_warp_core_aura_lunar")
 			mult = mult + modifier:GetAbility().c_c_level*0.05
 		end
 	end
@@ -1176,7 +1183,7 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = filterTable["damage"] * 0.7
 		end
 		if attacker:HasModifier("modifier_leshrac_arcana_b_d_effect") then
-			local modifier = attacker:FindModifierByName("modifier_leshrac_arcana_b_d_effect")
+			modifier = attacker:FindModifierByName("modifier_leshrac_arcana_b_d_effect")
 			if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 				local stacks = modifier:GetStackCount()
 				local multIncrease = 0.01*stacks
@@ -1267,7 +1274,7 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_epoch_rune_b_b_visible") then
 		if victim:GetPhysicalArmorValue() < 0 then
 			if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
-				local modifier = victim:FindModifierByName("modifier_epoch_rune_b_b_visible")
+				modifier = victim:FindModifierByName("modifier_epoch_rune_b_b_visible")
 				if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 					local stacks = modifier:GetStackCount()
 					local multIncrease = stacks*0.05*math.abs(victim:GetPhysicalArmorValue())/10
@@ -1279,7 +1286,7 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_seinaru_gorudo_rune_a_d") then
 		if victim:GetPhysicalArmorValue() < 0 then
 			if damagetype == DAMAGE_TYPE_PHYSICAL then
-				local modifier = victim:FindModifierByName("modifier_seinaru_gorudo_rune_a_d")
+				modifier = victim:FindModifierByName("modifier_seinaru_gorudo_rune_a_d")
 				if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 					if attacker.d_c_level > 0 then
 						local stacks = attacker.d_c_level
@@ -1291,13 +1298,13 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if victim:HasModifier("modifier_astral_rune_a_c_visible") then
-		local modifier = victim:FindModifierByName("modifier_astral_rune_a_c_invisible")
+		modifier = victim:FindModifierByName("modifier_astral_rune_a_c_invisible")
 		local stacks = modifier:GetStackCount()
 		local multIncrease = 0.006*stacks
 		mult = mult + multIncrease
 	end
 	if victim:HasModifier("modifier_astral_d_b_visible") then
-		local modifier = victim:FindModifierByName("modifier_astral_d_b_invisible")
+		modifier = victim:FindModifierByName("modifier_astral_d_b_invisible")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetStackCount()
 			local multIncrease = 0.009*stacks
@@ -1310,7 +1317,7 @@ function GameState:FilterDamage(filterTable)
 		mult = mult + stacks * 0.035
 	end
 	if victim:HasModifier("modifier_wolf_rend_bleed") then
-		local modifier = victim:FindModifierByName("modifier_wolf_rend_bleed")
+		modifier = victim:FindModifierByName("modifier_wolf_rend_bleed")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local multIncrease = 0.04*modifier:GetAbility().b_b_level
 			mult = mult + multIncrease
@@ -1318,7 +1325,7 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	if victim:HasModifier("modifier_water_mage_slow") then
-		local modifier = victim:FindModifierByName("modifier_water_mage_slow")
+		modifier = victim:FindModifierByName("modifier_water_mage_slow")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			mult = mult + 1
 		end
@@ -1336,7 +1343,7 @@ function GameState:FilterDamage(filterTable)
 		mult = mult + multIncrease
 	end
 	if victim:HasModifier("modifier_witch_hat_damage_amp") then
-		local modifier = victim:FindModifierByName("modifier_witch_hat_damage_amp")
+		modifier = victim:FindModifierByName("modifier_witch_hat_damage_amp")
 		local stacks = modifier:GetStackCount()
 		local multIncrease = 0.15*stacks
 		mult = mult + multIncrease
@@ -1348,13 +1355,13 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	if attacker:HasModifier("modifier_drowning_pool_actual_effect") then
-		local modifier = attacker:FindModifierByName("modifier_drowning_pool_actual_effect")
+		modifier = attacker:FindModifierByName("modifier_drowning_pool_actual_effect")
 		local stacks = modifier:GetStackCount()
 		local damageIncrease = stacks*0.2
 		filterTable["damage"] = filterTable["damage"] + filterTable["damage"]*damageIncrease
 	end
 	if attacker:HasModifier("modifier_flamewaker_arcana_b_a_effect") then
-		local modifier = attacker:FindModifierByName("modifier_flamewaker_arcana_b_a_effect")
+		modifier = attacker:FindModifierByName("modifier_flamewaker_arcana_b_a_effect")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetStackCount()
 			local multIncrease = 0.025*stacks
@@ -1365,7 +1372,7 @@ function GameState:FilterDamage(filterTable)
 		mult = mult + 0.5
 	end
 	if attacker:HasModifier("modifier_machinal_jump_c_c_amp") then
-		local modifier = attacker:FindModifierByName("modifier_machinal_jump_c_c_amp")
+		modifier = attacker:FindModifierByName("modifier_machinal_jump_c_c_amp")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetStackCount()
 			local multIncrease = 0.02*stacks
@@ -1373,7 +1380,7 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if victim:HasModifier("modifier_reaper_slice_amp_debuff") then
-		local modifier = victim:FindModifierByName("modifier_reaper_slice_amp_debuff")
+		modifier = victim:FindModifierByName("modifier_reaper_slice_amp_debuff")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetStackCount()
 			local multIncrease = 0.02*stacks
@@ -1385,7 +1392,7 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = filterTable["damage"]*0.5
 	end
 	if victim:HasModifier("modifier_warlord_b_d_effect") then
-		local modifier = victim:FindModifierByName("modifier_warlord_b_d_effect")
+		modifier = victim:FindModifierByName("modifier_warlord_b_d_effect")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetStackCount()
 			local multIncrease = 0.05*stacks
@@ -1393,7 +1400,7 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if attacker:HasModifier("modifier_flamewaker_arcana_d_a_aura") then
-		local modifier = attacker:FindModifierByName("modifier_flamewaker_arcana_d_a_aura")
+		modifier = attacker:FindModifierByName("modifier_flamewaker_arcana_d_a_aura")
 		if victim:GetEntityIndex() == modifier:GetCaster():GetEntityIndex() then
 			local stacks = modifier:GetAbility().d_a_level
 			local damageReduc = math.min(stacks*0.015, 0.9)
@@ -1507,7 +1514,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_tempest_haze_effect_friendly") then
 		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
-			local modifier = victim:FindModifierByName("modifier_tempest_haze_effect_friendly")
+			modifier = victim:FindModifierByName("modifier_tempest_haze_effect_friendly")
 			if modifier:GetCaster():GetEntityIndex() == victim:GetEntityIndex() then
 				filterTable["damage"] = filterTable["damage"]*0.2
 			end
@@ -1542,7 +1549,7 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	if victim:HasModifier("modifier_paladin_d_c") then
-		local modifier = victim:FindModifierByName("modifier_paladin_d_c")
+		modifier = victim:FindModifierByName("modifier_paladin_d_c")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetStackCount()
 			mult = mult + 0.25*stacks
@@ -1553,14 +1560,14 @@ function GameState:FilterDamage(filterTable)
 		mult = mult + 0.01*stacks
 	end
 	if victim:HasModifier("modifier_tachyon_amp") then
-		local modifier = victim:FindModifierByName("modifier_tachyon_amp")
+		modifier = victim:FindModifierByName("modifier_tachyon_amp")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetStackCount()
 			mult = mult + 0.04*stacks
 		end
 	end
 	if victim:HasModifier("modifier_hailstorm_enemy_amp") then
-		local modifier = victim:FindModifierByName("modifier_hailstorm_enemy_amp")
+		modifier = victim:FindModifierByName("modifier_hailstorm_enemy_amp")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetStackCount()
 			mult = mult + 0.06*stacks
@@ -1622,14 +1629,14 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if victim:HasModifier("modifier_ice_throw_b_b_frozen") then
-		local modifier = victim:FindModifierByName("modifier_ice_throw_b_b_frozen")
+		modifier = victim:FindModifierByName("modifier_ice_throw_b_b_frozen")
 		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PHYSICAL then
 			local stacks = modifier:GetStackCount()
 			filterTable["damage"] = filterTable["damage"] + filterTable["damage"]*0.07*stacks
 		end
 	end
 	if victim:HasModifier("modifier_voltex_d_b_debuff") then
-		local modifier = victim:FindModifierByName("modifier_voltex_d_b_debuff")
+		modifier = victim:FindModifierByName("modifier_voltex_d_b_debuff")
 		if damagetype == DAMAGE_TYPE_MAGICAL then
 			if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 				local stacks = modifier:GetStackCount()
@@ -1643,7 +1650,7 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if victim:HasModifier("moon_tech_aura") then
-		local modifier = victim:FindModifierByName("moon_tech_aura")
+		modifier = victim:FindModifierByName("moon_tech_aura")
 		local modifierCaster = modifier:GetCaster()
 		if attacker:GetEntityIndex() == modifierCaster:GetEntityIndex() then
 			local movespeed = attacker:GetBaseMoveSpeed()
@@ -1655,7 +1662,7 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if victim:HasModifier("modifier_mach_punch_amp") then
-		local modifier = victim:FindModifierByName("modifier_mach_punch_amp")
+		modifier = victim:FindModifierByName("modifier_mach_punch_amp")
 		local modifierCaster = modifier:GetCaster()
 		if attacker:GetEntityIndex() == modifierCaster:GetEntityIndex() then
 			local movespeed = attacker:GetBaseMoveSpeed()
@@ -1695,7 +1702,7 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	if attacker:HasModifier("modifier_soul_thrust_effect") then
-		local modifier = attacker:FindModifierByName("modifier_soul_thrust_effect"):GetCaster()
+		modifier = attacker:FindModifierByName("modifier_soul_thrust_effect"):GetCaster()
 		if modifier:GetEntityIndex() == victim:GetEntityIndex() then
 			filterTable["damage"] = filterTable["damage"]*0.5
 		end
@@ -1861,13 +1868,13 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
     if attacker:HasModifier("modifier_gorudo_b_d_inside_ring") then
-    	local modifier = attacker:FindModifierByName("modifier_gorudo_b_d_inside_ring")
+    	modifier = attacker:FindModifierByName("modifier_gorudo_b_d_inside_ring")
     	if victim:GetEntityIndex() == modifier:GetCaster():GetEntityIndex() then
     		filterTable["damage"] = filterTable["damage"]*0.2
     	end
     end
     if victim:HasModifier("modifier_gorudo_b_d_inside_ring") then
-    	local modifier = victim:FindModifierByName("modifier_gorudo_b_d_inside_ring")
+    	modifier = victim:FindModifierByName("modifier_gorudo_b_d_inside_ring")
     	if attacker:GetEntityIndex() == modifier:GetCaster():GetEntityIndex() then
     		local d_d_level = attacker:FindAbilityByName("seinaru_gorudo").d_d_level
     		filterTable["damage"] = filterTable["damage"]*(1+d_d_level*0.2)
@@ -1970,7 +1977,7 @@ function GameState:FilterDamage(filterTable)
     	end
     end
     if victim:HasModifier("modifier_hydroxis_mist_debuff") or victim:HasModifier("modifier_hydroxis_mist_debuff_timered") then
-    	local modifier = victim:FindModifierByName("modifier_hydroxis_mist_debuff")
+    	modifier = victim:FindModifierByName("modifier_hydroxis_mist_debuff")
     	if not modifier then
     		modifier = victim:FindModifierByName("modifier_hydroxis_mist_debuff_timered")
     	end
@@ -2086,13 +2093,13 @@ function GameState:FilterDamage(filterTable)
 		victim:Heal(healAmount, victim)
 	end
 	if victim:HasModifier("modifier_solar_compression_invisible") then
-		local modifier = victim:FindModifierByName("modifier_solar_compression_invisible")
+		modifier = victim:FindModifierByName("modifier_solar_compression_invisible")
 		local modifierCaster = modifier:GetCaster()
 		local stacks = victim:GetModifierStackCount("modifier_solar_compression_invisible", modifierCaster)
 		mult = mult + stacks*0.003
 	end
 	if victim:HasModifier("modifier_lunar_compression_invisible") then
-		local modifier = victim:FindModifierByName("modifier_lunar_compression_invisible")
+		modifier = victim:FindModifierByName("modifier_lunar_compression_invisible")
 		local modifierCaster = modifier:GetCaster()
 		local stacks = victim:GetModifierStackCount("modifier_lunar_compression_invisible", modifierCaster)
 		mult = mult + stacks*0.003
@@ -2121,9 +2128,23 @@ function GameState:FilterDamage(filterTable)
 		local missingHealthPercent = math.floor((1-(attacker:GetHealth()/attacker:GetMaxHealth()))*100)
 		mult = mult + missingHealthPercent*1.5/100
 	end
+	--DUSKBRINGER
+	if attacker:GetUnitName() == "npc_dota_hero_spirit_breaker" and victim:IsRooted() then
+		mult = mult + attacker.d_b_level * 8/100
+	end
+	modifier = victim:FindModifierByName("modifier_duskbringer_b_d_invisible")
+	if modifier then
+		local stacks = modifier:GetStackCount()
+		mult = mult + stacks*0.01
+	end
+
+    if victim:HasModifier('modifier_duskbringer_ghost_form_active') then
+        filterTable["damage"] = 0
+    end
+
 
 	--TRAPPER
-	local modifier = attacker:FindModifierByName("modifier_trapper_d_c_post_amp")
+	modifier = attacker:FindModifierByName("modifier_trapper_d_c_post_amp")
 	if modifier then
 		local stacks = modifier:GetStackCount()
 		mult = mult + stacks*0.1
@@ -2134,7 +2155,7 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 
-	local modifier = victim:FindModifierByName("modifier_poison_whip")
+	modifier = victim:FindModifierByName("modifier_poison_whip")
 	if modifier then
 		local stacks = modifier:GetStackCount()
 		local ability = modifier:GetAbility()
@@ -2379,7 +2400,8 @@ function GameState:FilterDamage(filterTable)
 		else
 			filterTable["damage"] = 1
 		end
-	end
+    end
+
 
 	--LETHAL CHECK
 	if filterTable["damage"] > victim:GetHealth() then
@@ -2468,7 +2490,14 @@ function GameState:FilterDamage(filterTable)
 					end) 	
 					filterTable["damage"] =  0
 				end
-			end
+            end
+        elseif victim:HasModifier('modifier_duskbringer_ghost_form_checker') then
+            local caster = victim:FindModifierByName('modifier_duskbringer_ghost_form_checker'):GetCaster()
+			if caster.d_c_level then
+                local ability = caster:FindAbilityByName('specter_rush_two')
+                ability:ApplyDataDrivenModifier(caster, victim, "modifier_duskbringer_ghost_form_active", {duration = 0.2 * caster.d_c_level})
+				filterTable["damage"] =  0
+            end
 		end
 
 	end
