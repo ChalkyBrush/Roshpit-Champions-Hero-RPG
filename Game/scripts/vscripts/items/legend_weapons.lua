@@ -639,7 +639,7 @@ function Weapons:RollLegendWeapon2(deathLocation, class)
 	    weapon.property1name = "movespeed"
 	    RPCItems:SetPropertyValues(weapon, weapon.property1, "#item_movespeed", "#B02020",  1)
 
-		local value = math.min(Weapons:GetDeviation(3, rarityFactor), RandomInt(2,5))
+		local value = math.min(Weapons:GetDeviation(3, rarityFactor), RandomInt(3,8))
 		local name, color = Elements:GetElementNameAndColorByCode(RPC_ELEMENT_TIME)
 	    weapon.property2 = value
 	    weapon.property2name = name

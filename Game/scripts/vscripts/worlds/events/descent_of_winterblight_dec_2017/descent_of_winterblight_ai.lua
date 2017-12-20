@@ -434,7 +434,7 @@ function ozubu_take_damage(event)
 	local distance = WallPhysics:GetDistance2d(caster, attacker)
 	if distance > 1000 then
 		CustomAbilities:QuickAttachParticle("particles/econ/events/nexon_hero_compendium_2014/blink_dagger_end_nexon_hero_cp_2014.vpcf", caster, 3)
-		caster:SetAbsOrigin(attacker:GetAbsOrigin()+RandomVector(RandomInt(100,500)))
+		caster:SetAbsOrigin(attacker:GetAbsOrigin()+RandomVector(RandomInt(100,400)))
 		CustomAbilities:QuickAttachParticle("particles/econ/events/nexon_hero_compendium_2014/blink_dagger_end_nexon_hero_cp_2014.vpcf", caster, 3)
 		EmitSoundOn("Winterblight.Ozubu.Teleport", caster)
 	end
