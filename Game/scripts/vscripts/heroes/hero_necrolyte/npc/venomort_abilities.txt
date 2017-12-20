@@ -114,6 +114,17 @@
 					}
 				}
 			}
+			"modifier_venomort_arcana2_d_a_visible"
+			{
+				"IsHidden"	"0"
+				"TextureName"	"venomort/venomort_rune_d_a_arcana2"
+				"IsBuff"	"1"
+			}
+			"modifier_venomort_arcana2_d_a_invisible"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+			}
 		}
 	}
 
@@ -234,6 +245,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_one"			"5.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"1.0"
 			}
 		}
 

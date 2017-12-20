@@ -1,7 +1,8 @@
 function frostvenom_grasp_start(event)
 	local caster = event.caster
 	local ability = event.ability
-	local explosions = event.explosions + Runes:Procs(Runes:GetTotalRuneLevelGeneric(caster, 4, 0), 5, 1)
+	local d_a_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+	local explosions = event.explosions + Runes:Procs(d_a_level, 5, 1)
 	local radius = 500
 	local counter = 0
 	StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.0})
@@ -53,6 +54,13 @@ function frostvenom_grasp_start(event)
 						enemy2:SetModifierStackCount("modifier_chilled_stacking", caster, currentStacks+1)
 					end
 					Filters:TakeArgumentsAndApplyDamage(enemy2, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_POISON, RPC_ELEMENT_ICE)
+					if d_a_level > 0 then
+						ability:ApplyDataDrivenModifier(caster, caster, "modifier_venomort_arcana2_d_a_visible", {duration = 12})
+						local newStacks = math.min(caster:GetModifierStackCount("modifier_venomort_arcana2_d_a_visible", caster) + 1, 50)
+						caster:SetModifierStackCount("modifier_venomort_arcana2_d_a_visible", caster, newStacks)
+						ability:ApplyDataDrivenModifier(caster, caster, "modifier_venomort_arcana2_d_a_invisible", {duration = 12})
+						caster:SetModifierStackCount("modifier_venomort_arcana2_d_a_invisible", caster, newStacks*d_a_level)
+					end
 				end
 			end 
 		end)

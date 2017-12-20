@@ -1146,6 +1146,10 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             local current_stack = attacker:GetModifierStackCount( "modifier_azure_empire_base_ability", attacker.InventoryUnit )
             damageMult = damageMult + 0.4*current_stack
         end
+        if attacker:HasModifier("modifier_venomort_arcana2_d_a_invisible") then
+            local current_stack = attacker:GetModifierStackCount( "modifier_venomort_arcana2_d_a_invisible", attacker )
+            damageMult = damageMult + 0.01*current_stack
+        end
         if attacker:HasModifier("modifier_bahamut_a_b_buff") then
             local current_stack = attacker:GetModifierStackCount( "modifier_bahamut_a_b_buff", attacker.runeUnit:FindAbilityByName("bahamut_rune_a_b") )
             damageMult = damageMult + 0.12*current_stack
