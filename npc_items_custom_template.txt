@@ -8585,7 +8585,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"				"20"
+				"property_one"				"600"
 			}
 			"02"
 			{
@@ -16987,7 +16987,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"1000"
+				"property_one"			"4000"
 			}
 			"02"
 			{
@@ -18110,7 +18110,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_four"			"3"
+				"property_four"			"1"
 			}
 			"05"
 			{
@@ -20798,6 +20798,14 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"		"40"
 			}
 		}
 	}

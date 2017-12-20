@@ -68,7 +68,7 @@ function c_d_thinker_take_damage(event)
 	print("CMON!")
 	local caster = event.caster
 	local ability = event.ability
-	local damage = ability.c_d_level*5000
+	local damage = ability.c_d_level * (5000 + ability:GetCaster():GetStrength() * 5)
 
 	Filters:TakeArgumentsAndApplyDamage(event.target, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end

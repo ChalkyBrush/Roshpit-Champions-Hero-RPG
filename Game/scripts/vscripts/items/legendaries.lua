@@ -2965,12 +2965,21 @@ function RPCItems:VermillionDreamRobes(deathLocation)
     item.property1 = 1
     item.property1name = "vermillion_dream"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_vermillion_dream_robes", "#D14268",  1, "#property_vermillion_dream_robes_description")
+    local luck = RandomInt(1,4)
+    if luck == 4 and maxFactor >= 270 then
+        local letter = RPCItems:GetRandomRuneLetter(1, 4)
+        runeName = "rune_d_"..letter
+        runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor/30, 0, 0, 0, 0)
 
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.property2 = math.ceil(value*1.15)
-    item.property2name = propertyName
-    RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
-
+        item.property2name = runeName
+        item.property2 = math.floor(runeValue)
+        RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  4)
+    else
+        local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+        item.property2 = math.ceil(value*1.15)
+        item.property2name = propertyName
+        RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
+    end
     item.hasRunePoints = true
 
     RPCItems:RollBodyProperty3(item, 0)
