@@ -109,7 +109,7 @@ function populateItem()
 	var itemValues = CustomNetTables.GetTableValue( "item_basics", mItemIndex.toString() )
 	
 	var rarityColor = itemValues.qualityColor
-	$('#item_name').text = "<font color='"+rarityColor+"'>"+$.Localize("#DOTA_Tooltip_ability_"+itemName)+"</font>"
+	$('#item_name').text = "<font color='"+rarityColor+"'>"+$.Localize("#DOTA_Tooltip_Ability_"+itemName)+"</font>"
 
 	var parentPanel = $("#item_properties_container")
 	for (i = 1; i <= 4; i++) 

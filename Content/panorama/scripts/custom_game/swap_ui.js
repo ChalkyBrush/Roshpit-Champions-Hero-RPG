@@ -85,7 +85,7 @@ function populateNewItem(newItem){
 	}
 	var itemPrefix = itemValues.itemPrefix
 	var itemSuffix = itemValues.itemSuffix
-	var localizedItemName = $.Localize("#DOTA_Tooltip_ability_"+Abilities.GetAbilityName(newItem))
+	var localizedItemName = $.Localize("#DOTA_Tooltip_Ability_"+Abilities.GetAbilityName(newItem))
 	//$.Msg( itemValues.property1 );
 	//$.DispatchEvent( "DOTAShowAbilityTooltipForEntityIndex", $.GetContextPanel(), itemName, queryUnit );
 	var title = "<font color='"+itemValues.qualityColor+"'>"+itemPrefix+" "+localizedItemName+" "+itemSuffix+"</font>"
@@ -113,7 +113,7 @@ function populateOldItem(oldItem){
 	}
 	var itemPrefix = itemValues.itemPrefix
 	var itemSuffix = itemValues.itemSuffix
-	var localizedItemName = $.Localize("#DOTA_Tooltip_ability_"+Abilities.GetAbilityName(oldItem))
+	var localizedItemName = $.Localize("#DOTA_Tooltip_Ability_"+Abilities.GetAbilityName(oldItem))
 	//$.Msg( itemValues.property1 );
 	//$.DispatchEvent( "DOTAShowAbilityTooltipForEntityIndex", $.GetContextPanel(), itemName, queryUnit );
 	var title = "<font color='"+itemValues.qualityColor+"'>"+itemPrefix+" "+localizedItemName+" "+itemSuffix+"</font>"

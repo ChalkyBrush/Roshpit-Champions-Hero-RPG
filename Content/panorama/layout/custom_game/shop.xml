@@ -59,7 +59,7 @@
 					<Panel class="item_container" id="item_panel1">
 					<Button class="item_buy_button"
 						onactivate="buy_item(1)"
-						onmouseover="ShopTooltip('DOTA_Tooltip_ability_item_cap', 'shop_roll_agility', 1)"
+						onmouseover="ShopTooltip('DOTA_Tooltip_Ability_item_cap', 'shop_roll_agility', 1)"
 						onmouseout="ShopHideTooltip(1)"
 						>
 						<DOTAItemImage hittest="false" class="shop_item_image" src="file://{images}/items/cap.png"/>
@@ -71,7 +71,7 @@
 					<Panel class="item_container" id="item_panel2">
 					<Button class="item_buy_button"
 						onactivate="buy_item(2)"
-						onmouseover="ShopTooltip('DOTA_Tooltip_ability_item_helm', 'shop_roll_strength', 2)"
+						onmouseover="ShopTooltip('DOTA_Tooltip_Ability_item_helm', 'shop_roll_strength', 2)"
 						onmouseout="ShopHideTooltip(2)"
 						>
 						<DOTAItemImage hittest="false" class="shop_item_image" src="file://{images}/items/helm.png"/>
@@ -83,7 +83,7 @@
 					<Panel class="item_container" id="item_panel3">
 					<Button class="item_buy_button"
 						onactivate="buy_item(3)"
-						onmouseover="ShopTooltip('DOTA_Tooltip_ability_item_hood', 'shop_roll_intelligence', 3)"
+						onmouseover="ShopTooltip('DOTA_Tooltip_Ability_item_hood', 'shop_roll_intelligence', 3)"
 						onmouseout="ShopHideTooltip(3)"
 						>
 						<DOTAItemImage hittest="false" class="shop_item_image" src="file://{images}/items/hood.png"/>
@@ -99,7 +99,7 @@
 					<Panel class="item_container" id="item_panel4">
 					<Button class="item_buy_button"
 						onactivate="buy_item(4)"
-						onmouseover="ShopTooltip('DOTA_Tooltip_ability_item_rpc_mantle', 'shop_roll_agility', 4)"
+						onmouseover="ShopTooltip('DOTA_Tooltip_Ability_item_rpc_mantle', 'shop_roll_agility', 4)"
 						onmouseout="ShopHideTooltip(4)"
 						>
 						<DOTAItemImage hittest="false" class="shop_item_image" src="file://{images}/items/rpc_mantle.png"/>
@@ -111,7 +111,7 @@
 					<Panel class="item_container" id="item_panel5">
 					<Button class="item_buy_button"
 						onactivate="buy_item(5)"
-						onmouseover="ShopTooltip('DOTA_Tooltip_ability_item_rpc_mail', 'shop_roll_strength', 5)"
+						onmouseover="ShopTooltip('DOTA_Tooltip_Ability_item_rpc_mail', 'shop_roll_strength', 5)"
 						onmouseout="ShopHideTooltip(5)"
 						>
 						<DOTAItemImage hittest="false" class="shop_item_image" src="file://{images}/items/rpc_mail.png"/>
@@ -123,7 +123,7 @@
 					<Panel class="item_container" id="item_panel6">
 					<Button class="item_buy_button"
 						onactivate="buy_item(6)"
-						onmouseover="ShopTooltip('DOTA_Tooltip_ability_item_rpc_robe', 'shop_roll_intelligence', 6)"
+						onmouseover="ShopTooltip('DOTA_Tooltip_Ability_item_rpc_robe', 'shop_roll_intelligence', 6)"
 						onmouseout="ShopHideTooltip(6)"
 						>
 						<DOTAItemImage hittest="false" class="shop_item_image" src="file://{images}/items/rpc_robes.png"/>
@@ -142,7 +142,7 @@
 					<Panel class="item_container" id="item_panel7">
 					<Button class="item_buy_button"
 						onactivate="buy_item(7)"
-						onmouseover="ShopTooltip('DOTA_Tooltip_ability_item_rpc_boots', 'shop_roll_agility', 7)"
+						onmouseover="ShopTooltip('DOTA_Tooltip_Ability_item_rpc_boots', 'shop_roll_agility', 7)"
 						onmouseout="ShopHideTooltip(7)"
 						>
 						<DOTAItemImage hittest="false" class="shop_item_image" src="file://{images}/items/rpc_boots.png"/>
@@ -158,7 +158,7 @@
 						onmouseout="ShopHideTooltip(8)"
 						>
 						<DOTAItemImage hittest="false" class="shop_item_image" src="file://{images}/items/rpc_treads.png"/>
-						<Label class="item_name_text" id="item_name8" text="DOTA_Tooltip_ability_item_rpc_treads" html="true"></Label>
+						<Label class="item_name_text" id="item_name8" text="DOTA_Tooltip_Ability_item_rpc_treads" html="true"></Label>
 						<Image class="item_gold_price_image" src="file://{images}/custom_game/ui/gold_icon.png" />
 						<Label class="item_price_text" id="item_price8" text="1000" html="true"></Label>
 					</Button>
@@ -166,7 +166,7 @@
 					<Panel class="item_container" id="item_panel9">
 					<Button class="item_buy_button"
 						onactivate="buy_item(9)"
-						onmouseover="ShopTooltip('DOTA_Tooltip_ability_item_rpc_slippers', 'shop_roll_intelligence', 9)"
+						onmouseover="ShopTooltip('DOTA_Tooltip_Ability_item_rpc_slippers', 'shop_roll_intelligence', 9)"
 						onmouseout="ShopHideTooltip(9)"
 						>
 						<DOTAItemImage hittest="false" class="shop_item_image" src="file://{images}/items/rpc_slippers.png"/>
@@ -182,7 +182,7 @@
 					<Panel class="item_container" id="item_panel10">
 					<Button class="item_buy_button"
 						onactivate="buy_item(10)"
-						onmouseover="ShopTooltip('DOTA_Tooltip_ability_item_rpc_gloves', 'shop_roll_agility', 10)"
+						onmouseover="ShopTooltip('DOTA_Tooltip_Ability_item_rpc_gloves', 'shop_roll_agility', 10)"
 						onmouseout="ShopHideTooltip(10)"						
 						>
 						<DOTAItemImage hittest="false" class="shop_item_image" src="file://{images}/items/rpc_gloves.png"/>
@@ -194,7 +194,7 @@
 					<Panel class="item_container" id="item_panel11">
 					<Button class="item_buy_button"
 						onactivate="buy_item(11)"
-						onmouseover="ShopTooltip('DOTA_Tooltip_ability_item_rpc_gauntlets', 'shop_roll_strength', 11)"
+						onmouseover="ShopTooltip('DOTA_Tooltip_Ability_item_rpc_gauntlets', 'shop_roll_strength', 11)"
 						onmouseout="ShopHideTooltip(11)"
 						>
 						<DOTAItemImage hittest="false" class="shop_item_image" src="file://{images}/items/rpc_gauntlets.png"/>
@@ -206,7 +206,7 @@
 					<Panel class="item_container" id="item_panel12">
 					<Button class="item_buy_button"
 						onactivate="buy_item(12)"
-						onmouseover="ShopTooltip('DOTA_Tooltip_ability_item_wraps', 'shop_roll_intelligence', 12)"
+						onmouseover="ShopTooltip('DOTA_Tooltip_Ability_item_wraps', 'shop_roll_intelligence', 12)"
 						onmouseout="ShopHideTooltip(12)"
 						>
 						<DOTAItemImage hittest="false" class="shop_item_image" src="file://{images}/items/wraps.png"/>
@@ -225,7 +225,7 @@
 					<Panel class="item_container" id="item_panel13">
 					<Button class="item_buy_button"
 						onactivate="buy_item(13)"
-						onmouseover="ShopTooltip('DOTA_Tooltip_ability_item_ice_blaster', 'DOTA_Tooltip_ability_item_wind_blaster_Description', 13)"
+						onmouseover="ShopTooltip('DOTA_Tooltip_Ability_item_ice_blaster', 'DOTA_Tooltip_Ability_item_wind_blaster_Description', 13)"
 						onmouseout="ShopHideTooltip(13)"
 						>
 						<DOTAItemImage hittest="false" class="shop_item_image" src="file://{images}/items/ice_blaster.png"/>
@@ -237,7 +237,7 @@
 					<Panel class="item_container" id="item_panel14">
 					<Button class="item_buy_button"
 						onactivate="buy_item(14)"
-						onmouseover="ShopTooltip('DOTA_Tooltip_ability_item_wind_blaster', 'DOTA_Tooltip_ability_item_wind_blaster_Description', 14)"
+						onmouseover="ShopTooltip('DOTA_Tooltip_Ability_item_wind_blaster', 'DOTA_Tooltip_Ability_item_wind_blaster_Description', 14)"
 						onmouseout="ShopHideTooltip(14)"
 						>
 						<DOTAItemImage hittest="false" class="shop_item_image" src="file://{images}/items/wind_blaster.png"/>
@@ -249,7 +249,7 @@
 					<Panel class="item_container" id="item_panel15">
 					<Button class="item_buy_button"
 						onactivate="buy_item(15)"
-						onmouseover="ShopTooltip('DOTA_Tooltip_ability_item_fire_blaster', 'DOTA_Tooltip_ability_item_wind_blaster_Description', 15)"
+						onmouseover="ShopTooltip('DOTA_Tooltip_Ability_item_fire_blaster', 'DOTA_Tooltip_Ability_item_wind_blaster_Description', 15)"
 						onmouseout="ShopHideTooltip(15)"
 						>
 						<DOTAItemImage hittest="false" class="shop_item_image" src="file://{images}/items/fire_blaster.png"/>

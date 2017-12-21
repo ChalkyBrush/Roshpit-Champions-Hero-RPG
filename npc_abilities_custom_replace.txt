@@ -24,3 +24,7 @@ RED_GENERAL_RUNES:heroes\axe\npc\axe_runes.txt
 TRAPPER_ABILITIES:heroes\lanaya\npc\abilities.txt
 TRAPPER_UNITS_ABILITIES:heroes\lanaya\npc\units_abilities.txt
 TRAPPER_RUNES:heroes\lanaya\npc\runes.txt
+
+<% heroes\spirit_breaker\constants.lua %>
+DUSKBRINGER_ABILITIES:heroes\spirit_breaker\npc\abilities.txt
+DUSKBRINGER_RUNES:heroes\spirit_breaker\npc\runes.txt

@@ -1,3 +1,4 @@
+require('heroes/spirit_breaker/whirling_flail')
 function begin_specter_rush_two(event)
 	local caster = event.caster
 	-- caster:Stop()
@@ -57,25 +58,12 @@ function specter_rush_thinking(event)
 			knockback_distance = knockback_distance,
 			knockback_height = 70
 		}
+		local flailAbility = caster:FindAbilityByName("whirling_flail")
 		if #enemies > 0 then
 			EmitSoundOn("Hero_Spirit_Breaker.GreaterBash", caster)
-			local damage = ability.c_c_level*1000 + caster:GetAgility()*8*ability.c_c_level
+			local stacksCount = Runes:Procs(ability.c_c_level, E3_PROC_CHANCE, 1)
 			for _,enemy in pairs(enemies) do
-
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
-				if not enemy.jumpLock then
-					enemy:AddNewModifier( caster, nil, "modifier_knockback", modifierKnockback )
-				end
-				local particleName = "particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash.vpcf"
-				local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, enemy )
-				ParticleManager:SetParticleControlEnt(pfx, 0, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
-				Timers:CreateTimer(0.8, function() 
-				  ParticleManager:DestroyParticle( pfx, false )
-				end) 	
-				if ability.d_c_level > 0 then
-					d_c_up(caster, ability.d_c_level, damage)
-				end
-
+				increment_duskfire_stacks(caster,enemy, flailAbility, stacksCount)
 			end
 		end 			
 	end
@@ -164,4 +152,10 @@ function immortal3_attack_land(event)
 		caster:SetModifierStackCount("modifier_duskbringer_ghost_armor", caster, 5)
 
 	end
+end
+
+
+function duskbringer_passive_think(event)
+	local caster = event.caster
+	caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "duskbringer")
 end

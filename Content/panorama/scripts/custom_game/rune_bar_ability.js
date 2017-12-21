@@ -222,8 +222,8 @@ function AbilityShowTooltip()
 	
 	var amount_per_level = Abilities.GetLevelSpecialValueFor( r_Ability, "property_one", 1)
 	amount_per_level = Math.round(amount_per_level * 100) / 100
-	var abilityTitle = $.Localize( "#DOTA_Tooltip_ability_"+abilityName)
-	var raw_description = $.Localize( "#DOTA_Tooltip_ability_"+abilityName+"_Description")
+	var abilityTitle = $.Localize( "#DOTA_Tooltip_Ability_"+abilityName)
+	var raw_description = $.Localize( "#DOTA_Tooltip_Ability_"+abilityName+"_Description")
 	raw_description = raw_description.replace(",", " -");
 	var spacePosition10 = getPosition(raw_description, " ", 12)
 	var brIndex = raw_description.substring(0, spacePosition10).length
@@ -346,9 +346,9 @@ function buildSecondProperty(abilityName, amount_this_level, attribute_scale)
 	if (attribute_scale == 0){
 		attribute_scale = 1
 	}	
-	var propertyOne = $.Localize( "#DOTA_Tooltip_ability_"+abilityName+"_property_two")
+	var propertyOne = $.Localize( "#DOTA_Tooltip_Ability_"+abilityName+"_property_two")
 	if (propertyOne!=null){
-		var suffix = $.Localize( "#DOTA_Tooltip_ability_"+abilityName+"_suffix_two")
+		var suffix = $.Localize( "#DOTA_Tooltip_Ability_"+abilityName+"_suffix_two")
 		var firstLine = "<br><font color='white'>"+propertyOne + ": </font><font color='yellow'>"+(amount_this_level*attribute_scale)+suffix+"</font>"
 		return firstLine;
 	}else{
@@ -361,8 +361,8 @@ function buildPropertyLine(abilityName, amount_this_level, lineTitle, attribute_
 	if (attribute_scale == 0){
 		attribute_scale = 1
 	}
-	var propertyOne = $.Localize( "#DOTA_Tooltip_ability_"+abilityName+"_property_one")
-	var suffix = $.Localize( "#DOTA_Tooltip_ability_"+abilityName+"_suffix")
+	var propertyOne = $.Localize( "#DOTA_Tooltip_Ability_"+abilityName+"_property_one")
+	var suffix = $.Localize( "#DOTA_Tooltip_Ability_"+abilityName+"_suffix")
 	var firstLineTitle = "<i><font color='#94B8FF'>"+lineTitle+"</font></i><br>"
 	var firstLine = "<br>"+firstLineTitle+"<font color='white'>"+propertyOne + ": </font><font color='yellow'>"+(amount_this_level*attribute_scale)+suffix+"</font>"
 	return firstLine;
@@ -382,7 +382,7 @@ function addAbilityInfoToTooltip(ability, mainHero)
 		$.Msg("IN BLOCK!")
 		var baseAbility = Entities.GetAbility( mainHero, baseAbilityIndex-1 )
 		var baseAbilityText = $.Localize("#tooltip_rune_base_ability")+": "
-		var baseAbilityName = $.Localize("#DOTA_Tooltip_ability_"+Abilities.GetAbilityName( baseAbility ))
+		var baseAbilityName = $.Localize("#DOTA_Tooltip_Ability_"+Abilities.GetAbilityName( baseAbility ))
 		tooltip = tooltip+"<font color='#7AB4CC'>"+baseAbilityText+"</font><font color='#FFFFFF'>"+baseAbilityName+"</font><br>"
 	}
 	$.Msg(baseAbilityIndex)

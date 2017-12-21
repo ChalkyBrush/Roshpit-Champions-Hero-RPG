@@ -180,7 +180,7 @@ function a_d_bolt(caster, ability, damage, point)
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do
 					increment_d_d(caster, ability)
-					ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 				end
 			end 
 		end)

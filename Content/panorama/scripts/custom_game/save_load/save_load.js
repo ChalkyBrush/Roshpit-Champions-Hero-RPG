@@ -214,25 +214,25 @@ function getKeyData(index, resultTable){
 	$.Msg(resultTable)
 	var array = [false, false, false, false]
 	if (index == 1){
-		array = ["file://{images}/items/wind_temple_key.png", "DOTA_Tooltip_ability_item_tanari_wind_temple_key_normal", resultTable[1].wind_temple, '#4B69FF']
+		array = ["file://{images}/items/wind_temple_key.png", "DOTA_Tooltip_Ability_item_tanari_wind_temple_key_normal", resultTable[1].wind_temple, '#4B69FF']
 	}else if(index == 2){
-		array = ["file://{images}/items/water_temple_key.png", "DOTA_Tooltip_ability_item_tanari_water_temple_key_normal", resultTable[1].water_temple, '#4B69FF']
+		array = ["file://{images}/items/water_temple_key.png", "DOTA_Tooltip_Ability_item_tanari_water_temple_key_normal", resultTable[1].water_temple, '#4B69FF']
 	}else if(index == 3){
-		array = ["file://{images}/items/fire_temple_key.png", "DOTA_Tooltip_ability_item_tanari_fire_temple_key_normal", resultTable[1].fire_temple, '#4B69FF']
+		array = ["file://{images}/items/fire_temple_key.png", "DOTA_Tooltip_Ability_item_tanari_fire_temple_key_normal", resultTable[1].fire_temple, '#4B69FF']
 	}else if(index == 4){
-		array = ["file://{images}/items/tanari_spirit_stones.png", "DOTA_Tooltip_ability_item_tanari_spirit_stones_normal", resultTable[1].spirit_stones, '#E4AE33']
+		array = ["file://{images}/items/tanari_spirit_stones.png", "DOTA_Tooltip_Ability_item_tanari_spirit_stones_normal", resultTable[1].spirit_stones, '#E4AE33']
 	}else if(index == 5){
-		array = ["file://{images}/items/redfall/autumnleaf_firefly.png", "DOTA_Tooltip_ability_item_redfall_burgundy_firefly_normal", resultTable[1].burgundy_firefly, '#4B69FF']
+		array = ["file://{images}/items/redfall/autumnleaf_firefly.png", "DOTA_Tooltip_Ability_item_redfall_burgundy_firefly_normal", resultTable[1].burgundy_firefly, '#4B69FF']
 	}else if(index == 6){
-		array = ["file://{images}/items/redfall/purified_vermillion_bundle.png", "DOTA_Tooltip_ability_item_redfall_purified_vermillion_bundle_normal", resultTable[1].vermillion_bundle, '#4B69FF']
+		array = ["file://{images}/items/redfall/purified_vermillion_bundle.png", "DOTA_Tooltip_Ability_item_redfall_purified_vermillion_bundle_normal", resultTable[1].vermillion_bundle, '#4B69FF']
 	}else if(index == 7){
-		array = ["file://{images}/items/redfall/hidden_shipyard_key.png", "DOTA_Tooltip_ability_item_redfall_hidden_shipyard_key_normal", resultTable[1].shipyard_key, '#4B69FF']
+		array = ["file://{images}/items/redfall/hidden_shipyard_key.png", "DOTA_Tooltip_Ability_item_redfall_hidden_shipyard_key_normal", resultTable[1].shipyard_key, '#4B69FF']
 	}else if(index == 8){
-		array = ["file://{images}/items/redfall/crimsyth_demon_relic.png", "DOTA_Tooltip_ability_item_redfall_crimsyth_demon_relic_normal", resultTable[1].demon_relic, '#4B69FF']
+		array = ["file://{images}/items/redfall/crimsyth_demon_relic.png", "DOTA_Tooltip_Ability_item_redfall_crimsyth_demon_relic_normal", resultTable[1].demon_relic, '#4B69FF']
 	}else if(index == 9){
-		array = ["file://{images}/items/redfall/redfall_spirit_ruby.png", "DOTA_Tooltip_ability_item_redfall_spirit_ruby_normal", resultTable[1].vestigial_ruby, '#8847FF']
+		array = ["file://{images}/items/redfall/redfall_spirit_ruby.png", "DOTA_Tooltip_Ability_item_redfall_spirit_ruby_normal", resultTable[1].vestigial_ruby, '#8847FF']
 	}else if(index == 10){
-		array = ["file://{images}/items/rpc/sunstone.png", "DOTA_Tooltip_ability_item_serengaard_sunstone", resultTable[1].serengaard_sunstone, '#8847FF']
+		array = ["file://{images}/items/rpc/sunstone.png", "DOTA_Tooltip_Ability_item_serengaard_sunstone", resultTable[1].serengaard_sunstone, '#8847FF']
 	}
 	return array
 }

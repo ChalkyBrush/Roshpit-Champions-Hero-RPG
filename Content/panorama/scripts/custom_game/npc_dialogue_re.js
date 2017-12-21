@@ -109,7 +109,7 @@ function GetItemDataForCurator(msg)
     var item = msg.itemIndex
     var language = $.Language()
     var itemName = Abilities.GetAbilityName( item );
-    var localizedName = $.Localize("DOTA_Tooltip_ability_"+itemName)
+    var localizedName = $.Localize("DOTA_Tooltip_Ability_"+itemName)
     var itemTexture = Abilities.GetAbilityTextureName( item )
 
     //PROPERTY1

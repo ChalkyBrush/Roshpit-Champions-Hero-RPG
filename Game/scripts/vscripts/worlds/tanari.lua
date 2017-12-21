@@ -29,10 +29,10 @@ function Tanari:Debug()
     -- Events:SpawnAertega(Vector(-4928, 2048))
     -- Events:SpawnTorturok(Vector(-4928, 2048))
     -- RPCItems:RollVenomortArcana2(Vector(-4928, 2048))
-     Events:SpawnOzubu(Vector(-4928, 2048))
-     for i = 1, 5, 1 do
-        RPCItems:RollWinterblightSkullRing(Vector(-4928, 2048))
-    end
+    --  Events:SpawnOzubu(Vector(-4928, 2048))
+    --  for i = 1, 5, 1 do
+    --     RPCItems:RollWinterblightSkullRing(Vector(-4928, 2048))
+    -- end
     -- Dungeons.itemLevel = 500
     -- Glyphs:DropArcaneCrystals(Vector(-4928, 2048), 2.0)
     -- RPCItems:RollArcaneCharm(Vector(-3928, 2048))
@@ -192,7 +192,7 @@ function Tanari:Debug()
     -- RPCItems:RollTrapperArcana1(Vector(-4928, 2048))
 
             ---------MAX CURATION----------
-    -- Curator:FullCurateHero(MAIN_HERO_TABLE[1])
+    Curator:FullCurateHero(MAIN_HERO_TABLE[1])
 
     -- Curator:CurateHero(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
 

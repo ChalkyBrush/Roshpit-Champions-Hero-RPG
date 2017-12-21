@@ -25,7 +25,7 @@
 			<Panel class="rare_item_container" id="rare_item_panel1">
 				<Button class="item_buy_button"
 					onactivate="buy_item(1)"
-					onmouseover="ShopTooltip('DOTA_Tooltip_ability_random_immortal_helm', 'secret_shop_immortal', 1)"
+					onmouseover="ShopTooltip('DOTA_Tooltip_Ability_random_immortal_helm', 'secret_shop_immortal', 1)"
 					onmouseout="ShopHideTooltip(1)"
 					>
 					<DOTAItemImage hittest="false" class="shop_item_image" src="file://{images}/items/wraith_crown.png"/>

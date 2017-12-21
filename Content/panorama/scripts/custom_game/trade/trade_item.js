@@ -136,7 +136,7 @@ function itemPropertyCheck(itemProperty){
 // 		tooltip = tooltip.replace(/(['"])/g, "\\$1");
 
 // 		$.DispatchEvent("DOTAShowTitleTextTooltip", $.GetContextPanel(), title, tooltip);
-// 		//$.DispatchEvent("DOTAShowTitleTextTooltip", $.GetContextPanel(),  "#DOTA_Tooltip_ability_"+itemName, tooltip );
+// 		//$.DispatchEvent("DOTAShowTitleTextTooltip", $.GetContextPanel(),  "#DOTA_Tooltip_Ability_"+itemName, tooltip );
 // 	}
 // }
 

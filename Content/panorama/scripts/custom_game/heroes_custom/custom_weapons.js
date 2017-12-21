@@ -802,5 +802,5 @@ function runeTranslate(queryUnit, rune){
 	}else if (heroName == "npc_dota_hero_leshrac"){
 		runeName = "bahamut_"+rune
 	}
-	return $.Localize("DOTA_Tooltip_ability_"+runeName)
+	return $.Localize("DOTA_Tooltip_Ability_"+runeName)
 }

@@ -79,7 +79,7 @@ function getSkillSlot2(queryUnit, slot)
 	}else if(abilityName == "draghor_monkey_form"|| abilityName == "draghor_shapeshift_cat" || abilityName == "draghor_shapeshift_bear" || abilityName == "draghor_shapeshift_crow"){
 		abilityName = "djanghor_r_abilities"
 	}else{
-		abilityName = "DOTA_Tooltip_ability_"+abilityName
+		abilityName = "DOTA_Tooltip_Ability_"+abilityName
 	}
 	return abilityName
 }
@@ -142,13 +142,13 @@ function getSkillSlot(heroName, slot){
 function getFlamewakerSkill(slot){
 	var skillName = ""
 	if (slot == 1){
-		skillName = "DOTA_Tooltip_ability_fire_blast"
+		skillName = "DOTA_Tooltip_Ability_fire_blast"
 	}else if(slot == 2){
-		skillName = "DOTA_Tooltip_ability_second_heartbeat"
+		skillName = "DOTA_Tooltip_Ability_second_heartbeat"
 	}else if(slot == 3){
-		skillName = "DOTA_Tooltip_ability_flame_ray"
+		skillName = "DOTA_Tooltip_Ability_flame_ray"
 	}else if(slot == 4){
-		skillName = "DOTA_Tooltip_ability_example_ability"
+		skillName = "DOTA_Tooltip_Ability_example_ability"
 	}
 	return skillName
 }
@@ -156,13 +156,13 @@ function getFlamewakerSkill(slot){
 function getVoltexSkill(slot){
 	var skillName = ""
 	if (slot == 1){
-		skillName = "DOTA_Tooltip_ability_lightning_attack"
+		skillName = "DOTA_Tooltip_Ability_lightning_attack"
 	}else if(slot == 2){
-		skillName = "DOTA_Tooltip_ability_ability_zap"
+		skillName = "DOTA_Tooltip_Ability_ability_zap"
 	}else if(slot == 3){
-		skillName = "DOTA_Tooltip_ability_electric_jump"
+		skillName = "DOTA_Tooltip_Ability_electric_jump"
 	}else if(slot == 4){
-		skillName = "DOTA_Tooltip_ability_static_field"
+		skillName = "DOTA_Tooltip_Ability_static_field"
 	}
 	return skillName
 }
@@ -170,13 +170,13 @@ function getVoltexSkill(slot){
 function getVenoSkill(slot){
 	var skillName = ""
 	if (slot == 1){
-		skillName = "DOTA_Tooltip_ability_gale_nova"
+		skillName = "DOTA_Tooltip_Ability_gale_nova"
 	}else if(slot == 2){
-		skillName = "DOTA_Tooltip_ability_nether_blaster"
+		skillName = "DOTA_Tooltip_Ability_nether_blaster"
 	}else if(slot == 3){
-		skillName = "DOTA_Tooltip_ability_phase_walk"
+		skillName = "DOTA_Tooltip_Ability_phase_walk"
 	}else if(slot == 4){
-		skillName = "DOTA_Tooltip_ability_snake_trap"
+		skillName = "DOTA_Tooltip_Ability_snake_trap"
 	}
 	return skillName
 }
@@ -184,13 +184,13 @@ function getVenoSkill(slot){
 function getAxeSkill(slot){
 	var skillName = ""
 	if (slot == 1){
-		skillName = "DOTA_Tooltip_ability_stun_attack"
+		skillName = "DOTA_Tooltip_Ability_stun_attack"
 	}else if(slot == 2){
-		skillName = "DOTA_Tooltip_ability_backshock"
+		skillName = "DOTA_Tooltip_Ability_backshock"
 	}else if(slot == 3){
-		skillName = "DOTA_Tooltip_ability_whirlwind"
+		skillName = "DOTA_Tooltip_Ability_whirlwind"
 	}else if(slot == 4){
-		skillName = "DOTA_Tooltip_ability_sunder"
+		skillName = "DOTA_Tooltip_Ability_sunder"
 	}
 	return skillName
 }
@@ -198,13 +198,13 @@ function getAxeSkill(slot){
 function getAstralSkill(slot){
 	var skillName = ""
 	if (slot == 1){
-		skillName = "DOTA_Tooltip_ability_moon_shroud"
+		skillName = "DOTA_Tooltip_Ability_moon_shroud"
 	}else if(slot == 2){
-		skillName = "DOTA_Tooltip_ability_split_shot"
+		skillName = "DOTA_Tooltip_Ability_split_shot"
 	}else if(slot == 3){
-		skillName = "DOTA_Tooltip_ability_star_blink"
+		skillName = "DOTA_Tooltip_Ability_star_blink"
 	}else if(slot == 4){
-		skillName = "DOTA_Tooltip_ability_ranger_aoe_explosion"	
+		skillName = "DOTA_Tooltip_Ability_ranger_aoe_explosion"	
 	}
 	return skillName
 }
@@ -212,13 +212,13 @@ function getAstralSkill(slot){
 function getEpochSkill(slot){
 	var skillName = ""
 	if (slot == 1){
-		skillName = "DOTA_Tooltip_ability_time_binder"
+		skillName = "DOTA_Tooltip_Ability_time_binder"
 	}else if(slot == 2){
-		skillName = "DOTA_Tooltip_ability_time_genesis_orb"
+		skillName = "DOTA_Tooltip_Ability_time_genesis_orb"
 	}else if(slot == 3){
-		skillName = "DOTA_Tooltip_ability_time_warp"
+		skillName = "DOTA_Tooltip_Ability_time_warp"
 	}else if(slot == 4){
-		skillName = "DOTA_Tooltip_ability_time_ulti"	
+		skillName = "DOTA_Tooltip_Ability_time_ulti"	
 	}
 	return skillName
 }
@@ -226,13 +226,13 @@ function getEpochSkill(slot){
 function getPaladinSkill(slot){
 	var skillName = ""
 	if (slot == 1){
-		skillName = "DOTA_Tooltip_ability_holy_wings"
+		skillName = "DOTA_Tooltip_Ability_holy_wings"
 	}else if(slot == 2){
-		skillName = "DOTA_Tooltip_ability_holy_cone"
+		skillName = "DOTA_Tooltip_Ability_holy_cone"
 	}else if(slot == 3){
-		skillName = "DOTA_Tooltip_ability_crusader_dash"
+		skillName = "DOTA_Tooltip_Ability_crusader_dash"
 	}else if(slot == 4){
-		skillName = "DOTA_Tooltip_ability_holy_ulti"	
+		skillName = "DOTA_Tooltip_Ability_holy_ulti"	
 	}
 	return skillName
 }
@@ -242,9 +242,9 @@ function getSorcSkill(slot){
 	if (slot == 1){
 		skillName = "Tooltip_sorceress_q"
 	}else if(slot == 2){
-		skillName = "DOTA_Tooltip_ability_arcane_explosion"
+		skillName = "DOTA_Tooltip_Ability_arcane_explosion"
 	}else if(slot == 3){
-		skillName = "DOTA_Tooltip_ability_sorceress_blink"
+		skillName = "DOTA_Tooltip_Ability_sorceress_blink"
 	}else if(slot == 4){
 		skillName = "Tooltip_sorceress_r"
 	}
@@ -254,13 +254,13 @@ function getSorcSkill(slot){
 function getConjurorSkill(slot){
 	var skillName = ""
 	if (slot == 1){
-		skillName = "DOTA_Tooltip_ability_earthquake"
+		skillName = "DOTA_Tooltip_Ability_earthquake"
 	}else if(slot == 2){
-		skillName = "DOTA_Tooltip_ability_immolation"
+		skillName = "DOTA_Tooltip_Ability_immolation"
 	}else if(slot == 3){
-		skillName = "DOTA_Tooltip_ability_shadow_gate"
+		skillName = "DOTA_Tooltip_Ability_shadow_gate"
 	}else if(slot == 4){
-		skillName = "DOTA_Tooltip_ability_call_of_elements"
+		skillName = "DOTA_Tooltip_Ability_call_of_elements"
 	}
 	return skillName
 }
@@ -268,13 +268,13 @@ function getConjurorSkill(slot){
 function getMonkSkill(slot){
 	var skillName = ""
 	if (slot == 1){
-		skillName = "DOTA_Tooltip_ability_seinaru_kaze_gust"
+		skillName = "DOTA_Tooltip_Ability_seinaru_kaze_gust"
 	}else if(slot == 2){
 		skillName = "Tooltip_seinaru_w"
 	}else if(slot == 3){
-		skillName = "DOTA_Tooltip_ability_odachi_slice"
+		skillName = "DOTA_Tooltip_Ability_odachi_slice"
 	}else if(slot == 4){
-		skillName = "DOTA_Tooltip_ability_seinaru_gorudo"
+		skillName = "DOTA_Tooltip_Ability_seinaru_gorudo"
 	}
 	return skillName
 }
@@ -288,7 +288,7 @@ function getWarlordSkill(slot){
 	}else if(slot == 3){
 		skillName = "Tooltip_jump_abilities"
 	}else if(slot == 4){
-		skillName = "DOTA_Tooltip_ability_elemental_overload_2"
+		skillName = "DOTA_Tooltip_Ability_elemental_overload_2"
 	}
 	return skillName
 }
@@ -296,13 +296,13 @@ function getWarlordSkill(slot){
 function getBahamutSkill(slot){
 	var skillName = ""
 	if (slot == 1){
-		skillName = "DOTA_Tooltip_ability_leshrac_wall"
+		skillName = "DOTA_Tooltip_Ability_leshrac_wall"
 	}else if(slot == 2){
-		skillName = "DOTA_Tooltip_ability_leshrac_nuke"
+		skillName = "DOTA_Tooltip_Ability_leshrac_nuke"
 	}else if(slot == 3){
-		skillName = "DOTA_Tooltip_ability_leshrac_blink"
+		skillName = "DOTA_Tooltip_Ability_leshrac_blink"
 	}else if(slot == 4){
-		skillName = "DOTA_Tooltip_ability_charge_of_light"
+		skillName = "DOTA_Tooltip_Ability_charge_of_light"
 	}
 	return skillName
 }
@@ -312,11 +312,11 @@ function getDuskbringerSkill(slot){
 	if (slot == 1){
 		skillName = "tooltip_duskbringer_Q"
 	}else if(slot == 2){
-		skillName = "DOTA_Tooltip_ability_ghost_hallow"
+		skillName = "DOTA_Tooltip_Ability_ghost_hallow"
 	}else if(slot == 3){
-		skillName = "DOTA_Tooltip_ability_specter_rush"
+		skillName = "DOTA_Tooltip_Ability_specter_rush"
 	}else if(slot == 4){
-		skillName = "DOTA_Tooltip_ability_seven_visions"
+		skillName = "DOTA_Tooltip_Ability_seven_visions"
 	}
 	return skillName
 }
@@ -324,13 +324,13 @@ function getDuskbringerSkill(slot){
 function getAuriunSkill(slot){
 	var skillName = ""
 	if (slot == 1){
-		skillName = "DOTA_Tooltip_ability_heavens_shield"
+		skillName = "DOTA_Tooltip_Ability_heavens_shield"
 	}else if(slot == 2){
 		skillName = "tooltip_auriun_w"
 	}else if(slot == 3){
-		skillName = "DOTA_Tooltip_ability_seraph_surge"
+		skillName = "DOTA_Tooltip_Ability_seraph_surge"
 	}else if(slot == 4){
-		skillName = "DOTA_Tooltip_ability_auriun_ult"
+		skillName = "DOTA_Tooltip_Ability_auriun_ult"
 	}
 	return skillName
 }
@@ -344,7 +344,7 @@ function getTrapperSkill(slot){
 	}else if(slot == 3){
 		skillName = "tooltip_trapper_e"
 	}else if(slot == 4){
-		skillName = "DOTA_Tooltip_ability_trapper_backstab"
+		skillName = "DOTA_Tooltip_Ability_trapper_backstab"
 	}
 	return skillName
 }
@@ -354,11 +354,11 @@ function getSpiritWarriorSkill(slot){
 	if (slot == 1){
 		skillName = "spirit_warrior_q_ability"
 	}else if(slot == 2){
-		skillName = "DOTA_Tooltip_ability_spirit_warrior_soul_thrust"
+		skillName = "DOTA_Tooltip_Ability_spirit_warrior_soul_thrust"
 	}else if(slot == 3){
 		skillName = "spirit_warrior_e_ability"
 	}else if(slot == 4){
-		skillName = "DOTA_Tooltip_ability_spirit_warrior_ancient_vigor"
+		skillName = "DOTA_Tooltip_Ability_spirit_warrior_ancient_vigor"
 	}
 	return skillName
 }
@@ -366,13 +366,13 @@ function getSpiritWarriorSkill(slot){
 function getMountainProtectorSkill(slot){
 	var skillName = ""
 	if (slot == 1){
-		skillName = "DOTA_Tooltip_ability_mountain_protector_shockwave"
+		skillName = "DOTA_Tooltip_Ability_mountain_protector_shockwave"
 	}else if(slot == 2){
-		skillName = "DOTA_Tooltip_ability_mountain_protector_mountain_guardian"
+		skillName = "DOTA_Tooltip_Ability_mountain_protector_mountain_guardian"
 	}else if(slot == 3){
-		skillName = "DOTA_Tooltip_ability_mountain_protector_emberstone"
+		skillName = "DOTA_Tooltip_Ability_mountain_protector_emberstone"
 	}else if(slot == 4){
-		skillName = "DOTA_Tooltip_ability_mountain_protector_aeon_fracture"
+		skillName = "DOTA_Tooltip_Ability_mountain_protector_aeon_fracture"
 	}
 	return skillName
 }
@@ -380,13 +380,13 @@ function getMountainProtectorSkill(slot){
 function getChernobogSkill(slot){
 	var skillName = ""
 	if (slot == 1){
-		skillName = "DOTA_Tooltip_ability_chernobog_charons_claw"
+		skillName = "DOTA_Tooltip_Ability_chernobog_charons_claw"
 	}else if(slot == 2){
-		skillName = "DOTA_Tooltip_ability_chernobog_demon_hunter"
+		skillName = "DOTA_Tooltip_Ability_chernobog_demon_hunter"
 	}else if(slot == 3){
-		skillName = "DOTA_Tooltip_ability_chernobog_shadow_walk"
+		skillName = "DOTA_Tooltip_Ability_chernobog_shadow_walk"
 	}else if(slot == 4){
-		skillName = "DOTA_Tooltip_ability_chernobog_nights_procession"
+		skillName = "DOTA_Tooltip_Ability_chernobog_nights_procession"
 	}
 	return skillName
 }
@@ -408,13 +408,13 @@ function getSoluniaSkill(slot){
 function getHydroxisSkill(slot){
 	var skillName = ""
 	if (slot == 1){
-		skillName = "DOTA_Tooltip_ability_hydroxis_hydro_pump"
+		skillName = "DOTA_Tooltip_Ability_hydroxis_hydro_pump"
 	}else if(slot == 2){
-		skillName = "DOTA_Tooltip_ability_hydroxis_water_blade"
+		skillName = "DOTA_Tooltip_Ability_hydroxis_water_blade"
 	}else if(slot == 3){
-		skillName = "DOTA_Tooltip_ability_hydroxis_slippery_tail"
+		skillName = "DOTA_Tooltip_Ability_hydroxis_slippery_tail"
 	}else if(slot == 4){
-		skillName = "DOTA_Tooltip_ability_hydroxis_tsunami"
+		skillName = "DOTA_Tooltip_Ability_hydroxis_tsunami"
 	}
 	return skillName	
 }
@@ -422,13 +422,13 @@ function getHydroxisSkill(slot){
 function getEkkanSkill(slot){
 	var skillName = ""
 	if (slot == 1){
-		skillName = "DOTA_Tooltip_ability_ekkan_dominion"
+		skillName = "DOTA_Tooltip_Ability_ekkan_dominion"
 	}else if(slot == 2){
-		skillName = "DOTA_Tooltip_ability_ekkan_summon_skeleton"
+		skillName = "DOTA_Tooltip_Ability_ekkan_summon_skeleton"
 	}else if(slot == 3){
-		skillName = "DOTA_Tooltip_ability_ekkan_river_of_souls"
+		skillName = "DOTA_Tooltip_Ability_ekkan_river_of_souls"
 	}else if(slot == 4){
-		skillName = "DOTA_Tooltip_ability_ekkan_supercharge"
+		skillName = "DOTA_Tooltip_Ability_ekkan_supercharge"
 	}
 	return skillName	
 }
@@ -436,13 +436,13 @@ function getEkkanSkill(slot){
 function getZonikSkill(slot){
 	var skillName = ""
 	if (slot == 1){
-		skillName = "DOTA_Tooltip_ability_tachyon_shell"
+		skillName = "DOTA_Tooltip_Ability_tachyon_shell"
 	}else if(slot == 2){
-		skillName = "DOTA_Tooltip_ability_zonik_mach_punch"
+		skillName = "DOTA_Tooltip_Ability_zonik_mach_punch"
 	}else if(slot == 3){
-		skillName = "DOTA_Tooltip_ability_zonik_lightspeed"
+		skillName = "DOTA_Tooltip_Ability_zonik_lightspeed"
 	}else if(slot == 4){
-		skillName = "DOTA_Tooltip_ability_zonik_speedball"
+		skillName = "DOTA_Tooltip_Ability_zonik_speedball"
 	}
 	return skillName	
 }
@@ -450,13 +450,13 @@ function getZonikSkill(slot){
 function getArkimusSkill(slot){
 	var skillName = ""
 	if (slot == 1){
-		skillName = "DOTA_Tooltip_ability_arkimus_zonis_spark"
+		skillName = "DOTA_Tooltip_Ability_arkimus_zonis_spark"
 	}else if(slot == 2){
-		skillName = "DOTA_Tooltip_ability_arkimus_storm_weapon"	
+		skillName = "DOTA_Tooltip_Ability_arkimus_storm_weapon"	
 	}else if(slot == 3){
-		skillName = "DOTA_Tooltip_ability_ark_jump"
+		skillName = "DOTA_Tooltip_Ability_ark_jump"
 	}else if(slot == 4){
-		skillName = "DOTA_Tooltip_ability_arkimus_energy_field"
+		skillName = "DOTA_Tooltip_Ability_arkimus_energy_field"
 	}
 	return skillName	
 }

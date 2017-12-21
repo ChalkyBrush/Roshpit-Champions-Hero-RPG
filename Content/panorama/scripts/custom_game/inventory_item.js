@@ -144,7 +144,7 @@ function ItemShowTooltipInit()
 	// 	var itemSuffix = itemValues.itemSuffix
 	// 	//$.Msg( itemValues.property1 );
 	// 	//$.DispatchEvent( "DOTAShowAbilityTooltipForEntityIndex", $.GetContextPanel(), itemName, queryUnit );
-	// 	var localizedItemName = $.Localize("#DOTA_Tooltip_ability_"+Abilities.GetAbilityName(item))
+	// 	var localizedItemName = $.Localize("#DOTA_Tooltip_Ability_"+Abilities.GetAbilityName(item))
 	// 	var title = "<font color='"+itemValues.qualityColor+"'>"+itemPrefix+" "+localizedItemName+" "+itemSuffix+"</font>"
 	// 	if (!(itemValues.minLevel ===undefined)){
 	// 		tooltip = AddMinLevelToTooltip(itemValues, tooltip, item)
@@ -166,7 +166,7 @@ function ItemShowTooltipInit()
 	// 	tooltip = tooltip.replace(/(['"])/g, "\\$1");
 
 	// 	$.DispatchEvent("DOTAShowTitleTextTooltip", $.GetContextPanel(), title, tooltip);
-		//$.DispatchEvent("DOTAShowTitleTextTooltip", $.GetContextPanel(),  "#DOTA_Tooltip_ability_"+itemName, tooltip );
+		//$.DispatchEvent("DOTAShowTitleTextTooltip", $.GetContextPanel(),  "#DOTA_Tooltip_Ability_"+itemName, tooltip );
 	// }
 }
 

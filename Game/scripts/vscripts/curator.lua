@@ -538,7 +538,7 @@ end
 
 function Curator:CurateAllGlyphsForHero(heroName)
 	local maxTiers = 1
-	if heroName == "trapper" or heroName == "sorceress" or heroName == "axe" then
+	if heroName == "trapper" or heroName == "sorceress" or heroName == "axe" or heroName == "duskbringer" then
 		maxTiers = 2
 	end
 	for j = 1, maxTiers, 1 do

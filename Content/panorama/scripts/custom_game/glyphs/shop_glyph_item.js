@@ -98,7 +98,7 @@ function minLevelForTier(tier)
 function GlyphTooltip(){
 	var panel = $.GetContextPanel()
 	var queryUnit = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() )
-	var title = "<font color='"+GetRarityColor(mItemRarity)+"'>"+$.Localize("DOTA_Tooltip_ability_"+mItemName)+"</font>"
+	var title = "<font color='"+GetRarityColor(mItemRarity)+"'>"+$.Localize("DOTA_Tooltip_Ability_"+mItemName)+"</font>"
 	var tooltip = "<font color='#A3D4A1'>"+$.Localize(mItemDescription)+"</font>"
 	// tooltip = breakUpTooltip(tooltip)
 	tooltip = updateGlyphInTooltip(tooltip, mItemName)

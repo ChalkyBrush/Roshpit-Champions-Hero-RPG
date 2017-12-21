@@ -118,10 +118,10 @@
 		<snippet name="primary_build_menu">
 			<Panel class="primary_build_menu">
 				<Button id="primary_build_button" class="builder_button" hittest="true">
-				  <Label text="DOTA_Tooltip_ability_pvp_tanari_builder_open_menu" class="dropdown_selection"></Label>
+				  <Label text="DOTA_Tooltip_Ability_pvp_tanari_builder_open_menu" class="dropdown_selection"></Label>
 				</Button>
 				<Button id="primary_build_button_2" class="builder_button" hittest="true">
-				  <Label text="DOTA_Tooltip_ability_pvp_redfall_builder_open_menu" class="dropdown_selection"></Label>
+				  <Label text="DOTA_Tooltip_Ability_pvp_redfall_builder_open_menu" class="dropdown_selection"></Label>
 				</Button>
 			</Panel>
 		</snippet>

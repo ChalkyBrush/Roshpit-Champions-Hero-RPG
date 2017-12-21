@@ -1,4 +1,5 @@
 require('heroes/spirit_breaker/whirling_flail')
+require('/heroes/spirit_breaker/constants')
 
 function arcana_ability_start(event)
 	local caster = event.caster
@@ -52,13 +53,14 @@ function smashing_end(event)
 	local damage = event.damage
 	local a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b_arcana1", "duskbringer")
 	if a_b_level > 0 then
-		damage = damage + a_b_level*caster:GetAverageTrueAttackDamage(caster)*0.1*ability:GetLevel()
+		damage = damage + a_b_level*caster:GetAverageTrueAttackDamage(caster) * ability:GetLevel() * W1_ARCANA1_AMP_PERCENT / 100
 	end
 
 	local b_b_level = Runes:GetTotalRuneLevel(caster, 2, "b_b_arcana1", "duskbringer")
 	local c_b_level = Runes:GetTotalRuneLevel(caster, 3, "c_b_arcana1", "duskbringer")
 	local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b_arcana1", "duskbringer")
 	local flailAbility = caster:FindAbilityByName("whirling_flail")
+	local stacksCount = Runes:Procs(c_b_level, W3_ARCANA1_PROC_CHANCE, 1)
 					
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )	
 	if #enemies > 0 then	
@@ -66,7 +68,7 @@ function smashing_end(event)
 			Filters:TakeArgumentsAndApplyDamage(enemies[i], caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_GHOST, RPC_ELEMENT_SHADOW)
 			Filters:ApplyStun(caster, stunDuration, enemies[i])
 			if c_b_level > 0 then
-				increment_duskfire_stacks(caster, enemies[i], flailAbility, c_b_level)
+				increment_duskfire_stacks(caster, enemies[i], flailAbility, stacksCount)
 			end
 		end
 	end

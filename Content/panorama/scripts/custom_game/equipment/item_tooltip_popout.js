@@ -29,7 +29,7 @@ function initializeTooltip(func){
 	}
 
 	//TITLE
-	var localizedItemName = $.Localize("#DOTA_Tooltip_ability_"+Abilities.GetAbilityName(item))
+	var localizedItemName = $.Localize("#DOTA_Tooltip_Ability_"+Abilities.GetAbilityName(item))
 	var itemPrefix = itemValues.itemPrefix
 	var itemSuffix = itemValues.itemSuffix
 	var title = "<font color='"+itemValues.qualityColor+"'>"+itemPrefix+" "+localizedItemName+" "+itemSuffix+"</font>"
@@ -281,7 +281,7 @@ function AddAffixToItem(tooltip, itemProperty, queryUnit, requiredHero, rarityFa
 			var rune_unit_index = skill_tree_data.runeUnit;
 			var abilitySlot = getRuneIndexFromRuneName(OGpropertyName)
 			var abilityIndex = 	Entities.GetAbility( rune_unit_index, abilitySlot)
-			propertyName = $.Localize("DOTA_Tooltip_ability_"+Abilities.GetAbilityName( abilityIndex ))
+			propertyName = $.Localize("DOTA_Tooltip_Ability_"+Abilities.GetAbilityName( abilityIndex ))
 		}else{
 			if (rarityFactor == 6){
 				var RPCName = convertFullHeroNameToRPC(requiredHero)	
@@ -289,17 +289,17 @@ function AddAffixToItem(tooltip, itemProperty, queryUnit, requiredHero, rarityFa
 				if (RPCName == "monk"){
 					arcanaSuffix = itemName.replace("item_rpc_"+"seinaru"+"_", "_");
 				}
-				propertyName = $.Localize("DOTA_Tooltip_ability_"+RPCName+"_"+OGpropertyName+arcanaSuffix)
+				propertyName = $.Localize("DOTA_Tooltip_Ability_"+RPCName+"_"+OGpropertyName+arcanaSuffix)
 				$.Msg(propertyName)
 			}else{
 				var RPCName = convertFullHeroNameToRPC(requiredHero)	
-				propertyName = $.Localize("DOTA_Tooltip_ability_"+RPCName+"_"+OGpropertyName)
+				propertyName = $.Localize("DOTA_Tooltip_Ability_"+RPCName+"_"+OGpropertyName)
 				$.Msg(propertyName)		
 			}
 		}
 		// itemProperty = itemPropertyCheck(itemProperty)
 	}
-	if (OGpropertyName.indexOf("#DOTA_Tooltip_ability") >= 0){
+	if (OGpropertyName.indexOf("#DOTA_Tooltip_Ability") >= 0){
 		propertyName = $.Localize(OGpropertyName)
 		$.Msg("OGPROPERTYNAME!")
 	}

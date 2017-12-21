@@ -192,7 +192,7 @@ function populateItem(detail_parent)
 	var itemValues = CustomNetTables.GetTableValue( "item_basics", mItemIndex.toString() )
 	
 	var rarityColor = itemValues.qualityColor
-	detail_parent.FindChildTraverse('item_name').text = "<font color='"+rarityColor+"'>"+$.Localize("#DOTA_Tooltip_ability_"+itemName)+"</font>"
+	detail_parent.FindChildTraverse('item_name').text = "<font color='"+rarityColor+"'>"+$.Localize("#DOTA_Tooltip_Ability_"+itemName)+"</font>"
 
 	var parentPanel = detail_parent.FindChildTraverse("item_properties_container")
 	for (i = 1; i <= 4; i++) 

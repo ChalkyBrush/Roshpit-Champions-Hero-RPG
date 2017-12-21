@@ -1,3 +1,5 @@
+require('/heroes/spirit_breaker/constants')
+
 function begin_revenant_strikes(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -10,7 +12,7 @@ function begin_revenant_strikes(event)
 	if ability.phase == 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_revenant_strikes_swinging", {duration = 0.3})
 		StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_SPAWN, rate=2.6, translate="loadout"})
-		revenant_strike(caster, 300, damage, 0.1)
+		revenant_strike(caster, 600, damage, 0.1)
 		Timers:CreateTimer(0.09, function()
 			EmitSoundOn("Hero_Spirit_Breaker.PreAttack", caster)
 			local forwardSpeed = 6
@@ -32,7 +34,7 @@ function begin_revenant_strikes(event)
 	elseif ability.phase == 1 then
 		StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_ATTACK, rate=2.6, translate="charge_attack"})
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_revenant_strikes_swinging", {duration = 0.3})
-		revenant_strike(caster, 300, damage, 0.03)
+		revenant_strike(caster, 600, damage, 0.03)
 		Timers:CreateTimer(0.09, function()
 			EmitSoundOn("Hero_Spirit_Breaker.PreAttack", caster)
 			local forwardSpeed = 9
@@ -52,7 +54,7 @@ function begin_revenant_strikes(event)
 		ability.phase = 2
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_revenant_strikes_state", {duration = 3})
 	elseif ability.phase == 2 then
-		revenant_strike(caster, 300, damage, 0.06)
+		revenant_strike(caster, 600, damage, 0.06)
 		StartAnimation(caster, {duration=0.6, activity=ACT_DOTA_SPIRIT_BREAKER_CHARGE_END, rate=1.4, translate="dc_sb_charge_finish"})
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_revenant_strikes_swinging", {duration = 0.4})
 		ability:StartCooldown(0.4)

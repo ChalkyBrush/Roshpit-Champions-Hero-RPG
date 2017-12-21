@@ -10,6 +10,9 @@ function Filters:ApplyItemDamage(victim,attacker,damage,damage_type,item,element
     if attacker:HasModifier("modifier_trapper_glyph_6_1") then
         element2 = RPC_ELEMENT_NORMAL
     end
+    if attacker:HasModifier('modifier_duskbringer_glyph_7_2') then
+        element2 = RPC_ELEMENT_GHOST
+    end
     if attacker:GetUnitName() == "npc_dota_hero_leshrac" then
         damage = Filters:Bahamut_DB_rune(attacker, damage, 0, victim)
     end
@@ -33,6 +36,7 @@ function Filters:ApplyItemDamage(victim,attacker,damage,damage_type,item,element
         end
     end
     damage = damage*mult
+
     Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, 0, element1, element2)
     -- ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = item })
 end
@@ -84,6 +88,8 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     -- elseif GameState:GetDifficultyFactor() == 3 then
     --     damage = damage*10
     -- end
+
+    local casterName = caster:GetUnitName()
     local mult = 1
     if caster:HasModifier("modifier_ancient_waterstone") then
         mult = mult + 4
@@ -136,10 +142,16 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         local multIncrease = ((caster:GetMaxHealth()-caster:GetHealth())/100)*0.001
         mult = mult + multIncrease
     end
+
+    if casterName == "npc_dota_hero_spirit_breaker" then
+        if caster.b_a_level then
+            mult = mult + 0.1 * caster.b_a_level
+        end
+    end
+
     if caster:HasModifier("modifier_hood_of_the_black_mage") then
         damage = damage*0.2
     end
-
     damage = damage*mult
     return damage
 end
