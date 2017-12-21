@@ -1303,7 +1303,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             end
         end
         if attacker:HasModifier("modifier_phantom_sorcerer") then
-            damageMult = damageMult + 7
+            damageMult = damageMult + 40
         end
         if attacker:HasModifier("modifier_shadowflame_fist") then
             damageMult = damageMult + 12
@@ -2818,7 +2818,7 @@ function Filters:EternalFrost(caster)
         local ability = caster.eternal_frost_gem
         EmitSoundOn("Ability.FrostNova", caster)
         
-        local damage = caster:GetIntellect()*1000
+        local damage = caster:GetIntellect()*4000
         local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
         local freezeDuration = 2.5
         if #enemies > 0 then

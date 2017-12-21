@@ -5052,7 +5052,7 @@ function eyeglass_attack(event)
 		return false
 	end
 	local distance = math.min(WallPhysics:GetDistance(attacker:GetAbsOrigin(), target:GetAbsOrigin()), 5000)
-	local damage = 0.003 * attacker:GetLevel() * distance ^ 3
+	local damage = 0.001 * attacker:GetLevel() * distance ^ 3
 
 	Filters:ApplyItemDamage(target,attacker,damage,DAMAGE_TYPE_PHYSICAL, event.ability, RPC_ELEMENT_HOLY, RPC_ELEMENT_COSMOS)
 	CustomAbilities:QuickAttachParticle("particles/roshpit/items/epsilon_impact.vpcf", target, 0.5)

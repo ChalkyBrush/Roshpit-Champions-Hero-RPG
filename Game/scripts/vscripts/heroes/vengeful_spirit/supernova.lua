@@ -204,13 +204,13 @@ function supernova_burn_think(event)
 		if target:HasModifier("modifier_solunia_solar_burn") then
 			damage = damage + 0.20*ability.b_d_level*damage
 		end
-		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_COSMOS, RPC_ELEMENT_FIRE)
+		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, -2, RPC_ELEMENT_COSMOS, RPC_ELEMENT_FIRE)
 	elseif ability:GetAbilityName() == "solunia_solar_alpha_spark" then	
 		local damage = target.SoluniaBurnSolar
 		if target:HasModifier("modifier_solunia_lunar_burn") then
 			damage = damage + 0.20*ability.b_d_level*damage
 		end
-		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_COSMOS, RPC_ELEMENT_FIRE)
+		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, -2, RPC_ELEMENT_COSMOS, RPC_ELEMENT_FIRE)
 	end
 end
 
