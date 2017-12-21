@@ -113,7 +113,7 @@ function ghost_trap_end(event)
 		local pfx = ParticleManager:CreateParticle( "particles/roshpit/mountain_protector/unshakable_stone_dust.vpcf", PATTACH_CUSTOMORIGIN, caster)
 		ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin()+Vector(0,0,20))
 		ParticleManager:SetParticleControl(pfx, 5, Vector(0.5, 1, 1))
-		ParticleManager:SetParticleControl(pfx, 2, Vector(0.2,0.2,0.2))
+		ParticleManager:SetParticleControl(pfx, 2, Vector(0.1,0.1,0.1))
 		Timers:CreateTimer(1, function() 
 		  ParticleManager:DestroyParticle( pfx, false )
 		  ParticleManager:ReleaseParticleIndex(pfx)
@@ -131,7 +131,7 @@ function ghost_trap_a_b_thinker(event)
 		local damage = caster:GetAverageTrueAttackDamage(caster)*ability.a_b_level*0.4
 		Timers:CreateTimer(0.15, function()
 			if target:IsAlive() then
-				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash_flash.vpcf", target, 0.2)
+				CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash_flash.vpcf", target:GetAbsOrigin()+Vector(0,0,40), 0.2)
 				Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
 				EmitSoundOn("Duskbringer.GhostHallowAB", target)
 			end
