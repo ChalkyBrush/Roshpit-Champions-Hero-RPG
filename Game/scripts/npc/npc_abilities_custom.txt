@@ -27947,7 +27947,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"2"
+		"AbilityCooldown"				"1.1"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -28227,6 +28227,7 @@
 						"target"		"TARGET"
 						"stun_duration"	"%stun_duration"
 						"damage"		"%damage"
+						"damage_from_strength"		"%damage_from_strength"
 					}
 				}
 				"OnDestroy"
@@ -28393,9 +28394,14 @@
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"move_slow_percent"	"-24 -26 -28 -30 -32 -34 -36"
+				"damage_from_strength"	"100 150 200 250 300 350 400"
 			}
 			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"move_slow_percent"	"-24 -26 -28 -30 -32 -34 -36"
+			}
+			"05"
 			{
 				"var_type"	"FIELD_INTEGER"
 				"attack_slow"	"-40 -50 -60 -70 -80 -90 -100"
@@ -52554,7 +52560,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.2"
+				"property_one"			"0.1"
 			}
 		}
 	}
@@ -62776,9 +62782,14 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
+				"property_two"			"5"
 			}
 			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"4"
+			}
+			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"2"
