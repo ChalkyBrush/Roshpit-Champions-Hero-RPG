@@ -95,9 +95,13 @@ function ghost_trap_enter(event)
 		-- end
 	end
 	print("test duskbringer w1 2")
+	ability.a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "duskbringer")
 	ghost_trap_a_b_thinker(event)
-	target.duskABparticle = CustomAbilities:QuickAttachParticle("particles/roshpit/duskbringer/duskbringer_rune_a_b_2.vpcf", target, 10)
-	ParticleManager:SetParticleControl(target.duskABparticle, 1, target:GetForwardVector()*150)
+	
+	if ability.a_b_level > 0 then
+		target.duskABparticle = CustomAbilities:QuickAttachParticle("particles/roshpit/duskbringer/duskbringer_rune_a_b_2.vpcf", target, 10)
+		ParticleManager:SetParticleControl(target.duskABparticle, 1, target:GetForwardVector()*150)
+	end
 end
 
 function ghost_trap_end(event)
@@ -121,13 +125,13 @@ function ghost_trap_a_b_thinker(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	local a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "duskbringer")
-	if a_b_level > 0 then
+	ability.a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "duskbringer")
+	if ability.a_b_level > 0 then
 		
-		local damage = caster:GetAverageTrueAttackDamage(caster)*a_b_level*0.4
+		local damage = caster:GetAverageTrueAttackDamage(caster)*ability.a_b_level*0.4
 		Timers:CreateTimer(0.15, function()
 			if target:IsAlive() then
-				CustomAbilities:QuickAttachParticle("particles/roshpit/voltex_shell_zap_impact.vpcf", target, 0.2)
+				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash_flash.vpcf", target, 0.2)
 				Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
 				EmitSoundOn("Duskbringer.GhostHallowAB", target)
 			end

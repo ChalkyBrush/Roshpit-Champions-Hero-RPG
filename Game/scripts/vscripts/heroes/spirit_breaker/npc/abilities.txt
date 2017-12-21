@@ -364,6 +364,7 @@
 			"particle"		"particles/roshpit/duskbringer/ghostfire_blast.vpcf"
 			"particle"		"particles/units/heroes/hero_elder_titan/duskbringer_a_b.vpcf"
 			"particle"		"particles/econ/courier/courier_roshan_darkmoon/courier_roshan_darkmoon.vpcf"
+			"particle"		"particles/roshpit/mountain_protector/unshakable_stone_dust.vpcf"
 		}
 
 		"AbilityCastPoint"				"0"
