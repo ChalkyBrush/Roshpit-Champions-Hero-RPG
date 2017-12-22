@@ -1594,7 +1594,7 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + 0.035*attacker.b_a_level
 		end
 	end
-	if Filters:IsFireBurning(victim) and attacker:HasModifier('modifier_frost_nova_passive') then
+	if Filters:IsFireBurning(victim) and attacker:HasModifier('modifier_fire_ring_passive') then
 		if attacker.b_a_level then
 			mult = mult + 0.035*attacker.b_a_level
 		end

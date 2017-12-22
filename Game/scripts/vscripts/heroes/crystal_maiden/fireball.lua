@@ -181,11 +181,13 @@ function fireball_hit(event)
 					applyIgnite(caster, pyroblast, damage, enemy, b_d_level, 2)
 				end
 			end
-		end 
+		end
+	local stacksCount = caster:GetModifierStackCount("modifier_fireball_attack_damage", caster)/damage
+	local newStacksCount = math.min(R1_MAX_STACKS_COUNT, stacksCount + 1)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_fireball_attackspeed", {duration = 8})
-	caster:SetModifierStackCount("modifier_fireball_attackspeed", caster, ability.rune_a_d_level)
+	caster:SetModifierStackCount("modifier_fireball_attackspeed", caster,newStacksCount * ability.rune_a_d_level)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_fireball_attack_damage", {duration = 8})
-	caster:SetModifierStackCount("modifier_fireball_attack_damage", caster, damage)
+	caster:SetModifierStackCount("modifier_fireball_attack_damage", caster,newStacksCount * damage)
 end
 
 function fireball_think(event)
