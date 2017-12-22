@@ -2505,6 +2505,7 @@ function GameState:FilterDamage(filterTable)
 			if caster.d_c_level then
                 local ability = caster:FindAbilityByName('specter_rush_two')
                 ability:ApplyDataDrivenModifier(caster, victim, "modifier_duskbringer_ghost_form_active", {duration = 0.2 * caster.d_c_level})
+                CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash_flash.vpcf", victim:GetAbsOrigin()+Vector(0,0,50), 0.4)
                 EmitSoundOn("Duskbringer.Wraithform", victim)
 				filterTable["damage"] =  0
             end

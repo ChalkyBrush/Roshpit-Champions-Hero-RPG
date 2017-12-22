@@ -23,6 +23,7 @@ function modifier_duskbringer_ghost_form_active:OnDestroy( params )
 
     if not caster:HasModifier('modifier_duskbringer_glyph_5_a') or target == caster or target:HasModifier('modifier_duskbringer_ghost_form_immune') then
         if IsValidEntity(target) then
+            CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash_flash.vpcf", target:GetAbsOrigin()+Vector(0,0,50), 0.4)
             print(target:GetClassname())
             target:ForceKill(false)
         end

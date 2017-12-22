@@ -22283,6 +22283,8 @@
 			"particle"		"particles/units/heroes/hero_faceless_void/duskbringer_glyph_7_1_manifest_timedialate.vpcf"
 			"soundfile" 	"soundevents/game_sounds_duskbringer.vsndevts"
 			"particle"		"particles/roshpit/duskbringer/ghost_armor.vpcf"
+			"particle"		"particles/status_fx/status_effect_wraithking_ghosts.vpcf"
+			"particle"		"particles/units/heroes/hero_skeletonking/wraith_king_ghosts_ambient.vpcf"
 		}
 
 		// Special
@@ -59514,7 +59516,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"0.7"
 			}
 		}
