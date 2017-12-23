@@ -917,9 +917,14 @@
 					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-1500"
 				}
 			}
-			"modifier_fireball_attackspeed"
+			"modifier_fireball_stacks"
 			{
 				"IsHidden"	"0"
+				"IsBuff"	"1"
+			}
+			"modifier_fireball_attackspeed"
+			{
+				"IsHidden"	"1"
 				"IsBuff"	"1"
 				"Properties"
 				{

@@ -182,11 +182,14 @@ function fireball_hit(event)
 				end
 			end
 		end
-	local stacksCount = caster:GetModifierStackCount("modifier_fireball_attack_damage", caster)/damage
+	local duration = Filters:GetAdjustedBuffDuration(caster, 8, false)
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_fireball_stacks", {duration = 8})
+	local stacksCount = caster:GetModifierStackCount("modifier_fireball_stacks", caster)
 	local newStacksCount = math.min(R1_MAX_STACKS_COUNT, stacksCount + 1)
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_fireball_attackspeed", {duration = 8})
+	caster:SetModifierStackCount("modifier_fireball_stacks", caster,newStacksCount)
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_fireball_attackspeed", {duration = duration})
 	caster:SetModifierStackCount("modifier_fireball_attackspeed", caster,newStacksCount * ability.rune_a_d_level)
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_fireball_attack_damage", {duration = 8})
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_fireball_attack_damage", {duration = duration})
 	caster:SetModifierStackCount("modifier_fireball_attack_damage", caster,newStacksCount * damage)
 end
 
