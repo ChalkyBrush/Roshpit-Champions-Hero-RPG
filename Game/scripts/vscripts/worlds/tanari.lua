@@ -28,7 +28,7 @@ function Tanari:Debug()
     -- RPCItems:RollSkulldiggerGloves(Vector(-4928, 2048))
     -- Events:SpawnAertega(Vector(-4928, 2048))
     -- Events:SpawnTorturok(Vector(-4928, 2048))
-    -- RPCItems:RollVenomortArcana2(Vector(-4928, 2048))
+    RPCItems:RollSorceressArcana2(Vector(-4928, 2048))
     --  Events:SpawnOzubu(Vector(-4928, 2048))
     --  for i = 1, 5, 1 do
     --     RPCItems:RollWinterblightSkullRing(Vector(-4928, 2048))

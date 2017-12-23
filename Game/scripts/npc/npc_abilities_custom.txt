@@ -14740,7 +14740,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"16"
+		"AbilityCooldown"				"8"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -14784,6 +14784,21 @@
 						"Function"		"sorceress_firestorm_debuff_think"
 						"target"		"TARGET"
 						"damage"		"%damage"
+					}
+				}
+			}
+			"modifier_fire_ring_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"          "0"
+				"ThinkInterval"  "2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/crystal_maiden/firestorm_q"
+						"Function"		"passive_think"
+						"target"		"TARGET"
 					}
 				}
 			}
@@ -14832,11 +14847,11 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.4"
+		"AbilityCastPoint"				"0.5"
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"3.5"
+		"AbilityCooldown"				"1.5"
 		"AbilityCastRange"				"2000"
 
 		// Cost
@@ -15062,15 +15077,10 @@
     		{
     			"01"
     			{
-    				"var_type"				"FIELD_FLOAT"
-    				"property_one_base"			"7.0"
+    				"var_type"				"FIELD_INTEGER"
+    				"property_one"			"20"
     			}
     			"02"
-    			{
-    				"var_type"				"FIELD_FLOAT"
-    				"property_one"			"0.2"
-    			}
-    			"03"
     			{
     				"var_type"				"FIELD_INTEGER"
     				"property_two"			"10"

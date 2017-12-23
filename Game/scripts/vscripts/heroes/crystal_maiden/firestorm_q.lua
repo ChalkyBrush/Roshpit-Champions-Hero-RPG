@@ -58,7 +58,7 @@ function begin_firestorm(event)
 	end
 	ability.d_a_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
 	if ability.d_a_level > 0 then
-		local avatarDuration = Filters:GetAdjustedBuffDuration(caster, 7 + 0.2*ability.d_a_level, false)
+		local avatarDuration = Filters:GetAdjustedBuffDuration(caster, 12, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_fire_avatar", {duration = avatarDuration})
 		caster:SetModifierStackCount("modifier_fire_avatar", caster, ability.d_a_level)
 	end
@@ -73,7 +73,7 @@ function sorceress_firestorm_debuff_think(event)
 	if luck == 1 then
 		local damage = event.damage
 		if ability.d_a_level then
-			damage = damage + ability.d_a_level * ARCANA2_Q4_INT_TO_DAMAGE
+			damage = damage + ability.d_a_level * ARCANA2_Q4_INT_TO_DAMAGE * caster:GetIntellect()
 		end
 		sorceress_firestorm_impact(caster, target, ability, damage, false, 1)
 	end

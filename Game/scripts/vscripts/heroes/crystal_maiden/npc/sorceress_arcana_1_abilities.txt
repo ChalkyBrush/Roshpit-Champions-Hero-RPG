@@ -430,11 +430,11 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.9"
+		"AbilityCastPoint"				"0.5"
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0"
+		"AbilityCooldown"				"1.5"
 		"AbilityCastRange"				"2000"
 
 		// Cost
@@ -660,23 +660,13 @@
     		{
     			"01"
     			{
-    				"var_type"				"FIELD_FLOAT"
-    				"property_one_base"			"7.0"
+    				"var_type"				"FIELD_INTEGER"
+    				"property_one"			"<% ARCANA2_Q4_INT_TO_DAMAGE %>"
     			}
     			"02"
     			{
-    				"var_type"				"FIELD_FLOAT"
-    				"property_one"			"0.2"
-    			}
-    			"03"
-    			{
     				"var_type"				"FIELD_INTEGER"
     				"property_two"			"10"
-    			}
-    			"04"
-    			{
-    				"var_type"				"FIELD_INTEGER"
-    				"property_three"		"<% ARCANA2_Q4_INT_TO_DAMAGE %>"
     			}
     		}
     	}
