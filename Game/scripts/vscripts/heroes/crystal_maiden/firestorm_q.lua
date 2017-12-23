@@ -56,11 +56,11 @@ function begin_firestorm(event)
 		caster.sunlance = true
 		CustomAbilities:AddAndOrSwapSkill(caster, "sorceress_fire_arcana_q", "sorceress_sun_lance", 0)
 	end
-	ability.d_d_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
-	if ability.d_d_level > 0 then
-		local avatarDuration = Filters:GetAdjustedBuffDuration(caster, 7 + 0.2*ability.d_d_level, false)
+	ability.d_a_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+	if ability.d_a_level > 0 then
+		local avatarDuration = Filters:GetAdjustedBuffDuration(caster, 7 + 0.2*ability.d_a_level, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_fire_avatar", {duration = avatarDuration})
-		caster:SetModifierStackCount("modifier_fire_avatar", caster, ability.d_d_level)
+		caster:SetModifierStackCount("modifier_fire_avatar", caster, ability.d_a_level)
 	end
 	Filters:CastSkillArguments(1, caster)
 end
@@ -72,6 +72,9 @@ function sorceress_firestorm_debuff_think(event)
 	local luck = RandomInt(1, 6)
 	if luck == 1 then
 		local damage = event.damage
+		if ability.d_a_level then
+			damage = damage + ability.d_a_level * ARCANA2_Q4_INT_TO_DAMAGE
+		end
 		sorceress_firestorm_impact(caster, target, ability, damage, false, 1)
 	end
 end
@@ -114,4 +117,9 @@ function fire_avatar_end(event)
 	-- 	ParticleManager:ReleaseParticleIndex(ability.wingsPFX)
 	-- 	ability.wingsPFX = false
 	-- end
+end
+
+function passive_think(event)
+	local caster = event.caster
+	caster.b_a_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
 end
