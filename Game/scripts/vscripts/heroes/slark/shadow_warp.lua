@@ -12,7 +12,7 @@ function shadow_warp_start(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_shadow_warping", {duration = 0.2})
 	local pfx = CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_slark/slark_shadow_dance.vpcf", origPosition, 2)
 	ParticleManager:SetParticleControl(pfx, 1, origPosition)
-	ability.shadowScale = math.max(caster:GetModelScale(), 1.15)
+	ability.shadowScale = 1.15
 	shadow_SizeChange(caster, ability.shadowScale, 0.1, 6)
 	Timers:CreateTimer(0.2, function()
 		Timers:CreateTimer(0.03, function()
@@ -48,10 +48,10 @@ function shadow_warp_start(event)
 end
 
 function shadow_SizeChange(object, startSize, endSize, ticks)
-  local growth = (endSize-startSize)/ticks
-  for i = 0, ticks, 1 do
-    Timers:CreateTimer(i*0.03, function()
-      object:SetModelScale(startSize + growth*i)
-    end)
-  end
+  -- local growth = (endSize-startSize)/ticks
+  -- for i = 0, ticks, 1 do
+  --   Timers:CreateTimer(i*0.03, function()
+  --     object:SetModelScale(startSize + growth*i)
+  --   end)
+  -- end
 end
