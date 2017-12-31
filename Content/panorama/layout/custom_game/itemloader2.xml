@@ -62,6 +62,21 @@
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/harvester_boots.png" />
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/seinaru_arcana2.png" />
 
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/slipfinn/slipfinn_weapon_00.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/slipfinn_immortal_weapon1.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/slipfinn_immortal_weapon2.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/slipfinn_immortal_weapon3.png" />
+			
+
+<!-- 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/slipfinn/glyph_slipfinn_1_1.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/slipfinn/glyph_slipfinn_2_1.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/slipfinn/glyph_slipfinn_3_1.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/slipfinn/glyph_slipfinn_4_1.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/slipfinn/glyph_slipfinn_5_1.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/slipfinn/glyph_slipfinn_5_a.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/slipfinn/glyph_slipfinn_6_1.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/slipfinn/glyph_slipfinn_7_1.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/slipfinn/glyph_slipfinn_5_a.png" /> -->
 
 <!-- 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_1_1.png" />
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_2_1.png" />
@@ -71,6 +86,8 @@
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_5_a.png" />
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_6_1.png" />
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_7_1.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_5_a.png" />
+
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_5_a.png" />
 
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_hydroxis_1_1.png" />

@@ -435,7 +435,8 @@ function duelist_boosted_attack_land(event)
 	local target = event.target
 	local damagePercent = event.damagePercent/100
 	local damage = attacker:GetAverageTrueAttackDamage(attacker)*damagePercent
-	ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE})
+	local ability = event.ability
+	ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
 	CustomAbilities:QuickAttachParticle("particles/econ/items/antimage/antimage_weapon_basher_ti5_gold/am_manaburn_basher_ti_5_gold.vpcf", target, 1)
 	EmitSoundOn("Redfall.Duelist.Crit", target)
 	CustomAbilities:QuickAttachParticle("particles/econ/items/earthshaker/earthshaker_totem_ti6/earthshaker_totem_ti6_blur_impact_energy.vpcf", target, 3)
@@ -556,10 +557,11 @@ function bandit_attack_land(event)
 	local attacker = event.attacker
 	local target = event.target
 	local prismMult = event.prism_strike
+	local ability = event.ability
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_riki/riki_backstab.vpcf", target, 2)
 	Timers:CreateTimer(0.1, function()
 		local damage = target:GetStrength()*prismMult
-		ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE})
+		ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
 		EmitSoundOn("Redfall.Bandit.PrismStrikeImpact", target)
 
 		local pfx = ParticleManager:CreateParticle( "particles/roshpit/redfall/prism_strike.vpcf", PATTACH_CUSTOMORIGIN, target )
@@ -571,7 +573,7 @@ function bandit_attack_land(event)
 	end)
 	Timers:CreateTimer(0.2, function()
 		local damage = target:GetAgility()*prismMult
-		ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE})
+		ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
 		EmitSoundOn("Redfall.Bandit.PrismStrikeImpact", target)
 
 		local pfx = ParticleManager:CreateParticle( "particles/roshpit/redfall/prism_strike.vpcf", PATTACH_CUSTOMORIGIN, target )
@@ -583,7 +585,7 @@ function bandit_attack_land(event)
 	end)
 	Timers:CreateTimer(0.3, function()
 		local damage = target:GetIntellect()*prismMult
-		ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE})
+		ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
 		EmitSoundOn("Redfall.Bandit.PrismStrikeImpact", target)
 
 		local pfx = ParticleManager:CreateParticle( "particles/roshpit/redfall/prism_strike.vpcf", PATTACH_CUSTOMORIGIN, target )

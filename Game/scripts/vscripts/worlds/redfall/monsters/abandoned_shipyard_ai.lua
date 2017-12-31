@@ -81,6 +81,7 @@ function skeleton_boss_arrow_impact(event)
 	local target = event.target
 	local radius = 300
 	local damage = event.damage
+	local ability = event.ability
       local particleNameS = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
       local particle2 = ParticleManager:CreateParticle( particleNameS, PATTACH_WORLDORIGIN, caster )
       ParticleManager:SetParticleControl( particle2, 0, target:GetAbsOrigin() )
@@ -103,7 +104,7 @@ function skeleton_boss_arrow_impact(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
+			ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 		end
 	end 
 end
@@ -415,7 +416,7 @@ function skulldigger_hellfire_hit(event)
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
 			Filters:ApplyStun(caster, stun_duration, enemy)
-			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
+			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 		end
 	end
 
@@ -595,10 +596,11 @@ end
 function pirate_archer_attack_land(event)
 	local target = event.target
 	local attacker = event.attacker
+	local ability = event.ability
 	EmitSoundOn("Redfall.PirateArcher.SearingArrowImpact", target)
 	local damagePercent = event.magic_damage_on_hit/100
 	local damage = attacker:GetAverageTrueAttackDamage(attacker)*damagePercent
-	ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
+	ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 end
 
 function ShipyardBigTrigger1()
@@ -901,7 +903,7 @@ end
 
 function shipyard_boss_spike_hit(event)
 	local target = event.target
-
+	local ability = event.ability
 	local stun_duration = 0.8 + GameState:GetDifficultyFactor()*0.2
 	
 	local healthPercent = 0.2
@@ -911,7 +913,7 @@ function shipyard_boss_spike_hit(event)
 		healthPercent = 0.6
 	end
 	local damage = target:GetMaxHealth()*healthPercent
-	ApplyDamage({ victim = target, attacker = Events.GameMaster, damage = damage, damage_type = DAMAGE_TYPE_PURE})
+	ApplyDamage({ victim = target, attacker = Events.GameMaster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_dragon_knight/dragon_knight_dragon_tail_dragonform.vpcf", target, 3)
 	ScreenShake(target:GetAbsOrigin(), 130, 0.3, 0.3, 9000, 0, true)
 	EmitSoundOn("Redfall.ShipyardMainBoss.BossSpikeImpact", target)

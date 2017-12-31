@@ -131,10 +131,12 @@ function backButtonFunction(heroSelectContent, backButton){
     });
 }
 
+NEW_HEROES_PER_ROW = 7
+
 function getRowNumber(index)
 {
-    var rowNumber = 1 + Math.floor(index/6)
-    if (index%6 == 0)
+    var rowNumber = 1 + Math.floor(index/NEW_HEROES_PER_ROW)
+    if (index%NEW_HEROES_PER_ROW == 0)
     {
         rowNumber = rowNumber - 1
     }

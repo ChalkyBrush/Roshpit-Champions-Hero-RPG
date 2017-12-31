@@ -67,15 +67,6 @@ function GameMode:PostLoadPrecache()
 
   --PrecacheUnitByNameAsync("npc_dota_hero_viper", function(...) end)
   --PrecacheUnitByNameAsync("npc_dota_hero_enigma", function(...) end)
-  Timers:CreateTimer(5, function()
-    PrecacheUnitByNameAsync("descent_of_winterblight_aertega", function(...) end)
-  end)
-  Timers:CreateTimer(6, function()
-    PrecacheUnitByNameAsync("descent_of_winterblight_torturok", function(...) end)
-  end)
-  Timers:CreateTimer(7, function()
-    PrecacheUnitByNameAsync("descent_of_winterblight_ozubu", function(...) end)
-  end)
   if GameState:IsWorld1() then
     Timers:CreateTimer(3, function()
       local unitTable = {"dark_fighter", "icy_venge", "sorc_water_elemental", "time_walker", "rabid_walker", "npc_dota_creature_basic_zombie_exploding", "gargoyle", "hook_flinger", "human_rifleman", "blood_jumper", "mekanoid_disruptor", "epoch_summon", "furion_brute", "freeze_fiend", "the_butcher", "forest_broodmother", "spiderling", "spiderling2", "rare_ghost", "rolling_earth_spirit", "little_meepo", "furion_mystic", "twitch_lone_druid", "doomguard_a", "doomguard_b", "doomguard_c", "obsidian_golem", "depth_demon", "arabor_cultist", "exploding_warrior", "forest_boss", "rockjaw", "wastelands_archer", "desert_ghost", "goremaw_brute", "goremaw_shaman", "bone_horror", "wandering_mage", "scarab", "skittering_beetle", "satyr_doctor", "hammersaur", "alpha_wolf", "general_wolfenstein", "wolf_ally", "mountain_destroyer", "desert_warlord", "blood_fiend", "dune_crasher", "experimenter_jonuous", "twisted_soldier", "experimental_minion", "tortured_beast", "abomination", "hell_hound", "chaos_warrior", "raging_shaman", "crawler", "crafter", "nibohg", "satyr_behemoth", "firebat", "dire_ranged", "dire_melee", "minion_of_twilight", "spectral_assassin", "shadow_hunter", "betrayer_of_time", "arabor_spellweaver", "mines_boss"}
@@ -198,10 +189,6 @@ function GameMode:PostLoadPrecache()
   if GameState:IsWinterblight() then
     Precache:Winterblight()
   end
-
-  Timers:CreateTimer(10, function()
-    Events:GetWinterblightPositions()
-  end)
 end
 
 function superPrecache()

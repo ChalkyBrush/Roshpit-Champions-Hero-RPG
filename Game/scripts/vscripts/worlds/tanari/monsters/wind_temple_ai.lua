@@ -865,7 +865,7 @@ function tanari_staff_projectile_hit(event)
 	local target = event.target
 	local ability = event.ability
 	local damage = Events:GetDifficultyScaledDamage(100, 500, 4000)
-	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
+	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 end
 
 function bossStaffThinkStartBattle(event)
@@ -934,7 +934,7 @@ function bossStaffThinkStartBattle(event)
 			if not caster.moveToRecharge then
 				Events:CreateLightningBeam(caster:GetAbsOrigin()+Vector(0,0,50), Tanari.WindTemple.bossEntity:GetAbsOrigin()+Vector(0,0,220))
 				EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Item.Maelstrom.Chain_Lightning", Events.GameMaster)
-				ApplyDamage({ victim = Tanari.WindTemple.bossEntity, attacker = caster, damage = Tanari.WindTemple.bossEntity:GetMaxHealth()*0.05, damage_type = DAMAGE_TYPE_PURE})
+				ApplyDamage({ victim = Tanari.WindTemple.bossEntity, attacker = caster, damage = Tanari.WindTemple.bossEntity:GetMaxHealth()*0.05, damage_type = DAMAGE_TYPE_PURE, ability = ability})
 			end
 			caster.moveToRecharge = true
 		end
@@ -1173,7 +1173,7 @@ function wind_temple_boss_trap_action(caster, ability)
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), ability.trapPositionTable[i], nil, 380, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
 			if #enemies > 0 then
 				for i = 1, #enemies, 1 do
-					ApplyDamage({ victim = enemies[i], attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
+					ApplyDamage({ victim = enemies[i], attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 					ability:ApplyDataDrivenModifier(caster, enemies[i], "modifier_wind_boss_trap", {duration = 1})
 					CustomAbilities:QuickAttachParticle("particles/units/wind_temple_boss/wind_trap_hit.vpcf", enemies[i], 0.7)
 				end
@@ -1263,6 +1263,7 @@ function wind_prophet_take_damage(event)
 	local attacker = event.attacker
 	local mana_drain_percent = event.mana_drain/100
 	local mana_drain = math.max(mana_drain_percent*attacker:GetMaxMana(), 0)
+	local ability = event.ability
 	attacker:ReduceMana(mana_drain)
 		local particleName = "particles/econ/items/pugna/pugna_ward_ti5/wind_prophet_shield.vpcf"
 		local pfx = ParticleManager:CreateParticle( particleName, PATTACH_POINT, attacker )
@@ -1271,7 +1272,7 @@ function wind_prophet_take_damage(event)
 		Timers:CreateTimer(0.5, function() 
 		  ParticleManager:DestroyParticle( pfx, false )
 		end) 	
-		ApplyDamage({ victim = attacker, attacker = unit, damage = mana_drain, damage_type = DAMAGE_TYPE_PURE})
+		ApplyDamage({ victim = attacker, attacker = unit, damage = mana_drain, damage_type = DAMAGE_TYPE_PURE, ability = ability})
 end
 
 function wind_prophet_die(event)
@@ -1286,13 +1287,14 @@ end
 
 function wind_spirit_lightning_think(event)
 	local caster = event.caster
+	local ability = event.ability
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 740, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
 	for i = 1, #enemies, 1 do
 		local enemy = enemies[i]
 		local damage = victim:GetMaxHealth()*0.02
 		local name = "attach_attack1"
 		Events:CreateLightningBeam(caster:GetAbsOrigin()+Vector(0,0,60), enemy:GetAbsOrigin()+Vector(0,0,70))
-		ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+		ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 	end
 end
 
@@ -1748,9 +1750,10 @@ function wind_tree_take_damage(event)
 	local caster = event.caster
 	local attacker = event.attacker
 	local damage = event.damage
+	local ability = event.ability
 	EmitSoundOn("Tanari.WindTreant.Return", attacker)
 	CustomAbilities:QuickAttachParticle("particles/econ/items/storm_spirit/storm_spirit_orchid_hat/stormspirit_orchid_ball_end.vpcf", attacker, 3)
-	ApplyDamage({ victim = attacker, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
+	ApplyDamage({ victim = attacker, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 end
 
 function wind_tree_die(event)
@@ -2149,7 +2152,7 @@ function wind_guardian_quake(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius+5, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })	
+			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 			enemy:AddNewModifier(caster, event.ability, "modifier_stunned", {duration = 1.2})
 		end
 	end 		

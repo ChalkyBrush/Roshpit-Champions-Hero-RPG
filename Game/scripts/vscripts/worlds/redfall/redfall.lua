@@ -890,7 +890,7 @@ function Redfall:CreateSpiritAmbience()
 end
 
 function Redfall:SpawnAncientTree()
-  local positionTable = {Vector(-10752, -14720), Vector(-7445, -12153), Vector(-9543, -8506), Vector(-820, -6181), Vector(-8064, -4352)}
+  local positionTable = {Vector(-7445, -12153), Vector(-9543, -8506), Vector(-820, -6181), Vector(-8064, -4352)}
   local position = positionTable[RandomInt(1, #positionTable)]
   Dungeons:CreateBasicCameraLock(position, 7.5)
   AddFOWViewer(DOTA_TEAM_GOODGUYS, position, 700, 300, false)

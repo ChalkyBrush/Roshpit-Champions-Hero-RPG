@@ -85,6 +85,9 @@ function steelforge_take_damage(event)
 		if not target:IsAlive() then
 			return false
 		end
+		if target == caster then
+			return false
+		end
 		if caster:HasModifier("modifier_steelforge_stance") then
 			if ability.d_b_level > 0 then
 				local luck = RandomInt(1, 2)

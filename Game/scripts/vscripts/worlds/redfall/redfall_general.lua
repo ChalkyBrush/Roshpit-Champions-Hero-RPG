@@ -566,7 +566,7 @@ function summon_leech_seed_think(event)
 		damage = damage*2
 	end
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_treant/treant_leech_seed_damage_pulse.vpcf", target, 0.5)
-	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 	for i = 1, #origCaster.summonTable, 1 do
 		local info = 
 		{
@@ -646,7 +646,7 @@ function tree_ground_slam_cast(event)
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
-				ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE })	
+				ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })	
 				enemy:AddNewModifier(caster, event.ability, "modifier_stunned", {duration = 1.5})
 			end
 		end 

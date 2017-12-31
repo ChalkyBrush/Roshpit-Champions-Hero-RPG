@@ -2,7 +2,8 @@ function pure_strike_attack_land(event)
 	local attacker = event.attacker
 	local target = event.target
 	local damage = attacker:GetAverageTrueAttackDamage(attacker)*0.15
-	ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE})
+	local ability = event.ability
+	ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
 	CustomAbilities:QuickAttachParticle("particles/econ/items/antimage/antimage_weapon_basher_ti5_gold/am_manaburn_basher_ti_5_gold.vpcf", target, 1)
 end
 
@@ -29,6 +30,7 @@ end
 function ritual_healing_think(event)
 	local ability = event.ability
 	local caster = event.caster
+	if IsValidEntity(ability) then
 		if ability:IsFullyCastable() and caster.aggro then
 			local target_teams = DOTA_UNIT_TARGET_TEAM_FRIENDLY
 			local target_types = DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC
@@ -61,6 +63,7 @@ function ritual_healing_think(event)
 				caster:MoveToPosition(caster:GetAbsOrigin()+runDirection*300)
 			end
 		end
+	end
 end
 
 function high_priest_think(event)
@@ -101,10 +104,11 @@ end
 function bat_attack_land(event)
 	local caster = event.attacker
 	local target = event.target
+	local ability = event.ability
 	local manaDrainMult = event.mana_drain_percent/100
 	local manaDrain = math.min(target:GetMana(), target:GetMaxMana()*manaDrainMult)
 	target:ReduceMana(manaDrain)
-	ApplyDamage({ victim = target, attacker = caster, damage = manaDrain, damage_type = DAMAGE_TYPE_PURE})
+	ApplyDamage({ victim = target, attacker = caster, damage = manaDrain, damage_type = DAMAGE_TYPE_PURE, ability = ability})
 	CustomAbilities:QuickAttachParticle("particles/generic_gameplay/generic_manaburn.vpcf", target, 1)	
 end
 
@@ -189,14 +193,16 @@ end
 
 function watcher_enemy_attack(event)
 	local ability = event.ability
-	if ability:GetCooldownTimeRemaining() <= 0.1 then
-		local attacker = event.attacker
-		local target = event.target
-		local stun_duration = event.stun_duration
-		local damage = event.damage
-		EmitSoundOn("Tanari.ThicketWatcher.Bash", target)
-		ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL})
-		Filters:ApplyStun(attacker, stun_duration, target)
-		ability:StartCooldown(4.0)
+	if IsValidEntity(ability) then
+		if ability:GetCooldownTimeRemaining() <= 0.1 then
+			local attacker = event.attacker
+			local target = event.target
+			local stun_duration = event.stun_duration
+			local damage = event.damage
+			EmitSoundOn("Tanari.ThicketWatcher.Bash", target)
+			ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability})
+			Filters:ApplyStun(attacker, stun_duration, target)
+			ability:StartCooldown(4.0)
+		end
 	end
 end

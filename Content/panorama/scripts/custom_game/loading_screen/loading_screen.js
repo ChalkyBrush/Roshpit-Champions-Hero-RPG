@@ -61,7 +61,6 @@ function SetMapImage(){
 		status = 1
 	}
 	if (status == 1){
-		$('#seq_bg').SetImage("file://{images}/custom_game/loading_screen/descent_of_winterblight_load.jpg")
 		UpdateValidDifficulties()
 	}
 	$.Msg(status)

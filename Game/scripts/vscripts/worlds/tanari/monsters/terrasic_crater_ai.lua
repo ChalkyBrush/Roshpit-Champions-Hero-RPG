@@ -449,12 +449,12 @@ function living_bomb_end(event)
       function()
         ParticleManager:DestroyParticle( particle1, false )
       end)
-      	ApplyDamage({ victim = target, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_MAGICAL })	
+      	ApplyDamage({ victim = target, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
 				if not enemy:GetEntityIndex() == target:GetEntityIndex() then
-					ApplyDamage({ victim = enemy, attacker = caster, damage = event.ally_damage, damage_type = DAMAGE_TYPE_MAGICAL })		
+					ApplyDamage({ victim = enemy, attacker = caster, damage = event.ally_damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })		
 				end
 			end
 		end 
@@ -751,7 +751,7 @@ function mega_helix_take_damage(event)
 		if #enemies1 > 0 then
 			for i = 1, #enemies1, 1 do
 				table.insert(helixIndexTable, enemies1[i]:GetEntityIndex())
-				ApplyDamage({ victim = enemies1[i], attacker = caster, damage = helixDamage, damage_type = DAMAGE_TYPE_PHYSICAL})
+				ApplyDamage({ victim = enemies1[i], attacker = caster, damage = helixDamage, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability})
 			end
 		end
 		local enemies2 = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )

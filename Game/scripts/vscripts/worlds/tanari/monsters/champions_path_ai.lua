@@ -225,6 +225,7 @@ end
 function mountain_pass_guardian_attack_land(event)
 	local attacker = event.attacker
 	local target = event.target
+	local ability = event.ability
 	if not target:HasModifier("modifier_jumping") then
 		local point = attacker:GetAbsOrigin()
 		local modifierKnockback =
@@ -243,7 +244,7 @@ function mountain_pass_guardian_attack_land(event)
 		ParticleManager:SetParticleControl( pfx, 0, target:GetAbsOrigin() )
 		ParticleManager:SetParticleControl( pfx, 1, Vector(200, 200, 200) )
 		local bonusDamage = attacker:GetAverageTrueAttackDamage(attacker)
-		ApplyDamage({ victim = target, attacker = attacker, damage = bonusDamage, damage_type = DAMAGE_TYPE_MAGICAL})
+		ApplyDamage({ victim = target, attacker = attacker, damage = bonusDamage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 		PopupDamage(target, bonusDamage)
 		Timers:CreateTimer(2, function()
 			ParticleManager:DestroyParticle(pfx, false)
@@ -373,6 +374,7 @@ end
 function specter_projectile_hit(event)
 	local target = event.target
 	local caster = event.caster
+	local ability = event.ability
 	local sound = "Hero_Pugna.NetherBlast"
     local particleName =  "particles/units/heroes/hero_pugna/pugna_netherblast.vpcf"
     local particleVector = target:GetAbsOrigin()
@@ -385,7 +387,7 @@ function specter_projectile_hit(event)
         end)  
         EmitSoundOn(sound, target)
 	local damage = Events:GetDifficultyScaledDamage(250, 22000, 135000)
-	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 	PopupDamage(target, damage)
 end
 
@@ -511,8 +513,9 @@ end
 function tanari_hydra_poison_think(event)
 	local target = event.target
 	local caster = event.caster
+	local ability = event.ability
 	local damage = Events:GetDifficultyScaledDamage(100, 1200, 8000)
-	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 end
 
 function tanari_hydra_movement(event)
@@ -641,6 +644,7 @@ end
 function wind_temple_keyholder_projectile_strike(event)
 	local target = event.target
 	local caster = event.caster
+	local ability = event.ability
 	local divisor = 300
 	if GameState:GetDifficultyFactor() == 2 then
 		divisor = 200
@@ -651,7 +655,7 @@ function wind_temple_keyholder_projectile_strike(event)
 		divisor = divisor/4
 	end
 	local damage = (caster:GetAverageTrueAttackDamage(caster)/divisor)
-	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
+	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 end
 
 function wind_temple_keyholder_die(event)
@@ -668,7 +672,7 @@ function wind_temple_keyholder_die(event)
 	for i = 1, #ability.flowerTable, 1 do
 		if IsValidEntity(ability.flowerTable[i]) then
 			if ability.flowerTable[i]:IsAlive() then
-				ApplyDamage({ victim = ability.flowerTable[i], attacker = caster, damage = 10000000, damage_type = DAMAGE_TYPE_PURE})
+				ApplyDamage({ victim = ability.flowerTable[i], attacker = caster, damage = 10000000, damage_type = DAMAGE_TYPE_PURE, ability = ability})
 			end
 		end
 	end
@@ -827,7 +831,7 @@ function bomb_explode(unit)
             local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, explosionRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
             if #enemies > 0 then    
                 for _,enemy in pairs(enemies) do
-                   ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
+                   ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
                     enemy:AddNewModifier(caster, nil, "modifier_stunned", {duration = stun_duration})   
                 end
             end
@@ -976,7 +980,7 @@ function kraken_aoe_ability(event)
 				for k = 1, #enemies, 1 do
 					local enemy = enemies[k]
 					Filters:ApplyStun(caster, 0.5, enemy)
-					ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
+					ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 					EmitSoundOn("Tanari.KingKrakenAOEHit", enemy)					
 				end	
 			end

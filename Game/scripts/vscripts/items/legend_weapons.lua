@@ -295,6 +295,15 @@ function Weapons:RollLegendWeapon1(deathLocation, class)
 	    weapon.property2 = value
 	    weapon.property2name = "agility"
 	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_agility", "#2EB82E",  2)
+	elseif internalName == "slipfinn" then
+	    weapon.property1 = 1
+	    weapon.property1name = "!immortal_weapon!"
+		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_slipfinn_immortal_weapon", "#4286f4",  1, "#property_slipfinn_immortal_weapon_description")
+
+		local value = Weapons:GetDeviation(20+RandomInt(1,Arena.PitLevel*2), rarityFactor)
+	    weapon.property2 = value
+	    weapon.property2name = "agility"
+	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_agility", "#2EB82E",  2)
 	end
 	-- if mainAttrRoll == 1 then
 	-- 	local value = Weapons:GetDeviation(15, rarityFactor)
@@ -662,6 +671,15 @@ function Weapons:RollLegendWeapon2(deathLocation, class)
 	    weapon.property2 = value
 	    weapon.property2name = "strength"
 	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_strength", "#CC0000",  2)
+	elseif internalName == "slipfinn" then
+	    weapon.property1 = 1
+	    weapon.property1name = "!immortal_weapon!"
+	    RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_slipfinn_immortal_weapon2", "#3D6DBA",  1, "#property_slipfinn_immortal_weapon2_description")
+
+		local value = Weapons:GetDeviation(800+RandomInt(1,600), 0)
+	    weapon.property2 = value
+	    weapon.property2name = "attack_damage"
+	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_bonus_attack_damage", "#343EC9",  2)
 	end
 
 	print("----------")
@@ -935,6 +953,16 @@ function Weapons:RollLegendWeapon3(deathLocation, class)
 	    weapon.property2 = value
 	    weapon.property2name = "intelligence"
 	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_intelligence", "#33CCFF",  2)
+	elseif internalName == "slipfinn" then
+	    weapon.property1 = 1
+	    weapon.property1name = "!immortal_weapon!"
+	    RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_slipfinn_immortal_weapon3", "#4843BA",  1, "#property_slipfinn_immortal_weapon3_description")
+
+		local value = math.min(Weapons:GetDeviation(5, rarityFactor), RandomInt(3,9))
+		local name, color = Elements:GetElementNameAndColorByCode(RPC_ELEMENT_SHADOW)
+	    weapon.property2 = value
+	    weapon.property2name = name
+	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#rpc_item_element"..RPC_ELEMENT_SHADOW, color,  2) 
 	end
 
 	print("----------")

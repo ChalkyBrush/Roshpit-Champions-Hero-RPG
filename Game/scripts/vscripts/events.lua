@@ -1162,6 +1162,11 @@ function GameMode:OnEntityKilled( keys )
           killedUnit.lastDeathTime = GameRules:GetGameTime()
         end
         respawnTime = math.min(killedUnit:GetTimeUntilRespawn(), respawnTime)
+        if killedUnit:HasModifier("modifier_slipfinn_immortal_weapon_1") then
+          if killedUnit:GetUnitName() == "npc_dota_hero_slark" then
+            respawnTime = 5
+          end
+        end
         killedUnit:SetTimeUntilRespawn(respawnTime)
       end)
       Timers:CreateTimer(2,

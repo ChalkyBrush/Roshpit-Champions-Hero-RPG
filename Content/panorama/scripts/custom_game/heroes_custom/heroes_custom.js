@@ -78,6 +78,8 @@ function getSkillSlot2(queryUnit, slot)
 		abilityName = "djanghor_e_abilities"
 	}else if(abilityName == "draghor_monkey_form"|| abilityName == "draghor_shapeshift_cat" || abilityName == "draghor_shapeshift_bear" || abilityName == "draghor_shapeshift_crow"){
 		abilityName = "djanghor_r_abilities"
+	}else if(abilityName == "slipfinn_shadow_rush" || abilityName == "slipfinn_shadow_warp"){
+		abilityName = "slipfinn_e"
 	}else{
 		abilityName = "DOTA_Tooltip_Ability_"+abilityName
 	}
@@ -135,6 +137,8 @@ function getSkillSlot(heroName, slot){
 		skillName = getZonikSkill(slot)
 	}else if (heroName == "npc_dota_hero_antimage"){
 		skillName = getArkimusSkill(slot)
+	}else if (heroName == "npc_dota_hero_slark"){
+		skillName = getSlipfinnSkill(slot)
 	}
 	return skillName
 }
@@ -454,9 +458,23 @@ function getArkimusSkill(slot){
 	}else if(slot == 2){
 		skillName = "DOTA_Tooltip_Ability_arkimus_storm_weapon"	
 	}else if(slot == 3){
-		skillName = "DOTA_Tooltip_Ability_ark_jump"
+		skillName = "slipfinn_e"
 	}else if(slot == 4){
 		skillName = "DOTA_Tooltip_Ability_arkimus_energy_field"
+	}
+	return skillName	
+}
+
+function getSlipfinnSkill(slot){
+	var skillName = ""
+	if (slot == 1){
+		skillName = "DOTA_Tooltip_Ability_slipfinn_prone"
+	}else if(slot == 2){
+		skillName = "DOTA_Tooltip_Ability_slipfinn_jump"	
+	}else if(slot == 3){
+		skillName = "DOTA_Tooltip_Ability_slipfi"
+	}else if(slot == 4){
+		skillName = "DOTA_Tooltip_Ability_slipfinn_bubble_possession"
 	}
 	return skillName	
 }
@@ -470,7 +488,7 @@ function getHeroList(){
 	"npc_dota_hero_drow_ranger", "npc_dota_hero_obsidian_destroyer", "npc_dota_hero_omniknight", "npc_dota_hero_crystal_maiden", "npc_dota_hero_invoker",
 	"npc_dota_hero_juggernaut", "npc_dota_hero_beastmaster", "npc_dota_hero_leshrac", "npc_dota_hero_spirit_breaker", "npc_dota_hero_zuus", "npc_dota_hero_templar_assassin", 
 	"npc_dota_hero_huskar", "npc_dota_hero_legion_commander", "npc_dota_hero_night_stalker", "npc_dota_hero_vengefulspirit", "npc_dota_hero_slardar", "npc_dota_hero_visage", 
-	"npc_dota_hero_dark_seer", "npc_dota_hero_antimage", "npc_dota_hero_monkey_king"]
+	"npc_dota_hero_dark_seer", "npc_dota_hero_antimage", "npc_dota_hero_monkey_king", "npc_dota_hero_slark"]
 	return heroList
 }
 
@@ -551,6 +569,8 @@ function convertFullHeroNameToRPC(heroName){
 		rpcName = "arkimus"	
 	}else if (heroName == "npc_dota_hero_monkey_king"){
 		rpcName = "djanghor"	
+	}else if (heroName == "npc_dota_hero_slark"){
+		rpcName = "slipfinn"
 	}else if (heroName == "tooltip_neutral"){
 		rpcName = "neutral"
 	}

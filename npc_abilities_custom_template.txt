@@ -31861,6 +31861,8 @@
 
 	//-------------------------
 
+	##SLIPFINN_ABILITIES##
+
 	"creep_jump"
 	{
 		// General
@@ -31946,7 +31948,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-100"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-100"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-1000"
 				}
 				"States"
 				{

@@ -656,7 +656,8 @@ function Glyphs:RollArchivistT5Glyph(position)
 	Glyphs:RollGlyphAll(variantName, position, 0)
 end
 
-function Glyphs:DebugRollHeroGlyphs(heroName, position, maxTiers)
+function Glyphs:DebugRollHeroGlyphs(heroName, position)
+	local maxTiers = Glyphs:GetAvailableColumnCount(heroName)
 	for j = 1, maxTiers, 1 do
 		for i = 1, 7, 1 do
 			local variantName = "item_rpc_"..heroName.."_glyph_"..i.."_"..j

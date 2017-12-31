@@ -250,7 +250,7 @@ function spike_damage(event)
 	local target = event.target
 	EmitSoundOn("Tanari.Spikes", target)
 	local damage = target:GetMaxHealth()*0.03
-	ApplyDamage({ victim = target, attacker = Events.GameMaster, damage = damage, damage_type = DAMAGE_TYPE_PURE })
+	ApplyDamage({ victim = target, attacker = Events.GameMaster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
 	PopupDamage(target, damage)
 end
 
@@ -642,6 +642,7 @@ end
 function cave_monster_take_damage(event)
 	local unit = event.unit
 	local attacker = event.attacker
+	local ability = event.ability
 	if not unit.spikeDelay then
 		unit.spikeDelay = true
 		local mult = 0.025
@@ -651,7 +652,7 @@ function cave_monster_take_damage(event)
 			mult = 0.015
 		end
 		local damage = math.min(event.damage*mult, unit:GetHealth())
-		ApplyDamage({ victim = attacker, attacker = unit, damage = damage, damage_type = DAMAGE_TYPE_PURE })
+		ApplyDamage({ victim = attacker, attacker = unit, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
 		Timers:CreateTimer(0.2, function()
 			unit.spikeDelay = false
 		end)

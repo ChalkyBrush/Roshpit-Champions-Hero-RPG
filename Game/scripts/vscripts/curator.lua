@@ -40,6 +40,20 @@ function Curator:CurateALLBasicWeapons(playerID)
 	end
 end
 
+function Curator:CurateBasicWeapons(hero)
+	local playerID = hero:GetPlayerOwnerID()
+	local heroTable = HerosCustom:GetInternalNameTable()
+	local weaponsSuffixTable = {"00", "01", "02", "03", "11", "12", "13", "14", "21", "22", "23", "24", "25"}
+	local heroName = HerosCustom:GetInternalHeroName(hero:GetUnitName())
+	for j = 1, #weaponsSuffixTable, 1 do
+		Timers:CreateTimer(j, function()
+			local weapon = Curator:RollBasicWeapon(heroName, weaponsSuffixTable[j])
+			Curator:GetItemInfoFromClientAndSendToWeb(weapon, playerID)
+		end)
+	end
+
+end
+
 function Curator:CurateBasicEquipment(playerID)
 	local xpBounty = 300
 	local randomHelm = RandomInt(1, 3)
@@ -834,7 +848,9 @@ end
 
 function Curator:FullCurateHero(hero)
     Curator:CurateHero(hero:GetPlayerOwnerID())
-
+    Timers:CreateTimer(5, function()
+    	Curator:CurateBasicWeapons(hero)
+    end)
     Timers:CreateTimer(10, function()
     	local internalName = HerosCustom:GetInternalHeroName(hero:GetUnitName())
         Curator:CurateAllGlyphsForHero(internalName)

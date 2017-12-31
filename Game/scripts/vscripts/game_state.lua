@@ -516,6 +516,37 @@ function GameState:OrderFilter(orderTable)
 				end
 			end
 		end
+		if unit:HasModifier("modifier_slipfinn_passive") then
+			unit.lastOrder = orderTable.order_type
+			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
+				unit.rightClickPos = Vector(orderTable.position_x, orderTable.position_y)
+				if unit:HasModifier("modifier_slipfinn_prone") then
+					unit:RemoveModifierByName("modifier_slipfinn_prone")
+				end
+				if unit:HasModifier("modifier_slipfinn_basic_jump") then
+					unit.direction = (unit.direction*Vector(1,1,0) + unit.rightClickPos*0.00001):Normalized()
+					if unit.speed < 8 then
+						unit.speed = math.max(1, unit.speed + 1)
+						unit.direction = unit:GetForwardVector()
+					end
+				end
+			end
+			if orderTable.entindex_ability > 0 then
+				-- local orderAbility = EntIndexToHScript(orderTable.entindex_ability)
+				-- if IsValidEntity(orderAbility) then
+				-- 	if orderAbility:GetAbilityName() == "slipfinn_bubble_possession" then
+				-- 		local enemy = EntIndexToHScript(orderTable.entindex_target)
+				-- 		if IsValidEntity(enemy) then
+				-- 			if not enemy.dominion then
+				-- 				unit:Stop()
+				-- 				Notifications:Top(unit:GetPlayerOwnerID(), {text="slipfinn_possession_warning", duration=5, style={color="#FF1111"}, continue=true})
+				-- 				return false
+				-- 			end
+				-- 		end
+				-- 	end
+				-- end
+			end
+		end
 		if unit:HasModifier("modifier_zonik_speedball") then
 			unit:RemoveModifierByName("modifier_zonik_speedball")
 			unit:RemoveModifierByName("modifier_zonik_speedball_cap")
@@ -789,6 +820,11 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
     		damageReduc = 1 - (damageReduc/100)
     		damage = damage*damageReduc
 	    end
+	    if victim:HasModifier("modifier_slipfinn_prone") then
+	    	local damageReduc = victim:FindModifierByName("modifier_slipfinn_prone"):GetAbility():GetSpecialValueFor("magic_pure_resist")
+    		damageReduc = 1 - (damageReduc/100)
+    		damage = damage*damageReduc
+	    end
 	end
 	local decreaseAll = GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields)
 
@@ -818,6 +854,9 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 	if victim:HasModifier("modifier_energy_field_c_d_shield") then
 		damage = damage*0.05
+	end
+	if victim:HasModifier("modifier_possession_enemy_lock") then
+		damage = 0
 	end
 	if victim:HasModifier("modifier_rooted_feet_health_regen") then
 		damage = damage*0.5
@@ -1039,6 +1078,29 @@ function GameState:FilterDamage(filterTable)
 		if victim:IsHero() and attacker:IsHero() then
 			if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 				filterTable["damage"] = filterTable["damage"]*0.1
+			end
+		end
+	end
+
+	if attacker:HasModifier("modifier_slipfinn_passive") then
+		if filterTable["entindex_inflictor_const"] then
+			local ability = EntIndexToHScript(filterTable["entindex_inflictor_const"])
+			if IsValidEntity(ability) and ability.possessionAbility then
+				local damage = filterTable["damage"]
+				local element1 = RPC_ELEMENT_NONE
+				if attacker:HasModifier("modifier_slipfinn_immortal_weapon_3") then
+					element1 = RPC_ELEMENT_SHADOW
+				end
+				local a_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 3)
+				damage = damage + damage*a_d_level*0.15
+				Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damagetype, 4, element1, RPC_ELEMENT_NONE)
+				return false
+			end
+		end
+		if WallPhysics:DoesTableHaveValue(attacker.possessedTable, victim:GetUnitName()) then
+			local c_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 3, 3)
+			if c_d_level > 0 then
+				mult = mult + 0.2*c_d_level
 			end
 		end
 	end
@@ -1557,6 +1619,13 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + 0.25*stacks
 		end
 	end
+	if victim:HasModifier("modifier_slipfinn_gloomshade_invisible") then
+		modifier = victim:FindModifierByName("modifier_slipfinn_gloomshade_invisible")
+		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
+			local stacks = modifier:GetStackCount()
+			mult = mult + 0.01*stacks
+		end
+	end
 	if attacker:HasModifier("modifier_paladin_d_c_postmit") then
 		local stacks = attacker:GetModifierStackCount("modifier_paladin_d_c_postmit", attacker)
 		mult = mult + 0.01*stacks
@@ -2059,6 +2128,13 @@ function GameState:FilterDamage(filterTable)
 			divisor = divisor + thresholdMult - 1
 			print("threshold increase")
 		end
+		if attacker:HasModifier("modifier_slipfinn_passive") then
+			local d_c_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 2)
+			local luck = RandomInt(1, 1000)
+			if luck < 7*d_c_level then
+				thresholdMult = 10000
+			end
+		end
 		if not attacker:HasModifier("modifier_backstab_jumping") then
 			filterTable["damage"] = CustomAbilities:Steadfast(filterTable["damage"], victim, thresholdMult)
 		end
@@ -2074,6 +2150,13 @@ function GameState:FilterDamage(filterTable)
 			thresholdMult = 30
 			mult = mult + thresholdMult - 1
 			divisor = divisor + thresholdMult - 1
+		end
+		if attacker:HasModifier("modifier_slipfinn_passive") then
+			local d_c_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
+			local luck = RandomInt(1, 1000)
+			if luck < 7*d_c_level then
+				thresholdMult = 10000
+			end
 		end
 		if not attacker:HasModifier("modifier_backstab_jumping") then
 			filterTable["damage"] = CustomAbilities:MegaSteadfast(filterTable["damage"], victim, thresholdMult)

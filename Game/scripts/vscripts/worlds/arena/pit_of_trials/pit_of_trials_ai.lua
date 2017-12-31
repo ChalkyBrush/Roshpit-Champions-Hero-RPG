@@ -266,12 +266,13 @@ end
 
 function soul_revenant_passive_think(event)
 	local caster = event.caster
+	local ability = event.ability
 	if caster.aggro then
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 900, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
 				local damage = enemy:GetMaxHealth()*0.01
-				ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE })	
+				ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })	
 				local particleName = "particles/econ/events/ti4/dagon_ti4.vpcf"
 				local pfx = ParticleManager:CreateParticle( particleName, PATTACH_POINT_FOLLOW, caster )
 				ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT, "attach_hitloc", caster:GetAbsOrigin()+Vector(0,0,80), true)
@@ -323,6 +324,7 @@ end
 function mountain_crush_end(event)
 	local caster = event.caster
 	local radius = 320
+	local ability = event.ability
 	local position = caster:GetAbsOrigin()
 	local splitEarthParticle = "particles/units/heroes/hero_leshrac/leshrac_split_earth.vpcf"
 	local pfx = ParticleManager:CreateParticle( splitEarthParticle, PATTACH_CUSTOMORIGIN, caster )
@@ -333,7 +335,7 @@ function mountain_crush_end(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius+5, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			ApplyDamage({ victim = enemy, attacker = caster, damage = 450000, damage_type = DAMAGE_TYPE_MAGICAL })	
+			ApplyDamage({ victim = enemy, attacker = caster, damage = 450000, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 			enemy:AddNewModifier(caster, event.ability, "modifier_stunned", {duration = 2})
 		end
 	end 	
@@ -485,6 +487,7 @@ end
 function karzhun_shield_take_damage(event)
 	local attacker = event.attacker
 	local caster = event.caster
+	local ability = event.ability
 	local damagePercent = event.damage_percent
 	if not caster.disableShield then
 		caster.disableShield = true
@@ -492,7 +495,7 @@ function karzhun_shield_take_damage(event)
 		local baseLightningPos = caster:GetAbsOrigin()+RandomVector(170)+Vector(0,0,100)
 		local damage = attacker:GetMaxHealth()*damagePercent/100
 		Events:CreateLightningBeam(baseLightningPos, attacker:GetAbsOrigin()+Vector(0,0,70))
-		ApplyDamage({ victim = attacker, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE })
+		ApplyDamage({ victim = attacker, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
 		attacker:AddNewModifier(caster, nil, "modifier_stunned", {duration = 0.05})	
 		Timers:CreateTimer(0.1, function()
 			caster.disableShield = false
@@ -951,7 +954,7 @@ function pit_sapphire_flare_start(event)
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, explosionAOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do
-					ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })	
+					ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 					enemy:AddNewModifier(caster, nil, "modifier_stunned", {duration = stun_duration})
 				end
 			end 	
@@ -1250,7 +1253,8 @@ function boss_burn_think(event)
 	local caster = event.caster
 	local target = event.target
 	local damage = target:GetMaxHealth()*0.02
-	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE })
+	local ability = event.ability
+	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
 end
 
 function conquest_boss_die(event)
@@ -1351,7 +1355,7 @@ function spike_damage(event)
 	local target = event.target
 	EmitSoundOn("Tanari.Spikes", target)
 	local damage = target:GetMaxHealth()*0.04
-	ApplyDamage({ victim = target, attacker = Events.GameMaster, damage = damage, damage_type = DAMAGE_TYPE_PURE })
+	ApplyDamage({ victim = target, attacker = Events.GameMaster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
 	PopupDamage(target, damage)
 end
 
@@ -1518,12 +1522,13 @@ end
 
 function lies_beetle_passive_think(event)
 	local caster = event.caster
+	local ability = event.ability
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 520, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
 			local damage = 25000
 			PopupDamage(enemy, damage)
-			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })	
+			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 			local particleName = "particles/items_fx/green_lightning.vpcf"
 			local pfx = ParticleManager:CreateParticle( particleName, PATTACH_POINT_FOLLOW, caster )
 			ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT, "attach_hitloc", caster:GetAbsOrigin()+Vector(0,0,80), true)
@@ -2884,7 +2889,7 @@ function arena_descent_boss_fist_slam_start(event)
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, 320, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do
-					ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+					ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 					enemy:AddNewModifier(caster, nil, "modifier_stunned", {duration = stun_duration})
 				end
 			end
@@ -2938,7 +2943,8 @@ function pure_strike_2_attack_land(event)
 	local attacker = event.attacker
 	local target = event.target
 	local damage = attacker:GetAverageTrueAttackDamage(attacker)*0.25
-	ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE})
+	local ability = event.ability
+	ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
 	EmitSoundOn("Arena.PureStrike2", target)
 	local pfx = ParticleManager:CreateParticle( "particles/roshpit/creature/pure_strike_2_knightform.vpcf", PATTACH_CUSTOMORIGIN, target )
 	ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin())
@@ -3329,6 +3335,7 @@ end
 
 function pit_lord_dash_think(event)
 	local caster = event.caster
+	local ability = event.ability
 	print("HELLO?? WTF!!!")
 	if caster.attacked then
 		return
@@ -3345,7 +3352,7 @@ function pit_lord_dash_think(event)
 			caster:RemoveModifierByName("modifier_pit_lord_charging")
 			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 		end)
-		ApplyDamage({ victim = enemy, attacker = caster, damage = event.ability.damage, damage_type = DAMAGE_TYPE_PURE })
+		ApplyDamage({ victim = enemy, attacker = caster, damage = event.ability.damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
 	end
 	if WallPhysics:GetDistance(caster:GetAbsOrigin(), event.ability.targetPosition) < 170 then
 		caster:RemoveModifierByName("modifier_pit_lord_charging")

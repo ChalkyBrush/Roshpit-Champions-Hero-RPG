@@ -110,7 +110,7 @@ function ogre_armor_impact(event)
 	local target = event.target
 	local damage = event.damage
 	EmitSoundOn("Winterblight.OgreArmorImpact", target)
-	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 	Filters:ApplyStun(caster, event.stun_duration, target)	
 end
 
@@ -176,7 +176,7 @@ function raxxus_attack_land(event)
     if #enemies > 0 then    
         for _,enemy in pairs(enemies) do
             ability:ApplyDataDrivenModifier(caster, enemy, "modifier_frostburn_gauntlets_slow", {duration = 3})
-            ApplyDamage({ victim = victim, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE })
+            ApplyDamage({ victim = victim, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
         end
     end
 end

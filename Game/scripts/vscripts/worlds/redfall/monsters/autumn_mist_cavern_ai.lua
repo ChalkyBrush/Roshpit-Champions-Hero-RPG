@@ -28,7 +28,7 @@ function redfall_tyrant_quake(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius+5, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })	
+			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 			enemy:AddNewModifier(caster, event.ability, "modifier_stunned", {duration = 2})
 		end
 	end 		
@@ -74,7 +74,7 @@ function alpha_dash_think(event)
 		Timers:CreateTimer(1.2, function()
 			caster:RemoveModifierByName("modifier_redfall_alpha_charging")
 		end)
-		ApplyDamage({ victim = enemy, attacker = caster, damage = event.ability.damage, damage_type = DAMAGE_TYPE_PURE })
+		ApplyDamage({ victim = enemy, attacker = caster, damage = event.ability.damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
 	end
 	if WallPhysics:GetDistance(caster:GetAbsOrigin(), event.ability.targetPosition) < 170 then
 		caster:RemoveModifierByName("modifier_redfall_alpha_charging")
@@ -597,7 +597,7 @@ function autumn_mage_attack_hit(event)
 	Timers:CreateTimer(0.6, function()
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_doom_bringer/doom_loadout.vpcf", target, 3)
 	    EmitSoundOn("Redfall.FireballPassive", target)
-		ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })	
+		ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 		ability:ApplyDataDrivenModifier(attacker, target, "modifier_autumn_mage_debuff", {duration = 3})
 		
 	end)
@@ -703,7 +703,7 @@ function autumn_mage_boss_explosion(caster, position, damage, explosionAOE, abil
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, explosionAOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
-				ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+				ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 				enemy:AddNewModifier(caster, nil, "modifier_stunned", {duration = stun_duration})
 			end
 		end 

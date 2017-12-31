@@ -24,7 +24,7 @@ function tanari_ancient_think(event)
 							for _,enemy in pairs(enemies) do
 								local distance = WallPhysics:GetDistance(caster:GetAbsOrigin(), enemy:GetAbsOrigin())
 								local damage = baseDamage*distance/10
-								ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+								ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 								enemy:AddNewModifier(caster, nil, "modifier_stunned", {duration = 0.7})
 								EmitSoundOn("Tanari.Ancient.Quake", enemy)	
 								local splitEarthParticle = "particles/units/heroes/hero_leshrac/leshrac_split_earth.vpcf"
@@ -141,7 +141,7 @@ function water_elemental_attack(event)
     local enemies = FindUnitsInRadius( attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
     if #enemies > 0 then
       for _,enemy in pairs(enemies) do
-        ApplyDamage({ victim = enemy, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+        ApplyDamage({ victim = enemy, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
         ability:ApplyDataDrivenModifier(attacker, enemy, "modifier_water_temple_elemental_slow", {duration = 2})
       end
     end 
@@ -355,9 +355,10 @@ end
 function prison_shank_attack(event)
 	local attacker = event.attacker
 	local target = event.target
+	local ability = event.ability
 	if target:IsHero() then
 		local damage = event.target:GetAgility()*event.agility_mult
-		ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+		ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_slark/slark_essence_shift.vpcf", target, 1)
 	end
 end
@@ -459,7 +460,7 @@ function culling_blade_cast(event)
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_life_stealer/life_stealer_infest_emerge_bloody.vpcf", target, 3)
 		-- CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_axe/axe_culling_blade_hit_sparks.vpcf", target, 1)
 		EmitSoundOn("Tanari.WaterTemple.Cull", target)
-		ApplyDamage({ victim = target, attacker = caster, damage = target:GetMaxHealth()*10, damage_type = DAMAGE_TYPE_PURE })
+		ApplyDamage({ victim = target, attacker = caster, damage = target:GetMaxHealth()*10, damage_type = DAMAGE_TYPE_PURE, ability = ability })
 	end
 end
 
@@ -723,6 +724,7 @@ function blue_warlock_attack_land(event)
 	local caster = event.caster
 	local target = event.target
 	local damage_per_mana = event.damage_per_mana
+	local ability = event.ability
 	local manaDrain = math.min(attacker:GetMana(), attacker:GetMaxMana()*0.2)
 	if manaDrain > attacker:GetMaxMana()*0.07 then
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_dazzle/dazzle_shadow_wave_impact_damage.vpcf", target, 1)
@@ -730,7 +732,7 @@ function blue_warlock_attack_land(event)
 	end
 	caster:ReduceMana(manaDrain)
 	local magicDamage = manaDrain*damage_per_mana
-	ApplyDamage({ victim = target, attacker = attacker, damage = magicDamage, damage_type = DAMAGE_TYPE_MAGICAL })
+	ApplyDamage({ victim = target, attacker = attacker, damage = magicDamage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 end
 
 function water_emperor_think(event)
@@ -1005,10 +1007,11 @@ end
 
 function mark_for_death_hit(event)
 	local attacker = event.attacker
+	local ability = event.ability
 	local target = event.target
 	local healthPercentage = event.health_damage_multiplier/100
 	local damage = target:GetMaxHealth()*healthPercentage
-	ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+	ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 end
 
 function vault_wave_room_unit_die(event)
@@ -1177,6 +1180,7 @@ end
 function fairy_dragon_feedback_target_think(event)
 	local target = event.target
 	local caster = event.caster
+	local ability = event.ability
 	local damagePerMana = event.damage_per_mana
 	if target:HasModifier("item_rpc_shadowflame_fist") then
 		return false
@@ -1186,7 +1190,7 @@ function fairy_dragon_feedback_target_think(event)
 		EmitSoundOn("Tanari.WaterTemple.FairyDragonFeedback", target)
 		local manaDifferential = target.feedbackMana - target:GetMana()
 		local damage = damagePerMana*manaDifferential
-		ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE })
+		ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
 
 		local particleName = "particles/econ/items/pugna/pugna_ward_ti5/feedback.vpcf"
 		local pfx = ParticleManager:CreateParticle( particleName, PATTACH_POINT, target )
@@ -1463,7 +1467,7 @@ function water_temple_boss_take_damage(event)
 	      function()
 	        ParticleManager:DestroyParticle( particle1, false )
 	      end)	
-	      ApplyDamage({ victim = attacker, attacker = caster, damage = event.torrent_damage, damage_type = DAMAGE_TYPE_MAGICAL })
+	      ApplyDamage({ victim = attacker, attacker = caster, damage = event.torrent_damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 	end
 end
 
@@ -1853,7 +1857,7 @@ function begin_hydro_pump(event)
 					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_torrent_lifting", {duration = 2})
 					enemy.torrentLiftVelocity = 16
 				end
-				ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+				ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 			end
 		end
 	end)
@@ -2286,13 +2290,14 @@ end
 function soul_arrow_hit(event)
 	local attacker = event.attacker
 	local target = event.target
+	local ability = event.ability
 	local damage = (target:GetMaxHealth()-target:GetHealth())*event.damage_creep
 	if target:IsHero() then
 		damage = (target:GetMaxHealth()-target:GetHealth())*event.damage_hero
 	end
 	EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "Tanari.SpiritStrike.Hit", target)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_weaver/weaver_shukuchi_damage.vpcf", target, 3)
-	ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE })
+	ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
 end
 
 function WaterSpiritTrigger3(trigger)
@@ -2691,7 +2696,7 @@ function spirit_boss_fighting_think(event)
 				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius+5, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 				if #enemies > 0 then
 					for _,enemy in pairs(enemies) do
-						ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+						ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 						Filters:ApplyStun(caster, stun_duration, enemy)	
 					end
 				end 

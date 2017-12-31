@@ -236,7 +236,8 @@ function fury_swipes_attack( keys )
 			victim = target,
 			attacker = caster,
 			damage = damage_per_stack * current_stack,
-			damage_type = damageType
+			damage_type = damageType, 
+			ability = ability
 		}
 		ApplyDamage( damage_table )
 		
@@ -251,7 +252,8 @@ function fury_swipes_attack( keys )
 			victim = target,
 			attacker = caster,
 			damage = damage_per_stack,
-			damage_type = damageType
+			damage_type = damageType,
+			ability = ability
 		}
 		ApplyDamage( damage_table )
 	end
@@ -810,8 +812,9 @@ function heart_spike_attack_land(event)
 	local target = event.target
 	local damagePercent = event.damage_percent
 	local damage = (damagePercent/100)*target:GetMaxHealth()
+	local ability = event.ability
 	if target:IsHero() then
-		ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE })
+		ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
 		CustomAbilities:QuickAttachParticle("particles/roshpit/heart_strike_manaburn_basher_ti_5.vpcf", target, 2)
 	end
 end
@@ -988,6 +991,7 @@ function mountain_crush_end(event)
 	local position = caster:GetAbsOrigin()
 	local splitEarthParticle = "particles/units/heroes/hero_leshrac/astral_rune_b_d.vpcf"
 	local damage = event.damage
+	local ability = event.ability
 	local pfx = ParticleManager:CreateParticle( splitEarthParticle, PATTACH_CUSTOMORIGIN, caster )
 	ParticleManager:SetParticleControl( pfx, 0, position )
 	ParticleManager:SetParticleControl( pfx, 1, Vector(radius, radius, radius) )
@@ -996,7 +1000,7 @@ function mountain_crush_end(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius+5, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })	
+			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 			enemy:AddNewModifier(caster, event.ability, "modifier_stunned", {duration = 2})
 		end
 	end 	
@@ -1408,13 +1412,14 @@ end
 function spirit_of_ashara_think(event)
 	local caster = event.caster
 	local damage = event.damage
+	local ability = event.ability
 	if not caster:IsAlive() then
 		return false
 	end
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 900, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })	
+			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 			local particleName = "particles/roshpit/redfall/ashara_moonbeam_lucent_beam_impact_shared_ti_5_gold.vpcf"
 			local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, enemy )
 			for i = 1, 8, 1 do

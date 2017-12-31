@@ -181,7 +181,7 @@ function hell_bandit_attack(event)
 	local manaBurn = math.min(target:GetMaxMana()*mana_burn_percent/100, target:GetMana())
 	local damage = manaBurn
 	target:ReduceMana(manaBurn)
-	ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+	ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 		local pfx = ParticleManager:CreateParticle( "particles/roshpit/redfall/prism_strike.vpcf", PATTACH_CUSTOMORIGIN, target )
 		ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControl(pfx, 1, Vector(50, 150, 255))
@@ -322,7 +322,7 @@ function bombImpact(caster, ability)
 	local damage = caster.damage
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			ApplyDamage({ victim = enemy, attacker = caster.origCaster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+			ApplyDamage({ victim = enemy, attacker = caster.origCaster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 			Filters:ApplyStun(caster.origCaster, caster.stun_duration, enemy)
 		end
 	end 
@@ -1056,7 +1056,7 @@ function hawk_knight_charging_think(event)
 		StartAnimation(caster, {duration=0.7, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.2})
 		Filters:ApplyStun(caster, stun_duration, target)
 		EmitSoundOn("Redfall.HawkSoldier.Smash", target)
-		ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE })
+		ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
 		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 		local pfx = ParticleManager:CreateParticle( "particles/roshpit/redfall/prism_strike.vpcf", PATTACH_CUSTOMORIGIN, target )
 		ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
@@ -1581,7 +1581,7 @@ function barrel_explode(event)
 	StopSoundEvent("Redfall.TongeyKong.BarrellThrow.Barrel2", barrel)
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			ApplyDamage({ victim = enemy, attacker = caster.origCaster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+			ApplyDamage({ victim = enemy, attacker = caster.origCaster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 			Filters:ApplyStun(caster.origCaster, caster.stun_duration, enemy)
 		end
 	end 	
@@ -1824,13 +1824,14 @@ end
 function castle_viking_attack_land(event)
 	local attacker = event.attacker
 	local target = event.target
+	local ability = event.ability
 	local enemies = FindUnitsInRadius( attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	local damage = attacker:GetAverageTrueAttackDamage(attacker)*0.005
 	flareParticle(target:GetAbsOrigin())
 	EmitSoundOn("Redfall.EnclaveViking.AttackExplosion", target)
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			ApplyDamage({ victim = enemy, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+			ApplyDamage({ victim = enemy, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 			Filters:ApplyStun(attacker, 0.1, enemy)
 		end
 	end 
@@ -3036,7 +3037,7 @@ function castle_whomp_think(event)
 				for _,enemy in pairs(enemies) do
 					local mult = 0.35 + GameState:GetDifficultyFactor()*0.15
 					local damage = enemy:GetMaxHealth()*mult
-					ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE })
+					ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
 					enemy:AddNewModifier(caster, nil, "modifier_stunned", {duration = 1.5})
 				end
 			end
@@ -3248,7 +3249,7 @@ function crimsyth_mage_think(event)
 	    if #enemies > 0 then
 	        for _,enemy in pairs(enemies) do
 	            ability:ApplyDataDrivenModifier(caster, enemy, "modifier_crimsyth_mage_slow", {duration = 2.5})
-	            ApplyDamage({ victim = enemy, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_MAGICAL })
+	            ApplyDamage({ victim = enemy, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 	        end
 	    end 
 	end 
@@ -4188,7 +4189,7 @@ function elthezun_projectile_hit(event)
 	local damage = event.damage
 	local mana_drain = event.mana_drain
 	EmitSoundOn("Redfall.Elthezun.ProjectileHit", target)
-	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 	target:ReduceMana(mana_drain)
 end
 
@@ -4467,6 +4468,7 @@ end
 
 function boss_meteor_falling_think(event)
 	local caster = event.target
+	local ability = event.ability
 	if not IsValidEntity(caster) then
 		return false
 	end
@@ -4500,7 +4502,7 @@ function boss_meteor_falling_think(event)
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
-				ApplyDamage({ victim = enemy, attacker = caster.origCaster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+				ApplyDamage({ victim = enemy, attacker = caster.origCaster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 				enemy:AddNewModifier(caster.origCaster, nil, "modifier_stunned", {duration = 1.5})
 			end
 		end 
@@ -4637,7 +4639,8 @@ function castle_boss_split_attack_hit(event)
 	local caster = event.caster
 	local target = event.target
 	local damage = caster:GetAverageTrueAttackDamage(caster)
-	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL })
+	local ability = event.ability
+	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability })
 end
 
 function castle_final_boss_death(caster, ability)

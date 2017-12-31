@@ -390,7 +390,7 @@ function barnacle_ground_slam_cast(event)
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
-				ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })	
+				ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 				enemy:AddNewModifier(caster, event.ability, "modifier_stunned", {duration = 2})
 			end
 		end 
@@ -401,9 +401,10 @@ function prison_shank_attack(event)
 	local attacker = event.attacker
 	local target = event.target
 	local mult = event.status_mult
+	local ability = event.ability
 	if target:IsHero() then
 		local damage = (target:GetAgility()+target:GetStrength()+target:GetIntellect())*mult
-		ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE })
+		ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_slark/slark_essence_shift.vpcf", target, 1.5)
 	end
 end
@@ -645,7 +646,7 @@ function gust_impact(event)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_kaze_gust_flail", {duration = 1.0})
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_kaze_gust_blind", {duration = blind_duration})
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_drow/drow_hero_silence.vpcf", target, 2.5)
-	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })	
+	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 end
 
 function kaze_pushback_think(event)
@@ -755,10 +756,11 @@ end
 
 function bog_monster_poison_cloud(event)
 	local caster = event.caster
+	local ability = event.ability
 	if not caster:IsNull() then
 		local target = event.target
 		local damage = event.poison_damage
-		ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+		ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 	end
 end
 
@@ -886,7 +888,7 @@ function sea_exploder_go(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for i = 1, #enemies, 1 do
-			ApplyDamage({ victim = enemies[1], attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })	
+			ApplyDamage({ victim = enemies[1], attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 			ability:ApplyDataDrivenModifier(caster, enemies[1], "modifier_exploder_freeze", {duration = event.freeze_duration})
 		end
 	end	
@@ -984,7 +986,7 @@ function sea_beast_think(event)
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for i = 1, #enemies, 1 do
-				ApplyDamage({ victim = enemies[1], attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })	
+				ApplyDamage({ victim = enemies[1], attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 				ability:ApplyDataDrivenModifier(caster, enemies[1], "modifier_exploder_freeze", {duration = 0.7})
 			end
 		end		
@@ -1059,7 +1061,7 @@ function terra_blast_explosion(caster, position, damage, explosionAOE, ability, 
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, explosionAOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })	
+			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 			enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = 0.2})
 		end
 	end 
@@ -1072,7 +1074,7 @@ function tormented_staff_think(event)
 	local damage = event.damage
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })	
+			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_tormented_slow", {duration = 0.2})
 
 			local particleName = "particles/roshpit/arkimus/zonis_lightning.vpcf"
@@ -1100,7 +1102,7 @@ function slaughtering_dagger_attack(event)
 	local health_mult = event.health_mult/100
 	local damage = target:GetMaxHealth()*health_mult
 	if target:IsHero() then
-		ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE })
+		ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_slark/slark_essence_shift.vpcf", target, 1.5)
 		local particleName = "particles/roshpit/epoch/arcana_a_a_xplosion.vpcf"
 		local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, target)
@@ -1475,7 +1477,7 @@ function revenant_attack_land(event)
 	local target = event.target
 	local damage = caster:GetAverageTrueAttackDamage(caster)
 	local ability = event.ability
-	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })	
+	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_revenant_slow", {duration = 0.1})
 end
 
@@ -1667,7 +1669,7 @@ function exiler_attack_land(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })	
+			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 			enemy:AddNewModifier(caster, event.ability, "modifier_stunned", {duration = 0.1})
 		end
 	end 
@@ -1693,10 +1695,11 @@ end
 function ursan_attack_land(event)
 	local target = event.target
 	local attacker = event.attacker
+	local ability = event.ability
 	CustomAbilities:QuickAttachParticle("particles/econ/items/ursa/ursa_swift_claw/ursa_swift_claw_left.vpcf", target, 1)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_lycan/lycan_summon_wolves_cast.vpcf", target, 3)
 	local damage = 1000000000
-	ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL })
+	ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability })
 end
 
 function stormshield_cloak_shield_think(event)
@@ -1846,7 +1849,7 @@ function zharkaz_attack_land(event)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_hit.vpcf", target, 3)
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			ApplyDamage({ victim = enemy, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_MAGICAL })	
+			ApplyDamage({ victim = enemy, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_zharkaz_root", {duration = 0.7})
 		end
 	end 
@@ -1937,6 +1940,7 @@ function mountain_crush_end(event)
 	local caster = event.caster
 	local radius = 900
 	local position = caster:GetAbsOrigin()
+	local ability = event.ability
 	local splitEarthParticle = "particles/seafortress/zharkan_quake.vpcf"
 	local pfx = ParticleManager:CreateParticle( splitEarthParticle, PATTACH_CUSTOMORIGIN, caster )
 	ParticleManager:SetParticleControl( pfx, 0, position )
@@ -1949,7 +1953,7 @@ function mountain_crush_end(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius+5, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			ApplyDamage({ victim = enemy, attacker = caster, damage = 700000, damage_type = DAMAGE_TYPE_MAGICAL })	
+			ApplyDamage({ victim = enemy, attacker = caster, damage = 700000, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 			enemy:AddNewModifier(caster, event.ability, "modifier_stunned", {duration = 2})
 		end
 	end 	
@@ -2093,7 +2097,7 @@ function death_archer_attack_land(event)
 	Events:CreateLightningBeamWithParticle(leftHandPoint, headPoint, "particles/econ/events/ti7/maelstorm_ti7.vpcf", 0.9)
 	EmitSoundOn("Seafortress.ZonisLightning", caster)
 
-	ApplyDamage({ victim = target, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_MAGICAL })
+	ApplyDamage({ victim = target, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 end
 
 function sea_fortress_summon_ability(event)
@@ -2176,7 +2180,7 @@ function sea_rider_attack_land(event)
 	local enemies = FindUnitsInLine(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster:GetAbsOrigin()+endFV*range, nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0)
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE })	
+			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })	
 			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_sea_rider_slow", {duration = 2})
 		end
 	end 
@@ -2716,7 +2720,7 @@ function stone_form_explode(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			ApplyDamage({ victim = enemy, attacker = caster, damage = damage*stacks, damage_type = DAMAGE_TYPE_MAGICAL })	
+			ApplyDamage({ victim = enemy, attacker = caster, damage = damage*stacks, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 			enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = stun_duration})
 		end
 	end 
@@ -2945,7 +2949,7 @@ function zot_attack_land(event)
     local lightningBolt = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, attacker)
     ParticleManager:SetParticleControl(lightningBolt,0,Vector(attacker:GetAbsOrigin().x,attacker:GetAbsOrigin().y,attacker:GetAbsOrigin().z + attacker:GetBoundingMaxs().z ))   
     ParticleManager:SetParticleControl(lightningBolt,1,Vector(target:GetAbsOrigin().x,target:GetAbsOrigin().y,target:GetAbsOrigin().z + target:GetBoundingMaxs().z ))
-    ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
+    ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
     Timers:CreateTimer(2, function()
         ParticleManager:DestroyParticle(lightningBolt, true)
     end)
@@ -2969,7 +2973,7 @@ function zot_attack_land(event)
         end    
 
         -- Damage
-        ApplyDamage({ victim = unit, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+        ApplyDamage({ victim = unit, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 
         -- Increment counter
         targets_shocked = targets_shocked + 1
@@ -3051,7 +3055,7 @@ function dark_sunder_attack_land(event)
 		CustomAbilities:QuickAttachParticle("particles/roshpit/chernobog/demon_hunter.vpcf", target, 3)
 		target:RemoveModifierByName("modifier_dark_sunder_charges")
 		EmitSoundOn("Seafortress.DarkSunder.Pop", target)
-		ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE })
+		ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
 		ScreenShake(target:GetAbsOrigin(), 200, 0.5, 1, 9000, 0, true)
 	end
 end
@@ -3460,10 +3464,11 @@ end
 function starfall_aura_think(event)
 	local caster = event.caster
 	local target = event.target
+	local ability = event.ability
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_mirana/mirana_loadout.vpcf", target, 3.5)
 	local damage = event.damage
 	Timers:CreateTimer(0.45, function()
-		ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE })	
+		ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })	
 		EmitSoundOn("Seafortress.SeaProphet.StarfallImpact", target)
 	end)
 end
@@ -3691,7 +3696,7 @@ function guillotine_strike_start(event)
 	local damage = target:GetHealth()*0.8
 	-- CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_axe/axe_culling_blade_hit_sparks.vpcf", target, 1)
 	EmitSoundOn("Seafortress.GuillotineStrike.Blood", target)
-	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE })
+	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
 end
 
 function blood_drinker_think(event)
@@ -3739,7 +3744,7 @@ function start_thunder_quake(event)
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
-				ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+				ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 				Filters:ApplyStun(caster, stun_duration, enemy)	
 			end
 		end 
@@ -4148,7 +4153,7 @@ function curse_of_deep_take_damage(event)
 		ability.lock = true
 		CustomAbilities:QuickAttachParticle("particles/roshpit/seafortress/deep_maledict_j.vpcf", target, 1)
 		EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "Seafortress.Seafarer.CurseOfTheDeepTick", caster)
-		ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE })
+		ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
 		Timers:CreateTimer(0.1, function()
 			ability.lock = false
 		end)
@@ -4241,7 +4246,7 @@ function blade_mail_take_damage(event)
 	local damage = event.damage*percent
 	if not ability.reflectLock then
 		ability.reflectLock = true
-		ApplyDamage({ victim = attacker, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE })	
+		ApplyDamage({ victim = attacker, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })	
 		Timers:CreateTimer(0.05, function()
 			ability.reflectLock = false
 		end)
@@ -4521,7 +4526,7 @@ function naga_summoner_think(event)
 					local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 530, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 					if #enemies > 0 then
 						for _,enemy in pairs(enemies) do
-							ApplyDamage({ victim = enemy, attacker = caster, damage = caster:GetAverageTrueAttackDamage(caster)*100, damage_type = DAMAGE_TYPE_PHYSICAL })	
+							ApplyDamage({ victim = enemy, attacker = caster, damage = caster:GetAverageTrueAttackDamage(caster)*100, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability })	
 							enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = 1})		
 						end				
 					end 
@@ -4816,7 +4821,7 @@ function centaur_slam_start(event)
 	local damage = event.damage
 	EmitSoundOn("Seafortress.CentaurSlam.Impact", target)
 	-- CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_axe/axe_culling_blade_hit_sparks.vpcf", target, 1)
-	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 	target:AddNewModifier(caster, ability, "modifier_stunned", {duration = 0.3})
 end
 
@@ -4927,7 +4932,7 @@ function sea_giant_attack_land(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })	
+			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 			enemy:AddNewModifier(caster, event.ability, "modifier_stunned", {duration = 0.1})
 		end
 	end 
@@ -5008,7 +5013,7 @@ function sea_giant_ult(event)
 							end
 							local enemies = FindUnitsInLine(caster:GetTeamNumber(), startPoint, startPoint+forkDirection*3000, nil, 150, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0)
 					        for _,enemy in pairs(enemies) do
-					        	ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE })	
+					        	ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })	
 					            Filters:ApplyStun(caster, stun_duration, enemy)
 					            --ability:ApplyDataDrivenModifier(caster, targetUnit, "modifier_stun_explosion", {})
 					        end
@@ -5101,7 +5106,7 @@ function oracle_attack_land(event)
 	local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/seafortress/sea_oracle_impact.vpcf", target, 4)
 	ParticleManager:SetParticleControl(pfx, 1, target:GetAbsOrigin())
 	local damage = event.damage
-	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE })	
+	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })	
 	EmitSoundOn("Seafortress.OceanOracle.AttackLand", target)
 end
 
@@ -5278,7 +5283,7 @@ function diviner_jump_end(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius+5, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			ApplyDamage({ victim = enemy, attacker = caster, damage = 450000, damage_type = DAMAGE_TYPE_MAGICAL })	
+			ApplyDamage({ victim = enemy, attacker = caster, damage = 450000, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_blast_jump_slow", {duration = 3})
 		end
 	end 	
@@ -5553,7 +5558,7 @@ function boss_attack_land(event)
 				local angleDifferential = math.acos(fv:Dot(targetAngle, fv))
 				print(angleDifferential)
 				if angleDifferential < math.pi/2 then
-					ApplyDamage({ victim = enemy, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
+					ApplyDamage({ victim = enemy, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 				end
 			end
 		end 
@@ -5674,6 +5679,7 @@ end
 function boss_crush_end(event)
 	local caster = event.caster
 	local radius = 320
+	local ability = event.ability
 	local position = caster:GetAbsOrigin()
 	local splitEarthParticle = "particles/units/heroes/hero_leshrac/astral_rune_b_d.vpcf"
 	local pfx = ParticleManager:CreateParticle( splitEarthParticle, PATTACH_CUSTOMORIGIN, caster )
@@ -5684,7 +5690,7 @@ function boss_crush_end(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius-10, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			ApplyDamage({ victim = enemy, attacker = caster, damage = 600000, damage_type = DAMAGE_TYPE_MAGICAL })	
+			ApplyDamage({ victim = enemy, attacker = caster, damage = 600000, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 			enemy:AddNewModifier(caster, event.ability, "modifier_stunned", {duration = 1.5})
 		end
 	end 	
@@ -5737,7 +5743,7 @@ function ahn_qhir_take_damage(event)
 				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 				if #enemies > 0 then
 					for _,enemy in pairs(enemies) do
-						ApplyDamage({ victim = enemy, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_MAGICAL })	
+						ApplyDamage({ victim = enemy, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 						CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_chaos_knight/chaos_knight_weapon_blur_critical.vpcf", enemy, 0.7)
 					end
 				end 	
@@ -5805,7 +5811,7 @@ function dash_think_ahn_khir(event)
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
-				ApplyDamage({ victim = enemy, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_MAGICAL })	
+				ApplyDamage({ victim = enemy, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_chaos_knight/chaos_knight_weapon_blur_critical.vpcf", enemy, 0.7)
 			end
 		end
@@ -5954,7 +5960,7 @@ function spikey_carapace_take_damage(event)
 	end
 	if bReflect then
 		EmitSoundOn("Seafortress.SpikeyCarapace.Reflect", attacker)
-		ApplyDamage({ victim = attacker, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })	
+		ApplyDamage({ victim = attacker, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})	
 		attacker:AddNewModifier(caster, ability, "modifier_stunned", {duration = event.stun_duration})
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_no_reflect", {duration = 0.1})
 		table.insert(ability.entTable, attacker:GetEntityIndex())
@@ -6014,7 +6020,7 @@ function shadow_of_bahamut_think(event)
 				Timers:CreateTimer(1.1, function()
 					local enemies = FindUnitsInRadius( caster:GetTeamNumber(), ability.blastTable[j], nil, 380, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 					for i = 1, #enemies, 1 do
-						ApplyDamage({ victim = enemies[i], attacker = caster, damage = 10000000, damage_type = DAMAGE_TYPE_PURE })
+						ApplyDamage({ victim = enemies[i], attacker = caster, damage = 10000000, damage_type = DAMAGE_TYPE_PURE, ability = ability })
 						Filters:ApplyStun(caster, 3, enemies[i])	
 					end
 					ScreenShake(ability.blastTable[j], 200, 0.5, 1, 9000, 0, true)
@@ -6089,7 +6095,7 @@ function archon_ground_slam_cast(event)
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
-				ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })	
+				ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 				if not enemy:HasModifier("modifier_stunned") then
 					enemy:AddNewModifier(caster, event.ability, "modifier_stunned", {duration = 2})
 				end
@@ -6250,7 +6256,7 @@ function comet_storm_end(event)
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), landPoint, nil, 350, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
     if #enemies > 0 then
         for _,enemy in pairs(enemies) do
-        	ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE })	
+        	ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })	
         end
     end 	
 

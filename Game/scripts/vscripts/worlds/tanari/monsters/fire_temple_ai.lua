@@ -126,7 +126,7 @@ function molten_knight_think(event)
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do
-						ApplyDamage({ victim = enemy, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_MAGICAL })	
+						ApplyDamage({ victim = enemy, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 						enemy:AddNewModifier(caster, nil, "modifier_stunned", {duration = 0.4})	
 				end
 			end 
@@ -566,7 +566,7 @@ function nuclear_solos_think(event)
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), arrayPoint, nil, 280, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )	
 		if #enemies > 0 then	
 			for i = 1, #enemies, 1 do
-				ApplyDamage({ victim = enemies[i], attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })	
+				ApplyDamage({ victim = enemies[i], attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 				enemies[i]:AddNewModifier(caster, nil, "modifier_stunned", {duration = 1.0})	
 			end
 		end
@@ -593,6 +593,7 @@ function combustion_cast(event)
 	local target = event.unit
 	local caster = event.caster
 	local damage = event.damage
+	local ability = event.ability
 		local radius = 500
 	      local particleName = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
 	      local particle2 = ParticleManager:CreateParticle( particleName, PATTACH_WORLDORIGIN, target )
@@ -616,7 +617,7 @@ function combustion_cast(event)
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do
-					ApplyDamage({ victim = enemy, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_MAGICAL })	
+					ApplyDamage({ victim = enemy, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 					enemy:AddNewModifier(caster, nil, "modifier_stunned", {duration = 1.5})	
 				end
 			end 	
@@ -1420,7 +1421,7 @@ function createRazeAtPosition(caster, point, ability, damage)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 180, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )	
 	if #enemies > 0 then
 		for i = 1, #enemies, 1 do
-			ApplyDamage({ victim = enemies[i], attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+			ApplyDamage({ victim = enemies[i], attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 		end
 	end
 end
@@ -1560,7 +1561,7 @@ function conflag_carapace_impact(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 		end
 	end 
 end
@@ -2179,6 +2180,7 @@ end
 function mountain_pass_guardian_attack_land(event)
 	local attacker = event.attacker
 	local target = event.target
+	local ability = event.ability
 	if not target:HasModifier("modifier_jumping") and not target:HasModifier("modifier_lava_hit") then
 		local point = attacker:GetAbsOrigin()
 		if target:HasModifier("modifier_knockback") then
@@ -2212,7 +2214,7 @@ function mountain_pass_guardian_attack_land(event)
 		ParticleManager:SetParticleControl( pfx, 0, target:GetAbsOrigin() )
 		ParticleManager:SetParticleControl( pfx, 1, Vector(200, 200, 200) )
 		local bonusDamage = target:GetMaxHealth()*0.05
-		ApplyDamage({ victim = target, attacker = attacker, damage = bonusDamage, damage_type = DAMAGE_TYPE_MAGICAL})
+		ApplyDamage({ victim = target, attacker = attacker, damage = bonusDamage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 		PopupDamage(target, bonusDamage)
 		Timers:CreateTimer(2, function()
 			ParticleManager:DestroyParticle(pfx, false)
@@ -2571,7 +2573,7 @@ function fire_spirit_boss_burn_damage(event)
 	local burn_damage = event.burn_damage
 	local ability = event.ability
 	local caster = event.caster
-	ApplyDamage({ victim = target, attacker = caster, damage = burn_damage, damage_type = DAMAGE_TYPE_MAGICAL })
+	ApplyDamage({ victim = target, attacker = caster, damage = burn_damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 end
 
 function fire_breath_start(event)

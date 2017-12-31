@@ -2016,6 +2016,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                     mult = mult + 0.0006*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*c_a_level
                 end         
             end  
+        elseif unitName == "npc_dota_hero_slark" then
+            attacker.d_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 0)
+            if attacker.d_a_level then
+                mult = mult + 0.0007*attacker:GetAgility()/10*attacker.d_a_level
+            end
         end
         if attacker:HasModifier("modifier_helm_shadow") then
             local stacks = attacker:GetModifierStackCount("modifier_helm_shadow", attacker.InventoryUnit)
@@ -2122,6 +2127,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 if d_d_arcana_level > 0 then
                     waterMult = waterMult + 0.0008*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_d_arcana_level
                 end
+            end
+        elseif unitName == "npc_dota_hero_slark" then
+            attacker.d_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 0)
+            if attacker.d_a_level then
+                waterMult = waterMult + 0.0007*attacker:GetAgility()/10*attacker.d_a_level
             end
         end
         if attacker:HasModifier("modifier_body_water") then
@@ -2521,6 +2531,14 @@ function Filters:OdinCrit(attacker, victim, damage, damage_type)
     if proc then
         ApplyDamage({ victim = victim, attacker = attacker, damage = damage*20, damage_type = damage_type })
         PopupDamage(victim, damage*20)
+    end
+end
+
+function Filters:GetNonPercentageAttribute(hero, attribute)
+    if attribute == "agility" then
+        local leonAgi = hero:GetModifierStackCount("modifier_gold_plate_of_leon_agi", caster.InventoryUnit)
+        local adjustedAgi = hero:GetAgility() - leonAgi
+        return adjustedAgi
     end
 end
 

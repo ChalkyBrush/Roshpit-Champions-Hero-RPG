@@ -83,6 +83,8 @@ function Weapons:weaponRedirect(hero)
 		Weapons:InitialWeapon(hero, "item_rpc_arkimus_weapon_00", "Blade")
 	elseif heroName == "npc_dota_hero_monkey_king" then
 		Weapons:InitialWeapon(hero, "item_rpc_djanghor_weapon_00", "Staff")
+	elseif heroName == "npc_dota_hero_slark" then
+		Weapons:InitialWeapon(hero, "item_rpc_slipfinn_weapon_00", "Shank")
 	end
 end
 
