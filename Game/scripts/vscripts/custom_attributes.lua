@@ -52,7 +52,6 @@ end
 function CDOTA_BaseNPC_Hero:GetAgility()
 	local hero = self
 	local agility = hero.agility_custom + hero.agi_bonus
-	agility = agility + 25000
 	return tonumber(agility)
 end
 
