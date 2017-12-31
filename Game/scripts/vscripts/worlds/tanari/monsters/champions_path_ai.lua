@@ -201,22 +201,24 @@ function mountain_pass_guardian_think(event)
 			EmitSoundOn("elder_titan_elder_anger_04", caster)
 			StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_5, rate=1})
 			local target = enemies[1]
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_mountain_pass_guardian_pull", {duration = 1.6})
-			local particleName = "particles/units/heroes/hero_wisp/tether_green.vpcf"
-			local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
-			ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack2", caster:GetAbsOrigin()+Vector(0,0,90), true)
-			ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin()+Vector(0,0,90), true)
-			local pfx2 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
-			ParticleManager:SetParticleControlEnt(pfx2, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin()+Vector(0,0,90), true)
-			ParticleManager:SetParticleControlEnt(pfx2, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin()+Vector(0,0,90), true)
-			local jumpDirection = ((caster:GetAbsOrigin()-target:GetAbsOrigin())*Vector(1,1,0)):Normalized()	
-			local distance = WallPhysics:GetDistance(target:GetAbsOrigin()*Vector(1,1,0), caster:GetAbsOrigin()*Vector(1,1,0))
-			local propulsion = math.floor(distance/27)
-			WallPhysics:Jump(target, jumpDirection, propulsion, 20, 40, 1.2)		
-			Timers:CreateTimer(1.6, function()
-				ParticleManager:DestroyParticle(pfx, false)
-				ParticleManager:DestroyParticle(pfx2, false)
-			end)
+			if not target.jumpLock and not target.pushLock then
+				ability:ApplyDataDrivenModifier(caster, target, "modifier_mountain_pass_guardian_pull", {duration = 1.6})
+				local particleName = "particles/units/heroes/hero_wisp/tether_green.vpcf"
+				local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
+				ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack2", caster:GetAbsOrigin()+Vector(0,0,90), true)
+				ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin()+Vector(0,0,90), true)
+				local pfx2 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
+				ParticleManager:SetParticleControlEnt(pfx2, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin()+Vector(0,0,90), true)
+				ParticleManager:SetParticleControlEnt(pfx2, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin()+Vector(0,0,90), true)
+				local jumpDirection = ((caster:GetAbsOrigin()-target:GetAbsOrigin())*Vector(1,1,0)):Normalized()	
+				local distance = WallPhysics:GetDistance(target:GetAbsOrigin()*Vector(1,1,0), caster:GetAbsOrigin()*Vector(1,1,0))
+				local propulsion = math.floor(distance/27)
+				WallPhysics:Jump(target, jumpDirection, propulsion, 20, 40, 1.2)		
+				Timers:CreateTimer(1.6, function()
+					ParticleManager:DestroyParticle(pfx, false)
+					ParticleManager:DestroyParticle(pfx2, false)
+				end)
+			end
 		end
 	end
 	

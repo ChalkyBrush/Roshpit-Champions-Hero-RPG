@@ -1170,7 +1170,7 @@
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_slark"
-		"ModelScale"    "1.15"
+		"ModelScale"    "1.1"
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
 		"Ability1"	"slipfinn_prone"
 		"Ability2"	"slipfinn_jump"

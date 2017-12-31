@@ -1,16 +1,16 @@
 require('heroes/slark/constants')
 
-GROUND_FRICTION = 1.1
+GROUND_FRICTION = 1.0
 TURN_RATE = 1
 SLIP_SPEED = 5
-MAX_SLIP_SPEED = 15
+MAX_SLIP_SPEED = 12
 LONG_JUMP_MULT = 2
 LONG_JUMP_HEIGHT_MULT = 0.66
 
 HIGH_JUMP_MULT = 0.9
 HIGH_JUMP_HEIGHT_MULT = 1.6
 
-JUMP_ON_HEAD_RADIUS = 110
+JUMP_ON_HEAD_RADIUS = 130
 
 --SCALING - HEIGHT FOR WHICH ENEMIES CANNOT ATTACK
 
@@ -75,9 +75,9 @@ function slipfinn_main_thinker(event)
     end
 	if caster.speed > 0.5 then
 		local friction = GROUND_FRICTION
-		if caster:HasModifier("modifier_slipfinn_jump_phase") then
-			friction = friction/1.5
-		end
+		-- if caster:HasModifier("modifier_slipfinn_jump_phase") then
+		-- 	friction = friction/1.5
+		-- end
 		if caster:HasModifier("modifier_slipfinn_glyph_1_1") then
 			friction = friction*SLIPFINN_GLYPH_1_1_FRICTION_MULT
 		end
@@ -165,7 +165,7 @@ function jump_start(event)
 		if caster.speed then
 			if caster.speed > 0 then
 				caster.max_slip_speed = 200
-				local msBooster = actualMS*0.03
+				local msBooster = actualMS*0.03*(math.min(1, caster.speed/MAX_SLIP_SPEED))
 				if caster:HasModifier("modifier_slipfinn_prone") or caster:IsRooted() then
 					msBooster = 4
 				end
@@ -187,9 +187,10 @@ function jump_start(event)
 		end
 		jump_force(caster, ability)
 		ability.consecutive_bounces = 0
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_basic_jump", {})
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_basic_jump", {duration = 6})
 		print("YO JUMPING DUDE")
 		caster.jumpPhase = caster.jumpPhase + 1	
+		caster.jumpLock = true
 		Filters:CastSkillArguments(2, caster)
 	end
 end
@@ -294,6 +295,7 @@ function jump_think(event)
 				end
 			end
 			if jumpEnemy then
+				ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_basic_jump", {duration = 6})
 				local position = caster:GetAbsOrigin()
 				local pfx = ParticleManager:CreateParticle( "particles/econ/events/ti5/teleport_end_dust_ti5.vpcf", PATTACH_CUSTOMORIGIN, caster )
 				ParticleManager:SetParticleControl( pfx, 0, position )
@@ -413,6 +415,7 @@ function jump_land(caster, ability)
 		print("LIGHT")
 		EmitSoundOn("Slipfinn.Ground1", caster)
 	end
+	caster.jumpLock = false
 	EndAnimation(caster)	
 	print(caster.jumpPhase)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_jump_phase", {duration = 0.8})
