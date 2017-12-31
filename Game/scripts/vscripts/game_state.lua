@@ -2131,7 +2131,7 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_slipfinn_passive") then
 			local d_c_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 2)
 			local luck = RandomInt(1, 1000)
-			if luck < 7*d_c_level then
+			if luck < 5*d_c_level then
 				thresholdMult = 10000
 			end
 		end
@@ -2154,7 +2154,7 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_slipfinn_passive") then
 			local d_c_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
 			local luck = RandomInt(1, 1000)
-			if luck < 7*d_c_level then
+			if luck < 5*d_c_level then
 				thresholdMult = 10000
 			end
 		end

@@ -39496,7 +39496,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"600"
+				"property_one"			"5"
 			}
 		}
 
@@ -39606,7 +39606,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.7"
+				"property_one"			"0.5"
 			}
 		}
 
