@@ -3,7 +3,7 @@ require('heroes/slark/constants')
 GROUND_FRICTION = 1.0
 TURN_RATE = 1
 SLIP_SPEED = 5
-MAX_SLIP_SPEED = 12
+MAX_SLIP_SPEED = 11
 LONG_JUMP_MULT = 2
 LONG_JUMP_HEIGHT_MULT = 0.66
 
@@ -28,7 +28,7 @@ function slipfinn_main_thinker(event)
 		caster.max_slip_speed = MAX_SLIP_SPEED
 		return false
 	end
-	if caster:HasModifier("modifier_channel_start") or caster:HasModifier("modifier_possession_moving_toward_target") or caster:HasModifier("modifier_jumping") then
+	if caster:HasModifier("modifier_channel_start") or caster:HasModifier("modifier_possession_moving_toward_target") or caster:HasModifier("modifier_jumping") or caster:HasModifier("modifier_forest_guide_pull_thinking") or caster:HasModifier("modifier_mountain_spirit_transfer") or caster:HasModifier("modifier_inside_lizard") then
 		return false
 	end
 	local onGround = math.abs(caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster)) < 25
@@ -175,7 +175,7 @@ function jump_start(event)
 				caster.speed = caster.speed+(actualMS*0.03)
 			end
 			if caster:HasModifier("modifier_slipfinn_prone") then
-				if caster.speed > 20 then
+				if caster.speed > 18 then
 					caster.jumpPhase = 0
 					caster.speed = caster.speed*LONG_JUMP_MULT
 					caster.longJump = true
