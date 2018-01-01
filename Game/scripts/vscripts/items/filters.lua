@@ -2536,7 +2536,7 @@ end
 
 function Filters:GetNonPercentageAttribute(hero, attribute)
     if attribute == "agility" then
-        local leonAgi = hero:GetModifierStackCount("modifier_gold_plate_of_leon_agi", caster.InventoryUnit)
+        local leonAgi = hero:GetModifierStackCount("modifier_gold_plate_of_leon_agi", hero.InventoryUnit)
         local adjustedAgi = hero:GetAgility() - leonAgi
         return adjustedAgi
     end

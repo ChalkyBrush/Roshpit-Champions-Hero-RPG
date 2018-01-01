@@ -119,7 +119,7 @@ function stomp(caster, ability, damage)
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
 			local distancePercentage = 1 - (WallPhysics:GetDistance2d(enemy:GetAbsOrigin(), position)/radius)
-			damage = damage + damage*damageBonus*distancePercentage + heightBonus
+			damage = (damage + heightBonus)*(1 + damageBonus*distancePercentage)
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_WATER, RPC_ELEMENT_NORMAL)
 			Filters:ApplyStun(caster, stun_duration, enemy)	
 		end

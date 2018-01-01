@@ -198,6 +198,10 @@ end
 
 function shredder_passive_think(event)
 	local caster = event.caster
+	if caster:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+	else
+		return false
+	end
 	if caster.aggro then
 		local castAbility = caster:FindAbilityByName("redfall_shredder_whirling_death")
 		if castAbility:IsFullyCastable() then
