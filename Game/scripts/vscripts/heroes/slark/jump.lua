@@ -147,6 +147,9 @@ function slipfinn_main_thinker(event)
 			caster:RemoveModifierByName("modifier_slipfinn_b_c_health")
 		end
 	end
+	if caster:HasModifier("modifier_slipfinn_basic_jump") then
+		caster:RemoveModifierByName("modifier_knockback")
+	end
 end
 
 function jump_start(event)

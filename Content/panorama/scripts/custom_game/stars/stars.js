@@ -9,7 +9,7 @@ mActiveCategoryButton = false
 mButtonRows = 3
 mButtonsPerRow = 10
 TOTAL_HERO_CATEGORIES = 10
-MAX_STARS = 888
+MAX_STARS = 924
 
 function openStarsFromServer(msg){
 	$('#stars_container').RemoveClass('invisible')

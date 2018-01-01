@@ -178,7 +178,7 @@ function Tanari:Debug()
     
     -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "arkimus")
     -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "solunia")
-    -- RPCItems:RollWindDeityCrown(Vector(-4928, 2048), true, 7)
+    RPCItems:RollWindDeityCrown(Vector(-4928, 2048), true, 7)
     -- RPCItems:RollAstralArcana1(Vector(-4928, 2048))
     -- Glyphs:DebugRollHeroGlyphs("zonik", Vector(-4928, 2048))
     -- RPCItems:RollSeinaruArcana1(Vector(-4928, 2048))
@@ -196,7 +196,7 @@ function Tanari:Debug()
     -- RPCItems:RollTrapperArcana1(Vector(-4928, 2048))
 
             ---------MAX CURATION----------
-    Curator:FullCurateHero(MAIN_HERO_TABLE[1])
+    -- Curator:FullCurateHero(MAIN_HERO_TABLE[1])
 
     -- Curator:CurateHero(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
 

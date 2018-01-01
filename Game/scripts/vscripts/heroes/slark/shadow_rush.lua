@@ -86,7 +86,9 @@ function slipfinn_attack_land(event)
 	local a_c_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 2)
 	if a_c_level > 0 then
 		local damage = event.damage*SLIPFINN_E1_MULT*a_c_level
-		Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_PURE, 3, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
-		CustomAbilities:QuickAttachParticle("particles/roshpit/slipfinn/shadow_shank.vpcf", target, 0.4)
+		Timers:CreateTimer(0.05, function()
+			Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_PURE, 3, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
+			CustomAbilities:QuickAttachParticle("particles/roshpit/slipfinn/shadow_shank.vpcf", target, 0.4)
+		end)
 	end 
 end
