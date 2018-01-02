@@ -2534,6 +2534,13 @@ function Filters:OdinCrit(attacker, victim, damage, damage_type)
     end
 end
 
+function Filters:HasMovementModifier(caster)
+    if caster:HasModifier("modifier_possession_moving_toward_target") or caster:HasModifier("modifier_jumping") or caster:HasModifier("modifier_forest_guide_pull_thinking") or caster:HasModifier("modifier_mountain_spirit_transfer") or caster:HasModifier("modifier_inside_lizard") then
+        return true
+    end
+    return false
+end
+
 function Filters:GetNonPercentageAttribute(hero, attribute)
     if attribute == "agility" then
         local leonAgi = hero:GetModifierStackCount("modifier_gold_plate_of_leon_agi", hero.InventoryUnit)

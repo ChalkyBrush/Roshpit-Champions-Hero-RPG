@@ -2374,7 +2374,12 @@ function neptune_think(event)
 	if not ability.lastPos then
 		ability.lastPos = target:GetAbsOrigin()
 	end
-	if target:HasModifier("modifier_jumping") then
+	if Filters:HasMovementModifier(target) then
+		return false
+	end
+	local onGround = math.abs(caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster)) < 10
+	if onGround then
+	else
 		return false
 	end
 	if not ability.distanceMoved then

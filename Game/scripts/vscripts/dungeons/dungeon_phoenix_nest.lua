@@ -269,7 +269,7 @@ function Dungeons:PhoenixCollisionCalc(unit, point, isDistanceSearch)
 	-- print("rotats:")
 	-- print(groundClockwise)
 	-- print(groundCounterClockwise)
-	if groundPos.z < groundStraight.z - 200 or groundPos.z < groundClockwise.z - 220 or groundPos.z < groundCounterClockwise.z - 220  then
+	if currentPosition.z < groundStraight.z - 180 or currentPosition.z < groundClockwise.z - 200 or currentPosition.z < groundCounterClockwise.z - 200  then
 
 		return true
 	else

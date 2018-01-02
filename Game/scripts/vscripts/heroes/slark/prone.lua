@@ -108,8 +108,6 @@ function stomp(caster, ability, damage)
 	local c_a_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
 	if c_a_level > 0 then
 		heightBonus = SLIPFINN_Q3_HEIGHT_SQ_MULT*c_a_level*(ability.height^2)
-		print(ability.height^2)
-		print(heightBonus)
 	end
 	local stun_duration = 0.3
 	if caster:HasModifier("modifier_slipfinn_glyph_5_1") then
@@ -119,8 +117,8 @@ function stomp(caster, ability, damage)
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
 			local distancePercentage = 1 - (WallPhysics:GetDistance2d(enemy:GetAbsOrigin(), position)/radius)
-			damage = (damage + heightBonus)*(1 + damageBonus*distancePercentage)
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_WATER, RPC_ELEMENT_NORMAL)
+			damage2 = (damage + heightBonus)*(1 + damageBonus*distancePercentage)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage2, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_WATER, RPC_ELEMENT_NORMAL)
 			Filters:ApplyStun(caster, stun_duration, enemy)	
 		end
 	end 
