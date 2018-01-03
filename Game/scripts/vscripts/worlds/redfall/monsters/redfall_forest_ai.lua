@@ -768,9 +768,11 @@ function heavy_boulder_pushback(event)
 	local obstruction = WallPhysics:FindNearestObstruction(target:GetAbsOrigin())
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, target:GetAbsOrigin(), target)
 	local fv = ability.pushVector
+
 	if blockUnit then
 		fv = 0
 	end
+
 	target:SetAbsOrigin(target:GetAbsOrigin() + fv*ability.pushVelocity)
 	ability.pushVelocity = ability.pushVelocity - 1
 end

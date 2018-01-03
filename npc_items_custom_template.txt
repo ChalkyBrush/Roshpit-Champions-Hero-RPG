@@ -8844,6 +8844,10 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"precache"
+		{
+			"particle"  "particles/roshpit/items/ice_quill_explosion.vpcf"
+		}
 		"AbilitySpecial"
 		{
 			"01"
@@ -8880,6 +8884,45 @@
 					{
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"ice_quill_spell_cast"
+					}
+				}
+				"ThinkInterval"  "0.06"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"ice_quill_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_ice_quill_carapace_stack"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"ancient_apparition_ice_blast"
+			}
+			"modifier_ice_quill_unloading"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"ice_quill_unloading_think"
+						"target"		"TARGET"
+					}
+				}
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"ice_quill_unloading_think"
 						"target"		"TARGET"
 					}
 				}

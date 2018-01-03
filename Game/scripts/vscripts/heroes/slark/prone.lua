@@ -30,6 +30,14 @@ function prone_start(event)
 			animRate = animRate/SLIPFINN_GLYPH_4_1_POUND_DELAY_MULT
 		end
 		StartAnimation(caster, {duration=animDur, activity=ACT_DOTA_SLARK_POUNCE, rate=animRate})
+
+		local b_a_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
+		if b_a_level > 0 then
+			caster:RemoveModifierByName("modifier_shimmer_cape")
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_shimmer_cape", {duration = 4})
+			caster:SetModifierStackCount("modifier_shimmer_cape", caster, b_a_level)
+		end
+			
 		Timers:CreateTimer(delay, function()
 			caster.fallSpeed = 35
 			StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_DIE, rate=1.3})
@@ -64,7 +72,7 @@ function prone_start(event)
 			local b_a_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
 			if b_a_level > 0 then
 				caster:RemoveModifierByName("modifier_shimmer_cape")
-				ability:ApplyDataDrivenModifier(caster, caster, "modifier_shimmer_cape", {duration})
+				ability:ApplyDataDrivenModifier(caster, caster, "modifier_shimmer_cape", {})
 				caster:SetModifierStackCount("modifier_shimmer_cape", caster, b_a_level)
 			end
 		end
@@ -117,7 +125,7 @@ function stomp(caster, ability, damage)
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
 			local distancePercentage = 1 - (WallPhysics:GetDistance2d(enemy:GetAbsOrigin(), position)/radius)
-			damage2 = (damage + heightBonus)*(1 + damageBonus*distancePercentage)
+			local damage2 = (damage + heightBonus)*(1 + damageBonus*distancePercentage)
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage2, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_WATER, RPC_ELEMENT_NORMAL)
 			Filters:ApplyStun(caster, stun_duration, enemy)	
 		end

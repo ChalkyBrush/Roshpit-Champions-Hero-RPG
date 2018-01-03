@@ -54221,7 +54221,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.1"
+				"property_two"			"0.05"
 			}
 		}
 	}
@@ -82214,7 +82214,7 @@
 			"modifier_redfall_shipyard_water"
 			{
 				"IsHidden"	"1"
-				"EffectName"	"particles/roshpit/redfall\shipyard_water_debuff.vpcf"
+				"EffectName"	"particles/roshpit/redfall/shipyard_water_debuff.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"OverrideAnimation"     "ACT_DOTA_FLAIL"
 				"States"

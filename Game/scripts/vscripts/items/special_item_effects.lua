@@ -682,8 +682,68 @@ function tyrius_think(event)
 	target:SetModifierStackCount( "modifier_tyrius_buff", ability, target:GetStrength() )
 end
 
+function ice_quill_think(event)
+	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+
+	local threshold = 600
+	if not target.ice_quill_mana_prev then
+		target.ice_quill_mana_prev = target:GetMana()
+		target.ice_quill_mana_loss = 0
+		print("HERE?")
+	end
+	local mana_lost = target.ice_quill_mana_prev - target:GetMana()
+	print(mana_lost)
+	if mana_lost > 0 then
+		target.ice_quill_mana_loss = target.ice_quill_mana_loss + mana_lost
+		print(target.ice_quill_mana_loss)
+		if target.ice_quill_mana_loss > threshold then
+			local addedStacks = math.floor(target.ice_quill_mana_loss/threshold)
+			target.ice_quill_mana_loss = target.ice_quill_mana_loss%threshold
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_ice_quill_carapace_stack", {})
+			local newstacks = target:GetModifierStackCount("modifier_ice_quill_carapace_stack", caster) + addedStacks
+			target:SetModifierStackCount("modifier_ice_quill_carapace_stack", caster, newstacks)
+		end
+	end
+
+	target.ice_quill_mana_prev = target:GetMana()
+	print("--------")
+end
+
 function ice_quill_spell_cast(event)
-	CustomAbilities:IceQuill(event)
+	local caster = event.caster
+	local hero = event.unit
+	local ability = event.ability
+	if not hero:HasModifier("modifier_ice_quill_unloading") then
+		if hero:HasModifier("modifier_ice_quill_carapace_stack") then
+			local stacks = hero:GetModifierStackCount("modifier_ice_quill_carapace_stack", caster)
+			local unload_duration = (stacks*0.1) - 0.5
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_ice_quill_unloading", {duration = unload_duration})
+			hero:RemoveModifierByName("modifier_ice_quill_carapace_stack")
+		end
+	end
+
+	-- CustomAbilities:IceQuill(event)
+end
+
+function ice_quill_unloading_think(event)
+	local caster = event.caster
+	local hero = event.target
+	local ability = event.ability
+	CustomAbilities:QuickAttachParticle("particles/roshpit/items/ice_quill_explosion.vpcf", hero, 3)
+	EmitSoundOn("RPC.IceQuill", hero)	
+	local radius = 460
+	local damage = hero:GetAverageTrueAttackDamage(hero)*4
+	local enemies = FindUnitsInRadius( hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	if #enemies > 0 then
+		for _,enemy in pairs(enemies) do
+			Filters:ApplyItemDamage(enemy,hero,damage,DAMAGE_TYPE_MAGICAL,ability,RPC_ELEMENT_ICE,RPC_ELEMENT_NORMAL)
+		end
+	end 
+	local manaRestore = hero:GetMaxMana()*0.01
+	hero:GiveMana(manaRestore)
+	PopupMana(hero, manaRestore)
 end
 
 function gryffin_think(event)

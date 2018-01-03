@@ -39,7 +39,7 @@ function channel_complete(event)
 			local slow_duration = event.slow_duration + stunDuration
 			local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d", "hydroxis")
 			ability.a_d_level = a_d_level
-			damage = damage * (1 + 0.0001 * a_d_level * caster:GetPhysicalArmorValue())
+			damage = damage * (1 + 0.00005 * a_d_level * caster:GetPhysicalArmorValue())
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do
 					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_WATER, RPC_ELEMENT_EARTH)

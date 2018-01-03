@@ -38584,7 +38584,7 @@
 				"IsDebuff"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "5"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "10"
 				}
 			}
 			"modifier_slipfinn_b_c_health"
@@ -39284,12 +39284,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2000"
+				"property_one"			"3000"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"4"
+				"property_two"			"5"
 			}
 			"02"
 			{
@@ -39496,7 +39496,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"10"
 			}
 		}
 
@@ -66166,7 +66166,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.1"
+				"property_two"			"0.05"
 			}
 		}
 	}
@@ -94478,7 +94478,7 @@
 			"modifier_redfall_shipyard_water"
 			{
 				"IsHidden"	"1"
-				"EffectName"	"particles/roshpit/redfall\shipyard_water_debuff.vpcf"
+				"EffectName"	"particles/roshpit/redfall/shipyard_water_debuff.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"OverrideAnimation"     "ACT_DOTA_FLAIL"
 				"States"

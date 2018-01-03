@@ -82,7 +82,7 @@ function slipfinn_main_thinker(event)
 			friction = friction*SLIPFINN_GLYPH_1_1_FRICTION_MULT
 		end
 		if caster:HasModifier("modifier_slipfinn_prone") then
-			friction = friction/6
+			friction = friction/7
 		end
 		if onGround then
 			caster.speed = math.max(caster.speed - friction, 0)
@@ -175,7 +175,7 @@ function jump_start(event)
 				caster.speed = caster.speed+(actualMS*0.03)
 			end
 			if caster:HasModifier("modifier_slipfinn_prone") then
-				if caster.speed > 18 then
+				if caster.speed > 21 then
 					caster.jumpPhase = 0
 					caster.speed = caster.speed*LONG_JUMP_MULT
 					caster.longJump = true
@@ -349,6 +349,14 @@ function jump_think(event)
 					if #enemies > 0 then
 						for _,enemy in pairs(enemies) do
 							Filters:TakeArgumentsAndApplyDamage(enemy, caster, a_b_damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_SHADOW, RPC_ELEMENT_WATER)
+							if ability.b_b_level > 0 then
+								ability:ApplyDataDrivenModifier(caster, enemy, "modifier_slipfinn_gloomshade_visible", {duration = 10})
+								local newStacks = enemy:GetModifierStackCount("modifier_slipfinn_gloomshade_visible", caster) + 1
+								enemy:SetModifierStackCount("modifier_slipfinn_gloomshade_visible", caster, newStacks)
+
+								ability:ApplyDataDrivenModifier(caster, enemy, "modifier_slipfinn_gloomshade_invisible", {duration = 10})
+								enemy:SetModifierStackCount("modifier_slipfinn_gloomshade_invisible", caster, newStacks*ability.b_b_level)
+							end
 						end
 					end 
 				end

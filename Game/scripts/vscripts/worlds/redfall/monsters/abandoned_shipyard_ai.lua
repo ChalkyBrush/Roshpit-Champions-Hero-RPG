@@ -1,6 +1,9 @@
 function ShipyardWater(trigger)
 	print("ENTER?")
 	local hero = trigger.activator
+	if hero:HasModifier("modifier_redfall_shipyard_water") then
+		return false
+	end
 	Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, hero, "modifier_redfall_shipyard_water", {})
 	hero.lockPoint = hero:GetAbsOrigin()
 	for i = 1, 90, 1 do

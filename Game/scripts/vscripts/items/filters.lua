@@ -2535,10 +2535,11 @@ function Filters:OdinCrit(attacker, victim, damage, damage_type)
 end
 
 function Filters:HasMovementModifier(caster)
-    if caster:HasModifier("modifier_possession_moving_toward_target") or caster:HasModifier("modifier_jumping") or caster:HasModifier("modifier_forest_guide_pull_thinking") or caster:HasModifier("modifier_mountain_spirit_transfer") or caster:HasModifier("modifier_inside_lizard") then
+    if caster:HasModifier("modifier_possession_moving_toward_target") or caster:HasModifier("modifier_jumping") or caster:HasModifier("modifier_forest_guide_pull_thinking") or caster:HasModifier("modifier_mountain_spirit_transfer") or caster:HasModifier("modifier_inside_lizard") or caster:HasModifier("modifier_boat_dummy_prepping") or caster:HasModifier("modifier_wind_temple_flailing") or caster:HasModifier("modifier_heavy_boulder_pushback") or caster:HasModifier("modifier_lava_jumping") then
         return true
+    else
+        return false
     end
-    return false
 end
 
 function Filters:GetNonPercentageAttribute(hero, attribute)
