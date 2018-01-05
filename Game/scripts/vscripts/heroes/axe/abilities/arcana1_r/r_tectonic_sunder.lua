@@ -63,6 +63,7 @@ function startChannel(event)
             ParticleManager:SetParticleControl(pfx2, 0, startPoint)
             Timers:CreateTimer(1.5, function()
                 ParticleManager:DestroyParticle(pfx2, false)
+                ParticleManager:ReleaseParticleIndex(pfx2)
             end)
             local enemies = FindUnitsInRadius( caster:GetTeamNumber(), startPoint, nil, 280, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
             if #enemies > 0 then
@@ -148,11 +149,13 @@ function successfullCast(event)
         Timers:CreateTimer(currentParticle.procNumber*0.5 + 0.15, function()
             dealDamage(caster, ability, damage, stun_duration, currentParticle.startPoint, currentParticle.endPoint)
             ParticleManager:DestroyParticle(currentParticle.particle, false)
+            ParticleManager:ReleaseParticleIndex(currentParticle.particle)
         end)
         table.remove(pfx, 1)
     end
 
     Timers:CreateTimer(lastProcNumber*0.5 + 0.4, function()
+        StartSoundEvent("RedGeneral.ArcanaSunder.Moving", caster)
         EarthShatter.removeBuff(caster)
     end)
 end
@@ -167,6 +170,7 @@ function interruptCast(event)
 
         while #pfx > 0 do
             ParticleManager:DestroyParticle(pfx[1].particle, true)
+            ParticleManager:ReleaseParticleIndex(pfx[1].particle)
             table.remove(pfx, 1)
         end
     end)

@@ -232,7 +232,7 @@ function Filters:PerformAttackSpecial(caster, target, b1, b2, b3, b4, b5, b6, b7
 end
 
 function Filters:MagicImmuneBreak(attacker, target)
-    local magic_immunity_buffs = {"modifier_hope_of_saytaru_effect", "modifier_monk_ulti_gorudo", "modifier_black_widow", "modifier_warlord_stone_form", "modifier_gilded_soul_immunity", "modifier_auriun_immortal_weapon_3_effect"}
+    local magic_immunity_buffs = {"modifier_hope_of_saytaru_effect", "modifier_monk_ulti_gorudo", "modifier_black_widow", "modifier_warlord_stone_form", "modifier_gilded_soul_immunity", "modifier_auriun_immortal_weapon_3_effect", "modifier_black_King_bar_immunity"}
     local immuneBreak = false
     for i = 1, #magic_immunity_buffs, 1 do
         if target:HasModifier(magic_immunity_buffs[i]) then
@@ -1543,6 +1543,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local stacks = attacker:GetModifierStackCount("modifier_helm_all_elements", attacker.InventoryUnit)
             mult = mult + stacks/100
         end
+        if attacker:HasModifier("modifier_trinket_all_elements") then
+            local stacks = attacker:GetModifierStackCount("modifier_trinket_all_elements", attacker.InventoryUnit)
+            mult = mult + stacks/100
+        end
         if attacker:HasAbility("arkimus_archon_form") then
             local c_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 3, 3)
             if c_d_level > 0 then
@@ -1608,7 +1612,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                     if victim.ringOfFireTick then
                         victim.ringOfFireTick = false
                     else
-                        victim.ringOfFireBurn = victim.ringOfFireBurn + damage*0.1
+                        victim.ringOfFireBurn = victim.ringOfFireBurn + damage*0.35
                     end
                 end
             end
@@ -1997,13 +2001,15 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker:HasModifier("modifier_arkimus_immortal_weapon_2") then
                 if bIsRealDamage then
                     local healAmount = damage*mult*0.005
-                    Filters:ApplyHeal(attacker, attacker, healAmount, true)
-                    local particleName = "particles/roshpit/arkimus/arkimus_immo_2_lifesteal.vpcf"
-                    local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, attacker )
-                    ParticleManager:SetParticleControlEnt(pfx, 0, attacker, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true)
-                    Timers:CreateTimer(0.2, function() 
-                      ParticleManager:DestroyParticle( pfx, false )
-                    end)  
+                    if healAmount > 0 then
+                        Filters:ApplyHeal(attacker, attacker, healAmount, true)
+                        local particleName = "particles/roshpit/arkimus/arkimus_immo_2_lifesteal.vpcf"
+                        local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, attacker )
+                        ParticleManager:SetParticleControlEnt(pfx, 0, attacker, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true)
+                        Timers:CreateTimer(0.2, function() 
+                          ParticleManager:DestroyParticle( pfx, false )
+                        end)  
+                    end
                 end
             end
         end
@@ -2535,7 +2541,7 @@ function Filters:OdinCrit(attacker, victim, damage, damage_type)
 end
 
 function Filters:HasMovementModifier(caster)
-    if caster:HasModifier("modifier_possession_moving_toward_target") or caster:HasModifier("modifier_jumping") or caster:HasModifier("modifier_forest_guide_pull_thinking") or caster:HasModifier("modifier_mountain_spirit_transfer") or caster:HasModifier("modifier_inside_lizard") or caster:HasModifier("modifier_boat_dummy_prepping") or caster:HasModifier("modifier_wind_temple_flailing") or caster:HasModifier("modifier_heavy_boulder_pushback") or caster:HasModifier("modifier_lava_jumping") then
+    if caster:HasModifier("modifier_possession_moving_toward_target") or caster:HasModifier("modifier_jumping") or caster:HasModifier("modifier_forest_guide_pull_thinking") or caster:HasModifier("modifier_mountain_spirit_transfer") or caster:HasModifier("modifier_inside_lizard") or caster:HasModifier("modifier_boat_dummy_prepping") or caster:HasModifier("modifier_wind_temple_flailing") or caster:HasModifier("modifier_heavy_boulder_pushback") or caster:HasModifier("modifier_lava_jumping") or caster:HasModifier("modifier_wind_temple_flailing") then
         return true
     else
         return false

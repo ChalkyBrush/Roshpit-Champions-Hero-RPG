@@ -424,17 +424,19 @@ function torrent_trap_think(event)
 	            enemy:SetModifierStackCount( "modifier_torrent_trap_building_up", ability, currentStacks + 1 )
 	            if (currentStacks + 1) == 5 then
 	            	local point = enemy:GetAbsOrigin()
-					local modifierKnockback =
-					{
-						center_x = point.x,
-						center_y = point.y,
-						center_z = point.z,
-						duration = 2,
-						knockback_duration = 2,
-						knockback_distance = 0,
-						knockback_height = 400
-					}
-					enemy:AddNewModifier( caster, nil, "modifier_knockback", modifierKnockback )
+	            	if not enemy:HasModifier("modifier_lasso_pull") then
+						local modifierKnockback =
+						{
+							center_x = point.x,
+							center_y = point.y,
+							center_z = point.z,
+							duration = 2,
+							knockback_duration = 2,
+							knockback_distance = 0,
+							knockback_height = 400
+						}
+						enemy:AddNewModifier( caster, nil, "modifier_knockback", modifierKnockback )
+					end
 	            	EmitSoundOn("Trapper.TorrentImpact", enemy)
 	            	ability:ApplyDataDrivenModifier(trap, enemy, "modifier_torrent_trap_slowed_effect", {duration = 2})
 	            	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)

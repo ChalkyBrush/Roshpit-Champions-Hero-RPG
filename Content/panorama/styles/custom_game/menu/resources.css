@@ -24,11 +24,12 @@
 
 #resource_gain_label{
   color:#BBBBBB;
-  font-size:36px;
+  font-size:28px;
+  text-align:center;
   vertical-align: center;
   text-shadow: 1px 1px 2px 3 #00000066;
   font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
-  width:150px;
+  width:100%;
   margin-bottom:2px;
 }
 

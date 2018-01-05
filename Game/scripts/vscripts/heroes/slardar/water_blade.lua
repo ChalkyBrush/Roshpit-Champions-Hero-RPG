@@ -209,7 +209,7 @@ function hydroxis_attack_land(event)
 						end) 	
 						-- CustomAbilities:QuickAttachParticle("particles/econ/items/kunkka/kunkka_tidebringer_base/kunkka_spell_tidebringer.vpcf", enemy, 1)
 						local glyphDamage = attacker:GetAverageTrueAttackDamage(attacker)*4
-						ApplyDamage({ victim = enemy, attacker = attacker, damage = glyphDamage, damage_type = DAMAGE_TYPE_MAGICAL})
+						Filters:TakeArgumentsAndApplyDamage(enemy, attacker, glyphDamage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 					end
 					-- ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL})
 				end

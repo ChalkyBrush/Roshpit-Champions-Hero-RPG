@@ -87,6 +87,9 @@ function slipfinn_main_thinker(event)
 		if onGround then
 			caster.speed = math.max(caster.speed - friction, 0)
 			caster.direction = (caster.direction + caster:GetForwardVector()*TURN_RATE):Normalized()
+			if caster.speed == 0 then
+				FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+			end
 		end
 		-- print(caster.direction*caster.speed)
 		local angleDiff = math.abs(AngleDiff(WallPhysics:vectorToAngle(caster.direction), WallPhysics:vectorToAngle(caster:GetForwardVector())))

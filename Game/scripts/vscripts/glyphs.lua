@@ -408,6 +408,7 @@ function Glyphs:RemoveGlyphBonusesAndRecalculateAll(heroEntity)
 	local MAX_GLYPHS = 3
 	for i = 1, #Glyphs.GLYPH_MODIFIER_TABLE, 1 do
 		heroEntity:RemoveModifierByName(Glyphs.GLYPH_MODIFIER_TABLE[i])
+		print(Glyphs.GLYPH_MODIFIER_TABLE[i])
 	end
 	for j = 1, MAX_GLYPHS, 1 do
 		local glyph = CustomNetTables:GetTableValue("skill_tree", tostring(heroEntity:GetPlayerOwnerID()).."-glyph-"..tostring(j))

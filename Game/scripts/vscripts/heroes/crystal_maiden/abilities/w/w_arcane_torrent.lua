@@ -38,9 +38,9 @@ function toggle_on(event)
     local ability = caster:FindAbilityByName("arcane_explosion")
     if IsValidEntity(ability) then
         if caster:HasModifier("modifier_sorceress_arcana2") then
-            RingOfFire.tryToCast(caster, ability, false)
+            RingOfFire.tryToCast(caster, ability, true)
         else
-            FrostNova.tryToCast(caster, ability, false)
+            FrostNova.tryToCast(caster, ability, true)
         end
     end
 end
@@ -56,6 +56,17 @@ function think(event)
 
     if caster:GetMana() < manaDrain then
         ability:ToggleAbility()
+    end
+
+
+    local caster = event.caster
+    local arc_exp_ability = caster:FindAbilityByName("arcane_explosion")
+    if IsValidEntity(arc_exp_ability) then
+        if caster:HasModifier("modifier_sorceress_arcana2") then
+            RingOfFire.tryToCast(caster, arc_exp_ability, true)
+        else
+            FrostNova.tryToCast(caster, arc_exp_ability, true)
+        end
     end
 
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), origin, nil, 1400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
@@ -89,6 +100,7 @@ function think(event)
     }
 
     ProjectileManager:CreateTrackingProjectile(info)
+
 end
 
 function projectileHit(event)

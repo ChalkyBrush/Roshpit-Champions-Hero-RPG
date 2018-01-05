@@ -217,19 +217,13 @@ function sorceress_glyph_5_1_initialize(event)
   	if not arcaneTorrent then
   		arcaneTorrent = caster:AddAbility("arcane_torrent")
   	end
-  	local arcaneExplosion = caster:FindAbilityByName("arcane_explosion")
-  	arcaneTorrent:SetLevel(arcaneExplosion:GetLevel())
-  	arcaneTorrent:SetAbilityIndex(1)
-  	caster:SwapAbilities("arcane_explosion", "arcane_torrent", false, true)
+  	CustomAbilities:AddAndOrSwapSkill(caster, "arcane_explosion", "arcane_torrent", 1)
 end
 
 function sorceress_glyph_5_1_end(event)
 	local caster = event.target
 	local level = caster:FindAbilityByName("arcane_torrent"):GetLevel()
-	local arcaneExplosion = caster:FindAbilityByName("arcane_explosion")
-  	arcaneExplosion:SetLevel(level)
-  	arcaneExplosion:SetAbilityIndex(1)
-  	caster:SwapAbilities("arcane_explosion", "arcane_torrent", true, false)
+	CustomAbilities:AddAndOrSwapSkill(caster, "arcane_torrent", "arcane_explosion", 1)
 end
 
 function glyph_5_1_kill(event)

@@ -7,13 +7,14 @@ function begin_fireball(event)
 	EmitSoundOn("Sorceress.FireBall.Cast", caster)
 	local bArcane = sorceressGetArcaneDB(caster)
 
+	local fireBallStartPosition = caster:GetAbsOrigin()
 	if caster:HasModifier("modifier_sorceress_immortal_fire_avatar") then
 		caster = caster.origCaster
 		ability.rune_a_d_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
 	end
-	launchFireBall(caster, ability, fv, "particles/units/heroes/hero_jakiro/fireball.vpcf", 140)
+	launchFireBall(caster, ability, fv, "particles/units/heroes/hero_jakiro/fireball.vpcf", 140, fireBallStartPosition)
 	if bArcane then
-		launchFireBall(caster, caster:FindAbilityByName("sorceress_blink"), fv, "particles/roshpit/sorceress/arcane_enchantment.vpcf", 90)
+		launchFireBall(caster, caster:FindAbilityByName("sorceress_blink"), fv, "particles/roshpit/sorceress/arcane_enchantment.vpcf", 90, fireBallStartPosition)
 	end
 	if caster:HasModifier("modifier_sorceress_glyph_3_1") then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_fireball_precast", {duration = 0.5})
@@ -24,14 +25,14 @@ function begin_fireball(event)
 			
 			launchFireBall(caster, ability, fv, "particles/units/heroes/hero_jakiro/fireball.vpcf", 140)
 			if bArcane then
-				launchFireBall(caster, caster:FindAbilityByName("sorceress_blink"), fv, "particles/roshpit/sorceress/arcane_enchantment.vpcf", 90)
+				launchFireBall(caster, caster:FindAbilityByName("sorceress_blink"), fv, "particles/roshpit/sorceress/arcane_enchantment.vpcf", 90, fireBallStartPosition)
 			end
 			Timers:CreateTimer(0.2, function()
 				EmitSoundOn("Sorceress.FireBall.Cast", caster)
 				StartAnimation(caster, {duration=0.15, activity=ACT_DOTA_CAST_ABILITY_2, rate=4})
 				launchFireBall(caster, ability, fv, "particles/units/heroes/hero_jakiro/fireball.vpcf", 140)
 				if bArcane then
-					launchFireBall(caster, caster:FindAbilityByName("sorceress_blink"), fv, "particles/roshpit/sorceress/arcane_enchantment.vpcf", 90)
+					launchFireBall(caster, caster:FindAbilityByName("sorceress_blink"), fv, "particles/roshpit/sorceress/arcane_enchantment.vpcf", 90, fireBallStartPosition)
 				end
 			end)
 		end)
@@ -98,14 +99,14 @@ function sorceress_c_d(caster, point, radius, runesCount)
 
 end
 
-function launchFireBall(caster, ability, fv, projectileParticle, impactRadius)
+function launchFireBall(caster, ability, fv, projectileParticle, impactRadius, fireBallStartPosition)
 		
 
 		local start_radius = impactRadius
 		local end_radius = impactRadius
 		local range = 2400
 		local speed = 1100
-		local casterOrigin = caster:GetAbsOrigin()
+		local casterOrigin = fireBallStartPosition
 		local info = 
 		{
 				Ability = ability,

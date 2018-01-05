@@ -5,7 +5,6 @@
 {
 	"example_ability"
 	{
-		"ID"	"1852"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"phoenix_supernova"
@@ -172,6 +171,7 @@
 		{
 			"modifier_channel_start"
 			{
+				"IsHidden"	"1"
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -39316,6 +39316,12 @@
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
+			"modifier_trinket_all_elements"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"				
+			}
 		}
 	}
 
@@ -43846,7 +43852,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"morphling_adaptive_strike_ethereal_blade"
+		"AbilityTextureName"	"morphling_adaptive_strike_agi_ethereal_blade"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
@@ -46302,6 +46308,7 @@
 					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVISIBLE"			"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"OnDestroy"
 				{

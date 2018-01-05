@@ -40,7 +40,7 @@ function sorceress_avatar_think(event)
 	if avatar.lock then
 		return false
 	end
-
+	FindClearSpaceForUnit(avatar, avatar:GetAbsOrigin(), false)
 	if blizzAbility:IsFullyCastable() or lanceAbility:IsFullyCastable() or blinkAbility:IsFullyCastable() then
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
@@ -114,6 +114,7 @@ function sorceress_avatar_think(event)
 			avatar:MoveToPosition(caster:GetAbsOrigin()+RandomVector(240))
 		end
 	elseif distance >= 1500 then
+		CustomAbilities:QuickAttachParticle("particles/econ/items/meepo/meepo_colossal_crystal_chorus/sorceress_blink.vpcf", caster, 3)
 		avatar:SetAbsOrigin(caster:GetAbsOrigin()+RandomVector(240))
 	end
 end
@@ -137,6 +138,7 @@ function sorceress_avatar_think_fire(event)
 	if avatar.lock then
 		return false
 	end
+	FindClearSpaceForUnit(avatar, avatar:GetAbsOrigin(), false)
 	if coreAbility:IsFullyCastable() or fireballAbility:IsFullyCastable() or blinkAbility:IsFullyCastable() then
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
@@ -208,6 +210,7 @@ function sorceress_avatar_think_fire(event)
 			avatar:MoveToPosition(caster:GetAbsOrigin()+RandomVector(240))
 		end
 	elseif distance >= 1500 then
+		CustomAbilities:QuickAttachParticle("particles/econ/items/meepo/meepo_colossal_crystal_chorus/sorceress_blink.vpcf", caster, 3)
 		avatar:SetAbsOrigin(caster:GetAbsOrigin()+RandomVector(240))
 	end
 end

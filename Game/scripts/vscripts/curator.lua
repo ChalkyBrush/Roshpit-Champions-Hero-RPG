@@ -48,6 +48,7 @@ function Curator:CurateBasicWeapons(hero)
 	for j = 1, #weaponsSuffixTable, 1 do
 		Timers:CreateTimer(j, function()
 			local weapon = Curator:RollBasicWeapon(heroName, weaponsSuffixTable[j])
+			print(weapon:GetAbilityName())
 			Curator:GetItemInfoFromClientAndSendToWeb(weapon, playerID)
 		end)
 	end
@@ -848,9 +849,9 @@ end
 
 function Curator:FullCurateHero(hero)
     Curator:CurateHero(hero:GetPlayerOwnerID())
-    Timers:CreateTimer(5, function()
-    	Curator:CurateBasicWeapons(hero)
-    end)
+    -- Timers:CreateTimer(5, function()
+    -- 	Curator:CurateBasicWeapons(hero)
+    -- end)
     Timers:CreateTimer(10, function()
     	local internalName = HerosCustom:GetInternalHeroName(hero:GetUnitName())
         Curator:CurateAllGlyphsForHero(internalName)

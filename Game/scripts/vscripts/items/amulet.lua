@@ -196,6 +196,8 @@ function Amulet:action(propertyName, propertyValue, hero, inventory_unit, trinke
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_winterblight_skull_ring", item)
 	elseif string.match(propertyName, "_glyph_") then
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_winterblight_skull_ring", item)
+	elseif propertyName == "all_elements" then
+		Head:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_trinket_all_elements", trinket_ability)
 	end
 	hero.amulet = item
 end
