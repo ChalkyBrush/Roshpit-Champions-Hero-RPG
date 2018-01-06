@@ -1415,7 +1415,7 @@ function GameState:FilterDamage(filterTable)
 		modifier = attacker:FindModifierByName("modifier_flamewaker_arcana_b_a_effect")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetStackCount()
-			local multIncrease = 0.025*stacks
+			local multIncrease = 0.03*stacks
 			mult = mult + multIncrease
 		end
 	end

@@ -77,7 +77,7 @@ function a_b_level(caster, ability)
 	local abilityLevel = runeAbility:GetLevel()
 	local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_b")
 	local totalLevel = abilityLevel + bonusLevel
-	ability.a_b_damage = (150 + totalLevel*200)/2
+	ability.a_b_damage = (150 + totalLevel*5000)/2
 	ability.d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "paladin")
 	if caster:HasModifier("modifier_paladin_glyph_5_1") then
 		ability.a_b_damage = ability.a_b_damage * 3

@@ -7,6 +7,9 @@ function begin_second_heartbeat(event)
 	local fv = forwardVector
 	local b_b_level = rune_b_b(caster)
 	local rangeblast = b_b_level * 10
+	if rangeblast > 1000 then
+		rangeblast = 1000
+	end
 	fire_projectile(abilityLevel, caster, fv, location, event, rangeblast)
 	ability.b_b_level = b_b_level
 	ability.c_b_level = rune_c_b(caster)

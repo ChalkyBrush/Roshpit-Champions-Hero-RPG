@@ -4909,7 +4909,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"9800"
+				"property_one"			"6000"
 			}
 		}
 	}

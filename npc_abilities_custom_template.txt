@@ -6827,7 +6827,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"2000 4000 8000 27000 46000 86000 180000"
+				"damage"					"4000 8000 16000 54000 92000 192000 360000"
 			}
 		}
 
@@ -7636,7 +7636,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "15"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "12"
 				}
 			}
 
@@ -11686,7 +11686,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "20"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "10"
 				}
 			}
 			"modifier_paladin_c_b_disarm"
@@ -27369,7 +27369,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"int_damage"		"10 25 40 55 70 85 100"
+				"int_damage"		"20 50 80 220 300 360 400"
 			}
 		}
 		"OnSpellStart"
@@ -38354,6 +38354,11 @@
 			}
 			"02"
 			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one_max"		"1000"
+			}
+			"03"
+			{
 				"var_type"				"FIELD_INTEGER"
 				"property_two"			"20"
 			}
@@ -38831,7 +38836,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"2.5"
+				"property_two"			"3"
 			}
 		}
 	}
@@ -41274,7 +41279,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"12"
 			}
 		}
 	}
@@ -41575,7 +41580,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12%"
+				"property_one"			"24"
 			}
 			"02"
 			{
@@ -41794,7 +41799,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"12"
 			}
 		}
 	}
@@ -42542,7 +42547,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
+				"property_one"			"5000"
 			}
 			"02"
 			{
@@ -42715,7 +42720,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
+				"property_one"			"200"
 			}
 			"02"
 			{
@@ -42967,7 +42972,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"110"
+				"property_one"			"330"
 			}
 			"02"
 			{
@@ -43094,7 +43099,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -92555,7 +92560,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "15"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "12"
 				}
 			}
 			"modifier_astral_arcana_on_platform"

@@ -265,7 +265,7 @@ function disciple_bolt_start(event)
 	local paladin = caster.paladin
 	local target = event.target
 	local c_d_level = Runes:GetTotalRuneLevel(paladin, 3, "c_d", "paladin")
-	local damage = paladin:GetAverageTrueAttackDamage(paladin)*1.1*c_d_level
+	local damage = paladin:GetAverageTrueAttackDamage(paladin)*3.3*c_d_level
 	EmitSoundOn("Paladin.HolyBolt", target)
 	Filters:TakeArgumentsAndApplyDamage(target, paladin, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 	Filters:ApplyStun(paladin, 0.1, target)
