@@ -10,3 +10,6 @@ TRAPPER_GLYPHS:heroes\lanaya\npc\glyphs.txt
 
 <% heroes\spirit_breaker\constants.lua %>
 DUSKBRINGER_GLYPHS:heroes\spirit_breaker\npc\glyphs.txt
+
+<% heroes\juggernaut\constants.lua %>
+SEINARU_GLYPHS:heroes\juggernaut\npc\npc_seinaru_glyphs.txt

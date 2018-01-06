@@ -1192,6 +1192,8 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + 2.8
 		end
 
+
+
 		-- if attacker:HasModifier("modifier_warlord_rune_b_a_invisible") then
 		-- 	if damagetype == DAMAGE_TYPE_MAGICAL then
 		-- 		local stacks = attacker:GetModifierStackCount("modifier_warlord_rune_b_a_invisible", attacker.runeUnit2)
@@ -1281,7 +1283,6 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = math.max(filterTable["damage"] - Filters:GetHeroAttribute(victim, "agility")*c_c_level, 0)
 		end
 	end
-
 	if victim:HasModifier("modifier_voltex_arcana1_passive") then
 		local dash = victim:FindAbilityByName("voltex_lightning_dash")
 		local damage = filterTable["damage"]
@@ -1343,20 +1344,6 @@ function GameState:FilterDamage(filterTable)
 					local stacks = modifier:GetStackCount()
 					local multIncrease = stacks*0.05*math.abs(victim:GetPhysicalArmorValue())/10
 					mult = mult + multIncrease/100
-				end
-			end
-		end
-	end
-	if victim:HasModifier("modifier_seinaru_gorudo_rune_a_d") then
-		if victim:GetPhysicalArmorValue() < 0 then
-			if damagetype == DAMAGE_TYPE_PHYSICAL then
-				modifier = victim:FindModifierByName("modifier_seinaru_gorudo_rune_a_d")
-				if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-					if attacker.d_c_level > 0 then
-						local stacks = attacker.d_c_level
-						local multIncrease = stacks*0.01*math.abs(victim:GetPhysicalArmorValue())/10
-						mult = mult + multIncrease/100
-					end
 				end
 			end
 		end
@@ -2062,14 +2049,23 @@ function GameState:FilterDamage(filterTable)
     if attacker:HasModifier("modifier_boss_illusion_ability_effect") then
     	filterTable["damage"] = filterTable["damage"]*0.1
     end
-    if victim:HasModifier("modifier_paladin_rune_b_b_shield") then
-    	local damageAbsorb = math.min(filterTable["damage"], victim.paladin_d_b_absorb)
-    	victim.paladin_d_b_absorb = victim.paladin_d_b_absorb - damageAbsorb
-    	if damageAbsorb <= 0 then
-    		victim:RemoveModifierByName("modifier_paladin_rune_b_b_shield")
-    	end
-    	filterTable["damage"] = filterTable["damage"] - damageAbsorb
-    end
+	if victim:HasModifier("modifier_paladin_rune_b_b_shield") then
+		local damageAbsorb = math.min(filterTable["damage"], victim.paladin_d_b_absorb)
+		victim.paladin_d_b_absorb = victim.paladin_d_b_absorb - damageAbsorb
+		if damageAbsorb <= 0 then
+			victim:RemoveModifierByName("modifier_paladin_rune_b_b_shield")
+		end
+		filterTable["damage"] = filterTable["damage"] - damageAbsorb
+	end
+	if victim:HasModifier("modifier_seinaru_rune_c_b_shield") then
+		local damageAbsorb = math.min(filterTable["damage"], victim.seinaru_c_b_absorb)
+		victim.seinaru_c_b_absorb = victim.seinaru_c_b_absorb - damageAbsorb
+		if damageAbsorb <= 0 then
+			victim:RemoveModifierByName("modifier_seinaru_rune_c_b_shield")
+		end
+		print("damage absorb " .. damageAbsorb)
+		filterTable["damage"] = filterTable["damage"] - damageAbsorb
+	end
     if victim:HasModifier("modifier_fire_aspect") then
     	if filterTable["damage"] > victim:GetMaxHealth()*0.2 then
     		filterTable["damage"] = victim:GetMaxHealth()*0.2
@@ -2257,7 +2253,18 @@ function GameState:FilterDamage(filterTable)
 
 	if attacker:HasModifier("modifier_torrent_trap_immunity") and victim:HasModifier("modifier_trapper_glyph_3_2") then
 		filterTable["damage"] = filterTable["damage"]*0.05
-    end
+	end
+
+
+
+	--SEINARU
+
+	modifier = victim:FindModifierByName("modifier_seinaru_rune_a_b_invisible")
+	if modifier then
+		local stacks = modifier:GetStackCount()
+		mult = mult + 0.1/100 * stacks
+	end
+
 	--APPLY MULT
 	filterTable["damage"] = filterTable["damage"]*mult/divisor
 	--FINAL STAGE--

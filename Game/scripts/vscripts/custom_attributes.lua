@@ -39,7 +39,6 @@ CustomAttributes.SEINARU_WEAPON_3_STR = 60
 
 CustomAttributes.NEUTRAL_GLYPH_1 = 500
 CustomAttributes.NEUTRAL_GLYPH_7 = 3500
-CustomAttributes.SEINARU_GLYPH_5_A = 6000
 CustomAttributes.MOUNTAIN_PROTECTOR_GLYPH_5_A = 8000
 
 
@@ -364,9 +363,6 @@ function CustomAttributes:SetAttributes(hero)
 	end
 	if hero:HasModifier("modifier_neutral_glyph_7_3") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_neutral_glyph_7_3", CustomAttributes.NEUTRAL_GLYPH_7)
-	end
-	if hero:HasModifier("modifier_monk_glyph_5_a") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_monk_glyph_5_a", CustomAttributes.SEINARU_GLYPH_5_A)
 	end
 	if hero:HasModifier("modifier_mountain_protector_glyph_5_a") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_mountain_protector_glyph_5_a", CustomAttributes.MOUNTAIN_PROTECTOR_GLYPH_5_A)

@@ -1,3 +1,4 @@
+require('heroes/juggernaut/constants')
 function gorudo_start(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -35,15 +36,23 @@ function gorudo_start(event)
 		dummy.position = position
 		dummy.radius = radius
 		dummy.speed = speed
-	   	dummy.pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+
+  		local pattach = nil
+
+	    if caster:HasModifier("modifier_monk_glyph_5_a") then
+		    pattach = PATTACH_ABSORIGIN_FOLLOW
+		else
+			pattach = PATTACH_CUSTOMORIGIN
+	    end
+	   	dummy.pfx = ParticleManager:CreateParticle(particleName, pattach, caster)
 	    ParticleManager:SetParticleControl(dummy.pfx, 0, position)
 	    ParticleManager:SetParticleControl(dummy.pfx, 1, Vector(speed, radius, 600))
 	    Timers:CreateTimer(ringDuration+(radius/speed), function()
-	    	
+
 
 	    	ParticleManager:SetParticleControl(dummy.pfx, 1, Vector(speed, -radius, 600))
 	    	-- Timers:CreateTimer(radius/speed, function()
-	    		
+
 	    	-- end)
 	    end)
 	end
@@ -86,7 +95,13 @@ function gorudo_b_d_think(event)
 		dummy.shrinkThinks = dummy.shrinkThinks + 1
 		radius = radius - dummy.speed*(dummy.shrinkThinks/10)
 	end
-	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), dummy.position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+	local position = nil
+	if caster:HasModifier("modifier_monk_glyph_5_a") then
+		position = caster:GetAbsOrigin()
+	else
+		position = dummy.position
+	end
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 	for i = 1, #enemies, 1 do
 		ability:ApplyDataDrivenModifier(caster, enemies[i], "modifier_gorudo_b_d_inside_ring", {duration = 0.12})
 	end
@@ -154,7 +169,7 @@ function gorudo_attack_land(event)
 		if luck == 1 or critModifier then
 			local particleName = "particles/units/heroes/hero_monkey_king/monkey_king_spring_cast_rays.vpcf"
 			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_monkey_king/monkey_king_spring_cast_rays.vpcf", target, 3)
-			local damage = attacker:GetAverageTrueAttackDamage(attacker)*c_d_level*0.2
+			local damage = attacker:GetAverageTrueAttackDamage(attacker)*c_d_level*R3_ATTACK_DAMAGE_PERCENT/100
 			if critModifier then
 				local arcanaAbility = critModifier:GetAbility()
 				damage = damage * 1.5*arcanaAbility.a_a_level
