@@ -1089,6 +1089,7 @@ function Runes:UnequipArcana(hero, index)
 			hero:RemoveModifierByName("modifier_seinaru_arcana_passive")
 		elseif index == 2 then
 			Runes:EasyRevertArcanaSkills(hero, 2, "odachi_slice", "seinaru_sunstrider", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			hero:RemoveModifierByName("modifier_sunstrider_passive_think")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_leshrac" then
 		if index == 1 then

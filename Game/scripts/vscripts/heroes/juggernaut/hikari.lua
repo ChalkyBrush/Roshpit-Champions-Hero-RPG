@@ -181,7 +181,7 @@ function hikari_heal(caster, position, ability, ampFactor)
 			ability.originalAbility:ApplyDataDrivenModifier(caster, ally, "modifier_monk_heal_effect", {})
 			local healAmount = ability.heal*ampFactor
 			Filters:ApplyHeal(caster, ally, healAmount, true)
-			if ability.c_b_level then
+			if ability.c_b_level > 0 then
 				ally.seinaru_c_b_absorb = shieldAmount
 				ability:ApplyDataDrivenModifier(caster, ally, "modifier_seinaru_rune_c_b_shield", {duration = W3_DURATION})
 			end

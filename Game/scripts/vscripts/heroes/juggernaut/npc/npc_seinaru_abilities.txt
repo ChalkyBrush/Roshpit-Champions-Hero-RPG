@@ -841,6 +841,7 @@
     			"particle"		"particles/items_fx/monk_glyph_4_1_yin.vpcf"
     			"particle"		"particles/units/heroes/hero_oracle/monk_glyph_5_1_bushido_heal.vpcf"
     			"particle"		"particles/econ/items/monkey_king/arcana/death/monkey_king_spring_arcana_death.vpcf"
+    			"particle"		"particles/roshpit/seinaru/hikari_shield.vpcf"
     		}
     		"OnSpellStart"
     		{
@@ -924,9 +925,9 @@
                 "modifier_seinaru_rune_c_b_shield"
                 {
                     "IsHidden"	"0"
-                    "TextureName"	"rpc/paladin_d_b"
                     "IsBuff"	"1"
-                    "EffectName"		"particles/units/heroes/hero_medusa/divine_aegis_oval_highlight.vpcf"
+                    "TextureName"		"seinaru/seinaru_rune_c_b"
+                    "EffectName"		"particles/roshpit/seinaru/hikari_shield.vpcf"
                     "EffectAttachType"	"follow_origin"
                 }
     			"modifier_monk_rune_c_b_heal_effect"
@@ -934,7 +935,6 @@
     				"IsHidden"		"1"
     				"IsDebuff"		"0"
     				"Passive"		"0"
-    				"TextureName"	"rpc/auriun_rune_c_b"
     				"OnCreated"
     				{
     					"FireEffect"
@@ -2488,7 +2488,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"skeleton_king/aspect_year_beast_icons/skeleton_king_mortal_strike"
+		"AbilityTextureName"	"seinaru/seinaru_rune_c_b"
 
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"

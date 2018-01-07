@@ -42,7 +42,7 @@ function Tanari:Debug()
     local position = Vector(-4928, 2048)
     RPCItems:DropItem(item, Vector(-4928, 2048))
 
-    -- Glyphs:DebugRollHeroGlyphs("sorceress", Vector(-4928, 2048))
+    -- Glyphs:DebugRollHeroGlyphs("monk", Vector(-4928, 2048))
     -- RPCItems:RollMonkeyPaw(Vector(-4928, 2048))
     -- RPCItems:RollSorceressArcana2(Vector(-4928, 2048))
     -- RPCItems:RollPaladinArcana2(Vector(-4928, 2048))

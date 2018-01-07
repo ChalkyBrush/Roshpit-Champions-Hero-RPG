@@ -854,6 +854,9 @@ function Curator:FullCurateHero(hero)
     -- end)
     Timers:CreateTimer(10, function()
     	local internalName = HerosCustom:GetInternalHeroName(hero:GetUnitName())
+    	if internalName == "seinaru" then
+    		internalName = "monk"
+    	end
         Curator:CurateAllGlyphsForHero(internalName)
     end)
     Timers:CreateTimer(20, function()

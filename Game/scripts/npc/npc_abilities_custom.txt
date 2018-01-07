@@ -6741,7 +6741,7 @@
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"main_damage"				"500 1800 4000 9000 14000 20000 34000"
+				"main_damage"				"500 1800 4000 9000 20000 40000 68000"
 			}
 		}
 
@@ -8117,7 +8117,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"2000 4000 8000 27000 46000 86000 180000"
+				"damage"					"4000 8000 16000 54000 92000 192000 360000"
 			}
 		}
 
@@ -8926,7 +8926,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "15"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "12"
 				}
 			}
 
@@ -12976,7 +12976,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "20"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "10"
 				}
 			}
 			"modifier_paladin_c_b_disarm"
@@ -13150,7 +13150,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"				"40 60 100 160 240 320 420"
+				"damage"				"100 200 400 800 1200 1600 2000"
 			}
 		}
 
@@ -16630,1736 +16630,6 @@
 
 	//SEINARU
 
-	"combo_strike"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"juggernaut_blade_dance"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"300 1600 6500 16400 35400 72200 124400"
-			}
-		}
-		"precache"
-		{
-			"particle"		"particles/econ/items/juggernaut/bladekeeper_critical_strike/_dc_juggernaut_crit_blur.vpcf"
-			"particle"		"particles/econ/items/juggernaut/bladekeeper_swordglow/dc_juggernaut_blade.vpcf"
-			"particle"		"particles/econ/items/juggernaut/jugg_sword_fireborn_odachi/jugg_crit_blur_fb_odachi.vpcf"
-			"particle"		"particles/units/heroes/hero_elder_titan/monk_cloud_burst.vpcf"
-			"particle"		"particles/econ/items/juggernaut/highplains_sword_longfang/juggernaut_blade_fury_longfang.vpcf"
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-        		"ScriptFile"	"heroes/juggernaut/combo_strike"
-        		"Function"		"begin_combo_strike"
-        		"damage"		"%damage"
-			}
-		}
-        "Modifiers"
-        {
-            "modifier_combo_no_cooldown"
-            {
-                "Passive"            "0"
-                "IsHidden"            "0"
-                "IsDebuff"            "0"
-                "OnDestroy"
-                {
-					"RunScript"
-					{
-	            		"ScriptFile"	"heroes/juggernaut/combo_strike"
-	            		"Function"		"end_no_cooldown"
-					}
-                }
-                "OnCreated"
-                {
-                	"RunScript"
-                	{
-                		"ScriptFile"	"heroes/juggernaut/combo_strike"
-                		"Function"		"start_no_cooldown"
-                	}
-                }
-            }
-            "modifier_combo_slicing"
-            {
-                "Passive"            "0"
-                "IsHidden"            "1"
-                "IsDebuff"            "0"
-        		"States"
-        		{
-        			"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-        			"MODIFIER_STATE_DISARMED" 	"MODIFIER_STATE_VALUE_ENABLED"
-        		}
-        		"Properties"
-        		{
-        			"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-100"
-        		}
-            }
-            "modifier_final_slice"
-            {
-                "Passive"            "0"
-                "IsHidden"            "1"
-                "IsDebuff"            "0"
-                "Duration"			"0.5"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"        "particles/econ/items/juggernaut/jugg_sword_fireborn_odachi/jugg_crit_blur_fb_odachi.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "TARGET"
-					}
-				}
-            }
-			"modifier_cloud_burst"
-			{
-				"IsDebuff"	"1"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"					"TARGET"
-						"EffectName"				"particles/econ/generic/generic_buff_1/monk_ulti_debuff.vpcf"
-						"EffectAttachType"			"attach_hitloc"
-						"EffectLifeDurationScale"	"1"
-						"EffectColorA"				"255 255 255"
-						"EffectAlphaScale"			"1"
-					}
-				}
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-5"
-				}
-			}
-            "modifier_tornado_slashing"
-            {
-                "Passive"            "0"
-                "IsHidden"            "1"
-                "IsDebuff"            "0"
-
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"					"TARGET"
-						"EffectName"				"particles/econ/items/juggernaut/highplains_sword_longfang/juggernaut_blade_fury_longfang.vpcf"
-						"EffectAttachType"			"attach_origin"
-						"EffectLifeDurationScale"	"1"
-						"EffectColorA"				"255 255 255"
-						"EffectAlphaScale"			"1"
-						"ControlPoints"
-						{
-							"05"	"240"
-						}
-					}
-				}
-        		"States"
-        		{
-        			"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
-        		}
-        		"ThinkInterval"  "0.27"
-        		"OnIntervalThink"
-        		{
-        			"RunScript"
-        			{
-	            		"ScriptFile"	"heroes/juggernaut/combo_strike.lua"
-	            		"Function"		"tornado_think"
-	            		"damage"		"%damage"
-        			}
-        		}
-            }
-            "modifier_tornado_lifting"
-            {
-            	"IsHidden"            "1"
-            	"ThinkInterval"  "0.03"
-            	"OnIntervalThink"
-            	{
-        			"RunScript"
-        			{
-	            		"ScriptFile"	"heroes/juggernaut/combo_strike.lua"
-	            		"Function"		"tornado_lifting"
-	            		"damage"		"%damage"
-        			}
-            	}
-            	"OnDestroy"
-            	{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_tornado_falling"
-						"Target" 		"TARGET"
-					}
-				}
-        		"States"
-        		{
-        			"MODIFIER_STATE_ROOTED"	"MODIFIER_STATE_VALUE_ENABLED"
-        		}
-        		"Properties"
-        		{
-        			"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-100"
-        			"MODIFIER_PROPERTY_EVASION_CONSTANT"	"100"
-        		}
-            }
-            "modifier_tornado_falling"
-            {
-            	"IsHidden"            "1"
-            	"ThinkInterval"  "0.03"
-            	"OnIntervalThink"
-            	{
-        			"RunScript"
-        			{
-	            		"ScriptFile"	"heroes/juggernaut/combo_strike.lua"
-	            		"Function"		"tornado_falling"
-	            		"damage"		"%damage"
-        			}
-            	}
-            	"OnDestroy"
-            	{
-        			"RunScript"
-        			{
-	            		"ScriptFile"	"heroes/juggernaut/combo_strike.lua"
-	            		"Function"		"falling_end"
-        			}
-            	}
-        		"States"
-        		{
-        			"MODIFIER_STATE_ROOTED"	"MODIFIER_STATE_VALUE_ENABLED"
-        		}
-        		"Properties"
-        		{
-        			"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-100"
-        			"MODIFIER_PROPERTY_EVASION_CONSTANT"	"100"
-        		}
-            }
-            "modifier_monk_glyph_2_1_effect"
-            {
-            	"IsHidden"	"1"
-            	"IsBuff"	"1"
-            	"Passive"	"0"
-            	"Properties"
-            	{
-            		"MODIFIER_PROPERTY_EVASION_CONSTANT" "100"
-            	}
-            }
-        }
-	}
-
-	"seinaru_kaze_gust"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"seinaru/seinaru_kaze_gust"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityCastRange"				"1200"
-		"AbilityDamage"					"600 1800 5400 18000 32000 90000 140000"
-		"precache"
-		{
-			"particle"		"particles/roshpit/seinaru/kaze_gust_wave.vpcf"
-			"particle"		"particles/roshpit/seinaru/kaze_blind.vpcf"
-			"particle"		"particles/econ/items/phantom_assassin/phantom_assassin_weapon_runed_scythe/phantom_assassin_attack_blur_crit_runed_scythe.vpcf"
-			"model"			"models/seinaru/arcana_rune_sword.vmdl"
-			"particle"		"particles/units/heroes/hero_brewmaster/brewmaster_drunkenbrawler_evade.vpcf"
-		}
-
-		"AbilityCastPoint"				"0.3"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"10.0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"stun_duration"	"0.3"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"range"		"940 960 980 1000 1020 1040 1060"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"blind_chance"		"48 50 52 54 56 58 60"
-			}
-			"04"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"blind_duration"		"9.0"
-			}
-
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-        		"ScriptFile"	"heroes/juggernaut/kaze_gust.lua"
-        		"Function"		"begin_kaze_gust"
-        		"Target"			"POINT"
-        		"range"			"%range"
-        		"damage"		"%AbilityDamage"
-			}
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"0"
-			"RunScript"
-			{
-        		"ScriptFile"	"heroes/juggernaut/kaze_gust.lua"
-        		"Function"		"gust_impact"
-        		"Target"		"TARGET"
-        		"damage"		"%AbilityDamage"
-        		"stun_duration"	"%stun_duration"
-        		"blind_duration"	"%blind_duration"
-			}
-		}
-        "Modifiers"
-        {
-        	"modifier_kaze_gust_flail"
-        	{
-        		"IsHidden"	"1"
-        		"OverrideAnimation"     "ACT_DOTA_FLAIL"
-        		"States"
-        		{
-        			"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
-        		}
-        		"ThinkInterval"  "0.03"
-        		"OnIntervalThink"
-        		{
-        			"RunScript"
-        			{
-        				"ScriptFile"	"heroes/juggernaut/kaze_gust.lua"
-        				"Function"		"kaze_pushback_think"
-        				"target"		"TARGET"
-        			}
-        		}
-        		"OnDestroy"
-        		{
-        			"RunScript"
-        			{
-        				"ScriptFile"	"heroes/juggernaut/kaze_gust.lua"
-        				"Function"		"kaze_pushback_end"
-        				"target"		"TARGET"
-        			}
-        		}
-        	}
-        	"modifier_kaze_gust_blind"
-        	{
-        		"Passive"			"0"
-        		"IsHidden"			"0"
-        		"IsDebuff"			"0"
-
-        		"EffectName"		"particles/roshpit/seinaru/kaze_blind.vpcf"
-        		"EffectAttachType"	"follow_overhead"
-
-        		"Properties"
-        		{
-        			"MODIFIER_PROPERTY_MISS_PERCENTAGE" "%blind_chance"
-        		}
-        	}
-        	"modifier_seinaru_rune_a_a"
-        	{
-        		"TextureName"	"seinaru/seinaru_a_a"
-        		"IsHidden"	"0"
-        		"IsBuff"	"1"
-        	}
-        	"modifier_seinaru_rune_a_a_invisible"
-        	{
-        		"IsHidden"	"1"
-        		"IsBuff"	"1"
-        		"Properties"
-        		{
-        			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0.5"
-        		    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.5"
-        		}
-        	}
-        	"modifier_seinaru_b_a_speed"
-        	{
-        		"TextureName"	"seinaru/seinaru_b_a"
-        		"IsHidden"	"0"
-        		"IsBuff"	"1"
-        		"Properties"
-        		{
-        			"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "6"
-        		}
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"					"TARGET"
-						"EffectName"				"particles/econ/generic/generic_buff_1/generic_buff_1.vpcf"
-						"EffectAttachType"			"follow_origin"
-						"EffectLifeDurationScale"	"1"
-						"EffectColorA"				"224 177 74"
-						"EffectAlphaScale"			"1"
-					}
-				}
-        	}
-        	"modifier_seinaru_rune_b_a_slow"
-        	{
-        		"IsHidden"	"1"
-        		"IsBuff"	"1"
-        		"TextureName"	"seinaru/seinaru_b_a"
-        		"Properties"
-        		{
-        			"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-6"
-        		}
-        	}
-			"seinaru_rune_c_a_evasion"
-			{
-				"TextureName"		"seinaru/seinaru_c_a"
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"EffectName"	"particles/econ/items/monkey_king/arcana/monkey_king_arcana_death.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_EVASION_CONSTANT" "90"
-				}
-
-			}
-        }
-	}
-
-	"monk_heal"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"rubick_spell_steal"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.45"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"1.0 0.9 0.8 0.7 0.6 0.4 0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100 240 480 1060 2100 4200 9000"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"heal"					"220 480 950 1800 4200 8500 15000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"400 430 460 490 520 550 580"
-			}
-		}
-		"precache"
-		{
-			"particle"		"particles/units/heroes/hero_oracle/oracle_false_promise_heal.vpcf"
-			"soundfile" 	"soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts"
-			"particle"		"particles/units/heroes/hero_dragon_knight/monk_hikari_clouds.vpcf"
-			"particle"		"particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
-			"particle"		"particles/items_fx/monk_glyph_4_1_yin.vpcf"
-			"particle"		"particles/units/heroes/hero_oracle/monk_glyph_5_1_bushido_heal.vpcf"
-			"particle"		"particles/econ/items/monkey_king/arcana/death/monkey_king_spring_arcana_death.vpcf"
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/juggernaut/hikari.lua"
-				"Function"		"hikari_start"
-				"heal"			"%heal"
-				"radius"		"%radius"
-			}
-			"FireSound"
-			{
-				"EffectName"	"Hero_Warlock.ShadowWordCastGood"
-				"Target" 		"CASTER"
-			}
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"0"
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/juggernaut/hikari.lua"
-				"Function"		"smoke_hit"
-				"Target"		"TARGET"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_hikari_passive"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-				"ThinkInterval"  "2.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/juggernaut/hikari.lua"
-						"Function"		"seinaru_hikari_passive_think"
-					}
-				}
-			}
-			"modifier_monk_heal_effect"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"OnCreated"
-				{
-					"FireEffect"
-					{
-						"EffectName"        "particles/units/heroes/hero_oracle/oracle_false_promise_heal.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "TARGET"
-					}
-				}
-			}
-			"modifier_hikari_slow"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"1"
-				"Duration"			"1"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"					"TARGET"
-						"EffectName"				"particles/econ/generic/generic_buff_1/monk_ulti_debuff.vpcf"
-						"EffectAttachType"			"attach_hitloc"
-						"EffectLifeDurationScale"	"1"
-						"EffectColorA"				"255 255 255"
-						"EffectAlphaScale"			"1"
-					}
-				}
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "60"
-				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-40"
-				}
-			}
-			"modifier_monk_rune_c_b"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-
-				"OnAttackLanded"
-				// "%attack_damage" is set to the damage value before mitigation
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/juggernaut/hikari.lua"
-						"Function"		"rune_c_b_attack"
-						"attack_damage" "%attack_damage"
-					}
-				}
-			}
-			"modifier_monk_rune_c_b_heal_effect"
-			{
-				"IsHidden"		"1"
-				"IsDebuff"		"0"
-				"Passive"		"0"
-				"TextureName"	"rpc/auriun_rune_c_b"
-				"OnCreated"
-				{
-					"FireEffect"
-					{
-						"EffectName"        "particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "TARGET"
-						"ControlPointEntities"
-						{
-							"TARGET"	"attach_origin"
-							"TARGET"	"attach_origin"
-							"TARGET"	"attach_origin"
-							"TARGET"	"attach_origin"
-							"TARGET"	"attach_origin"
-							"TARGET"	"attach_origin"
-						}
-					}
-				}
-			}
-		}
-
-	}
-
-	"odachi_slice"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"juggernaut_omni_slash"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"8.6 8.4 8.2 8.0 7.8 7.6 7.4"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		"precache"
-		{
-			"particle"					"particles/frostivus_herofx/juggernaut_fs_omnislash_tgt.vpcf"
-			"particle"					"particles/frostivus_herofx/juggernaut_fs_omnislash_slashers.vpcf"
-			"particle"					"particles/roshpit/seinaru/seinaru_a_d_temp.vpcf"
-			"particle"					"particles/econ/items/slark/slark_ti6_blade/slark_ti6_blade_essence_shift_gold.vpcf"
-			"particle"					"particles/roshpit/seinaru/seinaru_e1_bands_beam_blade_golden.vpcf"
-			"particle"					"particles/econ/items/riki/riki_immortal_ti6/riki_immortal_ti6_blinkstrike_gold.vpcf"
-			"particle"					"particles/econ/items/juggernaut/jugg_sword_jade/juggernaut_blade_fury_jade.vpcf"
-		}
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"1800 4240 8420 15870 24460 39410 76410"
-			}
-		}
-
-		"OnSpellStart"
-		{
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_odachi_lifting"
-				"Target" 		"CASTER"
-				"Duration"		"0.42"
-			}
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_slashing"
-				"Target" 		"CASTER"
-				"Duration"		"0.84"
-			}
-			"FireSound"
-			{
-				"EffectName"	"juggernaut_jug_ability_omnislash_20"
-				"Target" 		"CASTER"
-			}
-			"RunScript"
-			{
-        		"ScriptFile"	"heroes/juggernaut/odachi_slice"
-        		"Function"		"begin_slice"
-        		"damage"		"%damage"
-			}
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"0"
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/juggernaut/odachi_slice"
-				"Function"		"gust_hit"
-				"Target"		"TARGET"
-			}
-		}
-        "Modifiers"
-        {
-            "modifier_slashing"
-            {
-                "Passive"            "0"
-                "IsHidden"            "1"
-                "IsDebuff"            "0"
-
-        		"States"
-        		{
-        			"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
-        		}
-        		"ThinkInterval"  "0.27"
-        		"OnIntervalThink"
-        		{
-        			"RunScript"
-        			{
-	            		"ScriptFile"	"heroes/juggernaut/odachi_slice"
-	            		"Function"		"slice_think"
-	            		"damage"		"%damage"
-        			}
-        		}
-            }
-            "modifier_rune_c_c"
-            {
-                "Passive"            "0"
-                "IsHidden"            "0"
-                "IsDebuff"            "0"
-
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"					"TARGET"
-						"EffectName"				"particles/econ/generic/generic_buff_1/monk_ulti_debuff.vpcf"
-						"EffectAttachType"			"attach_hitloc"
-						"EffectLifeDurationScale"	"1"
-						"EffectColorA"				"255 255 255"
-						"EffectAlphaScale"			"1"
-					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "15"
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "3"
-				}
-
-            }
-            "modifier_odachi_lifting"
-            {
-            	"IsHidden"            "1"
-            	"ThinkInterval"  "0.03"
-            	"OnIntervalThink"
-            	{
-        			"RunScript"
-        			{
-	            		"ScriptFile"	"heroes/juggernaut/odachi_slice"
-	            		"Function"		"slice_lifting"
-	            		"damage"		"%damage"
-        			}
-            	}
-            	"OnDestroy"
-            	{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_odachi_falling"
-						"Target" 		"TARGET"
-					}
-				}
-        		"States"
-        		{
-        			"MODIFIER_STATE_ROOTED"	"MODIFIER_STATE_VALUE_ENABLED"
-        		}
-        		"Properties"
-        		{
-        			"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-100"
-        			"MODIFIER_PROPERTY_EVASION_CONSTANT"	"100"
-        		}
-            }
-            "modifier_odachi_falling"
-            {
-            	"IsHidden"            "1"
-            	"ThinkInterval"  "0.03"
-            	"OnIntervalThink"
-            	{
-        			"RunScript"
-        			{
-	            		"ScriptFile"	"heroes/juggernaut/odachi_slice"
-	            		"Function"		"slice_falling"
-	            		"damage"		"%damage"
-        			}
-            	}
-            	"OnDestroy"
-            	{
-        			"RunScript"
-        			{
-	            		"ScriptFile"	"heroes/juggernaut/odachi_slice"
-	            		"Function"		"falling_end"
-        			}
-            	}
-        		"States"
-        		{
-        			"MODIFIER_STATE_ROOTED"	"MODIFIER_STATE_VALUE_ENABLED"
-        		}
-        		"Properties"
-        		{
-        			"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-100"
-        			"MODIFIER_PROPERTY_EVASION_CONSTANT"	"100"
-        		}
-            }
-			"modifier_odachi_gust"
-			{
-				"IsDebuff"	"1"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"					"TARGET"
-						"EffectName"				"particles/econ/generic/generic_buff_1/monk_ulti_debuff.vpcf"
-						"EffectAttachType"			"attach_hitloc"
-						"EffectLifeDurationScale"	"1"
-						"EffectColorA"				"255 255 255"
-						"EffectAlphaScale"			"1"
-					}
-				}
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-50"
-				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-50"
-				}
-			}
-	        "modifier_odachi_slice_cooldown"
-	        {
-	        	"IsHidden"			"0"
-	            "IsBuff"			"1"
-	            "Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-
-	            "OnDestroy"
-	            {
-	            	"RunScript"
-	            	{
-	            		"ScriptFile"	"heroes/juggernaut/odachi_slice"
-	            		"Function"		"cooldownEnd"
-	            	}
-	            }
-
-			}
-            "modifier_c_c_spin"
-            {
-                "Passive"            "0"
-                "IsHidden"            "1"
-                "IsDebuff"            "0"
-                "States"
-                {
-                	"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
-                }
-                "Properties"
-                {
-                	"MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL" "100"
-                }
-
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"					"TARGET"
-						"EffectName"				"particles/econ/items/juggernaut/highplains_sword_longfang/juggernaut_blade_fury_longfang.vpcf"
-						"EffectAttachType"			"attach_origin"
-						"EffectLifeDurationScale"	"1"
-						"EffectColorA"				"255 255 255"
-						"EffectAlphaScale"			"1"
-						"ControlPoints"
-						{
-							"05"	"240"
-						}
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/juggernaut/odachi_slice.lua"
-						"Function"		"hikari_heal_c_c"
-					}
-				}
-        		"ThinkInterval"  "0.1"
-        		"OnIntervalThink"
-        		{
-        			"RunScript"
-        			{
-	            		"ScriptFile"	"heroes/juggernaut/odachi_slice"
-	            		"Function"		"c_c_think"
-	            		"target"		"TARGET"
-        			}
-        		}
-            }
-            "modifier_seinaru_a_c_dbz"
-            {
-            	"IsHidden"	"1"
-            	"IsBuff"	"1"
-            	"Duration"	"0.1"
-            	"OnCreated"
-            	{
-					"AttachEffect"
-					{
-						"Target"					"TARGET"
-						"EffectName"				"particles/econ/generic/generic_buff_1/charge_of_light_effect_buff.vpcf"
-						"EffectAttachType"			"follow_origin"
-						"EffectLifeDurationScale"	"1"
-						"EffectColorA"				"255 255 0"
-						"EffectAlphaScale"			"1"
-					}
-            	}
-
-            	"States"
-            	{
-            		"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
-            		"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
-            		"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
-            		"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
-            		"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
-            	}
-            	"ThinkInterval"  "0.03"
-            	"OnIntervalThink"
-            	{
-            		"RunScript"
-            		{
-            			"ScriptFile"	"heroes/juggernaut/odachi_slice.lua"
-            			"Function"		"odachi_a_c_think"
-            		}
-            	}
-            }
-            "modifier_seinaru_a_c_dbz_attack_power"
-            {
-            	"IsHidden"	"1"
-            	"Properties"
-            	{
-            		"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "20"
-            	}
-            }
-            "modifier_seinaru_b_c_wakizashi"
-            {
-            	"IsHidden"	"0"
-            	"IsDebuff"	"0"
-            	"OverrideAnimation"     "ACT_DOTA_OVERRIDE_ABILITY_1"
-            	"States"
-            	{
-            		"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
-            		"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
-            	}
-            	"ThinkInterval"  "0.5"
-            	"OnIntervalThink"
-            	{
-            		"RunScript"
-            		{
-            			"ScriptFile"	"heroes/juggernaut/odachi_slice.lua"
-            			"Function"		"wakizashi_think"
-            		}
-            	}
-            	"OnCreated"
-            	{
-            		"RunScript"
-            		{
-            			"ScriptFile"	"heroes/juggernaut/odachi_slice.lua"
-            			"Function"		"wakizashi_think"
-            		}
-            	}
-            	"OnDestroy"
-            	{
-            		"RunScript"
-            		{
-            			"ScriptFile"	"heroes/juggernaut/odachi_slice.lua"
-            			"Function"		"wakizashi_end"
-            		}
-            	}
-            }
-            "modifier_seinaru_glyph_7_1_effect"
-            {
-            	"IsHidden"	"0"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"					"TARGET"
-						"EffectName"				"particles/econ/generic/generic_buff_1/charge_of_light_effect_buff.vpcf"
-						"EffectAttachType"			"attach_origin"
-						"EffectLifeDurationScale"	"1"
-						"EffectColorA"				"200 200 200"
-						"EffectAlphaScale"			"1"
-					}
-				}
-            	"Properties"
-            	{
-            	    "MODIFIER_PROPERTY_EVASION_CONSTANT" "100"
-            	}
-            }
-        }
-
-	}
-
-	"spiral_leap"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"juggernaut_blade_fury"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_4"
-		"AbilityCastRange"				"4000"
-
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.1"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"1"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"300"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-        		"ScriptFile"	"heroes/juggernaut/spiral_leap"
-        		"Function"		"spiral_leap_start"
-        		"Target"		"POINT"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_spiral_strike"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				"ThinkInterval"  "0.03"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/juggernaut/spiral_leap"
-						"Function"		"spiral_think"
-					}
-				}
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/juggernaut/spiral_leap"
-						"Function"		"spiral_end"
-					}
-				}
-			}
-		}
-	}
-
-
-	"odachi_rush"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityTextureName"			"juggernaut/bladekeeper/juggernaut_omni_slash"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.1"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0.3"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"60"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"range"						"800 900 1000 1100 1200 1300 1400"
-			}
-		}
-
-		// Data driven
-		//-------------------------------------------------------------------------------------------------------------
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-        		"ScriptFile"	"heroes/juggernaut/odachi_slice"
-        		"Function"		"odachi_rush"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_odachi_rush"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-
-				"EffectName"		"particles/frostivus_herofx/juggernaut_fs_omnislash_tgt.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"					"TARGET"
-						"EffectName"				"particles/frostivus_herofx/juggernaut_fs_omnislash_slashers.vpcf"
-						"EffectAttachType"			"attach_hitloc"
-						"EffectLifeDurationScale"	"1"
-						"EffectColorA"				"255 255 255"
-						"EffectAlphaScale"			"1"
-					}
-				}
-			}
-		}
-
-	}
-
-	"monk_ultima_blade"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"legion_commander_moment_of_courage"
-		"AbilityCastRange"	"1000"
-		"AbilityCastPoint"	"0.0"
-		"AbilityCooldown"	"14"
-		"AbilityChannelTime"	"1.8"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-		"precache"
-		{
-			"particle"		"particles/units/heroes/hero_brewmaster/brewmaster_earth_ambient.vpcf"
-			"particle"		"particles/units/heroes/hero_dragon_knight/monk_ulti.vpcf"
-			"particle"		"particles/econ/generic/generic_buff_1/monk_ulti_debuff.vpcf"
-			"particle"		"particles/units/heroes/hero_invoker/monk_ultima_tornado.vpcf"
-			"particle"		"particles/frostivus_herofx/juggernaut_omnislash_ascension.vpcf"
-			"particle"		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_gold.vpcf"
-			"particle"		"particles/units/heroes/hero_dragon_knight/ultima_heal.vpcf"
-		}
-
-		"AbilityManaCost"	"0"
-		"SideShop"	"1"
-		"OnSpellStart"
-		{
-			"ApplyModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-			"FireSound"
-			{
-				"EffectName"	"juggernaut_jug_ability_omnislash_26"
-				"Target"	"CASTER"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/juggernaut/ultima_blade.lua"
-				"Function"		"start_channel"
-			}
-		}
-
-		"OnChannelSucceeded"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/juggernaut/ultima_blade.lua"
-				"Function"		"start_ultima"
-				"range"			"%range"
-				"damage"		"%damage"
-			}
-		}
-
-		"OnChannelFinish"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-		}
-
-		"OnChannelInterrupted"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_monk_rune_b_d_charge_up"
-			}
-
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"0"
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/juggernaut/ultima_blade.lua"
-				"Function"		"projectileHit"
-				"Target"		"TARGET"
-				"damage"		"%damage"
-			}
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_monk_ulti_slow"
-				"Target" 		"TARGET"
-				"Duration"		"8"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_channel_start"
-			{
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"					"TARGET"
-						"EffectName"				"particles/econ/generic/generic_buff_1/monk_ulti_debuff.vpcf"
-						"EffectAttachType"			"attach_hitloc"
-						"EffectLifeDurationScale"	"1"
-						"EffectColorA"				"255 255 255"
-						"EffectAlphaScale"			"1"
-					}
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/util/channeling.lua"
-						"Function"		"beginChannel"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/juggernaut/ultima_blade.lua"
-						"Function"		"end_channel"
-					}
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/util/channeling.lua"
-						"Function"		"endChannel"
-					}
-				}
-			}
-			"modifier_monk_ulti_slow"
-			{
-				"IsDebuff"	"1"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"					"TARGET"
-						"EffectName"				"particles/econ/generic/generic_buff_1/monk_ulti_debuff.vpcf"
-						"EffectAttachType"			"attach_hitloc"
-						"EffectLifeDurationScale"	"1"
-						"EffectColorA"				"255 255 255"
-						"EffectAlphaScale"			"1"
-					}
-				}
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%move_slow"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor_reduce"
-				}
-			}
-	        "modifier_ultima_cooldown"
-	        {
-	        	"IsHidden"			"0"
-	            "IsBuff"			"1"
-
-	            "OnDestroy"
-	            {
-	            	"RunScript"
-	            	{
-	            		"ScriptFile"	"heroes/juggernaut/ultima_blade"
-	            		"Function"		"cooldownEnd"
-	            	}
-	            }
-			}
-		}
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"2000 5000 34000 65000 100000 250000 500000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"move_slow"				"-100 -130 -160 -190 -220 -250 -280"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"armor_reduce"			"-3 -20 -50 -150 -500 -1000 -2500"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"1000 1100 1200 1300 1400 1500 1600"
-			}
-		}
-
-	}
-
-	"seinaru_gorudo"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"seinaru/gorudo"
-		"AbilityCastRange"	"1000"
-		"AbilityCastPoint"	"0.0"
-		"AbilityCooldown"	"18"
-		"AbilityChannelTime"	"1.8"
-		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-		"precache"
-		{
-			"particle"		"particles/roshpit/seinaru/seinaru_d_b_ring.vpcf"
-			"particle"		"particles/roshpit/seinaru/gorudo_buff.vpcf"
-			"soundfile"		"soundevents/game_sounds_seinaru.vsndevts"
-			"particle"		"particles/roshpit/seinaru/seinaru_a_d_amp_damage.vpcf"
-			"particle"		"particles/econ/items/slark/slark_ti6_blade/slark_ti6_pounce_leash_gold_body_energy_pull.vpcf"
-			"particle"		"particles/units/heroes/hero_monkey_king/monkey_king_spring_cast_rays.vpcf"
-		}
-
-		"AbilityManaCost"	"0"
-		"SideShop"	"1"
-		"OnSpellStart"
-		{
-			"ApplyModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-			"FireSound"
-			{
-				"EffectName"	"juggernaut_jug_ability_omnislash_26"
-				"Target"	"CASTER"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/juggernaut/gorudo.lua"
-				"Function"		"start_gorudo_channel"
-			}
-
-		}
-
-		"OnChannelSucceeded"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/juggernaut/gorudo.lua"
-				"Function"		"gorudo_start"
-				"duration"		"%duration"
-			}
-		}
-
-		"OnChannelFinish"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-		}
-
-		"OnChannelInterrupted"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_monk_rune_b_d_charge_up"
-			}
-
-		}
-		"Modifiers"
-		{
-			"modifier_channel_start"
-			{
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"        "particles/econ/items/slark/slark_ti6_blade/slark_ti6_pounce_leash_gold_body_energy_pull.vpcf"
-						"EffectAttachType"  "attach_hitloc"
-						"Target"            "CASTER"
-						"ControlPointEntities"
-						{
-							"CASTER"	"attach_hitloc"
-							"CASTER"	"attach_hitloc"
-							"CASTER"	"attach_hitloc"
-							"CASTER"	"attach_hitloc"
-						}
-					}
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/util/channeling.lua"
-						"Function"		"beginChannel"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/juggernaut/ultima_blade.lua"
-						"Function"		"end_channel"
-					}
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/util/channeling.lua"
-						"Function"		"endChannel"
-					}
-				}
-			}
-			"modifier_gorudo_passive"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-
-				"OnAttackStart"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/juggernaut/gorudo.lua"
-						"Function"		"gorudo_attack_start"
-					}
-				}
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/juggernaut/gorudo.lua"
-						"Function"		"gorudo_attack_land"
-					}
-				}
-				"ThinkInterval"  "2"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/juggernaut/gorudo.lua"
-						"Function"		"gorudo_passive_think"
-					}
-				}
-			}
-			"modifier_monk_ulti_gorudo"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-
-				"EffectName"	"particles/roshpit/seinaru/gorudo_buff.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_gold_lvl2.vpcf"
-				"StatusEffectPriority"  "15"
-				"States"
-				{
-					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attack_damage_percent"
-				}
-			}
-			"modifier_gorudo_thinker"
-			{
-				"IsHidden"	"1"
-				"ThinkInterval"  "0.1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/juggernaut/gorudo.lua"
-						"Function"		"gorudo_b_d_think"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_gorudo_b_d_inside_ring"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"TextureName"	"seinaru/seinaru_b_d"
-			}
-			"modifier_seinaru_glyph_2_1"
-			{
-				"IsHidden"	"1"
-				"IsBuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1000"
-				}
-			}
-			"modifier_seinaru_gorudo_rune_a_d"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"TextureName"	"seinaru/seinaru_a_d"
-
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/juggernaut/gorudo.lua"
-						"Function"		"AmplifyDamageParticle"
-					}
-				}
-
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/juggernaut/gorudo.lua"
-						"Function"		"EndAmplifyDamageParticle"
-					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-1"
-				}
-			}
-		}
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"10.0 12.0 14.0 16.0 18.0 20.0 22.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"attack_damage_percent"				"200 220 240 260 280 300 320"
-			}
-		}
-
-	}
-
-	"monk_ultima_blade_heal_alt"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"invoker_sun_strike"
-		"AbilityCastRange"	"1000"
-		"AbilityCastPoint"	"0.0"
-		"AbilityCooldown"	"5"
-		"AbilityChannelTime"	"1.8"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-		"precache"
-		{
-			"particle"		"particles/units/heroes/hero_brewmaster/brewmaster_earth_ambient.vpcf"
-			"particle"		"particles/units/heroes/hero_dragon_knight/monk_ulti.vpcf"
-			"particle"		"particles/econ/generic/generic_buff_1/monk_ulti_debuff.vpcf"
-			"particle"		"particles/units/heroes/hero_invoker/monk_ultima_tornado.vpcf"
-			"particle"		"particles/frostivus_herofx/juggernaut_omnislash_ascension.vpcf"
-			"particle"		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_gold.vpcf"
-		}
-
-		"AbilityManaCost"	"0"
-		"SideShop"	"1"
-		"OnSpellStart"
-		{
-			"ApplyModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-			"FireSound"
-			{
-				"EffectName"	"juggernaut_jug_ability_omnislash_26"
-				"Target"	"CASTER"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/juggernaut/ultima_blade.lua"
-				"Function"		"start_channel_heal"
-			}
-		}
-
-		"OnChannelSucceeded"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/juggernaut/ultima_blade.lua"
-				"Function"		"start_ultima_heal"
-			}
-		}
-
-		"OnChannelFinish"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-		}
-
-		"OnChannelInterrupted"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"0"
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/juggernaut/ultima_blade.lua"
-				"Function"		"projectileHitHeal"
-				"Target"		"TARGET"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_channel_start"
-			{
-				"IsHidden"	"1"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"					"TARGET"
-						"EffectName"				"particles/econ/generic/generic_buff_1/monk_ulti_debuff.vpcf"
-						"EffectAttachType"			"attach_hitloc"
-						"EffectLifeDurationScale"	"1"
-						"EffectColorA"				"255 255 255"
-						"EffectAlphaScale"			"1"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/juggernaut/ultima_blade.lua"
-						"Function"		"end_channel"
-					}
-				}
-			}
-			"modifier_monk_ulti_heal"
-			{
-				"IsDebuff"	"1"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"					"TARGET"
-						"EffectName"				"particles/econ/generic/generic_buff_1/monk_ulti_debuff.vpcf"
-						"EffectAttachType"			"attach_hitloc"
-						"EffectLifeDurationScale"	"1"
-						"EffectAlphaScale"			"1"
-					}
-				}
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "80"
-				}
-			}
-		}
-
-	}
 
 	"elemental_axe_earth"
 	{
@@ -24013,7 +22283,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"2400 8400 24000 62000 115000 200000 1000000"
+				"damage"				"2400 8400 48000 130000 255000 500000 5000000"
 			}
 			"02"
 			{
@@ -25776,7 +24046,7 @@
 			    "IsHidden"  "1"
 			    "Properties"
 			    {
-			        "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "15"
+			        "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "45"
 			    }
 
 			    "OnAttackLanded"
@@ -35665,7 +33935,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"int_damage"		"10 25 40 55 70 85 100"
+				"int_damage"		"20 50 80 220 300 360 400"
 			}
 		}
 		"OnSpellStart"
@@ -47920,6 +46190,11 @@
 			}
 			"02"
 			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one_max"		"1000"
+			}
+			"03"
+			{
 				"var_type"				"FIELD_INTEGER"
 				"property_two"			"20"
 			}
@@ -48397,7 +46672,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"2.5"
+				"property_two"			"3"
 			}
 		}
 	}
@@ -51717,7 +49992,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"12"
 			}
 		}
 	}
@@ -52018,7 +50293,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12%"
+				"property_one"			"24"
 			}
 			"02"
 			{
@@ -52237,7 +50512,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"12"
 			}
 		}
 	}
@@ -52985,7 +51260,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
+				"property_one"			"5000"
 			}
 			"02"
 			{
@@ -53158,7 +51433,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
+				"property_one"			"200"
 			}
 			"02"
 			{
@@ -53410,7 +51685,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"110"
+				"property_one"			"330"
 			}
 			"02"
 			{
@@ -53808,7 +52083,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -58251,6 +56526,2196 @@
 		}
 	}
 
+
+
+	"seinaru_sunstrider"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"seinaru/seinaru_sunstrider"
+		"RequiredLevel"          		"0"
+		"LevelsBetweenUpgrades"  		"0"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityCastRange"				"1000 1100 1200 1300 1400 1500 1600"
+		"AOERadius"						"440"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"cast_range"			"1000 1100 1200 1300 1400 1500 1600"
+			}
+		}
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"7.2 7.0 6.8 6.6 6.4 6.2 6.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/juggernaut/arcanas/sunstrider.lua"
+				"Function"		"sunstrider_phase"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/juggernaut/arcanas/sunstrider.lua"
+				"Function"		"sunstrider_start"
+				"target"		"POINT"
+			}
+
+		}
+		"Modifiers"
+		{
+			"modifier_sunstrider_in_air"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_COMMAND_RESTRICTED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_CANNOT_MISS"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/juggernaut/arcanas/sunstrider.lua"
+						"Function"		"sunstrider_end"
+					}					
+				}
+			}
+			"modifier_sunstrider_a_c_damage_bonus"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "25"
+				}
+			}
+			"modifier_sunstrider_lightsworn"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"seinaru/seinaru_rune_b_c_arcana2"
+				"EffectName"	"particles/roshpit/seinaru/lightsword_omni.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+			"modifier_sunstrider_sunwarrior_vengeance_attack"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"seinaru/seinaru_rune_c_c_arcana2"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/juggernaut/arcanas/sunstrider.lua"
+						"Function"		"vengeance_hit"
+					}
+				}
+			}
+			"modifier_sunstrider_sunwarrior_vengeance_post_mit"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"seinaru/seinaru_rune_c_c_arcana2"
+			}
+			"modifier_sunstrider_passive_think"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"Passive"   "1"
+     			"ThinkInterval"  	"2"
+     			"OnIntervalThink"
+     			{
+     				"RunScript"
+     				{
+    					"ScriptFile"	"heroes/juggernaut/arcanas/sunstrider.lua"
+     					"Function"		"passive_think"
+     					"target"		"TARGET"
+     				}
+     			}
+			}
+			"modifier_sunstrider_holy_amplify"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+			}
+			"modifier_sunstrider_freecast"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"seinaru/seinaru_rune_d_c_arcana2"
+			}
+		}
+	}
+
+	"seinaru_arcana_ability"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"FightRecapLevel"				"1"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityTextureName"			"seinaru/seinaru_arcana_ability"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_percent_of_atk"		"140 220 300 380 460 540 620"
+			}
+		}
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_4"
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"  				"particles/units/heroes/hero_ogre_magi/flametongue_buff.vpcf"
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"900 975 1050 1125 1200 1275 1350"
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"5.7 5.4 5.1 4.8 4.5 4.2 3.9"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/juggernaut/blade_dash.lua"
+				"Function"		"blade_dash_start"
+				"target"		"POINT"
+				"targetUnit"	"TARGET"
+				"duration"		"4"
+				"damage_attack"	"%damage_percent_of_atk"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_seinaru_ignore_cast_angle"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"1000"
+					"MODIFIER_PROPERTY_IGNORE_CAST_ANGLE" "100"
+				}
+			}
+			"modifier_seinaru_arcana_dashing"
+			{
+				"OverrideAnimation"     "ACT_DOTA_OVERRIDE_ABILITY_1"
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/juggernaut/blade_dash.lua"
+						"Function"		"arcana_dashing_think"
+
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DISABLE_TURNING"	"1"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_seinaru_dashing_stun"
+			{
+				"OverrideAnimation"     "ACT_DOTA_FLAIL"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_seinaru_arcana_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/juggernaut/blade_dash.lua"
+						"Function"		"arcana_attack_start"
+					}
+				}
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/juggernaut/blade_dash.lua"
+						"Function"		"arcana_attack_land"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/juggernaut/blade_dash.lua"
+						"Function"		"arcana_passive_remove"
+					}
+				}
+			}
+			"modifier_seinaru_a_a_crit"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+			}
+			"modifier_seinaru_flying_sword_modifier"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_UNSELECTABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/juggernaut/blade_dash.lua"
+						"Function"		"flying_sword_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_flying_sword_destroy_stacks"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_seinaru_flying_sword_buff_visible"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"seinaru/seinaru_b_a_arcana1"
+			}
+			"modifier_seinaru_flying_sword_buff_invisible"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "20"
+				}
+			}
+			"modifier_seinaru_arcana_agility_buff"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"seinaru/seinaru_c_a_arcana1"
+			}
+			"modifier_seinaru_arcana_evasion_buff"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"seinaru/seinaru_d_a_arcana1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_brewmaster/brewmaster_drunkenbrawler_evade.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "TARGET"
+						"ControlPoints"
+						{
+							"01"	"255 255 255"
+						}
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT" "100"
+				}
+			}
+		}
+	}
+
+	"combo_strike"
+    	{
+    		// General
+    		//-------------------------------------------------------------------------------------------------------------
+    		"BaseClass"						"ability_datadriven"
+    		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    		"FightRecapLevel"				"1"
+    		"AbilityTextureName"			"juggernaut_blade_dance"
+    		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+    		"RequiredLevel"          		"-5"
+    		"LevelsBetweenUpgrades"  		"10"
+    		"MaxLevel"				 		"7"
+
+    		// Precache
+    		//-------------------------------------------------------------------------------------------------------------
+    		// Casting
+    		//-------------------------------------------------------------------------------------------------------------
+    		"AbilityCastPoint"				"0"
+
+    		// Time
+    		//-------------------------------------------------------------------------------------------------------------
+    		"AbilityCooldown"				"0"
+
+    		// Cost
+    		//-------------------------------------------------------------------------------------------------------------
+    		"AbilityManaCost"				"0"
+
+    		// Special
+    		//-------------------------------------------------------------------------------------------------------------
+    		"AbilitySpecial"
+    		{
+    			"01"
+    			{
+    				"var_type"				"FIELD_INTEGER"
+    				"damage"				"300 1600 6500 16400 35400 72200 124400"
+    			}
+    		}
+    		"precache"
+    		{
+    			"particle"		"particles/econ/items/juggernaut/bladekeeper_critical_strike/_dc_juggernaut_crit_blur.vpcf"
+    			"particle"		"particles/econ/items/juggernaut/bladekeeper_swordglow/dc_juggernaut_blade.vpcf"
+    			"particle"		"particles/econ/items/juggernaut/jugg_sword_fireborn_odachi/jugg_crit_blur_fb_odachi.vpcf"
+    			"particle"		"particles/units/heroes/hero_elder_titan/monk_cloud_burst.vpcf"
+    			"particle"		"particles/econ/items/juggernaut/highplains_sword_longfang/juggernaut_blade_fury_longfang.vpcf"
+    		}
+    		"OnSpellStart"
+    		{
+    			"RunScript"
+    			{
+            		"ScriptFile"	"heroes/juggernaut/combo_strike"
+            		"Function"		"begin_combo_strike"
+            		"damage"		"%damage"
+    			}
+    		}
+            "Modifiers"
+            {
+                "modifier_combo_no_cooldown"
+                {
+                    "Passive"            "0"
+                    "IsHidden"            "0"
+                    "IsDebuff"            "0"
+                    "OnDestroy"
+                    {
+    					"RunScript"
+    					{
+    	            		"ScriptFile"	"heroes/juggernaut/combo_strike"
+    	            		"Function"		"end_no_cooldown"
+    					}
+                    }
+                    "OnCreated"
+                    {
+                    	"RunScript"
+                    	{
+                    		"ScriptFile"	"heroes/juggernaut/combo_strike"
+                    		"Function"		"start_no_cooldown"
+                    	}
+                    }
+                }
+                "modifier_combo_slicing"
+                {
+                    "Passive"            "0"
+                    "IsHidden"            "1"
+                    "IsDebuff"            "0"
+            		"States"
+            		{
+            			"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+            			"MODIFIER_STATE_DISARMED" 	"MODIFIER_STATE_VALUE_ENABLED"
+            		}
+            		"Properties"
+            		{
+            			"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-100"
+            		}
+                }
+                "modifier_final_slice"
+                {
+                    "Passive"            "0"
+                    "IsHidden"            "1"
+                    "IsDebuff"            "0"
+                    "Duration"			"0.5"
+    				"OnCreated"
+    				{
+    					"AttachEffect"
+    					{
+    						"EffectName"        "particles/econ/items/juggernaut/jugg_sword_fireborn_odachi/jugg_crit_blur_fb_odachi.vpcf"
+    						"EffectAttachType"  "follow_origin"
+    						"Target"            "TARGET"
+    					}
+    				}
+                }
+    			"modifier_cloud_burst"
+    			{
+    				"IsDebuff"	"1"
+    				"OnCreated"
+    				{
+    					"AttachEffect"
+    					{
+    						"Target"					"TARGET"
+    						"EffectName"				"particles/econ/generic/generic_buff_1/monk_ulti_debuff.vpcf"
+    						"EffectAttachType"			"attach_hitloc"
+    						"EffectLifeDurationScale"	"1"
+    						"EffectColorA"				"255 255 255"
+    						"EffectAlphaScale"			"1"
+    					}
+    				}
+    				"Properties"
+    				{
+    				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-5"
+    				}
+    			}
+                "modifier_tornado_slashing"
+                {
+                    "Passive"            "0"
+                    "IsHidden"            "1"
+                    "IsDebuff"            "0"
+
+    				"OnCreated"
+    				{
+    					"AttachEffect"
+    					{
+    						"Target"					"TARGET"
+    						"EffectName"				"particles/econ/items/juggernaut/highplains_sword_longfang/juggernaut_blade_fury_longfang.vpcf"
+    						"EffectAttachType"			"attach_origin"
+    						"EffectLifeDurationScale"	"1"
+    						"EffectColorA"				"255 255 255"
+    						"EffectAlphaScale"			"1"
+    						"ControlPoints"
+    						{
+    							"05"	"240"
+    						}
+    					}
+    				}
+            		"States"
+            		{
+            			"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+            		}
+            		"ThinkInterval"  "0.27"
+            		"OnIntervalThink"
+            		{
+            			"RunScript"
+            			{
+    	            		"ScriptFile"	"heroes/juggernaut/combo_strike.lua"
+    	            		"Function"		"tornado_think"
+    	            		"damage"		"%damage"
+            			}
+            		}
+                }
+                "modifier_tornado_lifting"
+                {
+                	"IsHidden"            "1"
+                	"ThinkInterval"  "0.03"
+                	"OnIntervalThink"
+                	{
+            			"RunScript"
+            			{
+    	            		"ScriptFile"	"heroes/juggernaut/combo_strike.lua"
+    	            		"Function"		"tornado_lifting"
+    	            		"damage"		"%damage"
+            			}
+                	}
+                	"OnDestroy"
+                	{
+    					"ApplyModifier"
+    					{
+    						"ModifierName"	"modifier_tornado_falling"
+    						"Target" 		"TARGET"
+    					}
+    				}
+            		"States"
+            		{
+            			"MODIFIER_STATE_ROOTED"	"MODIFIER_STATE_VALUE_ENABLED"
+            		}
+            		"Properties"
+            		{
+            			"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-100"
+            			"MODIFIER_PROPERTY_EVASION_CONSTANT"	"100"
+            		}
+                }
+                "modifier_tornado_falling"
+                {
+                	"IsHidden"            "1"
+                	"ThinkInterval"  "0.03"
+                	"OnIntervalThink"
+                	{
+            			"RunScript"
+            			{
+    	            		"ScriptFile"	"heroes/juggernaut/combo_strike.lua"
+    	            		"Function"		"tornado_falling"
+    	            		"damage"		"%damage"
+            			}
+                	}
+                	"OnDestroy"
+                	{
+            			"RunScript"
+            			{
+    	            		"ScriptFile"	"heroes/juggernaut/combo_strike.lua"
+    	            		"Function"		"falling_end"
+            			}
+                	}
+            		"States"
+            		{
+            			"MODIFIER_STATE_ROOTED"	"MODIFIER_STATE_VALUE_ENABLED"
+            		}
+            		"Properties"
+            		{
+            			"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-100"
+            			"MODIFIER_PROPERTY_EVASION_CONSTANT"	"100"
+            		}
+                }
+                "modifier_monk_glyph_2_1_effect"
+                {
+                	"IsHidden"	"1"
+                	"IsBuff"	"1"
+                	"Passive"	"0"
+                	"Properties"
+                	{
+                		"MODIFIER_PROPERTY_EVASION_CONSTANT" "100"
+                	}
+                }
+            }
+    	}
+
+    	"seinaru_kaze_gust"
+    	{
+    		// General
+    		//-------------------------------------------------------------------------------------------------------------
+    		"BaseClass"						"ability_datadriven"
+    		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    		"FightRecapLevel"				"1"
+    		"AbilityTextureName"			"seinaru/seinaru_kaze_gust"
+    		"RequiredLevel"          		"-5"
+    		"LevelsBetweenUpgrades"  		"10"
+    		"MaxLevel"				 		"7"
+    		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+    		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+    		"AbilityCastRange"				"1200"
+    		"AbilityDamage"					"600 1800 5400 18000 32000 90000 140000"
+    		"precache"
+    		{
+    			"particle"		"particles/roshpit/seinaru/kaze_gust_wave.vpcf"
+    			"particle"		"particles/roshpit/seinaru/kaze_blind.vpcf"
+    			"particle"		"particles/econ/items/phantom_assassin/phantom_assassin_weapon_runed_scythe/phantom_assassin_attack_blur_crit_runed_scythe.vpcf"
+    			"model"			"models/seinaru/arcana_rune_sword.vmdl"
+    			"particle"		"particles/units/heroes/hero_brewmaster/brewmaster_drunkenbrawler_evade.vpcf"
+    		}
+
+    		"AbilityCastPoint"				"0.3"
+
+    		// Time
+    		//-------------------------------------------------------------------------------------------------------------
+    		"AbilityCooldown"				"5.0"
+
+    		// Cost
+    		//-------------------------------------------------------------------------------------------------------------
+
+    		// Special
+    		//-------------------------------------------------------------------------------------------------------------
+    		"AbilitySpecial"
+    		{
+    			"01"
+    			{
+    				"var_type"	"FIELD_FLOAT"
+    				"stun_duration"	"0.3"
+    			}
+    			"02"
+    			{
+    				"var_type"	"FIELD_INTEGER"
+    				"range"		"940 960 980 1000 1020 1040 1060"
+    			}
+    			"03"
+    			{
+    				"var_type"	"FIELD_INTEGER"
+    				"blind_chance"		"48 50 52 54 56 58 60"
+    			}
+    			"04"
+    			{
+    				"var_type"	"FIELD_INTEGER"
+    				"blind_duration"		"9.0"
+    			}
+
+    		}
+    		"OnSpellStart"
+    		{
+    			"RunScript"
+    			{
+            		"ScriptFile"	"heroes/juggernaut/kaze_gust.lua"
+            		"Function"		"begin_kaze_gust"
+            		"Target"			"POINT"
+            		"range"			"%range"
+            		"damage"		"%AbilityDamage"
+    			}
+    		}
+    		"OnProjectileHitUnit"
+    		{
+    			"DeleteOnHit"	"0"
+    			"RunScript"
+    			{
+            		"ScriptFile"	"heroes/juggernaut/kaze_gust.lua"
+            		"Function"		"gust_impact"
+            		"Target"		"TARGET"
+            		"damage"		"%AbilityDamage"
+            		"stun_duration"	"%stun_duration"
+            		"blind_duration"	"%blind_duration"
+    			}
+    		}
+            "Modifiers"
+            {
+            	"modifier_kaze_gust_flail"
+            	{
+            		"IsHidden"	"1"
+            		"OverrideAnimation"     "ACT_DOTA_FLAIL"
+            		"States"
+            		{
+            			"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+            		}
+            		"ThinkInterval"  "0.03"
+            		"OnIntervalThink"
+            		{
+            			"RunScript"
+            			{
+            				"ScriptFile"	"heroes/juggernaut/kaze_gust.lua"
+            				"Function"		"kaze_pushback_think"
+            				"target"		"TARGET"
+            			}
+            		}
+            		"OnDestroy"
+            		{
+            			"RunScript"
+            			{
+            				"ScriptFile"	"heroes/juggernaut/kaze_gust.lua"
+            				"Function"		"kaze_pushback_end"
+            				"target"		"TARGET"
+            			}
+            		}
+            	}
+            	"modifier_kaze_gust_blind"
+            	{
+            		"Passive"			"0"
+            		"IsHidden"			"0"
+            		"IsDebuff"			"0"
+
+            		"EffectName"		"particles/roshpit/seinaru/kaze_blind.vpcf"
+            		"EffectAttachType"	"follow_overhead"
+
+            		"Properties"
+            		{
+            			"MODIFIER_PROPERTY_MISS_PERCENTAGE" "%blind_chance"
+            		}
+            	}
+            	"modifier_seinaru_rune_a_a"
+            	{
+            		"TextureName"	"seinaru/seinaru_a_a"
+            		"IsHidden"	"0"
+            		"IsBuff"	"1"
+            	}
+            	"modifier_seinaru_rune_a_a_invisible"
+            	{
+            		"IsHidden"	"1"
+            		"IsBuff"	"1"
+            		"Properties"
+            		{
+            			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0.5"
+            		    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "8"
+            		}
+            	}
+            	"modifier_seinaru_b_a_speed"
+            	{
+            		"TextureName"	"seinaru/seinaru_b_a"
+            		"IsHidden"	"0"
+            		"IsBuff"	"1"
+            		"Properties"
+            		{
+            			"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "6"
+            		}
+    				"OnCreated"
+    				{
+    					"AttachEffect"
+    					{
+    						"Target"					"TARGET"
+    						"EffectName"				"particles/econ/generic/generic_buff_1/generic_buff_1.vpcf"
+    						"EffectAttachType"			"follow_origin"
+    						"EffectLifeDurationScale"	"1"
+    						"EffectColorA"				"224 177 74"
+    						"EffectAlphaScale"			"1"
+    					}
+    				}
+            	}
+            	"modifier_seinaru_rune_b_a_slow"
+            	{
+            		"IsHidden"	"1"
+            		"IsBuff"	"1"
+            		"TextureName"	"seinaru/seinaru_b_a"
+            		"Properties"
+            		{
+            			"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-6"
+            		}
+            	}
+    			"seinaru_rune_c_a_evasion"
+    			{
+    				"TextureName"		"seinaru/seinaru_c_a"
+    				"IsHidden"	"0"
+    				"IsBuff"	"1"
+    				"EffectName"	"particles/econ/items/monkey_king/arcana/monkey_king_arcana_death.vpcf"
+    				"EffectAttachType"	"attach_origin"
+    				"Properties"
+    				{
+    					"MODIFIER_PROPERTY_EVASION_CONSTANT" "90"
+    				}
+
+    			}
+            }
+    	}
+
+    	"monk_heal"
+    	{
+    		// General
+    		//-------------------------------------------------------------------------------------------------------------
+    		"BaseClass"						"ability_datadriven"
+    		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    		"FightRecapLevel"				"1"
+    		"AbilityTextureName"			"rubick_spell_steal"
+    		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+    		"RequiredLevel"          		"-5"
+    		"LevelsBetweenUpgrades"  		"10"
+    		"MaxLevel"				 		"7"
+
+    		// Casting
+    		//-------------------------------------------------------------------------------------------------------------
+    		"AbilityCastPoint"				"0.45"
+
+    		// Time
+    		//-------------------------------------------------------------------------------------------------------------
+    		"AbilityCooldown"				"1.0 0.9 0.8 0.7 0.6 0.4 0.15"
+
+    		// Cost
+    		//-------------------------------------------------------------------------------------------------------------
+    		"AbilityManaCost"				"100 200 400 800 1200 1600 2000"
+
+    		// Special
+    		//-------------------------------------------------------------------------------------------------------------
+    		"AbilitySpecial"
+    		{
+    			"01"
+    			{
+    				"var_type"				"FIELD_INTEGER"
+    				"heal"					"220 480 950 1800 4200 8500 15000"
+    			}
+    			"02"
+    			{
+    				"var_type"				"FIELD_INTEGER"
+    				"radius"				"400 430 460 490 520 550 580"
+    			}
+    		}
+    		"precache"
+    		{
+    			"particle"		"particles/units/heroes/hero_oracle/oracle_false_promise_heal.vpcf"
+    			"soundfile" 	"soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts"
+    			"particle"		"particles/units/heroes/hero_dragon_knight/monk_hikari_clouds.vpcf"
+    			"particle"		"particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
+    			"particle"		"particles/items_fx/monk_glyph_4_1_yin.vpcf"
+    			"particle"		"particles/units/heroes/hero_oracle/monk_glyph_5_1_bushido_heal.vpcf"
+    			"particle"		"particles/econ/items/monkey_king/arcana/death/monkey_king_spring_arcana_death.vpcf"
+    			"particle"		"particles/roshpit/seinaru/hikari_shield.vpcf"
+    		}
+    		"OnSpellStart"
+    		{
+    			"RunScript"
+    			{
+    				"ScriptFile"	"heroes/juggernaut/hikari.lua"
+    				"Function"		"hikari_start"
+    				"heal"			"%heal"
+    				"radius"		"%radius"
+    			}
+    			"FireSound"
+    			{
+    				"EffectName"	"Hero_Warlock.ShadowWordCastGood"
+    				"Target" 		"CASTER"
+    			}
+    		}
+    		"OnProjectileHitUnit"
+    		{
+    			"DeleteOnHit"	"0"
+    			"RunScript"
+    			{
+    				"ScriptFile"	"heroes/juggernaut/hikari.lua"
+    				"Function"		"smoke_hit"
+    				"Target"		"TARGET"
+    			}
+    		}
+    		"Modifiers"
+    		{
+    			"modifier_monk_heal_effect"
+    			{
+    				"Passive"			"0"
+    				"IsHidden"			"1"
+    				"IsDebuff"			"0"
+    				"OnCreated"
+    				{
+    					"FireEffect"
+    					{
+    						"EffectName"        "particles/units/heroes/hero_oracle/oracle_false_promise_heal.vpcf"
+    						"EffectAttachType"  "follow_origin"
+    						"Target"            "TARGET"
+    					}
+    				}
+    			}
+    			"modifier_hikari_slow"
+    			{
+    				"Passive"			"0"
+    				"IsHidden"			"1"
+    				"IsDebuff"			"1"
+    				"Duration"			"1"
+    				"OnCreated"
+    				{
+    					"AttachEffect"
+    					{
+    						"Target"					"TARGET"
+    						"EffectName"				"particles/econ/generic/generic_buff_1/monk_ulti_debuff.vpcf"
+    						"EffectAttachType"			"attach_hitloc"
+    						"EffectLifeDurationScale"	"1"
+    						"EffectColorA"				"255 255 255"
+    						"EffectAlphaScale"			"1"
+    					}
+    				}
+    				"Properties"
+    				{
+    				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "60"
+    				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-40"
+    				}
+    			}
+
+            	"modifier_seinaru_rune_a_b"
+            	{
+            		"TextureName"	"seinaru/seinaru_a_b"
+            		"IsHidden"	"0"
+            		"IsBuff"	"1"
+            	}
+            	"modifier_seinaru_rune_a_b_invisible"
+            	{
+            		"IsHidden"	"1"
+            		"IsBuff"	"1"
+            	}
+
+                "modifier_seinaru_rune_c_b_shield"
+                {
+                    "IsHidden"	"0"
+                    "IsBuff"	"1"
+                    "TextureName"		"seinaru/seinaru_rune_c_b"
+                    "EffectName"		"particles/roshpit/seinaru/hikari_shield.vpcf"
+                    "EffectAttachType"	"follow_origin"
+                }
+    			"modifier_monk_rune_c_b_heal_effect"
+    			{
+    				"IsHidden"		"1"
+    				"IsDebuff"		"0"
+    				"Passive"		"0"
+    				"OnCreated"
+    				{
+    					"FireEffect"
+    					{
+    						"EffectName"        "particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
+    						"EffectAttachType"  "follow_origin"
+    						"Target"            "TARGET"
+    						"ControlPointEntities"
+    						{
+    							"TARGET"	"attach_origin"
+    							"TARGET"	"attach_origin"
+    							"TARGET"	"attach_origin"
+    							"TARGET"	"attach_origin"
+    							"TARGET"	"attach_origin"
+    							"TARGET"	"attach_origin"
+    						}
+    					}
+    				}
+    			}
+    		}
+
+    	}
+
+    	"odachi_slice"
+    	{
+    		// General
+    		//-------------------------------------------------------------------------------------------------------------
+    		"BaseClass"						"ability_datadriven"
+    		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    		"FightRecapLevel"				"1"
+    		"AbilityTextureName"			"juggernaut_omni_slash"
+    		"RequiredLevel"          		"-5"
+    		"LevelsBetweenUpgrades"  		"10"
+    		"MaxLevel"				 		"7"
+    		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+
+    		// Precache
+    		//-------------------------------------------------------------------------------------------------------------
+    		// Casting
+    		//-------------------------------------------------------------------------------------------------------------
+    		"AbilityCastPoint"				"0"
+
+    		// Time
+    		//-------------------------------------------------------------------------------------------------------------
+    		"AbilityCooldown"				"8.6 8.4 8.2 8.0 7.8 7.6 7.4"
+
+    		// Cost
+    		//-------------------------------------------------------------------------------------------------------------
+    		"AbilityManaCost"				"0"
+
+    		"precache"
+    		{
+    			"particle"					"particles/frostivus_herofx/juggernaut_fs_omnislash_tgt.vpcf"
+    			"particle"					"particles/frostivus_herofx/juggernaut_fs_omnislash_slashers.vpcf"
+    			"particle"					"particles/roshpit/seinaru/seinaru_a_d_temp.vpcf"
+    			"particle"					"particles/econ/items/slark/slark_ti6_blade/slark_ti6_blade_essence_shift_gold.vpcf"
+    			"particle"					"particles/roshpit/seinaru/seinaru_e1_bands_beam_blade_golden.vpcf"
+    			"particle"					"particles/econ/items/riki/riki_immortal_ti6/riki_immortal_ti6_blinkstrike_gold.vpcf"
+    			"particle"					"particles/econ/items/juggernaut/jugg_sword_jade/juggernaut_blade_fury_jade.vpcf"
+    		}
+
+    		// Special
+    		//-------------------------------------------------------------------------------------------------------------
+    		"AbilitySpecial"
+    		{
+    			"01"
+    			{
+    				"var_type"				"FIELD_INTEGER"
+    				"damage"				"1800 4240 16420 65870 256460 839410 1764000"
+    			}
+    		}
+
+    		"OnSpellStart"
+    		{
+    			"ApplyModifier"
+    			{
+    				"ModifierName"	"modifier_odachi_lifting"
+    				"Target" 		"CASTER"
+    				"Duration"		"0.42"
+    			}
+    			"ApplyModifier"
+    			{
+    				"ModifierName"	"modifier_slashing"
+    				"Target" 		"CASTER"
+    				"Duration"		"0.84"
+    			}
+    			"FireSound"
+    			{
+    				"EffectName"	"juggernaut_jug_ability_omnislash_20"
+    				"Target" 		"CASTER"
+    			}
+    			"RunScript"
+    			{
+            		"ScriptFile"	"heroes/juggernaut/odachi_slice"
+            		"Function"		"begin_slice"
+            		"damage"		"%damage"
+    			}
+    		}
+    		"OnProjectileHitUnit"
+    		{
+    			"DeleteOnHit"	"0"
+    			"RunScript"
+    			{
+    				"ScriptFile"	"heroes/juggernaut/odachi_slice"
+    				"Function"		"gust_hit"
+    				"Target"		"TARGET"
+    			}
+    		}
+            "Modifiers"
+            {
+                "modifier_slashing"
+                {
+                    "Passive"            "0"
+                    "IsHidden"            "1"
+                    "IsDebuff"            "0"
+
+            		"States"
+            		{
+            			"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+            		}
+            		"ThinkInterval"  "0.27"
+            		"OnIntervalThink"
+            		{
+            			"RunScript"
+            			{
+    	            		"ScriptFile"	"heroes/juggernaut/odachi_slice"
+    	            		"Function"		"slice_think"
+    	            		"damage"		"%damage"
+            			}
+            		}
+                }
+                "modifier_rune_c_c"
+                {
+                    "Passive"            "0"
+                    "IsHidden"            "0"
+                    "IsDebuff"            "0"
+
+    				"OnCreated"
+    				{
+    					"AttachEffect"
+    					{
+    						"Target"					"TARGET"
+    						"EffectName"				"particles/econ/generic/generic_buff_1/monk_ulti_debuff.vpcf"
+    						"EffectAttachType"			"attach_hitloc"
+    						"EffectLifeDurationScale"	"1"
+    						"EffectColorA"				"255 255 255"
+    						"EffectAlphaScale"			"1"
+    					}
+    				}
+    				"Properties"
+    				{
+    					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "15"
+    				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "3"
+    				}
+
+                }
+                "modifier_odachi_lifting"
+                {
+                	"IsHidden"            "1"
+                	"ThinkInterval"  "0.03"
+                	"OnIntervalThink"
+                	{
+            			"RunScript"
+            			{
+    	            		"ScriptFile"	"heroes/juggernaut/odachi_slice"
+    	            		"Function"		"slice_lifting"
+    	            		"damage"		"%damage"
+            			}
+                	}
+                	"OnDestroy"
+                	{
+    					"ApplyModifier"
+    					{
+    						"ModifierName"	"modifier_odachi_falling"
+    						"Target" 		"TARGET"
+    					}
+    				}
+            		"States"
+            		{
+            			"MODIFIER_STATE_ROOTED"	"MODIFIER_STATE_VALUE_ENABLED"
+            		}
+            		"Properties"
+            		{
+            			"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-100"
+            			"MODIFIER_PROPERTY_EVASION_CONSTANT"	"100"
+            		}
+                }
+                "modifier_odachi_falling"
+                {
+                	"IsHidden"            "1"
+                	"ThinkInterval"  "0.03"
+                	"OnIntervalThink"
+                	{
+            			"RunScript"
+            			{
+    	            		"ScriptFile"	"heroes/juggernaut/odachi_slice"
+    	            		"Function"		"slice_falling"
+    	            		"damage"		"%damage"
+            			}
+                	}
+                	"OnDestroy"
+                	{
+            			"RunScript"
+            			{
+    	            		"ScriptFile"	"heroes/juggernaut/odachi_slice"
+    	            		"Function"		"falling_end"
+            			}
+                	}
+            		"States"
+            		{
+            			"MODIFIER_STATE_ROOTED"	"MODIFIER_STATE_VALUE_ENABLED"
+            		}
+            		"Properties"
+            		{
+            			"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-100"
+            			"MODIFIER_PROPERTY_EVASION_CONSTANT"	"100"
+            		}
+                }
+    			"modifier_odachi_gust"
+    			{
+    				"IsDebuff"	"1"
+    				"OnCreated"
+    				{
+    					"AttachEffect"
+    					{
+    						"Target"					"TARGET"
+    						"EffectName"				"particles/econ/generic/generic_buff_1/monk_ulti_debuff.vpcf"
+    						"EffectAttachType"			"attach_hitloc"
+    						"EffectLifeDurationScale"	"1"
+    						"EffectColorA"				"255 255 255"
+    						"EffectAlphaScale"			"1"
+    					}
+    				}
+    				"Properties"
+    				{
+    				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-50"
+    				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-50"
+    				}
+    			}
+    	        "modifier_odachi_slice_cooldown"
+    	        {
+    	        	"IsHidden"			"0"
+    	            "IsBuff"			"1"
+    	            "Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+
+    	            "OnDestroy"
+    	            {
+    	            	"RunScript"
+    	            	{
+    	            		"ScriptFile"	"heroes/juggernaut/odachi_slice"
+    	            		"Function"		"cooldownEnd"
+    	            	}
+    	            }
+
+    			}
+                "modifier_c_c_spin"
+                {
+                    "Passive"            "0"
+                    "IsHidden"            "1"
+                    "IsDebuff"            "0"
+                    "States"
+                    {
+                    	"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+                    }
+                    "Properties"
+                    {
+                    	"MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL" "100"
+                    }
+
+    				"OnCreated"
+    				{
+    					"AttachEffect"
+    					{
+    						"Target"					"TARGET"
+    						"EffectName"				"particles/econ/items/juggernaut/highplains_sword_longfang/juggernaut_blade_fury_longfang.vpcf"
+    						"EffectAttachType"			"attach_origin"
+    						"EffectLifeDurationScale"	"1"
+    						"EffectColorA"				"255 255 255"
+    						"EffectAlphaScale"			"1"
+    						"ControlPoints"
+    						{
+    							"05"	"240"
+    						}
+    					}
+    				}
+    				"OnDestroy"
+    				{
+    					"RunScript"
+    					{
+    						"ScriptFile"	"heroes/juggernaut/odachi_slice.lua"
+    						"Function"		"hikari_heal_c_c"
+    					}
+    				}
+            		"ThinkInterval"  "0.1"
+            		"OnIntervalThink"
+            		{
+            			"RunScript"
+            			{
+    	            		"ScriptFile"	"heroes/juggernaut/odachi_slice"
+    	            		"Function"		"c_c_think"
+    	            		"target"		"TARGET"
+            			}
+            		}
+                }
+                "modifier_seinaru_a_c_dbz"
+                {
+                	"IsHidden"	"1"
+                	"IsBuff"	"1"
+                	"Duration"	"0.1"
+                	"OnCreated"
+                	{
+    					"AttachEffect"
+    					{
+    						"Target"					"TARGET"
+    						"EffectName"				"particles/econ/generic/generic_buff_1/charge_of_light_effect_buff.vpcf"
+    						"EffectAttachType"			"follow_origin"
+    						"EffectLifeDurationScale"	"1"
+    						"EffectColorA"				"255 255 0"
+    						"EffectAlphaScale"			"1"
+    					}
+                	}
+
+                	"States"
+                	{
+                		"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+                		"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+                		"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+                		"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+                		"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
+                	}
+                	"ThinkInterval"  "0.03"
+                	"OnIntervalThink"
+                	{
+                		"RunScript"
+                		{
+                			"ScriptFile"	"heroes/juggernaut/odachi_slice.lua"
+                			"Function"		"odachi_a_c_think"
+                		}
+                	}
+                }
+                "modifier_seinaru_a_c_dbz_attack_power"
+                {
+                	"IsHidden"	"1"
+                	"Properties"
+                	{
+                		"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "20"
+                	}
+                }
+                "modifier_seinaru_b_c_wakizashi"
+                {
+                	"IsHidden"	"0"
+                	"IsDebuff"	"0"
+                	"OverrideAnimation"     "ACT_DOTA_OVERRIDE_ABILITY_1"
+                	"States"
+                	{
+                		"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+                		"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+                	}
+                	"ThinkInterval"  "0.5"
+                	"OnIntervalThink"
+                	{
+                		"RunScript"
+                		{
+                			"ScriptFile"	"heroes/juggernaut/odachi_slice.lua"
+                			"Function"		"wakizashi_think"
+                		}
+                	}
+                	"OnCreated"
+                	{
+                		"RunScript"
+                		{
+                			"ScriptFile"	"heroes/juggernaut/odachi_slice.lua"
+                			"Function"		"wakizashi_think"
+                		}
+                	}
+                	"OnDestroy"
+                	{
+                		"RunScript"
+                		{
+                			"ScriptFile"	"heroes/juggernaut/odachi_slice.lua"
+                			"Function"		"wakizashi_end"
+                		}
+                	}
+                }
+                "modifier_seinaru_glyph_7_1_effect"
+                {
+                	"IsHidden"	"0"
+    				"OnCreated"
+    				{
+    					"AttachEffect"
+    					{
+    						"Target"					"TARGET"
+    						"EffectName"				"particles/econ/generic/generic_buff_1/charge_of_light_effect_buff.vpcf"
+    						"EffectAttachType"			"attach_origin"
+    						"EffectLifeDurationScale"	"1"
+    						"EffectColorA"				"200 200 200"
+    						"EffectAlphaScale"			"1"
+    					}
+    				}
+                	"Properties"
+                	{
+                	    "MODIFIER_PROPERTY_EVASION_CONSTANT" "100"
+                	}
+                }
+            }
+
+    	}
+
+    	"spiral_leap"
+    	{
+    		// General
+    		//-------------------------------------------------------------------------------------------------------------
+    		"BaseClass"						"ability_datadriven"
+    		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    		"FightRecapLevel"				"1"
+    		"AbilityTextureName"			"juggernaut_blade_fury"
+    		"RequiredLevel"          		"-5"
+    		"LevelsBetweenUpgrades"  		"10"
+    		"MaxLevel"				 		"7"
+    		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_4"
+    		"AbilityCastRange"				"4000"
+
+    		// Precache
+    		//-------------------------------------------------------------------------------------------------------------
+    		// Casting
+    		//-------------------------------------------------------------------------------------------------------------
+    		"AbilityCastPoint"				"0.1"
+
+    		// Time
+    		//-------------------------------------------------------------------------------------------------------------
+    		"AbilityCooldown"				"1"
+
+    		// Cost
+    		//-------------------------------------------------------------------------------------------------------------
+    		"AbilityManaCost"				"300"
+
+    		// Special
+    		//-------------------------------------------------------------------------------------------------------------
+    		"OnSpellStart"
+    		{
+    			"RunScript"
+    			{
+            		"ScriptFile"	"heroes/juggernaut/spiral_leap"
+            		"Function"		"spiral_leap_start"
+            		"Target"		"POINT"
+    			}
+    		}
+    		"Modifiers"
+    		{
+    			"modifier_spiral_strike"
+    			{
+    				"Passive"			"0"
+    				"IsHidden"			"0"
+    				"IsDebuff"			"0"
+    				"ThinkInterval"  "0.03"
+    				"OnIntervalThink"
+    				{
+    					"RunScript"
+    					{
+    						"ScriptFile"	"heroes/juggernaut/spiral_leap"
+    						"Function"		"spiral_think"
+    					}
+    				}
+    				"States"
+    				{
+    					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+    					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+    					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+    				}
+    				"OnDestroy"
+    				{
+    					"RunScript"
+    					{
+    						"ScriptFile"	"heroes/juggernaut/spiral_leap"
+    						"Function"		"spiral_end"
+    					}
+    				}
+    			}
+    		}
+    	}
+
+
+    	"odachi_rush"
+    	{
+    		// General
+    		//-------------------------------------------------------------------------------------------------------------
+    		"BaseClass"				"ability_datadriven"
+    		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    		"AbilityTextureName"			"juggernaut/bladekeeper/juggernaut_omni_slash"
+    		"RequiredLevel"          		"-5"
+    		"LevelsBetweenUpgrades"  		"10"
+    		"MaxLevel"				 		"7"
+    		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+
+    		// Casting
+    		//-------------------------------------------------------------------------------------------------------------
+    		"AbilityCastPoint"				"0.1"
+
+    		// Time
+    		//-------------------------------------------------------------------------------------------------------------
+    		"AbilityCooldown"				"0.3"
+
+    		// Cost
+    		//-------------------------------------------------------------------------------------------------------------
+    		"AbilityManaCost"				"60"
+
+    		// Special
+    		//-------------------------------------------------------------------------------------------------------------
+    		"AbilitySpecial"
+    		{
+    			"01"
+    			{
+    				"var_type"					"FIELD_FLOAT"
+    				"range"						"800 900 1000 1100 1200 1300 1400"
+    			}
+    		}
+
+    		// Data driven
+    		//-------------------------------------------------------------------------------------------------------------
+
+    		"OnSpellStart"
+    		{
+    			"RunScript"
+    			{
+            		"ScriptFile"	"heroes/juggernaut/odachi_slice"
+            		"Function"		"odachi_rush"
+    			}
+    		}
+    		"Modifiers"
+    		{
+    			"modifier_odachi_rush"
+    			{
+    				"Passive"			"0"
+    				"IsHidden"			"0"
+    				"IsDebuff"			"1"
+
+    				"EffectName"		"particles/frostivus_herofx/juggernaut_fs_omnislash_tgt.vpcf"
+    				"EffectAttachType"	"follow_origin"
+    				"OnCreated"
+    				{
+    					"AttachEffect"
+    					{
+    						"Target"					"TARGET"
+    						"EffectName"				"particles/frostivus_herofx/juggernaut_fs_omnislash_slashers.vpcf"
+    						"EffectAttachType"			"attach_hitloc"
+    						"EffectLifeDurationScale"	"1"
+    						"EffectColorA"				"255 255 255"
+    						"EffectAlphaScale"			"1"
+    					}
+    				}
+    			}
+    		}
+
+    	}
+
+    	"monk_ultima_blade"
+    	{
+    		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    		"BaseClass"	"ability_datadriven"
+    		"AbilityTextureName"	"legion_commander_moment_of_courage"
+    		"AbilityCastRange"	"1000"
+    		"AbilityCastPoint"	"0.0"
+    		"AbilityCooldown"	"14"
+    		"AbilityChannelTime"	"1.8"
+    		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+    		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+    		"RequiredLevel"          		"-5"
+    		"LevelsBetweenUpgrades"  		"10"
+    		"MaxLevel"				 		"7"
+    		"precache"
+    		{
+    			"particle"		"particles/units/heroes/hero_brewmaster/brewmaster_earth_ambient.vpcf"
+    			"particle"		"particles/units/heroes/hero_dragon_knight/monk_ulti.vpcf"
+    			"particle"		"particles/econ/generic/generic_buff_1/monk_ulti_debuff.vpcf"
+    			"particle"		"particles/units/heroes/hero_invoker/monk_ultima_tornado.vpcf"
+    			"particle"		"particles/frostivus_herofx/juggernaut_omnislash_ascension.vpcf"
+    			"particle"		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_gold.vpcf"
+    			"particle"		"particles/units/heroes/hero_dragon_knight/ultima_heal.vpcf"
+    		}
+
+    		"AbilityManaCost"	"0"
+    		"SideShop"	"1"
+    		"OnSpellStart"
+    		{
+    			"ApplyModifier"
+    			{
+    				"Target"	"CASTER"
+    				"ModifierName"	"modifier_channel_start"
+    			}
+
+    			"FireSound"
+    			{
+    				"EffectName"	"juggernaut_jug_ability_omnislash_26"
+    				"Target"	"CASTER"
+    			}
+    			"RunScript"
+    			{
+    				"ScriptFile"	"heroes/juggernaut/ultima_blade.lua"
+    				"Function"		"start_channel"
+    			}
+    		}
+
+    		"OnChannelSucceeded"
+    		{
+    			"RemoveModifier"
+    			{
+    				"Target"	"CASTER"
+    				"ModifierName"	"modifier_channel_start"
+    			}
+
+    			"RunScript"
+    			{
+    				"ScriptFile"	"heroes/juggernaut/ultima_blade.lua"
+    				"Function"		"start_ultima"
+    				"range"			"%range"
+    				"damage"		"%damage"
+    			}
+    		}
+
+    		"OnChannelFinish"
+    		{
+    			"RemoveModifier"
+    			{
+    				"Target"	"CASTER"
+    				"ModifierName"	"modifier_channel_start"
+    			}
+
+    		}
+
+    		"OnChannelInterrupted"
+    		{
+    			"RemoveModifier"
+    			{
+    				"Target"	"CASTER"
+    				"ModifierName"	"modifier_channel_start"
+    			}
+    			"RemoveModifier"
+    			{
+    				"Target"	"CASTER"
+    				"ModifierName"	"modifier_monk_rune_b_d_charge_up"
+    			}
+
+    		}
+    		"OnProjectileHitUnit"
+    		{
+    			"DeleteOnHit"	"0"
+    			"RunScript"
+    			{
+    				"ScriptFile"	"heroes/juggernaut/ultima_blade.lua"
+    				"Function"		"projectileHit"
+    				"Target"		"TARGET"
+    				"damage"		"%damage"
+    			}
+    			"ApplyModifier"
+    			{
+    				"ModifierName"	"modifier_monk_ulti_slow"
+    				"Target" 		"TARGET"
+    				"Duration"		"8"
+    			}
+    		}
+    		"Modifiers"
+    		{
+    			"modifier_channel_start"
+    			{
+    				"OnCreated"
+    				{
+    					"AttachEffect"
+    					{
+    						"Target"					"TARGET"
+    						"EffectName"				"particles/econ/generic/generic_buff_1/monk_ulti_debuff.vpcf"
+    						"EffectAttachType"			"attach_hitloc"
+    						"EffectLifeDurationScale"	"1"
+    						"EffectColorA"				"255 255 255"
+    						"EffectAlphaScale"			"1"
+    					}
+    					"RunScript"
+    					{
+    						"ScriptFile"	"heroes/util/channeling.lua"
+    						"Function"		"beginChannel"
+    					}
+    				}
+    				"OnDestroy"
+    				{
+    					"RunScript"
+    					{
+    						"ScriptFile"	"heroes/juggernaut/ultima_blade.lua"
+    						"Function"		"end_channel"
+    					}
+    					"RunScript"
+    					{
+    						"ScriptFile"	"heroes/util/channeling.lua"
+    						"Function"		"endChannel"
+    					}
+    				}
+    			}
+    			"modifier_monk_ulti_slow"
+    			{
+    				"IsDebuff"	"1"
+    				"OnCreated"
+    				{
+    					"AttachEffect"
+    					{
+    						"Target"					"TARGET"
+    						"EffectName"				"particles/econ/generic/generic_buff_1/monk_ulti_debuff.vpcf"
+    						"EffectAttachType"			"attach_hitloc"
+    						"EffectLifeDurationScale"	"1"
+    						"EffectColorA"				"255 255 255"
+    						"EffectAlphaScale"			"1"
+    					}
+    				}
+    				"Properties"
+    				{
+    				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%move_slow"
+    				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor_reduce"
+    				}
+    			}
+    	        "modifier_ultima_cooldown"
+    	        {
+    	        	"IsHidden"			"0"
+    	            "IsBuff"			"1"
+
+    	            "OnDestroy"
+    	            {
+    	            	"RunScript"
+    	            	{
+    	            		"ScriptFile"	"heroes/juggernaut/ultima_blade"
+    	            		"Function"		"cooldownEnd"
+    	            	}
+    	            }
+    			}
+    		}
+
+    		"AbilitySpecial"
+    		{
+    			"01"
+    			{
+    				"var_type"				"FIELD_INTEGER"
+    				"damage"				"2000 5000 34000 65000 100000 250000 500000"
+    			}
+    			"02"
+    			{
+    				"var_type"				"FIELD_INTEGER"
+    				"move_slow"				"-100 -130 -160 -190 -220 -250 -280"
+    			}
+    			"03"
+    			{
+    				"var_type"				"FIELD_INTEGER"
+    				"armor_reduce"			"-3 -20 -50 -150 -500 -1000 -2500"
+    			}
+    			"04"
+    			{
+    				"var_type"				"FIELD_INTEGER"
+    				"range"					"1000 1100 1200 1300 1400 1500 1600"
+    			}
+    		}
+
+    	}
+
+    	"seinaru_gorudo"
+    	{
+    		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    		"BaseClass"	"ability_datadriven"
+    		"AbilityTextureName"	"seinaru/gorudo"
+    		"AbilityCastRange"	"1000"
+    		"AbilityCastPoint"	"0.0"
+    		"AbilityCooldown"	"18"
+    		"AbilityChannelTime"	"1.8"
+    		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+    		"RequiredLevel"          		"-5"
+    		"LevelsBetweenUpgrades"  		"10"
+    		"MaxLevel"				 		"7"
+    		"precache"
+    		{
+    			"particle"		"particles/roshpit/seinaru/seinaru_d_b_ring.vpcf"
+    			"particle"		"particles/roshpit/seinaru/gorudo_buff.vpcf"
+    			"soundfile"		"soundevents/game_sounds_seinaru.vsndevts"
+    			"particle"		"particles/roshpit/seinaru/seinaru_a_d_amp_damage.vpcf"
+    			"particle"		"particles/econ/items/slark/slark_ti6_blade/slark_ti6_pounce_leash_gold_body_energy_pull.vpcf"
+    			"particle"		"particles/units/heroes/hero_monkey_king/monkey_king_spring_cast_rays.vpcf"
+    		}
+
+    		"AbilityManaCost"	"0"
+    		"SideShop"	"1"
+    		"OnSpellStart"
+    		{
+    			"ApplyModifier"
+    			{
+    				"Target"	"CASTER"
+    				"ModifierName"	"modifier_channel_start"
+    			}
+
+    			"FireSound"
+    			{
+    				"EffectName"	"juggernaut_jug_ability_omnislash_26"
+    				"Target"	"CASTER"
+    			}
+    			"RunScript"
+    			{
+    				"ScriptFile"	"heroes/juggernaut/gorudo.lua"
+    				"Function"		"start_gorudo_channel"
+    			}
+
+    		}
+
+    		"OnChannelSucceeded"
+    		{
+    			"RemoveModifier"
+    			{
+    				"Target"	"CASTER"
+    				"ModifierName"	"modifier_channel_start"
+    			}
+
+    			"RunScript"
+    			{
+    				"ScriptFile"	"heroes/juggernaut/gorudo.lua"
+    				"Function"		"gorudo_start"
+    				"duration"		"%duration"
+    			}
+    		}
+
+    		"OnChannelFinish"
+    		{
+    			"RemoveModifier"
+    			{
+    				"Target"	"CASTER"
+    				"ModifierName"	"modifier_channel_start"
+    			}
+
+    		}
+
+    		"OnChannelInterrupted"
+    		{
+    			"RemoveModifier"
+    			{
+    				"Target"	"CASTER"
+    				"ModifierName"	"modifier_channel_start"
+    			}
+    			"RemoveModifier"
+    			{
+    				"Target"	"CASTER"
+    				"ModifierName"	"modifier_monk_rune_b_d_charge_up"
+    			}
+
+    		}
+    		"Modifiers"
+    		{
+    			"modifier_channel_start"
+    			{
+    				"OnCreated"
+    				{
+    					"AttachEffect"
+    					{
+    						"EffectName"        "particles/econ/items/slark/slark_ti6_blade/slark_ti6_pounce_leash_gold_body_energy_pull.vpcf"
+    						"EffectAttachType"  "attach_hitloc"
+    						"Target"            "CASTER"
+    						"ControlPointEntities"
+    						{
+    							"CASTER"	"attach_hitloc"
+    							"CASTER"	"attach_hitloc"
+    							"CASTER"	"attach_hitloc"
+    							"CASTER"	"attach_hitloc"
+    						}
+    					}
+    					"RunScript"
+    					{
+    						"ScriptFile"	"heroes/util/channeling.lua"
+    						"Function"		"beginChannel"
+    					}
+    				}
+    				"OnDestroy"
+    				{
+    					"RunScript"
+    					{
+    						"ScriptFile"	"heroes/juggernaut/ultima_blade.lua"
+    						"Function"		"end_channel"
+    					}
+    					"RunScript"
+    					{
+    						"ScriptFile"	"heroes/util/channeling.lua"
+    						"Function"		"endChannel"
+    					}
+    				}
+    			}
+    			"modifier_gorudo_passive"
+    			{
+    				"Passive"	"1"
+    				"IsHidden"	"1"
+
+    				"OnAttackStart"
+    				{
+    					"RunScript"
+    					{
+    						"ScriptFile"	"heroes/juggernaut/gorudo.lua"
+    						"Function"		"gorudo_attack_start"
+    					}
+    				}
+    				"OnAttackLanded"
+    				{
+    					"RunScript"
+    					{
+    						"ScriptFile"	"heroes/juggernaut/gorudo.lua"
+    						"Function"		"gorudo_attack_land"
+    					}
+    				}
+    				"ThinkInterval"  "2"
+    				"OnIntervalThink"
+    				{
+    					"RunScript"
+    					{
+    						"ScriptFile"	"heroes/juggernaut/gorudo.lua"
+    						"Function"		"gorudo_passive_think"
+    					}
+    				}
+    			}
+    			"modifier_monk_ulti_gorudo"
+    			{
+    				"IsHidden"	"0"
+    				"IsBuff"	"1"
+
+    				"EffectName"	"particles/roshpit/seinaru/gorudo_buff.vpcf"
+    				"EffectAttachType"	"attach_origin"
+    				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_gold_lvl2.vpcf"
+    				"StatusEffectPriority"  "15"
+    				"States"
+    				{
+    					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+    				}
+    				"Properties"
+    				{
+    					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attack_damage_percent"
+    				}
+    			}
+    			"modifier_gorudo_thinker"
+    			{
+    				"IsHidden"	"1"
+    				"ThinkInterval"  "0.1"
+    				"OnIntervalThink"
+    				{
+    					"RunScript"
+    					{
+    						"ScriptFile"	"heroes/juggernaut/gorudo.lua"
+    						"Function"		"gorudo_b_d_think"
+    						"target"		"TARGET"
+    					}
+    				}
+    			}
+    			"modifier_gorudo_b_d_inside_ring"
+    			{
+    				"IsHidden"	"0"
+    				"IsDebuff"	"1"
+    				"TextureName"	"seinaru/seinaru_b_d"
+    			}
+    			"modifier_seinaru_glyph_2_1"
+    			{
+    				"IsHidden"	"1"
+    				"IsBuff"	"1"
+    				"Properties"
+    				{
+    					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1000"
+    				}
+    			}
+    			"modifier_seinaru_gorudo_rune_a_d"
+    			{
+    				"IsHidden"	"0"
+    				"IsDebuff"	"1"
+    				"TextureName"	"seinaru/seinaru_a_d"
+
+    				"OnCreated"
+    				{
+    					"RunScript"
+    					{
+    						"ScriptFile"	"heroes/juggernaut/gorudo.lua"
+    						"Function"		"AmplifyDamageParticle"
+    					}
+    				}
+
+    				"OnDestroy"
+    				{
+    					"RunScript"
+    					{
+    						"ScriptFile"	"heroes/juggernaut/gorudo.lua"
+    						"Function"		"EndAmplifyDamageParticle"
+    					}
+    				}
+    				"Properties"
+    				{
+    					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-1"
+    				}
+    			}
+    		}
+
+    		"AbilitySpecial"
+    		{
+    			"01"
+    			{
+    				"var_type"				"FIELD_FLOAT"
+    				"duration"				"10.0 12.0 14.0 16.0 18.0 20.0 22.0"
+    			}
+    			"02"
+    			{
+    				"var_type"				"FIELD_FLOAT"
+    				"attack_damage_percent"				"300 450 600 750 900 1050 1200"
+    			}
+    		}
+
+    	}
+
+    	"monk_ultima_blade_heal_alt"
+    	{
+    		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    		"BaseClass"	"ability_datadriven"
+    		"AbilityTextureName"	"invoker_sun_strike"
+    		"AbilityCastRange"	"1000"
+    		"AbilityCastPoint"	"0.0"
+    		"AbilityCooldown"	"5"
+    		"AbilityChannelTime"	"1.8"
+    		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+    		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+    		"RequiredLevel"          		"-5"
+    		"LevelsBetweenUpgrades"  		"10"
+    		"MaxLevel"				 		"7"
+    		"precache"
+    		{
+    			"particle"		"particles/units/heroes/hero_brewmaster/brewmaster_earth_ambient.vpcf"
+    			"particle"		"particles/units/heroes/hero_dragon_knight/monk_ulti.vpcf"
+    			"particle"		"particles/econ/generic/generic_buff_1/monk_ulti_debuff.vpcf"
+    			"particle"		"particles/units/heroes/hero_invoker/monk_ultima_tornado.vpcf"
+    			"particle"		"particles/frostivus_herofx/juggernaut_omnislash_ascension.vpcf"
+    			"particle"		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_gold.vpcf"
+    		}
+
+    		"AbilityManaCost"	"0"
+    		"SideShop"	"1"
+    		"OnSpellStart"
+    		{
+    			"ApplyModifier"
+    			{
+    				"Target"	"CASTER"
+    				"ModifierName"	"modifier_channel_start"
+    			}
+
+    			"FireSound"
+    			{
+    				"EffectName"	"juggernaut_jug_ability_omnislash_26"
+    				"Target"	"CASTER"
+    			}
+    			"RunScript"
+    			{
+    				"ScriptFile"	"heroes/juggernaut/ultima_blade.lua"
+    				"Function"		"start_channel_heal"
+    			}
+    		}
+
+    		"OnChannelSucceeded"
+    		{
+    			"RemoveModifier"
+    			{
+    				"Target"	"CASTER"
+    				"ModifierName"	"modifier_channel_start"
+    			}
+
+    			"RunScript"
+    			{
+    				"ScriptFile"	"heroes/juggernaut/ultima_blade.lua"
+    				"Function"		"start_ultima_heal"
+    			}
+    		}
+
+    		"OnChannelFinish"
+    		{
+    			"RemoveModifier"
+    			{
+    				"Target"	"CASTER"
+    				"ModifierName"	"modifier_channel_start"
+    			}
+
+    		}
+
+    		"OnChannelInterrupted"
+    		{
+    			"RemoveModifier"
+    			{
+    				"Target"	"CASTER"
+    				"ModifierName"	"modifier_channel_start"
+    			}
+    		}
+    		"OnProjectileHitUnit"
+    		{
+    			"DeleteOnHit"	"0"
+    			"RunScript"
+    			{
+    				"ScriptFile"	"heroes/juggernaut/ultima_blade.lua"
+    				"Function"		"projectileHitHeal"
+    				"Target"		"TARGET"
+    			}
+    		}
+    		"Modifiers"
+    		{
+    			"modifier_channel_start"
+    			{
+    				"IsHidden"	"1"
+    				"OnCreated"
+    				{
+    					"AttachEffect"
+    					{
+    						"Target"					"TARGET"
+    						"EffectName"				"particles/econ/generic/generic_buff_1/monk_ulti_debuff.vpcf"
+    						"EffectAttachType"			"attach_hitloc"
+    						"EffectLifeDurationScale"	"1"
+    						"EffectColorA"				"255 255 255"
+    						"EffectAlphaScale"			"1"
+    					}
+    				}
+    				"OnDestroy"
+    				{
+    					"RunScript"
+    					{
+    						"ScriptFile"	"heroes/juggernaut/ultima_blade.lua"
+    						"Function"		"end_channel"
+    					}
+    				}
+    			}
+    			"modifier_monk_ulti_heal"
+    			{
+    				"IsDebuff"	"1"
+    				"OnCreated"
+    				{
+    					"AttachEffect"
+    					{
+    						"Target"					"TARGET"
+    						"EffectName"				"particles/econ/generic/generic_buff_1/monk_ulti_debuff.vpcf"
+    						"EffectAttachType"			"attach_hitloc"
+    						"EffectLifeDurationScale"	"1"
+    						"EffectAlphaScale"			"1"
+    					}
+    				}
+    				"Properties"
+    				{
+    				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "80"
+    				}
+    			}
+    		}
+
+    	}
+
+
+    //RUNES
+
+	"monk_rune_a_c_arcana2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"seinaru/seinaru_rune_a_c_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"25"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two_base"		"2"
+			}
+		}
+	}
+
+	"monk_rune_b_c_arcana2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"seinaru/seinaru_rune_b_c_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.08"
+			}
+		}
+	}
+
+	"monk_rune_c_c_arcana2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"seinaru/seinaru_rune_c_c_arcana2"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"30"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"12"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"3"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"7"
+			}
+		}
+	}
+
+	"monk_rune_d_c_arcana2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"seinaru/seinaru_rune_d_c_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"30"
+			}
+		}
+	}
+
 	"monk_rune_a_a"
 	{
 		// General
@@ -58267,7 +58732,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"8"
 			}
 			"02"
 			{
@@ -58294,33 +58759,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"540"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"240"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two_max"		"600"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"12"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.1"
 			}
 		}
 
@@ -58433,24 +58873,19 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20000"
+				"property_one"			"5000"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"10000"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.02"
 			}
 			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.04"
-			}
-			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"base_ability"			"2"
 			}
-			"05"
+			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"12"
@@ -58583,7 +59018,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"skeleton_king/aspect_year_beast_icons/skeleton_king_mortal_strike"
+		"AbilityTextureName"	"seinaru/seinaru_rune_c_b"
 
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
@@ -58593,7 +59028,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"0.15"
 			}
 		}
 		"Modifiers"
@@ -58653,7 +59088,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"20"
+				"property_two"			"5"
 			}
 			"03"
 			{
@@ -58719,7 +59154,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"100"
 			}
 		}
 
@@ -58770,7 +59205,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.01"
+				"property_two"			"5"
 			}
 		}
 
@@ -58875,234 +59310,6 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_one"			"0.15"
-			}
-		}
-	}
-
-	"seinaru_sunstrider"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"seinaru/seinaru_sunstrider"
-		"RequiredLevel"          		"0"
-		"LevelsBetweenUpgrades"  		"0"
-		"MaxLevel"				 		"7"
-		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
-		"AbilityCastRange"				"1000 1100 1200 1300 1400 1500 1600"
-		"AOERadius"						"440"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"cast_range"			"1000 1100 1200 1300 1400 1500 1600"
-			}
-		}
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-
-		}
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"7.2 7.0 6.8 6.6 6.4 6.2 6.0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"OnAbilityPhaseStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/juggernaut/arcanas/sunstrider.lua"
-				"Function"		"sunstrider_phase"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/juggernaut/arcanas/sunstrider.lua"
-				"Function"		"sunstrider_start"
-				"target"		"POINT"
-			}
-
-		}
-		"Modifiers"
-		{
-			"modifier_sunstrider_in_air"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_COMMAND_RESTRICTED"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_CANNOT_MISS"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/juggernaut/arcanas/sunstrider.lua"
-						"Function"		"sunstrider_end"
-					}					
-				}
-			}
-			"modifier_sunstrider_a_c_damage_bonus"
-			{
-				"IsHidden"	"1"
-				"IsBuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "25"
-				}
-			}
-			"modifier_sunstrider_lightsworn"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"	"seinaru/seinaru_rune_b_c_arcana2"
-				"EffectName"	"particles/roshpit/seinaru/lightsword_omni.vpcf"
-				"EffectAttachType"	"attach_origin"
-			}
-			"modifier_sunstrider_sunwarrior_vengeance_attack"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"	"seinaru/seinaru_rune_c_c_arcana2"
-				"OnAttackLanded"
-				// "%attack_damage" is set to the damage value before mitigation
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/juggernaut/arcanas/sunstrider.lua"
-						"Function"		"vengeance_hit"
-					}
-				}
-			}
-			"modifier_sunstrider_sunwarrior_vengeance_post_mit"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"	"seinaru/seinaru_rune_c_c_arcana2"
-			}
-			"modifier_sunstrider_freecast"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"	"seinaru/seinaru_rune_d_c_arcana2"
-			}
-		}
-	}
-
-	"monk_rune_a_c_arcana2"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_rune_a_c_arcana2"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.5"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"2"
-			}
-		}
-	}
-
-	"monk_rune_b_c_arcana2"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_rune_b_c_arcana2"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.08"
-			}
-		}
-	}
-
-	"monk_rune_c_c_arcana2"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_rune_c_c_arcana2"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"12"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"7"
-			}
-		}
-	}
-
-	"monk_rune_d_c_arcana2"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_rune_d_c_arcana2"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
 			}
 		}
 	}	//--------------------------------------------
@@ -60821,7 +61028,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"10"
 			}
 		}
 
@@ -61023,7 +61230,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"50"
 			}
 		}
 	}
@@ -61979,7 +62186,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5000"
+				"property_one"			"2500"
 			}
 			"02"
 			{
@@ -62102,7 +62309,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100000"
+				"property_one"			"50000"
 			}
 			"02"
 			{
@@ -62145,7 +62352,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10000"
+				"property_one"			"20000"
 			}
 			"02"
 			{
@@ -62412,7 +62619,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"15"
+				"property_one"			"45"
 			}
 		}
 	}
@@ -106819,217 +107026,6 @@
         }
 	}
 
-	"seinaru_arcana_ability"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		"FightRecapLevel"				"1"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-		"AbilityTextureName"			"seinaru/seinaru_arcana_ability"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_percent_of_atk"		"140 220 300 380 460 540 620"
-			}
-		}
-		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_4"
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-			"particle"  				"particles/units/heroes/hero_ogre_magi/flametongue_buff.vpcf"
-		}
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"900 975 1050 1125 1200 1275 1350"
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"5.7 5.4 5.1 4.8 4.5 4.2 3.9"
-
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/juggernaut/blade_dash.lua"
-				"Function"		"blade_dash_start"
-				"target"		"POINT"
-				"targetUnit"	"TARGET"
-				"duration"		"4"
-				"damage_attack"	"%damage_percent_of_atk"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_seinaru_ignore_cast_angle"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"1000"
-					"MODIFIER_PROPERTY_IGNORE_CAST_ANGLE" "100"
-				}
-			}
-			"modifier_seinaru_arcana_dashing"
-			{
-				"OverrideAnimation"     "ACT_DOTA_OVERRIDE_ABILITY_1"
-				"IsHidden"	"1"
-				"ThinkInterval"  "0.03"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/juggernaut/blade_dash.lua"
-						"Function"		"arcana_dashing_think"
-
-					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_DISABLE_TURNING"	"1"
-				}
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_seinaru_dashing_stun"
-			{
-				"OverrideAnimation"     "ACT_DOTA_FLAIL"
-				"States"
-				{
-					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_seinaru_arcana_passive"
-			{
-				"Passive"			"1"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-
-				"OnAttackStart"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/juggernaut/blade_dash.lua"
-						"Function"		"arcana_attack_start"
-					}
-				}
-				"OnAttackLanded"
-				// "%attack_damage" is set to the damage value before mitigation
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/juggernaut/blade_dash.lua"
-						"Function"		"arcana_attack_land"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/juggernaut/blade_dash.lua"
-						"Function"		"arcana_passive_remove"
-					}
-				}
-			}
-			"modifier_seinaru_a_a_crit"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-			}
-			"modifier_seinaru_flying_sword_modifier"
-			{
-				"IsHidden"	"1"
-				"States"
-				{
-					"MODIFIER_STATE_UNSELECTABLE"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NOT_ON_MINIMAP"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"ThinkInterval"  "0.03"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/juggernaut/blade_dash.lua"
-						"Function"		"flying_sword_think"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_flying_sword_destroy_stacks"
-			{
-				"IsHidden"	"1"
-			}
-			"modifier_seinaru_flying_sword_buff_visible"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"	"seinaru/seinaru_b_a_arcana1"
-			}
-			"modifier_seinaru_flying_sword_buff_invisible"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "20"
-				}
-			}
-			"modifier_seinaru_arcana_agility_buff"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"	"seinaru/seinaru_c_a_arcana1"
-			}
-			"modifier_seinaru_arcana_evasion_buff"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"	"seinaru/seinaru_d_a_arcana1"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"        "particles/units/heroes/hero_brewmaster/brewmaster_drunkenbrawler_evade.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "TARGET"
-						"ControlPoints"
-						{
-							"01"	"255 255 255"
-						}
-					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_EVASION_CONSTANT" "100"
-				}
-			}
-		}
-	}
-
 	"bahamut_arcana_ulti"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
@@ -107627,7 +107623,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "15"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "12"
 				}
 			}
 			"modifier_astral_arcana_on_platform"
