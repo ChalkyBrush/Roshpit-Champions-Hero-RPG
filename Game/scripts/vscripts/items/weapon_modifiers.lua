@@ -38,6 +38,11 @@ end
 
 
 function Weaponmodifiers:action(propertyName, propertyValue, hero, inventory_unit, weapon_ability, item)
+	if hero:HasModifier("modifier_blacksmiths_tablet") then
+		if propertyValue > 1 then
+			propertyValue = propertyValue*1.4
+		end
+	end
 	if propertyName == "strength" then
 		weapon_ability.strength = weapon_ability.strength + propertyValue
 		Weaponmodifiers:addBasicModifier(weapon_ability.strength, hero, inventory_unit, "modifier_weapon_strength", weapon_ability)
@@ -150,6 +155,11 @@ function Weaponmodifiers:addItemModifier(propertyValue, hero, inventory_unit, mo
 end
 
 function Weaponmodifiers:runeProperty(propertyName, propertyValue, hero)
+	if hero:HasModifier("modifier_blacksmiths_tablet") then
+		if propertyValue > 1 then
+			propertyValue = propertyValue*1.4
+		end
+	end
 	if propertyName == "rune_a_a" then
 		hero.runeUnit.weapon.a_a = hero.runeUnit.weapon.a_a + propertyValue
 		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit.weapon.a_a, propertyName, hero)

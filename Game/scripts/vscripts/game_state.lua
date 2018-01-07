@@ -2497,12 +2497,7 @@ function GameState:FilterDamage(filterTable)
 
 	--LETHAL CHECK
 	if filterTable["damage"] > victim:GetHealth() then
-		if victim:HasModifier("modifier_solunia_glyph_5_a") then
-			if not victim:HasModifier("modifier_solunia_glyph_5_a_cooldown") then
-				filterTable["damage"] = victim:GetHealth() - 2
-				CustomAbilities:Protostar(victim)
-			end
-		elseif victim:HasModifier("modifier_phoenix_emblem") then
+		if victim:HasModifier("modifier_phoenix_emblem") then
 			if victim:HasModifier("modifier_phoenix_rebirthing") then
 				filterTable["damage"] = 0
 			end
@@ -2561,6 +2556,11 @@ function GameState:FilterDamage(filterTable)
 						end
 					end 
 				end)
+			end
+		elseif victim:HasModifier("modifier_solunia_glyph_5_a") then
+			if not victim:HasModifier("modifier_solunia_glyph_5_a_cooldown") then
+				filterTable["damage"] = victim:GetHealth() - 2
+				CustomAbilities:Protostar(victim)
 			end
 		elseif victim:HasModifier("modifier_paladin_arcana2_passive") then
 			local a_c_level = Runes:GetTotalRuneLevelGeneric(victim, 1, 2)

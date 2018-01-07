@@ -74,6 +74,14 @@ function Amulet:action(propertyName, propertyValue, hero, inventory_unit, trinke
 		hero.monkey_paw = item
 	elseif propertyName == "blacksmith" then
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_blacksmiths_tablet", item)
+		local playerID = hero:GetPlayerOwnerID()
+		local itemEntity = CustomNetTables:GetTableValue("equipment", tostring(playerID).."-"..tostring(1))
+		if itemEntity then
+			local item = EntIndexToHScript(itemEntity.itemIndex)
+			if IsValidEntity(item) then
+				RPCItems:EquipItem(1, hero, hero.InventoryUnit, item)
+			end
+		end
 	elseif propertyName == "all_attributes" then
 		trinket_ability.strength = trinket_ability.strength + propertyValue
 		Amulet:addBasicModifier(trinket_ability.strength, hero, inventory_unit, "modifier_trinket_strength", trinket_ability)

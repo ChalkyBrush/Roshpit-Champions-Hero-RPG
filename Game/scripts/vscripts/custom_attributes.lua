@@ -535,7 +535,7 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 		table.insert(tableData.elements, math.floor(damageDEMON/damageDealt))
 		local damageNATURE = Filters:ElementalDamage(Events.GameMaster, unit, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_NATURE, RPC_ELEMENT_NONE, false)
 		table.insert(tableData.elements, math.floor(damageNATURE/damageDealt))
-		local damageUNDEAD = Filters:ElementalDamage(Events.GameMaster, unit, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE, false)
+		local damageUNDEAD = Filters:ElementalDamage(Events.GameMaster, unit, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE, false)
 		table.insert(tableData.elements, math.floor(damageUNDEAD/damageDealt))
 	else
 		if unit.itemLevel then

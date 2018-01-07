@@ -16854,6 +16854,15 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"end_blacksmith_tablet"
+						"target"		"TARGET"
+					}
+				}
 			}
 		}
 	}
@@ -40771,7 +40780,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"9"
 			}
 			"02"
 			{
