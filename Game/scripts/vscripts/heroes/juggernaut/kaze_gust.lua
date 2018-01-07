@@ -40,7 +40,7 @@ function begin_kaze_gust(event)
 	end
 	local d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "monk")
 	if d_a_level > 0 then
-		ability.damage = ability.damage + caster:GetAverageTrueAttackDamage(caster)*0.1*d_a_level
+		ability.damage = ability.damage + caster:GetAverageTrueAttackDamage(caster)*Q4_DAMAGE_PERCENT/100*d_a_level
 	end
 
 

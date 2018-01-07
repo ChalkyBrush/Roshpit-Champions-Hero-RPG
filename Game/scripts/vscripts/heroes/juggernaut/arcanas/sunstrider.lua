@@ -13,6 +13,13 @@ function sunstrider_start(event)
 	local a_c_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
 	ability.c_c_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
 	ability.a_d_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
+
+	if ability.c_c_level > 0 then
+		local c_c_duration = Filters:GetAdjustedBuffDuration(caster, 3, false)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_sunstrider_sunwarrior_vengeance_post_mit", {duration = c_c_duration})
+		caster:SetModifierStackCount("modifier_sunstrider_sunwarrior_vengeance_post_mit", caster, ability.c_c_level)
+	end
+
 	if a_c_level > 0 then
 		local maxTargets = 2 + math.ceil(0.5*a_c_level)
 		local targetsCounter = 0
@@ -24,17 +31,24 @@ function sunstrider_start(event)
 					Timers:CreateTimer(i*0.06, function()
 						local enemy = enemies[i]
 						CustomAbilities:QuickAttachParticle("particles/roshpit/seinaru/sunblade.vpcf", enemy, 0.6)
-						if caster:HasAbility("seinaru_arcana_ability") then
-							local eventTable = {}
-							eventTable.caster = caster
-							eventTable.target = enemy
-							eventTable.ability = caster:FindAbilityByName("seinaru_arcana_ability")
-							arcana_attack_start(eventTable)
-						end
+						local eventTable = {
+							caster = caster,
+							target = enemy,
+							ability = ability,
+						}
+						vengeance_hit(eventTable)
 						Timers:CreateTimer(0.2, function()
 							CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_legion_commander/legion_commander_courage_hit.vpcf", enemy, 0.5)
 							Filters:PerformAttackSpecial(caster, enemy, true, true, true, false, true, false, false)
+							if caster:HasAbility("seinaru_arcana_ability") then
+								local eventTable = {}
+								eventTable.caster = caster
+								eventTable.target = enemy
+								eventTable.ability = caster:FindAbilityByName("seinaru_arcana_ability")
+								arcana_attack_start(eventTable)
+							end
 						end)
+
 						if caster:HasAbility("seinaru_gorudo") then
 							apply_a_d(caster, enemy, caster:FindAbilityByName("seinaru_gorudo"), ability.a_d_level, 0) 
 						end
@@ -67,15 +81,6 @@ function sunstrider_start(event)
 		end
 	end   
 
-end
-
-function sunstrider_c_c(caster, ability)
-	if ability.c_c_level > 0 then
-		local c_c_duration = Filters:GetAdjustedBuffDuration(caster, 3, false)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_sunstrider_sunwarrior_vengeance_attack", {duration = c_c_duration})
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_sunstrider_sunwarrior_vengeance_post_mit", {duration = c_c_duration})
-		caster:SetModifierStackCount("modifier_sunstrider_sunwarrior_vengeance_post_mit", caster, ability.c_c_level)
-	end
 end
 
 function sunstrider_projectile(caster, ability, point, travelTime)
@@ -125,7 +130,7 @@ function sunstrider_end(event)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_sunstrider_lightsworn", {duration = b_c_duration})
 		end
 		Timers:CreateTimer(0.24, function()
-			sunstrider_c_c(caster, ability)
+			caster:RemoveModifierByName("modifier_sunstrider_sunwarrior_vengeance_post_mit")
 		end)
 
 	end)
@@ -145,7 +150,6 @@ function vengeance_hit(event)
 	local ability = event.ability
 	local target = event.target
 
-	caster:RemoveModifierByName("modifier_sunstrider_sunwarrior_vengeance_attack")
     local particleName = "particles/roshpit/seinaru/sunwarrior_vengeance_cowlofice.vpcf"
     local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
     local origin = target:GetAbsOrigin()
@@ -164,4 +168,16 @@ function vengeance_hit(event)
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 3, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 		end
 	end 
+end
+
+function passive_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local runesCount = Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
+	if not runesCount then
+		return
+	end
+
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_sunstrider_holy_amplify", {})
+	caster:SetModifierStackCount("modifier_sunstrider_holy_amplify", caster, runesCount * ARCANA2_E4_AMPLIFY_PERCENT)
 end

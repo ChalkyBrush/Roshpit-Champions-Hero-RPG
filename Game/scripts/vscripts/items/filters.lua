@@ -1874,6 +1874,25 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local stacks = attacker:GetModifierStackCount("modifier_weapon_holy", attacker.InventoryUnit)
             mult = mult + stacks/100
         end
+
+
+        if attacker:HasModifier("modifier_sunstrider_holy_amplify") then
+            local stacks = attacker:GetModifierStackCount("modifier_sunstrider_holy_amplify", attacker)
+            mult = mult + stacks/100
+        end
+
+        if victim:HasModifier("modifier_seinaru_gorudo_rune_a_d") then
+            if victim:GetPhysicalArmorValue() < 0 then
+                local modifier = victim:FindModifierByName("modifier_seinaru_gorudo_rune_a_d")
+                if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
+                    if attacker.d_c_level > 0 then
+                        local stacks = attacker.d_c_level
+                        local multIncrease = stacks*5/100*math.abs(victim:GetPhysicalArmorValue())/10
+                        mult = mult + multIncrease
+                    end
+                end
+            end
+        end
     end
     if element1 == RPC_ELEMENT_COSMOS or element2 == RPC_ELEMENT_COSMOS then
         local cosmosMult = 0

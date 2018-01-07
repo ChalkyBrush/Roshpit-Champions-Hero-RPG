@@ -1,3 +1,4 @@
+require('heroes/juggernaut/constants')
 function hikari_start(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -11,6 +12,9 @@ function hikari_start(event)
 	ability.originalAbility = ability
 	local a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "monk")
 	ability.a_b_level = a_b_level
+	local c_b_level = Runes:GetTotalRuneLevel(caster, 3, "c_b", "monk")
+	print("c b level " .. c_b_level)
+	ability.c_b_level = c_b_level
 	if a_b_level > 0 then
 		a_b_effect(caster, ability, d_b_level)
 	end
@@ -44,14 +48,13 @@ function new_b_b(caster, ability, b_b_level)
 		ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
 		ParticleManager:SetParticleControl(pfx, 1, Vector(500, 2, 2))
 
-		local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "monk")
 		EmitSoundOn("Hydroxis.Ultimate.Start", caster)
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Seinaru.BBExplosion", Events.GameMaster)
 		EndAnimation(caster)
 		StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_SPAWN, rate=1.2, translate="odachi"})
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 420, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-		local damage = b_b_level*20000 + 10000
-		local stunDuration = 0.04*b_b_level
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, W2_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+		local damage = b_b_level * W2_DAMAGE * ability:GetLevel()
+		local stunDuration = b_b_level * W2_STUN_DURATION
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
@@ -64,7 +67,6 @@ end
 function a_b_effect(caster, ability, d_b_level)
 	local casterOrigin = caster:GetAbsOrigin()
 	local fv = caster:GetForwardVector()
-	ability.a_b_damage = ability.a_b_level*540
 	for i = -6, 6, 1 do
 		local rotatedFv = WallPhysics:rotateVector(fv, i*math.pi/6)
 		a_b_smoke(caster, rotatedFv, casterOrigin, ability)
@@ -76,7 +78,7 @@ end
 function a_b_smoke(caster, fv, casterOrigin, ability)
 	local start_radius = 180
 	local end_radius = 180
-	local range = ability.a_b_level*1 + 240
+	local range = 240
 	if range > 600 then
 		range = 600
 	end
@@ -108,11 +110,11 @@ function smoke_hit(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	local damage = ability.a_b_damage
-	if caster:HasModifier("modifier_monk_glyph_1_1") then
-		damage = damage*1.4
-	end
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
+	local newStacks = target:GetModifierStackCount("modifier_seinaru_rune_a_b", caster) + 1
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_seinaru_rune_a_b", {duration = 1.5})
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_seinaru_rune_a_b_invisible", {duration = 1.5})
+	target:SetModifierStackCount("modifier_seinaru_rune_a_b", caster, newStacks)
+	target:SetModifierStackCount("modifier_seinaru_rune_a_b_invisible", caster, newStacks*ability.a_b_level)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_hikari_slow", {duration = 1.5})
 end
 
@@ -161,16 +163,17 @@ function b_b_think(event)
 end
 
 function hikari_heal(caster, position, ability, ampFactor)
-	print(caster)
-	print(position)
-	print(ability)
-	print(ampFactor)
 	if not ability.radius then
 		ability.radius = ability:GetSpecialValueFor("radius")
 		ability.originalAbility = ability
 		ability.heal = ability:GetSpecialValueFor("heal")
 	end
 	EmitSoundOn("Hero_Warlock.ShadowWordCastGood", caster)
+	local shieldAmount
+	if ability.c_b_level then
+		shieldAmount = caster:GetAgility() * ability.c_b_level * W3_SHIELD_PER_AGI
+	end
+
 	local allies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, ability.radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #allies > 0 then
 		for _,ally in pairs(allies) do
@@ -178,6 +181,10 @@ function hikari_heal(caster, position, ability, ampFactor)
 			ability.originalAbility:ApplyDataDrivenModifier(caster, ally, "modifier_monk_heal_effect", {})
 			local healAmount = ability.heal*ampFactor
 			Filters:ApplyHeal(caster, ally, healAmount, true)
+			if ability.c_b_level then
+				ally.seinaru_c_b_absorb = shieldAmount
+				ability:ApplyDataDrivenModifier(caster, ally, "modifier_seinaru_rune_c_b_shield", {duration = W3_DURATION})
+			end
 		end
 	end  
 	if caster:HasModifier("modifier_monk_glyph_5_1") then
@@ -191,28 +198,4 @@ function hikari_heal(caster, position, ability, ampFactor)
 		end  
 	end
 	
-end
-
-function rune_c_b_attack(event)
-	local ability = event.ability
-	local caster = event.caster
-	local attacker = event.attacker
-	local attack_damage = event.attack_damage
-	local runeLevel = Runes:GetTotalRuneLevel(attacker, 3, "c_b", "monk")
-	if runeLevel > 0 then
-		attacker:Heal(attack_damage*0.005*runeLevel, attacker)
-		caster:RemoveModifierByName("modifier_monk_rune_c_b_heal_effect")
-		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_monk_rune_c_b_heal_effect", {duration = 0.5})
-	end
-end
-
-function seinaru_hikari_passive_think(event)
-	local caster = event.caster
-	local ability = event.ability
-	local runeLevel = Runes:GetTotalRuneLevel(caster, 3, "c_b", "monk")
-	if runeLevel > 0 then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_monk_rune_c_b", {})
-	else
-		caster:RemoveModifierByName("modifier_monk_rune_c_b")
-	end
 end
