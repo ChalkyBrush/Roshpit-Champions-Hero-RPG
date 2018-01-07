@@ -178,13 +178,15 @@ function mach_punch_attack_land(event)
 	local attack_damage = event.attack_damage
 	local d_b_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
 	if d_b_level > 0 then
-		ability:ApplyDataDrivenModifier(attacker, target, "modifier_zonik_echo", {duration = 4})
-		if not target.zonikEcho then
-			target.zonikEcho = 0
+		if not target.dummy then
+			ability:ApplyDataDrivenModifier(attacker, target, "modifier_zonik_echo", {duration = 4})
+			if not target.zonikEcho then
+				target.zonikEcho = 0
+			end
+			target.zonikEcho = target.zonikEcho + attack_damage*d_b_level*0.012
+			print(target.zonikEcho)
+			print(target:GetEntityIndex())
 		end
-		target.zonikEcho = target.zonikEcho + attack_damage*d_b_level*0.012
-		print(target.zonikEcho)
-		print(target:GetEntityIndex())
 	end
 end
 

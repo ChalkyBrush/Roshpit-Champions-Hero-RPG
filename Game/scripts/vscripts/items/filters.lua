@@ -454,9 +454,9 @@ function Filters:ApplyStun(caster, duration, target)
         if not caster.headItem.stormCrackParticles then
             caster.headItem.stormCrackParticles = 0
         end
-        if caster.headItem.stormCrackParticles < 12 then
+        if caster.headItem.stormCrackParticles < 8 then
             caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles + 1
-            CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_cyclopean_marauder/sven_cyclopean_warcry.vpcf", target, 1.2)
+            -- CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_cyclopean_marauder/sven_cyclopean_warcry.vpcf", target, 1.2)
             CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf", target, 1.2)
             Timers:CreateTimer(1.5, function()
                 caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles - 1
@@ -470,9 +470,9 @@ function Filters:ApplyStun(caster, duration, target)
         if not caster.headItem.stormCrackParticles then
             caster.headItem.stormCrackParticles = 0
         end
-        if caster.headItem.stormCrackParticles < 12 then
+        if caster.headItem.stormCrackParticles < 9 then
             caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles + 1
-            CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_cyclopean_marauder/sven_cyclopean_warcry.vpcf", target, 1.2)
+            -- CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_cyclopean_marauder/sven_cyclopean_warcry.vpcf", target, 1.2)
             CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf", target, 1.2)
             Timers:CreateTimer(1.5, function()
                 caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles - 1
@@ -1558,6 +1558,13 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if bIsRealDamage then
             if attacker:HasModifier("modifier_djanghor_glyph_5_a") then
                 element2 = RPC_ELEMENT_NATURE
+            end
+        end
+    end
+    if element2 == RPC_ELEMENT_NORMAL then
+        if bIsRealDamage then
+            if attacker:HasModifier("modifier_djanghor_glyph_5_a") then
+                element1 = RPC_ELEMENT_NATURE
             end
         end
     end
@@ -3406,8 +3413,8 @@ function Filters:GeodeDealDamage(victim, damage, attacker)
         if not ability.particles then
             ability.particles = 0
         end
-        if ability.particles < 8 then
-            CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/fractional_geode_effect.vpcf", victim, 0.9)
+        if ability.particles < 6 then
+            CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/fractional_geode_effect.vpcf", victim, 0.8)
             EmitSoundOn("Items.Geode", victim)
             ability.particles = ability.particles + 1
             Timers:CreateTimer(1.5, function()

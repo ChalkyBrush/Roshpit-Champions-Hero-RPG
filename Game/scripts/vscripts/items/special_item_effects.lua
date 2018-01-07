@@ -5202,3 +5202,24 @@ function skull_ring_end(event)
 	heroEntity:RemoveModifierByName(caster.skyllGlyphModifier)
 	UTIL_Remove(caster.skullGlyph)
 end
+
+function init_blacksmith_tablet(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	RPCItems:RecalculateStatsBasic(target)
+end
+
+function end_blacksmith_tablet(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local playerID = target:GetPlayerOwnerID()
+	local itemEntity = CustomNetTables:GetTableValue("equipment", tostring(playerID).."-"..tostring(1))
+	if itemEntity then
+		local item = EntIndexToHScript(itemEntity.itemIndex)
+		if IsValidEntity(item) then
+			RPCItems:EquipItem(1, hero, hero.InventoryUnit, item)
+		end
+	end
+end
