@@ -198,6 +198,8 @@ function jump_start(event)
 		caster.jumpPhase = caster.jumpPhase + 1	
 		caster.jumpLock = true
 		Filters:CastSkillArguments(2, caster)
+	else
+		ability:RefundManaCost()
 	end
 end
 
