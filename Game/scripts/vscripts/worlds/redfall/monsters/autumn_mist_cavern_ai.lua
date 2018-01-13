@@ -462,28 +462,33 @@ function barbarian_die(event)
 end
 
 function AutmnMistCaveTrigger()
-	Redfall:ActivateSwitchGeneric(Vector(-15119, 10872, Redfall.ZFLOAT), "AutumnMistCaveSwitch", true, 0.3)
-	Redfall.spawnPortalTable = {}
-	local spawnPositionTable = {Vector(-14729, 10916), Vector(-13820, 10916), Vector(-11921, 9947)}
-	Timers:CreateTimer(2, function()
-		for i = 1, #spawnPositionTable, 1 do
-			local pfx = ParticleManager:CreateParticle("particles/roshpit/redfall/spawn_portal_counter.vpcf", PATTACH_WORLDORIGIN, Redfall.RedfallMaster)
-			ParticleManager:SetParticleControl(pfx, 0, spawnPositionTable[i]+Vector(0,0,150+Redfall.ZFLOAT))
-			table.insert(Redfall.spawnPortalTable, pfx)
-			EmitSoundOnLocationWithCaster(spawnPositionTable[i], "Redfall.CaveUnitPortals", Redfall.RedfallMaster)
+	if Redfall.AutumnMistCavern then
+		if not Redfall.spawnPortalStarted then
+			Redfall.spawnPortalStarted = true
+			Redfall:ActivateSwitchGeneric(Vector(-15119, 10872, Redfall.ZFLOAT), "AutumnMistCaveSwitch", true, 0.3)
+			Redfall.spawnPortalTable = {}
+			local spawnPositionTable = {Vector(-14729, 10916), Vector(-13820, 10916), Vector(-11921, 9947)}
+			Timers:CreateTimer(2, function()
+				for i = 1, #spawnPositionTable, 1 do
+					local pfx = ParticleManager:CreateParticle("particles/roshpit/redfall/spawn_portal_counter.vpcf", PATTACH_WORLDORIGIN, Redfall.RedfallMaster)
+					ParticleManager:SetParticleControl(pfx, 0, spawnPositionTable[i]+Vector(0,0,150+Redfall.ZFLOAT))
+					table.insert(Redfall.spawnPortalTable, pfx)
+					EmitSoundOnLocationWithCaster(spawnPositionTable[i], "Redfall.CaveUnitPortals", Redfall.RedfallMaster)
+				end
+			end)
+			Timers:CreateTimer(7, function()
+				for i = 1, #spawnPositionTable, 1 do
+					local delay = 1
+					if GameState:GetDifficultyFactor() == 2 then
+						delay = 0.8
+					elseif GameState:GetDifficultyFactor() == 3 then
+						delay = 0.6
+					end
+					Redfall:SpawnCaveWaveUnit("redfall_mist_knight", spawnPositionTable[i], 13, 33, delay, true)
+				end
+			end)
 		end
-	end)
-	Timers:CreateTimer(7, function()
-		for i = 1, #spawnPositionTable, 1 do
-			local delay = 1
-			if GameState:GetDifficultyFactor() == 2 then
-				delay = 0.8
-			elseif GameState:GetDifficultyFactor() == 3 then
-				delay = 0.6
-			end
-			Redfall:SpawnCaveWaveUnit("redfall_mist_knight", spawnPositionTable[i], 13, 33, delay, true)
-		end
-	end)
+	end
 end
 
 function autumn_mist_cave_die()
@@ -656,6 +661,47 @@ function autumn_mage_boss_die(event)
 	for i = 1, #Redfall.spawnPortalTable, 1 do
 		ParticleManager:DestroyParticle(Redfall.spawnPortalTable[i], false)
 	end
+
+	local position = Vector(-14822, 14269, 118+Redfall.ZFLOAT)
+	local pfx = ParticleManager:CreateParticle("particles/rain_fx/econ_weather_ash.vpcf", PATTACH_WORLDORIGIN, Redfall.RedfallMaster)
+	ParticleManager:SetParticleControl(pfx, 0, position+Vector(0,0,150))
+	local bossTree = Entities:FindByNameNearest("VermillionTreeCorrupted", position, 1200)
+
+	local pfx2 = ParticleManager:CreateParticle("particles/dire_fx/avernus_eye_smoke.vpcf", PATTACH_WORLDORIGIN, Redfall.RedfallMaster)
+	ParticleManager:SetParticleControl(pfx2, 0, position)
+	Timers:CreateTimer(4.5, function()
+		ParticleManager:DestroyParticle(pfx2, false)
+	end)
+	Timers:CreateTimer(2.5, function()
+		local moveVector = Vector(0,0,700)/180
+		for j = 1, 180, 1 do
+			Timers:CreateTimer(j*0.03, function()
+
+				bossTree:SetAbsOrigin(bossTree:GetAbsOrigin()+moveVector)
+				if j%30 == 0 then
+					ScreenShake(position, 130, 0.9, 0.9, 9000, 0, true)
+					EmitSoundOnLocationWithCaster(position, "Redfall.TreeRising", Redfall.RedfallMaster)
+					local pfxX = ParticleManager:CreateParticle("particles/dire_fx/dire_lfr_smoke_19sec.vpcf", PATTACH_WORLDORIGIN, Redfall.RedfallMaster)
+					ParticleManager:SetParticleControl(pfxX, 0, position)
+					Timers:CreateTimer(10, function()
+						ParticleManager:DestroyParticle(pfxX, false)
+					end)				
+				end
+				if j == 180 then
+					local particle = "particles/roshpit/redfall/tree_healed.vpcf"
+					local pfxA = ParticleManager:CreateParticle( particle, PATTACH_CUSTOMORIGIN, caster )
+					FindClearSpaceForUnit(caster, position, false)
+					ParticleManager:SetParticleControl( pfxA, 0, position )
+					ParticleManager:SetParticleControl( pfxA, 1, position )
+					ParticleManager:SetParticleControl( pfxA, 2, Vector(0,1) )
+					Timers:CreateTimer(7.5, function()
+						ParticleManager:DestroyParticle(pfxA, false)
+					end)			
+					Redfall.CanyonLastTreeReady = true
+				end
+			end)
+		end
+	end)
 end
 
 function autumn_mage_boss_think(event)
@@ -710,11 +756,16 @@ function autumn_mage_boss_explosion(caster, position, damage, explosionAOE, abil
 end
 
 function CanyonEndTree(trigger)
-	local hero = trigger.activator
-	local position = hero:GetAbsOrigin()
-	local tree = Entities:FindByNameNearest("VermillionTreeCorrupted", Vector(position.x, position.y, 130+Redfall.ZFLOAT), 1200)
-	if tree then
-		EndTreeInitiate(tree)
+	if Redfall.CanyonLastTreeReady then
+		if not Redfall.LastCanyonTreeActivated then
+			Redfall.LastCanyonTreeActivated = true
+			local hero = trigger.activator
+			local position = hero:GetAbsOrigin()
+			local tree = Entities:FindByNameNearest("VermillionTreeCorrupted", Vector(position.x, position.y, 130+Redfall.ZFLOAT), 1200)
+			if tree then
+				EndTreeInitiate(tree)
+			end
+		end
 	end
 end
 

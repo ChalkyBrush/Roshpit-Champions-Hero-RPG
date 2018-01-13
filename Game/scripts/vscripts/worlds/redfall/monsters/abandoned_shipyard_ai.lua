@@ -723,6 +723,7 @@ function boss_spawner_die(event)
 			caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,1.5))
 		end)
 	end
+	Redfall.StatueSpawnerShipyard = true
 	Redfall:RaiseShipyardBridge()
 end
 
@@ -787,7 +788,12 @@ function soul_collector_die(event)
 end
 
 function ShipyardBridgeTrigger(event)
-	Redfall:ShipyardBridgeTrigger()
+	if Redfall.StatueSpawnerShipyard then
+		if not Redfall.ShipyardBridgeBeforeBoss then
+			Redfall.ShipyardBridgeBeforeBoss = true
+			Redfall:ShipyardBridgeTrigger()
+		end
+	end
 end
 
 function shipyard_knight_die(event)
@@ -837,20 +843,22 @@ function ShipyardBossRoomTrigger(trigger)
 	if Redfall.Shipyard.BossBattleStart then
 		return false
 	end
-	if not Redfall.Shipyard.BossTriggerBegin then
-		 Redfall:BossRoomTriggerInitiate()
-		 Redfall.Shipyard.BossTriggerBegin = true
-		 Redfall.Shipyard.LockedPlayerTable = {}
+	if Redfall.Shipyard.KnightsKilled == 11 then
+		if not Redfall.Shipyard.BossTriggerBegin then
+			 Redfall:BossRoomTriggerInitiate()
+			 Redfall.Shipyard.BossTriggerBegin = true
+			 Redfall.Shipyard.LockedPlayerTable = {}
+		end
+		local hero = trigger.activator
+		Events:GetGameMasterAbility():ApplyDataDrivenModifier(Events.GameMaster, hero, "modifier_disable_player", {})
+		table.insert(Redfall.Shipyard.LockedPlayerTable, hero)
+		CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "BGMend", {})
+		hero:Stop()
+		PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(), Redfall.Shipyard.boss )
+		Timers:CreateTimer(1, function()
+			PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(), nil)
+		end)
 	end
-	local hero = trigger.activator
-	Events:GetGameMasterAbility():ApplyDataDrivenModifier(Events.GameMaster, hero, "modifier_disable_player", {})
-	table.insert(Redfall.Shipyard.LockedPlayerTable, hero)
-	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "BGMend", {})
-	hero:Stop()
-	PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(), Redfall.Shipyard.boss )
-	Timers:CreateTimer(1, function()
-		PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(), nil)
-	end)
 
 end
 

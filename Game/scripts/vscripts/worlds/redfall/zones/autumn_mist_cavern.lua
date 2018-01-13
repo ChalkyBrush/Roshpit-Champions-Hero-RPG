@@ -3,6 +3,19 @@ function Redfall:InitializeAutumnMistCavern()
 	Redfall.AutumnMistCavern.active = true
 	CustomGameEventManager:Send_ServerToAllClients("BGMend", {})
 
+
+	local waveSwitch = Entities:FindByNameNearest("AutumnMistCaveSwitch", Vector(-15119, 10872, -104+Redfall.ZFLOAT), 1200)
+	waveSwitch:SetAbsOrigin(waveSwitch:GetAbsOrigin()+Vector(0,0,100))
+
+	local particle = "particles/roshpit/redfall/tree_healed.vpcf"
+	local pfxA = ParticleManager:CreateParticle( particle, PATTACH_CUSTOMORIGIN, nil )
+	ParticleManager:SetParticleControl( pfxA, 0, waveSwitch:GetAbsOrigin() )
+	ParticleManager:SetParticleControl( pfxA, 1, waveSwitch:GetAbsOrigin() )
+	ParticleManager:SetParticleControl( pfxA, 2, Vector(0,1) )
+	Timers:CreateTimer(7.5, function()
+		ParticleManager:DestroyParticle(pfxA, false)
+	end)	
+
 	Timers:CreateTimer(3, function()
 		local walls = Entities:FindAllByNameWithin("AutumnMistEntranceWall", Vector(-15369, -7489, 400+Redfall.ZFLOAT), 2000)
 		Redfall:Walls(false, walls, true, 4.5)
