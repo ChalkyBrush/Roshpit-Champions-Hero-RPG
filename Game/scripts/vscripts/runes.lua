@@ -923,6 +923,29 @@ function Runes:EquipArcana(hero, index)
 				Runes:EasySwapArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "solunia_supernova", "solunia_solar_alpha_spark", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 			end
 		end
+	elseif hero:GetUnitName() == "npc_dota_hero_monkey_king" then
+		if index == 1 then
+			require('heroes/monkey_king/shapeshift')
+			if hero:HasModifier("modifier_shapeshift_cat") or hero:HasModifier("modifier_shapeshift_bear") or hero:HasModifier("modifier_shapeshift_crow") then
+				hero.forceNonBeast = true
+				local eventTable = {}
+				eventTable.caster = hero
+				local monkey_ability = hero:FindAbilityByName("draghor_monkey_form")
+				eventTable.ability = monkey_ability
+				monkey_form(eventTable)
+			end
+			local ultAbility = hero:GetAbilityByIndex(DOTA_ULTIMATE_SLOT)
+			if ultAbility:GetAbilityName() == "draghor_shapeshift_cat" then
+				Runes:EasySwapArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "draghor_shapeshift_cat", "draghor_shapeshift_year_beast", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			elseif ultAbility:GetAbilityName() == "draghor_shapeshift_bear" then
+				Runes:EasySwapArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "draghor_shapeshift_bear", "draghor_shapeshift_year_beast", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			elseif ultAbility:GetAbilityName() == "draghor_shapeshift_crow" then
+				Runes:EasySwapArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "draghor_shapeshift_crow", "draghor_shapeshift_year_beast", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			end
+			hero:RemoveAbility("draghor_shapeshift_cat")
+			hero:RemoveAbility("draghor_shapeshift_bear")
+			hero:RemoveAbility("draghor_shapeshift_crow")
+		end
 	end
 end
 
@@ -1403,6 +1426,27 @@ function Runes:UnequipArcana(hero, index)
 					hero:RemoveAbility("solunia_lunar_alpha_spark")
 				end
 				Runes:EasyRevertArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "solunia_supernova", "solunia_solar_alpha_spark", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			end
+		end
+	elseif hero:GetUnitName() == "npc_dota_hero_monkey_king" then
+		if index == 1 then
+			require('heroes/monkey_king/shapeshift')
+			if hero:HasModifier("modifier_shapeshift_year_beast") then
+				hero.forceOutYearBeast = true
+				local eventTable = {}
+				eventTable.caster = hero
+				local monkey_ability = hero:FindAbilityByName("draghor_monkey_form")
+				eventTable.ability = monkey_ability
+				monkey_form(eventTable)
+			end
+			if hero:HasModifier("modifier_mark_of_the_fang") then
+				Runes:EasyRevertArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "draghor_shapeshift_cat", "draghor_shapeshift_year_beast", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			elseif hero:HasModifier("modifier_mark_of_the_claw") then
+				Runes:EasyRevertArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "draghor_shapeshift_bear", "draghor_shapeshift_year_beast", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			elseif hero:HasModifier("modifier_mark_of_the_talon") then
+				Runes:EasyRevertArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "draghor_shapeshift_crow", "draghor_shapeshift_year_beast", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			else
+				Runes:EasyRevertArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "draghor_shapeshift_cat", "draghor_shapeshift_year_beast", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 			end
 		end
 	end

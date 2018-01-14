@@ -41,7 +41,16 @@ function Tanari:Debug()
     local drop = CreateItemOnPositionSync( Vector(-4928, 2048), item )
     local position = Vector(-4928, 2048)
     RPCItems:DropItem(item, Vector(-4928, 2048))
-
+    -- Dungeons.itemLevel = 300
+    for i = 1, 3, 1 do
+        RPCItems:RollDjanghorArcana1(Vector(-4928, 2048))
+    end
+    RPCItems:RollDirewolfBulkwark(Vector(-4928, 2048))
+    -- Arena = {}
+    -- Arena.PitLevel = 7
+    -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "djanghor")
+    -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "djanghor")
+    -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "djanghor")
     -- Glyphs:DebugRollHeroGlyphs("monk", Vector(-4928, 2048))
     -- RPCItems:RollMonkeyPaw(Vector(-4928, 2048))
     -- RPCItems:RollSorceressArcana2(Vector(-4928, 2048))
@@ -67,7 +76,7 @@ function Tanari:Debug()
     -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
     -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
     -- Glyphs:RollRandomGlyphBook(Vector(-4928, 2048))
-    -- Glyphs:DebugRollHeroGlyphs("axe", Vector(-4928, 2048))
+    -- Glyphs:DebugRollHeroGlyphs("djanghor", Vector(-4928, 2048))
     -- for i = 1, 7, 1 do
     --     Glyphs:RollGlyphAll("item_rpc_axe_glyph_"..tostring(i).."_2", Vector(-4928, 2048), 0)
     -- end
@@ -117,7 +126,7 @@ function Tanari:Debug()
     -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "slipfinn")
     -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "sorceress")
     -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "sorceress")
-    RPCItems:RollBlacksmithsTablet(Vector(-4928, 2048))
+    -- RPCItems:RollBlacksmithsTablet(Vector(-4928, 2048))
     -- RPCItems:RollChitinousLobsterClaw(Vector(-4928, 2048))
     -- RPCItems:RollSeinaruArcana1(Vector(-4928, 2048))
     -- RPCItems:RollSeinaruArcana2(Vector(-4928, 2048))

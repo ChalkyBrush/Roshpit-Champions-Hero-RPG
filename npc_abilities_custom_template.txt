@@ -53975,6 +53975,8 @@
 		}
 	}
 
+	##DJANGHOR_ABILITIES##
+
 	//-------------------------
 
 	"graveyard_boss_skill"

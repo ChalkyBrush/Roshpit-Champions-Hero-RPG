@@ -442,6 +442,7 @@ function Body:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_solunia_arcana2")
 	hero:RemoveModifierByName("modifier_direwolf_bulwark")
 	hero:RemoveModifierByName("modifier_arkimus_arcana2")
+	hero:RemoveModifierByName("modifier_djanghor_arcana1")
 	hero.ocean_tempest = nil
 
 	hero.space_tech = nil

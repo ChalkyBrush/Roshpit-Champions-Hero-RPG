@@ -14,6 +14,7 @@ CustomAttributes.ZHONIK_R4_STR = 350
 CustomAttributes.ARKIMUS_Q4_ARCANA1_AGI = 400
 CustomAttributes.ARKIMUS_E4_AGI = 250
 CustomAttributes.DJANGHOR_R4_STATS = 500
+CustomAttributes.DJANGHOR_R4_ARCANA_STATS = 300
 CustomAttributes.AXE_Q3_STATS = 14
 CustomAttributes.ASTRAL_E4_STATS = 160
 CustomAttributes.SORCERESS_ARCANE_INTELLECT = 50
@@ -139,6 +140,16 @@ function CustomAttributes:SetAttributes(hero)
 		end
 		if hero:HasModifier("modifier_shapeshift_crow_d_d") then
 			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_shapeshift_crow_d_d", CustomAttributes.DJANGHOR_R4_STATS)
+		end
+		if hero:HasModifier("modifier_shapeshift_year_beast") then
+			str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, hero, "modifier_shapeshift_year_beast", "draghor_shapeshift_year_beast", "all_attributes_bonus")
+			agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, hero, "modifier_shapeshift_year_beast", "draghor_shapeshift_year_beast", "all_attributes_bonus")
+			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, hero, "modifier_shapeshift_year_beast", "draghor_shapeshift_year_beast", "all_attributes_bonus")
+		end
+		if hero:HasModifier("modifier_shapeshift_yearbeast_d_d") then
+			str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_shapeshift_yearbeast_d_d", CustomAttributes.DJANGHOR_R4_ARCANA_STATS )
+			agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_shapeshift_yearbeast_d_d", CustomAttributes.DJANGHOR_R4_ARCANA_STATS )
+			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_shapeshift_yearbeast_d_d", CustomAttributes.DJANGHOR_R4_ARCANA_STATS )
 		end
 	end
 	if hero:HasModifier("modifier_seinaru_arcana_agility_buff") then

@@ -39,6 +39,9 @@ function SaveLoad:GetKey()
 end
 
 function SaveLoad:NewKey()
+	if Beacons.cheats then
+		return false
+	end
 	local url = ROSHPIT_URL.."/champions/key?"
 	url = url.."param1="..0
 	url = url.."&secret_key="..SaveLoad.key2

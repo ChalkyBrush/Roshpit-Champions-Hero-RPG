@@ -108,6 +108,11 @@ function RPCItems:BodyLegendary(itemVariant, deathLocation)
             RPCItems:RollDarkArtsVestments(deathLocation)
             return true
         elseif luck == 2 then
+            local arcanaLuck = RandomInt(1, 1000)
+            if arcanaLuck <= (2 + GameState:GetPlayerPremiumStatusCount()) then
+                RPCItems:RollDjanghorArcana1(deathLocation)
+                return true
+            end
             RPCItems:RollDragonCeremonyVestments(deathLocation)
             return true
         elseif luck == 3 then

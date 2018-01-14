@@ -1347,6 +1347,45 @@ function RPCItems:RollSorceressArcana2(deathLocation)
     return item
 end
 
+function RPCItems:RollDjanghorArcana1(deathLocation)
+    local item = RPCItems:CreateVariantArcana("item_rpc_djanghor_arcana1", "arcana", "Djanghor Arcana 1", "body", true, "Slot: Body", "npc_dota_hero_monkey_king", 0)
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.property1 = 1
+    item.property1name = "!arcana!_djanghor_arcana1"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_djanghor_arcana1", "#7ef7f2",  1, "#property_djanghor_arcana1_description")
+
+
+    item.hasRunePoints = true
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+    
+    local luck = RandomInt(1, 100)
+    if luck <= 35 then
+        item.property2name = "rune_a_d"
+        item.property2 = math.ceil(value*1.1)
+    elseif luck <= 70 then
+        item.property2name = "rune_b_d"
+        item.property2 = math.ceil(value*1.1)       
+    elseif luck <= 90 then
+        item.property2name = "rune_c_d"
+        item.property2 = math.ceil(value*1) 
+    else
+        item.property2name = "rune_d_d"
+        item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
+    end
+    RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
+
+
+    local value, prefixLevel = RPCItems:RollAttribute(100, 8, 24, 0, 0, item.rarity, false, maxFactor*14)
+    item.property3 = value
+    item.property3name = "all_attributes"
+    RPCItems:SetPropertyValues(item, item.property3, "#item_all_attributes", "#FFFFFF",  3)
+
+    RPCItems:RollBodyProperty4(item, 0)
+
+    RPCItems:DropOrGiveItem(hero, item, false, deathLocation)
+    return item
+end
+
 
 function RPCItems:PreacheArcanaResources(item)
     Timers:CreateTimer(0.05, function()
@@ -1414,6 +1453,8 @@ function RPCItems:GetAvailableArcanaData(hero)
     elseif unitName == "npc_dota_hero_vengefulspirit" then
         table.insert(arcanaData, {1, 0})    
         table.insert(arcanaData, {2, 3}) 
+    elseif unitName == "npc_dota_hero_monkey_king" then
+        table.insert(arcanaData, {1, 3})
     end
     return arcanaData
 end

@@ -44,6 +44,8 @@ function Beacons:DEBUG()
 	-- Beacons:MakeBeacon(Vector(4884,-2944), "wave", "desertDesert")
 	-- Beacons:MinesInitiate()
 	-- Beacons:MakeBeacon(Vector(3136,4480), "wave", "minesMines")
+	SaveLoad.key1 = "a"
+	SaveLoad.key2 = "b"
 	Beacons.cheats = true
 	Dungeons.itemLevel = 0
     RPCItems:RollExcavatorsFocusHat(Vector(-14528, 14528), false)

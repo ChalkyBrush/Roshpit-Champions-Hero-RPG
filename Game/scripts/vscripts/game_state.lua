@@ -2431,7 +2431,7 @@ function GameState:FilterDamage(filterTable)
     end
 
 	if victim:HasModifier("modifier_djanghor_immortal_weapon_2") then
-		if victim:HasModifier("modifier_shapeshift_bear") then
+		if victim:HasModifier("modifier_shapeshift_bear") or victim:HasModifier("modifier_shapeshift_year_beast") then
 			if filterTable["damage"] < victim:GetMaxHealth()*100 then
 				filterTable["damage"] = math.min(victim:GetMaxHealth()*0.1, filterTable["damage"])
 			end

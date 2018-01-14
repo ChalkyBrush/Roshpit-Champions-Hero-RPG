@@ -1099,6 +1099,15 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
                 damage = Filters:Bahamut_DB_rune(attacker, damage, slot, victim)
             end
         end
+        if attacker:HasModifier("modifier_shapeshift_year_beast") then
+            if slot > 0 then
+                local c_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 3, 3)
+                if c_d_level > 0 then
+                    local sumAttrs = attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()
+                    damage = damage + sumAttrs*0.02*c_d_level
+                end
+            end
+        end
     end
 
     damage, element1, element2 = Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, element1, element2, true)

@@ -18,6 +18,7 @@ ARKIMUS_ABILITIES:heroes\antimage\npc\arkimus_abilities.txt
 VENOMORT_ABILITIES:heroes\hero_necrolyte\npc\venomort_abilities.txt
 
 BAHAMUT_ARCANA_ABILITIES:heroes\leshrac\npc\bahamut_arcana_abilities.txt
+DJANGHOR_ABILITIES:heroes\monkey_king\npc\djanghor_arcana_abilities.txt
 
 <% heroes\axe\constants.lua %>
 RED_GENERAL_ABILITIES:heroes\axe\npc\axe_abilities.txt
