@@ -142,9 +142,9 @@ function CustomAttributes:SetAttributes(hero)
 			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_shapeshift_crow_d_d", CustomAttributes.DJANGHOR_R4_STATS)
 		end
 		if hero:HasModifier("modifier_shapeshift_year_beast") then
-			str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, hero, "modifier_shapeshift_year_beast", "draghor_shapeshift_year_beast", "all_attributes_bonus")
-			agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, hero, "modifier_shapeshift_year_beast", "draghor_shapeshift_year_beast", "all_attributes_bonus")
-			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, hero, "modifier_shapeshift_year_beast", "draghor_shapeshift_year_beast", "all_attributes_bonus")
+			str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, hero, "modifier_shapeshift_yearbest_stats", "draghor_shapeshift_year_beast", "all_attributes_bonus")
+			agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, hero, "modifier_shapeshift_yearbest_stats", "draghor_shapeshift_year_beast", "all_attributes_bonus")
+			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, hero, "modifier_shapeshift_yearbest_stats", "draghor_shapeshift_year_beast", "all_attributes_bonus")
 		end
 		if hero:HasModifier("modifier_shapeshift_yearbeast_d_d") then
 			str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_shapeshift_yearbeast_d_d", CustomAttributes.DJANGHOR_R4_ARCANA_STATS )

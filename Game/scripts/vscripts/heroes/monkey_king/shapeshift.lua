@@ -414,7 +414,7 @@ function general_shapeshift_think(event)
 			attackBonus = attribute*a_d_level*DJANGHOR_R1_ARCANA_ATTACK_POWER
 			local healthBonus = attribute*DJANGHOR_R2_ARCANA_HEALTH_PER_ATTRIBUTE*b_d_level
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_year_beast_b_d_health", {})
-			caster:SetModifierStackCount("modifier_shapeshift_year_beast", caster, healthBonus)
+			caster:SetModifierStackCount("modifier_year_beast_b_d_health", caster, healthBonus)
 		end
 		if caster:HasModifier("modifier_djanghor_immortal_weapon_1") then
 			attackBonus = attackBonus + attribute*5

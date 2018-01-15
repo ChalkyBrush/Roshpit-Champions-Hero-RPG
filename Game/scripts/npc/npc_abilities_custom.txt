@@ -68938,6 +68938,10 @@
 					}
 				}
 			}
+			"modifier_shapeshift_yearbest_stats"
+			{
+				"IsHidden"	"1"
+			}
 			"modifier_shapeshift_attack_power_a_d"
 			{
 				"IsHidden"	"1"
