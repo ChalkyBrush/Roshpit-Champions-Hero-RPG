@@ -306,7 +306,9 @@ function bear_charge_end(event)
 	end
 	ability.pushTable = {}
 	wolf_sprint(event)
-	CustomAbilities:AddAndOrSwapSkill(caster, "djanghor_year_beast_charge", "draghor_year_beast_leap", 2)
+	if caster:HasModifier("modifier_shapeshift_year_beast") then
+		CustomAbilities:AddAndOrSwapSkill(caster, "djanghor_year_beast_charge", "draghor_year_beast_leap", 2)
+	end
 end
 
 function sprint_end(event)

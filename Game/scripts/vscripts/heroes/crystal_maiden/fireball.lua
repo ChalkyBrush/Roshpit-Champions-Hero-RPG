@@ -21,16 +21,16 @@ function begin_fireball(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_fireball_multishot", {duration = 0.4})
 		Timers:CreateTimer(0.2, function()
 			EmitSoundOn("Sorceress.FireBall.Cast", caster)
-			StartAnimation(caster, {duration=0.15, activity=ACT_DOTA_CAST_ABILITY_2, rate=4})
+			StartAnimation(caster, {duration=0.18, activity=ACT_DOTA_CAST_ABILITY_2, rate=3})
 			
-			launchFireBall(caster, ability, fv, "particles/units/heroes/hero_jakiro/fireball.vpcf", 140)
+			launchFireBall(caster, ability, fv, "particles/units/heroes/hero_jakiro/fireball.vpcf", 140, fireBallStartPosition)
 			if bArcane then
 				launchFireBall(caster, caster:FindAbilityByName("sorceress_blink"), fv, "particles/roshpit/sorceress/arcane_enchantment.vpcf", 90, fireBallStartPosition)
 			end
 			Timers:CreateTimer(0.2, function()
 				EmitSoundOn("Sorceress.FireBall.Cast", caster)
-				StartAnimation(caster, {duration=0.15, activity=ACT_DOTA_CAST_ABILITY_2, rate=4})
-				launchFireBall(caster, ability, fv, "particles/units/heroes/hero_jakiro/fireball.vpcf", 140)
+				StartAnimation(caster, {duration=0.18, activity=ACT_DOTA_CAST_ABILITY_2, rate=3})
+				launchFireBall(caster, ability, fv, "particles/units/heroes/hero_jakiro/fireball.vpcf", 140, fireBallStartPosition)
 				if bArcane then
 					launchFireBall(caster, caster:FindAbilityByName("sorceress_blink"), fv, "particles/roshpit/sorceress/arcane_enchantment.vpcf", 90, fireBallStartPosition)
 				end

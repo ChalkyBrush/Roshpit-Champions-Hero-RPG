@@ -243,11 +243,6 @@
 				"var_type"				"FIELD_INTEGER"
 				"property_one_base"		"<% E2_BASE_DAMAGE %>"
 			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"		 	"9"
-			}
 		}
 
 	}

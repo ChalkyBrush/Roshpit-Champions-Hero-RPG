@@ -848,6 +848,9 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_axe_glyph_1_1") then
 		damage = damage*0.7
 	end
+	if victim:HasModifier("modifier_redrock_footwear_damage_reduction") then
+		damage = damage*0.5
+	end
 
 	if victim:HasModifier("modifier_fuchsia_damage_resistance") then
 		damage = damage*0.15

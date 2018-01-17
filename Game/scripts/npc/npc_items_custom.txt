@@ -14940,10 +14940,6 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"-40"
-				}
 			}
 			"modifier_redrock_footwear_taunt_effect"
 			{

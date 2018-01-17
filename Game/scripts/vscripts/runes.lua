@@ -607,6 +607,7 @@ function Runes:EquipArcana(hero, index)
 			newRune:SetLevel(runeLevel4)
 			newRune:SetAbilityIndex(3)
 		elseif index == 2 then
+			hero:RemoveModifierByName("modifier_bahamut_a_b_buff")
 			Runes:EasySwapArcanaSkills(hero, 1, "leshrac_nuke", "bahamut_arcana_orb", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 			hero:RemoveModifierByName("modifiers_rune_b_b_modifier")
 		end

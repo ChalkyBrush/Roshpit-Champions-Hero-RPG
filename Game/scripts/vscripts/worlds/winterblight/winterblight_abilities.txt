@@ -1159,3 +1159,42 @@
 			}
 		}
 	}
+
+	"beast_underground_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"tiny_craggy_exterior"
+		"MaxLevel"	"1"
+		"Modifiers"
+		{
+			"modifier_cave_shroom_ai"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.4"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"ai/grizzly_falls/grizzly_falls.lua"
+						"Function"		"grizzly_cave_shroom_think"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+
+			}
+			"modifier_shroom_jumping"
+			{
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}

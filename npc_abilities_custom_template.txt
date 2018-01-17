@@ -48685,7 +48685,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"7"
 			}
 		}
 		"Modifiers"
@@ -57714,6 +57714,8 @@
 			}
 		}
 	}
+
+
 
 
 	"grizzly_medusa_acolyte_ai"

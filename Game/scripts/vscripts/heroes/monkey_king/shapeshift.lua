@@ -504,7 +504,11 @@ function shapeshift_start_year_beast(event)
 		caster:FindModifierByName("modifier_glyph_7_bash"):SetDuration(-1, true)
 	end
 	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_jin_bo", "draghor_year_beast_rending_gale", 1)
-	CustomAbilities:AddAndOrSwapSkill(caster, "draghor_monkey_leap", "djanghor_year_beast_charge", 2)
+	if caster:HasModifier("modifier_wolf_sprint") then
+		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_monkey_leap", "draghor_year_beast_leap", 2)
+	else
+		CustomAbilities:AddAndOrSwapSkill(caster, "draghor_monkey_leap", "djanghor_year_beast_charge", 2)
+	end
 
 	local d_d_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
 	if d_d_level > 0 then

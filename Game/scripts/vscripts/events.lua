@@ -468,6 +468,10 @@ function GameMode:OnPlayerChat(keys)
         if Beacons.cheats then
           Seafortress:Debug()
         end    
+  elseif string.match(text, "winter") then
+        if Beacons.cheats then
+          Winterblight:Debug()
+        end    
   elseif string.match(text, "ladder") then
     if GameState:IsRedfallRidge() then
         if Beacons.cheats then

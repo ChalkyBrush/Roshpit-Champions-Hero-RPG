@@ -55200,11 +55200,6 @@
 				"var_type"				"FIELD_INTEGER"
 				"property_one_base"		"50000"
 			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"		 	"9"
-			}
 		}
 
 	}
@@ -61791,7 +61786,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"7"
 			}
 		}
 		"Modifiers"
@@ -68929,7 +68924,7 @@
 					{
 						"ScriptFile"	"heroes/monkey_king/shapeshift"
 						"Function"		"general_shapeshift_think"
-						"index"			"1"
+						"index"			"4"
 					}
 					"RunScript"
 					{
@@ -69725,7 +69720,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -73484,6 +73479,8 @@
 			}
 		}
 	}
+
+
 
 
 	"grizzly_medusa_acolyte_ai"
@@ -116670,6 +116667,45 @@
 						"ScriptFile"	"worlds/events/descent_of_winterblight_dec_2017/descent_of_winterblight_ai"
 						"Function"		"winterblight_boss_dying_particle"
 					}
+				}
+			}
+		}
+	}
+
+	"beast_underground_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"tiny_craggy_exterior"
+		"MaxLevel"	"1"
+		"Modifiers"
+		{
+			"modifier_cave_shroom_ai"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.4"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"ai/grizzly_falls/grizzly_falls.lua"
+						"Function"		"grizzly_cave_shroom_think"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+
+			}
+			"modifier_shroom_jumping"
+			{
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 		}

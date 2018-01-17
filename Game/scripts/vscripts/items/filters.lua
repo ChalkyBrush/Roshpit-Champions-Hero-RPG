@@ -1104,7 +1104,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
                 local c_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 3, 3)
                 if c_d_level > 0 then
                     local sumAttrs = attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()
-                    damage = damage + sumAttrs*0.02*c_d_level
+                    damage = damage + sumAttrs*0.1*c_d_level
                 end
             end
         end

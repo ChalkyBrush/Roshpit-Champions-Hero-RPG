@@ -4,6 +4,14 @@ end
 
 require('worlds/winterblight/zones/starting_zone')
 
+function Winterblight:Debug()
+    local item = CreateItem("item_debug_blink", nil, nil)
+    local drop = CreateItemOnPositionSync( Vector(-15424,-2560), item )
+    local position = Vector(-15424,-2560)
+    RPCItems:DropItem(item, Vector(-15424,-2560))
+end
+
+
 function Winterblight:InitCamp()
   print("Initialize Winterblight")
       Dungeons.phoenixCollision = true
