@@ -83257,5 +83257,83 @@
         "Ability2"  "beast_underground_ability"
         "Ability3"  "juggernaut_blade_dance"
 
+    }
+
+    "mountain_assassin"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/creeps/thief/thief_01.vmdl"
+        "ModelScale"    "1.0"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "SoundSet"          "Hero_Antimage"
+        "precache"
+        {
+            "particle"  "particles/econ/items/pets/pet_frondillo/pet_spawn_dirt_frondillo.vpcf"
+            "particle"  "particles/econ/events/winter_major_2017/blink_dagger_start_wm07.vpcf"
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_antimage.vsndevts"
+            "particle"  "particles/base_attacks/majinaq_linear.vpcf"
+            "particle"  "particles/econ/events/winter_major_2017/dagon_wm07.vpcf"
+        }
+
+        "ArmorPhysical" "3"
+        "MagicalResistance" "30"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "180"
+        "AttackDamageMax"   "280"
+        "AttackRate"    "0.7"
+        "AttackAnimationPoint"  "0.5"
+        "AttackAcquisitionRange"    "1000"
+        "AttackRange"   "90"
+        "BountyGoldMin" "50"
+        "BountyGoldMax" "60"
+        "BountyXP" "155"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "BuildTime" "0"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "360"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "14500"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "PathfindingSearchDepthScale" "0.2"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+          
+            }
+
+        }
+        "Ability1"  "assassin_jump"
+        "Ability2"  "mountain_assassin_ability"
+        "Ability3"  "assassin_charge_blast"
+        "Ability4"  "dungeon_creep"
     }    
 }

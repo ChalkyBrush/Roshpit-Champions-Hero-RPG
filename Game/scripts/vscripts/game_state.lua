@@ -851,7 +851,11 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_redrock_footwear_damage_reduction") then
 		damage = damage*0.5
 	end
-
+	if victim:HasModifier("modifier_arkimus_arcana1_q3") then
+		local stacks = victim:GetModifierStackCount("modifier_arkimus_arcana1_q3", victim)
+		local reduction = 0.99^stacks
+		damage = damage*reduction
+	end
 	if victim:HasModifier("modifier_fuchsia_damage_resistance") then
 		damage = damage*0.15
 	end
@@ -2173,11 +2177,7 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_world_tree_effect") then
 		mult = mult + 2
 	end
-	if victim:HasModifier("modifier_arkimus_arcana1_q3") then
-		local stacks = victim:GetModifierStackCount("modifier_arkimus_arcana1_q3", victim)
-		local reduction = 0.99^stacks
-		filterTable["damage"] = filterTable["damage"]*reduction
-	end
+
 	if victim:HasModifier("modifier_swamp_lady_shield") or victim:HasModifier("modifier_creature_borrowed_time") then
 		local healAmount = filterTable["damage"]
 		filterTable["damage"] = 0

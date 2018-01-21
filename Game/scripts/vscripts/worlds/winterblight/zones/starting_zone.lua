@@ -46,7 +46,13 @@ function Winterblight:SpawnRaxxus(position, fv)
 	return stone
 end
 
-
+function Winterblight:SpawnAssassin(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("mountain_assassin", position, 1, 2, "Winterblight.Assassin.Aggro", fv, true)
+	Events:AdjustBossPower(stone, 1, 2, false)
+	stone.itemLevel = 22
+	CustomAbilities:QuickAttachParticle("particles/econ/events/winter_major_2017/blink_dagger_start_wm07.vpcf", stone, 5)
+	return stone
+end
 
 function Winterblight:FirstSpawns()
 	local luck = RandomInt(1,3)

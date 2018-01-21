@@ -116710,6 +116710,279 @@
 			}
 		}
 	}
+
+	"mountain_assassin_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"tiny_craggy_exterior"
+		"MaxLevel"	"1"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"evasion"			"30 50 70"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_mountain_assassin_passive"
+			{
+				"Passive"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT" "%evasion"
+				}
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"mountain_assassin_think"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"mountain_assassin_init"
+					}
+				}
+			}
+		}
+	}
+
+	"assassin_jump"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"arkimus/arkimus_orbital_leap"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityCastRange"				"2500"
+
+		// Precache
+		"precache"
+		{
+			"particle"  "particles/roshpit/arkimus/jump_fade.vpcf"
+			"soundfile"	"soundevents/game_sounds_arkimus.vsndevts"
+		}
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"6.2 5.9 5.6"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"cast_range"			"1500"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+        		"Function"		"jump_start"
+        		"Target"		"POINT"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_machinal_jump"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"jump_think"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"jump_end"
+					}
+				}
+			}
+		}
+	}
+
+	"assassin_charge_blast"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"magnataur_shockwave"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_VERSUS"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastRange"				"1200"
+		"AbilityDamage"					"300 5000 200000"
+		"precache"
+		{
+			"particle"		"particles/roshpit/mystic_assassin/mystic_wave.vpcf"
+			"particle"		"particles/econ/events/ti5/dagon_lvl2_ti5.vpcf"
+			"particle"		"particles/roshpit/mystic_assassin/generic_dazed.vpcf"
+		}
+
+		"AbilityCastPoint"				"1.5"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"6.0 5.0 4.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_duration"	"0.5"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"range"		"1200"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"mana_burn"		"500 5000 50000"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+        		"Function"		"begin_mystic_wave"
+        		"Target"			"POINT"
+        		"range"			"%range"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+        		"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+        		"Function"		"mystic_wave_impact"
+        		"Target"		"TARGET"
+        		"damage"		"%AbilityDamage"
+        		"mana_burn"		"%mana_burn"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+        		"Function"		"mystic_wave_phase_start"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_mystic_wave_casting"
+				"Target" 		"CASTER"
+				"Duration"		"1.5"
+			}
+		}
+		"OnAbilityPhaseInterrupted"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_mystic_wave_casting"
+				"Target" 		"CASTER"
+			}
+		}
+        "Modifiers"
+        {
+        	"modifier_mystic_wave_flail"
+        	{
+        		"IsHidden"	"1"
+        		"OverrideAnimation"     "ACT_DOTA_FLAIL"
+        	}
+        	"modifier_mystic_wave_casting"
+        	{
+        		"Passive"			"0"
+        		"IsHidden"			"0"
+        		"IsDebuff"			"0"
+				"StatusEffectName" 		"particles/econ/items/winter_wyvern/winter_wyvern_ti7/status_effect_winter_wyvern_cold_embrace_ti7.vpcf" 	   
+				"StatusEffectPriority"  "30"
+        	
+        		"ThinkInterval"  "0.03"
+        		"OnIntervalThink"
+        		{
+					"RunScript"
+					{
+		        		"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+		        		"Function"		"mystic_wave_casting_think"
+					}		
+        		}
+        	}
+        	"modifier_mountain_protector_a_a_buff"
+        	{
+        		"IsHidden"	"0"
+        		"TextureName"	"mountain_protector/mountain_protector_c_a"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"					"TARGET"
+						"EffectName"				"particles/econ/generic/generic_buff_1/generic_buff_1.vpcf"
+						"EffectAttachType"			"follow_origin"
+						"EffectLifeDurationScale"	"1"
+						"EffectColorA"				"50 50 250"
+						"EffectAlphaScale"			"1"
+					}
+				}
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "300"
+				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"300"
+				}
+        	}
+        }
+	}
 	//SEA FORTRESS
 
 	"sea_fortress_ability"
