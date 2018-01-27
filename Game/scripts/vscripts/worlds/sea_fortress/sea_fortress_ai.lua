@@ -3323,6 +3323,9 @@ function heavy_boulder_pushback(event)
 		fv = 0
 	end
 	local newPos = GetGroundPosition(target:GetAbsOrigin() + fv*target.pushVelocity, target)
+	if target:GetAbsOrigin().z > GetGroundHeight(target:GetAbsOrigin(), target) + 10 then
+		newPos = target:GetAbsOrigin() + fv*target.pushVelocity, target
+	end
 	target:SetAbsOrigin(newPos)
 	target.pushVelocity = target.pushVelocity - 1
 end

@@ -42,6 +42,12 @@ function _ScoreboardUpdater_UpdatePlayerPanel( scoreboardConfig, playersContaine
 			scoreboardPlayerPanel.RemoveClass("ScoreboardPlayer")
 		}
 	}
+	if (!($.GetContextPanel().webArray === undefined)){
+		if ($.GetContextPanel().webArray.indexOf(playerId) > -1)
+		{
+			scoreboardPlayerPanel.AddClass("ScoreboardWebPremium")
+		}
+	}
 	if (Players.HasCustomGameTicketForPlayerID( playerId)){
 		scoreboardPlayerPanel.AddClass("ScoreboardPlayerPremium")
 		scoreboardPlayerPanel.RemoveClass("ScoreboardPlayer")		

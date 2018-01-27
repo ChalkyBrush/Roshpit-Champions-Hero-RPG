@@ -133,6 +133,11 @@ function RPCItems:BodyLegendary(itemVariant, deathLocation)
             RPCItems:RollLegionVestments(deathLocation)
             return true
         elseif luck == 7 then
+            local arcanaLuck = RandomInt(1, 1000)
+            if arcanaLuck <= (2 + GameState:GetPlayerPremiumStatusCount()) then
+                RPCItems:RollZhonikArcana2(deathLocation)
+                return true
+            end
             RPCItems:RollBluestarArmor(deathLocation)
             return true
         elseif luck == 8 then

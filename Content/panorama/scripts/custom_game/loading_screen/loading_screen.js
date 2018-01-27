@@ -1,5 +1,5 @@
 mTipIndex = 0
-nTOOLTIPS = 22
+nTOOLTIPS = 23
 
 function initLoadScreen()
 {

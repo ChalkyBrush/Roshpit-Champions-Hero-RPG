@@ -13,6 +13,7 @@ function UpdatePremium(msg)
 {
 	if ($.GetContextPanel().premiumArray === undefined){
 		$.GetContextPanel().premiumArray = []
+		$.GetContextPanel().webArray = []
 	}
 	var ids = Game.GetAllPlayerIDs()
 	for ( var i = 0; i < ids.length; ++i ){
@@ -23,6 +24,15 @@ function UpdatePremium(msg)
 				$.GetContextPanel().premiumArray.push(ids[i])
 				$.Msg("UPDATE PREMIUM")
 				$.Msg($.GetContextPanel().premiumArray)		
+			}
+		}
+		var webtable = CustomNetTables.GetTableValue( "premium_pass", "web-"+ids[i].toString() )
+		$.Msg(webtable)
+		if (!(webtable === undefined)){
+			if (webtable.premium == 1){
+				$.GetContextPanel().webArray.push(ids[i])
+				$.Msg("UPDATE WEBPREM")
+				$.Msg($.GetContextPanel().webArray)		
 			}
 		}
 	}

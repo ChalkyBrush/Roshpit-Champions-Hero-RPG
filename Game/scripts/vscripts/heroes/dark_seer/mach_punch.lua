@@ -50,6 +50,9 @@ function mach_punch_cast(event)
 		damage = damage + damage*0.01*stacks*b_b_level
 		caster:RemoveModifierByName("modifier_temporal_discharge")
 	end
+	if event.arcana_missle_amp then
+		damage = damage*event.arcana_missle_amp
+	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PHYSICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_TIME)
 	local a_b_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
 	if a_b_level > 0 then

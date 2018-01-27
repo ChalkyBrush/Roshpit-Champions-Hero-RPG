@@ -1223,6 +1223,44 @@ function RPCItems:RollZhonikArcana1(deathLocation)
     return item
 end
 
+function RPCItems:RollZhonikArcana2(deathLocation)
+    local item = RPCItems:CreateVariantArcana("item_rpc_zonik_arcana2", "arcana", "Zhonik Arcana 2", "body", true, "Slot: Body", "npc_dota_hero_dark_seer", 0)
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.property1 = 1
+    item.property1name = "!arcana!_zonik_arcana2"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_zonik_arcana2", "#42F450",  1, "#property_zonik_arcana2_description")
+
+
+    item.hasRunePoints = true
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+    
+    local luck = RandomInt(1, 100)
+    if luck <= 35 then
+        item.property2name = "rune_a_d"
+        item.property2 = math.ceil(value*1.1)
+    elseif luck <= 70 then
+        item.property2name = "rune_b_d"
+        item.property2 = math.ceil(value*1.1)       
+    elseif luck <= 90 then
+        item.property2name = "rune_c_d"
+        item.property2 = math.ceil(value*1) 
+    else
+        item.property2name = "rune_d_d"
+        item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
+    end
+    RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
+
+    local value, prefixLevel = RPCItems:RollAttribute(100, 5, 40, 0, 0, item.rarity, false, maxFactor*36)
+    item.property3 = value
+    item.property3name = "agility"
+    RPCItems:SetPropertyValues(item, item.property3, "#item_agility", "#2EB82E",  3)
+
+    RPCItems:RollFootProperty4(item, 0)
+
+    RPCItems:DropOrGiveItem(hero, item, false, deathLocation)
+    return item
+end
+
 function RPCItems:RollHydroxisArcana1(deathLocation)
     local item = RPCItems:CreateVariantArcana("item_rpc_hydroxis_arcana1", "arcana", "Hydroxis Arcana 1", "hands", true, "Slot: Hands", "npc_dota_hero_slardar", 0)
     local maxFactor = RPCItems:GetMaxFactor()
@@ -1447,6 +1485,7 @@ function RPCItems:GetAvailableArcanaData(hero)
         table.insert(arcanaData, {1, 0})
     elseif unitName == "npc_dota_hero_dark_seer" then
         table.insert(arcanaData, {1, 2})
+        table.insert(arcanaData, {2, 3})
     elseif unitName == "npc_dota_hero_antimage" then
         table.insert(arcanaData, {1, 0})   
         table.insert(arcanaData, {2, 3})   

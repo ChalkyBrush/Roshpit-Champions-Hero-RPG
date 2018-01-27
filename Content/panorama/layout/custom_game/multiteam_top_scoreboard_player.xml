@@ -21,7 +21,7 @@
 						oncontextmenu="hero_icon_right_click()"
 						>
 				<Image hittest="false" id="HeroIcon" />
-	
+				
 				</Button>
 			</Panel>
 			<Panel hittest="false" class="PlayerScoreContainer">

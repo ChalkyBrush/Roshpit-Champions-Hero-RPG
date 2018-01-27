@@ -26790,6 +26790,19 @@
 						"Function"		"zonik_passive_think"
 					}
 				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_speedball_d_d_strength"
+						"Target" 		"CASTER"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_speedball_d_d_attack_power"
+						"Target" 		"CASTER"
+					}
+				}
 			}
 			"modifier_zonik_speedball"
 			{
@@ -53231,6 +53244,8 @@
 			}
 		}
 	}
+
+	##ZHONIK_ARCANA##
 
 	//------ARKIMUS RUNES-----
 

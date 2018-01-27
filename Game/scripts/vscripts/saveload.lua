@@ -314,7 +314,7 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 		Notifications:Top(playerID, {text="Can't stash this item", duration=2, style={color="red"}, continue=true})
 		return url
 	end
-	if itemTable and item.property1 and not item.glyph then
+	if itemTable and item.property1 and not item.glyph and not item.consumable then
 		-- local itemName = string.gsub(itemTable.itemName, "%s+", '%%20')
 		local itemName = escape(itemTable.itemName)
 		local internalMinLevel = math.max(item.minLevel+RPCItems:GetPrereductionMinLevel(item), 1)
@@ -406,6 +406,47 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 		url = url.."&min_level"..gearSlot.."="..0
 		url = url.."&prefix"..gearSlot.."="..escape(itemTable.itemPrefix)
 		url = url.."&suffix"..gearSlot.."="..escape(itemTable.itemSuffix)
+		local affixCount = 0
+		print("TU78A")
+		if item:GetAbilityName() == "item_rpc_web_premium_token" then
+			print("TU78B")
+			local affixCount = 1
+			for i = 1, affixCount, 1 do
+				local affixTable = CustomNetTables:GetTableValue("item_properties", tostring(item:GetEntityIndex()).."-"..tostring(i))
+				-- DeepPrintTable(affixTable)
+				local property = 0
+				local propertyName = ""
+				if i == 1 then
+					property = item.property1
+					propertyName = item.property1name
+				elseif i == 2 then
+					property = item.property2
+					propertyName = item.property2name
+				elseif i == 3 then
+					property = item.property3
+					propertyName = item.property3name
+				elseif i == 4 then
+					property = item.property4
+					propertyName = item.property4name
+				end
+				if not property then
+					property = 0
+				end
+				if not propertyName then
+					propertyName = ""
+				end
+				url = url.."&property"..i..gearSlot.."="..property
+				url = url.."&property"..i.."name"..gearSlot.."="..propertyName
+				url = url.."&property"..i.."color"..gearSlot.."="..escape(affixTable.propertyColor)
+				url = url.."&property"..i.."tooltip"..gearSlot.."="..escape(affixTable.propertyName)
+				print("----TU78C-----")
+				print(affixTable)
+				print("--------------")
+				if affixTable.specialDescription then
+					url = url.."&property"..i.."special"..gearSlot.."="..escape(affixTable.specialDescription)
+				end
+			end
+		end
 	elseif item.glyph then
 		local itemName = item:GetAbilityName()
 		url = url.."&build_number"..gearSlot.."=".."-1"
@@ -660,6 +701,18 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 		elseif gearTable.item_name == "glyph_book" then
 			print("ITEM NAME == GLYPH BOOK")
 			local item = Glyphs:CreateGlyphBook(gearTable.item_variant, gearTable.property1, gearTable.property2)
+			item.pickedUp = true
+			return item
+		elseif gearTable.item_variant == "item_rpc_web_premium_token" then
+			print("IN HERE??")
+			local item = RPCItems:CreateConsumable("item_rpc_web_premium_token", "immortal", "Web Premium Token", "consumable", false, "Consumable", "web_premium_desc")
+			item.property1 = gearTable.property1
+			item.property1color = gearTable.property1color
+			item.property1name = gearTable.property1name
+			item.property1tooltip = gearTable.property1tooltip
+			item.consumable = true
+			item.stashable = true
+			RPCItems:SetPropertyValues(item, item.property1, "web_prem_tracking_id", item.property1color,  1)
 			item.pickedUp = true
 			return item
 		end

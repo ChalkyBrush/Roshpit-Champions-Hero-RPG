@@ -888,6 +888,9 @@ function Runes:EquipArcana(hero, index)
 	elseif hero:GetUnitName() == "npc_dota_hero_dark_seer" then
 		if index == 1 then
 			Runes:EasySwapArcanaSkills(hero, 2, "zonik_lightspeed", "zhonik_temporal_field", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+		elseif index == 2 then
+			hero:RemoveModifierByName("modifier_zonik_speedball_passive")
+			Runes:EasySwapArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "zonik_speedball", "timewarp_missles", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_slardar" then
 		if index == 1 then
@@ -1394,6 +1397,9 @@ function Runes:UnequipArcana(hero, index)
 	elseif hero:GetUnitName() == "npc_dota_hero_dark_seer" then
 		if index == 1 then
 			Runes:EasyRevertArcanaSkills(hero, 2, "zonik_lightspeed", "zhonik_temporal_field", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+		elseif index == 2 then
+			Runes:EasyRevertArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "zonik_speedball", "timewarp_missles", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			hero:RemoveModifierByName("modifier_arcana_missle_passive")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_slardar" then
 		if index == 1 then

@@ -1844,6 +1844,12 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 mult = mult + 0.0006*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_c_level
             end
         end
+        if victim:HasModifier("modifier_tempo_flux_invisible") then
+            if unitName == "npc_dota_hero_dark_seer" then
+                local stacks = victim:GetModifierStackCount("modifier_tempo_flux_invisible", attacker)
+                mult = mult + stacks*0.005
+            end
+        end
     end
     if element1 == RPC_ELEMENT_HOLY or element2 == RPC_ELEMENT_HOLY then
         if unitName == "npc_dota_hero_omniknight" then

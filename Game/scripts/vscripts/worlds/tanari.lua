@@ -42,9 +42,9 @@ function Tanari:Debug()
     local position = Vector(-4928, 2048)
     RPCItems:DropItem(item, Vector(-4928, 2048))
     -- Dungeons.itemLevel = 300
-    for i = 1, 3, 1 do
-        RPCItems:RollDjanghorArcana1(Vector(-4928, 2048))
-    end
+    -- for i = 1, 5, 1 do
+    --     RPCItems:RollZhonikArcana2(Vector(-4928, 2048))
+    -- end
     RPCItems:RollDirewolfBulkwark(Vector(-4928, 2048))
     -- Arena = {}
     -- Arena.PitLevel = 7

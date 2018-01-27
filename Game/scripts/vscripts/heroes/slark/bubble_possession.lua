@@ -109,7 +109,9 @@ function possession_moving_towards_think(event)
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_possession_attack_power", {})
 				caster:SetModifierStackCount("modifier_possession_attack_power", caster, attackPowerGain)
 			end
-			collect_abilities(caster, ability, ability.lockedTarget)			
+			if ability.lockedTarget:IsAlive() then
+				collect_abilities(caster, ability, ability.lockedTarget)	
+			end		
 		else
 			Notifications:Top(caster:GetPlayerOwnerID(), {text="slipfinn_possession_warning", duration=5, style={color="#FF1111"}, continue=true})
 			if caster:HasModifier("modifier_slipfinn_glyph_6_1") then
@@ -223,28 +225,30 @@ function enemy_locked_end(event)
 		end)
 	end
 	if ability.lockedTarget then
-		if ability.b_d_level > 0 then
-			local stun_duration = SLIPFINN_R2_STUN_DURATION*ability.b_d_level
-			if caster:HasModifier("modifier_slipfinn_glyph_6_1") then
-				stun_duration = stun_duration*SLIPFINN_GLYPH_6_1_STUN_MULT
+		if ability.lockedTarget:IsAlive() then
+			if ability.b_d_level > 0 then
+				local stun_duration = SLIPFINN_R2_STUN_DURATION*ability.b_d_level
+				if caster:HasModifier("modifier_slipfinn_glyph_6_1") then
+					stun_duration = stun_duration*SLIPFINN_GLYPH_6_1_STUN_MULT
+				end
+				Filters:ApplyStun(caster, stun_duration, ability.lockedTarget)
 			end
-			Filters:ApplyStun(caster, stun_duration, ability.lockedTarget)
-		end
-		ability.fallFromHeight = ability.lockedTarget:GetAbsOrigin().z
-		EmitSoundOn("Slipfinn.Possess.EnemyEnd", ability.lockedTarget)
-		ability.lockedTarget:RemoveModifierByName("modifier_possession_enemy_lock")
-		ability.lockedTarget:RemoveModifierByName("slipfinn_possessed_lua")
-		CustomAbilities:AddAndOrSwapSkill(caster, "slipfinn_release_possess", "slipfinn_bubble_possession", DOTA_ULTIMATE_SLOT)
-		ability:ApplyDataDrivenModifier(caster, ability.lockedTarget, "modifier_release_falling", {duration = 1})
-		ability.lockedTarget.possessionFallSpeed = 3
+			ability.fallFromHeight = ability.lockedTarget:GetAbsOrigin().z
+			EmitSoundOn("Slipfinn.Possess.EnemyEnd", ability.lockedTarget)
+			ability.lockedTarget:RemoveModifierByName("modifier_possession_enemy_lock")
+			ability.lockedTarget:RemoveModifierByName("slipfinn_possessed_lua")
+			CustomAbilities:AddAndOrSwapSkill(caster, "slipfinn_release_possess", "slipfinn_bubble_possession", DOTA_ULTIMATE_SLOT)
+			ability:ApplyDataDrivenModifier(caster, ability.lockedTarget, "modifier_release_falling", {duration = 1})
+			ability.lockedTarget.possessionFallSpeed = 3
 
-		local pfx = ParticleManager:CreateParticle("particles/roshpit/slipfinn/possession_release_choslam_start.vpcf", PATTACH_CUSTOMORIGIN, nil )
-		ParticleManager:SetParticleControl(pfx, 0,ability.lockedTarget:GetAbsOrigin()+Vector(0,0,50))
-		ParticleManager:SetParticleControl(pfx, 1,Vector(150, 2, 150))
-		Timers:CreateTimer(2.5, function()
-			ParticleManager:DestroyParticle(pfx, false)
-			ParticleManager:ReleaseParticleIndex(pfx)
-		end)
+			local pfx = ParticleManager:CreateParticle("particles/roshpit/slipfinn/possession_release_choslam_start.vpcf", PATTACH_CUSTOMORIGIN, nil )
+			ParticleManager:SetParticleControl(pfx, 0,ability.lockedTarget:GetAbsOrigin()+Vector(0,0,50))
+			ParticleManager:SetParticleControl(pfx, 1,Vector(150, 2, 150))
+			Timers:CreateTimer(2.5, function()
+				ParticleManager:DestroyParticle(pfx, false)
+				ParticleManager:ReleaseParticleIndex(pfx)
+			end)
+		end
 		ability.lockedTarget = nil
 	end
 

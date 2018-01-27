@@ -68,6 +68,16 @@ function initializeTooltip(func){
 			$('#properties_name4').AddClass('invisible')
 			$('#properties_value4').AddClass('invisible')
 			$('#properties_special4').AddClass('invisible')
+
+			var itemProperty1 = CustomNetTables.GetTableValue( "item_properties", item.toString()+"-1" )
+			$.Msg(itemProperty1)
+			if (!(itemProperty1===undefined)){
+				var property1text = AddAffixToItem("", itemProperty1, queryUnit, "", 5, itemName)
+				$('#properties_name1').text = property1text[0]
+				$('#properties_value1').text = property1text[1]
+				$('#properties_name1').RemoveClass('invisible')
+				$('#properties_value1').RemoveClass('invisible')				
+			}
 		}else{
 			$('#consumable-text').AddClass('invisible')
 			//PROPERTY1

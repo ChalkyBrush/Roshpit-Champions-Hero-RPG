@@ -11,6 +11,7 @@ CustomAttributes.MOUNTAIN_PROTECTOR_R1_ARCANA1_STRENGTH = 250
 CustomAttributes.CHERNOBOG_W4_STR_OR_AGI = 300
 CustomAttributes.HYDROXIS_E4_AGI_INT = 350
 CustomAttributes.ZHONIK_R4_STR = 350
+CustomAttributes.ZHONIK_ARCANA_R4_AGI = 500
 CustomAttributes.ARKIMUS_Q4_ARCANA1_AGI = 400
 CustomAttributes.ARKIMUS_E4_AGI = 250
 CustomAttributes.DJANGHOR_R4_STATS = 500
@@ -115,6 +116,9 @@ function CustomAttributes:SetAttributes(hero)
 	end
 	if hero:HasModifier("modifier_speedball_d_d_strength") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_speedball_d_d_strength", CustomAttributes.ZHONIK_R4_STR)	
+	end
+	if hero:HasModifier("modifier_arcana_missles_d_d_agility") then
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_arcana_missles_d_d_agility", CustomAttributes.ZHONIK_ARCANA_R4_AGI)	
 	end
 	if hero:HasModifier("modifier_arkimus_arcana1_q4") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_arkimus_arcana1_q4", CustomAttributes.ARKIMUS_Q4_ARCANA1_AGI)

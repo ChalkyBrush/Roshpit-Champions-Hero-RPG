@@ -117,3 +117,41 @@ function use_damage_potion(event)
 	local caster = event.caster
 	local ability = event.ability
 end
+
+function use_web_prem_token(event)
+	local caster = event.caster
+	local item = event.ability
+
+	local particleName = "particles/roshpit/web/web_premium.vpcf"
+	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(pfx, 1, Vector(200, 200, 200))
+	Timers:CreateTimer(3, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
+	EmitSoundOn("RPC.WebPremium", caster)
+
+	local playerID = caster:GetPlayerOwnerID()
+	local steamID = PlayerResource:GetSteamAccountID(playerID)
+	local url = ROSHPIT_URL.."/web-premium/consumed?"
+	url = url.."steam_id="..steamID
+	url = url.."&prem_id="..item.property1
+	url = url.."&key1="..SaveLoad.key1
+	url = url.."&key2="..SaveLoad.key2
+	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
+		SaveLoad:NewKey()
+		print( "POST response:\n" )
+		for k,v in pairs( result ) do
+			print( string.format( "%s : %s\n", k, v ) )
+		end
+		print( "Done." )
+		local resultTable = JSON:decode(result.Body)
+		CustomNetTables:SetTableValue("premium_pass", "web-"..tostring(playerID), {premium = 1} )
+		CustomGameEventManager:Send_ServerToAllClients("update_premium", {playerID = playerID} )
+		Notifications:Top(playerID, {text="Web Premium Added", duration=8, style={color="#A2EFEF"}, continue=true})
+		if IsValidEntity(item) then
+			UTIL_Remove(item)
+		end
+	end )
+
+end

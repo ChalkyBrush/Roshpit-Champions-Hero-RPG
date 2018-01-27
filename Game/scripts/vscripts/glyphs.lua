@@ -205,7 +205,30 @@ function Glyphs:GetPlayerResources(playerID)
 		CustomNetTables:SetTableValue("player_stats", tostring(playerID).."-income", {available = resultTable.income_available})
 		CustomNetTables:SetTableValue("player_stats", tostring(playerID).."-challenge", {completed = resultTable.challenge_completed})
 		CustomGameEventManager:Send_ServerToPlayer(player, "update_resources", {arcane_crystals= arcaneCrystals, enchanter_tier = enchanterTier, player=playerID, mithril=mithrilShards} )
+	
+		local webPremTime = resultTable.web_premium
+		local premiumStatus = Glyphs:GetWebStatus(os:TimeStamp(webPremTime), os:ServerTimeToTable())
+		if premiumStatus then
+			CustomNetTables:SetTableValue("premium_pass", "web-"..tostring(playerID), {premium = 1} )
+			CustomGameEventManager:Send_ServerToAllClients("update_premium", {playerID = playerID} )
+		end
 	end )	
+end
+
+function Glyphs:GetWebStatus(premiumTime, actualTime)
+	local premium = false
+	if actualTime.year < premiumTime.year then
+		premium = true
+	else
+		if actualTime.month < premiumTime.month then
+			premium = true
+		else
+			if actualTime.day <= premiumTime.day then
+				premium = true
+			end
+		end
+	end
+	return premium
 end
 
 
