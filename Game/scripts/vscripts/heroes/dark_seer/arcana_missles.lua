@@ -1,4 +1,6 @@
 require('heroes/dark_seer/mach_punch')
+require('heroes/dark_seer/tachyon_shell')
+
 
 function start_channel(event)
 	local caster = event.caster
@@ -166,6 +168,20 @@ function passive_think(event)
 
 								ability:ApplyDataDrivenModifier(caster, missle.lockEnemy, "modifier_tempo_flux_invisible", {duration = 14})
 								missle.lockEnemy:SetModifierStackCount("modifier_tempo_flux_invisible", caster, newStacks*c_d_level)								
+							end
+							if caster:HasModifier("modifier_zonik_immortal_weapon_3") then
+								if caster:HasAbility("tachyon_shell") then
+									print("HERE?")
+									local eventTable = {}
+									eventTable.caster = caster
+									eventTable.target = missle.lockEnemy
+									eventTable.ability = caster:FindAbilityByName("tachyon_shell")
+									eventTable.duration = eventTable.ability:GetLevelSpecialValueFor("duration", eventTable.ability:GetLevel())
+									eventTable.bNoCast = true
+									if eventTable.ability then
+										tachyon_shield_cast(eventTable)
+									end
+								end
 							end
 						end
 					end

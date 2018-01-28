@@ -130,16 +130,18 @@ function speedball_explode(caster, ability, damage, stun_duration)
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_TIME, RPC_ELEMENT_COSMIC)
 			Filters:ApplyStun(caster, stun_duration, enemy)
 			if caster:HasModifier("modifier_zonik_immortal_weapon_3") then
-				print("HERE?")
-				local eventTable = {}
-				eventTable.caster = caster
-				eventTable.target = enemy
-				eventTable.ability = caster:FindAbilityByName("tachyon_shell")
-				eventTable.duration = eventTable.ability:GetLevelSpecialValueFor("duration", eventTable.ability:GetLevel())
-				eventTable.bNoCast = true
-				if eventTable.ability then
-					print("CAST TACHYON")
-					tachyon_shield_cast(eventTable)
+				if caster:HasAbility("tachyon_shell") then
+					print("HERE?")
+					local eventTable = {}
+					eventTable.caster = caster
+					eventTable.target = enemy
+					eventTable.ability = caster:FindAbilityByName("tachyon_shell")
+					eventTable.duration = eventTable.ability:GetLevelSpecialValueFor("duration", eventTable.ability:GetLevel())
+					eventTable.bNoCast = true
+					if eventTable.ability then
+						print("CAST TACHYON")
+						tachyon_shield_cast(eventTable)
+					end
 				end
 			end
 		end

@@ -65,6 +65,6 @@ function UpdatePremium(msg)
 	g_ScoreboardHandle = ScoreboardUpdater_InitializeScoreboard( scoreboardConfig, $( "#MultiteamScoreboard" ) );
 
 	UpdateScoreboard();
-	
+	UpdatePremium();
 })();
 

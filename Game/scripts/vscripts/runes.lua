@@ -889,6 +889,8 @@ function Runes:EquipArcana(hero, index)
 		if index == 1 then
 			Runes:EasySwapArcanaSkills(hero, 2, "zonik_lightspeed", "zhonik_temporal_field", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
+			hero:RemoveModifierByName("modifier_speedball_b_d_mana_regen")
+			hero:RemoveModifierByName("modifier_speedball_b_d_regen")
 			hero:RemoveModifierByName("modifier_zonik_speedball_passive")
 			Runes:EasySwapArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "zonik_speedball", "timewarp_missles", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
