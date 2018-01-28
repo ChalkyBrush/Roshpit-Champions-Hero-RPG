@@ -524,7 +524,8 @@ function GameState:OrderFilter(orderTable)
 					unit:RemoveModifierByName("modifier_slipfinn_prone")
 				end
 				if unit:HasModifier("modifier_slipfinn_basic_jump") then
-					unit.direction = (unit.direction*Vector(1,1,0) + unit.rightClickPos*0.00001):Normalized()
+					local addDirection = ((unit.rightClickPos - unit:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+					unit.direction = (unit.direction*Vector(1,1,0) + addDirection*0.00001):Normalized()
 					if unit.speed < 8 then
 						unit.speed = math.max(1, unit.speed + 1)
 						unit.direction = unit:GetForwardVector()
