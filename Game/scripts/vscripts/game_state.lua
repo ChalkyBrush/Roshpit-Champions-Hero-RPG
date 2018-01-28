@@ -952,11 +952,13 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		local stacks = victim:GetModifierStackCount("modifier_chitinous_skin_stack", victim.InventoryUnit)
 		local reduction = 1 - stacks*0.01
 		damage = damage*reduction
-		local newStacks = stacks - 1
-		if newStacks > 0 then
-			victim:SetModifierStackCount("modifier_chitinous_skin_stack", victim.InventoryUnit, newStacks)
-		else
-			victim:RemoveModifierByName("modifier_chitinous_skin_stack")
+		if shouldConsumeShields then
+			local newStacks = stacks - 1
+			if newStacks > 0 then
+				victim:SetModifierStackCount("modifier_chitinous_skin_stack", victim.InventoryUnit, newStacks)
+			else
+				victim:RemoveModifierByName("modifier_chitinous_skin_stack")
+			end
 		end
 	end
 
