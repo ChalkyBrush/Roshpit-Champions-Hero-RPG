@@ -44687,10 +44687,6 @@
 						"EffectAlphaScale"			"1"
 					}
 				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "50"
-				}
 			}
 			"modifier_divine_purity"
 			{

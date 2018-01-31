@@ -45,7 +45,9 @@ function Tanari:Debug()
     -- for i = 1, 5, 1 do
     --     RPCItems:RollZhonikArcana2(Vector(-4928, 2048))
     -- end
+    RPCItems:RollBerserkerGloves(Vector(-4928, 2048))
     RPCItems:RollDirewolfBulkwark(Vector(-4928, 2048))
+    RPCItems:RollDjanghorArcana1(Vector(-4928, 2048))
     -- Arena = {}
     -- Arena.PitLevel = 7
     -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "djanghor")

@@ -828,8 +828,20 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 	    end
 	end
 	local decreaseAll = GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields)
-
 	return (damage/BASE_VALUE_FOR_CALCULATE)*decreaseAll
+end
+
+function GameState:IncomingDamageIncrease(victim, attacker, bReal, damagetype)
+	local BASE_VALUE_FOR_CALCULATE = 100000
+	local damage = BASE_VALUE_FOR_CALCULATE
+	if victim:HasModifier("modifier_berserker_gloves_buff_visible") then
+		local stacks = victim:GetModifierStackCount("modifier_berserker_gloves_buff_visible", victim.InventoryUnit)
+		damage = damage + damage*0.05*stacks
+	end
+	if victim:HasModifier("modifier_hand_azinoth") then
+		damage = damage*1.5
+	end
+	return damage/BASE_VALUE_FOR_CALCULATE
 end
 
 function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields)
@@ -857,6 +869,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		local reduction = 0.99^stacks
 		damage = damage*reduction
 	end
+
 	if victim:HasModifier("modifier_fuchsia_damage_resistance") then
 		damage = damage*0.15
 	end
@@ -2455,7 +2468,11 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_bahamut_rune_d_d_shell") then
 		filterTable["damage"] = 0
 	end
+	--INCREASE INCOMING--
+	local increaseIncoming = GameState:IncomingDamageIncrease(victim, attacker, true, damagetype)
+	filterTable["damage"] = filterTable["damage"]*increaseIncoming
 
+	--
 	if attacker:HasModifier("modifier_crystalline_slippers") then
 		if victim:IsRooted() then
 			filterTable["damage"] = filterTable["damage"] * 3

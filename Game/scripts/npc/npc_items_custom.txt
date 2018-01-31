@@ -3689,7 +3689,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%property_two"
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"%property_four"
 				}
 			}
 			"modifier_berserker_gloves_buff_invisible"

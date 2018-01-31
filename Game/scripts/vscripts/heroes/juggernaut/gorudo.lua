@@ -154,7 +154,7 @@ function gorudo_attack_start(event)
 	local ability = event.ability
 	local a_d_level = Runes:GetTotalRuneLevel(attacker, 1, "a_d", "monk")
 	if a_d_level > 0 then
-		apply_a_d(attacker, target, ability, a_d_level, 0)
+		apply_a_d(attacker, target, ability, a_d_level, attacker.d_c_level)
 	end
 end
 

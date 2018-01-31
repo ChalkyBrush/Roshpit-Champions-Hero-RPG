@@ -506,6 +506,9 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 	tableData.magic = (1 - GameState:IncomingDamageDecreaseWithType(unit, Events.GameMaster, false, DAMAGE_TYPE_MAGICAL))*100000
 	tableData.pure = (1 - GameState:IncomingDamageDecreaseWithType(unit, Events.GameMaster, false, DAMAGE_TYPE_PURE))*100000
 
+	tableData.phys = tableData.phys - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_PHYSICAL) - 1)*100000
+	tableData.magic = tableData.magic - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_MAGICAL) - 1)*100000
+	tableData.pure = tableData.pure - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_PURE) - 1)*100000
 	local level = unit:GetLevel()
 	if unit:IsHero() then
 		unit.d_a_level = Runes:GetTotalRuneLevelGeneric(unit, 4, 0)
