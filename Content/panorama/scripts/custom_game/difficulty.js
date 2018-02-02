@@ -59,5 +59,6 @@ function ServerConfirmed(msg){
 	GameEvents.Subscribe( "update_difficulty", UpdateDifficulty );
 	GameEvents.Subscribe( "process_key", KeyReceived );
 	GameEvents.Subscribe( "server_confirmed", ServerConfirmed )
+	ServerConfirmed(0);
 	UpdateDifficulty();
 })();

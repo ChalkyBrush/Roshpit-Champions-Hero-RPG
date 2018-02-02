@@ -249,7 +249,7 @@ function GameMode:OnAllPlayersLoaded()
   CustomNetTables:SetTableValue("hero_index", "taken_heroes", {} )
 
   Events:SpawnGamemaster(Vector(0,0))
-  SaveLoad:GetKey()
+  -- SaveLoad:GetKey()
   if GameState:IsWorld1() then
     -- Events:initializeTown()
     Timers:CreateTimer(1, function()

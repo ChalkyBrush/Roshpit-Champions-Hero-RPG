@@ -71,8 +71,7 @@ function Arena:UpdatePitLockout(hero)
 	end
 	url = url.."steam_id="..steamID
 	url = url.."&hero_id="..hero.roshpitID
-	url = url.."&key1="..SaveLoad.key1
-	url = url.."&key2="..SaveLoad.key2
+	url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
 	-- url = url.."&rank="..battleRank
 	-- url = url.."&score="..score
 	SaveLoad:NewKey()

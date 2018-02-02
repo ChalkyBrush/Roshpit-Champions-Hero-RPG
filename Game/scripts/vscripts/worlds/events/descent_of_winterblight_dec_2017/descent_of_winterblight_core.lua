@@ -3,8 +3,7 @@ function Events:GetWinterblightPositions()
 		Timers:CreateTimer(15, function()
 			if SaveLoad.key1 then
 				local url = ROSHPIT_URL.."/champions/winterblight_positions?"
-				url = url.."key1="..SaveLoad.key1
-				url = url.."&key2="..SaveLoad.key2
+				url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
 				CreateHTTPRequestScriptVM("POST", url ):Send( function( result )
 					if result.StatusCode == 200 then
 						local resultTable = JSON:decode(result.Body)
