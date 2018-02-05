@@ -97,8 +97,7 @@ function Arena:UpdatePitLevels()
 				local individualURL = url.."steam_id="..steamID
 				individualURL = individualURL.."&hero_id="..MAIN_HERO_TABLE[i].roshpitID
 				individualURL = individualURL.."&pit_level="..Arena.PitLevel
-				individualURL = individualURL.."&key1="..SaveLoad.key1
-				individualURL = individualURL.."&key2="..SaveLoad.key2
+				individualURL = individualURL.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
 				print(individualURL)
 				print(MAIN_HERO_TABLE[i])
 				if MAIN_HERO_TABLE[i].pit.pit_level < Arena.PitLevel then

@@ -51,7 +51,9 @@ function channel_complete(event)
 	ability:ApplyDataDrivenModifier(caster, hailstormThinker, "modifier_hailstorm_thinker", {duration = duration})
 	ability:ApplyDataDrivenModifier(caster, hailstormThinker, "modifier_hailstorm_thinker_enemy", {duration = duration})
 	ability:ApplyDataDrivenModifier(caster, hailstormThinker, "modifier_hailstorm_aura_friendly", {duration = duration})
-
+	if caster:HasModifier("modifier_mountain_protector_glyph_5_a") then
+		ability.cast_difference = (target - caster:GetAbsOrigin())*Vector(1,1,0)
+	end
 
 	StartSoundEvent("MountainProtector.HailstormLoop", hailstormThinker)
 end
@@ -72,6 +74,9 @@ function hailstorm_thinker_think(event)
 	local ability = event.ability
 	local caster = event.caster
 	local randomExplosionLocation = target:GetAbsOrigin() + RandomVector(RandomInt(0,700)) + Vector(0,0,20)
+	if caster:HasModifier("modifier_mountain_protector_glyph_5_a") and ability.cast_difference then
+		randomExplosionLocation = GetGroundPosition(caster:GetAbsOrigin()+ability.cast_difference + RandomVector(RandomInt(0,700)) + Vector(0,0,20), caster) 
+	end
 	local damage = event.damage + event.damage_from_strength * caster:GetStrength()
 	hailstorm_explosion(caster, randomExplosionLocation, damage, 1, 300, ability, true, 0)
 	-- if target:HasModifier("modifier_hailstorm_aura_friendly") then

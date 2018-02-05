@@ -119,6 +119,11 @@ function RPCItems:FootLegendary(itemVariant, deathLocation)
             RPCItems:RollGuardianGreaves(deathLocation)
             return true
         elseif luck == 2 then
+            local arcanaLuck = RandomInt(1, 980)
+            if arcanaLuck <= (2 + GameState:GetPlayerPremiumStatusCount()) then
+                RPCItems:RollMountainProtectorArcana3(deathLocation)
+                return true
+            end
             RPCItems:RollFireWalkers(deathLocation)
             return true
         elseif luck == 3 then

@@ -122,7 +122,12 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     if caster:HasModifier("modifier_autumnrock_bracer") then
         mult = mult + 0.001*(caster:GetHealth()/100)
     end
-
+    if caster:HasModifier("modifier_rockfall_passive") then
+        local a_c_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
+        if a_c_level > 0 then
+            mult = mult + 0.0001*((caster:GetMaxHealth()-caster:GetHealth())/1000)*a_c_level
+        end
+    end
     if caster:HasModifier("modifier_depth_crest_armor") then
         if victim and victim:IsStunned() then
             mult = mult + 0.004*(caster:GetStrength()/10)
@@ -1108,6 +1113,12 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
                 end
             end
         end
+        if attacker:HasModifier("modifier_rockfall_passive") then
+            local b_c_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 2)
+            if b_c_level > 0 then
+                damage = damage + attacker:GetStrength()*b_c_level
+            end
+        end
     end
 
     damage, element1, element2 = Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, element1, element2, true)
@@ -1191,7 +1202,14 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             local current_stack = attacker:GetModifierStackCount( "modifier_mountain_rune_d_c_effect", attacker.runeUnit4 )
             damageMult = damageMult + 0.2*current_stack
         end
-
+        if attacker:HasModifier("modifier_mountain_rune_d_c_effect") then
+            local current_stack = attacker:GetModifierStackCount( "modifier_mountain_rune_d_c_effect", attacker.runeUnit4 )
+            local multIncrease = 0.2
+            if attacker:HasModifier("modifier_rockfall_passive") then
+                multIncrease = 0.25
+            end
+            damageMult = damageMult + multIncrease*current_stack
+        end
         if attacker:HasModifier("modifier_infused_mageplate_stack") then
             local mageplateStacks = attacker:GetModifierStackCount("modifier_infused_mageplate_stack", attacker.body)
             damageMult = damageMult + mageplateStacks*0.05
@@ -1240,6 +1258,14 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_hawk_c_d") then
             local current_stack = attacker:GetModifierStackCount( "modifier_hawk_c_d", attacker)
             damageMult = damageMult + 0.08*current_stack
+        end
+        if attacker:HasModifier("modifier_rockfall_passive") then
+            if slot > 0 then
+                local a_c_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 2)
+                if a_c_level > 0 then
+                    damageMult = damageMult + 0.0001*((attacker:GetMaxHealth()-attacker:GetHealth())/1000)
+                end
+            end
         end
     end
 

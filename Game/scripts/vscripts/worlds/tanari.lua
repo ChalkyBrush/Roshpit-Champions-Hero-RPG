@@ -43,11 +43,13 @@ function Tanari:Debug()
     RPCItems:DropItem(item, Vector(-4928, 2048))
     -- Dungeons.itemLevel = 300
     -- for i = 1, 5, 1 do
-    --     RPCItems:RollZhonikArcana2(Vector(-4928, 2048))
+    --     RPCItems:RollMountainProtectorArcana3(Vector(-4928, 2048))
     -- end
-    RPCItems:RollBerserkerGloves(Vector(-4928, 2048))
-    RPCItems:RollDirewolfBulkwark(Vector(-4928, 2048))
-    RPCItems:RollDjanghorArcana1(Vector(-4928, 2048))
+    -- RPCItems:RollBerserkerGloves(Vector(-4928, 2048))
+    -- RPCItems:RollDirewolfBulkwark(Vector(-4928, 2048))
+    -- RPCItems:RollDjanghorArcana1(Vector(-4928, 2048))
+    RPCItems:RollMountainProtectorArcana3(Vector(-4928, 2048))
+    RPCItems:RollDunetreadBoots(Vector(-4928, 2048))
     -- Arena = {}
     -- Arena.PitLevel = 7
     -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "djanghor")
@@ -63,7 +65,7 @@ function Tanari:Debug()
     -- RPCItems:RollAxeArcana1(Vector(-4928, 2048))
 
     -- RPCItems:RollBahamutArcana2(Vector(-4928, 2048))
-    -- Glyphs:RollGlyphAll("item_rpc_solunia_glyph_5_a", Vector(-4928, 2048), 0)
+    Glyphs:RollGlyphAll("item_rpc_mountain_protector_glyph_5_a", Vector(-4928, 2048), 0)
 
     -- Curator:CurateArcanaAbilities(MAIN_HERO_TABLE[1])
     -- Curator:CurateAllGlyphsForHeroWithTiers("neutral", 3)
@@ -212,7 +214,7 @@ function Tanari:Debug()
     -- RPCItems:RollTrapperArcana1(Vector(-4928, 2048))
 
             ---------MAX CURATION----------
-    -- Curator:FullCurateHero(MAIN_HERO_TABLE[1])
+    Curator:FullCurateHero(MAIN_HERO_TABLE[1])
 
     -- Curator:CurateHero(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
 

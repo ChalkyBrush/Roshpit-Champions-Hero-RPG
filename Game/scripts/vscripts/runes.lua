@@ -774,6 +774,8 @@ function Runes:EquipArcana(hero, index)
 		elseif index == 2 then
 			-- Events:ColorWearables(hero, Vector(0, 0, 255))
 			Runes:EasySwapArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "mountain_protector_aeon_fracture", "mountain_protector_hailstorm", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+		elseif index == 3 then
+			Runes:EasySwapArcanaSkills(hero, 2, "mountain_protector_emberstone", "mountain_protector_rockfall", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana3")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_zuus" then
 		if index == 1 then
@@ -1313,6 +1315,16 @@ function Runes:UnequipArcana(hero, index)
 			-- Events:ColorWearables(hero, Vector(255, 255, 255))
 			hero:RemoveModifierByName("modifier_hailstorm_passive")
 			Runes:EasyRevertArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "mountain_protector_aeon_fracture", "mountain_protector_hailstorm", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+		elseif index == 3 then
+			hero:RemoveModifierByName("modifier_rockfall_passive")
+			local abilityCheck = hero:GetAbilityByIndex(2)
+			if abilityCheck:GetAbilityName() == "mountain_protector_volcanic_glissade" then 
+				CustomAbilities:AddAndOrSwapSkill(hero, "mountain_protector_volcanic_glissade", "mountain_protector_rockfall", 2)
+			end
+			if hero:HasAbility("mountain_protector_volcanic_glissade") then
+				hero:RemoveAbility("mountain_protector_volcanic_glissade")
+			end
+			Runes:EasyRevertArcanaSkills(hero, 2, "mountain_protector_emberstone", "mountain_protector_rockfall", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana3")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_zuus" then
 		if index == 1 then

@@ -54,6 +54,9 @@ function channel_complete(event)
 	for i = 1, explosionCount, 1 do
 		Timers:CreateTimer(i*0.3, function()
 			local randomExplosionLocation = target + RandomVector(RandomInt(0,500)) + Vector(0,0,20)
+			if caster:HasModifier("modifier_mountain_protector_glyph_5_a") and ability.cast_difference then
+				randomExplosionLocation = GetGroundPosition(caster:GetAbsOrigin()+ability.cast_difference + RandomVector(RandomInt(0,700)) + Vector(0,0,20), caster) 
+			end
 			aeon_fracture_explosion(caster, randomExplosionLocation, damage, 1, explosionAOE, ability, true, 0)
 		end)
 	end
@@ -61,6 +64,9 @@ function channel_complete(event)
 	if ability.c_d_level > 0 then
 		ability.burnCenter = target
 		ability:ApplyDataDrivenThinker(caster, GetGroundPosition(target, caster)+Vector(0,0,50), "modifier_protector_c_d_scorched_earth", {duration = explosionCount*0.3})
+	end
+	if caster:HasModifier("modifier_mountain_protector_glyph_5_a") then
+		ability.cast_difference = (target - caster:GetAbsOrigin())*Vector(1,1,0)
 	end
 end
 

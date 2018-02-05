@@ -543,6 +543,45 @@ function RPCItems:RollMountainProtectorArcana2(deathLocation)
     return item
 end
 
+function RPCItems:RollMountainProtectorArcana3(deathLocation)
+    local item = RPCItems:CreateVariantArcana("item_rpc_mountain_protector_arcana3", "arcana", "Mountain Protector Arcana 3", "feet", true, "Slot: Feet", "npc_dota_hero_legion_commander", 0)
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.property1 = 1
+    item.property1name = "!arcana!_mountain_protector_arcana3"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_mountain_protector_arcana3", "#42F450",  1, "#property_mountain_protector_arcana3_description")
+
+
+    item.hasRunePoints = true
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+    
+    local luck = RandomInt(1, 100)
+    if luck <= 35 then
+        item.property2name = "rune_a_c"
+        item.property2 = math.ceil(value*1.5)
+    elseif luck <= 70 then
+        item.property2name = "rune_b_c"
+        item.property2 = math.ceil(value*1.5)       
+    elseif luck <= 90 then
+        item.property2name = "rune_c_c"
+        item.property2 = math.ceil(value*1.2) 
+    else
+        item.property2name = "rune_d_c"
+        item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(11, 16), 0, 0, 0, 0)
+    end
+    RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
+
+
+    local value, prefixLevel = RPCItems:RollAttribute(100, 5, 32, 0, 0, item.rarity, false, maxFactor*32)
+    item.property3 = value
+    item.property3name = "agility"
+    RPCItems:SetPropertyValues(item, item.property3, "#item_agility", "#2EB82E",  3)
+
+    RPCItems:RollFootProperty4(item, 0)
+
+    RPCItems:DropOrGiveItem(hero, item, false, deathLocation)
+    return item
+end
+
 function RPCItems:RollVenomortArcana1(deathLocation)
     --VENOM REAPER ROBES
     local item = RPCItems:CreateVariantArcana("item_rpc_venomort_arcana1", "arcana", "Venomort Arcana 1", "body", true, "Slot: Body", "npc_dota_hero_necrolyte", 0)
@@ -1477,6 +1516,7 @@ function RPCItems:GetAvailableArcanaData(hero)
     elseif unitName == "npc_dota_hero_legion_commander" then
         table.insert(arcanaData, {1, 1})
         table.insert(arcanaData, {2, 3})
+        table.insert(arcanaData, {3, 2})
     elseif unitName == "npc_dota_hero_night_stalker" then
         table.insert(arcanaData, {1, 3})
     elseif unitName == "npc_dota_hero_slardar" then

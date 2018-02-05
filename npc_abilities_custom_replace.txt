@@ -37,3 +37,5 @@ DUSKBRINGER_RUNES:heroes\spirit_breaker\npc\runes.txt
 SLIPFINN_ABILITIES:heroes\slark\npc\npc_slipfinn_abilities.txt
 
 ZHONIK_ARCANA:heroes\dark_seer\npc\zhonik_arcana.txt
+
+MOUNTAIN_PROTECTOR_ARCANA:heroes\legion_commander\npc\mountain_protector_arcana_abilities.txt

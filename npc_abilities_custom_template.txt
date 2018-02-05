@@ -19807,7 +19807,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"OnTakeDamage"
-				// "%attack_damage" is set to the damage value after mitigation
 				{
 					"RunScript"
 					{
@@ -50834,6 +50833,9 @@
 			}
 		}
 	}
+
+	##MOUNTAIN_PROTECTOR_ARCANA##
+
 	//CHERONOBOG RUNES
 
 	"chernobog_rune_a_a"

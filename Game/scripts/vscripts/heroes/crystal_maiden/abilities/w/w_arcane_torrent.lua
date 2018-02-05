@@ -27,7 +27,7 @@ function calculateDamage(event)
 
     ability.manacost = event.mana_drain/5
     if caster:HasModifier("modifier_sorceress_glyph_7_2") then
-        arcane_explosion_damage = damage * T72_DAMAGE_AMPLIFY
+        arcane_explosion_damage = arcane_explosion_damage * T72_DAMAGE_AMPLIFY
         ability.manacost = ability.manacost + caster:GetMaxMana() * T72_MANA_DRAIN_PERCENT/100
     end
     ability.damage = arcane_explosion_damage * T51_AMPLIFY

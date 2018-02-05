@@ -41,7 +41,7 @@ CustomAttributes.SEINARU_WEAPON_3_STR = 60
 
 CustomAttributes.NEUTRAL_GLYPH_1 = 500
 CustomAttributes.NEUTRAL_GLYPH_7 = 3500
-CustomAttributes.MOUNTAIN_PROTECTOR_GLYPH_5_A = 8000
+CustomAttributes.MOUNTAIN_PROTECTOR_GLYPH_5_A = 5000
 
 
 function CDOTA_BaseNPC_Hero:GetStrength()
