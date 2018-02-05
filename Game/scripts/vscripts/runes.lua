@@ -1324,6 +1324,8 @@ function Runes:UnequipArcana(hero, index)
 			if hero:HasAbility("mountain_protector_volcanic_glissade") then
 				hero:RemoveAbility("mountain_protector_volcanic_glissade")
 			end
+			hero:RemoveModifierByName("modifier_mountain_rune_d_c_effect")
+			hero:RemoveModifierByName("modifier_glissade_freecast")
 			Runes:EasyRevertArcanaSkills(hero, 2, "mountain_protector_emberstone", "mountain_protector_rockfall", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana3")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_zuus" then

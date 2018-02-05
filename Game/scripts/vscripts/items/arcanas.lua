@@ -548,7 +548,7 @@ function RPCItems:RollMountainProtectorArcana3(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     item.property1 = 1
     item.property1name = "!arcana!_mountain_protector_arcana3"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_mountain_protector_arcana3", "#42F450",  1, "#property_mountain_protector_arcana3_description")
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_mountain_protector_arcana3", "#C45E38",  1, "#property_mountain_protector_arcana3_description")
 
 
     item.hasRunePoints = true

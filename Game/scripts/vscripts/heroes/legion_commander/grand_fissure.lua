@@ -47,6 +47,9 @@ function channel_complete(event)
 	-- 		end) 
 	-- 	end)
 	-- end
+	if caster:HasModifier("modifier_mountain_protector_glyph_5_a") then
+		ability.cast_difference = (target - caster:GetAbsOrigin())*Vector(1,1,0)
+	end
 	local explosionCount = event.numExplosions
 	if caster:HasModifier("modifier_mountain_protector_glyph_3_1") then
 		explosionCount = explosionCount + 6
@@ -63,11 +66,18 @@ function channel_complete(event)
 	ability.c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "mountain_protector")
 	if ability.c_d_level > 0 then
 		ability.burnCenter = target
-		ability:ApplyDataDrivenThinker(caster, GetGroundPosition(target, caster)+Vector(0,0,50), "modifier_protector_c_d_scorched_earth", {duration = explosionCount*0.3})
+		if caster:HasModifier("modifier_mountain_protector_glyph_5_a") and ability.cast_difference then
+			for i = 1, explosionCount, 1 do
+				Timers:CreateTimer(i*0.3, function()
+					print("SHORT BURN")
+					ability:ApplyDataDrivenThinker(caster, GetGroundPosition(caster:GetAbsOrigin()+ability.cast_difference, caster)+Vector(0,0,50), "modifier_protector_c_d_scorched_earth", {duration = 1.5})
+				end)
+			end
+		else
+			ability:ApplyDataDrivenThinker(caster, GetGroundPosition(target, caster)+Vector(0,0,50), "modifier_protector_c_d_scorched_earth", {duration = 0.3*explosionCount})
+		end
 	end
-	if caster:HasModifier("modifier_mountain_protector_glyph_5_a") then
-		ability.cast_difference = (target - caster:GetAbsOrigin())*Vector(1,1,0)
-	end
+
 end
 
 function c_d_thinker_take_damage(event)

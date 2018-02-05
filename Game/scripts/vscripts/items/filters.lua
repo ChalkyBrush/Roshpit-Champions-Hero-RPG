@@ -1263,7 +1263,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             if slot > 0 then
                 local a_c_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 2)
                 if a_c_level > 0 then
-                    damageMult = damageMult + 0.0001*((attacker:GetMaxHealth()-attacker:GetHealth())/1000)
+                    damageMult = damageMult + 0.0001*((attacker:GetMaxHealth()-attacker:GetHealth())/1000)*a_c_level
                 end
             end
         end
@@ -1751,7 +1751,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 mult = mult + stacks*0.06
             end
             if attacker.d_c_level then
-                mult = mult + 0.0006*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_c_level
+                mult = mult + 0.0005*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_c_level
             end
         elseif unitName == "npc_dota_hero_invoker" then
             if attacker.d_a_level then
@@ -1998,7 +1998,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 mult = mult + stacks*0.06
             end
             if attacker.d_c_level then
-                mult = mult + 0.0006*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_c_level
+                mult = mult + 0.0005*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_c_level
             end
         elseif unitName == "npc_dota_hero_legion_commander" then
             if attacker:HasAbility("mountain_protector_hailstorm") then
@@ -2039,7 +2039,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if victim:HasModifier("modifier_sorceress_rune_b_b_invisible") then
             local modifier = victim:FindModifierByName("modifier_sorceress_rune_b_b_invisible")
-            local multIncrease = modifier:GetStackCount()*0.03
+            local multIncrease = modifier:GetStackCount()*0.05
             mult = mult + multIncrease
         end
         if victim:HasModifier("modifier_storm_weapon_b_b_invisible") then

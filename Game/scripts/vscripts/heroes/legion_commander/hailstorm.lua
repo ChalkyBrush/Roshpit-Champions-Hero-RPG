@@ -54,6 +54,7 @@ function channel_complete(event)
 	if caster:HasModifier("modifier_mountain_protector_glyph_5_a") then
 		ability.cast_difference = (target - caster:GetAbsOrigin())*Vector(1,1,0)
 	end
+	ability.hailstormThinker = hailstormThinker
 
 	StartSoundEvent("MountainProtector.HailstormLoop", hailstormThinker)
 end
@@ -76,6 +77,8 @@ function hailstorm_thinker_think(event)
 	local randomExplosionLocation = target:GetAbsOrigin() + RandomVector(RandomInt(0,700)) + Vector(0,0,20)
 	if caster:HasModifier("modifier_mountain_protector_glyph_5_a") and ability.cast_difference then
 		randomExplosionLocation = GetGroundPosition(caster:GetAbsOrigin()+ability.cast_difference + RandomVector(RandomInt(0,700)) + Vector(0,0,20), caster) 
+		ability.hailstormThinker:SetAbsOrigin(caster:GetAbsOrigin()+ability.cast_difference)
+		ParticleManager:SetParticleControl(ability.hailstormThinker.pfx, 0, ability.hailstormThinker:GetAbsOrigin())
 	end
 	local damage = event.damage + event.damage_from_strength * caster:GetStrength()
 	hailstorm_explosion(caster, randomExplosionLocation, damage, 1, 300, ability, true, 0)
