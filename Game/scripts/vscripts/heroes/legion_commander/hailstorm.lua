@@ -41,7 +41,7 @@ function channel_complete(event)
 
 	local hailstormThinker = CreateUnitByName("npc_dummy_unit", target, false, nil, nil, caster:GetTeamNumber())
 	hailstormThinker:FindAbilityByName("dummy_unit"):SetLevel(1)
-	hailstormThinker.pfx = ParticleManager:CreateParticle("particles/roshpit/mountain_protector/hailstorm_base_snow_arcana1.vpcf", PATTACH_CUSTOMORIGIN, hailstormThinker)
+	hailstormThinker.pfx = ParticleManager:CreateParticle("particles/roshpit/mountain_protector/hailstorm_base_snow_arcana1.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(hailstormThinker.pfx, 0, hailstormThinker:GetAbsOrigin())
 
 	local duration = 14
@@ -78,6 +78,9 @@ function hailstorm_thinker_think(event)
 	if caster:HasModifier("modifier_mountain_protector_glyph_5_a") and ability.cast_difference then
 		randomExplosionLocation = GetGroundPosition(caster:GetAbsOrigin()+ability.cast_difference + RandomVector(RandomInt(0,700)) + Vector(0,0,20), caster) 
 		ability.hailstormThinker:SetAbsOrigin(caster:GetAbsOrigin()+ability.cast_difference)
+		ParticleManager:DestroyParticle(ability.hailstormThinker.pfx, false)
+		ParticleManager:ReleaseParticleIndex(ability.hailstormThinker.pfx)
+		ability.hailstormThinker.pfx = ParticleManager:CreateParticle("particles/roshpit/mountain_protector/hailstorm_base_snow_arcana1.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(ability.hailstormThinker.pfx, 0, ability.hailstormThinker:GetAbsOrigin())
 	end
 	local damage = event.damage + event.damage_from_strength * caster:GetStrength()

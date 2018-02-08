@@ -64537,7 +64537,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"6.0"
+				"property_one"			"9.0"
 			}
 		}
 	}

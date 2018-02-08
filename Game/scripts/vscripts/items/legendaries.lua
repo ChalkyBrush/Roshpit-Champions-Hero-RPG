@@ -462,6 +462,34 @@ function RPCItems:RollMalachiteShadeBracer(deathLocation)
     return item
 end
 
+function RPCItems:RollHeavyEchoGauntlet(deathLocation)
+    local item = RPCItems:CreateVariant("item_rpc_heavy_echo_gauntlet", "immortal", "Heavy Echo Gauntlet", "hands", true, "Slot: Hands")
+
+    item.property1 = 1
+    item.property1name = "heavy_echo"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_heavy_echo", "#CE3350",  1, "#property_heavy_echo_description")
+
+    local maxFactor = RPCItems:GetMaxFactor()
+    local value, nameLevel = RPCItems:RollAttribute(0, 4, 20, 0, 0, item.rarity, false, maxFactor*24)
+    item.property2 = value
+    item.property2name = "strength"
+    RPCItems:SetPropertyValues(item, item.property2, "#item_strength", "#CC0000",  2)
+    local luck = RandomInt(1,4)
+    if luck == 4 then
+        local value, nameLevel = RPCItems:RollAttribute(0, 2, 12, 0, 0, item.rarity, false, maxFactor*14)
+        item.property3 = value
+        item.property3name = "armor"
+        RPCItems:SetPropertyValues(item, item.property3, "#item_armor", "#D1D1D1",  3)
+    else
+        RPCItems:RollHandProperty3(item, 0)
+    end
+    RPCItems:RollHandProperty4(item, 0)
+    local drop = CreateItemOnPositionSync( deathLocation, item )
+    local position = deathLocation
+    RPCItems:DropItem(item, position)
+    return item
+end
+
 function RPCItems:RollBoneguardGauntlets(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_boneguard_gauntlets", "immortal", "Boneguard Gauntlets", "hands", true, "Slot: Hands")
 
@@ -8024,6 +8052,8 @@ function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, sl
         newItem = RPCItems:RollSkulldiggerGloves(deathLocation)
     elseif itemName == "item_rpc_winterblight_skull_ring" then
         newItem = RPCItems:RollWinterblightSkullRing(deathLocation)
+    elseif itemName == "item_rpc_heavy_echo_gauntlet" then
+        newItem = RPCItems:RollHeavyEchoGauntlet(deathLocation)
     else
         newItem = false
         giveBackOldItem = true
@@ -8173,7 +8203,7 @@ function RPCItems:GetSoulBankableItemsList()
 "item_rpc_aquasteel_bracers", "item_rpc_demonfire_gauntlet", "item_rpc_emerald_speed_runners", "item_rpc_outland_stone_cuirass", "item_rpc_world_trees_flower_cache", "item_rpc_red_october_boots",
 "item_rpc_armor_of_atlantis", "item_rpc_chitinous_lobster_claw", "item_rpc_crystalline_slippers", "item_rpc_dark_emissary_glove", "item_rpc_dark_reef_shark_helmet", "item_rpc_depth_demon_claw", "item_rpc_empyreal_sunrise_robe",
 "item_rpc_hood_of_the_sea_oracle", "item_rpc_ocean_helm_of_valdun", "item_rpc_oceanrunner_boots", "item_rpc_sea_giants_plate", "item_rpc_sparkling_token_of_oceanis", "item_rpc_templar_light_seers_robe",
-"item_rpc_twisted_blue_mask_of_ahnqhir", "item_rpc_twisted_yellow_mask_of_ahnqhir", "item_rpc_twisted_purple_mask_of_ahnqhir", "item_rpc_new_boots"}
+"item_rpc_twisted_blue_mask_of_ahnqhir", "item_rpc_twisted_yellow_mask_of_ahnqhir", "item_rpc_twisted_purple_mask_of_ahnqhir", "item_rpc_new_boots", "item_rpc_heavy_echo_gauntlet"}
 
     return itemsList
 end

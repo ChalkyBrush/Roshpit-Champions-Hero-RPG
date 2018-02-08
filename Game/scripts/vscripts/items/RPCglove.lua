@@ -127,7 +127,7 @@ function RPCItems:HandLegendary(itemVariant, deathLocation)
             return true
         end
     elseif itemVariant == "item_rpc_gauntlets" then
-        local luck = RandomInt(1, 10)
+        local luck = RandomInt(1, 11)
         if luck == 1 then
             RPCItems:RollFrostburnGauntlets(deathLocation)
             return true
@@ -172,6 +172,9 @@ function RPCItems:HandLegendary(itemVariant, deathLocation)
                 return true
             end
             RPCItems:RollGloveOfTheForgottenGhost(deathLocation)
+            return true
+        elseif luck == 11 then
+            RPCItems:RollHeavyEchoGauntlet(deathLocation)
             return true
         end
     end
@@ -337,7 +340,7 @@ function RPCItems:RollHandProperty2(item, xpBounty)
         RPCItems:SetPropertyValues(item, item.property2, "#item_attack_speed", "#B02020",  2)
     elseif luck >= 60 and luck < 70 then
     	local bonus = 0
-        value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 8+bonus, 0, 0, item.rarity, false, maxFactor*32)
+        value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 8+bonus, 0, 0, item.rarity, false, maxFactor*100)
         item.property2 = value
         item.property2name = "cooldown_reduction"
         prefix = PREFIX_COOLDOWN_REDUCE_TABLE[prefixLevel]
@@ -408,7 +411,7 @@ function RPCItems:RollHandProperty3(item, xpBounty)
         item.property3name = "attack_speed"
         RPCItems:SetPropertyValues(item, item.property3, "#item_attack_speed", "#B02020",  3)
     elseif luck >= 60 and luck < 70 then
-        value, nameLevel = RPCItems:RollAttribute(xpBounty, 1, 10, 0, 0, item.rarity, false, maxFactor*42)
+        value, nameLevel = RPCItems:RollAttribute(xpBounty, 10, 150, 0, 0, item.rarity, false, maxFactor*300)
         item.property3 = value
         item.property3name = "cooldown_reduction"
         RPCItems:SetPropertyValues(item, item.property3, "#item_bonus_attack_damage", "#343EC9",  3)   
@@ -476,7 +479,7 @@ function RPCItems:RollHandProperty4(item, xpBounty)
         item.property4name = "attack_speed"
         RPCItems:SetPropertyValues(item, item.property4, "#item_attack_speed", "#B02020", 4)
     elseif luck >= 60 and luck < 70 then
-        value, nameLevel = RPCItems:RollAttribute(xpBounty, 1, 8, 0, 0, item.rarity, false, maxFactor*44)
+        value, nameLevel = RPCItems:RollAttribute(xpBounty, 10, 300, 0, 0, item.rarity, false, maxFactor*500)
         item.property4 = value
         item.property4name = "cooldown_reduction"
         RPCItems:SetPropertyValues(item, item.property4, "#item_bonus_attack_damage", "#343EC9", 4)   

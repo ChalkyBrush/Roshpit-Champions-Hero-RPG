@@ -1119,6 +1119,14 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
                 damage = damage + attacker:GetStrength()*b_c_level
             end
         end
+        if attacker:HasModifier("modifier_heavy_echo_gauntlet") then
+            if not victim.echoLock then
+                victim.echoLock = true
+                Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, slot, element1, element2, ignore_effects)
+                Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, slot, element1, element2, ignore_effects)
+                victim.echoLock = false
+            end
+        end
     end
 
     damage, element1, element2 = Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, element1, element2, true)
@@ -1197,10 +1205,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
 
         if attacker:HasModifier("modifier_venomort_glyph_4_1") then
             damageMult = damageMult + 2
-        end
-        if attacker:HasModifier("modifier_mountain_rune_d_c_effect") then
-            local current_stack = attacker:GetModifierStackCount( "modifier_mountain_rune_d_c_effect", attacker.runeUnit4 )
-            damageMult = damageMult + 0.2*current_stack
         end
         if attacker:HasModifier("modifier_mountain_rune_d_c_effect") then
             local current_stack = attacker:GetModifierStackCount( "modifier_mountain_rune_d_c_effect", attacker.runeUnit4 )

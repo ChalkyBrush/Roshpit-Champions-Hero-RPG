@@ -48,8 +48,10 @@ function Tanari:Debug()
     -- RPCItems:RollBerserkerGloves(Vector(-4928, 2048))
     -- RPCItems:RollDirewolfBulkwark(Vector(-4928, 2048))
     -- RPCItems:RollDjanghorArcana1(Vector(-4928, 2048))
-    RPCItems:RollMountainProtectorArcana3(Vector(-4928, 2048))
-    RPCItems:RollDunetreadBoots(Vector(-4928, 2048))
+    RPCItems:RollHeavyEchoGauntlet(Vector(-4928, 2048))
+    -- RPCItems:RollMountainProtectorArcana2(Vector(-4928, 2048))
+    -- RPCItems:RollMountainProtectorArcana3(Vector(-4928, 2048))
+    -- RPCItems:RollDunetreadBoots(Vector(-4928, 2048))
     -- Arena = {}
     -- Arena.PitLevel = 7
     -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "djanghor")

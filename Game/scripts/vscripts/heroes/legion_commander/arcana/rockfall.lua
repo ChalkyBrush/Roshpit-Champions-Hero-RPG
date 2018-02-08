@@ -86,16 +86,34 @@ function volcanic_glissade(event)
 	ability.beamPFX = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(ability.beamPFX, 0, caster:GetAbsOrigin()+Vector(0,0,90))
 	Filters:CastSkillArguments(3, caster)
+	local glyphFreeCast = false
+    if caster:HasModifier("modifier_mountain_protector_glyph_5_1") then
+    	local luck = RandomInt(1,2)
+    	if luck == 1 then
+    		glyphFreeCast = true
+    	end
+    end
 	if caster:HasModifier("modifier_glissade_freecast") then
-		local newStacks = caster:GetModifierStackCount("modifier_glissade_freecast", caster) - 1
-		if newStacks > 0 then
-			caster:SetModifierStackCount("modifier_glissade_freecast", caster, newStacks)
-		else
-			caster:RemoveModifierByName("modifier_glissade_freecast")
+		if not glyphFreeCast then
+			local newStacks = caster:GetModifierStackCount("modifier_glissade_freecast", caster) - 1
+			if newStacks > 0 then
+				caster:SetModifierStackCount("modifier_glissade_freecast", caster, newStacks)
+			else
+				caster:RemoveModifierByName("modifier_glissade_freecast")
+			end
 		end
 		ability:EndCooldown()
 	else
-		CustomAbilities:AddAndOrSwapSkill(caster, "mountain_protector_volcanic_glissade", "mountain_protector_rockfall", 2)
+		if not glyphFreeCast then
+		    if caster:HasModifier("modifier_mountain_protector_immortal_weapon_3") then
+		        local CD = ability:GetCooldownTimeRemaining()*0.35
+		        ability:EndCooldown()
+		        ability:StartCooldown(CD)
+		    end
+			CustomAbilities:AddAndOrSwapSkill(caster, "mountain_protector_volcanic_glissade", "mountain_protector_rockfall", 2)
+		else
+			ability:EndCooldown()
+		end
 	end
 end
 
