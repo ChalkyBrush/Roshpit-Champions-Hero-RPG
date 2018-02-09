@@ -39522,12 +39522,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"700"
+				"property_two"			"500"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_three"		"30"
+				"property_three"		"20"
 			}
 		}
 	}

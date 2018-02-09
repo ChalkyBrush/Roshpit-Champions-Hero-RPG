@@ -869,7 +869,15 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		local reduction = 0.99^stacks
 		damage = damage*reduction
 	end
-
+	if victim:HasModifier("modifier_earth_guardian") then
+		if attacker:GetEntityIndex() == victim:GetEntityIndex() then
+		else
+			if shouldConsumeShields then
+				Filters:EarthGuardian(victim, filterTable["damage"])
+			end
+			damage = damage*0.5
+		end
+	end
 	if victim:HasModifier("modifier_fuchsia_damage_resistance") then
 		damage = damage*0.15
 	end
@@ -1461,10 +1469,7 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + multIncrease
 		end
 	end
-	if victim:HasModifier("modifier_earth_guardian") then
-		Filters:EarthGuardian(victim, filterTable["damage"])
-		filterTable["damage"] = filterTable["damage"]*0.5
-	end
+
 	if victim:HasModifier("modifier_warlord_b_d_effect") then
 		modifier = victim:FindModifierByName("modifier_warlord_b_d_effect")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then

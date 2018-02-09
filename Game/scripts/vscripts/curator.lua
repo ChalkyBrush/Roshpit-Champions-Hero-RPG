@@ -495,6 +495,8 @@ function Curator:FinishGettingClientData(msg)
 	url = url.."&propertySpecial4="..property4special
 	url = url.."&propertySpecialLocalized4="..property4specialLocalized
 	url = url.."&propertyValue4="..property4value
+
+	url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
 	print(url)
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 		if result.StatusCode == 200 then

@@ -117313,17 +117313,17 @@
 		"MaxLevel"	"1"
 		"Modifiers"
 		{
-			"modifier_cave_shroom_ai"
+			"modifier_ice_beast_ai"
 			{
-				"Passive"	"0"
+				"Passive"	"1"
 				"IsHidden"	"1"
 				"ThinkInterval"  "0.4"
 				"OnIntervalThink"
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"ai/grizzly_falls/grizzly_falls.lua"
-						"Function"		"grizzly_cave_shroom_think"
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"beetle_underground_think"
 					}
 				}
 				"States"
@@ -117615,6 +117615,66 @@
 				}
         	}
         }
+	}
+
+	"mountain_critter_ai"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"earthshaker_echo_slam"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"duration"			"1 2 3"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_mountain_bully_ai"
+			{
+				"Passive"	"1"
+				"ThinkInterval"  "4.5"
+				"OnIntervalThink"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_mountain_bully_haste"
+						"Target" 		"TARGET"
+						"Duration"		"%duration"
+					}
+				}
+				"OnDeath"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Winterblight.MountainCritter.Death"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_mountain_bully_haste"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"					"TARGET"
+						"EffectName"				"particles/generic_gameplay/rune_haste_owner.vpcf"
+						"EffectAttachType"			"attach_hitloc"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "200"
+				}
+			}
+		}
+
 	}
 	//SEA FORTRESS
 

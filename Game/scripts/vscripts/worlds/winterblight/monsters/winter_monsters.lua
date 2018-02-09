@@ -343,7 +343,10 @@ function mountain_assassin_init(event)
 	local ability = event.ability
 	if caster:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
 		local chargeBlast = caster:FindAbilityByName("assassin_charge_blast")
-		chargeBlast:StartCooldown(8)
+		chargeBlast:StartCooldown(7)
+		if GameState:GetDifficultyFactor() == 1 then
+			caster:RemoveAbility("assassin_charge_blast")
+		end
 	end
 end
 
@@ -441,5 +444,36 @@ function mystic_wave_casting_think(event)
 			local fv = ((caster.lockOnTarget:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 			caster:SetForwardVector(fv)
 		end
+	end
+end
+
+function beetle_underground_think(event)
+	local caster = event.caster
+	if caster.aggro then
+	    local particleName = "particles/roshpit/winterblight/snow_impact.vpcf"
+	    local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, event.caster)
+	    ParticleManager:SetParticleControl(particle1,0,caster:GetAbsOrigin())
+	    Timers:CreateTimer(1, function()
+	    	ParticleManager:DestroyParticle( particle1, false )
+	    end)
+      	Timers:CreateTimer(0.03, function()
+      		EmitSoundOn("Winterblight.MountainBeetle.Unburrow", caster)
+      	end)
+      	caster:RemoveModifierByName("modifier_ice_beast_ai")
+		caster:RemoveModifierByName("modifier_cave_shroom_ai")
+		StartAnimation(caster, {duration=1, activity=ACT_DOTA_SPAWN, rate=1})
+		local ability = event.ability
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_shroom_jumping", {duration = 0.74})
+		local position = caster:GetAbsOrigin()
+		caster.liftVelocity = 21
+		for i = 1, 28, 1 do
+			Timers:CreateTimer(0.03*i, function()
+				caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,caster.liftVelocity))
+				caster.liftVelocity = caster.liftVelocity - 1.5
+			end)
+		end
+		Timers:CreateTimer(0.84, function()
+			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+		end)
 	end
 end

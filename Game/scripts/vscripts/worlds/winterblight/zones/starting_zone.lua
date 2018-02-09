@@ -54,6 +54,24 @@ function Winterblight:SpawnAssassin(position, fv)
 	return stone
 end
 
+function Winterblight:SpawnMountainCritter(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("aggressive_monster", position, 1, 1, "Winterblight.MountainCritter.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 1, 2, false)
+	stone.itemLevel = 18
+	stone:SetRenderColor(170, 200, 255)
+	return stone
+end
+
+function Winterblight:SpawnMountainBeetle(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("ice_beetle", position, 1, 1, "Winterblight.MountainBeetle.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 1, 2, false)
+	stone.itemLevel = 22
+	stone:SetRenderColor(170, 200, 255)
+	stone:SetAbsOrigin(stone:GetAbsOrigin()-Vector(0,0,40))
+	return stone
+end
+
+
 function Winterblight:FirstSpawns()
 	local luck = RandomInt(1,3)
 	if luck == 1 then
