@@ -271,6 +271,8 @@ function aspect_think(event)
 				end
 			end
 		end
+		local baseAbility = caster.conjuror:FindAbilityByName("summon_earth_aspect")
+		baseAbility:ApplyDataDrivenModifier(caster, caster.conjuror, "modifier_earth_guardian", {})
 	end
 	if event.caster:GetUnitName() == "fire_aspect" then
 		local position = conjurorPosition + rotateVector(caster.conjuror:GetForwardVector(),-math.pi/2)*300 + RandomVector(RandomInt(0, 80))

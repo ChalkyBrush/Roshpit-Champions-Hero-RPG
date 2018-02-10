@@ -32,7 +32,7 @@ function SetMapImage(){
 	}
 	if(mapName === "tanari"){
 		$.Msg("SET IMAGE TANARI!!")
-		$('#seq_bg').SetImage("file://{images}/custom_game/loading_screen/tanari_load.jpg")
+		$('#seq_bg').SetImage("file://{images}/custom_game/loading_screen/tanari_jungle.jpg")
 		status = 1
 	}
 	if(mapName === "redfall"){

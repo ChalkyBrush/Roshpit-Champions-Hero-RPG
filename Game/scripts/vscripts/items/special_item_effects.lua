@@ -996,7 +996,7 @@ function gunslingerProjectile(caster, bInitial, slingerAbility, enemies, enemyIn
 	  	slingerAbility:SetLevel(1)
 	  	dummy:AddAbility("dummy_unit")
 	  	dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
-	  	slingerAbility.enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	  	slingerAbility.enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 	  	enemies = slingerAbility.enemies
 	  	slingerAbility.hero = caster
 	end
@@ -4075,7 +4075,7 @@ function blade_slinger_think(event)
 	local hero = target
 	if hero:IsAlive() then
 		local lookupPoint = hero:GetAbsOrigin() - hero:GetForwardVector()*120
-		local enemies = FindUnitsInRadius( hero:GetTeamNumber(), lookupPoint, nil, 280, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+		local enemies = FindUnitsInRadius( hero:GetTeamNumber(), lookupPoint, nil, 280, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			local facingVector = ((enemies[1]:GetAbsOrigin()-hero:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 			local angle = WallPhysics:vectorToAngle(facingVector)

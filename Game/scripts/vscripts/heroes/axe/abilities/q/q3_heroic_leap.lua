@@ -11,7 +11,17 @@ local function cast(caster, ability)
     if caster:HasAbility("sunder") then
         local sunderAbility = caster:FindAbilityByName("sunder")
         local damage = sunderAbility:GetSpecialValueFor("main_damage")/100 * caster:GetHealth() * damageAmp
-        Sunder.createDunk(caster, damage)
+        local procsCount = 1
+        local delay = Filters:GetDelayWithCastSpeed(caster, 0.35)
+        if caster:HasModifier("modifier_axe_glyph_6_1") then
+            procsCount = T61_DUNKS_COUNT
+        end
+        for i = 0, procsCount - 1, 1 do
+            Timers:CreateTimer(i*delay,
+                function()
+                    Sunder.createDunk(caster, damage)
+                end)
+        end
     elseif caster:HasAbility("axe_arcana_smash") then
         local eventTable = {}
         eventTable.caster = caster

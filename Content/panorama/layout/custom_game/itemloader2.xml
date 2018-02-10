@@ -62,7 +62,7 @@
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/harvester_boots.png" />
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/seinaru_arcana2.png" />
 
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/slipfinn/slipfinn_weapon_00.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/custom_game/loading_screen/tanari_jungle.jpg" />
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/slipfinn_immortal_weapon1.png" />
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/slipfinn_immortal_weapon2.png" />
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/slipfinn_immortal_weapon3.png" />
