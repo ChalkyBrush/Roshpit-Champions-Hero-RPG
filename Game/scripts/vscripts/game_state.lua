@@ -983,7 +983,13 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			end
 		end
 	end
-
+	if victim:HasModifier("modifier_dragonflame_shield") then
+		local dragonflame = victim:FindAbilityByName("flamewaker_dragonflame")
+		if dragonflame then
+			local reduction = (100-dragonflame:GetSpecialValueFor("damage_reduce"))/100
+			damage = damage*reduction
+		end
+	end
 	if victim:HasModifier("modifier_overload_damage_resistance") then
 		damage = damage*0.1
 	end
@@ -2548,50 +2554,7 @@ function GameState:FilterDamage(filterTable)
 					hailstormAbility:ApplyDataDrivenModifier(victim, victim, "modifier_frozen_stand", {duration = 6})
 					hailstormAbility:ApplyDataDrivenModifier(victim, victim, "modifier_hailstorm_ice_case_cooldown", {duration = 35})
 				end
-			end
-		elseif victim:HasModifier("modifier_ankh_of_the_ancients") then
-			if not victim:HasModifier("modifier_ankh_of_ancients_cooldown") then
-				filterTable["damage"] = victim:GetHealth() - 2
-				victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_ankh_of_ancients_shield", {duration = 6})
-				victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_ankh_of_ancients_cooldown", {duration = 24})
-				for i = 0, 3, 1 do
-					local abilityIndex = i
-					if i == 3 then
-						abilityIndex = DOTA_ULTIMATE_SLOT
-					end
-					victim:GetAbilityByIndex(abilityIndex):EndCooldown()
-				end
-			end		
-		elseif victim:HasModifier("modifier_world_trees_flower_cache") then
-			print("HAS FLOWER CACHE")
-			if not victim:HasModifier("modifier_world_tree_cache_cooldown") then
-				filterTable["damage"] = victim:GetHealth() - 2
-				print("DO THIS STUFF")
-				victim:AddNoDraw()
-				victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_world_tree_cache_cooldown", {duration = 15})	
-				victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_ankh_of_ancients_shield", {duration = 3})	
-				local pfx = ParticleManager:CreateParticle("particles/econ/items/natures_prophet/natures_prophet_weapon_sufferwood/furion_teleport_end_sufferwood.vpcf", PATTACH_ABSORIGIN_FOLLOW, victim)
-				ParticleManager:SetParticleControl(pfx, 0, victim:GetAbsOrigin())
-				ParticleManager:SetParticleControl(pfx, 4, Vector(300, 0, 0))
-				for i = 0, 12, 1 do
-					ParticleManager:SetParticleControlEnt(pfx, i, victim, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", victim:GetAbsOrigin(), true)
-				end
-				EmitSoundOn("RPCItem.WorldTreeCache.Start", victim)
-				Timers:CreateTimer(3, function()
-					victim:RemoveNoDraw()
-					EmitSoundOn("RPCItem.WorldTreeCache.End", victim)
-					victim:SetHealth(victim:GetMaxHealth())
-					ParticleManager:DestroyParticle(pfx, false)
-					victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_world_tree_effect", {duration = 12})	
-					CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_sven/sven_spell_gods_strength.vpcf", victim, 1.2)
-					local enemies = FindUnitsInRadius( victim:GetTeamNumber(), victim:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
-					if #enemies > 0 then
-						for _,enemy in pairs(enemies) do
-							Filters:ApplyStun(victim, 0.6, enemy)
-						end
-					end 
-				end)
-			end
+			end	
 		elseif victim:HasModifier("modifier_solunia_glyph_5_a") then
 			if not victim:HasModifier("modifier_solunia_glyph_5_a_cooldown") then
 				filterTable["damage"] = victim:GetHealth() - 2
@@ -2627,6 +2590,49 @@ function GameState:FilterDamage(filterTable)
                 EmitSoundOn("Duskbringer.Wraithform", victim)
 				filterTable["damage"] =  0
             end
+		elseif victim:HasModifier("modifier_ankh_of_the_ancients") then
+			if not victim:HasModifier("modifier_ankh_of_ancients_cooldown") then
+				filterTable["damage"] = victim:GetHealth() - 2
+				victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_ankh_of_ancients_shield", {duration = 6})
+				victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_ankh_of_ancients_cooldown", {duration = 24})
+				for i = 0, 3, 1 do
+					local abilityIndex = i
+					if i == 3 then
+						abilityIndex = DOTA_ULTIMATE_SLOT
+					end
+					victim:GetAbilityByIndex(abilityIndex):EndCooldown()
+				end
+			end
+		elseif victim:HasModifier("modifier_world_trees_flower_cache") then
+			print("HAS FLOWER CACHE")
+			if not victim:HasModifier("modifier_world_tree_cache_cooldown") then
+				filterTable["damage"] = victim:GetHealth() - 2
+				print("DO THIS STUFF")
+				victim:AddNoDraw()
+				victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_world_tree_cache_cooldown", {duration = 15})	
+				victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_ankh_of_ancients_shield", {duration = 3})	
+				local pfx = ParticleManager:CreateParticle("particles/econ/items/natures_prophet/natures_prophet_weapon_sufferwood/furion_teleport_end_sufferwood.vpcf", PATTACH_ABSORIGIN_FOLLOW, victim)
+				ParticleManager:SetParticleControl(pfx, 0, victim:GetAbsOrigin())
+				ParticleManager:SetParticleControl(pfx, 4, Vector(300, 0, 0))
+				for i = 0, 12, 1 do
+					ParticleManager:SetParticleControlEnt(pfx, i, victim, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", victim:GetAbsOrigin(), true)
+				end
+				EmitSoundOn("RPCItem.WorldTreeCache.Start", victim)
+				Timers:CreateTimer(3, function()
+					victim:RemoveNoDraw()
+					EmitSoundOn("RPCItem.WorldTreeCache.End", victim)
+					victim:SetHealth(victim:GetMaxHealth())
+					ParticleManager:DestroyParticle(pfx, false)
+					victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_world_tree_effect", {duration = 12})	
+					CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_sven/sven_spell_gods_strength.vpcf", victim, 1.2)
+					local enemies = FindUnitsInRadius( victim:GetTeamNumber(), victim:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+					if #enemies > 0 then
+						for _,enemy in pairs(enemies) do
+							Filters:ApplyStun(victim, 0.6, enemy)
+						end
+					end 
+				end)
+			end
 		end
 
 	end

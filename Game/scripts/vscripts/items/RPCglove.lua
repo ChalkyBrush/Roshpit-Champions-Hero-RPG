@@ -143,6 +143,11 @@ function RPCItems:HandLegendary(itemVariant, deathLocation)
             RPCItems:RollDivinePurityGauntlets(deathLocation)
             return true
         elseif luck == 4 then
+            local arcanaLuck = RandomInt(1, 1090)
+            if arcanaLuck <= (2 + GameState:GetPlayerPremiumStatusCount()) then
+                RPCItems:RollFlamewakerArcana2(deathLocation)
+                return true
+            end
             RPCItems:RollScorchedGauntlets(deathLocation)
             return true
         elseif luck == 5 then

@@ -2151,7 +2151,7 @@
 			"modifier_heatwave_phase_two"
 			{
 				"IsBuff"		"1"
-				"ThinkInterval"		"0.05"
+				"ThinkInterval"		"0.03"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -39067,6 +39067,8 @@
 			}
 		}
 	}
+
+	##FLAMEWAKER_ABILITIES##
 
 	"voltex_rune_a_a"
 	{

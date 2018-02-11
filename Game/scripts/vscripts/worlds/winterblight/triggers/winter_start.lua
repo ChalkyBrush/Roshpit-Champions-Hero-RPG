@@ -1,7 +1,6 @@
 function CliffTrigger(trigger)
 	local hero = trigger.activator
 	local luck = RandomInt(1, 3)
-	luck = 3
 	if luck == 1 then
 		local posTable = {Vector(-10368, -6032), Vector(-10560, -5927), Vector(-10716, -5696), Vector(-10752, -5839), Vector(-10944, -5721), Vector(-10944, -5568), Vector(-11136, -5568)}
 		local jumpPosTable = {Vector(-9648, -4757), Vector(-9920, -5086), Vector(-10368, -4960), Vector(-10082, -4672), Vector(-10722, -4771), Vector(-10432, -4567)}

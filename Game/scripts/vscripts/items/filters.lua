@@ -1644,6 +1644,14 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker.d_d_level then
                 fireMult = fireMult + 0.0015*attacker:GetStrength()/10*attacker.d_d_level
             end
+            if attacker:HasModifier("modifier_flamewaker_arcana2_passive") then
+                if victim:IsStunned() then
+                    local a_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 1)
+                    if a_b_level > 0 then
+                        fireMult = fireMult + 0.5*a_b_level
+                    end
+                end
+            end
         end
         if unitName == "npc_dota_hero_crystal_maiden" then
             if attacker.d_d_level then

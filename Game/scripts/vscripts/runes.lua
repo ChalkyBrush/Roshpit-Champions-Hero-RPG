@@ -531,6 +531,9 @@ function Runes:EquipArcana(hero, index)
 			local newRune = hero.runeUnit4:AddAbility("flamewaker_rune_d_a_arcana1")
 			newRune:SetLevel(runeLevel4)
 			newRune:SetAbilityIndex(0)
+		elseif index == 2 then
+			hero:RemoveModifierByName("modifier_flamewaker_think")
+			Runes:EasySwapArcanaSkills(hero, 1, "second_heartbeat", "flamewaker_dragonflame", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_juggernaut" then
 		if index == 1 then
@@ -1086,6 +1089,9 @@ function Runes:UnequipArcana(hero, index)
 			newRune:SetLevel(runeLevel4)
 			newRune:SetAbilityIndex(0)
 			hero:RemoveModifierByName("modifier_flamewaker_arcana_passive")
+		elseif index == 2 then
+			hero:RemoveModifierByName("modifier_flamewaker_arcana2_passive")
+			Runes:EasyRevertArcanaSkills(hero, 1, "second_heartbeat", "flamewaker_dragonflame", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_juggernaut" then
 		if index == 1 then

@@ -51,6 +51,7 @@ function Winterblight:SpawnAssassin(position, fv)
 	Events:AdjustBossPower(stone, 1, 2, false)
 	stone.itemLevel = 22
 	CustomAbilities:QuickAttachParticle("particles/econ/events/winter_major_2017/blink_dagger_start_wm07.vpcf", stone, 5)
+	stone.dominion = true
 	return stone
 end
 
@@ -59,6 +60,7 @@ function Winterblight:SpawnMountainCritter(position, fv)
 	Events:AdjustBossPower(stone, 1, 2, false)
 	stone.itemLevel = 18
 	stone:SetRenderColor(170, 200, 255)
+	stone.dominion = true
 	return stone
 end
 
@@ -68,9 +70,18 @@ function Winterblight:SpawnMountainBeetle(position, fv)
 	stone.itemLevel = 22
 	stone:SetRenderColor(170, 200, 255)
 	stone:SetAbsOrigin(stone:GetAbsOrigin()-Vector(0,0,40))
+	stone.dominion = true
 	return stone
 end
 
+function Winterblight:SpawnWolf(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_wolf", position, 1, 1, "Winterblight.Wolf.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 1, 2, false)
+	stone.itemLevel = 18
+	stone:SetRenderColor(220, 200, 255)
+	stone.dominion = true
+	return stone
+end
 
 function Winterblight:FirstSpawns()
 	local luck = RandomInt(1,3)
@@ -139,4 +150,27 @@ function Winterblight:FirstSpawns()
 		end
 	end)
 	Winterblight:SpawnMonolith(Vector(-10357, -3776), Vector(0,-1))
+
+	Timers:CreateTimer(6.5, function()
+   		local positionTable = {Vector(-9088, -3904), Vector(-10304, -5376), Vector(-5760, -6336), Vector(-6080, -8128)}
+	    for i = 1, #positionTable, 1 do
+	      Timers:CreateTimer(i*1.2, function()
+	        local patrolPositionTable = {}
+	        for j = 1, #positionTable, 1 do
+	          local index = i + j
+	          if index > #positionTable then
+	            index = index - #positionTable
+	          end
+	          table.insert(patrolPositionTable, positionTable[index])
+	        end
+	        local wolfCount = 1 + GameState:GetDifficultyFactor()
+	        for j = 0, wolfCount, 1 do
+	          Timers:CreateTimer(j*2, function()
+	            local elemental = Winterblight:SpawnWolf(positionTable[i]+RandomVector(120), RandomVector(1))
+	            Winterblight:AddPatrolArguments(elemental, 8, 5, 240, patrolPositionTable)
+	          end)
+	        end
+	      end)
+	    end
+	end)
 end
