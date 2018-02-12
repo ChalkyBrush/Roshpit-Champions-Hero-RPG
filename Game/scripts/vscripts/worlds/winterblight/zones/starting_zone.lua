@@ -174,3 +174,68 @@ function Winterblight:FirstSpawns()
 	    end
 	end)
 end
+
+function Winterblight:IceCrystalArea()
+	for i = 1, 20, 1 do
+		Timers:CreateTimer(i*0.05, function()
+			local scale = (7 + RandomInt(0, 5))/10
+			local luck = RandomInt(1, 5)
+			local position = Vector(-8384+RandomInt(0, 2900), -8128+RandomInt(0, 2150))
+			if luck > 3 then
+				position = Vector(-5632+RandomInt(0, 1900), -8512+RandomInt(0, 1650))
+			end
+			Winterblight:SpawnIceCrystal(position, RandomVector(1), scale)
+		end)
+	end
+end
+
+function Winterblight:SpawnIceCrystal(position, fv, scale)
+	local crystal = CreateUnitByName("winterblight_ice_crystal", position, true, nil, nil, DOTA_TEAM_NEUTRALS)
+	crystal:SetAbsOrigin(crystal:GetAbsOrigin()+Vector(0,0,RandomInt(100, 200)))
+	crystal:SetForwardVector(fv)
+	crystal.startingBlue = RandomInt(130, 200)
+	crystal:SetRenderColor(crystal.startingBlue, crystal.startingBlue, 255)
+	crystal:SetModelScale(scale)
+	crystal.dummy = true
+end
+
+function Winterblight:SpawnLivingIce(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_living_ice", position, 0, 0, nil, fv, true)
+	stone.itemLevel = 18
+	stone:SetRenderColor(170, 200, 255)
+	stone.dominion = true
+	return stone
+end
+
+function Winterblight:ShatterIceWall()
+  local blockers = Entities:FindAllByNameWithin("IceShatterBlocker", Vector(-3335, -7744, 265+Winterblight.ZFLOAT), 3000)
+  for i = 1, #blockers, 1 do
+    UTIL_Remove(blockers[i])
+  end
+  local iceWalls = Entities:FindAllByNameWithin("IceWallToShatter", Vector(-3335, -7744, 265+Winterblight.ZFLOAT), 3000)
+  for i = 1, #iceWalls, 1 do
+  	local iceWall = iceWalls[i]
+  	local position = iceWall:GetAbsOrigin()
+	Winterblight:objectShake(iceWall, 8, 15, true, true, true, nil, 4)
+	Timers:CreateTimer(0.3, function()
+	    local particleName = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+	    local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, nil )
+
+	    ParticleManager:SetParticleControl( particle1, 0, position )
+	    ParticleManager:SetParticleControl( particle1, 1, Vector(300, 2, 1000) )
+	    ParticleManager:SetParticleControl( particle1, 3, Vector(300, 550, 550) )
+	    Timers:CreateTimer(4, function()
+	    	ParticleManager:DestroyParticle(particle1, false)
+	    end)
+
+		EmitSoundOnLocationWithCaster(position, "Winterblight.IceCrystal.Shatter", Events.GameMaster)
+		for i = 1, 3, 1 do
+			local spawnPos = position + WallPhysics:rotateVector(Vector(-1,0), 2*math.pi*i/3)*3
+			local ice = Winterblight:SpawnLivingIce(position, (spawnPos-position):Normalized())
+			CustomAbilities:QuickAttachParticle("particles/act_2/flying_shatter_blast_explosion.vpcf", ice, 3)
+			EmitSoundOn("Winterblight.IceCrystal.Spawn", ice)
+		end
+		UTIL_Remove(iceWall)
+	end)
+  end
+end

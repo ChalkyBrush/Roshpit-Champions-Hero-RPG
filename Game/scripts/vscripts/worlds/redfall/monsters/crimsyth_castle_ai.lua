@@ -376,8 +376,10 @@ function CastleSorceressTrigger(trigger)
 		sorcAbility:ApplyDataDrivenModifier(sorceress, sorceress, "modifier_z_axis", {})
 		sorceress:RemoveModifierByName("modifier_crymsith_sorceress_waiting")
 		local allies = FindUnitsInRadius( hero:GetTeamNumber(), hero:GetAbsOrigin()+Vector(2000,0,0), nil, 4000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
-		Dungeons:LockCameraToUnitForPlayers(sorceress, 5, allies)
-		Quests:ShowDialogueText(allies, sorceress, "crimsyth_sorceress_dialogue_1", 6, false)
+		if #allies > 0 then
+			Dungeons:LockCameraToUnitForPlayers(sorceress, 5, allies)
+			Quests:ShowDialogueText(allies, sorceress, "crimsyth_sorceress_dialogue_1", 6, false)
+		end
 		Timers:CreateTimer(2.4, function()
 			sorcAbility:ApplyDataDrivenModifier(sorceress, sorceress, "modifier_sorceress_moving", {})
 			sorceress.state = 0
@@ -404,7 +406,9 @@ function CastleSorceressTrigger(trigger)
 				AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(5407, 7803), 800, 900, false)
 				local boss = BossIntroScene(allies)
 				sorceress.state = 3
-				Dungeons:LockCameraToUnitForPlayers(boss, 5, allies)
+				if #allies > 0 then
+					Dungeons:LockCameraToUnitForPlayers(boss, 5, allies)
+				end
 				local mode = GameRules:GetGameModeEntity()        
 				mode:SetCameraDistanceOverride( 2000 )
 				Redfall.CastleBossIntro = boss

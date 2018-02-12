@@ -515,11 +515,11 @@ function heatwave_phase_think(event)
     ParticleManager:SetParticleControl( ability.sunParticle, 1, caster:GetAbsOrigin()+Vector(0,0,80) )
     ability.durationRemaining = ability.durationRemaining-0.05
     if caster:HasModifier("modifier_dragonflame_freeze_effect") then
-        local newPos = casterOrigin + caster:GetForwardVector()*18
+        local newPos = GetGroundPosition(casterOrigin + caster:GetForwardVector()*18, caster)
         local obstruction = WallPhysics:FindNearestObstruction(casterOrigin*Vector(1,1,0))
         local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPos*Vector(1,1,0), caster)
         if not blockUnit then
-            caster:SetAbsOrigin(newPos)
+            caster:SetOrigin(newPos)
         end
     end
 end

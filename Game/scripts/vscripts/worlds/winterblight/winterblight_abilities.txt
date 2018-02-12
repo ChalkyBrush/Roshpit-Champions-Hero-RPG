@@ -1573,3 +1573,107 @@
 			}
 		}
 	}
+
+	"winterblight_ice_crystal"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"rubick_empty1"
+		"MaxLevel"	"3"
+		"Modifiers"
+		{
+			"modifier_attackable_unit_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"ice_crystal_take_damage"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"crystal_think"
+					}
+				}
+			}
+			"modifier_attackable_unit_no_more_attacks"
+			{
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+
+		}
+
+	}
+
+	"winterblight_ice_magic_immune_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attack_to_magic_immunity"			"16 11 6"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_leaflet_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+						"Function"		"sea_leaflet_take_damage"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_black_King_bar_immunity"
+			{
+				"Passive"	"0"
+				"IsHidden" "0"
+				"ThinkInterval"  "4.0"
+				"EffectName"	"particles/items_fx/black_king_bar_avatar.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Seafortress.MagicImmunity"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+		}
+	}

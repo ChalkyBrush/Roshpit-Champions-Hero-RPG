@@ -477,3 +477,80 @@ function beetle_underground_think(event)
 		end)
 	end
 end
+
+function ice_crystal_take_damage(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not caster.strikes then
+		caster.strikes = 0
+	end
+	if caster.strikes >= 3 then
+		return false
+	end
+	caster.strikes = caster.strikes + 1
+	caster:SetRenderColor(caster.startingBlue-caster.strikes*20, caster.startingBlue-caster.strikes*20, 255)
+	CustomAbilities:QuickAttachParticle("particles/roshpit/draghor/mark_of_the_talon_heal.vpcf", caster, 0.3)
+	EmitSoundOn("Winterblight.IceCrystal.Hit", caster)
+	if caster.strikes == 3 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_attackable_unit_no_more_attacks", {})
+		Winterblight:objectShake(caster, 15, 15, true, true, true, nil, 4)
+		Timers:CreateTimer(0.5, function()
+		    local particleName = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+		    local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, nil )
+
+		    ParticleManager:SetParticleControl( particle1, 0, caster:GetAbsOrigin() )
+		    ParticleManager:SetParticleControl( particle1, 1, Vector(300, 2, 1000) )
+		    ParticleManager:SetParticleControl( particle1, 3, Vector(300, 550, 550) )
+		    Timers:CreateTimer(4, function()
+		    	ParticleManager:DestroyParticle(particle1, false)
+		    end)
+		    CustomAbilities:QuickAttachParticle("particles/econ/items/ancient_apparition/aa_blast_ti_5/ancient_apparition_ice_blast_explode_c_ti5.vpcf", caster, 2)
+			local position = caster:GetAbsOrigin()
+			EmitSoundOn("Winterblight.IceCrystal.Shatter", caster)
+			for i = 1, 6, 1 do
+				local spawnPos = position + WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi*i/8)*8
+				local ice = Winterblight:SpawnLivingIce(position, (spawnPos-position):Normalized())
+			    local particleName = "particles/roshpit/winterblight/snow_impact.vpcf"
+			    local snowparticle = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, nil)
+			    ParticleManager:SetParticleControl(snowparticle,0,ice:GetAbsOrigin())
+			    Timers:CreateTimer(1, function()
+			    	ParticleManager:DestroyParticle( snowparticle, false )
+			    end)
+				EmitSoundOn("Winterblight.IceCrystal.Spawn", ice)
+				StartAnimation(ice, {duration=1, activity=ACT_DOTA_SPAWN, rate=1.4})
+				local iceAbil = ice:FindAbilityByName("winterblight_ice_magic_immune_ability")
+				local iceImmuneDuration = 1 + 0.3*GameState:GetDifficultyFactor()
+				iceAbil:ApplyDataDrivenModifier(ice, ice, "modifier_black_King_bar_immunity", {duration = iceImmuneDuration})
+				if GameState:GetDifficultyFactor() >= 3 then
+					local luck = RandomInt(1, 8)
+					if luck == 1 then
+						ice:AddAbility("creature_pure_strike"):SetLevel(GameState:GetDifficultyFactor())
+					end
+				end
+			end
+			if not Winterblight.IceShatters then
+				Winterblight.IceShatters = 0
+			end
+			Winterblight.IceShatters = Winterblight.IceShatters + 1
+			UTIL_Remove(caster)
+			if Winterblight.IceShatters == 18 then
+				Winterblight:ShatterIceWall()
+			end
+		end)
+	end
+end
+
+function crystal_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not caster.interval then
+		caster.interval = RandomInt(0, 89)
+	end
+	caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,5)*math.cos(2*math.pi*caster.interval/90))
+	caster.interval = caster.interval + 1
+	local rotatedFV = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi/90)
+	caster:SetForwardVector(rotatedFV)
+	if caster.interval == 90 then
+		caster.interval = 0 
+	end
+end

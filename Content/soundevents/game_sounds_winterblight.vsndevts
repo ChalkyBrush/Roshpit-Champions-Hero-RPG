@@ -1850,3 +1850,99 @@
         }
     }
 }
+
+"Winterblight.IceCrystal.Shatter"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/winterblight/ice_shatter.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.30000"  }
+                    "pitch_rand_min"    {   "value"     "-0.0200"  }
+                    "pitch_rand_max"    {   "value"     "0.02000"  }
+                    "pitch"             {   "value"     "0.93000"  }
+                    "soundlevel"        {   "value"     "92.00000" }
+                    "distance_max"      {   "value"     "3800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.IceCrystal.Spawn"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/winterblight/ice_shatter.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.70000"  }
+                    "pitch_rand_min"    {   "value"     "-0.0200"  }
+                    "pitch_rand_max"    {   "value"     "0.02000"  }
+                    "pitch"             {   "value"     "1.13000"  }
+                    "soundlevel"        {   "value"     "78.00000" }
+                    "distance_max"      {   "value"     "3800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.IceCrystal.Hit"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/warlord/ice_shell_cast_2.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.70000"  }
+                    "pitch_rand_min"    {   "value"     "-0.0200"  }
+                    "pitch_rand_max"    {   "value"     "0.02000"  }
+                    "pitch"             {   "value"     "1.23000"  }
+                    "soundlevel"        {   "value"     "82.00000" }
+                    "distance_max"      {   "value"     "3800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}

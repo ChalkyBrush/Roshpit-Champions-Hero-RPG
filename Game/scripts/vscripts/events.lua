@@ -727,12 +727,12 @@ function Events:BGMmanager(player, hero)
     if GameState:IsRPCArena() then
       CustomGameEventManager:Send_ServerToPlayer(player, "BGMstart", {songName = "Arena.StartingMusic"})
     elseif GameState:IsRedfallRidge() then
-      if GameRules:GetGameTime() > 0 then
+      if GameRules:GetGameTime() > 20 then
         CustomGameEventManager:Send_ServerToPlayer(player, "BGMstart", {songName = "Music.Redfall.Village"})
       end
       hero.bgm = "Music.Redfall.Village"
     elseif GameState:IsWinterblight() then
-      if GameRules:GetGameTime() > 0 then
+      if GameRules:GetGameTime() > 20 then
         CustomGameEventManager:Send_ServerToPlayer(player, "BGMstart", {songName = "Music.Winterblight.Start"})
       end
       hero.bgm = "Music.Winterblight.Start"

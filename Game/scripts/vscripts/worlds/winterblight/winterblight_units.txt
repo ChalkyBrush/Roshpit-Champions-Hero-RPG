@@ -1133,3 +1133,175 @@
         "Ability3"  "alpha_wolf_critical_strike"
 
     }
+
+    "winterblight_ice_crystal"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/props_structures/crystal003.vmdl"
+        "ModelScale"    "0.7"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "precache"
+        {
+            "particle"  "particles/act_2/flying_shatter_blast_explosion.vpcf"
+            "particle"  "particles/roshpit/draghor/mark_of_the_talon_heal.vpcf"
+            "particle"  "particles/econ/items/ancient_apparition/aa_blast_ti_5/ancient_apparition_ice_blast_explode_c_ti5.vpcf"
+        }
+
+        "ArmorPhysical" "3"
+        "MagicalResistance" "30"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "148"
+        "AttackDamageMax"   "188"
+        "AttackRate"    "0.8"
+        "AttackAnimationPoint"  "1"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "120"
+        "BountyGoldMin" "50"
+        "BountyGoldMax" "60"
+        "BountyXP" "155"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "BuildTime" "0"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_NONE"
+        "MovementSpeed" "400"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "1"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "PathfindingSearchDepthScale" "0.2"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+          
+            }
+
+        }
+        "Ability1"  "winterblight_ice_crystal"
+
+    }
+
+    "winterblight_living_ice"
+    {
+        "BaseClass"                 "npc_dota_creature" 
+        "Model"                     "models/heroes/ancient_apparition/ancient_apparition.vmdl"
+        "SoundSet"                  "Ancient_apparition"
+        "ModelScale"                "0.7"
+        "Level"                     "1"
+        "PathfindingSearchDepthScale" "0.2"
+
+        // Abilities
+        //----------------------------------------------------------------
+        
+        "Ability1"                  "winterblight_ice_magic_immune_ability"   
+        "Ability2"                  "dungeon_creep"       
+        "Ability3"                  ""         
+        "Ability4"                  ""          
+        "Ability5"                  ""         
+        "Ability6"                  ""          
+        "Ability7"                  ""          
+        "Ability8"                  ""          
+
+        // Armor
+        //----------------------------------------------------------------
+        "ArmorPhysical"             "5"         // Physical protection.
+        "MagicalResistance"         "30"        // Magical protection.
+
+        // Attack
+        //----------------------------------------------------------------
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "20"
+        "AttackDamageMax"   "30"
+        "AttackRate"    "3"
+        "AttackAnimationPoint"  "0.17"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "500"
+        "ProjectileModel"   "particles/units/heroes/hero_ancient_apparition/ancient_apparition_base_attack.vpcf"
+        "ProjectileSpeed"   "900"
+
+
+        // Bounty
+        //----------------------------------------------------------------
+        "BountyXP"                  "30"   
+        "BountyGoldMin"             "30"     
+        "BountyGoldMax"             "40"    
+
+        // Bounds
+        //----------------------------------------------------------------
+        "RingRadius"                "60"
+        "HealthBarOffset"           "200"
+        "BoundsHullName"            "DOTA_HULL_SIZE_HERO"  
+        "CollisionSize"             "120"
+
+        // Movement
+        //----------------------------------------------------------------
+        "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"         // Type of locomotion - ground, air
+        "MovementSpeed"             "280"        // Speed
+        "MovementTurnRate"          "0.5"       // Turning rate.
+
+        // Status
+        //----------------------------------------------------------------
+        "StatusHealth"              "24400"       // Base health.
+        "StatusHealthRegen"         "1"      // Health regeneration rate.
+        "StatusMana"                "500"         // Base mana.
+        "StatusManaRegen"           "50"         // Mana regeneration rate.
+
+        // Team
+        //----------------------------------------------------------------
+        "TeamName"                  "DOTA_TEAM_NEUTRALS"         // Team name.
+        "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        
+        // Vision
+        //----------------------------------------------------------------
+        "VisionDaytimeRange"        "1400"      // Range of vision during day light.
+        "VisionNighttimeRange"      "1400"      // Range of vision at night time.
+
+        // Creature Data
+        //----------------------------------------------------------------------------------------------------------------------
+        "Creature"
+        {   
+            //Basic AI State
+            //-----------------------------------------------------------------
+            "DefaultState"              "Invade"
+            
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"              "Invade"
+                    "Aggression"        "50"
+                    "Avoidance"         "0.0"
+                    "Support"           "50"
+                }
+            }
+        }
+    }

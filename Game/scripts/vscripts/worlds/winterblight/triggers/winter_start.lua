@@ -51,3 +51,7 @@ function CliffTrigger(trigger)
 		end
 	end
 end
+
+function IceShatterArea(trigger)
+	Winterblight:IceCrystalArea()
+end
