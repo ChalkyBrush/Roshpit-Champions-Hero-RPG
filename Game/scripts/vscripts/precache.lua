@@ -415,7 +415,7 @@ end
 
 --WINTERBLIGHT--
 function Precache:Winterblight()
-	local unitTable = {"winterblight_snowball_kid", "winterblight_snow_crab", "winterblight_snowcrab_eggs", "winterblight_seal", "winterblight_mountain_ogre", "winterblight_ancient_monolith", "winterblight_ice_champion_raxxus", "mountain_assassin", "aggressive_monster", "ice_beetle", "winterblight_wolf", "winterblight_ice_crystal", "winterblight_living_ice"}
+	local unitTable = {"winterblight_snowball_kid", "winterblight_snow_crab", "winterblight_snowcrab_eggs", "winterblight_seal", "winterblight_mountain_ogre", "winterblight_ancient_monolith", "winterblight_ice_champion_raxxus", "mountain_assassin", "aggressive_monster", "ice_beetle", "winterblight_wolf", "winterblight_ice_crystal", "winterblight_living_ice", "winterblight_mountain_dweller"}
 	for i = 1, #unitTable, 1 do
 		Timers:CreateTimer(i*0.3, 
 		function()

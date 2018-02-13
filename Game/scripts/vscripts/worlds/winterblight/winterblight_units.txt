@@ -1305,3 +1305,88 @@
             }
         }
     }
+
+    "winterblight_mountain_dweller"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/lone_druid/lone_druid.vmdl"
+        "ModelScale"    "0.94"
+        "Level" "1"
+        "HealthBarOffset"   "170"
+        "HasInventory"      "0"
+        "SelectionGroup"    "twitch_lone_druid"
+        "SoundSet"                  "Hero_LoneDruid"
+        "precache"
+        {
+
+        }
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "ArmorPhysical" "5"
+        "MagicalResistance" "20"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "125"
+        "AttackDamageMax"   "140"
+        "AttackRate"    "1.2"
+        "AttackAnimationPoint"  "0.3"
+        "AttackAcquisitionRange"  "0"
+        "AttackRange"   "135"
+        "BountyGoldMin" "20"
+        "BountyGoldMax" "24"
+        "BountyXP" "1000"
+        "BoundsHullName"  "DOTA_HULL_SIZE_HUGE"
+        "RingRadius"    "70"
+        "CollisionSize" "40"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "320"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "5400"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "1000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"              "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {   
+                "Wearable1"
+                {
+                    "ItemDef"   "9570"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "9574"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "9575"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "9573"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+        }
+        "Ability1"  "mountain_glissade"
+        "Ability2"  "fire_temple_steadfast"
+        "Ability3"  "winterblight_mountain_dweller_passive"
+        "Ability4"  "dungeon_creep"
+    }

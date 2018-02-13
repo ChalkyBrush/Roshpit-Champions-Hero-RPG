@@ -216,8 +216,8 @@ function jump_start(event)
 			end
 		end
 	end
-	ability.a_c_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
-	ability.c_c_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
+	ability.a_c_level = 0
+	ability.c_c_level = 0
 end
 
 function jump_think(event)
@@ -553,4 +553,139 @@ function crystal_think(event)
 	if caster.interval == 90 then
 		caster.interval = 0 
 	end
+end
+
+function volcanic_glissade(event)
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.target_points[1]
+	
+	ability.targetPoint = target
+	EmitSoundOn("Winterblight.MountainDweller.Charge", caster)
+	EmitSoundOn("Winterblight.MountainGlissade", caster)
+	StartAnimation(caster, {duration=1, activity=ACT_DOTA_VERSUS, rate=2})
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_volcanic_glissade", {duration = 1.6})
+    local particleName = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+    local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, nil )
+
+    ParticleManager:SetParticleControl( particle1, 0, caster:GetAbsOrigin() )
+    ParticleManager:SetParticleControl( particle1, 1, Vector(200, 2, 1000) )
+    ParticleManager:SetParticleControl( particle1, 3, Vector(200, 550, 550) )
+    Timers:CreateTimer(4, function()
+    	ParticleManager:DestroyParticle(particle1, false)
+    end)
+	if ability.beamPFX then
+		ParticleManager:DestroyParticle(ability.beamPFX, false)
+	end	
+	ability.beamPFX = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/wisp_tether.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(ability.beamPFX, 0, caster:GetAbsOrigin()+Vector(0,0,90))
+	Filters:CastSkillArguments(3, caster)
+	local glyphFreeCast = false
+	local luck = RandomInt(1, 5-GameState:GetDifficultyFactor())
+	if luck == 1 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_glissade_freecast", {})
+		caster:SetModifierStackCount("modifier_glissade_freecast", caster, 1)
+	end
+	if caster:HasModifier("modifier_glissade_freecast") then
+		if not glyphFreeCast then
+			local newStacks = caster:GetModifierStackCount("modifier_glissade_freecast", caster) - 1
+			if newStacks > 0 then
+				caster:SetModifierStackCount("modifier_glissade_freecast", caster, newStacks)
+			else
+				caster:RemoveModifierByName("modifier_glissade_freecast")
+			end
+		end
+		ability:EndCooldown()
+	else
+		if not glyphFreeCast then
+
+		else
+			ability:EndCooldown()
+		end
+	end
+end
+
+function glissade_thinking(event)
+	local ability = event.ability
+	local caster = event.caster
+
+	local movementVector = ((ability.targetPoint - caster:GetAbsOrigin())*Vector(1,1,1)):Normalized()
+	local movespeed = 60
+
+	local blockSearch = caster:GetAbsOrigin()*Vector(1,1,0)+Vector(0,0,GetGroundHeight(caster:GetAbsOrigin(), caster))
+    local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
+    local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch+caster:GetForwardVector()*movespeed), caster)
+	if blockUnit then
+		movespeed = 0
+	end	
+	caster:SetAbsOrigin(caster:GetAbsOrigin() + movementVector*movespeed)
+	local distance = WallPhysics:GetDistance(caster:GetAbsOrigin(), ability.targetPoint)
+	if ability.beamPFX then
+		ParticleManager:SetParticleControl(ability.beamPFX, 1, caster:GetAbsOrigin()+Vector(0,0,90))
+	end
+	if distance <= 60 or blockUnit then
+		caster:RemoveModifierByName("modifier_volcanic_glissade")
+		EndAnimation(caster)
+	    local particleName = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+	    local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, nil )
+
+	    ParticleManager:SetParticleControl( particle1, 0, caster:GetAbsOrigin() )
+	    ParticleManager:SetParticleControl( particle1, 1, Vector(200, 2, 1000) )
+	    ParticleManager:SetParticleControl( particle1, 3, Vector(200, 550, 550) )
+	    Timers:CreateTimer(4, function()
+	    	ParticleManager:DestroyParticle(particle1, false)
+	    end)
+	    EmitSoundOn("Winterblight.MountainGlissade.End", caster)
+		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+		Timers:CreateTimer(0.06, function()
+			if ability.beamPFX then
+				local destroyPFX = ability.beamPFX
+				ability.beamPFX = false
+				Timers:CreateTimer(0.5, function()
+					ParticleManager:DestroyParticle(destroyPFX, false)
+				end)
+			end
+		end)
+	end
+	
+end
+
+function mountain_dweller_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not caster.regenLock then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_mountain_dweller_regen", {})
+	end
+
+	caster.regenLock = false
+	if caster.aggro then
+		local castAbility = caster:FindAbilityByName("mountain_glissade")
+		if caster.castLock then
+			return false
+		end
+		if castAbility:IsFullyCastable() then
+			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS+DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )	
+			if #enemies > 0 then
+				local castPoint = enemies[1]:GetAbsOrigin() + RandomVector(RandomInt(0, 500))
+				if caster:GetHealth() < caster:GetMaxHealth()*0.35 then
+					castPoint = caster:GetAbsOrigin() + (((caster:GetAbsOrigin()-enemies[1]:GetAbsOrigin())*Vector(1,1,0)):Normalized())*RandomInt(300, 800)
+				end
+				local newOrder = {
+						UnitIndex = caster:entindex(),
+						OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+						AbilityIndex = castAbility:entindex(),
+						Position = castPoint
+				 	}
+				 
+				ExecuteOrderFromTable(newOrder)			
+			end
+		end
+	end
+end
+
+function mountain_dweller_take_damage(event)
+	local caster = event.caster
+	local ability = event.ability
+	caster.regenLock = true
+	caster:RemoveModifierByName("modifier_mountain_dweller_regen")
 end

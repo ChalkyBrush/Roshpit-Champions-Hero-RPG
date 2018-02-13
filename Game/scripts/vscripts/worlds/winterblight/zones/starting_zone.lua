@@ -187,6 +187,30 @@ function Winterblight:IceCrystalArea()
 			Winterblight:SpawnIceCrystal(position, RandomVector(1), scale)
 		end)
 	end
+	local luck = RandomInt(1, 3)
+	if luck == 1 then
+		Winterblight:SpawnMountainDweller(Vector(-8768, -6976), Vector(0.7,1))
+		Winterblight:SpawnMountainDweller(Vector(-8512, -7104), Vector(0,1))
+		Winterblight:SpawnMountainDweller(Vector(-6720, -5824), Vector(0,-1))
+		Winterblight:SpawnMountainDweller(Vector(-7360, -5824), Vector(0,-1))
+		Winterblight:SpawnMountainDweller(Vector(-5680, -6817), Vector(-1,1))
+		Winterblight:SpawnMountainDweller(Vector(-6353, -8329), Vector(0,1))
+	elseif luck == 2 then
+		Winterblight:SpawnMountainDweller(Vector(-6272, -7999), Vector(0,1))
+		Winterblight:SpawnMountainDweller(Vector(-6016, -8099), Vector(-0.3,1))
+		Winterblight:SpawnMountainDweller(Vector(-6217, -8271), Vector(0,1))
+		Winterblight:SpawnMountainDweller(Vector(-7360, -5696), Vector(0,-1))
+		Winterblight:SpawnMountainDweller(Vector(-7424, -7040), Vector(-1,1))
+		Winterblight:SpawnMountainDweller(Vector(-6084, -6784), Vector(-1,0.3))
+	elseif luck == 3 then
+		Winterblight:SpawnMountainDweller(Vector(-7424, -6336), Vector(-1,0))
+		Winterblight:SpawnMountainDweller(Vector(-7496, -6976), Vector(-1,0.8))
+		Winterblight:SpawnMountainDweller(Vector(-6784, -7278), Vector(0,1))
+		Winterblight:SpawnMountainDweller(Vector(-6400, -7480), Vector(0,1))
+		Winterblight:SpawnMountainDweller(Vector(-5570, -6720), Vector(-1,0))
+		Winterblight:SpawnMountainDweller(Vector(-5674, -6464), Vector(-1,0))
+		Winterblight:SpawnMountainDweller(Vector(-5409, -6299), Vector(-1,-0.3))
+	end
 end
 
 function Winterblight:SpawnIceCrystal(position, fv, scale)
@@ -239,3 +263,13 @@ function Winterblight:ShatterIceWall()
 	end)
   end
 end
+
+function Winterblight:SpawnMountainDweller(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_mountain_dweller", position, 1, 2, "Winterblight.MountainDweller.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 2, 2, false)
+	stone.itemLevel = 21
+	stone:SetRenderColor(255, 255, 255)
+	stone.dominion = true
+	return stone
+end
+

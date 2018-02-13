@@ -252,3 +252,16 @@ function Winterblight:smoothSizeChange(object, startSize, endSize, ticks)
   end
 end
 
+function Winterblight:SetPositionCastArgs(unit, radius, minRadius, cooldown, targetFindOrder)
+    unit.targetRadius = radius
+    unit.minRadius = minRadius
+    unit.targetAbilityCD = cooldown
+    unit.targetFindOrder = targetFindOrder
+end
+
+function Winterblight:SetTargetCastArgs(unit, targetRadius, minRadius, targetAbilityCD, targetFindOrder)
+  unit.targetRadius = targetRadius
+  unit.minRadius  = minRadius
+  unit.targetAbilityCD = targetAbilityCD
+  unit.targetFindOrder = targetFindOrder
+end
