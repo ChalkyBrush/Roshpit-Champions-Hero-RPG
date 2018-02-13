@@ -1648,7 +1648,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 if victim:IsStunned() then
                     local a_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 1)
                     if a_b_level > 0 then
-                        fireMult = fireMult + 0.5*a_b_level
+                        fireMult = fireMult + 1.25*a_b_level
                     end
                 end
             end

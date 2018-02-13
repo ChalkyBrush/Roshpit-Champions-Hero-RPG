@@ -315,6 +315,10 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 		Notifications:Top(playerID, {text="Can't stash this item", duration=2, style={color="red"}, continue=true})
 		return url
 	end
+	local validatorTable = CustomNetTables:GetTableValue("item_basics", tostring(itemIndex).."-key")
+	if validatorTable then
+		url = url.."&validator"..gearSlot.."="..validatorTable.key
+	end
 	if itemTable and item.property1 and not item.glyph and not item.consumable then
 		-- local itemName = string.gsub(itemTable.itemName, "%s+", '%%20')
 		local itemName = escape(itemTable.itemName)
@@ -671,38 +675,46 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 		if bEquip == 1 then
 			Weapons:Equip(hero, item)
 		else
+			SaveLoad:ApplyValidator(gearTable, item)
 			return item
 		end
 	else
 		if gearTable.item_variant == "item_reanimation_stone" then
 			local item = RPCItems:CreateConsumable("item_reanimation_stone", "mythical", "Reanimation Stone", "consumable", false, "Consumable", "reanimation_stone_desc")
 			item.pickedUp = true
+			SaveLoad:ApplyValidator(gearTable, item)
 			return item
 		elseif gearTable.item_name == "glyph" then
 			print(gearTable.item_variant)
 			local item = Glyphs:RollGlyphAll(gearTable.item_variant, Vector(0, 0), -1)
 			item.pickedUp = true
+			SaveLoad:ApplyValidator(gearTable, item)
 			return item
 		elseif gearTable.item_name == "temple_key" then
 			local key = RPCItems:CreateConsumable(gearTable.item_variant, "rare", "temple_key", "consumable", false, "Consumable", gearTable.item_variant.."_desc")
 			key.pickedUp = true
+			SaveLoad:ApplyValidator(gearTable, item)
 			return key
 		elseif gearTable.item_name == "tanari_element" then
 			local element = RPCItems:CreateConsumable(gearTable.item_variant, "mythical", "tanari_element", "consumable", false, "Key Item", gearTable.item_variant.."_desc")
 			element.pickedUp = true
+			SaveLoad:ApplyValidator(gearTable, item)
 			return element
 		elseif gearTable.item_name == "tanari_spirit_stones" then
 			local stones = RPCItems:CreateConsumable(gearTable.item_variant, "immortal", "tanari_spirit_stones", "consumable", false, "Consumable", gearTable.item_variant.."_desc")
 			stones.pickedUp = true
+			SaveLoad:ApplyValidator(gearTable, item)
 			return stones
 		elseif gearTable.item_name == "redfall_key" then
 			local key = RPCItems:CreateConsumable(gearTable.item_variant, "rare", "redfall_key", "consumable", false, "Consumable", gearTable.item_variant.."_desc")
 			key.pickedUp = true
+			SaveLoad:ApplyValidator(gearTable, item)
 			return key
 		elseif gearTable.item_name == "glyph_book" then
 			print("ITEM NAME == GLYPH BOOK")
 			local item = Glyphs:CreateGlyphBook(gearTable.item_variant, gearTable.property1, gearTable.property2)
 			item.pickedUp = true
+			SaveLoad:ApplyValidator(gearTable, item)
 			return item
 		elseif gearTable.item_variant == "item_rpc_web_premium_token" then
 			print("IN HERE??")
@@ -715,12 +727,21 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			item.stashable = true
 			RPCItems:SetPropertyValues(item, item.property1, "web_prem_tracking_id", item.property1color,  1)
 			item.pickedUp = true
+			SaveLoad:ApplyValidator(gearTable, item)
 			return item
 		end
 	end
 
 end
 
+function SaveLoad:ApplyValidator(gearTable, item)
+	if gearTable.validator then
+		if gearTable.validator == "roshpit" then
+		else
+			CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()).."-key", {key = gearTable.validator} )
+		end
+	end
+end
 
 function SaveLoad:ApplyDataToHero(results, playerID)
 	-- print(results.current_xp)

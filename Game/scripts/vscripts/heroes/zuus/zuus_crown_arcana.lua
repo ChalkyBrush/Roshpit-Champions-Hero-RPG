@@ -126,6 +126,7 @@ function start_shadow_arcana(event)
 		EmitSoundOn("Auriun.FlashHeal", caster)
 		heavens_shield_cast(eventTable)
 	end
+	immortal_weapon_3_effect(caster, ability)
 end
 
 function shadow_trap_think(event)

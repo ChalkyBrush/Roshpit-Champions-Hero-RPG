@@ -149,7 +149,7 @@ function novaExplosion(event)
 		damageType = DAMAGE_TYPE_PURE
 		element = "lunar"
 	end
-	local b_d_level =  Runes:GetTotalRuneLevel(caster, 2, "b_d", "solunia")
+	local b_d_level =  Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
 	ability.b_d_level = b_d_level
 	if not caster:HasModifier("modifier_solunia_arcana2") then
 		local d_d_level =  Runes:GetTotalRuneLevel(caster, 4, "d_d", "solunia")

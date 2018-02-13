@@ -873,7 +873,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		if attacker:GetEntityIndex() == victim:GetEntityIndex() then
 		else
 			if shouldConsumeShields then
-				Filters:EarthGuardian(victim, filterTable["damage"])
+				Filters:EarthGuardian(victim, damage)
 			end
 			damage = damage*0.5
 		end

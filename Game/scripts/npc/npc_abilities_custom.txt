@@ -47126,7 +47126,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
+				"property_one"			"125"
 			}
 		}
 	}
@@ -47173,7 +47173,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"2"
 			}
 			"02"
 			{
@@ -47209,7 +47209,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.3"
+				"property_one"			"0.4"
 			}
 		}
 	}

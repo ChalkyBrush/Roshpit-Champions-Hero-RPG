@@ -153,7 +153,7 @@ function flame_proj_hit(event)
 	local target = event.target
 	local base_damage = event.base_damage
 	local attack_dmg_bonus = event.attack_dmg_bonus
-	attack_dmg_bonus = attack_dmg_bonus + ability.c_b_level
+	attack_dmg_bonus = attack_dmg_bonus + ability.c_b_level*2
 	local damage = base_damage + (attack_dmg_bonus/100)*caster:GetAverageTrueAttackDamage(caster)
 	if caster:HasModifier("modifier_flamewaker_glyph_4_1") then
 		damage = damage + ((caster:GetStrength() + caster:GetAgility() + caster:GetIntellect())*5 + caster:GetAverageTrueAttackDamage(caster)*0.2)*ability:GetLevel()
@@ -184,7 +184,7 @@ function dragonfire_passive_think(event)
 	local d_b_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
 	if d_b_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_d_b_attack_power", {})
-		local atkPowerBonus = caster:GetAgility()*0.3*d_b_level
+		local atkPowerBonus = caster:GetAgility()*0.4*d_b_level
 		local stacks =  math.floor(atkPowerBonus/10)
 		caster:SetModifierStackCount("modifier_d_b_attack_power", caster, stacks)
 	else

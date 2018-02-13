@@ -713,49 +713,23 @@ function RPCItems:SetTableValues(item, itemName, consumableBoolean, description,
 	else
 		CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemName, consumable = consumableBoolean, itemDescription = description, qualityColor = qualityColor, qualityName = qualityName, itemPrefix = prefix, itemSuffix = suffix, rarityFactor = rarityFactor, minLevel = item.minLevel } )
 	end
+	local key = RPCItems:GetRandomKey(RandomInt(20,26))
+	print("----KEY-----")
+	print(key)
+	CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()).."-key", {key = key} )
+	
 end
 
-function RPCItems:SetTableValuesMin(item, itemName, consumableBoolean, description, qualityColor, qualityName, prefix, suffix, rarityFactor, minLevel)
-	if prefix == "" then
-	else
-		if prefix then
-			prefix = prefix.." "
-		end
-	end
-	if suffix == "" then
-	else
-		if suffix then
-			suffix = " "..suffix
-		end
-	end
-	if minLevel > 0 then
-		item.minLevel = minLevel
-	end
-	if item.slot == "weapon" then
-		if not item.minLevel then
-			if rarityFactor < 5 then
-				minLevel = 0
-			else
-				minLevel = 100
-				item.minLevel = minLevel
-			end
-		end
-	end 
-	if item.minLevel then
-	else
-		minLevel = RPCItems:GetMinLevel()
-		item.minLevel = minLevel
-	end
-	
+function RPCItems:GetRandomKey(length)
 
-	print("MIN LEVEL BEFORE ADJUST"..item.minLevel)
-	-- 
-	-- print("MIN LEVEL AFTER ADJUST"..item.minLevel)
-	if item.requiredHero then
-		CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemName, consumable = consumableBoolean, itemDescription = description, qualityColor = qualityColor, qualityName = qualityName, itemPrefix = prefix, itemSuffix = suffix, rarityFactor = rarityFactor, minLevel = item.minLevel, requiredHero = item.requiredHero } )
-	else
-		CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemName, consumable = consumableBoolean, itemDescription = description, qualityColor = qualityColor, qualityName = qualityName, itemPrefix = prefix, itemSuffix = suffix, rarityFactor = rarityFactor, minLevel = item.minLevel } )
+	str = "";
+
+	for i = 0, length do
+		str = str .. string.char( RandomInt(97,122) );
 	end
+
+	return str;
+
 end
 
 function RPCItems:ReduceLevelRequirement(item)
