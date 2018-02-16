@@ -27480,7 +27480,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"arkimus/arkimus_flash_source"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
@@ -27520,13 +27520,31 @@
 				"var_type"			"FIELD_INTEGER"
 				"damage_mult"			"140 180 240 340 520 800 1200"
 			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
+			"02"
 			{
-				"ScriptFile"	"heroes/antimage/storm_weapon.lua"
-				"Function"		"storm_weapon_cast"
+				"var_type"			"FIELD_INTEGER"
+				"mana_cost"			"50 120 400 900 1800 3000 5400"
+			}
+		}
+		"OnToggleOn"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_arkimus_storm_weapon_toggle"
+				"Target" 		"CASTER"
+			}
+		}
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_arkimus_storm_weapon_toggle"
+				"Target" 		"CASTER"
+			}
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_arkimus_storm_weapon"
+				"Target" 		"CASTER"
 			}
 		}
 		"Modifiers"
@@ -27535,6 +27553,29 @@
 			{
 				"IsHidden"	"1"
 				"Passive"	"1"
+			}
+			"modifier_arkimus_storm_weapon_toggle"
+			{
+				"IsHidden"	"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/antimage/storm_weapon.lua"
+						"Function"		"storm_weapon_cast"
+						"drain_mana"	"0"
+					}
+				}
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/antimage/storm_weapon.lua"
+						"Function"		"storm_weapon_cast"
+						"drain_mana"	"%mana_cost"
+					}
+				}
 			}
 			"modifier_arkimus_storm_weapon"
 			{

@@ -2,8 +2,15 @@ function storm_weapon_cast(event)
 	local ability = event.ability
 	local caster = event.caster
 	local duration = Filters:GetAdjustedBuffDuration(caster, 3, false)
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_storm_weapon", {duration = duration})
-	
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_storm_weapon", {})
+	if event.drain_mana > 0 then
+		if caster:GetMana() < event.drain_mana then
+			ability:ToggleAbility()
+			return false
+		else
+			caster:ReduceMana(event.drain_mana)
+		end
+	end
 	Filters:CastSkillArguments(2, caster)
 	if not ability.pfx then
 

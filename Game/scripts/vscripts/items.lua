@@ -717,7 +717,6 @@ function RPCItems:SetTableValues(item, itemName, consumableBoolean, description,
 	print("----KEY-----")
 	print(key)
 	CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()).."-key", {key = key} )
-	
 end
 
 function RPCItems:GetRandomKey(length)

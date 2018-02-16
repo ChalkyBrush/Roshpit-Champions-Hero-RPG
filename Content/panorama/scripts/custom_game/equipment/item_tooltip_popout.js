@@ -211,6 +211,14 @@ function initializeTooltip(func){
 		}else{
 			$('#weapon_exp_bar').AddClass("invisible")
 			$('#tooltip_weapons_data_container').AddClass('invisible')
+		}
+
+		var returned = CustomNetTables.GetTableValue( "item_basics", item.toString()+"-returned")
+		if (returned === undefined){
+			$('#dupe').AddClass("invisible")
+		}else{
+			$('#dupe').RemoveClass("invisible")
+			$('#dupe').text = "<font color='#FFFFFF'>*"+$.Localize('item_possibly_duped')+"</font>"
 		}	
 }
 

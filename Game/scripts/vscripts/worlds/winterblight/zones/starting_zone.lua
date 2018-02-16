@@ -211,6 +211,59 @@ function Winterblight:IceCrystalArea()
 		Winterblight:SpawnMountainDweller(Vector(-5674, -6464), Vector(-1,0))
 		Winterblight:SpawnMountainDweller(Vector(-5409, -6299), Vector(-1,-0.3))
 	end
+	Timers:CreateTimer(2, function()
+		local luck2 = RandomInt(1, 3)
+		if luck2 == 1 then
+	      local positionTable = {Vector(-6144, -8128), Vector(-6912, -5888), Vector(-5632, -6336), Vector(-8192, -6528)}
+	      for i = 1, #positionTable, 1 do
+	        Timers:CreateTimer(i*1.2, function()
+	          local patrolPositionTable = {}
+	          for j = 1, #positionTable, 1 do
+	            local index = i + j
+	            if index > #positionTable then
+	              index = index - #positionTable
+	            end
+	            table.insert(patrolPositionTable, positionTable[index])
+	          end
+	          local wolfCount = 0
+	          for j = 0, wolfCount, 1 do
+	            Timers:CreateTimer(j*2, function()
+	              local elemental = Winterblight:SpawnMountainOgre(positionTable[i]+RandomVector(120), RandomVector(1))
+	              Winterblight:AddPatrolArguments(elemental, 8, 25, 240, patrolPositionTable)
+	            end)
+	          end
+	        end)
+	      end
+		elseif luck2 == 2 then
+	      local positionTable = {Vector(-6144, -8128), Vector(-6912, -5888), Vector(-5632, -6336), Vector(-8192, -6528)}
+	      for i = 1, #positionTable, 1 do
+	        Timers:CreateTimer(i*1.2, function()
+	          local patrolPositionTable = {}
+	          for j = 1, #positionTable, 1 do
+	            local index = i + j
+	            if index > #positionTable then
+	              index = index - #positionTable
+	            end
+	            table.insert(patrolPositionTable, positionTable[index])
+	          end
+	          local wolfCount = 1
+	          for j = 0, wolfCount, 1 do
+	            Timers:CreateTimer(j*2, function()
+	              local elemental = Winterblight:SpawnMountainCritter(positionTable[i]+RandomVector(120), RandomVector(1))
+	              Winterblight:AddPatrolArguments(elemental, 8, 25, 240, patrolPositionTable)
+	            end)
+	          end
+	        end)
+	      end
+		elseif luck2 == 3 then
+			for i = 0, 9 + GameState:GetDifficultyFactor()*4, 1 do
+				Timers:CreateTimer(0.03*i, function()
+					local position = Vector(-8832+RandomInt(0, 3200), -6848+RandomInt(0, 700))
+					Winterblight:SpawnMountainBeetle(position, RandomVector(1))
+				end)
+			end
+		end
+	end)
 end
 
 function Winterblight:SpawnIceCrystal(position, fv, scale)

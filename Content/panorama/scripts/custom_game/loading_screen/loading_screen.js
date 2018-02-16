@@ -57,7 +57,7 @@ function SetMapImage(){
 	}
 	if(mapName === "seafortress"){
 		$.Msg("SET IMAGE SEAFORT!!")
-		$('#seq_bg').SetImage("file://{images}/custom_game/loading_screen/seafortress_load.jpg")
+		$('#seq_bg').SetImage("file://{images}/custom_game/loading_screen/seafortress3.jpg")
 		status = 1
 	}
 	if (status == 1){

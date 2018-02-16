@@ -265,3 +265,7 @@ function Winterblight:SetTargetCastArgs(unit, targetRadius, minRadius, targetAbi
   unit.targetAbilityCD = targetAbilityCD
   unit.targetFindOrder = targetFindOrder
 end
+
+function Winterblight:SpawnUnitsWithPatrol()
+
+end

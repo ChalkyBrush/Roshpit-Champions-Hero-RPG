@@ -693,22 +693,22 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 		elseif gearTable.item_name == "temple_key" then
 			local key = RPCItems:CreateConsumable(gearTable.item_variant, "rare", "temple_key", "consumable", false, "Consumable", gearTable.item_variant.."_desc")
 			key.pickedUp = true
-			SaveLoad:ApplyValidator(gearTable, item)
+			SaveLoad:ApplyValidator(gearTable, key)
 			return key
 		elseif gearTable.item_name == "tanari_element" then
 			local element = RPCItems:CreateConsumable(gearTable.item_variant, "mythical", "tanari_element", "consumable", false, "Key Item", gearTable.item_variant.."_desc")
 			element.pickedUp = true
-			SaveLoad:ApplyValidator(gearTable, item)
+			SaveLoad:ApplyValidator(gearTable, element)
 			return element
 		elseif gearTable.item_name == "tanari_spirit_stones" then
 			local stones = RPCItems:CreateConsumable(gearTable.item_variant, "immortal", "tanari_spirit_stones", "consumable", false, "Consumable", gearTable.item_variant.."_desc")
 			stones.pickedUp = true
-			SaveLoad:ApplyValidator(gearTable, item)
+			SaveLoad:ApplyValidator(gearTable, stones)
 			return stones
 		elseif gearTable.item_name == "redfall_key" then
 			local key = RPCItems:CreateConsumable(gearTable.item_variant, "rare", "redfall_key", "consumable", false, "Consumable", gearTable.item_variant.."_desc")
 			key.pickedUp = true
-			SaveLoad:ApplyValidator(gearTable, item)
+			SaveLoad:ApplyValidator(gearTable, key)
 			return key
 		elseif gearTable.item_name == "glyph_book" then
 			print("ITEM NAME == GLYPH BOOK")
@@ -988,12 +988,13 @@ function SaveLoad:DraggedToStash(keys)
 							SaveLoad:StashOpen(keys)
 							Statistics.dispatch('items:oracle:push')
 						else
-							-- if not Challenges:CheckIfHeroHasItemByItemIndex(hero, itemEntity:GetEntityIndex()) then
-							-- 	RPCItems:GiveItemToHeroWithSlotCheck(hero, itemEntity)
-							-- 	if IsValidEntity(itemEntity:GetContainer()) then
-							-- 		UTIL_Remove(itemEntity:GetContainer())
-							-- 	end
-							-- end
+							if not Challenges:CheckIfHeroHasItemByItemIndex(hero, itemEntity:GetEntityIndex()) then
+								RPCItems:GiveItemToHeroWithSlotCheck(hero, itemEntity)
+								if IsValidEntity(itemEntity:GetContainer()) then
+									UTIL_Remove(itemEntity:GetContainer())
+								end
+								CustomNetTables:SetTableValue( "item_basics", tostring(itemEntity:GetEntityIndex()).."-returned", {returned = 1} )
+							end
 						end
 					end )
 			else
@@ -1093,7 +1094,13 @@ function SaveLoad:DraggedFromStash(keys)
 								Statistics.dispatch('items:oracle:get')
 								-- Weapons:ValidateGear(hero)
 							else
-								-- RPCItems:GiveItemToHeroWithSlotCheck(hero, itemEntity)
+								if not Challenges:CheckIfHeroHasItemByItemIndex(hero, itemEntity:GetEntityIndex()) then
+									RPCItems:GiveItemToHeroWithSlotCheck(hero, itemEntity)
+									if IsValidEntity(itemEntity:GetContainer()) then
+										UTIL_Remove(itemEntity:GetContainer())
+									end
+									CustomNetTables:SetTableValue( "item_basics", tostring(itemEntity:GetEntityIndex()).."-returned", {returned = 1} )
+								end
 							end
 						end )
 				else

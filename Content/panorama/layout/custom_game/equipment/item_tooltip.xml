@@ -98,6 +98,7 @@
 				<Label id="tooltip_requirements_right" html="true"/>
 			</Panel>
 			<Panel class="class-splitter" id="class-splitter4"/>
+			<Label id="dupe" html="true"/>
 		</Panel>
 	</Panel>
 

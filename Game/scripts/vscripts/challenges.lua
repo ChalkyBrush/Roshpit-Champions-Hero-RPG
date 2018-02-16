@@ -89,7 +89,6 @@ function Challenges:FinalReroll(msg)
 	if (msg.lock1 + msg.lock2 + msg.lock3 + msg.lock4) > 2 then
 		return false
 	end
-	SaveLoad:NewKey()
 	local itemProperties = CustomNetTables:GetTableValue("item_basics", tostring(itemIndex))
 	local reductionTable = CustomNetTables:GetTableValue( "min_level_reduction", tostring(itemIndex) )
 	local minLevel = itemProperties.minLevel
@@ -110,9 +109,9 @@ function Challenges:FinalReroll(msg)
 	end
 	if Challenges:CheckIfHeroHasItemByItemIndex(hero, item:GetEntityIndex()) then
 		if IsValidEntity(item:GetContainer()) then
+			CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
 			return false
 		end
-		hero:TakeItem(item)
 	else
 		CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
 		return false
@@ -121,9 +120,13 @@ function Challenges:FinalReroll(msg)
 		newItem = RPCItems:RerollImmortal(hero, item, msg.lock1, msg.lock2, msg.lock3, msg.lock4, itemLevel)
 		if newItem then
 			newItem:StartCooldown(2)
+			hero:TakeItem(item)
 			UTIL_Remove(item)
+		else
+			CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
 		end
 	else
+		CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
 		return false
 	end
 	Events.reroll = false
