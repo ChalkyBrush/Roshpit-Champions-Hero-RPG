@@ -869,6 +869,17 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		local reduction = 0.99^stacks
 		damage = damage*reduction
 	end
+	if victim:HasModifier("modifier_arkimus_d_b_shield") then
+		damage = 0
+		if shouldConsumeShields then
+			local newStacks = victim:GetModifierStackCount("modifier_arkimus_d_b_shield", caster) - 1
+			if newStacks == 0 then
+				victim:RemoveModifierByName("modifier_arkimus_d_b_shield")
+			else
+				victim:SetModifierStackCount("modifier_arkimus_d_b_shield", caster, newStacks)
+			end
+		end
+	end
 	if victim:HasModifier("modifier_earth_guardian") then
 		if attacker:GetEntityIndex() == victim:GetEntityIndex() then
 		else

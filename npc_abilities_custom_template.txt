@@ -27498,6 +27498,7 @@
 			"particle"	"particles/roshpit/arkimus/arcane_a_b_buff.vpcf"
 			"particle"	"particles/units/heroes/hero_shadow_demon/shadow_demon_shadow_poison_stackui.vpcf"
 			"particle"	"particles/roshpit/arkimus/sprint_fade.vpcf"
+			"particle"	"particles/roshpit/arkimus/source_relay.vpcf"
 		}
 
 		// Casting
@@ -27509,7 +27510,7 @@
 		"AbilityCooldown"				"0"
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50 120 400 900 1800 3000 5400"
+		"AbilityManaCost"				"50 120 300 500 1000 2000 3200"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -27684,6 +27685,14 @@
 						"Function"		"arkimus_spring_end"
 					}
 				}
+			}
+			"modifier_arkimus_d_b_shield"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"EffectName"	"particles/roshpit/arkimus/source_relay.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"TextureName"		"arkimus/arkimus_rune_d_b"
 			}
 		}
 	}
@@ -53465,7 +53474,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6"
+				"property_one"			"10"
 			}
 		}
 	}

@@ -119,9 +119,13 @@ function Challenges:FinalReroll(msg)
 	if IsValidEntity(item) then
 		newItem = RPCItems:RerollImmortal(hero, item, msg.lock1, msg.lock2, msg.lock3, msg.lock4, itemLevel)
 		if newItem then
-			newItem:StartCooldown(2)
-			hero:TakeItem(item)
-			UTIL_Remove(item)
+			if IsValidEntity(newItem) then
+				newItem:StartCooldown(2)
+				hero:TakeItem(item)
+				UTIL_Remove(item)
+			else
+				CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
+			end
 		else
 			CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
 		end

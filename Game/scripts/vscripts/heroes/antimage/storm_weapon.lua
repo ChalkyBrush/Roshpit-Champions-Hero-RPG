@@ -34,10 +34,10 @@ function storm_weapon_cast(event)
 	end
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Akrimus.StormWeapon", caster)
 	ability.b_b_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
-	local d_b_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
-	local procs = Runes:Procs(d_b_level, 6, 1)
-	procs = 1 + procs
-	caster:SetModifierStackCount("modifier_arkimus_storm_weapon", caster, procs)
+	-- local d_b_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
+	-- local procs = Runes:Procs(d_b_level, 6, 1)
+	-- procs = 1 + procs
+	-- caster:SetModifierStackCount("modifier_arkimus_storm_weapon", caster, procs)
 
 end
 
@@ -76,15 +76,22 @@ function storm_weapon_strike(event)
         	end
         end
     end 
-    local currentStacks = caster:GetModifierStackCount("modifier_arkimus_storm_weapon", caster)
-    if currentStacks > 1 then
-		local duration = Filters:GetAdjustedBuffDuration(caster, 3, false)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_storm_weapon", {duration = duration})
-    	newStacks = currentStacks - 1
-    	caster:SetModifierStackCount("modifier_arkimus_storm_weapon", caster, newStacks)
-    else
-    	caster:RemoveModifierByName("modifier_arkimus_storm_weapon")
-    end
+	local d_b_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
+	local procs = Runes:Procs(d_b_level, 10, 1)
+	if procs > 0 then
+		local duration = Filters:GetAdjustedBuffDuration(caster, 7, false)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_d_b_shield", {duration = duration})
+		caster:SetModifierStackCount("modifier_arkimus_d_b_shield", caster, procs)
+	end
+  --   local currentStacks = caster:GetModifierStackCount("modifier_arkimus_storm_weapon", caster)
+  --   if currentStacks > 1 then
+		-- local duration = Filters:GetAdjustedBuffDuration(caster, 3, false)
+		-- ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_storm_weapon", {duration = duration})
+  --   	newStacks = currentStacks - 1
+  --   	caster:SetModifierStackCount("modifier_arkimus_storm_weapon", caster, newStacks)
+  --   else
+  --   	caster:RemoveModifierByName("modifier_arkimus_storm_weapon")
+  --   end
 end
 
 function storm_weapon_end(event)

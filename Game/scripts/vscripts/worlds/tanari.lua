@@ -35,8 +35,8 @@ function Tanari:Debug()
     -- end
     -- Dungeons.itemLevel = 500
     -- Glyphs:DropArcaneCrystals(Vector(-4928, 2048), 2.0)
-    -- RPCItems:RollArcaneCharm(Vector(-3928, 2048))
-    Tanari:DefeatDungeonBoss("fire", Vector(-4928, 2048))
+    -- -- RPCItems:RollArcaneCharm(Vector(-3928, 2048))
+    -- Tanari:DefeatDungeonBoss("fire", Vector(-4928, 2048))
     local item = CreateItem("item_debug_blink", nil, nil)
     local drop = CreateItemOnPositionSync( Vector(-4928, 2048), item )
     local position = Vector(-4928, 2048)
@@ -218,7 +218,7 @@ function Tanari:Debug()
     -- RPCItems:RollTrapperArcana1(Vector(-4928, 2048))
 
             ---------MAX CURATION----------
-    -- Curator:FullCurateHero(MAIN_HERO_TABLE[1])
+    Curator:FullCurateHero(MAIN_HERO_TABLE[1])
 
     -- Curator:CurateHero(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
 
