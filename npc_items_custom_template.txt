@@ -38791,6 +38791,11 @@
 				"var_type"			"FIELD_INTEGER"
 				"property_one"			"100"
 			}
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_two"			"15"
+			}
 		}
 		"Modifiers"
 		{

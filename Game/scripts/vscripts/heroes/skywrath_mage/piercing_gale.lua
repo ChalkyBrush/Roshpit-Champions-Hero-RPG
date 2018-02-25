@@ -32,7 +32,11 @@ function begin_piercing_gale(event)
 		critParticle = "particles/roshpit/sephyr/gale/glyphed_crit.vpcf"
 	end
 	if ability.b_b_level > 0 then
-		local crit = Filters:GetProc(caster, 20)
+		local procChance = 20
+		if caster:HasModifier("modifier_sephyr_immortal_weapon_1") then
+			procChance = procChance + 15
+		end
+		local crit = Filters:GetProc(caster, procChance)
 		if crit then
 			if not caster.InventoryUnit:HasAbility("piercing_gale") then
 				caster.InventoryUnit:AddAbility("piercing_gale")

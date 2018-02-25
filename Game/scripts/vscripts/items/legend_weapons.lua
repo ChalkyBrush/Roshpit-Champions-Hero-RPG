@@ -986,7 +986,7 @@ function Weapons:RollLegendWeapon3(deathLocation, class)
 	    weapon.property1name = "sephyr_immortal3"
 	    RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_sephyr_immortal_weapon3", "#5AEDA1",  1, "#property_sephyr_immortal_weapon3_description")
 
-	    local value = Weapons:GetDeviation(10+RandomInt(4,24), rarityFactor)
+	    local value = Weapons:GetDeviation(4+RandomInt(4,26), rarityFactor)
 	    weapon.property2 = value
 	    weapon.property2name = "all_attributes"
 	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_all_attributes", "#FFFFFF",  2)	
