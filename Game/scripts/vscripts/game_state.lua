@@ -526,6 +526,9 @@ function GameState:OrderFilter(orderTable)
 							if targetEnemy:GetClassname() == "dota_item_drop" then
 								return false
 							end
+							if targetEnemy:GetTeamNumber() == unit:GetTeamNumber() then
+								return false
+							end
 							movementPosition = unit:GetAbsOrigin() + (((unit:GetAbsOrigin() - targetEnemy:GetAbsOrigin())*Vector(1,1,0)):Normalized())*300
 							local distanceBoomerang = WallPhysics:GetDistance(unit:GetAbsOrigin(), targetEnemy:GetAbsOrigin())
 							local cast_range = 1200
