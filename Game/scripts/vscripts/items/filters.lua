@@ -660,23 +660,23 @@ function Filters:BeginRChannel(caster)
     end
     local baseCd = ability:GetCooldownTimeRemaining()
     if caster:HasModifier("modifier_galaxy_orb") then
-        caster.galaxy_orb:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_galaxy_orb_channel", {duration = 3.0})
+        caster.galaxy_orb:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_galaxy_orb_channel", {duration = 8.0})
     end
     if caster:HasModifier("modifier_water_mage_robes") then
-        caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_water_mage_channeling", {duration = 3.0})
+        caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_water_mage_channeling", {duration = 8.0})
     end
     if caster:HasModifier("modifier_ocean_tempest_pallium") then
-        caster.ocean_tempest:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_ocean_tempest_pallium_channeling", {duration = 3.0})
+        caster.ocean_tempest:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_ocean_tempest_pallium_channeling", {duration = 8.0})
     end
     if caster:HasModifier("modifier_space_tech") then
         caster:RemoveModifierByName("modifier_space_tech_buff")
-        caster.space_tech:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_space_tech_channel", {duration = 3.0})
+        caster.space_tech:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_space_tech_channel", {duration = 8.0})
     end
     if caster:HasModifier("modifier_druid_spirit_helm") then
-        caster.druid_spirit:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_druid_channel", {duration = 3.0})
+        caster.druid_spirit:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_druid_channel", {duration = 8.0})
     end
     if caster:HasModifier("modifier_brazen_kabuto") then
-        caster.kabuto:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_brazen_kabuto_channeling", {duration = 3.0})
+        caster.kabuto:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_brazen_kabuto_channeling", {duration = 8.0})
     end
     if caster:HasModifier("modifier_signus_charm") then
         ability:EndCooldown()
@@ -689,11 +689,11 @@ function Filters:BeginRChannel(caster)
     end
     if caster:HasModifier("modifier_burning_spirit_helmet") then
         StartSoundEvent("RPCItem.BurningSpiritHelm", caster)
-        caster.headItem:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_burning_spirit_helmet_flamethrower", {duration = 3.0})
+        caster.headItem:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_burning_spirit_helmet_flamethrower", {duration = 8.0})
     end
     if caster:HasModifier("modifier_templar_light_seers_robe") then
         caster:RemoveModifierByName("modifier_light_seer_shield")
-        caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_templar_channeling", {duration = 3.0})
+        caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_templar_channeling", {duration = 8.0})
     end
 end
 
@@ -1906,6 +1906,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                     mult = mult + 0.0006*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*c_a_level
                 end         
             end  
+        elseif unitName == "npc_dota_hero_skywrath_mage" then
+            if attacker:HasModifier("modifier_sephyr_holy_amp") then
+                local stacks = attacker:GetModifierStackCount("modifier_sephyr_holy_amp", caster)
+                mult = mult + stacks*1
+            end
         end
         if attacker:HasModifier("modifier_gilded_soul_buff") then
             local stacks = attacker:GetModifierStackCount("modifier_gilded_soul_buff", attacker.InventoryUnit)
@@ -2146,6 +2151,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_juggernaut" then
             if attacker.d_b_level then
                 mult = mult + 0.0007*attacker:GetAgility()/10*attacker.d_b_level
+            end
+        elseif unitName == "npc_dota_hero_skywrath_mage" then
+            local d_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
+            if d_b_level > 0 then
+                mult = mult + 0.0012*attacker:GetIntellect()/10*d_b_level
             end
         end
         if attacker:HasModifier("modifier_hand_wind") then

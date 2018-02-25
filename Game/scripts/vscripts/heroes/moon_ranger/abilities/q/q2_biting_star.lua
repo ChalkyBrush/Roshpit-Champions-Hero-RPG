@@ -50,6 +50,10 @@ function attackLand(event)
         Timers:CreateTimer(0.45, -- Start this timer 10 game-time seconds later
             function()
                 if target:IsAlive() then
+                    if caster:HasModifier("modifier_astral_arcana1") then
+                        baseAbilityFor = 1
+                    end
+                    print(baseAbilityFor)
                     Filters:TakeArgumentsAndApplyDamage(target, caster, pureDamage, DAMAGE_TYPE_PURE, baseAbilityFor, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
                     EmitSoundOn("Ability.StarfallImpact", target)
                     if caster:HasModifier("modifier_astral_arcana1") then

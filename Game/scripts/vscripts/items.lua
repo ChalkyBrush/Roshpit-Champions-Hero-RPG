@@ -714,8 +714,6 @@ function RPCItems:SetTableValues(item, itemName, consumableBoolean, description,
 		CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemName, consumable = consumableBoolean, itemDescription = description, qualityColor = qualityColor, qualityName = qualityName, itemPrefix = prefix, itemSuffix = suffix, rarityFactor = rarityFactor, minLevel = item.minLevel } )
 	end
 	local key = RPCItems:GetRandomKey(RandomInt(20,26))
-	print("----KEY-----")
-	print(key)
 	CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()).."-key", {key = key} )
 end
 

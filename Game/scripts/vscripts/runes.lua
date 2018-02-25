@@ -54,6 +54,8 @@ function Runes:RedirectRunes(hero, runeUnit, runeUnit2, runeUnit3, runeUnit4, pl
 		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "djanghor")
 	elseif heroName == "npc_dota_hero_slark" then
 		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "slipfinn")
+	elseif heroName == "npc_dota_hero_skywrath_mage" then
+		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "sephyr")
 	end
 	
     runeUnit:AddAbility("town_unit"):SetLevel(1)

@@ -8771,8 +8771,8 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/moon_ranger/moon_shroud.lua"
-						"Function"		"moon_shroud_attack_land"
+						"ScriptFile"	"heroes/moon_ranger/abilities/q/q2_biting_star.lua"
+						"Function"		"attackLand"
 						"attack_damage" "%attack_damage"
 					}
 				}
@@ -37966,6 +37966,1235 @@
 
 
 	}
+	"piercing_gale"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"sephyr/piercing_gale"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_sephyr.vsndevts"
+			"particle"	"particles/roshpit/sephyr/piercing_gale.vpcf"
+			"particle"	"particles/roshpit/test/linear_invisible.vpcf"
+			"particle"	"particles/roshpit/sephyr/gale/crit.vpcf"
+			"particle"	"particles/roshpit/sephyr/glyphed_piercing_gale.vpcf"
+			"particle"	"particles/roshpit/sephyr/gale/glyphed_crit.vpcf"
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"80 130 210 320 440 640 1000 2000"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"200 400 1000 2500 7000 21000 44000"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/skywrath_mage/piercing_gale.lua"
+				"Function"		"begin_piercing_gale"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/skywrath_mage/piercing_gale.lua"
+				"Function"		"gale_hit"
+				"damage"		"%damage"
+				"target"		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_gale_speed_burst"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/skywrath_mage/piercing_gale.lua"
+						"Function"		"gale_speed_burst_think"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-100"
+				}
+			}
+			"modifier_gale_sound_lock"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_sephyr_gale_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/skywrath_mage/piercing_gale.lua"
+						"Function"		"sephyr_passive_think_gale"
+					}
+				}
+			}
+			"modifier_sephyr_mana_regen"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "1"
+				}
+			}
+		}
+	}
+
+	"sephyr_strafe"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"sephyr/strafe"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"					"particles/roshpit/sephyr/strafe_wind.vpcf"
+			"particle"					"particles/sephyr/boomerang_impact.vpcf"
+			"particle"					"models/development/invisiblebox.vmdl"
+			"particle"					"particles/roshpit/sephyr/sephyr_boomerang_missle.vpcf"
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_distance"			"600 620 640 660 680 700 720"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"strafe_speed"		"16.0 16.3 16.6 16.9 17.2 17.5 17.8"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"mana_percent_use"		"1.5"
+			}
+		}
+		"OnToggleOn"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_strafe_toggle"
+				"Target" 		"CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/skywrath_mage/strafe.lua"
+				"Function"		"strafe_toggled_on"
+			}
+		}
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_strafe_toggle"
+				"Target" 		"CASTER"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_strafe_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"   "1"
+				"ThinkInterval"  ".05"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/skywrath_mage/strafe.lua"
+						"Function"		"strafe_passive_think"
+					}
+				}
+			}
+			"modifier_strafe_toggle"
+			{
+				"IsHidden"	"1"
+				"Passive"	"0"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/skywrath_mage/strafe.lua"
+						"Function"		"strafe_fv_lock"
+					}
+				}
+			}
+			"modifier_strafe_sprinting"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/skywrath_mage/strafe.lua"
+						"Function"		"strafe_thinking"
+						"strafe_speed"	"%strafe_speed"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-2000"
+				}
+			}
+			"modifier_strafe_cooldown"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+			}
+			"modifier_strafe_dont_twist"
+			{
+				"IsHidden"	"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/skywrath_mage/strafe.lua"
+						"Function"		"untwist"
+					}
+				}
+			}
+			"modifier_strafe_attack_damage"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
+			}
+		}
+	}
+
+	"blessing_of_nefali"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"sephyr/winds_of_nefali"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"6.0"
+		"AbilityChannelTime"	"8.0"
+
+		"AbilityCastAnimation"	"ACT_DOTA_TELEPORT"
+		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AOERadius"	"240 280 320 360 400 440 480"
+
+		"precache"
+		{
+			"particle"		"particles/roshpit/sephyr/blessing/blessing_sphere.vpcf"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"radius"	"300 330 360 390 420 450 480"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"damage_reduce"	"91 92 93 94 95 96 97 98"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"radius_glyphed"	"480 510 540 570 600 630 660"
+			}
+		}
+
+		"AbilityManaCost"	"0"
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_nefali_channel"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/skywrath_mage/blessing_of_nefali.lua"
+				"Function"		"start_channel"
+				"radius"		"%radius"
+			}
+
+		}
+		"OnChannelSucceeded"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_nefali_channel"
+			}
+		}
+
+		"OnChannelFinish"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_nefali_channel"
+			}
+		}
+
+		"OnChannelInterrupted"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_nefali_channel"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/skywrath_mage/blessing_of_nefali.lua"
+				"Function"		"channel_interrupt"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_nefali_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/skywrath_mage/blessing_of_nefali.lua"
+						"Function"		"nefali_passive_think"
+					}
+				}
+			}
+			"modifier_nefali_d_d"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_nefali_channel"
+			{
+				"IsHidden"	"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"beginChannel"
+					}
+					"States"
+					{
+						"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"endChannel"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/skywrath_mage/blessing_of_nefali.lua"
+						"Function"		"channel_end"
+						"target"		"TARGET"
+					}
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/skywrath_mage/blessing_of_nefali.lua"
+						"Function"		"channeling_think"
+					}
+				}
+			}
+			"modifier_nefali_aura_ally"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Aura"          	"modifier_nefali_aura_effect"
+				"Aura_Radius"   	"%radius"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Aura_ApplyToCaster" "1"
+			}
+			"modifier_nefali_aura_ally_glyphed"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Aura"          	"modifier_nefali_aura_effect"
+				"Aura_Radius"   	"%radius_glyphed"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Aura_ApplyToCaster" "1"
+			}
+			"modifier_nefali_aura_effect"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/skywrath_mage/blessing_of_nefali.lua"
+						"Function"		"nefali_aura_start_ally"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/skywrath_mage/blessing_of_nefali.lua"
+						"Function"		"nefali_aura_end_ally"
+						"target"		"TARGET"
+					}
+				}
+				"ThinkInterval"  "2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/skywrath_mage/blessing_of_nefali.lua"
+						"Function"		"two_seconds_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_nefali_aura_health_regen"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "20"
+				}
+			}
+			"modifier_nefali_c_d_speed"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"sephyr/sephyr_rune_c_d"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"					"TARGET"
+						"EffectName"				"particles/econ/generic/generic_buff_1/generic_buff_1.vpcf"
+						"EffectAttachType"			"follow_origin"
+						"EffectLifeDurationScale"	"1"
+						"EffectColorA"				"130 255 210"
+						"EffectAlphaScale"			"0.7"
+					}
+					"FireSound"
+					{
+						"EffectName"	"Sephyr.NefaliBlessing"
+						"Target" 		"TARGET"
+					}
+				}
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "10" 
+				}
+			}
+			"modifier_nefali_aura_enemy"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Aura"          	"modifier_nefali_aura_effect_enemy"
+				"Aura_Radius"   	"%radius"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Aura_ApplyToCaster" "0"
+			}
+			"modifier_nefali_aura_enemy_glyphed"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Aura"          	"modifier_nefali_aura_effect_enemy"
+				"Aura_Radius"   	"%radius_glyphed"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Aura_ApplyToCaster" "0"
+			}
+			"modifier_nefali_aura_effect_enemy"
+			{
+				"IsDebuff"	"1"
+				"IsHidden"	"0"
+				"TextureName"	"sephyr/sephyr_rune_b_d"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/skywrath_mage/blessing_of_nefali.lua"
+						"Function"		"nefali_aura_start_enemy"
+						"target"		"TARGET"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-8"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-10" 
+				}
+			}
+		}
+
+
+	}
+
+	"sephyr_lightbomb"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"sephyr/lightbomb"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCastRange"				"1300 1375 1450 1525 1600 1675 1750"
+		"AOERadius"						"480"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+
+		// Precache
+		"precache"
+		{
+			"particle"	"particles/roshpit/sorceress/ice_lance_cast.vpcf"
+			"particle"	"particles/roshpit/sephyr/lightbomb_projectile.vpcf"
+			"particle"	"particles/roshpit/sephyr/lb_flash.vpcf"
+			"particle"	"particles/roshpit/sephyr/lightbomb/lightbomb_explosion.vpcf"
+			"particle"	"particles/roshpit/bahamut/purity_freeze_debuff.vpcf"
+			"particle"	"particles/status_fx/status_effect_guardian_angel.vpcf"
+			"particle"	"particles/roshpit/bahamut/purity_impact.vpcf"
+			"particle"	"particles/roshpit/sephyr/glyph_6_damage.vpcf"
+		}
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.8"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"7.5"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"cast_range"			"1000 1075 1150 1225 1300 1375 1450"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"base_damage"			"5000 15000 35000 80000 200000 500000 1000000"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"int_damage"			"40 50 60 70 80 90 100"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_duration"			"1.0 1.15 1.30 1.45 1.60 1.75 1.90"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/skywrath_mage/lightbomb.lua"
+        		"Function"		"lightbomb_precast"
+        		"Target"		"POINT"
+			}
+		}
+		"OnAbilityPhaseInterrupted"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/skywrath_mage/lightbomb.lua"
+        		"Function"		"lightbomb_precancel"
+        		"Target"		"POINT"
+			}			
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/skywrath_mage/lightbomb.lua"
+        		"Function"		"lightbomb_cast"
+        		"Target"		"POINT"
+        		"base_damage"	"%base_damage"
+        		"int_damage"	"%int_damage"
+        		"stun_duration"	"%stun_duration"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_lightbomb_start_cast"
+			{
+				"IsHidden"	"1"
+				"EffectName"	"particles/roshpit/sorceress/ice_lance_cast.vpcf"
+				"EffectAttachType" "follow_origin"
+			}
+			"modifier_sephyr_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/skywrath_mage/lightbomb.lua"
+						"Function"		"sephyr_passive_think"
+					}
+				}
+			}
+			"modifier_z_flight"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_VISUAL_Z_DELTA" "1"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/skywrath_mage/lightbomb.lua"
+						"Function"		"flying_think"
+					}
+				}
+			}
+			"modifier_flying_cant_be_attacked"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_lightbomb_a_a"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"sephyr/sephyr_rune_a_a"
+			}
+			"modifier_lightbomb_postmit"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"TextureName"	"sephyr/sephyr_rune_b_a"
+			}
+			"modifier_lightbomb_freecast"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"sephyr/sephyr_rune_c_a"
+			}
+			"modifier_sephyr_holy_amp"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_sephyr_d_d_attack_damage"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+			
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
+				}
+			}
+			"modifier_lightbomb_freeze"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"		"particles/roshpit/bahamut/purity_freeze_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"StatusEffectName" 		"particles/status_fx/status_effect_guardian_angel.vpcf"
+				"StatusEffectPriority"  "10"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"TextureName"	"luna_lucent_beam_alt"
+				"OnCreated"
+				{
+					"FireEffect"
+					{
+						"EffectName"        "particles/roshpit/bahamut/purity_impact.vpcf"
+						"EffectAttachType"  "start_at_customorigin"
+						"ControlPointEntities"
+						{
+							"CASTER"	"follow_origin"
+							"TARGET"	"follow_origin"
+						}
+					}
+				}
+			}
+		}
+	}
+
+	"sephyr_boomerang_dummy_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"rubick_empty1"
+		"MaxLevel"	"1"
+		"Modifiers"
+		{
+			"sephyr_boomerang_modifier"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_UNSELECTABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/skywrath_mage/strafe.lua"
+						"Function"		"boomerang_think"
+					}
+				}
+			}
+			"modifier_boomerang_disarm"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_blinding_light_debuff.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				"TextureName"	"sephyr/sephyr_rune_a_c"
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_boomerang_attack_damage_visible"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"	"sephyr/sephyr_rune_b_c"
+			}
+			"modifier_boomerang_attack_damage_invisible"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"800"
+				}
+			}
+		}
+
+	}
+
+	"sephyr_rune_a_a"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"sephyr/sephyr_rune_a_a"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"250"
+			}
+		}
+
+
+	}
+
+	"sephyr_rune_a_b"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"sephyr/sephyr_rune_a_b"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"2.5"
+			}
+		}
+
+
+	}
+
+	"sephyr_rune_a_c"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"sephyr/sephyr_rune_a_c"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"1500"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"3"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"				"12"
+			}
+		}
+
+
+	}
+
+	"sephyr_rune_a_d"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"sephyr/sephyr_rune_a_d"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"20"
+			}
+		}
+
+
+	}
+
+	"sephyr_rune_b_a"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"sephyr/sephyr_rune_b_a"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"15"
+			}
+		}
+
+
+	}
+
+	"sephyr_rune_b_b"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"sephyr/sephyr_rune_b_b"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"1"
+			}
+		}
+
+
+	}
+
+	"sephyr_rune_b_c"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"sephyr/sephyr_rune_b_c"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"800"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"15"
+			}
+		}
+
+
+	}
+
+	"sephyr_rune_b_d"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"sephyr/sephyr_rune_b_d"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"-8"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"-10"
+			}
+		}
+
+
+	}
+
+	"sephyr_rune_c_a"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"sephyr/sephyr_rune_c_a"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"1"
+			}
+		}
+
+
+	}
+
+	"sephyr_rune_c_b"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"sephyr/sephyr_rune_c_b"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"10"
+			}
+		}
+
+
+	}
+
+	"sephyr_rune_c_c"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"sephyr/sephyr_rune_c_c"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.2"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"1.5"
+			}
+		}
+
+
+	}
+
+	"sephyr_rune_c_d"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"sephyr/sephyr_rune_c_d"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.12"
+			}
+		}
+
+
+	}
+
+	"sephyr_rune_d_a"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"sephyr/sephyr_rune_d_a"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"100"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.5"
+			}
+		}
+
+
+	}
+
+	"sephyr_rune_d_b"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"sephyr/sephyr_rune_d_b"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.12"
+			}
+		}
+
+
+	}
+
+	"sephyr_rune_d_c"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"sephyr/sephyr_rune_d_c"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.15"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"6"
+			}
+		}
+
+
+	}
+
+	"sephyr_rune_d_d"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"sephyr/sephyr_rune_d_d"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"500"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"500"
+			}
+		}
+
+
+	}
 	"creep_jump"
 	{
 		// General
@@ -56644,6 +57873,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"11"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"3"
 			}
 		}
 	}
@@ -109649,8 +110883,8 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/moon_ranger/moon_shroud.lua"
-						"Function"		"moon_shroud_attack_land"
+						"ScriptFile"	"heroes/moon_ranger/abilities/q/q2_biting_star.lua"
+						"Function"		"attackLand"
 						"attack_damage" "%attack_damage"
 					}
 				}

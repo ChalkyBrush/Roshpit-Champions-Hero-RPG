@@ -8076,7 +8076,7 @@ function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, sl
         print("TIMER FUNCTION IN HERE")
         print(giveBackOldItem)
         if not newItem or giveBackOldItem or not IsValidEntity(newItem) then
-            RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
+            -- RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
             Notifications:Top(hero:GetPlayerOwnerID(), {text="This Item Can Not Be Rerolled", duration=5, style={color="red"}, continue=true})
         else
             newItem.pickedUp = true

@@ -304,6 +304,15 @@ function Weapons:RollLegendWeapon1(deathLocation, class)
 	    weapon.property2 = value
 	    weapon.property2name = "agility"
 	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_agility", "#2EB82E",  2)
+	elseif internalName == "sephyr" then
+	    weapon.property1 = 1
+	    weapon.property1name = "!immortal_weapon!"
+		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_sephyr_immortal_weapon", "#8af473",  1, "#property_sephyr_immortal_weapon_description")
+
+		local value = Weapons:GetDeviation(20+RandomInt(1,Arena.PitLevel*6), rarityFactor)
+	    weapon.property2 = value
+	    weapon.property2name = "intelligence"
+	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_intelligence", "#33CCFF",  2)
 	end
 	-- if mainAttrRoll == 1 then
 	-- 	local value = Weapons:GetDeviation(15, rarityFactor)
@@ -680,6 +689,15 @@ function Weapons:RollLegendWeapon2(deathLocation, class)
 	    weapon.property2 = value
 	    weapon.property2name = "attack_damage"
 	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_bonus_attack_damage", "#343EC9",  2)
+	elseif internalName == "sephyr" then
+	    weapon.property1 = 1
+	    weapon.property1name = "!immortal_weapon!"
+		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_sephyr_immortal_weapon2", "#6de253",  1, "#property_sephyr_immortal_weapon2_description")
+
+		local value = Weapons:GetDeviation(18+RandomInt(5,25), rarityFactor)
+	    weapon.property2 = value
+	    weapon.property2name = "agility"
+	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_agility", "#2EB82E",  2)	
 	end
 
 	print("----------")
@@ -963,6 +981,15 @@ function Weapons:RollLegendWeapon3(deathLocation, class)
 	    weapon.property2 = value
 	    weapon.property2name = name
 	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#rpc_item_element"..RPC_ELEMENT_SHADOW, color,  2) 
+	elseif internalName == "sephyr" then
+	    weapon.property1 = 1
+	    weapon.property1name = "sephyr_immortal3"
+	    RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_sephyr_immortal_weapon3", "#5AEDA1",  1, "#property_sephyr_immortal_weapon3_description")
+
+	    local value = Weapons:GetDeviation(10+RandomInt(4,24), rarityFactor)
+	    weapon.property2 = value
+	    weapon.property2name = "all_attributes"
+	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_all_attributes", "#FFFFFF",  2)	
 	end
 
 	print("----------")

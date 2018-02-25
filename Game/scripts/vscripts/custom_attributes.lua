@@ -31,6 +31,8 @@ CustomAttributes.SOLUNIA_R4_STATS = 200
 CustomAttributes.AXE_E1_STATS = 10
 CustomAttributes.SORCERESS_ARCANE_INT = 50
 CustomAttributes.TRAPPER_R4_AGI = 500
+CustomAttributes.SEPHYR_Q1_INT = 250
+CustomAttributes.SEPHYR_R4_AGI_INT = 500
 
 CustomAttributes.RING_OF_NOBILITY = 30
 CustomAttributes.RING_OF_NOBILITY2 = 60
@@ -218,6 +220,13 @@ function CustomAttributes:SetAttributes(hero)
 	end
 	if hero:HasModifier("modifier_trapper_rune_d_d_bonus_agi") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_trapper_rune_d_d_bonus_agi", CustomAttributes.TRAPPER_R4_AGI)
+	end
+	if hero:HasModifier("modifier_lightbomb_a_a") then
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_lightbomb_a_a", CustomAttributes.SEPHYR_Q1_INT)
+	end
+	if hero:HasModifier("modifier_nefali_d_d") then
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_nefali_d_d", CustomAttributes.SEPHYR_R4_AGI_INT)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_nefali_d_d", CustomAttributes.SEPHYR_R4_AGI_INT)
 	end
 
 	-- ENEMIES --

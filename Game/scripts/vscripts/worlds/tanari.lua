@@ -49,17 +49,19 @@ function Tanari:Debug()
     -- RPCItems:RollDirewolfBulkwark(Vector(-4928, 2048))
     -- RPCItems:RollDjanghorArcana1(Vector(-4928, 2048))
     RPCItems:RollHoodOfLords(Vector(-4928, 2048), true)
-    RPCItems:RollHeavyEchoGauntlet(Vector(-4928, 2048))
-    RPCItems:RollFlamewakerArcana2(Vector(-4928, 2048))
+    -- RPCItems:RollHeavyEchoGauntlet(Vector(-4928, 2048))
+    -- RPCItems:RollFlamewakerArcana2(Vector(-4928, 2048))
+    -- RPCItems:RollTwistedMaskOfAhnqhirPurple(Vector(-4928, 2048))
+    -- RPCItems:RollAstralArcana1(Vector(-4928, 2048))
     -- RPCItems:RollMountainProtectorArcana2(Vector(-4928, 2048))
     -- RPCItems:RollMountainProtectorArcana3(Vector(-4928, 2048))
     -- RPCItems:RollDunetreadBoots(Vector(-4928, 2048))
     -- Arena = {}
     -- Arena.PitLevel = 7
-    -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "djanghor")
-    -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "djanghor")
-    -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "djanghor")
-    -- Glyphs:DebugRollHeroGlyphs("axe", Vector(-4928, 2048))
+    -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "sephyr")
+    -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "sephyr")
+    -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "sephyr")
+    -- Glyphs:DebugRollHeroGlyphs("sephyr", Vector(-4928, 2048))
     -- RPCItems:RollMonkeyPaw(Vector(-4928, 2048))
     -- RPCItems:RollSorceressArcana2(Vector(-4928, 2048))
     -- RPCItems:RollPaladinArcana2(Vector(-4928, 2048))
@@ -69,7 +71,7 @@ function Tanari:Debug()
     -- RPCItems:RollAxeArcana1(Vector(-4928, 2048))
 
     -- RPCItems:RollBahamutArcana2(Vector(-4928, 2048))
-    Glyphs:RollGlyphAll("item_rpc_flamewaker_glyph_4_1", Vector(-4928, 2048), 0)
+    -- Glyphs:RollGlyphAll("item_rpc_flamewaker_glyph_4_1", Vector(-4928, 2048), 0)
 
     -- Curator:CurateArcanaAbilities(MAIN_HERO_TABLE[1])
     -- Curator:CurateAllGlyphsForHeroWithTiers("neutral", 3)
@@ -218,7 +220,7 @@ function Tanari:Debug()
     -- RPCItems:RollTrapperArcana1(Vector(-4928, 2048))
 
             ---------MAX CURATION----------
-    Curator:FullCurateHero(MAIN_HERO_TABLE[1])
+    -- Curator:FullCurateHero(MAIN_HERO_TABLE[1])
 
     -- Curator:CurateHero(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
 

@@ -143,7 +143,13 @@ function Weaponmodifiers:action(propertyName, propertyValue, hero, inventory_uni
 	elseif propertyName == "movespeed" then
 		Weaponmodifiers:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_weapon_movespeed", weapon_ability)
 	elseif propertyName == "time" then
-		Weaponmodifiers:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_weapon_time", weapon_ability)		
+		Weaponmodifiers:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_weapon_time", weapon_ability)	
+	elseif propertyName == "sephyr_immortal3" then
+		print("SEPHYR IMMORTAL3")
+		local runeTable = {"rune_d_a", "rune_d_b", "rune_d_c", "rune_d_d"}
+		for i = 1, #runeTable, 1 do
+			Weaponmodifiers:runeProperty(runeTable[i], 7, hero)
+		end		
 	end
 end
 
@@ -196,6 +202,18 @@ function Weaponmodifiers:runeProperty(propertyName, propertyValue, hero)
 	elseif propertyName == "rune_c_d" then
 		hero.runeUnit3.weapon.c_d = hero.runeUnit3.weapon.c_d + propertyValue
 		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit3.weapon.c_d, propertyName, hero)
+	elseif propertyName == "rune_d_a" then
+		hero.runeUnit4.weapon.d_a = hero.runeUnit4.weapon.d_a + propertyValue
+		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit4.weapon.d_a, propertyName, hero)
+	elseif propertyName == "rune_d_b" then
+		hero.runeUnit4.weapon.d_b = hero.runeUnit4.weapon.d_b + propertyValue
+		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit4.weapon.d_b, propertyName, hero)
+	elseif propertyName == "rune_d_c" then
+		hero.runeUnit4.weapon.d_c = hero.runeUnit4.weapon.d_c + propertyValue
+		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit4.weapon.d_c, propertyName, hero)
+	elseif propertyName == "rune_d_d" then
+		hero.runeUnit4.weapon.d_d = hero.runeUnit4.weapon.d_d + propertyValue
+		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit4.weapon.d_d, propertyName, hero)
 	end
 end
 

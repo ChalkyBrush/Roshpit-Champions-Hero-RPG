@@ -108,6 +108,7 @@
 
 #specials_container{
 	flow-children:down;
+	horizontal-align:center;
 }
 
 .special-property{
@@ -118,6 +119,7 @@
 
 .properties_special_container{
 	flow-children:down;
+	horizontal-align:center;
 }
 
 .special-property-title{

@@ -7481,8 +7481,8 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/moon_ranger/moon_shroud.lua"
-						"Function"		"moon_shroud_attack_land"
+						"ScriptFile"	"heroes/moon_ranger/abilities/q/q2_biting_star.lua"
+						"Function"		"attackLand"
 						"attack_damage" "%attack_damage"
 					}
 				}
@@ -30195,6 +30195,8 @@
 
 	##SLIPFINN_ABILITIES##
 
+	##SEPHYR_ABILITIES##
+
 	"creep_jump"
 	{
 		// General
@@ -46640,6 +46642,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"11"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"3"
 			}
 		}
 	}
@@ -92716,8 +92723,8 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/moon_ranger/moon_shroud.lua"
-						"Function"		"moon_shroud_attack_land"
+						"ScriptFile"	"heroes/moon_ranger/abilities/q/q2_biting_star.lua"
+						"Function"		"attackLand"
 						"attack_damage" "%attack_damage"
 					}
 				}

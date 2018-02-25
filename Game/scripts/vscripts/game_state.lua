@@ -487,6 +487,114 @@ function GameState:OrderFilter(orderTable)
 				end
 			end
 		end
+		if unit:HasModifier("modifier_strafe_toggle") then
+			unit.lastOrder = orderTable.order_type
+			DeepPrintTable(orderTable)
+			if orderTable.entindex_ability > 0 then
+				local orderAbility = EntIndexToHScript(orderTable.entindex_ability)
+				if IsValidEntity(orderAbility) then
+					if orderAbility:GetAbilityName() == "sephyr_lightbomb" and unit:HasModifier("modifier_strafe_toggle") then
+						local fv = ((Vector(orderTable.position_x, orderTable.position_y) - unit:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+						local strafe = unit:FindAbilityByName("sephyr_strafe")
+						local lightbomb = unit:FindAbilityByName("sephyr_lightbomb")
+						lightbomb.rotation = AngleDiff(WallPhysics:vectorToAngle(fv), WallPhysics:vectorToAngle(strafe.fvLock))
+						lightbomb.ogFV = strafe.fvLock
+						-- strafe.fvLock = fv
+						unit:SetForwardVector(fv)
+
+					end
+				end
+			end
+			if orderTable.order_type == DOTA_UNIT_ORDER_DROP_ITEM or orderTable.order_type == DOTA_UNIT_ORDER_PICKUP_ITEM then
+				local strafe = unit:FindAbilityByName("sephyr_strafe")
+				strafe:ToggleAbility()
+			end
+			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION or orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
+				if unit:IsStunned() or unit:IsRooted() or unit:IsFrozen() or unit:HasModifier("modifier_strafe_cooldown") or unit:HasModifier("modifier_strafe_sprinting") then
+					local strafe = unit:FindAbilityByName("sephyr_strafe")
+					strafe:ApplyDataDrivenModifier(unit, unit, "modifier_strafe_dont_twist", {duration = 0.5})
+					print("MOVE FORWARD")
+					-- Timers:CreateTimer(0.03, function()
+					-- 	unit:MoveToPosition(unit:GetAbsOrigin()+strafe.fvLock*2)
+					-- end)
+				else
+					local strafe = unit:FindAbilityByName("sephyr_strafe")
+					local movementPosition = Vector(orderTable.position_x, orderTable.position_y)
+					if orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
+						if Runes:GetTotalRuneLevelGeneric(unit, 1, 2) > 0 then
+							local targetEnemy = EntIndexToHScript(orderTable.entindex_target)
+							movementPosition = unit:GetAbsOrigin() + (((unit:GetAbsOrigin() - targetEnemy:GetAbsOrigin())*Vector(1,1,0)):Normalized())*300
+							local distanceBoomerang = WallPhysics:GetDistance(unit:GetAbsOrigin(), targetEnemy:GetAbsOrigin())
+							local cast_range = 1200
+							if unit:HasModifier("modifier_vermillion_dream_robes") then
+								cast_range = cast_range + 420
+							end
+							if distanceBoomerang <= cast_range then
+								if CustomAbilities:SephyrBoomerang(unit, strafe, targetEnemy) then
+								else
+									return false
+								end
+							else
+								return false
+							end
+						else
+							return false
+						end
+					end
+					if orderTable.order_type == DOTA_UNIT_ORDER_PICKUP_ITEM then
+						movementPosition = EntIndexToHScript(orderTable.entindex_target):GetAbsOrigin()
+					end
+					local moveDirection = ((movementPosition - unit:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+					local distance = WallPhysics:GetDistance2d(movementPosition, unit:GetAbsOrigin())
+					if distance > 120 then
+						local abilityDistance = math.min(distance, strafe:GetLevelSpecialValueFor("max_distance", strafe:GetLevel()))
+						print(abilityDistance)
+						local d_c_level = Runes:GetTotalRuneLevelGeneric(unit, 4, 2)
+						if d_c_level > 0 then
+							abilityDistance = abilityDistance + d_c_level*6
+						end
+						strafe.d_c_level = d_c_level
+						local manaReduce = strafe:GetLevelSpecialValueFor("mana_percent_use", strafe:GetLevel())/100
+						unit:ReduceMana(unit:GetMaxMana()*manaReduce)
+						strafe:ApplyDataDrivenModifier(unit, unit, "modifier_strafe_sprinting", {duration = 3})
+						strafe.fv = moveDirection
+						strafe.targetPoint = unit:GetAbsOrigin()+abilityDistance*moveDirection
+						strafe.distance = abilityDistance
+						strafe.origDistance = abilityDistance
+						strafe.canAnimate = true
+						if not unit.animLock then
+							StartAnimation(unit, {duration=1.0, activity=ACT_DOTA_TELEPORT_END, rate=0.9})
+						end
+						local cooldown = 0.75
+						strafe:ApplyDataDrivenModifier(unit, unit, "modifier_strafe_cooldown", {duration = cooldown})
+						local pfx = ParticleManager:CreateParticle("particles/roshpit/sephyr/strafe_wind.vpcf", PATTACH_CUSTOMORIGIN, nil)
+						ParticleManager:SetParticleControl(pfx, 0, unit:GetAbsOrigin()+Vector(0,0,80)-strafe.fv*200)
+						ParticleManager:SetParticleControl(pfx, 1, strafe.fv)
+						ParticleManager:SetParticleControl(pfx, 3, unit:GetAbsOrigin() + strafe.fv*1000)
+						local time = strafe.distance/1200
+						Timers:CreateTimer(time, function()
+							ParticleManager:DestroyParticle(pfx, false)
+						end)
+						unit:MoveToPosition(unit:GetAbsOrigin()+strafe.fvLock*1)
+						EmitSoundOnLocationWithCaster(movementPosition, "Sephyr.Strafe.Gust", unit)
+						local luck = RandomInt(1, 5)
+						if luck == 1 then
+							if not unit.voLock then
+								EmitSoundOn("Sephyr.PiercingGale.VO", unit)
+							end
+						end
+						Filters:CastSkillArguments(3, unit)
+						-- if unit:HasAbility("sephyr_lightbomb") then
+						-- 	local lightbomb = unit:FindAbilityByName("sephyr_lightbomb")
+						-- 	lightbomb:SetActivated(false)
+						-- end
+					else
+						strafe:ApplyDataDrivenModifier(unit, unit, "modifier_strafe_dont_twist", {duration = 0.5})
+					end
+				end
+				return false
+			end
+		end
 		if unit:HasModifier("modifier_holy_wrath_d_a_buff") then
 			if not unit:HasModifier("modifier_holy_wrath_d_a_cooldown") then
 				if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
@@ -888,6 +996,16 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			end
 			damage = damage*0.5
 		end
+	end
+	if victim:HasModifier("modifier_nefali_aura_effect") then
+		local nefaliCaster = victim:FindModifierByName("modifier_nefali_aura_effect"):GetCaster()
+		local nefaliAbility = nefaliCaster:FindAbilityByName("blessing_of_nefali")
+		local reduction = nefaliAbility:GetLevelSpecialValueFor("damage_reduce", nefaliAbility:GetLevel())
+		reduction = (100-reduction)/100
+		if nefaliCaster:HasModifier("modifier_sephyr_glyph_5_a") then
+			reduction = 0.005
+		end
+		damage = damage*reduction
 	end
 	if victim:HasModifier("modifier_fuchsia_damage_resistance") then
 		damage = damage*0.15
@@ -1651,6 +1769,13 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + 0.25*stacks
 		end
 	end
+	if victim:HasModifier("modifier_lightbomb_postmit") then
+		modifier = victim:FindModifierByName("modifier_lightbomb_postmit")
+		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
+			local stacks = modifier:GetStackCount()
+			mult = mult + 0.15*stacks
+		end
+	end
 	if victim:HasModifier("modifier_slipfinn_gloomshade_invisible") then
 		modifier = victim:FindModifierByName("modifier_slipfinn_gloomshade_invisible")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
@@ -1836,10 +1961,7 @@ function GameState:FilterDamage(filterTable)
 		local reductionPercent = Filters:EmeraldDouliHit(victim, filterTable["damage"])
 		filterTable["damage"] = filterTable["damage"] - filterTable["damage"]*reductionPercent
 	end
-	if victim:HasModifier("modifier_arkimus_glyph_5_1") then
-		local damageReduction = Filters:SpellShieldHit(victim, filterTable["damage"])
-		filterTable["damage"] = filterTable["damage"] - damageReduction
-	end
+
 
 	if attacker:HasModifier("modifier_seinaru_immortal_weapon_1") then
 		if damagetype == DAMAGE_TYPE_PHYSICAL then
@@ -2068,7 +2190,10 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = filterTable["damage"] * GameState:IncomingDamageDecrease(victim, attacker, true)
 	end
 	
-
+	if victim:HasModifier("modifier_arkimus_glyph_5_1") then
+		local damageReduction = Filters:SpellShieldHit(victim, filterTable["damage"])
+		filterTable["damage"] = filterTable["damage"] - damageReduction
+	end
 	if victim:HasModifier("modifier_demon_hunter") then
 		filterTable["damage"] = CustomAbilities:ChernobogDemonHunter(victim, filterTable["damage"])
 	end
@@ -2306,6 +2431,13 @@ function GameState:FilterDamage(filterTable)
 		mult = mult + 0.1/100 * stacks
 	end
 
+	if victim:HasModifier("modifier_sephyr_glyph_6_1") then
+		local luck = RandomInt(1, 20)
+		if luck <= 7 then
+			filterTable["damage"] = 0
+			CustomAbilities:QuickAttachParticle("particles/roshpit/sephyr/glyph_6_damage.vpcf", victim, 0.5)
+		end
+	end
 	--APPLY MULT
 	filterTable["damage"] = filterTable["damage"]*mult/divisor
 	--FINAL STAGE--

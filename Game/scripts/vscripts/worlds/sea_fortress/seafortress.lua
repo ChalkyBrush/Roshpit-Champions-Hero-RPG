@@ -3638,6 +3638,8 @@ function Seafortress:FirstPirateRoom()
     mine:SetAbsOrigin(mine:GetAbsOrigin()+Vector(0,0,RandomInt(130,150)))
     mine:SetModelScale(1.5)
     mine:SetRenderColor(123, 199, 114)
+    mine.jumpLock = true
+    mine.pushLock = true
     local gravePos = Vector(4601, 8448)
     if i == 2 then
       gravePos = Vector(4985, 8448)

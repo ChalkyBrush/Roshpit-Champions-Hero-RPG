@@ -6053,7 +6053,7 @@ function pure_resist_take_damage(event)
 	local ability = event.ability
 	if ability.particleLock then
 	else
-		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_brewmaster/brewmaster_windwalk_flash_b.vpcf", victim, 1)
+		-- CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_brewmaster/brewmaster_windwalk_flash_b.vpcf", victim, 1)
 		ability.particleLock = true
 		Timers:CreateTimer(1.0, function()
 			ability.particleLock = false

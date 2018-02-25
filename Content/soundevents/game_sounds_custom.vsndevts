@@ -2376,7 +2376,7 @@ Env.LavaHit
                               "value0"        "sounds/items/guardian_greaves.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "0.677000"  }
+                    "volume"            {   "value"     "0.577000"  }
                     "pitch_rand_min"    {   "value"     "-0.01000"  }
                     "pitch_rand_max"    {   "value"     "0.010000"  }
                     "pitch"             {   "value"     "1.000000"  }

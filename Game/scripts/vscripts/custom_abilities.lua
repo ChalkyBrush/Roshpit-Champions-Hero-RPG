@@ -607,3 +607,56 @@ function CustomAbilities:AddAndOrSwapSkill(caster, originalSkillName, newSkillNa
   	newAbility:SetAbilityIndex(index)
   	caster:SwapAbilities(originalSkillName, newSkillName, false, true)
 end
+
+function CustomAbilities:SephyrBoomerang(caster, ability, enemy)
+
+    local max_boomerangs = 1
+    if caster:HasModifier("modifier_sephyr_glyph_1_1") then
+    	max_boomerangs = max_boomerangs + 1
+    end
+    if caster:HasModifier("modifier_sephyr_immortal_weapon_2") then
+    	max_boomerangs = max_boomerangs + 3
+    end
+    if not ability.boomerangTable then
+    	ability.boomerangTable = {}
+    end
+    if #ability.boomerangTable < max_boomerangs then
+		EmitSoundOn("Selethas.Boomerang.Throw", caster)
+
+	    local fv = (enemy:GetAbsOrigin()*Vector(1,1,0)-caster:GetAbsOrigin()*Vector(1,1,0)):Normalized()
+	    local spawnPos = caster:GetAbsOrigin() + Vector(0,0,caster:GetModifierStackCount("modifier_z_flight", caster)) + Vector(0,0,160)
+	    local boomerang = CreateUnitByName("selethas_boomerang", spawnPos, false, caster, nil, caster:GetTeamNumber())
+
+	    boomerang:SetAbsOrigin(spawnPos)
+	    table.insert(ability.boomerangTable, boomerang)
+	    boomerang:SetModel("models/development/invisiblebox.vmdl")
+	    boomerang:SetOriginalModel("models/development/invisiblebox.vmdl")
+
+	    boomerang.fv = fv
+	    boomerang:AddAbility("sephyr_boomerang_dummy_ability"):SetLevel(1)
+	    local boomerangAbility = boomerang:FindAbilityByName("sephyr_boomerang_dummy_ability")
+	    boomerangAbility:ApplyDataDrivenModifier(boomerang, boomerang, "sephyr_boomerang_modifier", {})
+	    boomerang:SetDayTimeVisionRange(280)
+	    boomerang:SetNightTimeVisionRange(200)
+	    boomerang.target = enemy
+	    boomerang.a_c_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
+	    boomerang.b_c_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
+	    local bounces = Runes:Procs(boomerang.a_c_level, 10, 1) + 1
+	    boomerang.bounces = bounces
+	    boomerang.current_bounces = 0
+	    boomerang.speed = 30
+	    boomerang.actual_hits = 0
+	    boomerang.caster = caster
+	    boomerang.pfx = ParticleManager:CreateParticle("particles/roshpit/sephyr/sephyr_boomerang_missle.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	    boomerang.fv = (boomerang.target:GetAbsOrigin() - boomerang:GetAbsOrigin()):Normalized()
+	    ParticleManager:SetParticleControlEnt(boomerang.pfx, 0, boomerang, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", spawnPos, true)
+	    EmitSoundOn("Sephyr.Boomerang.Throw", boomerang)
+	    return true
+	else
+		return false
+	end
+    -- ability:ApplyDataDrivenModifier(caster, caster, "modifier_outgoing_solarang", {})
+    -- caster:SetModifierStackCount("modifier_outgoing_solarang", caster, #ability.boomerangTable)
+    
+   
+end
