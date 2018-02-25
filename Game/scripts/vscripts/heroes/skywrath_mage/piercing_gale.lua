@@ -161,7 +161,7 @@ function gale_hit(event)
 	end
 	local c_b_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
 	if c_b_level > 0 then
-		damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.1*c_b_level
+		damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.06*c_b_level
 	end
 	if crit then
 		damage = damage + damage*0.2*ability.b_b_level

@@ -523,6 +523,9 @@ function GameState:OrderFilter(orderTable)
 					if orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
 						if Runes:GetTotalRuneLevelGeneric(unit, 1, 2) > 0 then
 							local targetEnemy = EntIndexToHScript(orderTable.entindex_target)
+							if targetEnemy:GetClassname() == "dota_item_drop" then
+								return false
+							end
 							movementPosition = unit:GetAbsOrigin() + (((unit:GetAbsOrigin() - targetEnemy:GetAbsOrigin())*Vector(1,1,0)):Normalized())*300
 							local distanceBoomerang = WallPhysics:GetDistance(unit:GetAbsOrigin(), targetEnemy:GetAbsOrigin())
 							local cast_range = 1200
@@ -1773,7 +1776,7 @@ function GameState:FilterDamage(filterTable)
 		modifier = victim:FindModifierByName("modifier_lightbomb_postmit")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetStackCount()
-			mult = mult + 0.15*stacks
+			mult = mult + 0.12*stacks
 		end
 	end
 	if victim:HasModifier("modifier_slipfinn_gloomshade_invisible") then

@@ -14,6 +14,12 @@ function strafe_fv_lock(event)
 	-- end
 end
 
+function strafe_toggled_off(event)
+	local caster = event.caster
+	local ability = event.ability
+	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+end
+
 function strafe_thinking(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -33,7 +39,7 @@ function strafe_thinking(event)
     end
     -- make scale with level
 	if blockUnit then
-		forwardSpeed = 0
+		forwardSpeed = -10
 	end	
 	
 	-- local pushForward = 0

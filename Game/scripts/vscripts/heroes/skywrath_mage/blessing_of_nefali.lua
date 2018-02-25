@@ -20,6 +20,7 @@ function start_channel(event)
 			if caster:HasModifier("modifier_strafe_sprinting") then
 				caster:RemoveModifierByName("modifier_strafe_sprinting")
 			end
+			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 			ability.pfx = ParticleManager:CreateParticle("particles/roshpit/sephyr/blessing/blessing_sphere.vpcf", PATTACH_CUSTOMORIGIN, caster)
 			ParticleManager:SetParticleControl(ability.pfx, 0, caster:GetAbsOrigin())
 			ParticleManager:SetParticleControl(ability.pfx, 1, Vector(radius, radius, radius))

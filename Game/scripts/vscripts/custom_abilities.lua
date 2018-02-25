@@ -610,7 +610,7 @@ end
 
 function CustomAbilities:SephyrBoomerang(caster, ability, enemy)
 
-    local max_boomerangs = 1
+    local max_boomerangs = 15
     if caster:HasModifier("modifier_sephyr_glyph_1_1") then
     	max_boomerangs = max_boomerangs + 1
     end

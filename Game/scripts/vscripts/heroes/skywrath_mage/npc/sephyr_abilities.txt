@@ -186,6 +186,11 @@
 				"ModifierName"	"modifier_strafe_toggle"
 				"Target" 		"CASTER"
 			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/skywrath_mage/strafe.lua"
+				"Function"		"strafe_toggled_off"
+			}
 		}
 		"Modifiers"
 		{
@@ -943,7 +948,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"12"
 			}
 		}
 
@@ -1063,7 +1068,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"6"
 			}
 		}
 
