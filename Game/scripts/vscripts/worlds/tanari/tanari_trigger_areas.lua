@@ -155,7 +155,12 @@ function LavaJump(unit, forwardVector, propulsion, liftForce, liftDuration, grav
 	local gameMaster = Events.GameMaster
 	local gameMasterAbil = gameMaster:FindAbilityByName("npc_abilities")
 	local jumpingModifier = "modifier_lava_jumping"
+	if unit:HasModifier(jumpingModifier) then
+		return false
+	end
 	gameMasterAbil:ApplyDataDrivenModifier(gameMaster, unit, jumpingModifier, {duration = 5})
+	print("----LAVA JUMP----")
+
 	for i = 1, liftDuration, 1 do
 		Timers:CreateTimer(0.03*i, function()
 			if IsValidEntity(unit) then

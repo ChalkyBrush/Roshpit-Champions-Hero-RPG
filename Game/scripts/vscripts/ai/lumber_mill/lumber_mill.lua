@@ -8,7 +8,7 @@ function die_after_time(event)
 	Timers:CreateTimer(60, function()
 		if not caster:IsNull() then
 			if caster:IsAlive() then
-				caster:Kill(caster, caster)
+				caster:ForceKill(false)
 			end
 		end
 	end)
@@ -19,7 +19,7 @@ function die_after_time_twenty(event)
 	Timers:CreateTimer(20, function()
 		if not caster:IsNull() then
 			if caster:IsAlive() then
-				caster:Kill(caster, caster)
+				caster:ForceKill(false)
 			end
 		end
 	end)

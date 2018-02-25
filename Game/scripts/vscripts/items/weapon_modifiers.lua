@@ -275,5 +275,9 @@ function Weaponmodifiers:remove_rune_bonuses(hero)
 	hero.runeUnit3.weapon.c_b = 0
 	hero.runeUnit3.weapon.c_c = 0
 	hero.runeUnit3.weapon.c_d = 0
+	hero.runeUnit4.weapon.d_a = 0
+	hero.runeUnit4.weapon.d_b = 0
+	hero.runeUnit4.weapon.d_c = 0
+	hero.runeUnit4.weapon.d_d = 0
 	Runes:ResetRuneBonuses(hero, "weapon")
 end

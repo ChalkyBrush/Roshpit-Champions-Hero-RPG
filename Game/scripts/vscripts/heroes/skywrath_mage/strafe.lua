@@ -41,6 +41,11 @@ function strafe_thinking(event)
 	if blockUnit then
 		forwardSpeed = -10
 	end	
+	if Filters:HasMovementModifier(caster) then
+		forwardSpeed = 0
+		caster:RemoveModifierByName("modifier_strafe_sprinting")
+		return false
+	end
 	
 	-- local pushForward = 0
 	-- if caster:HasModifier("modifier_gale_speed_burst") then
