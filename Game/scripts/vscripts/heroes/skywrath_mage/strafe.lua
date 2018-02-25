@@ -94,17 +94,19 @@ function boomerang_think(event)
 		fv = towardTarget
     	boomerang:SetAbsOrigin(boomerang:GetAbsOrigin() + fv*boomerang.speed)
     	local distance = WallPhysics:GetDistance(boomerang.target:GetAbsOrigin()+Vector(0,0,boomerang.target:GetBoundingMaxs().z), boomerang:GetAbsOrigin())
-    	if distance < (boomerang.speed+5) then
-    		local damage = boomerang.a_c_level * 1500
-    		if boomerang.b_c_level > 0 then
-    			damage = damage + boomerang.b_c_level*0.15*boomerang.caster:GetAverageTrueAttackDamage(boomerang.caster)
-    		end
-    		local c_c_level = Runes:GetTotalRuneLevelGeneric(boomerang.caster, 3, 2)
-    		if c_c_level > 0 then
-    			damage = damage + boomerang.caster:GetAgility()*E3_AGILITY_ADDED_TO_DAMAGE*c_c_level
-    		end
-    		Filters:TakeArgumentsAndApplyDamage(boomerang.target, boomerang.caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
-    		ability:ApplyDataDrivenModifier(boomerang, boomerang.target, "modifier_boomerang_disarm", {duration = 0.5})
+    	if distance < (boomerang.speed+5) or not IsValidEntity(boomerang.target) or not boomerang.target:IsAlive() then
+    		if IsValidEntity(boomerang.target) then
+	    		local damage = boomerang.a_c_level * 1500
+	    		if boomerang.b_c_level > 0 then
+	    			damage = damage + boomerang.b_c_level*0.15*boomerang.caster:GetAverageTrueAttackDamage(boomerang.caster)
+	    		end
+	    		local c_c_level = Runes:GetTotalRuneLevelGeneric(boomerang.caster, 3, 2)
+	    		if c_c_level > 0 then
+	    			damage = damage + boomerang.caster:GetAgility()*E3_AGILITY_ADDED_TO_DAMAGE*c_c_level
+	    		end
+	    		Filters:TakeArgumentsAndApplyDamage(boomerang.target, boomerang.caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
+	    		ability:ApplyDataDrivenModifier(boomerang, boomerang.target, "modifier_boomerang_disarm", {duration = 0.5})
+	    	end
     		boomerang.current_bounces = boomerang.current_bounces + 1
     		boomerang.speed = math.min(boomerang.speed + 10, 60)
     		CustomAbilities:QuickParticleAtPoint("particles/sephyr/boomerang_impact.vpcf", boomerang:GetAbsOrigin(), 3)

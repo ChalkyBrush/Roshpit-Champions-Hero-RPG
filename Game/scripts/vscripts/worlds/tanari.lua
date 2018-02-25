@@ -56,11 +56,11 @@ function Tanari:Debug()
     -- RPCItems:RollMountainProtectorArcana2(Vector(-4928, 2048))
     -- RPCItems:RollMountainProtectorArcana3(Vector(-4928, 2048))
     -- RPCItems:RollDunetreadBoots(Vector(-4928, 2048))
-    -- Arena = {}
-    -- Arena.PitLevel = 7
-    -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "sephyr")
-    -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "sephyr")
-    -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "sephyr")
+    Arena = {}
+    Arena.PitLevel = 7
+    Weapons:RollLegendWeapon1(Vector(-4928, 2048), "sephyr")
+    Weapons:RollLegendWeapon2(Vector(-4928, 2048), "sephyr")
+    Weapons:RollLegendWeapon3(Vector(-4928, 2048), "sephyr")
     -- Glyphs:DebugRollHeroGlyphs("sephyr", Vector(-4928, 2048))
     -- RPCItems:RollMonkeyPaw(Vector(-4928, 2048))
     -- RPCItems:RollSorceressArcana2(Vector(-4928, 2048))
@@ -220,7 +220,7 @@ function Tanari:Debug()
     -- RPCItems:RollTrapperArcana1(Vector(-4928, 2048))
 
             ---------MAX CURATION----------
-    Curator:FullCurateHero(MAIN_HERO_TABLE[1])
+    -- Curator:FullCurateHero(MAIN_HERO_TABLE[1])
 
     -- Curator:CurateHero(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
 
