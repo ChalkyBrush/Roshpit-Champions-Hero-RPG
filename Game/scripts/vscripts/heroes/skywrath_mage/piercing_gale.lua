@@ -142,6 +142,7 @@ function gale_speed_burst_think(event)
 			caster:RemoveModifierByName("modifier_gale_speed_burst")
 			if not caster:IsChanneling() then
 				caster:MoveToPosition(caster:GetAbsOrigin()+caster:GetForwardVector()*5)
+				FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 			end
 		end
 	end

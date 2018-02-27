@@ -536,7 +536,7 @@ function GameState:OrderFilter(orderTable)
 								cast_range = cast_range + 420
 							end
 							if distanceBoomerang <= cast_range then
-								if CustomAbilities:SephyrBoomerang(unit, strafe, targetEnemy) then
+								if CustomAbilities:SephyrBoomerang(unit, strafe, targetEnemy, false) then
 								else
 									return false
 								end

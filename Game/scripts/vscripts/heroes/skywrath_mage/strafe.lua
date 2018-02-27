@@ -132,6 +132,9 @@ function boomerang_think(event)
 						boomerang.target = enemy
 					end
 				end
+				if boomerang.caster:HasModifier("modifier_wind_deity_crown") then
+					CustomAbilities:SephyrBoomerang(boomerang.caster, ability, boomerang.target, true)
+				end
 				if origTarget == boomerang.target then
 					boomerang.current_bounces = boomerang.bounces
 				end

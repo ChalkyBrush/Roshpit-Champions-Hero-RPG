@@ -6,8 +6,8 @@ function die_after_time(event)
 		Timers:CreateTimer(caster.dieTime, function()
 			if not caster:IsNull() then
 				if caster:IsAlive() then
-					caster:Kill(caster, caster)
-					ApplyDamage({ victim = caster, attacker = caster, damage = caster:GetMaxHealth()*20, damage_type = DAMAGE_TYPE_PURE })
+					-- caster:ForceKill(false)
+					ApplyDamage({ victim = caster, attacker = caster, damage = caster:GetMaxHealth()*1000000000, damage_type = DAMAGE_TYPE_PURE })
 				end
 			end
 		end)
