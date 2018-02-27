@@ -58,7 +58,6 @@ function strafe_thinking(event)
 	caster:SetAbsOrigin(caster:GetAbsOrigin()+fv*forwardSpeed+Vector(0,0,zfactor))
 
 	ability.distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), ability.targetPoint)
-	print(ability.distance)
 	if not caster:IsChanneling() and not caster:HasModifier("modifier_lightbomb_start_cast") then
 		caster:MoveToPosition(caster:GetAbsOrigin()+ability.fvLock*1)
 	end
@@ -133,7 +132,7 @@ function boomerang_think(event)
 					end
 				end
 				if boomerang.caster:HasModifier("modifier_wind_deity_crown") then
-					CustomAbilities:SephyrBoomerang(boomerang.caster, ability, boomerang.target, true)
+					CustomAbilities:SephyrBoomerang(boomerang.caster, boomerang.caster:FindAbilityByName("sephyr_strafe"), boomerang.target, true)
 				end
 				if origTarget == boomerang.target then
 					boomerang.current_bounces = boomerang.bounces

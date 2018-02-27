@@ -489,7 +489,7 @@ function GameState:OrderFilter(orderTable)
 		end
 		if unit:HasModifier("modifier_strafe_toggle") then
 			unit.lastOrder = orderTable.order_type
-			DeepPrintTable(orderTable)
+			-- DeepPrintTable(orderTable)
 			if orderTable.entindex_ability > 0 then
 				local orderAbility = EntIndexToHScript(orderTable.entindex_ability)
 				if IsValidEntity(orderAbility) then
@@ -1004,14 +1004,16 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		end
 	end
 	if victim:HasModifier("modifier_nefali_aura_effect") then
-		local nefaliCaster = victim:FindModifierByName("modifier_nefali_aura_effect"):GetCaster()
-		local nefaliAbility = nefaliCaster:FindAbilityByName("blessing_of_nefali")
-		local reduction = nefaliAbility:GetLevelSpecialValueFor("damage_reduce", nefaliAbility:GetLevel())
-		reduction = (100-reduction)/100
-		if nefaliCaster:HasModifier("modifier_sephyr_glyph_5_a") then
-			reduction = 0.005
+		if victim:GetTeamNumber() == victim:FindModifierByName("modifier_nefali_aura_effect"):GetCaster():GetTeamNumber() then
+			local nefaliCaster = victim:FindModifierByName("modifier_nefali_aura_effect"):GetCaster()
+			local nefaliAbility = nefaliCaster:FindAbilityByName("blessing_of_nefali")
+			local reduction = nefaliAbility:GetLevelSpecialValueFor("damage_reduce", nefaliAbility:GetLevel())
+			reduction = (100-reduction)/100
+			if nefaliCaster:HasModifier("modifier_sephyr_glyph_5_a") then
+				reduction = 0.005
+			end
+			damage = damage*reduction
 		end
-		damage = damage*reduction
 	end
 	if victim:HasModifier("modifier_fuchsia_damage_resistance") then
 		damage = damage*0.15

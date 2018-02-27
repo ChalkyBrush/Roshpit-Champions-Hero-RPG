@@ -1,5 +1,14 @@
 require("npc_abilities/dialogue")
 
+function preTrigger(hero)
+	if hero:HasModifier("modifier_trigger_lock") then
+		return false
+	else
+		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, hero, "modifier_trigger_lock", {duration = 1})
+		return true
+	end
+end
+
 function LobbyTrigger(trigger)
 	if trigger.activator.cheer then
 		return false
@@ -42,6 +51,9 @@ end
 function LeftLeaderboard(trigger)
 	local hero = trigger.activator
 	local playerRank = 21
+	if not preTrigger(hero) then
+		return false
+	end
 	if hero.ChampionsLeague then
 		playerRank = hero.ChampionsLeague.rank
 	end
@@ -50,6 +62,9 @@ end
 
 function DonationsBoard(trigger)
 	local hero = trigger.activator
+	if not preTrigger(hero) then
+		return false
+	end
 	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "open_donations_board", {})
 	local url = ROSHPIT_URL.."/donate/donations?"
 	-- url = url.."steam_id="..steamID

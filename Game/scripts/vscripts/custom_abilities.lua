@@ -624,15 +624,21 @@ function CustomAbilities:SephyrBoomerang(caster, ability, enemy, bWindDeity)
     if not ability.boomerangTable then
     	ability.boomerangTable = {}
     end
-
+    print("##########")
+    print(#ability.boomerangTable)
+    print("#######")
     if #ability.boomerangTable < max_boomerangs then
     	for i = 0, pucks-1, 1 do
     		Timers:CreateTimer(i*0.4, function()
-    			if i == 1 then
-    				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), enemy:GetAbsOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-    				enemy = enemies[1]
-    			end
-    			CustomAbilities:SephyrPuck(caster, ability, enemy)
+    			if #ability.boomerangTable < max_boomerangs then
+	    			if i == 1 then
+	    				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), enemy:GetAbsOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	    				enemy = enemies[1]
+	    			end
+	    			if IsValidEntity(enemy) and enemy:IsAlive() then
+	    				CustomAbilities:SephyrPuck(caster, ability, enemy)
+	    			end
+	    		end
     		end)
     	end
 	    return true

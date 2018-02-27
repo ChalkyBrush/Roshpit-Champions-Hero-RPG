@@ -55123,6 +55123,10 @@
 			{
 				"IsHidden"	"1"
 			}
+			"modifier_trigger_lock"
+			{
+				"IsHidden"	"1"
+			}
 		}
 
 	}

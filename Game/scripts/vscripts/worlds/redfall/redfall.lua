@@ -43,6 +43,12 @@ function Redfall:Debug()
     -- RPCItems:RollPhoenixEmblem(Vector(-15168, -14976))
     -- Redfall:SpawnRedRaven(Vector(-15168, -14976), RandomVector(1))
     Redfall:GiveBurgundyFirefly(MAIN_HERO_TABLE[1])
+    Arena = {}
+    Arena.PitLevel = 7
+    Weapons:RollLegendWeapon1(Vector(-15168, -14976), "sephyr")
+    Weapons:RollLegendWeapon2(Vector(-15168, -14976), "sephyr")
+    Weapons:RollLegendWeapon3(Vector(-15168, -14976), "sephyr")
+    RPCItems:RollWindDeityCrown(Vector(-15168, -14976), true, 7)
     -- Redfall:GiveVermillionBundle(MAIN_HERO_TABLE[1], Vector(-15168, -14976))
     -- Redfall:GiveShipyardKey(MAIN_HERO_TABLE[1], Vector(-15168, -14976)) 
     -- Redfall:GiveDemonRelic(MAIN_HERO_TABLE[1], Vector(-15168, -14976))
