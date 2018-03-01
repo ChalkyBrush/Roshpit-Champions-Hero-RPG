@@ -682,4 +682,9 @@ function CustomAbilities:SephyrPuck(caster, ability, enemy)
     boomerang.fv = (boomerang.target:GetAbsOrigin() - boomerang:GetAbsOrigin()):Normalized()
     ParticleManager:SetParticleControlEnt(boomerang.pfx, 0, boomerang, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", spawnPos, true)
     EmitSoundOn("Sephyr.Boomerang.Throw", boomerang)
+    if ability.countPFX then
+    else
+		ability.countPFX = ParticleManager:CreateParticle("particles/roshpit/sephyr/puck_counter.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
+    end
+    ParticleManager:SetParticleControl(ability.countPFX, 1, Vector(0, #ability.boomerangTable, #ability.boomerangTable))
 end

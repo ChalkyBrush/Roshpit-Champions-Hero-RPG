@@ -85,7 +85,7 @@ function begin_piercing_gale(event)
 		    		ParticleManager:DestroyParticle(pfx3, false)
 		    	end
 			end)
-			local particleName = "particles/roshpit/test/linear_invisible.vpcf"
+			local particleName = "particles/econ/items/mirana/mirana_crescent_arrow/ruins_boss_linear_destruction.vpcf"
 		    local start_radius = 170
 		    local end_radius = 170
 		    local speed = speed

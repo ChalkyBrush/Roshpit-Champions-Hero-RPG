@@ -10121,6 +10121,29 @@
 						"Function"		"nightmare_rider_attackland"
 					}
 				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_nightmare_rider_effect_visible"
+						"Target" 		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_nightmare_rider_invisible"
+						"Target" 		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_nightmare_rider_stacks"
+						"Target" 		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_nightmare_rider_orb_buff"
+						"Target" 		"TARGET"
+					}
+				}
 			}
 			"modifier_nightmare_rider_effect_visible"
 			{

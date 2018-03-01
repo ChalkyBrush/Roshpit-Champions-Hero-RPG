@@ -17,7 +17,7 @@
 		{
 			"soundfile"	"soundevents/game_sounds_sephyr.vsndevts"
 			"particle"	"particles/roshpit/sephyr/piercing_gale.vpcf"
-			"particle"	"particles/roshpit/test/linear_invisible.vpcf"
+			"particle"	"particles/econ/items/mirana/mirana_crescent_arrow/ruins_boss_linear_destruction.vpcf"
 			"particle"	"particles/roshpit/sephyr/gale/crit.vpcf"
 			"particle"	"particles/roshpit/sephyr/glyphed_piercing_gale.vpcf"
 			"particle"	"particles/roshpit/sephyr/gale/glyphed_crit.vpcf"
@@ -122,6 +122,7 @@
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"sephyr/strafe"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"AOERadius"						"1200"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
 
@@ -133,6 +134,7 @@
 			"particle"					"particles/sephyr/boomerang_impact.vpcf"
 			"particle"					"models/development/invisiblebox.vmdl"
 			"particle"					"particles/roshpit/sephyr/sephyr_boomerang_missle.vpcf"
+			"particle"					"particles/roshpit/sephyr/puck_counter.vpcf"
 		}
 
 		// Casting

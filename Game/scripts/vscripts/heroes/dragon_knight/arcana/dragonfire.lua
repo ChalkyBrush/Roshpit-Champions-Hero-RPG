@@ -153,7 +153,7 @@ function flame_proj_hit(event)
 	local target = event.target
 	local base_damage = event.base_damage
 	local attack_dmg_bonus = event.attack_dmg_bonus
-	attack_dmg_bonus = attack_dmg_bonus + ability.c_b_level*2
+	attack_dmg_bonus = attack_dmg_bonus + ability.c_b_level*5
 	local damage = base_damage + (attack_dmg_bonus/100)*caster:GetAverageTrueAttackDamage(caster)
 	if caster:HasModifier("modifier_flamewaker_glyph_4_1") then
 		damage = damage + ((caster:GetStrength() + caster:GetAgility() + caster:GetIntellect())*5 + caster:GetAverageTrueAttackDamage(caster)*0.2)*ability:GetLevel()

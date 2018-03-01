@@ -10,7 +10,8 @@ function strafe_fv_lock(event)
 	local caster = event.caster
 	local ability = event.ability
 	-- if not caster:HasModifier("modifier_strafe_cooldown") and not caster:HasModifier("modifier_strafe_sprinting") and not caster:HasModifier("modifier_strafe_dont_twist") then
-		caster:SetForwardVector(ability.fvLock)
+		-- caster:SetForwardVector(ability.fvLock)
+		caster:FaceTowards(caster:GetAbsOrigin()+ability.fvLock*10)
 	-- end
 end
 
@@ -94,16 +95,14 @@ function boomerang_think(event)
     boomerang.speed = math.max(boomerang.speed - 0.2, 20)
     if boomerang.current_bounces < boomerang.bounces then
     	local fv = boomerang.fv
-    	local towardTarget = ((boomerang.target:GetAbsOrigin()+Vector(0,0,boomerang.target:GetBoundingMaxs().z)) - boomerang:GetAbsOrigin()):Normalized()
-			-- local angDiff = AngleDiff(WallPhysics:vectorToAngle(fv), WallPhysics:vectorToAngle(towardTarget))
-			-- if angDiff > 10 or angDiff < -10 then
-			-- 	boomerang.fv = WallPhysics:rotateVector(boomerang.fv, (2*math.pi/240))
-			-- else
-			-- 	boomerang.fv = towardTarget
-			-- end
-		fv = towardTarget
-    	boomerang:SetAbsOrigin(boomerang:GetAbsOrigin() + fv*boomerang.speed)
-    	local distance = WallPhysics:GetDistance(boomerang.target:GetAbsOrigin()+Vector(0,0,boomerang.target:GetBoundingMaxs().z), boomerang:GetAbsOrigin())
+    	local towardTarget = Vector(1,0)
+    	local distance = 0
+    	if IsValidEntity(boomerang.target) then
+	    	towardTarget = ((boomerang.target:GetAbsOrigin()+Vector(0,0,boomerang.target:GetBoundingMaxs().z)) - boomerang:GetAbsOrigin()):Normalized()
+			fv = towardTarget
+	    	boomerang:SetAbsOrigin(boomerang:GetAbsOrigin() + fv*boomerang.speed)
+    		distance = WallPhysics:GetDistance(boomerang.target:GetAbsOrigin()+Vector(0,0,boomerang.target:GetBoundingMaxs().z), boomerang:GetAbsOrigin())
+    	end
     	if distance < (boomerang.speed+5) or not IsValidEntity(boomerang.target) or not boomerang.target:IsAlive() then
     		if IsValidEntity(boomerang.target) then
 	    		local damage = boomerang.a_c_level * 1500
@@ -125,11 +124,15 @@ function boomerang_think(event)
 			local enemies = FindUnitsInRadius( boomerang.caster:GetTeamNumber(), boomerang:GetAbsOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 			local origTarget = boomerang.target
 			if #enemies > 0 then
-				for _,enemy in pairs(enemies) do
-					if enemy:GetEntityIndex() == boomerang.target:GetEntityIndex() then
-					else
-						boomerang.target = enemy
+				if IsValidEntity(boomerang.target) then
+					for _,enemy in pairs(enemies) do
+						if enemy:GetEntityIndex() == boomerang.target:GetEntityIndex() then
+						else
+							boomerang.target = enemy
+						end
 					end
+				else
+					boomerang.target = enemies[1]
 				end
 				if boomerang.caster:HasModifier("modifier_wind_deity_crown") then
 					CustomAbilities:SephyrBoomerang(boomerang.caster, boomerang.caster:FindAbilityByName("sephyr_strafe"), boomerang.target, true)
@@ -163,6 +166,18 @@ function boomerang_think(event)
 	    		end
     			UTIL_Remove(boomerang)
     			reindexBoomerangs(strafe)
+    			if strafe.countPFX then	    		
+	    			print("IN HERE?")
+	    			print(#strafe.boomerangTable)
+	    			print("&&&&&&&&&&&&&&&&&&&")
+				    if #strafe.boomerangTable > 0 then
+						ParticleManager:SetParticleControl(strafe.countPFX, 1, Vector(0, #strafe.boomerangTable, #strafe.boomerangTable))
+				    else
+				    	print("DESTRY IT")
+		    			ParticleManager:DestroyParticle(strafe.countPFX, false)
+		    			strafe.countPFX = false
+				    end
+				end
     		end)
     	end
     end

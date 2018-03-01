@@ -506,8 +506,9 @@ function GameState:OrderFilter(orderTable)
 				end
 			end
 			if orderTable.order_type == DOTA_UNIT_ORDER_DROP_ITEM or orderTable.order_type == DOTA_UNIT_ORDER_PICKUP_ITEM then
-				local strafe = unit:FindAbilityByName("sephyr_strafe")
-				strafe:ToggleAbility()
+				-- local strafe = unit:FindAbilityByName("sephyr_strafe")
+				-- strafe:ToggleAbility()
+				return false
 			end
 			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION or orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
 				if unit:IsStunned() or unit:IsRooted() or unit:IsFrozen() or unit:HasModifier("modifier_strafe_cooldown") or unit:HasModifier("modifier_strafe_sprinting") then
@@ -538,7 +539,6 @@ function GameState:OrderFilter(orderTable)
 							if distanceBoomerang <= cast_range then
 								if CustomAbilities:SephyrBoomerang(unit, strafe, targetEnemy, false) then
 								else
-									return false
 								end
 							else
 								return false
@@ -940,6 +940,9 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
     		damageReduc = 1 - (damageReduc/100)
     		damage = damage*damageReduc
 	    end
+		if victim:HasModifier("modifier_ivory_gryffin_aura_effect") then
+			damage = damage * 0.7
+		end
 	end
 	local decreaseAll = GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields)
 	return (damage/BASE_VALUE_FOR_CALCULATE)*decreaseAll
@@ -1419,9 +1422,7 @@ function GameState:FilterDamage(filterTable)
 				end
 			end
 		end
-		if victim:HasModifier("modifier_ivory_gryffin_aura_effect") then
-			filterTable["damage"] = filterTable["damage"] * 0.7
-		end
+
 		if attacker:HasModifier("modifier_leshrac_arcana_b_d_effect") then
 			modifier = attacker:FindModifierByName("modifier_leshrac_arcana_b_d_effect")
 			if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
@@ -2689,6 +2690,7 @@ function GameState:FilterDamage(filterTable)
 
 	--LETHAL CHECK
 	if filterTable["damage"] > victim:GetHealth() then
+		local rezzed = false
 		if victim:HasModifier("modifier_phoenix_emblem") then
 			if victim:HasModifier("modifier_phoenix_rebirthing") then
 				filterTable["damage"] = 0
@@ -2696,22 +2698,28 @@ function GameState:FilterDamage(filterTable)
 			if not victim:HasModifier("modifier_phoenix_emblem_cooldown") then
 				filterTable["damage"] = 0
 				Filters:PhoenixEmblem(victim)
+				rezzed = true
 			end
-		elseif victim:HasModifier("modifier_hailstorm_passive") then
+		end
+		if victim:HasModifier("modifier_hailstorm_passive") and not rezzed then
 			if not victim:HasModifier("modifier_hailstorm_ice_case_cooldown") then
 				local hailstormAbility = victim:FindAbilityByName("mountain_protector_hailstorm")
 				local b_d_level = Runes:GetTotalRuneLevelGeneric(victim, 2, 3)
 				if b_d_level > 0 then
 					hailstormAbility:ApplyDataDrivenModifier(victim, victim, "modifier_frozen_stand", {duration = 6})
 					hailstormAbility:ApplyDataDrivenModifier(victim, victim, "modifier_hailstorm_ice_case_cooldown", {duration = 35})
+					rezzed = true
 				end
 			end	
-		elseif victim:HasModifier("modifier_solunia_glyph_5_a") then
+		end
+		if victim:HasModifier("modifier_solunia_glyph_5_a") and not rezzed then
 			if not victim:HasModifier("modifier_solunia_glyph_5_a_cooldown") then
 				filterTable["damage"] = victim:GetHealth() - 2
 				CustomAbilities:Protostar(victim)
+				rezzed = true
 			end
-		elseif victim:HasModifier("modifier_paladin_arcana2_passive") then
+		end
+		if victim:HasModifier("modifier_paladin_arcana2_passive") and not rezzed then
 			local a_c_level = Runes:GetTotalRuneLevelGeneric(victim, 1, 2)
 			if a_c_level > 0 then
 				if not victim:HasModifier("modifier_paladin_heal_on_lethal_cooldown") then
@@ -2730,9 +2738,11 @@ function GameState:FilterDamage(filterTable)
 					  ParticleManager:DestroyParticle( pfx, false )
 					end) 	
 					filterTable["damage"] =  0
+					rezzed = true
 				end
             end
-        elseif victim:HasModifier('modifier_duskbringer_ghost_form_checker') then
+        end
+        if victim:HasModifier('modifier_duskbringer_ghost_form_checker') and not rezzed then
             local caster = victim:FindModifierByName('modifier_duskbringer_ghost_form_checker'):GetCaster()
 			if caster.d_c_level then
                 local ability = caster:FindAbilityByName('specter_rush_two')
@@ -2740,8 +2750,10 @@ function GameState:FilterDamage(filterTable)
                 CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash_flash.vpcf", victim:GetAbsOrigin()+Vector(0,0,50), 0.4)
                 EmitSoundOn("Duskbringer.Wraithform", victim)
 				filterTable["damage"] =  0
+				rezzed = true
             end
-		elseif victim:HasModifier("modifier_ankh_of_the_ancients") then
+        end
+		if victim:HasModifier("modifier_ankh_of_the_ancients") and not rezzed then
 			if not victim:HasModifier("modifier_ankh_of_ancients_cooldown") then
 				filterTable["damage"] = victim:GetHealth() - 2
 				victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_ankh_of_ancients_shield", {duration = 6})
@@ -2753,8 +2765,10 @@ function GameState:FilterDamage(filterTable)
 					end
 					victim:GetAbilityByIndex(abilityIndex):EndCooldown()
 				end
+				rezzed = true
 			end
-		elseif victim:HasModifier("modifier_world_trees_flower_cache") then
+		end
+		if victim:HasModifier("modifier_world_trees_flower_cache") and not rezzed then
 			print("HAS FLOWER CACHE")
 			if not victim:HasModifier("modifier_world_tree_cache_cooldown") then
 				filterTable["damage"] = victim:GetHealth() - 2
@@ -2769,6 +2783,7 @@ function GameState:FilterDamage(filterTable)
 					ParticleManager:SetParticleControlEnt(pfx, i, victim, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", victim:GetAbsOrigin(), true)
 				end
 				EmitSoundOn("RPCItem.WorldTreeCache.Start", victim)
+				rezzed = true
 				Timers:CreateTimer(3, function()
 					victim:RemoveNoDraw()
 					EmitSoundOn("RPCItem.WorldTreeCache.End", victim)
