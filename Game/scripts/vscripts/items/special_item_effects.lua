@@ -3496,8 +3496,10 @@ end
 function water_mage_robes_projectile_hit(event)
 	local hero = event.ability.hero
 	local target = event.target
+	local ability = event.ability
 	local damage = hero:GetAverageTrueAttackDamage(hero)*7 + hero:GetIntellect()*30
 	Filters:ApplyItemDamage(target,hero,damage,DAMAGE_TYPE_MAGICAL,event.ability, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
+	ability:ApplyDataDrivenModifier(event.caster, target, "modifier_water_mage_slow", {duration = 4})
 end
 
 function halcyon_glove_think(event)
@@ -5215,11 +5217,13 @@ function end_blacksmith_tablet(event)
 	local ability = event.ability
 	local target = event.target
 	local playerID = target:GetPlayerOwnerID()
-	local itemEntity = CustomNetTables:GetTableValue("equipment", tostring(playerID).."-"..tostring(1))
-	if itemEntity then
-		local item = EntIndexToHScript(itemEntity.itemIndex)
-		if IsValidEntity(item) then
-			RPCItems:EquipItem(1, hero, hero.InventoryUnit, item)
+	Timers:CreateTimer(0.1, function()
+		local itemEntity = CustomNetTables:GetTableValue("equipment", tostring(playerID).."-"..tostring(1))
+		if itemEntity then
+			local item = EntIndexToHScript(itemEntity.itemIndex)
+			if IsValidEntity(item) then
+				RPCItems:EquipItem(1, hero, hero.InventoryUnit, item)
+			end
 		end
-	end
+	end)
 end

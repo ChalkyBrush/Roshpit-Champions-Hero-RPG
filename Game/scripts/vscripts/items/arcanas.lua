@@ -700,6 +700,58 @@ function RPCItems:RollChernobogArcana1(deathLocation)
     return item
 end
 
+function RPCItems:RollChernobogArcana2(deathLocation)
+    local item = RPCItems:CreateVariantArcana("item_rpc_chernobog_arcana2", "arcana", "Chernobog Arcana 2", "feet", true, "Slot: Feet", "npc_dota_hero_night_stalker", 0)
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.property1 = 1
+    item.property1name = "!arcana!_chernobog_arcana2"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_chernobog_arcana2", "#4C7ECE",  1, "#property_chernobog_arcana2_description")
+
+
+    item.hasRunePoints = true
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+    
+    local luck = RandomInt(1, 100)
+    if luck <= 35 then
+        item.property2name = "rune_a_c"
+        item.property2 = math.ceil(value*1)
+    elseif luck <= 70 then
+        item.property2name = "rune_b_c"
+        item.property2 = math.ceil(value*1)       
+    elseif luck <= 90 then
+        item.property2name = "rune_c_c"
+        item.property2 = math.ceil(value*1) 
+    else
+        item.property2name = "rune_d_c"
+        item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(7, 12), 0, 0, 0, 0)
+    end
+    RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
+
+
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+    
+    local luck = RandomInt(1, 100)
+    if luck <= 35 then
+        item.property3name = "rune_a_c"
+        item.property3 = math.ceil(value*1)
+    elseif luck <= 70 then
+        item.property3name = "rune_b_c"
+        item.property3 = math.ceil(value*1)       
+    elseif luck <= 90 then
+        item.property3name = "rune_c_c"
+        item.property3 = math.ceil(value*1) 
+    else
+        item.property3name = "rune_d_c"
+        item.property3 = RPCItems:GetLogarithmicVarianceValue(RandomInt(7, 12), 0, 0, 0, 0)
+    end
+    RPCItems:SetPropertyValues(item, item.property3, "rune", "#7DFF12",  3)
+
+    RPCItems:RollFootProperty4(item, 0)
+
+    RPCItems:DropOrGiveItem(hero, item, false, deathLocation)
+    return item
+end
+
 function RPCItems:RollAuriunArcana1(deathLocation)
     local item = RPCItems:CreateVariantArcana("item_rpc_auriun_arcana1", "arcana", "Auriun Arcana 1", "head", true, "Slot: Head", "npc_dota_hero_zuus", 0)
     local maxFactor = RPCItems:GetMaxFactor()

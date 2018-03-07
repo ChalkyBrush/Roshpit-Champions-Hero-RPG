@@ -598,6 +598,15 @@
     				"IsHidden"			"1"
     				"IsDebuff"			"0"
     				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+    				"ThinkInterval"  	"0.3"
+    				"OnIntervalThink"
+    				{
+    					"RunScript"
+    					{
+    						"ScriptFile"	"heroes/spirit_breaker/glyphs.lua"
+    						"Function"		"t62_think"
+    					}
+    				}
     			}
     		}
     		"AbilitySpecial"

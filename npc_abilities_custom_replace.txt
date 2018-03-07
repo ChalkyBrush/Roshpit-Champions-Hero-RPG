@@ -42,3 +42,4 @@ MOUNTAIN_PROTECTOR_ARCANA:heroes\legion_commander\npc\mountain_protector_arcana_
 FLAMEWAKER_ABILITIES:heroes\dragon_knight\npc\flamewaker_abilities.txt
 
 SEPHYR_ABILITIES:heroes\skywrath_mage\npc\sephyr_abilities.txt
+CHERNOBOG_ABILITIES:heroes\nightstalker\npc\chernobog_abilities.txt

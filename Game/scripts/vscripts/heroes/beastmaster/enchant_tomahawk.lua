@@ -119,6 +119,9 @@ function tomahawk_ice_dot_think(event)
 	if target.bossStatus then
 		threshold = 0.15
 	end
+	if target.dummy then
+		return false
+	end
 	if target:GetHealth()/target:GetMaxHealth() < threshold then
         local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
         local pfx = ParticleManager:CreateParticle( particle, PATTACH_WORLDORIGIN, target )

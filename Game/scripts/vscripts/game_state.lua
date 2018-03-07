@@ -974,7 +974,12 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_neutral_glyph_5_1") then
 		damage = damage*0.65
 	end
-
+	if victim:HasModifier("modifier_guard_of_feronia_shield") then
+		damage = damage*0.05
+	end
+	if victim:HasModifier("modifier_whirlwind") then
+		damage = damage*0.2
+	end
 	if victim:HasModifier("modifier_axe_glyph_1_1") then
 		damage = damage*0.7
 	end
@@ -1552,7 +1557,7 @@ function GameState:FilterDamage(filterTable)
 
 	if victim:HasModifier("modifier_water_mage_slow") then
 		modifier = victim:FindModifierByName("modifier_water_mage_slow")
-		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
+		if modifier:GetCaster().hero:GetEntityIndex() == attacker:GetEntityIndex() then
 			mult = mult + 1
 		end
 	end

@@ -164,7 +164,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-700"
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"-80"
 				}
 
 				"OnDestroy"

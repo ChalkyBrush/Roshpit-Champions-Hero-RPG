@@ -866,7 +866,6 @@
 		"AbilityTextureName"	"sephyr/sephyr_rune_a_b"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
 		{
 			"01"

@@ -51388,6 +51388,9 @@
 			}
 		}
 	}
+
+	##CHERNOBOG_ABILITIES##
+
 	//------SOLUNIA RUNES
 
 	"solunia_rune_a_a"

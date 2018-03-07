@@ -22,6 +22,11 @@ function jump_start(event)
 	ability.jumpVelocity = distance/20
 	ability.liftVelocity = 20
 	local heightDiff = caster:GetAbsOrigin().z - ability.targetPoint.z
+	if heightDiff > 300 then
+		heightDiff = 300
+	elseif heightDiff < -300 then
+		heightDiff = -300
+	end
 	ability.liftVelocity = ability.liftVelocity - heightDiff/20
 	ability.rising = true
 	ability.jumpFV = ((ability.targetPoint - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()

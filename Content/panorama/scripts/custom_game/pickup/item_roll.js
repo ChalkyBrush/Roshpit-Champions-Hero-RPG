@@ -50,6 +50,8 @@ function item_roll_end(msg)
 	var panel = getPanel(rollSlot)
 	panel.RemoveClass("animateIn")
 	panel.AddClass("fromBottomFade"+rollSlot)
+	panel.FindChildTraverse('option-greed').AddClass('invisible')
+	panel.FindChildTraverse('option-need').AddClass('invisible')
 	$.Schedule(0.29, function(){
 		panel.AddClass("invisible")		
 		panel.RemoveAndDeleteChildren()

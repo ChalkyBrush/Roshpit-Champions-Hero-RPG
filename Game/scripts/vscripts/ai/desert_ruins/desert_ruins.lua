@@ -500,7 +500,7 @@ end
 
 function golden_skullbone_think(event)
 	local caster = event.caster
-	if caster:GetHealth() < caster:GetMaxHealth()*0.4 and not caster:HasModifier("modifier_golden_skullbone_injured") then
+	if caster:GetHealth() < caster:GetMaxHealth()*0.4 and not caster:HasModifier("modifier_golden_skullbone_injured") and caster:GetUnitName() == "ruins_golden_skullbone" then
 		caster:SetOriginalModel("models/items/undying/idol_of_ruination/ruin_wight_minion_torso_gold.vmdl")
 		caster:SetModel("models/items/undying/idol_of_ruination/ruin_wight_minion_torso_gold.vmdl")
 		event.ability:ApplyDataDrivenModifier(caster, caster, "modifier_golden_skullbone_injured", {})
