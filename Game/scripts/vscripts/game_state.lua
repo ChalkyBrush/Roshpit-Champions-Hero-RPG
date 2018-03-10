@@ -1312,10 +1312,6 @@ function GameState:FilterDamage(filterTable)
 			local multIncrease = victim:GetModifierStackCount("modifier_hood_of_defiler_effect_visible", victim.defiler)*0.25
 			mult = mult + multIncrease
 		end
-		if attacker:HasModifier("modifier_gravekeeper_gauntlet_buff") then
-			local stacks = attacker:GetModifierStackCount("modifier_gravekeeper_gauntlet_buff", attacker.InventoryUnit)
-			filterTable["damage"] = filterTable["damage"]*(1+(stacks*0.1))
-		end
 		if attacker:HasModifier("modifier_hand_marauder") then
 			if victim:GetPhysicalArmorValue() > 0 then
 				local armor = victim:GetPhysicalArmorValue()
@@ -1701,6 +1697,10 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
+    if attacker:HasModifier("modifier_gravekeeper_gauntlet_buff") then
+        local stacks = attacker:GetModifierStackCount("modifier_gravekeeper_gauntlet_buff", attacker.InventoryUnit)
+        filterTable["damage"] = filterTable["damage"]*(1+(stacks*0.1))
+    end
 	if attacker:HasModifier("modifier_neutral_glyph_5_3") then
 		if damagetype == DAMAGE_TYPE_PHYSICAL then
 			filterTable["damage"] = filterTable["damage"]*1.5
