@@ -1583,7 +1583,7 @@ function super_ascension_end(event)
 	local caster = event.caster
 	local target = event.target
 	target:RemoveModifierByName("modifier_super_ascendency_lua")
-	if not target:HasModifier("modifier_tomahawk_buffs") and not target:HasModifier("modifier_chernobog_demonform_lua") and not target:HasModifier("modifier_arkimus_archon_form") then
+	if not target:HasModifier("modifier_tomahawk_buffs") and not target:HasModifier("modifier_chernobog_demonform_lua") and not target:HasModifier("modifier_arkimus_archon_form") and not target:HasModifier("modifier_demon_flight_flying") then
 		print("SET TO MELEE")
 		target:SetAttackCapability(target.baseAttackCapability)
 	end

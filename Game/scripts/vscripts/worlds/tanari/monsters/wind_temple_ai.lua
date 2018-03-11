@@ -1751,9 +1751,15 @@ function wind_tree_take_damage(event)
 	local attacker = event.attacker
 	local damage = event.damage
 	local ability = event.ability
-	EmitSoundOn("Tanari.WindTreant.Return", attacker)
-	CustomAbilities:QuickAttachParticle("particles/econ/items/storm_spirit/storm_spirit_orchid_hat/stormspirit_orchid_ball_end.vpcf", attacker, 3)
-	ApplyDamage({ victim = attacker, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
+	if not ability.lock then
+		ability.lock = true
+		EmitSoundOn("Tanari.WindTreant.Return", attacker)
+		CustomAbilities:QuickAttachParticle("particles/econ/items/storm_spirit/storm_spirit_orchid_hat/stormspirit_orchid_ball_end.vpcf", attacker, 3)
+		ApplyDamage({ victim = attacker, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
+		Timers:CreateTimer(0.03, function()
+			ability.lock = false
+		end)
+	end
 end
 
 function wind_tree_die(event)

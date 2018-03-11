@@ -598,23 +598,25 @@ function RPCItems:DropItem(item, position)
 		if rarityFactor > 2 then
 				item.expiryTime = Time() + 260
 				Timers:CreateTimer(0.5, function()
-					if IsValidEntity(item:GetContainer()) then
-						local particleName = RPCItems:GetRarityParticle(item.rarity)
-						item.particle = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, item )
-						ParticleManager:SetParticleControl( item.particle, 0, position )
-						if item.rarity == "arcana" then
-							item.particle2 = ParticleManager:CreateParticle( "particles/roshpit/items/arcana_beam.vpcf", PATTACH_CUSTOMORIGIN, item )
-							ParticleManager:SetParticleControl( item.particle2, 0, position-Vector(0,0,40) )
-							ParticleManager:SetParticleControl( item.particle2, 1, position-Vector(0,0,40) )
-							EmitSoundOnLocationWithCaster(position, "RPC.Arcana.Drop", Events.GameMaster)
-							Timers:CreateTimer(0.3, function()
-								local pfx = ParticleManager:CreateParticle("particles/econ/items/centaur/centaur_ti6_gold/centaur_ti6_warstomp_gold.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
-								ParticleManager:SetParticleControl(pfx, 0, position)
-								ParticleManager:SetParticleControl(pfx, 1, Vector(200, 2, 200))
-								Timers:CreateTimer(2, function()
-									ParticleManager:DestroyParticle(pfx, false)
+					if IsValidEntity(item) then
+						if IsValidEntity(item:GetContainer()) then
+							local particleName = RPCItems:GetRarityParticle(item.rarity)
+							item.particle = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, item )
+							ParticleManager:SetParticleControl( item.particle, 0, position )
+							if item.rarity == "arcana" then
+								item.particle2 = ParticleManager:CreateParticle( "particles/roshpit/items/arcana_beam.vpcf", PATTACH_CUSTOMORIGIN, item )
+								ParticleManager:SetParticleControl( item.particle2, 0, position-Vector(0,0,40) )
+								ParticleManager:SetParticleControl( item.particle2, 1, position-Vector(0,0,40) )
+								EmitSoundOnLocationWithCaster(position, "RPC.Arcana.Drop", Events.GameMaster)
+								Timers:CreateTimer(0.3, function()
+									local pfx = ParticleManager:CreateParticle("particles/econ/items/centaur/centaur_ti6_gold/centaur_ti6_warstomp_gold.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+									ParticleManager:SetParticleControl(pfx, 0, position)
+									ParticleManager:SetParticleControl(pfx, 1, Vector(200, 2, 200))
+									Timers:CreateTimer(2, function()
+										ParticleManager:DestroyParticle(pfx, false)
+									end)
 								end)
-							end)
+							end
 						end
 					end
 				end)

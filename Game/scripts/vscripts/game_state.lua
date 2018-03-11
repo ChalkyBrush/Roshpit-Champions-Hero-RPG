@@ -487,6 +487,11 @@ function GameState:OrderFilter(orderTable)
 				end
 			end
 		end
+		if unit:HasModifier("modifier_chernobog_demon_flight_attack") then
+			if orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
+				unit.flight_target = EntIndexToHScript(orderTable.entindex_target)
+			end
+		end
 		if unit:HasModifier("modifier_strafe_toggle") then
 			unit.lastOrder = orderTable.order_type
 			-- DeepPrintTable(orderTable)
@@ -977,8 +982,8 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_guard_of_feronia_shield") then
 		damage = damage*0.05
 	end
-	if victim:HasModifier("modifier_whirlwind") then
-		damage = damage*0.2
+	if victim:HasModifier("modifier_whirlwind") and victim:HasModifier("modifier_axe_glyph_4_2") then
+		damage = damage*0.5
 	end
 	if victim:HasModifier("modifier_axe_glyph_1_1") then
 		damage = damage*0.7
@@ -1005,9 +1010,6 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_earth_guardian") then
 		if attacker:GetEntityIndex() == victim:GetEntityIndex() then
 		else
-			if shouldConsumeShields then
-				Filters:EarthGuardian(victim, damage)
-			end
 			damage = damage*0.5
 		end
 	end
@@ -1062,9 +1064,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			CustomAbilities:HitVolcanoShield(victim, attacker)
 		end
 	end
-	if victim:HasModifier("modifier_whirlwind") and victim:HasModifier("modifier_axe_glyph_4_2") then
-		damage = damage*0.5
-	end
+
 
 	if victim:HasModifier("modifier_neutral_glyph_5_2") then
 		damage = damage*2
@@ -1094,10 +1094,6 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 
 	if victim:HasModifier("modifier_world_tree_effect") then
 		damage = damage*2
-	end
-
-	if victim:HasModifier("modifier_guard_of_feronia_shield") then
-		damage = damage*0.05
 	end
 
 	if victim:HasModifier("modifier_dummy_aura1_effect_zhonik") then
@@ -1533,6 +1529,9 @@ function GameState:FilterDamage(filterTable)
 		local stacks = modifier:GetStackCount()
 		local multIncrease = 0.006*stacks
 		mult = mult + multIncrease
+	end
+	if victim:HasModifier("modifier_rockfall_post_mit") then
+		mult = mult + 1.25
 	end
 	if victim:HasModifier("modifier_astral_d_b_visible") then
 		modifier = victim:FindModifierByName("modifier_astral_d_b_invisible")
@@ -2455,7 +2454,12 @@ function GameState:FilterDamage(filterTable)
 	--APPLY MULT
 	filterTable["damage"] = filterTable["damage"]*mult/divisor
 	--FINAL STAGE--
-
+	if victim:HasModifier("modifier_earth_guardian") then
+		if attacker:GetEntityIndex() == victim:GetEntityIndex() then
+		else
+			Filters:EarthGuardian(victim, filterTable["damage"])
+		end
+	end
 
 	if attacker:HasModifier("modifier_helm_odin") then
 		local proc = Filters:GetProc(attacker, 4)

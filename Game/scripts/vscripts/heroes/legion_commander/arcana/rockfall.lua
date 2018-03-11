@@ -44,6 +44,7 @@ function begin_rockfall(event)
 						Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_EARTH, RPC_ELEMENT_FIRE)
 						Filters:ApplyStun(caster, stun_duration, enemy)
 						ability:ApplyDataDrivenModifier(caster, caster, "modifier_rockfall_min_health", {duration = 0.09})
+						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_rockfall_post_mit", {duration = 10})
 						if enemy.dummy then
 						else
 							print("SELF DAMAGE")

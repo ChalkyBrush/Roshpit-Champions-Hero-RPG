@@ -55,6 +55,11 @@ function begin_demon_morph(event)
 		if ability.b_d_level > 0 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_demon_form_aura", {duration = morphDuration})
 		end
+		if caster:HasModifier("modifier_chernobog_arcana2") then
+			if caster:GetAbilityByIndex(2):GetAbilityName() == "chernobog_demon_flight" then
+				CustomAbilities:AddAndOrSwapSkill(caster, "chernobog_demon_flight", "chernobog_demon_walk", 2)
+			end		
+		end
 		Filters:CastSkillArguments(4, caster)
 	end)
 end
@@ -92,6 +97,11 @@ function demon_form_end(event)
 	else
 		caster:SetModel("models/heroes/nightstalker/nightstalker.vmdl")
 		caster:SetOriginalModel("models/heroes/nightstalker/nightstalker.vmdl")
+	end
+	if caster:HasModifier("modifier_chernobog_arcana2") then
+		if caster:GetAbilityByIndex(2):GetAbilityName() == "chernobog_demon_walk" then
+			CustomAbilities:AddAndOrSwapSkill(caster, "chernobog_demon_walk", "chernobog_demon_flight", 2)
+		end
 	end
 	caster:SetAttackCapability(DOTA_UNIT_CAP_MELEE_ATTACK)
 end
