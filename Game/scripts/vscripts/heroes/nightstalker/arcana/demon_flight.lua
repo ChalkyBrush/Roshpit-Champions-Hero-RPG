@@ -25,6 +25,7 @@ function demon_flight_start(event)
 	caster:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
 
 	swap_to_demon_warp(caster, ability, "chernobog_demon_flight")
+	Filters:CastSkillArguments(3, caster)
 end
 
 function swap_to_demon_warp(caster, ability, base_name)

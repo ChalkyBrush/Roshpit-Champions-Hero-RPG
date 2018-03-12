@@ -8380,6 +8380,7 @@
 			"particle"			"particles/roshpit/astral_ranger/e2_flash.vpcf"
 			"particle"			"particles/roshpit/astral/astral_b_c_effect.vpcf"
 			"particle"			"particles/roshpit/mountain_protector/unshakable_stone_dust.vpcf"
+			"particle"			"particles/econ/items/mirana/mirana_crescent_arrow/ruins_boss_linear_destruction.vpcf"
 		}
 
 		// Time
@@ -23537,12 +23538,6 @@
 			{
 				"Target"	"CASTER"
 				"ModifierName"	"modifier_channel_start"
-			}
-
-			"FireSound"
-			{
-				"EffectName"	"Auriun.UltStart"
-				"Target"	"CASTER"
 			}
 
 		}

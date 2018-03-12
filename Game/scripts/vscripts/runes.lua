@@ -799,6 +799,9 @@ function Runes:EquipArcana(hero, index)
 		if index == 1 then
 			Runes:EasySwapArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "chernobog_nights_procession", "chernobog_demon_morph", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
+			if hero:FindAbilityByName("chernobog_shadow_walk"):GetToggleState() then
+				hero:FindAbilityByName("chernobog_shadow_walk"):ToggleAbility()
+			end
 			Runes:EasySwapArcanaSkills(hero, 2, "chernobog_shadow_walk", "chernobog_demon_flight", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 			if hero:HasModifier("modifier_chernobog_demon_form") then
 				CustomAbilities:AddAndOrSwapSkill(hero, "chernobog_demon_flight", "chernobog_demon_walk", 2)

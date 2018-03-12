@@ -63,7 +63,7 @@ function Tanari:Debug()
     -- Arena.PitLevel = 7
     -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "sephyr")
     -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "sephyr")
-    -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "sephyr")
+    Weapons:RollLegendWeapon3(Vector(-4928, 2048), "chernobog")
     -- RPCItems:RollWaterMageRobes(Vector(-4928, 2048))
     -- RPCItems:RollAlaranaIceBoot(Vector(-4928, 2048))
     -- RPCItems:RollDruidsSpiritHelm(Vector(-4928, 2048), false)
