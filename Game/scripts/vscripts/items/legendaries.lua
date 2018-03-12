@@ -8112,7 +8112,7 @@ function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, sl
             
             if item:GetAbilityName() == newItem:GetAbilityName() then
                 print("NEW ITEM IS ACCEPTABLE")
-                RPCItems:GiveItemToHeroWithSlotCheck(hero, newItem)
+                
             end
             if IsValidEntity(newItem) then
                 newItem.expiryTime = false

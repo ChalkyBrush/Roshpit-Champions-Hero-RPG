@@ -1304,12 +1304,6 @@
 				"ModifierName"	"modifier_channel_start"
 			}
 
-			"FireSound"
-			{
-				"EffectName"	"Auriun.UltStart"
-				"Target"	"CASTER"
-			}
-
 		}
 
 		"OnChannelSucceeded"

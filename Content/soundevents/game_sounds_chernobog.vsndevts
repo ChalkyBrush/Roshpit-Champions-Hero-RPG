@@ -525,3 +525,166 @@
         }
     }
 }
+
+"Chernobog.DemonFlight.Start"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/terrorblade/melee_rip_03.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.12000"  }
+                    "pitch_rand_min"    {   "value"     "-0.01000"  }
+                    "pitch_rand_max"    {   "value"     "0.010000"  }
+                    "pitch"             {   "value"     "0.80000"  }
+                    "soundlevel"        {   "value"     "78.00000" }
+                    "distance_max"      {   "value"     "2900.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Chernobog.DemonFlight.Attack"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/elder_titan/attack_post01.vsnd"
+                              "value1"        "sounds/weapons/hero/elder_titan/attack_post02.vsnd"
+                              "value2"        "sounds/weapons/hero/elder_titan/attack_post03.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.04000"  }
+                    "pitch_rand_min"    {   "value"     "-0.1000"  }
+                    "pitch_rand_max"    {   "value"     "0.10000"  }
+                    "pitch"             {   "value"     "0.70000"  }
+                    "soundlevel"        {   "value"     "86.00000" }
+                    "distance_max"      {   "value"     "2900.000"  }
+                    "event_type"        {   "value"     "3.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Chernobog.DemonFlight.StartVO"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/night_stalker/nstalk_anger_07.vsnd"
+                              "value1"        "sounds/vo/night_stalker/nstalk_anger_09.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.58000"  }
+                    "pitch_rand_min"    {   "value"     "-0.06000"  }
+                    "pitch_rand_max"    {   "value"     "0.060000"  }
+                    "pitch"             {   "value"     "1.10000"  }
+                    "soundlevel"        {   "value"     "89.00000" }
+                    "distance_max"      {   "value"     "2900.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Chernobog.DemonWarp"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/chernobog/chernowarp.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.32000"  }
+                    "pitch_rand_min"    {   "value"     "-0.01000"  }
+                    "pitch_rand_max"    {   "value"     "0.010000"  }
+                    "pitch"             {   "value"     "0.50000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "2900.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Chernobog.DemonWalkStart"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/chernobog/demon_walk.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.32000"  }
+                    "pitch_rand_min"    {   "value"     "-0.05000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "0.90000"  }
+                    "soundlevel"        {   "value"     "93.00000" }
+                    "distance_max"      {   "value"     "2900.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}

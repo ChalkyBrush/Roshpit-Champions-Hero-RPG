@@ -799,7 +799,13 @@ function Runes:EquipArcana(hero, index)
 		if index == 1 then
 			Runes:EasySwapArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "chernobog_nights_procession", "chernobog_demon_morph", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
+			if hero:FindAbilityByName("chernobog_shadow_walk"):GetToggleState() then
+				hero:FindAbilityByName("chernobog_shadow_walk"):ToggleAbility()
+			end
 			Runes:EasySwapArcanaSkills(hero, 2, "chernobog_shadow_walk", "chernobog_demon_flight", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			if hero:HasModifier("modifier_chernobog_demon_form") then
+				CustomAbilities:AddAndOrSwapSkill(hero, "chernobog_demon_flight", "chernobog_demon_walk", 2)
+			end
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_phantom_assassin" then
 		local heavensCharge = hero:FindAbilityByName("heavens_charge")
@@ -1356,7 +1362,18 @@ function Runes:UnequipArcana(hero, index)
 		if index == 1 then
 			Runes:EasyRevertArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "chernobog_nights_procession", "chernobog_demon_morph", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
-			Runes:EasyRevertArcanaSkills(hero, 2, "chernobog_shadow_walk", "chernobog_demon_flight", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			print("HERE?????????")
+			if hero:GetAbilityByIndex(2):GetAbilityName() == "chernobog_demon_flight" then
+				Runes:EasyRevertArcanaSkills(hero, 2, "chernobog_shadow_walk", "chernobog_demon_flight", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			elseif hero:GetAbilityByIndex(2):GetAbilityName() == "chernobog_demon_walk" then
+				Runes:EasyRevertArcanaSkills(hero, 2, "chernobog_shadow_walk", "chernobog_demon_walk", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+				hero:RemoveAbility("chernobog_demon_flight")
+			elseif hero:GetAbilityByIndex(2):GetAbilityName() == "chernobog_demon_warp" then
+				Runes:EasyRevertArcanaSkills(hero, 2, "chernobog_shadow_walk", "chernobog_demon_warp", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+				hero:RemoveAbility("chernobog_demon_flight")
+			end
+			hero:RemoveModifierByName("modifier_demon_warp_freecast")
+			hero:RemoveModifierByName("modifier_demon_flight_passive")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_phantom_assassin" then
 		if index == 1 then

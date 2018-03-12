@@ -148,8 +148,6 @@ end
 function chernobog_always_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	print(caster:IsAlive())
-	print(caster:GetTimeUntilRespawn())
 	if not caster:IsAlive() then
 		if caster:GetTimeUntilRespawn() == 0 then
 			print("KILL!")

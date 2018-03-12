@@ -8380,6 +8380,7 @@
 			"particle"			"particles/roshpit/astral_ranger/e2_flash.vpcf"
 			"particle"			"particles/roshpit/astral/astral_b_c_effect.vpcf"
 			"particle"			"particles/roshpit/mountain_protector/unshakable_stone_dust.vpcf"
+			"particle"			"particles/econ/items/mirana/mirana_crescent_arrow/ruins_boss_linear_destruction.vpcf"
 		}
 
 		// Time
@@ -23539,12 +23540,6 @@
 				"ModifierName"	"modifier_channel_start"
 			}
 
-			"FireSound"
-			{
-				"EffectName"	"Auriun.UltStart"
-				"Target"	"CASTER"
-			}
-
 		}
 
 		"OnChannelSucceeded"
@@ -27467,7 +27462,7 @@
 		"AbilityTextureName"	"night_stalker_void"
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"25"
-		"AbilityChannelTime"	"1.0"
+		"AbilityChannelTime"	"1.2"
 		"AbilityCastRange"				"900"
 		"AOERadius"						"450 475 500 525 550 575 600"
 		"AbilityCastAnimation"	"ACT_DOTA_VICTORY"
@@ -66219,6 +66214,12 @@
 				"var_type"	"FIELD_INTEGER"
 				"additional_str_damage"		"25"
 			}
+			"05"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"post_mitigation"		"125"
+			}
+			
 		}
 		"OnAbilityPhaseStart"
 		{
@@ -66255,6 +66256,11 @@
 				{
 					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
 				}
+        	}
+        	"modifier_rockfall_post_mit"
+        	{
+        		"IsHidden"	"0"
+        		"IsDebuff"	"1"
         	}
         }
 	}
@@ -66956,20 +66962,21 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityTextureName"			"juggernaut/bladekeeper/juggernaut_omni_slash"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityTextureName"			"chernobog/demon_flight"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"AOERadius"						"900"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.1"
+		"AbilityCastPoint"				"0"
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0.3"
+		"AbilityCooldown"				"8"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -66982,10 +66989,13 @@
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"range"						"800 900 1000 1100 1200 1300 1400"
+				"duration"					"4.2 4.5 4.8 5.1 5.4 5.7 6.0"
 			}
 		}
-
+		"precache"
+		{
+			"particle"  "particles/roshpit/chernobog/boot_arcana_attack.vpcf"
+		}
 		// Data driven
 		//-------------------------------------------------------------------------------------------------------------
 
@@ -66993,35 +67003,370 @@
 		{
 			"RunScript"
 			{
-        		"ScriptFile"	"heroes/juggernaut/odachi_slice"
-        		"Function"		"odachi_rush"
+        		"ScriptFile"	"heroes/nightstalker/arcana/demon_flight"
+        		"Function"		"demon_flight_start"
+        		"duration"		"%duration"
 			}
 		}
 		"Modifiers"
 		{
-			"modifier_odachi_rush"
+			"modifier_demon_flight_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"ThinkInterval"  "0.35"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/nightstalker/arcana/demon_flight"
+						"Function"		"passive_thinker"
+					}
+				}
+			}
+			"modifier_chernobog_demon_flight"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
-
-				"EffectName"		"particles/frostivus_herofx/juggernaut_fs_omnislash_tgt.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"OnCreated"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
 				{
-					"AttachEffect"
+					"RunScript"
 					{
-						"Target"					"TARGET"
-						"EffectName"				"particles/frostivus_herofx/juggernaut_fs_omnislash_slashers.vpcf"
-						"EffectAttachType"			"attach_hitloc"
-						"EffectLifeDurationScale"	"1"
-						"EffectColorA"				"255 255 255"
-						"EffectAlphaScale"			"1"
+						"ScriptFile"	"heroes/nightstalker/arcana/demon_flight"
+						"Function"		"demon_flight_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/nightstalker/arcana/demon_flight"
+						"Function"		"demon_flight_end"
+					}
+				}
+			}
+			"modifier_demon_flight_flying"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/nightstalker/arcana/demon_flight"
+						"Function"		"flying_portion_think"
+					}
+				}
+				"Orb"
+				{
+					"Priority"				"DOTA_ORB_PRIORITY_ITEM"
+					"ProjectileName"		"particles/roshpit/chernobog/boot_arcana_attack.vpcf"
+					"CastAttack"			"0"
+				}
+			}
+			"modifier_demon_flight_landing"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/nightstalker/arcana/demon_flight"
+						"Function"		"demon_flight_end_thinking"
+					}
+				}				
+			}
+			"modifier_demonflight_z"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_VISUAL_Z_DELTA" "1"
+				}
+			}
+			"modifier_demonflight_attacks"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.12"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/nightstalker/arcana/demon_flight"
+						"Function"		"flight_attacks_think"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_demonflight_b_c_invisible"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "10"
+				}
+			}
+			"modifier_demonflight_b_c_visible"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"chernobog/chernobog_rune_b_c_arcana2"
+			}
+			"modifier_demonflight_c_c_attack"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" 		"1"
+				}
+				
+			}
+		}
+
+	}
+
+	"chernobog_demon_walk"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"chernobog/shadow_stalk"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"precache"
+		{
+
+		}
+
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"13"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"60"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"5.0 5.3 5.6 5.9 6.2 6.5 6.8"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/nightstalker/arcana/demon_flight"
+        		"Function"		"initialize_demon_walk"
+        		"duration"		"%duration"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_demon_walk"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"States"
+				{
+					"MODIFIER_STATE_INVISIBLE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/nightstalker/arcana/demon_flight"
+						"Function"		"demon_walk_end"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_persistent_invisibility"
+						"Target" 		"TARGET"
+					}
+				}
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/nightstalker/arcana/demon_flight"
+						"Function"		"demon_walk_apply_invis"
 					}
 				}
 			}
 		}
+	}
 
+	"chernobog_demon_warp"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"chernobog/flash_of_orias"
+		"RequiredLevel"          		"0"
+		"LevelsBetweenUpgrades"  		"0"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"AbilityCastRange"				"10000"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+
+		}
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.15"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.5"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/nightstalker/arcana/demon_flight"
+				"Function"		"warp_phase_start"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/nightstalker/arcana/demon_flight"
+				"Function"		"demon_warp_start"
+				"target"		"POINT"
+			}
+
+		}
+		"Modifiers"
+		{
+			"modifier_demon_warp_freecast"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+			}
+		}
+
+	}
+
+	"chernobog_rune_a_c_arcana2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"chernobog/flash_of_orias"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"4"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one_base"		"600"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"5"
+			}
+		}
+	}
+
+	"chernobog_rune_b_c_arcana2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"chernobog/chernobog_rune_b_c_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"10"
+			}
+		}
+	}
+
+	"chernobog_rune_c_c_arcana2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"chernobog/chernobog_rune_c_c_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"1"
+			}
+		}
+	}
+
+	"chernobog_rune_d_c_arcana2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"chernobog/chernobog_rune_d_c_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"3"
+			}
+		}
 	}
 	//------SOLUNIA RUNES
 

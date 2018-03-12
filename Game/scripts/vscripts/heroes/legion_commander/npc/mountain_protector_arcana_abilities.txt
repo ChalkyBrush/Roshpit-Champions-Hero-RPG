@@ -54,6 +54,12 @@
 				"var_type"	"FIELD_INTEGER"
 				"additional_str_damage"		"25"
 			}
+			"05"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"post_mitigation"		"125"
+			}
+			
 		}
 		"OnAbilityPhaseStart"
 		{
@@ -90,6 +96,11 @@
 				{
 					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
 				}
+        	}
+        	"modifier_rockfall_post_mit"
+        	{
+        		"IsHidden"	"0"
+        		"IsDebuff"	"1"
         	}
         }
 	}

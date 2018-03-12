@@ -3385,6 +3385,7 @@ function Filters:EarthGuardian(victim, damage)
         elseif caster.earthAspect.linkParticleCount > 20 then
             caster.earthAspect.linkParticleCount = 0
         end
+        print(splitDamage)
         ApplyDamage({ victim = aspect, attacker = aspect, damage = splitDamage, damage_type = DAMAGE_TYPE_PURE})
     end
 

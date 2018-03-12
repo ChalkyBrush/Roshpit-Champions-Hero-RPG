@@ -123,6 +123,7 @@ function Challenges:FinalReroll(msg)
 				newItem:StartCooldown(2)
 				hero:TakeItem(item)
 				UTIL_Remove(item)
+				RPCItems:GiveItemToHeroWithSlotCheck(hero, newItem)
 			else
 				CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
 			end

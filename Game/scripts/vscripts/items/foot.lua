@@ -286,6 +286,7 @@ function Foot:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_rpc_steamboots")
 	hero:RemoveModifierByName("modifier_paladin_arcana2")
 	hero:RemoveModifierByName("modifier_mountain_protector_arcana3")
+	hero:RemoveModifierByName("modifier_chernobog_arcana2")
 	hero.arcanys = nil
 	hero.redrock = nil
 

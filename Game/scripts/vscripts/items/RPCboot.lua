@@ -155,6 +155,11 @@ function RPCItems:FootLegendary(itemVariant, deathLocation)
             RPCItems:RollAblecoreGreaves(deathLocation)
             return true
         elseif luck == 9 then
+            local arcanaLuck = RandomInt(1, 980)
+            if arcanaLuck <= (2 + GameState:GetPlayerPremiumStatusCount()) then
+                RPCItems:RollChernobogArcana2(deathLocation)
+                return true
+            end
             RPCItems:RollSteamboots(deathLocation)
             return true
         end

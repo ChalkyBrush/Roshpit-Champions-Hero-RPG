@@ -43,6 +43,7 @@ function begin_nights_procession(event)
 	ability.b_d_level = Runes:GetTotalRuneLevel(caster, 2, "b_d", "chernobog")
 	ability.c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "chernobog")
 	local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "chernobog")
+	caster:RemoveModifierByName("modifier_chernobog_demon_flight")
 	if d_d_level > 0 then
 		local clawEvent = {}
 		clawEvent.caster = caster
