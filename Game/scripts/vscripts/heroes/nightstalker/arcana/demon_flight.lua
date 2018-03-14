@@ -10,6 +10,8 @@ function demon_flight_start(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_demonflight_z", {duration = duration+5})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_demon_flight_flying", {duration = duration+5})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_demonflight_attacks", {duration = duration+5})
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_night_vision", {duration = duration+5})
+	
 	caster:AddNewModifier( caster, ability, "modifier_chernobog_demon_flight_attack", {duration = duration+5} )
 	caster:AddNewModifier(caster, nil, "modifier_animation_translate", {translate="hunter_night"})
 	caster.flight_target = nil
@@ -91,6 +93,7 @@ function demon_flight_end_thinking(event)
 		caster:RemoveModifierByName("modifier_animation")
 		caster:RemoveModifierByName("modifier_chernobog_demon_flight_attack")
 		caster:RemoveModifierByName("modifier_demonflight_attacks")
+		caster:RemoveModifierByName("modifier_chernobog_night_vision")
 		if not caster:HasModifier("modifier_nights_procession_caster_lifting") then
 			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 		end
@@ -253,7 +256,7 @@ function initialize_demon_walk(event)
 	EmitSoundOn("Chernobog.DemonWalkStart", caster)
 	CustomAbilities:QuickAttachParticle("particles/roshpit/chernobog/shadow_walk.vpcf", caster, 1.5)
 	StartAnimation(caster, {duration=0.9, activity=ACT_DOTA_CAST_ABILITY_2, rate=1})
-	
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_night_vision", {duration = duration})
 end
 
 function demon_walk_apply_invis(event)

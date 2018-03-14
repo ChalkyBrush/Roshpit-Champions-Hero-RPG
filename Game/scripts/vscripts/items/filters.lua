@@ -3472,6 +3472,9 @@ function Filters:GrithaultDamage(victim, damage)
 end
 
 function Filters:GeodeDealDamage(victim, damage, attacker)
+    if victim:GetEntityIndex() == attacker:GetEntityIndex() then
+        return damage
+    end
     if damage < victim:GetMaxHealth()*0.002 then
         local ability = attacker.amulet
         if not ability.particles then

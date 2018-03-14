@@ -129,7 +129,7 @@ PrecacheResource("model", "models/props_gameplay/shopkeeper_fountain/shopkeeper_
 PrecacheResource("model", "models/courier/lockjaw/lockjaw.vmdl", context)
 PrecacheResource("model", "models/items/courier/sltv_10_courier/sltv_10_courier.vmdl", context)
 PrecacheResource("particle", "particles/econ/items/sven/sven_warcry_ti5/sven_spell_warcry_ti_5.vpcf", context)
-PrecacheResource("model", "models/items/wards/esl_wardchest_four_armed_observer/esl_wardchest_four_armed_observer.vmdl", context)
+PrecacheResource("model", "models/items/courier/vaal_the_animated_constructradiant/vaal_the_animated_constructradiant.vmdl", context)
 
 
 PrecacheResource("particle", "particles/units/heroes/hero_treant/treant_livingarmor_regen.vpcf" , context)

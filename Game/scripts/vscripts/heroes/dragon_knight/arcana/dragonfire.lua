@@ -184,7 +184,7 @@ function dragonfire_passive_think(event)
 	local d_b_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
 	if d_b_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_d_b_attack_power", {})
-		local atkPowerBonus = caster:GetAgility()*0.4*d_b_level
+		local atkPowerBonus = caster:GetAgility()*0.6*d_b_level
 		local stacks =  math.floor(atkPowerBonus/10)
 		caster:SetModifierStackCount("modifier_d_b_attack_power", caster, stacks)
 	else

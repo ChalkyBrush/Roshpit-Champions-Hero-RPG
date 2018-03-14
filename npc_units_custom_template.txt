@@ -58855,8 +58855,8 @@
     "arena_training_dummy"
     {
         "BaseClass" "npc_dota_creature"
-        "Model"  "models/items/wards/esl_wardchest_four_armed_observer/esl_wardchest_four_armed_observer.vmdl"
-        "ModelScale"    "2.0"
+        "Model"  "models/items/courier/vaal_the_animated_constructradiant/vaal_the_animated_constructradiant.vmdl"
+        "ModelScale"    "2.4"
         "Level" "1"
         "HealthBarOffset"   "140"
         "HasInventory"  "0"

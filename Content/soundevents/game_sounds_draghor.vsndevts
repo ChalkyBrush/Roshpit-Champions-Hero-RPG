@@ -803,11 +803,11 @@
                             "value0"        "sounds/weapons/hero/phantom_assassin/coup_de_grace.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "1.02000"  }
+                    "volume"            {   "value"     "0.9000"  }
                     "pitch_rand_min"    {   "value"     "-0.03000"  }
                     "pitch_rand_max"    {   "value"     "0.030000"  }
                     "pitch"             {   "value"     "1.15000"  }
-                    "soundlevel"        {   "value"     "93.00000" }
+                    "soundlevel"        {   "value"     "86.00000" }
                     "distance_max"      {   "value"     "2800.000"  }
                     "event_type"        {   "value"     "1.000000"  }
                 }

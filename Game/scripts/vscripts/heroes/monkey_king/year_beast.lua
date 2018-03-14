@@ -129,13 +129,20 @@ function rend_start(event)
 				ability.b_b_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_wolf_rend_bleed", {duration = 12})
 				local particleName = "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
-				local pfx = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN_FOLLOW, enemy )
-				ParticleManager:SetParticleControlEnt(pfx, 0, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", enemy:GetAbsOrigin(), true)
-				ParticleManager:SetParticleControlEnt(pfx, 1, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", enemy:GetAbsOrigin(), true)
-				ParticleManager:SetParticleControlEnt(pfx, 2, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", enemy:GetAbsOrigin(), true)
-				Timers:CreateTimer(3, function()
-					ParticleManager:DestroyParticle(pfx, false)
-				end)
+				if not ability.bloodCount then
+					ability.bloodCount = 0
+				end
+				if ability.bloodCount < 9 then
+					ability.bloodCount = ability.bloodCount + 1
+					local pfx = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN_FOLLOW, enemy )
+					ParticleManager:SetParticleControlEnt(pfx, 0, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", enemy:GetAbsOrigin(), true)
+					ParticleManager:SetParticleControlEnt(pfx, 1, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", enemy:GetAbsOrigin(), true)
+					ParticleManager:SetParticleControlEnt(pfx, 2, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", enemy:GetAbsOrigin(), true)
+					Timers:CreateTimer(3, function()
+						ParticleManager:DestroyParticle(pfx, false)
+						ability.bloodCount = ability.bloodCount - 1
+					end)
+				end
 				bBloodSound = true
 			end
 		end	

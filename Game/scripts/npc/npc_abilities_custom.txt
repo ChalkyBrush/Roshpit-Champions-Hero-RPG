@@ -48491,7 +48491,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.4"
+				"property_one"			"0.6"
 			}
 		}
 	}
@@ -67132,6 +67132,45 @@
 				}
 				
 			}
+			"modifier_chernobog_night_vision"
+			{
+				"IsHidden"	"0"
+				"Aura"          	"modifier_chernobog_night_vision_enemy"
+				"Aura_Radius"   	"1800"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+			}
+			"modifier_chernobog_night_vision_enemy"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+
+				"States"
+				{
+					"MODIFIER_STATE_PROVIDES_VISION"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/nightstalker/shadow_walk.lua"
+						"Function"		"nightvision"
+						"target"		"TARGET"
+					}
+				}
+				"ThinkInterval"  "2.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/nightstalker/shadow_walk.lua"
+						"Function"		"nightvision"
+						"target"		"TARGET"
+					}
+				}
+			}
 		}
 
 	}
@@ -67212,6 +67251,45 @@
 					{
 						"ScriptFile"	"heroes/nightstalker/arcana/demon_flight"
 						"Function"		"demon_walk_apply_invis"
+					}
+				}
+			}
+			"modifier_chernobog_night_vision"
+			{
+				"IsHidden"	"0"
+				"Aura"          	"modifier_chernobog_night_vision_enemy"
+				"Aura_Radius"   	"1800"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+			}
+			"modifier_chernobog_night_vision_enemy"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+
+				"States"
+				{
+					"MODIFIER_STATE_PROVIDES_VISION"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/nightstalker/shadow_walk.lua"
+						"Function"		"nightvision"
+						"target"		"TARGET"
+					}
+				}
+				"ThinkInterval"  "2.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/nightstalker/shadow_walk.lua"
+						"Function"		"nightvision"
+						"target"		"TARGET"
 					}
 				}
 			}
