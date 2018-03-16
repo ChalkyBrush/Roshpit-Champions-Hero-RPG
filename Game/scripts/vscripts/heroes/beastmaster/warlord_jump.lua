@@ -307,7 +307,9 @@ end
 function iceSprintEnd(event)
 	local caster = event.caster
 	local position = caster:GetAbsOrigin()
-	caster:Stop()
+	if not caster:IsChanneling() then
+		caster:Stop()
+	end
 	FindClearSpaceForUnit(caster, position, false)
 end
 

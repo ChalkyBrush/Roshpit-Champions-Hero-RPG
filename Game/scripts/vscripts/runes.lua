@@ -1482,6 +1482,7 @@ function Runes:UnequipArcana(hero, index)
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_monkey_king" then
 		if index == 1 then
+			hero:Stop()
 			require('heroes/monkey_king/shapeshift')
 			if hero:HasModifier("modifier_shapeshift_year_beast") then
 				hero.forceOutYearBeast = true
