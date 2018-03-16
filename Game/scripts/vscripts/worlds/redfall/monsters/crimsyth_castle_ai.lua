@@ -1888,70 +1888,73 @@ function MazeRoomTrigger3(trigger)
 end
 
 function TortureRoomStartTrigger(trigger)
-	Redfall.Castle.DoomParticleTable = {}
-	local tortureBoss = Redfall.Castle.tortureBoss
-	EmitSoundOn("Redfall.TortureBoss.VO.Greeting", tortureBoss)
-	tortureBoss.ability:ApplyDataDrivenModifier(tortureBoss, tortureBoss, "modifier_sadist_z_flight", {})
-	for i = 1, 80, 1 do
-		Timers:CreateTimer(i*0.03, function()
-			if i <= 40 then
-				tortureBoss:SetModelScale(1.4 + i*0.01)
-			else
-				tortureBoss:SetModelScale(1.8 - (i-40)*0.01)
-			end
-			tortureBoss:SetModifierStackCount("modifier_sadist_z_flight", tortureBoss, i*2)
-		end)
-	end
-	Timers:CreateTimer(2.4, function()
-		EmitSoundOn("Redfall.TortureBoss.VO.Laugh1", tortureBoss)
-		tortureBoss:MoveToPosition(Vector(10432, 6347))
-		Timers:CreateTimer(1.2, function()
-			StartAnimation(tortureBoss, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_4, rate=1.0, translate="deadwinter_soul"})
-			local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_doom_bringer/doom_bringer_doom.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
-			ParticleManager:SetParticleControl(pfx, 0, Vector(10432, 6144, 2+Redfall.ZFLOAT))
-			table.insert(Redfall.Castle.DoomParticleTable, pfx)
-			Timers:CreateTimer(1.5, function()
-				Redfall:SpawnTortureWaveUnit("redfall_crimsyth_corrupted_corpse", Vector(10432, 6144), 14, 100, 0.7, true)
-			end)
-		end)
-	end)
-	Timers:CreateTimer(5.4, function()
-		tortureBoss:MoveToPosition(Vector(10908, 6464))
-		Timers:CreateTimer(1.2, function()
-			EmitSoundOn("Redfall.TortureBoss.VO.Laugh2", tortureBoss)
-			StartAnimation(tortureBoss, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_4, rate=1.0, translate="deadwinter_soul"})
-			local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_doom_bringer/doom_bringer_doom.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
-			ParticleManager:SetParticleControl(pfx, 0, Vector(11008, 6464, 2+Redfall.ZFLOAT))
-			table.insert(Redfall.Castle.DoomParticleTable, pfx)
-			Timers:CreateTimer(1.5, function()
-				Redfall:SpawnTortureWaveUnit("redfall_crimsyth_corrupted_corpse", Vector(11008, 6464), 14, 100, 0.7, true)
-			end)
-		end)
-	end)
-	Timers:CreateTimer(10, function()
-		tortureBoss:MoveToPosition(Vector(11164, 7068))
-		Timers:CreateTimer(1.2, function()
-			EmitSoundOn("Redfall.TortureBoss.VO.Laugh1", tortureBoss)
-			StartAnimation(tortureBoss, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_4, rate=1.0, translate="deadwinter_soul"})
-			local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_doom_bringer/doom_bringer_doom.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
-			ParticleManager:SetParticleControl(pfx, 0, Vector(11264, 7168, 2+Redfall.ZFLOAT))
-			table.insert(Redfall.Castle.DoomParticleTable, pfx)
-			Timers:CreateTimer(1.5, function()
-				Redfall:SpawnTortureWaveUnit("redfall_crimsyth_corrupted_corpse", Vector(11264, 7168), 14, 100, 0.7, true)
-			end)
-		end)
-	end)
-	Timers:CreateTimer(13, function()
-		for i = 1, 40, 1 do
+	if not Redfall.ErakorStarted then
+		Redfall.Castle.DoomParticleTable = {}
+		local tortureBoss = Redfall.Castle.tortureBoss
+		EmitSoundOn("Redfall.TortureBoss.VO.Greeting", tortureBoss)
+		tortureBoss.ability:ApplyDataDrivenModifier(tortureBoss, tortureBoss, "modifier_sadist_z_flight", {})
+		Redfall.ErakorStarted = true
+		for i = 1, 80, 1 do
 			Timers:CreateTimer(i*0.03, function()
-				tortureBoss:SetModifierStackCount("modifier_sadist_z_flight", tortureBoss, 160 + i*2)
+				if i <= 40 then
+					tortureBoss:SetModelScale(1.4 + i*0.01)
+				else
+					tortureBoss:SetModelScale(1.8 - (i-40)*0.01)
+				end
+				tortureBoss:SetModifierStackCount("modifier_sadist_z_flight", tortureBoss, i*2)
 			end)
 		end
-		tortureBoss:MoveToPosition(Vector(10333, 7451))
-		Timers:CreateTimer(2, function()
-			tortureBoss:MoveToPosition(tortureBoss:GetAbsOrigin()+Vector(0,-5,0))
+		Timers:CreateTimer(2.4, function()
+			EmitSoundOn("Redfall.TortureBoss.VO.Laugh1", tortureBoss)
+			tortureBoss:MoveToPosition(Vector(10432, 6347))
+			Timers:CreateTimer(1.2, function()
+				StartAnimation(tortureBoss, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_4, rate=1.0, translate="deadwinter_soul"})
+				local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_doom_bringer/doom_bringer_doom.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+				ParticleManager:SetParticleControl(pfx, 0, Vector(10432, 6144, 2+Redfall.ZFLOAT))
+				table.insert(Redfall.Castle.DoomParticleTable, pfx)
+				Timers:CreateTimer(1.5, function()
+					Redfall:SpawnTortureWaveUnit("redfall_crimsyth_corrupted_corpse", Vector(10432, 6144), 14, 100, 0.7, true)
+				end)
+			end)
 		end)
-	end)
+		Timers:CreateTimer(5.4, function()
+			tortureBoss:MoveToPosition(Vector(10908, 6464))
+			Timers:CreateTimer(1.2, function()
+				EmitSoundOn("Redfall.TortureBoss.VO.Laugh2", tortureBoss)
+				StartAnimation(tortureBoss, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_4, rate=1.0, translate="deadwinter_soul"})
+				local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_doom_bringer/doom_bringer_doom.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+				ParticleManager:SetParticleControl(pfx, 0, Vector(11008, 6464, 2+Redfall.ZFLOAT))
+				table.insert(Redfall.Castle.DoomParticleTable, pfx)
+				Timers:CreateTimer(1.5, function()
+					Redfall:SpawnTortureWaveUnit("redfall_crimsyth_corrupted_corpse", Vector(11008, 6464), 14, 100, 0.7, true)
+				end)
+			end)
+		end)
+		Timers:CreateTimer(10, function()
+			tortureBoss:MoveToPosition(Vector(11164, 7068))
+			Timers:CreateTimer(1.2, function()
+				EmitSoundOn("Redfall.TortureBoss.VO.Laugh1", tortureBoss)
+				StartAnimation(tortureBoss, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_4, rate=1.0, translate="deadwinter_soul"})
+				local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_doom_bringer/doom_bringer_doom.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+				ParticleManager:SetParticleControl(pfx, 0, Vector(11264, 7168, 2+Redfall.ZFLOAT))
+				table.insert(Redfall.Castle.DoomParticleTable, pfx)
+				Timers:CreateTimer(1.5, function()
+					Redfall:SpawnTortureWaveUnit("redfall_crimsyth_corrupted_corpse", Vector(11264, 7168), 14, 100, 0.7, true)
+				end)
+			end)
+		end)
+		Timers:CreateTimer(13, function()
+			for i = 1, 40, 1 do
+				Timers:CreateTimer(i*0.03, function()
+					tortureBoss:SetModifierStackCount("modifier_sadist_z_flight", tortureBoss, 160 + i*2)
+				end)
+			end
+			tortureBoss:MoveToPosition(Vector(10333, 7451))
+			Timers:CreateTimer(2, function()
+				tortureBoss:MoveToPosition(tortureBoss:GetAbsOrigin()+Vector(0,-5,0))
+			end)
+		end)
+	end
 end
 
 function sadist_death(event)
@@ -3969,141 +3972,143 @@ function garden_watcher_nuke_start(event)
 end
 
 function ElthezunTrigger(trigger)
-	Redfall.Castle.ElthezunSpawnParticleTable = {}
-	local miniBoss = Redfall.Castle.Elthezun
-	local bossBlinkAbility = miniBoss:FindAbilityByName("antimage_blink_custom")
-	EndAnimation(miniBoss)
+	if not Redfall.ElthezunTriggered then
+		Redfall.Castle.ElthezunSpawnParticleTable = {}
+		local miniBoss = Redfall.Castle.Elthezun
+		local bossBlinkAbility = miniBoss:FindAbilityByName("antimage_blink_custom")
+		EndAnimation(miniBoss)
+		Redfall.ElthezunTriggered = true
+		Timers:CreateTimer(0.06, function()
+			EmitSoundOn("Redfall.Elthezun.Laugh", miniBoss)
+			StartAnimation(miniBoss, {duration=2, activity=ACT_DOTA_CAST_ABILITY_4, rate=0.7})
+		end)
+		Timers:CreateTimer(2, function()
+			local castPoint = Vector(5952, 4215)
+			local newOrder = {
+					UnitIndex = miniBoss:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+					AbilityIndex = bossBlinkAbility:entindex(),
+					Position = castPoint
+			 	}
+			ExecuteOrderFromTable(newOrder)
+			Timers:CreateTimer(0.5, function()
+				miniBoss:SetForwardVector(Vector(0,-1))
+				StartAnimation(miniBoss, {duration=1.3, activity=ACT_DOTA_TELEPORT, rate=1})
+				EmitSoundOn("Redfall.Elthezun.SpawnGrunt", miniBoss)
+				EmitSoundOnLocationWithCaster(Vector(5952, 4010, 158+Redfall.ZFLOAT), "Redfall.CastleSpawner.Activate", Redfall.RedfallMaster)
+				local pfx = ParticleManager:CreateParticle("particles/econ/items/monkey_king/arcana/water/mk_spring_arcana_water_channel_powertrails.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+				ParticleManager:SetParticleControl(pfx, 0, Vector(5952, 4010, 158+Redfall.ZFLOAT))
+				Timers:CreateTimer(6, function()
+					ParticleManager:DestroyParticle(pfx, false)
+				end)
 
-	Timers:CreateTimer(0.06, function()
-		EmitSoundOn("Redfall.Elthezun.Laugh", miniBoss)
-		StartAnimation(miniBoss, {duration=2, activity=ACT_DOTA_CAST_ABILITY_4, rate=0.7})
-	end)
-	Timers:CreateTimer(2, function()
-		local castPoint = Vector(5952, 4215)
-		local newOrder = {
-				UnitIndex = miniBoss:entindex(),
-				OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-				AbilityIndex = bossBlinkAbility:entindex(),
-				Position = castPoint
-		 	}
-		ExecuteOrderFromTable(newOrder)
-		Timers:CreateTimer(0.5, function()
-			miniBoss:SetForwardVector(Vector(0,-1))
-			StartAnimation(miniBoss, {duration=1.3, activity=ACT_DOTA_TELEPORT, rate=1})
-			EmitSoundOn("Redfall.Elthezun.SpawnGrunt", miniBoss)
-			EmitSoundOnLocationWithCaster(Vector(5952, 4010, 158+Redfall.ZFLOAT), "Redfall.CastleSpawner.Activate", Redfall.RedfallMaster)
-			local pfx = ParticleManager:CreateParticle("particles/econ/items/monkey_king/arcana/water/mk_spring_arcana_water_channel_powertrails.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
-			ParticleManager:SetParticleControl(pfx, 0, Vector(5952, 4010, 158+Redfall.ZFLOAT))
-			Timers:CreateTimer(6, function()
-				ParticleManager:DestroyParticle(pfx, false)
-			end)
 
-
-			local pfx2 = ParticleManager:CreateParticle("particles/econ/events/ti4/teleport_end_counter_ti4.vpcf", PATTACH_WORLDORIGIN, Redfall.RedfallMaster)
-			ParticleManager:SetParticleControl(pfx2, 0, Vector(5952, 4010, 138+Redfall.ZFLOAT))
-			AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(5952, 4010), 500, 1500, false)
-			table.insert(Redfall.Castle.ElthezunSpawnParticleTable, pfx2)
-			Timers:CreateTimer(4, function()
-				Redfall:SpawnElthezunWaveUnit("iron_spine", Vector(5952, 4010), 8, 90, 1.3, true)
+				local pfx2 = ParticleManager:CreateParticle("particles/econ/events/ti4/teleport_end_counter_ti4.vpcf", PATTACH_WORLDORIGIN, Redfall.RedfallMaster)
+				ParticleManager:SetParticleControl(pfx2, 0, Vector(5952, 4010, 138+Redfall.ZFLOAT))
+				AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(5952, 4010), 500, 1500, false)
+				table.insert(Redfall.Castle.ElthezunSpawnParticleTable, pfx2)
+				Timers:CreateTimer(4, function()
+					Redfall:SpawnElthezunWaveUnit("iron_spine", Vector(5952, 4010), 8, 90, 1.3, true)
+				end)
 			end)
 		end)
-	end)
-	Timers:CreateTimer(7, function()
-		local castPoint = Vector(6784, 4288)
-		local newOrder = {
-				UnitIndex = miniBoss:entindex(),
-				OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-				AbilityIndex = bossBlinkAbility:entindex(),
-				Position = castPoint
-		 	}
-		ExecuteOrderFromTable(newOrder)
-		Timers:CreateTimer(0.5, function()
-			miniBoss:SetForwardVector(Vector(0,-1))
-			StartAnimation(miniBoss, {duration=1.3, activity=ACT_DOTA_TELEPORT, rate=1})
-			EmitSoundOn("Redfall.Elthezun.SpawnGrunt", miniBoss)
-			local spawnLoc = Vector(6765, 4010, 138+Redfall.ZFLOAT)
-			EmitSoundOnLocationWithCaster(spawnLoc, "Redfall.CastleSpawner.Activate", Redfall.RedfallMaster)
-			local pfx = ParticleManager:CreateParticle("particles/econ/items/monkey_king/arcana/water/mk_spring_arcana_water_channel_powertrails.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
-			ParticleManager:SetParticleControl(pfx, 0, spawnLoc)
-			Timers:CreateTimer(6, function()
-				ParticleManager:DestroyParticle(pfx, false)
-			end)
+		Timers:CreateTimer(7, function()
+			local castPoint = Vector(6784, 4288)
+			local newOrder = {
+					UnitIndex = miniBoss:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+					AbilityIndex = bossBlinkAbility:entindex(),
+					Position = castPoint
+			 	}
+			ExecuteOrderFromTable(newOrder)
+			Timers:CreateTimer(0.5, function()
+				miniBoss:SetForwardVector(Vector(0,-1))
+				StartAnimation(miniBoss, {duration=1.3, activity=ACT_DOTA_TELEPORT, rate=1})
+				EmitSoundOn("Redfall.Elthezun.SpawnGrunt", miniBoss)
+				local spawnLoc = Vector(6765, 4010, 138+Redfall.ZFLOAT)
+				EmitSoundOnLocationWithCaster(spawnLoc, "Redfall.CastleSpawner.Activate", Redfall.RedfallMaster)
+				local pfx = ParticleManager:CreateParticle("particles/econ/items/monkey_king/arcana/water/mk_spring_arcana_water_channel_powertrails.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+				ParticleManager:SetParticleControl(pfx, 0, spawnLoc)
+				Timers:CreateTimer(6, function()
+					ParticleManager:DestroyParticle(pfx, false)
+				end)
 
 
-			local pfx2 = ParticleManager:CreateParticle("particles/econ/events/ti4/teleport_end_counter_ti4.vpcf", PATTACH_WORLDORIGIN, Redfall.RedfallMaster)
-			ParticleManager:SetParticleControl(pfx2, 0, spawnLoc)
-			AddFOWViewer(DOTA_TEAM_GOODGUYS, spawnLoc, 500, 1500, false)
-			table.insert(Redfall.Castle.ElthezunSpawnParticleTable, pfx2)
-			Timers:CreateTimer(4, function()
-				Redfall:SpawnElthezunWaveUnit("iron_spine", spawnLoc, 8, 90, 1.3, true)
-			end)
-		end)
-	end)
-	Timers:CreateTimer(12, function()
-		local castPoint = Vector(5958, 4907)
-		local newOrder = {
-				UnitIndex = miniBoss:entindex(),
-				OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-				AbilityIndex = bossBlinkAbility:entindex(),
-				Position = castPoint
-		 	}
-		ExecuteOrderFromTable(newOrder)
-		Timers:CreateTimer(0.5, function()
-			miniBoss:SetForwardVector(Vector(0,1))
-			StartAnimation(miniBoss, {duration=1.3, activity=ACT_DOTA_TELEPORT, rate=1})
-			EmitSoundOn("Redfall.Elthezun.SpawnGrunt", miniBoss)
-			local spawnLoc = Vector(5952,5184, 138+Redfall.ZFLOAT)
-			EmitSoundOnLocationWithCaster(spawnLoc, "Redfall.CastleSpawner.Activate", Redfall.RedfallMaster)
-			local pfx = ParticleManager:CreateParticle("particles/econ/items/monkey_king/arcana/water/mk_spring_arcana_water_channel_powertrails.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
-			ParticleManager:SetParticleControl(pfx, 0, spawnLoc)
-			Timers:CreateTimer(6, function()
-				ParticleManager:DestroyParticle(pfx, false)
-			end)
-
-
-			local pfx2 = ParticleManager:CreateParticle("particles/econ/events/ti4/teleport_end_counter_ti4.vpcf", PATTACH_WORLDORIGIN, Redfall.RedfallMaster)
-			ParticleManager:SetParticleControl(pfx2, 0, spawnLoc)
-			AddFOWViewer(DOTA_TEAM_GOODGUYS, spawnLoc, 500, 1500, false)
-			table.insert(Redfall.Castle.ElthezunSpawnParticleTable, pfx2)
-			Timers:CreateTimer(4, function()
-				Redfall:SpawnElthezunWaveUnit("iron_spine", spawnLoc, 8, 90, 1.3, true)
+				local pfx2 = ParticleManager:CreateParticle("particles/econ/events/ti4/teleport_end_counter_ti4.vpcf", PATTACH_WORLDORIGIN, Redfall.RedfallMaster)
+				ParticleManager:SetParticleControl(pfx2, 0, spawnLoc)
+				AddFOWViewer(DOTA_TEAM_GOODGUYS, spawnLoc, 500, 1500, false)
+				table.insert(Redfall.Castle.ElthezunSpawnParticleTable, pfx2)
+				Timers:CreateTimer(4, function()
+					Redfall:SpawnElthezunWaveUnit("iron_spine", spawnLoc, 8, 90, 1.3, true)
+				end)
 			end)
 		end)
-	end)
-	Timers:CreateTimer(17, function()
-		local castPoint = Vector(6784, 4864)
-		local newOrder = {
-				UnitIndex = miniBoss:entindex(),
-				OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-				AbilityIndex = bossBlinkAbility:entindex(),
-				Position = castPoint
-		 	}
-		ExecuteOrderFromTable(newOrder)
-		Timers:CreateTimer(0.5, function()
-			miniBoss:SetForwardVector(Vector(0,1))
-			StartAnimation(miniBoss, {duration=1.3, activity=ACT_DOTA_TELEPORT, rate=1})
-			EmitSoundOn("Redfall.Elthezun.SpawnGrunt", miniBoss)
-			local spawnLoc = Vector(6765,5184, 138+Redfall.ZFLOAT)
-			EmitSoundOnLocationWithCaster(spawnLoc, "Redfall.CastleSpawner.Activate", Redfall.RedfallMaster)
-			local pfx = ParticleManager:CreateParticle("particles/econ/items/monkey_king/arcana/water/mk_spring_arcana_water_channel_powertrails.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
-			ParticleManager:SetParticleControl(pfx, 0, spawnLoc)
-			Timers:CreateTimer(6, function()
-				ParticleManager:DestroyParticle(pfx, false)
+		Timers:CreateTimer(12, function()
+			local castPoint = Vector(5958, 4907)
+			local newOrder = {
+					UnitIndex = miniBoss:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+					AbilityIndex = bossBlinkAbility:entindex(),
+					Position = castPoint
+			 	}
+			ExecuteOrderFromTable(newOrder)
+			Timers:CreateTimer(0.5, function()
+				miniBoss:SetForwardVector(Vector(0,1))
+				StartAnimation(miniBoss, {duration=1.3, activity=ACT_DOTA_TELEPORT, rate=1})
+				EmitSoundOn("Redfall.Elthezun.SpawnGrunt", miniBoss)
+				local spawnLoc = Vector(5952,5184, 138+Redfall.ZFLOAT)
+				EmitSoundOnLocationWithCaster(spawnLoc, "Redfall.CastleSpawner.Activate", Redfall.RedfallMaster)
+				local pfx = ParticleManager:CreateParticle("particles/econ/items/monkey_king/arcana/water/mk_spring_arcana_water_channel_powertrails.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+				ParticleManager:SetParticleControl(pfx, 0, spawnLoc)
+				Timers:CreateTimer(6, function()
+					ParticleManager:DestroyParticle(pfx, false)
+				end)
+
+
+				local pfx2 = ParticleManager:CreateParticle("particles/econ/events/ti4/teleport_end_counter_ti4.vpcf", PATTACH_WORLDORIGIN, Redfall.RedfallMaster)
+				ParticleManager:SetParticleControl(pfx2, 0, spawnLoc)
+				AddFOWViewer(DOTA_TEAM_GOODGUYS, spawnLoc, 500, 1500, false)
+				table.insert(Redfall.Castle.ElthezunSpawnParticleTable, pfx2)
+				Timers:CreateTimer(4, function()
+					Redfall:SpawnElthezunWaveUnit("iron_spine", spawnLoc, 8, 90, 1.3, true)
+				end)
 			end)
-
-
-			local pfx2 = ParticleManager:CreateParticle("particles/econ/events/ti4/teleport_end_counter_ti4.vpcf", PATTACH_WORLDORIGIN, Redfall.RedfallMaster)
-			ParticleManager:SetParticleControl(pfx2, 0, spawnLoc)
-			AddFOWViewer(DOTA_TEAM_GOODGUYS, spawnLoc, 500, 1500, false)
-			table.insert(Redfall.Castle.ElthezunSpawnParticleTable, pfx2)
-			Timers:CreateTimer(4, function()
-				Redfall:SpawnElthezunWaveUnit("iron_spine", spawnLoc, 8, 90, 1.3, true)
-			end)
-
-			local mainAbility = miniBoss:FindAbilityByName("redfall_prince_elthezun_ability")
-			mainAbility:ApplyDataDrivenModifier(miniBoss, miniBoss, "modifier_elthezun_during_wave", {})
 		end)
-	end)
+		Timers:CreateTimer(17, function()
+			local castPoint = Vector(6784, 4864)
+			local newOrder = {
+					UnitIndex = miniBoss:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+					AbilityIndex = bossBlinkAbility:entindex(),
+					Position = castPoint
+			 	}
+			ExecuteOrderFromTable(newOrder)
+			Timers:CreateTimer(0.5, function()
+				miniBoss:SetForwardVector(Vector(0,1))
+				StartAnimation(miniBoss, {duration=1.3, activity=ACT_DOTA_TELEPORT, rate=1})
+				EmitSoundOn("Redfall.Elthezun.SpawnGrunt", miniBoss)
+				local spawnLoc = Vector(6765,5184, 138+Redfall.ZFLOAT)
+				EmitSoundOnLocationWithCaster(spawnLoc, "Redfall.CastleSpawner.Activate", Redfall.RedfallMaster)
+				local pfx = ParticleManager:CreateParticle("particles/econ/items/monkey_king/arcana/water/mk_spring_arcana_water_channel_powertrails.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+				ParticleManager:SetParticleControl(pfx, 0, spawnLoc)
+				Timers:CreateTimer(6, function()
+					ParticleManager:DestroyParticle(pfx, false)
+				end)
+
+
+				local pfx2 = ParticleManager:CreateParticle("particles/econ/events/ti4/teleport_end_counter_ti4.vpcf", PATTACH_WORLDORIGIN, Redfall.RedfallMaster)
+				ParticleManager:SetParticleControl(pfx2, 0, spawnLoc)
+				AddFOWViewer(DOTA_TEAM_GOODGUYS, spawnLoc, 500, 1500, false)
+				table.insert(Redfall.Castle.ElthezunSpawnParticleTable, pfx2)
+				Timers:CreateTimer(4, function()
+					Redfall:SpawnElthezunWaveUnit("iron_spine", spawnLoc, 8, 90, 1.3, true)
+				end)
+
+				local mainAbility = miniBoss:FindAbilityByName("redfall_prince_elthezun_ability")
+				mainAbility:ApplyDataDrivenModifier(miniBoss, miniBoss, "modifier_elthezun_during_wave", {})
+			end)
+		end)
+	end
 end
 
 function elthezun_during_wave_think(event)

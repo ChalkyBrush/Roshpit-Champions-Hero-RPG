@@ -240,10 +240,10 @@ function highFlameImpact(caster, ability, position, damage)
 end
 
 function pride_attack_land(event)
-	local luck = RandomInt(1, 100)
 	local caster = event.caster
 	local ability = event.ability
-	if luck <= 3 then
+	local proc = Filters:GetProc(caster.hero, 3)
+	if proc then
 		for i = 1, #MAIN_HERO_TABLE, 1 do
 			ability:ApplyDataDrivenModifier(caster, MAIN_HERO_TABLE[i], "modifier_hand_pride_effect", {duration = 5})
 			EmitSoundOn("Hero_Gyrocopter.ART_Barrage.Launch", MAIN_HERO_TABLE[i])

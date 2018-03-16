@@ -376,7 +376,7 @@ function Redfall:InitCamp()
       Events:SpawnGamemaster(RPCItems.DROP_LOCATION)
       Events.GameMaster:AddAbility("town_portal"):SetLevel(1)
       Events.GameMaster:RemoveModifierByName("modifier_portal")
-
+      Redfall.Castle = {}
 
       Redfall.ZFLOAT = Redfall:GetRedfallZFLOAT()
     

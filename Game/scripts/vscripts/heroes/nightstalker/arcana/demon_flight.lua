@@ -128,6 +128,9 @@ function flight_attacks_think(event)
 			caster.flight_target = nil
 			return false
 		end
+		if caster.flight_target:GetTeamNumber() == caster:GetTeamNumber() then
+			return false
+		end
 		if not caster.flight_target:IsAlive() then
 		    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster.flight_target:GetAbsOrigin(), nil, 550, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
 		    local count = 0
