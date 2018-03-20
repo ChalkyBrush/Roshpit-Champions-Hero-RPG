@@ -5142,10 +5142,10 @@ function monkey_paw_unit_die(event)
 	if unit.paragon then
 		local gold = hero:GetGold();
 		local bossLocation = victim:GetAbsOrigin()
-		hero:SpendGold(gold/2, DOTA_ModifyGold_PurchaseItem)
 		local divisor = 3500*GameState:GetDifficultyFactor()
 		local itemsCount = math.floor(gold/divisor)
 		if itemsCount >= 1 then
+			hero:SpendGold(gold/2, DOTA_ModifyGold_PurchaseItem)
 			for i = 1, itemsCount, 1 do
 				Timers:CreateTimer((i-1)*0.3, function()
 					RPCItems.LevelRoll = 30 * GameState:GetDifficultyFactor()

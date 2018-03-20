@@ -114975,6 +114975,136 @@
 		}
 	}
 
+	"wind_spirit_tornado_2"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"sorceress/glacial_vortex"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCooldown"	"4"
+		"AbilityCastRange"				"1450"
+		"AbilityCastAnimation"	"ACT_DOTA_TELEPORT_STATUE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"1"
+		"MaxLevel"				 		"3"
+		"precache"
+		{
+
+		}
+		"AbilityManaCost"	"0"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/tanari/monsters/wind_temple_ai.lua"
+				"Function"		"cast_wind_tornado"
+				"target"		"POINT"
+				"max_tornados"	"%max_tornados"
+			}
+
+		}
+		"Modifiers"
+		{
+			"modifier_tornado_thinker"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/tanari/monsters/wind_temple_ai.lua"
+						"Function"		"tornado_thinker"
+						"target"		"TARGET"
+						"damage"		"%damage"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/tanari/monsters/wind_temple_ai.lua"
+						"Function"		"tornado_thinker_end"
+						"target"		"TARGET"
+					}
+				}
+				"Aura"          	"modifier_enemy_inside_wind_tornado"
+				"Aura_Radius"   	"340"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Aura_ApplyToCaster" "0"
+			}
+			"modifier_enemy_inside_wind_tornado"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%move_slow"
+				}
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/tanari/monsters/wind_temple_ai.lua"
+						"Function"		"tornado_damage_think"
+						"target"		"TARGET"
+						"damage"		"%damage"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/tanari/monsters/wind_temple_ai.lua"
+						"Function"		"tornado_damage_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/tanari/monsters/wind_temple_ai.lua"
+				"Function"		"splinter_hit"
+				"target"		"TARGET"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"8000 65000 250000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"move_slow"			"-24 -26 -28 -30 -32 -34 -36"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_tornados"			"4 5 6"
+			}
+		}
+
+	}
+
 	"wind_spirit_tornado"
 	{
 		// General

@@ -2269,7 +2269,7 @@ function spirit_boss_fighting_think(event)
 		bProvidesVision = false,
 	}
 	local projectile = ProjectileManager:CreateLinearProjectile(info)		
-	local castAbility = caster:FindAbilityByName("wind_spirit_tornado")
+	local castAbility = caster:FindAbilityByName("wind_spirit_tornado_2")
 	if castAbility:IsFullyCastable() then
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false )	
 		if #enemies > 0 then
@@ -2366,4 +2366,152 @@ function SpiritPortalOut(trigger)
 		local portToVector = Vector(7490, 7972)
 		Events:TeleportUnit(hero, portToVector, Events.GameMaster.portal, Events.GameMaster, 1.2)
 	end
+end
+
+function cast_wind_tornado(event)
+	local caster = event.caster
+	local ability = event.ability
+	local baseFV = caster:GetForwardVector()
+
+
+	if not ability.tornadoTable then
+		ability.tornadoTable = {}
+	end
+	Timers:CreateTimer(0.05, function()
+		StartAnimation(caster, {duration=1.1, activity=ACT_DOTA_ATTACK, rate=1.6}) 
+	end)
+	local startPoint = event.target_points[1]
+	ability.velocity = 1000
+	ability.rotationDelta = 20
+	DeepPrintTable(event.target_points)
+	print(startPoint)
+	local distance = WallPhysics:GetDistance2d(startPoint, caster:GetAbsOrigin())
+	ability.velocity = distance*1
+	
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "WindSpirit.IceTornadoStart", caster)
+	local casterOrigin = caster:GetAbsOrigin()
+
+		local dummy = CreateUnitByName("npc_dummy_unit", casterOrigin, false, nil, nil, caster:GetTeamNumber())
+		ability:ApplyDataDrivenModifier(caster, dummy, "modifier_tornado_thinker", {duration = 14})
+		local projectileFV = ((startPoint-casterOrigin)*Vector(1,1,0)):Normalized()
+		local tornadoParticle = "particles/roshpit/wind_temple/wind_spirit/tornado_ti6.vpcf"
+
+		local pfx = ParticleManager:CreateParticle(tornadoParticle, PATTACH_CUSTOMORIGIN, caster)
+		ParticleManager:SetParticleControl(pfx, 0, casterOrigin)
+		-- ParticleManager:SetParticleControl(pfx, 1, Vector(ability.velocity, ability.velocity, ability.velocity))
+		-- ParticleManager:SetParticleControl(pfx, 1, startPoint)
+		-- ParticleManager:SetParticleControl(pfx, 2, Vector(ability.velocity, ability.velocity, ability.velocity))
+
+		ParticleManager:SetParticleControlEnt(pfx, 1, dummy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", dummy:GetAbsOrigin(), true)
+
+		dummy.pfx = pfx
+		dummy.interval = 0
+		dummy.dummy = true
+		dummy.pullPoint = casterOrigin+projectileFV*1300+Vector(0,0,80)
+		dummy.baseFV = projectileFV
+		dummy.hardInterval = 0
+		dummy.velocity = ability.velocity
+		dummy.position = casterOrigin
+		dummy.targetPosition = startPoint
+		dummy.newTarget = startPoint
+		dummy.atPoint = false
+		table.insert(ability.tornadoTable, dummy)
+		local max_tornados = event.max_tornados
+		if bAvatar then
+			max_tornados = 3
+		end
+		print(max_tornados)
+		if #ability.tornadoTable > max_tornados then
+			ability.tornadoTable[1]:RemoveModifierByName("modifier_tornado_thinker")
+		end
+		Timers:CreateTimer(1, function()
+			EmitSoundOn("WindSpirit.TornadoLP", dummy)
+		end)
+end
+
+function tornado_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local dummy = target
+	if not IsValidEntity(ability) then
+		return false
+	end
+	dummy.interval = dummy.interval + 1
+	dummy.hardInterval = dummy.hardInterval + 1
+	if dummy.hardInterval == 140 then
+		EmitSoundOnLocationWithCaster(dummy:GetAbsOrigin(), "WindSpirit.TornadoLP", caster)
+	elseif  dummy.hardInterval == 240 then
+		EmitSoundOnLocationWithCaster(dummy:GetAbsOrigin(), "WindSpirit.TornadoLP", dummy)
+	elseif  dummy.hardInterval == 360 then
+		EmitSoundOnLocationWithCaster(dummy:GetAbsOrigin(), "WindSpirit.TornadoLP", caster)
+	end
+	dummy:SetAbsOrigin(dummy:GetAbsOrigin()+dummy.velocity*0.03*dummy.baseFV)
+	dummy:SetAbsOrigin(GetGroundPosition(dummy:GetAbsOrigin(), caster))
+	local distance = WallPhysics:GetDistance2d(dummy:GetAbsOrigin(), dummy.newTarget)
+	dummy.velocity = math.max(dummy.velocity - 15, 300)
+	if dummy.atPoint then
+		if dummy.interval%5 == 0 then
+			AddFOWViewer(caster:GetTeamNumber(), dummy:GetAbsOrigin(), 400, 1, false)
+			dummy.baseFV = WallPhysics:rotateVector(dummy.baseFV, 2*math.pi/10)
+			dummy.newTarget = dummy.targetPosition + dummy.baseFV*500
+		end
+	else
+
+		if distance < 100 then
+			dummy.atPoint = true
+		end
+	end
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), dummy:GetAbsOrigin(), nil, 350, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+    if #enemies > 0 then
+        for _,enemy in pairs(enemies) do
+        	if enemy.pushLock or enemy.jumpLock then
+        	else
+	        	local pullVector = ((dummy:GetAbsOrigin()-enemy:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	        	local distance = WallPhysics:GetDistance2d(dummy:GetAbsOrigin(), enemy:GetAbsOrigin())
+	        	local pullSpeed = math.max(3, 10 - distance/10)
+	        	enemy:SetAbsOrigin(enemy:GetAbsOrigin()+pullVector*pullSpeed)
+	        end
+        end
+    end
+end
+
+function tornado_thinker_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local pfx = target.pfx
+	Timers:CreateTimer(0.03, function()
+		UTIL_Remove(target)
+		reindexEnergyTable(ability)
+	end)
+	Timers:CreateTimer(1.5, function()
+		ParticleManager:DestroyParticle(pfx, false)
+		ParticleManager:ReleaseParticleIndex(pfx)
+	end)
+end
+
+function tornado_damage_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
+end
+
+function tornado_damage_think(event)
+	local caster = event.caster
+	local target = event.target
+	local damage = event.damage
+	local ability = event.ability
+	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
+end
+
+function reindexEnergyTable(ability)
+	local newTable = {}
+	for i = 1, #ability.tornadoTable, 1 do
+		if IsValidEntity(ability.tornadoTable[i]) then
+			table.insert(newTable, ability.tornadoTable[i])
+		end
+	end
+	ability.tornadoTable = newTable
 end

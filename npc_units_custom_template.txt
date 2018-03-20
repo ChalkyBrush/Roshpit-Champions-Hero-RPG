@@ -79077,12 +79077,12 @@
         "precache"
         {
             "particle"  "particles/econ/items/windrunner/windrunner_ti6/windrunner_spell_powershot_ti6.vpcf"
-            "particle"  "particles/units/heroes/hero_invoker/invoker_tornado.vpcf"
+            "particle"  "particles/roshpit/wind_temple/wind_spirit/tornado_ti6.vpcf"
         }
         "UnitLabel" "healing_ward"
         "Ability1"  "wind_spirit_main_boss_ability"
         "Ability2"  "redfall_garden_watcher_passive"
-        "Ability3"  "wind_spirit_tornado"
+        "Ability3"  "wind_spirit_tornado_2"
         "Ability4"  "boss_health"
         "Ability5"  ""
         "Ability6"  ""
