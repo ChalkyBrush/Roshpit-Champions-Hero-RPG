@@ -44,6 +44,7 @@ CustomAttributes.SEINARU_WEAPON_3_STR = 60
 CustomAttributes.NEUTRAL_GLYPH_1 = 500
 CustomAttributes.NEUTRAL_GLYPH_7 = 3500
 CustomAttributes.MOUNTAIN_PROTECTOR_GLYPH_5_A = 5000
+CustomAttributes.ASTRAL_W1_ARCANA2_STATS = 0.8
 
 
 function CDOTA_BaseNPC_Hero:GetStrength()
@@ -86,6 +87,12 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + stacks
 		agi_bonus = agi_bonus + stacks
 		int_bonus = int_bonus + stacks
+	end
+	if hero:HasModifier("modifier_apollo_stats_invisible") then
+		local stacks = hero:GetModifierStackCount("modifier_apollo_stats_invisible", hero)
+		str_bonus = str_bonus + stacks*CustomAttributes.ASTRAL_W1_ARCANA2_STATS
+		agi_bonus = agi_bonus + stacks*CustomAttributes.ASTRAL_W1_ARCANA2_STATS
+		int_bonus = int_bonus + stacks*CustomAttributes.ASTRAL_W1_ARCANA2_STATS
 	end
 	if hero:HasModifier("modifier_epoch_rune_c_b_invisible") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_epoch_rune_c_b_invisible", CustomAttributes.EPOCH_W3_INT)

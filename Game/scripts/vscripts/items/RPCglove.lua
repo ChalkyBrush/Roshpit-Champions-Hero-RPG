@@ -120,6 +120,11 @@ function RPCItems:HandLegendary(itemVariant, deathLocation)
             RPCItems:RollMordiggusGauntlet(deathLocation)
             return true
         elseif luck == 10 then
+            local arcanaLuck = RandomInt(1, 1000)
+            if arcanaLuck <= (2 + GameState:GetPlayerPremiumStatusCount()) then
+                RPCItems:RollAstralArcana2(deathLocation)
+                return true
+            end
             RPCItems:RollHalcyonSoulGlove(deathLocation)
             return true
         elseif luck == 11 then

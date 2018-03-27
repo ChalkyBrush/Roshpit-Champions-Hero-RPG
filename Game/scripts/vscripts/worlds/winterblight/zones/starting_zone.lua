@@ -326,3 +326,57 @@ function Winterblight:SpawnMountainDweller(position, fv)
 	return stone
 end
 
+function Winterblight:SnowCaveArea()
+	local luck = RandomInt(1, 3)
+	luck = 1
+	if luck == 1 then
+		Winterblight:SpawnFrostiok(Vector(-1280, -8070), Vector(-0.3,1))
+		Winterblight:SpawnFrostiok(Vector(-1042, -8384), Vector(-0.1,1))
+		Winterblight:SpawnFrostiok(Vector(-790, -8040), Vector(-0.6,1))
+		Winterblight:SpawnChillingColossus(Vector(-128, -8256), Vector(-1,1))
+		Timers:CreateTimer(2, function()
+			Winterblight:SpawnIceMarauader(Vector(-960, -6133), Vector(-0.2,-1))
+			Winterblight:SpawnIceMarauader(Vector(-1344, -6420), Vector(-0.3,-1))
+			Winterblight:SpawnIceMarauader(Vector(-1792, -6723), Vector(0,-1))
+		end)
+	end
+end
+
+function Winterblight:SpawnFrostiok(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("frostiok", position, 1, 2, "Winterblight.Frostiok.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 2, 2, false)
+	stone.itemLevel = 24
+	stone.dominion = true
+	return stone
+end
+
+function Winterblight:SpawnIceMarauader(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_icewrack_marauder", position, 1, 1, "Winterblight.IceMarauder.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 2, 2, false)
+	stone.itemLevel = 24
+	stone.dominion = true
+	stone:SetRenderColor(10,140,255)
+	Timers:CreateTimer(0.2, function()
+		if GameState:GetDifficultyFactor() < 3 then
+			stone:RemoveAbility("winterblight_marauder_passive")
+		end
+		if GameState:GetDifficultyFactor() < 2 then
+			stone:RemoveAbility("creature_black_king_bar")
+		end
+	end)
+	stone:AddNewModifier(stone, nil, "modifier_animation", {translate="melee"})
+	stone:AddNewModifier(stone, nil, "modifier_animation_translate", {translate="run"})
+	return stone
+end
+
+function Winterblight:SpawnChillingColossus(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_chilling_colossus", position, 2, 3, "Winterblight.FrostColossus.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 3, 3, false)
+	stone.itemLevel = 24
+	stone.dominion = true
+	stone:SetRenderColor(30,90,255)
+	Winterblight:SetTargetCastArgs(stone, 1000, 0, 2, FIND_CLOSEST)
+	return stone
+end
+
+

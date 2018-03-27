@@ -55,3 +55,7 @@ end
 function IceShatterArea(trigger)
 	Winterblight:IceCrystalArea()
 end
+
+function SnowCaveTrigger(trigger)
+	Winterblight:SnowCaveArea()
+end

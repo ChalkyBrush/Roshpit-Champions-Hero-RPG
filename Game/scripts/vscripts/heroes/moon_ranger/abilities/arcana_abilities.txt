@@ -1,0 +1,250 @@
+	"shot_of_apollo"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"astral_ranger/shot_of_apollo"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastRange"				"2000"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"	"particles/econ/items/lion/lion_demon_drain/lion_spell_mana_drain_demon.vpcf"
+			"particle"	"particles/roshpit/astral/apollo_proc_start_ti7_lvl2.vpcf"
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"2.0"
+		"AbilityChannelTime"			"2.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 140 200 280 380 500 640"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"shots"						"8 9 10 11 12 13 14"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/moon_ranger/abilities/arcana/shot_of_apollo.lua"
+				"Function"		"beginChannel"
+				"target"		"TARGET"
+			}
+
+		}
+		"OnChannelSucceeded"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_apollo_channel"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/moon_ranger/abilities/arcana/shot_of_apollo.lua"
+				"Function"		"beginCast"
+				"shots"			"%shots"
+				"target"		"TARGET"
+			}
+		}
+		"OnChannelInterrupted"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_apollo_channel"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/moon_ranger/abilities/arcana/shot_of_apollo.lua"
+				"Function"		"channel_interrupt"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_apollo_channel"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_apollo_strikes"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/moon_ranger/abilities/arcana/shot_of_apollo.lua"
+						"Function"		"apollo_debuff_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/moon_ranger/abilities/arcana/shot_of_apollo.lua"
+						"Function"		"apollo_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_apollo_outgoing_shots"
+			{
+				"IsHidden"	"1"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/moon_ranger/abilities/arcana/shot_of_apollo.lua"
+						"Function"		"apollo_attack_landed"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_apollo_stats_visible"
+			{
+				"IsHidden"	"0"
+				"TextureName"	"astral_ranger/astral_rune_a_b_arcana2"
+			}
+			"modifier_apollo_stats_invisible"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_apollo_c_b_proc_visible"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"TextureName"	"astral_ranger/astral_rune_c_b_arcana2"
+			}
+			"modifier_apollo_c_b_proc_invisible"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+			}
+			"modifier_apollo_post_mit_visible"
+			{
+				"IsHidden"	"0"
+				"TextureName"	"astral_ranger/astral_rune_d_b_arcana2"
+			}
+			"modifier_apollo_post_mit_invisible"
+			{
+				"IsHidden"	"1"
+			}
+		}
+
+	}
+
+	"astral_rune_a_b_arcana2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"astral_ranger/astral_rune_a_b_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.8"
+			}
+		}
+	}
+
+	"astral_rune_b_b_arcana2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"	"astral_ranger/astral_rune_b_b_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"2"
+			}
+		}
+	}
+
+	"astral_rune_c_b_arcana2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"astral_ranger/astral_rune_c_b_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"12"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"1"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"2"
+			}
+			"4"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"8"
+			}
+		}
+	}
+
+	"astral_rune_d_b_arcana2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"astral_ranger/astral_rune_d_b_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.7"
+			}
+		}
+	}

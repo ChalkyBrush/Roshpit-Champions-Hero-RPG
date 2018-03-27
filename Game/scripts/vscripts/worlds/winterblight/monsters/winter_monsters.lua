@@ -689,3 +689,113 @@ function mountain_dweller_take_damage(event)
 	caster.regenLock = true
 	caster:RemoveModifierByName("modifier_mountain_dweller_regen")
 end
+
+function frostiok_passive_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not caster:IsAlive() then
+		return false
+	end
+    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, event.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false )
+    if #enemies > 0 then    
+    	EmitSoundOn("Winterblight.Frostiok.Passive", caster)
+        for _,enemy in pairs(enemies) do
+				local info = 
+				{
+					Target = enemy,
+					Source = caster,
+					Ability = ability,	
+					EffectName =  "particles/units/heroes/hero_winter_wyvern/wyvern_splinter.vpcf",
+					StartPosition = "attach_hitloc",
+					bDrawsOnMinimap = false, 
+				        bDodgeable = true,
+				        bIsAttack = false, 
+				        bVisibleToEnemies = true,
+				        bReplaceExisting = false,
+				        flExpireTime = GameRules:GetGameTime() + 8,
+					bProvidesVision = true,
+					iVisionRadius = 0,
+					iMoveSpeed = 500,
+					iVisionTeamNumber = caster:GetTeamNumber()
+				}
+				projectile = ProjectileManager:CreateTrackingProjectile(info)
+        end
+    end	
+end
+
+function frostiok_ice_hit(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	EmitSoundOn("Winterblight.Frostiok.PassiveImpact", target)
+	local damage = event.damage
+	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
+
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_frostiok_damage_amp", {duration = 6})
+
+	local buff = target:FindModifierByName("modifier_frostiok_damage_amp")
+	local newStacks = target:GetModifierStackCount("modifier_frostiok_damage_amp", buff:GetCaster()) + 1
+	target:SetModifierStackCount("modifier_frostiok_damage_amp", buff:GetCaster(), newStacks)
+end
+
+function colossus_slam_cast(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local damage = event.damage
+	EmitSoundOn("Winterblight.ChillingColossus.WindUp", caster)
+	StartAnimation(caster, {duration=1.6, activity=ACT_DOTA_CAST_ABILITY_5, rate=0.9})
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_barnacle_ground_slam", {duration = 1.6})
+	Timers:CreateTimer(0.6, function()
+		local position = caster:GetAbsOrigin() + caster:GetForwardVector()*210
+		local radius = 540
+		local splitEarthParticle = "particles/units/heroes/hero_leshrac/leshrac_split_earth.vpcf"
+		local pfx = ParticleManager:CreateParticle( splitEarthParticle, PATTACH_CUSTOMORIGIN, caster )
+		ParticleManager:SetParticleControl( pfx, 0, position )
+		ParticleManager:SetParticleControl( pfx, 1, Vector(radius, radius, radius) )
+		EmitSoundOn("Winterblight.ChillingColossus.Slam", caster)
+		ScreenShake(position, 130, 0.9, 0.9, 9000, 0, true)
+		-- FindClearSpaceForUnit(caster, position, false)
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+		if #enemies > 0 then
+			for _,enemy in pairs(enemies) do
+				ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })	
+				enemy:AddNewModifier(caster, event.ability, "modifier_stunned", {duration = 1.5})
+			end
+		end 
+	end)
+end
+
+function frost_colossus_init(event)
+	local caster = event.caster
+	local ability = event.ability
+	local stacks = event.stacks
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_frostiok_immunity_stacks", {})
+	caster:SetModifierStackCount("modifier_frostiok_immunity_stacks", caster, stacks)
+
+end
+
+function colossus_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster:HasModifier("modifier_colossus_restore") then
+		return false
+	end
+	if caster:GetHealth() < 2000 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_colossus_restore", {duration = 7})
+		EmitSoundOn("Winterblight.Restore", caster)
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_borealis.vpcf", caster, 3)
+		local newStacks = caster:GetModifierStackCount("modifier_frostiok_immunity_stacks", caster) - 1
+		if newStacks > 0 then
+			caster:SetModifierStackCount("modifier_frostiok_immunity_stacks", caster, newStacks)
+		else
+			caster:RemoveModifierByName("modifier_frostiok_immunity_stacks")
+		end
+	end
+end
+
+function colossus_die(event)
+	local caster = event.caster
+	local ability = event.ability
+	EmitSoundOn("Winterblight.Colossus.Death", caster)
+end

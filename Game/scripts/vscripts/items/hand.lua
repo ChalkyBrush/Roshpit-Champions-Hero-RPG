@@ -380,6 +380,7 @@ function Hand:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_bahamut_arcana2")
 	hero:RemoveModifierByName("modifier_heavy_echo_gauntlet")
 	hero:RemoveModifierByName("modifier_flamewaker_arcana2")
+	hero:RemoveModifierByName("modifier_astral_arcana2")
 	hero.stormcloth = false
 	Hand:remove_rune_bonuses(hero)
 end

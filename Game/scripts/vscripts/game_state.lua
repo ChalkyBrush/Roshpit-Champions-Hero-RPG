@@ -963,6 +963,15 @@ function GameState:IncomingDamageIncrease(victim, attacker, bReal, damagetype)
 	if victim:HasModifier("modifier_hand_azinoth") then
 		damage = damage*1.5
 	end
+	if victim:HasModifier("modifier_frostiok_damage_amp") then
+		local buffCaster = victim:FindModifierByName("modifier_frostiok_damage_amp"):GetCaster()
+		local buffAbility = victim:FindModifierByName("modifier_frostiok_damage_amp"):GetAbility()
+		if IsValidEntity(buffAbility) then
+			local stacks = victim:GetModifierStackCount("modifier_frostiok_damage_amp", buffCaster)
+			local amp = buffAbility:GetLevelSpecialValueFor("damage_amp_per_stack", buffAbility:GetLevel())/100
+			damage = damage + damage*amp*stacks
+		end
+	end
 	return damage/BASE_VALUE_FOR_CALCULATE
 end
 
@@ -1649,6 +1658,14 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_bahamut_charge_of_light_postmitigation") then
 		local stacks = attacker:GetModifierStackCount("modifier_bahamut_charge_of_light_postmitigation", attacker)
 		mult = mult + 0.15*stacks
+	end
+	if attacker:HasModifier("modifier_apollo_post_mit_invisible") then
+		if attacker:HasAbility("shot_of_apollo") then
+			if attacker:FindAbilityByName("shot_of_apollo").d_b_target == victim then
+				local stacks = attacker:GetModifierStackCount("modifier_apollo_post_mit_invisible", attacker)
+				mult = mult + 0.007*stacks
+			end
+		end
 	end
 	if victim:HasModifier("tanari_mountain_specter_ai") then
 		local reduc = 0.1

@@ -83758,5 +83758,281 @@
         "Ability2"  "fire_temple_steadfast"
         "Ability3"  "winterblight_mountain_dweller_passive"
         "Ability4"  "dungeon_creep"
+    }
+
+    "frostiok"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/tidehunter/tidehunter.vmdl"
+        "ModelScale"    "0.8"
+        "Level" "1"
+        "HealthBarOffset"   "380"
+        "precache"
+        {
+            "particle"  "particles/units/heroes/hero_winter_wyvern/wyvern_splinter.vpcf"
+        }
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"                  "Hero_Tidehunter"
+        "ArmorPhysical" "6"
+        "MagicalResistance" "35"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "1550"
+        "AttackDamageMax"   "1850"
+        "AttackRate"    "1.2"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "240"
+        "BountyGoldMin" "15"
+        "BountyGoldMax" "20"
+        "BountyXP" "280"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HUGE"
+        "RingRadius"    "50"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "320"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "24000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"     "winterblight_frostiok_passive"
+        "Ability2"      "dungeon_creep"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "AttachWearables"
+            {
+
+                "Wearable1"
+                {
+                    "ItemDef"   "9631"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "9632"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "9633"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "9634"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "9635"
+                }
+                "Wearable6"
+                {
+                    "ItemDef"   "9636"
+                }
+            }
+        }
+    }
+
+    "winterblight_icewrack_marauder"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/troll_warlord/troll_warlord.vmdl"
+        "ModelScale"    "1.0"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"      "0"
+        "SelectionGroup"    "twitch_lone_druid"
+        "SoundSet"          "Hero_TrollWarlord"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_troll_warlord.vsndevts"
+        }
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "ArmorPhysical" "3"
+        "MagicalResistance" "5"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "300"
+        "AttackDamageMax"   "450"
+        "AttackRate"    "0.7"
+        "AttackAnimationPoint"  "0.3"
+        "AttackAcquisitionRange"  "0"
+        "AttackRange"   "170"
+        "BountyGoldMin" "50"
+        "BountyGoldMax" "52"
+        "BountyXP" "550"
+        "BoundsHullName"  "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "40"
+        "CollisionSize" "40"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "360"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "3000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"              "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {   
+                //weapon
+                "Wearable1"
+                {
+                    "ItemDef"   "9597"
+                }
+                //offand
+                "Wearable2"
+                {
+                    "ItemDef"   "9596"
+                }
+                //helm
+                "Wearable3"
+                {
+                    "ItemDef"   "9595"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+                "Ability1"                
+                {
+                    "Name"                "creature_black_king_bar"
+                }       
+            }
+        }
+        "Ability1"  "creature_black_king_bar"
+        "Ability2"  "fire_temple_frenzy"
+        "Ability3"  "armor_break"
+        "Ability4"  "fire_temple_steadfast"
+        "Ability5"  "winterblight_marauder_passive"
+        "Ability6"  "dungeon_creep"
+    }
+
+    "winterblight_chilling_colossus"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/elder_titan/elder_titan.vmdl"
+        "ModelScale"    "1.4"
+        "Level" "1"
+        "HealthBarOffset"   "180"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_elder_titan.vsndevts"
+            "particle"  "particles/units/heroes/hero_leshrac/leshrac_split_earth.vpcf"
+            "particle"  "particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_borealis.vpcf"
+        }
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"                  "Hero_ElderTitan"
+        "ArmorPhysical" "8"
+        "MagicalResistance" "15"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "805"
+        "AttackDamageMax"   "845"
+        "AttackRate"    "1.2"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "160"
+        "BountyGoldMin" "150"
+        "BountyGoldMax" "200"
+        "BountyXP" "3500"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "240"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "54400"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"      "frost_colossus_ground_slam"
+        "Ability2"      "winterblight_frost_colossus_passive"
+        "Ability3"      "fire_temple_steadfast"
+        "Ability4"      "dungeon_creep"
+        "Ability5"      "use_ability_1_target_ai"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "7877"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "6545"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "8763"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "8762"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
     }    
 }

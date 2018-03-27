@@ -650,6 +650,8 @@ function Runes:EquipArcana(hero, index)
 			local newRune = hero.runeUnit4:AddAbility("astral_rune_d_a_arcana1")
 			newRune:SetLevel(runeLevel4)
 			newRune:SetAbilityIndex(abilityIndex)
+		elseif index == 2 then
+			Runes:EasySwapArcanaSkills(hero, 1, "split_shot", "shot_of_apollo", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_spirit_breaker" then
 		if index == 1 then
@@ -1206,6 +1208,8 @@ function Runes:UnequipArcana(hero, index)
 			newRune:SetAbilityIndex(abilityIndex)
 
 			hero:RemoveModifierByName("modifier_astral_arcana_passive")
+		elseif index == 2 then
+			Runes:EasyRevertArcanaSkills(hero, 1, "split_shot", "shot_of_apollo", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_spirit_breaker" then
 		if index == 1 then

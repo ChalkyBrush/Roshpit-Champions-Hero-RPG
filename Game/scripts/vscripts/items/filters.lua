@@ -1956,6 +1956,9 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         local cosmosMult = 0
         if unitName == "npc_dota_hero_drow_ranger" then
             cosmosMult = cosmosMult + 0.0007*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_c_level
+            if victim:HasModifier("modifier_apollo_c_b_proc_invisible") then
+                cosmosMult = cosmosMult + 0.01*victim:GetModifierStackCount("modifier_apollo_c_b_proc_invisible", attacker)
+            end
         end
         if unitName == "npc_dota_hero_vengefulspirit" then
             local d_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 0)

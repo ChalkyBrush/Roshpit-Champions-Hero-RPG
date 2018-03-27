@@ -800,7 +800,7 @@ function sorceress_death(event)
       			caster:SetAngles(angles.x, (angles.y + 3), angles.z)
       		end)
       	end
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 4000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 4000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 	Timers:CreateTimer(3.5, function()
 		if #enemies > 0 then
 			Dungeons:CreateBasicCameraLockForHeroes(Vector(5376, 11520), 11, enemies)
