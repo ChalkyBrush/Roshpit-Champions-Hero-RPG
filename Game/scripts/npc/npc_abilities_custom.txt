@@ -52301,6 +52301,15 @@
 						"target"		"TARGET"
 					}
 				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/moon_ranger/abilities/arcana/shot_of_apollo.lua"
+						"Function"		"apollo_target_die"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_apollo_outgoing_shots"
 			{
