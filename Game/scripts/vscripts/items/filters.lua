@@ -1521,6 +1521,23 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     return damage
 end
 
+function Filters:IsTouchingGround(unit)
+    print(GetGroundHeight(unit:GetAbsOrigin(), unit) - unit:GetAbsOrigin().z)
+    if GetGroundHeight(unit:GetAbsOrigin(), unit) - unit:GetAbsOrigin().z < -12 or Filters:HasFlyingModifier(unit) then
+        return false
+    else
+        return true
+    end
+end
+
+function Filters:HasFlyingModifier(unit)
+    if unit:HasModifier("modifier_heavens_charge_falling") or unit:HasModifier("modifier_z_flight") or unit:HasModifier("modifier_hawk_soar_visual_z") or unit:HasModifier("modifier_shapeshift_crow") then
+        return true
+    else
+        return false
+    end
+end
+
 function Filters:ApplyQdamage(victim, attacker, damage, damage_type)
     if attacker:HasModifier("modifier_body_violet_guard") then
         Filters:IncrementLevelUpItem("item_rpc_armor_of_violet_guard", attacker, attacker.body, 20000, "#item_property_violet_guard_armor", "#A337E6", "#property_violet_guard_armor_description")

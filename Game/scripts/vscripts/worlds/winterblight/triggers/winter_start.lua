@@ -59,3 +59,48 @@ end
 function SnowCaveTrigger(trigger)
 	Winterblight:SnowCaveArea()
 end
+
+function Ice1(trigger)
+	local hero = trigger.activator
+	Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, hero, "modifier_ice_sliding", {})
+end
+
+function IceEnd(trigger)
+	local hero = trigger.activator
+	hero:RemoveModifierByName("modifier_ice_sliding")
+end
+
+function CliffTrigger2(trigger)
+	local hero = trigger.activator
+
+
+	local posTable = {Vector(-320, -9664), Vector(-64, -9664), Vector(192, -9664), Vector(448, -9664), Vector(704, -9530), Vector(855, -9280), Vector(855, -9024), Vector(855, -8768)}
+	for i = 1, 5 + GameState:GetDifficultyFactor()*2, 1 do
+		Timers:CreateTimer(i*0.6, function()
+			local position = posTable[RandomInt(1, #posTable)]
+			local jumpToPos = Vector(-512, -7963)
+			local fv = (jumpToPos - position):Normalized()
+			local assassin = Winterblight:SpawnAssassin(position, fv)
+			Timers:CreateTimer(0.2, function()
+				local targetPoint = jumpToPos + RandomVector(RandomInt(0, 520))	- fv*400
+				local jumpAbility = assassin:FindAbilityByName("assassin_jump")		
+				local order =
+				{
+					UnitIndex = assassin:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+					AbilityIndex = jumpAbility:entindex(),
+					Position = targetPoint
+				}
+				ExecuteOrderFromTable(order)
+			end)
+		end)
+	end
+
+end
+
+function AzaleaSpawn1(trigger)
+	Winterblight:FirstOutsideAzaleaPocketSpawn()
+end
+
+function AzaleaSpawn2(trigger)
+end

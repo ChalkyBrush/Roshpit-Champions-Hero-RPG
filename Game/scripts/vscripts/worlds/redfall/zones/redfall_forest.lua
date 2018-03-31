@@ -310,6 +310,7 @@ function Redfall:SpawnDiscipleOfMaru(position, fv)
 	ancient.autoAbilityCD = 3
 	CustomAbilities:QuickAttachParticle("particles/econ/items/antimage/antimage_weapon_basher_ti5/time_bind_damage.vpcf", ancient, 2)
 	ancient.dominion = true
+	ancient:AddNewModifier(ancient, nil, "modifier_animation", {translate="walk"})
 	return ancient	
 end
 

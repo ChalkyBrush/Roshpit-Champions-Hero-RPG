@@ -799,3 +799,356 @@ function colossus_die(event)
 	local ability = event.ability
 	EmitSoundOn("Winterblight.Colossus.Death", caster)
 end
+
+function purging_ice_hit(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local damage = event.damage
+	EmitSoundOn("Winterblight.Norgok.PurgingBoltHit", target)
+	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })	
+
+	local modifiers = target:FindAllModifiers()
+	for i = 1, #modifiers, 1 do
+		local modifier = modifiers[i]
+		local modifierMaker = modifier:GetCaster()
+		if modifierMaker:GetEntityIndex() == target:GetEntityIndex() or modifierMaker:GetEntityIndex() == target.InventoryUnit:GetEntityIndex() then
+			local durationRemaining = modifier:GetRemainingTime()
+			if durationRemaining > 0 then
+				target:RemoveModifierByName(modifier:GetName())
+			end
+		end
+	end
+end
+
+function norgok_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local particleName = "particles/units/heroes/hero_luna/luna_lucent_beam_impact_shared.vpcf"
+	local damage = event.damage
+	if not caster:IsAlive() then
+		return false
+	end
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
+	if not ability.interval then
+		ability.interval = 0
+	end
+	if #enemies > 0 then
+		for _,enemy in pairs(enemies) do
+			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
+			local pfx = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_luna/luna_lucent_beam_impact_shared.vpcf", enemy, 0.5)
+			ParticleManager:SetParticleControl(pfx, 1, enemy:GetAbsOrigin())
+			EmitSoundOn("Winterblight.Norgok.PassiveHit", enemy)
+		end
+	end
+	ability.interval = ability.interval + 1
+	if caster.aggro then
+		if ability.interval > 120 then
+			ability.interval = 0
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_chieftain_buff", {duration = 5})
+		end 
+	end
+end
+
+function norgok_die(event)
+	local caster = event.caster
+	local ability = event.ability
+	EmitSoundOn("Winterblight.Norgok.Die", caster)
+end
+
+function iceSprintStart(event)
+	local caster = event.caster
+	local ability = event.ability
+	ability.forwardVec = caster:GetForwardVector()
+	ability.interval = 0
+	StartAnimation(caster, {duration=event.duration, activity=ACT_DOTA_RUN, rate=1.2, translate="haste"})
+	-- rune_b_c(caster, ability)
+	local level = ability:GetLevel()
+	caster:MoveToPosition(caster:GetAbsOrigin()+ability.forwardVec*(level/0.03)*25)
+end
+
+
+function iceSprintThink(event)
+  local caster = event.caster
+  local ability = event.ability
+  local position = caster:GetAbsOrigin()
+  
+  ability.interval = ability.interval+1
+  position = GetGroundPosition( position, caster )
+
+  local obstruction = WallPhysics:FindNearestObstruction(position)
+  local newPosition = position+caster:GetForwardVector()*25
+  local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (position+caster:GetForwardVector()*95), caster)
+  if ability.interval%3 == 0 then
+  	local baseDamage = event.damage
+  	iceSprintBlast(caster, newPosition, event.radius, baseDamage, ability)
+  end
+  if not blockUnit then
+    caster:SetOrigin(newPosition)
+  end
+end
+
+function iceSprintEnd(event)
+	local caster = event.caster
+	local position = caster:GetAbsOrigin()
+	if not caster:IsChanneling() then
+		caster:Stop()
+	end
+	FindClearSpaceForUnit(caster, position, false)
+end
+
+function iceSprintBlast(caster, position, radius, damage, ability)
+	local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+	local pfx = ParticleManager:CreateParticle( particle, PATTACH_WORLDORIGIN, caster )
+	ParticleManager:SetParticleControl( pfx, 0, position )
+	ParticleManager:SetParticleControl( pfx, 1, Vector(radius, 2, radius*2) )
+	Timers:CreateTimer(2.5, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	if #enemies > 0 then	
+		for _,enemy in pairs(enemies) do
+			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_ice_sprint_slow", {duration = 3})
+			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
+		end
+	end
+end
+
+function autumn_mage_blink_start(event)
+	local caster = event.caster
+	local ability = event.ability
+	CustomAbilities:QuickAttachParticle("particles/act_2/blob_launch_impact_hit_smoke.vpcf", caster, 3)
+
+end
+
+function autumn_blink_debuff_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	EmitSoundOn("Winterblight.IceBlink", caster)
+
+	local particleName = "particles/econ/events/winter_major_2017/blink_dagger_start_wm07.vpcf"
+	local pfx1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(pfx1, 0, caster:GetAbsOrigin())
+    local target = caster:GetAbsOrigin() + RandomVector(RandomInt(560, 1000))
+    local casterOrigin = caster:GetAbsOrigin()
+    target = WallPhysics:WallSearch(casterOrigin, target, caster)
+    -- local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_undying/undying_loadout.vpcf", PATTACH_ABSORIGIN, event.caster )
+    --     ParticleManager:SetParticleControl( pfx, 0, position )
+    local newPosition = target
+    FindClearSpaceForUnit(caster, newPosition, false)
+	local pfx2 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(pfx2, 0, newPosition)
+	Timers:CreateTimer(4, function()
+		ParticleManager:DestroyParticle(pfx1, false)
+		ParticleManager:DestroyParticle(pfx2, false)
+	end)
+end
+
+function sea_fortress_summon_ability(event)
+	local caster = event.caster
+	local ability = event.ability
+	local loops = 1
+	if not caster.summonCount then
+		caster.summonCount = 0
+	end
+	if caster.summons then
+		loops = caster.summons
+	end
+	if not caster.maxSummons then
+		caster.maxSummons = 2
+	end
+	local summoned = false
+	for i = 1, loops, 1 do
+		if caster.summonCount < caster.maxSummons then
+			summoned = true
+			local spider = nil
+			if caster:GetUnitName() == "winterblight_ice_summoner" then
+				spider = Winterblight:SpawnIceSummon(caster:GetAbsOrigin()+RandomVector(RandomInt(100, 260)), caster:GetForwardVector(), caster, caster.aggro)
+				CustomAbilities:QuickAttachParticle("particles/econ/items/crystal_maiden/ti7_immortal_shoulder/cm_ti7_immortal_frostbite_snow_explode.vpcf", spider, 3)
+			end
+			Events:CreateLightningBeamWithParticle(caster:GetAbsOrigin()+Vector(0,0,140), spider:GetAbsOrigin()+Vector(0,0,60), "particles/units/heroes/hero_wisp/wisp_tether_agh.vpcf", 0.9)
+			spider.origCaster = caster
+			caster.summonCount  = caster.summonCount + 1
+			spider:AddAbility("winterblight_enemy_summon"):SetLevel(1)
+			StartAnimation(spider, {duration=0.5, activity=ACT_DOTA_DISABLED, rate=1.1})
+		end
+	end
+	if summoned then
+		if caster:GetUnitName() == "winterblight_ice_summoner" then
+			StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.9})
+			EmitSoundOn("Winterblight.IceSummon", caster)
+		end
+	end
+end
+
+
+function enemy_summon_start(event)
+	local caster = event.caster
+	local ability = event.ability
+
+	caster:SetDeathXP(0)
+	caster:SetMinimumGoldBounty(0)
+	caster:SetMaximumGoldBounty(0)
+end
+
+function enemy_summon_die(event)
+	local caster = event.caster
+	local ability = event.ability
+	caster.origCaster.summonCount = caster.origCaster.summonCount - 1
+end
+
+function blade_jump_start(event)
+	local caster = event.caster
+	local ability = event.ability
+	ability.targetPoint = event.target_points[1]
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_machinal_jump", {duration = 4})
+	local distance = WallPhysics:GetDistance2d(ability.targetPoint, caster:GetAbsOrigin())
+	ability.jumpVelocity = distance/18
+	ability.liftVelocity = 15
+	local heightDiff = 0
+	ability.liftVelocity = ability.liftVelocity - heightDiff/25
+	ability.rising = true
+	ability.jumpFV = ((ability.targetPoint - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+
+	ability.interval = 0
+	if not event.special then
+		StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_FLAIL, rate=1, translate="forcestaff_friendly"})
+		EmitSoundOn("Winterblight.BladeDancer.JumpVO", caster)
+		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.BladeDancer.Jump", caster)
+		if caster:HasModifier("modifier_machinal_jump_freecast") then
+			ability:EndCooldown()
+			local newStacks = caster:GetModifierStackCount("modifier_machinal_jump_freecast", caster) - 1
+			if newStacks > 0 then
+				caster:SetModifierStackCount("modifier_machinal_jump_freecast", caster, newStacks)
+			else
+				caster:RemoveModifierByName("modifier_machinal_jump_freecast")
+			end
+		end
+	end
+	ability.a_c_level = 0
+	ability.c_c_level = 0
+end
+
+function blade_jump_think(event)
+	local caster = event.caster
+	local ability = event.ability
+
+	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), ability.targetPoint)
+
+	local fv = ability.jumpFV
+	-- if distance < 60 then
+	-- 	fv = Vector(0,0)
+	-- end
+	local height = (caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster))
+	if height < math.abs(ability.liftVelocity) then
+		print(height)
+		if not ability.rising then
+			caster:RemoveModifierByName("modifier_machinal_jump")
+		end
+	end
+
+	local blockSearch = caster:GetAbsOrigin()*Vector(1,1,0)+Vector(0,0,GetGroundHeight(caster:GetAbsOrigin(), caster))
+    local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
+    local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch+ability.jumpFV*30), caster)
+	if blockUnit then
+		fv = Vector(0,0)
+	end
+	caster:SetAbsOrigin(caster:GetAbsOrigin() + fv*ability.jumpVelocity + Vector(0,0,ability.liftVelocity))
+	ability.liftVelocity = ability.liftVelocity - 2
+	if ability.liftVelocity <= 0 then
+		ability.rising = false
+	end
+	ability.interval = ability.interval + 1
+	-- if ability.interval%3 == 0 then
+	-- 	local pfx = ParticleManager:CreateParticle("particles/econ/events/winter_major_2016/blink_dagger_start_wm.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	-- 	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+	-- 	Timers:CreateTimer(0.4, function()
+	-- 		ParticleManager:DestroyParticle(pfx, false)
+	-- 	end)
+	-- end
+end
+
+function blade_jump_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	Timers:CreateTimer(0.03, function()
+		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+	end)
+	local pfx = ParticleManager:CreateParticle("particles/econ/events/winter_major_2016/blink_dagger_start_wm.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+	Timers:CreateTimer(0.4, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
+
+	StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_ATTACK, rate=0.9})
+	Timers:CreateTimer(0.1, function()
+		EmitSoundOn("Winterblight.BladeDancer.Shockwave", caster)
+		caster:AddNewModifier(caster, nil, "modifier_animation", {translate="walk"})
+		caster:AddNewModifier(caster, nil, "modifier_animation_translate", {translate="walk"})
+		local fv = caster:GetForwardVector()
+		local info = 
+		{
+				Ability = ability,
+	        	EffectName = "particles/units/heroes/hero_magnataur/magnataur_shockwave.vpcf",
+	        	vSpawnOrigin = caster:GetAbsOrigin(),
+	        	fDistance = 1500,
+	        	fStartRadius = 140,
+	        	fEndRadius = 140,
+	        	Source = caster,
+	        	StartPosition = "attach_attack1",
+	        	bHasFrontalCone = false,
+	        	bReplaceExisting = false,
+	        	iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+	        	iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+	        	iUnitTargetType = DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC,
+	        	fExpireTime = GameRules:GetGameTime() + 5.0,
+			bDeleteOnHit = false,
+			vVelocity = fv * 800,
+			bProvidesVision = false,
+		}
+		projectile = ProjectileManager:CreateLinearProjectile(info)
+	end)
+end
+
+function challenger19ai(event)
+	local caster = event.caster
+	local abiility = event.ability
+	local blinkAbility = caster:FindAbilityByName("arena_phantom_strike")
+	local luck = RandomInt(1,4)
+	local range = GameState:GetDifficultyFactor()*150 + 290
+	if luck == 1 then
+		if blinkAbility:IsFullyCastable() then
+			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )	
+			if #enemies > 0 then
+				local newOrder = {
+						UnitIndex = caster:entindex(),
+						OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+						AbilityIndex = blinkAbility:entindex(),
+						TargetIndex = enemies[1]:entindex()
+				 	}
+				 
+				ExecuteOrderFromTable(newOrder)			
+			end
+			return
+		end
+	end
+	local stifling = caster:FindAbilityByName("arena_stifling_dagger")
+	if stifling:IsFullyCastable() then
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )	
+		if #enemies > 0 then
+			local distance = WallPhysics:GetDistance(enemies[1]:GetAbsOrigin()*Vector(1,1,0), caster:GetAbsOrigin()*Vector(1,1,0))
+			if distance > 500 then
+				local castPoint = enemies[1]:GetAbsOrigin()
+				local newOrder = {
+						UnitIndex = caster:entindex(),
+						OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+						AbilityIndex = stifling:entindex(),
+						TargetIndex = enemies[1]:entindex()
+				 	}
+				 
+				ExecuteOrderFromTable(newOrder)	
+				return		
+			end
+		end	
+	end
+end

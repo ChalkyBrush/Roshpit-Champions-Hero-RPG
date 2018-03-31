@@ -727,12 +727,12 @@ function Events:BGMmanager(player, hero)
     if GameState:IsRPCArena() then
       CustomGameEventManager:Send_ServerToPlayer(player, "BGMstart", {songName = "Arena.StartingMusic"})
     elseif GameState:IsRedfallRidge() then
-      if GameRules:GetGameTime() > 20 then
+      if GameRules:GetGameTime() > 25 then
         CustomGameEventManager:Send_ServerToPlayer(player, "BGMstart", {songName = "Music.Redfall.Village"})
       end
       hero.bgm = "Music.Redfall.Village"
     elseif GameState:IsWinterblight() then
-      if GameRules:GetGameTime() > 20 then
+      if GameRules:GetGameTime() > 25 then
         CustomGameEventManager:Send_ServerToPlayer(player, "BGMstart", {songName = "Music.Winterblight.Start"})
       end
       hero.bgm = "Music.Winterblight.Start"
@@ -1362,7 +1362,7 @@ end
 
 function Events:beginQuests()
   -- print("BEGINQUESTS IS HAPPENING")
-  -- Beacons:DEBUG()
+  Beacons:DEBUG()
 end
 
 function Events:InitGameEntities()

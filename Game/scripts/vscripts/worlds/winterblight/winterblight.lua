@@ -53,6 +53,9 @@ function Winterblight:InitCamp()
     Winterblight.Master:AddAbility("winterblight_master_ability"):SetLevel(GameState:GetDifficultyFactor())
     Winterblight.MasterAbility = Winterblight.Master:FindAbilityByName("winterblight_master_ability")
     Winterblight.Master:AddAbility("dummy_unit"):SetLevel(1)
+    Timers:CreateTimer(25, function()
+      Winterblight:ShrineOfAzaleaMusic()
+    end)
 end
 
 function Winterblight:CalculateHeroZones()
@@ -63,11 +66,14 @@ function Winterblight:CalculateHeroZones()
         local player = hero:GetPlayerOwner()
         local heroOrigin = hero:GetAbsOrigin()
           if (WallPhysics:IsWithinRegionA(heroOrigin, Vector(-16512, -9984), Vector(-4928, 3833))) then
-            CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_zone_display", {zoneName = "redfall_village"} )
+            CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_zone_display", {zoneName = "winterblight_village"} )
             hero.bgm = "Music.Winterblight.Start"
           elseif (WallPhysics:IsWithinRegionA(heroOrigin, Vector(-6897, -9496), Vector(10058,267))) then
-            CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_zone_display", {zoneName = "redfall_forest"} )
+            CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_zone_display", {zoneName = "winterblight_mountain"} )
             hero.bgm = "Music.Winterblight.Start"
+          elseif (WallPhysics:IsWithinRegionA(heroOrigin, Vector(-17000, -17000), Vector(-9856,-7744))) or (WallPhysics:IsWithinRegionA(heroOrigin, Vector(-17000, -17000), Vector(16384,-9570))) then
+            CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_zone_display", {zoneName = "shrine_of_azalea"} )
+            hero.bgm = "Music.Winterblight.ShrineOfAzelea"
           else
             -- CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_zone_display", {zoneName = "zone_redfall" } )
           end
@@ -88,11 +94,19 @@ function Winterblight:StarterMusic()
     -- end
     return 130
   end)
-  -- EmitSoundOnLocationWithCaster(Vector(-15424, -2624), "Winterblight.Wind", Events.GameMaster)
-  -- EmitSoundOnLocationWithCaster(Vector(-12459, -2014), "Winterblight.Wind", Events.GameMaster)
-  -- EmitSoundOnLocationWithCaster(Vector(-10624, -4288), "Winterblight.Wind", Events.GameMaster)
-  -- EmitSoundOnLocationWithCaster(Vector(-7900, -3341), "Winterblight.Wind", Events.GameMaster)
-  -- EmitSoundOnLocationWithCaster(Vector(-5696, -3136), "Winterblight.Wind", Events.GameMaster)
+end
+
+function Winterblight:ShrineOfAzaleaMusic()
+  Timers:CreateTimer(1, function()
+      for i = 1, #MAIN_HERO_TABLE, 1 do
+        if MAIN_HERO_TABLE[i].bgm == "Music.Winterblight.ShrineOfAzelea" then
+          CustomGameEventManager:Send_ServerToPlayer(MAIN_HERO_TABLE[i]:GetPlayerOwner(), "BGMend", {})
+          CustomGameEventManager:Send_ServerToPlayer(MAIN_HERO_TABLE[i]:GetPlayerOwner(), "BGMstart", {songName = "Music.Winterblight.ShrineOfAzelea"})
+        end
+      end
+    -- end
+    return 157
+  end)
 end
 
 function Winterblight:HowlingWind()
@@ -268,4 +282,38 @@ end
 
 function Winterblight:SpawnUnitsWithPatrol()
 
+end
+
+function Winterblight:Walls(bRaise, walls, bSound, movementZ)
+  if not bRaise then
+    movementZ = movementZ*-1
+  end
+  if #walls > 0 then
+    Timers:CreateTimer(0.1, function()
+      if bSound then
+        for i = 1, #walls, 1 do
+          EmitSoundOnLocationWithCaster(walls[i]:GetAbsOrigin(), "Winterblight.WallOpen", Events.GameMaster)
+        end
+      end
+    end)
+    for i = 1, 180, 1 do
+      for j = 1, #walls, 1 do
+        Timers:CreateTimer(i*0.03, function()
+          walls[j]:SetAbsOrigin(walls[j]:GetAbsOrigin()+Vector(0,0,movementZ))
+          if j == 1 then
+            ScreenShake(walls[j]:GetAbsOrigin(), 160, 0.1, 0.1, 9000, 0, true)
+          end
+        end)
+      end
+    end
+  end
+end
+
+function Winterblight:RemoveBlockers(delay, blockername, position, searchRadius)
+    Timers:CreateTimer(delay, function()
+      local blockers = Entities:FindAllByNameWithin(blockername, position, searchRadius)
+      for i = 1, #blockers, 1 do
+        UTIL_Remove(blockers[i])
+      end
+    end)
 end

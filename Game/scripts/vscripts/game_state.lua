@@ -635,6 +635,11 @@ function GameState:OrderFilter(orderTable)
 				end
 			end
 		end
+		if unit:HasModifier("modifier_ice_sliding") then
+			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
+				unit.iceRightClickPos = Vector(orderTable.position_x, orderTable.position_y)
+			end
+		end
 		if unit:HasModifier("modifier_slipfinn_passive") then
 			unit.lastOrder = orderTable.order_type
 			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
@@ -972,6 +977,7 @@ function GameState:IncomingDamageIncrease(victim, attacker, bReal, damagetype)
 			damage = damage + damage*amp*stacks
 		end
 	end
+
 	return damage/BASE_VALUE_FOR_CALCULATE
 end
 
@@ -1205,8 +1211,22 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		local stacks = victim:GetModifierStackCount("modifier_duskbringer_t42_visible", victim)
 		damage = damage * (1 - 0.03 * stacks)
 	end
-
-
+	if victim:HasModifier("modifier_snowshaker_passive") then
+		local passive = victim:FindAbilityByName("winterblight_snowshaker_passive")
+		if passive:GetCooldownTimeRemaining() == 0 then
+			damage = 0
+			if bReal then
+				passive:StartCooldown(passive:GetCooldown(passive:GetLevel()))
+				CustomAbilities:QuickAttachParticle("particles/items_fx/immunity_sphere_lincoln_b.vpcf", victim, 0.5)
+			end
+		end
+	end
+	if victim:HasModifier("modifier_frigid_growth_shield") then
+		local passive = victim:FindAbilityByName("winterblight_frigid_growth_passive")
+		local reduction = passive:GetLevelSpecialValueFor("damage_reduc", passive:GetLevel())
+		reduction = (100-reduction)/100
+		damage = damage*reduction
+	end
 	return damage/BASE_VALUE_FOR_CALCULATE
 end
 
