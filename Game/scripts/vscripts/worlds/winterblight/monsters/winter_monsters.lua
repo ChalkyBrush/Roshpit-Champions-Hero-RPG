@@ -854,6 +854,10 @@ function norgok_die(event)
 	local caster = event.caster
 	local ability = event.ability
 	EmitSoundOn("Winterblight.Norgok.Die", caster)
+	Timers:CreateTimer(3, function()
+		Winterblight:StartCaveWaves()
+	end)
+	CustomAbilities:QuickAttachParticle("particles/roshpit/items/ice_quill_explosion.vpcf", caster, 5)
 end
 
 function iceSprintStart(event)
@@ -1115,10 +1119,10 @@ function challenger19ai(event)
 	local abiility = event.ability
 	local blinkAbility = caster:FindAbilityByName("arena_phantom_strike")
 	local luck = RandomInt(1,4)
-	local range = GameState:GetDifficultyFactor()*150 + 290
+	local range = GameState:GetDifficultyFactor()*250 + 300
 	if luck == 1 then
 		if blinkAbility:IsFullyCastable() then
-			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )	
+			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_FARTHEST, false )	
 			if #enemies > 0 then
 				local newOrder = {
 						UnitIndex = caster:entindex(),
@@ -1132,23 +1136,221 @@ function challenger19ai(event)
 			return
 		end
 	end
-	local stifling = caster:FindAbilityByName("arena_stifling_dagger")
-	if stifling:IsFullyCastable() then
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )	
-		if #enemies > 0 then
-			local distance = WallPhysics:GetDistance(enemies[1]:GetAbsOrigin()*Vector(1,1,0), caster:GetAbsOrigin()*Vector(1,1,0))
-			if distance > 500 then
-				local castPoint = enemies[1]:GetAbsOrigin()
-				local newOrder = {
-						UnitIndex = caster:entindex(),
-						OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-						AbilityIndex = stifling:entindex(),
-						TargetIndex = enemies[1]:entindex()
-				 	}
-				 
-				ExecuteOrderFromTable(newOrder)	
-				return		
-			end
-		end	
+	local luck = RandomInt(1,5-GameState:GetDifficultyFactor())
+	if luck == 1 then
+		local stifling = caster:FindAbilityByName("arena_stifling_dagger")
+		if stifling:IsFullyCastable() then
+			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )	
+			if #enemies > 0 then
+				local distance = WallPhysics:GetDistance(enemies[1]:GetAbsOrigin()*Vector(1,1,0), caster:GetAbsOrigin()*Vector(1,1,0))
+				if distance > 300 then
+					local castPoint = enemies[1]:GetAbsOrigin()
+					local newOrder = {
+							UnitIndex = caster:entindex(),
+							OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+							AbilityIndex = stifling:entindex(),
+							TargetIndex = enemies[1]:entindex()
+					 	}
+					 
+					ExecuteOrderFromTable(newOrder)	
+					return		
+				end
+			end	
+		end
 	end
+end
+
+function winterblight_wave_unit_die(event)
+	local unit = event.unit
+	if unit.deathCode == 1 then
+		if not Winterblight.CaveUnitsSlain then
+			Winterblight.CaveUnitsSlain = 0
+		end
+		Winterblight.CaveUnitsSlain = Winterblight.CaveUnitsSlain + 1
+		print(Winterblight.CaveUnitsSlain)
+		if Winterblight.CaveUnitsSlain == 34 then
+			local delay = 1.2 - 0.15*GameState:GetDifficultyFactor()
+			for i = 1, #Winterblight.CaveSpawnerInnerTable, 1 do
+				local unitName = ""
+				local luck = RandomInt(1, 2)
+				if luck == 1 then
+					unitName = "winterblight_ice_satyr"
+				elseif luck == 2 then
+					unitName = "winterblight_void_spawn"
+				end
+				if i == 1 or i == 3 then
+					unitName = "winterblight_icetaur"
+				end
+				Winterblight:SpawnCaveWaveUnit(unitName, Winterblight.CaveSpawnerInnerTable[i]:GetAbsOrigin(), 12, delay, true)
+			end
+		elseif Winterblight.CaveUnitsSlain == 69 then
+			local delay = 1.2 - 0.15*GameState:GetDifficultyFactor()
+			for i = 1, #Winterblight.CaveSpawnerInnerTable, 1 do
+				local unitName = ""
+				if i == 1 then
+					unitName = "winterblight_seal"
+				elseif i == 2 then
+					unitName = "winterblight_snow_crab"
+				else
+					unitName = "winterblight_mountain_ogre"
+				end
+				Winterblight:SpawnCaveWaveUnit(unitName, Winterblight.CaveSpawnerInnerTable[i]:GetAbsOrigin(), 14, delay, true)
+			end
+		elseif Winterblight.CaveUnitsSlain == 111 then
+			local delay = 1.2 - 0.15*GameState:GetDifficultyFactor()
+			for i = 1, #Winterblight.CaveSpawnerInnerTable, 1 do
+				Winterblight:SpawnCaveWaveUnit("winterblight_frostbite_spiderling", Winterblight.CaveSpawnerInnerTable[i]:GetAbsOrigin(), 15, delay, true)
+			end
+		elseif Winterblight.CaveUnitsSlain == 155 then
+			local delay = 1.2 - 0.15*GameState:GetDifficultyFactor()
+			for i = 1, #Winterblight.CaveSpawnerInnerTable, 1 do
+				local luck = RandomInt(1, 3)
+				local unitName = ""
+				if luck == 1 then
+					unitName = "winterblight_frostbite_spiderling"
+				elseif luck == 2 then
+					unitName = "mountain_assassin"
+				else
+					unitName = "aggressive_monster"
+				end
+				Winterblight:SpawnCaveWaveUnit(unitName, Winterblight.CaveSpawnerInnerTable[i]:GetAbsOrigin(), 13, delay, true)
+			end
+		elseif Winterblight.CaveUnitsSlain == 194 then
+			local delay = 1.2 - 0.15*GameState:GetDifficultyFactor()
+			for i = 1, #Winterblight.CaveSpawnerInnerTable, 1 do
+				local luck = RandomInt(1, 6)
+				local unitName = ""
+				if luck == 1 then
+					unitName = "winterblight_frostbite_spiderling"
+				elseif luck == 2 then
+					unitName = "winterblight_ice_satyr"
+				elseif luck == 3 then
+					unitName = "aggressive_monster"
+				elseif luck == 4 then
+					unitName = "winterblight_wolf"
+				elseif luck == 5 then
+					unitName = "winterblight_living_ice"
+				elseif luck == 6 then
+					unitName = "winterblight_icetaur"
+				end
+				Winterblight:SpawnCaveWaveUnit(unitName, Winterblight.CaveSpawnerInnerTable[i]:GetAbsOrigin(), 13, delay, true)
+			end
+		elseif Winterblight.CaveUnitsSlain == 223 then
+			local delay = 1.2 - 0.15*GameState:GetDifficultyFactor()
+			for i = 1, #Winterblight.CaveSpawnerInnerTable, 1 do
+				local luck = RandomInt(1, 7)
+				local unitName = ""
+				if luck == 1 then
+					unitName = "winterblight_frostbite_spiderling"
+				elseif luck == 2 then
+					unitName = "winterblight_ice_satyr"
+				elseif luck == 3 then
+					unitName =  "winterblight_ice_satyr"
+				elseif luck == 4 then
+					unitName = "winterblight_void_spawn"
+				elseif luck == 5 then
+					unitName = "winterblight_living_ice"
+				elseif luck == 6 then
+					unitName = "winterblight_icetaur"
+				elseif luck == 7 then
+					unitName = "frostiok"
+				end
+				Winterblight:SpawnCaveWaveUnit(unitName, Winterblight.CaveSpawnerInnerTable[i]:GetAbsOrigin(), 13, delay, true)
+			end
+		elseif Winterblight.CaveUnitsSlain == 252 then
+			if GameState:GetDifficultyFactor() == 1 then
+				Winterblight:FinishCaveWaves()
+			else
+				local delay = 1.3 - 0.15*GameState:GetDifficultyFactor()
+				for i = 1, #Winterblight.CaveSpawnerInnerTable, 1 do
+					local luck = RandomInt(1, 7)
+					local unitName = ""
+					if luck == 1 then
+						unitName = "winterblight_frostbite_spiderling"
+					elseif luck == 2 then
+						unitName = "winterblight_icewrack_marauder"
+					elseif luck == 3 then
+						unitName =  "winterblight_ice_satyr"
+					elseif luck == 4 then
+						unitName = "winterblight_summon_a"
+					elseif luck == 5 then
+						unitName = "winterblight_dashing_swordsman"
+					elseif luck == 6 then
+						unitName = "winterblight_winterbear"
+					elseif luck == 7 then
+						unitName = "frostiok"
+					end
+					Winterblight:SpawnCaveWaveUnit(unitName, Winterblight.CaveSpawnerInnerTable[i]:GetAbsOrigin(), 13, delay, true)
+				end		
+			end	
+		elseif Winterblight.CaveUnitsSlain == 281 then
+			if GameState:GetDifficultyFactor() > 1 then
+				local delay = 1.3 - 0.15*GameState:GetDifficultyFactor()
+				for i = 1, #Winterblight.CaveSpawnerInnerTable, 1 do
+					local luck = RandomInt(1, 7)
+					local unitName = ""
+					if luck == 1 then
+						unitName = "winterblight_frigid_growth"
+					elseif luck == 2 then
+						unitName = "winterblight_icewrack_marauder"
+					elseif luck == 3 then
+						unitName =  "winterblight_ice_satyr"
+					elseif luck == 4 then
+						unitName = "winterblight_summon_a"
+					elseif luck == 5 then
+						unitName = "winterblight_dashing_swordsman"
+					elseif luck == 6 then
+						unitName = "winterblight_winterbear"
+					elseif luck == 7 then
+						unitName = "frostiok"
+					end
+					Winterblight:SpawnCaveWaveUnit(unitName, Winterblight.CaveSpawnerInnerTable[i]:GetAbsOrigin(), 13, delay, true)
+				end		
+			end	
+		elseif Winterblight.CaveUnitsSlain == 320 then
+			if GameState:GetDifficultyFactor() > 1 then
+				Winterblight:FinishCaveWaves()
+			end
+		end
+	end
+end
+
+function ritual_healing(event)
+	local target = event.target
+	local caster = event.caster
+	EmitSoundOn("Winterblight.SatyrHeal", target)
+	local healMult = 0.015 + GameState:GetDifficultyFactor()*0.01
+	if target.paragon then
+		healMult = 0.005 + GameState:GetDifficultyFactor()*0.005
+	end
+	local healAmount = target:GetMaxHealth()*healMult
+	target:Heal(healAmount, caster)
+	PopupHealing(target, healAmount)
+	local particleName = "particles/units/heroes/hero_abaddon/abaddon_borrowed_time_heal.vpcf"
+	local pfx = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN_FOLLOW, target )
+	ParticleManager:SetParticleControlEnt( pfx, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true )
+	Timers:CreateTimer(1, function() 
+	  ParticleManager:DestroyParticle( pfx, false )
+	end)		
+	-- CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_abaddon/abaddon_borrowed_time_heal.vpcf", caster, 1)
+end
+
+function frostbite_attack_land(event)
+	local target = event.target
+	local caster = event.caster
+	local ability = event.ability
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_frostbite_effect", {duration = 4.5})
+	local modifier = target:FindModifierByName("modifier_frostbite_effect")
+	local newStacks = math.min(target:GetModifierStackCount("modifier_frostbite_effect", modifier:GetCaster()) + 1, event.max_stacks)
+	target:SetModifierStackCount("modifier_frostbite_effect", modifier:GetCaster(), newStacks)
+end
+
+function frostbite_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	local damage = event.damage
+	local target = event.target
+	local stacks = target:GetModifierStackCount("modifier_frostbite_effect", caster)
+	damage = damage*(stacks^2)
+	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 end

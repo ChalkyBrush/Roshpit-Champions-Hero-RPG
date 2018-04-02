@@ -56,6 +56,24 @@ function Winterblight:InitCamp()
     Timers:CreateTimer(25, function()
       Winterblight:ShrineOfAzaleaMusic()
     end)
+    Winterblight:InitProps()
+end
+
+function Winterblight:InitProps()
+  Timers:CreateTimer(1.5, function()
+    Winterblight.CaveSpawnerIceTable = Entities:FindAllByNameWithin("CaveWaveSpawners", Vector(1664, -5952), 4500)
+    Winterblight.CaveSpawnerInnerTable = Entities:FindAllByNameWithin("CaveWaveSpawnersI", Vector(1664, -5952), 4500)
+    for i = 1, #Winterblight.CaveSpawnerIceTable, 1 do
+      Winterblight.CaveSpawnerIceTable[i]:SetAbsOrigin(Winterblight.CaveSpawnerIceTable[i]:GetAbsOrigin()-Vector(0,0,100))
+    end
+    for i = 1, #Winterblight.CaveSpawnerInnerTable, 1 do
+      Winterblight.CaveSpawnerInnerTable[i]:SetAbsOrigin(Winterblight.CaveSpawnerInnerTable[i]:GetAbsOrigin()-Vector(0,0,28))
+    end
+  end)
+end
+
+function Winterblight:Debug2()
+ Winterblight:FinishCaveWaves()
 end
 
 function Winterblight:CalculateHeroZones()
@@ -317,3 +335,25 @@ function Winterblight:RemoveBlockers(delay, blockername, position, searchRadius)
       end
     end)
 end
+
+function Winterblight:MoveObject(object, targetPosition, ticks)
+  local moveVector = (targetPosition - object:GetAbsOrigin())/ticks
+  for i = 1, ticks, 1 do
+    Timers:CreateTimer(i*0.03, function()
+      object:SetAbsOrigin(object:GetAbsOrigin()+moveVector)
+    end)
+  end
+end
+
+function Winterblight:RotateObject(object, direction, speed, ticks, startAngle)
+  for i = 1, ticks, 1 do
+    Timers:CreateTimer(i*0.03, function()
+      local newAngle =  startAngle+speed*i
+      if newAngle > 360 then
+        newAngle = newAngle%360
+      end
+      object:SetAngles(0, newAngle, 0)
+    end)
+  end
+end
+

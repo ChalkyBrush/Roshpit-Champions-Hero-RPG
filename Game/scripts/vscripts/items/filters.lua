@@ -347,6 +347,9 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
     if caster:HasModifier("modifier_neutral_glyph_3_3") then
         CDreduce = CDreduce + 1
     end
+    if caster:HasModifier("modifier_bear_silencer") then
+        CDreduce = CDreduce - 30
+    end
     if bIncludeFlatCD then
         -- if caster:HasModifier("modifier_hood_of_lords_lua") then
         --     CDreduce = CDreduce + 1

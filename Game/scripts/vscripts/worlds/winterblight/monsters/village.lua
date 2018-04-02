@@ -1,3 +1,7 @@
+function winterblight_unit_die(event)
+	local unit = event.unit
+end
+
 function snowball_kid_preattack(event)
 	local caster = event.caster
 	local ability = event.ability

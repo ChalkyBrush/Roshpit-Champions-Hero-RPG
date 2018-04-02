@@ -493,6 +493,10 @@ function GameMode:OnPlayerChat(keys)
         if Beacons.cheats then
           Seafortress:Debug2()
         end
+    elseif GameState:IsWinterblight() then
+        if Beacons.cheats then
+          Winterblight:Debug2()
+        end
     end
   elseif string.match(text, "special") then
     if Beacons.cheats then
@@ -727,12 +731,14 @@ function Events:BGMmanager(player, hero)
     if GameState:IsRPCArena() then
       CustomGameEventManager:Send_ServerToPlayer(player, "BGMstart", {songName = "Arena.StartingMusic"})
     elseif GameState:IsRedfallRidge() then
-      if GameRules:GetGameTime() > 25 then
+      if GameRules:GetGameTime() > 30 then
         CustomGameEventManager:Send_ServerToPlayer(player, "BGMstart", {songName = "Music.Redfall.Village"})
       end
       hero.bgm = "Music.Redfall.Village"
     elseif GameState:IsWinterblight() then
-      if GameRules:GetGameTime() > 25 then
+      print("72SEARCH")
+      print(GameRules:GetGameTime())
+      if GameRules:GetGameTime() > 30 then
         CustomGameEventManager:Send_ServerToPlayer(player, "BGMstart", {songName = "Music.Winterblight.Start"})
       end
       hero.bgm = "Music.Winterblight.Start"

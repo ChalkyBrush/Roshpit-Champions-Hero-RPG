@@ -3001,7 +3001,7 @@ function RPCItems:VermillionDreamRobes(deathLocation)
 
         item.property2name = runeName
         item.property2 = math.floor(runeValue)
-        RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  4)
+        RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
     else
         local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
         item.property2 = math.ceil(value*1.15)

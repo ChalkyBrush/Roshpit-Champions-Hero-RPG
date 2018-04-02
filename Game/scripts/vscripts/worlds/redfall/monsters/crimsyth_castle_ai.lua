@@ -1185,37 +1185,42 @@ end
 
 function LavaDrainTrigger(trigger)
 	local hero = trigger.activator
-	Redfall:ActivateSwitchGeneric(Vector(7096, 6814, 519 + Redfall.ZFLOAT), "LavaDrainSwitch", true, 0.148)
-	Timers:CreateTimer(0.5, function()
-		StartSoundEvent("Redfall.LavaDrain", hero)
-		Timers:CreateTimer(4, function()
-			Redfall.Castle.LavaDrained = true
-		end)
-		for i = 1, 350, 1 do
-			Timers:CreateTimer(0.03*i, function()
-				Redfall.Castle.LavaFlood:SetAbsOrigin(Redfall.Castle.LavaFlood:GetAbsOrigin()-Vector(0,0,0.3))
-			end)
-		end
-		Timers:CreateTimer(10.5, function()
-			StopSoundEvent("Redfall.LavaDrain", hero)
-			EmitSoundOnLocationWithCaster(Vector(7101, 6812,304), "Redfall.LavaDrainEnd", Redfall.RedfallMaster)
-		end)
-		for i = 1, 18 + GameState:GetDifficultyFactor()*6, 1 do
-			Timers:CreateTimer(i*0.1, function()
-				local luck = RandomInt(1,3)
-				local randomPosition = Vector(0,0)
-				if luck == 1 then
-					randomPosition = Vector(7488+RandomInt(1, 450), 8768+RandomInt(1, 1600))
-				else
-					randomPosition = Vector(7056+RandomInt(1, 1420), 7757+RandomInt(1, 755))
+	if not Redfall.LavaDrainTriggered then
+		if Redfall.Castle.LavaFlood then
+			Redfall.LavaDrainTriggered = true
+			Redfall:ActivateSwitchGeneric(Vector(7096, 6814, 519 + Redfall.ZFLOAT), "LavaDrainSwitch", true, 0.148)
+			Timers:CreateTimer(0.5, function()
+				StartSoundEvent("Redfall.LavaDrain", hero)
+				Timers:CreateTimer(4, function()
+					Redfall.Castle.LavaDrained = true
+				end)
+				for i = 1, 350, 1 do
+					Timers:CreateTimer(0.03*i, function()
+						Redfall.Castle.LavaFlood:SetAbsOrigin(Redfall.Castle.LavaFlood:GetAbsOrigin()-Vector(0,0,0.3))
+					end)
 				end
-				print("SPAWN LIZARD")
-				print(randomPosition)
-				local lizard = Redfall:SpawnCastleLavaLizard(randomPosition, RandomVector(1))
-				lizard:SetAbsOrigin(lizard:GetAbsOrigin()-Vector(0,0,300))
+				Timers:CreateTimer(10.5, function()
+					StopSoundEvent("Redfall.LavaDrain", hero)
+					EmitSoundOnLocationWithCaster(Vector(7101, 6812,304), "Redfall.LavaDrainEnd", Redfall.RedfallMaster)
+				end)
+				for i = 1, 18 + GameState:GetDifficultyFactor()*6, 1 do
+					Timers:CreateTimer(i*0.1, function()
+						local luck = RandomInt(1,3)
+						local randomPosition = Vector(0,0)
+						if luck == 1 then
+							randomPosition = Vector(7488+RandomInt(1, 450), 8768+RandomInt(1, 1600))
+						else
+							randomPosition = Vector(7056+RandomInt(1, 1420), 7757+RandomInt(1, 755))
+						end
+						print("SPAWN LIZARD")
+						print(randomPosition)
+						local lizard = Redfall:SpawnCastleLavaLizard(randomPosition, RandomVector(1))
+						lizard:SetAbsOrigin(lizard:GetAbsOrigin()-Vector(0,0,300))
+					end)
+				end
 			end)
 		end
-	end)
+	end
 end
 
 function CastleFlameJumperBlue(trigger)

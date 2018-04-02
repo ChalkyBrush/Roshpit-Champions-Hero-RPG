@@ -1009,7 +1009,15 @@ function mountain_crush_end(event)
 end
 
 function RedfallTree1(trigger)
-	RedfallTreeTrigger(trigger)
+	if not Redfall.TreeTriggerThatsBroken then
+		local hero = trigger.activator
+		local position = hero:GetAbsOrigin()
+		local tree = Entities:FindByNameNearest("VermillionTreeCorrupted", Vector(position.x, position.y, 130+Redfall.ZFLOAT), 1200)
+		if tree then
+			Redfall.TreeTriggerThatsBroken = true
+			Redfall:CorruptedTreeInitiate(tree)
+		end
+	end
 end
 
 function RedfallTree2(trigger)

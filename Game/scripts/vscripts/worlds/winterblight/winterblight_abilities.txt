@@ -22,6 +22,14 @@
 			"modifier_Winterblight_unit"
 			{
 				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/village"
+						"Function"		"winterblight_unit_die"
+					}
+				}
 			}
 			"modifier_ice_sliding"
 			{
@@ -43,6 +51,18 @@
 						"ScriptFile"	"worlds/winterblight/monsters/village"
 						"Function"		"ice_end"
 						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_winterblight_wave_unit"
+			{
+				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"winterblight_wave_unit_die"
 					}
 				}
 			}
@@ -2818,6 +2838,268 @@
 					{
 						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
 						"Function"		"challenger19ai"
+					}
+				}
+			}
+		}
+
+	}
+
+   	"winterblight_bear_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"tidehunter_kraken_shell"
+		"AOERadius"				"1000"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"duration"			"4 6 8"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_bear_passive"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"IsHidden"		"1"
+				"IsBuff"		"1"
+				"ThinkInterval"  "1.0"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_bear_silencer"
+						"Target" 		"TARGET"
+						"Duration"		"%duration"
+					}
+				}
+			}
+			"modifier_bear_silencer"
+			{
+				//Adds 30s to E cooldown
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+			
+				"EffectName"		"particles/units/heroes/hero_lone_druid/lone_druid_savage_roar_debuff.vpcf"
+				"EffectAttachType"	"follow_overhead"
+			}
+		}
+
+	}
+
+	"winter_satyr_heal"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"witch_doctor_voodoo_restoration"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0.6 0.6 0.6 0.6"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.6"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_bonus"			"10 60 130"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+				"Function"		"ritual_healing"
+				"target"		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ritual_healing_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+				"ThinkInterval"		"0.6"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/tanari/monsters/wildwood_thicket_ai"
+						"Function"		"ritual_healing_think"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_bonus"
+				}
+			}
+		}
+
+	}
+
+	"winterblight_stun_regen"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"seafortress/endurance"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"regen_percent"			"5 20 80"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_stun_regen_thinker"
+			{
+				"Passive"		"1"
+				"ThinkInterval"  "0.1"
+				"IsHidden"		"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+						"Function"		"stun_regen_thinker_think"
+					}
+				}
+			}
+
+			"modifier_stun_regen_applied"
+			{
+				"IsBuff"				"0"
+				"IsHidden"				"0"
+				"IsPurgable"			"0"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"					"TARGET"
+						"EffectName"				"particles/econ/generic/generic_buff_1/charge_of_light_effect_buff.vpcf"
+						"EffectAttachType"			"attach_origin"
+						"EffectLifeDurationScale"	"1"
+						"EffectColorA"				"70 100 220"
+						"EffectAlphaScale"			"0.5"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%regen_percent"
+				}
+			}
+		}
+	}
+
+	"winterblight_frostbite_attack"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"tidehunter_kraken_shell"
+		"AOERadius"				"1000"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"as_loss"			"-1"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_loss"			"-1"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_stacks"			"20 240 1000"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"1 10 100"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_frostbite_attack_passive"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"IsHidden"		"1"
+				"IsBuff"		"1"
+				"OnAttackLanded"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_frostbite_effect"
+						"Target" 		"TARGET"
+						"Duration"		"4.5"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"frostbite_attack_land"
+						"max_stacks"	"%max_stacks"
+					}
+				}
+			}
+			"modifier_frostbite_effect"
+			{
+				"IsDebuff"	"1"
+				"EffectName"	"particles/roshpit/winterblight/frostbite.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%as_loss"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_loss"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"frostbite_thinker"
+						"target"		"TARGET"
+						"damage"		"%damage"
 					}
 				}
 			}

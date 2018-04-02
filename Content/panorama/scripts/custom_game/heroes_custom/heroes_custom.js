@@ -53,7 +53,7 @@ function getSkillSlot2(queryUnit, slot)
 	}else if(abilityName == "trapper_vanish" || abilityName == "trapper_action_leap"){
 		abilityName = "tooltip_trapper_e"
 	}else if(abilityName == "trapper_stealth" || abilityName == "trapper_backstab"){
-		abilityName = "trapper_backstab"
+		abilityName = "DOTA_Tooltip_ability_trapper_backstab"
 	}else if(abilityName == "spirit_warrior_flametongue" || abilityName == "spirit_warrior_windstrike_weapon"){
 		abilityName = "spirit_warrior_q_ability"
 	}else if(abilityName == "spirit_warrior_ancient_spirit"){

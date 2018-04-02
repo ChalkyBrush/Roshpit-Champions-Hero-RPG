@@ -329,7 +329,7 @@ end
 function Winterblight:SnowCaveArea()
 	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(1835, -7145), 7000, 7000, false)
 	local luck = RandomInt(1, 3)
-	luck = 3
+	luck = 4
 	if luck == 1 then
 		Winterblight:SpawnFrostiok(Vector(-1280, -8070), Vector(-0.3,1))
 		Winterblight:SpawnFrostiok(Vector(-1042, -8384), Vector(-0.1,1))
@@ -482,8 +482,124 @@ function Winterblight:SnowCaveArea()
 		for i = 1, #positionTable, 1 do
 			Winterblight:SpawnDashingSwordsman(positionTable[i], Vector(-1,0))
 		end
+	    Timers:CreateTimer(1.7, function()
+		    local positionTable = {Vector(-1088, -6059), Vector(-960, -5989), Vector(-960, -5824), Vector(-992, -5692), Vector(-1088), Vector(-1248, -5989), Vector(-1281, -5632), Vector(-1529, -5856)}
+		    for i = 1, #positionTable, 1 do
+		      local lookToPoint = (Vector(-896, -6208) - positionTable[i]):Normalized()
+		      Winterblight:SpawnFrostOrchid(positionTable[i], lookToPoint)
+		    end
+	    end)
+	    Timers:CreateTimer(2.3, function()
+		    local positionTable = {Vector(3072, -7424), Vector(2944, -7424), Vector(2816, -7424), Vector(2521, -7668), Vector(1280, -6400), Vector(2240, -7296), Vector(2112, -7296), Vector(2112, -7168), Vector(1984, -7296), Vector(1984, -7168), Vector(2000, -7040), Vector(1882, -6912), Vector(1728, -6912), Vector(1728, -6770), Vector(1600, -6656), Vector(1600, -6784), Vector(1600, -6912)}
+		    for i = 1, #positionTable, 1 do
+		      local lookToPoint = (Vector(-896, -6208) - positionTable[i]):Normalized()
+		      Winterblight:SpawnFrostOrchid(positionTable[i], lookToPoint)
+		    end
+	    end)
+	    for i = 0, 5+GameState:GetDifficultyFactor(), 1 do
+	    	for j = 0, 4, 1 do
+	    		Timers:CreateTimer(i*0.1, function()
+		    		if i >= j then
+			    		local spawnPos = Vector(-1536, -8320)+Vector(i*140, j*140)
+			    		Winterblight:SpawnIceMarauader(spawnPos, Vector(0,1))
+			    	end
+			    end)
+	    	end
+	    end
+		Timers:CreateTimer(0.5, function()
+			local positionTable = {Vector(-75, -7616), Vector(128, -7869), Vector(-124, -8000), Vector(64, -8235), Vector(-192, -8384)}
+			for i = 1, #positionTable, 1 do
+				Winterblight:SpawnMountainDweller(positionTable[i], Vector(-1,1))
+			end
+		end)
+		Timers:CreateTimer(0.4, function()
+	   		local positionTable = {Vector(-2112, -7936), Vector(-1792, -6656), Vector(-256, -7040), Vector(-768, -6080)}
+		    for i = 1, #positionTable, 1 do
+		      Timers:CreateTimer(i*1.2, function()
+		        local patrolPositionTable = {}
+		        for j = 1, #positionTable, 1 do
+		          local index = i + j
+		          if index > #positionTable then
+		            index = index - #positionTable
+		          end
+		          table.insert(patrolPositionTable, positionTable[index])
+		        end
+		        for j = 0, 1, 1 do
+		          Timers:CreateTimer(j*0.3, function()
+		            local elemental = Winterblight:SpawnFrostiok(positionTable[i]+RandomVector(120), RandomVector(1))
+		            Winterblight:AddPatrolArguments(elemental, 15, 7, 340, patrolPositionTable)
+		          end)
+		        end
+		      end)
+		    end
+		end)
+		Winterblight:SpawnChillingColossus(Vector(-768, -7006), Vector(-1,-0.3))
+		Winterblight:SpawnChillingColossus(Vector(192, -5824), Vector(-1,-0.5))
+		Timers:CreateTimer(2.0, function()
+		    local positionTable = {Vector(256, -4873), Vector(980, -5120), Vector(1174, -4864), Vector(1374, -5006), Vector(1600, -5192), Vector(1024, -5824), Vector(1280, -6071)}
+		    for i = 1, #positionTable, 1 do
+		      local lookToPoint = (Vector(1344, -5568) - positionTable[i]):Normalized()
+		      Winterblight:SpawnWinterbear(positionTable[i], lookToPoint)
+		    end
+		end)
+		Timers:CreateTimer(1.2, function()
+	   		local positionTable = {Vector(1024, -5376), Vector(1792, -4800), Vector(3520, -6208), Vector(3136, -6976), Vector(1920, -6464)}
+		    for i = 1, #positionTable, 1 do
+		      Timers:CreateTimer(i*1.2, function()
+		        local patrolPositionTable = {}
+		        for j = 1, #positionTable, 1 do
+		          local index = i + j
+		          if index > #positionTable then
+		            index = index - #positionTable
+		          end
+		          table.insert(patrolPositionTable, positionTable[index])
+		        end
+		        for j = 0, 1, 1 do
+		          Timers:CreateTimer(j*0.3, function()
+		            local elemental = Winterblight:SpawnIceSummoner(positionTable[i]+RandomVector(120), RandomVector(1))
+		            Winterblight:AddPatrolArguments(elemental, 15, 7, 340, patrolPositionTable)
+		          end)
+		        end
+		      end)
+		    end
+		end)
+		Timers:CreateTimer(3.2, function()
+		    local positionTable = {Vector(2240, -6208), Vector(2485, -5888), Vector(2648, -6208), Vector(2944, -6146), Vector(3200, -6379), Vector(2850, -6464), Vector(2489, -6528)}
+		    for i = 1, #positionTable, 1 do
+		      local lookToPoint = (Vector(1600, -5632) - positionTable[i]):Normalized()
+		      Winterblight:Snowshaker(positionTable[i], lookToPoint)
+		    end
+		end)
+		Timers:CreateTimer(3.8, function()
+		    local positionTable = {Vector(3428, -5760), Vector(3648, -5441), Vector(3328, -5442), Vector(3070, -5568), Vector(2816, -5376), Vector(2995, -5120)}
+		    for i = 1, #positionTable, 1 do
+		      Winterblight:SpawnFrigidGrowth(positionTable[i], RandomVector(1))
+		    end
+		end)
 	end
-
+	local luck2 = RandomInt(1, 3)
+	if luck2 == 1 then
+	      local positionTable = {Vector(-2014, -7092), Vector(896, -5822), Vector(3456, -6976), Vector(4544, -5376)}
+	      for i = 1, #positionTable, 1 do
+	        Timers:CreateTimer(i*1.2, function()
+	          local patrolPositionTable = {}
+	          for j = 1, #positionTable, 1 do
+	            local index = i + j
+	            if index > #positionTable then
+	              index = index - #positionTable
+	            end
+	            table.insert(patrolPositionTable, positionTable[index])
+	          end
+	          local wolfCount = 1
+	          for j = 0, wolfCount, 1 do
+	            Timers:CreateTimer(j*2, function()
+	              local elemental = Winterblight:SpawnMountainCritter(positionTable[i]+RandomVector(120), RandomVector(1))
+	              Winterblight:AddPatrolArguments(elemental, 8, 25, 240, patrolPositionTable)
+	            end)
+	          end
+	        end)
+	      end
+	end
 	Winterblight:SpawnNorgok(Vector(2066, -5821), Vector(-1,1))
 end
 
@@ -560,7 +676,7 @@ function Winterblight:SpawnIceSummoner(position, fv)
 	stone.targetRadius = 1200
 	stone.autoAbilityCD = 1
 	stone.dominion = true
-	Events:ColorWearablesAndBase(stone, Vector(30,90,255))
+	Events:ColorWearablesAndBase(stone, Vector(70,130,255))
 	stone.maxSummons = GameState:GetDifficultyFactor() + 1
 	return stone
 end
@@ -583,26 +699,260 @@ function Winterblight:SpawnDashingSwordsman(position, fv)
 	stone.itemLevel = 26
 	Winterblight:SetPositionCastArgs(stone, 1300, 0, 1, FIND_FARTHEST)
 	stone.dominion = true
-	Events:ColorWearablesAndBase(stone, Vector(60,100,255))
+	Events:ColorWearablesAndBase(stone, Vector(80,130,255))
 	stone:AddNewModifier(stone, nil, "modifier_animation", {translate="walk"})
+	Timers:CreateTimer(0.03, function()
+		if GameState:GetDifficultyFactor() == 1 then
+			stone:RemoveAbility("creature_pure_strike")
+			stone:RemoveModifierByName("modifier_pure_strike")
+		end
+	end)
 	return stone
 end
 
+function Winterblight:StartCaveWaves()
+    for i = 1, #Winterblight.CaveSpawnerIceTable, 1 do
+      Winterblight:MoveObject(Winterblight.CaveSpawnerIceTable[i], Winterblight.CaveSpawnerIceTable[i]:GetAbsOrigin()+Vector(0,0,100), 90)
+      AddFOWViewer(DOTA_TEAM_GOODGUYS, Winterblight.CaveSpawnerIceTable[i]:GetAbsOrigin(), 500, 15, false)
+      EmitSoundOnLocationWithCaster(Winterblight.CaveSpawnerIceTable[i]:GetAbsOrigin(), "Winterblight.Monolith.Shake", Winterblight.Master)
+      for j = 0, 4, 1 do
+	      Timers:CreateTimer(0.8*j, function()
+	      	local pfx = ParticleManager:CreateParticle("particles/econ/items/effigies/status_fx_effigies/frosty_base_statue_destruction_dire.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	      	ParticleManager:SetParticleControl(pfx, 0, Winterblight.CaveSpawnerIceTable[i]:GetAbsOrigin()-Vector(0,0,80))
+	      	Timers:CreateTimer(5, function()
+	      		ParticleManager:DestroyParticle(pfx, false)
+	      	end)
+	      	EmitSoundOnLocationWithCaster(Winterblight.CaveSpawnerIceTable[i]:GetAbsOrigin(), "Winterblight.Monolith.Detect", Winterblight.Master)
+	      end)
+	  end
+    end
+    Timers:CreateTimer(2.6, function()
+	    for i = 1, #Winterblight.CaveSpawnerInnerTable, 1 do
+	      Winterblight:MoveObject(Winterblight.CaveSpawnerInnerTable[i], Winterblight.CaveSpawnerInnerTable[i]:GetAbsOrigin()+Vector(0,0,28), 140)
+	      EmitSoundOnLocationWithCaster(Winterblight.CaveSpawnerInnerTable[i]:GetAbsOrigin(), "Winterblight.WaveSpawner.RiseStart", Winterblight.Master)
+		  EmitSoundOnLocationWithCaster(Winterblight.CaveSpawnerInnerTable[i]:GetAbsOrigin(), "Winterblight.WaveSpawner.Rising", Winterblight.Master)	      
+	      Timers:CreateTimer(0.4, function()
+	      	EmitSoundOnLocationWithCaster(Winterblight.CaveSpawnerInnerTable[i]:GetAbsOrigin(), "Winterblight.Monolith.Detect", Winterblight.Master)
+	      end)
+	      Timers:CreateTimer(3.6, function()
+	      	EmitSoundOnLocationWithCaster(Winterblight.CaveSpawnerInnerTable[i]:GetAbsOrigin(), "Winterblight.WaveSpawner.Rise", Winterblight.Master)
+	      end)
+	      Winterblight:RotateObject(Winterblight.CaveSpawnerInnerTable[i], "right", 0.65, 150, 0)
+	    end
+    end)
+	Winterblight.caveSpawnRotate = 97.5
+	Winterblight.caveSpawnRotateAccel = 0.1
+	Winterblight.caveSpawnInitialSpin = true
+    Timers:CreateTimer(8.0, function()
+    	Winterblight.CaveSpawnParticleTable = {}
+
+	    Timers:CreateTimer(0.03, function()
+	    	for i = 1, #Winterblight.CaveSpawnerInnerTable, 1 do
+		    	Winterblight.caveSpawnRotate = (Winterblight.caveSpawnRotate + Winterblight.caveSpawnRotateAccel)%360
+		    	local newAngle = Winterblight.caveSpawnRotate
+		    	Winterblight.caveSpawnRotateAccel = math.min(Winterblight.caveSpawnRotateAccel + 0.0025, 1.8)
+		    	Winterblight.CaveSpawnerInnerTable[i]:SetAngles(0, newAngle, 0)
+		    end
+	    	if Winterblight.caveSpawnInitialSpin then
+	    		return FrameTime()
+	    	end
+	    end)
+
+	    for i = 1, #Winterblight.CaveSpawnerInnerTable, 1 do
+	     	EmitSoundOnLocationWithCaster(Winterblight.CaveSpawnerInnerTable[i]:GetAbsOrigin(), "Winterblight.WaveSpawner.StartSpinning", Winterblight.Master)
+
+		    Timers:CreateTimer(4.0, function()
+		    	local pfx = ParticleManager:CreateParticle("particles/econ/events/ti5/town_portal_start_lvl2_black_ti5.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		    	ParticleManager:SetParticleControl(pfx, 0, Winterblight.CaveSpawnerInnerTable[i]:GetAbsOrigin())
+		    	table.insert(Winterblight.CaveSpawnParticleTable, pfx)
+		    	EmitSoundOnLocationWithCaster(Winterblight.CaveSpawnerInnerTable[i]:GetAbsOrigin(), "Winterblight.WaveSpawner.TechStart", Winterblight.Master)
+		    end)
+	    end
+	end)
+	Timers:CreateTimer(14.8, function()
+		local delay = 1.2 - 0.15*GameState:GetDifficultyFactor()
+		for i = 1, #Winterblight.CaveSpawnerInnerTable, 1 do
+			local unitName = ""
+			local luck = RandomInt(1, 2)
+			if luck == 1 then
+				unitName = "winterblight_ice_satyr"
+			elseif luck == 2 then
+				unitName = "winterblight_void_spawn"
+			end
+			Winterblight:SpawnCaveWaveUnit(unitName, Winterblight.CaveSpawnerInnerTable[i]:GetAbsOrigin(), 13, delay, true)
+		end
+	end)
+end
+
+function Winterblight:SpawnCaveWaveUnit(unitName, spawnPoint, quantity, delay, bSound)
+
+  local unit = false
+  for i = 0, quantity-1, 1 do
+    Timers:CreateTimer(i*delay, 
+    function()
+    if bSound then
+      EmitSoundOnLocationWithCaster(spawnPoint, "Winterblight.WaveSpawn", Winterblight.Master)
+    end
+      local luck = RandomInt(1, 160)
+      if Events.SpiritRealm then
+        luck = RandomInt(1, 66)
+      end
+      if luck == 1 then
+        unit = Paragon:SpawnParagonPack(unitName, spawnPoint)
+      elseif luck == 2 then
+        unit = Paragon:SpawnParagonUnit(unitName, spawnPoint)
+      else
+        unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)   
+      Events:AdjustDeathXP(unit)
+      end
+      if IsValidEntity(unit) then
+        unit.dominion = true
+        unit.deathCode = 1
+        Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_winterblight_wave_unit", {})
+        unit:SetAcquisitionRange(3000)
+        CustomAbilities:QuickAttachParticle("particles/econ/items/winter_wyvern/winter_wyvern_ti7/wyvern_cold_embrace_ti7buff_beams.vpcf", unit, 2)
+        unit.aggro = true
+        Winterblight:AdjustWaveUnit(unit)
+      else
+        for i = 1, #unit, 1 do
+          unit[i].aggro = true
+          unit[i].dominion = true
+          unit[i]:SetAcquisitionRange(3000)
+          unit[i].deathCode = 1
+          Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit[i], "modifier_winterblight_wave_unit", {})
+          CustomAbilities:QuickAttachParticle("particles/econ/items/winter_wyvern/winter_wyvern_ti7/wyvern_cold_embrace_ti7buff_beams.vpcf", unit[i], 2)
+          Winterblight:AdjustWaveUnit(unit[i])
+        end
+      end
+    end)
+  end
+end
+
+function Winterblight:AdjustWaveUnit(unit)
+  if unit:GetUnitName() == "winterblight_icetaur" then
+    unit:SetRenderColor(60, 140, 250 )
+    if GameState:GetDifficultyFactor() == 3 then
+    	unit:AddAbility("ability_mega_haste")
+    end
+  elseif unit:GetUnitName() == "winterblight_dashing_swordsman" then
+	local stone = unit
+	Winterblight:SetPositionCastArgs(stone, 1300, 0, 1, FIND_FARTHEST)
+	Events:ColorWearablesAndBase(stone, Vector(80,130,255))
+	stone:AddNewModifier(stone, nil, "modifier_animation", {translate="walk"})
+	Timers:CreateTimer(0.03, function()
+		if GameState:GetDifficultyFactor() == 1 then
+			stone:RemoveAbility("creature_pure_strike")
+			stone:RemoveModifierByName("modifier_pure_strike")
+		end
+	end)
+  elseif unit:GetUnitName() == "winterblight_frigid_growth" then
+	unit.targetRadius = 420
+	unit.autoAbilityCD = 1
+  elseif unit:GetUnitName() == "winterblight_icewrack_marauder" then
+	local stone = unit
+	stone:SetRenderColor(10,140,255)
+	Timers:CreateTimer(0.2, function()
+		if GameState:GetDifficultyFactor() < 3 then
+			stone:RemoveAbility("winterblight_marauder_passive")
+		end
+		if GameState:GetDifficultyFactor() < 2 then
+			stone:RemoveAbility("creature_black_king_bar")
+		end
+	end)
+	stone:AddNewModifier(stone, nil, "modifier_animation", {translate="melee"})
+	stone:AddNewModifier(stone, nil, "modifier_animation_translate", {translate="run"})
+  end
+end
+
+function Winterblight:FinishCaveWaves()
+	Winterblight.caveSpawnInitialSpin = false
+    Timers:CreateTimer(0.09, function()
+    	for i = 1, #Winterblight.CaveSpawnerInnerTable, 1 do
+	    	Winterblight.caveSpawnRotate = (Winterblight.caveSpawnRotate + Winterblight.caveSpawnRotateAccel)%360
+	    	local newAngle = Winterblight.caveSpawnRotate
+	    	Winterblight.caveSpawnRotateAccel = Winterblight.caveSpawnRotateAccel - 0.0025
+	    	Winterblight.CaveSpawnerInnerTable[i]:SetAngles(0, newAngle, 0)
+	    end
+    	if Winterblight.caveSpawnRotateAccel > 0 then
+    		return FrameTime()
+    	else
+    		print("REMOVE PARTICLES")
+    		for i = 1, #Winterblight.CaveSpawnParticleTable, 1 do
+    			ParticleManager:DestroyParticle(Winterblight.CaveSpawnParticleTable[i], false)
+    		end
+		    for i = 1, #Winterblight.CaveSpawnerInnerTable, 1 do
+		     	EmitSoundOnLocationWithCaster(Winterblight.CaveSpawnerInnerTable[i]:GetAbsOrigin(), "Winterblight.WaveSpawner.TechEnd", Winterblight.Master)
+		    end
+    	end
+    end)
+    Timers:CreateTimer(5, function()
+	    local walls = Entities:FindAllByNameWithin("CaveWall", Vector(3770, -7423, 128+Winterblight.ZFLOAT), 1800)
+	    Winterblight:Walls(false, walls, true, 4.3)
+	    Winterblight:RemoveBlockers(4, "CaveWallBlocker", Vector(3770, -7423, 128+Winterblight.ZFLOAT), 1400)
+	    Winterblight:FirstOutsideAzaleaPocketSpawn()
+    end)
+end
+
 function Winterblight:FirstOutsideAzaleaPocketSpawn()
+	if Winterblight.FirstAzaleaPocketSpawned then
+		return false
+	end
+	Winterblight.FirstAzaleaPocketSpawned = true
     local positionTable = {Vector(4672, -7616), Vector(4864, -7762), Vector(5100, -7847)}
     for i = 1, #positionTable, 1 do
       local lookToPoint = (Vector(4717, -8205) - positionTable[i]):Normalized()
-      Winterblight:SpawnWinterSeal(positionTable[i], lookToPoint)
+      Winterblight:SpawnWinterAssasin(positionTable[i], lookToPoint)
     end
 
     Winterblight:SpawnFrigidGrowth(Vector(4992, -7424)+RandomVector(60), RandomVector(1))
+    Winterblight:SpawnFrigidGrowth(Vector(5371, -7290)+RandomVector(60), RandomVector(1))
+    Winterblight:SpawnFrigidGrowth(Vector(5696, -7360)+RandomVector(60), RandomVector(1))
+    Timers:CreateTimer(1, function()
+	    local positionTable = {Vector(3072, -8448), Vector(3349,-8204)}
+	    for i = 1, #positionTable, 1 do
+	      local lookToPoint = (Vector(3500, -8635) - positionTable[i]):Normalized()
+	      Winterblight:SpawnFrostOrchid(positionTable[i], lookToPoint)
+	    end
+    end)
+    Timers:CreateTimer(1.7, function()
+	    local positionTable = {Vector(3774, -8704), Vector(3712, -8850), Vector(3861, -8849), Vector(3830, -8995), Vector(4032, -8982), Vector(4032, -8767), Vector(4224, -8877), Vector(4272, -9099), Vector(4414, -9152), Vector(4544, -9152), Vector(4688, -9077), Vector(4480, -8976), Vector(4666, -8896), Vector(4478, -8768)}
+	    for i = 1, #positionTable, 1 do
+	      local lookToPoint = (Vector(4288, -8384) - positionTable[i]):Normalized()
+	      Winterblight:SpawnFrostOrchid(positionTable[i], lookToPoint)
+	    end
+    end)
+    Winterblight:SpawnChillingColossus(Vector(4979, -8896), Vector(-0.2,1))
 end
 
 function Winterblight:SpawnWinterAssasin(position, fv)
-	local stone = Winterblight:SpawnDungeonUnit("winterblight_dashing_swordsman", position, 0, 2, "Winterblight.BladeDancer.Aggro", fv, false)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_mistral_assassin", position, 0, 2, "Winterblight.MistralAssassin.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 3, 3, false)
+	stone.itemLevel = 31
+	stone.dominion = true
+	-- Timers:CreateTimer(0.03, function()
+	-- 	if GameState:GetDifficultyFactor() == 1 then
+	-- 	end
+	-- end)
+	-- Events:ColorWearablesAndBase(stone, Vector(60,100,255))
+	return stone
+end
+
+function Winterblight:SpawnFrostOrchid(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_frost_orchid", position, 0, 0, nil, fv, false)
+	Events:AdjustBossPower(stone, 3, 3, false)
+	stone.itemLevel = 31
+	stone.dominion = true
+	stone:SetAbsOrigin(stone:GetAbsOrigin()-Vector(0,0,40))
+	-- Events:ColorWearablesAndBase(stone, Vector(60,100,255))
+	return stone
+end
+
+function Winterblight:SpawnWinterbear(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_winterbear", position, 0, 0, "Winterblight.Winterbear.Aggro", fv, false)
 	Events:AdjustBossPower(stone, 3, 3, false)
 	stone.itemLevel = 31
 	stone.dominion = true
 	-- Events:ColorWearablesAndBase(stone, Vector(60,100,255))
 	return stone
 end
+
