@@ -1221,7 +1221,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		local passive = victim:FindAbilityByName("winterblight_snowshaker_passive")
 		if passive:GetCooldownTimeRemaining() == 0 then
 			damage = 0
-			if bReal then
+			if shouldConsumeShields then
 				passive:StartCooldown(passive:GetCooldown(passive:GetLevel()))
 				CustomAbilities:QuickAttachParticle("particles/items_fx/immunity_sphere_lincoln_b.vpcf", victim, 0.5)
 			end

@@ -120902,7 +120902,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"tidehunter_kraken_shell"
-		"AbilityCooldown"		"1.0 0.5 0.2"
+		"AbilityCooldown"		"1.0 0.3 0.06"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
