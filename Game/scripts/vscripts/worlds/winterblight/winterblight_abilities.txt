@@ -3106,3 +3106,75 @@
 		}
 
 	}
+
+	"winterblight_luna_blessing"
+	{
+		"BaseClass"				"luna_lunar_blessing"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5224"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"900 900 900"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_damage"				"100 3000 500000"
+				"LinkedSpecialBonus"	"special_bonus_unique_luna_3"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_night_vision"		"250 500 750"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
+
+	"luna_taskmaster_shield"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"centaur_return"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"charges"			"5 30 50"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_luna_taskmaster_passive"
+			{
+				"IsHidden" "1"
+				"Passive"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"task_armor_init"
+						"charges"		"%charges"
+					}
+				}
+			}
+			"modifier_task_armor"
+			{
+				"EffectName"	"particles/roshpit/winterblight/luna_shield.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"IsHidden"	"0"
+			}
+		}
+	}

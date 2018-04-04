@@ -1193,6 +1193,12 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			CustomAbilities:HitTaskShield(victim, attacker)
 		end
 	end
+	if victim:HasModifier("modifier_luna_armor") then
+		damage = damage*0.001
+		if shouldConsumeShields then
+			CustomAbilities:HitLunaShield(victim, attacker)
+		end
+	end
 	if victim:HasModifier("modifier_knights_disciple_heal") then
 		damage = damage*0.8
 	end

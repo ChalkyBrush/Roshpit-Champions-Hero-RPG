@@ -1354,3 +1354,10 @@ function frostbite_thinker(event)
 	damage = damage*(stacks^2)
 	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 end
+
+function task_armor_init(event)
+	local caster = event.caster
+	local ability = event.ability
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_task_armor", {})
+	caster:SetModifierStackCount("modifier_task_armor", caster, event.charges)
+end

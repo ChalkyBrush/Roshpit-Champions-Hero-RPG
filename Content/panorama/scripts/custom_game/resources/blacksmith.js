@@ -7,7 +7,7 @@ function CloseBlacksmith(msg){
 	GameUI.CustomUIConfig().mainDialog = 0
 	ToggleChiselState(false)
 	ToggleRerollState(false)
-	$('#item-display-content').RemoveAndDeleteChildren();
+	$('#item-display-content').RemoveAndDeleteChildren(0);
 	// ClearGlyphShop();
 	if (msg!=0){
 		if (!(msg === undefined)){
@@ -103,7 +103,7 @@ function UnlockBlacksmith(){
 	GameUI.CustomUIConfig().mainDialog = 0
 	ToggleChiselState(false)
 	ToggleRerollState(false)
-	$('#item-display-content').RemoveAndDeleteChildren();
+	$('#item-display-content').RemoveAndDeleteChildren(0);
 	OpenBlacksmith()
 }
 
@@ -113,7 +113,7 @@ function UnlockBlacksmithAfterReroll(msg){
 	GameUI.CustomUIConfig().mainDialog = 0
 	ToggleChiselState(false)
 	ToggleRerollState(false)
-	$('#item-display-content').RemoveAndDeleteChildren();
+	$('#item-display-content').RemoveAndDeleteChildren(0);
 	OpenBlacksmith()	
 	var rerollPanel = RerollButtonActivate()
 
@@ -181,7 +181,7 @@ function ToggleChiselState(bTurnOn)
 		mChisel = 0
 		$('#chisel_button_label').text = $.Localize('#chisel_name')
 		$('#chisel_button').RemoveClass('active_button')
-		$('#item-display-content').RemoveAndDeleteChildren()
+		$('#item-display-content').RemoveAndDeleteChildren(0)
 		helmPanel.RemoveClass("chiselable_gear")
 		chestPanel.RemoveClass("chiselable_gear")
 		glovePanel.RemoveClass("chiselable_gear")
@@ -206,7 +206,7 @@ function ToggleRerollState(bTurnOn)
 		GameUI.CustomUIConfig().reroll = 0
 		$('#reroll_button_label').text = $.Localize('#reroll_name')
 		$('#reroll_button').RemoveClass('active_button')
-		$('#item-display-content').RemoveAndDeleteChildren()
+		$('#item-display-content').RemoveAndDeleteChildren(0)
 		// if (GameUI.CustomUIConfig().rerollItem > 0){
 			
 		// }
@@ -223,7 +223,7 @@ function RerollButtonActivate(){
 		var parentPanel = $('#item-display-content')
 		var forgePriceContainer = $('#forge_price_box_container_main')
 		var forgeButton = $('#final_forge_button')
-		parentPanel.RemoveAndDeleteChildren()
+		parentPanel.RemoveAndDeleteChildren(0)
 		var newChildPanel = $.CreatePanel( "Panel", parentPanel, "chisel-item" );
 		newChildPanel.shards = mShards
 		newChildPanel.attachItemPanel = $('#item-display-content')
@@ -247,7 +247,7 @@ function chiselGearSelected(msg)
 	var parentPanel = $('#item-display-content')
 	var forgePriceContainer = $('#forge_price_box_container_main')
 	var forgeButton = $('#final_forge_button')
-	parentPanel.RemoveAndDeleteChildren()
+	parentPanel.RemoveAndDeleteChildren(0)
 	var newChildPanel = $.CreatePanel( "Panel", parentPanel, "chisel-item" );
 	newChildPanel.itemIndex = itemIndex
 	newChildPanel.slot = msg.slot

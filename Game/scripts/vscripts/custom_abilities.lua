@@ -387,6 +387,17 @@ function CustomAbilities:HitTaskShield(victim, attacker)
     end   
 end
 
+function CustomAbilities:HitLunaShield(victim, attacker)
+    local currentStacks = victim:GetModifierStackCount("modifier_luna_armor", victim)
+    if currentStacks > 1 then
+        victim:SetModifierStackCount("modifier_luna_armor", victim, currentStacks-1)
+    else
+        victim:RemoveModifierByName("modifier_luna_armor")
+        CustomAbilities:QuickAttachParticle("particles/roshpit/sorceress/shield_shatter.vpcf", victim, 1.2)
+        EmitSoundOn("Winterblight.LunaShield.Pop", victim)
+    end   
+end
+
 function CustomAbilities:HitVolcanoShield(victim, attacker)
     local currentStacks = victim:GetModifierStackCount("modifier_volcano_shield", victim.InventoryUnit)
     if currentStacks > 1 then

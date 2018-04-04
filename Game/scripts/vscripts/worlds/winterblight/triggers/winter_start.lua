@@ -103,4 +103,5 @@ function AzaleaSpawn1(trigger)
 end
 
 function AzaleaSpawn2(trigger)
+	Winterblight:AzaleaMainSpawn()
 end

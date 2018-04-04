@@ -4,7 +4,6 @@
 		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
 	</styles>
 	<scripts>
-		<include src="file://{resources}/scripts/custom_game/heroes_custom/heroes_custom.js" />
 		<include src="file://{resources}/scripts/custom_game/resources/reroll_pre_screen.js" />
 	</scripts>
 	<Panel class="reroll_prescreen_root" hittest="false">

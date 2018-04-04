@@ -327,9 +327,7 @@ function Winterblight:SpawnMountainDweller(position, fv)
 end
 
 function Winterblight:SnowCaveArea()
-	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(1835, -7145), 7000, 7000, false)
 	local luck = RandomInt(1, 3)
-	luck = 4
 	if luck == 1 then
 		Winterblight:SpawnFrostiok(Vector(-1280, -8070), Vector(-0.3,1))
 		Winterblight:SpawnFrostiok(Vector(-1042, -8384), Vector(-0.1,1))
@@ -848,6 +846,14 @@ function Winterblight:AdjustWaveUnit(unit)
   elseif unit:GetUnitName() == "winterblight_frigid_growth" then
 	unit.targetRadius = 420
 	unit.autoAbilityCD = 1
+  elseif unit:GetUnitName() ==  "winterblight_frostbite_spiderling" then
+  	local speed = 440
+  	if GameState:GetDifficultyFactor() == 2 then
+  		speed = 380
+  	elseif GameState:GetDifficultyFactor() == 1 then
+  		speed = 300
+  	end
+  	unit:SetBaseMoveSpeed(speed)
   elseif unit:GetUnitName() == "winterblight_icewrack_marauder" then
 	local stone = unit
 	stone:SetRenderColor(10,140,255)
@@ -921,6 +927,14 @@ function Winterblight:FirstOutsideAzaleaPocketSpawn()
 	      Winterblight:SpawnFrostOrchid(positionTable[i], lookToPoint)
 	    end
     end)
+    Timers:CreateTimer(1.9, function()
+	    local positionTable = {Vector(6080, -8640), Vector(6363, -8804), Vector(6592, -8913), Vector(6848, -9018), Vector(7296, -9018), Vector(7637, -8907)}
+	    for i = 1, #positionTable, 1 do
+	      local lookToPoint = (Vector(6912, -8256) - positionTable[i]):Normalized()
+	      local unit = Winterblight:SpawnRiderOfAzalea(positionTable[i], lookToPoint)
+	      CustomAbilities:QuickAttachParticle("particles/roshpit/items/ice_quill_explosion.vpcf", unit, 2)
+	    end
+    end)    
     Winterblight:SpawnChillingColossus(Vector(4979, -8896), Vector(-0.2,1))
 end
 
@@ -956,3 +970,80 @@ function Winterblight:SpawnWinterbear(position, fv)
 	return stone
 end
 
+function Winterblight:SpawnRiderOfAzalea(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_rider_of_azalea", position, 1, 1, "Winterblight.RiderOfAzalea.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 4, 3, false)
+	stone.itemLevel = 33
+	stone.dominion = true
+	return stone
+end
+
+function Winterblight:AzaleaMainSpawn()
+	local luck = RandomInt(1, 3)
+	luck = 1
+	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(11123, -7145), 12000, 12000, false)
+	if luck == 1 then
+		local count = 1
+		if GameState:GetDifficultyFactor() == 3 then
+			count = 2
+		end
+		local positionTable = {Vector(7296, -7744), Vector(8448, -6208), Vector(9664, -6912), Vector(11008, -6208), Vector(12544, -6976), Vector(14464, -8256)}
+	    for i = 1, #positionTable, 1 do
+	      Timers:CreateTimer(i*1.2, function()
+	        local patrolPositionTable = {}
+	        for j = 1, #positionTable, 1 do
+	          local index = i + j
+	          if index > #positionTable then
+	            index = index - #positionTable
+	          end
+	          table.insert(patrolPositionTable, positionTable[index])
+	        end
+	        for j = 0, count, 1 do
+	          Timers:CreateTimer(j*0.8, function()
+	            local elemental = Winterblight:SpawnDashingSwordsman(positionTable[i]+RandomVector(350), RandomVector(1))
+	            Winterblight:AddPatrolArguments(elemental, 15, 5, 340, patrolPositionTable)
+	          end)
+	        end
+	      end)
+	    end
+	    Timers:CreateTimer(0.6, function()
+			local count = 0
+			if GameState:GetDifficultyFactor() == 3 then
+				count = 1
+			end
+			local positionTable = {Vector(7744, -5913), Vector(9280, -7424), Vector(11456, -6272), Vector(11494, -7901), Vector(12736, -8256), Vector(14592, -6912)}
+		    for i = 1, #positionTable, 1 do
+		      Timers:CreateTimer(i*1.2, function()
+		        local patrolPositionTable = {}
+		        for j = 1, #positionTable, 1 do
+		          local index = i + j
+		          if index > #positionTable then
+		            index = index - #positionTable
+		          end
+		          table.insert(patrolPositionTable, positionTable[index])
+		        end
+		        for j = 0, count, 1 do
+		          Timers:CreateTimer(j*0.55, function()
+		            local elemental = Winterblight:SpawnRiderOfAzalea(positionTable[i]+RandomVector(350), RandomVector(1))
+		            Winterblight:AddPatrolArguments(elemental, 15, 5, 340, patrolPositionTable)
+		          end)
+		        end
+		      end)
+		    end
+	    end)
+	    Timers:CreateTimer(3, function()
+	    	local positionTable = {Vector(8128, -7232), Vector(8512, -7104), Vector(8448, -7488), Vector(8000, -7552)}
+	    	for i = 1, #positionTable, 1 do
+	    		Winterblight:SpawnAzaleaSorceress(positionTable[i], RandomVector(1))
+	    	end
+	    end)
+	end
+end
+
+function Winterblight:SpawnAzaleaSorceress(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_azure_sorceress", position, 1, 3, "Winterblight.AzaleaSorceress.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 4, 3, false)
+	stone.itemLevel = 37
+	stone.dominion = true
+	return stone
+end

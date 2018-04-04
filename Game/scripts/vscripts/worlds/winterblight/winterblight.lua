@@ -89,7 +89,7 @@ function Winterblight:CalculateHeroZones()
           elseif (WallPhysics:IsWithinRegionA(heroOrigin, Vector(-6897, -9496), Vector(10058,267))) then
             CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_zone_display", {zoneName = "winterblight_mountain"} )
             hero.bgm = "Music.Winterblight.Start"
-          elseif (WallPhysics:IsWithinRegionA(heroOrigin, Vector(-17000, -17000), Vector(-9856,-7744))) or (WallPhysics:IsWithinRegionA(heroOrigin, Vector(-17000, -17000), Vector(16384,-9570))) then
+          elseif (WallPhysics:IsWithinRegionA(heroOrigin, Vector(-17000, -17000), Vector(-9856,-9550))) or (WallPhysics:IsWithinRegionA(heroOrigin, Vector(-17000, -17000), Vector(16384,-9570))) then
             CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_zone_display", {zoneName = "shrine_of_azalea"} )
             hero.bgm = "Music.Winterblight.ShrineOfAzelea"
           else
