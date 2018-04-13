@@ -839,7 +839,7 @@
 			"RunScript"
 			{
         		"ScriptFile"	"heroes/monkey_king/year_beast"
-        		"Function"		"jump_start"
+        		"Function"		"yb_jump_start"
         		"Target"		"POINT"
 			}
 		}

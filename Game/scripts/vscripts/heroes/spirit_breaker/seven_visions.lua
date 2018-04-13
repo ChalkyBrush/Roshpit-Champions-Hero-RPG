@@ -32,7 +32,7 @@ function seven_visions_think(event)
 end
 
 function seven_visions_strike(caster, position, damage, ability)
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, 700, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, 700, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 	local enemy = enemies[RandomInt(1, #enemies)]
 	local damage = caster:GetAverageTrueAttackDamage(caster)
 	if #enemies > 0 then

@@ -44,7 +44,7 @@ function channel_complete(event)
 		jumpEventTable.target_points = {}
 		jumpEventTable.target_points[1] = caster:GetAbsOrigin()
 		jumpEventTable.special = true
-		jump_start(jumpEventTable)
+		arkimus_jump_start(jumpEventTable)
 	end
 	if not ability.energyTable then
 		ability.energyTable = {}

@@ -26,7 +26,7 @@ function shadow_warp_start(event)
 			event.guarantee = true
 			event.ability = caster:FindAbilityByName("slipfinn_jump")
 			if event.ability then
-				jump_start(event)
+				slipfinn_jump_start(event)
 			end
 
 		else

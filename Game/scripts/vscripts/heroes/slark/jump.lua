@@ -155,7 +155,7 @@ function slipfinn_main_thinker(event)
 	end
 end
 
-function jump_start(event)
+function slipfinn_jump_start(event)
 	local caster = event.caster
 	local ability = event.ability
 
@@ -274,7 +274,7 @@ function jump_force(caster, ability)
 	print(caster.jump_force)
 end
 
-function jump_think(event)
+function slipfinn_jump_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	caster:SetOrigin(caster:GetAbsOrigin()+Vector(0,0,caster.jump_force))

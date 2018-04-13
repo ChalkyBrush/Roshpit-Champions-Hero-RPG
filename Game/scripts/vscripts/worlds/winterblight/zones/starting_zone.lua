@@ -315,6 +315,9 @@ function Winterblight:ShatterIceWall()
 		UTIL_Remove(iceWall)
 	end)
   end
+  Timers:CreateTimer(2, function()
+  	Winterblight:SpawnNorgok(Vector(2066, -5821), Vector(-1,1))
+  end)
 end
 
 function Winterblight:SpawnMountainDweller(position, fv)
@@ -598,7 +601,6 @@ function Winterblight:SnowCaveArea()
 	        end)
 	      end
 	end
-	Winterblight:SpawnNorgok(Vector(2066, -5821), Vector(-1,1))
 end
 
 function Winterblight:SpawnFrostiok(position, fv)
@@ -644,6 +646,9 @@ function Winterblight:SpawnNorgok(position, fv)
 	stone.itemLevel = 38
 	stone:SetRenderColor(30,90,255)
 	Winterblight:SetTargetCastArgs(stone, 1000, 0, 2, FIND_CLOSEST)
+	if GameState:GetDifficultyFactor() == 3 then
+		stone:AddAbility("ability_mega_haste"):SetLevel(3)
+	end
 	return stone
 end
 
@@ -867,6 +872,29 @@ function Winterblight:AdjustWaveUnit(unit)
 	end)
 	stone:AddNewModifier(stone, nil, "modifier_animation", {translate="melee"})
 	stone:AddNewModifier(stone, nil, "modifier_animation_translate", {translate="run"})
+  elseif unit:GetUnitName() == "winterblight_dimension_walker" then
+  	unit:AddNewModifier(unit, nil, "modifier_animation_translate", {translate="run"})
+  elseif unit:GetUnitName() == "winterblight_puck" then
+	unit.targetRadius = 320
+	unit.autoAbilityCD = 1
+  elseif unit:GetUnitName() == "frost_whelpling" then
+  	Winterblight:SetPositionCastArgs(unit, 900, 0, 3, FIND_ANY_ORDER)
+  elseif unit:GetUnitName() == "winterblight_azalean_priest" then
+  	Events:ColorWearablesAndBase(unit, Vector(90,150,255))
+	Winterblight:SetTargetCastArgs(unit, 600+GameState:GetDifficultyFactor()*200, 0, 2, FIND_ANY_ORDER)
+  elseif unit:GetUnitName() == "winterblight_frost_avatar" then
+	if GameState:GetDifficultyFactor() == 3 then
+		unit:AddAbility("ability_mega_haste"):SetLevel(GameState:GetDifficultyFactor())
+	end
+	unit:SetRenderColor(200, 210, 255)
+  elseif unit:GetUnitName() == "winterblight_azure_sorceress" then
+	if GameState:GetDifficultyFactor() == 3 then
+		unit:AddAbility("seafortress_golden_shell"):SetLevel(3)
+	end
+  elseif unit:GetUnitName() ==  "winterblight_rider_of_azalea" then
+	if GameState:GetDifficultyFactor() < 3 then
+		unit:RemoveAbility("armor_break_ultra")
+	end
   end
 end
 
@@ -896,6 +924,9 @@ function Winterblight:FinishCaveWaves()
 	    Winterblight:Walls(false, walls, true, 4.3)
 	    Winterblight:RemoveBlockers(4, "CaveWallBlocker", Vector(3770, -7423, 128+Winterblight.ZFLOAT), 1400)
 	    Winterblight:FirstOutsideAzaleaPocketSpawn()
+    end)
+    Timers:CreateTimer(6, function()
+    	Winterblight:InitializeAzaleaSwords()
     end)
 end
 
@@ -975,13 +1006,16 @@ function Winterblight:SpawnRiderOfAzalea(position, fv)
 	Events:AdjustBossPower(stone, 4, 3, false)
 	stone.itemLevel = 33
 	stone.dominion = true
+	if GameState:GetDifficultyFactor() < 3 then
+		stone:RemoveAbility("armor_break_ultra")
+	end
 	return stone
 end
 
 function Winterblight:AzaleaMainSpawn()
 	local luck = RandomInt(1, 3)
-	luck = 1
-	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(11123, -7145), 12000, 12000, false)
+	luck = 2
+	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(11123, -7145), 23000, 23000, false)
 	if luck == 1 then
 		local count = 1
 		if GameState:GetDifficultyFactor() == 3 then
@@ -1031,19 +1065,331 @@ function Winterblight:AzaleaMainSpawn()
 		      end)
 		    end
 	    end)
+	    Timers:CreateTimer(1.5, function()
+	    	local positionTable = {Vector(7104, -7808), Vector(7552, -8320), Vector(8192, -8256)}
+	    	for i = 1, #positionTable, 1 do
+	    		Winterblight:SpawnFrostElemental(positionTable[i], RandomVector(1))
+	    	end	 
+	    end)
 	    Timers:CreateTimer(3, function()
 	    	local positionTable = {Vector(8128, -7232), Vector(8512, -7104), Vector(8448, -7488), Vector(8000, -7552)}
 	    	for i = 1, #positionTable, 1 do
 	    		Winterblight:SpawnAzaleaSorceress(positionTable[i], RandomVector(1))
 	    	end
 	    end)
+	    Timers:CreateTimer(3.5, function()
+	    	local positionTable = {Vector(9792, -5248), Vector(10240, -5056), Vector(10880, -5056), Vector(11456, -5056), Vector(11968, -5120), Vector(12416, -5376)}
+	    	for i = 1, #positionTable, 1 do
+	    		Winterblight:SpawnFrostAvatar(positionTable[i], Vector(0,-1))
+	    	end
+	    end)
+	    Timers:CreateTimer(3.15, function()
+	    	local positionTable = {Vector(9344, -7360), Vector(9024, -6272), Vector(9856, -5952), Vector(10304, -7232), Vector(11328, -7424), Vector(11904, -7104), Vector(12480, -6336), Vector(12352, -5504), Vector(13376, -6080), Vector(14464, -6464)}
+	    	for i = 1, #positionTable, 1 do
+	    		Winterblight:SpawnFrostElemental(positionTable[i], RandomVector(1))
+	    	end	 
+	    	
+	    end)
+	    Timers:CreateTimer(2.1, function()
+			local positionTable = {Vector(6421, -6912), Vector(6666, -6848), Vector(6912, -6848), Vector(7006, -6720), Vector(6720, -6656), Vector(6424, -6656), Vector(6606, -6464), Vector(6858, -6464), Vector(7114, -6464), Vector(6757, -6272), Vector(7027, -6234)}
+			for i = 1, #positionTable, 1 do
+				if i < 6 + GameState:GetDifficultyFactor()*4 then
+					local lookToPoint = (Vector(7488, -7104) - positionTable[i]):Normalized()
+					Winterblight:SpawnIceSummoner(positionTable[i], lookToPoint)
+				end
+			end
+			Winterblight:SpawnChillingColossus(Vector(8000, -5824), Vector(0.1,-1))
+	    end)
+	    Timers:CreateTimer(4.2, function()
+	    	local positionTable = {Vector(10688, -7744), Vector(10688, -8192), Vector(11456, -7744), Vector(11456, -8192)}
+	    	for i = 1, #positionTable, 1 do
+	    		Winterblight:SpawnFrostHulk(positionTable[i], Vector(0,1))
+	    	end
+	    	Winterblight:SpawnFrostHulk(Vector(15168, -7168), Vector(-1,0))
+	    end)
+	    Timers:CreateTimer(4.7, function()
+	    	local positionTable = {Vector(14775, -8468), Vector(15104, -8320), Vector(14720, -8064), Vector(14976, -7808), Vector(15360, -7488)}
+	    	for i = 1, #positionTable, 1 do
+	    		Winterblight:SpawnPriestOfAzalea(positionTable[i], RandomVector(1))
+	    	end	 
+	    end)
+	    Timers:CreateTimer(5.2, function()
+	    	local positionTable = {Vector(10944, -5766), Vector(10688, -6144), Vector(11136, -6400), Vector(11520, -6016)}
+	    	for i = 1, #positionTable, 1 do
+	    		Winterblight:SpawnAzaleaSorceress(positionTable[i], RandomVector(1))
+	    	end
+	    end)
+	    Timers:CreateTimer(5.7, function()
+	    	local positionTable = {Vector(13312, -7104), Vector(13384, -7552), Vector(13894, -7296), Vector(13824, -7668)}
+	    	for i = 1, #positionTable, 1 do
+	    		Winterblight:SpawnAzaleaSorceress(positionTable[i], RandomVector(1))
+	    	end
+	    end)
+	    Timers:CreateTimer(5.9, function()
+			local positionTable = {Vector(11840, -8448), Vector(12104, -8640), Vector(12480, -8640)}
+			for i = 1, #positionTable, 1 do
+				local lookToPoint = (Vector(12224, -8128) - positionTable[i]):Normalized()
+				Winterblight:SpawnPriestOfAzalea(positionTable[i], lookToPoint)
+			end
+			Winterblight:SpawnChillingColossus(Vector(8000, -5824), Vector(0.1,-1))
+	    end)
+	    Timers:CreateTimer(6.3, function()
+			local positionTable = {Vector(14976, -5376), Vector(15232, -5312), Vector(15424, -5568), Vector(15168, -5760), Vector(15424, -5952)}
+			for i = 1, #positionTable, 1 do
+				if i < GameState:GetDifficultyFactor() + 3 then
+					local lookToPoint = (Vector(14923, -6137) - positionTable[i]):Normalized()
+					Winterblight:SpawnFrostAvatar(positionTable[i], lookToPoint)
+				end
+			end
+			Winterblight:SpawnChillingColossus(Vector(15168, -6336), Vector(-1,0))
+			Winterblight:SpawnWinterAssasin(Vector(14427, -8640), Vector(0,-1))
+			Winterblight:SpawnWinterAssasin(Vector(14080, -8832), Vector(0,-1))
+	    end)
 	end
 end
 
 function Winterblight:SpawnAzaleaSorceress(position, fv)
-	local stone = Winterblight:SpawnDungeonUnit("winterblight_azure_sorceress", position, 1, 3, "Winterblight.AzaleaSorceress.Aggro", fv, false)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_azure_sorceress", position, 1, 2, "Winterblight.AzaleaSorceress.Aggro", fv, false)
 	Events:AdjustBossPower(stone, 4, 3, false)
+	if GameState:GetDifficultyFactor() == 3 then
+		stone:AddAbility("seafortress_golden_shell"):SetLevel(3)
+	end
 	stone.itemLevel = 37
 	stone.dominion = true
 	return stone
+end
+
+function Winterblight:SpawnFrostAvatar(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_frost_avatar", position, 0, 2, "Winterblight.IceSpecter.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 4, 3, false)
+	stone.itemLevel = 37
+	stone.dominion = true
+	if GameState:GetDifficultyFactor() == 3 then
+		stone:AddAbility("ability_mega_haste"):SetLevel(GameState:GetDifficultyFactor())
+	end
+	stone:SetRenderColor(200, 210, 255)
+	return stone
+end
+
+function Winterblight:SpawnFrostElemental(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_frost_elemental", position, 1, 2, "Winterblight.FrostElemental.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 3, 4, false)
+	stone.itemLevel = 39
+	stone.dominion = true
+	return stone
+end
+
+function Winterblight:SpawnFrostHulk(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_frost_frigid_hulk", position, 1, 3, "Winterblight.FrostHulk.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 3, 6, false)
+	stone.itemLevel = 41
+	stone.dominion = true
+	stone:SetRenderColor(200, 210, 255)
+	return stone
+end
+
+function Winterblight:SpawnPriestOfAzalea(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_azalean_priest", position, 0, 2, "Winterblight.Priest.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 3, 3, false)
+	stone.itemLevel = 28
+	Events:ColorWearablesAndBase(stone, Vector(90,150,255))
+	Winterblight:SetTargetCastArgs(stone, 600+GameState:GetDifficultyFactor()*200, 0, 2, FIND_ANY_ORDER)
+	stone.dominion = true
+	return stone
+end
+
+function Winterblight:InitializeAzaleaSwords()
+	local positionTable = {Vector(9280, -7360), Vector(12019, -7872), Vector(15040, -6976)}
+	for i = 1, #positionTable, 1 do
+		Timers:CreateTimer((i-1)*4.5, function()
+			local position = positionTable[i]
+			local yaw = 45
+		    local shield = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
+		    local yaw = RandomInt(0, 345)
+
+		    shield:SetAngles(0, yaw, 0)
+		    shield:SetRenderColor(180, 210, 255)
+		    shield:AddAbility("dummy_unit_can_be_attacked_cant_die"):SetLevel(1)
+		    shield:SetOriginalModel("models/winterblight/winter_sword.vmdl")
+		    shield:SetModel("models/winterblight/winter_sword.vmdl")
+		    shield:SetAbsOrigin(position)
+		    shield:AddAbility("winterblight_attackable_unit"):SetLevel(1)
+		    shield:RemoveAbility("dummy_unit")
+		    shield:RemoveModifierByName("dummy_unit")
+		    shield.basePosition = position
+
+		    shield.yaw = yaw
+
+		    shield.pushLock = true
+		    shield.dummy = true
+		    shield.jumpLock = true
+		    AddFOWViewer(DOTA_TEAM_GOODGUYS, position, 500, 99999, false)
+		    shield.acceleration = 35
+		    shield:SetAbsOrigin(shield:GetAbsOrigin()+Vector(0,0,2600))
+
+		    local prop_ability = shield:FindAbilityByName("winterblight_attackable_unit")
+		    prop_ability:ApplyDataDrivenModifier(shield, shield, "modifier_icy_appearance", {})
+		    prop_ability:ApplyDataDrivenModifier(shield, shield, "modifier_sword_falling", {})
+		    shield.prop_id = 0
+		end)
+	end
+
+end
+
+function Winterblight:SpawnFrostTitan(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_azalea_frost_titan", position, 3, 5, "Winterblight.FrostTitan.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 3, 6, false)
+	stone.itemLevel = 46
+	Events:ColorWearablesAndBase(stone, Vector(200, 210, 255))
+	Winterblight:SetTargetCastArgs(stone, 1000+GameState:GetDifficultyFactor()*500, 0, 1, FIND_ANY_ORDER)
+	local passive = stone:FindAbilityByName("frost_titan_passive")
+	passive:ApplyDataDrivenModifier(stone, stone, "modifier_disable_player", {duration =1.5})
+	return stone
+end
+
+
+function Winterblight:StartOrbSequence()
+	Winterblight.OrbTable = {}
+	local particleName = "particles/roshpit/winterblight/azalea_orb.vpcf"
+	local basePos = Vector(7620, -8671)
+	local topRightPos = GetGroundPosition(Vector(15417, -5454), Events.GameMaster)
+	local differenceI = (topRightPos.x - basePos.x)/10
+	local differenceJ = (topRightPos.y - basePos.y)/3
+	for i = 1, 10, 1 do
+		for j = 1, 3, 1 do
+			Timers:CreateTimer(0.3*(i-1) + (j-1)*3, function()
+				local orbPos = GetGroundPosition(basePos + Vector(differenceI*(i-0.5)+RandomInt(-200, 200), differenceJ*(j-0.5)+RandomInt(-400, 400)), Events.GameMaster) 
+				local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, nil)
+				print(orbPos)
+				local startHeight = 900+RandomInt(0, 200)
+				local endHeight = 380+RandomInt(0, 210)
+				ParticleManager:SetParticleControl(pfx, 0, orbPos + Vector(0,0,startHeight))
+				ParticleManager:SetParticleControl(pfx, 1, orbPos + Vector(0,0,endHeight))
+				ParticleManager:SetParticleControl(pfx, 2, Vector(100, 100, 100))
+				ParticleManager:SetParticleControl(pfx, 3, Vector(100, 100, 100))
+				local orb = {}
+				orb.pfx = pfx
+				orb.endPos = orbPos + Vector(0,0,endHeight)
+				orb.index = i + j*100
+				-- AddFOWViewer(DOTA_TEAM_GOODGUYS,orbPos, 300, 600, false)
+				table.insert(Winterblight.OrbTable, orb)
+			end)
+		end
+	end
+	Timers:CreateTimer(1, function()
+		EmitGlobalSound("Winterblight.AzaleaOrbs.Start")
+	end)
+	Winterblight.StatuesTable = {}
+	local positionTable = {Vector(8288, -7175), Vector(11123, -6082), Vector(13680, -7175)}
+	for i = 1, #positionTable, 1 do
+		local statue = {}
+		statue.prop = Entities:FindByNameNearest("RadiantTower", positionTable[i]+Vector(0,0,300), 1000)
+		statue.position = statue.prop:GetAbsOrigin()
+		table.insert(Winterblight.StatuesTable, statue)
+	end
+	Timers:CreateTimer(0.1, function()
+	    Winterblight.OrbsMaster = CreateUnitByName("rune_unit", RPCItems.DROP_LOCATION, true, nil, nil, DOTA_TEAM_GOODGUYS)
+	    Winterblight.OrbsMaster:AddAbility("winterblight_orb_ability"):SetLevel(GameState:GetDifficultyFactor())
+	    Winterblight.OrbsMaster:AddAbility("dummy_unit"):SetLevel(1)
+	end)
+	Timers:CreateTimer(12, function()
+		Winterblight.OrbTable = WallPhysics:ShuffleTable(Winterblight.OrbTable)
+		for i = 1, #Winterblight.OrbTable, 1 do
+			Timers:CreateTimer(i*0.15, function()
+				local orb = Winterblight.OrbTable[i]
+				Winterblight:SpawnAzaleaWaveUnit("winterblight_dimension_walker", orb.endPos, 2, 12, true)
+			end)
+		end
+	end)
+end
+
+function Winterblight:SpawnAzaleaWaveUnit(unitName, spawnPoint, quantity, delay, bSound)
+
+  local unit = false
+  for i = 0, quantity-1, 1 do
+    Timers:CreateTimer(i*delay, 
+    function()
+    if bSound then
+      EmitSoundOnLocationWithCaster(spawnPoint, "Winterblight.AzaleaOrbs.Spawn", Winterblight.Master)
+    end
+      local luck = RandomInt(1, 160)
+      if Events.SpiritRealm then
+        luck = RandomInt(1, 66)
+      end
+      if luck == 1 then
+        unit = Paragon:SpawnParagonPack(unitName, spawnPoint)
+      elseif luck == 2 then
+        unit = Paragon:SpawnParagonUnit(unitName, spawnPoint)
+      else
+        unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)   
+      Events:AdjustDeathXP(unit)
+      end
+      if IsValidEntity(unit) then
+        unit.dominion = true
+        unit.deathCode = 2
+        Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_winterblight_wave_unit", {})
+        unit:SetAcquisitionRange(5000)
+        CustomAbilities:QuickAttachParticle("particles/econ/items/winter_wyvern/winter_wyvern_ti7/wyvern_cold_embrace_ti7buff_beams.vpcf", unit, 2)
+        unit.aggro = true
+        Winterblight:AdjustWaveUnit(unit)
+        Winterblight:UnitDescendFromOrb(unit, spawnPoint)
+      else
+        for i = 1, #unit, 1 do
+          unit[i].aggro = true
+          unit[i].dominion = true
+          unit[i]:SetAcquisitionRange(5000)
+          unit[i].deathCode = 2
+          Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit[i], "modifier_winterblight_wave_unit", {})
+          CustomAbilities:QuickAttachParticle("particles/econ/items/winter_wyvern/winter_wyvern_ti7/wyvern_cold_embrace_ti7buff_beams.vpcf", unit[i], 2)
+          Winterblight:AdjustWaveUnit(unit[i])
+          Winterblight:UnitDescendFromOrb(unit[i], spawnPoint)
+        end
+      end
+    end)
+  end
+end
+
+function Winterblight:UnitDescendFromOrb(unit, spawnPoint)
+	unit:SetAbsOrigin(spawnPoint)
+	local startSpeed = 21
+	local particleName = "particles/units/heroes/hero_wisp/wisp_tether.vpcf"
+	local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, nil )
+	ParticleManager:SetParticleControl(pfx, 0, spawnPoint)
+	ParticleManager:SetParticleControlEnt(pfx, 1, unit, PATTACH_POINT_FOLLOW, "attach_hitloc", unit:GetAbsOrigin(), true)
+	Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_disable_player", {duration = 2.5})
+	for i = 1, 80, 1 do
+		Timers:CreateTimer(i*0.03, function()
+			if not unit:HasModifier("modifier_disable_player") then
+				if pfx then
+					FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), false)
+					ParticleManager:DestroyParticle(pfx, false)
+					pfx = false
+				end
+				return false
+			end
+			local distanceToGround = unit:GetAbsOrigin().z - GetGroundHeight(unit:GetAbsOrigin(), unit)
+			if distanceToGround < 10 then
+				FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), false)
+				unit:RemoveModifierByName("modifier_disable_player")
+				ParticleManager:DestroyParticle(pfx, false)
+				pfx = false
+				return false
+			end
+			startSpeed = math.max(startSpeed-0.5, 8)
+			unit:SetAbsOrigin(unit:GetAbsOrigin()-Vector(0,0,startSpeed))
+		end)
+	end
+end
+
+function Winterblight:EndOrbWaves()
+	for i = 1, #Winterblight.OrbTable, 1 do
+		local targetProp = Winterblight.StatuesTable[1]
+		if i%3 == 0 then
+			targetProp = Winterblight.StatuesTable[1]
+		elseif i%3 == 1 then
+			targetProp = Winterblight.StatuesTable[2]
+		elseif i%3 == 2 then
+			targetProp = Winterblight.StatuesTable[3]
+		end
+	end
 end

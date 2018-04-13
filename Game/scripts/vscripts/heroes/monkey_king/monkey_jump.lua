@@ -13,7 +13,7 @@ function jump_pre_start(event)
 	-- StartAnimation(caster, {duration=0.44, activity=ACT_DOTA_MK_SPRING_CAST, rate=1.2})
 end
 
-function jump_start(event)
+function monkey_jump_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	ability.targetPoint = event.target_points[1]

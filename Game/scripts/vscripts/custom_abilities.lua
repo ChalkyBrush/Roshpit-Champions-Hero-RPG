@@ -699,3 +699,32 @@ function CustomAbilities:SephyrPuck(caster, ability, enemy)
     end
     ParticleManager:SetParticleControl(ability.countPFX, 1, Vector(0, #ability.boomerangTable, #ability.boomerangTable))
 end
+
+function CustomAbilities:JumpEnd(caster)
+	if caster.jumpEnd == "frost_titan" then
+		StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_SPAWN, rate=1, translate="sven_shield"})
+		caster.cantAggro = false
+		caster.castLock = true
+		Timers:CreateTimer(1.5, function()
+			caster:RemoveModifierByName("modifier_disable_player")
+			if not caster.aggro then
+				Dungeons:AggroUnit(caster)
+			end
+		end)
+		Timers:CreateTimer(4.5, function()
+			caster.castLock = false
+		end)
+		local startPoint = GetGroundPosition(caster:GetAbsOrigin(), caster)
+		EmitSoundOnLocationWithCaster(startPoint, "Winterblight.ArcanaSunder.Start", caster)
+
+		local pfx = ParticleManager:CreateParticle( "particles/roshpit/seafortress/big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster )
+		ParticleManager:SetParticleControl(pfx, 0, startPoint)
+		ParticleManager:SetParticleControl(pfx, 5, Vector(0.7, 0.75, 0.9))
+		ParticleManager:SetParticleControl(pfx, 2, Vector(0.4,0.4,0.4))
+		Timers:CreateTimer(10, function() 
+		  ParticleManager:DestroyParticle( pfx, false )
+		  ParticleManager:ReleaseParticleIndex(pfx)
+		end)
+		ScreenShake(caster:GetAbsOrigin(), 300, 0.5, 0.5, 9000, 0, true)
+	end
+end

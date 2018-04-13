@@ -45,7 +45,7 @@
 			"RunScript"
 			{
 				"ScriptFile"	"heroes/slark/jump.lua"
-				"Function"		"jump_start"
+				"Function"		"slipfinn_jump_start"
 			}
 		}
 		"Modifiers"
@@ -108,7 +108,7 @@
 					"RunScript"
 					{
 						"ScriptFile"	"heroes/slark/jump.lua"
-						"Function"		"jump_think"
+						"Function"		"slipfinn_jump_think"
 					}
 				}
 			}

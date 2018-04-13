@@ -29,7 +29,7 @@ function channel_complete(event)
 		jumpEventTable.target_points = {}
 		jumpEventTable.target_points[1] = caster:GetAbsOrigin()
 		jumpEventTable.special = true
-		jump_start(jumpEventTable)
+		arkimus_jump_start(jumpEventTable)
 	end
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_archon_form", {duration = duration})
 	caster:AddNewModifier( caster, ability, "arkimus_archon_form_lua", {duration = duration} )

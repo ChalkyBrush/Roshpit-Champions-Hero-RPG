@@ -123,6 +123,7 @@ function UnlockBlacksmithAfterReroll(msg){
 		return false;
 	}
 	if (rarity == 5){
+		$.Schedule(0.05, function(){
 			var playerID = Game.GetLocalPlayerID()
 			var heroIndex = Players.GetPlayerHeroEntityIndex( playerID)
 			Game.EmitSound("ui.crafting_pulse")
@@ -131,6 +132,7 @@ function UnlockBlacksmithAfterReroll(msg){
 			// $.Schedule(0.15, function(){
 			// 	rerollPanel.lockSlotsFromServerCall(msg)
 			// });
+        })
 	}
 }
 

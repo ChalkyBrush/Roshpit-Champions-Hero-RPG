@@ -182,7 +182,7 @@ function raxxus_attack_land(event)
     end
 end
 
-function jump_start(event)
+function wb_bandit_jump_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	ability.targetPoint = event.target_points[1]
@@ -749,7 +749,7 @@ function colossus_slam_cast(event)
 	Timers:CreateTimer(0.6, function()
 		local position = caster:GetAbsOrigin() + caster:GetForwardVector()*210
 		local radius = 540
-		local splitEarthParticle = "particles/units/heroes/hero_leshrac/leshrac_split_earth.vpcf"
+		local splitEarthParticle = "particles/roshpit/winterblight/frost_colossus_slam.vpcf"
 		local pfx = ParticleManager:CreateParticle( splitEarthParticle, PATTACH_CUSTOMORIGIN, caster )
 		ParticleManager:SetParticleControl( pfx, 0, position )
 		ParticleManager:SetParticleControl( pfx, 1, Vector(radius, radius, radius) )
@@ -1312,6 +1312,99 @@ function winterblight_wave_unit_die(event)
 				Winterblight:FinishCaveWaves()
 			end
 		end
+	elseif unit.deathCode == 2 then
+		if not Winterblight.AzaleaOrbWaveUnitsSlain then
+			Winterblight.AzaleaOrbWaveUnitsSlain = 0
+		end
+		Winterblight.AzaleaOrbWaveUnitsSlain = Winterblight.AzaleaOrbWaveUnitsSlain + 1
+		if Winterblight.AzaleaOrbWaveUnitsSlain == 48 then
+			Winterblight.OrbTable = WallPhysics:ShuffleTable(Winterblight.OrbTable)
+			for i = 1, #Winterblight.OrbTable, 1 do
+				Timers:CreateTimer(i*0.3, function()
+					local orb = Winterblight.OrbTable[i]
+					Winterblight:SpawnAzaleaWaveUnit("winterblight_puck", orb.endPos, 1, 12, true)
+				end)
+			end
+		elseif Winterblight.AzaleaOrbWaveUnitsSlain == 76 then
+			Winterblight.OrbTable = WallPhysics:ShuffleTable(Winterblight.OrbTable)
+			for i = 1, #Winterblight.OrbTable, 1 do
+				Timers:CreateTimer(i*0.3, function()
+					local orb = Winterblight.OrbTable[i]
+					Winterblight:SpawnAzaleaWaveUnit("frost_whelpling", orb.endPos, 1, 12, true)
+				end)
+			end
+		elseif Winterblight.AzaleaOrbWaveUnitsSlain == 106 then
+			Winterblight.OrbTable = WallPhysics:ShuffleTable(Winterblight.OrbTable)
+			for i = 1, #Winterblight.OrbTable, 1 do
+				Timers:CreateTimer(i*0.3, function()
+					local orb = Winterblight.OrbTable[i]
+					local unitName = "winterblight_frost_creep"
+					if i%10 == 0 then
+						unitName = "winterblight_frost_frigid_hulk"
+					end
+					Winterblight:SpawnAzaleaWaveUnit(unitName, orb.endPos, 2, 10-GameState:GetDifficultyFactor(), true)
+				end)
+			end
+		elseif Winterblight.AzaleaOrbWaveUnitsSlain == 166 then
+			Winterblight.OrbTable = WallPhysics:ShuffleTable(Winterblight.OrbTable)
+			local nameTable = {"winterblight_azalean_priest", "winterblight_frost_elemental", "winterblight_frost_avatar", "winterblight_azure_sorceress", "winterblight_rider_of_azalea", "winterblight_winterbear", "winterblight_mistral_assassin"}
+			local name1 = nameTable[RandomInt(1, #nameTable)]
+			local name2 = nameTable[RandomInt(1, #nameTable)]
+			local name3 = nameTable[RandomInt(1, #nameTable)]
+			for i = 1, #Winterblight.OrbTable, 1 do
+				Timers:CreateTimer(i*0.5, function()
+					local orb = Winterblight.OrbTable[i]
+					local unitName = "winterblight_frost_creep"
+					if i%3 == 0 then
+						unitName = name1
+					elseif i%3 == 1 then
+						unitName = name2
+					elseif i%3 == 2 then
+						unitName = name3
+					end
+					Winterblight:SpawnAzaleaWaveUnit(unitName, orb.endPos, 1, 10, true)
+				end)
+			end		
+		elseif Winterblight.AzaleaOrbWaveUnitsSlain == 196 then
+			Winterblight.OrbTable = WallPhysics:ShuffleTable(Winterblight.OrbTable)
+			for i = 1, #Winterblight.OrbTable, 1 do
+				Timers:CreateTimer(i*0.3, function()
+					local orb = Winterblight.OrbTable[i]
+					local unitName = "winterblight_frost_creep"
+					if i%3 == 0 then
+						unitName = "winterblight_puck"
+					elseif i%3 == 1 then
+						unitName = "frost_whelpling"
+					elseif i%3 == 2 then
+						unitName = "winterblight_dimension_walker"
+					end
+					Winterblight:SpawnAzaleaWaveUnit(unitName, orb.endPos, 2, 12, true)
+				end)
+			end	
+		elseif Winterblight.AzaleaOrbWaveUnitsSlain == 256 then
+			Winterblight.OrbTable = WallPhysics:ShuffleTable(Winterblight.OrbTable)
+			local nameTable = {"winterblight_azalean_priest", "winterblight_frost_elemental", "winterblight_frost_avatar", "winterblight_azure_sorceress", "winterblight_rider_of_azalea", "winterblight_winterbear", "winterblight_mistral_assassin", "winterblight_frost_frigid_hulk"}
+			local name1 = nameTable[RandomInt(1, #nameTable)]
+			local name2 = nameTable[RandomInt(1, #nameTable)]
+			local name3 = nameTable[RandomInt(1, #nameTable)]
+			for i = 1, #Winterblight.OrbTable, 1 do
+				Timers:CreateTimer(i*0.4, function()
+					local orb = Winterblight.OrbTable[i]
+					local unitName = "winterblight_frost_creep"
+					if i%3 == 0 then
+						unitName = name1
+					elseif i%3 == 1 then
+						unitName = name2
+					elseif i%3 == 2 then
+						unitName = name3
+					end
+					Winterblight:SpawnAzaleaWaveUnit(unitName, orb.endPos, 1, 10, true)
+				end)
+			end		
+		elseif Winterblight.AzaleaOrbWaveUnitsSlain == 286 then
+			Winterblight:EndOrbWaves()
+			--END ORB WAVES		
+		end
 	end
 end
 
@@ -1360,4 +1453,495 @@ function task_armor_init(event)
 	local ability = event.ability
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_task_armor", {})
 	caster:SetModifierStackCount("modifier_task_armor", caster, event.charges)
+end
+
+function sorc_passive_attack_land(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_azalea_buff", {duration = 8})
+	local newStacks = math.min(caster:GetModifierStackCount("modifier_azalea_buff", caster) + 1, 200)
+	caster:SetModifierStackCount("modifier_azalea_buff", caster, newStacks)
+end
+
+function azalea_sorc_think(event)
+	local caster = event.caster
+	if not caster.aggro then
+		return
+	end
+	local luck = RandomInt(1, 7-GameState:GetDifficultyFactor())
+	local ability = event.ability
+	local casterOrigin = caster:GetAbsOrigin()
+	if luck == 1 then
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), casterOrigin, nil, caster:GetAttackRange()+300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+		if #enemies > 0 and not caster:HasModifier("modifier_jumping") and not caster:IsStunned() and not caster:IsRooted() then
+			local sumVector = Vector(0,0,0)
+			for i = 1, #enemies, 1 do
+				sumVector = sumVector + enemies[i]:GetAbsOrigin()
+			end
+			local avgVector = sumVector/#enemies
+			local forceDirection = ((casterOrigin-avgVector)*Vector(1,1,0)):Normalized()
+			CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/sorceress_dash.vpcf", caster, 1.2)
+			EmitSoundOn("Winterblight.AzaleaSorceress.Kite", caster)
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_trickster_dashing", {duration = 0.66})
+			StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_SPAWN, rate=1}) 
+			for i = 1, 22, 1 do
+				Timers:CreateTimer(i*0.03, function()
+					caster:SetAbsOrigin(caster:GetAbsOrigin()+forceDirection*14)
+				end)
+			end
+			Timers:CreateTimer(0.66, function()
+				FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+			end)	
+		end
+	end
+end
+
+function ice_specter_attack_land(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local mana_burn = event.mana_burn
+	EmitSoundOn("Winterblight.IceSpecter.AttackLand", target)
+	ability.particleLock = false
+	if not ability.particleLock then
+		ability.particleLock = true
+		print("PFX!!")
+		local particleName = "particles/units/heroes/hero_leshrac/leshrac_lightning_impact.vpcf"
+		local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
+		ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_CUSTOMORIGIN, "attach_hitloc", target:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControl(pfx, 1, target:GetAbsOrigin())
+		Timers:CreateTimer(0.5, function() 
+		  ParticleManager:DestroyParticle( pfx, false )
+		  ability.particleLock = false
+		end) 	
+	end
+	local burnDamage = math.min(target:GetMana(), mana_burn)*10
+	target:ReduceMana(mana_burn)
+	ApplyDamage({ victim = target, attacker = caster, damage = burnDamage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
+end
+
+function ice_specter_die(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local mana_burn = event.mana_burn*10
+	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_invoker/invoker_emp.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(pfx, 1, Vector(380, 5, 380))
+	EmitSoundOn("Winterblight.IceSpecter.DeathStart", caster)
+	Timers:CreateTimer(0.75, function()
+		ParticleManager:DestroyParticle(pfx, false)
+		EmitSoundOn("Winterblight.IceSpecter.Death", caster)
+	    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 380, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	    if #enemies > 0 then    
+	        for _,enemy in pairs(enemies) do
+				local burnDamage = math.min(enemy:GetMana(), mana_burn)*10
+				enemy:ReduceMana(mana_burn)
+				ApplyDamage({ victim = enemy, attacker = caster, damage = burnDamage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
+	        end
+	    end
+	end)
+end
+
+function frost_elemental_die(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+
+    local icePoint = caster:GetAbsOrigin()
+    local radius = event.radius
+    EmitSoundOnLocationWithCaster(icePoint, "hero_Crystal.freezingField.explosion", caster)
+    local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+    local pfx = ParticleManager:CreateParticle( particle, PATTACH_WORLDORIGIN, caster )
+    ParticleManager:SetParticleControl( pfx, 0, icePoint )
+    ParticleManager:SetParticleControl( pfx, 1, Vector(radius, 2, radius*2) )
+    Timers:CreateTimer(2.5, function()
+        ParticleManager:DestroyParticle(pfx, false)
+    end)
+    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), icePoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+    if #enemies > 0 then    
+        for _,enemy in pairs(enemies) do
+            ability:ApplyDataDrivenModifier(caster, enemy, "modifier_winterblight_chilled", {duration = 8})
+            ApplyDamage({ victim = victim, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
+        end
+    end
+end
+
+function ice_hulk_attack_land(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local luck = RandomInt(1, 16)
+	if luck == 1 then
+	    local icePoint = target:GetAbsOrigin()
+	    local radius = 350
+	    EmitSoundOnLocationWithCaster(icePoint, "hero_Crystal.freezingField.explosion", caster)
+	    local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+	    local pfx = ParticleManager:CreateParticle( particle, PATTACH_WORLDORIGIN, caster )
+	    ParticleManager:SetParticleControl( pfx, 0, icePoint )
+	    ParticleManager:SetParticleControl( pfx, 1, Vector(radius, 2, radius*2) )
+	    Timers:CreateTimer(2.5, function()
+	        ParticleManager:DestroyParticle(pfx, false)
+	    end)
+	    EmitSoundOn("Winterblight.FrostHulk.Impact",target)
+	    local damage = event.damage
+	    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), icePoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+	    if #enemies > 0 then    
+	    	ScreenShake(enemies[1]:GetAbsOrigin(), 130, 0.9, 0.9, 9000, 0, true)
+	        for _,enemy in pairs(enemies) do
+	            ability:ApplyDataDrivenModifier(caster, enemy, "modifier_winterblight_chilled", {duration = 8})
+	            ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
+	            PopupDamage(enemy, damage)
+	            Filters:ApplyStun(caster, 2.5, enemy)
+	        end
+	    end
+	end
+end
+
+function curse_of_azalea_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local damage = event.damage
+	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
+end
+
+function curse_of_azalea_pop(event)
+	local unit = event.unit
+	local caster = event.caster
+	local ability = event.ability
+	Events:CreateLightningBeamWithParticle(unit:GetAbsOrigin(), unit:GetAbsOrigin()+Vector(0,0,900), "particles/units/heroes/hero_leshrac/leshrac_lightning_bolt.vpcf", 0.8)
+	Filters:ApplyStun(caster, 1.2, unit)
+	EmitSoundOn("Winterblight.Priest.CurseOfAzaleaTrigger", unit)
+	unit:RemoveModifierByName("modifier_curse_of_azalea")
+	ability:ApplyDataDrivenModifier(caster, unit, "modifier_curse_of_azalea_effect", {duration = event.duration})
+end
+
+function azalea_priest_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local caster = event.caster
+	local repel = caster:FindAbilityByName("omniknight_repel")
+	if caster.aggro then
+		if repel:IsFullyCastable() then
+			local target_teams = DOTA_UNIT_TARGET_TEAM_FRIENDLY
+			local target_types = DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC
+			local target_flags = DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS
+			local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 740, target_teams, target_types, target_flags, FIND_ANY_ORDER, false)
+			if #allies > 0 then
+				local newOrder = {
+			 		UnitIndex = caster:entindex(), 
+			 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+			 		TargetIndex = allies[1]:entindex(),
+			 		AbilityIndex = repel:entindex(),
+			 	}
+				ExecuteOrderFromTable(newOrder)		
+				return				
+			end
+		end
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 340+GameState:GetDifficultyFactor()*100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
+		if #enemies > 0 then
+			local sumVector = Vector(0,0)
+			for i = 1, #enemies, 1 do
+				sumVector = sumVector + enemies[i]:GetAbsOrigin()
+			end
+			local avgVector = sumVector/#enemies
+			local runDirection = ((caster:GetAbsOrigin() - avgVector)*Vector(1,1,0)):Normalized()
+			caster:MoveToPosition(caster:GetAbsOrigin()+runDirection*380)
+		end
+	end	
+end
+
+function attackable_unit_hit(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster.prop_id == 0 then
+		if not caster.hits then
+			caster.hits = 0
+		end
+		caster.hits = caster.hits + 1
+		caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,30))
+		ScreenShake(caster:GetAbsOrigin(), 300, 0.1, 0.1, 9000, 0, true)
+		if caster.hits == 5 then
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_attackable_unit_no_more_attacks", {})
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_sword_lifting", {})
+			caster.acceleration = 10
+			EmitSoundOn("Winterblight.IceSword.BeginLift", caster)
+		end
+		EmitSoundOn("Winterblight.IceSword.Hit", caster)
+	end
+end
+
+function sword_lifting_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	caster.acceleration = math.min(caster.acceleration + 1, 50)
+	caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,caster.acceleration))
+	if caster.locked then
+		return false
+	end
+	if caster:GetAbsOrigin().z > 3000 then
+		print("spawn sven")
+		caster:RemoveModifierByName("modifier_sword_lifting")
+		caster.locked = true
+		local titan = Winterblight:SpawnFrostTitan(caster:GetAbsOrigin(), caster:GetForwardVector())
+		titan:SetAbsOrigin(caster:GetAbsOrigin())
+		WallPhysics:Jump(titan,Vector(0,1), 0, 0, 0, 1)
+		titan.jumpEnd = "frost_titan"
+		titan.cantAggro = true
+		Timers:CreateTimer(0.1, function()
+			UTIL_Remove(caster)
+		end)
+	end
+end
+
+function sword_falling_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster.acceleration < 0 then
+		return false
+	end
+	caster.acceleration = math.min(caster.acceleration + 1, 85)
+	caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,caster.acceleration))
+	if caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster) < 128 then
+		caster.acceleration = -1
+		caster:RemoveModifierByName("modifier_sword_falling")
+		local startPoint = GetGroundPosition(caster:GetAbsOrigin(), caster)
+		EmitSoundOnLocationWithCaster(startPoint, "Winterblight.SwordClash", caster)
+
+		local pfx = ParticleManager:CreateParticle( "particles/roshpit/seafortress/big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster )
+		ParticleManager:SetParticleControl(pfx, 0, startPoint)
+		ParticleManager:SetParticleControl(pfx, 5, Vector(0.7, 0.75, 0.9))
+		ParticleManager:SetParticleControl(pfx, 2, Vector(0.4,0.4,0.4))
+		Timers:CreateTimer(10, function() 
+		  ParticleManager:DestroyParticle( pfx, false )
+		  ParticleManager:ReleaseParticleIndex(pfx)
+		end)
+		ScreenShake(caster:GetAbsOrigin(), 300, 0.5, 0.5, 9000, 0, true)
+
+		local damage = 1000
+		local procs = 0
+		for j = 0, procs, 1 do
+			Timers:CreateTimer(j*0.5, function()
+				for i = 0, 3, 1 do
+					Timers:CreateTimer(0.15, function()
+
+						local forkDirection = RandomVector(1)
+						local direction = forkDirection
+						if j == 0 then
+							EmitSoundOnLocationWithCaster(startPoint, "Winterblight.ArcanaSunder.Moving", caster)
+						end
+
+						local particleName = "particles/units/heroes/hero_elder_titan/elder_titan_earth_splitter.vpcf"
+						local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+						ParticleManager:SetParticleControl(pfx, 0, startPoint+forkDirection*50)
+						ParticleManager:SetParticleControl(pfx, 1, startPoint+forkDirection*3000)
+						ParticleManager:SetParticleControl(pfx, 3, Vector(200,3.5,200)) -- y COMPONENT = duration
+						-- ParticleManager:SetParticleControl(pfx, 1, point)
+						Timers:CreateTimer(3.5, function()
+							ParticleManager:DestroyParticle(pfx, false)
+							for i = 1, 3, 1 do
+								EmitSoundOnLocationWithCaster(startPoint, "Winterblight.ArcanaSunder.Explode"..i, caster)
+							end
+							local enemies = FindUnitsInLine(caster:GetTeamNumber(), startPoint, startPoint+forkDirection*3000, nil, 150, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0)
+					        for _,enemy in pairs(enemies) do
+					        	ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })	
+					            Filters:ApplyStun(caster, 1, enemy)
+					            --ability:ApplyDataDrivenModifier(caster, targetUnit, "modifier_stun_explosion", {})
+					        end
+						end)
+					end)
+				end
+			end)
+		end
+	end
+end
+
+function frost_titan_slam_cast(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local damage = event.damage
+	EmitSoundOn("Winterblight.IceTitan.WindUp", caster)
+	StartAnimation(caster, {duration=1.6, activity=ACT_DOTA_SPAWN, rate=0.9})
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_barnacle_ground_slam", {duration = 1.2})
+	local direction = ((target:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	CustomAbilities:QuickAttachParticle("particles/act_2/siltbreaker_beam_channel.vpcf", caster, 0.6)
+	for i = 1, 2+GameState:GetDifficultyFactor(), 1 do
+		Timers:CreateTimer(0.6*i, function()
+			local position = caster:GetAbsOrigin() + direction*600*(i-1) + direction*300
+			local radius = 800
+			local splitEarthParticle = "particles/roshpit/winterblight/frost_colossus_slam.vpcf"
+			local pfx = ParticleManager:CreateParticle( splitEarthParticle, PATTACH_CUSTOMORIGIN, caster )
+			ParticleManager:SetParticleControl( pfx, 0, position )
+			ParticleManager:SetParticleControl( pfx, 1, Vector(radius, radius, radius) )
+			EmitSoundOn("Winterblight.ChillingColossus.Slam", caster)
+			ScreenShake(position, 130, 0.9, 0.9, 9000, 0, true)
+			-- FindClearSpaceForUnit(caster, position, false)
+			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+			if #enemies > 0 then
+				for _,enemy in pairs(enemies) do
+					ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
+					enemy:AddNewModifier(caster, event.ability, "modifier_stunned", {duration = 1.5})
+				end
+			end
+			local pfx2 = ParticleManager:CreateParticle( "particles/roshpit/seafortress/big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster )
+			ParticleManager:SetParticleControl(pfx2, 0, position)
+			ParticleManager:SetParticleControl(pfx2, 5, Vector(0.7, 0.75, 0.9))
+			ParticleManager:SetParticleControl(pfx2, 2, Vector(0.2,0.2,0.2))
+			Timers:CreateTimer(10, function() 
+			  ParticleManager:DestroyParticle( pfx, false )
+			  ParticleManager:DestroyParticle( pfx, false )
+			  ParticleManager:DestroyParticle( pfx2, false )
+			  ParticleManager:ReleaseParticleIndex(pfx2)
+			end)
+			ScreenShake(position, 300, 0.5, 0.5, 9000, 0, true) 
+		end)
+    end
+end
+
+function frost_titan_happening(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not caster:IsAlive() then
+		return false
+	end
+	StartAnimation(caster, {duration=1.6, activity=ACT_DOTA_OVERRIDE_ABILITY_4, rate=0.9})
+	EmitSoundOn("Winterblight.IceTitan.YellGod", caster)
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.FrostTitan.GodsStrength", caster)
+	Events:ColorWearablesAndBase(caster, Vector(220, 90, 110))
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_titan_gods_strength", {duration = 6})
+	local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/frost_titan_god_start.vpcf", caster, 4)
+	ParticleManager:SetParticleControl(pfx, 1, Vector(600, 600, 600))
+	local waves = GameState:GetDifficultyFactor() + 4
+	for i = 1, waves, 1 do
+		local fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi*i/waves)
+		local info = 
+		{
+				Ability = ability,
+	        	EffectName = "particles/roshpit/redfall_bigwave.vpcf",
+	        	vSpawnOrigin = caster:GetAbsOrigin(),
+	        	fDistance = 600+GameState:GetDifficultyFactor()*300,
+	        	fStartRadius = 240,
+	        	fEndRadius = 240,
+	        	Source = caster,
+	        	StartPosition = "attach_origin",
+	        	bHasFrontalCone = false,
+	        	bReplaceExisting = false,
+	        	iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+	        	iUnitTargetFlags = 0,
+	        	iUnitTargetType = DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC,
+	        	fExpireTime = GameRules:GetGameTime() + 5.0,
+			bDeleteOnHit = false,
+			vVelocity = fv * 1000,
+			bProvidesVision = false,
+		}
+		projectile = ProjectileManager:CreateLinearProjectile(info)
+	end
+end
+
+function frost_god_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	Events:ColorWearablesAndBase(caster, Vector(200, 210, 255))
+end
+
+function titan_wave_hit(event)
+	local caster = event.caster
+	local ability = event.ability
+	local damage = event.damage
+	local target = event.target
+	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
+	Filters:ApplyStun(caster, 1.0, target)	
+	EmitSoundOn("Winterblight.IceTitan.WaveImpact", target)
+end
+
+function azlea_orb_master_thinking(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not caster.interval then
+		caster.interval = 0
+	end
+
+
+	for i = 1, #Winterblight.StatuesTable, 1 do
+		local statue = Winterblight.StatuesTable[i]
+		statue.position = statue.position+Vector(0,0,3)*math.cos(2*math.pi*caster.interval/240)
+		statue.prop:SetAbsOrigin(statue.position)
+	end
+	caster.interval = caster.interval + 1
+	if caster.interval == 240 then
+		caster.interval = 0 
+	end
+end
+
+function dimension_spear_impact(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local duration = event.duration
+	for i = 0, 7, 1 do
+		local target_ability = target:GetAbilityByIndex(i)
+		if target_ability then
+			if target_ability:GetCooldownTimeRemaining() > 0 then
+				local cd = math.min(target_ability:GetCooldownTimeRemaining() + duration, 60)
+				target_ability:EndCooldown()
+				target_ability:StartCooldown(cd)
+			end
+		end
+	end
+end
+
+function frost_dragon_breath_start(event)
+	local caster = event.caster
+	local ability = event.ability
+	local position = event.target_points[1]
+	local fv = ((position - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	StartAnimation(caster, {duration=1.1, activity=ACT_DOTA_CAST_ABILITY_2, rate=0.9})
+	local info = 
+	{
+			Ability = ability,
+        	EffectName = "particles/items/cannon/breath_of_ice.vpcf",
+        	vSpawnOrigin = caster:GetAbsOrigin()+Vector(0,0,50)+fv*120,
+        	fDistance = 550+GameState:GetDifficultyFactor()*150,
+        	fStartRadius = 150,
+        	fEndRadius = 300,
+        	Source = caster,
+        	StartPosition = "attach_attack1",
+        	bHasFrontalCone = true,
+        	bReplaceExisting = false,
+        	iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+        	iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+        	iUnitTargetType = DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC,
+        	fExpireTime = GameRules:GetGameTime() + 5.0,
+		bDeleteOnHit = false,
+		vVelocity = fv * 1000,
+		bProvidesVision = false,
+	}
+	projectile = ProjectileManager:CreateLinearProjectile(info)
+	if caster:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+		Timers:CreateTimer(1.2, function()
+			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 840+GameState:GetDifficultyFactor()*500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
+			if #enemies > 0 then
+				local sumVector = Vector(0,0)
+				for i = 1, #enemies, 1 do
+					sumVector = sumVector + enemies[i]:GetAbsOrigin()
+				end
+				local avgVector = sumVector/#enemies
+				local runDirection = ((caster:GetAbsOrigin() - avgVector)*Vector(1,1,0)):Normalized()
+				caster:MoveToPosition(caster:GetAbsOrigin()+runDirection*580)
+			end
+		end)
+	end
+end
+
+function frost_dragon_breath_hit(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	if target:IsHero() then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_frost_breath_for_hero", {duration = 6})
+	end
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_frost_breath_effect", {duration = 6})
 end

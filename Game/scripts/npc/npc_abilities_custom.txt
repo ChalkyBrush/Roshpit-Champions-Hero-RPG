@@ -34305,7 +34305,7 @@
 			"RunScript"
 			{
         		"ScriptFile"	"heroes/antimage/machinal_jump"
-        		"Function"		"jump_start"
+        		"Function"		"arkimus_jump_start"
         		"Target"		"POINT"
 			}
 		}
@@ -34323,7 +34323,7 @@
 					"RunScript"
 					{
 						"ScriptFile"	"heroes/antimage/machinal_jump"
-						"Function"		"jump_think"
+						"Function"		"arkimus_jump_think"
 					}
 				}
 				"States"
@@ -35759,7 +35759,7 @@
 			"RunScript"
 			{
         		"ScriptFile"	"heroes/monkey_king/monkey_jump"
-        		"Function"		"jump_start"
+        		"Function"		"monkey_jump_start"
         		"Target"		"POINT"
 			}
 		}
@@ -36800,7 +36800,7 @@
 			"RunScript"
 			{
 				"ScriptFile"	"heroes/slark/jump.lua"
-				"Function"		"jump_start"
+				"Function"		"slipfinn_jump_start"
 			}
 		}
 		"Modifiers"
@@ -36863,7 +36863,7 @@
 					"RunScript"
 					{
 						"ScriptFile"	"heroes/slark/jump.lua"
-						"Function"		"jump_think"
+						"Function"		"slipfinn_jump_think"
 					}
 				}
 			}
@@ -72623,7 +72623,7 @@
 			"RunScript"
 			{
         		"ScriptFile"	"heroes/monkey_king/year_beast"
-        		"Function"		"jump_start"
+        		"Function"		"yb_jump_start"
         		"Target"		"POINT"
 			}
 		}
@@ -109570,7 +109570,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"max_damage"				"2.0 1.0 0.5"
+				"max_damage"				"3.5 1.0 0.5"
 			}
 		}
 		"Modifiers"
@@ -118698,6 +118698,20 @@
 					}
 				}
 			}
+			"modifier_disable_player"
+			{
+				"IsHidden"	"1"
+				"EffectName"	"particles/items_fx/courier_shield_b.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 		}
 	}
 
@@ -119966,7 +119980,7 @@
 			"RunScript"
 			{
         		"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
-        		"Function"		"jump_start"
+        		"Function"		"wb_bandit_jump_start"
         		"Target"		"POINT"
 			}
 		}
@@ -121807,6 +121821,784 @@
 				"EffectName"	"particles/roshpit/winterblight/luna_shield.vpcf"
 				"EffectAttachType"	"attach_hitloc"
 				"IsHidden"	"0"
+			}
+		}
+	}
+
+   	"winterblight_azalea_sorc_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"tidehunter_kraken_shell"
+		"AOERadius"				"1000"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"as_per_stack"			"2 10 20"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"range_per_stack"			"3 8 15"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_sorc_passive"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"IsHidden"		"1"
+				"IsBuff"		"1"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"sorc_passive_attack_land"
+					}
+				}
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"azalea_sorc_think"
+					}
+				}
+			}
+			"modifier_azalea_buff"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%as_per_stack"
+				    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "%range_per_stack"
+				}
+			}
+			"modifier_trickster_dashing"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-700"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+
+	}
+
+	"ice_spectre_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"centaur_return"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"mana_burn"			"8 1000 8000"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ice_specter_passive"
+			{
+				"IsHidden" "1"
+				"Passive"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_dire.vpcf"
+				"StatusEffectPriority"  "100"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"ice_specter_attack_land"
+						"mana_burn"		"%mana_burn"
+					}
+				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"ice_specter_die"
+						"mana_burn"		"%mana_burn"
+					}
+				}
+			}
+		}
+	}
+
+
+   	"winterblight_frost_elemental_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"tidehunter_kraken_shell"
+		"AOERadius"				"1000"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"as_loss"			"-40 -180 -360"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_loss"			"-80 -180 -320"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"360 480 600"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_chill_attack_passive"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"IsHidden"		"1"
+				"IsBuff"		"1"
+				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_dire.vpcf"
+				"StatusEffectPriority"  "100"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnAttackLanded"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_winterblight_chilled"
+						"Target" 		"TARGET"
+						"Duration"		"2.5"
+					}
+				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"frost_elemental_die"
+						"radius"		"%radius"
+					}
+				}
+			}
+			"modifier_winterblight_chilled"
+			{
+				"IsDebuff"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
+				"StatusEffectPriority"  "20"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%as_loss"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_loss"
+				}
+			}
+		}
+
+	}
+
+	"ice_hulk_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"centaur_return"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"5000 250000 1500000"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ice_specter_passive"
+			{
+				"IsHidden" "1"
+				"Passive"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_dire.vpcf"
+				"StatusEffectPriority"  "100"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"ice_hulk_attack_land"
+						"damage"		"%damage"
+					}
+				}
+			}
+			"modifier_winterblight_chilled"
+			{
+				"IsDebuff"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
+				"StatusEffectPriority"  "20"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%as_loss"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_loss"
+				}
+			}
+		}
+	}
+
+	"winterblight_curse_of_azalea"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlag"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"slardar/grasping_bludgeon/slardar_slithereen_crush"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"800 1000 1200"
+		"AbilityCastPoint"				"0.4"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"9"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"50 500 5000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"duration"			"2 4 8"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"TrackingProjectile"
+			{
+				"Target"           	"TARGET"
+				"EffectName"		"particles/roshpit/winterblight/curse_of_azalea_projectile_poison_touch.vpcf"
+				"Dodgeable"			"1"
+				"ProvidesVision"	"0"
+				"VisionRadius"		"0"
+				"MoveSpeed"        	"1500"
+				"SourceAttachment"	"DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Winterblight.Priest.CurseProjectile"
+				"Target" 		"CASTER"
+			}
+
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_curse_of_azalea"
+				"Target" 		"TARGET"
+				"Duration"		"4"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_priest_of_azalea_passive"
+			{
+				"ThinkInterval"		"0.6"
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"azalea_priest_think"
+					}
+				}
+			}
+			"modifier_curse_of_azalea"
+			{
+				"IsDebuff"	"1"
+				"EffectName"	"particles/roshpit/winterblight/frostbite.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"curse_of_azalea_think"
+						"target"		"TARGET"
+						"damage"		"%damage"
+					}
+				}
+				"OnAbilityExecuted"
+				// Any ability (including items) was used by the unit with this modifier.
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"curse_of_azalea_pop"
+						"target"		"TARGET"
+						"duration"		"%duration"
+					}
+				}
+			}
+			"modifier_curse_of_azalea_effect"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	"winterblight_attackable_unit"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"rubick_empty1"
+		"MaxLevel"	"3"
+		"Modifiers"
+		{
+			"modifier_attackable_unit_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAttacked"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"attackable_unit_hit"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+
+			}
+			"modifier_icy_appearance"
+			{
+				"IsHidden"	"1"
+				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_dire.vpcf"
+				"StatusEffectPriority"  "100"
+				"Attributes"			"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_sword_falling"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"sword_falling_think"
+					}
+				}
+			}
+			"modifier_sword_lifting"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"sword_lifting_think"
+					}
+				}
+			}
+			"modifier_attackable_unit_no_more_attacks"
+			{
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+
+		}
+
+	}
+
+	"frost_titan_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"centaur_return"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"as_bonus"				"100 250 450"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_bonus"				"20 180 400"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"base_regen"				"3 6 12"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"				"500 10000 175000"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+				"Function"		"titan_wave_hit"
+				"damage"		"%damage"
+				"target"		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_frost_titan_passive"
+			{
+				"IsHidden" "1"
+				"Passive"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_dire.vpcf"
+				"StatusEffectPriority"  "100"
+				"ThinkInterval"  "12"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"frost_titan_happening"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%base_regen"
+				}
+			}
+			"modifier_disable_player"
+			{
+				"IsHidden" "1"
+				"Passive"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_titan_gods_strength"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%as_bonus"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_bonus" 
+				    "MODIFIER_PROPERTY_DISABLE_HEALING"				"1"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"frost_god_end"
+					}
+				}
+			}
+		}
+	}
+
+	"frost_titan_ice_blast"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlag"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"leshrac_split_earth"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1500 2000 2500"
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"9 7 5"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"2500 50000 1000000"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+				"Function"		"frost_titan_slam_cast"
+				"target"		"TARGET"
+				"damage"		"%damage"
+			}
+
+		}
+		"Modifiers"
+		{
+			"modifier_barnacle_ground_slam"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"   "MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+
+	}
+
+	"winterblight_orb_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"centaur_return"
+		"MaxLevel"	"3"
+		"Modifiers"
+		{
+			"modifier_azalea_orb_master"
+			{
+				"IsHidden" "1"
+				"Passive"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"azlea_orb_master_thinking"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_dimension_spear"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"centaur_return"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"0 0.1 0.3"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_dimension_spear_passive"
+			{
+				"IsHidden" "1"
+				"Passive"	"1"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"dimension_spear_impact"
+						"duration"		"%duration"
+					}
+				}
+			}
+		}
+	}
+
+
+	"frost_dragon_breath"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"arkimus/arkimus_orbital_leap"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityCastRange"				"2500"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		"precache"
+		{
+
+		}
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"7.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"as_slow"			"-40 -140 -260"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_slow"			"-40 -120 -280"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"health_regen_percent"			"-0.3 -1 -5"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Winterblight.Whelp.IceBreath"
+				"Target" 		"CASTER"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+        		"Function"		"frost_dragon_breath_start"
+        		"Target"		"POINT"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+				"Function"		"frost_dragon_breath_hit"
+				"target"		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_frost_breath_effect"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"EffectName"	"particles/roshpit/winterblight/frostbite.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%as_loss"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_slow" 
+				}				
+			}
+			"modifier_frost_breath_for_hero"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%health_regen_percent"
+				}
 			}
 		}
 	}
@@ -126889,7 +127681,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"10000 80000 400000"
+		"AbilityDamage"					"2000 20000 400000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------

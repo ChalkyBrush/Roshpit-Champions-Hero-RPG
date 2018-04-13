@@ -582,6 +582,8 @@ function WallPhysics:UnitLand(unit)
 				ParticleManager:DestroyParticle(pfx, false)
 			end)				
 			EmitSoundOn("Winterblight.Crab.Land", caster)
+		else
+			CustomAbilities:JumpEnd(caster)
 		end
 	end
 end
@@ -614,4 +616,13 @@ function WallPhysics:MoveWithBlocking(startPosition, newPosition, caster)
 	if not blockUnit then
 		caster:SetOrigin(newPosition)
 	end
+end
+
+function WallPhysics:ShuffleTable(tbl)
+  size = #tbl
+  for i = size, 1, -1 do
+    local rand = math.random(size)
+    tbl[i], tbl[rand] = tbl[rand], tbl[i]
+  end
+  return tbl
 end

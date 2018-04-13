@@ -130,7 +130,7 @@ function possession_moving_towards_think(event)
 		if event.ability then
 			EndAnimation(caster)
 			Timers:CreateTimer(0.03, function()
-				jump_start(event)
+				slipfinn_jump_start(event)
 			end)
 		end
 		local pfx = ParticleManager:CreateParticle("particles/roshpit/slipfinn/possession_start_choslam_start.vpcf", PATTACH_CUSTOMORIGIN, nil )

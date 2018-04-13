@@ -118,8 +118,8 @@ function rend_start(event)
 		Timers:CreateTimer(4, function() 
 		  ParticleManager:DestroyParticle( pfx, false )
 		end)
-		local element1 = RPC_ELEMENT_NATURE
-		local element2 = RPC_ELEMENT_NONE
+		element1 = RPC_ELEMENT_NATURE
+		element2 = RPC_ELEMENT_NONE
 		local endFV = caster:GetForwardVector()
 		local range = 1200
 		EmitSoundOn("Draghor.RendRange", caster)

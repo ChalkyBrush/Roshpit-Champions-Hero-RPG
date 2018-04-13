@@ -1,4 +1,4 @@
-function jump_start(event)
+function arkimus_jump_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	ability.targetPoint = event.target_points[1]
@@ -8,9 +8,9 @@ function jump_start(event)
 	ability.liftVelocity = 20
 	local heightDiff = caster:GetAbsOrigin().z - ability.targetPoint.z
 	if heightDiff > 300 then
-		heightDiff = 300
+		heightDiff = 200
 	elseif heightDiff < -300 then
-		heightDiff = -300
+		heightDiff = -200
 	end
 	ability.liftVelocity = ability.liftVelocity - heightDiff/20
 	ability.rising = true
@@ -41,7 +41,7 @@ function jump_start(event)
 	ability.c_c_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
 end
 
-function jump_think(event)
+function arkimus_jump_think(event)
 	local caster = event.caster
 	local ability = event.ability
 

@@ -27746,7 +27746,7 @@
 			"RunScript"
 			{
         		"ScriptFile"	"heroes/antimage/machinal_jump"
-        		"Function"		"jump_start"
+        		"Function"		"arkimus_jump_start"
         		"Target"		"POINT"
 			}
 		}
@@ -27764,7 +27764,7 @@
 					"RunScript"
 					{
 						"ScriptFile"	"heroes/antimage/machinal_jump"
-						"Function"		"jump_think"
+						"Function"		"arkimus_jump_think"
 					}
 				}
 				"States"
@@ -29200,7 +29200,7 @@
 			"RunScript"
 			{
         		"ScriptFile"	"heroes/monkey_king/monkey_jump"
-        		"Function"		"jump_start"
+        		"Function"		"monkey_jump_start"
         		"Target"		"POINT"
 			}
 		}
@@ -90893,7 +90893,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"max_damage"				"2.0 1.0 0.5"
+				"max_damage"				"3.5 1.0 0.5"
 			}
 		}
 		"Modifiers"
@@ -104793,7 +104793,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"10000 80000 400000"
+		"AbilityDamage"					"2000 20000 400000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------

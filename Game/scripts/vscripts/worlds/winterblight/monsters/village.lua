@@ -1,5 +1,14 @@
 function winterblight_unit_die(event)
 	local unit = event.unit
+	if unit.deathCode == 1 then
+		if not Winterblight.TitansSlain then
+			Winterblight.TitansSlain = 0
+		end
+		Winterblight.TitansSlain = Winterblight.TitansSlain + 1
+		if Winterblight.TitansSlain == 3 then
+			Winterblight:StartOrbSequence()
+		end
+	end
 end
 
 function snowball_kid_preattack(event)
