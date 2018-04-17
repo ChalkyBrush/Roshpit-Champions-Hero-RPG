@@ -11,9 +11,13 @@ create folder anywhere on computer called Roshpit Champions Root. In this folder
 in command line, change directory to your Roshpit Champions Root folder and type the following commands:
 
 mklink /j "Game" "C:\Program Files\Steam\steamapps\common\dota 2 beta\game\dota_addons\roshpit_champions"
+
 mklink /j "Content" "C:\Program Files\Steam\steamapps\common\dota 2 beta\content\dota_addons\roshpit_champions"
+
 git init
-git clone Roshpit Champions Hero Rpg repository
+
+git clone Roshpit-Champions-Hero-RPG
+
 
 
 now create your branch (git checkout my-unique-branch)
