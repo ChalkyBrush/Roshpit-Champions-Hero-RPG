@@ -6,9 +6,9 @@ C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\game\dota_addons\roshp
 AND
 C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\content\dota_addons\roshpit_champions
 
-create folder anywhere on computer call Roshpit Champions Root
+create folder anywhere on computer called Roshpit Champions Root. In this folder create a folder called Game and another folder called Content
 
-in command line do the following commands:
+in command line, change directory to your Roshpit Champions Root folder and type the following commands:
 
 mklink /j "Game" "C:\Program Files\Steam\steamapps\common\dota 2 beta\game\dota_addons\roshpit_champions"
 mklink /j "Content" "C:\Program Files\Steam\steamapps\common\dota 2 beta\content\dota_addons\roshpit_champions"
@@ -16,6 +16,6 @@ git init
 git clone Roshpit Champions Hero Rpg repository
 
 
-now create your branch
+now create your branch (git checkout my-unique-branch)
 
 you will want to unpack the Roshpit Champions VPK downloaded from Dota and put all contents into "C:\Program Files\Steam\steamapps\common\dota 2 beta\game\dota_addons\roshpit_champions"
