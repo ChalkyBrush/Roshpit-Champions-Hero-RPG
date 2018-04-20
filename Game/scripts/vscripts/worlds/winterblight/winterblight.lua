@@ -76,7 +76,11 @@ function Winterblight:Debug2()
  -- Winterblight:FinishCaveWaves()
  -- Winterblight:InitializeAzaleaSwords()
  AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(11123, -7145), 23000, 23000, false)
- Winterblight:StartOrbSequence()
+ -- Winterblight:StartOrbSequence()
+ Timers:CreateTimer(5, function()
+  -- Winterblight:EndOrbWaves()
+    Winterblight:OpenShrineOfAzalea()
+ end)
 end
 
 function Winterblight:CalculateHeroZones()
@@ -324,6 +328,31 @@ function Winterblight:Walls(bRaise, walls, bSound, movementZ)
           walls[j]:SetAbsOrigin(walls[j]:GetAbsOrigin()+Vector(0,0,movementZ))
           if j == 1 then
             ScreenShake(walls[j]:GetAbsOrigin(), 160, 0.1, 0.1, 9000, 0, true)
+          end
+        end)
+      end
+    end
+  end
+end
+
+function Winterblight:WallsTicks(bRaise, walls, bSound, movementZ, ticks)
+  if not bRaise then
+    movementZ = movementZ*-1
+  end
+  if #walls > 0 then
+    Timers:CreateTimer(0.1, function()
+      if bSound then
+        for i = 1, #walls, 1 do
+          EmitSoundOnLocationWithCaster(walls[i]:GetAbsOrigin(), "Winterblight.WallOpen", Events.GameMaster)
+        end
+      end
+    end)
+    for i = 1, ticks, 1 do
+      for j = 1, #walls, 1 do
+        Timers:CreateTimer(i*0.03, function()
+          walls[j]:SetAbsOrigin(walls[j]:GetAbsOrigin()+Vector(0,0,movementZ))
+          if j == 1 then
+            ScreenShake(walls[j]:GetAbsOrigin(), 160, 0.3, 0.3, 9000, 0, true)
           end
         end)
       end

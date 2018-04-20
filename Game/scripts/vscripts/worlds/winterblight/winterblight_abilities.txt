@@ -3970,3 +3970,311 @@
 			}
 		}
 	}
+
+	"winterblight_azalea_zealot_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AOERadius"			"1300 1600 1900"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"morphling_waveform"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"800 1000 1200"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_reduction"	"30 80 100"
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+				"Function"		"zealot_die"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_azalea_zealot_ai"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+						"Function"		"sea_god_attack_start"
+						"radius"		"%radius"
+					}
+				}
+				"ThinkInterval"  "7.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"zealot_teleport"
+					}
+				}
+			}
+			"modifier_zealot_ai_2"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "1.8"
+				"Passive"	"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"zealot_strafe"
+					}
+				}
+			}
+			"modifier_strafing"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"strafing_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"strafe_end"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_zealot_blast"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"arkimus/arkimus_orbital_leap"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"AbilityCastRange"				"2500"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityUnitTargetFlag"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+
+		// Precache
+		"precache"
+		{
+
+		}
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.6"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"8.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"cooldown_added"			"1 4 7"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"3000 50000 1000000"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Winterblight.AzaleanZealot.WaveCharge"
+				"Target" 		"CASTER"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+        		"Function"		"zealot_wave_start"
+        		"Target"		"POINT"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+				"Function"		"zealot_wave_hit"
+				"target"		"TARGET"
+				"cooldown"		"%cooldown_added"
+				"damage"		"%damage"
+			}
+		}
+		"Modifiers"
+		{
+
+		}
+	}
+
+	"winterblight_soulfire_storm"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"arkimus/arkimus_orbital_leap"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityCastRange"				"1000"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetFlag"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+
+		// Precache
+		"precache"
+		{
+
+		}
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"9.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"wave_damage"			"300 8000 45000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"burn_damage"			"40 400 4000"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Winterblight.ColdSeer.PreCast"
+				"Target" 		"CASTER"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+        		"Function"		"coldseer_wave_start"
+        		"Target"		"POINT"
+        		"damage"		"%wave_damage"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_cold_seer_wave_burn"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+			
+				"EffectName"		"particles/roshpit/winterblight/cold_seer_wave_burn.vpcf"
+				"EffectAttachType"	"follow_origin"
+			
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"wave_burn_think"
+						"damage"		"%burn_damage"
+						"target"		"TARGET"
+					}
+				}
+				"OnAbilityExecuted"
+				// Any ability (including items) was used by the unit with this modifier.
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"wave_burn_ability_executed"
+					}
+				}
+			}
+
+		}
+	}
+
+	"winterblight_speed_softening"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"centaur_return"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_threshold"			"300"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage_reduc"			"40 85 99.5"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_speed_softening"
+			{
+				"IsHidden" "1"
+				"Passive"	"1"
+			}
+		}
+	}
+

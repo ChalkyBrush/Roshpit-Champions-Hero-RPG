@@ -954,6 +954,26 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 			damage = damage * 0.7
 		end
 	end
+	if victim:HasModifier("modifier_azalea_zealot_ai") then
+		local ability = victim:FindAbilityByName("winterblight_azalea_zealot_passive")
+		local reduction = 1
+		if ability then
+			reduction = (100-ability:GetSpecialValueFor("damage_reduction"))/100
+		end
+		if damagetype == DAMAGE_TYPE_MAGICAL then
+			if victim.color == "green" then
+				damage = damage*reduction
+			end
+		elseif damagetype == DAMAGE_TYPE_PURE then
+			if victim.color == "red" then
+				damage = damage*reduction
+			end
+		elseif damagetype == DAMAGE_TYPE_PHYSICAL then
+			if victim.color == "blue" then
+				damage = damage*reduction
+			end
+		end
+	end
 	local decreaseAll = GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields)
 	return (damage/BASE_VALUE_FOR_CALCULATE)*decreaseAll
 end
@@ -1232,6 +1252,16 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		local reduction = passive:GetLevelSpecialValueFor("damage_reduc", passive:GetLevel())
 		reduction = (100-reduction)/100
 		damage = damage*reduction
+	end
+	if victim:HasModifier("modifier_speed_softening") then
+		local passive = victim:FindAbilityByName("winterblight_speed_softening")
+		local movespeed = caster:GetBaseMoveSpeed()
+		local actual_movespeed = caster:GetMoveSpeedModifier(movespeed)
+		if actual_movespeed >= 300 then
+			local reduction = passive:GetLevelSpecialValueFor("damage_reduc", passive:GetLevel())
+			reduction = (100-reduction)/100
+			damage = damage*reduction
+		end
 	end
 	return damage/BASE_VALUE_FOR_CALCULATE
 end

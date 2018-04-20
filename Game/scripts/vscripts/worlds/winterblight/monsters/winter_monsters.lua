@@ -1347,7 +1347,7 @@ function winterblight_wave_unit_die(event)
 			end
 		elseif Winterblight.AzaleaOrbWaveUnitsSlain == 166 then
 			Winterblight.OrbTable = WallPhysics:ShuffleTable(Winterblight.OrbTable)
-			local nameTable = {"winterblight_azalean_priest", "winterblight_frost_elemental", "winterblight_frost_avatar", "winterblight_azure_sorceress", "winterblight_rider_of_azalea", "winterblight_winterbear", "winterblight_mistral_assassin"}
+			local nameTable = {"winterblight_azalean_priest", "winterblight_frost_elemental", "winterblight_frost_avatar", "winterblight_azure_sorceress", "winterblight_rider_of_azalea", "winterblight_winterbear", "winterblight_mistral_assassin", "winterblight_azalea_archer"}
 			local name1 = nameTable[RandomInt(1, #nameTable)]
 			local name2 = nameTable[RandomInt(1, #nameTable)]
 			local name3 = nameTable[RandomInt(1, #nameTable)]
@@ -1383,7 +1383,7 @@ function winterblight_wave_unit_die(event)
 			end	
 		elseif Winterblight.AzaleaOrbWaveUnitsSlain == 256 then
 			Winterblight.OrbTable = WallPhysics:ShuffleTable(Winterblight.OrbTable)
-			local nameTable = {"winterblight_azalean_priest", "winterblight_frost_elemental", "winterblight_frost_avatar", "winterblight_azure_sorceress", "winterblight_rider_of_azalea", "winterblight_winterbear", "winterblight_mistral_assassin", "winterblight_frost_frigid_hulk"}
+			local nameTable = {"winterblight_azalean_priest", "winterblight_frost_elemental", "winterblight_frost_avatar", "winterblight_azure_sorceress", "winterblight_rider_of_azalea", "winterblight_winterbear", "winterblight_mistral_assassin", "winterblight_frost_frigid_hulk", "winterblight_azalea_archer"}
 			local name1 = nameTable[RandomInt(1, #nameTable)]
 			local name2 = nameTable[RandomInt(1, #nameTable)]
 			local name3 = nameTable[RandomInt(1, #nameTable)]
@@ -1944,4 +1944,215 @@ function frost_dragon_breath_hit(event)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_frost_breath_for_hero", {duration = 6})
 	end
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_frost_breath_effect", {duration = 6})
+end
+
+function zealot_die(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not Winterblight.ZealotsSlain then
+		Winterblight.ZealotsSlain = 0
+	end
+	Winterblight.ZealotsSlain = Winterblight.ZealotsSlain + 1
+	if Winterblight.ZealotsSlain < 3 then
+		Timers:CreateTimer(1.5, function()
+			Winterblight:StatueSlotStart(Winterblight.ZealotsSlain + 1)
+		end)
+	elseif Winterblight.ZealotsSlain == 3 then
+		Winterblight:OpenShrineOfAzalea()
+	end
+	EmitSoundOn("Winterblight.AzaleanZealot.Die", caster)
+end
+
+function zealot_teleport(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not caster.aggro then
+		return false
+	end
+
+	local particleName = "particles/econ/events/winter_major_2017/blink_dagger_start_wm07.vpcf"
+	local pfx1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(pfx1, 0, caster:GetAbsOrigin())
+	if caster.jump_stop then
+		return false
+	end
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1200+GameState:GetDifficultyFactor()*500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+    if #enemies > 0 then
+    	CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/frost_titan_god_start.vpcf", caster:GetAbsOrigin(), 3)
+    	EmitSoundOn("Winterblight.IceBlink", caster)
+	    local target = enemies[1]:GetAbsOrigin() + RandomVector(RandomInt(240, 1200))
+	    local casterOrigin = caster:GetAbsOrigin()
+	    target = WallPhysics:WallSearch(casterOrigin, target, caster)
+	    -- local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_undying/undying_loadout.vpcf", PATTACH_ABSORIGIN, event.caster )
+	    --     ParticleManager:SetParticleControl( pfx, 0, position )
+	    local newPosition = target
+	    FindClearSpaceForUnit(caster, newPosition, false)
+		local pfx2 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+		ParticleManager:SetParticleControl(pfx2, 0, newPosition)
+		Timers:CreateTimer(4, function()
+			ParticleManager:DestroyParticle(pfx1, false)
+			ParticleManager:DestroyParticle(pfx2, false)
+		end)
+		CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/frost_titan_god_start.vpcf", caster:GetAbsOrigin(), 3)
+		StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_TELEPORT_END, rate=1.1})
+		caster:AddNewModifier(caster, nil, "modifier_animation_translate", {translate="run"})
+	end
+end
+
+function zealot_strafe(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not caster.aggro then
+		return false
+	end
+	if caster.jump_stop then
+		return false
+	end
+	if caster:HasModifier("modifier_strafing") then
+		return false
+	end
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1200+GameState:GetDifficultyFactor()*500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
+    if #enemies > 0 then
+    	EmitSoundOn("Winterblight.AzaleanZealot.Strafe", caster)
+	    local directon = ((enemies[1]:GetAbsOrigin() - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	    ability.strafe_direction = WallPhysics:rotateVector(directon, 2*math.pi/4)
+	    ability.strafe_speed = 30
+	    ability:ApplyDataDrivenModifier(caster, caster, "modifier_strafing", {duration = 1})
+	    StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_SPAWN, rate=1.1})
+	    caster:AddNewModifier(caster, nil, "modifier_animation_translate", {translate="run"})
+	end	
+end
+
+function strafing_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	ability.strafe_speed = math.max(ability.strafe_speed - 0.2, 15)
+	local speed = ability.strafe_speed
+	local blockSearch = caster:GetAbsOrigin()*Vector(1,1,0)+Vector(0,0,GetGroundHeight(caster:GetAbsOrigin(), caster))
+    local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
+    local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch+speed*ability.strafe_direction), caster)
+	if blockUnit then
+		speed = 0
+	end
+	caster:SetAbsOrigin(caster:GetAbsOrigin()+speed*ability.strafe_direction)
+end
+
+function strafe_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	Timers:CreateTimer(0.03, function()
+		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+	end)
+end
+
+function zealot_wave_start(event)
+	local caster = event.caster
+	local ability = event.ability
+	local position = event.target_points[1]
+	local blasts = GameState:GetDifficultyFactor()
+	local fv = ((position - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	EmitSoundOn("Winterblight.AzaleanZealot.WaveBlast", caster)
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.AzaleanZealot.BlastAbility", caster)
+	caster.jump_stop = true
+	Timers:CreateTimer(1, function()
+		caster.jump_stop = false
+	end)
+	for i = -blasts, blasts, 1 do
+		local blastFV = WallPhysics:rotateVector(fv, 2*math.pi*i/(20+blasts))
+		local info = 
+		{
+				Ability = ability,
+	        	EffectName =  "particles/roshpit/winterblight/zealot_wave.vpcf",
+	        	vSpawnOrigin = caster:GetAbsOrigin()+Vector(0,0,50)+fv*120,
+	        	fDistance = 1500,
+	        	fStartRadius = 300,
+	        	fEndRadius = 500,
+	        	Source = caster,
+	        	StartPosition = "attach_attack1",
+	        	bHasFrontalCone = true,
+	        	bReplaceExisting = false,
+	        	iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+	        	iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+	        	iUnitTargetType = DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC,
+	        	fExpireTime = GameRules:GetGameTime() + 5.0,
+			bDeleteOnHit = false,
+			vVelocity = blastFV * 1200,
+			bProvidesVision = false
+		}
+		projectile = ProjectileManager:CreateLinearProjectile(info)
+	end
+end
+
+function zealot_wave_hit(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local duration = event.cooldown
+	local damage = event.damage
+	for i = 0, 7, 1 do
+		local target_ability = target:GetAbilityByIndex(i)
+		if target_ability then
+			local cd = math.min(target_ability:GetCooldownTimeRemaining() + duration, 60)
+			target_ability:EndCooldown()
+			target_ability:StartCooldown(cd)
+		end
+	end
+end
+
+function coldseer_wave_start(event)
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.target_points[1]
+	local damage = event.damage
+	EmitSoundOnLocationWithCaster(target, "Winterblight.ColdSeer.WaveFall", Events.GameMaster)
+	for i = 0, 5, 1 do
+		Timers:CreateTimer(i*1, function()
+			local particlePosition = target + RandomVector(RandomInt(0, 120))
+			local pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight/cold_seer_icefall.vpcf", PATTACH_CUSTOMORIGIN, nil)
+			ParticleManager:SetParticleControl(pfx, 0, particlePosition)
+			ParticleManager:SetParticleControl(pfx, 4, Vector(280, 280, 280))
+			Timers:CreateTimer(3, function()
+				ParticleManager:DestroyParticle(pfx, false)
+			end)
+			Timers:CreateTimer(0.24, function()
+				-- EmitSoundOnLocationWithCaster(particlePosition, "MysticAssasin.Rockfall.Impact", caster)
+				local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
+				ParticleManager:SetParticleControl( particle1, 0, particlePosition )
+				Timers:CreateTimer(4, 
+				function()
+					ParticleManager:DestroyParticle( particle1, false )
+				end)
+				GridNav:DestroyTreesAroundPoint(particlePosition, 270, false)	
+				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), particlePosition, nil, 270, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+				if #enemies > 0 then
+					for _,enemy in pairs(enemies) do
+						ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
+						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_cold_seer_wave_burn", {duration = 8})
+					end
+				end 
+			end)
+		end)
+	end
+end
+
+function wave_burn_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local damage = event.damage
+	local target = event.target
+	local stacks = target:GetModifierStackCount("modifier_cold_seer_wave_burn", caster)
+	local damage = damage*stacks^2
+	ApplyDamage({ victim = enemy, attacker = Winterblight.Master, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
+end
+
+function wave_burn_ability_executed(event)
+	local unit = event.unit
+	local target = unit
+	local caster = event.caster
+	local ability = event.ability
+	local modifier = target:FindModifierByName("modifier_cold_seer_wave_burn")
+	local stacks = modifier:GetStackCount() + 1
+	modifier:SetStackCount(stacks)
+	modifier:SetDuration(8, true)
+	EmitSoundOn("Winterblight.ColdSeer.BurnTrigger", unit)
 end

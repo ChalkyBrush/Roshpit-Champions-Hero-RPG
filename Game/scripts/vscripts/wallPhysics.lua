@@ -626,3 +626,8 @@ function WallPhysics:ShuffleTable(tbl)
   end
   return tbl
 end
+
+function WallPhysics:normalized_2d_vector(startPos, endPos)
+	local vec = ((endPos - startPos)*Vector(1,1,0)):Normalized()
+	return vec
+end
