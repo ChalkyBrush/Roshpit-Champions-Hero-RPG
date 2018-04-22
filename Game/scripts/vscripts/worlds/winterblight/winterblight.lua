@@ -3,6 +3,7 @@ if Winterblight == nil then
 end
 
 require('worlds/winterblight/zones/starting_zone')
+require('worlds/winterblight/zones/shrine_of_azalea')
 
 function Winterblight:Debug()
     local item = CreateItem("item_debug_blink", nil, nil)

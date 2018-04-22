@@ -1,0 +1,2 @@
+function Winterblight:FirstShrineSpawn()
+end

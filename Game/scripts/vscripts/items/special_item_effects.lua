@@ -4077,7 +4077,14 @@ function blade_slinger_think(event)
 	local hero = target
 	if hero:IsAlive() then
 		local lookupPoint = hero:GetAbsOrigin() - hero:GetForwardVector()*120
-		local enemies = FindUnitsInRadius( hero:GetTeamNumber(), lookupPoint, nil, 280, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+		local enemies_initial = FindUnitsInRadius( hero:GetTeamNumber(), lookupPoint, nil, 280, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+		local enemies = {}
+		for i = 1, #enemies_initial, 1 do
+			local check_enemy = enemies_initial[i]
+			if not check_enemy:HasModifier("modifier_possession_enemy_lock") then
+				table.insert(enemies, check_enemy)
+			end
+		end
 		if #enemies > 0 then
 			local facingVector = ((enemies[1]:GetAbsOrigin()-hero:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 			local angle = WallPhysics:vectorToAngle(facingVector)

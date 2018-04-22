@@ -936,7 +936,6 @@ function Winterblight:FirstOutsideAzaleaPocketSpawn()
 	end
 	Winterblight.FirstAzaleaPocketSpawned = true
 	local luck = RandomInt(1, 3)
-	luck = 3
 	if luck == 1 then
 	    local positionTable = {Vector(4672, -7616), Vector(4864, -7762), Vector(5100, -7847)}
 	    for i = 1, #positionTable, 1 do
@@ -1146,7 +1145,6 @@ end
 
 function Winterblight:AzaleaMainSpawn()
 	local luck = RandomInt(1, 3)
-	luck = 3
 	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(11123, -7145), 23000, 23000, false)
 	if luck == 1 then
 		local count = 1
