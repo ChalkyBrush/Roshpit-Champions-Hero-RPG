@@ -398,6 +398,15 @@ function CustomAbilities:HitLunaShield(victim, attacker)
     end   
 end
 
+function CustomAbilities:HitWinterblightMaidenShield(victim, attacker)
+    local currentStacks = victim:GetModifierStackCount("modifier_maiden_armor", victim)
+    if currentStacks > 1 then
+        victim:SetModifierStackCount("modifier_maiden_armor", victim, currentStacks-1)
+    else
+        victim:RemoveModifierByName("modifier_maiden_armor")
+    end   
+end
+
 function CustomAbilities:HitVolcanoShield(victim, attacker)
     local currentStacks = victim:GetModifierStackCount("modifier_volcano_shield", victim.InventoryUnit)
     if currentStacks > 1 then

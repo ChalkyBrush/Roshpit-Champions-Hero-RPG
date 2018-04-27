@@ -71,6 +71,22 @@ function Winterblight:InitProps()
       Winterblight.CaveSpawnerInnerTable[i]:SetAbsOrigin(Winterblight.CaveSpawnerInnerTable[i]:GetAbsOrigin()-Vector(0,0,28))
     end
   end)
+  Timers:CreateTimer(2.5, function()
+    Winterblight.AzaleaBridge1 = Entities:FindByNameNearest("FirstAzaleaBridge", Vector(13073, -11560, 192+Winterblight.ZFLOAT), 2000)
+    Winterblight.AzaleaBridge1:SetAbsOrigin(Winterblight.AzaleaBridge1:GetAbsOrigin()-Vector(0,0,1500))
+    Winterblight.AzaleaSwitchMathProp = Entities:FindByNameNearest("AzaleaSwitchProp1", Vector(15733, -11789, 64+Winterblight.ZFLOAT), 2000)
+    Winterblight.AzaleaSwitchMathProp:SetAbsOrigin(Winterblight.AzaleaSwitchMathProp:GetAbsOrigin()+Vector(0,0,1500))
+  end)
+  Timers:CreateTimer(3.0, function()
+    Winterblight.AzaleaOperatorPlus = Entities:FindByNameNearest("operator_plus", Vector(15074, -9613, 496+Winterblight.ZFLOAT), 2000)
+    Winterblight.AzaleaOperatorPlus:SetAbsOrigin(Winterblight.AzaleaOperatorPlus:GetAbsOrigin()-Vector(0,0,1500))
+    Winterblight.AzaleaOperatorMinus = Entities:FindByNameNearest("operator_minus", Vector(15074, -9613, 496+Winterblight.ZFLOAT), 2000)
+    Winterblight.AzaleaOperatorMinus:SetAbsOrigin(Winterblight.AzaleaOperatorMinus:GetAbsOrigin()-Vector(0,0,1500))
+    Winterblight.AzaleaOperatorMult = Entities:FindByNameNearest("operator_mult", Vector(15074, -9613, 496+Winterblight.ZFLOAT), 2000)
+    Winterblight.AzaleaOperatorMult:SetAbsOrigin(Winterblight.AzaleaOperatorMult:GetAbsOrigin()-Vector(0,0,1500))
+    Winterblight.AzaleaOperatorDivide = Entities:FindByNameNearest("operator_divide", Vector(15074, -9613, 496+Winterblight.ZFLOAT), 2000)
+    Winterblight.AzaleaOperatorDivide:SetAbsOrigin(Winterblight.AzaleaOperatorDivide:GetAbsOrigin()-Vector(0,0,1500))
+  end)
 end
 
 function Winterblight:Debug2()
@@ -336,7 +352,7 @@ function Winterblight:Walls(bRaise, walls, bSound, movementZ)
   end
 end
 
-function Winterblight:WallsTicks(bRaise, walls, bSound, movementZ, ticks)
+function Winterblight:WallsTicks(bRaise, walls, bSound, movementZ, ticks, shakeForce)
   if not bRaise then
     movementZ = movementZ*-1
   end
@@ -353,7 +369,7 @@ function Winterblight:WallsTicks(bRaise, walls, bSound, movementZ, ticks)
         Timers:CreateTimer(i*0.03, function()
           walls[j]:SetAbsOrigin(walls[j]:GetAbsOrigin()+Vector(0,0,movementZ))
           if j == 1 then
-            ScreenShake(walls[j]:GetAbsOrigin(), 160, 0.3, 0.3, 9000, 0, true)
+            ScreenShake(walls[j]:GetAbsOrigin(), 160, shakeForce, shakeForce, 9000, 0, true)
           end
         end)
       end
@@ -391,3 +407,24 @@ function Winterblight:RotateObject(object, direction, speed, ticks, startAngle)
   end
 end
 
+function Winterblight:ActivateSwitchGeneric(buttonPosition, buttonName, bDown, ms)
+  local movementZ = ms
+  if bDown then
+    movementZ = -ms
+  end
+  local switch = Entities:FindByNameNearest(buttonName, buttonPosition, 600)
+  local walls = {switch}
+  Timers:CreateTimer(0.1, function()
+    EmitSoundOnLocationWithCaster(walls[1]:GetAbsOrigin(), "Winterblight.SwitchStart", Events.GameMaster)
+  end)
+  for i = 1, 60, 1 do
+    for j = 1, #walls, 1 do
+      Timers:CreateTimer(i*0.03, function()
+        walls[j]:SetAbsOrigin(walls[j]:GetAbsOrigin()+Vector(0,0,movementZ))
+      end)
+    end
+  end
+  Timers:CreateTimer(1.7, function()
+    EmitSoundOnLocationWithCaster(walls[1]:GetAbsOrigin(), "Winterblight.SwitchEnd", Events.GameMaster)
+  end)
+end

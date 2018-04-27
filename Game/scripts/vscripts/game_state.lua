@@ -974,6 +974,14 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 			end
 		end
 	end
+	if victim:HasModifier("modifier_maiden_armor") then
+		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
+			damage = damage*(1-victim:GetModifierStackCount("modifier_maiden_armor", victim)*0.01)
+			if shouldConsumeShields then
+				CustomAbilities:HitWinterblightMaidenShield(victim, attacker)
+			end
+		end
+	end
 	local decreaseAll = GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields)
 	return (damage/BASE_VALUE_FOR_CALCULATE)*decreaseAll
 end
@@ -2884,7 +2892,9 @@ function GameState:FilterDamage(filterTable)
 		end
 
 	end
-
+	if victim:HasModifier("modifier_zefnar_passive") then
+		filterTable["damage"] = Winterblight:ZefnarTakeDamage(victim, filterTable["damage"])
+	end
 	if victim:HasModifier("modifier_dummy_active") then
 		if attacker == Events.GameMaster then
 		else

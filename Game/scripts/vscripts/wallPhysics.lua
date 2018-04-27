@@ -631,3 +631,23 @@ function WallPhysics:normalized_2d_vector(startPos, endPos)
 	local vec = ((endPos - startPos)*Vector(1,1,0)):Normalized()
 	return vec
 end
+
+function WallPhysics:table_unique(tt)
+	local newtable
+	newtable = {}
+	for ii,xx in ipairs(tt) do
+		if(WallPhysics:table_count(newtable, xx) == 0) then
+			newtable[#newtable+1] = xx
+		end
+	end
+	return newtable
+end
+
+function WallPhysics:table_count(tt, item)
+	local count
+	count = 0
+	for ii,xx in pairs(tt) do
+		if item == xx then count = count + 1 end
+	end
+	return count
+end

@@ -1145,7 +1145,7 @@ end
 
 function Winterblight:AzaleaMainSpawn()
 	local luck = RandomInt(1, 3)
-	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(11123, -7145), 23000, 23000, false)
+	
 	if luck == 1 then
 		local count = 1
 		if GameState:GetDifficultyFactor() == 3 then
@@ -1946,11 +1946,12 @@ function Winterblight:OpenShrineOfAzalea()
 	Timers:CreateTimer(3, function()
 	    local walls = Entities:FindAllByNameWithin("AzaleaEntranceWall", Vector(11007, -9574, -4094+Winterblight.ZFLOAT), 2400)
 	    EmitSoundOnLocationWithCaster(Vector(11007,-9574), "Winterblight.WallOpen", Events.GameMaster)
-	    Winterblight:WallsTicks(false, walls, true, 5, 360)
+	    Winterblight:WallsTicks(false, walls, true, 5, 360, 0.3)
 	    Winterblight:RemoveBlockers(4, "AzaleaEntranceBlocker", Vector(11274, -9600, 300+Winterblight.ZFLOAT), 1400)
 	    Timers:CreateTimer(1, function()
 	    	EmitGlobalSound("Winterblight.OpenDungeon")
 	    end)
+	    Winterblight:FirstShrineSpawn()
 	end)
 end
 

@@ -2908,7 +2908,7 @@
     {
         "BaseClass" "npc_dota_creature"
         "Model" "models/heroes/spectre/spectre.vmdl"
-        "ModelScale"    "0.95"
+        "ModelScale"    "0.90"
         "Level" "1"
         "HealthBarOffset"   "140"
         "HasInventory"  "0"
@@ -4053,7 +4053,7 @@
         "BaseClass" "npc_dota_creature"
         "Model" "models/heroes/crystal_maiden/crystal_maiden.vmdl"
         "Level" "1"
-        "ModelScale"    "0.82"
+        "ModelScale"    "0.99"
         "UnitLabel" "healing_ward"
         "HealthBarOffset"   "220"
         "SoundSet"                  "hero_Crystal" 
@@ -4061,10 +4061,14 @@
         {
             "particle"  "particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
+            "particle"  "particles/roshpit/winterblight/tether_yellow.vpcf"
+            "particle"  "particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
+            "particle"  "particles/units/heroes/hero_wisp/wisp_tether_agh.vpcf"
+            "particle"  "particles/units/heroes/hero_wisp/wisp_death.vpcf"
         }
-        "Ability1"  ""
-        "Ability2"  ""
-        "Ability3"  ""
+        "Ability1"  "azalea_crystal_nova"
+        "Ability2"  "azalea_maiden_frostbite"
+        "Ability3"  "maiden_magic_shield"
         "Ability4"  "dungeon_creep"
         "Ability5"  ""
         "Ability6"  ""
@@ -4088,19 +4092,19 @@
         "AttributeAgilityGain"  "0"
         "ProjectileSpeed"           "1100"
         "ProjectileModel"           "particles/units/heroes/hero_crystalmaiden/maiden_base_attack.vpcf"
-        "BountyXP"  "0"
-        "BountyGoldMin" "0"
-        "BountyGoldMax" "0"
+        "BountyXP"  "800"
+        "BountyGoldMin" "60"
+        "BountyGoldMax" "70"
         "RingRadius"    "0"
         "HasInventory"  "0"
         "CollisionSize" "0"
         "BoundsHullName"    "DOTA_HULL_SIZE_SMALL"
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
-        "StatusHealth"  "50000"
+        "StatusHealth"  "150000"
         "StatusHealthRegen" "0"
         "MovementSpeed" "440"
         "MovementTurnRate"  "0.4"
-        "StatusMana"    "140000"
+        "StatusMana"    "10000"
         "StatusManaRegen"   "10000"
         "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
@@ -4131,6 +4135,117 @@
                 {
                     "ItemDef"   "41"
                 }
+                "Wearable5"
+                {
+                    "ItemDef"   "311"
+                }
             }
+        }
+    }
+
+    "winterblight_zefnar"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/doom/doom.vmdl"
+        "ModelScale"    "1.5"
+        "Level" "1"
+        "HealthBarOffset"   "240"
+        "HasInventory"  "0"
+        "SelectionGroup"    "doomguard"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"  "Hero_DoomBringer"
+        "precache"
+        {
+            "soundfile"     "soundevents/game_sounds_heroes/game_sounds_doombringer.vsndevt"
+            "particle"      "particles/units/heroes/hero_monkey_king/monkey_king_jump_stomp.vpcf"
+            "particle"      "particles/roshpit/winterblight/zefnar_hit.vpcf"
+            "particle"      "particles/roshpit/winterblight/zefnar_root_debuff.vpcf"
+            "particle"      "particles/roshpit/winterblight/zefnar_meteor_attack.vpcf"
+        }
+        "ArmorPhysical" "30"
+        "MagicalResistance" "25"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "8000"
+        "AttackDamageMax"   "9000"
+        "AttackRate"    "1.2"
+        "AttackAnimationPoint"  "0.5"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "240"
+        "BountyGoldMin" "200"
+        "BountyGoldMax" "500"
+        "BountyXP" "2400"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HUGE"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "370"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "50000"
+        "StatusHealthRegen" "0"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"      "zefnar_passive"
+        "Ability2"      "dungeon_creep"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+
+                "Wearable1"
+                {
+                    "ItemDef"   "232"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "6098"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "235"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "234"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "4722"
+                }
+                "Wearable6"
+                {
+                    "ItemDef"   "236"
+                }
+                "Wearable7"
+                {
+                    "ItemDef"   "6101"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+                "Ability1"                
+                {
+
+                }             
+            }
+
         }
     }

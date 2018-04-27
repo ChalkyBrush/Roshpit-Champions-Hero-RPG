@@ -1451,8 +1451,8 @@ end
 function task_armor_init(event)
 	local caster = event.caster
 	local ability = event.ability
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_task_armor", {})
-	caster:SetModifierStackCount("modifier_task_armor", caster, event.charges)
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_luna_armor", {})
+	caster:SetModifierStackCount("modifier_luna_armor", caster, event.charges)
 end
 
 function sorc_passive_attack_land(event)
@@ -1670,6 +1670,8 @@ function attackable_unit_hit(event)
 			EmitSoundOn("Winterblight.IceSword.BeginLift", caster)
 		end
 		EmitSoundOn("Winterblight.IceSword.Hit", caster)
+	elseif caster.prop_id == 1 then
+		Winterblight:AttackAzaleaCrystal(caster, true)
 	end
 end
 
