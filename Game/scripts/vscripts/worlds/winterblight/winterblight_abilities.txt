@@ -4620,3 +4620,93 @@
 			}
 		}
 	}
+
+	"winterblight_syphon"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"lion_mana_drain"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"regen_per_stack"			"0.1 0.3 0.8"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"lost_regen"			"-15 -10 -5"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"lost_regen_per_stack"			"-0.1 -0.3 -0.8"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_syphist_passive"
+			{
+				"IsHidden" "1"
+				"Passive"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName" 		"particles/status_fx/status_effect_ancestral_spirit.vpcf"
+				"StatusEffectPriority"  "80"
+				"OnTakeDamage"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_syphist_negative"
+						"Target" 		"CASTER"
+						"Duration"		"2"
+					}
+				}
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+						"Function"		"syphist_attack_land"
+					}
+				}
+			}
+			"modifier_syphist_regen"
+			{
+				"IsHidden"	"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"EffectName"	"particles/econ/items/elder_titan/elder_titan_ti7/elder_titan_ti7_ancestral_spirit_ambient_c.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%regen_per_stack"
+				}
+			}
+			"modifier_syphist_negative"
+			{
+				"IsDebuff"	"1"
+				"IsHidden"	"0"
+				"EffectName"	"particles/roshpit/winterblight/syphist_negative.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%lost_regen"
+				}
+			}
+			"modifier_syphist_regen_opponent"
+			{
+				"IsDebuff"	"1"
+				"IsHidden"	"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"EffectName"	"particles/roshpit/winterblight/syphist_negative.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%lost_regen_per_stack"
+				}
+			}
+		}
+	}

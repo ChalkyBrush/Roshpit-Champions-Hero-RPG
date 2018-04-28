@@ -33,6 +33,9 @@ function general_hero_think(event)
 		end
 
 	end
+	if GridNav:IsTraversable(target:GetAbsOrigin()) then
+		target.safePos = target:GetAbsOrigin()
+	end
 end
 
 function hero_aura_apply(event)

@@ -84,7 +84,7 @@ function jump_end(event)
 	local caster = event.caster
 	local ability = event.ability
 	Timers:CreateTimer(0.03, function()
-		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+		WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
 	end)
 	if ability.a_c_level > 0 then
 		local searchRadius = 300 + ability.a_c_level*2

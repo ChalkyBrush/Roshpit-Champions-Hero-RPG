@@ -398,7 +398,7 @@ end
 function jump_land(caster, ability)
 	print("LAND")
 	caster:RemoveModifierByName("modifier_slipfinn_basic_jump")
-	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+	WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
 	caster.max_slip_speed = MAX_SLIP_SPEED
 	ability.consecutive_bounces = 0
 	if caster:FindAbilityByName("slipfinn_shadow_rush"):IsInAbilityPhase() or caster:IsChanneling() then

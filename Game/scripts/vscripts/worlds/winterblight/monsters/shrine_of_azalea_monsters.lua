@@ -198,3 +198,39 @@ function zefnar_die(event)
 		end)
 	end
 end
+
+function syphist_attack_land(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	if target:IsHero() then
+		local selfRegen = caster:FindModifierByNameAndCaster("modifier_syphist_regen", caster)
+		local enemyRegen = target:FindModifierByNameAndCaster("modifier_syphist_regen_opponent", caster)
+		if not selfRegen then
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_syphist_regen", {duration = 4.5})
+		else
+			selfRegen:SetDuration(4.5, true)
+		end
+		if not enemyRegen then
+			EmitSoundOn("Winterblight.SyphistSteal", target)
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_syphist_regen_opponent", {duration = 4.5})
+			local beamPFX = ParticleManager:CreateParticle("particles/roshpit/ekkan/cast_beams_beams.vpcf", PATTACH_CUSTOMORIGIN, caster)
+			ParticleManager:SetParticleControl(beamPFX, 0, target:GetAbsOrigin())
+			ParticleManager:SetParticleControl(beamPFX, 1, caster:GetAbsOrigin())
+			Timers:CreateTimer(3, function()
+				ParticleManager:DestroyParticle(beamPFX, false)
+				ParticleManager:ReleaseParticleIndex(beamPFX)
+			end)
+		else
+			enemyRegen:SetDuration(4.5, true)
+		end
+		local selfRegen = caster:FindModifierByNameAndCaster("modifier_syphist_regen", caster)
+		local enemyRegen = target:FindModifierByNameAndCaster("modifier_syphist_regen_opponent", caster)
+		if enemyRegen then
+			enemyRegen:IncrementStackCount()
+		end
+		if selfRegen then
+			selfRegen:SetStackCount(enemyRegen:GetStackCount())
+		end
+	end
+end

@@ -20323,6 +20323,14 @@
 						"Function"		"flying_charons_think"
 					}
 				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/nightstalker/charons_claw.lua"
+						"Function"		"flying_charons_end"
+					}
+				}
 			}
 			"modifier_charons_claw_enemy"
 			{

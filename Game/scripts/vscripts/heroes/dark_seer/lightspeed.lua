@@ -71,6 +71,7 @@ function lightspeed_think(event)
 		local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPos, caster)
 		if blockUnit then
 			caster:SetAbsOrigin(caster:GetAbsOrigin()-caster:GetForwardVector()*80)
+			WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
 			caster:RemoveModifierByName("modifier_zonik_lightspeed_flying_portion")
 		end
 	end

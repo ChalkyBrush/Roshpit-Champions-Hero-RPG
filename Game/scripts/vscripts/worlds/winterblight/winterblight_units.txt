@@ -4249,3 +4249,90 @@
 
         }
     }
+
+    "winterblight_syphist"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/faceless_void/faceless_void.vmdl"
+        "ModelScale"    "0.9"
+        "Level" "1"
+        "HealthBarOffset"   "170"
+        "precache"
+        {
+            "particle"  "particles/econ/items/elder_titan/elder_titan_ti7/elder_titan_ti7_ancestral_spirit_ambient_c.vpcf"
+            "particle"  "particles/roshpit/winterblight/syphist_negative.vpcf"
+            "particle"  "particles/roshpit/ekkan/cast_beams_beams.vpcf"
+        }
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"                  "Hero_ArcWarden"
+        "ArmorPhysical" "12"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "3555"
+        "AttackDamageMax"   "4555"
+        "AttackRate"    "1.7"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "0"
+        "ProjectileSpeed"           "1400"
+        "ProjectileModel"           "particles/units/heroes/hero_arc_warden/arc_warden_base_attack.vpcf"
+        "AttackRange"   "550"
+        "BountyGoldMin" "600"
+        "BountyGoldMax" "800"
+        "BountyXP" "3400"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "400"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "900000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+            }
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "7377"
+                }
+
+                "Wearable2"
+                {
+                    "ItemDef"   "6282"
+                }
+
+                "Wearable3"
+                {
+                    "ItemDef"   "7378"
+                }
+
+            }
+        }
+        "Ability1"          "winterblight_syphon"
+        "Ability2"          "dungeon_creep"
+    }

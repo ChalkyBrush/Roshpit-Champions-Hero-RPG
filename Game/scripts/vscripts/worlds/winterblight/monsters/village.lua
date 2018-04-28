@@ -8,6 +8,8 @@ function winterblight_unit_die(event)
 		if Winterblight.TitansSlain == 3 then
 			Winterblight:StartOrbSequence()
 		end
+	elseif unit.deathCode == 2 then
+		Winterblight:AzaleaMathUnitDie(unit)
 	end
 end
 
@@ -27,6 +29,11 @@ end
 function ice_end(event)
 	local target = event.target
 	target.icePrevPosition = nil
+	Timers:CreateTimer(0.03, function()
+		if target:GetAbsOrigin().z - GetGroundHeight(target.safePos, target) < 5 then
+			FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
+		end
+	end)
 end
 
 function ice_think(event)

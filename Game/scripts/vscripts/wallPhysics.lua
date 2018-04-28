@@ -651,3 +651,11 @@ function WallPhysics:table_count(tt, item)
 	end
 	return count
 end
+
+function WallPhysics:ClearSpaceForUnit(unit, position)
+	if GridNav:IsTraversable(unit:GetAbsOrigin()) then
+		FindClearSpaceForUnit(unit, position, false)
+	else
+		FindClearSpaceForUnit(unit, unit.safePos, false)
+	end
+end

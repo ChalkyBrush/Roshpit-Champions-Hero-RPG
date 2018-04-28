@@ -75,6 +75,7 @@ function specter_rush_end(event)
 	local caster = event.caster
 	ability.slideVelocity = 30
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_specter_rush_sliding", {duration = 0.45})
+	WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
 end
 
 function charge_slide_think(event)

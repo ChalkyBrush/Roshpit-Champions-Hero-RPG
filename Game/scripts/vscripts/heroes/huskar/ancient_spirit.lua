@@ -141,13 +141,13 @@ function spirit_dashing_think(event)
 			local distance = WallPhysics:GetDistance(spiritOrigin*Vector(1,1,0), caster:GetAbsOrigin()*Vector(1,1,0))
 			if distance < 50 then
 				caster:RemoveModifierByName("modifier_spirit_dashing")
-				FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+				WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
 				reachSpirit(caster, ability, spirit:GetAbsOrigin())
 				removeSpirit(spirit, ability, caster)
 			end
 		else
 			caster:RemoveModifierByName("modifier_spirit_dashing")
-			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+			WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
 			reachSpirit(caster, ability, spirit:GetAbsOrigin())
 			removeSpirit(spirit, ability, caster)
 		end

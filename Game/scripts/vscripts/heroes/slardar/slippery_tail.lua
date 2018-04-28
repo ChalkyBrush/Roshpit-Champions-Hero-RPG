@@ -160,7 +160,7 @@ end
 function slippery_tail_jump_end(caster, ability)
 	EndAnimation(caster)
 	caster:RemoveModifierByName("modifier_slippery_tail_flying")
-	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+	WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_slippery_tail_sliding", {duration = 1.2})
 	ability.slideVelocity = 10
 	if ability.pfx then

@@ -98,7 +98,7 @@ end
 function spiral_end(event)
 	local caster = event.caster
 	local ability = event.ability
-	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+	WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
 	caster:SetForwardVector(ability.forwardVector*Vector(1,1,0))
 	EndAnimation(caster)
 	caster.EFV = nil

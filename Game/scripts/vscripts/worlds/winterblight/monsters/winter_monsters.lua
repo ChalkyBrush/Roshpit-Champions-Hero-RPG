@@ -1527,7 +1527,7 @@ function ice_specter_die(event)
 	local target = event.target
 	local mana_burn = event.mana_burn*10
 	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_invoker/invoker_emp.vpcf", PATTACH_CUSTOMORIGIN, nil)
-	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()+Vector(0,0,65))
 	ParticleManager:SetParticleControl(pfx, 1, Vector(380, 5, 380))
 	EmitSoundOn("Winterblight.IceSpecter.DeathStart", caster)
 	Timers:CreateTimer(0.75, function()

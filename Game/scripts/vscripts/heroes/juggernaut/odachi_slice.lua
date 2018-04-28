@@ -198,7 +198,7 @@ end
 function falling_end(event)
 	local caster = event.caster
 	local ability = event.ability
-	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+	WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
 	if ability.c_c_level > 0 then
 		switchToSpiral(caster, ability)	
 	end

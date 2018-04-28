@@ -81,7 +81,7 @@ function comet_storm_end(event)
 	local caster = event.caster
 	local ability = event.ability
 	local landPoint = GetGroundPosition(caster:GetAbsOrigin() + ability.fv*ability.forwardMovement, caster)
-	FindClearSpaceForUnit(caster, landPoint, false)
+	WallPhysics:ClearSpaceForUnit(caster, landPoint)
 	local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/paladin/arcana_comet_ground_impact.vpcf", landPoint+Vector(0,0,20), 5)
 	ParticleManager:SetParticleControl(pfx, 3, landPoint+Vector(0,0,20))
 	EmitSoundOn("Paladin.CometLandGround", caster)

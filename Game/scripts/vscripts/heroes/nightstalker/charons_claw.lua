@@ -181,7 +181,12 @@ function flying_charons_think(event)
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPos, caster)
 	if blockUnit then
 		caster:SetAbsOrigin(caster:GetAbsOrigin()-caster:GetForwardVector()*100)
+		WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
 		caster:RemoveModifierByName("modifier_charons_claw_flying_portion")
 	end
 end
 
+function flying_charons_end(event)
+	local caster = event.caster
+	WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
+end

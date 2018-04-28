@@ -193,7 +193,7 @@ function warlordLand(event)
 	ParticleManager:SetParticleControl( pfx, 0, position )
 	ParticleManager:SetParticleControl( pfx, 1, Vector(radius, radius, radius) )
 	EmitSoundOn("Hero_Leshrac.Split_Earth", caster)
-	FindClearSpaceForUnit(caster, position, false)
+	WallPhysics:ClearSpaceForUnit(caster, position)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius+5, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
@@ -247,7 +247,7 @@ function warlordLandFire(event)
       	Timers:CreateTimer(2, function()
       		ParticleManager:DestroyParticle(particle1, false)
       	end)
-	FindClearSpaceForUnit(caster, position, false)
+	WallPhysics:ClearSpaceForUnit(caster, position)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius+5, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
@@ -310,7 +310,7 @@ function iceSprintEnd(event)
 	if not caster:IsChanneling() then
 		caster:Stop()
 	end
-	FindClearSpaceForUnit(caster, position, false)
+	WallPhysics:ClearSpaceForUnit(caster, position)
 end
 
 function iceSprintBlast(caster, position, radius, damage, ability)

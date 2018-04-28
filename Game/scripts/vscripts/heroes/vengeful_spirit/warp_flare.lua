@@ -234,7 +234,7 @@ function after_flare_falling(event)
 	local groundHeight = GetGroundHeight(caster:GetAbsOrigin(), caster)
 	if caster:GetAbsOrigin().z - groundHeight < ability.fallVelocity/2 then
 		caster:RemoveModifierByName("modifier_solunia_warp_flare_falling")
-		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+		WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
 		StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_SPAWN, rate=1.8})
 	end
 end

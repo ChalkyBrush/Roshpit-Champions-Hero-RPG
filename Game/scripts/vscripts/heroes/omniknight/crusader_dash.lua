@@ -60,7 +60,7 @@ end
 function dash_end(event)
 	local caster = event.caster
 	local ability = event.ability
-	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+	WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
 end
 
 function paladin_rune_c_c_falcon_hit(event)

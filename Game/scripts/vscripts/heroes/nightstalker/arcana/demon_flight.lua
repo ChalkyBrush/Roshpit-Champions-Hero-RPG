@@ -95,7 +95,7 @@ function demon_flight_end_thinking(event)
 		caster:RemoveModifierByName("modifier_demonflight_attacks")
 		caster:RemoveModifierByName("modifier_chernobog_night_vision")
 		if not caster:HasModifier("modifier_nights_procession_caster_lifting") then
-			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+			WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
 		end
 		if not caster:HasModifier("modifier_chernobog_demon_form") then
 			caster:SetModel("models/heroes/nightstalker/nightstalker.vmdl")

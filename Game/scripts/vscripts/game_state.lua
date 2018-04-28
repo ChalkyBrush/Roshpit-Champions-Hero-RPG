@@ -1263,12 +1263,17 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 	if victim:HasModifier("modifier_speed_softening") then
 		local passive = victim:FindAbilityByName("winterblight_speed_softening")
-		local movespeed = caster:GetBaseMoveSpeed()
-		local actual_movespeed = caster:GetMoveSpeedModifier(movespeed)
+		local movespeed = victim:GetBaseMoveSpeed()
+		local actual_movespeed = victim:GetMoveSpeedModifier(movespeed)
 		if actual_movespeed >= 300 then
 			local reduction = passive:GetLevelSpecialValueFor("damage_reduc", passive:GetLevel())
 			reduction = (100-reduction)/100
 			damage = damage*reduction
+		end
+	end
+	if victim:HasModifier("modifier_syphist_passive") then
+		if victim:GetHealth() / victim:GetMaxHealth() >= 0.1 then
+			damage = 0
 		end
 	end
 	return damage/BASE_VALUE_FOR_CALCULATE

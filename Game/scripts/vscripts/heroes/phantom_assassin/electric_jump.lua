@@ -123,7 +123,7 @@ function drop_end(keys)
 	local ability = keys.ability
 	local location = caster:GetAbsOrigin()
 	electricLeap_rune_b_c(caster, ability)
-	FindClearSpaceForUnit(caster, location, false)
+	WallPhysics:ClearSpaceForUnit(caster, location)
 
 end
 

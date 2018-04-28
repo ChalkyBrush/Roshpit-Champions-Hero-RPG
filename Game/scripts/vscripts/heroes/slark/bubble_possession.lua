@@ -91,6 +91,9 @@ function possession_moving_towards_think(event)
 	if not ability.speed then
 		return false
 	end
+	if not caster:IsAlive() then
+		return false
+	end
 	caster:SetForwardVector(facingTarget)
 	local heightVsTargetHeight = math.max(caster:GetAbsOrigin().z - ability.target:GetAbsOrigin().z, 0)
 	caster:SetAbsOrigin(caster:GetAbsOrigin()+directionToTarget*ability.speed)

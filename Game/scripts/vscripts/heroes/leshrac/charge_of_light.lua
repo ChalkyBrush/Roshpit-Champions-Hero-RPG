@@ -103,7 +103,7 @@ function charge_end(event)
 	--
 	local particle = "particles/units/heroes/hero_warlock/charge_of_light.vpcf"
 	local pfx = ParticleManager:CreateParticle( particle, PATTACH_CUSTOMORIGIN, caster )
-	FindClearSpaceForUnit(caster, position, false)
+	WallPhysics:ClearSpaceForUnit(caster, position)
 	ParticleManager:SetParticleControl( pfx, 0, position )
 	ParticleManager:SetParticleControl( pfx, 1, position )
 	ParticleManager:SetParticleControl( pfx, 2, fv )

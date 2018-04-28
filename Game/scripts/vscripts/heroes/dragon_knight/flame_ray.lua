@@ -495,7 +495,9 @@ function heatwave_phase_think(event)
         local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPos*Vector(1,1,0), caster)
         if blockUnit then
             caster:SetAbsOrigin(caster:GetAbsOrigin()-caster:GetForwardVector()*60)
+            WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
             caster:RemoveModifierByName("modifier_heatwave_flying_portion")
+
         end
     end
     if ability.rune_a_c > 0 then

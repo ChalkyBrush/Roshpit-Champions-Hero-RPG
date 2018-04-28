@@ -118,6 +118,7 @@ function surging_think(event)
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPos, caster)
 	if blockUnit then
 		caster:SetAbsOrigin(caster:GetAbsOrigin()-caster:GetForwardVector()*60)
+		WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
 		caster:RemoveModifierByName("modifier_seraph_surge_flying_portion")
 	end
 end

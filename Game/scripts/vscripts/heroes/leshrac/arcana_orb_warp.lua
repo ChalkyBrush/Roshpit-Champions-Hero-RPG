@@ -125,7 +125,7 @@ function dash_end(event)
 	local ability = event.ability
 	Timers:CreateTimer(0.03, function()
 		StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_CAST_ABILITY_4, rate=2.4}) 
-		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+		WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
 		StopSoundEvent("Bahamut.ArcanaOrb.LP", caster)
 
 	   	local particle = "particles/units/heroes/hero_chen/chen_teleport_flash.vpcf"

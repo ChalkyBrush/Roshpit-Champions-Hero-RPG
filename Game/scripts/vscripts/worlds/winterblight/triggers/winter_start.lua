@@ -117,3 +117,7 @@ end
 function AzaleaSwitch1(trigger)
 	Winterblight:AzaleaSwitch1()
 end
+
+function ShrineSpawn3(trigger)
+	Winterblight:ShrineSpawn3()
+end
