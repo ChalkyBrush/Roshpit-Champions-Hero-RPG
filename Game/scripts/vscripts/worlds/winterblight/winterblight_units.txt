@@ -4336,3 +4336,180 @@
         "Ability1"          "winterblight_syphon"
         "Ability2"          "dungeon_creep"
     }
+
+    "winterblight_source_revenant"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/storm_spirit/storm_spirit.vmdl"
+        "ModelScale"    "1.0"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "champion"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"  "Hero_StormSpirit"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_stormspirit.vsndevts"
+        }
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "1"
+        "AttackDamageMax"   "1"
+        "AttackRate"    "0.8"
+        "AttackAnimationPoint"  "0.29"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "500"
+        "ProjectileModel"   "particles/units/heroes/hero_stormspirit/stormspirit_base_attack.vpcf"
+        "ProjectileSpeed"   "1400"
+        "BountyGoldMin" "300"
+        "BountyGoldMax" "500"
+        "BountyXP"  "1000"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "70"
+        "CollisionSize" "32"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "300"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "175000"
+        "StatusHealthRegen" "3"
+        "StatusMana"    "100000"
+        "StatusManaRegen"   "-5000"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"              "source_revenant_passive"
+        "Ability2"              "creature_pure_strike"
+        "Ability3"              "dungeon_creep"
+        "Creature"
+        {
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "6169"
+                }
+
+                "Wearable2"
+                {
+                    "ItemDef"   "8794"
+                }
+
+                "Wearable3"
+                {
+                    "ItemDef"   "8180"
+                }
+            }
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+            }
+        }
+    }
+
+    "winterblight_skater_fiend"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/shadow_demon/shadow_demon.vmdl"
+        "ModelScale"    "0.84"
+        "Level" "1"
+        "HealthBarOffset"   "180"
+        "SoundSet"          "Hero_ShadowDemon"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_shadow_demon.vsndevts"
+            "particle"  "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
+        }
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "ArmorPhysical" "4"
+        "MagicalResistance" "50"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "10000"
+        "AttackDamageMax"   "12000"
+        "AttackRate"    "0.7"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "500"
+        "ProjectileSpeed" "700"
+        "ProjectileModel"  "particles/units/heroes/hero_crystalmaiden/maiden_base_attack.vpcf"
+        "BountyGoldMin" "60"
+        "BountyGoldMax" "80"
+        "BountyXP" "1000"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "320"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "218000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"      "winterblight_skating_passive"
+        "Ability2"      "armor_break"
+        "Ability3"      "fire_temple_steadfast"
+        "Ability4"      "winterblight_suicidal_skater"
+        "Ability5"      "dungeon_creep"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "6718"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "9535"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "6717"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "399"
+                }
+            }
+        }
+
+    }

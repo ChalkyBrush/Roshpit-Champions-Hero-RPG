@@ -603,10 +603,29 @@ end
 function Winterblight:ShrineSpawn3()
 	if not Winterblight.Shrine3Spawned then
 		Winterblight.Shrine3Spawned = true
-		local positionTable = {Vector(14236, -14016), Vector(14400, -14142), Vector(14528, -14258), Vector(15552, -14208), Vector(15283, -14208), Vector(15296, -14016), Vector(15552, -14016)}
-		for i = 1, #positionTable, 1 do
-			Winterblight:SpawnSyphist(positionTable[i], Vector(0,1))
-		end
+		-- local positionTable = {Vector(14236, -14016), Vector(14400, -14142), Vector(14528, -14258), Vector(15552, -14208), Vector(15283, -14208), Vector(15296, -14016), Vector(15552, -14016)}
+		-- for i = 1, #positionTable, 1 do
+		-- 	Winterblight:SpawnSyphist(positionTable[i], Vector(0,1))
+		-- end
+		-- Timers:CreateTimer(1, function()
+		-- 	for i = 0, 4, 1 do
+		-- 		Winterblight:SpawnSourceRevenant(Vector(14622+i*160, -14749), Vector(0,1))
+		-- 	end
+		-- 	Winterblight:SpawnAzaleaMaiden(Vector(14628, -15173), Vector(0,-1))
+		-- end)
+		-- Timers:CreateTimer(1.5, function()
+		-- 	Winterblight:SpawnMonolith(Vector(14646, -14912), Vector(0,1))
+		-- 	Winterblight:SpawnMonolith(Vector(14912, -14912), Vector(0,1))
+		-- 	Winterblight:SpawnMonolith(Vector(15168, -14912), Vector(0,1))
+		-- end)
+		Timers:CreateTimer(2.0, function()
+			for i = 0, 4+GameState:GetDifficultyFactor(), 1 do
+				local unit = Winterblight:SpawnSkaterFiend(Vector(14336+RandomInt(0,600), -16000+RandomInt(0,520)), RandomVector(1))
+				unit.minVector = Vector(14336, -16000)
+				unit.maxXroam = 600
+				unit.maxYroam = 520
+			end
+		end)
 	end
 end
 
@@ -618,5 +637,31 @@ function Winterblight:SpawnSyphist(position, fv)
 	if GameState:GetDifficultyFactor() == 3 then
 		stone:AddAbility("ability_mega_haste"):SetLevel(GameState:GetDifficultyFactor())
 	end
+	return stone
+end
+
+function Winterblight:SpawnSourceRevenant(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_source_revenant", position, 1, 1, "Winterblight.SourceRevenant.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 4, 5, false)
+	local baseDMG = 1
+	if GameState:GetDifficultyFactor() == 2 then
+		baseDMG = 100
+	elseif GameState:GetDifficultyFactor() == 3 then
+		baseDMG = 1000
+	end
+	stone:SetBaseDamageMax(baseDMG)
+	stone:SetBaseDamageMin(baseDMG)
+	stone.itemLevel = 42
+	stone.dominion = true
+	stone:SetMana(0)
+	return stone
+end
+
+function Winterblight:SpawnSkaterFiend(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_skater_fiend", position, 0, 1, "Winterblight.SkaterFiend.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 4, 5, false)
+	stone.itemLevel = 42
+	stone.dominion = true
+	stone:SetRenderColor(42, 251, 255)
 	return stone
 end

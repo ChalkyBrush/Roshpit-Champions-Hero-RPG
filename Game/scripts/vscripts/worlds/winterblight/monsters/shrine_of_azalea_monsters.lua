@@ -10,7 +10,7 @@ function shrine_maiden_think(event)
 	if not caster:IsAlive() then
 		return false
 	end
-	if caster.aggro then
+	if caster.aggro and caster:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			local hookAbility = caster:FindAbilityByName("azalea_crystal_nova")
@@ -233,4 +233,153 @@ function syphist_attack_land(event)
 			selfRegen:SetStackCount(enemyRegen:GetStackCount())
 		end
 	end
+end
+
+function source_revenant_passive_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local stacks = caster:GetMana()
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_source_revenant_attack_power", {})
+	caster:SetModifierStackCount("modifier_source_revenant_attack_power", caster, stacks)
+end
+
+function source_revenant_attack_land(event)
+	local caster = event.caster
+	local ability = event.ability
+	local amount = caster:GetMaxMana()*0.08
+	caster:GiveMana(amount)
+	PopupMana(caster, amount)
+	if not ability.particleLock then
+		ability.particleLock = true
+		CustomAbilities:QuickAttachParticle("particles/items3_fx/mango_active.vpcf", caster, 2)
+		Timers:CreateTimer(1, function()
+			ability.particleLock = false
+		end)
+	end
+end
+
+function ice_idle_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster.aggro then
+		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 900, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
+		if #enemies > 0 then
+			local sumVector = Vector(0,0)
+			for i = 1, #enemies, 1 do
+				sumVector = sumVector + enemies[i]:GetAbsOrigin()
+			end
+			local avgVector = sumVector/#enemies
+			local runDirection = ((caster:GetAbsOrigin() - avgVector)*Vector(1,1,0)):Normalized()
+			local order = {
+			 		UnitIndex = caster:entindex(), 
+			 		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+			 		Position = caster:GetAbsOrigin()+runDirection*RandomInt(300, 400)
+		 	}
+			ExecuteOrderFromTable(order)
+		else
+			local position = caster.minVector + Vector(RandomInt(0, caster.maxXroam), RandomInt(0, caster.maxYroam))
+			local order = {
+			 		UnitIndex = caster:entindex(), 
+			 		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+			 		Position = position
+		 	}
+			ExecuteOrderFromTable(order)
+		end
+	else
+		local position = caster.minVector + Vector(RandomInt(0, caster.maxXroam), RandomInt(0, caster.maxYroam))
+		local order = {
+		 		UnitIndex = caster:entindex(), 
+		 		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+		 		Position = position
+	 	}
+		ExecuteOrderFromTable(order)
+		return false
+	end
+end
+
+function suicide_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster.suicide then
+		return false
+	end
+	if caster:GetHealth()/caster:GetMaxHealth() < 0.3 then
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 900, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
+		if #enemies > 0 then
+			caster.suicide = true
+			ability.targetPoint = enemies[1]:GetAbsOrigin()
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_suicide_jump", {duration = 4})
+			local distance = WallPhysics:GetDistance2d(ability.targetPoint, caster:GetAbsOrigin())
+			ability.jumpVelocity = distance/20
+			ability.liftVelocity = 20
+			local heightDiff = 0
+			ability.liftVelocity = ability.liftVelocity - heightDiff/20
+			ability.rising = true
+			ability.jumpFV = ((ability.targetPoint - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+
+			ability.interval = 0
+			StartAnimation(caster, {duration=1.9, activity=ACT_DOTA_CAST_ABILITY_5, rate=0.9})
+			EmitSoundOn("Winterblight.SkaterFiend.SuicideVO", caster)
+		end
+	end
+end
+
+function suicide_jump_think(event)
+	local caster = event.caster
+	local ability = event.ability
+
+	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), ability.targetPoint)
+
+	local fv = ability.jumpFV
+
+	local height = (caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster))
+	if height < math.abs(ability.liftVelocity) then
+		print(height)
+		if not ability.rising then
+			caster:RemoveModifierByName("modifier_suicide_jump")
+		end
+	end
+
+	local blockSearch = caster:GetAbsOrigin()*Vector(1,1,0)+Vector(0,0,GetGroundHeight(caster:GetAbsOrigin(), caster))
+    local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
+    local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch+ability.jumpFV*30), caster)
+	if blockUnit then
+		fv = Vector(0,0)
+	end
+	caster:SetAbsOrigin(caster:GetAbsOrigin() + fv*ability.jumpVelocity + Vector(0,0,ability.liftVelocity))
+	ability.liftVelocity = ability.liftVelocity - 2
+	if ability.liftVelocity <= 0 then
+		ability.rising = false
+	end
+	ability.interval = ability.interval + 1
+end
+
+function suicide_jump_end(event)
+	local caster = event.caster
+	local ability = event.ability
+
+    local particleName = "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
+    local radius = 260
+    local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, nil )
+    local origin = caster:GetAbsOrigin()
+    ParticleManager:SetParticleControl( particle1, 0, origin+Vector(0,0,20) )
+    ParticleManager:SetParticleControl( particle1, 1, Vector(radius, 1, 1000) )
+    ParticleManager:SetParticleControl( particle1, 3, Vector(radius, radius, radius) )
+    Timers:CreateTimer(3, function()
+        ParticleManager:DestroyParticle(particle1, false)
+    end)
+    EmitSoundOn("Winterblight.SkaterFiend.SuicideCrash", caster)
+    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+    local damage = event.damage
+    if #enemies > 0 then
+        for _,enemy in pairs(enemies) do
+        	ApplyDamage({ victim = enemy, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
+            ability:ApplyDataDrivenModifier(caster, enemy, "modifier_chilled", {duration = 3.5})
+        end
+    end
+
+	Timers:CreateTimer(0.03, function()
+		UTIL_Remove(caster)
+	end)
 end
