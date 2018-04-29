@@ -107,12 +107,12 @@ function rune_a_d(caster, target_location, duration, ability)
         ParticleManager:DestroyParticle( particle1, false )
       end)
     end
-    local a_d_duration = Filters:GetAdjustedBuffDuration(caster, 10, false)
+    local a_d_duration = Filters:GetAdjustedBuffDuration(caster, 10 + a_d_level/2, false)
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_time_ulti_a_d_visible", {duration = a_d_duration})
     caster:SetModifierStackCount("modifier_time_ulti_a_d_visible", caster, a_d_level)
 
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_time_ulti_a_d_invisible", {duration = a_d_duration})
-    ability:ApplyDataDrivenModifier(caster, caster, "modifier_time_ulti_a_d_invisible_str_and_agi", {duration = a_d_duration})
+    --ability:ApplyDataDrivenModifier(caster, caster, "modifier_time_ulti_a_d_invisible_str_and_agi", {duration = a_d_duration})
     
   end
   -- local runeUnit = caster.runeUnit
@@ -147,12 +147,12 @@ function a_d_buff_think(event)
 
   local a_d_level = caster:GetModifierStackCount("modifier_time_ulti_a_d_visible", caster)
 
-  local percent_damage_stacks = 0.0003*a_d_level*caster:GetMana()
+  local percent_damage_stacks = 0.0001*a_d_level*caster:GetMana()
   caster:SetModifierStackCount("modifier_time_ulti_a_d_invisible", caster, percent_damage_stacks)
 
-  local missingManaStacks = ((caster:GetMaxMana()-caster:GetMana())/caster:GetMaxMana())*10
-  missingManaStacks = math.ceil(missingManaStacks)
-  caster:SetModifierStackCount("modifier_time_ulti_a_d_invisible_str_and_agi", caster, missingManaStacks*a_d_level)
+  --local missingManaStacks = ((caster:GetMaxMana()-caster:GetMana())/caster:GetMaxMana())*10
+  --missingManaStacks = math.ceil(missingManaStacks)
+  --caster:SetModifierStackCount("modifier_time_ulti_a_d_invisible_str_and_agi", caster, missingManaStacks*a_d_level)
   
 end
 
@@ -295,128 +295,128 @@ end
 
 function channel_start(event)
   local caster = event.caster
-  local ability = event.ability
+  -- local ability = event.ability
   StartAnimation(caster, {duration=2.1, activity=ACT_DOTA_CAST_ABILITY_4, rate=0.18})
-  local runeUnit = caster.runeUnit2
-  local runeAbility = runeUnit:FindAbilityByName("epoch_rune_b_d")
-  caster:RemoveModifierByName("modifier_epoch_rune_d_d_visible")
-  local abilityLevel = runeAbility:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_d")
-  local totalLevel = abilityLevel + bonusLevel
-  ability.rune_b_d_level = totalLevel
-  if not ability.agesTable then
-    ability.agesTable = {}
-  end
-  if totalLevel > 0 then
+  -- local runeUnit = caster.runeUnit2
+  -- local runeAbility = runeUnit:FindAbilityByName("epoch_rune_b_d")
+  -- caster:RemoveModifierByName("modifier_epoch_rune_d_d_visible")
+  -- local abilityLevel = runeAbility:GetLevel()
+  -- local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_d")
+  -- local totalLevel = abilityLevel + bonusLevel
+  -- ability.rune_b_d_level = totalLevel
+  -- if not ability.agesTable then
+  --   ability.agesTable = {}
+  -- end
+  -- if totalLevel > 0 then
 
-    if caster:HasModifier("modifier_epoch_glyph_4_1") then
-      -- local fv = WallPhysics:rotateVector(caster:GetForwardVector(), math.pi/8)
-      local position = caster:GetAbsOrigin() - caster:GetForwardVector()*Vector(300,300)
-      spawnGuardian(caster, event.ability, totalLevel, position)
-      position = caster:GetAbsOrigin() + caster:GetForwardVector()*Vector(-300,300)
-      spawnGuardian(caster, event.ability, totalLevel, position)
-    else
-      local position = caster:GetAbsOrigin() - caster:GetForwardVector()*Vector(300,300)
-      spawnGuardian(caster, event.ability, totalLevel, position)
-    end
-  else
-    ability.dummy = nil 
-  end
+  --   if caster:HasModifier("modifier_epoch_glyph_4_1") then
+  --     -- local fv = WallPhysics:rotateVector(caster:GetForwardVector(), math.pi/8)
+  --     local position = caster:GetAbsOrigin() - caster:GetForwardVector()*Vector(300,300)
+  --     spawnGuardian(caster, event.ability, totalLevel, position)
+  --     position = caster:GetAbsOrigin() + caster:GetForwardVector()*Vector(-300,300)
+  --     spawnGuardian(caster, event.ability, totalLevel, position)
+  --   else
+  --     local position = caster:GetAbsOrigin() - caster:GetForwardVector()*Vector(300,300)
+  --     spawnGuardian(caster, event.ability, totalLevel, position)
+  --   end
+  -- else
+  --   ability.dummy = nil 
+  -- end
 end
 
-function spawnGuardian(caster, ability, totalLevel, position)
-    local fv = caster:GetForwardVector()
-    local dummy = CreateUnitByName("epoch_summon", position, true, caster, caster, caster:GetTeamNumber())
-    dummy:SetModelScale(math.min(1+totalLevel/60, 1.6))
-    dummy.owner = caster:GetPlayerOwnerID()
-    --StartAnimation(dummy, {duration=0.8, activity=ACT_DOTA_FLAIL, rate=0.5})
-    --EmitSoundOn("Hero_Luna.LucentBeam.Cast", dummy)
-    dummy:AddAbility("replica")
-    dummy:FindAbilityByName("replica"):SetLevel(1)
+-- function spawnGuardian(caster, ability, totalLevel, position)
+--     local fv = caster:GetForwardVector()
+--     local dummy = CreateUnitByName("epoch_summon", position, true, caster, caster, caster:GetTeamNumber())
+--     dummy:SetModelScale(math.min(1+totalLevel/60, 1.6))
+--     dummy.owner = caster:GetPlayerOwnerID()
+--     --StartAnimation(dummy, {duration=0.8, activity=ACT_DOTA_FLAIL, rate=0.5})
+--     --EmitSoundOn("Hero_Luna.LucentBeam.Cast", dummy)
+--     dummy:AddAbility("replica")
+--     dummy:FindAbilityByName("replica"):SetLevel(1)
 
-    dummy:AddAbility("dark_ranger_life_drain")
-    local transferAbility = dummy:FindAbilityByName("dark_ranger_life_drain")
-    transferAbility:SetLevel(1)
+--     dummy:AddAbility("dark_ranger_life_drain")
+--     local transferAbility = dummy:FindAbilityByName("dark_ranger_life_drain")
+--     transferAbility:SetLevel(1)
 
-      local order =
-      {
-          UnitIndex = dummy:GetEntityIndex(),
-          OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-          AbilityIndex = transferAbility:GetEntityIndex(),
-          TargetIndex = caster:GetEntityIndex(),
-          Queue = true
-      }
-      ExecuteOrderFromTable(order)
-    ability.transferAbility = transferAbility
+--       local order =
+--       {
+--           UnitIndex = dummy:GetEntityIndex(),
+--           OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+--           AbilityIndex = transferAbility:GetEntityIndex(),
+--           TargetIndex = caster:GetEntityIndex(),
+--           Queue = true
+--       }
+--       ExecuteOrderFromTable(order)
+--     ability.transferAbility = transferAbility
 
-    StartAnimation(dummy, {duration=2, activity=ACT_DOTA_CAST_ABILITY_4, rate=0.2})
-    dummy:SetForwardVector(fv)
-    ability.dummy = dummy
-    table.insert(ability.agesTable, dummy)
-    ability.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "epoch")
-    ability.d_d_ability = caster.runeUnit4:FindAbilityByName("epoch_rune_d_d")
-    -- local particleName = "particles/units/heroes/hero_wisp/tether_green.vpcf"
-    -- local particleVector = point
-    -- local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
-    -- ParticleManager:SetParticleControlEnt( pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", casterOrigin, true )
-    -- ParticleManager:SetParticleControlEnt( pfx, 0, dummy, PATTACH_POINT_FOLLOW, "attach_hitloc", position, true )
-    -- ability.transfer_particle = pfx
+--     StartAnimation(dummy, {duration=2, activity=ACT_DOTA_CAST_ABILITY_4, rate=0.2})
+--     dummy:SetForwardVector(fv)
+--     ability.dummy = dummy
+--     table.insert(ability.agesTable, dummy)
+--     ability.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "epoch")
+--     ability.d_d_ability = caster.runeUnit4:FindAbilityByName("epoch_rune_d_d")
+--     -- local particleName = "particles/units/heroes/hero_wisp/tether_green.vpcf"
+--     -- local particleVector = point
+--     -- local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
+--     -- ParticleManager:SetParticleControlEnt( pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", casterOrigin, true )
+--     -- ParticleManager:SetParticleControlEnt( pfx, 0, dummy, PATTACH_POINT_FOLLOW, "attach_hitloc", position, true )
+--     -- ability.transfer_particle = pfx
 
-    ability:ApplyDataDrivenModifier(caster, dummy, "modifier_time_ulti_ghost", {duration = 3})
-end
+--     ability:ApplyDataDrivenModifier(caster, dummy, "modifier_time_ulti_ghost", {duration = 3})
+-- end
 
-function channel_think(event)
-  local caster = event.caster
-  local ability = event.ability
-  local totalLevel = ability.rune_b_d_level
-  if totalLevel > 0 then
-    if caster:HasModifier("modifier_epoch_glyph_4_1") then
-      totalLevel = totalLevel*2
-    end
-    caster:Heal(totalLevel*15, caster)
-    local manaRestore = totalLevel*8
-    caster:GiveMana(manaRestore)
-    if ability.d_d_level > 0 then
-      local d_d_duration = Filters:GetAdjustedBuffDuration(caster, 12, false)
-      ability.d_d_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_epoch_rune_d_d_visible", {duration = d_d_duration})
-      local current_stack = caster:GetModifierStackCount( "modifier_epoch_rune_d_d_visible", ability.d_d_ability )
-      local newStack = current_stack + manaRestore*0.2*ability.d_d_level
-      caster:SetModifierStackCount( "modifier_epoch_rune_d_d_visible", ability.d_d_ability, newStack )      
-    end
-  end
-end
+-- function channel_think(event)
+--   local caster = event.caster
+--   local ability = event.ability
+--   local totalLevel = ability.rune_b_d_level
+--   if totalLevel > 0 then
+--     if caster:HasModifier("modifier_epoch_glyph_4_1") then
+--       totalLevel = totalLevel*2
+--     end
+--     caster:Heal(totalLevel*15, caster)
+--     local manaRestore = totalLevel*8
+--     caster:GiveMana(manaRestore)
+--     if ability.d_d_level > 0 then
+--       local d_d_duration = Filters:GetAdjustedBuffDuration(caster, 12, false)
+--       ability.d_d_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_epoch_rune_d_d_visible", {duration = d_d_duration})
+--       local current_stack = caster:GetModifierStackCount( "modifier_epoch_rune_d_d_visible", ability.d_d_ability )
+--       local newStack = current_stack + manaRestore*0.2*ability.d_d_level
+--       caster:SetModifierStackCount( "modifier_epoch_rune_d_d_visible", ability.d_d_ability, newStack )      
+--     end
+--   end
+-- end
 
-function channel_end(event)
-  local ability = event.ability
-  local caster = event.caster
-  for i = 1, #ability.agesTable, 1 do
-    local dummy = ability.agesTable[i]
-    if IsValidEntity(dummy) then
-      local particleName =  "particles/units/heroes/hero_oracle/oracle_false_promise_cast.vpcf"
-      local particleVector = dummy:GetAbsOrigin() + Vector(0,0,150)
-      local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, dummy )
-      ParticleManager:SetParticleControl( pfx, 0, particleVector )
-    end
-  end
-  Timers:CreateTimer(0.5, function() 
-    for i = 1, #ability.agesTable, 1 do
-      local dummy = ability.agesTable[i]
-      if IsValidEntity(dummy) then
-       UTIL_Remove(dummy)
-      end
-      caster:RemoveModifierByName("modifier_life_drain")
-    end
-    caster:RemoveModifierByName("modifier_life_drain")
-    ability.agesTable = {}
-  end)
+-- function channel_end(event)
+--   local ability = event.ability
+--   local caster = event.caster
+--   for i = 1, #ability.agesTable, 1 do
+--     local dummy = ability.agesTable[i]
+--     if IsValidEntity(dummy) then
+--       local particleName =  "particles/units/heroes/hero_oracle/oracle_false_promise_cast.vpcf"
+--       local particleVector = dummy:GetAbsOrigin() + Vector(0,0,150)
+--       local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, dummy )
+--       ParticleManager:SetParticleControl( pfx, 0, particleVector )
+--     end
+--   end
+--   Timers:CreateTimer(0.5, function() 
+--     for i = 1, #ability.agesTable, 1 do
+--       local dummy = ability.agesTable[i]
+--       if IsValidEntity(dummy) then
+--        UTIL_Remove(dummy)
+--       end
+--       caster:RemoveModifierByName("modifier_life_drain")
+--     end
+--     caster:RemoveModifierByName("modifier_life_drain")
+--     ability.agesTable = {}
+--   end)
   
-end
+-- end
 
 function c_d_crackle_think(event)
   local target = event.target
   local caster = event.caster
   local ability = event.ability
-  local damage = ability.c_d_level*0.15*caster:GetAverageTrueAttackDamage(caster)
+  local damage = ability.c_d_level*0.05*caster:GetAverageTrueAttackDamage(caster)
   Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
   CustomAbilities:QuickAttachParticle("particles/econ/items/morphling/morphling_crown_of_tears/morphling_crown_waveform_dmg_flash.vpcf", target, 1)
 end
@@ -466,4 +466,26 @@ function immortal_weapon_2_die(event)
       end
     end)
   end
+end
+
+function rune_think(event)
+  local caster = event.caster
+  rune_a_b(caster)
+  rune_b_a(caster)
+end
+
+function epoch_rune_b_d_think(event)
+  local caster = event.caster
+  local runeUnit = caster.runeUnit2
+  local runeAbility = runeUnit:FindAbilityByName("epoch_rune_b_d")
+  local abilityLevel = runeAbility:GetLevel()
+  local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_d")
+  local totalLevel = abilityLevel + bonusLevel
+  if totalLevel > 0 then
+    runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_epoch_b_d_buff", {})
+    caster:SetModifierStackCount( "modifier_epoch_b_d_buff", runeAbility, totalLevel )
+  else
+    caster:RemoveModifierByName("modifier_epoch_b_d_buff")
+  end
+  -- print(totalLevel)
 end

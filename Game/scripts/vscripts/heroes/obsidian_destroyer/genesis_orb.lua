@@ -71,8 +71,10 @@ function genesis_orb_impact(event)
 	end
 	damage = damage*ability.damageAmp
 	if caster:HasModifier("modifier_epoch_glyph_3_1") then
-		damage = damage + caster:GetIntellect()*1*ability:GetLevel()
+		damage = damage + caster:GetMana()*2*ability:GetLevel()
 	end
+	-- print("MANA "..caster:GetMaxMana())
+	-- print("MANA "..caster:GetMana())
 	if caster:HasModifier("modifier_epoch_immortal_weapon_1") then
 		damage = damage*2
 	end
@@ -93,12 +95,24 @@ function genesis_orb_impact(event)
 			end
 		end) 
 
-		caster:GiveMana(ability.a_b_level*10)
-		PopupMana(caster, ability.a_b_level*10)
+		local manaRestore = caster:GetMaxMana()*ability.a_b_level*0.0005
+		print(manaRestore)
+		caster:GiveMana(manaRestore)
+		PopupMana(caster, manaRestore)
 	end
-	if ability.b_b_level > 0 then
+
+	local b_b_lvl = ability.b_b_level
+	if b_b_lvl > 0 then
+		local runeW2ArmourDecrease = 50 --each w2 reduce armor for -50
+		local maximumNegativeArmor = 1000 --w2 cap at -1000
+		local finalStacksCount = b_b_lvl
+		local runesToDecrease = (target:GetPhysicalArmorBaseValue() + maximumNegativeArmor)/runeW2ArmourDecrease - b_b_lvl
+		if runesToDecrease < 0 then
+			finalStacksCount = math.ceil ((target:GetPhysicalArmorBaseValue() + maximumNegativeArmor)/runeW2ArmourDecrease);
+		end
+		-- print("finalStacksCount "..finalStacksCount)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_epoch_rune_b_b_visible", {duration = 6})
-		target:SetModifierStackCount("modifier_epoch_rune_b_b_visible", caster, ability.b_b_level)
+		target:SetModifierStackCount("modifier_epoch_rune_b_b_visible", caster, finalStacksCount)
 	end
 end
 
@@ -106,16 +120,19 @@ function epoch_c_b_attack_land(event)
 	local target = event.target
 	local caster = event.attacker
 	local ability = event.ability
-	local currentStacks = caster:GetModifierStackCount("modifier_epoch_rune_c_b_visible", caster)
-	local newStacks = currentStacks - 1
-	if newStacks > 0 then
-		caster:SetModifierStackCount("modifier_epoch_rune_c_b_visible", caster, newStacks)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_epoch_rune_c_b_invisible", {})
-		caster:SetModifierStackCount("modifier_epoch_rune_c_b_invisible", caster, newStacks*ability.c_b_level)
-	else
-		caster:RemoveModifierByName("modifier_epoch_rune_c_b_visible")
-		caster:RemoveModifierByName("modifier_epoch_rune_c_b_invisible")
+	if not caster:HasModifier("modifier_epoch_glyph_4_1") then
+		local currentStacks = caster:GetModifierStackCount("modifier_epoch_rune_c_b_visible", caster)
+		local newStacks = currentStacks - 1
+		if newStacks > 0 then
+			caster:SetModifierStackCount("modifier_epoch_rune_c_b_visible", caster, newStacks)
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_epoch_rune_c_b_invisible", {})
+			caster:SetModifierStackCount("modifier_epoch_rune_c_b_invisible", caster, newStacks*ability.c_b_level)
+		else
+			caster:RemoveModifierByName("modifier_epoch_rune_c_b_visible")
+			caster:RemoveModifierByName("modifier_epoch_rune_c_b_invisible")
+		end		
 	end
+
 	local healAmount = math.floor(ability.c_b_level*1000)
 	caster:Heal(healAmount, caster)
 	PopupHealing(caster, healAmount)
@@ -178,7 +195,7 @@ function d_b(caster, ability)
 			manaDrain = caster:GetMana()
 		end
 		caster:ReduceMana(manaDrain)
-		ability.damageAmp = (manaDrain/100)*0.003*d_b_level + 1
+		ability.damageAmp = (manaDrain/100)*0.01*d_b_level + 1
 	else
 		ability.damageAmp = 1
 	end

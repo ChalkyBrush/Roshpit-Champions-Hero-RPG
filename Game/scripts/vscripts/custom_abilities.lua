@@ -2,6 +2,25 @@ if CustomAbilities == nil then
   CustomAbilities = class({})
 end
 
+function CustomAbilities:EpochTimeTravelGlyph(victim)
+	local modifier = victim:FindModifierByName("modifier_epoch_glyph_5_a")
+	local glyphUnit = modifier:GetCaster()
+	local glyph = modifier:GetAbility()
+	glyph:ApplyDataDrivenModifier(glyphUnit, victim, "modifier_epoch_glyph_5_a_cooldown", {duration = 15})
+	glyph:ApplyDataDrivenModifier(glyphUnit, victim, "modifier_epoch_glyph_5_a_little_shield", {duration = 2})
+
+	print("EpochTimeTravelGlyph shield trigger - custom amilities")			
+	EmitSoundOn("RPC.MagicImmuneBreakAttacker", victim)
+	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_faceless_void/faceless_void_backtrack.vpcf", victim, 2)
+	ProjectileManager:ProjectileDodge(victim)
+	victim:SetHealth(victim:GetMaxHealth())
+    victim:SetMana(victim:GetMaxMana())
+    victim:GetAbilityByIndex(0):EndCooldown()
+    victim:GetAbilityByIndex(1):EndCooldown()
+    victim:GetAbilityByIndex(2):EndCooldown()
+    victim:GetAbilityByIndex(DOTA_ULTIMATE_SLOT):EndCooldown()
+end
+
 function CustomAbilities:UpdateAuriunCursorPosition(msg)
 	local auriun = EntIndexToHScript(msg.auriun)
 	auriun.cursorPos = Vector(msg.xPos, msg.yPos)

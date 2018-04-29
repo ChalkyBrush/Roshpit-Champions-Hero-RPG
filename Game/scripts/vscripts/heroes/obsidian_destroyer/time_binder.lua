@@ -35,16 +35,16 @@ function projectile_hit(event)
 	target.time_bound = true
 	ability.rune_a_a_level = rune_a_a_level(caster)
 	local rune_b_a_level = rune_b_a_level(caster)
-	if caster:HasModifier("modifier_epoch_glyph_5_a") then
-		local particleName = "particles/roshpit/epoch/binder_bomb_epoch_5_a_immortal1.vpcf"
-		local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
-		ParticleManager:SetParticleControl(pfx, 0, target_location)
-		EmitSoundOnLocationWithCaster(target_location, "Epoch.BinderBomb.Explode", target)
-		Timers:CreateTimer(4, function()
-			ParticleManager:DestroyParticle(pfx, false)
-			ParticleManager:ReleaseParticleIndex(pfx)
-		end)
-	end
+	-- if caster:HasModifier("modifier_epoch_glyph_5_a") then
+	-- 	local particleName = "particles/roshpit/epoch/binder_bomb_epoch_5_a_immortal1.vpcf"
+	-- 	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+	-- 	ParticleManager:SetParticleControl(pfx, 0, target_location)
+	-- 	EmitSoundOnLocationWithCaster(target_location, "Epoch.BinderBomb.Explode", target)
+	-- 	Timers:CreateTimer(4, function()
+	-- 		ParticleManager:DestroyParticle(pfx, false)
+	-- 		ParticleManager:ReleaseParticleIndex(pfx)
+	-- 	end)
+	-- end
   	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target_location, nil, 700, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
   	local i = 2
 	for _,enemy in pairs(enemies) do
@@ -63,6 +63,19 @@ function projectile_hit(event)
 				enemy.time_pfx = pfx
 				i = i + 1
 		end
+		if 1 == #enemies then
+				-- apply dmg overtime debuff even if only one target
+				local stacks = enemy:GetModifierStackCount( "modifier_time_bound", ability )
+				ability:ApplyDataDrivenModifier(caster, enemies[i-1], "modifier_time_bound", {duration = 7})
+				--ability:ApplyDataDrivenModifier(caster, enemies[i], "modifier_time_bound", {duration = 7})
+				-- enemy:SetModifierStackCount( "modifier_time_bound", ability, stacks+1)
+				local particleName = "particles/units/heroes/hero_wisp/tether_green.vpcf"
+				local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, enemy )
+				--ParticleManager:SetParticleControlEnt(pfx, 0, enemies[i-1], PATTACH_POINT_FOLLOW, "attach_hitloc", enemies[i-1]:GetAbsOrigin()+Vector(0,0,90), true)
+				--ParticleManager:SetParticleControlEnt(pfx, 1, enemies[i], PATTACH_POINT_FOLLOW, "attach_hitloc", enemies[i]:GetAbsOrigin()+Vector(0,0,90), true)
+				enemy.time_pfx = pfx
+				--i = i + 1
+		end
 	end
 	if #enemies > 0 then
 		EmitSoundOn("Hero_Spirit_Breaker.EmpoweringHaste.Cast", enemies[1])
@@ -74,9 +87,9 @@ function projectile_hit(event)
   	ParticleManager:SetParticleControl( pfx, 0, particleVector )
   	ParticleManager:SetParticleControl( pfx, 1, particleVector )	
   	local damage = event.impact_damage
-  	if caster:HasModifier("modifier_epoch_glyph_5_a") then
-  		damage = damage + caster:GetAverageTrueAttackDamage(caster)*2
-  	end
+  	-- if caster:HasModifier("modifier_epoch_glyph_5_a") then
+  	-- 	damage = damage + caster:GetAverageTrueAttackDamage(caster)*2
+  	-- end
   	damage = damage*ability.damageAmp
   	EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "Hero_Abaddon.AphoticShield.Destroy", caster)
   	local enemies2 = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, 320, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
@@ -91,6 +104,9 @@ function projectile_hit(event)
 		a_a_search(caster, target, ability)
 	end
 	if rune_b_a_level > 0 then
+		if caster:HasModifier("modifier_epoch_glyph_6_1") then 
+			rune_b_a_level = rune_b_a_level * 10
+		end
 		local b_a_duration = Filters:GetAdjustedBuffDuration(caster, 7, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_eon_channel_friendly", {duration = b_a_duration})
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_eon_channel_enemy", {duration = b_a_duration})
@@ -111,7 +127,8 @@ function a_a_search(caster, target, ability)
 	for _,enemy in pairs(enemies) do
 		if ability.jump_count >= 15 then
 			break
-		elseif not (enemy:GetEntityIndex() == target:GetEntityIndex()) then
+		-- apply dmg overtime debuff even if only one target
+		elseif (enemy:GetEntityIndex() == target:GetEntityIndex()) then
 			if not enemy:HasModifier("modifier_space_link") then
 				local stacks = enemy:GetModifierStackCount( "modifier_space_link", ability )
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_space_link", {duration = 7})
@@ -135,7 +152,7 @@ end
 function spacelink_think(event)
 	local damage = event.damage_per_tick
 	local ability = event.ability
-	damage = damage * ability.rune_a_a_level*0.05
+	damage = damage * ability.rune_a_a_level*0.02
 	damage = damage*ability.damageAmp
 	local dummy_binder = event.target
 	local caster = event.caster
@@ -357,6 +374,12 @@ function c_a_attack_start(event)
 	local caster = event.caster
 	local attacker = event.attacker
 	local manaDrain = attacker:GetMaxMana()*0.01
+	-- print("man drain before "..manaDrain)
+	local d_a_level = Runes:GetTotalRuneLevel(attacker, 4, "d_a", "epoch")
+ 	if d_a_level > 0 then
+		manaDrain = manaDrain + attacker:GetMaxMana()*d_a_level*0.001
+	end		
+	-- print("man drain after "..manaDrain)
 	if not ability then
 		return false
 	end
@@ -370,8 +393,9 @@ function c_a_attack_start(event)
 			ability:ApplyDataDrivenModifier(caster, attacker, "modifier_epoch_c_a_lock", {duration = 0.1})
 			attacker:ReduceMana(manaDrain)
 		end
-		local damage = manaDrain*ability.level*2
+		local damage = manaDrain*ability.level*50
 		local projectileSpeed = attacker:GetProjectileSpeed()
+
 		ability.damage = damage
 		local info = 
 		{
@@ -397,8 +421,10 @@ end
 function c_a_strike(event)
 	local target = event.target
 	local ability = event.ability
+	local caster = event.caster
+
 	if not target.dummy then
-		Filters:TakeArgumentsAndApplyDamage(target, ability.attacker, ability.damage, DAMAGE_TYPE_PURE, 1, RPC_ELEMENT_GHOST, RPC_ELEMENT_TIME)
+		Filters:TakeArgumentsAndApplyDamage(target, ability.attacker, ability.damage, DAMAGE_TYPE_PURE, 1, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 	end
 end
 
@@ -406,10 +432,11 @@ function epoch_glyph_1_1(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
+
 	if caster:HasModifier("modifier_epoch_glyph_1_1") then
-		target:ApplyDataDrivenModifier(caster, target, "modifier_epoch_glyph_1_1_effect", {duration = 7})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_epoch_glyph_1_1_effect", {duration = 7})
 	end
 	if caster:HasModifier("modifier_epoch_glyph_6_1") then
-		target:ApplyDataDrivenModifier(caster, target, "modifier_epoch_glyph_6_1_effect", {duration = 7})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_epoch_glyph_6_1_effect", {duration = 7})
 	end
 end
