@@ -4513,3 +4513,95 @@
         }
 
     }
+
+    "winterblight_source_assembly"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/obsidian_destroyer/obsidian_destroyer.vmdl"
+        "ModelScale"    "1.22"
+        "Level" "1"
+        "HealthBarOffset"   "170"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "SoundSet"              "Hero_SkywrathMage"
+        "precache"
+        {
+
+        }
+        "ArmorPhysical" "15"
+        "MagicalResistance" "50"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "100"
+        "AttackDamageMax"   "100"
+        "AttackRate"    "1.1"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "100"
+        "ProjectileSpeed"           "700"
+        "ProjectileModel"           "particles/units/heroes/hero_stormspirit/stormspirit_base_attack.vpcf"
+        "StatusMana"    "1000000"
+        "StatusManaRegen"   "-30000"
+        "AttackRange"   "800"
+        "BountyGoldMin" "150"
+        "BountyGoldMax" "200"
+        "BountyXP" "950"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "16"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_FLY"
+        "MovementSpeed" "310"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "445000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"              "source_revenant_passive"
+        "Ability2"              "creature_pure_strike"
+        "Ability3"              "dungeon_creep"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "187"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "188"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "189"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "190"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "226"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+    }

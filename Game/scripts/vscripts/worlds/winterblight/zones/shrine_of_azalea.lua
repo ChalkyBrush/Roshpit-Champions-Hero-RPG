@@ -603,29 +603,111 @@ end
 function Winterblight:ShrineSpawn3()
 	if not Winterblight.Shrine3Spawned then
 		Winterblight.Shrine3Spawned = true
-		-- local positionTable = {Vector(14236, -14016), Vector(14400, -14142), Vector(14528, -14258), Vector(15552, -14208), Vector(15283, -14208), Vector(15296, -14016), Vector(15552, -14016)}
-		-- for i = 1, #positionTable, 1 do
-		-- 	Winterblight:SpawnSyphist(positionTable[i], Vector(0,1))
-		-- end
-		-- Timers:CreateTimer(1, function()
-		-- 	for i = 0, 4, 1 do
-		-- 		Winterblight:SpawnSourceRevenant(Vector(14622+i*160, -14749), Vector(0,1))
-		-- 	end
-		-- 	Winterblight:SpawnAzaleaMaiden(Vector(14628, -15173), Vector(0,-1))
-		-- end)
-		-- Timers:CreateTimer(1.5, function()
-		-- 	Winterblight:SpawnMonolith(Vector(14646, -14912), Vector(0,1))
-		-- 	Winterblight:SpawnMonolith(Vector(14912, -14912), Vector(0,1))
-		-- 	Winterblight:SpawnMonolith(Vector(15168, -14912), Vector(0,1))
-		-- end)
-		Timers:CreateTimer(2.0, function()
-			for i = 0, 4+GameState:GetDifficultyFactor(), 1 do
-				local unit = Winterblight:SpawnSkaterFiend(Vector(14336+RandomInt(0,600), -16000+RandomInt(0,520)), RandomVector(1))
-				unit.minVector = Vector(14336, -16000)
-				unit.maxXroam = 600
-				unit.maxYroam = 520
+		local luck = RandomInt(1, 3)
+		if luck == 1 then
+			local positionTable = {Vector(14236, -14016), Vector(14400, -14142), Vector(14528, -14258), Vector(15552, -14208), Vector(15283, -14208), Vector(15296, -14016), Vector(15552, -14016)}
+			for i = 1, #positionTable, 1 do
+				Winterblight:SpawnSyphist(positionTable[i], Vector(0,1))
 			end
-		end)
+			Timers:CreateTimer(1, function()
+				for i = 0, 4, 1 do
+					Winterblight:SpawnSourceRevenant(Vector(14622+i*160, -14749), Vector(0,1))
+				end
+				Winterblight:SpawnAzaleaMaiden(Vector(14628, -15173), Vector(0,-1))
+			end)
+			Timers:CreateTimer(1.5, function()
+				Winterblight:SpawnMonolith(Vector(14646, -14912), Vector(0,1))
+				Winterblight:SpawnMonolith(Vector(14912, -14912), Vector(0,1))
+				Winterblight:SpawnMonolith(Vector(15168, -14912), Vector(0,1))
+			end)
+			Timers:CreateTimer(2.0, function()
+				for i = 0, 4+GameState:GetDifficultyFactor(), 1 do
+					local unit = Winterblight:SpawnSkaterFiend(Vector(14336+RandomInt(0,600), -16000+RandomInt(0,520)), RandomVector(1))
+					unit.minVector = Vector(14336, -16000)
+					unit.maxXroam = 600
+					unit.maxYroam = 520
+				end
+			end)
+		elseif luck == 2 then
+			for i = 0, 2, 1 do
+				local unit = Winterblight:SpawnSkaterFiend(Vector(15232+RandomInt(0,390), -14208+RandomInt(0,200)), RandomVector(1))
+				unit.minVector = Vector(15252, -14188)
+				unit.maxXroam = 390
+				unit.maxYroam = 200
+			end
+			for i = 0, 3, 1 do
+				local unit = Winterblight:SpawnSkaterFiend(Vector(14137+RandomInt(0,420), -14177+RandomInt(0,290)), RandomVector(1))
+				unit.minVector = Vector(14157, -14157)
+				unit.maxXroam = 420
+				unit.maxYroam = 290
+			end
+			Timers:CreateTimer(1.0, function()
+				for i = 0, 4, 1 do
+					Winterblight:SpawnSyphist(Vector(14551+i*170, -14678), Vector(0,1))
+				end
+				for i = 0, 4, 1 do
+					Winterblight:SpawnAzaleaMaiden(Vector(14551+i*170, -14912), Vector(0,1))
+				end
+			end)
+			Timers:CreateTimer(2.0, function()
+				local positionTable = {Vector(14336, -15488), Vector(14489, -15616), Vector(14784, -15628), Vector(14948, -15480), Vector(14469, -15872), Vector(14350, -16064), Vector(14784, -15880), Vector(14949, -16022)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnSourceRevenant(positionTable[i], Vector(0,1))
+				end
+				Winterblight:SpawnSourceAssembly(Vector(14628, -15744), Vector(0,1))
+			end)
+		elseif luck == 3 then
+			local positionTable = {Vector(14703, -13525), Vector(15304, -13566), Vector(14528, -14464), Vector(15296, -14464), Vector(14649, -15191)}
+			for i = 1, #positionTable, 1 do
+				Winterblight:SpawnSourceRevenant(positionTable[i], Vector(0,1))
+			end
+			Timers:CreateTimer(0.6, function()
+				local positionTable = {Vector(14272, -14208), Vector(14528, -14208), Vector(14272, -14016), Vector(14528, -14016), Vector(15232, -14208), Vector(15424, -14137), Vector(15616, -14025)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnAzaleaMaiden(positionTable[i], Vector(0,1))
+				end
+			end)
+			Timers:CreateTimer(1.2, function()
+				for i = 0, 1+GameState:GetDifficultyFactor(), 1 do
+					local unit = Winterblight:SpawnSkaterFiend(Vector(14611+RandomInt(0,500), -14895+RandomInt(0,110)), RandomVector(1))
+					unit.minVector = Vector(14611, -14895)
+					unit.maxXroam = 500
+					unit.maxYroam = 110
+				end
+			end)
+			Timers:CreateTimer(2.2, function()
+				for i = 0, 3, 1 do
+					for j = 0, 3, 1 do
+						Winterblight:SpawnSyphist(Vector(14336+i*190, -16000+j*192), Vector(0,1))
+					end
+				end
+			end)
+		end
+		local luck2 = RandomInt(0, 3)
+
+		if luck2 > 0 then
+			Timers:CreateTimer(0.5, function()
+				local positionTable = {Vector(15488, -15396), Vector(15897, -13522), Vector(14080, -14979)}
+			    for i = 1, luck2, 1 do
+			      Timers:CreateTimer(i*1.2, function()
+			        local patrolPositionTable = {}
+			        for j = 1, #positionTable, 1 do
+			          local index = i + j
+			          if index > #positionTable then
+			            index = index - #positionTable
+			          end
+			          table.insert(patrolPositionTable, positionTable[index])
+			        end
+			        for j = 0, 1, 1 do
+			          Timers:CreateTimer(j*0.8, function()
+			            local elemental = Winterblight:SpawnAzaleaSorceress(positionTable[i]+RandomVector(RandomInt(1,100)), RandomVector(1))
+			            Winterblight:AddPatrolArguments(elemental, 35, 5, 220, patrolPositionTable)
+			          end)
+			        end
+			      end)
+			    end
+			end)
+		end
 	end
 end
 
@@ -663,5 +745,14 @@ function Winterblight:SpawnSkaterFiend(position, fv)
 	stone.itemLevel = 42
 	stone.dominion = true
 	stone:SetRenderColor(42, 251, 255)
+	return stone
+end
+
+function Winterblight:SpawnSourceAssembly(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_source_assembly", position, 4, 5, "Winterblight.SkaterFiend.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 4, 5, false)
+	stone.itemLevel = 55
+	stone.dominion = true
+	stone:SetMana(0)
 	return stone
 end

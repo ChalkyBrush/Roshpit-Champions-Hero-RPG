@@ -271,6 +271,7 @@ function ice_idle_think(event)
 			end
 			local avgVector = sumVector/#enemies
 			local runDirection = ((caster:GetAbsOrigin() - avgVector)*Vector(1,1,0)):Normalized()
+			runDirection = WallPhysics:rotateVector(runDirection, 2*math.pi*RandomInt(-4, 4)/16)
 			local order = {
 			 		UnitIndex = caster:entindex(), 
 			 		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
@@ -301,7 +302,7 @@ end
 function suicide_thinker(event)
 	local caster = event.caster
 	local ability = event.ability
-	if caster.suicide then
+	if caster.suicide or caster:IsHero() then
 		return false
 	end
 	if caster:GetHealth()/caster:GetMaxHealth() < 0.3 then
