@@ -41291,7 +41291,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
+				"property_one"			"200"
 			}
 		}
 	}
@@ -41371,29 +41371,6 @@
 					}
 				}
 			}
-			"modifier_epoch_glyph_5_1_effect"
-			{
-				"Passive"	"0"
-				"IsHidden"	"0"
-				"IsDebuff"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%property_one"
-				}
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"30"
-			}
 		}
 	}
 
@@ -41431,7 +41408,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
+				"property_one"			"80"
 			}
 		}
 	}
@@ -46682,18 +46659,25 @@
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
+			"modifier_epoch_glyph_5_a_cooldown"
+			{
+				"IsDebuff"	"1"
+				"IsHidden"	"0"
+				"TextureName"	"weaver_time_lapse"
+			}			
+			"modifier_epoch_glyph_5_a_little_shield"
+			{
+				"IsDebuff"	"0"
+				"IsHidden"	"0"
+				"TextureName"	"weaver_time_lapse"
+			}
 		}
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1"
+				"property_one"			"15"
 			}
 		}
 	}

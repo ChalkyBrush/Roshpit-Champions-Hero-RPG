@@ -52968,15 +52968,12 @@
 
 	"epoch_rune_d_d"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"	"kunkka_torrent"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-
 		"AbilitySpecial"
 		{
 			"01"
@@ -52985,7 +52982,6 @@
 				"property_one"			"0.5"
 			}
 		}
-
 	}
 
 	"epoch_rune_a_a_arcana1"
