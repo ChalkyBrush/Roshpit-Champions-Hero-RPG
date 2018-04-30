@@ -1901,7 +1901,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 local d_c_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 2)
                 mult = mult + 0.0006*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_c_level
             end
-        end
+        elseif unitName == "npc_dota_hero_obsidian_destroyer" then
+            if attacker.d_d_level then
+                mult = mult + 0.005*attacker:GetManaRegen()/10*attacker.d_d_level
+            end   
+        end    
         if victim:HasModifier("modifier_tempo_flux_invisible") then
             if unitName == "npc_dota_hero_dark_seer" then
                 local stacks = victim:GetModifierStackCount("modifier_tempo_flux_invisible", attacker)
@@ -3254,7 +3258,7 @@ end
 function Filters:DemonMask(caster, target, damage)
     local proc = Filters:GetProc(caster, 15)    
     if proc then
-        damage = damage*20
+        damage = damage*15
         EmitSoundOn("RPCItem.DemonMask", target)
         local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_arc_warden/demon_mask_3.vpcf", PATTACH_CUSTOMORIGIN, caster )
 
@@ -3338,8 +3342,13 @@ function Filters:FarSeerGloves(attacker, damage, inflictor)
         maximum = attacker:GetIntellect()*50
     end
     local stacks = math.min(math.floor(damage*0.01), maximum)
-    attacker:SetModifierStackCount( "modifier_far_seer_effect", attacker.handItem, stacks)
+																						  
 
+    modifier = attacker:FindModifierByName("modifier_far_seer_effect")
+    -- print("FarSeerGloves "..modifier:GetStackCount())
+    local oldStacks = modifier:GetStackCount()
+    stacks = math.max (stacks,oldStacks)
+    attacker:SetModifierStackCount( "modifier_far_seer_effect", attacker.handItem, stacks)
 end
 
 function Filters:EmeraldDouliHit(victim, damage)

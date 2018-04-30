@@ -9703,7 +9703,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"10"
+		"AbilityCooldown"				"7"
 		"AbilityDuration"				"3.11 3.11 3.11 3.11"
 
 		// Damage.
@@ -10965,6 +10965,20 @@
 		}
 		"Modifiers"
 		{
+			"modifier_epoch_rune_thinker"
+			{
+				"Passive" "1"
+				"IsHidden"	"1"
+				"ThinkInterval"  "2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/obsidian_destroyer/time_ulti.lua"
+						"Function"		"epoch_rune_b_d_think"
+					}
+				}
+			}
 			"modifier_epoch_rune_b_b_visible"
 			{
 				"Passive"			"0"
@@ -11278,7 +11292,7 @@
 				"IsDebuff"	"1"
 				"IsHidden"	"0"
 
-				"ThinkInterval"  "0.7"
+				"ThinkInterval"  "0.32"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -52470,7 +52484,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"2"
 			}
 			"02"
 			{
@@ -52497,8 +52511,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.05"
 			}
 		}
 		"Modifiers"
@@ -52588,12 +52602,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.3"
+				"property_one"			"0.1"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"15"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.5"
 			}
 		}
 	}
@@ -52692,12 +52706,28 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"150"
+				"property_one"			"3"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"80"
+				"property_two"			"10"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_epoch_b_d_buff"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "%property_one"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%property_two"
+				}
 			}
 		}
 	}
@@ -52716,17 +52746,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
+				"property_one"			"5000"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"			"13"
+				"element_one"			"6"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_two"			"6"
+				"element_two"			"-1"
 			}
 			"04"
 			{
@@ -52862,7 +52892,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"5"
 			}
 			"02"
 			{
@@ -52892,6 +52922,11 @@
 				"var_type"				"FIELD_FLOAT"
 				"property_one"			"0.5"
 			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.1"
+			}
 		}
 	}
 
@@ -52908,7 +52943,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.3"
+				"property_one"			"1"
 			}
 		}
 	}
@@ -52944,20 +52979,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.2"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_epoch_rune_d_d_visible"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
-				}
+				"property_one"			"0.5"
 			}
 		}
 	}
@@ -53009,7 +53031,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.01"
+				"property_one"			"0.5"
 			}
 		}
 	}
@@ -53028,12 +53050,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"50"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"1.5"
+				"property_two"			"5"
 			}
 			"03"
 			{
@@ -53066,7 +53088,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"50"
 			}
 			"02"
 			{

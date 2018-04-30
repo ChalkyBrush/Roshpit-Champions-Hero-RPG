@@ -3,10 +3,10 @@ function ability_start(event)
 	local ability = event.ability
 	local target = event.target_points[1]
 	local d_a_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
-	local procs = Runes:Procs(d_a_level, 10, 1)
+	local procs = Runes:Procs(d_a_level, 50, 1)
 
 	for i = 0, procs, 1 do
-		Timers:CreateTimer(1.2*i, function()
+		Timers:CreateTimer(0.2*i, function()
 			if i > 0 then
 				StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_ATTACK, rate=1.2})
 			end
@@ -39,13 +39,24 @@ function a_a_end(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-
 	local a_a_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
-
-	local damageMult = 2 + a_a_level*0.1
+	local damageMult = 1 + a_a_level*0.001
 	local damage = target.epochArcanaAA*damageMult
-	print(target.epochArcanaAA)
-	print(damage)
+	if target:HasModifier("modifier_sea_fortress_ai") then 
+		damage = damage / 0.05
+	end
+	local runeSumm = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)+Runes:GetTotalRuneLevelGeneric(caster, 2, 0)+Runes:GetTotalRuneLevelGeneric(caster, 3, 0)+Runes:GetTotalRuneLevelGeneric(caster, 4, 0)+
+					Runes:GetTotalRuneLevelGeneric(caster, 1, 1)+Runes:GetTotalRuneLevelGeneric(caster, 2, 1)+Runes:GetTotalRuneLevelGeneric(caster, 3, 1)+Runes:GetTotalRuneLevelGeneric(caster, 4, 1)+
+					Runes:GetTotalRuneLevelGeneric(caster, 1, 2)+Runes:GetTotalRuneLevelGeneric(caster, 2, 2)+Runes:GetTotalRuneLevelGeneric(caster, 3, 2)+Runes:GetTotalRuneLevelGeneric(caster, 4, 2)+
+					Runes:GetTotalRuneLevelGeneric(caster, 1, 3)+Runes:GetTotalRuneLevelGeneric(caster, 2, 3)+Runes:GetTotalRuneLevelGeneric(caster, 3, 3)+Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+	-- print("runeSumm "..runeSumm)
+	damagQ = caster:GetMaxMana()*runeSumm*a_a_level
+	-- print("damagQ "..damagQ)
+	-- print("damage "..damage)
+
+	damage = math.min(damage,damagQ)
+	-- print(target.epochArcanaAA)
+	-- print(damage)
 
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_backstab_jumping", {duration = 0.1})
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 1, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
@@ -87,7 +98,7 @@ function passive_think(event)
 	local ability = event.ability
 	ability.c_a_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
 	if ability.c_a_level > 0 then
-		local bonusDamage = math.floor(caster:GetMaxMana()*0.015*ability.c_a_level)
+		local bonusDamage = math.floor(caster:GetMaxMana()*0.05*ability.c_a_level)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_epoch_arcana_attack_damage", {})
 		caster:SetModifierStackCount("modifier_epoch_arcana_attack_damage", caster, bonusDamage)
 	else
@@ -107,7 +118,7 @@ function c_a_attack_start2(caster, target, ability, c_a_level)
 		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_epoch_c_a_lock", {duration = 0.1})
 		attacker:ReduceMana(manaDrain)
 	end
-	local damage = manaDrain*c_a_level*5
+	local damage = manaDrain*c_a_level*50
 	local projectileSpeed = attacker:GetProjectileSpeed()
 	ability.damage = damage
 	local info = 

@@ -1590,9 +1590,11 @@ function GameState:FilterDamage(filterTable)
 		if victim:GetPhysicalArmorValue() < 0 then
 			if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 				modifier = victim:FindModifierByName("modifier_epoch_rune_b_b_visible")
-				if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-					local stacks = modifier:GetStackCount()
-					local multIncrease = stacks*0.05*math.abs(victim:GetPhysicalArmorValue())/10
+				if Runes:GetTotalRuneLevelGeneric(attacker, 2, 1) > 0 then
+											
+					local multIncrease = Runes:GetTotalRuneLevelGeneric(attacker, 2, 1)*0.05*math.abs(victim:GetPhysicalArmorValue())/10
+					-- print("test runes b_b: "..Runes:GetTotalRuneLevelGeneric(attacker, 2, 1))
+					-- print("test multIncrease: "..multIncrease)
 					mult = mult + multIncrease/100
 				end
 			end
@@ -1834,13 +1836,15 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if attacker:HasModifier("modifier_epoch_arcana_passive") then
-		if victim:HasModifier("modifier_epoch_arcana_root") then
+		-- if victim:HasModifier("modifier_epoch_arcana_root") then
 			local b_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 0)
 			if b_a_level > 0 then
-				local multIncrease = 0.00001*victim:GetPhysicalArmorBaseValue()*b_a_level
+				local multIncrease = 0.000005*victim:GetPhysicalArmorBaseValue()*b_a_level
+				-- print("od b_a arcana "..mult)
 				mult = mult + multIncrease
+				-- print("od b_a arcana "..mult)
 			end
-		end
+		-- end
 	end
 	if attacker:HasModifier("modifier_zhonic_arcana_c_c_invisible") then
 		local stacks = attacker:GetModifierStackCount("modifier_zhonic_arcana_c_c_invisible", attacker)
@@ -2601,14 +2605,21 @@ function GameState:FilterDamage(filterTable)
 			local a_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 0)
 			if a_a_level > 0 then
 				if attacker:HasAbility("epoch_arcana_ability") then
-					attacker:FindAbilityByName("epoch_arcana_ability"):ApplyDataDrivenModifier(attacker, victim, "modifier_epoch_arcana_a_a_effect", {duration = 5})
+					-- local affectedByQ1 = victim:FindModifierByName("modifier_epoch_arcana_a_a_effect")
+					-- if not affectedByQ1 then
+					-- 	print("affectedByQ1 true")
+					-- end
+					attacker:FindAbilityByName("epoch_arcana_ability"):ApplyDataDrivenModifier(attacker, victim, "modifier_epoch_arcana_a_a_effect", {duration = 3})
 					local damage = filterTable["damage"]
-					filterTable["damage"] = 0
-					victim:Heal(damage, attacker)
+					-- filterTable["damage"] = 0
+					-- victim:Heal(damage, attacker)
 					if not victim.epochArcanaAA then
 						victim.epochArcanaAA = 0
 					end
-					victim.epochArcanaAA = victim.epochArcanaAA + damage
+					-- print("od q1 arcana test damage per hit Hit "..victim.epochArcanaAA)
+					-- print("od q1 arcana test damage per hit Damage "..damage)
+					victim.epochArcanaAA = math.max(victim.epochArcanaAA,damage)
+					-- victim.epochArcanaAA = victim.epochArcanaAA + damage
 				end
 			end
 		end
@@ -2621,6 +2632,9 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if victim:HasModifier("modifier_ankh_of_ancients_shield") then
+		filterTable["damage"] = 0
+	end
+	if victim:HasModifier("modifier_epoch_glyph_5_a_little_shield") then
 		filterTable["damage"] = 0
 	end
 	if victim:HasModifier("modifier_white_mage_shield") then
@@ -2813,6 +2827,14 @@ function GameState:FilterDamage(filterTable)
 				CustomAbilities:Protostar(victim)
 				rezzed = true
 			end
+		end
+		if victim:HasModifier("modifier_epoch_glyph_5_a") and not rezzed then
+			if not victim:HasModifier("modifier_epoch_glyph_5_a_cooldown") then
+				print("EpochTimeTravelGlyph shield trigger - game state")			
+				filterTable["damage"] = victim:GetHealth() - 2
+				CustomAbilities:EpochTimeTravelGlyph(victim)			
+				rezzed = true
+			end	
 		end
 		if victim:HasModifier("modifier_paladin_arcana2_passive") and not rezzed then
 			local a_c_level = Runes:GetTotalRuneLevelGeneric(victim, 1, 2)
