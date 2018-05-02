@@ -80,6 +80,31 @@
 					"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
+			"modifier_redfall_pushback"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"ThinkInterval" 	"0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"Function"		"ashara_explosion_pushback"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+						"Function"		"boss_explosion_pushback_end"
+						"target"		"TARGET"
+					}
+				}
+			}
 		}
 	}
 

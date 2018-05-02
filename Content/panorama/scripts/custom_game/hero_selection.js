@@ -264,6 +264,7 @@ function setHeroSlotActivate(heroImage, heroName, heroPreviewBox, slot)
             setEnterWorldLoad(heroName, enterWorldButton, slot)
         }else{
             setEnterWorldHeroName(heroName, enterWorldButton)
+            heroPreviewBox.FindChildTraverse('hero_lore_text').text = $.Localize(heroName+"_lore")
         }
     }
 }

@@ -86434,6 +86434,7 @@
             "particle"  "particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
             "particle"  "particles/units/heroes/hero_wisp/wisp_tether_agh.vpcf"
             "particle"  "particles/units/heroes/hero_wisp/wisp_death.vpcf"
+            "model"     "models/winterblight/azalea_crystal.vmdl"
         }
         "Ability1"  "azalea_crystal_nova"
         "Ability2"  "azalea_maiden_frostbite"
@@ -86897,7 +86898,7 @@
         "SoundSet"              "Hero_SkywrathMage"
         "precache"
         {
-
+            "model" "models/winterblight/azalea_cup.vmdl"
         }
         "ArmorPhysical" "15"
         "MagicalResistance" "50"

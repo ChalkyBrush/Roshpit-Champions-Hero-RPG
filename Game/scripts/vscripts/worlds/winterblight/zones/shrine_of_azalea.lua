@@ -1,3 +1,61 @@
+function Winterblight:SpawnAzaleaCups()
+end
+
+function Winterblight:SpawnAzaleaCup(position, fv, index)
+    local cup = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
+    cup:SetForwardVector(fv)
+    cup:AddAbility("dummy_unit_can_be_attacked_cant_die"):SetLevel(1)
+    cup:SetOriginalModel("models/winterblight/azalea_cup.vmdl")
+    cup:SetModel("models/winterblight/azalea_cup.vmdl")
+    cup:SetAbsOrigin(position)
+    cup:AddAbility("winterblight_attackable_unit"):SetLevel(1)
+    cup:RemoveAbility("dummy_unit")
+    cup:RemoveModifierByName("dummy_unit")
+
+
+    cup.pushLock = true
+    cup.dummy = true
+    cup.jumpLock = true
+
+    cup.prop_id = 2
+    cup:SetRenderColor(100, 100, 100)
+    cup:SetModelScale(1.0)
+    cup.index = index
+    EmitSoundOn("Winterblight.AzaleaCrystal.FinishPuzzle", cup)
+    CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_wisp/wisp_death.vpcf", cup, 3)
+    table.insert(Winterblight.AzaleacupTable, cup)
+end
+
+function Winterblight:AzaleaCupAttacked(cup, attacker)
+	if not cup.active then
+		cup.active = true
+		local particleNameS = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
+		local radius = 350
+		local particle2 = ParticleManager:CreateParticle( particleNameS, PATTACH_WORLDORIGIN, caster )
+		ParticleManager:SetParticleControl( particle2, 0, GetGroundPosition(shrinePosition, caster) )
+		ParticleManager:SetParticleControl( particle2, 1, Vector(radius,radius,radius) )
+		ParticleManager:SetParticleControl( particle2, 2, Vector(2.0, 2.0, 2.0) )
+		ParticleManager:SetParticleControl( particle2, 4, Vector(255, 40, 0) )
+		Timers:CreateTimer(1.5, 
+		function()
+		ParticleManager:DestroyParticle( particle2, false )
+		end)
+		EmitSoundOnLocationWithCaster(shrinePosition, "Redfall.ActivateAsharaPortal", Redfall.RedfallMaster)
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), shrinePosition, nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )	
+		if #enemies > 0 then	
+			for i = 1, #enemies, 1 do
+				enemies[i]:AddNewModifier(victim, Events:GetGameMasterAbility(), "modifier_stunned", {duration = 1})
+				Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, enemies[i], "modifier_redfall_pushback", {duration = 0.8})
+			end
+		end		
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, shrinePosition, 200, 300, true)
+		Timers:CreateTimer(1.0, function()
+	
+		end)
+	else
+	end
+end
+
 function Winterblight:FirstShrineSpawn()
 	if not Winterblight.AzaleaSpawn1 then
 		Winterblight.AzaleaSpawn1 = true

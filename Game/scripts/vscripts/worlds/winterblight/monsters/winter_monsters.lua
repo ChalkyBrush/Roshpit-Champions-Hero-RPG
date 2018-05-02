@@ -1656,6 +1656,7 @@ end
 function attackable_unit_hit(event)
 	local caster = event.caster
 	local ability = event.ability
+	local attacker = event.attacker
 	if caster.prop_id == 0 then
 		if not caster.hits then
 			caster.hits = 0
@@ -1672,6 +1673,8 @@ function attackable_unit_hit(event)
 		EmitSoundOn("Winterblight.IceSword.Hit", caster)
 	elseif caster.prop_id == 1 then
 		Winterblight:AttackAzaleaCrystal(caster, true)
+	elseif caster.prop_id == 2 then
+		Winterblight:AzaleaCupAttacked(caster, attacker)
 	end
 end
 

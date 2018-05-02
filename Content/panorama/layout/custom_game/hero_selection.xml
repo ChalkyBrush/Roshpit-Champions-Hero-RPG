@@ -39,6 +39,9 @@
 						<Panel id="ability-preview-row">
 						</Panel>
 					</Panel>
+					<Panel id="hero_lore" hittest="false">
+						<Label id="hero_lore_text" hittest="false"></Label>
+					</Panel>
 				</Panel>
 				<Button id="enter-world-button" hittest="true" class="invisible">
 				  <Label text="hero_select_enter_world" class="dummy_option_text"></Label>

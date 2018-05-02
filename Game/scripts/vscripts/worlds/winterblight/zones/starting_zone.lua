@@ -1953,6 +1953,7 @@ function Winterblight:OpenShrineOfAzalea()
 	    end)
 	    Winterblight:FirstShrineSpawn()
 	end)
+	Winterblight:SpawnAzaleaCups()
 end
 
 function Winterblight:SpawnColdSeer(position, fv)
