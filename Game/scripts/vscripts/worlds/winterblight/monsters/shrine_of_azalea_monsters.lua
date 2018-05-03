@@ -66,7 +66,6 @@ end
 
 function reset_crystal_puzzle(event)
 	local caster = event.caster
-	print("HELLO?")
 	if caster.locked or caster:HasModifier("modifier_crystal_finished") then
 		return false
 	end
@@ -336,7 +335,6 @@ function suicide_jump_think(event)
 
 	local height = (caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster))
 	if height < math.abs(ability.liftVelocity) then
-		print(height)
 		if not ability.rising then
 			caster:RemoveModifierByName("modifier_suicide_jump")
 		end
@@ -383,4 +381,118 @@ function suicide_jump_end(event)
 	Timers:CreateTimer(0.03, function()
 		UTIL_Remove(caster)
 	end)
+end
+
+function azalea_explosion_pushback(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	if not target.pushVelocity then
+		target.pushVelocity = 32
+	end
+	local obstruction = WallPhysics:FindNearestObstruction(target:GetAbsOrigin()+target.pushVector*30)
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, target:GetAbsOrigin()+target.pushVector*30, target)
+	local fv = target.pushVector
+	if blockUnit then
+		fv = 0
+	end
+
+	target:SetAbsOrigin(GetGroundPosition(target:GetAbsOrigin() + fv*target.pushVelocity, target))
+	target.pushVelocity = math.max(target.pushVelocity - 1, 0)
+	print("PUSH??")
+end
+
+function azalea_cup_sequence_think(event)
+	local target = event.target
+	if not target.cupSequence then
+		return false
+	end
+	if target.cupSequence == 0 then
+		target.cupSequence = 1
+		local distance = WallPhysics:GetDistance2d(target.cupSequenceData.targetPoint, target:GetAbsOrigin())
+		target.cupSequenceData.jumpVelocity = distance/20 + 4
+		target.cupSequenceData.liftVelocity = 23
+		local heightDiff = (target.cupSequenceData.targetPoint.z+60)-target:GetAbsOrigin().z
+		target.cupSequenceData.liftVelocity = target.cupSequenceData.liftVelocity + heightDiff/24
+		target.cupSequenceData.rising = true
+		target.cupSequenceData.jumpFV = ((target.cupSequenceData.targetPoint - target:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+
+		target.cupSequenceData.interval = 0
+		local playerID = target:GetPlayerID()
+		if playerID then
+			PlayerResource:SetCameraTarget(playerID, target)
+		end
+	elseif target.cupSequence == 1 then
+		local distance = WallPhysics:GetDistance2d(target:GetAbsOrigin(), target.cupSequenceData.targetPoint)
+
+		local fv = target.cupSequenceData.jumpFV
+
+		local height = (target:GetAbsOrigin().z - GetGroundHeight(target:GetAbsOrigin(), target))
+
+
+		local blockSearch = target:GetAbsOrigin()*Vector(1,1,0)+Vector(0,0,GetGroundHeight(target:GetAbsOrigin(), target))
+	    local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
+	    local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch+target.cupSequenceData.jumpFV*30), target)
+		if blockUnit then
+			fv = Vector(0,0)
+		end
+		target:SetAbsOrigin(target:GetAbsOrigin() + fv*target.cupSequenceData.jumpVelocity + Vector(0,0,target.cupSequenceData.liftVelocity))
+		target.cupSequenceData.liftVelocity = target.cupSequenceData.liftVelocity - 2
+		if target.cupSequenceData.liftVelocity <= 0 then
+			target.cupSequenceData.rising = false
+		end
+		target.cupSequenceData.interval = target.cupSequenceData.interval + 1
+		if distance < 20 or target:GetAbsOrigin().z < target.cupSequenceData.targetPoint.z then
+			if not target.cupSequenceData.rising then
+				target.cupSequence = 2
+				target.cupSequenceData.interval = 0
+				CustomAbilities:QuickParticleAtPoint("particles/act_2/siltbreaker_beam_channel.vpcf", target.cupSequenceData.targetPoint+Vector(0,0,20), 5)
+			end
+		end
+	elseif target.cupSequence == 2 then
+		target.cupSequenceData.interval = target.cupSequenceData.interval + 1
+		if target.cupSequenceData.interval == 50 then
+			target.cupSequenceData.interval = 0
+			target.cupSequence = 3
+			target:SetAbsOrigin(Vector(-219, -14701, 2100+Winterblight.ZFLOAT))
+			target.cupSequenceData.fallSpeed = 30
+			EmitSoundOn("Winterblight.AzaleaCup.Falling", target)
+			Timers:CreateTimer(1, function()
+				StartAnimation(target, {duration=3.5, activity=ACT_DOTA_SPAWN, rate=0.6})
+			end)
+			local pfx = ParticleManager:CreateParticle( "particles/winterblight/cup_falling_particle.vpcf", PATTACH_CUSTOMORIGIN, nil )
+			target.cupSequenceData.pfx = pfx
+			local colorVector = Vector(100, 200, 255)
+			ParticleManager:SetParticleControl( target.cupSequenceData.pfx, 0, Vector(-219, -14701, 150+Winterblight.ZFLOAT) )
+			ParticleManager:SetParticleControl( target.cupSequenceData.pfx, 1, colorVector )
+			ParticleManager:SetParticleControl( target.cupSequenceData.pfx, 2, colorVector )
+			ParticleManager:SetParticleControl( target.cupSequenceData.pfx, 3, colorVector )
+			CustomAbilities:QuickParticleAtPoint("particles/act_2/siltbreaker_beam_channel.vpcf", Vector(-219, -14701, 150+Winterblight.ZFLOAT), 3)
+			print("SEQUENCE 3 START")
+		end
+	elseif target.cupSequence == 3 then
+		print("SEQUENCE 3 GOING")
+		target:RemoveModifierByName("modifier_black_portal_shrink")
+		target.cupSequenceData.fallSpeed = math.max(target.cupSequenceData.fallSpeed-0.35, 10)
+		print(target.cupSequenceData.fallSpeed)
+		target:SetAbsOrigin(target:GetAbsOrigin()-Vector(0,0,target.cupSequenceData.fallSpeed))
+		print(target:GetAbsOrigin().z - GetGroundHeight(target:GetAbsOrigin(), target))
+		if target:GetAbsOrigin().z - GetGroundHeight(target:GetAbsOrigin(), target) < 40 then
+			print("SEQUENCE 3 END")
+			target:RemoveModifierByName("modifier_azalea_cup_use")
+			local playerID = target:GetPlayerID()
+			if playerID then
+				PlayerResource:SetCameraTarget(playerID, nil)
+			end
+			EmitSoundOn("Winterblight.AzaleaCup.Land", target)
+			ParticleManager:DestroyParticle(target.cupSequenceData.pfx, false)
+			local pfx2 = ParticleManager:CreateParticle("particles/roshpit/winterblight/azalea_explosion_magical.vpcf", PATTACH_CUSTOMORIGIN, nil)
+			ParticleManager:SetParticleControl(pfx2, 0, target:GetAbsOrigin())
+			ParticleManager:SetParticleControl(pfx2, 2, Vector(90, 200, 255))
+			Timers:CreateTimer(3.5, function()
+				ParticleManager:DestroyParticle(pfx2, false)
+			end)
+		end
+	end
+
 end

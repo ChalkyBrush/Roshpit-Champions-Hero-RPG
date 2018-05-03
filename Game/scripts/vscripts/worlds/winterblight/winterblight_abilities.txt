@@ -90,8 +90,8 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
-						"Function"		"ashara_explosion_pushback"
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"azalea_explosion_pushback"
 						"target"		"TARGET"
 					}
 				}
@@ -101,6 +101,42 @@
 					{
 						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"boss_explosion_pushback_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_azalea_cup_use"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_COMMAND_RESTRICTED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"					"TARGET"
+						"EffectName"				"particles/econ/generic/generic_buff_1/charge_of_light_effect_buff.vpcf"
+						"EffectAttachType"			"attach_origin"
+						"EffectLifeDurationScale"	"1"
+						"EffectColorA"				"80 160 255"
+						"EffectAlphaScale"			"1"
+					}
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"azalea_cup_sequence_think"
 						"target"		"TARGET"
 					}
 				}

@@ -1,13 +1,16 @@
 function Winterblight:SpawnAzaleaCups()
+	Winterblight:SpawnAzaleaCup(Vector(15910, -15831), Vector(-1,0), 1)
 end
 
 function Winterblight:SpawnAzaleaCup(position, fv, index)
+	if not Winterblight.AzaleacupTable then
+		Winterblight.AzaleacupTable = {}
+	end
     local cup = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
     cup:SetForwardVector(fv)
     cup:AddAbility("dummy_unit_can_be_attacked_cant_die"):SetLevel(1)
     cup:SetOriginalModel("models/winterblight/azalea_cup.vmdl")
     cup:SetModel("models/winterblight/azalea_cup.vmdl")
-    cup:SetAbsOrigin(position)
     cup:AddAbility("winterblight_attackable_unit"):SetLevel(1)
     cup:RemoveAbility("dummy_unit")
     cup:RemoveModifierByName("dummy_unit")
@@ -16,7 +19,8 @@ function Winterblight:SpawnAzaleaCup(position, fv, index)
     cup.pushLock = true
     cup.dummy = true
     cup.jumpLock = true
-
+    local angle = WallPhysics:vectorToAngle(fv)
+    -- cup:SetAngles(0, angle, 0)
     cup.prop_id = 2
     cup:SetRenderColor(100, 100, 100)
     cup:SetModelScale(1.0)
@@ -28,31 +32,67 @@ end
 
 function Winterblight:AzaleaCupAttacked(cup, attacker)
 	if not cup.active then
+		print("HIT INACTIVE CUP")
 		cup.active = true
 		local particleNameS = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
 		local radius = 350
 		local particle2 = ParticleManager:CreateParticle( particleNameS, PATTACH_WORLDORIGIN, caster )
-		ParticleManager:SetParticleControl( particle2, 0, GetGroundPosition(shrinePosition, caster) )
+		ParticleManager:SetParticleControl( particle2, 0, GetGroundPosition(cup:GetAbsOrigin(), caster) )
 		ParticleManager:SetParticleControl( particle2, 1, Vector(radius,radius,radius) )
 		ParticleManager:SetParticleControl( particle2, 2, Vector(2.0, 2.0, 2.0) )
-		ParticleManager:SetParticleControl( particle2, 4, Vector(255, 40, 0) )
+		ParticleManager:SetParticleControl( particle2, 4, Vector(100, 200, 255) )
 		Timers:CreateTimer(1.5, 
 		function()
-		ParticleManager:DestroyParticle( particle2, false )
+			ParticleManager:DestroyParticle( particle2, false )
 		end)
-		EmitSoundOnLocationWithCaster(shrinePosition, "Redfall.ActivateAsharaPortal", Redfall.RedfallMaster)
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), shrinePosition, nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )	
+		EmitSoundOnLocationWithCaster(cup:GetAbsOrigin(), "Winterblight.AzaleaCup.Explosion", Winterblight.Master)
+		local enemies = FindUnitsInRadius( DOTA_TEAM_GOODGUYS, cup:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )	
 		if #enemies > 0 then	
 			for i = 1, #enemies, 1 do
 				enemies[i]:AddNewModifier(victim, Events:GetGameMasterAbility(), "modifier_stunned", {duration = 1})
 				Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, enemies[i], "modifier_redfall_pushback", {duration = 0.8})
+				enemies[i].pushVector = Vector(-1,0)
 			end
 		end		
-		AddFOWViewer(DOTA_TEAM_GOODGUYS, shrinePosition, 200, 300, true)
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, cup:GetAbsOrigin(), 200, 300, true)
 		Timers:CreateTimer(1.0, function()
-	
+			Winterblight:smoothColorTransition(cup, Vector(100, 100, 100), Vector(150, 200, 255), 17)
+			Timers:CreateTimer(0.5, function()
+				local pfx = ParticleManager:CreateParticle("particles/winterblight/azalea_cup_fire.vpcf", PATTACH_CUSTOMORIGIN, nil)
+				ParticleManager:SetParticleControl(pfx, 0, cup:GetAbsOrigin()+Vector(0,0,160))
+				EmitSoundOn("Winterblight.AzaleaCup.Ignite", cup)
+			end)
+			if not Winterblight.AzaleaPortalTable then
+				Winterblight.AzaleaPortalTable = {0, 0, 0, 0, 0, 0}
+			end
+			if index == 1 then
+				Beacons:CreateActiveParticle("particles/portals/green_portal.vpcf", Vector(1255, -15219, 250+Winterblight.ZFLOAT), Events.GameMaster, 0, Vector(0.45, 0.45, 0.45))
+				AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(1255, -15219, 250+Winterblight.ZFLOAT), 300, 99999, false)
+				Winterblight.AzaleaPortalTable[1] = 1 
+				if Winterblight.AzaleaPortalTable[2] == 0 then
+					Beacons:CreateActiveParticle("particles/portals/green_portal.vpcf", Vector(1255, -14425, 250+Winterblight.ZFLOAT), Events.GameMaster, 0, Vector(0.45, 0.45, 0.45))
+					AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(1255, -14425, 250+Winterblight.ZFLOAT), 300, 99999, false)
+					Winterblight.AzaleaPortalTable[2] = 1
+				end
+			end
 		end)
 	else
+		attacker.cupSequence = false
+		print("ATTACK ACTIVE CUP")
+		attacker:AddNewModifier( attacker, nil, "modifier_black_portal_shrink", {} )
+		Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, attacker, "modifier_azalea_cup_use", {duration = 20})
+		local delay = 0
+		if WallPhysics:GetDistance2d(cup:GetAbsOrigin(), attacker:GetAbsOrigin()) < 240 then
+			Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, attacker, "modifier_redfall_pushback", {duration = 0.3})
+			attacker.pushVector = cup:GetForwardVector()*-1
+			delay = 0.3
+		end
+		Timers:CreateTimer(delay, function()
+			EmitSoundOn("Winterblight.AzaleaCup.Start", attacker)
+			attacker.cupSequenceData = {}
+			attacker.cupSequenceData.targetPoint = cup:GetAbsOrigin()
+			attacker.cupSequence = 0
+		end)
 	end
 end
 

@@ -4066,6 +4066,9 @@
             "particle"  "particles/units/heroes/hero_wisp/wisp_tether_agh.vpcf"
             "particle"  "particles/units/heroes/hero_wisp/wisp_death.vpcf"
             "model"     "models/winterblight/azalea_crystal.vmdl"
+            "particle"  "particles/winterblight/azalea_cup_fire.vpcf"
+            "particle"  "particles/winterblight/cup_falling_particle.vpcf"
+            "particle"  "particles/roshpit/winterblight/azalea_explosion_magical.vpcf"
         }
         "Ability1"  "azalea_crystal_nova"
         "Ability2"  "azalea_maiden_frostbite"

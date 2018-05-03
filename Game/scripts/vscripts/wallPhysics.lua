@@ -315,6 +315,47 @@ function WallPhysics:JumpFixedDistanceWithBlocking(unit, forwardVector, distance
 	end)
 end
 
+function WallPhysics:JumpFixedDistanceNoBlocking(unit, forwardVector, distance, liftForce, propulsion, gravity, fallGravity)
+	local gameMaster = Events.GameMaster
+	local gameMasterAbil = gameMaster:FindAbilityByName("npc_abilities")
+	local jumpingModifier = "modifier_jumping"
+	gameMasterAbil:ApplyDataDrivenModifier(gameMaster, unit, "modifier_jumping", {duration = 5})
+	local liftDuration = distance/propulsion/2
+	local endLocation = unit:GetAbsOrigin()+forwardVector*distance
+	for i = 1, liftDuration, 1 do
+		Timers:CreateTimer(0.03*i, function()
+			local currentPosition = unit:GetAbsOrigin()
+			local newPosition = currentPosition+forwardVector*propulsion+Vector(0,0,liftForce-i*gravity)
+		    unit:SetOrigin(newPosition)
+		end)
+	end
+	local fallLoop = 0
+	Timers:CreateTimer(0.03*liftDuration+0.03, function()
+		Timers:CreateTimer(0.03*fallLoop, function()
+			fallLoop = fallLoop + 1
+			local currentPosition = unit:GetAbsOrigin()
+			local newPosition = currentPosition+forwardVector*propulsion-Vector(0,0,fallLoop*gravity*fallGravity)
+
+		    local obstruction = WallPhysics:FindNearestObstruction(newPosition)
+		    local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPosition, unit)
+		    unit:SetOrigin(newPosition)
+			if fallLoop > liftDuration then
+				unit:RemoveModifierByName("modifier_jumping")
+				FindClearSpaceForUnit(unit, currentPosition, false)
+				WallPhysics:UnitLand(unit)
+			else
+				if newPosition.x <= endLocation.x + 20 and newPosition.x >= endLocation.x-20 and newPosition.y <= endLocation.y+20 and newPosition.y >= endLocation.y-20 then
+					unit:RemoveModifierByName("modifier_jumping")
+					FindClearSpaceForUnit(unit, currentPosition, false)
+					WallPhysics:UnitLand(unit)
+				else
+					return 0.03
+				end
+			end
+		end)
+	end)
+end
+
 function WallPhysics:UnitLand(unit)
 	local caster = unit
 	if caster.jumpEnd then
