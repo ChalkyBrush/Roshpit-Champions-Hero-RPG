@@ -1099,7 +1099,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     -- if damage_type == DAMAGE_TYPE_PHYSICAL then
     --     damage = damage/(1+((attacker:GetIntellect()/16)/100))
     -- end
-    print("OD test1: "..damage)
+    print("OD test1 before bad and elem: "..damage)
     local attackerName = attacker:GetUnitName()
 
     if not ignore_effects then
@@ -1905,10 +1905,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 mult = mult + 0.0006*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_c_level
             end
         elseif unitName == "npc_dota_hero_obsidian_destroyer" then
-            print("OD HERE")
+            -- print("OD HERE")
             local d_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 3)
             if d_d_level > 0 then
-                print("OD HERE2 r4: "..d_d_level)
+                -- print("OD HERE2 r4: "..d_d_level)
                 mult = mult + 0.0005*attacker:GetManaRegen()*d_d_level
             end   
         end    

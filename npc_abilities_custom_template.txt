@@ -42454,7 +42454,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -42490,13 +42490,13 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"5"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"			"2"
+				"property_one_base"			"5"
 			}
 		}
 	}

@@ -1345,11 +1345,12 @@ function GameState:FilterDamage(filterTable)
 			local a_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 0)
 			if a_a_level > 0 then
 				if attacker:HasAbility("epoch_arcana_ability") then
-					-- local affectedByQ1 = victim:FindModifierByName("modifier_epoch_arcana_a_a_effect")
-					-- if not affectedByQ1 then
-					-- 	print("affectedByQ1 true")
-					-- end
-					attacker:FindAbilityByName("epoch_arcana_ability"):ApplyDataDrivenModifier(attacker, victim, "modifier_epoch_arcana_a_a_effect", {duration = 3})
+					local affectedByQ1 = victim:FindModifierByName("modifier_epoch_arcana_a_a_effect")
+					if not affectedByQ1 then
+						print("affectedByQ1 true")
+						attacker:FindAbilityByName("epoch_arcana_ability"):ApplyDataDrivenModifier(attacker, victim, "modifier_epoch_arcana_a_a_effect", {duration = 3})
+					end
+					-- attacker:FindAbilityByName("epoch_arcana_ability"):ApplyDataDrivenModifier(attacker, victim, "modifier_epoch_arcana_a_a_effect", {duration = 3})
 					local damage = filterTable["damage"]
 					-- filterTable["damage"] = 0
 					-- victim:Heal(damage, attacker)
