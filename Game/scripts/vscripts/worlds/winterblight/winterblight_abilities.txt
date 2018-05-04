@@ -4969,3 +4969,179 @@
 			}
 		}
 	}
+
+	"winterblight_mind_breaker_damage"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"seafortress/creature_pure_strike"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"percentage"			"3"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"intelligence"			"50 200 1000"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"mana_threshold"			"1000"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_strikes"			"15"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_mindbreaker_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+						"Function"		"mindbreaker_attack_land"
+						"percentage"	"%perentage"
+						"intelligence"	"%intelligence"
+						"mana_threshold"	"%mana_threshold"
+						"damage"		"%attack_damage"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_ghost_striker_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"seafortress/creature_pure_strike"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage_per_missing_hp"			"0.2 0.5 1.5"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ghost_striker_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName" 		"particles/status_fx/status_effect_ancestral_spirit.vpcf"
+				"StatusEffectPriority"  "50"
+				"ThinkInterval"  "8"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+						"Function"		"ghost_striker_think"
+					}
+				}
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+						"Function"		"ghost_striker_attack_land"
+						"damage_per_missing_hp"	"%damage_per_missing_hp"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_secret_keeper_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"seafortress/creature_pure_strike"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"agility_loss"			"25 50 75"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_secret_keeper_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName" 		"particles/status_fx/status_effect_ancestral_spirit.vpcf"
+				"StatusEffectPriority"  "50"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+						"Function"		"secret_keeper_attack_land"
+						"agility_loss"	"%agility_loss"
+					}
+				}
+			}
+			"modifier_secret_keeper_agi_loss"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+			}
+		}
+	}
+
+	"thorcrux_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AOERadius"			"600"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"morphling_waveform"
+		"MaxLevel"	"3"
+		"Modifiers"
+		{
+			"modifier_sea_god_ai"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName" 		"particles/status_fx/status_effect_ancestral_spirit.vpcf"
+				"StatusEffectPriority"  "50"
+				"ThinkInterval"  "0.4"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+						"Function"		"thorcrux_think"
+					}
+				}
+			}
+		}
+		"OnOwnerDied"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Winterblight.Thorcrux.Die"
+				"Target" 		"CASTER"
+			}
+		}
+	}

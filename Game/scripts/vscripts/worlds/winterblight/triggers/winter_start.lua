@@ -119,5 +119,45 @@ function AzaleaSwitch1(trigger)
 end
 
 function ShrineSpawn3(trigger)
-	-- Winterblight:ShrineSpawn3()
+	Winterblight:ShrineSpawn3()
+end
+
+function AzaleaPortal(trigger)
+	local activator = trigger.activator
+	local caller = trigger.caller
+	if activator:HasModifier("modifier_recently_teleported_portal") then
+		return false
+	end
+	if WallPhysics:GetDistance2d(caller:GetAbsOrigin(), activator:GetAbsOrigin()) < 200 then
+		if not Winterblight.AzaleaPortalTable then
+			Winterblight.AzaleaPortalTable = {0, 0, 0, 0, 0, 0}
+		end
+
+		local portalIndex = caller:GetName():gsub('AzaleaPortal', "")
+		portalIndex = tonumber(portalIndex)
+		local tp_position = activator:GetAbsOrigin()
+		if portalIndex == 1 then
+			tp_position = Vector(11157, -11941, 192+Winterblight.ZFLOAT)
+		elseif portalIndex == 2 then
+			tp_position = Vector(12032, -15488, 192+Winterblight.ZFLOAT)
+		end
+		if Winterblight.AzaleaPortalTable[portalIndex] == 1 then
+			Events:TeleportUnit(activator, tp_position, Events.GameMaster.portal, Events.GameMaster, 1.2)
+		end
+	end
+end
+
+function AzaleaSwitch2(trigger)
+	if not Winterblight.AzaleaSwitch2pressed then
+		Winterblight.AzaleaSwitch2pressed = true
+		Winterblight:AzaleaSwitch2(trigger)
+	end
+end
+
+function ShrineSpawn4(trigger)
+	Winterblight:ShrineSpawn4()
+end
+
+function ShrineSpawn5(trigger)
+	Winterblight:ShrineSpawn5()
 end

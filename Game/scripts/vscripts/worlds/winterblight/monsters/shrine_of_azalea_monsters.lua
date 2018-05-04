@@ -436,7 +436,7 @@ function azalea_cup_sequence_think(event)
 		if blockUnit then
 			fv = Vector(0,0)
 		end
-		target:SetAbsOrigin(target:GetAbsOrigin() + fv*target.cupSequenceData.jumpVelocity + Vector(0,0,target.cupSequenceData.liftVelocity))
+		target:SetOrigin(target:GetAbsOrigin() + fv*target.cupSequenceData.jumpVelocity + Vector(0,0,target.cupSequenceData.liftVelocity))
 		target.cupSequenceData.liftVelocity = target.cupSequenceData.liftVelocity - 2
 		if target.cupSequenceData.liftVelocity <= 0 then
 			target.cupSequenceData.rising = false
@@ -454,7 +454,7 @@ function azalea_cup_sequence_think(event)
 		if target.cupSequenceData.interval == 50 then
 			target.cupSequenceData.interval = 0
 			target.cupSequence = 3
-			target:SetAbsOrigin(Vector(-219, -14701, 2100+Winterblight.ZFLOAT))
+			target:SetOrigin(Vector(-219, -14701, 2100+Winterblight.ZFLOAT))
 			target.cupSequenceData.fallSpeed = 30
 			EmitSoundOn("Winterblight.AzaleaCup.Falling", target)
 			Timers:CreateTimer(1, function()
@@ -475,7 +475,7 @@ function azalea_cup_sequence_think(event)
 		target:RemoveModifierByName("modifier_black_portal_shrink")
 		target.cupSequenceData.fallSpeed = math.max(target.cupSequenceData.fallSpeed-0.35, 10)
 		print(target.cupSequenceData.fallSpeed)
-		target:SetAbsOrigin(target:GetAbsOrigin()-Vector(0,0,target.cupSequenceData.fallSpeed))
+		target:SetOrigin(target:GetAbsOrigin()-Vector(0,0,target.cupSequenceData.fallSpeed))
 		print(target:GetAbsOrigin().z - GetGroundHeight(target:GetAbsOrigin(), target))
 		if target:GetAbsOrigin().z - GetGroundHeight(target:GetAbsOrigin(), target) < 40 then
 			print("SEQUENCE 3 END")
@@ -495,4 +495,102 @@ function azalea_cup_sequence_think(event)
 		end
 	end
 
+end
+
+function mindbreaker_attack_land(event)
+	local attacker = event.attacker
+	local target = event.target
+	local ability = event.ability
+	local percentage = event.percentage
+	local intelligence = event.intelligence
+	local mana_threshold = event.mana_threshold
+	local procs = 0
+	if target:IsHero() then
+		procs = math.min(target:GetIntellect()/intelligence, 15)
+	else
+		procs = math.min(target:GetMana()/mana_threshold, 15)
+	end
+	local damage = event.damage*percentage/100
+	if procs > 0 then
+		CustomAbilities:QuickAttachParticle("particles/winterblight/mindbreaker_attack.vpcf", attacker, 3)
+	end
+	for i = 1, procs, 1 do
+		Timers:CreateTimer(i*0.03, function()
+			ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
+			EmitSoundOn("Winterblight.MindBreaker.Sound", attacker)
+			CustomAbilities:QuickAttachParticle("particles/winterblight/mindbreaker_attack.vpcf", target, 3)
+		end)
+	end
+end
+
+function ghost_striker_attack_land(event)
+	local attacker = event.attacker
+	local target = event.target
+	local ability = event.ability
+	local damage_per_missing_hp = event.damage_per_missing_hp
+	local damage = (target:GetMaxHealth()-target:GetHealth())*damage_per_missing_hp
+	if damage > 100 then
+		ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
+		EmitSoundOn("Winterblight.GhostStriker.Hit", target)	
+		if not ability.particleLock then
+			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_phoenix/phoenix_fire_spirit_burn_spike.vpcf", target, 3)
+			ability.particleLock = true
+			Timers:CreateTimer(0.5, function()
+				ability.particleLock = false
+			end)
+		end
+	end
+end
+
+function ghost_striker_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster:IsAlive() and caster.aggro then
+		if caster:HasAbility("serengaard_antimage_blink_custom") then
+			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+			if #enemies > 0 then
+				local hookAbility = caster:FindAbilityByName("serengaard_antimage_blink_custom")
+				if hookAbility:IsFullyCastable() then
+					local targetPoint = enemies[1]:GetOrigin() + RandomVector(RandomInt(80, 320))			
+					local order =
+					{
+						UnitIndex = caster:entindex(),
+						OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+						AbilityIndex = hookAbility:entindex(),
+						Position = targetPoint
+					}
+					ExecuteOrderFromTable(order)
+					return false
+				end
+			end
+		end
+	end
+end
+
+function secret_keeper_attack_land(event)
+	local attacker = event.attacker
+	local ability = event.ability
+	local target = event.target
+	local agility_loss = event.agility_loss/100
+	if target:IsHero() then
+		if not target:HasModifier("modifier_secret_keeper_agi_loss") then
+			ability:ApplyDataDrivenModifier(attacker, target, "modifier_secret_keeper_agi_loss", {duration = 5})
+			target:SetModifierStackCount("modifier_secret_keeper_agi_loss", attacker, target:GetAgility()*agility_loss)
+		end
+	end
+end
+
+function thorcrux_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local radius = caster:GetAttackRange()
+	if caster:IsAlive() and caster.aggro then
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+		if #enemies > 0 then
+			StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_ATTACK, rate=1.2})
+			for _,enemy in pairs(enemies) do
+				Filters:PerformAttackSpecial(caster, enemy, true, true, true, false, true, false, false)
+			end
+		end 
+	end
 end

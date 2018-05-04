@@ -15,7 +15,7 @@ function Winterblight:SpawnAzaleaCup(position, fv, index)
     cup:RemoveAbility("dummy_unit")
     cup:RemoveModifierByName("dummy_unit")
 
-
+    cup:SetHullRadius(100)
     cup.pushLock = true
     cup.dummy = true
     cup.jumpLock = true
@@ -54,7 +54,7 @@ function Winterblight:AzaleaCupAttacked(cup, attacker)
 				enemies[i].pushVector = Vector(-1,0)
 			end
 		end		
-		AddFOWViewer(DOTA_TEAM_GOODGUYS, cup:GetAbsOrigin(), 200, 300, true)
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, cup:GetAbsOrigin(), 200, 999999, true)
 		Timers:CreateTimer(1.0, function()
 			Winterblight:smoothColorTransition(cup, Vector(100, 100, 100), Vector(150, 200, 255), 17)
 			Timers:CreateTimer(0.5, function()
@@ -65,17 +65,18 @@ function Winterblight:AzaleaCupAttacked(cup, attacker)
 			if not Winterblight.AzaleaPortalTable then
 				Winterblight.AzaleaPortalTable = {0, 0, 0, 0, 0, 0}
 			end
-			if index == 1 then
-				Beacons:CreateActiveParticle("particles/portals/green_portal.vpcf", Vector(1255, -15219, 250+Winterblight.ZFLOAT), Events.GameMaster, 0, Vector(0.45, 0.45, 0.45))
+			if cup.index == 1 then
+				Beacons:CreateActiveParticle("particles/portals/green_portal.vpcf", Vector(1255, -15219, 490+Winterblight.ZFLOAT), Events.GameMaster, 0, Vector(0.45, 0.45, 0.45))
 				AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(1255, -15219, 250+Winterblight.ZFLOAT), 300, 99999, false)
 				Winterblight.AzaleaPortalTable[1] = 1 
 				if Winterblight.AzaleaPortalTable[2] == 0 then
-					Beacons:CreateActiveParticle("particles/portals/green_portal.vpcf", Vector(1255, -14425, 250+Winterblight.ZFLOAT), Events.GameMaster, 0, Vector(0.45, 0.45, 0.45))
+					Beacons:CreateActiveParticle("particles/portals/green_portal.vpcf", Vector(1255, -14425, 490+Winterblight.ZFLOAT), Events.GameMaster, 0, Vector(0.45, 0.45, 0.45))
 					AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(1255, -14425, 250+Winterblight.ZFLOAT), 300, 99999, false)
 					Winterblight.AzaleaPortalTable[2] = 1
 				end
 			end
 		end)
+		Winterblight:ShrineSpawn5()
 	else
 		attacker.cupSequence = false
 		print("ATTACK ACTIVE CUP")
@@ -852,5 +853,194 @@ function Winterblight:SpawnSourceAssembly(position, fv)
 	stone.itemLevel = 55
 	stone.dominion = true
 	stone:SetMana(0)
+	return stone
+end
+
+function Winterblight:AzaleaSwitch2()
+	Winterblight:ActivateSwitchGeneric(Vector(10819, -15459, 78+Winterblight.ZFLOAT), "AzaleaSwitchProp2", true, 0.355)
+	local spawnPoints = {{Vector(10176, -16000), Vector(1,0)}, {Vector(10176, -14974), Vector(1,0)}, {Vector(12672, -14974), Vector(-1,0)}, {Vector(12672, -16000), Vector(-1,0)}}
+	local zAdd = 378 + Winterblight.ZFLOAT
+end
+
+function Winterblight:ShrineSpawn4()
+end
+
+function Winterblight:ShrineSpawn5()
+	if not Winterblight.AzaleaTeleportRoomSpawned then
+		Winterblight.AzaleaTeleportRoomSpawned = true
+		local luck = RandomInt(1, 3)
+		if luck == 1 then
+			local positionTable = {Vector(-1024, -14336), Vector(-841, -14080), Vector(-512, -13871), Vector(-161, -13871), Vector(185, -13871), Vector(462, -14080), Vector(640, -14336)}
+			for i = 1, #positionTable, 1 do
+				Winterblight:SpawnAzaleaHighguard(positionTable[i], Vector(0,-1))
+			end	
+			Timers:CreateTimer(0.8, function()
+				local positionTable = {Vector(-1364, -13915), Vector(-1580, -13915), Vector(-1580, -13639), Vector(-1364, -13639), Vector(936, -13915), Vector(1152, -13915), Vector(936, -13639), Vector(1152, -13639)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnAzaleaMindbreaker(positionTable[i], Vector(0,-1))
+				end	
+			end)	
+			Timers:CreateTimer(0.1, function()
+				for i = 0, 9, 1 do
+					Timers:CreateTimer(i*0.3, function()
+						Winterblight:SpawnGhostStriker(Vector(-1536+i*300, -15734), Vector(0,1))
+					end)
+				end	
+			end)	
+			Timers:CreateTimer(0.5, function()
+				local positionTable = {Vector(-1536, -15482), Vector(1536, -15616)}
+			    for i = 1, 1, 1 do
+			      Timers:CreateTimer(i*1.2, function()
+			        local patrolPositionTable = {}
+			        for j = 1, #positionTable, 1 do
+			          local index = i + j
+			          if index > #positionTable then
+			            index = index - #positionTable
+			          end
+			          table.insert(patrolPositionTable, positionTable[index])
+			        end
+			        for j = 0, 1, 1 do
+			          Timers:CreateTimer(j*1, function()
+			            local elemental = Winterblight:SpawnColdSeer(positionTable[i]+RandomVector(RandomInt(1,100)), RandomVector(1))
+			            Winterblight:AddPatrolArguments(elemental, 35, 5, 220, patrolPositionTable)
+			          end)
+			        end
+			      end)
+			    end
+			end)
+		elseif luck == 2 then
+			for i = 0, 5, 1 do
+				Timers:CreateTimer(i*0.1, function()
+					Winterblight:SpawnSecretKeeper(Vector(-1536+i*540, -15610), Vector(0,1))
+				end)
+			end	
+			for i = 0, 4, 1 do
+				Timers:CreateTimer(i*0.1 + 0.05, function()
+					Winterblight:SpawnSecretKeeper(Vector(-1273+i*540, -15880), Vector(0,1))
+				end)
+			end	
+			local positionTable = {{Vector(-1089, -15259), Vector(1,0)}, {Vector(-1089, -15074), Vector(1,0)}, {Vector(-1089, -15259), Vector(1,0)}, {Vector(-1089, -14500), Vector(1,0)}, {Vector(-1089, -14316), Vector(1,0)}, {Vector(-862, -13873), Vector(0,-1)}, {Vector(-677, -13863), Vector(0,-1)}, {Vector(340, -13873), Vector(0,-1)}, {Vector(524, -13873), Vector(0,-1)}, {Vector(771, -14353), Vector(-1,0)}, {Vector(771, -14536), Vector(-1,0)}, {Vector(771, -15082), Vector(-1,0)}, {Vector(771, -15266), Vector(-1,0)}}
+			for i = 1, #positionTable, 1 do
+				Winterblight:SpawnAzaleaHighguard(positionTable[i][1], positionTable[i][2])
+			end	
+			Timers:CreateTimer(1, function()
+			    local positionTable = {Vector(-1664, -13952), Vector(-1490, -13696), Vector(1223, -13568), Vector(896, -13568), Vector(1109, -13824), Vector(1273, -14033)}
+			    for i = 1, #positionTable, 1 do
+			      local lookToPoint = (Vector(-256, -14720) - positionTable[i]):Normalized()
+			      Winterblight:SpawnAzaleaMindbreaker(positionTable[i], lookToPoint)
+			    end
+			end)
+			Timers:CreateTimer(0.5, function()
+				local positionTable = {Vector(-1152, -14080), Vector(768, -14080)}
+			    for i = 1, 1, 1 do
+			      Timers:CreateTimer(i*1.2, function()
+			        local patrolPositionTable = {}
+			        for j = 1, #positionTable, 1 do
+			          local index = i + j
+			          if index > #positionTable then
+			            index = index - #positionTable
+			          end
+			          table.insert(patrolPositionTable, positionTable[index])
+			        end
+			        for j = 0, 1, 1 do
+			          Timers:CreateTimer(j*1, function()
+			            local elemental = Winterblight:SpawnSoftwalker(positionTable[i]+RandomVector(RandomInt(1,100)), RandomVector(1))
+			            Winterblight:AddPatrolArguments(elemental, 35, 5, 220, patrolPositionTable)
+			          end)
+			        end
+			      end)
+			    end
+			end)
+		elseif luck == 3 then
+			Timers:CreateTimer(0.1, function()
+				for i = 0, 9, 1 do
+					Timers:CreateTimer(i*0.3, function()
+						Winterblight:SpawnAzaleaMindbreaker(Vector(-1536+i*300, -15734+math.sin(2*math.pi*i/5)*160), Vector(0,1))
+					end)
+				end	
+			end)	
+			Timers:CreateTimer(0.3, function()
+			    for i = 0, 4, 1 do
+			      Winterblight:SpawnAzaleaHighguard(Vector(-1024, -15232+i*256), Vector(1,0))
+			    end
+			    for i = 0, 4, 1 do
+			      Winterblight:SpawnAzaleaHighguard(Vector(628, -15232+i*256), Vector(-1,0))
+			    end
+			end)
+			Timers:CreateTimer(1, function()
+			    local positionTable = {Vector(-1280, -13952), Vector(-1536, -13952), Vector(-1536, -13604), Vector(-1159, -13677), Vector(-1159, -13352), Vector(824, -14144), Vector(824, -13819), Vector(944, -13545), Vector(1200, -13545), Vector(1200, -13892)}
+			    for i = 1, #positionTable, 1 do
+			      local lookToPoint = (Vector(-256, -14720) - positionTable[i]):Normalized()
+			      Winterblight:SpawnSecretKeeper(positionTable[i], lookToPoint)
+			    end
+			end)
+			Timers:CreateTimer(1.5, function()
+			    for i = 0, 5, 1 do
+			      Winterblight:SpawnGhostStriker(Vector(-712+200*i, -13952), Vector(0,-1))
+			    end
+			end)
+		end
+		Timers:CreateTimer(2.5, function()
+		    local positionTable = {Vector(-1974, -15616), Vector(-1974, -14976), Vector(-1920, -14366), Vector(-1920, -13696), Vector(-1391, -13096), Vector(-725, -13096), Vector(-93, -13096), Vector(571, -13096), Vector(1152, -13276), Vector(1620, -13755), Vector(1644, -14336), Vector(1664, -15032), Vector(1737, -15744)}
+		    for i = 1, #positionTable, 1 do
+		      Timers:CreateTimer(i*0.25, function()
+			      local ogreSpawn = RandomInt(1, 2)
+			      if ogreSpawn == 1 then
+			     	 Winterblight:SpawnMountainOgre(positionTable[i]+RandomVector(RandomInt(0, 90)), RandomVector(1))
+			      end
+			  end)
+		    end
+		end)
+		Timers:CreateTimer(0.25, function()
+			Winterblight:SpawnThorcrux(Vector(-180, -13406), Vector(0,-1))
+		end)
+	end
+end
+
+function Winterblight:SpawnAzaleaHighguard(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_azalea_highguard", position, 1, 1, "Winterblight.AzaleaHighguard.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 4, 5, false)
+	stone.itemLevel = 42
+	stone.dominion = true
+	Events:ColorWearables(stone, Vector(142, 241, 255))
+	return stone
+end
+
+function Winterblight:SpawnAzaleaMindbreaker(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_azalea_mindbreaker", position, 0, 1, "Winterblight.MindBreaker.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 4, 4, false)
+	stone.itemLevel = 42
+	stone.dominion = true
+	Events:ColorWearables(stone, Vector(82, 151, 255))
+	return stone
+end
+
+function Winterblight:SpawnGhostStriker(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("azalea_ghost_striker", position, 0, 1, "Winterblight.GhostStriker.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 5, 5, false)
+	stone.itemLevel = 42
+	stone.dominion = true
+	Events:ColorWearables(stone, Vector(82, 151, 255))
+	return stone
+end
+
+function Winterblight:SpawnSecretKeeper(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_azalea_secret_keeper", position, 0, 1, "Winterblight.SecretKeeper.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 5, 5, false)
+	stone.itemLevel = 42
+	stone.dominion = true
+
+	return stone
+end
+
+function Winterblight:SpawnThorcrux(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("azalea_thorcrux", position, 2, 5, "Winterblight.Thorcrux.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 5, 5, false)
+	stone.itemLevel = 50
+	Timers:CreateTimer(0.03, function()
+		if GameState:GetDifficultyFactor() == 3 then
+			stone:AddAbility("creature_pure_strike"):SetLevel(3)
+		end
+	end)
 	return stone
 end
