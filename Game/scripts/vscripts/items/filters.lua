@@ -1099,7 +1099,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     -- if damage_type == DAMAGE_TYPE_PHYSICAL then
     --     damage = damage/(1+((attacker:GetIntellect()/16)/100))
     -- end
-    print("OD test1 before bad and elem: "..damage)
+    -- print("before bad and elem: "..damage)
     local attackerName = attacker:GetUnitName()
 
     if not ignore_effects then
@@ -1522,7 +1522,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     if slot == 0 then
         ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = attacker:GetAbilityByIndex(0) })
     end
-    print("OD test2: "..damage)
 
     return damage
 end

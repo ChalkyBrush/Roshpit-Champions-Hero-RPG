@@ -1861,7 +1861,6 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
-	print("OD test3: "..filterTable["damage"])
 	if attacker:HasModifier("modifier_epoch_arcana_passive") then
 		-- if victim:HasModifier("modifier_epoch_arcana_root") then
 			local b_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 0)
@@ -2946,7 +2945,6 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
-	print("OD test4: "..filterTable["damage"])
 
 	local inflictor = filterTable["entindex_inflictor_const"]
 	if not applyEffects then
