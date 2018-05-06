@@ -189,7 +189,7 @@ function rune_c_c(caster)
   local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_c")
   local totalLevel = abilityLevel + bonusLevel
   if totalLevel > 0 then
-  	local c_c_duration = Filters:GetAdjustedBuffDuration(caster, 60, false)
+  	local c_c_duration = Filters:GetAdjustedBuffDuration(caster, 6, false)
     ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_epoch_rune_c_c", {duration = c_c_duration})
     ability.origCaster = caster
     ability.damage = caster:GetAverageTrueAttackDamage(caster)
@@ -323,7 +323,7 @@ function onProjectileHit_b_c(event)
 	-- 	print("damage x2!!!")
 	-- 	damage = damage*2
 	-- end
-	damage = damage + ability.d_c_level*caster:GetAverageTrueAttackDamage(caster)*0.2
+	damage = damage + ability.d_c_level*caster:GetAverageTrueAttackDamage(caster)*0.1
 	if target:HasModifier("modifier_time_bound") or target:HasModifier("modifier_time_bind") or target:HasModifier("modifier_space_link") or target:HasModifier("modifier_epoch_arcana_root") then
 		damage = damage*2
 		if target:HasModifier("modifier_epoch_immortal_weapon_3") then

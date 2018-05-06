@@ -4,7 +4,6 @@ function ability_start(event)
 	local target = event.target_points[1]
 	local d_a_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
 	local procs = Runes:Procs(d_a_level, 50, 1)
-
 	for i = 0, procs, 1 do
 		Timers:CreateTimer(0.2*i, function()
 			if i > 0 then
@@ -24,7 +23,10 @@ function ability_start(event)
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do
 					Filters:PerformAttackSpecial(caster, enemy, true, true, true, false, true, false, false)
-					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_epoch_arcana_root", {duration = rootDuration})
+					local alreadyHave = enemy:FindModifierByName("modifier_epoch_arcana_root")
+					if not alreadyHave then 
+						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_epoch_arcana_root", {duration = rootDuration})
+					end
 					if ability.c_a_level > 0 then
 						c_a_attack_start2(caster, enemy, ability, ability.c_a_level)
 					end
@@ -40,42 +42,32 @@ function a_a_end(event)
 	local target = event.target
 	local ability = event.ability
 	local a_a_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
-	local damageMult = a_a_level*0.05
-	local damage = target.epochArcanaAA*damageMult
-	
-	-- local runeSumm = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)+Runes:GetTotalRuneLevelGeneric(caster, 2, 0)+Runes:GetTotalRuneLevelGeneric(caster, 3, 0)+Runes:GetTotalRuneLevelGeneric(caster, 4, 0)+
-	-- 				Runes:GetTotalRuneLevelGeneric(caster, 1, 1)+Runes:GetTotalRuneLevelGeneric(caster, 2, 1)+Runes:GetTotalRuneLevelGeneric(caster, 3, 1)+Runes:GetTotalRuneLevelGeneric(caster, 4, 1)+
-	-- 				Runes:GetTotalRuneLevelGeneric(caster, 1, 2)+Runes:GetTotalRuneLevelGeneric(caster, 2, 2)+Runes:GetTotalRuneLevelGeneric(caster, 3, 2)+Runes:GetTotalRuneLevelGeneric(caster, 4, 2)+
-	-- 				Runes:GetTotalRuneLevelGeneric(caster, 1, 3)+Runes:GetTotalRuneLevelGeneric(caster, 2, 3)+Runes:GetTotalRuneLevelGeneric(caster, 3, 3)+Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
-	-- print("runeSumm "..runeSumm)
-	-- damagQ = caster:GetMaxMana()*runeSumm*a_a_level
-	-- print("damagQ "..damagQ)
-	-- print("damage "..damage)
+	local damageMult = a_a_level*0.05 + 0.05
+	local typeCheck = type(target.epochArcanaAA)
+	if typeCheck == "number" then
+		local damage = target.epochArcanaAA*damageMult
+		-- print("target.epochArcanaAA "..target.epochArcanaAA)
 
-	-- damage = math.min(damage,damagQ)
-	-- print(target.epochArcanaAA)
-	-- print(damage)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_backstab_jumping", {duration = 0.1})
+		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
+		PopupDamage(target, damage)
+		Timers:CreateTimer(0.03, function()
+			caster:RemoveModifierByName("modifier_backstab_jumping")
+		end)
+		target.epochArcanaAA = false
 
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_backstab_jumping", {duration = 0.1})
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
-	PopupDamage(target, damage)
-	Timers:CreateTimer(0.03, function()
-		caster:RemoveModifierByName("modifier_backstab_jumping")
-	end)
-	target.epochArcanaAA = false
-
-	EmitSoundOn("Epoch.ArcanaAA.Trigger", target)
-	local particleName = "particles/roshpit/epoch/arcana_a_a_xplosion.vpcf"
-	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, target)
-	for i = 0, 5, 1 do
-		ParticleManager:SetParticleControlEnt(pfx, i, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+		EmitSoundOn("Epoch.ArcanaAA.Trigger", target)
+		local particleName = "particles/roshpit/epoch/arcana_a_a_xplosion.vpcf"
+		local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, target)
+		for i = 0, 5, 1 do
+			ParticleManager:SetParticleControlEnt(pfx, i, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+		end
+		ParticleManager:SetParticleControl(pfx, 6, target:GetAbsOrigin())
+		ParticleManager:SetParticleControl(pfx, 10, target:GetAbsOrigin())
+		Timers:CreateTimer(2.0, function()
+			ParticleManager:DestroyParticle(pfx, false)
+		end)
 	end
-	ParticleManager:SetParticleControl(pfx, 6, target:GetAbsOrigin())
-	ParticleManager:SetParticleControl(pfx, 10, target:GetAbsOrigin())
-	Timers:CreateTimer(2.0, function()
-		ParticleManager:DestroyParticle(pfx, false)
-	end)
-	
 end
 
 function arcana_attack(event)
