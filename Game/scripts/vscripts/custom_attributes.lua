@@ -4,7 +4,7 @@ end
 
 CustomAttributes.FLAMEWAKER_R3_STRENGTH = 260
 CustomAttributes.EPOCH_W3_INT = 25
-CustomAttributes.EPOCH_R1_STR_AGI = 15
+-- CustomAttributes.EPOCH_R1_STR_AGI = 15
 CustomAttributes.CONJUROR_E1_AGI = 25
 CustomAttributes.WARLORD_W2_STATS = 60
 CustomAttributes.MOUNTAIN_PROTECTOR_R1_ARCANA1_STRENGTH = 250
@@ -97,10 +97,10 @@ function CustomAttributes:SetAttributes(hero)
 	if hero:HasModifier("modifier_epoch_rune_c_b_invisible") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_epoch_rune_c_b_invisible", CustomAttributes.EPOCH_W3_INT)
 	end
-	if hero:HasModifier("modifier_time_ulti_a_d_invisible_str_and_agi") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_time_ulti_a_d_invisible_str_and_agi", CustomAttributes.EPOCH_R1_STR_AGI)
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_time_ulti_a_d_invisible_str_and_agi", CustomAttributes.EPOCH_R1_STR_AGI)
-	end
+	--if hero:HasModifier("modifier_time_ulti_a_d_invisible_str_and_agi") then
+	--	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_time_ulti_a_d_invisible_str_and_agi", CustomAttributes.EPOCH_R1_STR_AGI)
+	--	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_time_ulti_a_d_invisible_str_and_agi", CustomAttributes.EPOCH_R1_STR_AGI)
+	--end
 	if hero:HasModifier("modifier_conjuror_a_c_buff_invisible") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_conjuror_a_c_buff_invisible", CustomAttributes.CONJUROR_E1_AGI)
 	end

@@ -174,6 +174,10 @@ function rune_a_c(caster)
   local totalLevel = abilityLevel + bonusLevel
   if totalLevel > 0 then
   	local a_c_duration = Filters:GetAdjustedBuffDuration(caster, 0.4+totalLevel*0.07, false)
+  	if caster:HasModifier("modifier_epoch_glyph_2_1") then
+  		a_c_duration = a_c_duration * 2 
+  	end
+  	-- print("a_c_duration "..a_c_duration)
     ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_epoch_rune_a_c", {duration = a_c_duration})
   end
 end
@@ -185,7 +189,7 @@ function rune_c_c(caster)
   local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_c")
   local totalLevel = abilityLevel + bonusLevel
   if totalLevel > 0 then
-  	local c_c_duration = Filters:GetAdjustedBuffDuration(caster, 6, false)
+  	local c_c_duration = Filters:GetAdjustedBuffDuration(caster, 60, false)
     ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_epoch_rune_c_c", {duration = c_c_duration})
     ability.origCaster = caster
     ability.damage = caster:GetAverageTrueAttackDamage(caster)
