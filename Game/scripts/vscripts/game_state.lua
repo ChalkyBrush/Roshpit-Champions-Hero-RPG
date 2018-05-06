@@ -1271,6 +1271,15 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			damage = damage*reduction
 		end
 	end
+	if victim:HasModifier("modifier_armor_softening") then
+		local passive = victim:FindAbilityByName("winterblight_armor_softening")
+		local armor = victim:GetPhysicalArmorValue()
+		if armor > 0 then
+			local reduction = passive:GetLevelSpecialValueFor("damage_reduc", passive:GetLevel())
+			reduction = (100-reduction)/100
+			damage = damage*reduction
+		end
+	end
 	if victim:HasModifier("modifier_syphist_passive") then
 		if victim:GetHealth() / victim:GetMaxHealth() >= 0.1 then
 			damage = 0

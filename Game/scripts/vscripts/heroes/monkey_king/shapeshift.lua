@@ -48,6 +48,12 @@ function channel_end(event)
 	caster:RemoveModifierByName("modifier_draghor_shapeshift_shrink")
 end
 
+function crow_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	-- WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
+end
+
 function shapeshift_start_cat(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -319,6 +325,7 @@ function monkey_form(event)
 	EmitSoundOn("Draghor.ShapeshiftOut.VO", caster)
 	caster:SetOriginalModel("models/heroes/monkey_king/monkey_king.vmdl")
 	caster:SetModel("models/heroes/monkey_king/monkey_king.vmdl")
+	WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
 	caster:RemoveModifierByName("modifier_shapeshift_crow")
 	caster:RemoveModifierByName("modifier_shapeshift_crow_r1_thinker")
 	caster:RemoveModifierByName("modifier_shapeshift_cat")

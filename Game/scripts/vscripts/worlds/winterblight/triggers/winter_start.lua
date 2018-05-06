@@ -161,3 +161,7 @@ end
 function ShrineSpawn5(trigger)
 	Winterblight:ShrineSpawn5()
 end
+
+function ShrineSpawn6(trigger)
+	Winterblight:ShrineSpawn6()
+end

@@ -1405,6 +1405,8 @@ function winterblight_wave_unit_die(event)
 			Winterblight:EndOrbWaves()
 			--END ORB WAVES		
 		end
+	elseif unit.deathCode == 3 then
+		Winterblight:AzaleaWaveUnitDie(unit)
 	end
 end
 
@@ -1675,6 +1677,8 @@ function attackable_unit_hit(event)
 		Winterblight:AttackAzaleaCrystal(caster, true)
 	elseif caster.prop_id == 2 then
 		Winterblight:AzaleaCupAttacked(caster, attacker)
+	elseif caster.prop_id == 3 then
+		Winterblight:AzaleaBladeAttacked(caster, attacker)
 	end
 end
 
