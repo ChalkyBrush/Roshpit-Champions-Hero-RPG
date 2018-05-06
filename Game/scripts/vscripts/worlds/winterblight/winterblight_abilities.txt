@@ -90,8 +90,8 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
-						"Function"		"ashara_explosion_pushback"
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"azalea_explosion_pushback"
 						"target"		"TARGET"
 					}
 				}
@@ -101,6 +101,42 @@
 					{
 						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
 						"Function"		"boss_explosion_pushback_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_azalea_cup_use"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_COMMAND_RESTRICTED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"					"TARGET"
+						"EffectName"				"particles/econ/generic/generic_buff_1/charge_of_light_effect_buff.vpcf"
+						"EffectAttachType"			"attach_origin"
+						"EffectLifeDurationScale"	"1"
+						"EffectColorA"				"80 160 255"
+						"EffectAlphaScale"			"1"
+					}
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"azalea_cup_sequence_think"
 						"target"		"TARGET"
 					}
 				}
@@ -4932,4 +4968,666 @@
 				}
 			}
 		}
+	}
+
+	"winterblight_mind_breaker_damage"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"seafortress/creature_pure_strike"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"percentage"			"3"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"intelligence"			"50 200 1000"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"mana_threshold"			"1000"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_strikes"			"15"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_mindbreaker_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+						"Function"		"mindbreaker_attack_land"
+						"percentage"	"%perentage"
+						"intelligence"	"%intelligence"
+						"mana_threshold"	"%mana_threshold"
+						"damage"		"%attack_damage"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_ghost_striker_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"seafortress/creature_pure_strike"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage_per_missing_hp"			"0.2 0.5 1.5"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ghost_striker_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName" 		"particles/status_fx/status_effect_ancestral_spirit.vpcf"
+				"StatusEffectPriority"  "50"
+				"ThinkInterval"  "8"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+						"Function"		"ghost_striker_think"
+					}
+				}
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+						"Function"		"ghost_striker_attack_land"
+						"damage_per_missing_hp"	"%damage_per_missing_hp"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_secret_keeper_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"seafortress/creature_pure_strike"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"agility_loss"			"25 50 75"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_secret_keeper_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName" 		"particles/status_fx/status_effect_ancestral_spirit.vpcf"
+				"StatusEffectPriority"  "50"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+						"Function"		"secret_keeper_attack_land"
+						"agility_loss"	"%agility_loss"
+					}
+				}
+			}
+			"modifier_secret_keeper_agi_loss"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+			}
+		}
+	}
+
+	"thorcrux_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AOERadius"			"600"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"morphling_waveform"
+		"MaxLevel"	"3"
+		"Modifiers"
+		{
+			"modifier_sea_god_ai"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName" 		"particles/status_fx/status_effect_ancestral_spirit.vpcf"
+				"StatusEffectPriority"  "50"
+				"ThinkInterval"  "0.4"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+						"Function"		"thorcrux_think"
+					}
+				}
+			}
+		}
+		"OnOwnerDied"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Winterblight.Thorcrux.Die"
+				"Target" 		"CASTER"
+			}
+		}
+	}
+
+	"winterblight_crippling_return"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AOERadius"			"600"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"morphling_waveform"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_loss"			"35 70 95"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_crippling_return_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnTakeDamage"
+				// "%attack_damage" is set to the damage value after mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+						"Function"		"crippling_return_take_damage"
+						"damage_loss"	"%damage_loss"
+					}
+				}
+			}
+			"modifier_crippling_return_effect"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "-10"
+				}
+			}
+		}
+	}
+
+	"winterblight_armor_softening"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"centaur_return"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"armor_threshold"			"0"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage_reduc"			"50 90 99.8"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_armor_softening"
+			{
+				"IsHidden" "1"
+				"Passive"	"1"
+			}
+		}
+	}
+
+
+	"winterblight_chrolonus_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"seafortress/fin_slap"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemDroppable"	"1"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+				"Function"		"chrolonus_die"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_chrolonus_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+						"Function"		"chrolonus_attack_land"
+					}
+				}
+				"ThinkInterval"  "0.4"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+						"Function"		"chrolonus_think"
+					}
+				}
+			}
+			"modifier_heavy_boulder_pushback"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"ThinkInterval" 	"0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+						"Function"		"heavy_boulder_pushback"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"Function"		"heavy_boulder_push_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+	}
+
+	"chrolonus_dash"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"voltex/voltex_storm_rush"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastRange"				"1000 1125 1250 1375 1500 1625 1750"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+	    "precache"
+	    {
+
+	    }
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"4"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_reduction_percent"	"45 50 55 60 65 70 75"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"	"1500 1625 1750"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"		"500 10000 250000"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+				"Function"		"chrolonus_begin_lightning_dash"
+				"Target"		"POINT"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_lightning_dash"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"OverrideAnimation"     "ACT_DOTA_VERSUS"
+				"EffectName"	"particles/units/heroes/hero_dark_willow/dark_willow_shadow_attack_trail.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"ThinkInterval"  "0.03"
+				"IsHidden"		"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+						"Function"		"chrolonus_dash_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+						"Function"		"chrolonus_dash_end"
+						"damage"		"%damage"
+					}
+				}
+			}
+			"modifier_voltex_arcana1_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_lightning_dash_freecast"
+						"Target" 		"TARGET"
+					}
+				}
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+						"Function"		"chrolonus_add_free_casts"
+					}
+				}
+			}
+			"modifier_lightning_dash_freecast"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+			}
+		}
+
+	}
+
+	"winterblight_crystal_meditation"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"roshan_spell_block"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attacks"			"2 3 4"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_crystal_meditation_passive"
+			{
+				"IsPurgable"			"0"
+				"Passive" 			"1"
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+						"Function"		"crystal_meditation_attack_start"
+						"attacks"		"%attacks"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_crystal_charge"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"rpc/megaflare"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCooldown"	"6.0 4.5 3.0"
+		"AbilityChannelTime"	"0.2"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"0"
+		"MaxLevel"				 		"3"
+		"AbilityManaCost"	"0"
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+				"Duration"		"0.2"
+			}
+
+
+		}
+
+		"OnChannelSucceeded"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_light_charging"
+				"Target" 		"CASTER"
+				"Duration"		"0.9"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+				"Function"		"malefor_beginCharge"
+			}
+		}
+
+		"OnChannelFinish"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+		}
+
+		"OnChannelInterrupted"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_channel_start"
+			{
+				"IsHidden"	"1"
+				"OverrideAnimation"	"ACT_DOTA_IDLE_RARE"
+
+			}
+			"modifier_light_charging"
+			{
+				"IsBuff" "1"
+				"IsHidden"	"0"
+				"IsPurgable"		"0"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+						"Function"		"malefor_charge_think"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DISABLE_TURNING" "1"
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"					"TARGET"
+						"EffectName"				"particles/econ/generic/generic_buff_1/charge_of_light_effect_buff.vpcf"
+						"EffectAttachType"			"follow_origin"
+						"EffectLifeDurationScale"	"1"
+						"EffectColorA"				"100 140 255"
+						"EffectAlphaScale"			"0.8"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+						"Function"		"malefor_charge_end"
+						"range"			"%range"
+					}
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_charge_of_light_sliding"
+						"Target" 		"TARGET"
+						"Duration"		"0.6"
+					}
+				}
+			}
+			"modifier_charge_of_light_sliding"
+			{
+				"IsBuff" "1"
+				"IsHidden"	"1"
+				"IsPurgable"		"0"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+						"Function"		"malefor_slide_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+						"Function"		"malefor_slide_end"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-100"
+				}
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"800 5000 15000 30000 60000 150000 350000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"750 770 790 810 830 850 870"
+			}
+		}
+
 	}

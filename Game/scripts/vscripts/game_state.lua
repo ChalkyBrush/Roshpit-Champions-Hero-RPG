@@ -1271,6 +1271,15 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			damage = damage*reduction
 		end
 	end
+	if victim:HasModifier("modifier_armor_softening") then
+		local passive = victim:FindAbilityByName("winterblight_armor_softening")
+		local armor = victim:GetPhysicalArmorValue()
+		if armor > 0 then
+			local reduction = passive:GetLevelSpecialValueFor("damage_reduc", passive:GetLevel())
+			reduction = (100-reduction)/100
+			damage = damage*reduction
+		end
+	end
 	if victim:HasModifier("modifier_syphist_passive") then
 		if victim:GetHealth() / victim:GetMaxHealth() >= 0.1 then
 			damage = 0
@@ -2960,19 +2969,20 @@ function GameState:FilterDamage(filterTable)
 	-- if attacker:HasModifier("modifier_line_unit_passive") then
 	-- 	filterTable["damage"] = filterTable["damage"]/GameState.PVP_REDUCTION
 	-- end
-	-- if Beacons.cheats then
-	-- 	if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-	-- 		if victim:IsHero() then
-	-- 			filterTable["damage"] = 0
-	-- 		end
-	-- 	end
-	-- 	-- filterTable["damage"] = victim:GetHealth()-1
-	-- 	if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-	-- 		if attacker:IsHero() then
-	-- 			filterTable["damage"] = filterTable["damage"]*1000000000000
-	-- 		end
-	-- 	end
-	-- end
+
+	if Beacons.cheats then
+		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+			if victim:IsHero() then
+				filterTable["damage"] = 0
+			end
+		end
+		-- filterTable["damage"] = victim:GetHealth()-1
+		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+			if attacker:IsHero() then
+				filterTable["damage"] = filterTable["damage"]*60000000
+			end
+		end
+	end
 
 	return true
 

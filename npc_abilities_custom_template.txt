@@ -28659,6 +28659,14 @@
 					}
 
 				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/monkey_king/shapeshift"
+						"Function"		"crow_end"
+					}
+				}
 			}
 			"modifier_shapeshift_crow_r1_thinker"
 			{

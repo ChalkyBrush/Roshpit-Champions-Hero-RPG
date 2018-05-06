@@ -891,10 +891,12 @@ function Winterblight:AdjustWaveUnit(unit)
 	if GameState:GetDifficultyFactor() == 3 then
 		unit:AddAbility("seafortress_golden_shell"):SetLevel(3)
 	end
-  elseif unit:GetUnitName() ==  "winterblight_rider_of_azalea" then
+  elseif unit:GetUnitName() == "winterblight_rider_of_azalea" then
 	if GameState:GetDifficultyFactor() < 3 then
 		unit:RemoveAbility("armor_break_ultra")
 	end
+  elseif unit:GetUnitName() == "winterblight_source_revenant" then
+  	unit:SetMana(0)
   end
 end
 

@@ -282,6 +282,9 @@ function CustomAttributes:SetAttributes(hero)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_demon_farmer_aura_agi", -1)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_demon_farmer_aura_int", -1)
 	end
+	if hero:HasModifier("modifier_secret_keeper_agi_loss") then
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_secret_keeper_agi_loss", -1)
+	end
 
 	-- BASIC ITEMS STATS --
 	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_helm_strength", 1)

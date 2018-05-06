@@ -43,7 +43,7 @@ function Winterblight:InitCamp()
   end)
 
   
-
+  Winterblight.Stones = 0
   Winterblight:CalculateHeroZones()
   Winterblight:StarterMusic()
   Winterblight:HowlingWind()
@@ -91,6 +91,17 @@ function Winterblight:InitProps()
     Winterblight.AzaleaOperatorDivide = Entities:FindByNameNearest("operator_divide", Vector(15074, -9613, 496+Winterblight.ZFLOAT), 2000)
     Winterblight.AzaleaOperatorDivide:SetAbsOrigin(Winterblight.AzaleaOperatorDivide:GetAbsOrigin()-Vector(0,0,1500))
   end)
+  Timers:CreateTimer(3.5, function()
+    local possibleColors = {"red", "yellow", "green", "blue"}
+    local colors = {Vector(223, 54, 54), Vector(231, 214, 37), Vector(37, 231, 66), Vector(57, 99, 223)}
+    Winterblight.AzaleaBladeColors = {}
+    for i = 1, 4, 1 do
+      local randomColorIndex = RandomInt(1, 4)
+      table.insert(Winterblight.AzaleaBladeColors, possibleColors[randomColorIndex])
+      local blade = Entities:FindByNameNearest("AzaleaBladeColor"..i, Vector(14662+(i-1)*110, -14560, 620+Winterblight.ZFLOAT), 1000)
+      blade:SetRenderColor(colors[randomColorIndex].x, colors[randomColorIndex].y, colors[randomColorIndex].z)
+    end
+  end)
 end
 
 function Winterblight:Debug2()
@@ -99,7 +110,9 @@ function Winterblight:Debug2()
  -- AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(11123, -7145), 23000, 23000, false)
  -- Winterblight:StartOrbSequence()
   -- Winterblight:EndOrbWaves()
-    Winterblight:OpenShrineOfAzalea()
+    -- Winterblight:OpenShrineOfAzalea()
+    -- Winterblight:ShrineSpawn6()
+    Winterblight:SpawnChrolonus(Vector(7424, -15488), Vector(1,0))
 end
 
 function Winterblight:CalculateHeroZones()

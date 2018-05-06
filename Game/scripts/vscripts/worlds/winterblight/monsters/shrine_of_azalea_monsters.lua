@@ -66,7 +66,6 @@ end
 
 function reset_crystal_puzzle(event)
 	local caster = event.caster
-	print("HELLO?")
 	if caster.locked or caster:HasModifier("modifier_crystal_finished") then
 		return false
 	end
@@ -336,7 +335,6 @@ function suicide_jump_think(event)
 
 	local height = (caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster))
 	if height < math.abs(ability.liftVelocity) then
-		print(height)
 		if not ability.rising then
 			caster:RemoveModifierByName("modifier_suicide_jump")
 		end
@@ -382,5 +380,488 @@ function suicide_jump_end(event)
 
 	Timers:CreateTimer(0.03, function()
 		UTIL_Remove(caster)
+	end)
+end
+
+function azalea_explosion_pushback(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	if not target.pushVelocity then
+		target.pushVelocity = 32
+	end
+	local obstruction = WallPhysics:FindNearestObstruction(target:GetAbsOrigin()+target.pushVector*30)
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, target:GetAbsOrigin()+target.pushVector*30, target)
+	local fv = target.pushVector
+	if blockUnit then
+		fv = 0
+	end
+
+	target:SetAbsOrigin(GetGroundPosition(target:GetAbsOrigin() + fv*target.pushVelocity, target))
+	target.pushVelocity = math.max(target.pushVelocity - 1, 0)
+	print("PUSH??")
+end
+
+function azalea_cup_sequence_think(event)
+	local target = event.target
+	if not target.cupSequence then
+		return false
+	end
+	if target.cupSequence == 0 then
+		target.cupSequence = 1
+		local distance = WallPhysics:GetDistance2d(target.cupSequenceData.targetPoint, target:GetAbsOrigin())
+		target.cupSequenceData.jumpVelocity = distance/20 + 4
+		target.cupSequenceData.liftVelocity = 23
+		local heightDiff = (target.cupSequenceData.targetPoint.z+60)-target:GetAbsOrigin().z
+		target.cupSequenceData.liftVelocity = target.cupSequenceData.liftVelocity + heightDiff/24
+		target.cupSequenceData.rising = true
+		target.cupSequenceData.jumpFV = ((target.cupSequenceData.targetPoint - target:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+
+		target.cupSequenceData.interval = 0
+		local playerID = target:GetPlayerID()
+		if playerID then
+			PlayerResource:SetCameraTarget(playerID, target)
+		end
+	elseif target.cupSequence == 1 then
+		local distance = WallPhysics:GetDistance2d(target:GetAbsOrigin(), target.cupSequenceData.targetPoint)
+
+		local fv = target.cupSequenceData.jumpFV
+
+		local height = (target:GetAbsOrigin().z - GetGroundHeight(target:GetAbsOrigin(), target))
+
+
+		local blockSearch = target:GetAbsOrigin()*Vector(1,1,0)+Vector(0,0,GetGroundHeight(target:GetAbsOrigin(), target))
+	    local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
+	    local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch+target.cupSequenceData.jumpFV*30), target)
+		if blockUnit then
+			fv = Vector(0,0)
+		end
+		target:SetOrigin(target:GetAbsOrigin() + fv*target.cupSequenceData.jumpVelocity + Vector(0,0,target.cupSequenceData.liftVelocity))
+		target.cupSequenceData.liftVelocity = target.cupSequenceData.liftVelocity - 2
+		if target.cupSequenceData.liftVelocity <= 0 then
+			target.cupSequenceData.rising = false
+		end
+		target.cupSequenceData.interval = target.cupSequenceData.interval + 1
+		if distance < 20 or target:GetAbsOrigin().z < target.cupSequenceData.targetPoint.z then
+			if not target.cupSequenceData.rising then
+				target.cupSequence = 2
+				target.cupSequenceData.interval = 0
+				CustomAbilities:QuickParticleAtPoint("particles/act_2/siltbreaker_beam_channel.vpcf", target.cupSequenceData.targetPoint+Vector(0,0,20), 5)
+			end
+		end
+	elseif target.cupSequence == 2 then
+		target.cupSequenceData.interval = target.cupSequenceData.interval + 1
+		if target.cupSequenceData.interval == 50 then
+			target.cupSequenceData.interval = 0
+			target.cupSequence = 3
+			target:SetOrigin(Vector(-219, -14701, 2100+Winterblight.ZFLOAT))
+			target.cupSequenceData.fallSpeed = 30
+			EmitSoundOn("Winterblight.AzaleaCup.Falling", target)
+			Timers:CreateTimer(1, function()
+				StartAnimation(target, {duration=3.5, activity=ACT_DOTA_SPAWN, rate=0.6})
+			end)
+			local pfx = ParticleManager:CreateParticle( "particles/winterblight/cup_falling_particle.vpcf", PATTACH_CUSTOMORIGIN, nil )
+			target.cupSequenceData.pfx = pfx
+			local colorVector = Vector(100, 200, 255)
+			ParticleManager:SetParticleControl( target.cupSequenceData.pfx, 0, Vector(-219, -14701, 150+Winterblight.ZFLOAT) )
+			ParticleManager:SetParticleControl( target.cupSequenceData.pfx, 1, colorVector )
+			ParticleManager:SetParticleControl( target.cupSequenceData.pfx, 2, colorVector )
+			ParticleManager:SetParticleControl( target.cupSequenceData.pfx, 3, colorVector )
+			CustomAbilities:QuickParticleAtPoint("particles/act_2/siltbreaker_beam_channel.vpcf", Vector(-219, -14701, 150+Winterblight.ZFLOAT), 3)
+			print("SEQUENCE 3 START")
+		end
+	elseif target.cupSequence == 3 then
+		print("SEQUENCE 3 GOING")
+		target:RemoveModifierByName("modifier_black_portal_shrink")
+		target.cupSequenceData.fallSpeed = math.max(target.cupSequenceData.fallSpeed-0.35, 10)
+		print(target.cupSequenceData.fallSpeed)
+		target:SetOrigin(target:GetAbsOrigin()-Vector(0,0,target.cupSequenceData.fallSpeed))
+		print(target:GetAbsOrigin().z - GetGroundHeight(target:GetAbsOrigin(), target))
+		if target:GetAbsOrigin().z - GetGroundHeight(target:GetAbsOrigin(), target) < 40 then
+			print("SEQUENCE 3 END")
+			target:RemoveModifierByName("modifier_azalea_cup_use")
+			local playerID = target:GetPlayerID()
+			if playerID then
+				PlayerResource:SetCameraTarget(playerID, nil)
+			end
+			EmitSoundOn("Winterblight.AzaleaCup.Land", target)
+			ParticleManager:DestroyParticle(target.cupSequenceData.pfx, false)
+			local pfx2 = ParticleManager:CreateParticle("particles/roshpit/winterblight/azalea_explosion_magical.vpcf", PATTACH_CUSTOMORIGIN, nil)
+			ParticleManager:SetParticleControl(pfx2, 0, target:GetAbsOrigin())
+			ParticleManager:SetParticleControl(pfx2, 2, Vector(90, 200, 255))
+			Timers:CreateTimer(3.5, function()
+				ParticleManager:DestroyParticle(pfx2, false)
+			end)
+		end
+	end
+
+end
+
+function mindbreaker_attack_land(event)
+	local attacker = event.attacker
+	local target = event.target
+	local ability = event.ability
+	local percentage = event.percentage
+	local intelligence = event.intelligence
+	local mana_threshold = event.mana_threshold
+	local procs = 0
+	if target:IsHero() then
+		procs = math.min(target:GetIntellect()/intelligence, 15)
+	else
+		procs = math.min(target:GetMana()/mana_threshold, 15)
+	end
+	local damage = event.damage*percentage/100
+	if procs > 0 then
+		CustomAbilities:QuickAttachParticle("particles/winterblight/mindbreaker_attack.vpcf", attacker, 3)
+	end
+	for i = 1, procs, 1 do
+		Timers:CreateTimer(i*0.03, function()
+			ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
+			EmitSoundOn("Winterblight.MindBreaker.Sound", attacker)
+			CustomAbilities:QuickAttachParticle("particles/winterblight/mindbreaker_attack.vpcf", target, 3)
+		end)
+	end
+end
+
+function ghost_striker_attack_land(event)
+	local attacker = event.attacker
+	local target = event.target
+	local ability = event.ability
+	local damage_per_missing_hp = event.damage_per_missing_hp
+	local damage = (target:GetMaxHealth()-target:GetHealth())*damage_per_missing_hp
+	if damage > 100 then
+		ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
+		EmitSoundOn("Winterblight.GhostStriker.Hit", target)	
+		if not ability.particleLock then
+			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_phoenix/phoenix_fire_spirit_burn_spike.vpcf", target, 3)
+			ability.particleLock = true
+			Timers:CreateTimer(0.5, function()
+				ability.particleLock = false
+			end)
+		end
+	end
+end
+
+function ghost_striker_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster:IsAlive() and caster.aggro then
+		if caster:HasAbility("serengaard_antimage_blink_custom") then
+			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+			if #enemies > 0 then
+				local hookAbility = caster:FindAbilityByName("serengaard_antimage_blink_custom")
+				if hookAbility:IsFullyCastable() then
+					local targetPoint = enemies[1]:GetOrigin() + RandomVector(RandomInt(80, 320))			
+					local order =
+					{
+						UnitIndex = caster:entindex(),
+						OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+						AbilityIndex = hookAbility:entindex(),
+						Position = targetPoint
+					}
+					ExecuteOrderFromTable(order)
+					return false
+				end
+			end
+		end
+	end
+end
+
+function secret_keeper_attack_land(event)
+	local attacker = event.attacker
+	local ability = event.ability
+	local target = event.target
+	local agility_loss = event.agility_loss/100
+	if target:IsHero() then
+		if not target:HasModifier("modifier_secret_keeper_agi_loss") then
+			ability:ApplyDataDrivenModifier(attacker, target, "modifier_secret_keeper_agi_loss", {duration = 5})
+			target:SetModifierStackCount("modifier_secret_keeper_agi_loss", attacker, target:GetAgility()*agility_loss)
+		end
+	end
+end
+
+function thorcrux_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local radius = caster:GetAttackRange()
+	if caster:IsAlive() and caster.aggro then
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+		if #enemies > 0 then
+			StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_ATTACK, rate=1.2})
+			for _,enemy in pairs(enemies) do
+				Filters:PerformAttackSpecial(caster, enemy, true, true, true, false, true, false, false)
+			end
+		end 
+	end
+end
+
+function crippling_return_take_damage(event)
+	local caster = event.caster
+	local ability = event.ability
+	local attacker = event.attacker
+	local damage_loss = event.damage_loss/100
+	if not attacker:HasModifier("modifier_crippling_return_effect") then
+		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_crippling_return_effect", {duration = 4})
+		local damageLoss = attacker:GetBaseDamageMax()*damage_loss
+		attacker:SetModifierStackCount("modifier_crippling_return_effect", caster, damageLoss/10)
+	end
+end
+
+function chrolonus_attack_land(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local luck = RandomInt(1, 4)
+	if luck == 1 then
+		EmitSoundOn("Winterblight.Chrolonus.Bash", target)
+		ability.pushVector = false
+		ability.pushVelocity = 32
+		ability.tossPosition = caster:GetAbsOrigin()
+		target.pushVector = false
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_heavy_boulder_pushback", {duration = 0.8})
+		Filters:ApplyStun(caster, 0.5, target)
+	end
+end
+
+function chrolonus_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not caster:IsAlive() then
+		return false
+	end
+	if caster.aggro and caster:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+		if #enemies > 0 then
+			local hookAbility = caster:FindAbilityByName("chrolonus_dash")
+			if hookAbility:IsFullyCastable() then
+				local targetPoint = enemies[1]:GetOrigin() + RandomVector(RandomInt(80, 420))			
+				local order =
+				{
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+					AbilityIndex = hookAbility:entindex(),
+					Position = targetPoint
+				}
+				ExecuteOrderFromTable(order)
+				return false
+			end
+		end
+	end
+end
+
+function chrolonus_begin_lightning_dash(event)
+	local caster = event.caster
+	local ability = event.ability
+	local particleName = "particles/units/heroes/hero_dark_willow/dark_willow_shadow_attack_trail.vpcf"
+	ability.point = event.target_points[1]
+	ability.moveDirection = (ability.point-caster:GetAbsOrigin()):Normalized()
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_lightning_dash", {duration = 3})
+	-- EmitSoundOn("Winterblight.Chrolonus.WarpDash", caster)
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.Chrolonus.WarpDash", caster)
+	local particleName = "particles/roshpit/voltex/lightning_dash_trail.vpcf"
+	local pfx = 0
+	if ability.pfx then
+		ParticleManager:DestroyParticle(ability.pfx, false)
+		ability.pfx = false
+	end
+	pfx = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN_FOLLOW, caster )
+	ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+	-- ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin())
+	-- ParticleManager:SetParticleControl(pfx, 2, caster:GetAbsOrigin())
+
+	ability.pfx = pfx
+
+	ability.interval = 0
+	if not ability.particles then
+		ability.particles = 0
+	end
+	if caster:HasModifier("modifier_lightning_dash_freecast") then
+		ability:EndCooldown()
+		local newStacks = caster:GetModifierStackCount("modifier_lightning_dash_freecast", caster) - 1
+		if newStacks > 0 then
+			caster:SetModifierStackCount("modifier_lightning_dash_freecast", caster, newStacks)
+		else
+			caster:RemoveModifierByName("modifier_lightning_dash_freecast")
+		end
+	end
+end
+
+function chrolonus_add_free_casts(event)
+	local caster = event.caster
+	local ability = event.ability
+	local stackCount = caster:GetModifierStackCount("modifier_lightning_dash_freecast", caster)
+	local maxStacks = 4+GameState:GetDifficultyFactor()
+	if stackCount < maxStacks then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_lightning_dash_freecast", {})
+		local newStacks = math.min(stackCount + 1, maxStacks)
+		caster:SetModifierStackCount("modifier_lightning_dash_freecast", caster, newStacks)
+	end
+end
+
+function chrolonus_dash_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	
+	ability.moveDirection = (ability.point-caster:GetAbsOrigin()):Normalized()
+
+	local blockSearch = caster:GetAbsOrigin()*Vector(1,1,0)+Vector(0,0,GetGroundHeight(caster:GetAbsOrigin(), caster))
+    local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
+    local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch+ability.moveDirection*35), caster)
+
+    local forwardSpeed = 100
+	if blockUnit then
+		forwardSpeed = 0
+		caster:RemoveModifierByName("modifier_lightning_dash")
+	end
+	local newPosition = caster:GetAbsOrigin() + ability.moveDirection*forwardSpeed
+	caster:SetAbsOrigin(Vector(newPosition.x, newPosition.y, 70) + Vector(0,0,GetGroundHeight(newPosition, caster)))
+	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), ability.point)
+	if distance < forwardSpeed*1.5 then
+		caster:RemoveModifierByName("modifier_lightning_dash")
+	end
+	ability.interval = ability.interval + 1
+	-- if ability.pfx then
+	-- local pfx = ability.pfx
+	-- 	ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin())
+	-- 	ParticleManager:SetParticleControl(pfx, 2, caster:GetAbsOrigin())
+	-- end
+end
+
+function chrolonus_dash_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	Timers:CreateTimer(0.03, function()
+		StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.5}) 
+		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+	end)
+	ParticleManager:DestroyParticle(ability.pfx, false)
+
+	local particleName = "particles/roshpit/winterblight/zefnar_hit.vpcf"
+	local pfxB = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControl(pfxB, 0, caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(pfxB, 1, Vector(200, 2, 200))
+	Timers:CreateTimer(0.8, function()
+		ParticleManager:DestroyParticle(pfxB, false)
+	end)
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 350, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	local damage = event.damage
+	if #enemies > 0 then
+		for _,enemy in pairs(enemies) do
+			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
+			Filters:PerformAttackSpecial(caster, enemy, true, true, true, false, true, false, false)
+		end
+	end 
+
+end
+
+function crystal_meditation_attack_start(event)
+	local attacker = event.attacker
+	local target = event.target
+	local attacks = event.attacks
+	for i = 1, attacks, 1 do
+		Timers:CreateTimer(i*0.1, function()
+			Filters:PerformAttackSpecial(attacker, target, true, true, true, false, true, false, false)
+		end)
+	end
+end
+
+function malefor_beginCharge(event)
+	local ability = event.ability
+	local caster = event.caster
+
+	ability.fv = caster:GetForwardVector()
+	ability.slideSpeed = 25
+	ability.interval = 0
+	Timers:CreateTimer(0.05, function()
+		StartAnimation(caster, {duration=0.9, activity=ACT_DOTA_RUN, rate=1.5})
+	end)
+
+	EmitSoundOn("Winterblight.Malefor.Charge", caster)
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.Malefor.ChargeWarp", caster)
+end
+
+function malefor_charge_think(event)
+  local caster = event.caster
+  local ability = event.ability
+  local position = caster:GetAbsOrigin()
+  
+  ability.interval = ability.interval+1
+  position = GetGroundPosition( position, caster )
+
+  local newPosition = position+ability.fv*30
+
+  local obstruction = WallPhysics:FindNearestObstruction(newPosition)
+  local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPosition, caster)
+  -- if ability.interval%3 == 0 then
+  -- 	iceSprintBlast(caster, newPosition, event.radius, event.damage, ability)
+  -- end
+  if caster:GetAbsOrigin().z - GetGroundHeight(newPosition, caster) > 80 then
+  	blockUnit = true
+  	caster:RemoveModifierByName("modifier_light_charging")
+  end
+  if not blockUnit then
+    caster:SetOrigin(newPosition)
+  end
+
+
+end
+
+function malefor_slide_think(event)
+  local caster = event.caster
+  local ability = event.ability
+  local position = caster:GetAbsOrigin()
+  
+  position = GetGroundPosition( position, caster )
+
+
+  local newPosition = position+ability.fv*ability.slideSpeed
+  local obstruction = WallPhysics:FindNearestObstruction(newPosition)
+  local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPosition, caster)
+  ability.slideSpeed = ability.slideSpeed - 1
+  -- if ability.interval%3 == 0 then
+  -- 	iceSprintBlast(caster, newPosition, event.radius, event.damage, ability)
+  -- end
+  if not blockUnit then
+  	if GridNav:IsTraversable(newPosition) then
+    	caster:SetOrigin(newPosition)
+    end
+  end
+end
+
+function malefor_slide_end(event)
+	local caster = event.caster
+	local position = caster:GetAbsOrigin()
+	local ability = event.ability
+	FindClearSpaceForUnit(caster, position, false)
+end
+
+function malefor_charge_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	local position = caster:GetAbsOrigin()
+
+	local fv = caster:GetForwardVector()
+
+
+	local particle = "particles/units/heroes/hero_silencer/silencer_last_word_trigger.vpcf"
+	local pfx3 = ParticleManager:CreateParticle( particle, PATTACH_CUSTOMORIGIN, caster )
+	ParticleManager:SetParticleControlEnt(pfx3, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+	ParticleManager:SetParticleControlEnt(pfx3, 1, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+	Timers:CreateTimer(2.5, function()
+		ParticleManager:DestroyParticle(pfx3, false)
+	end)
+	local range = event.range
+end
+
+function chrolonus_die(event)
+	local caster = event.caster
+	local ability = event.ability
+	EmitSoundOn("Winterblight.Chrolonus.Death", caster)
+	Timers:CreateTimer(1, function()
+		Winterblight.AzaleaBladesTable = {}
+		Winterblight:SpawnAzaleaColorBlade(Vector(7465, -15147, -147), 1)
+		Winterblight:SpawnAzaleaColorBlade(Vector(7601, -15147, -147), 2)
+		Winterblight:SpawnAzaleaColorBlade(Vector(7736, -15147, -147), 3)
+		Winterblight:SpawnAzaleaColorBlade(Vector(7874, -15147, -147), 4)
 	end)
 end
