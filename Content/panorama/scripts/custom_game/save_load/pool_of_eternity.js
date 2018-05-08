@@ -285,11 +285,10 @@ function UpdateItem(itemImage)
 
 
 
-function OnDragEnter( panelId, draggedPanel, data3 )
+function OnDragEnter( panel, draggedPanel, data3 )
 {
 	// $.Msg(panelId)
 	// $.Msg(draggedPanel)
-	var panel = $('#'+panelId)
 	var m_Item = panel.m_Item
 	var draggedItem = draggedPanel.m_Item
 	// $.Msg(draggedItem)
@@ -303,12 +302,12 @@ function OnDragEnter( panelId, draggedPanel, data3 )
 	return true;
 }
 
-function OnDragDrop( panelId, draggedPanel )
+function OnDragDrop( panel, draggedPanel )
 {
 	if (GameUI.CustomUIConfig().stashAllowed == 0){
 		return false;
 	}
-	var panel = $('#'+panelId).FindChildTraverse('ItemImage')
+	var panel = panel.FindChildTraverse('ItemImage')
 	var m_Item = panel.m_Item
 	var draggedItem = draggedPanel.m_Item
 	// $.Msg(draggedItem)
@@ -345,9 +344,8 @@ function OnDragDrop( panelId, draggedPanel )
 	return true;
 }
 
-function OnDragLeave( panelId, draggedPanel )
+function OnDragLeave( panel, draggedPanel )
 {
-	var panel = $('#'+panelId)
 	var m_Item = panel.m_Item
 	var draggedItem = draggedPanel.m_Item
 
@@ -359,12 +357,12 @@ function OnDragLeave( panelId, draggedPanel )
 	return true;
 }
 
-function OnDragStart( panelId, dragCallbacks )
+function OnDragStart( panel, dragCallbacks )
 {	
 	if (GameUI.CustomUIConfig().stashAllowed == 0){
 		return false;
 	}
-	var panel = $('#'+panelId).FindChildTraverse('ItemImage')
+	var panel = panel.FindChildTraverse('ItemImage')
 	var m_Item = panel.m_Item
 	// $.Msg(m_Item)
 	if ( m_Item == -1 )
@@ -396,9 +394,9 @@ function OnDragStart( panelId, dragCallbacks )
 	return true;
 }
 
-function OnDragEnd( panelId, draggedPanel )
+function OnDragEnd( panel, draggedPanel )
 {
-	var panel = $('#'+panelId).FindChildTraverse('ItemImage')
+	var panel = panel.FindChildTraverse('ItemImage')
 	var m_Item = panel.m_Item
 	var m_QueryUnit = panel.m_QueryUnit
 	var draggedItem = draggedPanel.m_Item

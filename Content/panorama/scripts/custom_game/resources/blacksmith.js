@@ -339,6 +339,11 @@ function RerollTooltip(){
 	$.DispatchEvent("DOTAShowTitleTextTooltip", panel, title, tooltip);
 }
 
+function breakUpTooltip(tooltip)
+{
+	return tooltip
+}
+
 function HideRerollTooltip(){
 	var panel = $('#reroll_button_container')
 	$.DispatchEvent( "DOTAHideTitleTextTooltip", panel );

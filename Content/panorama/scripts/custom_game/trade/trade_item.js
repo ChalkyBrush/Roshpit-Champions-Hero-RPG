@@ -328,9 +328,9 @@ function RightClickItem()
 	contextMenu.GetContentsPanel().BLoadLayout( "file://{resources}/layout/custom_game/inventory_context_menu.xml", false, false );
 }
 
-function OnDragEnter( a, draggedPanel )
+function OnDragEnter( panel, draggedPanel )
 {
-	var draggedItem = draggedPanel.m_DragItem;
+	var draggedItem = panel.m_DragItem;
 
 	// only care about dragged items other than us
 	if ( draggedItem === null || draggedItem == m_Item )
@@ -341,7 +341,7 @@ function OnDragEnter( a, draggedPanel )
 	return true;
 }
 
-function OnDragDrop( panelId, draggedPanel )
+function OnDragDrop( panel, draggedPanel )
 {
 	var draggedItem = draggedPanel.m_DragItem;
 	$.Msg(draggedItem)
@@ -364,11 +364,17 @@ function OnDragDrop( panelId, draggedPanel )
 	// 	AbilityIndex: draggedItem
 	// };
 	// Game.PrepareUnitOrders( moveItemOrder );
+	$.Msg(draggedPanel)
 	$.Msg("slot: "+$.GetContextPanel().slot)
 	var playerID = Game.GetLocalPlayerID();
 	$.Msg(draggedPanel.m_inventory_from_slot)
+	$.Msg("------")
+	$.Msg(Entities.GetItemInSlot( Players.GetPlayerHeroEntityIndex( playerID ), draggedPanel.m_inventory_from_slot))
+	$.Msg(draggedItem)
+	$.Msg("-----")
 	var dupeCheck = (Entities.GetItemInSlot( Players.GetPlayerHeroEntityIndex( playerID ), draggedPanel.m_inventory_from_slot) == draggedItem)
 	if ((m_ItemSlot <= 6) && (draggedPanel.m_type == "inventory" || draggedPanel.m_type == "trade") && ($.GetContextPanel().lockCheckPanel.locked == 0) && (dupeCheck)){
+		$.Msg("IN HERE?")
 		draggedPanel.m_DragCompleted = true;
 		draggedPanel.m_DragCompletedTrade = true;
 		if (draggedPanel.m_fromSlot === undefined){
@@ -388,7 +394,7 @@ function OnDragDrop( panelId, draggedPanel )
 
 
 
-function OnDragLeave( panelId, draggedPanel )
+function OnDragLeave( panel, draggedPanel )
 {
 	var draggedItem = draggedPanel.m_DragItem;
 
@@ -400,7 +406,7 @@ function OnDragLeave( panelId, draggedPanel )
 	return true;
 }
 
-function OnDragStart( panelId, dragCallbacks )
+function OnDragStart( panel, dragCallbacks )
 {
 	if ( m_Item == -1 )
 	{
@@ -430,7 +436,7 @@ function OnDragStart( panelId, dragCallbacks )
 	return true;
 }
 
-function OnDragEnd( panelId, draggedPanel )
+function OnDragEnd( panel, draggedPanel )
 {
 	// if the drag didn't already complete, then try dropping in the world
 	// if ( !draggedPanel.m_DragCompleted )

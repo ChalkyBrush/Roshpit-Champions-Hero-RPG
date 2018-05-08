@@ -1667,7 +1667,7 @@ function GameState:FilterDamage(filterTable)
 
 	if victim:HasModifier("modifier_water_mage_slow") then
 		modifier = victim:FindModifierByName("modifier_water_mage_slow")
-		if modifier:GetCaster().hero:GetEntityIndex() == attacker:GetEntityIndex() then
+		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			mult = mult + 1
 		end
 	end
@@ -1843,13 +1843,13 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_guard_of_grithault") then
 		filterTable["damage"] = Filters:GrithaultDamage(victim, filterTable["damage"])
 	end
-	if attacker:HasModifier("modifier_warlord_glyph_3_1") then
-		if attacker.warlordElement then
-			if attacker.warlordElement == "ice" and damagetype == DAMAGE_TYPE_MAGICAL then
-				filterTable["damage"] = filterTable["damage"]*1.4
-			end
-		end
-	end
+	-- if attacker:HasModifier("modifier_warlord_glyph_3_1") then
+	-- 	if attacker.warlordElement then
+	-- 		if attacker.warlordElement == "ice" and damagetype == DAMAGE_TYPE_MAGICAL then
+	-- 			filterTable["damage"] = filterTable["damage"]*1.4
+	-- 		end
+	-- 	end
+	-- end
 	if victim:HasModifier("modifier_aeriths_tear") then
 		if Filters:AerithsTearTakeDamage(attacker, victim) then
 			filterTable["damage"] = filterTable["damage"]*0.1
@@ -2757,7 +2757,7 @@ function GameState:FilterDamage(filterTable)
 	--
 	if attacker:HasModifier("modifier_crystalline_slippers") then
 		if victim:IsRooted() then
-			filterTable["damage"] = filterTable["damage"] * 3
+			filterTable["damage"] = filterTable["damage"] * 5
 		end
 	end
 
@@ -2971,17 +2971,17 @@ function GameState:FilterDamage(filterTable)
 	-- end
 
 	if Beacons.cheats then
-		-- if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-		-- 	if victim:IsHero() then
-		-- 		filterTable["damage"] = 0
-		-- 	end
-		-- end
-		-- -- filterTable["damage"] = victim:GetHealth()-1
-		-- if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-		-- 	if attacker:IsHero() then
-		-- 		filterTable["damage"] = filterTable["damage"]*60000000
-		-- 	end
-		-- end
+		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+			if victim:IsHero() then
+				filterTable["damage"] = 0
+			end
+		end
+		-- filterTable["damage"] = victim:GetHealth()-1
+		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+			if attacker:IsHero() then
+				filterTable["damage"] = filterTable["damage"]*60000000
+			end
+		end
 	end
 
 	return true

@@ -419,9 +419,9 @@ function OnDragDrop( panelId, draggedPanel )
 	return true;
 }
 
-function OnDragLeave( panelId, draggedPanel )
+function OnDragLeave( panel, draggedPanel )
 {
-	var draggedItem = draggedPanel.m_DragItem;
+	var draggedItem = panel.m_DragItem;
 
 	if ( draggedItem === null || draggedItem == m_Item )
 		return false;
@@ -431,7 +431,7 @@ function OnDragLeave( panelId, draggedPanel )
 	return true;
 }
 
-function OnDragStart( panelId, dragCallbacks )
+function OnDragStart( panel, dragCallbacks )
 {
 	if ( m_Item == -1 )
 	{
@@ -460,7 +460,7 @@ function OnDragStart( panelId, dragCallbacks )
 	return true;
 }
 
-function OnDragEnd( panelId, draggedPanel )
+function OnDragEnd( panel, draggedPanel )
 {
 	// if the drag didn't already complete, then try dropping in the world
 	if ( !draggedPanel.m_DragCompleted )
