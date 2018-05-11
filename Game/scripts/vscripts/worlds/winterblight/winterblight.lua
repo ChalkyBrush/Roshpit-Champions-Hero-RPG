@@ -113,6 +113,7 @@ function Winterblight:Debug2()
     -- Winterblight:OpenShrineOfAzalea()
     -- Winterblight:ShrineSpawn6()
     Winterblight:SpawnChrolonus(Vector(7424, -15488), Vector(1,0))
+    Winterblight:CandyCrushRoom()
 end
 
 function Winterblight:CalculateHeroZones()

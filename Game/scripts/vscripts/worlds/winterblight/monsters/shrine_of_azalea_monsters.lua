@@ -865,3 +865,32 @@ function chrolonus_die(event)
 		Winterblight:SpawnAzaleaColorBlade(Vector(7874, -15147, -147), 4)
 	end)
 end
+
+function candy_crush_crystal_hit(event)
+	local caster = event.caster
+	if caster.locked or caster:HasModifier("modifier_crystal_finished") then
+		return false
+	end
+	if not Winterblight.CandyCrushLayout then
+		Winterblight:InitializeCandyCrush()
+	end
+	if caster.dark then
+		caster.dark = false
+		Winterblight:smoothColorTransition(caster, Vector(40,40,40), Vector(200, 200, 200), 50)
+	end
+	EmitSoundOn("Winterblight.AzaleaCrystal.PuzzleReset", Winterblight.MasterCrystal)
+end
+
+function candy_crush_master_crystal_think(event)
+	local caster = event.caster
+	if not caster.interval then
+		caster.interval = 0
+	end
+	caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,2)*math.cos(2*math.pi*caster.interval/180))
+	caster.interval = caster.interval + 1
+	local rotatedFV = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi/180)
+	caster:SetForwardVector(rotatedFV)
+	if caster.interval == 180 then
+		caster.interval = 0 
+	end
+end

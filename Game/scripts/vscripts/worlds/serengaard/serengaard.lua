@@ -179,7 +179,7 @@ function Serengaard:Vote(msg)
   end
 end
 
-SERENGAARD_SPAWN_POINTS = {Vector(0, -7772), Vector(7772, 0), Vector(-288, 7736), Vector(-7736, 64)}
+SERENGAARD_SPAWN_POINTS = {Vector(0, -7672), Vector(7672, 0), Vector(-288, 7636), Vector(-7636, 64)}
 
 function Serengaard:TimerEnd()
   CustomGameEventManager:Send_ServerToAllClients("updateLineWarIncomeTimer", {incomeTimer = "-"} )
@@ -862,14 +862,52 @@ function StartMusic(songName, songDelay)
   end
 end
 
-
+function Serengaard:AdjustSpawnPoint(spawnPoint)
+  local random = RandomInt(1, 4)
+  -- SERENGAARD_SPAWN_POINTS = {Vector(0, -7672), Vector(7672, 0), Vector(-288, 7636), Vector(-7636, 64)}
+  if WallPhysics:GetDistance2d(SERENGAARD_SPAWN_POINTS[1], spawnPoint) < 200 then
+    if random == 1 then
+      spawnPoint = spawnPoint+Vector(0,600)
+    elseif random == 2 then
+      spawnPoint = spawnPoint+Vector(-600,0)
+    elseif random == 3 then
+      spawnPoint = spawnPoint+Vector(600,0)
+    end
+  elseif WallPhysics:GetDistance2d(SERENGAARD_SPAWN_POINTS[2], spawnPoint) < 200 then
+    if random == 1 then
+      spawnPoint = spawnPoint+Vector(0,600)
+    elseif random == 2 then
+      spawnPoint = spawnPoint+Vector(0,-600)
+    elseif random == 3 then
+      spawnPoint = spawnPoint+Vector(-600,0)
+    end
+  elseif WallPhysics:GetDistance2d(SERENGAARD_SPAWN_POINTS[3], spawnPoint) < 200 then
+    if random == 1 then
+      spawnPoint = spawnPoint+Vector(600,0)
+    elseif random == 2 then
+      spawnPoint = spawnPoint+Vector(0,-600)
+    elseif random == 3 then
+      spawnPoint = spawnPoint+Vector(-600,0)
+    end
+  elseif WallPhysics:GetDistance2d(SERENGAARD_SPAWN_POINTS[4], spawnPoint) < 200 then
+    if random == 1 then
+      spawnPoint = spawnPoint+Vector(600,0)
+    elseif random == 2 then
+      spawnPoint = spawnPoint+Vector(0,600)
+    elseif random == 3 then
+      spawnPoint = spawnPoint+Vector(0,-600)
+    end
+  end
+  return spawnPoint
+end
 
 function Serengaard:SpawnWaveUnit(unitName, spawnPoint, quantity, itemLevel, delay, bSound)
-
+  local baseSpawnPos = spawnPoint
   local unit = false
   for i = 0, quantity-1, 1 do
     Timers:CreateTimer(i*delay, 
     function()
+    spawnPoint = Serengaard:AdjustSpawnPoint(baseSpawnPos)
     if bSound then
       EmitSoundOnLocationWithCaster(spawnPoint, "Redfall.CastleSpawner.Spawn", Redfall.RedfallMaster)
     end

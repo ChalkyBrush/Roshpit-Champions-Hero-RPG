@@ -1489,3 +1489,101 @@ function Winterblight:AzaleaBladeAttacked(caster, attacker)
 		end)
 	end
 end
+
+function Winterblight:CandyCrushRoom()
+	Winterblight:SpawnCandyCrushMasterCrystal()
+end
+
+function Winterblight:InitializeCandyCrush()
+	Winterblight.CandyCrushLayout = {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}}
+	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(3925, -15086), 1500, 3000, false)
+	local color_possibilities = {"red", "yellow", "green", "blue"}
+	local basePos = Vector(2958, -15832)
+	for i = 1, 10, 1 do
+		for j = 1, 10, 1 do
+			local randomColor = color_possibilities[RandomInt(1, #color_possibilities)]
+			table.insert(Winterblight.CandyCrushLayout[i], randomColor)
+			local delay = (i-1)*1 + (j-1)*0.1
+			Timers:CreateTimer(delay, function()
+				Winterblight:SpawnCandyCrushStatue(basePos+Vector(242*(j-1), 182*(i-1)), randomColor)
+			end)
+		end
+	end
+end
+
+function Winterblight:SpawnCandyCrushMasterCrystal()
+	local position = Vector(2505, -14245, 560+Winterblight.ZFLOAT)
+    local crystal = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
+
+    local yaw = 345
+    crystal:SetAngles(0, yaw, 0)
+
+    crystal:SetModelScale(1.5)
+    crystal:SetOriginalModel("models/winterblight/azalea_crystal.vmdl")
+    crystal:SetModel("models/winterblight/azalea_crystal.vmdl")
+    crystal:SetAbsOrigin(position)
+
+    crystal:RemoveAbility("dummy_unit")
+    crystal:RemoveModifierByName("dummy_unit")
+    crystal.basePosition = position
+
+    crystal.yaw = yaw
+    crystal:AddAbility("winterblight_candy_crush_master_crystal"):SetLevel(1)
+    crystal.pushLock = true
+    crystal.dummy = true
+    crystal.jumpLock = true
+    Winterblight.CandyCrushCrystal = crystal
+
+	crystal:SetRenderColor(40, 40, 40)
+	crystal.dark = true
+    crystal.locked = true
+    Timers:CreateTimer(20, function()
+    	crystal.locked = false
+    end)
+    CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_wisp/wisp_death.vpcf", crystal, 3)
+    AddFOWViewer(DOTA_TEAM_GOODGUYS, position, 300, 3000, false)
+end
+
+function Winterblight:SpawnCandyCrushStatue(position, color)
+    local candy_crush = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
+
+    local masterAbility = Winterblight.CandyCrushCrystal:FindAbilityByName("winterblight_candy_crush_master_crystal")
+    masterAbility:ApplyDataDrivenModifier(Winterblight.CandyCrushCrystal, candy_crush, "modifier_candy_crush_unit", {})
+    
+    
+    if color == "red" then
+	    candy_crush:SetOriginalModel("models/winterblight/candy_crush_red.vmdl")
+	    candy_crush:SetModel("models/winterblight/candy_crush_red.vmdl")
+	    candy_crush:SetRenderColor(221, 82, 82)
+	    candy_crush:SetModelScale(1)
+	elseif color == "yellow" then
+	    candy_crush:SetOriginalModel("models/winterblight/candy_crush_yellow.vmdl")
+	    candy_crush:SetModel("models/winterblight/candy_crush_yellow.vmdl")
+	    candy_crush:SetRenderColor(255, 255, 0)
+	    candy_crush:SetModelScale(1)
+	elseif color == "green" then
+	    candy_crush:SetOriginalModel("models/heroes/brewmaster/brewmaster_earthspirit_end.vmdl")
+	    candy_crush:SetModel("models/heroes/brewmaster/brewmaster_earthspirit_end.vmdl")
+	    candy_crush:SetRenderColor(71, 159, 56)
+	    candy_crush:SetModelScale(0.85)
+	elseif color == "blue" then
+	    candy_crush:SetOriginalModel("models/winterblight/candy_crush_blue.vmdl")
+	    candy_crush:SetModel("models/winterblight/candy_crush_blue.vmdl")
+	    candy_crush:SetRenderColor(86, 123, 255)
+	    candy_crush:SetModelScale(0.8)
+	end
+	candy_crush.color = color
+
+    candy_crush:RemoveAbility("dummy_unit")
+    candy_crush:RemoveModifierByName("dummy_unit")
+    candy_crush.basePosition = position
+
+    candy_crush.pushLock = true
+    candy_crush.dummy = true
+    candy_crush.jumpLock = true
+
+
+
+    candy_crush.locked = false
+    CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_wisp/wisp_death.vpcf", candy_crush, 3)
+end
