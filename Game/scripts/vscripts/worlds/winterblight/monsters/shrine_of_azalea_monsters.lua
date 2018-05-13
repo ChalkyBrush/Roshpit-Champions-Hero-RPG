@@ -868,11 +868,18 @@ end
 
 function candy_crush_crystal_hit(event)
 	local caster = event.caster
+	print("HIT1")
 	if caster.locked or caster:HasModifier("modifier_crystal_finished") then
+		return false
+	end
+	print("HIT2")
+	if Winterblight.CandyCrushLocked then
 		return false
 	end
 	if not Winterblight.CandyCrushLayout then
 		Winterblight:InitializeCandyCrush()
+	else
+		Winterblight:ResetCandyCrush()
 	end
 	if caster.dark then
 		caster.dark = false
@@ -893,4 +900,160 @@ function candy_crush_master_crystal_think(event)
 	if caster.interval == 180 then
 		caster.interval = 0 
 	end
+end
+
+function candy_crush_unit_hit(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local attacker = event.attacker
+	if not Winterblight.CandyCrushLocked then
+		if target.black then
+			return false
+		end
+		if not target.link_lock then
+			if not attacker.candy_crush_link_data then
+				attacker.candy_crush_link_data = {}
+				attacker.candy_crush_link_data.links = {}
+			elseif #attacker.candy_crush_link_data.links == 0 then
+			elseif #attacker.candy_crush_link_data.links >= 1 then
+				local sameUnit = false
+				for i = 1, #attacker.candy_crush_link_data.links, 1 do
+					if target:GetEntityIndex() == attacker.candy_crush_link_data.links[i] then
+						sameUnit = false
+						break
+					end
+				end
+				if sameUnit then
+					return false
+				end
+				if attacker.candy_crush_link_data.links[#attacker.candy_crush_link_data.links].color == target.color then
+				else
+					attacker:RemoveModifierByName("modifier_hero_candy_crush")
+					return false
+				end
+				if #attacker.candy_crush_link_data.links == 1 then
+					if (attacker.candy_crush_link_data.links[1].index_j == target.index_j) then
+						if math.abs(attacker.candy_crush_link_data.links[1].index_i - target.index_i) == 1 then
+						else
+							print("HORIZONTAL MATCHES, BUT VERTICAL DISTANCE > 1")
+							attacker:RemoveModifierByName("modifier_hero_candy_crush")
+							return false
+						end
+					elseif (attacker.candy_crush_link_data.links[1].index_i == target.index_i) then
+						if math.abs(attacker.candy_crush_link_data.links[1].index_j - target.index_j) == 1 then
+						else
+							print("VERTICAL IS SAME, BUT HORIZONTAL DISTANCE > 1")
+							attacker:RemoveModifierByName("modifier_hero_candy_crush")
+							return false
+						end
+					else
+						print("VERTICAL AND HORIZONTAL ARE OFF")
+						attacker:RemoveModifierByName("modifier_hero_candy_crush")
+						return false
+					end
+				else
+					local link_index = #attacker.candy_crush_link_data.links
+					if attacker.candy_crush_link_data.direction == "horizontal" then
+						if (attacker.candy_crush_link_data.links[link_index].index_j == target.index_j) then
+							print(math.abs(attacker.candy_crush_link_data.links[link_index].index_i - target.index_i))
+							if math.abs(attacker.candy_crush_link_data.links[link_index].index_i - target.index_i) == 1 then
+							else
+								print("HORIZONTAL MATCHES, BUT VERTICAL DISTANCE > 1")
+								attacker:RemoveModifierByName("modifier_hero_candy_crush")
+								return false
+							end
+						else
+							print("HORIZONTAL INDEX DOESN'T MATCH, BUT HERO HAD HORIZONTAL GOING")
+							attacker:RemoveModifierByName("modifier_hero_candy_crush")
+							return false
+						end
+					else
+						if (attacker.candy_crush_link_data.links[link_index].index_i == target.index_i) then
+							if math.abs(attacker.candy_crush_link_data.links[link_index].index_j - target.index_j) == 1 then
+							else
+								print("VERT IS SAME, HORIZONTAL DIFF GREATER THAN 1")
+								attacker:RemoveModifierByName("modifier_hero_candy_crush")
+								return false
+							end
+						else
+							print("WANTED SAME VERTICAL, WASN'T")
+							attacker:RemoveModifierByName("modifier_hero_candy_crush")
+							return false
+						end
+					end
+				end
+			end
+			EmitSoundOn("Winterblight.CandyCrush.Good1", attacker)
+			ability:ApplyDataDrivenModifier(caster, attacker, "modifier_hero_candy_crush", {duration = 10})
+			table.insert(attacker.candy_crush_link_data.links, target)
+			target.link_lock = true
+			if #attacker.candy_crush_link_data.links == 1 then
+				attacker.candy_crush_link_data.pfxTable = {}
+				local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf", PATTACH_POINT, attacker)
+				ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin()+Vector(0,0,70))
+				ParticleManager:SetParticleControlEnt(pfx, 1, attacker, PATTACH_POINT_FOLLOW, "attach_attack1", attacker:GetAbsOrigin()+Vector(0,0,60), true)
+				table.insert(attacker.candy_crush_link_data.pfxTable, pfx)
+			elseif #attacker.candy_crush_link_data.links == 2 then
+				local pfx = attacker.candy_crush_link_data.pfxTable[1]
+				ParticleManager:DestroyParticle(pfx, false)
+				local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf", PATTACH_CUSTOMORIGIN, nil)
+				ParticleManager:SetParticleControl(pfx, 0, attacker.candy_crush_link_data.links[#attacker.candy_crush_link_data.links-1]:GetAbsOrigin()+Vector(0,0,70))
+				ParticleManager:SetParticleControl(pfx, 1, target:GetAbsOrigin()+Vector(0,0,70))
+				attacker.candy_crush_link_data.pfxTable[1] = pfx
+				if attacker.candy_crush_link_data.links[1].index_j == attacker.candy_crush_link_data.links[2].index_j then
+					attacker.candy_crush_link_data.direction = "horizontal"
+				else
+					attacker.candy_crush_link_data.direction = "vertical"
+				end
+			else
+				local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf", PATTACH_CUSTOMORIGIN, nil)
+				ParticleManager:SetParticleControl(pfx, 0, attacker.candy_crush_link_data.links[#attacker.candy_crush_link_data.links-1]:GetAbsOrigin()+Vector(0,0,70))
+				ParticleManager:SetParticleControl(pfx, 1, target:GetAbsOrigin()+Vector(0,0,70))
+				table.insert(attacker.candy_crush_link_data.pfxTable, pfx)				
+			end
+
+		end
+	end
+end
+
+function candy_crush_buff_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = event.target
+	print(hero:GetUnitName())
+	if not Winterblight.CandyCrushBlackStatueTable then
+		Winterblight.CandyCrushBlackStatueTable = {}
+	end
+	if #Winterblight.CandyCrushBlackStatueTable < 10 then
+		local xIncrease = #Winterblight.CandyCrushBlackStatueTable*242
+		if IsValidEntity(hero.candy_crush_link_data.links[#hero.candy_crush_link_data.links]) then
+			Winterblight:SpawnCandyCrushStatue(Vector(2958+xIncrease, -16128), hero.candy_crush_link_data.links[#hero.candy_crush_link_data.links].color, -1, -1)
+		end
+	else
+		Winterblight:ResetCandyCrush()
+		return false
+	end
+	for i = 1, #hero.candy_crush_link_data.links, 1 do
+		hero.candy_crush_link_data.links[i].link_lock = false
+	end
+	if #hero.candy_crush_link_data.links < 3 then
+		EmitSoundOn("Winterblight.CandyCrush.Bad", hero)
+		for i = 1, #hero.candy_crush_link_data.pfxTable, 1 do
+			ParticleManager:DestroyParticle(hero.candy_crush_link_data.pfxTable[i], false)
+		end
+		hero.candy_crush_link_data.links = {}
+		hero.candy_crush_link_data.pfxTable = {}
+	else
+		Winterblight:ProcessLinks(hero.candy_crush_link_data.links, hero)
+		hero.candy_crush_link_data.links = {}
+		hero.candy_crush_link_data.pfxTable = {}
+		-- for i = 1, #hero.candy_crush_link_data.pfxTable, 1 do
+		-- 	ParticleManager:DestroyParticle(hero.candy_crush_link_data.pfxTable[i], false)
+		-- end
+	end
+	if not Winterblight.CandyCrushBlackStatueTable then
+		Winterblight.CandyCrushBlackStatueTable = {}
+	end
+
 end

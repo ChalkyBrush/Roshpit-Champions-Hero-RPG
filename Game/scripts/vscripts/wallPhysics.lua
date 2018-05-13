@@ -700,3 +700,12 @@ function WallPhysics:ClearSpaceForUnit(unit, position)
 		FindClearSpaceForUnit(unit, unit.safePos, false)
 	end
 end
+
+function WallPhysics:ReverseTable(t)
+    local reversedTable = {}
+    local itemCount = #t
+    for k, v in ipairs(t) do
+        reversedTable[itemCount + 1 - k] = v
+    end
+    return reversedTable
+end

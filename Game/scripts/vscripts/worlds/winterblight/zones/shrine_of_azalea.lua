@@ -1494,24 +1494,60 @@ function Winterblight:CandyCrushRoom()
 	Winterblight:SpawnCandyCrushMasterCrystal()
 end
 
+function Winterblight:ResetCandyCrush()
+	Winterblight.CandyCrushLocked = true
+	Winterblight:ActivateBlackStatues()
+	for j = 1, #MAIN_HERO_TABLE, 1 do
+		local hero = MAIN_HERO_TABLE[j]
+		if hero.candy_crush_link_data then
+			for i = 1, #hero.candy_crush_link_data.pfxTable, 1 do
+				ParticleManager:DestroyParticle(hero.candy_crush_link_data.pfxTable[i], false)
+			end
+		else
+			hero.candy_crush_link_data = {}
+		end
+		hero.candy_crush_link_data.pfxTable = {}
+		hero.candy_crush_link_data.links = {}
+		hero:RemoveModifierByName("modifier_hero_candy_crush")
+	end
+	for i = 1, #Winterblight.CandyCrushLayout, 1 do
+		for j = 1, 10, 1 do
+			UTIL_Remove(Winterblight.CandyCrushLayout[i][j])
+		end
+	end
+	Winterblight:InitializeCandyCrush()
+end
+
 function Winterblight:InitializeCandyCrush()
+	if Winterblight.CandyCrushBlackStatueTable then
+		Winterblight:ActivateBlackStatues()
+	end
 	Winterblight.CandyCrushLayout = {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}}
 	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(3925, -15086), 1500, 3000, false)
 	local color_possibilities = {"red", "yellow", "green", "blue"}
 	local basePos = Vector(2958, -15832)
+	EmitSoundOnLocationWithCaster(Vector(3925, -15086),"Winterblight.CandyCrush.Start", Winterblight.Master)
+	Winterblight.CandyCrushLocked = true
 	for i = 1, 10, 1 do
 		for j = 1, 10, 1 do
 			local randomColor = color_possibilities[RandomInt(1, #color_possibilities)]
-			table.insert(Winterblight.CandyCrushLayout[i], randomColor)
-			local delay = (i-1)*1 + (j-1)*0.1
+			local delay = (i-1)*0.5 + (j-1)*0.05
 			Timers:CreateTimer(delay, function()
-				Winterblight:SpawnCandyCrushStatue(basePos+Vector(242*(j-1), 182*(i-1)), randomColor)
+				Winterblight:SpawnCandyCrushStatue(basePos+Vector(242*(j-1), 182*(i-1)), randomColor, i, j)
 			end)
 		end
 	end
+	Timers:CreateTimer(5.5, function()
+		Winterblight.CandyCrushLocked = false
+	end)
 end
 
 function Winterblight:SpawnCandyCrushMasterCrystal()
+	local initial = true
+	if Winterblight.CandyCrushCrystal then
+		UTIL_Remove(Winterblight.CandyCrushCrystal)
+		initial = false
+	end
 	local position = Vector(2505, -14245, 560+Winterblight.ZFLOAT)
     local crystal = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
 
@@ -1536,15 +1572,18 @@ function Winterblight:SpawnCandyCrushMasterCrystal()
 
 	crystal:SetRenderColor(40, 40, 40)
 	crystal.dark = true
-    crystal.locked = true
-    Timers:CreateTimer(20, function()
-    	crystal.locked = false
-    end)
+    if not initial then
+    	crystal.locked = true
+	    Timers:CreateTimer(20, function()
+	    	crystal.locked = false
+	    end)
+	end
     CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_wisp/wisp_death.vpcf", crystal, 3)
-    AddFOWViewer(DOTA_TEAM_GOODGUYS, position, 300, 3000, false)
+    AddFOWViewer(DOTA_TEAM_GOODGUYS, position, 350, 6000, false)
+    AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(5653, -14257), 350, 6000, false)
 end
 
-function Winterblight:SpawnCandyCrushStatue(position, color)
+function Winterblight:SpawnCandyCrushStatue(position, color, index_i, index_j)
     local candy_crush = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
 
     local masterAbility = Winterblight.CandyCrushCrystal:FindAbilityByName("winterblight_candy_crush_master_crystal")
@@ -1573,17 +1612,315 @@ function Winterblight:SpawnCandyCrushStatue(position, color)
 	    candy_crush:SetModelScale(0.8)
 	end
 	candy_crush.color = color
-
+	candy_crush.index_i = index_i
+	candy_crush.index_j = index_j
     candy_crush:RemoveAbility("dummy_unit")
     candy_crush:RemoveModifierByName("dummy_unit")
     candy_crush.basePosition = position
-
+    if index_i == -1 or index_j == -1 then
+    	table.insert(Winterblight.CandyCrushBlackStatueTable, candy_crush)
+    	candy_crush:SetRenderColor(30, 30, 30)
+    	candy_crush.black = true
+    else
+    	Winterblight.CandyCrushLayout[index_i][index_j] = candy_crush
+    end
     candy_crush.pushLock = true
     candy_crush.dummy = true
     candy_crush.jumpLock = true
-
-
-
+    EmitSoundOn("Winterblight.CandyCrush.SpawnStatue", candy_crush)
     candy_crush.locked = false
     CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_wisp/wisp_death.vpcf", candy_crush, 3)
+end
+
+function Winterblight:ActivateBlackStatues()
+	if Winterblight.CandyCrushBlackStatueTable then
+		for i = 1, #Winterblight.CandyCrushBlackStatueTable, 1 do
+			local statue = Winterblight.CandyCrushBlackStatueTable[i]
+			if statue.color == "red" then
+				Winterblight:SpawnCandyCrushRedUnit(statue:GetAbsOrigin(), Vector(1,0), true, Winterblight.CandyCrushBlackStatueTable[i+1])
+			elseif statue.color == "blue" then
+				Winterblight:SpawnCandyCrushBlueUnit(statue:GetAbsOrigin(), Vector(1,0), true, Winterblight.CandyCrushBlackStatueTable[i+1])
+			elseif statue.color == "yellow" then
+				Winterblight:SpawnCandyCrushYellowUnit(statue:GetAbsOrigin(), Vector(1,0), true, Winterblight.CandyCrushBlackStatueTable[i+1])
+			elseif statue.color == "green" then
+				Winterblight:SpawnCandyCrushGreenUnit(statue:GetAbsOrigin(), Vector(1,0), true, Winterblight.CandyCrushBlackStatueTable[i+1])
+			end
+			UTIL_Remove(statue)
+		end
+		Winterblight.CandyCrushBlackStatueTable = nil
+	end
+end
+
+function Winterblight:SpawnCandyCrushRedUnit(position, fv, bBlack, nextUnit)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_candy_crush_red_spirit", position, 0, 1, "Winterblight.CandyCrushAggro.Red", fv, true)
+	Events:AdjustBossPower(stone, 3, 3, false)
+	stone.itemLevel = 42
+	stone.dominion = true
+	local colorVector = Vector(221, 82, 82)
+	if bBlack then
+		colorVector = Vector(30,30,30)
+	end
+	Events:ColorWearablesAndBase(stone, colorVector)
+	local linkUnit = stone
+	if nextUnit then
+		linkUnit = nextUnit
+	end
+	local pfx = ParticleManager:CreateParticle( "particles/roshpit/mountain_protector/blue_steel_dagon_lvl2_ti5.vpcf", PATTACH_POINT_FOLLOW, stone )
+	ParticleManager:SetParticleControlEnt(pfx, 0, stone, PATTACH_POINT, "attach_hitloc", stone:GetAbsOrigin()+Vector(0,0,80), true)
+	ParticleManager:SetParticleControlEnt(pfx, 1, linkUnit, PATTACH_POINT, "attach_hitloc", linkUnit:GetAbsOrigin()+Vector(0,0,80), true)
+	Timers:CreateTimer(2.0, function() 
+	  ParticleManager:DestroyParticle( pfx, false )
+	end) 	
+	local masterCrystalAbility = Winterblight.CandyCrushCrystal:FindAbilityByName("winterblight_candy_crush_master_crystal")
+	masterCrystalAbility:ApplyDataDrivenModifier(Winterblight.CandyCrushCrystal, stone, "modifier_candy_crush_unit_spawn", {duration = 1})
+	StartAnimation(stone, {duration=1.2, activity=ACT_DOTA_SPAWN, rate=0.9})
+	return stone
+end
+
+function Winterblight:SpawnCandyCrushBlueUnit(position, fv, bBlack, nextUnit)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_candy_crush_blue_spirit", position, 0, 1, "Winterblight.CandyCrushAggro.Blue", fv, true)
+	Events:AdjustBossPower(stone, 3, 3, false)
+	stone.itemLevel = 42
+	stone.dominion = true
+	local colorVector = Vector(86, 123, 255)
+	if bBlack then
+		colorVector = Vector(30,30,30)
+	end
+	Events:ColorWearablesAndBase(stone, colorVector)
+	local linkUnit = stone
+	if nextUnit then
+		linkUnit = nextUnit
+	end
+	stone:SetModelScale(0.7)
+	local pfx = ParticleManager:CreateParticle( "particles/roshpit/mountain_protector/blue_steel_dagon_lvl2_ti5.vpcf", PATTACH_POINT_FOLLOW, stone )
+	ParticleManager:SetParticleControlEnt(pfx, 0, stone, PATTACH_POINT, "attach_hitloc", stone:GetAbsOrigin()+Vector(0,0,80), true)
+	ParticleManager:SetParticleControlEnt(pfx, 1, linkUnit, PATTACH_POINT, "attach_hitloc", linkUnit:GetAbsOrigin()+Vector(0,0,80), true)
+	Timers:CreateTimer(2.0, function() 
+	  ParticleManager:DestroyParticle( pfx, false )
+	end) 
+	local masterCrystalAbility = Winterblight.CandyCrushCrystal:FindAbilityByName("winterblight_candy_crush_master_crystal")
+	masterCrystalAbility:ApplyDataDrivenModifier(Winterblight.CandyCrushCrystal, stone, "modifier_candy_crush_unit_spawn", {duration = 1})
+	StartAnimation(stone, {duration=1.2, activity=ACT_DOTA_SPAWN, rate=0.9})
+	return stone
+end
+
+function Winterblight:SpawnCandyCrushYellowUnit(position, fv, bBlack, nextUnit)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_candy_crush_yellow_spirit", position, 0, 1, "Winterblight.CandyCrushAggro.Yellow", fv, true)
+	Events:AdjustBossPower(stone, 3, 3, false)
+	stone.itemLevel = 42
+	stone.dominion = true
+	local colorVector = Vector(255, 255, 0)
+	if bBlack then
+		colorVector = Vector(30,30,30)
+	end
+	Events:ColorWearablesAndBase(stone, colorVector)
+	local linkUnit = stone
+	if nextUnit then
+		linkUnit = nextUnit
+	end
+	local pfx = ParticleManager:CreateParticle( "particles/roshpit/mountain_protector/blue_steel_dagon_lvl2_ti5.vpcf", PATTACH_POINT_FOLLOW, stone )
+	ParticleManager:SetParticleControlEnt(pfx, 0, stone, PATTACH_POINT, "attach_hitloc", stone:GetAbsOrigin()+Vector(0,0,80), true)
+	ParticleManager:SetParticleControlEnt(pfx, 1, linkUnit, PATTACH_POINT, "attach_hitloc", linkUnit:GetAbsOrigin()+Vector(0,0,80), true)
+	Timers:CreateTimer(2.0, function() 
+	  ParticleManager:DestroyParticle( pfx, false )
+	end) 
+	local masterCrystalAbility = Winterblight.CandyCrushCrystal:FindAbilityByName("winterblight_candy_crush_master_crystal")
+	masterCrystalAbility:ApplyDataDrivenModifier(Winterblight.CandyCrushCrystal, stone, "modifier_candy_crush_unit_spawn", {duration = 1})
+	StartAnimation(stone, {duration=1.2, activity=ACT_DOTA_SPAWN, rate=0.9})
+	return stone
+end
+
+function Winterblight:SpawnCandyCrushGreenUnit(position, fv, bBlack, nextUnit)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_candy_crush_green_spirit", position, 0, 1, "Winterblight.CandyCrushAggro.Green", fv, true)
+	Events:AdjustBossPower(stone, 3, 3, false)
+	stone.itemLevel = 42
+	stone.dominion = true
+	local colorVector = Vector(71, 159, 56)
+	if bBlack then
+		colorVector = Vector(30,30,30)
+	end
+	Events:ColorWearablesAndBase(stone, colorVector)
+	stone:SetModelScale(0.85)
+	local linkUnit = stone
+	if nextUnit then
+		linkUnit = nextUnit
+	end
+	local pfx = ParticleManager:CreateParticle( "particles/roshpit/mountain_protector/blue_steel_dagon_lvl2_ti5.vpcf", PATTACH_POINT_FOLLOW, stone )
+	ParticleManager:SetParticleControlEnt(pfx, 0, stone, PATTACH_POINT, "attach_hitloc", stone:GetAbsOrigin()+Vector(0,0,80), true)
+	ParticleManager:SetParticleControlEnt(pfx, 1, linkUnit, PATTACH_POINT, "attach_hitloc", linkUnit:GetAbsOrigin()+Vector(0,0,80), true)
+	Timers:CreateTimer(2.0, function() 
+	  ParticleManager:DestroyParticle( pfx, false )
+	end) 
+	local masterCrystalAbility = Winterblight.CandyCrushCrystal:FindAbilityByName("winterblight_candy_crush_master_crystal")
+	masterCrystalAbility:ApplyDataDrivenModifier(Winterblight.CandyCrushCrystal, stone, "modifier_candy_crush_unit_spawn", {duration = 1})
+	StartAnimation(stone, {duration=1.2, activity=ACT_DOTA_SPAWN, rate=0.9})
+	return stone
+end
+
+function Winterblight:ProcessLinks(links, hero)
+	Winterblight.CandyCrushLocked = true
+	EmitSoundOn("Winterblight.CandyCrush.Good2", hero) 	
+	local score = #links
+	for i = 1, #hero.candy_crush_link_data.pfxTable, 1 do
+		ParticleManager:DestroyParticle(hero.candy_crush_link_data.pfxTable[i], false)
+	end
+	local shift_table = {}
+	for i = 1, #links, 1 do
+		local link = links[i]
+		if link.color == "red" then
+			Winterblight:SpawnCandyCrushRedUnit(link:GetAbsOrigin(), Vector(1,0), true, links[i+1])
+		elseif link.color == "blue" then
+			Winterblight:SpawnCandyCrushBlueUnit(link:GetAbsOrigin(), Vector(1,0), true, links[i+1])
+		elseif link.color == "yellow" then
+			Winterblight:SpawnCandyCrushYellowUnit(link:GetAbsOrigin(), Vector(1,0), true, links[i+1])
+		elseif link.color == "green" then
+			Winterblight:SpawnCandyCrushGreenUnit(link:GetAbsOrigin(), Vector(1,0), true, links[i+1])
+		end
+		table.insert(shift_table, link)
+		link:AddNoDraw()	
+	end
+	local collapse = "vertical"
+	-- for i = 1, #links, 1 do
+	-- 	print("LINK"..i..":")
+	-- 	print("i: "..links[i].index_i)
+	-- 	print("j: "..links[i].index_j)
+	-- end
+	-- print("-----")
+	if links[1].index_i == links[2].index_i then
+		collapse = "horizontal"
+	end	
+	local total_delay = 0.5
+	if collapse == "vertical" then
+		total_delay = total_delay + #shift_table*0.5
+	end
+	local newUnitsSpawnedTable = {}
+	if collapse == "vertical" then
+		if links[1].index_i > links[2].index_i then
+			links = WallPhysics:ReverseTable(links)
+		end
+		for i = 1, #links, 1 do
+			print("LINK"..i..":")
+			print("i: "..links[i].index_i)
+			print("j: "..links[i].index_j)
+		end
+		print("-----")
+		Timers:CreateTimer(0.5, function()
+			local spawns = #links
+			local j = links[1].index_j
+			for i = links[#links].index_i+1, 10, 1 do
+				print("VERTICAL COLLAPSE")
+				local comparitor = Winterblight.CandyCrushLayout[i][j]
+				local new_i = comparitor.index_i
+				local new_j = comparitor.index_j
+				Winterblight:ShiftLinkUnitDown(comparitor, #links)
+				print(comparitor.index_i.."---"..comparitor.index_j.." IS SHIFTING DOWN "..#links.." STEPS")
+				comparitor.index_i = comparitor.index_i - #links
+				if comparitor.index_i > 0 then
+					print("NOW STORED AS"..comparitor.index_i.."---"..comparitor.index_j)
+					Winterblight.CandyCrushLayout[comparitor.index_i][j] = comparitor
+				end
+				-- Timers:CreateTimer(0.5, function()
+				-- 	local basePos = Vector(2958, -15832)
+				-- 	local position = basePos+Vector(242*(j-1), 182*(i-1))
+				-- 	Winterblight:SpawnRandomColorStatue(position, i,j)
+				-- end)
+			end
+			Timers:CreateTimer(0.5, function()
+				print("SPAWNS: "..spawns)
+				for i = 11-spawns, 10, 1 do
+					print("SPAWNING i:"..i.." j:"..j)
+					local basePos = Vector(2958, -15832)
+					local position = basePos+Vector(242*(j-1), 182*(i-1))
+					Winterblight:SpawnRandomColorStatue(position, i,j)
+				end
+				-- if spawns == 11 then
+				-- 	local basePos = Vector(2958, -15832)
+				-- 	local position = basePos+Vector(242*(j-1), 182*9)
+				-- 	Winterblight:SpawnRandomColorStatue(position, 10,j)
+				-- end
+			end)
+		end)
+	end
+	for i = 1, #shift_table, 1 do
+		local delay = 0
+		if collapse == "horizontal" then
+			delay = 0
+		end
+		local shift_link = shift_table[i]
+		Timers:CreateTimer((i-1)*delay + 0.5, function()
+			if collapse == "vertical" then
+				-- print("COLLAPSE IS VERTICAL")
+				-- for j = links[1].index_j, #Winterblight.CandyCrushLayout[links[1].index_j], 1 do
+				-- local j = links[1].index_j
+				-- for i = links[#links].index_i+1, 10, 1 do
+				-- 	local comparitor = Winterblight.CandyCrushLayout[i][j]
+				-- 	local new_i = comparitor.index_i
+				-- 	local new_j = comparitor.index_j
+				-- 	Winterblight:ShiftLinkUnitDown(comparitor, 1)
+				-- 	comparitor.index_i = comparitor.index_i - 1
+				-- 	print(comparitor.index_i.."---"..comparitor.index_j)
+				-- 	Winterblight.CandyCrushLayout[comparitor.index_i][comparitor.index_j] = comparitor
+				-- 	Timers:CreateTimer(0.5, function()
+				-- 		local basePos = Vector(2958, -15832)
+				-- 		local position = basePos+Vector(242*(j-1), 182*(i-1))
+				-- 		Winterblight:SpawnRandomColorStatue(position, i,j)
+				-- 	end)
+				-- end
+				-- for i = 1, links[#links].index_i, 1 do
+				-- 	Timers:CreateTimer(0.5, function()
+				-- 		local basePos = Vector(2958, -15832)
+				-- 		local position = basePos+Vector(242*(new_i-1), 182*j)
+				-- 		Winterblight:SpawnRandomColorStatue(position, links[j].index_i,links[j].index_j)
+				-- 	end)
+				-- end
+			else
+				local shiftDownTable = {}
+				for i = 1, #Winterblight.CandyCrushLayout, 1 do
+					for j = 1, #Winterblight.CandyCrushLayout[i], 1 do
+						local comparitor = Winterblight.CandyCrushLayout[i][j]
+						local new_i = comparitor.index_i
+						local new_j = comparitor.index_j
+						if comparitor.index_i > shift_link.index_i and comparitor.index_j == shift_link.index_j then
+							Winterblight:ShiftLinkUnitDown(comparitor, 1)
+							comparitor.index_i = comparitor.index_i - 1
+							Winterblight.CandyCrushLayout[comparitor.index_i][comparitor.index_j] = comparitor
+						end
+						if i == 10 and comparitor.index_j == shift_link.index_j then
+							Timers:CreateTimer(0.5, function()
+								local basePos = Vector(2958, -15832)
+								local position = basePos+Vector(242*(new_j-1), 182*9)
+								Winterblight:SpawnRandomColorStatue(position, 10,new_j)
+							end)
+						end
+					end
+				end
+			end
+		end)
+	end
+	Timers:CreateTimer(total_delay, function()
+		Winterblight:CheckCollapseCombos(shift_table)
+		Winterblight.CandyCrushLocked = false
+		for i = 1, #links, 1 do
+			UTIL_Remove(links[i])
+		end
+	end)
+end
+
+function Winterblight:ShiftLinkUnitDown(link_unit, steps)
+	local distance = steps*182
+	for i = 1, 16, 1 do
+		Timers:CreateTimer(i*0.03, function()
+			link_unit:SetAbsOrigin(link_unit:GetAbsOrigin()-Vector(0,distance/16,0))
+		end)
+	end
+end
+
+function Winterblight:SpawnRandomColorStatue(position, index_i, index_j)
+	local color_possibilities = {"red", "yellow", "green", "blue"}
+	local color = color_possibilities[RandomInt(1, 4)]
+	Winterblight:SpawnCandyCrushStatue(position, color, index_i, index_j)
+end
+
+function Winterblight:CheckCollapseCombos(shift_table)
+
 end
