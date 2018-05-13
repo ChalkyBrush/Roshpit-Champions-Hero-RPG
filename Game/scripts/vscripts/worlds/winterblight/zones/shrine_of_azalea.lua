@@ -1759,12 +1759,17 @@ end
 
 function Winterblight:ProcessLinks(links, hero)
 	Winterblight.CandyCrushLocked = true
-	EmitSoundOn("Winterblight.CandyCrush.Good2", hero) 	
 	local score = #links
-	for i = 1, #hero.candy_crush_link_data.pfxTable, 1 do
-		ParticleManager:DestroyParticle(hero.candy_crush_link_data.pfxTable[i], false)
+	if hero then
+		EmitSoundOn("Winterblight.CandyCrush.Good2", hero) 
+		for i = 1, #hero.candy_crush_link_data.pfxTable, 1 do
+			ParticleManager:DestroyParticle(hero.candy_crush_link_data.pfxTable[i], false)
+		end
+	else
+		EmitSoundOnLocationWithCaster(links[1]:GetAbsOrigin(), "Winterblight.CandyCrush.Good2", Winterblight.Master)
 	end
-	local shift_table = {}
+	Winterblight.CandyCrushShiftTable = {}
+	shift_table = {}
 	for i = 1, #links, 1 do
 		local link = links[i]
 		if link.color == "red" then
@@ -1780,12 +1785,12 @@ function Winterblight:ProcessLinks(links, hero)
 		link:AddNoDraw()	
 	end
 	local collapse = "vertical"
-	-- for i = 1, #links, 1 do
-	-- 	print("LINK"..i..":")
-	-- 	print("i: "..links[i].index_i)
-	-- 	print("j: "..links[i].index_j)
-	-- end
-	-- print("-----")
+	for i = 1, #links, 1 do
+		print("LINK"..i..":")
+		print("i: "..links[i].index_i)
+		print("j: "..links[i].index_j)
+	end
+	print("-----")
 	if links[1].index_i == links[2].index_i then
 		collapse = "horizontal"
 	end	
@@ -1798,12 +1803,6 @@ function Winterblight:ProcessLinks(links, hero)
 		if links[1].index_i > links[2].index_i then
 			links = WallPhysics:ReverseTable(links)
 		end
-		for i = 1, #links, 1 do
-			print("LINK"..i..":")
-			print("i: "..links[i].index_i)
-			print("j: "..links[i].index_j)
-		end
-		print("-----")
 		Timers:CreateTimer(0.5, function()
 			local spawns = #links
 			local j = links[1].index_j
@@ -1819,11 +1818,6 @@ function Winterblight:ProcessLinks(links, hero)
 					print("NOW STORED AS"..comparitor.index_i.."---"..comparitor.index_j)
 					Winterblight.CandyCrushLayout[comparitor.index_i][j] = comparitor
 				end
-				-- Timers:CreateTimer(0.5, function()
-				-- 	local basePos = Vector(2958, -15832)
-				-- 	local position = basePos+Vector(242*(j-1), 182*(i-1))
-				-- 	Winterblight:SpawnRandomColorStatue(position, i,j)
-				-- end)
 			end
 			Timers:CreateTimer(0.5, function()
 				print("SPAWNS: "..spawns)
@@ -1833,11 +1827,6 @@ function Winterblight:ProcessLinks(links, hero)
 					local position = basePos+Vector(242*(j-1), 182*(i-1))
 					Winterblight:SpawnRandomColorStatue(position, i,j)
 				end
-				-- if spawns == 11 then
-				-- 	local basePos = Vector(2958, -15832)
-				-- 	local position = basePos+Vector(242*(j-1), 182*9)
-				-- 	Winterblight:SpawnRandomColorStatue(position, 10,j)
-				-- end
 			end)
 		end)
 	end
@@ -1849,30 +1838,7 @@ function Winterblight:ProcessLinks(links, hero)
 		local shift_link = shift_table[i]
 		Timers:CreateTimer((i-1)*delay + 0.5, function()
 			if collapse == "vertical" then
-				-- print("COLLAPSE IS VERTICAL")
-				-- for j = links[1].index_j, #Winterblight.CandyCrushLayout[links[1].index_j], 1 do
-				-- local j = links[1].index_j
-				-- for i = links[#links].index_i+1, 10, 1 do
-				-- 	local comparitor = Winterblight.CandyCrushLayout[i][j]
-				-- 	local new_i = comparitor.index_i
-				-- 	local new_j = comparitor.index_j
-				-- 	Winterblight:ShiftLinkUnitDown(comparitor, 1)
-				-- 	comparitor.index_i = comparitor.index_i - 1
-				-- 	print(comparitor.index_i.."---"..comparitor.index_j)
-				-- 	Winterblight.CandyCrushLayout[comparitor.index_i][comparitor.index_j] = comparitor
-				-- 	Timers:CreateTimer(0.5, function()
-				-- 		local basePos = Vector(2958, -15832)
-				-- 		local position = basePos+Vector(242*(j-1), 182*(i-1))
-				-- 		Winterblight:SpawnRandomColorStatue(position, i,j)
-				-- 	end)
-				-- end
-				-- for i = 1, links[#links].index_i, 1 do
-				-- 	Timers:CreateTimer(0.5, function()
-				-- 		local basePos = Vector(2958, -15832)
-				-- 		local position = basePos+Vector(242*(new_i-1), 182*j)
-				-- 		Winterblight:SpawnRandomColorStatue(position, links[j].index_i,links[j].index_j)
-				-- 	end)
-				-- end
+
 			else
 				local shiftDownTable = {}
 				for i = 1, #Winterblight.CandyCrushLayout, 1 do
@@ -1897,17 +1863,19 @@ function Winterblight:ProcessLinks(links, hero)
 			end
 		end)
 	end
-	Timers:CreateTimer(total_delay, function()
-		Winterblight:CheckCollapseCombos(shift_table)
-		Winterblight.CandyCrushLocked = false
+	Timers:CreateTimer(total_delay+0.8, function()
+		Winterblight:CheckCollapseCombos(hero)
 		for i = 1, #links, 1 do
 			UTIL_Remove(links[i])
-		end
+		end	
+		print("TURN OFF CANDY CRUSH LOCK")
+		Winterblight.CandyCrushLocked = false
 	end)
 end
 
 function Winterblight:ShiftLinkUnitDown(link_unit, steps)
 	local distance = steps*182
+	table.insert(Winterblight.CandyCrushShiftTable, link_unit)
 	for i = 1, 16, 1 do
 		Timers:CreateTimer(i*0.03, function()
 			link_unit:SetAbsOrigin(link_unit:GetAbsOrigin()-Vector(0,distance/16,0))
@@ -1921,6 +1889,54 @@ function Winterblight:SpawnRandomColorStatue(position, index_i, index_j)
 	Winterblight:SpawnCandyCrushStatue(position, color, index_i, index_j)
 end
 
-function Winterblight:CheckCollapseCombos(shift_table)
+function Winterblight:CheckCollapseCombos(hero)
+	for i = 1, #Winterblight.CandyCrushShiftTable, 1 do
+		local link_unit = Winterblight.CandyCrushShiftTable[i]
+		if Winterblight:RecursiveCandyCrush({link_unit}, -1, true, hero) then
+			return false
+		end
+		if Winterblight:RecursiveCandyCrush({link_unit}, 1, true, hero) then
+			return false
+		end
+		if Winterblight:RecursiveCandyCrush({link_unit}, -1, false, hero) then
+			return false
+		end
+		if Winterblight:RecursiveCandyCrush({link_unit}, 1, false, hero) then
+			return false
+		end
+	end
+	print("TURN OFF CANDY CRUSH LOCK")
+	Winterblight.CandyCrushLocked = false
+end
 
+function Winterblight:RecursiveCandyCrush(links_table, direction, horiz, hero)
+	local link_unit = links_table[#links_table]
+	if not IsValidEntity(link_unit) then
+		return false
+	end
+	if horiz then
+		if link_unit.index_j + direction < 1 or link_unit.index_j + direction > 10 then
+			return false
+		end
+		if Winterblight.CandyCrushLayout[link_unit.index_i][link_unit.index_j+direction].color == link_unit.color then
+			table.insert(links_table, Winterblight.CandyCrushLayout[link_unit.index_i][link_unit.index_j+direction])
+			Winterblight:RecursiveCandyCrush(links_table, direction, horiz, hero)
+			return false
+		end
+	else
+		if link_unit.index_i + direction < 1 or link_unit.index_i + direction > 10 then
+			return false
+		end
+		if Winterblight.CandyCrushLayout[link_unit.index_i+direction][link_unit.index_j].color == link_unit.color then
+			table.insert(links_table, Winterblight.CandyCrushLayout[link_unit.index_i+direction][link_unit.index_j])
+			Winterblight:RecursiveCandyCrush(links_table, direction, horiz, hero)
+			return false
+		end
+	end
+	if #links_table >= 3 then
+		Winterblight:ProcessLinks(links_table, hero)
+		return true
+	else
+		return false
+	end
 end
