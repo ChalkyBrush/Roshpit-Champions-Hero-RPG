@@ -1523,6 +1523,10 @@ function Winterblight:InitializeCandyCrush()
 		Winterblight:ActivateBlackStatues()
 	end
 	Winterblight.CandyCrushLayout = {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}}
+	Winterblight.CandyCrushProgressCrystal = Entities:FindByNameNearest("CandyCrushProgress", Vector(5653, -14257), 2000)
+	Winterblight.CandyCrushProgressCrystal:SetModelScale(0.3)
+	Winterblight.CandyCrushProgressCrystal:SetRenderColor(0, 0, 0)
+	Winterblight.CandyCrushProgressScore = 0
 	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(3925, -15086), 1500, 3000, false)
 	local color_possibilities = {"red", "yellow", "green", "blue"}
 	local basePos = Vector(2958, -15832)
@@ -1865,11 +1869,13 @@ function Winterblight:ProcessLinks(links, hero)
 	end
 	Timers:CreateTimer(total_delay+0.8, function()
 		Winterblight:CheckCollapseCombos(hero)
+		local links_count = #links
 		for i = 1, #links, 1 do
 			UTIL_Remove(links[i])
 		end	
 		print("TURN OFF CANDY CRUSH LOCK")
 		Winterblight.CandyCrushLocked = false
+		Winterblight:CandyCrushPoints(links_count)
 	end)
 end
 
@@ -1938,5 +1944,29 @@ function Winterblight:RecursiveCandyCrush(links_table, direction, horiz, hero)
 		return true
 	else
 		return false
+	end
+end
+
+function Winterblight:CandyCrushPoints(links_count)
+	local goal = 15 + GameState:GetDifficultyFactor()*5
+	local points = 0
+	if links_count == 3 then
+		points = 1
+	elseif links_count == 4 then
+		points = 2
+	end
+	points = links_count - 2
+	Winterblight.CandyCrushProgressScore = Winterblight.CandyCrushProgressScore + points
+	print("SCORE: "..Winterblight.CandyCrushProgressScore)
+	local scale = 3*(Winterblight.CandyCrushProgressScore/goal)
+	local color = 255*(Winterblight.CandyCrushProgressScore/goal)
+	Winterblight.CandyCrushProgressCrystal:SetModelScale(scale)
+	Winterblight.CandyCrushProgressCrystal:SetRenderColor(color, color, color)
+	if Winterblight.CandyCrushProgressScore >= goal then
+		Winterblight.CandyCrushLocked = true
+		EmitSoundOnLocationWithCaster(Winterblight.CandyCrushCrystal:GetAbsOrigin(), "Winterblight.AzaleaCrystal.FinishPuzzle", Winterblight.Master)
+		EmitSoundOnLocationWithCaster(Winterblight.CandyCrushProgressCrystal:GetAbsOrigin(), "Winterblight.AzaleaCrystal.FinishPuzzle", Winterblight.Master)
+		UTIL_Remove(Winterblight.CandyCrushCrystal)
+		--END CANDY CRUSH
 	end
 end

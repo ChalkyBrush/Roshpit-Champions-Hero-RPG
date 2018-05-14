@@ -1022,6 +1022,10 @@ function candy_crush_buff_end(event)
 	local ability = event.ability
 	local hero = event.target
 	print(hero:GetUnitName())
+	if Winterblight.CandyCrushLocked then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_hero_candy_crush", {duration = 10})
+		return false
+	end
 	if not Winterblight.CandyCrushBlackStatueTable then
 		Winterblight.CandyCrushBlackStatueTable = {}
 	end
