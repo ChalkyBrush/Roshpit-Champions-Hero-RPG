@@ -1,10 +1,33 @@
 function Winterblight:SpawnAzaleaCups()
 	Winterblight:SpawnCup1()
+	Winterblight:SpawnCup2()
+end
+
+function Winterblight:CupSpawnCondition(index)
+	if not Winterblight.AzaleaCupSpawns then
+		Winterblight.AzaleaCupSpawns = {0,0,0,0,0,0}
+	end
+	if Winterblight.AzaleaCupSpawns[index] == 1 then
+		return false
+	else
+		Winterblight.AzaleaCupSpawns[index] = 1
+		return true
+	end
 end
 
 function Winterblight:SpawnCup1()
-	if Winterblight.MathPuzzleComplete then
-		Winterblight:SpawnAzaleaCup(Vector(15910, -15831), Vector(-1,0), 1)
+	if Winterblight:CupSpawnCondition(1) then
+		if Winterblight.MathPuzzleComplete then
+			Winterblight:SpawnAzaleaCup(Vector(15910, -15831), Vector(-1,0), 1)
+		end
+	end
+end
+
+function Winterblight:SpawnCup2()
+	if Winterblight:CupSpawnCondition(2) then
+		if Winterblight.CandyCrushComplete then
+			Winterblight:SpawnAzaleaCup(Vector(5653, -14257), Vector(0,-1), 2)
+		end
 	end
 end
 
@@ -20,7 +43,26 @@ function Winterblight:SpawnAzaleaCup(position, fv, index)
     cup:AddAbility("winterblight_attackable_unit"):SetLevel(1)
     cup:RemoveAbility("dummy_unit")
     cup:RemoveModifierByName("dummy_unit")
+    local pfx = ParticleManager:CreateParticle("particles/econ/items/ancient_apparition/ancient_apparation_ti8/ancient_ice_vortex_ti8_ring_spiral.vpcf", PATTACH_CUSTOMORIGIN, nil)
+    ParticleManager:SetParticleControl(pfx, 0, cup:GetAbsOrigin())
+    cup:SetAbsOrigin(cup:GetAbsOrigin()-Vector(0,0,500))
+    Winterblight:MoveObject(cup, cup:GetAbsOrigin()+Vector(0,0,500), 120)
+    Winterblight:objectShake(cup, 120, 3, true, true, false, nil, 5)
+    Timers:CreateTimer(3.4, function()
+    	EmitSoundOn("Winterblight.AzaleaCup.Spawn", cup)
+	    local particleName = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+	    local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, nil )
 
+	    ParticleManager:SetParticleControl( particle1, 0, cup:GetAbsOrigin() )
+	    ParticleManager:SetParticleControl( particle1, 1, Vector(300, 2, 1000) )
+	    ParticleManager:SetParticleControl( particle1, 3, Vector(300, 550, 550) )
+	    Timers:CreateTimer(4, function()
+	    	ParticleManager:DestroyParticle(particle1, false)
+	    end)
+    end)
+    Timers:CreateTimer(3.6, function()
+    	ParticleManager:DestroyParticle(pfx, false)
+    end)
     cup:SetHullRadius(100)
     cup.pushLock = true
     cup.dummy = true
@@ -31,8 +73,8 @@ function Winterblight:SpawnAzaleaCup(position, fv, index)
     cup:SetRenderColor(100, 100, 100)
     cup:SetModelScale(1.0)
     cup.index = index
-    EmitSoundOn("Winterblight.AzaleaCrystal.FinishPuzzle", cup)
-    CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_wisp/wisp_death.vpcf", cup, 3)
+    EmitSoundOn("Winterblight.IceCrystal.Shatter", cup)
+    CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_wisp/wisp_death.vpcf", cup:GetAbsOrigin()+Vector(0,0,600), 3)
     table.insert(Winterblight.AzaleacupTable, cup)
 end
 
@@ -75,6 +117,12 @@ function Winterblight:AzaleaCupAttacked(cup, attacker)
 				Beacons:CreateActiveParticle("particles/portals/green_portal.vpcf", Vector(1255, -15219, 490+Winterblight.ZFLOAT), Events.GameMaster, 0, Vector(0.45, 0.45, 0.45))
 				AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(1255, -15219, 250+Winterblight.ZFLOAT), 300, 99999, false)
 				Winterblight.AzaleaPortalTable[1] = 1 
+				if Winterblight.AzaleaPortalTable[2] == 0 then
+					Beacons:CreateActiveParticle("particles/portals/green_portal.vpcf", Vector(1255, -14425, 490+Winterblight.ZFLOAT), Events.GameMaster, 0, Vector(0.45, 0.45, 0.45))
+					AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(1255, -14425, 250+Winterblight.ZFLOAT), 300, 99999, false)
+					Winterblight.AzaleaPortalTable[2] = 1
+				end
+			elseif cup.index == 2 then
 				if Winterblight.AzaleaPortalTable[2] == 0 then
 					Beacons:CreateActiveParticle("particles/portals/green_portal.vpcf", Vector(1255, -14425, 490+Winterblight.ZFLOAT), Events.GameMaster, 0, Vector(0.45, 0.45, 0.45))
 					AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(1255, -14425, 250+Winterblight.ZFLOAT), 300, 99999, false)
@@ -1761,7 +1809,10 @@ function Winterblight:SpawnCandyCrushGreenUnit(position, fv, bBlack, nextUnit)
 	return stone
 end
 
-function Winterblight:ProcessLinks(links, hero)
+function Winterblight:ProcessLinks(links, hero, stackLevel)
+	if Winterblight.CandyCrushComplete then
+		return false
+	end
 	Winterblight.CandyCrushLocked = true
 	local score = #links
 	if hero then
@@ -1777,13 +1828,13 @@ function Winterblight:ProcessLinks(links, hero)
 	for i = 1, #links, 1 do
 		local link = links[i]
 		if link.color == "red" then
-			Winterblight:SpawnCandyCrushRedUnit(link:GetAbsOrigin(), Vector(1,0), true, links[i+1])
+			Winterblight:SpawnCandyCrushRedUnit(link:GetAbsOrigin(), Vector(1,0), false, links[i+1])
 		elseif link.color == "blue" then
-			Winterblight:SpawnCandyCrushBlueUnit(link:GetAbsOrigin(), Vector(1,0), true, links[i+1])
+			Winterblight:SpawnCandyCrushBlueUnit(link:GetAbsOrigin(), Vector(1,0), false, links[i+1])
 		elseif link.color == "yellow" then
-			Winterblight:SpawnCandyCrushYellowUnit(link:GetAbsOrigin(), Vector(1,0), true, links[i+1])
+			Winterblight:SpawnCandyCrushYellowUnit(link:GetAbsOrigin(), Vector(1,0), false, links[i+1])
 		elseif link.color == "green" then
-			Winterblight:SpawnCandyCrushGreenUnit(link:GetAbsOrigin(), Vector(1,0), true, links[i+1])
+			Winterblight:SpawnCandyCrushGreenUnit(link:GetAbsOrigin(), Vector(1,0), false, links[i+1])
 		end
 		table.insert(shift_table, link)
 		link:AddNoDraw()	
@@ -1867,8 +1918,8 @@ function Winterblight:ProcessLinks(links, hero)
 			end
 		end)
 	end
-	Timers:CreateTimer(total_delay+0.8, function()
-		Winterblight:CheckCollapseCombos(hero)
+	Timers:CreateTimer(total_delay+0.8+stackLevel*0.5, function()
+		Winterblight:CheckCollapseCombos(hero, stackLevel)
 		local links_count = #links
 		for i = 1, #links, 1 do
 			UTIL_Remove(links[i])
@@ -1890,33 +1941,37 @@ function Winterblight:ShiftLinkUnitDown(link_unit, steps)
 end
 
 function Winterblight:SpawnRandomColorStatue(position, index_i, index_j)
-	local color_possibilities = {"red", "yellow", "green", "blue"}
-	local color = color_possibilities[RandomInt(1, 4)]
-	Winterblight:SpawnCandyCrushStatue(position, color, index_i, index_j)
+	if not Winterblight.CandyCrushComplete then
+		local color_possibilities = {"red", "yellow", "green", "blue"}
+		local color = color_possibilities[RandomInt(1, 4)]
+		Winterblight:SpawnCandyCrushStatue(position, color, index_i, index_j)
+	end
 end
 
-function Winterblight:CheckCollapseCombos(hero)
+function Winterblight:CheckCollapseCombos(hero, stackLevel)
 	for i = 1, #Winterblight.CandyCrushShiftTable, 1 do
 		local link_unit = Winterblight.CandyCrushShiftTable[i]
-		if Winterblight:RecursiveCandyCrush({link_unit}, -1, true, hero) then
-			return false
-		end
-		if Winterblight:RecursiveCandyCrush({link_unit}, 1, true, hero) then
-			return false
-		end
-		if Winterblight:RecursiveCandyCrush({link_unit}, -1, false, hero) then
-			return false
-		end
-		if Winterblight:RecursiveCandyCrush({link_unit}, 1, false, hero) then
-			return false
+		if Winterblight:RecursiveCandyCrush({link_unit}, 1, true, hero, stackLevel) then
+		else
+			if Winterblight:RecursiveCandyCrush({link_unit}, -1, true, hero, stackLevel) then
+			else
+				if Winterblight:RecursiveCandyCrush({link_unit}, 1, false, hero, stackLevel) then
+				else
+					if Winterblight:RecursiveCandyCrush({link_unit}, -1, false, hero, stackLevel) then
+					else
+						Winterblight.CandyCrushLocked = false
+					end
+				end
+			end
 		end
 	end
-	print("TURN OFF CANDY CRUSH LOCK")
-	Winterblight.CandyCrushLocked = false
 end
 
-function Winterblight:RecursiveCandyCrush(links_table, direction, horiz, hero)
+function Winterblight:RecursiveCandyCrush(links_table, direction, horiz, hero, stackLevel)
 	local link_unit = links_table[#links_table]
+	if Winterblight.CandyCrushComplete then
+		return false
+	end
 	if not IsValidEntity(link_unit) then
 		return false
 	end
@@ -1926,7 +1981,7 @@ function Winterblight:RecursiveCandyCrush(links_table, direction, horiz, hero)
 		end
 		if Winterblight.CandyCrushLayout[link_unit.index_i][link_unit.index_j+direction].color == link_unit.color then
 			table.insert(links_table, Winterblight.CandyCrushLayout[link_unit.index_i][link_unit.index_j+direction])
-			Winterblight:RecursiveCandyCrush(links_table, direction, horiz, hero)
+			Winterblight:RecursiveCandyCrush(links_table, direction, horiz, hero, stackLevel)
 			return false
 		end
 	else
@@ -1935,12 +1990,13 @@ function Winterblight:RecursiveCandyCrush(links_table, direction, horiz, hero)
 		end
 		if Winterblight.CandyCrushLayout[link_unit.index_i+direction][link_unit.index_j].color == link_unit.color then
 			table.insert(links_table, Winterblight.CandyCrushLayout[link_unit.index_i+direction][link_unit.index_j])
-			Winterblight:RecursiveCandyCrush(links_table, direction, horiz, hero)
+			Winterblight:RecursiveCandyCrush(links_table, direction, horiz, hero, stackLevel)
 			return false
 		end
 	end
 	if #links_table >= 3 then
-		Winterblight:ProcessLinks(links_table, hero)
+		stackLevel = stackLevel + 1
+		Winterblight:ProcessLinks(links_table, hero, stackLevel)
 		return true
 	else
 		return false
@@ -1948,14 +2004,8 @@ function Winterblight:RecursiveCandyCrush(links_table, direction, horiz, hero)
 end
 
 function Winterblight:CandyCrushPoints(links_count)
-	local goal = 15 + GameState:GetDifficultyFactor()*5
-	local points = 0
-	if links_count == 3 then
-		points = 1
-	elseif links_count == 4 then
-		points = 2
-	end
-	points = links_count - 2
+	local goal = 12 + GameState:GetDifficultyFactor()*3
+	local points = links_count - 2
 	Winterblight.CandyCrushProgressScore = Winterblight.CandyCrushProgressScore + points
 	print("SCORE: "..Winterblight.CandyCrushProgressScore)
 	local scale = 3*(Winterblight.CandyCrushProgressScore/goal)
@@ -1964,9 +2014,309 @@ function Winterblight:CandyCrushPoints(links_count)
 	Winterblight.CandyCrushProgressCrystal:SetRenderColor(color, color, color)
 	if Winterblight.CandyCrushProgressScore >= goal then
 		Winterblight.CandyCrushLocked = true
+		Winterblight.CandyCrushComplete = true
 		EmitSoundOnLocationWithCaster(Winterblight.CandyCrushCrystal:GetAbsOrigin(), "Winterblight.AzaleaCrystal.FinishPuzzle", Winterblight.Master)
 		EmitSoundOnLocationWithCaster(Winterblight.CandyCrushProgressCrystal:GetAbsOrigin(), "Winterblight.AzaleaCrystal.FinishPuzzle", Winterblight.Master)
 		UTIL_Remove(Winterblight.CandyCrushCrystal)
+		Timers:CreateTimer(0.5, function()
+			for i = 1, #Winterblight.CandyCrushLayout, 1 do
+				for j = 1, #Winterblight.CandyCrushLayout[i], 1 do
+					Timers:CreateTimer(0.05*j + 0.5*i, function()
+						local statue = Winterblight.CandyCrushLayout[i][j]
+						if IsValidEntity(statue) then
+						    EmitSoundOn("Winterblight.CandyCrush.SpawnStatue", statue)
+						    CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_wisp/wisp_death.vpcf", statue:GetAbsOrigin()+Vector(0,0,40), 3)
+						    UTIL_Remove(statue)
+						end
+					end)
+				end
+			end
+			for i = 1, #Winterblight.CandyCrushBlackStatueTable, 1 do
+				Timers:CreateTimer(i*0.5, function()
+					local statue = Winterblight.CandyCrushBlackStatueTable[i]
+					if IsValidEntity(statue) then
+					    EmitSoundOn("Winterblight.CandyCrush.SpawnStatue", statue)
+					    CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_wisp/wisp_death.vpcf", statue:GetAbsOrigin()+Vector(0,0,40), 3)
+					    UTIL_Remove(statue)
+					end
+				end)
+			end
+		end)
+		Timers:CreateTimer(0.5, function()
+			local pfx = CustomAbilities:QuickParticleAtPoint("particles/act_2/flying_shatter_blast_explosion.vpcf", Winterblight.CandyCrushProgressCrystal:GetAbsOrigin(), 3)
+			for i = 1, 6, 1 do
+				ParticleManager:SetParticleControl(pfx, i, Winterblight.CandyCrushProgressCrystal:GetAbsOrigin())
+			end
+			EmitSoundOnLocationWithCaster(Winterblight.CandyCrushProgressCrystal:GetAbsOrigin(), "Winterblight.CandyCrystal.Shatter", Winterblight.Master)
+			local position = Winterblight.CandyCrushProgressCrystal:GetAbsOrigin()
+			UTIL_Remove(Winterblight.CandyCrushProgressCrystal)
+			Timers:CreateTimer(3.5, function()
+				Winterblight:SpawnCup2()
+				EmitSoundOnLocationWithCaster(position, "Winterblight.Azalea.Win", Winterblight.Master)
+			end)
+		end)
 		--END CANDY CRUSH
 	end
+end
+
+function Winterblight:CandyCrushRoomMobsSpawn()
+	if not Winterblight.CandyCrushRoomMobsSpawned then
+		Winterblight.CandyCrushRoomMobsSpawned = true
+		local luck = RandomInt(1, 3)
+		luck = 2
+		if luck == 1 then
+			for i = 0, 4, 1 do
+				Winterblight:SpawnAzaleaHighguard(Vector(5504, -15744+(256*i)), Vector(1,0))
+			end
+			Timers:CreateTimer(1, function()
+				for i = 0, 3, 1 do
+					Winterblight:SpawnSoftwalker(Vector(2560, -15744+(256*i)), Vector(1,0))
+				end
+			end)
+			Timers:CreateTimer(1.5, function()
+			local positionTable = {Vector(3072, -13824), Vector(3456, -13824), Vector(4736, -13824), Vector(5120, -13824)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnArmoredKnight(positionTable[i], Vector(0,-1))
+				end
+			end)
+		elseif luck == 2 then
+			Timers:CreateTimer(0.5, function()
+				local positionTable = {}
+				for i = 0, 14, 1 do
+				 local randomSpawn = Vector(2816, -15872) + Vector(RandomInt(0, 2800), RandomInt(0, 1900))
+				 table.insert(positionTable, randomSpawn)
+				end
+			    for i = 1, #positionTable, 1 do
+			      Timers:CreateTimer(i*0.2, function()
+			        local patrolPositionTable = {}
+			        for j = 1, #positionTable, 1 do
+			          local index = i + j
+			          if index > #positionTable then
+			            index = index - #positionTable
+			          end
+			          table.insert(patrolPositionTable, positionTable[index])
+			        end
+		            local elemental = Winterblight:SpawnSpectralWitch(positionTable[i]+RandomVector(RandomInt(1,100)), RandomVector(1))
+		            Winterblight:AddPatrolArguments(elemental, 25, 4+RandomInt(1,3), 320, patrolPositionTable)
+			      end)
+			    end
+			end)
+		elseif luck == 3 then
+			Timers:CreateTimer(0.5, function()
+				local positionTable = {}
+				for i = 0, 6, 1 do
+				 local randomSpawn = Vector(2816, -15872) + Vector(RandomInt(0, 2800), RandomInt(0, 1900))
+				 table.insert(positionTable, randomSpawn)
+				end
+			    for i = 1, #positionTable, 1 do
+			      Timers:CreateTimer(i*0.2, function()
+			        local patrolPositionTable = {}
+			        for j = 1, #positionTable, 1 do
+			          local index = i + j
+			          if index > #positionTable then
+			            index = index - #positionTable
+			          end
+			          table.insert(patrolPositionTable, positionTable[index])
+			        end
+		            local elemental = Winterblight:SpawnSpectralWitch(positionTable[i]+RandomVector(RandomInt(1,100)), RandomVector(1))
+		            Winterblight:AddPatrolArguments(elemental, 25, 4+RandomInt(1,3), 320, patrolPositionTable)
+			      end)
+			    end
+			end)
+			Timers:CreateTimer(2.1, function()
+				local positionTable = {Vector(2688, -15744), Vector(2540, -15488), Vector(2651, -15232), Vector(2464, -14976), Vector(2641, -14720)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnCrystalRunner(positionTable[i], WallPhysics:rotateVector(Vector(1,0), 2*math.pi*RandomInt(-3, 3)/10))
+				end
+			end)	
+			Timers:CreateTimer(0.1, function()
+				local positionTable = {Vector(5760, -16000), Vector(5504, -16000), Vector(5504, -15744), Vector(5760, -15744)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnCrystalRunner(positionTable[i], Vector(1,1))
+				end
+			end)	
+			Timers:CreateTimer(1, function()
+				local positionTable = {Vector(3072, -13824), Vector(3328, -13824), Vector(3584, -13824), Vector(4648, -13824), Vector(4904, -13824), Vector(5160, -13824)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnGhostStriker(positionTable[i], Vector(0,-1))
+				end
+			end)		
+		end
+	end
+end
+
+function Winterblight:SpawnSpectralWitch(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_azalea_spectral_witch", position, 1, 1, "Winterblight.SpectralWitch.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 4, 5, false)
+	stone.itemLevel = 42
+	stone.dominion = true
+	stone:SetRenderColor(82, 150, 255)
+	if Winterblight.Stones >= 3 then
+		stone:AddAbility("creature_pure_strike"):SetLevel(GameState:GetDifficultyFactor())
+	end
+	return stone
+end
+
+function Winterblight:AzaleaSpawn3()
+	if not Winterblight.Azalea3Spawned then
+		Winterblight.Azalea3Spawned = true
+		Winterblight:SpawnAzaleaPuck(Vector(7138, -13028))
+		local luck = RandomInt(1, 3)
+		Winterblight.PuckGuardTable = {}
+		luck = 3
+		if luck == 1 then
+			local positionTable = {Vector(8192, -12160), Vector(7560, -11520), Vector(7063, -12160), Vector(8066, -10599), Vector(7054, -10294)}
+			for i = 1, #positionTable, 1 do
+				Timers:CreateTimer(i*0.3, function()
+					local guard = Winterblight:SpawnPuckGuard(positionTable[i], Vector(0,-1))
+					table.insert(Winterblight.PuckGuardTable, guard)
+				end)
+			end
+		elseif luck == 2 then
+			local positionTable = {Vector(7563, -13038), Vector(8261, -12609), Vector(8261, -11825), Vector(7040, -11825), Vector(7040, -10880), Vector(8064, -10382)}
+			for i = 1, #positionTable, 1 do
+				Timers:CreateTimer(i*0.3, function()
+					local guard = Winterblight:SpawnPuckGuard(positionTable[i], Vector(0,-1))
+					table.insert(Winterblight.PuckGuardTable, guard)
+				end)
+			end
+		elseif luck == 3 then
+			local positionTable = {Vector(7600, -13256), Vector(7040, -12160), Vector(7557, -12160), Vector(8192, -11581), Vector(7040, -10240), Vector(7613, -10744), Vector(8192, -10297)}
+			for i = 1, #positionTable, 1 do
+				Timers:CreateTimer(i*0.3, function()
+					local guard = Winterblight:SpawnPuckGuard(positionTable[i], Vector(0,-1))
+					table.insert(Winterblight.PuckGuardTable, guard)
+				end)
+			end
+		end
+		local luck2 = RandomInt(1, 3)
+		if luck2 == 1 then
+			local positionTable = {Vector(6833, -13747), Vector(7297, -13747), Vector(7808, -13747), Vector(8320, -13747)}
+			for i = 1, #positionTable, 1 do
+				Winterblight:SpawnArmoredKnight(positionTable[i], Vector(0,-1))
+		    end	
+			for i = 0, 7+GameState:GetDifficultyFactor(), 1 do
+				local unit = Winterblight:SpawnSkaterFiend(Vector(7040+RandomInt(0,1152), -12288+RandomInt(0,792)), RandomVector(1))
+				unit.minVector = Vector(7040, -12288)
+				unit.maxXroam = 1152
+				unit.maxYroam = 792
+			end	
+			Timers:CreateTimer(0.5, function()
+				local positionTable = {Vector(6912, -10240), Vector(7028, -10880), Vector(8147, -10924), Vector(8147, -10240)}
+		        local patrolPositionTable = {}
+		        for j = 1, #positionTable, 1 do
+		          local index = i + j
+		          if index > #positionTable then
+		            index = index - #positionTable
+		          end
+		          table.insert(patrolPositionTable, positionTable[index])
+		        end
+		        for j = 0, 1, 1 do
+		          Timers:CreateTimer(j*1, function()
+		            local elemental = Winterblight:SpawnAzaleaMaiden(positionTable[i]+RandomVector(RandomInt(1,100)), RandomVector(1))
+		            Winterblight:AddPatrolArguments(elemental, 35, 5, 220, patrolPositionTable)
+		          end)
+		        end
+			end)
+		elseif luck2 == 2 then
+			for i = 0, 4+GameState:GetDifficultyFactor(), 1 do
+				local unit = Winterblight:SpawnSkaterFiend(Vector(6912+RandomInt(0,1400), -13216+RandomInt(0,400)), RandomVector(1))
+				unit.minVector = Vector(6912, -13216)
+				unit.maxXroam = 1400
+				unit.maxYroam = 400
+			end	
+			for i = 0, 7+GameState:GetDifficultyFactor(), 1 do
+				Timers:CreateTimer(i*0.3, function()
+					Winterblight:SpawnSpectralWitch(Vector(7040+RandomInt(0,1152), -12288+RandomInt(0,792)), RandomVector(1))
+				end)
+			end	
+			local positionTable = {Vector(7040, -10240), Vector(7344, -10624), Vector(7936, -10624), Vector(8192, -10213)}
+			for i = 1, #positionTable, 1 do
+				Winterblight:SpawnCrystalRunner(positionTable[i], Vector(0,-1))
+		    end
+		elseif luck2 == 3 then
+			for i = 0, 6+GameState:GetDifficultyFactor(), 1 do
+				local unit = Winterblight:SpawnSkaterFiend(Vector(6912+RandomInt(0,1400), -10963+RandomInt(0,740)), RandomVector(1))
+				unit.minVector = Vector(6912, -10963)
+				unit.maxXroam = 1400
+				unit.maxYroam = 740
+			end		
+			local positionTable = {Vector(6912, -13440), Vector(7265, -13440), Vector(7622, -13440), Vector(8024, -13440), Vector(8380, -13440)}
+			for i = 1, #positionTable, 1 do
+				Timers:CreateTimer(i*0.3, function()
+					Winterblight:SpawnSpectralWitch(positionTable[i], Vector(0,-1))
+				end)
+			end
+			Timers:CreateTimer(0.5, function()
+				local positionTable = {Vector(6912, -11485), Vector(7168, -11776), Vector(7040, -12288), Vector(7648, -12227), Vector(7552, -11966), Vector(7796, -11648), Vector(8259, -11517), Vector(8133, -12036), Vector(8259, -12416)}
+		        local patrolPositionTable = {}
+		        for j = 1, #positionTable, 1 do
+		          local index = i + j
+		          if index > #positionTable then
+		            index = index - #positionTable
+		          end
+		          table.insert(patrolPositionTable, positionTable[index])
+		        end
+		        for j = 1, 1, 1 do
+		          Timers:CreateTimer(j*1, function()
+		            local elemental = Winterblight:SpawnCrystalRunner(positionTable[i]+RandomVector(RandomInt(1,100)), RandomVector(1))
+		            Winterblight:AddPatrolArguments(elemental, 35, 5, 220, patrolPositionTable)
+		          end)
+		        end
+			end)
+		end
+	end
+end
+
+function Winterblight:SpawnAzaleaPuck(position)
+    local puck = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
+    puck:SetAbsOrigin(puck:GetAbsOrigin()+Vector(0,0,12))
+    puck:AddAbility("winterblight_attackable_unit"):SetLevel(1)
+    
+    
+    puck:SetOriginalModel("models/winterblight/azalea_puck.vmdl")
+    puck:SetModel("models/winterblight/azalea_puck.vmdl")
+    puck:SetRenderColor(82, 80, 255)
+    puck:SetModelScale(1)
+
+    puck:RemoveAbility("dummy_unit")
+    puck:RemoveModifierByName("dummy_unit")
+    puck.basePosition = position
+
+    puck.pushLock = true
+    puck.dummy = true
+    puck.jumpLock = true
+    puck.prop_id = 4
+    puck.speed = 0
+    puck.puck = true
+    puck.rotationSpeed = 0
+    puck.fv = puck:GetForwardVector()
+    EmitSoundOn("Winterblight.CandyCrush.SpawnStatue", puck)
+    CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_wisp/wisp_death.vpcf", puck, 3)
+end
+
+function Winterblight:AzaleaPuckAttacked(caster, attacker)
+	if caster.locked then
+		return false
+	end
+	print("PUCK ATTACKED")
+	caster.speed = math.min(caster.speed + 25, 40)
+	local ability = caster:FindAbilityByName("winterblight_attackable_unit")
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_winterblight_puck_motion", {})
+	caster.fv = ((caster:GetAbsOrigin()-attacker:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	caster.rotationSpeed = math.min(caster.rotationSpeed + 1, 4)
+	EmitSoundOn("Winterblight.Puck.Impact", caster)
+end
+
+function Winterblight:SpawnPuckGuard(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_puck_guard", position, 1, 1, nil, fv, false)
+	Events:AdjustBossPower(stone, 4, 5, false)
+	stone.itemLevel = 42
+	stone.dominion = true
+	stone:SetRenderColor(180, 200, 255)
+	if Winterblight.Stones >= 1 then
+		stone:RemoveAbility("armor_break")
+		stone:AddAbility("armor_break_ultra"):SetLevel(GameState:GetDifficultyFactor())
+	end
+	return stone
 end

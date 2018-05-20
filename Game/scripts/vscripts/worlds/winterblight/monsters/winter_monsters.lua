@@ -1679,6 +1679,8 @@ function attackable_unit_hit(event)
 		Winterblight:AzaleaCupAttacked(caster, attacker)
 	elseif caster.prop_id == 3 then
 		Winterblight:AzaleaBladeAttacked(caster, attacker)
+	elseif caster.prop_id == 4 then
+		Winterblight:AzaleaPuckAttacked(caster, attacker)
 	end
 end
 

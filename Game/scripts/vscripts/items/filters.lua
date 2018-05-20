@@ -861,8 +861,9 @@ function Filters:ApplyWskills(caster)
     if caster:HasModifier("modifier_phantom_sorcerer") then
         local ability = caster:GetAbilityByIndex(1)
         local cdRemaining = ability:GetCooldownTimeRemaining()
+        local newCD = math.min(cdRemaining + 5, ability:GetCooldownTime()+5)
         ability:EndCooldown()
-        ability:StartCooldown(cdRemaining + 5)
+        ability:StartCooldown(newCD)
     end
     if caster:HasModifier("modifier_cytopian_laser") then
         Filters:CytopianLaser(caster)

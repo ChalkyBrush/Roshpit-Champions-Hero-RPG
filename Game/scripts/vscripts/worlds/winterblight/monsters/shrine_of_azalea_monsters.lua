@@ -864,6 +864,41 @@ function chrolonus_die(event)
 		Winterblight:SpawnAzaleaColorBlade(Vector(7736, -15147, -147), 3)
 		Winterblight:SpawnAzaleaColorBlade(Vector(7874, -15147, -147), 4)
 	end)
+	Timers:CreateTimer(0.5, function()
+		Winterblight:RemoveBlockers(8.5, "AzaleaBridgeBlocker4", Vector(6600, -15500, 127+Winterblight.ZFLOAT), 5400)
+		for i = 1, 300, 1 do
+			Timers:CreateTimer(0.03*i, function()
+				if i %40 == 0 then
+					EmitSoundOnLocationWithCaster(Vector(6400, -15449, 78+Winterblight.ZFLOAT), "Winterblight.AzaleaBridge.Raise", Events.GameMaster)
+				end
+				Winterblight.AzaleaBridge4:SetAbsOrigin(Winterblight.AzaleaBridge4:GetAbsOrigin()+Vector(0,0,1500/300))
+			end)
+		end
+		Timers:CreateTimer(3, function()
+			local walls = Entities:FindAllByNameWithin("AzaleaWall5", Vector(6539, -15459, -4094+Winterblight.ZFLOAT), 2400)
+		    EmitSoundOnLocationWithCaster(Vector(6539, -15459), "Winterblight.WallOpen", Events.GameMaster)
+		    Winterblight:WallsTicks(false, walls, true, 5, 360, 0.1)
+		    Winterblight:RemoveBlockers(4, "AzaleaWallBlocker2", Vector(6539, -15459, 300+Winterblight.ZFLOAT), 3800)
+		end)
+		Timers:CreateTimer(9, function()
+			EmitSoundOnLocationWithCaster(Winterblight.AzaleaBridge4:GetAbsOrigin(), "Winterblight.AzaleaBridge.Finish", Winterblight.Master)
+			Timers:CreateTimer(0.1, function()
+				EmitSoundOnLocationWithCaster(Winterblight.AzaleaBridge4:GetAbsOrigin(), "Winterblight.Azalea.Win", Winterblight.Master)
+			end)
+			local positionTable = {Vector(6750, -15543), Vector(6750, -15408), Vector(6750, -15316), Vector(6242, -15559), Vector(6242, -15408), Vector(6242, -15316)}
+            for i = 1, #positionTable, 1 do
+              local pfx = ParticleManager:CreateParticle( "particles/econ/events/ti5/teleport_end_dust_ti5.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster )
+              ParticleManager:SetParticleControl( pfx, 0, GetGroundPosition(positionTable[i], Events.GameMaster ))
+              ParticleManager:SetParticleControl( pfx, 1, Vector(200, 200, 200) )
+              Timers:CreateTimer(2, function()
+                ParticleManager:DestroyParticle(pfx, false)
+              end)
+            end
+		end)
+	end)
+	Timers:CreateTimer(8, function()
+		Winterblight:CandyCrushRoom()
+	end)
 end
 
 function candy_crush_crystal_hit(event)
@@ -988,16 +1023,24 @@ function candy_crush_unit_hit(event)
 			ability:ApplyDataDrivenModifier(caster, attacker, "modifier_hero_candy_crush", {duration = 10})
 			table.insert(attacker.candy_crush_link_data.links, target)
 			target.link_lock = true
+			local pfxName = "particles/units/heroes/hero_wisp/tether_green.vpcf"
+			if target.color == "red" then
+				pfxName = "particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
+			elseif target.color == "blue" then
+				pfxName = "particles/units/heroes/hero_wisp/wisp_tether_agh.vpcf"
+			elseif target.color == "yellow" then
+				pfxName = "particles/roshpit/winterblight/tether_yellow.vpcf"
+			end
 			if #attacker.candy_crush_link_data.links == 1 then
 				attacker.candy_crush_link_data.pfxTable = {}
-				local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf", PATTACH_POINT, attacker)
+				local pfx = ParticleManager:CreateParticle(pfxName, PATTACH_POINT, attacker)
 				ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin()+Vector(0,0,70))
 				ParticleManager:SetParticleControlEnt(pfx, 1, attacker, PATTACH_POINT_FOLLOW, "attach_attack1", attacker:GetAbsOrigin()+Vector(0,0,60), true)
 				table.insert(attacker.candy_crush_link_data.pfxTable, pfx)
 			elseif #attacker.candy_crush_link_data.links == 2 then
 				local pfx = attacker.candy_crush_link_data.pfxTable[1]
 				ParticleManager:DestroyParticle(pfx, false)
-				local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf", PATTACH_CUSTOMORIGIN, nil)
+				local pfx = ParticleManager:CreateParticle(pfxName, PATTACH_CUSTOMORIGIN, nil)
 				ParticleManager:SetParticleControl(pfx, 0, attacker.candy_crush_link_data.links[#attacker.candy_crush_link_data.links-1]:GetAbsOrigin()+Vector(0,0,70))
 				ParticleManager:SetParticleControl(pfx, 1, target:GetAbsOrigin()+Vector(0,0,70))
 				attacker.candy_crush_link_data.pfxTable[1] = pfx
@@ -1007,7 +1050,7 @@ function candy_crush_unit_hit(event)
 					attacker.candy_crush_link_data.direction = "vertical"
 				end
 			else
-				local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf", PATTACH_CUSTOMORIGIN, nil)
+				local pfx = ParticleManager:CreateParticle(pfxName, PATTACH_CUSTOMORIGIN, nil)
 				ParticleManager:SetParticleControl(pfx, 0, attacker.candy_crush_link_data.links[#attacker.candy_crush_link_data.links-1]:GetAbsOrigin()+Vector(0,0,70))
 				ParticleManager:SetParticleControl(pfx, 1, target:GetAbsOrigin()+Vector(0,0,70))
 				table.insert(attacker.candy_crush_link_data.pfxTable, pfx)				
@@ -1046,10 +1089,15 @@ function candy_crush_buff_end(event)
 		for i = 1, #hero.candy_crush_link_data.pfxTable, 1 do
 			ParticleManager:DestroyParticle(hero.candy_crush_link_data.pfxTable[i], false)
 		end
+		for i = 1, #hero.candy_crush_link_data.links, 1 do
+			local unit = hero.candy_crush_link_data.links[i]
+			Winterblight:SpawnRandomColorStatue(unit:GetAbsOrigin(), unit.index_i,unit.index_j)
+			UTIL_Remove(unit)			
+		end
 		hero.candy_crush_link_data.links = {}
 		hero.candy_crush_link_data.pfxTable = {}
 	else
-		Winterblight:ProcessLinks(hero.candy_crush_link_data.links, hero)
+		Winterblight:ProcessLinks(hero.candy_crush_link_data.links, hero, 0)
 		hero.candy_crush_link_data.links = {}
 		hero.candy_crush_link_data.pfxTable = {}
 		-- for i = 1, #hero.candy_crush_link_data.pfxTable, 1 do
@@ -1060,4 +1108,198 @@ function candy_crush_buff_end(event)
 		Winterblight.CandyCrushBlackStatueTable = {}
 	end
 
+end
+
+function spectral_witch_apply_think(event)
+	local target = event.target
+	local caster = event.caster
+
+	local distance = WallPhysics:GetDistance2d(target:GetAbsOrigin(), caster:GetAbsOrigin())
+	local push_speed = (600 - distance)/30
+	if push_speed > 0 then
+		local push_direction = ((caster:GetAbsOrigin()-target:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+		local obstruction = WallPhysics:FindNearestObstruction(caster:GetAbsOrigin()+push_direction*push_speed)
+		local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, caster:GetAbsOrigin()+push_direction*push_speed, caster)
+		if blockUnit then
+			push_speed = 0
+
+		else
+			caster:SetAbsOrigin(GetGroundPosition(caster:GetAbsOrigin() + push_direction*push_speed, caster))
+		end
+	end
+end
+
+function spectral_witch_clear_space(event)
+	local caster = event.caster
+	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+end
+
+function puck_motion_think(event)
+	local caster = event.caster
+	local newPostion = caster:GetAbsOrigin() + caster.speed*caster.fv
+	local impact = false
+	local obstruction = WallPhysics:FindNearestObstruction(newPostion)
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPostion, caster)
+	local normal = Vector(0,0)
+	if caster.locked then
+		return false
+	end
+	if blockUnit then
+		impact = true
+		normal = ((obstruction:GetAbsOrigin() - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	elseif newPostion.x < 6761 then
+		impact = true
+		normal = Vector(1,0)
+	elseif newPostion.x > 8512 then
+		impact = true
+		normal = Vector(-1,0)
+	elseif newPostion.y < -13330 then
+		impact = true
+		normal = Vector(0,-1)
+	elseif newPostion.y > -9881 then
+		if newPostion.x > 7513 and newPostion.x < 7763 then
+		else
+			impact = true
+			normal = Vector(0,1)
+		end
+	end
+	if impact then
+		caster.speed = math.max(caster.speed/1.6, 0)
+		normal = WallPhysics:rotateVector(normal, math.pi/2)
+		local reflectionVector = 2*(normal:Dot(caster.fv, normal))*normal - caster.fv
+		caster.fv = reflectionVector:Normalized()
+		newPosition = caster:GetAbsOrigin()+(caster.fv*caster.speed*2)
+		caster:SetAbsOrigin(newPosition)
+		local pfx = ParticleManager:CreateParticle( "particles/roshpit/winterblight/ice_slip_flash_c.vpcf", PATTACH_CUSTOMORIGIN, caster )
+		ParticleManager:SetParticleControl( pfx, 0, caster:GetAbsOrigin() )
+		ParticleManager:SetParticleControl( pfx, 1, Vector(200, 200, 200) )
+		Timers:CreateTimer(2, function()
+			ParticleManager:DestroyParticle(pfx, false)
+		end)
+		EmitSoundOn("Winterblight.Puck.WallImpact", caster)
+	else
+		caster:SetAbsOrigin(newPostion)
+	end
+	caster:SetForwardVector(WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi*caster.rotationSpeed/80))
+	caster.rotationSpeed = math.max(caster.rotationSpeed-0.1, caster.speed/30)
+	caster.speed = math.max(caster.speed - 0.2, 0)
+	if caster.speed == 0 then
+		caster:RemoveModifierByName("modifier_winterblight_puck_motion")
+	end
+	if newPostion.x < 6561 then
+		caster:SetAbsOrigin(caster.basePosition)
+	elseif newPostion.x > 8712 then
+		caster:SetAbsOrigin(caster.basePosition)
+	elseif newPostion.y < -13530 then
+		caster:SetAbsOrigin(caster.basePosition)
+	elseif newPostion.y > -9681 then
+		caster:SetAbsOrigin(caster.basePosition)
+	end
+	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), Vector(7662, -9780))
+	if distance < 140 then
+		caster.locked = true
+		EmitSoundOn("Winterblight.AzaleaCrystal.FinishPuzzle", caster)
+		local walls = Entities:FindAllByNameWithin("PuckGate", Vector(7662, -9780, 300+Winterblight.ZFLOAT), 2400)
+	    EmitSoundOnLocationWithCaster(Vector(6539, -15459), "Winterblight.WallOpen", Events.GameMaster)
+	    Winterblight:WallsTicks(false, walls, true, 1.4, 260, 0.1)
+	    local gate = Entities:FindByNameNearest("PuckGate2", Vector(7650, -9779, 300+Winterblight.ZFLOAT), 500)
+	    UTIL_Remove(gate)
+	    Winterblight:RemoveBlockers(4, "PuckGateBlocker", Vector(7662, -9780, 300+Winterblight.ZFLOAT), 3800)
+	    local flames = Entities:FindAllByClassnameWithin("info_particle_system", Vector(7662, -9780, 300+Winterblight.ZFLOAT), 680)
+	    for i = 1, #flames, 1 do
+	    	UTIL_Remove(flames[i])
+	    end
+	    for i = 1, #Winterblight.PuckGuardTable, 1 do
+	    	EmitSoundOn("Winterblight.Goalie.Aggro", Winterblight.PuckGuardTable[i])
+	    	Winterblight.PuckGuardTable[i]:RemoveModifierByName("modifier_disable_player")
+	    	Dungeons:AggroUnit(Winterblight.PuckGuardTable[i])
+	    end
+	    UTIL_Remove(caster)
+	end
+end
+
+function puck_guard_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster.puck_lock then
+		return false
+	end
+	local allies = Entities:FindAllByClassnameWithin("npc_dota_base_additive", caster:GetAbsOrigin(), 220)
+	if #allies > 0 then
+
+		for i = 1, #allies, 1 do
+			if allies[i].puck then	
+				StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_ATTACK, rate=2.1})
+				print(allies[i]:GetUnitName())
+				Filters:PerformAttackSpecial(caster, allies[i], true, true, true, false, true, false, false)
+				local pfx = ParticleManager:CreateParticle( "particles/roshpit/winterblight/ice_slip_flash_c.vpcf", PATTACH_CUSTOMORIGIN, allies[i] )
+				ParticleManager:SetParticleControl( pfx, 0, allies[i]:GetAbsOrigin() )
+				ParticleManager:SetParticleControl( pfx, 1, Vector(200, 200, 200) )
+				Timers:CreateTimer(2, function()
+					ParticleManager:DestroyParticle(pfx, false)
+				end)
+				caster.puck_lock = true
+				caster:SetForwardVector(((allies[i]:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized())
+				Timers:CreateTimer(0.5, function()
+					caster.puck_lock = false
+				end)
+				break
+			end
+		end
+	end
+end
+
+function puck_guard_attack_land(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local attacker = event.attacker
+	if target:IsHero() then
+		if not target.puckspeed then
+			target.puckspeed = 0
+		end
+		local puckfv = ((target:GetAbsOrigin()-attacker:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+		EmitSoundOn("Winterblight.Puck.Impact", target)
+		target.puckfv = puckfv
+		target.puckspeed = math.min(target.puckspeed + 20, 40)
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_winterblight_puck_motion", {duration = 3})
+	end
+end
+
+function puck_motion_think_guard(event)
+	local target = event.target
+	if target:HasModifier("modifier_ice_sliding") then
+		local newPostion = target:GetAbsOrigin() + target.puckspeed*target.puckfv
+		local impact = false
+		local obstruction = WallPhysics:FindNearestObstruction(newPostion)
+		local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPostion, target)
+		local normal = Vector(0,0)
+		if blockUnit then
+			impact = true
+			normal = ((obstruction:GetAbsOrigin() - target:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+		end
+		if impact then
+			target.puckspeed = math.max(target.puckspeed/1.6, 0)
+			normal = WallPhysics:rotateVector(normal, math.pi/2)
+			local reflectionVector = 2*(normal:Dot(target.puckfv, normal))*normal - target.puckfv
+			target.puckfv = reflectionVector:Normalized()
+			newPosition = target:GetAbsOrigin()+(target.puckfv*target.puckspeed*2)
+			target:SetAbsOrigin(newPosition)
+			local pfx = ParticleManager:CreateParticle( "particles/roshpit/winterblight/ice_slip_flash_c.vpcf", PATTACH_CUSTOMORIGIN, target )
+			ParticleManager:SetParticleControl( pfx, 0, target:GetAbsOrigin() )
+			ParticleManager:SetParticleControl( pfx, 1, Vector(200, 200, 200) )
+			Timers:CreateTimer(2, function()
+				ParticleManager:DestroyParticle(pfx, false)
+			end)
+			EmitSoundOn("Winterblight.Puck.WallImpact", target)
+		else
+			target:SetAbsOrigin(newPostion)
+		end
+	else
+		target:RemoveModifierByName("modifier_winterblight_puck_motion")
+	end
+	target.puckspeed = math.max(target.puckspeed - 0.2, 0)
+	if target.puckspeed < 15 then
+		target:RemoveModifierByName("modifier_winterblight_puck_motion")
+	end	
 end

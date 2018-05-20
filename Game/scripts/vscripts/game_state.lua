@@ -1862,6 +1862,14 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = filterTable["damage"]*0.001
 		end
 	end
+	if victim:HasModifier("modifier_spectral_witch_passive") then
+		local distance = WallPhysics:GetDistance(victim:GetAbsOrigin(), attacker:GetAbsOrigin())
+		if distance > 600 then
+			local abil = victim:FindModifierByName("modifier_spectral_witch_passive"):GetAbility()
+			local reduction = abil:GetLevelSpecialValueFor("damage_reduction", abil:GetLevel())
+			filterTable["damage"] = filterTable["damage"]*(1-(reduction/100))
+		end
+	end
 	if victim:HasModifier("modifier_tempest_haze_effect_friendly") then
 		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 			modifier = victim:FindModifierByName("modifier_tempest_haze_effect_friendly")

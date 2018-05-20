@@ -40,6 +40,9 @@ function ice_think(event)
 	local target = event.target
 	local caster = target
 	local ability = event.ability
+	if caster:HasModifier("modifier_winterblight_puck_motion") then
+		return false
+	end
 	if Filters:IsTouchingGround(target) then
 		local slip_speed = 3
 		local turn_rate = 1
@@ -79,7 +82,6 @@ function ice_think(event)
 	    end
 		caster.iceInterval = caster.iceInterval + 1
 		if caster.iceInterval >= 25 and caster.iceSpeed > 0 then
-			print("RUN ANIM")
 			StartAnimation(caster, {duration=0.75, activity=ACT_DOTA_RUN, rate=2.8})
 			caster.iceInterval = 0
 			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.IceSkate", Winterblight.Master)

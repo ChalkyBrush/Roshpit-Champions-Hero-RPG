@@ -165,3 +165,11 @@ end
 function ShrineSpawn6(trigger)
 	Winterblight:ShrineSpawn6()
 end
+
+function CandyCrushSpawn()
+	Winterblight:CandyCrushRoomMobsSpawn()
+end
+
+function AzaleaSpawn3()
+	Winterblight:AzaleaSpawn3()
+end
