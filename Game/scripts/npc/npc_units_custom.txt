@@ -88335,6 +88335,7 @@
         "precache"
         {
             "model"     "models/winterblight/azalea_puck.vmdl"
+            "particle"  "particles/roshpit/winterblight/azalea_platform_trigger_ground.vpcf"
         }
         "ArmorPhysical" "6"
         "MagicalResistance" "25"

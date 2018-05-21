@@ -2163,7 +2163,6 @@ function Winterblight:AzaleaSpawn3()
 		Winterblight:SpawnAzaleaPuck(Vector(7138, -13028))
 		local luck = RandomInt(1, 3)
 		Winterblight.PuckGuardTable = {}
-		luck = 3
 		if luck == 1 then
 			local positionTable = {Vector(8192, -12160), Vector(7560, -11520), Vector(7063, -12160), Vector(8066, -10599), Vector(7054, -10294)}
 			for i = 1, #positionTable, 1 do
@@ -2319,4 +2318,411 @@ function Winterblight:SpawnPuckGuard(position, fv)
 		stone:AddAbility("armor_break_ultra"):SetLevel(GameState:GetDifficultyFactor())
 	end
 	return stone
+end
+
+function Winterblight:InitializeAzaleaPlatformRoom()
+	Winterblight.AzaleaPlatformsTable = {}
+	local bordersSearchTable = {Vector(5288, -10992, 143+Winterblight.ZFLOAT), Vector(5988, -12072, 136+Winterblight.ZFLOAT), Vector(4619, -12168, 144+Winterblight.ZFLOAT), Vector(4258, -10951, 143+Winterblight.ZFLOAT), Vector(3479, -10380, 144+Winterblight.ZFLOAT), Vector(2359, -11218, 144+Winterblight.ZFLOAT), Vector(3000, -12541, 144+Winterblight.ZFLOAT), Vector(4909, -13066, 144+Winterblight.ZFLOAT), Vector(378, -11454, 50+Winterblight.ZFLOAT)}
+	-- local platformSearchTable = {Vector(5288, -10992, 143+Winterblight.ZFLOAT), }
+	-- local blockersSearchTable = {Vector(5307, -111264, 143+Winterblight.ZFLOAT), }
+	for i = 1, 9, 1 do
+		Timers:CreateTimer(i*0.8, function()
+			local platform = {}
+			platform.borders = Entities:FindByNameNearest("AzaleaPlatformBorders"..i, bordersSearchTable[i], 2500)
+			platform.blockers = Entities:FindAllByNameWithin("AzaleaPlatformBlocker"..i, bordersSearchTable[i], 5000)
+			platform.main = Entities:FindByNameNearest("AzaleaPlatform"..i, bordersSearchTable[i], 2500)
+			platform.raised = false
+			platform.index = i
+			table.insert(Winterblight.AzaleaPlatformsTable, platform)
+		end)
+	end
+	Winterblight.AzaleaPlatformsOrder = RandomInt(1, 3)
+	Winterblight.AzaleaPlatformsState = 0
+	Timers:CreateTimer(9, function()
+		for i = 1, #Winterblight.AzaleaPlatformsTable, 1 do
+			local platform = Winterblight.AzaleaPlatformsTable[i]
+			platform.main:SetAbsOrigin(platform.main:GetAbsOrigin()-Vector(0,0,2000))
+			platform.borders:SetAbsOrigin(platform.borders:GetAbsOrigin()-Vector(0,0,2000))
+		end
+	end)
+end
+
+function Winterblight:PlatformRoomStartBeacon()
+	Winterblight:CreatePlatformBeacon(Vector(5593, -10399, 145+Winterblight.ZFLOAT), 1, 0)
+	Timers:CreateTimer(0.5, function()
+		local positionTable = {Vector(640, -12095), Vector(1102, -10718), Vector(2587, -12337), Vector(3456, -13089), Vector(3388, -11467), Vector(4480, -10549), Vector(5307, -12416), Vector(5888, -13056)}
+	    for i = 1, #positionTable, 1 do
+	      Timers:CreateTimer(i*0.3, function()
+	        local patrolPositionTable = {}
+	        for j = 1, #positionTable, 1 do
+	          local index = i + j
+	          if index > #positionTable then
+	            index = index - #positionTable
+	          end
+	          table.insert(patrolPositionTable, positionTable[index])
+	        end
+	        for j = 0, 2, 1 do
+	          Timers:CreateTimer(j*0.8, function()
+	            local elemental = Winterblight:SpawnAzaleaSorceress(positionTable[i]+RandomVector(RandomInt(1,400)), RandomVector(1))
+	            Winterblight:AddPatrolArguments(elemental, 35, RandomInt(5, 7), 220, patrolPositionTable)
+	          end)
+	        end
+	      end)
+	    end
+	end)	
+	Timers:CreateTimer(1.5, function()
+		local positionTable = {Vector(4736, -13167), Vector(2587, -12239), Vector(3712, -11008), Vector(5307, -13136), Vector(2762, -10582), Vector(1366, -11467), Vector(-562, -11483)}
+	    for i = 1, #positionTable, 1 do
+	      Timers:CreateTimer(i*0.3, function()
+	        local patrolPositionTable = {}
+	        for j = 1, #positionTable, 1 do
+	          local index = i + j
+	          if index > #positionTable then
+	            index = index - #positionTable
+	          end
+	          table.insert(patrolPositionTable, positionTable[index])
+	        end
+	        for j = 0, 1, 1 do
+	          Timers:CreateTimer(j*0.8, function()
+	            local elemental = Winterblight:SpawnSpectralWitch(positionTable[i]+RandomVector(RandomInt(1,400)), RandomVector(1))
+	            Winterblight:AddPatrolArguments(elemental, 35, RandomInt(5, 7), 220, patrolPositionTable)
+	            Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, elemental, "modifier_winterblight_flying_generic", {})
+	          end)
+	        end
+	      end)
+	    end
+	end)	
+end
+
+function Winterblight:CreateBeacons2to9()
+	Winterblight.AzaleaPlatformsState = Winterblight.AzaleaPlatformsState + 1
+	if Winterblight.AzaleaPlatformsOrder == 1 then
+		if Winterblight.AzaleaPlatformsState == 1 then
+			Winterblight:CreatePlatformBeacon(Vector(5292, -10062, 145+Winterblight.ZFLOAT), 2, Winterblight.AzaleaPlatformsState)
+		elseif Winterblight.AzaleaPlatformsState == 2 then
+			Winterblight:CreatePlatformBeacon(Vector(6327, -12416, 145+Winterblight.ZFLOAT), 3, Winterblight.AzaleaPlatformsState)
+		elseif Winterblight.AzaleaPlatformsState == 3 then
+			-- SHOULD BE ON TOP OF PREVIOUS INDEX, RAISES INDEX IN HERE
+			Winterblight:CreatePlatformBeacon(Vector(3968, -11791, 145+Winterblight.ZFLOAT), 5, Winterblight.AzaleaPlatformsState)
+		elseif Winterblight.AzaleaPlatformsState == 4 then
+			Winterblight:CreatePlatformBeacon(Vector(2029, -10624, 145+Winterblight.ZFLOAT), 4, Winterblight.AzaleaPlatformsState)
+		elseif Winterblight.AzaleaPlatformsState == 5 then
+			Winterblight:CreatePlatformBeacon(Vector(4480, -11472, 145+Winterblight.ZFLOAT), 6, Winterblight.AzaleaPlatformsState)
+		elseif Winterblight.AzaleaPlatformsState == 6 then
+			Winterblight:CreatePlatformBeacon(Vector(1724, -11188, 145+Winterblight.ZFLOAT), 7, Winterblight.AzaleaPlatformsState)
+		elseif Winterblight.AzaleaPlatformsState == 7 then
+			Winterblight:CreatePlatformBeacon(Vector(3456, -12991, 145+Winterblight.ZFLOAT), 8, Winterblight.AzaleaPlatformsState)
+		elseif Winterblight.AzaleaPlatformsState == 8 then
+			Winterblight:CreatePlatformBeacon(Vector(5958, -12928, 145+Winterblight.ZFLOAT), 9, Winterblight.AzaleaPlatformsState)
+			Winterblight:AzaleaLastPlatformRaised()
+		end
+	elseif Winterblight.AzaleaPlatformsOrder == 2 then
+		if Winterblight.AzaleaPlatformsState == 1 then
+			Winterblight:CreatePlatformBeacon(Vector(5307, -11904, 145+Winterblight.ZFLOAT), 5, Winterblight.AzaleaPlatformsState)
+		elseif Winterblight.AzaleaPlatformsState == 2 then
+			Winterblight:CreatePlatformBeacon(Vector(2816, -10112, 145+Winterblight.ZFLOAT), 6, Winterblight.AzaleaPlatformsState)
+		elseif Winterblight.AzaleaPlatformsState == 3 then
+			-- SHOULD BE ON TOP OF PREVIOUS INDEX, RAISES INDEX IN HERE
+			Winterblight:CreatePlatformBeacon(Vector(3214, -11467, 145+Winterblight.ZFLOAT), 3, Winterblight.AzaleaPlatformsState)
+		elseif Winterblight.AzaleaPlatformsState == 4 then
+			Winterblight:CreatePlatformBeacon(Vector(5248, -12544, 145+Winterblight.ZFLOAT), 7, Winterblight.AzaleaPlatformsState)
+		elseif Winterblight.AzaleaPlatformsState == 5 then
+			Winterblight:CreatePlatformBeacon(Vector(3456, -13254, 145+Winterblight.ZFLOAT), 4, Winterblight.AzaleaPlatformsState)
+		elseif Winterblight.AzaleaPlatformsState == 6 then
+			Winterblight:CreatePlatformBeacon(Vector(4480, -11219, 145+Winterblight.ZFLOAT), 8, Winterblight.AzaleaPlatformsState)
+		elseif Winterblight.AzaleaPlatformsState == 7 then
+			Winterblight:CreatePlatformBeacon(Vector(5504, -13167, 145+Winterblight.ZFLOAT), 2, Winterblight.AzaleaPlatformsState)
+		elseif Winterblight.AzaleaPlatformsState == 8 then
+			Winterblight:CreatePlatformBeacon(Vector(6327, -12416, 145+Winterblight.ZFLOAT), 9, Winterblight.AzaleaPlatformsState)
+			Winterblight:AzaleaLastPlatformRaised()
+		end		
+	elseif Winterblight.AzaleaPlatformsOrder == 3 then
+		if Winterblight.AzaleaPlatformsState == 1 then
+			Winterblight:CreatePlatformBeacon(Vector(5307, -11524, 145+Winterblight.ZFLOAT), 4, Winterblight.AzaleaPlatformsState)
+		elseif Winterblight.AzaleaPlatformsState == 2 then
+			Winterblight:CreatePlatformBeacon(Vector(3642, -11467, 145+Winterblight.ZFLOAT), 6, Winterblight.AzaleaPlatformsState)
+		elseif Winterblight.AzaleaPlatformsState == 3 then
+			-- SHOULD BE ON TOP OF PREVIOUS INDEX, RAISES INDEX IN HERE
+			Winterblight:CreatePlatformBeacon(Vector(1724, -11072, 145+Winterblight.ZFLOAT), 7, Winterblight.AzaleaPlatformsState)
+		elseif Winterblight.AzaleaPlatformsState == 4 then
+			Winterblight:CreatePlatformBeacon(Vector(2587, -12991, 145+Winterblight.ZFLOAT), 5, Winterblight.AzaleaPlatformsState)
+		elseif Winterblight.AzaleaPlatformsState == 5 then
+			Winterblight:CreatePlatformBeacon(Vector(4480, -10084, 145+Winterblight.ZFLOAT), 2, Winterblight.AzaleaPlatformsState)
+		elseif Winterblight.AzaleaPlatformsState == 6 then
+			Winterblight:CreatePlatformBeacon(Vector(6327, -11776, 145+Winterblight.ZFLOAT), 8, Winterblight.AzaleaPlatformsState)
+		elseif Winterblight.AzaleaPlatformsState == 7 then
+			Winterblight:CreatePlatformBeacon(Vector(5248, -13167, 145+Winterblight.ZFLOAT), 3, Winterblight.AzaleaPlatformsState)
+		elseif Winterblight.AzaleaPlatformsState == 8 then
+			Winterblight:CreatePlatformBeacon(Vector(4656, -12544, 145+Winterblight.ZFLOAT), 9, Winterblight.AzaleaPlatformsState)
+			Winterblight:AzaleaLastPlatformRaised()
+		end		
+	end
+end
+
+function Winterblight:AzaleaLastPlatformRaised()
+end
+
+function Winterblight:CreatePlatformBeacon(position, platform_index, state)
+	position=position+Vector(0,0,280)
+    local beacon = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
+
+    local pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight/azalea_platform_trigger_ground.vpcf", PATTACH_CUSTOMORIGIN, nil)
+    ParticleManager:SetParticleControl(pfx, 0, position)
+    ParticleManager:SetParticleControl(pfx, 1, position)
+    ParticleManager:SetParticleControl(pfx, 2, position)
+    ParticleManager:SetParticleControl(pfx, 3, position)
+    beacon.pfx = pfx
+    beacon.order_index = state
+    beacon.index = platform_index
+    beacon:AddAbility("winterblight_beacon_passive"):SetLevel(1)
+    beacon:FindAbilityByName("dummy_unit"):SetLevel(1)
+end
+
+function Winterblight:ActivateAzaleaBeacon(beacon)
+	local platform = Winterblight.AzaleaPlatformsTable[beacon.index]
+	DeepPrintTable(Winterblight.AzaleaPlatformsTable)
+	if not platform.raised then
+		platform.raised = true
+		Winterblight:AzaleaPlatformSpawns(beacon.index)
+		ParticleManager:DestroyParticle(beacon.pfx, false)
+		for i = 1, 150, 1 do
+			Timers:CreateTimer(i*0.03, function()
+				platform.main:SetAbsOrigin(platform.main:GetAbsOrigin()+Vector(0,0,2000/150))
+				platform.borders:SetAbsOrigin(platform.borders:GetAbsOrigin()+Vector(0,0,2000/150))
+			end)
+		end
+		Timers:CreateTimer(4.4, function()
+			EmitSoundOnLocationWithCaster(platform.main:GetAbsOrigin(), "Winterblight.Platform.Lifted", Winterblight.Master)
+			for j = 1, #platform.blockers, 1 do
+				UTIL_Remove(platform.blockers[j])
+			end
+			Winterblight:CreateBeacons2to9()
+		end)
+	    local particleName = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+	    local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, nil )
+
+	    ParticleManager:SetParticleControl( particle1, 0, beacon:GetAbsOrigin() )
+	    ParticleManager:SetParticleControl( particle1, 1, Vector(300, 2, 1000) )
+	    ParticleManager:SetParticleControl( particle1, 3, Vector(300, 550, 550) )
+	    Timers:CreateTimer(4, function()
+	    	ParticleManager:DestroyParticle(particle1, false)
+	    end)
+	    EmitSoundOn("Winterblight.AzaleaBeacon.Activate", beacon)
+	    UTIL_Remove(beacon)
+	end
+end
+
+function Winterblight:AzaleaPlatformSpawns(index)
+	local luck = RandomInt(1, 3)
+	local unitTable = {}
+	local positionTable = {}
+	if index == 1 then
+		if luck == 1 then
+			positionTable = {Vector(5307, -11904), Vector(5307, -11520), Vector(5307, -11136), Vector(5307, -10752)}
+			for i = 1, #positionTable, 1 do
+				local spawn = Winterblight:SpawnColdSeer(positionTable[i], Vector(0,1))
+				table.insert(unitTable, spawn)
+			end
+		elseif luck == 2 then
+			positionTable = {Vector(5307, -11392), Vector(5307, -11008), Vector(5307, -11776)}
+			for i = 1, #positionTable, 1 do
+				local spawn = Winterblight:SpawnArmoredKnight(positionTable[i], Vector(1,0))
+				table.insert(unitTable, spawn)
+			end
+		elseif luck == 3 then
+			positionTable = {Vector(5307, -11392), Vector(5307, -11008), Vector(5307, -11776)}
+			for i = 1, #positionTable, 1 do
+				local spawn = Winterblight:SpawnAzaleaHighguard(positionTable[i], Vector(0,1))
+				table.insert(unitTable, spawn)
+			end
+		end
+	elseif index == 2 then
+		if luck == 1 then
+			positionTable = {Vector(5693, -11904), Vector(5951, -11904)}
+			for i = 1, #positionTable, 1 do
+				local spawn = Winterblight:SpawnSyphist(positionTable[i], Vector(-1,0))
+				table.insert(unitTable, spawn)
+			end
+		elseif luck == 2 then
+			positionTable = {Vector(6328, -12416), Vector(6327, -12160), Vector(6327, -11904)}
+			for i = 1, #positionTable, 1 do
+				local spawn = Winterblight:SpawnAzaleaMaiden(positionTable[i], Vector(-1,0))
+				table.insert(unitTable, spawn)
+			end
+		elseif luck == 3 then
+			positionTable = {Vector(5693, -11904), Vector(5951, -11904), Vector(6328, -12416), Vector(6327, -12160), Vector(6327, -11904)}
+			for i = 1, #positionTable, 1 do
+				if i <= 3 then
+					local spawn = Winterblight:SpawnAzaleaMindbreaker(positionTable[i], Vector(-1,0))
+					table.insert(unitTable, spawn)
+				else
+					local spawn = Winterblight:SpawnAzaleaArcher(positionTable[i], Vector(-1,0))
+					table.insert(unitTable, spawn)
+				end
+			end
+		end
+	elseif index == 3 then
+		if luck == 1 then
+			positionTable = {Vector(4279, -12544), Vector(4656, -12544), Vector(5033, -12544)}
+			for i = 1, #positionTable, 1 do
+				local spawn = Winterblight:SpawnColdSeer(positionTable[i], Vector(1,0))
+				table.insert(unitTable, spawn)
+			end
+		elseif luck == 2 then
+			positionTable = {Vector(4379, -12544), Vector(4756, -12544), Vector(5133, -12544), Vector(3900, -12263), Vector(3900, -11874)}
+			for i = 1, #positionTable, 1 do
+				if i <=3 then
+					local spawn = Winterblight:SpawnPriestOfAzalea(positionTable[i], Vector(1,0))
+					table.insert(unitTable, spawn)
+				else
+					local spawn = Winterblight:SpawnFrostAvatar(positionTable[i], Vector(1,0))
+					table.insert(unitTable, spawn)
+				end
+			end
+		elseif luck == 3 then
+			positionTable = {Vector(5307, -12288), Vector(5307, -12544), Vector(4911, -12544), Vector(4534, -12544), Vector(4279, -12544), Vector(4047, -12544), Vector(3968, -12263), Vector(3968, -12052), Vector(3968, -11900)}
+			for i = 1, #positionTable, 1 do
+				local spawn = Winterblight:SpawnAzaleaHighguard(positionTable[i], Vector(0,1))
+				table.insert(unitTable, spawn)
+			end
+		end
+	elseif index == 4 then
+		if luck == 1 then
+			positionTable = {Vector(4782, -11467), Vector(4280, -11467), Vector(3768, -11467), Vector(4480, -11042), Vector(4480, -10549)}
+			for i = 1, #positionTable, 1 do
+				local spawn = Winterblight:SpawnSyphist(positionTable[i], Vector(0,-1))
+				table.insert(unitTable, spawn)
+			end
+		elseif luck == 2 then
+			positionTable = {Vector(4782, -11467), Vector(4280, -11467), Vector(3768, -11467), Vector(4480, -11042), Vector(4480, -10549)}
+			for i = 1, #positionTable, 1 do
+				local spawn = Winterblight:SpawnSourceRevenant(positionTable[i], Vector(0,-1))
+				table.insert(unitTable, spawn)
+			end
+		elseif luck == 3 then
+			positionTable = {Vector(4782, -11467), Vector(4280, -11467), Vector(3768, -11467), Vector(4480, -11042), Vector(4480, -10549)}
+			for i = 1, #positionTable, 1 do
+				if i <= 3 then
+					local spawn = Winterblight:SpawnArmoredKnight(positionTable[i], Vector(1,0))
+					table.insert(unitTable, spawn)
+				else
+					local spawn = Winterblight:SpawnRiderOfAzalea(positionTable[i], Vector(1,0))
+					table.insert(unitTable, spawn)
+				end
+			end
+		end
+	elseif index == 5 then
+		if luck == 1 then
+			positionTable = {Vector(4905, -10077), Vector(4524, -10077), Vector(4034, -10077), Vector(3652, -10077), Vector(3263, -10077), Vector(2762, -10077), Vector(2763, -10453), Vector(2762, -10688), Vector(2375, -10688), Vector(1960, -10688)}
+			for i = 1, #positionTable, 1 do
+				local spawn = Winterblight:SpawnRiderOfAzalea(positionTable[i], Vector(0,-1))
+				table.insert(unitTable, spawn)
+			end
+		elseif luck == 2 then
+			positionTable = {Vector(4905, -10077), Vector(4524, -10077), Vector(4034, -10077), Vector(3652, -10077), Vector(3263, -10077), Vector(2762, -10077), Vector(2763, -10453), Vector(2762, -10688), Vector(2375, -10688), Vector(1960, -10688)}
+			for i = 1, #positionTable, 1 do
+				local spawn = Winterblight:SpawnAzaleaHighguard(positionTable[i], Vector(0,-1))
+				table.insert(unitTable, spawn)
+			end
+		elseif luck == 3 then
+			positionTable = {Vector(4905, -10077), Vector(4524, -10077), Vector(4034, -10077), Vector(3652, -10077), Vector(3263, -10077), Vector(2762, -10077), Vector(2763, -10453), Vector(2762, -10688), Vector(2375, -10688), Vector(1960, -10688)}
+			for i = 1, #positionTable, 1 do
+				if i <= 3 then
+					local spawn = Winterblight:SpawnAzaleaMaiden(positionTable[i], Vector(1,0))
+					table.insert(unitTable, spawn)
+				else
+					local spawn = Winterblight:SpawnGhostStriker(positionTable[i], Vector(1,0))
+					table.insert(unitTable, spawn)
+				end
+			end
+		end
+	elseif index == 6 then
+		if luck == 1 then
+			positionTable = {Vector(2987, -11467), Vector(2596, -11467), Vector(2225, -11467), Vector(1723, -11467), Vector(1723, -11467)}
+			for i = 1, #positionTable, 1 do
+				local spawn = Winterblight:SpawnSecretKeeper(positionTable[i], Vector(1,0))
+				table.insert(unitTable, spawn)
+			end
+		elseif luck == 2 then
+			positionTable = {Vector(2987, -11467), Vector(2596, -11467), Vector(2225, -11467), Vector(1723, -11467), Vector(1723, -11467), Vector(1454, -11467)}
+			for i = 1, #positionTable, 1 do
+				local spawn = Winterblight:SpawnFrostElemental(positionTable[i], Vector(0,-1))
+				table.insert(unitTable, spawn)
+			end
+		elseif luck == 3 then
+			positionTable = {Vector(2987, -11467), Vector(2596, -11467), Vector(2225, -11467), Vector(1723, -11467), Vector(1723, -11467), Vector(1454, -11467)}
+			for i = 1, #positionTable, 1 do
+				if i <= 3 then
+					local spawn = Winterblight:SpawnArmoredKnight(positionTable[i], Vector(1,0))
+					table.insert(unitTable, spawn)
+				else
+					local spawn = Winterblight:SpawnRiderOfAzalea(positionTable[i], Vector(1,0))
+					table.insert(unitTable, spawn)
+				end
+			end
+		end
+	elseif index == 7 then
+		if luck == 1 then
+			positionTable = {Vector(2550, -11849), Vector(2550, -12083), Vector(2550, -12511), Vector(2550, -12990), Vector(2944, -12990), Vector(3400, -12990), Vector(3456, -13254)}
+			for i = 1, #positionTable, 1 do
+				local spawn = Winterblight:SpawnFrostAvatar(positionTable[i], Vector(0,1))
+				table.insert(unitTable, spawn)
+			end
+		elseif luck == 2 then
+			positionTable = {Vector(2550, -11849), Vector(2550, -12083), Vector(2550, -12511), Vector(2550, -12990), Vector(2944, -12990), Vector(3400, -12990), Vector(3456, -13254)}
+			for i = 1, #positionTable, 1 do
+				local spawn = Winterblight:SpawnAzaleaHighguard(positionTable[i], Vector(0,1))
+				table.insert(unitTable, spawn)
+			end
+		elseif luck == 3 then
+			positionTable = {Vector(2550, -11849), Vector(2550, -12083), Vector(2550, -12511), Vector(2550, -12990), Vector(2944, -12990), Vector(3400, -12990), Vector(3456, -13254)}
+			for i = 1, #positionTable, 1 do
+				if i <= 2 then
+					local spawn = Winterblight:SpawnWinterAssasin(positionTable[i], Vector(0,1))
+					table.insert(unitTable, spawn)
+				else
+					local spawn = Winterblight:SpawnSourceRevenant(positionTable[i], Vector(-1,0))
+					table.insert(unitTable, spawn)
+				end
+			end
+		end
+	elseif index == 8 then
+		if luck == 1 then
+			positionTable = {Vector(3968, -13166), Vector(4352, -13166), Vector(4736, -13166), Vector(5120, -13166), Vector(5760, -13166), Vector(6016, -13166), Vector(6016, -12928), Vector(5760, -12928)}
+			for i = 1, #positionTable, 1 do
+				local spawn = Winterblight:SpawnFrostiok(positionTable[i], Vector(0,1))
+				table.insert(unitTable, spawn)
+			end
+		elseif luck == 2 then
+			positionTable = {Vector(3968, -13166), Vector(4352, -13166), Vector(4736, -13166), Vector(5120, -13166), Vector(5760, -13166), Vector(6016, -13166), Vector(6016, -12928), Vector(5760, -12928)}
+			for i = 1, #positionTable, 1 do
+				local spawn = Winterblight:SpawnRiderOfAzalea(positionTable[i], Vector(0,1))
+				table.insert(unitTable, spawn)
+			end
+		elseif luck == 3 then
+			positionTable = {Vector(3968, -13166), Vector(4352, -13166), Vector(4736, -13166), Vector(5120, -13166), Vector(5760, -13166), Vector(6016, -13166), Vector(6016, -12928), Vector(5760, -12928)}
+			for i = 1, #positionTable, 1 do
+				if i <= 3 then
+					local spawn = Winterblight:SpawnChillingColossus(positionTable[i], Vector(0,1))
+					table.insert(unitTable, spawn)
+				else
+					local spawn = Winterblight:SpawnAzaleaArcher(positionTable[i], Vector(-1,0))
+					table.insert(unitTable, spawn)
+				end
+			end
+		end
+	end
+	for i = 1, #unitTable, 1 do
+		local unit = unitTable[i]
+		unit:SetAbsOrigin(positionTable[i]+Vector(0,0,-1600))
+		Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_disable_player", {duration = 4})
+	end
+	for i = 1, 150, 1 do
+		Timers:CreateTimer(i*0.03, function()
+			for j = 1, #unitTable, 1 do
+				local unit = unitTable[j]
+				unit:SetAbsOrigin(unit:GetAbsOrigin()+Vector(0,0,2000/150))
+			end
+		end)
+	end
 end

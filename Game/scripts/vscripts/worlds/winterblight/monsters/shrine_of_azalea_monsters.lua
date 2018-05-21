@@ -1215,6 +1215,13 @@ function puck_motion_think(event)
 	    	Dungeons:AggroUnit(Winterblight.PuckGuardTable[i])
 	    end
 	    UTIL_Remove(caster)
+		Timers:CreateTimer(3, function()
+			local walls = Entities:FindAllByNameWithin("AzaleaWall6", Vector(6539, -10404, -4094+Winterblight.ZFLOAT), 2400)
+		    EmitSoundOnLocationWithCaster(Vector(6539, -15459), "Winterblight.WallOpen", Events.GameMaster)
+		    Winterblight:WallsTicks(false, walls, true, 5, 360, 0.1)
+		    Winterblight:RemoveBlockers(4, "AzaleaWallBlocker3", Vector(6539, -10443, 100+Winterblight.ZFLOAT), 2800)
+		    Winterblight:PlatformRoomStartBeacon()
+		end)
 	end
 end
 
@@ -1224,7 +1231,7 @@ function puck_guard_think(event)
 	if caster.puck_lock then
 		return false
 	end
-	local allies = Entities:FindAllByClassnameWithin("npc_dota_base_additive", caster:GetAbsOrigin(), 220)
+	local allies = Entities:FindAllByClassnameWithin("npc_dota_base_additive", caster:GetAbsOrigin(), 130)
 	if #allies > 0 then
 
 		for i = 1, #allies, 1 do
@@ -1302,4 +1309,12 @@ function puck_motion_think_guard(event)
 	if target.puckspeed < 15 then
 		target:RemoveModifierByName("modifier_winterblight_puck_motion")
 	end	
+end
+
+function azalea_beacon_touch(event)
+	local caster = event.caster
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+	if #enemies > 0 then
+		Winterblight:ActivateAzaleaBeacon(event.caster)
+	end
 end

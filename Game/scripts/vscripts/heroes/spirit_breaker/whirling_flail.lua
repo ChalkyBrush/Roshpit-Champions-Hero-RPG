@@ -239,6 +239,9 @@ function a_a_fire_think(event)
 	if not ability.a_a_level then
 		return
 	end
+	if target.dummy then
+		return false
+	end
 	local fireStacks = target:GetModifierStackCount("modifier_dusk_fire_flail", caster)
 	local damage = ability.a_a_level*(Q1_DAMAGE + Q1_AGI_DAMAGE * caster:GetAgility())*fireStacks
 	Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_GHOST, RPC_ELEMENT_FIRE)

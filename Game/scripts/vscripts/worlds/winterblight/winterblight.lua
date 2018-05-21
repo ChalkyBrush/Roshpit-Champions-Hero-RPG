@@ -104,6 +104,9 @@ function Winterblight:InitProps()
       blade:SetRenderColor(colors[randomColorIndex].x, colors[randomColorIndex].y, colors[randomColorIndex].z)
     end
   end)
+  Timers:CreateTimer(5, function()
+    Winterblight:InitializeAzaleaPlatformRoom()
+  end)
 end
 
 function Winterblight:Debug2()
@@ -115,6 +118,7 @@ function Winterblight:Debug2()
     -- Winterblight:OpenShrineOfAzalea()
     -- Winterblight:ShrineSpawn6()
     -- Winterblight:SpawnChrolonus(Vector(7424, -15488), Vector(1,0))
+    Winterblight:PlatformRoomStartBeacon()
     Winterblight:CandyCrushRoom()
 end
 

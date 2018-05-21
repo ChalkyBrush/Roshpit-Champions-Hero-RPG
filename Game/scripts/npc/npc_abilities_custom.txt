@@ -118801,6 +118801,14 @@
 					}
 				}
 			}
+			"modifier_winterblight_flying_generic"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_FLYING"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 		}
 	}
 
@@ -124556,6 +124564,41 @@
 			}
 		}
 	}
+
+	"winterblight_beacon_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"redfall/autumn_spawner"
+		"MaxLevel"	"3"
+		"Modifiers"
+		{
+			"modifier_azalea_beacon_aura"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"Aura"          	"modifier_azalea_beacon_effect"
+				"Aura_Radius"   	"200"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			}
+			"modifier_azalea_beacon_effect"
+			{
+				"IsHidden"	"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"azalea_beacon_touch"
+					}
+				}
+			}
+		}
+	}
+
+
 	//SEA FORTRESS
 
 	"sea_fortress_ability"
