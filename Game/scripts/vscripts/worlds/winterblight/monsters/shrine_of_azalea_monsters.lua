@@ -1198,6 +1198,9 @@ function puck_motion_think(event)
 	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), Vector(7662, -9780))
 	if distance < 140 then
 		caster.locked = true
+		Timers:CreateTimer(0.2, function()
+			Winterblight:PlatformRoomStartBeacon()
+		end)
 		EmitSoundOn("Winterblight.AzaleaCrystal.FinishPuzzle", caster)
 		local walls = Entities:FindAllByNameWithin("PuckGate", Vector(7662, -9780, 300+Winterblight.ZFLOAT), 2400)
 	    EmitSoundOnLocationWithCaster(Vector(6539, -15459), "Winterblight.WallOpen", Events.GameMaster)
@@ -1215,12 +1218,12 @@ function puck_motion_think(event)
 	    	Dungeons:AggroUnit(Winterblight.PuckGuardTable[i])
 	    end
 	    UTIL_Remove(caster)
+	    
 		Timers:CreateTimer(3, function()
 			local walls = Entities:FindAllByNameWithin("AzaleaWall6", Vector(6539, -10404, -4094+Winterblight.ZFLOAT), 2400)
 		    EmitSoundOnLocationWithCaster(Vector(6539, -15459), "Winterblight.WallOpen", Events.GameMaster)
 		    Winterblight:WallsTicks(false, walls, true, 5, 360, 0.1)
 		    Winterblight:RemoveBlockers(4, "AzaleaWallBlocker3", Vector(6539, -10443, 100+Winterblight.ZFLOAT), 2800)
-		    Winterblight:PlatformRoomStartBeacon()
 		end)
 	end
 end
@@ -1316,5 +1319,75 @@ function azalea_beacon_touch(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		Winterblight:ActivateAzaleaBeacon(event.caster)
+	end
+end
+
+function air_spirit_take_damage(event)
+	local caster = event.caster
+	local ability = event.ability
+	local attacker = event.attacker
+	if ability:GetCooldownTimeRemaining() == 0 then
+		local moveDirection = ((caster:GetAbsOrigin()-attacker:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+		moveDirection = WallPhysics:rotateVector(moveDirection, 2*math.pi*RandomInt(-5,5)/60)
+		local strafe = ability
+		local unit = caster
+		local abilityDistance = 700
+		ability:StartCooldown(ability:GetCooldownTime())
+		strafe:ApplyDataDrivenModifier(unit, unit, "modifier_strafe_sprinting", {duration = 3})
+		strafe.fv = moveDirection
+		strafe.targetPoint = unit:GetAbsOrigin()+abilityDistance*moveDirection
+		strafe.distance = abilityDistance
+		strafe.origDistance = abilityDistance
+		strafe.canAnimate = true
+		if not unit.animLock then
+			StartAnimation(unit, {duration=1.0, activity=ACT_DOTA_TELEPORT_END, rate=0.9})
+		end
+		-- local pfx = ParticleManager:CreateParticle("particles/roshpit/sephyr/strafe_wind.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		-- ParticleManager:SetParticleControl(pfx, 0, unit:GetAbsOrigin()+Vector(0,0,80)-strafe.fv*200)
+		-- ParticleManager:SetParticleControl(pfx, 1, strafe.fv)
+		-- ParticleManager:SetParticleControl(pfx, 3, unit:GetAbsOrigin() + strafe.fv*1000)
+		-- local time = strafe.distance/1200
+		-- Timers:CreateTimer(time, function()
+		-- 	ParticleManager:DestroyParticle(pfx, false)
+		-- end)
+		-- unit:MoveToPosition(unit:GetAbsOrigin()+strafe.fvLock*1)		
+	end
+end
+
+function air_spirit_strafe_thinking(event)
+	local caster = event.caster
+	local ability = event.ability
+	local targetPoint = ability.targetPoint
+
+	local fv = ability.fv
+	local blockSearch = caster:GetAbsOrigin()*Vector(1,1,0)+Vector(0,0,GetGroundHeight(caster:GetAbsOrigin(), caster))
+    local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
+    local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch+fv*30), caster)
+    local forwardSpeed = event.strafe_speed
+
+    -- make scale with level
+	if blockUnit then
+		forwardSpeed = -10
+	end	
+	if Filters:HasMovementModifier(caster) then
+		forwardSpeed = 0
+		caster:RemoveModifierByName("modifier_strafe_sprinting")
+		return false
+	end
+	
+	local zfactor = 0
+	local distanceFromGround = caster:GetAbsOrigin().z - GetGroundHeight(targetPoint, caster)
+	zfactor = -distanceFromGround/5
+	caster:SetAbsOrigin(caster:GetAbsOrigin()+fv*forwardSpeed+Vector(0,0,zfactor))
+
+	ability.distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), ability.targetPoint)
+	if not caster:IsChanneling() and not caster:HasModifier("modifier_lightbomb_start_cast") then
+		caster:MoveToPosition(caster:GetAbsOrigin()+ability.fvLock*1)
+	end
+	if ability.distance < 50 or blockUnit then
+		caster:RemoveModifierByName("modifier_strafe_sprinting")
+		if not caster:IsChanneling() and not caster:HasModifier("modifier_lightbomb_start_cast") then
+			caster:MoveToPosition(caster:GetAbsOrigin()+ability.fvLock*5)
+		end
 	end
 end

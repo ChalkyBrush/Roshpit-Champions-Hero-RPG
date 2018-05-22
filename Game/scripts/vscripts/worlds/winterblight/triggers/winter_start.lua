@@ -173,3 +173,10 @@ end
 function AzaleaSpawn3()
 	Winterblight:AzaleaSpawn3()
 end
+
+function PlatformSpawnTrigger(trigger)
+	local caller = trigger.caller
+	local spawnIndex = caller:GetName():gsub('AzaleaPlatformSpawnTrigger', "")
+	spawnIndex = tonumber(spawnIndex)
+	Winterblight:AzaleaPlatformPitSpawn(spawnIndex)
+end

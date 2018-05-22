@@ -112,7 +112,7 @@ end
 function Winterblight:Debug2()
  -- Winterblight:FinishCaveWaves()
  -- Winterblight:InitializeAzaleaSwords()
- -- AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(11123, -7145), 23000, 23000, false)
+ AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(5307, -10496), 23000, 23000, false)
  -- Winterblight:StartOrbSequence()
   -- Winterblight:EndOrbWaves()
     -- Winterblight:OpenShrineOfAzalea()

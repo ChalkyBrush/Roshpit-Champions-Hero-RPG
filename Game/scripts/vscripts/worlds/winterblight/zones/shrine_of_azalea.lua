@@ -2480,7 +2480,6 @@ end
 
 function Winterblight:ActivateAzaleaBeacon(beacon)
 	local platform = Winterblight.AzaleaPlatformsTable[beacon.index]
-	DeepPrintTable(Winterblight.AzaleaPlatformsTable)
 	if not platform.raised then
 		platform.raised = true
 		Winterblight:AzaleaPlatformSpawns(beacon.index)
@@ -2725,4 +2724,207 @@ function Winterblight:AzaleaPlatformSpawns(index)
 			end
 		end)
 	end
+end
+
+function Winterblight:AzaleaPlatformPitSpawn(spawnIndex)
+	print("PLATFORM SPAWN")
+	print(spawnIndex)
+	if spawnIndex == 1 then
+		local positionTable = {}
+		local luck = RandomInt(1, 3)
+		if luck == 1 then
+			for i = 1, 4, 1 do
+				local pos = Vector(5702, -11486+(i-1)*200)+RandomVector(RandomInt(0, 40))
+				table.insert(positionTable, pos)
+			end
+		elseif luck == 2 then
+			positionTable = {Vector(4864, -11776), Vector(4864, -12026), Vector(4608, -12027), Vector(4714, -12216)}
+		end
+		if #positionTable > 0 then
+			for i = 1, #positionTable, 1 do
+				Winterblight:SpawnAirSpirit(positionTable[i], RandomVector(1))
+			end
+		end
+	elseif spawnIndex == 2 then
+		local positionTable = {}
+		local luck = RandomInt(1, 3)
+		if luck == 1 then
+			positionTable = {Vector(6159, -11398), Vector(5888, -11504), Vector(5633, -11520)}
+		elseif luck == 2 then
+			positionTable = {Vector(5633, -12203), Vector(5768, -12453), Vector(5906, -12284)}
+		end
+		if #positionTable > 0 then
+			for i = 1, #positionTable, 1 do
+				Winterblight:SpawnAirSpirit(positionTable[i], RandomVector(1))
+			end
+		end
+	elseif spawnIndex == 3 then
+		local positionTable = {}
+		local luck = RandomInt(1, 3)
+		if luck == 1 then
+			for i = 0, 4, 1 do
+				local pos = Vector(4518+i*200, -12864)+RandomVector(RandomInt(0, 40))
+				table.insert(positionTable, pos)
+			end
+		elseif luck == 2 then
+			positionTable = {Vector(4736, -11968), Vector(4992, -12034), Vector(4806, -12215)}
+		end
+		if #positionTable > 0 then
+			for i = 1, #positionTable, 1 do
+				Winterblight:SpawnAirSpirit(positionTable[i], RandomVector(1))
+			end
+		end
+	elseif spawnIndex == 4 then
+		local positionTable = {}
+		local luck = RandomInt(1, 3)
+		if luck == 1 then
+			positionTable = {Vector(4224, -12232), Vector(4385, -12160)}
+		elseif luck == 2 then
+			positionTable = {Vector(3893, -12881), Vector(4130, -12881), Vector(4385, -12882)}
+		end
+		if #positionTable > 0 then
+			for i = 1, #positionTable, 1 do
+				Winterblight:SpawnAirSpirit(positionTable[i], RandomVector(1))
+			end
+		end
+	elseif spawnIndex == 5 then
+		local positionTable = {}
+		local luck = RandomInt(1, 3)
+		if luck == 1 then
+			positionTable = {Vector(4608, -11797), Vector(4352, -11904)}
+		elseif luck == 2 then
+			positionTable = {Vector(3422, -11835), Vector(3626, -11835), Vector(3626, -12074)}
+		end
+		if #positionTable > 0 then
+			for i = 1, #positionTable, 1 do
+				Winterblight:SpawnAirSpirit(positionTable[i], RandomVector(1))
+			end
+		end
+	elseif spawnIndex == 6 then
+		local positionTable = {}
+		local luck = RandomInt(1, 3)
+		if luck == 1 then
+			for i = -3, 3, 1 do
+				local pos = Vector(3636, -10825)+WallPhysics:rotateVector(Vector(1,0), 2*math.pi*i/7)*380
+				table.insert(positionTable, pos)
+			end
+		elseif luck == 2 then
+			for i = 0, 2, 1 do
+				for j = 0, 2, 1 do
+					local pos = Vector(3168, -11114)+Vector(i*470, j*360)
+					table.insert(positionTable, pos)
+				end
+			end
+		end
+		if #positionTable > 0 then
+			for i = 1, #positionTable, 1 do
+				Winterblight:SpawnAirSpirit(positionTable[i], RandomVector(1))
+			end
+		end
+	elseif spawnIndex == 7 then
+		local positionTable = {}
+		local luck = RandomInt(1, 3)
+		if luck == 1 then
+			positionTable = {Vector(768, -11059), Vector(1044, -11059), Vector(1323, -11059)}
+		elseif luck == 2 then
+			positionTable = {Vector(2048, -11059), Vector(2348, -11059), Vector(2658, -11059)}
+		end
+		if #positionTable > 0 then
+			for i = 1, #positionTable, 1 do
+				Winterblight:SpawnAirSpirit(positionTable[i], RandomVector(1))
+			end
+		end
+	elseif spawnIndex == 8 then
+		local positionTable = {}
+		positionTable = {Vector(2048, -11059), Vector(2348, -11059), Vector(2658, -11059), Vector(3200, -11776), Vector(3014, -12032), Vector(2855, -11776), Vector(2167, -11776), Vector(2048, -12032), Vector(1792, -11776)}
+		if #positionTable > 0 then
+			for i = 1, #positionTable, 1 do
+				local luck = RandomInt(1, 3)
+				if luck < 3 then
+					Winterblight:SpawnAirSpirit(positionTable[i], RandomVector(1))
+				end
+			end
+		end
+	elseif spawnIndex == 9 then
+		local positionTable = {}
+		local luck = RandomInt(1, 3)
+		if luck < 3 then
+			for i = 0, 2, 1 do
+				for j = 0, 2, 1 do
+					local pos = Vector(2944, -12544)+Vector(i*270, j*260)
+					table.insert(positionTable, pos)
+				end
+			end
+			if #positionTable > 0 then
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnAirSpirit(positionTable[i], RandomVector(1))
+				end
+			end
+		end
+	elseif spawnIndex == 10 then
+		local positionTable = {}
+		local luck = RandomInt(1, 3)
+		if luck < 3 then
+			for i = 0, 4, 1 do
+				local pos = Vector(4244+i*256, -12857)
+				table.insert(positionTable, pos)
+			end
+			if #positionTable > 0 then
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnAirSpirit(positionTable[i], RandomVector(1))
+				end
+			end
+		end
+	elseif spawnIndex == 11 then
+		local positionTable = {}
+		local luck = RandomInt(1, 3)
+		if luck == 1 then
+			positionTable = {Vector(1536, -12288), Vector(1724, -12072), Vector(1733, -11825), Vector(1536, -11936)}
+		elseif luck == 2 then
+			positionTable = {Vector(568, -11882), Vector(828, -11882), Vector(704, -11669)}
+		end
+		if #positionTable > 0 then
+			for i = 1, #positionTable, 1 do
+				Winterblight:SpawnAirSpirit(positionTable[i], RandomVector(1))
+			end
+		end
+	elseif spawnIndex == 12 then
+		local positionTable = {}
+		local luck = RandomInt(1, 3)
+		if luck < 3 then
+			for i = 0, 4, 1 do
+				local pos = Vector(-76+i*256, -11042)
+				table.insert(positionTable, pos)
+			end
+			if #positionTable > 0 then
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnAirSpirit(positionTable[i], RandomVector(1))
+				end
+			end
+		end
+	end
+end
+
+function Winterblight:SpawnAirSpirit(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("azalea_air_spirit", position, 0, 1, nil, fv, false)
+	Events:AdjustBossPower(stone, 4, 3, false)
+	stone.itemLevel = 42
+	stone.dominion = true
+	stone:SetRenderColor(82, 150, 255)
+	stone:SetAbsOrigin(stone:GetAbsOrigin()-Vector(0,0,500))
+	stoneAbility = stone:FindAbilityByName("wind_temple_wind_guardian_ai")
+	stoneAbility:ApplyDataDrivenModifier(stone, stone, "modifier_wind_guardian_entrance", {duration = 2.7})
+	stone.dominion = true
+	for i = 1, 90, 1 do
+		Timers:CreateTimer(0.03*i, function()
+			stone:SetAbsOrigin(stone:GetAbsOrigin()+Vector(0,0,math.abs(math.sin(i)*10)))
+		end)
+	end
+	Winterblight:SetPositionCastArgs(stone, 1000, 0, 3, FIND_ANY_ORDER)
+	Timers:CreateTimer(3, function()
+		if not stone.aggro then
+			Dungeons:AggroUnit(stone)
+		end
+	end)
+	return stone
 end

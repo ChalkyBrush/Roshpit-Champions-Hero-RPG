@@ -6045,3 +6045,91 @@
         "Ability2"  "armor_break"
         "Ability3"  "dungeon_creep"
     }
+
+    "azalea_air_spirit"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/skywrath_mage/skywrath_mage.vmdl"
+        "ModelScale"    "0.75"
+        "Level" "1"
+        "HealthBarOffset"   "170"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "SoundSet"              "Hero_SkywrathMage"
+        "precache"
+        {
+             "soundfile" "soundevents/game_sounds_heroes/game_sounds_tusk.vsndevts"
+             "particle"     "particles/units/heroes/hero_tusk/tusk_ice_shards.vpcf"
+             "particle"     "particles/units/heroes/hero_tusk/tusk_ice_shards_projectile.vpcf"
+            "soundfile"     "soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
+        }
+        "ArmorPhysical" "1"
+        "MagicalResistance" "15"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "3400"
+        "AttackDamageMax"   "4400"
+        "AttackRate"    "1.3"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "100"
+        "ProjectileSpeed"           "1400"
+        "ProjectileModel"           "particles/units/heroes/hero_crystalmaiden/maiden_base_attack.vpcf"
+        "AttackRange"   "400"
+        "BountyGoldMin" "150"
+        "BountyGoldMax" "200"
+        "BountyXP" "1950"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "16"
+        "FormationRank" "2"
+        "GoldCost"  "205"
+        "LumberCost"    "30"
+        "FoodCost"  "3"
+        "BuildTime" "26"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_FLY"
+        "MovementSpeed" "270"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "145000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"              "serengaard_ice_shards"
+        "Ability2"              "winterblight_air_spirit_passive"
+        "Ability3"              "wind_temple_wind_guardian_ai"
+        "Ability4"              "use_ability_1_position_ai"
+        "Ability5"              "dungeon_creep"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "422"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "420"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+    }
