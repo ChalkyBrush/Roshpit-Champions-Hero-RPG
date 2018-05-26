@@ -1,6 +1,7 @@
 require('/heroes/huskar/flametongue')
 require('/heroes/huskar/windstrike')
 require('/heroes/huskar/waterheart')
+require('/heroes/huskar/constants_SPIRIT_WARRIOR')
 --WATER
 
 function start_channel(event)
@@ -45,7 +46,7 @@ function ancient_rain_start(event)
 	local ability = event.ability
 	local duration = event.duration
 	if caster:HasModifier("modifier_spirit_warrior_glyph_7_1") then
-		duration = duration + 4
+		duration = duration + spirit_warrior_glyph_7_1_additional_duration
 	end
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_ancient_rain", {duration = duration})

@@ -1,0 +1,2232 @@
+	"elemental_axe_earth"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rpc/axe_earth"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"400 1850 3600 7000 20000 50000 85000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"0.6"
+			}
+		}
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_brewmaster/brewmaster_earth_ambient_noportrait.vpcf"
+			"particle"		"particles/units/heroes/hero_brewmaster/warlord_fire_axe_noportrait.vpcf"
+			"particle"		"particles/units/heroes/hero_brewmaster/warlord_ice_axe_noportrait.vpcf"
+			"particle"		"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf"
+			"particle"		"particles/status_fx/status_effect_iceblast.vpcf"
+			"particle"		"particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_visage.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_tusk.vsndevts"
+			"particle"		"particles/items3_fx/warlord_glyph_6_1.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/beastmaster/elemental_axes"
+        		"Function"		"swingEarth"
+        		"damage"		"%damage"
+        		"type"			"earth"
+        		"stun_duration"	"%stun_duration"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Hero_Beastmaster.PreAttack"
+				"Target" 		"CASTER"
+			}
+		}
+        "Modifiers"
+        {
+            "modifier_elemental_axe_earth"
+            {
+                "Passive"             "1"
+                "IsHidden"            "0"
+                "IsDebuff"            "0"
+                "OnCreated"
+                {
+                	"AttachEffect"
+                	{
+                		"EffectName"        "particles/units/heroes/hero_brewmaster/brewmaster_earth_ambient_noportrait.vpcf"
+                		"EffectAttachType"  "attach_attack1"
+                		"Target"            "CASTER"
+                	}
+                	"AttachEffect"
+                	{
+                		"EffectName"        "particles/units/heroes/hero_brewmaster/brewmaster_earth_ambient_noportrait.vpcf"
+                		"EffectAttachType"  "attach_attack2"
+                		"Target"            "CASTER"
+                	}
+                }
+                "ThinkInterval"  "2"
+                "OnIntervalThink"
+                {
+                	"RunScript"
+                	{
+                		"ScriptFile"	"heroes/beastmaster/elemental_axes"
+                		"Function"		"elementalThink"
+                		"type"			"earth"
+                	}
+                }
+            }
+            "modifier_axe_swinging"
+            {
+            	"IsHidden"	"1"
+            	"States"
+            	{
+            		"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+            		"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+            	}
+            }
+            "modifier_warlord_glyph_6_1_effect"
+            {
+            	"IsHidden"	"0"
+            	"IsBuff"	"1"
+            	"Passive"	"0"
+				"EffectName"		"particles/items3_fx/warlord_glyph_6_1.vpcf"
+				"EffectAttachType"	"follow_origin"
+            	"States"
+            	{
+            		"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+            	}
+            }
+        }
+	}
+
+	"elemental_axe_ice"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rpc/axe_ice"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"400 1850 3600 7000 20000 50000 85000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_speed_slow"		"-20 -30 -40 -50 -60 -70 -80"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movespeed_slow"		"-15 -20 -25 -30 -35 -40 -45"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/beastmaster/elemental_axes"
+        		"Function"		"swingEarth"
+        		"damage"		"%damage"
+        		"type"			"ice"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Hero_Beastmaster.PreAttack"
+				"Target" 		"CASTER"
+			}
+		}
+        "Modifiers"
+        {
+            "modifier_elemental_axe_ice"
+            {
+                "Passive"             "1"
+                "IsHidden"            "0"
+                "IsDebuff"            "0"
+                "OnCreated"
+                {
+                	"AttachEffect"
+                	{
+                		"EffectName"        "particles/units/heroes/hero_brewmaster/warlord_ice_axe_noportrait.vpcf"
+                		"EffectAttachType"  "attach_attack1"
+                		"Target"            "CASTER"
+                	}
+                	"AttachEffect"
+                	{
+                		"EffectName"        "particles/units/heroes/hero_brewmaster/warlord_ice_axe_noportrait.vpcf"
+                		"EffectAttachType"  "attach_attack2"
+                		"Target"            "CASTER"
+                	}
+                }
+                "ThinkInterval"  "2"
+                "OnIntervalThink"
+                {
+                	"RunScript"
+                	{
+                		"ScriptFile"	"heroes/beastmaster/elemental_axes"
+                		"Function"		"elementalThink"
+                		"type"			"ice"
+                	}
+                }
+            }
+            "modifier_axe_swinging"
+            {
+            	"IsHidden"	"1"
+            	"States"
+            	{
+            		"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+            		"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+            	}
+            }
+            "modifier_elemental_axe_ice_slow"
+            {
+            	"IsDebuff"		"1"
+            	"IsHidden"		"1"
+            	"Passive"		"0"
+            	"StatusEffectName" 		"particles/status_fx/status_effect_iceblast.vpcf"
+            	"StatusEffectPriority"  "10"
+            	"Properties"
+            	{
+            		"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed_slow"
+            	    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movespeed_slow"
+            	}
+            }
+        }
+	}
+
+	"elemental_axe_fire"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rpc/axe_fire"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"400 1850 3600 7000 20000 50000 85000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"fire_damage"			"200 400 600 1500 4000 8000 15000"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"fire_radius"			"280 310 340 370 400 430 460"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/beastmaster/elemental_axes"
+        		"Function"		"swingEarth"
+        		"damage"		"%damage"
+        		"fire_damage" 	"%fire_damage"
+        		"fire_radius"	"%fire_radius"
+        		"type"			"fire"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Hero_Beastmaster.PreAttack"
+				"Target" 		"CASTER"
+			}
+		}
+        "Modifiers"
+        {
+            "modifier_elemental_axe_fire"
+            {
+                "Passive"             "1"
+                "IsHidden"            "0"
+                "IsDebuff"            "0"
+                "OnCreated"
+                {
+                	"AttachEffect"
+                	{
+                		"EffectName"        "particles/units/heroes/hero_brewmaster/warlord_fire_axe_noportrait.vpcf"
+                		"EffectAttachType"  "attach_attack1"
+                		"Target"            "CASTER"
+                	}
+                	"AttachEffect"
+                	{
+                		"EffectName"        "particles/units/heroes/hero_brewmaster/warlord_fire_axe_noportrait.vpcf"
+                		"EffectAttachType"  "attach_attack2"
+                		"Target"            "CASTER"
+                	}
+                }
+                "ThinkInterval"  "2"
+                "OnIntervalThink"
+                {
+                	"RunScript"
+                	{
+                		"ScriptFile"	"heroes/beastmaster/elemental_axes"
+                		"Function"		"elementalThink"
+                		"type"			"fire"
+                	}
+                }
+            }
+            "modifier_axe_swinging"
+            {
+            	"IsHidden"	"1"
+            	"States"
+            	{
+            		"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+            		"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+            	}
+            }
+			"modifier_axe_fire_burn"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Duration"  "1"
+				"OnCreated"
+				{
+					"FireEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "TARGET"
+					}
+				}
+			}
+			"modifier_warlord_glyph_2_1_fire_axe_effect"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"Passive"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "60"
+				}
+			}
+        }
+	}
+
+	"warlord_jump_earth"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"sandking_epicenter"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastRange"				"640 680 720 760 800 840 880"
+		"AOERadius"						"230 250 270 290 300 320 340"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.1"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"6"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"2000 9000 18000 40000 80000 130000 190000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"230 250 270 290 300 320 340"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stun_duration"			"2"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"			"640 680 720 760 800 840 880"
+			}
+		}
+		"precache"
+		{
+			"soundfile"         "soundevents/game_sounds_heroes/game_sounds_leshrac.vsndevts"
+			"soundfile"         "soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
+			"particle"			"particles/units/heroes/hero_leshrac/leshrac_split_earth.vpcf"
+			"particle"			"particles/units/heroes/hero_huskar/warlord_flame_dash2.vpcf"
+			"particle"			"particles/units/heroes/hero_elder_titan/ring_of_fire.vpcf"
+			"particle"			"particles/units/heroes/hero_warlock/warlock_rain_of_chaos.vpcf"
+			"particle"			"particles/units/heroes/hero_elder_titan/ring_of_fire.vpcf"
+			"particle"			"particles/units/heroes/hero_invoker/invoker_ice_wall.vpcf"
+			"particle"			"particles/units/heroes/hero_phoenix/phoenix_base_attack.vpcf"
+			"particle"			"particles/items3_fx/mango_active.vpcf"
+
+			"particle"			"particles/units/heroes/hero_tiny/tiny_avalanche_projectile.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/beastmaster/warlord_jump"
+        		"Function"		"jumpStart"
+        		"type"			"earth"
+        		"target"		"POINT"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_warlord_jumping"
+				"Target" 		"CASTER"
+				"Duration"		"0.4"
+			}
+			"FireSound"
+			{
+				"EffectName"	"beastmaster_beas_anger_04"
+				"Target" 		"CASTER"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+		}
+        "Modifiers"
+        {
+            "modifier_warlord_jumping"
+            {
+            	"IsHidden"	"1"
+            	"ThinkInterval"  "0.03"
+            	"OnIntervalThink"
+            	{
+            		"RunScript"
+            		{
+            			"ScriptFile"	"heroes/beastmaster/warlord_jump"
+            			"Function"		"new_jumping_think"
+            		}
+            	}
+            	"States"
+            	{
+            		"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+            		"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+            	}
+            	"OnDestroy"
+            	{
+            		"RunScript"
+            		{
+            			"ScriptFile"	"heroes/beastmaster/warlord_jump"
+            			"Function"		"warlordLand"
+            			"damage"		"%damage"
+            			"radius"		"%radius"
+            			"stun_duration"	"%stun_duration"
+            		}
+            	}
+            }
+        }
+	}
+
+	"warlord_jump_fire"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"ogre_magi_fireblast"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.1"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"7"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		"AOERadius"						"550"
+		"AbilityCastRange"				"700"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"2500 10000 22000 50000 80000 150000 250000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"580"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/beastmaster/warlord_jump"
+        		"Function"		"fireJumpStart"
+        		"type"			"fire"
+        		"target"		"POINT"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_warlord_jumping_fire"
+				"Target" 		"CASTER"
+				"Duration"		"0.4"
+			}
+			"FireSound"
+			{
+				"EffectName"	"beastmaster_beas_anger_04"
+				"Target" 		"CASTER"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/beastmaster/warlord_jump"
+				"Function"		"c_c_projectile_hit"
+				"target"		"TARGET"
+			}
+		}
+        "Modifiers"
+        {
+            "modifier_warlord_jumping_fire"
+            {
+            	"IsHidden"	"1"
+            	"ThinkInterval"  "0.03"
+            	"OnIntervalThink"
+            	{
+            		"RunScript"
+            		{
+            			"ScriptFile"	"heroes/beastmaster/warlord_jump"
+            			"Function"		"jumpThink"
+            		}
+            	}
+            	"OnDestroy"
+            	{
+            		"ApplyModifier"
+            		{
+            			"ModifierName"	"modifier_warlord_falling_fire"
+            			"Target" 		"TARGET"
+            			"Duration"		"1"
+            		}
+            		"RunScript"
+            		{
+            			"ScriptFile"	"heroes/beastmaster/warlord_jump"
+            			"Function"		"fallBegin"
+            			"type"			"fire"
+            		}
+            		"FireSound"
+            		{
+            			"EffectName"	"Creature.FireBreath.Cast"
+            			"Target" 		"TARGET"
+            		}
+            	}
+            	"Properties"
+            	{
+            		"MODIFIER_PROPERTY_DISABLE_TURNING" "1"
+            	}
+            	"States"
+            	{
+            		"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+            		"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+            	}
+            }
+            "modifier_warlord_falling_fire"
+            {
+            	"IsHidden"	"1"
+            	"ThinkInterval"  "0.03"
+            	"OnIntervalThink"
+            	{
+            		"RunScript"
+            		{
+            			"ScriptFile"	"heroes/beastmaster/warlord_jump"
+            			"Function"		"fireDashThink"
+            		}
+            	}
+				"OnCreated"
+				{
+					"FireSound"
+					{
+						"EffectName"	"beastmaster_beas_ability_failure_02"
+						"Target" 		"TARGET"
+					}
+
+					"FireSound"
+					{
+						"EffectName"	"beastmaster_beas_ability_failure_02"
+						"Target" 		"TARGET"
+					}
+					"AttachEffect"
+					{
+						"Target"					"TARGET"
+						"EffectName"				"particles/units/heroes/hero_huskar/warlord_flame_dash2.vpcf"
+						"EffectAttachType"			"follow_origin"
+						"EffectLifeDurationScale"	"1"
+						"EffectAlphaScale"			"1"
+					}
+				}
+            	"OnDestroy"
+            	{
+            		"RunScript"
+            		{
+            			"ScriptFile"	"heroes/beastmaster/warlord_jump"
+            			"Function"		"warlordLandFire"
+            			"damage"		"%damage"
+            			"radius"		"%radius"
+            		}
+		 			"DestroyTrees"
+					{
+						"Target" 		"TARGET"
+						"Radius"		"%radius"
+					}
+            	}
+            	"Properties"
+            	{
+            		"MODIFIER_PROPERTY_DISABLE_TURNING" "1"
+            	}
+            	"States"
+            	{
+            		"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+            		"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+            	}
+            }
+        }
+	}
+
+	"warlord_jump_ice"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"tidehunter_gush"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.1"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"8"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"120 600 3200 5800 10400 16800 29200"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"200 215 230 245 260 275 290"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"1.0 1.05 1.1 1.15 1.2 1.25 1.3"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/beastmaster/warlord_jump"
+        		"Function"		"iceSprintStart"
+        		"duration"		"%duration"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_warlord_ice_sprint"
+				"Target" 		"CASTER"
+				"Duration"		"%duration"
+			}
+			"FireSound"
+			{
+				"EffectName"	"beastmaster_beas_ability_failure_03"
+				"Target" 		"CASTER"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Warlord.ArcticSprint"
+				"Target" 		"CASTER"
+			}
+		}
+        "Modifiers"
+        {
+            "modifier_warlord_ice_sprint"
+            {
+            	"IsHidden"	"1"
+            	"ThinkInterval"  "0.03"
+            	"OnIntervalThink"
+            	{
+            		"RunScript"
+            		{
+            			"ScriptFile"	"heroes/beastmaster/warlord_jump"
+            			"Function"		"iceSprintThink"
+            			"radius"		"%radius"
+            			"damage"		"%damage"
+            		}
+            	}
+            	"OnDestroy"
+            	{
+            		"RunScript"
+            		{
+            			"ScriptFile"	"heroes/beastmaster/warlord_jump"
+            			"Function"		"iceSprintEnd"
+            		}
+            		"RemoveModifier"
+            		{
+            			"ModifierName"	"modifier_warlord_rune_b_c"
+            			"Target" 		"TARGET"
+            		}
+            	}
+            	"Properties"
+            	{
+            		"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-700"
+            		"MODIFIER_PROPERTY_EVASION_CONSTANT"	"100"
+            	}
+            	"States"
+            	{
+            		"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+            		"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+            	}
+            }
+            "modifier_ice_sprint_slow"
+            {
+            	"IsDebuff"		"1"
+            	"IsHidden"		"1"
+            	"Passive"		"0"
+            	"StatusEffectName" 		"particles/status_fx/status_effect_iceblast.vpcf"
+            	"StatusEffectPriority"  "10"
+            	"Properties"
+            	{
+            		"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-100"
+            	    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-40"
+            	}
+            }
+            "modifier_warlord_rune_b_c"
+            {
+            	"IsHidden"	"1"
+            	"Properties"
+            	{
+            		"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "25"
+            	    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "4"
+            	}
+            }
+        }
+	}
+
+	"axe_throw_earth"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rpc/axe_throw_earth"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_troll_warlord/warlord_range_axe_earth.vpcf"
+			"particle"	"particles/units/heroes/elemental_warlord/warlord_range_axe_ice.vpcf"
+			"particle"	"particles/status_fx/status_effect_frost_lich.vpcf"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_troll_warlord.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
+			"particle"	"particles/_2units/heroes/hero_troll_warlord/warlord_range_axe_fire.vpcf"
+			"particle"	"particles/status_fx/status_effect_doom.vpcf"
+			"particle"	"particles/units/heroes/hero_phoenix/phoenix_sunray_debuff.vpcf"
+			"particle"	"particles/roshpit/elemental_warlord/earth_axe_throw_explode.vpcf"
+			"particle"	"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_dire.vpcf"
+		}
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"3"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"80 190 540 900 1800 2800 4400"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"8600 14400 24200 48000 96000 190000 340000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"0.5"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/beastmaster/warlord_axe_throw"
+        		"Function"		"prepareAxeLaunch"
+        		"type"			"earth"
+        		"stun_duration"		"%duration"
+        		"Target"		"POINT"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/beastmaster/warlord_axe_throw"
+				"Function"		"earthAxeStrike"
+				"target"		"TARGET"
+				"damage"		"%damage"
+				"stun_duration"	"%stun_duration"
+			}
+			"AttachEffect"
+			{
+				"EffectName"	"particles/roshpit/elemental_warlord/earth_axe_throw_explode.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"EffectRadius"	"120"
+				"EffectDurationScale"	"1"
+				"EffectLifeDurationScale"	"1"
+				"EffectColorA"	"255 0 0"
+				"EffectColorB"	"255 0 0"
+				"Target"	"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_warlord_glyph_4_1_cooldown"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+			}
+			"modifier_warlord_glyph_4_1_attack_up"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "300"
+				}
+			}
+            "modifier_elemental_axe_earth"
+            {
+                "Passive"             "1"
+                "IsHidden"            "1"
+                "IsDebuff"            "0"
+                "OnCreated"
+                {
+                	"AttachEffect"
+                	{
+                		"EffectName"        "particles/units/heroes/hero_brewmaster/brewmaster_earth_ambient_noportrait.vpcf"
+                		"EffectAttachType"  "attach_attack1"
+                		"Target"            "CASTER"
+                	}
+                	"AttachEffect"
+                	{
+                		"EffectName"        "particles/units/heroes/hero_brewmaster/brewmaster_earth_ambient_noportrait.vpcf"
+                		"EffectAttachType"  "attach_attack2"
+                		"Target"            "CASTER"
+                	}
+                }
+                "OnAttackLanded"
+                {
+                	"RunScript"
+                	{
+                		"ScriptFile"	"heroes/beastmaster/elemental_axes"
+                		"Function"		"elemental_axe_attack_land"
+                		"element"		"earth"
+                		"charges"		"1"
+                	}
+                }
+            }
+            "modifier_warlord_earth_charge"
+            {
+            	"IsHidden"		"0"
+            	"IsBuff"		"1"
+            }
+            "modifier_warlord_rune_a_c_effect"
+            {
+            	"Passive"			"0"
+            	"IsHidden"			"1"
+            	"IsDebuff"			"0"
+
+            	"Properties"
+            	{
+            		"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1"
+            	}
+            }
+
+		}
+	}
+
+	"axe_throw_ice"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rpc/axe_throw_ice"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"3"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"80 190 540 900 1800 2800 4400"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"1480 3400 9000 19000 38000 96000 210000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"slow_duration"			"5.0 5.3 5.6 5.9 6.2 6.5 6.8"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"280 290 300 310 320 330 340"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/beastmaster/warlord_axe_throw"
+        		"Function"		"prepareAxeLaunch"
+        		"type"			"ice"
+        		"Target"		"POINT"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/beastmaster/warlord_axe_throw"
+				"Function"		"iceAxeStrike"
+				"target"		"TARGET"
+				"damage"		"%damage"
+				"duration"		"%slow_duration"
+				"radius"		"%radius"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ice_axe_slow"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+
+				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
+				"StatusEffectPriority"  "6"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-40"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-35"
+				}
+			}
+            "modifier_elemental_axe_ice"
+            {
+                "Passive"             "1"
+                "IsHidden"            "1"
+                "IsDebuff"            "0"
+                "OnCreated"
+                {
+                	"AttachEffect"
+                	{
+                		"EffectName"        "particles/units/heroes/hero_brewmaster/warlord_ice_axe_noportrait.vpcf"
+                		"EffectAttachType"  "attach_attack1"
+                		"Target"            "CASTER"
+                	}
+                	"AttachEffect"
+                	{
+                		"EffectName"        "particles/units/heroes/hero_brewmaster/warlord_ice_axe_noportrait.vpcf"
+                		"EffectAttachType"  "attach_attack2"
+                		"Target"            "CASTER"
+                	}
+                }
+                "OnAttackLanded"
+                {
+                	"RunScript"
+                	{
+                		"ScriptFile"	"heroes/beastmaster/elemental_axes"
+                		"Function"		"elemental_axe_attack_land"
+                		"element"		"ice"
+                		"charges"		"1"
+                	}
+                }
+            }
+            "modifier_warlord_ice_charge"
+            {
+            	"IsHidden"		"0"
+            	"IsBuff"		"1"
+            }
+            "modifier_warlord_rune_b_b"
+            {
+            	"Passive"			"0"
+            	"IsHidden"			"1"
+            	"IsDebuff"			"0"
+            }
+			"modifier_ice_throw_b_b_frozen"
+			{
+				"IsDebuff"	"1"
+				"EffectName"			"particles/generic_gameplay/generic_slowed_cold.vpcf"
+				"StatusEffectName"		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_dire.vpcf"
+				"StatusEffectPriority"	"10"
+				"States"
+				{
+					"MODIFIER_STATE_FROZEN"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_ice_throw_b_b_immunity"
+			{
+				"IsHidden"	"1"
+			}
+		}
+	}
+
+	"axe_throw_fire"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rpc/axe_throw_fire"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"3"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"80 190 540 900 1800 2800 4400"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"2080 7000 17000 34000 74000 168000 294000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"armor_reduction"		"-10 -50 -200 -500 -1000 -2000 -4000"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"320"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"10"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/beastmaster/warlord_axe_throw"
+        		"Function"		"prepareAxeLaunch"
+        		"type"			"fire"
+        		"Target"		"POINT"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/beastmaster/warlord_axe_throw"
+				"Function"		"fireAxeStrike"
+				"target"		"TARGET"
+				"damage"		"%damage"
+				"duration"		"%duration"
+				"radius"		"%radius"
+			}
+			"AttachEffect"
+			{
+				"EffectName"	"particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"EffectRadius"	"120"
+				"EffectDurationScale"	"1"
+				"EffectLifeDurationScale"	"1"
+				"EffectColorA"	"255 0 0"
+				"EffectColorB"	"255 0 0"
+				"Target"	"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_fire_armor_sear"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+
+				"EffectName" "particles/units/heroes/hero_phoenix/phoenix_sunray_debuff.vpcf"
+				"EffectAttachType"	"attach_origin"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor_reduction"
+				}
+			}
+            "modifier_elemental_axe_fire"
+            {
+                "Passive"             "1"
+                "IsHidden"            "1"
+                "IsDebuff"            "0"
+                "OnCreated"
+                {
+                	"AttachEffect"
+                	{
+                		"EffectName"        "particles/units/heroes/hero_brewmaster/warlord_fire_axe_noportrait.vpcf"
+                		"EffectAttachType"  "attach_attack1"
+                		"Target"            "CASTER"
+                	}
+                	"AttachEffect"
+                	{
+                		"EffectName"        "particles/units/heroes/hero_brewmaster/warlord_fire_axe_noportrait.vpcf"
+                		"EffectAttachType"  "attach_attack2"
+                		"Target"            "CASTER"
+                	}
+                }
+                "OnAttackLanded"
+                {
+                	"RunScript"
+                	{
+                		"ScriptFile"	"heroes/beastmaster/elemental_axes"
+                		"Function"		"elemental_axe_attack_land"
+                		"element"		"fire"
+                		"charges"		"1"
+                	}
+                }
+            }
+            "modifier_warlord_fire_charge"
+            {
+            	"IsHidden"		"0"
+            	"IsBuff"		"1"
+            }
+            "modifier_warlord_rune_c_b_effect"
+            {
+            	"Passive"			"0"
+            	"IsHidden"			"1"
+            	"IsDebuff"			"0"
+
+            	"Properties"
+            	{
+            		"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "20"
+            	}
+            }
+		}
+	}
+
+	"warlord_stone_form"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"earth_spirit_petrify"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_WILD_AXES_END"
+		"precache"
+		{
+			"particle"  "particles/status_fx/status_effect_medusa_stone_gaze.vpcf"
+			"soundfile"	"soundevents/game_sounds_warlord.vsndevts"
+			"particle"		"particles/units/heroes/hero_brewmaster/brewmaster_earth_ambient_noportrait.vpcf"
+			"particle"		"particles/units/heroes/hero_brewmaster/warlord_fire_axe_noportrait.vpcf"
+			"particle"		"particles/units/heroes/hero_brewmaster/warlord_ice_axe_noportrait.vpcf"
+			"particle"		"particles/status_fx/status_effect_iceblast.vpcf"
+			"particle"		"particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+			"particle"		"particles/items3_fx/warlord_glyph_6_1.vpcf"
+			"particle"		"particles/econ/items/earth_spirit/earth_spirit_ti6_boulder/espirit_ti6_rollingboulder_gather.vpcf"
+			"particle"		"particles/roshpit/warlord/ice_shell.vpcf"
+			"particle"		"particles/roshpit/warlord/ice_shell_activate.vpcf"
+			"particle"		"particles/roshpit/warlord/flamerush_activate.vpcf"
+		}
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"28"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"6 7 8 9 10 11 12"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"move_slow_percentage"				"-25"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/beastmaster/warlord_q"
+        		"Function"		"warlord_stone_form"
+        		"duration"		"%duration"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_warlord_stone_form"
+				"Target" 		"CASTER"
+				"Duration"		"%duration"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Warlord.StoneForm"
+				"Target" 		"CASTER"
+			}
+		}
+        "Modifiers"
+        {
+            "modifier_warlord_stone_form"
+            {
+            	"IsHidden"	"0"
+            	"IsBuff"	"1"
+            	"EffectName"			"particles/items_fx/black_king_bar_avatar.vpcf"
+            	"EffectAttachType"		"attach_hitloc"
+            	"StatusEffectName" 		"particles/status_fx/status_effect_medusa_stone_gaze.vpcf"
+            	"StatusEffectPriority"  "10"
+            	"States"
+            	{
+            		"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+            	}
+
+            }
+            "modifier_warlord_stone_form_slow_portion"
+            {
+            	"IsHidden"	"1"
+            	"Properties"
+            	{
+            	    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%move_slow_percentage"
+            	}
+            }
+        }
+	}
+
+	"warlord_ice_shell"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"ancient_apparition/shatterblast_crown/ancient_apparition_ice_blast"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_WILD_AXES_END"
+		"precache"
+		{
+
+		}
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"24"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"magic_instances_absorbed"		"2 3 4 5 6 7 8"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/beastmaster/warlord_q"
+        		"Function"		"warlord_ice_shell"
+        		"duration"		"%duration"
+        		"stacks"		"%magic_instances_absorbed"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Warlord.IceShell.Cast"
+				"Target" 		"CASTER"
+			}
+		}
+        "Modifiers"
+        {
+            "modifier_warlord_ice_shell"
+            {
+            	"IsHidden"	"0"
+            	"IsBuff"	"1"
+            	"EffectName"			"particles/roshpit/warlord/ice_shell.vpcf"
+            	"EffectAttachType"		"attach_hitloc"
+            	"OnDestroy"
+            	{
+            		"RemoveModifier"
+            		{
+            			"ModifierName"	"modifier_warlord_rune_b_a_visible"
+            			"Target" 		"TARGET"
+            		}
+            		"RemoveModifier"
+            		{
+            			"ModifierName"	"modifier_warlord_rune_b_a_invisible"
+            			"Target" 		"TARGET"
+            		}
+            	}
+            }
+        }
+	}
+
+	"warlord_flame_rush"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"jakiro_macropyre"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_WILD_AXES_END"
+		"precache"
+		{
+
+		}
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"14"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"basedamage_increase"		"3000 20000 40000 80000 140000 200000 350000"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attackspeed_increase"		"120 140 160 180 200 220 240"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movespeed_increase"		"80 90 100 110 120 130 140"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/beastmaster/warlord_q"
+        		"Function"		"warlord_flame_rush"
+        		"duration"		"%duration"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_warlord_flame_rush"
+				"Target" 		"CASTER"
+				"Duration"		"%duration"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Warlord.FireRush.Init"
+				"Target" 		"CASTER"
+			}
+		}
+        "Modifiers"
+        {
+            "modifier_warlord_flame_rush"
+            {
+            	"IsHidden"	"0"
+            	"IsBuff"	"1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"					"TARGET"
+						"EffectName"				"particles/roshpit/warlord/flame_rush.vpcf"
+						"EffectAttachType"			"follow_origin"
+						"EffectLifeDurationScale"	"1"
+						"EffectColorA"				"210 210 250"
+						"EffectAlphaScale"			"1"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attackspeed_increase"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed_increase"
+				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%basedamage_increase"
+				}
+            }
+        }
+	}
+
+	"elemental_overload"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"beastmaster_primal_roar"
+		"AbilityCastRange"	"1000"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCooldown"	"23"
+		"AbilityChannelTime"	"1.8"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_phoenix/phoenix_sunray.vpcf"
+			"particle"		"particles/econ/items/faceless_void/faceless_void_jewel_of_aeons/warlord_ult_ice.vpcf"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_pugna.vsndevts"
+			"particle"		"particles/econ/generic/generic_buff_1/warlord_uproar.vpcf"
+		}
+
+		"AbilityManaCost"	"0"
+		"SideShop"	"1"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/beastmaster/elemental_overload.lua"
+				"Function"		"start_channel"
+			}
+		}
+
+		"OnChannelSucceeded"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"FireSound"
+			{
+				"EffectName"	"beastmaster_beas_laugh_01"
+				"Target"	"CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/beastmaster/elemental_overload.lua"
+				"Function"		"beginBeam"
+				"range"			"%range"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_elemental_beam"
+				"Target" 		"CASTER"
+				"Duration"		"4"
+			}
+		}
+
+		"OnChannelFinish"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+		}
+
+		"OnChannelInterrupted"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/beastmaster/elemental_overload.lua"
+				"Function"		"break_channel"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/beastmaster/elemental_overload.lua"
+				"Function"		"projectileHit"
+				"Target"		"TARGET"
+				"damage"		"%damage"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_channel_for_items"
+			{
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"beginChannel"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"endChannel"
+					}
+				}
+			}
+			"modifier_channel_start"
+			{
+				"IsHidden"	"1"
+				"OverrideAnimation"	"ACT_DOTA_TELEPORT"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/beastmaster/elemental_overload.lua"
+						"Function"		"one_second_channel"
+					}
+				}
+
+			}
+			"modifier_elemental_beam"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-400"
+				}
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/beastmaster/elemental_overload.lua"
+						"Function"		"beamThink"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/beastmaster/elemental_overload.lua"
+						"Function"		"beamEnd"
+					}
+				}
+			}
+			"modifier_warlord_rune_b_d"
+			{
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-10"
+				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-3"
+				}
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"500 1200 2400 4800 7200 13000 18000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"1000 1100 1200 1300 1400 1500 1600"
+			}
+		}
+
+	}
+
+	"elemental_overload_2"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"rpc/warlord_elemental_overload"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCooldown"	"12"
+		"AbilityChannelTime"	"2.0"
+		"AbilityCastAnimation"	"ACT_DOTA_TELEPORT"
+		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"precache"
+		{
+			"particle"				"particles/roshpit/warlord/elemental_overload_channel.vpcf"
+			"particle"				"particles/roshpit/warlord/earth_ulti.vpcf"
+			"particle"				"particles/roshpit/warlord/ice_ulti_cowlofice.vpcf"
+			"particle"				"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+			"particle"				"particles/roshpit/warlord/fire_ulti_linear.vpcf"
+			"particle"				"particles/econ/items/monkey_king/arcana/monkey_king_arcana_death.vpcf"
+			"particle"				"particles/roshpit/warlord/earth_shield.vpcf"
+		}
+
+		"AbilityManaCost"	"0"
+		"SideShop"	"1"
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/beastmaster/elemental_overload_2.lua"
+				"Function"		"start_channel"
+			}
+
+		}
+
+		"OnChannelSucceeded"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/beastmaster/elemental_overload_2.lua"
+				"Function"		"overload_start"
+				"heal_per_earth_charge"	"%heal_per_earth_charge"
+				"ice_freeze_duration"	"%ice_freeze_duration"
+				"ice_damage"			"%ice_damage"
+				"shield_duration"		"%protection_per_earth_charge"
+			}
+		}
+
+		"OnChannelFinish"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+		}
+
+		"OnChannelInterrupted"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/beastmaster/elemental_overload_2.lua"
+				"Function"		"channel_interrupt"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/beastmaster/elemental_overload_2.lua"
+				"Function"		"fireball_impact"
+				"target"		"TARGET"
+				"damage"		"%fireball_damage"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_channel_start"
+			{
+				"IsHidden"	"1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"	"particles/roshpit/warlord/elemental_overload_channel.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"	"CASTER"
+						"ControlPointEntities"
+						{
+							"CASTER"	"attach_origin"
+							"CASTER"	"attach_origin"
+							"CASTER"	"attach_origin"
+						}
+
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"beginChannel"
+					}
+
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"endChannel"
+					}
+				}
+
+			}
+			"modifier_elemental_overload_frozen"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+				"EffectAttachType"	"follow_origin"
+
+				"States"
+				{
+					"MODIFIER_STATE_FROZEN"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_warlord_b_d_effect"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"0"
+				"IsDebuff"	"1"
+				"Passive"	"0"
+				"EffectName"	"particles/units/heroes/hero_ancient_apparition/ancient_ice_vortex_b.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+			"modifier_overload_damage_resistance"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"EffectName"	"particles/roshpit/warlord/earth_shield.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"heal_per_earth_charge"	"200 600 1000 2400 7000 10000 14000"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"protection_per_earth_charge"	"0.1"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"radius_per_ice_charge"	"50"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"ice_damage"	"2000 16000 40000 80000 160000 300000 600000"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"ice_freeze_duration"	"4.0 4.5 5.0 5.5 6.0 6.5 7.0"
+			}
+			"06"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"fireball_damage"	"3000 12000 55000 100000 170000 260000 440000"
+			}
+		}
+
+	}
+
+	"enhchant_tomahawk"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"warlord/warlord_enchant_tomahawk"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCooldown"	"12"
+		"AbilityChannelTime"	"1.0"
+		"AbilityCastAnimation"	"ACT_DOTA_TELEPORT"
+		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"precache"
+		{
+
+		}
+
+		"AbilityManaCost"	"0"
+		"SideShop"	"1"
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/beastmaster/enchant_tomahawk.lua"
+				"Function"		"start_channel"
+			}
+
+		}
+
+		"OnChannelSucceeded"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/beastmaster/enchant_tomahawk.lua"
+				"Function"		"tomahawk_start"
+				"duration"		"%duration"
+			}
+		}
+
+		"OnChannelFinish"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+		}
+
+		"OnChannelInterrupted"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/beastmaster/enchant_tomahawk.lua"
+				"Function"		"channel_interrupt"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_channel_start"
+			{
+				"IsHidden"	"1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"	"particles/roshpit/warlord/elemental_overload_channel.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"	"CASTER"
+						"ControlPointEntities"
+						{
+							"CASTER"	"attach_origin"
+							"CASTER"	"attach_origin"
+							"CASTER"	"attach_origin"
+						}
+
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"beginChannel"
+					}
+
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"endChannel"
+					}
+				}
+
+			}
+			"modifier_enchant_tomahawk_buff"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"EffectName"	"particles/roshpit/warlord/enchant_tomahawk_buff.vpcf"
+				"EffectAttachType" "follow_origin"
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/beastmaster/enchant_tomahawk.lua"
+						"Function"		"tomahawk_buff_end"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_tomahawk_buffs"
+						"Target" 		"TARGET"
+					}
+				}
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/beastmaster/enchant_tomahawk.lua"
+						"Function"		"tomahawk_attack_land"
+					}
+				}
+			}
+			"modifier_tomahawk_buffs"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "%attack_range"
+					"MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS"	"1000"
+				}
+			}
+			"modifier_tomahawk_cyclone"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Aura"          	"modifier_tomahawk_in_cyclone"
+				"Aura_Radius"   	"500"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Aura_ApplyToCaster" "1"
+				"EffectName"		"particles/roshpit/tanari/wind_aura_spell_bloodbath_bubbles_.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+			}
+			"modifier_tomahawk_in_cyclone"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-40"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-40"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/beastmaster/enchant_tomahawk.lua"
+						"Function"		"tomahawk_cyclone_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/beastmaster/enchant_tomahawk.lua"
+						"Function"		"tomahawk_cyclone_end"
+						"target"		"TARGET"
+					}
+				}
+
+			}
+			"modifier_tomahawk_ice_effect"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"ThinkInterval"  "0.5"
+				"StatusEffectName" 		"particles/status_fx/status_effect_iceblast.vpcf"
+				"StatusEffectPriority"  "20"
+				"TextureName"	"warlord/warlord_rune_b_d_arcana1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/beastmaster/enchant_tomahawk.lua"
+						"Function"		"tomahawk_ice_dot_think"
+						"target"		"TARGET"
+					}
+				}
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-20"
+				}
+			}
+			"modifier_tomahawk_tectonic_pressure"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"warlord/warlord_rune_c_d_arcana1"
+				"OnTakeDamage"
+				// "%attack_damage" is set to the damage value after mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/beastmaster/enchant_tomahawk.lua"
+						"Function"		"tectonic_take_damage"
+					}
+				}
+			}
+			"modifier_warlord_rune_d_d_effect"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"TextureName"	"warlord/warlord_rune_d_d_arcana1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"1"
+				}
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/beastmaster/enchant_tomahawk.lua"
+				"Function"		"pressure_fireball_impact"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"attack_range"	"75 150 225 300 375 450 525"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"duration"	"18"
+			}
+		}
+	}

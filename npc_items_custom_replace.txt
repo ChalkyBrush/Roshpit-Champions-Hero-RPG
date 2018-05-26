@@ -13,3 +13,12 @@ DUSKBRINGER_GLYPHS:heroes\spirit_breaker\npc\glyphs.txt
 
 <% heroes\juggernaut\constants.lua %>
 SEINARU_GLYPHS:heroes\juggernaut\npc\npc_seinaru_glyphs.txt
+
+<% heroes\huskar\constants_SPIRIT_WARRIOR.lua %>
+SPIRIT_WARRIOR_GLYPHS:heroes\huskar\npc\glyphs.txt
+
+<% heroes\beastmaster\constants_ELEMENTAL_WARLORD.lua %>
+ELEMENTAL_WARLORD_GLYPHS:heroes\beastmaster\npc\glyphs.txt
+
+<% heroes\invoker\constants_CONJUROR.lua %>
+CONJUROR_GLYPHS:heroes\invoker\npc\glyphs.txt

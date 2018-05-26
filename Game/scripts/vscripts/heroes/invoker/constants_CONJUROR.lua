@@ -1,0 +1,1 @@
+exampleConst = 1

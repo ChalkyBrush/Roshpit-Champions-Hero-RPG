@@ -109,7 +109,7 @@ function calculate_and_apply_b_c_attack_power(event)
 		local damageHOLY = Filters:ElementalDamage(Events.GameMaster, caster, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE, false)
 		local amp = damageHOLY/damageDealt
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_paladin_b_c_attackpower", {})
-		caster:SetModifierStackCount("modifier_paladin_b_c_attackpower", caster, amp*b_c_level*0.8)
+		caster:SetModifierStackCount("modifier_paladin_b_c_attackpower", caster, amp*b_c_level*1)
 	else
 		caster:RemoveModifierByName("modifier_paladin_b_c_attackpower")
 	end

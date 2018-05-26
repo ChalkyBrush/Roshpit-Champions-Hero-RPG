@@ -164,7 +164,14 @@ function apply_holy_fire(caster, target, ability)
 		if ability.d_a_level > 1 then
 			print("STACKS!")
 			local stackCount = target:GetModifierStackCount("modifier_paladin_rune_a_b", caster)
-			local newStacks = math.min(stackCount + 1, ability.d_a_level + 1)
+			local additionalStacks = 1
+			if caster:HasModifier("modifier_paladin_glyph_5_1") then
+				additionalStacks = additionalStacks+9
+			end
+			if caster:HasModifier("modifier_paladin_glyph_4_1") then
+				additionalStacks = additionalStacks*5
+			end
+			local newStacks = math.min(stackCount + additionalStacks, ability.d_a_level + 1)
 			target:SetModifierStackCount("modifier_paladin_rune_a_b", caster, newStacks)
 		end
 	end

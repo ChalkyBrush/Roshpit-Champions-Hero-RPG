@@ -210,7 +210,7 @@ function penance_impact(event)
 		luck = 1
 		if luck == 1 then
 	  		local radius = 550
-	  		local damage = ability.b_b_level*20*caster:GetIntellect() + caster:GetAverageTrueAttackDamage(caster)*0.2*ability.b_b_level
+	  		local damage = ability.b_b_level*30*caster:GetIntellect() + caster:GetAverageTrueAttackDamage(caster)*0.3*ability.b_b_level
 
 			-- local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "paladin")
 			-- damage = damage + 0.0007*caster:GetIntellect()/10*d_b_level*damage

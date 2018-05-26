@@ -44,3 +44,15 @@ FLAMEWAKER_ABILITIES:heroes\dragon_knight\npc\flamewaker_abilities.txt
 SEPHYR_ABILITIES:heroes\skywrath_mage\npc\sephyr_abilities.txt
 CHERNOBOG_ABILITIES:heroes\nightstalker\npc\chernobog_abilities.txt
 ASTRAL_ABILITIES:heroes\moon_ranger\abilities\arcana_abilities.txt
+
+<% heroes\huskar\constants_SPIRIT_WARRIOR.lua %>
+SPIRIT_WARRIOR_ABILITIES:heroes\huskar\npc\abilities.txt
+SPIRIT_WARRIOR_RUNES:heroes\huskar\npc\runes.txt
+
+<% heroes\beastmaster\constants_ELEMENTAL_WARLORD.lua %>
+ELEMENTAL_WARLORD_ABILITIES:heroes\beastmaster\npc\abilities.txt
+ELEMENTAL_WARLORD_RUNES:heroes\beastmaster\npc\runes.txt
+
+<% heroes\invoker\constants_CONJUROR.lua %>
+CONJUROR_ABILITIES:heroes\invoker\npc\abilities.txt
+CONJUROR_RUNES:heroes\invoker\npc\runes.txt
