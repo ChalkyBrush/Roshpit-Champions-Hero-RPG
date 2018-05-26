@@ -217,23 +217,23 @@ function poseidons_wrath_attack_land(event)
 		ability = attacker:FindAbilityByName("hydroxis_arcana_ability_1")
 	end
 	EmitSoundOn("Hydroxis.CDGush", target)
-	local fv = attacker:GetForwardVector()
-	local radius = 600
+	-- local fv = attacker:GetForwardVector()
+	local radius = 300
 	if attacker:HasModifier("modifier_hydroxis_immortal_weapon_1") then
-		radius = 900
+		radius = 450
 	end
 	local enemies = FindUnitsInRadius( attacker:GetTeamNumber(), attacker:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for i = 1, #enemies, 1 do
 			if i <= 12 then
 				local enemy = enemies[i]
-				local targetAngle = ((enemy:GetAbsOrigin()-attacker:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-				local angleDifferential = math.acos(fv:Dot(targetAngle, fv))
+				-- local targetAngle = ((enemy:GetAbsOrigin()-attacker:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+				-- local angleDifferential = math.acos(fv:Dot(targetAngle, fv))
 				local source = target
 				if enemy:GetEntityIndex() == attacker:GetEntityIndex() then
 					source = attacker
 				end
-				if angleDifferential < math.pi/2 then
+				-- if angleDifferential < math.pi/2 then
 					local info = 
 					{
 						Target = enemy,
@@ -253,7 +253,7 @@ function poseidons_wrath_attack_land(event)
 						iVisionTeamNumber = attacker:GetTeamNumber()
 					}
 					projectile = ProjectileManager:CreateTrackingProjectile(info)
-				end
+				-- end
 			end
 		end
 		-- ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })

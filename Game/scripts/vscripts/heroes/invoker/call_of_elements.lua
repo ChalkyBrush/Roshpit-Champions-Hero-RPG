@@ -152,26 +152,26 @@ function deity_call(event)
     end
 
     if caster.earthAspect then
-    	applyCallsArcana(ability, caster.earthAspect, earth, fire, shadow, caster, 0.95, growCount, event.caster.c_d_level)
+    	applyCallsArcana(ability, caster.earthAspect, earth, fire, shadow, caster, 0.95, growCount, event.caster.c_d_level, event.caster.d_d_level)
     end
     if caster.fireAspect then
-    	applyCallsArcana(ability, caster.fireAspect, earth, fire, shadow, caster, 0.82, growCount, event.caster.c_d_level)
+    	applyCallsArcana(ability, caster.fireAspect, earth, fire, shadow, caster, 0.82, growCount, event.caster.c_d_level, event.caster.d_d_level)
     end
     if caster.shadowAspect then
-    	applyCallsArcana(ability, caster.shadowAspect, earth, fire, shadow, caster, 1.1, growCount, event.caster.c_d_level)
+    	applyCallsArcana(ability, caster.shadowAspect, earth, fire, shadow, caster, 1.1, growCount, event.caster.c_d_level, event.caster.d_d_level)
     end
     
 
-    applyCallsArcana(ability, caster, earth, fire, shadow, caster, 0.8, growCount, event.caster.c_d_level)
+    applyCallsArcana(ability, caster, earth, fire, shadow, caster, 0.8, growCount, event.caster.c_d_level, event.caster.d_d_level)
 
-    applyCallsArcana(ability, event.caster, earth, fire, shadow, caster, 0.88, growCount, event.caster.c_d_level)
+    applyCallsArcana(ability, event.caster, earth, fire, shadow, caster, 0.88, growCount, event.caster.c_d_level, event.caster.d_d_level)
 
     StartAnimation(caster, {duration=0.75, activity=ACT_DOTA_FLAIL, rate=2.0})
     ability.growCount = growCount
 end
 
-function applyCallsArcana(ability, unit, earth, fire, shadow, caster, origScale, growCount, c_d_level)
-	local durationIncrease = 0
+function applyCallsArcana(ability, unit, earth, fire, shadow, caster, origScale, growCount, c_d_level, d_d_level)
+	local durationIncrease = d_d_level*0.3
 	local buffDuration = 20+durationIncrease
 	local procs = Runes:Procs(c_d_level, 5, 1) + 1
 	buffDuration = Filters:GetAdjustedBuffDuration(caster, buffDuration, false)

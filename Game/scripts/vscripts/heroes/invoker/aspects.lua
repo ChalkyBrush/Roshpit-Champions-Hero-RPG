@@ -326,10 +326,10 @@ function aspect_think(event)
 				local target = false
 				for i = 1, #aspectTable, 1 do
 					if aspectTable[i] then
-						if not aspectTable[i]:HasModifier("modifier_deity_shadow_shield") then
+						-- if not aspectTable[i]:HasModifier("modifier_deity_shadow_shield") then
 							target = aspectTable[i]
 							break
-						end
+						-- end
 					end
 				end
 				if target then
@@ -505,9 +505,9 @@ function get_a_c_level(caster)
 end
 
 function shadow_aspect_attack(event)
-	
+	local caster = event.caster
 	local attacker = event.attacker
-	local damage = attacker:GetAverageTrueAttackDamage(attacker)
+	local damage = caster:GetAverageTrueAttackDamage(caster)
 	local target = event.target
 	local ability = event.ability
 	ability.damage = damage
@@ -590,17 +590,18 @@ function shadow_attack_strike(event)
 	local ability = event.ability
 
 	local caster = event.caster
-	  local damageTable = {
-	    victim = event.target,
-	    attacker = ability.attacker,
-	    damage = ability.damage,
-	    damage_type = DAMAGE_TYPE_PHYSICAL,
-	  }
+	  -- local damageTable = {
+	  --   victim = event.target,
+	  --   attacker = ability.attacker,
+	  --   damage = ability.damage,
+	  --   damage_type = DAMAGE_TYPE_PHYSICAL,
+	  -- }
 	  if ability.attacker:HasModifier("modifier_shadow_aspect_c_d_slow_attack") then
 	  	apply_c_d_slow(ability.attacker, event.target, ability) 
 	  end   
-	  ApplyDamage(damageTable)
-	  ApplyDamage({ victim = event.target, attacker = ability.attacker, damage = ability.pureDamage, damage_type = DAMAGE_TYPE_PURE})
+	  -- ApplyDamage(damageTable)
+	  -- ApplyDamage({ victim = event.target, attacker = ability.attacker, damage = ability.pureDamage, damage_type = DAMAGE_TYPE_PURE})
+	  Filters:TakeArgumentsAndApplyDamage(event.target, event.caster, ability.pureDamage, DAMAGE_TYPE_PURE, 3, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
 end
 
 function shadow_aspect_kill(event)

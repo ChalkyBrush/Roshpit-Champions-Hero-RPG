@@ -1,0 +1,6 @@
+spirit_warrior_q3_dmg_pct = 0.1
+spirit_warrior_arcana_w4 = 0.08
+
+
+
+spirit_warrior_glyph_7_1_additional_duration = 40

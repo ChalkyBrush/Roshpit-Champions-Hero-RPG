@@ -190,14 +190,14 @@ function hydroxis_attack_land(event)
 		  ParticleManager:ReleaseParticleIndex(pfx)
 		end) 	
 
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
 				-- Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 2)
-				local targetAngle = ((enemy:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-				local angleDifferential = math.acos(fv:Dot(targetAngle, fv))
-				print(angleDifferential)
-				if angleDifferential < math.pi/2 then
+				-- local targetAngle = ((enemy:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+				-- local angleDifferential = math.acos(fv:Dot(targetAngle, fv))
+				-- print(angleDifferential)
+				-- if angleDifferential < math.pi/2 then
 					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 2, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 					if crit then
 						local pfx2 = ParticleManager:CreateParticle( "particles/econ/items/kunkka/kunkka_tidebringer_base/kunkka_spell_tidebringer.vpcf", PATTACH_CUSTOMORIGIN, caster )
@@ -212,7 +212,7 @@ function hydroxis_attack_land(event)
 						Filters:TakeArgumentsAndApplyDamage(enemy, attacker, glyphDamage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 					end
 					-- ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL})
-				end
+				-- end
 			end
 		end 
 	end

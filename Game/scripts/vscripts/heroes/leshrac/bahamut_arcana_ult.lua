@@ -44,7 +44,7 @@ function leshrac_arcana_ult_effect_think(event)
 		CustomAbilities:QuickAttachParticle("particles/econ/items/zeus/arcana_chariot/zeus_arcana_blink_start.vpcf", caster, 5)
 	end
 
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 750, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	local maxTargets = 1
 	if ability.d_d_level > 0 then
 		local procs = Runes:Procs(ability.d_d_level, 10, 1)
@@ -69,7 +69,7 @@ function leshrac_ult_go(ability, caster, damage, amp, enemy)
 		ability.c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d_arcana1", "bahamut")
 	end
 	if ability.c_d_level > 0 then
-		damage = damage + ability.c_d_level*caster:GetAverageTrueAttackDamage(caster)*0.02
+		damage = damage + ability.c_d_level*caster:GetAverageTrueAttackDamage(caster)*0.04
 	end
 	if amp then
 		damage = damage*ability.a_d_level*0.05

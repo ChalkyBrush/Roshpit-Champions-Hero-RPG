@@ -2,6 +2,8 @@ if GameState == nil then
   GameState = class({})
 end
 
+require('/heroes/huskar/constants_SPIRIT_WARRIOR')
+
 GameState.PVP_REDUCTION = 0.01
 
 function GameState:RecordPlayerID(hero)
@@ -1185,15 +1187,17 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 
 	if victim:HasModifier("modifier_tachyon_shell") then
-		local modifier = victim:FindModifierByName("modifier_tachyon_shell")
-		if modifier:GetCaster():GetTeamNumber() == victim:GetTeamNumber() then
-			local reduction = math.max(1 - modifier:GetAbility().d_a_level*0.005, 0.1)
-			if victim:GetEntityIndex() == modifier:GetCaster():GetEntityIndex() then
-				reduction = reduction/2
-			end
-			damage = damage*reduction
-		end
-	end
+        local modifier = victim:FindModifierByName("modifier_tachyon_shell")
+        if modifier:GetCaster():GetTeamNumber() == victim:GetTeamNumber() then
+            local reduction = math.max(modifier:GetAbility().d_a_level*0.005, 0.01)
+            if victim:GetEntityIndex() == modifier:GetCaster():GetEntityIndex() then
+                reduction = reduction*2
+            end
+            reduction = math.min(reduction, 0.9)
+            -- print("zhonic q4 "..reduction)
+            damage = damage*(1-reduction)
+        end
+    end
 
 	if victim:HasModifier("modifier_ancient_tree_passive") then
 		damage = damage*0.004
@@ -1538,7 +1542,7 @@ function GameState:FilterDamage(filterTable)
 			modifier = attacker:FindModifierByName("modifier_leshrac_arcana_b_d_effect")
 			if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 				local stacks = modifier:GetStackCount()
-				local multIncrease = 0.01*stacks
+				local multIncrease = 0.02*stacks
 				mult = mult + multIncrease
 			end
 		end
@@ -2978,19 +2982,19 @@ function GameState:FilterDamage(filterTable)
 	-- 	filterTable["damage"] = filterTable["damage"]/GameState.PVP_REDUCTION
 	-- end
 
-	if Beacons.cheats then
-		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-			if victim:IsHero() then
-				filterTable["damage"] = 0
-			end
-		end
-		-- filterTable["damage"] = victim:GetHealth()-1
-		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-			if attacker:IsHero() then
-				filterTable["damage"] = filterTable["damage"]*60000000
-			end
-		end
-	end
+	-- if Beacons.cheats then
+	-- 	if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+	-- 		if victim:IsHero() then
+	-- 			filterTable["damage"] = 0
+	-- 		end
+	-- 	end
+	-- 	-- filterTable["damage"] = victim:GetHealth()-1
+	-- 	if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+	-- 		if attacker:IsHero() then
+	-- 			filterTable["damage"] = filterTable["damage"]*60000000
+	-- 		end
+	-- 	end
+	-- end
 
 	return true
 

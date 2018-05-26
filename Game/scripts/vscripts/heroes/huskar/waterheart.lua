@@ -1,3 +1,5 @@
+require('/heroes/huskar/constants_SPIRIT_WARRIOR')
+
 function waterheart_phase_start(event)
 	local caster = event.caster
 	local target = event.target
@@ -22,6 +24,9 @@ function waterheart_start(event)
 	local duration = event.duration
 	if caster:HasModifier("modifier_spirit_warrior_immortal_weapon_1") then
 		duration = duration + 10
+	end
+	if caster:HasModifier("modifier_spirit_warrior_glyph_7_1") then
+		duration = duration + spirit_warrior_glyph_7_1_additional_duration
 	end
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	caster.waterheartStarted = true

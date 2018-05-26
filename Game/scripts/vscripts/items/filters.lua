@@ -2,6 +2,7 @@ if Filters == nil then
   Filters = class({})
 end
 
+require('/heroes/huskar/constants_SPIRIT_WARRIOR')
 require('items/special_item_effects')
 
 function Filters:ApplyItemDamage(victim,attacker,damage,damage_type,item,element1,element2)
@@ -1705,9 +1706,9 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker.d_a_level then
                 fireMult = fireMult + 0.0002*attacker:GetStrength()/10*attacker.d_a_level
             end
-            if attacker:HasModifier("modifier_spirit_warrior_arcana1") then
+            if attacker:HasModifier("modifier_spirit_warrior_arcana2") then
                 local d_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
-                fireMult = fireMult + 0.0008*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_b_level
+                fireMult = fireMult + spirit_warrior_arcana_w4/100*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_b_level
             end
         elseif unitName == "npc_dota_hero_beastmaster" then
             if attacker:HasModifier("modifier_warlord_fire_charge") then
