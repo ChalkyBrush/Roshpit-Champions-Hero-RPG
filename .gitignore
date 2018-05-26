@@ -10,7 +10,6 @@ Game/materials
 Game/models
 Game/particles
 Game/screenshots
-Game/scripts/npc
 *.bin
 Game/tool_asset_info
 Game/tools_thumbnail_cache
