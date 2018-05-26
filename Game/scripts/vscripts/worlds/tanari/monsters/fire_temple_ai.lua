@@ -2573,7 +2573,8 @@ function fire_spirit_boss_burn_damage(event)
 	local burn_damage = event.burn_damage
 	local ability = event.ability
 	local caster = event.caster
-	ApplyDamage({ victim = target, attacker = caster, damage = burn_damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
+	local stacks = target:GetModifierStackCount("modifier_spirit_boss_burn", caster)
+	ApplyDamage({ victim = target, attacker = caster, damage = burn_damage*stacks, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 end
 
 function fire_breath_start(event)

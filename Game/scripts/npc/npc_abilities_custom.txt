@@ -124624,6 +124624,7 @@
 			{
 				"IsHidden"	"1"
 				"Passive"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"StatusEffectName" 		"particles/status_fx/status_effect_ancestral_spirit.vpcf"
 				"StatusEffectPriority"  "50"
 				"OnTakeDamage"
@@ -124637,7 +124638,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "attack_damage"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attack_damage"
 				}
 			}
 			"modifier_strafe_sprinting"
@@ -124660,6 +124661,330 @@
 				"States"
 				{
 					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"				"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	"winterblight_cruxal_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"redfall/autumn_spawner"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"physical_damage"			"500 50000 5000000"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"armor_loss_per_stack"		"-3 -30 -300"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_cruxal_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName" 		"particles/status_fx/status_effect_ancestral_spirit.vpcf"
+				"StatusEffectPriority"  "50"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"cruxal_attack_land"
+					}
+				}
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"cruxal_think"
+					}
+				}
+			}
+			"modifier_cruxal_armor_loss"
+			{
+				"IsDebuff"		"1"
+				"IsHidden"		"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_loss_per_stack"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"AmplifyDamageParticleCruxal"
+					}
+				}
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"EndAmplifyDamageParticleCruxal"
+					}
+				}
+			}
+		}
+	}
+
+	"cruxal_ice_blast"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"				"2"
+		"AbilityTextureName"			"ancient_apparition_ice_blast"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
+			"particle"			"particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_initial.vpcf"
+			"particle"			"particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_explode.vpcf"
+			"particle"  		"particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_death.vpcf"
+			"particle"			"particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_sphere_b.vpcf"
+			"particle"			"particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_initial_grid.vpcf"
+			"particle"  		"particles/status_fx/status_effect_iceblast.vpcf"
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+		"AbilityCastRange"				"10000"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"6 5 4"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"2000 25000 750000"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius_min"			"275 275 275"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"radius_grow"			"50.0 50.0 50.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius_max"			"1000 1000 1000"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"path_radius"			"275 275 275"
+			}
+			"05"
+			{	
+				"var_type"				"FIELD_FLOAT"
+				"frostbite_duration"	"6"
+			}
+			"06"
+			{	
+				"var_type"				"FIELD_FLOAT"
+				"dot_damage"			"50 500 35000"
+			}
+			"07"
+			{	
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"1500 1500 1500 1500"
+			}
+			"08"
+			{	
+				"var_type"				"FIELD_FLOAT"
+				"kill_pct"				"10.0 11.0 12.0"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"target_sight_radius"	"500 500 500"
+			}
+			"10"
+			{	
+				"var_type"				"FIELD_FLOAT"
+				"frostbite_duration_scepter"	"17"
+			}
+			// Extra
+			"11"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"min_time"				"2"
+			}
+			"12"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"base_speed"			"750"	// This is the actual projectile, not the tracer
+			}
+			"13"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"travel_vision"			"500"
+			}
+			"14"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"travel_vision_duration"	"3.0"
+			}
+			"15"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"area_vision"			"650"
+			}
+			"16"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"area_vision_duration"	"4.0"
+			}
+			"17"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"think_interval"		"1.0"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Ancient_Apparition.IceBlast.Tracker" 
+				"Target" 		"CASTER"
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"		"worlds/winterblight/monsters/cruxys_ice_blast.lua"
+				"Function"			"cruxal_ice_blast_launch"
+				"Target"			"POINT"
+				"projectile_particle"	"particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_initial.vpcf"
+				"tracer_modifier"	"modifier_dummy_tracer"
+				"tracer_sphere"		"particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_sphere_b.vpcf"
+				"tracer_grid"		"particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_initial_grid.vpcf"
+				"main_ability_name"	"ice_blast_datadriven"
+				"sub_ability_name"	"ice_blast_release_datadriven"
+				"modifier"		"modifier_ice_blast_debuff_datadriven"
+				"sound"			"Hero_Ancient_Apparition.IceBlast.Target"
+				"explosion_particle"	"particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_explode.vpcf"
+			}
+		}
+
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_ice_blast_debuff_datadriven"
+				"Target"
+				{
+					"Center"	"TARGET"
+					"Types"		"DOTA_UNIT_TARGET_HERO"
+				}
+				"Duration"		"%frostbite_duration"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_dummy_tracer"
+			{
+
+				"States"
+				{
+					"MODIFIER_STATE_FLYING"					"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION" 	"%target_sight_radius"
+				    "MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"%target_sight_radius" 
+				}
+			}
+
+			"modifier_ice_blast_debuff_datadriven"
+			{
+				"IsDebuff"		"1"
+				"IsPurgable"	"0"
+
+				"StatusEffectName" 		"particles/status_fx/status_effect_iceblast.vpcf" 	   
+				"StatusEffectPriority"  "10"
+
+				"ThinkInterval"  "%think_interval"
+				"OnIntervalThink"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Hero_Ancient_Apparition.IceBlastRelease.Tick"
+						"Target" 		"TARGET"
+					}
+
+					"Damage"
+					{
+						"Target"		"TARGET"
+						"Type"			"DAMAGE_TYPE_MAGICAL"
+						"Damage"		"%dot_damage"
+					}
+				}
+
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/cruxys_ice_blast.lua"
+						"Function"		"cruxal_ice_blast_frostbite"
+					}
+				}
+
+				"OnDeath"
+				{
+					"FireEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_death.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "UNIT"
+					}
+				}
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DISABLE_HEALING" "1" 
 				}
 			}
 		}

@@ -1120,6 +1120,9 @@ function Winterblight:SpawnAzaleaMindbreaker(position, fv)
 	stone.itemLevel = 42
 	stone.dominion = true
 	Events:ColorWearables(stone, Vector(82, 151, 255))
+	if Winterblight.Stones >= 1 then
+		stone:AddAbility("ability_magic_immune_break"):SetLevel(GameState:GetDifficultyFactor())
+	end
 	return stone
 end
 
@@ -2710,6 +2713,13 @@ function Winterblight:AzaleaPlatformSpawns(index)
 				end
 			end
 		end
+	elseif index == 9 then
+		local spawn = Winterblight:SpawnCruxal(Vector(175, -11520), Vector(-1,0))
+		table.insert(unitTable, spawn)
+		for i = 0, 6, 1 do
+			local spawn = Winterblight:SpawnFrostElemental(Vector(-562, -12160+i*300), Vector(0,1))
+			table.insert(unitTable, spawn)
+		end
 	end
 	for i = 1, #unitTable, 1 do
 		local unit = unitTable[i]
@@ -2926,5 +2936,19 @@ function Winterblight:SpawnAirSpirit(position, fv)
 			Dungeons:AggroUnit(stone)
 		end
 	end)
+	return stone
+end
+
+function Winterblight:SpawnCruxal(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_azalea_frost_cruxal", position, 6, 10, "Winterblight.Cruxal.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 4, 5, false)
+	stone.itemLevel = 52
+	stone:SetRenderColor(82, 150, 255)
+	if Winterblight.Stones >= 1 then
+		stone:AddAbility("fire_temple_frenzy"):SetLevel(GameState:GetDifficultyFactor())
+	end
+	if Winterblight.Stones >= 3 then
+		stone:AddAbility("ability_mega_haste"):SetLevel(GameState:GetDifficultyFactor())
+	end
 	return stone
 end

@@ -1391,3 +1391,72 @@ function air_spirit_strafe_thinking(event)
 		end
 	end
 end
+
+function AmplifyDamageParticleCruxal( event )
+  local target = event.target
+  local location = target:GetAbsOrigin()
+  local particleName = "particles/units/heroes/hero_slardar/axe_d_d_amp_damage.vpcf"
+  if target.AmpDamageParticle then
+  	ParticleManager:DestroyParticle(target.AmpDamageParticle, false)
+  end
+-- Particle. Need to wait one frame for the older particle to be destroyed
+  Timers:CreateTimer(0.01, function() 
+    target.AmpDamageParticle = ParticleManager:CreateParticle(particleName, PATTACH_OVERHEAD_FOLLOW, target)
+    ParticleManager:SetParticleControl(target.AmpDamageParticle, 0, target:GetAbsOrigin())
+    ParticleManager:SetParticleControl(target.AmpDamageParticle, 1, target:GetAbsOrigin())
+    ParticleManager:SetParticleControl(target.AmpDamageParticle, 2, target:GetAbsOrigin())
+
+    ParticleManager:SetParticleControlEnt(target.AmpDamageParticle, 1, target, PATTACH_OVERHEAD_FOLLOW, "attach_overhead", target:GetAbsOrigin(), true)
+    ParticleManager:SetParticleControlEnt(target.AmpDamageParticle, 2, target, PATTACH_OVERHEAD_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+  end)
+
+
+end
+
+-- Destroys the particle when the modifier is destroyed
+function EndAmplifyDamageParticleCruxal( event )
+  local target = event.target
+  	if target.AmpDamageParticle then
+	  ParticleManager:DestroyParticle(target.AmpDamageParticle,false)
+	  target.AmpDamageParticle = nil
+	end
+end
+
+function cruxal_attack_land(event)
+	local caster = event.caster
+	local attacker = event.attacker
+	local target = event.target
+	local ability = event.ability
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_cruxal_armor_loss", {duration = 7})
+	local stacks = target:GetModifierStackCount("modifier_cruxal_armor_loss", caster)
+	target:SetModifierStackCount("modifier_cruxal_armor_loss", caster, stacks + 1)
+end
+
+function cruxal_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster.aggro and caster:IsAlive() then
+		local iceblast = caster:FindAbilityByName("cruxal_ice_blast")
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 3500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+		if iceblast:IsFullyCastable() and #enemies > 0 then
+			local targetPoint = enemies[1]:GetOrigin() + enemies[1]:GetForwardVector()*RandomInt(80, 320)
+			caster.ice_blast_target = targetPoint
+			local order =
+			{
+				UnitIndex = caster:entindex(),
+				OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+				AbilityIndex = iceblast:entindex(),
+				Position = targetPoint
+			}
+			ExecuteOrderFromTable(order)
+			return false
+		end
+	end
+end
+
+function cruxal_ice_blast_start(event)
+	local caster = event.caster
+	local ability = event.ability
+	local point = event.target_points[1]
+
+end

@@ -87667,7 +87667,8 @@
         "Ability1"          "winterblight_armor_softening"
         "Ability2"          "fire_temple_steadfast"
         "Ability3"          "sven_great_cleave"
-        "Ability4"          "dungeon_creep"
+        "Ability4"          "ability_magic_immune_break"
+        "Ability5"          "dungeon_creep"
         "TeamName"           "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Creature"
@@ -88498,6 +88499,107 @@
                     "RoamDistance"  "1000.0"
                 }
 
+            }
+
+        }
+    }
+
+    "winterblight_azalea_frost_cruxal"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/slardar/slardar.vmdl"
+        "ModelScale"    "1.66"
+        "Level" "1"
+        "HealthBarOffset"   "260"
+        "precache"
+        {
+           "soundfile"  "soundevents/game_sounds_heroes/game_sounds_slardar.vsndevts"
+           "particle"   "particles/units/heroes/hero_slardar/axe_d_d_amp_damage.vpcf"
+           "particle"   "particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_final.vpcf"
+           "particle"   "particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_debuff.vpcf"
+            "soundfile"         "soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
+            "particle"          "particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_initial.vpcf"
+            "particle"          "particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_explode.vpcf"
+            "particle"          "particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_death.vpcf"
+            "particle"          "particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_sphere_b.vpcf"
+            "particle"          "particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_initial_grid.vpcf"
+            "particle"          "particles/status_fx/status_effect_iceblast.vpcf"
+            "particle"      "particles/roshpit/winterblight/cruxys_ice_blast.vpcf"
+            "particle"      "particles/roshpit/winterblight/cruxal_marker.vpcf"
+        }
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"              "Hero_Slardar"  
+        "ArmorPhysical" "15"
+        "MagicalResistance" "15"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "18445"
+        "AttackDamageMax"   "25555"
+        "AttackRate"    "0.8"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "200"
+        "BountyGoldMin" "15"
+        "BountyGoldMax" "20"
+        "BountyXP" "340"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "440"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "904400"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"      "winterblight_cruxal_passive"
+        "Ability2"      "fire_temple_steadfast"
+        "Ability3"      "luna_taskmaster_shield"
+        "Ability4"      "cruxal_ice_blast"
+        "Ability5"      "dungeon_creep"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "7999"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "9222"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "9221"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "9220"
+                }
             }
 
         }

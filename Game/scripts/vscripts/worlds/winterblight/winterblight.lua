@@ -119,7 +119,8 @@ function Winterblight:Debug2()
     -- Winterblight:ShrineSpawn6()
     -- Winterblight:SpawnChrolonus(Vector(7424, -15488), Vector(1,0))
     Winterblight:PlatformRoomStartBeacon()
-    Winterblight:CandyCrushRoom()
+    -- Winterblight:CandyCrushRoom()
+    Winterblight:SpawnCruxal(Vector(-15367, -2924), Vector(0,-1))
 end
 
 function Winterblight:CalculateHeroZones()
