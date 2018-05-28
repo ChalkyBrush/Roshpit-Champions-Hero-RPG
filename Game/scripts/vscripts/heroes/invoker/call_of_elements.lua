@@ -171,7 +171,10 @@ function deity_call(event)
 end
 
 function applyCallsArcana(ability, unit, earth, fire, shadow, caster, origScale, growCount, c_d_level, d_d_level)
-	local durationIncrease = d_d_level*0.3
+	local durationIncrease = 0
+	if d_d_level then 
+		durationIncrease = d_d_level*0.3
+	end
 	local buffDuration = 20+durationIncrease
 	local procs = Runes:Procs(c_d_level, 5, 1) + 1
 	buffDuration = Filters:GetAdjustedBuffDuration(caster, buffDuration, false)

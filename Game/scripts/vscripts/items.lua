@@ -1542,37 +1542,41 @@ end
 
 function RPCItems:GetMaxFactor()
 	local maxFactor = 0
-    if Dungeons.itemLevel > 0 then
-        maxFactor = Dungeons.itemLevel
-    else
-        maxFactor = Events.WaveNumber
-    end
-    local difficulty = GameState:GetDifficultyFactor()
-    maxFactor = maxFactor + (difficulty-1)*80
-    if difficulty == 1 then
-    	if maxFactor < 30 then
-    		maxFactor = maxFactor + 3
-    	else
-    		maxFactor = maxFactor + 12
-    	end
-    end
-    if Events.SpiritRealm then
-    	maxFactor = maxFactor + 50
-    end
-    if Quests.itemLevel then
-    	maxFactor = Quests.itemLevel
-    end
-    if RPCItems.LevelRoll then
-    	maxFactor = math.floor(RPCItems.LevelRoll*2.6)
-    end
-    if Arena then
-    	if Arena.PitLevel then
-    		maxFactor = maxFactor + 8*Arena.PitLevel
-    	end
-    end
-    if RPCItems.StrictItemLevel then
-    	maxFactor = RPCItems.StrictItemLevel
-    end
+	if RPCItems.LevelRoll then 
+		maxFactor = math.floor(RPCItems.LevelRoll*3.2)
+		if RPCItems.LevelRoll == 100 then
+			return 300
+		end
+	else
+	    if Dungeons.itemLevel > 0 then
+	        maxFactor = Dungeons.itemLevel
+	    else
+	        maxFactor = Events.WaveNumber
+	    end
+	    local difficulty = GameState:GetDifficultyFactor()
+	    maxFactor = maxFactor + (difficulty-1)*80
+	    if difficulty == 1 then
+	    	if maxFactor < 30 then
+	    		maxFactor = maxFactor + 3
+	    	else
+	    		maxFactor = maxFactor + 12
+	    	end
+	    end
+	    if Events.SpiritRealm then
+	    	maxFactor = maxFactor + 50
+	    end
+	    if Quests.itemLevel then
+	    	maxFactor = Quests.itemLevel
+	    end
+	    if Arena then
+	    	if Arena.PitLevel then
+	    		maxFactor = maxFactor + 8*Arena.PitLevel
+	    	end
+	    end
+	    if RPCItems.StrictItemLevel then
+	    	maxFactor = RPCItems.StrictItemLevel
+	    end
+	end
     -- local randomNumber = RandomInt(-100,50)
     -- local randomPercentage = randomNumber/100
     -- local randomScale = randomPercentage * 0.1
