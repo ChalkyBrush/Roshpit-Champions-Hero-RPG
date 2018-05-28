@@ -151,7 +151,7 @@ function earthAxeStrike(event)
 	local pureDamage = 0
 	if ability.d_b_level > 0 then
 		
-		damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.02
+		damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.02*ability.d_b_level
 		pureDamage = damage*0.025*ability.d_b_level
 	end
 
@@ -258,7 +258,7 @@ function iceAxeStrike(event)
 	local pureDamage = 0
 	if ability.d_b_level > 0 then
 		
-		damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.02
+		damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.02*ability.d_b_level
 		pureDamage = damage*0.025*ability.d_b_level
 	end
 
@@ -323,11 +323,11 @@ function fireAxeStrike(event)
 	local c_b_level = Runes:GetTotalRuneLevel(caster, 3, "c_b", "warlord")
 	if c_b_level > 0 then
 		radius = radius + c_b_level*5
-		damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.06
+		damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.06*c_b_level
 	end
 	if ability.d_b_level > 0 then
 		
-		damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.02
+		damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.02*ability.d_b_level
 		pureDamage = damage*0.025*ability.d_b_level
 	end
 	EmitSoundOn("Hero_Invoker.SunStrike.Ignite", target)
