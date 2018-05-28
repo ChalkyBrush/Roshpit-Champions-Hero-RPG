@@ -45,7 +45,7 @@ function hawk_screech(event)
 		for i = 1, #modifiers, 1 do
 			local modifier = modifiers[i]
 			local modifierMaker = modifier:GetCaster()
-			if modifier ~= caster:FindModifierByName("modifier_ankh_of_ancients_shield") and 
+			if modifier ~= caster:FindModifierByName("modifier_ankh_of_ancients_shield") and modifier ~= caster:FindModifierByName("modifier_ankh_of_ancients_cooldown") and
 				(modifierMaker:GetEntityIndex() == caster:GetEntityIndex() or modifierMaker:GetEntityIndex() == caster.InventoryUnit:GetEntityIndex()) then
 				local durationRemaining = modifier:GetRemainingTime()
 				if durationRemaining > 0 then
