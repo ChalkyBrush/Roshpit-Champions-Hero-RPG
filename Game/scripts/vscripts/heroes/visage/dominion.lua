@@ -74,6 +74,7 @@ function dominion_debuff_death(event)
 		local b_a_level = Runes:GetTotalRuneLevel(caster, 2, "b_a", "ekkan")
 		if b_a_level > 0 then
 			hp = hp + hp*0.06*b_a_level
+			hp = math.min(hp, 2000000000)
 		end
 		local armor = unit:GetPhysicalArmorBaseValue()
 		local movespeed = unit:GetBaseMoveSpeed()
@@ -273,7 +274,7 @@ function dominion_zombie_strike_attack(event)
   local attacker = event.attacker
   local target = event.target
   local ability = event.ability
-  local luck = RandomInt(1,10)
+  local luck = RandomInt(1,2)
   if luck == 1 then
   		ability.attack_damage = event.attack_damage
 		EmitSoundOn("Ekkan.ZombieStrike", attacker)
