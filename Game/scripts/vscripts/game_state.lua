@@ -2522,7 +2522,15 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_arkimus_glyph_5_a") then
 		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
-			filterTable["damage"] = Filters:ArkimusGlyph5a(victim, filterTable["damage"])
+			if filterTable["damage"] > 1 then--monkey paw tweak 
+				local ability = victim:FindAbilityByName("arkimus_energy_field")
+				if ability then
+					-- print("arkimus_energy_field true")
+					filterTable["damage"] = Filters:ArkimusGlyph5a(victim, filterTable["damage"])
+				-- else
+				-- 	print("arkimus_energy_field false")
+				end
+			end
 		end
 	end
 	if attacker:HasModifier("modifier_sea_fortress_ai") then
@@ -2982,19 +2990,19 @@ function GameState:FilterDamage(filterTable)
 	-- 	filterTable["damage"] = filterTable["damage"]/GameState.PVP_REDUCTION
 	-- end
 
-	if Beacons.cheats then
-		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-			if victim:IsHero() then
-				filterTable["damage"] = 0
-			end
-		end
-		-- filterTable["damage"] = victim:GetHealth()-1
-		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-			if attacker:IsHero() then
-				filterTable["damage"] = filterTable["damage"]*60000000
-			end
-		end
-	end
+	-- if Beacons.cheats then
+	-- 	if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+	-- 		if victim:IsHero() then
+	-- 			filterTable["damage"] = 0
+	-- 		end
+	-- 	end
+	-- 	-- filterTable["damage"] = victim:GetHealth()-1
+	-- 	if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+	-- 		if attacker:IsHero() then
+	-- 			filterTable["damage"] = filterTable["damage"]*60000000
+	-- 		end
+	-- 	end
+	-- end
 
 	return true
 

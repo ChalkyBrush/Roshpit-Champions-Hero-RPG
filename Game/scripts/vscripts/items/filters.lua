@@ -3375,8 +3375,8 @@ function Filters:EmeraldDouliHit(victim, damage)
 end
 
 function Filters:SpellShieldHit(victim, damage)
-    local splicedDamage = damage*0.6
-    local manaDamage = splicedDamage*0.2
+    local splicedDamage = damage*0.9
+    local manaDamage = splicedDamage*0.1
     local bSplice = true
     if manaDamage > victim:GetMana() then
         manaDamage = victim:GetMana()
@@ -3386,7 +3386,7 @@ function Filters:SpellShieldHit(victim, damage)
     if bSplice then
         return splicedDamage
     else
-        return victim:GetMana()*5
+        return victim:GetMana()*10
     end
 end
 
@@ -4130,25 +4130,27 @@ end
 function Filters:ArkimusGlyph5a(victim, damage)
     if victim:HasAbility("arkimus_energy_field") then
         local ability = victim:FindAbilityByName("arkimus_energy_field")
-        if ability.energyTable then
-            if #ability.energyTable > 0 then
-                ability.energyTable[1]:RemoveModifierByName("modifier_energy_field_thinker")
-                ParticleManager:DestroyParticle(ability.energyTable[1].pfx, false)
-                Timers:CreateTimer(0.05, function()
-                    local newTable = {}
-                    for i = 1, #ability.energyTable, 1 do
-                        if IsValidEntity(ability.energyTable[i]) then
-                            table.insert(newTable, ability.energyTable[i])
+        if ability then            
+            if ability.energyTable then
+                if #ability.energyTable > 0 then
+                    ability.energyTable[1]:RemoveModifierByName("modifier_energy_field_thinker")
+                    ParticleManager:DestroyParticle(ability.energyTable[1].pfx, false)
+                    Timers:CreateTimer(0.05, function()
+                        local newTable = {}
+                        for i = 1, #ability.energyTable, 1 do
+                            if IsValidEntity(ability.energyTable[i]) then
+                                table.insert(newTable, ability.energyTable[i])
+                            end
                         end
-                    end
-                    ability.energyTable = newTable 
-                end)
-                return 0       
+                        ability.energyTable = newTable 
+                    end)
+                    return 0
+                else
+                    return damage
+                end
             else
                 return damage
             end
-        else
-            return damage
         end
     end
 end
