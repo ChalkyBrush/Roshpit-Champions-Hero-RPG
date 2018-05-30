@@ -1393,7 +1393,7 @@ function GameState:FilterDamage(filterTable)
 				return false
 			end
 		end
-		if WallPhysics:DoesTableHaveValue(attacker.possessedTable, victim:GetUnitName()) or not victim.dominion then
+		if WallPhysics:DoesTableHaveValue(attacker.possessedTable, victim:GetUnitName()) then
 			local c_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 3, 3)
 			if c_d_level > 0 then
 				mult = mult + 0.2*c_d_level
