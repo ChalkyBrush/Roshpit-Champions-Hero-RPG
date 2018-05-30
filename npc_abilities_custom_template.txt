@@ -17299,7 +17299,7 @@
 			"modifier_solunia_warp_core_thinker_glyphed"
 			{
 				"Aura"					"modifier_solunia_warp_core_aura_solar"
-				"Aura_Radius"			"300"
+				"Aura_Radius"			"500"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -17314,7 +17314,7 @@
 						"ControlPoints"
 						{
 							"00" "0 0 0"
-							"01" "300 1 240"
+							"01" "500 1 240"
 							"02" "6 6 6"
 							"15" "25 150 25"
 							"16" "1 0 0"
@@ -17515,7 +17515,7 @@
 			"modifier_solunia_warp_core_thinker_glyphed"
 			{
 				"Aura"					"modifier_solunia_warp_core_aura_lunar"
-				"Aura_Radius"			"300"
+				"Aura_Radius"			"500"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -17530,7 +17530,7 @@
 						"ControlPoints"
 						{
 							"00" "0 0 0"
-							"01" "300 1 240"
+							"01" "500 1 240"
 							"02" "6 6 6"
 							"15" "25 150 25"
 							"16" "1 0 0"
