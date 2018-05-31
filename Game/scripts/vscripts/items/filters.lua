@@ -4014,7 +4014,7 @@ end
 
 function Filters:IncrementLevelUpItem(itemName, unit, ability, upgradeThreshold, itemProperty, hexColor, itemPropertyDescription)
     local nextValue = ability.property1 + 1
-    if nextValue == upgradeThreshold then
+    if nextValue >= upgradeThreshold then
         if itemName == "item_rpc_armor_of_violet_guard" then
             RPCItems:RollVioletGuardArmor2(unit, ability)
             Notifications:Top(unit:GetPlayerOwnerID(), {text="Armor of Violet Guard Upgraded", duration=5, style={color="white"}, continue=true})
@@ -4029,6 +4029,13 @@ function Filters:VioletGuard2Hit(victim, attacker, damage)
     attacker.body:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_violet_guard_armor_loss_visible", {duration = 6})
     local armorLoss = math.min(math.ceil(damage*0.001), victim:GetPhysicalArmorValue())
     armorLoss = math.max(1, armorLoss)
+    local oldModifier = victim:FindModifierByName("modifier_violet_guard_armor_loss_invisible")
+    if oldModifier then
+        local oldModifierStacks = oldModifier:GetStackCount()
+        if oldModifierStacks then
+            armorLoss = math.max(armorLoss,oldModifierStacks)
+        end
+    end
     attacker.body:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_violet_guard_armor_loss_invisible", {duration = 6})
     victim:SetModifierStackCount("modifier_violet_guard_armor_loss_invisible", attacker.InventoryUnit, armorLoss)
 end
