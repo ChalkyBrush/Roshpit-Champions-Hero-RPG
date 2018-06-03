@@ -1,3 +1,5 @@
+require('/heroes/obsidian_destroyer/constants_epoch')
+
 function Vacuum( keys )
     local caster = keys.caster
     local target = keys.target
@@ -107,7 +109,7 @@ function rune_a_d(caster, target_location, duration, ability)
         ParticleManager:DestroyParticle( particle1, false )
       end)
     end
-    local a_d_duration = Filters:GetAdjustedBuffDuration(caster, 10 + a_d_level/2, false)
+    local a_d_duration = Filters:GetAdjustedBuffDuration(caster, 10 + a_d_level*epoch_r1_extra_duration, false)
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_time_ulti_a_d_visible", {duration = a_d_duration})
     caster:SetModifierStackCount("modifier_time_ulti_a_d_visible", caster, a_d_level)
 
@@ -147,7 +149,7 @@ function a_d_buff_think(event)
 
   local a_d_level = caster:GetModifierStackCount("modifier_time_ulti_a_d_visible", caster)
 
-  local percent_damage_stacks = 0.0001*a_d_level*caster:GetMana()
+  local percent_damage_stacks = caster:GetMana()*a_d_level*epoch_r1_dmg_pct/1000
   caster:SetModifierStackCount("modifier_time_ulti_a_d_invisible", caster, percent_damage_stacks)
 
   --local missingManaStacks = ((caster:GetMaxMana()-caster:GetMana())/caster:GetMaxMana())*10
@@ -416,7 +418,7 @@ function c_d_crackle_think(event)
   local target = event.target
   local caster = event.caster
   local ability = event.ability
-  local damage = ability.c_d_level*0.05*caster:GetAverageTrueAttackDamage(caster)
+  local damage = caster:GetAverageTrueAttackDamage(caster)*ability.c_d_level*epoch_r3_dmg_multi_pct/100
   Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
   CustomAbilities:QuickAttachParticle("particles/econ/items/morphling/morphling_crown_of_tears/morphling_crown_waveform_dmg_flash.vpcf", target, 1)
 end

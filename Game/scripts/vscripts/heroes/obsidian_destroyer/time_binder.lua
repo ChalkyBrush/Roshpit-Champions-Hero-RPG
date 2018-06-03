@@ -1,3 +1,5 @@
+require('/heroes/obsidian_destroyer/constants_epoch')
+
 function time_bind_cast(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -10,7 +12,7 @@ function time_bind_cast(event)
 			manaDrain = caster:GetMana()
 		end
 		caster:ReduceMana(manaDrain)
-		ability.damageAmp = (manaDrain/100)*0.005*d_a_level + 1
+		ability.damageAmp = manaDrain*epoch_q4_dmg_bonus_pct*d_a_level/10000 + 1 -- /10000 -> % mana * % rune
 	else
 		ability.damageAmp = 1
 	end
@@ -105,7 +107,7 @@ function projectile_hit(event)
 	end
 	if rune_b_a_level > 0 then
 		if caster:HasModifier("modifier_epoch_glyph_6_1") then 
-			rune_b_a_level = rune_b_a_level * 10
+			rune_b_a_level = rune_b_a_level * epoch_glyph_6_1_q2_multi
 		end
 		local b_a_duration = Filters:GetAdjustedBuffDuration(caster, 7, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_eon_channel_friendly", {duration = b_a_duration})
@@ -152,7 +154,7 @@ end
 function spacelink_think(event)
 	local damage = event.damage_per_tick
 	local ability = event.ability
-	damage = damage * ability.rune_a_a_level*0.02
+	damage = damage * ability.rune_a_a_level*epoch_q1_dmg_multi_pct/100
 	damage = damage*ability.damageAmp
 	local dummy_binder = event.target
 	local caster = event.caster
@@ -393,7 +395,7 @@ function c_a_attack_start(event)
 			ability:ApplyDataDrivenModifier(caster, attacker, "modifier_epoch_c_a_lock", {duration = 0.1})
 			attacker:ReduceMana(manaDrain)
 		end
-		local damage = manaDrain*ability.level*10
+		local damage = manaDrain*ability.level*epoch_q3_times_mana_drained
 		local projectileSpeed = attacker:GetProjectileSpeed()
 
 		ability.damage = damage

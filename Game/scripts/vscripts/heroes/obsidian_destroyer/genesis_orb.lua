@@ -1,3 +1,5 @@
+require('/heroes/obsidian_destroyer/constants_epoch')
+
 function begin_genesis_orb(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -95,7 +97,7 @@ function genesis_orb_impact(event)
 			end
 		end) 
 
-		local manaRestore = caster:GetMaxMana()*ability.a_b_level*0.0005
+		local manaRestore = caster:GetMaxMana()*ability.a_b_level*epoch_w1_mana_restore_pct/100
 		print(manaRestore)
 		caster:GiveMana(manaRestore)
 		PopupMana(caster, manaRestore)
@@ -133,7 +135,7 @@ function epoch_c_b_attack_land(event)
 		end		
 	end
 
-	local healAmount = math.floor(ability.c_b_level*1000)
+	local healAmount = math.floor(ability.c_b_level*epoch_w3_heal)
 	caster:Heal(healAmount, caster)
 	PopupHealing(caster, healAmount)
 	if not ability.pfx2 then
@@ -195,7 +197,7 @@ function d_b(caster, ability)
 			manaDrain = caster:GetMana()
 		end
 		caster:ReduceMana(manaDrain)
-		ability.damageAmp = (manaDrain/100)*0.01*d_b_level + 1
+		ability.damageAmp = manaDrain*epoch_w4_dmg_multi_pct*d_b_level/10000 + 1 -- /10000 -> % mana * % rune
 	else
 		ability.damageAmp = 1
 	end

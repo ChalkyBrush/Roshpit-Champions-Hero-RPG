@@ -1,9 +1,11 @@
+require('/heroes/obsidian_destroyer/constants_epoch')
+
 function ability_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target_points[1]
 	local d_a_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
-	local procs = Runes:Procs(d_a_level, 50, 1)
+	local procs = Runes:Procs(d_a_level, epoch_arcana_q4_procs_pct, 1)
 	for i = 0, procs, 1 do
 		Timers:CreateTimer(0.2*i, function()
 			if i > 0 then
@@ -42,7 +44,7 @@ function a_a_end(event)
 	local target = event.target
 	local ability = event.ability
 	local a_a_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
-	local damageMult = a_a_level*0.05 + 0.05
+	local damageMult = a_a_level*epoch_arcana_q1_dmg_multi_pct/100 + 0.05
 	local typeCheck = type(target.epochArcanaAA)
 	if typeCheck == "number" then
 		local damage = target.epochArcanaAA*damageMult
@@ -88,7 +90,7 @@ function passive_think(event)
 	local ability = event.ability
 	ability.c_a_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
 	if ability.c_a_level > 0 then
-		local bonusDamage = math.floor(caster:GetMaxMana()*0.015*ability.c_a_level)
+		local bonusDamage = math.floor(caster:GetMaxMana()*ability.c_a_level*epoch_arcana_q3_extra_base_att_dmg_pct/100)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_epoch_arcana_attack_damage", {})
 		caster:SetModifierStackCount("modifier_epoch_arcana_attack_damage", caster, bonusDamage)
 	else
@@ -108,7 +110,7 @@ function c_a_attack_start2(caster, target, ability, c_a_level)
 		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_epoch_c_a_lock", {duration = 0.1})
 		attacker:ReduceMana(manaDrain)
 	end
-	local damage = manaDrain*c_a_level*100
+	local damage = manaDrain*c_a_level*epoch_arcana_q3_dmg_multi_pct
 	local projectileSpeed = attacker:GetProjectileSpeed()
 	ability.damage = damage
 	local info = 

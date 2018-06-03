@@ -1,3 +1,4 @@
+require('/heroes/obsidian_destroyer/constants_epoch')
 require('heroes/obsidian_destroyer/time_binder')
 require('heroes/obsidian_destroyer/epoch_arcana')
 
@@ -154,7 +155,7 @@ function onProjectileHit(event)
 	local target = event.target
 	local damage = event.damage
 	local ability = event.ability
-	damage = damage + ability.d_c_level*caster:GetAverageTrueAttackDamage(caster)*0.2
+	damage = damage + caster:GetAverageTrueAttackDamage(caster)*ability.d_c_level*epoch_e4_dmg_multi_pct/100
 	if target:HasModifier("modifier_time_bound") or target:HasModifier("modifier_time_bind") or target:HasModifier("modifier_space_link") or target:HasModifier("modifier_epoch_arcana_root") then
 		print("damage x2!!!")
 		damage = damage*2
@@ -173,7 +174,7 @@ function rune_a_c(caster)
   local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_c")
   local totalLevel = abilityLevel + bonusLevel
   if totalLevel > 0 then
-  	local a_c_duration = Filters:GetAdjustedBuffDuration(caster, 0.4+totalLevel*0.07, false)
+  	local a_c_duration = Filters:GetAdjustedBuffDuration(caster, 0.4+totalLevel*epoch_e1_duration, false)
   	if caster:HasModifier("modifier_epoch_glyph_2_1") then
   		a_c_duration = a_c_duration * 2 
   	end
@@ -323,7 +324,7 @@ function onProjectileHit_b_c(event)
 	-- 	print("damage x2!!!")
 	-- 	damage = damage*2
 	-- end
-	damage = damage + ability.d_c_level*caster:GetAverageTrueAttackDamage(caster)*0.1
+	damage = damage + caster:GetAverageTrueAttackDamage(caster)*ability.d_c_level*epoch_e4_dmg_multi_pct/100
 	if target:HasModifier("modifier_time_bound") or target:HasModifier("modifier_time_bind") or target:HasModifier("modifier_space_link") or target:HasModifier("modifier_epoch_arcana_root") then
 		damage = damage*2
 		if target:HasModifier("modifier_epoch_immortal_weapon_3") then

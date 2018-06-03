@@ -1910,7 +1910,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local d_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 3)
             if d_d_level > 0 then
                 -- print("OD HERE2 r4: "..d_d_level)
-                mult = mult + 0.0005*attacker:GetManaRegen()*d_d_level
+                mult = mult + attacker:GetManaRegen()*d_d_level*epoch_r4_elem_time/1000
             end   
         end    
         if victim:HasModifier("modifier_tempo_flux_invisible") then

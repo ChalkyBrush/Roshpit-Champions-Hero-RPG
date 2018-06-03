@@ -3,6 +3,8 @@ if GameState == nil then
 end
 
 require('/heroes/huskar/constants_SPIRIT_WARRIOR')
+require('/heroes/obsidian_destroyer/constants_epoch')
+
 
 GameState.PVP_REDUCTION = 0.01
 
@@ -1360,7 +1362,7 @@ function GameState:FilterDamage(filterTable)
 				if attacker:HasAbility("epoch_arcana_ability") then
 					local affectedByQ1 = victim:FindModifierByName("modifier_epoch_arcana_a_a_effect")
 					if not affectedByQ1 then
-						print("affectedByQ1 true")
+						-- print("affectedByQ1 true")
 						attacker:FindAbilityByName("epoch_arcana_ability"):ApplyDataDrivenModifier(attacker, victim, "modifier_epoch_arcana_a_a_effect", {duration = 3})
 					end
 					-- attacker:FindAbilityByName("epoch_arcana_ability"):ApplyDataDrivenModifier(attacker, victim, "modifier_epoch_arcana_a_a_effect", {duration = 3})
@@ -1631,7 +1633,7 @@ function GameState:FilterDamage(filterTable)
 			if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 				modifier = victim:FindModifierByName("modifier_epoch_rune_b_b_visible")
 				if Runes:GetTotalRuneLevelGeneric(attacker, 2, 1) > 0 then
-					local multIncrease = Runes:GetTotalRuneLevelGeneric(attacker, 2, 1)*0.05*math.abs(victim:GetPhysicalArmorValue())/10
+					local multIncrease = Runes:GetTotalRuneLevelGeneric(attacker, 2, 1)*epoch_w2_post_miti_pct*math.abs(victim:GetPhysicalArmorValue())/10
 					-- print("test runes b_b: "..Runes:GetTotalRuneLevelGeneric(attacker, 2, 1))
 					-- print("test multIncrease: "..multIncrease)
 					mult = mult + multIncrease/100
@@ -1886,9 +1888,9 @@ function GameState:FilterDamage(filterTable)
 		-- if victim:HasModifier("modifier_epoch_arcana_root") then
 			local b_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 0)
 			if b_a_level > 0 then
-				local multIncrease = 0.000005*victim:GetPhysicalArmorBaseValue()*b_a_level
+				local multIncrease = victim:GetPhysicalArmorBaseValue()*b_a_level*epoch_arcana_q2_post_miti_pct
 				-- print("od b_a arcana "..mult)
-				mult = mult + multIncrease
+				mult = mult + multIncrease/100000--per 1000 armor, %
 				-- print("od b_a arcana "..mult)
 			end
 		-- end
