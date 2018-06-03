@@ -45,7 +45,9 @@ function earth_aspect(event)
     caster.earthAspect:SetControllableByPlayer(caster:GetPlayerID(), true)
 	local aspectAbility = caster.earthAspect:FindAbilityByName("aspect_abilities")
 	aspectAbility:SetLevel(1)
+	if caster.bIsAIonEARTH == true or caster.bIsAIonEARTH == nil then
 	aspectAbility:ToggleAbility()
+    end
 	caster.earthAspect:FindAbilityByName("earth_aspect_rune_b_a_clap"):SetLevel(1)
 	caster.earthAspect.aspect = true
 	-- aspectAbility:ApplyDataDrivenModifier(caster.earthAspect, caster.earthAspect, "modifier_aspect_main", {})
@@ -116,7 +118,9 @@ function fire_aspect(event)
     caster.fireAspect.aspect = true
 	local aspectAbility = caster.fireAspect:FindAbilityByName("aspect_abilities")
 	aspectAbility:SetLevel(1)
+	if caster.bIsAIonFIRE == true or caster.bIsAIonFIRE == nil then
 	aspectAbility:ToggleAbility()
+    end
 	local immolationAbility = caster.fireAspect:FindAbilityByName("conjuror_fire_aspect_immolation")
 	immolationAbility:SetLevel(1)
 	-- aspectAbility:ApplyDataDrivenModifier(caster.fireAspect, caster.fireAspect, "modifier_aspect_main", {})
@@ -184,7 +188,9 @@ function shadow_aspect(event)
     caster.shadowAspect.aspect = true
 	local aspectAbility = caster.shadowAspect:FindAbilityByName("aspect_abilities")
 	aspectAbility:SetLevel(1)
+	if caster.bIsAIonSHADOW == true or caster.bIsAIonSHADOW == nil then
 	aspectAbility:ToggleAbility()
+    end
 	-- aspectAbility:ApplyDataDrivenModifier(caster.shadowAspect, caster.shadowAspect, "modifier_aspect_main", {})
 
     local shadowParticle = "particles/units/heroes/hero_enigma/enigma_ambient_body.vpcf"
