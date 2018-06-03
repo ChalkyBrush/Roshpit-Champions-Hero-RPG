@@ -140,6 +140,10 @@ function AzaleaPortal(trigger)
 			tp_position = Vector(11157, -11941, 192+Winterblight.ZFLOAT)
 		elseif portalIndex == 2 then
 			tp_position = Vector(12032, -15488, 192+Winterblight.ZFLOAT)
+		elseif portalIndex == 3 then
+			tp_position = Vector(7608, -13753, 192+Winterblight.ZFLOAT)
+		elseif portalIndex == 4 then
+			tp_position = Vector(-1964, -11136, 192+Winterblight.ZFLOAT)
 		end
 		if Winterblight.AzaleaPortalTable[portalIndex] == 1 then
 			Events:TeleportUnit(activator, tp_position, Events.GameMaster.portal, Events.GameMaster, 1.2)
@@ -172,6 +176,10 @@ end
 
 function AzaleaSpawn3()
 	Winterblight:AzaleaSpawn3()
+end
+
+function ShrineSpawn7(trigger)
+	Winterblight:InitAzaleaMazeRoom()
 end
 
 function PlatformSpawnTrigger(trigger)

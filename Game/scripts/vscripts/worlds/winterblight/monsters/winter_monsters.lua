@@ -555,7 +555,7 @@ function crystal_think(event)
 	end
 end
 
-function volcanic_glissade(event)
+function wb_volcanic_glissade(event)
 	local ability = event.ability
 	local caster = event.caster
 	local target = event.target_points[1]
@@ -605,7 +605,7 @@ function volcanic_glissade(event)
 	end
 end
 
-function glissade_thinking(event)
+function wb_glissade_thinking(event)
 	local ability = event.ability
 	local caster = event.caster
 
@@ -654,7 +654,7 @@ function mountain_dweller_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	if not caster.regenLock then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_mountain_dweller_regen", {})
+		ability:ApplyDataDrivenModifier(caster, caster, event.modifierName, {})
 	end
 
 	caster.regenLock = false
@@ -687,7 +687,7 @@ function mountain_dweller_take_damage(event)
 	local caster = event.caster
 	local ability = event.ability
 	caster.regenLock = true
-	caster:RemoveModifierByName("modifier_mountain_dweller_regen")
+	caster:RemoveModifierByName(event.modifierName)
 end
 
 function frostiok_passive_think(event)

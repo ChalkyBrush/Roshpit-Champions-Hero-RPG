@@ -120512,7 +120512,7 @@
 			"RunScript"
 			{
         		"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
-        		"Function"		"volcanic_glissade"
+        		"Function"		"wb_volcanic_glissade"
         		"Target"			"POINT"
         		"range"			"%range"
 			}
@@ -120531,7 +120531,7 @@
         			"RunScript"
         			{
         				"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
-        				"Function"		"glissade_thinking"
+        				"Function"		"wb_glissade_thinking"
         			}
         		}
         	}
@@ -120569,6 +120569,7 @@
 					{
 						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
 						"Function"		"mountain_dweller_take_damage"
+						"modifierName"	"modifier_mountain_dweller_regen"
 					}
 				}
 				"ThinkInterval"  "1.5"
@@ -120578,6 +120579,7 @@
 					{
 						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
 						"Function"		"mountain_dweller_think"
+						"modifierName"	"modifier_mountain_dweller_regen"
 					}
 				}
 			}
@@ -124684,6 +124686,14 @@
 				"armor_loss_per_stack"		"-3 -30 -300"
 			}
 		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+				"Function"		"cruxal_die"
+			}
+		}
 		"Modifiers"
 		{
 			"modifier_cruxal_passive"
@@ -124773,7 +124783,7 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"6 5 4"
+		"AbilityCooldown"				"6 5 4 2"
 		
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -124781,7 +124791,7 @@
 		
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"2000 25000 750000"
+		"AbilityDamage"					"2000 100000 7500000"
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -124984,6 +124994,536 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_DISABLE_HEALING" "1" 
+				}
+			}
+		}
+	}
+
+	"winterblight_maze_ghost_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"specter_desolate"
+		"AOERadius"			"600"
+		"MaxLevel"	"3"
+		"Modifiers"
+		{
+			"modifier_maze_ghost_frozen"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnAttacked"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"maze_ghost_frozen_attacked"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"EffectName"	"particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_buff.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+			"modifier_maze_ghost_passive"
+			{
+				"IsHidden" "1"
+				"Passive"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1000"
+				}
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"maze_ghost_think"
+					}
+				}
+			}
+			"modifier_maze_ghost_attack_immune"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	"winterblight_maze_food_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"specter_desolate"
+		"AOERadius"			"600"
+		"MaxLevel"	"3"
+		"Modifiers"
+		{
+			"modifier_maze_food_passive"
+			{
+				"IsHidden" "1"
+				"Passive"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1000"
+				}
+			}
+		}
+	}
+
+	"winterblight_essence_drain"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"pugna_life_drain"
+		"MaxLevel"	"3"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AOERadius"			"650 875 1100"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastRange"	"1200"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"AbilityChannelTime"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"radius"	"650 875 1100"
+			}
+
+		}
+		"Modifiers"
+		{
+			"modifier_blue_effect"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName" 		"particles/status_fx/status_effect_ancestral_spirit.vpcf"
+				"StatusEffectPriority"  "50"
+			}
+			"modifier_essence_drain_aura"
+			{
+				"IsHidden"	"0"
+				"Passive"	"1"
+				"IsBuff"	"1"
+				"Aura"          	"modifier_essence_drain_effect"
+				"Aura_Radius"   	"%radius"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Aura_ApplyToCaster" "0"
+			}
+			"modifier_essence_drain_effect"
+			{
+				"IsDebuff"	"0"
+				"IsHidden" "1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"essence_drain_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"essence_drain_end"
+						"target"		"TARGET"
+					}
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"	"TARGET"
+						"EffectName"	"particles/econ/items/lion/lion_demon_drain/lion_spell_mana_drain_demon.vpcf"
+						"EffectAttachType"	"start_at_customorigin"
+						"ControlPointEntities"
+						{
+							"TARGET"	"attach_attack1"
+							"CASTER"	"attach_attack1"
+						}
+
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"essence_drain_start"
+						"target"		"TARGET"
+					}
+				}
+
+			}
+
+		}
+
+	}
+
+	"winterblight_bladewielder_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attack_outgoing"			"300 700 1200"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"armor"			"50 500 5000"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_bladewielder_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_ancestral_spirit.vpcf"
+				"StatusEffectPriority"  "50"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"mountain_dweller_take_damage"
+						"modifierName"	"modifier_bladewielder_force"
+					}
+				}
+				"ThinkInterval"  "1.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"mountain_dweller_think"
+						"modifierName"	"modifier_bladewielder_force"
+					}
+				}
+			}
+			"modifier_bladewielder_force"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			
+				"EffectName"		"particles/roshpit/draghor/mark_of_the_claw_heal.vpcf"
+				"EffectAttachType"	"follow_origin"
+			
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attack_outgoing"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor"
+				}
+			}
+		}
+	}
+
+	"winterblight_maze_food_crystal_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"rubick_empty1"
+		"MaxLevel"	"3"
+		"Modifiers"
+		{
+			"modifier_master_crystal"
+			{
+				"Passive"		"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+						"Function"		"candy_crush_master_crystal_think"
+					}
+				}
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+						"Function"		"maze_food_crystal_hit"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+
+		}
+
+	}
+
+	"megmus_explosion"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"slardar_slithereen_crush"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCooldown"	"6"
+		"AbilityChannelTime"	"1.0"
+		"AbilityCastRange"				"580"
+		"AOERadius"						"580"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"precache"
+		{
+
+		}
+
+		"AbilityManaCost"	"0"
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+				"Function"		"megmus_start_channel"
+
+			}
+
+		}
+		"OnChannelSucceeded"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+				"Function"		"megmus_channel_complete"
+				"stun_duration"	"%stun_duration"
+				"damage"		"%damage"
+			}
+		}
+
+		"OnChannelFinish"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+		}
+
+		"OnChannelInterrupted"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+				"Function"		"megmus_channel_interrupt"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_blue_effect"
+			{
+				"StatusEffectName" 		"particles/status_fx/status_effect_ancestral_spirit.vpcf"
+				"StatusEffectPriority"  "50"
+				"Passive"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"				
+			}
+			"modifier_channel_start"
+			{
+				"IsHidden"	"1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"					"TARGET"
+						"EffectName"				"particles/act_2/storegga_channel_ground.vpcf"
+						"EffectAttachType"			"attach_hitloc"
+						"EffectLifeDurationScale"	"1"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"beginChannel"
+					}
+
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"endChannel"
+					}
+				}
+
+			}
+			"modifier_megmus_slow"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+			
+				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
+				"StatusEffectPriority"  "20"
+			
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%as_slow"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_slow" 
+				}
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_duration"	"1.0 1.3 1.6"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"2000 20000 500000"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"as_slow"			"-60 -240 -600"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_slow"			"-80 -160 -240"
+			}
+		}
+
+	}
+
+	"winterblight_rupthold_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
+		"MaxLevel"	"3"
+		"AOERadius"	"750 1500 2500"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"aoe_radius"			"750 1500 2500"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"health_regen_loss_percent"			"-1 -2 -3"
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+				"Function"		"rupthold_death"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_rupthold_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_ancestral_spirit.vpcf"
+				"StatusEffectPriority"  "50"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+						"Function"		"rupthold_think"
+					}
+				}
+				"Aura"          	"modifier_rupthold_effect"
+				"Aura_Radius"   	"%aoe_radius"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			}
+			"modifier_rupthold_effect"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+			
+				"EffectName"		"particles/roshpit/winterblight/rupthold_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+			
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DISABLE_HEALING"			"1"
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-100"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%health_regen_loss_percent"
 				}
 			}
 		}

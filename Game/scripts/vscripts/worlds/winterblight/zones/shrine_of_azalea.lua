@@ -1,6 +1,8 @@
 function Winterblight:SpawnAzaleaCups()
 	Winterblight:SpawnCup1()
 	Winterblight:SpawnCup2()
+	Winterblight:SpawnCup3()
+	Winterblight:SpawnCup4()
 end
 
 function Winterblight:CupSpawnCondition(index)
@@ -27,6 +29,22 @@ function Winterblight:SpawnCup2()
 	if Winterblight:CupSpawnCondition(2) then
 		if Winterblight.CandyCrushComplete then
 			Winterblight:SpawnAzaleaCup(Vector(5653, -14257), Vector(0,-1), 2)
+		end
+	end
+end
+
+function Winterblight:SpawnCup3()
+	if Winterblight:CupSpawnCondition(3) then
+		if Winterblight.CruxalSlain then
+			Winterblight:SpawnAzaleaCup(Vector(128, -11520), Vector(-1,0), 3)
+		end
+	end
+end
+
+function Winterblight:SpawnCup4()
+	if Winterblight:CupSpawnCondition(4) then
+		if Winterblight.RuptholdSlain then
+			Winterblight:SpawnAzaleaCup(Vector(-7077, -15307), Vector(0,-1), 4)
 		end
 	end
 end
@@ -99,7 +117,7 @@ function Winterblight:AzaleaCupAttacked(cup, attacker)
 			for i = 1, #enemies, 1 do
 				enemies[i]:AddNewModifier(victim, Events:GetGameMasterAbility(), "modifier_stunned", {duration = 1})
 				Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, enemies[i], "modifier_redfall_pushback", {duration = 0.8})
-				enemies[i].pushVector = Vector(-1,0)
+				enemies[i].pushVector = ((enemies[i]:GetAbsOrigin() - cup:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 			end
 		end		
 		AddFOWViewer(DOTA_TEAM_GOODGUYS, cup:GetAbsOrigin(), 200, 999999, true)
@@ -127,6 +145,23 @@ function Winterblight:AzaleaCupAttacked(cup, attacker)
 					Beacons:CreateActiveParticle("particles/portals/green_portal.vpcf", Vector(1255, -14425, 490+Winterblight.ZFLOAT), Events.GameMaster, 0, Vector(0.45, 0.45, 0.45))
 					AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(1255, -14425, 250+Winterblight.ZFLOAT), 300, 99999, false)
 					Winterblight.AzaleaPortalTable[2] = 1
+				end
+			elseif cup.index == 3 then
+				if Winterblight.AzaleaPortalTable[3] == 0 then
+					Beacons:CreateActiveParticle("particles/portals/green_portal.vpcf", Vector(448, -13426, 490+Winterblight.ZFLOAT), Events.GameMaster, 0, Vector(0.45, 0.45, 0.45))
+					AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(448, -13426, 250+Winterblight.ZFLOAT), 300, 99999, false)
+					Winterblight.AzaleaPortalTable[3] = 1
+				end
+				if Winterblight.AzaleaPortalTable[4] == 0 then
+					Beacons:CreateActiveParticle("particles/portals/green_portal.vpcf", Vector(-768, -13416, 490+Winterblight.ZFLOAT), Events.GameMaster, 0, Vector(0.45, 0.45, 0.45))
+					AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-768, -13416, 250+Winterblight.ZFLOAT), 300, 99999, false)
+					Winterblight.AzaleaPortalTable[4] = 1
+				end
+			elseif cup.index == 4 then
+				if Winterblight.AzaleaPortalTable[4] == 0 then
+					Beacons:CreateActiveParticle("particles/portals/green_portal.vpcf", Vector(-768, -13416, 490+Winterblight.ZFLOAT), Events.GameMaster, 0, Vector(0.45, 0.45, 0.45))
+					AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-768, -13416, 250+Winterblight.ZFLOAT), 300, 99999, false)
+					Winterblight.AzaleaPortalTable[4] = 1
 				end
 			end
 		end)
@@ -2715,7 +2750,12 @@ function Winterblight:AzaleaPlatformSpawns(index)
 		end
 	elseif index == 9 then
 		local spawn = Winterblight:SpawnCruxal(Vector(175, -11520), Vector(-1,0))
+		positionTable = {Vector(175, -11520)}
 		table.insert(unitTable, spawn)
+		for j = 0, 6, 1 do
+			local vecAdd = Vector(-562, -12160+j*300)
+			table.insert(positionTable, vecAdd)
+		end
 		for i = 0, 6, 1 do
 			local spawn = Winterblight:SpawnFrostElemental(Vector(-562, -12160+i*300), Vector(0,1))
 			table.insert(unitTable, spawn)
@@ -2947,8 +2987,424 @@ function Winterblight:SpawnCruxal(position, fv)
 	if Winterblight.Stones >= 1 then
 		stone:AddAbility("fire_temple_frenzy"):SetLevel(GameState:GetDifficultyFactor())
 	end
+	if Winterblight.Stones >= 2 then
+		stone:FindAbilityByName("cruxal_ice_blast"):SetLevel(4)
+	end
 	if Winterblight.Stones >= 3 then
 		stone:AddAbility("ability_mega_haste"):SetLevel(GameState:GetDifficultyFactor())
+	end
+	return stone
+end
+
+function Winterblight:InitAzaleaMazeRoom()
+	if not Winterblight.AzaleaMazeRoomSpawned then
+		Winterblight.AzaleaMazeRoomSpawned = true
+		local ghostPositionTable = {Vector(-2560, -10368), Vector(-3584, -15872), Vector(-2944, -15232), Vector(-3840, -14848), Vector(-2984, -14464), Vector(-2588, -13440), Vector(-3840, -12800), Vector(-2688, -12416), Vector(-3328, -13824), Vector(-2944, -11776), Vector(-3584, -11103), Vector(-2304, -11104), Vector(-2912, -10368)}
+		local mazeGhost = CreateUnitByName("azalea_maze_ghost", ghostPositionTable[RandomInt(1, #ghostPositionTable)]+RandomVector(150), false, nil, nil, DOTA_TEAM_NEUTRALS)
+		mazeGhost.food = 0
+		FindClearSpaceForUnit(mazeGhost, mazeGhost:GetAbsOrigin(), false)
+		local positionTable = {Vector(-3840, -15250), Vector(-3840, -14750), Vector(-3840, -14250), Vector(-3840, -13750), Vector(-3840, -13250), Vector(-3840, -12750), Vector(-3840, -12250), Vector(-3840, -11750), Vector(-3840, -11250), Vector(-3840, -10750), Vector(-3840, -15872), Vector(-3262, -15872), Vector(-2729, -15872), Vector(-2729, -15184), Vector(-3268, -15184), Vector(-3269, -14485), Vector(-2729, -14485), Vector(-2729, -13848), Vector(-2729, -13105), Vector(-3251, -13105), Vector(-3251, -12480), Vector(-2729, -12480), Vector(-3277, -11787), Vector(-2586, -11787), Vector(-1930, -11787), Vector(-1930, -11126), Vector(-2612, -11126), Vector(-3297, -11126), Vector(-3297, -10372), Vector(-2582, -10372), Vector(-1934, -10372), Vector(-5969, -15990), Vector(-5969, -15408), Vector(-5285, -15990), Vector(-5285, -15408), Vector(-4608, -15990), Vector(-4608, -15408)}
+		positionTable = WallPhysics:ShuffleTable(positionTable)
+		print("YOUR NUMBER SIR:")
+		print(#positionTable)
+		mazeGhost.goalFood = 21
+		Winterblight.foodTable = {}
+		-- Winterblight.positionSpawnTables = {{}, {}, {}}
+		-- for i = 1, 10, 1 do
+		-- 	table.insert(Winterblight.positionSpawnTables[1], positionTable[i])
+		-- end
+		local crystalPositions = WallPhysics:ShuffleTable(ghostPositionTable)
+		for i = 1, 3, 1 do
+			Winterblight:SpawnMazeFoodCrystal(crystalPositions[i], i, positionTable)
+		end
+		local luck = RandomInt(1, 3)
+		luck = 4
+		mazeGhost.goalFood = 1
+		if luck == 1 then
+			Winterblight:SpawnDemonSpirit(Vector(-1951, -10467), Vector(0,-1))
+			Winterblight:SpawnDemonSpirit(Vector(-1951, -11827), Vector(0,1))
+			Timers:CreateTimer(0.2, function()
+				local positionTable = {Vector(-2646, -11136), Vector(-2646, -11520), Vector(-2646, -11904)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnBladeWielder(positionTable[i], Vector(1,0))
+				end
+			end)
+			Timers:CreateTimer(0.5, function()
+				Winterblight:SpawnChillingColossus(Vector(-2950, -11811), Vector(1,0))
+				Winterblight:SpawnShineMegmus(Vector(-3303, -11136), Vector(0,-1))
+				Winterblight:SpawnShineMegmus(Vector(-3303, -11811), Vector(1,0))
+			end)
+			Timers:CreateTimer(0.7, function()
+				local positionTable = {Vector(-3909, -11893), Vector(-3909, -11392), Vector(-3909, -10880), Vector(-3909, -10368)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnFrostAvatar(positionTable[i], Vector(0,-1))
+				end
+				Winterblight:SpawnDemonSpirit(Vector(-2996, -10368), Vector(-1,0))
+			end)
+			Timers:CreateTimer(0.8, function()
+				local positionTable = {Vector(-3840, -12416), Vector(-3328, -12416), Vector(-3328, -12800), Vector(-3328, -13184), Vector(-2825, -13184)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnCrystalRunner(positionTable[i], Vector(0,1))
+				end
+				Winterblight:SpawnChillingColossus(Vector(-2746, -12447), Vector(0,-1))
+			end)
+			Timers:CreateTimer(1.0, function()
+				local positionTable = {Vector(-3840, -14464), Vector(-3328, -14464), Vector(-2816, -14464)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnShineMegmus(positionTable[i], Vector(-1,0))
+				end
+				Winterblight:SpawnDemonSpirit(Vector(-2688, -13824), Vector(0,1))
+			end)
+			Timers:CreateTimer(1.2, function()
+				local positionTable = {Vector(-3904, -13824), Vector(-3584, -13824), Vector(-3258, -13824)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnArmoredKnight(positionTable[i], Vector(0,1))
+				end
+			end)
+			Timers:CreateTimer(1.5, function()
+				local positionTable = {Vector(-5405, -15616), Vector(-5237, -15321), Vector(-4736, -15451), Vector(-4352, -15300), Vector(-3976, -15301)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnBladeWielder(positionTable[i], Vector(1,0))
+				end
+			end)
+			Timers:CreateTimer(2.0, function()
+				local positionTable = {Vector(-4736, -15843), Vector(-4352, -15843), Vector(-3968, -15843), Vector(-3584, -15843), Vector(-3200, -15843), Vector(-2816, -15843)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnShineMegmus(positionTable[i], Vector(1,0))
+				end
+			end)
+			Timers:CreateTimer(2.2, function()
+				Winterblight:SpawnDemonSpirit(Vector(-3328, -15206), Vector(0,1))
+				Winterblight:SpawnDemonSpirit(Vector(-2777, -15206), Vector(0,1))
+			end)
+			Timers:CreateTimer(2.6, function()
+				local positionTable = {Vector(-5269, -15942), Vector(-5632, -15941), Vector(-6016, -15933)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnSyphist(positionTable[i], Vector(0,1))
+				end
+			end)
+			Timers:CreateTimer(3.0, function()
+				for i = 0, 2, 1 do
+					for j = 0, 2, 1 do
+						Winterblight:SpawnColdSeer(Vector(-7040+i*256, -16000+j*256), Vector(1,0))
+					end
+				end
+			end)
+			Timers:CreateTimer(3.3, function()
+				local positionTable = {Vector(-7618, -15232), Vector(-7878, -15488), Vector(-7987, -15872)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnFrostHulk(positionTable[i], RandomVector(1))
+				end
+			end)
+		elseif luck == 2 then
+			Timers:CreateTimer(0.1, function()
+				local positionTable = {Vector(-1962, -12032), Vector(-1962, -11520), Vector(-1962, -11008), Vector(-1962, -10496)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnShineMegmus(positionTable[i], Vector(0,-1))
+				end
+			end)		
+			Timers:CreateTimer(0.2, function()
+				Winterblight:SpawnDemonSpirit(Vector(-3328, -11510), Vector(0,-1))
+				Winterblight:SpawnDemonSpirit(Vector(-2679, -11510), Vector(0,1))
+				Winterblight:SpawnChillingColossus(Vector(-2679, -11149), Vector(1,0))
+			end)
+			Timers:CreateTimer(0.5, function()
+				local positionTable = {Vector(-3865, -10425), Vector(-3456, -10425), Vector(-3072, -10425), Vector(-2688, -10425)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnBladeWielder(positionTable[i], Vector(-1,0))
+				end
+			end)
+			Timers:CreateTimer(0.9, function()
+				local positionTable = {Vector(-3880, -11112), Vector(-3880, -11763), Vector(-3880, -12416), Vector(-3328, -12416)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnShineMegmus(positionTable[i], Vector(0,1))
+				end
+				Winterblight:SpawnGhostStriker(Vector(-2704, -13844), Vector(0,1))
+				Winterblight:SpawnGhostStriker(Vector(-2704, -13568), Vector(0,1))
+			end)	
+			Timers:CreateTimer(1.1, function()
+				local positionTable = {Vector(-3328, -13056), Vector(-2688, -13056)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnDemonSpirit(positionTable[i], Vector(0,1))
+				end
+			end)
+			Timers:CreateTimer(1.3, function()
+				local positionTable = {Vector(-3200, -13824), Vector(-3514, -13824), Vector(-3892, -13824), Vector(-3892, -14208), Vector(-3892, -14548), Vector()}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnAzaleaHighguard(positionTable[i], Vector(0,1))
+				end
+			end)
+			Timers:CreateTimer(1.5, function()
+				local positionTable = {Vector(-3509, -14548), Vector(-3072, -14548), Vector(-2688, -14548)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnSoftwalker(positionTable[i], Vector(0,1))
+				end
+			end)	
+			Timers:CreateTimer(1.7, function()
+				local positionTable = {Vector(-3200, -15087), Vector(-3200, -15360), Vector(-2816, -15360), Vector(-2814, -15087)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnBladeWielder(positionTable[i], Vector(0,1))
+				end
+			end)	
+			Timers:CreateTimer(1.5, function()
+				local positionTable = {Vector(-4224, -15840), Vector(-3584, -15840), Vector(-2814, -15840)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnDemonSpirit(positionTable[i], Vector(0,1))
+				end
+			end)	
+			Timers:CreateTimer(1.9, function()
+				local positionTable = {Vector(-5378, -15360), Vector(-4994, -15360), Vector(-4534, -15360), Vector(-4589, -15682), Vector(-4589, -16000)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnArmoredKnight(positionTable[i], Vector(0,1))
+				end
+			end)	
+			Timers:CreateTimer(2.1, function()
+				local positionTable = {Vector(-6018, -16000), Vector(-6018, -15676), Vector(-6018, -15293)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnFrostHulk(positionTable[i], Vector(0,-1))
+				end
+			end)		
+			Timers:CreateTimer(3.1, function()
+				local positionTable = {Vector(-6577, -15956), Vector(-7037, -15951), Vector(-6806, -15744), Vector(-6577, -15488)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnAzaleaSorceress(positionTable[i], Vector(0,-1))
+				end
+			end)
+			Timers:CreateTimer(3.5, function()
+				local positionTable = {Vector(-8092, -15539), Vector(-7680, -15392)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnDemonSpirit(positionTable[i], Vector(1,0))
+				end
+				Winterblight:SpawnChillingColossus(Vector(-8064, -16000), Vector(0,1))
+			end)	
+		elseif luck == 3 then
+			Timers:CreateTimer(0.1, function()
+				Winterblight:SpawnGhostStriker(Vector(-1978, -10368), Vector(0,-1))
+				Winterblight:SpawnGhostStriker(Vector(-1978, -10752), Vector(0,-1))
+				Winterblight:SpawnGhostStriker(Vector(-1978, -11648), Vector(0,1))
+				Winterblight:SpawnGhostStriker(Vector(-1978, -12032), Vector(0,1))
+			end)
+			Timers:CreateTimer(0.3, function()
+				local positionTable = {Vector(-2689, -11802), Vector(-2668, -11417), Vector(-2688, -11008)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnDemonSpirit(positionTable[i], Vector(1,0))
+				end
+			end)	
+			Timers:CreateTimer(0.5, function()
+				local positionTable = {Vector(-3276, -11846), Vector(-3276, -11484), Vector(-3392, -11136), Vector(-3903, -11136), Vector(-3903, -11520), Vector(3903, -10752)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnShineMegmus(positionTable[i], Vector(1,0))
+				end
+			end)	
+			Timers:CreateTimer(0.8, function()
+				local positionTable = {Vector(-3902, -10410), Vector(-3456, -10411), Vector(-2984, -10410)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnArmoredKnight(positionTable[i], Vector(-1,0))
+				end
+			end)	
+			Timers:CreateTimer(1.0, function()
+				local positionTable = {Vector(-3069, -13115), Vector(-3385, -13115), Vector(-3294, -12719), Vector(-3200, -12416), Vector(-3512, -12416), Vector(-3840, -12416)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnBladeWielder(positionTable[i], Vector(1,0))
+				end
+			end)		
+			Timers:CreateTimer(1.2, function()
+				local positionTable = {Vector(-3840, -13824), Vector(-3536, -13824), Vector(-3232, -13824)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnAzaleaMaiden(positionTable[i], Vector(1,0))
+				end
+			end)	
+			Timers:CreateTimer(1.5, function()
+				local positionTable = {Vector(-3890, -14080), Vector(-3897, -14486), Vector(-3328, -14486), Vector(-2816, -14486)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnAzaleaArcher(positionTable[i], Vector(1,0))
+				end
+			end)	
+			Timers:CreateTimer(1.8, function()
+				local positionTable = {Vector(-3328, -15232), Vector(-2739, -15232)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnDemonSpirit(positionTable[i], Vector(0,1))
+				end
+				for i = 0, 4, 1 do
+					Winterblight:SpawnSecretKeeper(Vector(-4408+i*420, -15870), Vector(0,1))
+				end
+			end)	
+			Timers:CreateTimer(2, function()
+				for i = 0, 1, 1 do
+					for j = 0, 1, 1 do
+						local pos = Vector(-4792+i*256, -15872+j*256)
+						Winterblight:SpawnShineMegmus(pos, Vector(1,0))
+					end
+				end
+			end)	
+			Timers:CreateTimer(2.2, function()
+				local positionTable = {Vector(-5376, -15486), Vector(-5376, -15872)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnDemonSpirit(positionTable[i], Vector(0,1))
+				end
+			end)	
+			Timers:CreateTimer(2.4, function()
+				local positionTable = {Vector(-5974, -15872), Vector(-5974, -15421), Vector(-6400, -15421)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnBladeWielder(positionTable[i], Vector(0,1))
+				end
+				SpawnChillingColossus(Vector(-3968, -15307), Vector(0,1))
+			end)	
+			Timers:CreateTimer(3.0, function()
+				for i = 0, 1, 1 do
+					for j = 0, 2, 1 do
+						local pos = Vector(-6949+i*256, -15911+j*200)
+						Winterblight:SpawnArmoredKnight(pos, Vector(1,0))
+					end
+				end
+			end)	
+			Timers:CreateTimer(1.9, function()
+				Winterblight:SpawnColdSeer(Vector(-2727, -13824), Vector(0,1))
+				Winterblight:SpawnColdSeer(Vector(-2727, -13450), Vector(0,1))
+				Winterblight:SpawnColdSeer(Vector(-2727, -13150), Vector(0,1))
+				Winterblight:SpawnColdSeer(Vector(-2727, -12870), Vector(0,1))
+			end)
+			Timers:CreateTimer(3.3, function()
+				Winterblight:SpawnCrystalRunner(Vector(-7661, -15232), Vector(-0.5, -1))
+				Winterblight:SpawnCrystalRunner(Vector(-7552, -15468), Vector(-0.5, -0.4))
+				Winterblight:SpawnCrystalRunner(Vector(-8064, -16000), Vector(1, 0.4))
+				Winterblight:SpawnCrystalRunner(Vector(-8129, -15744), Vector(1, 0.1))
+				Winterblight:SpawnCrystalRunner(Vector(-8190, -15435), Vector(1, -0.5))
+				Winterblight:SpawnDemonSpirit(Vector(-3881, -13184), Vector(0,1))
+			end)	
+		end
+		local luck2 = RandomInt(1, 3)
+		Timers:CreateTimer(0.5, function()
+			local positionTable = {Vector(-1898, -11904), Vector(-3840, -12416), Vector(-3180, -14505), Vector(-5376, -15872)}
+		    for i = 1, 1, 1 do
+		      Timers:CreateTimer(i*1.2, function()
+		        local patrolPositionTable = {}
+		        for j = 1, #positionTable, 1 do
+		          local index = i + j
+		          if index > #positionTable then
+		            index = index - #positionTable
+		          end
+		          table.insert(patrolPositionTable, positionTable[index])
+		        end
+		        for j = 0, 1, 1 do
+		          Timers:CreateTimer(j*1, function()
+		          	if luck2 == 1 then
+			            local elemental = Winterblight:SpawnColdSeer(positionTable[i]+RandomVector(RandomInt(1,100)), RandomVector(1))
+			            Winterblight:AddPatrolArguments(elemental, 25, 10, 220, patrolPositionTable)
+			        elseif luck2 == 2 then
+			            local elemental = Winterblight:SpawnPriestOfAzalea(positionTable[i]+RandomVector(RandomInt(1,100)), RandomVector(1))
+			            Winterblight:AddPatrolArguments(elemental, 25, 10, 220, patrolPositionTable)
+			        elseif luck2 == 3 then
+			            local elemental = Winterblight:SpawnAzaleaHighguard(positionTable[i]+RandomVector(RandomInt(1,100)), RandomVector(1))
+			            Winterblight:AddPatrolArguments(elemental, 25, 10, 220, patrolPositionTable)
+			        end
+		          end)
+		        end
+		      end)
+		    end
+		end)
+	end
+end
+
+function Winterblight:SpawnMazeFood(position)
+	local mazeFood = CreateUnitByName("azalea_maze_food", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
+	mazeFood:SetAbsOrigin(GetGroundPosition(position, mazeFood))
+	local pfx = ParticleManager:CreateParticle( "particles/econ/items/wisp/wisp_ambient_ti7.vpcf", PATTACH_CUSTOMORIGIN, nil )
+	ParticleManager:SetParticleControlEnt(pfx, 0, mazeFood, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", mazeFood:GetAbsOrigin(), true)
+	mazeFood.pfx1 = pfx
+	local pfx2 = ParticleManager:CreateParticle( "particles/units/heroes/hero_dark_willow/dark_willow_willowisp_ambient.vpcf", PATTACH_CUSTOMORIGIN, nil )
+	ParticleManager:SetParticleControl(pfx2, 0, mazeFood:GetAbsOrigin()+Vector(0,0,100))
+	mazeFood.pfx2 = pfx2
+	table.insert(Winterblight.foodTable, mazeFood)
+	-- mazeFood:SetRenderColor(100, 150, 255)
+end
+
+function Winterblight:SpawnDemonSpirit(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_demon_spirit", position, 1, 1, "Winterblight.DemonSpirit.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 4, 3, false)
+	stone.itemLevel = 44
+	stone.dominion = true
+	stone.targetRadius = 1200
+	stone.autoAbilityCD = 1
+	return stone
+end
+
+function Winterblight:SpawnBladeWielder(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_bladewielder", position, 0, 1, "Winterblight.BladeWielder.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 5, 3, false)
+	stone.itemLevel = 44
+	stone.dominion = true
+	return stone
+end
+
+function Winterblight:SpawnMazeFoodCrystal(position, index, positionTable)
+	local position = position + Vector(0, 0, 520+Winterblight.ZFLOAT)
+    local crystal = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
+    crystal:SetAbsOrigin(crystal:GetAbsOrigin()+Vector(0,0,50))
+    local yaw = 345
+    crystal:SetAngles(0, yaw, 0)
+
+    crystal:SetModelScale(1.0)
+    crystal:SetOriginalModel("models/winterblight/azalea_crystal.vmdl")
+    crystal:SetModel("models/winterblight/azalea_crystal.vmdl")
+    crystal:SetAbsOrigin(position)
+
+    crystal:RemoveAbility("dummy_unit")
+    crystal:RemoveModifierByName("dummy_unit")
+    crystal.basePosition = position
+
+    crystal.yaw = yaw
+    crystal:AddAbility("winterblight_maze_food_crystal_ability"):SetLevel(1)
+    crystal.pushLock = true
+    crystal.dummy = true
+    crystal.jumpLock = true
+
+	crystal:SetRenderColor(80, 180, 255)
+    CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_wisp/wisp_death.vpcf", crystal, 3)
+    local loopStart = (index-1)*10 + 1
+    local loopEnd = index*10
+    crystal.foodPositionTable = {}
+    for i = loopStart, loopEnd, 1 do
+    	table.insert(crystal.foodPositionTable, positionTable[i])
+    end
+    AddFOWViewer(DOTA_TEAM_GOODGUYS, position, 300, 6000, false)
+end
+
+function Winterblight:SpawnShineMegmus(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("azalea_shrine_megmus", position, 0, 1, "Winterblight.ShrineMegmus.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 5, 4, false)
+	stone.itemLevel = 44
+	stone.dominion = true
+	stone.targetRadius = 600
+	stone.autoAbilityCD = 1
+	if Winterblight.Stones >= 1 then
+		stone:AddAbility("luna_taskmaster_shield"):SetLevel(GameState:GetDifficultyFactor())
+	end
+	if Winterblight.Stones >= 2 then
+		stone:AddAbility("ability_magic_immune_break"):SetLevel(GameState:GetDifficultyFactor())
+	end
+	return stone
+end
+
+function Winterblight:SpawnRuptholdTheGlutton(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("rupthold_the_glutton", position, 5, 7, "Winterblight.Rupthold.Aggro", fv, true)
+	Events:AdjustBossPower(stone, 5, 5, false)
+	stone.itemLevel = 44
+	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_undying/undying_tnt_wlk_golem.vpcf", stone, 5)
+	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_tusk/tusk_walruspunch_start.vpcf", stone, 5)
+	return stone
+end
+
+function Winterblight:SpawnRuptholdGhost(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("rupthold_ghost", position, 0, 1, "Winterblight.Rupthold.Ghost", fv, true)
+	Events:AdjustBossPower(stone, 3, 3, false)
+	stone.itemLevel = 44
+	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_tusk/tusk_walruspunch_start.vpcf", stone, 5)
+	if Winterblight.Stones >= 2 then
+		stone:AddAbility("fire_temple_steadfast"):SetLevel(GameState:GetDifficultyFactor())
+	end
+	if Winterblight.Stones >= 3 then
+		stone:AddAbility("creature_pure_strike"):SetLevel(GameState:GetDifficultyFactor())
 	end
 	return stone
 end

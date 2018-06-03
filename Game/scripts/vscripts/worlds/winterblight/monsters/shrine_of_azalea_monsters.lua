@@ -1460,3 +1460,284 @@ function cruxal_ice_blast_start(event)
 	local point = event.target_points[1]
 
 end
+
+function cruxal_die(event)
+	local caster = event.caster
+	Winterblight.CruxalSlain = true
+	EmitSoundOn("Winterblight.Cruxal.Death", caster)
+	Winterblight:SpawnCup3()
+end
+
+function maze_ghost_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not caster.counter then
+		caster.counter = 0
+	end
+	AddFOWViewer(DOTA_TEAM_GOODGUYS, caster:GetAbsOrigin(), 300, 3, false)
+	if caster:HasModifier("modifier_maze_ghost_frozen") then
+		return false
+	end
+	if caster.lock then
+		return false
+	end
+	local radiusEnemy = 300 + caster.food*8
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radiusEnemy, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )	
+	if #enemies > 0 then
+		local sumVector = Vector(0,0)
+		for i = 1, #enemies, 1 do
+			sumVector = sumVector + enemies[i]:GetAbsOrigin()
+		end
+		local avgVector = sumVector/#enemies
+		local runDirection = ((caster:GetAbsOrigin() - avgVector)*Vector(1,1,0)):Normalized()
+		local runPosition = caster:GetAbsOrigin()+runDirection*50
+		local runPosition2 = WallPhysics:WallSearch(caster:GetAbsOrigin(), runPosition, caster)
+		if WallPhysics:GetDistance2d(runPosition, runPosition2) > 0 then
+			runPosition = caster:GetAbsOrigin()-runDirection*50
+		end
+		if not GridNav:IsTraversable(runPosition) then
+			runPosition = caster:GetAbsOrigin()-runDirection*120
+		end
+		local order = {
+		 		UnitIndex = caster:entindex(), 
+		 		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+		 		Position = runPosition
+	 	}
+		ExecuteOrderFromTable(order)
+		caster.counter = 0
+	else
+		caster.counter = caster.counter + 1
+		if caster.counter > 30 then
+			local order = {
+			 		UnitIndex = caster:entindex(), 
+			 		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+			 		Position = caster:GetAbsOrigin()+RandomVector(180)
+		 	}
+			ExecuteOrderFromTable(order)
+			caster.counter = 0
+		end
+	end	
+	local radius = 180 + caster.food*6
+	local allies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )	
+	for i = 1, #allies, 1 do
+		local ally = allies[1]
+		if ally:GetUnitName() == "azalea_maze_food" then
+			caster.food = caster.food + 1
+			caster:SetModelScale(1 + caster.food*0.12)
+			CustomAbilities:QuickAttachParticle("particles/econ/items/wisp/wisp_death_ti7.vpcf", caster, 3)
+			EmitSoundOn("Winterblight.MazeZombie.EatFood", caster)
+			ParticleManager:DestroyParticle(ally.pfx1, false)
+			ParticleManager:DestroyParticle(ally.pfx2, false)
+			UTIL_Remove(ally)
+			if caster.food >= caster.goalFood then
+				for j = 1, #Winterblight.foodTable, 1 do
+					local food = Winterblight.foodTable[j]
+					if IsValidEntity(food) then
+						ParticleManager:DestroyParticle(food.pfx1, false)
+						ParticleManager:DestroyParticle(food.pfx2, false)
+						UTIL_Remove(food)
+					end
+				end
+				caster.lock = true
+				StartAnimation(caster, {duration=3.8, activity=ACT_DOTA_DIE, rate=0.9})
+				EmitSoundOn("Winterblight.Zombie.Dizzy", caster)
+				Timers:CreateTimer(2.0, function()
+					EmitSoundOn("Winterblight.Zombie.FallThump", caster)
+				end)
+				Timers:CreateTimer(3.0, function()
+					local boss = Winterblight:SpawnRuptholdTheGlutton(caster:GetAbsOrigin(), caster:GetForwardVector())
+					StartAnimation(boss, {duration=2.0, activity=ACT_DOTA_SPAWN, rate=1})
+					local position = boss:GetAbsOrigin()
+					local pfx = ParticleManager:CreateParticle( "particles/roshpit/winterblight_dust.vpcf", PATTACH_CUSTOMORIGIN, nil)
+					ParticleManager:SetParticleControl(pfx, 0, position+Vector(0,0,80))
+					ParticleManager:SetParticleControl(pfx, 5, Vector(0.9, 0.9, 1.0))
+					ParticleManager:SetParticleControl(pfx, 2, Vector(0.8,0.8,0.8))
+					Timers:CreateTimer(10, function() 
+					  ParticleManager:DestroyParticle( pfx, false )
+					  ParticleManager:ReleaseParticleIndex(pfx)
+					end)
+					UTIL_Remove(caster)
+				end)
+			else
+				StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_DIE, rate=1.1})
+			end
+			break
+		end
+	end
+
+end
+
+function essence_drain_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+
+	local modifiers = target:FindAllModifiers()
+	for i = 1, #modifiers, 1 do
+		local modifier = modifiers[i]
+		local modifierMaker = modifier:GetCaster()
+		local condition = false
+		if modifierMaker:GetTeamNumber() == target:GetTeamNumber() then
+			local durationRemaining = modifier:GetRemainingTime()
+			if durationRemaining > 0.5 then
+				modifier:SetDuration(durationRemaining - 0.1, true)
+				local caster_modifier = false
+				local stacks = modifier:GetStackCount()
+				if not caster:HasModifier(modifier:GetName()) then
+					local modifierAbility = modifier:GetAbility()
+					if IsValidEntity(modifierAbility) then
+						modifierAbility:ApplyDataDrivenModifier(modifier:GetCaster(), caster, modifier:GetName(), {duration = 0.3})
+					end
+				end
+				caster_modifier = caster:FindModifierByName(modifier:GetName())
+				if caster_modifier then
+					local durationRemaining2 = caster_modifier:GetRemainingTime()
+					caster_modifier:SetDuration(durationRemaining2 + 0.2, true)
+					caster_modifier:SetStackCount(stacks)
+				end
+			end
+		end
+	end
+end
+
+function essence_drain_start(event)
+	local target = event.target
+	StartSoundEvent("Winterblight.DemonSpirit.DrainEvent", target)
+end
+
+function essence_drain_end(event)
+	local target = event.target
+	StopSoundEvent("Winterblight.DemonSpirit.DrainEvent", target)
+end
+
+function maze_food_crystal_hit(event)
+	local caster = event.caster
+	if not caster.lock then
+		caster.lock = true
+		local position = caster:GetAbsOrigin()
+		local pfx = CustomAbilities:QuickParticleAtPoint("particles/act_2/flying_shatter_blast_explosion.vpcf", caster:GetAbsOrigin(), 3)
+		for i = 1, 6, 1 do
+			ParticleManager:SetParticleControl(pfx, i, caster:GetAbsOrigin())
+		end
+		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.CandyCrystal.Shatter", Winterblight.Master)
+		for i = 1, #caster.foodPositionTable, 1 do
+			Winterblight:SpawnMazeFood(caster.foodPositionTable[i])
+		end
+		 for i = 0, 1, 1 do
+		 	Timers:CreateTimer(0.1*i, function()
+				local pfx = ParticleManager:CreateParticle( "particles/roshpit/winterblight_dust.vpcf", PATTACH_CUSTOMORIGIN, nil)
+				ParticleManager:SetParticleControl(pfx, 0, position+Vector(0,0,80))
+				ParticleManager:SetParticleControl(pfx, 5, Vector(0.9, 0.9, 1.0))
+				ParticleManager:SetParticleControl(pfx, 2, Vector(0.8,0.8,0.8))
+				Timers:CreateTimer(10, function() 
+				  ParticleManager:DestroyParticle( pfx, false )
+				  ParticleManager:ReleaseParticleIndex(pfx)
+				end)
+			end)
+		 end
+		UTIL_Remove(caster)
+	end
+end
+
+function megmus_start_channel(event)
+	local caster = event.caster
+	local ability = event.ability
+	EmitSoundOn("Winterblight.ShrineMegmus.Aggro", caster)
+	StartSoundEvent("Winterblight.Megmus.Channel", caster)
+end
+
+
+
+function megmus_channel_complete(event)
+	local caster = event.caster
+	local ability = event.ability
+	-- CustomAbilities:QuickAttachParticle("particles/econ/items/monkey_king/arcana/water/monkey_king_spring_arcana_water.vpcf", caster, 7)
+	local castLoops = 0
+	for i = 0, castLoops, 1 do
+		Timers:CreateTimer(i*2, function()
+			EmitSoundOn("Winterblight.Megmus.Ability", caster)
+			local pfx = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf", PATTACH_CUSTOMORIGIN, caster)
+			ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+			ParticleManager:SetParticleControl(pfx, 1, Vector(600, 2, 2))
+			StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_CAST_ABILITY_2, rate=0.8})
+			local stunDuration = event.stun_duration
+
+			StopSoundEvent("Winterblight.Megmus.Channel", caster)
+			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 520, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+			local damage = event.damage
+			if #enemies > 0 then
+				for _,enemy in pairs(enemies) do
+					ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
+					Filters:ApplyStun(caster, stunDuration, enemy)
+					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_megmus_slow", {duration = 6})
+				end
+			end 
+			
+			Timers:CreateTimer(6, function()
+				ParticleManager:DestroyParticle(pfx, false)
+			end)
+		end)
+	end
+end
+
+
+function megmus_channel_interrupt(event)
+	local caster = event.caster
+	StopSoundEvent("Winterblight.Megmus.Channel", caster)
+end
+
+function maze_ghost_frozen_attacked(event)
+	local caster = event.caster
+	local ability = event.ability
+	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_medusa/ice_shatter.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin())
+	EmitSoundOn("Winterblight.IceCrystal.Shatter", caster)
+	caster:RemoveModifierByName("modifier_maze_ghost_frozen")
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_maze_ghost_attack_immune", {})
+	Timers:CreateTimer(2, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
+end
+
+function rupthold_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not caster.summonPhase then
+		caster.summonPhase = 0
+	end
+	if not caster:IsAlive() then
+		return false
+	end
+	if caster:GetHealth()/caster:GetMaxHealth() < (1-caster.summonPhase*0.1) then
+		caster.summonPhase = caster.summonPhase + 1
+		local baseVector = caster:GetForwardVector()
+		EmitSoundOn("Winterblight.Rupthold.Summon", caster)
+		local spawns = 4 + GameState:GetDifficultyFactor()
+		for i = 0, spawns, 1 do
+			local pfxName = "particles/items_fx/white_zap_beam.vpcf"
+			local spawnPosition = caster:GetAbsOrigin() + WallPhysics:rotateVector(baseVector, 2*math.pi*i/spawns)*300
+			local pfx = ParticleManager:CreateParticle(pfxName, PATTACH_CUSTOMORIGIN, nil)
+			ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()+Vector(0,0,120))
+			ParticleManager:SetParticleControl(pfx, 1, spawnPosition)
+			Timers:CreateTimer(1.5, function()
+				ParticleManager:DestroyParticle(pfx, false)
+			end)
+			Winterblight:SpawnRuptholdGhost(spawnPosition, baseVector)
+		end
+	end
+end
+
+function rupthold_death(event)
+	local caster = event.caster
+	local ability = event.ability
+	EmitSoundOn("Winterblight.Rupthold.Death", caster)
+	Winterblight.RuptholdSlain = true
+	Winterblight:SpawnCup4()
+	Timers:CreateTimer(3, function()
+		local walls = Entities:FindAllByNameWithin("AzaleaWall7", Vector(-7918, -15008, -4094+Winterblight.ZFLOAT), 2400)
+	    EmitSoundOnLocationWithCaster(Vector(-7918, -15008), "Winterblight.WallOpen", Events.GameMaster)
+	    Winterblight:WallsTicks(false, walls, true, 5, 360, 0.1)
+	    Winterblight:RemoveBlockers(4, "AzaleaWallBlocker4", Vector(-7936, -14975, 300+Winterblight.ZFLOAT), 1800)
+	end)
+end

@@ -2986,7 +2986,7 @@ end
 
 function Filters:CeruleanHighguard(caster)
     local ability = caster:GetAbilityByIndex(1)
-    local manaCost = ability:GetManaCost(ability:GetLevel())
+    local manaCost = ability:GetManaCost(-1)
     caster:ReduceMana(manaCost*4)
 end
 
