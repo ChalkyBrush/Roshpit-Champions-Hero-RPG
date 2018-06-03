@@ -2,7 +2,6 @@ function start_channel(event)
 	local caster = event.caster
 	local ability = event.ability
 	EmitSoundOn("Hydroxis.Ultimate.Voice", caster)
-	StartSoundEvent("Hydroxis.WaterChannel", caster)
 
 	ability.b_d_level = Runes:GetTotalRuneLevel(caster, 2, "b_d", "hydroxis")
 	if ability.b_d_level > 0 then
@@ -10,6 +9,13 @@ function start_channel(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_hydroxis_b_d", {duration = b_d_duration})
 	end
 	caster.d_c_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
+
+	if caster:HasModifier("modifier_hydroxis_glyph_6_1") then
+		channel_complete(event)
+		caster:Stop()
+	else
+		StartSoundEvent("Hydroxis.WaterChannel", caster)
+	end
 end
 
 
@@ -34,9 +40,23 @@ function channel_complete(event)
 
 			StopSoundEvent("Hydroxis.WaterChannel", caster)
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 520, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-			local damage = event.strength_damage*caster:GetStrength()
-			local stunDuration = event.stun_duration
-			local slow_duration = event.slow_duration + stunDuration
+			abilityArray_damage = {60, 100, 150, 240, 360, 500, 800}
+			abilityArray_stunDuration = {1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3.0}
+			abilityArray_slow_duration = 6
+			local damage = 0
+			local stunDuration = 0
+			local slow_duration = 0
+			local hydroxis_tsunami_ability = caster:FindAbilityByName("hydroxis_tsunami")
+			local hydroxis_tsunami_ability_LVL = hydroxis_tsunami_ability:GetLevel()
+			if hydroxis_tsunami_ability and hydroxis_tsunami_ability_LVL then				
+				damage = abilityArray_damage[hydroxis_tsunami_ability_LVL]*caster:GetStrength()
+				stunDuration = abilityArray_stunDuration[hydroxis_tsunami_ability_LVL]
+				slow_duration = stunDuration + abilityArray_slow_duration
+			else
+				damage = event.strength_damage*caster:GetStrength()
+				stunDuration = event.stun_duration
+				slow_duration = event.slow_duration + stunDuration
+			end
 			local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d", "hydroxis")
 			ability.a_d_level = a_d_level
 			damage = damage * (1 + 0.00005 * a_d_level * caster:GetPhysicalArmorValue())
@@ -222,7 +242,7 @@ function poseidons_wrath_attack_land(event)
 	if attacker:HasModifier("modifier_hydroxis_immortal_weapon_1") then
 		radius = 450
 	end
-	local enemies = FindUnitsInRadius( attacker:GetTeamNumber(), attacker:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+	local enemies = FindUnitsInRadius( attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for i = 1, #enemies, 1 do
 			if i <= 12 then

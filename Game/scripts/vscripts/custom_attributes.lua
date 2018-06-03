@@ -2,8 +2,10 @@ if CustomAttributes == nil then
   CustomAttributes = class({})
 end
 
+require('/heroes/obsidian_destroyer/constants_epoch')
+
 CustomAttributes.FLAMEWAKER_R3_STRENGTH = 260
-CustomAttributes.EPOCH_W3_INT = 25
+-- CustomAttributes.EPOCH_W3_INT = 25 --now is const
 -- CustomAttributes.EPOCH_R1_STR_AGI = 15
 CustomAttributes.CONJUROR_E1_AGI = 25
 CustomAttributes.WARLORD_W2_STATS = 60
@@ -95,7 +97,7 @@ function CustomAttributes:SetAttributes(hero)
 		int_bonus = int_bonus + stacks*CustomAttributes.ASTRAL_W1_ARCANA2_STATS
 	end
 	if hero:HasModifier("modifier_epoch_rune_c_b_invisible") then
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_epoch_rune_c_b_invisible", CustomAttributes.EPOCH_W3_INT)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_epoch_rune_c_b_invisible", epoch_w3_int)
 	end
 	--if hero:HasModifier("modifier_time_ulti_a_d_invisible_str_and_agi") then
 	--	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_time_ulti_a_d_invisible_str_and_agi", CustomAttributes.EPOCH_R1_STR_AGI)
