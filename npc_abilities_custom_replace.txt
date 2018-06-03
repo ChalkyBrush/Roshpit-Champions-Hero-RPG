@@ -56,3 +56,7 @@ ELEMENTAL_WARLORD_RUNES:heroes\beastmaster\npc\runes.txt
 <% heroes\invoker\constants_CONJUROR.lua %>
 CONJUROR_ABILITIES:heroes\invoker\npc\abilities.txt
 CONJUROR_RUNES:heroes\invoker\npc\runes.txt
+
+<% heroes\obsidian_destroyer\constants_epoch.lua %>
+EPOCH_ABILITIES:heroes\obsidian_destroyer\npc\abilities.txt
+EPOCH_RUNES:heroes\obsidian_destroyer\npc\runes.txt

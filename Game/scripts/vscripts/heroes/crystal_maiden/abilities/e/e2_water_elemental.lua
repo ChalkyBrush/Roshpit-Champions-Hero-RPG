@@ -26,7 +26,9 @@ local function summon(caster, ability, origin)
     caster.waterElemental:SetControllableByPlayer(caster:GetPlayerID(), true)
 
     local aiAbility = caster.waterElemental:FindAbilityByName("hero_summon_ai")
-    aiAbility:ToggleAbility()
+    if caster.bIsAIon == true or caster.bIsAIon == nil then
+        aiAbility:ToggleAbility()
+    end
 
     -- local aspectAbility = caster.earthAspect:FindAbilityByName("aspect_abilities")
     -- aspectAbility:SetLevel(1)

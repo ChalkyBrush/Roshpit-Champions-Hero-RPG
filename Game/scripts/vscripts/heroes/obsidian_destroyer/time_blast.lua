@@ -1,3 +1,5 @@
+require('/heroes/obsidian_destroyer/constants_epoch')
+
 function beginBlast(event)
 	local caster = event.caster
 	local ability = event.ability

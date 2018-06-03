@@ -22,3 +22,6 @@ ELEMENTAL_WARLORD_GLYPHS:heroes\beastmaster\npc\glyphs.txt
 
 <% heroes\invoker\constants_CONJUROR.lua %>
 CONJUROR_GLYPHS:heroes\invoker\npc\glyphs.txt
+
+<% heroes\obsidian_destroyer\constants_epoch.lua %>
+EPOCH_GLYPHS:heroes\obsidian_destroyer\npc\glyphs.txt

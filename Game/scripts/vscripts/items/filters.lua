@@ -1910,7 +1910,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local d_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 3)
             if d_d_level > 0 then
                 -- print("OD HERE2 r4: "..d_d_level)
-                mult = mult + 0.0005*attacker:GetManaRegen()*d_d_level
+                mult = mult + attacker:GetManaRegen()*d_d_level*epoch_r4_elem_time/1000
             end   
         end    
         if victim:HasModifier("modifier_tempo_flux_invisible") then
@@ -3375,8 +3375,8 @@ function Filters:EmeraldDouliHit(victim, damage)
 end
 
 function Filters:SpellShieldHit(victim, damage)
-    local splicedDamage = damage*0.6
-    local manaDamage = splicedDamage*0.2
+    local splicedDamage = damage*0.9
+    local manaDamage = splicedDamage*0.1
     local bSplice = true
     if manaDamage > victim:GetMana() then
         manaDamage = victim:GetMana()
@@ -3386,7 +3386,7 @@ function Filters:SpellShieldHit(victim, damage)
     if bSplice then
         return splicedDamage
     else
-        return victim:GetMana()*5
+        return victim:GetMana()*10
     end
 end
 
@@ -4014,7 +4014,7 @@ end
 
 function Filters:IncrementLevelUpItem(itemName, unit, ability, upgradeThreshold, itemProperty, hexColor, itemPropertyDescription)
     local nextValue = ability.property1 + 1
-    if nextValue == upgradeThreshold then
+    if nextValue >= upgradeThreshold then
         if itemName == "item_rpc_armor_of_violet_guard" then
             RPCItems:RollVioletGuardArmor2(unit, ability)
             Notifications:Top(unit:GetPlayerOwnerID(), {text="Armor of Violet Guard Upgraded", duration=5, style={color="white"}, continue=true})
@@ -4029,6 +4029,13 @@ function Filters:VioletGuard2Hit(victim, attacker, damage)
     attacker.body:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_violet_guard_armor_loss_visible", {duration = 6})
     local armorLoss = math.min(math.ceil(damage*0.001), victim:GetPhysicalArmorValue())
     armorLoss = math.max(1, armorLoss)
+    local oldModifier = victim:FindModifierByName("modifier_violet_guard_armor_loss_invisible")
+    if oldModifier then
+        local oldModifierStacks = oldModifier:GetStackCount()
+        if oldModifierStacks then
+            armorLoss = math.max(armorLoss,oldModifierStacks)
+        end
+    end
     attacker.body:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_violet_guard_armor_loss_invisible", {duration = 6})
     victim:SetModifierStackCount("modifier_violet_guard_armor_loss_invisible", attacker.InventoryUnit, armorLoss)
 end
@@ -4130,25 +4137,27 @@ end
 function Filters:ArkimusGlyph5a(victim, damage)
     if victim:HasAbility("arkimus_energy_field") then
         local ability = victim:FindAbilityByName("arkimus_energy_field")
-        if ability.energyTable then
-            if #ability.energyTable > 0 then
-                ability.energyTable[1]:RemoveModifierByName("modifier_energy_field_thinker")
-                ParticleManager:DestroyParticle(ability.energyTable[1].pfx, false)
-                Timers:CreateTimer(0.05, function()
-                    local newTable = {}
-                    for i = 1, #ability.energyTable, 1 do
-                        if IsValidEntity(ability.energyTable[i]) then
-                            table.insert(newTable, ability.energyTable[i])
+        if ability then            
+            if ability.energyTable then
+                if #ability.energyTable > 0 then
+                    ability.energyTable[1]:RemoveModifierByName("modifier_energy_field_thinker")
+                    ParticleManager:DestroyParticle(ability.energyTable[1].pfx, false)
+                    Timers:CreateTimer(0.05, function()
+                        local newTable = {}
+                        for i = 1, #ability.energyTable, 1 do
+                            if IsValidEntity(ability.energyTable[i]) then
+                                table.insert(newTable, ability.energyTable[i])
+                            end
                         end
-                    end
-                    ability.energyTable = newTable 
-                end)
-                return 0       
+                        ability.energyTable = newTable 
+                    end)
+                    return 0
+                else
+                    return damage
+                end
             else
                 return damage
             end
-        else
-            return damage
         end
     end
 end
