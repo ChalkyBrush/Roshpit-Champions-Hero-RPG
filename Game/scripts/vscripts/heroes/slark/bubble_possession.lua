@@ -125,6 +125,7 @@ function possession_moving_towards_think(event)
 				ability.target.possessionFallSpeed = 3
 			end
 		end
+		ability.TargetToAddToTable = ability.target
 		EndAnimation(caster)
 		caster:RemoveModifierByName("modifier_possession_moving_toward_target")
 		EmitSoundOn("Slipfinn.Possess.EnemyStart", ability.target)
@@ -153,10 +154,10 @@ function possession_moving_towards_think(event)
 			end
 		end
 		ability.target:RemoveModifierByName("modifier_bubble_possess_6_1_glyph")
-		if ability.lockedTarget then
-			if WallPhysics:DoesTableHaveValue(caster.possessedTable, ability.lockedTarget:GetUnitName()) then
+		if ability.TargetToAddToTable then
+			if WallPhysics:DoesTableHaveValue(caster.possessedTable, ability.TargetToAddToTable:GetUnitName()) then
 			else
-				table.insert(caster.possessedTable, ability.lockedTarget:GetUnitName())
+				table.insert(caster.possessedTable, ability.TargetToAddToTable:GetUnitName())
 			end
 		end
 	end

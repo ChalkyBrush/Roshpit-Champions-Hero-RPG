@@ -372,11 +372,30 @@ end
 function hero_summon_on(event)
 	local caster = event.caster
 	caster:SetAcquisitionRange(3000)
+	if caster:GetUnitName() == "sorc_water_elemental" then
+		caster.creator.bIsAIon = true
+	elseif caster:GetUnitName() == "earth_aspect" then
+		caster.conjuror.bIsAIonEARTH = true
+	elseif caster:GetUnitName() == "fire_aspect" then
+		caster.conjuror.bIsAIonFIRE = true
+	elseif caster:GetUnitName() == "shadow_aspect" then
+		caster.conjuror.bIsAIonSHADOW = true
+	end
 end
 
 function hero_summon_off(event)
 	local caster = event.caster
 	caster:SetAcquisitionRange(500)
+	if caster:GetUnitName() == "sorc_water_elemental" and caster:GetHealth() > 0 then
+		caster.creator.bIsAIon = false
+	elseif caster:GetUnitName() == "earth_aspect" and caster:GetHealth() > 0 then
+		caster.conjuror.bIsAIonEARTH = false
+	elseif caster:GetUnitName() == "fire_aspect" and caster:GetHealth() > 0 then
+		caster.conjuror.bIsAIonFIRE = false
+		print("here!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+	elseif caster:GetUnitName() == "shadow_aspect" and caster:GetHealth() > 0 then
+		caster.conjuror.bIsAIonSHADOW = false
+	end
 end
 
 function find_clear_space(event)

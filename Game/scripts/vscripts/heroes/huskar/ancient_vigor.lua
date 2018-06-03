@@ -1,3 +1,5 @@
+require('/heroes/huskar/constants_spirit_warrior')
+
 function start_channel(event)
 	local caster = event.caster
 	local soundTable = {"SpiritWarrior.SpiritYell1", "SpiritWarrior.SpiritYell2", "SpiritWarrior.SpiritYell3"}
@@ -17,7 +19,7 @@ function vigor_start(event)
 	local ability = event.ability
 	local duration = event.duration
 	if caster:HasModifier("modifier_spirit_warrior_glyph_7_1") then
-		duration = duration + 4
+		duration = duration + spirit_warrior_glyph_7_1_additional_duration
 	end
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	Timers:CreateTimer(0.5, function()
