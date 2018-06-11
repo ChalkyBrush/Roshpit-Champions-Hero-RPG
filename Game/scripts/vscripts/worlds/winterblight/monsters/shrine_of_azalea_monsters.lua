@@ -1735,9 +1735,551 @@ function rupthold_death(event)
 	Winterblight.RuptholdSlain = true
 	Winterblight:SpawnCup4()
 	Timers:CreateTimer(3, function()
-		local walls = Entities:FindAllByNameWithin("AzaleaWall7", Vector(-7918, -15008, -4094+Winterblight.ZFLOAT), 2400)
-	    EmitSoundOnLocationWithCaster(Vector(-7918, -15008), "Winterblight.WallOpen", Events.GameMaster)
-	    Winterblight:WallsTicks(false, walls, true, 5, 360, 0.1)
-	    Winterblight:RemoveBlockers(4, "AzaleaWallBlocker4", Vector(-7936, -14975, 300+Winterblight.ZFLOAT), 1800)
+		Winterblight:RuptholdWall()
 	end)
+end
+
+function ghost_aura_attack_land(event)
+	local caster = event.caster
+	local attacker = event.attacker
+	local ability = event.ability
+	ability:ApplyDataDrivenModifier(caster, attacker, "modifier_ghost_aura_stacks", {duration = 3})
+	local stacks = attacker:GetModifierStackCount("modifier_ghost_aura_stacks", caster) + 1
+	attacker:SetModifierStackCount("modifier_ghost_aura_stacks", caster, stacks)
+	if stacks == 10 then
+		attacker:RemoveModifierByName("modifier_ghost_aura_stacks")
+		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_ghost_aura_disarm", {duration = event.disarm_duration})
+	end
+
+end
+
+function regression_strike_hit(event)
+	local attacker = event.attacker
+	local target = event.target
+	local ability = event.ability
+	local attack_power_mult = event.attack_power_mult
+	local damage = target:GetAverageTrueAttackDamage(target)*attack_power_mult/100
+	ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })	
+	CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/regression_strike.vpcf", target, 5)
+	EmitSoundOn("Monster.RegressionStrike", target)
+end
+
+function triple_boss_attacked(event)
+	local caster = event.caster
+	local ability = event.ability
+	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_medusa/ice_shatter.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin())
+	EmitSoundOn("Winterblight.IceCrystal.Shatter", caster)
+	caster:RemoveModifierByName("modifier_azalea_triple_boss_frozen")
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_disable_player", {})
+
+	if not Winterblight.TriBossStarterCount then
+		Winterblight.TriBossStarterCount = 0
+		Winterblight.TriBossTable = {}
+		Winterblight.TriBossTable.array = {}
+	end
+
+	local anim = 0
+	local jumpVO = ""
+	local target_point = Vector(0,0)
+	if caster:GetUnitName() == "winterblight_buzuki" then
+		EmitSoundOn("Winterblight.TriBoss.Buzuki.Aggro", caster)
+		target_point = GetGroundPosition(Vector(-5828, -11125, 286), Events.GameMaster)
+		anim = ACT_DOTA_VICTORY
+		jumpVO = "Winterblight.TriBoss.Buzuki.Pain"
+		Winterblight.TriBossTable.Buzuki = caster
+	elseif caster:GetUnitName() == "winterblight_azertia" then
+		EmitSoundOn("Winterblight.TriBoss.Azertia.Aggro", caster)
+		target_point = GetGroundPosition(Vector(-6400, -11125, 286), Events.GameMaster) 
+		anim = ACT_DOTA_CAST_ABILITY_4
+		jumpVO = "Winterblight.TriBoss.Azertia.Pain"
+		Winterblight.TriBossTable.Azertia = caster
+	elseif caster:GetUnitName() == "winterblight_torphet" then
+		EmitSoundOn("Winterblight.TriBoss.Torphet.Aggro", caster)
+		target_point = GetGroundPosition(Vector(-6973, -11125, 286), Events.GameMaster) 
+		anim = ACT_DOTA_CAST_ABILITY_4
+		jumpVO = "Winterblight.TriBoss.Torphet.Pain"
+		Winterblight.TriBossTable.Torphet = caster
+	end
+	Timers:CreateTimer(2, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
+	caster.jumpVO = jumpVO
+	caster.anim = anim
+	table.insert(Winterblight.TriBossTable.array, caster)
+	if caster:GetUnitName() == "winterblight_torphet" then
+		StartAnimation(caster, {duration=2.2, activity=ACT_DOTA_CAST_ABILITY_4, rate=1})
+	else
+		StartAnimation(caster, {duration=2.2, activity=ACT_DOTA_CAST_ABILITY_1, rate=1})
+	end
+	Timers:CreateTimer(2.5, function()
+		local eventTable = {}
+		eventTable.caster = caster
+		eventTable.ability = ability
+		eventTable.target_points = {}
+		eventTable.anim = anim
+		eventTable.target_points[1] = target_point
+		eventTable.jumpVO = jumpVO
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, target_point, 600, 10000, false)
+		Winterblight:azalea_jump_start(eventTable)
+		Timers:CreateTimer(3, function()
+			caster:MoveToPosition(target_point)
+			Timers:CreateTimer(2.5, function()
+				caster:MoveToPosition(caster:GetAbsOrigin()+Vector(0,-10))
+				Winterblight.TriBossStarterCount = Winterblight.TriBossStarterCount + 1
+				if Winterblight.TriBossStarterCount == 3 then
+					Winterblight:TriBossInit()
+				end
+				Timers:CreateTimer(3, function()
+					if WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target_point) > 200 then
+						caster:SetAbsOrigin(target_point)
+					end
+				end)
+			end)
+		end)
+	end)	
+end
+
+
+
+function azalea_jump_think(event)
+	local caster = event.caster
+	local ability = event.ability
+
+	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), ability.targetPoint)
+
+	local fv = ability.jumpFV
+	-- if distance < 60 then
+	-- 	fv = Vector(0,0)
+	-- end
+	local height = (caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster))
+	if height < math.abs(ability.liftVelocity) then
+		print(height)
+		if not ability.rising then
+			caster:RemoveModifierByName("modifier_azalea_jump")
+		end
+	end
+
+	local blockSearch = caster:GetAbsOrigin()*Vector(1,1,0)+Vector(0,0,GetGroundHeight(caster:GetAbsOrigin(), caster))
+    local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
+    local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch+ability.jumpFV*30), caster)
+	if blockUnit then
+		fv = Vector(0,0)
+	end
+	caster:SetAbsOrigin(caster:GetAbsOrigin() + fv*ability.jumpVelocity + Vector(0,0,ability.liftVelocity))
+	ability.liftVelocity = ability.liftVelocity - 2
+	if ability.liftVelocity <= 0 then
+		ability.rising = false
+	end
+	ability.interval = ability.interval + 1
+	if ability.interval%6 == 0 then
+		local pfx = ParticleManager:CreateParticle("particles/econ/events/winter_major_2016/blink_dagger_start_wm.vpcf", PATTACH_CUSTOMORIGIN, caster)
+		ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+		Timers:CreateTimer(0.4, function()
+			ParticleManager:DestroyParticle(pfx, false)
+		end)
+	end
+end
+
+function azalea_jump_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	CustomAbilities:QuickAttachParticle("particles/econ/events/winter_major_2016/blink_dagger_start_wm.vpcf", caster, 3)
+	Timers:CreateTimer(0.03, function()
+		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+	end)
+end
+
+function torphet_summoning_think(event)
+	local target = event.target
+	print("SEQUENCE 3 GOING")
+	target.cupSequenceData.fallSpeed = math.max(target.cupSequenceData.fallSpeed-0.35, 10)
+	print(target.cupSequenceData.fallSpeed)
+	target:SetOrigin(target:GetAbsOrigin()-Vector(0,0,target.cupSequenceData.fallSpeed))
+	print(target:GetAbsOrigin().z - GetGroundHeight(target:GetAbsOrigin(), target))
+	if target:GetAbsOrigin().z - GetGroundHeight(target:GetAbsOrigin(), target) < 40 then
+
+		target:RemoveModifierByName("modifier_azalea_triboss_entering")
+
+		-- EmitSoundOn("Winterblight.AzaleaCup.Land", target)
+		-- ParticleManager:DestroyParticle(target.cupSequenceData.pfx, false)
+		-- local pfx2 = ParticleManager:CreateParticle("particles/roshpit/winterblight/azalea_explosion_magical.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		-- ParticleManager:SetParticleControl(pfx2, 0, target:GetAbsOrigin())
+		-- ParticleManager:SetParticleControl(pfx2, 2, Vector(90, 200, 255))
+		-- Timers:CreateTimer(3.5, function()
+		-- 	ParticleManager:DestroyParticle(pfx2, false)
+		-- end)
+	end
+end
+
+function torphet_summoned_unit_die(event)
+	Winterblight.TriBossSpawnKills = Winterblight.TriBossSpawnKills + 1
+	if Winterblight.TriBossSpawnKills == Winterblight.TriBossSpawnGoal - 1 then
+		local newIndex = Winterblight.TriBossPhase + 1
+		Winterblight:TriBossPhaser(newIndex)
+	end
+end
+
+function torphet_powering_up_think(event)
+	local target = event.target
+	local caster = event.caster
+	target:SetModelScale(target:GetModelScale()+0.01)
+	local newStacks = target:GetModifierStackCount("modifier_triboss_powered_up_multiple", caster) + 1
+	target:SetModifierStackCount("modifier_triboss_powered_up_multiple", casters, newStacks)
+end
+
+function tri_boss_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local stoneReduce = 0
+	if Winterblight.Stones == 3 then
+		stoneReduce = 1
+	end
+	if caster.lock then
+		return false
+	end
+	if caster:GetHealth() < 1000 then
+		caster.lock = true
+		tri_boss_death_sequence(event)
+	end
+	local luck = RandomInt(1, 12-GameState:GetDifficultyFactor()-stoneReduce)
+	if luck == 1 then
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+		local target_point = nil
+		if #enemies > 0 then
+			target_point = enemies[1]:GetAbsOrigin()+RandomVector(RandomInt(540, 1500))
+		else
+			target_point = caster:GetAbsOrigin()+caster:GetForwardVector()*600+Vector(0,0,100)
+		end
+		local eventTable = {}
+		eventTable.caster = caster
+		eventTable.ability = ability
+		eventTable.target_points = {}
+		eventTable.anim = caster.anim
+		eventTable.target_points[1] = GetGroundPosition(target_point, caster)
+		eventTable.jumpVO = caster.jumpVO
+		Winterblight:azalea_jump_start(eventTable)
+	end
+	if caster:GetUnitName() == "winterblight_buzuki" then
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
+		if #enemies > 0 then
+			local hexAbility = caster:FindAbilityByName("buzuki_hex")
+			if hexAbility:IsFullyCastable() then		
+				local order = {
+				 		UnitIndex = caster:entindex(), 
+				 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+				 		TargetIndex = enemies[1]:entindex(),
+				 		AbilityIndex = hexAbility:entindex(),
+			 	}
+				ExecuteOrderFromTable(order)
+				return false
+			end
+		end
+	elseif caster:GetUnitName() == "winterblight_torphet" then
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
+		if #enemies > 0 then
+			local coldfeet = caster:FindAbilityByName("torphet_cold_feet")
+			if coldfeet:IsFullyCastable() then		
+				local order = {
+				 		UnitIndex = caster:entindex(), 
+				 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+				 		TargetIndex = enemies[1]:entindex(),
+				 		AbilityIndex = coldfeet:entindex(),
+			 	}
+				ExecuteOrderFromTable(order)
+				return false
+			end
+		end
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+		if #enemies > 0 then
+			local vortex = caster:FindAbilityByName("torphet_ice_vortex")
+			if vortex:IsFullyCastable() then
+				local targetPoint = enemies[1]:GetOrigin() + RandomVector(RandomInt(50, 420))			
+				local order =
+				{
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+					AbilityIndex = vortex:entindex(),
+					Position = targetPoint
+				}
+				ExecuteOrderFromTable(order)
+				return false
+			end
+		end
+	elseif caster:GetUnitName() == "winterblight_azertia" then
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+		if #enemies > 0 then
+			local ice_orb = caster:FindAbilityByName("winterblight_ice_orb")
+			if ice_orb:IsFullyCastable() then
+				local targetPoint = enemies[1]:GetOrigin() + RandomVector(RandomInt(0, 130))			
+				local order =
+				{
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+					AbilityIndex = ice_orb:entindex(),
+					Position = targetPoint
+				}
+				ExecuteOrderFromTable(order)
+				return false
+			end
+		end
+		local blink = caster:FindAbilityByName("winterblight_summoner_blink")
+		if blink:IsFullyCastable() then		
+			local order =
+			{
+				UnitIndex = caster:entindex(),
+				OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+				AbilityIndex = blink:entindex()
+			}
+			ExecuteOrderFromTable(order)
+			return false
+		end
+		
+	end
+end
+
+function tri_boss_death_sequence(event)
+	local caster = event.caster
+	local ability = event.ability
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_disable_player", {})
+	caster:RemoveModifierByName("modifier_triboss_in_battle")
+	local delay = 0
+	if not Winterblight.TriBossesKilled then
+		Winterblight.TriBossesKilled = 0
+	end
+	Winterblight.TriBossesKilled = Winterblight.TriBossesKilled + 1
+	if Winterblight.TriBossesKilled < 3 then
+		if caster:GetUnitName() == "winterblight_buzuki" then
+			delay = 6
+			local dialogueEnemies = FindUnitsInRadius( Winterblight.TriBossTable.Buzuki:GetTeamNumber(),caster:GetAbsOrigin(), nil, 3500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+			EmitSoundOn("Winterblight.TriBoss.Buzuki.Powerup.Start", Winterblight.TriBossTable.Buzuki)
+			StartSoundEvent("Winterblight.TriBoss.Buzuki.Powerup.LP", Winterblight.TriBossTable.Buzuki)
+			Quests:ShowDialogueTextAzalea(dialogueEnemies, Winterblight.TriBossTable.Buzuki, "buzuki_powerup", 4, false)
+			StartAnimation(Winterblight.TriBossTable.Buzuki, {duration=5, activity=ACT_DOTA_VICTORY, rate=1})
+			Timers:CreateTimer(0.8, function()
+				EmitSoundOn("Winterblight.TriBoss.Buzuki.Powerup.Laugh", Winterblight.TriBossTable.Buzuki)
+			end)
+			for i = 1, #Winterblight.TriBossTable.array, 1 do
+				local buddy = Winterblight.TriBossTable.array[i]
+				if IsValidEntity(buddy) and not buddy.lock then
+					if buddy == caster then
+					else
+
+						local ability = Winterblight.TriBossTable.Buzuki:FindAbilityByName("winterblight_azalea_triple_boss_ability")
+						ability:ApplyDataDrivenModifier(Winterblight.TriBossTable.Buzuki, buddy, "modifier_triboss_powering_up", {duration = 5})
+						ability:ApplyDataDrivenModifier(Winterblight.TriBossTable.Buzuki, buddy, "modifier_triboss_powered_up_multiple", {})
+						ability:ApplyDataDrivenModifier(Winterblight.TriBossTable.Buzuki, buddy, "modifier_triboss_powered_up_single", {})
+
+						Timers:CreateTimer(5, function()
+							StopSoundEvent("Winterblight.TriBoss.Buzuki.Powerup.LP", Winterblight.TriBossTable.Buzuki)
+						end)					
+					end
+				end
+			end
+		elseif caster:GetUnitName() == "winterblight_azertia" then
+			delay = 2.5
+			local abilityTable = {"fire_temple_steadfast", "ability_mega_haste", "winterblight_generic_chill_attack_passive", "winterblight_wolf_ability", "winterblight_ogre_armor", "winterblight_frostiok_passive", "winterblight_frost_colossus_passive", "winterblight_snowshaker_passive", "winterblight_bear_passive", "winterblight_stun_regen", "winterblight_frostbite_attack", "luna_taskmaster_shield", "winterblight_dimension_spear", "winterblight_speed_softening", "winterblight_armor_softening"}
+			if GameState:GetDifficultyFactor() >= 2 then
+				table.insert(abilityTable, "seafortress_golden_shell")
+			end
+			if GameState:GetDifficultyFactor() == 3 then
+				table.insert(abilityTable, "creature_pure_strike")
+			end
+			if Winterblight.Stones >= 1 then
+				table.insert(abilityTable, "redfall_mega_steadfast")
+			end
+			local selectedAbility = abilityTable[RandomInt(1, #abilityTable)]
+			StartAnimation(Winterblight.TriBossTable.Azertia, {duration=2.5, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.9})
+			local dialogueEnemies = FindUnitsInRadius( Winterblight.TriBossTable.Azertia:GetTeamNumber(), caster:GetAbsOrigin(), nil, 3500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+			Quests:ShowDialogueTextAzalea(dialogueEnemies, Winterblight.TriBossTable.Azertia, "DOTA_Tooltip_Ability_"..selectedAbility, 4, false)
+			EmitSoundOnLocationWithCaster(Winterblight.TriBossTable.Azertia:GetAbsOrigin(), Winterblight.TriBossTable.Azertia.jumpVO, Winterblight.TriBossTable.Azertia)
+			for i = 1, #Winterblight.TriBossTable.array, 1 do
+				local buddy = Winterblight.TriBossTable.array[i]
+				if IsValidEntity(buddy) and not buddy.lock then
+					if buddy == caster then
+					else
+						EmitSoundOn("Winterblight.TriBoss.Azertia.AddAbility", buddy)
+						Timers:CreateTimer(0.6, function()
+							local pfxName = "particles/items_fx/white_zap_beam.vpcf"
+							local pfx = ParticleManager:CreateParticle(pfxName, PATTACH_CUSTOMORIGIN, nil)
+							EmitSoundOn("Winterblight.Rupthold.Summon", buddy)
+							ParticleManager:SetParticleControlEnt(pfx, 0, Winterblight.TriBossTable.Azertia, PATTACH_POINT_FOLLOW, "attach_attack1", Winterblight.TriBossTable.Azertia:GetAbsOrigin(), true)
+							ParticleManager:SetParticleControl(pfx, 1, buddy:GetAbsOrigin()+Vector(0,0,60))
+							buddy:AddAbility(selectedAbility):SetLevel(GameState:GetDifficultyFactor())
+							StartAnimation(buddy, {duration=2.5, activity=ACT_DOTA_ATTACK, rate=0.9})
+							Timers:CreateTimer(1.5, function()
+								ParticleManager:DestroyParticle(pfx, false)
+							end)
+						end)
+					end
+				end
+			end
+		elseif caster:GetUnitName() == "winterblight_torphet" then
+			delay = 5.5
+			local unitTable = {"winterblight_crystal_malefor", "azalea_grave_summoner", "winterblight_bladewielder", "azalea_shrine_megmus", "winterblight_demon_spirit", "azalea_knife_scraper", "azalea_dragoon", "winterblight_syphist", "winterblight_azalea_secret_keeper", "frostiok", "azalea_ghost_striker", "winterblight_azalea_mindbreaker", "winterblight_azalea_highguard", "azalea_armored_knight", "winterblight_softwalker", "winterblight_cold_seer", "winterblight_source_revenant", "winterblight_maiden_of_azalea", "winterblight_rider_of_azalea", "winterblight_mistral_assassin", "winterblight_frost_frigid_hulk", "winterblight_frost_elemental", "winterblight_frost_avatar", "winterblight_ice_summoner", "winterblight_snow_shaker", "winterblight_frigid_growth", "winterblight_chilling_colossus", "winterblight_dashing_swordsman", "winterblight_azalean_priest", "winterblight_azalea_archer"}
+			local selectedUnit = unitTable[RandomInt(1, #unitTable)]
+			local dialogueEnemies = FindUnitsInRadius( Winterblight.TriBossTable.Torphet:GetTeamNumber(), caster:GetAbsOrigin(), nil, 3500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+			Quests:ShowDialogueTextAzalea(dialogueEnemies, Winterblight.TriBossTable.Torphet, selectedUnit, 4, false)
+			EmitSoundOnLocationWithCaster(Winterblight.TriBossTable.Torphet:GetAbsOrigin(), Winterblight.TriBossTable.Torphet.jumpVO, Winterblight.TriBossTable.Torphet)
+			StartAnimation(Winterblight.TriBossTable.Torphet, {duration=4.5, activity=ACT_DOTA_TELEPORT, rate=1})
+			EmitSoundOn("Winterblight.TriBoss.Torphet.Summoning", Winterblight.TriBossTable.Torphet)
+			local multiplier = Winterblight:GetPotentialMultiplierForBuzuki(selectedUnit)
+			local unitCount = multiplier*2 + 4
+			for i = 1, unitCount, 1 do
+				local spawnPosition = caster:GetAbsOrigin()+RandomVector(RandomInt(240, 1500))
+				local summon = Winterblight:SpawnAzaleaUnitByName(selectedUnit, spawnPosition)
+				AddFOWViewer(DOTA_TEAM_GOODGUYS, summon:GetAbsOrigin(), 600, 10, false)
+				local ability = Winterblight.TriBossTable.Torphet:FindAbilityByName("winterblight_azalea_triple_boss_ability")
+				summon.cantAggro = true
+				ability:ApplyDataDrivenModifier(Winterblight.TriBossTable.Torphet, summon, "modifier_disable_player", {})
+				summon:SetAbsOrigin(summon:GetAbsOrigin()+Vector(0,0,2000))
+				ability:ApplyDataDrivenModifier(Winterblight.TriBossTable.Torphet, summon, "modifier_azalea_triboss_entering", {})
+				
+				ability:ApplyDataDrivenModifier(Winterblight.TriBossTable.Torphet, Winterblight.TriBossTable.Torphet, "modifier_torphet_summoning", {duration = 5})
+				summon.cupSequenceData = {}
+				summon.cupSequenceData.interval = 0
+				summon.cupSequenceData.fallSpeed = 30
+				EmitSoundOn("Winterblight.AzaleaCup.Falling", caster)
+				Timers:CreateTimer(1, function()
+					StartAnimation(summon, {duration=5.5, activity=ACT_DOTA_SPAWN, rate=0.6})
+				end)
+				local pfx = ParticleManager:CreateParticle( "particles/winterblight/cup_falling_particle.vpcf", PATTACH_CUSTOMORIGIN, nil )
+				local colorVector = Vector(100, 200, 255)
+				ParticleManager:SetParticleControl( pfx, 0, GetGroundPosition(summon:GetAbsOrigin(), summon) )
+				ParticleManager:SetParticleControl( pfx, 1, colorVector )
+				ParticleManager:SetParticleControl( pfx, 2, colorVector )
+				ParticleManager:SetParticleControl( pfx, 3, colorVector )
+				summon.summonPFX = pfx
+				CustomAbilities:QuickParticleAtPoint("particles/act_2/siltbreaker_beam_channel.vpcf", Vector(-219, -14701, 150+Winterblight.ZFLOAT), 3)
+				Timers:CreateTimer(5.5, function()
+					summon:RemoveModifierByName("modifier_disable_player")
+					summon.cantAggro = false
+					Dungeons:AggroUnit(summon)
+					ParticleManager:DestroyParticle(pfx, false)
+				end)
+			end
+		end
+		Timers:CreateTimer(delay, function()
+			caster:RemoveModifierByName("modifier_disable_player")
+			caster:SetHealth(10)
+			caster:ForceKill(true)
+		end)
+	else
+		caster:RemoveModifierByName("modifier_disable_player")
+		caster:SetHealth(10)
+		caster:ForceKill(true)
+		if Winterblight.TriBossesKilled == 3 then
+			Winterblight:TriBossesAllSlain()
+		end
+	end
+end
+
+function begin_ice_orb(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target_points[1]
+	local position = caster:GetAbsOrigin() + caster:GetForwardVector()*90
+	local orb = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, caster:GetTeamNumber())
+	orb:SetAbsOrigin(orb:GetAbsOrigin()+Vector(0,0,100))
+
+	orb:FindAbilityByName("dummy_unit"):SetLevel(1)
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.TriBoss.Azertia.Cast", caster)
+	orb.interval = 0
+	ability:ApplyDataDrivenModifier(caster, orb, "modifier_ice_orb_orb", {})
+	orb.fv = ((target - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	EmitSoundOn("Winterblight.TriBoss.Azertia.IceCast", caster)
+	EmitSoundOn("Winterblight.TriBoss.Azertia.IceOrbTravel", orb)
+end
+
+function ice_orb_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local orb = target
+	if orb.lock then
+		return false
+	end
+	if IsValidEntity(orb) then
+		if orb.interval then
+			orb.interval = orb.interval + 1
+			orb:SetAbsOrigin(orb:GetAbsOrigin()+orb.fv*30)
+			local enemies = FindUnitsInRadius( orb:GetTeamNumber(), orb:GetAbsOrigin(), nil, 130, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+			if #enemies > 0 then
+				EmitSoundOn("Winterblight.TriBoss.Azertia.IceOrbImpact", enemies[1])
+				for _,enemy in pairs(enemies) do
+					ApplyDamage({ victim = enemy, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })	
+					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_ice_orb_freeze", {duration = 0.2})
+				end
+			end 
+			local shardInterval = 9-GameState:GetDifficultyFactor()
+			if orb.interval%shardInterval == 0 then
+				local fv = RandomVector(1)
+				local info = 
+				{
+						Ability = ability,
+			        	EffectName = "particles/econ/items/mirana/mirana_crescent_arrow/sorceress_ice_lance.vpcf",
+			        	vSpawnOrigin = orb:GetAbsOrigin()+orb.fv*90,
+			        	fDistance = 1400,
+			        	fStartRadius = 120,
+			        	fEndRadius = 120,
+			        	Source = caster,
+			        	StartPosition = "attach_origin",
+			        	bHasFrontalCone = false,
+			        	bReplaceExisting = false,
+			        	iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+			        	iUnitTargetFlags = 0,
+			        	iUnitTargetType = DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC,
+			        	fExpireTime = GameRules:GetGameTime() + 5.0,
+					bDeleteOnHit = false,
+					vVelocity = fv * 800,
+					bProvidesVision = false,
+				}
+				projectile = ProjectileManager:CreateLinearProjectile(info)
+			end
+			if orb.interval >= 100 then
+				orb:RemoveModifierByName("modifier_ice_orb_orb")
+				orb.lock = true
+				UTIL_Remove(orb)
+			end
+		end
+	end
+end
+
+function ice_orb_lance_hit(event)
+	local target = event.target
+	local caster = event.caster
+	local ability = event.ability
+    local particleName = "particles/units/heroes/hero_lich/lich_frost_nova.vpcf"
+    local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
+    local origin = target:GetAbsOrigin()
+    ParticleManager:SetParticleControl( particle1, 0, origin )
+    ParticleManager:SetParticleControl( particle1, 1, origin )
+    Timers:CreateTimer(1, function()
+        ParticleManager:DestroyParticle(particle1, false)
+    end)
+    EmitSoundOn("Winterblight.TriBoss.Azertia.IceOrbLanceHit", target)
+    ApplyDamage({ victim = target, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
+end
+
+function buzuki_passive_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster:HasModifier("modifier_triboss_in_battle") then
+		local range = event.range
+		local damage = event.damage
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+		if #enemies > 0 then
+			EmitSoundOn("Winterblight.TriBoss.Buzuki.PassiveHit", caster)
+			for _,enemy in pairs(enemies) do
+				ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
+			    local particle1 = ParticleManager:CreateParticle("particles/roshpit/winterblight/blue_finger.vpcf", PATTACH_CUSTOMORIGIN, target )
+			    ParticleManager:SetParticleControl( particle1, 0, caster:GetAbsOrigin()+Vector(0,0,80) )
+			    ParticleManager:SetParticleControl( particle1, 1, enemy:GetAbsOrigin()+Vector(0,0,80) )
+			    Timers:CreateTimer(1, function()
+			    	ParticleManager:DestroyParticle(particle1, false)
+			    end)
+			end
+		end 	
+	end
 end

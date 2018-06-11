@@ -11588,9 +11588,7 @@
 				"Function"		"c_a_strike"
 			}
 		}
-
 	}
-
 	// PALADIN
 
 	"holy_cone"
@@ -28960,7 +28958,7 @@
 			"modifier_solunia_warp_core_thinker_glyphed"
 			{
 				"Aura"					"modifier_solunia_warp_core_aura_solar"
-				"Aura_Radius"			"300"
+				"Aura_Radius"			"400"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -28975,7 +28973,7 @@
 						"ControlPoints"
 						{
 							"00" "0 0 0"
-							"01" "300 1 240"
+							"01" "400 1 240"
 							"02" "6 6 6"
 							"15" "25 150 25"
 							"16" "1 0 0"
@@ -29176,7 +29174,7 @@
 			"modifier_solunia_warp_core_thinker_glyphed"
 			{
 				"Aura"					"modifier_solunia_warp_core_aura_lunar"
-				"Aura_Radius"			"300"
+				"Aura_Radius"			"400"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -29191,7 +29189,7 @@
 						"ControlPoints"
 						{
 							"00" "0 0 0"
-							"01" "300 1 240"
+							"01" "400 1 240"
 							"02" "6 6 6"
 							"15" "25 150 25"
 							"16" "1 0 0"
@@ -53055,7 +53053,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"5"
+				"property_two"			"2"
 			}
 			"03"
 			{
@@ -53097,7 +53095,6 @@
 			}
 		}
 	}
-
 	//--PALADIN--
 
 	"paladin_rune_a_a"
@@ -55401,6 +55398,10 @@
 				"IsHidden"	"1"
 			}
 			"modifier_general_postmitigation"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_general_postmitigation_received"
 			{
 				"IsHidden"	"1"
 			}
@@ -112984,7 +112985,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"11"
+		"AbilityCooldown"				"10"
 
 
 		// Cost
@@ -113019,7 +113020,7 @@
 			"05"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"shard_duration"				"5.5"
+				"shard_duration"				"6.0"
 			}
 			"06"
 			{
@@ -120811,7 +120812,7 @@
 			{
 				"IsHidden"	"0"
 				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_dire.vpcf"
-				"StatusEffectPriority"  "100"
+				"StatusEffectPriority"  "120"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"States"
 				{
@@ -121389,7 +121390,7 @@
 
 	}
 
-	"winterblight_generic_summon"
+	"winterblight_generic_summon2"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"BaseClass"	"ability_datadriven"
@@ -121593,7 +121594,7 @@
 
    	"winterblight_bear_passive"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"tidehunter_kraken_shell"
 		"AOERadius"				"1000"
@@ -125525,6 +125526,901 @@
 					"MODIFIER_PROPERTY_DISABLE_HEALING"			"1"
 					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-100"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%health_regen_loss_percent"
+				}
+			}
+		}
+	}
+
+	"winterblight_gargoyle_summon_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"pure_resist"			"50 75 100"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_blue_gargoyle_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_ancestral_spirit.vpcf"
+				"StatusEffectPriority"  "50"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+	}
+
+	"winterblight_ghost_aura"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
+		"MaxLevel"	"3"
+		"AOERadius"	"750"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"disarm_duration"			"2 3 4"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attack_damage_percent"			"-20 -50 -80"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ghost_aura_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_ancestral_spirit.vpcf"
+				"StatusEffectPriority"  "50"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Aura"          	"modifier_ghost_aura_effect"
+				"Aura_Radius"   	"750"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			}
+			"modifier_ghost_aura_effect"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+			
+				"EffectName"		"particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_prison_start_top_ring.vpcf"
+				"EffectAttachType"	"follow_origin"
+			
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%attack_damage_percent"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"				"-100"
+				}
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+						"Function"		"ghost_aura_attack_land"
+						"disarm_duration"	"%disarm_duration"
+					}
+				}
+			}
+			"modifier_ghost_aura_stacks"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+			}
+			"modifier_ghost_aura_disarm"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	"winterblight_regression_strike"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attack_power_mult"			"20 50 90"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_regression_strike_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+						"Function"		"regression_strike_hit"
+						"attack_power_mult"	"%attack_power_mult"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_azalea_dragoon_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_block"			"60 80 100"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"distance"			"800 500 300"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_azalea_dragoon_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+			}
+		}
+	}
+
+	"winterblight_ensnare"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5468"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_NagaSiren.Ensnare.Cast"
+		"BaseClass"						"naga_siren_ensnare"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.5"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"12 10 8"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		
+		// Cast Range
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"650 800 1000"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"2.0 3.0 4.0 5.0"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"net_speed"					"1500 1500 1500 1500"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"fake_ensnare_distance"		"900 900 900 900"	
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}	
+
+	"winterblight_azalea_knife_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"postmitigation"			"500"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_azalea_knife_postmitigation"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_ancestral_spirit.vpcf"
+				"StatusEffectPriority"  "50"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+	}
+
+	"winterblight_azalea_triple_boss_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"crystal_maiden_crystal_nova"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"powered_up_atk"			"1 3 5"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"powered_up_ms"			"1"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"powered_up_as"			"1 3 5"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"powered_up_armor"			"0.1 3 10"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_azalea_triple_boss_frozen"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"	
+					"MODIFIER_STATE_STUNNED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1000"
+				}
+				"OnAttacked"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"triple_boss_attacked"
+					}
+				}
+				"EffectName"	"particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_buff.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+			"modifier_azalea_triple_boss_ai"
+			{
+				"IsHidden"	"1"
+
+			}
+			"modifier_disable_player"
+			{
+				"IsHidden"	"1"
+				"EffectName"	"particles/roshpit/winterblight/azalea_shield.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"	
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1000"
+				}
+			}
+			"modifier_azalea_jump"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"azalea_jump_think"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"azalea_jump_end"
+					}
+				}
+			}
+			"modifier_azalea_triboss_entering"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"torphet_summoning_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_torphet_summoning"
+			{
+				"IsHidden"	"1"
+				"EffectName"	"particles/units/heroes/hero_arc_warden/arc_warden_tempest_buff.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+			"modifier_triboss_summoned_unit"
+			{
+				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"torphet_summoned_unit_die"
+					}
+				}
+			}
+			"modifier_triboss_powering_up"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"torphet_powering_up_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"	"TARGET"
+						"EffectName"	"particles/roshpit/winterblight/drain_blue_life_drain.vpcf"
+						"EffectAttachType"	"start_at_customorigin"
+						"ControlPointEntities"
+						{
+							"TARGET"	"attach_hitloc"
+							"CASTER"	"attach_attack1"
+						}
+
+					}
+				}
+			}
+			"modifier_triboss_powered_up_single"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_triboss_powered_up_multiple"
+			{
+				"IsHidden"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%powered_up_as"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%powered_up_ms" 
+				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%powered_up_atk"
+				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%powered_up_armor"
+				}
+			}
+			"modifier_triboss_in_battle"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
+				}
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"tri_boss_think"
+					}
+				}
+			}
+		}
+	}
+
+	"buzuki_hex"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5045"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Lion.Voodoo"
+		"BaseClass"						"lion_voodoo"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0 0 0 0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"18 12 6"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"2 2.5 3.0"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movespeed"					"140"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+
+	"torphet_ice_vortex"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5346"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilitySound"					"Hero_Ancient_Apparition.IceVortexCast"
+		"BaseClass"						"ancient_apparition_ice_vortex"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1500 1500 1500 1500"
+		"AbilityCastPoint"				"0.01 0.01 0.01 0.01"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1.5"
+		"AbilityDuration"				"16"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"275 275 275 275"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movement_speed_pct"	"-30 -60 -90"
+				"LinkedSpecialBonus"	"special_bonus_unique_ancient_apparition_4"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"spell_resist_pct"		"-25 -100 -200"
+				"LinkedSpecialBonus"	"special_bonus_unique_ancient_apparition_4"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"vision_aoe"		"200 200 200 200"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"vortex_duration"		"16"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+
+	"torphet_cold_feet"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5345"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Ancient_Apparition.ColdFeetCast"
+		"BaseClass"						"ancient_apparition_cold_feet"
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"700 800 900 1000"
+		"AbilityCastPoint"				"0.01 0.01 0.01 0.01"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"7 6 5"
+		"AbilityDuration"				"4.0 4.0 4.0 4.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.5"	// Does two modifiers 
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage"				"500 5000 225000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"break_distance"		"740 740 740 740"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"2.0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range_tooltip"			"700 800 900 1000"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"charge_restore_time"	"10 9 8 7"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}
+
+	"winterblight_ice_orb"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityTextureName"			"crystal_maiden_crystal_nova"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.4"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"2.0 1.75 1.5"
+		"AbilityCastRange"				"2000"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"as_loss"			"-100 -500 -1200"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_loss"			"-150 -300 -500"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"300 3500 150000"
+			}
+		}
+
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+		"OnAbilityPhaseStart"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_ice_orb_precast"
+				"Target" 		"CASTER"
+				"Duration"		"0.5"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+				"Function"		"begin_ice_orb"
+				"Target"			"POINT"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+				"Function"		"ice_orb_lance_hit"
+				"target"		"TARGET"
+				"damage"		"%damage"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ice_orb_precast"
+			{
+				"IsHidden"	"1"
+				"EffectName"	"particles/roshpit/sorceress/ice_lance_cast.vpcf"
+				"EffectAttachType"	"follow_origin"
+			}
+			"modifier_ice_orb_orb"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"EffectName"	"particles/roshpit/winterblight/ice_orb.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"ice_orb_think"
+						"target"		"TARGET"
+						"damage"		"%damage"
+					}
+				}
+			}
+			"modifier_ice_orb_freeze"
+			{
+				"IsDebuff"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
+				"StatusEffectPriority"  "20"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%as_loss"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_loss"
+				}
+			}
+		}
+
+	}
+
+	"winterblight_buzuki_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
+		"MaxLevel"	"3"
+		"AOERadius"	"500 650 800"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"range"				"700 800 900"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"300 3000 100000"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_buzuki_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"ThinkInterval"  "0.7"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"buzuki_passive_think"
+						"range"		"%range"
+						"damage"	"%damage"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_fencer_opportunity"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
+		"MaxLevel"	"3"
+		"AOERadius"	"500 650 800"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"as_bonus"				"200 800 1400"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"duration"			"8"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attack_power_bonus"			"30 125 400"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_bonus"				"40 80 120"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_fencer_opportunity_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_ancestral_spirit.vpcf"
+				"StatusEffectPriority"  "50"
+				"OnAttackLanded"
+				{
+					"DelayedAction"
+					{
+						"Delay"     "0.5"
+						"Action"    
+						{
+							"ApplyModifier"
+							{
+								"ModifierName"	"modifier_opportunity_debuff"
+								"Target" 		"TARGET"
+								"Duration"		"%duration"
+							}
+						}
+					}
+
+				}				
+			}
+			"modifier_opportunity_debuff"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/units/heroes/hero_pangolier/pangolier_heartpiercer_debuff.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				"OnAttacked"
+				// "%attack_damage" is set to the damage value after mitigation
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_opportunity_buff"
+						"Target" 		"ATTACKER"
+						"Duration"		"2"
+					}
+				}
+				"OnCreated"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Winterblight.Opportunity.Debuff"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_opportunity_buff"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"EffectName"	"particles/units/heroes/hero_monkey_king/monkey_king_quad_tap_overhead.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%as_bonus"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%attack_power_bonus"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%ms_bonus"
+				}
+				"OnCreated"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Winterblight.Opportunity.Buff"
+						"Target" 		"TARGET"
+					}
 				}
 			}
 		}

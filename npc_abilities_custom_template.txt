@@ -36983,6 +36983,10 @@
 			{
 				"IsHidden"	"1"
 			}
+			"modifier_general_postmitigation_received"
+			{
+				"IsHidden"	"1"
+			}
 			"modifier_sea_fortress_ai"
 			{
 				"IsHidden"	"1"

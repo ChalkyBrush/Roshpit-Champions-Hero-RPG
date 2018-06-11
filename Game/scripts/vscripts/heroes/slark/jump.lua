@@ -277,6 +277,9 @@ end
 function slipfinn_jump_think(event)
 	local caster = event.caster
 	local ability = event.ability
+	if Filters:HasMovementModifier(caster) then
+		return false
+	end
 	caster:SetOrigin(caster:GetAbsOrigin()+Vector(0,0,caster.jump_force))
 	caster.jump_force = caster.jump_force - 2
 	caster.max_slip_speed = 200

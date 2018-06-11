@@ -561,7 +561,11 @@ function wb_volcanic_glissade(event)
 	local target = event.target_points[1]
 	
 	ability.targetPoint = target
-	EmitSoundOn("Winterblight.MountainDweller.Charge", caster)
+	if caster:GetUnitName() == "winterblight_bladewielder" then
+		EmitSoundOn("Winterblight.BladeWielder.Aggro", caster)
+	else
+		EmitSoundOn("Winterblight.MountainDweller.Charge", caster)
+	end
 	EmitSoundOn("Winterblight.MountainGlissade", caster)
 	StartAnimation(caster, {duration=1, activity=ACT_DOTA_VERSUS, rate=2})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_volcanic_glissade", {duration = 1.6})
@@ -962,12 +966,18 @@ function sea_fortress_summon_ability(event)
 		caster.maxSummons = 2
 	end
 	local summoned = false
+	if caster:GetUnitName() == "azalea_grave_summoner" then
+		StartAnimation(caster, {duration=0.9, activity=ACT_DOTA_RAZE_2, rate=1.2})
+	end
 	for i = 1, loops, 1 do
 		if caster.summonCount < caster.maxSummons then
 			summoned = true
 			local spider = nil
 			if caster:GetUnitName() == "winterblight_ice_summoner" then
 				spider = Winterblight:SpawnIceSummon(caster:GetAbsOrigin()+RandomVector(RandomInt(100, 260)), caster:GetForwardVector(), caster, caster.aggro)
+				CustomAbilities:QuickAttachParticle("particles/econ/items/crystal_maiden/ti7_immortal_shoulder/cm_ti7_immortal_frostbite_snow_explode.vpcf", spider, 3)
+			elseif caster:GetUnitName() == "azalea_grave_summoner" then
+				spider = Winterblight:SpawnBlueGargoyle(caster:GetAbsOrigin()+RandomVector(RandomInt(100, 260)), caster:GetForwardVector(), caster, caster.aggro)
 				CustomAbilities:QuickAttachParticle("particles/econ/items/crystal_maiden/ti7_immortal_shoulder/cm_ti7_immortal_frostbite_snow_explode.vpcf", spider, 3)
 			end
 			Events:CreateLightningBeamWithParticle(caster:GetAbsOrigin()+Vector(0,0,140), spider:GetAbsOrigin()+Vector(0,0,60), "particles/units/heroes/hero_wisp/wisp_tether_agh.vpcf", 0.9)

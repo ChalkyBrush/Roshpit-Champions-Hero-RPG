@@ -2750,7 +2750,8 @@ end
 
 function Seafortress:SpawnFairyDragon(position, fv)
   local queen = Seafortress:SpawnDungeonUnit("sea_fortress_fairy_dragon", position, 1, 3, "Seafortress.FairyDragon.Aggro", fv, false)
-  queen.dominion = true
+  -- queen.dominion = true
+  --problems with crashing when dominated
   queen:SetRenderColor(160, 255, 100)
   Events:ColorWearables(queen, Vector(120, 255, 165))
   Events:AdjustBossPower(queen, 2, 8, false)

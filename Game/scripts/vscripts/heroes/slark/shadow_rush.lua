@@ -44,7 +44,7 @@ function shadow_rush_think(event)
 
 	local caster = event.caster
 	local ability = event.ability
-	if caster:FindAbilityByName("slipfinn_shadow_rush"):IsInAbilityPhase() or caster:IsChanneling() then
+	if caster:FindAbilityByName("slipfinn_shadow_rush"):IsInAbilityPhase() or caster:IsChanneling() or Filters:HasMovementModifier(caster) then
 	else
 		if not caster.rightClickPos then
 			local order =

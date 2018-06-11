@@ -1090,6 +1090,12 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		reduction = (100-reduction)/100
 		damage = damage*reduction
 	end
+	if victim:HasModifier("modifier_blue_gargoyle_passive") then
+		local passiveAbility = victim:FindAbilityByName("winterblight_gargoyle_summon_passive")
+		local reduction = passiveAbility:GetLevelSpecialValueFor("pure_resist", passiveAbility:GetLevel())
+		reduction = (100-reduction)/100
+		damage = damage*reduction
+	end
 	if victim:HasModifier("modifier_arkimus_archon_form") then
 		local archonForm = victim:FindAbilityByName("arkimus_archon_form")
 		local reduction = archonForm:GetLevelSpecialValueFor("damage_resist", archonForm:GetLevel())
@@ -1291,6 +1297,20 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			damage = 0
 		end
 	end
+	if victim:HasModifier("modifier_triboss_powered_up_single") then
+		local difficultyReduc = {0.7, 0.1, 0.01}
+		local stonesReduce = {0.1, 0.01, 0.001}
+		local stoneReduce = 1
+		if Winterblight.Stones > 0 then
+		  stoneReduce = stoneReduce[Winterblight.Stones]
+		  if GameState:GetDifficultyFactor() == 1 then
+		  	stoneReduce = math.max(stoneReduce, 0.1)
+		  elseif GameState:GetDifficultyFactor() == 2 then
+		  	stoneReduce = math.max(stoneReduce, 0.01)
+		  end
+	    end
+		damage = damage*difficultyReduc[GameState:GetDifficultyFactor()]*stoneReduce
+	end
 	return damage/BASE_VALUE_FOR_CALCULATE
 end
 
@@ -1324,17 +1344,19 @@ function GameState:FilterDamage(filterTable)
 
 	if filterTable["entindex_inflictor_const"] then
 		local ability = EntIndexToHScript(filterTable["entindex_inflictor_const"])
-		if not string.match(ability:GetClassname(), "npc_dota_hero_") then
-			if IsValidEntity(ability) then
-				if ability:GetEntityIndex() == Events.GameMasterAbility:GetEntityIndex() then
-					print("APPLY EFFECTS FALSE!")
-					applyEffects = false
-				end
-				local abilityName = ability:GetAbilityName()
-				modifier = victim:FindModifierByName('modifier_centaur_horns')
-				if abilityName ~= 'item_rpc_centaur_horns' and modifier then
-					local centaurHornsAbility = modifier:GetAbility()
-					centaurHornsAbility:ApplyDataDrivenModifier(victim, victim, "modifier_centaur_horns_debuff", {duration = 1.5})
+		if not ability:GetName() == "npc_dota_creature" then
+			if not string.match(ability:GetClassname(), "npc_dota_hero_") then
+				if IsValidEntity(ability) then
+					if ability:GetEntityIndex() == Events.GameMasterAbility:GetEntityIndex() then
+						print("APPLY EFFECTS FALSE!")
+						applyEffects = false
+					end
+					local abilityName = ability:GetAbilityName()
+					modifier = victim:FindModifierByName('modifier_centaur_horns')
+					if abilityName ~= 'item_rpc_centaur_horns' and modifier then
+						local centaurHornsAbility = modifier:GetAbility()
+						centaurHornsAbility:ApplyDataDrivenModifier(victim, victim, "modifier_centaur_horns_debuff", {duration = 1.5})
+					end
 				end
 			end
 		end
@@ -1868,6 +1890,24 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = filterTable["damage"]*0.001
 		end
 	end
+	if victim:HasModifier("modifier_azalea_dragoon_passive") then
+		local distance = WallPhysics:GetDistance(victim:GetAbsOrigin(), attacker:GetAbsOrigin())
+		local passive = victim:FindAbilityByName("winterblight_azalea_dragoon_passive")
+		local distanceCompare = passive:GetSpecialValueFor("distance")
+		local damageReduce = passive:GetSpecialValueFor("damage_block")
+		if distance > distanceCompare then
+			StartAnimation(victim, {duration=0.5, activity=ACT_DOTA_THUNDER_STRIKE, rate=1.8})
+			EmitSoundOn("Winterblight.Dragoon.Block", victim)
+			if not passive.particleLock then
+				CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/dragoon_block.vpcf", victim, 1)
+				passive.particleLock = true
+				Timers:CreateTimer(1, function()
+					passive.particleLock = false
+				end)
+			end
+			filterTable["damage"] = filterTable["damage"]*(1-(damageReduce/100))
+		end
+	end
 	if victim:HasModifier("modifier_spectral_witch_passive") then
 		local distance = WallPhysics:GetDistance(victim:GetAbsOrigin(), attacker:GetAbsOrigin())
 		if distance > 600 then
@@ -1904,6 +1944,12 @@ function GameState:FilterDamage(filterTable)
 		local stacks = attacker:GetModifierStackCount("modifier_general_postmitigation", Events.GameMaster)
 		local multIncrease = stacks/100
 		mult = mult + multIncrease
+	end
+	if attacker:HasModifier("modifier_azalea_knife_postmitigation") then
+		if victim:IsRooted() then
+			local multIncrease = 5
+			mult = mult + multIncrease
+		end
 	end
 	if attacker:HasModifier("modifier_sunstrider_sunwarrior_vengeance_post_mit") then
 		local stacks = attacker:GetModifierStackCount("modifier_sunstrider_sunwarrior_vengeance_post_mit", attacker)
@@ -2992,19 +3038,19 @@ function GameState:FilterDamage(filterTable)
 	-- 	filterTable["damage"] = filterTable["damage"]/GameState.PVP_REDUCTION
 	-- end
 
-	-- if Beacons.cheats then
-	-- 	if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-	-- 		if victim:IsHero() then
-	-- 			filterTable["damage"] = 0
-	-- 		end
-	-- 	end
-	-- 	-- filterTable["damage"] = victim:GetHealth()-1
-	-- 	if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-	-- 		if attacker:IsHero() then
-	-- 			filterTable["damage"] = filterTable["damage"]*60000000
-	-- 		end
-	-- 	end
-	-- end
+	if Beacons.cheats then
+		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+			if victim:IsHero() then
+				filterTable["damage"] = 0
+			end
+		end
+		-- filterTable["damage"] = victim:GetHealth()-1
+		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+			if attacker:IsHero() then
+				filterTable["damage"] = filterTable["damage"]*60000000
+			end
+		end
+	end
 
 	return true
 

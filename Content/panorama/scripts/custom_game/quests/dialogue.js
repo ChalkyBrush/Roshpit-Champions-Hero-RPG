@@ -14,9 +14,12 @@ function BasicDialogue(msg){
     var portraitHero = msg.portraitHero
     var unitName = msg.unitName
     var messageText = msg.messageText
+    messageText = $.Localize(messageText)
     var bDialogue = msg.bDialogue
     $('#hud_dialogue_container').unlock = false
-
+    if (!(msg.azalea === undefined)){
+    	messageText = messageText + "!!"
+    }
     var heroPortraitContainer = dialogue.FindChildTraverse('dialogue_portrait_scene')
 
     // var heroPortraitAnimated = $.CreatePanel("DOTAScenePanel", button, "dialogue_portrait_scene2");
@@ -40,7 +43,7 @@ heroPortraitContainer.LoadLayoutFromStringAsync("<root><Panel><DOTAScenePanel pa
     dialogueLabel.level = dialogueLabel.level + 1
     $('#hud_dialogue_container').dialogueLevel = $('#hud_dialogue_container').dialogueLevel + 1
     var dialogueLevel = $('#hud_dialogue_container').dialogueLevel
-    typeText(dialogueLabel, $.Localize(messageText), dialogueLabel.level)
+    typeText(dialogueLabel, messageText, dialogueLabel.level)
     $('#hud_dialogue_container').dialogueLock = true
 	$.Schedule(parseInt(msg.timeLock), function(){
 		CloseDialogue(dialogueLevel)

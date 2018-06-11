@@ -112,7 +112,7 @@ end
 function Winterblight:Debug2()
  -- Winterblight:FinishCaveWaves()
  -- Winterblight:InitializeAzaleaSwords()
- AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-2944, -12496), 23000, 23000, false)
+ -- AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-7619, -12895), 23000, 23000, false)
  -- Winterblight:StartOrbSequence()
   -- Winterblight:EndOrbWaves()
     -- Winterblight:OpenShrineOfAzalea()
@@ -121,7 +121,8 @@ function Winterblight:Debug2()
     -- Winterblight:PlatformRoomStartBeacon()
     -- Winterblight:CandyCrushRoom()
     -- Winterblight:SpawnCruxal(Vector(-15367, -2924), Vector(0,-1))
-    Winterblight:InitAzaleaMazeRoom()
+    -- Winterblight:InitAzaleaMazeRoom()
+    -- Winterblight:AzaleaSummonerRoomInit()
 end
 
 function Winterblight:CalculateHeroZones()

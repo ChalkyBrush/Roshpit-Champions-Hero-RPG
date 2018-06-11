@@ -371,3 +371,22 @@ function Quests:ShowDialogueText(activators, unit, unitText, time, bLeash)
 		-- end)
 	end
 end
+
+function Quests:ShowDialogueTextAzalea(activators, unit, unitText, time, bLeash)
+	if not activators then
+		return false
+	end
+	for i = 1, #activators, 1 do
+		print("DIALOGUE TEST?")
+		local hero = activators[i]
+		local headerText = unit:GetUnitName()
+		local messageText = unitText
+		local nameColorClass = "enemy_name"
+		if unit:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+			nameColorClass = "allied_name"
+		end
+		print(headerText)
+		CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "basic_dialogue", {portraitHero=portraitHero, unitName=headerText, messageText = messageText, nameColorClass = nameColorClass, timeLock = time, azalea = true})
+		hero.dialogueTime = GameRules:GetGameTime() + time
+	end
+end
