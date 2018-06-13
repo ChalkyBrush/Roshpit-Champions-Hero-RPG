@@ -70,11 +70,15 @@ end
 --end
 
 function ghost_trap_enter(event)
-	print("test duskbringer w1")
+	-- print("test duskbringer w1")
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
 	local duration = event.duration
+	if not target.ghost_hallow_think_interval then target.ghost_hallow_think_interval = 0 end
+	if event.apply == 0 then
+		target.ghost_hallow_think_interval = target.ghost_hallow_think_interval + 1
+	end
 	if not target:HasModifier("modifier_ghost_trap_immune") then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_ghost_trap_immune", {duration = duration+3})
 		ability:ApplyDataDrivenModifier(caster, target, "ghost_hallow_stun", {duration = duration})
@@ -94,13 +98,16 @@ function ghost_trap_enter(event)
 		-- 	target:SetModifierStackCount("modifier_duskbringer_rune_d_b_invisible", caster.runeUnit4, d_b_level)
 		-- end
 	end
-	print("test duskbringer w1 2")
-	ability.a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "duskbringer")
-	ghost_trap_a_b_thinker(event)
-	
-	if ability.a_b_level > 0 then
-		target.duskABparticle = CustomAbilities:QuickAttachParticle("particles/roshpit/duskbringer/duskbringer_rune_a_b_2.vpcf", target, 10)
-		ParticleManager:SetParticleControl(target.duskABparticle, 1, target:GetForwardVector()*150)
+	-- print("test duskbringer w1 2")
+	if target.ghost_hallow_think_interval%10 == 0 or event.apply == 1 then
+		ability.a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "duskbringer")
+		ghost_trap_a_b_thinker(event)
+		if ability.a_b_level > 0 then
+			if not target.duskABparticle then
+				target.duskABparticle = CustomAbilities:QuickAttachParticle("particles/roshpit/duskbringer/duskbringer_rune_a_b_2.vpcf", target, 10)
+				ParticleManager:SetParticleControl(target.duskABparticle, 1, target:GetForwardVector()*150)
+			end
+		end
 	end
 end
 
@@ -119,6 +126,7 @@ function ghost_trap_end(event)
 		  ParticleManager:ReleaseParticleIndex(pfx)
 		end)
 	end
+	target.ghost_hallow_think_interval = nil
 end
 
 function ghost_trap_a_b_thinker(event)
@@ -132,7 +140,7 @@ function ghost_trap_a_b_thinker(event)
 		Timers:CreateTimer(0.15, function()
 			if target:IsAlive() then
 				CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash_flash.vpcf", target:GetAbsOrigin()+Vector(0,0,40), 0.2)
-				Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
+				Filters:TakeArgumentsAndApplyDamage(target, caster, 0, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
 				EmitSoundOn("Duskbringer.GhostHallowAB", target)
 			end
 
