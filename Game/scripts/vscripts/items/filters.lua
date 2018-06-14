@@ -1125,14 +1125,14 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
                 damage = damage + attacker:GetStrength()*b_c_level
             end
         end
-        if attacker:HasModifier("modifier_heavy_echo_gauntlet") then
-            if not victim.echoLock then
-                victim.echoLock = true
-                Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, slot, element1, element2, ignore_effects)
-                Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, slot, element1, element2, ignore_effects)
-                victim.echoLock = false
-            end
-        end
+        -- if attacker:HasModifier("modifier_heavy_echo_gauntlet") then
+        --     if not victim.echoLock then
+        --         victim.echoLock = true
+        --         Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, slot, element1, element2, ignore_effects)
+        --         Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, slot, element1, element2, ignore_effects)
+        --         victim.echoLock = false
+        --     end
+        -- end
     end
 
     damage, element1, element2 = Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, element1, element2, true)
@@ -1522,7 +1522,8 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
     end
     if slot == 0 then
-        ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = attacker:GetAbilityByIndex(0) })
+        Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, 0)
+        -- ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = attacker:GetAbilityByIndex(0) })
     end
 
     return damage
@@ -1551,19 +1552,31 @@ function Filters:ApplyQdamage(victim, attacker, damage, damage_type)
     elseif attacker:HasModifier("modifier_body_violet_guard2") then
         Filters:VioletGuard2Hit(victim, attacker, damage)
     end
-    ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = attacker:GetAbilityByIndex(0) })
+    Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, 0)
+    -- ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = attacker:GetAbilityByIndex(0) })
 end
 
 function Filters:ApplyWdamage(victim, attacker, damage, damage_type)
-    ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = attacker:GetAbilityByIndex(1) })
+    Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, 1)
+    -- ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = attacker:GetAbilityByIndex(1) })
 end
 
 function Filters:ApplyEdamage(victim, attacker, damage, damage_type)
-    ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = attacker:GetAbilityByIndex(2) })
+    Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, 2)
+    -- ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = attacker:GetAbilityByIndex(2) })
 end
 
 function Filters:ApplyRdamage(victim, attacker, damage, damage_type)
-    ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = attacker:GetAbilityByIndex(3) })
+    Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, 3)
+    -- ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = attacker:GetAbilityByIndex(3) })
+end
+
+function Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, slot)
+    ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = attacker:GetAbilityByIndex(slot) })
+    if attacker:HasModifier("modifier_heavy_echo_gauntlet") then
+        ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = attacker:GetAbilityByIndex(slot) })
+        ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = attacker:GetAbilityByIndex(slot) })
+    end
 end
 
 function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, element1, element2, bIsRealDamage)
