@@ -358,7 +358,8 @@ local _CODE_TO_ANIMATION_TRANSLATE = {
   [354]= "disco_gesture",
   [355]= "basher",
   [356]= "freeze",
-  [357]= "hunter_night"
+  [357]= "hunter_night",
+  [358]= "rope"
 }
 
 function modifier_animation:OnCreated(keys) 

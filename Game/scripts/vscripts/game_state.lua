@@ -2834,7 +2834,11 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = filterTable["damage"]*0.2
 		end
 	end
-
+	-- wEIRD MONSTERS
+	if victim:HasModifier("modifier_mystery_summon_passive") then
+		filterTable["damage"] = 0
+		Winterblight:PixieSummonTakeDamage(victim)
+	end
 	if victim:HasModifier("modifier_armor_of_atlantis") then
 		if filterTable["damage"] > victim:GetMaxHealth() then
 			filterTable["damage"] = filterTable["damage"] * 0.05

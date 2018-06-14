@@ -3699,7 +3699,7 @@ end
 function Winterblight:TriBossPhaser(index)
 	Winterblight.TriBossPhase = index
 	local goal = 6 + GameState:GetDifficultyFactor()*2
-	goal = 0
+	-- goal = 0
 	if Winterblight.TriBossPhase >= goal then
 		Winterblight:TriBossBattleBegin()
 		return false
@@ -4059,6 +4059,72 @@ function Winterblight:AzaleaLastRoomWall()
 		local walls = Entities:FindAllByNameWithin("AzaleaWall8", Vector(-11740, -12980, 273+Winterblight.ZFLOAT), 2400)
 	    EmitSoundOnLocationWithCaster(Vector(-11740, -12980, 273+Winterblight.ZFLOAT), "Winterblight.WallOpen", Events.GameMaster)
 	    Winterblight:Walls(false, walls, true, 4.3)
-	    Winterblight:RemoveBlockers(4, "AzaleaWallBlocker5", Vector(-11740, -12928, 150+Winterblight.ZFLOAT), 1800)
+	    Winterblight:RemoveBlockers(4, "AzaleaBlocker5", Vector(-11740, -12928, 150+Winterblight.ZFLOAT), 2800)
+	end
+end
+
+function Winterblight:SpawnPixieMinion(position, fv)
+	local hp = (100 + GameState:GetDifficultyFactor()*100) + Winterblight.Stones*100
+	local pixie = CreateUnitByName("pixie_minion", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
+	pixie:SetBaseMaxHealth(hp)
+	pixie:SetMaxHealth(hp)
+	pixie:SetHealth(hp)
+	pixie:SetAcquisitionRange(3000)
+	pixie:SetForwardVector(fv)
+	return pixie
+end
+
+function Winterblight:GetRandomPixieLocation()
+	-- local possiblePositionTable = {Vector(-14080, -13440), Vector(-13568, -13312), Vector(-12576, -13222)}
+	local position = nil
+	local luck = RandomInt(1, 100)
+	if luck <=38 then
+		position = Vector(-14208, -13312) + Vector(RandomInt(0, 2300), RandomInt(0, 2250))
+	elseif luck <= 92 then
+		position = Vector(-15616, -11776) + Vector(RandomInt(0, 3950), RandomInt(0, 2750))
+	elseif luck < 99 then
+		position = Vector(-11129, -10347+RandomInt(0, 2500))
+	elseif luck == 99 then
+		position = Vector(-15404, -12103)
+	elseif luck == 100 then
+		position = Vector(-16000, -11776)
+	end
+	return position
+end
+
+function Winterblight:PixieSummonTakeDamage(summon)
+	for i = 1, #summon.buddyTable, 1 do
+		local buddy = summon.buddyTable[i]
+		if IsValidEntity(buddy) and buddy:IsAlive() then
+			local newHealth = buddy:GetHealth() - 1
+			if newHealth == 0 then
+				buddy:ForceKill(true)
+			else
+				buddy:SetHealth(newHealth)
+			end
+		end
+	end
+end
+
+function Winterblight:SpawnRiftBreaker(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_azalea_riftbreaker", position, 1, 1, "Winterblight.Riftbreaker.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 4, 5, false)
+	stone.itemLevel = 50
+	Events:ColorWearablesAndBase(stone, Vector(80,150,255))
+	Winterblight:SetTargetCastArgs(stone, 1500, 0, 2, FIND_ANY_ORDER)
+	return stone
+end
+
+function Winterblight:LastAzaleaRoomStart()
+	local pixie = CreateUnitByName("azalea_mystery_pixie", Vector(-11699, -10174), false, nil, nil, DOTA_TEAM_NEUTRALS)
+	pixie:SetForwardVector(Vector(-1,0))
+	pixie.phase = 0
+
+	for j = 0, 2, 1 do
+	 for i = 0, 2, 1 do
+	 	Timers:CreateTimer(i*0.5 + j*0.32, function()
+	 		Winterblight:SpawnRiftBreaker(Vector(-13312+i*256, -10807+j*256), Vector(0,-1))
+	 	end)
+	 end
 	end
 end

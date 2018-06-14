@@ -1,0 +1,44 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/hero/rune_tooltip.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/heroes_custom/runes_tooltips.js"/>
+		<include src="file://{resources}/scripts/custom_game/heroes_custom/heroes_custom.js" />
+	</scripts>
+	<Panel class="rune_tooltip_new_root" ontooltiploaded="initializeTooltip()">
+		<Panel id="tooltip_main_container">
+			<Label id="tooltip_title"></Label>
+			<Panel id="rune_level_container">
+				<Label id="rune_level_title" html="true"></Label>
+<!-- 				<Label id="rune_level_value"></Label> -->
+			</Panel>
+
+				<Panel class="properties_special_base_ability" id="base_ability_container">
+					<Label id="base_ability_title" class="special-property-title" html="true"/>
+					<Label id="base_ability_value" class="special-property" html="true"/>
+				</Panel>
+				<Panel class="properties_special_base_ability" id="damage_type_container">
+					<Label id="damage_type_title" class="special-property-title" html="true"/>
+					<Label id="damage_type_value" class="special-property" html="true"/>
+				</Panel>
+				<Panel class="properties_special_base_ability" id="element_container">
+					<Label id="element_title" class="special-property-title" html="true"/>
+					<Label id="element_value" class="special-property" html="true"/>
+				</Panel>
+				<Label id="rune_description" html="true">
+				</Label>
+				<Panel class="properties_special_container">
+					<Label id="current" text="Current" class="rune_value_header"></Label>
+					<Label id="current_level_text_1" class="rune_value" html="true"></Label>
+					<Label id="current_level_text_2" class="rune_value" html="true"></Label>
+					<Panel id="rune_seperator"></Panel>
+					<Label id="next" text="Next Level" class="rune_value_header"></Label>
+					<Label id="next_level_text_1" class="rune_value" html="true"></Label>
+					<Label id="next_level_text_2" class="rune_value" html="true"></Label>
+				</Panel>
+		</Panel>		
+	</Panel>
+
+
+</root>

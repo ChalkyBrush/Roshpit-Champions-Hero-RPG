@@ -1,0 +1,141 @@
+.item_tooltip_root{
+
+}
+
+.invisible{
+	visibility: collapse;
+}
+
+#tooltip_main_container{
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+	flow-children:down;
+	width:320px;
+}
+
+#tooltip_title{
+	font-size:20px;
+	color:#70d1b7;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+	text-shadow: 2px 2px 2px solid black;
+	text-align: center;
+	width:100%;
+}
+
+#rune_level_container{
+	width:100%;
+	flow-children:right;
+	text-align: center;
+}
+
+#rune_level_title{
+	font-size:20px;
+	color:#FFFFFF;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+	text-shadow: 2px 2px 2px solid black;
+	text-align: center;
+	width:100%;
+}
+
+
+#rune_level_value{
+	font-size:20px;
+	color:#FFFFFF;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+	text-shadow: 2px 2px 2px solid black;
+}
+
+.properties_special_container{
+	padding:8px;
+	background-color: #0D0D0D;
+	border-radius:6px;
+	margin-top:5px;
+	box-shadow: 0px 0px 2px #2D2D2D;
+	width:100%;
+	flow-children:down;
+}
+
+.properties_special_base_ability{
+	width:100%;
+}
+
+#base_ability_container{
+	margin-top:5px;
+}
+#base_ability_title{
+	font-size:16px;
+	color:#00FF00;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+	text-shadow: 2px 2px 2px solid black;
+	color: #8bbad6;
+}
+
+#base_ability_value{
+	font-size:16px;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+	text-shadow: 2px 2px 2px solid black;
+	horizontal-align:right;
+	color: #689df2;
+}
+
+#damage_type_title{
+	font-size:16px;
+	color:#00FF00;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+	text-shadow: 2px 2px 2px solid black;
+	color: #8bbad6;
+}
+
+#damage_type_value{
+	font-size:16px;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+	text-shadow: 2px 2px 2px solid black;
+	horizontal-align:right;
+	color: #689df2;
+}
+
+#element_title{
+	font-size:16px;
+	color:#00FF00;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+	text-shadow: 2px 2px 2px solid black;
+	color: #8bbad6;
+}
+
+#element_value{
+	font-size:16px;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+	text-shadow: 2px 2px 2px solid black;
+	horizontal-align:right;
+	color: #FFFFFF;
+}
+
+#rune_description{
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+	width:100%;
+	color:#DEDEDE;
+	font-size:18px;
+}
+
+.rune_value{
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+	width:100%;
+	color:#DEDEDE;
+	font-size:18px;	
+}
+
+.rune_value_header{
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+	width:100%;
+	color:#5bb273;
+	font-size:14px;
+	text-align: center;
+
+}
+
+#rune_seperator{
+	height:1px;
+	background-color: #666666;
+	width:100%;
+	margin-top:6px;
+	margin-bottom:6px;
+}

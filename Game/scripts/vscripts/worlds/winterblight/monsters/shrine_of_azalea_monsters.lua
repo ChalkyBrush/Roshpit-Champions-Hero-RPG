@@ -2079,15 +2079,12 @@ function tri_boss_death_sequence(event)
 			end
 		elseif caster:GetUnitName() == "winterblight_azertia" then
 			delay = 2.5
-			local abilityTable = {"fire_temple_steadfast", "ability_mega_haste", "winterblight_generic_chill_attack_passive", "winterblight_wolf_ability", "winterblight_ogre_armor", "winterblight_frostiok_passive", "winterblight_frost_colossus_passive", "winterblight_snowshaker_passive", "winterblight_bear_passive", "winterblight_stun_regen", "winterblight_frostbite_attack", "luna_taskmaster_shield", "winterblight_dimension_spear", "winterblight_speed_softening", "winterblight_armor_softening"}
+			local abilityTable = {"ability_mega_haste", "winterblight_generic_chill_attack_passive", "winterblight_wolf_ability", "winterblight_ogre_armor", "winterblight_frostiok_passive", "winterblight_frost_colossus_passive", "winterblight_snowshaker_passive", "winterblight_bear_passive", "winterblight_stun_regen", "winterblight_frostbite_attack", "luna_taskmaster_shield", "winterblight_dimension_spear", "winterblight_speed_softening", "winterblight_armor_softening"}
 			if GameState:GetDifficultyFactor() >= 2 then
 				table.insert(abilityTable, "seafortress_golden_shell")
 			end
 			if GameState:GetDifficultyFactor() == 3 then
 				table.insert(abilityTable, "creature_pure_strike")
-			end
-			if Winterblight.Stones >= 1 then
-				table.insert(abilityTable, "redfall_mega_steadfast")
 			end
 			local selectedAbility = abilityTable[RandomInt(1, #abilityTable)]
 			StartAnimation(Winterblight.TriBossTable.Azertia, {duration=2.5, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.9})
@@ -2282,4 +2279,213 @@ function buzuki_passive_think(event)
 			end
 		end 	
 	end
+end
+
+function mystery_fairy_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not caster.interval then
+		caster.interval = 0
+	end
+	if caster.lock then
+		return false
+	end
+
+	caster.interval = caster.interval + 1
+	if caster.phase > 0 then
+		if caster.interval == 100 then
+			local enemiesFAR = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+			for i = 1, #enemiesFAR, 1 do
+				local distance = WallPhysics:GetDistance2d(enemiesFAR[i]:GetAbsOrigin(), caster:GetAbsOrigin())
+				if distance > 350 then
+
+					local pfxName = "particles/units/heroes/hero_wisp/wisp_tether_green.vpcf"
+					local direction = WallPhysics:normalized_2d_vector(enemiesFAR[i]:GetAbsOrigin(), caster:GetAbsOrigin())
+					local pfx = ParticleManager:CreateParticle(pfxName, PATTACH_CUSTOMORIGIN, nil)
+					ParticleManager:SetParticleControl(pfx, 0, enemiesFAR[i]:GetAbsOrigin()+Vector(0,0,70))
+					ParticleManager:SetParticleControl(pfx, 1, enemiesFAR[i]:GetAbsOrigin()+Vector(0,0,70) + direction*(distance/1600)*550)
+					EmitSoundOn("Winterblight.Pixie.Indicator", enemiesFAR[i])
+					Timers:CreateTimer(0.4, function()
+						ParticleManager:DestroyParticle(pfx, false)
+					end)
+				end
+			end
+		end
+		local enemiesCLOSE = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
+		if #enemiesCLOSE > 0 then
+			caster:RemoveNoDraw()
+			local distance = WallPhysics:GetDistance2d(enemiesCLOSE[1]:GetAbsOrigin(), caster:GetAbsOrigin())
+			if distance < 90 then
+				caster:SetModelScale(1.0)
+				caster.phase = caster.phase + 1
+				local newPos = Winterblight:GetRandomPixieLocation()
+				pixie_sequence(caster, newPos)
+				return false
+			else
+				local scale = (400-distance)/400
+				caster:SetModelScale(scale)
+			end
+		else
+			caster:SetModelScale(0)
+			caster:AddNoDraw()
+		end		
+	else
+		if caster.interval%30 == 0 then
+			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+			if #enemies > 0 then
+				caster.phase = 1
+				local newPos = Winterblight:GetRandomPixieLocation()
+				pixie_sequence(caster, newPos)
+				return false
+			end
+		end
+	end
+	if caster.interval == 100 then
+		caster.interval = 0
+	end
+end
+
+function pixie_sequence(caster, targetPosition)
+	if caster.lock then
+		return false
+	end
+	caster.lock = true
+	EmitSoundOn("Winterblight.Pixie.Mystery1", caster)
+	StartAnimation(caster, {duration=1.35, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.0})
+	Timers:CreateTimer(0.5, function()
+		EmitSoundOn("Winterblight.Pixie.Laugh", caster)
+	end)
+	Timers:CreateTimer(1.35, function()
+		StartAnimation(caster, {duration=3.0, activity=ACT_DOTA_TAUNT, rate=1.0, translate="rope"})
+		Timers:CreateTimer(1.2, function()
+			EmitSoundOn("Winterblight.Pixie.Grunt", caster)
+		end)
+		local pixie_fv = caster:GetForwardVector()
+		Timers:CreateTimer(1.8, function()
+			Winterblight:smoothSizeChange(caster, 1, 0.1, 19)
+			Timers:CreateTimer(0.6, function()
+				local pos = caster:GetAbsOrigin()
+				caster:SetModelScale(0)
+				local pfx = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf", PATTACH_CUSTOMORIGIN, caster)
+				ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+				ParticleManager:SetParticleControl(pfx, 1, Vector(600, 2, 2))
+				local pfx2 = ParticleManager:CreateParticle( "particles/roshpit/winterblight_dust.vpcf", PATTACH_CUSTOMORIGIN, nil)
+				ParticleManager:SetParticleControl(pfx2, 0, pos+Vector(0,0,80))
+				ParticleManager:SetParticleControl(pfx2, 5, Vector(0.9, 0.9, 1.0))
+				ParticleManager:SetParticleControl(pfx2, 2, Vector(0.8,0.8,0.8))
+				EmitSoundOn("Winterblight.Pixie.Teleport", caster)
+				caster:SetAbsOrigin(GetGroundPosition(targetPosition, caster)+Vector(0,0,80))
+				Timers:CreateTimer(1.0, function()
+					caster.lock = false
+				end)
+				local pixie_summon_table = {}
+				for i = 1, 6, 1 do
+					local fv = WallPhysics:rotateVector(Vector(1,0), 2*math.pi*i/6)
+					local summon = Winterblight:SpawnPixieMinion(pos+fv*120, pixie_fv)
+					table.insert(pixie_summon_table, summon)
+					FindClearSpaceForUnit(summon, summon:GetAbsOrigin(), false)
+				end
+				for j = 1, 10, 1 do
+					local fv = WallPhysics:rotateVector(Vector(1,0), 2*math.pi*j/10)
+					local summon = Winterblight:SpawnPixieMinion(pos+fv*240, pixie_fv)
+					table.insert(pixie_summon_table, summon)
+					FindClearSpaceForUnit(summon, summon:GetAbsOrigin(), false)
+				end
+				for i = 1, #pixie_summon_table, 1 do
+					pixie_summon_table[i].buddyTable = pixie_summon_table
+				end
+				Timers:CreateTimer(0.5, function()
+					EmitSoundOnLocationWithCaster(pos, "Winterblight.Pixie.AfterPort", Events.GameMaster)
+				end)
+				Timers:CreateTimer(3, function()
+					ParticleManager:DestroyParticle(pfx, false)
+					ParticleManager:DestroyParticle(pfx2, false)
+				end)
+			end)
+		end)
+	end)
+end
+
+function mystery_summon_attack(event)
+	local attacker = event.attacker
+	local target = event.target
+	local health_set = event.health_set
+	if target:GetHealth() > health_set then
+		target:SetHealth(health_set)
+	end
+end
+
+function RealityRiftPosition( keys )
+	local caster = keys.caster
+	local target = keys.target
+	local caster_location = caster:GetAbsOrigin() 
+	local target_location = target:GetAbsOrigin() 
+	local ability = keys.ability
+	local ability_level = ability:GetLevel() - 1
+
+	-- Ability variables
+	local min_range = ability:GetLevelSpecialValueFor("min_range", ability_level) 
+	local max_range = ability:GetLevelSpecialValueFor("max_range", ability_level)
+	local reality_rift_particle = keys.reality_rift_particle
+
+	-- Position calculation
+	local distance = (target_location - caster_location):Length2D() 
+	local direction = (target_location - caster_location):Normalized()
+	local target_point = RandomFloat(min_range, max_range) * distance
+	local target_point_vector = caster_location + direction * target_point
+
+	-- Particle
+	local particle = ParticleManager:CreateParticle(reality_rift_particle, PATTACH_CUSTOMORIGIN, target)
+	ParticleManager:SetParticleControlEnt(particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster_location, true)
+	ParticleManager:SetParticleControlEnt(particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target_location, true)
+	ParticleManager:SetParticleControl(particle, 2, target_point_vector)
+	ParticleManager:SetParticleControlOrientation(particle, 2, direction, Vector(0,1,0), Vector(1,0,0))
+	ParticleManager:ReleaseParticleIndex(particle) 
+
+	-- Save the location
+	ability.reality_rift_location = target_point_vector
+	ability.reality_rift_direction = direction
+end
+
+--[[Author: Pizzalol
+	Date: 09.04.2015.
+	Relocates the target, caster and any illusions under the casters control]]
+function RealityRift( keys )
+	local caster = keys.caster
+	local target = keys.target
+	local caster_location = caster:GetAbsOrigin()
+	local player = caster:GetPlayerOwnerID()
+	local ability = keys.ability
+	local ability_level = ability:GetLevel() - 1
+
+	-- Ability variables
+	local bonus_duration = ability:GetLevelSpecialValueFor("bonus_duration", ability_level) 
+	local illusion_search_radius = ability:GetLevelSpecialValueFor("illusion_search_radius", ability_level) 
+	local bonus_modifier = keys.bonus_modifier
+	
+	-- Set the positions to be one on each side of the rift
+	target:SetAbsOrigin(ability.reality_rift_location - ability.reality_rift_direction * 25)
+	caster:SetAbsOrigin(ability.reality_rift_location + ability.reality_rift_direction * 25)
+
+	-- Set the targets to face eachother
+	target:SetForwardVector(ability.reality_rift_direction)
+	caster:Stop() 
+	caster:SetForwardVector(ability.reality_rift_direction * -1)
+
+	-- Add the phased modifier to prevent getting stuck
+	target:AddNewModifier(caster, nil, "modifier_phased", {duration = 0.03})
+	caster:AddNewModifier(caster, nil, "modifier_phased", {duration = 0.03})
+
+	-- Execute the attack order for the caster
+	local order =
+	{
+		UnitIndex = caster:entindex(),
+		OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
+		TargetIndex = target:entindex(),
+		Queue = true
+	}
+
+	ExecuteOrderFromTable(order)
+
+
 end

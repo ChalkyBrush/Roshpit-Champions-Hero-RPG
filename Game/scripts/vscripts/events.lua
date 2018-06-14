@@ -965,6 +965,11 @@ function Events:CreateRuneUnits(heroEntity, playerID)
   CustomNetTables:SetTableValue("player_stats", tostring(playerID).."-income", {available = 0})
   CustomNetTables:SetTableValue("player_stats", tostring(playerID).."-challenge", {completed = -1})
 
+  CustomNetTables:SetTableValue("player_stats", tostring(runeUnit:GetEntityIndex()).."-runeUnit", {hero = heroEntity:GetEntityIndex()})
+  CustomNetTables:SetTableValue("player_stats", tostring(runeUnit2:GetEntityIndex()).."-runeUnit", {hero = heroEntity:GetEntityIndex()})
+  CustomNetTables:SetTableValue("player_stats", tostring(runeUnit3:GetEntityIndex()).."-runeUnit", {hero = heroEntity:GetEntityIndex()})
+  CustomNetTables:SetTableValue("player_stats", tostring(runeUnit4:GetEntityIndex()).."-runeUnit", {hero = heroEntity:GetEntityIndex()})
+
   Timers:CreateTimer(4, function()
     Glyphs:GetPlayerResources(playerID)
     Stars:GetPlayerStars(playerID)

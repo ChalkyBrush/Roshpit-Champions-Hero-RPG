@@ -347,6 +347,7 @@ function Glyphs:CreateGlyphModifierTable()
 					table.insert(Glyphs.GLYPH_MODIFIER_TABLE, "modifier_"..heroTable[i].."_glyph_"..tier.."_"..number)
 				end
 			end
+			table.insert(Glyphs.GLYPH_MODIFIER_TABLE, "modifier_"..heroTable[i].."_glyph_".."5".."_".."a")
 		end
 	end
 end

@@ -123,6 +123,7 @@ function Winterblight:Debug2()
     -- Winterblight:SpawnCruxal(Vector(-15367, -2924), Vector(0,-1))
     -- Winterblight:InitAzaleaMazeRoom()
     -- Winterblight:AzaleaSummonerRoomInit()
+    Winterblight:LastAzaleaRoomStart()
 end
 
 function Winterblight:CalculateHeroZones()

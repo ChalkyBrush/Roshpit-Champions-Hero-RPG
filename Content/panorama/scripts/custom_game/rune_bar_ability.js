@@ -208,98 +208,100 @@ function getPosition(str, m, i) {
 
 function AbilityShowTooltip()
 {
-	//var abilityButton = $( "#AbilityButton" );
-	var abilityName = Abilities.GetAbilityName( r_Ability );
-	// If you don't have an entity, you can still show a tooltip that doesn't account for the entity
-	//$.DispatchEvent( "DOTAShowAbilityTooltip", abilityButton, abilityName );
+	// //var abilityButton = $( "#AbilityButton" );
+	// var abilityName = Abilities.GetAbilityName( r_Ability );
+	// // If you don't have an entity, you can still show a tooltip that doesn't account for the entity
+	// //$.DispatchEvent( "DOTAShowAbilityTooltip", abilityButton, abilityName );
 
-	// If you have an entity index, this will let the tooltip show the correct level / upgrade information
-	//$.DispatchEvent( "DOTAShowAbilityTooltipForEntityIndex", abilityButton, abilityName, r_QueryUnit );
-	//$.DispatchEvent("DOTAShowTitleTextTooltip", $.GetContextPanel(), "Update Info", "Upgrades");
-	var baseLevel = Abilities.GetLevel(r_Ability)
-	var RuneBonus = GetRuneBonus(r_mainHero, GetRuneSlot(abilityName))
-	var abilityLevel = Abilities.GetLevel(r_Ability) + RuneBonus
+	// // If you have an entity index, this will let the tooltip show the correct level / upgrade information
+	// //$.DispatchEvent( "DOTAShowAbilityTooltipForEntityIndex", abilityButton, abilityName, r_QueryUnit );
+	// //$.DispatchEvent("DOTAShowTitleTextTooltip", $.GetContextPanel(), "Update Info", "Upgrades");
+	// var baseLevel = Abilities.GetLevel(r_Ability)
+	// var RuneBonus = GetRuneBonus(r_mainHero, GetRuneSlot(abilityName))
+	// var abilityLevel = Abilities.GetLevel(r_Ability) + RuneBonus
 	
-	var amount_per_level = Abilities.GetLevelSpecialValueFor( r_Ability, "property_one", 1)
-	amount_per_level = Math.round(amount_per_level * 100) / 100
-	var abilityTitle = $.Localize( "#DOTA_Tooltip_Ability_"+abilityName)
-	var raw_description = $.Localize( "#DOTA_Tooltip_Ability_"+abilityName+"_Description")
-	raw_description = raw_description.replace(",", " -");
-	var spacePosition10 = getPosition(raw_description, " ", 12)
-	var brIndex = raw_description.substring(0, spacePosition10).length
-	var br = "<br>"
-	var br2 = "<br>"
-	if (brIndex == raw_description.length){
-		br = ""
-	}
-	var abilityInfo = addAbilityInfoToTooltip(r_Ability, r_mainHero)
-	// raw_description = breakUpTooltip(raw_description)
-	var description = "<font color='#CCFF66'>"+raw_description+"</font>"
-	// var attribute_scaler = attribute_scale(r_Ability)
-	var scale = 0
-	// if (attribute_scaler!=null){
-	// 	description = description + attribute_scaler[0]
-	// 	scale = attribute_scaler[1]
+	// var amount_per_level = Abilities.GetLevelSpecialValueFor( r_Ability, "property_one", 1)
+	// amount_per_level = Math.round(amount_per_level * 100) / 100
+	// var abilityTitle = $.Localize( "#DOTA_Tooltip_Ability_"+abilityName)
+	// var raw_description = $.Localize( "#DOTA_Tooltip_Ability_"+abilityName+"_Description")
+	// raw_description = raw_description.replace(",", " -");
+	// var spacePosition10 = getPosition(raw_description, " ", 12)
+	// var brIndex = raw_description.substring(0, spacePosition10).length
+	// var br = "<br>"
+	// var br2 = "<br>"
+	// if (brIndex == raw_description.length){
+	// 	br = ""
 	// }
-	var property_one_base = Abilities.GetLevelSpecialValueFor( r_Ability, "property_one_base", 1)
-	property_one_base = Math.round(property_one_base * 100, 1) / 100
-	var level_line = "Level: "+abilityLevel+"<br>"
-	if (abilityLevel == 0){
-		property_one_base = 0
-	}
-	var property_one_max = Abilities.GetLevelSpecialValueFor( r_Ability, "property_one_max", 1)
-	var property_two_max = Abilities.GetLevelSpecialValueFor( r_Ability, "property_two_max", 1)
-	var propertyValue = amount_per_level*abilityLevel+property_one_base
-	if (property_one_max > 0){
-		if ((amount_per_level*abilityLevel+property_one_base) > property_one_max){
-			propertyValue = property_one_max
-		}
-	}
-	propertyValue = Math.round(propertyValue * 100, 1) / 100
-	var firstProperty = buildPropertyLine(abilityName, propertyValue, "Current:", scale)
-	var property_one_base = Abilities.GetLevelSpecialValueFor( r_Ability, "property_one_base", 1)
-	propertyValue = amount_per_level*(abilityLevel+1)+property_one_base
-	if (property_one_max > 0){
-		if ((propertyValue) > property_one_max){
-			propertyValue = property_one_max
-		}
-	}	
-	propertyValue = Math.round(propertyValue * 100, 1) / 100
-	var secondProperty = buildPropertyLine(abilityName, propertyValue, "Next Level:", scale)
-	if (abilityLevel == 20){
-		secondProperty = ""
-	}
-	var amount_per_level2 = Abilities.GetLevelSpecialValueFor( r_Ability, "property_two", 1)
-	amount_per_level2 = Math.round(amount_per_level2 * 100, 1) / 100
-	if (amount_per_level2!=0){
-		var property_two_base = Abilities.GetLevelSpecialValueFor( r_Ability, "property_two_base", 1)
-		property_two_base = Math.round(property_two_base * 100, 1) / 100
-		if (abilityLevel == 0){
-			property_two_base = 0
-		}
-		var property_two_current = amount_per_level2*abilityLevel+property_two_base
-		var property_two_next = amount_per_level2*(abilityLevel+1)+property_two_base
-		if (property_two_max > 0){
-			if (property_two_current > property_two_max){
-				property_two_current = property_two_max
-			}
-			if (property_two_next > property_two_max){
-				property_two_next = property_two_max
-			}
-		}
-		var secondFirstProperty = buildSecondProperty(abilityName, property_two_current, scale)
-		property_two_base = Abilities.GetLevelSpecialValueFor( r_Ability, "property_two_base", 1)
-		var secondSecondProperty = buildSecondProperty(abilityName, property_two_next, scale)
-		if (abilityLevel == 20){
-			secondSecondProperty = ""
-		}
-		var tooltip = level_line+abilityInfo+description+""+firstProperty+secondFirstProperty+secondProperty+secondSecondProperty
-	}else{
-		var tooltip = level_line+abilityInfo+description+""+firstProperty+secondProperty
-	}
-	abilityTitle = abilityTitle.replace("'", "’")
-	tooltip = tooltip.replace(/(['"])/g, "\\$1")
-	$.DispatchEvent("DOTAShowTitleTextTooltip", $.GetContextPanel(), abilityTitle, tooltip);
+	// var abilityInfo = addAbilityInfoToTooltip(r_Ability, r_mainHero)
+	// // raw_description = breakUpTooltip(raw_description)
+	// var description = "<font color='#CCFF66'>"+raw_description+"</font>"
+	// // var attribute_scaler = attribute_scale(r_Ability)
+	// var scale = 0
+	// // if (attribute_scaler!=null){
+	// // 	description = description + attribute_scaler[0]
+	// // 	scale = attribute_scaler[1]
+	// // }
+	// var property_one_base = Abilities.GetLevelSpecialValueFor( r_Ability, "property_one_base", 1)
+	// property_one_base = Math.round(property_one_base * 100, 1) / 100
+	// var level_line = "Level: "+abilityLevel+"<br>"
+	// if (abilityLevel == 0){
+	// 	property_one_base = 0
+	// }
+	// var property_one_max = Abilities.GetLevelSpecialValueFor( r_Ability, "property_one_max", 1)
+	// var property_two_max = Abilities.GetLevelSpecialValueFor( r_Ability, "property_two_max", 1)
+	// var propertyValue = amount_per_level*abilityLevel+property_one_base
+	// if (property_one_max > 0){
+	// 	if ((amount_per_level*abilityLevel+property_one_base) > property_one_max){
+	// 		propertyValue = property_one_max
+	// 	}
+	// }
+	// propertyValue = Math.round(propertyValue * 100, 1) / 100
+	// var firstProperty = buildPropertyLine(abilityName, propertyValue, "Current:", scale)
+	// var property_one_base = Abilities.GetLevelSpecialValueFor( r_Ability, "property_one_base", 1)
+	// propertyValue = amount_per_level*(abilityLevel+1)+property_one_base
+	// if (property_one_max > 0){
+	// 	if ((propertyValue) > property_one_max){
+	// 		propertyValue = property_one_max
+	// 	}
+	// }	
+	// propertyValue = Math.round(propertyValue * 100, 1) / 100
+	// var secondProperty = buildPropertyLine(abilityName, propertyValue, "Next Level:", scale)
+	// if (abilityLevel == 20){
+	// 	secondProperty = ""
+	// }
+	// var amount_per_level2 = Abilities.GetLevelSpecialValueFor( r_Ability, "property_two", 1)
+	// amount_per_level2 = Math.round(amount_per_level2 * 100, 1) / 100
+	// if (amount_per_level2!=0){
+	// 	var property_two_base = Abilities.GetLevelSpecialValueFor( r_Ability, "property_two_base", 1)
+	// 	property_two_base = Math.round(property_two_base * 100, 1) / 100
+	// 	if (abilityLevel == 0){
+	// 		property_two_base = 0
+	// 	}
+	// 	var property_two_current = amount_per_level2*abilityLevel+property_two_base
+	// 	var property_two_next = amount_per_level2*(abilityLevel+1)+property_two_base
+	// 	if (property_two_max > 0){
+	// 		if (property_two_current > property_two_max){
+	// 			property_two_current = property_two_max
+	// 		}
+	// 		if (property_two_next > property_two_max){
+	// 			property_two_next = property_two_max
+	// 		}
+	// 	}
+	// 	var secondFirstProperty = buildSecondProperty(abilityName, property_two_current, scale)
+	// 	property_two_base = Abilities.GetLevelSpecialValueFor( r_Ability, "property_two_base", 1)
+	// 	var secondSecondProperty = buildSecondProperty(abilityName, property_two_next, scale)
+	// 	if (abilityLevel == 20){
+	// 		secondSecondProperty = ""
+	// 	}
+	// 	var tooltip = level_line+abilityInfo+description+""+firstProperty+secondFirstProperty+secondProperty+secondSecondProperty
+	// }else{
+	// 	var tooltip = level_line+abilityInfo+description+""+firstProperty+secondProperty
+	// }
+	// abilityTitle = abilityTitle.replace("'", "’")
+	// tooltip = tooltip.replace(/(['"])/g, "\\$1")
+	GameUI.CustomUIConfig.runeTooltip = r_Ability
+	$.DispatchEvent("UIShowCustomLayoutTooltip", $.GetContextPanel(), "RuneTooltip", "file://{resources}/layout/custom_game/runes/rune_tooltip.xml");
+	// $.DispatchEvent("DOTAShowTitleTextTooltip", $.GetContextPanel(), abilityTitle, tooltip);
 
 }
 
@@ -461,8 +463,9 @@ function AbilityHideTooltip()
 {
 	//var abilityButton = $( "#AbilityButton" );
 	//$.DispatchEvent( "DOTAHideAbilityTooltip", abilityButton );
-	$.DispatchEvent( "DOTAHideTitleTextTooltip", $.GetContextPanel() );
+	// $.DispatchEvent( "DOTAHideTitleTextTooltip", $.GetContextPanel() );
 	//$.DispatchEvent("DOTAHideTitleTextTooltip", $.GetContextPanel(), title, tooltip);
+	$.DispatchEvent("UIHideCustomLayoutTooltip", "RuneTooltip");
 }
 
 function ActivateRune()
