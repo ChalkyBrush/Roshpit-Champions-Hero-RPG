@@ -862,7 +862,7 @@ function Filters:ApplyWskills(caster)
     if caster:HasModifier("modifier_phantom_sorcerer") then
         local ability = caster:GetAbilityByIndex(1)
         local cdRemaining = ability:GetCooldownTimeRemaining()
-        local newCD = math.min(cdRemaining + 5, ability:GetCooldownTime()+5)
+        local newCD = math.min(cdRemaining + 5, ability:GetCooldown(ability:GetLevel()-1)+5)
         ability:EndCooldown()
         ability:StartCooldown(newCD)
     end

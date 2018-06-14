@@ -10988,6 +10988,235 @@
 
 	##DUSKBRINGER_ABILITIES##
 
+	"ghost_hallow"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"abyssal_underlord_pit_of_malice"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AOERadius"						"150 160 170 180 190 200 210"
+		"AbilityCastRange"				"1200"
+		"precache"
+		{
+			"particle"		"particles/units/heroes/heroes_underlord/underlord_pitofmalice.vpcf"
+			"particle"		"particles/roshpit/duskbringer/duskbringer_rune_a_b.vpcf"
+			"particle"		"particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash.vpcf"
+			"particle"		"particles/units/heroes/hero_slardar/duskbringer_d_d_amp_damage.vpcf"
+			"particle"		"particles/roshpit/duskbringer/ghostfire_blast.vpcf"
+			"particle"		"particles/units/heroes/hero_elder_titan/duskbringer_a_b.vpcf"
+			"particle"		"particles/econ/courier/courier_roshan_darkmoon/courier_roshan_darkmoon.vpcf"
+			"particle"		"particles/roshpit/mountain_protector/unshakable_stone_dust.vpcf"
+		}
+
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"140 280 600 1500 3000 5400 8000"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"150 160 170 180 190 200 210"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"3.7 4.0 4.3 4.6 4.9 5.2 5.5"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/spirit_breaker/ghost_hallow.lua"
+        		"Function"		"begin_ghost_hallow"
+        		"damage"		"%damage"
+        		"Target"			"POINT"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/spirit_breaker/ghost_hallow.lua"
+				"Function"		"d_b_projectile_hit"
+				"target"        "TARGET"
+			}
+		}
+        "Modifiers"
+        {
+			"modifier_duskbringer_think2"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/spirit_breaker/ghost_hallow.lua"
+						"Function"		"duskbringer_passive_think"
+					}
+				}
+			}
+        	"modifier_hidden_ghost_hallow_passive"
+        	{
+        		"Passive"	"1"
+        		"IsHidden"	"1"
+        		"ThinkInterval"  "1.0"
+        		"OnIntervalThink"
+        		{
+        			"RunScript"
+        			{
+        				"ScriptFile"	"heroes/spirit_breaker/ghost_hallow.lua"
+        				"Function"		"update_c_b_level"
+        			}
+        		}
+        		"OnTakeDamage"
+        		{
+        			"RunScript"
+        			{
+        				"ScriptFile"	"heroes/spirit_breaker/ghost_hallow.lua"
+        				"Function"		"duskbringer_take_damage"
+        			}
+        		}
+        	}
+			"ghost_hallow"
+			{
+				"Aura"					"ghost_hallow_aura"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/heroes_underlord/underlord_pitofmalice.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"TARGET"
+						"Duration"			"6"
+						"ControlPoints"
+						{
+							"00" "0 0 0"
+							"01" "%radius 1 %radius"
+							"02" "6 6 6"
+							"15" "25 150 25"
+							"16" "1 0 0"
+						}
+					}
+				}
+			}
+			"ghost_hallow_aura"
+			{
+			    "IsDebuff"  "1"
+				"IsHidden"	"0"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/spirit_breaker/ghost_hallow.lua"
+						"Function"		"ghost_trap_enter"
+						"target"		"TARGET"
+						"duration"		"%duration"
+						"apply"    "1"
+					}
+				}
+				"ThinkInterval" "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/spirit_breaker/ghost_hallow.lua"
+						"Function"		"ghost_trap_enter"
+						"target"		"TARGET"
+						"duration"		"%duration"
+						"apply"    "0"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/spirit_breaker/ghost_hallow.lua"
+						"Function"		"ghost_trap_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_ghost_trap_immune"
+			{
+				"IsHidden"	"1"
+			}
+			"ghost_hallow_stun"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Duskbringer.GhostHallowTrap"
+						"Target" 		"TARGET"
+					}
+				}
+				"EffectName"	"particles/units/heroes/heroes_underlord/abyssal_underlord_pitofmalice_stun.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/spirit_breaker/ghost_hallow.lua"
+						"Function"		"ghost_hallow_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_ghost_hallow_disarm"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_ghost_hallow_magic_resist_loss"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-4"
+				}
+			}
+        }
+	}
+
 	//Auriun
 
 	"heavens_shield"

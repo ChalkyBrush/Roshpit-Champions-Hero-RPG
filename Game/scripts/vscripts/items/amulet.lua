@@ -16,6 +16,14 @@ function Amulet:add_modifiers(hero, inventory_unit, item)
 	trinket_ability.max_mana = 0
 	trinket_ability.magic_resist = 0
 	trinket_ability.base_ability = 0
+	trinket_ability.cosmos = 0
+	trinket_ability.nature = 0
+	trinket_ability.ice = 0
+	trinket_ability.fire = 0
+	trinket_ability.water = 0
+	trinket_ability.demon = 0
+	trinket_ability.arcane = 0
+	trinket_ability.undead = 0
 	local property1 = RPCItems:AdjustAttributeValue(hero, item.property1)
 	Amulet:action(item.property1name, property1, hero, inventory_unit, trinket_ability, item)
 	Amulet:runeProperty(item.property1name, item.property1, hero)
@@ -165,21 +173,29 @@ function Amulet:action(propertyName, propertyValue, hero, inventory_unit, trinke
 	elseif propertyName == "cobalt_serenity" then
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_cobalt_serenity_ring", item)
 	elseif propertyName == "cosmos" then
-		Amulet:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_trinket_cosmos", trinket_ability)
+		trinket_ability.cosmos = trinket_ability.cosmos + propertyValue
+		Amulet:addBasicModifier(trinket_ability.cosmos, hero, inventory_unit, "modifier_trinket_", trinket_ability)
 	elseif propertyName == "nature" then
-		Amulet:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_trinket_nature", trinket_ability)
+		trinket_ability.nature = trinket_ability.nature + propertyValue
+		Amulet:addBasicModifier(trinket_ability.nature, hero, inventory_unit, "modifier_trinket_nature", trinket_ability)
 	elseif propertyName == "ice" then
-		Amulet:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_trinket_ice", trinket_ability)
+		trinket_ability.ice = trinket_ability.ice + propertyValue
+		Amulet:addBasicModifier(trinket_ability.ice, hero, inventory_unit, "modifier_trinket_ice", trinket_ability)
 	elseif propertyName == "fire" then
-		Amulet:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_trinket_fire", trinket_ability)
+		trinket_ability.fire = trinket_ability.fire + propertyValue
+		Amulet:addBasicModifier(trinket_ability.fire, hero, inventory_unit, "modifier_trinket_fire", trinket_ability)
 	elseif propertyName == "water" then
-		Amulet:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_trinket_water", trinket_ability)
+		trinket_ability.water = trinket_ability.water + propertyValue
+		Amulet:addBasicModifier(trinket_ability.water, hero, inventory_unit, "modifier_trinket_water", trinket_ability)
 	elseif propertyName == "demon" then
-		Amulet:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_trinket_demon", trinket_ability)
+		trinket_ability.demon = trinket_ability.demon + propertyValue
+		Amulet:addBasicModifier(trinket_ability.demon, hero, inventory_unit, "modifier_trinket_demon", trinket_ability)
 	elseif propertyName == "arcane" then
-		Amulet:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_trinket_arcane", trinket_ability)
+		trinket_ability.arcane = trinket_ability.arcane + propertyValue
+		Amulet:addBasicModifier(trinket_ability.arcane, hero, inventory_unit, "modifier_trinket_arcane", trinket_ability)
 	elseif propertyName == "undead" then
-		Amulet:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_trinket_undead", trinket_ability)
+		trinket_ability,undead = trinket_ability.undead + propertyValue
+		Amulet:addBasicModifier(trinket_ability.undead, hero, inventory_unit, "modifier_trinket_undead", trinket_ability)
 	elseif propertyName == "fire_blossom" then
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_fire_blossom", item)
 	elseif propertyName == "aqua_lily" then
