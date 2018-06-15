@@ -2489,3 +2489,107 @@ function RealityRift( keys )
 
 
 end
+
+function star_prophecy_start(event)
+	local caster = event.caster
+	local target = event.target
+	StartSoundEvent("Winterblight.StarProphecy.LP", target)
+	target.starprophecystacks = 0
+end
+
+function star_prophecy_debuff_attack_land(event)
+	local caster = event.caster
+	local target = event.target
+	local attacker = event.attacker
+	local modifier = attacker:FindModifierByName("modifier_star_prophecy_debuff")
+	local current_duration = modifier:GetRemainingTime()
+	local duration = current_duration + 0.3
+	modifier:SetDuration(duration, true)
+	local newstacks = modifier:GetStackCount() + tonumber(event.stack_add)
+	modifier:SetStackCount(newstacks)
+	attacker.starprophecystacks = newstacks
+end
+
+function star_prophecy_spell_cast(event)
+	local caster = event.caster
+	local target = event.unit
+	local attacker = event.unit
+	local modifier = attacker:FindModifierByName("modifier_star_prophecy_debuff")
+	local current_duration = modifier:GetRemainingTime()
+	print(current_duration)
+	local duration = current_duration + 0.8
+	modifier:SetDuration(duration, true)
+	local newstacks = modifier:GetStackCount() + tonumber(event.stack_add)
+	modifier:SetStackCount(newstacks)
+	attacker.starprophecystacks = newstacks
+end
+
+function star_prophecy_end(event)
+	local target = event.target
+	local caster = event.caster
+	local ability = event.ability
+	if not IsValidEntity(caster) then
+		caster = Events.GameMaster
+		ability = Events.GameMasterAbility
+	end
+	StopSoundEvent("Winterblight.StarProphecy.LP", target)
+	local stacks = target.starprophecystacks
+	if stacks > 0 then
+		for i = 1, stacks, 1 do
+			Timers:CreateTimer(i*0.1, function()
+		      local particleName = "particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf"
+		      local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
+		      ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_OVERHEAD_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+		      Timers:CreateTimer(0.6, function() 
+		        ParticleManager:DestroyParticle( pfx, false )
+		      end)  
+	          Timers:CreateTimer(0.45, -- Start this timer 10 game-time seconds later
+	          function()
+	            if target:IsAlive() then
+	              ApplyDamage({ victim = target, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })	
+	              EmitSoundOn("Winterblight.StarProphecy.Impact", target)
+	            end
+	          end)
+			end)
+		end
+	end
+end
+
+function starseeker_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local caster = event.caster
+	local starcast = caster:FindAbilityByName("winterblight_star_prophecy")
+	if caster.aggro then
+		if starcast:IsFullyCastable() then
+			local target_teams = DOTA_UNIT_TARGET_TEAM_ENEMY
+			local target_types = DOTA_UNIT_TARGET_HERO
+			local target_flags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1400, target_teams, target_types, target_flags, FIND_ANY_ORDER, false)
+			if #enemies > 0 then
+				for i = 1, #enemies, 1 do
+					if not enemies[i]:HasModifier("modifier_star_prophecy_debuff") then
+						local newOrder = {
+					 		UnitIndex = caster:entindex(), 
+					 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+					 		TargetIndex = enemies[i]:entindex(),
+					 		AbilityIndex = starcast:entindex(),
+					 	}
+						ExecuteOrderFromTable(newOrder)		
+						break		
+					end
+				end	
+			end
+		end
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 340+GameState:GetDifficultyFactor()*100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
+		if #enemies > 0 then
+			local sumVector = Vector(0,0)
+			for i = 1, #enemies, 1 do
+				sumVector = sumVector + enemies[i]:GetAbsOrigin()
+			end
+			local avgVector = sumVector/#enemies
+			local runDirection = ((caster:GetAbsOrigin() - avgVector)*Vector(1,1,0)):Normalized()
+			caster:MoveToPosition(caster:GetAbsOrigin()+runDirection*380)
+		end
+	end	
+end

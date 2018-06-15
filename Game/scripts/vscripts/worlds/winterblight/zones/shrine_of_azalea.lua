@@ -4115,16 +4115,33 @@ function Winterblight:SpawnRiftBreaker(position, fv)
 	return stone
 end
 
+function Winterblight:SpawnStarSeeker(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("azalea_star_seeker", position, 1, 1, "Winterblight.StarSeeker.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 4, 5, false)
+	stone.itemLevel = 50
+	Events:ColorWearablesAndBase(stone, Vector(150,255,145))
+	return stone
+end
+
 function Winterblight:LastAzaleaRoomStart()
 	local pixie = CreateUnitByName("azalea_mystery_pixie", Vector(-11699, -10174), false, nil, nil, DOTA_TEAM_NEUTRALS)
 	pixie:SetForwardVector(Vector(-1,0))
 	pixie.phase = 0
-
-	for j = 0, 2, 1 do
-	 for i = 0, 2, 1 do
-	 	Timers:CreateTimer(i*0.5 + j*0.32, function()
-	 		Winterblight:SpawnRiftBreaker(Vector(-13312+i*256, -10807+j*256), Vector(0,-1))
-	 	end)
-	 end
+	local luck = RandomInt(1, 3)
+	luck = 1
+	if luck == 1 then
+		for j = 0, 2, 1 do
+		 for i = 0, 2, 1 do
+		 	Timers:CreateTimer(i*0.5 + j*0.32, function()
+		 		Winterblight:SpawnRiftBreaker(Vector(-13312+i*256, -10807+j*256), Vector(0,-1))
+		 	end)
+		 end
+		end
+		Timers:CreateTimer(0.3, function()
+			local positionTable = {Vector(-12544, -13254), Vector(-12045, -13292), Vector(-12288, -13015), Vector(-12544, -12800), Vector(-12045, -12800)}
+			for i = 1, #positionTable, 1 do
+				Winterblight:SpawnStarSeeker(positionTable[i], Vector(0,1))
+			end
+		end)
 	end
 end

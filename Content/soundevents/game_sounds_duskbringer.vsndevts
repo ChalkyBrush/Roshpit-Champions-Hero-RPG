@@ -49,11 +49,11 @@
                               "value0"        "sounds/weapons/hero/underlord/pit_of_malice_start.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "0.70000"  }
+                    "volume"            {   "value"     "0.80000"  }
                     "pitch_rand_min"    {   "value"     "-0.02000"  }
                     "pitch_rand_max"    {   "value"     "0.020000"  }
                     "pitch"             {   "value"     "0.600000"  }
-                    "soundlevel"        {   "value"     "70.00000" }
+                    "soundlevel"        {   "value"     "80.00000" }
                     "distance_max"      {   "value"     "2400.000"  }
                     "event_type"        {   "value"     "1.000000"  }
                 }
@@ -81,11 +81,11 @@
                               "value0"        "sounds/weapons/hero/crystal_maiden/freeze_explosion02.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "0.70000"  }
+                    "volume"            {   "value"     "1.30000"  }
                     "pitch_rand_min"    {   "value"     "-0.02000"  }
                     "pitch_rand_max"    {   "value"     "0.020000"  }
                     "pitch"             {   "value"     "0.600000"  }
-                    "soundlevel"        {   "value"     "70.00000" }
+                    "soundlevel"        {   "value"     "82.00000" }
                     "distance_max"      {   "value"     "2400.000"  }
                     "event_type"        {   "value"     "1.000000"  }
                 }

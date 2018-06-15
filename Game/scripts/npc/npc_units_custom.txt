@@ -90144,5 +90144,94 @@
         "Ability3"  "armor_break"  
         "Ability4"  "use_ability_1_target_ai"
         "Ability5"  "dungeon_creep"
+    }
+
+    "azalea_star_seeker"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/oracle/oracle.vmdl"
+        "SoundSet"  "Hero_Oracle"
+        "Level" "1"
+        "UnitLabel" "healing_ward"
+        "ModelScale"    "1.0"
+        "HealthBarOffset"   "210"
+        "Ability1"  "winterblight_star_prophecy"
+        "Ability2"  "winterblight_starseeker_passive"
+        "Ability3"  "dungeon_creep"
+        "Ability4"  ""
+        "Ability5"  ""
+        "Ability6"  ""
+        "Ability7"  ""
+        "Ability8"  ""
+        "precache"
+        {
+            "particle"  "particles/roshpit/winterblight/star_prophecy_start_hit.vpcf"
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_oracle.vsndevts"
+            "particle"  "particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf"
+            "particle"  "particles/roshpit/winterblight/star_prophecy_indicator.vpcf"
+        }
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageMin"   "1000"
+        "AttackDamageMax"   "1000"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackRate"    "1"
+        "AttackAnimationPoint"  "0.3"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "550"
+        "ProjectileModel"   "particles/roshpit/sea_fortress/shadow_of_bahamut_attack_base_attack.vpcf"
+        "ProjectileSpeed"   "900"
+        "AttributePrimary"  "DOTA_ATTRIBUTE_STRENGTH"
+        "AttributeBaseStrength" "0"
+        "AttributeStrengthGain" "0"
+        "AttributeBaseIntelligence" "0"
+        "AttributeIntelligenceGain" "0"
+        "AttributeBaseAgility"  "0"
+        "AttributeAgilityGain"  "0"
+        "BountyXP"  "0"
+        "BountyGoldMin" "0"
+        "BountyGoldMax" "0"
+        "RingRadius"    "0"
+        "HasInventory"  "0"
+        "CollisionSize" "0"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "300"
+        "MovementTurnRate"  "2"
+        "FollowRange"   "0"
+        "StatusHealth"  "60000"
+        "StatusHealthRegen" "0"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "0"
+        "TeamName"  "DOTA_TEAM_GOODGUYS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+        "VisionDaytimeRange"    "0"
+        "VisionNighttimeRange"  "0"
+        "AttackDesire"  "1.5"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "546"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "548"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "9232"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "550"
+                }
+            }
+        }
     }    
 }
