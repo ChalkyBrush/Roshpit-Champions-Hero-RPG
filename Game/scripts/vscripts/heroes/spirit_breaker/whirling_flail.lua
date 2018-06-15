@@ -144,9 +144,9 @@ function whirling_flail_think(event)
 		EmitSoundOn("Hero_Spirit_Breaker.Attack", caster)
 		for _,enemy in pairs(enemies) do
 			local distance = WallPhysics:GetDistance(enemy:GetAbsOrigin(), caster:GetAbsOrigin())
-			local damageBonusMult = 1 - (distance/ability.radius)
-			local distanceDamage = damage * damageBonusMult * (1 + ability.c_a_level * Q3_AMPLIFY_PERCENT/100)
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 1, RPC_ELEMENT_NORMAL, RPC_ELEMENT_GHOST)
+			local damageBonusMult = math.max(1 - (distance/(ability.radius)),0)--for some reason it hist further than it should
+			local distanceDamage = damage * (1 + ability.c_a_level * Q3_AMPLIFY_PERCENT/100 * damageBonusMult)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, distanceDamage, DAMAGE_TYPE_PHYSICAL, 1, RPC_ELEMENT_NORMAL, RPC_ELEMENT_GHOST)
 
 			enemy:AddNewModifier( caster, nil, "modifier_knockback", modifierKnockback )
 			local particleName = "particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash.vpcf"
