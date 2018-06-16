@@ -78,7 +78,7 @@ function a_b_level(caster, ability)
 	local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_b")
 	local totalLevel = abilityLevel + bonusLevel
 	ability.a_b_damage = (150 + totalLevel*5000)/2
-	ability.d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "paladin")
+	ability.d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "paladin")
 	if caster:HasModifier("modifier_paladin_glyph_5_1") then
 		ability.a_b_damage = ability.a_b_damage * 3
 	end
@@ -148,8 +148,8 @@ function cone_impact(event)
 end
 
 function apply_holy_fire(caster, target, ability)
-	if not ability.d_a_level then
-		ability.d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "paladin")
+	if not ability.d_b_level then
+		ability.d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "paladin")
 	end
 	if not ability.a_b_level then
 		a_b_level(caster, ability)
@@ -158,10 +158,11 @@ function apply_holy_fire(caster, target, ability)
 		ability.b_b_level = b_b_level(caster)	
 	end
 	if ability.a_b_level > 0 then
-		local burnDuration = ability.a_b_level*0.3 + 1
+		-- local burnDuration = ability.a_b_level*0.3 + 1
+		local burnDuration = 10
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_rune_a_b", {duration = burnDuration})
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_holy_fire_burn_effect", {duration = burnDuration})
-		if ability.d_a_level > 1 then
+		if ability.d_b_level > 0 then
 			print("STACKS!")
 			local stackCount = target:GetModifierStackCount("modifier_paladin_rune_a_b", caster)
 			local additionalStacks = 1
@@ -171,26 +172,26 @@ function apply_holy_fire(caster, target, ability)
 			if caster:HasModifier("modifier_paladin_glyph_4_1") then
 				additionalStacks = additionalStacks*5
 			end
-			local newStacks = math.min(stackCount + additionalStacks, ability.d_a_level + 1)
+			local newStacks = math.min(stackCount + additionalStacks, ability.d_b_level + 1)
 			target:SetModifierStackCount("modifier_paladin_rune_a_b", caster, newStacks)
 		end
 	end
 end
 
-function d_b_heal(caster, target, ability, origHeal)
-	local d_a_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
-	if d_a_level > 0 then
-		Filters:ApplyHeal(caster, ally, origHeal, false)
-		local actualHeal = math.min(target:GetMaxHealth() - target:GetHealth(), origHeal)
-		local shieldAmount = origHeal - actualHeal
-		if not target.paladin_d_b_absorb then
-			target.paladin_d_b_absorb = 0
-		end
-		target.paladin_d_b_absorb = math.min(target.paladin_d_b_absorb + shieldAmount, target:GetMaxHealth()*0.04*d_b_level)
-		local shieldDuration = Filters:GetAdjustedBuffDuration(caster, 12, false)
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_rune_b_b_shield", {duration = shieldDuration})
-	end
-end
+-- function d_b_heal(caster, target, ability, origHeal)
+-- 	local d_b_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+-- 	if d_b_level > 0 then
+-- 		Filters:ApplyHeal(caster, ally, origHeal, false)
+-- 		local actualHeal = math.min(target:GetMaxHealth() - target:GetHealth(), origHeal)
+-- 		local shieldAmount = origHeal - actualHeal
+-- 		if not target.paladin_d_b_absorb then
+-- 			target.paladin_d_b_absorb = 0
+-- 		end
+-- 		target.paladin_d_b_absorb = math.min(target.paladin_d_b_absorb + shieldAmount, target:GetMaxHealth()*0.04*d_b_level)
+-- 		local shieldDuration = Filters:GetAdjustedBuffDuration(caster, 12, false)
+-- 		ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_rune_b_b_shield", {duration = shieldDuration})
+-- 	end
+-- end
 
 function modifier_on_destroy(keys)
 	local caster = keys.caster
@@ -209,9 +210,12 @@ function a_b_DamageThink(event)
 	-- ability.d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "paladin")
 	local stacks = target:GetModifierStackCount("modifier_paladin_rune_a_b", caster)
 	stacks = math.max(1, stacks)
-	for i = 1, stacks, 1 do
-		damage = damage + (ability.a_b_damage*0.20)*i
-	end
+	if stacks == 1 then
+	elseif stacks > 1 then 
+		for i = 1, stacks-1, 1 do
+			damage = damage + ability.a_b_damage*(1+0.20*i)
+			end
+		end
 	-- damage = damage + ability.a_b_damage*(stacks-1)
 	Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_HOLY, RPC_ELEMENT_FIRE)
 end
