@@ -2290,7 +2290,6 @@ function mystery_fairy_think(event)
 	if caster.lock then
 		return false
 	end
-
 	caster.interval = caster.interval + 1
 	if caster.phase > 0 then
 		if caster.interval == 100 then
@@ -2340,7 +2339,7 @@ function mystery_fairy_think(event)
 			end
 		end
 	end
-	if caster.interval == 100 then
+	if caster.interval >= 100 then
 		caster.interval = 0
 	end
 end
@@ -2592,4 +2591,50 @@ function starseeker_think(event)
 			caster:MoveToPosition(caster:GetAbsOrigin()+runDirection*380)
 		end
 	end	
+end
+
+function spinesplitter_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, event.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
+	if not caster:IsAlive() then
+		return false
+	end
+	if #enemies > 0 then
+		for i = 1, #enemies, 1 do
+			local enemy = enemies[i]
+			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_spinesplitter_stack", {duration = 2})
+			if not enemy:IsStunned() then
+				local modifier = enemy:FindModifierByName("modifier_spinesplitter_stack")
+				local newstacks = modifier:GetStackCount() + 1
+				modifier:SetStackCount(newstacks)
+				if newstacks >= 50 then
+					Timers:CreateTimer(0.4, function()
+						enemy:RemoveModifierByName("modifier_spinesplitter_stack")
+					end)
+					EmitSoundOn("Winterblight.SpineSplitter.BoltThrow", caster)
+					local info = 
+					{
+						Target = enemy,
+						Source = caster,
+						Ability = ability,	
+						EffectName =  "particles/units/heroes/hero_sven/sven_spell_storm_bolt.vpcf",
+						StartPosition = "attach_hitloc",
+						bDrawsOnMinimap = false, 
+					        bDodgeable = true,
+					        bIsAttack = false, 
+					        bVisibleToEnemies = true,
+					        bReplaceExisting = false,
+					        flExpireTime = GameRules:GetGameTime() + 8,
+						bProvidesVision = true,
+						iVisionRadius = 0,
+						iMoveSpeed = 800,
+						iVisionTeamNumber = caster:GetTeamNumber()
+					}
+					projectile = ProjectileManager:CreateTrackingProjectile(info)
+				end
+			end
+		end
+	end
+	-- "modifier_spinesplitter_stack"
 end

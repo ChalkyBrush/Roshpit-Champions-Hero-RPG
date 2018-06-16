@@ -8010,7 +8010,7 @@
 
 	"winterblight_starseeker_passive"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
 		"MaxLevel"	"3"
@@ -8161,6 +8161,82 @@
 						"target"		"TARGET"
 					}
 				}
+			}
+		}
+	}
+
+	"winterblight_spinesplitter_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
+		"MaxLevel"	"3"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AOERadius"					"600 700 800"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"600 700 800"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_duration"		"1.0 1.25 1.5"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"500 5000 145000"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"Damage"
+			{
+				"Target"		"TARGET"
+				"Type"			"DAMAGE_TYPE_MAGICAL"
+				"Damage"		"%damage"
+			}
+			"Stun"
+			{
+				"Duration"   "%stun_duration"
+				"Target" 	 "TARGET"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Winterblight.SpineSplitter.BoltImpact"
+				"Target" 		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_spinesplitter_passive"
+			{
+				//HEAL MAGIC DAMAGE
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_ancestral_spirit.vpcf"
+				"StatusEffectPriority"  "50"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"spinesplitter_think"
+						"radius"		"%radius"
+					}
+				}
+			}
+			"modifier_spinesplitter_stack"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
 			}
 		}
 	}

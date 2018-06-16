@@ -90189,9 +90189,9 @@
         "AttributeIntelligenceGain" "0"
         "AttributeBaseAgility"  "0"
         "AttributeAgilityGain"  "0"
-        "BountyXP"  "0"
-        "BountyGoldMin" "0"
-        "BountyGoldMax" "0"
+        "BountyXP"  "1200"
+        "BountyGoldMin" "300"
+        "BountyGoldMax" "320"
         "RingRadius"    "0"
         "HasInventory"  "0"
         "CollisionSize" "0"
@@ -90231,6 +90231,100 @@
                 {
                     "ItemDef"   "550"
                 }
+            }
+        }
+    }
+
+    "azalea_spine_splitter"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/sven/sven.vmdl"
+        "ModelScale"    "0.9"
+        "Level" "1"
+        "HealthBarOffset"   "290"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "SoundSet"              "Hero_Sven"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
+            "particle"  "particles/units/heroes/hero_sven/sven_spell_storm_bolt.vpcf"
+        }
+        "ArmorPhysical" "10"
+        "MagicalResistance" "50"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "3000"
+        "AttackDamageMax"   "4000"
+        "AttackRate"    "1.0"
+        "AttackAnimationPoint"  "0.35"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "260"
+        "BountyGoldMin" "200"
+        "BountyGoldMax" "300"
+        "BountyXP" "300"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "70"
+        "CollisionSize" "50"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "500"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "700000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"          "winterblight_spinesplitter_passive"
+        "Ability2"          "winterblight_armor_softening"
+        "Ability3"          "juggernaut_blade_dance"
+        "Ability4"          "armor_break"
+        "Ability5"          "dungeon_creep"
+        "TeamName"           "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "7876"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "8847"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "8849"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "6988"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "6094"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+
             }
         }
     }    
