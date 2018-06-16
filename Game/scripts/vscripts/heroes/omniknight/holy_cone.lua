@@ -158,8 +158,7 @@ function apply_holy_fire(caster, target, ability)
 		ability.b_b_level = b_b_level(caster)	
 	end
 	if ability.a_b_level > 0 then
-		-- local burnDuration = ability.a_b_level*0.3 + 1
-		local burnDuration = 10
+		local burnDuration = ability.a_b_level*0.3 + 1
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_rune_a_b", {duration = burnDuration})
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_holy_fire_burn_effect", {duration = burnDuration})
 		if ability.d_b_level > 0 then
