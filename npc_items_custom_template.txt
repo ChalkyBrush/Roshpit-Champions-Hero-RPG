@@ -18875,7 +18875,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"		"20"
+				"property_two"		"15"
 			}
 		}
 	}

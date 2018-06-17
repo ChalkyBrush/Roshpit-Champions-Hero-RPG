@@ -1326,13 +1326,15 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         damage = damage*(1+damageMult)
         if not ignore_effects then
-            Filters:ApplyQdamage(victim, attacker, damage, damage_type)
-
-            if attacker:HasModifier("modifier_luma_guard") then
-                Filters:LumaGuardStrike(attacker, victim, damage)
+            local indirectProcQ = false
+            if attacker:HasModifier("modifier_luma_guard") and Filters:LumaGuardStrike(attacker, victim, damage) then
+                indirectProcQ = true
             end
-            if attacker:HasModifier("modifier_demon_mask") then
-                Filters:DemonMask(attacker, victim, damage)
+            if attacker:HasModifier("modifier_demon_mask") and Filters:DemonMask(attacker, victim, damage) then
+                indirectProcQ = true
+            end
+            if not indirectProcQ then 
+                Filters:ApplyQdamage(victim, attacker, damage, damage_type)
             end
         end
     elseif slot == 2 then
@@ -1399,18 +1401,16 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             Filters:DefilerHit(attacker, victim)
         end
         damage = damage*(1+damageMult)
-        if not ignore_effects then
-            Filters:ApplyWdamage(victim, attacker, damage, damage_type)
-            if attacker:HasModifier("modifier_fire_deity_crown") then
-                Filters:FireDeity(attacker, victim, damage)
+        if not ignore_effects then            
+            local indirectProcW = false
+            if attacker:HasModifier("modifier_fire_deity_crown") and Filters:FireDeity(attacker, victim, damage) then
+                indirectProcW = true
             end
-            if attacker:HasModifier("modifier_frostburn_gauntlets") then
-                CustomAbilities:QuickAttachParticle("particles/econ/items/crystal_maiden/crystal_maiden_maiden_of_icewrack/cm_arcana_pup_flee.vpcf", victim, 3)
-                attacker.handItem:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_frostburn_gauntlets_slow", {duration = 4})
-                local proc = Filters:GetProc(attacker, 20)
-                if proc then
-                    Filters:FrostburnGauntlet(attacker, damage, victim)
-                end
+            if attacker:HasModifier("modifier_frostburn_gauntlets") and Filters:FrostburnGauntlet(attacker, victim, damage) then
+                indirectProcW = true
+            end
+            if not indirectProcW then
+                Filters:ApplyWdamage(victim, attacker, damage, damage_type)
             end
         end
 
@@ -1473,9 +1473,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
 
         damage = damage*(1+damageMult)
         if not ignore_effects then
-            Filters:ApplyRdamage(victim, attacker, damage, damage_type)
-
+            local indirectProcR = false            
             if attacker:HasModifier("modifier_water_deity_crown") then
+                indirectProcR = true
                 if not attacker.headItem.waterParticleCount then
                     attacker.headItem.waterParticleCount = 0
                 end
@@ -1488,6 +1488,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
                 end
                 Filters:ApplyItemDamageBasedOnAbility(victim, attacker, damage, DAMAGE_TYPE_PURE, nil, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
                 attacker.headItem:ApplyDataDrivenModifier(attacker.headItem, victim, "modifier_water_deity_crown_slow", {duration = 6})
+            end
+            if not indirectProcR then
+                Filters:ApplyRdamage(victim, attacker, damage, damage_type)
             end
         end
     end
@@ -2664,7 +2667,8 @@ function Filters:LumaGuardStrike(attacker, victim, damage)
         -- end)
         local damage = damage * 4
         Filters:ApplyItemDamageBasedOnAbility(victim, attacker, damage, DAMAGE_TYPE_PURE, nil, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
-        print("MOONBEAM HAS FIRED")
+        -- print("MOONBEAM HAS FIRED")
+        return true
     end
 end
 
@@ -2775,24 +2779,29 @@ function Filters:SpiritGlove(caster)
     end  
 end
 
-function Filters:FrostburnGauntlet(caster, damage, victim)
-    print("PROC")
-    local icePoint = victim:GetAbsOrigin()
-    local radius = 240
-    EmitSoundOnLocationWithCaster(icePoint, "hero_Crystal.freezingField.explosion", caster)
-    local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
-    local pfx = ParticleManager:CreateParticle( particle, PATTACH_WORLDORIGIN, caster )
-    ParticleManager:SetParticleControl( pfx, 0, icePoint )
-    ParticleManager:SetParticleControl( pfx, 1, Vector(radius, 2, radius*2) )
-    Timers:CreateTimer(2.5, function()
-        ParticleManager:DestroyParticle(pfx, false)
-    end)
-    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), icePoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-    if #enemies > 0 then    
-        for _,enemy in pairs(enemies) do
-            caster.frostburnItem:ApplyDataDrivenModifier(caster, enemy, "modifier_frostburn_gauntlets_slow", {duration = 3})
-            Filters:ApplyItemDamageBasedOnAbility(enemy,caster,damage,DAMAGE_TYPE_PURE,nil,RPC_ELEMENT_ICE,RPC_ELEMENT_NONE)
+function Filters:FrostburnGauntlet(attacker, victim, damage)--attacker, victim, damage
+    local proc = Filters:GetProc(attacker, 20)
+    CustomAbilities:QuickAttachParticle("particles/econ/items/crystal_maiden/crystal_maiden_maiden_of_icewrack/cm_arcana_pup_flee.vpcf", victim, 3)
+    attacker.handItem:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_frostburn_gauntlets_slow", {duration = 4})
+    if proc then
+        local icePoint = victim:GetAbsOrigin()
+        local radius = 240
+        EmitSoundOnLocationWithCaster(icePoint, "hero_Crystal.freezingField.explosion", attacker)
+        local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+        local pfx = ParticleManager:CreateParticle( particle, PATTACH_WORLDORIGIN, attacker )
+        ParticleManager:SetParticleControl( pfx, 0, icePoint )
+        ParticleManager:SetParticleControl( pfx, 1, Vector(radius, 2, radius*2) )
+        Timers:CreateTimer(2.5, function()
+            ParticleManager:DestroyParticle(pfx, false)
+        end)
+        local enemies = FindUnitsInRadius( attacker:GetTeamNumber(), icePoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+        if #enemies > 0 then    
+            for _,enemy in pairs(enemies) do
+                attacker.frostburnItem:ApplyDataDrivenModifier(attacker, enemy, "modifier_frostburn_gauntlets_slow", {duration = 3})
+                Filters:ApplyItemDamageBasedOnAbility(enemy,attacker,damage,DAMAGE_TYPE_PURE,nil,RPC_ELEMENT_ICE,RPC_ELEMENT_NONE)
+            end
         end
+        return true
     end
 end
 
@@ -3280,12 +3289,11 @@ function Filters:DemonMask(caster, target, damage)
     -- proc = true
     if proc then
         --print("dmg test: "..damage)
-        damage = damage*20
+        damage = damage*15
         --print("dmg test: "..damage)
         EmitSoundOn("RPCItem.DemonMask", target)
         local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_arc_warden/demon_mask_3.vpcf", PATTACH_CUSTOMORIGIN, caster )
-
-      ParticleManager:SetParticleControl( pfx, 0, target:GetAbsOrigin()+Vector(0,0,115) )
+        ParticleManager:SetParticleControl( pfx, 0, target:GetAbsOrigin()+Vector(0,0,115) )
         -- ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN, "attach_hitloc", target:GetAbsOrigin()+Vector(0,0,100), true)
         -- ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_ABSORIGIN, "attach_hitloc", target:GetAbsOrigin()+Vector(0,0,100), true)
         -- ParticleManager:SetParticleControlEnt(pfx, 3, target, PATTACH_ABSORIGIN, "attach_hitloc", target:GetAbsOrigin()+Vector(0,0,100), true)
@@ -3300,7 +3308,8 @@ function Filters:DemonMask(caster, target, damage)
                     Filters:ApplyItemDamageBasedOnAbility(enemy,caster,damage,DAMAGE_TYPE_MAGICAL,nil,RPC_ELEMENT_DEMON,RPC_ELEMENT_NONE)
                 end
             end     
-        end)        
+        end)
+        return true        
     end
 end
 
@@ -3848,6 +3857,7 @@ function Filters:FireDeity(attacker, victim, damage)
                 Filters:ApplyItemDamageBasedOnAbility(enemy, attacker, damage, DAMAGE_TYPE_MAGICAL, nil, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
             end
         end 
+        return true
     end
 end
 
