@@ -469,6 +469,8 @@ function rune_unit_2_think(event)
     ability.b_d_level = totalLevel
     if totalLevel > 0 then
         ability:ApplyDataDrivenModifier(caster, hero, "modifier_voltex_rune_b_d_rune_effect", {})
+    else
+    	hero:RemoveModifierByName("modifier_voltex_rune_b_d_rune_effect")
     end
 end
 

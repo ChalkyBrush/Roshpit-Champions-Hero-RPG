@@ -581,7 +581,7 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap)
                 if not target.paladin_d_b_absorb then
                     target.paladin_d_b_absorb = 0
                 end
-                target.paladin_d_b_absorb = math.min(target.paladin_d_b_absorb + shieldAmount, target:GetMaxHealth()*0.04*d_a_level)
+                target.paladin_d_b_absorb = math.min(target.paladin_d_b_absorb + shieldAmount, target:GetMaxHealth()*0.1*d_a_level)
                 local shieldDuration = Filters:GetAdjustedBuffDuration(caster, 12, false)
                 ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_rune_b_b_shield", {duration = shieldDuration})
             end
@@ -4201,13 +4201,14 @@ function Filters:DarkEmissary(caster)
 end
 
 function Filters:Bahamut_DB_rune(caster, damage, slot, enemy)
-    local property_one = 0.1
-    local property_two = 0.02
     local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "bahamut")
     if caster:HasAbility("leshrac_nuke") then
         if enemy:HasModifier("modifier_leshrac_nuke_judged") then
+            local ability = caster.runeUnit4:FindAbilityByName("bahamut_rune_d_b")
+            local property_one = ability:GetSpecialValueFor("property_one")
+            local property_two = ability:GetSpecialValueFor("property_two")
             if d_b_level > 0 then
-                local bonusDamage = caster:GetMaxMana()*property_one*d_b_level
+                local bonusDamage = caster:GetMaxMana()*(property_one/100)*d_b_level
                 if slot == 2 then
                     bonusDamage = bonusDamage*10
                 end
@@ -4217,10 +4218,11 @@ function Filters:Bahamut_DB_rune(caster, damage, slot, enemy)
             end
         end
     elseif caster:HasAbility("bahamut_arcana_orb") then
-        local property_one = 5
+        local ability = caster.runeUnit4:FindAbilityByName("bahamut_rune_d_b_arcana2")
+        local property_one = ability:GetSpecialValueFor("property_one")
         local d_b_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
         if d_b_level > 0 then
-            local bonusDamage = (caster:GetMaxMana()-caster:GetMana())*property_one*d_b_level
+            local bonusDamage = (caster:GetMaxMana()-caster:GetMana())*(property_one/100)*d_b_level
             damage = damage + bonusDamage
         end
     end

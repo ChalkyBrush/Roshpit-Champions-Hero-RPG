@@ -13,12 +13,7 @@ function field_start(event)
 
 	ability.point = point
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_temporal_field_dashing", {duration = 1})
-	if ability.auraDummy then
-		field_end(event)
-		if ability.auraDummy then
-			ability.auraDummy:RemoveModifierByName("modifier_temporal_dummy_aura")
-		end
-	end
+
 	ability.a_c_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
 	ability.b_c_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
 	ability.c_c_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
@@ -60,6 +55,10 @@ function zhonik_dash_end(caster, ability)
 	end)
 	local point = ability.point
 	local particleName = "particles/roshpit/zhonik/temporal_field.vpcf"
+	if ability.pfx then
+		ParticleManager:DestroyParticle(ability.pfx, false)
+		ParticleManager:ReleaseParticleIndex(ability.pfx)
+	end
 	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(pfx, 0, point)
 	ParticleManager:SetParticleControl(pfx, 1, Vector(550,550,550))
@@ -68,14 +67,20 @@ function zhonik_dash_end(caster, ability)
 
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_temporal_field_sliding", {duration = 1})
 	ability.slideSpeed = 20
-	if ability.auraDummy then
-		ParticleManager:DestroyParticle(ability.auraDummy.pfx, false)
+	if not ability.auraDummy then
+		local dummy = CreateUnitByName("npc_dummy_unit", point, false, nil, nil, caster:GetTeamNumber())
+		ability:ApplyDataDrivenModifier(caster, dummy, "modifier_temporal_dummy_aura", {duration = 10})
+		dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
+		ability.auraDummy = dummy
+	else
+		ability.auraDummy:SetAbsOrigin(point)
+		if not ability.auraDummy:HasModifier("modifier_temporal_dummy_aura") then
+			ability:ApplyDataDrivenModifier(caster, ability.auraDummy, "modifier_temporal_dummy_aura", {duration = 10})
+		else
+			local modifier = ability.auraDummy:FindModifierByName("modifier_temporal_dummy_aura")
+			modifier:SetDuration(10,false)
+		end
 	end
-	local dummy = CreateUnitByName("npc_dummy_unit", point, false, nil, nil, caster:GetTeamNumber())
-	ability:ApplyDataDrivenModifier(caster, dummy, "modifier_temporal_dummy_aura", {duration = 10})
-	dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
-	dummy.pfx = pfx
-	ability.auraDummy = dummy
 	
 end
 
@@ -84,11 +89,10 @@ function field_end(event)
 	local caster = event.caster
 	if ability.auraDummy then
 		ParticleManager:DestroyParticle(ability.pfx, false)
-		ParticleManager:DestroyParticle(ability.auraDummy.pfx, false)
+		ParticleManager:ReleaseParticleIndex(ability.pfx)
+		-- ParticleManager:DestroyParticle(ability.auraDummy.pfx, false)
+		-- ParticleManager:ReleaseParticleIndex(ability.auraDummy.pfx)
 		EmitSoundOnLocationWithCaster(ability.auraDummy:GetAbsOrigin(), "Zonik.TemporalField.End", caster)
-		UTIL_Remove(ability.auraDummy)
-		ability.auraDummy = false
-
 	end
 end
 
@@ -119,9 +123,11 @@ function temporal_field_enter(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	print("DID THIS TRIGGER?")
+	-- print("DID THIS TRIGGER?")
 
 	if target:GetEntityIndex() == caster:GetEntityIndex() then
+		target:RemoveModifierByName("modifier_dummy_aura1_effect_zhonik")
+		target:RemoveModifierByName("modifier_zonik_temporal_field_cap")
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_dummy_aura1_effect_zhonik", {})
 		caster:AddNewModifier( caster, ability, "modifier_zonik_temporal_field_cap", {duration = duration} )
 	end
@@ -139,13 +145,17 @@ function temporal_field_leave(event)
 	local ability = event.ability
 	local target = event.target
 
-	target:RemoveModifierByName("modifier_dummy_aura1_effect_zhonik")
-	target:RemoveModifierByName("modifier_zonik_temporal_field_cap")
+	if not target:HasModifier("modifier_temporal_field_dashing") then
+		-- if not target:HasModifier("modifier_temporal_dummy_aura_effect") then
+			target:RemoveModifierByName("modifier_dummy_aura1_effect_zhonik")
+			target:RemoveModifierByName("modifier_zonik_temporal_field_cap")
+			target:RemoveModifierByName("modifier_zhonic_arcana_c_c_visible")
+			target:RemoveModifierByName("modifier_zhonic_arcana_c_c_invisible")
+		-- end
+	end
 	target:RemoveModifierByName("modifier_dummy_aura_effect_enemy")
 	target:RemoveModifierByName("modifier_dummy_aura_effect_enemy_a_c_visible")
 	target:RemoveModifierByName("modifier_dummy_aura_effect_enemy_a_c_invisible")
-	target:RemoveModifierByName("modifier_zhonic_arcana_c_c_visible")
-	target:RemoveModifierByName("modifier_zhonic_arcana_c_c_invisible")
 	if ability.d_c_level > 0 then
 		local duration = Filters:GetAdjustedBuffDuration(caster, 0.1*ability.d_c_level, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_zonik_temporal_field_cap", {duration = duration})	

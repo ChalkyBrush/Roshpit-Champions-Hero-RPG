@@ -20161,7 +20161,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILIT_BEHAVIOR_AOE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"zonik/zonik_temporal_field"
 		"RequiredLevel"          		"-5"
@@ -35706,6 +35706,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"1"
 			}
+			"02"
+			{
+			    "var_type"              "FIELD_INTEGER"
+			    "property_one_base"     "1"
+			}
 		}
 	}
 
@@ -39148,6 +39153,29 @@
 				"property_two"			"0.02"
 			}
 		}
+
+	}
+
+	"bahamut_rune_d_b_arcana2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"bahamut/bahamut_d_b_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"500"
+			}
+		}
+
 
 	}
 
@@ -99099,6 +99127,52 @@
 					}
 				}
 
+			}
+		}
+	}
+	
+	"arcana_find_ability"
+	{
+		// General  
+		// ----------------------------------------------------------------------------------------
+		"BaseClass"              "ability_datadriven"
+		"AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"     "rubick_empty1"
+		"AbilityUnitDamageType"  "DAMAGE_TYPE_MAGICAL"
+
+		"AbilityType"            "DOTA_ABILITY_TYPE_BASIC"
+		"MaxLevel"               "1"
+		"RequiredLevel"          "-10"
+		"LevelsBetweenUpgrades"  "1"
+		"AbilityCastPoint"       "0.0"
+		"AbilityCastAnimation"   "ACT_DOTA_ATTACK"
+		"AnimationPlaybackRate"  "1"
+		"AnimationIgnoresModelScale" "1"
+
+		"AbilityDamage"           "0 0 0 0"
+		"AbilityManaCost"         "0 0 0 0"
+		"AbilityCooldown"         "0.0 0.0 0.0 0.0"
+		"AbilityCastRange"        "0"
+		"AbilityCastRangeBuffer"  "250"
+
+		"Modifiers"
+		{
+			"modifier_arcana_find"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"States"
+				{
+					"MODIFIER_STATE_UNSELECTABLE"	    "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"	    "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	    "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"  "MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH"  "1"
+				}
 			}
 		}
 	}

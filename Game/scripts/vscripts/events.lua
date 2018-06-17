@@ -263,6 +263,9 @@ function GameMode:OnItemPickedUp(keys)
     ParticleManager:DestroyParticle( itemEntity.particle2, false )
     itemEntity.particle2 = false
   end
+  if itemEntity.arcanaDummy then
+    UTIL_Remove(itemEntity.arcanaDummy)
+  end
   itemEntity.expiryTime = false
   Challenges:CheckIfHeroHoldsDupes(heroEntity)
   Events:PickUpTest(heroEntity, itemEntity, itemname)
@@ -1373,7 +1376,7 @@ end
 
 function Events:beginQuests()
   -- print("BEGINQUESTS IS HAPPENING")
-  Beacons:DEBUG()
+  -- Beacons:DEBUG()
 end
 
 function Events:InitGameEntities()

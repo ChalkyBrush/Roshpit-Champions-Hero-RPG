@@ -20200,232 +20200,6 @@
         }
 	}
 
-	"ghost_hallow"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"abyssal_underlord_pit_of_malice"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
-		"AOERadius"						"150 160 170 180 190 200 210"
-		"AbilityCastRange"				"1200"
-		"precache"
-		{
-			"particle"		"particles/units/heroes/heroes_underlord/underlord_pitofmalice.vpcf"
-			"particle"		"particles/roshpit/duskbringer/duskbringer_rune_a_b.vpcf"
-			"particle"		"particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash.vpcf"
-			"particle"		"particles/units/heroes/hero_slardar/duskbringer_d_d_amp_damage.vpcf"
-			"particle"		"particles/roshpit/duskbringer/ghostfire_blast.vpcf"
-			"particle"		"particles/units/heroes/hero_elder_titan/duskbringer_a_b.vpcf"
-			"particle"		"particles/econ/courier/courier_roshan_darkmoon/courier_roshan_darkmoon.vpcf"
-			"particle"		"particles/roshpit/mountain_protector/unshakable_stone_dust.vpcf"
-		}
-
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"1.0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"140 280 600 1500 3000 5400 8000"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"150 160 170 180 190 200 210"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"3.7 4.0 4.3 4.6 4.9 5.2 5.5"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-        		"ScriptFile"	"heroes/spirit_breaker/ghost_hallow.lua"
-        		"Function"		"begin_ghost_hallow"
-        		"damage"		"%damage"
-        		"Target"			"POINT"
-			}
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"1"
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/spirit_breaker/ghost_hallow.lua"
-				"Function"		"d_b_projectile_hit"
-				"target"        "TARGET"
-			}
-		}
-        "Modifiers"
-        {
-			"modifier_duskbringer_think2"
-			{
-				"Passive"			"1"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "2"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/spirit_breaker/ghost_hallow.lua"
-						"Function"		"duskbringer_passive_think"
-					}
-				}
-			}
-        	"modifier_hidden_ghost_hallow_passive"
-        	{
-        		"Passive"	"1"
-        		"IsHidden"	"1"
-        		"ThinkInterval"  "1.0"
-        		"OnIntervalThink"
-        		{
-        			"RunScript"
-        			{
-        				"ScriptFile"	"heroes/spirit_breaker/ghost_hallow.lua"
-        				"Function"		"update_c_b_level"
-        			}
-        		}
-        		"OnTakeDamage"
-        		{
-        			"RunScript"
-        			{
-        				"ScriptFile"	"heroes/spirit_breaker/ghost_hallow.lua"
-        				"Function"		"duskbringer_take_damage"
-        			}
-        		}
-        	}
-			"ghost_hallow"
-			{
-				"Aura"					"ghost_hallow_aura"
-				"Aura_Radius"			"%radius"
-				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"		"particles/units/heroes/heroes_underlord/underlord_pitofmalice.vpcf"
-						"EffectAttachType"	"follow_origin"
-						"Target"			"TARGET"
-						"Duration"			"6"
-						"ControlPoints"
-						{
-							"00" "0 0 0"
-							"01" "%radius 1 %radius"
-							"02" "6 6 6"
-							"15" "25 150 25"
-							"16" "1 0 0"
-						}
-					}
-				}
-			}
-			"ghost_hallow_aura"
-			{
-				"IsHidden"	"0"
-				"ThinkInterval" "0.3"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/spirit_breaker/ghost_hallow.lua"
-						"Function"		"ghost_trap_a_b_thinker"
-						"target"		"TARGET"
-						"duration"		"%duration"
-					}
-				}
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/spirit_breaker/ghost_hallow.lua"
-						"Function"		"ghost_trap_enter"
-						"target"		"TARGET"
-						"duration"		"%duration"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/spirit_breaker/ghost_hallow.lua"
-						"Function"		"ghost_trap_end"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_ghost_trap_immune"
-			{
-				"IsHidden"	"1"
-			}
-			"ghost_hallow_stun"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"OnCreated"
-				{
-					"FireSound"
-					{
-						"EffectName"	"Duskbringer.GhostHallowTrap"
-						"Target" 		"TARGET"
-					}
-				}
-				"EffectName"	"particles/units/heroes/heroes_underlord/abyssal_underlord_pitofmalice_stun.vpcf"
-				"EffectAttachType"	"attach_hitloc"
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/spirit_breaker/ghost_hallow.lua"
-						"Function"		"ghost_hallow_think"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_ghost_hallow_disarm"
-			{
-				"IsHidden"	"1"
-				"IsDebuff"	"1"
-				"States"
-				{
-					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_ghost_hallow_magic_resist_loss"
-			{
-				"IsHidden"	"1"
-				"IsDebuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-4"
-				}
-			}
-        }
-	}
-
 	"duskbringer_arcana_ability"
 	{
 		// General
@@ -33745,7 +33519,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILIT_BEHAVIOR_AOE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"zonik/zonik_temporal_field"
 		"RequiredLevel"          		"-5"
@@ -53853,6 +53627,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"1"
 			}
+			"02"
+			{
+			    "var_type"              "FIELD_INTEGER"
+			    "property_one_base"     "1"
+			}
 		}
 	}
 
@@ -62620,6 +62399,29 @@
 				"property_two"			"0.02"
 			}
 		}
+
+	}
+
+	"bahamut_rune_d_b_arcana2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"bahamut/bahamut_d_b_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"500"
+			}
+		}
+
 
 	}
 
@@ -111622,30 +111424,6 @@
 
 
 	}
-
-	"bahamut_rune_d_b_arcana2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"bahamut/bahamut_d_b_arcana2"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"5"
-			}
-		}
-
-
-	}
-
 	"ruby_dragon_ability"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -136526,6 +136304,52 @@
 					}
 				}
 
+			}
+		}
+	}
+	
+	"arcana_find_ability"
+	{
+		// General  
+		// ----------------------------------------------------------------------------------------
+		"BaseClass"              "ability_datadriven"
+		"AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"     "rubick_empty1"
+		"AbilityUnitDamageType"  "DAMAGE_TYPE_MAGICAL"
+
+		"AbilityType"            "DOTA_ABILITY_TYPE_BASIC"
+		"MaxLevel"               "1"
+		"RequiredLevel"          "-10"
+		"LevelsBetweenUpgrades"  "1"
+		"AbilityCastPoint"       "0.0"
+		"AbilityCastAnimation"   "ACT_DOTA_ATTACK"
+		"AnimationPlaybackRate"  "1"
+		"AnimationIgnoresModelScale" "1"
+
+		"AbilityDamage"           "0 0 0 0"
+		"AbilityManaCost"         "0 0 0 0"
+		"AbilityCooldown"         "0.0 0.0 0.0 0.0"
+		"AbilityCastRange"        "0"
+		"AbilityCastRangeBuffer"  "250"
+
+		"Modifiers"
+		{
+			"modifier_arcana_find"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"States"
+				{
+					"MODIFIER_STATE_UNSELECTABLE"	    "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"	    "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	    "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"  "MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH"  "1"
+				}
 			}
 		}
 	}

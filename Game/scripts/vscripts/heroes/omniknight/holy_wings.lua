@@ -132,18 +132,15 @@ function wing_attack( keys )
 
 	
 	if #enemies > 0 then
-		local holyCone = caster:FindAbilityByName("holy_cone")
-		if holyCone then
-			if not holyCone.a_b_level then
-				holyCone.a_b_level = 1
-				holyCone.a_b_damage = 80
+		caster.holyCone = caster:FindAbilityByName("holy_cone")
+		if caster:HasModifier("modifier_paladin_glyph_2_1") and caster.holyCone then
+			caster.holyCone.a_b_level = a_b_level(caster,caster.holyCone)
+			if caster.holyCone.a_b_level > 0 then
+				applyFire = true
+			else
+				applyFire = false
 			end
-		end
-		local applyFire = false
-		if caster:HasModifier("modifier_paladin_glyph_2_1") then
-			applyFire = true
-		end
-		if not holyCone then
+		else 
 			applyFire = false
 		end
 		if not ability.goldParticleCount then
@@ -163,7 +160,7 @@ function wing_attack( keys )
 			end
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_HOLY, RPC_ELEMENT_NORMAL)
 			if applyFire then
-				apply_holy_fire(caster, enemy, holyCone)
+				apply_holy_fire(caster, enemy, caster.holyCone)
 			end
 		end
 	end 
