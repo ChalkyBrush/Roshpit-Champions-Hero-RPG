@@ -7622,7 +7622,9 @@
         "DefaultState"  "Invade"
         "precache"
         {
-
+            "particle"  "particles/units/heroes/hero_dark_willow/dark_willow_shadow_realm.vpcf"
+            "particle"  "particles/units/heroes/hero_dark_willow/dark_willow_wisp_spell.vpcf"
+            "particle"  "particles/roshpit/mountain_protector/steelforge_start_teleport_ti7_out.vpcf"
         }
 
         "ArmorPhysical" "6"
@@ -7956,6 +7958,95 @@
             "OffensiveAbilities"
             {
 
+            }
+        }
+    }
+
+    "stargazer_orin"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/rubick/rubick.vmdl"
+        "ModelScale"    "2.4"
+        "Level" "1"
+        "HealthBarOffset"   "240"
+        "precache"
+        {
+            "soundfile"     "soundevents/game_sounds_heroes/game_sounds_rubick.vsndevts"
+            "particle"      "particles/units/heroes/hero_rubick/rubick_fade_bolt.vpcf"
+        }
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"                  "Hero_Rubick"
+        "ArmorPhysical" "4"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "ProjectileModel"     "particles/roshpit/sea_fortress/shadow_of_bahamut_attack_base_attack.vpcf"
+        "ProjectileSpeed"   "700"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "100650"
+        "AttackDamageMax"   "100850"
+        "AttackRate"    "1.2"
+        "AttackAnimationPoint"  "0.48"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "445"
+        "BountyGoldMin" "15"
+        "BountyGoldMax" "20"
+        "BountyXP" "285"
+        "BoundsHullName"    "DOTA_HULL_SIZE_SMALL"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "340"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "1020000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"              "redfall_fade_bolt"
+        "Ability2"              "use_ability_1_target_ai"
+        "Ability3"              "dungeon_creep"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "6488"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "7656"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "7657"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "7658"
+                }
             }
         }
     }

@@ -4143,6 +4143,7 @@ function Winterblight:LastAzaleaRoomStart()
 	pixie:SetForwardVector(Vector(-1,0))
 	pixie.phase = 0
 	local luck = RandomInt(1, 3)
+	luck = 4
 	if luck == 1 then
 		for j = 0, 2, 1 do
 		 for i = 0, 2, 1 do
@@ -4320,6 +4321,7 @@ function Winterblight:LastAzaleaRoomStart()
 			end
 		end)
 	end
+	if false then
 	Timers:CreateTimer(0.2, function()
 		for i = 0, 3, 1 do
 			local unit = Winterblight:SpawnSkaterFiend(Vector(-13664+RandomInt(0,1180), -11520+RandomInt(0,180)), RandomVector(1))
@@ -4366,4 +4368,5 @@ function Winterblight:LastAzaleaRoomStart()
 	      end)
 	    end
 	end)
+	end
 end
