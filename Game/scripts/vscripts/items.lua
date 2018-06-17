@@ -610,10 +610,12 @@ function RPCItems:DropItem(item, position)
 								item.particle2 = ParticleManager:CreateParticle( "particles/roshpit/items/arcana_beam.vpcf", PATTACH_CUSTOMORIGIN, item )
 								ParticleManager:SetParticleControl( item.particle2, 0, position-Vector(0,0,40) )
 								ParticleManager:SetParticleControl( item.particle2, 1, position-Vector(0,0,40) )
+
 								EmitSoundOnLocationWithCaster(position, "RPC.Arcana.Drop", Events.GameMaster)
 								local arcana_dummy = CreateUnitByName("arcana_find_unit", position, false, nil, nil, 2)
 								item.arcanaDummy = arcana_dummy
 								arcana_dummy:FindAbilityByName("arcana_find_ability"):SetLevel(1)
+
 								Timers:CreateTimer(0.3, function()
 									local pfx = ParticleManager:CreateParticle("particles/econ/items/centaur/centaur_ti6_gold/centaur_ti6_warstomp_gold.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
 									ParticleManager:SetParticleControl(pfx, 0, position)

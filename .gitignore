@@ -14,3 +14,4 @@ Game/screenshots
 Game/tool_asset_info
 Game/tools_thumbnail_cache
 game/scripts/npc
+*.bin

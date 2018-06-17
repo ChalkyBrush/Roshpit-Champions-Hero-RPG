@@ -2287,11 +2287,55 @@ function mystery_fairy_think(event)
 	if not caster.interval then
 		caster.interval = 0
 	end
-	if caster.lock then
+	if caster.lock or caster.lock2 then
 		return false
 	end
-
 	caster.interval = caster.interval + 1
+	if caster.doorOpen then
+		local goalPos = Vector(-13056, -13312)
+		if caster.interval %50 == 0 then
+			caster:MoveToPosition(goalPos)
+		end
+		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), goalPos)
+		if distance < 90 then
+			caster.lock = true
+			-- EmitSoundOn("Winterblight.Pixie.Mystery1", caster)
+			StartAnimation(caster, {duration=1.35, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.0})
+			Timers:CreateTimer(0.5, function()
+				EmitSoundOn("Winterblight.Pixie.Laugh2", caster)
+			end)
+			Timers:CreateTimer(1.5, function()
+				EmitSoundOn("Winterblight.Pixie.OpenGrunt", caster)
+				StartAnimation(caster, {duration=5.0, activity=ACT_DOTA_CAST_ABILITY_5, rate=0.5})
+				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_dark_willow/dark_willow_shadow_realm.vpcf", caster, 5)
+				for i = 0, 4, 1 do
+					Timers:CreateTimer(i, function()
+						CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_dark_willow/dark_willow_wisp_spell.vpcf", Vector(-13045, -13504), 5)
+					end)
+				end
+				Timers:CreateTimer(0.5, function()
+					local walls = Entities:FindAllByNameWithin("AzaleaStarWall", Vector(-13045, -13504, -121+Winterblight.ZFLOAT), 2000)
+				    EmitSoundOnLocationWithCaster(Vector(-13045, -13504, 273+Winterblight.ZFLOAT), "Winterblight.Pixie.WallOpen", Events.GameMaster)
+				    Winterblight:Walls(false, walls, false, 4.3)
+				    Winterblight:RemoveBlockers(4, "AzaleaStarBlocker", Vector(-13004, -13485, -90+Winterblight.ZFLOAT), 2000)
+				end)
+				Timers:CreateTimer(2, function()
+				    local positionTable = {Vector(-13824, -13952), Vector(-13312, -13952), Vector(-12800, -13952), Vector(-12245, -13952)}
+				    for i = 1, #positionTable, 1 do
+				      local lookToPoint = (Vector(-13045, -13567) - positionTable[i]):Normalized()
+				      local unit = Winterblight:SpawnStarSeeker(positionTable[i], lookToPoint)
+				      CustomAbilities:QuickAttachParticle("particles/roshpit/mountain_protector/steelforge_start_teleport_ti7_out.vpcf", unit, 3)
+				    end
+				end)
+				Timers:CreateTimer(4.9, function()
+					caster.lock2 = true
+					caster.lock = false
+					pixie_sequence(caster, nil)
+				end)
+			end)
+		end
+		return false
+	end
 	if caster.phase > 0 then
 		if caster.interval == 100 then
 			local enemiesFAR = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
@@ -2318,8 +2362,22 @@ function mystery_fairy_think(event)
 			if distance < 90 then
 				caster:SetModelScale(1.0)
 				caster.phase = caster.phase + 1
-				local newPos = Winterblight:GetRandomPixieLocation()
-				pixie_sequence(caster, newPos)
+				caster.phase = 5
+				if caster.phase < 5 then
+					local newPos = Winterblight:GetRandomPixieLocation()
+					pixie_sequence(caster, newPos)
+				else
+					caster.lock = true
+					EmitSoundOn("Winterblight.Pixie.Mystery1", caster)
+					StartAnimation(caster, {duration=1.35, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.0})
+					Timers:CreateTimer(0.5, function()
+						EmitSoundOn("Winterblight.Pixie.Laugh", caster)
+					end)
+					Timers:CreateTimer(1, function()
+						caster.lock = false
+						caster.doorOpen = true
+					end)
+				end
 				return false
 			else
 				local scale = (400-distance)/400
@@ -2333,14 +2391,14 @@ function mystery_fairy_think(event)
 		if caster.interval%30 == 0 then
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 			if #enemies > 0 then
-				caster.phase = 1
+				caster.phase = caster.phase + 1
 				local newPos = Winterblight:GetRandomPixieLocation()
 				pixie_sequence(caster, newPos)
 				return false
 			end
 		end
 	end
-	if caster.interval == 100 then
+	if caster.interval >= 100 then
 		caster.interval = 0
 	end
 end
@@ -2353,7 +2411,11 @@ function pixie_sequence(caster, targetPosition)
 	EmitSoundOn("Winterblight.Pixie.Mystery1", caster)
 	StartAnimation(caster, {duration=1.35, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.0})
 	Timers:CreateTimer(0.5, function()
-		EmitSoundOn("Winterblight.Pixie.Laugh", caster)
+		if caster.doorOpen then
+			EmitSoundOn("Winterblight.Pixie.Laugh3", caster)
+		else
+			EmitSoundOn("Winterblight.Pixie.Laugh", caster)
+		end
 	end)
 	Timers:CreateTimer(1.35, function()
 		StartAnimation(caster, {duration=3.0, activity=ACT_DOTA_TAUNT, rate=1.0, translate="rope"})
@@ -2364,43 +2426,62 @@ function pixie_sequence(caster, targetPosition)
 		Timers:CreateTimer(1.8, function()
 			Winterblight:smoothSizeChange(caster, 1, 0.1, 19)
 			Timers:CreateTimer(0.6, function()
-				local pos = caster:GetAbsOrigin()
-				caster:SetModelScale(0)
-				local pfx = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf", PATTACH_CUSTOMORIGIN, caster)
-				ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
-				ParticleManager:SetParticleControl(pfx, 1, Vector(600, 2, 2))
-				local pfx2 = ParticleManager:CreateParticle( "particles/roshpit/winterblight_dust.vpcf", PATTACH_CUSTOMORIGIN, nil)
-				ParticleManager:SetParticleControl(pfx2, 0, pos+Vector(0,0,80))
-				ParticleManager:SetParticleControl(pfx2, 5, Vector(0.9, 0.9, 1.0))
-				ParticleManager:SetParticleControl(pfx2, 2, Vector(0.8,0.8,0.8))
-				EmitSoundOn("Winterblight.Pixie.Teleport", caster)
-				caster:SetAbsOrigin(GetGroundPosition(targetPosition, caster)+Vector(0,0,80))
-				Timers:CreateTimer(1.0, function()
-					caster.lock = false
-				end)
-				local pixie_summon_table = {}
-				for i = 1, 6, 1 do
-					local fv = WallPhysics:rotateVector(Vector(1,0), 2*math.pi*i/6)
-					local summon = Winterblight:SpawnPixieMinion(pos+fv*120, pixie_fv)
-					table.insert(pixie_summon_table, summon)
-					FindClearSpaceForUnit(summon, summon:GetAbsOrigin(), false)
+				if caster.doorOpen then
+					local pos = caster:GetAbsOrigin()
+					caster:SetModelScale(0)
+					local pfx = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf", PATTACH_CUSTOMORIGIN, caster)
+					ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+					ParticleManager:SetParticleControl(pfx, 1, Vector(600, 2, 2))
+					local pfx2 = ParticleManager:CreateParticle( "particles/roshpit/winterblight_dust.vpcf", PATTACH_CUSTOMORIGIN, nil)
+					ParticleManager:SetParticleControl(pfx2, 0, pos+Vector(0,0,80))
+					ParticleManager:SetParticleControl(pfx2, 5, Vector(0.9, 0.9, 1.0))
+					ParticleManager:SetParticleControl(pfx2, 2, Vector(0.8,0.8,0.8))
+					EmitSoundOn("Winterblight.Pixie.Teleport", caster)
+					Timers:CreateTimer(0.2, function()
+						UTIL_Remove(caster)
+					end)
+					return false
+				else
+					local pos = caster:GetAbsOrigin()
+					caster:SetModelScale(0)
+					local pfx = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf", PATTACH_CUSTOMORIGIN, caster)
+					ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+					ParticleManager:SetParticleControl(pfx, 1, Vector(600, 2, 2))
+					local pfx2 = ParticleManager:CreateParticle( "particles/roshpit/winterblight_dust.vpcf", PATTACH_CUSTOMORIGIN, nil)
+					ParticleManager:SetParticleControl(pfx2, 0, pos+Vector(0,0,80))
+					ParticleManager:SetParticleControl(pfx2, 5, Vector(0.9, 0.9, 1.0))
+					ParticleManager:SetParticleControl(pfx2, 2, Vector(0.8,0.8,0.8))
+					EmitSoundOn("Winterblight.Pixie.Teleport", caster)
+					caster:SetAbsOrigin(GetGroundPosition(targetPosition, caster)+Vector(0,0,80))
+					FindClearSpaceForUnit(caster, targetPosition, false)
+					caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,80))
+					Timers:CreateTimer(1.0, function()
+						caster.lock = false
+					end)
+					local pixie_summon_table = {}
+					for i = 1, 6, 1 do
+						local fv = WallPhysics:rotateVector(Vector(1,0), 2*math.pi*i/6)
+						local summon = Winterblight:SpawnPixieMinion(pos+fv*120, pixie_fv)
+						table.insert(pixie_summon_table, summon)
+						FindClearSpaceForUnit(summon, summon:GetAbsOrigin(), false)
+					end
+					for j = 1, 10, 1 do
+						local fv = WallPhysics:rotateVector(Vector(1,0), 2*math.pi*j/10)
+						local summon = Winterblight:SpawnPixieMinion(pos+fv*240, pixie_fv)
+						table.insert(pixie_summon_table, summon)
+						FindClearSpaceForUnit(summon, summon:GetAbsOrigin(), false)
+					end
+					for i = 1, #pixie_summon_table, 1 do
+						pixie_summon_table[i].buddyTable = pixie_summon_table
+					end
+					Timers:CreateTimer(0.5, function()
+						EmitSoundOnLocationWithCaster(pos, "Winterblight.Pixie.AfterPort", Events.GameMaster)
+					end)
+					Timers:CreateTimer(3, function()
+						ParticleManager:DestroyParticle(pfx, false)
+						ParticleManager:DestroyParticle(pfx2, false)
+					end)
 				end
-				for j = 1, 10, 1 do
-					local fv = WallPhysics:rotateVector(Vector(1,0), 2*math.pi*j/10)
-					local summon = Winterblight:SpawnPixieMinion(pos+fv*240, pixie_fv)
-					table.insert(pixie_summon_table, summon)
-					FindClearSpaceForUnit(summon, summon:GetAbsOrigin(), false)
-				end
-				for i = 1, #pixie_summon_table, 1 do
-					pixie_summon_table[i].buddyTable = pixie_summon_table
-				end
-				Timers:CreateTimer(0.5, function()
-					EmitSoundOnLocationWithCaster(pos, "Winterblight.Pixie.AfterPort", Events.GameMaster)
-				end)
-				Timers:CreateTimer(3, function()
-					ParticleManager:DestroyParticle(pfx, false)
-					ParticleManager:DestroyParticle(pfx2, false)
-				end)
 			end)
 		end)
 	end)
@@ -2488,4 +2569,154 @@ function RealityRift( keys )
 	ExecuteOrderFromTable(order)
 
 
+end
+
+function star_prophecy_start(event)
+	local caster = event.caster
+	local target = event.target
+	StartSoundEvent("Winterblight.StarProphecy.LP", target)
+	target.starprophecystacks = 0
+end
+
+function star_prophecy_debuff_attack_land(event)
+	local caster = event.caster
+	local target = event.target
+	local attacker = event.attacker
+	local modifier = attacker:FindModifierByName("modifier_star_prophecy_debuff")
+	local current_duration = modifier:GetRemainingTime()
+	local duration = current_duration + 0.3
+	modifier:SetDuration(duration, true)
+	local newstacks = modifier:GetStackCount() + tonumber(event.stack_add)
+	modifier:SetStackCount(newstacks)
+	attacker.starprophecystacks = newstacks
+end
+
+function star_prophecy_spell_cast(event)
+	local caster = event.caster
+	local target = event.unit
+	local attacker = event.unit
+	local modifier = attacker:FindModifierByName("modifier_star_prophecy_debuff")
+	local current_duration = modifier:GetRemainingTime()
+	print(current_duration)
+	local duration = current_duration + 0.8
+	modifier:SetDuration(duration, true)
+	local newstacks = modifier:GetStackCount() + tonumber(event.stack_add)
+	modifier:SetStackCount(newstacks)
+	attacker.starprophecystacks = newstacks
+end
+
+function star_prophecy_end(event)
+	local target = event.target
+	local caster = event.caster
+	local ability = event.ability
+	if not IsValidEntity(caster) then
+		caster = Events.GameMaster
+		ability = Events.GameMasterAbility
+	end
+	StopSoundEvent("Winterblight.StarProphecy.LP", target)
+	local stacks = target.starprophecystacks
+	if stacks > 0 then
+		for i = 1, stacks, 1 do
+			Timers:CreateTimer(i*0.1, function()
+		      local particleName = "particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf"
+		      local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
+		      ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_OVERHEAD_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+		      Timers:CreateTimer(0.6, function() 
+		        ParticleManager:DestroyParticle( pfx, false )
+		      end)  
+	          Timers:CreateTimer(0.45, -- Start this timer 10 game-time seconds later
+	          function()
+	            if target:IsAlive() then
+	              ApplyDamage({ victim = target, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })	
+	              EmitSoundOn("Winterblight.StarProphecy.Impact", target)
+	            end
+	          end)
+			end)
+		end
+	end
+end
+
+function starseeker_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local caster = event.caster
+	local starcast = caster:FindAbilityByName("winterblight_star_prophecy")
+	if caster.aggro then
+		if starcast:IsFullyCastable() then
+			local target_teams = DOTA_UNIT_TARGET_TEAM_ENEMY
+			local target_types = DOTA_UNIT_TARGET_HERO
+			local target_flags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1400, target_teams, target_types, target_flags, FIND_ANY_ORDER, false)
+			if #enemies > 0 then
+				for i = 1, #enemies, 1 do
+					if not enemies[i]:HasModifier("modifier_star_prophecy_debuff") then
+						local newOrder = {
+					 		UnitIndex = caster:entindex(), 
+					 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+					 		TargetIndex = enemies[i]:entindex(),
+					 		AbilityIndex = starcast:entindex(),
+					 	}
+						ExecuteOrderFromTable(newOrder)		
+						break		
+					end
+				end	
+			end
+		end
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 340+GameState:GetDifficultyFactor()*100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
+		if #enemies > 0 then
+			local sumVector = Vector(0,0)
+			for i = 1, #enemies, 1 do
+				sumVector = sumVector + enemies[i]:GetAbsOrigin()
+			end
+			local avgVector = sumVector/#enemies
+			local runDirection = ((caster:GetAbsOrigin() - avgVector)*Vector(1,1,0)):Normalized()
+			caster:MoveToPosition(caster:GetAbsOrigin()+runDirection*380)
+		end
+	end	
+end
+
+function spinesplitter_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, event.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
+	if not caster:IsAlive() then
+		return false
+	end
+	if #enemies > 0 then
+		for i = 1, #enemies, 1 do
+			local enemy = enemies[i]
+			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_spinesplitter_stack", {duration = 2})
+			if not enemy:IsStunned() then
+				local modifier = enemy:FindModifierByName("modifier_spinesplitter_stack")
+				local newstacks = modifier:GetStackCount() + 1
+				modifier:SetStackCount(newstacks)
+				if newstacks >= 50 then
+					Timers:CreateTimer(0.4, function()
+						enemy:RemoveModifierByName("modifier_spinesplitter_stack")
+					end)
+					EmitSoundOn("Winterblight.SpineSplitter.BoltThrow", caster)
+					local info = 
+					{
+						Target = enemy,
+						Source = caster,
+						Ability = ability,	
+						EffectName =  "particles/units/heroes/hero_sven/sven_spell_storm_bolt.vpcf",
+						StartPosition = "attach_hitloc",
+						bDrawsOnMinimap = false, 
+					        bDodgeable = true,
+					        bIsAttack = false, 
+					        bVisibleToEnemies = true,
+					        bReplaceExisting = false,
+					        flExpireTime = GameRules:GetGameTime() + 8,
+						bProvidesVision = true,
+						iVisionRadius = 0,
+						iMoveSpeed = 800,
+						iVisionTeamNumber = caster:GetTeamNumber()
+					}
+					projectile = ProjectileManager:CreateTrackingProjectile(info)
+				end
+			end
+		end
+	end
+	-- "modifier_spinesplitter_stack"
 end

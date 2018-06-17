@@ -21,6 +21,7 @@ function channel_complete(event)
 	local duration = Filters:GetAdjustedBuffDuration(caster, event.duration, false)
 	StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_4, rate=1})
 	EmitSoundOn("Arkimus.EnergyField.VO", caster)
+	StopSoundEvent("Arkimus.EnergyField.Channel", caster)
 
 	if caster:HasAbility("ark_jump") then
 		local jumpEventTable = {}

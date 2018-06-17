@@ -14,7 +14,7 @@ function initializeTooltip(func){
 	$('#tooltip_title').text = title
 
 	var baseLevel = Abilities.GetLevel(rune)
-	var rune_bonus = GetRuneBonus(queryUnit, GetRuneSlot(abilityName))
+	var rune_bonus = GetRuneBonus(queryUnit, GetRuneSlot(abilityNameInternal))
 	var total_level = baseLevel + rune_bonus
 	var level_line = "Level: "+total_level
 	$('#rune_level_title').text = "<font color='#DDDDDD'>Level</font> "+total_level

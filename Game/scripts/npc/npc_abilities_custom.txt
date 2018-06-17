@@ -126676,8 +126676,238 @@
 		}
 	}
 
+	"winterblight_starseeker_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
+		"MaxLevel"	"3"
+		"Modifiers"
+		{
+			"modifier_starseeker_passive"
+			{
+				//HEAL MAGIC DAMAGE
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_ancestral_spirit.vpcf"
+				"StatusEffectPriority"  "50"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.4"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"starseeker_think"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_star_prophecy"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlag"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"mirana/mirana_starstorm"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 
 
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"800 1100 1400"
+		"AbilityCastPoint"				"0.3"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"9"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_per_star"			"300 5000 75000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_per_star"			"0.03"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration_ability"			"0.8"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration_attack"			"0.3"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_star_prophecy_debuff"
+				"Target" 		"TARGET"
+				"Duration"		"7"
+			}
+			"FireEffect"
+			{
+				"EffectName"        "particles/roshpit/winterblight/star_prophecy_start_hit.vpcf"
+				"EffectAttachType"  "follow_origin"
+				"Target"            "TARGET"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Winterblight.StarProphecy.Start"
+				"Target" 		"TARGET"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+				"Function"		"star_prophecy_start"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_star_prophecy_debuff"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/roshpit/winterblight/star_prophecy_indicator.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"star_prophecy_debuff_attack_land"
+						"duration_add"	"duration_attack"
+						"stack_add"		"1"
+					}
+				}
+				"OnAbilityExecuted"
+				// Any ability (including items) was used by the unit with this modifier.
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"star_prophecy_spell_cast"
+						"duration_add"	"duration_ability"
+						"stack_add"		"3"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"star_prophecy_end"
+						"damage"		"%damage"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_spinesplitter_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
+		"MaxLevel"	"3"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AOERadius"					"600 700 800"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"600 700 800"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_duration"		"1.0 1.25 1.5"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"500 5000 145000"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"Damage"
+			{
+				"Target"		"TARGET"
+				"Type"			"DAMAGE_TYPE_MAGICAL"
+				"Damage"		"%damage"
+			}
+			"Stun"
+			{
+				"Duration"   "%stun_duration"
+				"Target" 	 "TARGET"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Winterblight.SpineSplitter.BoltImpact"
+				"Target" 		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_spinesplitter_passive"
+			{
+				//HEAL MAGIC DAMAGE
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_ancestral_spirit.vpcf"
+				"StatusEffectPriority"  "50"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"spinesplitter_think"
+						"radius"		"%radius"
+					}
+				}
+			}
+			"modifier_spinesplitter_stack"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+			}
+		}
+	}
 	//SEA FORTRESS
 
 	"sea_fortress_ability"

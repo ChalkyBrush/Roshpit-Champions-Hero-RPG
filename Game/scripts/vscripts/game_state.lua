@@ -923,6 +923,9 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 		if victim:HasModifier("modifier_resplendent_rubber_boots") then
 			damage = damage*0.65
 		end
+		if victim:HasModifier("modifier_starseeker_passive") then
+			damage = 0
+		end
 	elseif damagetype == DAMAGE_TYPE_PURE then
 		if victim:HasModifier("modifier_sparkling_token_of_oceanis") then
 			damage = damage*0.1
@@ -2378,6 +2381,13 @@ function GameState:FilterDamage(filterTable)
     if victim:HasModifier("modifier_seinaru_b_c_wakizashi") then
     	filterTable["damage"] = 0
 	end
+	if victim:HasModifier("modifier_starseeker_passive") then
+		if damagetype == DAMAGE_TYPE_MAGICAL then
+			victim:Heal(filterTable["damage"], victim)
+			PopupHealing(victim, filterTable["damage"])
+			filterTable["damage"] = 0
+		end
+	end
 	if damagetype == DAMAGE_TYPE_MAGICAL then
 		filterTable["damage"] = filterTable["damage"] * GameState:IncomingDamageDecreaseWithType(victim, attacker, true, DAMAGE_TYPE_MAGICAL)
 	elseif damagetype == DAMAGE_TYPE_PHYSICAL then
@@ -2387,7 +2397,6 @@ function GameState:FilterDamage(filterTable)
 	else
 		filterTable["damage"] = filterTable["damage"] * GameState:IncomingDamageDecrease(victim, attacker, true)
 	end
-	
 	if victim:HasModifier("modifier_arkimus_glyph_5_1") then
 		local damageReduction = Filters:SpellShieldHit(victim, filterTable["damage"])
 		filterTable["damage"] = filterTable["damage"] - damageReduction

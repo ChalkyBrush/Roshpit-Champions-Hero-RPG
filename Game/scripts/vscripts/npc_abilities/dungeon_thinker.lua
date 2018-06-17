@@ -1704,7 +1704,7 @@ function DungeonCreep(event)
 		if caster.aggroRadius then
 			radius = caster.aggroRadius
 		end
-		if caster.aggroLock then
+		if caster.aggroLock or caster.cantAggro then
 			return false
 		end
 	    local target_types = DOTA_UNIT_TARGET_HERO

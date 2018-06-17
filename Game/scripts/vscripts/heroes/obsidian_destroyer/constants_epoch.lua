@@ -20,7 +20,7 @@ epoch_r1_extra_duration = 0.5
 epoch_r2_attack_range = 5
 epoch_r2_attack_speed = 10
 epoch_r3_dmg_multi_pct = 5
-epoch_r4_elem_time = 0.5
+epoch_r4_elem_time = 1
 
 epoch_arcana_q1_dmg_multi_pct = 5
 epoch_arcana_q2_post_miti_pct = 0.5
