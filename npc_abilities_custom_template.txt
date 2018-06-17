@@ -35706,6 +35706,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"1"
 			}
+			"02"
+			{
+			    "var_type"              "FIELD_INTEGER"
+			    "property_one_base"     "1"
+			}
 		}
 	}
 
