@@ -136077,4 +136077,50 @@
 			}
 		}
 	}
+	
+	"arcana_find_ability"
+	{
+		// General  
+		// ----------------------------------------------------------------------------------------
+		"BaseClass"              "ability_datadriven"
+		"AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"     "rubick_empty1"
+		"AbilityUnitDamageType"  "DAMAGE_TYPE_MAGICAL"
+
+		"AbilityType"            "DOTA_ABILITY_TYPE_BASIC"
+		"MaxLevel"               "1"
+		"RequiredLevel"          "-10"
+		"LevelsBetweenUpgrades"  "1"
+		"AbilityCastPoint"       "0.0"
+		"AbilityCastAnimation"   "ACT_DOTA_ATTACK"
+		"AnimationPlaybackRate"  "1"
+		"AnimationIgnoresModelScale" "1"
+
+		"AbilityDamage"           "0 0 0 0"
+		"AbilityManaCost"         "0 0 0 0"
+		"AbilityCooldown"         "0.0 0.0 0.0 0.0"
+		"AbilityCastRange"        "0"
+		"AbilityCastRangeBuffer"  "250"
+
+		"Modifiers"
+		{
+			"modifier_arcana_find"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"States"
+				{
+					"MODIFIER_STATE_UNSELECTABLE"	    "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"	    "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	    "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"  "MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH"  "1"
+				}
+			}
+		}
+	}
 }
