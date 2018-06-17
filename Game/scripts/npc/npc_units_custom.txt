@@ -82422,7 +82422,6 @@
         "MinimapIcon"  "minimap_racks45"
         "MinimapIconSize" "600"
         "MinimapDisableTint" "0"
-        "visi"
     }
     "winterblight_snowball_kid"
     {

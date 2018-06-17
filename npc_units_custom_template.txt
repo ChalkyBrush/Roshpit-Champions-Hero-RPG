@@ -82230,7 +82230,6 @@
         "MinimapIcon"  "minimap_racks45"
         "MinimapIconSize" "600"
         "MinimapDisableTint" "0"
-        "visi"
     }
     ##WINTERBLIGHT_UNITS##
     
