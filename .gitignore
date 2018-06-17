@@ -15,3 +15,5 @@ Game/tool_asset_info
 Game/tools_thumbnail_cache
 game/scripts/npc
 *.bin
+Game/tools_asset_info.bin
+Game/tools_thumbnail_cache.bin

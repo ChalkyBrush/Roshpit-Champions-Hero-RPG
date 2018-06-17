@@ -2326,6 +2326,7 @@ function mystery_fairy_think(event)
 				      local unit = Winterblight:SpawnStarSeeker(positionTable[i], lookToPoint)
 				      CustomAbilities:QuickAttachParticle("particles/roshpit/mountain_protector/steelforge_start_teleport_ti7_out.vpcf", unit, 3)
 				    end
+				    Winterblight:SpawnStargazerOrin(Vector(-12928, -14916), Vector(0,1))
 				end)
 				Timers:CreateTimer(4.9, function()
 					caster.lock2 = true

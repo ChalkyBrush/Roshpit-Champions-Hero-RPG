@@ -4370,3 +4370,14 @@ function Winterblight:LastAzaleaRoomStart()
 	end)
 	end
 end
+
+function Winterblight:SpawnStargazerOrin(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("stargazer_orin", position, 6, 8, "Winterblight.StarGazer.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 5, 5, false)
+	stone.itemLevel = 60
+	Events:ColorWearablesAndBase(stone, Vector(150,255,145))
+	if GameState:GetDifficultyFactor() == 3 then
+		stone:AddAbility("ability_magic_immune_break"):SetLevel(GameState:GetDifficultyFactor())
+	end
+	return stone
+end
