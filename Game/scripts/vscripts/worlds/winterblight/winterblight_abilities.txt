@@ -8240,3 +8240,159 @@
 			}
 		}
 	}
+
+	"winterblight_stargazer_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"200 3000 65000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"comet_damage"		"1000 30000 1250000"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_stargazer_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_ancestral_spirit.vpcf"
+				"StatusEffectPriority"  "50"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"stargazer_think"
+						"damage"		"%comet_damage"
+					}
+				}
+				"Aura"          	"modifier_stargazer_aura"
+				"Aura_Radius"   	"2150"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Aura_ApplyToCaster" "0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
+				}
+			}
+			"modifier_stargazer_aura"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"stargazer_debuff_think"
+						"target"		"TARGET"
+						"damage"		"%damage"
+					}
+				}
+			}
+			"modifier_stargazer_stopped"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	"stargazer_glissade"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"ancient_apparition_cold_feet"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastRange"				"2000"
+		"precache"
+		{
+
+		}
+
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"3.5 3.0 2.5"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"cast_range"	"2000"
+			}
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"range"		"2000"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+        		"Function"		"stargazer_volcanic_glissade"
+        		"Target"			"POINT"
+        		"range"			"%range"
+			}
+		}
+        "Modifiers"
+        {
+        	"modifier_volcanic_glissade"
+        	{
+        		"IsHidden"	"1"
+        		"OverrideAnimation"     "ACT_DOTA_VERSUS"
+        		"EffectName"			"particles/roshpit/mountain_protector/glissade_buff.vpcf"
+        		"EffectAttachType"		"attach_origin"
+        		"ThinkInterval"  "0.03"
+        		"OnIntervalThink"
+        		{
+        			"RunScript"
+        			{
+        				"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+        				"Function"		"stargazer_glissade_thinking"
+        			}
+        		}
+        	}
+        	"modifier_glissade_freecast"
+        	{
+        		"IsHidden"	"0"
+        		"IsBuff"	"1"
+        	}
+        }
+	}

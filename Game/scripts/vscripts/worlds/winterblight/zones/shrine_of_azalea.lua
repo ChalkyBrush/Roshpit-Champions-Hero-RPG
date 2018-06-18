@@ -4379,5 +4379,13 @@ function Winterblight:SpawnStargazerOrin(position, fv)
 	if GameState:GetDifficultyFactor() == 3 then
 		stone:AddAbility("ability_magic_immune_break"):SetLevel(GameState:GetDifficultyFactor())
 	end
+	if Winterblight.Stones > 0 then
+		stone:RemoveAbility("fire_temple_steadfast")
+		stone:RemoveModifierByName("modifier_steadfast")
+		stone:AddAbility("redfall_mega_steadfast"):SetLevel(GameState:GetDifficultyFactor())
+	end
+	if GameState:GetDifficultyFactor() == 3 and Winterblight.Stones >= 3 then
+		stone:AddAbility("seafortress_golden_shell"):SetLevel(3)
+	end
 	return stone
 end

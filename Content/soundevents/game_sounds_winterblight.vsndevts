@@ -8678,11 +8678,11 @@
                               "value0"        "sounds/weapons/hero/mirana/starfall_impact02.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "1.15000"  }
+                    "volume"            {   "value"     "0.45000"  }
                     "pitch_rand_min"    {   "value"     "-0.03000"  }
                     "pitch_rand_max"    {   "value"     "0.030000"  }
                     "pitch"             {   "value"     "1.15000"  }
-                    "soundlevel"        {   "value"     "90.00000" }
+                    "soundlevel"        {   "value"     "89.00000" }
                     "distance_max"      {   "value"     "3400.000"  }
                     "event_type"        {   "value"     "1.000000"  }
                 }
@@ -8908,6 +8908,232 @@
                     "pitch"             {   "value"     "0.9000"  }
                     "soundlevel"        {   "value"     "97.00000" }
                     "distance_max"      {   "value"     "3400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.StarGazer.CometImpact"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/winterblight/stargazer_comet_impact.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.2500"  }
+                    "pitch_rand_min"    {   "value"     "-0.05000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.2000"  }
+                    "soundlevel"        {   "value"     "82.00000" }
+                    "distance_max"      {   "value"     "2200.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.StarGazer.Glissade.VO"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/rubick/rubick_pain_03.vsnd"
+                              "value1"        "sounds/vo/rubick/rubick_pain_05.vsnd"
+                              "value2"        "sounds/vo/rubick/rubick_pain_07.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.45000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.9000"  }
+                    "soundlevel"        {   "value"     "97.00000" }
+                    "distance_max"      {   "value"     "3400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.StarGazer.Glissade.Go"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/sorceress/ice_lance2.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.25000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.7000"  }
+                    "soundlevel"        {   "value"     "93.00000" }
+                    "distance_max"      {   "value"     "3400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.StarGazer.Move.VO"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/rubick/rubick_telekinesis_up_01.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.45000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.9000"  }
+                    "soundlevel"        {   "value"     "97.00000" }
+                    "distance_max"      {   "value"     "3400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.StarGazer.LowHealth"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/rubick/rubick_cast_02.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "2.45000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.9000"  }
+                    "soundlevel"        {   "value"     "97.00000" }
+                    "distance_max"      {   "value"     "3400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.StarGazer.BeamStart"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/dark_seer/dota_dark_seer_wall_start.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "2.05000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.9000"  }
+                    "soundlevel"        {   "value"     "97.00000" }
+                    "distance_max"      {   "value"     "4400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.StarGazer.PortalStart"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/winterblight/stargazer_portal_start.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.5500"  }
+                    "pitch_rand_min"    {   "value"     "-0.05000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.0000"  }
+                    "soundlevel"        {   "value"     "91.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
                     "event_type"        {   "value"     "1.000000"  }
                 }
             }

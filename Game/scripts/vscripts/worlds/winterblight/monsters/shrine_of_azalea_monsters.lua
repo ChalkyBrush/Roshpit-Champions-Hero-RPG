@@ -2621,7 +2621,7 @@ function star_prophecy_end(event)
 			Timers:CreateTimer(i*0.1, function()
 		      local particleName = "particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf"
 		      local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
-		      ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_OVERHEAD_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+		      ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 		      Timers:CreateTimer(0.6, function() 
 		        ParticleManager:DestroyParticle( pfx, false )
 		      end)  
@@ -2720,4 +2720,263 @@ function spinesplitter_think(event)
 		end
 	end
 	-- "modifier_spinesplitter_stack"
+end
+
+function stargazer_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local damage = event.damage
+	if caster:GetHealth() < 1000 then
+		if not caster.phase2 then
+			caster:AddNewModifier(caster, nil, "modifier_animation", {translate="injured"})
+			caster:AddNewModifier(caster, nil, "modifier_animation_translate", {translate="injured"})
+			EmitSoundOn("Winterblight.StarGazer.LowHealth", caster)
+			caster:SetMoveCapability(DOTA_UNIT_CAP_MOVE_FLY)
+			Timers:CreateTimer(2.5, function()
+				caster:SetMoveCapability(DOTA_UNIT_CAP_MOVE_GROUND)
+			end)
+		end
+		caster.phase2 = true
+	end
+	if not ability.interval then
+		ability.interval = 0
+	end
+	ability.interval = ability.interval+1
+	if ability.interval % 1 == 0 then
+		local position = caster:GetAbsOrigin()+RandomVector(RandomInt(150, 2000))
+		position = GetGroundPosition(position, caster)
+		begin_stargazer_comet(caster, ability, position, damage)
+	end
+	if not caster.phase2 then
+		local hookAbility = caster:FindAbilityByName("stargazer_glissade")
+		if hookAbility:IsFullyCastable() and caster.aggro then
+			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 2200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+			if #enemies > 0 then
+				local targetPoint = enemies[1]:GetOrigin() + RandomVector(RandomInt(80, 1500))			
+				local order =
+				{
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+					AbilityIndex = hookAbility:entindex(),
+					Position = targetPoint
+				}
+				ExecuteOrderFromTable(order)
+				return false
+			end
+		end
+	else
+		stargazer_phase_2_think(event)
+	end
+	if ability.interval >= 100 then
+		ability.interval = 0
+	end
+end
+
+function stargazer_debuff_think(event)
+	local caster = event.caster
+	if caster.phase2 then
+		return false
+	end
+	if caster:IsAlive() and caster.aggro then
+		local ability = event.ability
+		local target = event.target
+		if not target.gazer_interval then
+			target.gazer_interval = 0
+		end
+		target.gazer_interval = target.gazer_interval + 1
+		local distance = WallPhysics:GetDistance2d(target:GetAbsOrigin(), caster:GetAbsOrigin())
+		local modulos = math.max(((2000-distance)/2000)*10, 1)
+		if target.gazer_interval >= modulos then
+			target.gazer_interval = 0
+			local particleName = "particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf"
+			local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
+			ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+			Timers:CreateTimer(0.6, function() 
+				ParticleManager:DestroyParticle( pfx, false )
+			end)  
+			Timers:CreateTimer(0.45,
+			function()
+				if target:IsAlive() then
+				  ApplyDamage({ victim = target, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })	
+				  EmitSoundOn("Winterblight.StarProphecy.Impact", target)
+				end
+			end)
+		end
+	end
+end
+
+function begin_stargazer_comet(caster, ability, target, damage)
+
+	local castParticle = "particles/roshpit/solunia/comet_cast_moon.vpcf"
+	local explodeParticle = "particles/roshpit/solunia/lunar_flare_explosion_immortal1.vpcf"
+	local starParticle = "particles/roshpit/winterblight/stargazer_comet_attack.vpcf"
+
+	local cast_direction = ((target - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	CustomAbilities:QuickParticleAtPoint("particles/econ/items/wisp/wisp_relocate_marker_ti7_endpoint_ring.vpcf", target, 2.45)
+	Timers:CreateTimer(2, function()
+		-- local pfx = ParticleManager:CreateParticle(castParticle, PATTACH_CUSTOMORIGIN, nil)
+		-- ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+		-- Timers:CreateTimer(4, function()
+		-- 	ParticleManager:DestroyParticle(pfx, false)
+		-- 	ParticleManager:ReleaseParticleIndex(pfx)
+		-- end)
+		-- EmitSoundOnLocationWithCaster(target, "Solunia.Arcana1.Comet", caster)
+		CustomAbilities:QuickParticleAtPoint(starParticle, target, 4)
+		local stun_duration = 1.5
+		Timers:CreateTimer(0.45, function()
+			local pfx = ParticleManager:CreateParticle(explodeParticle, PATTACH_CUSTOMORIGIN, nil)
+			ParticleManager:SetParticleControl(pfx, 0, target)
+			Timers:CreateTimer(4, function()
+				ParticleManager:DestroyParticle(pfx, false)
+				ParticleManager:ReleaseParticleIndex(pfx)
+			end)
+			if not ability.soundLock then
+				EmitSoundOnLocationWithCaster(target, "Winterblight.StarGazer.CometImpact", caster)
+				ability.soundLock = true
+				Timers:CreateTimer(0.6, function()
+					ability.soundLock = false
+				end)
+			end
+			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target, nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+			if #enemies > 0 then
+				for _,enemy in pairs(enemies) do
+					ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
+					Filters:ApplyStun(caster, stun_duration, enemy)
+				end
+			end 
+		end)
+	end)
+end
+
+function stargazer_volcanic_glissade(event)
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.target_points[1]
+	
+	ability.targetPoint = target
+	EmitSoundOn("Winterblight.StarGazer.Glissade.VO", caster)
+	EmitSoundOn("Winterblight.StarGazer.Glissade.Go", caster)
+	StartAnimation(caster, {duration=1, activity=ACT_DOTA_FLAIL, rate=0.5, translate="forcestaff_friendly"})
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_volcanic_glissade", {duration = 1.6})
+    local particleName = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+    local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, nil )
+
+    ParticleManager:SetParticleControl( particle1, 0, caster:GetAbsOrigin() )
+    ParticleManager:SetParticleControl( particle1, 1, Vector(200, 2, 1000) )
+    ParticleManager:SetParticleControl( particle1, 3, Vector(200, 550, 550) )
+    Timers:CreateTimer(4, function()
+    	ParticleManager:DestroyParticle(particle1, false)
+    end)
+end
+
+function stargazer_glissade_thinking(event)
+	local ability = event.ability
+	local caster = event.caster
+
+	local movementVector = ((ability.targetPoint - caster:GetAbsOrigin())*Vector(1,1,1)):Normalized()
+	local movespeed = 60
+
+	local blockSearch = caster:GetAbsOrigin()*Vector(1,1,0)+Vector(0,0,GetGroundHeight(caster:GetAbsOrigin(), caster))
+    local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
+    local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch+caster:GetForwardVector()*movespeed), caster)
+	if blockUnit then
+		movespeed = 0
+	end	
+	caster:SetAbsOrigin(caster:GetAbsOrigin() + movementVector*movespeed)
+	local distance = WallPhysics:GetDistance(caster:GetAbsOrigin(), ability.targetPoint)
+	if distance <= 60 or blockUnit then
+		caster:RemoveModifierByName("modifier_volcanic_glissade")
+		EndAnimation(caster)
+	    local particleName = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+	    local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, nil )
+
+	    ParticleManager:SetParticleControl( particle1, 0, caster:GetAbsOrigin() )
+	    ParticleManager:SetParticleControl( particle1, 1, Vector(200, 2, 1000) )
+	    ParticleManager:SetParticleControl( particle1, 3, Vector(200, 550, 550) )
+	    Timers:CreateTimer(4, function()
+	    	ParticleManager:DestroyParticle(particle1, false)
+	    end)
+	    EmitSoundOn("Winterblight.MountainGlissade.End", caster)
+		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+	end
+end
+
+function stargazer_phase_2_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not caster.wavePhase then
+		caster.wavePhase = 0
+	end
+	local orbPos = Vector(-12971, -14614, 670+Winterblight.ZFLOAT)
+	local portalPositionTable = {Vector(-13824, -13184), Vector(-12360, -13052), Vector(-13952, -12416), Vector(-12544, -12160), Vector(-14208, -11648), Vector(-13056, -10880), Vector(-14592, -10496), Vector(-14464, -8832), Vector(-12928, -9088), Vector(-11648, -8576)}
+	if caster.wavePhase == 0 then
+		caster:MoveToPosition(Vector(-11699, -10174))
+		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), Vector(-11699, -10174))
+		if distance < 90 then
+			AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-11699, -10174), 700, 3000, false)
+			AddFOWViewer(DOTA_TEAM_GOODGUYS, orbPos, 300, 3000, false)
+			caster:Stop()
+			caster:MoveToPosition(caster:GetAbsOrigin()+Vector(-5,0))
+			Timers:CreateTimer(0.03, function()
+				ability:ApplyDataDrivenModifier(caster, caster, "modifier_stargazer_stopped", {})
+			end)
+			EmitSoundOn("Winterblight.StarGazer.Move.VO", caster)
+			StartAnimation(caster, {duration=2.4, activity=ACT_DOTA_CAST_ABILITY_6, rate=0.9})
+			caster.wavePhase = 1
+			caster.beamTable = {}
+			local orbPFX = ParticleManager:CreateParticle("particles/econ/items/oracle/oracle_fortune_ti7/oracle_fortune_ti7_ambient.vpcf", PATTACH_CUSTOMORIGIN, nil)
+			for i = 0, 3, 1 do
+				ParticleManager:SetParticleControl(orbPFX, i, orbPos)
+			end
+
+			caster.orbBeamPFX = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/wisp_tether_agh.vpcf", PATTACH_CUSTOMORIGIN, nil)
+			caster.orbBeamPos = orbPos
+			ParticleManager:SetParticleControl(caster.orbBeamPFX, 0, orbPos)
+		end
+	elseif caster.wavePhase == 1 then
+		local fv = (caster:GetAbsOrigin()-caster.orbBeamPos):Normalized()
+		caster.orbBeamPos = caster.orbBeamPos + fv*100
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, caster.orbBeamPos, 200, 5, false)
+		ParticleManager:SetParticleControl(caster.orbBeamPFX, 1, caster.orbBeamPos)
+		if WallPhysics:GetDistance2d(caster:GetAbsOrigin(), caster.orbBeamPos) < 200 then
+			caster.wavePhase = 2
+			ParticleManager:SetParticleControlEnt(caster.orbBeamPFX, 1, caster, PATTACH_POINT_FOLLOW, "attach_attack2", caster:GetAbsOrigin(), true)
+			for i = 1, #portalPositionTable, 1 do
+				local beamData = {}
+				beamData.targetPoint = GetGroundPosition(portalPositionTable[i], caster) + Vector(0,0,30)
+				beamData.startingPoint = caster:GetAbsOrigin()
+				beamData.position = caster:GetAbsOrigin()
+				beamData.fv = (portalPositionTable[i] - caster:GetAbsOrigin()):Normalized()
+				beamData.moving = true
+				beamData.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/wisp_tether_agh.vpcf", PATTACH_CUSTOMORIGIN, caster)
+				ParticleManager:SetParticleControlEnt(beamData.pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack2", caster:GetAbsOrigin(), true)
+				table.insert(caster.beamTable, beamData)
+			end
+			EmitSoundOn("Winterblight.StarGazer.BeamStart", caster)
+			caster.beamsCompleted = 0
+		end
+	elseif caster.wavePhase == 2 then
+		for i = 1, #caster.beamTable, 1 do
+			local beamData = caster.beamTable[i]
+			if beamData.moving then
+				beamData.position = beamData.position + beamData.fv*100
+				AddFOWViewer(DOTA_TEAM_GOODGUYS, beamData.position, 200, 2, false)
+				ParticleManager:SetParticleControl(beamData.pfx, 1, beamData.position)
+				local distance = WallPhysics:GetDistance2d(beamData.position, beamData.targetPoint)
+				if distance < 150 then
+					beamData.moving = false
+					EmitSoundOnLocationWithCaster(beamData.targetPoint, "Winterblight.StarGazer.PortalStart", caster)
+					ParticleManager:SetParticleControl(beamData.pfx, 1, beamData.targetPoint)
+					caster.beamsCompleted = caster.beamsCompleted + 1
+					AddFOWViewer(DOTA_TEAM_GOODGUYS, beamData.targetPoint, 400, 3000, false)
+					beamData.portalParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_prison.vpcf", PATTACH_CUSTOMORIGIN, nil)
+					ParticleManager:SetParticleControl(beamData.portalParticle, 0, beamData.targetPoint)
+					if caster.beamsCompleted == 10 then
+						caster.wavePhase = 3
+					end
+				end
+			end
+		end
+	elseif caster.wavePhase == 3 then
+	end
 end
