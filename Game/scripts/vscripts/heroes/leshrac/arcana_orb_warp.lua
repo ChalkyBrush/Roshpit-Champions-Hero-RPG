@@ -12,6 +12,11 @@ function begin_lightning_dash(event)
 	EmitSoundOn("Bahamut.ArcanaOrb.Start", caster)
 	caster:RemoveModifierByName("modifier_leshrac_wall_self_aura")
 
+	local arcanaUlti = caster:FindAbilityByName("bahamut_arcana_ulti")
+	if arcanaUlti then
+		arcanaUlti.a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d_arcana1", "bahamut")
+	end
+
 	ability.pfx = pfx
 	if caster:GetUnitName() == "npc_dota_hero_leshrac" then
 		ability.b_b_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
@@ -90,7 +95,7 @@ function dash_think(event)
 			bUltNuke = true
 		end
 		if ability.interval%3 == 0 then
-			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )
+			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do
 					if not enemy:HasModifier("modifier_arcana2_purity_freeze") then
