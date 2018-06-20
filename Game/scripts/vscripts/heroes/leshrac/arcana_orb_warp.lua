@@ -12,6 +12,11 @@ function begin_lightning_dash(event)
 	EmitSoundOn("Bahamut.ArcanaOrb.Start", caster)
 	caster:RemoveModifierByName("modifier_leshrac_wall_self_aura")
 
+	local arcanaUlti = caster:FindAbilityByName("bahamut_arcana_ulti")
+	if arcanaUlti then
+		arcanaUlti.a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d_arcana1", "bahamut")
+	end
+
 	ability.pfx = pfx
 	if caster:GetUnitName() == "npc_dota_hero_leshrac" then
 		ability.b_b_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)

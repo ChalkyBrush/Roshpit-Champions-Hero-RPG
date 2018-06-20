@@ -19,12 +19,13 @@ function lightspeed_cast(event)
 	caster:AddNewModifier( caster, ability, "modifier_zonik_lightspeed_cap", {duration = duration} )
 
 	local a_c_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
+	local zonik_glyph_5_1_speed = 0
 	if caster:HasModifier("modifier_zonik_glyph_5_1") then
-		a_c_level = a_c_level + 33
+		zonik_glyph_5_1_speed = 200 
 	end
 	if a_c_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_lightspeed_a_c", {duration = duration})
-		caster:SetModifierStackCount("modifier_lightspeed_a_c", caster, a_c_level)
+		caster:SetModifierStackCount("modifier_lightspeed_a_c", caster, a_c_level*6+zonik_glyph_5_1_speed)
 	end
 	ability.c_c_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
 	Filters:CastSkillArguments(3, caster)
@@ -85,8 +86,9 @@ function lightspeed_think(event)
 		print(ability.distanceMoved)
 		ability.lastPos = caster:GetAbsOrigin()
 		if ability.distanceMoved >= 60 then
+			local DistanceMult = (ability.distanceMoved-ability.distanceMoved%60)/60
 			ability.distanceMoved = ability.distanceMoved%60
-			local manaDrain = 0.0075*caster:GetMaxMana()
+			local manaDrain = 0.0075*caster:GetMaxMana()*DistanceMult
 			caster:ReduceMana(manaDrain)
 			if caster:GetMana() < 1 then
 				caster:RemoveModifierByName("modifier_zonik_lightspeed")
@@ -94,13 +96,13 @@ function lightspeed_think(event)
 			if not ability.remnantPrep then
 				ability.remnantPrep = 0
 			end
-			ability.remnantPrep = ability.remnantPrep + 1
+			ability.remnantPrep = ability.remnantPrep + 1*DistanceMult
 			local remnantReady = 6
 			if caster:HasModifier("modifier_zonik_glyph_6_1") and caster:HasModifier("modifier_zonik_speedball") then
 				remnantReady = 2
 			end
-			if ability.remnantPrep >= 6 then
-				ability.remnantPrep = 0
+			if ability.remnantPrep >= remnantReady then
+				ability.remnantPrep = ability.remnantPrep - remnantReady
 				local b_c_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
 				if b_c_level > 0 then
 					if not ability.remnantTable then

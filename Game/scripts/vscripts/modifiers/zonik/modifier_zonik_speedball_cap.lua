@@ -10,12 +10,30 @@ function modifier_zonik_speedball_cap:DeclareFunctions()
 end
 
 function modifier_zonik_speedball_cap:GetModifierMoveSpeed_Max( params )
-	local cap = 550 + 600
+	local cap = 550 + self:GetAbility():GetSpecialValueFor("movespeed_cap")
+    if self:GetOwner():HasModifier("modifier_zonik_lightspeed") then
+        cap = cap + self:GetOwner():FindAbilityByName("zonik_lightspeed"):GetSpecialValueFor("movespeed_cap")-550
+    end
+    if self:GetOwner():FindAbilityByName("zonik_lightspeed").d_c_level and self:GetOwner():HasModifier("modifier_zonik_lightspeed") then
+        cap = cap + 10*self:GetOwner():FindAbilityByName("zonik_lightspeed").d_c_level
+    end
+    if self:GetOwner():HasModifier("modifier_zonik_lightspeed") and self:GetOwner():HasModifier("modifier_zonik_glyph_5_1") then
+        cap = cap + 200
+    end
     return cap
 end
 
 function modifier_zonik_speedball_cap:GetModifierMoveSpeed_Limit( params )
-	local cap = 550 + 600
+	local cap = 550 + self:GetAbility():GetSpecialValueFor("movespeed_cap")
+    if self:GetOwner():HasModifier("modifier_zonik_lightspeed") then
+        cap = cap + self:GetOwner():FindAbilityByName("zonik_lightspeed"):GetSpecialValueFor("movespeed_cap")-550
+    end
+    if self:GetOwner():FindAbilityByName("zonik_lightspeed").d_c_level and self:GetOwner():HasModifier("modifier_zonik_lightspeed") then
+        cap = cap + 10*self:GetOwner():FindAbilityByName("zonik_lightspeed").d_c_level
+    end
+    if self:GetOwner():HasModifier("modifier_zonik_lightspeed") and self:GetOwner():HasModifier("modifier_zonik_glyph_5_1") then
+        cap = cap + 200
+    end
     return cap
 end
 

@@ -146,12 +146,8 @@ function temporal_field_leave(event)
 	local target = event.target
 
 	if not target:HasModifier("modifier_temporal_field_dashing") then
-		-- if not target:HasModifier("modifier_temporal_dummy_aura_effect") then
 			target:RemoveModifierByName("modifier_dummy_aura1_effect_zhonik")
 			target:RemoveModifierByName("modifier_zonik_temporal_field_cap")
-			target:RemoveModifierByName("modifier_zhonic_arcana_c_c_visible")
-			target:RemoveModifierByName("modifier_zhonic_arcana_c_c_invisible")
-		-- end
 	end
 	target:RemoveModifierByName("modifier_dummy_aura_effect_enemy")
 	target:RemoveModifierByName("modifier_dummy_aura_effect_enemy_a_c_visible")
@@ -198,5 +194,24 @@ function enemy_in_field_think(event)
 		local damage = caster:GetAverageTrueAttackDamage(caster)*0.1*ability.b_c_level
 		CustomAbilities:QuickParticleAtPoint("particles/econ/items/dazzle/dazzle_darkclaw/dazzle_darkclaw_poison_touch_launch_flash.vpcf", target:GetAbsOrigin()+Vector(0,0,80), 1)
 		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
+	end
+end
+
+function c_c_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local loseRate = ability:GetSpecialValueFor("lose_rate")
+	if not caster:HasModifier("modifier_temporal_dummy_aura_effect") and not caster:HasModifier("modifier_temporal_field_dashing") then
+		for i=1,loseRate,1 do
+			local newStacks = caster:GetModifierStackCount("modifier_zhonic_arcana_c_c_visible", caster)-1
+			local newStacks_inv = newStacks*ability.c_c_level
+			if newStacks > 0 then
+				caster:SetModifierStackCount("modifier_zhonic_arcana_c_c_visible", caster, newStacks)
+				caster:SetModifierStackCount("modifier_zhonic_arcana_c_c_invisible", caster, newStacks_inv)
+			else
+				caster:RemoveModifierByName("modifier_zhonic_arcana_c_c_visible")
+				caster:RemoveModifierByName("modifier_zhonic_arcana_c_c_invisible")
+			end
+		end
 	end
 end
