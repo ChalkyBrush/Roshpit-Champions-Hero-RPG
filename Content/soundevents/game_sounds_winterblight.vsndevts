@@ -9128,10 +9128,10 @@
                               "value0"        "sounds/winterblight/stargazer_portal_start.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "1.5500"  }
-                    "pitch_rand_min"    {   "value"     "-0.05000"  }
-                    "pitch_rand_max"    {   "value"     "0.050000"  }
-                    "pitch"             {   "value"     "1.0000"  }
+                    "volume"            {   "value"     "1.4500"  }
+                    "pitch_rand_min"    {   "value"     "-0.1000"  }
+                    "pitch_rand_max"    {   "value"     "0.10000"  }
+                    "pitch"             {   "value"     "1.1000"  }
                     "soundlevel"        {   "value"     "91.00000" }
                     "distance_max"      {   "value"     "3000.000"  }
                     "event_type"        {   "value"     "1.000000"  }
@@ -9140,3 +9140,36 @@
         }
     }
 }
+
+"Winterblight.StarGazer.PortalParticleStart"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/visage/summon_familiars.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.3500"  }
+                    "pitch_rand_min"    {   "value"     "-0.05000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.15000"  }
+                    "soundlevel"        {   "value"     "91.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+

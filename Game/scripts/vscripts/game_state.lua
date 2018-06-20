@@ -1347,13 +1347,13 @@ function GameState:FilterDamage(filterTable)
 
 	if filterTable["entindex_inflictor_const"] then
 		local ability = EntIndexToHScript(filterTable["entindex_inflictor_const"])
+		if ability:GetEntityIndex() == Events.GameMasterAbility:GetEntityIndex() then
+			print("APPLY EFFECTS FALSE!")
+			applyEffects = false
+		end
 		if not ability:GetName() == "npc_dota_creature" then
 			if not string.match(ability:GetClassname(), "npc_dota_hero_") then
 				if IsValidEntity(ability) then
-					if ability:GetEntityIndex() == Events.GameMasterAbility:GetEntityIndex() then
-						print("APPLY EFFECTS FALSE!")
-						applyEffects = false
-					end
 					local abilityName = ability:GetAbilityName()
 					modifier = victim:FindModifierByName('modifier_centaur_horns')
 					if abilityName ~= 'item_rpc_centaur_horns' and modifier then

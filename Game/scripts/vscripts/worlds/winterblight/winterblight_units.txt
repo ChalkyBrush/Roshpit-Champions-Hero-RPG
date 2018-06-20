@@ -7974,6 +7974,7 @@
             "soundfile"     "soundevents/game_sounds_heroes/game_sounds_rubick.vsndevts"
             "particle"      "particles/roshpit/winterblight/stargazer_comet_attack.vpcf"
             "particle"      "particles/roshpit/solunia/lunar_flare_explosion_immortal1.vpcf"
+            "particle"      "particles/roshpit/mountain_protector/steelforge_start_teleport_ti7_out.vpcf"
         }
         "HasInventory"  "0"
         "SelectionGroup"    "Dark_Fighter"
@@ -7995,7 +7996,7 @@
         "BountyGoldMin" "15"
         "BountyGoldMax" "20"
         "BountyXP" "285"
-        "BoundsHullName"    "DOTA_HULL_SIZE_SMALL"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HUGE"
         "RingRadius"    "50"
         "CollisionSize" "24"
         "FormationRank" "2"

@@ -2643,6 +2643,7 @@ function starseeker_think(event)
 	local caster = event.caster
 	local starcast = caster:FindAbilityByName("winterblight_star_prophecy")
 	if caster.aggro then
+		local casting = false
 		if starcast:IsFullyCastable() then
 			local target_teams = DOTA_UNIT_TARGET_TEAM_ENEMY
 			local target_types = DOTA_UNIT_TARGET_HERO
@@ -2658,20 +2659,23 @@ function starseeker_think(event)
 					 		AbilityIndex = starcast:entindex(),
 					 	}
 						ExecuteOrderFromTable(newOrder)		
+						casting = true
 						break		
 					end
 				end	
 			end
 		end
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 340+GameState:GetDifficultyFactor()*100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
-		if #enemies > 0 then
-			local sumVector = Vector(0,0)
-			for i = 1, #enemies, 1 do
-				sumVector = sumVector + enemies[i]:GetAbsOrigin()
+		if not casting then
+			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 340+GameState:GetDifficultyFactor()*100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
+			if #enemies > 0 then
+				local sumVector = Vector(0,0)
+				for i = 1, #enemies, 1 do
+					sumVector = sumVector + enemies[i]:GetAbsOrigin()
+				end
+				local avgVector = sumVector/#enemies
+				local runDirection = ((caster:GetAbsOrigin() - avgVector)*Vector(1,1,0)):Normalized()
+				caster:MoveToPosition(caster:GetAbsOrigin()+runDirection*380)
 			end
-			local avgVector = sumVector/#enemies
-			local runDirection = ((caster:GetAbsOrigin() - avgVector)*Vector(1,1,0)):Normalized()
-			caster:MoveToPosition(caster:GetAbsOrigin()+runDirection*380)
 		end
 	end	
 end
@@ -2732,7 +2736,7 @@ function stargazer_think(event)
 			caster:AddNewModifier(caster, nil, "modifier_animation_translate", {translate="injured"})
 			EmitSoundOn("Winterblight.StarGazer.LowHealth", caster)
 			caster:SetMoveCapability(DOTA_UNIT_CAP_MOVE_FLY)
-			Timers:CreateTimer(2.5, function()
+			Timers:CreateTimer(0.3, function()
 				caster:SetMoveCapability(DOTA_UNIT_CAP_MOVE_GROUND)
 			end)
 		end
@@ -2946,7 +2950,7 @@ function stargazer_phase_2_think(event)
 				beamData.targetPoint = GetGroundPosition(portalPositionTable[i], caster) + Vector(0,0,30)
 				beamData.startingPoint = caster:GetAbsOrigin()
 				beamData.position = caster:GetAbsOrigin()
-				beamData.fv = (portalPositionTable[i] - caster:GetAbsOrigin()):Normalized()
+				beamData.fv = (beamData.targetPoint - caster:GetAbsOrigin()):Normalized()
 				beamData.moving = true
 				beamData.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/wisp_tether_agh.vpcf", PATTACH_CUSTOMORIGIN, caster)
 				ParticleManager:SetParticleControlEnt(beamData.pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack2", caster:GetAbsOrigin(), true)
@@ -2965,13 +2969,22 @@ function stargazer_phase_2_think(event)
 				local distance = WallPhysics:GetDistance2d(beamData.position, beamData.targetPoint)
 				if distance < 150 then
 					beamData.moving = false
-					EmitSoundOnLocationWithCaster(beamData.targetPoint, "Winterblight.StarGazer.PortalStart", caster)
+					local soundCaster = Events.GameMaster
+					if i%3 == 1 then
+						soundCaster = caster
+					elseif i%3 == 2 then
+						soundCaster = Winterblight.Master
+					end
+					EmitSoundOnLocationWithCaster(beamData.targetPoint, "Winterblight.StarGazer.PortalParticleStart", soundCaster)
 					ParticleManager:SetParticleControl(beamData.pfx, 1, beamData.targetPoint)
 					caster.beamsCompleted = caster.beamsCompleted + 1
 					AddFOWViewer(DOTA_TEAM_GOODGUYS, beamData.targetPoint, 400, 3000, false)
 					beamData.portalParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_prison.vpcf", PATTACH_CUSTOMORIGIN, nil)
 					ParticleManager:SetParticleControl(beamData.portalParticle, 0, beamData.targetPoint)
 					if caster.beamsCompleted == 10 then
+						Timers:CreateTimer(3.5, function()
+							Winterblight:StartStarGazerWaveEvent(caster.beamTable)
+						end)
 						caster.wavePhase = 3
 					end
 				end

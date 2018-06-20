@@ -1417,6 +1417,8 @@ function winterblight_wave_unit_die(event)
 		end
 	elseif unit.deathCode == 3 then
 		Winterblight:AzaleaWaveUnitDie(unit)
+	elseif unit.deathCode == 4 then
+		Winterblight:StargazerWaveUnitDie(unit)
 	end
 end
 

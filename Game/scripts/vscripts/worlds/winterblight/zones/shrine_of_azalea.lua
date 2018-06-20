@@ -4389,3 +4389,64 @@ function Winterblight:SpawnStargazerOrin(position, fv)
 	end
 	return stone
 end
+
+function Winterblight:StartStarGazerWaveEvent(beamTable)
+	for i = 1, #beamTable, 1 do
+		local beamData = beamTable[i]
+		local position = beamData.targetPoint
+		Winterblight:SpawnStargazerWaveUnit1("winterblight_azalea_archer", position, 3, 4, true, nil)
+	end
+end
+
+function Winterblight:SpawnStargazerWaveUnit1(unitName, spawnPoint, quantity, delay, bSound, jumpFV)
+
+  local unit = false
+  for i = 0, quantity-1, 1 do
+    Timers:CreateTimer(i*delay, 
+    function()
+    if bSound then
+      EmitSoundOnLocationWithCaster(spawnPoint, "Winterblight.StarGazer.PortalStart", Winterblight.Master)
+    end
+      local luck = RandomInt(1, 160)
+      if Events.SpiritRealm then
+        luck = RandomInt(1, 66)
+      end
+      if luck == 1 then
+        unit = Paragon:SpawnParagonPack(unitName, spawnPoint)
+      elseif luck == 2 then
+        unit = Paragon:SpawnParagonUnit(unitName, spawnPoint)
+      else
+        unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)   
+      Events:AdjustDeathXP(unit)
+      end
+      if IsValidEntity(unit) then
+        unit.dominion = true
+        unit.deathCode = 4
+        Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_winterblight_wave_unit", {})
+        unit:SetAcquisitionRange(3500)
+        CustomAbilities:QuickAttachParticle("particles/roshpit/mountain_protector/steelforge_start_teleport_ti7_out.vpcf", unit, 2)
+        unit.aggro = true
+        Winterblight:AdjustWaveUnit(unit)
+        Winterblight:StargazerWaveUnitSpawn(unit, jumpFV)
+      else
+        for i = 1, #unit, 1 do
+          unit[i].aggro = true
+          unit[i].dominion = true
+          unit[i]:SetAcquisitionRange(3500)
+          unit[i].deathCode = 4
+          Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit[i], "modifier_winterblight_wave_unit", {})
+          CustomAbilities:QuickAttachParticle("particles/roshpit/mountain_protector/steelforge_start_teleport_ti7_out.vpcf", unit[i], 2)
+          Winterblight:AdjustWaveUnit(unit[i])
+          Winterblight:StargazerWaveUnitSpawn(unit[i], jumpFV)
+        end
+      end
+    end)
+  end
+end
+
+function Winterblight:StargazerWaveUnitDie(unit)
+end
+
+function Winterblight:StargazerWaveUnitSpawn(unit, jumpFV)
+
+end
