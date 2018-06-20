@@ -19826,7 +19826,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "6"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "1"
 				}
 			}
 			"modifier_sages_eyes"
@@ -19877,6 +19877,7 @@
 			"modifier_b_c_effect"
 			{
 				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_MULTIPLE"
 				"OnCreated"
 				{
 					"RunScript"
