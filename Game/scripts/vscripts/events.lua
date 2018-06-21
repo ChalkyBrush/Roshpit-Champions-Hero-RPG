@@ -1376,7 +1376,7 @@ end
 
 function Events:beginQuests()
   -- print("BEGINQUESTS IS HAPPENING")
-  -- Beacons:DEBUG()
+  Beacons:DEBUG()
 end
 
 function Events:InitGameEntities()

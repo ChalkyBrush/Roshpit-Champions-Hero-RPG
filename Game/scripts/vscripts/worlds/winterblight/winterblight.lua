@@ -133,15 +133,15 @@ function Winterblight:CalculateHeroZones()
         local hero = MAIN_HERO_TABLE[i]
         local player = hero:GetPlayerOwner()
         local heroOrigin = hero:GetAbsOrigin()
-          if (WallPhysics:IsWithinRegionA(heroOrigin, Vector(-16512, -9984), Vector(-4928, 3833))) then
+          if (WallPhysics:IsWithinRegionA(heroOrigin, Vector(-16512, -7095), Vector(-9856, -768))) then
             CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_zone_display", {zoneName = "winterblight_village"} )
-            hero.bgm = "Music.Winterblight.Start"
-          elseif (WallPhysics:IsWithinRegionA(heroOrigin, Vector(-6897, -9496), Vector(10058,267))) then
-            CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_zone_display", {zoneName = "winterblight_mountain"} )
             hero.bgm = "Music.Winterblight.Start"
           elseif (WallPhysics:IsWithinRegionA(heroOrigin, Vector(-17000, -17000), Vector(-9856,-9550))) or (WallPhysics:IsWithinRegionA(heroOrigin, Vector(-17000, -17000), Vector(16384,-9550))) then
             CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_zone_display", {zoneName = "shrine_of_azalea"} )
             hero.bgm = "Music.Winterblight.ShrineOfAzelea"
+          elseif (WallPhysics:IsWithinRegionA(heroOrigin, Vector(-9856, -9496), Vector(10058,267))) then
+            CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_zone_display", {zoneName = "winterblight_mountain"} )
+            hero.bgm = "Music.Winterblight.Start"
           else
             CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_zone_display", {zoneName = "winterblight_mountain"} )
             hero.bgm = "Music.Winterblight.Start"

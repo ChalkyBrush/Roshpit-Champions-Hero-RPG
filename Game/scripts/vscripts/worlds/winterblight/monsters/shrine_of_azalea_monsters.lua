@@ -2834,14 +2834,15 @@ function begin_stargazer_comet(caster, ability, target, damage)
 				ParticleManager:DestroyParticle(pfx, false)
 				ParticleManager:ReleaseParticleIndex(pfx)
 			end)
+
 			if not ability.soundLock then
-				EmitSoundOnLocationWithCaster(target, "Winterblight.StarGazer.CometImpact", caster)
+				EmitSoundOnLocationWithCaster(target, "Winterblight.StarGazer.CometImpact", nil)
 				ability.soundLock = true
-				Timers:CreateTimer(0.6, function()
+				Timers:CreateTimer(0.2, function()
 					ability.soundLock = false
 				end)
 			end
-			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target, nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target, nil, 170, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do
 					ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
@@ -2933,7 +2934,7 @@ function stargazer_phase_2_think(event)
 				ParticleManager:SetParticleControl(orbPFX, i, orbPos)
 			end
 
-			caster.orbBeamPFX = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/wisp_tether_agh.vpcf", PATTACH_CUSTOMORIGIN, nil)
+			caster.orbBeamPFX = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/wisp_tether.vpcf", PATTACH_CUSTOMORIGIN, nil)
 			caster.orbBeamPos = orbPos
 			ParticleManager:SetParticleControl(caster.orbBeamPFX, 0, orbPos)
 		end
@@ -2975,12 +2976,13 @@ function stargazer_phase_2_think(event)
 					elseif i%3 == 2 then
 						soundCaster = Winterblight.Master
 					end
-					EmitSoundOnLocationWithCaster(beamData.targetPoint, "Winterblight.StarGazer.PortalParticleStart", soundCaster)
+					EmitSoundOnLocationWithCaster(beamData.targetPoint, "Winterblight.StarGazer.PortalParticleStart", caster)
 					ParticleManager:SetParticleControl(beamData.pfx, 1, beamData.targetPoint)
 					caster.beamsCompleted = caster.beamsCompleted + 1
 					AddFOWViewer(DOTA_TEAM_GOODGUYS, beamData.targetPoint, 400, 3000, false)
 					beamData.portalParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_prison.vpcf", PATTACH_CUSTOMORIGIN, nil)
 					ParticleManager:SetParticleControl(beamData.portalParticle, 0, beamData.targetPoint)
+					CustomAbilities:QuickParticleAtPoint("particles/items_fx/blink_dagger_start.vpcf", beamData.targetPoint, 5)
 					if caster.beamsCompleted == 10 then
 						Timers:CreateTimer(3.5, function()
 							Winterblight:StartStarGazerWaveEvent(caster.beamTable)

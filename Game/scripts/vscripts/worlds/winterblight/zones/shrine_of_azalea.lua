@@ -4391,6 +4391,7 @@ function Winterblight:SpawnStargazerOrin(position, fv)
 end
 
 function Winterblight:StartStarGazerWaveEvent(beamTable)
+	Winterblight.StarGazerBeamTable = beamTable
 	for i = 1, #beamTable, 1 do
 		local beamData = beamTable[i]
 		local position = beamData.targetPoint
@@ -4445,8 +4446,33 @@ function Winterblight:SpawnStargazerWaveUnit1(unitName, spawnPoint, quantity, de
 end
 
 function Winterblight:StargazerWaveUnitDie(unit)
+	if not Winterblight.StargazerWaveUnitsSlain then
+		Winterblight.StargazerWaveUnitsSlain = 0
+	end
+	local beamTable = Winterblight.StarGazerBeamTable
+	Winterblight.StargazerWaveUnitsSlain = Winterblight.StargazerWaveUnitsSlain + 1
+	if Winterblight.StargazerWaveUnitsSlain == 28 then
+		for i = 1, #beamTable, 1 do
+			local beamData = beamTable[i]
+			local position = beamData.targetPoint
+			Winterblight:SpawnStargazerWaveUnit1("azalea_shrine_megmus", position, 2, 7, true, nil)
+		end
+	end
 end
 
 function Winterblight:StargazerWaveUnitSpawn(unit, jumpFV)
-
+	local stone = unit
+	if stone:GetUnitName() == "azalea_shrine_megmus" then
+		Events:AdjustBossPower(stone, 5, 4, false)
+		stone.itemLevel = 44
+		stone.dominion = true
+		stone.targetRadius = 600
+		stone.autoAbilityCD = 1
+		if Winterblight.Stones >= 1 then
+			stone:AddAbility("luna_taskmaster_shield"):SetLevel(GameState:GetDifficultyFactor())
+		end
+		if Winterblight.Stones >= 2 then
+			stone:AddAbility("ability_magic_immune_break"):SetLevel(GameState:GetDifficultyFactor())
+		end
+	end
 end

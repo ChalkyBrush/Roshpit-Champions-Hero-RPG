@@ -8938,7 +8938,7 @@
                     "pitch_rand_min"    {   "value"     "-0.05000"  }
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.2000"  }
-                    "soundlevel"        {   "value"     "82.00000" }
+                    "soundlevel"        {   "value"     "80.00000" }
                     "distance_max"      {   "value"     "2200.000"  }
                     "event_type"        {   "value"     "1.000000"  }
                 }
@@ -9128,7 +9128,7 @@
                               "value0"        "sounds/winterblight/stargazer_portal_start.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "1.4500"  }
+                    "volume"            {   "value"     "1.1500"  }
                     "pitch_rand_min"    {   "value"     "-0.1000"  }
                     "pitch_rand_max"    {   "value"     "0.10000"  }
                     "pitch"             {   "value"     "1.1000"  }
@@ -9157,15 +9157,15 @@
                     {
                         "value"
                         {
-                              "value0"        "sounds/weapons/hero/visage/summon_familiars.vsnd"
+                              "value0"        "sounds/weapons/hero/obsidian_destroyer/sanity_eclipse.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "1.3500"  }
+                    "volume"            {   "value"     "1.0500"  }
                     "pitch_rand_min"    {   "value"     "-0.05000"  }
                     "pitch_rand_max"    {   "value"     "0.050000"  }
-                    "pitch"             {   "value"     "1.15000"  }
+                    "pitch"             {   "value"     "1.0000"  }
                     "soundlevel"        {   "value"     "91.00000" }
-                    "distance_max"      {   "value"     "2400.000"  }
+                    "distance_max"      {   "value"     "1000.000"  }
                     "event_type"        {   "value"     "1.000000"  }
                 }
             }
