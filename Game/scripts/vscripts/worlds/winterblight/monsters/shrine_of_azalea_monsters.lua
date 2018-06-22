@@ -2122,7 +2122,7 @@ function tri_boss_death_sequence(event)
 			StartAnimation(Winterblight.TriBossTable.Torphet, {duration=4.5, activity=ACT_DOTA_TELEPORT, rate=1})
 			EmitSoundOn("Winterblight.TriBoss.Torphet.Summoning", Winterblight.TriBossTable.Torphet)
 			local multiplier = Winterblight:GetPotentialMultiplierForBuzuki(selectedUnit)
-			local unitCount = multiplier*2 + 4
+			local unitCount = multiplier*2 + (GameState:GetDifficultyFactor()-1)*4 + Winterblight.Stones
 			for i = 1, unitCount, 1 do
 				local spawnPosition = caster:GetAbsOrigin()+RandomVector(RandomInt(240, 1500))
 				local summon = Winterblight:SpawnAzaleaUnitByName(selectedUnit, spawnPosition)
@@ -2363,7 +2363,6 @@ function mystery_fairy_think(event)
 			if distance < 90 then
 				caster:SetModelScale(1.0)
 				caster.phase = caster.phase + 1
-				caster.phase = 5
 				if caster.phase < 5 then
 					local newPos = Winterblight:GetRandomPixieLocation()
 					pixie_sequence(caster, newPos)
@@ -2780,6 +2779,9 @@ end
 
 function stargazer_debuff_think(event)
 	local caster = event.caster
+	if not IsValidEntity(caster) then
+		return false
+	end
 	if caster.phase2 then
 		return false
 	end
@@ -2927,7 +2929,11 @@ function stargazer_phase_2_think(event)
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_stargazer_stopped", {})
 			end)
 			EmitSoundOn("Winterblight.StarGazer.Move.VO", caster)
-			StartAnimation(caster, {duration=2.4, activity=ACT_DOTA_CAST_ABILITY_6, rate=0.9})
+			for i = 0, 4, 1 do
+				Timers:CreateTimer(1.6*i, function()
+					StartAnimation(caster, {duration=1.55, activity=ACT_DOTA_CAST_ABILITY_6, rate=0.75})
+				end)
+			end
 			caster.wavePhase = 1
 			caster.beamTable = {}
 			local orbPFX = ParticleManager:CreateParticle("particles/econ/items/oracle/oracle_fortune_ti7/oracle_fortune_ti7_ambient.vpcf", PATTACH_CUSTOMORIGIN, nil)
@@ -3015,11 +3021,13 @@ function charging_taskmaster_passive(event)
 			if ally:HasModifier("modifier_luna_armor") then
 			elseif ally:HasModifier("modifier_luna_armor") and i == #allies then
 				ability:ApplyDataDrivenModifier(caster, ally, modifier_name, {duration = 5})
+				ally:SetModifierStackCount("modifier_luna_armor", caster, stacks)
 				break
 			else
 				EmitSoundOn("Winterblight.WinterSpirit.ShieldApply", caster)
 				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_lone_druid/lone_druid_savage_roar_f.vpcf", caster, 3)
 				ability:ApplyDataDrivenModifier(caster, ally, modifier_name, {duration = 5})
+				ally:SetModifierStackCount("modifier_luna_armor", caster, stacks)
 				break
 			end
 		end

@@ -146,6 +146,8 @@ function AzaleaPortal(trigger)
 			tp_position = Vector(-1964, -11136, 192+Winterblight.ZFLOAT)
 		elseif portalIndex == 5 then
 			tp_position = Vector(-8832, -13590, 192+Winterblight.ZFLOAT)
+		elseif portalIndex == 6 then
+			tp_position = Vector(-12800, -9243, 192+Winterblight.ZFLOAT)
 		end
 		if Winterblight.AzaleaPortalTable[portalIndex] == 1 then
 			Events:TeleportUnit(activator, tp_position, Events.GameMaster.portal, Events.GameMaster, 1.2)

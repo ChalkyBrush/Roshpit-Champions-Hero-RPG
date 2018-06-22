@@ -4,6 +4,7 @@ function Winterblight:SpawnAzaleaCups()
 	Winterblight:SpawnCup3()
 	Winterblight:SpawnCup4()
 	Winterblight:SpawnCup5()
+	Winterblight:SpawnCup6()
 end
 
 function Winterblight:CupSpawnCondition(index)
@@ -53,7 +54,15 @@ end
 function Winterblight:SpawnCup5()
 	if Winterblight:CupSpawnCondition(5) then
 		if Winterblight.TriBossesSlain then
-			Winterblight:SpawnAzaleaCup(Vector(-5618, -13574), Vector(0,1), 4)
+			Winterblight:SpawnAzaleaCup(Vector(-5618, -13574), Vector(0,1), 5)
+		end
+	end
+end
+
+function Winterblight:SpawnCup6()
+	if Winterblight:CupSpawnCondition(6) then
+		if Winterblight.StargazerSuccess then
+			Winterblight:SpawnAzaleaCup(Vector(-14935, -15961), Vector(0,1), 6)
 		end
 	end
 end
@@ -177,6 +186,12 @@ function Winterblight:AzaleaCupAttacked(cup, attacker)
 					Beacons:CreateActiveParticle("particles/portals/green_portal.vpcf", Vector(-1600, -14400, 490+Winterblight.ZFLOAT), Events.GameMaster, 0, Vector(0.45, 0.45, 0.45))
 					AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-1600, -14400, 250+Winterblight.ZFLOAT), 300, 99999, false)
 					Winterblight.AzaleaPortalTable[5] = 1
+				end
+			elseif cup.index == 6 then
+				if Winterblight.AzaleaPortalTable[6] == 0 then
+					Beacons:CreateActiveParticle("particles/portals/green_portal.vpcf", Vector(-1600, -15152, 490+Winterblight.ZFLOAT), Events.GameMaster, 0, Vector(0.45, 0.45, 0.45))
+					AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-1600, -15152, 250+Winterblight.ZFLOAT), 300, 99999, false)
+					Winterblight.AzaleaPortalTable[6] = 1
 				end
 			end
 		end)
@@ -4143,7 +4158,6 @@ function Winterblight:LastAzaleaRoomStart()
 	pixie:SetForwardVector(Vector(-1,0))
 	pixie.phase = 0
 	local luck = RandomInt(1, 3)
-	luck = 4
 	if luck == 1 then
 		for j = 0, 2, 1 do
 		 for i = 0, 2, 1 do
@@ -4392,14 +4406,14 @@ end
 
 function Winterblight:StartStarGazerWaveEvent(beamTable)
 	Winterblight.StarGazerBeamTable = beamTable
-	local luck = RandomInt(1, 3)
+	local luck2 = RandomInt(1, 3)
 	for i = 1, #beamTable, 1 do
 		local beamData = beamTable[i]
 		local position = beamData.targetPoint
 		local unitName = "winterblight_azalea_archer"
-		if luck == 1 then
-			unitName = "winterblight_maiden_of_azalea"
-		elseif luck == 2 then
+		if luck2 == 1 then
+			unitName = "winterblight_frost_elemental"
+		elseif luck2 == 2 then
 			unitName = "winterblight_frost_avatar"
 		end
 		Winterblight:SpawnStargazerWaveUnit1(unitName, position, 3, 4, true, nil)
@@ -4573,25 +4587,35 @@ function Winterblight:StargazerWaveUnitDie(unit)
 		end
 	elseif Winterblight.StargazerWaveUnitsSlain == 193 then
 		for i = 1, #beamTable, 1 do
-			local beam = beamData.portalParticle
+			local beamData = beamTable[i]
 			CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_lone_druid/lone_druid_savage_roar.vpcf", beamData.targetPoint, 3)
 			ParticleManager:DestroyParticle(beamData.portalParticle, false)
 			ParticleManager:DestroyParticle(beamData.pfx, false)
-			ParticleManager:DestroyParticle(Winterblight.orbBeamPFX, false)
-			Winterblight.orbBeamPFX = nil
+			EmitSoundOnLocationWithCaster(beamData.targetPoint, "Winterblight.StarGazer.Portal.End", Winterblight.Stargazer)
 		end
+		ParticleManager:DestroyParticle(Winterblight.orbBeamPFX, false)
+		Winterblight.orbBeamPFX = nil
 		Winterblight.StarGazerBeamTable = nil
 		Winterblight.Stargazer.cometLock = true
 		Timers:CreateTimer(3, function()
 			EmitSoundOn("Winterblight.StarGazer.Disappear1", Winterblight.Stargazer) 
-			StartAnimation(Winterblight.Stargazer, {duration=3.0, activity=ACT_DOTA_CAST_ABILITY_5, rate=0.7})
-			Timers:CreateTimer(3.2, function()
-				StartAnimation(Winterblight.Stargazer, {duration=3.0, activity=ACT_DOTA_CAST_ABILITY_5, rate=0.5, translate="gyroshell"})
-				Winterblight:smoothSizeChange(Winterblight.Stargazer, 2.25, 0.1, 24)
+			StartAnimation(Winterblight.Stargazer, {duration=2.4, activity=ACT_DOTA_CAST_ABILITY_5, rate=0.7})
+			Timers:CreateTimer(2.6, function()
+				Winterblight.Stargazer:AddNewModifier(Winterblight.Stargazer, nil, "modifier_animation", {translate="spin"})
+				Winterblight.Stargazer:AddNewModifier(Winterblight.Stargazer, nil, "modifier_animation_translate", {translate="spin"})
+				StartAnimation(Winterblight.Stargazer, {duration=3.0, activity=ACT_DOTA_CAST_ABILITY_4, rate=0.5, translate="spin"})
+				Winterblight:smoothSizeChange(Winterblight.Stargazer, 2.25, 0.1, 36)
+				for i = 1, 36, 1 do
+					Timers:CreateTimer(i*0.03, function()
+						Winterblight.Stargazer:SetAbsOrigin(Winterblight.Stargazer:GetAbsOrigin()+Vector(0,0,11))
+						local fv = WallPhysics:rotateVector(Winterblight.Stargazer:GetForwardVector(), 2*math.pi*math.cos(2*math.pi*i/7)/14)
+						Winterblight.Stargazer:SetForwardVector(fv)
+					end)
+				end
 				Timers:CreateTimer(0.3, function()
 					EmitSoundOn("Winterblight.StarGazer.TeleportOut.Grunt", Winterblight.Stargazer)
 				end)
-				Timers:CreateTimer(0.8, function()
+				Timers:CreateTimer(1.08, function()
 					local pos = Winterblight.Stargazer:GetAbsOrigin()
 					Winterblight.Stargazer:SetModelScale(0)
 					local pfx = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf", PATTACH_CUSTOMORIGIN, Winterblight.Stargazer)
@@ -4604,12 +4628,46 @@ function Winterblight:StargazerWaveUnitDie(unit)
 					EmitSoundOn("Winterblight.Pixie.Teleport", Winterblight.Stargazer)
 					Timers:CreateTimer(0.2, function()
 						UTIL_Remove(Winterblight.Stargazer)
-					end)
+					end)		
+					Winterblight:LastBridgeAndCup()
 				end)
 			end)
 		end)
 		--WAVES END
 	end
+end
+
+function Winterblight:LastBridgeAndCup()
+	Timers:CreateTimer(0.5, function()
+		Winterblight:RemoveBlockers(8.5, "LastAzaleaBridgeBlocker", Vector(-15944, -13162, 127+Winterblight.ZFLOAT), 5400)
+		for i = 1, 300, 1 do
+			Timers:CreateTimer(0.03*i, function()
+				if i %40 == 0 then
+					EmitSoundOnLocationWithCaster(Vector(-15944, -13162, 127+Winterblight.ZFLOAT), "Winterblight.AzaleaBridge.Raise", Events.GameMaster)
+				end
+				Winterblight.AzaleaBridge5:SetAbsOrigin(Winterblight.AzaleaBridge5:GetAbsOrigin()+Vector(0,0,3000/300))
+			end)
+		end
+		Timers:CreateTimer(9, function()
+			EmitSoundOnLocationWithCaster(Winterblight.AzaleaBridge5:GetAbsOrigin(), "Winterblight.AzaleaBridge.Finish", Winterblight.Master)
+			Timers:CreateTimer(0.1, function()
+				EmitSoundOnLocationWithCaster(Winterblight.AzaleaBridge5:GetAbsOrigin(), "Winterblight.Azalea.Win", Winterblight.Master)
+			end)
+			local positionTable = {Vector(-15900, -12160), Vector(-16028, -12160), Vector(-16156, -12160), Vector(-15900, -14968), Vector(-16028, -14968), Vector(-16156, -14968)}
+            for i = 1, #positionTable, 1 do
+              local pfx = ParticleManager:CreateParticle( "particles/econ/events/ti5/teleport_end_dust_ti5.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster )
+              ParticleManager:SetParticleControl( pfx, 0, GetGroundPosition(positionTable[i], Events.GameMaster ))
+              ParticleManager:SetParticleControl( pfx, 1, Vector(200, 200, 200) )
+              Timers:CreateTimer(2, function()
+                ParticleManager:DestroyParticle(pfx, false)
+              end)
+            end
+		end)
+		Timers:CreateTimer(12, function()
+			Winterblight.StargazerSuccess = true
+			Winterblight:SpawnCup6()
+		end)
+	end)
 end
 
 function Winterblight:StargazerWaveUnitSpawn(unit, jumpFV)
