@@ -2749,7 +2749,9 @@ function stargazer_think(event)
 	if ability.interval % 1 == 0 then
 		local position = caster:GetAbsOrigin()+RandomVector(RandomInt(150, 2000))
 		position = GetGroundPosition(position, caster)
-		begin_stargazer_comet(caster, ability, position, damage)
+		if not caster.cometLock then
+			begin_stargazer_comet(caster, ability, position, damage)
+		end
 	end
 	if not caster.phase2 then
 		local hookAbility = caster:FindAbilityByName("stargazer_glissade")
@@ -2810,7 +2812,6 @@ function stargazer_debuff_think(event)
 end
 
 function begin_stargazer_comet(caster, ability, target, damage)
-
 	local castParticle = "particles/roshpit/solunia/comet_cast_moon.vpcf"
 	local explodeParticle = "particles/roshpit/solunia/lunar_flare_explosion_immortal1.vpcf"
 	local starParticle = "particles/roshpit/winterblight/stargazer_comet_attack.vpcf"
@@ -2941,6 +2942,8 @@ function stargazer_phase_2_think(event)
 	elseif caster.wavePhase == 1 then
 		local fv = (caster:GetAbsOrigin()-caster.orbBeamPos):Normalized()
 		caster.orbBeamPos = caster.orbBeamPos + fv*100
+		Winterblight.orbBeamPFX = caster.orbBeamPFX
+		Winterblight.Stargazer = caster
 		AddFOWViewer(DOTA_TEAM_GOODGUYS, caster.orbBeamPos, 200, 5, false)
 		ParticleManager:SetParticleControl(caster.orbBeamPFX, 1, caster.orbBeamPos)
 		if WallPhysics:GetDistance2d(caster:GetAbsOrigin(), caster.orbBeamPos) < 200 then
@@ -2993,5 +2996,32 @@ function stargazer_phase_2_think(event)
 			end
 		end
 	elseif caster.wavePhase == 3 then
+	end
+end
+
+function charging_taskmaster_passive(event)
+	local caster = event.caster
+	local ability = event.ability
+	local stacks = event.stacks
+	if not caster:IsAlive() then
+		return false
+	end
+	local modifier_name = "modifier_luna_armor"
+	StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_FLAIL, rate=1.5})
+	local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 650, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false)
+	if #allies > 0 then
+		for i = 1, #allies, 1 do
+			local ally = allies[i]
+			if ally:HasModifier("modifier_luna_armor") then
+			elseif ally:HasModifier("modifier_luna_armor") and i == #allies then
+				ability:ApplyDataDrivenModifier(caster, ally, modifier_name, {duration = 5})
+				break
+			else
+				EmitSoundOn("Winterblight.WinterSpirit.ShieldApply", caster)
+				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_lone_druid/lone_druid_savage_roar_f.vpcf", caster, 3)
+				ability:ApplyDataDrivenModifier(caster, ally, modifier_name, {duration = 5})
+				break
+			end
+		end
 	end
 end

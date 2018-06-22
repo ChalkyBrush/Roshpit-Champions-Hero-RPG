@@ -111,7 +111,7 @@ function initializeTooltip(func){
 
 		var propertyValue2 = amount_per_level2*total_level+property_two_base
 		if (property_two_max > 0){
-			if ((amount_per_level*total_level+property_two_base) > property_two_max){
+			if ((amount_per_level2*total_level+property_two_base) > property_two_max){
 				propertyValue2 = property_two_max
 			}
 		}

@@ -202,6 +202,7 @@ local _ANIMATION_TRANSLATE_TO_CODE = {
   ground_pound= 128,
   guardian_angel= 215,
   guitar= 290,
+  gyroshell = 359,
   hang_loose_gesture= 291,
   happy_dance= 293,
   harlequin= 129,

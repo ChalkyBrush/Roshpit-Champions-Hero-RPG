@@ -358,7 +358,8 @@ local _CODE_TO_ANIMATION_TRANSLATE = {
   [355]= "basher",
   [356]= "freeze",
   [357]= "hunter_night",
-  [358]= "rope"
+  [358]= "rope",
+  [359]= "gyroshell"
 }
 
 function modifier_animation_translate:OnCreated(keys) 

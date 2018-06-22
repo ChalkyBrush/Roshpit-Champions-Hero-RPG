@@ -8396,3 +8396,47 @@
         	}
         }
 	}
+
+	"charging_taskmaster_shield"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"centaur_return"
+		"AOERadius"			"650"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"stacks"			"1 2 3"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_luna_taskmaster_passive"
+			{
+				"IsHidden" "1"
+				"Passive"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "1.2"
+				"StatusEffectName" 		"particles/status_fx/status_effect_ancestral_spirit.vpcf"
+				"StatusEffectPriority"  "50"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"charging_taskmaster_passive"
+						"stacks"		"%stacks"
+					}
+				}
+			}
+			"modifier_luna_armor"
+			{
+				"EffectName"	"particles/roshpit/winterblight/luna_shield.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"IsHidden"	"0"
+			}
+		}
+	}

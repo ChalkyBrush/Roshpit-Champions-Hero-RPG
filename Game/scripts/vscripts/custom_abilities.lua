@@ -411,9 +411,10 @@ function CustomAbilities:HitTaskShield(victim, attacker)
 end
 
 function CustomAbilities:HitLunaShield(victim, attacker)
-    local currentStacks = victim:GetModifierStackCount("modifier_luna_armor", victim)
+	local caster = victim:FindModifierByName("modifier_luna_armor"):GetCaster()
+    local currentStacks = victim:GetModifierStackCount("modifier_luna_armor", caster)
     if currentStacks > 1 then
-        victim:SetModifierStackCount("modifier_luna_armor", victim, currentStacks-1)
+        victim:SetModifierStackCount("modifier_luna_armor", caster, currentStacks-1)
     else
         victim:RemoveModifierByName("modifier_luna_armor")
         CustomAbilities:QuickAttachParticle("particles/roshpit/sorceress/shield_shatter.vpcf", victim, 1.2)

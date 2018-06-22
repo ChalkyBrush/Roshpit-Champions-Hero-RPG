@@ -4392,10 +4392,17 @@ end
 
 function Winterblight:StartStarGazerWaveEvent(beamTable)
 	Winterblight.StarGazerBeamTable = beamTable
+	local luck = RandomInt(1, 3)
 	for i = 1, #beamTable, 1 do
 		local beamData = beamTable[i]
 		local position = beamData.targetPoint
-		Winterblight:SpawnStargazerWaveUnit1("winterblight_azalea_archer", position, 3, 4, true, nil)
+		local unitName = "winterblight_azalea_archer"
+		if luck == 1 then
+			unitName = "winterblight_maiden_of_azalea"
+		elseif luck == 2 then
+			unitName = "winterblight_frost_avatar"
+		end
+		Winterblight:SpawnStargazerWaveUnit1(unitName, position, 3, 4, true, nil)
 	end
 end
 
@@ -4451,12 +4458,157 @@ function Winterblight:StargazerWaveUnitDie(unit)
 	end
 	local beamTable = Winterblight.StarGazerBeamTable
 	Winterblight.StargazerWaveUnitsSlain = Winterblight.StargazerWaveUnitsSlain + 1
-	if Winterblight.StargazerWaveUnitsSlain == 28 then
+	if Winterblight.StargazerWaveUnitsSlain == 27 then
 		for i = 1, #beamTable, 1 do
 			local beamData = beamTable[i]
 			local position = beamData.targetPoint
 			Winterblight:SpawnStargazerWaveUnit1("azalea_shrine_megmus", position, 2, 7, true, nil)
 		end
+	elseif Winterblight.StargazerWaveUnitsSlain == 46 then
+		for i = 1, #beamTable, 1 do
+			local beamData = beamTable[i]
+			local position = beamData.targetPoint
+			Winterblight:SpawnStargazerWaveUnit1("winter_snow_spirit", position, 3, 3, true, nil)
+		end
+	elseif Winterblight.StargazerWaveUnitsSlain == 75 then
+		for i = 1, #beamTable, 1 do
+			local luck = RandomInt(1, 3)
+			local beamData = beamTable[i]
+			local position = beamData.targetPoint
+			local unitName = "winter_snow_spirit"
+			if luck == 1 then
+				unitName = "winterblight_rider_of_azalea"
+			elseif luck == 2 then
+				unitName = "azalea_dragoon"
+			end
+			Winterblight:SpawnStargazerWaveUnit1(unitName, position, 2, 5, true, nil)
+		end
+	elseif Winterblight.StargazerWaveUnitsSlain == 94 then
+		for i = 1, #beamTable, 1 do
+			local luck = RandomInt(1, 3)
+			local beamData = beamTable[i]
+			local position = beamData.targetPoint
+			local unitName = "azalea_air_spirit"
+			if luck == 1 then
+				unitName = "azalea_grave_summoner"
+			elseif luck == 2 then
+				unitName = "winterblight_syphist"
+			end
+			Winterblight:SpawnStargazerWaveUnit1(unitName, position, 3, 6, true, nil)
+		end
+	elseif Winterblight.StargazerWaveUnitsSlain == 123 then
+		for i = 1, #beamTable, 1 do
+			local luck = RandomInt(1, 3)
+			local beamData = beamTable[i]
+			local position = beamData.targetPoint
+			local unitName = "winter_snow_spirit"
+			if luck == 1 then
+				unitName = "azalea_star_seeker"
+			elseif luck == 2 then
+				unitName = "azalea_fencer"
+			end
+			Winterblight:SpawnStargazerWaveUnit1(unitName, position, 2, 5, true, nil)
+		end
+	elseif Winterblight.StargazerWaveUnitsSlain == 143 then
+		for i = 1, #beamTable, 1 do
+			local luck = RandomInt(1, 12)
+			local beamData = beamTable[i]
+			local position = beamData.targetPoint
+			local unitName = "winter_snow_spirit"
+			if luck == 1 then
+				unitName = "azalea_star_seeker"
+			elseif luck == 2 then
+				unitName = "azalea_fencer"
+			elseif luck == 3 then
+				unitName = "azalea_air_spirit"
+			elseif luck == 4 then
+				unitName = "azalea_grave_summoner"
+			elseif luck == 5 then
+				unitName = "winterblight_syphist"
+			elseif luck == 6 then
+				unitName = "azalea_dragoon"
+			elseif luck == 7 then
+				unitName = "winterblight_rider_of_azalea"
+			elseif luck == 8 then
+				unitName = "azalea_shrine_megmus"
+			elseif luck == 9 then
+				unitName = "winterblight_maiden_of_azalea"
+			elseif luck == 10 then
+				unitName = "winterblight_frost_avatar"
+			elseif luck == 11 then
+				unitName = "winterblight_azalea_archer"
+			end
+			Winterblight:SpawnStargazerWaveUnit1(unitName, position, 2, 7, true, nil)
+		end
+	elseif Winterblight.StargazerWaveUnitsSlain == 163 then
+		for i = 1, #beamTable, 1 do
+			local luck = RandomInt(1, 12)
+			local beamData = beamTable[i]
+			local position = beamData.targetPoint
+			local unitName = "winter_snow_spirit"
+			if luck == 1 then
+				unitName = "azalea_star_seeker"
+			elseif luck == 2 then
+				unitName = "azalea_fencer"
+			elseif luck == 3 then
+				unitName = "azalea_air_spirit"
+			elseif luck == 4 then
+				unitName = "azalea_grave_summoner"
+			elseif luck == 5 then
+				unitName = "winterblight_syphist"
+			elseif luck == 6 then
+				unitName = "azalea_dragoon"
+			elseif luck == 7 then
+				unitName = "winterblight_rider_of_azalea"
+			elseif luck == 8 then
+				unitName = "azalea_shrine_megmus"
+			elseif luck == 9 then
+				unitName = "winterblight_maiden_of_azalea"
+			elseif luck == 10 then
+				unitName = "winterblight_frost_avatar"
+			elseif luck == 11 then
+				unitName = "winterblight_azalea_archer"
+			end
+			Winterblight:SpawnStargazerWaveUnit1(unitName, position, 3, 6.5, true, nil)
+		end
+	elseif Winterblight.StargazerWaveUnitsSlain == 193 then
+		for i = 1, #beamTable, 1 do
+			local beam = beamData.portalParticle
+			CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_lone_druid/lone_druid_savage_roar.vpcf", beamData.targetPoint, 3)
+			ParticleManager:DestroyParticle(beamData.portalParticle, false)
+			ParticleManager:DestroyParticle(beamData.pfx, false)
+			ParticleManager:DestroyParticle(Winterblight.orbBeamPFX, false)
+			Winterblight.orbBeamPFX = nil
+		end
+		Winterblight.StarGazerBeamTable = nil
+		Winterblight.Stargazer.cometLock = true
+		Timers:CreateTimer(3, function()
+			EmitSoundOn("Winterblight.StarGazer.Disappear1", Winterblight.Stargazer) 
+			StartAnimation(Winterblight.Stargazer, {duration=3.0, activity=ACT_DOTA_CAST_ABILITY_5, rate=0.7})
+			Timers:CreateTimer(3.2, function()
+				StartAnimation(Winterblight.Stargazer, {duration=3.0, activity=ACT_DOTA_CAST_ABILITY_5, rate=0.5, translate="gyroshell"})
+				Winterblight:smoothSizeChange(Winterblight.Stargazer, 2.25, 0.1, 24)
+				Timers:CreateTimer(0.3, function()
+					EmitSoundOn("Winterblight.StarGazer.TeleportOut.Grunt", Winterblight.Stargazer)
+				end)
+				Timers:CreateTimer(0.8, function()
+					local pos = Winterblight.Stargazer:GetAbsOrigin()
+					Winterblight.Stargazer:SetModelScale(0)
+					local pfx = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf", PATTACH_CUSTOMORIGIN, Winterblight.Stargazer)
+					ParticleManager:SetParticleControl(pfx, 0, Winterblight.Stargazer:GetAbsOrigin())
+					ParticleManager:SetParticleControl(pfx, 1, Vector(600, 2, 2))
+					local pfx2 = ParticleManager:CreateParticle( "particles/roshpit/winterblight_dust.vpcf", PATTACH_CUSTOMORIGIN, nil)
+					ParticleManager:SetParticleControl(pfx2, 0, pos+Vector(0,0,80))
+					ParticleManager:SetParticleControl(pfx2, 5, Vector(0.9, 0.9, 1.0))
+					ParticleManager:SetParticleControl(pfx2, 2, Vector(0.8,0.8,0.8))
+					EmitSoundOn("Winterblight.Pixie.Teleport", Winterblight.Stargazer)
+					Timers:CreateTimer(0.2, function()
+						UTIL_Remove(Winterblight.Stargazer)
+					end)
+				end)
+			end)
+		end)
+		--WAVES END
 	end
 end
 
@@ -4474,5 +4626,38 @@ function Winterblight:StargazerWaveUnitSpawn(unit, jumpFV)
 		if Winterblight.Stones >= 2 then
 			stone:AddAbility("ability_magic_immune_break"):SetLevel(GameState:GetDifficultyFactor())
 		end
+	elseif stone:GetUnitName() == "winterblight_rider_of_azalea" then
+		if GameState:GetDifficultyFactor() < 3 then
+			stone:RemoveAbility("armor_break_ultra")
+		end
+	elseif stone:GetUnitName() == "azalea_dragoon" then
+		if Winterblight.Stones >= 1 then
+			stone:AddAbility("ability_mega_haste"):SetLevel(GameState:GetDifficultyFactor())
+		end
+		if Winterblight.Stones >= 3 then
+			stone:AddAbility("ability_stun_immunity"):SetLevel(GameState:GetDifficultyFactor())
+		end
+	elseif stone:GetUnitName() == "azalea_air_spirit" then
+		Winterblight:SetPositionCastArgs(stone, 1000, 0, 3, FIND_ANY_ORDER)
+	elseif stone:GetUnitName() == "azalea_grave_summoner" then
+		stone.targetRadius = 1200
+		stone.autoAbilityCD = 1
+		stone.summons = 2
+		stone.maxSummons = 2 + math.min(2, Winterblight.Stones)
+	elseif stone:GetUnitName() == "winterblight_syphist" then
+		if GameState:GetDifficultyFactor() == 3 then
+			stone:AddAbility("ability_mega_haste"):SetLevel(GameState:GetDifficultyFactor())
+		end
+	elseif stone:GetUnitName() == "azalea_fencer" then
+		if Winterblight.Stones >= 1 then
+			stone:AddAbility("ability_magic_immune_break"):SetLevel(GameState:GetDifficultyFactor())
+		end
+		if Winterblight.Stones >= 3 then
+			stone:AddAbility("ability_stun_immunity"):SetLevel(GameState:GetDifficultyFactor())
+		end
+		stone:AddNewModifier(stone, nil, "modifier_animation", {translate="run"})
+		stone:AddNewModifier(stone, nil, "modifier_animation_translate", {translate="run"})
+	elseif stone:GetUpVector() == "azalea_star_seeker" then
+		Events:ColorWearablesAndBase(stone, Vector(150,255,145))
 	end
 end
