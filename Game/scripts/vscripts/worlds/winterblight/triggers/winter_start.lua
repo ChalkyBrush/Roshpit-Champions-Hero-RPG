@@ -190,6 +190,10 @@ function ShrineSpawn8(trigger)
 	Winterblight:AzaleaSummonerRoomInit()
 end
 
+function ShrineSpawn9(trigger)
+	Winterblight:LastAzaleaRoomStart()
+end
+
 function PlatformSpawnTrigger(trigger)
 	local caller = trigger.caller
 	local spawnIndex = caller:GetName():gsub('AzaleaPlatformSpawnTrigger', "")

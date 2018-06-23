@@ -112,6 +112,14 @@ function Winterblight:InitProps()
     Winterblight.AzaleaBridge5:SetAbsOrigin(Winterblight.AzaleaBridge5:GetAbsOrigin()-Vector(0,0,3000))
     local bridgeDummy = Entities:FindByNameNearest("AzaleaBridgeDummy", Vector(-15901, -13624, 192+Winterblight.ZFLOAT), 3000)
     UTIL_Remove(bridgeDummy)
+    Winterblight.AzaleaBossStatue = {}
+    local props = Entities:FindAllByNameWithin("AzaleaBossStatue", Vector(-145, -14816, 200), 2000)
+    for i = 1, #props, 1 do
+      local boss_statue = {}
+      boss_statue.model = props[i]
+      boss_statue.model:SetAbsOrigin(boss_statue.model:GetAbsOrigin()-Vector(0,0,2000))
+      table.insert(Winterblight.AzaleaBossStatue, boss_statue)
+    end
   end)
 end
 
@@ -119,7 +127,9 @@ function Winterblight:Debug2()
  -- Winterblight:FinishCaveWaves()
  -- Winterblight:InitializeAzaleaSwords()
  AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-15944, -13162), 23000, 23000, false)
- Winterblight:LastBridgeAndCup()
+ -- Winterblight:LastBridgeAndCup()
+ Winterblight.AzaleaTeleportRoomSpawned = true
+ Winterblight:SpawnAzaleaBoss()
  -- Winterblight:StartOrbSequence()
   -- Winterblight:EndOrbWaves()
     -- Winterblight:OpenShrineOfAzalea()

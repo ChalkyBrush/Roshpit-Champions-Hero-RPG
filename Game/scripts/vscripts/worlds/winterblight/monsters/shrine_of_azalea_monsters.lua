@@ -3033,3 +3033,145 @@ function charging_taskmaster_passive(event)
 		end
 	end
 end
+
+function giga_ice_revenant_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not ability.fv then
+		ability.fv = Vector(0,1)
+		ability.interval = 0
+	end
+	ability.interval = ability.interval + 1
+	ability.fv = WallPhysics:rotateVector(ability.fv, 2*math.pi/8)
+	local info = 
+	{
+			Ability = ability,
+        	EffectName = "particles/econ/items/jakiro/jakiro_ti8_immortal_head/jakiro_ti8_dual_breath_ice.vpcf",
+        	vSpawnOrigin = caster:GetAbsOrigin() + ability.fv*30,
+        	fDistance = 1000,
+        	fStartRadius = 140,
+        	fEndRadius = 300,
+        	Source = caster,
+        	StartPosition = "attach_origin",
+        	bHasFrontalCone = false,
+        	bReplaceExisting = false,
+        	iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+        	iUnitTargetFlags = 0,
+        	iUnitTargetType = DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC,
+        	fExpireTime = GameRules:GetGameTime() + 5.0,
+		bDeleteOnHit = false,
+		vVelocity = ability.fv * 800,
+		bProvidesVision = false,
+	}
+	projectile = ProjectileManager:CreateLinearProjectile(info)	
+	if ability.interval%3 == 0 then
+		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin()+ability.fv*600, "Winterblight.IceBeam", caster)
+	end
+	if ability.interval%4 == 0 then
+		EmitSoundOn("Winterblight.GigaIce.Path", caster)
+		local iceDistance = 600+GameState:GetDifficultyFactor()*200
+		local perpFV = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi/4)
+		for i = -1, 1, 1 do
+			local pfxTest = ParticleManager:CreateParticle("particles/units/heroes/hero_jakiro/jakiro_ice_path.vpcf", PATTACH_CUSTOMORIGIN, nil)
+			
+			ParticleManager:SetParticleControl(pfxTest, 0, caster:GetAbsOrigin()-caster:GetForwardVector()*300+perpFV*i*180)
+			ParticleManager:SetParticleControl(pfxTest, 1, caster:GetAbsOrigin()+caster:GetForwardVector()*iceDistance+perpFV*i*180)
+			ParticleManager:SetParticleControl(pfxTest, 2, Vector(2,2,2))
+			Timers:CreateTimer(2, function()
+				ParticleManager:DestroyParticle(pfxTest, false)
+			end)
+		end
+		for j = 0, 19, 1 do
+			Timers:CreateTimer(j*0.1, function()
+				local enemies = FindUnitsInLine(caster:GetTeamNumber(), caster:GetAbsOrigin()-caster:GetForwardVector()*0, caster:GetAbsOrigin()+caster:GetForwardVector()*(iceDistance-400), nil, 540, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0)
+				for _,enemy in pairs(enemies) do
+					local duration = 2 - (j/10)
+					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_giga_ice_chilled", {duration = duration})
+				end
+			end)
+			
+		end
+	end
+	if ability.interval >= 100 then
+		ability.interval = 0
+	end
+end
+
+function giga_ice_revenant_take_damage(event)
+	local caster = event.caster
+	local ability = event.ability
+	local attacker = event.attacker
+	if not attacker:HasModifier("modifier_giga_ice_pulling") then
+		local distance = WallPhysics:GetDistance2d(attacker:GetAbsOrigin(), caster:GetAbsOrigin())
+		if distance > 1000 then
+			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_lone_druid/lone_druid_savage_roar_f.vpcf", attacker, 3)
+			EmitSoundOn("Winterblight.GigaIce.Pull", attacker)
+			ability:ApplyDataDrivenModifier(caster, attacker, "modifier_giga_ice_pulling", {duration = 5})
+			attacker.gigaIceBeamPFX = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/wisp_tether_agh.vpcf", PATTACH_CUSTOMORIGIN, caster)
+			ParticleManager:SetParticleControlEnt(attacker.gigaIceBeamPFX, 0, caster, PATTACH_POINT_FOLLOW, "attach_static", caster:GetAbsOrigin(), true)
+			ParticleManager:SetParticleControlEnt(attacker.gigaIceBeamPFX, 1, attacker, PATTACH_POINT_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true)
+		end
+	end
+end
+
+function giga_ice_wave_hit(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	if not target:HasModifier("modifier_giga_ice_rooted") then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_giga_ice_rooted", {duration = event.root_duration})
+	end
+end
+
+function giga_ice_pull_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local fv = (caster:GetAbsOrigin()-target:GetAbsOrigin()):Normalized()
+	target:SetAbsOrigin(target:GetAbsOrigin() + fv*40)
+	local distance = WallPhysics:GetDistance2d(target:GetAbsOrigin(), caster:GetAbsOrigin())
+	if distance < 600 then
+		target:RemoveModifierByName("modifier_giga_ice_pulling")
+	end
+end
+
+function giga_ice_pull_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	ParticleManager:DestroyParticle(target.gigaIceBeamPFX, false)
+	FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
+end
+
+function azalea_boss_attack_start(event)
+	local caster = event.caster
+	local luck = RandomInt(1, 4)
+	if luck == 1 then
+		EmitSoundOn("Winterblight.AzaleaBoss.AttackStart.VO", caster)
+	end
+end
+
+function azalea_boss_attack_land(event)
+	local caster = event.caster
+	local victim = event.target
+	local ability = event.ability
+	local damage = (event.damage/100)*caster:GetAverageTrueAttackDamage(caster)
+    local icePoint = victim:GetAbsOrigin()
+    local radius = 500
+    EmitSoundOn("Winterblight.AzaleaBoss.AttackLand", victim)
+    EmitSoundOnLocationWithCaster(icePoint, "hero_Crystal.freezingField.explosion", caster)
+    local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+    local pfx = ParticleManager:CreateParticle( particle, PATTACH_WORLDORIGIN, caster )
+    ParticleManager:SetParticleControl( pfx, 0, icePoint )
+    ParticleManager:SetParticleControl( pfx, 1, Vector(radius, 2, radius*2) )
+    Timers:CreateTimer(2.5, function()
+        ParticleManager:DestroyParticle(pfx, false)
+    end)
+    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), icePoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+    if #enemies > 0 then    
+        for _,enemy in pairs(enemies) do
+            ability:ApplyDataDrivenModifier(caster, enemy, "modifier_azalea_boss_slow", {duration = 3})
+            ApplyDamage({ victim = victim, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
+        end
+    end
+end

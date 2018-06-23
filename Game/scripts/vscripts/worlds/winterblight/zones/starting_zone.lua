@@ -1955,6 +1955,7 @@ function Winterblight:OpenShrineOfAzalea()
 	    end)
 	    Winterblight:FirstShrineSpawn()
 	end)
+	Winterblight.AzaleaDungeonOpened = true
 	Winterblight:SpawnAzaleaCups()
 end
 

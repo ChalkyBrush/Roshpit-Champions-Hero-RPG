@@ -8,6 +8,9 @@ function Winterblight:SpawnAzaleaCups()
 end
 
 function Winterblight:CupSpawnCondition(index)
+	if not Winterblight.AzaleaDungeonOpened then
+		return false
+	end
 	if not Winterblight.AzaleaCupSpawns then
 		Winterblight.AzaleaCupSpawns = {0,0,0,0,0,0}
 	end
@@ -193,6 +196,9 @@ function Winterblight:AzaleaCupAttacked(cup, attacker)
 					AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-1600, -15152, 250+Winterblight.ZFLOAT), 300, 99999, false)
 					Winterblight.AzaleaPortalTable[6] = 1
 				end
+			end
+			if Winterblight.AzaleaPortalTable[1] == 1 and Winterblight.AzaleaPortalTable[2] == 1 and Winterblight.AzaleaPortalTable[3] == 1 and Winterblight.AzaleaPortalTable[4] == 1 and Winterblight.AzaleaPortalTable[5] == 1 and Winterblight.AzaleaPortalTable[6] == 1 then
+				Winterblight:SpawnAzaleaBoss()
 			end
 		end)
 		Winterblight:ShrineSpawn5()
@@ -4154,6 +4160,10 @@ end
 
 
 function Winterblight:LastAzaleaRoomStart()
+	if Winterblight.LastAzaleaRoomSpawned then
+		return false
+	end
+	Winterblight.LastAzaleaRoomSpawned = true
 	local pixie = CreateUnitByName("azalea_mystery_pixie", Vector(-11699, -10174), false, nil, nil, DOTA_TEAM_NEUTRALS)
 	pixie:SetForwardVector(Vector(-1,0))
 	pixie.phase = 0
@@ -4667,6 +4677,7 @@ function Winterblight:LastBridgeAndCup()
 			Winterblight.StargazerSuccess = true
 			Winterblight:SpawnCup6()
 		end)
+		Winterblight:SpawnMobsAtLastCup()
 	end)
 end
 
@@ -4718,4 +4729,173 @@ function Winterblight:StargazerWaveUnitSpawn(unit, jumpFV)
 	elseif stone:GetUpVector() == "azalea_star_seeker" then
 		Events:ColorWearablesAndBase(stone, Vector(150,255,145))
 	end
+end
+
+function Winterblight:SpawnWinterSpirit(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winter_snow_spirit", position, 0, 1, nil, fv, false)
+	Events:AdjustBossPower(stone, 5, 5, false)
+	stone.itemLevel = 55
+	stone.dominion = true
+	return stone
+end
+
+function Winterblight:SpawnGigaIceRevenant(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("giga_ice_revenant", position, 7, 9, "Winterblight.GigaIceRevenant.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 5, 5, false)
+	stone.itemLevel = 55
+	-- stone.dominion = true
+	if Winterblight.Stones >= 1 then
+		stone:RemoveAbility("fire_temple_steadfast")
+		stone:AddAbility("redfall_mega_steadfast"):SetLevel(GameState:GetDifficultyFactor())
+	end
+	Events:ColorWearablesAndBase(stone, Vector(150,255,145))
+	return stone
+end
+
+function Winterblight:SpawnMobsAtLastCup()
+	local luck = RandomInt(1, 3)
+	Winterblight:SpawnGigaIceRevenant(Vector(-15872, -15956), Vector(0,1))
+	if luck == 1 then
+		local positionTable = {Vector(-16000, -15488), Vector(-15723, -15488), Vector(-15360, -15794), Vector(-15360, -16076)}
+		for i = 1, #positionTable, 1 do
+			Winterblight:SpawnFencer(positionTable[i], Vector(0,1))
+		end		
+	elseif luck == 2 then
+		local positionTable = {Vector(-16000, -15488), Vector(-15723, -15488), Vector(-15320, -15744), Vector(-15320, -16000), Vector(-15320, -16237), Vector(-16000, -15744), Vector(-15723, -15744)}
+		for i = 1, #positionTable, 1 do
+			Winterblight:SpawnRiftBreaker(positionTable[i], Vector(0,1))
+		end		
+	elseif luck == 3 then
+		local positionTable = {Vector(-16000, -15488), Vector(-15723, -15488), Vector(-15320, -15744), Vector(-15320, -16000), Vector(-15320, -16237), Vector(-16000, -15744), Vector(-15723, -15744)}
+		for i = 1, #positionTable, 1 do
+			Winterblight:SpawnBladeWielder(positionTable[i], Vector(0,1))
+		end	
+	end
+	local luck2 = RandomInt(1, 3)
+	if luck2 == 1 then
+		Winterblight:SpawnDemonSpirit(Vector(-14936, -15708), Vector(-1,0))
+	end
+	local luck2 = RandomInt(1, 3)
+	if luck2 == 1 then
+		Winterblight:SpawnDemonSpirit(Vector(-14704, -15979), Vector(-1,0))
+	end
+	local luck2 = RandomInt(1, 3)
+	if luck2 == 1 then
+		Winterblight:SpawnDemonSpirit(Vector(-14936, -16216), Vector(-1,0))
+	end
+	Timers:CreateTimer(1.0, function()
+		for i = 0, 6, 1 do
+			Winterblight:SpawnWinterSpirit(Vector(-15744+i*170, -16256), Vector(0,1))
+		end
+	end)
+end
+
+function Winterblight:SpawnAzaleaBoss()
+	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-218, -14701), 2000, 300, false)
+	Timers:CreateTimer(2, function()
+		for i = 1, #Winterblight.AzaleaBossStatue, 1 do
+			local prop = Winterblight.AzaleaBossStatue[i]
+			prop.model:SetAbsOrigin(prop.model:GetAbsOrigin()+Vector(0,0,2000+3000))
+			prop.speed = 0
+			prop.distanceMoved = 0
+			Timers:CreateTimer(0.03, function()
+				prop.speed = math.min(prop.speed + 0.25, 40)
+				prop.distanceMoved = prop.distanceMoved + prop.speed
+				prop.model:SetAbsOrigin(prop.model:GetAbsOrigin() - Vector(0,0,prop.speed))
+				if prop.distanceMoved >= 2980 then
+				else
+					return 0.03
+				end
+			end) 
+		end
+		Timers:CreateTimer(3, function()
+			local startPoint = GetGroundPosition(Winterblight.AzaleaBossStatue[1].model:GetAbsOrigin(), Events.GameMaster)
+			EmitSoundOnLocationWithCaster(startPoint, "Winterblight.SwordClash", caster)
+
+			local pfx = ParticleManager:CreateParticle( "particles/roshpit/seafortress/big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster )
+			ParticleManager:SetParticleControl(pfx, 0, startPoint)
+			ParticleManager:SetParticleControl(pfx, 5, Vector(0.7, 0.75, 0.9))
+			ParticleManager:SetParticleControl(pfx, 2, Vector(0.7,0.7,0.7))
+			Timers:CreateTimer(10, function() 
+			  ParticleManager:DestroyParticle( pfx, false )
+			  ParticleManager:ReleaseParticleIndex(pfx)
+			end)
+			ScreenShake(Winterblight.AzaleaBossStatue[1].model:GetAbsOrigin(), 800, 0.8, 0.8, 9000, 0, true)
+
+			local damage = 1000
+			local procs = 0
+			for j = 0, procs, 1 do
+				Timers:CreateTimer(j*0.5, function()
+					for i = 0, 4, 1 do
+						Timers:CreateTimer(0.15, function()
+
+							local forkDirection = WallPhysics:rotateVector(Vector(-1,-1), 2*math.pi*i/5)
+							local direction = forkDirection
+							if j == 0 then
+								EmitSoundOnLocationWithCaster(startPoint, "Winterblight.ArcanaSunder.Moving", Events.GameMaster)
+							end
+
+							local particleName = "particles/units/heroes/hero_elder_titan/elder_titan_earth_splitter.vpcf"
+							local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, nil)
+							ParticleManager:SetParticleControl(pfx, 0, startPoint+forkDirection*50)
+							ParticleManager:SetParticleControl(pfx, 1, startPoint+forkDirection*3000)
+							ParticleManager:SetParticleControl(pfx, 3, Vector(200,3.5,200)) -- y COMPONENT = duration
+							-- ParticleManager:SetParticleControl(pfx, 1, point)
+							Timers:CreateTimer(3.5, function()
+								ParticleManager:DestroyParticle(pfx, false)
+								for i = 1, 3, 1 do
+									EmitSoundOnLocationWithCaster(startPoint, "Winterblight.ArcanaSunder.Explode"..i, Events.GameMaster)
+								end
+								local enemies = FindUnitsInLine(DOTA_TEAM_NEUTRALS, startPoint, startPoint+forkDirection*3000, nil, 150, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0)
+						        for _,enemy in pairs(enemies) do
+						        	ApplyDamage({ victim = enemy, attacker = Events.GameMaster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })	
+						            Filters:ApplyStun(Events.GameMaster, 3, enemy)
+						        end
+							end)
+						end)
+					end
+				end)
+			end
+		end)
+
+		Timers:CreateTimer(7.0, function()
+			local position = Winterblight.AzaleaBossStatue[1].model:GetAbsOrigin()
+			for i = 1, #Winterblight.AzaleaBossStatue, 1 do
+				UTIL_Remove(Winterblight.AzaleaBossStatue[i].model)
+			end
+
+			Winterblight.AzaleaBossStatue = nil
+			local boss = Events:SpawnBoss("azalea_boss", position)
+			position = boss:GetAbsOrigin()
+			StartSoundEvent("Winterblight.AzaleaBoss.Shatter", boss)
+			for i = 0, 3, 1 do
+				Timers:CreateTimer(0.1*i, function()
+					local pfx = ParticleManager:CreateParticle( "particles/roshpit/winterblight_dust.vpcf", PATTACH_CUSTOMORIGIN, nil)
+					ParticleManager:SetParticleControl(pfx, 0, position+Vector(0,0,80+i*120))
+					ParticleManager:SetParticleControl(pfx, 5, Vector(0.9, 0.9, 1.0))
+					ParticleManager:SetParticleControl(pfx, 2, Vector(0.8,0.8,0.8))
+					Timers:CreateTimer(10, function() 
+					  ParticleManager:DestroyParticle( pfx, false )
+					  ParticleManager:ReleaseParticleIndex(pfx)
+					end)
+				end)
+			end
+			Timers:CreateTimer(1.5, function()
+				EmitSoundOn("Winterblight.AzaleaBoss.Spawn.VO", boss)
+				StartAnimation(boss, {duration=1.7, activity=ACT_DOTA_CAST_ABILITY_2, rate=0.6, translate="immortal"})
+			end)
+			Timers:CreateTimer(3.5, function()
+				StopSoundEvent("Winterblight.AzaleaBoss.Shatter", boss)
+			end)
+			boss:SetForwardVector(Vector(0,-1))
+			Events:ColorWearables(boss, Vector(69, 171, 255))
+			boss:SetRenderColor(160, 200, 255)
+			Timers:CreateTimer(0, function()
+				if not Winterblight.AzaleaBossSlain then
+					EmitSoundOnLocationWithCaster(Vector(-218, -14701), "Winterblight.AzaleaBossMusic", Events.GameMaster)
+					return 60
+				end
+			end)
+		end)
+	end)
 end

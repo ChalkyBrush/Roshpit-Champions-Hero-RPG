@@ -823,10 +823,9 @@ end
 function Filters:ApplyWskills(caster)
     if caster:HasModifier("modifier_mask_of_ahnqhir_yellow") then
         local ability = caster:GetAbilityByIndex(1)
-        ability:EndCooldown()
-
         local baseCd = ability:GetCooldownTimeRemaining()
         baseCd = math.max(baseCd - 1, 0)
+        ability:EndCooldown()
         ability:StartCooldown(baseCd)
     end
     if caster:HasModifier("modifier_hand_elder") then

@@ -8124,3 +8124,168 @@
         "Ability1"          "charging_taskmaster_shield"
         "Ability2"          "dungeon_creep"
     }
+
+    "azalea_boss"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/vengeful/vengeful.vmdl"
+        "ModelScale"    "3.45"
+        "Level" "1"
+        "HealthBarOffset"   "570"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+
+        "SoundSet"              "Hero_Winter_Wyvern"
+        "precache"
+        {
+            "soundfile"     "soundevents/game_sounds_heroes/game_sounds_winter_wyvern.vsndevts"
+        }
+        "ArmorPhysical" "25"
+        "MagicalResistance" "15"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "ProjectileModel"   "particles/roshpit/winterblight/azalea_base_attack_large.vpcf"
+        "ProjectileSpeed"   "1000"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "5001"
+        "AttackDamageMax"   "7001"
+        "AttackRate"    "1.5"
+        "AttackAnimationPoint"  "0.33"
+        "AttackAcquisitionRange"    "100"
+        "AttackRange"   "1250"
+        "BountyGoldMin" "400"
+        "BountyGoldMax" "500"
+        "BountyXP" "4900"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "370"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "3365000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"              "azalea_boss_passive"
+        "Ability2"              "sea_maiden_ai"
+        "Ability3"              "redfall_mega_steadfast"
+        "Ability4"              "boss_health"
+        "Ability5"              "dungeon_creep"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "7798"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "6256"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "9890"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "9892"
+                }
+            }
+        }
+    }
+
+    "giga_ice_revenant"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/razor/razor.vmdl"
+        "ModelScale"    "2.45"
+        "Level" "1"
+        "HealthBarOffset"   "550"
+        "HasInventory"  "0"
+        "SelectionGroup"    "mines_boss"
+        "DefaultState"  "Invade"
+        "ConsideredHero"   "0"
+        "SoundSet"          "Ancient_apparition"
+        "precache"
+        {
+            "particle"  "particles/econ/items/jakiro/jakiro_ti8_immortal_head/jakiro_ti8_dual_breath_ice.vpcf"
+            "particle"  "particles/units/heroes/hero_jakiro/jakiro_ice_path.vpcf"
+        }
+        "ArmorPhysical" "100"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "200000"
+        "AttackDamageMax"   "300000"
+        "AttackRate"    "0.7"
+        "AttackAnimationPoint"  "0.3"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "1100"
+        "ProjectileModel"   "particles/units/heroes/hero_jakiro/jakiro_base_attack.vpcf"
+        "ProjectileSpeed"   "2000"
+        "BountyGoldMin" "400"
+        "BountyGoldMax" "500"
+        "BountyXP"  "800"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "40"
+        "CollisionSize" "100"
+
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "500"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "1800000"
+        "StatusHealthRegen" "0"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                //shoulders
+                "Wearable1"
+                {
+                    "ItemDef"   "340"
+                }
+                //arms
+                "Wearable2"
+                {
+                    "ItemDef"   "9353"
+                }
+                //haed
+                "Wearable3"
+                {
+                    "ItemDef"   "5342"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "8968"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "9355"
+                }
+            }
+            "OffensiveAbilities"
+            {
+                      
+            }
+
+        }
+        "Ability1"  "winterblight_giga_ice_revenant_passive"
+        "Ability2"  "armor_break"
+        "Ability3"  "ability_mega_haste"
+        "Ability4"  "fire_temple_steadfast"
+        "Ability5"  "dungeon_creep"
+    }
