@@ -777,11 +777,9 @@ function GameState:OrderFilter(orderTable)
 		if unit:HasModifier("modifier_venomort_arcana2") then
 			local ability = unit:FindAbilityByName("venomort_frostvenom_grasp")
 			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION or orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_TARGET or orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_MOVE or orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
-				print("set to true")
 				ability.Q2Toggle=true
 			end
 			if orderTable.order_type == DOTA_UNIT_ORDER_HOLD_POSITION then
-				print("set to false")
 				ability.Q2Toggle=false
 			end
 		end
