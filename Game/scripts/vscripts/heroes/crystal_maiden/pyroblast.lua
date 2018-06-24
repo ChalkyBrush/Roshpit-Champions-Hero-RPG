@@ -158,7 +158,7 @@ function pyroblast_impact(event)
 		end
 	end
 	if caster:HasModifier("modifier_sorceress_glyph_7_1") then
-		damage = damage*2
+		damage = damage*1.5
 	end
 	-- damage = damage + 0.0001*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*ability.d_d_level*damage
 	local filterDamage = Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
@@ -179,7 +179,7 @@ end
 
 function applyIgnite(caster, ability, damage, target, b_d_level, duration)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_pyroblast_ignite", {duration = duration})
-	local igniteDPS = damage*0.01*b_d_level
+	local igniteDPS = damage*0.033*b_d_level
 	if caster:HasModifier("modifier_clear_cast") then
 		if ability.c_c_amp then
 			igniteDPS = igniteDPS*ability.c_c_amp

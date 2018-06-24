@@ -33529,7 +33529,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		"AbilityCastRange"				"800 850 900 950 1000 1050 1100"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AOERadius"						"800"
+		"AOERadius"						"550"
 
 		// Precache
 		"precache"
@@ -50576,7 +50576,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"ThinkInterval"  "0.2"
+				"ThinkInterval"  "0.1"
 				"OnIntervalThink"
 				{
 					"RunScript"
