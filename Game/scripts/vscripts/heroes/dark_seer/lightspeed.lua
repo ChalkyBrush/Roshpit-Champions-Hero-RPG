@@ -11,6 +11,7 @@ function lightspeed_cast(event)
 	local ability = event.ability
 	local duration = event.duration
 	
+	ability.lastPos = caster:GetAbsOrigin()
 	
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	EmitSoundOn("Zonik.Lightspeed", caster)
