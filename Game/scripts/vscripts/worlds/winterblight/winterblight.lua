@@ -117,7 +117,7 @@ function Winterblight:InitProps()
     for i = 1, #props, 1 do
       local boss_statue = {}
       boss_statue.model = props[i]
-      boss_statue.model:SetAbsOrigin(boss_statue.model:GetAbsOrigin()-Vector(0,0,2000))
+      boss_statue.model:SetAbsOrigin(boss_statue.model:GetAbsOrigin()+Vector(0,0,3000))
       table.insert(Winterblight.AzaleaBossStatue, boss_statue)
     end
   end)

@@ -8141,6 +8141,7 @@
         "precache"
         {
             "soundfile"     "soundevents/game_sounds_heroes/game_sounds_winter_wyvern.vsndevts"
+            "particle"      "particles/roshpit/winterblight/azalea_indicator_ring.vpcf"
         }
         "ArmorPhysical" "25"
         "MagicalResistance" "15"
@@ -8170,7 +8171,7 @@
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"              "azalea_boss_passive"
-        "Ability2"              "sea_maiden_ai"
+        "Ability2"              "ability_stun_immunity"
         "Ability3"              "redfall_mega_steadfast"
         "Ability4"              "boss_health"
         "Ability5"              "dungeon_creep"

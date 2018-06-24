@@ -2862,9 +2862,26 @@ function stargazer_volcanic_glissade(event)
 	local target = event.target_points[1]
 	
 	ability.targetPoint = target
-	EmitSoundOn("Winterblight.StarGazer.Glissade.VO", caster)
+	if caster:GetUnitName() ==  "azalea_boss" then
+		EmitSoundOn("Winterblight.AzaleaBoss.AttackStart.VO", caster)
+	else
+		EmitSoundOn("Winterblight.StarGazer.Glissade.VO", caster)
+	end
 	EmitSoundOn("Winterblight.StarGazer.Glissade.Go", caster)
-	StartAnimation(caster, {duration=1, activity=ACT_DOTA_FLAIL, rate=0.5, translate="forcestaff_friendly"})
+	if caster:GetUnitName() ==  "azalea_boss" then
+		StartAnimation(caster, {duration=1, activity=ACT_DOTA_VERSUS, rate=2})
+		local pfxTest = ParticleManager:CreateParticle("particles/units/heroes/hero_jakiro/jakiro_ice_path.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		local moveFV = ((ability.targetPoint - caster:GetAbsOrigin())*Vector(1,1,1)):Normalized()
+		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), ability.targetPoint)
+		ParticleManager:SetParticleControl(pfxTest, 0, caster:GetAbsOrigin())
+		ParticleManager:SetParticleControl(pfxTest, 1, caster:GetAbsOrigin()+moveFV*distance)
+		ParticleManager:SetParticleControl(pfxTest, 2, Vector(1,1,1))
+		Timers:CreateTimer(1, function()
+			ParticleManager:DestroyParticle(pfxTest, false)
+		end)
+	else
+		StartAnimation(caster, {duration=1, activity=ACT_DOTA_FLAIL, rate=0.5, translate="forcestaff_friendly"})
+	end
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_volcanic_glissade", {duration = 1.6})
     local particleName = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
     local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, nil )
@@ -2905,7 +2922,9 @@ function stargazer_glissade_thinking(event)
 	    	ParticleManager:DestroyParticle(particle1, false)
 	    end)
 	    EmitSoundOn("Winterblight.MountainGlissade.End", caster)
-		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+	    Timers:CreateTimer(0.03, function()
+			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+		end)
 	end
 end
 
@@ -3174,4 +3193,195 @@ function azalea_boss_attack_land(event)
             ApplyDamage({ victim = victim, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
         end
     end
+end
+
+function azalea_boss_take_damage(event)
+	local caster = event.caster
+	local ability = event.ability
+	local attacker = event.attacker
+	print("HELLO?")
+	if not attacker:HasModifier("modifier_giga_ice_pulling") then
+		if WallPhysics:IsWithinRegionA(attacker:GetAbsOrigin(), Vector(-2341, -16256), Vector(2126, -12703)) then
+		else
+			print("HELLO2?")
+			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_lone_druid/lone_druid_savage_roar_f.vpcf", attacker, 3)
+			EmitSoundOn("Winterblight.GigaIce.Pull", attacker)
+			ability:ApplyDataDrivenModifier(caster, attacker, "modifier_giga_ice_pulling", {duration = 5})
+			attacker.gigaIceBeamPFX = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/wisp_tether_agh.vpcf", PATTACH_CUSTOMORIGIN, caster)
+			ParticleManager:SetParticleControlEnt(attacker.gigaIceBeamPFX, 0, caster, PATTACH_POINT_FOLLOW, "attach_static", caster:GetAbsOrigin(), true)
+			ParticleManager:SetParticleControlEnt(attacker.gigaIceBeamPFX, 1, attacker, PATTACH_POINT_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true)
+		end
+	end
+end
+
+function azalea_boss_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not caster.phase then
+		caster.phase = 0
+	end
+	if not ability.interval then
+		ability.interval = 0
+	end
+
+	if caster:GetHealth() < 1000 and not caster.phaseLock then
+		caster.phaseLock = true
+		EmitSoundOn("Winterblight.AzaleaBoss.IceHealStart", caster)
+		caster.phase = caster.phase + 1
+		if caster.phase == 1 then
+			caster:AddAbility("azalea_boss_multi_strike"):SetLevel(GameState:GetDifficultyFactor())
+			caster:AddAbility("stargazer_glissade"):SetLevel(GameState:GetDifficultyFactor())
+		end
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_disable_player", {duration = 14})
+		Timers:CreateTimer(14, function()
+			caster.phaseLock = false
+			EmitSoundOn("Winterblight.AzaleaBoss.IceHealEnd", caster)
+			local pfx = ParticleManager:CreateParticle( "particles/roshpit/winterblight_dust.vpcf", PATTACH_CUSTOMORIGIN, nil)
+			ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()+Vector(0,0,100))
+			ParticleManager:SetParticleControl(pfx, 5, Vector(0.9, 0.9, 1.0))
+			ParticleManager:SetParticleControl(pfx, 2, Vector(0.8,0.8,0.8))
+			Timers:CreateTimer(10, function() 
+			  ParticleManager:DestroyParticle( pfx, false )
+			  ParticleManager:ReleaseParticleIndex(pfx)
+			end)
+			if caster.phase == 1 then
+				Timers:CreateTimer(1.5, function()
+					EmitSoundOn("Winterblight.AzaleaBoss.EndHeal.VO", caster)
+				end)
+			elseif caster.phase == 2 then
+				caster:AddAbility("azalea_ice_orb_passive"):SetLevel(GameState:GetDifficultyFactor())
+			end
+		end)
+	end
+	ability.interval = ability.interval + 1
+	if ability.interval == 50 then
+		local ices = 7 + caster.phase*2
+		for i = 0, ices, 1 do
+			local fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi*i/ices)
+			fv = WallPhysics:rotateVector(fv, 2*math.pi*RandomInt(-3, 3)/50)
+			local target = caster:GetAbsOrigin()+fv*RandomInt(300, 1600)
+			target = GetGroundPosition(target, caster)
+			local cast_direction = ((target - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+			CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/azalea_indicator_ring.vpcf", target, 3)
+			EmitSoundOnLocationWithCaster(target, "Winterblight.AzaleaBoss.IceNovaStart", caster)
+			Timers:CreateTimer(3, function()
+				local icePoint = target
+				local damage = 10
+				local radius = 600
+			    EmitSoundOnLocationWithCaster(icePoint, "Winterblight.AzaleaBoss.IceNovaExplode", caster)
+			    local particle = "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
+			    local pfx = ParticleManager:CreateParticle( particle, PATTACH_WORLDORIGIN, caster )
+			    ParticleManager:SetParticleControl( pfx, 0, icePoint )
+			    ParticleManager:SetParticleControl( pfx, 1, Vector(radius, 2, radius*2) )
+			    Timers:CreateTimer(2.5, function()
+			        ParticleManager:DestroyParticle(pfx, false)
+			    end)
+			    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), icePoint, nil, 450, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+			    if #enemies > 0 then    
+			        for _,enemy in pairs(enemies) do
+			            ability:ApplyDataDrivenModifier(caster, enemy, "modifier_giga_ice_rooted", {duration = 2})
+			            ApplyDamage({ victim = victim, attacker = caster, damage = event.nova_damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
+			        end
+			    end
+			end)
+		end
+	end
+	if caster:HasAbility("azalea_boss_multi_strike") then
+	local spin = caster:FindAbilityByName("azalea_boss_multi_strike")
+		if spin:IsFullyCastable() then		
+			local order =
+			{
+				UnitIndex = caster:entindex(),
+				OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+				AbilityIndex = spin:entindex()
+			}
+			ExecuteOrderFromTable(order)
+		end
+	end
+	if not caster:HasModifier("modifier_azalea_spinning") then
+		if caster:HasAbility("stargazer_glissade") then
+			local glissade = caster:FindAbilityByName("stargazer_glissade")
+			if glissade:IsFullyCastable() then
+				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 2200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+				if #enemies > 0 then
+					local targetPoint = enemies[1]:GetOrigin() + RandomVector(RandomInt(80, 1500))			
+					local order =
+					{
+						UnitIndex = caster:entindex(),
+						OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+						AbilityIndex = glissade:entindex(),
+						Position = targetPoint
+					}
+					ExecuteOrderFromTable(order)
+					return false
+				end
+			end
+		end
+	end
+	if ability.interval >= 80 then
+		ability.interval = 0
+	end
+end
+
+function azalea_ice_orb_think(event)
+	local caster = event.caster
+	local ability = event.ability
+
+	local orb_count = 3 + Winterblight.Stones
+	local baseFV = RandomVector(1)
+	for i = 0, orb_count - 1, 1 do 
+		local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/orb_count)
+		local position = caster:GetAbsOrigin() + fv*90
+		local orb = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, caster:GetTeamNumber())
+		orb:SetAbsOrigin(orb:GetAbsOrigin()+Vector(0,0,100))
+
+		orb:FindAbilityByName("dummy_unit"):SetLevel(1)
+
+		orb.interval = 0
+		ability:ApplyDataDrivenModifier(caster, orb, "modifier_ice_orb_orb", {})
+		orb.fv = fv
+		EmitSoundOn("Winterblight.TriBoss.Azertia.IceOrbTravel", orb)
+	end
+
+end
+
+function azalea_boss_frozen_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	caster:SetHealth(caster:GetHealth() + caster:GetMaxHealth()*0.0075)
+end
+
+function azalea_spin_start(event)
+	local caster = event.caster
+	local ability = event.ability
+	ability.interval = 0
+	ability.attacks = 0
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_azalea_spinning", {duration = 1.5})
+	StartAnimation(caster, {duration=1.9, activity=ACT_DOTA_SPAWN, rate=0.6})
+	WallPhysics:Jump(caster, caster:GetForwardVector(), 0, 25, 15, 0.8)
+	EmitSoundOn("Winterblight.AzaleaBoss.SpinAttack.VO", caster)
+	Timers:CreateTimer(0.2, function()
+		EmitSoundOn("Winterblight.AzaleaBoss.Spin.Whirl", caster)
+	end)
+end
+
+function azalea_spinning_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	ability.interval = ability.interval + 1
+	local fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi/18)
+	caster:SetForwardVector(fv)
+	if ability.interval%4 == 0 and ability.attacks < 5 then
+		ability.attacks = ability.attacks + 1
+		if ability.attacks == 1 then
+			EmitSoundOn("Winterblight.AzaleaBoss.AttackStart", caster)
+		end
+		CustomAbilities:QuickAttachParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_e_cowlofice.vpcf", caster, 5)
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, caster:GetAttackRange(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+		if #enemies > 0 then
+			for _,enemy in pairs(enemies) do
+				Filters:PerformAttackSpecial(caster, enemy, true, true, true, false, true, false, false)
+			end
+		end 
+	end
 end

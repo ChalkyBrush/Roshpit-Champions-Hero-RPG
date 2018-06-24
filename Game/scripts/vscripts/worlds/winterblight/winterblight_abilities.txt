@@ -8328,7 +8328,7 @@
 		"AbilityTextureName"			"ancient_apparition_cold_feet"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
+		"MaxLevel"				 		"3"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"2000"
@@ -8597,22 +8597,14 @@
 				"var_type"			"FIELD_INTEGER"
 				"ms_loss"			"-60 -140 -240"
 			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"nova_damage"			"2000 30000 500000"
+			}
 		}
 		"Modifiers"
 		{
-			"modifier_disable_player"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"EffectName"	"particles/roshpit/winterblight/immunity_shield.vpcf"
-				"EffectAttachType" "attach_hitloc"
-				"States"
-				{
-					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-
-			}
 			"modifier_azalea_boss_passive"
 			{
 				"IsPurgable"	"0"
@@ -8620,6 +8612,10 @@
 				"IsHidden"		"1"
 				"IsBuff"		"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
+				}
 				"OnAttackStart"
 				{
 					"FireSound"
@@ -8642,6 +8638,25 @@
 						"damage"		"%damage_attack_power"
 					}
 				}
+				"OnTakeDamage"
+				// "%attack_damage" is set to the damage value after mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"azalea_boss_take_damage"
+					}
+				}
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"azalea_boss_think"
+						"nova_damage"	"%nova_damage"
+					}
+				}
 			}
 			"modifier_azalea_boss_slow"
 			{
@@ -8654,6 +8669,270 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_loss"
+				}
+			}
+			"modifier_giga_ice_pulling"
+			{
+				"IsDebuff"	"1"
+				"OverrideAnimation"     "ACT_DOTA_FLAIL"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"giga_ice_pull_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"giga_ice_pull_end"
+						"target"		"TARGET"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_giga_ice_rooted"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Winterblight.IceBeam.Frozen"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_disable_player"
+			{
+				"IsHidden"	"0"
+				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_dire.vpcf"
+				"StatusEffectPriority"  "120"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"States"
+				{
+					"MODIFIER_STATE_FROZEN"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"-100"
+				}
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"azalea_boss_frozen_think"
+					}
+				}
+				"EffectName"	"particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_buff.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+		}
+
+	}
+
+	"azalea_boss_multi_strike"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"antimage_blink"
+		"RequiredLevel"          		"0"
+		"LevelsBetweenUpgrades"  		"0"
+		"MaxLevel"				 		"3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"9 8 7"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+				"Function"		"azalea_spin_start"
+			}
+
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_blink_start"
+				"Target" 		"CASTER"
+				"Duration"		"1"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_azalea_spinning"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"azalea_spinning_think"
+					}
+				}
+			}
+		}
+
+	}
+
+	"azalea_ice_orb_passive"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"crystal_maiden_crystal_nova"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.4"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"2.0 1.75 1.5"
+		"AbilityCastRange"				"2000"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"as_loss"			"-100 -500 -1200"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_loss"			"-150 -300 -500"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"300 3500 150000"
+			}
+		}
+
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+				"Function"		"ice_orb_lance_hit"
+				"target"		"TARGET"
+				"damage"		"%damage"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ice_orb_thinker"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"ThinkInterval"  "1.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"azalea_ice_orb_think"
+					}
+				}
+			}
+			"modifier_ice_orb_precast"
+			{
+				"IsHidden"	"1"
+				"EffectName"	"particles/roshpit/sorceress/ice_lance_cast.vpcf"
+				"EffectAttachType"	"follow_origin"
+			}
+			"modifier_ice_orb_orb"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"EffectName"	"particles/roshpit/winterblight/ice_orb.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"ice_orb_think"
+						"target"		"TARGET"
+						"damage"		"%damage"
+					}
+				}
+			}
+			"modifier_ice_orb_freeze"
+			{
+				"IsDebuff"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
+				"StatusEffectPriority"  "20"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%as_loss"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_loss"
 				}
 			}
 		}

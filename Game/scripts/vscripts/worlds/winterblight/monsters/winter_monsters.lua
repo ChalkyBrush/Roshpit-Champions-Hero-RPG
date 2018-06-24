@@ -767,6 +767,9 @@ function colossus_slam_cast(event)
 				enemy:AddNewModifier(caster, event.ability, "modifier_stunned", {duration = 1.5})
 			end
 		end 
+		Timers:CreateTimer(3, function()
+			ParticleManager:DestroyParticle(pfx, false)
+		end)
 	end)
 end
 
