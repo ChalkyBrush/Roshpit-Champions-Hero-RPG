@@ -90567,6 +90567,7 @@
         {
             "soundfile"     "soundevents/game_sounds_heroes/game_sounds_winter_wyvern.vsndevts"
             "particle"      "particles/roshpit/winterblight/azalea_indicator_ring.vpcf"
+            "particle"      "particles/roshpit/winterblight/boss_exploding.vpcf"
         }
         "ArmorPhysical" "25"
         "MagicalResistance" "15"

@@ -4906,9 +4906,72 @@ function Winterblight:SpawnAzaleaBoss()
 			Timers:CreateTimer(0, function()
 				if not Winterblight.AzaleaBossSlain then
 					EmitSoundOnLocationWithCaster(Vector(-218, -14701), "Winterblight.AzaleaBossMusic", Events.GameMaster)
-					return 49
+					return 60
 				end
 			end)
 		end)
 	end)
+end
+
+function Winterblight:AzaleaBossDie(boss)
+	boss.dying = true
+	Winterblight.AzaleaBossSlain = true
+	boss:RemoveModifierByName("modifier_azalea_spinning")
+	local ability = boss:FindAbilityByName("azalea_boss_passive")
+	
+	ability:ApplyDataDrivenModifier(boss, boss, "modifier_boss_dying", {})
+	ability:ApplyDataDrivenModifier(boss, boss, "modifier_boss_disarmed", {})
+	EmitSoundOn("Winterblight.AzaleaBoss.Death1.VO", boss)
+	Timers:CreateTimer(1.5, function()
+		EmitGlobalSound("Loot_Drop_Stinger_Arcana")
+		Notifications:TopToAll({text="Dungeon Clear!", duration=8.0})
+		local luck = RandomInt(1,3)
+	end)
+	local position = boss:GetAbsOrigin()
+	for i = 1, 18, 1 do
+		Timers:CreateTimer(0.3*i, function()
+			RPCItems:RollItemtype(300, boss:GetAbsOrigin(), 1, 0)
+		end)
+	end
+	Timers:CreateTimer(8, function()
+		EmitSoundOn("Winterblight.AzaleaBoss.Death2.VO", boss)
+		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {})
+		boss:RemoveModifierByName("modifier_boss_dying")
+		Timers:CreateTimer(0.03, function()
+			StartAnimation(boss, {duration=10, activity=ACT_DOTA_DIE, rate=0.24})
+		end)
+		Timers:CreateTimer(5, function()
+			local position = boss:GetAbsOrigin()
+			ability:ApplyDataDrivenModifier(boss, boss, "modifier_boss_frozen", {})
+			Timers:CreateTimer(6.6, function()
+				Events:smoothSizeChange(boss, boss:GetModelScale(), 1.5, 10)
+			end)
+			Timers:CreateTimer(7, function()
+				for i = 0, 3, 1 do
+					Timers:CreateTimer(0.1*i, function()
+						local pfx = ParticleManager:CreateParticle( "particles/roshpit/winterblight_dust.vpcf", PATTACH_CUSTOMORIGIN, nil)
+						ParticleManager:SetParticleControl(pfx, 0, position+Vector(0,0,80+i*120))
+						ParticleManager:SetParticleControl(pfx, 5, Vector(0.9, 0.9, 1.0))
+						ParticleManager:SetParticleControl(pfx, 2, Vector(0.8,0.8,0.8))
+						Timers:CreateTimer(10, function() 
+						  ParticleManager:DestroyParticle( pfx, false )
+						  ParticleManager:ReleaseParticleIndex(pfx)
+						end)
+					end)
+				end
+				EmitSoundOn("Winterblight.AzaleaBoss.FinalShatter", boss)
+			    local particleName = "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
+			    local radius = 800
+			    local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, nil )
+			    ParticleManager:SetParticleControl( particle1, 0, boss:GetAbsOrigin() )
+			    ParticleManager:SetParticleControl( particle1, 1, Vector(radius, 1, 1000) )
+			    ParticleManager:SetParticleControl( particle1, 3, Vector(radius, radius, radius) )
+			    Timers:CreateTimer(3, function()
+			        ParticleManager:DestroyParticle(particle1, false)
+			    end)
+				UTIL_Remove(boss)
+			end)
+		end)
+	end)
+
 end

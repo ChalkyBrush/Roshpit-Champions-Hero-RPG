@@ -127403,6 +127403,14 @@
 					}
 				}
 			}
+			"modifier_azalea_phase_4"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "120"
+				}
+			}
 			"modifier_disable_player"
 			{
 				"IsHidden"	"0"
@@ -127430,6 +127438,39 @@
 				}
 				"EffectName"	"particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_buff.vpcf"
 				"EffectAttachType"	"attach_origin"
+			}
+			"modifier_boss_dying"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "1.1"
+				"OverrideAnimation"     "ACT_DOTA_DISABLED"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"boss_death_effect_think"
+					}
+				}
+			}
+			"modifier_boss_disarmed"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_boss_frozen"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_FROZEN"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_l2_radiant.vpcf"
+				"StatusEffectPriority"  "150"
 			}
 		}
 

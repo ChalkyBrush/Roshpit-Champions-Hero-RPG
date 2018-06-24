@@ -3223,11 +3223,21 @@ function azalea_boss_think(event)
 	if not ability.interval then
 		ability.interval = 0
 	end
-
+	if caster.dying then
+		return false
+	end
 	if caster:GetHealth() < 1000 and not caster.phaseLock then
 		caster.phaseLock = true
-		EmitSoundOn("Winterblight.AzaleaBoss.IceHealStart", caster)
 		caster.phase = caster.phase + 1
+		if caster.phase == 3 and GameState:GetDifficultyFactor() < 3 then
+			Winterblight:AzaleaBossDie(caster)
+			return false
+		elseif caster.phase == 4 then
+			Winterblight:AzaleaBossDie(caster)
+			return false
+		end
+		EmitSoundOn("Winterblight.AzaleaBoss.IceHealStart", caster)
+		
 		if caster.phase == 1 then
 			caster:AddAbility("azalea_boss_multi_strike"):SetLevel(GameState:GetDifficultyFactor())
 			caster:AddAbility("stargazer_glissade"):SetLevel(GameState:GetDifficultyFactor())
@@ -3250,6 +3260,12 @@ function azalea_boss_think(event)
 				end)
 			elseif caster.phase == 2 then
 				caster:AddAbility("azalea_ice_orb_passive"):SetLevel(GameState:GetDifficultyFactor())
+			elseif caster.phase == 3 then
+				caster:AddAbility("ability_mega_haste"):SetLevel(GameState:GetDifficultyFactor())
+				ability:ApplyDataDrivenModifier(caster, caster, "modifier_azalea_phase_4", {})
+				Timers:CreateTimer(1, function()
+					EmitSoundOn("Winterblight.AzaleaBoss.Phase3.VO", caster)
+				end)
 			end
 		end)
 	end
@@ -3326,8 +3342,13 @@ end
 function azalea_ice_orb_think(event)
 	local caster = event.caster
 	local ability = event.ability
-
+	if caster.dying then
+		return false
+	end
 	local orb_count = 3 + Winterblight.Stones
+	if caster.phase == 3 then
+		orb_count = orb_count + 1
+	end
 	local baseFV = RandomVector(1)
 	for i = 0, orb_count - 1, 1 do 
 		local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/orb_count)
@@ -3384,4 +3405,11 @@ function azalea_spinning_think(event)
 			end
 		end 
 	end
+end
+
+function boss_death_effect_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/boss_exploding.vpcf", caster, 3)
+	EmitSoundOn("Winterblight.AzaleaBoss.DeathEffect", caster)
 end
