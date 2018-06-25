@@ -1221,7 +1221,7 @@ function Serengaard:SubmitStats()
     for i = 1, #MAIN_HERO_TABLE, 1 do
       if MAIN_HERO_TABLE[i]:GetPlayerOwner() then
         local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
-        local heroName = PlayerResource:GetSelectedHeroName(playerID)
+        local heroName = url_encode(PlayerResource:GetSelectedHeroName(playerID))
         local steamID = PlayerResource:GetSteamAccountID(playerID)
         local playerName = url_encode(PlayerResource:GetPlayerName(playerID))
         local steamIDlong = tostring(PlayerResource:GetSteamID(playerID))
