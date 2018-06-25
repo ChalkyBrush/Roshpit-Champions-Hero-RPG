@@ -17,6 +17,7 @@ function wave_unit_die(event)
 			Statistics.dispatch("serengard:finish_wave", {wave = Serengaard.wave});
 			Serengaard:NextWave()
 			Serengaard:UpdateTowers()
+			Serengaard:CachePlayers()
 		end
 		local maxRoll = 5
 		if GameState:GetDifficultyFactor() == 1 then
