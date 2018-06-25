@@ -498,7 +498,7 @@ function year_beast_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	if not caster:HasModifier("modifier_djanghor_immortal_weapon_3") then
-		local manaDrain = math.ceil(caster:GetMaxMana()*0.003)
+		local manaDrain = math.ceil(caster:GetMaxMana()*0.0003)
 		if caster:GetMana() < manaDrain then
 			monkey_form(event)
 		else

@@ -82,6 +82,15 @@ function icevenom_slide_think(event)
 	local caster = event.caster
 	local ability = event.ability
 
+	if ability.Q2Toggle == nil then
+		ability.Q2Toggle = true
+	end
+
+	if ability.Q2Toggle == false then
+		caster:RemoveModifierByName("modifier_icevenom_slide")
+		return
+	end
+
 	local newPosition = GetGroundPosition(caster:GetAbsOrigin()+ability.fv*ability.slideSpeed, caster)
 	local obstruction = WallPhysics:FindNearestObstruction(newPosition)
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPosition, caster)

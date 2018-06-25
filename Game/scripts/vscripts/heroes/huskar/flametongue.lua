@@ -83,5 +83,5 @@ function a_a_damage(event)
 	local caster = event.caster
 	local stacks = target:GetModifierStackCount("modifier_flametongue_a_a_rune", caster)
 	local burnDamage = (220 + 285*ability.a_a_level)*stacks
-	Filters:ApplyDotDamage(caster, ability, target, burnDamage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+	Filters:ApplyDotDamage(caster, ability, target, burnDamage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end

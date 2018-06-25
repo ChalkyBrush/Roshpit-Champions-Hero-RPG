@@ -774,6 +774,15 @@ function GameState:OrderFilter(orderTable)
 				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(orderTable.issuer_player_id_const), "openBuilderMenu", {} )
 			end
 		end
+		if unit:HasModifier("modifier_venomort_arcana2") then
+			local ability = unit:FindAbilityByName("venomort_frostvenom_grasp")
+			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION or orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_TARGET or orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_MOVE or orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
+				ability.Q2Toggle=true
+			end
+			if orderTable.order_type == DOTA_UNIT_ORDER_HOLD_POSITION then
+				ability.Q2Toggle=false
+			end
+		end
 	end
 	if orderTable.entindex_ability > 0 then
 		if IsValidEntity(unit) then
