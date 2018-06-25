@@ -1201,7 +1201,7 @@ function Serengaard:GiveSunstone(hero, position)
     RPCItems:GiveItemToHeroWithSlotCheck(hero, key)
 end
 
-function url_encode(str)
+function Serengaard:Url_encode(str)
   if (str) then
     str = string.gsub (str, "\n", "\r\n")
     str = string.gsub (str, "([^%w %-%_%.%~])",
@@ -1211,6 +1211,20 @@ function url_encode(str)
   return str  
 end
 
+function Serengaard:CachePlayers()
+  if not Serengaard.CachedPlayers then
+    Serengaard.CachedPlayers = {}
+  end
+  for i=1, #MAIN_HERO_TABLE, 1 do
+    if MAIN_HERO_TABLE[i]:GetPlayerOwner() and MAIN_HERO_TABLE[i]:GetPlayerOwnerID() then
+      local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
+      if PlayerResource:GetSelectedHeroName(playerID) and PlayerResource:GetSteamAccountID(playerID) and PlayerResource:GetPlayerName(playerID) and PlayerResource:GetSteamID(playerID) then
+        Serengaard.CachedPlayers[i] = { Serengaard:Url_encode(PlayerResource:GetSelectedHeroName(playerID)), PlayerResource:GetSteamAccountID(playerID), Serengaard:Url_encode(PlayerResource:GetPlayerName(playerID)), tostring(PlayerResource:GetSteamID(playerID))}
+      end
+    end       
+  end
+end
+
 function Serengaard:SubmitStats()
   local url = ""
   if Serengaard.InfiniteWaveCount and SaveLoad:GetAllowSaving() then
@@ -1218,25 +1232,23 @@ function Serengaard:SubmitStats()
     url = url.."wave_number="..Serengaard.InfiniteWaveCount
     url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
     SaveLoad:NewKey()
-    for i = 1, #MAIN_HERO_TABLE, 1 do
-      if MAIN_HERO_TABLE[i]:GetPlayerOwner() then
-        local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
-        local heroName = url_encode(PlayerResource:GetSelectedHeroName(playerID))
-        local steamID = PlayerResource:GetSteamAccountID(playerID)
-        local playerName = url_encode(PlayerResource:GetPlayerName(playerID))
-        local steamIDlong = tostring(PlayerResource:GetSteamID(playerID))
-        print(steamIDlong)
-        url = url.."&steam_id"..i.."="..steamID
-        url = url.."&hero"..i.."="..heroName
-        url = url.."&steam_name"..i.."="..playerName
-        url = url.."&steam_id_long"..i.."="..steamIDlong
-        CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
-          print( "POST".." response infWaves:" )
-          if result.StatusCode then 
-            print(result.StatusCode)
-          end
-        end )
-      end
+    for i = 1, #Serengaard.CachedPlayers, 1 do
+      -- local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
+      local heroName = Serengaard.CachedPlayers[i][1]
+      local steamID = Serengaard.CachedPlayers[i][2]
+      local playerName = Serengaard.CachedPlayers[i][3]
+      local steamIDlong = Serengaard.CachedPlayers[i][4]
+      print(steamIDlong)
+      url = url.."&steam_id"..i.."="..steamID
+      url = url.."&hero"..i.."="..heroName
+      url = url.."&steam_name"..i.."="..playerName
+      url = url.."&steam_id_long"..i.."="..steamIDlong
+      CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
+        print( "POST".." response infWaves:" )
+        if result.StatusCode then 
+          print(result.StatusCode)
+        end
+      end )
     end
   end
     
