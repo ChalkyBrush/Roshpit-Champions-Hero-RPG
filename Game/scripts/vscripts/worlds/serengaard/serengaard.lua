@@ -1201,43 +1201,60 @@ function Serengaard:GiveSunstone(hero, position)
     RPCItems:GiveItemToHeroWithSlotCheck(hero, key)
 end
 
+function url_encode(str)
+  if (str) then
+    str = string.gsub (str, "\n", "\r\n")
+    str = string.gsub (str, "([^%w %-%_%.%~])",
+        function (c) return string.format ("%%%02X", string.byte(c)) end)
+    str = string.gsub (str, " ", "+")
+  end
+  return str  
+end
+
 function Serengaard:SubmitStats()
-        local url = ""
-        print("STEAM ID:")
-        print(PlayerResource:GetSteamID(MAIN_HERO_TABLE[1]:GetPlayerOwnerID()))
-        if Serengaard.InfiniteWaveCount and SaveLoad:GetAllowSaving() then
-          url = ROSHPIT_URL.."/champions/save_serengaard?"
-          url = url.."wave_number="..Serengaard.InfiniteWaveCount
-          url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
-          SaveLoad:NewKey()
-          for i = 1, #MAIN_HERO_TABLE, 1 do
-            if MAIN_HERO_TABLE[i]:GetPlayerOwner() then
-              local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
-              local heroName = PlayerResource:GetSelectedHeroName(playerID)
-              local steamID = PlayerResource:GetSteamAccountID(playerID)
-              local playerName = PlayerResource:GetPlayerName(playerID)
-              local steamIDlong = tostring(PlayerResource:GetSteamID(playerID))
-              print(steamIDlong)
-              url = url.."&steam_id"..i.."="..steamID
-              url = url.."&hero"..i.."="..heroName
-              url = url.."&steam_name"..i.."="..playerName
-              url = url.."&steam_id_long"..i.."="..steamIDlong
-            end
-          end
-          
-        else
-          url = ROSHPIT_URL.."/champions/get_serengaard?"
-        end
+  local url = ""
+  if Serengaard.InfiniteWaveCount and SaveLoad:GetAllowSaving() then
+    url = ROSHPIT_URL.."/champions/save_serengaard?"
+    url = url.."wave_number="..Serengaard.InfiniteWaveCount
+    url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
+    SaveLoad:NewKey()
+    for i = 1, #MAIN_HERO_TABLE, 1 do
+      if MAIN_HERO_TABLE[i]:GetPlayerOwner() then
+        local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
+        local heroName = PlayerResource:GetSelectedHeroName(playerID)
+        local steamID = PlayerResource:GetSteamAccountID(playerID)
+        local playerName = url_encode(PlayerResource:GetPlayerName(playerID))
+        local steamIDlong = tostring(PlayerResource:GetSteamID(playerID))
+        print(steamIDlong)
+        url = url.."&steam_id"..i.."="..steamID
+        url = url.."&hero"..i.."="..heroName
+        url = url.."&steam_name"..i.."="..playerName
+        url = url.."&steam_id_long"..i.."="..steamIDlong
         CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
-          local resultTable = {}
-          print( "GET response:\n" )
-          for k,v in pairs( result ) do
-            print( string.format( "%s : %s\n", k, v ) )
+          print( "POST".." response infWaves:" )
+          if result.StatusCode then 
+            print(result.StatusCode)
           end
-          print( "Done." )
-          local resultTable = JSON:decode(result.Body)
-          CustomGameEventManager:Send_ServerToAllClients("serengaard_leaderboard", {resultTable = resultTable})
-        end ) 
+        end )
+      end
+    end
+  end
+    
+  url = ROSHPIT_URL.."/champions/get_serengaard?"
+  print("serengaard url: "..url)
+  CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+    print( "GET".." response stats:" )
+    local resultTable = {}
+    if result.StatusCode then 
+      print(result.StatusCode)
+    end
+    for k,v in pairs( result ) do
+      print( string.format( "%s : %s\n", k, v ) )
+    end
+    print( "Done." )
+    local resultTable = JSON:decode(result.Body)
+    CustomGameEventManager:Send_ServerToAllClients("serengaard_leaderboard", {resultTable = resultTable})
+  end ) 
 end
 
 function Serengaard:Mithril(name, position, mithrilReward)
