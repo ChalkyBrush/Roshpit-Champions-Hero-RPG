@@ -1243,6 +1243,7 @@ function Serengaard:SubmitStats()
       url = url.."&hero"..i.."="..heroName
       url = url.."&steam_name"..i.."="..playerName
       url = url.."&steam_id_long"..i.."="..steamIDlong
+      print("serengaard urlWaves: "..url)
       CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
         print( "POST".." response infWaves:" )
         if result.StatusCode then 
@@ -1251,22 +1252,23 @@ function Serengaard:SubmitStats()
       end )
     end
   end
-    
-  url = ROSHPIT_URL.."/champions/get_serengaard?"
-  print("serengaard url: "..url)
-  CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
-    print( "GET".." response stats:" )
-    local resultTable = {}
-    if result.StatusCode then 
-      print(result.StatusCode)
-    end
-    for k,v in pairs( result ) do
-      print( string.format( "%s : %s\n", k, v ) )
-    end
-    print( "Done." )
-    local resultTable = JSON:decode(result.Body)
-    CustomGameEventManager:Send_ServerToAllClients("serengaard_leaderboard", {resultTable = resultTable})
-  end ) 
+  Timers:CreateTimer(5, function()
+    url = ROSHPIT_URL.."/champions/get_serengaard?"
+    print("serengaard url: "..url)
+    CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+      print( "GET".." response stats:" )
+      local resultTable = {}
+      if result.StatusCode then 
+        print(result.StatusCode)
+      end
+      for k,v in pairs( result ) do
+        print( string.format( "%s : %s\n", k, v ) )
+      end
+      print( "Done." )
+      local resultTable = JSON:decode(result.Body)
+      CustomGameEventManager:Send_ServerToAllClients("serengaard_leaderboard", {resultTable = resultTable})
+    end ) 
+  end )   
 end
 
 function Serengaard:Mithril(name, position, mithrilReward)
