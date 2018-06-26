@@ -10,9 +10,9 @@ function astral_arcana_start(event)
 	CustomAbilities:QuickAttachParticle("particles/roshpit/astral_ranger/arcana_q_cast.vpcf", caster, 2)
 	local particleName = "particles/roshpit/astral_ranger/arcana_ability_platform.vpcf"
 	local platformPFX = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
-	local platformPosition = caster:GetAbsOrigin()+Vector(0,0,280)
+	local platformPosition = caster:GetAbsOrigin()+Vector(0,0,280)+Vector(0,0,GetGroundHeight(caster:GetAbsOrigin(), caster)-caster:GetAbsOrigin().z)
 	caster:Stop()
-	ability.zHeight = caster:GetAbsOrigin().z + 280
+	ability.zHeight = GetGroundHeight(caster:GetAbsOrigin(), caster) + 290
 	ParticleManager:SetParticleControl(platformPFX, 0, platformPosition)
 	ParticleManager:SetParticleControl(platformPFX, 1, Vector(5,5,5))
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_arcana_lifting", {duration = 2})
@@ -33,9 +33,12 @@ end
 
 function astral_arcana_lifting_think(event)
 	local caster = event.caster
-	local ability = event.ability
+	local ability = event.ability 
 	caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,15))
 	if caster:GetAbsOrigin().z >= ability.zHeight then
+		if caster:GetAbsOrigin().z > ability.zHeight then
+			caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,caster:GetAbsOrigin().z)+Vector(0,0,ability.zHeight))
+		end
 		caster:RemoveModifierByName("modifier_astral_arcana_lifting")
 		ability.heroZ = caster:GetAbsOrigin().z
 		local duration = event.duration
@@ -78,6 +81,10 @@ function astral_arcana_falling_think(event)
 	local ability = event.ability
 	ability.fallVelocity = ability.fallVelocity + 0.5
 	caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,ability.fallVelocity))
+	if caster:HasModifier("modifier_astral_arcana_lifting") then
+		caster:RemoveModifierByName("modifier_astral_arcana_falling")
+		return
+	end
 	if caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + 10 then
 		ParticleManager:DestroyParticle(ability.platformPFX, false)
 		ability.platformPFX = false

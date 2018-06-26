@@ -74,7 +74,7 @@ end
 
 
 function switchIntoStealth(caster)
-
+if caster:IsAlive() then
     local net_trap = caster:FindAbilityByName("net_trap")
   	if not net_trap then
   		net_trap = caster:AddAbility("net_trap")
@@ -169,6 +169,7 @@ function switchIntoStealth(caster)
     if caster:HasModifier("modifier_trapper_arcana1") then
     	caster.d_b_arcana_level = Runes:GetTotalRuneLevel(caster, 4, "d_b_arcana1", "trapper")
 	end
+end
 end
 
 function switchOutOfStealth(caster)

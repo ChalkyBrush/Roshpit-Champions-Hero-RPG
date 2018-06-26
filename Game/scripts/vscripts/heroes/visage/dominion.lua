@@ -97,6 +97,7 @@ function dominion_debuff_death(event)
 	    summon.ekkan_dominion = true
 	    summon:SetDayTimeVisionRange(90)
 	    summon:SetNightTimeVisionRange(90)
+	    summon:SetHullRadius(8)
 	    summon.hero = caster
 	    if caster.a_a_level > 0 then
 	    	summon:AddAbility("ekkan_zombie_strike"):SetLevel(1)
