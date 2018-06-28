@@ -56,6 +56,7 @@ function OnDragDrop( panelId, draggedPanel )
 	if (draggedPanel.fromInventory && rarity == 5){
 			var playerID = Game.GetLocalPlayerID()
 			var heroIndex = Players.GetPlayerHeroEntityIndex( playerID)
+			draggedPanel.m_DragCompleted = true
 			Game.EmitSound("ui.crafting_pulse")
 			// LoadItemForReroll(draggedItem)
 			GameEvents.SendCustomGameEventToServer( "drag_into_reroll_slot", {playerID: playerID, heroIndex: heroIndex, itemIndex: draggedItem, ignoreLock: 0, lock1: 0, lock2: 0, lock3: 0, lock4: 0});

@@ -23,6 +23,7 @@ require('items/weapon_modifiers')
 require('heroes/heros_custom')
 require('items/trades')
 require('items/arcanas')
+require('items/synthesis')
 require('curator')
 
 function RPCItems:RollDrops(unit, killer)
@@ -1633,8 +1634,10 @@ function RPCItems:GetLogarithmicVarianceValue(baseValue, varianceUpPercent, vari
 		baseValue = math.ceil(baseValue*1.25)
 	elseif RNG < 95 then
 		baseValue = math.ceil(baseValue*1.3)
-	elseif RNG < 100 then
+	elseif RNG < 98 then
 		baseValue = math.ceil(baseValue*1.35)
+	elseif RNG >= 98 then
+		baseValue = math.ceil(baseValue*0.65)
 	end
 	local finalRoll = RandomInt(1, 5)
 	if finalRoll == 1 then
@@ -1704,4 +1707,9 @@ function RPCItems:AdjustAttributeValue(hero, value)
 		value = value + value*0.005*b_d_level
 	end
 	return value
+end
+
+function RPCItems:BasicDropItem(position, item)
+    local drop = CreateItemOnPositionSync( position, item )
+    RPCItems:DropItem(item, position)
 end

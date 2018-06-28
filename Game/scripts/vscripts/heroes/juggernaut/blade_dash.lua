@@ -173,8 +173,12 @@ function arcana_attack_start(event)
 			if not caster:HasModifier("modifier_jumping") and not caster:HasModifier("modifier_sunstrider_in_air") then
 				WallPhysics:Jump(caster, caster:GetForwardVector(), 0, 30, 8, 2)
 			end
-			if not target:HasModifier("modifier_jumping") and not target:HasModifier("modifier_sunstrider_in_air") and not target.jumpLock then
-				WallPhysics:Jump(target, target:GetForwardVector(), 0, 30, 8, 2)
+			if not target:HasModifier("modifier_jumping") then
+				if not target:HasModifier("modifier_sunstrider_in_air") then
+					if not target.jumpLock then
+						WallPhysics:Jump(target, target:GetForwardVector(), 0, 30, 8, 2)
+					end
+				end
 			end
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_a_a_crit", {duration = 1.5})
 			-- local damageBonus = caster:GetAverageTrueAttackDamage(caster)*0.3*a_a_level

@@ -4791,6 +4791,7 @@ function Winterblight:SpawnMobsAtLastCup()
 end
 
 function Winterblight:SpawnAzaleaBoss()
+	Winterblight.AzaleaBossMusic = true
 	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-218, -14701), 1200, 300, false)
 	Timers:CreateTimer(10, function()
 		for i = 1, #Winterblight.AzaleaBossStatue, 1 do
@@ -4866,6 +4867,7 @@ function Winterblight:SpawnAzaleaBoss()
 
 			Winterblight.AzaleaBossStatue = nil
 			local boss = Events:SpawnBoss("azalea_boss", position)
+			boss:SetAcquisitionRange(5000)
 			position = boss:GetAbsOrigin()
 			StartSoundEvent("Winterblight.AzaleaBoss.Shatter", boss)
 			local pfx2 = ParticleManager:CreateParticle( "particles/roshpit/winterblight/frost_colossus_slam.vpcf", PATTACH_CUSTOMORIGIN, caster )
@@ -4893,7 +4895,7 @@ function Winterblight:SpawnAzaleaBoss()
 					end)
 				end)
 			end
-			Timers:CreateTimer(1.5, function()
+			Timers:CreateTimer(1.6, function()
 				EmitSoundOn("Winterblight.AzaleaBoss.Spawn.VO", boss)
 				StartAnimation(boss, {duration=1.7, activity=ACT_DOTA_CAST_ABILITY_2, rate=0.6, translate="immortal"})
 			end)
@@ -4905,8 +4907,15 @@ function Winterblight:SpawnAzaleaBoss()
 			boss:SetRenderColor(160, 200, 255)
 			Timers:CreateTimer(0, function()
 				if not Winterblight.AzaleaBossSlain then
-					EmitSoundOnLocationWithCaster(Vector(-218, -14701), "Winterblight.AzaleaBossMusic", Events.GameMaster)
-					return 60
+					for i = 1, #MAIN_HERO_TABLE, 1 do
+						print("LETS GO")
+						if MAIN_HERO_TABLE[i].bgm == "Winterblight.AzaleaBossMusic" then
+							print("YEP")
+						  CustomGameEventManager:Send_ServerToPlayer(MAIN_HERO_TABLE[i]:GetPlayerOwner(), "BGMend", {})
+						  CustomGameEventManager:Send_ServerToPlayer(MAIN_HERO_TABLE[i]:GetPlayerOwner(), "BGMstart", {songName = "Winterblight.AzaleaBossMusic"})
+						end
+					end
+					return 78
 				end
 			end)
 		end)
@@ -4916,6 +4925,7 @@ end
 function Winterblight:AzaleaBossDie(boss)
 	boss.dying = true
 	Winterblight.AzaleaBossSlain = true
+	Winterblight.AzaleaBossMusic = false
 	boss:RemoveModifierByName("modifier_azalea_spinning")
 	local ability = boss:FindAbilityByName("azalea_boss_passive")
 	
@@ -4943,10 +4953,11 @@ function Winterblight:AzaleaBossDie(boss)
 		Timers:CreateTimer(5, function()
 			local position = boss:GetAbsOrigin()
 			ability:ApplyDataDrivenModifier(boss, boss, "modifier_boss_frozen", {})
-			Timers:CreateTimer(6.6, function()
-				Events:smoothSizeChange(boss, boss:GetModelScale(), 1.5, 10)
+			Timers:CreateTimer(6.5, function()
+				Winterblight:objectShake(boss, 48, 15, true, true, true, "Winterblight.AzaleaBoss.DeathShaking", 24)
+				-- Events:smoothSizeChange(boss, boss:GetModelScale(), boss:GetModelScale()-0.5, 5)
 			end)
-			Timers:CreateTimer(7, function()
+			Timers:CreateTimer(8, function()
 				for i = 0, 3, 1 do
 					Timers:CreateTimer(0.1*i, function()
 						local pfx = ParticleManager:CreateParticle( "particles/roshpit/winterblight_dust.vpcf", PATTACH_CUSTOMORIGIN, nil)

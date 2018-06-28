@@ -729,6 +729,11 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			item.pickedUp = true
 			SaveLoad:ApplyValidator(gearTable, item)
 			return item
+		elseif gearTable.item_variant == "item_rpc_synthesis_vessel" then
+			local item = RPCItems:CreateConsumable("item_rpc_synthesis_vessel", "immortal", "Synthesis Vessel", "consumable", false, "Consumable", "synthesis_vessel_desc")
+			item.pickedUp = true
+			SaveLoad:ApplyValidator(gearTable, item)
+			return item
 		end
 	end
 

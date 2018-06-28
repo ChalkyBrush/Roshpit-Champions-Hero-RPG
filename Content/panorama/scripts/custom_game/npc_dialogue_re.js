@@ -257,6 +257,7 @@ function OnDragDrop( panelId, draggedPanel )
     // only care about dragged items other than us
     if ( draggedItem === null )
         return true;
+    draggedPanel.m_DragCompleted = true
     var itemValues = CustomNetTables.GetTableValue( "item_basics", draggedItem.toString() )
     var rarity = itemValues.rarityFactor
     if (draggedPanel.fromInventory && rarity >= 5){

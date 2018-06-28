@@ -2029,7 +2029,7 @@ function lava_bully_take_damage(event)
 		target.pushVelocity = 0
 	end
 	if target.big then
-		target.pushVelocity = math.min(target.pushVelocity + 1.8, 23)
+		target.pushVelocity = math.min(target.pushVelocity + 2.1, 25)
 	else
 		target.pushVelocity = math.min(target.pushVelocity + 4.2, 32)
 	end

@@ -7537,13 +7537,10 @@ function RPCItems:RollHeroicConquerorVestments(deathLocation, pitLevel)
     return item
 end
 
-function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, slotLock4, itemLevel)
-    local itemName = item:GetAbilityName()
-    local newItem = false
-    local isShop = false
-    local giveBackOldItem = false
-    local deathLocation = RPCItems.DROP_LOCATION
-    RPCItems.LevelRoll = itemLevel
+function RPCItems:RollImmortalByName(itemName, position)
+    local deathLocation = position
+    local newItem = nil
+    print(immortalName)
     if itemName == "item_rpc_magebane_gloves" then
         newItem = RPCItems:RollMageBaneGloves(deathLocation)
     elseif itemName == "item_rpc_berserker_gloves" then
@@ -7905,6 +7902,7 @@ function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, sl
     elseif itemName == "item_rpc_epsilons_eyeglass" then
         newItem = RPCItems:RollEpsilonsEyeglass(deathLocation)
     elseif itemName == "item_rpc_heroic_conqueror_vestments" then
+        print("GIMME DAT")
         newItem = RPCItems:RollHeroicConquerorVestments(deathLocation, 1)
     elseif itemName == "item_rpc_autumn_sleeper_mask" then
         newItem = RPCItems:RollAutumnSleeperMask(deathLocation, isShop)
@@ -8054,6 +8052,19 @@ function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, sl
         newItem = RPCItems:RollWinterblightSkullRing(deathLocation)
     elseif itemName == "item_rpc_heavy_echo_gauntlet" then
         newItem = RPCItems:RollHeavyEchoGauntlet(deathLocation)
+    end
+    return newItem
+end
+
+function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, slotLock4, itemLevel)
+    local itemName = item:GetAbilityName()
+    local newItem = false
+    local isShop = false
+    local giveBackOldItem = false
+    local deathLocation = RPCItems.DROP_LOCATION
+    RPCItems.LevelRoll = itemLevel
+    newItem = RPCItems:RollImmortalByName(itemName, deathLocation)
+    if newItem then
     else
         newItem = false
         giveBackOldItem = true

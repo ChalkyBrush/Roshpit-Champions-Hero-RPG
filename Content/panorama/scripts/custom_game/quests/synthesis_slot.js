@@ -1,49 +1,44 @@
 
 mElement = $.GetContextPanel().element
-mDifficulty = 0
+m_Item = -1
 function InitializeElementDrop()
 {
 	// $('#item_placement_tip').text = $.Localize('reroll_tip_one')
 	// $('#reroll_other_tip').text = $.Localize('reroll_tip_two')
-	$('#item_witch_doctor_slot').SetImage("file://{images}/custom_game/ui/empty-inventory-slot.png")
-	if (mElement == "wind"){
-		$.GetContextPanel().AddClass('green_border')
-	}else if(mElement == "water"){
-		$.GetContextPanel().AddClass('blue_border')
-	}else if(mElement == "fire"){
-		$.GetContextPanel().AddClass('red_border')
-	}
-}
-
-function ItemShowTooltipInit(){
+	$('#item_synth_slot').SetImage("file://{images}/custom_game/ui/empty-inventory-slot.png")
+	$.GetContextPanel().AddClass('blue_border')
 
 }
 
-function ItemHideTooltipInit(){
-	
-}
+
 
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-m_Item = 0;
-mShards = $.GetContextPanel().shards
 
 function OnDragEnter( a, draggedPanel )
 {
 	var draggedItem = draggedPanel.m_DragItem;
-
+	$.Msg("HOVERITA")
 	// only care about dragged items other than us
 	if ( draggedItem === null || (!(draggedPanel.fromInventory)) )
 		return true;
 
 	var itemName = Abilities.GetAbilityName(draggedItem)
-	if (isValidCoreItem(itemName)){
-		$('#item_witch_doctor_slot').AddClass( "item_highlight" );
+	if (isValidItem(draggedItem)){
+		$.GetContextPanel().AddClass( "synth_highlight" );
+		$.GetContextPanel().RemoveClass("blue_border")
 	}
 	// Game.EmitSound("Item.DropRecipeWorld")
 	return true;
+}
+
+function StopUnit(unit){
+    GameUI.DropItemLock = true
+	$.Schedule(0.03, function(){
+		GameUI.DropItemLock = false
+	});
 }
 
 function OnDragDrop( panelId, draggedPanel )
@@ -53,15 +48,45 @@ function OnDragDrop( panelId, draggedPanel )
 	// only care about dragged items other than us
 	if ( draggedItem === null )
 		return true;
+	$.Msg(panelId)
+	$.Msg(draggedItem)
 	var itemName = Abilities.GetAbilityName(draggedItem)
-	if (draggedPanel.fromInventory && isCorrectCoreItem(itemName)){
+	if (draggedPanel.fromInventory && isValidItem(draggedItem)){
 			var playerID = Game.GetLocalPlayerID()
 			var heroIndex = Players.GetPlayerHeroEntityIndex( playerID)
+			draggedPanel.m_DragCompleted = true
+			m_Item = draggedItem
 			Game.EmitSound("ui.crafting_pulse")
-			GameEvents.SendCustomGameEventToServer( "drag_item_to_tanari_doctor_slot", {playerID: playerID, heroIndex: heroIndex, itemIndex: draggedItem});
+			GameEvents.SendCustomGameEventToServer( "drag_item_to_synthesis_slot", {playerID: playerID, heroIndex: heroIndex, itemIndex: draggedItem, vessel: $.GetContextPanel().vessel});
+			$('#item_synth_slot').contextEntityIndex = draggedItem;
+			$('#item_synth_slot').SetAttributeInt("item", draggedItem)		
+			$.GetContextPanel().AddClass("blue_border")
+			$.GetContextPanel().RemoveClass( "synth_highlight" );
+			$.GetContextPanel().vesselParent.FindChildTraverse('final_combine_button_container').RemoveClass("invisible")
+			$.GetContextPanel().vesselParent.FindChildTraverse('final_combine_button_label').text = $.Localize("#synthesize_button")
+			$.GetContextPanel().vesselParent.LastItem = m_Item
 	}
 	return true
 
+}
+
+function ItemShowTooltipInit()
+{
+	var item = m_Item
+	if ( item == -1 )
+		return;
+	var itemName = Abilities.GetAbilityName( item );
+	var queryUnit = Players.GetLocalPlayerPortraitUnit();
+	$.GetContextPanel().SetAttributeInt( "item", item)
+	$.Msg("HELLO SIR")
+	ItemShowTooltipOnPanel($.GetContextPanel())
+}
+
+function ItemHideTooltipInit()
+{
+	ItemHideTooltipByPanel($.GetContextPanel())
+	// $.DispatchEvent( "DOTAHideTitleTextTooltip", $.GetContextPanel() );
+	// $.DispatchEvent( "DOTAHideAbilityTooltip", $.GetContextPanel() );
 }
 
 function OnDragLeave( panelId, draggedPanel )
@@ -69,17 +94,20 @@ function OnDragLeave( panelId, draggedPanel )
 	var draggedItem = draggedPanel.m_DragItem;
 	if ( draggedItem === null || draggedItem == m_Item )
 		return false;
-
-	$('#item_witch_doctor_slot').RemoveClass( "item_highlight" );
+	$.GetContextPanel().AddClass("blue_border")
+	$.GetContextPanel().RemoveClass( "synth_highlight" );
 	return true;
 }
 
-function isValidCoreItem(itemName){
-	if ((itemName.indexOf("_essence_of_wind_") > 0) || (itemName.indexOf("_heart_of_water_") > 0) || (itemName.indexOf("_core_of_fire_") > 0)){
-		return true
-	}else{
+function isValidItem(item){
+	var itemName = Abilities.GetAbilityName(item)
+	if ((itemName.indexOf("synthesis_vessel") > 0)){
 		return false
 	}
+	if (item == $.GetContextPanel().vesselParent.LastItem){
+		return false
+	}
+	return true
 }
 
 function isCorrectCoreItem(itemName){
@@ -110,8 +138,8 @@ function itemPlaced(msg)
 	var itemIndex = msg.itemIndex
 	var itemName = Abilities.GetAbilityName(itemIndex)
 	if (isCorrectCoreItem(itemName)){
-		$('#item_witch_doctor_slot').contextEntityIndex = itemIndex;
-		$('#item_witch_doctor_slot').SetAttributeInt("item", itemIndex)
+		$('#item_synth_slot').contextEntityIndex = itemIndex;
+		$('#item_synth_slot').SetAttributeInt("item", itemIndex)
 		
 		mDifficulty = getItemDifficultyLevel(itemName)
 		$.GetContextPanel().mDifficulty = mDifficulty
@@ -140,9 +168,8 @@ function checkItemCondition(){
 (function()
 {
 	InitializeElementDrop();
-	GameEvents.Subscribe( "witch_doctor_item_placed", itemPlaced)
-	$.RegisterEventHandler( 'DragEnter', $('#item_witch_doctor_slot'), OnDragEnter );
-	$.RegisterEventHandler( 'DragDrop', $('#item_witch_doctor_slot'), OnDragDrop );
-	$.RegisterEventHandler( 'DragLeave', $('#item_witch_doctor_slot'), OnDragLeave );
+	$.RegisterEventHandler( 'DragEnter', $('#item_synth_slot'), OnDragEnter );
+	$.RegisterEventHandler( 'DragDrop', $('#item_synth_slot'), OnDragDrop );
+	$.RegisterEventHandler( 'DragLeave', $('#item_synth_slot'), OnDragLeave );
 })();
 

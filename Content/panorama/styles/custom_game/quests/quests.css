@@ -441,3 +441,17 @@
 #final_combine_button_label{
 	vertical-align:center;
 }
+
+.synthesis_slot_root{
+	margin-right:10px;
+}
+
+.synth_highlight{
+	box-shadow:0px 0px 5px #E4AE33;
+	border:1px solid white;
+}
+
+#item_tooltip_button{
+	height:100%;
+	width:100%;
+}

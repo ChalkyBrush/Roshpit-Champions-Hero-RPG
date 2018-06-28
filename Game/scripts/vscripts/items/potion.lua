@@ -154,3 +154,7 @@ function use_web_prem_token(event)
 	end )
 
 end
+
+function use_synthesis_vessel(event)
+	RPCItems:UseSynthesisVessel(event.caster, event.ability)
+end

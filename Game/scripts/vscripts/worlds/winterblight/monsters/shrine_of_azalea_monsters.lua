@@ -3241,6 +3241,7 @@ function azalea_boss_think(event)
 		if caster.phase == 1 then
 			caster:AddAbility("azalea_boss_multi_strike"):SetLevel(GameState:GetDifficultyFactor())
 			caster:AddAbility("stargazer_glissade"):SetLevel(GameState:GetDifficultyFactor())
+			caster:FindAbilityByName("stargazer_glissade"):StartCooldown(3.6)
 		end
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_disable_player", {duration = 14})
 		Timers:CreateTimer(14, function()
@@ -3260,9 +3261,11 @@ function azalea_boss_think(event)
 				end)
 			elseif caster.phase == 2 then
 				caster:AddAbility("azalea_ice_orb_passive"):SetLevel(GameState:GetDifficultyFactor())
+				caster:FindAbilityByName("stargazer_glissade"):StartCooldown(3.6)
 			elseif caster.phase == 3 then
 				caster:AddAbility("ability_mega_haste"):SetLevel(GameState:GetDifficultyFactor())
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_azalea_phase_4", {})
+				caster:FindAbilityByName("stargazer_glissade"):StartCooldown(3.6)
 				Timers:CreateTimer(1, function()
 					EmitSoundOn("Winterblight.AzaleaBoss.Phase3.VO", caster)
 				end)

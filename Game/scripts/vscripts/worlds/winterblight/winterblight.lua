@@ -10,6 +10,12 @@ function Winterblight:Debug()
     local drop = CreateItemOnPositionSync( Vector(-15424,-2560), item )
     local position = Vector(-15424,-2560)
     RPCItems:DropItem(item, Vector(-15424,-2560))
+
+    RPCItems:DropSynthesisVessel(Vector(-15424,-2560))
+    RPCItems:RollSeinaruArcana1(Vector(-15424,-2560))
+    RPCItems:RollSeinaruArcana2(Vector(-15424,-2560))
+    RPCItems:RollHeroicConquerorVestments(Vector(-15424,-2560), 7)
+    RPCItems:RollHeroicConquerorVestments(Vector(-15424,-2560), 7)
 end
 
 
@@ -156,7 +162,11 @@ function Winterblight:CalculateHeroZones()
             hero.bgm = "Music.Winterblight.Start"
           elseif (WallPhysics:IsWithinRegionA(heroOrigin, Vector(-17000, -17000), Vector(-9856,-9550))) or (WallPhysics:IsWithinRegionA(heroOrigin, Vector(-17000, -17000), Vector(16384,-9550))) then
             CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_zone_display", {zoneName = "shrine_of_azalea"} )
-            hero.bgm = "Music.Winterblight.ShrineOfAzelea"
+            if Winterblight.AzaleaBossMusic then
+              hero.bgm = "Winterblight.AzaleaBossMusic"
+            else
+              hero.bgm = "Music.Winterblight.ShrineOfAzelea"
+            end
           elseif (WallPhysics:IsWithinRegionA(heroOrigin, Vector(-9856, -9496), Vector(10058,267))) then
             CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_zone_display", {zoneName = "winterblight_mountain"} )
             hero.bgm = "Music.Winterblight.Start"

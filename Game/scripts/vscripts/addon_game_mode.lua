@@ -64,7 +64,7 @@ PrecacheUnitByNameSync("the_curator", context)
 
 -- PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_meepo.vsndevts", context)
 
- 
+
 PrecacheResource("particle", "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf", context)
 PrecacheResource("particle", "particles/units/heroes/hero_oracle/duskbringer_c_a_heal_heal_core.vpcf", context)
 PrecacheResource("particle", "particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_gold_lvl2.vpcf", context)
@@ -136,7 +136,7 @@ PrecacheResource("particle", "particles/units/heroes/hero_treant/treant_livingar
 PrecacheResource("model", "models/heroes/antimage/antimage_offhand_weapon.vmdl", context)
 PrecacheResource("model",  "models/heroes/antimage/antimage_weapon.vmdl", context)
 PrecacheResource("model",  "models/items/furion/treant/shroomling_treant/shroomling_treant.vmdl", context)
-
+PrecacheResource("particle", "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_g_cowlofice_b.vpcf", context)
 -- PrecacheResource("particle", "particles/units/heroes/hero_dragon_knight/dragon_knight_breathe_fire.vpcf", context)
 -- PrecacheResource("particle", "particles/items/cannon/breath_of_ice.vpcf", context)
 -- PrecacheResource("particle", "particles/items/cannon/breath_of_wind.vpcf", context)
@@ -154,6 +154,7 @@ PrecacheResource("particle", "particles/econ/items/meepo/meepo_colossal_crystal_
  PrecacheResource("model", "models/props_gameplay/salve_blue.vmdl", context)
  PrecacheResource("model", "models/props_gameplay/salve.vmdl", context)
  PrecacheResource("model", "models/props_gameplay/red_box.vmdl", context)
+ PrecacheResource("model", "models/props_gameplay/clarity.vmdl", context)
  PrecacheResource("model", "models/props_gameplay/treasure_chest001.vmdl", context)
  
 

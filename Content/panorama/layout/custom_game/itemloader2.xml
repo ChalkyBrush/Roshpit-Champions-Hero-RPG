@@ -52,7 +52,7 @@
 
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/custom_game/ui/sword_icon_star.png" />
  -->
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/ancient_tanari_wind_armor.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/custom_game/ui/synth_vessel_background.jpg" />
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/brazen_kabuto_of_the_desert_realm.png" />
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/harvester_boots.png" />
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/ice_quill_carapace.png" />

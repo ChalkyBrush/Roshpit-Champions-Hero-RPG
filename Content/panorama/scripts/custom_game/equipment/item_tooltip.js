@@ -8,7 +8,7 @@ function ItemShowTooltipOnPanel(itemPanel)
 	}
 	if ( item == -1 )
 		return;
-	$.Msg(itemPanel)
+	// $.Msg(itemPanel)
 	// var itemName = Abilities.GetAbilityName( item );
 	// var queryUnit = Players.GetLocalPlayerPortraitUnit();
 	// //var property1 = RPCItems.GetProperty1( item )

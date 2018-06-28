@@ -1681,3 +1681,89 @@ function RPCItems:GetAvailableArcanaData(hero)
     end
     return arcanaData
 end
+
+function RPCItems:RollArcanaByName(arcana_name, position)
+    local arcana = nil
+    if arcana_name == "item_rpc_flamewaker_arcana1" then
+        arcana = RPCItems:RollFlamewakerArcana1(position)
+    elseif arcana_name == "item_rpc_flamewaker_arcana2" then
+        arcana = RPCItems:RollFlamewakerArcana2(position)
+    elseif arcana_name == "item_rpc_voltex_arcana1" then
+        arcana = RPCItems:RollVoltexArcana1(position)
+    elseif arcana_name == "item_rpc_venomort_arcana1" then
+        arcana = RPCItems:RollVenomortArcana1(position)
+    elseif arcana_name == "item_rpc_venomort_arcana2" then
+        arcana = RPCItems:RollVenomortArcana2(position)
+    elseif arcana_name == "item_rpc_axe_arcana1" then
+        arcana = RPCItems:RollAxeArcana1(position)
+    elseif arcana_name == "item_rpc_astral_arcana1" then
+        arcana = RPCItems:RollAstralArcana1(position)
+    elseif arcana_name == "item_rpc_astral_arcana2" then
+        arcana = RPCItems:RollAstralArcana2(position)
+    elseif arcana_name == "item_rpc_epoch_arcana1" then
+        arcana = RPCItems:RollEpochArcana1(position)
+    elseif arcana_name == "item_rpc_paladin_arcana1" then
+        arcana = RPCItems:RollPaladinArcana1(position)
+    elseif arcana_name == "item_rpc_paladin_arcana2" then
+        arcana = RPCItems:RollPaladinArcana2(position)
+    elseif arcana_name == "item_rpc_sorceress_arcana1" then
+        arcana = RPCItems:RollSorceressArcana1(position)
+    elseif arcana_name == "item_rpc_sorceress_arcana2" then
+        arcana = RPCItems:RollSorceressArcana2(position)
+    elseif arcana_name == "item_rpc_conjuror_arcana1" then
+        arcana = RPCItems:RollConjurorArcana1(position)
+    elseif arcana_name == "item_rpc_seinaru_arcana1" then
+        arcana = RPCItems:RollSeinaruArcana1(position)
+    elseif arcana_name == "item_rpc_seinaru_arcana2" then
+        arcana = RPCItems:RollSeinaruArcana2(position)
+    elseif arcana_name == "item_rpc_warlord_arcana1" then
+        arcana = RPCItems:RollWarlordArcana1(position)
+    elseif arcana_name == "item_rpc_bahamut_arcana1" then
+        arcana = RPCItems:RollBahamutArcana1(position)
+    elseif arcana_name == "item_rpc_bahamut_arcana2" then
+        arcana = RPCItems:RollBahamutArcana2(position)
+    elseif arcana_name == "item_rpc_duskbringer_arcana1" then
+        arcana = RPCItems:RollDuskbringerArcana1(position)
+    elseif arcana_name == "item_rpc_auriun_arcana1" then
+        arcana = RPCItems:RollAuriunArcana1(position)
+    elseif arcana_name == "item_rpc_auriun_arcana2" then
+        arcana = RPCItems:RollAuriunArcana2(position)
+    elseif arcana_name == "item_rpc_trapper_arcana1" then
+        arcana = RPCItems:RollTrapperArcana1(position)
+    elseif arcana_name == "item_rpc_spirit_warrior_arcana1" then
+        arcana = RPCItems:RollSpiritWarriorArcana1(position)
+    elseif arcana_name == "item_rpc_spirit_warrior_arcana2" then
+        arcana = RPCItems:RollSpiritWarriorArcana2(position)
+    elseif arcana_name == "item_rpc_spirit_warrior_arcana3" then
+        arcana = RPCItems:RollSpiritWarriorArcana3(position)
+    elseif arcana_name == "item_rpc_mountain_protector_arcana1" then
+        arcana = RPCItems:RollMountainProtectorArcana1(position)
+    elseif arcana_name == "item_rpc_mountain_protector_arcana2" then
+        arcana = RPCItems:RollMountainProtectorArcana2(position)
+    elseif arcana_name == "item_rpc_mountain_protector_arcana3" then
+        arcana = RPCItems:RollMountainProtectorArcana3(position)
+    elseif arcana_name == "item_rpc_chernobog_arcana1" then
+        arcana = RPCItems:RollChernobogArcana1(position)
+    elseif arcana_name == "item_rpc_chernobog_arcana2" then
+        arcana = RPCItems:RollChernobogArcana2(position)
+    elseif arcana_name == "item_rpc_solunia_arcana1" then
+        arcana = RPCItems:RollSoluniaArcana1(position)
+    elseif arcana_name == "item_rpc_solunia_arcana2" then
+        arcana = RPCItems:RollSoluniaArcana2(position)
+    elseif arcana_name == "item_rpc_hydroxis_arcana1" then
+        arcana = RPCItems:RollHydroxisArcana1(position)
+    elseif arcana_name == "item_rpc_ekkan_arcana1" then
+        arcana = RPCItems:RollEkkanArcana1(position)
+    elseif arcana_name == "item_rpc_zonik_arcana1" then
+        arcana = RPCItems:RollZhonikArcana1(position)
+    elseif arcana_name == "item_rpc_zonik_arcana2" then
+        arcana = RPCItems:RollZhonikArcana2(position)
+    elseif arcana_name == "item_rpc_arkimus_arcana1" then
+        arcana = RPCItems:RollArkimusArcana1(position)
+    elseif arcana_name == "item_rpc_arkimus_arcana2" then
+        arcana = RPCItems:RollArkimusArcana2(position)
+    elseif arcana_name == "item_rpc_djanghor_arcana1" then
+        arcana = RPCItems:RollDjanghorArcana1(position)
+    end
+    return arcana
+end

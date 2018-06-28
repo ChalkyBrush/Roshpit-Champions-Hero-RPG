@@ -234,6 +234,9 @@ function GameMode:_InitGameMode()
 
   CustomGameEventManager:RegisterListener("stats_hover", Dynamic_Wrap(CustomAttributes, "ActivateStatsTooltip"))
   
+  CustomGameEventManager:RegisterListener( "drag_item_to_synthesis_slot", Dynamic_Wrap(RPCItems, "SynthesisItemPlaced"))
+  CustomGameEventManager:RegisterListener( "synth_combine_items", Dynamic_Wrap(RPCItems, "CombineItems"))
+
   -- GameMode:SetTrackingProjectileFilter( Dynamic_Wrap( Attacks, "FilterProjectile" ), self )
   --ListenToGameEvent("dota_tutorial_shop_toggled", Dynamic_Wrap(GameMode, 'OnShopToggled'), self)
 
