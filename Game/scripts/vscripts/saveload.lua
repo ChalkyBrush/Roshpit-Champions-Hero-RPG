@@ -413,7 +413,7 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 		url = url.."&suffix"..gearSlot.."="..escape(itemTable.itemSuffix)
 		local affixCount = 0
 		print("TU78A")
-		if item:GetAbilityName() == "item_rpc_web_premium_token" then
+		if item:GetAbilityName() == "item_rpc_web_premium_token" or string.match(item:GetAbilityName(), "galactic_arcana_cache") then
 			print("TU78B")
 			local affixCount = 1
 			for i = 1, affixCount, 1 do
@@ -679,46 +679,61 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			return item
 		end
 	else
+
 		if gearTable.item_variant == "item_reanimation_stone" then
 			local item = RPCItems:CreateConsumable("item_reanimation_stone", "mythical", "Reanimation Stone", "consumable", false, "Consumable", "reanimation_stone_desc")
 			item.pickedUp = true
 			SaveLoad:ApplyValidator(gearTable, item)
+			SaveLoad:RemoveProperties(item)
+			SaveLoad:RemoveAdditionalData(item, false, false)
 			return item
 		elseif gearTable.item_name == "glyph" then
 			print(gearTable.item_variant)
 			local item = Glyphs:RollGlyphAll(gearTable.item_variant, Vector(0, 0), -1)
 			item.pickedUp = true
 			SaveLoad:ApplyValidator(gearTable, item)
+			SaveLoad:RemoveProperties(item)
 			return item
 		elseif gearTable.item_name == "temple_key" then
 			local key = RPCItems:CreateConsumable(gearTable.item_variant, "rare", "temple_key", "consumable", false, "Consumable", gearTable.item_variant.."_desc")
 			key.pickedUp = true
 			SaveLoad:ApplyValidator(gearTable, key)
+			SaveLoad:RemoveProperties(key)
+			SaveLoad:RemoveAdditionalData(key, false, false)
 			return key
 		elseif gearTable.item_name == "tanari_element" then
 			local element = RPCItems:CreateConsumable(gearTable.item_variant, "mythical", "tanari_element", "consumable", false, "Key Item", gearTable.item_variant.."_desc")
 			element.pickedUp = true
 			SaveLoad:ApplyValidator(gearTable, element)
+			SaveLoad:RemoveProperties(element)
+			SaveLoad:RemoveAdditionalData(element, false, false)
 			return element
 		elseif gearTable.item_name == "tanari_spirit_stones" then
 			local stones = RPCItems:CreateConsumable(gearTable.item_variant, "immortal", "tanari_spirit_stones", "consumable", false, "Consumable", gearTable.item_variant.."_desc")
 			stones.pickedUp = true
 			SaveLoad:ApplyValidator(gearTable, stones)
+			SaveLoad:RemoveProperties(stones)
+			SaveLoad:RemoveAdditionalData(stones, false, false)
 			return stones
 		elseif gearTable.item_name == "redfall_key" then
 			local key = RPCItems:CreateConsumable(gearTable.item_variant, "rare", "redfall_key", "consumable", false, "Consumable", gearTable.item_variant.."_desc")
 			key.pickedUp = true
 			SaveLoad:ApplyValidator(gearTable, key)
+			SaveLoad:RemoveProperties(key)
+			SaveLoad:RemoveAdditionalData(key, false, false)
 			return key
 		elseif gearTable.item_name == "glyph_book" then
 			print("ITEM NAME == GLYPH BOOK")
 			local item = Glyphs:CreateGlyphBook(gearTable.item_variant, gearTable.property1, gearTable.property2)
 			item.pickedUp = true
+			SaveLoad:RemoveProperties(item)
 			SaveLoad:ApplyValidator(gearTable, item)
 			return item
 		elseif gearTable.item_variant == "item_rpc_web_premium_token" then
 			print("IN HERE??")
 			local item = RPCItems:CreateConsumable("item_rpc_web_premium_token", "immortal", "Web Premium Token", "consumable", false, "Consumable", "web_premium_desc")
+			SaveLoad:RemoveProperties(item)
+			SaveLoad:RemoveAdditionalData(item, false, false)
 			item.property1 = gearTable.property1
 			item.property1color = gearTable.property1color
 			item.property1name = gearTable.property1name
@@ -731,12 +746,47 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			return item
 		elseif gearTable.item_variant == "item_rpc_synthesis_vessel" then
 			local item = RPCItems:CreateConsumable("item_rpc_synthesis_vessel", "immortal", "Synthesis Vessel", "consumable", false, "Consumable", "synthesis_vessel_desc")
+			SaveLoad:RemoveProperties(item)
+			SaveLoad:RemoveAdditionalData(item, false, false)
+			item.consumable = true
+			item.stashable = true
 			item.pickedUp = true
+			SaveLoad:ApplyValidator(gearTable, item)
+			return item
+		elseif string.match(gearTable.item_variant, "galactic_arcana_cache") then
+			local item = RPCItems:CreateConsumable(gearTable.item_variant, "immortal", "Arcana Cache Part", "consumable", false, "Consumable", gearTable.item_variant.."_desc")
+			SaveLoad:RemoveProperties(item)
+			SaveLoad:RemoveAdditionalData(item, false, false)
+			item.stashable = true
+			item.consumable = true
+			item.pickedUp = true
+			item.property1 = gearTable.property1
+		    item.property1name = gearTable.property1name
+			item.property1color = gearTable.property1color
+			item.property1tooltip = gearTable.property1tooltip
+			RPCItems:SetPropertyValues(item, item.property1, "cache_radiance", item.property1color,  1)
 			SaveLoad:ApplyValidator(gearTable, item)
 			return item
 		end
 	end
 
+end
+
+function SaveLoad:RemoveProperties(item)
+	for i = 1, 4, 1 do
+		RPCItems:SetPropertyValues(item, nil, nil, nil, i)
+	end
+end
+
+function SaveLoad:RemoveAdditionalData(item, bRequiredLevel, bHeroRequirement)
+    local itemInfo = CustomNetTables:GetTableValue("item_basics", tostring(item:GetEntityIndex()))
+    -- if bRequiredLevel then
+    -- 	CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemInfo.itemName, consumable = itemInfo.consumable, itemDescription = itemInfo.itemDescription, qualityColor = itemInfo.qualityColor, qualityName = itemInfo.qualityName, itemPrefix = itemInfo.itemPrefix, itemSuffix = itemInfo.itemSuffix, rarityFactor = itemInfo.rarityFactor, minLevel = newItem.minLevel} )
+    -- elseif bHeroRequirement then
+    -- 	CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemInfo.itemName, consumable = itemInfo.consumable, itemDescription = itemInfo.itemDescription, qualityColor = itemInfo.qualityColor, qualityName = itemInfo.qualityName, itemPrefix = itemInfo.itemPrefix, itemSuffix = itemInfo.itemSuffix, rarityFactor = itemInfo.rarityFactor, requiredHero = itemInfo.requiredHero  } )
+    -- else
+    -- 	CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemInfo.itemName, consumable = itemInfo.consumable, itemDescription = itemInfo.itemDescription, qualityColor = itemInfo.qualityColor, qualityName = itemInfo.qualityName, itemPrefix = itemInfo.itemPrefix, itemSuffix = itemInfo.itemSuffix, rarityFactor = itemInfo.rarityFactor } )
+    -- end
 end
 
 function SaveLoad:ApplyValidator(gearTable, item)

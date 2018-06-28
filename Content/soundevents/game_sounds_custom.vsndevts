@@ -5051,7 +5051,7 @@ Env.LavaHit
                               "value0"        "sounds/synthesis.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "1.35000"  }
+                    "volume"            {   "value"     "1.75000"  }
                     "pitch_rand_min"    {   "value"     "-0.03000"  }
                     "pitch_rand_max"    {   "value"     "0.030000"  }
                     "pitch"             {   "value"     "0.95000"  }

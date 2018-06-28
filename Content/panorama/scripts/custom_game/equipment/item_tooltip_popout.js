@@ -181,7 +181,7 @@ function initializeTooltip(func){
 
 		var weaponValues = CustomNetTables.GetTableValue( "weapons", "item"+item.toString() )
 		$.Msg(weaponValues)
-		if (!(weaponValues === undefined)){
+		if (!(weaponValues === undefined) && !(weaponValues.level === undefined)){
 			$.Msg("SHOULD BE HERE!!!")
 			$('#tooltip_weapons_data_container').RemoveClass('invisible')
 			$('#tooltip_weapon_left1').text = "<font color='#ffb8b7'>"+$.Localize('weapon_usable')+"</font> <font color='#AAAAAA'>"+$.Localize('weapon_current_level')+":</font>"

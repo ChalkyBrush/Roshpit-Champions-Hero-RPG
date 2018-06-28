@@ -1,5 +1,7 @@
 function RPCItems:DropSynthesisVessel(position)
     local item = RPCItems:CreateConsumable("item_rpc_synthesis_vessel", "immortal", "Synthesis Vessel", "consumable", false, "Consumable", "synthesis_vessel_desc")
+    item.stashable = true
+    item.consumable = true
     RPCItems:BasicDropItem(position, item)
 end
 
@@ -79,6 +81,7 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 			new_min_level = math.max(math.min(new_min_level, 100), 3)
 			RPCItems.LevelRoll = new_min_level
 			local newItem = RPCItems:RollArcanaByName(newArcanaName, position)
+			RPCItems.LevelRoll = nil
 			if newItem and IsValidEntity(newItem) then
 	            newItem.pickedUp = true
 	            newItem.minLevel = new_min_level
@@ -96,6 +99,7 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 			new_min_level = math.max(math.min(new_min_level, 100), 3)
 			RPCItems.LevelRoll = new_min_level
 			local newItem = RPCItems:RollImmortalByName(newItemName, position)
+			RPCItems.LevelRoll = nil
 			if newItem and IsValidEntity(newItem) then
 	            newItem.pickedUp = true
 	            newItem.minLevel = new_min_level
@@ -109,6 +113,103 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 			return false
 		end
 	else
-		return false
+		if (item1:GetAbilityName() == "item_rpc_galactic_arcana_cache_piece_1" and item2:GetAbilityName() == "item_rpc_galactic_arcana_cache_piece_2") or (item1:GetAbilityName() == "item_rpc_galactic_arcana_cache_piece_2" and item2:GetAbilityName() == "item_rpc_galactic_arcana_cache_piece_1") then
+			local radianceAVG = math.floor((item1.property1 + item2.property1)/2)
+			local key1 = "abc"
+			local key2 = "xyz"
+			local validatorTable = CustomNetTables:GetTableValue("item_basics", tostring(item1:GetEntityIndex()).."-key")
+			if validatorTable then
+				key1 = validatorTable.key
+			end
+			local validatorTable = CustomNetTables:GetTableValue("item_basics", tostring(item2:GetEntityIndex()).."-key")
+			if validatorTable then
+				key2 = validatorTable.key
+			end
+			local validator = key1.."-"..key2
+			local newItem = RPCItems:CreateArcanaCache(radianceAVG, validator)
+			if newItem and IsValidEntity(newItem) then
+	            newItem.pickedUp = true
+				return newItem
+			else
+				return false
+			end			
+		else
+			return false
+		end
+	end
+end
+
+function RPCItems:RollRandomArcanaCachePart(position)
+	local partNameTable = {"item_rpc_galactic_arcana_cache_piece_1", "item_rpc_galactic_arcana_cache_piece_2"}
+	local part_name = partNameTable[RandomInt(1, 2)]
+	RPCItems:DropGalacticArcanaCachePart(part_name, position)
+end
+
+function RPCItems:CreateArcanaCache(radiance, validator)
+    local item = RPCItems:CreateConsumable("item_rpc_galactic_arcana_cache", "arcana", "Galactic Arcana Cache", "consumable", false, "Consumable", "item_rpc_galactic_arcana_cache_desc")
+    item.stashable = true
+    item.consumable = true
+    item.property1 = radiance
+    item.property1name = "cache_radiance"
+	item.property1color = "#e9ff5b"
+	item.property1tooltip = "cache_radiance"
+	RPCItems:SetPropertyValues(item, item.property1, "cache_radiance", item.property1color,  1)
+    RPCItems:BasicDropItem(RPCItems.DROP_LOCATION, item)	
+    CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()).."-key", {key = validator} )
+    return item
+end
+
+function RPCItems:DropGalacticArcanaCachePart(part_name, position)
+    local item = RPCItems:CreateConsumable(part_name, "immortal", "Arcana Cache Part", "consumable", false, "Consumable", part_name.."_desc")
+    item.stashable = true
+    item.consumable = true
+    item.property1 = RPCItems:GetMinLevel()
+    item.property1name = "cache_radiance"
+	item.property1color = "#e9ff5b"
+	item.property1tooltip = "cache_radiance"
+	RPCItems:SetPropertyValues(item, item.property1, "cache_radiance", item.property1color,  1)
+    RPCItems:BasicDropItem(position, item)
+    local validator = WallPhysics:RandomString(15)
+    print(validator)
+    CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()).."-key", {key = validator} )
+end
+
+function RPCItems:UseArcanaCache(caster, item)
+	if item:GetAbilityName() == "item_rpc_galactic_arcana_cache" then
+		local radiance = item.property1
+		if not Challenges:CheckIfHeroHasItemByItemIndex(caster, item:GetEntityIndex()) then
+			return false
+		end
+		local validator = ""
+		local validatorTable = CustomNetTables:GetTableValue("item_basics", tostring(item:GetEntityIndex()).."-key")
+		if validatorTable then
+			validator = validatorTable.key
+		end
+		local playerID = caster:GetPlayerOwnerID()
+		local steamID = PlayerResource:GetSteamAccountID(playerID)
+		local url = ROSHPIT_URL.."/champions/arcana_cache_use?"
+		url = url.."steam_id="..steamID
+		url = url.."&validator="..validator
+		url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
+		CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
+			if result.StatusCode == 200 then
+				print( "POST response:\n" )
+				for k,v in pairs( result ) do
+					print( string.format( "%s : %s\n", k, v ) )
+				end
+				print( "Done." )
+				local resultTable = JSON:decode(result.Body)
+				if resultTable.success == 1 then
+					RPCItems.LevelRoll = radiance
+					for i = 1, 3, 1 do
+						RPCItems:RollRandomArcana(caster:GetAbsOrigin())
+					end
+					RPCItems.LevelRoll = nil
+				end
+				if IsValidEntity(item) then
+					UTIL_Remove(item)
+				end
+			end
+		end )
 	end
 end

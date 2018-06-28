@@ -158,3 +158,7 @@ end
 function use_synthesis_vessel(event)
 	RPCItems:UseSynthesisVessel(event.caster, event.ability)
 end
+
+function use_arcana_cache(event)
+	RPCItems:UseArcanaCache(event.caster, event.ability)
+end

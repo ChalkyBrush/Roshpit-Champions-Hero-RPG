@@ -1682,6 +1682,22 @@ function RPCItems:GetAvailableArcanaData(hero)
     return arcanaData
 end
 
+function RPCItems:RollRandomArcana(position)
+    local arcanaTable = RPCItems:GetAllArcanaNames()
+    local randomArcanaName = arcanaTable[RandomInt(1, #arcanaTable)]
+    RPCItems:RollArcanaByName(randomArcanaName, position)
+end
+
+function RPCItems:GetAllArcanaNames()
+    local arcanaTable = {"item_rpc_flamewaker_arcana1", "item_rpc_flamewaker_arcana2", "item_rpc_voltex_arcana1", "item_rpc_venomort_arcana1", "item_rpc_venomort_arcana2", "item_rpc_axe_arcana1",
+    "item_rpc_astral_arcana1", "item_rpc_astral_arcana2", "item_rpc_epoch_arcana1", "item_rpc_paladin_arcana1", "item_rpc_paladin_arcana2", "item_rpc_sorceress_arcana1", "item_rpc_sorceress_arcana2",
+    "item_rpc_conjuror_arcana1", "item_rpc_seinaru_arcana1", "item_rpc_seinaru_arcana2", "item_rpc_warlord_arcana1", "item_rpc_bahamut_arcana1", "item_rpc_bahamut_arcana2", "item_rpc_trapper_arcana1",
+    "item_rpc_spirit_warrior_arcana1", "item_rpc_spirit_warrior_arcana2", "item_rpc_spirit_warrior_arcana3", "item_rpc_mountain_protector_arcana1", "item_rpc_mountain_protector_arcana2", "item_rpc_mountain_protector_arcana3",
+    "item_rpc_chernobog_arcana1", "item_rpc_chernobog_arcana2", "item_rpc_solunia_arcana1", "item_rpc_solunia_arcana2", "item_rpc_hydroxis_arcana1", "item_rpc_ekkan_arcana1", "item_rpc_zonik_arcana1",
+    "item_rpc_zonik_arcana2", "item_rpc_arkimus_arcana1", "item_rpc_arkimus_arcana2", "item_rpc_djanghor_arcana1"}
+    return arcanaTable
+end
+
 function RPCItems:RollArcanaByName(arcana_name, position)
     local arcana = nil
     if arcana_name == "item_rpc_flamewaker_arcana1" then

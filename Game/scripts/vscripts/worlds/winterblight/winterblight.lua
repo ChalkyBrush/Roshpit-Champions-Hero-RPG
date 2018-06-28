@@ -12,10 +12,9 @@ function Winterblight:Debug()
     RPCItems:DropItem(item, Vector(-15424,-2560))
 
     RPCItems:DropSynthesisVessel(Vector(-15424,-2560))
-    RPCItems:RollSeinaruArcana1(Vector(-15424,-2560))
-    RPCItems:RollSeinaruArcana2(Vector(-15424,-2560))
-    RPCItems:RollHeroicConquerorVestments(Vector(-15424,-2560), 7)
-    RPCItems:RollHeroicConquerorVestments(Vector(-15424,-2560), 7)
+    for i = 1, 4, 1 do
+      RPCItems:RollRandomArcanaCachePart(Vector(-15424,-2560))
+    end
 end
 
 

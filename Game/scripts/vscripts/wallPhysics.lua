@@ -714,3 +714,15 @@ function WallPhysics:RandomPointInSquare(vec1, vec2)
 	local point = vec1 + Vector(RandomInt(0, vec2.x - vec1.x), RandomInt(0, vec2.y - vec1.y))
 	return point
 end
+
+function WallPhysics:RandomString(length)
+local charset = {}  do -- [0-9a-zA-Z]
+    for c = 48, 57  do table.insert(charset, string.char(c)) end
+    for c = 65, 90  do table.insert(charset, string.char(c)) end
+    for c = 97, 122 do table.insert(charset, string.char(c)) end
+end
+
+if not length or length <= 0 then return '' end
+return WallPhysics:RandomString(length - 1) .. charset[RandomInt(1, #charset)]
+
+end

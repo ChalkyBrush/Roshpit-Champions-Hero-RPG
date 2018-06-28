@@ -241,7 +241,7 @@ function RPCItems:CreateConsumable(variantName, rarityName, itemNameText, slot, 
     item.stackable = true
     item.stashable = true
     RPCItems:SetTableValues(item, itemName, false, slotText, RPCItems:GetRarityColor(item.rarity), item.rarity, "", "", RPCItems:GetRarityFactor(item.rarity))
-    
+    CustomNetTables:SetTableValue("weapons", "item"..tostring(item:GetEntityIndex()), {} )
     CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemName, consumable = false, itemDescription = description, qualityColor = RPCItems:GetRarityColor(item.rarity), itemDescription = slotText, qualityName = rarityName, itemPrefix = prefix, itemSuffix = suffix, rarityFactor = RPCItems:GetRarityFactor(item.rarity), stackedConsumable = true, minLevel = 0, useDescription = useDescription } )
 
     return item
