@@ -236,6 +236,8 @@ function GameMode:_InitGameMode()
   
   CustomGameEventManager:RegisterListener( "drag_item_to_synthesis_slot", Dynamic_Wrap(RPCItems, "SynthesisItemPlaced"))
   CustomGameEventManager:RegisterListener( "synth_combine_items", Dynamic_Wrap(RPCItems, "CombineItems"))
+  CustomGameEventManager:RegisterListener( "close_altar", Dynamic_Wrap(Quests, "CloseAltarOfIce"))
+  CustomGameEventManager:RegisterListener( "ice_crystal_placed", Dynamic_Wrap(Quests, "PlaceIceCrystal"))
 
   -- GameMode:SetTrackingProjectileFilter( Dynamic_Wrap( Attacks, "FilterProjectile" ), self )
   --ListenToGameEvent("dota_tutorial_shop_toggled", Dynamic_Wrap(GameMode, 'OnShopToggled'), self)

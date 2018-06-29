@@ -1,0 +1,15 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/quests/quests.css" />
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/quests/altar_of_ice_slot.js" />
+	</scripts>
+	<Panel class="synthesis_slot_root" hittest="false">
+			<DOTAItemImage hittest="true" id="item_synth_slot"/>
+					
+	</Panel>
+
+
+</root>

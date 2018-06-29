@@ -390,3 +390,11 @@ function Quests:ShowDialogueTextAzalea(activators, unit, unitText, time, bLeash)
 		hero.dialogueTime = GameRules:GetGameTime() + time
 	end
 end
+
+function Quests:CloseAltarOfIce(msg)
+	Winterblight:CloseAltarOfIce(msg)
+end
+
+function Quests:PlaceIceCrystal(msg)
+	Winterblight:CrystalPlaced(msg)
+end

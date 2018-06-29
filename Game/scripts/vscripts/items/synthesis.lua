@@ -7,7 +7,6 @@ end
 
 function RPCItems:UseSynthesisVessel(caster, item)
 	item.itemTable = {}
-	print("HALLO")
 	CustomGameEventManager:Send_ServerToPlayer(caster:GetPlayerOwner(), "open_synthesis_vessel", {item = item:GetEntityIndex()})
 end
 

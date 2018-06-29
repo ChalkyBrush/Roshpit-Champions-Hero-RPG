@@ -14,7 +14,7 @@
 				<Label id="header_text" text="witch_doctor_title" html="true"></Label>
 			</Panel>
 			<Panel id="quest_main_tooltip_container" html="true" hittest="false">
-				<Label id="witch_doctor_tooltip" class="menu_button_text">
+				<Label id="witch_doctor_tooltip" class="menu_button_text" html="true">
 				</Label>
 			</Panel>
 

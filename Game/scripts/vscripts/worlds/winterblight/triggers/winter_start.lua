@@ -200,3 +200,50 @@ function PlatformSpawnTrigger(trigger)
 	spawnIndex = tonumber(spawnIndex)
 	Winterblight:AzaleaPlatformPitSpawn(spawnIndex)
 end
+
+function AltarOfIceTrigger(trigger)
+	print("ICE TRIGGER")
+	local hero = trigger.activator
+	if Winterblight.AltarDisabled then
+		return false
+	end
+	if not Winterblight.StonesPlacedTable then
+		Winterblight.StonesPlacedTable = {-1, -1, -1}
+	end
+	if Winterblight.Stones < 3 then
+		hero.WinterblightAltar = true
+		CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "open_altar_of_ice", {stones = Winterblight.Stones, stone_table = Winterblight.StonesPlacedTable})
+		if not Winterblight.AltarApparition then
+			Winterblight.AltarApparition = CreateUnitByName("winterblight_altar_of_ice_apparition", Vector(-14024, -7195), false, nil, nil, DOTA_TEAM_NEUTRALS)
+		end
+		Winterblight.AltarApparition:SetAbsOrigin(Vector(-14024, -7195, 0+Winterblight.ZFLOAT))
+		for i = 1, 20, 1 do
+			Timers:CreateTimer(0.03*i, function()
+				Winterblight.AltarApparition:SetAbsOrigin(Winterblight.AltarApparition:GetAbsOrigin()+Vector(0,0,45))
+			end)
+		end
+		Winterblight.AltarApparition:SetForwardVector(Vector(0,1))
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-14024, -7195), 500, 240, false)
+		Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, Winterblight.AltarApparition, "modifier_altar_of_ice_apparition", {})
+		StartAnimation(Winterblight.AltarApparition, {duration=1.6, activity=ACT_DOTA_SPAWN, rate=0.9})
+	    EmitSoundOnLocationWithCaster( Vector(-14024, -7195), "Winterblight.AzaleaBoss.IceNovaExplode", caster)
+	    local particle = "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
+	    local pfx = ParticleManager:CreateParticle( particle, PATTACH_WORLDORIGIN, caster )
+	    local radius = 500
+	    ParticleManager:SetParticleControl( pfx, 0,  GetGroundPosition(Vector(-14024, -7195), Events.GameMaster) )
+	    ParticleManager:SetParticleControl( pfx, 1, Vector(radius, 2, radius*2) )
+	    Timers:CreateTimer(3.5, function()
+	        ParticleManager:DestroyParticle(pfx, false)
+	    end)
+		Timers:CreateTimer(0.7, function()
+			EmitSoundOn("Winterblight.AltarApparition.Spawn", Winterblight.AltarApparition)
+		end)
+	end
+end
+
+function AltarOfIceExit(trigger)
+	local hero = trigger.activator
+	if Winterblight.Stones < 3 then
+		CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(),"close_altar_of_ice", {})
+	end
+end

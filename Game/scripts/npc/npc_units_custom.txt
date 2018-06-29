@@ -90715,5 +90715,118 @@
         "Ability3"  "ability_mega_haste"
         "Ability4"  "fire_temple_steadfast"
         "Ability5"  "dungeon_creep"
+    }
+
+    "winterblight_altar_of_ice_apparition"
+    {
+        "BaseClass"                 "npc_dota_creature" 
+        "Model"                     "models/heroes/ancient_apparition/ancient_apparition.vmdl"
+        "SoundSet"                  "Ancient_apparition"
+        "ModelScale"                "2.0"
+        "Level"                     "1"
+        "PathfindingSearchDepthScale" "0.2"
+
+        // Abilities
+        //----------------------------------------------------------------
+        
+        "Ability1"                  ""   
+        "Ability2"                  ""       
+        "Ability3"                  ""         
+        "Ability4"                  ""          
+        "Ability5"                  ""         
+        "Ability6"                  ""          
+        "Ability7"                  ""          
+        "Ability8"                  ""          
+
+        // Armor
+        //----------------------------------------------------------------
+        "ArmorPhysical"             "5"         // Physical protection.
+        "MagicalResistance"         "30"        // Magical protection.
+
+        // Attack
+        //----------------------------------------------------------------
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "20"
+        "AttackDamageMax"   "30"
+        "AttackRate"    "3"
+        "AttackAnimationPoint"  "0.17"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "500"
+        "ProjectileModel"   "particles/units/heroes/hero_ancient_apparition/ancient_apparition_base_attack.vpcf"
+        "ProjectileSpeed"   "900"
+
+
+        // Bounty
+        //----------------------------------------------------------------
+        "BountyXP"                  "30"   
+        "BountyGoldMin"             "30"     
+        "BountyGoldMax"             "40"    
+
+        // Bounds
+        //----------------------------------------------------------------
+        "RingRadius"                "60"
+        "HealthBarOffset"           "200"
+        "BoundsHullName"            "DOTA_HULL_SIZE_HERO"  
+        "CollisionSize"             "120"
+
+        // Movement
+        //----------------------------------------------------------------
+        "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"         // Type of locomotion - ground, air
+        "MovementSpeed"             "280"        // Speed
+        "MovementTurnRate"          "0.5"       // Turning rate.
+
+        // Status
+        //----------------------------------------------------------------
+        "StatusHealth"              "24400"       // Base health.
+        "StatusHealthRegen"         "1"      // Health regeneration rate.
+        "StatusMana"                "500"         // Base mana.
+        "StatusManaRegen"           "50"         // Mana regeneration rate.
+
+        // Team
+        //----------------------------------------------------------------
+        "TeamName"                  "DOTA_TEAM_NEUTRALS"         // Team name.
+        "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        
+        // Vision
+        //----------------------------------------------------------------
+        "VisionDaytimeRange"        "1400"      // Range of vision during day light.
+        "VisionNighttimeRange"      "1400"      // Range of vision at night time.
+
+        // Creature Data
+        //----------------------------------------------------------------------------------------------------------------------
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                //shoulders
+                "Wearable1"
+                {
+                    "ItemDef"   "648"
+                }
+                //arms
+                "Wearable2"
+                {
+                    "ItemDef"   "172"
+                }
+                //haed
+                "Wearable3"
+                {
+                    "ItemDef"   "649"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "501"
+                }
+            }
+            "OffensiveAbilities"
+            {
+                      
+            }
+
+        }
     }    
 }

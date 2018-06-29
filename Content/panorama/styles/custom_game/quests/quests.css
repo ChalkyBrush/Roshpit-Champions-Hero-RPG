@@ -23,11 +23,12 @@
 
 #header_image_container{
 	height:120px;
-
+	width:100%;
 }
 
 #header_image{
 	border-bottom: 2px solid #222222;
+	width:100%;
 }
 
 #header_text{
@@ -368,7 +369,7 @@
 #witch_doctor_tooltip{
 	margin-top:40px;
 	font-size:16px;
-	color:yellow;
+	color:#bcd6ff;
 }
 
 #close_witch_doctor{

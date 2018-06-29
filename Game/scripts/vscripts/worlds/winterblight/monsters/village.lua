@@ -11,6 +11,14 @@ function winterblight_unit_die(event)
 	elseif unit.deathCode == 2 then
 		Winterblight:AzaleaMathUnitDie(unit)
 	end
+	if not Winterblight.WinterblightUnitsSlain then
+		Winterblight.WinterblightUnitsSlain = 0
+	end
+	Winterblight.WinterblightUnitsSlain = Winterblight.WinterblightUnitsSlain + 1
+	if Winterblight.WinterblightUnitsSlain == 100 then
+		Winterblight.AltarDisabled = true
+		CustomGameEventManager:Send_ServerToAllClients("close_altar_of_ice", {} )
+	end
 end
 
 function snowball_kid_preattack(event)

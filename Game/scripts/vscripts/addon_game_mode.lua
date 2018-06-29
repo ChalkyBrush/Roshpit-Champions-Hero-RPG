@@ -156,6 +156,7 @@ PrecacheResource("particle", "particles/econ/items/meepo/meepo_colossal_crystal_
  PrecacheResource("model", "models/props_gameplay/red_box.vmdl", context)
  PrecacheResource("model", "models/props_gameplay/clarity.vmdl", context)
  PrecacheResource("model", "models/props_gameplay/treasure_chest001.vmdl", context)
+ PrecacheResource("model", "models/winterblight/glacier_stone.vmdl", context)
  
 
 

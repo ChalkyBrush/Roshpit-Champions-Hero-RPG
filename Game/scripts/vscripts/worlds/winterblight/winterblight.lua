@@ -15,6 +15,9 @@ function Winterblight:Debug()
     for i = 1, 4, 1 do
       RPCItems:RollRandomArcanaCachePart(Vector(-15424,-2560))
     end
+    for i = 1, 3, 1 do
+      Winterblight:DropGlacierStone(Vector(-15424,-2560))
+    end
 end
 
 
@@ -45,6 +48,7 @@ function Winterblight:InitCamp()
       StartAnimation(blacksmith, {duration=99999, activity=ACT_DOTA_IDLE, rate=1.0})
       local oracle = Events:SpawnOracle(Vector(-15808, -2048), Vector(0.3, -1))
       Events.GlyphEnchanter = Events:SpawnGlyphEnchanter(Vector(-14373, -2795), Vector(-1, 1))
+      Events:SpawnCurator(Vector(-15925, -3113), Vector(1,0.35))
   end)
 
   
@@ -126,6 +130,13 @@ function Winterblight:InitProps()
       table.insert(Winterblight.AzaleaBossStatue, boss_statue)
     end
   end)
+end
+
+function Winterblight:DropGlacierStone(position)
+    local item = RPCItems:CreateConsumable("item_rpc_winterblight_glacier_stone", "mythical", "Glacier Stone", "consumable", false, "Consumable", "item_rpc_winterblight_glacier_stone_desc")
+    item.stashable = true
+    item.consumable = true
+    RPCItems:BasicDropItem(position, item)
 end
 
 function Winterblight:Debug2()
@@ -267,7 +278,7 @@ function Winterblight:SpawnDungeonUnit(unitName, spawnPoint, minDrops, maxDrops,
 
     local luck = 0
     if not Events.SpiritRealm then
-      luck = RandomInt(1, 180)
+      luck = RandomInt(1, 180-(Winterblight.Stones*40))
     else
       luck = RandomInt(1, 50)
     end
@@ -480,4 +491,76 @@ function Winterblight:ActivateSwitchGeneric(buttonPosition, buttonName, bDown, m
   Timers:CreateTimer(1.7, function()
     EmitSoundOnLocationWithCaster(walls[1]:GetAbsOrigin(), "Winterblight.SwitchEnd", Events.GameMaster)
   end)
+end
+
+function Winterblight:CloseAltarOfIce(msg)
+  local hero = EntIndexToHScript(msg.heroIndex)
+  print("CLOSE ALTAR")
+  hero.WinterblightAltar = false
+  local closeAltar = true
+  for i = 1, #MAIN_HERO_TABLE, 1 do
+    if MAIN_HERO_TABLE[i].WinterblightAltar then
+      closeAltar = false
+    end
+  end
+  if closeAltar then
+    AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-14024, -7195), 500, 5, false)
+    StartAnimation(Winterblight.AltarApparition, {duration=1.6, activity=ACT_DOTA_CAST_ABILITY_5, rate=0.9})
+    Timers:CreateTimer(0.75, function()
+      EmitSoundOnLocationWithCaster( Vector(-14024, -7195), "Winterblight.AzaleaBoss.IceNovaExplode", caster)
+      local particle = "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
+      local pfx = ParticleManager:CreateParticle( particle, PATTACH_WORLDORIGIN, caster )
+      local radius = 500
+      ParticleManager:SetParticleControl( pfx, 0,  GetGroundPosition(Vector(-14024, -7195), Events.GameMaster) )
+      ParticleManager:SetParticleControl( pfx, 1, Vector(radius, 2, radius*2) )
+      Timers:CreateTimer(3.5, function()
+          ParticleManager:DestroyParticle(pfx, false)
+      end)
+    end)
+    for i = 1, 60, 1 do
+      Timers:CreateTimer(i*0.03, function()
+        Winterblight.AltarApparition:SetAbsOrigin(Winterblight.AltarApparition:GetAbsOrigin() - Vector(0,0,30))
+      end)
+    end
+    Timers:CreateTimer(0.2, function()
+      EmitSoundOn("Winterblight.AltarApparition.Spawn", Winterblight.AltarApparition)
+    end)
+  end
+end
+
+function Winterblight:CrystalPlaced(msg)
+  local stone = EntIndexToHScript(msg.stone)
+  local hero = EntIndexToHScript(msg.heroIndex)
+  if stone:GetAbilityName() == "item_rpc_winterblight_glacier_stone" then
+    if not Challenges:CheckIfHeroHasItemByItemIndex(hero, stone:GetEntityIndex()) then
+      return false
+    end
+    Winterblight.Stones = math.min(Winterblight.Stones + 1, 3)
+    hero:TakeItem(stone)
+    Winterblight.StonesPlacedTable[Winterblight.Stones] = stone:GetEntityIndex()
+    if Winterblight.Stones == 1 then
+      local crystal = Entities:FindByNameNearest("WinterblightStones3", Vector(-14264, -6978, 56+Winterblight.ZFLOAT), 500)
+      Winterblight:CrystalEnterAnimation(crystal)
+    elseif Winterblight.Stones == 2 then
+      local crystal = Entities:FindByNameNearest("WinterblightStones2", Vector(-14061, -6978, 56+Winterblight.ZFLOAT), 500)
+      Winterblight:CrystalEnterAnimation(crystal)
+    elseif Winterblight.Stones == 3 then
+      Winterblight.AltarDisabled = true
+      CustomGameEventManager:Send_ServerToAllClients("close_altar_of_ice", {} )
+      local crystal = Entities:FindByNameNearest("WinterblightStones1", Vector(-13852, -6978, 56+Winterblight.ZFLOAT), 500)
+      Winterblight:CrystalEnterAnimation(crystal)
+    end
+  end
+end
+
+function Winterblight:CrystalEnterAnimation(crystal)
+  Winterblight:smoothSizeChange(crystal, 0.01, 1, 20)
+  CustomAbilities:QuickParticleAtPoint("particles/econ/items/crystal_maiden/ti7_immortal_shoulder/cm_ti7_immortal_frostbite_snow_explode.vpcf", crystal:GetAbsOrigin(), 4)
+  EmitSoundOnLocationWithCaster(crystal:GetAbsOrigin(), "Winterblight.IceCrystal.Place", Events.GameMaster)
+  for i = 1, 10, 1 do
+    Timers:CreateTimer(i*1.8, function()
+      ScreenShake(crystal:GetAbsOrigin(), 800, 1, 1, 9000, 0, true)
+      EmitSoundOnLocationWithCaster(crystal:GetAbsOrigin(), "Winterblight.Mountain.Shake", Winterblight.Master)
+    end)
+  end
 end

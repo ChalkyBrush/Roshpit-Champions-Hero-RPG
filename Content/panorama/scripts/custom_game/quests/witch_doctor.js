@@ -152,6 +152,52 @@ function FinalCombine(){
 	GameEvents.SendCustomGameEventToServer( "final_tanari_combine", {playerID: playerID, heroIndex: heroIndex, difficulty: difficulty});
 }
 
+function OpenAltarOfIce(msg)
+{
+	if (GameUI.CustomUIConfig().mainDialog == 0){
+		var parentPanel = $('#witch_doctor_content')
+		mItem = msg.item
+		parentPanel.RemoveAndDeleteChildren()
+		$.Msg("BSJ")
+		$.Msg(msg.stone_table)
+		for (i = 0; i < 3; i++) {
+			var newChildPanel = $.CreatePanel( "Panel", parentPanel, "element-item" );
+			newChildPanel.stone = msg.stone_table[i]
+			newChildPanel.altarParent = $.GetContextPanel()
+			newChildPanel.BLoadLayout( "file://{resources}/layout/custom_game/quests/altar_of_ice_slot.xml", false, false );	
+		}
+	
+		$('#witch_doctor_container').style.width = "340px"
+		$('#header_image').SetImage("file://{images}/custom_game/ui/altar_of_ice_header.jpg")
+		$('#witch_doctor_container').RemoveClass("invisible")
+		$('#witch_doctor_container').style.visibility = "visible"
+		$('#header_text').text = $.Localize("#altar_of_ice")
+		$('#witch_doctor_tooltip').text = $.Localize("#altar_of_ice_help"+(msg.stones+1))
+		$.GetContextPanel().style.visibility = "visible"
+		$('#final_combine_button').AddClass("invisible")
+		$('#close_witch_doctor').SetPanelEvent('onactivate', function CloseAltar(){
+			CloseAltarOfIce(0)
+		})
+		GameUI.CustomUIConfig().mainDialog = 1
+		$.Msg("BIG PLAYER")	
+	}
+}
+
+function CloseAltarOfIce(msg){
+	var playerID = Game.GetLocalPlayerID()
+	var heroIndex = Players.GetPlayerHeroEntityIndex( playerID)
+	$('#witch_doctor_container').AddClass("invisible")
+	$('#witch_doctor_container').style.visibility = "collapse"
+	GameEvents.SendCustomGameEventToServer( "close_altar", {heroIndex: heroIndex});
+	GameUI.CustomUIConfig().mainDialog = 0
+	$.GetContextPanel().style.visibility = "collapse"
+	$('#final_combine_button_container').AddClass('invisible')
+	var playerID = Game.GetLocalPlayerID()
+	var heroIndex = Players.GetPlayerHeroEntityIndex( playerID)
+	$('#witch_doctor_content').RemoveAndDeleteChildren()
+	
+}
+
 (function()
 {
 	InitializeWitchDoctor();
@@ -160,4 +206,6 @@ function FinalCombine(){
 	GameEvents.Subscribe( "open_witch_doctor", OpenTanariWitchDoctor );
 	GameEvents.Subscribe( "open_synthesis_vessel", OpenSynthesisVessel );
 	GameEvents.Subscribe( "close_synthesis_vessel", CloseSynthesisVessel );
+	GameEvents.Subscribe( "open_altar_of_ice", OpenAltarOfIce );
+	GameEvents.Subscribe( "close_altar_of_ice", CloseAltarOfIce)	
 })();
