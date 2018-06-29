@@ -389,6 +389,7 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
 	if abilityCooldown < 1 then
 		abilityCooldown = 1
 	end
+	--Hood of Lords reduces CD after all the lua code. Its internal by Dota 2
 	if abilityCooldown < 2 and caster:HasModifier("modifier_hood_of_lords_lua") then
 		abilityCooldown = 2
 	end
@@ -459,37 +460,43 @@ function Filters:ApplyStun(caster, duration, target)
         caster.b_b_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
     end
     if caster:HasModifier("modifier_stormcrack_helm") then
-        if not caster.headItem.stormCrackParticles then
-            caster.headItem.stormCrackParticles = 0
-        end
-        if caster.headItem.stormCrackParticles < 8 then
-            caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles + 1
-            -- CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_cyclopean_marauder/sven_cyclopean_warcry.vpcf", target, 1.2)
-            CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf", target, 1.2)
-            Timers:CreateTimer(1.5, function()
-                caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles - 1
-            end)
-        end
-        
-        local damage = caster:GetAverageTrueAttackDamage(caster)*10 + (caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())*100
-        Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,caster.headItem, RPC_ELEMENT_NORMAL, RPC_ELEMENT_LIGHTNING)
-        Filters:stormcrack_upgrade(caster, caster.headItem, target)
+		if caster:GetTeamNumber() == target:GetTeamNumber() then
+		else
+			if not caster.headItem.stormCrackParticles then
+				caster.headItem.stormCrackParticles = 0
+			end
+			if caster.headItem.stormCrackParticles < 8 then
+				caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles + 1
+				-- CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_cyclopean_marauder/sven_cyclopean_warcry.vpcf", target, 1.2)
+				CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf", target, 1.2)
+				Timers:CreateTimer(1.5, function()
+					caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles - 1
+				end)
+			end
+			
+			local damage = caster:GetAverageTrueAttackDamage(caster)*10 + (caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())*100
+			Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,caster.headItem, RPC_ELEMENT_NORMAL, RPC_ELEMENT_LIGHTNING)
+			Filters:stormcrack_upgrade(caster, caster.headItem, target)
+		end
     elseif caster:HasModifier("modifier_stormcrack_helm2") then
-        if not caster.headItem.stormCrackParticles then
-            caster.headItem.stormCrackParticles = 0
-        end
-        if caster.headItem.stormCrackParticles < 9 then
-            caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles + 1
-            -- CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_cyclopean_marauder/sven_cyclopean_warcry.vpcf", target, 1.2)
-            CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf", target, 1.2)
-            Timers:CreateTimer(1.5, function()
-                caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles - 1
-            end)
-        end
-        
-        local damage = caster:GetAverageTrueAttackDamage(caster)*20 + (caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())*200
-        Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,caster.headItem, RPC_ELEMENT_NORMAL, RPC_ELEMENT_LIGHTNING)
-        mult = mult+0.35      
+		if caster:GetTeamNumber() == target:GetTeamNumber() then
+		else
+			if not caster.headItem.stormCrackParticles then
+				caster.headItem.stormCrackParticles = 0
+			end
+			if caster.headItem.stormCrackParticles < 9 then
+				caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles + 1
+				-- CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_cyclopean_marauder/sven_cyclopean_warcry.vpcf", target, 1.2)
+				CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf", target, 1.2)
+				Timers:CreateTimer(1.5, function()
+					caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles - 1
+				end)
+			end
+			
+			local damage = caster:GetAverageTrueAttackDamage(caster)*20 + (caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())*200
+			Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,caster.headItem, RPC_ELEMENT_NORMAL, RPC_ELEMENT_LIGHTNING)
+			mult = mult+0.35      
+		end
     end
 
     duration = duration*mult
