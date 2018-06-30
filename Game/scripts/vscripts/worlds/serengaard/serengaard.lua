@@ -1215,18 +1215,32 @@ function Serengaard:CachePlayers()
   if not Serengaard.CachedPlayers then
     Serengaard.CachedPlayers = {}
   end
-  for i=1, #MAIN_HERO_TABLE, 1 do
-    if MAIN_HERO_TABLE[i]:GetPlayerOwner() and MAIN_HERO_TABLE[i]:GetPlayerOwnerID() then
-      local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
-      if PlayerResource:GetSelectedHeroName(playerID) and PlayerResource:GetSteamAccountID(playerID) and PlayerResource:GetPlayerName(playerID) and PlayerResource:GetSteamID(playerID) then
-        Serengaard.CachedPlayers[i] = { Serengaard:Url_encode(PlayerResource:GetSelectedHeroName(playerID)), PlayerResource:GetSteamAccountID(playerID), Serengaard:Url_encode(PlayerResource:GetPlayerName(playerID)), tostring(PlayerResource:GetSteamID(playerID))}
-      end
-    end       
+  if #Serengaard.CachedPlayers ~= 4 then--skip if already 4 players cached
+    for i, v in pairs(MAIN_HERO_TABLE) do
+      if MAIN_HERO_TABLE[i]:GetPlayerOwner() and MAIN_HERO_TABLE[i]:GetPlayerOwnerID() then
+        local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
+        if PlayerResource:GetSelectedHeroName(playerID) and PlayerResource:GetSteamAccountID(playerID) and PlayerResource:GetPlayerName(playerID) and PlayerResource:GetSteamID(playerID) then--this should return nil when player dc
+          local actuallyContains = false    
+          for o, b in pairs(Serengaard.CachedPlayers) do--checking unique element
+              if b[2] ~= nil and b[2] == PlayerResource:GetSteamAccountID(playerID) then--[2] and element is GetSteamAccountID
+                  actuallyContains = true
+              end
+          end
+          
+          if not actuallyContains then
+              Serengaard.CachedPlayers[i] = { Serengaard:Url_encode(PlayerResource:GetSelectedHeroName(playerID)), PlayerResource:GetSteamAccountID(playerID), Serengaard:Url_encode(PlayerResource:GetPlayerName(playerID)), tostring(PlayerResource:GetSteamID(playerID))}
+          end
+        end  
+      end  
+    end
   end
 end
 
 function Serengaard:SubmitStats()
   local url = ""
+  for i, v in pairs(Serengaard.CachedPlayers) do
+    print("Players: "..i.." "..v[1].." "..v[2].." "..v[3].." "..v[4])  
+  end   
   if Serengaard.InfiniteWaveCount and SaveLoad:GetAllowSaving() then
     url = ROSHPIT_URL.."/champions/save_serengaard?"
     url = url.."wave_number="..Serengaard.InfiniteWaveCount
