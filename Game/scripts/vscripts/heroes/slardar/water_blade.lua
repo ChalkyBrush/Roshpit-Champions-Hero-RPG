@@ -144,7 +144,13 @@ function bombImpact(caster, ability)
 		end
 		if caster.b_b_level > 0 then
 			local b_b_duration = Filters:GetAdjustedBuffDuration(caster, 15, false)
-			caster.origAbility:ApplyDataDrivenModifier(caster.origCaster, caster.origCaster, "modifier_water_bomb_b_b_damage_buff_visible", {duration = b_b_duration})
+			if not caster.origCaster:HasModifier("modifier_water_bomb_b_b_damage_buff_spillover") then 
+				caster.origAbility:ApplyDataDrivenModifier(caster.origCaster, caster.origCaster, "modifier_water_bomb_b_b_damage_buff_visible", {duration = b_b_duration})
+			else
+				caster.origAbility:ApplyDataDrivenModifier(caster.origCaster, caster.origCaster, "modifier_water_bomb_b_b_damage_buff_spillover",{duration = b_b_duration})
+				caster.origAbility:ApplyDataDrivenModifier(caster.origCaster, caster.origCaster, "modifier_water_bomb_b_b_damage_buff_spillover_invis",{duration = b_b_duration})
+				caster.origCaster:SetModifierStackCount("modifier_water_bomb_b_b_damage_buff_spillover_invis", caster.origCaster, caster.b_b_level)
+			end
 			local newStacks = caster.origCaster:GetModifierStackCount("modifier_water_bomb_b_b_damage_buff_visible", caster.origCaster) + #enemies
 			if newStacks >= 20 then
 				caster.origCaster:RemoveModifierByName("modifier_water_bomb_b_b_damage_buff_visible")

@@ -14,7 +14,7 @@ function begin_rockfall(event)
 	local ability = event.ability
 	local caster = event.caster
 	local target = event.target_points[1]
-	local damage = event.damage
+	local damage = ability:GetAbilityDamage()
 	damage = damage + event.additional_str_damage*caster:GetStrength()
 	local stun_duration = event.stun_duration
 	local self_damage_percent = event.self_damage
@@ -67,6 +67,11 @@ function begin_rockfall(event)
 			glissadeAbility:ApplyDataDrivenModifier(caster, caster, "modifier_glissade_freecast", {})
 			caster:SetModifierStackCount("modifier_glissade_freecast", caster, procs)
 		end
+	end
+	if caster:HasModifier("modifier_mountain_protector_immortal_weapon_3") then
+		local CD = ability:GetCooldownTimeRemaining()*0.35
+		ability:EndCooldown()
+		ability:StartCooldown(CD)
 	end
 end
 
