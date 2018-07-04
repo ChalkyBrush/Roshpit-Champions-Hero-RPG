@@ -867,7 +867,7 @@ function Filters:ApplyWskills(caster)
     if caster:HasModifier("modifier_phantom_sorcerer") then
         local ability = caster:GetAbilityByIndex(1)
         local cdRemaining = ability:GetCooldownTimeRemaining()
-        local newCD = math.min(cdRemaining + 5, ability:GetCooldown(ability:GetLevel()-1)+5)
+        local newCD = math.min(cdRemaining + 4, ability:GetCooldown(ability:GetLevel()-1)+4)
         ability:EndCooldown()
         ability:StartCooldown(newCD)
     end
@@ -880,7 +880,7 @@ function Filters:ApplyWskills(caster)
     if caster:HasModifier("modifier_iron_colossus") then
         local ability = caster:GetAbilityByIndex(1)
         local manaCost = ability:GetManaCost(ability:GetLevel())
-        caster:ReduceMana(2000)
+        caster:ReduceMana(1000)
     end
     if caster:HasModifier("modifier_wraith_crown") then
         Filters:WraithCrown(caster)

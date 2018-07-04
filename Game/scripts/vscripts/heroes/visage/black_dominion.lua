@@ -93,6 +93,7 @@ function dominion_debuff_death(event)
 	    summon:SetDayTimeVisionRange(90)
 	    summon:SetNightTimeVisionRange(90)
 	    summon.hero = caster
+	    summon:SetHullRadius(8)
 	    if caster.a_a_level > 0 then
 	    	summon:AddAbility("black_dominion_lifesteal"):SetLevel(1)
 	    end
