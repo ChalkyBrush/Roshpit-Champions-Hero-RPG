@@ -2182,3 +2182,157 @@ function wave_burn_ability_executed(event)
 	modifier:SetDuration(8, true)
 	EmitSoundOn("Winterblight.ColdSeer.BurnTrigger", unit)
 end
+
+function heartfreezer_passive(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not caster:IsAlive() then
+		return false
+	end
+    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, event.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false )
+    if #enemies > 0 then    
+    	EmitSoundOn("Winterblight.HeartFreezer.PassiveSound", caster)
+        for _,enemy in pairs(enemies) do
+				local info = 
+				{
+					Target = enemy,
+					Source = caster,
+					Ability = ability,	
+					EffectName =  "particles/roshpit/winterblight/heartfreezer_passive.vpcf",
+					StartPosition = "attach_hitloc",
+					bDrawsOnMinimap = false, 
+				        bDodgeable = true,
+				        bIsAttack = false, 
+				        bVisibleToEnemies = true,
+				        bReplaceExisting = false,
+				        flExpireTime = GameRules:GetGameTime() + 8,
+					bProvidesVision = true,
+					iVisionRadius = 0,
+					iMoveSpeed = 600,
+					iVisionTeamNumber = caster:GetTeamNumber()
+				}
+				projectile = ProjectileManager:CreateTrackingProjectile(info)
+        end
+    end	
+end
+
+function heartfreezer_blink(event)
+	local caster = event.caster
+	local ability = event.ability
+	print("ANYTHING?")
+	EmitSoundOn("Winterblight.IceBlink", caster)
+	local position = event.target_points[1]
+	local particleName = "particles/econ/events/winter_major_2017/blink_dagger_start_wm07.vpcf"
+	local pfx1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(pfx1, 0, caster:GetAbsOrigin())
+    local target = position
+    local casterOrigin = caster:GetAbsOrigin()
+    target = WallPhysics:WallSearch(casterOrigin, target, caster)
+    -- local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_undying/undying_loadout.vpcf", PATTACH_ABSORIGIN, event.caster )
+    --     ParticleManager:SetParticleControl( pfx, 0, position )
+    local newPosition = target
+    FindClearSpaceForUnit(caster, newPosition, false)
+	local pfx2 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(pfx2, 0, newPosition)
+	Timers:CreateTimer(4, function()
+		ParticleManager:DestroyParticle(pfx1, false)
+		ParticleManager:DestroyParticle(pfx2, false)
+	end)
+end
+
+function heartfreezer_projectile_hit(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+    local icePoint = target:GetAbsOrigin()
+    local radius = 400
+    EmitSoundOnLocationWithCaster(icePoint, "hero_Crystal.freezingField.explosion", caster)
+    local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+    local pfx = ParticleManager:CreateParticle( particle, PATTACH_WORLDORIGIN, caster )
+    ParticleManager:SetParticleControl( pfx, 0, icePoint )
+    ParticleManager:SetParticleControl( pfx, 1, Vector(radius, 2, radius*2) )
+    Timers:CreateTimer(2.5, function()
+        ParticleManager:DestroyParticle(pfx, false)
+    end)
+    local damage = caster:GetAverageTrueAttackDamage(caster)*(event.atk_power_dmg/100)
+    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), icePoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+    if #enemies > 0 then    
+        for _,enemy in pairs(enemies) do
+            ability:ApplyDataDrivenModifier(caster, enemy, "modifier_heartfreezer_slow", {duration = 3})
+            ApplyDamage({ victim = victim, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
+        end
+    end
+end
+
+function mountain_god_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local damage = event.damage
+	local position = caster:GetAbsOrigin()
+	if caster:IsStunned() then
+		return false
+	end
+	if caster.aggro and caster:IsAlive() then
+		StartAnimation(caster, {duration=1.6, activity=ACT_DOTA_TELEPORT_END, rate=0.9})
+		Timers:CreateTimer(0.35, function()
+			local position = caster:GetAbsOrigin()
+			local radius = 450
+			local splitEarthParticle = "particles/roshpit/winterblight/frost_colossus_slam.vpcf"
+			local pfx = ParticleManager:CreateParticle( splitEarthParticle, PATTACH_CUSTOMORIGIN, caster )
+			ParticleManager:SetParticleControl( pfx, 0, position )
+			ParticleManager:SetParticleControl( pfx, 1, Vector(radius, radius, radius) )
+			EmitSoundOn("Winterblight.Frostgod.Slam", caster)
+			-- FindClearSpaceForUnit(caster, position, false)
+			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+			if #enemies > 0 then
+				for _,enemy in pairs(enemies) do
+					ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
+					enemy:AddNewModifier(caster, event.ability, "modifier_stunned", {duration = 0.5})
+				end
+			end 
+			Timers:CreateTimer(3, function()
+				ParticleManager:DestroyParticle(pfx, false)
+			end)
+		end)
+	end
+end
+
+function mountain_god_falling_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not caster.fallSpeed then
+		caster.fallSpeed = 10
+	end
+	caster.fallSpeed = math.min(caster.fallSpeed + 0.5, 45)
+	caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,caster.fallSpeed))
+	if GetGroundHeight(caster:GetAbsOrigin(), caster) + 100 > caster:GetAbsOrigin().z then
+		caster:RemoveModifierByName("modifier_mountain_god_falling")
+		Timers:CreateTimer(0.03, function()
+			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+			local position = caster:GetAbsOrigin()
+			local damage = event.damage
+			StartAnimation(caster, {duration=1.6, activity=ACT_DOTA_TELEPORT_END, rate=0.9})
+			Timers:CreateTimer(0.3, function()
+				local position = caster:GetAbsOrigin()
+				local radius = 500
+				local splitEarthParticle = "particles/roshpit/winterblight/frost_colossus_slam.vpcf"
+				local pfx = ParticleManager:CreateParticle( splitEarthParticle, PATTACH_CUSTOMORIGIN, caster )
+				ParticleManager:SetParticleControl( pfx, 0, position )
+				ParticleManager:SetParticleControl( pfx, 1, Vector(radius, radius, radius) )
+				EmitSoundOn("Winterblight.ChillingColossus.Slam", caster)
+				ScreenShake(position, 130, 0.9, 0.9, 9000, 0, true)
+				-- FindClearSpaceForUnit(caster, position, false)
+				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+				if #enemies > 0 then
+					for _,enemy in pairs(enemies) do
+						ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
+						enemy:AddNewModifier(caster, event.ability, "modifier_stunned", {duration = 0.5})
+					end
+				end 
+				Timers:CreateTimer(3, function()
+					ParticleManager:DestroyParticle(pfx, false)
+				end)
+			end)
+		end)
+	end
+end

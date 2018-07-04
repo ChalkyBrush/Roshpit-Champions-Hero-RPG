@@ -15,9 +15,11 @@ function winterblight_unit_die(event)
 		Winterblight.WinterblightUnitsSlain = 0
 	end
 	Winterblight.WinterblightUnitsSlain = Winterblight.WinterblightUnitsSlain + 1
-	if Winterblight.WinterblightUnitsSlain == 100 then
-		Winterblight.AltarDisabled = true
-		CustomGameEventManager:Send_ServerToAllClients("close_altar_of_ice", {} )
+	if not Winterblight.AltarDisabled then
+		if Winterblight.WinterblightUnitsSlain >= 100 then
+			Winterblight.AltarDisabled = true
+			CustomGameEventManager:Send_ServerToAllClients("close_altar_of_ice", {} )
+		end
 	end
 end
 

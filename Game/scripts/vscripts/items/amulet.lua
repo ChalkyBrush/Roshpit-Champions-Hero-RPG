@@ -11,6 +11,7 @@ function Amulet:add_modifiers(hero, inventory_unit, item)
 	trinket_ability.intelligence = 0
 	trinket_ability.armor = 0
 	trinket_ability.health_regen = 0
+	trinket_ability.mana_regen = 0
 	trinket_ability.attack_damage = 0
 	trinket_ability.max_health = 0
 	trinket_ability.max_mana = 0
@@ -62,6 +63,9 @@ function Amulet:action(propertyName, propertyValue, hero, inventory_unit, trinke
 	elseif propertyName == "health_regen" then
 		trinket_ability.health_regen = trinket_ability.health_regen + propertyValue
 		Amulet:addBasicModifier(trinket_ability.health_regen, hero, inventory_unit, "modifier_trinket_health_regen", trinket_ability)
+	elseif propertyName == "mana_regen" then
+		trinket_ability.mana_regen = trinket_ability.mana_regen + propertyValue
+		Amulet:addBasicModifier(trinket_ability.mana_regen, hero, inventory_unit, "modifier_trinket_mana_regen", trinket_ability)
 	elseif propertyName == "attack_damage" then
 		trinket_ability.attack_damage = trinket_ability.attack_damage + propertyValue
 		Amulet:addBasicModifier(trinket_ability.attack_damage, hero, inventory_unit, "modifier_trinket_attack_damage", trinket_ability)
@@ -222,6 +226,9 @@ function Amulet:action(propertyName, propertyValue, hero, inventory_unit, trinke
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_winterblight_skull_ring", item)
 	elseif propertyName == "all_elements" then
 		Amulet:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_trinket_all_elements", trinket_ability)
+	elseif propertyName == "frozen_heart" then
+		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_frozen_heart", item)
+		RPCItems:PreacheArcanaResources(item)
 	end
 	hero.amulet = item
 end
@@ -367,6 +374,7 @@ function Amulet:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_trinket_undead")
 	hero:RemoveModifierByName("modifier_winterblight_skull_ring")
 	hero:RemoveModifierByName("modifier_trinket_all_elements")
+	hero:RemoveModifierByName("modifier_frozen_heart")
 	hero.monkey_paw = false
 	hero.birdTable = false
 	hero.eternal_frost_gem = false

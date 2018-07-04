@@ -86,6 +86,7 @@ function OpenTanariWitchDoctor(){
 		GameUI.CustomUIConfig().mainDialog = 1
 
 		$('#witch_doctor_tooltip').text = $.Localize('#witch_doctor_tooltip')
+		$('#final_combine_button').RemoveClass("invisible")
 		// $('#header_image').SetImage( "file://{images}/custom_game/ui/witch_doctor_header.jpg")
 	}	
 
@@ -104,6 +105,7 @@ function OpenSynthesisVessel(msg)
 		newChildPanel.BLoadLayout( "file://{resources}/layout/custom_game/quests/synthesis_slot.xml", false, false );	
 		$.GetContextPanel().windPanel = newChildPanel
 		$.GetContextPanel().LastItem = 0
+		$('#final_combine_button').RemoveClass("invisible")
 		var newChildPanel = $.CreatePanel( "Panel", parentPanel, "element-item" );
 		newChildPanel.vessel = mItem
 		newChildPanel.vesselParent = $.GetContextPanel()
@@ -158,13 +160,12 @@ function OpenAltarOfIce(msg)
 		var parentPanel = $('#witch_doctor_content')
 		mItem = msg.item
 		parentPanel.RemoveAndDeleteChildren()
-		$.Msg("BSJ")
-		$.Msg(msg.stone_table)
+		$.GetContextPanel().totalStones = msg.stones
 		for (i = 0; i < 3; i++) {
 			var newChildPanel = $.CreatePanel( "Panel", parentPanel, "element-item" );
 			newChildPanel.stone = msg.stone_table[i]
 			newChildPanel.altarParent = $.GetContextPanel()
-			newChildPanel.BLoadLayout( "file://{resources}/layout/custom_game/quests/altar_of_ice_slot.xml", false, false );	
+			newChildPanel.BLoadLayout( "file://{resources}/layout/custom_game/quests/altar_of_ice_slot.xml", false, false );
 		}
 	
 		$('#witch_doctor_container').style.width = "340px"

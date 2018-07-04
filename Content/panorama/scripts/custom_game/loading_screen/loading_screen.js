@@ -60,6 +60,11 @@ function SetMapImage(){
 		$('#seq_bg').SetImage("file://{images}/custom_game/loading_screen/seafortress3.jpg")
 		status = 1
 	}
+	if(mapName === "winterblight"){
+		$.Msg("SET IMAGE SEAFORT!!")
+		$('#seq_bg').SetImage("file://{images}/custom_game/loading_screen/descent_of_winterblight_load.jpg")
+		status = 1
+	}
 	if (status == 1){
 		UpdateValidDifficulties()
 	}
@@ -105,6 +110,9 @@ function getMap(){
 	}
 	if (mapName === "rpc_sea_fortress"){
 		map = "seafortress"
+	}
+	if (mapName === "rpc_winterblight_mountain" || mapName == "rpc_winterblight_mountain_work"){
+		map = "winterblight"
 	}
 	return map
 }

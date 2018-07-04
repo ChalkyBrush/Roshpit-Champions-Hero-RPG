@@ -284,6 +284,14 @@ function Winterblight:SpawnLivingIce(position, fv)
 	return stone
 end
 
+function Winterblight:SpawnLivingIceNoAggro(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_living_ice", position, 0, 0, nil, fv, false)
+	stone.itemLevel = 18
+	stone:SetRenderColor(170, 200, 255)
+	stone.dominion = true
+	return stone
+end
+
 function Winterblight:ShatterIceWall()
   local blockers = Entities:FindAllByNameWithin("IceShatterBlocker", Vector(-3335, -7744, 265+Winterblight.ZFLOAT), 3000)
   for i = 1, #blockers, 1 do
@@ -1968,6 +1976,7 @@ function Winterblight:SpawnColdSeer(position, fv)
 		stone:AddAbility("ability_mega_haste"):SetLevel(GameState:GetDifficultyFactor())
 	end
 	Events:ColorWearablesAndBase(stone, Vector(90,90,225))
+	stone.dominion = true
 	return stone
 end
 
@@ -1976,6 +1985,7 @@ function Winterblight:SpawnSoftwalker(position, fv)
 	Events:AdjustBossPower(stone, 5, 5, false)
 	stone.itemLevel = 38
 	Events:ColorWearablesAndBase(stone, Vector(120,140,205))
+	stone.dominion = true
 	return stone
 end
 
@@ -1985,5 +1995,29 @@ function Winterblight:SpawnFrostWhelpling(position, fv)
 	Winterblight:SetPositionCastArgs(stone, 900, 0, 3, FIND_ANY_ORDER)
 	stone.itemLevel = 36
 	stone:SetAcquisitionRange(0)
+	stone.dominion = true
+	return stone
+end
+
+function Winterblight:SpawnHeartFreezer(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_heartfreezer", position, 1, 3, "Winterblight.HeartFreezer.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 2, 3, false)
+	stone.itemLevel = 44
+	stone.dominion = true
+	Winterblight:SetTargetCastArgs(stone, 1000, 0, 2, FIND_ANY_ORDER)
+	return stone
+end
+
+function Winterblight:SpawnMountainGod(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_mountain_lord", position, 3, 9, "Winterblight.MountainGod.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 2, 3, false)
+	stone.itemLevel = 44
+	local ability = stone:FindAbilityByName("winterblight_mountain_god_passive")
+	ability:ApplyDataDrivenModifier(stone, stone, "modifier_mountain_god_falling", {})
+	stone:SetAbsOrigin(stone:GetAbsOrigin()+Vector(0,0,2200))
+	stone.cantAggro = true
+	Timers:CreateTimer(1.5, function()
+		stone.cantAggro = false
+	end)
 	return stone
 end

@@ -90828,5 +90828,237 @@
             }
 
         }
+    }
+
+    "winterblight_heartfreezer"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/queenofpain/queenofpain.vmdl"
+        "ModelScale"    "1.9"
+        "SoundSet"              "Hero_QueenOfPain"
+        "precache"
+        {
+            "soundfile"       "soundevents/game_sounds_heroes/game_sounds_queenofpain.vsndevts"
+            "particle"        "particles/roshpit/winterblight/heartfreezer_passive.vpcf"
+        }
+        "Level" "1"
+        "HealthBarOffset"   "160"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "ArmorPhysical" "7"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "80"
+        "AttackDamageMax"   "100"
+        "AttackRate"    "1"
+        "AttackAnimationPoint"  "0.35"
+        "AttackAcquisitionRange"    "0"
+        "AttackRate"    "1.3"
+        "AttackRange"   "550"
+        "ProjectileModel"   "particles/units/heroes/hero_ancient_apparition/ancient_apparition_base_attack.vpcf"
+        "ProjectileSpeed"   "860"
+        "BountyGoldMin" "140"
+        "BountyGoldMax" "160"
+        "BountyXP" "720"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "16"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "380"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "240000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "1000"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+
+                "Wearable1"
+                {
+                    "ItemDef"   "7191"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "7192"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "5587"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+        "Ability1"          "heartfreezer_blink"
+        "Ability2"          "winterblight_heartfreezer_passive"
+        "Ability3"          "luna_taskmaster_shield"
+        "Ability4"          "use_ability_1_position_ai"
+        "Ability5"          "dungeon_creep"
+    }
+
+    "winterblight_mountain_lord"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/sven/sven.vmdl"
+        "ModelScale"    "2.25"
+        "Level" "1"
+        "HealthBarOffset"   "540"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "SoundSet"              "Hero_Sven"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
+        }
+        "ArmorPhysical" "30"
+        "MagicalResistance" "50"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "6000"
+        "AttackDamageMax"   "7000"
+        "AttackRate"    "1.0"
+        "AttackAnimationPoint"  "0.35"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "300"
+        "BountyGoldMin" "200"
+        "BountyGoldMax" "300"
+        "BountyXP" "200"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "70"
+        "CollisionSize" "50"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "440"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "1000000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+
+        "Ability1"          "winterblight_mountain_god_passive"
+        "Ability2"          "fire_temple_steadfast"
+        "Ability3"          "ability_magic_immune_break"
+        "Ability4"          "dungeon_creep"
+        "TeamName"           "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "6985"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "5400"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "4239"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "7280"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "5402"
+                }
+                "Wearable6"
+                {
+                    "ItemDef"   "7134"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+
+            }
+        }
+    }
+
+    "winterblight_tuskar_villager"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/creeps/ice_biome/tuskfolk/tuskfolk001b_f.vmdl"
+        "ModelScale"    "0.8"
+        "Level" "1"
+        "HealthBarOffset"   "540"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "SoundSet"              "Creep_Bad_Melee"
+        "precache"
+        {
+            "model" "models/creeps/ice_biome/tuskfolk/tuskfolk001a_f.vmdl"
+            "model" "models/creeps/ice_biome/tuskfolk/tuskfolk001c_f.vmdl"
+        }
+        "ArmorPhysical" "30"
+        "MagicalResistance" "50"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "100"
+        "AttackDamageMax"   "100"
+        "AttackRate"    "1.0"
+        "AttackAnimationPoint"  "0.35"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "300"
+        "BountyGoldMin" "200"
+        "BountyGoldMax" "300"
+        "BountyXP" "200"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "70"
+        "CollisionSize" "50"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "320"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "1000000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "0"
+        "VisionNighttimeRange"  "0"
+
+        "Ability1"          "winterblight_villager_ability"
+        "TeamName"           "DOTA_TEAM_GOODGUYS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
     }    
 }

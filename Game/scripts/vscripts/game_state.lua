@@ -491,6 +491,14 @@ function GameState:OrderFilter(orderTable)
 				end
 			end
 		end
+		if unit:HasModifier("modifier_frostmaw_hunters_hood") then
+			if orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
+				local target = EntIndexToHScript(orderTable.entindex_target)
+				if target.frostmaw then
+					target:ForceKill(false)
+				end
+			end
+		end
 		if unit:HasModifier("modifier_chernobog_demon_flight_attack") then
 			if orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
 				unit.flight_target = EntIndexToHScript(orderTable.entindex_target)
@@ -2896,6 +2904,16 @@ function GameState:FilterDamage(filterTable)
 		end
     end
 
+    if victim:HasModifier("modifier_frozen_heart") then
+		if damagetype == DAMAGE_TYPE_PURE then
+			filterTable["damage"] = 8
+		elseif damagetype == DAMAGE_TYPE_MAGICAL then
+			filterTable["damage"] = 5
+		else
+			filterTable["damage"] = 2
+		end
+    end
+
 
 	--LETHAL CHECK
 	if filterTable["damage"] > victim:GetHealth() then
@@ -3062,16 +3080,16 @@ function GameState:FilterDamage(filterTable)
 
 	if Beacons.cheats then
 		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-			if victim:IsHero() then
-				filterTable["damage"] = 0
-			end
+			-- if victim:IsHero() then
+			-- 	filterTable["damage"] = 0
+			-- end
 		end
 		-- filterTable["damage"] = victim:GetHealth()-1
-		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-			if attacker:IsHero() then
-				filterTable["damage"] = filterTable["damage"]*60000000
-			end
-		end
+		-- if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+		-- 	if attacker:IsHero() then
+		-- 		filterTable["damage"] = filterTable["damage"]*60000000
+		-- 	end
+		-- end
 	end
 
 	return true

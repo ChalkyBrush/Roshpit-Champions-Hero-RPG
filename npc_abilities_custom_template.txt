@@ -21683,10 +21683,6 @@
 				"IsHidden"	"0"
 				"IsBuff"	"1"
 				"TextureName"	"djanghor/djanghor_rune_b_d"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS" "6000"
-				}
 			}
 			"modifier_shapeshift_bear_d_d"
 			{
@@ -29583,10 +29579,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"	"1"
-				}
 			}
 			"modifier_helm_max_mana"
 			{
@@ -29958,10 +29950,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"	"1"
-				}
 			}
 			"modifier_hand_base_ability_damage"
 			{
@@ -30363,10 +30351,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"	"1"
-				}
 			}
 			"modifier_foot_base_ability_damage"
 			{
@@ -30547,10 +30531,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"	"1"
-				}
 			}
 			"modifier_body_base_ability_damage"
 			{
@@ -30814,15 +30794,21 @@
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"1"
 				}
 			}
-			"modifier_trinket_max_health"
+			"modifier_trinket_mana_regen"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"	"1"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"		"1"
 				}
+			}
+			"modifier_trinket_max_health"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 			"modifier_trinket_max_mana"
 			{
@@ -34276,7 +34262,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "900"
-					"MODIFIER_PROPERTY_HEALTH_BONUS"			"300"
 				}
 			}
 			"modifier_venomort_rune_d_c_health"
@@ -34284,7 +34269,6 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS" "300"
 				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "900"
 				}
 			}
@@ -41969,10 +41953,6 @@
 			{
 				"IsBuff"	"1"
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"	"%property_one"
-				}
 			}
 		}
 
@@ -70613,7 +70593,6 @@
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attackspeed"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed"
-				    "MODIFIER_PROPERTY_HEALTH_BONUS"			"%max_health"
 				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor"
 				    "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"	"%health_regen_percent"
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%damage_percentage"
@@ -90630,7 +90609,6 @@
 					{
 						"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
 						"Function"		"sea_leaflet_take_damage"
-						"target"		"TARGET"
 					}
 				}
 			}

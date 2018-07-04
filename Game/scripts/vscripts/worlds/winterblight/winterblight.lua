@@ -12,19 +12,24 @@ function Winterblight:Debug()
     RPCItems:DropItem(item, Vector(-15424,-2560))
 
     RPCItems:DropSynthesisVessel(Vector(-15424,-2560))
-    for i = 1, 4, 1 do
-      RPCItems:RollRandomArcanaCachePart(Vector(-15424,-2560))
-    end
+    -- for i = 1, 4, 1 do
+    --   RPCItems:RollRandomArcanaCachePart(Vector(-15424,-2560))
+    -- end
     for i = 1, 3, 1 do
       Winterblight:DropGlacierStone(Vector(-15424,-2560))
     end
+    RPCItems:RollFrostmawHuntersHood(Vector(-15424,-2560))
+    RPCItems:RollFrozenHeart(Vector(-15424,-2560))
+    RPCItems:RollEnergyWhipGlove(Vector(-15424,-2560))
+    RPCItems:RollWindDeityCrown(Vector(-15424,-2560), false, 4)
+    RPCItems:RollBorealGraniteVest(Vector(-15424,-2560))
 end
 
 
 function Winterblight:InitCamp()
   print("Initialize Winterblight")
       Dungeons.phoenixCollision = true
-      RPCItems.DROP_LOCATION = Vector(6656,-16128)
+      RPCItems.DROP_LOCATION = Vector(-16000,492)
       Events:SpawnGamemaster(RPCItems.DROP_LOCATION)
       Events.GameMaster:AddAbility("town_portal"):SetLevel(1)
       Events.GameMaster:RemoveModifierByName("modifier_portal")
@@ -70,6 +75,17 @@ function Winterblight:InitCamp()
 end
 
 function Winterblight:InitProps()
+  Winterblight.Villagers = {0, 0, 0}
+  Winterblight.Villagers[1] = CreateUnitByName("winterblight_tuskar_villager", Vector(-11008, -896), false, nil, nil, DOTA_TEAM_GOODGUYS)
+  Winterblight.Villagers[1]:SetForwardVector(Vector(0.2,-1))
+  Winterblight.Villagers[2] = CreateUnitByName("winterblight_tuskar_villager", Vector(-9285, -930), false, nil, nil, DOTA_TEAM_GOODGUYS)
+  Winterblight.Villagers[2]:SetForwardVector(Vector(-1,0.2))
+  Winterblight.Villagers[2]:SetOriginalModel("models/creeps/ice_biome/tuskfolk/tuskfolk001c_f.vmdl")
+  Winterblight.Villagers[2]:SetModel("models/creeps/ice_biome/tuskfolk/tuskfolk001c_f.vmdl")
+  Winterblight.Villagers[3] = CreateUnitByName("winterblight_tuskar_villager", Vector(-8762, -3940), false, nil, nil, DOTA_TEAM_GOODGUYS)
+  Winterblight.Villagers[3]:SetForwardVector(Vector(-1,-0.8))
+  Winterblight.Villagers[3]:SetOriginalModel("models/creeps/ice_biome/tuskfolk/tuskfolk001a_f.vmdl")
+  Winterblight.Villagers[3]:SetModel("models/creeps/ice_biome/tuskfolk/tuskfolk001a_f.vmdl")
   Timers:CreateTimer(1.5, function()
     Winterblight.CaveSpawnerIceTable = Entities:FindAllByNameWithin("CaveWaveSpawners", Vector(1664, -5952), 4500)
     Winterblight.CaveSpawnerInnerTable = Entities:FindAllByNameWithin("CaveWaveSpawnersI", Vector(1664, -5952), 4500)
@@ -145,7 +161,8 @@ function Winterblight:Debug2()
  AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-15944, -13162), 23000, 23000, false)
  -- Winterblight:LastBridgeAndCup()
  Winterblight.AzaleaTeleportRoomSpawned = true
- Winterblight:SpawnAzaleaBoss()
+ -- Winterblight:SpawnAzaleaBoss()
+
  -- Winterblight:StartOrbSequence()
   -- Winterblight:EndOrbWaves()
     -- Winterblight:OpenShrineOfAzalea()
@@ -238,7 +255,9 @@ function Winterblight:HowlingWind()
 end
 
 function Winterblight:SpawnStartWorld()
-  local spawnerKid = CreateUnitByName("winterblight_snowball_kid", Vector(-12672, -1024), false, nil, nil, DOTA_TEAM_NEUTRALS)
+  if false then
+    local spawnerKid = CreateUnitByName("winterblight_snowball_kid", Vector(-12672, -1024), false, nil, nil, DOTA_TEAM_NEUTRALS)
+  end
   Winterblight:FirstSpawns()
   local luck = RandomInt(1,3)
   if luck == 1 then
@@ -541,14 +560,57 @@ function Winterblight:CrystalPlaced(msg)
     if Winterblight.Stones == 1 then
       local crystal = Entities:FindByNameNearest("WinterblightStones3", Vector(-14264, -6978, 56+Winterblight.ZFLOAT), 500)
       Winterblight:CrystalEnterAnimation(crystal)
+      for i = 1, 30, 1 do
+        Timers:CreateTimer(i*0.3, function()
+          local spawnPos = Vector(-16000, -5888) + Vector(RandomInt(0,3200), RandomInt(0,880))
+          local ice = Winterblight:SpawnLivingIceNoAggro(spawnPos, Vector(0,-1))
+            local particleName = "particles/roshpit/winterblight/snow_impact.vpcf"
+            local snowparticle = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, nil)
+            ParticleManager:SetParticleControl(snowparticle,0,ice:GetAbsOrigin())
+            Timers:CreateTimer(1, function()
+              ParticleManager:DestroyParticle( snowparticle, false )
+            end)
+          EmitSoundOn("Winterblight.IceCrystal.Spawn", ice)
+          StartAnimation(ice, {duration=1, activity=ACT_DOTA_SPAWN, rate=1.4})
+          local iceAbil = ice:FindAbilityByName("winterblight_ice_magic_immune_ability")
+          local iceImmuneDuration = 1 + 0.3*GameState:GetDifficultyFactor()
+          iceAbil:ApplyDataDrivenModifier(ice, ice, "modifier_black_King_bar_immunity", {duration = iceImmuneDuration})
+          if GameState:GetDifficultyFactor() >= 3 then
+            local luck = RandomInt(1, 8)
+            if luck == 1 then
+              ice:AddAbility("creature_pure_strike"):SetLevel(GameState:GetDifficultyFactor())
+            end
+          end
+        end)
+      end
     elseif Winterblight.Stones == 2 then
       local crystal = Entities:FindByNameNearest("WinterblightStones2", Vector(-14061, -6978, 56+Winterblight.ZFLOAT), 500)
       Winterblight:CrystalEnterAnimation(crystal)
+      local positionTable = {Vector(-15616, -5760), Vector(-15355, -5120), Vector(-14720, -4873), Vector(14080, -4662), Vector(13503, -4888), Vector(-12928, -5132), Vector(-12773, -5760), Vector(-14626, -5325), Vector(-13568, -5325)}
+      for i = 1, #positionTable, 1 do
+        Timers:CreateTimer(i*0.4, function()
+          local queen = Winterblight:SpawnHeartFreezer(positionTable[i], Vector(0,-1))
+          local particle = "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
+          local pfx = ParticleManager:CreateParticle( particle, PATTACH_WORLDORIGIN, caster )
+          local radius = 300
+          ParticleManager:SetParticleControl( pfx, 0,  GetGroundPosition(queen:GetAbsOrigin(), Events.GameMaster) )
+          ParticleManager:SetParticleControl( pfx, 1, Vector(radius, 2, radius*2) )
+          Timers:CreateTimer(3.5, function()
+              ParticleManager:DestroyParticle(pfx, false)
+          end)
+          EmitSoundOn("Winterblight.HeartFreezer.SpawnLaugh", queen)
+        end)
+      end
     elseif Winterblight.Stones == 3 then
       Winterblight.AltarDisabled = true
       CustomGameEventManager:Send_ServerToAllClients("close_altar_of_ice", {} )
       local crystal = Entities:FindByNameNearest("WinterblightStones1", Vector(-13852, -6978, 56+Winterblight.ZFLOAT), 500)
       Winterblight:CrystalEnterAnimation(crystal)
+      local positionTable = {Vector(-13024, -5950), Vector(-13312, -4524), Vector(-14377, -4524), Vector(-15104, -5504)}
+      for i = 1, #positionTable, 1 do
+        local lookToPoint = (Vector(-14080, -5923) - positionTable[i]):Normalized()
+        Winterblight:SpawnMountainGod(positionTable[i], lookToPoint)
+      end
     end
   end
 end

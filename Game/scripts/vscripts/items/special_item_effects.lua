@@ -5234,3 +5234,351 @@ function end_blacksmith_tablet(event)
 		end
 	end)
 end
+
+function frostmaw_kill(event)
+	local unit = event.unit
+	local caster = event.attacker
+	local ability = event.ability
+	if not ability.frostmaw_minion_table then
+		ability.frostmaw_minion_table = {}
+	end
+	local max_minions = 1
+	if #ability.frostmaw_minion_table < max_minions then
+		local fv = unit:GetForwardVector()
+		local summonPosition = unit:GetAbsOrigin()
+		unit:SetAbsOrigin(summonPosition-Vector(0,0,800))
+		local summon = CreateUnitByName(unit:GetUnitName(), summonPosition, false, nil, nil, caster:GetTeamNumber())
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_lone_druid/lone_druid_savage_roar.vpcf", summon, 3)
+		ability:ApplyDataDrivenModifier(caster, summon, "modifier_frostmaw_dominated_unit", {})
+		summon:SetAcquisitionRange(1600)
+		summon:SetControllableByPlayer(caster:GetPlayerOwnerID(), true)
+		summon:SetForwardVector(fv)
+		local hp = unit:GetMaxHealth()
+		local armor = unit:GetPhysicalArmorBaseValue()
+		local movespeed = unit:GetBaseMoveSpeed()
+		local attackDamage = unit:GetAttackDamage()
+		summon:SetMaxHealth(hp)
+		summon:SetHealth(hp)
+   		summon:SetBaseMaxHealth(hp)
+
+		summon:SetPhysicalArmorBaseValue(armor)
+		summon:SetBaseMoveSpeed(movespeed)
+	    summon:SetBaseDamageMin(attackDamage)
+	    summon:SetBaseDamageMax(attackDamage) 
+	    summon.attackDamage = attackDamage
+	    summon.armor = armor
+	    summon.aggro = true
+	    summon.frostmaw = true
+	    summon:SetDayTimeVisionRange(90)
+	    summon:SetNightTimeVisionRange(90)
+	    summon.hero = caster
+
+	    table.insert(ability.frostmaw_minion_table, summon)
+
+	    EmitSoundOn("RPCItem.FrostmawDominate", summon)
+
+		local newTable = {}
+		for i = 1, #ability.frostmaw_minion_table, 1 do
+			if IsValidEntity(ability.frostmaw_minion_table[i]) then
+				if ability.frostmaw_minion_table[i]:IsAlive() then
+					table.insert(newTable, ability.frostmaw_minion_table[i])
+				end
+			end
+		end
+		ability.frostmaw_minion_table = newTable
+	    summon:SetAcquisitionRange(1200)
+		summon.targetRadius = 1000
+		summon.minRadius = 0
+		summon.targetAbilityCD = 2
+		summon.targetFindOrder = FIND_ANY_ORDER
+		summon.autoAbilityCD = 2
+		summon.owner = caster:GetPlayerOwnerID()
+		if summon.aggroSound then
+			EmitSoundOn(summon.aggroSound, summon)
+		end
+		summon.stance = "aggressive"
+		summon:AddAbility("ekkan_creep_aggressive"):SetLevel(1)
+		summon:SetOwner(caster)
+	    for i = 0, 6, 1 do
+	      local ability = summon:GetAbilityByIndex(i)
+	      if ability then
+	        ability:SetLevel(GameState:GetDifficultyFactor())
+	      end
+	    end
+	end
+	caster.frostmaw_minion_table = ability.frostmaw_minion_table
+end
+
+function frostmaw_unequip(event)
+	local ability = event.ability
+	local caster = event.target
+	if caster.frostmaw_minion_table then
+		for i = 1, #caster.frostmaw_minion_table, 1 do
+			if IsValidEntity(caster.frostmaw_minion_table[i]) then
+				caster.frostmaw_minion_table[i]:SetHealth(1)
+				caster.frostmaw_minion_table[i]:ForceKill(false)
+			end
+		end
+	end
+end
+
+function frostmaw_dominated_think(event)
+	local caster = event.caster
+	local target = event.target
+	if caster:GetEntityIndex() == target:GetEntityIndex() then
+		caster = target.hero
+	end
+	if target:IsAlive() then
+		local leashDistance = 2000
+		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target:GetAbsOrigin())
+		if distance > leashDistance then
+			FindClearSpaceForUnit(target, caster:GetAbsOrigin()+RandomVector(180), false)
+			Timers:CreateTimer(0.1, function()
+				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_lone_druid/lone_druid_savage_roar.vpcf", target, 3)
+			end)
+			return false
+		end
+		if target.stance == "passive" then
+			return false
+		elseif target.stance == "follow" then
+			target:MoveToPosition(caster:GetAbsOrigin()+RandomVector(180)) 
+			return false
+		else
+			if distance > 800 then
+				local enemies = FindUnitsInRadius( target:GetTeamNumber(), target:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+				if #enemies == 0 then
+					target:MoveToPosition(caster:GetAbsOrigin()+RandomVector(180))
+				end
+			end
+		end
+	end
+end
+
+function frostmaw_dominated_die(event)
+	local unit = event.unit
+	local caster = event.caster
+	local ability = event.ability
+	local newTable = {}
+	if IsValidEntity(ability) then
+		for i = 1, #ability.frostmaw_minion_table, 1 do
+			if IsValidEntity(ability.frostmaw_minion_table[i]) then
+				if ability.frostmaw_minion_table[i]:IsAlive() then
+					table.insert(newTable, ability.frostmaw_minion_table[i])
+				end
+			end
+		end
+		ability.frostmaw_minion_table = newTable
+	end
+end
+
+function frozen_heart_think(event)
+	local unit = event.unit
+	local caster = event.caster
+	local ability = event.ability
+	local hero = event.target
+	-- local maxHealth = math.floor(hero:GetMaxHealth() + hero:GetModifierStackCount("modifier_frozen_heart_negative_health", caster))
+	-- print("MAXHEALTH----")
+	-- print(maxHealth)
+	-- print("-----")
+	-- if hero:GetMaxHealth() > 101 or hero:GetMaxHealth() < 99 then
+	-- 	local stacksToBeApplied = hero:GetMaxHealth() - 99
+	-- 	if not hero:HasModifier("modifier_frozen_heart_negative_health") then
+	-- 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_frozen_heart_negative_health", {})
+	-- 	end
+	-- 	print("stacks to be")
+	-- 	print(stacksToBeApplied)
+	-- 	if hero:GetMaxHealth() - stacksToBeApplied > 10 then
+	-- 		Timers:CreateTimer(0.03, function()
+	-- 			hero:SetModifierStackCount("modifier_frozen_heart_negative_health", caster, stacksToBeApplied)
+	-- 		end)
+	-- 	end
+	-- end
+	-- if not ability.interval then
+	-- 	ability.interval = 0
+	-- end
+	-- if ability.interval == 75 then
+	-- 	ability:ApplyDataDrivenModifier(caster, hero, "modifier_frozen_heart_regen", {})
+	-- else
+	-- 	ability.interval = ability.interval + 1
+	-- end
+	ability:ApplyDataDrivenModifier(caster, hero, "modifier_frozen_heart_negative_health", {})
+	hero:SetModifierStackCount("modifier_frozen_heart_negative_health", caster, 900)
+	if not hero:HasModifier("modifier_frozen_heart_regen") then
+		if not hero:HasModifier("modifier_frozen_heart_regen_prep") then
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_frozen_heart_regen_prep", {duration = 2.5})
+		end
+	end
+	-- if hero:GetHealth() <= 0 then
+	-- 	caster:SetHealth(10)
+	-- 	hero:RemoveModifierByName("modifier_frozen_heart_negative_health")
+	-- 	hero:ForceKill(false)
+	-- end
+end
+
+function frozen_heart_die(event)
+	local hero = event.unit
+	local caster = event.caster
+	local ability = event.ability
+	AddFOWViewer(hero:GetTeamNumber(), hero:GetAbsOrigin(), 500, 6, false)
+	ability:ApplyDataDrivenModifier(caster, hero, "modifier_frozen_heart_dead", {})
+	Timers:CreateTimer(3, function()
+		hero:RemoveModifierByName("modifier_frozen_heart_dead")
+		local position = hero:GetAbsOrigin()
+		for i = 0, 3, 1 do
+			Timers:CreateTimer(0.1*i, function()
+			    local particleName = "particles/roshpit/winterblight/snow_impact.vpcf"
+			    local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, nil)
+			    ParticleManager:SetParticleControl(particle1,0,caster:GetAbsOrigin())
+			    Timers:CreateTimer(1, function()
+			    	ParticleManager:DestroyParticle( particle1, false )
+			    end)
+			end)
+		end
+		EmitSoundOn("RPCItems.FrozenHeart.Shatter", hero)
+	    local particleName = "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
+	    local radius = 500
+	    local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, nil )
+	    ParticleManager:SetParticleControl( particle1, 0, position )
+	    ParticleManager:SetParticleControl( particle1, 1, Vector(radius, 1, 800) )
+	    ParticleManager:SetParticleControl( particle1, 3, Vector(radius, radius, radius) )
+	    Timers:CreateTimer(3, function()
+	        ParticleManager:DestroyParticle(particle1, false)
+	    end)
+		hero:SetAbsOrigin(hero:GetAbsOrigin()-Vector(0,0,500))
+	end)
+end
+
+function frozen_heart_regen_thinker(event)
+	local caster = event.caster
+	local hero = event.target
+	local ability = event.ability
+	local newHealth = math.min(hero:GetHealth() + 1, 100)
+	hero:SetHealth(newHealth)
+end
+
+function frozen_heart_take_damage(event)
+	local unit = event.unit
+	local ability = event.ability
+	local caster = event.caster
+	ability.interval = 0
+	print("take damage")
+	ability:ApplyDataDrivenModifier(caster, hero, "modifier_frozen_heart_regen_prep", {duration = 2.5})
+	local modifier = unit:FindModifierByName("modifier_frozen_heart_regen_prep")
+	if modifier then
+		modifier:SetDuration(2.5, true)
+	end
+	Timers:CreateTimer(0.03, function()
+		ability.interval = 0
+		unit:RemoveModifierByName("modifier_frozen_heart_regen")
+	end)
+end
+
+function energy_whip_glove_attack_land(event)
+	local attacker = event.attacker
+	local target = event.target
+	local ability = attacker:GetAbilityByIndex(1)
+	print("A1")
+	if ability:GetCooldownTimeRemaining() <= 0 then
+		print("B2")
+		local manaRestore = ability:GetManaCost(ability:GetLevel())
+		attacker:GiveMana(manaRestore)
+		local castPointSave = ability:GetCastPoint()
+		ability.castPointSave = castPointSave
+		ability:SetOverrideCastPoint(0)
+		local behavior = ability:GetBehavior()
+		print(bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET))
+		if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) == DOTA_ABILITY_BEHAVIOR_NO_TARGET then
+			local order =
+			{
+				UnitIndex = attacker:entindex(),
+				OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+				AbilityIndex = ability:entindex(),
+				Queue = true
+			}
+			attacker:Stop()
+			ExecuteOrderFromTable(order)
+			print("IN HERE")
+		elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) == DOTA_ABILITY_BEHAVIOR_UNIT_TARGET then
+			local order = {
+		 		UnitIndex = attacker:entindex(), 
+		 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+		 		TargetIndex = target:entindex(),
+		 		AbilityIndex = ability:entindex(),
+		 		Queue = true
+		 	}
+		 	attacker:Stop()
+		 	print("HERE?")
+			ExecuteOrderFromTable(order)	
+		elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) == DOTA_ABILITY_BEHAVIOR_POINT then
+			local order =
+			{
+				UnitIndex = attacker:entindex(),
+				OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+				AbilityIndex = ability:entindex(),
+				Position = target:GetAbsOrigin(),
+				Queue = true
+			}
+			attacker:Stop()
+			ExecuteOrderFromTable(order)	
+		end
+		-- ability:StartCooldown(0)
+	end
+end
+
+function boreal_granite_vest_take_damage(event)
+	local target = event.attacker
+	local hero = event.unit
+
+	local ability = hero:GetAbilityByIndex(0)
+	local proc = Filters:GetProc(hero, 10)
+	local cd = ability:GetCooldownTimeRemaining()
+	local distance = WallPhysics:GetDistance(hero:GetAbsOrigin(), target:GetAbsOrigin())
+	if proc and distance <= ability:GetCastRange() then
+		ability:EndCooldown()
+		local manaRestore = ability:GetManaCost(ability:GetLevel())
+		if manaRestore > 0 then
+			attacker:GiveMana(manaRestore)
+		end
+		local castPointSave = ability:GetCastPoint()
+		ability.boreal_cast_point = castPointSave
+		ability:SetOverrideCastPoint(0)
+		local behavior = ability:GetBehavior()
+		print(bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET))
+		if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) == DOTA_ABILITY_BEHAVIOR_NO_TARGET then
+			local order =
+			{
+				UnitIndex = hero:entindex(),
+				OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+				AbilityIndex = ability:entindex(),
+				Queue = true
+			}
+			hero:Stop()
+			ExecuteOrderFromTable(order)
+			print("IN HERE")
+		elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) == DOTA_ABILITY_BEHAVIOR_UNIT_TARGET then
+			local order = {
+		 		UnitIndex = hero:entindex(), 
+		 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+		 		TargetIndex = target:entindex(),
+		 		AbilityIndex = ability:entindex(),
+		 		Queue = true
+		 	}
+		 	hero:Stop()
+		 	print("HERE?")
+			ExecuteOrderFromTable(order)	
+		elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) == DOTA_ABILITY_BEHAVIOR_POINT then
+			local order =
+			{
+				UnitIndex = hero:entindex(),
+				OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+				AbilityIndex = ability:entindex(),
+				Position = target:GetAbsOrigin(),
+				Queue = true
+			}
+			hero:Stop()
+			ExecuteOrderFromTable(order)	
+		end
+		-- ability:StartCooldown(0)
+
+	end
+end

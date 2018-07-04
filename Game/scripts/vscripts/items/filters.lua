@@ -80,6 +80,7 @@ function Filters:CleanseSilences(unit)
     unit:RemoveModifierByName("modifier_blackguard_cripple")
     unit:RemoveModifierByName("modifier_challenger_bolt_blue_debuff")
     unit:RemoveModifierByName("modifier_shield_silence")
+    unit:RemoveModifierByName("modifier_silence")
     unit:RemoveModifierByName("modifier_kaze_gust_blind")
 end
 
@@ -771,6 +772,11 @@ function Filters:ApplyQskills(caster)
     if caster:HasModifier("modifier_dark_emissary_glove") then
         Filters:DarkEmissary(caster)
     end
+    local ability = caster:GetAbilityByIndex(0)
+    if ability.castPointSave then
+        ability:SetOverrideCastPoint(ability.castPointSave)
+        ability.castPointSave = nil
+    end
     if caster:HasModifier("modifier_sorceress_immortal_weapon_2") then
         if not caster.avatar then
             if caster:GetMana() >= caster:GetMaxMana()*0.5 then
@@ -897,6 +903,11 @@ function Filters:ApplyWskills(caster)
             caster:SetModifierStackCount( "modifier_windsteel_effect", caster.body, stackCount)
             EmitSoundOn("Item.WindSteel", caster)
         end
+    end
+    local ability = caster:GetAbilityByIndex(1)
+    if ability.castPointSave then
+        ability:SetOverrideCastPoint(ability.castPointSave)
+        ability.castPointSave = nil
     end
     local gameMasterAbil = Events.GameMaster:FindAbilityByName("npc_abilities")
     if caster:HasModifier("modifier_burnout") then

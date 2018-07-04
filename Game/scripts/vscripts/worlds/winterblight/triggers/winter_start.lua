@@ -247,3 +247,30 @@ function AltarOfIceExit(trigger)
 		CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(),"close_altar_of_ice", {})
 	end
 end
+
+function Villager1(trigger)
+	local hero = trigger.activator
+	local villager = Winterblight.Villagers[1]
+	Quests:ShowDialogueText({hero}, villager, "villager_dialogue_1", 6, false)
+	StartAnimation(villager, {duration=3, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.0})
+	EmitSoundOn("Winterblight.Villager.Speak", villager)
+end
+
+function Villager2(trigger)
+	local hero = trigger.activator
+	local villager = Winterblight.Villagers[2]
+	Quests:ShowDialogueText({hero}, villager, "villager_dialogue_2", 4.8, false)
+	StartAnimation(villager, {duration=3, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.0})
+	EmitSoundOn("Winterblight.Villager.Speak", villager)
+	Timers:CreateTimer(5, function()
+		Quests:ShowDialogueText({hero}, villager, "villager_dialogue_2a", 5, false)
+	end)
+end
+
+function Villager3(trigger)
+	local hero = trigger.activator
+	local villager = Winterblight.Villagers[3]
+	Quests:ShowDialogueText({hero}, villager, "villager_dialogue_3", 6, false)
+	StartAnimation(villager, {duration=3, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.0})
+	EmitSoundOn("Winterblight.Villager.Speak", villager)
+end

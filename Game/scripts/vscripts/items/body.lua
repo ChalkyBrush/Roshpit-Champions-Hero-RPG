@@ -252,6 +252,8 @@ function Body:action(propertyName, propertyValue, hero, inventory_unit, body_abi
 		Body:addItemModifier(0, hero, inventory_unit, "modifier_templar_light_seers_robe", item)
 	elseif propertyName == "direwolf" then
 		Body:addItemModifier(0, hero, inventory_unit, "modifier_direwolf_bulwark", item)
+	elseif propertyName == "boreal_granite" then
+		Body:addItemModifier(0, hero, inventory_unit, "modifier_boreal_granite_vest", item)
 	end
 	hero.body = item
 	item.hero = hero
@@ -444,6 +446,7 @@ function Body:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_arkimus_arcana2")
 	hero:RemoveModifierByName("modifier_djanghor_arcana1")
 	hero:RemoveModifierByName("modifier_zonik_arcana2")
+	hero:RemoveModifierByName("modifier_boreal_granite_vest")
 	hero.ocean_tempest = nil
 
 	hero.space_tech = nil

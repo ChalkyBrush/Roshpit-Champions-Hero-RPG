@@ -76,6 +76,9 @@ function OnDragDrop( panelId, draggedPanel )
 			$('#item_synth_slot').SetAttributeInt("item", draggedItem)		
 			$.GetContextPanel().AddClass("blue_border")
 			$.GetContextPanel().RemoveClass( "synth_highlight" );
+
+			$.GetContextPanel().altarParent.totalStones = $.GetContextPanel().altarParent.totalStones + 1
+			$.GetContextPanel().altarParent.FindChildTraverse('witch_doctor_tooltip').text = $.Localize("#altar_of_ice_help"+($.GetContextPanel().altarParent.totalStones+1))
 	}
 	return true
 

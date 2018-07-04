@@ -220,6 +220,8 @@ function Hand:action(propertyName, propertyValue, hero, inventory_unit, hand_abi
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_depth_demon_claw", item)
 	elseif propertyName == "heavy_echo" then
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_heavy_echo_gauntlet", item)
+	elseif propertyName == "energy_whip" then
+		Hand:addItemModifier(0, hero, inventory_unit, "modifier_energy_whip_glove", item)
 	end
 	hero.handItem = item
 end
@@ -381,6 +383,7 @@ function Hand:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_heavy_echo_gauntlet")
 	hero:RemoveModifierByName("modifier_flamewaker_arcana2")
 	hero:RemoveModifierByName("modifier_astral_arcana2")
+	hero:RemoveModifierByName("modifier_energy_whip_glove")
 	hero.stormcloth = false
 	Hand:remove_rune_bonuses(hero)
 end

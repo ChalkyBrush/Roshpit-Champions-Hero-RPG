@@ -48,6 +48,14 @@ CustomAttributes.NEUTRAL_GLYPH_7 = 3500
 CustomAttributes.MOUNTAIN_PROTECTOR_GLYPH_5_A = 5000
 CustomAttributes.ASTRAL_W1_ARCANA2_STATS = 0.8
 
+CustomAttributes.SOLUNIA_E4_MAX_HEALTH = 20000
+CustomAttributes.DJANGHOR_BEAR_MAX_HEALTH = 6000
+CustomAttributes.OGTHUN_HEALTH = 10
+CustomAttributes.TYRIUS_HEALTH_PER_STR = 10
+CustomAttributes.REDROCK_HEALTH = 10
+CustomAttributes.SANGE_HEALTH = 8
+CustomAttributes.SAPPHIRE_LOTUS_HEALTH = 10
+CustomAttributes.PALADIN_IMMO_3_HEALTH = 12
 
 function CDOTA_BaseNPC_Hero:GetStrength()
 	local hero = self
@@ -466,23 +474,28 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 	if hero:HasModifier("modifier_halcyon_soul_glove") then
 		halcyon = 1.5
 	end
-	if not hero:HasModifier("modifier_strength_health") then
-		ability:ApplyDataDrivenModifier(caster, hero, "modifier_strength_health", {})
-	end
-	local healthStacks = strength*CustomAttributes.HEALTH_PER_STR*halcyon
-	if not hero:GetModifierStackCount("modifier_strength_health", caster) == healthStacks then
-		local healthPercentFreeze = hero:GetHealth()/hero:GetMaxHealth()
-		Timers:CreateTimer(0.03, function()
-			if hero:IsAlive() then
-				hero:SetHealth(math.max(hero:GetMaxHealth()*healthPercentFreeze, 1))
-			else
-				if hero:GetHealth() == 0 then
-					hero:ForceKill(false)
+	if hero:HasModifier("modifier_frozen_heart") then
+		hero:RemoveModifierByName("modifier_strength_health")
+	else
+		if not hero:HasModifier("modifier_strength_health") then
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_strength_health", {})
+		end
+		local healthStacks = strength*CustomAttributes.HEALTH_PER_STR*halcyon
+		healthStacks = CustomAttributes:GetMaxHealth(hero, healthStacks)
+		if not hero:GetModifierStackCount("modifier_strength_health", caster) == healthStacks then
+			local healthPercentFreeze = hero:GetHealth()/hero:GetMaxHealth()
+			Timers:CreateTimer(0.03, function()
+				if hero:IsAlive() then
+					hero:SetHealth(math.max(hero:GetMaxHealth()*healthPercentFreeze, 1))
+				else
+					if hero:GetHealth() == 0 then
+						hero:ForceKill(false)
+					end
 				end
-			end
-		end)
+			end)
+		end
+		hero:SetModifierStackCount("modifier_strength_health", caster, healthStacks)
 	end
-	hero:SetModifierStackCount("modifier_strength_health", caster, healthStacks)
 	if not hero:HasModifier("modifier_strength_health_regen") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_strength_health_regen", {})
 	end
@@ -516,6 +529,53 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 	end
 	hero:SetModifierStackCount("modifier_primary_attribute_damage", caster, damage_from_primary)	
 	hero:CalculateStatBonus()
+end
+
+function CustomAttributes:GetMaxHealth(hero, strength_health)
+	local maxHealth = strength_health
+	if hero:HasModifier("modifier_helm_max_health") then
+		maxHealth = maxHealth + hero:GetModifierStackCount("modifier_helm_max_health", hero.InventoryUnit)
+	end
+	if hero:HasModifier("modifier_hand_max_health") then
+		maxHealth = maxHealth + hero:GetModifierStackCount("modifier_hand_max_health", hero.InventoryUnit)
+	end
+	if hero:HasModifier("modifier_foot_max_health") then
+		maxHealth = maxHealth + hero:GetModifierStackCount("modifier_foot_max_health", hero.InventoryUnit)
+	end
+	if hero:HasModifier("modifier_body_max_health") then
+		maxHealth = maxHealth + hero:GetModifierStackCount("modifier_body_max_health", hero.InventoryUnit)
+	end
+	if hero:HasModifier("modifier_trinket_max_health") then
+		maxHealth = maxHealth + hero:GetModifierStackCount("modifier_trinket_max_health", hero.InventoryUnit)
+	end
+	if hero:HasModifier("modifier_venomort_rune_d_c_invisible") then
+		maxHealth = maxHealth + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_rune_d_c_invisible", 300)
+	end
+	if hero:HasModifier("modifier_solunia_rune_d_c_effect") then
+		maxHealth = maxHealth + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_rune_d_c_effect", CustomAttributes.SOLUNIA_E4_MAX_HEALTH)
+	end
+	if hero:HasModifier("modifier_bear_b_d") then
+		maxHealth = maxHealth + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_bear_b_d", CustomAttributes.DJANGHOR_BEAR_MAX_HEALTH)
+	end
+	if hero:HasModifier("modifier_tyrius_buff") then
+		maxHealth = maxHealth + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_tyrius_buff", CustomAttributes.TYRIUS_HEALTH_PER_STR)
+	end
+	if hero:HasModifier("modifier_ogthun_health") then
+		maxHealth = maxHealth + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_ogthun_health", CustomAttributes.OGTHUN_HEALTH)
+	end
+	if hero:HasModifier("modifier_redrock_footwear_health_increase") then
+		maxHealth = maxHealth + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_redrock_footwear_health_increase", CustomAttributes.REDROCK_HEALTH)
+	end
+	if hero:HasModifier("modifier_rpc_sange_buff") then
+		maxHealth = maxHealth + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_rpc_sange_buff", CustomAttributes.SANGE_HEALTH)
+	end
+	if hero:HasModifier("modifier_sapphire_lotus_buff") then
+		maxHealth = maxHealth + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_sapphire_lotus_buff", CustomAttributes.SAPPHIRE_LOTUS_HEALTH)
+	end
+	if hero:HasModifier("modifier_paladin_immortal_weapon_3_health") then
+		maxHealth = maxHealth + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_paladin_immortal_weapon_3_health", CustomAttributes.PALADIN_IMMO_3_HEALTH)
+	end
+	return maxHealth
 end
 
 function CustomAttributes:ActivateStatsTooltip(msg)

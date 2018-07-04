@@ -29,7 +29,7 @@ require('worlds/events/descent_of_winterblight_dec_2017/descent_of_winterblight_
 
 Events.ResourceBonus = 1
 
-ROSHPIT_URL = "https://www.roshpit.ca"
+ROSHPIT_URL = "https://roshpit.herokuapp.com"
 
 
 SPAWN_POINT_OPEN_1 = Vector(-7232, -6464)
@@ -1003,8 +1003,10 @@ function Events:SetupHeroes(heroEntity)
     heroEntity.baseAttackCapability = heroEntity:GetAttackCapability()
     print(heroEntity:GetUnitName())
     Timers:CreateTimer(14, function()
-      heroEntity.originalProjectile = Events.HEROKV[heroEntity:GetUnitName()]["ProjectileModel"]
-      heroEntity.baseProjectileSpeed = heroEntity:GetProjectileSpeed()
+      if Events.HEROKV then
+        heroEntity.originalProjectile = Events.HEROKV[heroEntity:GetUnitName()]["ProjectileModel"]
+        heroEntity.baseProjectileSpeed = heroEntity:GetProjectileSpeed()
+      end
     end)
 
     -- Timers:CreateTimer(6, function()
@@ -1376,7 +1378,7 @@ end
 
 function Events:beginQuests()
   -- print("BEGINQUESTS IS HAPPENING")
-  Beacons:DEBUG()
+  -- Beacons:DEBUG()
 end
 
 function Events:InitGameEntities()
