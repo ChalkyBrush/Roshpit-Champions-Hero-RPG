@@ -36,8 +36,8 @@ function begin_backshock(event)
 	end
 	if ability.c_b_level > 0 then
 		local healAmount = ability.c_b_level*500
-		caster:Heal(healAmount, caster)
-		PopupHealing(caster, healAmount)
+		Filters:ApplyHeal(caster, caster, healAmount, true)
+		-- PopupHealing(caster, healAmount)
 	end
 	if caster:HasModifier("modifier_axe_rune_d_c_furnace") then
 		local currentStacks = caster:GetModifierStackCount("modifier_axe_rune_d_c_furnace", caster)

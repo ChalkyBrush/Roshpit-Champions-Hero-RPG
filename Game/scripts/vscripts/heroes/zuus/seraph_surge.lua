@@ -168,8 +168,8 @@ function shadow_flay_effect_think(event)
 
 	Filters:ApplyItemDamage(target,caster.hero,damage,DAMAGE_TYPE_MAGICAL,ability,RPC_ELEMENT_SHADOW,RPC_ELEMENT_NONE)
 
-	caster.hero:Heal(heal, caster.hero)
-	PopupHealing(caster.hero, heal)
+	Filters:ApplyHeal(caster.hero, caster.hero, heal, true)
+	-- PopupHealing(caster.hero, heal)
 end
 
 function shadow_flay_start(event)

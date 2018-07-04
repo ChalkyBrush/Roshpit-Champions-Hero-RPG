@@ -159,7 +159,7 @@ function jump_passive_think_2(event)
 
 			local heal = manaDifferential*b_c_level
 			print("HEAL: "..heal)
-			caster:Heal(heal, caster)
+			Filters:ApplyHeal(caster, caster, heal, true,false)
 		end
 		ability.lastMana = caster:GetMana()
 	end

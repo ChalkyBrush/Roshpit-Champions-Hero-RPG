@@ -30,7 +30,7 @@ function supernova_a_d(caster, ability)
 		if a_d_level > 0 then
 			local healthRestore = a_d_level*6000
 			local manaRestore = a_d_level*2000
-			caster:Heal(healthRestore, caster)
+			Filters:ApplyHeal(caster, caster, healthRestore, true,false)
 			caster:GiveMana(manaRestore)
 			PopupHealing(caster, healthRestore)
 			PopupMana(caster, manaRestore)

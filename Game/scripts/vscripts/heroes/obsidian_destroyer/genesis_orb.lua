@@ -136,8 +136,8 @@ function epoch_c_b_attack_land(event)
 	end
 
 	local healAmount = math.floor(ability.c_b_level*epoch_w3_heal)
-	caster:Heal(healAmount, caster)
-	PopupHealing(caster, healAmount)
+	Filters:ApplyHeal(caster, caster, healAmount, true)
+	-- PopupHealing(caster, healAmount)
 	if not ability.pfx2 then
 		local particleName = "particles/items2_fx/refresher.vpcf"
 		local pfx2 = ParticleManager:CreateParticle( particleName, PATTACH_POINT_FOLLOW, caster )

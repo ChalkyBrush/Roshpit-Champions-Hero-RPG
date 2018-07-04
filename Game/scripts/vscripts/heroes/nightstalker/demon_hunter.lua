@@ -107,7 +107,7 @@ function demon_hunter_a_b_attack(event)
 		end
 		if not attacker:HasModifier("modifier_demon_hunter") or attacker:HasModifier("modifier_chernobog_glyph_5_a") then
 			CustomAbilities:QuickAttachParticle("particles/chernobog/chernobog_a_b_timedialate.vpcf", attacker, 2)
-			attacker:Heal(500*rune_a_b_level, attacker)
+			Filters:ApplyHeal(attacker, attacker, 500*rune_a_b_level, true,false)
 		end
 	end
 	if rune_c_b_level > 0 then

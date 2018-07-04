@@ -134,10 +134,10 @@ function supercharge_attack_land(event)
 		local healAmount = math.max(event.attack_damage*0.005*ability.a_d_level, 1)
 		local casterHeal = math.min(caster:GetMaxHealth(), healAmount)
 		local creepHeal = math.min(attacker:GetMaxHealth(), healAmount)
-		caster:Heal(casterHeal, caster)
-		PopupHealing(caster, healAmount)		
-		attacker:Heal(creepHeal, caster)
-		PopupHealing(attacker, healAmount)	
+		Filters:ApplyHeal(caster, caster, casterHeal, true)
+		-- PopupHealing(caster, healAmount)	
+		Filters:ApplyHeal(caster, attacker, creepHeal, true)	
+		-- PopupHealing(attacker, healAmount)	
 	end
 end
 
