@@ -66522,20 +66522,15 @@
 			}
 			"02"
 			{
-				"var_type"	"FIELD_INTEGER"
-				"damage"		"3600 30000 90000 240000 500000 1000000 2000000"
-			}
-			"03"
-			{
 				"var_type"	"FIELD_FLOAT"
 				"self_damage"	"0.5"
 			}
-			"04"
+			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
 				"additional_str_damage"		"25"
 			}
-			"05"
+			"04"
 			{
 				"var_type"	"FIELD_INTEGER"
 				"post_mitigation"		"125"

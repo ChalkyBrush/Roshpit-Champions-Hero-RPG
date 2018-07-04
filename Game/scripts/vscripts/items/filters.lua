@@ -387,12 +387,12 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
 			abilityCooldown = 1
 		end
 	end
-	if abilityCooldown < 1 then
-		abilityCooldown = 1
+	if abilityCooldown < 0.5 then
+		abilityCooldown = 0.5
 	end
 	--Hood of Lords reduces CD after all the lua code. Its internal by Dota 2
-	if abilityCooldown < 2 and caster:HasModifier("modifier_hood_of_lords_lua") then
-		abilityCooldown = 2
+	if abilityCooldown < 1.5 and caster:HasModifier("modifier_hood_of_lords_lua") then
+		abilityCooldown = 1.5
 	end
 	
 	ability:EndCooldown()
