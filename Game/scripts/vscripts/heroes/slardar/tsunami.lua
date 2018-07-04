@@ -40,23 +40,19 @@ function channel_complete(event)
 
 			StopSoundEvent("Hydroxis.WaterChannel", caster)
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 520, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-			abilityArray_damage = {60, 100, 150, 240, 360, 500, 800}
-			abilityArray_stunDuration = {1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3.0}
-			abilityArray_slow_duration = 6
-			local damage = 0
-			local stunDuration = 0
-			local slow_duration = 0
+
 			local hydroxis_tsunami_ability = caster:FindAbilityByName("hydroxis_tsunami")
-			local hydroxis_tsunami_ability_LVL = hydroxis_tsunami_ability:GetLevel()
-			if hydroxis_tsunami_ability and hydroxis_tsunami_ability_LVL then				
-				damage = abilityArray_damage[hydroxis_tsunami_ability_LVL]*caster:GetStrength()
-				stunDuration = abilityArray_stunDuration[hydroxis_tsunami_ability_LVL]
-				slow_duration = stunDuration + abilityArray_slow_duration
-			else
-				damage = event.strength_damage*caster:GetStrength()
-				stunDuration = event.stun_duration
-				slow_duration = event.slow_duration + stunDuration
-			end
+
+			local hydroxis_tsunami_ability_LVL = hydroxis_tsunami_ability:GetLevel()-1
+
+			-- print("hydroxis / "..hydroxis_tsunami_ability:GetLevelSpecialValueFor("strength_damage", hydroxis_tsunami_ability_LVL))
+			-- print("hydroxis / "..hydroxis_tsunami_ability:GetLevelSpecialValueFor("stun_duration", hydroxis_tsunami_ability_LVL))
+			-- print("hydroxis / "..hydroxis_tsunami_ability:GetLevelSpecialValueFor("slow_duration", hydroxis_tsunami_ability_LVL))
+
+			damage = hydroxis_tsunami_ability:GetLevelSpecialValueFor("strength_damage", hydroxis_tsunami_ability_LVL)*caster:GetStrength()
+			stunDuration = hydroxis_tsunami_ability:GetLevelSpecialValueFor("stun_duration", hydroxis_tsunami_ability_LVL)
+			slow_duration = hydroxis_tsunami_ability:GetLevelSpecialValueFor("slow_duration", hydroxis_tsunami_ability_LVL) + stunDuration
+
 			local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d", "hydroxis")
 			ability.a_d_level = a_d_level
 			damage = damage * (1 + 0.00005 * a_d_level * caster:GetPhysicalArmorValue())
