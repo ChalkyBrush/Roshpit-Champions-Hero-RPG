@@ -158,8 +158,8 @@ function bomb_land(bomb, caster, ability)
     		aeon_fracture_explosion(caster, bomb:GetAbsOrigin(), damage, amp, explosionAOE, aeonFracture, false, stun_duration)
         elseif caster:HasAbility("mountain_protector_hailstorm") then
             local aeonFracture = caster:FindAbilityByName("mountain_protector_hailstorm")
-            local damage = aeonFracture:GetSpecialValueFor("damage")
-            local amp = 1+(0.15*a_c_level)
+            local damage = aeonFracture:GetSpecialValueFor("damage") + aeonFracture:GetSpecialValueFor("damage_from_strength") * caster:GetStrength()
+            local amp = 1+(0.3*a_c_level)
             local stun_duration = 0.1*a_c_level
             local explosionAOE = 300
             hailstorm_explosion(caster, bomb:GetAbsOrigin(), damage, amp, explosionAOE, aeonFracture, false, stun_duration)

@@ -2,11 +2,17 @@ function a_a(event)
 	local caster = event.caster
     local runeUnit = caster.runeUnit
     local ability = runeUnit:FindAbilityByName("voltex_rune_a_a")
+    local abilityBASE = event.ability
     local abilityLevel = ability:GetLevel()
     local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_a")
     local totalLevel = abilityLevel + bonusLevel
+    local buffDuration = abilityBASE:GetSpecialValueFor("duration")
+    if caster:HasModifier("modifier_voltex_glyph_5_a") then
+      buffDuration = buffDuration + 3
+    end
+    print("WOW")
     if totalLevel > 0 then
-        ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_voltex_rune_a_a_buff", {})
+        ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_voltex_rune_a_a_buff", {duration = buffDuration})
         caster:SetModifierStackCount( "modifier_voltex_rune_a_a_buff", ability, totalLevel )
     end
 end

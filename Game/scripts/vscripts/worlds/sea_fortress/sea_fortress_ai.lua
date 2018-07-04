@@ -3689,6 +3689,9 @@ function dragoon_poison_nova(event)
 			end 	
 		end)
 	end
+	Timers:CreateTimer(2,function()
+		caster:ForceKill(false)
+	end)
 end
 
 function guillotine_strike_start(event)
@@ -5952,9 +5955,9 @@ function spikey_carapace_take_damage(event)
 	local attacker = event.attacker
 	local damage = event.damage
 	local ability = event.ability
-	if caster:HasModifier("modifier_no_reflect") then
-		return false
-	end
+	-- if caster:HasModifier("modifier_no_reflect") then
+	-- 	return false
+	-- end
 	local bReflect = true
 	for i = 1, #ability.entTable, 1 do
 		if ability.entTable[i] == attacker:GetEntityIndex() then
@@ -5962,11 +5965,17 @@ function spikey_carapace_take_damage(event)
 		end
 	end
 	if bReflect then
-		EmitSoundOn("Seafortress.SpikeyCarapace.Reflect", attacker)
-		ApplyDamage({ victim = attacker, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})	
-		attacker:AddNewModifier(caster, ability, "modifier_stunned", {duration = event.stun_duration})
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_no_reflect", {duration = 0.1})
-		table.insert(ability.entTable, attacker:GetEntityIndex())
+		if not attacker.bIgnore_spikey_beetle_reflect then
+			attacker.bIgnore_spikey_beetle_reflect = true
+			EmitSoundOn("Seafortress.SpikeyCarapace.Reflect", attacker)
+			ApplyDamage({ victim = attacker, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})	
+			attacker:AddNewModifier(caster, ability, "modifier_stunned", {duration = event.stun_duration})
+			Timers:CreateTimer(0.03, function()
+				attacker.bIgnore_spikey_beetle_reflect = false
+				end)
+				-- ability:ApplyDataDrivenModifier(caster, caster, "modifier_no_reflect", {duration = 0.1})
+				table.insert(ability.entTable, attacker:GetEntityIndex())
+			end
 	end
 end
 
