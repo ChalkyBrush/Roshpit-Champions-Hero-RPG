@@ -340,62 +340,62 @@ function Filters:ReduceCooldownGeneric(caster, ability, CDreduce)
 end
 
 function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
-    local abilityCooldown = baseCD
-    local CDreduce = 0
-    if caster:HasModifier("modifier_dunetread_boots") then
-        CDreduce = CDreduce + 2
-    end
-    if caster:HasModifier("modifier_neutral_glyph_3_3") then
-        CDreduce = CDreduce + 1
-    end
-    if caster:HasModifier("modifier_bear_silencer") then
-        CDreduce = CDreduce - 30
-    end
-    if bIncludeFlatCD then
-        -- if caster:HasModifier("modifier_hood_of_lords_lua") then
-        --     CDreduce = CDreduce + 1
-        -- end
-    end
-    if caster:HasModifier("modifier_signus_charm") then
-        CDreduce = CDreduce - baseCD
-    end
-    if caster:HasModifier("modifier_sandstream_slippers_stack") then
-        if baseCD > 0 then
-            local currentStack = caster:GetModifierStackCount("modifier_sandstream_slippers_stack", caster.InventoryUnit)
-            if currentStack > 1 then
-                caster:SetModifierStackCount("modifier_sandstream_slippers_stack", caster.InventoryUnit, currentStack - 1)
-            else
-                caster:RemoveModifierByName("modifier_sandstream_slippers_stack")
-            end
-            CDreduce = abilityCooldown + 2
-        end
-    end
-    if caster:HasModifier("modifier_hood_of_lords_lua") then
-        CDreduce = CDreduce - 1
-    end
-    local abilityCooldown = abilityCooldown - CDreduce
+	local abilityCooldown = baseCD
+	local CDreduce = 0
+	
+	if caster:HasModifier("modifier_sandstream_slippers_stack") then
+		if baseCD > 0 then
+			local currentStack = caster:GetModifierStackCount("modifier_sandstream_slippers_stack", caster.InventoryUnit)
+			if currentStack > 1 then
+				caster:SetModifierStackCount("modifier_sandstream_slippers_stack", caster.InventoryUnit, currentStack - 1)
+			else
+				caster:RemoveModifierByName("modifier_sandstream_slippers_stack")
+			end
+			ability:EndCooldown()
+			return
+		end
+	end
+	if caster:HasModifier("modifier_dunetread_boots") then
+		CDreduce = CDreduce + 2
+	end
+	if caster:HasModifier("modifier_neutral_glyph_3_3") then
+		CDreduce = CDreduce + 1
+	end
+	if caster:HasModifier("modifier_bear_silencer") then
+		CDreduce = CDreduce - 30
+	end
+	if bIncludeFlatCD then
+		-- if caster:HasModifier("modifier_hood_of_lords_lua") then
+		--     CDreduce = CDreduce + 1
+		-- end
+	end
+	if caster:HasModifier("modifier_signus_charm") then
+		CDreduce = CDreduce - baseCD
+	end
+	if caster:HasModifier("modifier_hood_of_lords_lua") then
+		CDreduce = CDreduce - 1
+	end
+	
+	local abilityCooldown = abilityCooldown - CDreduce
 
-    if caster:HasModifier("modifier_mask_of_ahnqhir_blue") then
-        abilityCooldown  = abilityCooldown * 0.6
-    end
-    if caster:HasModifier("modifier_bloodstone_boots") then
-        if caster:GetHealth() <= caster:GetMaxHealth()*0.3 then
-            abilityCooldown = 1
-            if caster:HasModifier("modifier_hood_of_lords_lua") then
-                abilityCooldown = 2
-                -- if caster:HasModifier("modifier_clear_cast") then
-                -- else
-                --     abilityCooldown = 2
-                -- end
-            end
-        end
-    end
-    if abilityCooldown > 0 then
-        ability:EndCooldown()
-        ability:StartCooldown(abilityCooldown)
-    else
-        ability:EndCooldown()
-    end
+	if caster:HasModifier("modifier_mask_of_ahnqhir_blue") then
+		abilityCooldown  = abilityCooldown * 0.6
+	end
+	if caster:HasModifier("modifier_bloodstone_boots") then
+		if caster:GetHealth() <= caster:GetMaxHealth()*0.3 then
+			abilityCooldown = 1
+		end
+	end
+	if abilityCooldown < 1 then
+		abilityCooldown = 1
+	end
+	--Hood of Lords reduces CD after all the lua code. Its internal by Dota 2
+	if abilityCooldown < 2 and caster:HasModifier("modifier_hood_of_lords_lua") then
+		abilityCooldown = 2
+	end
+	
+	ability:EndCooldown()
+	ability:StartCooldown(abilityCooldown)
 end
 
 function Filters:GetCDNoHood(caster, cd)
@@ -460,37 +460,43 @@ function Filters:ApplyStun(caster, duration, target)
         caster.b_b_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
     end
     if caster:HasModifier("modifier_stormcrack_helm") then
-        if not caster.headItem.stormCrackParticles then
-            caster.headItem.stormCrackParticles = 0
-        end
-        if caster.headItem.stormCrackParticles < 8 then
-            caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles + 1
-            -- CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_cyclopean_marauder/sven_cyclopean_warcry.vpcf", target, 1.2)
-            CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf", target, 1.2)
-            Timers:CreateTimer(1.5, function()
-                caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles - 1
-            end)
-        end
-        
-        local damage = caster:GetAverageTrueAttackDamage(caster)*10 + (caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())*100
-        Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,caster.headItem, RPC_ELEMENT_NORMAL, RPC_ELEMENT_LIGHTNING)
-        Filters:stormcrack_upgrade(caster, caster.headItem, target)
+		if caster:GetTeamNumber() == target:GetTeamNumber() then
+		else
+			if not caster.headItem.stormCrackParticles then
+				caster.headItem.stormCrackParticles = 0
+			end
+			if caster.headItem.stormCrackParticles < 8 then
+				caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles + 1
+				-- CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_cyclopean_marauder/sven_cyclopean_warcry.vpcf", target, 1.2)
+				CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf", target, 1.2)
+				Timers:CreateTimer(1.5, function()
+					caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles - 1
+				end)
+			end
+			
+			local damage = caster:GetAverageTrueAttackDamage(caster)*10 + (caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())*100
+			Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,caster.headItem, RPC_ELEMENT_NORMAL, RPC_ELEMENT_LIGHTNING)
+			Filters:stormcrack_upgrade(caster, caster.headItem, target)
+		end
     elseif caster:HasModifier("modifier_stormcrack_helm2") then
-        if not caster.headItem.stormCrackParticles then
-            caster.headItem.stormCrackParticles = 0
-        end
-        if caster.headItem.stormCrackParticles < 9 then
-            caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles + 1
-            -- CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_cyclopean_marauder/sven_cyclopean_warcry.vpcf", target, 1.2)
-            CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf", target, 1.2)
-            Timers:CreateTimer(1.5, function()
-                caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles - 1
-            end)
-        end
-        
-        local damage = caster:GetAverageTrueAttackDamage(caster)*20 + (caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())*200
-        Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,caster.headItem, RPC_ELEMENT_NORMAL, RPC_ELEMENT_LIGHTNING)
-        mult = mult+0.35      
+		if caster:GetTeamNumber() == target:GetTeamNumber() then
+		else
+			if not caster.headItem.stormCrackParticles then
+				caster.headItem.stormCrackParticles = 0
+			end
+			if caster.headItem.stormCrackParticles < 9 then
+				caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles + 1
+				-- CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_cyclopean_marauder/sven_cyclopean_warcry.vpcf", target, 1.2)
+				CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf", target, 1.2)
+				Timers:CreateTimer(1.5, function()
+					caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles - 1
+				end)
+			end
+			
+			local damage = caster:GetAverageTrueAttackDamage(caster)*20 + (caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())*200
+			Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,caster.headItem, RPC_ELEMENT_NORMAL, RPC_ELEMENT_LIGHTNING)
+			mult = mult+0.35      
+		end
     end
 
     duration = duration*mult
