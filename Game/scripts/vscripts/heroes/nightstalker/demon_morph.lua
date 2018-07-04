@@ -92,9 +92,13 @@ function demon_form_end(event)
 	caster:RemoveModifierByName("modifier_chernobog_demonform_lua")
 	CustomAbilities:QuickAttachParticle("particles/roshpit/chernobog/demonform_start_start_ti7_lvl2.vpcf", caster, 3)
 	if caster:HasModifier("modifier_movespeed_cap_shadow_walk_1") or caster:HasModifier("modifier_movespeed_cap_shadow_walk_2") or caster:HasModifier("modifier_movespeed_cap_shadow_walk_3") or caster:HasModifier("modifier_movespeed_cap_shadow_walk_4") or caster:HasModifier("modifier_movespeed_cap_shadow_walk_5") or caster:HasModifier("modifier_movespeed_cap_shadow_walk_6") or caster:HasModifier("modifier_movespeed_cap_shadow_walk_7") then
+		caster:SetModel("models/heroes/nightstalker/nightstalker.vmdl")
+		caster:SetOriginalModel("models/heroes/nightstalker/nightstalker.vmdl")
 		caster:SetModel("models/heroes/nightstalker/nightstalker_night.vmdl")
 		caster:SetOriginalModel("models/heroes/nightstalker/nightstalker_night.vmdl")
 	else
+		caster:SetModel("models/heroes/nightstalker/nightstalker_night.vmdl")
+		caster:SetOriginalModel("models/heroes/nightstalker/nightstalker_night.vmdl")
 		caster:SetModel("models/heroes/nightstalker/nightstalker.vmdl")
 		caster:SetOriginalModel("models/heroes/nightstalker/nightstalker.vmdl")
 	end

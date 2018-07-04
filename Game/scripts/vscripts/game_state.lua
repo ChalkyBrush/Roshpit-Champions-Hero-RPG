@@ -477,7 +477,7 @@ function GameState:OrderFilter(orderTable)
 	end
 	-- DeepPrintTable(orderTable)
 	local unit = EntIndexToHScript(unitNumber)
-	if IsValidEntity(unit) then
+	if IsValidEntity(unit) and not unit:IsChanneling() then
 		if unit:HasModifier("modifier_neptunes_water_gliders") then
 			unit.lastOrder = orderTable.order_type
 			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then

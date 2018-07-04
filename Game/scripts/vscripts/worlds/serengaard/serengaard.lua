@@ -1105,7 +1105,7 @@ function Serengaard:UpdateTowers()
         local armor = math.floor(tower:GetPhysicalArmorBaseValue()*(1.05))
         local attackDamage = math.floor(tower:GetAttackDamage()*(1.05))
         local hp = math.floor(tower:GetMaxHealth()*(1.05))
-        hp = math.min(hp, 2^31)
+        hp = math.min(hp, 2^28)
         tower:SetMaxHealth(hp)
         tower:SetBaseMaxHealth(hp)
         tower:SetHealth(hp*hpPercentage)
@@ -1124,7 +1124,7 @@ function Serengaard:UpdateTowers()
         local armor = math.floor(tower:GetPhysicalArmorBaseValue()*(1.05))
         local attackDamage = math.floor(tower:GetAttackDamage()*(1.05))
         local hp = math.floor(tower:GetMaxHealth()*(1.05))
-        hp = math.min(hp, 2^31)
+        hp = math.min(hp, 2^28)
         tower:SetMaxHealth(hp)
         tower:SetBaseMaxHealth(hp)
         tower:SetHealth(hp*hpPercentage)
@@ -1143,7 +1143,7 @@ function Serengaard:UpdateTowers()
         local armor = math.floor(tower:GetPhysicalArmorBaseValue()*(1.05))
         local attackDamage = math.floor(tower:GetAttackDamage()*(1.05))
         local hp = math.floor(tower:GetMaxHealth()*(1.05))
-        hp = math.min(hp, 2^31)
+        hp = math.min(hp, 2^28)
         tower:SetMaxHealth(hp)
         tower:SetBaseMaxHealth(hp)
         tower:SetHealth(hp*hpPercentage)
@@ -1162,7 +1162,7 @@ function Serengaard:UpdateTowers()
         local armor = math.floor(tower:GetPhysicalArmorBaseValue()*(1.05))
         local attackDamage = math.floor(tower:GetAttackDamage()*(1.05))
         local hp = math.floor(tower:GetMaxHealth()*(1.05))
-        hp = math.min(hp, 2^31)
+        hp = math.min(hp, 2^28)
         tower:SetMaxHealth(hp)
         tower:SetBaseMaxHealth(hp)
         tower:SetHealth(hp*hpPercentage)
@@ -1201,7 +1201,7 @@ function Serengaard:GiveSunstone(hero, position)
     RPCItems:GiveItemToHeroWithSlotCheck(hero, key)
 end
 
-function url_encode(str)
+function Serengaard:Url_encode(str)
   if (str) then
     str = string.gsub (str, "\n", "\r\n")
     str = string.gsub (str, "([^%w %-%_%.%~])",
@@ -1211,50 +1211,78 @@ function url_encode(str)
   return str  
 end
 
+function Serengaard:CachePlayers()
+  if not Serengaard.CachedPlayers then
+    Serengaard.CachedPlayers = {}
+  end
+  if #Serengaard.CachedPlayers ~= 4 then--skip if already 4 players cached
+    for i, v in pairs(MAIN_HERO_TABLE) do
+      if MAIN_HERO_TABLE[i]:GetPlayerOwner() and MAIN_HERO_TABLE[i]:GetPlayerOwnerID() then
+        local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
+        if PlayerResource:GetSelectedHeroName(playerID) and PlayerResource:GetSteamAccountID(playerID) and PlayerResource:GetPlayerName(playerID) and PlayerResource:GetSteamID(playerID) then--this should return nil when player dc
+          local actuallyContains = false    
+          for o, b in pairs(Serengaard.CachedPlayers) do--checking unique element
+              if b[2] ~= nil and b[2] == PlayerResource:GetSteamAccountID(playerID) then--[2] and element is GetSteamAccountID
+                  actuallyContains = true
+              end
+          end
+          
+          if not actuallyContains then
+              Serengaard.CachedPlayers[i] = { Serengaard:Url_encode(PlayerResource:GetSelectedHeroName(playerID)), PlayerResource:GetSteamAccountID(playerID), Serengaard:Url_encode(PlayerResource:GetPlayerName(playerID)), tostring(PlayerResource:GetSteamID(playerID))}
+          end
+        end  
+      end  
+    end
+  end
+end
+
 function Serengaard:SubmitStats()
   local url = ""
+  for i, v in pairs(Serengaard.CachedPlayers) do
+    print("Players: "..i.." "..v[1].." "..v[2].." "..v[3].." "..v[4])  
+  end   
   if Serengaard.InfiniteWaveCount and SaveLoad:GetAllowSaving() then
     url = ROSHPIT_URL.."/champions/save_serengaard?"
     url = url.."wave_number="..Serengaard.InfiniteWaveCount
     url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
     SaveLoad:NewKey()
-    for i = 1, #MAIN_HERO_TABLE, 1 do
-      if MAIN_HERO_TABLE[i]:GetPlayerOwner() then
-        local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
-        local heroName = url_encode(PlayerResource:GetSelectedHeroName(playerID))
-        local steamID = PlayerResource:GetSteamAccountID(playerID)
-        local playerName = url_encode(PlayerResource:GetPlayerName(playerID))
-        local steamIDlong = tostring(PlayerResource:GetSteamID(playerID))
-        print(steamIDlong)
-        url = url.."&steam_id"..i.."="..steamID
-        url = url.."&hero"..i.."="..heroName
-        url = url.."&steam_name"..i.."="..playerName
-        url = url.."&steam_id_long"..i.."="..steamIDlong
-        CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
-          print( "POST".." response infWaves:" )
-          if result.StatusCode then 
-            print(result.StatusCode)
-          end
-        end )
-      end
+    for i = 1, #Serengaard.CachedPlayers, 1 do
+      -- local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
+      local heroName = Serengaard.CachedPlayers[i][1]
+      local steamID = Serengaard.CachedPlayers[i][2]
+      local playerName = Serengaard.CachedPlayers[i][3]
+      local steamIDlong = Serengaard.CachedPlayers[i][4]
+      print(steamIDlong)
+      url = url.."&steam_id"..i.."="..steamID
+      url = url.."&hero"..i.."="..heroName
+      url = url.."&steam_name"..i.."="..playerName
+      url = url.."&steam_id_long"..i.."="..steamIDlong
+      print("serengaard urlWaves: "..url)
+      CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
+        print( "POST".." response infWaves:" )
+        if result.StatusCode then 
+          print(result.StatusCode)
+        end
+      end )
     end
   end
-    
-  url = ROSHPIT_URL.."/champions/get_serengaard?"
-  print("serengaard url: "..url)
-  CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
-    print( "GET".." response stats:" )
-    local resultTable = {}
-    if result.StatusCode then 
-      print(result.StatusCode)
-    end
-    for k,v in pairs( result ) do
-      print( string.format( "%s : %s\n", k, v ) )
-    end
-    print( "Done." )
-    local resultTable = JSON:decode(result.Body)
-    CustomGameEventManager:Send_ServerToAllClients("serengaard_leaderboard", {resultTable = resultTable})
-  end ) 
+  Timers:CreateTimer(5, function()
+    url = ROSHPIT_URL.."/champions/get_serengaard?"
+    print("serengaard url: "..url)
+    CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+      print( "GET".." response stats:" )
+      local resultTable = {}
+      if result.StatusCode then 
+        print(result.StatusCode)
+      end
+      for k,v in pairs( result ) do
+        print( string.format( "%s : %s\n", k, v ) )
+      end
+      print( "Done." )
+      local resultTable = JSON:decode(result.Body)
+      CustomGameEventManager:Send_ServerToAllClients("serengaard_leaderboard", {resultTable = resultTable})
+    end ) 
+  end )   
 end
 
 function Serengaard:Mithril(name, position, mithrilReward)
