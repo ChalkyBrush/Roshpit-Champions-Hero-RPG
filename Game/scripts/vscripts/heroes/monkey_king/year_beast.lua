@@ -48,7 +48,7 @@ function hawk_screech(event)
 			if not modifier.djanghorQ3Increase then
 				modifier.djanghorQ3Increase = 0
 			end
-			if modifierMaker:GetEntityIndex() == caster:GetEntityIndex() or modifierMaker:GetEntityIndex() == caster.InventoryUnit:GetEntityIndex() and modifier.djanghorQ3Increase < DJANGHOR_Q3_BUFF_DURATION_INCREASE_LIMIT then
+			if (modifierMaker:GetEntityIndex() == caster:GetEntityIndex() or modifierMaker:GetEntityIndex() == caster.InventoryUnit:GetEntityIndex()) and modifier.djanghorQ3Increase < DJANGHOR_Q3_BUFF_DURATION_INCREASE_LIMIT then
 				local durationRemaining = modifier:GetRemainingTime()
 				if durationRemaining > 0 then
 					local durationIncrease = DJANGHOR_Q3_BUFF_DURATION_INCREASE*c_a_level
