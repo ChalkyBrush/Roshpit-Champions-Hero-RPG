@@ -3689,9 +3689,6 @@ function dragoon_poison_nova(event)
 			end 	
 		end)
 	end
-	Timers:CreateTimer(2,function()
-		caster:ForceKill(false)
-	end)
 end
 
 function guillotine_strike_start(event)
