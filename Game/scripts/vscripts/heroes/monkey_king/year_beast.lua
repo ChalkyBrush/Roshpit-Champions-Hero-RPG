@@ -52,7 +52,7 @@ function hawk_screech(event)
 				local durationRemaining = modifier:GetRemainingTime()
 				if durationRemaining > 0 then
 					local durationIncrease = DJANGHOR_Q3_BUFF_DURATION_INCREASE*c_a_level
-					if (modifier.djanghorQ3Increase + durationIncrease) > DJANGHOR_Q3_BUFF_DURATION_INCREASE then
+					if (modifier.djanghorQ3Increase + durationIncrease) > DJANGHOR_Q3_BUFF_DURATION_INCREASE_LIMIT then
 						durationIncrease = DJANGHOR_Q3_BUFF_DURATION_INCREASE_LIMIT - modifier.djanghorQ3Increase
 						modifier.djanghorQ3Increase = DJANGHOR_Q3_BUFF_DURATION_INCREASE_LIMIT
 					else
