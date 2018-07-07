@@ -3872,7 +3872,7 @@ function Filters:FireDeity(attacker, victim, damage)
         local enemies = FindUnitsInRadius( attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
         if #enemies > 0 then
             for _,enemy in pairs(enemies) do
-                Filters:ApplyStun(attacker, 5, enemy)
+                Filters:ApplyStun(attacker, 0.6, enemy)
                 Filters:ApplyItemDamageBasedOnAbility(enemy, attacker, damage, DAMAGE_TYPE_MAGICAL, nil, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
             end
         end 
