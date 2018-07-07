@@ -1385,8 +1385,8 @@ function CDOTA_BaseNPC:IsFakeStunned()
 end
 
 function Events:beginQuests()
-  print("BEGINQUESTS IS HAPPENING")
-  Beacons:DEBUG()
+  -- print("BEGINQUESTS IS HAPPENING")
+  -- Beacons:DEBUG()
 end
 
 function Events:InitGameEntities()
