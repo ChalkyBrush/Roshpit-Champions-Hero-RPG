@@ -1794,12 +1794,12 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if attacker:HasModifier("modifier_terrasic_stone_plate") then
-		if victim:IsStunned() or victim:HasModifier("modifier_knockback") then
+		if victim:IsStunned() or victim:HasModifier("modifier_knockback") or victim:IsFakeStunned() then
 			mult = mult + 2
 		end
 	end
 	if attacker:HasModifier("modifier_steelforge_passive") then
-		if victim:IsStunned() or victim:HasModifier("modifier_knockback") then
+		if victim:IsStunned() or victim:HasModifier("modifier_knockback") or victim:IsFakeStunned() then
 			mult = mult + 0.03*attacker.b_b_level
 		end
 	end

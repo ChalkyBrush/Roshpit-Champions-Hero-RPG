@@ -501,6 +501,7 @@ function Filters:ApplyStun(caster, duration, target)
     end
 
     duration = duration*mult
+    Events.GameMasterAbility:ApplyDataDrivenModifier(caster, target, "modifier_fake_stunned", {duration = duration})
     if target.bossStatus or target:IsHero() then
 
         local currentResistanceStacks = target:GetModifierStackCount("modifier_stun_resistance", Events.GameMaster)
@@ -1736,7 +1737,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 fireMult = fireMult + 0.0015*attacker:GetStrength()/10*attacker.d_d_level
             end
             if attacker:HasModifier("modifier_flamewaker_arcana2_passive") then
-                if victim:IsStunned() then
+                if victim:IsStunned() or victim:IsFakeStunned() then
                     local a_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 1)
                     if a_b_level > 0 then
                         fireMult = fireMult + 1.25*a_b_level
@@ -3871,7 +3872,7 @@ function Filters:FireDeity(attacker, victim, damage)
         local enemies = FindUnitsInRadius( attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
         if #enemies > 0 then
             for _,enemy in pairs(enemies) do
-                Filters:ApplyStun(attacker, 0.6, enemy)
+                Filters:ApplyStun(attacker, 5, enemy)
                 Filters:ApplyItemDamageBasedOnAbility(enemy, attacker, damage, DAMAGE_TYPE_MAGICAL, nil, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
             end
         end 

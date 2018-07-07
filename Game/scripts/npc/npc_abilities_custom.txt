@@ -55410,6 +55410,11 @@
 			{
 				"IsHidden"	"1"
 			}
+			"modifier_fake_stunned"
+			{
+				"IsHidden"	"1"
+				"Passive"	"0"
+			}
 		}
 
 	}

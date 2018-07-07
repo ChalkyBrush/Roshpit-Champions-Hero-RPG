@@ -1376,9 +1376,17 @@ function GameMode:OnNPCGoalReached(keys)
   local npc = EntIndexToHScript(keys.npc_entindex)
 end
 
+function CDOTA_BaseNPC:IsFakeStunned()
+	if self:HasModifier("modifier_fake_stunned") then
+		return true
+	else
+		return false
+	end
+end
+
 function Events:beginQuests()
-  -- print("BEGINQUESTS IS HAPPENING")
-  -- Beacons:DEBUG()
+  print("BEGINQUESTS IS HAPPENING")
+  Beacons:DEBUG()
 end
 
 function Events:InitGameEntities()
