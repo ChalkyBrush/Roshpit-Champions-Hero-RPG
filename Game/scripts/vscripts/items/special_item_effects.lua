@@ -497,6 +497,7 @@ function ruby_dragon_immolation_think(event)
 end
 
 function centaur_horn_think(event)
+	local inv_unit = event.caster
 	local caster = event.target
 	local ability = event.ability
 	if not ability.interval then
@@ -507,7 +508,7 @@ function centaur_horn_think(event)
 		ability.interval = 0
 		CustomAbilities:QuickAttachParticle("particles/roshpit/centaur_horns_lifesteal.vpcf", caster, 0.9)
 	end
-	ApplyDamage({ victim = caster, attacker = caster, damage = 1, damage_type = DAMAGE_TYPE_PURE})
+	ApplyDamage({ victim = caster, attacker = caster, damage = 1, damage_type = DAMAGE_TYPE_PURE, ability = ability})
 	if caster:IsStunned() then
 		Filters:CleanseStuns(caster)
 	end
