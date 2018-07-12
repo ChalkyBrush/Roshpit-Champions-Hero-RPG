@@ -3818,7 +3818,7 @@ function Filters:AutumnSleeperMask(caster)
 end
 
 function Filters:ManawallDamageTaken(victim, damage)
-    local reducedDamage = damage*0.75
+    local reducedDamage = damage*0.25
     local currentMana = victim:GetMana()
     if currentMana >= reducedDamage then
         victim:ReduceMana(reducedDamage)
