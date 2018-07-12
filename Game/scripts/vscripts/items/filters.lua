@@ -3413,7 +3413,7 @@ function Filters:SpellShieldHit(victim, damage)
     if bSplice then
         return splicedDamage
     else
-        return victim:GetMana()*10
+        return manaDamage*10
     end
 end
 
