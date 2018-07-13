@@ -1725,7 +1725,8 @@ end
 function RPCItems:RollRandomArcana(position)
     local arcanaTable = RPCItems:GetAllArcanaNames()
     local randomArcanaName = arcanaTable[RandomInt(1, #arcanaTable)]
-    RPCItems:RollArcanaByName(randomArcanaName, position)
+    local arcana = RPCItems:RollArcanaByName(randomArcanaName, position)
+    return arcana
 end
 
 function RPCItems:GetAllArcanaNames()

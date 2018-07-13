@@ -5693,7 +5693,7 @@
 						"Function"		"candy_crush_master_crystal_think"
 					}
 				}
-				"OnTakeDamage"
+				"OnAttacked"
 				{
 					"RunScript"
 					{

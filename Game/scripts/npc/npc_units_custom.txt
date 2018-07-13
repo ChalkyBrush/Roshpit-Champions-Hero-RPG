@@ -88786,7 +88786,7 @@
         "CollisionSize" "24"
         "FormationRank" "2"
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
-        "MovementSpeed" "340"
+        "MovementSpeed" "360"
         "MovementTurnRate"  "0.6"
         "StatusHealth"  "1000"
         "StatusHealthRegen" "0.25"

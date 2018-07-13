@@ -221,7 +221,8 @@ function RPCItems:UseArcanaCache(caster, item)
 				if resultTable.success == 1 then
 					RPCItems.LevelRoll = radiance
 					for i = 1, 3, 1 do
-						RPCItems:RollRandomArcana(caster:GetAbsOrigin())
+						local item = RPCItems:RollRandomArcana(caster:GetAbsOrigin())
+						item.pickedUp = true
 					end
 					RPCItems.LevelRoll = nil
 				end
