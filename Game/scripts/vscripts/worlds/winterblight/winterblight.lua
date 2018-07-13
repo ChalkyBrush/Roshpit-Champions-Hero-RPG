@@ -37,6 +37,8 @@ function Winterblight:Debug()
     RPCItems:RollChainsOfOrthok(Vector(-15424,-2560))
     RPCItems:RollAstralArcana3(Vector(-15424,-2560))
     Winterblight:DropBorealGraniteChunk(Vector(-15424,-2560))
+
+
 end
 
 
@@ -192,8 +194,12 @@ function Winterblight:Debug2()
  -- Winterblight.AzaleaTeleportRoomSpawned = true
  -- Winterblight:SpawnAzaleaBoss()
  -- Winterblight:InitCaptainReynar()
- Winterblight:SpawnGrandStalacorr(Vector(-15424,-2560), RandomVector(1))
- local hero = MAIN_HERO_TABLE[1]
+ Winterblight.AzaleaDungeonOpened = true
+ Winterblight.MathPuzzleComplete = true
+Winterblight:SpawnAzaleaCups()
+
+ -- Winterblight:SpawnGrandStalacorr(Vector(-15424,-2560), RandomVector(1))
+ -- local hero = MAIN_HERO_TABLE[1]
  -- Runes:EasySwapArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "ranger_aoe_explosion", "crystal_arrow", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana3")
  -- Winterblight:StartOrbSequence()
   -- Winterblight:EndOrbWaves()
@@ -703,4 +709,48 @@ function Winterblight:SpawnGrandStalacorr(position, fv)
 
   end)
   return queen
+end
+
+function Winterblight:MithrilReward(position)
+  Timers:CreateTimer(5, function()
+        local mithrilReward = 2500*Events.ResourceBonus*(Winterblight.Stones+1)
+        local crystal = CreateUnitByName("arcane_crystal", position+Vector(0,0,1000), false, nil, nil, DOTA_TEAM_GOODGUYS)
+        crystal:SetAbsOrigin(crystal:GetAbsOrigin()+Vector(0,0,1300))
+        local crystalAbility = crystal:AddAbility("mithril_shard_ability")
+        crystalAbility:SetLevel(1)
+        local fv = RandomVector(1)
+        crystal:SetOriginalModel("models/props_gameplay/rune_doubledamage01.vmdl")
+        crystal:SetModel("models/props_gameplay/rune_doubledamage01.vmdl")
+        crystal.reward = mithrilReward
+        crystal.reward = math.floor(crystal.reward*(1+GameState:GetPlayerPremiumStatusCount()*0.1))
+        crystal.distributed = 0
+        local baseModelSize = math.min(2.9, 1.2 + crystal.reward/200)
+        crystal.modelScale = baseModelSize
+        crystal:SetModelScale(baseModelSize)
+        crystal.fallVelocity = 45
+        crystal.falling = true
+        crystal.winnerTable = RPCItems:GetConnectedPlayerTable()
+        -- for i = 1, #MAIN_HERO_TABLE, 1 do
+        --   Stars:StarEventPlayer("pitoftrials", MAIN_HERO_TABLE[i])
+        -- end
+        -- local potentialWinnerTable = RPCItems:GetConnectedPlayerTable()
+        -- for i = 1, #potentialWinnerTable, 1 do
+        --  local completedTable = CustomNetTables:GetTableValue("player_stats", tostring(potentialWinnerTable[i]:GetPlayerOwnerID()).."-challenge")
+        --  local completed = completedTable.completed
+        --  if completed == 0 then
+        --    potentialWinnerTable[i].shardsPickedUp = 0
+        --    table.insert(crystal.winnerTable, potentialWinnerTable[i])
+        --  end
+        -- end
+
+
+      if #crystal.winnerTable > 0 then
+          -- for i = 1, #crystal.winnerTable, 1 do
+          --   crystal.winnerTable[i].shardsPickedUp = 0
+          -- end
+          Timers:CreateTimer(1.4, function()
+            EmitSoundOn("Resource.MithrilShardEnter", crystal)
+          end)
+        end
+  end)
 end

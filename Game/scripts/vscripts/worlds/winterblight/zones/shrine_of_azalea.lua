@@ -8,66 +8,81 @@ function Winterblight:SpawnAzaleaCups()
 end
 
 function Winterblight:CupSpawnCondition(index)
+	print("T5A")
 	if not Winterblight.AzaleaDungeonOpened then
 		return false
 	end
-	if not Winterblight.AzaleaCupSpawns then
-		Winterblight.AzaleaCupSpawns = {0,0,0,0,0,0}
+	if Winterblight.CupSpawnsInit then
+	else
+		Winterblight.CupSpawnsInit = true
+		Winterblight.ImportantCupSpawnTable = {0,0,0,0,0,0}
 	end
-	if Winterblight.AzaleaCupSpawns[index] == 1 then
+	if Winterblight.ImportantCupSpawnTable[index] == 1 then
 		return false
 	else
-		Winterblight.AzaleaCupSpawns[index] = 1
+		Winterblight.ImportantCupSpawnTable[index] = 1
 		return true
 	end
 end
 
 function Winterblight:SpawnCup1()
-	if Winterblight:CupSpawnCondition(1) then
-		if Winterblight.MathPuzzleComplete then
-			Winterblight:SpawnAzaleaCup(Vector(15910, -15831), Vector(-1,0), 1)
+	Timers:CreateTimer(1, function()
+		if Winterblight:CupSpawnCondition(1) then
+			if Winterblight.MathPuzzleComplete then
+				Winterblight:SpawnAzaleaCup(Vector(15910, -15831), Vector(-1,0), 1)
+			end
 		end
-	end
+	end)
 end
 
 function Winterblight:SpawnCup2()
-	if Winterblight:CupSpawnCondition(2) then
-		if Winterblight.CandyCrushComplete then
-			Winterblight:SpawnAzaleaCup(Vector(5653, -14257), Vector(0,-1), 2)
+	Timers:CreateTimer(1, function()
+		if Winterblight:CupSpawnCondition(2) then
+			if Winterblight.CandyCrushComplete then
+				Winterblight:SpawnAzaleaCup(Vector(5653, -14257), Vector(0,-1), 2)
+			end
 		end
-	end
+	end)
 end
 
 function Winterblight:SpawnCup3()
-	if Winterblight:CupSpawnCondition(3) then
-		if Winterblight.CruxalSlain then
-			Winterblight:SpawnAzaleaCup(Vector(128, -11520), Vector(-1,0), 3)
+	Timers:CreateTimer(1, function()
+		if Winterblight:CupSpawnCondition(3) then
+			if Winterblight.CruxalSlain then
+				Winterblight:SpawnAzaleaCup(Vector(128, -11520), Vector(-1,0), 3)
+			end
 		end
-	end
+	end)
 end
 
 function Winterblight:SpawnCup4()
-	if Winterblight:CupSpawnCondition(4) then
-		if Winterblight.RuptholdSlain then
-			Winterblight:SpawnAzaleaCup(Vector(-7077, -15307), Vector(0,-1), 4)
+	Timers:CreateTimer(1, function()
+		if Winterblight:CupSpawnCondition(4) then
+			if Winterblight.RuptholdSlain then
+				Winterblight:SpawnAzaleaCup(Vector(-7077, -15307), Vector(0,-1), 4)
+			end
 		end
-	end
+	end)
 end
 
 function Winterblight:SpawnCup5()
-	if Winterblight:CupSpawnCondition(5) then
-		if Winterblight.TriBossesSlain then
-			Winterblight:SpawnAzaleaCup(Vector(-5618, -13574), Vector(0,1), 5)
+	Timers:CreateTimer(1, function()
+		if Winterblight:CupSpawnCondition(5) then
+			if Winterblight.TriBossesSlain then
+				Winterblight:SpawnAzaleaCup(Vector(-5618, -13574), Vector(0,1), 5)
+			end
 		end
-	end
+	end)
 end
 
 function Winterblight:SpawnCup6()
-	if Winterblight:CupSpawnCondition(6) then
-		if Winterblight.StargazerSuccess then
-			Winterblight:SpawnAzaleaCup(Vector(-14935, -15961), Vector(0,1), 6)
+	Timers:CreateTimer(1, function()
+		if Winterblight:CupSpawnCondition(6) then
+			if Winterblight.StargazerSuccess then
+				Winterblight:SpawnAzaleaCup(Vector(-14935, -15961), Vector(0,1), 6)
+			end
 		end
-	end
+	end)
 end
 
 function Winterblight:SpawnAzaleaCup(position, fv, index)
@@ -827,6 +842,9 @@ function Winterblight:AzaleaMathUnitDie(unit)
 end
 
 function Winterblight:ShrineSpawn3()
+	if true then
+		return false
+	end
 	if not Winterblight.Shrine3Spawned then
 		Winterblight.Shrine3Spawned = true
 		local luck = RandomInt(1, 3)
@@ -3709,6 +3727,7 @@ function Winterblight:TriBossInit()
 	for i = 1, #Winterblight.TriBossTable.array, 1 do
 		StartAnimation(Winterblight.TriBossTable.array[i], {duration=2.8, activity=ACT_DOTA_RUN, rate=2})
 		EmitSoundOn(Winterblight.TriBossTable.array[i].jumpVO, Winterblight.TriBossTable.array[i])
+		Winterblight.TriBossTable.array[i]:SetHealth(Winterblight.TriBossTable.array[i]:GetMaxHealth())
 	end
 	Timers:CreateTimer(2.8, function()
 		Winterblight:TriBossPhaser(1)
@@ -5033,6 +5052,9 @@ function Winterblight:AzaleaBossDie(boss)
 				UTIL_Remove(boss)
 			end)
 		end)
+	end)
+	Timers:CreateTimer(15, function()
+		Winterblight:MithrilReward(position)
 	end)
 
 end

@@ -1054,6 +1054,13 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 		if victim:HasModifier("modifier_sunstrider_lightsworn") then
 			damage = damage*0.2
 		end
+		if victim:HasModifier("modifier_blue_gargoyle_passive") then
+			local modifier = victim:FindModifierByName("modifier_blue_gargoyle_passive")
+			local passiveAbility = modifier:GetAbility()
+			local reduction = passiveAbility:GetLevelSpecialValueFor("pure_resist", passiveAbility:GetLevel())
+			reduction = (100-reduction)/100
+			damage = damage*reduction
+		end
 	end
 	if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 		if victim:HasModifier("modifier_lightning_dash") then
@@ -1220,12 +1227,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		reduction = (100-reduction)/100
 		damage = damage*reduction
 	end
-	if victim:HasModifier("modifier_blue_gargoyle_passive") then
-		local passiveAbility = victim:FindAbilityByName("winterblight_gargoyle_summon_passive")
-		local reduction = passiveAbility:GetLevelSpecialValueFor("pure_resist", passiveAbility:GetLevel())
-		reduction = (100-reduction)/100
-		damage = damage*reduction
-	end
+
 	if victim:HasModifier("modifier_arkimus_archon_form") then
 		local archonForm = victim:FindAbilityByName("arkimus_archon_form")
 		local reduction = archonForm:GetLevelSpecialValueFor("damage_resist", archonForm:GetLevel())

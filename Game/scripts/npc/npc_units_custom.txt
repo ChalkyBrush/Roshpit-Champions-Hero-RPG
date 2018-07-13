@@ -88816,6 +88816,7 @@
 
         }
         "Ability1"  "winterblight_maze_ghost_passive"
+        "Ability2"  "ability_stun_immunity"
     }
 
     "azalea_maze_food"

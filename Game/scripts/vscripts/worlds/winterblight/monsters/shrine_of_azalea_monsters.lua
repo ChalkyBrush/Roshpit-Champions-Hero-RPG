@@ -1947,21 +1947,21 @@ function tri_boss_think(event)
 	end
 	local luck = RandomInt(1, 12-GameState:GetDifficultyFactor()-stoneReduce)
 	if luck == 1 then
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1300+GameState:GetDifficultyFactor()*200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 		local target_point = nil
 		if #enemies > 0 then
 			target_point = enemies[1]:GetAbsOrigin()+RandomVector(RandomInt(540, 1500))
+			local eventTable = {}
+			eventTable.caster = caster
+			eventTable.ability = ability
+			eventTable.target_points = {}
+			eventTable.anim = caster.anim
+			eventTable.target_points[1] = GetGroundPosition(target_point, caster)
+			eventTable.jumpVO = caster.jumpVO
+			Winterblight:azalea_jump_start(eventTable)
 		else
 			target_point = caster:GetAbsOrigin()+caster:GetForwardVector()*600+Vector(0,0,100)
 		end
-		local eventTable = {}
-		eventTable.caster = caster
-		eventTable.ability = ability
-		eventTable.target_points = {}
-		eventTable.anim = caster.anim
-		eventTable.target_points[1] = GetGroundPosition(target_point, caster)
-		eventTable.jumpVO = caster.jumpVO
-		Winterblight:azalea_jump_start(eventTable)
 	end
 	if caster:GetUnitName() == "winterblight_buzuki" then
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )

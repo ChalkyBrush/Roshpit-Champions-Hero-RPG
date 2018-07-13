@@ -1973,6 +1973,7 @@ function Winterblight:SpawnAzaleaZealot(position, fv)
 end
 
 function Winterblight:OpenShrineOfAzalea()
+	Winterblight.AzaleaDungeonOpened = {}
 	Timers:CreateTimer(3, function()
 	    local walls = Entities:FindAllByNameWithin("AzaleaEntranceWall", Vector(11007, -9574, -4094+Winterblight.ZFLOAT), 2400)
 	    EmitSoundOnLocationWithCaster(Vector(11007,-9574), "Winterblight.WallOpen", Events.GameMaster)
