@@ -4989,7 +4989,7 @@ function Winterblight:AzaleaBossDie(boss)
 	Timers:CreateTimer(6, function()
 		for j = 1, Winterblight.Stones, 1 do
 			Timers:CreateTimer(j, function()
-				RPCItems:DropSynthesisVessel(boss;GetAbsOrigin())
+				RPCItems:DropSynthesisVessel(boss:GetAbsOrigin())
 			end)
 		end
 	end)
