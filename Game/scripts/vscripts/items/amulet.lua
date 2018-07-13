@@ -229,6 +229,17 @@ function Amulet:action(propertyName, propertyValue, hero, inventory_unit, trinke
 	elseif propertyName == "frozen_heart" then
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_frozen_heart", item)
 		RPCItems:PreacheArcanaResources(item)
+	elseif propertyName == "vision" then
+		Head:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_trinket_vision", trinket_ability)
+	elseif propertyName == "stargazer" then
+		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_stargazers_sphere", item)
+		RPCItems:PreacheArcanaResources(item)
+	elseif propertyName == "red_divinex" then
+		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_red_divinex_amulet", item)
+	elseif propertyName == "blue_divinex" then
+		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_blue_divinex_amulet", item)
+	elseif propertyName == "green_divinex" then
+		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_green_divinex_amulet", item)
 	end
 	hero.amulet = item
 end
@@ -367,6 +378,7 @@ function Amulet:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_aqua_lily")
 	hero:RemoveModifierByName("modifier_ankh_of_the_ancients")
 	hero:RemoveModifierByName("modifier_trinket_nature")
+	hero:RemoveModifierByName("modifier_trinket_vision")
 	hero:RemoveModifierByName("modifier_world_trees_flower_cache")
 	hero:RemoveModifierByName("modifier_sparkling_token_of_oceanis")
 	hero:RemoveModifierByName("modifier_arcane_charm")
@@ -375,6 +387,10 @@ function Amulet:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_winterblight_skull_ring")
 	hero:RemoveModifierByName("modifier_trinket_all_elements")
 	hero:RemoveModifierByName("modifier_frozen_heart")
+	hero:RemoveModifierByName("modifier_stargazers_sphere")
+	hero:RemoveModifierByName("modifier_red_divinex_amulet")
+	hero:RemoveModifierByName("modifier_green_divinex_amulet")
+	hero:RemoveModifierByName("modifier_blue_divinex_amulet")
 	hero.monkey_paw = false
 	hero.birdTable = false
 	hero.eternal_frost_gem = false

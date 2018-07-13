@@ -8,280 +8,840 @@
 	<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/salve_red.png" /> -->
 
 		<Panel class="invisible">
-	<!-- 		<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_1_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_2_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_3_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_4_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_5_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_6_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_7_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_1_2.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_2_2.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_3_2.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_4_2.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_5_2.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_6_2.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_7_2.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_1_3.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_2_3.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_3_3.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_4_3.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_5_3.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_6_3.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_7_3.png" />
-
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/redfall/purified_vermillion_bundle.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/redfall/crimsyth_demon_relic.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/redfall/redfall_spirit_ruby.png" />
-			
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/custom_game/loading_screen/seafortress_load.jpg" />
-
-
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/mountain_protector/mountain_protector_weapon_00.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/axe/axe_weapon_00.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/conjuror/conjuror_weapon_01.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/duskbringer/duskbringer_weapon_00.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/flamewaker/flamewaker_weapon_00.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/paladin/paladin_weapon_00.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/seinaru/seinaru_weapon_00.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/sorceress/sorceress_weapon_00.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/venomort/venomort_weapon_00.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/voltex/voltex_weapon_00.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/epoch/epoch_weapon_00.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_auriun_5_a.png" />
-
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/custom_game/ui/sword_icon_star.png" />
- -->
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/custom_game/ui/altar_of_ice_header.jpg" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/brazen_kabuto_of_the_desert_realm.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/harvester_boots.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/ice_quill_carapace.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/skulldigger_gauntlet.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/vermillion_dream_robes.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/helm_of_the_silent_templar.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/harvester_boots.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/seinaru_arcana2.png" />
-
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/custom_game/loading_screen/tanari_jungle.jpg" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/sephyr_immortal_weapon1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/sephyr_immortal_weapon2.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/sephyr_immortal_weapon3.png" />
-			
-
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/sephyr/glyph_sephyr_1_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/sephyr/glyph_sephyr_2_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/sephyr/glyph_sephyr_3_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/sephyr/glyph_sephyr_4_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/sephyr/glyph_sephyr_5_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/sephyr/glyph_sephyr_5_a.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/sephyr/glyph_sephyr_6_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/sephyr/glyph_sephyr_7_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/sephyr/glyph_sephyr_5_a.png" />
-
-<!-- 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_1_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_2_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_3_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_4_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_5_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_5_a.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_6_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_7_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_5_a.png" />
-
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_5_a.png" />
-
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_hydroxis_1_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_hydroxis_2_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_hydroxis_3_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_hydroxis_4_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_hydroxis_5_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_hydroxis_5_a.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_hydroxis_6_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_hydroxis_7_1.png" />
-
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_zonik_1_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_zonik_2_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_zonik_3_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_zonik_4_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_zonik_5_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_zonik_5_a.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_zonik_6_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_zonik_7_1.png" /> -->
-
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_ekkan_1_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_ekkan_2_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_ekkan_3_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_ekkan_4_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_ekkan_5_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_ekkan_5_a.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_ekkan_6_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_ekkan_7_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_ekkan_5_a.png" />
-
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_auriun_1_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_auriun_2_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_auriun_3_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_auriun_4_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_auriun_5_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_auriun_5_a.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_auriun_6_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_auriun_7_1.png" />
-
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_axe_1_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_axe_2_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_axe_3_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_axe_4_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_axe_5_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_axe_5_a.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_axe_6_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_axe_7_1.png" />
-
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_bahamut_1_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_bahamut_2_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_bahamut_3_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_bahamut_4_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_bahamut_5_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_bahamut_5_a.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_bahamut_6_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_bahamut_7_1.png" />
-
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_chernobog_1_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_chernobog_2_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_chernobog_3_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_chernobog_4_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_chernobog_5_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_chernobog_5_a.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_chernobog_6_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_chernobog_7_1.png" />
-			
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_conjuror_1_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_conjuror_2_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_conjuror_3_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_conjuror_4_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_conjuror_5_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_conjuror_5_a.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_conjuror_6_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_conjuror_7_1.png" />
-
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_duskbringer_1_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_duskbringer_2_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_duskbringer_3_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_duskbringer_4_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_duskbringer_5_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_duskbringer_5_a.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_duskbringer_6_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_duskbringer_7_1.png" />
-
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_epoch_1_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_epoch_2_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_epoch_3_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_epoch_4_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_epoch_5_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_epoch_5_a.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_epoch_6_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_epoch_7_1.png" />
-
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_flamewaker_1_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_flamewaker_2_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_flamewaker_3_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_flamewaker_4_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_flamewaker_5_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_flamewaker_5_a.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_flamewaker_6_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_flamewaker_7_1.png" />
-
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_mountain_protector_1_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_mountain_protector_2_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_mountain_protector_3_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_mountain_protector_4_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_mountain_protector_5_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_mountain_protector_5_a.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_mountain_protector_6_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_mountain_protector_7_1.png" />
-
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_paladin_1_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_paladin_2_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_paladin_3_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_paladin_4_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_paladin_5_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_paladin_5_a.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_paladin_6_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_paladin_7_1.png" />
-
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_monk_1_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_monk_2_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_monk_3_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_monk_4_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_monk_5_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_monk_5_a.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_monk_6_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_monk_7_1.png" />
-
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_solunia_1_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_solunia_2_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_solunia_3_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_solunia_4_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_solunia_5_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_solunia_5_a.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_solunia_6_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_solunia_7_1.png" />
-
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_sorceress_1_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_sorceress_2_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_sorceress_3_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_sorceress_4_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_sorceress_5_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_sorceress_5_a.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_sorceress_6_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_sorceress_7_1.png" />
-
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_spirit_warrior_1_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_spirit_warrior_2_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_spirit_warrior_3_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_spirit_warrior_4_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_spirit_warrior_5_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_spirit_warrior_5_a.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_spirit_warrior_6_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_spirit_warrior_7_1.png" />
-
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_trapper_1_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_trapper_2_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_trapper_3_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_trapper_4_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_trapper_5_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_trapper_5_a.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_trapper_6_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_trapper_7_1.png" />
-
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_venomort_1_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_venomort_2_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_venomort_3_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_venomort_4_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_venomort_5_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_venomort_5_a.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_venomort_6_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_venomort_7_1.png" />
-
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_voltex_1_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_voltex_2_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_voltex_3_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_voltex_4_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_voltex_5_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_voltex_5_a.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_voltex_6_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_voltex_7_1.png" />
-
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_warlord_1_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_warlord_2_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_warlord_3_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_warlord_4_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_warlord_5_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_warlord_5_a.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_warlord_6_1.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_warlord_7_1.png" />
-
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/armor_of_violet_guard.png" />
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/vermillion_dream_robes.png" />
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/potion_blue.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/winterblight_glacier_stone.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc_ruby_ring.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/wraps_of_the_grand_arcanist.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/firelock_pendant.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/adamantine_samurai_helmet.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/stone_of_gordon.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/hope_of_saytaru.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_sorceress_2_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_solunia_3_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_axe_7_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_paladin_5_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_6_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_astral_7_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_chernobog_7_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_4_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_conjuror_7_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_solunia_5_a.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_duskbringer_5_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_hydroxis_6_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_zonik_7_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_auriun_7_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_bahamut_5_a.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_monk_5_a.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_6_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_axe_5_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_warlord_5_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_monk_3_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_bahamut_3_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_ekkan_1_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_warlord_7_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_bahamut_1_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_monk_1_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_axe_7_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_ekkan_3_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/slipfinn/glyph_slipfinn_2_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/slipfinn/glyph_slipfinn_6_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/slipfinn/glyph_slipfinn_4_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/slipfinn/glyph_slipfinn_3_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/slipfinn/glyph_slipfinn_5_a.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/slipfinn/glyph_slipfinn_1_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/slipfinn/glyph_slipfinn_5_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/slipfinn/glyph_slipfinn_7_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_hydroxis_4_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_zonik_5_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_ekkan_5_a.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_4_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_auriun_5_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_chernobog_5_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_astral_5_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_4_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_duskbringer_7_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_6_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_conjuror_5_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_solunia_1_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_axe_5_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_paladin_7_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_mountain_protector_2_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_2_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_conjuror_1_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_duskbringer_3_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_astral_1_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_paladin_5_a.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_chernobog_1_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_mountain_protector_6_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_paladin_3_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_sorceress_4_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_duskbringer_5_a.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_solunia_5_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_axe_1_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_ekkan_7_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/basic_glyph.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_axe_3_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_warlord_3_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_bahamut_5_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_monk_5_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_auriun_1_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_warlord_5_a.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_zonik_1_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_2_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_auriun_3_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_hydroxis_2_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_zonik_3_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_zonik_5_a.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_ekkan_5_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_warlord_1_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_monk_7_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_bahamut_7_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_axe_1_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_auriun_5_a.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_paladin_1_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_chernobog_5_a.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_astral_5_a.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_mountain_protector_4_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_solunia_7_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_axe_3_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_sorceress_6_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_conjuror_5_a.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_axe_5_a.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_duskbringer_1_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_conjuror_3_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_chernobog_3_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_2_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_astral_3_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_5_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/sephyr/glyph_sephyr_6_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/sephyr/glyph_sephyr_4_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/sephyr/glyph_sephyr_2_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/sephyr/glyph_sephyr_5_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/sephyr/glyph_sephyr_7_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/sephyr/glyph_sephyr_5_a.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/sephyr/glyph_sephyr_3_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/sephyr/glyph_sephyr_1_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_auriun_4_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_hydroxis_5_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_zonik_4_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_ekkan_2_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_warlord_6_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_axe_6_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_paladin_6_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_mountain_protector_3_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_axe_4_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_sorceress_1_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_duskbringer_6_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_7_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_conjuror_4_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_chernobog_4_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_astral_4_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_mountain_protector_5_a.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_5_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_5_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_conjuror_6_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_sorceress_5_a.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_duskbringer_4_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_7_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_astral_6_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_chernobog_6_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_mountain_protector_1_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_paladin_4_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_sorceress_3_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_axe_6_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_solunia_2_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_axe_4_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_monk_2_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_bahamut_2_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_warlord_4_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_auriun_6_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_7_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_hydroxis_7_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_zonik_6_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_monk_6_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_bahamut_6_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_hydroxis_5_a.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_ekkan_4_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_hydroxis_3_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_zonik_2_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_3_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_auriun_2_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_chernobog_2_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_3_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_astral_2_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_1_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_conjuror_2_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_axe_2_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_solunia_6_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_sorceress_7_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_mountain_protector_5_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_sorceress_5_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_solunia_4_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_mountain_protector_7_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_paladin_2_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_1_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_3_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_duskbringer_2_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_hydroxis_1_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_1_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_axe_2_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_bahamut_4_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_monk_4_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_warlord_2_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_ekkan_6_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_flamewaker_1_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_arkimus_7_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_4_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_spirit_warrior_5_a.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_trapper_5_a.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_epoch_1_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_voltex_2_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_trapper_3_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_spirit_warrior_3_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_venomort_7_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_trapper_1_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_epoch_5_a.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_venomort_5_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_spirit_warrior_1_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_epoch_3_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_flamewaker_5_a.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_6_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_flamewaker_3_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_arkimus_5_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_2_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_flamewaker_7_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_arkimus_1_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_venomort_1_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_spirit_warrior_5_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_voltex_4_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_trapper_5_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_epoch_7_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/book/glyph_book_trapper.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/book/glyph_book_sorceress.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/book/glyph_book_axe.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/book/glyph_book_duskbringer.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_epoch_5_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_venomort_5_a.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_spirit_warrior_7_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_venomort_3_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_trapper_7_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_voltex_6_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_flamewaker_5_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_arkimus_3_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_arkimus_5_a.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_epoch_2_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_venomort_4_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_voltex_1_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_flamewaker_2_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_arkimus_4_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_7_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_5_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_arkimus_6_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_spirit_warrior_2_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_venomort_6_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_voltex_3_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_trapper_2_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_voltex_5_a.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_trapper_6_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_voltex_7_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_spirit_warrior_6_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_venomort_2_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_epoch_4_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_1_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_flamewaker_4_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_arkimus_2_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_5_a.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_flamewaker_6_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_djanghor_3_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_epoch_6_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_voltex_5_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_trapper_4_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/glyph_spirit_warrior_4_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/tanari_core_of_fire.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/gold_plate_of_leon.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/pathfinders_resonant_boots.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/mordiggus_gauntlet.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/fuchsia_ring.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/hood_of_the_defiler.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/excavators_focus_cap.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/hurricane_vest.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/savage_plate_of_ogthun.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/shipyard_veil_lv1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/scorched_gauntlets_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/stormcrack_helm.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/scourge_knights_helm.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/claw_of_azinoth.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/red_fire_ring.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/crimsyth_elite_greaves_lv3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/spiritual_empowerment_glove.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/mask_of_the_phantom_sorcerer.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/spirit_glove.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/volcano_orb.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/crimsyth_elite_greaves_lv1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/torch_of_gengar.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/adamantine_samurai_helmet.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/scourge_knights_helm.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/wolfir_druids_spirit_helm.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/mask_of_the_desert_necromancer.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/white_mage_hat.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/falcon_boots.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/hood_of_chosen.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/dragon_ceremony_vestments.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/cap_of_wild_nature.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/ocean_tempest_pallium.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/brazen_kabuto_of_the_desert_realm.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/cytopian_laser_glove.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/twilight_vestments.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/hyper_visor.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/undertakers_hood.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/odin_helmet.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/centaur_horns.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/guard_of_luma.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/rooted_feet.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/grasp_of_elder.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/sange_boots.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/grand_arcanist_wraps.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/boneguard_gauntlets.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/blinded_glint_of_onu.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/crown_of_the_roknar_emperor.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/radiant_ruins_leather.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/tricksters_mask.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/moon_tech_runners.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/arcane_cascade_hat.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/shroud_of_eternal_night.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/power_ranger_gloves.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/mask_of_tyrius.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/New folder/mask_of_mugato.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/wolfir_druids_spirit_helm.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/mask_of_the_desert_necromancer.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/shipyard_veil_lv3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/champions_mail.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/redfall/autumnleaf_firefly.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/redfall/glowing_redfall_leaf.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/redfall/redfall_spirit_ruby.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/redfall/crimsyth_demon_relic.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/redfall/hidden_shipyard_key.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/redfall/redfall_ashen_twig.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/redfall/purified_vermillion_bundle.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/ruby_dragon_crown.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/white_mage_hat.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/thicket_bat_egg.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/boots_of_ashara.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/gravekeepers_gauntlet.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/crown_of_the_lava_forge.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/raven_idol.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/shipyard_veil_lv2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/robe_of_flooding.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/depth_crest_armor.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/ablecore_greaves.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/halcyon_soul_glove.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc_robes.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/hood_of_chosen.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/dragon_ceremony_vestments.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/truth_dust.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/fire_walkers.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/armor_of_secret_temple.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/galaxy_orb.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/sandstream_slippers.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/blacksmiths_tablet.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/crest_of_the_umbral_sentinel.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/bladestorm_vest.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/far_seers_enchanted_gloves.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/ring_of_nobility.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/ruinfall_skull_token.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/the_infernal_prison.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/cap_of_wild_nature.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/gauntlet_of_champions.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/swamp_doctors_tribal_mask.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/sorcerers_regalia.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/terrasic_lava_boots.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/staggering_knight_crusher_armor.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/harvester_boots.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc_mantle.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/seraphic_soulvest.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/admirals_boot.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/vampiric_breastplate.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/twig_of_the_enlightened.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/stormshield_cloak.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/swamp_witches_hat.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/ocean_tempest_pallium.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/sapphire_lotus.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/sapphire_dragon_scale_armor.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/master_gloves.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/redrock_footwear.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/boots_of_old_wisdom.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/helm.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/eye_of_avernus.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/skele_gloves.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/ice_blaster.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/slinger_boots.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/ancient_tanari_waterstone.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/swamp_waders.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/brazen_kabuto_of_the_desert_realm.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/tanari_spirit_stones.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/marauder_gloves.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/potion_red.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/water_temple_key.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/autumn_sleeper_mask.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/cytopian_laser_glove.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/signus_charm.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/greensand_copper_gauntlets.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/mana_striders.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/shadow_armlet.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/phoenix_emblem.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc_mail.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/ruby_dragon_scale_armor.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/scarecrow_gloves.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/neptunes_water_gliders.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/skulldigger_gauntlet.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/ice_quill_carapace.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc_hand_of_midas.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/resplendent_rubber_boots.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/scorched_gauntlets.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/pendant_of_the_azure_empire.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/wraith_band_base.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/warlord/warlord_weapon_12.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/warlord/warlord_weapon_13.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/warlord/warlord_weapon_11.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/warlord/warlord_weapon_14.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/warlord/warlord_weapon_01.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/warlord/warlord_weapon_03.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/warlord/warlord_weapon_02.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/warlord/beast-11.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/warlord/warlord_weapon_24.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/warlord/warlord_weapon_25.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/warlord/warlord_weapon_21.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/warlord/warlord_weapon_22.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/warlord/warlord_weapon_23.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/mountain_protector/mountain_protector_weapon_00.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/slipfinn/slipfinn_weapon_00.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/seinaru/seinaru_weapon_14.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/seinaru/seinaru_weapon_00.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/seinaru/seinaru_weapon_01.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/seinaru/seinaru_weapon_03.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/seinaru/seinaru_weapon_02.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/seinaru/seinaru_weapon_12.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/seinaru/seinaru_weapon_13.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/seinaru/seinaru_weapon_11.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/seinaru/seinaru_weapon_21.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/seinaru/seinaru_weapon_22.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/seinaru/seinaru_weapon_23.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/seinaru/seinaru_weapon_24.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/seinaru/seinaru_weapon_25.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/chernobog/chernobog_weapon_00.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/chernobog/svarogs_divine_claw.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/zonik/zonik_weapon_00.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/chernobog_immortal_weapon_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/djanghor_immortal_weapon_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/venomort_immortal_weapon_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/hydroxis_immortal_weapon_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/venomort_immortal_weapon_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/djanghor_immortal_weapon_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/chernobog_immortal_weapon_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/chernobog_immortal_weapon_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/venomort_immortal_weapon_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/hydroxis_immortal_weapon_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/hydroxis_immortal_weapon_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/djanghor_immortal_weapon_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/axe_immortal_weapon_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/slipfinn_immortal_weapon_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/axe_immortal_weapon_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/slipfinn_immortal_weapon_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/slipfinn_immortal_weapon_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/axe_immortal_weapon_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/astral_immortal_weapon_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/ekkan_immortal_weapon_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/voltex_immortal_weapon_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/ekkan_immortal_weapon_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/seinaru_immortal_weapon_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/auriun_immortal_weapon_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/spirit_warrior_immortal_weapon_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/spirit_warrior_immortal_weapon_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/astral_immortal_weapon_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/auriun_immortal_weapon_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/seinaru_immortal_weapon_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/ekkan_immortal_weapon_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/voltex_immortal_weapon_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/arkimus_immortal_weapon.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/voltex_immortal_weapon_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/seinaru_immortal_weapon_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/auriun_immortal_weapon_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/astral_immortal_weapon_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/spirit_warrior_immortal_weapon_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/trapper_immortal_weapon_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/conjuror_immortal_weapon_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/flamewaker_immortal_weapon_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/trapper_immortal_weapon_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/flamewaker_immortal_weapon_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/conjuror_immortal_weapon_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/conjuror_immortal_weapon_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/flamewaker_immortal_weapon_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/trapper_immortal_weapon_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/sorceress_immortal_weapon_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/duskbringer_immortal_weapon_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/bahamut_immortal_weapon_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/duskbringer_immortal_weapon_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/sorceress_immortal_weapon_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/duskbringer_immortal_weapon_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/bahamut_immortal_weapon_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/bahamut_immortal_weapon_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/sorceress_immortal_weapon_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/arkimus_immortal_weapon_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/paladin_immortal_weapon_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/paladin_immortal_weapon_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/arkimus_immortal_weapon_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/arkimus_immortal_weapon_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/paladin_immortal_weapon_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/zonik_immortal_weapon_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/sephyr_immortal_weapon_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/epoch_immortal_weapon_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/mountain_protector_immortal_weapon_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/sephyr_immortal_weapon_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/solunia_immortal_weapon_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/zonik_immortal_weapon_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/zonik_immortal_weapon_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/solunia_immortal_weapon_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/sephyr_immortal_weapon_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/mountain_protector_immortal_weapon_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/epoch_immortal_weapon_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/epoch_immortal_weapon_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/mountain_protector_immortal_weapon_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/solunia_immortal_weapon_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/warlord_immortal_weapon_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/warlord_immortal_weapon_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/legends/warlord_immortal_weapon_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/astral/astral_weapon_02.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/astral/astral_weapon_03.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/astral/astral_weapon_01.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/astral/astral_weapon_14.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/astral/astral_weapon_00.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/astral/astral_weapon_11.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/astral/astral_weapon_13.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/astral/astral_weapon_12.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/astral/astral_weapon_23.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/astral/astral_weapon_22.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/astral/astral_weapon_21.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/astral/astral_weapon_25.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/astral/astral_weapon_24.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/epoch/epoch_weapon_21.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/epoch/epoch_weapon_22.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/epoch/epoch_weapon_23.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/epoch/epoch-4.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/epoch/epoch-15.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/epoch/epoch_weapon_24.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/epoch/epoch-6.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/epoch/epoch_weapon_25.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/epoch/epoch_weapon_14.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/epoch/epoch_weapon_00.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/epoch/epoch_weapon_01.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/epoch/epoch_weapon_03.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/epoch/epoch_weapon_02.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/epoch/epoch_weapon_12.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/epoch/epoch_weapon_13.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/epoch/epoch_weapon_11.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/sephyr/sephyr_weapon_00.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/arkimus/arkimus_weapon_00.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/ekkan/ekkan_weapon_23.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/ekkan/ekkan_weapon_22.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/ekkan/ekkan_weapon_21.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/ekkan/ekkan_weapon_25.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/ekkan/ekkan_weapon_24.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/ekkan/ekkan_weapon_02.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/ekkan/ekkan_weapon_03.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/ekkan/ekkan_weapon_01.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/ekkan/ekkan_weapon_14.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/ekkan/ekkan_weapon_00.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/ekkan/ekkan_weapon_11.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/ekkan/ekkan_weapon_13.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/ekkan/ekkan_weapon_12.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/conjuror/conjuror_weapon_11.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/conjuror/conjuror_weapon_13.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/conjuror/conjuror_weapon_12.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/conjuror/conjuror_weapon_02.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/conjuror/conjuror_weapon_03.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/conjuror/conjuror_weapon_01.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/conjuror/conjuror_weapon_14.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/conjuror/conjuror_weapon_00.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/conjuror/conjuror_weapon_25.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/conjuror/conjuror_weapon_24.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/conjuror/conjuror_weapon_23.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/conjuror/conjuror_weapon_22.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/conjuror/conjuror_weapon_21.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/solunia/solunia_weapon_00.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/paladin/paladin_weapon_24.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/paladin/paladin_weapon_25.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/paladin/paladin_weapon_22.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/paladin/paladin_weapon_23.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/paladin/paladin_weapon_21.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/paladin/paladin-12.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/paladin/paladin_weapon_11.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/paladin/paladin_weapon_12.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/paladin/paladin_weapon_13.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/paladin/paladin_weapon_03.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/paladin/paladin_weapon_02.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/paladin/paladin_weapon_00.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/paladin/paladin_weapon_14.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/paladin/paladin_weapon_01.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/paladin/paladin-3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/paladin/paladin-1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/venomort/venomort_weapon_23.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/venomort/venomort_weapon_22.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/venomort/necro-7.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/venomort/venomort_weapon_21.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/venomort/venomort_weapon_25.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/venomort/venomort_weapon_24.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/venomort/venomort_weapon_xx.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/venomort/venomort_weapon_02.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/venomort/venomort_weapon_03.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/venomort/venomort_weapon_01.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/venomort/venomort_weapon_14.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/venomort/venomort_weapon_00.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/venomort/venomort_weapon_11.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/venomort/venomort_weapon_13.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/venomort/venomort_weapon_12.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/flamewaker/flamewaker_sword_24.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/flamewaker/flamewaker_sword_25.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/flamewaker/flamewaker_sword_22.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/flamewaker/flamewaker_sword_23.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/flamewaker/flamewaker_sword_21.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/flamewaker/flamewaker_weapon_00.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/flamewaker/flamewaker_sword_11.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/flamewaker/flamewaker_sword_12.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/flamewaker/flamewaker_sword_13.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/flamewaker/flamewaker_sword_03.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/flamewaker/flamewaker_sword_02.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/flamewaker/flamewaker_sword_14.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/flamewaker/flamewaker_sword_01.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/trapper/trapper_weapon_00.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/duskbringer/duskbringer_weapon_00.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/auriun/auriun_weapon_22.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/auriun/auriun_weapon_23.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/auriun/auriun_weapon_21.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/auriun/auriun_weapon_24.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/auriun/auriun_weapon_25.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/auriun/auriun_weapon_03.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/auriun/auriun_weapon_02.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/auriun/auriun_weapon_00.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/auriun/auriun_weapon_14.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/auriun/auriun_weapon_01.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/auriun/auriun_weapon_11.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/auriun/auriun_weapon_12.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/auriun/auriun_weapon_13.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/sorceress/sorceress_weapon_12.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/sorceress/sorceress_weapon_13.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/sorceress/sorceress_weapon_11.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/sorceress/sorceress_weapon_00.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/sorceress/sorceress_weapon_14.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/sorceress/sorc-11.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/sorceress/sorceress_weapon_01.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/sorceress/sorceress_weapon_03.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/sorceress/sorceress_weapon_02.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/sorceress/sorceress_weapon_24.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/sorceress/sorceress_weapon_25.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/sorceress/sorceress_weapon_21.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/sorceress/sorceress_weapon_22.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/sorceress/sorceress_weapon_23.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/sorceress/sorceress_weapon_yy.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/sorceress/sorceress_weapon_xx.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/axe/general-12.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/axe/general-15.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/axe/axe_weapon_02.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/axe/axe_weapon_03.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/axe/axe_weapon_01.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/axe/axe_weapon_14.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/axe/axe_weapon_00.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/axe/axe_weapon_11.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/axe/axe_weapon_13.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/axe/axe_weapon_12.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/axe/axe_weapon_23.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/axe/axe_weapon_22.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/axe/axe_weapon_21.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/axe/axe_weapon_25.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/axe/general-5.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/axe/axe_weapon_24.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/djanghor/djanghor_weapon_00.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/voltex/voltex_weapon_02.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/voltex/voltex_weapon_03.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/voltex/voltex_weapon_01.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/voltex/voltex_weapon_00.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/voltex/voltex_weapon_14.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/voltex/voltex_weapon_11.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/voltex/voltex_weapon_13.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/voltex/voltex_weapon_12.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/voltex/voltex_weapon_23.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/voltex/voltex_weapon_22.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/voltex/voltex_weapon_21.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/voltex/voltex_weapon_25.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/voltex/voltex_weapon_24.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/bahamut/bahamut_weapon_25.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/bahamut/bahamut_weapon_24.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/bahamut/bahamut_weapon_21.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/bahamut/bahamut_weapon_23.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/bahamut/bahamut_weapon_22.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/bahamut/bahamut_weapon_13.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/bahamut/bahamut_weapon_12.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/bahamut/bahamut_weapon_11.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/bahamut/bahamut_weapon_01.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/bahamut/bahamut_weapon_00.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/bahamut/bahamut_weapon_14.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/bahamut/bahamut_weapon_02.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/bahamut/bahamut_weapon_03.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/hydroxis/hydroxis_weapon_00.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/weapons/spirit_warrior/spirit_warrior_weapon_00.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/twilight_vestments.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/glove_of_the_forgotten_ghost.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/wind_blaster.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc_treads.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/antique_mana_relic.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/hyper_visor.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/fire_temple_key.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arena_prizebox.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/hermits_spike_shell.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/wind_deity_crown.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/steelbark_armor.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/fenrirs_fang.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc_slippers.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/undertakers_hood.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/potions/damage_potion_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/potions/damage_potion_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/potions/damage_potion_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/potions/vitality_potion_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/potions/vitality_potion_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/potions/vitality_potion_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/potions/ability_potion_1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/potions/ability_potion_2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/potions/ability_potion_3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/super_ascendency_mask.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/odin_helmet.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/lifesource_vessel.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/autumnrock_bracer.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/centaur_horns.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/enchanted_solar_cape.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/monkey_paw.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/magebane_gloves.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/gilded_soul_cage.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/ring_of_nobility_augmented.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/wraps.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/avalanche_plate.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/tanari_essence_of_wind.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/assorted.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/kappa_pride_gloves.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/water_deity_crown.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcanys_slipper.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/falcon_boot.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/emerald_douli.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/iron_colossus.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/wind_temple_key.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/boots_of_pure_waters.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/epsilons_eyeglass.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/badge_of_honor.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/item_rpc_swamp_witch_hat.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/voyager_boots.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc_sand_tomb_orb.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/mystic_mana_wall.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/skyforge_flurry_plate.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/fire_blaster.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/basilisk_plague_helm.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/tanari_heart_of_water.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/guard_of_feronia.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/guard_of_luma.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/space_tech_vest.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/berserker_gloves.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/terrasic_stone_plate.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rooted_feet.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/hood.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/grasp_of_elder.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/fractional_enhancement_geode.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/fire_deity_crown.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/carbuncles_helm_of_reflection.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/boots_of_champions.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/silent_templar.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/malachite_shade_bracer.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/divine_purity_gauntlet.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/giant_hunters_boots_of_resilience.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/skulldigger_gauntlet_lv1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/cap.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/wraith_crown.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/skulldigger_gauntlet_lv3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/bahamut_arcana2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/voltex_arcana1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/solunia_arcana2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/bahamut_arcana1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/solunia_arcana1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/axe_arcana1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/flamewaker_arcana1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/flamewaker_arcana2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/ekkan_arcana1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/duskbringer_arcana1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/warlord_arcana1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/auriun_arcana1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/zhonik_arcana2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/epoch_arcana1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/auriun_arcana2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/zhonik_arcana1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/mountain_protector_arcana1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/trapper_arcana1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/mountain_protector_arcana2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/mountain_protector_arcana3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/conjuror_arcana1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/venomort_arcana2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/spirit_warrior_arcana1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/chernobog_arcana2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/spirit_warrior_arcana3.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/hydroxis_arcana1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/venomort_arcana1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/spirit_warrior_arcana2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/chernobog_arcana1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/paladin_arcana1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/djanghor_arcana1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/arkimus_arcana1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/sorceress_arcana2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/seinaru_arcana1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/paladin_arcana2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/arkimus_arcana2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/seinaru_arcana2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/sorceress_arcana1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/astral_arcana2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arcana/astral_arcana1.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/seafortress/dark_emissary_glove.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/seafortress/dark_reef_shark_helmet.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/seafortress/ocean_helm_of_valdun.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/seafortress/sparkling_token_of_oceanis.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/seafortress/sparkling_sea_crystal.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/seafortress/templar_light_seers_robe.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/seafortress/chitinous_lobster_claw.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/seafortress/hood_of_the_sea_oracle.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/seafortress/armor_of_atlantis.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/seafortress/twisted_yellow_mask_of_ahnqhir.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/seafortress/empyreal_sunrise_robe.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/seafortress/depth_demon_claw.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/seafortress/twisted_blue_mask_of_ahnqhir.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/seafortress/twisted_purple_mask_of_ahnqhir.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/seafortress/sea_giants_plate.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/seafortress/crystalline_slippers.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/seafortress/oceanrunner_boots.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc_ghost_slippers.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/plate_of_the_watcher.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/eternal_essence_gauntlet.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/eye_of_seasons.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/sange_boots.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/arbor_dragonfly.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/water_mage_robes.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/grand_arcanist_wraps.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/infused_mageplate.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/redfall_runners.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/admiral_boots.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/armor_of_violet_guard.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/boneguard_gauntlets.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/skulldigger_gauntlet_lv2.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/vermillion_dream_robes.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/conquest_stone_falcon.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/featherwhite_armor.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc_gauntlets.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/hood_of_the_black_mage.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/guard_of_grithault.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc_talisman.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/frostburn_gauntlets.png"/>
 <!-- 			<Image id="seq_bg" class="SeqBg" src="file://{images}/spellicons/rpc/action_leap_2.png" />
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/spellicons/rpc/astral_d_b.png" />
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/spellicons/rpc/aurian_ult.png" />

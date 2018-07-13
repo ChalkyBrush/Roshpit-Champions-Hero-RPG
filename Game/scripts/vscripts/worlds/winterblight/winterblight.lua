@@ -18,11 +18,25 @@ function Winterblight:Debug()
     for i = 1, 3, 1 do
       Winterblight:DropGlacierStone(Vector(-15424,-2560))
     end
-    RPCItems:RollFrostmawHuntersHood(Vector(-15424,-2560))
-    RPCItems:RollFrozenHeart(Vector(-15424,-2560))
-    RPCItems:RollEnergyWhipGlove(Vector(-15424,-2560))
-    RPCItems:RollWindDeityCrown(Vector(-15424,-2560), false, 4)
-    RPCItems:RollBorealGraniteVest(Vector(-15424,-2560))
+    -- RPCItems:RollFrostmawHuntersHood(Vector(-15424,-2560))
+    -- RPCItems:RollFrozenHeart(Vector(-15424,-2560))
+    -- RPCItems:RollEnergyWhipGlove(Vector(-15424,-2560))
+    -- RPCItems:RollWindDeityCrown(Vector(-15424,-2560), false, 4)
+    -- RPCItems:RollBorealGraniteVest(Vector(-15424,-2560))
+    -- RPCItems:RollCaptainsVest(Vector(-15424,-2560))
+    -- RPCItems:RollGravelfootTreads(Vector(-15424,-2560))
+    -- RPCItems:RollIceFloeSlippers(Vector(-15424,-2560))
+    RPCItems:RollIronTreadsOfDestruction(Vector(-15424,-2560))
+    -- RPCItems:RollStargazersSphere(Vector(-15424,-2560))
+    -- RPCItems:RollTatteredNoviceArmor(Vector(-15424,-2560))
+    -- RPCItems:RollBuzukisFinger(Vector(-15424,-2560))
+    -- RPCItems:RollSwiftspikeBracer(Vector(-15424,-2560))
+    RPCItems:RollLegionVestments(Vector(-15424,-2560))
+    -- RPCItems:RollRedDivinexAmulet(Vector(-15424,-2560))
+    -- RPCItems:RollHelmOfTheMountainGiant(Vector(-15424,-2560), false)
+    RPCItems:RollChainsOfOrthok(Vector(-15424,-2560))
+    RPCItems:RollAstralArcana3(Vector(-15424,-2560))
+    Winterblight:DropBorealGraniteChunk(Vector(-15424,-2560))
 end
 
 
@@ -146,6 +160,21 @@ function Winterblight:InitProps()
       table.insert(Winterblight.AzaleaBossStatue, boss_statue)
     end
   end)
+  Timers:CreateTimer(6, function()
+    Winterblight:SpawnTrainingDummy(Vector(-11968, -1096))
+  end)
+end
+
+function Winterblight:SpawnTrainingDummy(position)
+  local positionTable = {position}
+  for i =1, #positionTable, 1 do
+    local dummy = CreateUnitByName("arena_training_dummy", positionTable[i], true, nil, nil, DOTA_TEAM_NEUTRALS)
+    dummy:SetForwardVector(Vector(1,-1))
+    dummy.targetPosition = dummy:GetAbsOrigin()
+    local dummyAbility = dummy:FindAbilityByName("training_dummy_ability")
+    dummyAbility:ApplyDataDrivenModifier(dummy, dummy, "modifier_dummy_ice", {})
+  end
+  
 end
 
 function Winterblight:DropGlacierStone(position)
@@ -158,11 +187,14 @@ end
 function Winterblight:Debug2()
  -- Winterblight:FinishCaveWaves()
  -- Winterblight:InitializeAzaleaSwords()
- AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-15944, -13162), 23000, 23000, false)
+ -- AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-15944, -13162), 23000, 23000, false)
  -- Winterblight:LastBridgeAndCup()
- Winterblight.AzaleaTeleportRoomSpawned = true
+ -- Winterblight.AzaleaTeleportRoomSpawned = true
  -- Winterblight:SpawnAzaleaBoss()
-
+ -- Winterblight:InitCaptainReynar()
+ Winterblight:SpawnGrandStalacorr(Vector(-15424,-2560), RandomVector(1))
+ local hero = MAIN_HERO_TABLE[1]
+ -- Runes:EasySwapArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "ranger_aoe_explosion", "crystal_arrow", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana3")
  -- Winterblight:StartOrbSequence()
   -- Winterblight:EndOrbWaves()
     -- Winterblight:OpenShrineOfAzalea()
@@ -524,7 +556,9 @@ function Winterblight:CloseAltarOfIce(msg)
   end
   if closeAltar then
     AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-14024, -7195), 500, 5, false)
-    StartAnimation(Winterblight.AltarApparition, {duration=1.6, activity=ACT_DOTA_CAST_ABILITY_5, rate=0.9})
+    if Winterblight.AltarApparition then
+      StartAnimation(Winterblight.AltarApparition, {duration=1.6, activity=ACT_DOTA_CAST_ABILITY_5, rate=0.9})
+    end
     Timers:CreateTimer(0.75, function()
       EmitSoundOnLocationWithCaster( Vector(-14024, -7195), "Winterblight.AzaleaBoss.IceNovaExplode", caster)
       local particle = "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
@@ -536,14 +570,16 @@ function Winterblight:CloseAltarOfIce(msg)
           ParticleManager:DestroyParticle(pfx, false)
       end)
     end)
-    for i = 1, 60, 1 do
-      Timers:CreateTimer(i*0.03, function()
-        Winterblight.AltarApparition:SetAbsOrigin(Winterblight.AltarApparition:GetAbsOrigin() - Vector(0,0,30))
+    if Winterblight.AltarApparition then
+      for i = 1, 60, 1 do
+        Timers:CreateTimer(i*0.03, function()
+          Winterblight.AltarApparition:SetAbsOrigin(Winterblight.AltarApparition:GetAbsOrigin() - Vector(0,0,30))
+        end)
+      end
+      Timers:CreateTimer(0.2, function()
+        EmitSoundOn("Winterblight.AltarApparition.Spawn", Winterblight.AltarApparition)
       end)
     end
-    Timers:CreateTimer(0.2, function()
-      EmitSoundOn("Winterblight.AltarApparition.Spawn", Winterblight.AltarApparition)
-    end)
   end
 end
 
@@ -582,6 +618,9 @@ function Winterblight:CrystalPlaced(msg)
             end
           end
         end)
+      end
+      if GameState:GetDifficultyFactor() >= 3 then
+        Winterblight:InitializeOrthok()
       end
     elseif Winterblight.Stones == 2 then
       local crystal = Entities:FindByNameNearest("WinterblightStones2", Vector(-14061, -6978, 56+Winterblight.ZFLOAT), 500)
@@ -625,4 +664,43 @@ function Winterblight:CrystalEnterAnimation(crystal)
       EmitSoundOnLocationWithCaster(crystal:GetAbsOrigin(), "Winterblight.Mountain.Shake", Winterblight.Master)
     end)
   end
+end
+
+function Winterblight:DropBorealGraniteChunk(position)
+  RPCItems:CreateBasicConsumable(position, "item_rpc_boreal_granite_chunk", "Boreal Granite Chunk", "immortal", true)
+end
+
+function Winterblight:SpawnGrandStalacorr(position, fv)
+  local queen = Winterblight:SpawnDungeonUnit("winterblight_grand_stalacorr", position, 4, 5, "Seafortress.Stalakor.Aggro", fv, false)
+
+  queen:SetRenderColor(100, 230, 245)
+  queen.reduc = 0.05
+  Events:AdjustBossPower(queen, 8, 8, false)
+  Winterblight:SetTargetCastArgs(queen, 900, 0, 1, FIND_ANY_ORDER)
+  local ability = queen:FindAbilityByName("grand_stalacorr_passive")
+  queen.cantAggro = true
+  ability:ApplyDataDrivenModifier(queen, queen, "modifier_disable_player", {duration = 6.0})
+  queen.dominion = true
+  for i = 0, 4, 1 do
+    Timers:CreateTimer(i*1.5, function()
+      ScreenShake(queen:GetAbsOrigin(), 860, 0.7, 0.7, 9000, 0, true)
+        local pfx = ParticleManager:CreateParticle( "particles/roshpit/winterblight_dust.vpcf", PATTACH_CUSTOMORIGIN, nil)
+        ParticleManager:SetParticleControl(pfx, 0, queen:GetAbsOrigin()+Vector(0,0,80))
+        ParticleManager:SetParticleControl(pfx, 5, Vector(0.9, 0.9, 1.0))
+        ParticleManager:SetParticleControl(pfx, 2, Vector(0.8,0.8,0.8))
+        Timers:CreateTimer(10, function() 
+          ParticleManager:DestroyParticle( pfx, false )
+          ParticleManager:ReleaseParticleIndex(pfx)
+        end)
+      EmitSoundOnLocationWithCaster(queen:GetAbsOrigin(), "Winterblight.GrandStalacorr.Rising", Events.GameMaster)
+    end)
+  end
+  queen:SetRenderColor(70, 200, 255)
+  
+  Timers:CreateTimer(6.0, function()
+    queen.cantAggro = false
+    Dungeons:AggroUnit(queen)
+
+  end)
+  return queen
 end

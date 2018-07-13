@@ -132,6 +132,26 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 			else
 				return false
 			end			
+		elseif (item1:GetAbilityName() == "item_rpc_boreal_granite_chunk" and item2.slot and item2.slot == "body" and item2.rarity == "immortal") or (item2:GetAbilityName() == "item_rpc_boreal_granite_chunk" and item1.slot and item1.slot == "body" and item1.rarity == "immortal") then
+			local new_min_level = 0
+			if item2.slot then
+				new_min_level = RPCItems:GetLogarithmicVarianceValue(item2.minLevel, 0, 0, 0, 0)
+			elseif item1.slot then
+				new_min_level = RPCItems:GetLogarithmicVarianceValue(item1.minLevel, 0, 0, 0, 0)
+			end
+			new_min_level = math.max(math.min(new_min_level, 100), 3)
+			RPCItems.LevelRoll = new_min_level
+			local newItem = RPCItems:RollBorealGraniteVest(position)
+			RPCItems.LevelRoll = nil
+			if newItem and IsValidEntity(newItem) then
+	            newItem.pickedUp = true
+	            newItem.minLevel = new_min_level
+	            local itemInfo = CustomNetTables:GetTableValue("item_basics", tostring(newItem:GetEntityIndex()))
+	            CustomNetTables:SetTableValue( "item_basics", tostring(newItem:GetEntityIndex()), {itemName = itemInfo.itemName, consumable = itemInfo.consumable, itemDescription = itemInfo.itemDescription, qualityColor = itemInfo.qualityColor, qualityName = itemInfo.qualityName, itemPrefix = itemInfo.itemPrefix, itemSuffix = itemInfo.itemSuffix, rarityFactor = itemInfo.rarityFactor, minLevel = newItem.minLevel } )
+				return newItem
+			else
+				return false
+			end
 		else
 			return false
 		end

@@ -146,7 +146,7 @@ function CloseSynthesisVessel(msg){
 
 function FinalCombine(){
 	$('#final_combine_button_container').AddClass('invisible')
-	var difficulty = getLowestDifficultyEssence()
+	var difficulty = 3
 	CloseWitchDoctor(-1)
 	var playerID = Game.GetLocalPlayerID()
 	var heroIndex = Players.GetPlayerHeroEntityIndex( playerID)

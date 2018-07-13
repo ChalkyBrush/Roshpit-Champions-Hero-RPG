@@ -652,6 +652,9 @@ function Runes:EquipArcana(hero, index)
 			newRune:SetAbilityIndex(abilityIndex)
 		elseif index == 2 then
 			Runes:EasySwapArcanaSkills(hero, 1, "split_shot", "shot_of_apollo", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+		elseif index == 3 then
+			print("R$$$F")
+			Runes:EasySwapArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "ranger_aoe_explosion", "crystal_arrow", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana3")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_spirit_breaker" then
 		if index == 1 then
@@ -1210,6 +1213,9 @@ function Runes:UnequipArcana(hero, index)
 			hero:RemoveModifierByName("modifier_astral_arcana_passive")
 		elseif index == 2 then
 			Runes:EasyRevertArcanaSkills(hero, 1, "split_shot", "shot_of_apollo", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+		elseif index == 3 then
+			Runes:EasyRevertArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "ranger_aoe_explosion", "crystal_arrow", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana3")
+			hero:RemoveModifierByName("modifier_crystal_arrow_passive")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_spirit_breaker" then
 		if index == 1 then

@@ -723,10 +723,8 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			SaveLoad:RemoveAdditionalData(key, false, false)
 			return key
 		elseif gearTable.item_name == "glyph_book" then
-			print("ITEM NAME == GLYPH BOOK")
 			local item = Glyphs:CreateGlyphBook(gearTable.item_variant, gearTable.property1, gearTable.property2)
 			item.pickedUp = true
-			SaveLoad:RemoveProperties(item)
 			SaveLoad:ApplyValidator(gearTable, item)
 			return item
 		elseif gearTable.item_variant == "item_rpc_web_premium_token" then
@@ -765,6 +763,10 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			item.property1color = gearTable.property1color
 			item.property1tooltip = gearTable.property1tooltip
 			RPCItems:SetPropertyValues(item, item.property1, "cache_radiance", item.property1color,  1)
+			SaveLoad:ApplyValidator(gearTable, item)
+			return item
+		elseif gearTable.item_variant == "item_rpc_boreal_granite_chunk" then
+			local item = RPCItems:CreateBasicConsumable(nil, gearTable.item_variant, gearTable.item_name, RPCItems:GetRarityNameFromFactor(gearTable.rarity), false)
 			SaveLoad:ApplyValidator(gearTable, item)
 			return item
 		end
@@ -898,9 +900,12 @@ function SaveLoad:StashOpen(keys)
 		local resultTable = JSON:decode(result.Body)
 		-- Weapons:ValidateGear(hero)
 		-- DeepPrintTable(resultTable)
+		local delay = #resultTable*0.03 + 0.15
 		SaveLoad:GenerateStashItems(resultTable, playerID, hero)
 		-- SaveLoad:GetCharacterDataFromJSON(resultTable)
-		CustomGameEventManager:Send_ServerToPlayer(player, "stash_loaded", {result=resultTable, playerID = playerID} )
+		Timers:CreateTimer(delay, function()
+			CustomGameEventManager:Send_ServerToPlayer(player, "stash_loaded", {playerID = playerID, stashTable = hero.stash_view} )
+		end)
 			-- CustomGameEventManager:Send_ServerToPlayer(player, "load_characters_loaded", {result=resultTable, message="collapse"} )
 	end )
 end
@@ -910,42 +915,71 @@ function SaveLoad:GenerateStashItems(resultTable, playerID, hero)
 	local slotsUsed = {}
 	hero.stashTable = {}
 	for i = 1, #resultTable, 1 do
-		-- local item_basics = CustomNetTables:GetTableValue("item_basics", tostring(player:GetPlayerID()).."-"..tostring(slot))
-		local itemData = resultTable[i]
-		local stashItem = CustomNetTables:GetTableValue("stash", tostring(playerID).."-"..tostring(i))
-		local itemEntity = SaveLoad:LoadGear(itemData, playerID, bEquip)
+		Timers:CreateTimer(i*0.03, function()
+			-- local item_basics = CustomNetTables:GetTableValue("item_basics", tostring(player:GetPlayerID()).."-"..tostring(slot))
+			local itemData = resultTable[i]
+			-- local stashItem = CustomNetTables:GetTableValue("stash", tostring(playerID).."-"..tostring(i))
+			local itemEntity = SaveLoad:LoadGear(itemData, playerID, bEquip)
 
-		if itemEntity then
-			CustomNetTables:SetTableValue("stash", tostring(playerID).."-"..tostring(itemData.stash_slot), {itemIndex = itemEntity:GetEntityIndex()} )
-			table.insert(slotsUsed, itemData.stash_slot)
-			table.insert(hero.stashTable, itemEntity)
-		end
-		-- else
-		-- 	CustomNetTables:SetTableValue("stash", tostring(playerID).."-"..tostring(i), {itemIndex = 0} )
-		-- end
+			if itemEntity then
+				itemEntity.stash_slot = itemData.stash_slot
+				-- CustomNetTables:SetTableValue("stash", tostring(playerID).."-"..tostring(itemData.stash_slot), {itemIndex = itemEntity:GetEntityIndex()} )
+				table.insert(slotsUsed, itemData.stash_slot)
+				table.insert(hero.stashTable, itemEntity)
+			end
+			-- else
+			-- 	CustomNetTables:SetTableValue("stash", tostring(playerID).."-"..tostring(i), {itemIndex = 0} )
+			-- end
+		end)
 		
 	end
-	local unusedSlots = {}
-	for i = 1, MAX_STASH_SLOTS, 1 do
-		table.insert(unusedSlots, i)
-	end
-	local t = unusedSlots
+	-- local unusedSlots = {}
+	-- for i = 1, MAX_STASH_SLOTS, 1 do
+	-- 	table.insert(unusedSlots, i)
+	-- end
+	-- local t = unusedSlots
 
-	for i = 1, #slotsUsed, 1 do
-		local index = 1 
-		local size = #t 
-		while index <= size do 
-		    if t[index] == slotsUsed[i] then 
-		        t[index] = t[size] 
-		        t[size] = nil 
-		        size = size - 1 
-		    else index = index + 1 
-		    end 
-		end 
-	end
-	for i = 1, #t, 1 do
-		CustomNetTables:SetTableValue("stash", tostring(playerID).."-"..tostring(t[i]), {itemIndex = 0} )
-	end
+	-- for i = 1, #slotsUsed, 1 do
+	-- 	local index = 1 
+	-- 	local size = #t 
+	-- 	while index <= size do 
+	-- 	    if t[index] == slotsUsed[i] then 
+	-- 	        t[index] = t[size] 
+	-- 	        t[size] = nil 
+	-- 	        size = size - 1 
+	-- 	    else index = index + 1 
+	-- 	    end 
+	-- 	end 
+	-- end
+	-- for i = 1, #t, 1 do
+	-- 	-- CustomNetTables:SetTableValue("stash", tostring(playerID).."-"..tostring(t[i]), {itemIndex = 0} )
+	-- end
+	local delay = #resultTable*0.03 + 0.05
+	Timers:CreateTimer(delay, function()
+		local stash_table = {}
+		local lastSlotUsed = 0
+		for i = 1, MAX_STASH_SLOTS, 1 do
+			local attributed = false
+			for j = 1, #hero.stashTable, 1 do
+				local stashItem = hero.stashTable[j]
+				if stashItem.stash_slot == i then
+					table.insert(stash_table, stashItem:GetEntityIndex())
+					attributed = true
+					break
+				end
+			end
+			if not attributed then
+				table.insert(stash_table, 0)
+			end
+		end
+		hero.stash_view = stash_table
+	end)
+	-- for i = 1, hero.stashTable, 1 do
+	-- 	local stashItem = hero.stashTable[i]
+	-- 	if stashItem.stash_slot == i then
+	-- 		table.insert(stash_table)
+	-- end
+	
 end
 
 	-- for i = 1, MAX_SAVE_SLOTS, 1 do
@@ -1441,6 +1475,11 @@ function SaveLoad:WithdrawKeyFinal(hero, keyIndex)
 	elseif keyIndex == 10 then
 	    local itemName = "item_serengaard_sunstone"
 	    local key = RPCItems:CreateConsumable(itemName, "mythical", "redfall_key", "consumable", false, "Consumable", itemName.."_desc")
+	    RPCItems:GiveItemToHeroWithSlotCheck(hero, key)
+	elseif keyIndex == 11 then
+	    local key = RPCItems:CreateConsumable("item_rpc_winterblight_glacier_stone", "mythical", "Glacier Stone", "consumable", false, "Consumable", "item_rpc_winterblight_glacier_stone_desc")
+	    key.stashable = true
+	    key.consumable = true
 	    RPCItems:GiveItemToHeroWithSlotCheck(hero, key)
 	end
 end

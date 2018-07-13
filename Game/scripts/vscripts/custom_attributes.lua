@@ -370,6 +370,17 @@ function CustomAttributes:SetAttributes(hero)
 	if hero:HasModifier("modifier_wind_orchid_agility_bonus") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_wind_orchid_agility_bonus", CustomAttributes.TANARI_FLOWER_STATS)
 	end
+	if hero:HasModifier("modifier_captains_vest") then
+		if hero:HasModifier("modifier_captains_vest_str") then
+			str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_str", 5)
+		end
+		if hero:HasModifier("modifier_captains_vest_agi") then
+			agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_agi", 5)
+		end
+		if hero:HasModifier("modifier_captains_vest_int") then
+			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_int", 5)
+		end
+	end
 	if hero:HasModifier("modifier_aqua_lily_intelligence_bonus") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_aqua_lily_intelligence_bonus", CustomAttributes.TANARI_FLOWER_STATS)
 	end
@@ -411,7 +422,19 @@ function CustomAttributes:SetAttributes(hero)
 	if hero:HasModifier("modifier_mountain_protector_glyph_5_a") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_mountain_protector_glyph_5_a", CustomAttributes.MOUNTAIN_PROTECTOR_GLYPH_5_A)
 	end
-	
+	if hero:HasModifier("modifier_red_divinex_amulet") then
+		str_bonus = (str_bonus)*2 - hero:GetModifierStackCount("modifier_legion_vestments_effect_str", hero.InventoryUnit)
+		agi_bonus = 0
+		int_bonus = 0
+	elseif hero:HasModifier("modifier_green_divinex_amulet") then
+		agi_bonus = (agi_bonus)*2 - hero:GetModifierStackCount("modifier_legion_vestments_effect_agi", hero.InventoryUnit)
+		str_bonus = 0
+		int_bonus = 0
+	elseif hero:HasModifier("modifier_blue_divinex_amulet") then
+		int_bonus = (int_bonus)*2 - hero:GetModifierStackCount("modifier_legion_vestments_effect_int", hero.InventoryUnit)
+		str_bonus = 0
+		agi_bonus = 0
+	end
 
 	strength = math.max(strength + str_bonus, 0)
 	agility = math.max(agility + agi_bonus, 0)
@@ -574,6 +597,9 @@ function CustomAttributes:GetMaxHealth(hero, strength_health)
 	end
 	if hero:HasModifier("modifier_paladin_immortal_weapon_3_health") then
 		maxHealth = maxHealth + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_paladin_immortal_weapon_3_health", CustomAttributes.PALADIN_IMMO_3_HEALTH)
+	end
+	if hero:HasModifier("modifier_helm_of_the_mountain_giant") then
+		maxHealth = maxHealth + (maxHealth+1000)*3
 	end
 	return maxHealth
 end

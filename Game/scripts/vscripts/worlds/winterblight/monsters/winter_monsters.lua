@@ -177,7 +177,7 @@ function raxxus_attack_land(event)
     if #enemies > 0 then    
         for _,enemy in pairs(enemies) do
             ability:ApplyDataDrivenModifier(caster, enemy, "modifier_frostburn_gauntlets_slow", {duration = 3})
-            ApplyDamage({ victim = victim, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
+            ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
         end
     end
 end
@@ -399,7 +399,7 @@ function begin_mystic_wave(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_mountain_protector_a_a_buff", {duration = a_a_duration})
 end
 
-function mystic_wave_impact(event)
+function winter_mystic_wave_impact(event)
 	local caster = event.caster
 	local target = event.target
 	local damage = event.damage
@@ -865,6 +865,14 @@ function norgok_die(event)
 		Winterblight:StartCaveWaves()
 	end)
 	CustomAbilities:QuickAttachParticle("particles/roshpit/items/ice_quill_explosion.vpcf", caster, 5)
+	if Winterblight.Stones > 0 then
+		local luck = RandomInt(1, 4)
+		if luck == 1 then
+			Timers:CreateTimer(5, function()
+				Winterblight:SpawnGrandStalacorr(Vector(1899, -4411), RandomVector(1))
+			end)
+		end
+	end
 end
 
 function iceSprintStart(event)
@@ -1476,9 +1484,11 @@ function sorc_passive_attack_land(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_azalea_buff", {duration = 8})
-	local newStacks = math.min(caster:GetModifierStackCount("modifier_azalea_buff", caster) + 1, 200)
-	caster:SetModifierStackCount("modifier_azalea_buff", caster, newStacks)
+	if caster:GetAttackCapability() == DOTA_UNIT_CAP_RANGED_ATTACK then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_azalea_buff", {duration = 8})
+		local newStacks = math.min(caster:GetModifierStackCount("modifier_azalea_buff", caster) + 1, 200)
+		caster:SetModifierStackCount("modifier_azalea_buff", caster, newStacks)
+	end
 end
 
 function azalea_sorc_think(event)
@@ -1580,7 +1590,7 @@ function frost_elemental_die(event)
     if #enemies > 0 then    
         for _,enemy in pairs(enemies) do
             ability:ApplyDataDrivenModifier(caster, enemy, "modifier_winterblight_chilled", {duration = 8})
-            ApplyDamage({ victim = victim, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
+            ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
         end
     end
 end
@@ -1864,6 +1874,18 @@ function frost_titan_happening(event)
 			bProvidesVision = false,
 		}
 		projectile = ProjectileManager:CreateLinearProjectile(info)
+	end
+end
+
+function frost_titan_die(event)
+	if not Winterblight.FrostTitansSlain then
+		Winterblight.FrostTitansSlain = 0
+	end
+	Winterblight.FrostTitansSlain = Winterblight.FrostTitansSlain + 1
+	if Winterblight.FrostTitansSlain == 3 then
+		Timers:CreateTimer(2, function()
+			Winterblight:StartOrbSequence()
+		end)
 	end
 end
 
@@ -2259,7 +2281,7 @@ function heartfreezer_projectile_hit(event)
     if #enemies > 0 then    
         for _,enemy in pairs(enemies) do
             ability:ApplyDataDrivenModifier(caster, enemy, "modifier_heartfreezer_slow", {duration = 3})
-            ApplyDamage({ victim = victim, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
+            ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
         end
     end
 end
@@ -2335,4 +2357,95 @@ function mountain_god_falling_think(event)
 			end)
 		end)
 	end
+end
+
+function grand_stalacorr_attack_land(event)
+	local caster = event.caster
+	local target = event.target
+	local ability = event.ability
+
+	local pfx = ParticleManager:CreateParticle( "particles/econ/events/ti5/teleport_end_dust_ti5.vpcf", PATTACH_CUSTOMORIGIN, target )
+	ParticleManager:SetParticleControl( pfx, 0, target:GetAbsOrigin() )
+	ParticleManager:SetParticleControl( pfx, 1, Vector(200, 200, 200) )
+	Timers:CreateTimer(2, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
+	if target:HasModifier("modifier_stalacorr_flail") then
+		return false
+	end
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_stalacorr_flail", {duration = 1.5})
+	local punchFV = ((target:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	WallPhysics:JumpWithBlocking(target, punchFV, 32, 18, 22, 1)
+
+end
+
+function grand_slacorr_slam_cast(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local damage = event.damage
+	EmitSoundOn("Winterblight.Stalacorr.WindUp", caster)
+	StartAnimation(caster, {duration=0.5, activity=ACT_TINY_TOSS, rate=0.9})
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_barnacle_ground_slam", {duration = 1.2})
+	local direction = ((target:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	for i = 1, 3, 1 do
+		Timers:CreateTimer(0.6*i, function()
+			for j = 1, 5, 1 do
+				direction = WallPhysics:rotateVector(direction, 2*math.pi*j/5)
+				local position = caster:GetAbsOrigin() + direction*600*(i-1) + direction*300
+				local radius = 500
+				local splitEarthParticle = "particles/roshpit/winterblight/frost_colossus_slam.vpcf"
+				local pfx = ParticleManager:CreateParticle( splitEarthParticle, PATTACH_CUSTOMORIGIN, caster )
+				ParticleManager:SetParticleControl( pfx, 0, position )
+				ParticleManager:SetParticleControl( pfx, 1, Vector(radius, radius, radius) )
+				EmitSoundOn("Winterblight.ChillingColossus.Slam", caster)
+				ScreenShake(position, 130, 0.9, 0.9, 9000, 0, true)
+				-- FindClearSpaceForUnit(caster, position, false)
+				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+				if #enemies > 0 then
+					for _,enemy in pairs(enemies) do
+						ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
+						enemy:AddNewModifier(caster, event.ability, "modifier_stunned", {duration = 1.5})
+					end
+				end
+				local pfx2 = ParticleManager:CreateParticle( "particles/roshpit/seafortress/big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster )
+				ParticleManager:SetParticleControl(pfx2, 0, position)
+				ParticleManager:SetParticleControl(pfx2, 5, Vector(0.7, 0.75, 0.9))
+				ParticleManager:SetParticleControl(pfx2, 2, Vector(0.2,0.2,0.2))
+				Timers:CreateTimer(10, function() 
+				  ParticleManager:DestroyParticle( pfx, false )
+				  ParticleManager:DestroyParticle( pfx, false )
+				  ParticleManager:DestroyParticle( pfx2, false )
+				  ParticleManager:ReleaseParticleIndex(pfx2)
+				end)
+				ScreenShake(position, 300, 0.5, 0.5, 9000, 0, true) 
+			end
+		end)
+    end
+end
+
+function grand_slacorr_die(event)
+	print("GRAND STALACORR DIE??")
+	local caster = event.caster
+	EmitSoundOn("Winterblight.Stalacorr.WindUp", caster)
+	Timers:CreateTimer(1, function()
+		for j = 0, 1, 1 do
+		  Timers:CreateTimer(j*2.2, function()
+		  for i = 0, 4, 1 do
+		      ScreenShake(caster:GetAbsOrigin(), 860, 0.7, 0.7, 9000, 0, true)
+		        local pfx = ParticleManager:CreateParticle( "particles/roshpit/winterblight_dust.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		        ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()+Vector(0,0,80))
+		        ParticleManager:SetParticleControl(pfx, 5, Vector(0.9, 0.9, 1.0))
+		        ParticleManager:SetParticleControl(pfx, 2, Vector(0.8,0.8,0.8))
+		        Timers:CreateTimer(10, function() 
+		          ParticleManager:DestroyParticle( pfx, false )
+		          ParticleManager:ReleaseParticleIndex(pfx)
+		        end)
+		      EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.GrandStalacorr.Rising", Events.GameMaster)
+		  end
+		  end)
+		end
+		RPCItems:RollGravelfootTreads(caster:GetAbsOrigin())
+	end)
+
 end

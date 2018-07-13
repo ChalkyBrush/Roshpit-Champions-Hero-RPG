@@ -17,6 +17,9 @@ end
 
 function Winterblight:SpawnWinterSeal(position, fv)
 	local stone = Winterblight:SpawnDungeonUnit("winterblight_seal", position, 1, 1, "Seafortress.Seal.Aggro", fv, false)
+	if GameState:GetDifficultyFactor() >= 3 then
+		stone:AddAbility("fire_temple_steadfast"):SetLevel(GameState:GetDifficultyFactor())
+	end
 	-- stone:SetRenderColor(180,180,255)
 	Events:AdjustBossPower(stone, 1, 2, false)
 	stone.itemLevel = 20
@@ -324,6 +327,7 @@ function Winterblight:ShatterIceWall()
 	end)
   end
   Timers:CreateTimer(2, function()
+  	Winterblight.IceWallShattered = true
   	Winterblight:SpawnNorgok(Vector(2066, -5821), Vector(-1,1))
   end)
 end
@@ -649,7 +653,7 @@ function Winterblight:SpawnChillingColossus(position, fv)
 end
 
 function Winterblight:SpawnNorgok(position, fv)
-	local stone = Winterblight:SpawnDungeonUnit("winterblight_norgok_the_ice_rider", position, 3, 4, "Winterblight.Norgok.Aggro", fv, false)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_norgok_the_ice_rider", position, 3, 5, "Winterblight.Norgok.Aggro", fv, false)
 	Events:AdjustBossPower(stone, 4, 4, false)
 	stone.itemLevel = 38
 	stone:SetRenderColor(30,90,255)
@@ -661,7 +665,7 @@ function Winterblight:SpawnNorgok(position, fv)
 end
 
 function Winterblight:Snowshaker(position, fv)
-	local stone = Winterblight:SpawnDungeonUnit("winterblight_snow_shaker", position, 0, 2, "Winterblight.Snowshaker.Aggro", fv, false)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_snow_shaker", position, 1, 2, "Winterblight.Snowshaker.Aggro", fv, false)
 	Events:AdjustBossPower(stone, 2, 4, false)
 	stone.itemLevel = 28
 	Events:ColorWearablesAndBase(stone, Vector(30,90,255))
@@ -705,7 +709,7 @@ function Winterblight:SpawnIceSummon(position, fv, caster, bAggro)
 end
 
 function Winterblight:SpawnDashingSwordsman(position, fv)
-	local stone = Winterblight:SpawnDungeonUnit("winterblight_dashing_swordsman", position, 0, 2, "Winterblight.BladeDancer.Aggro", fv, false)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_dashing_swordsman", position, 1, 2, "Winterblight.BladeDancer.Aggro", fv, false)
 	Events:AdjustBossPower(stone, 3, 3, false)
 	stone.itemLevel = 26
 	Winterblight:SetPositionCastArgs(stone, 1300, 0, 1, FIND_FARTHEST)
@@ -930,6 +934,9 @@ function Winterblight:FinishCaveWaves()
     	end
     end)
     Timers:CreateTimer(5, function()
+    	Timers:CreateTimer(4, function()
+    		Winterblight.CaveIceWallDestroyed = true
+    	end)
 	    local walls = Entities:FindAllByNameWithin("CaveWall", Vector(3770, -7423, 128+Winterblight.ZFLOAT), 1800)
 	    Winterblight:Walls(false, walls, true, 4.3)
 	    Winterblight:RemoveBlockers(4, "CaveWallBlocker", Vector(3770, -7423, 128+Winterblight.ZFLOAT), 1400)
@@ -1912,6 +1919,19 @@ function Winterblight:StatueSlotStart(statue_index)
 				Winterblight.StatueColors[statue_index] = color
 				CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/frost_titan_god_start.vpcf", statue.position, 3)
 				EmitSoundOnLocationWithCaster(statue.prop:GetAbsOrigin(), "Winterblight.AzaleaStatue.ColorRotatEnd", Winterblight.Master)
+				Timers:CreateTimer(0.5, function()
+					if Winterblight.StatueColors[1] == Winterblight.StatueColors[2] and Winterblight.StatueColors[2] == Winterblight.StatueColors[3] then
+						EmitSoundOnLocationWithCaster(Winterblight.StatuesTable[2].prop:GetAbsOrigin(), "Winterblight.AzaleaCrystal.FinishPuzzle", Events.GameMaster)
+						CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/frost_titan_god_start.vpcf", Winterblight.StatuesTable[2].prop:GetAbsOrigin(), 3)
+						if Winterblight.StatueColors[1] == "red" then
+							RPCItems:RollRedDivinexAmulet(Winterblight.StatuesTable[2].prop:GetAbsOrigin())
+						elseif Winterblight.StatueColors[1] == "blue" then
+							RPCItems:RollBlueDivinexAmulet(Winterblight.StatuesTable[2].prop:GetAbsOrigin())
+						else
+							RPCItems:RollGreenDivinexAmulet(Winterblight.StatuesTable[2].prop:GetAbsOrigin())
+						end
+					end
+				end)
 				Timers:CreateTimer(1.0, function()
 					local zealot = Winterblight:SpawnAzaleaZealot(statue.prop:GetAbsOrigin(), Vector(0,-1))
 					zealot.cantAggro = true
@@ -1965,6 +1985,9 @@ function Winterblight:OpenShrineOfAzalea()
 	end)
 	Winterblight.AzaleaDungeonOpened = true
 	Winterblight:SpawnAzaleaCups()
+	Timers:CreateTimer(6, function()
+		Winterblight.AzaleaEntranceBridgeRaised = true
+	end)
 end
 
 function Winterblight:SpawnColdSeer(position, fv)
@@ -2020,4 +2043,9 @@ function Winterblight:SpawnMountainGod(position, fv)
 		stone.cantAggro = false
 	end)
 	return stone
+end
+
+function Winterblight:InitCaptainReynar()
+	local position = Vector(-8333, -8098)+Vector(RandomInt(0, 3400), RandomInt(0, 2000))
+	local captain = CreateUnitByName("winterblight_captain_reynar_ghost", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
 end

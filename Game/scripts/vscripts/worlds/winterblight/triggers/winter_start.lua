@@ -230,7 +230,7 @@ function AltarOfIceTrigger(trigger)
 	    local particle = "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
 	    local pfx = ParticleManager:CreateParticle( particle, PATTACH_WORLDORIGIN, caster )
 	    local radius = 500
-	    ParticleManager:SetParticleControl( pfx, 0,  GetGroundPosition(Vector(-14024, -7195), Events.GameMaster) )
+	    ParticleManager:SetParticleControl( pfx, 0, GetGroundPosition(Vector(-14024, -7195), Events.GameMaster))
 	    ParticleManager:SetParticleControl( pfx, 1, Vector(radius, 2, radius*2) )
 	    Timers:CreateTimer(3.5, function()
 	        ParticleManager:DestroyParticle(pfx, false)
@@ -243,6 +243,9 @@ end
 
 function AltarOfIceExit(trigger)
 	local hero = trigger.activator
+	if Winterblight.AltarDisabled then
+		return false
+	end
 	if Winterblight.Stones < 3 then
 		CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(),"close_altar_of_ice", {})
 	end

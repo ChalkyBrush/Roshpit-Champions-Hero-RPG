@@ -3339,6 +3339,18 @@ function Winterblight:InitAzaleaMazeRoom()
 		      end)
 		    end
 		end)
+		if GameState:GetDifficultyFactor() >= 3 then
+			local luck3 = RandomInt(4+GameState:GetPlayerPremiumStatusCount(), 100)
+			if luck3 == 100 then
+				local boss = Winterblight:SpawnAzheran(ghostPositionTable[RandomInt(1, #ghostPositionTable)]+RandomVector(150), RandomVector(1))
+				AddFOWViewer(DOTA_TEAM_GOODGUYS, boss:GetAbsOrigin(), 10000, 10000, false)
+				local patPos1 = ghostPositionTable[RandomInt(1, #ghostPositionTable)]+RandomVector(150)
+				local patPos2 = ghostPositionTable[RandomInt(1, #ghostPositionTable)]+RandomVector(150)
+				local patPos3 = boss:GetAbsOrigin()
+				local patrolPositionTable = {patPos1, patPos2, patPos3}
+				Winterblight:AddPatrolArguments(boss, 25, 8, 220, patrolPositionTable)
+			end
+		end
 	end
 end
 
@@ -4639,6 +4651,10 @@ function Winterblight:StargazerWaveUnitDie(unit)
 					Timers:CreateTimer(0.2, function()
 						UTIL_Remove(Winterblight.Stargazer)
 					end)		
+					local luck = RandomInt(1, 8-GameState:GetDifficultyFactor())
+					if luck == 1 then
+						RPCItems:RollStargazersSphere(pos)
+					end
 					Winterblight:LastBridgeAndCup()
 				end)
 			end)
@@ -4943,6 +4959,40 @@ function Winterblight:AzaleaBossDie(boss)
 			RPCItems:RollItemtype(300, boss:GetAbsOrigin(), 1, 0)
 		end)
 	end
+	Timers:CreateTimer(1, function()
+		local arcanaLuck = RandomInt(1, 200-GameState:GetPlayerPremiumStatusCount()*10)
+		if arcanaLuck == 1 then
+			arcana = RPCItems:RollAstralArcana3(boss:GetAbsOrigin())
+		end
+		local luck2 = RandomInt(1,100-GameState:GetPlayerPremiumStatusCount()*1)
+		if luck2 == 1 then
+			Winterblight:DropBorealGraniteChunk(boss:GetAbsOrigin())
+		end
+	end)
+	Timers:CreateTimer(3, function()
+		local luck = RandomInt(1, 5)
+		if luck == 1 then
+			RPCItems:RollIceFloeSlippers(boss:GetAbsOrigin())
+		end
+	end)
+	Timers:CreateTimer(5, function()
+		local luck = RandomInt(1, 5)
+		if luck == 1 then
+			RPCItems:RollIronTreadsOfDestruction(boss:GetAbsOrigin())
+		end
+	end)
+	for j = 1, 3+GameState:GetPlayerPremiumStatusCount()*2, 1 do
+		Timers:CreateTimer(j*0.3, function()
+			 Winterblight:DropGlacierStone(boss:GetAbsOrigin())
+		end)
+	end
+	Timers:CreateTimer(6, function()
+		for j = 1, Winterblight.Stones, 1 do
+			Timers:CreateTimer(j, function()
+				RPCItems:DropSynthesisVessel(boss;GetAbsOrigin())
+			end)
+		end
+	end)
 	Timers:CreateTimer(8, function()
 		EmitSoundOn("Winterblight.AzaleaBoss.Death2.VO", boss)
 		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {})
@@ -4985,4 +5035,69 @@ function Winterblight:AzaleaBossDie(boss)
 		end)
 	end)
 
+end
+
+function Winterblight:SpawnAzheran(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_azheran_iceblood", position, 4, 8, "Winterblight.Azheran.Aggro", fv, false)
+	Events:AdjustBossPower(stone, 5, 5, false)
+	stone.itemLevel = 70
+	stone:AddNewModifier(stone, nil, "modifier_animation", {translate="walk"})
+	Events:ColorWearablesAndBase(stone, Vector(0, 255, 255))
+    local newHealth = 500
+    if GameState:GetDifficultyFactor() == 2 then
+    	newHealth = 1000
+    elseif GameState:GetDifficultyFactor() == 3 then
+    	newHealth = 2000
+    end
+    stone:SetMaxHealth(newHealth)
+    stone:SetBaseMaxHealth(newHealth)
+    stone:SetHealth(newHealth)
+	return stone
+end
+
+function Winterblight:SpawnOrthok(position, fv, phase)
+	local stone = Winterblight:SpawnDungeonUnit("winterblight_orthok_the_damned", position, 4, 8, nil, fv, true)
+	Events:AdjustBossPower(stone, 5, 5, false)
+	stone.itemLevel = 70
+	stone.phase = phase
+	Events:ColorWearablesAndBase(stone, Vector(0, 255, 255))
+	if phase == 2 then
+		local ability = stone:FindAbilityByName("orthok_ai_ability")
+		ability:ApplyDataDrivenModifier(stone, stone, "modifier_orthok_blue", {})
+		stone:AddAbility("orthok_split_attack"):SetLevel(GameState:GetDifficultyFactor())
+	end
+end
+
+function Winterblight:InitializeOrthok()
+	local position = Winterblight:GetRandomOrthokPosition()
+	Winterblight:SpawnOrthok(position, Vector(0,-1), 1)
+end
+
+function Winterblight:GetRandomOrthokPosition()
+	local luck = RandomInt(1,8)
+	local position = nil
+	if luck == 1 then
+		position = Winterblight:GetRandomPixieLocation() + RandomVector(RandomInt(1, 400))
+	elseif luck == 2 then
+		position = Vector(-8374, -13771) + Vector(RandomInt(0, 3400), RandomInt(0, 1680))
+	elseif luck == 3 then
+		local posTable = {Vector(-3840, -15250), Vector(-3840, -14750), Vector(-3840, -14250), Vector(-3840, -13750), Vector(-3840, -13250), Vector(-3840, -12750), Vector(-3840, -12250), Vector(-3840, -11750), Vector(-3840, -11250), Vector(-3840, -10750), Vector(-3840, -15872), Vector(-3262, -15872), Vector(-2729, -15872), Vector(-2729, -15184), Vector(-3268, -15184), Vector(-3269, -14485), Vector(-2729, -14485), Vector(-2729, -13848), Vector(-2729, -13105), Vector(-3251, -13105), Vector(-3251, -12480), Vector(-2729, -12480), Vector(-3277, -11787), Vector(-2586, -11787), Vector(-1930, -11787), Vector(-1930, -11126), Vector(-2612, -11126), Vector(-3297, -11126), Vector(-3297, -10372), Vector(-2582, -10372), Vector(-1934, -10372), Vector(-5969, -15990), Vector(-5969, -15408), Vector(-5285, -15990), Vector(-5285, -15408), Vector(-4608, -15990), Vector(-4608, -15408)}
+		position = posTable[RandomInt(1, #posTable)] + RandomVector(240)
+	elseif luck == 4 then
+		position = Vector(-1471, -15744) + Vector(RandomInt(0, 2600), RandomInt(0, 2300))
+	elseif luck == 5 then
+		position = Vector(2560, -16000) + Vector(RandomInt(0, 3300), RandomInt(0, 2100))
+	elseif luck == 6 then
+		local luck2 = RandomInt(1, 2)
+		if luck2 == 1 then
+			position = Vector(7040, -15872) + Vector(RandomInt(0, 1200), RandomInt(0, 900))
+		elseif luck2 == 2 then
+			position = Vector(10880, -15959) + Vector(RandomInt(0, 1300), RandomInt(0, 900))
+		end
+	elseif luck == 7 then
+		position = Vector(6869, -13881) + Vector(RandomInt(0, 1600), RandomInt(0, 3600))
+	elseif luck == 8 then
+		position = Vector(14336, -11826) + Vector(RandomInt(0, 1300), RandomInt(0, 1300))
+	end
+	return position
 end

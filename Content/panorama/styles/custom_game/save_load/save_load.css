@@ -20,6 +20,13 @@
 	visibility: collapse;
 }
 
+#loading_ui{
+	color:#f45c42;
+	font-size:30px;
+	width:100%;
+	text-align: center;
+}
+
 #header_image_container{
 	height:120px;
 

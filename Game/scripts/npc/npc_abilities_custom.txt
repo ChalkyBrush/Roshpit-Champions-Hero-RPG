@@ -46088,6 +46088,16 @@
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
+			"modifier_hand_movespeed"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"1"
+				}
+			}
 		}
 	}
 
@@ -46753,6 +46763,17 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"				
+			}
+			"modifier_trinket_vision"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION"	"1"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"1"
+				}
 			}
 		}
 	}
@@ -52480,6 +52501,352 @@
 		}
 	}
 
+	"crystal_arrow"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"	"ability_datadriven"
+		"AOERadius"	"550"
+		"AbilityTextureName"	"astral_ranger/crystal_arrow"
+		"AbilityCastRange"	"1800"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCooldown"	"10.0"
+		"AbilityChannelTime"	"1.5"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilityCastAnimation"	"ACT_DOTA_TAUNT"
+		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"precache"
+		{
+
+		}
+
+		"AbilityManaCost"	"0"
+		"SideShop"	"1"
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+				"Duration"		"2"
+			}
+
+			"FireSound"
+			{
+				"EffectName"	"Hero_Luna.LucentBeam.Cast"
+				"Target"	"CASTER"
+			}
+			"AttachEffect"
+			{
+				"EffectName"	"particles/econ/items/leshrac/leshrac_tormented_staff/leshrac_split_sparkles_tormented.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"EffectRadius"	"200"
+				"EffectDurationScale"	"1.5"
+				"EffectLifeDurationScale"	"1"
+				"EffectColorA"	"200 200 0"
+				"EffectColorB"	"200 200 0"
+				"Target"	"CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+				"Function"		"crystal_arrow_channel_start"
+				"target"		"POINT"
+			}
+		}
+
+		"OnChannelSucceeded"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+				"Function"		"fire_crystal_arrow"
+				"target"		"POINT"
+			}
+
+		}
+
+		"OnChannelFinish"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+		}
+
+		"OnChannelInterrupted"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+		}
+
+		"Modifiers"
+		{
+			"modifier_crystal_arrow_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+						"Function"		"crystal_arrow_passive_think"
+					}
+				}
+			}
+			"modifier_crystal_arrow_freecast"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+			}
+			"modifier_arrow_thinking"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+						"Function"		"arrows_thinking"
+						"damage"		"%damage"
+					}
+				}
+			}
+			"modifier_channel_start"
+			{
+				"IsHidden"	"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"beginChannel"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"endChannel"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_astral_glyph_7_1_evasion_effect"
+						"Target" 		"TARGET"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+						"Function"		"crystal_arrow_channel_end"
+					}
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+						"Function"		"crystal_arrow_channel_think"
+					}
+				}
+			}
+			"modifier_astral_glyph_7_1_evasion_effect"
+			{
+				"IsBuff"	"1"
+				"IsHidden"	"0"
+				"Passive"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT" "100"
+				}
+			}
+			"modifier_crystal_arrow_buildup"
+			{
+				"IsHidden"	"1"
+				"EffectName"	"particles/roshpit/astral/crystal_arrow_buildup.vpcf"
+				"EffectAttachType"	"attach_attack1"
+			}
+			"modifier_crystal_arrow_channel_end"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+						"Function"		"crystal_arrow_channel_end_think"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_backstab_jumping"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_cystal_arrow_ad_thinker"
+			{
+				"Aura"					"crystal_arrow_ad_aura"
+				"Aura_Radius"			"450"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
+						"Function"		"arrow_ad_thinker_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"crystal_arrow_ad_aura"
+			{
+			    "IsDebuff"  "1"
+				"IsHidden"	"0"
+				"TextureName"			"astral_ranger/astral_rune_a_d_arcana3"
+			}
+			"modifier_crystal_arrow_b_d"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"			"astral_ranger/astral_rune_b_d_arcana3"
+				"EffectName"	"particles/roshpit/sorceress/ice_lance_cast.vpcf"
+				"EffectAttachType" "follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"8"
+				}
+			}
+			"modifier_crystal_arrow_chilled"
+			{
+				"IsDebuff"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
+				"StatusEffectPriority"  "20"
+				"TextureName"			"astral_ranger/astral_rune_d_d_arcana3"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-10"
+				}
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"5000 25000 60000 120000 255000 400000 1000000"
+			}
+		}
+
+	}
+
+	"astral_rune_a_d_arcana3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"astral_ranger/astral_rune_a_d_arcana3"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"5"
+			}
+		}
+	}
+
+	"astral_rune_b_d_arcana3"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"	"astral_ranger/astral_rune_b_d_arcana3"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"8"
+			}
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"5"
+			}
+		}
+	}
+
+	"astral_rune_c_d_arcana3"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"astral_ranger/astral_rune_c_d_arcana3"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"1"
+			}
+		}
+	}
+
+	"astral_rune_d_d_arcana3"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"astral_ranger/astral_rune_d_d_arcana3"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"-10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.3"
+			}
+		}
+	}
 	 //----------------------------------
 
 	"epoch_rune_a_a"
@@ -105579,6 +105946,12 @@
 				"StatusEffectName" 		"particles/roshpit/redfall/status_effect_experimental_fire.vpcf"
 				"StatusEffectPriority"  "20"
 			}
+			"modifier_dummy_ice"
+			{
+				"IsHidden"	"1"
+				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_dire.vpcf"
+				"StatusEffectPriority"  "20"
+			}
 			"modifier_dummy_freeze"
 			{
 				"IsHidden"	"1"
@@ -118835,7 +119208,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"juggernaut_blade_fury"
+		"AbilityTextureName"	"tusk_snowball"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -118909,7 +119282,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"redfall/autumn_spawner"
+		"AbilityTextureName"	"winterblight/crab_spawner_ability"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -118966,7 +119339,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"redfall/autumn_spawner"
+		"AbilityTextureName"	"winterblight/ogre_armor"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -120056,7 +120429,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"arkimus/arkimus_orbital_leap"
+		"AbilityTextureName"			"winterblight/assassin_jump"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"3"
@@ -120140,7 +120513,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"magnataur_shockwave"
+		"AbilityTextureName"			"winterblight/assassin_charge_blast"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
@@ -120170,15 +120543,10 @@
 		{
 			"01"
 			{
-				"var_type"	"FIELD_FLOAT"
-				"stun_duration"	"0.5"
-			}
-			"02"
-			{
 				"var_type"	"FIELD_INTEGER"
 				"range"		"1200"
 			}
-			"03"
+			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
 				"mana_burn"		"500 5000 50000"
@@ -120200,7 +120568,7 @@
 			"RunScript"
 			{
         		"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
-        		"Function"		"mystic_wave_impact"
+        		"Function"		"winter_mystic_wave_impact"
         		"Target"		"TARGET"
         		"damage"		"%AbilityDamage"
         		"mana_burn"		"%mana_burn"
@@ -120567,7 +120935,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
+		"AbilityTextureName"	"ancient_apparition/shatterblast_crown/ancient_apparition_ice_blast"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -120624,7 +120992,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"tidehunter_kraken_shell"
+		"AbilityTextureName"	"winterblight/frostiok_passive"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -120715,7 +121083,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetFlag"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"leshrac_split_earth"
+		"AbilityTextureName"			"winterblight/winter_quake"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 
@@ -120780,7 +121148,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"tidehunter_kraken_shell"
+		"AbilityTextureName"	"winter_wyvern_cold_embrace"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
@@ -120861,7 +121229,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"tidehunter_kraken_shell"
+		"AbilityTextureName"	"winterblight/norgok_passive"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AOERadius"				"1000"
 		"MaxLevel"	"3"
@@ -120962,7 +121330,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetFlag"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"leshrac_split_earth"
+		"AbilityTextureName"			"winter_wyvern_splinter_blast"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 
@@ -121034,7 +121402,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"tidehunter_kraken_shell"
+		"AbilityTextureName"	"winterblight/snowshaker_passive"
 		"AbilityCooldown"		"1.0 0.3 0.06"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -121121,7 +121489,7 @@
         "BaseClass"                     "ability_datadriven"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
         "FightRecapLevel"               "1"
-        "AbilityTextureName"            "tidehunter_gush"
+        "AbilityTextureName"            "winterblight/frigid_growth_charge"
         "RequiredLevel"                 "-5"
         "LevelsBetweenUpgrades"         "10"
         "MaxLevel"                      "7"
@@ -121236,7 +121604,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"tidehunter_kraken_shell"
+		"AbilityTextureName"	"winterblight/birch_shell"
 		"AOERadius"				"1000"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -121294,7 +121662,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"antimage_blink"
+		"AbilityTextureName"			"winterblight/summoner_blink"
 		"RequiredLevel"          		"0"
 		"LevelsBetweenUpgrades"  		"0"
 		"MaxLevel"				 		"3"
@@ -121356,7 +121724,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"tidehunter_kraken_shell"
+		"AbilityTextureName"	"ancient_apparition_chilling_touch"
 		"AOERadius"				"1000"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -121434,7 +121802,7 @@
 
 	"winterblight_enemy_summon"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"ekkan/ekkan_creep_aggressive"
 
@@ -121443,7 +121811,7 @@
 			"modifier_enemy_summon"
 			{
 				"Passive"			"1"
-				"IsHidden"			"0"
+				"IsHidden"			"1"
 				"IsDebuff"			"0"
 
 				"OnCreated"
@@ -121473,7 +121841,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"arkimus/arkimus_orbital_leap"
+		"AbilityTextureName"			"magnataur_shockwave"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"3"
@@ -121614,7 +121982,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"tidehunter_kraken_shell"
+		"AbilityTextureName"	"winterblight/ankle_breaker"
 		"AOERadius"				"1000"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -121668,7 +122036,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"witch_doctor_voodoo_restoration"
+		"AbilityTextureName"			"winterblight/satyr_heal"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 
 		// Precache
@@ -121795,7 +122163,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"tidehunter_kraken_shell"
+		"AbilityTextureName"	"winterblight/frostbite_attack"
 		"AOERadius"				"1000"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
@@ -121908,7 +122276,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"centaur_return"
+		"AbilityTextureName"	"winterblight/luna_taskmaster_shield"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -121946,9 +122314,9 @@
 
    	"winterblight_azalea_sorc_passive"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"tidehunter_kraken_shell"
+		"AbilityTextureName"	"winterblight/azalea_sorc_passive"
 		"AOERadius"				"1000"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -122021,7 +122389,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"centaur_return"
+		"AbilityTextureName"	"antimage_mana_break"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -122069,7 +122437,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"tidehunter_kraken_shell"
+		"AbilityTextureName"	"ancient_apparition_ice_vortex"
 		"AOERadius"				"1000"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -122139,7 +122507,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"centaur_return"
+		"AbilityTextureName"	"crystal_maiden_crystal_nova"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -122148,6 +122516,16 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"damage"			"5000 250000 1500000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"as_loss"			"-40 -100 -200"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_loss"			"-80 -120 -180"
 			}
 		}
 		"Modifiers"
@@ -122193,7 +122571,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetFlag"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"slardar/grasping_bludgeon/slardar_slithereen_crush"
+		"AbilityTextureName"			"winterblight/curse_of_azalea"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
@@ -122227,7 +122605,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"duration"			"2 4 8"
+				"duration"			"2 4 6"
 			}
 		}
 
@@ -122409,7 +122787,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"centaur_return"
+		"AbilityTextureName"	"winterblight/frost_titan_passive"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -122468,6 +122846,14 @@
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%base_regen"
 				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"frost_titan_die"
+					}
+				}
 			}
 			"modifier_disable_player"
 			{
@@ -122510,7 +122896,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetFlag"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"leshrac_split_earth"
+		"AbilityTextureName"			"winterblight/winter_quake"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 
@@ -122600,7 +122986,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"centaur_return"
+		"AbilityTextureName"	"winterblight/dimension_spear"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -122637,7 +123023,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"arkimus/arkimus_orbital_leap"
+		"AbilityTextureName"			"winterblight/dragon_breath"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"3"
@@ -122740,7 +123126,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AOERadius"			"1300 1600 1900"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"morphling_waveform"
+		"AbilityTextureName"	"winterblight/zealot_passive"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -122833,7 +123219,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"arkimus/arkimus_orbital_leap"
+		"AbilityTextureName"			"winterblight/zealot_blast"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"3"
@@ -122917,7 +123303,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"arkimus/arkimus_orbital_leap"
+		"AbilityTextureName"			"crystal_maiden_freezing_field"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"3"
@@ -123017,7 +123403,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"centaur_return"
+		"AbilityTextureName"	"winterblight/speed_softening"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -123183,7 +123569,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"centaur_return"
+		"AbilityTextureName"	"winterblight/magic_shield"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -123284,7 +123670,8 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"centaur_return"
+		"AbilityTextureName"	"winterblight/zefnar_passive"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -123479,7 +123866,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"centaur_return"
+		"AbilityTextureName"	"winterblight/source_revenant"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -123535,7 +123922,7 @@
 
 	"winterblight_skating_passive"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"jakiro_ice_path"
 		"MaxLevel"	"3"
@@ -123587,7 +123974,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"jakiro_dual_breath"
+		"AbilityTextureName"	"winterblight/suicide_skater"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -123644,7 +124031,7 @@
 			"modifier_suicide_jump"
 			{
 				"Passive"			"0"
-				"IsHidden"			"0"
+				"IsHidden"			"1"
 				"ThinkInterval"  "0.03"
 				"OnIntervalThink"
 				{
@@ -123676,7 +124063,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"seafortress/creature_pure_strike"
+		"AbilityTextureName"	"silencer_glaives_of_wisdom"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -123728,7 +124115,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"seafortress/creature_pure_strike"
+		"AbilityTextureName"	"winterblight/ghost_striker"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -123774,7 +124161,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"seafortress/creature_pure_strike"
+		"AbilityTextureName"	"winterblight/secret_keeper"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -123816,7 +124203,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AOERadius"			"600"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"morphling_waveform"
+		"AbilityTextureName"	"gyrocopter/atomic_ray_thrusters/atomicraythrusters_rocket_barrage"
 		"MaxLevel"	"3"
 		"Modifiers"
 		{
@@ -123853,7 +124240,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AOERadius"			"600"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"morphling_waveform"
+		"AbilityTextureName"	"winterblight/crippling_return"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -123896,7 +124283,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"centaur_return"
+		"AbilityTextureName"	"winterblight/armor_softening"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -123928,7 +124315,7 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"seafortress/fin_slap"
+		"AbilityTextureName"	"winterblight/chrolonus_passive"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
 		"AbilityCooldown"	"0"
@@ -124014,7 +124401,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"voltex/voltex_storm_rush"
+		"AbilityTextureName"			"winterblight/chrolonus_dash"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
@@ -124125,7 +124512,7 @@
 			}
 			"modifier_lightning_dash_freecast"
 			{
-				"IsHidden"	"0"
+				"IsHidden"	"1"
 				"IsBuff"	"1"
 			}
 		}
@@ -124137,8 +124524,6 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"roshan_spell_block"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -124315,20 +124700,6 @@
 				{
 					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-100"
 				}
-			}
-		}
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"800 5000 15000 30000 60000 150000 350000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"750 770 790 810 830 850 870"
 			}
 		}
 
@@ -124512,9 +124883,9 @@
 
 	"winterblight_puck_guard_passive"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"redfall/autumn_spawner"
+		"AbilityTextureName"	"winterblight/hockey_passive"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -124623,7 +124994,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"redfall/autumn_spawner"
+		"AbilityTextureName"	"tusk_frozen_sigil"
 		"MaxLevel"	"3"
 		"AbilityCooldown"				"3 1.5 0.5"
 		"AbilitySpecial"
@@ -124691,7 +125062,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"redfall/autumn_spawner"
+		"AbilityTextureName"	"winterblight/hockey_passive"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -125021,7 +125392,7 @@
 
 	"winterblight_maze_ghost_passive"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"specter_desolate"
 		"AOERadius"			"600"
@@ -125118,7 +125489,7 @@
 	"winterblight_essence_drain"
 	{
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"pugna_life_drain"
+		"AbilityTextureName"	"winterblight/essence_drain"
 		"MaxLevel"	"3"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AOERadius"			"650 875 1100"
@@ -125217,7 +125588,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
+		"AbilityTextureName"	"winterblight/bladewielder_force"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -125325,7 +125696,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"slardar_slithereen_crush"
+		"AbilityTextureName"	"winterblight/megmus_explosion"
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"6"
 		"AbilityChannelTime"	"1.0"
@@ -125403,6 +125774,7 @@
 			{
 				"StatusEffectName" 		"particles/status_fx/status_effect_ancestral_spirit.vpcf"
 				"StatusEffectPriority"  "50"
+				"IsHidden"				"1"
 				"Passive"				"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"				
 			}
@@ -125482,7 +125854,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
+		"AbilityTextureName"	"winterblight/rupthold_passive"
 		"MaxLevel"	"3"
 		"AOERadius"	"750 1500 2500"
 		"AbilitySpecial"
@@ -125553,7 +125925,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
+		"AbilityTextureName"	"visage_summon_familiars_stone_form"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -125580,7 +125952,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
+		"AbilityTextureName"	"winterblight/nightmare_aura"
 		"MaxLevel"	"3"
 		"AOERadius"	"750"
 		"AbilitySpecial"
@@ -125657,7 +126029,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
+		"AbilityTextureName"	"winterblight/regression_strike"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -125692,7 +126064,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
+		"AbilityTextureName"	"winterblight/dragoon_passive"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -125775,7 +126147,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
+		"AbilityTextureName"	"winterblight/knife_wielder"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -125800,7 +126172,7 @@
 
 	"winterblight_azalea_triple_boss_ability"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"crystal_maiden_crystal_nova"
 		"MaxLevel"	"3"
@@ -126182,7 +126554,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityTextureName"			"crystal_maiden_crystal_nova"
+		"AbilityTextureName"			"winterblight/ice_orb"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
@@ -126302,7 +126674,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
+		"AbilityTextureName"	"winterblight/buzuki_passive"
 		"MaxLevel"	"3"
 		"AOERadius"	"500 650 800"
 		"AbilitySpecial"
@@ -126343,7 +126715,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
+		"AbilityTextureName"	"winterblight/opportunity"
 		"MaxLevel"	"3"
 		"AOERadius"	"500 650 800"
 		"AbilitySpecial"
@@ -126447,7 +126819,7 @@
 
 	"winterblight_mystery_fairy_passive"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
 		"MaxLevel"	"3"
@@ -126502,7 +126874,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
+		"AbilityTextureName"	"winterblight/mystery_summon"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -126545,7 +126917,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"chaos_knight_reality_rift"
+		"AbilityTextureName"			"winterblight/gravity_rift"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 
 		// Precache
@@ -126691,7 +127063,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
+		"AbilityTextureName"	"winterblight/starseeker_passive"
 		"MaxLevel"	"3"
 		"Modifiers"
 		{
@@ -126726,7 +127098,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetFlag"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"mirana/mirana_starstorm"
+		"AbilityTextureName"			"mirana_starfall"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 
@@ -126848,7 +127220,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
+		"AbilityTextureName"	"sven_storm_bolt"
 		"MaxLevel"	"3"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"AOERadius"					"600 700 800"
@@ -126895,7 +127267,6 @@
 		{
 			"modifier_spinesplitter_passive"
 			{
-				//HEAL MAGIC DAMAGE
 				"IsHidden"	"1"
 				"Passive"	"1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_ancestral_spirit.vpcf"
@@ -126924,7 +127295,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
+		"AbilityTextureName"	"winterblight/stargazer_passive"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -127070,7 +127441,7 @@
         	}
         	"modifier_glissade_freecast"
         	{
-        		"IsHidden"	"0"
+        		"IsHidden"	"1"
         		"IsBuff"	"1"
         	}
         }
@@ -127080,7 +127451,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"centaur_return"
+		"AbilityTextureName"	"winterblight/luna_taskmaster_shield"
 		"AOERadius"			"650"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -127124,7 +127495,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"treant/fungal_protector_icons/treant_leech_seed"
+		"AbilityTextureName"	"winterblight/ice_revenant"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"MaxLevel"	"3"
@@ -127261,7 +127632,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"rpc/axe_throw_ice"
+		"AbilityTextureName"	"winterblight/azalea_boss"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"AbilitySpecial"
@@ -127478,7 +127849,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"antimage_blink"
+		"AbilityTextureName"			"winterblight/azalea_multistrike"
 		"RequiredLevel"          		"0"
 		"LevelsBetweenUpgrades"  		"0"
 		"MaxLevel"				 		"3"
@@ -127521,7 +127892,7 @@
 			"modifier_azalea_spinning"
 			{
 				"Passive"			"0"
-				"IsHidden"			"0"
+				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"States"
 				{
@@ -127548,7 +127919,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"crystal_maiden_crystal_nova"
+		"AbilityTextureName"			"winterblight/ice_orb"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
@@ -127664,7 +128035,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"tidehunter_kraken_shell"
+		"AbilityTextureName"	"winterblight/heartfreezer"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -127827,7 +128198,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"seafortress/creature_pure_strike"
+		"AbilityTextureName"	"winterblight/winter_quake"
 		"AOERadius"				"450"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
@@ -127862,7 +128233,7 @@
 			"modifier_mountain_god_falling"
 			{
 				"Passive"			"0"
-				"IsHidden"			"0"
+				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"States"
 				{
@@ -127907,6 +128278,445 @@
 		}
 	}
 
+	"winterblight_azheran_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"winterblight/ice_blood"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"as_loss"			"-40 -90 -150"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_loss"			"-50 -100 -150"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"1000 50000 500000"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_frozen_heart"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName" 		"particles/status_fx/status_effect_ancestral_spirit.vpcf"
+				"StatusEffectPriority"  "50"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"azheran_die"
+					}
+				}
+				"OnTakeDamage"
+				// "%attack_damage" is set to the damage value after mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"azheran_take_damage"
+						"damage"		"%damage"
+					}
+				}
+			}
+			"modifier_iceblood_stack"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+			}
+			"modifier_chilled"
+			{
+				"IsDebuff"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
+				"StatusEffectPriority"  "20"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%as_loss"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_loss"
+				}
+			}
+		}
+	}
+
+	"orthok_split_attack"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AOERadius"			"1300 1600 1900"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"winterblight/orthok"
+		"MaxLevel"	"3"
+		"Modifiers"
+		{
+			"modifier_sea_god_ai"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"ThinkInterval"  "1.0"
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"orthok_attack_start"
+					}
+				}
+			}
+		}
+	}
+
+	"orthok_ai_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"morphling_adaptive_strike"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+
+		}
+		"Modifiers"
+		{
+			"modifier_orthok_min_health"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
+				}
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"orthok_min_health_thinker"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_NOT_ON_MINIMAP"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_orthok_leaving"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_orthok_blue"
+			{
+				"IsHidden"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_ancestral_spirit.vpcf"	   
+				"StatusEffectPriority"  "50"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "500"
+				}
+			}
+			"modifier_water_emperor_ai"
+			{
+				"Passive"	"1"
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"orthok_think"
+					}
+				}
+			}
+			"modifier_water_emperor_submerged"
+			{
+				"Passive"	"0"
+				"States"
+				{
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_beast_fighting"
+			{
+				"Passive"	"0"
+			}
+		}
+
+	}
+
+	"captain_reynar_ai"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"skeleton_king_reincarnation"
+		"MaxLevel"	"3"
+		"Modifiers"
+		{
+			"modifier_maze_ghost_frozen"
+			{
+				"StatusEffectName" 		"particles/status_fx/status_effect_ancestral_spirit.vpcf"
+				"StatusEffectPriority"  "50"
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnAttacked"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"captain_reynar_attacked"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1000"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"EffectName"	"particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_buff.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+			"modifier_reynar_ai"
+			{
+				"StatusEffectName" 		"particles/status_fx/status_effect_ancestral_spirit.vpcf"
+				"StatusEffectPriority"  "50"
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1000"
+				}
+				"ThinkInterval"  "2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"captain_reynar_thinking"
+					}
+				}
+			}
+		}
+
+	}
+
+	"grand_stalacorr_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"winterblight/stalacorr_passive"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"575000"
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+				"Function"		"grand_slacorr_die"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_gravelfoot_treads"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.65"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"gravelfoot_think"
+						"target"		"TARGET"
+						"duration"		"3"
+					}
+				}
+			}
+			"modifier_gravelfoot_buff"
+			{
+				"IsHidden"	"0"
+				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_dire.vpcf"
+				"StatusEffectPriority"  "120"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-100"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"gravelfoot_start"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_mountain_giant_ai"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"grand_stalacorr_attack_land"
+					}
+					"FireSound"
+					{
+						"EffectName"	"Seafortress.Stalakor.Punch"
+						"Target" 		"TARGET"
+					}
+					"Damage"
+					{
+						"Target"		"TARGET"
+						"Type"			"DAMAGE_TYPE_MAGICAL"
+						"Damage"		"%damage"
+					}
+				}
+				"OnCreated"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_disable_player"
+						"Target" 		"CASTER"
+						"Duration"		"5"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"8000"
+				}
+			}
+			"modifier_stalacorr_flail"
+			{
+				"IsHidden"	"1"
+				"OverrideAnimation"     "ACT_DOTA_FLAIL"
+			}
+			"modifier_disable_player"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+
+	}
+
+	"stalacorr_ice_blast"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlag"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"winterblight/winter_quake"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1500 2000 2500"
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"9 7 5"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"2500 50000 1000000"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+				"Function"		"grand_slacorr_slam_cast"
+				"target"		"TARGET"
+				"damage"		"%damage"
+			}
+
+		}
+		"Modifiers"
+		{
+			"modifier_barnacle_ground_slam"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"   "MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+
+	}
 	//SEA FORTRESS
 
 	"sea_fortress_ability"

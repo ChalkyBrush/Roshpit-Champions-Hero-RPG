@@ -222,6 +222,13 @@ function Hand:action(propertyName, propertyValue, hero, inventory_unit, hand_abi
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_heavy_echo_gauntlet", item)
 	elseif propertyName == "energy_whip" then
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_energy_whip_glove", item)
+	elseif propertyName == "buzuki" then
+		Hand:addItemModifier(0, hero, inventory_unit, "modifier_buzukis_finger", item)
+		RPCItems:PreacheArcanaResources(item)
+	elseif propertyName == "swiftspike" then
+		Hand:addItemModifier(0, hero, inventory_unit, "modifier_swiftspike_bracer", item)
+	elseif propertyName == "movespeed" then
+		Hand:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_hand_movespeed", hand_ability)
 	end
 	hero.handItem = item
 end
@@ -384,6 +391,9 @@ function Hand:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_flamewaker_arcana2")
 	hero:RemoveModifierByName("modifier_astral_arcana2")
 	hero:RemoveModifierByName("modifier_energy_whip_glove")
+	hero:RemoveModifierByName("modifier_buzukis_finger")
+	hero:RemoveModifierByName("modifier_swiftspike_bracer")
+	hero:RemoveModifierByName("modifier_hand_movespeed")
 	hero.stormcloth = false
 	Hand:remove_rune_bonuses(hero)
 end

@@ -1605,6 +1605,45 @@ function RPCItems:RollAstralArcana2(deathLocation)
     return item
 end
 
+function RPCItems:RollAstralArcana3(deathLocation)
+    local item = RPCItems:CreateVariantArcana("item_rpc_astral_arcana3", "arcana", "Astarl Arcana 3", "body", true, "Slot: Body", "npc_dota_hero_drow_ranger", 0)
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.property1 = 1
+    item.property1name = "!arcana!_astral_arcana3"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_astral_arcana3", "#84B3FF",  1, "#property_astral_arcana3_description")
+
+
+    item.hasRunePoints = true
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+    
+    local luck = RandomInt(1, 100)
+    if luck <= 35 then
+        item.property2name = "rune_a_d"
+        item.property2 = math.ceil(value*1.2)
+    elseif luck <= 70 then
+        item.property2name = "rune_b_d"
+        item.property2 = math.ceil(value*1.2)       
+    elseif luck <= 90 then
+        item.property2name = "rune_c_d"
+        item.property2 = math.ceil(value*1.2) 
+    else
+        item.property2name = "rune_d_d"
+        item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
+    end
+    RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
+
+
+    local value, prefixLevel = RPCItems:RollAttribute(100, 8, 24, 0, 0, item.rarity, false, maxFactor*14)
+    item.property3 = value
+    item.property3name = "all_attributes"
+    RPCItems:SetPropertyValues(item, item.property3, "#item_all_attributes", "#FFFFFF",  3)
+
+    RPCItems:RollBodyProperty4(item, 0)
+
+    RPCItems:DropOrGiveItem(hero, item, false, deathLocation)
+    return item
+end
+
 function RPCItems:PreacheArcanaResources(item)
     Timers:CreateTimer(0.05, function()
         PrecacheItemByNameAsync(item:GetAbilityName(), function(...) end)
@@ -1627,6 +1666,7 @@ function RPCItems:GetAvailableArcanaData(hero)
     elseif unitName == "npc_dota_hero_drow_ranger" then
         table.insert(arcanaData, {1, 0})
         table.insert(arcanaData, {2, 1})
+        table.insert(arcanaData, {3, 3})
     elseif unitName == "npc_dota_hero_obsidian_destroyer" then
         table.insert(arcanaData, {1, 0})
     elseif unitName == "npc_dota_hero_omniknight" then
@@ -1780,6 +1820,8 @@ function RPCItems:RollArcanaByName(arcana_name, position)
         arcana = RPCItems:RollArkimusArcana2(position)
     elseif arcana_name == "item_rpc_djanghor_arcana1" then
         arcana = RPCItems:RollDjanghorArcana1(position)
+    elseif arcana_name == "item_rpc_astral_arcana3" then
+        arcana = RPCItems:RollAstralArcana3(position)
     end
     return arcana
 end

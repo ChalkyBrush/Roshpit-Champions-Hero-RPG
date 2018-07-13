@@ -58,7 +58,9 @@ function earth_aspect(event)
 	ParticleManager:SetParticleControl( pfx, 1, summonPosition )
 	ParticleManager:SetParticleControl( pfx, 2, summonPosition )
 	ParticleManager:SetParticleControl( pfx, 3, summonPosition )
-
+	Timers:CreateTimer(3, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
 	EmitSoundOn("Hero_EarthSpirit.RollingBoulder.Destroy", caster.earthAspect)
   	local earthquake = caster:FindAbilityByName("earthquake")
   	if not earthquake then

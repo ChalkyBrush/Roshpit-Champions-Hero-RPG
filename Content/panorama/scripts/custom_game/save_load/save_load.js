@@ -233,6 +233,8 @@ function getKeyData(index, resultTable){
 		array = ["file://{images}/items/redfall/redfall_spirit_ruby.png", "DOTA_Tooltip_Ability_item_redfall_spirit_ruby_normal", resultTable[1].vestigial_ruby, '#8847FF']
 	}else if(index == 10){
 		array = ["file://{images}/items/rpc/sunstone.png", "DOTA_Tooltip_Ability_item_serengaard_sunstone", resultTable[1].serengaard_sunstone, '#8847FF']
+	}else if(index == 11){
+		array = ["file://{images}/items/winterblight/winterblight_glacier_stone.png", "DOTA_Tooltip_ability_item_rpc_winterblight_glacier_stone", resultTable[1].glacier_stone, '#8847FF']
 	}
 	return array
 }
@@ -283,6 +285,8 @@ function IsValidKey(itemName){
 		valid = 9
 	}else if(itemName == "item_serengaard_sunstone"){
 		valid = 10
+	}else if(itemName == "item_rpc_winterblight_glacier_stone"){
+		valid = 11
 	}
 	return valid
 }
@@ -388,6 +392,8 @@ function GetKeyCountByItemName(itemName){
 		keyCount = resultTable[1].vestigial_ruby
 	}else if(itemName == "item_serengaard_sunstone"){
 		keyCount = resultTable[1].serengaard_sunstone
+	}else if(itemName == "item_rpc_winterblight_glacier_stone"){
+		keyCount = resultTable[1].glacier_stone
 	}
 	return keyCount
 }
