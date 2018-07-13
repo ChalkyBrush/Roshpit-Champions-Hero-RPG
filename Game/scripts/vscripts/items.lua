@@ -1596,6 +1596,9 @@ function RPCItems:GetMaxFactor()
 	    		maxFactor = maxFactor + 8*Arena.PitLevel
 	    	end
 	    end
+	    if Winterblight then
+	    	maxFactor = maxFactor + 45*Winterblight.Stones
+	    end
 	    if RPCItems.StrictItemLevel then
 	    	maxFactor = RPCItems.StrictItemLevel
 	    end
