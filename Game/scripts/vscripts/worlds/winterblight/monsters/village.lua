@@ -63,7 +63,7 @@ function ice_end(event)
 	local target = event.target
 	target.icePrevPosition = nil
 	Timers:CreateTimer(0.03, function()
-		if IsValidEntity(target) then
+		if IsValidEntity(target) and target.safePos then
 			if target:GetAbsOrigin().z - GetGroundHeight(target.safePos, target) < 5 then
 				FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
 			end

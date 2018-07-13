@@ -2140,7 +2140,7 @@ function zealot_wave_hit(event)
 	for i = 0, 7, 1 do
 		local target_ability = target:GetAbilityByIndex(i)
 		if target_ability then
-			local cd = math.min(target_ability:GetCooldownTimeRemaining() + duration, 60)
+			local cd = math.min(target_ability:GetCooldownTimeRemaining() + duration, target_ability:GetCooldown(target_ability:GetLevel()))
 			target_ability:EndCooldown()
 			target_ability:StartCooldown(cd)
 		end

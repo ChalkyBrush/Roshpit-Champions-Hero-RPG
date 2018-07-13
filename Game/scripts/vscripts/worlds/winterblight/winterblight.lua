@@ -194,9 +194,10 @@ function Winterblight:Debug2()
  -- Winterblight.AzaleaTeleportRoomSpawned = true
  -- Winterblight:SpawnAzaleaBoss()
  -- Winterblight:InitCaptainReynar()
- Winterblight.AzaleaDungeonOpened = true
- Winterblight.MathPuzzleComplete = true
-Winterblight:SpawnAzaleaCups()
+ 
+ Winterblight:ShrineSpawn2()
+--  Winterblight.MathPuzzleComplete = true
+-- Winterblight:SpawnAzaleaCups()
 
  -- Winterblight:SpawnGrandStalacorr(Vector(-15424,-2560), RandomVector(1))
  -- local hero = MAIN_HERO_TABLE[1]
