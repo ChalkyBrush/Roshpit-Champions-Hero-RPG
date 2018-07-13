@@ -125418,6 +125418,11 @@
 				"EffectName"	"particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_buff.vpcf"
 				"EffectAttachType"	"attach_origin"
 			}
+			"modifier_no_damage"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+			}
 			"modifier_maze_ghost_passive"
 			{
 				"IsHidden" "1"
@@ -125427,7 +125432,6 @@
 				{
 					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_UNSELECTABLE"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"Properties"
 				{
@@ -125450,6 +125454,7 @@
 				{
 					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 		}

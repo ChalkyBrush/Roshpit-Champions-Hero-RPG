@@ -130,17 +130,19 @@ function RPCItems:RollSlithicusRingProperty()
     local propertyName = ""
     local propertyTitle = ""
     local tier = 0
-    if luck2 < 20 then
-        value = RandomInt(25, 30)
-    elseif luck2 < 50 then
-        value = RandomInt(30, 35)
-    elseif luck2 < 80 then
-        value = RandomInt(35, 40)
-    elseif luck2 < 95 then
-        value = RandomInt(40, 45)
-    elseif luck2 <= 100 then
-        value = RandomInt(45, 50)
-    end
+    -- if luck2 < 20 then
+    --     value = RandomInt(25, 30)
+    -- elseif luck2 < 50 then
+    --     value = RandomInt(30, 35)
+    -- elseif luck2 < 80 then
+    --     value = RandomInt(35, 40)
+    -- elseif luck2 < 95 then
+    --     value = RandomInt(40, 45)
+    -- elseif luck2 <= 100 then
+    --     value = RandomInt(45, 50)
+    -- end
+    local maxFactor = RPCItems:GetMaxFactor()
+    local value = RPCItems:GetLogarithmicVarianceValue(math.ceil(maxFactor/3), 0, 0, 0, 0)
     if luck < 100 then
         propertyName = "rune_a_a"
         tier = 1
