@@ -842,9 +842,6 @@ function Winterblight:AzaleaMathUnitDie(unit)
 end
 
 function Winterblight:ShrineSpawn3()
-	if true then
-		return false
-	end
 	if not Winterblight.Shrine3Spawned then
 		Winterblight.Shrine3Spawned = true
 		local luck = RandomInt(1, 3)
