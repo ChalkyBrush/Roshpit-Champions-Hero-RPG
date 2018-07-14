@@ -25,7 +25,7 @@ function modifier_duskbringer_ghost_form_active:OnDestroy( params )
         if IsValidEntity(target) then
             CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash_flash.vpcf", target:GetAbsOrigin()+Vector(0,0,50), 0.4)
             print(target:GetClassname())
-            target:Kill(nil,target.KILLER)
+            target:ForceKill(false)
         end
     else
         local ability = self:GetAbility()
