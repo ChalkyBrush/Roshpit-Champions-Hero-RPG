@@ -491,6 +491,107 @@ function GameState:OrderFilter(orderTable)
 				end
 			end
 		end
+		if unit:HasModifier("modifier_stargazers_sphere") then
+			if orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_MOVE then
+				local sphere = unit.amulet
+				local cdCondition = sphere:GetCooldownTimeRemaining() <= 0
+				if not sphere.sphereTable then
+					sphere.sphereTable = {}
+				end
+				if sphere.sphereTable.pfx and cdCondition then
+					ParticleManager:DestroyParticle(sphere.sphereTable.pfx, false)
+					sphere.sphereTable.pfx = false
+				end
+				if sphere.sphereTable.dummy then
+					print(WallPhysics:GetDistance2d(sphere.sphereTable.dummy:GetAbsOrigin(), Vector(orderTable.position_x, orderTable.position_y)))
+					if WallPhysics:GetDistance2d(sphere.sphereTable.dummy:GetAbsOrigin(), Vector(orderTable.position_x, orderTable.position_y)) < 300 then
+						if sphere.sphereTable.pfx then
+							ParticleManager:DestroyParticle(sphere.sphereTable.pfx, false)
+							sphere.sphereTable.pfx = false
+						end
+						EmitSoundOn("RPCItems.Stargazer.MeteorStart", sphere.sphereTable.dummy)
+						local faceVector = ((sphere.sphereTable.position - unit:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+						unit:MoveToPosition(unit:GetAbsOrigin()+faceVector*5)
+						local pfx = ParticleManager:CreateParticle("particles/roshpit/items/stargazer_comet.vpcf", PATTACH_CUSTOMORIGIN, nil)
+						ParticleManager:SetParticleControl(pfx, 0, sphere.sphereTable.dummy:GetAbsOrigin()+Vector(0,0,700))
+						ParticleManager:SetParticleControl(pfx, 1, sphere.sphereTable.dummy:GetAbsOrigin())
+						ParticleManager:SetParticleControl(pfx, 2, Vector(0.5,0.5,0.5))
+						local meteorPosition = sphere.sphereTable.dummy:GetAbsOrigin()
+						Timers:CreateTimer(0.5, function()
+							EmitSoundOnLocationWithCaster(meteorPosition, "RPCItems.Stargazer.MeteorImpact", unit)
+							local damage = unit:GetAverageTrueAttackDamage(unit)*5
+							local enemies = FindUnitsInRadius( unit:GetTeamNumber(), meteorPosition, nil, 320, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+							if #enemies > 0 then
+								for _,enemy in pairs(enemies) do
+									Filters:ApplyStun(unit, 1.0, enemy)
+									Filters:ApplyItemDamage(enemy,unit,damage,DAMAGE_TYPE_PURE,sphere,RPC_ELEMENT_COSMOS,RPC_ELEMENT_NONE)
+								end
+							end 
+						end)
+						sphere.sphereTable.position = false
+						UTIL_Remove(sphere.sphereTable.dummy)
+						sphere.sphereTable.dummy = false
+						return false
+					end
+					if cdCondition then
+						UTIL_Remove(sphere.sphereTable.dummy)
+						sphere.sphereTable.dummy = false
+					end
+				end
+				if cdCondition then
+					sphere.sphereTable.position = GetGroundPosition(Vector(orderTable.position_x, orderTable.position_y), unit) 
+					local pfx = ParticleManager:CreateParticle("particles/roshpit/items/stargazer_ring_ring.vpcf", PATTACH_CUSTOMORIGIN, nil)
+					ParticleManager:SetParticleControl(pfx, 0, sphere.sphereTable.position)
+					sphere.sphereTable.pfx = pfx
+					local dummy = CreateUnitByName("npc_flying_dummy_vision", sphere.sphereTable.position, false, nil, nil, unit:GetTeamNumber())
+					dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
+					sphere:ApplyDataDrivenModifier(unit.InventoryUnit, dummy, "modifier_stargazer_dummy_aura", {})
+					EmitSoundOn("RPCItems.Stargazer.Start", dummy)
+					dummy:SetNightTimeVisionRange(300)
+					dummy:SetDayTimeVisionRange(300)
+					sphere.sphereTable.dummy = dummy
+					sphere:StartCooldown(2)
+					local faceVector = ((sphere.sphereTable.position - unit:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+					unit:MoveToPosition(unit:GetAbsOrigin()+faceVector*5)
+					return false
+				end
+			end
+		end
+		if unit:HasModifier("modifier_ice_floe_slippers") then
+			if not unit.ice_floe_table then
+				unit.ice_floe_table = {}
+			end
+			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
+				if unit.ice_floe_table.last_clicked then
+					if unit:IsStunned() or unit:IsRooted() or unit:IsFrozen() then
+					else
+						if (GameRules:GetGameTime() - unit.ice_floe_table.last_clicked < 0.3) and (WallPhysics:GetDistance2d(unit.ice_floe_table.last_position, Vector(orderTable.position_x, orderTable.position_y)) < 200) and (WallPhysics:GetDistance2d(unit:GetAbsOrigin(), Vector(orderTable.position_x, orderTable.position_y)) < 1500) then
+							unit.foot:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_ice_floe_sliding", {duration = 2})
+							unit.ice_floe_table.last_clicked = GameRules:GetGameTime()
+							unit.ice_floe_table.last_position = Vector(orderTable.position_x, orderTable.position_y)
+							unit.ice_floe_table.speed = 50
+							EmitSoundOn("RPCItems.IceFloeSlipper.Go", unit)
+							StartAnimation(unit, {duration=1, activity=ACT_DOTA_VERSUS, rate=2})
+							local pfxTest = ParticleManager:CreateParticle("particles/econ/items/jakiro/jakiro_ti7_immortal_head/jakiro_ti7_immortal_head_ice_path_b.vpcf", PATTACH_CUSTOMORIGIN, nil)
+							local moveFV = ((unit.ice_floe_table.last_position - unit:GetAbsOrigin())*Vector(1,1,1)):Normalized()
+							local distance = WallPhysics:GetDistance2d(unit:GetAbsOrigin(), unit.ice_floe_table.last_position)
+							ParticleManager:SetParticleControl(pfxTest, 0, unit:GetAbsOrigin())
+							ParticleManager:SetParticleControl(pfxTest, 1, unit:GetAbsOrigin()+moveFV*distance)
+							ParticleManager:SetParticleControl(pfxTest, 2, Vector(1,1,1))
+							ParticleManager:SetParticleControlEnt(pfxTest, 9, unit, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", unit:GetAbsOrigin(), true)
+							Timers:CreateTimer(1.5, function()
+								ParticleManager:DestroyParticle(pfxTest, false)
+							end)
+						end
+					end
+				end
+				if unit:IsStunned() or unit:IsRooted() or unit:IsFrozen() then
+				else
+					unit.ice_floe_table.last_clicked = GameRules:GetGameTime()
+					unit.ice_floe_table.last_position = Vector(orderTable.position_x, orderTable.position_y)
+				end
+			end
+		end
 		if unit:HasModifier("modifier_frostmaw_hunters_hood") then
 			if orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
 				local target = EntIndexToHScript(orderTable.entindex_target)
@@ -936,6 +1037,9 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 		if victim:HasModifier("modifier_pure_resist") then
 			damage = damage*6
 		end
+		if victim:HasModifier("modifier_ice_floe_sliding") then
+			damage = 0
+		end
 	elseif damagetype == DAMAGE_TYPE_MAGICAL then
 		if victim:HasModifier("modifier_resplendent_rubber_boots") then
 			damage = damage*0.65
@@ -949,6 +1053,13 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 		end
 		if victim:HasModifier("modifier_sunstrider_lightsworn") then
 			damage = damage*0.2
+		end
+		if victim:HasModifier("modifier_blue_gargoyle_passive") then
+			local modifier = victim:FindModifierByName("modifier_blue_gargoyle_passive")
+			local passiveAbility = modifier:GetAbility()
+			local reduction = passiveAbility:GetLevelSpecialValueFor("pure_resist", passiveAbility:GetLevel())
+			reduction = (100-reduction)/100
+			damage = damage*reduction
 		end
 	end
 	if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
@@ -1049,6 +1160,9 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_guard_of_feronia_shield") then
 		damage = damage*0.05
 	end
+	if victim:HasModifier("modifier_helm_of_the_mountain_giant") and (victim:GetHealth() > victim:GetMaxHealth()*0.8) then
+		damage = damage*0.5
+	end
 	if victim:HasModifier("modifier_whirlwind") and victim:HasModifier("modifier_axe_glyph_4_2") then
 		damage = damage*0.5
 	end
@@ -1057,6 +1171,9 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 	if victim:HasModifier("modifier_redrock_footwear_damage_reduction") then
 		damage = damage*0.5
+	end
+	if victim:HasModifier("modifier_gravelfoot_buff") then
+		damage = damage*0.005
 	end
 	if victim:HasModifier("modifier_arkimus_arcana1_q3") then
 		local stacks = victim:GetModifierStackCount("modifier_arkimus_arcana1_q3", victim)
@@ -1110,12 +1227,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		reduction = (100-reduction)/100
 		damage = damage*reduction
 	end
-	if victim:HasModifier("modifier_blue_gargoyle_passive") then
-		local passiveAbility = victim:FindAbilityByName("winterblight_gargoyle_summon_passive")
-		local reduction = passiveAbility:GetLevelSpecialValueFor("pure_resist", passiveAbility:GetLevel())
-		reduction = (100-reduction)/100
-		damage = damage*reduction
-	end
+
 	if victim:HasModifier("modifier_arkimus_archon_form") then
 		local archonForm = victim:FindAbilityByName("arkimus_archon_form")
 		local reduction = archonForm:GetLevelSpecialValueFor("damage_resist", archonForm:GetLevel())
@@ -1330,6 +1442,15 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		  end
 	    end
 		damage = damage*difficultyReduc[GameState:GetDifficultyFactor()]*stoneReduce
+	end
+	if victim:HasModifier("modifier_Winterblight_unit") then
+		if Winterblight.Stones == 1 then
+			damage = damage*0.01
+		elseif Winterblight.Stones == 2 then
+			damage = damage*0.0005
+		elseif Winterblight.Stones == 3 then
+			damage = damage*0.000005
+		end
 	end
 	return damage/BASE_VALUE_FOR_CALCULATE
 end
@@ -1705,6 +1826,13 @@ function GameState:FilterDamage(filterTable)
 		local multIncrease = 0.006*stacks
 		mult = mult + multIncrease
 	end
+	if victim:HasModifier("crystal_arrow_ad_aura") then
+		local modifier = victim:FindModifierByName("crystal_arrow_ad_aura")
+		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
+			local abil = modifier:GetAbility()
+			mult = mult + abil.a_d_level*0.05
+		end
+	end
 	if victim:HasModifier("modifier_rockfall_post_mit") then
 		mult = mult + 1.25
 	end
@@ -1742,6 +1870,9 @@ function GameState:FilterDamage(filterTable)
 	end
 	if attacker:HasModifier("modifier_conjuror_glyph_5_a") or attacker:HasModifier("modifier_conjuror_glyph_5_a_summon") then
 		mult = mult + 2
+	end
+	if attacker:HasModifier("modifier_buzukis_finger_buff") then
+		mult = mult + 5
 	end
 	if victim:HasModifier("modifier_swarm_effect") then
 		local multIncrease = victim:GetModifierStackCount("modifier_swarm_effect", victim.umbral)*0.06
@@ -2516,6 +2647,9 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = filterTable["damage"]*victim.reduc
 		end
 	end
+	if attacker:HasModifier("modifier_Winterblight_unit") then
+		filterTable["damage"] = filterTable["damage"]*(1+Winterblight.Stones)
+	end
 	if attacker:HasModifier("modifier_ekkan_dominion_unit") then
 		if attacker.hero:HasModifier("modifier_ekkan_immortal_weapon_3") then
 			if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
@@ -2854,6 +2988,9 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_disable_player") then
 		filterTable["damage"] = 0
 	end
+	if victim:HasModifier("modifier_colossus_restore") then
+		filterTable["damage"] = 0
+	end
 	if victim:HasModifier("modifier_no_damage") then
 		filterTable["damage"] = 0
 	end
@@ -3095,7 +3232,6 @@ function GameState:FilterDamage(filterTable)
 	-- if attacker:HasModifier("modifier_line_unit_passive") then
 	-- 	filterTable["damage"] = filterTable["damage"]/GameState.PVP_REDUCTION
 	-- end
-
 	-- if Beacons.cheats then
 	-- 	if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 	-- 		if victim:IsHero() then

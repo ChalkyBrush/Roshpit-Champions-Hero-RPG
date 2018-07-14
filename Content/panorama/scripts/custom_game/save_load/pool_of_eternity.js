@@ -93,6 +93,7 @@ function getPosition(str, m, i) {
 
 function CreateStashPanels(msg)
 {
+	$('#loading_ui').AddClass('invisible')
 	$.Msg("CREATE STASH PANELS")
 	var playerID = msg.playerID
 	var queryUnit = Players.GetLocalPlayerPortraitUnit();
@@ -170,31 +171,32 @@ function CreateStashPanels(msg)
 		inventoryPanel.BLoadLayoutSnippet( "pool_item" );
 
 
-		var itemImage = snippetInventoryPanel(inventoryPanel, i+1)
-
-		var stashItem = CustomNetTables.GetTableValue( "stash", playerID.toString()+"-"+i.toString() )
+		var itemImage = inventoryPanel.FindChildTraverse('ItemImage')
+		itemImage.parentPanel = inventoryPanel
+		var stashItem = msg.stashTable[i]
 		// var inventoryPanel = m_InventoryPanels[i-1]
 		if (stashItem === undefined){
 			// inventoryPanel.SetItem( queryUnit, -1 );
 			SetInventoryItem(queryUnit, -1, inventoryPanel, i)
-		}else if (stashItem.itemIndex == 0){
+		}else if (stashItem == 0){
 			SetInventoryItem(queryUnit, -1, inventoryPanel, i)
 			// inventoryPanel.SetItem( queryUnit, -1 );
 		}else{
-			SetInventoryItem(queryUnit, stashItem.itemIndex, inventoryPanel, i)
+			SetInventoryItem(queryUnit, stashItem, inventoryPanel, i)
 			// inventoryPanel.SetItem( queryUnit, stashItem.itemIndex );
 			// $.Msg("the item!?")
 			// $.Msg(stashItem.itemIndex)
 		}
-		UpdateItem(itemImage)
+		UpdateItem(itemImage, stashItem)
 
+		AddMouseOverToItemImage(itemImage);
+		AddMouseOutToItemImage(itemImage);
 		// var draggablePanel = itemImage.GetParent()
 		RegisterEventHandlers(inventoryPanel)
 
-		m_InventoryPanels.push(itemImage);
+		// m_InventoryPanels.push(itemImage);
 
-		AddMouseOverToItemImage(i);
-		AddMouseOutToItemImage(i);
+
 		// $.Msg(m_InventoryPanels)
 	}
 }
@@ -208,17 +210,17 @@ function RegisterEventHandlers(draggablePanel)
 	$.RegisterEventHandler('DragEnd', draggablePanel, OnDragEnd );	
 }
 
-function AddMouseOverToItemImage(index)
+function AddMouseOverToItemImage(itemImage)
 {
-	var itemImage = m_InventoryPanels[index-1]
+	// var itemImage = m_InventoryPanels[index-1]
 	itemImage.GetParent().SetPanelEvent('onmouseover', function ShowTooltip() {
 		stashShowItemTooltip(itemImage)
 	})	
 }
 
-function AddMouseOutToItemImage(index)
+function AddMouseOutToItemImage(itemImage)
 {
-	var itemImage = m_InventoryPanels[index-1]
+	// var itemImage = m_InventoryPanels[index-1]
 	itemImage.GetParent().SetPanelEvent('onmouseout', function HideTooltip() {
 		stashHideItemTooltip(itemImage)
 	})	
@@ -247,7 +249,7 @@ function SetInventoryItem( queryUnit, iItem, inventoryPanel, slot )
 {
 	var itemImage = inventoryPanel.FindChildTraverse('ItemImage')
 	itemImage.m_Item = iItem;
-	itemImage.m_QueryUnit = queryUnit;
+	// itemImage.m_QueryUnit = queryUnit;
 	itemImage.m_fromSlot = slot
 	itemImage.SetAttributeInt("item", iItem);
 	itemImage.GetParent().SetAttributeInt("item", iItem);
@@ -257,28 +259,30 @@ function SetInventoryItem( queryUnit, iItem, inventoryPanel, slot )
 	itemImage.m_QueryUnit = Players.GetPlayerHeroEntityIndex( Game.GetLocalPlayerID());
 }
 
-function UpdateItem(itemImage)
+function UpdateItem(item_image_panel, stashItem)
 {
-	var itemName = Abilities.GetAbilityName( itemImage.m_Item);
-	var isPassive = Abilities.IsPassive(itemImage.m_Item );
+	var itemName = Abilities.GetAbilityName( stashItem);
+	var isPassive = Abilities.IsPassive(stashItem );
 
 
-	itemImage.parentPanel.SetHasClass( "no_item", (itemImage.m_Item == -1) );
-	// $.GetContextPanel().SetHasClass( "show_charges", hasCharges );
-	// $.GetContextPanel().SetHasClass( "show_alt_charges", hasAltCharges );
-	itemImage.parentPanel.SetHasClass( "is_passive", isPassive );
-	
+	item_image_panel.parentPanel.SetHasClass( "no_item", (item_image_panel.m_Item == -1) );
+	item_image_panel.parentPanel.SetHasClass( "is_passive", isPassive );
 
-	itemImage.contextEntityIndex = itemImage.m_Item;
-	if (itemImage.m_Item == -1){
-		itemImage.SetImage("file://{images}/custom_game/ui/empty-inventory-slot.png")
+	item_image_panel.contextEntityIndex = stashItem
+	if (item_image_panel.m_Item == -1){
+		item_image_panel.SetImage("file://{images}/custom_game/ui/empty-inventory-slot.png")
+	}else{
+		// $.Schedule(0.1, function(){
+		// 	item_image_panel.contextEntityIndex = stashItem;
+			// item_image_panel.SetImage("file://{images}/items/"+Abilities.GetAbilityTextureName( item_image_panel.m_Item )+".png")
+		// });
 	}
 
-	// if (itemImage.m_Item == -1){
-	// 	$.Schedule( 0.1, UpdateItem(itemImage) );
+	// if (item_image_panel.m_Item == -1){
+	// 	$.Schedule( 0.1, UpdateItem(item_image_panel) );
 	// }
 	// else{
-	// 	$.Schedule( 2, UpdateItem(itemImage) );
+	// 	$.Schedule( 2, UpdateItem(item_image_panel) );
 	// }
 	
 }

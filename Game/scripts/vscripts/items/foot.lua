@@ -194,6 +194,14 @@ function Foot:action(propertyName, propertyValue, hero, inventory_unit, foot_abi
 		Foot:addItemModifier(0, hero, inventory_unit, "modifier_crystalline_slippers", item)
 	elseif propertyName == "oceanrunner" then
 		Foot:addItemModifier(0, hero, inventory_unit, "modifier_oceanrunner_boots", item)
+	elseif propertyName == "gravelfoot" then
+		Foot:addItemModifier(0, hero, inventory_unit, "modifier_gravelfoot_treads", item)
+		RPCItems:PreacheArcanaResources(item)
+	elseif propertyName == "ice_floe" then
+		Foot:addItemModifier(0, hero, inventory_unit, "modifier_ice_floe_slippers", item)
+		RPCItems:PreacheArcanaResources(item)
+	elseif propertyName == "destruction" then
+		Foot:addItemModifier(0, hero, inventory_unit, "modifier_iron_treads_of_destruction", item)
 	end
 	item.hero = hero
 	hero.foot = item
@@ -287,6 +295,9 @@ function Foot:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_paladin_arcana2")
 	hero:RemoveModifierByName("modifier_mountain_protector_arcana3")
 	hero:RemoveModifierByName("modifier_chernobog_arcana2")
+	hero:RemoveModifierByName("modifier_gravelfoot_treads")
+	hero:RemoveModifierByName("modifier_ice_floe_slippers")
+	hero:RemoveModifierByName("modifier_iron_treads_of_destruction")
 	hero.arcanys = nil
 	hero.redrock = nil
 

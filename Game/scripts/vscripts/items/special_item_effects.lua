@@ -5484,7 +5484,7 @@ function energy_whip_glove_attack_land(event)
 		local manaRestore = ability:GetManaCost(ability:GetLevel())
 		attacker:GiveMana(manaRestore)
 		local castPointSave = ability:GetCastPoint()
-		ability.castPointSave = castPointSave
+		ability.castPointSave = hero.castPointW
 		ability:SetOverrideCastPoint(0)
 		local behavior = ability:GetBehavior()
 		print(bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET))
@@ -5529,7 +5529,9 @@ end
 function boreal_granite_vest_take_damage(event)
 	local target = event.attacker
 	local hero = event.unit
-
+	if hero:GetEntityIndex() == target:GetEntityIndex() then
+		return false
+	end
 	local ability = hero:GetAbilityByIndex(0)
 	local proc = Filters:GetProc(hero, 10)
 	local cd = ability:GetCooldownTimeRemaining()
@@ -5540,7 +5542,7 @@ function boreal_granite_vest_take_damage(event)
 		if manaRestore > 0 then
 			attacker:GiveMana(manaRestore)
 		end
-		local castPointSave = ability:GetCastPoint()
+		local castPointSave = hero.castPointQ
 		ability.boreal_cast_point = castPointSave
 		ability:SetOverrideCastPoint(0)
 		local behavior = ability:GetBehavior()
@@ -5582,4 +5584,178 @@ function boreal_granite_vest_take_damage(event)
 		-- ability:StartCooldown(0)
 
 	end
+end
+
+function captains_vest_think(event)
+	local hero = event.target
+	local caster = event.caster
+	local ability = event.ability
+	local a_d_level = Runes:GetTotalRuneLevelGeneric(hero, 1, 3)
+	local b_d_level = Runes:GetTotalRuneLevelGeneric(hero, 2, 3)
+	local c_d_level = Runes:GetTotalRuneLevelGeneric(hero, 3, 3)
+	local d_d_level = Runes:GetTotalRuneLevelGeneric(hero, 4, 3)
+	local strength = Runes:GetTotalRuneLevelGeneric(hero, 1, 0)*3 + Runes:GetTotalRuneLevelGeneric(hero, 2, 0)*6 + Runes:GetTotalRuneLevelGeneric(hero, 3, 0)*15 + Runes:GetTotalRuneLevelGeneric(hero, 4, 0)*30 + a_d_level*1 + b_d_level*2 + c_d_level*5 + d_d_level*10
+	local agility = Runes:GetTotalRuneLevelGeneric(hero, 1, 1)*3 + Runes:GetTotalRuneLevelGeneric(hero, 2, 1)*6 + Runes:GetTotalRuneLevelGeneric(hero, 3, 1)*15 + Runes:GetTotalRuneLevelGeneric(hero, 4, 1)*30 + a_d_level*1 + b_d_level*2 + c_d_level*5 + d_d_level*10
+	local intelligence = Runes:GetTotalRuneLevelGeneric(hero, 1, 2)*3 + Runes:GetTotalRuneLevelGeneric(hero, 2, 2)*6 + Runes:GetTotalRuneLevelGeneric(hero, 3, 2)*15 + Runes:GetTotalRuneLevelGeneric(hero, 4, 2)*30 + a_d_level*1 + b_d_level*2 + c_d_level*5 + d_d_level*10
+	if strength > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_captains_vest_str", {})
+		hero:SetModifierStackCount("modifier_captains_vest_str", caster, strength)
+	else
+		hero:RemoveModifierByName("modifier_captains_vest_str")
+	end
+	if agility > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_captains_vest_agi", {})
+		hero:SetModifierStackCount("modifier_captains_vest_agi", caster, agility)
+	else
+		hero:RemoveModifierByName("modifier_captains_vest_agi")
+	end
+	if intelligence > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_captains_vest_int", {})
+		hero:SetModifierStackCount("modifier_captains_vest_int", caster, intelligence)
+	else
+		hero:RemoveModifierByName("modifier_captains_vest_int")
+	end
+end
+
+function gravelfoot_think(event)
+	local hero = event.target
+	local caster = event.caster
+	local ability = event.ability
+	-- "RPCItems.Gravelfoot.Dispel"
+	-- "RPCItems.Gravelfoot.Activate"
+	local caster = event.target
+	local procced = false
+	local modifiers = hero:FindAllModifiers()
+	for j = 1, #modifiers, 1 do
+		local modifier = modifiers[j]
+		local modifierMaker = modifier:GetCaster()
+		if not WallPhysics:DoesTableHaveValue(Filters:GetUnpurgableDebuffNames(), modifier:GetName()) then
+			if modifierMaker.regularEnemy then
+				hero:RemoveModifierByName(modifier:GetName())
+				procced = true
+				break
+			end
+		end
+	end				
+
+	if procced then
+		EmitSoundOn("RPCItems.Gravelfoot.Dispel", caster)
+		local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/gravelfoot_dispel.vpcf", caster, 1.2)
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_gravelfoot_buff", {duration = event.duration})
+	end
+end
+
+function gravelfoot_start(event)
+	local hero = event.target
+	local caster = event.caster
+	local ability = event.ability
+	EmitSoundOnLocationWithCaster(hero:GetAbsOrigin(), "RPCItems.Gravelfoot.Activate", caster)
+    local earthParticle = "particles/units/heroes/hero_earth_spirit/espirit_bouldersmash_caster.vpcf"
+	local pfx = ParticleManager:CreateParticle( earthParticle, PATTACH_CUSTOMORIGIN, hero )
+	ParticleManager:SetParticleControl( pfx, 0, hero:GetAbsOrigin() )
+	ParticleManager:SetParticleControl( pfx, 1, hero:GetAbsOrigin() )
+	ParticleManager:SetParticleControl( pfx, 2, hero:GetAbsOrigin() )
+	ParticleManager:SetParticleControl( pfx, 3, hero:GetAbsOrigin() )
+	Timers:CreateTimer(3, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
+end
+
+function ice_floe_think(event)
+	local caster = event.caster
+	local hero = event.target
+	local ability = event.ability
+	local targetPoint = hero.ice_floe_table.last_position
+	local fv = (targetPoint-hero:GetAbsOrigin()):Normalized()
+	hero.ice_floe_table.speed = math.max(hero.ice_floe_table.speed - 0.3, 25)
+	local newPosition = hero:GetAbsOrigin() + fv*hero.ice_floe_table.speed
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPosition*Vector(1,1,0), hero)
+	newPosition = GetGroundPosition(newPosition, hero)
+	if not blockUnit then
+		-- newPosition = GetGroundPosition(newPosition, target)
+		hero:SetAbsOrigin(newPosition)
+	end
+	local distance = WallPhysics:GetDistance2d(hero:GetAbsOrigin(), targetPoint)
+	if distance < 50 then
+		hero:RemoveModifierByName("modifier_ice_floe_sliding")
+	end
+end
+
+function in_stargazer_takedamage(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	local target = event.unit
+	local damage = event.damage
+	if target:HasModifier("modifier_stargazer_immunity") then
+		return false
+	end
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_stargazer_immunity", {duration = 0.5})
+      local particleName = "particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf"
+      local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
+      ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_OVERHEAD_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+      Timers:CreateTimer(0.6, function() 
+        ParticleManager:DestroyParticle( pfx, false )
+      end)  
+          Timers:CreateTimer(0.45, -- Start this timer 10 game-time seconds later
+          function()
+            if target:IsAlive() then
+              Filters:ApplyItemDamage(target,hero,damage,DAMAGE_TYPE_PURE,ability,RPC_ELEMENT_COSMOS,RPC_ELEMENT_NONE)
+              EmitSoundOn("RPCItems.Stargazer.Starfall", target)
+            end
+          end)
+	
+end
+
+function tattered_novice_stack_increase(event)
+	local caster = event.caster
+	local target = event.target
+	local ability = event.ability
+	if target:HasModifier("modifier_tattered_novice_stack") then
+		local newStacks = math.min(target:GetModifierStackCount("modifier_tattered_novice_stack", caster) + 1, 2)
+		target:SetModifierStackCount("modifier_tattered_novice_stack", caster, newStacks)
+	else
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_tattered_novice_stack", {})
+		target:SetModifierStackCount("modifier_tattered_novice_stack", caster, 1)
+	end
+end
+
+function buzuki_buff_attack_land(event)
+	local caster = event.caster
+	local target = event.target
+	local ability = event.ability
+	local hero = caster.hero
+	EmitSoundOn("RPCItems.BuzukiFinger.BeamHit", target)
+	local damage = event.attacker:GetAverageTrueAttackDamage(event.attacker)
+	Filters:ApplyItemDamage(target,hero,damage,DAMAGE_TYPE_PURE,ability,RPC_ELEMENT_ICE,RPC_ELEMENT_DEMON)
+
+    local particle1 = ParticleManager:CreateParticle("particles/roshpit/winterblight/blue_finger.vpcf", PATTACH_CUSTOMORIGIN, target )
+    ParticleManager:SetParticleControlEnt(particle1, 0, event.attacker, PATTACH_POINT, "attach_attack1", event.attacker:GetAbsOrigin(), true)
+    ParticleManager:SetParticleControl( particle1, 1, target:GetAbsOrigin()+Vector(0,0,80) )
+    Timers:CreateTimer(1, function()
+    	ParticleManager:DestroyParticle(particle1, false)
+    end)
+end
+
+function swiftspike_think(event)
+	local caster = event.caster
+	local hero = event.target
+	local ability = event.ability
+	local movespeed = hero:GetBaseMoveSpeed()
+	local movespeedActual = hero:GetMoveSpeedModifier(movespeed)
+	if not hero:HasModifier("modifier_swiftspike_bad") then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_swiftspike_bad", {})
+	end
+	hero:SetModifierStackCount("modifier_swiftspike_bad", caster, movespeedActual)
+end
+
+function orthok_attack_land(event)
+	local attacker = event.attacker
+	Filters:OrthokStack(attacker, 1)
+end
+
+function orthok_think(event)
+	local hero = event.target
+	local chains = event.ability
+	Filters:RecalculateOrthokStacks(hero, chains)
 end

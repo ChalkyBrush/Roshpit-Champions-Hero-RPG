@@ -254,6 +254,25 @@ function Body:action(propertyName, propertyValue, hero, inventory_unit, body_abi
 		Body:addItemModifier(0, hero, inventory_unit, "modifier_direwolf_bulwark", item)
 	elseif propertyName == "boreal_granite" then
 		Body:addItemModifier(0, hero, inventory_unit, "modifier_boreal_granite_vest", item)
+	elseif propertyName == "captains_vest" then
+		Body:addItemModifier(0, hero, inventory_unit, "modifier_captains_vest", item)
+	elseif propertyName == "t1_runes" then
+		local runeTable = {"rune_a_a", "rune_a_b", "rune_a_c", "rune_a_d"}
+		for i = 1, #runeTable, 1 do
+			Body:runeProperty(runeTable[i], propertyValue, hero)
+		end
+	elseif propertyName == "t2_runes" then
+		local runeTable = {"rune_b_a", "rune_b_b", "rune_b_c", "rune_b_d"}
+		for i = 1, #runeTable, 1 do
+			Body:runeProperty(runeTable[i], propertyValue, hero)
+		end
+	elseif propertyName == "t3_runes" then
+		local runeTable = {"rune_c_a", "rune_c_b", "rune_c_c", "rune_c_d"}
+		for i = 1, #runeTable, 1 do
+			Body:runeProperty(runeTable[i], propertyValue, hero)
+		end
+	elseif propertyName == "tattered_novice" then
+		Body:addItemModifier(0, hero, inventory_unit, "modifier_tattered_novice_armor", item)
 	end
 	hero.body = item
 	item.hero = hero
@@ -447,6 +466,8 @@ function Body:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_djanghor_arcana1")
 	hero:RemoveModifierByName("modifier_zonik_arcana2")
 	hero:RemoveModifierByName("modifier_boreal_granite_vest")
+	hero:RemoveModifierByName("modifier_captains_vest")
+	hero:RemoveModifierByName("modifier_tattered_novice_armor")
 	hero.ocean_tempest = nil
 
 	hero.space_tech = nil

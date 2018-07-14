@@ -21,6 +21,29 @@ function winterblight_unit_die(event)
 			CustomGameEventManager:Send_ServerToAllClients("close_altar_of_ice", {} )
 		end
 	end
+	if unit:GetDeathXP() > 0 then
+		local premiumCount = GameState:GetPlayerPremiumStatusCount()
+		local luck = RandomInt(1,12000-(1000*premiumCount))
+		if luck == 1 then
+			RPCItems:RollHelmOfTheMountainGiant(unit:GetAbsOrigin(), false)
+		elseif luck == 2 then
+			RPCItems:RollSwiftspikeBracer(unit:GetAbsOrigin())
+		elseif luck == 3 then
+			RPCItems:RollTatteredNoviceArmor(unit:GetAbsOrigin())
+		elseif luck == 4 then
+			RPCItems:RollFrostmawHuntersHood(unit:GetAbsOrigin())
+		end
+		local luck2 = RandomInt(1,10000-(500*premiumCount))
+		if luck2 == 1 then
+			Winterblight:DropBorealGraniteChunk(unit:GetAbsOrigin())
+		end
+	end
+	if unit:GetUnitName() == "winterblight_source_assembly" then
+		local luck = RandomInt(1, 2)
+		if luck == 1 then
+			RPCItems:RollEnergyWhipGlove(unit:GetAbsOrigin())
+		end
+	end
 end
 
 function snowball_kid_preattack(event)
@@ -40,7 +63,7 @@ function ice_end(event)
 	local target = event.target
 	target.icePrevPosition = nil
 	Timers:CreateTimer(0.03, function()
-		if IsValidEntity(target) then
+		if IsValidEntity(target) and target.safePos then
 			if target:GetAbsOrigin().z - GetGroundHeight(target.safePos, target) < 5 then
 				FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
 			end

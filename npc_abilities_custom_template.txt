@@ -30216,6 +30216,16 @@
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
+			"modifier_hand_movespeed"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"1"
+				}
+			}
 		}
 	}
 
@@ -30881,6 +30891,17 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"				
+			}
+			"modifier_trinket_vision"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION"	"1"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"1"
+				}
 			}
 		}
 	}
@@ -76989,6 +77010,12 @@
 			{
 				"IsHidden"	"1"
 				"StatusEffectName" 		"particles/roshpit/redfall/status_effect_experimental_fire.vpcf"
+				"StatusEffectPriority"  "20"
+			}
+			"modifier_dummy_ice"
+			{
+				"IsHidden"	"1"
+				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_dire.vpcf"
 				"StatusEffectPriority"  "20"
 			}
 			"modifier_dummy_freeze"

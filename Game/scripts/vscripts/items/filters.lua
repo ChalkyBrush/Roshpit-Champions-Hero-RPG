@@ -5,6 +5,8 @@ end
 require('/heroes/huskar/constants_SPIRIT_WARRIOR')
 require('items/special_item_effects')
 
+LinkLuaModifier("modifier_buzuki_finger_lua", "modifiers/modifier_buzuki_finger_lua", LUA_MODIFIER_MOTION_NONE)
+
 function Filters:ApplyItemDamage(victim,attacker,damage,damage_type,item,element1,element2)
     damage = Filters:AdjustItemDamage(attacker, damage, victim)
     local mult = 1
@@ -143,7 +145,15 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     if caster:HasModifier("modifier_rpc_steamboots") then
         mult = mult + 0.003*(caster:GetAgility()/10)
     end
-
+    if caster:HasModifier("modifier_red_divinex_amulet") then
+        mult = mult + 0.003*(caster:GetStrength()/10)
+    end
+    if caster:HasModifier("modifier_green_divinex_amulet") then
+        mult = mult + 0.003*(caster:GetAgility()/10)
+    end
+    if caster:HasModifier("modifier_blue_divinex_amulet") then
+        mult = mult + 0.003*(caster:GetIntellect()/10)
+    end
 
     if caster:HasModifier("modifier_raven_idol2") then
         local multIncrease = ((caster:GetMaxHealth()-caster:GetHealth())/100)*0.001
@@ -387,12 +397,12 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
 			abilityCooldown = 1
 		end
 	end
-	if abilityCooldown < 0.5 then
-		abilityCooldown = 0.5
+	if abilityCooldown < 0.1 then
+		abilityCooldown = 0.1
 	end
 	--Hood of Lords reduces CD after all the lua code. Its internal by Dota 2
-	if abilityCooldown < 1.5 and caster:HasModifier("modifier_hood_of_lords_lua") then
-		abilityCooldown = 1.5
+	if abilityCooldown < 1.1 and caster:HasModifier("modifier_hood_of_lords_lua") then
+		abilityCooldown = 1.1
 	end
 	
 	ability:EndCooldown()
@@ -698,6 +708,17 @@ function Filters:CastSkillArguments(slot, caster)
         caster:RemoveModifierByName("modifier_crimsyth_elite_greaves_armor")
         caster.foot:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_crimsyth_elite_greaves_magic_shield", {duration = 3})
     end
+    if caster:HasModifier("modifier_chains_of_orthok") then
+        if slot == 1 then
+            Filters:OrthokStack(caster,5)
+        elseif slot == 2 then
+            Filters:OrthokStack(caster,1)
+        elseif slot == 3 then
+            Filters:OrthokStack(caster,5)
+        elseif slot == 4 then
+            Filters:OrthokStack(caster,12)
+        end
+    end
 end
 
 function Filters:BeginRChannel(caster)
@@ -706,6 +727,11 @@ function Filters:BeginRChannel(caster)
         return false
     end
     local baseCd = ability:GetCooldownTimeRemaining()
+    if caster:HasModifier("modifier_iron_treads_of_destruction") then
+        Timers:CreateTimer(0.03, function()
+            ability:EndChannel(false)
+        end)
+    end
     if caster:HasModifier("modifier_galaxy_orb") then
         caster.galaxy_orb:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_galaxy_orb_channel", {duration = 8.0})
     end
@@ -778,6 +804,16 @@ function Filters:ApplyQskills(caster)
         ability:EndCooldown()
 
         ability:StartCooldown(baseCd)
+    end
+    if caster:HasModifier("modifier_tattered_novice_stack") then
+        local ability = caster:GetAbilityByIndex(0)
+        local currentStack = caster:GetModifierStackCount("modifier_tattered_novice_stack", caster.InventoryUnit)
+        if currentStack > 1 then
+            caster:SetModifierStackCount("modifier_tattered_novice_stack", caster.InventoryUnit, currentStack - 1)
+        else
+            caster:RemoveModifierByName("modifier_tattered_novice_stack")
+        end
+        ability:EndCooldown()
     end
     if caster:HasModifier("modifier_watcher_one") then
         Filters:WatcherOne(caster)
@@ -878,6 +914,9 @@ function Filters:ApplyWskills(caster)
     end
     if caster:HasModifier("modifier_hand_elder") then
         Filters:ElderGrasp(caster)
+    end
+    if caster:HasModifier("modifier_buzukis_finger") then
+        Filters:BuzukisFinger(caster)
     end
     if caster:HasModifier("modifier_igneous_canine_helm") then
         Filters:IgneousCanine(caster)
@@ -1243,6 +1282,14 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_azure_empire_base_ability") then
             local current_stack = attacker:GetModifierStackCount( "modifier_azure_empire_base_ability", attacker.InventoryUnit )
             damageMult = damageMult + 0.4*current_stack
+        end
+        if attacker:HasModifier("modifier_orthok_zeal") then
+            local current_stack = attacker:GetModifierStackCount("modifier_orthok_zeal", attacker.InventoryUnit )
+            damageMult = damageMult + 0.08*current_stack
+        end
+        if attacker:HasModifier("modifier_swiftspike_bad") then
+            local current_stack = attacker:GetModifierStackCount("modifier_swiftspike_bad", attacker.InventoryUnit )
+            damageMult = damageMult + 0.01*current_stack
         end
         if attacker:HasModifier("modifier_venomort_arcana2_d_a_invisible") then
             local current_stack = attacker:GetModifierStackCount( "modifier_venomort_arcana2_d_a_invisible", attacker )
@@ -3427,7 +3474,7 @@ function Filters:SpellShieldHit(victim, damage)
     if bSplice then
         return splicedDamage
     else
-        return victim:GetMana()*10
+        return manaDamage*10
     end
 end
 
@@ -3832,7 +3879,7 @@ function Filters:AutumnSleeperMask(caster)
 end
 
 function Filters:ManawallDamageTaken(victim, damage)
-    local reducedDamage = damage*0.75
+    local reducedDamage = damage*0.25
     local currentMana = victim:GetMana()
     if currentMana >= reducedDamage then
         victim:ReduceMana(reducedDamage)
@@ -4253,3 +4300,74 @@ function Filters:Bahamut_DB_runeArcana(caster, damage, slot, enemy)
     return damage
 end
 
+function Filters:BuzukisFinger(caster)
+    local allies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )
+    if #allies > 0 then
+        for _,ally in pairs(allies) do
+            ally:RemoveModifierByName("modifier_buzuki_powering_up")
+            EmitSoundOn("RPCItems.BuzukiFinger.Powerup", ally)
+            caster.handItem:ApplyDataDrivenModifier(caster.InventoryUnit, ally, "modifier_buzukis_finger_buff", {duration = 30})
+            caster.handItem:ApplyDataDrivenModifier(caster, ally, "modifier_buzuki_powering_up", {duration = 2.5})
+            ally:AddNewModifier( caster.InventoryUnit, caster.handItem, "modifier_buzuki_finger_lua", {duration = 30} )
+        end
+    end
+end
+
+function Filters:OrthokStack(hero, stacks)
+    local chains = hero.headItem
+    chains:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_orthok_zeal", {duration = 10})
+    if not chains.zealData then
+        chains.zealData = {}
+    end
+    local thisZeal = {}
+    thisZeal.createdAt = GameRules:GetGameTime()
+    thisZeal.value = stacks
+    table.insert(chains.zealData, thisZeal)
+    Filters:RecalculateOrthokStacks(hero, chains)
+end
+
+function Filters:RecalculateOrthokStacks(hero, chains)
+    local newZealData = {}
+    local totalStacks = 0
+    if not chains.zealData then
+        chains.zealData = {}
+    end
+    for i = 1, #chains.zealData, 1 do
+        if GameRules:GetGameTime() - chains.zealData[i].createdAt >= 10 then
+        else
+            table.insert(newZealData, chains.zealData[i])
+            totalStacks = totalStacks + chains.zealData[i].value
+        end
+    end
+    chains.zealData = newZealData
+    hero:SetModifierStackCount("modifier_orthok_zeal", hero.InventoryUnit, totalStacks)
+    Filters:UpdateOrthokPFX(hero, totalStacks, chains)
+end
+
+function Filters:UpdateOrthokPFX(hero, totalStacks, chains)
+    if not chains.pfx1 and totalStacks > 0 then
+        local particleName = "particles/econ/generic/generic_buff_1/charge_of_light_effect_buff.vpcf"
+        local pfx1 = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, hero)
+        ParticleManager:SetParticleControlEnt(pfx1, 0, hero, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", hero:GetAbsOrigin(), true)
+        chains.pfx1 = pfx1
+        local pfx2 = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, hero)
+        ParticleManager:SetParticleControlEnt(pfx2, 0, hero, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", hero:GetAbsOrigin(), true)
+        chains.pfx2 = pfx2
+    end
+    if totalStacks > 0 then
+        local weight = totalStacks/100
+        ParticleManager:SetParticleControl(chains.pfx1, 14, Vector(1, 1*weight, weight))
+        ParticleManager:SetParticleControl(chains.pfx1, 15, Vector(255, 251, 0))
+        ParticleManager:SetParticleControl(chains.pfx2, 14, Vector(1, 1*weight, weight))
+        ParticleManager:SetParticleControl(chains.pfx2, 15, Vector(0, 0, 255))
+    else
+        if chains.pfx1 then
+            ParticleManager:DestroyParticle(chains.pfx1, false)
+            chains.pfx1 = false
+        end
+        if chains.pfx2 then
+            ParticleManager:DestroyParticle(chains.pfx2, false)
+            chains.pfx2 = false
+        end
+    end
+end

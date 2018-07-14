@@ -1576,24 +1576,26 @@ function essence_drain_think(event)
 	for i = 1, #modifiers, 1 do
 		local modifier = modifiers[i]
 		local modifierMaker = modifier:GetCaster()
-		local condition = false
-		if modifierMaker:GetTeamNumber() == target:GetTeamNumber() then
-			local durationRemaining = modifier:GetRemainingTime()
-			if durationRemaining > 0.5 then
-				modifier:SetDuration(durationRemaining - 0.1, true)
-				local caster_modifier = false
-				local stacks = modifier:GetStackCount()
-				if not caster:HasModifier(modifier:GetName()) then
-					local modifierAbility = modifier:GetAbility()
-					if IsValidEntity(modifierAbility) then
-						modifierAbility:ApplyDataDrivenModifier(modifier:GetCaster(), caster, modifier:GetName(), {duration = 0.3})
+		if IsValidEntity(modifierMaker) then
+			local condition = false
+			if modifierMaker:GetTeamNumber() == target:GetTeamNumber() then
+				local durationRemaining = modifier:GetRemainingTime()
+				if durationRemaining > 0.5 then
+					modifier:SetDuration(durationRemaining - 0.1, true)
+					local caster_modifier = false
+					local stacks = modifier:GetStackCount()
+					if not caster:HasModifier(modifier:GetName()) then
+						local modifierAbility = modifier:GetAbility()
+						if IsValidEntity(modifierAbility) then
+							modifierAbility:ApplyDataDrivenModifier(modifier:GetCaster(), caster, modifier:GetName(), {duration = 0.3})
+						end
 					end
-				end
-				caster_modifier = caster:FindModifierByName(modifier:GetName())
-				if caster_modifier then
-					local durationRemaining2 = caster_modifier:GetRemainingTime()
-					caster_modifier:SetDuration(durationRemaining2 + 0.2, true)
-					caster_modifier:SetStackCount(stacks)
+					caster_modifier = caster:FindModifierByName(modifier:GetName())
+					if caster_modifier then
+						local durationRemaining2 = caster_modifier:GetRemainingTime()
+						caster_modifier:SetDuration(durationRemaining2 + 0.2, true)
+						caster_modifier:SetStackCount(stacks)
+					end
 				end
 			end
 		end
@@ -1945,21 +1947,21 @@ function tri_boss_think(event)
 	end
 	local luck = RandomInt(1, 12-GameState:GetDifficultyFactor()-stoneReduce)
 	if luck == 1 then
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1300+GameState:GetDifficultyFactor()*200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 		local target_point = nil
 		if #enemies > 0 then
 			target_point = enemies[1]:GetAbsOrigin()+RandomVector(RandomInt(540, 1500))
+			local eventTable = {}
+			eventTable.caster = caster
+			eventTable.ability = ability
+			eventTable.target_points = {}
+			eventTable.anim = caster.anim
+			eventTable.target_points[1] = GetGroundPosition(target_point, caster)
+			eventTable.jumpVO = caster.jumpVO
+			Winterblight:azalea_jump_start(eventTable)
 		else
 			target_point = caster:GetAbsOrigin()+caster:GetForwardVector()*600+Vector(0,0,100)
 		end
-		local eventTable = {}
-		eventTable.caster = caster
-		eventTable.ability = ability
-		eventTable.target_points = {}
-		eventTable.anim = caster.anim
-		eventTable.target_points[1] = GetGroundPosition(target_point, caster)
-		eventTable.jumpVO = caster.jumpVO
-		Winterblight:azalea_jump_start(eventTable)
 	end
 	if caster:GetUnitName() == "winterblight_buzuki" then
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
@@ -2077,6 +2079,13 @@ function tri_boss_death_sequence(event)
 					end
 				end
 			end
+			local pos = caster:GetAbsOrigin()
+			Timers:CreateTimer(5, function()
+				local luck = RandomInt(1, 7-GameState:GetPlayerPremiumStatusCount())
+				if luck == 1 then
+					RPCItems:RollBuzukisFinger(pos)
+				end
+			end)
 		elseif caster:GetUnitName() == "winterblight_azertia" then
 			delay = 2.5
 			local abilityTable = {"ability_mega_haste", "winterblight_generic_chill_attack_passive", "winterblight_wolf_ability", "winterblight_ogre_armor", "winterblight_frostiok_passive", "winterblight_frost_colossus_passive", "winterblight_snowshaker_passive", "winterblight_bear_passive", "winterblight_stun_regen", "winterblight_frostbite_attack", "luna_taskmaster_shield", "winterblight_dimension_spear", "winterblight_speed_softening", "winterblight_armor_softening"}
@@ -3415,4 +3424,335 @@ function boss_death_effect_think(event)
 	local ability = event.ability
 	CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/boss_exploding.vpcf", caster, 3)
 	EmitSoundOn("Winterblight.AzaleaBoss.DeathEffect", caster)
+end
+
+function azheran_die(event)
+	local hero = event.unit
+	local caster = event.caster
+	local ability = event.ability
+	AddFOWViewer(hero:GetTeamNumber(), hero:GetAbsOrigin(), 500, 6, false)
+	EmitSoundOn("Winterblight.Azheran.Die.VO", hero)
+	Timers:CreateTimer(3, function()
+		local position = hero:GetAbsOrigin()
+		for i = 0, 3, 1 do
+			Timers:CreateTimer(0.1*i, function()
+			    local particleName = "particles/roshpit/winterblight/snow_impact.vpcf"
+			    local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, nil)
+			    ParticleManager:SetParticleControl(particle1,0,caster:GetAbsOrigin())
+			    Timers:CreateTimer(1, function()
+			    	ParticleManager:DestroyParticle( particle1, false )
+			    end)
+			end)
+		end
+		RPCItems:RollFrozenHeart(position)
+		EmitSoundOn("RPCItems.FrozenHeart.Shatter", hero)
+	    local particleName = "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
+	    local radius = 500
+	    local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, nil )
+	    ParticleManager:SetParticleControl( particle1, 0, position )
+	    ParticleManager:SetParticleControl( particle1, 1, Vector(radius, 1, 800) )
+	    ParticleManager:SetParticleControl( particle1, 3, Vector(radius, radius, radius) )
+	    Timers:CreateTimer(3, function()
+	        ParticleManager:DestroyParticle(particle1, false)
+	    end)
+		hero:SetAbsOrigin(hero:GetAbsOrigin()-Vector(0,0,2500))
+
+	end)
+end
+
+function azheran_take_damage(event)
+	local caster = event.caster
+	local ability = event.ability
+	local attacker = event.attacker
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_iceblood_stack", {})
+	local newStacks = caster:GetModifierStackCount("modifier_iceblood_stack", caster) + 1
+	if newStacks >= 8 then
+		caster:RemoveModifierByName("modifier_iceblood_stack")
+		local damage = event.damage
+	    local icePoint = caster:GetAbsOrigin()
+	    local radius = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), attacker:GetAbsOrigin())
+	    EmitSoundOnLocationWithCaster(icePoint, "Winterblight.AzaleaBeacon.Activate", caster)
+	    local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+	    local pfx = ParticleManager:CreateParticle( particle, PATTACH_WORLDORIGIN, caster )
+	    ParticleManager:SetParticleControl( pfx, 0, icePoint )
+	    ParticleManager:SetParticleControl( pfx, 1, Vector(radius, 2, radius*2) )
+	    Timers:CreateTimer(2.5, function()
+	        ParticleManager:DestroyParticle(pfx, false)
+	    end)
+	    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), icePoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+	    if #enemies > 0 then    
+	        for _,enemy in pairs(enemies) do
+	            ability:ApplyDataDrivenModifier(caster, enemy, "modifier_chilled", {duration = 3})
+	            ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
+	        end
+	    end
+	else
+		caster:SetModifierStackCount("modifier_iceblood_stack", caster, newStacks)
+	end
+end
+
+function orthok_attack_start(event)
+	local caster = event.caster
+	local ability = event.ability
+	local radius = caster:GetAttackRange()
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+	if #enemies > 0 then
+		for _,enemy in pairs(enemies) do
+			Filters:PerformAttackSpecial(caster, enemy, true, true, true, false, true, false, false)
+		end
+	end 
+end
+
+function orthok_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local radius = caster:GetAttackRange()
+	if not caster.initialized then
+		radius = 500
+	end
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+	if caster.lock then
+		return false
+	end
+	if not caster:HasModifier("modifier_water_emperor_submerged") then
+		caster:SetModelScale(3) 
+	end
+	if caster:HasModifier("modifier_water_emperor_submerged") then
+		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+		caster:SetModelScale(0.1)
+	end
+	if #enemies > 0 then
+		if caster:HasModifier("modifier_water_emperor_submerged") then
+			caster.initialized = true
+			caster:RemoveModifierByName("modifier_water_emperor_submerged")
+			print("RISE!")
+			local animationDuration = 2
+			StartAnimation(caster, {duration=animationDuration, activity=ACT_DOTA_SPAWN, rate=0.5})
+			-- for i = 1, 17, 1 do
+			-- 	Timers:CreateTimer(0.03*i, function()
+			-- 		caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,34))
+			-- 	end)
+			-- end
+			Timers:CreateTimer(0.18, function()
+			    local particleName = "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
+			    local radius = 260
+			    local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, nil )
+			    local origin = caster:GetAbsOrigin()
+			    ParticleManager:SetParticleControl( particle1, 0, origin+Vector(0,0,20) )
+			    ParticleManager:SetParticleControl( particle1, 1, Vector(radius, 1, 1000) )
+			    ParticleManager:SetParticleControl( particle1, 3, Vector(500, 500, 500) )
+			    Timers:CreateTimer(3, function()
+			        ParticleManager:DestroyParticle(particle1, false)
+			    end)
+			    EmitSoundOn("Winterblight.SkaterFiend.SuicideCrash", caster)
+				Timers:CreateTimer(4, 
+				function()
+					ParticleManager:DestroyParticle( particle1, false )
+				end)
+			end)
+			Timers:CreateTimer(1.2, function()
+				if not caster:HasModifier("modifier_water_emperor_submerged") then
+					EmitSoundOn("Winterblight.Orthok.Mad", caster)
+				end
+			end)
+		end
+	else
+		if not caster:HasModifier("modifier_water_emperor_submerged") then
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_water_emperor_submerged", {})
+			StartAnimation(caster, {duration=1, activity=ACT_DOTA_ATTACK, rate=1}) 
+			for i = 1, 17, 1 do
+				Timers:CreateTimer(0.03*i, function()
+					if not caster.lock then
+						caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,34))
+					end
+				end)
+				Timers:CreateTimer(0.18, function()
+				    local particleName = "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
+				    local radius = 260
+				    local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, nil )
+				    local origin = caster:GetAbsOrigin()
+				    ParticleManager:SetParticleControl( particle1, 0, origin+Vector(0,0,20) )
+				    ParticleManager:SetParticleControl( particle1, 1, Vector(radius, 1, 1000) )
+				    ParticleManager:SetParticleControl( particle1, 3, Vector(500, 500, 500) )
+				    Timers:CreateTimer(3, function()
+				        ParticleManager:DestroyParticle(particle1, false)
+				    end)
+				    EmitSoundOn("Winterblight.SkaterFiend.SuicideCrash", caster)
+					Timers:CreateTimer(4, 
+					function()
+						ParticleManager:DestroyParticle( particle1, false )
+					end)
+					Timers:CreateTimer(0.35, function()
+						if caster:HasModifier("modifier_water_emperor_submerged") then
+							FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+							caster:SetModelScale(0.1)
+						end
+					end)
+				end)
+			end
+		end
+	end
+end
+
+function orthok_min_health_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster.lock then
+		return false
+	end
+	if caster:GetHealth() < 1000 then
+		caster.lock = true
+		if caster.phase == 1 then
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_orthok_blue", {})
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_orthok_leaving", {})
+			Winterblight:smoothSizeChange(caster, 3, 1, 40)
+			for i = 1, 100, 1 do
+				Timers:CreateTimer(i*0.03, function()
+					caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,6))
+				end)
+			end
+			Timers:CreateTimer(3, function()
+				EmitSoundOn("Winterblight.Orthok.Mad", caster)
+			end)
+			Timers:CreateTimer(4.0, function()
+				local icePoint = caster:GetAbsOrigin()
+				local radius = 600
+			    EmitSoundOnLocationWithCaster(icePoint, "Winterblight.AzaleaBoss.IceNovaExplode", caster)
+			    local particle = "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
+			    local pfx = ParticleManager:CreateParticle( particle, PATTACH_WORLDORIGIN, nil )
+			    ParticleManager:SetParticleControl( pfx, 0, icePoint )
+			    ParticleManager:SetParticleControl( pfx, 1, Vector(radius, 2, radius*2) )
+			    Timers:CreateTimer(2.5, function()
+			        ParticleManager:DestroyParticle(pfx, false)
+			    end)			
+				local position = Winterblight:GetRandomOrthokPosition()
+				Winterblight:SpawnOrthok(position, Vector(0,-1), 2)
+				UTIL_Remove(caster)
+			end)
+		else
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_orthok_blue", {})
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_orthok_leaving", {})
+			Winterblight:smoothSizeChange(caster, 3, 1, 40)
+			for i = 1, 100, 1 do
+				Timers:CreateTimer(i*0.03, function()
+					caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,6))
+				end)
+			end
+			Timers:CreateTimer(3, function()
+				EmitSoundOn("Winterblight.Orthok.Mad", caster)
+			end)
+			Timers:CreateTimer(4.0, function()
+				local icePoint = caster:GetAbsOrigin()
+				local radius = 600
+			    EmitSoundOnLocationWithCaster(icePoint, "Winterblight.AzaleaBoss.IceNovaExplode", caster)
+			    local particle = "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
+			    local pfx = ParticleManager:CreateParticle( particle, PATTACH_WORLDORIGIN, nil )
+			    ParticleManager:SetParticleControl( pfx, 0, icePoint )
+			    ParticleManager:SetParticleControl( pfx, 1, Vector(radius, 2, radius*2) )
+			    Timers:CreateTimer(2.5, function()
+			        ParticleManager:DestroyParticle(pfx, false)
+			    end)	
+			    local immortals = 2 + GameState:GetPlayerPremiumStatusCount()
+			    RPCItems:RollChainsOfOrthok(icePoint)
+				for i = 1, immortals, 1 do
+					Timers:CreateTimer(i*0.5, function()
+						RPCItems:RollItemtype(100, icePoint, 5, 100)
+					end)
+				end
+				UTIL_Remove(caster)
+			end)
+		end
+	end
+end
+
+function captain_reynar_attacked(event)
+	local caster = event.caster
+	local ability = event.ability
+	caster.phase = 0
+	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_medusa/ice_shatter.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin())
+	EmitSoundOn("Winterblight.IceCrystal.Shatter", caster)
+	caster:RemoveModifierByName("modifier_maze_ghost_frozen")
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_reynar_ai", {})
+	Timers:CreateTimer(2, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
+	StartAnimation(caster, {duration=1.9, activity=ACT_DOTA_VICTORY, rate=0.9})
+	Timers:CreateTimer(0.7, function()
+		EmitSoundOn("Winterblight.CaptainReynar.Free.VO", caster)
+	end)
+end
+
+function captain_reynar_thinking(event)
+	local caster = event.caster
+	local ability = event.ability
+	local targetPos = caster:GetAbsOrigin()
+	if caster.lock then
+		return false
+	end
+	if caster.phase == 0 then
+		targetPos = Vector(-224, -7680)
+	elseif caster.phase == 1 then
+		targetPos = Vector(3712, -6656)
+	elseif caster.phase == 2 then
+		targetPos = Vector(10624, -8320)
+	elseif caster.phase == 3 then
+		targetPos = Vector(11147, -11136)
+	end
+	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+	caster:MoveToPosition(targetPos)
+	if WallPhysics:GetDistance2d(targetPos, caster:GetAbsOrigin()) < 120 then
+		if caster.phase == 0 then
+			if Winterblight.IceWallShattered then
+				caster.phase = 1
+			end
+		elseif caster.phase == 1 then
+			if Winterblight.CaveIceWallDestroyed then
+				caster.phase = 2
+			end
+		elseif caster.phase == 2 then
+			if Winterblight.AzaleaEntranceBridgeRaised then
+				caster.phase = 3
+			end
+		elseif caster.phase == 3 then
+			caster.phase = 4
+			caster.lock = true
+			StartAnimation(caster, {duration=1.9, activity=ACT_DOTA_VICTORY, rate=0.9})
+			Timers:CreateTimer(0.2, function()
+				EmitSoundOn("Winterblight.CaptainReynar.Free.VO", caster)
+			end)
+			-- Winterblight.MasterCrystal
+			for i = 1, 20, 1 do
+				Timers:CreateTimer(i*0.03, function()
+					caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0,-15, 5))
+				end)
+			end
+			Timers:CreateTimer(0.5, function()
+				Winterblight:objectShake(caster, 40, 5, true, false, true, nil, 1)
+				Timers:CreateTimer(1, function()
+					local moveVector = (Winterblight.MasterCrystal:GetAbsOrigin()-caster:GetAbsOrigin())/16
+					for i = 1, 16, 1 do
+						Timers:CreateTimer(i*0.03, function()
+							caster:SetAbsOrigin(caster:GetAbsOrigin()+moveVector)
+						end)
+					end
+					Timers:CreateTimer(0.6, function()
+						local icePoint = caster:GetAbsOrigin()
+						local radius = 600
+					    EmitSoundOnLocationWithCaster(icePoint, "Winterblight.AzaleaBoss.IceNovaExplode", caster)
+					    local particle = "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
+					    local pfx = ParticleManager:CreateParticle( particle, PATTACH_WORLDORIGIN, nil )
+					    ParticleManager:SetParticleControl( pfx, 0, icePoint )
+					    ParticleManager:SetParticleControl( pfx, 1, Vector(radius, 2, radius*2) )
+					    Timers:CreateTimer(2.5, function()
+					        ParticleManager:DestroyParticle(pfx, false)
+					    end)
+					    RPCItems:RollCaptainsVest(icePoint)
+						UTIL_Remove(caster)
+					end)
+				end)
+			end)
+		end
+	end
 end

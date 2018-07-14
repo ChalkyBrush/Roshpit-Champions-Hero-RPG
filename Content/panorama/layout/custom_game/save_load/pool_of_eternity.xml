@@ -21,6 +21,7 @@
 		</Label>
 		<Label class="pool_description_label" id="pool_description_label" text="">
 		</Label>
+		<Label id="loading_ui" text="ui_loading"/>
 		<Panel id="pool_container" hittest="false">
 			<Panel class="stash_items_box" id="stash_items">
 				<Panel class="stash_row" id="stash_row_1" />

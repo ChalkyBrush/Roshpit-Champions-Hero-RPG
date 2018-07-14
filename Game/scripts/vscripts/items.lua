@@ -116,6 +116,20 @@ function RPCItems:RollItemtype(xpBounty, deathLocation, rarityValue, unitLevel)
 				return
 			end
 		end
+	elseif weaponRoll == 3 then
+		local chanceImprover = 0
+		if rarityValue == 4 then
+			chanceImprover = 1
+		elseif rarityValue == 5 then
+			chanceImprover = 2
+		end
+		local luck2 = RandomInt(1, 240-(chanceImprover*100))
+		if luck2 == 1 then
+			local luck3 = RandomInt(1, 1000-GameState:GetPlayerPremiumStatusCount()*50)
+			if luck3 == 1 then
+				RPCItems:RollRandomArcanaCachePart(deathLocation)
+			end
+		end
 	end
 	if luck >= 200 then
 		if rarity == "common" or rarity =="uncommon" or rarity == "rare" or rarity == "mythical" then
@@ -1582,6 +1596,11 @@ function RPCItems:GetMaxFactor()
 	    		maxFactor = maxFactor + 8*Arena.PitLevel
 	    	end
 	    end
+	    if Winterblight then
+	    	if Winterblight.Stones then
+	    		maxFactor = maxFactor + 45*Winterblight.Stones
+	    	end
+	    end
 	    if RPCItems.StrictItemLevel then
 	    	maxFactor = RPCItems.StrictItemLevel
 	    end
@@ -1712,4 +1731,15 @@ end
 function RPCItems:BasicDropItem(position, item)
     local drop = CreateItemOnPositionSync( position, item )
     RPCItems:DropItem(item, position)
+end
+
+function RPCItems:CreateBasicConsumable(position, itemName, fullName, rarity, bDrop)
+    local item = RPCItems:CreateConsumable(itemName, rarity, fullName, "consumable", false, "Consumable", itemName.."_desc")
+    item.stashable = true
+    item.consumable = true
+    item.basicConsumable = true
+    if bDrop then
+    	RPCItems:BasicDropItem(position, item)
+    end
+    return item
 end

@@ -1008,7 +1008,8 @@ function Events:SetupHeroes(heroEntity)
         heroEntity.baseProjectileSpeed = heroEntity:GetProjectileSpeed()
       end
     end)
-
+    heroEntity.castPointQ = heroEntity:GetAbilityByIndex(0):GetCastPoint()
+    heroEntity.castPointW = heroEntity:GetAbilityByIndex(1):GetCastPoint()
     -- Timers:CreateTimer(6, function()
       CustomNetTables:SetTableValue("player_stats", tostring(ownerID), {skillPoints = 0, runePoints = 3} )
       Events:CreateRuneUnits(heroEntity, ownerID)
