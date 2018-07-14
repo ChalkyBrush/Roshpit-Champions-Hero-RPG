@@ -1256,15 +1256,14 @@ function Serengaard:SubmitStats()
       url = url.."&steam_id"..i.."="..steamID
       url = url.."&hero"..i.."="..heroName
       url = url.."&steam_name"..i.."="..playerName
-      url = url.."&steam_id_long"..i.."="..steamIDlong
-      print("serengaard urlWaves: "..url)
-      CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
-        print( "POST".." response infWaves:" )
-        if result.StatusCode then 
-          print(result.StatusCode)
-        end
-      end )
+      url = url.."&steam_id_long"..i.."="..steamIDlong      
     end
+    CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
+      print( "POST".." response infWaves:" )
+      if result.StatusCode then 
+        print(result.StatusCode)
+      end
+    end )
   end
   Timers:CreateTimer(5, function()
     url = ROSHPIT_URL.."/champions/get_serengaard?"
