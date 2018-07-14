@@ -1322,7 +1322,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		local stonesReduce = {0.1, 0.01, 0.001}
 		local stoneReduce = 1
 		if Winterblight.Stones > 0 then
-		  stoneReduce = stoneReduce[Winterblight.Stones]
+		  stoneReduce = stonesReduce[Winterblight.Stones]
 		  if GameState:GetDifficultyFactor() == 1 then
 		  	stoneReduce = math.max(stoneReduce, 0.1)
 		  elseif GameState:GetDifficultyFactor() == 2 then
