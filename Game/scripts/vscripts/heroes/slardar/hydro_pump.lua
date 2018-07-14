@@ -170,7 +170,7 @@ function mystic_water_shield_think(event)
 	local ability = event.ability
 	local stacks = caster:GetModifierStackCount("modifier_hydroxis_b_a_shield_visible", caster) + caster:GetModifierStackCount("modifier_hydroxis_b_a_shield_visible_glyphed", caster)
 	local healAmount = ability.b_a_level*200*stacks
-	caster:Heal(healAmount, caster)
-	PopupHealing(caster, healAmount)
+	Filters:ApplyHeal(caster, caster, healAmount, true)
+	-- PopupHealing(caster, healAmount)
 	CustomAbilities:QuickAttachParticle("particles/roshpit/hydroxis/mystic_water_shield_heal.vpcf", caster, 1)
 end

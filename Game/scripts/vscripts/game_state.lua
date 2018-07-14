@@ -1434,7 +1434,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		local stonesReduce = {0.1, 0.01, 0.001}
 		local stoneReduce = 1
 		if Winterblight.Stones > 0 then
-		  stoneReduce = stoneReduce[Winterblight.Stones]
+		  stoneReduce = stonesReduce[Winterblight.Stones]
 		  if GameState:GetDifficultyFactor() == 1 then
 		  	stoneReduce = math.max(stoneReduce, 0.1)
 		  elseif GameState:GetDifficultyFactor() == 2 then
@@ -1453,6 +1453,10 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		end
 	end
 	return damage/BASE_VALUE_FOR_CALCULATE
+end
+
+function GameState:AbilityFilter(abilityTable)
+	return true
 end
 
 function GameState:FilterDamage(filterTable)
@@ -1489,17 +1493,29 @@ function GameState:FilterDamage(filterTable)
 			print("APPLY EFFECTS FALSE!")
 			applyEffects = false
 		end
-		if not ability:GetName() == "npc_dota_creature" then
-			if not string.match(ability:GetClassname(), "npc_dota_hero_") then
-				if IsValidEntity(ability) then
-					local abilityName = ability:GetAbilityName()
-					modifier = victim:FindModifierByName('modifier_centaur_horns')
-					if abilityName ~= 'item_rpc_centaur_horns' and modifier then
-						local centaurHornsAbility = modifier:GetAbility()
-						centaurHornsAbility:ApplyDataDrivenModifier(victim, victim, "modifier_centaur_horns_debuff", {duration = 1.5})
-					end
-				end
+		-- if not ability:GetName() == "npc_dota_creature" then
+		-- 	if not string.match(ability:GetClassname(), "npc_dota_hero_") then
+		-- 		if IsValidEntity(ability) then
+		-- 			local abilityName = ability:GetAbilityName()
+		-- 			modifier = victim:FindModifierByName('modifier_centaur_horns')
+		-- 			if abilityName ~= 'item_rpc_centaur_horns' and modifier then
+		-- 				local centaurHornsAbility = modifier:GetAbility()
+		-- 				centaurHornsAbility:ApplyDataDrivenModifier(victim, victim, "modifier_centaur_horns_debuff", {duration = 1.5})
+		-- 			end
+		-- 		end
+		-- 	end
+		-- end
+	end
+
+	if victim:HasModifier("modifier_centaur_horns") then
+		if filterTable["entindex_inflictor_const"] then
+			if EntIndexToHScript(filterTable["entindex_inflictor_const"]):GetName() ~= "item_rpc_centaur_horns" then
+				local ability = victim:FindModifierByName("modifier_centaur_horns"):GetAbility()
+				ability:ApplyDataDrivenModifier(victim, victim, "modifier_centaur_horns_debuff", {duration = 1.5})
 			end
+		else
+			local ability = victim:FindModifierByName("modifier_centaur_horns"):GetAbility()
+			ability:ApplyDataDrivenModifier(victim, victim, "modifier_centaur_horns_debuff", {duration = 1.5})
 		end
 	end
 
@@ -1925,12 +1941,12 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if attacker:HasModifier("modifier_terrasic_stone_plate") then
-		if victim:IsStunned() or victim:HasModifier("modifier_knockback") then
+		if victim:IsStunned() or victim:HasModifier("modifier_knockback") or victim:IsFakeStunned() then
 			mult = mult + 2
 		end
 	end
 	if attacker:HasModifier("modifier_steelforge_passive") then
-		if victim:IsStunned() or victim:HasModifier("modifier_knockback") then
+		if victim:IsStunned() or victim:HasModifier("modifier_knockback") or victim:IsFakeStunned() then
 			mult = mult + 0.03*attacker.b_b_level
 		end
 	end
@@ -2477,7 +2493,7 @@ function GameState:FilterDamage(filterTable)
 
 
 	if Events.SpiritRealm then
-      	if victim:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+      	if victim:GetTeamNumber() == DOTA_TEAM_NEUTRALS and not victim:GetUnitName() == "arena_training_dummy" then
       		filterTable["damage"] = filterTable["damage"]/6
       	end
       	if attacker:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
@@ -3052,6 +3068,7 @@ function GameState:FilterDamage(filterTable)
     end
 
 
+
 	--LETHAL CHECK
 	if filterTable["damage"] > victim:GetHealth() then
 		local rezzed = false
@@ -3114,17 +3131,6 @@ function GameState:FilterDamage(filterTable)
 				end
             end
         end
-        if victim:HasModifier('modifier_duskbringer_ghost_form_checker') and not rezzed then
-            local caster = victim:FindModifierByName('modifier_duskbringer_ghost_form_checker'):GetCaster()
-			if caster.d_c_level then
-                local ability = caster:FindAbilityByName('specter_rush_two')
-                ability:ApplyDataDrivenModifier(caster, victim, "modifier_duskbringer_ghost_form_active", {duration = 0.2 * caster.d_c_level})
-                CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash_flash.vpcf", victim:GetAbsOrigin()+Vector(0,0,50), 0.4)
-                EmitSoundOn("Duskbringer.Wraithform", victim)
-				filterTable["damage"] =  0
-				rezzed = true
-            end
-        end
 		if victim:HasModifier("modifier_ankh_of_the_ancients") and not rezzed then
 			if not victim:HasModifier("modifier_ankh_of_ancients_cooldown") then
 				filterTable["damage"] = victim:GetHealth() - 2
@@ -3172,6 +3178,18 @@ function GameState:FilterDamage(filterTable)
 				end)
 			end
 		end
+		if victim:HasModifier('modifier_duskbringer_ghost_form_checker') and not rezzed then
+            local caster = victim:FindModifierByName('modifier_duskbringer_ghost_form_checker'):GetCaster()
+			if caster.d_c_level then
+                local ability = caster:FindAbilityByName('specter_rush_two')
+                ability:ApplyDataDrivenModifier(caster, victim, "modifier_duskbringer_ghost_form_active", {duration = 0.2 * caster.d_c_level})
+                CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash_flash.vpcf", victim:GetAbsOrigin()+Vector(0,0,50), 0.4)
+                EmitSoundOn("Duskbringer.Wraithform", victim)
+				filterTable["damage"] =  0
+				victim.KILLER = attacker
+				rezzed = true
+            end
+        end
 
 	end
 	if victim:HasModifier("modifier_zefnar_passive") then
@@ -3214,18 +3232,22 @@ function GameState:FilterDamage(filterTable)
 	-- if attacker:HasModifier("modifier_line_unit_passive") then
 	-- 	filterTable["damage"] = filterTable["damage"]/GameState.PVP_REDUCTION
 	-- end
+	-- if Beacons.cheats then
+	-- 	if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+	-- 		if victim:IsHero() then
+	-- 			filterTable["damage"] = 0
+	-- 		end
+	-- 	end
+	-- 	-- filterTable["damage"] = victim:GetHealth()-1
+	-- 	-- if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+	-- 	-- 	if attacker:IsHero() then
+	-- 	-- 		filterTable["damage"] = filterTable["damage"]*60000000
+	-- 	-- 	end
+	-- 	-- end
+	-- end
 
-	if Beacons.cheats then
-		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-			if victim:IsHero() then
-				filterTable["damage"] = 0
-			end
-		end
-		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-			if attacker:IsHero() then
-				filterTable["damage"] = filterTable["damage"]*60000000
-			end
-		end
+	if (EntIndexToHScript(filterTable["entindex_attacker_const"]) == EntIndexToHScript(filterTable["entindex_victim_const"])) and (filterTable["damage"] > StartingDamage) then
+		filterTable["damage"] = StartingDamage
 	end
 
 	return true

@@ -41,7 +41,7 @@ local function onSpecificIntervalThink(ability, caster, position, heal)
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
     ability.enemies = enemies
     if #enemies > 0 then
-        caster:Heal(heal * #enemies, caster)
+        Filters:ApplyHeal(caster, caster, heal * #enemies, true,false)
         WhirlwindDamage.damageEnemies(caster, enemies)
     end
 end

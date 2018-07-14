@@ -45,11 +45,20 @@ function hawk_screech(event)
 		for i = 1, #modifiers, 1 do
 			local modifier = modifiers[i]
 			local modifierMaker = modifier:GetCaster()
-			if modifier ~= caster:FindModifierByName("modifier_ankh_of_ancients_shield") and modifier ~= caster:FindModifierByName("modifier_ankh_of_ancients_cooldown") and
-				(modifierMaker:GetEntityIndex() == caster:GetEntityIndex() or modifierMaker:GetEntityIndex() == caster.InventoryUnit:GetEntityIndex()) then
+			if not modifier.djanghorQ3Increase then
+				modifier.djanghorQ3Increase = 0
+			end
+			if (modifierMaker:GetEntityIndex() == caster:GetEntityIndex() or modifierMaker:GetEntityIndex() == caster.InventoryUnit:GetEntityIndex()) and modifier.djanghorQ3Increase < DJANGHOR_Q3_BUFF_DURATION_INCREASE_LIMIT then
 				local durationRemaining = modifier:GetRemainingTime()
 				if durationRemaining > 0 then
-					modifier:SetDuration(durationRemaining + DJANGHOR_Q3_BUFF_DURATION_INCREASE*c_a_level, true)
+					local durationIncrease = DJANGHOR_Q3_BUFF_DURATION_INCREASE*c_a_level
+					if (modifier.djanghorQ3Increase + durationIncrease) > DJANGHOR_Q3_BUFF_DURATION_INCREASE_LIMIT then
+						durationIncrease = DJANGHOR_Q3_BUFF_DURATION_INCREASE_LIMIT - modifier.djanghorQ3Increase
+						modifier.djanghorQ3Increase = DJANGHOR_Q3_BUFF_DURATION_INCREASE_LIMIT
+					else
+						modifier.djanghorQ3Increase = modifier.djanghorQ3Increase + durationIncrease
+					end
+					modifier:SetDuration(durationRemaining + durationIncrease, true)
 				end
 			end
 		end

@@ -8752,6 +8752,10 @@
 						"Function"		"iron_colossus_attack"
 					}
 				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BASE_OVERRIDE" "1.2"
+				}
 			}
 			"modifier_iron_colossus_attack_speed_loss"
 			{

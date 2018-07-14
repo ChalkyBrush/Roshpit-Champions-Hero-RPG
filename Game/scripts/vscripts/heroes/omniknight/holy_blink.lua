@@ -286,7 +286,7 @@ function d_c_projectile_hit(event)
 	if target:GetTeamNumber() == caster:GetTeamNumber() then
 		local healAmount = math.floor(ability.projectileDamage * 0.1 * ability.d_c_level)
 		
-		target:Heal(healAmount, caster)
+		Filters:ApplyHeal(caster, target, healAmount, true)
 		PopupHealing(target, healAmount)
 	else
 		print('d_c_projectile damage')

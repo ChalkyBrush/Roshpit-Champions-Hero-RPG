@@ -511,6 +511,7 @@ function Filters:ApplyStun(caster, duration, target)
     end
 
     duration = duration*mult
+    Events.GameMasterAbility:ApplyDataDrivenModifier(caster, target, "modifier_fake_stunned", {duration = duration})
     if target.bossStatus or target:IsHero() then
 
         local currentResistanceStacks = target:GetModifierStackCount("modifier_stun_resistance", Events.GameMaster)
@@ -563,7 +564,7 @@ function Filters:stormcrack_upgrade(caster, ability, target)
     end
 end
 
-function Filters:ApplyHeal(caster, target, healAmount, bCap)
+function Filters:ApplyHeal(caster, target, healAmount, bCap,doPopUp)
     if caster:HasModifier("modifier_grasp_of_elder") then
         healAmount = healAmount*2
         if not target.elderShield then
@@ -578,7 +579,9 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap)
     end
     healAmount = math.floor(healAmount)
     target:Heal(healAmount, caster)
-    PopupHealing(target, healAmount)
+    if doPopUp == true or doPopUp == nil then
+        PopupHealing(target, healAmount)
+    end
 
     if target:HasModifier("modifier_pirate_aura_debuff") then
         local modifiers = target:FindAllModifiersByName("modifier_pirate_aura_debuff")
@@ -601,6 +604,39 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap)
                 target.paladin_d_b_absorb = math.min(target.paladin_d_b_absorb + shieldAmount, target:GetMaxHealth()*0.1*d_a_level)
                 local shieldDuration = Filters:GetAdjustedBuffDuration(caster, 12, false)
                 ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_rune_b_b_shield", {duration = shieldDuration})
+            end
+        end
+    end
+    if caster:HasModifier("modifier_white_mage_hat2") then
+        local overheal = healAmount - (target:GetMaxHealth()-target:GetHealth())
+                if overheal > 0 then
+                    if not target.whiteMageShield then
+                        target.whiteMageShield = 0
+                    end
+                    if not target:HasModifier("modifier_white_mage_shield") then
+                        target.whiteMageShield = 0
+                    end
+                    target.whiteMageShield = math.min(target.whiteMageShield + overheal, target:GetMaxHealth())
+                    caster.headItem:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_white_mage_shield", {duration = 16})
+                end
+            end
+    if caster.headItem:GetAbilityName() == "item_rpc_white_mage_hat" then
+        local countUp = false
+        if target:GetHealth() < target:GetMaxHealth() then
+            countUp = true
+        end
+        if countUp then
+            local item = caster.headItem
+            local nextValue = item.property1 + 1
+            local upgradeThreshold = 5000
+            if nextValue == upgradeThreshold then
+                item.lock = true
+                RPCItems:CreateWhiteMageHat2(caster, item)
+                Notifications:Top(caster:GetPlayerOwnerID(), {text="White Mage Hat Upgraded", duration=5, style={color="white"}, continue=true})
+                CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/white_mage_healheal.vpcf", caster, 2)
+            else
+                item.property1 = nextValue
+                RPCItems:SetPropertyValuesSpecial(item, item.property1, "#item_property_white_mage_hat", "#FFFFFF",  1, "#property_white_mage_hat_description")
             end
         end
     end
@@ -1748,7 +1784,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 fireMult = fireMult + 0.0015*attacker:GetStrength()/10*attacker.d_d_level
             end
             if attacker:HasModifier("modifier_flamewaker_arcana2_passive") then
-                if victim:IsStunned() then
+                if victim:IsStunned() or victim:IsFakeStunned() then
                     local a_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 1)
                     if a_b_level > 0 then
                         fireMult = fireMult + 1.25*a_b_level
@@ -2617,46 +2653,13 @@ function Filters:WhiteMageHat(caster)
     local healAmount = caster:GetIntellect()*healMult
     local inventoryUnit = caster.InventoryUnit
     local ability = inventoryUnit:FindAbilityByName("helm_slot")
-    local countUp = false
     if #allies > 0 then
         for _,ally in pairs(allies) do
             ally:RemoveModifierByName("modifier_white_mage_hat_effect")
             ability:ApplyDataDrivenModifier(inventoryUnit, ally, "modifier_white_mage_hat_effect", {})
-            if ally:GetHealth() < ally:GetMaxHealth() then
-                countUp = true
-            end
-            local overheal = healAmount - (caster:GetMaxHealth()-caster:GetHealth())
             Filters:ApplyHeal(caster, ally, healAmount, true)
-            if caster:HasModifier("modifier_white_mage_hat2") then
-                if overheal > 0 then
-                    if not ally.whiteMageShield then
-                        ally.whiteMageShield = 0
-                    end
-                    if not ally:HasModifier("modifier_white_mage_shield") then
-                        ally.whiteMageShield = 0
-                    end
-                    ally.whiteMageShield = math.min(ally.whiteMageShield + overheal, ally:GetMaxHealth())
-                    caster.headItem:ApplyDataDrivenModifier(caster.InventoryUnit, ally, "modifier_white_mage_shield", {duration = 16})
-                end
-            end
         end
     end  
-    if caster.headItem:GetAbilityName() == "item_rpc_white_mage_hat" then
-        if countUp then
-            local item = caster.headItem
-            local nextValue = item.property1 + 1
-            local upgradeThreshold = 5000
-            if nextValue == upgradeThreshold then
-                item.lock = true
-                RPCItems:CreateWhiteMageHat2(caster, item)
-                Notifications:Top(caster:GetPlayerOwnerID(), {text="White Mage Hat Upgraded", duration=5, style={color="white"}, continue=true})
-                CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/white_mage_healheal.vpcf", caster, 2)
-            else
-                item.property1 = nextValue
-                RPCItems:SetPropertyValuesSpecial(item, item.property1, "#item_property_white_mage_hat", "#FFFFFF",  1, "#property_white_mage_hat_description")
-            end
-        end
-    end
 end
 
 function Filters:RubyDragon(caster)

@@ -3637,7 +3637,6 @@
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"14"
-		"AbilityDuration"				"5"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -3688,13 +3687,6 @@
 				"EffectName"	"particles/units/heroes/hero_sven/sven_spell_gods_strength.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"Target"		"CASTER"
-			}
-
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_gods_strength_datadriven"
-				"Target"		"CASTER"
-				"Duration"		"%AbilityDuration"
 			}
 			"RunScript"
 			{
@@ -37376,6 +37368,11 @@
 			"modifier_sea_fortress_ai"
 			{
 				"IsHidden"	"1"
+			}
+			"modifier_fake_stunned"
+			{
+				"IsHidden"	"1"
+				"Passive"	"0"
 			}
 		}
 
