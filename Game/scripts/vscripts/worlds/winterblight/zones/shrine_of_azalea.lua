@@ -3754,7 +3754,6 @@ function Winterblight:RuptholdWall()
 end
 
 function Winterblight:TriBossPhaser(index)
-	print("TESTINGSSSSSSSSSSSSSSSSSSS")
 	Winterblight.TriBossPhase = index
 	local goal = 6 + GameState:GetDifficultyFactor()*2
 	-- goal = 0
