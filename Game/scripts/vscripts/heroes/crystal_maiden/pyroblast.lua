@@ -178,7 +178,6 @@ function ignite_think(event)
 end
 
 function applyIgnite(caster, ability, damage, target, b_d_level, duration)
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_pyroblast_ignite", {duration = duration})
 	local igniteDPS = damage*0.033*b_d_level
 	if caster:HasModifier("modifier_clear_cast") then
 		if ability.c_c_amp then
@@ -190,6 +189,7 @@ function applyIgnite(caster, ability, damage, target, b_d_level, duration)
 	else
 		target.igniteDPS = igniteDPS
 	end
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_pyroblast_ignite", {duration = duration})
 end
 
 function pyroblast_impact_main(event)
