@@ -34,10 +34,11 @@ function Winterblight:Debug()
     RPCItems:RollLegionVestments(Vector(-15424,-2560))
     -- RPCItems:RollRedDivinexAmulet(Vector(-15424,-2560))
     -- RPCItems:RollHelmOfTheMountainGiant(Vector(-15424,-2560), false)
-    RPCItems:RollChainsOfOrthok(Vector(-15424,-2560))
-    RPCItems:RollAstralArcana3(Vector(-15424,-2560))
-    Winterblight:DropBorealGraniteChunk(Vector(-15424,-2560))
-
+    -- RPCItems:RollChainsOfOrthok(Vector(-15424,-2560))
+    -- RPCItems:RollAstralArcana3(Vector(-15424,-2560))
+    -- Winterblight:DropBorealGraniteChunk(Vector(-15424,-2560))
+    RPCItems:RollSeinaruArcana1(Vector(-15424,-2560))
+    RPCItems:RollSeinaruArcana1(Vector(-15424,-2560))
 
 end
 

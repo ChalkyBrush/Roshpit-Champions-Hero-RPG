@@ -1579,22 +1579,24 @@ function essence_drain_think(event)
 		if IsValidEntity(modifierMaker) then
 			local condition = false
 			if modifierMaker:GetTeamNumber() == target:GetTeamNumber() then
-				local durationRemaining = modifier:GetRemainingTime()
-				if durationRemaining > 0.5 then
-					modifier:SetDuration(durationRemaining - 0.1, true)
-					local caster_modifier = false
-					local stacks = modifier:GetStackCount()
-					if not caster:HasModifier(modifier:GetName()) then
-						local modifierAbility = modifier:GetAbility()
-						if IsValidEntity(modifierAbility) then
-							modifierAbility:ApplyDataDrivenModifier(modifier:GetCaster(), caster, modifier:GetName(), {duration = 0.3})
+				if not WallPhysics:DoesTableHaveValue(Filters:GetUnpurgableBuffNames(), modifier:GetName()) then
+					local durationRemaining = modifier:GetRemainingTime()
+					if durationRemaining > 0.5 then
+						modifier:SetDuration(durationRemaining - 0.1, true)
+						local caster_modifier = false
+						local stacks = modifier:GetStackCount()
+						if not caster:HasModifier(modifier:GetName()) then
+							local modifierAbility = modifier:GetAbility()
+							if IsValidEntity(modifierAbility) then
+								modifierAbility:ApplyDataDrivenModifier(modifier:GetCaster(), caster, modifier:GetName(), {duration = 0.3})
+							end
 						end
-					end
-					caster_modifier = caster:FindModifierByName(modifier:GetName())
-					if caster_modifier then
-						local durationRemaining2 = caster_modifier:GetRemainingTime()
-						caster_modifier:SetDuration(durationRemaining2 + 0.2, true)
-						caster_modifier:SetStackCount(stacks)
+						caster_modifier = caster:FindModifierByName(modifier:GetName())
+						if caster_modifier then
+							local durationRemaining2 = caster_modifier:GetRemainingTime()
+							caster_modifier:SetDuration(durationRemaining2 + 0.2, true)
+							caster_modifier:SetStackCount(stacks)
+						end
 					end
 				end
 			end

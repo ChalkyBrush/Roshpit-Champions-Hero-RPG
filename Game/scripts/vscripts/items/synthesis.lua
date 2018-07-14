@@ -59,6 +59,8 @@ function RPCItems:CombineItems(msg)
 			UTIL_Remove(vessel.itemTable[2])
 			UTIL_Remove(vessel)
 			UTIL_Remove(newItem:GetContainer())
+			newItem.pickedUp = true
+			newItem.expiryTime = nil
 			RPCItems:GiveItemToHeroWithSlotCheck(hero, newItem)
 			EmitSoundOn("Item.SynthesisComplete", hero)
 			CustomAbilities:QuickAttachParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_g_cowlofice_b.vpcf", hero, 5)

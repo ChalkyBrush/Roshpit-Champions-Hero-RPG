@@ -70,6 +70,11 @@ function Filters:GetUnpurgableDebuffNames()
     return unpurgable
 end
 
+function Filters:GetUnpurgableBuffNames()
+    local unpurgable = {"modifier_ascencion_cooldown"}
+    return unpurgable
+end
+
 function Filters:CleanseStuns(unit)
     unit:RemoveModifierByName("modifier_stunned")
     unit:RemoveModifierByName("modifier_knockback")

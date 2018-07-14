@@ -133,6 +133,9 @@ function Winterblight:SpawnAzaleaCup(position, fv, index)
 end
 
 function Winterblight:AzaleaCupAttacked(cup, attacker)
+	if attacker:HasModifier("modifier_azalea_cup_use") then
+		return false
+	end
 	if not cup.active then
 		print("HIT INACTIVE CUP")
 		cup.active = true
@@ -4154,11 +4157,11 @@ function Winterblight:GetRandomPixieLocation()
 	local position = nil
 	local luck = RandomInt(1, 100)
 	if luck <=38 then
-		position = Vector(-14208, -13312) + Vector(RandomInt(0, 2300), RandomInt(0, 2250))
+		position = Vector(-14208, -13312) + Vector(RandomInt(0, 2200), RandomInt(0, 2250))
 	elseif luck <= 92 then
-		position = Vector(-15616, -11776) + Vector(RandomInt(0, 3950), RandomInt(0, 2750))
+		position = Vector(-15616, -11776) + Vector(RandomInt(0, 3850), RandomInt(0, 2750))
 	elseif luck < 99 then
-		position = Vector(-11129, -10347+RandomInt(0, 2500))
+		position = Vector(-11329, -10347+RandomInt(0, 2500))
 	elseif luck == 99 then
 		position = Vector(-15404, -12103)
 	elseif luck == 100 then
