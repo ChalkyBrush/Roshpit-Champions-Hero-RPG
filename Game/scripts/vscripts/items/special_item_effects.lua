@@ -5484,7 +5484,7 @@ function energy_whip_glove_attack_land(event)
 		local manaRestore = ability:GetManaCost(ability:GetLevel())
 		attacker:GiveMana(manaRestore)
 		local castPointSave = ability:GetCastPoint()
-		ability.castPointSave = hero.castPointW
+		ability.castPointSave = attacker.castPointW
 		ability:SetOverrideCastPoint(0)
 		local behavior = ability:GetBehavior()
 		print(bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET))

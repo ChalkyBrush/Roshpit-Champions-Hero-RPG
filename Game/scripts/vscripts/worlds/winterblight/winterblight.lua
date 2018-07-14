@@ -20,7 +20,7 @@ function Winterblight:Debug()
     end
     -- RPCItems:RollFrostmawHuntersHood(Vector(-15424,-2560))
     -- RPCItems:RollFrozenHeart(Vector(-15424,-2560))
-    -- RPCItems:RollEnergyWhipGlove(Vector(-15424,-2560))
+    RPCItems:RollEnergyWhipGlove(Vector(-15424,-2560))
     -- RPCItems:RollWindDeityCrown(Vector(-15424,-2560), false, 4)
     -- RPCItems:RollBorealGraniteVest(Vector(-15424,-2560))
     -- RPCItems:RollCaptainsVest(Vector(-15424,-2560))

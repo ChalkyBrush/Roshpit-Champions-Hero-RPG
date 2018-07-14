@@ -1431,7 +1431,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 	if victim:HasModifier("modifier_triboss_powered_up_single") then
 		local difficultyReduc = {0.7, 0.1, 0.01}
-		local stonesReduce = {0.1, 0.01, 0.001}
+		local stonesReduce = {0.5, 0.05, 0.005}
 		local stoneReduce = 1
 		if Winterblight.Stones > 0 then
 		  stoneReduce = stonesReduce[Winterblight.Stones]
@@ -1447,9 +1447,9 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		if Winterblight.Stones == 1 then
 			damage = damage*0.01
 		elseif Winterblight.Stones == 2 then
-			damage = damage*0.0005
+			damage = damage*0.001
 		elseif Winterblight.Stones == 3 then
-			damage = damage*0.000005
+			damage = damage*0.00001
 		end
 	end
 	return damage/BASE_VALUE_FOR_CALCULATE

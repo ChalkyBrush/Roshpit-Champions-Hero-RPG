@@ -121630,13 +121630,22 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"OnTakeDamage"
 				{
-					"ApplyModifier"
+					"RunScript"
 					{
-						"ModifierName"	"modifier_frigid_growth_shield"
-						"Target" 		"CASTER"
-						"Duration"		"2"
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"birch_shell_take_damage"
 					}
 				}
+			}
+			"modifier_shield_break_stacks"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+			}
+			"modifier_frigid_growth_shield_broken"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
 			}
 			"modifier_frigid_growth_shield"
 			{
@@ -126444,8 +126453,8 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"1.5"
-		"AbilityDuration"				"16"
+		"AbilityCooldown"				"1.5 1.2 1.0"
+		"AbilityDuration"				"6"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -126480,7 +126489,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"vortex_duration"		"16"
+				"vortex_duration"		"6"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"

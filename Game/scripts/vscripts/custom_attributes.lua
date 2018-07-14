@@ -423,18 +423,19 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_mountain_protector_glyph_5_a", CustomAttributes.MOUNTAIN_PROTECTOR_GLYPH_5_A)
 	end
 	if hero:HasModifier("modifier_red_divinex_amulet") then
-		str_bonus = (str_bonus)*2 - hero:GetModifierStackCount("modifier_legion_vestments_effect_str", hero.InventoryUnit)
+		str_bonus = (str_bonus)*2 - hero:GetModifierStackCount("modifier_legion_vestments_effect_str", hero.InventoryUnit) - hero:GetModifierStackCount("modifier_gold_plate_of_leon_str", hero.InventoryUnit)
 		agi_bonus = 0
 		int_bonus = 0
 	elseif hero:HasModifier("modifier_green_divinex_amulet") then
-		agi_bonus = (agi_bonus)*2 - hero:GetModifierStackCount("modifier_legion_vestments_effect_agi", hero.InventoryUnit)
+		agi_bonus = (agi_bonus)*2 - hero:GetModifierStackCount("modifier_legion_vestments_effect_agi", hero.InventoryUnit) - hero:GetModifierStackCount("modifier_gold_plate_of_leon_agi", hero.InventoryUnit)
 		str_bonus = 0
 		int_bonus = 0
 	elseif hero:HasModifier("modifier_blue_divinex_amulet") then
-		int_bonus = (int_bonus)*2 - hero:GetModifierStackCount("modifier_legion_vestments_effect_int", hero.InventoryUnit)
+		int_bonus = (int_bonus)*2 - hero:GetModifierStackCount("modifier_legion_vestments_effect_int", hero.InventoryUnit) - hero:GetModifierStackCount("modifier_gold_plate_of_leon_int", hero.InventoryUnit)
 		str_bonus = 0
 		agi_bonus = 0
 	end
+
 
 	strength = math.max(strength + str_bonus, 0)
 	agility = math.max(agility + agi_bonus, 0)

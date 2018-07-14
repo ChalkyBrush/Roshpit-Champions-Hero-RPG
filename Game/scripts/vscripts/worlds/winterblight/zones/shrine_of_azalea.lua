@@ -212,7 +212,11 @@ function Winterblight:AzaleaCupAttacked(cup, attacker)
 					Winterblight.AzaleaPortalTable[6] = 1
 				end
 			end
-			if Winterblight.AzaleaPortalTable[1] == 1 and Winterblight.AzaleaPortalTable[2] == 1 and Winterblight.AzaleaPortalTable[3] == 1 and Winterblight.AzaleaPortalTable[4] == 1 and Winterblight.AzaleaPortalTable[5] == 1 and Winterblight.AzaleaPortalTable[6] == 1 then
+			local sum = 0
+			for j = 1, #Winterblight.AzaleaPortalTable, 1 do
+				sum = sum + Winterblight.AzaleaPortalTable[j]
+			end
+			if sum == 5 then
 				Winterblight:SpawnAzaleaBoss()
 			end
 		end)

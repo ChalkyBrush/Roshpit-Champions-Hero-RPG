@@ -2449,3 +2449,19 @@ function grand_slacorr_die(event)
 	end)
 
 end
+
+function birch_shell_take_damage(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not caster:HasModifier("modifier_frigid_growth_shield_broken") then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_frigid_growth_shield", {duration = 2})
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_shield_break_stacks", {duration = 10})
+		local newStacks = caster:GetModifierStackCount("modifier_shield_break_stacks", caster) + 1
+		caster:SetModifierStackCount("modifier_shield_break_stacks", caster, newStacks)
+		if newStacks >= 50 then
+			caster:RemoveModifierByName("modifier_shield_break_stacks")
+			caster:RemoveModifierByName("modifier_frigid_growth_shield")
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_frigid_growth_shield_broken", {duration = 15})
+		end
+	end
+end
