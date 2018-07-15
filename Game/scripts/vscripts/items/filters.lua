@@ -2307,9 +2307,16 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 mult = mult + 0.0007*attacker:GetAgility()/10*attacker.d_b_level
             end
         elseif unitName == "npc_dota_hero_skywrath_mage" then
-            local d_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
-            if d_b_level > 0 then
-                mult = mult + 0.0012*attacker:GetIntellect()/10*d_b_level
+            if attacker:HasModifier("modifier_sephyr_arcana1") then
+                local d_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
+                if d_b_level > 0 then
+                    mult = mult + 0.0015*(attacker:GetIntellect()+attacker:GetStrength()+attacker:GetAgility())/10*d_b_level
+                end
+            else
+                local d_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
+                if d_b_level > 0 then
+                    mult = mult + 0.0012*attacker:GetIntellect()/10*d_b_level
+                end
             end
         end
         if attacker:HasModifier("modifier_hand_wind") then

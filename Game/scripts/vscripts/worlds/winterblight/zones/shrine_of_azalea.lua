@@ -166,10 +166,20 @@ function Winterblight:AzaleaCupAttacked(cup, attacker)
 				local pfx = ParticleManager:CreateParticle("particles/winterblight/azalea_cup_fire.vpcf", PATTACH_CUSTOMORIGIN, nil)
 				ParticleManager:SetParticleControl(pfx, 0, cup:GetAbsOrigin()+Vector(0,0,160))
 				EmitSoundOn("Winterblight.AzaleaCup.Ignite", cup)
+				Timers:CreateTimer(0.1, function()
+					local arcanaLuck = RandomInt(1, 1000-GameState:GetPlayerPremiumStatusCount()*40-Winterblight.Stones*40)
+					if arcanaLuck == 1 then
+						RPCItems:RollSephyrArcana1(cup:GetAbsOrigin())
+					end
+				end)
 			end)
 			if not Winterblight.AzaleaPortalTable then
 				Winterblight.AzaleaPortalTable = {0, 0, 0, 0, 0, 0}
 			end
+			if not Winterblight.AzaleaCupsActivated then
+				Winterblight.AzaleaCupsActivated = {0, 0, 0, 0, 0, 0}
+			end
+			Winterblight.AzaleaCupsActivated[cup.index] = 1
 			if cup.index == 1 then
 				Beacons:CreateActiveParticle("particles/portals/green_portal.vpcf", Vector(1255, -15219, 490+Winterblight.ZFLOAT), Events.GameMaster, 0, Vector(0.45, 0.45, 0.45))
 				AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(1255, -15219, 250+Winterblight.ZFLOAT), 300, 99999, false)
@@ -216,8 +226,8 @@ function Winterblight:AzaleaCupAttacked(cup, attacker)
 				end
 			end
 			local sum = 0
-			for j = 1, #Winterblight.AzaleaPortalTable, 1 do
-				sum = sum + Winterblight.AzaleaPortalTable[j]
+			for j = 1, #Winterblight.AzaleaCupsActivated, 1 do
+				sum = sum + Winterblight.AzaleaCupsActivated[j]
 			end
 			if sum == 5 then
 				Winterblight:SpawnAzaleaBoss()
@@ -2108,7 +2118,7 @@ function Winterblight:RecursiveCandyCrush(links_table, direction, horiz, hero, s
 end
 
 function Winterblight:CandyCrushPoints(links_count)
-	local goal = 12 + GameState:GetDifficultyFactor()*3
+	local goal = 12 + GameState:GetDifficultyFactor()*2
 	local points = links_count - 2
 	Winterblight.CandyCrushProgressScore = Winterblight.CandyCrushProgressScore + points
 	print("SCORE: "..Winterblight.CandyCrushProgressScore)
@@ -3073,7 +3083,7 @@ function Winterblight:InitAzaleaMazeRoom()
 		positionTable = WallPhysics:ShuffleTable(positionTable)
 		print("YOUR NUMBER SIR:")
 		print(#positionTable)
-		mazeGhost.goalFood = 21
+		mazeGhost.goalFood = 16
 		mazeGhost.jumpLock = true
 		mazeGhost.pushLock = true
 		Winterblight.foodTable = {}
@@ -3369,8 +3379,8 @@ function Winterblight:InitAzaleaMazeRoom()
 		      end)
 		    end
 		end)
-		if GameState:GetDifficultyFactor() >= 3 then
-			local luck3 = RandomInt(4+GameState:GetPlayerPremiumStatusCount(), 100)
+		if GameState:GetDifficultyFactor() >= 3 and Winterblight.AzaleaDungeonOpened then
+			local luck3 = RandomInt(4+GameState:GetPlayerPremiumStatusCount()+(Winterblight.Stones*2), 100)
 			if luck3 == 100 then
 				local boss = Winterblight:SpawnAzheran(ghostPositionTable[RandomInt(1, #ghostPositionTable)]+RandomVector(150), RandomVector(1))
 				AddFOWViewer(DOTA_TEAM_GOODGUYS, boss:GetAbsOrigin(), 10000, 10000, false)
@@ -5005,9 +5015,9 @@ function Winterblight:AzaleaBossDie(boss)
 		end)
 	end
 	Timers:CreateTimer(1, function()
-		local arcanaLuck = RandomInt(1, 200-GameState:GetPlayerPremiumStatusCount()*10)
+		local arcanaLuck = RandomInt(1, 210-GameState:GetPlayerPremiumStatusCount()*10-Winterblight.Stones*10)
 		if arcanaLuck == 1 then
-			arcana = RPCItems:RollAstralArcana3(boss:GetAbsOrigin())
+			RPCItems:RollAstralArcana3(boss:GetAbsOrigin())
 		end
 		local luck2 = RandomInt(1,100-GameState:GetPlayerPremiumStatusCount()*1)
 		if luck2 == 1 then

@@ -1490,13 +1490,16 @@ function maze_ghost_think(event)
 		end
 		local avgVector = sumVector/#enemies
 		local runDirection = ((caster:GetAbsOrigin() - avgVector)*Vector(1,1,0)):Normalized()
-		local runPosition = caster:GetAbsOrigin()+runDirection*50
+		local runPosition = caster:GetAbsOrigin()+runDirection*60
 		local runPosition2 = WallPhysics:WallSearch(caster:GetAbsOrigin(), runPosition, caster)
 		if WallPhysics:GetDistance2d(runPosition, runPosition2) > 0 then
-			runPosition = caster:GetAbsOrigin()-runDirection*50
+			runPosition = caster:GetAbsOrigin()-runDirection*60
 		end
 		if not GridNav:IsTraversable(runPosition) then
-			runPosition = caster:GetAbsOrigin()-runDirection*120
+			runPosition = caster:GetAbsOrigin()-runDirection*160
+		end
+		if GridNav:FindPathLength(caster:GetAbsOrigin(), runPosition) > (WallPhysics:GetDistance2d(caster:GetAbsOrigin(), runPosition) + 100) then
+			runPosition = caster:GetAbsOrigin()-runDirection*160
 		end
 		local order = {
 		 		UnitIndex = caster:entindex(), 

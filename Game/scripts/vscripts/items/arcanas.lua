@@ -1644,6 +1644,45 @@ function RPCItems:RollAstralArcana3(deathLocation)
     return item
 end
 
+function RPCItems:RollSephyrArcana1(deathLocation)
+    local item = RPCItems:CreateVariantArcana("item_rpc_sephyr_arcana1", "arcana", "Spirit Warrior Arcana 2", "hands", true, "Slot: Hands", "npc_dota_hero_skywrath_mage", 0)
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.property1 = 1
+    item.property1name = "!arcana!_sephyr_arcana1"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_sephyr_arcana1", "#72E0DE",  1, "#property_sephyr_arcana1_description")
+
+
+    item.hasRunePoints = true
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+    
+    local luck = RandomInt(1, 100)
+    if luck <= 35 then
+        item.property2name = "rune_a_b"
+        item.property2 = math.ceil(value*1.5)
+    elseif luck <= 70 then
+        item.property2name = "rune_b_b"
+        item.property2 = math.ceil(value*1.5)       
+    elseif luck <= 90 then
+        item.property2name = "rune_c_b"
+        item.property2 = math.ceil(value*1) 
+    else
+        item.property2name = "rune_d_b"
+        item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 18), 0, 0, 0, 0)
+    end
+    RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
+
+
+    local value, prefixLevel = RPCItems:RollAttribute(100, 10, 35, 0, 0, item.rarity, false, maxFactor*22)
+    item.property3 = value
+    item.property3name = "intelligence"
+    RPCItems:SetPropertyValues(item, item.property3, "#item_intelligence", "#33CCFF",  3)
+
+    RPCItems:RollBodyProperty4(item, 0)
+
+    RPCItems:DropOrGiveItem(hero, item, false, deathLocation)
+    return item
+end
+
 function RPCItems:PreacheArcanaResources(item)
     Timers:CreateTimer(0.05, function()
         PrecacheItemByNameAsync(item:GetAbilityName(), function(...) end)
@@ -1718,6 +1757,8 @@ function RPCItems:GetAvailableArcanaData(hero)
         table.insert(arcanaData, {2, 3}) 
     elseif unitName == "npc_dota_hero_monkey_king" then
         table.insert(arcanaData, {1, 3})
+    elseif unitName == "npc_dota_hero_skywrath_mage" then
+        table.insert(arcanaData, {1, 1})
     end
     return arcanaData
 end
@@ -1823,6 +1864,8 @@ function RPCItems:RollArcanaByName(arcana_name, position)
         arcana = RPCItems:RollDjanghorArcana1(position)
     elseif arcana_name == "item_rpc_astral_arcana3" then
         arcana = RPCItems:RollAstralArcana3(position)
+    elseif arcana_name == "item_rpc_sephyr_arcana1" then
+        arcana = RPCItems:RollSephyrArcana1(position)
     end
     return arcana
 end

@@ -972,6 +972,11 @@ function Runes:EquipArcana(hero, index)
 			hero:RemoveAbility("draghor_shapeshift_bear")
 			hero:RemoveAbility("draghor_shapeshift_crow")
 		end
+	elseif hero:GetUnitName() == "npc_dota_hero_skywrath_mage" then
+		if index == 1 then
+			Runes:EasySwapArcanaSkills(hero, 1, "piercing_gale", "icewind_gale", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			hero:RemoveModifierByName("modifier_sephyr_gale_passive")
+		end
 	end
 end
 
@@ -1511,6 +1516,11 @@ function Runes:UnequipArcana(hero, index)
 			else
 				Runes:EasyRevertArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "draghor_shapeshift_cat", "draghor_shapeshift_year_beast", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 			end
+		end
+	elseif hero:GetUnitName() == "npc_dota_hero_skywrath_mage" then
+		if index == 1 then
+			Runes:EasyRevertArcanaSkills(hero, 1, "piercing_gale", "icewind_gale", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			hero:RemoveModifierByName("modifier_icewind_passive")
 		end
 	end
 	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "ability_tree_upgrade", {playerId=hero:GetPlayerOwnerID()})
