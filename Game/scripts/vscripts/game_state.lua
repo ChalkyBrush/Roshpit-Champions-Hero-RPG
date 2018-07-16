@@ -1431,7 +1431,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 	if victim:HasModifier("modifier_triboss_powered_up_single") then
 		local difficultyReduc = {0.7, 0.1, 0.01}
-		local stonesReduce = {0.5, 0.05, 0.005}
+		local stonesReduce = {0.5, 0.05, 0.01}
 		local stoneReduce = 1
 		if Winterblight.Stones > 0 then
 		  stoneReduce = stonesReduce[Winterblight.Stones]
@@ -3193,7 +3193,16 @@ function GameState:FilterDamage(filterTable)
 		end
 		if victim:HasModifier('modifier_duskbringer_ghost_form_checker') and not rezzed then
             local caster = victim:FindModifierByName('modifier_duskbringer_ghost_form_checker'):GetCaster()
-			if caster.d_c_level then
+			if caster.d_c_level > 0 then
+				if caster:HasModifier('modifier_duskbringer_glyph_1_1') then
+			        for i = 0, 3, 1 do
+			            local abilityIndex = i
+			            if i == 3 then
+			                abilityIndex = DOTA_ULTIMATE_SLOT
+			            end
+			            victim:GetAbilityByIndex(abilityIndex):EndCooldown()
+			        end
+			    end
                 local ability = caster:FindAbilityByName('specter_rush_two')
                 ability:ApplyDataDrivenModifier(caster, victim, "modifier_duskbringer_ghost_form_active", {duration = 0.2 * caster.d_c_level})
                 CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash_flash.vpcf", victim:GetAbsOrigin()+Vector(0,0,50), 0.4)
@@ -3203,7 +3212,6 @@ function GameState:FilterDamage(filterTable)
 				rezzed = true
             end
         end
-
 	end
 	if victim:HasModifier("modifier_zefnar_passive") then
 		filterTable["damage"] = Winterblight:ZefnarTakeDamage(victim, filterTable["damage"])
@@ -3230,6 +3238,13 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
+
+	if filterTable["damage"] > 0 then
+		if victim:HasModifier("modifier_golden_shell_passive") then
+        	local ability = victim:FindModifierByName("modifier_golden_shell_passive"):GetAbility()
+        	ability:ApplyDataDrivenModifier(victim, victim, "modifier_black_King_bar_immunity", {duration = ability:GetSpecialValueFor("duration")})
+        end
+    end
 
 	local inflictor = filterTable["entindex_inflictor_const"]
 	if not applyEffects then

@@ -71,7 +71,9 @@ function Filters:GetUnpurgableDebuffNames()
 end
 
 function Filters:GetUnpurgableBuffNames()
-    local unpurgable = {"modifier_ascencion_cooldown"}
+    local unpurgable = {"modifier_ascencion_cooldown", 
+    "modifier_duskbringer_ghost_form_active",
+    "modifier_comet_jumping"}
     return unpurgable
 end
 

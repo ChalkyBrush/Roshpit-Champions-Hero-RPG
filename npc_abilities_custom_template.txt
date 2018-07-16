@@ -92177,15 +92177,6 @@
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
-				"OnTakeDamage"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_black_King_bar_immunity"
-						"Target" 		"CASTER"
-						"Duration"		"%duration"
-					}
-				}
 			}
 			"modifier_black_King_bar_immunity"
 			{

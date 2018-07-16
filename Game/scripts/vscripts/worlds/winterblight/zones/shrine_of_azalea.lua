@@ -3780,7 +3780,7 @@ function Winterblight:TriBossPhaser(index)
 	end
 	local unitTable = {"winterblight_crystal_malefor", "azalea_grave_summoner", "winterblight_bladewielder", "azalea_shrine_megmus", "winterblight_demon_spirit", "azalea_knife_scraper", "azalea_dragoon", "winterblight_syphist", "winterblight_azalea_secret_keeper", "frostiok", "azalea_ghost_striker", "winterblight_azalea_mindbreaker", "winterblight_azalea_highguard", "azalea_armored_knight", "winterblight_softwalker", "winterblight_cold_seer", "winterblight_source_revenant", "winterblight_maiden_of_azalea", "winterblight_rider_of_azalea", "winterblight_mistral_assassin", "winterblight_frost_frigid_hulk", "winterblight_frost_elemental", "winterblight_frost_avatar", "winterblight_ice_summoner", "winterblight_snow_shaker", "winterblight_frigid_growth", "winterblight_chilling_colossus", "winterblight_dashing_swordsman", "winterblight_azalean_priest", "winterblight_azalea_archer"}
 	local abilityTable = {"fire_temple_steadfast", "ability_mega_haste", "winterblight_generic_chill_attack_passive", "winterblight_wolf_ability", "winterblight_ogre_armor", "winterblight_frostiok_passive", "winterblight_frost_colossus_passive", "winterblight_snowshaker_passive", "winterblight_bear_passive", "winterblight_stun_regen", "winterblight_frostbite_attack", "luna_taskmaster_shield", "winterblight_dimension_spear", "winterblight_speed_softening", "winterblight_armor_softening"}
-	local strAbilitiesTable = {"winterblight_ogre_armor", "winterblight_armor_softening", "winterblight_speed_softening"}
+	local strAbilitiesTable = {"winterblight_ogre_armor", "winterblight_armor_softening", "winterblight_speed_softening", "winterblight_frost_colossus_passive"}
 	if GameState:GetDifficultyFactor() >= 2 then
 		table.insert(abilityTable, "seafortress_golden_shell")
 	end
@@ -3797,15 +3797,15 @@ function Winterblight:TriBossPhaser(index)
 	local selectedUnit = unitTable[RandomInt(1, #unitTable)]
 	local selectedAbility = abilityTable[RandomInt(1, #abilityTable)]
 	if selectedBuzuki == "powerup" then
-		while selectedUnit == "azalea_armored_knight" or selectedUnit == "winterblight_softwalker" or selectedUnit == "winterblight_frigid_growth" do
+		while selectedUnit == "azalea_armored_knight" or selectedUnit == "winterblight_softwalker" or selectedUnit == "winterblight_frigid_growth" or (selectedUnit == "winterblight_crystal_malefor" and Winterblight.Stones == 3 ) do
 			selectedUnit = unitTable[RandomInt(1, #unitTable)]
 		end
-		while selectedAbility == strAbilitiesTable[1] or selectedAbility == strAbilitiesTable[2] or selectedAbility == strAbilitiesTable[3] do
+		while selectedAbility == strAbilitiesTable[1] or selectedAbility == strAbilitiesTable[2] or selectedAbility == strAbilitiesTable[3] or selectedAbility == strAbilitiesTable[4] do
 			selectedAbility = abilityTable[RandomInt(1, #abilityTable)]
 		end
 	end
 	if selectedUnit == "azalea_armored_knight" or selectedUnit == "winterblight_softwalker" or selectedUnit == "winterblight_frigid_growth" then
-		while selectedAbility == strAbilitiesTable[1] or selectedAbility == strAbilitiesTable[2] or selectedAbility == strAbilitiesTable[3] do
+		while selectedAbility == strAbilitiesTable[1] or selectedAbility == strAbilitiesTable[2] or selectedAbility == strAbilitiesTable[3] or selectedAbility == strAbilitiesTable[4] do
 			selectedAbility = abilityTable[RandomInt(1, #abilityTable)]
 		end
 	end
@@ -3910,6 +3910,9 @@ function Winterblight:TriBossPhaser(index)
 				ability:ApplyDataDrivenModifier(Winterblight.TriBossTable.Buzuki, spawnTable[i], "modifier_triboss_powering_up", {duration = 5})
 				ability:ApplyDataDrivenModifier(Winterblight.TriBossTable.Buzuki, spawnTable[i], "modifier_triboss_powered_up_multiple", {})
 				ability:ApplyDataDrivenModifier(Winterblight.TriBossTable.Buzuki, spawnTable[i], "modifier_triboss_powered_up_single", {})
+				if GameState:GetDifficultyFactor() == 3 and spawnTable[i]:GetBaseAttackTime() < 1.8 then
+					spawnTable[i]:SetBaseAttackTime(1.8)
+				end
 			end
 			Timers:CreateTimer(5, function()
 				StopSoundEvent("Winterblight.TriBoss.Buzuki.Powerup.LP", Winterblight.TriBossTable.Buzuki)
