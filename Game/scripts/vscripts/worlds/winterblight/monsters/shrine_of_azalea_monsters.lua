@@ -1577,6 +1577,9 @@ function essence_drain_think(event)
 
 	local modifiers = target:FindAllModifiers()
 	for i = 1, #modifiers, 1 do
+		if target:IsMagicImmune() then
+			return
+		end
 		local modifier = modifiers[i]
 		local modifierMaker = modifier:GetCaster()
 		if IsValidEntity(modifierMaker) then

@@ -253,6 +253,7 @@ function begin_dragon_wrath(caster, ability, target)
 	    ability.distance = distance
 	    ability.targetPoint = targetPoint
 	    ability.lifting = true
+	    ability.target = target
 	    caster:SetForwardVector(jumpFV)
 	    Timers:CreateTimer(0.25, function()
 	    	ability.lifting = false
@@ -271,6 +272,7 @@ function dragon_wrath_jumping_think(event)
 		forwardSpeed = 0
 	end
 	caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,ability.jump_velocity)+ability.jumpFV*forwardSpeed)
+	caster:SetForwardVector(((ability.target:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized())
 	ability.jump_velocity = ability.jump_velocity - 6.6
 	print(ability.jumpFV)
 	if caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + 10 and not ability.lifting then
