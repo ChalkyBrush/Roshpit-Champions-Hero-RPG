@@ -167,7 +167,7 @@ function Winterblight:AzaleaCupAttacked(cup, attacker)
 				ParticleManager:SetParticleControl(pfx, 0, cup:GetAbsOrigin()+Vector(0,0,160))
 				EmitSoundOn("Winterblight.AzaleaCup.Ignite", cup)
 				Timers:CreateTimer(0.1, function()
-					local arcanaLuck = RandomInt(1, 1000-GameState:GetPlayerPremiumStatusCount()*40-Winterblight.Stones*120)
+					local arcanaLuck = RandomInt(1, 900-GameState:GetPlayerPremiumStatusCount()*40-Winterblight.Stones*120)
 					if arcanaLuck == 1 then
 						RPCItems:RollSephyrArcana1(cup:GetAbsOrigin())
 					end
@@ -5018,7 +5018,7 @@ function Winterblight:AzaleaBossDie(boss)
 		end)
 	end
 	Timers:CreateTimer(1, function()
-		local arcanaLuck = RandomInt(1, 210-GameState:GetPlayerPremiumStatusCount()*10-Winterblight.Stones*25)
+		local arcanaLuck = RandomInt(1, 195-GameState:GetPlayerPremiumStatusCount()*10-Winterblight.Stones*25)
 		if arcanaLuck == 1 then
 			RPCItems:RollAstralArcana3(boss:GetAbsOrigin())
 		end

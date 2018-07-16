@@ -229,6 +229,34 @@
 				{
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slardar/arcana/flood_basin.lua"
+						"Function"		"flood_root_init"
+						"target"		"TARGET"
+					}
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slardar/arcana/flood_basin.lua"
+						"Function"		"floot_root_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slardar/arcana/flood_basin.lua"
+						"Function"		"flood_root_end"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_flood_basin_enemy_inside_water_stacks"
 			{

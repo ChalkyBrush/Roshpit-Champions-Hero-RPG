@@ -61,6 +61,7 @@ function flood_basin_start(event)
 			table.insert(ability.basin_table, basin_dummy)
 			EmitSoundOnLocationWithCaster(target_position, "Hydroxis.Arcana2.BasinStart", caster)
 			StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_CAST_ABILITY_2, rate=0.8})
+			Filters:CastSkillArguments(4, caster)
 		end)
 	end
 end
@@ -141,7 +142,9 @@ function slippery_tail_arcana(caster, target, e_ability)
 			end)
 			Timers:CreateTimer(0.2, function()
 				StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_TELEPORT_END, rate=1.5})
+				target = WallPhysics:WallSearch(caster:GetAbsOrigin(), target, caster)
 				FindClearSpaceForUnit(caster, target, false)
+				Filters:CastSkillArguments(3, caster)
 				local pfx = ParticleManager:CreateParticle("particles/roshpit/hydroxis/water_bomb_water_explosion_splash_fxset.vpcf", PATTACH_CUSTOMORIGIN, caster)
 				ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()-Vector(0,0,200))
 				Timers:CreateTimer(2, function()
@@ -190,4 +193,40 @@ function basin_passive_think(event)
 	else
 		caster:RemoveModifierByName("modifier_hydroxis_basin_d_d")
 	end
+end
+
+function flood_root_init(event)
+	local target = event.target
+	local ability = event.ability
+	if ability.basin_table and #ability.basin_table > 0 then
+		print("BASIN?")
+		local closest_basin = ability.basin_table[1]
+		for i = 1, #ability.basin_table, 1 do
+			local distance = WallPhysics:GetDistance2d(ability.basin_table[i]:GetAbsOrigin(), target:GetAbsOrigin())
+			local distance_closest = WallPhysics:GetDistance2d(closest_basin:GetAbsOrigin(), target:GetAbsOrigin())
+			if distance < distance_closest then
+				closest_basin = ability.basin_table[i]
+			end
+		end
+		if closest_basin then
+			target.flood_basin = closest_basin
+		end
+	end
+end
+
+function floot_root_think(event)
+	local target = event.target
+	local ability = event.ability
+	if target.flood_basin and IsValidEntity(target.flood_basin) then
+		local fv = ((target.flood_basin:GetAbsOrigin() - target:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+		fv = WallPhysics:rotateVector(fv, 2*math.pi/6)
+		target:SetAbsOrigin(target:GetAbsOrigin()+fv*6)
+	end
+end
+
+function flood_root_end(event)
+	local target =event.target
+	Timers:CreateTimer(0.03, function()
+		FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
+	end)
 end

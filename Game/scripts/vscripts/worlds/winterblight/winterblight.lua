@@ -721,8 +721,8 @@ function Winterblight:MithrilReward(position)
           reward = 2000
           stonesReward = 3000
         elseif GameState:GetDifficultyFactor() == 3 then
-          reward = 3500
-          stonesReward = 5000
+          reward = 5000
+          stonesReward = 6000
         end
         local mithrilReward = reward*Events.ResourceBonus+(stonesReward*(Winterblight.Stones))
         local crystal = CreateUnitByName("arcane_crystal", position+Vector(0,0,1000), false, nil, nil, DOTA_TEAM_GOODGUYS)
