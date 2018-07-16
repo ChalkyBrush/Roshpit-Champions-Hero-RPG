@@ -917,6 +917,8 @@ function Runes:EquipArcana(hero, index)
 	elseif hero:GetUnitName() == "npc_dota_hero_slardar" then
 		if index == 1 then
 			Runes:EasySwapArcanaSkills(hero, 1, "hydroxis_water_blade", "hydroxis_arcana_ability_1", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+		elseif index == 2 then
+			Runes:EasySwapArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "hydroxis_tsunami", "hydroxis_spellbound_flood_basin", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_vengefulspirit" then
 		if index == 1 then
@@ -1464,6 +1466,9 @@ function Runes:UnequipArcana(hero, index)
 	elseif hero:GetUnitName() == "npc_dota_hero_slardar" then
 		if index == 1 then
 			Runes:EasyRevertArcanaSkills(hero, 1, "hydroxis_water_blade", "hydroxis_arcana_ability_1", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+		elseif index == 2 then
+			Runes:EasyRevertArcanaSkills(hero, DOTA_ULTIMATE_SLOT, "hydroxis_tsunami", "hydroxis_spellbound_flood_basin", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			hero:RemoveModifierByName("modifier_basin_passive")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_vengefulspirit" then
 		if index == 1 then

@@ -167,7 +167,7 @@ function Winterblight:AzaleaCupAttacked(cup, attacker)
 				ParticleManager:SetParticleControl(pfx, 0, cup:GetAbsOrigin()+Vector(0,0,160))
 				EmitSoundOn("Winterblight.AzaleaCup.Ignite", cup)
 				Timers:CreateTimer(0.1, function()
-					local arcanaLuck = RandomInt(1, 1000-GameState:GetPlayerPremiumStatusCount()*40-Winterblight.Stones*40)
+					local arcanaLuck = RandomInt(1, 1000-GameState:GetPlayerPremiumStatusCount()*40-Winterblight.Stones*120)
 					if arcanaLuck == 1 then
 						RPCItems:RollSephyrArcana1(cup:GetAbsOrigin())
 					end
@@ -2032,7 +2032,7 @@ function Winterblight:ProcessLinks(links, hero, stackLevel)
 			end
 		end)
 	end
-	Timers:CreateTimer(total_delay+0.8+stackLevel*0.5, function()
+	Timers:CreateTimer(total_delay+0.8+stackLevel*0.8, function()
 		Winterblight:CheckCollapseCombos(hero, stackLevel)
 		local links_count = #links
 		for i = 1, #links, 1 do
@@ -3815,6 +3815,9 @@ function Winterblight:TriBossPhaser(index)
 	StartAnimation(Winterblight.TriBossTable.Torphet, {duration=4.5, activity=ACT_DOTA_TELEPORT, rate=1})
 	EmitSoundOn("Winterblight.TriBoss.Torphet.Summoning", Winterblight.TriBossTable.Torphet)
 	local multiplier = Winterblight:GetPotentialMultiplierForBuzuki(selectedUnit)
+	if Winterblight.Stones > 0 then
+		multiplier = multiplier + RandomInt(1, Winterblight.Stones)
+	end
 	for i = 1, #positionTable, 1 do
 		local summon = Winterblight:SpawnAzaleaUnitByName(selectedUnit, positionTable[i])
 		AddFOWViewer(DOTA_TEAM_GOODGUYS, summon:GetAbsOrigin(), 600, 30, false)
@@ -4171,7 +4174,7 @@ function Winterblight:GetRandomPixieLocation()
 	elseif luck <= 92 then
 		position = Vector(-15616, -11776) + Vector(RandomInt(0, 3850), RandomInt(0, 2750))
 	elseif luck < 99 then
-		position = Vector(-11329, -10347+RandomInt(0, 2500))
+		position = Vector(-11459, -10347+RandomInt(0, 2500))
 	elseif luck == 99 then
 		position = Vector(-15404, -12103)
 	elseif luck == 100 then
@@ -5015,7 +5018,7 @@ function Winterblight:AzaleaBossDie(boss)
 		end)
 	end
 	Timers:CreateTimer(1, function()
-		local arcanaLuck = RandomInt(1, 210-GameState:GetPlayerPremiumStatusCount()*10-Winterblight.Stones*10)
+		local arcanaLuck = RandomInt(1, 210-GameState:GetPlayerPremiumStatusCount()*10-Winterblight.Stones*25)
 		if arcanaLuck == 1 then
 			RPCItems:RollAstralArcana3(boss:GetAbsOrigin())
 		end

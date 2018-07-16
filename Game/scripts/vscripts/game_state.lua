@@ -1960,6 +1960,10 @@ function GameState:FilterDamage(filterTable)
 		local stacks = attacker:GetModifierStackCount("modifier_bahamut_charge_of_light_postmitigation", attacker)
 		mult = mult + 0.15*stacks
 	end
+	if attacker:HasModifier("modifier_hydroxis_basin_d_d") then
+		local stacks = attacker:GetModifierStackCount("modifier_hydroxis_basin_d_d", attacker)
+		mult = mult + 0.1*stacks
+	end
 	if attacker:HasModifier("modifier_apollo_post_mit_invisible") then
 		if attacker:HasAbility("shot_of_apollo") then
 			if attacker:FindAbilityByName("shot_of_apollo").d_b_target == victim then

@@ -82,6 +82,11 @@ function RPCItems:BodyLegendary(itemVariant, deathLocation)
             RPCItems:RollGildedSoulCage(deathLocation)
             return true
         elseif luck == 8 then
+            local arcanaLuck = RandomInt(1, 920)
+            if arcanaLuck <= (2 + GameState:GetPlayerPremiumStatusCount()) then
+                RPCItems:RollHydroxisArcana2(deathLocation)
+                return true
+            end
             RPCItems:RollOceanTempestPallium(deathLocation)
             return true
         elseif luck == 9 then

@@ -5767,6 +5767,7 @@
 			}
 			"modifier_hero_candy_crush"
 			{
+				"TextureName"	"invoker_deafening_blast"
 				"IsDebuff"	"1"
 				"OnDestroy"
 				{

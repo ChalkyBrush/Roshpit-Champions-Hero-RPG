@@ -1,3 +1,5 @@
+require('heroes/slardar/arcana/flood_basin')
+
 function begin_hydro_pump(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -88,26 +90,36 @@ function begin_hydro_pump(event)
 	end
 	ability.a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a", "hydroxis")
 	if ability.a_a_level > 0 then
-		local pfx2 = ParticleManager:CreateParticle("particles/econ/items/monkey_king/arcana/water/monkey_king_spring_arcana_water.vpcf", PATTACH_CUSTOMORIGIN, caster)
-		ParticleManager:SetParticleControl(pfx2, 0, targetPoint)
-		ParticleManager:SetParticleControl(pfx2, 1, Vector(240, 4, 4))	
+		if caster:HasModifier("modifier_hydroxis_arcana2") then
+			local eventTable = {}
+			eventTable.ability = caster:FindAbilityByName("hydroxis_spellbound_flood_basin")
+			eventTable.radius = 350
+			eventTable.caster = caster
+			eventTable.target_position = targetPoint
+			eventTable.alt_particle = true
+			flood_basin_start(eventTable)
+		else
+			local pfx2 = ParticleManager:CreateParticle("particles/econ/items/monkey_king/arcana/water/monkey_king_spring_arcana_water.vpcf", PATTACH_CUSTOMORIGIN, caster)
+			ParticleManager:SetParticleControl(pfx2, 0, targetPoint)
+			ParticleManager:SetParticleControl(pfx2, 1, Vector(240, 4, 4))	
 
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), targetPoint, nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-		local oceanQuake = caster:FindAbilityByName("hydroxis_tsunami")
-		local damage = oceanQuake:GetSpecialValueFor("strength_damage")*caster:GetStrength()*ability.a_a_level*0.08
-		local stunDuration = oceanQuake:GetSpecialValueFor("stun_duration")
-		local slow_duration = oceanQuake:GetSpecialValueFor("slow_duration") + stunDuration
-		if #enemies > 0 then
-			for _,enemy in pairs(enemies) do
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_WATER, RPC_ELEMENT_EARTH)
-				Filters:ApplyStun(caster, stunDuration, enemy)
-				oceanQuake:ApplyDataDrivenModifier(caster, enemy, "modifier_ocean_quake_slowed", {duration = slow_duration})
-			end
-		end 	
-		Timers:CreateTimer(5, function()
-			ParticleManager:DestroyParticle(pfx2, false)
-			ParticleManager:ReleaseParticleIndex(pfx2)
-		end)
+			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), targetPoint, nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+			local oceanQuake = caster:FindAbilityByName("hydroxis_tsunami")
+			local damage = oceanQuake:GetSpecialValueFor("strength_damage")*caster:GetStrength()*ability.a_a_level*0.08
+			local stunDuration = oceanQuake:GetSpecialValueFor("stun_duration")
+			local slow_duration = oceanQuake:GetSpecialValueFor("slow_duration") + stunDuration
+			if #enemies > 0 then
+				for _,enemy in pairs(enemies) do
+					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_WATER, RPC_ELEMENT_EARTH)
+					Filters:ApplyStun(caster, stunDuration, enemy)
+					oceanQuake:ApplyDataDrivenModifier(caster, enemy, "modifier_ocean_quake_slowed", {duration = slow_duration})
+				end
+			end 	
+			Timers:CreateTimer(5, function()
+				ParticleManager:DestroyParticle(pfx2, false)
+				ParticleManager:ReleaseParticleIndex(pfx2)
+			end)
+		end
 	end
 	Filters:CastSkillArguments(1, caster)
 end

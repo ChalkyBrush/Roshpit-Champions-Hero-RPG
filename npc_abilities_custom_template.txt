@@ -16545,7 +16545,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityTextureName"			"morphling_adaptive_strike"
+		"AbilityTextureName"			"morphling_adaptive_strike_agi"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
@@ -16560,7 +16560,7 @@
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"0.0"
-		"AbilityCastRange"				"1000 1100 1200 1300 1400 1500 1600"
+		"AbilityCastRange"				"1200 1300 1400 1500 1600 1700 1800"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -16588,7 +16588,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"cast_range"				"1000 1100 1200 1300 1400 1500 1600"
+				"cast_range"				"1200 1300 1400 1500 1600 1700 1800"
 			}
 		}
 
@@ -42499,6 +42499,9 @@
 			}
 		}
 	}
+
+	##HYDROXIS_ABILITIES##
+
 	//------EKKAN RUNES RUNES
 
 	"ekkan_rune_a_a"

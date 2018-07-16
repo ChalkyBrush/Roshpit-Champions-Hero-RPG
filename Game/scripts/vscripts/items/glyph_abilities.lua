@@ -178,6 +178,9 @@ function venomort_glyph_5_1_attack(event)
 	local attacker = event.attacker
 	local target = event.target
 	if attacker:IsAlive() then
+		if target.dummy then
+			return false
+		end
 		if attacker:HasModifier("modifier_venomort_glyph_5_1_immunity") then
 			attacker:RemoveModifierByName("modifier_venomort_glyph_5_1_immunity")
 		else

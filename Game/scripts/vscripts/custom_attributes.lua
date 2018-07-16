@@ -56,6 +56,7 @@ CustomAttributes.REDROCK_HEALTH = 10
 CustomAttributes.SANGE_HEALTH = 8
 CustomAttributes.SAPPHIRE_LOTUS_HEALTH = 10
 CustomAttributes.PALADIN_IMMO_3_HEALTH = 12
+CustomAttributes.HYDROXIS_ARC2_R4_INT = 500
 
 function CDOTA_BaseNPC_Hero:GetStrength()
 	local hero = self
@@ -132,6 +133,9 @@ function CustomAttributes:SetAttributes(hero)
 	if hero:HasModifier("modifier_hydroxis_d_c") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hydroxis_d_c", CustomAttributes.HYDROXIS_E4_AGI_INT)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hydroxis_d_c", CustomAttributes.HYDROXIS_E4_AGI_INT)
+	end
+	if hero:HasModifier("modifier_hydroxis_basin_d_d") then
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hydroxis_basin_d_d", CustomAttributes.HYDROXIS_ARC2_R4_INT)
 	end
 	if hero:HasModifier("modifier_speedball_d_d_strength") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_speedball_d_d_strength", CustomAttributes.ZHONIK_R4_STR)	

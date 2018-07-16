@@ -142,7 +142,7 @@ function RPCItems:RollSlithicusRingProperty()
     --     value = RandomInt(45, 50)
     -- end
     local maxFactor = RPCItems:GetMaxFactor()
-    local value = RPCItems:GetLogarithmicVarianceValue(math.ceil(maxFactor/3), 0, 0, 0, 0)
+    local value = RPCItems:GetLogarithmicVarianceValue(math.ceil(maxFactor/3.5), 0, 0, 0, 0)
     if luck < 100 then
         propertyName = "rune_a_a"
         tier = 1
@@ -156,7 +156,7 @@ function RPCItems:RollSlithicusRingProperty()
         propertyName = "rune_a_d"
         tier = 1
     end
-    return tier, value, propertyName
+    return value
 end
 
 function RPCItems:CreateVariant(variantName, rarityName, itemNameText, slot, gear, slotText)
@@ -3156,7 +3156,7 @@ function RPCItems:RollTatteredNoviceArmor(deathLocation)
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_tattered_novice_armor", "#61C695",  1, "#property_tattered_novice_armor_description")
 
     item.hasRunePoints = true
-    local t1_rune_value = RPCItems:GetLogarithmicVarianceValue(RPCItems:RollSlithicusRingProperty()*2, 0, 0, 0, 0)
+    local t1_rune_value = RPCItems:RollSlithicusRingProperty()
     local luck = RandomInt(1, 4)
     if luck == 1 then
         item.property2name = "rune_a_a"

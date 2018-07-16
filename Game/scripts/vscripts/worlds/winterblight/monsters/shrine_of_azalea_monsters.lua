@@ -946,6 +946,17 @@ function candy_crush_unit_hit(event)
 		if target.black then
 			return false
 		end
+		if not attacker:IsHero() then
+			return false
+		end
+		local order =
+		{
+			UnitIndex = attacker:entindex(),
+			OrderType = DOTA_UNIT_ORDER_HOLD_POSITION,
+			Queue = true
+		}
+		attacker:Stop()
+		ExecuteOrderFromTable(order)
 		if not target.link_lock then
 			if not attacker.candy_crush_link_data then
 				attacker.candy_crush_link_data = {}
@@ -2749,8 +2760,11 @@ function stargazer_think(event)
 			caster:AddNewModifier(caster, nil, "modifier_animation_translate", {translate="injured"})
 			EmitSoundOn("Winterblight.StarGazer.LowHealth", caster)
 			caster:SetMoveCapability(DOTA_UNIT_CAP_MOVE_FLY)
-			Timers:CreateTimer(0.3, function()
+			Timers:CreateTimer(0.5, function()
 				caster:SetMoveCapability(DOTA_UNIT_CAP_MOVE_GROUND)
+				Timers:CreateTimer(0.03, function()
+					FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+				end)
 			end)
 		end
 		caster.phase2 = true
@@ -3160,6 +3174,9 @@ function giga_ice_pull_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
+	if not target:IsAlive() then
+		return false
+	end
 	local fv = (caster:GetAbsOrigin()-target:GetAbsOrigin()):Normalized()
 	target:SetAbsOrigin(target:GetAbsOrigin() + fv*40)
 	local distance = WallPhysics:GetDistance2d(target:GetAbsOrigin(), caster:GetAbsOrigin())

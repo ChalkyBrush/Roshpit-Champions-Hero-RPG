@@ -196,7 +196,7 @@ function Winterblight:Debug2()
  -- Winterblight:SpawnAzaleaBoss()
  -- Winterblight:InitCaptainReynar()
  
- Winterblight:ShrineSpawn2()
+ -- Winterblight:ShrineSpawn2()
 --  Winterblight.MathPuzzleComplete = true
 -- Winterblight:SpawnAzaleaCups()
 
@@ -209,7 +209,7 @@ function Winterblight:Debug2()
     -- Winterblight:ShrineSpawn6()
     -- Winterblight:SpawnChrolonus(Vector(7424, -15488), Vector(1,0))
     -- Winterblight:PlatformRoomStartBeacon()
-    -- Winterblight:CandyCrushRoom()
+    Winterblight:CandyCrushRoom()
     -- Winterblight:SpawnCruxal(Vector(-15367, -2924), Vector(0,-1))
     -- Winterblight:InitAzaleaMazeRoom()
     -- Winterblight:AzaleaSummonerRoomInit()
@@ -715,7 +715,16 @@ end
 
 function Winterblight:MithrilReward(position)
   Timers:CreateTimer(5, function()
-        local mithrilReward = 2500*Events.ResourceBonus*(Winterblight.Stones+1)
+        local reward = 1000
+        local stonesReward = 1000
+        if GameState:GetDifficultyFactor() == 2 then
+          reward = 2000
+          stonesReward = 3000
+        elseif GameState:GetDifficultyFactor() == 3 then
+          reward = 3500
+          stonesReward = 5000
+        end
+        local mithrilReward = reward*Events.ResourceBonus+(stonesReward*(Winterblight.Stones))
         local crystal = CreateUnitByName("arcane_crystal", position+Vector(0,0,1000), false, nil, nil, DOTA_TEAM_GOODGUYS)
         crystal:SetAbsOrigin(crystal:GetAbsOrigin()+Vector(0,0,1300))
         local crystalAbility = crystal:AddAbility("mithril_shard_ability")

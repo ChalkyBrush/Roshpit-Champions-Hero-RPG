@@ -66,7 +66,7 @@ function Filters:ApplyItemDamageBasedOnAbility(victim,attacker,damage,damage_typ
 end
 
 function Filters:GetUnpurgableDebuffNames()
-    local unpurgable = {"modifier_shipyard_boss_aura_effect"}
+    local unpurgable = {"modifier_shipyard_boss_aura_effect", "modifier_hero_candy_crush"}
     return unpurgable
 end
 
@@ -1292,6 +1292,10 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             local current_stack = attacker:GetModifierStackCount("modifier_orthok_zeal", attacker.InventoryUnit )
             damageMult = damageMult + 0.08*current_stack
         end
+        if attacker:HasModifier("modifier_flood_basin_a_d") then
+            local current_stack = attacker:GetModifierStackCount("modifier_flood_basin_a_d", attacker )
+            damageMult = damageMult + 0.075*current_stack
+        end
         if attacker:HasModifier("modifier_swiftspike_bad") then
             local current_stack = attacker:GetModifierStackCount("modifier_swiftspike_bad", attacker.InventoryUnit )
             damageMult = damageMult + 0.01*current_stack
@@ -2409,6 +2413,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if victim:HasModifier("modifier_fulminating_magic_resist_loss") then
             local modifier = victim:FindModifierByName("modifier_fulminating_magic_resist_loss")
             local multIncrease = modifier:GetStackCount()*0.1
+            waterMult = waterMult + multIncrease
+        end
+        if victim:HasModifier("modifier_flood_basin_enemy_inside_water_stacks") then
+            local modifier = victim:FindModifierByName("modifier_flood_basin_enemy_inside_water_stacks")
+            local multIncrease = modifier:GetStackCount()*0.3
             waterMult = waterMult + multIncrease
         end
         if waterMult > 50 and attacker:HasModifier("modifier_water_deity_crown") then

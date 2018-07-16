@@ -5546,7 +5546,6 @@ function boreal_granite_vest_take_damage(event)
 		ability.boreal_cast_point = castPointSave
 		ability:SetOverrideCastPoint(0)
 		local behavior = ability:GetBehavior()
-		print(bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET))
 		if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) == DOTA_ABILITY_BEHAVIOR_NO_TARGET then
 			local order =
 			{
