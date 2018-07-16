@@ -11,15 +11,6 @@ end
 function modifier_duskbringer_ghost_form_active:OnDestroy( params )
     local caster = self:GetCaster()
     local target = self:GetParent()
-    if caster:HasModifier('modifier_duskbringer_glyph_1_1') then
-        for i = 0, 3, 1 do
-            local abilityIndex = i
-            if i == 3 then
-                abilityIndex = DOTA_ULTIMATE_SLOT
-            end
-            target:GetAbilityByIndex(abilityIndex):EndCooldown()
-        end
-    end
 
     if not caster:HasModifier('modifier_duskbringer_glyph_5_a') or target == caster or target:HasModifier('modifier_duskbringer_ghost_form_immune') then
         if IsValidEntity(target) then
