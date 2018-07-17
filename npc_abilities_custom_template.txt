@@ -37375,6 +37375,14 @@
 				"Passive"	"0"
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"star_prophecy_damage"			"300 5000 75000"
+			}
+		}
 
 	}
 
