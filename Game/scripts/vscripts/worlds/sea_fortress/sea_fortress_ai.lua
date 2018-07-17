@@ -422,7 +422,7 @@ function sea_god_attack_start(event)
 end
 
 function hydrogen_field_start(event)
-	local caster = event.target
+	local caster = event.caster
 	local ability = event.ability
 	local particleName = "particles/roshpit/sea_fortress/hydrogen_field.vpcf"
 	if ability.pfx then

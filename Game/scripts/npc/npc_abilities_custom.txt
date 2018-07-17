@@ -130202,11 +130202,14 @@
 				"ThinkInterval"  "0.03"
 				"EffectName"	"particles/units/heroes/hero_venomancer/venomancer_poison_debuff_nova.vpcf"
 				"EffectAttachType"	"attach_hitloc"
-				"Damage"
+				"OnIntervalThink"
 				{
-					"Target"		"TARGET"
-					"Type"			"DAMAGE_TYPE_MAGICAL"
-					"Damage"		"%poison_damage"
+					"Damage"
+					{
+						"Target"		"TARGET"
+						"Type"			"DAMAGE_TYPE_MAGICAL"
+						"Damage"		"%poison_damage"
+					}
 				}
 			}
 		}

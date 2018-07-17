@@ -26,8 +26,8 @@ function demon_flight_start(event)
 	EmitSoundOn("Chernobog.DemonFlight.StartVO", caster)
 	caster:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
 
-	swap_to_demon_warp(caster, ability, "chernobog_demon_flight")
 	Filters:CastSkillArguments(3, caster)
+	swap_to_demon_warp(caster, ability, "chernobog_demon_flight")
 end
 
 function swap_to_demon_warp(caster, ability, base_name)
@@ -255,6 +255,7 @@ function initialize_demon_walk(event)
 	local duration = Filters:GetAdjustedBuffDuration(caster, event.duration, false)
 	caster:AddNewModifier(caster, nil, "modifier_persistent_invisibility", {duration = duration})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_demon_walk", {duration = duration})
+	Filters:CastSkillArguments(3, caster)
 	swap_to_demon_warp(caster, ability, "chernobog_demon_walk")
 	EmitSoundOn("Chernobog.DemonWalkStart", caster)
 	CustomAbilities:QuickAttachParticle("particles/roshpit/chernobog/shadow_walk.vpcf", caster, 1.5)
