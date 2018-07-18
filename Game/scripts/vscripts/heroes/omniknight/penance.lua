@@ -179,13 +179,15 @@ function penance_impact(event)
 	else
 		if ability.a_b_level > 0 then
 			print("ATTACK??")
-			caster:AddNewModifier( caster, ability, "modifier_paladin_penance_attack_lua", {} )
-			caster:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
-			Filters:PerformAttackSpecial(caster, target, true, true, true, false, false, false, false)
-			Timers:CreateTimer(0.05, function()
-				caster:RemoveModifierByName("modifier_paladin_penance_attack_lua")
-				caster:SetAttackCapability(DOTA_UNIT_CAP_MELEE_ATTACK)
-			end)
+			if not target.dummy then
+				caster:AddNewModifier( caster, ability, "modifier_paladin_penance_attack_lua", {} )
+				caster:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
+				Filters:PerformAttackSpecial(caster, target, true, true, true, false, false, false, false)
+				Timers:CreateTimer(0.05, function()
+					caster:RemoveModifierByName("modifier_paladin_penance_attack_lua")
+					caster:SetAttackCapability(DOTA_UNIT_CAP_MELEE_ATTACK)
+				end)
+			end
 			-- (handle hTarget, bool bUseCastAttackOrb, bool bProcessProcs, bool bSkipCooldown, bool bIgnoreInvis, bool bUseProjectile, bool bFakeAttack, bool bNeverMiss)
 		end		
 	end
