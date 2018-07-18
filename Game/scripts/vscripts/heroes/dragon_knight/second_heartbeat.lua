@@ -153,7 +153,9 @@ end
 
 function last_damaging_unit(event)
 	local caster = event.caster
-	caster.lastDamagingUnit = event.attacker
+	if not caster:GetEntityIndex() == event.attacker:GetEntityIndex() then
+		caster.lastDamagingUnit = event.attacker
+	end
 end
 
 function rune_d_b(caster, ability)

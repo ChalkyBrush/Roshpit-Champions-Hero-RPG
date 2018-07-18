@@ -95,8 +95,9 @@ function drop(event)
     caster:RemoveModifierByName("modifier_whirlwind_flying_portion")
 
     if caster:HasModifier("modifier_axe_glyph_7_1") then
+        local newCD = ability:GetCooldownTimeRemaining()-5.5
         ability:EndCooldown()
-        ability:StartCooldown(1.5)
+        ability:StartCooldown(newCD)
     end
 
     local skullBasherDuration = Filters:GetAdjustedBuffDuration(caster, event.duration, false)

@@ -29,6 +29,7 @@ function slipfinn_main_thinker(event)
 		return false
 	end
 	if caster:HasModifier("modifier_channel_start") or Filters:HasMovementModifier(caster) then
+		caster.jumpLock = false
 		return false
 	end
 	local onGround = math.abs(caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster)) < 25
