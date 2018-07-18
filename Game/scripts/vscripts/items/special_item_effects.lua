@@ -5478,7 +5478,9 @@ function energy_whip_glove_attack_land(event)
 	local attacker = event.attacker
 	local target = event.target
 	local ability = attacker:GetAbilityByIndex(1)
-	print("A1")
+	if attacker.Attacking_a_Cup then
+		return
+	end
 	if ability:GetCooldownTimeRemaining() <= 0 then
 		print("B2")
 		local manaRestore = ability:GetManaCost(ability:GetLevel())

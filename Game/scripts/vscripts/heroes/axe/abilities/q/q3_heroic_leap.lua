@@ -29,8 +29,8 @@ local function cast(caster, ability)
         eventTable.target_points = {}
         eventTable.forks = 1
         eventTable.amp = damageAmp
-        eventTable.attack_power_mult_percent = eventTable.ability:GetLevelSpecialValueFor("attack_power_mult_percent", eventTable.ability:GetLevel())
-        eventTable.stun_duration = eventTable.ability:GetLevelSpecialValueFor("stun_duration", eventTable.ability:GetLevel())
+        eventTable.attack_power_mult_percent = eventTable.ability:GetLevelSpecialValueFor("attack_power_mult_percent", eventTable.ability:GetLevel()-1)
+        eventTable.stun_duration = eventTable.ability:GetLevelSpecialValueFor("stun_duration", eventTable.ability:GetLevel()-1)
         eventTable.target_points[1] = caster:GetAbsOrigin() + ability.jumpFV * 200
 
         Timers:CreateTimer(0.1, function()
