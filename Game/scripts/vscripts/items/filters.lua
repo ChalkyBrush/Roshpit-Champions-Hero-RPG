@@ -1685,7 +1685,7 @@ function Filters:ApplyEdamage(victim, attacker, damage, damage_type)
 end
 
 function Filters:ApplyRdamage(victim, attacker, damage, damage_type)
-    Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, 3)
+    Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, DOTA_ULTIMATE_SLOT)
     -- ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = attacker:GetAbilityByIndex(3) })
 end
 

@@ -18,12 +18,10 @@ function startChannel(event)
     local amp = event.amp
     local forks = event.forks
 
-    local damage = caster:GetAverageTrueAttackDamage(caster)*event.attack_power_mult_percent/100
-    damage = damage*amp
-
 
     local point = event.target_points[1]
     local direction = ((point - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+    ability.attack_power_mult_percent = event.attack_power_mult_percent
 
 
     Timers:CreateTimer(0.1, function()
@@ -44,15 +42,7 @@ function startChannel(event)
 
         ability.pfx = {}
 
-        local damage = caster:GetAverageTrueAttackDamage(caster)*event.attack_power_mult_percent/100
-        damage = damage*amp
-
-        if caster:HasModifier("modifier_axe_glyph_5_a") then
-            damage = damage * (1 + T5A_AMPLIFY_PERCENT/100)
-        end
-
-        ability.damage = damage
-
+        local damage = 0
 
         StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_4, rate=1})
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_prevent_turning_invisible", {duration = 0.15})
@@ -68,6 +58,14 @@ function startChannel(event)
             local enemies = FindUnitsInRadius( caster:GetTeamNumber(), startPoint, nil, 280, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
             if #enemies > 0 then
                 for _,enemy in pairs(enemies) do
+                    BurningFury.applyDebuff(caster, enemy, ability)
+                    BlisteringRage.applyBuff(caster, ability)
+                    damage = caster:GetAverageTrueAttackDamage(caster)*event.attack_power_mult_percent/100
+                    damage = damage*amp
+
+                    if caster:HasModifier("modifier_axe_glyph_5_a") then
+                        damage = damage * (1 + T5A_AMPLIFY_PERCENT/100)
+                    end
                     Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
                     Filters:ApplyStun(caster, stun_duration, enemy)
                 end
@@ -78,11 +76,11 @@ function startChannel(event)
             if caster:HasModifier("modifier_axe_glyph_6_1") then
                 procs = T61_DUNKS_COUNT
             end
-            if forks == 1 then
-                Timers:CreateTimer(1.8 , function()
-                    EarthShatter.applyBuff(caster)
-                end)
-            end
+            -- if forks == 1 then
+            --     Timers:CreateTimer(1.8 , function()
+            --         EarthShatter.applyBuff(caster)
+            --     end)
+            -- end
 
             for procNumber = 0, procs - 1, 1 do
                 for i = min, max, 1 do
@@ -122,11 +120,11 @@ function startChannel(event)
                 end
             end
 
-            if forks == 1 then
-                Timers:CreateTimer(procs*0.5 + 2.2 , function()
-                    EarthShatter.removeBuff(caster)
-                end)
-            end
+            -- if forks == 1 then
+            --     Timers:CreateTimer(procs*0.5 + 2.2 , function()
+            --         EarthShatter.removeBuff(caster)
+            --     end)
+            -- end
         end)
     end)
 end
@@ -137,7 +135,7 @@ function successfullCast(event)
     local damage = ability.damage
     local stun_duration = event.stun_duration
 
-    EarthShatter.applyBuff(caster)
+    -- EarthShatter.applyBuff(caster)
     Filters:CastSkillArguments(4, caster)
     WAmplify.applyBuff(caster)
 
@@ -147,7 +145,7 @@ function successfullCast(event)
         local currentParticle = pfx[1]
         lastProcNumber = currentParticle.procNumber
         Timers:CreateTimer(currentParticle.procNumber*0.5 + 0.15, function()
-            dealDamage(caster, ability, damage, stun_duration, currentParticle.startPoint, currentParticle.endPoint)
+            dealDamage(caster, ability, 0, stun_duration, currentParticle.startPoint, currentParticle.endPoint)
             ParticleManager:DestroyParticle(currentParticle.particle, false)
             ParticleManager:ReleaseParticleIndex(currentParticle.particle)
         end)
@@ -156,7 +154,7 @@ function successfullCast(event)
 
     Timers:CreateTimer(lastProcNumber*0.5 + 0.4, function()
         StartSoundEvent("RedGeneral.ArcanaSunder.Moving", caster)
-        EarthShatter.removeBuff(caster)
+        -- EarthShatter.removeBuff(caster)
     end)
 end
 
@@ -186,6 +184,12 @@ function dealDamage(caster, ability, damage, stun_duration, startPoint, endPoint
     for _,enemy in pairs(enemies) do
         BlisteringRage.applyBuff(caster, ability)
         BurningFury.applyDebuff(caster, enemy, ability)
+        damage = caster:GetAverageTrueAttackDamage(caster)*ability.attack_power_mult_percent/100
+        damage = damage*ability.amp
+
+        if caster:HasModifier("modifier_axe_glyph_5_a") then
+             damage = damage * (1 + T5A_AMPLIFY_PERCENT/100)
+        end
         Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
         Filters:ApplyStun(caster, stun_duration, enemy)
         --ability:ApplyDataDrivenModifier(caster, targetUnit, "modifier_stun_explosion", {})

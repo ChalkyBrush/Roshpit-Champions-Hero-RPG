@@ -1594,6 +1594,12 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
+	if filterTable["entindex_inflictor_const"] then
+		if EntIndexToHScript(filterTable["entindex_inflictor_const"]):GetName() == "axe_arcana_smash" then
+			local a_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 3)
+			mult = mult + 0.1*a_d_level
+		end
+	end
 	if damagetype == DAMAGE_TYPE_PHYSICAL then
 		-- local original_damage = filterTable["damage"] --Post reduction
 		-- local inflictor = filterTable["entindex_inflictor_const"]
