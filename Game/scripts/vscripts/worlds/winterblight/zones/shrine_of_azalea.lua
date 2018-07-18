@@ -5023,7 +5023,7 @@ function Winterblight:AzaleaBossDie(boss)
 		end)
 	end
 	Timers:CreateTimer(1, function()
-		local arcanaLuck = RandomInt(1, 175-GameState:GetPlayerPremiumStatusCount()*10-Winterblight.Stones*25)
+		local arcanaLuck = RandomInt(1, 195-GameState:GetPlayerPremiumStatusCount()*10-Winterblight.Stones*25)
 		if arcanaLuck == 1 then
 			RPCItems:RollAstralArcana3(boss:GetAbsOrigin())
 		end
