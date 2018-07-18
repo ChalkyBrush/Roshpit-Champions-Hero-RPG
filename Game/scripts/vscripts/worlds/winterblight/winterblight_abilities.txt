@@ -7331,6 +7331,7 @@
 			}
 			"modifier_triboss_powered_up_multiple"
 			{
+				"TextureName"	"winterblight/buzuki_passive"
 				"IsHidden"	"0"
 				"Properties"
 				{

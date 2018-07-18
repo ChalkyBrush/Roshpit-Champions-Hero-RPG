@@ -1684,7 +1684,7 @@ function RPCItems:RollSephyrArcana1(deathLocation)
 end
 
 function RPCItems:RollHydroxisArcana2(deathLocation)
-    local item = RPCItems:CreateVariantArcana("item_rpc_hydroxis_arcana2", "arcana", "Hydroxis Arcana2", "body", true, "Slot: Body", "npc_dota_hero_slardar", 0)
+    local item = RPCItems:CreateVariantArcana("item_rpc_hydroxis_arcana2", "arcana", "Hydroxis Arcana 2", "body", true, "Slot: Body", "npc_dota_hero_slardar", 0)
     local maxFactor = RPCItems:GetMaxFactor()
     item.property1 = 1
     item.property1name = "!arcana!_hydroxis_arcana2"

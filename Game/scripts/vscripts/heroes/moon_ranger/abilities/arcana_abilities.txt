@@ -508,6 +508,16 @@
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-10"
 				}
 			}
+			"modifier_astral_glyph_7_1_evasion_effect"
+			{
+				"IsBuff"	"1"
+				"IsHidden"	"0"
+				"Passive"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT" "100"
+				}
+			}
 		}
 
 		"AbilitySpecial"

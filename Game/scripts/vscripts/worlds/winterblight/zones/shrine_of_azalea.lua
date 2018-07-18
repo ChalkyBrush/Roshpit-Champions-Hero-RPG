@@ -167,7 +167,7 @@ function Winterblight:AzaleaCupAttacked(cup, attacker)
 				ParticleManager:SetParticleControl(pfx, 0, cup:GetAbsOrigin()+Vector(0,0,160))
 				EmitSoundOn("Winterblight.AzaleaCup.Ignite", cup)
 				Timers:CreateTimer(0.1, function()
-					local arcanaLuck = RandomInt(1, 900-GameState:GetPlayerPremiumStatusCount()*40-Winterblight.Stones*120)
+					local arcanaLuck = RandomInt(1, 700-GameState:GetPlayerPremiumStatusCount()*40-Winterblight.Stones*120)
 					if arcanaLuck == 1 then
 						RPCItems:RollSephyrArcana1(cup:GetAbsOrigin())
 					end
@@ -3913,6 +3913,8 @@ function Winterblight:TriBossPhaser(index)
 				if GameState:GetDifficultyFactor() == 3 and spawnTable[i]:GetBaseAttackTime() < 1.8 then
 					spawnTable[i]:SetBaseAttackTime(1.8)
 				end
+				spawnTable[i].minDungeonDrops = 5
+				spawnTable[i].maxDungeonDrops = 7
 			end
 			Timers:CreateTimer(5, function()
 				StopSoundEvent("Winterblight.TriBoss.Buzuki.Powerup.LP", Winterblight.TriBossTable.Buzuki)
@@ -5021,7 +5023,7 @@ function Winterblight:AzaleaBossDie(boss)
 		end)
 	end
 	Timers:CreateTimer(1, function()
-		local arcanaLuck = RandomInt(1, 195-GameState:GetPlayerPremiumStatusCount()*10-Winterblight.Stones*25)
+		local arcanaLuck = RandomInt(1, 175-GameState:GetPlayerPremiumStatusCount()*10-Winterblight.Stones*25)
 		if arcanaLuck == 1 then
 			RPCItems:RollAstralArcana3(boss:GetAbsOrigin())
 		end
