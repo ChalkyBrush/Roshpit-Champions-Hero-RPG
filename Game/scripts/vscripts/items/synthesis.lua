@@ -78,7 +78,7 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 			local possibilityTable = {item1:GetAbilityName(), item2:GetAbilityName()}
 			local newArcanaName = possibilityTable[RandomInt(1, #possibilityTable)]
 			local minLevelAVG = math.floor((item1.minLevel + item2.minLevel)/2)
-			local new_min_level = RPCItems:GetLogarithmicVarianceValue(minLevelAVG, 0, 0, 0, 0)
+			local new_min_level = minLevelAVG
 			new_min_level = math.max(math.min(new_min_level, 100), 3)
 			RPCItems.LevelRoll = new_min_level
 			local newItem = RPCItems:RollArcanaByName(newArcanaName, position)
@@ -96,7 +96,7 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 			local possibilityTable = {item1:GetAbilityName(), item2:GetAbilityName()}
 			local newItemName = possibilityTable[RandomInt(1, #possibilityTable)]
 			local minLevelAVG = math.floor((item1.minLevel + item2.minLevel)/2)
-			local new_min_level = RPCItems:GetLogarithmicVarianceValue(minLevelAVG, 0, 0, 0, 0)
+			local new_min_level = minLevelAVG
 			new_min_level = math.max(math.min(new_min_level, 100), 3)
 			RPCItems.LevelRoll = new_min_level
 			local newItem = RPCItems:RollImmortalByName(newItemName, position)
