@@ -73,24 +73,44 @@ function LightningAttack( keys )
                 ability.particleCount = ability.particleCount - 1
                 ParticleManager:DestroyParticle(lightningBolt, true)
             end)    
-        end    
-        if ability.d_a_level then
-            damage = damage + attacker:GetAverageTrueAttackDamage(attacker)*0.15*ability.d_a_level
         end
-        -- Damage
-        Filters:TakeArgumentsAndApplyDamage(unit, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
-        -- Increment counter
+        if not caster:IsIllusion() then    
+            if caster.d_a_level then
+                damage = damage + attacker:GetAverageTrueAttackDamage(attacker)*0.15*caster.d_a_level
+            end
+            Filters:TakeArgumentsAndApplyDamage(unit, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
+        else
+            if caster.hero.d_a_level then
+                damage = damage + attacker:GetAverageTrueAttackDamage(attacker)*0.15*caster.hero.d_a_level
+            end
+            Filters:TakeArgumentsAndApplyDamage(unit, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
+        end
         targets_shocked = targets_shocked + 1
-        if ability.c_a_level then
-            if ability.c_a_level > 0 then
-                ability.c_a_ability:ApplyDataDrivenModifier(ability.c_a_runeUnit, unit, "modifier_voltex_rune_c_a", {duration = 6})
-                additional_stacks = ability.c_a_level
-                local current_stack = unit:GetModifierStackCount( "modifier_voltex_rune_c_a", ability.c_a_ability )
-                local stacks = current_stack+additional_stacks
-                if stacks > 2000 then
-                    stacks = 2000
+        if not caster:IsIllusion() then
+            if caster.c_a_level then
+                if caster.c_a_level > 0 then
+                    caster.c_a_ability:ApplyDataDrivenModifier(caster.c_a_runeUnit, unit, "modifier_voltex_rune_c_a", {duration = 6})
+                    additional_stacks = caster.c_a_level
+                    local current_stack = unit:GetModifierStackCount( "modifier_voltex_rune_c_a", caster.c_a_ability )
+                    local stacks = current_stack+additional_stacks
+                    if stacks > 2000 then
+                        stacks = 2000
+                    end
+                    unit:SetModifierStackCount( "modifier_voltex_rune_c_a", caster.c_a_ability, stacks ) 
                 end
-                unit:SetModifierStackCount( "modifier_voltex_rune_c_a", ability.c_a_ability, stacks ) 
+            end
+        else
+            if caster.hero.c_a_level then
+                if caster.hero.c_a_level > 0 then
+                    caster.hero.c_a_ability:ApplyDataDrivenModifier(caster.hero.c_a_runeUnit, unit, "modifier_voltex_rune_c_a", {duration = 6})
+                    additional_stacks = caster.hero.c_a_level
+                    local current_stack = unit:GetModifierStackCount( "modifier_voltex_rune_c_a", caster.hero.c_a_ability )
+                    local stacks = current_stack+additional_stacks
+                    if stacks > 2000 then
+                        stacks = 2000
+                    end
+                    unit:SetModifierStackCount( "modifier_voltex_rune_c_a", caster.hero.c_a_ability, stacks ) 
+                end
             end
         end
     end

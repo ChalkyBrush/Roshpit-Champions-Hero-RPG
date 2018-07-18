@@ -392,10 +392,10 @@ function c_a(event)
     local abilityLevel = runeAbility:GetLevel()
     local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_a")
     local totalLevel = abilityLevel + bonusLevel
-    ability.c_a_level = totalLevel
-    ability.c_a_ability = runeAbility
-    ability.c_a_runeUnit = runeUnit
-    ability.d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "voltex")
+    caster.c_a_level = totalLevel
+    caster.c_a_ability = runeAbility
+    caster.c_a_runeUnit = runeUnit
+    caster.d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "voltex")
 end
 
 function c_b(event)

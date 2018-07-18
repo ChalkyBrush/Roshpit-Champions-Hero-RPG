@@ -133,7 +133,7 @@ function Winterblight:SpawnAzaleaCup(position, fv, index)
 end
 
 function Winterblight:AzaleaCupAttacked(cup, attacker)
-	if attacker:HasModifier("modifier_azalea_cup_use") then
+	if attacker:HasModifier("modifier_azalea_cup_use") or not attacker.Attacking_a_Cup then
 		return false
 	end
 	if not cup.active then

@@ -56033,6 +56033,14 @@
 				"Passive"	"0"
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"star_prophecy_damage"			"300 5000 75000"
+			}
+		}
 
 	}
 
@@ -130203,11 +130211,14 @@
 				"ThinkInterval"  "0.03"
 				"EffectName"	"particles/units/heroes/hero_venomancer/venomancer_poison_debuff_nova.vpcf"
 				"EffectAttachType"	"attach_hitloc"
-				"Damage"
+				"OnIntervalThink"
 				{
-					"Target"		"TARGET"
-					"Type"			"DAMAGE_TYPE_MAGICAL"
-					"Damage"		"%poison_damage"
+					"Damage"
+					{
+						"Target"		"TARGET"
+						"Type"			"DAMAGE_TYPE_MAGICAL"
+						"Damage"		"%poison_damage"
+					}
 				}
 			}
 		}

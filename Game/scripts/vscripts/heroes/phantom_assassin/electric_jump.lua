@@ -195,13 +195,17 @@ function ConjureImage( caster, player, runeAbility, abilityLevel, runeUnit )
 
  local unit_name = caster:GetUnitName()
  local origin = caster:GetAbsOrigin() + RandomVector(100)
- local duration = abilityLevel*0.2 + 0.8
+ local duration = abilityLevel*0.2 + 1.5
  local outgoingDamage = abilityLevel*0.02+0.4
  local incomingDamage = 0.1
 
  duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
  local illusion = CreateUnitByName("zap_assassin_clone", origin, true, caster, nil, caster:GetTeamNumber())
  illusion.owner = caster:GetPlayerOwnerID()
+ illusion.hero = caster
+ illusion.a_c_level = abilityLevel
+ caster.a_c_level = abilityLevel
+ caster.illusion = illusion
  --illusion:SetPlayerID(caster:GetPlayerID())
  illusion:SetControllableByPlayer(illusion.owner, true)
  runeAbility:ApplyDataDrivenModifier(runeUnit, illusion, "modifier_voltex_rune_a_c_remnant", {duration = duration})
@@ -212,7 +216,8 @@ function ConjureImage( caster, player, runeAbility, abilityLevel, runeUnit )
 
  -- Set the unit as an illusion
  -- modifier_illusion controls many illusion properties like +Green damage not adding to the unit damage, not being able to cast spells and the team-only blue particle 
- illusion:AddNewModifier(caster, ability, "modifier_illusion", { duration = duration, outgoing_damage = outgoingDamage, incoming_damage = incomingDamage })
+illusion:AddNewModifier(caster, ability, "modifier_illusion", { duration = duration, outgoing_damage = 1, incoming_damage = incomingDamage })
+
  -- Without MakeIllusion the unit counts as a hero, e.g. if it dies to neutrals it says killed by neutrals, it respawns, etc.
  illusion:MakeIllusion()
  overCharge:SetLevel(caster:FindAbilityByName("lightning_attack"):GetLevel())
@@ -226,9 +231,8 @@ function ConjureImage( caster, player, runeAbility, abilityLevel, runeUnit )
 	illusion:Heal(newHealth, illusion)
 	local newArmor = caster:GetPhysicalArmorValue()*5
 	illusion:SetPhysicalArmorBaseValue(newArmor)
-	local newDamage = math.min(caster:GetAverageTrueAttackDamage(caster)*5, 2^31)
-    illusion:SetBaseDamageMin(newDamage)
-    illusion:SetBaseDamageMax(newDamage)
+	local newDamage = caster:GetAverageTrueAttackDamage(caster)*5
+    Filters:SetAttackDamage(illusion, newDamage)
 
     if caster:HasModifier("modifier_voltex_rune_c_d_avatar") then
     	local runeAbility = caster.runeUnit3:FindAbilityByName("voltex_rune_c_d")
