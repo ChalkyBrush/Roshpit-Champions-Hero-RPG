@@ -5556,18 +5556,6 @@ function boreal_granite_vest_take_damage(event)
 			}
 			hero:Stop()
 			ExecuteOrderFromTable(order)
-			print("IN HERE")
-		elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) == DOTA_ABILITY_BEHAVIOR_UNIT_TARGET then
-			local order = {
-		 		UnitIndex = hero:entindex(), 
-		 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-		 		TargetIndex = target:entindex(),
-		 		AbilityIndex = ability:entindex(),
-		 		Queue = true
-		 	}
-		 	hero:Stop()
-		 	print("HERE?")
-			ExecuteOrderFromTable(order)	
 		elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) == DOTA_ABILITY_BEHAVIOR_POINT then
 			local order =
 			{
@@ -5578,6 +5566,16 @@ function boreal_granite_vest_take_damage(event)
 				Queue = true
 			}
 			hero:Stop()
+			ExecuteOrderFromTable(order)
+		elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) == DOTA_ABILITY_BEHAVIOR_UNIT_TARGET then
+			local order = {
+		 		UnitIndex = hero:entindex(), 
+		 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+		 		TargetIndex = target:entindex(),
+		 		AbilityIndex = ability:entindex(),
+		 		Queue = true
+		 	}
+		 	hero:Stop()
 			ExecuteOrderFromTable(order)	
 		end
 		-- ability:StartCooldown(0)

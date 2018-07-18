@@ -478,6 +478,13 @@ function GameState:OrderFilter(orderTable)
 	-- DeepPrintTable(orderTable)
 	local unit = EntIndexToHScript(unitNumber)
 	if IsValidEntity(unit) and not unit:IsChanneling() then
+		if GameState:IsWinterblight() then
+			if orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET and EntIndexToHScript(orderTable.entindex_target).prop_id == 2 then
+				unit.Attacking_a_Cup = true
+			else
+				unit.Attacking_a_Cup = false
+			end
+		end
 		if unit:HasModifier("modifier_neptunes_water_gliders") then
 			unit.lastOrder = orderTable.order_type
 			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
@@ -1471,6 +1478,12 @@ function GameState:FilterDamage(filterTable)
 
 	if attacker:HasModifier("modifier_arkimus_archon_form") then
 		filterTable["damagetype_const"] = DAMAGE_TYPE_PURE
+	end
+	
+	if attacker:GetUnitName() == "zap_assassin_clone" then
+		filterTable["entindex_attacker_const"] = attacker.hero:GetEntityIndex()
+		attacker = EntIndexToHScript(filterTable["entindex_attacker_const"])
+		filterTable["damage"] = filterTable["damage"]*(0.4+0.02*attacker.a_c_level)
 	end
 	local damagetype = filterTable["damagetype_const"]
 

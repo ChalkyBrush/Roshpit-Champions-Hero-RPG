@@ -2637,9 +2637,11 @@ function star_prophecy_end(event)
 	local target = event.target
 	local caster = event.caster
 	local ability = event.ability
+	local damage = event.damage
 	if not IsValidEntity(caster) then
 		caster = Events.GameMaster
 		ability = Events.GameMasterAbility
+		damage = Events.GameMasterAbility:GetSpecialValueFor("star_prophecy_damage")
 	end
 	StopSoundEvent("Winterblight.StarProphecy.LP", target)
 	local stacks = target.starprophecystacks
@@ -2655,7 +2657,7 @@ function star_prophecy_end(event)
 	          Timers:CreateTimer(0.45, -- Start this timer 10 game-time seconds later
 	          function()
 	            if target:IsAlive() then
-	              ApplyDamage({ victim = target, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })	
+	              ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })	
 	              EmitSoundOn("Winterblight.StarProphecy.Impact", target)
 	            end
 	          end)

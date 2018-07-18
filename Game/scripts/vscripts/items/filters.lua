@@ -1005,6 +1005,7 @@ function Filters:ApplyWskills(caster)
             local disableAbility = caster:GetAbilityByIndex(1)
             if IsValidEntity(disableAbility) then
                 disableAbility:StartCooldown(5)
+                Notifications:Top(caster:GetPlayerOwnerID(), {text="Too Fast!", duration=2, style={color="red"}, continue=true})
                 -- disableAbility:SetActivated(false)
                 -- Timers:CreateTimer(5, function()
                 --     if IsValidEntity(disableAbility) then
@@ -1201,6 +1202,10 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     -- end
     -- print("before bad and elem: "..damage)
     local attackerName = attacker:GetUnitName()
+    if attackerName == "zap_assassin_clone" then
+        attacker = attacker.hero
+        damage = damage*(0.4+0.02*attacker.a_c_level)
+    end
 
     if not ignore_effects then
         if attackerName == "npc_dota_hero_leshrac" then
