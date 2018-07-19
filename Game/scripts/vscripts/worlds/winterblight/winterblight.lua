@@ -58,7 +58,7 @@ function Winterblight:InitCamp()
     -- Events:SpawnSuppliesDealer(Vector(-12928, -14336), Vector(0,-1))
     -- Events:SpawnCurator(Vector(-15744, -15488), Vector(1,0.7))
   end)
-  Events.TownPosition = Vector(-15367, -2924)
+  Events.TownPosition = Vector(-15197, -2924)
   Events.isTownActive = true
   -- Events.Dialog0 = false
   -- Events.Dialog1 = false

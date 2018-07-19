@@ -3381,7 +3381,7 @@ function Winterblight:InitAzaleaMazeRoom()
 		end)
 		if GameState:GetDifficultyFactor() >= 3 and Winterblight.AzaleaDungeonOpened then
 			local luck3 = RandomInt(4+GameState:GetPlayerPremiumStatusCount()+(Winterblight.Stones*2), 100)
-			if luck3 == 100 then
+			if luck3 >= 98 then
 				local boss = Winterblight:SpawnAzheran(ghostPositionTable[RandomInt(1, #ghostPositionTable)]+RandomVector(150), RandomVector(1))
 				AddFOWViewer(DOTA_TEAM_GOODGUYS, boss:GetAbsOrigin(), 10000, 10000, false)
 				local patPos1 = ghostPositionTable[RandomInt(1, #ghostPositionTable)]+RandomVector(150)
