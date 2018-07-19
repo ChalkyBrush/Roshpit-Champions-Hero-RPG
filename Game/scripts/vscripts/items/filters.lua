@@ -27,12 +27,13 @@ function Filters:ApplyItemDamage(victim,attacker,damage,damage_type,item,element
     if attacker:HasModifier("modifier_solunia_arcana2") then
         local b_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 3)
         if b_d_level > 0 then
+            local modified_damage = Filters:ElementalDamage(victim, attacker, damage, damage_type, nil, element1, element2, true)
             if attacker.sunMoon == "moon" then
-                victim.SoluniaBurnLunar = damage*0.05*b_d_level
+                victim.SoluniaBurnLunar = modified_damage*0.02*b_d_level
                 local alphaAbility = attacker:FindAbilityByName("solunia_lunar_alpha_spark")
                 alphaAbility:ApplyDataDrivenModifier(attacker, victim, "modifier_solunia_lunar_burn", {duration = 8})
             else
-                victim.SoluniaBurnSolar = damage*0.05*b_d_level
+                victim.SoluniaBurnSolar = modified_damage*0.02*b_d_level
                 local alphaAbility = attacker:FindAbilityByName("solunia_solar_alpha_spark")
                 alphaAbility:ApplyDataDrivenModifier(attacker, victim, "modifier_solunia_solar_burn", {duration = 8})
             end
@@ -51,12 +52,13 @@ function Filters:ApplyItemDamageBasedOnAbility(victim,attacker,damage,damage_typ
     if attacker:HasModifier("modifier_solunia_arcana2") then
         local b_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 3)
         if b_d_level > 0 then
+            local modified_damage = Filters:ElementalDamage(victim, attacker, damage, damage_type, nil, element1, element2, true)
             if attacker.sunMoon == "moon" then
-                victim.SoluniaBurnLunar = damage*0.05*b_d_level
+                victim.SoluniaBurnLunar = modified_damage*0.02*b_d_level
                 local alphaAbility = attacker:FindAbilityByName("solunia_lunar_alpha_spark")
                 alphaAbility:ApplyDataDrivenModifier(attacker, victim, "modifier_solunia_lunar_burn", {duration = 8})
             else
-                victim.SoluniaBurnSolar = damage*0.05*b_d_level
+                victim.SoluniaBurnSolar = modified_damage*0.02*b_d_level
                 local alphaAbility = attacker:FindAbilityByName("solunia_solar_alpha_spark")
                 alphaAbility:ApplyDataDrivenModifier(attacker, victim, "modifier_solunia_solar_burn", {duration = 8})
             end
