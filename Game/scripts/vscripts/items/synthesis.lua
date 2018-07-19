@@ -96,7 +96,7 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 			local possibilityTable = {item1:GetAbilityName(), item2:GetAbilityName()}
 			local newItemName = possibilityTable[RandomInt(1, #possibilityTable)]
 			local minLevelAVG = math.floor((item1.minLevel + item2.minLevel)/2)
-			local new_min_level = minLevelAVG
+			local new_min_level = RPCItems:GetImmortalLevelForSynth(minLevelAVG)
 			new_min_level = math.max(math.min(new_min_level, 100), 3)
 			RPCItems.LevelRoll = new_min_level
 			local newItem = RPCItems:RollImmortalByName(newItemName, position)
@@ -158,6 +158,35 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 			return false
 		end
 	end
+end
+
+function RPCItems:GetImmortalLevelForSynth(minLevelAVG)
+	local bonus = 0
+	if minLevelAVG < 10 then 
+		bonus = bonus + RandomInt(1, 10)
+	elseif minLevelAVG < 20 then
+		bonus = bonus + RandomInt(1, 8)
+	elseif minLevelAVG < 30 then
+		bonus = bonus + RandomInt(1, 7)
+	elseif minLevelAVG < 40 then
+		bonus = bonus + RandomInt(1, 6)
+	elseif minLevelAVG < 50 then
+		bonus = bonus + RandomInt(1, 5)
+	elseif minLevelAVG < 60 then
+		bonus = bonus + RandomInt(-3, 6)
+	elseif minLevelAVG < 70 then
+		bonus = bonus + RandomInt(-3, 5)
+	elseif minLevelAVG < 80 then
+		bonus = bonus + RandomInt(-4, 3)
+	elseif minLevelAVG < 90 then
+		bonus = bonus + RandomInt(-3, 2)
+	elseif minLevelAVG < 100 then
+		bonus = bonus + RandomInt(-4, 2)
+	elseif minLevelAVG == 100 then
+		bonus = 0
+	end
+	local new_min_level = math.min(minLevelAVG + bonus, 100)
+	return new_min_level
 end
 
 function RPCItems:RollRandomArcanaCachePart(position)
