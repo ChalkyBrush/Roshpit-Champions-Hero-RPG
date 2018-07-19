@@ -260,9 +260,16 @@ function epoch_glyph_5_1_attack_land(event)
 		local runeW2ArmourDecrease = 50 --each w2 reduce armor for -50
 		local maximumNegativeArmor = 1000 --w2 cap at -1000
 		local finalStacksCount = b_b_lvl
-		local runesToDecrease = (target:GetPhysicalArmorBaseValue() + maximumNegativeArmor)/runeW2ArmourDecrease - b_b_lvl
-		if runesToDecrease < 0 then
-			finalStacksCount = math.ceil ((target:GetPhysicalArmorBaseValue() + maximumNegativeArmor)/runeW2ArmourDecrease);
+		if target:GetPhysicalArmorValue() > 0 then
+			local runesToDecrease = (target:GetPhysicalArmorValue() + maximumNegativeArmor)/runeW2ArmourDecrease - b_b_lvl
+			if runesToDecrease < 0 then
+				finalStacksCount = math.ceil ((target:GetPhysicalArmorValue() + maximumNegativeArmor)/runeW2ArmourDecrease);
+			end
+		else
+			local runesToDecrease = maximumNegativeArmor/runeW2ArmourDecrease - b_b_lvl
+			if runesToDecrease < 0 then
+				finalStacksCount = math.ceil (maximumNegativeArmor/runeW2ArmourDecrease);
+			end
 		end
 
 		local abilityToApplyModifier = attacker:FindAbilityByName("time_genesis_orb")

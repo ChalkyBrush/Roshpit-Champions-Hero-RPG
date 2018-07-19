@@ -604,7 +604,7 @@ function CustomAttributes:GetMaxHealth(hero, strength_health)
 		maxHealth = maxHealth + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_paladin_immortal_weapon_3_health", CustomAttributes.PALADIN_IMMO_3_HEALTH)
 	end
 	if hero:HasModifier("modifier_helm_of_the_mountain_giant") then
-		maxHealth = maxHealth + (maxHealth+1000)*3 - hero:GetModifierStackCount("modifier_redrock_footwear_health_increase", hero.InventoryUnit)*CustomAttributes.REDROCK_HEALTH*2
+		maxHealth = maxHealth + (maxHealth - hero:GetModifierStackCount("modifier_redrock_footwear_health_increase", hero.redrock)*CustomAttributes.REDROCK_HEALTH + 1000) * 2 
 	end
 	return maxHealth
 end
