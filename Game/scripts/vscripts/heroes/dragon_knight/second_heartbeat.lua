@@ -153,7 +153,7 @@ end
 
 function last_damaging_unit(event)
 	local caster = event.caster
-	if not caster:GetEntityIndex() == event.attacker:GetEntityIndex() then
+	if caster:GetEntityIndex() ~= event.attacker:GetEntityIndex() then
 		caster.lastDamagingUnit = event.attacker
 	end
 end
