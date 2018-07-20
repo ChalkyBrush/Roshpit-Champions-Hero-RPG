@@ -662,7 +662,7 @@ function Filters:ApplyDotDamage(caster, ability, target, damage, damage_type, sl
     elseif slot == 0 then
         ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = damage_type })
     elseif slot == -2 then
-        Filters:TakeArgumentsAndApplyDamage(target, caster, damage, damage_type, 0, element1, element2)
+        Filters:TakeArgumentsAndApplyDamage(target, caster, damage, damage_type, -2, element1, element2)
     else
         Filters:TakeArgumentsAndApplyDamage(target, caster, damage, damage_type, slot, element1, element2)
     end
@@ -1206,6 +1206,11 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     --     damage = damage/(1+((attacker:GetIntellect()/16)/100))
     -- end
     -- print("before bad and elem: "..damage)
+    local solunia_b_d = false
+    if slot == -2 then
+        slot = 0
+        Is_solunia_b_d = true
+    end
     local attackerName = attacker:GetUnitName()
     if attackerName == "zap_assassin_clone" then
         attacker = attacker.hero
@@ -1645,7 +1650,11 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
     end
     if slot == 0 then
-        Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, 0)
+        if not Is_solunia_b_d then
+            Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, 0)
+        else
+            Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, DOTA_ULTIMATE_SLOT)
+        end
         -- ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = attacker:GetAbilityByIndex(0) })
     end
 

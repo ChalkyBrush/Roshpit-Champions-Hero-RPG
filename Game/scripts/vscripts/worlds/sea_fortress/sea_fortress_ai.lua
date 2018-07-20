@@ -986,8 +986,11 @@ function sea_beast_think(event)
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for i = 1, #enemies, 1 do
-				ApplyDamage({ victim = enemies[1], attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
-				ability:ApplyDataDrivenModifier(caster, enemies[1], "modifier_exploder_freeze", {duration = 0.7})
+				ApplyDamage({ victim = enemies[1], attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
+				if enemies[1]:HasModifier("modifier_stun_immune") or enemies[1]:HasModifier("modifier_recently_respawned") then
+				else
+					ability:ApplyDataDrivenModifier(caster, enemies[1], "modifier_exploder_freeze", {duration = 0.7})
+				end
 			end
 		end		
 	end
@@ -4529,8 +4532,11 @@ function naga_summoner_think(event)
 					local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 530, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 					if #enemies > 0 then
 						for _,enemy in pairs(enemies) do
-							ApplyDamage({ victim = enemy, attacker = caster, damage = caster:GetAverageTrueAttackDamage(caster)*100, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability })	
-							enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = 1})		
+							ApplyDamage({ victim = enemy, attacker = caster, damage = caster:GetAverageTrueAttackDamage(caster)*100, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability })
+							if enemy:HasModifier("modifier_stun_immune") or enemy:HasModifier("modifier_recently_respawned") then
+							else
+								enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = 1})
+							end
 						end				
 					end 
 					Timers:CreateTimer(2.2, function()
