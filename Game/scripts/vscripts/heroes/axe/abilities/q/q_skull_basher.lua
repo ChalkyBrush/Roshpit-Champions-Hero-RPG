@@ -19,9 +19,13 @@ function start(event)
     EmitSoundOn("Hero_Axe.BerserkersCall.Item.Shoutmask", caster)
 
 
-    ability:ApplyDataDrivenModifier(caster, caster, "modfier_axe_jumping", {duration = 8})
     local targetPoint = event.target_points[1]
     local distance = WallPhysics:GetDistance2d(targetPoint*Vector(1,1,0), caster:GetAbsOrigin()*Vector(1,1,0))
+    if distance >= 300 then
+        ability:ApplyDataDrivenModifier(caster, caster, "modfier_axe_jumping", {duration = 8})
+    else
+        drop(event)
+    end
 
     local animationTime = math.min(500/distance, 1)
     StartAnimation(caster, {duration=jumpDuration, activity=ACT_DOTA_FLAIL, rate=animationTime, translate="forcestaff_friendly"})
