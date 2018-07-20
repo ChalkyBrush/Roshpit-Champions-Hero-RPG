@@ -304,7 +304,7 @@ function odachi_rush(event)
 	local ability = event.ability
 	local searchPosition = event.caster:GetAbsOrigin() + event.caster:GetForwardVector()*330
 	local searchRadius = 350
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), searchPosition, nil, searchRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_FARTHEST, false )
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), searchPosition, nil, searchRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_FARTHEST, false )
 	if #enemies > 0 then
 		local enemy = enemies[1]
 		FindClearSpaceForUnit(caster, enemy:GetAbsOrigin()+RandomVector(20), false)
@@ -314,8 +314,7 @@ function odachi_rush(event)
 		EmitSoundOn("Hero_Juggernaut.Attack", caster)
 		ability:ApplyDataDrivenModifier(caster, enemy, "modifier_odachi_rush", {duration = 0.4})
 		local damage = ability.b_c_level*0.1*caster:GetAverageTrueAttackDamage()
-		-- ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL })
-		Filters:ApplyDamageBasic(enemy,caster,damage,DAMAGE_TYPE_PHYSICAL)
+		Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 3, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 
 		local playerID = caster:GetPlayerOwnerID()
 		local particleName = "particles/frostivus_herofx/juggernaut_fs_omnislash_tgt.vpcf"

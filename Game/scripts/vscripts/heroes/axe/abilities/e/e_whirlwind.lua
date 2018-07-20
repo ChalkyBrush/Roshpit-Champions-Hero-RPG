@@ -38,7 +38,7 @@ end
 
 local function onSpecificIntervalThink(ability, caster, position, heal)
     Filters:CleanseStuns(caster)
-    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
+    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
     ability.enemies = enemies
     if #enemies > 0 then
         Filters:ApplyHeal(caster, caster, heal * #enemies, true,false)
