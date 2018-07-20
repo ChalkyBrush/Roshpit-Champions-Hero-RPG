@@ -501,11 +501,11 @@ function GameState:OrderFilter(orderTable)
 				end
 			end
 		end
-		if orderTable.entindex_ability then
-			if EntIndexToHScript(orderTable.entindex_ability):GetName() == "flash_heal" then
-				CustomAbilities:AuriunFlashHeal(unit, orderTable)
-			end
-		end
+		-- if orderTable.entindex_ability then
+		-- 	if EntIndexToHScript(orderTable.entindex_ability):GetName() == "flash_heal" then
+		-- 		CustomAbilities:AuriunFlashHeal(unit, orderTable)
+		-- 	end
+		-- end
 		if unit:HasModifier("modifier_stargazers_sphere") then
 			if orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_MOVE or orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
 				local targetVector = Vector(0,0)
