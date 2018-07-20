@@ -21,7 +21,7 @@ function ability_start(event)
 			end)
 			ability.c_a_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
 			local rootDuration = event.root_duration
-			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do
 					Filters:PerformAttackSpecial(caster, enemy, true, true, true, false, true, false, false)

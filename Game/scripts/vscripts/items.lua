@@ -610,7 +610,7 @@ function RPCItems:DropItem(item, position)
     position =  WallPhysics:WallSearch(basePosition, position, Events.SafeItemEntity)
 	FindClearSpaceForUnit(Events.SafeItemEntity, position, false)
 	position = Events.SafeItemEntity:GetAbsOrigin()
-	if determineIfOKdrop(item) then
+	if determineIfOKdrop(item) and ShouldDropItem(item) then
 		local rarityFactor = RPCItems:GetRarityFactor(item.rarity)
 		item.expiryTime = Time() + 140
 		if rarityFactor > 2 then
@@ -657,6 +657,14 @@ function RPCItems:DropItem(item, position)
 		UTIL_Remove(item)
 	end
 
+end
+
+function ShouldDropItem(item)
+	if GameMode.VoteSystem.junk_loot_disabled and RPCItems:GetRarityFactor(item.rarity) < 5 and item.slot 
+		and (item.slot == "weapon" or item.slot == "feet" or item.slot == "head" or item.slot == "hands" or item.slot == "body" or item.slot == "amulet") then
+		return false
+	end
+	return true
 end
 
 function determineIfOKdrop(item)
