@@ -3311,13 +3311,13 @@ function GameState:FilterDamage(filterTable)
 			if StartingDamage > 0 then
 				victim.resist_phys = 1-(filterTable["damage"]/StartingDamage)
 			else
-				victim.resist_mag = 1
+				victim.resist_phys = 1
 			end
 		elseif damagetype == DAMAGE_TYPE_PURE then
 			if StartingDamage > 0 then
 				victim.resist_pure = 1-(filterTable["damage"]/StartingDamage)
 			else
-				victim.resist_mag = 1
+				victim.resist_pure = 1
 			end
 		end
 		filterTable["damage"] = 0
@@ -3328,7 +3328,7 @@ function GameState:FilterDamage(filterTable)
 	if Beacons.cheats then
 		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 			if victim:IsHero() then
-				-- filterTable["damage"] = 0
+				filterTable["damage"] = 0
 			end
 		end
 		-- filterTable["damage"] = victim:GetHealth()-1

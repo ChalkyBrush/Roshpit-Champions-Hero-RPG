@@ -1206,7 +1206,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     --     damage = damage/(1+((attacker:GetIntellect()/16)/100))
     -- end
     -- print("before bad and elem: "..damage)
-    local solunia_b_d = false
+    local Is_solunia_b_d = false
     if slot == -2 then
         slot = 0
         Is_solunia_b_d = true
