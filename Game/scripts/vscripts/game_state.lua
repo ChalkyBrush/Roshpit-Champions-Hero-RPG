@@ -475,9 +475,9 @@ function GameState:OrderFilter(orderTable)
 		unitNumber = unitNum
 		break
 	end
-	for k,v in pairs(orderTable) do
-		print("K:",k,"V:",v)
-	end
+	-- for k,v in pairs(orderTable) do
+	-- 	print("K:",k,"V:",v)
+	-- end
 	-- DeepPrintTable(orderTable)
 	local unit = EntIndexToHScript(unitNumber)
 	if IsValidEntity(unit) and not unit:IsChanneling() then
@@ -501,11 +501,11 @@ function GameState:OrderFilter(orderTable)
 				end
 			end
 		end
-		if orderTable.entindex_ability then
-			if EntIndexToHScript(orderTable.entindex_ability):GetName() == "flash_heal" then
-				CustomAbilities:AuriunFlashHeal(unit, orderTable)
-			end
-		end
+		-- if orderTable.entindex_ability then
+		-- 	if EntIndexToHScript(orderTable.entindex_ability):GetName() == "flash_heal" then
+		-- 		CustomAbilities:AuriunFlashHeal(unit, orderTable)
+		-- 	end
+		-- end
 		if unit:HasModifier("modifier_stargazers_sphere") then
 			if orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_MOVE then
 				local sphere = unit.amulet

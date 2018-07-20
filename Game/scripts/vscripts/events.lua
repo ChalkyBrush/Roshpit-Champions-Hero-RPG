@@ -520,7 +520,7 @@ function GameMode:OnPlayerChat(keys)
         if not Events:TableContainsValue(GameMode.VoteSystem.disable_junk_loot, PlayerResource:GetSteamAccountID(playerid)) then
           table.insert(GameMode.VoteSystem.disable_junk_loot, PlayerResource:GetSteamAccountID(playerid))
           print("added player vote..")
-          local stringToShow = "Disable junk loot players votes: "..#GameMode.VoteSystem.disable_junk_loot.." / "..#MAIN_HERO_TABLE
+          local stringToShow = "Disable junk loot votes: "..#GameMode.VoteSystem.disable_junk_loot.." / "..#MAIN_HERO_TABLE
           -- Notifications:TopToAll({text=stringToShow, duration=5.0})
           Notifications:BottomToAll({text=stringToShow, duration=5.0})
         end
