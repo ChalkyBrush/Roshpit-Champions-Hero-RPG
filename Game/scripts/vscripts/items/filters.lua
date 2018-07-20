@@ -1195,7 +1195,8 @@ function Filters:ApplyDamageBasic(victim,attacker,damage,damage_type)
     -- if damage_type == DAMAGE_TYPE_PHYSICAL then
     --     damage = damage/(1+((attacker:GetIntellect()/16)/100))
     -- end
-    ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type })
+    -- ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type })
+    Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, 0)
 end
 
 function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, slot, element1, element2, ignore_effects)

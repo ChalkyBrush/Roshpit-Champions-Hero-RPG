@@ -78,6 +78,8 @@ function GameMode:OnGameRulesStateChange(keys)
   DebugPrint("[BAREBONES] GameRules State Changed")
   DebugPrintTable(keys)
 
+  GameMode.VoteSystem = {}
+  GameMode.VoteSystem.junk_loot_disabled = false  
   -- This internal handling is used to set up main barebones functions
   GameMode:_OnGameRulesStateChange(keys)
 
@@ -507,7 +509,41 @@ function GameMode:OnPlayerChat(keys)
     end
   elseif string.match(text, "pvp") then
     PVP:Debug()
+  elseif GameState:GetDifficultyFactor() == 3 then
+    local playerid = keys.playerid
+    --if GameState:IsSerengaard() then
+      if string.match(text, "-disable_junk_loot") and not GameMode.VoteSystem.junk_loot_disabled then
+        if not GameMode.VoteSystem.disable_junk_loot then
+          GameMode.VoteSystem.disable_junk_loot = {}
+        end      
+
+        if not Events:TableContainsValue(GameMode.VoteSystem.disable_junk_loot, PlayerResource:GetSteamAccountID(playerid)) then
+          table.insert(GameMode.VoteSystem.disable_junk_loot, PlayerResource:GetSteamAccountID(playerid))
+          print("added player vote..")
+          local stringToShow = "Disable junk loot players votes: "..#GameMode.VoteSystem.disable_junk_loot.." / "..#MAIN_HERO_TABLE
+          -- Notifications:TopToAll({text=stringToShow, duration=5.0})
+          Notifications:BottomToAll({text=stringToShow, duration=5.0})
+        end
+
+        if #GameMode.VoteSystem.disable_junk_loot >= #MAIN_HERO_TABLE then
+          GameMode.VoteSystem.junk_loot_disabled = true
+          print("junk_loot_disabled")
+          Timers:CreateTimer(5.1, function()
+            Notifications:BottomToAll({text="Junk loot disabled", duration=5.0})
+          end )
+        end
+      end
+    --end
   end
+end
+
+function Events:TableContainsValue(table, elementValue)
+  for k, v in pairs(table) do
+    if v == elementValue then
+        return true
+    end
+  end
+  return false
 end
 
 function Events:DebugCalls()
