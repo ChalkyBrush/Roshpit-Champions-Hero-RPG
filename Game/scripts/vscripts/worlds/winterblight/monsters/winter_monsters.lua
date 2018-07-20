@@ -532,6 +532,7 @@ function ice_crystal_take_damage(event)
 				Winterblight.IceShatters = 0
 			end
 			Winterblight.IceShatters = Winterblight.IceShatters + 1
+			caster:ClearParticles()
 			UTIL_Remove(caster)
 			if Winterblight.IceShatters == 18 then
 				Winterblight:ShatterIceWall()

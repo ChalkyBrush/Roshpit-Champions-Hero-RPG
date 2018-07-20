@@ -1190,6 +1190,7 @@ function GameMode:OnEntityKilled( keys )
       end
 
       -- Events:SpecialDeath(killedUnit, killerEntity)
+      killedUnit:ClearParticles()
       Timers:CreateTimer(8,
         function()
               UTIL_Remove(killedUnit)
@@ -1419,6 +1420,14 @@ function CDOTA_BaseNPC:IsFakeStunned()
 	else
 		return false
 	end
+end
+
+function CDOTA_BaseNPC:ClearParticles()
+  if self.shadowFlayPFX then
+    ParticleManager:DestroyParticle( self.shadowFlayPFX, false )
+    ParticleManager:ReleaseParticleIndex(self.shadowFlayPFX)
+    self.shadowFlayPFX = false
+   end
 end
 
 function Events:beginQuests()

@@ -1,85 +1,40 @@
 function initialize_flash_heal(event)
 	local caster = event.caster
-	local player = caster:GetPlayerOwner()
+	-- local player = caster:GetPlayerOwner()
 	local ability = event.ability
-	-- CustomGameEventManager:Send_ServerToPlayer(player, "flash_heal", {auriun = caster:GetEntityIndex()} )
-	EmitSoundOn("Hero_Zuus.Attack", caster)
-	local particleName = "particles/units/heroes/hero_oracle/holy_heal_heal_core.vpcf"
-	local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
-	ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+	-- -- CustomGameEventManager:Send_ServerToPlayer(player, "flash_heal", {auriun = caster:GetEntityIndex()} )
+	-- EmitSoundOn("Hero_Zuus.Attack", caster)
+	-- local particleName = "particles/units/heroes/hero_oracle/holy_heal_heal_core.vpcf"
+	-- local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
+	-- ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 
-	Timers:CreateTimer(0.5, function() 
-	  ParticleManager:DestroyParticle( pfx, false )
-	end) 
-	--SHIELD SOUND: "Auriun.HeavensShield"
-	--RUNE 1: SHADOW BOMB. MAKE SMALL AOE AT CURSOR POSITION
-	--"Auriun.ShadowFlare"
-	ability.a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "auriun")
-	ability.b_b_level = Runes:GetTotalRuneLevel(caster, 2, "b_b", "auriun")
-	ability.d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "auriun")
-	ability.d_b_ability = caster.runeUnit4:FindAbilityByName("auriun_rune_d_b")
+	-- Timers:CreateTimer(0.5, function() 
+	--   ParticleManager:DestroyParticle( pfx, false )
+	-- end) 
+	-- --SHIELD SOUND: "Auriun.HeavensShield"
+	-- --RUNE 1: SHADOW BOMB. MAKE SMALL AOE AT CURSOR POSITION
+	-- --"Auriun.ShadowFlare"
+	-- ability.a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "auriun")
+	-- ability.b_b_level = Runes:GetTotalRuneLevel(caster, 2, "b_b", "auriun")
+	-- ability.d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "auriun")
+	-- ability.d_b_ability = caster.runeUnit4:FindAbilityByName("auriun_rune_d_b")
+	if ability.too_far_away then
+		ability.too_far_away = false
+		order = {
+		UnitIndex = caster:GetEntityIndex(), 
+ 		OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+ 		AbilityIndex = ability:GetEntityIndex(),
+ 		Position = ability.pos,
+	}
+		caster:Stop()
+		ExecuteOrderFromTable(order)
+	end
 end
 
 function cast_flash_heal(event)
 	local caster = event.caster
-	local cursorPos = event.target_points[1]
 	local ability = event.ability
-	local allies = FindUnitsInRadius( caster:GetTeamNumber(), cursorPos, nil, 140, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-	local healAmount = event.heal
-	healAmount = b_b_amp(healAmount, caster, ability)
-	local distance = WallPhysics:GetDistance(caster:GetAbsOrigin(), cursorPos)
-	if not ability.lastCast then
-		ability.lastCast = -1
-	end
-	local bSound = true
-	if ability.lastCast > GameRules:GetGameTime()-0.8 then
-		bSound = false
-	end
-	if bSound then
-		ability.lastCast = GameRules:GetGameTime()
-	end
-	print(distance)
-	local max_distance = Filters:GetAdjustedRange(caster, event.max_distance)
-	if #allies > 0 and distance <= max_distance then
-		for _,ally in pairs(allies) do
-			Filters:ApplyHeal(caster, ally, healAmount, true)
-			flash_heal_particle(caster, ally)	
-			c_b_effect(caster, ability, ally, healAmount)
-		end
-		if bSound then
-			EmitSoundOnLocationWithCaster(cursorPos, "Grizzly.AllyHeal", caster)
-		end
-	else
-		if ability.a_b_level > 0 and distance <= max_distance then
-	      particleName = "particles/units/heroes/hero_nevermore/shadow_flare.vpcf"
-	      local shadowFlarePos = GetGroundPosition(cursorPos, caster)
-	      local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_WORLDORIGIN, caster )
-	      ParticleManager:SetParticleControl( particle1, 0, shadowFlarePos )
-	      Timers:CreateTimer(2, 
-	      function()
-	        ParticleManager:DestroyParticle( particle1, false )
-	        ParticleManager:ReleaseParticleIndex(particle1)
-	      end)
-			if bSound then	
-				EmitSoundOnLocationWithCaster(cursorPos, "Auriun.ShadowFlare", caster)
-			end
-			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), cursorPos, nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-			local damage = ability.a_b_level*1920 + 400
-			damage = b_b_amp(damage, caster, ability)
-			for _,enemy in pairs(enemies) do
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
-				d_b_apply(caster, enemy, ability.d_b_level, ability.d_b_ability)
-			end			
-		else
-			Filters:ApplyHeal(caster, caster, healAmount, true)
-			flash_heal_particle(caster, caster)
-			c_b_effect(caster, ability, caster, healAmount)
-			if bSound then	
-				EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Grizzly.AllyHeal", caster)
-			end
-		end
-	end 	
-	Filters:CastSkillArguments(2, caster)
+	ability.casted = true
 end
 
 function d_b_apply(caster, enemy, d_b_level, d_b_ability)
