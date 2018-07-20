@@ -618,34 +618,36 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap,doPopUp)
     end
     if caster:HasModifier("modifier_white_mage_hat2") then
         local overheal = healAmount - (target:GetMaxHealth()-target:GetHealth())
-                if overheal > 0 then
-                    if not target.whiteMageShield then
-                        target.whiteMageShield = 0
-                    end
-                    if not target:HasModifier("modifier_white_mage_shield") then
-                        target.whiteMageShield = 0
-                    end
-                    target.whiteMageShield = math.min(target.whiteMageShield + overheal, target:GetMaxHealth())
-                    caster.headItem:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_white_mage_shield", {duration = 16})
-                end
+        if overheal > 0 then
+            if not target.whiteMageShield then
+                target.whiteMageShield = 0
             end
-    if caster.headItem:GetAbilityName() == "item_rpc_white_mage_hat" then
-        local countUp = false
-        if target:GetHealth() < target:GetMaxHealth() then
-            countUp = true
+            if not target:HasModifier("modifier_white_mage_shield") then
+                target.whiteMageShield = 0
+            end
+            target.whiteMageShield = math.min(target.whiteMageShield + overheal, target:GetMaxHealth())
+            caster.headItem:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_white_mage_shield", {duration = 16})
         end
-        if countUp then
-            local item = caster.headItem
-            local nextValue = item.property1 + 1
-            local upgradeThreshold = 5000
-            if nextValue == upgradeThreshold then
-                item.lock = true
-                RPCItems:CreateWhiteMageHat2(caster, item)
-                Notifications:Top(caster:GetPlayerOwnerID(), {text="White Mage Hat Upgraded", duration=5, style={color="white"}, continue=true})
-                CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/white_mage_healheal.vpcf", caster, 2)
-            else
-                item.property1 = nextValue
-                RPCItems:SetPropertyValuesSpecial(item, item.property1, "#item_property_white_mage_hat", "#FFFFFF",  1, "#property_white_mage_hat_description")
+    end
+    if caster.headItem then
+        if caster.headItem:GetAbilityName() == "item_rpc_white_mage_hat" then
+            local countUp = false
+            if target:GetHealth() < target:GetMaxHealth() then
+                countUp = true
+            end
+            if countUp then
+                local item = caster.headItem
+                local nextValue = item.property1 + 1
+                local upgradeThreshold = 5000
+                if nextValue == upgradeThreshold then
+                    item.lock = true
+                    RPCItems:CreateWhiteMageHat2(caster, item)
+                    Notifications:Top(caster:GetPlayerOwnerID(), {text="White Mage Hat Upgraded", duration=5, style={color="white"}, continue=true})
+                    CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/white_mage_healheal.vpcf", caster, 2)
+                else
+                    item.property1 = nextValue
+                    RPCItems:SetPropertyValuesSpecial(item, item.property1, "#item_property_white_mage_hat", "#FFFFFF",  1, "#property_white_mage_hat_description")
+                end
             end
         end
     end
