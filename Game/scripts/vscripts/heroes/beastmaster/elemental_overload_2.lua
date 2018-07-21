@@ -25,11 +25,15 @@ function overload_start(event)
 	local healPerEarthCharge = event.heal_per_earth_charge
 	caster:RemoveModifierByName("modifier_warlord_rune_a_c_effect")
 	if earthCharges > 0 then
+		local newStacks = math.floor(earthCharges/2)
 		local healAmount = healPerEarthCharge*earthCharges
 		local shieldDuration = Filters:GetAdjustedBuffDuration(caster, event.shield_duration*earthCharges, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_overload_damage_resistance", {duration = shieldDuration})
-		caster:SetModifierStackCount("modifier_warlord_earth_charge", caster, math.floor(earthCharges/2))
-		-- caster:RemoveModifierByName("modifier_warlord_earth_charge")
+		if newStacks > 0 then
+			caster:SetModifierStackCount("modifier_warlord_earth_charge", caster, newStacks)
+		else
+			caster:RemoveModifierByName("modifier_warlord_earth_charge")
+		end
 		Filters:ApplyHeal(caster, caster, healAmount, true)
 		local particleName = "particles/roshpit/warlord/earth_ulti.vpcf"
 		local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
@@ -62,7 +66,12 @@ function overload_start(event)
 		local iceDamage = event.ice_damage
 		local origin = caster:GetAbsOrigin()
 		-- caster:RemoveModifierByName("modifier_warlord_ice_charge")
-		caster:SetModifierStackCount("modifier_warlord_ice_charge", caster, math.floor(iceCharges/2))
+		local newStacks = math.floor(iceCharges/2)
+		if newStacks > 0 then
+			caster:SetModifierStackCount("modifier_warlord_ice_charge", caster, newStacks)
+		else
+			caster:RemoveModifierByName("modifier_warlord_ice_charge")
+		end
 		local particleName = "particles/roshpit/warlord/ice_ulti_cowlofice.vpcf"
       	local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
       	local origin = caster:GetAbsOrigin()
@@ -102,14 +111,23 @@ function overload_start(event)
 			createFireBall(ability, RandomVector(1), caster, casterOrigin)
 		end
 		-- caster:RemoveModifierByName("modifier_warlord_fire_charge")
-		caster:SetModifierStackCount("modifier_warlord_fire_charge", caster, math.floor(fireCharges/2))
+		local newStacks = math.floor(fireCharges/2)
+		if newStacks > 0 then
+			caster:SetModifierStackCount("modifier_warlord_fire_charge", caster, newStacks)
+		else
+			caster:RemoveModifierByName("modifier_warlord_fire_charge")
+		end
 		if caster:HasAbility("elemental_overload_2") then
 			local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "warlord")
 			if c_d_level > 0 then
-				local c_d_stacks = math.ceil(newStacks*1.0*c_d_level)
-				local runeAbility = caster.runeUnit3:FindAbilityByName("warlord_rune_c_d")
-				runeAbility:ApplyDataDrivenModifier(caster.runeUnit3, caster, "modifier_warlord_rune_c_d_effect", {})
-				caster:SetModifierStackCount("modifier_warlord_rune_c_d_effect", caster.runeUnit3, c_d_stacks)
+					if newStacks > 0 then
+					local c_d_stacks = math.ceil(newStacks*1.0*c_d_level)
+					local runeAbility = caster.runeUnit3:FindAbilityByName("warlord_rune_c_d")
+					runeAbility:ApplyDataDrivenModifier(caster.runeUnit3, caster, "modifier_warlord_rune_c_d_effect", {})
+					caster:SetModifierStackCount("modifier_warlord_rune_c_d_effect", caster.runeUnit3, c_d_stacks)
+				else
+					caster:RemoveModifierByName("modifier_warlord_rune_c_d_effect")
+				end
 			end
 		elseif caster:HasAbility("enhchant_tomahawk") then
 			local d_d_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)

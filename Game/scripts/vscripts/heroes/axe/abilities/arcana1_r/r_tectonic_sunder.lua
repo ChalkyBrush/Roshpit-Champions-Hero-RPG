@@ -17,6 +17,7 @@ function startChannel(event)
     local stun_duration = event.stun_duration
     local amp = event.amp
     local forks = event.forks
+    ability.amp = amp
 
 
     local point = event.target_points[1]

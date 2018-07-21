@@ -758,10 +758,17 @@ function crystal_meditation_attack_start(event)
 	local attacker = event.attacker
 	local target = event.target
 	local attacks = event.attacks
-	for i = 1, attacks, 1 do
-		Timers:CreateTimer(i*0.1, function()
-			Filters:PerformAttackSpecial(attacker, target, true, true, true, false, true, false, false)
-		end)
+	local ability = event.ability
+	if ability.CD == false or ability.CD == nil then
+		ability.CD = true
+		for i = 1, attacks, 1 do
+			Timers:CreateTimer(i*0.1, function()
+				Filters:PerformAttackSpecial(attacker, target, true, true, true, false, true, false, false)
+				if i == attacks then
+					ability.CD = false
+				end
+			end)
+		end
 	end
 end
 

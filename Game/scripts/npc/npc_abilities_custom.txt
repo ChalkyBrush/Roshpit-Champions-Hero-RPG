@@ -125212,7 +125212,7 @@
 			{
 				"IsPurgable"			"0"
 				"Passive" 			"1"
-				"OnAttackStart"
+				"OnAttack"
 				{
 					"RunScript"
 					{
