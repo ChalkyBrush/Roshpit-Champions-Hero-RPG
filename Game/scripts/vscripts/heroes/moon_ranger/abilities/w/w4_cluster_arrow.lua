@@ -10,7 +10,6 @@ local function projectileHit(event)
     end
 
     Helper.updateStackModifier(target, caster, ability, 'astral_d_b', W4_DURATION, W4_MAX_STACKS_COUNT, runesCount)
-    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_COSMOS)
 end
 
 local module = {}
