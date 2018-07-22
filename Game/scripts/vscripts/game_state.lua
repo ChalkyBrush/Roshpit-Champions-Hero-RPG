@@ -919,6 +919,17 @@ function GameState:OrderFilter(orderTable)
 				ability.Q2Toggle=false
 			end
 		end
+		if unit:HasModifier("modifier_flamewaker_arcana1") and orderTable.order_type ~= DOTA_UNIT_ORDER_CAST_POSITION then
+			local ability = unit:FindAbilityByName("flamewaker_arcana_ability")
+			if orderTable.entindex_ability then
+				if EntIndexToHScript(orderTable.entindex_ability):GetName() == "flamewaker_arcana_ability" then
+				else
+					ability.Vector1 = nil
+				end
+			else
+				ability.Vector1 = nil
+			end
+		end
 	end
 	if orderTable.entindex_ability > 0 then
 		if IsValidEntity(unit) then

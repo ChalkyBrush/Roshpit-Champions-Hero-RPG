@@ -82347,6 +82347,15 @@
 				"damage"		"3000 8000 30000 80000 160000 280000 600000"
 			}
 		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/dragon_knight/arcana_ability.lua"
+				"Function"		"PhaseStartArcanaAbility"
+				"target"		"POINT"
+			}
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
