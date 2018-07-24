@@ -19,9 +19,14 @@ function start(event)
     EmitSoundOn("Hero_Axe.BerserkersCall.Item.Shoutmask", caster)
 
 
-    ability:ApplyDataDrivenModifier(caster, caster, "modfier_axe_jumping", {duration = 8})
     local targetPoint = event.target_points[1]
     local distance = WallPhysics:GetDistance2d(targetPoint*Vector(1,1,0), caster:GetAbsOrigin()*Vector(1,1,0))
+    ability.jumpFV = ((targetPoint-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+    if distance >= 300 then
+        ability:ApplyDataDrivenModifier(caster, caster, "modfier_axe_jumping", {duration = 8})
+    else
+        drop(event)
+    end
 
     local animationTime = math.min(500/distance, 1)
     StartAnimation(caster, {duration=jumpDuration, activity=ACT_DOTA_FLAIL, rate=animationTime, translate="forcestaff_friendly"})
@@ -31,7 +36,6 @@ function start(event)
     if caster:HasModifier("modifier_whirlwind") then
         ability.jump_velocity = ability.jump_velocity + 5
     end
-    ability.jumpFV = ((targetPoint-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
     ability.distance = distance
     ability.targetPoint = targetPoint
     ability.lifting = true

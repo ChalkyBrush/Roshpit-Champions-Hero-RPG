@@ -1,15 +1,36 @@
+function PhaseStartArcanaAbility(event)
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.target_points[1]
+	if Runes:GetTotalRuneLevel(caster, 3, "c_a_arcana1", "flamewaker") > 0 and not ability.Vector1 then
+		ability.Vector1 = target
+		caster:Stop()
+	end
+end
+
 function start_arcana_ability(event)
 	local caster = event.caster
 	local ability = event.ability
-	local targetPoint = event.target_points[1]
+	local targetPoint = ability.Vector1
+	ability.Vector2 = event.target_points[1]
 	local damage = event.strength_mult*caster:GetStrength() + event.damage
 	local radius = 360
 	local c_a_level = Runes:GetTotalRuneLevel(caster, 3, "c_a_arcana1", "flamewaker")
+	if c_a_level < 1 then
+		targetPoint = event.target_points[1]
+	end
 	local procs = Runes:Procs(c_a_level, 10, 1)
+	local direction = (ability.Vector2 - targetPoint):Normalized()
+	if ability.Vector2 == targetPoint then
+		direction = RandomVector(1)
+	end
 	for j = 0, procs, 1 do
 		Timers:CreateTimer(j*0.2, function()
 			if j > 0 then
-				targetPoint = targetPoint + RandomVector(RandomInt(100, 200))
+				targetPoint = targetPoint + direction*100
+			end
+			if j == procs and ability.Vector1 then
+				ability.Vector1 = nil
 			end
 			local pfx = ParticleManager:CreateParticle("particles/econ/items/monkey_king/arcana/fire/monkey_king_spring_arcana_fire.vpcf", PATTACH_CUSTOMORIGIN, caster)
 			ParticleManager:SetParticleControl(pfx, 0, targetPoint+Vector(0,0,120))

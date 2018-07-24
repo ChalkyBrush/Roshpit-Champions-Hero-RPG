@@ -501,15 +501,24 @@ function GameState:OrderFilter(orderTable)
 				end
 			end
 		end
-		if orderTable.entindex_ability then
-			if EntIndexToHScript(orderTable.entindex_ability):GetName() == "flash_heal" then
-				CustomAbilities:AuriunFlashHeal(unit, orderTable)
-			end
-		end
+		-- if orderTable.entindex_ability then
+		-- 	if EntIndexToHScript(orderTable.entindex_ability):GetName() == "flash_heal" then
+		-- 		CustomAbilities:AuriunFlashHeal(unit, orderTable)
+		-- 	end
+		-- end
 		if unit:HasModifier("modifier_stargazers_sphere") then
-			if orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_MOVE then
+			if orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_MOVE or orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
+				local targetVector = Vector(0,0)
+				if orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_MOVE then
+					targetVector = Vector(orderTable.position_x, orderTable.position_y)
+				elseif orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
+					targetVector = Vector(EntIndexToHScript(orderTable.entindex_target):GetAbsOrigin().x, EntIndexToHScript(orderTable.entindex_target):GetAbsOrigin().y)
+				end
 				local sphere = unit.amulet
-				local cdCondition = sphere:GetCooldownTimeRemaining() <= 0
+				if not sphere.cd then
+					sphere.cd = false
+				end
+				local cdCondition = not sphere.cd
 				if not sphere.sphereTable then
 					sphere.sphereTable = {}
 				end
@@ -518,8 +527,8 @@ function GameState:OrderFilter(orderTable)
 					sphere.sphereTable.pfx = false
 				end
 				if sphere.sphereTable.dummy then
-					print(WallPhysics:GetDistance2d(sphere.sphereTable.dummy:GetAbsOrigin(), Vector(orderTable.position_x, orderTable.position_y)))
-					if WallPhysics:GetDistance2d(sphere.sphereTable.dummy:GetAbsOrigin(), Vector(orderTable.position_x, orderTable.position_y)) < 300 then
+					print(WallPhysics:GetDistance2d(sphere.sphereTable.dummy:GetAbsOrigin(), targetVector))
+					if WallPhysics:GetDistance2d(sphere.sphereTable.dummy:GetAbsOrigin(), targetVector) < 300 then
 						if sphere.sphereTable.pfx then
 							ParticleManager:DestroyParticle(sphere.sphereTable.pfx, false)
 							sphere.sphereTable.pfx = false
@@ -554,7 +563,7 @@ function GameState:OrderFilter(orderTable)
 					end
 				end
 				if cdCondition then
-					sphere.sphereTable.position = GetGroundPosition(Vector(orderTable.position_x, orderTable.position_y), unit) 
+					sphere.sphereTable.position = GetGroundPosition(targetVector, unit) 
 					local pfx = ParticleManager:CreateParticle("particles/roshpit/items/stargazer_ring_ring.vpcf", PATTACH_CUSTOMORIGIN, nil)
 					ParticleManager:SetParticleControl(pfx, 0, sphere.sphereTable.position)
 					sphere.sphereTable.pfx = pfx
@@ -565,7 +574,10 @@ function GameState:OrderFilter(orderTable)
 					dummy:SetNightTimeVisionRange(300)
 					dummy:SetDayTimeVisionRange(300)
 					sphere.sphereTable.dummy = dummy
-					sphere:StartCooldown(2)
+					sphere.cd = true
+					Timers:CreateTimer(2, function()
+						sphere.cd = false
+					end)
 					local faceVector = ((sphere.sphereTable.position - unit:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 					unit:MoveToPosition(unit:GetAbsOrigin()+faceVector*5)
 					return false
@@ -905,6 +917,17 @@ function GameState:OrderFilter(orderTable)
 			end
 			if orderTable.order_type == DOTA_UNIT_ORDER_HOLD_POSITION then
 				ability.Q2Toggle=false
+			end
+		end
+		if unit:HasModifier("modifier_flamewaker_arcana1") and orderTable.order_type ~= DOTA_UNIT_ORDER_CAST_POSITION then
+			local ability = unit:FindAbilityByName("flamewaker_arcana_ability")
+			if orderTable.entindex_ability then
+				if EntIndexToHScript(orderTable.entindex_ability):GetName() == "flamewaker_arcana_ability" then
+				else
+					ability.Vector1 = nil
+				end
+			else
+				ability.Vector1 = nil
 			end
 		end
 	end
@@ -1505,6 +1528,7 @@ function GameState:FilterDamage(filterTable)
 		-- end
 	end
 	local StartingDamage = filterTable["damage"]
+	print("START DAMAGE: "..StartingDamage)
 	local applyEffects = true
 	local applySturdyHornEffect = true
 
@@ -3271,16 +3295,41 @@ function GameState:FilterDamage(filterTable)
         	local ability = victim:FindModifierByName("modifier_golden_shell_passive"):GetAbility()
         	ability:ApplyDataDrivenModifier(victim, victim, "modifier_black_King_bar_immunity", {duration = ability:GetSpecialValueFor("duration")})
         end
+        if victim:HasModifier("modifier_in_stargazer_area") then
+        	local allow = true
+        	if filterTable["entindex_inflictor_const"] then
+	        	if EntIndexToHScript(filterTable["entindex_inflictor_const"]):GetName() == "solunia_lunar_alpha_spark" or EntIndexToHScript(filterTable["entindex_inflictor_const"]):GetName() == "solunia_solar_alpha_spark" then
+	        		allow = false
+	        	end
+	        end
+        	if allow then
+	        	local caster = victim:FindModifierByName("modifier_in_stargazer_area"):GetCaster()
+	        	local ability = victim:FindModifierByName("modifier_in_stargazer_area"):GetAbility()
+	        	CustomAbilities:StargazerSphereTakeDamage(caster,ability,victim,StartingDamage)
+	        end
+        end
     end
 
 	local inflictor = filterTable["entindex_inflictor_const"]
 	if not applyEffects then
 		if damagetype == DAMAGE_TYPE_MAGICAL then
-			victim.resist_mag = 1-(filterTable["damage"]/StartingDamage)
+			if StartingDamage > 0 then
+				victim.resist_mag = 1-(filterTable["damage"]/StartingDamage)
+			else
+				victim.resist_mag = 1
+			end
 		elseif damagetype == DAMAGE_TYPE_PHYSICAL then
-			victim.resist_phys = 1-(filterTable["damage"]/StartingDamage)
+			if StartingDamage > 0 then
+				victim.resist_phys = 1-(filterTable["damage"]/StartingDamage)
+			else
+				victim.resist_phys = 1
+			end
 		elseif damagetype == DAMAGE_TYPE_PURE then
-			victim.resist_pure = 1-(filterTable["damage"]/StartingDamage)
+			if StartingDamage > 0 then
+				victim.resist_pure = 1-(filterTable["damage"]/StartingDamage)
+			else
+				victim.resist_pure = 1
+			end
 		end
 		filterTable["damage"] = 0
 	end

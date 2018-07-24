@@ -18463,16 +18463,7 @@
 				"IsHidden"	"0"
 				"TextureName"	"mirana_starfall"
 				"IsDebuff"	"1"
-				"OnTakeDamage"
-				// "%attack_damage" is set to the damage value after mitigation
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"in_stargazer_takedamage"
-						"damage"        "%attack_damage"
-					}
-				}
+
 			}
 			"modifier_stargazer_immunity"
 			{
