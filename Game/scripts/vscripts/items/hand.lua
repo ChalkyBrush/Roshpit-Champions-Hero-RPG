@@ -394,6 +394,7 @@ function Hand:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_buzukis_finger")
 	hero:RemoveModifierByName("modifier_swiftspike_bracer")
 	hero:RemoveModifierByName("modifier_hand_movespeed")
+	hero:RemoveModifierByName("modifier_sephyr_arcana1")
 	hero.stormcloth = false
 	Hand:remove_rune_bonuses(hero)
 end

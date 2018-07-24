@@ -48,6 +48,8 @@ function flood_basin_start(event)
 			-- ParticleManager:SetParticleControlEnt(pfx, 0, basin_dummy, PATTACH_CUSTOMORIGIN, "attach_hitloc", basin_dummy:GetAbsOrigin(), true)
 			basin_dummy.pfx = pfx
 			basin_dummy.radius = event.radius
+			basin_dummy:SetNightTimeVisionRange(event.radius + 100)
+			basin_dummy:SetDayTimeVisionRange(event.radius + 100)
 			local baseDuration = 15
 			local b_d_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
 			local basin_duration = baseDuration + b_d_level*0.25

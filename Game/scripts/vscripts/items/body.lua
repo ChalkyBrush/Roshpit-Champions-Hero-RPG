@@ -468,6 +468,8 @@ function Body:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_boreal_granite_vest")
 	hero:RemoveModifierByName("modifier_captains_vest")
 	hero:RemoveModifierByName("modifier_tattered_novice_armor")
+	hero:RemoveModifierByName("modifier_hydroxis_arcana2")
+	hero:RemoveModifierByName("modifier_astral_arcana3")
 	hero.ocean_tempest = nil
 
 	hero.space_tech = nil
