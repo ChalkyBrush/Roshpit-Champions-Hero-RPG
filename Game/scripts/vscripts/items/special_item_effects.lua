@@ -2150,6 +2150,9 @@ function onu_attack_land(event)
 	local attacker = event.attacker
 	local ability = event.ability
 	local caster = event.caster
+	if target.dummy then
+		return false
+	end
 	local proc = Filters:GetProc(attacker, 35)	
 	if target:HasModifier("modifier_glint_no_proc") then
 		local newNoProcStacks = target:GetModifierStackCount("modifier_glint_no_proc", caster) - 1
