@@ -21455,6 +21455,7 @@
 			{
         		"ScriptFile"	"heroes/zuus/flash_heal.lua"
         		"Function"		"initialize_flash_heal"
+        		"target"		"POINT"
 			}
 		}
 		"OnSpellStart"
@@ -21463,9 +21464,6 @@
 			{
         		"ScriptFile"	"heroes/zuus/flash_heal.lua"
         		"Function"		"cast_flash_heal"
-        		"heal"		"%heal"
-        		"max_distance"	"%max_distance"
-        		"target"		"POINT"
 			}
 		}
         "Modifiers"
@@ -111937,6 +111935,15 @@
 				"damage"		"3000 8000 30000 80000 160000 280000 600000"
 			}
 		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/dragon_knight/arcana_ability.lua"
+				"Function"		"PhaseStartArcanaAbility"
+				"target"		"POINT"
+			}
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -125214,7 +125221,7 @@
 			{
 				"IsPurgable"			"0"
 				"Passive" 			"1"
-				"OnAttackStart"
+				"OnAttack"
 				{
 					"RunScript"
 					{

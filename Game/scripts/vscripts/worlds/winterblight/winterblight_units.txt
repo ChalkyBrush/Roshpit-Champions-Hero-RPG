@@ -5472,7 +5472,7 @@
         "AttackAcquisitionRange"    "100"
         "ProjectileSpeed"           "1400"
         "ProjectileModel"           "particles/econ/items/leshrac/leshrac_tormented_staff/leshrac_base_attack_tormented.vpcf"
-        "AttackRange"   "750"
+        "AttackRange"   "460"
         "BountyGoldMin" "250"
         "BountyGoldMax" "250"
         "BountyXP" "1100"
