@@ -178,7 +178,7 @@ function Amulet:action(propertyName, propertyValue, hero, inventory_unit, trinke
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_cobalt_serenity_ring", item)
 	elseif propertyName == "cosmos" then
 		trinket_ability.cosmos = trinket_ability.cosmos + propertyValue
-		Amulet:addBasicModifier(trinket_ability.cosmos, hero, inventory_unit, "modifier_trinket_", trinket_ability)
+		Amulet:addBasicModifier(trinket_ability.cosmos, hero, inventory_unit, "modifier_trinket_cosmos", trinket_ability)
 	elseif propertyName == "nature" then
 		trinket_ability.nature = trinket_ability.nature + propertyValue
 		Amulet:addBasicModifier(trinket_ability.nature, hero, inventory_unit, "modifier_trinket_nature", trinket_ability)
@@ -198,7 +198,7 @@ function Amulet:action(propertyName, propertyValue, hero, inventory_unit, trinke
 		trinket_ability.arcane = trinket_ability.arcane + propertyValue
 		Amulet:addBasicModifier(trinket_ability.arcane, hero, inventory_unit, "modifier_trinket_arcane", trinket_ability)
 	elseif propertyName == "undead" then
-		trinket_ability,undead = trinket_ability.undead + propertyValue
+		trinket_ability.undead = trinket_ability.undead + propertyValue
 		Amulet:addBasicModifier(trinket_ability.undead, hero, inventory_unit, "modifier_trinket_undead", trinket_ability)
 	elseif propertyName == "fire_blossom" then
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_fire_blossom", item)
