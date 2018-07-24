@@ -215,6 +215,12 @@ function Winterblight:IceCrystalArea()
 		Winterblight:SpawnMountainDweller(Vector(-5409, -6299), Vector(-1,-0.3))
 	end
 	Timers:CreateTimer(2, function()
+		local reynarLuck = RandomInt(1, 5)
+		if reynarLuck == 1 then
+			Winterblight:InitCaptainReynar()
+		end
+	end)
+	Timers:CreateTimer(2, function()
 		local luck2 = RandomInt(1, 3)
 		if luck2 == 1 then
 	      local positionTable = {Vector(-6144, -8128), Vector(-6912, -5888), Vector(-5632, -6336), Vector(-8192, -6528)}

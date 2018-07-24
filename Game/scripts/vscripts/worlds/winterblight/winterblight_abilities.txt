@@ -4154,7 +4154,7 @@
 			"modifier_zealot_ai_2"
 			{
 				"IsHidden"	"1"
-				"ThinkInterval"  "1.8"
+				"ThinkInterval"  "3.5"
 				"Passive"	"1"
 				"OnIntervalThink"
 				{
