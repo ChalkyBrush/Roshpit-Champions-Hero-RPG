@@ -33505,6 +33505,9 @@
 			}
 		}
 	}
+
+	##VOLTEX_ABILITIES##
+	
 	//VENOMORT RUNES
 	"venomort_rune_a_a"
 	{

@@ -22,12 +22,17 @@ function begin_static_field(event)
 	d_d_set(caster, ability)
 	rune_a_d(caster, ability)
 	rune_c_d(caster)
-	
 end
 
 function begin_static_channel(event)
 	local caster = event.caster
+	local ability = event.ability
 	StartAnimation(caster, {duration=2.0, activity=ACT_DOTA_ATTACK_EVENT, rate=0.38})
+	if caster:HasModifier("modifier_magnet_d_d") then
+        Timers:CreateTimer(0.03, function()
+            ability:EndChannel(false)
+        end)
+	end
 end
 
 function create_spark(fv, event)

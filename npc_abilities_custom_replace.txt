@@ -62,3 +62,4 @@ EPOCH_ABILITIES:heroes\obsidian_destroyer\npc\abilities.txt
 EPOCH_RUNES:heroes\obsidian_destroyer\npc\runes.txt
 
 HYDROXIS_ABILITIES:heroes\slardar\npc\hydroxis_arcana_abilities.txt
+VOLTEX_ABILITIES:heroes\phantom_assassin/npc/npc_voltex_abilities.txt

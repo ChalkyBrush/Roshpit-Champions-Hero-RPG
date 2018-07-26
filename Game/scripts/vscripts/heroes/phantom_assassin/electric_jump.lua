@@ -201,6 +201,7 @@ function ConjureImage( caster, player, runeAbility, abilityLevel, runeUnit )
 
  duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
  local illusion = CreateUnitByName("zap_assassin_clone", origin, true, caster, nil, caster:GetTeamNumber())
+ illusion:SetOwner(caster)
  illusion.owner = caster:GetPlayerOwnerID()
  illusion.hero = caster
  illusion.a_c_level = abilityLevel
@@ -211,7 +212,9 @@ function ConjureImage( caster, player, runeAbility, abilityLevel, runeUnit )
  runeAbility:ApplyDataDrivenModifier(runeUnit, illusion, "modifier_voltex_rune_a_c_remnant", {duration = duration})
  EmitSoundOn("Hero_Disruptor.ThunderStrike.Target", illusion)
 
-
+ 	if not illusion:HasAbility("lightning_attack") then
+ 		illusion:AddAbility("lightning_attack")
+ 	end
   local overCharge = illusion:FindAbilityByName("lightning_attack")
 
  -- Set the unit as an illusion
@@ -220,7 +223,7 @@ illusion:AddNewModifier(caster, ability, "modifier_illusion", { duration = durat
 
  -- Without MakeIllusion the unit counts as a hero, e.g. if it dies to neutrals it says killed by neutrals, it respawns, etc.
  illusion:MakeIllusion()
- overCharge:SetLevel(caster:FindAbilityByName("lightning_attack"):GetLevel())
+ overCharge:SetLevel(caster:GetAbilityByIndex(0):GetLevel())
  overCharge:ApplyDataDrivenModifier(illusion, illusion, "modifier_gods_strength_datadriven" , {duration = duration})
 
 

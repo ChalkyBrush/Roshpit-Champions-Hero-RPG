@@ -1722,6 +1722,45 @@ function RPCItems:RollHydroxisArcana2(deathLocation)
     return item
 end
 
+function RPCItems:RollVoltexArcana2(deathLocation)
+    local item = RPCItems:CreateVariantArcana("item_rpc_voltex_arcana2", "arcana", "Voltex Arcana 2", "head", true, "Slot: Head", "npc_dota_hero_phantom_assassin", 0)
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.property1 = 1
+    item.property1name = "!arcana!_voltex_arcana2"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_voltex_arcana2", "#85f2d8",  1, "#property_voltex_arcana2_description")
+
+
+    item.hasRunePoints = true
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+    
+    local luck = RandomInt(1, 100)
+    if luck <= 35 then
+        item.property2name = "rune_a_a"
+        item.property2 = math.ceil(value*1.2)
+    elseif luck <= 70 then
+        item.property2name = "rune_b_a"
+        item.property2 = math.ceil(value*1.5)       
+    elseif luck <= 90 then
+        item.property2name = "rune_c_a"
+        item.property2 = math.ceil(value*1.3) 
+    else
+        item.property2name = "rune_d_a"
+        item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
+    end
+    RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
+
+
+    local value, prefixLevel = RPCItems:RollAttribute(100, 10, 30, 0, 0, item.rarity, false, maxFactor*13)
+    item.property3 = value
+    item.property3name = "agility"
+    RPCItems:SetPropertyValues(item, item.property3, "#item_agility", "#2EB82E",  3)
+
+    RPCItems:RollHoodProperty4(item, 0)
+
+    RPCItems:DropOrGiveItem(hero, item, false, deathLocation)
+    return item
+end
+
 function RPCItems:PreacheArcanaResources(item)
     Timers:CreateTimer(0.05, function()
         PrecacheItemByNameAsync(item:GetAbilityName(), function(...) end)
@@ -1736,6 +1775,7 @@ function RPCItems:GetAvailableArcanaData(hero)
         table.insert(arcanaData, {2, 1})
     elseif unitName == "npc_dota_hero_phantom_assassin" then
         table.insert(arcanaData, {1, 2})
+        table.insert(arcanaData, {2, 0})
     elseif unitName == "npc_dota_hero_necrolyte" then
         table.insert(arcanaData, {1, 3})
         table.insert(arcanaData, {2, 0})
@@ -1816,7 +1856,7 @@ function RPCItems:GetAllArcanaNames()
     "item_rpc_conjuror_arcana1", "item_rpc_seinaru_arcana1", "item_rpc_seinaru_arcana2", "item_rpc_warlord_arcana1", "item_rpc_bahamut_arcana1", "item_rpc_bahamut_arcana2", "item_rpc_trapper_arcana1",
     "item_rpc_spirit_warrior_arcana1", "item_rpc_spirit_warrior_arcana2", "item_rpc_spirit_warrior_arcana3", "item_rpc_mountain_protector_arcana1", "item_rpc_mountain_protector_arcana2", "item_rpc_mountain_protector_arcana3",
     "item_rpc_chernobog_arcana1", "item_rpc_chernobog_arcana2", "item_rpc_solunia_arcana1", "item_rpc_solunia_arcana2", "item_rpc_hydroxis_arcana1", "item_rpc_ekkan_arcana1", "item_rpc_zonik_arcana1",
-    "item_rpc_zonik_arcana2", "item_rpc_arkimus_arcana1", "item_rpc_arkimus_arcana2", "item_rpc_djanghor_arcana1", "item_rpc_hydroxis_arcana2"}
+    "item_rpc_zonik_arcana2", "item_rpc_arkimus_arcana1", "item_rpc_arkimus_arcana2", "item_rpc_djanghor_arcana1", "item_rpc_hydroxis_arcana2", "item_rpc_voltex_arcana2"}
     return arcanaTable
 end
 
@@ -1908,6 +1948,8 @@ function RPCItems:RollArcanaByName(arcana_name, position)
         arcana = RPCItems:RollSephyrArcana1(position)
     elseif arcana_name == "item_rpc_hydroxis_arcana2" then
         arcana = RPCItems:RollHydroxisArcana2(position)
+    elseif arcana_name == "item_rpc_voltex_arcana2" then
+        arcana = RPCItems:RollVoltexArcana2(position)
     end
     return arcana
 end

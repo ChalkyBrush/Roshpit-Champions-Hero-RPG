@@ -46,7 +46,14 @@ function begin_zap(event)
     caster:SetModifierStackCount("modifier_voltex_rune_c_b_shield", caster, 3)
   end
   ability.d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "voltex")
-
+  if caster:HasModifier("modifier_magnet_d_d") then
+    caster:Stop()
+    if caster:HasAbility("voltex_magnet") then
+      local magnetAbility = caster:FindAbilityByName("voltex_magnet")
+      magnetAbility:ApplyDataDrivenModifier(caster, caster, "modifier_arcana2_dash", {duration = 1})
+      magnetAbility.pushSpeed = 25
+    end
+  end
 end
 
 function zap_damage(event)

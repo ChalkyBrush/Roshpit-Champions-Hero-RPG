@@ -42,7 +42,8 @@ function Tanari:Debug()
     local position = Vector(-4928, 2048)
     RPCItems:DropItem(item, Vector(-4928, 2048))
 
-    RPCItems:RollHydroxisArcana2(Vector(-4928, 2048))
+    -- RPCItems:RollHydroxisArcana2(Vector(-4928, 2048))
+    RPCItems:RollVoltexArcana2(Vector(-4928, 2048))
     -- RPCItems:RollAstralArcana1(Vector(-4928, 2048))
     -- RPCItems:RollAstralArcana2(Vector(-4928, 2048))
     -- for i = 1, 5, 1 do

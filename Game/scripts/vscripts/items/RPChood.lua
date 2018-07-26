@@ -114,6 +114,11 @@ function RPCItems:HoodLegendary(itemVariant, deathLocation, isShop)
     elseif itemVariant == "item_cap" then
         local luck = RandomInt(1, 12) 
         if luck == 1 then
+            local arcanaLuck = RandomInt(1, 980)
+            if arcanaLuck <= (2 + GameState:GetPlayerPremiumStatusCount()) then
+                RPCItems:RollVoltexArcana2(deathLocation)
+                return true
+            end
             RPCItems:RollHyperVisor(deathLocation, isShop)
             return true
         elseif luck == 2 then

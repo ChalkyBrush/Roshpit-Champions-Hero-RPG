@@ -813,20 +813,22 @@ function Runes:EquipArcana(hero, index)
 			end
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_phantom_assassin" then
-		local heavensCharge = hero:FindAbilityByName("heavens_charge")
-		if heavensCharge then
-			if hero.chargeActive then
-			  	local azure_leap = hero:FindAbilityByName("electric_jump")
-			  	azure_leap:SetLevel(heavensCharge:GetLevel())
-			  	hero:SwapAbilities("heavens_charge", "electric_jump", false, true)
-			  	azure_leap:SetAbilityIndex(2)
-				hero:RemoveAbility("heavens_charge")
-			else
-				hero:RemoveAbility("heavens_charge")
-			end
-		end
 		if index == 1 then
+			local heavensCharge = hero:FindAbilityByName("heavens_charge")
+			if heavensCharge then
+				if hero.chargeActive then
+				  	local azure_leap = hero:FindAbilityByName("electric_jump")
+				  	azure_leap:SetLevel(heavensCharge:GetLevel())
+				  	hero:SwapAbilities("heavens_charge", "electric_jump", false, true)
+				  	azure_leap:SetAbilityIndex(2)
+					hero:RemoveAbility("heavens_charge")
+				else
+					hero:RemoveAbility("heavens_charge")
+				end
+			end
 			Runes:EasySwapArcanaSkills(hero, 2, "electric_jump", "voltex_lightning_dash", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+		elseif index == 2 then
+			Runes:EasySwapArcanaSkills(hero, 0, "lightning_attack", "voltex_magnet", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_omniknight" then
 		if index == 1 then
@@ -1396,6 +1398,8 @@ function Runes:UnequipArcana(hero, index)
 		if index == 1 then
 			hero:RemoveModifierByName("modifier_voltex_arcana1_passive")
 			Runes:EasyRevertArcanaSkills(hero, 2, "electric_jump", "voltex_lightning_dash", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+		elseif index == 2 then
+			Runes:EasyRevertArcanaSkills(hero, 0, "lightning_attack", "voltex_magnet", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_omniknight" then
 		if index == 1 then
