@@ -108,10 +108,16 @@ function genesis_orb_impact(event)
 		local runeW2ArmourDecrease = 50 --each w2 reduce armor for -50
 		local maximumNegativeArmor = 1000 --w2 cap at -1000
 		local finalStacksCount = b_b_lvl
-		if target:GetPhysicalArmorValue() > 0 then
-			local runesToDecrease = (target:GetPhysicalArmorValue() + maximumNegativeArmor)/runeW2ArmourDecrease - b_b_lvl
+		local currentStacks = 0
+		local currentTargetArmor = target:GetPhysicalArmorValue()
+		if target:HasModifier("modifier_epoch_rune_b_b_visible") then
+			currentStacks = target:GetModifierStackCount("modifier_epoch_rune_b_b_visible", caster)
+			currentTargetArmor = currentTargetArmor + (currentStacks * runeW2ArmourDecrease)
+		end
+		if currentTargetArmor > 0 then
+			local runesToDecrease = (currentTargetArmor + maximumNegativeArmor)/runeW2ArmourDecrease - b_b_lvl
 			if runesToDecrease < 0 then
-				finalStacksCount = math.ceil ((target:GetPhysicalArmorValue() + maximumNegativeArmor)/runeW2ArmourDecrease);
+				finalStacksCount = math.ceil ((currentTargetArmor + maximumNegativeArmor)/runeW2ArmourDecrease);
 			end
 		else
 			local runesToDecrease = maximumNegativeArmor/runeW2ArmourDecrease - b_b_lvl
