@@ -291,9 +291,6 @@ function backstab_channel_succeed(event)
 	caster.c_d_level = c_d_level
 	if c_d_level > 0 then
         local duration = R3_DURATION
-        if caster:HasModifier("modifier_trapper_glyph_7_2") then
-            duration = duration + T72_ADD_DURATION
-        end
         duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_trapper_c_d_buff", {duration = duration})
 	end
@@ -402,6 +399,14 @@ function invisible_think(event)
         end
 		Helper.updateStackModifier(caster, caster, ability, 'trapper_rune_b_d', duration, maxStacksCount, runesCount)
 	end
+
+	if caster:HasModifier("modifier_trapper_glyph_7_2") then
+		local backstab = caster:FindAbilityByName("trapper_backstab")
+		if not backstab then
+			backstab = caster:AddAbility("trapper_backstab")
+		end
+		backstab:ApplyDataDrivenModifier(caster, caster, "modifier_trapper_c_d_buff", {duration = 0.6})
+	end
 	runesCount = Runes:GetTotalRuneLevel(caster, 4, "d_d", "trapper")
 	if runesCount > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_trapper_rune_d_d_bonus_agi", {duration = 0.6})
@@ -412,7 +417,7 @@ end
 function crit_attack_start(event)
 	local caster = event.caster
 	local ability = event.ability
-	local runesCount = caster.c_d_level
+	local runesCount = Runes:GetTotalRuneLevel(caster, 3, "c_d", "trapper")
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_trapper_c_d_crit", {})
 	caster:SetModifierStackCount("modifier_trapper_c_d_crit", caster, runesCount)
 end

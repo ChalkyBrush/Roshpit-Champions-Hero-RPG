@@ -1,3 +1,5 @@
+require("heroes/skywrath_mage/constants")
+
 function begin_icewind_gale(event)
 	local ability = event.ability
 	local caster = event.caster
@@ -145,7 +147,7 @@ function ice_gale_hit(event)
 	end
 	local b_b_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
 	if b_b_level > 0 then
-		damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.15*b_b_level
+		damage = damage + caster:GetAverageTrueAttackDamage(caster)*ARCANA1_W2_AD_TO_W_DAMAGE_PERCENT/100*b_b_level
 	end
 	if crit then
 		damage = damage + damage*(event.crit_mult/100)
@@ -164,7 +166,7 @@ function sephyr_passive_think_icegale(event)
 		caster:SetModifierStackCount("modifier_icewind_mana_regen", caster, a_b_level)
 
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_icewind_attack_power", {})
-		local attackPower = caster:GetManaRegen()*a_b_level
+		local attackPower = caster:GetManaRegen()*a_b_level*ARCANA1_W1_DAMAGE_PER_MANAREGEN
 		caster:SetModifierStackCount("modifier_icewind_attack_power", caster, attackPower)
 		
 	else

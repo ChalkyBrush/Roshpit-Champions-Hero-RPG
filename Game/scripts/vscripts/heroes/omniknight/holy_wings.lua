@@ -20,7 +20,7 @@ function cast_wings(event)
 		end
 		local immortalDuration = Filters:GetAdjustedBuffDuration(caster, 8, false)
 		coneAbility:ApplyDataDrivenModifier(caster, caster, "modifier_paladin_rune_c_a_shield", {duration = immortalDuration})
-		caster:SetModifierStackCount("modifier_paladin_rune_c_a_shield", caster, 7)
+		caster:SetModifierStackCount("modifier_paladin_rune_c_a_shield", caster, 4)
 	end
 end
 

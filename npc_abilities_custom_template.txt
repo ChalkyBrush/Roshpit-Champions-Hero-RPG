@@ -35022,7 +35022,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"24"
+				"property_one"			"40"
 			}
 			"02"
 			{
@@ -35798,7 +35798,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"330"
+				"property_one"			"800"
 			}
 			"02"
 			{

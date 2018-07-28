@@ -1,3 +1,5 @@
+require('heroes/lanaya/constants')
+
 function rune_unit_3_think(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -7,6 +9,7 @@ function rune_unit_3_think(event)
 	ability.c_c_level = c_c_level
 	if c_c_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_psi_blades_c_c", {})
+		hero:SetModifierStackCount( "modifier_psi_blades_c_c", ability, ability.c_c_level )
 	else
 		hero:RemoveModifierByName("modifier_psi_blades_c_c")
 	end
@@ -21,11 +24,11 @@ function CheckAngles(keys)
 	local first_target_origin = target:GetAbsOrigin()
 	-- Notes the damage the first target takes to apply to the other targets
 	local c_c_level = ability.c_c_level
-	ability.line_damage = keys.damage*0.12*c_c_level
+	ability.line_damage = keys.damage*E3_DAMAGE_PERCENT/100*c_c_level
 	ability.origCaster = caster
 
 	if caster:HasModifier("modifier_trapper_glyph_2_2") then
-		Filters:TakeArgumentsAndApplyDamage(target, caster, ability.line_damage, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+		Filters:TakeArgumentsAndApplyDamage(target, caster, ability.line_damage, DAMAGE_TYPE_PURE, 3, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 	end
 	-- Gets the caster's origin difference from the target
 	local caster_origin_difference = caster:GetAbsOrigin() - first_target_origin 
