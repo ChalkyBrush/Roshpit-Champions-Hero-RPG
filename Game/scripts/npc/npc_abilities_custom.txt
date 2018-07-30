@@ -38847,7 +38847,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"250"
+				"property_one"			"125"
 			}
 		}
 
@@ -39071,7 +39071,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6"
+				"property_one"			"3"
 			}
 		}
 
@@ -39411,8 +39411,8 @@
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.3"
 			}
 		}
 
@@ -39434,7 +39434,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"7;"
 			}
 		}
 
@@ -52439,7 +52439,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"24"
+				"property_one"			"40"
 			}
 			"02"
 			{
@@ -54444,7 +54444,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"330"
+				"property_one"			"800"
 			}
 			"02"
 			{
@@ -54830,7 +54830,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"0.07"
 			}
 		}
 	}
@@ -65186,7 +65186,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
+				"property_one"			"600"
 			}
 			"02"
 			{
@@ -65346,14 +65346,19 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"property_one"				"12"
+				"property_one"				"36"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"base_ability"				"3"
+				"property_two"				"4"
 			}
 			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"base_ability"				"3"
+			}
+			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"1"
@@ -65388,7 +65393,7 @@
 			"modifier_psi_blades_c_c"
 			{
 				"Passive"	"0"
-				"IsHidden"	"1"
+				"IsHidden"	"0"
 				"IsBuff"	"1"
 
 				"OnAttackLanded"
@@ -65400,6 +65405,10 @@
 						"particle"		"particles/units/heroes/hero_templar_assassin/templar_assassin_psi_blade.vpcf"
 						"damage"		"%attack_damage"
 					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "%property_two"
 				}
 			}
 		}

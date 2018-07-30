@@ -3651,7 +3651,7 @@ function Filters:GeodeDealDamage(victim, damage, attacker)
         if not ability.particles then
             ability.particles = 0
         end
-        if ability.particles < 6 then
+        if ability.particles < 4 then
             CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/fractional_geode_effect.vpcf", victim, 0.8)
             EmitSoundOn("Items.Geode", victim)
             ability.particles = ability.particles + 1
