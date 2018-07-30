@@ -181,16 +181,14 @@ end
 
 
 function apply_a_d(attacker, target, ability, a_d_level, d_c_level)
-		ability:ApplyDataDrivenModifier(attacker, target, "modifier_seinaru_gorudo_rune_a_d", {duration = 8})
 		local currentStacks = target:GetModifierStackCount("modifier_seinaru_gorudo_rune_a_d", attacker)
-		local currentArmor = target:GetPhysicalArmorValue()
-		local armorLossStacks = math.min(currentArmor, 240*a_d_level)
-		if d_c_level > 0 then
-			armorLossStacks = armorLossStacks + d_c_level*200
+		local currentArmor = target:GetPhysicalArmorValue() + currentStacks
+		local ArmorRed = math.min(currentArmor+200*d_c_level, a_d_level*240)
+		if ArmorRed > 0 then
+			ability:ApplyDataDrivenModifier(attacker, target, "modifier_seinaru_gorudo_rune_a_d", {duration = 8})
+			target:SetModifierStackCount("modifier_seinaru_gorudo_rune_a_d", attacker, ArmorRed)
 		end
-		if currentStacks <= armorLossStacks then
-			target:SetModifierStackCount("modifier_seinaru_gorudo_rune_a_d", attacker, armorLossStacks)
-		end
+		
 end
 
 function gorudo_passive_think(event)

@@ -259,7 +259,34 @@ function rune_c_c_projectile_land(event)
 	local ability = event.ability
 	local caster = ability.origCaster
 	local damage = ability.damage
+	local orb = caster:FindAbilityByName("time_genesis_orb")
+	local b_b_lvl = Runes:GetTotalRuneLevel(caster, 2, "b_b", "epoch")
 	Filters:ApplyDamageBasic(target,caster,damage,DAMAGE_TYPE_PHYSICAL)
+	if orb and b_b_lvl > 0 and caster:HasModifier("modifier_epoch_glyph_5_1") then
+		local runeW2ArmourDecrease = 50 --each w2 reduce armor for -50
+		local maximumNegativeArmor = 1000 --w2 cap at -1000
+		local finalStacksCount = b_b_lvl
+		local currentStacks = 0
+		local currentTargetArmor = target:GetPhysicalArmorValue()
+		if target:HasModifier("modifier_epoch_rune_b_b_visible") then
+			currentStacks = target:GetModifierStackCount("modifier_epoch_rune_b_b_visible", caster)
+			currentTargetArmor = currentTargetArmor + (currentStacks * runeW2ArmourDecrease)
+		end
+		if currentTargetArmor > 0 then
+			local runesToDecrease = (currentTargetArmor + maximumNegativeArmor)/runeW2ArmourDecrease - b_b_lvl
+			if runesToDecrease < 0 then
+				finalStacksCount = math.ceil ((currentTargetArmor + maximumNegativeArmor)/runeW2ArmourDecrease);
+			end
+		else
+			local runesToDecrease = maximumNegativeArmor/runeW2ArmourDecrease - b_b_lvl
+			if runesToDecrease < 0 then
+				finalStacksCount = math.ceil (maximumNegativeArmor/runeW2ArmourDecrease);
+			end
+		end
+		-- print("finalStacksCount "..finalStacksCount)
+		orb:ApplyDataDrivenModifier(caster, target, "modifier_epoch_rune_b_b_visible", {duration = 6})
+		target:SetModifierStackCount("modifier_epoch_rune_b_b_visible", caster, finalStacksCount)
+	end
 	-- ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL })
 end
 
