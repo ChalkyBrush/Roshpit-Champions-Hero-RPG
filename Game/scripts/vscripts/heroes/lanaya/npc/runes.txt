@@ -374,14 +374,19 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"property_one"				"12"
+				"property_one"				"<% E3_DAMAGE_PERCENT %>"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"base_ability"				"3"
+				"property_two"				"<% E3_ATTACK_RANGE %>"
 			}
 			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"base_ability"				"3"
+			}
+			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"1"
@@ -416,7 +421,7 @@
 			"modifier_psi_blades_c_c"
 			{
 				"Passive"	"0"
-				"IsHidden"	"1"
+				"IsHidden"	"0"
 				"IsBuff"	"1"
 
 				"OnAttackLanded"
@@ -428,6 +433,10 @@
 						"particle"		"particles/units/heroes/hero_templar_assassin/templar_assassin_psi_blade.vpcf"
 						"damage"		"%attack_damage"
 					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "%property_two"
 				}
 			}
 		}

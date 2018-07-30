@@ -283,7 +283,7 @@ function paladin_attack_land(event)
 		local currentStacks = caster:GetModifierStackCount("modifier_paladin_rune_c_a_shield", caster)
 		local maxStacks = 1
 		if caster:HasModifier("modifier_paladin_immortal_weapon_1") then
-			maxStacks = 7
+			maxStacks = 4
 		end
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_paladin_rune_c_a_shield", {duration = duration})
 		local newStacks = math.min(currentStacks+1, maxStacks)

@@ -23,7 +23,7 @@ function trap_start(event)
 	    local d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "trapper")
 	    trap.damage = trap.damage + 0.0025*caster:GetIntellect()/10*d_a_level*trap.damage
 	    if caster:HasModifier("modifier_trapper_glyph_5_a") then
-	    	trap.damage = trap.damage * 20
+	    	trap.damage = trap.damage * T5A_DAMAGE_AMPLIFY
 	    end
 		trap.origCaster = caster
 
@@ -130,7 +130,7 @@ function trap_start_poison(event)
 	    trapAbility.poisonDamage = trapAbility.poisonDamage + 0.0025*caster:GetIntellect()/10*d_a_level*trapAbility.poisonDamage
 		print("poison damage " .. trapAbility.poisonDamage)
 		if caster:HasModifier("modifier_trapper_glyph_5_a") then
-	    	trapAbility.poisonDamage = trapAbility.poisonDamage * 20
+	    	trapAbility.poisonDamage = trapAbility.poisonDamage * T5A_DAMAGE_AMPLIFY
 	    end
 		-- Plays the sounds
 		-- EmitSoundOn(keys.sound, caster)
@@ -386,7 +386,7 @@ function trap_start_torrent(event)
 	    local d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "trapper")
 	    trapAbility.b_a_damage = trapAbility.b_a_damage + 0.0025*caster:GetIntellect()/10*d_a_level*trapAbility.b_a_damage
 	    if caster:HasModifier("modifier_trapper_glyph_5_a") then
-	    	trapAbility.b_a_damage = trapAbility.b_a_damage * 20
+	    	trapAbility.b_a_damage = trapAbility.b_a_damage * T5A_DAMAGE_AMPLIFY
 	    end
 		-- Plays the sounds
 		-- EmitSoundOn(keys.sound, caster)

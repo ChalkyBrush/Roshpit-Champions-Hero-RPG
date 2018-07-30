@@ -33,7 +33,7 @@ CustomAttributes.SOLUNIA_R4_STATS = 200
 CustomAttributes.AXE_E1_STATS = 10
 CustomAttributes.SORCERESS_ARCANE_INT = 50
 CustomAttributes.TRAPPER_R4_AGI = 500
-CustomAttributes.SEPHYR_Q1_INT = 250
+CustomAttributes.SEPHYR_Q1_INT = 125
 CustomAttributes.SEPHYR_R4_AGI_INT = 500
 
 CustomAttributes.RING_OF_NOBILITY = 30

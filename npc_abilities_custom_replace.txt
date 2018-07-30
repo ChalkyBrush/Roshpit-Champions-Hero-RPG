@@ -41,7 +41,10 @@ ZHONIK_ARCANA:heroes\dark_seer\npc\zhonik_arcana.txt
 MOUNTAIN_PROTECTOR_ARCANA:heroes\legion_commander\npc\mountain_protector_arcana_abilities.txt
 FLAMEWAKER_ABILITIES:heroes\dragon_knight\npc\flamewaker_abilities.txt
 
+
+<% heroes\skywrath_mage\constants.lua %>
 SEPHYR_ABILITIES:heroes\skywrath_mage\npc\sephyr_abilities.txt
+
 CHERNOBOG_ABILITIES:heroes\nightstalker\npc\chernobog_abilities.txt
 ASTRAL_ABILITIES:heroes\moon_ranger\abilities\arcana_abilities.txt
 

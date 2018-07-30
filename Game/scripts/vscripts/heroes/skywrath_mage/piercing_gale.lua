@@ -1,3 +1,5 @@
+require("heroes/skywrath_mage/constants")
+
 function begin_piercing_gale(event)
 	local ability = event.ability
 	local caster = event.caster
@@ -162,7 +164,7 @@ function gale_hit(event)
 	end
 	local c_b_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
 	if c_b_level > 0 then
-		damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.06*c_b_level
+		damage = damage + caster:GetAverageTrueAttackDamage(caster)*W3_AD_TO_W_DAMAGE_PERCENT/100*c_b_level
 	end
 	if crit then
 		damage = damage + damage*0.2*ability.b_b_level
