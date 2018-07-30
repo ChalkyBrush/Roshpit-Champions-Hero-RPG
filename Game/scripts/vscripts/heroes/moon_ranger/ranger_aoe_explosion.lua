@@ -1,3 +1,4 @@
+require('heroes/moon_ranger/init')
 function begin_explosion(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -178,7 +179,7 @@ function rune_c_d(caster, mainAbility)
     dummy.owner = caster:GetPlayerOwnerID()
     dummy:AddAbility("replica")
     dummy:FindAbilityByName("replica"):SetLevel(1)
-    ability:ApplyDataDrivenModifier(runeUnit, dummy, "modifier_rune_c_d_phoenix", {duration = 10})
+    ability:ApplyDataDrivenModifier(runeUnit, dummy, "modifier_rune_c_d_phoenix", {duration = R3_DURATION})
     dummy:MoveToNPC(caster)
     if caster:HasModifier("modifier_astral_glyph_2_1") then
       dummy.glyphed = true

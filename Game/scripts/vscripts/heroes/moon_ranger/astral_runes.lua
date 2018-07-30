@@ -29,8 +29,6 @@ function c_d_enter(event)
  	local caster = ability.origCaster
 
  	local damage = ability.c_d_level * R3_ATTACK_DAMAGE_PERCENT * caster:GetAverageTrueAttackDamage(caster)
-    local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "astral")
-    -- damage = damage + 0.001*caster:GetAgility()/10*d_c_level*damage
     print(caster:GetUnitName())
     if caster:HasModifier("modifier_astral_glyph_2_1") then
     	damage = damage*3
@@ -64,16 +62,16 @@ function c_d_think(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), phoenix:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			local info = 
+			local info =
 			{
 				Target = enemy,
 				Source = phoenix,
-				Ability = ability,	
+				Ability = ability,
 				EffectName = projectileParticle,
 				vSourceLoc= phoenix:GetAbsOrigin(),
-				bDrawsOnMinimap = false, 
+				bDrawsOnMinimap = false,
 			        bDodgeable = true,
-			        bIsAttack = false, 
+			        bIsAttack = false,
 			        bVisibleToEnemies = true,
 			        bReplaceExisting = false,
 			        flExpireTime = GameRules:GetGameTime() + 4,
@@ -82,10 +80,10 @@ function c_d_think(event)
 				iMoveSpeed = 900,
 				iVisionTeamNumber = phoenix:GetTeamNumber()
 			}
-			projectile = ProjectileManager:CreateTrackingProjectile(info)
-			
+			ProjectileManager:CreateTrackingProjectile(info)
+
 		end
-	end 	
+	end
 end
 
 function c_d_projectile_hit(event)
