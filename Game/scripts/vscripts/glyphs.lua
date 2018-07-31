@@ -736,15 +736,21 @@ function Glyphs:GetGlyphAvailability(msg)
 		end
 		local columnsToLoad = Glyphs:GetAvailableColumnCount(rpcHeroName)
 		hero.loadedGlyphDisplay = {}
+		local totalDelay = 0.1
 		for i = 1, 7, 1 do
 			for j = 1, columnsToLoad, 1 do
-				local glyphName = "item_rpc_"..rpcHeroName.."_glyph_"..i.."_"..j
-				local tempGlyph = Glyphs:RollGlyphAll(glyphName, hero:GetAbsOrigin(), -1)
-				hero.loadedGlyphDisplay[i.."_"..j] = tempGlyph:GetEntityIndex()
+				totalDelay = totalDelay + 0.1
+				Timers:CreateTimer(0.03, function()
+					local glyphName = "item_rpc_"..rpcHeroName.."_glyph_"..i.."_"..j
+					local tempGlyph = Glyphs:RollGlyphAll(glyphName, hero:GetAbsOrigin(), -1)
+					hero.loadedGlyphDisplay[i.."_"..j] = tempGlyph:GetEntityIndex()
+				end)
 			end
 		end
 		hero.glyphRecipes[rpcHeroName] = recipeResults
-		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "glyph_recipes_loaded", {heroName = heroName, data=recipeResults, glyphDisplay=hero.loadedGlyphDisplay})
+		Timers:CreateTimer(totalDelay, function()
+			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "glyph_recipes_loaded", {heroName = heroName, data=recipeResults, glyphDisplay=hero.loadedGlyphDisplay})
+		end)
 		DeepPrintTable(hero.glyphRecipes)
 	end )
 end

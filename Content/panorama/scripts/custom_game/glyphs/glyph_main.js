@@ -105,6 +105,9 @@ function heroButtonClick(heroPanel){
 	popoutContainer.RemoveClass('invisible')
 	popoutContainer.style.visibility = "visible"
 	popoutContainer.AddClass('animateInGlyph')
+	var parent = $('#glyph_tiers_container')
+	parent.RemoveAndDeleteChildren();
+	$('#loading_text').RemoveClass('invisible')
 	GameEvents.SendCustomGameEventToServer( "get_glyph_availability", {playerID: Players.GetLocalPlayer(), hero: heroName});	
 }
 
@@ -113,7 +116,8 @@ function OpenGlyphShopForHeroAfterServerLoads(msg)
 	$.Msg("LOADED GLYPH RECIPES")
 	$.Msg(msg)
 	var parent = $('#glyph_tiers_container')
-	parent.RemoveAndDeleteChildren();
+	$('#loading_text').AddClass('invisible')
+	// parent.RemoveAndDeleteChildren();
 	for (var i = 1; i <= MAX_TIERS; i++) {
 		var newChildPanel = $.CreatePanel( "Panel", parent, "shop-row"+i );
 		newChildPanel.heroName = msg.heroName
