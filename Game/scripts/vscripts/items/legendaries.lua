@@ -5219,7 +5219,7 @@ function RPCItems:RollAblecoreGreaves(deathLocation)
         local moveslow = RandomInt(24, 60)*5
         item.property2 = moveslow
         item.property2name = "movespeed_slow"
-        RPCItems:SetPropertyValues(item, -item.property2, "#item_movespeed_slow", "#B02020",  1)
+        RPCItems:SetPropertyValues(item, -item.property2, "#item_movespeed_slow", "#B02020",  2)
     end
     RPCItems:RollFootProperty3(item, 0)
     RPCItems:RollFootProperty4(item, 0)
