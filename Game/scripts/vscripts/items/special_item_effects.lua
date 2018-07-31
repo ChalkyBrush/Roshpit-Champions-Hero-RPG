@@ -3841,11 +3841,6 @@ function init_wind_deity(event)
 	ability.targetsHit = 0
 end
 
-function geode_think(event)
-	local ability = event.ability
-	ability.particles = 0
-end
-
 function infernal_prison_attacker_think(event)
 	local ability = event.ability
 	local target = event.target

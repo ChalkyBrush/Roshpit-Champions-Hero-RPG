@@ -5214,6 +5214,13 @@ function RPCItems:RollAblecoreGreaves(deathLocation)
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_ablecore_greaves", "#DED083",  1, "#property_ablecore_greaves_description")
 
     RPCItems:RollFootProperty2(item, 0)
+    local luck = RandomInt(1,5)
+    if luck == 5 then
+        local moveslow = RandomInt(24, 60)*5
+        item.property2 = moveslow
+        item.property2name = "movespeed_slow"
+        RPCItems:SetPropertyValues(item, -item.property2, "#item_movespeed_slow", "#B02020",  1)
+    end
     RPCItems:RollFootProperty3(item, 0)
     RPCItems:RollFootProperty4(item, 0)
     local drop = CreateItemOnPositionSync( deathLocation, item )
