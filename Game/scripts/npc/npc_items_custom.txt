@@ -37195,6 +37195,14 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"			"4"
+			}
+		}
 	}
 
 	"item_rpc_sorceress_immortal_weapon_1"
