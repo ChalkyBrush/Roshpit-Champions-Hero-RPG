@@ -1269,10 +1269,12 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 
 	if victim:HasModifier("modifier_arkimus_archon_form") then
-		local archonForm = victim:FindAbilityByName("arkimus_archon_form")
-		local reduction = archonForm:GetLevelSpecialValueFor("damage_resist", archonForm:GetLevel())
-		reduction = (100-reduction)/100
-		damage = damage*reduction
+		local archonForm = victim:FindModifierByName("modifier_arkimus_archon_form"):GetAbility()
+		if archonForm then
+			local reduction = archonForm:GetLevelSpecialValueFor("damage_resist", archonForm:GetLevel())
+			reduction = (100-reduction)/100
+			damage = damage*reduction
+		end
 	end
 	if victim:HasModifier("modifier_axe_rune_c_d_shield") then
 		damage = damage*0.2
@@ -3341,14 +3343,14 @@ function GameState:FilterDamage(filterTable)
 	if Beacons.cheats then
 		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 			if victim:IsHero() then
-				filterTable["damage"] = 0
+				-- filterTable["damage"] = 0
 			end
 		end
 		-- filterTable["damage"] = victim:GetHealth()-1
 		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-			-- if attacker:IsHero() then
-			-- 	filterTable["damage"] = filterTable["damage"]*60000000
-			-- end
+			if attacker:IsHero() then
+				filterTable["damage"] = 9999999999
+			end
 		end
 	end
 
