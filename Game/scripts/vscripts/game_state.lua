@@ -2250,9 +2250,6 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 
-	if victim:HasModifier("modifier_recently_respawned") then
-		filterTable["damage"] = 0
-	end
 	if victim:HasModifier("modifier_sadist_shield") then
 		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 			filterTable["damage"] = 0
@@ -2460,11 +2457,6 @@ function GameState:FilterDamage(filterTable)
 	if victim:GetUnitName() == "phoenix_nest_egg" then
 		if GameState:GetDifficultyFactor() == 3 then
 			filterTable["damage"] = filterTable["damage"]*0.05
-		end
-	end
-	if victim:HasModifier("modifier_water_jailer_ai") or victim:HasModifier("modifier_bovel_ai") then
-		if filterTable["damage"] > (victim:GetMaxHealth()*0.01) then
-			filterTable["damage"] = victim:GetMaxHealth()*0.01
 		end
 	end
 	if victim:HasModifier("modifier_fire_key_holder_steam") then
@@ -2727,6 +2719,11 @@ function GameState:FilterDamage(filterTable)
 	end
 	if not victim:HasModifier("modifier_steadfast") and not victim:HasModifier("modifier_mega_steadfast") and attacker:HasModifier("modifier_neutral_glyph_4_2") then
 		filterTable["damage"] = filterTable["damage"] * 0.8
+	end
+	if victim:HasModifier("modifier_water_jailer_ai") or victim:HasModifier("modifier_bovel_ai") then
+		if filterTable["damage"] > (victim:GetMaxHealth()*0.01) then
+			filterTable["damage"] = victim:GetMaxHealth()*0.01
+		end
 	end
 	if victim:HasModifier("modifier_steadfast") then
 		local thresholdMult = 1
@@ -3134,6 +3131,10 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = 2
 		end
     end
+
+    if victim:HasModifier("modifier_recently_respawned") then
+		filterTable["damage"] = 0
+	end
 
 
 
