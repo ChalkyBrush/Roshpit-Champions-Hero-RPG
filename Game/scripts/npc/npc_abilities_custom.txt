@@ -112210,6 +112210,11 @@
 				"var_type"	"FIELD_INTEGER"
 				"damage"		"3000 8000 30000 80000 160000 280000 600000"
 			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"max_distance" "400"
+			}
 		}
 		"OnAbilityPhaseStart"
 		{
@@ -112283,6 +112288,16 @@
         		{
         			"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "4"
         		}
+        	}
+        	"modifier_flamewaker_arcana_b_a_effect_stacking_visible"
+        	{
+        		"IsHidden" "0"
+        		"IsDebuff" "1"
+        		"TextureName"	"flamewaker/flamewaker_b_a_arcana1"
+        	}
+        	"modifier_flamewaker_arcana_b_a_effect_stacking_invisible"
+        	{
+        		"IsHidden"	"1"
         	}
         	"modifier_flamewaker_arcana_d_a_effect"
         	{
