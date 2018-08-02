@@ -67,7 +67,16 @@ function speedball_start(event)
 
 	caster:RemoveModifierByName("modifier_speedball_a_d_visible")
 	caster:RemoveModifierByName("modifier_speedball_a_d_invisible")
-	
+	local particleName = "particles/roshpit/zhonik/speedball.vpcf"
+	if ability.pfx then
+		ParticleManager:DestroyParticle(ability.pfx, false)
+		ability.pfx = false
+	end
+	local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
+	ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+	ability.pfx = pfx
+	caster:AddNewModifier(caster, nil, "modifier_animation_translate", {translate="surge"})
+	-- caster:AddNoDraw()
 	Filters:CastSkillArguments(4, caster)
 end
 
@@ -78,6 +87,9 @@ function speedball_thinking(event)
 	local stun_duration = event.stun_duration
 	if IsValidEntity(ability.speedTarget) then
 		if ability.speedTarget:IsAlive() then
+			local cd = ability:GetCooldownTimeRemaining()
+			ability:EndCooldown()
+			ability:StartCooldown(cd - 0.5)
 			caster:MoveToPosition(ability.speedTarget:GetAbsOrigin() + caster:GetForwardVector()*80)
 			local distance = WallPhysics:GetDistance(caster:GetAbsOrigin(), ability.speedTarget:GetAbsOrigin())
 			if distance < 150 then
@@ -113,22 +125,38 @@ function speedball_thinking(event)
 		else
 			caster:RemoveModifierByName("modifier_zonik_speedball")
 			caster:RemoveModifierByName("modifier_zonik_speedball_cap")
+			-- caster:RemoveNoDraw()
 		end
 	else
 		caster:RemoveModifierByName("modifier_zonik_speedball")
 		caster:RemoveModifierByName("modifier_zonik_speedball_cap")
+		-- caster:RemoveNoDraw()
+	end
+end
+
+function speedball_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	caster:RemoveModifierByName("modifier_animation_translate")
+	if ability.pfx then
+		ParticleManager:DestroyParticle(ability.pfx, false)
+		ability.pfx = false
 	end
 end
 
 function speedball_explode(caster, ability, damage, stun_duration)
 	caster:RemoveModifierByName("modifier_zonik_speedball")
 	caster:RemoveModifierByName("modifier_zonik_speedball_cap")
+	-- caster:RemoveNoDraw()
 	CustomAbilities:QuickAttachParticle("particles/roshpit/zonik/speedball_explosion.vpcf", caster, 5)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 560, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_TIME, RPC_ELEMENT_COSMIC)
 			Filters:ApplyStun(caster, stun_duration, enemy)
+			local cd = ability:GetCooldownTimeRemaining()
+			ability:EndCooldown()
+			ability:StartCooldown(cd - 0.2)
 			if caster:HasModifier("modifier_zonik_immortal_weapon_3") then
 				if caster:HasAbility("tachyon_shell") then
 					print("HERE?")

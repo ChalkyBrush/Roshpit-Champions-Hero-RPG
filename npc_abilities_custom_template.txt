@@ -19891,7 +19891,7 @@
 		"AbilityTextureName"	"zonik/zonik_speedball"
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"19"
-		"AbilityChannelTime"	"2.0"
+		"AbilityChannelTime"	"1.0"
 		"AbilityCastRange"				"99999"
 		"AbilityCastAnimation"	"ACT_DOTA_LOADOUT_RARE"
 		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
@@ -19903,6 +19903,7 @@
 		{
 			"particle"		"particles/roshpit/zonik/speedball_explosion.vpcf"
 			"particle"		"particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash.vpcf"
+			"particle"		"particles/roshpit/zhonik/speedball.vpcf"
 		}
 
 		"AbilityManaCost"	"0"
@@ -20029,6 +20030,7 @@
 				"States"
 				{
 					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"			"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"Properties"
 				{
@@ -20043,6 +20045,14 @@
 						"Function"		"speedball_thinking"
 						"damage"		"%damage"
 						"stun_duration"	"%stun_duration"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/dark_seer/speedball.lua"
+						"Function"		"speedball_end"
 					}
 				}
 			}
