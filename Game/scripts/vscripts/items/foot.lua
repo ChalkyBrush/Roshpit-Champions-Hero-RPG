@@ -67,7 +67,7 @@ function Foot:action(propertyName, propertyValue, hero, inventory_unit, foot_abi
 		foot_ability.movespeed = foot_ability.movespeed + propertyValue
 		Foot:addBasicModifier(foot_ability.movespeed, hero, inventory_unit, "modifier_foot_movespeed", foot_ability)
 	elseif propertyName == "movespeed_slow" then
-		foot_ability.movespeed_slow = foot_ability.movespeed_slow - propertyValue
+		foot_ability.movespeed_slow = foot_ability.movespeed_slow + propertyValue
 		Foot:addBasicModifier(foot_ability.movespeed_slow, hero, inventory_unit, "modifier_foot_movespeed_slow", foot_ability)
 	elseif propertyName == "movespeed_max" then
 		foot_ability.movespeed_max = foot_ability.movespeed_max + propertyValue
