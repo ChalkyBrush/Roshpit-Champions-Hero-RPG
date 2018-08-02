@@ -84,12 +84,17 @@ function speedball_thinking(event)
 	local caster = event.caster
 	local ability = event.ability
 	local damage = event.damage
+	local speed_mult = event.speed_mult
+	local movespeed = caster:GetBaseMoveSpeed()
+	local actualMovespeed = caster:GetMoveSpeedModifier(movespeed)
+
+	damage = damage * actualMovespeed * speed_mult
 	local stun_duration = event.stun_duration
 	if IsValidEntity(ability.speedTarget) then
 		if ability.speedTarget:IsAlive() then
 			local cd = ability:GetCooldownTimeRemaining()
 			ability:EndCooldown()
-			ability:StartCooldown(cd - 0.5)
+			ability:StartCooldown(cd - 0.65)
 			caster:MoveToPosition(ability.speedTarget:GetAbsOrigin() + caster:GetForwardVector()*80)
 			local distance = WallPhysics:GetDistance(caster:GetAbsOrigin(), ability.speedTarget:GetAbsOrigin())
 			if distance < 150 then

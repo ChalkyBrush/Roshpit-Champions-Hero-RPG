@@ -33403,6 +33403,7 @@
 						"Function"		"speedball_thinking"
 						"damage"		"%damage"
 						"stun_duration"	"%stun_duration"
+						"speed_mult"	"%speed_mult"
 					}
 				}
 				"OnDestroy"
@@ -33511,6 +33512,11 @@
 			{
 				"var_type"	"FIELD_FLOAT"
 				"stun_duration"	"1.2 1.5 1.8 2.1 2.4 2.7 3.0"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"speed_mult"	"0.01 0.05 0.1 0.3 0.5 1.0 3.0"
 			}
 		}
 	}
