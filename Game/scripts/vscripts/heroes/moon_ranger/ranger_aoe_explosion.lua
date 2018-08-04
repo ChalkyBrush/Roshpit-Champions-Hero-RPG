@@ -179,7 +179,7 @@ function rune_c_d(caster, mainAbility)
     dummy.owner = caster:GetPlayerOwnerID()
     dummy:AddAbility("replica")
     dummy:FindAbilityByName("replica"):SetLevel(1)
-    ability:ApplyDataDrivenModifier(runeUnit, dummy, "modifier_rune_c_d_phoenix", {duration = R3_DURATION})
+    ability:ApplyDataDrivenModifier(runeUnit, dummy, "modifier_rune_c_d_phoenix", {duration = ASTRAL_R3_DURATION})
     dummy:MoveToNPC(caster)
     if caster:HasModifier("modifier_astral_glyph_2_1") then
       dummy.glyphed = true

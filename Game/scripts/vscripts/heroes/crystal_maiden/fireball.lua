@@ -80,7 +80,7 @@ function sorceress_c_d(caster, point, radius, runesCount)
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )	
 		if #enemies > 0 then	
 			for i = 1, #enemies, 1 do
-				ability:ApplyDataDrivenModifier(caster, enemies[i], "modifier_sorceress_rune_c_d", {duration = R3_DURATION})
+				ability:ApplyDataDrivenModifier(caster, enemies[i], "modifier_sorceress_rune_c_d", {duration = SORCERESS_R3_DURATION})
 				enemies[i]:SetModifierStackCount("modifier_sorceress_rune_c_d", caster, runesCount)
 				Filters:ApplyStun(caster, 0.5, enemies[i])
 			end

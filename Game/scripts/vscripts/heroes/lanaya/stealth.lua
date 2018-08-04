@@ -290,7 +290,7 @@ function backstab_channel_succeed(event)
 	local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "trapper")
 	caster.c_d_level = c_d_level
 	if c_d_level > 0 then
-        local duration = R3_DURATION
+        local duration = TRAPPER_R3_DURATION
         duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_trapper_c_d_buff", {duration = duration})
 	end
