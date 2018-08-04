@@ -169,7 +169,7 @@ function gorudo_attack_land(event)
 		if luck == 1 or critModifier then
 			local particleName = "particles/units/heroes/hero_monkey_king/monkey_king_spring_cast_rays.vpcf"
 			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_monkey_king/monkey_king_spring_cast_rays.vpcf", target, 3)
-			local damage = attacker:GetAverageTrueAttackDamage(attacker)*c_d_level*R3_ATTACK_DAMAGE_PERCENT/100
+			local damage = attacker:GetAverageTrueAttackDamage(attacker)*c_d_level*SEINARU_R3_ATTACK_DAMAGE_PERCENT/100
 			if critModifier then
 				local arcanaAbility = critModifier:GetAbility()
 				damage = damage * 1.5*arcanaAbility.a_a_level

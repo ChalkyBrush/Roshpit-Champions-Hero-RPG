@@ -2343,7 +2343,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% W2_DAMAGE %>"
+				"property_one"			"<% SEINARU_W2_DAMAGE %>"
 			}
 			"02"
 			{
@@ -2558,7 +2558,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% R3_ATTACK_DAMAGE_PERCENT %>"
+				"property_two"			"<% SEINARU_R3_ATTACK_DAMAGE_PERCENT %>"
 			}
 			"03"
 			{

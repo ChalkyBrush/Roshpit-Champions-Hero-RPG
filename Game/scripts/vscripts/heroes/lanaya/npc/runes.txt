@@ -182,7 +182,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% W2_DAMAGE %>"
+				"property_one"			"<% TRAPPER_W2_DAMAGE %>"
 			}
 			"02"
 			{
