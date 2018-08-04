@@ -194,7 +194,7 @@ function flail_a_a_hit(event)
 		local particleName = "particles/units/heroes/hero_spirit_breaker/spirit_breaker_nether_strike_begin_flash.vpcf"
 		local pfx2 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, enemy )
 		ParticleManager:SetParticleControlEnt(pfx2, 0, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
-		local damage = ability.a_a_level * (Q1_DAMAGE + Q1_AGI_DAMAGE * caster:GetAgility())
+		local damage = ability.a_a_level * (DUSK_Q1_DAMAGE + Q1_AGI_DAMAGE * caster:GetAgility())
 		Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_GHOST, RPC_ELEMENT_FIRE)
 		Timers:CreateTimer(0.4, function() 
 		  ParticleManager:DestroyParticle( pfx2, false )
@@ -243,7 +243,7 @@ function a_a_fire_think(event)
 		return false
 	end
 	local fireStacks = target:GetModifierStackCount("modifier_dusk_fire_flail", caster)
-	local damage = ability.a_a_level*(Q1_DAMAGE + Q1_AGI_DAMAGE * caster:GetAgility())*fireStacks
+	local damage = ability.a_a_level*(DUSK_Q1_DAMAGE + Q1_AGI_DAMAGE * caster:GetAgility())*fireStacks
 	Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_GHOST, RPC_ELEMENT_FIRE)
 end
 

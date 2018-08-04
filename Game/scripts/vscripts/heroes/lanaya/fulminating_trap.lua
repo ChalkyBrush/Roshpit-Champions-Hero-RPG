@@ -125,7 +125,7 @@ function trap_start_poison(event)
 		trapAbility:ApplyDataDrivenModifier(trap, trap, "lanaya_poison_trap_passive", {})
 
 		local a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a", "trapper")
-		trapAbility.poisonDamage = a_a_level*Q1_DAMAGE
+		trapAbility.poisonDamage = a_a_level*TRAPPER_Q1_DAMAGE
 	    local d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "trapper")
 	    trapAbility.poisonDamage = trapAbility.poisonDamage + 0.0025*caster:GetIntellect()/10*d_a_level*trapAbility.poisonDamage
 		print("poison damage " .. trapAbility.poisonDamage)

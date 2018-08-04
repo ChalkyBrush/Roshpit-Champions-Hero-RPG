@@ -392,8 +392,8 @@ function invisible_think(event)
 
 	local runesCount = Runes:GetTotalRuneLevel(caster, 2, "b_d", "trapper")
 	if runesCount > 0 then
-		local duration =  Filters:GetAdjustedBuffDuration(caster, R2_DURATION, false)
-		local maxStacksCount = R2_MAX_STACKS_COUNT
+		local duration =  Filters:GetAdjustedBuffDuration(caster, TRAPPER_R2_DURATION, false)
+		local maxStacksCount = TRAPPER_R2_MAX_STACKS_COUNT
         if caster:HasModifier("modifier_trapper_glyph_5_2") then
             maxStacksCount = maxStacksCount + T52_STACKS_COUNT
         end

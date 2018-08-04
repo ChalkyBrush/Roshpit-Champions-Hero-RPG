@@ -103,7 +103,7 @@ function attack(event)
         for _,enemy in pairs(enemies) do
             local luck = RandomInt(1, 100)
             if attacksFreeze and luck <= T12_CHANCE then
-                ability:ApplyDataDrivenModifier(attacker, enemy, "modifier_elemental_freeze", {duration = T12_DURATION})
+                ability:ApplyDataDrivenModifier(attacker, enemy, "modifier_elemental_freeze", {duration = SORCERESS_T12_DURATION})
             end
 
             local finalDamage = damage
