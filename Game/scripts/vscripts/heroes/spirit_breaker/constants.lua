@@ -1,13 +1,13 @@
 Q1_DAMAGE = 10000
 Q1_AGI_DAMAGE = 4
 Q2_ITEM_AMPLIFY_PERCENT = 10 -- don't affect filter.lua
-Q3_AMPLIFY_PERCENT = 5
+DUSK_Q3_AMPLIFY_PERCENT = 5
 Q4_ADD_RADIUS = 10
 Q4_AMPLIFY_PERCENT = 4
 
 W1_ARCANA1_AMP_PERCENT = 50
 W3_ARCANA1_PROC_CHANCE = 10
-W4_AMPLIFY_PERCENT = 8 -- don't affect game_state.lua
+DUSK_W4_AMPLIFY_PERCENT = 8 -- don't affect game_state.lua
 
 E1_BONUS_DAMAGE = 3000
 E1_BONUS_ARMOR = 100
@@ -18,7 +18,7 @@ E4_ADD_TIME = 0.2 --  don't affect game_state.lua
 
 R1_PERCENT = 1
 R2_DURATION = 5
-R2_AMPLIFY_PERCENT = 0.7 -- don't affect game_state.lua
+DUSK_R2_AMPLIFY_PERCENT = 0.7 -- don't affect game_state.lua
 R2_MAX_STACKS_COUNT = 20
 
 T31_DURATION = 1

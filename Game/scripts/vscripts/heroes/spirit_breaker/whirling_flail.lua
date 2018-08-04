@@ -145,7 +145,7 @@ function whirling_flail_think(event)
 		for _,enemy in pairs(enemies) do
 			local distance = WallPhysics:GetDistance(enemy:GetAbsOrigin(), caster:GetAbsOrigin())
 			local damageBonusMult = math.max(1 - (distance/(ability.radius)),0)--for some reason it hist further than it should
-			local distanceDamage = damage * (1 + ability.c_a_level * Q3_AMPLIFY_PERCENT/100 * damageBonusMult)
+			local distanceDamage = damage * (1 + ability.c_a_level * DUSK_Q3_AMPLIFY_PERCENT/100 * damageBonusMult)
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, distanceDamage, DAMAGE_TYPE_PHYSICAL, 1, RPC_ELEMENT_NORMAL, RPC_ELEMENT_GHOST)
 
 			enemy:AddNewModifier( caster, nil, "modifier_knockback", modifierKnockback )

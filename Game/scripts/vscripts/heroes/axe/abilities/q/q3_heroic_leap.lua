@@ -7,7 +7,7 @@ local function cast(caster, ability)
         return false
     end
 
-    local damageAmp = caster.c_a_level*Q3_AMPLIFY_PERCENT/100
+    local damageAmp = caster.c_a_level*RED_GENERAL_Q3_AMPLIFY_PERCENT/100
     if caster:HasAbility("sunder") then
         local sunderAbility = caster:FindAbilityByName("sunder")
         local damage = sunderAbility:GetSpecialValueFor("main_damage")/100 * caster:GetHealth() * damageAmp

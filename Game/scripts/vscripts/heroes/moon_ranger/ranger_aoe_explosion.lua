@@ -214,7 +214,7 @@ function starfall_initiate(event)
   ability.maxStars = ability.a_d_level + 20
   ability.targetsPerInterval = math.floor(ability.maxStars/20)
   ability.remainingStars = ability.maxStars%20
-  ability.star_damage = 300 + ability.a_d_level*200
+  ability.star_damage = ability.a_d_level*ASTRAL_R1_DAMAGE
   if caster:HasModifier("modifier_astral_glyph_7_1") then
     ability.star_damage = ability.star_damage*10
     local glyphDuration = Filters:GetAdjustedBuffDuration(caster, 2.5, false)

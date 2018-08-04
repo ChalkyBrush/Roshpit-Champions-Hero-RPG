@@ -24,7 +24,7 @@ function CheckAngles(keys)
 	local first_target_origin = target:GetAbsOrigin()
 	-- Notes the damage the first target takes to apply to the other targets
 	local c_c_level = ability.c_c_level
-	ability.line_damage = keys.damage*E3_DAMAGE_PERCENT/100*c_c_level
+	ability.line_damage = keys.damage*TRAPPER_E3_DAMAGE_PERCENT/100*c_c_level
 	ability.origCaster = caster
 
 	if caster:HasModifier("modifier_trapper_glyph_2_2") then
