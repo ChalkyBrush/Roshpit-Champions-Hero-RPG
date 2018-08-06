@@ -512,7 +512,7 @@ function GameMode:OnPlayerChat(keys)
   elseif GameState:GetDifficultyFactor() == 3 then
     local playerid = keys.playerid
     --if GameState:IsSerengaard() then
-      if string.match(text, "-disable_junk_loot") and not GameMode.VoteSystem.junk_loot_disabled then
+      if (string.match(text, "-disable_junk_loot") or string.match(text, "-junk")) and not GameMode.VoteSystem.junk_loot_disabled then
         if not GameMode.VoteSystem.disable_junk_loot then
           GameMode.VoteSystem.disable_junk_loot = {}
         end      

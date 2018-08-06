@@ -102,7 +102,7 @@ function apollo_debuff_think(event)
 	local target = event.target
 	if IsValidEntity(ability) then
 		if target:IsAlive() then
-			Filters:PerformAttackSpecial(caster, target, true, true, true, false, true, false, false)
+			caster:PerformAttack(target, true, true, true, false, true, false, false)
 			local manaCost = ability:GetManaCost(ability:GetLevel())
 			caster:ReduceMana(manaCost)
 			local newStacks = target:GetModifierStackCount("modifier_apollo_strikes", caster) - 1
@@ -176,7 +176,7 @@ function apollo_attack_landed(event)
 			    else
 			        empyralArrowsProcChance = getProcChance(caster, W3_PROC_CHANCE)
 			    end
-			    local procChance = getProcChance(caster, empyralArrowsProcChance)
+			    local procChance = math.ceil(getProcChance(caster, empyralArrowsProcChance))
 			    local luck = RandomInt(1, 100)
 			    if luck <= procChance then
 					CustomAbilities:QuickAttachParticle("particles/roshpit/astral/apollo_proc_start_ti7_lvl2.vpcf", target, 1)
