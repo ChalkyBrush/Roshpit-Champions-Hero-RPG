@@ -1266,7 +1266,7 @@
 	"npc_dota_hero_winter_wyvern"
 	{
 		"AbilityLayout"	"4"
-		"override_hero"	"npc_dota_hero_skywrath_mage"
+		"override_hero"	"npc_dota_hero_winter_wyvern"
 		"Ability1"	"dinath_arctic_burn"
 		"Ability2"	"dinath_drake_ring"
 		"Ability3"	"dinath_dragon_dive"
