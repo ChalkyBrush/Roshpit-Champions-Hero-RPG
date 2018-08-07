@@ -704,6 +704,11 @@
 			{
 			    "IsDebuff"  "1"
 				"IsHidden"	"1"
+			}
+			"modifier_axe_rune_c_d_arcana1_visible"
+			{
+			    "IsDebuff"  "1"
+				"IsHidden"	"0"
 				"TextureName"	"axe/axe_rune_c_d_arcana1"
 			}
 		}
@@ -1264,7 +1269,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"600"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"<% Q2_ATTACK_DAMAGE %>"
 				}
 			}
 			"modifier_axe_rune_b_a_visible"
