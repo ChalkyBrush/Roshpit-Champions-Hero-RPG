@@ -246,6 +246,10 @@
 						<Image class="element_title" id="element_title17" html="true" src="file://{images}/custom_game/ui/elements/element17.png"/>
 						<Label class="element_value" id="element_value17" html="true"/>
 					</Panel>
+					<Panel id="element18" class="element-box">
+						<Image class="element_title" id="element_title18" html="true" src="file://{images}/custom_game/ui/elements/element18.png"/>
+						<Label class="element_value" id="element_value18" html="true"/>
+					</Panel>
 				</Panel>
 			</Panel>
 		</Panel>

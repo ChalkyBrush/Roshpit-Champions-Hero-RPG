@@ -2,6 +2,13 @@ if Amulet == nil then
   Amulet = class({})
 end
 
+function Amulet:AdjustAttackPowerBonus(hero, value)
+	if hero:GetUnitName() == "npc_dota_hero_winter_wyvern" then
+		local b_c_level = hero:GetRuneValue("e", 2)
+		value = value + value*0.15*b_c_level
+	end
+	return value
+end
 
 function Amulet:add_modifiers(hero, inventory_unit, item)
 	print(item)
@@ -67,7 +74,7 @@ function Amulet:action(propertyName, propertyValue, hero, inventory_unit, trinke
 		trinket_ability.mana_regen = trinket_ability.mana_regen + propertyValue
 		Amulet:addBasicModifier(trinket_ability.mana_regen, hero, inventory_unit, "modifier_trinket_mana_regen", trinket_ability)
 	elseif propertyName == "attack_damage" then
-		trinket_ability.attack_damage = trinket_ability.attack_damage + propertyValue
+		trinket_ability.attack_damage = trinket_ability.attack_damage + Amulet:AdjustAttackPowerBonus(hero, propertyValue)
 		Amulet:addBasicModifier(trinket_ability.attack_damage, hero, inventory_unit, "modifier_trinket_attack_damage", trinket_ability)
 	elseif propertyName == "max_health" then
 		trinket_ability.max_health = trinket_ability.max_health + propertyValue

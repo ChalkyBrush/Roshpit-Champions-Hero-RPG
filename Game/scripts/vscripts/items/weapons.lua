@@ -87,6 +87,8 @@ function Weapons:weaponRedirect(hero)
 		Weapons:InitialWeapon(hero, "item_rpc_slipfinn_weapon_00", "Shank")
 	elseif heroName == "npc_dota_hero_skywrath_mage" then
 		Weapons:InitialWeapon(hero, "item_rpc_sephyr_weapon_00", "Staff")
+	elseif heroName == "npc_dota_hero_winter_wyvern" then
+		Weapons:InitialWeapon(hero, "item_rpc_dinath_weapon_00", "Spike")
 	end
 end
 

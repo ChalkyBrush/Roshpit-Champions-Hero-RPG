@@ -409,6 +409,8 @@ function GetElementColor(element_index){
 		color = "#69BC71"
 	}else if(element_index == 17){
 		color = "#5C776E"
+	}else if(element_index == 18){
+		color = "#3289C7"
 	}
 	return color
 }

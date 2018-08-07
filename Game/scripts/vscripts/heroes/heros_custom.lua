@@ -55,6 +55,8 @@ function HerosCustom:GetInternalHeroName(heroName)
 		return "slipfinn"
 	elseif heroName == "npc_dota_hero_skywrath_mage" then
 		return "sephyr"
+	elseif heroName == "npc_dota_hero_winter_wyvern" then
+		return "dinath"
 	end
 end
 
@@ -111,6 +113,8 @@ function HerosCustom:GetInternalHeroNameMain(heroName)
 		return "slipfinn"
 	elseif heroName == "npc_dota_hero_skywrath_mage" then
 		return "sephyr"
+	elseif heroName == "npc_dota_hero_winter_wyvern" then
+		return "dinath"
 	end
 end
 
@@ -168,6 +172,8 @@ function HerosCustom:ConvertRPCNameToStringHeroName(RPCName)
 		name = "npc_dota_hero_slark"
 	elseif RPCName == "sephyr" then
 		name = "npc_dota_hero_skywrath_mage"
+	elseif RPCName == "dinath" then
+		name = "npc_dota_hero_winter_wyvern"
 	end
 	return name
 end
@@ -226,6 +232,8 @@ function HerosCustom:ConvertRPCNameToStringHeroNameSeinaru(RPCName)
 		name = "npc_dota_hero_slark"
 	elseif RPCName == "sephyr" then
 		name = "npc_dota_hero_skywrath_mage"
+	elseif RPCName == "dinath" then
+		name = "npc_dota_hero_winter_wyvern"
 	end
 	return name
 end
@@ -283,19 +291,21 @@ function HerosCustom:GetHeroIndex(heroName)
 		return 25
 	elseif heroName == "npc_dota_hero_skywrath_mage" then
 		return 26
+	elseif heroName == "npc_dota_hero_winter_wyvern" then
+		return 27
 	end
 end
 
 function HerosCustom:GetHeroNameTable()
-	return {"neutral", "flamewaker", "voltex", "venomort", "axe", "astral", "epoch", "paladin", "sorceress", "conjuror", "monk", "warlord", "bahamut", "duskbringer", "auriun", "trapper", "spirit_warrior", "mountain_protector", "chernobog", "solunia", "hydroxis", "ekkan", "zonik", "arkimus", "djanghor", "slipfinn", "sephyr"}
+	return {"neutral", "flamewaker", "voltex", "venomort", "axe", "astral", "epoch", "paladin", "sorceress", "conjuror", "monk", "warlord", "bahamut", "duskbringer", "auriun", "trapper", "spirit_warrior", "mountain_protector", "chernobog", "solunia", "hydroxis", "ekkan", "zonik", "arkimus", "djanghor", "slipfinn", "sephyr", "dinath"}
 end
 
 function HerosCustom:GetInternalNameTable()
-	return {"flamewaker", "voltex", "venomort", "axe", "astral", "epoch", "paladin", "sorceress", "conjuror", "seinaru", "warlord", "bahamut", "duskbringer", "auriun", "trapper", "spirit_warrior", "mountain_protector", "chernobog", "solunia", "hydroxis", "ekkan", "zonik", "arkimus", "djanghor", "slipfinn", "sephyr"}
+	return {"flamewaker", "voltex", "venomort", "axe", "astral", "epoch", "paladin", "sorceress", "conjuror", "seinaru", "warlord", "bahamut", "duskbringer", "auriun", "trapper", "spirit_warrior", "mountain_protector", "chernobog", "solunia", "hydroxis", "ekkan", "zonik", "arkimus", "djanghor", "slipfinn", "sephyr", "dinath"}
 end
 
 function HerosCustom:GetAvailableHerosTable()
-	return {"npc_dota_hero_dragon_knight", "npc_dota_hero_phantom_assassin", "npc_dota_hero_necrolyte", "npc_dota_hero_axe", "npc_dota_hero_drow_ranger", "npc_dota_hero_obsidian_destroyer", "npc_dota_hero_omniknight", "npc_dota_hero_crystal_maiden", "npc_dota_hero_invoker", "npc_dota_hero_juggernaut", "npc_dota_hero_beastmaster", "npc_dota_hero_leshrac", "npc_dota_hero_spirit_breaker", "npc_dota_hero_zuus", "npc_dota_hero_templar_assassin", "npc_dota_hero_huskar", "npc_dota_hero_legion_commander", "npc_dota_hero_night_stalker", "npc_dota_hero_vengefulspirit", "npc_dota_hero_slardar", "npc_dota_hero_visage", "npc_dota_hero_dark_seer", "npc_dota_hero_antimage", "npc_dota_hero_monkey_king", "npc_dota_hero_slark", "npc_dota_hero_skywrath_mage"}
+	return {"npc_dota_hero_dragon_knight", "npc_dota_hero_phantom_assassin", "npc_dota_hero_necrolyte", "npc_dota_hero_axe", "npc_dota_hero_drow_ranger", "npc_dota_hero_obsidian_destroyer", "npc_dota_hero_omniknight", "npc_dota_hero_crystal_maiden", "npc_dota_hero_invoker", "npc_dota_hero_juggernaut", "npc_dota_hero_beastmaster", "npc_dota_hero_leshrac", "npc_dota_hero_spirit_breaker", "npc_dota_hero_zuus", "npc_dota_hero_templar_assassin", "npc_dota_hero_huskar", "npc_dota_hero_legion_commander", "npc_dota_hero_night_stalker", "npc_dota_hero_vengefulspirit", "npc_dota_hero_slardar", "npc_dota_hero_visage", "npc_dota_hero_dark_seer", "npc_dota_hero_antimage", "npc_dota_hero_monkey_king", "npc_dota_hero_slark", "npc_dota_hero_skywrath_mage", "npc_dota_hero_winter_wyvern"}
 end
 
 function HerosCustom:GetAvailableRunes(heroName)
@@ -2011,6 +2021,78 @@ elseif heroName == "npc_dota_hero_monkey_king" then
 
 		table.insert(runeTable, "rune_c_c")
 		table.insert(baseValueTable, 10)
+		table.insert(propensityTable, 1)
+		table.insert(tooltipTable, "rune")
+		table.insert(colorTable, "#7DFF12")
+
+		table.insert(runeTable, "rune_c_d")
+		table.insert(baseValueTable, 8)
+		table.insert(propensityTable, 1)
+		table.insert(tooltipTable, "rune")
+		table.insert(colorTable, "#7DFF12")
+	elseif heroName == "npc_dota_hero_winter_wyvern" then
+		table.insert(runeTable, "rune_a_a")
+		table.insert(baseValueTable, 10)
+		table.insert(propensityTable, -1)
+		table.insert(tooltipTable, "rune")
+		table.insert(colorTable, "#7DFF12")
+
+		table.insert(runeTable, "rune_a_b")
+		table.insert(baseValueTable, 10)
+		table.insert(propensityTable, 0)
+		table.insert(tooltipTable, "rune")
+		table.insert(colorTable, "#7DFF12")
+
+		table.insert(runeTable, "rune_a_c")
+		table.insert(baseValueTable, 10)
+		table.insert(propensityTable, 1)
+		table.insert(tooltipTable, "rune")
+		table.insert(colorTable, "#7DFF12")
+
+		table.insert(runeTable, "rune_a_d")
+		table.insert(baseValueTable, 8)
+		table.insert(propensityTable, 1)
+		table.insert(tooltipTable, "rune")
+		table.insert(colorTable, "#7DFF12")
+
+		table.insert(runeTable, "rune_b_a")
+		table.insert(baseValueTable, 10)
+		table.insert(propensityTable, -1)
+		table.insert(tooltipTable, "rune")
+		table.insert(colorTable, "#7DFF12")
+
+		table.insert(runeTable, "rune_b_b")
+		table.insert(baseValueTable, 10)
+		table.insert(propensityTable, 0)
+		table.insert(tooltipTable, "rune")
+		table.insert(colorTable, "#7DFF12")
+
+		table.insert(runeTable, "rune_b_c")
+		table.insert(baseValueTable, 10)
+		table.insert(propensityTable, 0)
+		table.insert(tooltipTable, "rune")
+		table.insert(colorTable, "#7DFF12")
+
+		table.insert(runeTable, "rune_b_d")
+		table.insert(baseValueTable, 8)
+		table.insert(propensityTable, 1)
+		table.insert(tooltipTable, "rune")
+		table.insert(colorTable, "#7DFF12")
+
+		table.insert(runeTable, "rune_c_a")
+		table.insert(baseValueTable, 10)
+		table.insert(propensityTable, -1)
+		table.insert(tooltipTable, "rune")
+		table.insert(colorTable, "#7DFF12")
+
+		table.insert(runeTable, "rune_c_b")
+		table.insert(baseValueTable, 10)
+		table.insert(propensityTable, 1)
+		table.insert(tooltipTable, "rune")
+		table.insert(colorTable, "#7DFF12")
+
+		table.insert(runeTable, "rune_c_c")
+		table.insert(baseValueTable, 8)
 		table.insert(propensityTable, 1)
 		table.insert(tooltipTable, "rune")
 		table.insert(colorTable, "#7DFF12")

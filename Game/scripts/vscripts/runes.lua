@@ -56,6 +56,8 @@ function Runes:RedirectRunes(hero, runeUnit, runeUnit2, runeUnit3, runeUnit4, pl
 		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "slipfinn")
 	elseif heroName == "npc_dota_hero_skywrath_mage" then
 		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "sephyr")
+	elseif heroName == "npc_dota_hero_winter_wyvern" then
+		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "dinath")
 	end
 	
     runeUnit:AddAbility("town_unit"):SetLevel(1)
@@ -981,6 +983,17 @@ function Runes:EquipArcana(hero, index)
 			Runes:EasySwapArcanaSkills(hero, 1, "piercing_gale", "icewind_gale", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 			hero:RemoveModifierByName("modifier_sephyr_gale_passive")
 		end
+	elseif hero:GetUnitName() == "npc_dota_hero_winter_wyvern" then
+		if index == 1 then
+			local oldAbility = hero:FindAbilityByName("dinath_drake_ring")
+			if oldAbility.ring then
+				ParticleManager:DestroyParticle(oldAbility.ring.pfx, false)
+				UTIL_Remove(oldAbility.ring)
+				oldAbility.ring = false
+			end
+			Runes:EasySwapArcanaSkills(hero, 1, "dinath_drake_ring", "dinath_dragon_fire", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			hero:RemoveModifierByName("modifier_drake_ring_passive")
+		end
 	end
 end
 
@@ -1530,6 +1543,14 @@ function Runes:UnequipArcana(hero, index)
 		if index == 1 then
 			Runes:EasyRevertArcanaSkills(hero, 1, "piercing_gale", "icewind_gale", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 			hero:RemoveModifierByName("modifier_icewind_passive")
+		end
+	elseif hero:GetUnitName() == "npc_dota_hero_winter_wyvern" then
+		if index == 1 then
+			Runes:EasyRevertArcanaSkills(hero, 1, "dinath_drake_ring", "dinath_dragon_fire", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			hero:RemoveModifierByName("modifier_spire_breath_passive")
+			hero:RemoveModifierByName("modifier_spire_breath")
+			hero:RemoveModifierByName("modifier_spire_breath_a_b_buff")
+			hero:RemoveModifierByName("modifier_dinath_passive_ms_cap")
 		end
 	end
 	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "ability_tree_upgrade", {playerId=hero:GetPlayerOwnerID()})

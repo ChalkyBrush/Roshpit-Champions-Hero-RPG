@@ -90,7 +90,7 @@ function Body:action(propertyName, propertyValue, hero, inventory_unit, body_abi
 		body_ability.max_health = body_ability.max_health + propertyValue
 		Body:addBasicModifier(body_ability.max_health, hero, inventory_unit, "modifier_body_max_health", body_ability)
 	elseif propertyName == "attack_damage" then
-		body_ability.attack_damage = body_ability.attack_damage + propertyValue
+		body_ability.attack_damage = body_ability.attack_damage + Amulet:AdjustAttackPowerBonus(hero, propertyValue)
 		Body:addBasicModifier(body_ability.attack_damage, hero, inventory_unit, "modifier_body_attack_damage", body_ability)
 	elseif propertyName == "base_ability" then
 		body_ability.base_ability = body_ability.base_ability + propertyValue

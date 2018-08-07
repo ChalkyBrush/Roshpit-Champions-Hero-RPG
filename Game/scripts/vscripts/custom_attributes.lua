@@ -76,6 +76,21 @@ function CDOTA_BaseNPC_Hero:GetIntellect()
 	return tonumber(intelligence)
 end
 
+function CDOTA_BaseNPC_Hero:GetRuneValue(letter, index)
+	local coversion = 1
+	if letter == "q" then
+		conversion = 1
+	elseif letter == "w" then
+		conversion = 2
+	elseif letter == "e" then
+		conversion = 3
+	elseif letter == "r" then
+		conversion = 4
+	end
+	local rune_level = Runes:GetTotalRuneLevelGeneric(self, index, conversion-1)
+	return rune_level
+end
+
 function CustomAttributes:SetAttributes(hero)
 	local strength = hero.strength_custom
 	local agility = hero.agility_custom
@@ -663,6 +678,8 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 		table.insert(tableData.elements, math.floor(damageNATURE/damageDealt))
 		local damageUNDEAD = Filters:ElementalDamage(Events.GameMaster, unit, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE, false)
 		table.insert(tableData.elements, math.floor(damageUNDEAD/damageDealt))
+		local damageDragon = Filters:ElementalDamage(Events.GameMaster, unit, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_DRAGON, RPC_ELEMENT_NONE, false)
+		table.insert(tableData.elements, math.floor(damageDragon/damageDealt))
 	else
 		if unit.itemLevel then
 			level = math.ceil(unit.itemLevel/4)

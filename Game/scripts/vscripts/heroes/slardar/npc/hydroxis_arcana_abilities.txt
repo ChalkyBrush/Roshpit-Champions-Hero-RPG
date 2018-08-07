@@ -185,6 +185,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"%mana_regen"
+					"MODIFIER_PROPERTY_CASTTIME_PERCENTAGE"	"%cast_time"
 				}
 			}
 			"modifier_flood_basin_enemy_aura"

@@ -1688,6 +1688,14 @@ function GameState:FilterDamage(filterTable)
 			local stacks = attacker:GetModifierStackCount("modifier_shadow_trap_d_a_buff", attacker)
 			mult = mult + 0.1*stacks
 		end
+		if victim:HasModifier("modifier_drake_ring_postmit") then
+			if attacker:GetUnitName() == "npc_dota_hero_winter_wyvern" then
+				local stacks = victim:GetModifierStackCount("modifier_drake_ring_postmit", attacker)
+				mult = mult + 0.1*stacks
+				print("STACK INCREASE")
+				print(stacks)
+			end
+		end
 		if attacker:HasModifier("modifier_auriun_passive") then
 			if attacker.a_c_level then
 				mult = mult + 0.02*attacker.a_c_level
@@ -2057,6 +2065,10 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_windsteel_effect") then
 		filterTable["damage"] = Filters:WindSteelTakeDamage(victim, filterTable["damage"])
 	end
+	if victim:HasModifier("modifier_vitali_shield") then
+		filterTable["damage"] = 0
+		victim:RemoveModifierByName("modifier_vitali_shield")
+	end
 	if victim:HasModifier("modifier_secret_temple_refraction") then
 		print("DAMAGE BEFORE: "..filterTable["damage"])
 		filterTable["damage"] = Filters:SecretTempleTakeDamage(victim, filterTable["damage"])
@@ -2150,6 +2162,15 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
+	if victim:HasModifier("modifier_dinath_glyph_5_a") then
+		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
+			if not victim:HasModifier("modifier_golden_scale_immunity") then
+				local immo_glyph = victim.immo_glyph_data
+				immo_glyph.ability:ApplyDataDrivenModifier(immo_glyph.caster, victim, "modifier_black_King_bar_immunity", {duration = 3})
+				immo_glyph.ability:ApplyDataDrivenModifier(immo_glyph.caster, victim, "modifier_golden_scale_immunity", {duration = 5})
+			end
+		end
+	end
 	if attacker:HasModifier("modifier_epoch_arcana_passive") then
 		-- if victim:HasModifier("modifier_epoch_arcana_root") then
 			local b_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 0)
@@ -2198,6 +2219,13 @@ function GameState:FilterDamage(filterTable)
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetStackCount()
 			mult = mult + 0.12*stacks
+		end
+	end
+	if victim:HasModifier("modifier_hyperbeam_postmit") then
+		modifier = victim:FindModifierByName("modifier_hyperbeam_postmit")
+		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
+			local stacks = modifier:GetStackCount()
+			mult = mult + 0.09*stacks
 		end
 	end
 	if victim:HasModifier("modifier_slipfinn_gloomshade_invisible") then
