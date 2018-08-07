@@ -1878,6 +1878,8 @@ function RPCItems:GetAvailableArcanaData(hero)
         table.insert(arcanaData, {1, 3})
     elseif unitName == "npc_dota_hero_skywrath_mage" then
         table.insert(arcanaData, {1, 1})
+    elseif unitName == "npc_dota_hero_winter_wyvern" then
+        table.insert(arcanaData, {1, 1})
     end
     return arcanaData
 end
