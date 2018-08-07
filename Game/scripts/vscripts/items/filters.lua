@@ -2524,7 +2524,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     if element1 == RPC_ELEMENT_DRAGON or element2 == RPC_ELEMENT_DRAGON then
         if unitName == "npc_dota_hero_winter_wyvern" then
            local d_d_level = attacker:GetRuneValue("r", 4)
-           mult = mult + 0.0004*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_d_level
+           mult = mult + 0.0003*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_d_level
            if bIsRealDamage then
                if attacker:HasModifier("modifier_dinath_immortal_weapon_3") then
                   Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, slot, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)

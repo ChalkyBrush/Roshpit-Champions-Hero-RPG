@@ -20,6 +20,7 @@ function spire_toggle_on(event)
 	local speedStacks = c_b_level*8
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_spire_breath_speed_burst", {duration = speedStacks*0.03})
 	caster:SetModifierStackCount("modifier_spire_breath_speed_burst", caster, speedStacks)
+	Filters:CastSkillArguments(2, caster)
 end
 
 function spire_toggle_off(event)
@@ -42,6 +43,7 @@ function spire_toggle_off(event)
 	local speedStacks = c_b_level*8
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_spire_breath_speed_burst", {duration = speedStacks*0.03})
 	caster:SetModifierStackCount("modifier_spire_breath_speed_burst", caster, speedStacks)
+	Filters:CastSkillArguments(2, caster)
 end
 
 function spire_on_mana_drain(event)

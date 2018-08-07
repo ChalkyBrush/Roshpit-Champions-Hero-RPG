@@ -25,6 +25,7 @@ function drake_ring_cast(event)
 	Timers:CreateTimer(0.75, function()
 		EmitSoundOnLocationWithCaster(point, "Dinath.DrakeRing.Create", caster)
 	end)
+	Filters:CastSkillArguments(2, caster)
 	Timers:CreateTimer(1, function()
 		if ability.ring then
 			ParticleManager:DestroyParticle(ability.ring.pfx, false)
