@@ -55,6 +55,11 @@ function RPCItems:HandLegendary(itemVariant, deathLocation)
             RPCItems:RollSpiritGlove(deathLocation)
             return true
         elseif luck == 2 then
+            local arcanaLuck = RandomInt(1, 980)
+            if arcanaLuck <= (2 + GameState:GetPlayerPremiumStatusCount()) then
+                RPCItems:RollDinathArcana1(deathLocation)
+                return true
+            end
             RPCItems:RollScarecrowGloves(deathLocation)
             return true
         elseif luck == 3 then
