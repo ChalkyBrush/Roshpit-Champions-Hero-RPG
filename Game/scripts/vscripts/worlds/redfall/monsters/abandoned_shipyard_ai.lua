@@ -4,6 +4,9 @@ function ShipyardWater(trigger)
 	if hero:HasModifier("modifier_redfall_shipyard_water") then
 		return false
 	end
+	if not Filters:IsTouchingGround(hero) then
+		return false
+	end
 	Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, hero, "modifier_redfall_shipyard_water", {})
 	hero.lockPoint = hero:GetAbsOrigin()
 	for i = 1, 90, 1 do

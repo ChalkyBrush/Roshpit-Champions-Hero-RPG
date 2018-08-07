@@ -12,7 +12,7 @@ local function cast(caster, target, ability, damage)
         ParticleManager:DestroyParticle(particle1, false)
     end)
     local freezeDuration = Q3_BASE_DURATION + runesCount * Q3_ADD_DURATION
-    local damage = damage * Q3_AMPLIFY_PERCENT/100 * runesCount
+    local damage = damage * SORCERESS_Q3_AMPLIFY_PERCENT/100 * runesCount
     local radius = Q3_RADIUS
 
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), origin, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )

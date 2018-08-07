@@ -3,7 +3,7 @@ function t12_think(event)
     local target = event.target
     local ability = event.ability
     if target:IsSilenced() then
-        ability:ApplyDataDrivenModifier(target, target, 'modifier_duskbringet_t12_heal_regen', {duration = T12_DURATION})
+        ability:ApplyDataDrivenModifier(target, target, 'modifier_duskbringet_t12_heal_regen', {duration = DUSK_T12_DURATION})
     end
 end
 function t42_think(event)
@@ -21,7 +21,7 @@ function t42_think(event)
     ability.distanceMoved = ability.distanceMoved + distance
     local duration = 1
     if target:HasModifier('modifier_duskbringer_glyph_3_1') then
-        duration = duration + T31_DURATION
+        duration = duration + DUSK_T31_DURATION
     end
     print("distance moved " .. ability.distanceMoved )
     if ability.distanceMoved > 300 then

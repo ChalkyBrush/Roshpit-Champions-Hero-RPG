@@ -291,7 +291,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% Q3_AMPLIFY_PERCENT %>"
+				"property_one"			"<% SORCERESS_Q3_AMPLIFY_PERCENT %>"
 			}
 			"02"
 			{
@@ -539,7 +539,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% W4_AMPLIFY_PERCENT %>"
+				"property_one"			"<% SORCERESS_W4_AMPLIFY_PERCENT %>"
 			}
 		}
 	}

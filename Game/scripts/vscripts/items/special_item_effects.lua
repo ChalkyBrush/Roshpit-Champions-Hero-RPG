@@ -1612,7 +1612,7 @@ function super_ascension_attack_start(event)
 		    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 550, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 		    if #enemies > 0 then
 		        for _,enemy in pairs(enemies) do
-		        	if enemy:GetEntityIndex() == target:GetEntityIndex() then
+		        	if enemy:GetEntityIndex() == target:GetEntityIndex() or enemy.dummy then
 		        	else
 		        		if splitCount < procs then
 		        			Filters:PerformAttackSpecial(caster, enemy, true, true, true, false, true, false, false)

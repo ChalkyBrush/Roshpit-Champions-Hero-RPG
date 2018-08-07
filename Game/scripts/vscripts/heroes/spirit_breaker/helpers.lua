@@ -29,7 +29,7 @@ function rune_unit_1_think(event)
             a_c_duration = event.duration
         end
         if hero:HasModifier('modifier_duskbringer_glyph_3_1') then
-            a_c_duration = a_c_duration + T31_DURATION
+            a_c_duration = a_c_duration + DUSK_T31_DURATION
         end
 
         a_c_duration = Filters:GetAdjustedBuffDuration(hero, a_c_duration, false)

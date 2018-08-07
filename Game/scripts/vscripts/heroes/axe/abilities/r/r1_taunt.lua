@@ -55,7 +55,7 @@ function takeDamage(event)
 
             local damage = math.min(event.damage, 20 * caster:GetHealth());
             print("incoming damage = " .. event.damage)
-            damage = damage * caster.a_d_level*R1_DAMAGE
+            damage = damage * caster.a_d_level*RED_GENERAL_R1_DAMAGE
             if caster:HasModifier("modifier_axe_glyph_5_a") then
                 damage = damage * (1 + T5A_AMPLIFY_PERCENT/100)
             end

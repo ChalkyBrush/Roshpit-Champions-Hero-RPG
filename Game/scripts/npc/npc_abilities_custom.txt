@@ -54157,11 +54157,9 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/moon_ranger/abilities/arcana/shot_of_apollo_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"astral_ranger/shot_of_apollo"
 		"RequiredLevel"          		"-5"
@@ -54200,128 +54198,6 @@
 				"shots"						"8 9 10 11 12 13 14"
 			}
 		}
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/moon_ranger/abilities/arcana/shot_of_apollo.lua"
-				"Function"		"beginChannel"
-				"target"		"TARGET"
-			}
-
-		}
-		"OnChannelSucceeded"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_apollo_channel"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/moon_ranger/abilities/arcana/shot_of_apollo.lua"
-				"Function"		"beginCast"
-				"shots"			"%shots"
-				"target"		"TARGET"
-			}
-		}
-		"OnChannelInterrupted"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_apollo_channel"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/moon_ranger/abilities/arcana/shot_of_apollo.lua"
-				"Function"		"channel_interrupt"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_apollo_channel"
-			{
-				"IsHidden"	"1"
-			}
-			"modifier_apollo_strikes"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"ThinkInterval"  "0.03"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/moon_ranger/abilities/arcana/shot_of_apollo.lua"
-						"Function"		"apollo_debuff_think"
-						"target"		"TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/moon_ranger/abilities/arcana/shot_of_apollo.lua"
-						"Function"		"apollo_end"
-						"target"		"TARGET"
-					}
-				}
-				"OnDeath"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/moon_ranger/abilities/arcana/shot_of_apollo.lua"
-						"Function"		"apollo_target_die"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_apollo_outgoing_shots"
-			{
-				"IsHidden"	"1"
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/moon_ranger/abilities/arcana/shot_of_apollo.lua"
-						"Function"		"apollo_attack_landed"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_apollo_stats_visible"
-			{
-				"IsHidden"	"0"
-				"TextureName"	"astral_ranger/astral_rune_a_b_arcana2"
-			}
-			"modifier_apollo_stats_invisible"
-			{
-				"IsHidden"	"1"
-			}
-			"modifier_apollo_c_b_proc_visible"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"TextureName"	"astral_ranger/astral_rune_c_b_arcana2"
-			}
-			"modifier_apollo_c_b_proc_invisible"
-			{
-				"IsHidden"	"1"
-				"IsDebuff"	"1"
-			}
-			"modifier_apollo_post_mit_visible"
-			{
-				"IsHidden"	"0"
-				"TextureName"	"astral_ranger/astral_rune_d_b_arcana2"
-			}
-			"modifier_apollo_post_mit_invisible"
-			{
-				"IsHidden"	"1"
-			}
-		}
-
 	}
 
 	"astral_rune_a_b_arcana2"
@@ -113616,6 +113492,11 @@
 				"var_type"	"FIELD_INTEGER"
 				"damage"		"3000 8000 30000 80000 160000 280000 600000"
 			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"max_distance" "400"
+			}
 		}
 		"OnAbilityPhaseStart"
 		{
@@ -113689,6 +113570,16 @@
         		{
         			"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "4"
         		}
+        	}
+        	"modifier_flamewaker_arcana_b_a_effect_stacking_visible"
+        	{
+        		"IsHidden" "0"
+        		"IsDebuff" "1"
+        		"TextureName"	"flamewaker/flamewaker_b_a_arcana1"
+        	}
+        	"modifier_flamewaker_arcana_b_a_effect_stacking_invisible"
+        	{
+        		"IsHidden"	"1"
         	}
         	"modifier_flamewaker_arcana_d_a_effect"
         	{

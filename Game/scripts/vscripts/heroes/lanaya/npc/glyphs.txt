@@ -141,7 +141,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% T31_DURATION %>"
+				"property_one"			"<% TRAPPER_T31_DURATION %>"
 			}
 		}
 	}

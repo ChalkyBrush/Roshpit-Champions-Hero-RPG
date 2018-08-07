@@ -925,10 +925,10 @@ function GameState:OrderFilter(orderTable)
 				if orderTable.entindex_ability then
 					if EntIndexToHScript(orderTable.entindex_ability):GetName() == "flamewaker_arcana_ability" then
 					else
-						ability.Vector1 = nil
+						ability.PointTable = nil
 					end
 				else
-					ability.Vector1 = nil
+					ability.PointTable = nil
 				end
 			end
 		end
@@ -1959,13 +1959,17 @@ function GameState:FilterDamage(filterTable)
 		local damageIncrease = stacks*0.2
 		filterTable["damage"] = filterTable["damage"] + filterTable["damage"]*damageIncrease
 	end
-	if attacker:HasModifier("modifier_flamewaker_arcana_b_a_effect") then
-		modifier = attacker:FindModifierByName("modifier_flamewaker_arcana_b_a_effect")
-		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-			local stacks = modifier:GetStackCount()
-			local multIncrease = 0.03*stacks
-			mult = mult + multIncrease
+	if attacker:HasModifier("modifier_flamewaker_arcana1") then
+		local self_mult = 0
+		local stack_mult = 0
+		if attacker:HasModifier("modifier_flamewaker_arcana_b_a_effect") then
+			self_mult = 0.03*attacker:GetModifierStackCount("modifier_flamewaker_arcana_b_a_effect", attacker)
 		end
+		if victim:HasModifier("modifier_flamewaker_arcana_b_a_effect_stacking_invisible") then
+			stack_mult = 0.0043*victim:GetModifierStackCount("modifier_flamewaker_arcana_b_a_effect_stacking_invisible", attacker)
+		end
+		local multIncrease = math.max(self_mult, stack_mult)
+		mult = mult + multIncrease
 	end
 	if attacker:HasModifier("modifier_voltex_immortal_weapon_1") then
 		mult = mult + 0.5
