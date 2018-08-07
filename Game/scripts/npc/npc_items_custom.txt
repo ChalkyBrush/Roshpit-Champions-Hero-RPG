@@ -41420,6 +41420,8 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"EffectName"	"particles/roshpit/dinath/chaos_orchid.vpcf"
+				"EffectAttachType" "follow_origin"
 			}
 		}
 		"AbilitySpecial"
@@ -52021,6 +52023,7 @@
 				"IsHidden" "0"
 				"EffectName"	"particles/items_fx/black_king_bar_avatar.vpcf"
 				"EffectAttachType"	"attach_hitloc"
+				
 				"States"
 				{
 					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"

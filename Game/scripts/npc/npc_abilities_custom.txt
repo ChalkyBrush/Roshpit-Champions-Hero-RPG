@@ -6647,6 +6647,11 @@
 			{
 			    "IsDebuff"  "1"
 				"IsHidden"	"1"
+			}
+			"modifier_axe_rune_c_d_arcana1_visible"
+			{
+			    "IsDebuff"  "1"
+				"IsHidden"	"0"
 				"TextureName"	"axe/axe_rune_c_d_arcana1"
 			}
 		}
@@ -7207,7 +7212,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"600"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"500"
 				}
 			}
 			"modifier_axe_rune_b_a_visible"
@@ -40059,6 +40064,7 @@
 		{
 			"particle"			"particles/roshpit/dinath/arctic_burn_bomb_ball_lightning.vpcf"
 			"particle"			"particles/roshpit/dinath/fire_bomb.vpcf"
+			"particle"			"particles/roshpit/dinath/chaos_orchid.vpcf"
 		}
 
 		"AbilityManaCost"	"0"
@@ -40725,7 +40731,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.07"
+				"property_one"			"-1.5"
 			}
 		}
 
@@ -40796,7 +40802,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.04"
+				"property_one"			"0.03"
 			}
 		}
 

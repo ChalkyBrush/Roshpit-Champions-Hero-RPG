@@ -557,6 +557,7 @@
 		{
 			"particle"			"particles/roshpit/dinath/arctic_burn_bomb_ball_lightning.vpcf"
 			"particle"			"particles/roshpit/dinath/fire_bomb.vpcf"
+			"particle"			"particles/roshpit/dinath/chaos_orchid.vpcf"
 		}
 
 		"AbilityManaCost"	"0"

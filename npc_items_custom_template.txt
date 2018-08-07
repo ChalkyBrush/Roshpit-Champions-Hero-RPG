@@ -41269,6 +41269,8 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"EffectName"	"particles/roshpit/dinath/chaos_orchid.vpcf"
+				"EffectAttachType" "follow_origin"
 			}
 		}
 		"AbilitySpecial"
