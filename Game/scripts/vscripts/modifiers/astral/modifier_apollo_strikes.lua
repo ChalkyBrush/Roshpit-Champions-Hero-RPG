@@ -24,7 +24,7 @@ function modifier_apollo_strikes:OnIntervalThink()
 		if (not target:IsNull()) and target and target:IsAlive() then
 			caster:PerformAttack(target, true, true, true, false, true, false, false)
 			local manaCost = ability:GetManaCost(ability:GetLevel())
-			-- caster:ReduceMana(manaCost)
+			caster:ReduceMana(manaCost)
 			local newStacks = target:GetModifierStackCount("modifier_apollo_strikes", caster) - 1
 			if newStacks == 0 then
 				target:RemoveModifierByName("modifier_apollo_strikes")

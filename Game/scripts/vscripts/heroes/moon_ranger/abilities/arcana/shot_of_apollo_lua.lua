@@ -90,7 +90,7 @@ function shot_of_apollo:OnChannelFinish(bInterrupted)
 		if caster:HasModifier("modifier_astral_glyph_3_1") then
 			shots = 9
 		end
-		local b_b_level = 400 --Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
+		local b_b_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
 		shots = shots + Runes:Procs(b_b_level, 2*ability:GetLevel(), 1)
 		ability.shots = shots
 		if ability.pfx then
