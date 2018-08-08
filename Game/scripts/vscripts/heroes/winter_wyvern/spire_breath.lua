@@ -60,8 +60,12 @@ function spire_breath_attack_land(event)
 	local attacker = event.attacker
 	local target = event.target
 	local damage = attacker:GetAverageTrueAttackDamage(attacker)*(event.damage_mult/100)
+
 	if attacker:HasModifier("modifier_dinath_glyph_7_1") then
-		damage = damage + attacker:GetMana()*100
+		local mana_restore = attacker:GetMaxMana()*0.01
+		attacker:GiveMana(mana_restore)
+		damage = damage + attacker:GetMana()*1000
+		PopupMana(caster, mana_restore)
 	end
 	local ability = event.ability
 	EmitSoundOn("Dinath.DragonAttack", target)

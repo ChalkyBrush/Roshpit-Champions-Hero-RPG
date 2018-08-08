@@ -51967,7 +51967,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
+				"property_one"			"1000"
 			}
 		}
 	}

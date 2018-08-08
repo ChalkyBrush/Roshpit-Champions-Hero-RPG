@@ -4,8 +4,12 @@ end
 
 function Amulet:AdjustAttackPowerBonus(hero, value)
 	if hero:GetUnitName() == "npc_dota_hero_winter_wyvern" then
-		local b_c_level = hero:GetRuneValue("e", 2)
-		value = value + value*0.15*b_c_level
+		-- local b_c_level = hero:GetRuneValue("e", 2)
+		-- if hero:HasModifier("modifier_recently_respawned") then
+		-- 	local ability = hero:FindAbilityByName("dinath_dragon_dive")
+		-- 	b_c_level = ability.b_c_level
+		-- end
+		-- value = value + value*0.15*b_c_level
 	end
 	return value
 end
