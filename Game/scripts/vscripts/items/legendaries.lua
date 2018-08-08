@@ -413,7 +413,7 @@ function RPCItems:RollBerserkerGloves(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     local value = RandomInt(maxFactor*100, maxFactor*250)
     item.property2 = value
-    item.property2name = "cooldown_reduction"
+    item.property2name = "attack_damage"
     RPCItems:SetPropertyValues(item, item.property2, "#item_bonus_attack_damage", "#343EC9",  2) 
     RPCItems:RollHandProperty3(item, 0)
     RPCItems:RollHandProperty4(item, 0)
@@ -1455,7 +1455,7 @@ function RPCItems:RollBladeforgeGauntlet(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     local value = RandomInt(maxFactor*8, maxFactor*150)*3
     item.property2 = value
-    item.property2name = "cooldown_reduction"
+    item.property2name = "attack_damage"
     RPCItems:SetPropertyValues(item, item.property2, "#item_bonus_attack_damage", "#343EC9",  2) 
 
     RPCItems:RollHandProperty3(item, 0)
@@ -1476,7 +1476,7 @@ function RPCItems:RollRoyalWristguards(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     local value = RandomInt(maxFactor*15, maxFactor*34)*GameState:GetDifficultyFactor()
     item.property2 = value
-    item.property2name = "cooldown_reduction"
+    item.property2name = "attack_damage"
     RPCItems:SetPropertyValues(item, item.property2, "#item_bonus_attack_damage", "#343EC9",  2) 
 
     item.hasRunePoints = true
