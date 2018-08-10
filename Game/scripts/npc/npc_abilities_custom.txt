@@ -70074,13 +70074,18 @@
 		{
 			"01"
 			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.1"
+			}	
+			"02"
+			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one_base"			"15"
 			}			
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"3"
+				"property_two"			"12"
 			}
 		}
 	}
