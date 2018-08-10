@@ -24481,6 +24481,8 @@
 			"particle"	"particles/roshpit/sorceress/sun_lance_hit_bullet_endcap.vpcf"
 			"particle"	"particles/roshpit/sorceress/fire_avatar.vpcf"
 			"particle"	"particles/status_fx/status_effect_burn.vpcf" 
+			"particle"	"particles/roshpit/sorceress/firestorm_cast.vpcf"
+			"particle"	"particles/items_fx/dagon.vpcf"
 		}
 		"OnSpellStart"
 		{

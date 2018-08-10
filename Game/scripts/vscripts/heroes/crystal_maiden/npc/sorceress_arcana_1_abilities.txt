@@ -282,7 +282,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"sorceress/sorceress_incinerate"
 		"RequiredLevel"          		"0"
@@ -292,6 +292,7 @@
 		"AbilityCastRange"				"1000"
 		"AOERadius"						"500 530 560 590 620 650 680"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityChannelTime"			"4.5"
 
 		"AbilitySpecial"
 		{
@@ -319,7 +320,7 @@
 		}
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastPoint"				"0.2"
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
@@ -347,11 +348,64 @@
 				"Function"		"begin_firestorm"
 				"target"		"POINT"
 				"radius"		"%aoe_radius"
+
 			}
 
 		}
+		"OnChannelFinish"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_sorceress_firestorm_channel"
+				"Target" 		"CASTER"
+			}
+		}
+		"OnChannelInterrupted"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_firestorm_precast"
+				"Target" 		"TARGET"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/crystal_maiden/firestorm_q"
+				"Function"		"channel_interrupt"
+			}
+		}
 		"Modifiers"
 		{
+			"modifier_firestorm_precast"
+			{
+				"IsHidden"		"1"
+				"EffectName"	"particles/roshpit/sorceress/firestorm_cast.vpcf"
+				"EffectAttachType" "follow_origin"
+			}
+			"modifier_sorceress_firestorm_channel"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/crystal_maiden/firestorm_q"
+						"Function"		"firestorm_channel_think"
+						"target"		"TARGET"
+						"damage"		"%damage"
+						"radius"		"%aoe_radius"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/crystal_maiden/firestorm_q"
+						"Function"		"firestorm_channel_end"
+					}
+				}
+			}
 			"modifier_sorceress_firestorm"
 			{
 				"Passive"			"0"
@@ -373,7 +427,7 @@
 			"modifier_fire_ring_passive"
 			{
 				"Passive"			"1"
-				"IsHidden"          "0"
+				"IsHidden"          "1"
 				"ThinkInterval"  "2"
 				"OnIntervalThink"
 				{
@@ -430,7 +484,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.5"
+		"AbilityCastPoint"				"0.35"
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
@@ -563,7 +617,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"15"
+				"property_two"			"100"
 			}
 		}
 
@@ -666,7 +720,7 @@
     			"02"
     			{
     				"var_type"				"FIELD_INTEGER"
-    				"property_two"			"10"
+    				"property_two"			"20"
     			}
     		}
     	}

@@ -28,7 +28,9 @@ function Tanari:Debug()
     -- RPCItems:RollSkulldiggerGloves(Vector(-4928, 2048))
     -- Events:SpawnAertega(Vector(-4928, 2048))
     -- Events:SpawnTorturok(Vector(-4928, 2048))
-    -- RPCItems:RollSorceressArcana2(Vector(-4928, 2048))
+    RPCItems:RollSorceressArcana2(Vector(-4928, 2048))
+
+    Glyphs:RollGlyphAll("item_rpc_sorceress_glyph_6_1", Vector(-4928, 2048), 0)
     --  Events:SpawnOzubu(Vector(-4928, 2048))
     --  for i = 1, 5, 1 do
     --     RPCItems:RollWinterblightSkullRing(Vector(-4928, 2048))
@@ -74,7 +76,7 @@ function Tanari:Debug()
     -- RPCItems:RollWaterMageRobes(Vector(-4928, 2048))
     -- RPCItems:RollAlaranaIceBoot(Vector(-4928, 2048))
     -- RPCItems:RollDruidsSpiritHelm(Vector(-4928, 2048), false)
-    Glyphs:DebugRollHeroGlyphs("dinath", Vector(-4928, 2048))
+    -- Glyphs:DebugRollHeroGlyphs("dinath", Vector(-4928, 2048))
     -- RPCItems:RollMonkeyPaw(Vector(-4928, 2048))
     -- RPCItems:RollSorceressArcana2(Vector(-4928, 2048))
     -- RPCItems:RollPaladinArcana2(Vector(-4928, 2048))
@@ -143,12 +145,12 @@ function Tanari:Debug()
         RPCItems:RollIronTreadsOfDestruction(Vector(-4928, 2048))
     -- RPCItems:RollCarbuncleHelm(Vector(-4928, 2048), false)
     -- RPCItems:RollTwilightVestments(Vector(-4928, 2048))
-    Arena = {}
-    Arena.PitLevel = 7
-    Weapons:RollLegendWeapon1(Vector(-4928, 2048), "dinath")
-    Weapons:RollLegendWeapon2(Vector(-4928, 2048), "dinath")
-    Weapons:RollLegendWeapon3(Vector(-4928, 2048), "dinath")
-    RPCItems:RollDinathArcana1(Vector(-4928, 2048))
+    -- Arena = {}
+    -- Arena.PitLevel = 7
+    -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "dinath")
+    -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "dinath")
+    -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "dinath")
+    -- RPCItems:RollDinathArcana1(Vector(-4928, 2048))
     -- RPCItems:RollBlacksmithsTablet(Vector(-4928, 2048))
     -- RPCItems:RollChitinousLobsterClaw(Vector(-4928, 2048))
     -- RPCItems:RollSeinaruArcana1(Vector(-4928, 2048))
@@ -232,7 +234,7 @@ function Tanari:Debug()
     -- RPCItems:RollTrapperArcana1(Vector(-4928, 2048))
 
             ---------MAX CURATION----------
-    Curator:FullCurateHero(MAIN_HERO_TABLE[1])
+    -- Curator:FullCurateHero(MAIN_HERO_TABLE[1])
 
     -- Curator:CurateHero(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
 

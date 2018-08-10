@@ -1831,7 +1831,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
             if attacker:HasModifier("modifier_fire_avatar") then
                 local stacks = attacker:GetModifierStackCount("modifier_fire_avatar", attacker)
-                fireMult = fireMult + stacks*0.1
+                fireMult = fireMult + stacks*0.2
             end
             if victim:HasModifier("modifier_ring_of_fire_burn") then
                 if bIsRealDamage then
