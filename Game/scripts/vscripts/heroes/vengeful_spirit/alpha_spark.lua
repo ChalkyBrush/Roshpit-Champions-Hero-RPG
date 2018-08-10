@@ -21,7 +21,7 @@ function begin_alpha_spark(event)
 	end
 	local c_d_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
 	if c_d_level > 0 then
-		local buffDuration = Filters:GetAdjustedBuffDuration(caster, c_d_level*0.08, false)
+		local buffDuration = Filters:GetAdjustedBuffDuration(caster, c_d_level*0.25, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_solunia_c_d_arcana_shell", {duration = buffDuration})
 	end
 end

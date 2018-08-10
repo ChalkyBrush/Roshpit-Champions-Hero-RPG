@@ -79,6 +79,7 @@ function flareImpact(caster, ability, damage, element2, damageType, position, st
     if caster:HasModifier("modifier_solunia_glyph_3_1") then
     	stun_duration = stun_duration + 1
     end
+    local adjustedBuffDuration = Filters:GetAdjustedBuffDuration(caster, 60, false)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
@@ -90,18 +91,18 @@ function flareImpact(caster, ability, damage, element2, damageType, position, st
 			Filters:ApplyStun(caster, stun_duration, enemy)
 			if ability.c_a_level > 0 then
 				if sun_moon == "sun" then
-					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_solar_compression_visible", {duration = 8})
+					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_solar_compression_visible", {duration = adjustedBuffDuration})
 					local newStacks = math.min(enemy:GetModifierStackCount("modifier_solar_compression_visible", caster) + 1, 10)
 					enemy:SetModifierStackCount("modifier_solar_compression_visible", caster, newStacks)
 
-					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_solar_compression_invisible", {duration = 8})
+					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_solar_compression_invisible", {duration = adjustedBuffDuration})
 					enemy:SetModifierStackCount("modifier_solar_compression_invisible", caster, newStacks*ability.c_a_level)
 				elseif sun_moon == "moon" then
-					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_lunar_compression_visible", {duration = 8})
+					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_lunar_compression_visible", {duration = adjustedBuffDuration})
 					local newStacks = math.min(enemy:GetModifierStackCount("modifier_lunar_compression_visible", caster) + 1, 10)
 					enemy:SetModifierStackCount("modifier_lunar_compression_visible", caster, newStacks)
 
-					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_lunar_compression_invisible", {duration = 8})
+					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_lunar_compression_invisible", {duration = adjustedBuffDuration})
 					enemy:SetModifierStackCount("modifier_lunar_compression_invisible", caster, newStacks*ability.c_a_level)
 				end
 			end
@@ -136,6 +137,14 @@ function arcana_passive_think(event)
 		ability.interval = 0
 	end
 	ability.interval = ability.interval + 1
+
+	if ability.interval == 10 then
+		local a_a_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
+		if a_a_level > 0 then
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_solunia_ultraviolet_damage", {duration = 5})
+			caster:SetModifierStackCount("modifier_solunia_ultraviolet_damage", caster, a_a_level)
+		end
+	end
 	if ability.interval >= 20 then
 		ability.interval = 0
 		ability.b_a_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
