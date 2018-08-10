@@ -70075,7 +70075,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"1"
+			}			
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"3"
 			}
 		}
 	}
@@ -70604,6 +70609,17 @@
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
 				}
 			}
+			"modifier_solunia_ultraviolet_damage"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "3"
+				}
+			}			
 			"modifier_solunia_ultraviolet"
 			{
 				"IsHidden"	"0"
@@ -70614,7 +70630,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "3000"
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "3"
 				}
 			}
 			"modifier_solar_compression_visible"
@@ -70892,7 +70907,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"ThinkInterval"  "1.0"
+				"ThinkInterval"  "0.5"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
 				"TextureName"	"solunia/solunia_rune_b_d_arcana2"
@@ -71180,22 +71195,22 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"2.0"
+				"property_one"			"1.0"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
+				"property_two"			"5"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"			"8"
+				"element_one"			"2"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_two"			"2"
+				"element_two"			"9"
 			}
 		}
 	}
@@ -71213,7 +71228,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.08"
+				"property_one"			"0.25"
 			}
 		}
 	}
