@@ -112,10 +112,6 @@ function Amulet:action(propertyName, propertyValue, hero, inventory_unit, trinke
 		Amulet:addBasicModifier(trinket_ability.agility, hero, inventory_unit, "modifier_trinket_agility", trinket_ability)		
 		trinket_ability.intelligence = trinket_ability.intelligence + propertyValue
 		Amulet:addBasicModifier(trinket_ability.intelligence, hero, inventory_unit, "modifier_trinket_intelligence", trinket_ability)
-	elseif propertyName == "all_runes" then
-		for i = 1, #AVAILABLE_RUNE_TABLE, 1 do
-			Amulet:runeProperty(AVAILABLE_RUNE_TABLE[i], propertyValue, hero)
-		end
 	elseif propertyName == "sapphire_lotus" then
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_sapphire_lotus", item)
 	elseif propertyName == "arbor" then
@@ -219,11 +215,6 @@ function Amulet:action(propertyName, propertyValue, hero, inventory_unit, trinke
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_wind_orchid", item)
 	elseif propertyName == "ankh_of_ancients" then
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_ankh_of_the_ancients", item)
-	elseif propertyName == "t4_runes" then
-		local runeTable = {"rune_d_a", "rune_d_b", "rune_d_c", "rune_d_d"}
-		for i = 1, #runeTable, 1 do
-			Amulet:runeProperty(runeTable[i], propertyValue, hero)
-		end
 	elseif propertyName == "world_tree_flower" then
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_world_trees_flower_cache", item)
 		RPCItems:PreacheArcanaResources(item)
@@ -311,6 +302,15 @@ function Amulet:runeProperty(propertyName, propertyValue, hero)
 	elseif propertyName == "rune_d_d" then
 		hero.runeUnit4.amulet.d_d = hero.runeUnit4.amulet.d_d + propertyValue
 		Amulet:setRuneBonusNetTable(hero.runeUnit4.amulet.d_d, propertyName, hero)
+	elseif propertyName == "all_runes" then
+		for i = 1, #AVAILABLE_RUNE_TABLE, 1 do
+			Amulet:runeProperty(AVAILABLE_RUNE_TABLE[i], propertyValue, hero)
+		end
+	elseif propertyName == "t4_runes" then
+		local runeTable = {"rune_d_a", "rune_d_b", "rune_d_c", "rune_d_d"}
+		for i = 1, #runeTable, 1 do
+			Amulet:runeProperty(runeTable[i], propertyValue, hero)
+		end
 	end
 end
 

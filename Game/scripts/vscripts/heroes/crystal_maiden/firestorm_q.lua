@@ -47,6 +47,19 @@ function begin_firestorm(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_sorceress_firestorm_channel", {duration = 4.5})
 	end
 	Filters:CastSkillArguments(1, caster)
+	local a_a_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
+	if a_a_level > 0 then
+		if ability:GetCooldownTimeRemaining() > 0 then
+			caster.sunlance = true
+			CustomAbilities:AddAndOrSwapSkill(caster, "sorceress_fire_arcana_q", "sorceress_sun_lance", 0)
+		end
+	end
+	ability.d_a_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+	if ability.d_a_level > 0 then
+		local avatarDuration = Filters:GetAdjustedBuffDuration(caster, 12, false)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_fire_avatar", {duration = avatarDuration})
+		caster:SetModifierStackCount("modifier_fire_avatar", caster, ability.d_a_level)
+	end
 end
 
 function channel_interrupt(event)
@@ -130,17 +143,6 @@ function firestorm_channel_think(event)
 				end
 			end 
 		end)
-	end
-	local a_a_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
-	if a_a_level > 0 then
-		caster.sunlance = true
-		CustomAbilities:AddAndOrSwapSkill(caster, "sorceress_fire_arcana_q", "sorceress_sun_lance", 0)
-	end
-	ability.d_a_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
-	if ability.d_a_level > 0 then
-		local avatarDuration = Filters:GetAdjustedBuffDuration(caster, 12, false)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_fire_avatar", {duration = avatarDuration})
-		caster:SetModifierStackCount("modifier_fire_avatar", caster, ability.d_a_level)
 	end
 end
 

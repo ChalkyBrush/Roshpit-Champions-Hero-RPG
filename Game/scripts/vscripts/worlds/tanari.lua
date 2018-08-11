@@ -43,7 +43,7 @@ function Tanari:Debug()
     local drop = CreateItemOnPositionSync( Vector(-4928, 2048), item )
     local position = Vector(-4928, 2048)
     RPCItems:DropItem(item, Vector(-4928, 2048))
-
+    RPCItems:RollCaptainsVest(Vector(-4928, 2048))
     -- RPCItems:RollHydroxisArcana2(Vector(-4928, 2048))
     -- RPCItems:RollVoltexArcana2(Vector(-4928, 2048))
     -- RPCItems:RollAstralArcana1(Vector(-4928, 2048))
