@@ -5,6 +5,9 @@ end
 require('/heroes/huskar/constants_SPIRIT_WARRIOR')
 require('/heroes/obsidian_destroyer/constants_epoch')
 
+local heroes = {
+	venomort = require('/heroes/hero_necrolyte/scales')
+}
 
 GameState.PVP_REDUCTION = 0.01
 
@@ -1157,6 +1160,8 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 			end
 		end
 	end
+
+	damage = damage * heroes.venomort.getDamageDecrease(victim, attacker, damagetype)
 	local decreaseAll = GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields)
 	return (damage/BASE_VALUE_FOR_CALCULATE)*decreaseAll
 end
@@ -2247,6 +2252,8 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + 0.035*attacker.b_a_level
 		end
 	end
+
+	mult = mult + heroes.venomort.getPostMitigation(attacker, victim)
 
 	if victim:HasModifier("modifier_recently_respawned") then
 		filterTable["damage"] = 0

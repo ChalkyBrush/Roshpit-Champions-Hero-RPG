@@ -1,3 +1,6 @@
+require('heroes/hero_necrolyte/plague_blaster')
+local constants = require('heroes/hero_necrolyte/constants')
+
 function frostvenom_grasp_start(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -16,7 +19,7 @@ function frostvenom_grasp_start(event)
 	end
 	if caster:HasModifier("modifier_venomort_glyph_1_1") then
 		ability:EndCooldown()
-		ability:StartCooldown(1.5)
+		ability:StartCooldown(constants.T11_COOLDOWN)
 	end
 	local damage = event.damage*event.amp
 	EmitSoundOn("Venomort.FrostVenomGrasp.Cast", caster)
@@ -24,25 +27,28 @@ function frostvenom_grasp_start(event)
 	ability.a_a_level = a_a_level
 	local b_a_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
 	if b_a_level > 0 then
-		radius = radius + b_a_level*3
-		ability.slideSpeed = 20 + b_a_level*0.2
+		radius = radius + b_a_level*constants.ARCANA2_Q2_SEARCH_RADIUS
+		ability.slideSpeed = constants.ARCANA2_Q2_SPEED_BURST_BASE + b_a_level*constants.ARCANA2_Q2_SPEED_BURST
 		ability.fv = caster:GetForwardVector()
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_icevenom_slide", {duration = 5})
 	end
-	local c_a_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
 
+	local apply_demoralize = false
+	local demoralize_duration = 0
+	local w_ability = caster:FindAbilityByName('nether_blaster')
+	local modifier = caster:FindModifierByName("modifier_venomort_glyph_1_2")
+	if modifier then
+		local w2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
+		if w2_level > 0 then
+			apply_demoralize = true
+			demoralize_duration =  w2_level * constants.W2_DURATION * (1 + constants.T12_DURATION_INCREASE_PERCENT/100)
+		end
+	end
 	for i = 1, explosions, 1 do
 		Timers:CreateTimer((i-1)*0.35, function()
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 			if #enemies > 0 then
 				local enemy = enemies[1]
-				if c_a_level > 0 then
-					local procs = Runes:Procs(c_a_level, 0.2, 1)
-					procs = 2
-					if procs > 0 then
-						ozubu_transfer_debuff(caster, enemy, ability)
-					end
-				end
 				EmitSoundOn("Venomort.FrostVenomGrasp.Impact", enemy)
 				CustomAbilities:QuickAttachParticle("particles/roshpit/venomort/frostvenom_grasp.vpcf", enemy, 1)
 				local enemies2 = FindUnitsInRadius( caster:GetTeamNumber(), enemy:GetAbsOrigin(), nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
@@ -61,6 +67,14 @@ function frostvenom_grasp_start(event)
 						ability:ApplyDataDrivenModifier(caster, caster, "modifier_venomort_arcana2_d_a_invisible", {duration = 12})
 						caster:SetModifierStackCount("modifier_venomort_arcana2_d_a_invisible", caster, newStacks*d_a_level)
 					end
+
+					if apply_demoralize then
+						local luck = RandomInt(1,100)
+						if luck < constants.W2_CHANCE then
+							demoralize(caster, w_ability, enemy, demoralize_duration)
+						end
+
+					end
 				end
 			end 
 		end)
@@ -73,7 +87,7 @@ function frostvenom_chill_think(event)
 	local ability = event.ability
 	local target = event.target
 	if ability.a_a_level > 0 then
-		local damage = (ability.a_a_level * 3000 + 10000)*target:GetModifierStackCount("modifier_chilled_stacking", caster)
+		local damage = (ability.a_a_level * constants.ARCANA2_Q1_DAMAGE + constants.ARCANA2_Q1_DAMAGE_BASE)*target:GetModifierStackCount("modifier_chilled_stacking", caster)
 		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_POISON, RPC_ELEMENT_ICE)
 	end
 end
@@ -106,37 +120,4 @@ function icevenom_slide_think(event)
 		caster:RemoveModifierByName("modifier_icevenom_slide")
 		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 	end
-end
-
-function ozubu_transfer_debuff(caster, target, ability)
-	local modifiers = caster:FindAllModifiers()
-	for j = 1, #modifiers, 1 do
-		local modifier = modifiers[j]
-		local modifierMaker = modifier:GetCaster()
-		local duration = modifier:GetDuration()
-		local stacks = caster:GetModifierStackCount(modifier:GetName(), modifierMaker)
-		if not WallPhysics:DoesTableHaveValue(Filters:GetUnpurgableDebuffNames(), modifier:GetName()) then
-			if modifierMaker:GetTeamNumber() == caster:GetTeamNumber() then
-			else
-				if duration > 0 then
-					caster:RemoveModifierByName(modifier:GetName())
-					print(modifier:GetAbility():GetClassname())
-					if modifier:GetAbility():GetClassname() == "ability_datadriven" then
-						if IsValidEntity(modifier:GetAbility()) then
-							local abil = modifier:GetAbility()
-							abil:ApplyDataDrivenModifier(modifierMaker, target, modifier:GetName(), {duration = duration})
-							target:SetModifierStackCount(modifier:GetName(), modifierMaker, stacks)
-						end
-						particle = true
-						break
-					end
-				end
-			end
-		end
-	end				
-
-	if particle then
-		local pfx = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_morphling/morphling_morph_agi.vpcf", caster, 1.2)
-		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_morphling/morphling_morph_str.vpcf", target, 1.2)
-	end	
 end
