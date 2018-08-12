@@ -80,6 +80,12 @@ def parse_constants(file_path):
     constants = {}
     file = open(file_path, 'r')
     for line in file:
+        if '{' in line or '}' in line or 'return ' in line:
+            continue
+        if 'local ' in line:
+            line = line.replace('local ','').strip()
+        if ',' in line:
+            line = line.replace(',','')
         if '--' in line:
             line = line[:line.index('--')]
         if '=' not in line:
