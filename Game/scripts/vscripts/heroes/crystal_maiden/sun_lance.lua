@@ -4,6 +4,7 @@ function begin_fireball(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target_points[1]
+	local attackDamage
 	local fv = ((target-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 	EmitSoundOn("Sorceress.SunLance.Cast", caster)
 
@@ -16,7 +17,11 @@ function begin_fireball(event)
         launchFireBall(caster, ability, rotatedFV, "particles/roshpit/sorceress/sun_lance.vpcf", 110)
     end
     local a_a_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
-    ability.damage = a_a_level*12000 + 5000 + caster:GetAverageTrueAttackDamage(caster)*1*a_a_level
+    if caster:HasModifier("modifier_sorceress_immortal_ice_avatar") then
+	    ability.damage = a_a_level*12000 + 5000 + caster.origCaster:GetAverageTrueAttackDamage(caster)*1*a_a_level
+	else
+		ability.damage = a_a_level*12000 + 5000 + caster:GetAverageTrueAttackDamage(caster)*1*a_a_level
+	end
 	if caster:HasModifier("modifier_sorceress_immortal_ice_avatar") then
 	    if caster.origCaster:HasModifier("modifier_sorceress_glyph_2_1") then
 	        local rotatedFV = WallPhysics:rotateVector(fv, math.pi/10)
@@ -90,12 +95,12 @@ function fireball_hit(event)
 	EmitSoundOn("Sorceress.SunLance.Impact", target)
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 	local luck = RandomInt(1, 100)
-	if luck <= chance then
+	if luck <= luck then
 		local eventTable = {}
 		local caster = caster
 		local target = target
 		local fireAbility = caster:FindAbilityByName("sorceress_fire_arcana_q")
-		local damage = fireAbility:GetLevelSpecialValueFor("damage", fireAbility:GetLevel())
+		local damage = fireAbility:GetLevelSpecialValueFor("damage", fireAbility:GetLevel()-1) + fireAbility.d_a_level * ARCANA2_Q4_INT_TO_DAMAGE * caster:GetIntellect()
 		sorceress_firestorm_impact(caster, target, fireAbility, damage, true, 0.2*caster.c_a_level)
 	end
 end
