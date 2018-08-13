@@ -1966,7 +1966,7 @@ function GameState:FilterDamage(filterTable)
 			self_mult = 0.03*attacker:GetModifierStackCount("modifier_flamewaker_arcana_b_a_effect", attacker)
 		end
 		if victim:HasModifier("modifier_flamewaker_arcana_b_a_effect_stacking_invisible") then
-			stack_mult = 0.0043*victim:GetModifierStackCount("modifier_flamewaker_arcana_b_a_effect_stacking_invisible", attacker)
+			stack_mult = 0.005*victim:GetModifierStackCount("modifier_flamewaker_arcana_b_a_effect_stacking_invisible", attacker)
 		end
 		local multIncrease = math.max(self_mult, stack_mult)
 		mult = mult + multIncrease
