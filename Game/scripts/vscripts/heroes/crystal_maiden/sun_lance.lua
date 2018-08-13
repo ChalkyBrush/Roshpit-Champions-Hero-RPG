@@ -95,7 +95,7 @@ function fireball_hit(event)
 	EmitSoundOn("Sorceress.SunLance.Impact", target)
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 	local luck = RandomInt(1, 100)
-	if luck <= luck then
+	if luck <= chance then
 		local eventTable = {}
 		local caster = caster
 		local target = target
