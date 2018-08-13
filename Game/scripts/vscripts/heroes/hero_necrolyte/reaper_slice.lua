@@ -7,7 +7,7 @@ function toggle_on(event)
 	local r4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
 	Filters:CastSkillArguments(4, caster)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_venomort_arcana2_movespeed_set", nil)
-	caster:SetModifierStackCount( "modifier_venomort_arcana2_movespeed_set", ability,constants.ARCANA_R_BASE_MOVESPEED + r4_level * constants.ARCANA1_R4_BONUS_MOVESPEED)
+	caster:SetModifierStackCount( "modifier_venomort_arcana2_movespeed_set", ability,constants.ARCANA1_R_BASE_MOVESPEED + r4_level * constants.ARCANA1_R4_BONUS_MOVESPEED)
 end
 
 function toggle_off(event)
@@ -30,7 +30,7 @@ function slice_start(event)
 	end
 
 
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 	for _,enemy in pairs(enemies) do
 		if not enemy.venomort_reaper_active then
 			enemy.venomort_reaper_active = true

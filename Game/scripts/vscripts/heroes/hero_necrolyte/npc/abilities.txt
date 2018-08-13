@@ -900,7 +900,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_mult"			"5 10 15 20 25 30 35"
+				"damage_mult"			"2 4 6 8 10 12 14"
 			}
 		}
 	}

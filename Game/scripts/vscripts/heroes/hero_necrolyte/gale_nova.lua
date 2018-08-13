@@ -8,6 +8,9 @@ function cast(event)
 	local radius = constants.Q_RANGE
 	local duration = constants.Q_DEBUFF_DURATION
 
+
+	Filters:CastSkillArguments(1, caster)
+
 	if caster:HasModifier("modifier_venomort_glyph_1_1") then
 		ability:EndCooldown()
 		ability:StartCooldown(constants.T11_COOLDOWN)
@@ -42,7 +45,7 @@ function cast(event)
 	local bossesCountAs = constants.BOSSES_COUNT_AS_ENEMIES
 	local paragonsCountAs = constants.PARAGONS_COUNT_AS_ENEMIES
 	if caster:HasModifier("modifier_venomort_glyph_2_1") then
-		bossesCountAs = constants.T21_BOSSES_COUNT_AS_ENEMIESx
+		bossesCountAs = constants.T21_BOSSES_COUNT_AS_ENEMIES
 		paragonsCountAs = constants.T21_PARAGONS_COUNT_AS_ENEMIES
 	end
 

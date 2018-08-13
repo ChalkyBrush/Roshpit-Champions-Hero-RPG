@@ -161,6 +161,16 @@
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"<% E2_DAMAGE_PER_LEVEL %>"
 			}
+            "02"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "base_ability"			"3"
+            }
+            "03"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "element_one"			"5"
+            }
 		}
 
 	}
@@ -359,7 +369,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% R4_PROC_CHANCE %>"
+				"property_one"			"<% R4_ADD_HP %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% R4_ADD_DAMAGE %>"
 			}
 		}
 	}

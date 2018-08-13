@@ -221,6 +221,12 @@ function recalculate_e4_stacks(event)
 	end
 
 	local duration = constants.E4_DURATION
+
+	if caster:HasModifier("modifier_venomort_glyph_4_2") then
+		duration = constants.T42_DURATION
+	end
+
+
 	local new_e4_data = {}
 	local totalStacks = 0
 	if not ability.e4_data then
