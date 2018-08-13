@@ -16,7 +16,6 @@ function begin_fireball(event)
         launchFireBall(caster, ability, rotatedFV, "particles/roshpit/sorceress/sun_lance.vpcf", 110)
     end
     local a_a_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
-    ability.damage = a_a_level*12000 + 5000 + caster:GetAverageTrueAttackDamage(caster)*1*a_a_level
 	if caster:HasModifier("modifier_sorceress_immortal_ice_avatar") then
 	    if caster.origCaster:HasModifier("modifier_sorceress_glyph_2_1") then
 	        local rotatedFV = WallPhysics:rotateVector(fv, math.pi/10)
@@ -26,6 +25,7 @@ function begin_fireball(event)
 	    end
 	    caster = caster.origCaster
 	end
+	ability.damage = a_a_level*12000 + 5000 + caster:GetAverageTrueAttackDamage(caster)*1*a_a_level
 	Filters:CastSkillArguments(1, caster)
 	ability.projectileFV = fv
 end
