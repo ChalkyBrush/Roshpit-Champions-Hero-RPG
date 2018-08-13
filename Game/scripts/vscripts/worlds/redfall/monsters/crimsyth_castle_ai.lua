@@ -77,7 +77,7 @@ function lavaGO(trigger, fv, zHeight)
 	if not hero:IsAlive() or hero:HasModifier("modifier_heavens_charge_falling") then
 		return false
 	end
-	if hero:HasFlyMovementCapability() then
+	if hero:HasFlyMovementCapability() or Filters:HasFlyingModifier(hero) then
 		return false
 	end
 	if hero:HasModifier("modifier_rpc_terrasic_lava_boots") then

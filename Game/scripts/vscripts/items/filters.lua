@@ -34,11 +34,11 @@ function Filters:ApplyItemDamage(victim,attacker,damage,damage_type,item,element
         if b_d_level > 0 then
             local modified_damage = Filters:ElementalDamage(victim, attacker, damage, damage_type, nil, element1, element2, true)
             if attacker.sunMoon == "moon" then
-                victim.SoluniaBurnLunar = modified_damage*0.02*b_d_level
+                victim.SoluniaBurnLunar = modified_damage*0.01*b_d_level
                 local alphaAbility = attacker:FindAbilityByName("solunia_lunar_alpha_spark")
                 alphaAbility:ApplyDataDrivenModifier(attacker, victim, "modifier_solunia_lunar_burn", {duration = 8})
             else
-                victim.SoluniaBurnSolar = modified_damage*0.02*b_d_level
+                victim.SoluniaBurnSolar = modified_damage*0.01*b_d_level
                 local alphaAbility = attacker:FindAbilityByName("solunia_solar_alpha_spark")
                 alphaAbility:ApplyDataDrivenModifier(attacker, victim, "modifier_solunia_solar_burn", {duration = 8})
             end
@@ -59,11 +59,11 @@ function Filters:ApplyItemDamageBasedOnAbility(victim,attacker,damage,damage_typ
         if b_d_level > 0 then
             local modified_damage = Filters:ElementalDamage(victim, attacker, damage, damage_type, nil, element1, element2, true)
             if attacker.sunMoon == "moon" then
-                victim.SoluniaBurnLunar = modified_damage*0.02*b_d_level
+                victim.SoluniaBurnLunar = modified_damage*0.01*b_d_level
                 local alphaAbility = attacker:FindAbilityByName("solunia_lunar_alpha_spark")
                 alphaAbility:ApplyDataDrivenModifier(attacker, victim, "modifier_solunia_lunar_burn", {duration = 8})
             else
-                victim.SoluniaBurnSolar = modified_damage*0.02*b_d_level
+                victim.SoluniaBurnSolar = modified_damage*0.01*b_d_level
                 local alphaAbility = attacker:FindAbilityByName("solunia_solar_alpha_spark")
                 alphaAbility:ApplyDataDrivenModifier(attacker, victim, "modifier_solunia_solar_burn", {duration = 8})
             end
@@ -1689,7 +1689,7 @@ function Filters:IsTouchingGround(unit)
 end
 
 function Filters:HasFlyingModifier(unit)
-    if unit:HasModifier("modifier_heavens_charge_falling") or unit:HasModifier("modifier_z_flight") or unit:HasModifier("modifier_hawk_soar_visual_z") or unit:HasModifier("modifier_shapeshift_crow") then
+    if unit:HasModifier("modifier_heavens_charge_falling") or unit:HasModifier("modifier_z_flight") or unit:HasModifier("modifier_hawk_soar_visual_z") or unit:HasModifier("modifier_shapeshift_crow") or unit:HasModifier("modifier_dinath_postflight_zheight") then
         return true
     else
         return false
@@ -1828,6 +1828,9 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     end
     if element1 == RPC_ELEMENT_FIRE or element2 == RPC_ELEMENT_FIRE then
         local fireMult = 0
+        if attacker:HasModifier("modifier_dinath_glyph_6_1") then
+            fireMult = fireMult + 10
+        end
         if unitName == "npc_dota_hero_dragon_knight" then
             if attacker.d_d_level then
                 fireMult = fireMult + 0.0015*attacker:GetStrength()/10*attacker.d_d_level
@@ -1847,7 +1850,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
             if attacker:HasModifier("modifier_fire_avatar") then
                 local stacks = attacker:GetModifierStackCount("modifier_fire_avatar", attacker)
-                fireMult = fireMult + stacks*0.1
+                fireMult = fireMult + stacks*0.2
             end
             if victim:HasModifier("modifier_ring_of_fire_burn") then
                 if bIsRealDamage then
@@ -1978,6 +1981,9 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
     end
     if element1 == RPC_ELEMENT_LIGHTNING or element2 == RPC_ELEMENT_LIGHTNING then
+        if attacker:HasModifier("modifier_dinath_glyph_6_1") then
+            mult = mult + 10
+        end
         if unitName == "npc_dota_hero_phantom_assassin" then
             local d_c_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 2)
             local lightningRuneRate = 0.001
@@ -2139,6 +2145,9 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     end
     if element1 == RPC_ELEMENT_COSMOS or element2 == RPC_ELEMENT_COSMOS then
         local cosmosMult = 0
+        if attacker:HasModifier("modifier_dinath_glyph_6_1") then
+            cosmosMult = cosmosMult + 10
+        end
         if unitName == "npc_dota_hero_drow_ranger" then
             cosmosMult = cosmosMult + 0.0007*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_c_level
             if victim:HasModifier("modifier_apollo_c_b_proc_invisible") then
@@ -2184,7 +2193,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         mult = mult + cosmosMult
     end
     if element1 == RPC_ELEMENT_ICE or element2 == RPC_ELEMENT_ICE then
-       if unitName == "npc_dota_hero_crystal_maiden" then
+        if attacker:HasModifier("modifier_dinath_glyph_6_1") then
+            mult = mult + 10
+        end
+        if unitName == "npc_dota_hero_crystal_maiden" then
             if attacker:HasAbility("blizzard") then
                 local d_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 0)
                 mult = mult + 0.0002*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_a_level
@@ -2215,6 +2227,12 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker:HasModifier("modifier_solunia_arcana2") then
                 local d_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 3)
                 mult = mult + 0.0005*attacker:GetAgility()/10*d_d_level
+            end
+        elseif unitName == "npc_dota_hero_winter_wyvern" then
+            if attacker:HasModifier("modifier_dinath_arcana1") then
+                local movespeed = attacker:GetBaseMoveSpeed()
+                local actualMS = attacker:GetMoveSpeedModifier(movespeed)
+                mult = mult + actualMS*0.001*attacker:GetRuneValue("w", 2)
             end
         end
         if attacker:HasModifier("modifier_trinket_ice") then
@@ -2510,6 +2528,17 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if attacker:HasModifier("modifier_trinket_undead") then
             local stacks = attacker:GetModifierStackCount("modifier_trinket_undead", attacker.InventoryUnit)
             mult = mult + stacks/100
+        end
+    end
+    if element1 == RPC_ELEMENT_DRAGON or element2 == RPC_ELEMENT_DRAGON then
+        if unitName == "npc_dota_hero_winter_wyvern" then
+           local d_d_level = attacker:GetRuneValue("r", 4)
+           mult = mult + 0.0005*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_d_level
+           if bIsRealDamage then
+               if attacker:HasModifier("modifier_dinath_immortal_weapon_3") then
+                  Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, slot, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+               end
+            end
         end
     end
 
@@ -3660,7 +3689,7 @@ function Filters:GeodeDealDamage(victim, damage, attacker)
         if not ability.particles then
             ability.particles = 0
         end
-        if ability.particles < 4 then
+        if ability.particles < 6 then
             CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/fractional_geode_effect.vpcf", victim, 0.8)
             EmitSoundOn("Items.Geode", victim)
             ability.particles = ability.particles + 1
@@ -4259,7 +4288,7 @@ function Filters:AlaranaFrostNova(caster)
 end
 
 function Filters:IsIceFrozen(target)
-    if target:HasModifier("modifier_ice_lance_frozen") or target:HasModifier("modifier_frost_nova") or target:HasModifier("modifier_eternal_frost_nova") or target:HasModifier("modifier_ice_throw_b_b_frozen") or target:HasModifier("modifier_elemental_overload_frozen") or target:HasModifier("modifier_alarana_frost_nova") or target:HasModifier("modifier_solunia_cryoshock") or target:HasModifier("modifier_elemental_freeze") or target:HasModifier("modifier_sorceress_arcana_b_d_visible") then
+    if target:HasModifier("modifier_ice_lance_frozen") or target:HasModifier("modifier_frost_nova") or target:HasModifier("modifier_eternal_frost_nova") or target:HasModifier("modifier_ice_throw_b_b_frozen") or target:HasModifier("modifier_elemental_overload_frozen") or target:HasModifier("modifier_alarana_frost_nova") or target:HasModifier("modifier_solunia_cryoshock") or target:HasModifier("modifier_elemental_freeze") or target:HasModifier("modifier_sorceress_arcana_b_d_visible") or target:HasModifier("modifier_hyperbeam_freeze") then
         return true
     else
         return false

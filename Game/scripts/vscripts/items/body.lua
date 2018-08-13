@@ -90,7 +90,7 @@ function Body:action(propertyName, propertyValue, hero, inventory_unit, body_abi
 		body_ability.max_health = body_ability.max_health + propertyValue
 		Body:addBasicModifier(body_ability.max_health, hero, inventory_unit, "modifier_body_max_health", body_ability)
 	elseif propertyName == "attack_damage" then
-		body_ability.attack_damage = body_ability.attack_damage + propertyValue
+		body_ability.attack_damage = body_ability.attack_damage + Amulet:AdjustAttackPowerBonus(hero, propertyValue)
 		Body:addBasicModifier(body_ability.attack_damage, hero, inventory_unit, "modifier_body_attack_damage", body_ability)
 	elseif propertyName == "base_ability" then
 		body_ability.base_ability = body_ability.base_ability + propertyValue
@@ -256,21 +256,6 @@ function Body:action(propertyName, propertyValue, hero, inventory_unit, body_abi
 		Body:addItemModifier(0, hero, inventory_unit, "modifier_boreal_granite_vest", item)
 	elseif propertyName == "captains_vest" then
 		Body:addItemModifier(0, hero, inventory_unit, "modifier_captains_vest", item)
-	elseif propertyName == "t1_runes" then
-		local runeTable = {"rune_a_a", "rune_a_b", "rune_a_c", "rune_a_d"}
-		for i = 1, #runeTable, 1 do
-			Body:runeProperty(runeTable[i], propertyValue, hero)
-		end
-	elseif propertyName == "t2_runes" then
-		local runeTable = {"rune_b_a", "rune_b_b", "rune_b_c", "rune_b_d"}
-		for i = 1, #runeTable, 1 do
-			Body:runeProperty(runeTable[i], propertyValue, hero)
-		end
-	elseif propertyName == "t3_runes" then
-		local runeTable = {"rune_c_a", "rune_c_b", "rune_c_c", "rune_c_d"}
-		for i = 1, #runeTable, 1 do
-			Body:runeProperty(runeTable[i], propertyValue, hero)
-		end
 	elseif propertyName == "tattered_novice" then
 		Body:addItemModifier(0, hero, inventory_unit, "modifier_tattered_novice_armor", item)
 	end
@@ -349,6 +334,21 @@ function Body:runeProperty(propertyName, propertyValue, hero)
 	elseif propertyName == "rune_d_d" then
 		hero.runeUnit4.body.d_d = hero.runeUnit4.body.d_d + propertyValue
 		Body:setRuneBonusNetTable(hero.runeUnit4.body.d_d, propertyName, hero)
+	elseif propertyName == "t1_runes" then
+		local runeTable = {"rune_a_a", "rune_a_b", "rune_a_c", "rune_a_d"}
+		for i = 1, #runeTable, 1 do
+			Body:runeProperty(runeTable[i], propertyValue, hero)
+		end
+	elseif propertyName == "t2_runes" then
+		local runeTable = {"rune_b_a", "rune_b_b", "rune_b_c", "rune_b_d"}
+		for i = 1, #runeTable, 1 do
+			Body:runeProperty(runeTable[i], propertyValue, hero)
+		end
+	elseif propertyName == "t3_runes" then
+		local runeTable = {"rune_c_a", "rune_c_b", "rune_c_c", "rune_c_d"}
+		for i = 1, #runeTable, 1 do
+			Body:runeProperty(runeTable[i], propertyValue, hero)
+		end
 	end
 end
 

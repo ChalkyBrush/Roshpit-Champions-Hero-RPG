@@ -4,7 +4,7 @@ local function cast(caster, ability)
         return
     end
 
-    ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_c_d_visible", {duration = R3_DURATION})
+    ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_c_d_visible", {duration = RED_GENERAL_R3_DURATION})
     caster:SetModifierStackCount("modifier_axe_rune_c_d_visible", caster, runesCount)
 end
 

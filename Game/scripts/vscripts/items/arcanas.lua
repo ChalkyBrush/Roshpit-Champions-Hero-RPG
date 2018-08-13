@@ -1677,7 +1677,7 @@ function RPCItems:RollSephyrArcana1(deathLocation)
     item.property3name = "intelligence"
     RPCItems:SetPropertyValues(item, item.property3, "#item_intelligence", "#33CCFF",  3)
 
-    RPCItems:RollBodyProperty4(item, 0)
+    RPCItems:RollHandProperty4(item, 0)
 
     RPCItems:DropOrGiveItem(hero, item, false, deathLocation)
     return item
@@ -1761,6 +1761,45 @@ function RPCItems:RollVoltexArcana2(deathLocation)
     return item
 end
 
+function RPCItems:RollDinathArcana1(deathLocation)
+    local item = RPCItems:CreateVariantArcana("item_rpc_dinath_arcana1", "arcana", "Dinath Arcana 1", "hands", true, "Slot: Hands", "npc_dota_hero_winter_wyvern", 0)
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.property1 = 1
+    item.property1name = "!arcana!_dinath_arcana1"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_dinath_arcana1", "#72E0DE",  1, "#property_dinath_arcana1_description")
+
+
+    item.hasRunePoints = true
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+    
+    local luck = RandomInt(1, 100)
+    if luck <= 35 then
+        item.property2name = "rune_a_b"
+        item.property2 = math.ceil(value*1.2)
+    elseif luck <= 70 then
+        item.property2name = "rune_b_b"
+        item.property2 = math.ceil(value*1.2)       
+    elseif luck <= 90 then
+        item.property2name = "rune_c_b"
+        item.property2 = math.ceil(value*0.8) 
+    else
+        item.property2name = "rune_d_b"
+        item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 18), 0, 0, 0, 0)
+    end
+    RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
+
+
+    local value, prefixLevel = RPCItems:RollAttribute(100, 10, 150, 0, 0, item.rarity, false, maxFactor*400)
+    item.property3 = value
+    item.property3name = "attack_damage"
+    RPCItems:SetPropertyValues(item, item.property3, "#item_bonus_attack_damage", "#343EC9",  3) 
+
+    RPCItems:RollHandProperty4(item, 0)
+
+    RPCItems:DropOrGiveItem(hero, item, false, deathLocation)
+    return item
+end
+
 function RPCItems:PreacheArcanaResources(item)
     Timers:CreateTimer(0.05, function()
         PrecacheItemByNameAsync(item:GetAbilityName(), function(...) end)
@@ -1839,6 +1878,8 @@ function RPCItems:GetAvailableArcanaData(hero)
         table.insert(arcanaData, {1, 3})
     elseif unitName == "npc_dota_hero_skywrath_mage" then
         table.insert(arcanaData, {1, 1})
+    elseif unitName == "npc_dota_hero_winter_wyvern" then
+        table.insert(arcanaData, {1, 1})
     end
     return arcanaData
 end
@@ -1856,7 +1897,8 @@ function RPCItems:GetAllArcanaNames()
     "item_rpc_conjuror_arcana1", "item_rpc_seinaru_arcana1", "item_rpc_seinaru_arcana2", "item_rpc_warlord_arcana1", "item_rpc_bahamut_arcana1", "item_rpc_bahamut_arcana2", "item_rpc_trapper_arcana1",
     "item_rpc_spirit_warrior_arcana1", "item_rpc_spirit_warrior_arcana2", "item_rpc_spirit_warrior_arcana3", "item_rpc_mountain_protector_arcana1", "item_rpc_mountain_protector_arcana2", "item_rpc_mountain_protector_arcana3",
     "item_rpc_chernobog_arcana1", "item_rpc_chernobog_arcana2", "item_rpc_solunia_arcana1", "item_rpc_solunia_arcana2", "item_rpc_hydroxis_arcana1", "item_rpc_ekkan_arcana1", "item_rpc_zonik_arcana1",
-    "item_rpc_zonik_arcana2", "item_rpc_arkimus_arcana1", "item_rpc_arkimus_arcana2", "item_rpc_djanghor_arcana1", "item_rpc_hydroxis_arcana2", "item_rpc_voltex_arcana2", "item_rpc_duskbringer_arcana1", "item_rpc_auriun_arcana1", "item_rpc_auriun_arcana2"}
+    "item_rpc_zonik_arcana2", "item_rpc_arkimus_arcana1", "item_rpc_arkimus_arcana2", "item_rpc_djanghor_arcana1", "item_rpc_hydroxis_arcana2", "item_rpc_voltex_arcana2", "item_rpc_duskbringer_arcana1", "item_rpc_auriun_arcana1", "item_rpc_auriun_arcana2",
+    "item_rpc_dinath_arcana1"}
     return arcanaTable
 end
 
@@ -1950,6 +1992,8 @@ function RPCItems:RollArcanaByName(arcana_name, position)
         arcana = RPCItems:RollHydroxisArcana2(position)
     elseif arcana_name == "item_rpc_voltex_arcana2" then
         arcana = RPCItems:RollVoltexArcana2(position)
+    elseif arcana_name == "item_rpc_dinath_arcana1" then
+        arcana = RPCItems:RollDinathArcana1(position)
     end
     return arcana
 end

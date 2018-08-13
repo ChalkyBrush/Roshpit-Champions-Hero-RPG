@@ -26,6 +26,11 @@ function start_channel(event)
     Timers:CreateTimer(2.5, function()
     	ParticleManager:DestroyParticle(particle2, false)
     end)
+    if caster:HasModifier("modifier_iron_treads_of_destruction") then
+    	for i = 1, 10, 1 do
+    		create_zonik_arcana_missle(caster, ability, 300)
+    	end
+    end
 end
 
 function arcana_missles_channel_think(event)
@@ -35,34 +40,7 @@ function arcana_missles_channel_think(event)
 	ability.interval = ability.interval + 1
 	local creationInterval = 13-ability:GetLevel()
 	if ability.interval%creationInterval == 0 and ability.interval > 12 then
-		local missle = {}
-		missle.velocity = RandomInt(200, 350)
-		local baseZ = math.max(50-ability.interval, 0)
-		local projectileFV = (RandomVector(1) + Vector(0,0,RandomInt(baseZ, 100)/100)):Normalized()
-		missle.fv = projectileFV
-		local pfx = ParticleManager:CreateParticle("particles/roshpit/zhonik/timewarp_missle.vpcf", PATTACH_CUSTOMORIGIN, caster)
-		missle.position = caster:GetAbsOrigin()+Vector(0,0,80)
-		ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()+Vector(0,0,80))
-		ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin()+projectileFV*1300)
-		ParticleManager:SetParticleControl(pfx, 2, Vector(missle.velocity, missle.velocity, missle.velocity))
-
-		missle.pfx = pfx
-		table.insert(ability.missleTable, missle)	
-		Timers:CreateTimer(3.5, function()
-			missle.locked = true
-			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
-			if #enemies > 0 then
-				local lockEnemy = enemies[RandomInt(1, #enemies)]
-				missle.lockEnemy = lockEnemy
-				AddFOWViewer(caster:GetTeamNumber(), lockEnemy:GetAbsOrigin(), 300, 5, false)
-				ParticleManager:SetParticleControl(pfx, 1, lockEnemy:GetAbsOrigin()+Vector(0,0,50))
-				ParticleManager:SetParticleControl(pfx, 2, Vector(1400, 1400, 1400))
-				EmitSoundOnLocationWithCaster(missle.position, "Zonik.ArcanaMissles.Launch", caster)
-			else
-				EmitSoundOnLocationWithCaster(missle.position, "Zonik.ArcanaMissles.Fizzle", caster)
-				ParticleManager:DestroyParticle(missle.pfx, false)
-			end 			
-		end)	
+		create_zonik_arcana_missle(caster, ability, 0)
 	end
 	if ability.interval == 66 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_immunity_shield", {duration = 4.2})
@@ -73,6 +51,37 @@ function arcana_missles_channel_think(event)
 	end
 	caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,ability.liftSpeed))
 	ability.liftSpeed = math.max(ability.liftSpeed - 0.3, 1)
+end
+
+function create_zonik_arcana_missle(caster, ability, zOff)
+	local missle = {}
+	missle.velocity = RandomInt(200, 350)
+	local baseZ = math.max(50-ability.interval, 0)
+	local projectileFV = (RandomVector(1) + Vector(0,0,RandomInt(baseZ, 100)/100)):Normalized()
+	missle.fv = projectileFV
+	local pfx = ParticleManager:CreateParticle("particles/roshpit/zhonik/timewarp_missle.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	missle.position = caster:GetAbsOrigin()+Vector(0,0,80)
+	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()+Vector(0,0,80+zOff))
+	ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin()+projectileFV*1300)
+	ParticleManager:SetParticleControl(pfx, 2, Vector(missle.velocity, missle.velocity, missle.velocity))
+
+	missle.pfx = pfx
+	table.insert(ability.missleTable, missle)	
+	Timers:CreateTimer(3.5, function()
+		missle.locked = true
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+		if #enemies > 0 then
+			local lockEnemy = enemies[RandomInt(1, #enemies)]
+			missle.lockEnemy = lockEnemy
+			AddFOWViewer(caster:GetTeamNumber(), lockEnemy:GetAbsOrigin(), 300, 5, false)
+			ParticleManager:SetParticleControl(pfx, 1, lockEnemy:GetAbsOrigin()+Vector(0,0,50))
+			ParticleManager:SetParticleControl(pfx, 2, Vector(1400, 1400, 1400))
+			EmitSoundOnLocationWithCaster(missle.position, "Zonik.ArcanaMissles.Launch", caster)
+		else
+			EmitSoundOnLocationWithCaster(missle.position, "Zonik.ArcanaMissles.Fizzle", caster)
+			ParticleManager:DestroyParticle(missle.pfx, false)
+		end 			
+	end)	
 end
 
 function missles_channel_end(event)

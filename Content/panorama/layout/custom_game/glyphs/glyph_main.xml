@@ -134,6 +134,7 @@
 			<Panel id="glyphs_details_container" class="glyphs_details_container" hittest="false">
 				<Panel id="glyph_details_bg" hittest="false">
 				</Panel>
+				<Label id="loading_text" text="ui_loading" hittest="false"/> 
 				<Panel id="glyph_tiers_container" hittest="false">
 				</Panel>
 			</Panel>

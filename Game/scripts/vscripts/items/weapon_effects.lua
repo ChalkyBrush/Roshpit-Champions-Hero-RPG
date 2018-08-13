@@ -27,6 +27,14 @@ function sorceress_avatar_think(event)
 	local avatar = event.target
 	local caster = avatar.origCaster
 
+
+	local casterBlizzAbility = caster:FindAbilityByName("blizzard")
+	local casterLanceAbility = caster:FindAbilityByName("blizzard")
+	if not casterBlizzAbility then
+		casterBlizzAbility = caster:FindAbilityByName("sorceress_fire_arcana_q")
+		casterLanceAbility = caster:FindAbilityByName("sorceress_sun_lance")
+	end
+	local level = casterBlizzAbility:GetLevel()
 	local blizzAbility = avatar:FindAbilityByName("blizzard")
 	local lanceAbility = avatar:FindAbilityByName("ice_lance")
 	if not blizzAbility then
@@ -39,6 +47,9 @@ function sorceress_avatar_think(event)
 	end
 	if avatar.lock then
 		return false
+	end
+	if level then
+		blizzAbility:SetLevel(level)
 	end
 	FindClearSpaceForUnit(avatar, avatar:GetAbsOrigin(), false)
 	if blizzAbility:IsFullyCastable() or lanceAbility:IsFullyCastable() or blinkAbility:IsFullyCastable() then

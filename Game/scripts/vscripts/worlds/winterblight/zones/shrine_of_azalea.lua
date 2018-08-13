@@ -238,6 +238,7 @@ function Winterblight:AzaleaCupAttacked(cup, attacker)
 		attacker.cupSequence = false
 		print("ATTACK ACTIVE CUP")
 		attacker:AddNewModifier( attacker, nil, "modifier_black_portal_shrink", {} )
+		Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, attacker, "modifier_disable_player", {duration = 4})
 		Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, attacker, "modifier_azalea_cup_use", {duration = 20})
 		local delay = 0
 		if WallPhysics:GetDistance2d(cup:GetAbsOrigin(), attacker:GetAbsOrigin()) < 240 then

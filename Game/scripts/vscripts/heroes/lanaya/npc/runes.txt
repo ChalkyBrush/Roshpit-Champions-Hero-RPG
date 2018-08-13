@@ -16,7 +16,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% Q1_DAMAGE %>"
+				"property_one"			"<% TRAPPER_Q1_DAMAGE %>"
 			}
 			"02"
 			{
@@ -70,7 +70,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% E1_BONUS_DAMAGE %>"
+				"property_one"			"<% TRAPPER_E1_BONUS_DAMAGE %>"
 			}
 		}
 		"Modifiers"
@@ -182,7 +182,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% W2_DAMAGE %>"
+				"property_one"			"<% TRAPPER_W2_DAMAGE %>"
 			}
 			"02"
 			{
@@ -374,7 +374,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"property_one"				"<% E3_DAMAGE_PERCENT %>"
+				"property_one"				"<% TRAPPER_E3_DAMAGE_PERCENT %>"
 			}
 			"02"
 			{
@@ -500,7 +500,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% W4_AMPLIFY_PERCENT %>"
+				"property_one"			"<% TRAPPER_W4_AMPLIFY_PERCENT %>"
 			}
 		}
 	}

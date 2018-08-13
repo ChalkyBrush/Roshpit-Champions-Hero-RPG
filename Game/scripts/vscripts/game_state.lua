@@ -928,10 +928,10 @@ function GameState:OrderFilter(orderTable)
 				if orderTable.entindex_ability then
 					if EntIndexToHScript(orderTable.entindex_ability):GetName() == "flamewaker_arcana_ability" then
 					else
-						ability.Vector1 = nil
+						ability.PointTable = nil
 					end
 				else
-					ability.Vector1 = nil
+					ability.PointTable = nil
 				end
 			end
 		end
@@ -1274,10 +1274,12 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 
 	if victim:HasModifier("modifier_arkimus_archon_form") then
-		local archonForm = victim:FindAbilityByName("arkimus_archon_form")
-		local reduction = archonForm:GetLevelSpecialValueFor("damage_resist", archonForm:GetLevel())
-		reduction = (100-reduction)/100
-		damage = damage*reduction
+		local archonForm = victim:FindModifierByName("modifier_arkimus_archon_form"):GetAbility()
+		if archonForm then
+			local reduction = archonForm:GetLevelSpecialValueFor("damage_resist", archonForm:GetLevel())
+			reduction = (100-reduction)/100
+			damage = damage*reduction
+		end
 	end
 	if victim:HasModifier("modifier_axe_rune_c_d_shield") then
 		damage = damage*0.2
@@ -1691,6 +1693,14 @@ function GameState:FilterDamage(filterTable)
 			local stacks = attacker:GetModifierStackCount("modifier_shadow_trap_d_a_buff", attacker)
 			mult = mult + 0.1*stacks
 		end
+		if victim:HasModifier("modifier_drake_ring_postmit") then
+			if attacker:GetUnitName() == "npc_dota_hero_winter_wyvern" then
+				local stacks = victim:GetModifierStackCount("modifier_drake_ring_postmit", attacker)
+				mult = mult + 0.1*stacks
+				print("STACK INCREASE")
+				print(stacks)
+			end
+		end
 		if attacker:HasModifier("modifier_auriun_passive") then
 			if attacker.a_c_level then
 				mult = mult + 0.02*attacker.a_c_level
@@ -1954,13 +1964,17 @@ function GameState:FilterDamage(filterTable)
 		local damageIncrease = stacks*0.2
 		filterTable["damage"] = filterTable["damage"] + filterTable["damage"]*damageIncrease
 	end
-	if attacker:HasModifier("modifier_flamewaker_arcana_b_a_effect") then
-		modifier = attacker:FindModifierByName("modifier_flamewaker_arcana_b_a_effect")
-		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-			local stacks = modifier:GetStackCount()
-			local multIncrease = 0.03*stacks
-			mult = mult + multIncrease
+	if attacker:HasModifier("modifier_flamewaker_arcana1") then
+		local self_mult = 0
+		local stack_mult = 0
+		if attacker:HasModifier("modifier_flamewaker_arcana_b_a_effect") then
+			self_mult = 0.03*attacker:GetModifierStackCount("modifier_flamewaker_arcana_b_a_effect", attacker)
 		end
+		if victim:HasModifier("modifier_flamewaker_arcana_b_a_effect_stacking_invisible") then
+			stack_mult = 0.005*victim:GetModifierStackCount("modifier_flamewaker_arcana_b_a_effect_stacking_invisible", attacker)
+		end
+		local multIncrease = math.max(self_mult, stack_mult)
+		mult = mult + multIncrease
 	end
 	if attacker:HasModifier("modifier_voltex_immortal_weapon_1") then
 		mult = mult + 0.5
@@ -2060,6 +2074,10 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_windsteel_effect") then
 		filterTable["damage"] = Filters:WindSteelTakeDamage(victim, filterTable["damage"])
 	end
+	if victim:HasModifier("modifier_vitali_shield") then
+		filterTable["damage"] = 0
+		victim:RemoveModifierByName("modifier_vitali_shield")
+	end
 	if victim:HasModifier("modifier_secret_temple_refraction") then
 		print("DAMAGE BEFORE: "..filterTable["damage"])
 		filterTable["damage"] = Filters:SecretTempleTakeDamage(victim, filterTable["damage"])
@@ -2153,6 +2171,15 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
+	if victim:HasModifier("modifier_dinath_glyph_5_a") then
+		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
+			if not victim:HasModifier("modifier_golden_scale_immunity") then
+				local immo_glyph = victim.immo_glyph_data
+				immo_glyph.ability:ApplyDataDrivenModifier(immo_glyph.caster, victim, "modifier_black_King_bar_immunity", {duration = 3})
+				immo_glyph.ability:ApplyDataDrivenModifier(immo_glyph.caster, victim, "modifier_golden_scale_immunity", {duration = 5})
+			end
+		end
+	end
 	if attacker:HasModifier("modifier_epoch_arcana_passive") then
 		-- if victim:HasModifier("modifier_epoch_arcana_root") then
 			local b_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 0)
@@ -2201,6 +2228,13 @@ function GameState:FilterDamage(filterTable)
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetStackCount()
 			mult = mult + 0.12*stacks
+		end
+	end
+	if victim:HasModifier("modifier_hyperbeam_postmit") then
+		modifier = victim:FindModifierByName("modifier_hyperbeam_postmit")
+		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
+			local stacks = modifier:GetStackCount()
+			mult = mult + 0.09*stacks
 		end
 	end
 	if victim:HasModifier("modifier_slipfinn_gloomshade_invisible") then
@@ -2467,11 +2501,6 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = filterTable["damage"]*0.05
 		end
 	end
-	if victim:HasModifier("modifier_water_jailer_ai") or victim:HasModifier("modifier_bovel_ai") then
-		if filterTable["damage"] > (victim:GetMaxHealth()*0.01) then
-			filterTable["damage"] = victim:GetMaxHealth()*0.01
-		end
-	end
 	if victim:HasModifier("modifier_fire_key_holder_steam") then
 		Tanari:FireKeyHolderSteam(victim, damagetype)
 	end
@@ -2732,6 +2761,11 @@ function GameState:FilterDamage(filterTable)
 	end
 	if not victim:HasModifier("modifier_steadfast") and not victim:HasModifier("modifier_mega_steadfast") and attacker:HasModifier("modifier_neutral_glyph_4_2") then
 		filterTable["damage"] = filterTable["damage"] * 0.8
+	end
+	if victim:HasModifier("modifier_water_jailer_ai") or victim:HasModifier("modifier_bovel_ai") then
+		if filterTable["damage"] > (victim:GetMaxHealth()*0.01) then
+			filterTable["damage"] = victim:GetMaxHealth()*0.01
+		end
 	end
 	if victim:HasModifier("modifier_steadfast") then
 		local thresholdMult = 1
@@ -3140,6 +3174,10 @@ function GameState:FilterDamage(filterTable)
 		end
     end
 
+    if victim:HasModifier("modifier_recently_respawned") then
+		filterTable["damage"] = 0
+	end
+
 
 
 	--LETHAL CHECK
@@ -3348,14 +3386,14 @@ function GameState:FilterDamage(filterTable)
 	if Beacons.cheats then
 		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 			if victim:IsHero() then
-				filterTable["damage"] = 0
+				-- filterTable["damage"] = 0
 			end
 		end
 		-- filterTable["damage"] = victim:GetHealth()-1
 		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-			-- if attacker:IsHero() then
-			-- 	filterTable["damage"] = filterTable["damage"]*60000000
-			-- end
+			if attacker:IsHero() then
+				filterTable["damage"] = 9999999999
+			end
 		end
 	end
 

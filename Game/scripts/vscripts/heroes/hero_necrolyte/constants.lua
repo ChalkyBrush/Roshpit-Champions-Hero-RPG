@@ -19,7 +19,7 @@ local module = {
     W2_TICK_RATE = 0.3,
     W2_CHANCE = 40,
     W3_BONUS_ATTRIBUTES = 5, -- doesn't affect real scale
-    W4_POSTMIT_PER_HP_PERCENT = 1,
+    W4_POSTMIT_PER_HP_PERCENT = 0.75,
 
     E1_POISON_AMPLIFY_PERCENT = 10,
     E2_DURATION = 5,

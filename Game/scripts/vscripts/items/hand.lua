@@ -70,7 +70,7 @@ function Hand:action(propertyName, propertyValue, hero, inventory_unit, hand_abi
 		hand_ability.cooldown_reduce = hand_ability.cooldown_reduce + propertyValue
 		Hand:addBasicModifier(hand_ability.cooldown_reduce, hero, inventory_unit, "modifier_hand_cooldown_reduce", hand_ability)
 	elseif propertyName == "attack_damage" then
-		hand_ability.attack_damage = hand_ability.attack_damage + propertyValue
+		hand_ability.attack_damage = hand_ability.attack_damage + Amulet:AdjustAttackPowerBonus(hero, propertyValue)
 		Hand:addBasicModifier(hand_ability.attack_damage, hero, inventory_unit, "modifier_hand_attack_damage", hand_ability)
 	elseif propertyName == "respawn_reduce" then
 		hand_ability.respawn_reduce = hand_ability.respawn_reduce + propertyValue
@@ -395,6 +395,7 @@ function Hand:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_swiftspike_bracer")
 	hero:RemoveModifierByName("modifier_hand_movespeed")
 	hero:RemoveModifierByName("modifier_sephyr_arcana1")
+	hero:RemoveModifierByName("modifier_dinath_arcana1")
 	hero.stormcloth = false
 	Hand:remove_rune_bonuses(hero)
 end

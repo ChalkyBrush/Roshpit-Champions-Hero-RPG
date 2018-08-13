@@ -45,7 +45,7 @@ function seven_visions_strike(caster, position, damage, ability)
 			Timers:CreateTimer(0.2, function()
 				if ability.b_d_level > 0 then
 					print('[GAME STATE] stacks')
-					Helper.updateStackModifier(enemy, caster, ability, 'duskbringer_b_d', R2_DURATION, R2_MAX_STACKS_COUNT, ability.b_d_level)
+					Helper.updateStackModifier(enemy, caster, ability, 'duskbringer_b_d', DUSK_R2_DURATION, DUSK_R2_MAX_STACKS_COUNT, ability.b_d_level)
 
 				end
 				if ability.c_d_level > 0 then

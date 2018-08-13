@@ -4,7 +4,7 @@ local function applyDebuff(target, caster, ability)
         ability.stackLoseTimes = {}
         ability.tick = 0
     end
-    ability:ApplyDataDrivenModifier(caster, target, "modifier_axe_rune_a_b_visible", {duration = W1_DURATION})
+    ability:ApplyDataDrivenModifier(caster, target, "modifier_axe_rune_a_b_visible", {duration = RED_GENERAL_W1_DURATION})
     target:SetModifierStackCount("modifier_axe_rune_a_b_visible", caster, stackCount + 1)
     if ability.stackLoseTimes[ability.tick + 6] == nil then
         ability.stackLoseTimes[ability.tick + 6] = 1

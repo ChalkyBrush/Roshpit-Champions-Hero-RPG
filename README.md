@@ -1,33 +1,36 @@
 # Roshpit-Champions-Hero-RPG
-Online Action RPG - Dota 2 Mod
-----------------------------
+## Online Action RPG - Dota 2 Mod
 
-need to make folders: 
-C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\game\dota_addons\roshpit_champions
-AND
-C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\content\dota_addons\roshpit_champions
+### Preparation
+Yon need to make folders: 
+`C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\game\dota_addons\roshpit_champions`
+and
+`C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\content\dota_addons\roshpit_champions`
 
-create folder anywhere on computer called Roshpit Champions Root. In this folder create a folder called Game and another folder called Content
+Create a folder anywhere on a computer called `Roshpit Champions Root`.
 
-in command line, change directory to your Roshpit Champions Root folder and type the following commands:
-_________________________________________
-mklink /j "Game" "C:\Program Files\Steam\steamapps\common\dota 2 beta\game\dota_addons\roshpit_champions"
+In command line, change directory to your `Roshpit Champions Root` folder and type the following commands:
 
-mklink /j "Content" "C:\Program Files\Steam\steamapps\common\dota 2 beta\content\dota_addons\roshpit_champions"
+`mklink /j "Game" "C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\game\dota_addons\roshpit_champions"`
 
+`mklink /j "Content" "C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\content\dota_addons\roshpit_champions"`
+
+```
 git init
-
-git clone Roshpit-Champions-Hero-RPG
-
-_________________________________________
-
-now create your branch (git checkout my-unique-branch). You can start working on your updates from this branch. When your branch is ready to be merged with master, create a pull request using this branch and ChalkyBrush will approve it
-
-you will want to unpack the Roshpit Champions VPK downloaded from Dota and put all contents into "C:\Program Files\Steam\steamapps\common\dota 2 beta\game\dota_addons\roshpit_champions"
+git remote add origin https://github.com/ChalkyBrush/Roshpit-Champions-Hero-RPG
+git pull origin master
+```
 
 _________________________________________
 
-Updating ability, item or unit definitions:
+### Do not forget to branch
+Create your branch (git checkout my-unique-branch). You can start working on your updates from this branch. When your branch is ready to be merged with master, create a pull request using this branch and ChalkyBrush will approve it.
+
+You will want to unpack the Roshpit Champions VPK downloaded from Dota and put all contents into `"C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\game\dota_addons\roshpit_champions"`
+
+_________________________________________
+
+### Updating ability, item or unit definitions
 
 Do not use npc_abilties_custom or npc_units_custom or npc_items_custom. Instead, use the templates found in the root directory.
 Go to your root directory in command line and type py roshpit_npc_builder.py to run the builder. Whenever you save a change to the template, it updates your npc_abilities_custom file.

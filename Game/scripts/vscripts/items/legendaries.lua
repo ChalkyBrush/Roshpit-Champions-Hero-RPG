@@ -413,7 +413,7 @@ function RPCItems:RollBerserkerGloves(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     local value = RandomInt(maxFactor*100, maxFactor*250)
     item.property2 = value
-    item.property2name = "cooldown_reduction"
+    item.property2name = "attack_damage"
     RPCItems:SetPropertyValues(item, item.property2, "#item_bonus_attack_damage", "#343EC9",  2) 
     RPCItems:RollHandProperty3(item, 0)
     RPCItems:RollHandProperty4(item, 0)
@@ -1455,7 +1455,7 @@ function RPCItems:RollBladeforgeGauntlet(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     local value = RandomInt(maxFactor*8, maxFactor*150)*3
     item.property2 = value
-    item.property2name = "cooldown_reduction"
+    item.property2name = "attack_damage"
     RPCItems:SetPropertyValues(item, item.property2, "#item_bonus_attack_damage", "#343EC9",  2) 
 
     RPCItems:RollHandProperty3(item, 0)
@@ -1476,7 +1476,7 @@ function RPCItems:RollRoyalWristguards(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     local value = RandomInt(maxFactor*15, maxFactor*34)*GameState:GetDifficultyFactor()
     item.property2 = value
-    item.property2name = "cooldown_reduction"
+    item.property2name = "attack_damage"
     RPCItems:SetPropertyValues(item, item.property2, "#item_bonus_attack_damage", "#343EC9",  2) 
 
     item.hasRunePoints = true
@@ -5214,6 +5214,13 @@ function RPCItems:RollAblecoreGreaves(deathLocation)
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_ablecore_greaves", "#DED083",  1, "#property_ablecore_greaves_description")
 
     RPCItems:RollFootProperty2(item, 0)
+    local luck = RandomInt(1,5)
+    if luck == 5 then
+        local moveslow = RandomInt(24, 60)*5
+        item.property2 = moveslow
+        item.property2name = "movespeed_slow"
+        RPCItems:SetPropertyValues(item, item.property2, "#item_movespeed_slow", "#B02020",  2)
+    end
     RPCItems:RollFootProperty3(item, 0)
     RPCItems:RollFootProperty4(item, 0)
     local drop = CreateItemOnPositionSync( deathLocation, item )

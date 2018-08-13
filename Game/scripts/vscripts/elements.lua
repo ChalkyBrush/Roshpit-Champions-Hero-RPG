@@ -20,6 +20,7 @@ RPC_ELEMENT_WATER = 14
 RPC_ELEMENT_DEMON = 15
 RPC_ELEMENT_NATURE = 16
 RPC_ELEMENT_UNDEAD = 17
+RPC_ELEMENT_DRAGON = 18
 
 RPC_ELEMENT_NORMAL_COLOR = "#DDDDDD"
 RPC_ELEMENT_FIRE_COLOR = "#EF4126"
@@ -38,6 +39,7 @@ RPC_ELEMENT_WATER_COLOR = "#3894FF"
 RPC_ELEMENT_DEMON_COLOR = "#5B648C"
 RPC_ELEMENT_NATURE_COLOR = "#69BC71"
 RPC_ELEMENT_UNDEAD_COLOR = "#5C776E"
+RPC_ELEMENT_DRAGON_COLOR = "#3289C7"
 
 function Elements:GetElementNameAndColorByCode(elementCode)
 	local name = ""
@@ -93,6 +95,9 @@ function Elements:GetElementNameAndColorByCode(elementCode)
 	elseif elementCode == RPC_ELEMENT_UNDEAD then
 		name = "undead"
 		color = RPC_ELEMENT_UNDEAD_COLOR
+	elseif elementCode == RPC_ELEMENT_DRAGON then
+		name = "dragon"
+		color = RPC_ELEMENT_DRAGON_COLOR
 	end
 	return name, color
 end

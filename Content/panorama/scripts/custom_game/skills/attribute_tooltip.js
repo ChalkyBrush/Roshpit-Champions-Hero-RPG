@@ -179,7 +179,7 @@ function initializeTooltip(func){
 
 	if (Entities.IsHero(queryUnit)){
 		var parent = $('#element_row1')
-		for ( var i = 1; i <= 17; ++i ){
+		for ( var i = 1; i <= 18; ++i ){
 			var board = $('#element'+i)
 			board.FindChildTraverse('element_title'+i).SetImage("file://{images}/custom_game/ui/elements/element"+i+".png")
 			board.FindChildTraverse('element_value'+i).text = GameUI.StatQueryData.elements[i]+"%"

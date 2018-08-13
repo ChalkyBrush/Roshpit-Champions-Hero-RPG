@@ -195,7 +195,7 @@ function vanish_paralize(caster, ability)
     if not caster:HasModifier("modifier_trapper_glyph_3_1") then
         return
     end
-    local paralyzeDuration = T31_DURATION
+    local paralyzeDuration = TRAPPER_T31_DURATION
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, T31_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
     if #enemies > 0 then
         for _,enemy in pairs(enemies) do

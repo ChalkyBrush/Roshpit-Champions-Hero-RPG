@@ -368,10 +368,10 @@ function boomerang_impact(caster, ability, target)
 		end
 		local damage = caster.damage
 		if caster.a_b_level > 0 then
-			local luck = RandomInt(1,100)
-			if luck <= 15 then
+			local luck = RandomInt(1,1000)
+			if luck <= (150 + caster.a_b_level) then
 				EmitSoundOn("Solunia.BoomerangCrit", caster)
-				damage = damage*caster.a_b_level*0.3 + damage
+				damage = damage*caster.a_b_level*0.12 + damage
 				local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, target )
 				ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "follow_origin", target:GetAbsOrigin(), true)
 				ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_ABSORIGIN_FOLLOW, "follow_origin", target:GetAbsOrigin(), true)

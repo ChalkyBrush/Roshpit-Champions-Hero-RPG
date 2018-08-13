@@ -80,6 +80,8 @@ function getSkillSlot2(queryUnit, slot)
 		abilityName = "djanghor_r_abilities"
 	}else if(abilityName == "slipfinn_shadow_rush" || abilityName == "slipfinn_shadow_warp"){
 		abilityName = "slipfinn_e"
+	}else if(abilityName == "dinath_arctic_burn" || abilityName == "dinath_scorch_charge"){
+		abilityName = "DOTA_Tooltip_ability_dinath_arctic_burn"
 	}else{
 		abilityName = "DOTA_Tooltip_Ability_"+abilityName
 	}
@@ -141,6 +143,8 @@ function getSkillSlot(heroName, slot){
 		skillName = getSlipfinnSkill(slot)
 	}else if (heroName == "npc_dota_hero_skywrath_mage"){
 		skillName = getSephyrSkill(slot)
+	}else if (heroName == "npc_dota_hero_winter_wyvern"){
+		skillName = getDinathSkill(slot)
 	}
 	return skillName
 }
@@ -495,6 +499,20 @@ function getSephyrSkill(slot){
 	return skillName	
 }
 
+function getDinathSkill(slot){
+	var skillName = ""
+	if (slot == 1){
+		skillName = "DOTA_Tooltip_ability_dinath_arctic_burn"
+	}else if(slot == 2){
+		skillName = "DOTA_Tooltip_ability_dinath_drake_ring"
+	}else if(slot == 3){
+		skillName = "DOTA_Tooltip_ability_dinath_dragon_dive"
+	}else if(slot == 4){
+		skillName = "DOTA_Tooltip_ability_dinath_hyper_beam"
+	}
+	return skillName	
+}
+
 function testing(){
 	$.Msg("did we load?")
 }
@@ -504,7 +522,7 @@ function getHeroList(){
 	"npc_dota_hero_drow_ranger", "npc_dota_hero_obsidian_destroyer", "npc_dota_hero_omniknight", "npc_dota_hero_crystal_maiden", "npc_dota_hero_invoker",
 	"npc_dota_hero_juggernaut", "npc_dota_hero_beastmaster", "npc_dota_hero_leshrac", "npc_dota_hero_spirit_breaker", "npc_dota_hero_zuus", "npc_dota_hero_templar_assassin", 
 	"npc_dota_hero_huskar", "npc_dota_hero_legion_commander", "npc_dota_hero_night_stalker", "npc_dota_hero_vengefulspirit", "npc_dota_hero_slardar", "npc_dota_hero_visage", 
-	"npc_dota_hero_dark_seer", "npc_dota_hero_antimage", "npc_dota_hero_monkey_king", "npc_dota_hero_slark", "npc_dota_hero_skywrath_mage"]
+	"npc_dota_hero_dark_seer", "npc_dota_hero_antimage", "npc_dota_hero_monkey_king", "npc_dota_hero_slark", "npc_dota_hero_skywrath_mage", "npc_dota_hero_winter_wyvern"]
 	return heroList
 }
 
@@ -589,6 +607,8 @@ function convertFullHeroNameToRPC(heroName){
 		rpcName = "slipfinn"
 	}else if (heroName == "npc_dota_hero_skywrath_mage"){
 		rpcName = "sephyr"
+	}else if (heroName == "npc_dota_hero_winter_wyvern"){
+		rpcName = "dinath"
 	}else if (heroName == "tooltip_neutral"){
 		rpcName = "neutral"
 	}

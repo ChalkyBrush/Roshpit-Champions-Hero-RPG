@@ -20,7 +20,7 @@ function bomb_throw_start(event)
     bomb.origAbility = ability
     bomb.damage = event.damage
     local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "trapper")
-    bomb.damage = bomb.damage + W4_AMPLIFY_PERCENT/100*(caster:GetIntellect()+caster:GetStrength()+caster:GetAgility())/10*d_b_level*bomb.damage
+    bomb.damage = bomb.damage + TRAPPER_W4_AMPLIFY_PERCENT/100*(caster:GetIntellect()+caster:GetStrength()+caster:GetAgility())/10*d_b_level*bomb.damage
     bomb.detonate = true
     if ability.total_bombs == nil then
         ability.total_bombs = 0
@@ -351,9 +351,9 @@ function bomb_throw_start_smoke(event)
     bomb.damage = event.damage
     bomb.a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "trapper")
     local b_b_level = Runes:GetTotalRuneLevel(caster, 2, "b_b", "trapper")
-    bomb.b_b_damage = b_b_level*W2_DAMAGE
+    bomb.b_b_damage = b_b_level*TRAPPER_W2_DAMAGE
     local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "trapper")
-    bomb.b_b_damage = bomb.b_b_damage + W4_AMPLIFY_PERCENT/100*(caster:GetIntellect()+caster:GetStrength()+caster:GetAgility())/10*d_b_level*bomb.b_b_damage
+    bomb.b_b_damage = bomb.b_b_damage + TRAPPER_W4_AMPLIFY_PERCENT/100*(caster:GetIntellect()+caster:GetStrength()+caster:GetAgility())/10*d_b_level*bomb.b_b_damage
 
     EmitSoundOn("Trapper.BombThrow", caster)
     bomb_start(bomb, ability, target)

@@ -1,0 +1,911 @@
+"Dinath.DivePre"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/winter_wyvern/arctic_impact.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.50000"  }
+                    "pitch_rand_min"    {   "value"     "-0.05000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.400000"  }
+                    "soundlevel"        {   "value"     "86.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Dinath.DiveVO"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/winter_wyvern/arctic_burn.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.35000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.100000"  }
+                    "soundlevel"        {   "value"     "86.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Dinath.DiveVOLight"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/winter_wyvern/arctic_burn.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.1900"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.190000"  }
+                    "soundlevel"        {   "value"     "85.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Dinath.DiveStart"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/winter_wyvern/arctic_impact.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.00000"  }
+                    "pitch_rand_min"    {   "value"     "-0.05000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Dinath.BreathSound"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/winter_wyvern/arctic_attack01.vsnd"
+                              "value1"        "sounds/weapons/hero/winter_wyvern/arctic_attack02.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.70000"  }
+                    "pitch_rand_min"    {   "value"     "-0.05000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.300000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Dinath.BreathImpact"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/winter_wyvern/splinter01.vsnd"
+                              "value1"        "sounds/weapons/hero/winter_wyvern/splinter02.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.50000"  }
+                    "pitch_rand_min"    {   "value"     "-0.05000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.300000"  }
+                    "soundlevel"        {   "value"     "84.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Dinath.HyperBeam.Start"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/dinath/hyperbeam_start.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "2.00000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Dinath.HyperBeam.StartVO"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/misc/creep_deaths/death_black_dragon.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.60000"  }
+                    "pitch_rand_min"    {   "value"     "-0.08000"  }
+                    "pitch_rand_max"    {   "value"     "0.080000"  }
+                    "pitch"             {   "value"     "1.200000"  }
+                    "soundlevel"        {   "value"     "84.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Dinath.HyperBeam.EndVO"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/misc/creep_deaths/death_black_dragon.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.70000"  }
+                    "pitch_rand_min"    {   "value"     "-0.08000"  }
+                    "pitch_rand_max"    {   "value"     "0.080000"  }
+                    "pitch"             {   "value"     "1.300000"  }
+                    "soundlevel"        {   "value"     "84.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Dinath.HyperBeam.FireStart"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/dinath/hyperbeam_accent.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.62000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.820000"  }
+                    "soundlevel"        {   "value"     "86.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Dinath.HyperBeam.Fire1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/dinath/hyperbeam_fire3.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.40000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.700000"  }
+                    "soundlevel"        {   "value"     "85.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Dinath.HyperBeam.Fire2"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/dinath/hyperbeam_fire3.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.650000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.700000"  }
+                    "soundlevel"        {   "value"     "87.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Dinath.HyperBeam.Fire3"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/dinath/hyperbeam_fire3.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.90000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.700000"  }
+                    "soundlevel"        {   "value"     "89.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Dinath.HyperBeam.Freeze"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/astral/crystal_arrow_impact.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.90000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.300000"  }
+                    "soundlevel"        {   "value"     "80.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Dinath.Spire.ToggleVO"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/winter_wyvern/winwyv_pain_02.vsnd"
+                              "value1"        "sounds/vo/winter_wyvern/winwyv_pain_12.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.45000"  }
+                    "pitch_rand_min"    {   "value"     "-0.06000"  }
+                    "pitch_rand_max"    {   "value"     "0.060000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "85.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Dinath.Spire.ToggleOffVO"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/winter_wyvern/winwyv_pain_02.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.90000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.500000"  }
+                    "soundlevel"        {   "value"     "85.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Dinath.FireBomb.Launch"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/lina/dragonslave01.vsnd"
+                              "value1"        "sounds/weapons/hero/lina/dragonslave02.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.42000"  }
+                    "pitch_rand_min"    {   "value"     "-0.06000"  }
+                    "pitch_rand_max"    {   "value"     "0.060000"  }
+                    "pitch"             {   "value"     "1.100000"  }
+                    "soundlevel"        {   "value"     "88.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Dinath.FireBomb.InhaleVO"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/winter_wyvern/winwyv_pain_02.vsnd"
+                              "value1"        "sounds/vo/winter_wyvern/winwyv_pain_12.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.25000"  }
+                    "pitch_rand_min"    {   "value"     "-0.06000"  }
+                    "pitch_rand_max"    {   "value"     "0.060000"  }
+                    "pitch"             {   "value"     "1.150000"  }
+                    "soundlevel"        {   "value"     "81.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Dinath.FireBomb.ImpactSound1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/batrider/batrider_flamebreak_impact_01.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.85000"  }
+                    "pitch_rand_min"    {   "value"     "-0.06000"  }
+                    "pitch_rand_max"    {   "value"     "0.060000"  }
+                    "pitch"             {   "value"     "0.850000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Dinath.FireBomb.ImpactSound2"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/batrider/batrider_flamebreak_impact_01.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.05000"  }
+                    "pitch_rand_min"    {   "value"     "-0.06000"  }
+                    "pitch_rand_max"    {   "value"     "0.060000"  }
+                    "pitch"             {   "value"     "0.750000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Dinath.FireBomb.ImpactSound3"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/batrider/batrider_flamebreak_impact_01.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.25000"  }
+                    "pitch_rand_min"    {   "value"     "-0.06000"  }
+                    "pitch_rand_max"    {   "value"     "0.060000"  }
+                    "pitch"             {   "value"     "0.650000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Dinath.DrakeRing.CastVO"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/winter_wyvern/winwyv_anger_08.vsnd"
+                              "value1"        "sounds/vo/winter_wyvern/winwyv_anger_06.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.75000"  }
+                    "pitch_rand_min"    {   "value"     "-0.06000"  }
+                    "pitch_rand_max"    {   "value"     "0.060000"  }
+                    "pitch"             {   "value"     "1.250000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Dinath.DrakeRing.Puff"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/dinath/drake_ring_puff.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.25000"  }
+                    "pitch_rand_min"    {   "value"     "-0.06000"  }
+                    "pitch_rand_max"    {   "value"     "0.060000"  }
+                    "pitch"             {   "value"     "1.100000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Dinath.DrakeRing.Create"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/dark_willow/fear_cast.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.65000"  }
+                    "pitch_rand_min"    {   "value"     "-0.06000"  }
+                    "pitch_rand_max"    {   "value"     "0.060000"  }
+                    "pitch"             {   "value"     "1.20000"  }
+                    "soundlevel"        {   "value"     "85.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Dinath.DragonAttack"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/dinath/ice_attack_01.vsnd"
+                              "value1"        "sounds/dinath/ice_attack_02.vsnd"
+                              "value2"        "sounds/dinath/ice_attack_03.vsnd"
+                              "value3"        "sounds/dinath/ice_attack_04.vsnd"
+                              "value4"        "sounds/dinath/ice_attack_05.vsnd"
+                              "value5"        "sounds/dinath/ice_attack_06.vsnd"
+                              "value6"        "sounds/dinath/ice_attack_07.vsnd"
+                              "value7"        "sounds/dinath/ice_attack_08.vsnd"
+                              "value8"        "sounds/dinath/ice_attack_09.vsnd"
+                              "value9"        "sounds/dinath/ice_attack_10.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.95000"  }
+                    "pitch_rand_min"    {   "value"     "-0.06000"  }
+                    "pitch_rand_max"    {   "value"     "0.060000"  }
+                    "pitch"             {   "value"     "1.20000"  }
+                    "soundlevel"        {   "value"     "86.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Dinath.DrakeRing.AutoAttack"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/weapons/hero/winter_wyvern/attack01.vsnd"
+                            "value1"        "sounds/weapons/hero/winter_wyvern/attack02.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.65000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.20000"  }
+                    "soundlevel"        {   "value"     "85.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Dinath.ChargeVO"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/winter_wyvern/arctic_burn.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.2300"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.290000"  }
+                    "soundlevel"        {   "value"     "85.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Dinath.MagicImmune"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/items/black_king_bar.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.360000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.990000"  }
+                    "soundlevel"        {   "value"     "81.00000" }
+                    "distance_max"      {   "value"     "4400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}

@@ -15,7 +15,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% Q1_DAMAGE %>"
+				"property_one"			"<% DUSK_Q1_DAMAGE %>"
 			}
 			"02"
 			{
@@ -90,7 +90,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% E1_BONUS_DAMAGE %>"
+				"property_one"			"<% DUSK_E1_BONUS_DAMAGE %>"
 			}
 			"02"
 			{
@@ -270,7 +270,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% R2_AMPLIFY_PERCENT %>"
+				"property_one"			"<% DUSK_R2_AMPLIFY_PERCENT %>"
 			}
 		}
 		"Modifiers"
@@ -301,7 +301,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% Q3_AMPLIFY_PERCENT %>"
+				"property_one"			"<% DUSK_Q3_AMPLIFY_PERCENT %>"
 			}
 		}
 
@@ -431,7 +431,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% W4_AMPLIFY_PERCENT %>"
+				"property_one"			"<% DUSK_W4_AMPLIFY_PERCENT %>"
 			}
 		}
 		"Modifiers"

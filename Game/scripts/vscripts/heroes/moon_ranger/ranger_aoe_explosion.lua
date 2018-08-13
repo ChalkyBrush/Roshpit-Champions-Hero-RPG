@@ -1,3 +1,4 @@
+require('heroes/moon_ranger/init')
 function begin_explosion(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -178,7 +179,7 @@ function rune_c_d(caster, mainAbility)
     dummy.owner = caster:GetPlayerOwnerID()
     dummy:AddAbility("replica")
     dummy:FindAbilityByName("replica"):SetLevel(1)
-    ability:ApplyDataDrivenModifier(runeUnit, dummy, "modifier_rune_c_d_phoenix", {duration = 10})
+    ability:ApplyDataDrivenModifier(runeUnit, dummy, "modifier_rune_c_d_phoenix", {duration = ASTRAL_R3_DURATION})
     dummy:MoveToNPC(caster)
     if caster:HasModifier("modifier_astral_glyph_2_1") then
       dummy.glyphed = true
@@ -213,7 +214,7 @@ function starfall_initiate(event)
   ability.maxStars = ability.a_d_level + 20
   ability.targetsPerInterval = math.floor(ability.maxStars/20)
   ability.remainingStars = ability.maxStars%20
-  ability.star_damage = 300 + ability.a_d_level*200
+  ability.star_damage = ability.a_d_level*ASTRAL_R1_DAMAGE
   if caster:HasModifier("modifier_astral_glyph_7_1") then
     ability.star_damage = ability.star_damage*10
     local glyphDuration = Filters:GetAdjustedBuffDuration(caster, 2.5, false)

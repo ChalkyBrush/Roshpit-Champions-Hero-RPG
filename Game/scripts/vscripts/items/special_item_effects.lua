@@ -1612,7 +1612,7 @@ function super_ascension_attack_start(event)
 		    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 550, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 		    if #enemies > 0 then
 		        for _,enemy in pairs(enemies) do
-		        	if enemy:GetEntityIndex() == target:GetEntityIndex() then
+		        	if enemy:GetEntityIndex() == target:GetEntityIndex() or enemy.dummy then
 		        	else
 		        		if splitCount < procs then
 		        			Filters:PerformAttackSpecial(caster, enemy, true, true, true, false, true, false, false)
@@ -3841,11 +3841,6 @@ function init_wind_deity(event)
 	ability.targetsHit = 0
 end
 
-function geode_think(event)
-	local ability = event.ability
-	ability.particles = 0
-end
-
 function infernal_prison_attacker_think(event)
 	local ability = event.ability
 	local target = event.target
@@ -5597,8 +5592,8 @@ function captains_vest_think(event)
 	local c_d_level = Runes:GetTotalRuneLevelGeneric(hero, 3, 3)
 	local d_d_level = Runes:GetTotalRuneLevelGeneric(hero, 4, 3)
 	local strength = Runes:GetTotalRuneLevelGeneric(hero, 1, 0)*3 + Runes:GetTotalRuneLevelGeneric(hero, 2, 0)*6 + Runes:GetTotalRuneLevelGeneric(hero, 3, 0)*15 + Runes:GetTotalRuneLevelGeneric(hero, 4, 0)*30 + a_d_level*1 + b_d_level*2 + c_d_level*5 + d_d_level*10
-	local agility = Runes:GetTotalRuneLevelGeneric(hero, 1, 1)*3 + Runes:GetTotalRuneLevelGeneric(hero, 2, 1)*6 + Runes:GetTotalRuneLevelGeneric(hero, 3, 1)*15 + Runes:GetTotalRuneLevelGeneric(hero, 4, 1)*30 + a_d_level*1 + b_d_level*2 + c_d_level*5 + d_d_level*10
-	local intelligence = Runes:GetTotalRuneLevelGeneric(hero, 1, 2)*3 + Runes:GetTotalRuneLevelGeneric(hero, 2, 2)*6 + Runes:GetTotalRuneLevelGeneric(hero, 3, 2)*15 + Runes:GetTotalRuneLevelGeneric(hero, 4, 2)*30 + a_d_level*1 + b_d_level*2 + c_d_level*5 + d_d_level*10
+	local agility = Runes:GetTotalRuneLevelGeneric(hero, 1, 2)*3 + Runes:GetTotalRuneLevelGeneric(hero, 2, 2)*6 + Runes:GetTotalRuneLevelGeneric(hero, 3, 2)*15 + Runes:GetTotalRuneLevelGeneric(hero, 4, 2)*30 + a_d_level*1 + b_d_level*2 + c_d_level*5 + d_d_level*10
+	local intelligence = Runes:GetTotalRuneLevelGeneric(hero, 1, 1)*3 + Runes:GetTotalRuneLevelGeneric(hero, 2, 1)*6 + Runes:GetTotalRuneLevelGeneric(hero, 3, 1)*15 + Runes:GetTotalRuneLevelGeneric(hero, 4, 1)*30 + a_d_level*1 + b_d_level*2 + c_d_level*5 + d_d_level*10
 	if strength > 0 then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_captains_vest_str", {})
 		hero:SetModifierStackCount("modifier_captains_vest_str", caster, strength)

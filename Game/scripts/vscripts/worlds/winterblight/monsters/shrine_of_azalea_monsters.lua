@@ -492,6 +492,7 @@ function azalea_cup_sequence_think(event)
 			Timers:CreateTimer(3.5, function()
 				ParticleManager:DestroyParticle(pfx2, false)
 			end)
+			Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, target, "modifier_disable_player", {duration = 0.3})
 		end
 	end
 

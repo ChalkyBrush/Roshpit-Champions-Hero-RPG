@@ -16,7 +16,7 @@ function cast(event)
     local currentMana = caster:GetMana()
     local damage = event.damage/100 * currentMana
     if caster.d_b_level > 0 then
-        damage = damage * (1 + W4_AMPLIFY_PERCENT/100 * caster.d_b_level)
+        damage = damage * (1 + SORCERESS_W4_AMPLIFY_PERCENT/100 * caster.d_b_level)
     end
 
     if caster:HasModifier("modifier_sorceress_glyph_7_2") then

@@ -18732,7 +18732,7 @@
 		"AbilityTextureName"	"zonik/zonik_speedball"
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"19"
-		"AbilityChannelTime"	"2.0"
+		"AbilityChannelTime"	"1.0"
 		"AbilityCastRange"				"99999"
 		"AbilityCastAnimation"	"ACT_DOTA_LOADOUT_RARE"
 		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
@@ -18744,6 +18744,7 @@
 		{
 			"particle"		"particles/roshpit/zonik/speedball_explosion.vpcf"
 			"particle"		"particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash.vpcf"
+			"particle"		"particles/roshpit/zhonik/speedball.vpcf"
 		}
 
 		"AbilityManaCost"	"0"
@@ -18870,6 +18871,7 @@
 				"States"
 				{
 					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"			"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"Properties"
 				{
@@ -18884,6 +18886,15 @@
 						"Function"		"speedball_thinking"
 						"damage"		"%damage"
 						"stun_duration"	"%stun_duration"
+						"speed_mult"	"%speed_mult"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/dark_seer/speedball.lua"
+						"Function"		"speedball_end"
 					}
 				}
 			}
@@ -18984,6 +18995,11 @@
 			{
 				"var_type"	"FIELD_FLOAT"
 				"stun_duration"	"1.2 1.5 1.8 2.1 2.4 2.7 3.0"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"speed_mult"	"0.01 0.05 0.1 0.3 0.5 1.0 3.0"
 			}
 		}
 	}
@@ -22276,6 +22292,7 @@
 
 	##SEPHYR_ABILITIES##
 
+	##DINATH_ABILITIES##
 	"creep_jump"
 	{
 		// General
@@ -32693,7 +32710,6 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Duration"			"8"
 				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_l2_radiant.vpcf"
 				"StatusEffectPriority"  "10"
 				"OnCreated"
@@ -39263,8 +39279,18 @@
 		{
 			"01"
 			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.1"
+			}	
+			"02"
+			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one_base"			"15"
+			}			
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"12"
 			}
 		}
 	}
@@ -79967,7 +79993,7 @@
 
 		}
 
-		"AbilityCastPoint"				"0.2"
+		"AbilityCastPoint"				"0.1"
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
@@ -79994,6 +80020,11 @@
 			{
 				"var_type"	"FIELD_INTEGER"
 				"damage"		"3000 8000 30000 80000 160000 280000 600000"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"max_distance" "400"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -80068,6 +80099,16 @@
         		{
         			"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "4"
         		}
+        	}
+        	"modifier_flamewaker_arcana_b_a_effect_stacking_visible"
+        	{
+        		"IsHidden" "0"
+        		"IsDebuff" "1"
+        		"TextureName"	"flamewaker/flamewaker_b_a_arcana1"
+        	}
+        	"modifier_flamewaker_arcana_b_a_effect_stacking_invisible"
+        	{
+        		"IsHidden"	"1"
         	}
         	"modifier_flamewaker_arcana_d_a_effect"
         	{

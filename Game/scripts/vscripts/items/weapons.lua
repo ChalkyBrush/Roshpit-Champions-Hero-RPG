@@ -87,6 +87,8 @@ function Weapons:weaponRedirect(hero)
 		Weapons:InitialWeapon(hero, "item_rpc_slipfinn_weapon_00", "Shank")
 	elseif heroName == "npc_dota_hero_skywrath_mage" then
 		Weapons:InitialWeapon(hero, "item_rpc_sephyr_weapon_00", "Staff")
+	elseif heroName == "npc_dota_hero_winter_wyvern" then
+		Weapons:InitialWeapon(hero, "item_rpc_dinath_weapon_00", "Spike")
 	end
 end
 
@@ -242,10 +244,10 @@ function Weapons:UpdateWeaponXP(xpBounty)
 			end
 			local newBounty = xpBounty
 			if hero:HasModifier("modifier_blacksmiths_tablet") then
-				newBounty = math.floor(xpBounty*1.2)
+				newBounty = math.floor(newBounty*1.2)
 			end
 			if weapon.rarity == "immortal" then
-				newBounty = math.ceil(xpBounty/500)
+				newBounty = math.ceil(newBounty/500)
 			end
 			if weapon.level < weapon.maxLevel then
 				weapon.xp = weapon.xp + newBounty

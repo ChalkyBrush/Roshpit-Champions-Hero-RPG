@@ -385,7 +385,7 @@
     			"02"
     			{
     				"var_type"				"FIELD_INTEGER"
-    				"property_two"			"<% T12_DURATION %>"
+    				"property_two"			"<% DUSK_T12_DURATION %>"
     			}
     		}
     	}

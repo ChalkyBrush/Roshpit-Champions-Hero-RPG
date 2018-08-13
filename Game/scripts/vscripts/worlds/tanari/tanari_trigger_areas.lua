@@ -5,7 +5,7 @@ function EnterLava(trigger)
 	if not hero:IsAlive() or hero:HasModifier("modifier_heavens_charge_falling") then
 		return false
 	end
-	if hero:HasFlyMovementCapability() then
+	if hero:HasFlyMovementCapability() or Filters:HasFlyingModifier(hero) then
 		return false
 	end
 	if hero:HasModifier("modifier_rpc_terrasic_lava_boots") then
@@ -31,7 +31,7 @@ function Lava3(trigger)
 	if not hero:IsAlive() or hero:HasModifier("modifier_heavens_charge_falling") then
 		return false
 	end
-	if hero:HasFlyMovementCapability() then
+	if hero:HasFlyMovementCapability() or Filters:HasFlyingModifier(hero) then
 		return false
 	end
 	if hero:HasModifier("modifier_rpc_terrasic_lava_boots") then
@@ -52,7 +52,7 @@ end
 
 function Lava4(trigger)
 	local hero = trigger.activator
-	if hero:HasFlyMovementCapability() then
+	if hero:HasFlyMovementCapability() or Filters:HasFlyingModifier(hero) then
 		return false
 	end
 	local caster = Events.GameMaster
@@ -60,7 +60,7 @@ function Lava4(trigger)
 	if not hero:IsAlive() or hero:HasModifier("modifier_heaevns_charge_falling") then
 		return false
 	end
-	if hero:HasFlyMovementCapability() then
+	if hero:HasFlyMovementCapability() or Filters:HasFlyingModifier(hero) then
 		return false
 	end
 	if hero:HasModifier("modifier_rpc_terrasic_lava_boots") then
@@ -81,7 +81,7 @@ end
 
 function Lava5(trigger)
 	local hero = trigger.activator
-	if hero:HasFlyMovementCapability() then
+	if hero:HasFlyMovementCapability() or Filters:HasFlyingModifier(hero) then
 		return false
 	end
 	Timers:CreateTimer(0.2, function()
@@ -113,7 +113,7 @@ end
 
 function Lava6(trigger)
 	local hero = trigger.activator
-	if hero:HasFlyMovementCapability() then
+	if hero:HasFlyMovementCapability() or Filters:HasFlyingModifier(hero) then
 		return false
 	end
 	local caster = Events.GameMaster

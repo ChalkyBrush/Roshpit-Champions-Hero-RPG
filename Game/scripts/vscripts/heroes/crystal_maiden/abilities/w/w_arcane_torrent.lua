@@ -22,7 +22,7 @@ function calculateDamage(event)
     arcane_explosion_damage = arcane_explosion_damage * T51_AMPLIFY * caster:GetMaxMana()/100
 
     if caster.d_b_level > 0 then
-        arcane_explosion_damage = arcane_explosion_damage * (1 + W4_AMPLIFY_PERCENT/100 * caster.d_b_level)
+        arcane_explosion_damage = arcane_explosion_damage * (1 + SORCERESS_W4_AMPLIFY_PERCENT/100 * caster.d_b_level)
     end
 
     ability.manacost = event.mana_drain/5

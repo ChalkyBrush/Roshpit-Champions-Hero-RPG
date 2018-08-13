@@ -695,11 +695,11 @@
                               "value1"        "sounds/weapons/hero/nevermore/raze_flames.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "1.000000"  }
+                    "volume"            {   "value"     "0.500000"  }
                     "pitch_rand_min"    {   "value"     "-0.02000"  }
                     "pitch_rand_max"    {   "value"     "0.020000"  }
                     "pitch"             {   "value"     "1.0800000"  }
-                    "soundlevel"        {   "value"     "92.00000" }
+                    "soundlevel"        {   "value"     "88.00000" }
                     "distance_max"      {   "value"     "3400.000"  }
                     "event_type"        {   "value"     "1.000000"  }
                 }
@@ -828,6 +828,104 @@
                     "pitch_rand_max"    {   "value"     "0.020000"  }
                     "pitch"             {   "value"     "1.000000"  }
                     "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "3400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }   
+}
+
+"Sorceress.FirestormPrecast.VO"
+{
+     "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/crystalmaiden/cm_pain_01.vsnd"
+                              "value1"        "sounds/vo/crystalmaiden/cm_anger_09.vsnd"
+                              "value2"        "sounds/vo/crystalmaiden/cm_anger_10.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.820000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.9500000"  }
+                    "soundlevel"        {   "value"     "84.00000" }
+                    "distance_max"      {   "value"     "3400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }   
+}
+
+"Sorceress.Firestorm.CastHighlight"
+{
+     "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/lina/prelightstrikearray.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.500000"  }
+                    "pitch_rand_min"    {   "value"     "-0.02000"  }
+                    "pitch_rand_max"    {   "value"     "0.020000"  }
+                    "pitch"             {   "value"     "1.150000"  }
+                    "soundlevel"        {   "value"     "84.00000" }
+                    "distance_max"      {   "value"     "3400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }   
+}
+
+"Sorceress.Firestorm.Cast2"
+{
+     "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/lina/prelightstrikearray.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.500000"  }
+                    "pitch_rand_min"    {   "value"     "-0.02000"  }
+                    "pitch_rand_max"    {   "value"     "0.020000"  }
+                    "pitch"             {   "value"     "0.850000"  }
+                    "soundlevel"        {   "value"     "84.00000" }
                     "distance_max"      {   "value"     "3400.000"  }
                     "event_type"        {   "value"     "1.000000"  }
                 }

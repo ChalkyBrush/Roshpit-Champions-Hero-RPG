@@ -187,6 +187,9 @@ function supernova_burn_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
+	if not ability.b_d_level then
+		ability.b_d_level = 0
+	end
 	if ability:GetAbilityName() == "solunia_eclipse" then
 		local damage = target.SoluniaBurnLunar
 		if target:HasModifier("modifier_solunia_solar_burn") then
@@ -202,15 +205,15 @@ function supernova_burn_think(event)
 	elseif ability:GetAbilityName() == "solunia_lunar_alpha_spark" then
 		local damage = target.SoluniaBurnLunar
 		if target:HasModifier("modifier_solunia_solar_burn") then
-			damage = damage + 0.10*ability.b_d_level*damage
+			damage = damage + 0.05*ability.b_d_level*damage
 		end
-		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, -2, RPC_ELEMENT_COSMOS, RPC_ELEMENT_FIRE)
+		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, -2, RPC_ELEMENT_FIRE, RPC_ELEMENT_ICE)
 	elseif ability:GetAbilityName() == "solunia_solar_alpha_spark" then	
 		local damage = target.SoluniaBurnSolar
 		if target:HasModifier("modifier_solunia_lunar_burn") then
-			damage = damage + 0.10*ability.b_d_level*damage
+			damage = damage + 0.05*ability.b_d_level*damage
 		end
-		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, -2, RPC_ELEMENT_COSMOS, RPC_ELEMENT_FIRE)
+		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, -2, RPC_ELEMENT_FIRE, RPC_ELEMENT_ICE)
 	end
 end
 

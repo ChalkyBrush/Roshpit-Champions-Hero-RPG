@@ -53,7 +53,7 @@ function Weaponmodifiers:action(propertyName, propertyValue, hero, inventory_uni
 		weapon_ability.intelligence = weapon_ability.intelligence + propertyValue
 		Weaponmodifiers:addBasicModifier(weapon_ability.intelligence, hero, inventory_unit, "modifier_weapon_intelligence", weapon_ability)
 	elseif propertyName == "attack_damage" then
-		weapon_ability.attack_damage = weapon_ability.attack_damage + propertyValue
+		weapon_ability.attack_damage = weapon_ability.attack_damage + Amulet:AdjustAttackPowerBonus(hero, propertyValue)
 		Weaponmodifiers:addBasicModifier(weapon_ability.attack_damage, hero, inventory_unit, "modifier_weapon_attack_damage", weapon_ability)
 	elseif propertyName == "critical_strike" then
 		weapon_ability.critical_strike = weapon_ability.critical_strike + propertyValue

@@ -28,12 +28,14 @@ function Tanari:Debug()
     -- RPCItems:RollSkulldiggerGloves(Vector(-4928, 2048))
     -- Events:SpawnAertega(Vector(-4928, 2048))
     -- Events:SpawnTorturok(Vector(-4928, 2048))
-    -- RPCItems:RollSorceressArcana2(Vector(-4928, 2048))
+    RPCItems:RollSorceressArcana2(Vector(-4928, 2048))
+
+    Glyphs:RollGlyphAll("item_rpc_sorceress_glyph_6_1", Vector(-4928, 2048), 0)
     --  Events:SpawnOzubu(Vector(-4928, 2048))
     --  for i = 1, 5, 1 do
     --     RPCItems:RollWinterblightSkullRing(Vector(-4928, 2048))
     -- end
-    Dungeons.itemLevel = 500
+    -- Dungeons.itemLevel = 500
     -- Glyphs:DropArcaneCrystals(Vector(-4928, 2048), 2.0)
     -- -- RPCItems:RollArcaneCharm(Vector(-3928, 2048))
     -- Tanari:DefeatDungeonBoss("fire", Vector(-4928, 2048))
@@ -41,9 +43,9 @@ function Tanari:Debug()
     local drop = CreateItemOnPositionSync( Vector(-4928, 2048), item )
     local position = Vector(-4928, 2048)
     RPCItems:DropItem(item, Vector(-4928, 2048))
-
+    RPCItems:RollCaptainsVest(Vector(-4928, 2048))
     -- RPCItems:RollHydroxisArcana2(Vector(-4928, 2048))
-    RPCItems:RollVoltexArcana2(Vector(-4928, 2048))
+    -- RPCItems:RollVoltexArcana2(Vector(-4928, 2048))
     -- RPCItems:RollAstralArcana1(Vector(-4928, 2048))
     -- RPCItems:RollAstralArcana2(Vector(-4928, 2048))
     -- for i = 1, 5, 1 do
@@ -74,7 +76,7 @@ function Tanari:Debug()
     -- RPCItems:RollWaterMageRobes(Vector(-4928, 2048))
     -- RPCItems:RollAlaranaIceBoot(Vector(-4928, 2048))
     -- RPCItems:RollDruidsSpiritHelm(Vector(-4928, 2048), false)
-    -- Glyphs:DebugRollHeroGlyphs("sephyr", Vector(-4928, 2048))
+    -- Glyphs:DebugRollHeroGlyphs("dinath", Vector(-4928, 2048))
     -- RPCItems:RollMonkeyPaw(Vector(-4928, 2048))
     -- RPCItems:RollSorceressArcana2(Vector(-4928, 2048))
     -- RPCItems:RollPaladinArcana2(Vector(-4928, 2048))
@@ -139,16 +141,16 @@ function Tanari:Debug()
     --     RPCItems:RollEkkanArcana1(Vector(-4928, 2048))
     -- end
     -- RPCItems:RollDruidsSpiritHelm(Vector(-4928, 2048), isShop)
-    -- for i = 1, 3, 1 do
-        -- RPCItems:RollZhonikArcana1(Vector(-4928, 2048))
-    -- end
+        -- RPCItems:RollZhonikArcana2(Vector(-4928, 2048))
+        RPCItems:RollIronTreadsOfDestruction(Vector(-4928, 2048))
     -- RPCItems:RollCarbuncleHelm(Vector(-4928, 2048), false)
     -- RPCItems:RollTwilightVestments(Vector(-4928, 2048))
     -- Arena = {}
     -- Arena.PitLevel = 7
-    -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "slipfinn")
-    -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "sorceress")
-    -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "sorceress")
+    -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "dinath")
+    -- Weapons:RollLegendWeapon2(Vector(-4928, 2048), "dinath")
+    -- Weapons:RollLegendWeapon3(Vector(-4928, 2048), "dinath")
+    -- RPCItems:RollDinathArcana1(Vector(-4928, 2048))
     -- RPCItems:RollBlacksmithsTablet(Vector(-4928, 2048))
     -- RPCItems:RollChitinousLobsterClaw(Vector(-4928, 2048))
     -- RPCItems:RollSeinaruArcana1(Vector(-4928, 2048))

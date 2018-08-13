@@ -263,7 +263,7 @@ function epoch_glyph_5_1_attack_land(event)
 		local currentStacks = 0
 		local currentTargetArmor = target:GetPhysicalArmorValue()
 		if target:HasModifier("modifier_epoch_rune_b_b_visible") then
-			currentStacks = target:GetModifierStackCount("modifier_epoch_rune_b_b_visible", caster)
+			currentStacks = target:GetModifierStackCount("modifier_epoch_rune_b_b_visible", attacker)
 			currentTargetArmor = currentTargetArmor + (currentStacks * runeW2ArmourDecrease)
 		end
 		if currentTargetArmor > 0 then

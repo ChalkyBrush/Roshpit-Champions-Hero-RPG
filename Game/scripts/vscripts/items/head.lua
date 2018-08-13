@@ -81,7 +81,7 @@ function Head:action(propertyName, propertyValue, hero, inventory_unit, head_abi
 		head_ability.attack_speed = head_ability.attack_speed + propertyValue
 		Head:addBasicModifier(head_ability.attack_speed, hero, inventory_unit, "modifier_helm_attack_speed", head_ability)
 	elseif propertyName == "attack_damage" then
-		head_ability.attack_damage = head_ability.attack_damage + propertyValue
+		head_ability.attack_damage = head_ability.attack_damage + Amulet:AdjustAttackPowerBonus(hero, propertyValue)
 		Head:addBasicModifier(head_ability.attack_damage, hero, inventory_unit, "modifier_helm_attack_damage", head_ability)
 	elseif propertyName == "lifesteal" then
 		print("LIFESTEAL: ")
