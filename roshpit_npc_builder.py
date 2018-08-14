@@ -1,6 +1,10 @@
 from time import sleep
 from time import gmtime, strftime
 import os.path
+import json
+import re
+
+has_errors = False
 settings = {}
 settings['constants'] = {}
 settings['parse_groups'] = [
@@ -30,6 +34,8 @@ using_files = []
 
 def build():
     global settings
+    global has_errors
+    has_errors = False
     print('---- build time ' + strftime("%Y-%m-%d %H:%M:%S", gmtime()) + ' ----')
     for parse_group in settings['parse_groups']:
         if not (os.path.isfile(parse_group["template"]) and os.path.isfile(parse_group["replace"])):
@@ -37,7 +43,27 @@ def build():
         local_replace = parse_replaces(parse_group["replace"])
         replace_in_file(parse_group["template"], parse_group["output_file"], local_replace)
         print(parse_group["finish_label"])
+    if has_errors:
+        print('Build finished, but had some errors')
+    else:
+        print('Build successful')
 
+def validate_content(content, name_for_error_message):
+    global has_errors
+    json_content = content
+    json_content =  re.sub('//[^\n]*\n',"\n",json_content, 0, re.MULTILINE)
+    json_content =  re.sub('(?<=\")([^\S\n]+)(".*")',r":\2,",json_content, 0, re.MULTILINE)
+    json_content = re.sub('^(\s*".*")(\s+){',r"\1:\2{",json_content, 0, re.MULTILINE)
+    json_content = re.sub('(\n\s*".*")(\s+){',r"\1:\2{",json_content, 0, re.MULTILINE)
+    json_content = re.sub(',(\s+)}',r"\1}",json_content, 0, re.MULTILINE)
+    json_content = re.sub('}(\s+")',r"},\1",json_content, 0, re.MULTILINE)
+    json_content = json_content.replace('\\', "\\\\")
+    try:
+        json.loads("{" + json_content + "}")
+    except Exception as e:
+        has_errors = True
+        print('Syntax parse error in ' + name_for_error_message)
+        print(str(e))
 
 def watch():
     global settings
@@ -145,8 +171,8 @@ def prepare_file(file_path, constants):
     if '<%' in content:
         constant_name = content[content.index("<%") + 2:content.index("%>")]
         raise Exception("Constants " + constant_name + " in " + file_path + " don't parsed. There should be space after <% and before %>")
+    validate_content(content, file_path)
     return content
-
 
 settings.update(parse_settings('builder_settings.txt'))
 watch()
