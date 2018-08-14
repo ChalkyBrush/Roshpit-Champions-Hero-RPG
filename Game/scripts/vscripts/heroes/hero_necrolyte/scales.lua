@@ -14,7 +14,7 @@ local module = {
     end,
     onDotDamageDo = function(caster, target)
         local heroName = caster:GetName()
-        if not heroName == "npc_dota_hero_necrolyte" then
+        if heroName ~= "npc_dota_hero_necrolyte" then
             return
         end
 
@@ -62,7 +62,7 @@ local module = {
     end,
     getElementBonus = function(victim, attacker, damage, damage_type, slot, element1, element2, bIsRealDamage)
         local heroName = attacker:GetName()
-        if not heroName == "npc_dota_hero_necrolyte" then
+        if heroName ~= "npc_dota_hero_necrolyte" then
             return 0
         end
 
@@ -90,7 +90,7 @@ local module = {
     end,
     getPostMitigation = function(caster, target)
         local heroName = caster:GetName()
-        if not heroName == "npc_dota_hero_necrolyte" then
+        if heroName ~= "npc_dota_hero_necrolyte" then
             return 0
         end
         local mult = 0
