@@ -2030,6 +2030,7 @@ function Seafortress:CreateBlackPortalUnit(position, bStart)
   portalUnit:AddAbility("seafortress_black_portal_teleport"):SetLevel(1)
   portalUnit:SetDayTimeVisionRange(300)
   portalUnit:SetNightTimeVisionRange(300)
+  portalUnit.dummy = true
   local pfx = ParticleManager:CreateParticle("particles/econ/events/fall_major_2015/teleport_end_fallmjr_2015_lvl2.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
   ParticleManager:SetParticleControl(pfx, 0, portalUnit:GetAbsOrigin())
   EmitSoundOnLocationWithCaster(portalUnit:GetAbsOrigin(), "Seafortress.PortalTouch", portalUnit)

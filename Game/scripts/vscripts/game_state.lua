@@ -3326,7 +3326,9 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
-
+	if victim.dummy then
+		filterTable["damage"] = 0
+	end
 	if filterTable["damage"] > 0 then
 		if victim:HasModifier("modifier_golden_shell_passive") then
         	local ability = victim:FindModifierByName("modifier_golden_shell_passive"):GetAbility()
