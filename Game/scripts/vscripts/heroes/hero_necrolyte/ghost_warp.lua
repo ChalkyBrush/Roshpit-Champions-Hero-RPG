@@ -5,6 +5,7 @@ function ghost_warp_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target_points[1]
+	target = WallPhysics:WallSearch(caster:GetAbsOrigin(), target, caster)
 	local invisible_duration = event.invisible_duration
 	ability.fv = ((target - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 	ability.targetPoint = target
