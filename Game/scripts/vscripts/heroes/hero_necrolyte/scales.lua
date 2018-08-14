@@ -22,17 +22,15 @@ local module = {
         if q3_level ~= 0 then
             local duration = constants.ARCANA2_Q3_DURATION
             local ability = caster:FindAbilityByName('venomort_frostvenom_grasp')
-            if not ability then
-                return
+            if ability then
+                ability:ApplyDataDrivenModifier(caster, target, "modifier_venomort_frostvenom_graps_dot_amp", {duration = duration})
+
+                local modifier = target:FindModifierByName("modifier_venomort_frostvenom_graps_dot_amp")
+                local stacks = modifier:GetStackCount()
+
+                stacks = math.min(stacks + q3_level, q3_level * constants.ARCANA2_Q3_MAX_STACKS_COUNT)
+                modifier:SetStackCount(stacks)
             end
-
-            ability:ApplyDataDrivenModifier(caster, target, "modifier_venomort_frostvenom_graps_dot_amp", {duration = duration})
-
-            local modifier = target:FindModifierByName("modifier_venomort_frostvenom_graps_dot_amp")
-            local stacks = modifier:GetStackCount()
-
-            stacks = math.min(stacks + q3_level, q3_level * constants.ARCANA2_Q3_MAX_STACKS_COUNT)
-            modifier:SetStackCount(stacks)
         end
 
         local e4_level =  Runes:GetTotalRuneLevelGeneric(caster, 4, 2)

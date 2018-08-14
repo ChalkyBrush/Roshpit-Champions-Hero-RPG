@@ -18,7 +18,7 @@ local module = {
     W2_IMMUNE_DURATION = 7,
     W2_TICK_RATE = 0.3,
     W2_CHANCE = 40,
-    W3_BONUS_ATTRIBUTES = 5, -- doesn't affect real scale
+    W3_BONUS_ATTRIBUTES = 5,
     W4_POSTMIT_PER_HP_PERCENT = 0.75,
 
     E1_POISON_AMPLIFY_PERCENT = 10,

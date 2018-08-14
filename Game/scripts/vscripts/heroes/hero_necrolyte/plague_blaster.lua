@@ -85,8 +85,12 @@ function projectile_hit(event)
     local duration = constants.W_DURATION
 
     ability:ApplyDataDrivenModifier(caster, target, "modifier_venomort_slowed", {duration = duration})
-    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_POISON, RPC_ELEMENT_GHOST)
 
+    if caster:HasModifier("modifier_venomort_immortal_weapon_2") then
+        Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_POISON, RPC_ELEMENT_GHOST)
+    else
+        Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_POISON, RPC_ELEMENT_GHOST)
+    end
     if ability.w2_level > 0 then
         local luck = RandomInt(1,100)
         if luck < constants.W2_CHANCE then

@@ -2,6 +2,10 @@ if CustomAttributes == nil then
   CustomAttributes = class({})
 end
 
+local hero_values = {
+	venomort = require('/heroes/hero_necrolyte/constants')
+}
+
 require('/heroes/obsidian_destroyer/constants_epoch')
 
 CustomAttributes.FLAMEWAKER_R3_STRENGTH = 260
@@ -35,7 +39,7 @@ CustomAttributes.SORCERESS_ARCANE_INT = 50
 CustomAttributes.TRAPPER_R4_AGI = 500
 CustomAttributes.SEPHYR_Q1_INT = 125
 CustomAttributes.SEPHYR_R4_AGI_INT = 500
-CustomAttributes.VENOMORT_W3_STATS = 5
+CustomAttributes.VENOMORT_W3_STATS = hero_values.venomort.W3_BONUS_ATTRIBUTES
 
 CustomAttributes.RING_OF_NOBILITY = 30
 CustomAttributes.RING_OF_NOBILITY2 = 60
