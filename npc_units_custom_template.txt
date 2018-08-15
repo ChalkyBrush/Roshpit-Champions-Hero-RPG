@@ -7610,6 +7610,8 @@
         "PathfindingSearchDepthScale" "0.2"
     }
 
+    ##VENOMORT_UNITS##
+
     "phoenix_summon"
     {
         "BaseClass" "npc_dota_creature"

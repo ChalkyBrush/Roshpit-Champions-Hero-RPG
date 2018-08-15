@@ -26,4 +26,8 @@ CONJUROR_GLYPHS:heroes\invoker\npc\glyphs.txt
 <% heroes\obsidian_destroyer\constants_epoch.lua %>
 EPOCH_GLYPHS:heroes\obsidian_destroyer\npc\glyphs.txt
 
+<% heroes\hero_necrolyte\constants.lua %>
+VENOMORT_GLYPHS:heroes\hero_necrolyte\npc\glyphs.txt
+VENOMORT_ITEMS:heroes\hero_necrolyte\npc\items.txt
+
 DINATH_GLYPHS:heroes\winter_wyvern\npc\npc_dinath_glyphs.txt

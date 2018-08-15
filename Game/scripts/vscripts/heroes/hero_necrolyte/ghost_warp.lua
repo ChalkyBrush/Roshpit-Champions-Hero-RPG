@@ -1,7 +1,12 @@
+local constants = require('heroes/hero_necrolyte/constants')
+
+
 function ghost_warp_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target_points[1]
+	target = WallPhysics:WallSearch(caster:GetAbsOrigin(), target, caster)
+	local invisible_duration = event.invisible_duration
 	ability.fv = ((target - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 	ability.targetPoint = target
 	local warpDuration = 3.0
@@ -12,21 +17,21 @@ function ghost_warp_start(event)
 		ParticleManager:DestroyParticle(ability.pfx, true)
 		ability.pfx = false
 	end
-    local phaseWalk = caster:FindAbilityByName("phase_walk")
-    phaseWalk:SetLevel(ability:GetLevel())
-    phaseWalk:SetAbilityIndex(2)
-    
+
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_ghost_warp_invisible", {duration = invisible_duration})
+	local modifier = caster:FindModifierByName("modifier_venomort_glyph_3_1")
+	if modifier then
+		local glyphAbility = modifier:GetAbility()
+		glyphAbility:ApplyDataDrivenModifier(caster, caster, "modifier_venomort_glyph_3_1_regen", {duration = invisible_duration})
+
+	end
 
     EmitSoundOn("Venomort.GhostWarp", caster)
-    local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "a_c", "venomort")
-    phaseWalk:ApplyDataDrivenModifier(caster, caster, "modifier_venomort_rune_a_c", {duration = warpDuration})
-    caster:SetModifierStackCount( "modifier_venomort_rune_a_c", caster, a_c_level )
 
     ability.pfx = ParticleManager:CreateParticle("particles/econ/courier/courier_polycount_01/courier_trail_polycount_01.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
     ParticleManager:SetParticleControlEnt(ability.pfx, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
     ParticleManager:SetParticleControl(ability.pfx, 15, Vector(100, 220, 100))
     Filters:CastSkillArguments(3, caster)
-    caster:SwapAbilities("phase_walk", "venomort_ghost_warp", true, false)
 end
 
 function ghost_warping_think(event)
@@ -47,7 +52,6 @@ function ghost_warping_think(event)
 	local distance = WallPhysics:GetDistance2d(ability.targetPoint, caster:GetAbsOrigin())
 	if distance < 100 then
 		caster:RemoveModifierByName("modifier_ghost_warp_flying")
-		caster:RemoveModifierByName("modifier_venomort_rune_a_c")
 		if ability.pfx then
 			ParticleManager:DestroyParticle(ability.pfx, false)
 			ability.pfx = false
@@ -66,4 +70,191 @@ function after_warp_falling(event)
 		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 		StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_SPAWN, rate=1})
 	end
+end
+
+function take_damage(event)
+	local caster = event.caster
+	local ability = event.ability
+	local attacker = event.attacker
+	local duration = constants.E2_DURATION
+
+	local has_weapon3 = caster:HasModifier("modifier_venomort_immortal_weapon_3")
+
+	local e2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
+	local e2_damage = e2_level * constants.E2_DAMAGE_PER_LEVEL * caster:GetLevel()
+
+	if e2_level == 0 then
+		return
+	end
+	if has_weapon3 then
+		e2_damage = e2_damage + e2_level * constants.WEAPON3_E2_DAMAGE_PER_RUNE_FROM_HP_PERCENT/100 * caster:GetHealth()
+	end
+
+
+	if caster:HasModifier("modifier_venomort_glyph_3_2") then
+		if ability.previous_health then
+			local currentHealth = caster:GetHealth()
+			if math.floor(ability.previous_health * constants.T32_HEALTH_THRESHOLD_PERCENT/caster:GetMaxHealth()) - math.floor(currentHealth * constants.T32_HEALTH_THRESHOLD_PERCENT/caster:GetMaxHealth()) > 0 then
+				e2_damage = e2_damage * constants.T32_AMPLIFY
+				print('E2 amplify apply')
+			end
+		end
+		ability.previous_health = caster:GetHealth()
+	end
+
+
+	ability.e2_level = e2_level
+	ability.e2_damage = e2_damage
+
+	if caster:HasModifier("modifier_venomort_glyph_2_2") then
+		local radius = constants.T22_RADIUS
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), attacker:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
+		if #enemies > 0 then
+			for _,enemy in pairs(enemies) do
+				apply_e2(caster, ability, enemy, duration, has_weapon3)
+			end
+		end
+	else
+		apply_e2(caster, ability, attacker, duration, has_weapon3)
+	end
+end
+
+function apply_e2(caster, ability, target, has_weapon3, duration)
+	if has_weapon3 then
+		Filters:ApplyDotDamage(caster, ability, target, ability.e2_damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE)
+	else
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_ghost_warp_return", {duration = duration})
+	end
+end
+
+function e2_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+
+
+	Filters:ApplyDotDamage(caster, ability, target, ability.e2_damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE)
+end
+function e3_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local radius = constants.E3_RADIUS
+	local duration = constants.E3_DURATION
+	ability.e3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
+
+	if ability.e3_level == 0 then
+		return
+	end
+
+	local allies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
+	for _,ally in pairs(allies) do
+		ability:ApplyDataDrivenModifier(caster, ally, "modifier_venomort_bonus_attack_damage_ally", {duration = duration})
+		local modifier = ally:FindModifierByName('modifier_venomort_bonus_attack_damage_ally')
+		modifier:SetStackCount(ability.e3_level)
+	end
+end
+
+function increase_e4_stacks(event)
+	local caster = event.caster
+	local target = event.target
+	local ability = event.ability
+	ability.e4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
+
+	local bossesCountAs = constants.BOSSES_COUNT_AS_ENEMIES
+	local paragonsCountAs = constants.PARAGONS_COUNT_AS_ENEMIES
+	if caster:HasModifier("modifier_venomort_glyph_2_1") then
+		bossesCountAs = constants.T21_BOSSES_COUNT_AS_ENEMIES
+		paragonsCountAs = constants.T21_PARAGONS_COUNT_AS_ENEMIES
+	end
+
+	local modifier = caster:FindModifierByName('modifier_venomort_e4_hero_bonus')
+	if not modifier then
+		return
+	end
+
+	local stacks = modifier:GetStackCount() + 1 * ability.e4_level
+	if target.mainBoss then
+		stacks = stacks + (bossesCountAs - 1) * ability.e4_level
+	end
+	if target.paragon then
+		stacks = stacks + (paragonsCountAs - 1) * ability.e4_level
+	end
+
+	modifier:SetStackCount(stacks)
+end
+
+function apply_e4_stacks(event)
+	local caster = event.caster
+	local ability = event.ability
+
+	local duration = constants.E4_DURATION + constants.E4_DELAY
+
+	if caster:HasModifier("modifier_venomort_glyph_4_2") then
+		duration = constants.T42_DURATION + constants.E4_DELAY
+	end
+
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_venomort_e4_hero_bonus_visible", nil)
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_venomort_e4_hero_bonus_invisible", {duration = duration})
+	if not ability.e4_data then
+		ability.e4_data = {}
+	end
+	local thisStack = {}
+	thisStack.createdAt = GameRules:GetGameTime()
+	thisStack.value = 1
+	table.insert(ability.e4_data, thisStack)
+	recalculate_e4_stacks(event, true)
+end
+function recalculate_e4_stacks(event)
+	local caster = event.caster
+	local ability = event.ability
+	local runesCount = Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
+
+	if not runesCount then
+		return
+	end
+
+	if not ability.e4_previous_stacks then
+		ability.e4_previous_stacks = 0
+	end
+
+	if ability.e4_use_previous_stacks == nil then
+		ability.e4_use_previous_stacks = false
+	end
+
+	local duration = constants.E4_DURATION
+
+	if caster:HasModifier("modifier_venomort_glyph_4_2") then
+		duration = constants.T42_DURATION
+	end
+
+
+	local new_e4_data = {}
+	local totalStacks = 0
+	if not ability.e4_data then
+		ability.e4_data = {}
+	end
+	for i = 1, #ability.e4_data, 1 do
+		if GameRules:GetGameTime() - ability.e4_data[i].createdAt >= duration then
+			else
+				table.insert(new_e4_data, ability.e4_data[i])
+			totalStacks = totalStacks + ability.e4_data[i].value
+		end
+	end
+
+	ability.e4_data = new_e4_data
+	if totalStacks < ability.e4_previous_stacks then
+		local oldStacks = ability.e4_previous_stacks
+		ability.e4_previous_stacks = totalStacks
+
+		if ability.e4_use_previous_stacks then
+			totalStacks = oldStacks
+			ability.e4_use_previous_stacks = false
+		else
+			ability.e4_use_previous_stacks = true
+		end
+
+	end
+
+	caster:SetModifierStackCount("modifier_venomort_e4_hero_bonus_visible", caster, totalStacks)
+	caster:SetModifierStackCount("modifier_venomort_e4_hero_bonus_invisible", caster, totalStacks * runesCount)
 end

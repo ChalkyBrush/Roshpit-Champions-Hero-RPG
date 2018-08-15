@@ -2,6 +2,11 @@ if Filters == nil then
   Filters = class({})
 end
 
+
+local heroes = {
+    venomort = require('/heroes/hero_necrolyte/scales')
+}
+
 require('/heroes/huskar/constants_SPIRIT_WARRIOR')
 require('items/special_item_effects')
 
@@ -654,17 +659,33 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap,doPopUp)
 end
 
 function Filters:ApplyDotDamage(caster, ability, target, damage, damage_type, slot, element1, element2)
+    heroes.venomort.onDotDamageDo(caster, target)
+    local mult = 1
     if caster:HasModifier("modifier_glove_of_the_forgotten_ghost") then
-        damage = damage*3.4
+        mult = mult + 2.4
     end
-    if slot == -1 then
-        Filters:ApplyItemDamage(target,caster,damage,damage_type,ability, element1, element2)
-    elseif slot == 0 then
-        ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = damage_type })
-    elseif slot == -2 then
-        Filters:TakeArgumentsAndApplyDamage(target, caster, damage, damage_type, -2, element1, element2)
-    else
-        Filters:TakeArgumentsAndApplyDamage(target, caster, damage, damage_type, slot, element1, element2)
+    mult = mult + heroes.venomort.getDotAmplify(caster, target)
+    damage = damage * mult
+    local damage_types = {damage_type }
+    if caster:HasModifier('modifier_venomort_glyph_5_a') then
+        damage_types = {
+            DAMAGE_TYPE_PURE,
+            DAMAGE_TYPE_PHYSICAL,
+            DAMAGE_TYPE_MAGICAL,
+        }
+        damage = damage / 3
+    end
+
+    for index, dot_damage_type in ipairs(damage_types) do
+        if slot == -1 then
+            Filters:ApplyItemDamage(target,caster,damage,dot_damage_type,ability, element1, element2)
+        elseif slot == 0 then
+            ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = dot_damage_type })
+        elseif slot == -2 then
+            Filters:TakeArgumentsAndApplyDamage(target, caster, damage, dot_damage_type, -2, element1, element2)
+        else
+            Filters:TakeArgumentsAndApplyDamage(target, caster, damage, dot_damage_type, slot, element1, element2)
+        end
     end
 end
 
@@ -1258,6 +1279,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     end
     
     if slot > 0 then
+        damageMult = damageMult + heroes.venomort.getBad(attacker)
         if not ignore_effects and attacker:HasModifier("modifier_solunia_arcana1") then
             local b_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 0)
             if b_a_level > 0 then
@@ -1315,10 +1337,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_swiftspike_bad") then
             local current_stack = attacker:GetModifierStackCount("modifier_swiftspike_bad", attacker.InventoryUnit )
-            damageMult = damageMult + 0.01*current_stack
-        end
-        if attacker:HasModifier("modifier_venomort_arcana2_d_a_invisible") then
-            local current_stack = attacker:GetModifierStackCount( "modifier_venomort_arcana2_d_a_invisible", attacker )
             damageMult = damageMult + 0.01*current_stack
         end
         if attacker:HasModifier("modifier_bahamut_a_b_buff") then
@@ -1714,6 +1732,7 @@ end
 function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, element1, element2, bIsRealDamage)
     local unitName = attacker:GetUnitName()
     local mult = 1
+    mult = mult + heroes.venomort.getElementBonus(victim, attacker, damage, damage_type, slot, element1, element2, bIsRealDamage)
     if bIsRealDamage then
         if attacker:HasModifier("modifier_depth_demon_claw") then
             element2 = RPC_ELEMENT_DEMON
@@ -1999,17 +2018,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
     end
     if element1 == RPC_ELEMENT_POISON or element2 == RPC_ELEMENT_POISON then
-        if unitName == "npc_dota_hero_necrolyte" then
-            if attacker.d_b_level then
-                mult = mult + (attacker.d_b_level*attacker:GetAverageTrueAttackDamage(attacker)/100)*0.0003
-            end
-            if bIsRealDamage then
-                if attacker:HasModifier("modifier_venomort_immortal_weapon_3") then
-                    local healAmount = damage*mult*0.02
-                    Filters:ApplyHeal(attacker, attacker, healAmount, true)
-                end
-            end
-        elseif unitName == "npc_dota_hero_templar_assassin" then
+        if unitName == "npc_dota_hero_templar_assassin" then
             if attacker:HasModifier("modifier_trapper_arcana1") then
                 local d_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
                 mult = mult + 0.0003*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_b_level

@@ -103,7 +103,7 @@
 		"override_hero"	"npc_dota_hero_necrolyte"
 		"Ability1"	"gale_nova"
 		"Ability2"	"nether_blaster"
-		"Ability3"	"phase_walk"
+		"Ability3"	"venomort_ghost_warp"
 		"Ability4"	"generic_hidden"
 		"Ability5"	"generic_hidden"
 		"Ability6"	"snake_trap"
