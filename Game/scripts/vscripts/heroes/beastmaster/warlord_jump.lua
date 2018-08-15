@@ -9,6 +9,7 @@ function jumpStart(event)
 	
 	Filters:CastSkillArguments(3, caster)
 	local targetPoint = event.target_points[1]
+	targetPoint = WallPhysics:WallSearch(caster:GetAbsOrigin(), targetPoint, caster)
 	if caster:HasModifier("modifier_warlord_glyph_1_1") then
 		swapSkills(event.type, caster, ability)
 	end
@@ -59,7 +60,9 @@ function fireJumpStart(event)
 	ability.fallVelocity = 0
 	
 	Filters:CastSkillArguments(3, caster)
+	caster:SetAbsOrigin(GetGroundPosition(caster:GetAbsOrigin(), caster))
 	local targetPoint = event.target_points[1]
+	targetPoint = WallPhysics:WallSearch(caster:GetAbsOrigin()*Vector(1,1,0), targetPoint, caster)
 	if caster:HasModifier("modifier_warlord_glyph_1_1") then
 		swapSkills(event.type, caster, ability)
 	end

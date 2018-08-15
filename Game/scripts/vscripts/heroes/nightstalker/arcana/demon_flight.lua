@@ -26,6 +26,8 @@ function demon_flight_start(event)
 	EmitSoundOn("Chernobog.DemonFlight.StartVO", caster)
 	caster:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
 
+	ability.previous_position = nil
+
 	Filters:CastSkillArguments(3, caster)
 	swap_to_demon_warp(caster, ability, "chernobog_demon_flight")
 end
@@ -58,14 +60,20 @@ end
 function flying_portion_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local newPos = caster:GetAbsOrigin()+caster:GetForwardVector()*70
-	local obstruction = WallPhysics:FindNearestObstruction(caster:GetAbsOrigin())
-	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPos, caster)
-
-	if blockUnit then
-		caster:SetAbsOrigin(caster:GetAbsOrigin()-caster:GetForwardVector()*50)
-		caster:RemoveModifierByName("modifier_chernobog_demon_flight")
+	if not ability.previous_position then
+		ability.previous_position = caster:GetAbsOrigin()
 	end
+
+	local newPos = caster:GetAbsOrigin()
+	local afterWallPosition = WallPhysics:WallSearch(ability.previous_position, newPos, caster)
+	if newPos.x == afterWallPosition.x and newPos.y == afterWallPosition.y then
+	else
+		newPos = ability.previous_position
+	end
+
+	caster:SetAbsOrigin(newPos)
+	ability.previous_position = newPos
+
 	if caster:IsStunned() then
 		caster:RemoveModifierByName("modifier_chernobog_demon_flight")
 	end

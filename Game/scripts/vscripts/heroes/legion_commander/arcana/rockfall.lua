@@ -79,6 +79,8 @@ function volcanic_glissade(event)
 	local ability = event.ability
 	local caster = event.caster
 	local target = event.target_points[1]
+	target = WallPhysics:WallSearch(caster:GetAbsOrigin(), target, caster)
+	caster:SetAbsOrigin(GetGroundPosition(caster:GetAbsOrigin(), caster))
 	
 	ability.targetPoint = target
 

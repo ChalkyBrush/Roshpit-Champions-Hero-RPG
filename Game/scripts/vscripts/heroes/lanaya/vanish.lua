@@ -50,7 +50,12 @@ function action_leap_cast(event)
 	local target = event.target_points[1]
     local casterOrigin = caster:GetAbsOrigin()
     local max_distance = event.max_distance
+
+    target = WallPhysics:WallSearch(caster:GetAbsOrigin(), target, caster)
+    caster:SetAbsOrigin(GetGroundPosition(caster:GetAbsOrigin(), caster))
     local targetOrigin = target
+
+
     local fv = (targetOrigin*Vector(1,1,0)-casterOrigin*Vector(1,1,0)):Normalized()
     local distance = WallPhysics:GetDistance(casterOrigin*Vector(1,1,0), targetOrigin*Vector(1,1,0))
     if caster:HasModifier("modifier_trapper_immo3_effect") then

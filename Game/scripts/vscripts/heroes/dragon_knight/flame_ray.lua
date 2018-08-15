@@ -252,16 +252,21 @@ end
 function dragon_think(event)
     local ability = event.ability
     local target = event.target
-    local currentPosition = target:GetAbsOrigin()
+    if not ability.previous_position then
+        ability.previous_position = target:GetAbsOrigin()
+    end
+
     ability.intervalCount = ability.intervalCount + 1
-    local newPosition = currentPosition + ability.fv*18
+    local newPosition = ability.previous_position + ability.fv*18
     if ability.intervalCount < 40 then
         newPosition = newPosition + Vector(0,0,-(ability.intervalCount)/3)
     end
     if ability.intervalCount > 85 then
         newPosition = newPosition + Vector(0,0,(ability.intervalCount-85))
     end
+    newPosition = WallPhysics:WallSearch(ability.previous_position, newPosition, target)
     target:SetAbsOrigin(newPosition)
+    ability.previous_position = newPosition
     if ability.intervalCount < 85 then
         if ability.intervalCount%25 == 0 then
             dragon_projectile(ability.c_c_level, ability.runeUnit, ability.fv, target:GetAbsOrigin()+ability.fv*200, ability.mainAbility, target)
@@ -478,36 +483,43 @@ function CastNewHeatwave(event)
         if caster:HasModifier("modifier_flamewaker_immortal_weapon_2") then
             caster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_flamewaker_weapon_agility", {duration = duration})
         end
+
+        ability.previous_position = nil
     -- end
 end
 
 function heatwave_phase_think(event)
     local caster = event.caster
     local ability = event.ability
-   
+
+    if not ability.previous_position then
+        ability.previous_position = caster:GetAbsOrigin()
+    end
+
+
     ability.interval = ability.interval + 1
     
     ability.rune_a_c = rune_a_c(caster)
-    local casterOrigin = caster:GetAbsOrigin()
     if caster:HasModifier("modifier_heatwave_flying_portion") then
-        local newPos = casterOrigin + ability.forward*62
-        local obstruction = WallPhysics:FindNearestObstruction(casterOrigin*Vector(1,1,0))
-        local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPos*Vector(1,1,0), caster)
-        if blockUnit then
-            caster:SetAbsOrigin(caster:GetAbsOrigin()-caster:GetForwardVector()*60)
-            WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
+        local newPos = caster:GetAbsOrigin()
+        local afterWallPosition = WallPhysics:WallSearch(ability.previous_position, newPos, caster)
+        if newPos.x == afterWallPosition.x and newPos.y == afterWallPosition.y then
+        else
+            newPos = ability.previous_position
             caster:RemoveModifierByName("modifier_heatwave_flying_portion")
-
+            caster:SetAbsOrigin(newPos)
         end
+        caster:SetAbsOrigin(newPos)
+        ability.previous_position = newPos
     end
     if ability.rune_a_c > 0 then
         if ability.interval%2 == 0 then
-            ability:ApplyDataDrivenThinker(caster, casterOrigin, "fire_thinker", {duration = 4})
+            ability:ApplyDataDrivenThinker(caster, ability.previous_position , "fire_thinker", {duration = 4})
             if ability.glyphed then
                 ability.pv = WallPhysics:rotateVector(ability.forward, math.pi/2)
-                local point = casterOrigin+ability.pv*100
+                local point = ability.previous_position +ability.pv*100
                 ability:ApplyDataDrivenThinker(caster, point, "fire_thinker", {duration = 4})
-                point = casterOrigin-ability.pv*100
+                point = ability.previous_position -ability.pv*100
                 ability:ApplyDataDrivenThinker(caster, point, "fire_thinker", {duration = 4})
             end
         end

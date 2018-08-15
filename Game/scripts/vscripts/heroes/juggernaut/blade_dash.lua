@@ -15,6 +15,9 @@ function blade_dash_start(event)
 		ability.target = false
 		ability.targetPoint = event.target_points[1]
 	end
+	if ability.targetPoint then
+		ability.targetPoint = WallPhysics:WallSearch(caster:GetAbsOrigin(), ability.targetPoint, caster)
+	end
 	print(ability.target)
 	print(ability.targetPoint)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_arcana_dashing", {duration = 4})

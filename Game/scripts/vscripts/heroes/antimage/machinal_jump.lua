@@ -1,7 +1,10 @@
 function arkimus_jump_start(event)
 	local caster = event.caster
 	local ability = event.ability
+
+	caster:SetAbsOrigin(GetGroundPosition(caster:GetAbsOrigin(), caster))
 	ability.targetPoint = event.target_points[1]
+	ability.targetPoint = WallPhysics:WallSearch(caster:GetAbsOrigin(), ability.targetPoint, caster)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_machinal_jump", {duration = 4})
 	local distance = WallPhysics:GetDistance2d(ability.targetPoint, caster:GetAbsOrigin())
 	ability.jumpVelocity = distance/20

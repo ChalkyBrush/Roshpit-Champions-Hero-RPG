@@ -7,8 +7,10 @@ function begin_slice(event)
 	StartAnimation(caster, {duration=0.84, activity=ACT_DOTA_OVERRIDE_ABILITY_4, rate=0.8})
 	ability.liftVelocity = 20
 	ability.fallVelocity = 0
-	ability.forwardVector = caster:GetForwardVector()
-	
+	ability.targetPoint = WallPhysics:WallSearch(caster:GetAbsOrigin(), caster:GetAbsOrigin() + caster:GetForwardVector() *  ability.liftVelocity/2 * 34, caster)
+	ability.forwardVector =  ((ability.targetPoint-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	ability.liftVelocity = ((ability.targetPoint-caster:GetAbsOrigin())):Length()/34
+
 	local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "a_c", "monk")
 	local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "monk")
 	ability.d_c_level = d_c_level
@@ -157,7 +159,7 @@ function slice_lifting(event)
 	local position = caster:GetAbsOrigin() + Vector(0,0,ability.liftVelocity)
 	
 	
-	newPosition = position+ability.forwardVector*34
+	local newPosition = position+ability.forwardVector*34
 	local obstruction = WallPhysics:FindNearestObstruction(newPosition)
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (newPosition+ability.forwardVector*24), caster)
 	if not blockUnit and not caster:HasModifier("modifier_tornado_slashing") then

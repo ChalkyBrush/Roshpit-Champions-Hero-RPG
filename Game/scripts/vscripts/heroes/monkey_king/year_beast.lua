@@ -266,6 +266,8 @@ function begin_bear_charge(event)
 	-- caster:Stop()
 	local ability = event.ability
 	local target = event.target_points[1]
+	caster:SetAbsOrigin(GetGroundPosition(caster:GetAbsOrigin(), caster))
+	target = WallPhysics:WallSearch(caster:GetAbsOrigin(), target, caster)
 	local chargeSpeed = 1000
 	local distance = WallPhysics:GetDistance2d(target,caster:GetAbsOrigin())
 	local duration = distance/chargeSpeed
@@ -444,6 +446,8 @@ function yb_jump_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	ability.targetPoint = event.target_points[1]
+	caster:SetAbsOrigin(GetGroundPosition(caster:GetAbsOrigin(), caster))
+	ability.targetPoint = WallPhysics:WallSearch(caster:GetAbsOrigin(), ability.targetPoint, caster)
 	ability:ApplyDataDrivenModifier(caster, caster,"modifier_monkey_jump", {duration = 4})
 	local distance = WallPhysics:GetDistance2d(ability.targetPoint, caster:GetAbsOrigin())
 	ability.jumpVelocity = distance/22

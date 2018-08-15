@@ -176,17 +176,24 @@ end
 
 function flying_charons_think(event)
 	local caster = event.caster
-	local newPos = caster:GetAbsOrigin()+caster:GetForwardVector()*100
-	local obstruction = WallPhysics:FindNearestObstruction(caster:GetAbsOrigin())
-	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPos, caster)
-	if blockUnit then
-		caster:SetAbsOrigin(caster:GetAbsOrigin()-caster:GetForwardVector()*100)
-		WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
-		caster:RemoveModifierByName("modifier_charons_claw_flying_portion")
+	local ability = event.ability
+	if not ability.previous_position then
+		ability.previous_position = caster:GetAbsOrigin()
 	end
+	local newPos = caster:GetAbsOrigin()
+	local afterWallPosition = WallPhysics:WallSearch(ability.previous_position, newPos, caster)
+	if newPos.x == afterWallPosition.x and newPos.y == afterWallPosition.y then
+	else
+		newPos = ability.previous_position
+	end
+
+	caster:SetAbsOrigin(newPos)
+	ability.previous_position = newPos
 end
 
 function flying_charons_end(event)
 	local caster = event.caster
+	local ability = event.ability
+	ability.previous_position = nil
 	WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
 end

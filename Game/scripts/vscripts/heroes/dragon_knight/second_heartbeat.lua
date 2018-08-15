@@ -236,7 +236,7 @@ function c_d_jump(unit, forwardVector, distance, liftForce, propulsion, gravity,
 end
 
 function begin_dragon_wrath(caster, ability, target)
-	abilityLevel = ability:GetLevel()
+	local abilityLevel = ability:GetLevel()
 	caster.lastDamagingUnit = false
 	--ability.location = caster:GetOrigin() + caster:GetForwardVector()*Vector(400,400)
 
@@ -245,6 +245,7 @@ function begin_dragon_wrath(caster, ability, target)
 	caster.flamewaker_d_b_target = target
     ability:ApplyDataDrivenModifier(caster, caster, "modfier_dragon_wrath_jumping", {duration = 8})
     local targetPoint = target:GetAbsOrigin()+RandomVector(90)
+	targetPoint = WallPhysics:WallSearch(caster:GetAbsOrigin(), targetPoint, caster)
     local distance = WallPhysics:GetDistance(targetPoint*Vector(1,1,0), caster:GetAbsOrigin()*Vector(1,1,0))
     if distance <= 1800 then
 	    local jumpFV = ((targetPoint-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
