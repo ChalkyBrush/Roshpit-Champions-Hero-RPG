@@ -19,6 +19,9 @@ function begin_crusader_comet(event)
 		c_c_duration = Filters:GetAdjustedBuffDuration(caster, c_c_duration, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_black_King_bar_immunity", {duration = c_c_duration})
 	end
+
+	ability.previous_position = nil
+
 	Filters:CastSkillArguments(3, caster)
 end
 
@@ -28,14 +31,24 @@ function jumping_think(event)
 	ability.jumpVelocity = math.max(ability.jumpVelocity - 3, 20)
 	ability.forwardMovement = ability.forwardMovement + 2
 
-	local newPosition = caster:GetAbsOrigin()+Vector(0,0,ability.jumpVelocity) + ability.fv*ability.forwardMovement
-	local afterWallPosition = WallPhysics:WallSearch(caster:GetAbsOrigin(), newPosition, caster)
-
-	if afterWallPosition == newPosition then
-		caster:SetAbsOrigin(newPosition)
-	else
-		caster:SetAbsOrigin(newPosition-ability.fv*ability.forwardMovement)
+	if not ability.previous_position then
+		ability.previous_position = caster:GetAbsOrigin()
 	end
+
+	local newPosition = ability.previous_position+Vector(0,0,ability.jumpVelocity) + ability.fv*ability.forwardMovement
+
+	caster:SetAbsOrigin(GetGroundPosition(ability.previous_position, caster))
+	local afterWallPosition = WallPhysics:WallSearch(GetGroundPosition(ability.previous_position, caster), GetGroundPosition(newPosition, caster), caster)
+	caster:SetAbsOrigin(ability.previous_position)
+
+	if afterWallPosition.x == newPosition.x and afterWallPosition.y == newPosition.y then
+	else
+		caster:RemoveModifierByName("modifier_comet_jumping")
+		newPosition = GetGroundPosition(ability.previous_position, caster)
+		comet_storm_end(event)
+	end
+	caster:SetAbsOrigin(newPosition)
+	ability.previous_position = newPosition
 
 	if caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster) > 500 then
 		caster:RemoveModifierByName("modifier_comet_jumping")
@@ -55,14 +68,24 @@ function comet_think(event)
 	local ability = event.ability
 	local moveVelocity = ability.dashSpeed
 
-	local newPosition = caster:GetAbsOrigin()+ability.fv*moveVelocity-Vector(0,0,40)
-	local afterWallPosition = WallPhysics:WallSearch(caster:GetAbsOrigin(), newPosition, caster)
-
-	if afterWallPosition == newPosition then
-		caster:SetAbsOrigin(newPosition)
-	else
-		caster:SetAbsOrigin(newPosition-ability.fv*moveVelocity)
+	if not ability.previous_position then
+		ability.previous_position = caster:GetAbsOrigin()
 	end
+
+
+	local newPosition = ability.previous_position+ability.fv*moveVelocity-Vector(0,0,40)
+
+	caster:SetAbsOrigin(GetGroundPosition(ability.previous_position, caster))
+	local afterWallPosition = WallPhysics:WallSearch(GetGroundPosition(ability.previous_position, caster), GetGroundPosition(newPosition, caster), caster)
+	caster:SetAbsOrigin(ability.previous_position)
+
+	if afterWallPosition.x == newPosition.x and afterWallPosition.y == newPosition.y then
+	else
+		caster:RemoveModifierByName("modifier_comet_storming")
+		newPosition = GetGroundPosition(ability.previous_position, caster)
+	end
+	caster:SetAbsOrigin(newPosition)
+	ability.previous_position = newPosition
 
 	-- caster:SetAbsOrigin(caster:GetAbsOrigin()+ability.fv*moveVelocity-Vector(0,0,40))
 	if caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster) < 80 then

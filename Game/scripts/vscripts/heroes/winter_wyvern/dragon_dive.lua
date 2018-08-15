@@ -57,6 +57,8 @@ function begin_dinath_dive(event)
 		caster:RemoveModifierByName("modifier_drake_dive_freecast")
 		ability:EndCooldown()
 	end
+
+	ability.previous_position = nil
 end
 
 function dinath_dive_precast_think(event)
@@ -77,12 +79,15 @@ function dinath_diving_think(event)
 	ability.dashSpeed = math.min(ability.dashSpeed + 1, 40)
 	local moveVelocity = ability.dashSpeed
 	ability.curveVector = WallPhysics:rotateVector(ability.curveVector, 2*math.pi*-1/ability.curveTicks)
+
+	if not ability.previous_position then
+		ability.previous_position = caster:GetAbsOrigin()
+	end
+
 	local newPosition = caster:GetAbsOrigin()+ability.fv*moveVelocity+ability.curveVector*24
+	local afterWallPosition = WallPhysics:WallSearch(ability.previous_position, newPosition, caster)
 
-	local beforeWallPosition = ability.straightVector
 	ability.straightVector = ability.straightVector  + ability.fv*moveVelocity
-
-	local afterWallPosition = WallPhysics:WallSearch(beforeWallPosition, ability.straightVector+ability.fv*moveVelocity, caster)
 	local maxHeight = 480
 	if caster:HasModifier("modifier_dinath_glyph_2_1") then
 		maxHeight = maxHeight + 35
@@ -90,13 +95,13 @@ function dinath_diving_think(event)
 	local zStacks = math.min(caster:GetModifierStackCount("modifier_dinath_postflight_zheight", caster) + 8, maxHeight)
 	caster:SetModifierStackCount("modifier_dinath_postflight_zheight", caster, zStacks)
 
-	if afterWallPosition == (ability.straightVector + ability.fv*moveVelocity) then
-		caster:SetAbsOrigin(newPosition)
+	if afterWallPosition == newPosition then
 	else
-		print("HERE?")
+		newPosition = ability.previous_position
 		caster:RemoveModifierByName("modifier_dinath_diving")
-		caster:SetAbsOrigin(newPosition-ability.fv*moveVelocity)
 	end
+	caster:SetAbsOrigin(newPosition)
+	ability.previous_position = newPosition
 
 	-- caster:SetAbsOrigin(caster:GetAbsOrigin()+ability.fv*moveVelocity-Vector(0,0,40))
 	if WallPhysics:GetDistance2d(caster:GetAbsOrigin(), ability.target_point) < ability.distanceChecker then

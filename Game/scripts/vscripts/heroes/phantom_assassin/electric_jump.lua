@@ -13,6 +13,7 @@ function begin_electric_jump(event)
 
     ability:ApplyDataDrivenModifier(caster, caster, "modfier_voltex_jumping", {duration = 8})
     local targetPoint = event.target_points[1]
+	targetPoint = WallPhysics:WallSearch(caster:GetAbsOrigin(), targetPoint, caster)
     local distance = WallPhysics:GetDistance(targetPoint*Vector(1,1,0), caster:GetAbsOrigin()*Vector(1,1,0))
     local jumpFV = ((targetPoint-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
     print(jumpFV)

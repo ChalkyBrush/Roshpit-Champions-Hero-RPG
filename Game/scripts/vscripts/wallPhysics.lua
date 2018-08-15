@@ -117,8 +117,8 @@ function WallPhysics:GetDistance2d(a,b)
 end
 
 function WallPhysics:WallSearch(startPoint, endPoint, unit)
-	startPointNoZ = startPoint*Vector(1,1,0)+Vector(0,0,GetGroundHeight(startPoint, unit))
-	endPointNoZ = endPoint*Vector(1,1,0)+Vector(0,0,GetGroundHeight(endPoint, unit))
+	local startPointNoZ = startPoint*Vector(1,1,0)+Vector(0,0,GetGroundHeight(startPoint, unit))
+	local endPointNoZ = endPoint*Vector(1,1,0)+Vector(0,0,GetGroundHeight(endPoint, unit))
 	local distance = WallPhysics:GetDistance(startPointNoZ, endPointNoZ)
 	local normal = (endPoint-startPoint):Normalized()*Vector(1,1,0)
 	local checkCount = distance/75

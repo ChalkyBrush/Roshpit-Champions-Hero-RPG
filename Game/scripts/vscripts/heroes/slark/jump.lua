@@ -202,6 +202,7 @@ function slipfinn_jump_start(event)
 	else
 		ability:RefundManaCost()
 	end
+	ability.start_point = caster:GetAbsOrigin()
 end
 
 function jump_force(caster, ability)
@@ -273,6 +274,8 @@ function jump_force(caster, ability)
 
 	print("JUMP FORCE")
 	print(caster.jump_force)
+
+	ability.start_point = caster:GetAbsOrigin()
 end
 
 function slipfinn_jump_think(event)
@@ -402,6 +405,9 @@ end
 function jump_land(caster, ability)
 	print("LAND")
 	caster:RemoveModifierByName("modifier_slipfinn_basic_jump")
+	ability.start_point = caster:GetAbsOrigin()
+	local afterWallPosition =  WallPhysics:WallSearch(ability.start_point, caster:GetAbsOrigin(), caster)
+	caster:SetAbsOrigin(afterWallPosition)
 	WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
 	caster.max_slip_speed = MAX_SLIP_SPEED
 	ability.consecutive_bounces = 0

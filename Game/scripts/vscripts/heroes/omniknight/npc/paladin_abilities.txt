@@ -112,6 +112,8 @@
 					{
 						"ScriptFile"	"heroes/omniknight/arcana/crusader_comet"
 						"Function"		"jumping_think"
+						"damage"		"%base_damage"
+						"str_mult"		"%damage_from_str"
 					}
 				}
 				"States"

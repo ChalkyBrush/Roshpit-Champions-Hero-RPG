@@ -7,7 +7,10 @@ function start_channel(event)
 	local caster = event.caster
 	local ability = event.ability
 	EmitSoundOn("Chernobog.NightsProcessionChannelStart", caster)
+
+	caster:SetAbsOrigin(GetGroundPosition(caster:GetAbsOrigin(), caster))
 	ability.targetPoint = event.target_points[1]
+	ability.targetPoint = WallPhysics:WallSearch(caster:GetAbsOrigin(), ability.targetPoint, caster)
 
 	local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "chernobog")
 	if d_d_level > 0 then

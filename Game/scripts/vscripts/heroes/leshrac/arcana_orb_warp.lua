@@ -5,7 +5,10 @@ function begin_lightning_dash(event)
 	local ability = event.ability
 	caster:AddNoDraw()
 
+	caster:SetAbsOrigin(GetGroundPosition(caster:GetAbsOrigin(), caster))
+
 	ability.point = event.target_points[1]
+	ability.point  = WallPhysics:WallSearch(caster:GetAbsOrigin(), ability.point , caster)
 	ability.moveDirection = (ability.point-caster:GetAbsOrigin()):Normalized()
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_sphere_of_divinity", {duration = 7})
 	StartSoundEvent("Bahamut.ArcanaOrb.LP", caster)

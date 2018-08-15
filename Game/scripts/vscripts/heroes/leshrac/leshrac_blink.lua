@@ -5,6 +5,10 @@ function HideCaster( event )
     local position = event.caster:GetAbsOrigin()
     local range = event.range
     local caster = event.caster
+
+
+	caster:SetAbsOrigin(GetGroundPosition(caster:GetAbsOrigin(), caster))
+
     local fv = event.caster:GetForwardVector()
     local ability = event.ability
     if caster:HasModifier("modifier_bahamut_immortal_weapon_2") then
@@ -17,7 +21,7 @@ function HideCaster( event )
     	ability:StartCooldown(cd*2)
     end
 	caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "bahamut")
-    event.caster.newPosition =  event.target_points[1]
+    event.caster.newPosition = WallPhysics:WallSearch(caster:GetAbsOrigin(), event.target_points[1] , caster)
     -- local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_undying/undying_loadout.vpcf", PATTACH_ABSORIGIN, event.caster )
     --     ParticleManager:SetParticleControl( pfx, 0, position )
     local newPosition = WallPhysics:WallSearch(position, event.caster.newPosition, caster)

@@ -36,6 +36,7 @@ function begin_lightning_dash(event)
 			caster:RemoveModifierByName("modifier_lightning_dash_freecast")
 		end
 	end
+	ability.previous_position = nil
 end
 
 function add_free_casts(event)
@@ -56,17 +57,19 @@ function dash_think(event)
 	
 	ability.moveDirection = (ability.point-caster:GetAbsOrigin()):Normalized()
 
-	local blockSearch = caster:GetAbsOrigin()*Vector(1,1,0)+Vector(0,0,GetGroundHeight(caster:GetAbsOrigin(), caster))
-    local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
-    local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch+ability.moveDirection*35), caster)
-
-    local forwardSpeed = 100
-	if blockUnit then
-		forwardSpeed = 0
+	if not ability.previous_position then
+		ability.previous_position = caster:GetAbsOrigin()
+	end
+	local forwardSpeed = 100
+	local newPosition = ability.previous_position+ ability.moveDirection*forwardSpeed
+	local afterWallPosition = WallPhysics:WallSearch(ability.previous_position, newPosition, caster)
+	if afterWallPosition == newPosition then
+	else
+		newPosition = ability.previous_position
 		caster:RemoveModifierByName("modifier_lightning_dash")
 	end
-	local newPosition = caster:GetAbsOrigin() + ability.moveDirection*forwardSpeed
 	caster:SetAbsOrigin(Vector(newPosition.x, newPosition.y, 70) + Vector(0,0,GetGroundHeight(newPosition, caster)))
+	ability.previous_position = newPosition
 	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), ability.point)
 	if distance < forwardSpeed*1.5 then
 		caster:RemoveModifierByName("modifier_lightning_dash")

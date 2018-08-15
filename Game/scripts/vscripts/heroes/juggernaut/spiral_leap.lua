@@ -3,6 +3,7 @@ function spiral_leap_start(event)
 	local ability = event.ability
 
     local position = event.target_points[1]
+	position = WallPhysics:WallSearch(caster:GetAbsOrigin(), position, caster)
     local c_c_level = Runes:GetTotalRuneLevel(caster, 3, "c_c", "monk")
     local maxDistance = c_c_level*5 + 900
     local startPosition = caster:GetAbsOrigin()

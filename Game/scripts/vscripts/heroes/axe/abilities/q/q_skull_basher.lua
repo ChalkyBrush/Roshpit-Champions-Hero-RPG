@@ -19,7 +19,9 @@ function start(event)
     EmitSoundOn("Hero_Axe.BerserkersCall.Item.Shoutmask", caster)
 
 
+    caster:SetAbsOrigin(GetGroundPosition(caster:GetAbsOrigin(), caster))
     local targetPoint = event.target_points[1]
+    targetPoint = WallPhysics:WallSearch(caster:GetAbsOrigin(), targetPoint, caster)
     local distance = WallPhysics:GetDistance2d(targetPoint*Vector(1,1,0), caster:GetAbsOrigin()*Vector(1,1,0))
     ability.jumpFV = ((targetPoint-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
     if distance >= 300 then
@@ -40,6 +42,7 @@ function start(event)
     ability.targetPoint = targetPoint
     ability.lifting = true
     ability.jumpAnimated = false
+    ability.previous_point = nil
     Timers:CreateTimer(0.3, function()
         ability.lifting = false
     end)
@@ -49,6 +52,10 @@ end
 function heroic_leap_think(event)
     local caster = event.caster
     local ability = event.ability
+    if not ability.previous_point then
+        ability.previous_point = caster:GetAbsOrigin()
+    end
+
 
     local forwardSpeed = math.max(20, ability.distance/55 + 24)
     if caster.c_a_level > 0 then
@@ -63,18 +70,18 @@ function heroic_leap_think(event)
     end
     CycloneStorm.refreshBuff(caster)
 
-    local jumpToPosition = caster:GetAbsOrigin()+Vector(0,0,ability.jump_velocity)+(ability.jumpFV*forwardSpeed)
-    local afterWallPosition = WallPhysics:WallSearch(caster:GetAbsOrigin(), jumpToPosition, caster)
+    local jumpToPosition = ability.previous_point+Vector(0,0,ability.jump_velocity)+(ability.jumpFV*forwardSpeed)
+    local afterWallPosition = WallPhysics:WallSearch(ability.previous_point, jumpToPosition, caster)
     if afterWallPosition ~= jumpToPosition then
-        jumpToPosition = caster:GetAbsOrigin()+Vector(0,0,ability.jump_velocity)
+        jumpToPosition = ability.previous_point
     end
     caster:SetOrigin(jumpToPosition)
     caster:SetForwardVector(ability.jumpFV)
     ability.jump_velocity = ability.jump_velocity - 3.3
 
-    if caster:GetAbsOrigin().z < (GetGroundHeight(caster:GetAbsOrigin(), caster) + math.abs(ability.jump_velocity) + 20) and not ability.lifting then
+    if caster:GetAbsOrigin().z < (GetGroundHeight(ability.previous_point, caster) + math.abs(ability.jump_velocity) + 20) and not ability.lifting then
         caster:RemoveModifierByName("modfier_axe_jumping")
-        caster:SetAbsOrigin(GetGroundPosition(caster:GetAbsOrigin(), caster))
+        caster:SetAbsOrigin(GetGroundPosition(jumpToPosition, caster))
         -- elseif caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + 54 and not ability.lifting then
         -- 	if not ability.jumpAnimated then
         -- 		EndAnimation(caster)
@@ -84,6 +91,7 @@ function heroic_leap_think(event)
         -- 		ability.jumpAnimated = true
         -- 	end
     end
+    ability.previous_point = caster:GetAbsOrigin()
 end
 
 function drop(event)
