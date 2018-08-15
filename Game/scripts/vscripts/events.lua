@@ -907,7 +907,27 @@ function Events:EarnKey(clearedZone)
   
 end
 
-
+function Events:ChangeRuneState(msg)
+  local playerid = msg.playerID
+  local player = PlayerResource:GetPlayer(playerid)
+  local ability = EntIndexToHScript(msg.ability)
+  local unit = EntIndexToHScript(msg.unit)
+  local bAllow = true
+  if not unit:GetPlayerOwnerID() == PlayerID then
+    if unit:IsHero() then
+      bAllow = false
+    end
+  end
+  if bAllow and unit:IsAlive() then
+    if ability:IsActivated() then
+      ability:SetActivated(false)
+    else
+      ability:SetActivated(true)
+    end
+  end
+  CustomGameEventManager:Send_ServerToPlayer(player, "AbilityUp", {playerId=playerid})
+  CustomGameEventManager:Send_ServerToPlayer(player, "ability_tree_upgrade", {playerId=playerid})
+end
 
 function Events:LevelUpRune(keys)
   local PlayerID = keys.playerID

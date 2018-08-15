@@ -14,17 +14,19 @@ end
 function start_arcana_ability(event)
 	local caster = event.caster
 	local ability = event.ability
-	local targetPoint =  ability.PointTable[1][1]
-	ability.PointTable[1].Used = true
+	local targetPoint = Vector(1,1,1)
+	local c_a_level = Runes:GetTotalRuneLevel(caster, 3, "c_a_arcana1", "flamewaker")
+	if c_a_level > 0 then
+		targetPoint =  ability.PointTable[1][1]
+		ability.PointTable[1].Used = true
+	else
+		targetPoint = event.target_points[1]
+	end
 	local b_a_level = Runes:GetTotalRuneLevel(caster, 2, "b_a_arcana1", "flamewaker")
 	ability.Vector2 = event.target_points[1]
 	local damage = event.strength_mult*caster:GetStrength() + event.damage
 	local radius = 360
 	local max_dis = ability:GetSpecialValueFor("max_distance")
-	local c_a_level = Runes:GetTotalRuneLevel(caster, 3, "c_a_arcana1", "flamewaker")
-	if c_a_level < 1 then
-		targetPoint = event.target_points[1]
-	end
 	local procs = Runes:Procs(c_a_level, 10, 1)
 	local direction = (ability.Vector2 - targetPoint):Normalized()
 	if ability.Vector2 == targetPoint then

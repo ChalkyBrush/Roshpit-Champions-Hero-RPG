@@ -20,7 +20,6 @@ function begin_second_heartbeat(event)
 	-- end
 	StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_1, rate=2.0})
 	Filters:CastSkillArguments(2, caster)
-
 end
 
 function create_gale(abilityLevel, caster, targetPoint, casterOrigin)
@@ -119,7 +118,7 @@ function rune_b_b(caster)
 	local ability = runeUnit:FindAbilityByName("flamewaker_rune_b_b")
 	local abilityLevel = ability:GetLevel()
 	local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_b")
-	local totalLevel = abilityLevel + bonusLevel
+	local totalLevel = caster:GetRuneValue("w",2)
 	return totalLevel
 end
 
@@ -128,12 +127,8 @@ function rune_c_b(caster)
 	local ability = runeUnit:FindAbilityByName("flamewaker_rune_c_b")
 	local abilityLevel = ability:GetLevel()
 	local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_b")
-	local totalLevel = abilityLevel + bonusLevel
-	if totalLevel > 0 then
-		return totalLevel
-	else
-		return 0
-	end
+	local totalLevel = caster:GetRuneValue("w",3)
+	return totalLevel
 end
 
 

@@ -78,7 +78,7 @@ function rune_b_a(caster)
     local abilityLevel = ability:GetLevel()
     local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_a")
     local totalLevel = abilityLevel + bonusLevel
-    ability.b_a_level = totalLevel
+    ability.b_a_level = caster:GetRuneValue("q",2)
     ability.heal = 0
 end
 

@@ -4,7 +4,7 @@ var r_Ability = -1;
 var r_QueryUnit = -1;
 var r_bInLevelUp = false;
 var r_mainHero = -1
-
+var x = null
 
 function SetAbility( ability, queryUnit, bInLevelUp, mainHero)
 {
@@ -177,6 +177,20 @@ function UpdateRune()
 		$( "#LevelText" ).text = AbilityLevel;
 	}else{
 		$( "#LevelText" ).text = "<font color='#7DFF12'>"+parseInt(AbilityLevel+RuneBonus)+"</font>";
+	}
+
+	if (!x){
+		x = $.CreatePanel("Image", abilityButton, "");
+		x.SetImage("file://{images}/custom_game/ui/red-x.png");
+		x.style.width = "70%"
+		x.style.height = "70%"
+		x.style.verticalAlign = "center"
+		x.style.horizontalAlign = "center"
+	}
+	if (!(Abilities.IsActivated(r_Ability))){
+		x.visible = true
+	}else{
+		x.visible = false
 	}
 	
 	$( "#AbilityImage" ).abilityname = abilityName;
@@ -481,12 +495,16 @@ function ActivateRune()
 		if ($.GetContextPanel().GetAttributeInt("no_level", -1) == 1){
 			Game.EmitSound( "General.Cancel" )
 		}else{
-			var playerID = localPlayer;
-			GameEvents.SendCustomGameEventToServer( "level_up_rune", {ability: r_Ability, playerID: playerID, unit: Players.GetLocalPlayerPortraitUnit()} );
-			AbilityHideTooltip()
-			$.Schedule(0.05, function(){
-				AbilityShowTooltip()
-			});
+			if (GameUI.IsAltDown()) {
+				GameEvents.SendCustomGameEventToServer( "change_rune_state", {ability: r_Ability, playerID: localPlayer, unit: Players.GetLocalPlayerPortraitUnit()} );
+			}else{
+				var playerID = localPlayer;
+				GameEvents.SendCustomGameEventToServer( "level_up_rune", {ability: r_Ability, playerID: playerID, unit: Players.GetLocalPlayerPortraitUnit()} );
+				AbilityHideTooltip()
+				$.Schedule(0.05, function(){
+					AbilityShowTooltip()
+				});
+			}
 		}
 		UpdateRune();
 		return;

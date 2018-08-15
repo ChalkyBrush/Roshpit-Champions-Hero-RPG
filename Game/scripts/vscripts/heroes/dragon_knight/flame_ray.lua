@@ -181,7 +181,7 @@ function rune_a_c(caster)
     local ability = runeUnit:FindAbilityByName("flamewaker_rune_a_c")
     local abilityLevel = ability:GetLevel()
     local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_c")
-    local totalLevel = abilityLevel + bonusLevel
+    local totalLevel = caster:GetRuneValue("e",1)
 
     if totalLevel > 0 then
         return totalLevel
@@ -194,11 +194,11 @@ function rune_a_c_damage(event)
     local ability = event.ability
     local caster = event.caster
     local target = event.target
-    if ability.rune_a_c then
+    if ability.rune_a_c > 0 then
         local runeAbility = caster.runeUnit4:FindAbilityByName("flamewaker_rune_d_c")
         local runeLevel = runeAbility:GetLevel()
         local bonusLevel = Runes:GetTotalBonus(caster.runeUnit4, "d_c")
-        local d_c_level = runeLevel + bonusLevel
+        local d_c_level = caster:GetRuneValue("e",4)
         local damage = ability.rune_a_c*500
         if ability.glyphed then
             damage = damage*2
@@ -347,7 +347,7 @@ function rune_b_c(caster)
     local ability = runeUnit:FindAbilityByName("flamewaker_rune_b_c")
     local abilityLevel = ability:GetLevel()
     local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_c")
-    local totalLevel = abilityLevel + bonusLevel
+    local totalLevel = caster:GetRuneValue("e",2)
     if totalLevel > 0 then
         ability.b_c_level = totalLevel
         ability:ApplyDataDrivenModifier(runeUnit, caster, "flamewaker_rune_b_c_buff", {})
@@ -541,7 +541,7 @@ function rune_c_c(caster)
     local ability = runeUnit:FindAbilityByName("flamewaker_rune_c_c")
     local abilityLevel = ability:GetLevel()
     local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_c")
-    local totalLevel = abilityLevel + bonusLevel
+    local totalLevel = caster:GetRuneValue("e",3)
     if totalLevel > 0 then
         local duration = Filters:GetAdjustedBuffDuration(caster, 6, false)
         ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_rune_c_c_damage_boost", {duration = duration})
