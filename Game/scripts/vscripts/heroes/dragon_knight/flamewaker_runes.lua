@@ -248,8 +248,7 @@ function rune_c_a_start(event)
 	local runeUnit = caster.runeUnit3
 	local runeAbility = runeUnit:FindAbilityByName("flamewaker_rune_c_a")
 	local abilityLevel = runeAbility:GetLevel()
-	local bonusLevel = caster:GetRuneValue("q",3)
-	ability.c_a_totalLevel = abilityLevel + bonusLevel
+	ability.c_a_totalLevel = caster:GetRuneValue("q",3)
 	if ability.c_a_totalLevel > 0 then
 		ability.tauntDuration = ability.c_a_totalLevel*0.15 + 2.0
 		print(ability.tauntDuration)
