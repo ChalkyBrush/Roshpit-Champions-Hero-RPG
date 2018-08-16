@@ -77,7 +77,9 @@ function ghost_warp_take_damage(event)
 	local ability = event.ability
 	local attacker = event.attacker
 	local duration = constants.E2_DURATION
-
+	if attacker:GetTeamNumber() == caster:GetTeamNumber() then
+		return false
+	end
 	local has_weapon3 = caster:HasModifier("modifier_venomort_immortal_weapon_3")
 
 	local e2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
