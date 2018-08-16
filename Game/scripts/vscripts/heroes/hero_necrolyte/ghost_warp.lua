@@ -17,7 +17,7 @@ function ghost_warp_start(event)
 		ParticleManager:DestroyParticle(ability.pfx, true)
 		ability.pfx = false
 	end
-
+	caster:RemoveModifierByName("modifier_end_ghost_warp_falling")
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_ghost_warp_invisible", {duration = invisible_duration})
 	local modifier = caster:FindModifierByName("modifier_venomort_glyph_3_1")
 	if modifier then
@@ -27,7 +27,7 @@ function ghost_warp_start(event)
 	end
 
     EmitSoundOn("Venomort.GhostWarp", caster)
-
+    local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/venomort/ghost_warp_flare.vpcf", caster, 1)
     ability.pfx = ParticleManager:CreateParticle("particles/econ/courier/courier_polycount_01/courier_trail_polycount_01.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
     ParticleManager:SetParticleControlEnt(ability.pfx, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
     ParticleManager:SetParticleControl(ability.pfx, 15, Vector(100, 220, 100))
@@ -72,7 +72,7 @@ function after_warp_falling(event)
 	end
 end
 
-function take_damage(event)
+function ghost_warp_take_damage(event)
 	local caster = event.caster
 	local ability = event.ability
 	local attacker = event.attacker
@@ -88,6 +88,9 @@ function take_damage(event)
 	end
 	if has_weapon3 then
 		e2_damage = e2_damage + e2_level * constants.WEAPON3_E2_DAMAGE_PER_RUNE_FROM_HP_PERCENT/100 * caster:GetHealth()
+	    local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/venomort/viper_channel_flare.vpcf", attacker:GetAbsOrigin()+Vector(0,0,attacker:GetBoundingMaxs().z), 1)
+	    ParticleManager:SetParticleControl(pfx, 1, Vector(40,40,40))
+	    ParticleManager:SetParticleControl(pfx, 2, Vector(18,18,18))
 	end
 
 

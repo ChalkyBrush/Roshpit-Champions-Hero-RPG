@@ -7,11 +7,13 @@ function toggle_on(event)
 	local r4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
 	Filters:CastSkillArguments(4, caster)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_venomort_arcana2_movespeed_set", nil)
+	StartSoundEvent("Venomort.ReaperToggle", caster)
 	caster:SetModifierStackCount( "modifier_venomort_arcana2_movespeed_set", ability,constants.ARCANA1_R_BASE_MOVESPEED + r4_level * constants.ARCANA1_R4_BONUS_MOVESPEED)
 end
 
 function toggle_off(event)
 	local caster = event.caster
+	StopSoundEvent("Venomort.ReaperToggle", caster)
 	caster:RemoveModifierByName("modifier_venomort_arcana2_movespeed_set")
 end
 

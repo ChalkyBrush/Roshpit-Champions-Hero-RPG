@@ -5,7 +5,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"earth_spirit_boulder_smash"
+		"AbilityTextureName"	"rpc/venomort_d_d"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		
@@ -49,7 +49,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"necrolyte_sadist"
+		"AbilityTextureName"	"undying_decay"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -104,7 +104,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"pugna_life_drain"
+		"AbilityTextureName"	"necrolyte_death_pulse"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -125,7 +125,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"necrolyte_death_pulse"
+		"AbilityTextureName"	"pugna_life_drain"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		
@@ -180,7 +180,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"skywrath_mage_arcane_bolt"
+		"AbilityTextureName"	"medusa_mystic_snake"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		
@@ -201,7 +201,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/unstable_poison" //necrolyte/apostle_of_decay_icons/necrolyte_sadist
+		"AbilityTextureName"	"pudge_rot"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		
@@ -269,7 +269,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"viper_nethertoxin"
+		"AbilityTextureName"	"skywrath_mage_arcane_bolt"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		
@@ -291,7 +291,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"pudge_rot"
+		"AbilityTextureName"	"rpc/unstable_poison"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -360,7 +360,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/venomort_d_d"
+		"AbilityTextureName"	"venomancer_venomous_gale"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 

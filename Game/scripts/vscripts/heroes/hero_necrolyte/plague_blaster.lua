@@ -1,26 +1,32 @@
 local constants = require('heroes/hero_necrolyte/constants')
 
-function cast(event)
+function necrofusion_precast(event)
+    local caster = event.caster
+    StartAnimation(caster, {duration=0.2, activity=ACT_DOTA_CAST_ABILITY_4, rate=2.3})
+end
+
+function cast_necrofusion(event)
     local caster = event.caster
     local ability = event.ability
     local damage = event.damage
 
     local target_point = event.target_points[1]
     local origin = caster:GetAbsOrigin()
-    local direction = (target_point - origin):Normalized()
+    local direction = caster:GetForwardVector()
 
     local spellOrigin = origin+direction*80
-    local range = constants.W_RANGE;
+    local range = event.range
 
     if caster:HasModifier("modifier_venomort_glyph_5_2") then
         range = range * (1 + constants.T52_RANGE_INCREASE_PERCENT/100)
     end
-
+    local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/venomort/viper_channel_flare.vpcf", caster:GetAbsOrigin()+Vector(0,0,100), 1)
+    ParticleManager:SetParticleControl(pfx, 1, Vector(40,40,40))
+    ParticleManager:SetParticleControl(pfx, 2, Vector(18,18,18))
     local count = 1
     if caster:HasModifier("modifier_venomort_immortal_weapon_2") then
         count = constants.WEAPON2_FUSIONS_COUNT
     end
-
 
     for i = -(count - 1)/2,(count - 1)/2 do
         local fv = WallPhysics:rotateVector(caster:GetForwardVector(),2 * math.pi * i/18)

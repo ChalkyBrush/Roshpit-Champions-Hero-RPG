@@ -54,9 +54,11 @@ local module = {
         end
     end,
     getDotAmplify = function(caster, target)
-        local modifier = target:FindModifierByName("modifier_venomort_frostvenom_graps_dot_amp")
-        if modifier then
-            return modifier:GetStackCount() * constants.ARCANA2_Q3_DOT_AMPLIFY_PERCENT/100
+        if IsValidEntity(target) then
+            local modifier = target:FindModifierByName("modifier_venomort_frostvenom_graps_dot_amp")
+            if modifier then
+                return modifier:GetStackCount() * constants.ARCANA2_Q3_DOT_AMPLIFY_PERCENT/100
+            end
         end
         return 0
     end,

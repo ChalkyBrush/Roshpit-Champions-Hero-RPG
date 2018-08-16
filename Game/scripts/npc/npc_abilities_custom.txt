@@ -4592,810 +4592,6 @@
 
 	}
 
-	"phase_walk"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-		"AbilityTextureName"			"undying_decay"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0 0 0 0"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"8.5 8.2 7.9 7.6 7.3 7.0 6.7"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0 0 0 0"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"step_distance"				"1000"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"240 260 280 300 320 340"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"0.1"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"260 800 2800 5020 9800 24000 46000"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"tick_rate"				"0.8"
-			}
-		}
-
-		// Data driven
-		//-------------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_undying.vsndevts"
-			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_venomancer.vsndevts"
-			"particle"					"particles/units/heroes/hero_venomancer/venomancer_poison_nova.vpcf"
-			"particle"					"particles/units/heroes/hero_venomancer/venomancer_poison_debuff_nova.vpcf"
-			"particle"					"particles/units/heroes/hero_venomancer/venomancer_poison_nova_cast.vpcf"
-			"particle"					"particles/units/heroes/hero_undying/undying_loadout.vpcf"
-			"particle"					"particles/units/heroes/hero_slark/slark_shadow_dance.vpcf"
-			"particle"					"particles/units/heroes/hero_slark/slark_shadow_dance_dummy.vpcf"
-			"particle"					"particles/units/heroes/hero_nevermore/venom_raze.vpcf"
-			"particle"					"particles/econ/items/warlock/warlock_staff_hellborn/venom_upheaval.vpcf"
-			"particle"					"particles/econ/courier/courier_faceless_rex/cour_rex_ground_a.vpcf"
-			"particle"					"particles/econ/courier/courier_polycount_01/courier_trail_polycount_01.vpcf"
-		}
-
-		"OnSpellStart"
-		{
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_phase_shift_datadriven"
-				"Target"		"CASTER"
-			}
-			"FireEffect"
-			{
-				"EffectName"	"particles/units/heroes/hero_venomancer/venomancer_poison_nova_cast.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"Target"		"CASTER"
-			}
-
-			"FireEffect"
-			{
-				"EffectName"	"particles/units/heroes/hero_venomancer/venomancer_poison_nova.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"Target"		"CASTER"
-			}
-
-		}
-
-
-		"Modifiers"
-		{
-			"venomort_rune_c_c_thinker"
-			{
-				"Aura"					"venomort_rune_c_c_debuff"
-				"Aura_Radius"			"%radius"
-				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"		"particles/econ/courier/courier_faceless_rex/cour_rex_ground_a.vpcf"
-						"EffectAttachType"	"follow_origin"
-						"Target"			"TARGET"
-						"ControlPoints"
-						{
-							"00" "0 0 0"
-							"01" "250 1 1"
-							"15" "155 90 30"
-							"16" "1 0 0"
-						}
-					}
-				}
-			}
-
-			"venomort_rune_c_c_debuff"
-			{
-				"IsDebuff"		"1"
-				"IsPurgable"	"0"
-				"ThinkInterval"	"0.5"
-				"IsHidden"		"1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_necrolyte/phase_walk.lua"
-						"Function"		"rune_c_c_think"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"venomort_rune_c_c_slow"
-			{
-				"IsDebuff"		"1"
-				"IsPurgable"	"0"
-				"IsHidden"		"1"
-				"EffectName"		"particles/econ/items/warlock/warlock_staff_hellborn/venom_upheaval.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-30"
-				}
-			}
-			"modifier_phase_poison_thinker"
-			{
-				"Aura"					"modifier_phase_poison"
-				"Aura_Radius"			"%radius"
-				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"		"particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
-						"EffectAttachType"	"follow_origin"
-						"Target"			"TARGET"
-						"ControlPoints"
-						{
-							"00" "0 0 0"
-							"01" "%radius 1 1"
-							"15" "100 180 100"
-							"16" "1 0 0"
-						}
-					}
-				}
-			}
-			"modifier_venomort_rune_a_c"
-			{
-				"TextureName"	"necrolyte_sadist"
-				"Passive"	"0"
-				"StatusEffectName" 		"particles/status_fx/status_effect_ghost.vpcf"
-				"StatusEffectPriority"  "10"
-
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "50"
-				}
-				"States"
-				{
-					"MODIFIER_STATE_INVISIBLE"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_phase_poison"
-			{
-				"IsDebuff"		"1"
-				"IsPurgable"	"0"
-				"EffectName"	"particles/units/heroes/hero_alchemist/alchemist_acid_spray_debuff.vpcf"
-				"ThinkInterval"	"%tick_rate"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_necrolyte/phase_walk.lua"
-						"Function"		"poison_damage"
-						"target"		"TARGET"
-						"damage"		"%damage"
-					}
-				}
-			}
-			"modifier_phase_shift_datadriven"
-			{
-				"Duration"		"%duration"
-
-
-				"OnCreated"
-				{
-					"FireSound"
-					{
-						"EffectName"	"Hero_Undying.SoulRip.Cast"
-						"Target"		"TARGET"
-					}
-					"FireSound"
-					{
-						"EffectName"	"Hero_Venomancer.PoisonNova"
-						"Target" 		"TARGET"
-					}
-
-					"RunScript"
-					{
-						"ScriptFile"		"heroes/hero_necrolyte/phase_walk.lua"
-						"Function"			"HideCaster"
-					}
-				}
-
-				"OnDestroy"
-				{
-
-					"RunScript"
-					{
-						"ScriptFile"		"heroes/hero_necrolyte/phase_walk.lua"
-						"Function"			"ShowCaster"
-					}
-				}
-
-				"States"
-				{
-
-					"MODIFIER_STATE_ATTACK_IMMUNE"			"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_MAGIC_IMMUNE"			"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_UNSELECTABLE"			"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_HEALTH_BAR"			"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_DISARMED"				"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_venomort_invis_passive"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_necrolyte/venomort_runes.lua"
-						"Function"		"venomort_attack_land"
-					}
-				}
-			}
-			"modifier_venomort_glyph_7_1_effect"
-			{
-				"IsDebuff"	"1"
-				"Passive"	"0"
-				"IsHidden"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-100"
-				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "-50"
-				}
-			}
-		}
-	}
-
-	"venomort_ghost_warp"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"necrolyte_sadist"
-		"RequiredLevel"          		"0"
-		"LevelsBetweenUpgrades"  		"0"
-		"MaxLevel"				 		"7"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-		"AbilityCastRange"				"900 1000 1100 1200 1300 1400 1500"
-
-
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"cast_range"			"900 1000 1100 1200 1300 1400 1500"
-			}
-		}
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.26"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"3"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"OnAbilityPhaseStart"
-		{
-			"FireSound"
-			{
-				"EffectName"	"Venomort.GhostWarp.VO"
-				"Target" 		"CASTER"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/hero_necrolyte/ghost_warp.lua"
-				"Function"		"ghost_warp_start"
-				"target"		"POINT"
-				"range"			"%range"
-			}
-
-		}
-		"Modifiers"
-		{
-			"modifier_ghost_warp_flying"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"OverrideAnimation"     "ACT_DOTA_VERSUS"
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"ThinkInterval"  "0.03"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_necrolyte/ghost_warp.lua"
-						"Function"		"ghost_warping_think"
-					}
-				}
-				"OnDestroy"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_end_ghost_warp_falling"
-						"Target" 		"CASTER"
-						"Duration"		"2"
-					}
-				}
-			}
-			"modifier_end_ghost_warp_falling"
-			{
-				"IsHidden"	"1"
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"ThinkInterval"  "0.03"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_necrolyte/ghost_warp.lua"
-						"Function"		"after_warp_falling"
-					}
-				}
-			}
-		}
-
-	}
-
-	"snake_trap"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"medusa_mystic_snake"
-		"AbilityCastRange"	"1000"
-		"AbilityCastPoint"	"0.0"
-		"AbilityCooldown"	"17.0"
-		"AbilityChannelTime"	"2.0"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-		"precache"
-		{
-			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_furion.vsndevts"
-			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_medusa.vsndevts"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_viper.vsndevts"
-			"particle"	"particles/units/heroes/hero_viper/viper_base_attack.vpcf"
-			"particle"	"particles/units/heroes/hero_jakiro/viper_explosion_liquid_fire_explosion.vpcf"
-			"particle"	"particles/neutral_fx/gnoll_poison_debuff.vpcf"
-			"particle"	"particles/units/heroes/hero_medusa/medusa_mystic_snake_cast.vpcf"
-			"particle"	"particles/units/heroes/hero_medusa/medusa_mystic_snake_projectile.vpcf"
-			"particle"	"particles/units/heroes/hero_medusa/medusa_mystic_snake_impact.vpcf"
-			"particle_folder" "particles/units/heroes/hero_medusa"
-			"particle"	"particles/units/heroes/hero_medusa/veno_ulti_snake_projectile.vpcf"
-			"particle"	"particles/units/heroes/hero_dragon_knight/dragon_knight_transform_green.vpcf"
-		}
-
-		"AbilityManaCost"	"0"
-		"SideShop"	"1"
-		"OnSpellStart"
-		{
-			"ApplyModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-			"FireSound"
-			{
-				"EffectName"	"Hero_Furion.WrathOfNature_Cast"
-				"Target"	"CASTER"
-			}
-			"AttachEffect"
-			{
-				"EffectName"	"particles/units/heroes/hero_necrolyte/necrolyte_scythe.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"EffectRadius"	"%radius"
-				"EffectDurationScale"	"1.5"
-				"EffectLifeDurationScale"	"1"
-				"EffectColorA"	"200 200 0"
-				"EffectColorB"	"200 200 0"
-				"Target"	"CASTER"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"scripts/vscripts/heroes/hero_necrolyte/snake_trap.lua"
-				"Function"		"begin_snake_channel"
-			}
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"0"
-			"RunScript"
-			{
-				"ScriptFile"	"scripts/vscripts/heroes/hero_necrolyte/snake_trap.lua"
-				"Function"		"snake_strike"
-				"damage"		"%snake_damage"
-				"target"       "TARGET"
-				"mana_restore"	"%mana_restore"
-			}
-			"AttachEffect"
-			{
-				"EffectName"        "particles/items3_fx/mango_active.vpcf"
-				"EffectAttachType"  "follow_origin"
-				"Target"            "CASTER"
-			}
-		}
-		"OnChannelSucceeded"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-			"AttachEffect"
-			{
-				"EffectName"	"particles/econ/items/undying/undying_manyone/undying_pale_gold_tower_destruct_flashbang.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"EffectRadius"	"%radius"
-				"EffectDurationScale"	"1"
-				"EffectLifeDurationScale"	"1"
-				"EffectColorA"	"200 200 0"
-				"EffectColorB"	"200 200 0"
-				"Target"	"CASTER"
-			}
-			"FireEffect"
-			{
-				"EffectName"       "particles/units/heroes/hero_dragon_knight/dragon_knight_transform_green.vpcf"
-				"EffectAttachType"  "follow_origin"
-				"Target"            "CASTER"
-			}
-
-
-			"FireSound"
-			{
-				"EffectName"	"Hero_DeathProphet.CarrionSwarm"
-				"Target"	"CASTER"
-			}
-
-			"RunScript"
-			{
-				"ScriptFile"	"scripts/vscripts/heroes/hero_necrolyte/snake_trap.lua"
-				"Function"		"begin_snakes"
-				"snake_damage"		"%snake_damage"
-				"snake_count"       "%snake_count"
-				"range"				"%total_range"
-			}
-
-		}
-
-		"OnChannelFinish"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-		}
-
-		"OnChannelInterrupted"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"scripts/vscripts/heroes/hero_necrolyte/snake_trap.lua"
-				"Function"		"channel_interrupt"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_channel_start"
-			{
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"IsHidden"	"1"
-						"EffectName"	"particles/econ/items/undying/undying_manyone/undying_pale_gold_tower_destruct_flashbang.vpcf"
-						"EffectAttachType"	"follow_origin"
-						"Target"	"CASTER"
-						"EffectRadius"	"%radius"
-						"EffectColorA"	"255 0 0"
-						"EffectColorB"	"255 0 0"
-						"ControlPoints"
-						{
-							"00"	"50 100 5"
-						}
-
-					}
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/util/channeling.lua"
-						"Function"		"beginChannel"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/util/channeling.lua"
-						"Function"		"endChannel"
-					}
-				}
-				"ThinkInterval"  "0.45"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_necrolyte/gale_nova"
-						"Function"		"cobra_invasion_think"
-					}
-				}
-
-			}
-			"modifier_venomort_c_d_poison"
-			{
-				"IsDebuff"	"1"
-				"ThinkInterval"  "0.2"
-				"AttachEffect"
-				{
-					"EffectName"        "particles/units/heroes/hero_venomancer/venomancer_poison_debuff_nova.vpcf"
-					"EffectAttachType"  "follow_origin"
-					"Target"            "TARGET"
-				}
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_necrolyte/snake_trap.lua"
-						"Function"		"c_d_damage_tick"
-						"target"        "TARGET"
-					}
-				}
-			}
-
-		}
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"snake_damage"			"500 1000 3000 7000 11000 24000 56000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"snake_count"			"24 27 30 33 36 39 42"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"total_range"			"1500 1600 1700 1800 1900 2000 2100"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_restore"			"12 24 36 48 60 72 84"
-			}
-
-		}
-
-	}
-
-	"venom_reaper_slice"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"venomort/venomort_reaper_slice"
-		"AbilityCastPoint"	"0.0"
-		"AbilityCooldown"	"20"
-		"AbilityChannelTime"	"2.0"
-		"AbilityCastRange"				"1400"
-		"AbilityCastAnimation"	 "ACT_DOTA_TELEPORT"
-		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-		"precache"
-		{
-
-		}
-
-		"AbilityManaCost"	"0"
-		"OnSpellStart"
-		{
-			"ApplyModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/hero_necrolyte/reaper_slice.lua"
-				"Function"		"start_channel"
-			}
-
-		}
-		"OnChannelSucceeded"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/hero_necrolyte/reaper_slice.lua"
-				"Function"		"slice_start"
-				"target"		"TARGET"
-				"damage_mult"	"%damage_mult"
-			}
-		}
-
-		"OnChannelFinish"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-		}
-
-		"OnChannelInterrupted"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/hero_necrolyte/reaper_slice.lua"
-				"Function"		"channel_interrupt"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_channel_start"
-			{
-				"IsHidden"	"1"
-				"OverrideAnimation"     "ACT_DOTA_TELEPORT"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"					"TARGET"
-						"EffectName"				"particles/econ/items/necrolyte/necro_sullen_harvest/necro_ti7_immortal_scythe.vpcf"
-						"EffectAttachType"			"follow_origin"
-						"EffectLifeDurationScale"	"1"
-						"ControlPointEntities"
-						{
-							"CASTER"	"attach_origin"
-							"CASTER"	"attach_origin"
-							"CASTER"	"attach_origin"
-							"CASTER"	"attach_origin"
-						}
-					}
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/util/channeling.lua"
-						"Function"		"beginChannel"
-					}
-
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/util/channeling.lua"
-						"Function"		"endChannel"
-					}
-				}
-
-			}
-			"modifier_wraith_chasing"
-			{
-				"IsHidden"	"1"
-				"OverrideAnimation"     "ACT_DOTA_ATTACK"
-				"States"
-				{
-					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"ThinkInterval"  "0.5"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_necrolyte/reaper_slice.lua"
-						"Function"		"wraith_summon_think"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_reaper_slice_shield"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				"TextureName"		"venomort/venomort_rune_c_d_arcana1"
-
-				"EffectName"		"particles/econ/items/medusa/medusa_daughters/medusa_daughters_mana_shield.vpcf"
-				"EffectAttachType"	"attach_hitloc"
-			}
-			"modifier_reaper_slice_amp_debuff"
-			{
-				"IsDebuff"	"1"
-				"IsHidden"	"0"
-				"TextureName"		"venomort/venomort_rune_d_d_arcana1"
-				"EffectName"	"particles/units/heroes/hero_necrolyte/necrolyte_spirit_debuff.vpcf"
-				"EffectAttachType"	"attach_origin"
-			}
-		}
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"damage_mult"			"9.0 10.5 12.0 13.5 15.0 16.5 18.0"
-			}
-		}
-	}
 
 	"snakes"
 	{
@@ -5469,139 +4665,6 @@
 		}
 	}
 
-	"nether_blaster"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"earth_spirit_geomagnetic_grip"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_disruptor.vsndevts"
-			"particle"			"particles/units/heroes/hero_sven/sven_spell_gods_strength.vpcf"
-			"particle"			"particles/status_fx/status_effect_electrical.vpcf"
-			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_shadowshaman.vsndevts"
-			"particle_folder"   "particles/units/heroes/hero_pugna"
-			"particle"			"particles/econ/courier/courier_faceless_rex/venomort_toxic_veil.vpcf"
-			"particle"			"particles/units/heroes/venomort/glyph_3_1_venomort_rune_b_b_wave.vpcf"
-			"particle"			"particles/units/heroes/hero_vengeful/venomort_rune_b_b_wave.vpcf"
-			"particle"			"particles/units/heroes/hero_skeletonking/wraith_king_ghosts_ambient.vpcf"
-		}
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.2"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100 240 480 800 1400 2600 4900"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"145 150 155 160 165 170 175"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"blast_damage"				"1220 4020 8400 14400 26500 68500 145000"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"blast_count"				"2 3 4 5 6 7 7"
-			}
-		}
-		"OnAbilityPhaseStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/hero_necrolyte/nether_blast.lua"
-				"Function"		"nether_blaster_phase_start"
-			}
-		}
-
-		"OnSpellStart"
-		{
-			"FireSound"
-			{
-				"EffectName"	"Hero_Necrolyte.DeathPulse"
-				"Target"		"CASTER"
-			}
-
-			"FireEffect"
-			{
-				"EffectName"	"particles/units/heroes/hero_sven/sven_spell_gods_strength.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"Target"		"CASTER"
-			}
-
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/hero_necrolyte/nether_blast.lua"
-				"Function"		"begin_blasts"
-				"blast_count"	"%blast_count"
-				"radius"		"%radius"
-				"damage"		"%blast_damage"
-			}
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"0"
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/hero_necrolyte/nether_blast.lua"
-				"Function"		"b_b_damage"
-				"Target"		"TARGET"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_venomort_glyph_2_1_effect"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				"EffectName"		"particles/econ/courier/courier_faceless_rex/venomort_toxic_veil.vpcf"
-				"EffectAttachType"	"attach_origin"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_EVASION_CONSTANT" "100"
-				}
-			}
-			"modifier_venomort_legendary_weapon"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"EffectName"	"particles/units/heroes/hero_skeletonking/wraith_king_ghosts_ambient.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "400"
-				}
-			}
-		}
-
-	}
-
 	"custom_nether_blast"
 	{
 		// General
@@ -5651,6 +4714,143 @@
 		}
 	}
 
+
+
+	"venomort_frostvenom_grasp"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"venomort/venomort_frostvenom_grasp"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"2.5"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"explosions"		"2 2 2 3 3 3 4"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"		"600 2000 6000 25000 80000 180000 480000"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_attack_speed"		"-40 -60 -80 -100 -120 -140 -160"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_movement_speed"		"-80 -110 -140 -170 -200 -230 -260"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_necrolyte/frostvenom_grasp.lua"
+				"Function"		"frostvenom_grasp_start"
+				"explosions"	"%explosions"
+				"damage"		"%damage"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_chilled"
+			{
+				"IsDebuff"	"1"
+				"IsHidden"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
+				"StatusEffectPriority"  "20"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attack_speed"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%bonus_movement_speed"
+				}
+			}
+			"modifier_chilled_stacking"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_necrolyte/frostvenom_grasp.lua"
+						"Function"		"frostvenom_chill_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_icevenom_slide"
+			{
+				"IsHidden"	"1"
+				"OverrideAnimation"     "ACT_DOTA_RUN"
+				"ThinkInterval"  "0.03"
+				"EffectName"	"particles/econ/events/winter_major_2016/radiant_fountain_regen_wm_lvl3_a.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-700"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-80"
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_necrolyte/frostvenom_grasp.lua"
+						"Function"		"icevenom_slide_think"
+					}
+				}
+			}
+			"modifier_venomort_arcana2_d_a_visible"
+			{
+				"IsHidden"	"0"
+				"TextureName"	"venomort/venomort_rune_d_a_arcana2"
+				"IsBuff"	"1"
+			}
+			"modifier_venomort_arcana2_d_a_invisible"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+			}
+
+			"modifier_venomort_frostvenom_graps_dot_amp"
+			{
+				"IsDebuff"	"0"
+			}
+		}
+	}
+
 	"gale_nova"
 	{
 		// General
@@ -5658,11 +4858,12 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"venomancer_venomous_gale"
+		"AbilityTextureName"			"venomort/plague_spreader"		
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -5671,11 +4872,11 @@
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
 			"particle"			"particles/units/heroes/hero_alchemist/alchemist_loadout.vpcf"
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_venomancer.vsndevts"
-			"particle"			"particles/units/heroes/hero_venomancer/venomancer_poison_nova.vpcf"
+			"particle"			"particles/units/heroes/hero_venomancer/venomancer_poison_debuff_nova.vpcf"
 			"particle"			"particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_blinding_light_debuff.vpcf"
 			"soundfile"			"soundevents/game_sounds_venomort.vsndevts"
 			"particle"			"particles/units/heroes/hero_venomancer/venomancer_venomous_gale.vpcf"
-
+			"particle"			"particles/roshpit/venomort/spreading_plague_marker.vpcf"
 		}
 
 		// Casting
@@ -5684,7 +4885,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"6"
+		"AbilityCooldown"				"8"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -5697,32 +4898,22 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"1.0 1.5 2.0 2.5 3.0 3.5 4.0"
+				"duration"				"8"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"strike_damage"			"100 500 900 1800 6000 12000 25000"
+				"var_type"				"FIELD_FLOAT"
+				"tick_rate"			    "0.4"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"tick_damage"			"80 140 220 300 500 900 1500"
+				"damage"			    "300 1500 6000 25000 150000 350000 1000000"
 			}
 			"04"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"knockback_distance"	"100 120 140 160 180 200 220"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"knockback_radius"		"375"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"move_slow"				"-60"
+				"var_type"				"FIELD_FLOAT"
+				"range"			    "800"
 			}
 		}
 
@@ -5744,10 +4935,129 @@
 			"RunScript"
 			{
 				"ScriptFile"	"heroes/hero_necrolyte/gale_nova.lua"
-				"Function"		"begin_gale_nova"
-				"a_d_level"		"0"
-				"knockback_radius"	"%knockback_radius"
-				"knockback_distance"	"%knockback_distance"
+				"Function"		"cast"
+				"damage"        "%damage"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_gale_nova_dot"
+			{
+				"IsDebuff"	"1"
+				"ThinkInterval"		"0.4"
+				"EffectName"	"particles/units/heroes/hero_venomancer/venomancer_poison_debuff_nova.vpcf"
+				"EffectAttachType"	"attach_origin"
+
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_necrolyte/gale_nova.lua"
+						"Function"		"dot_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_gale_nova_bad"
+			{
+				"IsDebuff"	"0"
+			}
+			"modifier_gale_nova_attack_slow"
+			{
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-5"
+				}
+
+			}
+		}
+	}
+
+	"nether_blaster"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"earth_spirit_geomagnetic_grip"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"			"particles/units/heroes/hero_sven/sven_spell_gods_strength.vpcf"
+			"particle"			"particles/status_fx/status_effect_electrical.vpcf"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_shadowshaman.vsndevts"
+			"particle_folder"   "particles/units/heroes/hero_pugna"
+			"particle"			"particles/econ/courier/courier_faceless_rex/venomort_toxic_veil.vpcf"
+			"particle"			"particles/units/heroes/venomort/glyph_3_1_venomort_rune_b_b_wave.vpcf"
+			"particle"			"particles/units/heroes/hero_vengeful/venomort_rune_b_b_wave.vpcf"
+			"particle"			"particles/units/heroes/hero_skeletonking/wraith_king_ghosts_ambient.vpcf"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_viper.vsndevts"
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastRange"				"1000"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 240 360 500 800 1200 2000"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movespeed_slow"			"-100 -120 -140 -160 -180 -200 -220"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"				    "1220 4020 8400 14400 26500 68500 145000"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"range"				    "800 900 1000 1100 1200 1300 1400"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_necrolyte/plague_blaster.lua"
+				"Function"		"necrofusion_precast"
+			}
+		}
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Necrolyte.DeathPulse"
+				"Target"		"CASTER"
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_necrolyte/plague_blaster.lua"
+				"Function"		"cast_necrofusion"
+				"target"		"POINT"
+				"damage"        "%damage"
+				"range"			"%range"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -5755,104 +5065,60 @@
 			"DeleteOnHit"	"0"
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/hero_necrolyte/gale_nova.lua"
-				"Function"		"gale_hit"
-				"target"		"TARGET"
-				"damage"		"%strike_damage"
-				"dot_duration"	"%duration"
+				"ScriptFile"	"heroes/hero_necrolyte/plague_blaster.lua"
+				"Function"		"projectile_hit"
+				"Target"		"TARGET"
 			}
 		}
 		"Modifiers"
 		{
-			"modifier_gale_nova_target"
-			{
-				"IsDebuff"	"1"
-				"Duration"	"%duration"
-				"ThinkInterval"		"0.5"
-
-				"EffectName"	"particles/units/heroes/hero_venomancer/venomancer_gale_poison_debuff.vpcf"
-				"EffectAttachType"	"attach_origin"
-
+		    "modifier_venomort_demoralize"
+		    {
+				"IsDebuff"	"0"
+				"ThinkInterval"		"0.3"
+				"EffectName"		"particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_blinding_light_debuff.vpcf"
+				"EffectAttachType"	"follow_overhead"
 				"OnIntervalThink"
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/hero_necrolyte/gale_nova.lua"
-						"Function"		"gale_dot_think"
+						"ScriptFile"	"heroes/hero_necrolyte/plague_blaster.lua"
+						"Function"		"demoralize_think"
 						"target"		"TARGET"
-						"tick_damage"	"%tick_damage"
 					}
 				}
-				"OnDeath"
+				"OnDestroy"
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/hero_necrolyte/gale_nova.lua"
-						"Function"		"gale_target_die"
-						"target"       	"TARGET"
+						"ScriptFile"	"heroes/hero_necrolyte/plague_blaster.lua"
+						"Function"		"demoralize_end"
+						"target"		"TARGET"
 					}
 				}
+		    }
+		    "modifier_venomort_demoralize_immune"
+		    {
+				"IsDebuff"	"0"
+		    }
+			"modifier_venomort_slowed"
+			{
+				"IsDebuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-60"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed_slow"
 				}
 			}
-			"modifier_a_a_nova"
-			{
+		    "modifier_venomort_stats_give"
+		    {
 				"IsDebuff"	"1"
-				"ThinkInterval"  "0.2"
-				"OnIntervalThink"
+				"IsHidden"  "1"
+				"OnCreated"
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/hero_necrolyte/gale_nova.lua"
-						"Function"		"a_a_damage_tick"
-						"target"        "TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_a_a_nova_status"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_a_a_nova_status"
-			{
-				"IsHidden"	"1"
-				"StatusEffectName" 		"particles/status_fx/status_effect_poison_venomancer.vpcf"
-				"StatusEffectPriority"  "10"
-			}
-			"modifier_venomort_rune_b_a"
-			{
-				"Passive"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"TextureName"	"pugna_life_drain"
-				"IsHidden"	"1"
-				"OnAttacked"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_necrolyte/venomort_runes"
-						"Function"		"b_a_apply"
-					}
-				}
-			}
-			"modifier_venomort_rune_b_a_confuse"
-			{
-				"Passive"	"0"
-				"TextureName"	"pugna_life_drain"
-				"ThinkInterval"  "0.2"
-				"EffectName"	  "particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_blinding_light_debuff.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_necrolyte/venomort_runes"
-						"Function"		"b_a_confuse"
+						"ScriptFile"	"heroes/hero_necrolyte/plague_blaster.lua"
+						"Function"		"increase_w3_stacks"
 						"target"		"TARGET"
 					}
 				}
@@ -5860,22 +5126,575 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/hero_necrolyte/venomort_runes"
-						"Function"		"b_a_confuse_end"
+						"ScriptFile"	"heroes/hero_necrolyte/plague_blaster.lua"
+						"Function"		"decrease_w3_stacks"
 						"target"		"TARGET"
 					}
 				}
-			}
-			"modifier_venomort_rune_b_a_immune"
-			{
-				"Passive"	"0"
-				"IsBuff"	"1"
+		    }
+		    "modifier_venomort_bonus_stats"
+		    {
+				"IsDebuff"	"0"
 				"IsHidden"	"1"
-			}
+		    }
 		}
 
 	}
 
+
+	"venomort_ghost_warp"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"necrolyte_sadist"
+		"RequiredLevel"          		"0"
+		"LevelsBetweenUpgrades"  		"0"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCastRange"				"900 1000 1100 1200 1300 1400 1500"
+
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"	"particles/roshpit/venomort/veno_glyph_3_1_heal.vpcf"
+			"particle"	"particles/units/heroes/hero_venomancer/venomancer_poison_debuff_nova.vpcf"
+			"particle"	"particles/econ/courier/courier_polycount_01/courier_trail_polycount_01.vpcf"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"cast_range"			"900 1000 1100 1200 1300 1400 1500"
+			}
+			"02"
+			{
+				"var_type"			    "FIELD_FLOAT"
+				"invisible_duration"	"2 2.2 2.4 2.6 2.8 3 3.2"
+			}
+		}
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.26"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"7"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"OnAbilityPhaseStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Venomort.GhostWarp.VO"
+				"Target" 		"CASTER"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_necrolyte/ghost_warp.lua"
+				"Function"		"ghost_warp_start"
+				"target"		"POINT"
+				"range"			"%range"
+				"invisible_duration" "%invisible_duration"
+			}
+
+		}
+
+		"Modifiers"
+		{
+		    "modifier_ghost_warp_passive"
+		    {
+		        "Passive"   "1"
+		        "IsHidden"  "1"
+                "OnTakeDamage"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"	"heroes/hero_necrolyte/ghost_warp.lua"
+                        "Function"		"ghost_warp_take_damage"
+                    }
+
+                }
+                "ThinkInterval"  "0.6"
+                "OnIntervalThink"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"	"heroes/hero_necrolyte/ghost_warp.lua"
+                        "Function"		"e3_think"
+                    }
+                }
+		    }
+			"modifier_ghost_warp_flying"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"OverrideAnimation"     "ACT_DOTA_VERSUS"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_necrolyte/ghost_warp.lua"
+						"Function"		"ghost_warping_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_end_ghost_warp_falling"
+						"Target" 		"CASTER"
+						"Duration"		"2"
+					}
+				}
+			}
+			"modifier_end_ghost_warp_falling"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_necrolyte/ghost_warp.lua"
+						"Function"		"after_warp_falling"
+					}
+				}
+			}
+			"modifier_ghost_warp_invisible"
+			{
+				"StatusEffectName" 		"particles/status_fx/status_effect_ghost.vpcf"
+				"StatusEffectPriority"  "15"
+				"States"
+				{
+					"MODIFIER_STATE_INVISIBLE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_ghost_warp_return"
+			{
+			    "IsHidden"  "1"
+			    "EffectName"	"particles/units/heroes/hero_venomancer/venomancer_poison_debuff_nova.vpcf"
+			    "EffectAttachType"	"attach_origin"
+				"ThinkInterval"  "1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_necrolyte/ghost_warp.lua"
+						"Function"		"e2_think"
+					}
+				}
+			}
+
+            "modifier_venomort_bonus_attack_damage_ally"
+            {
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "20"
+				}
+            }
+
+            "modifier_venomort_e4_hero_bonus_visible"
+            {
+				"IsHidden"	"0"
+				"ThinkInterval"  "0.8"
+                "OnIntervalThink"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"	"heroes/hero_necrolyte/ghost_warp.lua"
+                        "Function"		"recalculate_e4_stacks"
+                    }
+                }
+            }
+            "modifier_venomort_e4_hero_bonus_invisible"
+            {
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "4000"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT" "0.15"
+				}
+            }
+            "modifier_venomort_e4_enemy_debuff"
+            {
+				"IsHidden"	"1"
+
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_necrolyte/ghost_warp.lua"
+						"Function"		"apply_e4_stacks"
+						"target"		"TARGET"
+					}
+				}
+            }
+		}
+
+	}
+    "snake_trap"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"viper_nethertoxin"
+		"AbilityCastRange"	"1000"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCooldown"	"20.0"
+		"AbilityChannelTime"	"1.5"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+
+		"AbilityManaCost"	"0"
+		"SideShop"	"1"
+		"precache"
+		{
+			"model"     "models/heroes/viper/viper_back.vmdl"
+			"particle"	"particles/roshpit/venomort/viper_cast.vpcf"
+			"particle"	"particles/roshpit/venomort/viper_channel_flare.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/hero_necrolyte/viper.lua"
+				"Function"		"begin_channel"
+			}
+		}
+		"OnChannelSucceeded"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/hero_necrolyte/viper.lua"
+				"Function"		"cast"
+				"damage"		"%damage"
+				"health"        "%health"
+			}
+
+		}
+
+		"OnChannelFinish"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+		}
+
+		"OnChannelInterrupted"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/hero_necrolyte/viper.lua"
+				"Function"		"channel_interrupt"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_channel_start"
+			{
+				"EffectName"	"particles/roshpit/venomort/viper_cast.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"beginChannel"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"endChannel"
+					}
+				}
+				"ThinkInterval"  "0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_necrolyte/viper.lua"
+						"Function"		"viper_channel_thinking"
+					}
+				}
+			}
+			"modifier_venomort_viper"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_necrolyte/viper.lua"
+						"Function"		"viper_expire"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_venomort_viper_leaving"
+			{
+				"OverrideAnimation"     "ACT_DOTA_DIE"
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"			    "500 1000 5000 16000 70000 210000 500000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health"			    "1000 2000 10000 32000 140000 420000 1000000"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_speed"			"100"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"			    "16"
+			}
+
+		}
+
+	}
+
+	"venom_reaper_slice"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"venomort/venomort_reaper_slice"
+		"AbilityCastPoint"	"1.0"
+		"AbilityCooldown"	"10"
+		"AbilityChannelTime"	"1.0"
+		"AbilityCastRange"				"1400"
+		"AbilityCastAnimation"	 "ACT_DOTA_TELEPORT"
+		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"precache"
+		{
+
+		}
+
+		"AbilityManaCost"	"0"
+		"OnToggleOn"
+        {
+            "ApplyModifier"
+            {
+                "ModifierName"	"modifier_venomort_arcana2_reaper_think"
+                "Target" 		"CASTER"
+            }
+            "RunScript"
+            {
+                "ScriptFile"	"heroes/hero_necrolyte/reaper_slice.lua"
+                "Function"		"toggle_on"
+                "target"		"TARGET"
+            }
+        }
+        "OnToggleOff"
+        {
+            "RemoveModifier"
+            {
+                "ModifierName"	"modifier_venomort_arcana2_reaper_think"
+                "Target" 		"CASTER"
+            }
+            "RunScript"
+            {
+                "ScriptFile"	"heroes/hero_necrolyte/reaper_slice.lua"
+                "Function"		"toggle_off"
+                "target"		"TARGET"
+            }
+        }
+		"Modifiers"
+		{
+		    "modifier_venomort_arcana2_passive"
+		    {
+				"IsHidden"	"1"
+				"Passive" "1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_necrolyte/reaper_slice.lua"
+						"Function"		"toggle_off"
+						"target"		"TARGET"
+					}
+				}
+		    }
+		    "modifier_venomort_arcana2_reaper_think"
+		    {
+				"IsHidden"	"1"
+				"ThinkInterval" "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_necrolyte/reaper_slice.lua"
+						"Function"		"slice_start"
+						"target"		"TARGET"
+						"damage_mult"   "%damage_mult"
+					}
+				}
+				"EffectName"	"particles/roshpit/venomort/reaper_active_buff.vpcf"
+				"EffectAttachType"	"attach_origin"
+		    }
+		    "modifier_venomort_arcana2_reaper_dot"
+		    {
+				"IsHidden"	"1"
+				"ThinkInterval" "0.6"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_necrolyte/reaper_slice.lua"
+						"Function"		"dot_think"
+						"target"		"TARGET"
+						"damage_mult"   "%damage_mult"
+					}
+				}
+		    }
+
+		    "modifier_venomort_arcana2_movespeed_set" {
+				"IsHidden"	"1"
+				"EffectAttachType"	"attach_origin"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE" "1"
+				}
+		    }
+			"modifier_reaper_slice_shield"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"TextureName"		"venomort/venomort_rune_c_d_arcana1"
+
+				"EffectName"		"particles/econ/items/medusa/medusa_daughters/medusa_daughters_mana_shield.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage_mult"			"2 5 8 11 14 17 20"
+			}
+		}
+	}
+"venomort_viper_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"	"ability_datadriven"
+		"MaxLevel"	"1"
+		"Modifiers"
+		{
+		    "modifier_venomort_summon"
+		    {
+		        "Passive"   "1"
+		        "IsHidden"  "1"
+                "OnAttackLanded"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"	"heroes/hero_necrolyte/viper.lua"
+                            "Function"		"attack_land"
+                    }
+                }
+		    }
+            "modifier_venomort_summon_attack_speed"
+            {
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
+				}
+            }
+
+            "modifier_venomort_summon_damage_reduction"
+            {
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+            }
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+			}
+		}
+
+	}
 	"custom_gale"
 	{
 		// General
@@ -51676,55 +51495,24 @@
 			}
 		}
 	}	
-	//VENOMORT RUNES
-	"venomort_rune_a_a"
+"venomort_rune_a_a"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"earth_spirit_boulder_smash"
+		"AbilityTextureName"	"rpc/venomort_d_d"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"450"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"100"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"5"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"500"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two_max"		"900"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"5"
+				"var_type"				"FIELD_FLOAt"
+				"property_one"			"0.7"
 			}
 		}
 
@@ -51746,31 +51534,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"14"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_venomort_rune_a_b"
-			{
-				"Passive"	"0"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_necrolyte/venomort_runes"
-						"Function"		"a_b"
-						"Target"		"TARGET"
-					}
-					"AttachEffect"
-					{
-						"EffectName"        "particles/items3_fx/mango_active.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "ATTACKER"
-					}
-				}
+				"property_one"			"50"
 			}
 		}
 	}
@@ -51782,7 +51546,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"necrolyte_sadist"
+		"AbilityTextureName"	"undying_decay"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -51790,44 +51554,9 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.12"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"0.60"
-			}
-			"03"
-			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"50"
+				"property_one"			"10"
 			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_max"		"3.6"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_venomort_rune_a_c"
-			{
-				"TextureName"	"necrolyte_sadist"
-				"Passive"	"0"
-				"StatusEffectName" 		"particles/status_fx/status_effect_ghost.vpcf"
-				"StatusEffectPriority"  "10"
-
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "50"
-				}
-				"States"
-				{
-					"MODIFIER_STATE_INVISIBLE"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-
 		}
 	}
 
@@ -51842,18 +51571,19 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"2.5"
+				"property_one"			"5"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"base_ability"			"1"
+				"base_ability"			"6"
 			}
 			"03"
 			{
@@ -51871,7 +51601,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"pugna_life_drain"
+		"AbilityTextureName"	"necrolyte_death_pulse"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -51879,61 +51609,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"0.5"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_venomort_rune_b_a"
-			{
-				"Passive"	"0"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnAttacked"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_necrolyte/venomort_runes"
-						"Function"		"b_a_apply"
-					}
-				}
-			}
-			"modifier_venomort_rune_b_a_confuse"
-			{
-				"Passive"	"0"
-				"ThinkInterval"  "0.2"
-				"EffectName"	  "particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_blinding_light_debuff.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_necrolyte/venomort_runes"
-						"Function"		"b_a_confuse"
-						"target"		"TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_necrolyte/venomort_runes"
-						"Function"		"b_a_confuse_end"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_venomort_rune_b_a_immune"
-			{
-				"Passive"	"0"
-				"IsBuff"	"1"
-				"IsHidden"	"1"
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"3"
 			}
 		}
 	}
@@ -51945,52 +51622,17 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"necrolyte_death_pulse"
+		"AbilityTextureName"	"pugna_life_drain"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"400"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"800"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"600"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two_max"		"2400"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"5"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"			"13"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"		    "0.07"
 			}
 		}
 
@@ -52007,68 +51649,27 @@
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6500"
+				"property_one"			"500"
 			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"105"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"5"
-			}
+            "02"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "base_ability"			"3"
+            }
+            "03"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "element_one"			"5"
+            }
 		}
 
-		"Modifiers"
-		{
-			"modifier_venomort_rune_b_c"
-			{
-				"Passive"	"0"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnAttackLanded"
-				{
-					"AttachEffect"
-					{
-						"EffectName"        "particles/units/heroes/hero_nevermore/venom_raze.vpcf"
-						"EffectAttachType"  "attach_origin"
-						"Target"            "TARGET"
-					}
-					"ActOnTargets"
-					{
-						"Target"
-			            {
-			                "Center" "TARGET"
-			                "Radius" "260"
-			                "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
-			                "Types" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
-			            }
-
-			            "Action"
-			            {
-			            	"RunScript"
-			            	{
-								"ScriptFile"	"heroes/hero_necrolyte/venomort_runes"
-								"Function"		"b_c"
-								"Target"		"TARGET"
-			            	}
-			            }
-					}
-				}
-			}
-		}
 	}
 
 	"venomort_rune_b_d"
@@ -52076,46 +51677,16 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"skywrath_mage_arcane_bolt"
+		"AbilityTextureName"	"medusa_mystic_snake"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"base_ability"			"2"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"5"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_venomort_rune_b_d"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"	"particles/units/heroes/hero_venomancer/venomancer_poison_nova_cast.vpcf"
-						"EffectAttachType"	"follow_origin"
-						"Target"	"CASTER"
-					}
-
-				}
+				"property_one"			"3"
 			}
 		}
 	}
@@ -52127,22 +51698,17 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/unstable_poison" //necrolyte/apostle_of_decay_icons/necrolyte_sadist
+		"AbilityTextureName"	"pudge_rot"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.2"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"5"
+				"property_one"			"5"
 			}
 		}
 
@@ -52167,29 +51733,6 @@
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"5"
 			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"4"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_venomort_rune_c_b_visible"
-			{
-				"Passive"	"0"
-				"IsHidden"	"0"
-			}
-			"modifier_venomort_rune_c_b_invisible"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "5"
-				}
-			}
-
 		}
 	}
 
@@ -52209,22 +51752,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"90"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"30"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two_base"		"0.4"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.15"
+				"property_one"		"20"
 			}
 		}
 
@@ -52238,105 +51766,19 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"viper_nethertoxin"
+		"AbilityTextureName"	"skywrath_mage_arcane_bolt"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"base_ability"			"4"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"5"
+				"property_one"			"1"
 			}
 		}
-		"Modifiers"
-		{
-			"modifier_rune_c_d_viper"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Duration"			"8"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_necrolyte/snake_trap.lua"
-						"Function"		"c_d_enter"
-						"Target"		"TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_necrolyte/snake_trap.lua"
-						"Function"		"c_d_end"
-						"Target"		"TARGET"
-					}
-				}
-				"OnAttackLanded"
-				{
-					"FireSound"
-					{
-						"EffectName"	"Ability.SandKing_CausticFinale"
-						"Target"		"TARGET"
-					}
-
-					"FireEffect"
-					{
-						"EffectName"		"particles/units/heroes/hero_jakiro/viper_explosion_liquid_fire_explosion.vpcf"
-						"EffectAttachType"	"attach_hitloc"
-						"Target"			"TARGET"
-					}
-					"ActOnTargets"
-					{
-						"Target"
-						{
-							"Center"	"TARGET"
-							"Radius"	"400"
-							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-							"Types"		"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
-						}
-
-						"Action"
-						{
-							"RunScript"
-							{
-								"ScriptFile"	"heroes/hero_necrolyte/snake_trap.lua"
-								"Function"		"viper_attack"
-							}
-						}
-					}
-				}
-			}
-			"modifier_rune_c_d_viper_slow"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"1"
-				"EffectName"		"particles/neutral_fx/gnoll_poison_debuff.vpcf"
-				"EffectAttachType"	"attach_hitloc"
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%property_two"
-				}
-			}
-		}
-
-
 	}
 
 	"venomort_rune_d_a"
@@ -52346,7 +51788,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"pudge_rot"
+		"AbilityTextureName"	"rpc/unstable_poison"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -52354,26 +51796,10 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"-0.75"
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"10"
 			}
 		}
-		"Modifiers"
-		{
-			"modifier_venomort_rune_d_a_effect"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%property_one"
-				}
-			}
-		}
-
-
 	}
 
 	"venomort_rune_d_b"
@@ -52392,7 +51818,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.03"
+				"property_one"			"0.75"
 			}
 		}
 
@@ -52414,45 +51840,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"900"
+				"property_one"			"4000"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"300"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_venomort_rune_d_c_visible"
-			{
-				"Passive"	"0"
-				"IsHidden"	"0"
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_necrolyte/venomort_runes.lua"
-						"Function"		"d_c_duration_end"
-					}
-				}
-			}
-			"modifier_venomort_rune_d_c_invisible"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "900"
-				}
-			}
-			"modifier_venomort_rune_d_c_health"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "900"
-				}
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.15"
 			}
 		}
 	}
@@ -52464,7 +51857,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/venomort_d_d"
+		"AbilityTextureName"	"venomancer_venomous_gale"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -52473,276 +51866,14 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_venomort_rune_d_d"
-			{
-				"Passive"	"0"
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-			}
-		}
-	}
-
-	"venomort_frostvenom_grasp"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"venomort/venomort_frostvenom_grasp"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"LevelsBetweenUpgrades"  "0"
-		"MaxLevel"				 "7"
-
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-
-		}
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"2.5"
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"explosions"		"2 2 2 3 3 3 4"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"		"600 2000 6000 25000 80000 180000 480000"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_attack_speed"		"-40 -60 -80 -100 -120 -140 -160"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_movement_speed"		"-80 -110 -140 -170 -200 -230 -260"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/hero_necrolyte/arcana/frostvenom_grasp.lua"
-				"Function"		"frostvenom_grasp_start"
-				"explosions"	"%explosions"
-				"damage"		"%damage"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_chilled"
-			{
-				"IsDebuff"	"1"
-				"IsHidden"	"1"
-				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
-				"StatusEffectPriority"  "20"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attack_speed"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%bonus_movement_speed"
-				}
-			}
-			"modifier_chilled_stacking"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"ThinkInterval"  "0.1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_necrolyte/arcana/frostvenom_grasp.lua"
-						"Function"		"frostvenom_chill_think"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_icevenom_slide"
-			{
-				"IsHidden"	"1"
-				"OverrideAnimation"     "ACT_DOTA_RUN"
-				"ThinkInterval"  "0.03"
-				"EffectName"	"particles/econ/events/winter_major_2016/radiant_fountain_regen_wm_lvl3_a.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-700"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-80" 
-				}
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_necrolyte/arcana/frostvenom_grasp.lua"
-						"Function"		"icevenom_slide_think"
-					}
-				}
-			}
-			"modifier_venomort_arcana2_d_a_visible"
-			{
-				"IsHidden"	"0"
-				"TextureName"	"venomort/venomort_rune_d_a_arcana2"
-				"IsBuff"	"1"
-			}
-			"modifier_venomort_arcana2_d_a_invisible"
-			{
-				"IsHidden"	"1"
-				"IsBuff"	"1"
-			}
-		}
-	}
-
-	"venomort_rune_a_a_arcana2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"venomort/venomort_rune_a_a_arcana2"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3000"
+				"property_one"			"50000"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"10000"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"5"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"			"9"
+				"property_two"			"25000"
 			}
 		}
-
-	}
-
-	"venomort_rune_b_a_arcana2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"venomort/venomort_rune_b_a_arcana2"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.2"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two_base"		"20.0"
-			}
-		}
-
-	}
-
-
-	"venomort_rune_c_a_arcana2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"venomort/venomort_rune_c_a_arcana2"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.2"
-			}
-		}
-
-
-	}
-
-
-	"venomort_rune_d_a_arcana2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"venomort/venomort_rune_d_a_arcana2"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"5.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"1.0"
-			}
-		}
-
-
 	}
 	"venomort_rune_a_d_arcana1"
 	{
@@ -52754,14 +51885,14 @@
 		"AbilityTextureName"	"venomort/venomort_rune_a_d_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
+				"property_one"			"7"
 			}
 			"02"
 			{
@@ -52797,7 +51928,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"5"
 			}
 		}
 	}
@@ -52823,7 +51954,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"8"
+				"property_two"			"5"
 			}
 		}
 	}
@@ -52844,7 +51975,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"8"
 			}
 		}
 	}
@@ -52998,6 +52129,133 @@
 			}
 		}
 	}
+		"venomort_rune_a_a_arcana2"
+    	{
+    		// General
+    		//-------------------------------------------------------------------------------------------------------------
+    		"BaseClass"				"ability_datadriven"
+    		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+    		"AbilityTextureName"	"venomort/venomort_rune_a_a_arcana2"
+    		"MaxLevel"				"20"
+    		"LevelsBetweenUpgrades" "0"
+    		
+
+    		"AbilitySpecial"
+    		{
+    			"01"
+    			{
+    				"var_type"				"FIELD_INTEGER"
+    				"property_one"			"15000"
+    			}
+    			"02"
+    			{
+    				"var_type"				"FIELD_INTEGER"
+    				"property_one_base"		"20000"
+    			}
+    			"03"
+    			{
+    				"var_type"				"FIELD_INTEGER"
+    				"base_ability"			"1"
+    			}
+    			"04"
+    			{
+    				"var_type"				"FIELD_INTEGER"
+    				"element_one"			"5"
+    			}
+    			"05"
+    			{
+    				"var_type"				"FIELD_INTEGER"
+    				"element_two"			"9"
+    			}
+    		}
+
+    	}
+
+    	"venomort_rune_b_a_arcana2"
+    	{
+    		// General
+    		//-------------------------------------------------------------------------------------------------------------
+    		"BaseClass"				"ability_datadriven"
+    		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+    		"AbilityTextureName"	"venomort/venomort_rune_b_a_arcana2"
+    		"MaxLevel"				"20"
+    		"LevelsBetweenUpgrades" "0"
+
+    		"AbilitySpecial"
+    		{
+    			"01"
+    			{
+    				"var_type"				"FIELD_INTEGER"
+    				"property_one"			"6"
+    			}
+    			"02"
+    			{
+    				"var_type"				"FIELD_FLOAT"
+    				"property_two"			"0.3"
+    			}
+    			"03"
+    			{
+    				"var_type"				"FIELD_FLOAT"
+    				"property_two_base"		"30"
+    			}
+    		}
+
+    	}
+
+
+    	"venomort_rune_c_a_arcana2"
+    	{
+    		// General
+    		//-------------------------------------------------------------------------------------------------------------
+    		"BaseClass"				"ability_datadriven"
+    		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+    		"AbilityTextureName"	"venomort/venomort_rune_c_a_arcana2"
+    		"MaxLevel"				"20"
+    		"LevelsBetweenUpgrades" "0"
+
+    		"AbilitySpecial"
+    		{
+    			"01"
+    			{
+    				"var_type"				"FIELD_FLOAT"
+    				"property_one"			"1.5"
+    			}
+    		}
+
+
+    	}
+
+
+    	"venomort_rune_d_a_arcana2"
+    	{
+    		// General
+    		//-------------------------------------------------------------------------------------------------------------
+    		"BaseClass"				"ability_datadriven"
+    		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+    		"AbilityTextureName"	"venomort/venomort_rune_d_a_arcana2"
+    		"MaxLevel"				"20"
+    		"LevelsBetweenUpgrades" "0"
+
+    		"AbilitySpecial"
+    		{
+    			"01"
+    			{
+    				"var_type"				"FIELD_FLOAT"
+    				"property_one"			"5"
+    			}
+    			"02"
+    			{
+    				"var_type"				"FIELD_FLOAT"
+    				"property_two"			"2"
+    			}
+    		}
+
+
+    	}
 
 "axe_rune_a_a"
 	{

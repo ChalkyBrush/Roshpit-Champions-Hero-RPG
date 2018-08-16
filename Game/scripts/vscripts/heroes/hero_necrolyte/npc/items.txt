@@ -26,6 +26,7 @@
 			"particle"	"particles/roshpit/venomort/reapers_slice_a_d_magical.vpcf"
 			"particle"	"particles/units/heroes/hero_undying/undying_soul_rip_heal.vpcf"
 			"particle"	"particles/econ/items/medusa/medusa_daughters/medusa_daughters_mana_shield.vpcf"
+			"particle"	"particles/roshpit/venomort/reaper_active_buff.vpcf"
 		}
 		"OnSpellStart"
 		{

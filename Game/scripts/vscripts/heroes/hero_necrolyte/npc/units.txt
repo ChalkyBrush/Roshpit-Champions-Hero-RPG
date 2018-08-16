@@ -1,8 +1,10 @@
 "venomort_viper_summon"
     {
-        "BaseClass" "npc_dota_base_additive"
+        "BaseClass" "npc_dota_creature"
         "Model" "models/heroes/viper/viper.vmdl"
+        "ModelScale"    "0.66"
         "Level" "1"
+        "SoundSet"  "Hero_Viper"
         "UnitLabel" "healing_ward"
         "Ability1"  "venomort_viper_ability"
         "Ability2"  "hero_summon_ai"
@@ -52,4 +54,17 @@
         "VisionDaytimeRange"    "300"
         "VisionNighttimeRange"  "200"
         "PathfindingSearchDepthScale" "0.2"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "611"
+                }
+
+            }
+
+        }
     }

@@ -142,11 +142,12 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"venomancer_venomous_gale"
+		"AbilityTextureName"			"venomort/plague_spreader"		
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -155,11 +156,11 @@
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
 			"particle"			"particles/units/heroes/hero_alchemist/alchemist_loadout.vpcf"
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_venomancer.vsndevts"
-			"particle"			"particles/units/heroes/hero_venomancer/venomancer_poison_nova.vpcf"
+			"particle"			"particles/units/heroes/hero_venomancer/venomancer_poison_debuff_nova.vpcf"
 			"particle"			"particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_blinding_light_debuff.vpcf"
 			"soundfile"			"soundevents/game_sounds_venomort.vsndevts"
 			"particle"			"particles/units/heroes/hero_venomancer/venomancer_venomous_gale.vpcf"
-
+			"particle"			"particles/roshpit/venomort/spreading_plague_marker.vpcf"
 		}
 
 		// Casting
@@ -228,7 +229,7 @@
 			{
 				"IsDebuff"	"1"
 				"ThinkInterval"		"<% Q_TICK_RATE %>"
-
+				"EffectName"	"particles/units/heroes/hero_venomancer/venomancer_poison_debuff_nova.vpcf"
 				"EffectAttachType"	"attach_origin"
 
 				"OnIntervalThink"
@@ -262,7 +263,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"earth_spirit_geomagnetic_grip"
 		"RequiredLevel"          		"-5"
@@ -274,7 +275,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
-			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_disruptor.vsndevts"
 			"particle"			"particles/units/heroes/hero_sven/sven_spell_gods_strength.vpcf"
 			"particle"			"particles/status_fx/status_effect_electrical.vpcf"
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_shadowshaman.vsndevts"
@@ -283,6 +283,7 @@
 			"particle"			"particles/units/heroes/venomort/glyph_3_1_venomort_rune_b_b_wave.vpcf"
 			"particle"			"particles/units/heroes/hero_vengeful/venomort_rune_b_b_wave.vpcf"
 			"particle"			"particles/units/heroes/hero_skeletonking/wraith_king_ghosts_ambient.vpcf"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_viper.vsndevts"
 		}
 
 		// Casting
@@ -312,8 +313,20 @@
 				"var_type"					"FIELD_INTEGER"
 				"damage"				    "1220 4020 8400 14400 26500 68500 145000"
 			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"range"				    "800 900 1000 1100 1200 1300 1400"
+			}
 		}
-
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_necrolyte/plague_blaster.lua"
+				"Function"		"necrofusion_precast"
+			}
+		}
 		"OnSpellStart"
 		{
 			"FireSound"
@@ -325,9 +338,10 @@
 			"RunScript"
 			{
 				"ScriptFile"	"heroes/hero_necrolyte/plague_blaster.lua"
-				"Function"		"cast"
+				"Function"		"cast_necrofusion"
 				"target"		"POINT"
 				"damage"        "%damage"
+				"range"			"%range"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -346,7 +360,8 @@
 		    {
 				"IsDebuff"	"0"
 				"ThinkInterval"		"<% W2_TICK_RATE %>"
-
+				"EffectName"		"particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_blinding_light_debuff.vpcf"
+				"EffectAttachType"	"follow_overhead"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -404,6 +419,7 @@
 		    "modifier_venomort_bonus_stats"
 		    {
 				"IsDebuff"	"0"
+				"IsHidden"	"1"
 		    }
 		}
 
@@ -429,7 +445,9 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
-
+			"particle"	"particles/roshpit/venomort/veno_glyph_3_1_heal.vpcf"
+			"particle"	"particles/units/heroes/hero_venomancer/venomancer_poison_debuff_nova.vpcf"
+			"particle"	"particles/econ/courier/courier_polycount_01/courier_trail_polycount_01.vpcf"
 		}
 		"AbilitySpecial"
 		{
@@ -490,7 +508,7 @@
                     "RunScript"
                     {
                         "ScriptFile"	"heroes/hero_necrolyte/ghost_warp.lua"
-                        "Function"		"take_damage"
+                        "Function"		"ghost_warp_take_damage"
                     }
 
                 }
@@ -552,7 +570,7 @@
 			"modifier_ghost_warp_invisible"
 			{
 				"StatusEffectName" 		"particles/status_fx/status_effect_ghost.vpcf"
-				"StatusEffectPriority"  "10"
+				"StatusEffectPriority"  "15"
 				"States"
 				{
 					"MODIFIER_STATE_INVISIBLE"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -561,7 +579,8 @@
 			"modifier_ghost_warp_return"
 			{
 			    "IsHidden"  "1"
-
+			    "EffectName"	"particles/units/heroes/hero_venomancer/venomancer_poison_debuff_nova.vpcf"
+			    "EffectAttachType"	"attach_origin"
 				"ThinkInterval"  "<% E2_TICK_RATE %>"
 				"OnIntervalThink"
 				{
@@ -626,11 +645,11 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"medusa_mystic_snake"
+		"AbilityTextureName"	"viper_nethertoxin"
 		"AbilityCastRange"	"1000"
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"20.0"
-		"AbilityChannelTime"	"2.0"
+		"AbilityChannelTime"	"1.5"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
 		"RequiredLevel"          		"-5"
@@ -639,29 +658,18 @@
 
 		"AbilityManaCost"	"0"
 		"SideShop"	"1"
+		"precache"
+		{
+			"model"     "models/heroes/viper/viper_back.vmdl"
+			"particle"	"particles/roshpit/venomort/viper_cast.vpcf"
+			"particle"	"particles/roshpit/venomort/viper_channel_flare.vpcf"
+		}
 		"OnSpellStart"
 		{
 			"ApplyModifier"
 			{
 				"Target"	"CASTER"
 				"ModifierName"	"modifier_channel_start"
-			}
-
-			"FireSound"
-			{
-				"EffectName"	"Hero_Furion.WrathOfNature_Cast"
-				"Target"	"CASTER"
-			}
-			"AttachEffect"
-			{
-				"EffectName"	"particles/units/heroes/hero_necrolyte/necrolyte_scythe.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"EffectRadius"	"%radius"
-				"EffectDurationScale"	"1.5"
-				"EffectLifeDurationScale"	"1"
-				"EffectColorA"	"200 200 0"
-				"EffectColorB"	"200 200 0"
-				"Target"	"CASTER"
 			}
 			"RunScript"
 			{
@@ -715,23 +723,10 @@
 		{
 			"modifier_channel_start"
 			{
+				"EffectName"	"particles/roshpit/venomort/viper_cast.vpcf"
+				"EffectAttachType"	"attach_origin"
 				"OnCreated"
 				{
-					"AttachEffect"
-					{
-						"IsHidden"	"1"
-						"EffectName"	"particles/econ/items/undying/undying_manyone/undying_pale_gold_tower_destruct_flashbang.vpcf"
-						"EffectAttachType"	"follow_origin"
-						"Target"	"CASTER"
-						"EffectRadius"	"%radius"
-						"EffectColorA"	"255 0 0"
-						"EffectColorB"	"255 0 0"
-						"ControlPoints"
-						{
-							"00"	"50 100 5"
-						}
-
-					}
 					"RunScript"
 					{
 						"ScriptFile"	"heroes/util/channeling.lua"
@@ -745,6 +740,39 @@
 						"ScriptFile"	"heroes/util/channeling.lua"
 						"Function"		"endChannel"
 					}
+				}
+				"ThinkInterval"  "0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_necrolyte/viper.lua"
+						"Function"		"viper_channel_thinking"
+					}
+				}
+			}
+			"modifier_venomort_viper"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_necrolyte/viper.lua"
+						"Function"		"viper_expire"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_venomort_viper_leaving"
+			{
+				"OverrideAnimation"     "ACT_DOTA_DIE"
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 		}
@@ -846,7 +874,7 @@
 		    "modifier_venomort_arcana2_reaper_think"
 		    {
 				"IsHidden"	"1"
-				"ThinkInterval" "0.3"
+				"ThinkInterval" "0.5"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -857,11 +885,13 @@
 						"damage_mult"   "%damage_mult"
 					}
 				}
+				"EffectName"	"particles/roshpit/venomort/reaper_active_buff.vpcf"
+				"EffectAttachType"	"attach_origin"
 		    }
 		    "modifier_venomort_arcana2_reaper_dot"
 		    {
 				"IsHidden"	"1"
-				"ThinkInterval" "0.5"
+				"ThinkInterval" "0.6"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -900,7 +930,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_mult"			"2 4 6 8 10 12 14"
+				"damage_mult"			"2 5 8 11 14 17 20"
 			}
 		}
 	}

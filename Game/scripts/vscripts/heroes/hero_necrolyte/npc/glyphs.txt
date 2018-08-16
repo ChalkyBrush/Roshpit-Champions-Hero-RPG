@@ -1,3 +1,33 @@
+    "item_rpc_venomort_glyph_book"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/book/glyph_book_venomort"
+		"AbilityCastRange"	"900"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"10"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/gameplay/attrib_tome_int.vmdl"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/glyph_abilities.lua"
+				"Function"		"use_glyph_book"
+				"hero"          "venomort"
+			}
+		}
+	}
 
 	"item_rpc_venomort_glyph_1_1"
 	{
@@ -115,6 +145,8 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
+				"EffectName"		"particles/roshpit/venomort/veno_glyph_3_1_heal.vpcf"
+				"EffectAttachType"	"attach_origin"
 				"Properties"
 				{
 				    "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "<% T31_HEAL_PERCENT %>"

@@ -7610,6 +7610,77 @@
         "PathfindingSearchDepthScale" "0.2"
     }
 
+"venomort_viper_summon"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/viper/viper.vmdl"
+        "ModelScale"    "0.66"
+        "Level" "1"
+        "SoundSet"  "Hero_Viper"
+        "UnitLabel" "healing_ward"
+        "Ability1"  "venomort_viper_ability"
+        "Ability2"  "hero_summon_ai"
+        "Ability3"  ""
+        "Ability4"  ""
+        "Ability5"  ""
+        "Ability6"  ""
+        "Ability7"  ""
+        "Ability8"  ""
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageMin"   "300"
+        "AttackDamageMax"   "300"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackRate"    "1"
+        "AttackAnimationPoint"  "0.3"
+        "AttackAcquisitionRange"    "3000"
+        "AttackRange"   "700"
+        "AttackRate"    "0.8"
+        "ProjectileModel"   "particles/units/heroes/hero_viper/viper_base_attack.vpcf"
+        "ProjectileSpeed"   "900"
+        "AttributePrimary"  "DOTA_ATTRIBUTE_STRENGTH"
+        "AttributeBaseStrength" "0"
+        "AttributeStrengthGain" "0"
+        "AttributeBaseIntelligence" "0"
+        "AttributeIntelligenceGain" "0"
+        "AttributeBaseAgility"  "0"
+        "AttributeAgilityGain"  "0"
+        "BountyXP"  "0"
+        "BountyGoldMin" "0"
+        "BountyGoldMax" "0"
+        "RingRadius"    "0"
+        "HasInventory"  "0"
+        "CollisionSize" "0"
+        "BoundsHullName"    "DOTA_HULL_SIZE_SMALL"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_FLY"
+        "MovementSpeed"         "400"
+        "ShouldDoFlyHeightVisual"   "1"
+        "StatusHealth"  "50000"
+        "StatusHealthRegen" "0"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "0"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+        "VisionDaytimeRange"    "300"
+        "VisionNighttimeRange"  "200"
+        "PathfindingSearchDepthScale" "0.2"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "611"
+                }
+
+            }
+
+        }
+    }
+
     "phoenix_summon"
     {
         "BaseClass" "npc_dota_creature"

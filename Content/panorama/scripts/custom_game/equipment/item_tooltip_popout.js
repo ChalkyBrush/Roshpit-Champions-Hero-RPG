@@ -226,13 +226,14 @@ function updateSkillInTooltipHandler(tooltip, itemValues, queryUnit){
 	if (!(itemValues.requiredHero === undefined)){
 		if (Entities.GetUnitName( queryUnit ) == itemValues.requiredHero){
 			tooltip = updateSkillInTooltip(tooltip, queryUnit)
+			tooltip = replaceRuneTooltip(tooltip, queryUnit, itemValues.requiredHero)
 		}else{
-			$.Msg("OH DEAR REQUIRED HERO.."+itemValues.requiredHero)
 			tooltip = updateSkillInTooltipByName(tooltip, itemValues.requiredHero)
+			tooltip = replaceRuneTooltip(tooltip, -1, itemValues.requiredHero)
 		}
 	}else{
-		$.Msg("fsdfdfe?")
 		tooltip = updateSkillInTooltip(tooltip, queryUnit)
+		tooltip = replaceRuneTooltip(tooltip, queryUnit, "")
 	}
 	return tooltip
 }

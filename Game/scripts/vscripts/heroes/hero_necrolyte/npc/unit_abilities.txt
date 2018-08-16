@@ -1,6 +1,6 @@
 "venomort_viper_ability"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
 		"MaxLevel"	"1"
 		"Modifiers"

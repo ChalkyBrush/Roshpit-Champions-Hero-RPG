@@ -420,7 +420,6 @@ function addAbilityInfoToTooltip(ability, mainHero)
 }
 
 function GetElementColor(element_index){
-	$.Msg(element_index)
 	var color = "#FFFFFF"
 	if (element_index == 1){
 		color = "#DDDDDD"

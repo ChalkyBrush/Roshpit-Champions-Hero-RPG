@@ -8,7 +8,7 @@ function cast(event)
 	local radius = constants.Q_RANGE
 	local duration = constants.Q_DEBUFF_DURATION
 
-
+	StartAnimation(caster, {duration=0.7, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.3})
 	Filters:CastSkillArguments(1, caster)
 
 	if caster:HasModifier("modifier_venomort_glyph_1_1") then
@@ -31,14 +31,22 @@ function cast(event)
 	if q4_level > 0 then
 		radius = radius + q4_level * constants.Q4_RANGE
 	end
+	
 
-
-	for i = 1,2 do
-		local pfx = ParticleManager:CreateParticle("particles/roshpit/venomort/venomous_gale.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
-		ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
-		ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 0, 0))
-	end
-
+	-- for i = 1,1 do
+	-- 	local pfx_highlight = ParticleManager:CreateParticle("particles/roshpit/venomort/venomous_gale.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+	-- 	ParticleManager:SetParticleControl(pfx_highlight, 0, caster:GetAbsOrigin())
+	-- 	ParticleManager:SetParticleControl(pfx_highlight, 1, Vector(radius, 0, 0))
+	-- end
+	local pfx = ParticleManager:CreateParticle("particles/roshpit/venomort/spreading_plague_marker.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 0, 0))
+	ParticleManager:SetParticleControl(pfx, 2, Vector(radius, 0, 0))
+	ParticleManager:SetParticleControl(pfx, 3, Vector(radius*0.7, 0, 0))
+	Timers:CreateTimer(3, function()
+		ParticleManager:DestroyParticle(pfx, false)
+		ParticleManager:ReleaseParticleIndex(pfx)
+	end)
 
 	local bossesCount = 0
 	local paragonsCount = 0
