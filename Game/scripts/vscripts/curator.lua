@@ -859,7 +859,8 @@ function Curator:FullCurateHero(hero)
     	if internalName == "seinaru" then
     		internalName = "monk"
     	end
-        Curator:CurateAllGlyphsForHero(internalName)
+    	local columns = Glyphs:GetAvailableColumnCount(internalName)
+    	Curator:CurateAllGlyphsForHeroWithTiers(internalName, columns)
     end)
     Timers:CreateTimer(20, function()
         Curator:CurateArcanaAbilities(hero)

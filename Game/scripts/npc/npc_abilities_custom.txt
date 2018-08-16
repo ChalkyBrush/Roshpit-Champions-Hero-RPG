@@ -4825,7 +4825,7 @@
 				}
 				"OnIntervalThink"
 				{
-					"RunScript"
+				"RunScript"
 					{
 						"ScriptFile"	"heroes/hero_necrolyte/frostvenom_grasp.lua"
 						"Function"		"icevenom_slide_think"
