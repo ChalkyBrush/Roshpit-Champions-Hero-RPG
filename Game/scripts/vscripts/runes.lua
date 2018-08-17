@@ -355,13 +355,17 @@ function Runes:GetTotalRuneLevel(caster, tier, runeID, heroName)
 	end
 	local runeAbility = runeUnit:FindAbilityByName(heroName.."_rune_"..runeID)
 	if runeAbility then
-		local abilityLevel = runeAbility:GetLevel()
-		if string.match(runeID, "arcana1") then
-			runeID = string.gsub(runeID, "_arcana1", "")
+		if runeAbility:IsActivated() then
+			local abilityLevel = runeAbility:GetLevel()
+			if string.match(runeID, "arcana1") then
+				runeID = string.gsub(runeID, "_arcana1", "")
+			end
+			local bonusLevel = Runes:GetTotalBonus(runeUnit, runeID)
+			local totalLevel = abilityLevel + bonusLevel
+			return totalLevel
+		else
+			return 0
 		end
-		local bonusLevel = Runes:GetTotalBonus(runeUnit, runeID)
-		local totalLevel = abilityLevel + bonusLevel
-		return totalLevel
 	else
 		-- local bonusLevel = Runes:GetTotalBonus(runeUnit, runeID)
 		-- return bonusLevel
@@ -387,10 +391,14 @@ function Runes:GetTotalRuneLevelGeneric(caster, tier, index)
 	if runeUnit then
 		local runeAbility = runeUnit:GetAbilityByIndex(index)
 		if runeAbility then
-			local abilityLevel = runeAbility:GetLevel()
-			local bonusLevel = Runes:GetTotalBonus(runeUnit, runeID)
-			local totalLevel = abilityLevel + bonusLevel
-			return totalLevel
+			if runeAbility:IsActivated() then
+				local abilityLevel = runeAbility:GetLevel()
+				local bonusLevel = Runes:GetTotalBonus(runeUnit, runeID)
+				local totalLevel = abilityLevel + bonusLevel
+				return totalLevel
+			else
+				return 0
+			end
 		else
 			return 0
 		end

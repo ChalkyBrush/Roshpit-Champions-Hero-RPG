@@ -81,7 +81,7 @@ function b_d(event)
 		local runeAbility = runeUnit:FindAbilityByName("flamewaker_rune_b_d")
 		local abilityLevel = runeAbility:GetLevel()
 		local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_d")
-		local totalLevel = abilityLevel + bonusLevel
+		local totalLevel = caster:GetRuneValue("r",2)
 		local fv = caster:GetForwardVector()
 		ability.b_d_level = totalLevel
 		ability.b_d_damage = ability.b_d_level*2000 + 2000
@@ -248,8 +248,7 @@ function rune_c_a_start(event)
 	local runeUnit = caster.runeUnit3
 	local runeAbility = runeUnit:FindAbilityByName("flamewaker_rune_c_a")
 	local abilityLevel = runeAbility:GetLevel()
-	local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_a")
-	ability.c_a_totalLevel = abilityLevel + bonusLevel
+	ability.c_a_totalLevel = caster:GetRuneValue("q",3)
 	if ability.c_a_totalLevel > 0 then
 		ability.tauntDuration = ability.c_a_totalLevel*0.15 + 2.0
 		print(ability.tauntDuration)
@@ -330,7 +329,9 @@ function flamewaker_think(event)
 	ability.a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "flamewaker")
 	if ability.a_b_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_flamewaker_rune_a_b", {})
-		caster:SetModifierStackCount( "modifier_flamewaker_rune_a_b", ability, ability.a_b_level )	
+		caster:SetModifierStackCount( "modifier_flamewaker_rune_a_b", ability, ability.a_b_level )
+	else
+		caster:RemoveModifierByName("modifier_flamewaker_rune_a_b")
 	end
 end
 

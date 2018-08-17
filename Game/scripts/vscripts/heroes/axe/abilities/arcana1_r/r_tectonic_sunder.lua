@@ -115,6 +115,10 @@ function startChannel(event)
                         else
                             Timers:CreateTimer(1.9, function()
                                 dealDamage(caster, ability, damage, stun_duration, startPoint, endPoint)
+                                Timers:CreateTimer(3, function()
+                                    ParticleManager:DestroyParticle(pfx, true)
+                                    ParticleManager:ReleaseParticleIndex(pfx)
+                                end)
                             end)
                         end
                     end)
