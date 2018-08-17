@@ -183,6 +183,7 @@ function zefnar_die(event)
 	if caster.cometMini then
 		caster.mainCaster.minis = caster.mainCaster.minis - 1
 	end
+	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(15100, -11100), 1500, 900, false)
 	if caster.mainZefnar then
 		EmitSoundOn("Winterblight.Zefnar.Death", caster)
 		for i = 1, 50, 1 do
