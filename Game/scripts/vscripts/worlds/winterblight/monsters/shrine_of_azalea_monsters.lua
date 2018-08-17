@@ -2773,18 +2773,46 @@ function stargazer_think(event)
 			caster:AddNewModifier(caster, nil, "modifier_animation", {translate="injured"})
 			caster:AddNewModifier(caster, nil, "modifier_animation_translate", {translate="injured"})
 			EmitSoundOn("Winterblight.StarGazer.LowHealth", caster)
-			caster:SetMoveCapability(DOTA_UNIT_CAP_MOVE_FLY)
-			Timers:CreateTimer(0.5, function()
-				caster:SetMoveCapability(DOTA_UNIT_CAP_MOVE_GROUND)
-				Timers:CreateTimer(0.03, function()
-					FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
-				end)
-			end)
+			-- caster:SetMoveCapability(DOTA_UNIT_CAP_MOVE_FLY)
+		-- 	Timers:CreateTimer(0.5, function()
+		-- 		caster:SetMoveCapability(DOTA_UNIT_CAP_MOVE_GROUND)
+		-- 		Timers:CreateTimer(0.03, function()
+		-- 			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+		-- 		end)
+		-- 	end)
 		end
 		caster.phase2 = true
 	end
 	if not ability.interval then
 		ability.interval = 0
+	end
+	if not caster.lastPos then
+		caster.lastPos = Vector(0,0,0)
+	end
+	if (ability.interval%50 == 0 and ability.interval > 0) and caster.phase2 and caster.wavePhase and (caster.wavePhase < 1) then
+		if caster.lastPos == caster:GetAbsOrigin() then
+			local point = Vector(-11699, -10174) + GetGroundHeight(Vector(-11699, -10174), caster)+Vector(0,0,10)
+			local pfx1 = ParticleManager:CreateParticle("particles/econ/events/nexon_hero_compendium_2014/blink_dagger_end_nexon_hero_cp_2014.vpcf", PATTACH_CUSTOMORIGIN, nil)
+			ParticleManager:SetParticleControl(pfx1, 0, caster:GetAbsOrigin()+Vector(0,0,100))
+			local pfx2 = ParticleManager:CreateParticle("particles/econ/events/nexon_hero_compendium_2014/blink_dagger_end_nexon_hero_cp_2014.vpcf", PATTACH_CUSTOMORIGIN, nil)
+			ParticleManager:SetParticleControl(pfx2, 0, point+Vector(0,0,10))
+			-- sound doesn't play, can't fix
+			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "rubick_rubick_failure_01", caster)
+			EmitSoundOnLocationWithCaster(point, "rubick_rubick_failure_01", caster)
+			caster:SetAbsOrigin(point)
+			caster:SetForwardVector(Vector(-1,0))
+			Timers:CreateTimer(5, function()
+				ParticleManager:DestroyParticle(pfx2, true)
+				ParticleManager:ReleaseParticleIndex(pfx1)
+				ParticleManager:DestroyParticle(pfx2, true)
+				ParticleManager:ReleaseParticleIndex(pfx1)
+			end)
+			Timers:CreateTimer(0.5, function()
+				caster:MoveToPosition(caster:GetAbsOrigin()-Vector(5,0))
+			end)
+		else
+			caster.lastPos = caster:GetAbsOrigin()
+		end
 	end
 	ability.interval = ability.interval+1
 	if ability.interval % 1 == 0 then
