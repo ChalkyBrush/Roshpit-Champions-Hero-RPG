@@ -1398,17 +1398,17 @@ function air_spirit_strafe_thinking(event)
 	local zfactor = 0
 	local distanceFromGround = caster:GetAbsOrigin().z - GetGroundHeight(targetPoint, caster)
 	zfactor = -distanceFromGround/5
-	caster:SetAbsOrigin(caster:GetAbsOrigin()+fv*forwardSpeed+Vector(0,0,zfactor))
+	caster:SetAbsOrigin(caster:GetAbsOrigin()+fv*forwardSpeed/33+Vector(0,0,zfactor))
 
 	ability.distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), ability.targetPoint)
-	if not caster:IsChanneling() and not caster:HasModifier("modifier_lightbomb_start_cast") then
-		caster:MoveToPosition(caster:GetAbsOrigin()+ability.fvLock*1)
-	end
+	-- if not caster:IsChanneling() and not caster:HasModifier("modifier_lightbomb_start_cast") then
+	-- 	caster:MoveToPosition(caster:GetAbsOrigin()+ability.fvLock*1)
+	-- end
 	if ability.distance < 50 or blockUnit then
 		caster:RemoveModifierByName("modifier_strafe_sprinting")
-		if not caster:IsChanneling() and not caster:HasModifier("modifier_lightbomb_start_cast") then
-			caster:MoveToPosition(caster:GetAbsOrigin()+ability.fvLock*5)
-		end
+		-- if not caster:IsChanneling() and not caster:HasModifier("modifier_lightbomb_start_cast") then
+		-- 	caster:MoveToPosition(caster:GetAbsOrigin()+ability.fvLock*5)
+		-- end
 	end
 end
 
@@ -2773,18 +2773,46 @@ function stargazer_think(event)
 			caster:AddNewModifier(caster, nil, "modifier_animation", {translate="injured"})
 			caster:AddNewModifier(caster, nil, "modifier_animation_translate", {translate="injured"})
 			EmitSoundOn("Winterblight.StarGazer.LowHealth", caster)
-			caster:SetMoveCapability(DOTA_UNIT_CAP_MOVE_FLY)
-			Timers:CreateTimer(0.5, function()
-				caster:SetMoveCapability(DOTA_UNIT_CAP_MOVE_GROUND)
-				Timers:CreateTimer(0.03, function()
-					FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
-				end)
-			end)
+			-- caster:SetMoveCapability(DOTA_UNIT_CAP_MOVE_FLY)
+		-- 	Timers:CreateTimer(0.5, function()
+		-- 		caster:SetMoveCapability(DOTA_UNIT_CAP_MOVE_GROUND)
+		-- 		Timers:CreateTimer(0.03, function()
+		-- 			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+		-- 		end)
+		-- 	end)
 		end
 		caster.phase2 = true
 	end
 	if not ability.interval then
 		ability.interval = 0
+	end
+	if not caster.lastPos then
+		caster.lastPos = Vector(0,0,0)
+	end
+	if (ability.interval%50 == 0 and ability.interval > 0) and caster.phase2 and caster.wavePhase and (caster.wavePhase < 1) then
+		if caster.lastPos == caster:GetAbsOrigin() then
+			local point = Vector(-11699, -10174) + GetGroundHeight(Vector(-11699, -10174), caster)+Vector(0,0,10)
+			local pfx1 = ParticleManager:CreateParticle("particles/econ/events/nexon_hero_compendium_2014/blink_dagger_end_nexon_hero_cp_2014.vpcf", PATTACH_CUSTOMORIGIN, nil)
+			ParticleManager:SetParticleControl(pfx1, 0, caster:GetAbsOrigin()+Vector(0,0,100))
+			local pfx2 = ParticleManager:CreateParticle("particles/econ/events/nexon_hero_compendium_2014/blink_dagger_end_nexon_hero_cp_2014.vpcf", PATTACH_CUSTOMORIGIN, nil)
+			ParticleManager:SetParticleControl(pfx2, 0, point+Vector(0,0,10))
+			-- sound doesn't play, can't fix
+			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "rubick_rubick_failure_01", caster)
+			EmitSoundOnLocationWithCaster(point, "rubick_rubick_failure_01", caster)
+			caster:SetAbsOrigin(point)
+			caster:SetForwardVector(Vector(-1,0))
+			Timers:CreateTimer(5, function()
+				ParticleManager:DestroyParticle(pfx2, true)
+				ParticleManager:ReleaseParticleIndex(pfx1)
+				ParticleManager:DestroyParticle(pfx2, true)
+				ParticleManager:ReleaseParticleIndex(pfx1)
+			end)
+			Timers:CreateTimer(0.5, function()
+				caster:MoveToPosition(caster:GetAbsOrigin()-Vector(5,0))
+			end)
+		else
+			caster.lastPos = caster:GetAbsOrigin()
+		end
 	end
 	ability.interval = ability.interval+1
 	if ability.interval % 1 == 0 then

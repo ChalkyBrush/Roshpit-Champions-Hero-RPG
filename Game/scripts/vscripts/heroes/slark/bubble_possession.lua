@@ -222,11 +222,9 @@ function enemy_locked_end(event)
 
 		local abilitiesToRemove = ability.abilitiesTable
 		ability.abilitiesTable = nil
-		Timers:CreateTimer(9, function()
-			for i = 1, #abilitiesToRemove, 1 do
-				UTIL_Remove(abilitiesToRemove[i])
-			end
-		end)
+		for i = 1, #abilitiesToRemove, 1 do
+			caster:RemoveAbility(abilitiesToRemove[i]:GetName())
+		end
 	end
 	if ability.lockedTarget then
 		if IsValidEntity(ability.lockedTarget) then
