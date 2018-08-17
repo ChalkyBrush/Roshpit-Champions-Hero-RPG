@@ -711,6 +711,11 @@ function Glyphs:GetGlyphAvailability(msg)
 	local steamID = PlayerResource:GetSteamAccountID(playerID)
 	local player = PlayerResource:GetPlayer(playerID)
 	local hero = player:GetAssignedHero()	
+	if not hero.glyphLoader then
+		hero.glyphLoader = 0
+	end
+	hero.glyphLoader = hero.glyphLoader + 1
+	local glyphCheck = hero.glyphLoader
 	local url = ROSHPIT_URL.."/champions/getGlyphRecipes?"
 	url = url.."steam_id="..steamID
 	url = url.."&hero="..heroName
@@ -749,7 +754,9 @@ function Glyphs:GetGlyphAvailability(msg)
 		end
 		hero.glyphRecipes[rpcHeroName] = recipeResults
 		Timers:CreateTimer(totalDelay, function()
-			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "glyph_recipes_loaded", {heroName = heroName, data=recipeResults, glyphDisplay=hero.loadedGlyphDisplay})
+			if hero.glyphLoader == glyphCheck then
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "glyph_recipes_loaded", {heroName = heroName, data=recipeResults, glyphDisplay=hero.loadedGlyphDisplay})
+			end
 		end)
 		DeepPrintTable(hero.glyphRecipes)
 	end )

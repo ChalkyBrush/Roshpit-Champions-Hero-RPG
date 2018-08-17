@@ -73,12 +73,21 @@ function slice_start(event)
 				if r1_level > 0 then
 					ability.r1_damage = damage * r1_level * constants.ARCANA1_R1_DAMAGE_PERCENT/100
 					if caster:HasModifier('modifier_venomort_immortal_weapon_1') then
-						local pfx2 = ParticleManager:CreateParticle("particles/roshpit/venomort/reapers_slice_a_d_magical.vpcf", PATTACH_CUSTOMORIGIN, caster)
-						ParticleManager:SetParticleControl(pfx2, 0, target:GetAbsOrigin())
-						ParticleManager:SetParticleControl(pfx2, 2, Vector(90, 255, 60))
-						Timers:CreateTimer(3.5, function()
-							ParticleManager:DestroyParticle(pfx2, false)
-						end)
+			            if not ability.particleCount then
+			                ability.particleCount = 0
+			            end
+			            if ability.particleCount < 10 then
+			                ability.particleCount = ability.particleCount + 1
+							local pfx2 = ParticleManager:CreateParticle("particles/roshpit/venomort/reapers_slice_a_d_magical.vpcf", PATTACH_CUSTOMORIGIN, caster)
+							ParticleManager:SetParticleControl(pfx2, 0, target:GetAbsOrigin())
+							ParticleManager:SetParticleControl(pfx2, 2, Vector(90, 255, 60))
+							Timers:CreateTimer(3.5, function()
+								ParticleManager:DestroyParticle(pfx2, false)
+							end)
+							Timers:CreateTimer(2, function()
+								ability.particleCount = ability.particleCount  - 1
+							end)
+						end
 						local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, constants.WEAPON1_AOE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 						if #enemies > 0 then
 							for _,enemy in pairs(enemies) do

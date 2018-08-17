@@ -2,7 +2,11 @@ local constants = require('heroes/hero_necrolyte/constants')
 
 function begin_channel(event)
     local caster = event.caster
-    StartAnimation(caster, {duration=2.0, activity=ACT_DOTA_CAST_ABILITY_4, rate=0.38})
+    if caster:HasModifier("modifier_iron_treads_of_destruction") then
+        StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_4, rate=1.5})
+    else
+        StartAnimation(caster, {duration=2.0, activity=ACT_DOTA_CAST_ABILITY_4, rate=0.38})
+    end
     EmitSoundOn("Venomort.Viper.PrecastVO", caster)
     StartSoundEvent("Venomort.ViperChannel", caster)
     local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/venomort/viper_channel_flare.vpcf", caster:GetAbsOrigin()+Vector(0,0,100), 1)
@@ -56,6 +60,7 @@ function cast(event)
     viper.creator = caster
     viper.dieTime = lifetime
     viper.owner = caster
+    viper.summonAbility = ability
     viper:SetOwner(caster)
     viper:SetControllableByPlayer(caster:GetPlayerOwnerID(), true)
     viper.creator = caster
@@ -105,15 +110,23 @@ function attack_land(event)
     local r1_level = Runes:GetTotalRuneLevelGeneric(creator, 1, 3)
     if r1_level > 0 then
         local damage = caster:GetAverageTrueAttackDamage(caster) * r1_level * constants.R1_VIPER_DAMAGE_PERCENT/100
-
+        local summonAbility = caster.summonAbility
         if creator:HasModifier('modifier_venomort_immortal_weapon_1') then
-            local pfx2 = ParticleManager:CreateParticle("particles/roshpit/venomort/basic_viper_r1_magical.vpcf", PATTACH_CUSTOMORIGIN, caster)
-            ParticleManager:SetParticleControl(pfx2, 0, target:GetAbsOrigin())
-            ParticleManager:SetParticleControl(pfx2, 2, Vector(90, 255, 60))
-            Timers:CreateTimer(3.5, function()
-                ParticleManager:DestroyParticle(pfx2, false)
-            end)
-            
+            if not summonAbility.particleCount then
+                summonAbility.particleCount = 0
+            end
+            if summonAbility.particleCount < 10 then
+                summonAbility.particleCount = summonAbility.particleCount + 1
+                local pfx2 = ParticleManager:CreateParticle("particles/roshpit/venomort/basic_viper_r1_magical.vpcf", PATTACH_CUSTOMORIGIN, caster)
+                ParticleManager:SetParticleControl(pfx2, 0, target:GetAbsOrigin())
+                ParticleManager:SetParticleControl(pfx2, 2, Vector(90, 255, 60))
+                Timers:CreateTimer(3.5, function()
+                    ParticleManager:DestroyParticle(pfx2, false)
+                end)
+                Timers:CreateTimer(2, function()
+                    summonAbility.particleCount = summonAbility.particleCount - 1
+                end)
+            end
             local enemies = FindUnitsInRadius( creator:GetTeamNumber(), target:GetAbsOrigin(), nil, constants.WEAPON1_AOE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
             if #enemies > 0 then
                 for _,enemy in pairs(enemies) do
