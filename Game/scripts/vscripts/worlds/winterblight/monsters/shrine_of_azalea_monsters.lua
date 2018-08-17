@@ -1398,17 +1398,17 @@ function air_spirit_strafe_thinking(event)
 	local zfactor = 0
 	local distanceFromGround = caster:GetAbsOrigin().z - GetGroundHeight(targetPoint, caster)
 	zfactor = -distanceFromGround/5
-	caster:SetAbsOrigin(caster:GetAbsOrigin()+fv*forwardSpeed+Vector(0,0,zfactor))
+	caster:SetAbsOrigin(caster:GetAbsOrigin()+fv*forwardSpeed/33+Vector(0,0,zfactor))
 
 	ability.distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), ability.targetPoint)
-	if not caster:IsChanneling() and not caster:HasModifier("modifier_lightbomb_start_cast") then
-		caster:MoveToPosition(caster:GetAbsOrigin()+ability.fvLock*1)
-	end
+	-- if not caster:IsChanneling() and not caster:HasModifier("modifier_lightbomb_start_cast") then
+	-- 	caster:MoveToPosition(caster:GetAbsOrigin()+ability.fvLock*1)
+	-- end
 	if ability.distance < 50 or blockUnit then
 		caster:RemoveModifierByName("modifier_strafe_sprinting")
-		if not caster:IsChanneling() and not caster:HasModifier("modifier_lightbomb_start_cast") then
-			caster:MoveToPosition(caster:GetAbsOrigin()+ability.fvLock*5)
-		end
+		-- if not caster:IsChanneling() and not caster:HasModifier("modifier_lightbomb_start_cast") then
+		-- 	caster:MoveToPosition(caster:GetAbsOrigin()+ability.fvLock*5)
+		-- end
 	end
 end
 
