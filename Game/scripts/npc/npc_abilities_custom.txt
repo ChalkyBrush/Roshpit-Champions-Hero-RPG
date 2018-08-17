@@ -135733,13 +135733,25 @@
 						}
 					}
 				}
-
-				"Properties"
+				"OnDestroy"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "300"
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_secret_temple_refraction_damage"
+						"Target" 		"TARGET"
+					}
 				}
 			}
-
+			"modifier_secret_temple_refraction_damage"
+			{
+				"Passive"	"0"
+				"IsHidden"	"0"
+				"TextureName"	"templar_assassin_refraction"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"300"
+				}
+			}
 		}
 	}
 

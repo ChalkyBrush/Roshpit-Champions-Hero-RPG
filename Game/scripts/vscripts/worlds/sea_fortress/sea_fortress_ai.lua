@@ -3339,6 +3339,7 @@ function desolator_spawn(event)
 	caster.refractionItem = ability
     caster.refractionItem:ApplyDataDrivenModifier(caster, caster, "modifier_secret_temple_refraction", {})
     caster:SetModifierStackCount( "modifier_secret_temple_refraction", caster.refractionItem, 30)
+    caster.refractionItem:ApplyDataDrivenModifier(caster, caster, "modifier_secret_temple_refraction_damage", {})
 end
 
 function templar_desolator_think(event)
