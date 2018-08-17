@@ -4961,6 +4961,7 @@
 			"modifier_gale_nova_bad"
 			{
 				"IsDebuff"	"0"
+				"TextureName"	"rpc/venomort_d_d"
 			}
 			"modifier_gale_nova_attack_slow"
 			{
@@ -5100,8 +5101,9 @@
 		    "modifier_venomort_demoralize_immune"
 		    {
 				"IsDebuff"	"0"
+				"IsHidden"	"1"
 		    }
-			"modifier_venomort_slowed"
+			"modifier_necrofusion_slowed"
 			{
 				"IsDebuff"	"1"
 				"Properties"
@@ -5312,6 +5314,7 @@
             {
 				"IsHidden"	"0"
 				"IsBuff"	"1"
+				"TextureName"	"venomort_rune_c_c"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "20"
@@ -5321,6 +5324,7 @@
             "modifier_venomort_e4_hero_bonus_visible"
             {
 				"IsHidden"	"0"
+				"TextureName"	"undying_soul_rip"
 				"ThinkInterval"  "0.8"
                 "OnIntervalThink"
                 {

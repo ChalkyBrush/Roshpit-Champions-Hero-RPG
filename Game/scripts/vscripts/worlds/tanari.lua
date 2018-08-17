@@ -83,7 +83,7 @@ function Tanari:Debug()
     -- RPCItems:RollArkimusArcana2(Vector(-4928, 2048))
     -- RPCItems:RollSoluniaArcana2(Vector(-4928, 2048))
     -- SaveLoad:KeyDebug()
-    -- RPCItems:RollAxeArcana1(Vector(-4928, 2048))
+    RPCItems:RollAxeArcana1(Vector(-4928, 2048))
 
     -- RPCItems:RollBahamutArcana2(Vector(-4928, 2048))
     -- Glyphs:RollGlyphAll("item_rpc_flamewaker_glyph_4_1", Vector(-4928, 2048), 0)

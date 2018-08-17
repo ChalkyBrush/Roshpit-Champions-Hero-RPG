@@ -144,7 +144,8 @@ function GameMode:_InitGameMode()
 
   CustomGameEventManager:RegisterListener( "level_up_ability", Dynamic_Wrap(Events, "LevelUpAbility"))
   CustomGameEventManager:RegisterListener( "level_up_rune", Dynamic_Wrap(Events, "LevelUpRune"))
-
+  CustomGameEventManager:RegisterListener( "change_rune_state", Dynamic_Wrap(Events, "ChangeRuneState"))
+  
   CustomGameEventManager:RegisterListener( "DungeonsvoteYesJS", Dynamic_Wrap(Dungeons, "voteYesLua"))
   CustomGameEventManager:RegisterListener( "DungeonsvoteNoJS", Dynamic_Wrap(Dungeons, "voteNoLua"))
 
@@ -157,6 +158,7 @@ function GameMode:_InitGameMode()
   CustomGameEventManager:RegisterListener( "recalculate_stats", Dynamic_Wrap(RPCItems, "RecalculateStats"))
 
   CustomGameEventManager:RegisterListener( "vote_roll", Dynamic_Wrap(RPCItems, "ItemVote"))
+
 
   CustomGameEventManager:RegisterListener( "save_menu", Dynamic_Wrap(SaveLoad, "GetPlayerCharacters"))
   CustomGameEventManager:RegisterListener( "save_slot", Dynamic_Wrap(SaveLoad, "SaveCharacter"))

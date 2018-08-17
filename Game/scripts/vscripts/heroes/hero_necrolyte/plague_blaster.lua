@@ -90,7 +90,7 @@ function projectile_hit(event)
     local damage = ability.w_damage
     local duration = constants.W_DURATION
 
-    ability:ApplyDataDrivenModifier(caster, target, "modifier_venomort_slowed", {duration = duration})
+    ability:ApplyDataDrivenModifier(caster, target, "modifier_necrofusion_slowed", {duration = duration})
 
     if caster:HasModifier("modifier_venomort_immortal_weapon_2") then
         Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_POISON, RPC_ELEMENT_GHOST)

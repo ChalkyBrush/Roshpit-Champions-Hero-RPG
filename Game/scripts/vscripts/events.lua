@@ -912,6 +912,7 @@ function Events:ChangeRuneState(msg)
   local player = PlayerResource:GetPlayer(playerid)
   local ability = EntIndexToHScript(msg.ability)
   local unit = EntIndexToHScript(msg.unit)
+  print("CHANGE RUNE STATE")
   local bAllow = true
   if not unit:GetPlayerOwnerID() == PlayerID then
     if unit:IsHero() then

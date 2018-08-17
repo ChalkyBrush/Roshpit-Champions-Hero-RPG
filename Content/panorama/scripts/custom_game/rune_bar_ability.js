@@ -182,8 +182,8 @@ function UpdateRune()
 	if (!x){
 		x = $.CreatePanel("Image", abilityButton, "");
 		x.SetImage("file://{images}/custom_game/ui/red-x.png");
-		x.style.width = "70%"
-		x.style.height = "70%"
+		x.style.width = "65%"
+		x.style.height = "65%"
 		x.style.verticalAlign = "center"
 		x.style.horizontalAlign = "center"
 	}
