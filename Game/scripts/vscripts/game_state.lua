@@ -2700,7 +2700,13 @@ function GameState:FilterDamage(filterTable)
     			mult = mult + 0.06*c_b_level
     		end
     	end
-    end
+	end
+
+	if attacker:HasModifier("modifier_crystalline_slippers") then
+		if victim:IsRooted() then
+			filterTable["damage"] = filterTable["damage"] * 5
+		end
+	end
     if attacker:HasModifier("modifier_boss_illusion_ability_effect") then
     	filterTable["damage"] = filterTable["damage"]*0.1
     end
@@ -3126,12 +3132,6 @@ function GameState:FilterDamage(filterTable)
 	local increaseIncoming = GameState:IncomingDamageIncrease(victim, attacker, true, damagetype)
 	filterTable["damage"] = filterTable["damage"]*increaseIncoming
 
-	--
-	if attacker:HasModifier("modifier_crystalline_slippers") then
-		if victim:IsRooted() then
-			filterTable["damage"] = filterTable["damage"] * 5
-		end
-	end
 
 	if victim:HasModifier("modifier_crystalline_slippers") then
 		if attacker:IsRooted() then
@@ -3262,8 +3262,8 @@ function GameState:FilterDamage(filterTable)
 		if victim:HasModifier("modifier_ankh_of_the_ancients") and not rezzed then
 			if not victim:HasModifier("modifier_ankh_of_ancients_cooldown") then
 				filterTable["damage"] = victim:GetHealth() - 2
-				victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_ankh_of_ancients_shield", {duration = 6})
-				victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_ankh_of_ancients_cooldown", {duration = 24})
+				victim.amulet.ankh_apply_time = GameRules:GetGameTime()
+				victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_ankh_of_ancients_shield", {duration = 3})
 				for i = 0, 3, 1 do
 					local abilityIndex = i
 					if i == 3 then

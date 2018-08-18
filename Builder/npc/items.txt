@@ -5051,7 +5051,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"			"96"
+				"property_two"			"92"
 			}
 		}
 	}
@@ -5150,6 +5150,12 @@
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
+			"modifier_dark_emissary_invise_delay"
+			{
+				"Passive"	"0"
+				"IsHidden"	"0"
+				"IsDebuff"  "1"
+			}
 			"modifier_dark_emissary_invis"
 			{
 				"IsHidden"	"0"
@@ -5178,12 +5184,22 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"8000"
+				"property_one"			"24000"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"element_one"			"13"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_two"			"2"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_three"		"8"
 			}
 		}
 	}
@@ -5401,7 +5417,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"180"
+				"property_one"			"160"
 			}
 		}
 	}
@@ -5788,7 +5804,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_one"			"0.3"
+				"property_one"			"0.25"
 			}
 		}
 	}
@@ -8506,7 +8522,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1"
-				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "20" 
+				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "20"
 				}
 			}
 		}
@@ -9066,7 +9082,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"35"
 			}
 		}
 	}
@@ -10870,6 +10886,14 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"			"50"
 			}
 		}
 	}
@@ -18140,7 +18164,7 @@
 					"DelayedAction"
 					{
 						"Delay"     "0.5"
-						"Action"    
+						"Action"
 						{
 							"RemoveModifier"
 							{
@@ -20547,7 +20571,7 @@
 		{
 			"01"
 			{
-				"var_type"			"FIELD_INTEGER"
+				"var_type"			"FIELD_FLOAT"
 				"property_one"			"1"
 			}
 			"02"
@@ -21585,6 +21609,7 @@
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"ankh_of_ancients_think"
 						"target"		"TARGET"
+						"max_duration"  "%property_three"
 					}
 				}
 				"OnCreated"
@@ -21593,6 +21618,16 @@
 					{
 						"EffectName"	"RPCItem.AnkhOfAncients"
 						"Target" 		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"ankh_of_ancients_end"
+						"cd_multiplier"  "%property_two"
+						"target"		"TARGET"
 					}
 				}
 			}
@@ -21610,12 +21645,17 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"6"
+				"property_one"			"4"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"			"24"
+				"property_two"			"6"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_three"		"20"
 			}
 		}
 	}
@@ -22323,7 +22363,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"		"40"
+				"property_one"		"25"
 			}
 		}
 	}
@@ -24352,7 +24392,7 @@
 			"particle"	"particles/units/heroes/hero_elder_titan/ring_of_fire.vpcf"
 			"particle"	"particles/roshpit/sorceress/sun_lance_hit_bullet_endcap.vpcf"
 			"particle"	"particles/roshpit/sorceress/fire_avatar.vpcf"
-			"particle"	"particles/status_fx/status_effect_burn.vpcf" 
+			"particle"	"particles/status_fx/status_effect_burn.vpcf"
 			"particle"	"particles/roshpit/sorceress/firestorm_cast.vpcf"
 			"particle"	"particles/items_fx/dagon.vpcf"
 		}
@@ -41138,7 +41178,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
+				"property_one"			"20"
 			}
 		}
 	}
@@ -41644,8 +41684,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.8"
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"2"
 			}
 			"02"
 			{

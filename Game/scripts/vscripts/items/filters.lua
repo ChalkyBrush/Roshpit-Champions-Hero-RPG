@@ -1303,7 +1303,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + 0.001*attacker:GetModifierStackCount("modifier_direwolf_bulwark_effect", attacker.InventoryUnit )
         end
         if attacker:HasModifier("modifier_oceanrunner_boots") then
-            damageMult = damageMult + 0.003*(attacker:GetAgility()/10)
+            damageMult = damageMult + 0.0025*(attacker:GetAgility()/10)
         end
         if attacker:HasModifier("modifier_white_mage_hat2") then
             damageMult = damageMult + 0.001*(attacker:GetIntellect()/10)
@@ -1491,7 +1491,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             end
         end
         if attacker:HasModifier("modifier_phantom_sorcerer") then
-            damageMult = damageMult + 40
+            damageMult = damageMult + 25
         end
         if attacker:HasModifier("modifier_shadowflame_fist") then
             damageMult = damageMult + 12
@@ -4339,9 +4339,12 @@ end
 function Filters:DarkEmissary(caster)
     CustomAbilities:QuickAttachParticle("particles/act_2/blob_launch_impact.vpcf", caster, 4)
     EmitSoundOn("RPCItem.DarkEmissary.Activate", caster)
-    caster.handItem:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_dark_emissary_invis", {duration = 2})
+    if not caster:HasModifier('modifier_dark_emissary_invise_delay') then
+        caster.handItem:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_dark_emissary_invis", {duration = 2})
+        caster.handItem:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_dark_emissary_invise_delay", {duration = 8})
+    end
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-    local damage = caster:GetAverageTrueAttackDamage(caster)*80
+    local damage = caster:GetAverageTrueAttackDamage(caster)*240
     if #enemies > 0 then
         for _,enemy in pairs(enemies) do
             Filters:ApplyItemDamage(enemy,caster,damage,DAMAGE_TYPE_MAGICAL,caster.handItem, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)

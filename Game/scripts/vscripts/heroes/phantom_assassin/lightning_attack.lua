@@ -20,8 +20,8 @@ function lightning_attack_start(event)
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_glyph_2_1_effect_visible", {duration = buffDuration})
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_glyph_2_1_effect_invisible", {duration = buffDuration})
         Timers:CreateTimer(0.03, function()
-            local agility = Filters:GetNonPercentageAttribute(caster, "agility")
-            caster:SetModifierStackCount( "modifier_voltex_glyph_2_1_effect_invisible", ability, agility * 0.8)
+            local agility = caster:GetBaseAgility()
+            caster:SetModifierStackCount( "modifier_voltex_glyph_2_1_effect_invisible", ability, agility)
         end)
     end
 end

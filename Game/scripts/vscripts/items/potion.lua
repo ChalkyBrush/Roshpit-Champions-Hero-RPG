@@ -3,7 +3,7 @@ function usePotion(event)
 	local ability = event.ability
 	local mult = 1
 	if caster:HasModifier("modifier_neutral_glyph_4_3") then
-		mult = mult + 1
+		mult = mult + 0.2
 	end
 
 	action(ability.property1name, ability.property1 * mult, caster)
