@@ -21,7 +21,7 @@ function cast(event)
 
 	local q2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
 	if q2_level > 0 then
-		damage = damage + constants.Q2_DAMAGE_PER_INT * caster:GetIntellect()
+		damage = damage + constants.Q2_DAMAGE_PER_INT * q2_level * caster:GetIntellect()
 	end
 	ability.dot_damage = damage
 
