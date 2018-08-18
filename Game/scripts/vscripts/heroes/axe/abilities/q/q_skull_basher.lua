@@ -44,6 +44,12 @@ function start(event)
         ability.lifting = false
     end)
     print("----NEW JUMP----")
+
+    if caster:HasModifier("modifier_axe_glyph_7_1") then
+        local newCD = 1.5
+        ability:EndCooldown()
+        ability:StartCooldown(newCD)
+    end
 end
 
 function heroic_leap_think(event)
@@ -97,12 +103,6 @@ function drop(event)
     -- end)
 
     caster:RemoveModifierByName("modifier_whirlwind_flying_portion")
-
-    if caster:HasModifier("modifier_axe_glyph_7_1") then
-        local newCD = ability:GetCooldownTimeRemaining()-5.5
-        ability:EndCooldown()
-        ability:StartCooldown(newCD)
-    end
 
     local skullBasherDuration = Filters:GetAdjustedBuffDuration(caster, event.duration, false)
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_stun_attack", {duration = skullBasherDuration})
