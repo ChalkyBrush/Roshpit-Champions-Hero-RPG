@@ -593,9 +593,6 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap,doPopUp)
     end
     healAmount = math.floor(healAmount)
     target:Heal(healAmount, caster)
-    if doPopUp == true or doPopUp == nil then
-        PopupHealing(target, healAmount)
-    end
 
     if target:HasModifier("modifier_pirate_aura_debuff") then
         local modifiers = target:FindAllModifiersByName("modifier_pirate_aura_debuff")
@@ -2897,21 +2894,6 @@ end
 function Filters:VampiricBreastplate(caster, damage)
     local heal = math.max(math.floor(damage*0.3), 0)
     Filters:ApplyHeal(caster, caster, heal, true)
-    print("heal for"..heal)
-    local armor = caster.body
-    if not armor.particles then
-        armor.particles = 0
-    end
-    if armor.particles < 5 then
-        armor.particles = armor.particles + 1
-        local particleName = "particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
-        local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
-        ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
-        Timers:CreateTimer(1, function() 
-          ParticleManager:DestroyParticle( pfx, false )
-          armor.particles = armor.particles - 1
-        end)  
-    end
 end
 
 function Filters:SpiritGlove(caster)
