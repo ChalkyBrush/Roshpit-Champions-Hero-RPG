@@ -39,8 +39,8 @@ function hawk_screech(event)
 		bProvidesVision = false,
 	}
 	projectile = ProjectileManager:CreateLinearProjectile(info)
-	local c_a_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
-	if c_a_level > 0 then
+	local q_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
+	if q_3_level > 0 then
 		local modifiers = caster:FindAllModifiers()
 		for i = 1, #modifiers, 1 do
 			local modifier = modifiers[i]
@@ -52,7 +52,7 @@ function hawk_screech(event)
 				if (modifierMaker:GetEntityIndex() == caster:GetEntityIndex() or modifierMaker:GetEntityIndex() == caster.InventoryUnit:GetEntityIndex()) and modifier.djanghorQ3Increase < DJANGHOR_Q3_BUFF_DURATION_INCREASE_LIMIT then
 					local durationRemaining = modifier:GetRemainingTime()
 					if durationRemaining > 0 then
-						local durationIncrease = DJANGHOR_Q3_BUFF_DURATION_INCREASE*c_a_level
+						local durationIncrease = DJANGHOR_Q3_BUFF_DURATION_INCREASE*q_3_level
 						if (modifier.djanghorQ3Increase + durationIncrease) > DJANGHOR_Q3_BUFF_DURATION_INCREASE_LIMIT then
 							durationIncrease = DJANGHOR_Q3_BUFF_DURATION_INCREASE_LIMIT - modifier.djanghorQ3Increase
 							modifier.djanghorQ3Increase = DJANGHOR_Q3_BUFF_DURATION_INCREASE_LIMIT
@@ -144,7 +144,7 @@ function tornado_start(event)
 	}
 	projectile = ProjectileManager:CreateLinearProjectile(info)
 
-	ability.c_b_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+	ability.w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
 	Filters:CastSkillArguments(2, caster)
 end
 
@@ -155,8 +155,8 @@ function tornado_hit(event)
 
 	local damage = event.damage
 	damage = damage + event.int_mult*caster:GetIntellect()
-	if ability.c_b_level > 0 then
-		damage = damage + caster:GetAverageTrueAttackDamage(caster)*DJANGHOR_W3_ATTACK_PERCENT_ADDED_TO_TORNADO_AND_STOMP*ability.c_b_level
+	if ability.w_3_level > 0 then
+		damage = damage + caster:GetAverageTrueAttackDamage(caster)*DJANGHOR_W3_ATTACK_PERCENT_ADDED_TO_TORNADO_AND_STOMP*ability.w_3_level
 	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_WIND, RPC_ELEMENT_NATURE)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_hawk_tornado_debuff", {duration = 7})

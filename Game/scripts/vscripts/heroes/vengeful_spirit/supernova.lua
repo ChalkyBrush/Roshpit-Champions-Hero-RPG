@@ -10,10 +10,10 @@ function start_channel(event)
 	print(caster:GetForwardVector())
 	print(ability.startRotation)
 	caster:RemoveModifierByName("modifier_solunia_in_between_flare")
-	ability.c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "solunia")
-	ability.c_d_damage = caster:GetAverageTrueAttackDamage(caster)*0.05*ability.c_d_level
+	ability.r_3_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "solunia")
+	ability.r_3_damage = caster:GetAverageTrueAttackDamage(caster)*0.05*ability.r_3_level
 	caster:RemoveModifierByName("modifier_solunia_warp_flare_falling")
-	local d_d_level =  Runes:GetTotalRuneLevel(caster, 4, "d_d", "solunia")
+	local d_d_level =  Runes:GetTotalRuneLevel(caster, 4, "r_4", "solunia")
 	if d_d_level > 0 then
 		ability:EndCooldown()
 		ability:StartCooldown(ability:GetCooldown(ability:GetLevel()) - d_d_level*0.2)
@@ -26,7 +26,7 @@ end
 
 function supernova_a_d(caster, ability)
 	if not caster:HasModifier("modifier_solunia_arcana2") then
-		local a_d_level =  Runes:GetTotalRuneLevel(caster, 1, "a_d", "solunia")
+		local a_d_level =  Runes:GetTotalRuneLevel(caster, 1, "r_1", "solunia")
 		if a_d_level > 0 then
 			local healthRestore = a_d_level*6000
 			local manaRestore = a_d_level*2000
@@ -53,10 +53,10 @@ function supernova_channeling_think(event)
 		caster:RemoveModifierByName("modifier_solunia_ulti_above_ground")
 	end
 	ability.rotationIndex = ability.rotationIndex + 1
-	if ability.c_d_level > 0 then
+	if ability.r_3_level > 0 then
 		if ability.rotationIndex%15 == 0 then
 			for i = 1, 8, 1 do
-				local range = 600 + 6*ability.c_d_level
+				local range = 600 + 6*ability.r_3_level
 				local speed = range
 				local casterOrigin = caster:GetAbsOrigin()
 				local fv = WallPhysics:rotateVector(caster:GetForwardVector(), math.pi*i*2/8)
@@ -150,9 +150,9 @@ function novaExplosion(event)
 		element = "lunar"
 	end
 	local b_d_level =  Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
-	ability.b_d_level = b_d_level
+	ability.r_2_level = b_d_level
 	if not caster:HasModifier("modifier_solunia_arcana2") then
-		local d_d_level =  Runes:GetTotalRuneLevel(caster, 4, "d_d", "solunia")
+		local d_d_level =  Runes:GetTotalRuneLevel(caster, 4, "r_4", "solunia")
 		if d_d_level > 0 then
 			stun_duration = stun_duration + 0.1*d_d_level
 		end
@@ -187,31 +187,31 @@ function supernova_burn_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	if not ability.b_d_level then
-		ability.b_d_level = 0
+	if not ability.r_2_level then
+		ability.r_2_level = 0
 	end
 	if ability:GetAbilityName() == "solunia_eclipse" then
 		local damage = target.SoluniaBurnLunar
 		if target:HasModifier("modifier_solunia_solar_burn") then
-			damage = damage + 0.24*ability.b_d_level*damage
+			damage = damage + 0.24*ability.r_2_level*damage
 		end
 		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_COSMOS, RPC_ELEMENT_FIRE)
 	elseif ability:GetAbilityName() == "solunia_supernova" then
 		local damage = target.SoluniaBurnSolar
 		if target:HasModifier("modifier_solunia_lunar_burn") then
-			damage = damage + 0.24*ability.b_d_level*damage
+			damage = damage + 0.24*ability.r_2_level*damage
 		end
 		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_COSMOS, RPC_ELEMENT_FIRE)
 	elseif ability:GetAbilityName() == "solunia_lunar_alpha_spark" then
 		local damage = target.SoluniaBurnLunar
 		if target:HasModifier("modifier_solunia_solar_burn") then
-			damage = damage + 0.05*ability.b_d_level*damage
+			damage = damage + 0.05*ability.r_2_level*damage
 		end
 		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, -2, RPC_ELEMENT_FIRE, RPC_ELEMENT_ICE)
 	elseif ability:GetAbilityName() == "solunia_solar_alpha_spark" then	
 		local damage = target.SoluniaBurnSolar
 		if target:HasModifier("modifier_solunia_lunar_burn") then
-			damage = damage + 0.05*ability.b_d_level*damage
+			damage = damage + 0.05*ability.r_2_level*damage
 		end
 		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, -2, RPC_ELEMENT_FIRE, RPC_ELEMENT_ICE)
 	end
@@ -325,7 +325,7 @@ function supernova_projectile_hit(event)
 	if ability:GetAbilityName() == "solunia_supernova" then
 		target.solunia_c_c_pullVector = target.solunia_c_c_pullVector*-1
 	end
-	Filters:TakeArgumentsAndApplyDamage(target, caster, ability.c_d_damage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, ability.r_3_damage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
 	if not target.jumpLock then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_supernova_projectile_pull", {duration = 0.7})
 	end

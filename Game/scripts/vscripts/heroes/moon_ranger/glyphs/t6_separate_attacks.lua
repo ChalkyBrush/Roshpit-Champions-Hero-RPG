@@ -14,7 +14,7 @@ function attackLand(event)
     ability.damage = damage * T61_DAMAGE_PERCENT
 
     local arrowParticle = "particles/units/heroes/hero_drow/drow_base_attack.vpcf"
-    if attacker:HasModifier("modifier_astral_rune_c_a") then
+    if attacker:HasModifier("modifier_astral_rune_q_3") then
         arrowParticle = "particles/units/heroes/hero_drow/astral_c_a_particle_attackfrost_arrow.vpcf"
     end
 

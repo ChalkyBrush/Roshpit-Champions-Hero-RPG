@@ -29,15 +29,15 @@ function spark_start(event)
 	local casterOrigin = caster:GetAbsOrigin()
 
 	local damage = event.damage
-	ability.a_a_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
-	ability.b_a_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
-	ability.c_a_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
-	ability.d_a_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
-	local duration = 7 + ability.d_a_level*0.15
+	ability.q_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
+	ability.q_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
+	ability.q_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
+	ability.q_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+	local duration = 7 + ability.q_4_level*0.15
 	local loops = math.floor(duration*10)
 	Timers:CreateTimer(0.1, function()
 		CustomAbilities:QuickAttachParticle("particles/roshpit/arkimus/zonis_end.vpcf", caster, 3)
-		if ability.b_a_level > 0 then
+		if ability.q_2_level > 0 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_zonis_buff", {duration = 1})
 		end
 		for i = 1, loops, 1 do
@@ -75,29 +75,29 @@ function spark_start(event)
 end
 
 function zonis_damage(enemy, caster, damage, ability)
-	damage = damage + damage*0.15*ability.d_a_level
+	damage = damage + damage*0.15*ability.q_4_level
 	ability:ApplyDataDrivenModifier(caster, enemy, "modifier_zonis_stun", {duration = 0.2})
 	Filters:ApplyStun(caster, 0.2, enemy)
 	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_ARCANE, RPC_ELEMENT_LIGHTNING)
-   	if ability.a_a_level > 0 then
+   	if ability.q_1_level > 0 then
    		if enemy.dummy then
    		else
 			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_zonis_a_a_armor_loss", {duration = 8})
-			enemy:SetModifierStackCount("modifier_zonis_a_a_armor_loss", caster, ability.a_a_level)
+			enemy:SetModifierStackCount("modifier_zonis_a_a_armor_loss", caster, ability.q_1_level)
 		end
 	end
-	if ability.c_a_level > 0 then
+	if ability.q_3_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, enemy, "modifier_zonis_c_a_magic_resist", {duration = 8})
-		enemy:SetModifierStackCount("modifier_zonis_c_a_magic_resist", caster, ability.c_a_level)
+		enemy:SetModifierStackCount("modifier_zonis_c_a_magic_resist", caster, ability.q_3_level)
 	end
 end
 
 function zonis_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local radius = 600 + ability.b_a_level*2
-	local damage = ability.b_a_level*30000
-	local edges = 2 + math.ceil((ability.b_a_level+1)*0.05)
+	local radius = 600 + ability.q_2_level*2
+	local damage = ability.q_2_level*30000
+	local edges = 2 + math.ceil((ability.q_2_level+1)*0.05)
 	casterOrigin = caster:GetAbsOrigin()
 	local endPointTable = {}
 	local midPointTable = {}

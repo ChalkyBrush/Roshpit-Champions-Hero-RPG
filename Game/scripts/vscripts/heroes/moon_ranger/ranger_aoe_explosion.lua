@@ -7,8 +7,8 @@ function begin_explosion(event)
 	local location = caster:GetOrigin()
 	local forwardVector = caster:GetForwardVector()
   local damage = event.damage
-    caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "astral")
-    caster.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "astral")
+    caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "astral")
+    caster.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "astral")
 
   if caster:HasModifier("modifier_astral_glyph_7_1") then
     damage = damage*10
@@ -20,7 +20,7 @@ function begin_explosion(event)
 		targetPoint = rotatedVector + location*Vector(1,1,0)
 		create_individual_explosion(abilityLevel, caster, targetPoint, location, "dummy_aoe_explosion", 0, damage)
 	end
-	local smashLevel = rune_b_d(caster, ability)
+	local smashLevel = rune_r_2(caster, ability)
 	if smashLevel > 0 then
     local b_d_damage = smashLevel*R2_DAMAGE
     -- b_d_damage = b_d_damage + 0.002*caster:GetStrength()/10*d_d_level*b_d_damage
@@ -34,11 +34,11 @@ function begin_explosion(event)
 				for i=-3, 3, 1 do 
 					rotatedVector = rotateVector(forwardVector, i*2*math.pi/7)*Vector(200, 200, 0)
 					targetPoint = rotatedVector + location*Vector(1,1,0)
-					create_individual_explosion(abilityLevel, caster, targetPoint, location, "dummy_aoe_explosion_rune_b_d", smashLevel, b_d_damage)
+					create_individual_explosion(abilityLevel, caster, targetPoint, location, "dummy_aoe_explosion_rune_r_2", smashLevel, b_d_damage)
 				end
 		  end)
 	end
-	rune_c_d(caster, ability)
+	rune_r_3(caster, ability)
   Filters:CastSkillArguments(4, caster)
 end
 
@@ -50,16 +50,16 @@ function ranger_aoe_explosion_damage(event)
     Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
 end
 
-function rune_b_d(caster, ability)
+function rune_r_2(caster, ability)
   local runeUnit = caster.runeUnit2
-  local runeAbility = runeUnit:FindAbilityByName("astral_rune_b_d")
+  local runeAbility = runeUnit:FindAbilityByName("astral_rune_r_2")
   local abilityLevel = runeAbility:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_d")
+  local bonusLevel = Runes:GetTotalBonus(runeUnit, "r_2")
   local totalLevel = abilityLevel + bonusLevel
   return totalLevel
 end
 
-function rune_b_d_strike(event)
+function rune_r_2_strike(event)
 	local ability = event.ability
 	local target = event.target
 	local caster = event.caster
@@ -73,20 +73,20 @@ function rune_b_d_strike(event)
   Filters:ApplyStun(caster, duration, target)
 end
 
-function rune_a_d(event)
+function rune_r_1(event)
   -- local caster = event.caster
   -- local ability = event.ability
   -- local runeUnit = caster.runeUnit
-  -- local runeAbility = runeUnit:FindAbilityByName("astral_rune_a_d")
+  -- local runeAbility = runeUnit:FindAbilityByName("astral_rune_r_1")
   -- local abilityLevel = runeAbility:GetLevel()
-  -- local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_d")
+  -- local bonusLevel = Runes:GetTotalBonus(runeUnit, "r_1")
   -- local totalLevel = abilityLevel + bonusLevel
   -- if totalLevel > 0 then
-  --   rune_a_d_start(caster, totalLevel, ability)
+  --   rune_r_1_start(caster, totalLevel, ability)
   -- end
 end
 
-function rune_a_d_start(caster, level, ability)
+function rune_r_1_start(caster, level, ability)
     -- local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
     -- ability.stars_dropped = 0
     -- if #enemies > 0 then
@@ -118,13 +118,13 @@ function dropStar(enemy, caster, damage, ability, targetsPerInterval)
             if enemy:IsAlive() then
               Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
               EmitSoundOn("Ability.StarfallImpact", enemy)
-              if ability.a_d_level > 0 then
+              if ability.r_1_level > 0 then
                 ability:ApplyDataDrivenModifier(caster, enemy, "modifier_starfall_a_d_visible", {duration = 7})
                 local newStacks = enemy:GetModifierStackCount("modifier_starfall_a_d_visible", caster) + targetsPerInterval
                 enemy:SetModifierStackCount("modifier_starfall_a_d_visible", caster, newStacks)
 
                 -- ability:ApplyDataDrivenModifier(caster, enemy, "modifier_starfall_a_d_invisible", {duration = 7})
-                -- enemy:SetModifierStackCount("modifier_starfall_a_d_invisible", caster, newStacks*ability.a_d_level)
+                -- enemy:SetModifierStackCount("modifier_starfall_a_d_invisible", caster, newStacks*ability.r_1_level)
               end
             end
           end)
@@ -162,24 +162,24 @@ function create_individual_explosion(abilityLevel, caster, targetPoint, casterOr
 	  end)
 end
 
-function rune_c_d(caster, mainAbility)
+function rune_r_3(caster, mainAbility)
   local runeUnit = caster.runeUnit3
-  local ability = runeUnit:FindAbilityByName("astral_rune_c_d")
+  local ability = runeUnit:FindAbilityByName("astral_rune_r_3")
   local abilityLevel = ability:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_d")
+  local bonusLevel = Runes:GetTotalBonus(runeUnit, "r_3")
   local totalLevel = abilityLevel + bonusLevel
   ability.astral = caster
   ability.totalLevel = totalLevel
   if totalLevel > 0 then
   	ability.origCaster = caster
-  	ability.c_d_level = totalLevel
+  	ability.r_3_level = totalLevel
     local dummy = CreateUnitByName("phoenix_summon", caster:GetAbsOrigin()-Vector(100,100,0), true, caster, caster, caster:GetTeamNumber())
     dummy:SetModelScale(1)
     EmitSoundOn("phoenix_phoenix_bird_attack", dummy)
     dummy.owner = caster:GetPlayerOwnerID()
     dummy:AddAbility("replica")
     dummy:FindAbilityByName("replica"):SetLevel(1)
-    ability:ApplyDataDrivenModifier(runeUnit, dummy, "modifier_rune_c_d_phoenix", {duration = ASTRAL_R3_DURATION})
+    ability:ApplyDataDrivenModifier(runeUnit, dummy, "modifier_rune_r_3_phoenix", {duration = ASTRAL_R3_DURATION})
     dummy:MoveToNPC(caster)
     if caster:HasModifier("modifier_astral_glyph_2_1") then
       dummy.glyphed = true
@@ -206,15 +206,15 @@ end
 function starfall_initiate(event)
   local ability = event.ability
   local caster = event.caster
-  if not caster.d_d_level then
-    caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "astral")
-    caster.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "astral")
+  if not caster.r_4_level then
+    caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "astral")
+    caster.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "astral")
   end
-  ability.a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d", "astral")
-  ability.maxStars = ability.a_d_level + 20
+  ability.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "astral")
+  ability.maxStars = ability.r_1_level + 20
   ability.targetsPerInterval = math.floor(ability.maxStars/20)
   ability.remainingStars = ability.maxStars%20
-  ability.star_damage = ability.a_d_level*ASTRAL_R1_DAMAGE
+  ability.star_damage = ability.r_1_level*ASTRAL_R1_DAMAGE
   if caster:HasModifier("modifier_astral_glyph_7_1") then
     ability.star_damage = ability.star_damage*10
     local glyphDuration = Filters:GetAdjustedBuffDuration(caster, 2.5, false)
@@ -226,9 +226,9 @@ end
 function starfall_think(event)
   local caster = event.caster
   local ability = event.ability
-  local maxStars = ability.a_d_level + 20
+  local maxStars = ability.r_1_level + 20
 
-  if ability.a_d_level > 0 then
+  if ability.r_1_level > 0 then
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
     if #enemies > 0 then
       local targetsPerInterval = ability.targetsPerInterval

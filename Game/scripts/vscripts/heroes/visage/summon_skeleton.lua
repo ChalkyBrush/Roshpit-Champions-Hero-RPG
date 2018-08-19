@@ -38,26 +38,26 @@ function cast_raise_skeleton(event)
 					local attackDamage = caster:GetAverageTrueAttackDamage(caster)*event.attack_mult
 					local luck = RandomInt(1, 10)
 					local applyTexture = true
-					local c_b_level = 0
+					local w_3_level = 0
 					if luck <= 3 then
-						local a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "ekkan")
-						if a_b_level > 0 then
+						local w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "ekkan")
+						if w_1_level > 0 then
 							unitName = "ekkan_skeleton_archer"
-							attackDamage = caster:GetAverageTrueAttackDamage(caster)*a_b_level*0.5
+							attackDamage = caster:GetAverageTrueAttackDamage(caster)*w_1_level*0.5
 							applyTexture = true
 						end
 					elseif luck <= 6 then
-						c_b_level = Runes:GetTotalRuneLevel(caster, 3, "c_b", "ekkan")
-						if c_b_level > 0 then
+						w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "ekkan")
+						if w_3_level > 0 then
 							unitName = "ekkan_skeleton_mage"
 						end
 					end
 					local skeleton = CreateUnitByName(unitName, summonPosition, false, nil, nil, caster:GetTeamNumber())
 					skeleton:SetControllableByPlayer(caster:GetPlayerOwnerID(), false)
 					local skeletonDuration = event.skeleton_duration
-					local b_b_level = Runes:GetTotalRuneLevel(caster, 2, "b_b", "ekkan")
-					if b_b_level > 0 then
-						skeletonDuration = skeletonDuration + 0.75*b_b_level
+					local w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "ekkan")
+					if w_2_level > 0 then
+						skeletonDuration = skeletonDuration + 0.75*w_2_level
 					end
 					if caster:HasModifier("modifier_ekkan_glyph_3_1") then
 						skeletonDuration = skeletonDuration*2
@@ -79,7 +79,7 @@ function cast_raise_skeleton(event)
 				    skeleton:SetHealth(skeleton_health)	
 				    skeleton.ekkan_unit = true
 				    skeleton.hero = caster
-				    skeleton.c_b_level = c_b_level
+				    skeleton.w_3_level = w_3_level
 					table.insert(ability.skeleTable, skeleton)
 					local max_skeletons = event.max_skeletons
 					if caster:HasModifier("modifier_ekkan_glyph_1_1") then
@@ -98,10 +98,10 @@ function cast_raise_skeleton(event)
 					ability:ApplyDataDrivenModifier(caster, skeleton, "modifier_skeleton_spawning", {duration = 0.5})
 					CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_visage/visage_stone_form.vpcf", skeleton, 3)
 					EmitSoundOn("Ekkan.SkeletonSpawn", skeleton)
-					local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "ekkan")
-					if d_b_level > 0 then
+					local w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "ekkan")
+					if w_4_level > 0 then
 						ability:ApplyDataDrivenModifier(caster, skeleton, "modifier_ekkan_d_b_magic_resist", {})
-						skeleton:SetModifierStackCount("modifier_ekkan_d_b_magic_resist", caster, d_b_level)
+						skeleton:SetModifierStackCount("modifier_ekkan_d_b_magic_resist", caster, w_4_level)
 					end
 					skeleton.stance = "aggressive"
 					skeleton:SetOwner(caster)
@@ -191,7 +191,7 @@ function mage_blast_target_point(event)
 	local preParticle = ParticleManager:CreateParticle("particles/roshpit/ekkan/mage_preblast.vpcf", PATTACH_CUSTOMORIGIN, hero)
 	ParticleManager:SetParticleControl(preParticle, 0, point)
 	ParticleManager:SetParticleControl(preParticle, 1, Vector(radius, delay, radius))
-	local damage = caster.c_b_level*0.4*caster:GetAverageTrueAttackDamage(caster)
+	local damage = caster.w_3_level*0.4*caster:GetAverageTrueAttackDamage(caster)
 	EmitSoundOnLocationWithCaster(point, "Ekkan.SkeletonMage.PreBlast", caster)
 	Timers:CreateTimer(delay, function()
 		EmitSoundOnLocationWithCaster(point, "Ekkan.SkeletonMage.Blast", caster)
@@ -203,7 +203,7 @@ function mage_blast_target_point(event)
 			for _,enemy in pairs(enemies) do
 				Filters:TakeArgumentsAndApplyDamage(enemy, hero, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_mage_blast_slow", {duration = 5})
-				enemy:SetModifierStackCount("modifier_mage_blast_slow", caster, caster.c_b_level)
+				enemy:SetModifierStackCount("modifier_mage_blast_slow", caster, caster.w_3_level)
 			end
 		end 	
 		Timers:CreateTimer(5, function()
@@ -217,10 +217,10 @@ function ekkan_think(event)
 	local caster = event.caster
 	local ability = event.ability
 
-	local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "ekkan")
-	if d_b_level > 0 then
+	local w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "ekkan")
+	if w_4_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_ekkan_d_b_magic_resist", {})
-		caster:SetModifierStackCount("modifier_ekkan_d_b_magic_resist", caster, d_b_level)
+		caster:SetModifierStackCount("modifier_ekkan_d_b_magic_resist", caster, w_4_level)
 	else
 		caster:RemoveModifierByName("modifier_ekkan_d_b_magic_resist")
 	end

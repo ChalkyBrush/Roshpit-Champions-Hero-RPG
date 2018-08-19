@@ -16,17 +16,17 @@ function start_channel(event)
 		ability:StartCooldown(cooldown)
 	end
 	if not caster:HasModifier("modifier_sorceress_immortal_fire_avatar") then
-		rune_a_d(caster, ability)
+		rune_r_1(caster, ability)
 	end
-	ability.rune_b_d_level = rune_b_d(caster, ability)
-	caster.d_d_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+	ability.rune_r_2_level = rune_r_2(caster, ability)
+	caster.r_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
  	local c_d_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
  	local point = event.target_points[1]
 	if c_d_level > 0 then
-		ability.c_d_particle = ParticleManager:CreateParticle("particles/roshpit/sorceress/flamestrike_indicator_portrait.vpcf", PATTACH_WORLDORIGIN, caster)
-		ParticleManager:SetParticleControl(ability.c_d_particle, 0, point)
-		ParticleManager:SetParticleControl(ability.c_d_particle, 1, point)
-		ParticleManager:SetParticleControl(ability.c_d_particle, 2, point)	
+		ability.r_3_particle = ParticleManager:CreateParticle("particles/roshpit/sorceress/flamestrike_indicator_portrait.vpcf", PATTACH_WORLDORIGIN, caster)
+		ParticleManager:SetParticleControl(ability.r_3_particle, 0, point)
+		ParticleManager:SetParticleControl(ability.r_3_particle, 1, point)
+		ParticleManager:SetParticleControl(ability.r_3_particle, 2, point)	
 	end   
 end
 
@@ -85,9 +85,9 @@ function begin_pyro(event)
 	projectile = ProjectileManager:CreateLinearProjectile(info)
 	Filters:CastSkillArguments(4, caster)
 
-	local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "sorceress") 
+	local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "sorceress") 
 	if c_d_level > 0 then
-		-- local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "sorceress")
+		-- local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "sorceress")
 		local runesCount  =c_d_level
 		-- damage = damage + 0.0001*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*d_d_level*damage
 		sorceress_c_d(caster, target, 560, runesCount)
@@ -101,17 +101,17 @@ function channel_end(event)
 		StopSoundEvent("Hero_Batrider.Firefly.loop", caster.avatar)
 	end
 	local ability = event.ability
-	if ability.c_d_particle then
-		ParticleManager:DestroyParticle(ability.c_d_particle, false)
-		ability.c_d_particle = false
+	if ability.r_3_particle then
+		ParticleManager:DestroyParticle(ability.r_3_particle, false)
+		ability.r_3_particle = false
 	end
 end
 
-function rune_a_d(caster, ability)
+function rune_r_1(caster, ability)
   local runeUnit = caster.runeUnit
-  local runeAbility = runeUnit:FindAbilityByName("sorceress_rune_a_d")
+  local runeAbility = runeUnit:FindAbilityByName("sorceress_rune_r_1")
   local abilityLevel = runeAbility:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_d")
+  local bonusLevel = Runes:GetTotalBonus(runeUnit, "r_1")
   local totalLevel = abilityLevel + bonusLevel
   if totalLevel > 0 and not caster:HasModifier("modifier_clear_cast") then
   	local fireball = caster:FindAbilityByName("fireball")
@@ -121,7 +121,7 @@ function rune_a_d(caster, ability)
   	ability:ApplyDataDrivenModifier(caster, caster, "modifier_pyro_cooldown", {duration = 17})
   	fireball:SetLevel(ability:GetLevel())
   	fireball:SetAbilityIndex(DOTA_ULTIMATE_SLOT)
-  	fireball.rune_a_d_level = totalLevel
+  	fireball.rune_r_1_level = totalLevel
   	caster:SwapAbilities("pyroblast", "fireball", false, true)
   	-- Timers:CreateTimer(17,function()
   	-- 	ability:SetLevel(iceLance:GetLevel())
@@ -141,7 +141,7 @@ function cooldownEnd(event)
 end
 
 
-function rune_b_d(caster, ability)
+function rune_r_2(caster, ability)
   local totalLevel = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
   return totalLevel
 end
@@ -153,17 +153,17 @@ function pyroblast_impact(event)
 	local target = event.target
 	local damage = event.damage
 	if caster:HasModifier("modifier_clear_cast") then
-		if ability.c_c_amp then
-			damage = damage*ability.c_c_amp
+		if ability.e_3_amp then
+			damage = damage*ability.e_3_amp
 		end
 	end
 	if caster:HasModifier("modifier_sorceress_glyph_7_1") then
 		damage = damage*1.5
 	end
-	-- damage = damage + 0.0001*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*ability.d_d_level*damage
+	-- damage = damage + 0.0001*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*ability.r_4_level*damage
 	local filterDamage = Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
-	if ability.rune_b_d_level > 0 then
-		applyIgnite(caster, ability, filterDamage, target, ability.rune_b_d_level, 6)
+	if ability.rune_r_2_level > 0 then
+		applyIgnite(caster, ability, filterDamage, target, ability.rune_r_2_level, 6)
 	end
 	Filters:ApplyStun(caster, stun_duration, target)
 	
@@ -180,8 +180,8 @@ end
 function applyIgnite(caster, ability, damage, target, b_d_level, duration)
 	local igniteDPS = damage*0.033*b_d_level
 	if caster:HasModifier("modifier_clear_cast") then
-		if ability.c_c_amp then
-			igniteDPS = igniteDPS*ability.c_c_amp
+		if ability.e_3_amp then
+			igniteDPS = igniteDPS*ability.e_3_amp
 		end
 	end
 	if target:HasModifier("modifier_pyroblast_ignite") and target.igniteDPS then

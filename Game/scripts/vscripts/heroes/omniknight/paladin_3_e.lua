@@ -1,4 +1,4 @@
-function crusader_dash_start(event)
+function paladin_e_dash_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	Filters:CastSkillArguments(3, caster)
@@ -13,10 +13,10 @@ function crusader_dash_start(event)
 	end)
 	local dash_duration = Filters:GetAdjustedBuffDuration(caster, 0.8, false)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_crusader_dash", {duration = dash_duration})
-	ability.c_c_level = Runes:GetTotalRuneLevel(caster, 3, "c_c", "paladin")
-	ability.projectileDamage = caster:GetAverageTrueAttackDamage(caster)*(0.25*ability.c_c_level+0.1)
-	caster.d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "paladin")
-	if ability.c_c_level > 0 then
+	ability.e_3_level = Runes:GetTotalRuneLevel(caster, 3, "e_3", "paladin")
+	ability.projectileDamage = caster:GetAverageTrueAttackDamage(caster)*(0.25*ability.e_3_level+0.1)
+	caster.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "paladin")
+	if ability.e_3_level > 0 then
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Paladin.FalconDash", caster)
 		local info = 
 		{
@@ -43,7 +43,7 @@ function crusader_dash_start(event)
 	end
 end
 
-function dash_think(event)
+function paladin_e_dash_think(event)
   local ability = event.ability
   local caster = event.caster
   local position = caster:GetAbsOrigin()
@@ -57,13 +57,13 @@ function dash_think(event)
 
 end
 
-function dash_end(event)
+function paladin_e_dash_end(event)
 	local caster = event.caster
 	local ability = event.ability
 	WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
 end
 
-function paladin_rune_c_c_falcon_hit(event)
+function paladin_rune_e_3_falcon_hit(event)
 	local target = event.target
 	local caster = event.caster
 	local ability = event.ability
@@ -72,51 +72,18 @@ function paladin_rune_c_c_falcon_hit(event)
 	local pfx = ParticleManager:CreateParticle( particleName, PATTACH_POINT, target )
 	ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_POINT, "attach_hitloc", target:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_POINT, "attach_hitloc", target:GetAbsOrigin(), true)
-	local damage = caster:GetAverageTrueAttackDamage(caster)*(ability.c_c_level*0.25+0.1)
-	-- damage = damage + 0.0004*(caster:GetIntellect()+caster:GetStrength()+caster:GetAgility())/10*ability.d_b_level*damage
+	local damage = caster:GetAverageTrueAttackDamage(caster)*(ability.e_3_level*0.25+0.1)
+	-- damage = damage + 0.0004*(caster:GetIntellect()+caster:GetStrength()+caster:GetAgility())/10*ability.w_4_level*damage
 
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 3, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 	Timers:CreateTimer(1.0, function() 
 	  ParticleManager:DestroyParticle( pfx, false )
 	end) 
-	rune_d_c(caster, ability, target)
+	paladin_rune_e_4(caster, ability, target)
 end
 
-function rune_c_c(caster, ability)
-  if ability.c_c_level > 0 then
-  	local position = caster:GetAbsOrigin()
-  	local radius = 650	
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-	
-	if #enemies > 0 then
-		local projectileCount = 0
-		for _,enemy in pairs(enemies) do
-			local info = 
-			{
-				Target = enemy,
-				Source = caster,
-				Ability = ability,	
-				EffectName = "particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt.vpcf",
-				StartPosition = "attach_hitloc",
-				bDrawsOnMinimap = false, 
-			        bDodgeable = true,
-			        bIsAttack = false, 
-			        bVisibleToEnemies = true,
-			        bReplaceExisting = false,
-			        flExpireTime = GameRules:GetGameTime() + 4,
-				bProvidesVision = true,
-				iVisionRadius = 0,
-				iMoveSpeed = 400,
-				iVisionTeamNumber = caster:GetTeamNumber()
-			}
-			projectile = ProjectileManager:CreateTrackingProjectile(info)
-		end
-	end  	
-  end
-end
-
-function rune_d_c(caster, ability, target)
-	local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "paladin")
+function paladin_rune_e_4(caster, ability, target)
+	local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "paladin")
 	if d_c_level > 0 then
 		local d_c_duration = Filters:GetAdjustedBuffDuration(caster, 8, false)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_d_c", {duration = d_c_duration})

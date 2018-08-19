@@ -1045,7 +1045,7 @@ function candy_crush_unit_hit(event)
 			target.link_lock = true
 			local pfxName = "particles/units/heroes/hero_wisp/tether_green.vpcf"
 			if target.color == "red" then
-				pfxName = "particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
+				pfxName = "particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
 			elseif target.color == "blue" then
 				pfxName = "particles/units/heroes/hero_wisp/wisp_tether_agh.vpcf"
 			elseif target.color == "yellow" then

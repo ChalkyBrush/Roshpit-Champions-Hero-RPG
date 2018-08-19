@@ -286,66 +286,66 @@ end
 
 
 function Body:runeProperty(propertyName, propertyValue, hero)
-	if propertyName == "rune_a_a" then
-		hero.runeUnit.body.a_a = hero.runeUnit.body.a_a + propertyValue
-		Body:setRuneBonusNetTable(hero.runeUnit.body.a_a, propertyName, hero)
-	elseif propertyName == "rune_a_b" then
-		hero.runeUnit.body.a_b = hero.runeUnit.body.a_b + propertyValue
-		Body:setRuneBonusNetTable(hero.runeUnit.body.a_b, propertyName, hero)
-	elseif propertyName == "rune_a_c" then
-		hero.runeUnit.body.a_c = hero.runeUnit.body.a_c + propertyValue
-		Body:setRuneBonusNetTable(hero.runeUnit.body.a_c, propertyName, hero)
-	elseif propertyName == "rune_a_d" then
-		hero.runeUnit.body.a_d = hero.runeUnit.body.a_d + propertyValue
-		Body:setRuneBonusNetTable(hero.runeUnit.body.a_d, propertyName, hero)
-	elseif propertyName == "rune_b_a" then
-		hero.runeUnit2.body.b_a = hero.runeUnit2.body.b_a + propertyValue
-		Body:setRuneBonusNetTable(hero.runeUnit2.body.b_a, propertyName, hero)
-	elseif propertyName == "rune_b_b" then
-		hero.runeUnit2.body.b_b = hero.runeUnit2.body.b_b + propertyValue
-		Body:setRuneBonusNetTable(hero.runeUnit2.body.b_b, propertyName, hero)
-	elseif propertyName == "rune_b_c" then
-		hero.runeUnit2.body.b_c = hero.runeUnit2.body.b_c + propertyValue
-		Body:setRuneBonusNetTable(hero.runeUnit2.body.b_c, propertyName, hero)
-	elseif propertyName == "rune_b_d" then
-		hero.runeUnit2.body.b_d = hero.runeUnit2.body.b_d + propertyValue
-		Body:setRuneBonusNetTable(hero.runeUnit2.body.b_d, propertyName, hero)
-	elseif propertyName == "rune_c_a" then
-		hero.runeUnit3.body.c_a = hero.runeUnit3.body.c_a + propertyValue
-		Body:setRuneBonusNetTable(hero.runeUnit3.body.c_a, propertyName, hero)
-	elseif propertyName == "rune_c_b" then
-		hero.runeUnit3.body.c_b = hero.runeUnit3.body.c_b + propertyValue
-		Body:setRuneBonusNetTable(hero.runeUnit3.body.c_b, propertyName, hero)
-	elseif propertyName == "rune_c_c" then
-		hero.runeUnit3.body.c_c = hero.runeUnit3.body.c_c + propertyValue
-		Body:setRuneBonusNetTable(hero.runeUnit3.body.c_c, propertyName, hero)
-	elseif propertyName == "rune_c_d" then
-		hero.runeUnit3.body.c_d = hero.runeUnit3.body.c_d + propertyValue
-		Body:setRuneBonusNetTable(hero.runeUnit3.body.c_d, propertyName, hero)
-	elseif propertyName == "rune_d_a" then
-		hero.runeUnit4.body.d_a = hero.runeUnit4.body.d_a + propertyValue
-		Body:setRuneBonusNetTable(hero.runeUnit4.body.d_a, propertyName, hero)
-	elseif propertyName == "rune_d_b" then
-		hero.runeUnit4.body.d_b = hero.runeUnit4.body.d_b + propertyValue
-		Body:setRuneBonusNetTable(hero.runeUnit4.body.d_b, propertyName, hero)
-	elseif propertyName == "rune_d_c" then
-		hero.runeUnit4.body.d_c = hero.runeUnit4.body.d_c + propertyValue
-		Body:setRuneBonusNetTable(hero.runeUnit4.body.d_c, propertyName, hero)
-	elseif propertyName == "rune_d_d" then
-		hero.runeUnit4.body.d_d = hero.runeUnit4.body.d_d + propertyValue
-		Body:setRuneBonusNetTable(hero.runeUnit4.body.d_d, propertyName, hero)
+	if propertyName == "rune_q_1" then
+		hero.runeUnit.body.q_1 = hero.runeUnit.body.q_1 + propertyValue
+		Body:setRuneBonusNetTable(hero.runeUnit.body.q_1, propertyName, hero)
+	elseif propertyName == "rune_w_1" then
+		hero.runeUnit.body.w_1 = hero.runeUnit.body.w_1 + propertyValue
+		Body:setRuneBonusNetTable(hero.runeUnit.body.w_1, propertyName, hero)
+	elseif propertyName == "rune_e_1" then
+		hero.runeUnit.body.e_1 = hero.runeUnit.body.e_1 + propertyValue
+		Body:setRuneBonusNetTable(hero.runeUnit.body.e_1, propertyName, hero)
+	elseif propertyName == "rune_r_1" then
+		hero.runeUnit.body.r_1 = hero.runeUnit.body.r_1 + propertyValue
+		Body:setRuneBonusNetTable(hero.runeUnit.body.r_1, propertyName, hero)
+	elseif propertyName == "rune_q_2" then
+		hero.runeUnit2.body.q_2 = hero.runeUnit2.body.q_2 + propertyValue
+		Body:setRuneBonusNetTable(hero.runeUnit2.body.q_2, propertyName, hero)
+	elseif propertyName == "rune_w_2" then
+		hero.runeUnit2.body.w_2 = hero.runeUnit2.body.w_2 + propertyValue
+		Body:setRuneBonusNetTable(hero.runeUnit2.body.w_2, propertyName, hero)
+	elseif propertyName == "rune_e_2" then
+		hero.runeUnit2.body.e_2 = hero.runeUnit2.body.e_2 + propertyValue
+		Body:setRuneBonusNetTable(hero.runeUnit2.body.e_2, propertyName, hero)
+	elseif propertyName == "rune_r_2" then
+		hero.runeUnit2.body.r_2 = hero.runeUnit2.body.r_2 + propertyValue
+		Body:setRuneBonusNetTable(hero.runeUnit2.body.r_2, propertyName, hero)
+	elseif propertyName == "rune_q_3" then
+		hero.runeUnit3.body.q_3 = hero.runeUnit3.body.q_3 + propertyValue
+		Body:setRuneBonusNetTable(hero.runeUnit3.body.q_3, propertyName, hero)
+	elseif propertyName == "rune_w_3" then
+		hero.runeUnit3.body.w_3 = hero.runeUnit3.body.w_3 + propertyValue
+		Body:setRuneBonusNetTable(hero.runeUnit3.body.w_3, propertyName, hero)
+	elseif propertyName == "rune_e_3" then
+		hero.runeUnit3.body.e_3 = hero.runeUnit3.body.e_3 + propertyValue
+		Body:setRuneBonusNetTable(hero.runeUnit3.body.e_3, propertyName, hero)
+	elseif propertyName == "rune_r_3" then
+		hero.runeUnit3.body.r_3 = hero.runeUnit3.body.r_3 + propertyValue
+		Body:setRuneBonusNetTable(hero.runeUnit3.body.r_3, propertyName, hero)
+	elseif propertyName == "rune_q_4" then
+		hero.runeUnit4.body.q_4 = hero.runeUnit4.body.q_4 + propertyValue
+		Body:setRuneBonusNetTable(hero.runeUnit4.body.q_4, propertyName, hero)
+	elseif propertyName == "rune_w_4" then
+		hero.runeUnit4.body.w_4 = hero.runeUnit4.body.w_4 + propertyValue
+		Body:setRuneBonusNetTable(hero.runeUnit4.body.w_4, propertyName, hero)
+	elseif propertyName == "rune_e_4" then
+		hero.runeUnit4.body.e_4 = hero.runeUnit4.body.e_4 + propertyValue
+		Body:setRuneBonusNetTable(hero.runeUnit4.body.e_4, propertyName, hero)
+	elseif propertyName == "rune_r_4" then
+		hero.runeUnit4.body.r_4 = hero.runeUnit4.body.r_4 + propertyValue
+		Body:setRuneBonusNetTable(hero.runeUnit4.body.r_4, propertyName, hero)
 	elseif propertyName == "t1_runes" then
-		local runeTable = {"rune_a_a", "rune_a_b", "rune_a_c", "rune_a_d"}
+		local runeTable = {"rune_q_1", "rune_w_1", "rune_e_1", "rune_r_1"}
 		for i = 1, #runeTable, 1 do
 			Body:runeProperty(runeTable[i], propertyValue, hero)
 		end
 	elseif propertyName == "t2_runes" then
-		local runeTable = {"rune_b_a", "rune_b_b", "rune_b_c", "rune_b_d"}
+		local runeTable = {"rune_q_2", "rune_w_2", "rune_e_2", "rune_r_2"}
 		for i = 1, #runeTable, 1 do
 			Body:runeProperty(runeTable[i], propertyValue, hero)
 		end
 	elseif propertyName == "t3_runes" then
-		local runeTable = {"rune_c_a", "rune_c_b", "rune_c_c", "rune_c_d"}
+		local runeTable = {"rune_q_3", "rune_w_3", "rune_e_3", "rune_r_3"}
 		for i = 1, #runeTable, 1 do
 			Body:runeProperty(runeTable[i], propertyValue, hero)
 		end
@@ -484,21 +484,21 @@ function Body:remove_modifiers(hero)
 end
 
 function Body:remove_rune_bonuses(hero)
-	hero.runeUnit.body.a_a = 0
-	hero.runeUnit.body.a_b = 0
-	hero.runeUnit.body.a_c = 0
-	hero.runeUnit.body.a_d = 0
-	hero.runeUnit2.body.b_a = 0
-	hero.runeUnit2.body.b_b = 0
-	hero.runeUnit2.body.b_c = 0
-	hero.runeUnit2.body.b_d = 0
-	hero.runeUnit3.body.c_a = 0
-	hero.runeUnit3.body.c_b = 0
-	hero.runeUnit3.body.c_c = 0
-	hero.runeUnit3.body.c_d = 0
-	hero.runeUnit4.body.d_a = 0
-	hero.runeUnit4.body.d_b = 0
-	hero.runeUnit4.body.d_c = 0
-	hero.runeUnit4.body.d_d = 0
+	hero.runeUnit.body.q_1 = 0
+	hero.runeUnit.body.w_1 = 0
+	hero.runeUnit.body.e_1 = 0
+	hero.runeUnit.body.r_1 = 0
+	hero.runeUnit2.body.q_2 = 0
+	hero.runeUnit2.body.w_2 = 0
+	hero.runeUnit2.body.e_2 = 0
+	hero.runeUnit2.body.r_2 = 0
+	hero.runeUnit3.body.q_3 = 0
+	hero.runeUnit3.body.w_3 = 0
+	hero.runeUnit3.body.e_3 = 0
+	hero.runeUnit3.body.r_3 = 0
+	hero.runeUnit4.body.q_4 = 0
+	hero.runeUnit4.body.w_4 = 0
+	hero.runeUnit4.body.e_4 = 0
+	hero.runeUnit4.body.r_4 = 0
 	Runes:ResetRuneBonuses(hero, "body")
 end

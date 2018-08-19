@@ -11,22 +11,22 @@ function demon_hunter_start(event)
 	else
 		StartAnimation(caster, {duration=0.9, activity=ACT_DOTA_CAST_ABILITY_2, rate=1})
 	end
-	local rune_b_b_level = Runes:GetTotalRuneLevel(caster, 2, "b_b", "chernobog")
-	local rune_d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "chernobog")
-	if rune_b_b_level > 0 then
+	local rune_w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "chernobog")
+	local rune_w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "chernobog")
+	if rune_w_2_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_demon_hunter_b_b_inner_beast_active", {})
-		caster:SetModifierStackCount("modifier_demon_hunter_b_b_inner_beast_active", caster, rune_b_b_level)
+		caster:SetModifierStackCount("modifier_demon_hunter_b_b_inner_beast_active", caster, rune_w_2_level)
 
 		if not caster:HasModifier("modifier_chernobog_glyph_5_a") then
 			caster:RemoveModifierByName("modifier_demon_hunter_b_b_inner_beast_inactive")
 		end
 	end
-	if rune_d_b_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_rune_d_b_active", {})
-		caster:SetModifierStackCount("modifier_chernobog_rune_d_b_active", caster, rune_d_b_level)
+	if rune_w_4_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_rune_w_4_active", {})
+		caster:SetModifierStackCount("modifier_chernobog_rune_w_4_active", caster, rune_w_4_level)
 
 		if not caster:HasModifier("modifier_chernobog_glyph_5_a") then
-			caster:RemoveModifierByName("modifier_chernobog_rune_d_b_inactive")
+			caster:RemoveModifierByName("modifier_chernobog_rune_w_4_inactive")
 		end
 	end
 	Timers:CreateTimer(0.03, function()
@@ -42,23 +42,23 @@ function demon_hunter_end(event)
 	local healthPercent = caster:GetHealth()/caster:GetMaxHealth()
 	-- caster:SetModel("models/heroes/nightstalker/nightstalker.vmdl")
 	-- caster:SetOriginalModel("models/heroes/nightstalker/nightstalker.vmdl")
-	local rune_b_b_level = Runes:GetTotalRuneLevel(caster, 2, "b_b", "chernobog")
-	local rune_d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "chernobog")
-	if rune_b_b_level > 0 then
+	local rune_w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "chernobog")
+	local rune_w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "chernobog")
+	if rune_w_2_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_demon_hunter_b_b_inner_beast_inactive", {})
-		caster:SetModifierStackCount("modifier_demon_hunter_b_b_inner_beast_inactive", caster, rune_b_b_level)
+		caster:SetModifierStackCount("modifier_demon_hunter_b_b_inner_beast_inactive", caster, rune_w_2_level)
 
 		if not caster:HasModifier("modifier_chernobog_glyph_5_a") then
 			caster:RemoveModifierByName("modifier_demon_hunter_b_b_inner_beast_active")
 		end
 
 	end
-	if rune_d_b_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_rune_d_b_inactive", {})
-		caster:SetModifierStackCount("modifier_chernobog_rune_d_b_inactive", caster, rune_d_b_level)
+	if rune_w_4_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_rune_w_4_inactive", {})
+		caster:SetModifierStackCount("modifier_chernobog_rune_w_4_inactive", caster, rune_w_4_level)
 
 		if not caster:HasModifier("modifier_chernobog_glyph_5_a") then
-			caster:RemoveModifierByName("modifier_chernobog_rune_d_b_active")
+			caster:RemoveModifierByName("modifier_chernobog_rune_w_4_active")
 		end
 	end
 	if not caster:HasModifier("modifier_chernobog_demon_form") then
@@ -95,32 +95,32 @@ function demon_hunter_a_b_attack(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = attacker
-	local rune_a_b_level = Runes:GetTotalRuneLevel(attacker, 1, "a_b", "chernobog")
-	local rune_c_b_level = Runes:GetTotalRuneLevel(attacker, 3, "c_b", "chernobog")
+	local rune_w_1_level = Runes:GetTotalRuneLevel(attacker, 1, "w_1", "chernobog")
+	local rune_w_3_level = Runes:GetTotalRuneLevel(attacker, 3, "w_3", "chernobog")
 	local mana_drain_per_attack = event.mana_drain_per_attack
-	if rune_a_b_level > 0 then
+	if rune_w_1_level > 0 then
 		if attacker:HasModifier("modifier_demon_hunter") or attacker:HasModifier("modifier_chernobog_glyph_5_a") then
 			CustomAbilities:QuickAttachParticle("particles/chernobog/chernobog_a_b_timedialate.vpcf", target, 2)
-			local extraDamage = rune_a_b_level*500*mana_drain_per_attack
+			local extraDamage = rune_w_1_level*500*mana_drain_per_attack
 			print(extraDamage)
 			Filters:TakeArgumentsAndApplyDamage(target, attacker, extraDamage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
 		end
 		if not attacker:HasModifier("modifier_demon_hunter") or attacker:HasModifier("modifier_chernobog_glyph_5_a") then
 			CustomAbilities:QuickAttachParticle("particles/chernobog/chernobog_a_b_timedialate.vpcf", attacker, 2)
-			Filters:ApplyHeal(attacker, attacker, 500*rune_a_b_level, true,false)
+			Filters:ApplyHeal(attacker, attacker, 500*rune_w_1_level, true,false)
 		end
 	end
-	if rune_c_b_level > 0 then
+	if rune_w_3_level > 0 then
 		if ability.fervorTarget then
 			if IsValidEntity(ability.fervorTarget) then
 				if target:GetEntityIndex() == ability.fervorTarget:GetEntityIndex() then
 				else
-					attacker:RemoveModifierByName("modifier_chernobog_rune_c_b_fervor_self_visible")
-					attacker:RemoveModifierByName("modifier_chernobog_rune_c_b_fervor_self_invisible")
+					attacker:RemoveModifierByName("modifier_chernobog_rune_w_3_fervor_self_visible")
+					attacker:RemoveModifierByName("modifier_chernobog_rune_w_3_fervor_self_invisible")
 					local existingTarget =ability.fervorTarget
 					if IsValidEntity(existingTarget) then
-						existingTarget:RemoveModifierByName("modifier_chernobog_rune_c_b_fervor_enemy_visible")
-						existingTarget:RemoveModifierByName("modifier_chernobog_rune_c_b_fervor_enemy_invisible")
+						existingTarget:RemoveModifierByName("modifier_chernobog_rune_w_3_fervor_enemy_visible")
+						existingTarget:RemoveModifierByName("modifier_chernobog_rune_w_3_fervor_enemy_invisible")
 					end
 				end
 			end
@@ -129,18 +129,18 @@ function demon_hunter_a_b_attack(event)
 		local stackGain = 1
 		local fervorSelfDuration = Filters:GetAdjustedBuffDuration(caster, 9, false)
 		if attacker:HasModifier("modifier_demon_hunter") or  attacker:HasModifier("modifier_chernobog_glyph_5_a") then
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_rune_c_b_fervor_self_visible", {duration = fervorSelfDuration})
-			local stackCount = caster:GetModifierStackCount("modifier_chernobog_rune_c_b_fervor_self_visible", caster) + stackGain
-			caster:SetModifierStackCount("modifier_chernobog_rune_c_b_fervor_self_visible", caster, stackCount)
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_rune_c_b_fervor_self_invisible", {duration = fervorSelfDuration})
-			caster:SetModifierStackCount("modifier_chernobog_rune_c_b_fervor_self_invisible", caster, stackCount*rune_c_b_level)
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_rune_w_3_fervor_self_visible", {duration = fervorSelfDuration})
+			local stackCount = caster:GetModifierStackCount("modifier_chernobog_rune_w_3_fervor_self_visible", caster) + stackGain
+			caster:SetModifierStackCount("modifier_chernobog_rune_w_3_fervor_self_visible", caster, stackCount)
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_rune_w_3_fervor_self_invisible", {duration = fervorSelfDuration})
+			caster:SetModifierStackCount("modifier_chernobog_rune_w_3_fervor_self_invisible", caster, stackCount*rune_w_3_level)
 		end
 		if not attacker:HasModifier("modifier_demon_hunter") or  attacker:HasModifier("modifier_chernobog_glyph_5_a") then
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_chernobog_rune_c_b_fervor_enemy_visible", {duration = 90})
-			local stackCount = target:GetModifierStackCount("modifier_chernobog_rune_c_b_fervor_enemy_visible", caster) + stackGain
-			target:SetModifierStackCount("modifier_chernobog_rune_c_b_fervor_enemy_visible", caster, stackCount)
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_chernobog_rune_c_b_fervor_enemy_invisible", {duration = 90})
-			target:SetModifierStackCount("modifier_chernobog_rune_c_b_fervor_enemy_invisible", caster, stackCount*rune_c_b_level)
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_chernobog_rune_w_3_fervor_enemy_visible", {duration = 90})
+			local stackCount = target:GetModifierStackCount("modifier_chernobog_rune_w_3_fervor_enemy_visible", caster) + stackGain
+			target:SetModifierStackCount("modifier_chernobog_rune_w_3_fervor_enemy_visible", caster, stackCount)
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_chernobog_rune_w_3_fervor_enemy_invisible", {duration = 90})
+			target:SetModifierStackCount("modifier_chernobog_rune_w_3_fervor_enemy_invisible", caster, stackCount*rune_w_3_level)
 		end
 	end
 end

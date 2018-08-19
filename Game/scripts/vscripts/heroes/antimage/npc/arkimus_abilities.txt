@@ -232,12 +232,12 @@
 
 	}
 
-	"arkimus_rune_a_d_arcana2"
+	"arkimus_rune_r_1_arcana2"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"arkimus/arkimus_rune_a_d_arcana2"
+		"AbilityTextureName"	"arkimus/arkimus_rune_r_1_arcana2"
 		"MaxLevel"				"20"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"LevelsBetweenUpgrades" "0"
@@ -261,12 +261,12 @@
 		}
 	}
 
-	"arkimus_rune_b_d_arcana2"
+	"arkimus_rune_r_2_arcana2"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"arkimus/arkimus_rune_b_d_arcana2"
+		"AbilityTextureName"	"arkimus/arkimus_rune_r_2_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -284,12 +284,12 @@
 		}
 	}
 
-	"arkimus_rune_c_d_arcana2"
+	"arkimus_rune_r_3_arcana2"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"arkimus/arkimus_rune_c_d_arcana2"
+		"AbilityTextureName"	"arkimus/arkimus_rune_r_3_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -302,12 +302,12 @@
 		}
 	}
 
-	"arkimus_rune_d_d_arcana2"
+	"arkimus_rune_r_4_arcana2"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"arkimus/arkimus_rune_d_d_arcana2"
+		"AbilityTextureName"	"arkimus/arkimus_rune_r_4_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"

@@ -340,7 +340,7 @@ function Tanari:TriggerTerrasicBeacon(startingAngle, desiredAngle, beaconStartLo
 
 	end
 	Timers:CreateTimer(1.6, function()
-		local particleName = "particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
+		local particleName = "particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
 		local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, Events.GameMaster )
 		ParticleManager:SetParticleControl(pfx, 0, particlePointBeacon+Vector(0,0,120))
 		ParticleManager:SetParticleControl(pfx, 1, Vector(-2711, -3919, 1020))

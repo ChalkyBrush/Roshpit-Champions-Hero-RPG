@@ -2830,10 +2830,10 @@ function phoenix_die(event)
 	if not caster:HasModifier("modifier_phoenix_emblem_cooldown") then
 		local bRez = true
 		if caster:GetUnitName() == "npc_dota_hero_omniknight" then
-			local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "a_c", "paladin")
+			local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "paladin")
 			local runeUnit = caster.runeUnit
-			local runeAbility = runeUnit:FindAbilityByName("paladin_rune_a_c")
-			if a_c_level > 0 and caster:HasModifier("modifier_paladin_rune_a_c_revivable") then
+			local runeAbility = runeUnit:FindAbilityByName("paladin_rune_e_1")
+			if a_c_level > 0 and caster:HasModifier("modifier_paladin_rune_e_1_revivable") then
 				bRez = false
 			end				
 		end

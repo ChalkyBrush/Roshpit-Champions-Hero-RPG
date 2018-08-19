@@ -574,6 +574,10 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 		item.slot = gearSlot
 		item.hasRunePoints = true
 		item.pickedUp = true
+		gearTable.property1name = SaveLoad:FixLoadedRuneProperties(gearTable.property1name)
+		gearTable.property2name = SaveLoad:FixLoadedRuneProperties(gearTable.property2name)
+		gearTable.property3name = SaveLoad:FixLoadedRuneProperties(gearTable.property3name)
+		gearTable.property4name = SaveLoad:FixLoadedRuneProperties(gearTable.property4name)
 		--PROPERTY1
 		item.property1 = gearTable.property1
 		item.property1name = gearTable.property1name
@@ -771,7 +775,61 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			return item
 		end
 	end
+end
 
+function SaveLoad:FixLoadedRuneProperties(propertyName)
+	if propertyName then
+		print("propertyName: "..propertyName)
+		if propertyName == "rune_a_a" then
+			return "rune_q_1"
+		end
+		if propertyName == "rune_b_a" then
+			return "rune_q_2"
+		end
+		if propertyName == "rune_c_a" then
+			return "rune_q_3"
+		end
+		if propertyName == "rune_d_a" then
+			return "rune_q_4"
+		end
+		if propertyName == "rune_a_b" then
+			return "rune_w_1"
+		end
+		if propertyName == "rune_b_b" then
+			return "rune_w_2"
+		end
+		if propertyName == "rune_c_b" then
+			return "rune_w_3"
+		end
+		if propertyName == "rune_d_b" then
+			return "rune_w_4"
+		end
+		if propertyName == "rune_a_c" then
+			return "rune_e_1"
+		end
+		if propertyName == "rune_b_c" then
+			return "rune_e_2"
+		end
+		if propertyName == "rune_c_c" then
+			return "rune_e_3"
+		end
+		if propertyName == "rune_d_c" then
+			return "rune_e_4"
+		end
+		if propertyName == "rune_a_d" then
+			return "rune_r_1"
+		end
+		if propertyName == "rune_b_d" then
+			return "rune_r_2"
+		end
+		if propertyName == "rune_c_d" then
+			return "rune_r_3"
+		end
+		if propertyName == "rune_d_d" then
+			return "rune_r_4"
+		end
+		return propertyName
+	end
 end
 
 function SaveLoad:RemoveProperties(item)

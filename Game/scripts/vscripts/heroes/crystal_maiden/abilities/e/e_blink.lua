@@ -11,10 +11,10 @@ function startCast(event)
     target = WallPhysics:WallSearch(casterOrigin, target, caster)
     local newPosition = target
 
-    Helper.initializeAbilityRunes(caster, 'sorceress', 'a')
-    Helper.initializeAbilityRunes(caster, 'sorceress', 'b')
-    Helper.initializeAbilityRunes(caster, 'sorceress', 'c')
-    Helper.initializeAbilityRunes(caster, 'sorceress', 'd')
+    Helper.initializeAbilityRunes(caster, 'sorceress', 'q')
+    Helper.initializeAbilityRunes(caster, 'sorceress', 'w')
+    Helper.initializeAbilityRunes(caster, 'sorceress', 'e')
+    Helper.initializeAbilityRunes(caster, 'sorceress', 'r')
 
     caster:AddNoDraw()
     caster:SetMoveCapability(DOTA_UNIT_CAP_MOVE_NONE)
@@ -55,12 +55,12 @@ function clearCast(caster, ability)
 
     local pyroblast = caster:FindAbilityByName("pyroblast")
     if pyroblast then
-        pyroblast.c_c_amp = amplify
+        pyroblast.e_3_amp = amplify
         pyroblast:EndCooldown()
     end
     local ice_tornado = caster:FindAbilityByName("sorceress_arcana_ice_tornado")
     if ice_tornado then
-        ice_tornado.c_c_amp = amplify
+        ice_tornado.e_3_amp = amplify
         ice_tornado:EndCooldown()
     end
 
@@ -70,6 +70,6 @@ function clearCastEnd(event)
     local caster = event.caster
     local ice_tornado = caster:FindAbilityByName("sorceress_arcana_ice_tornado")
     if ice_tornado then
-        ice_tornado.c_c_amp = 0
+        ice_tornado.e_3_amp = 0
     end
 end

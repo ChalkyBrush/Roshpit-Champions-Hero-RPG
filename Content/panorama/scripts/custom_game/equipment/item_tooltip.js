@@ -554,22 +554,22 @@ function AddAffixToItem(tooltip, itemProperty, queryUnit, requiredHero, rarityFa
 	var propertyName = $.Localize(itemProperty.propertyName)
 	// itemProperty = itemPropertyCheck(itemProperty)
 	$.Msg(OGpropertyName)
-	if (OGpropertyName.indexOf("rune_") >= 0){
-		var playerIndex = getControllingPlayerIndex()
-		var runeIndex = 1
-		if (OGpropertyName.indexOf("rune_a") >= 0){
-			runeIndex = 1
-		}else if (OGpropertyName.indexOf("rune_b") >= 0){
-			runeIndex = 2
-		}else if (OGpropertyName.indexOf("rune_c") >= 0){
-			runeIndex = 3
-		}else if (OGpropertyName.indexOf("rune_d") >= 0){
-			runeIndex = 4
-		}
+    if (OGpropertyName.indexOf("rune_") >= 0) {
+        var playerIndex = getControllingPlayerIndex()
+        var abilitySlot = -1
+        if (OGpropertyName.indexOf("rune_q") >= 0) {
+            abilitySlot = 0
+        } else if (OGpropertyName.indexOf("rune_w") >= 0) {
+            abilitySlot = 1
+        } else if (OGpropertyName.indexOf("rune_e") >= 0) {
+            abilitySlot = 2
+        } else if (OGpropertyName.indexOf("rune_r") >= 0) {
+            abilitySlot = 3
+        }
+        var runeIndex = getRuneIndexFromRuneName(OGpropertyName)
 		if (requiredHero === undefined){
 			var skill_tree_data = CustomNetTables.GetTableValue( "skill_tree", playerIndex.toString()+"rune_unit"+runeIndex );
 			var rune_unit_index = skill_tree_data.runeUnit;
-			var abilitySlot = getRuneIndexFromRuneName(OGpropertyName)
 			var abilityIndex = 	Entities.GetAbility( rune_unit_index, abilitySlot)
 			propertyName = $.Localize("DOTA_Tooltip_ability_"+Abilities.GetAbilityName( abilityIndex ))
 		}else{
@@ -598,16 +598,18 @@ function AddAffixToItem(tooltip, itemProperty, queryUnit, requiredHero, rarityFa
 	return tooltip
 }
 
-function getRuneIndexFromRuneName(propertyName){
-	var index = 3
-	if (propertyName.indexOf("a_a") >= 1 || propertyName.indexOf("b_a") >= 1 || propertyName.indexOf("c_a") >= 1 || propertyName.indexOf("d_a") >= 1 ){
-		index = 0
-	}else if (propertyName.indexOf("a_b") >= 1 || propertyName.indexOf("b_b") >= 1 || propertyName.indexOf("c_b") >= 1 || propertyName.indexOf("d_b") >= 1 ){
-		index = 1
-	}else if (propertyName.indexOf("a_c") >= 1 || propertyName.indexOf("b_c") >= 1 || propertyName.indexOf("c_c") >= 1 || propertyName.indexOf("d_c") >= 1 ){
-		index = 2
-	}
-	return index
+function getRuneIndexFromRuneName(propertyName) {
+    var index = -1
+    if (propertyName.indexOf("_1") >= 1) {
+        index = 1
+    } else if (propertyName.indexOf("_2") >= 1) {
+        index = 2
+    } else if (propertyName.indexOf("_3") >= 1) {
+        index = 3
+    } else if (propertyName.indexOf("_4") >= 1) {
+        index = 4
+    }
+    return index
 }
 
 function ItemHideTooltip(panelId)

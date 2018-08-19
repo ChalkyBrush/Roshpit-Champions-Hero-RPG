@@ -11,7 +11,7 @@ function flametongue_phase_start(event)
 		end
 		caster.flametongueStarted = false
 	end)
-	caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "spirit_warrior")
+	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "spirit_warrior")
 end
 
 function flametongue_start(event)
@@ -30,11 +30,11 @@ function flametongue_start(event)
 	else
 		target:RemoveModifierByName("modifier_windstrike_weapon")
 	end
-	ability.a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a", "spirit_warrior")
-	ability.b_a_level = Runes:GetTotalRuneLevel(caster, 2, "b_a", "spirit_warrior")
-	local c_a_level = Runes:GetTotalRuneLevel(caster, 3, "c_a", "spirit_warrior")
-	caster.d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "spirit_warrior")
-	if c_a_level > 0 then
+	ability.q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "spirit_warrior")
+	ability.q_2_level = Runes:GetTotalRuneLevel(caster, 2, "q_2", "spirit_warrior")
+	local q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "spirit_warrior")
+	caster.q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "spirit_warrior")
+	if q_3_level > 0 then
 		local windstrike = caster:FindAbilityByName("spirit_warrior_windstrike_weapon")
 		if not windstrike then
 			windstrike = caster:AddAbility("spirit_warrior_windstrike_weapon")
@@ -56,22 +56,22 @@ function flametongue_attack_land(event)
 	EmitSoundOn("SpiritWarrior.FlametongueImpact", target)
 	CustomAbilities:QuickAttachParticle("particles/econ/courier/courier_greevil_orange/courier_greevil_orange_ambient_c.vpcf", target, 1)
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
-	print(ability.a_a_level)
-	if ability.a_a_level > 0 then
+	print(ability.q_1_level)
+	if ability.q_1_level > 0 then
 		print("FIRE EFFECT?")
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_flametongue_a_a_rune", {duration = 5})
 		local stacks = target:GetModifierStackCount("modifier_flametongue_a_a_rune", caster)
 		local newStacks = math.min(stacks+1, 50)
 		target:SetModifierStackCount("modifier_flametongue_a_a_rune", caster, newStacks)
 	end
-	if ability.b_a_level > 0 then
+	if ability.q_2_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_flametongue_b_a_rune_visible", {duration = 5})
 		local stacks = target:GetModifierStackCount("modifier_flametongue_b_a_rune_visible", caster)
 		local newStacks = math.min(stacks+1, 50)
 		target:SetModifierStackCount("modifier_flametongue_b_a_rune_visible", caster, newStacks)
 
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_flametongue_b_a_rune_invisible", {duration = 5})
-		local armorLossStacks = newStacks*ability.b_a_level
+		local armorLossStacks = newStacks*ability.q_2_level
 		target:SetModifierStackCount("modifier_flametongue_b_a_rune_invisible", caster, armorLossStacks)
 	end
 end
@@ -82,6 +82,6 @@ function a_a_damage(event)
 	local target = event.target
 	local caster = event.caster
 	local stacks = target:GetModifierStackCount("modifier_flametongue_a_a_rune", caster)
-	local burnDamage = (220 + 285*ability.a_a_level)*stacks
+	local burnDamage = (220 + 285*ability.q_1_level)*stacks
 	Filters:ApplyDotDamage(caster, ability, target, burnDamage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end

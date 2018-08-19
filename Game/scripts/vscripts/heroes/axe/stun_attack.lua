@@ -30,15 +30,15 @@ function StunAttack( keys )
     local position = targetUnit:GetAbsOrigin()
     local stun_duration = keys.duration
     local aoe_damage = keys.aoe_damage
-    local d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "axe")
-    if d_a_level > 0 then
-        aoe_damage = aoe_damage + caster:GetAverageTrueAttackDamage(caster)*0.06*d_a_level
+    local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "axe")
+    if q_4_level > 0 then
+        aoe_damage = aoe_damage + caster:GetAverageTrueAttackDamage(caster)*0.06*q_4_level
     end
     if caster:HasModifier("modifier_axe_glyph_5_1") then
         aoe_damage = aoe_damage*3
         stun_duration = 0.03
     end
-    local base_radius = rune_a_a(caster, keys.base_radius)
+    local base_radius = rune_q_1(caster, keys.base_radius)
 
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), targetUnit:GetAbsOrigin(), nil, base_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
     if #enemies > 0 then
@@ -51,21 +51,21 @@ function StunAttack( keys )
     EmitSoundOn("Hero_ElderTitan.EchoStomp", targetUnit)
 end
 
-function rune_a_a(caster, base_radius)
+function rune_q_1(caster, base_radius)
     local runeUnit = caster.runeUnit
-    local ability = runeUnit:FindAbilityByName("axe_rune_a_a")
+    local ability = runeUnit:FindAbilityByName("axe_rune_q_1")
     local abilityLevel = ability:GetLevel()
-    local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_a")
+    local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_1")
     local totalLevel = abilityLevel + bonusLevel
     return 300 + totalLevel*20
 end
 
-function rune_c_a(event)
+function rune_q_3(event)
     local caster = event.caster
     local runeUnit = caster.runeUnit3
-    local ability = runeUnit:FindAbilityByName("axe_rune_c_a")
+    local ability = runeUnit:FindAbilityByName("axe_rune_q_3")
     local abilityLevel = ability:GetLevel()
-    local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_a")
+    local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_3")
     local totalLevel = abilityLevel + bonusLevel
     local point = event.target_points[1]
     
@@ -81,11 +81,11 @@ function rune_c_a(event)
             caster.jumpEnd = ""
         end
         -- ability.duration = jumpDuration
-        -- ability.c_a_level = totalLevel
+        -- ability.q_3_level = totalLevel
         -- ability.thinks = 0
         -- ability.runeUnit = runeUnit
         -- ability.fv = caster:GetForwardVector()
-        -- ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_axe_rune_c_a_jump", {duration = 10})
+        -- ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_axe_rune_q_3_jump", {duration = 10})
         print("C_A GO!")
         local zDifferential = GetGroundPosition(jumpPosition, caster).z - caster:GetAbsOrigin().z 
         local liftBonus = math.min(zDifferential/10, 10)
@@ -136,20 +136,20 @@ function jumpThink(event)
         StartAnimation(target, {duration=0.3, activity=ACT_DOTA_CAST_ABILITY_4, rate=1.5})
     end
     if (newpos.z - GetGroundPosition(newpos, target).z < 18) and zFactor < 0 then
-        target:RemoveModifierByName("modifier_axe_rune_c_a_jump")
-        ability:ApplyDataDrivenModifier(ability.runeUnit, target, "modifier_axe_rune_c_a_jump_end", {duration = 0.3})
+        target:RemoveModifierByName("modifier_axe_rune_q_3_jump")
+        ability:ApplyDataDrivenModifier(ability.runeUnit, target, "modifier_axe_rune_q_3_jump_end", {duration = 0.3})
         FindClearSpaceForUnit(target, newpos, false)
     end
-    if target:HasModifier("modifier_axe_rune_c_b_visible") then
+    if target:HasModifier("modifier_axe_rune_w_3_visible") then
         local runeUnit = target.runeUnit3
-        local runeAbility = runeUnit:FindAbilityByName("axe_rune_c_b")
-        runeAbility:ApplyDataDrivenModifier(runeUnit, target, "modifier_axe_rune_c_b_visible", {duration = 4})
-        runeAbility:ApplyDataDrivenModifier(runeUnit, target, "modifier_axe_rune_c_b_invisible", {duration = 4})
+        local runeAbility = runeUnit:FindAbilityByName("axe_rune_w_3")
+        runeAbility:ApplyDataDrivenModifier(runeUnit, target, "modifier_axe_rune_w_3_visible", {duration = 4})
+        runeAbility:ApplyDataDrivenModifier(runeUnit, target, "modifier_axe_rune_w_3_invisible", {duration = 4})
     end
-    if target:HasModifier("modifier_axe_rune_b_a_stacker") then
+    if target:HasModifier("modifier_axe_rune_q_2_stacker") then
         local runeUnit = target.runeUnit2
-        local runeAbility = runeUnit:FindAbilityByName("axe_rune_b_a")
-        runeAbility:ApplyDataDrivenModifier(runeUnit, target, "modifier_axe_rune_b_a_stacker", {duration = 3})
+        local runeAbility = runeUnit:FindAbilityByName("axe_rune_q_2")
+        runeAbility:ApplyDataDrivenModifier(runeUnit, target, "modifier_axe_rune_q_2_stacker", {duration = 3})
     end
 end
 
@@ -177,7 +177,7 @@ end
 
 function jumpDamage(impactPoint, caster, ability)
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), impactPoint, nil, 420, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
-    local damage = ability.c_a_level*750
+    local damage = ability.q_3_level*750
     for _,enemy in pairs(enemies) do
         Filters:ApplyDamageBasic(enemy,caster,damage,DAMAGE_TYPE_PHYSICAL)
         -- ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL })

@@ -32,9 +32,9 @@ function beginChannel(event)
 	end
 	ability.pfx = pfx
 	StartSoundEvent("Astral.ApolloStart", caster)
-	ability.a_b_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
-	ability.c_b_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
-	ability.d_b_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
+	ability.w_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
+	ability.w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+	ability.w_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
 end
 
 function channel_interrupt(event)
@@ -60,8 +60,8 @@ function beginCast(event)
 	if caster:HasModifier("modifier_astral_glyph_3_1") then
 		shots = 9
 	end
-	local b_b_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
-	shots = shots + Runes:Procs(b_b_level, 2*ability:GetLevel(), 1)
+	local w_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
+	shots = shots + Runes:Procs(w_2_level, 2*ability:GetLevel(), 1)
 	ability.shots = shots
 	if ability.pfx then
 		ParticleManager:DestroyParticle(ability.pfx, false)
@@ -112,25 +112,25 @@ function apollo_debuff_think(event)
 				target:SetModifierStackCount("modifier_apollo_strikes", caster, newStacks)
 			end
 			StartAnimation(caster, {duration=0.1, activity=ACT_DOTA_ATTACK, rate=4})
-			if ability.a_b_level > 0 then
+			if ability.w_1_level > 0 then
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_apollo_stats_visible", {duration = 8})
 				local newStacks = math.min(100, caster:GetModifierStackCount("modifier_apollo_stats_visible", caster) + 1)
 				caster:SetModifierStackCount("modifier_apollo_stats_visible", caster, newStacks)
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_apollo_stats_invisible", {duration = 8})
-				caster:SetModifierStackCount("modifier_apollo_stats_invisible", caster, newStacks*ability.a_b_level)
+				caster:SetModifierStackCount("modifier_apollo_stats_invisible", caster, newStacks*ability.w_1_level)
 			end
-			if ability.d_b_level > 0 then
-				if not ability.d_b_target then
-					ability.d_b_target = target
+			if ability.w_4_level > 0 then
+				if not ability.w_4_target then
+					ability.w_4_target = target
 				end
-				if ability.d_b_target == target then
+				if ability.w_4_target == target then
 					ability:ApplyDataDrivenModifier(caster, caster, "modifier_apollo_post_mit_visible", {duration = 8})
 					local newStacks = math.min(50, caster:GetModifierStackCount("modifier_apollo_post_mit_visible", caster) + 1)
 					caster:SetModifierStackCount("modifier_apollo_post_mit_visible", caster, newStacks)
 					ability:ApplyDataDrivenModifier(caster, caster, "modifier_apollo_post_mit_invisible", {duration = 8})
-					caster:SetModifierStackCount("modifier_apollo_post_mit_invisible", caster, newStacks*ability.d_b_level)
+					caster:SetModifierStackCount("modifier_apollo_post_mit_invisible", caster, newStacks*ability.w_4_level)
 				else
-					ability.d_b_target = target
+					ability.w_4_target = target
 					caster:RemoveModifierByName("modifier_apollo_post_mit_visible")
 					caster:RemoveModifierByName("modifier_apollo_post_mit_invisible")
 				end
@@ -170,7 +170,7 @@ function apollo_attack_landed(event)
 				caster:RemoveModifierByName("modifier_apollo_outgoing_shots")
 			end
 			ability.shots = ability.shots - 1
-			if ability.c_b_level > 0 then
+			if ability.w_3_level > 0 then
 			    if caster:HasModifier("modifier_astral_glyph_3_1") then
 			        empyralArrowsProcChance = getProcChance(caster, T31_PROC_CHANCE)
 			    else
@@ -180,13 +180,13 @@ function apollo_attack_landed(event)
 			    local luck = RandomInt(1, 100)
 			    if luck <= procChance then
 					CustomAbilities:QuickAttachParticle("particles/roshpit/astral/apollo_proc_start_ti7_lvl2.vpcf", target, 1)
-					local damage = caster:GetAverageTrueAttackDamage(caster)*0.12*ability.c_b_level
+					local damage = caster:GetAverageTrueAttackDamage(caster)*0.12*ability.w_3_level
 					Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
 					ability:ApplyDataDrivenModifier(caster, target, "modifier_apollo_c_b_proc_visible", {duration = 10})
 					local newStacks = target:GetModifierStackCount("modifier_apollo_c_b_proc_visible", caster) + 1
 					target:SetModifierStackCount("modifier_apollo_c_b_proc_visible", caster, newStacks)
 					ability:ApplyDataDrivenModifier(caster, target, "modifier_apollo_c_b_proc_invisible", {duration = 10})
-					target:SetModifierStackCount("modifier_apollo_c_b_proc_invisible", caster, newStacks*ability.c_b_level)
+					target:SetModifierStackCount("modifier_apollo_c_b_proc_invisible", caster, newStacks*ability.w_3_level)
 					EmitSoundOn("Astral.ApolloProc", target)
 			    end
 			end

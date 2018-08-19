@@ -21,7 +21,7 @@ function flood_basin_start(event)
 	if not ability.basin_table then
 		ability.basin_table = {}
 	end
-	ability.a_d_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
+	ability.r_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
 	local castLoops = 0
     if caster:HasModifier("modifier_hydroxis_glyph_1_1") then
       castLoops = 1
@@ -29,7 +29,7 @@ function flood_basin_start(event)
     if event.alt_particle then
     	castLoops = 0
     end
-    ability.c_d_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
+    ability.r_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
     for i = 0, castLoops, 1 do
     	Timers:CreateTimer(i*2, function()
     		local target_position = event.target_position
@@ -71,7 +71,7 @@ end
 function flood_basin_aura_start(event)
 	local caster = event.caster
 	local ability = event.ability
-	local a_d_level = ability.a_d_level
+	local a_d_level = ability.r_1_level
 	print("AURA START")
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_flood_basin_mana_regen", {})
 	caster:AddNewModifier( caster, ability, "modifier_flood_basin_lua", {} )
@@ -166,12 +166,12 @@ function flood_basin_enemy_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	if ability.c_d_level > 0 then
+	if ability.r_3_level > 0 then
 		EmitSoundOn("Hydroxis.Arcana2.Basin.Root", target)
-		local root_duration = 1 + 0.15*ability.c_d_level
+		local root_duration = 1 + 0.15*ability.r_3_level
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_flood_basin_enemy_root", {duration = root_duration})
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_flood_basin_enemy_inside_water_stacks", {})
-		target:SetModifierStackCount("modifier_flood_basin_enemy_inside_water_stacks", caster, ability.c_d_level)
+		target:SetModifierStackCount("modifier_flood_basin_enemy_inside_water_stacks", caster, ability.r_3_level)
 	end
 end
 

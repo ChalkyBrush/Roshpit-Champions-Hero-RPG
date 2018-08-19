@@ -13,7 +13,7 @@ function start(event)
 
     Filters:CastSkillArguments(1, caster)
 
-    Helper.initializeAbilityRunes(caster, 'axe', 'a')
+    Helper.initializeAbilityRunes(caster, 'axe', 'q')
 
     EmitSoundOn("Hero_Axe.BerserkersCall.Item.Shoutmask", caster)
     EmitSoundOn("Hero_Axe.BerserkersCall.Item.Shoutmask", caster)
@@ -57,15 +57,15 @@ function heroic_leap_think(event)
     local ability = event.ability
 
     local forwardSpeed = math.max(20, ability.distance/55 + 24)
-    if caster.c_a_level > 0 then
+    if caster.q_3_level > 0 then
         forwardSpeed = math.max(20, ability.distance/45 + 9)
     end
     
 
-    if caster:HasModifier("modifier_axe_rune_b_a_invisible") then
-        local modifierDuration = caster:FindModifierByName("modifier_axe_rune_b_a_visible"):GetRemainingTime()
-        ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_b_a_visible", {duration = modifierDuration})
-        ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_b_a_invisible", {duration = modifierDuration})
+    if caster:HasModifier("modifier_axe_rune_q_2_invisible") then
+        local modifierDuration = caster:FindModifierByName("modifier_axe_rune_q_2_visible"):GetRemainingTime()
+        ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_q_2_visible", {duration = modifierDuration})
+        ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_q_2_invisible", {duration = modifierDuration})
     end
     CycloneStorm.refreshBuff(caster)
 

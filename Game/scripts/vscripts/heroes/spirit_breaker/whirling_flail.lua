@@ -4,13 +4,13 @@ function whirling_flail_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_TELEPORT, rate=1.8})
-	ability.a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a", "duskbringer")
-	ability.c_a_level = Runes:GetTotalRuneLevel(caster, 3, "c_a", "duskbringer")
-	ability.d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "duskbringer")
-	ability.radius = 280 + ability.d_a_level * Q4_ADD_RADIUS
+	ability.q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "duskbringer")
+	ability.q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "duskbringer")
+	ability.q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "duskbringer")
+	ability.radius = 280 + ability.q_4_level * Q4_ADD_RADIUS
 	ability.ticks = 0
 
-	  if ability.a_a_level > 0 then
+	  if ability.q_1_level > 0 then
 		local particleName = "particles/units/heroes/hero_spirit_breaker/spirit_breaker_charge_wave.vpcf"
 		ability.pfx = ParticleManager:CreateParticle( particleName, PATTACH_POINT_FOLLOW, caster )
 		ParticleManager:SetParticleControlEnt(ability.pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
@@ -18,72 +18,72 @@ function whirling_flail_start(event)
 	  ability.pfxA = ParticleManager:CreateParticle("particles/roshpit/duskbringer/whirling_flail_base.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	  ParticleManager:SetParticleControlEnt(ability.pfxA, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 	  ParticleManager:SetParticleControl(ability.pfxA, 1, Vector(ability.radius, ability.radius, ability.radius))
-	  if ability.a_a_level > 0 then
+	  if ability.q_1_level > 0 then
 		  ability.pfxB = ParticleManager:CreateParticle("particles/units/heroes/hero_bloodseeker/duskbringer_b_d_vertical_spell_bloodbath_bubbles_.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		  ParticleManager:SetParticleControlEnt(ability.pfxB, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 		  ParticleManager:SetParticleControl(ability.pfxB, 1, Vector(ability.radius/3, 1, 1))
 	  end
 	  
---	  ability.b_a_level = Runes:GetTotalRuneLevel(caster, 2, "b_a", "duskbringer")
---	  if ability.b_a_level > 0 then
+--	  ability.q_2_level = Runes:GetTotalRuneLevel(caster, 2, "q_2", "duskbringer")
+--	  if ability.q_2_level > 0 then
 --		ability:ApplyDataDrivenModifier(caster, caster, "modifier_whirling_flail_ghastly_wind", {duration = 3.5})
 --		local particleName = "particles/units/heroes/hero_bloodseeker/duskbringer_b_d_vertical_spell_bloodbath_bubbles_.vpcf"
---	    ability.b_a_particle = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
---	      ParticleManager:SetParticleControl( ability.b_a_particle, 0, caster:GetAbsOrigin()+Vector(0,0,80) )
+--	    ability.q_2_particle = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
+--	      ParticleManager:SetParticleControl( ability.q_2_particle, 0, caster:GetAbsOrigin()+Vector(0,0,80) )
 --	  end
---	  ability.c_a_level = Runes:GetTotalRuneLevel(caster, 3, "c_a", "duskbringer")
+--	  ability.q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "duskbringer")
 --	  caster:RemoveModifierByName("modifier_whirling_flail_imbue_shade_armor")
---	  if ability.c_a_level > 0 then
+--	  if ability.q_3_level > 0 then
 --		ability:ApplyDataDrivenModifier(caster, caster, "modifier_whirling_flail_imbue_shade", {duration = 3.5})
 --		ability:ApplyDataDrivenModifier(caster, caster, "modifier_whirling_flail_imbue_shade_armor", {duration = 3.5})
---		caster:SetModifierStackCount( "modifier_whirling_flail_imbue_shade_armor", ability, ability.c_a_level )
+--		caster:SetModifierStackCount( "modifier_whirling_flail_imbue_shade_armor", ability, ability.q_3_level )
 --	  end
 	  spectral_blade_init(caster, ability)
 	  if caster:HasModifier("modifier_duskbringer_glyph_6_1") then
 	  	ability:EndCooldown()
 	  	ability:StartCooldown(4)
 	  end
-	  caster.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "duskbringer")
+	  caster.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "duskbringer")
   	Filters:CastSkillArguments(1, caster)
 end
 
 function spectral_blade_init(caster, ability)
-		ability.b_d_level = Runes:GetTotalRuneLevel(caster, 2, "b_d", "duskbringer")
-		ability.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "duskbringer")
-		local runeAbility = caster.runeUnit2:FindAbilityByName("duskbringer_rune_b_d")
-		local current_stack = caster:GetModifierStackCount("modifier_duskbringer_rune_b_d", runeAbility)
+		ability.r_2_level = Runes:GetTotalRuneLevel(caster, 2, "r_2", "duskbringer")
+		ability.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "duskbringer")
+		local runeAbility = caster.runeUnit2:FindAbilityByName("duskbringer_rune_r_2")
+		local current_stack = caster:GetModifierStackCount("modifier_duskbringer_rune_r_2", runeAbility)
 		if current_stack > 0 then
 			local particleName = "particles/units/heroes/hero_bloodseeker/duskbringer_b_a_spell_bloodbath_bubbles_.vpcf"
-		    ability.b_d_particle = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
-		     ParticleManager:SetParticleControlEnt(ability.b_d_particle, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+		    ability.r_2_particle = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
+		     ParticleManager:SetParticleControlEnt(ability.r_2_particle, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 		     local yaw = math.atan2(caster:GetForwardVector().x, caster:GetForwardVector().y)*180/math.pi
-		     -- ParticleManager:SetParticleControl( ability.b_d_particle, 1, Vector(90, 90, 90) )
+		     -- ParticleManager:SetParticleControl( ability.r_2_particle, 1, Vector(90, 90, 90) )
 		end
 
 end
 
 function spectral_blade_think(caster, ability)
-		local runeAbility = caster.runeUnit2:FindAbilityByName("duskbringer_rune_b_d")
-		local current_stack = caster:GetModifierStackCount("modifier_duskbringer_rune_b_d", runeAbility)
+		local runeAbility = caster.runeUnit2:FindAbilityByName("duskbringer_rune_r_2")
+		local current_stack = caster:GetModifierStackCount("modifier_duskbringer_rune_r_2", runeAbility)
  
 		if current_stack > 0 then
-			if ability.b_d_particle then
-				ParticleManager:DestroyParticle(ability.b_d_particle, false)
+			if ability.r_2_particle then
+				ParticleManager:DestroyParticle(ability.r_2_particle, false)
 			end
-			ability.b_d_particle = false
+			ability.r_2_particle = false
 			local particleName = "particles/units/heroes/hero_bloodseeker/duskbringer_b_a_spell_bloodbath_bubbles_.vpcf"
-		    ability.b_d_particle = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
-		    -- ParticleManager:SetParticleControl( ability.b_d_particle, 0, caster:GetAbsOrigin() )
-		    ParticleManager:SetParticleControlEnt(ability.b_d_particle, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+		    ability.r_2_particle = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
+		    -- ParticleManager:SetParticleControl( ability.r_2_particle, 0, caster:GetAbsOrigin() )
+		    ParticleManager:SetParticleControlEnt(ability.r_2_particle, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 		     local yaw = math.atan2(caster:GetForwardVector().x, caster:GetForwardVector().y)*180/math.pi
 		     print(yaw)
-		     -- ParticleManager:SetParticleControl( ability.b_d_particle, 1, Vector(90, 90, 90) )			
+		     -- ParticleManager:SetParticleControl( ability.r_2_particle, 1, Vector(90, 90, 90) )			
 			if current_stack > 1 then
-				caster:SetModifierStackCount( "modifier_duskbringer_rune_b_d", runeAbility, current_stack-1 )
+				caster:SetModifierStackCount( "modifier_duskbringer_rune_r_2", runeAbility, current_stack-1 )
 				local startPoint = caster:GetAbsOrigin() - caster:GetForwardVector()*600
 				local endPoint = caster:GetAbsOrigin() + caster:GetForwardVector()*600
-				local damage = ability.b_d_level*600
-				damage = damage + 0.0005*caster:GetStrength()/10*ability.d_d_level*damage
+				local damage = ability.r_2_level*600
+				damage = damage + 0.0005*caster:GetStrength()/10*ability.r_4_level*damage
 				if caster:HasModifier('modifier_duskbringer_glyph_3_2') then
 					damage = damage * T32_AMPLIFY
 				end
@@ -94,10 +94,10 @@ function spectral_blade_think(caster, ability)
 					end
 				end
 			else
-				caster:RemoveModifierByName("modifier_duskbringer_rune_b_d")
-				if ability.b_d_particle then
-					ParticleManager:DestroyParticle(ability.b_d_particle, false)
-					ability.b_d_particle = false		
+				caster:RemoveModifierByName("modifier_duskbringer_rune_r_2")
+				if ability.r_2_particle then
+					ParticleManager:DestroyParticle(ability.r_2_particle, false)
+					ability.r_2_particle = false		
 				end
 			end
 		end
@@ -115,17 +115,17 @@ function whirling_flail_think(event)
 	local searchArea = caster:GetAbsOrigin() + WallPhysics:rotateVector(caster:GetForwardVector(), -math.pi/2)*120
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), searchArea, nil, ability.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	local damage = event.damage * caster:GetAverageTrueAttackDamage(caster) / 100
-	damage = damage * (1 + Q4_AMPLIFY_PERCENT * ability.d_a_level / 100)
+	damage = damage * (1 + Q4_AMPLIFY_PERCENT * ability.q_4_level / 100)
 
 	EndAnimation(caster)
 	Timers:CreateTimer(0.03, function()
 		StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_TELEPORT, rate=1.8})
 	end)
-	if ability.b_a_particle then
-		ParticleManager:DestroyParticle( ability.b_a_particle, false )
+	if ability.q_2_particle then
+		ParticleManager:DestroyParticle( ability.q_2_particle, false )
 		local particleName = "particles/units/heroes/hero_bloodseeker/duskbringer_b_d_vertical_spell_bloodbath_bubbles_.vpcf"
-	    ability.b_a_particle = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
-	     ParticleManager:SetParticleControl( ability.b_a_particle, 0, caster:GetAbsOrigin()+Vector(0,0,80) )
+	    ability.q_2_particle = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
+	     ParticleManager:SetParticleControl( ability.q_2_particle, 0, caster:GetAbsOrigin()+Vector(0,0,80) )
 	end
 	spectral_blade_think(caster, ability)
 
@@ -145,7 +145,7 @@ function whirling_flail_think(event)
 		for _,enemy in pairs(enemies) do
 			local distance = WallPhysics:GetDistance(enemy:GetAbsOrigin(), caster:GetAbsOrigin())
 			local damageBonusMult = math.max(1 - (distance/(ability.radius)),0)--for some reason it hist further than it should
-			local distanceDamage = damage * (1 + ability.c_a_level * DUSK_Q3_AMPLIFY_PERCENT/100 * damageBonusMult)
+			local distanceDamage = damage * (1 + ability.q_3_level * DUSK_Q3_AMPLIFY_PERCENT/100 * damageBonusMult)
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, distanceDamage, DAMAGE_TYPE_PHYSICAL, 1, RPC_ELEMENT_NORMAL, RPC_ELEMENT_GHOST)
 
 			enemy:AddNewModifier( caster, nil, "modifier_knockback", modifierKnockback )
@@ -155,7 +155,7 @@ function whirling_flail_think(event)
 			Timers:CreateTimer(0.8, function() 
 			  ParticleManager:DestroyParticle( pfx, false )
 			end) 	
-			if ability.a_a_level > 0 then
+			if ability.q_1_level > 0 then
 				local eventTable = {}
 				eventTable.attacker = caster
 				eventTable.target = enemy
@@ -175,10 +175,10 @@ function flail_a_a_hit(event)
 	if caster:HasModifier("modifier_duskbringer_glyph_2_2") then
 		stack_increment = T22_STACKS
 	end
-	if not ability.a_a_level then
-		ability.a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a", "duskbringer")
+	if not ability.q_1_level then
+		ability.q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "duskbringer")
 	end
-	if ability.a_a_level > 0 then
+	if ability.q_1_level > 0 then
 
 		if caster:HasModifier("modifier_duskbringer_glyph_5_2") then
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), enemy:GetAbsOrigin(), nil, T52_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
@@ -194,7 +194,7 @@ function flail_a_a_hit(event)
 		local particleName = "particles/units/heroes/hero_spirit_breaker/spirit_breaker_nether_strike_begin_flash.vpcf"
 		local pfx2 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, enemy )
 		ParticleManager:SetParticleControlEnt(pfx2, 0, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
-		local damage = ability.a_a_level * (DUSK_Q1_DAMAGE + Q1_AGI_DAMAGE * caster:GetAgility())
+		local damage = ability.q_1_level * (DUSK_Q1_DAMAGE + Q1_AGI_DAMAGE * caster:GetAgility())
 		Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_GHOST, RPC_ELEMENT_FIRE)
 		Timers:CreateTimer(0.4, function() 
 		  ParticleManager:DestroyParticle( pfx2, false )
@@ -220,15 +220,15 @@ function whirling_flail_end(event)
 		ParticleManager:ReleaseParticleIndex(ability.pfxB)
 		ability.pfxB = false
 	end
-	if ability.b_a_particle then
-		ParticleManager:DestroyParticle( ability.b_a_particle, false )
-		ability.b_a_particle = false		
+	if ability.q_2_particle then
+		ParticleManager:DestroyParticle( ability.q_2_particle, false )
+		ability.q_2_particle = false		
 	end
 	caster:RemoveModifierByName("modifier_whirling_flail_ghastly_wind")
 	caster:RemoveModifierByName("modifier_whirling_flail_imbue_shade")
-	if ability.b_d_particle then
-		ParticleManager:DestroyParticle(ability.b_d_particle, false)
-		ability.b_d_particle = false		
+	if ability.r_2_particle then
+		ParticleManager:DestroyParticle(ability.r_2_particle, false)
+		ability.r_2_particle = false		
 	end
 end
 
@@ -236,14 +236,14 @@ function a_a_fire_think(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	if not ability.a_a_level then
+	if not ability.q_1_level then
 		return
 	end
 	if target.dummy then
 		return false
 	end
 	local fireStacks = target:GetModifierStackCount("modifier_dusk_fire_flail", caster)
-	local damage = ability.a_a_level*(DUSK_Q1_DAMAGE + Q1_AGI_DAMAGE * caster:GetAgility())*fireStacks
+	local damage = ability.q_1_level*(DUSK_Q1_DAMAGE + Q1_AGI_DAMAGE * caster:GetAgility())*fireStacks
 	Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_GHOST, RPC_ELEMENT_FIRE)
 end
 
@@ -255,8 +255,8 @@ function ghastly_wind_think(event)
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
 			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_whirling_flail_ghastly_wind_effect", {duration = 1})
---			enemy:SetModifierStackCount( "modifier_whirling_flail_ghastly_wind_effect", ability, ability.b_a_level )
-			if ability.a_a_level > 0 then
+--			enemy:SetModifierStackCount( "modifier_whirling_flail_ghastly_wind_effect", ability, ability.q_2_level )
+			if ability.q_1_level > 0 then
 				increment_duskfire_stacks(caster, enemy, ability, 1)
 			end
 		end
@@ -265,7 +265,7 @@ end
 
 function increment_duskfire_stacks(caster, enemy, ability, amount)
 	ability:ApplyDataDrivenModifier(caster, enemy, "modifier_dusk_fire_flail", {duration = 5})
-	ability.a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a", "duskbringer")
+	ability.q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "duskbringer")
 	local stacks = enemy:GetModifierStackCount("modifier_dusk_fire_flail", caster)
 	if caster:HasModifier("modifier_duskbringer_immortal_weapon_1") then
 		amount = amount*2
@@ -277,17 +277,17 @@ end
 --function imbue_shade_think(event)
 --	local ability = event.ability
 --	local caster = event.caster
---	local heal = math.ceil(ability.c_a_level * 1200)
+--	local heal = math.ceil(ability.q_3_level * 1200)
 --	Filters:ApplyHeal(caster, caster, heal, true)
 --end
 
 function d_a_attack_land(event)
 	local caster = event.attacker
 	local ability = event.ability
-	local a_a_level = ability.a_a_level
+	local q_1_level = ability.q_1_level
 	local target = event.target
-	if a_a_level > 0 then
-		local d_a_level = caster:GetModifierStackCount("modifier_duskbringer_rune_d_a", ability)
+	if q_1_level > 0 then
+		local q_4_level = caster:GetModifierStackCount("modifier_duskbringer_rune_q_4", ability)
 
 				local particleName = "particles/units/heroes/hero_abaddon/abaddon_aphotic_shield_explosion.vpcf"
 					local pfx2 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN,target )
@@ -296,7 +296,7 @@ function d_a_attack_land(event)
 					  ParticleManager:DestroyParticle( pfx2, false )
 					end) 
 		local enemies= FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 360, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-		local damage = (a_a_level*860)*0.15*d_a_level
+		local damage = (q_1_level*860)*0.15*q_4_level
 		for _,enemy in pairs(enemies) do
 			if enemy:GetUnitName() == "water_temple_tentacle_switch" or enemy.dummy then
 			else
@@ -309,5 +309,5 @@ end
 
 function duskbringer_passive_think(event)
 	local caster = event.caster
-	caster.b_a_level = Runes:GetTotalRuneLevel(caster, 2, "b_a", "duskbringer")
+	caster.q_2_level = Runes:GetTotalRuneLevel(caster, 2, "q_2", "duskbringer")
 end

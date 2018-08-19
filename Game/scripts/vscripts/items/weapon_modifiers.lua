@@ -146,7 +146,7 @@ function Weaponmodifiers:action(propertyName, propertyValue, hero, inventory_uni
 		Weaponmodifiers:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_weapon_time", weapon_ability)	
 	elseif propertyName == "sephyr_immortal3" then
 		print("SEPHYR IMMORTAL3")
-		local runeTable = {"rune_d_a", "rune_d_b", "rune_d_c", "rune_d_d"}
+		local runeTable = {"rune_q_4", "rune_w_4", "rune_e_4", "rune_r_4"}
 		for i = 1, #runeTable, 1 do
 			Weaponmodifiers:runeProperty(runeTable[i], 7, hero)
 		end		
@@ -166,54 +166,54 @@ function Weaponmodifiers:runeProperty(propertyName, propertyValue, hero)
 			propertyValue = propertyValue*1.4
 		end
 	end
-	if propertyName == "rune_a_a" then
-		hero.runeUnit.weapon.a_a = hero.runeUnit.weapon.a_a + propertyValue
-		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit.weapon.a_a, propertyName, hero)
-	elseif propertyName == "rune_a_b" then
-		hero.runeUnit.weapon.a_b = hero.runeUnit.weapon.a_b + propertyValue
-		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit.weapon.a_b, propertyName, hero)
-	elseif propertyName == "rune_a_c" then
-		hero.runeUnit.weapon.a_c = hero.runeUnit.weapon.a_c + propertyValue
-		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit.weapon.a_c, propertyName, hero)
-	elseif propertyName == "rune_a_d" then
-		hero.runeUnit.weapon.a_d = hero.runeUnit.weapon.a_d + propertyValue
-		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit.weapon.a_d, propertyName, hero)
-	elseif propertyName == "rune_b_a" then
-		hero.runeUnit2.weapon.b_a = hero.runeUnit2.weapon.b_a + propertyValue
-		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit2.weapon.b_a, propertyName, hero)
-	elseif propertyName == "rune_b_b" then
-		hero.runeUnit2.weapon.b_b = hero.runeUnit2.weapon.b_b + propertyValue
-		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit2.weapon.b_b, propertyName, hero)
-	elseif propertyName == "rune_b_c" then
-		hero.runeUnit2.weapon.b_c = hero.runeUnit2.weapon.b_c + propertyValue
-		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit2.weapon.b_c, propertyName, hero)
-	elseif propertyName == "rune_b_d" then
-		hero.runeUnit2.weapon.b_d = hero.runeUnit2.weapon.b_d + propertyValue
-		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit2.weapon.b_d, propertyName, hero)
-	elseif propertyName == "rune_c_a" then
-		hero.runeUnit3.weapon.c_a = hero.runeUnit3.weapon.c_a + propertyValue
-		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit3.weapon.c_a, propertyName, hero)
-	elseif propertyName == "rune_c_b" then
-		hero.runeUnit3.weapon.c_b = hero.runeUnit3.weapon.c_b + propertyValue
-		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit3.weapon.c_b, propertyName, hero)
-	elseif propertyName == "rune_c_c" then
-		hero.runeUnit3.weapon.c_c = hero.runeUnit3.weapon.c_c + propertyValue
-		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit3.weapon.c_c, propertyName, hero)
-	elseif propertyName == "rune_c_d" then
-		hero.runeUnit3.weapon.c_d = hero.runeUnit3.weapon.c_d + propertyValue
-		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit3.weapon.c_d, propertyName, hero)
-	elseif propertyName == "rune_d_a" then
-		hero.runeUnit4.weapon.d_a = hero.runeUnit4.weapon.d_a + propertyValue
-		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit4.weapon.d_a, propertyName, hero)
-	elseif propertyName == "rune_d_b" then
-		hero.runeUnit4.weapon.d_b = hero.runeUnit4.weapon.d_b + propertyValue
-		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit4.weapon.d_b, propertyName, hero)
-	elseif propertyName == "rune_d_c" then
-		hero.runeUnit4.weapon.d_c = hero.runeUnit4.weapon.d_c + propertyValue
-		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit4.weapon.d_c, propertyName, hero)
-	elseif propertyName == "rune_d_d" then
-		hero.runeUnit4.weapon.d_d = hero.runeUnit4.weapon.d_d + propertyValue
-		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit4.weapon.d_d, propertyName, hero)
+	if propertyName == "rune_q_1" then
+		hero.runeUnit.weapon.q_1 = hero.runeUnit.weapon.q_1 + propertyValue
+		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit.weapon.q_1, propertyName, hero)
+	elseif propertyName == "rune_w_1" then
+		hero.runeUnit.weapon.w_1 = hero.runeUnit.weapon.w_1 + propertyValue
+		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit.weapon.w_1, propertyName, hero)
+	elseif propertyName == "rune_e_1" then
+		hero.runeUnit.weapon.e_1 = hero.runeUnit.weapon.e_1 + propertyValue
+		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit.weapon.e_1, propertyName, hero)
+	elseif propertyName == "rune_r_1" then
+		hero.runeUnit.weapon.r_1 = hero.runeUnit.weapon.r_1 + propertyValue
+		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit.weapon.r_1, propertyName, hero)
+	elseif propertyName == "rune_q_2" then
+		hero.runeUnit2.weapon.q_2 = hero.runeUnit2.weapon.q_2 + propertyValue
+		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit2.weapon.q_2, propertyName, hero)
+	elseif propertyName == "rune_w_2" then
+		hero.runeUnit2.weapon.w_2 = hero.runeUnit2.weapon.w_2 + propertyValue
+		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit2.weapon.w_2, propertyName, hero)
+	elseif propertyName == "rune_e_2" then
+		hero.runeUnit2.weapon.e_2 = hero.runeUnit2.weapon.e_2 + propertyValue
+		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit2.weapon.e_2, propertyName, hero)
+	elseif propertyName == "rune_r_2" then
+		hero.runeUnit2.weapon.r_2 = hero.runeUnit2.weapon.r_2 + propertyValue
+		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit2.weapon.r_2, propertyName, hero)
+	elseif propertyName == "rune_q_3" then
+		hero.runeUnit3.weapon.q_3 = hero.runeUnit3.weapon.q_3 + propertyValue
+		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit3.weapon.q_3, propertyName, hero)
+	elseif propertyName == "rune_w_3" then
+		hero.runeUnit3.weapon.w_3 = hero.runeUnit3.weapon.w_3 + propertyValue
+		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit3.weapon.w_3, propertyName, hero)
+	elseif propertyName == "rune_e_3" then
+		hero.runeUnit3.weapon.e_3 = hero.runeUnit3.weapon.e_3 + propertyValue
+		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit3.weapon.e_3, propertyName, hero)
+	elseif propertyName == "rune_r_3" then
+		hero.runeUnit3.weapon.r_3 = hero.runeUnit3.weapon.r_3 + propertyValue
+		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit3.weapon.r_3, propertyName, hero)
+	elseif propertyName == "rune_q_4" then
+		hero.runeUnit4.weapon.q_4 = hero.runeUnit4.weapon.q_4 + propertyValue
+		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit4.weapon.q_4, propertyName, hero)
+	elseif propertyName == "rune_w_4" then
+		hero.runeUnit4.weapon.w_4 = hero.runeUnit4.weapon.w_4 + propertyValue
+		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit4.weapon.w_4, propertyName, hero)
+	elseif propertyName == "rune_e_4" then
+		hero.runeUnit4.weapon.e_4 = hero.runeUnit4.weapon.e_4 + propertyValue
+		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit4.weapon.e_4, propertyName, hero)
+	elseif propertyName == "rune_r_4" then
+		hero.runeUnit4.weapon.r_4 = hero.runeUnit4.weapon.r_4 + propertyValue
+		Weaponmodifiers:setRuneBonusNetTable(hero.runeUnit4.weapon.r_4, propertyName, hero)
 	end
 end
 
@@ -263,21 +263,21 @@ function Weaponmodifiers:remove_modifiers(hero)
 end
 
 function Weaponmodifiers:remove_rune_bonuses(hero)
-	hero.runeUnit.weapon.a_a = 0
-	hero.runeUnit.weapon.a_b = 0
-	hero.runeUnit.weapon.a_c = 0
-	hero.runeUnit.weapon.a_d = 0
-	hero.runeUnit2.weapon.b_a = 0
-	hero.runeUnit2.weapon.b_b = 0
-	hero.runeUnit2.weapon.b_c = 0
-	hero.runeUnit2.weapon.b_d = 0
-	hero.runeUnit3.weapon.c_a = 0
-	hero.runeUnit3.weapon.c_b = 0
-	hero.runeUnit3.weapon.c_c = 0
-	hero.runeUnit3.weapon.c_d = 0
-	hero.runeUnit4.weapon.d_a = 0
-	hero.runeUnit4.weapon.d_b = 0
-	hero.runeUnit4.weapon.d_c = 0
-	hero.runeUnit4.weapon.d_d = 0
+	hero.runeUnit.weapon.q_1 = 0
+	hero.runeUnit.weapon.w_1 = 0
+	hero.runeUnit.weapon.e_1 = 0
+	hero.runeUnit.weapon.r_1 = 0
+	hero.runeUnit2.weapon.q_2 = 0
+	hero.runeUnit2.weapon.w_2 = 0
+	hero.runeUnit2.weapon.e_2 = 0
+	hero.runeUnit2.weapon.r_2 = 0
+	hero.runeUnit3.weapon.q_3 = 0
+	hero.runeUnit3.weapon.w_3 = 0
+	hero.runeUnit3.weapon.e_3 = 0
+	hero.runeUnit3.weapon.r_3 = 0
+	hero.runeUnit4.weapon.q_4 = 0
+	hero.runeUnit4.weapon.w_4 = 0
+	hero.runeUnit4.weapon.e_4 = 0
+	hero.runeUnit4.weapon.r_4 = 0
 	Runes:ResetRuneBonuses(hero, "weapon")
 end

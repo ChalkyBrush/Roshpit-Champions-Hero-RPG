@@ -4,7 +4,7 @@ local function projectileHit(event)
     local caster = event.caster
     local ability = event.ability
     local damage = event.ability.damage
-    local runesCount = caster.d_b_level
+    local runesCount = caster.w_4_level
     if runesCount == nill or runesCount <= 0 then
         return
     end

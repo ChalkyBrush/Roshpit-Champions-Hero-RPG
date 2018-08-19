@@ -241,7 +241,7 @@ function passive_thinker(event)
 		caster:RemoveModifierByName("modifier_demonflight_c_c_attack")
 	end
 	local d_c_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
-	ability.d_c_level = d_c_level
+	ability.e_4_level = d_c_level
 	if d_c_level > 0 then
 		caster:AddNewModifier( caster, ability, "modifier_chernobog_d_c_arcana2", {} )
 	else

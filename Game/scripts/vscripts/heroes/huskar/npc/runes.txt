@@ -1,4 +1,4 @@
-	"spirit_warrior_rune_a_a"
+	"spirit_warrior_rune_q_1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -31,7 +31,7 @@
 
 	}
 
-	"spirit_warrior_rune_b_a"
+	"spirit_warrior_rune_q_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -53,7 +53,7 @@
 
 	}
 
-	"spirit_warrior_rune_c_a"
+	"spirit_warrior_rune_q_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -86,7 +86,7 @@
 
 	}
 
-	"spirit_warrior_rune_d_a"
+	"spirit_warrior_rune_q_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -113,7 +113,7 @@
 
 	}
 
-	"spirit_warrior_rune_a_b"
+	"spirit_warrior_rune_w_1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -134,7 +134,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_spirit_warrior_rune_a_b"
+			"modifier_spirit_warrior_rune_w_1"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -149,7 +149,7 @@
 
 	}
 
-	"spirit_warrior_rune_b_b"
+	"spirit_warrior_rune_w_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -170,7 +170,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_spirit_warrior_rune_b_b_visible"
+			"modifier_spirit_warrior_rune_w_2_visible"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -184,7 +184,7 @@
 					}
 				}
 			}
-			"modifier_spirit_warrior_rune_b_b_invisible"
+			"modifier_spirit_warrior_rune_w_2_invisible"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
@@ -199,7 +199,7 @@
 
 	}
 
-	"spirit_warrior_rune_c_b"
+	"spirit_warrior_rune_w_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -221,7 +221,7 @@
 
 	}
 
-	"spirit_warrior_rune_d_b"
+	"spirit_warrior_rune_w_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -255,7 +255,7 @@
 
 	}
 
-	"spirit_warrior_rune_a_c"
+	"spirit_warrior_rune_e_1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -288,7 +288,7 @@
 
 	}
 
-	"spirit_warrior_rune_b_c"
+	"spirit_warrior_rune_e_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -330,7 +330,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_spirit_rune_b_c_aura"
+			"modifier_spirit_rune_e_2_aura"
 			{
 				"EffectName"		"particles/items_fx/spirit_warrior_b_c_aura.vpcf"
 				"EffectAttachType" 	"follow_origin"
@@ -338,13 +338,13 @@
 				"Passive" 			"1"
 				"IsHidden" 			"1"
 				"IsBuff"			"1"
-				"Aura"					"modifier_spirit_rune_b_c_buff"
+				"Aura"					"modifier_spirit_rune_e_2_buff"
 				"Aura_Radius"			"600"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 			}
-			"modifier_spirit_rune_b_c_buff"
+			"modifier_spirit_rune_e_2_buff"
 			{
 				"IsBuff"				"1"
 				"IsHidden"				"0"
@@ -369,7 +369,7 @@
 		}
 	}
 
-	"spirit_warrior_rune_c_c"
+	"spirit_warrior_rune_e_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -416,19 +416,19 @@
 		}
 		"Modifiers"
 		{
-			"modifier_spirit_rune_c_c_aura"
+			"modifier_spirit_rune_e_3_aura"
 			{
 				"IsPurgable"			"0"
 				"Passive" 			"1"
 				"IsHidden" 			"1"
 				"IsBuff"			"1"
-				"Aura"					"modifier_spirit_rune_c_c_debuff"
+				"Aura"					"modifier_spirit_rune_e_3_debuff"
 				"Aura_Radius"			"750"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 			}
-			"modifier_spirit_rune_c_c_debuff"
+			"modifier_spirit_rune_e_3_debuff"
 			{
 				"IsBuff"				"1"
 				"IsHidden"				"0"
@@ -491,7 +491,7 @@
 
 	}
 
-	"spirit_warrior_rune_d_c"
+	"spirit_warrior_rune_e_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -512,7 +512,7 @@
 		}
 	}
 
-	"spirit_warrior_rune_a_d"
+	"spirit_warrior_rune_r_1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -534,7 +534,7 @@
 
 	}
 
-	"spirit_warrior_rune_b_d"
+	"spirit_warrior_rune_r_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -556,7 +556,7 @@
 
 	}
 
-	"spirit_warrior_rune_c_d"
+	"spirit_warrior_rune_r_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -589,7 +589,7 @@
 
 	}
 
-	"spirit_warrior_rune_d_d"
+	"spirit_warrior_rune_r_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -611,14 +611,14 @@
 
 	}
 
-	"spirit_warrior_rune_a_b_arcana2"
+	"spirit_warrior_rune_w_1_arcana2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_rune_a_b_arcana1"
+		"AbilityTextureName"	"spirit_warrior/spirit_warrior_rune_w_1_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -636,14 +636,14 @@
 		}
 	}
 
-	"spirit_warrior_rune_b_b_arcana2"
+	"spirit_warrior_rune_w_2_arcana2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_rune_b_b_arcana1"
+		"AbilityTextureName"	"spirit_warrior/spirit_warrior_rune_w_2_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -656,14 +656,14 @@
 		}
 	}
 
-	"spirit_warrior_rune_c_b_arcana2"
+	"spirit_warrior_rune_w_3_arcana2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_rune_c_b_arcana1"
+		"AbilityTextureName"	"spirit_warrior/spirit_warrior_rune_w_3_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -676,14 +676,14 @@
 		}
 	}
 
-	"spirit_warrior_rune_d_b_arcana2"
+	"spirit_warrior_rune_w_4_arcana2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_rune_d_b_arcana1"
+		"AbilityTextureName"	"spirit_warrior/spirit_warrior_rune_w_4_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -696,14 +696,14 @@
 		}
 	}
 
-	"spirit_warrior_rune_a_d_arcana1"
+	"spirit_warrior_rune_r_1_arcana1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_rune_a_d_arcana1"
+		"AbilityTextureName"	"spirit_warrior/spirit_warrior_rune_r_1_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -716,7 +716,7 @@
 		}
 	}
 
-	"spirit_warrior_rune_b_d_arcana1"
+	"spirit_warrior_rune_r_2_arcana1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -752,7 +752,7 @@
 		}
 	}
 
-	"spirit_warrior_rune_c_d_arcana1"
+	"spirit_warrior_rune_r_3_arcana1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -788,14 +788,14 @@
 		}
 	}
 
-	"spirit_warrior_rune_d_d_arcana1"
+	"spirit_warrior_rune_r_4_arcana1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_rune_d_d_arcana1"
+		"AbilityTextureName"	"spirit_warrior/spirit_warrior_rune_r_4_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -808,7 +808,7 @@
 		}
 	}
 
-	"spirit_warrior_rune_a_c_arcana3"
+	"spirit_warrior_rune_e_1_arcana3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -841,7 +841,7 @@
 
 	}
 
-	"spirit_warrior_rune_b_c_arcana3"
+	"spirit_warrior_rune_e_2_arcana3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -868,7 +868,7 @@
 
 	}
 
-	"spirit_warrior_rune_c_c_arcana3"
+	"spirit_warrior_rune_e_3_arcana3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -915,19 +915,19 @@
 		}
 		"Modifiers"
 		{
-			"modifier_spirit_rune_c_c_aura"
+			"modifier_spirit_rune_e_3_aura"
 			{
 				"IsPurgable"			"0"
 				"Passive" 			"1"
 				"IsHidden" 			"1"
 				"IsBuff"			"1"
-				"Aura"					"modifier_spirit_rune_c_c_debuff"
+				"Aura"					"modifier_spirit_rune_e_3_debuff"
 				"Aura_Radius"			"750"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 			}
-			"modifier_spirit_rune_c_c_debuff"
+			"modifier_spirit_rune_e_3_debuff"
 			{
 				"IsBuff"				"1"
 				"IsHidden"				"0"
@@ -990,7 +990,7 @@
 
 	}
 
-	"spirit_warrior_rune_d_c_arcana3"
+	"spirit_warrior_rune_e_4_arcana3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -1031,7 +1031,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_spirit_rune_b_c_aura"
+			"modifier_spirit_rune_e_2_aura"
 			{
 				"EffectName"		"particles/items_fx/spirit_warrior_arcana_3_bc_aura.vpcf"
 				"EffectAttachType" 	"follow_origin"
@@ -1039,13 +1039,13 @@
 				"Passive" 			"1"
 				"IsHidden" 			"1"
 				"IsBuff"			"1"
-				"Aura"					"modifier_spirit_rune_b_c_buff"
+				"Aura"					"modifier_spirit_rune_e_2_buff"
 				"Aura_Radius"			"600"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 			}
-			"modifier_spirit_rune_b_c_buff"
+			"modifier_spirit_rune_e_2_buff"
 			{
 				"IsBuff"				"1"
 				"IsHidden"				"0"

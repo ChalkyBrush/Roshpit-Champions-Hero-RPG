@@ -14,10 +14,10 @@ function field_start(event)
 	ability.point = point
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_temporal_field_dashing", {duration = 1})
 
-	ability.a_c_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
-	ability.b_c_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
-	ability.c_c_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
-	ability.d_c_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
+	ability.e_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
+	ability.e_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
+	ability.e_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
+	ability.e_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
 
 	Filters:CastSkillArguments(3, caster)
 end
@@ -152,8 +152,8 @@ function temporal_field_leave(event)
 	target:RemoveModifierByName("modifier_dummy_aura_effect_enemy")
 	target:RemoveModifierByName("modifier_dummy_aura_effect_enemy_a_c_visible")
 	target:RemoveModifierByName("modifier_dummy_aura_effect_enemy_a_c_invisible")
-	if ability.d_c_level > 0 then
-		local duration = Filters:GetAdjustedBuffDuration(caster, 0.1*ability.d_c_level, false)
+	if ability.e_4_level > 0 then
+		local duration = Filters:GetAdjustedBuffDuration(caster, 0.1*ability.e_4_level, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_zonik_temporal_field_cap", {duration = duration})	
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_dummy_aura1_effect_zhonik", {duration = duration})	
 	end
@@ -167,13 +167,13 @@ function zhonik_aura_thinker(event)
 		Filters:CleanseStuns(target)
 		Filters:CleanseSilences(target)
 
-		if ability.c_c_level > 0 then
+		if ability.e_3_level > 0 then
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_zhonic_arcana_c_c_visible", {})
 			local newStacks = math.min(target:GetModifierStackCount("modifier_zhonic_arcana_c_c_visible", caster) + 1, 1000)
 			target:SetModifierStackCount("modifier_zhonic_arcana_c_c_visible", caster, newStacks)
 
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_zhonic_arcana_c_c_invisible", {})
-			target:SetModifierStackCount("modifier_zhonic_arcana_c_c_invisible", caster, newStacks*ability.c_c_level)
+			target:SetModifierStackCount("modifier_zhonic_arcana_c_c_invisible", caster, newStacks*ability.e_3_level)
 		end
 	end
 end
@@ -182,16 +182,16 @@ function enemy_in_field_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	if ability.a_c_level > 0 then
+	if ability.e_1_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_dummy_aura_effect_enemy_a_c_visible", {})
 		local newStacks = math.min(target:GetModifierStackCount("modifier_dummy_aura_effect_enemy_a_c_visible", caster) + 1, 20)
 		target:SetModifierStackCount("modifier_dummy_aura_effect_enemy_a_c_visible", caster, newStacks)
 
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_dummy_aura_effect_enemy_a_c_invisible", {})
-		target:SetModifierStackCount("modifier_dummy_aura_effect_enemy_a_c_invisible", caster, newStacks*ability.a_c_level)
+		target:SetModifierStackCount("modifier_dummy_aura_effect_enemy_a_c_invisible", caster, newStacks*ability.e_1_level)
 	end
-	if ability.b_c_level > 0 then
-		local damage = caster:GetAverageTrueAttackDamage(caster)*0.1*ability.b_c_level
+	if ability.e_2_level > 0 then
+		local damage = caster:GetAverageTrueAttackDamage(caster)*0.1*ability.e_2_level
 		CustomAbilities:QuickParticleAtPoint("particles/econ/items/dazzle/dazzle_darkclaw/dazzle_darkclaw_poison_touch_launch_flash.vpcf", target:GetAbsOrigin()+Vector(0,0,80), 1)
 		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 	end
@@ -204,7 +204,7 @@ function c_c_think(event)
 	if not caster:HasModifier("modifier_temporal_dummy_aura_effect") and not caster:HasModifier("modifier_temporal_field_dashing") then
 		for i=1,loseRate,1 do
 			local newStacks = caster:GetModifierStackCount("modifier_zhonic_arcana_c_c_visible", caster)-1
-			local newStacks_inv = newStacks*ability.c_c_level
+			local newStacks_inv = newStacks*ability.e_3_level
 			if newStacks > 0 then
 				caster:SetModifierStackCount("modifier_zhonic_arcana_c_c_visible", caster, newStacks)
 				caster:SetModifierStackCount("modifier_zhonic_arcana_c_c_invisible", caster, newStacks_inv)

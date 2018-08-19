@@ -22,9 +22,9 @@ function channel_complete(event)
 	local explosionAOE = 300
 	local damage = event.damage
 	Filters:CastSkillArguments(4, caster)
-	ability.a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d", "mountain_protector")
-	ability.b_d_level = Runes:GetTotalRuneLevel(caster, 2, "b_d", "mountain_protector")
-	ability.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "mountain_protector")
+	ability.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "mountain_protector")
+	ability.r_2_level = Runes:GetTotalRuneLevel(caster, 2, "r_2", "mountain_protector")
+	ability.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "mountain_protector")
 	
 	StartAnimation(caster, {duration=0.7, activity=ACT_DOTA_ATTACK, rate=1.1})
 	EmitSoundOn("MysticAssasin.FissureYell", caster)
@@ -36,8 +36,8 @@ function channel_complete(event)
 	function()
 		ParticleManager:DestroyParticle( particleX, false )
 	end)	
-	caster:RemoveModifierByName("modifier_mountain_protector_rune_b_d_visible")
-	caster:RemoveModifierByName("modifier_mountain_protector_rune_b_d_invisible")
+	caster:RemoveModifierByName("modifier_mountain_protector_rune_r_2_visible")
+	caster:RemoveModifierByName("modifier_mountain_protector_rune_r_2_invisible")
 	-- for i = 0, 4, 1 do
 	-- 	Timers:CreateTimer(i*0.2, function()
 	-- 		local pfx = ParticleManager:CreateParticle( "particles/econ/events/ti5/dagon_lvl2_ti5.vpcf", PATTACH_POINT_FOLLOW, caster )
@@ -64,8 +64,8 @@ function channel_complete(event)
 			aeon_fracture_explosion(caster, randomExplosionLocation, damage, 1, explosionAOE, ability, true, 0)
 		end)
 	end
-	ability.c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "mountain_protector")
-	if ability.c_d_level > 0 then
+	ability.r_3_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "mountain_protector")
+	if ability.r_3_level > 0 then
 		ability.burnCenter = target
 		if caster:HasModifier("modifier_mountain_protector_glyph_5_a") and ability.cast_difference then
 			for i = 1, explosionCount, 1 do
@@ -85,7 +85,7 @@ function c_d_thinker_take_damage(event)
 	print("CMON!")
 	local caster = event.caster
 	local ability = event.ability
-	local damage = ability.c_d_level * (5000 + ability:GetCaster():GetStrength() * 5)
+	local damage = ability.r_3_level * (5000 + ability:GetCaster():GetStrength() * 5)
 
 	Filters:TakeArgumentsAndApplyDamage(event.target, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
@@ -93,10 +93,10 @@ end
 function aeon_fracture_explosion(caster, position, damage, amp, explosionAOE, ability, canBD, a_c_stun_duration)
 		local stun_duration = 1.5
 		damage = damage*amp
-		-- if not ability.d_d_level then
-		-- 	ability.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "mountain_protector")
+		-- if not ability.r_4_level then
+		-- 	ability.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "mountain_protector")
 		-- end
-		-- damage = damage + 0.0003*caster:GetStrength()/10*ability.d_d_level*damage
+		-- damage = damage + 0.0003*caster:GetStrength()/10*ability.r_4_level*damage
 		local particleName = "particles/roshpit/mystic_assassin/grand_fissure_explosion.vpcf"
 		local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
 		ParticleManager:SetParticleControl( particle1, 0, position )
@@ -111,8 +111,8 @@ function aeon_fracture_explosion(caster, position, damage, amp, explosionAOE, ab
 			for _,enemy in pairs(enemies) do
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_EARTH, RPC_ELEMENT_FIRE)
 				Filters:ApplyStun(caster, stun_duration+a_c_stun_duration, enemy)
-				if ability.a_d_level > 0 then
-					local a_d_damage = caster:GetAverageTrueAttackDamage(caster)*0.3*ability.a_d_level
+				if ability.r_1_level > 0 then
+					local a_d_damage = caster:GetAverageTrueAttackDamage(caster)*0.3*ability.r_1_level
 					Filters:TakeArgumentsAndApplyDamage(enemy, caster, a_d_damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 					local pfx = ParticleManager:CreateParticle( "particles/econ/events/ti5/dagon_lvl2_ti5.vpcf", PATTACH_POINT_FOLLOW, caster )
 					ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT, "attach_hitloc", caster:GetAbsOrigin()+Vector(0,0,80), true)
@@ -122,16 +122,16 @@ function aeon_fracture_explosion(caster, position, damage, amp, explosionAOE, ab
 					end) 
 				end
 				if canBD then
-					if ability.b_d_level > 0 then
+					if ability.r_2_level > 0 then
 						local b_d_duration = Filters:GetAdjustedBuffDuration(caster, 20, false)
-						local runeAbility = caster.runeUnit2:FindAbilityByName("mountain_protector_rune_b_d")
-						runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, caster, "modifier_mountain_protector_rune_b_d_visible", {duration = b_d_duration})
-						local currentStacks = caster:GetModifierStackCount("modifier_mountain_protector_rune_b_d_visible", caster.runeUnit2)
+						local runeAbility = caster.runeUnit2:FindAbilityByName("mountain_protector_rune_r_2")
+						runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, caster, "modifier_mountain_protector_rune_r_2_visible", {duration = b_d_duration})
+						local currentStacks = caster:GetModifierStackCount("modifier_mountain_protector_rune_r_2_visible", caster.runeUnit2)
 						local stacksCount = min(currentStacks + 1, constants.R2_MAX_STACKS)
-						caster:SetModifierStackCount("modifier_mountain_protector_rune_b_d_visible", caster.runeUnit2, stacksCount)
+						caster:SetModifierStackCount("modifier_mountain_protector_rune_r_2_visible", caster.runeUnit2, stacksCount)
 
-						runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, caster, "modifier_mountain_protector_rune_b_d_invisible", {duration = b_d_duration})
-						caster:SetModifierStackCount("modifier_mountain_protector_rune_b_d_invisible", caster.runeUnit2, stacksCount*ability.b_d_level)
+						runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, caster, "modifier_mountain_protector_rune_r_2_invisible", {duration = b_d_duration})
+						caster:SetModifierStackCount("modifier_mountain_protector_rune_r_2_invisible", caster.runeUnit2, stacksCount*ability.r_2_level)
 					end
 				end
 			end

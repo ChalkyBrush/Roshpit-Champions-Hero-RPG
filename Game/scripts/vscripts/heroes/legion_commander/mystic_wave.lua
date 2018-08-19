@@ -18,15 +18,15 @@ function begin_mystic_wave(event)
 		local start_radius = 340
 		local end_radius = 340
 		local range = range
-		local d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "mountain_protector")
-		if d_a_level > 0 then
-			range = range + 20*d_a_level
+		local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "mountain_protector")
+		if q_4_level > 0 then
+			range = range + 20*q_4_level
 		end
-		ability.c_c_amp = 0
+		ability.e_3_amp = 0
 		if caster:HasModifier("modifier_emberstone_wave") then
-			local c_c_level = Runes:GetTotalRuneLevel(caster, 3, "c_c", "mountain_protector")
+			local c_c_level = Runes:GetTotalRuneLevel(caster, 3, "e_3", "mountain_protector")
 			caster:RemoveModifierByName("modifier_emberstone_wave")
-			ability.c_c_amp = 0.30*c_c_level
+			ability.e_3_amp = 0.30*c_c_level
 			particle = "particles/roshpit/mystic_assassin/protector_shockwave_red.vpcf"
 		end
 		local speed = 900
@@ -90,15 +90,15 @@ function begin_mystic_wave(event)
 		end
 	end
 
-	local a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a", "mountain_protector")
-	if a_a_level > 0 then
+	local q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "mountain_protector")
+	if q_1_level > 0 then
 		local a_a_duration = Filters:GetAdjustedBuffDuration(caster, 5, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_mountain_protector_a_a_buff", {duration = a_a_duration})
-		caster:SetModifierStackCount("modifier_mountain_protector_a_a_buff", caster, a_a_level)
+		caster:SetModifierStackCount("modifier_mountain_protector_a_a_buff", caster, q_1_level)
 	end	
-	ability.a_a_level = a_a_level
-	ability.b_a_level = Runes:GetTotalRuneLevel(caster, 2, "b_a", "mountain_protector")
-	ability.c_a_level = Runes:GetTotalRuneLevel(caster, 3, "c_a", "mountain_protector")
+	ability.q_1_level = q_1_level
+	ability.q_2_level = Runes:GetTotalRuneLevel(caster, 2, "q_2", "mountain_protector")
+	ability.q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "mountain_protector")
 	if caster:HasModifier("modifier_energy_channel") then
 		local manaCost = caster:GetMaxMana()*0.01*ability:GetLevel()
 		caster:ReduceMana(manaCost)
@@ -112,7 +112,7 @@ function mystic_wave_impact(event)
 	local baseDamage = damage
 	local ability = event.ability
 	local stunDuration = 0.5
-	local procs = Runes:Procs(ability.c_a_level, 10, 1)
+	local procs = Runes:Procs(ability.q_3_level, 10, 1)
 	for i = 0, procs, 1 do
 		Timers:CreateTimer(i*0.2, function()
 			local damage = baseDamage
@@ -131,8 +131,8 @@ function mystic_wave_impact(event)
 					-- print(damage)
 					-- print("--------------------------")
 				end
-				if ability.c_c_amp > 0 then
-					damage = damage + damage*ability.c_c_amp
+				if ability.e_3_amp > 0 then
+					damage = damage + damage*ability.e_3_amp
 				end
 				ability:ApplyDataDrivenModifier(caster, target, "modifier_mystic_wave_flail", {duration = stunDuration})
 				Filters:ApplyStun(caster, stunDuration, target)
@@ -145,18 +145,18 @@ function mystic_wave_impact(event)
 				end) 
 				EmitSoundOn("MysticAssasin.MysticWave.Impact", target)
 				Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_NORMAL, RPC_ELEMENT_EARTH)
-				if ability.b_a_level > 0 then
+				if ability.q_2_level > 0 then
 					local b_a_duration = Filters:GetAdjustedBuffDuration(caster, 15, false)
 					ability:ApplyDataDrivenModifier(caster, target, "modifier_mountain_protector_b_a_visible", {duration = b_a_duration})
 					local currentStacks = target:GetModifierStackCount("modifier_mountain_protector_b_a_visible", caster)
 					local newStacks = currentStacks + 1
 					target:SetModifierStackCount("modifier_mountain_protector_b_a_visible", caster, newStacks)
 					ability:ApplyDataDrivenModifier(caster, target, "modifier_mountain_protector_b_a_invisible", {duration = b_a_duration})
-					target:SetModifierStackCount("modifier_mountain_protector_b_a_invisible", caster, newStacks*ability.b_a_level)
+					target:SetModifierStackCount("modifier_mountain_protector_b_a_invisible", caster, newStacks*ability.q_2_level)
 				end
-				if ability.a_a_level > 0 then
+				if ability.q_1_level > 0 then
 					ability:ApplyDataDrivenModifier(caster, target, "modifier_mountain_protector_c_a_daze", {duration = 5})
-					target:SetModifierStackCount("modifier_mountain_protector_c_a_daze", caster, ability.c_a_level)
+					target:SetModifierStackCount("modifier_mountain_protector_c_a_daze", caster, ability.q_3_level)
 				end
 			end
 		end)

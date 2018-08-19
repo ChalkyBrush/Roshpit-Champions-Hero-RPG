@@ -1,12 +1,13 @@
-require('/heroes/obsidian_destroyer/constants_epoch')
-require('heroes/obsidian_destroyer/time_binder')
-require('heroes/obsidian_destroyer/epoch_arcana')
+require('heroes/obsidian_destroyer/epoch_constants')
+require('heroes/obsidian_destroyer/epoch_1_q')
+require('heroes/obsidian_destroyer/epoch_1_q_arcana')
+require('heroes/obsidian_destroyer/epoch_glyphs')
 
 function onWarpFire(event)
 	local caster = event.caster
 	local ability = event.ability
-	local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "epoch")
-	ability.d_c_level = d_c_level
+	local e_4_level = caster:GetRuneValue("e", 4)
+	ability.e_4_level = e_4_level
 	if not caster:HasModifier("modifier_time_warp") then
 		if caster:HasModifier("modifier_epoch_glyph_7_1") then
 			local glyph_duration = Filters:GetAdjustedBuffDuration(caster, 5, false)
@@ -17,14 +18,13 @@ function onWarpFire(event)
 		ability.forwardVector = caster:GetForwardVector()
 		ability.castLocation = caster:GetAbsOrigin()
 		local targetPoint = ability.castLocation + ability.forwardVector*300
-		fireOrb(ability:GetLevel(), caster, targetPoint, ability.castLocation, ability, d_c_level)
+		fireOrb(ability:GetLevel(), caster, targetPoint, ability.castLocation, ability, e_4_level)
 		EmitSoundOn("Hero_Oracle.FalsePromise.Cast", caster)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_time_warp", nil)
 		if caster:HasModifier("modifier_epoch_immortal_weapon_3") then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_no_damage", nil)
 		end
-		print('time_warp fired')
-		rune_b_c(caster, ability)
+		epoch_e_2(caster, ability)
 		Filters:CastSkillArguments(3, caster)
 		ability:EndCooldown()
 	else
@@ -32,7 +32,7 @@ function onWarpFire(event)
 	end
 end
 
-function fireOrb(abilityLevel, caster, targetPoint, casterOrigin, ability, d_c_level)
+function fireOrb(abilityLevel, caster, targetPoint, casterOrigin, ability, e_4_level)
   	local dummy = CreateUnitByName("npc_dummy_unit", casterOrigin+ability.forwardVector*100, true, caster, caster, caster:GetTeamNumber())
   	dummy.owner = caster:GetPlayerOwnerID()
   	dummy:AddAbility("time_warp_dummy")
@@ -41,7 +41,7 @@ function fireOrb(abilityLevel, caster, targetPoint, casterOrigin, ability, d_c_l
   	dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
 
   	local blast = dummy:FindAbilityByName("time_warp_dummy")
-  	blast.d_c_level = d_c_level
+  	blast.e_4_level = e_4_level
   	blast.origCaster = caster
   	blast:SetLevel(abilityLevel)
 	local order =
@@ -123,8 +123,8 @@ function jaunt(ability, caster)
 		EmitSoundOn("Hero_ElderTitan.AncestralSpirit.Cast", caster)
 		caster:RemoveModifierByName("modifier_time_warp")
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_time_blast_buff", nil)
-		rune_a_c(caster)
-		rune_c_c(caster)
+		epoch_e_1(caster)
+		epoch_e_3(caster)
 	end
 end
 
@@ -155,7 +155,7 @@ function onProjectileHit(event)
 	local target = event.target
 	local damage = event.damage
 	local ability = event.ability
-	damage = damage + caster:GetAverageTrueAttackDamage(caster)*ability.d_c_level*epoch_e4_dmg_multi_pct/100
+	damage = damage + caster:GetAverageTrueAttackDamage(caster)*ability.e_4_level*EPOCH_E4_DMG_MULTI_PCT/100
 	if target:HasModifier("modifier_time_bound") or target:HasModifier("modifier_time_bind") or target:HasModifier("modifier_space_link") or target:HasModifier("modifier_epoch_arcana_root") then
 		print("damage x2!!!")
 		damage = damage*2
@@ -167,194 +167,171 @@ function onProjectileHit(event)
 
 end
 
-function rune_a_c(caster)
+function epoch_e_1(caster)
   local runeUnit = caster.runeUnit
-  local ability = runeUnit:FindAbilityByName("epoch_rune_a_c")
-  local abilityLevel = ability:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_c")
-  local totalLevel = abilityLevel + bonusLevel
-  if totalLevel > 0 then
-  	local a_c_duration = Filters:GetAdjustedBuffDuration(caster, 0.4+totalLevel*epoch_e1_duration, false)
+  local ability = runeUnit:FindAbilityByName("epoch_rune_e_1")
+  local e_1_level = caster:GetRuneValue("e", 1)
+  if e_1_level > 0 then
+  	local e_1_duration = Filters:GetAdjustedBuffDuration(caster, 0.4+e_1_level*EPOCH_E1_DURATION, false)
   	if caster:HasModifier("modifier_epoch_glyph_2_1") then
-  		a_c_duration = a_c_duration * 2 
+  		e_1_duration = e_1_duration * 2 
   	end
-  	-- print("a_c_duration "..a_c_duration)
-    ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_epoch_rune_a_c", {duration = a_c_duration})
+  	-- print("e_1_duration "..e_1_duration)
+    ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_epoch_rune_e_1", {duration = e_1_duration})
   end
 end
 
-function rune_c_c(caster)
+function epoch_e_3(caster)
   local runeUnit = caster.runeUnit3
-  local ability = runeUnit:FindAbilityByName("epoch_rune_c_c")
+  local ability = runeUnit:FindAbilityByName("epoch_rune_e_3")
   local abilityLevel = ability:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_c")
+  local bonusLevel = Runes:GetTotalBonus(runeUnit, "e_3")
   local totalLevel = abilityLevel + bonusLevel
   if totalLevel > 0 then
   	local c_c_duration = Filters:GetAdjustedBuffDuration(caster, 6, false)
-    ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_epoch_rune_c_c", {duration = c_c_duration})
+    ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_epoch_rune_e_3", {duration = c_c_duration})
     ability.origCaster = caster
     ability.damage = caster:GetAverageTrueAttackDamage(caster)
     ability.totalLevel = totalLevel
   end
 end
 
-function rune_c_c_attack_start(event)
+function epoch_e_3_attack_start(event)
 	local target = event.target
 	local caster = event.attacker
-	local ability = event.ability
+	local ability = caster.runeUnit3:FindAbilityByName("epoch_rune_e_3")
+	event.ability = caster.runeUnit3:FindAbilityByName("epoch_rune_q_3")
+	ability.e_3_level = caster:GetRuneValue("e", 3)
 	local radius = 600
 	local targetPoint = target:GetAbsOrigin()
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), targetPoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	local projectileCount = 0
-	local c_a_ability = caster.runeUnit3:FindAbilityByName("epoch_rune_c_a")
+	local projectileSpeed = caster:GetProjectileSpeed()
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
+			local projectileEffect = "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_base_attack.vpcf"
+			local q_3_damage = epoch_q_3_get_damage(caster, caster.runeUnit3)
+			if q_3_damage then
+				projectileEffect = "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_arcane_orb.vpcf"
+				ability.q_3_damage = q_3_damage
+			end
 			local info = 
 			{
 				Target = enemy,
 				Source = caster,
 				Ability = ability,	
-				EffectName = "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_base_attack.vpcf",
+				EffectName = projectileEffect,
 				StartPosition = "attach_attack1",
 				bDrawsOnMinimap = false, 
-			        bDodgeable = true,
-			        bIsAttack = false, 
-			        bVisibleToEnemies = true,
-			        bReplaceExisting = false,
-			        flExpireTime = GameRules:GetGameTime() + 4,
+			    bDodgeable = true,
+			    bIsAttack = true, 
+			    bVisibleToEnemies = true,
+			    bReplaceExisting = false,
+			    flExpireTime = GameRules:GetGameTime() + 4,
 				bProvidesVision = true,
 				iVisionRadius = 0,
-				iMoveSpeed = 600,
+				iMoveSpeed = projectileSpeed,
 				iVisionTeamNumber = caster:GetTeamNumber()
 			}
 			projectile = ProjectileManager:CreateTrackingProjectile(info)
 			projectileCount = projectileCount + 1
-			if caster:HasAbility("time_binder") then
-				local eventTable = {}
-				eventTable.ability = c_a_ability
-				eventTable.attacker = caster
-				eventTable.target = enemy
-				c_a_attack_start(eventTable)
-				if projectileCount == ability.totalLevel + 2 then
-					break
-				end
-			elseif caster:HasAbility("epoch_arcana_ability") then
-				local eventTable = {}
-				eventTable.ability = caster:FindAbilityByName("epoch_arcana_ability")
-				eventTable.attacker = caster
-				eventTable.target = enemy
-				eventTable.caster = caster
-				arcana_attack(eventTable)
-				if projectileCount == ability.totalLevel + 2 then
-					break
-				end
+			if projectileCount == ability.e_3_level + 2 then
+				break
 			end
-			
 		end
 	end 
 end
 
-function rune_c_c_projectile_land(event)
+function epoch_e_3_projectile_land(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = ability.origCaster
 	local damage = ability.damage
-	local orb = caster:FindAbilityByName("time_genesis_orb")
-	local b_b_lvl = Runes:GetTotalRuneLevel(caster, 2, "b_b", "epoch")
-	Filters:ApplyDamageBasic(target,caster,damage,DAMAGE_TYPE_PHYSICAL)
-	if orb and b_b_lvl > 0 and caster:HasModifier("modifier_epoch_glyph_5_1") then
-		local runeW2ArmourDecrease = 50 --each w2 reduce armor for -50
-		local maximumNegativeArmor = 1000 --w2 cap at -1000
-		local finalStacksCount = b_b_lvl
-		local currentStacks = 0
-		local currentTargetArmor = target:GetPhysicalArmorValue()
-		if target:HasModifier("modifier_epoch_rune_b_b_visible") then
-			currentStacks = target:GetModifierStackCount("modifier_epoch_rune_b_b_visible", caster)
-			currentTargetArmor = currentTargetArmor + (currentStacks * runeW2ArmourDecrease)
-		end
-		if currentTargetArmor > 0 then
-			local runesToDecrease = (currentTargetArmor + maximumNegativeArmor)/runeW2ArmourDecrease - b_b_lvl
-			if runesToDecrease < 0 then
-				finalStacksCount = math.ceil ((currentTargetArmor + maximumNegativeArmor)/runeW2ArmourDecrease);
-			end
-		else
-			local runesToDecrease = maximumNegativeArmor/runeW2ArmourDecrease - b_b_lvl
-			if runesToDecrease < 0 then
-				finalStacksCount = math.ceil (maximumNegativeArmor/runeW2ArmourDecrease);
-			end
-		end
-		-- print("finalStacksCount "..finalStacksCount)
-		orb:ApplyDataDrivenModifier(caster, target, "modifier_epoch_rune_b_b_visible", {duration = 6})
-		target:SetModifierStackCount("modifier_epoch_rune_b_b_visible", caster, finalStacksCount)
+	local q_3_damage = ability.q_3_damage
+	if caster:HasModifier("modifier_epoch_glyph_5_1") then
+		local eventTable = {}
+		eventTable.ability = caster.runeUnit2:FindAbilityByName("epoch_rune_w_2")
+		eventTable.attacker = caster
+		eventTable.target = target
+		eventTable.caster = caster
+		epoch_glyph_5_1_attack_land(eventTable)
 	end
+	if caster:HasAbility("time_binder") and q_3_damage then
+		local eventTable = {}
+		eventTable.ability = caster.runeUnit3:FindAbilityByName("epoch_rune_q_3")
+		eventTable.attacker = caster
+		eventTable.target = enemy
+		eventTable.caster = caster
+		eventTable.damage = q_3_damage
+		epoch_q_3_strike(eventTable)
+	elseif caster:HasAbility("epoch_arcana_ability") then
+		local eventTable = {}
+		eventTable.ability = caster:FindAbilityByName("epoch_arcana_ability")
+		eventTable.attacker = caster
+		eventTable.target = enemy
+		eventTable.caster = caster
+		arcana_attack(eventTable)
+	end
+	Filters:ApplyDamageBasic(target,caster,damage,DAMAGE_TYPE_PHYSICAL)
 	-- ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL })
 end
 
-function rune_b_c(caster, ability)
-  local runeUnit = caster.runeUnit2
-  local runeAbility = runeUnit:FindAbilityByName("epoch_rune_b_c")
-  local abilityLevel = runeAbility:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_c")
-  local totalLevel = abilityLevel + bonusLevel
-  if totalLevel > 0 then
-  	local forwardVector = caster:GetForwardVector()
-  	local numOrbs = totalLevel
-  	ability.b_c_damage = totalLevel*100 + 130
-  	if numOrbs > 36 then
-  		numOrbs = 36
-  	end
-  	for i = 0, numOrbs, 1 do
-  		local rotatedVector = rotateVector(forwardVector, (math.pi/30)*i)
-  		rune_b_c_projectile(caster, ability, caster:GetAbsOrigin(), rotatedVector)
-  		local rotatedVector = rotateVector(forwardVector, (math.pi/30)*i*-1)
-  		rune_b_c_projectile(caster, ability, caster:GetAbsOrigin(), rotatedVector)
-  	end
-  end
+function epoch_e_2(caster, ability)
+	local runeUnit = caster.runeUnit2
+	local totalLevel = caster:GetRuneValue("e", 2)
+	if totalLevel > 0 then
+		local forwardVector = caster:GetForwardVector()
+		local numOrbs = totalLevel
+		ability.e_2_damage = totalLevel*100 + 130
+		if numOrbs > 36 then
+			numOrbs = 36
+		end
+		for i = 0, numOrbs, 1 do
+			local rotatedVector = rotateVector(forwardVector, (math.pi/30)*i)
+			epoch_e_2_projectile(caster, ability, caster:GetAbsOrigin(), rotatedVector)
+			local rotatedVector = rotateVector(forwardVector, (math.pi/30)*i*-1)
+			epoch_e_2_projectile(caster, ability, caster:GetAbsOrigin(), rotatedVector)
+		end
+	end
 end
 
-function rune_b_c_projectile(caster, ability, position, fv)
+function epoch_e_2_projectile(caster, ability, position, fv)
     local start_radius = 130
     local end_radius = 130
     local speed = 700
-       
-
     local info = 
     {
-        Ability = ability,
-          EffectName = "particles/units/heroes/hero_alchemist/epoch_rune_a_d_concoction_projectile.vpcf",
-          vSpawnOrigin = position+Vector(0,0,100),
-          fDistance = 1000,
-          fStartRadius = start_radius,
-          fEndRadius = end_radius,
-          Source = caster,
-          StartPosition = "attach_attack1",
-          bHasFrontalCone = true,
-          bReplaceExisting = false,
-          iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-          iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-          iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-          fExpireTime = GameRules:GetGameTime() + 5.0,
-      bDeleteOnHit = false,
-      vVelocity = fv*speed,
-      bProvidesVision = false,
+		Ability = ability,
+		EffectName = "particles/units/heroes/hero_alchemist/epoch_rune_r_1_concoction_projectile.vpcf",
+		vSpawnOrigin = position+Vector(0,0,100),
+		fDistance = 1000,
+		fStartRadius = start_radius,
+		fEndRadius = end_radius,
+		Source = caster,
+		StartPosition = "attach_attack1",
+		bHasFrontalCone = true,
+		bReplaceExisting = false,
+		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		fExpireTime = GameRules:GetGameTime() + 5.0,
+		bDeleteOnHit = false,
+		vVelocity = fv*speed,
+		bProvidesVision = false,
     }
     projectile = ProjectileManager:CreateLinearProjectile(info) 
 
 end
 
-function onProjectileHit_b_c(event)
+function epoch_e_2_projectile_hit(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	local damage = ability.b_c_damage
-	-- if target:HasModifier("modifier_time_bound") or target:HasModifier("modifier_time_bind") or target:HasModifier("modifier_time_bind_two") then
-	-- 	print("damage x2!!!")
-	-- 	damage = damage*2
-	-- end
-	damage = damage + caster:GetAverageTrueAttackDamage(caster)*ability.d_c_level*epoch_e4_dmg_multi_pct/100
+	local damage = ability.e_2_damage
+	damage = damage + caster:GetAverageTrueAttackDamage(caster)*ability.e_4_level*EPOCH_E4_DMG_MULTI_PCT/100
 	if target:HasModifier("modifier_time_bound") or target:HasModifier("modifier_time_bind") or target:HasModifier("modifier_space_link") or target:HasModifier("modifier_epoch_arcana_root") then
 		damage = damage*2
-		if target:HasModifier("modifier_epoch_immortal_weapon_3") then
+		if caster:HasModifier("modifier_epoch_immortal_weapon_3") then
 			Filters:ApplyStun(caster, 0.8, target)
 		end
 	end

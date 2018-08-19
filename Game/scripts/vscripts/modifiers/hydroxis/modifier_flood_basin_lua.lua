@@ -12,7 +12,7 @@ function modifier_flood_basin_lua:GetModifierCastRangeBonus( params )
 	local hero = self:GetParent()
 	local range = 0
 	local ability = self:GetAbility()
-	range = range + ability.a_d_level*15
+	range = range + ability.r_1_level*15
 	if hero:HasModifier("modifier_vermillion_dream_lua") then
 		range = range + 420
 	end

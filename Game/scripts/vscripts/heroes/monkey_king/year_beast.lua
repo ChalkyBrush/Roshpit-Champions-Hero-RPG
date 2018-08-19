@@ -39,8 +39,8 @@ function hawk_screech(event)
 		bProvidesVision = false,
 	}
 	projectile = ProjectileManager:CreateLinearProjectile(info)
-	local c_a_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
-	if c_a_level > 0 then
+	local q_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
+	if q_3_level > 0 then
 		local modifiers = caster:FindAllModifiers()
 		for i = 1, #modifiers, 1 do
 			local modifier = modifiers[i]
@@ -52,7 +52,7 @@ function hawk_screech(event)
 				if (modifierMaker:GetEntityIndex() == caster:GetEntityIndex() or modifierMaker:GetEntityIndex() == caster.InventoryUnit:GetEntityIndex()) and modifier.djanghorQ3Increase < DJANGHOR_Q3_BUFF_DURATION_INCREASE_LIMIT then
 					local durationRemaining = modifier:GetRemainingTime()
 					if durationRemaining > 0 then
-						local durationIncrease = DJANGHOR_Q3_BUFF_DURATION_INCREASE*c_a_level
+						local durationIncrease = DJANGHOR_Q3_BUFF_DURATION_INCREASE*q_3_level
 						if (modifier.djanghorQ3Increase + durationIncrease) > DJANGHOR_Q3_BUFF_DURATION_INCREASE_LIMIT then
 							durationIncrease = DJANGHOR_Q3_BUFF_DURATION_INCREASE_LIMIT - modifier.djanghorQ3Increase
 							modifier.djanghorQ3Increase = DJANGHOR_Q3_BUFF_DURATION_INCREASE_LIMIT
@@ -67,17 +67,17 @@ function hawk_screech(event)
 	end
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_bear_armor_buff", {duration = duration})
-	ability.a_a_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
-	if ability.a_a_level > 0 then
+	ability.q_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
+	if ability.q_1_level > 0 then
 		caster:RemoveModifierByName("modifier_bear_regen")
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_bear_regen", {duration = 12})
 		EmitSoundOn("Draghor.Bear.Regeneration", caster)
 	end
 	local howlDuration = Filters:GetAdjustedBuffDuration(caster, 8, false)
-	local b_a_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
-	if b_a_level > 0 then
+	local q_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
+	if q_2_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_wolf_howl_flat_b_b", {duration = howlDuration})
-		caster:SetModifierStackCount("modifier_wolf_howl_flat_b_b", caster, b_a_level)
+		caster:SetModifierStackCount("modifier_wolf_howl_flat_b_b", caster, q_2_level)
 	end
 	Filters:CastSkillArguments(1, caster)
 end
@@ -138,7 +138,7 @@ function rend_start(event)
 			enemy:SetModifierStackCount("modifier_wolf_rend_armor_loss", caster, armorLoss*newStacks)
 			if rendStacks == 2 then
 				enemy.rendBleed = event.bleed_damage*damage/100
-				ability.b_b_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
+				ability.w_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_wolf_rend_bleed", {duration = 12})
 				local particleName = "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
 				if not ability.bloodCount then
@@ -210,7 +210,7 @@ function tornado_start(event)
 	}
 	projectile = ProjectileManager:CreateLinearProjectile(info)
 
-	ability.c_b_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+	ability.w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
 
 end
 
@@ -221,8 +221,8 @@ function tornado_hit(event)
 
 	local damage = event.damage
 	damage = damage + event.int_mult*caster:GetIntellect()
-	if ability.c_b_level > 0 then
-		damage = damage + caster:GetAverageTrueAttackDamage(caster)*DJANGHOR_W3_ATTACK_PERCENT_ADDED_TO_TORNADO_AND_STOMP*ability.c_b_level
+	if ability.w_3_level > 0 then
+		damage = damage + caster:GetAverageTrueAttackDamage(caster)*DJANGHOR_W3_ATTACK_PERCENT_ADDED_TO_TORNADO_AND_STOMP*ability.w_3_level
 	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_WIND, RPC_ELEMENT_NATURE)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_hawk_tornado_debuff", {duration = 7})
@@ -243,7 +243,7 @@ function tornado_hit(event)
 	enemy:SetModifierStackCount("modifier_wolf_rend_armor_loss", caster, armorLoss*newStacks)
 	if rendStacks == 2 then
 		enemy.rendBleed = event.bleed_damage*damage/100
-		ability.b_b_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
+		ability.w_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
 		ability:ApplyDataDrivenModifier(caster, enemy, "modifier_wolf_rend_bleed", {duration = 12})
 		local particleName = "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
 		local pfx = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN_FOLLOW, enemy )
@@ -364,7 +364,7 @@ end
 function bear_regen_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local healAmount = ability.a_a_level*DJANGHOR_Q1_REGEN_FLAT
+	local healAmount = ability.q_1_level*DJANGHOR_Q1_REGEN_FLAT
 	Filters:ApplyHeal(caster, caster, healAmount, true)
 end
 
@@ -523,9 +523,9 @@ function jump_end(event)
 	local ability = event.ability
 	local stun_duration = event.stun_duration
 	local damage = event.stomp_damage
-	local c_b_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
-	if c_b_level > 0 then
-		damage = damage + caster:GetAverageTrueAttackDamage(caster)*DJANGHOR_W3_ATTACK_PERCENT_ADDED_TO_TORNADO_AND_STOMP*c_b_level
+	local w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+	if w_3_level > 0 then
+		damage = damage + caster:GetAverageTrueAttackDamage(caster)*DJANGHOR_W3_ATTACK_PERCENT_ADDED_TO_TORNADO_AND_STOMP*w_3_level
 	end
 	local position = caster:GetAbsOrigin()
 	local splitEarthParticle = "particles/roshpit/draghor/yearbeast_warstomp.vpcf"

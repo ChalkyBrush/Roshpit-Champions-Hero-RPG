@@ -7,7 +7,7 @@ function arcana_ability_start(event)
 	local point = event.target_points[1]
 	if caster:HasAbility("whirling_flail") then
 		local flailAbility = caster:FindAbilityByName("whirling_flail")
-		flailAbility.a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a", "duskbringer")
+		flailAbility.q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "duskbringer")
 	end
 	local newPosition = WallPhysics:WallSearch(caster:GetAbsOrigin(), point, caster)
 
@@ -22,7 +22,7 @@ function arcana_ability_start(event)
 	Filters:CastSkillArguments(2, caster)
 	ability.moveVector = ((newPosition-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 	EmitSoundOn("Duskbringer.Arcana1.VO", caster)
-	caster.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "duskbringer")
+	caster.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "duskbringer")
 end
 
 function smashing_think(event)
@@ -51,34 +51,34 @@ function smashing_end(event)
 	EmitSoundOn("Duskbringer.Arcana1.Smash", caster)
 	local stunDuration = event.stun_duration
 	local damage = event.damage
-	local a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b_arcana1", "duskbringer")
-	if a_b_level > 0 then
-		damage = damage + a_b_level*caster:GetAverageTrueAttackDamage(caster) * ability:GetLevel() * W1_ARCANA1_AMP_PERCENT / 100
+	local w_1_level = Runes:GetTotalRuneLevel(caster, 1, "a_b_arcana1", "duskbringer")
+	if w_1_level > 0 then
+		damage = damage + w_1_level*caster:GetAverageTrueAttackDamage(caster) * ability:GetLevel() * W1_ARCANA1_AMP_PERCENT / 100
 	end
 
-	local b_b_level = Runes:GetTotalRuneLevel(caster, 2, "b_b_arcana1", "duskbringer")
-	local c_b_level = Runes:GetTotalRuneLevel(caster, 3, "c_b_arcana1", "duskbringer")
-	local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b_arcana1", "duskbringer")
+	local w_2_level = Runes:GetTotalRuneLevel(caster, 2, "b_b_arcana1", "duskbringer")
+	local w_3_level = Runes:GetTotalRuneLevel(caster, 3, "c_b_arcana1", "duskbringer")
+	local w_4_level = Runes:GetTotalRuneLevel(caster, 4, "d_b_arcana1", "duskbringer")
 	local flailAbility = caster:FindAbilityByName("whirling_flail")
-	local stacksCount = Runes:Procs(c_b_level, W3_ARCANA1_PROC_CHANCE, 1)
+	local stacksCount = Runes:Procs(w_3_level, W3_ARCANA1_PROC_CHANCE, 1)
 					
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )	
 	if #enemies > 0 then	
 		for i = 1, #enemies, 1 do
 			Filters:TakeArgumentsAndApplyDamage(enemies[i], caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_GHOST, RPC_ELEMENT_SHADOW)
 			Filters:ApplyStun(caster, stunDuration, enemies[i])
-			if c_b_level > 0 then
+			if w_3_level > 0 then
 				increment_duskfire_stacks(caster, enemies[i], flailAbility, stacksCount)
 			end
 		end
 	end
 
 	
-	if b_b_level > 0 then
+	if w_2_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_duskbringer_arcana_armor", {duration = 6})
-		caster:SetModifierStackCount("modifier_duskbringer_arcana_armor", caster, b_b_level)
+		caster:SetModifierStackCount("modifier_duskbringer_arcana_armor", caster, w_2_level)
 	end	
-	if d_b_level > 0 then
+	if w_4_level > 0 then
 		if not caster:HasModifier("modifier_duskbringer_arcana_damage_buff") then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifer_duskbringer_d_b_charging_up", {duration = 0.8})
 			Timers:CreateTimer(0.3, function()
@@ -88,7 +88,7 @@ function smashing_end(event)
 			Timers:CreateTimer(0.8, function()
 				local d_b_duration = Filters:GetAdjustedBuffDuration(caster, 18, false)
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_duskbringer_arcana_damage_buff", {duration = d_b_duration})
-				caster:SetModifierStackCount("modifier_duskbringer_arcana_damage_buff", caster, d_b_level)
+				caster:SetModifierStackCount("modifier_duskbringer_arcana_damage_buff", caster, w_4_level)
 			end)
 		end
 	end

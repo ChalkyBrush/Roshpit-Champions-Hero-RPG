@@ -5,8 +5,8 @@ function charge_wind_up(event)
 	local duration = event.duration
 	StartAnimation(caster, {duration=duration+0.3, activity=ACT_DOTA_RUN, rate=1.4, translate="charge"})
 	ability.fv = caster:GetForwardVector()
-	ability.c_c_level = Runes:GetTotalRuneLevel(caster, 3, "c_c", "duskbringer")
-	ability.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "duskbringer")
+	ability.e_3_level = Runes:GetTotalRuneLevel(caster, 3, "e_3", "duskbringer")
+	ability.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "duskbringer")
 	print("charge wind up")
 	-- caster:MoveToPosition(caster:GetAbsOrigin() + ability.fv*800)
 	local soundTable = {"spirit_breaker_spir_anger_05", "spirit_breaker_spir_laugh_07", "spirit_breaker_spir_move_03"}
@@ -18,8 +18,8 @@ function begin_rush(event)
 	local caster = event.caster
 	local ability = event.ability
 	ability.interval = 0
-	caster:RemoveModifierByName("modifier_duskbringer_rune_d_c_visible")
-	caster:RemoveModifierByName("modifier_duskbringer_rune_d_c_invisible")
+	caster:RemoveModifierByName("modifier_duskbringer_rune_e_4_visible")
+	caster:RemoveModifierByName("modifier_duskbringer_rune_e_4_invisible")
 	print("begin rush")
 end
 
@@ -66,7 +66,7 @@ function charge_think(event)
 	-- end
 	print("charge think")
 
-	if ability.interval%9==0 and ability.c_c_level > 0 then
+	if ability.interval%9==0 and ability.e_3_level > 0 then
 		local casterOrigin = caster:GetAbsOrigin()
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), casterOrigin, nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		local modifierKnockback =
@@ -81,7 +81,7 @@ function charge_think(event)
 		}
 		if #enemies > 0 then
 			EmitSoundOn("Hero_Spirit_Breaker.GreaterBash", caster)
-			local damage = ability.c_c_level*1000
+			local damage = ability.e_3_level*1000
 			for _,enemy in pairs(enemies) do
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
 				enemy:AddNewModifier( caster, nil, "modifier_knockback", modifierKnockback )
@@ -91,8 +91,8 @@ function charge_think(event)
 				Timers:CreateTimer(0.8, function() 
 				  ParticleManager:DestroyParticle( pfx, false )
 				end) 	
-				if ability.d_c_level > 0 then
-					d_c_up(caster, ability.d_c_level, damage)
+				if ability.e_4_level > 0 then
+					d_c_up(caster, ability.e_4_level, damage)
 				end
 
 			end
@@ -102,17 +102,17 @@ function charge_think(event)
 end
 
 function d_c_up(caster, d_c_level, damage)
-    local runeAbility = caster.runeUnit4:FindAbilityByName("duskbringer_rune_d_c")
+    local runeAbility = caster.runeUnit4:FindAbilityByName("duskbringer_rune_e_4")
     local d_c_duration = Filters:GetAdjustedBuffDuration(caster, 15, false)
-    runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_duskbringer_rune_d_c_visible", {duration = d_c_duration})
-    local current_stacks = caster:GetModifierStackCount( "modifier_duskbringer_rune_d_c_visible", runeAbility )
+    runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_duskbringer_rune_e_4_visible", {duration = d_c_duration})
+    local current_stacks = caster:GetModifierStackCount( "modifier_duskbringer_rune_e_4_visible", runeAbility )
     newStacks = current_stacks + 1
-    caster:SetModifierStackCount( "modifier_duskbringer_rune_d_c_visible", runeAbility, newStacks )
+    caster:SetModifierStackCount( "modifier_duskbringer_rune_e_4_visible", runeAbility, newStacks )
 
-    runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_duskbringer_rune_d_c_invisible", {duration = d_c_duration})
-    local current_stacks_true = caster:GetModifierStackCount( "modifier_duskbringer_rune_d_c_invisible", runeAbility )
+    runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_duskbringer_rune_e_4_invisible", {duration = d_c_duration})
+    local current_stacks_true = caster:GetModifierStackCount( "modifier_duskbringer_rune_e_4_invisible", runeAbility )
     local new_stacks_true = current_stacks_true + (damage/100) * 0.5 * d_c_level
-    caster:SetModifierStackCount( "modifier_duskbringer_rune_d_c_invisible", runeAbility, new_stacks_true)
+    caster:SetModifierStackCount( "modifier_duskbringer_rune_e_4_invisible", runeAbility, new_stacks_true)
 end
 
 function charge_end(event)
@@ -148,10 +148,10 @@ function rune_unit_2_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local hero = caster.hero
-	local totalLevel = Runes:GetTotalRuneLevel(hero, 2, "b_c", "duskbringer")
+	local totalLevel = Runes:GetTotalRuneLevel(hero, 2, "e_2", "duskbringer")
 	if totalLevel > 0 then
-		ability:ApplyDataDrivenModifier(caster, hero, "modifier_duskbringer_rune_b_c_effect", {})
-		hero:SetModifierStackCount( "modifier_duskbringer_rune_b_c_effect", ability, totalLevel )
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_duskbringer_rune_e_2_effect", {})
+		hero:SetModifierStackCount( "modifier_duskbringer_rune_e_2_effect", ability, totalLevel )
 	end
 end
 
@@ -159,13 +159,13 @@ function rune_unit_4_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local hero = caster.hero
-	local d_a_level = Runes:GetTotalRuneLevel(hero, 4, "d_a", "duskbringer")
-	if d_a_level > 0 then
-		local d_a_ability = hero.runeUnit4:FindAbilityByName("duskbringer_rune_d_a")
-		d_a_ability:ApplyDataDrivenModifier(hero.runeUnit4, hero, "modifier_duskbringer_rune_d_a", {})
-		hero:SetModifierStackCount( "modifier_duskbringer_rune_d_a", d_a_ability, d_a_level )
-		d_a_ability.a_a_level = Runes:GetTotalRuneLevel(hero, 1, "a_a", "duskbringer")
+	local q_4_level = Runes:GetTotalRuneLevel(hero, 4, "q_4", "duskbringer")
+	if q_4_level > 0 then
+		local d_a_ability = hero.runeUnit4:FindAbilityByName("duskbringer_rune_q_4")
+		d_a_ability:ApplyDataDrivenModifier(hero.runeUnit4, hero, "modifier_duskbringer_rune_q_4", {})
+		hero:SetModifierStackCount( "modifier_duskbringer_rune_q_4", d_a_ability, q_4_level )
+		d_a_ability.q_1_level = Runes:GetTotalRuneLevel(hero, 1, "q_1", "duskbringer")
 	else
-		hero:RemoveModifierByName("modifier_duskbringer_rune_d_a")
+		hero:RemoveModifierByName("modifier_duskbringer_rune_q_4")
 	end
 end

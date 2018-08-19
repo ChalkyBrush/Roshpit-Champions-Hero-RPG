@@ -11,13 +11,13 @@ function sunstrider_start(event)
 	local travelTime = 0.5
 
 	local a_c_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
-	ability.c_c_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
-	ability.a_d_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
+	ability.e_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
+	ability.r_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
 
-	if ability.c_c_level > 0 then
+	if ability.e_3_level > 0 then
 		local c_c_duration = Filters:GetAdjustedBuffDuration(caster, 3, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_sunstrider_sunwarrior_vengeance_post_mit", {duration = c_c_duration})
-		caster:SetModifierStackCount("modifier_sunstrider_sunwarrior_vengeance_post_mit", caster, ability.c_c_level)
+		caster:SetModifierStackCount("modifier_sunstrider_sunwarrior_vengeance_post_mit", caster, ability.e_3_level)
 	end
 
 	if a_c_level > 0 then
@@ -50,7 +50,7 @@ function sunstrider_start(event)
 						end)
 
 						if caster:HasAbility("seinaru_gorudo") then
-							apply_a_d(caster, enemy, caster:FindAbilityByName("seinaru_gorudo"), ability.a_d_level, 0) 
+							apply_a_d(caster, enemy, caster:FindAbilityByName("seinaru_gorudo"), ability.r_1_level, 0) 
 						end
 					end)
 				end
@@ -159,7 +159,7 @@ function vengeance_hit(event)
     Timers:CreateTimer(3, function()
         ParticleManager:DestroyParticle(particle1, false)
     end)
-    local damage = ability.c_c_level*0.3*caster:GetAverageTrueAttackDamage(caster)
+    local damage = ability.e_3_level*0.3*caster:GetAverageTrueAttackDamage(caster)
     EmitSoundOn("Seinaru.Sunstrider.Vengeance", target)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then

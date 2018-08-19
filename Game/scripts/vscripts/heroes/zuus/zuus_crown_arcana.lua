@@ -32,13 +32,13 @@ function start_holy_arcana(event)
 	end)
 	EmitSoundOn("Auriun.HolyWrath", caster)
 	Filters:CastSkillArguments(1, caster)
-	local d_a_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
-	ability.d_a_level = d_a_level
-	if d_a_level > 0 then
+	local q_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+	ability.q_4_level = q_4_level
+	if q_4_level > 0 then
 		local duration = 5
 		duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_holy_wrath_d_a_buff", {duration = duration})
-		caster:SetModifierStackCount("modifier_holy_wrath_d_a_buff", caster, d_a_level)
+		caster:SetModifierStackCount("modifier_holy_wrath_d_a_buff", caster, q_4_level)
 	end
 	immortal_weapon_3_effect(caster, ability)
 end
@@ -48,7 +48,7 @@ function heavens_shield_take_damage(event)
 	local damage = event.damage
 	local target = event.unit
 	local ability = event.ability
-	if ability.a_a_level > 0 then
+	if ability.q_1_level > 0 then
 
 		shield_lightning(caster, ability, target:GetAbsOrigin())
 	end
@@ -101,7 +101,7 @@ function heavens_shield_spark_hit(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local damage = ability.a_a_level*30000 + 50000
+	local damage = ability.q_1_level*30000 + 50000
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 end
 
@@ -114,10 +114,10 @@ function start_shadow_arcana(event)
 
 	EmitSoundOnLocationWithCaster(point, "Auriun.ShadowTrap", caster)
 
-	ability.a_a_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
+	ability.q_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
 
-	local b_a_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
-	if b_a_level > 0 then
+	local q_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
+	if q_2_level > 0 then
 		local eventTable = {}
 		eventTable.caster = caster
 		eventTable.ability = ability
@@ -133,8 +133,8 @@ function shadow_trap_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	if ability.a_a_level > 0 then
-		local damage = 50000 + ability.a_a_level*30000
+	if ability.q_1_level > 0 then
+		local damage = 50000 + ability.q_1_level*30000
 		CustomAbilities:QuickAttachParticle("particles/roshpit/auriun/shadow_rain_attack.vpcf", target, 3.5)
 		Timers:CreateTimer(0.45, function()
 			Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)

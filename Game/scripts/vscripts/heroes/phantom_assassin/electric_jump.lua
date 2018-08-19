@@ -6,10 +6,10 @@ function begin_electric_jump(event)
 	ability.jump_level = 0
 	EmitSoundOn("phantom_assassin_phass_pain_02", caster)
 	Filters:CastSkillArguments(3, caster)
-	electricLeap_rune_a_c(caster, ability)
-	electricLeap_rune_c_c(caster, ability)
+	electricLeap_rune_e_1(caster, ability)
+	electricLeap_rune_e_3(caster, ability)
 	caster:StartGesture(ACT_DOTA_SPAWN)
-    caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "voltex")
+    caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "voltex")
 
     ability:ApplyDataDrivenModifier(caster, caster, "modfier_voltex_jumping", {duration = 8})
     local targetPoint = event.target_points[1]
@@ -122,7 +122,7 @@ function drop_end(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local location = caster:GetAbsOrigin()
-	electricLeap_rune_b_c(caster, ability)
+	electricLeap_rune_e_2(caster, ability)
 	WallPhysics:ClearSpaceForUnit(caster, location)
 
 end
@@ -140,25 +140,25 @@ function target_effect(event)
     Filters:ApplyStun(caster, stun_duration, target)
 end
 
-function electricLeap_rune_b_c(caster, ability)
-  local totalLevel = Runes:GetTotalRuneLevel(caster, 2, "b_c", "voltex")
-  ability.b_c_level = totalLevel
-  ability.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "voltex")
+function electricLeap_rune_e_2(caster, ability)
+  local totalLevel = Runes:GetTotalRuneLevel(caster, 2, "e_2", "voltex")
+  ability.e_2_level = totalLevel
+  ability.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "voltex")
   if totalLevel > 0 then
   	local b_c_duration = Filters:GetAdjustedBuffDuration(caster, 2.5+totalLevel*0.2, false)
-    ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_rune_b_c", {duration = b_c_duration})
+    ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_rune_e_2", {duration = b_c_duration})
   end
 end
 
-function electricLeap_rune_c_c(hero, ability)
+function electricLeap_rune_e_3(hero, ability)
   local caster = hero
   local runeUnit = caster.runeUnit3
-  local runeAbility = runeUnit:FindAbilityByName("voltex_rune_c_c")
-  local totalLevel = Runes:GetTotalRuneLevel(caster, 3, "c_c", "voltex")
+  local runeAbility = runeUnit:FindAbilityByName("voltex_rune_e_3")
+  local totalLevel = Runes:GetTotalRuneLevel(caster, 3, "e_3", "voltex")
   if totalLevel > 0 then
-    -- runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_voltex_rune_c_c", {duration = 1.05})
-    -- runeAbility.c_c_level = totalLevel
-    -- ability.c_c_level = totalLevel
+    -- runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_voltex_rune_e_3", {duration = 1.05})
+    -- runeAbility.e_3_level = totalLevel
+    -- ability.e_3_level = totalLevel
     if caster:IsAlive() then
 	  	local heavens_charge = caster:FindAbilityByName("heavens_charge")
 	  	if not heavens_charge then
@@ -166,19 +166,19 @@ function electricLeap_rune_c_c(hero, ability)
 	  	end
 	  	heavens_charge:SetLevel(ability:GetLevel())
 	  	heavens_charge:SetAbilityIndex(2)
-	  	heavens_charge.rune_c_c_level = totalLevel
+	  	heavens_charge.rune_e_3_level = totalLevel
 	  	caster:SwapAbilities("electric_jump", "heavens_charge", false, true)
 	  	caster.chargeActive = true
 	end
   end
 end
 
-function electricLeap_rune_a_c(hero, ability)
+function electricLeap_rune_e_1(hero, ability)
   local caster = hero
   local runeUnit = caster.runeUnit
-  local ability = runeUnit:FindAbilityByName("voltex_rune_a_c")
+  local ability = runeUnit:FindAbilityByName("voltex_rune_e_1")
   local abilityLevel = ability:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_c")
+  local bonusLevel = Runes:GetTotalBonus(runeUnit, "e_1")
   local totalLevel = abilityLevel + bonusLevel
   local player = caster:GetPlayerOwner()
   if totalLevel > 0 then
@@ -204,18 +204,18 @@ function ConjureImage( caster, player, runeAbility, abilityLevel, runeUnit )
  illusion:SetOwner(caster)
  illusion.owner = caster:GetPlayerOwnerID()
  illusion.hero = caster
- illusion.a_c_level = abilityLevel
- caster.a_c_level = abilityLevel
+ illusion.e_1_level = abilityLevel
+ caster.e_1_level = abilityLevel
  caster.illusion = illusion
  --illusion:SetPlayerID(caster:GetPlayerID())
  illusion:SetControllableByPlayer(illusion.owner, true)
- runeAbility:ApplyDataDrivenModifier(runeUnit, illusion, "modifier_voltex_rune_a_c_remnant", {duration = duration})
+ runeAbility:ApplyDataDrivenModifier(runeUnit, illusion, "modifier_voltex_rune_e_1_remnant", {duration = duration})
  EmitSoundOn("Hero_Disruptor.ThunderStrike.Target", illusion)
 
- 	if not illusion:HasAbility("lightning_attack") then
- 		illusion:AddAbility("lightning_attack")
+ 	if not illusion:HasAbility("overcharge") then
+ 		illusion:AddAbility("overcharge")
  	end
-  local overCharge = illusion:FindAbilityByName("lightning_attack")
+  local overCharge = illusion:FindAbilityByName("overcharge")
 
  -- Set the unit as an illusion
  -- modifier_illusion controls many illusion properties like +Green damage not adding to the unit damage, not being able to cast spells and the team-only blue particle 
@@ -237,12 +237,12 @@ illusion:AddNewModifier(caster, ability, "modifier_illusion", { duration = durat
 	local newDamage = caster:GetAverageTrueAttackDamage(caster)*5
     Filters:SetAttackDamage(illusion, newDamage)
 
-    if caster:HasModifier("modifier_voltex_rune_c_d_avatar") then
-    	local runeAbility = caster.runeUnit3:FindAbilityByName("voltex_rune_c_d")
-    	runeAbility:ApplyDataDrivenModifier(caster.runeUnit3, illusion, "modifier_voltex_rune_c_d_avatar", {duration = duration})
-    	local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "voltex")
-    	runeAbility:ApplyDataDrivenModifier(caster.runeUnit3, illusion, "modifier_voltex_rune_c_d_buff", {duration = duration})
-    	illusion:SetModifierStackCount( "modifier_voltex_rune_c_d_buff", runeAbility, c_d_level )
+    if caster:HasModifier("modifier_voltex_rune_r_3_avatar") then
+    	local runeAbility = caster.runeUnit3:FindAbilityByName("voltex_rune_r_3")
+    	runeAbility:ApplyDataDrivenModifier(caster.runeUnit3, illusion, "modifier_voltex_rune_r_3_avatar", {duration = duration})
+    	local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "voltex")
+    	runeAbility:ApplyDataDrivenModifier(caster.runeUnit3, illusion, "modifier_voltex_rune_r_3_buff", {duration = duration})
+    	illusion:SetModifierStackCount( "modifier_voltex_rune_r_3_buff", runeAbility, c_d_level )
     end
 
 end

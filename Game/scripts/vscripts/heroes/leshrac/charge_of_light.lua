@@ -3,18 +3,18 @@ require('heroes/leshrac/leshrac_runes')
 function startChannel(event)
 	local caster = event.caster
 	local ability = event.ability
-	ability.c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "bahamut")
-	ability.a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d", "bahamut")
-	caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "bahamut")
+	ability.r_3_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "bahamut")
+	ability.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "bahamut")
+	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "bahamut")
 	local wallAbility = caster:FindAbilityByName("leshrac_wall")
-	wallAbility.a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d", "bahamut")
-	print(ability.c_d_level)
+	wallAbility.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "bahamut")
+	print(ability.r_3_level)
 end
 
 function set_c_d_level(event)
 	local caster = event.caster
 	local ability = event.ability
-	ability.c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "bahamut")
+	ability.r_3_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "bahamut")
 end
 
 function break_channel(event)
@@ -39,8 +39,8 @@ function beginCharge(event)
 	ability.ninetyDegrees = WallPhysics:rotateVector(ability.fv, math.pi/2)
   	createWallParticle(caster, 500, true, ability)
   end
-  caster:RemoveModifierByName("modifier_bahamut_rune_d_d_buff_visible")
-  caster:RemoveModifierByName("modifier_bahamut_rune_d_d_buff_invisible")
+  caster:RemoveModifierByName("modifier_bahamut_rune_r_4_buff_visible")
+  caster:RemoveModifierByName("modifier_bahamut_rune_r_4_buff_invisible")
 end
 
 function charge_think(event)
@@ -98,7 +98,7 @@ function charge_end(event)
 	local caster = event.caster
 	local ability = event.ability
 	local position = caster:GetAbsOrigin()
-	caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "bahamut")
+	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "bahamut")
 	local fv = caster:GetForwardVector()
 	--
 	local particle = "particles/units/heroes/hero_warlock/charge_of_light.vpcf"
@@ -127,8 +127,8 @@ function charge_end(event)
 	end)
 	local range = event.range
 	EmitSoundOn("Hero_Terrorblade.Sunder.Target", caster)
-	caster:RemoveModifierByName("modifier_bahamut_rune_d_d_buff_visible")
-	caster:RemoveModifierByName("modifier_bahamut_rune_d_d_buff_invisible")
+	caster:RemoveModifierByName("modifier_bahamut_rune_r_4_buff_visible")
+	caster:RemoveModifierByName("modifier_bahamut_rune_r_4_buff_invisible")
 	for i = -16, 16, 1 do
 		local rotatedVec = WallPhysics:rotateVector(fv, math.pi/16*i)
 		fireProjectile(ability, caster, "particles/units/heroes/hero_alchemist/charge_of_light_linear_projectile_concoction_projectile_linear.vpcf", rotatedVec, position, range)
@@ -148,16 +148,16 @@ function charge_end(event)
 		eventTable.guarantee = true
 		WallAllyBuff(eventTable)
 	end
-	local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "bahamut")
+	local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "bahamut")
 	local shellDuration = 3
 	if caster:HasModifier("modifier_bahamut_glyph_5_1") then
 		shellDuration = 6
 	end
 	shellDuration = Filters:GetAdjustedBuffDuration(caster, shellDuration, false)
 	if d_d_level > 0 then
-		local runeAbility = caster.runeUnit4:FindAbilityByName("bahamut_rune_d_d")
-		runeAbility.d_d_level = d_d_level
-		runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_bahamut_rune_d_d_shell", {duration = shellDuration})
+		local runeAbility = caster.runeUnit4:FindAbilityByName("bahamut_rune_r_4")
+		runeAbility.r_4_level = d_d_level
+		runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_bahamut_rune_r_4_shell", {duration = shellDuration})
 		if caster:HasModifier("modifier_charge_of_light_hyper_state") then
 			local hyperStateDuration = Filters:GetAdjustedBuffDuration(caster, 12, false)
 			local wallAbility = caster:FindAbilityByName("leshrac_wall")
@@ -222,8 +222,8 @@ function projectileStrike(event)
     target:AddNewModifier( caster, nil, "modifier_knockback", modifierKnockback )
     local judgementAbility = caster:FindAbilityByName("leshrac_nuke")
     if judgementAbility then
-    	if judgementAbility.b_b_level then
-			if judgementAbility.b_b_level > 0 then
+    	if judgementAbility.w_2_level then
+			if judgementAbility.w_2_level > 0 then
 				judgementAbility:ApplyDataDrivenModifier(caster, target, "modifier_leshrac_nuke_judged", {duration = 5}) 
 			end
 		end
@@ -300,7 +300,7 @@ end
 function c_d_channel_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	if ability.c_d_level > 0 then
+	if ability.r_3_level > 0 then
 		local position = caster:GetAbsOrigin()
 		local particleName = "particles/units/heroes/hero_faceless_void/bahamut_c_d_slow_timedialate.vpcf"
 		local particle = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
@@ -314,8 +314,8 @@ function c_d_channel_think(event)
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
-				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_bahamut_rune_c_d_effect", {duration = 3})
-				enemy:SetModifierStackCount( "modifier_bahamut_rune_c_d_effect", ability, ability.c_d_level )
+				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_bahamut_rune_r_3_effect", {duration = 3})
+				enemy:SetModifierStackCount( "modifier_bahamut_rune_r_3_effect", ability, ability.r_3_level )
 			end
 		end 
 	end

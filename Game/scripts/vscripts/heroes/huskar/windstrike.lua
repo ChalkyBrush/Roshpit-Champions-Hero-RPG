@@ -13,8 +13,8 @@ function windstrike_phase_start(event)
 		end
 		caster.windstrikeStarted = false
 	end)
-	caster.d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "spirit_warrior")
-	caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "spirit_warrior")
+	caster.q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "spirit_warrior")
+	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "spirit_warrior")
 end
 
 function windstrike_start(event)
@@ -26,7 +26,7 @@ function windstrike_start(event)
 		duration = duration + 10
 	end
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
-	ability.c_a_level = Runes:GetTotalRuneLevel(caster, 3, "c_a", "spirit_warrior")
+	ability.q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "spirit_warrior")
 	caster.windstrikeStarted = true
 	Filters:CastSkillArguments(1, caster)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_windstrike_weapon", {duration = duration})
@@ -47,6 +47,6 @@ function windstrike_attack_land(event)
 	local target = event.target
 	local mult = event.mult
 	CustomAbilities:QuickAttachParticle("particles/econ/items/elder_titan/elder_titan_fissured_soul/elder_titan_fissured_soul_spirit_buff_endcap.vpcf", target, 1)
-	local damage = ability.c_a_level*spirit_warrior_q3_dmg_pct*attacker:GetAverageTrueAttackDamage(attacker)*mult
+	local damage = ability.q_3_level*spirit_warrior_q3_dmg_pct*attacker:GetAverageTrueAttackDamage(attacker)*mult
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 1, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
 end

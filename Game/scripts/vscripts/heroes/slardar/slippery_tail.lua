@@ -18,18 +18,18 @@ function slippery_tail_start(event)
 	local warpDuration = 2.0
 	ability.fallVelocity = 1
 	ability.forwardVelocity = 12
-	caster.d_c_Level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "hydroxis")
+	caster.e_4_Level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "hydroxis")
 	ability.distance = WallPhysics:GetDistance2d(ability.targetPoint, caster:GetAbsOrigin())
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_slippery_tail_flying", {duration = warpDuration})
 	if ability.pfx then
 		ParticleManager:DestroyParticle(ability.pfx, true)
 		ability.pfx = false
 	end
-	ability.a_c_level = Runes:GetTotalRuneLevel(caster, 1, "a_c", "hydroxis")
-	ability.b_c_level = Runes:GetTotalRuneLevel(caster, 2, "b_c", "hydroxis")
-	ability.b_c_damage = ability.b_c_level * caster:GetAverageTrueAttackDamage(caster) * 0.1
+	ability.e_1_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "hydroxis")
+	ability.e_2_level = Runes:GetTotalRuneLevel(caster, 2, "e_2", "hydroxis")
+	ability.e_2_damage = ability.e_2_level * caster:GetAverageTrueAttackDamage(caster) * 0.1
 	if caster:HasModifier("modifier_hydroxis_glyph_4_1") then
-		ability.b_c_damage = ability.b_c_damage * 3
+		ability.e_2_damage = ability.e_2_damage * 3
 	end
 	-- StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_FLAIL, rate=0.8, translate="forcestaff_friendly"})
     -- ability.pfx = ParticleManager:CreateParticle("particles/econ/courier/courier_hyeonmu_ambient/courier_hyeonmu_ambient_trail_steam_red.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
@@ -88,7 +88,7 @@ function slippery_tail_think(event)
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
 	end
-	if ability.a_c_level > 0 then
+	if ability.e_1_level > 0 then
 		local modulos = 8
 		if caster:HasModifier("modifier_hydroxis_glyph_2_1") then
 			modulos = 6
@@ -98,13 +98,13 @@ function slippery_tail_think(event)
 			local waterBombAbility = caster:FindAbilityByName("hydroxis_water_blade")
 			if waterBombAbility then
 				local damage = waterBombAbility:GetSpecialValueFor("damage")
-				water_bomb_throw(caster, waterBombAbility, target, damage, ability.a_c_level*0.1)
+				water_bomb_throw(caster, waterBombAbility, target, damage, ability.e_1_level*0.1)
 			elseif caster:HasAbility("hydroxis_arcana_ability_1") then
-				arcana1_b_b_spin(caster, caster:FindAbilityByName("hydroxis_arcana_ability_1"), ability.a_c_level*0.1)
+				arcana1_b_b_spin(caster, caster:FindAbilityByName("hydroxis_arcana_ability_1"), ability.e_1_level*0.1)
 			end
 		end
 	end
-	if ability.b_c_level > 0 then
+	if ability.e_2_level > 0 then
 		if ability.radians%5 == 0 then
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 			if #enemies > 0 then
@@ -175,7 +175,7 @@ function slippery_tail_jump_end(caster, ability)
 		ParticleManager:DestroyParticle(ability.pfx, false)
 		ability.pfx = false
 	end
-	local c_c_level = Runes:GetTotalRuneLevel(caster, 3, "c_c", "hydroxis")
+	local c_c_level = Runes:GetTotalRuneLevel(caster, 3, "e_3", "hydroxis")
 	if c_c_level > 0 then
 		local c_c_duration = Filters:GetAdjustedBuffDuration(caster, 8, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_hydroxis_c_c", {duration = c_c_duration})
@@ -219,5 +219,5 @@ function hydroxis_b_c_hit(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	Filters:TakeArgumentsAndApplyDamage(target, caster, ability.b_c_damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, ability.e_2_damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 end

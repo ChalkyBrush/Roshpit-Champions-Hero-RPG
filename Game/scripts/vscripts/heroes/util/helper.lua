@@ -21,12 +21,12 @@ end
 
 local function initializeAbilityRunes(caster, casterName, abilityLetter)
     local runeLetters = {}
-    runeLetters[1] = 'a'
-    runeLetters[2] = 'b'
-    runeLetters[3] = 'c'
-    runeLetters[4] = 'd'
+    runeLetters[1] = '1'
+    runeLetters[2] = '2'
+    runeLetters[3] = '3'
+    runeLetters[4] = '4'
     for tier, runeLetter in pairs(runeLetters) do
-        local runeName = runeLetter .. '_' .. abilityLetter
+        local runeName = abilityLetter .. '_' .. runeLetter
         caster[runeName .. '_level'] = Runes:GetTotalRuneLevel(caster, tier, runeName, casterName)
     end
 end

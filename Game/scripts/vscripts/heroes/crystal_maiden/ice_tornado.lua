@@ -5,10 +5,10 @@ function start_channel(event)
 	local ability = event.ability
 	EmitSoundOn("Sorceress.Tornado.VO", caster)
 
-	ability.a_d_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
-	ability.b_d_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
-	ability.c_d_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
-	ability.d_d_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+	ability.r_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
+	ability.r_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
+	ability.r_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
+	ability.r_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
 
 	if caster:HasModifier("modifier_clear_cast") then
 		event.noSound = true
@@ -35,10 +35,10 @@ function channel_complete(event)
 	local ability = event.ability
 	local baseFV = caster:GetForwardVector()
 
-	ability.a_d_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
-	caster.b_d_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
-	ability.c_d_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
-	ability.d_d_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+	ability.r_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
+	caster.r_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
+	ability.r_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
+	ability.r_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
 
 	if not ability.tornadoTable then
 		ability.tornadoTable = {}
@@ -70,10 +70,10 @@ function channel_complete(event)
 		caster = caster.origCaster
 		bAvatar = true
 	end
-	if ability.d_d_level > 0 then
-		local avatarDuration = Filters:GetAdjustedBuffDuration(caster, 7 + 0.2*ability.d_d_level, false)
+	if ability.r_4_level > 0 then
+		local avatarDuration = Filters:GetAdjustedBuffDuration(caster, 7 + 0.2*ability.r_4_level, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_ice_avatar", {duration = avatarDuration})
-		caster:SetModifierStackCount("modifier_ice_avatar", caster, ability.d_d_level)
+		caster:SetModifierStackCount("modifier_ice_avatar", caster, ability.r_4_level)
 	end
 
 		local dummy = CreateUnitByName("npc_dummy_unit", casterOrigin, false, nil, nil, caster:GetTeamNumber())
@@ -92,7 +92,7 @@ function channel_complete(event)
 		ParticleManager:SetParticleControlEnt(pfx, 1, dummy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", dummy:GetAbsOrigin(), true)
 		if caster:HasModifier("modifier_clear_cast") then
 			ability.clearcast = true
-			dummy.c_c_amp = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
+			dummy.e_3_amp = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
 		else
 			ability.clearcast = false
 		end
@@ -158,9 +158,9 @@ function tornado_thinker(event)
 			dummy.atPoint = true
 		end
 	end
-	if ability.a_d_level > 0 then
+	if ability.r_1_level > 0 then
 		if dummy.interval%15 == 0 then
-			local radius = 600 + 3*ability.a_d_level
+			local radius = 600 + 3*ability.r_1_level
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), dummy:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		    if #enemies > 0 then
 		        local enemy = enemies[1]
@@ -207,14 +207,14 @@ function splinter_hit(event)
 	if caster:HasModifier("modifier_sorceress_immortal_fire_avatar") then
 		caster = caster.origCaster
 	end
-	local damage = caster:GetIntellect()*3*ability.a_d_level
+	local damage = caster:GetIntellect()*3*ability.r_1_level
 	if caster:HasModifier("modifier_sorceress_glyph_7_1") then
 		damage = damage*1.5
 	end
 	local luck = RandomInt(1, 100)
-	if ability.b_d_level > 0  and luck < ARCANA1_R2_CHANCE then
-		damage = damage * (1 + ARCANA1_R2_CRIT_DAMAGE/100 * ability.b_d_level)
-		local durationWithoutImmune = ARCANA1_R2_START_DURATION + ARCANA1_R2_ADD_DURATION * ability.b_d_level
+	if ability.r_2_level > 0  and luck < ARCANA1_R2_CHANCE then
+		damage = damage * (1 + ARCANA1_R2_CRIT_DAMAGE/100 * ability.r_2_level)
+		local durationWithoutImmune = ARCANA1_R2_START_DURATION + ARCANA1_R2_ADD_DURATION * ability.r_2_level
 		if Immune.shouldApplyImmune(caster, target, 'modifier_sorceress_arcana_b_d', durationWithoutImmune) then
 			Immune.applyImmune(caster, target, ability, 'modifier_sorceress_arcana_b_d', ARCANA1_R2_IMMUNE_DURATION)
 		elseif not Immune.targetHasImmune(target, 'modifier_sorceress_arcana_b_d') and not target:HasModifier('modifier_sorceress_arcana_b_d_visible') then
@@ -243,7 +243,7 @@ end
 -- 	if bArcane then
 -- 		launch_lance(caster, fv, caster:FindAbilityByName("sorceress_blink"), "particles/roshpit/sorceress/arcane_enchantment.vpcf", casterOrigin+Vector(0,0,80), 90)
 -- 	end
--- 	-- caster.d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "sorceress")
+-- 	-- caster.q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "sorceress")
 -- 	-- Filters:CastSkillArguments(1, caster)
 -- 	--end)
 -- 	-- StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_CAST_ABILITY_2, rate=2.0})
@@ -282,22 +282,22 @@ function tornado_damage_think(event)
 		damage = damage*1.5
 	end
 	if caster:HasModifier("modifier_clear_cast") then
-		if ability.c_c_amp then
-			damage = damage + damage*ability.c_c_amp
+		if ability.e_3_amp then
+			damage = damage + damage*ability.e_3_amp
 		end
 	elseif ability.clearcast then
-		if ability.c_c_amp then
-			damage = damage + damage*ability.c_c_amp
+		if ability.e_3_amp then
+			damage = damage + damage*ability.e_3_amp
 		end		
 	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_ICE, RPC_ELEMENT_WIND)
-	if ability.c_d_level > 0 then
+	if ability.r_3_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_tornado_ice_resist_loss_visible", {duration = 3})
 		local newStacks = target:GetModifierStackCount("modifier_tornado_ice_resist_loss_visible", caster) + 1
 		target:SetModifierStackCount("modifier_tornado_ice_resist_loss_visible", caster, newStacks)
 
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_tornado_ice_resist_loss_invisible", {duration = 3})
-		target:SetModifierStackCount("modifier_tornado_ice_resist_loss_invisible", caster, newStacks*ability.c_d_level)
+		target:SetModifierStackCount("modifier_tornado_ice_resist_loss_invisible", caster, newStacks*ability.r_3_level)
 	end
 end
 
@@ -315,7 +315,7 @@ function ice_avatar_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	if not ability.wingsPFX then
-		local avatarDuration = Filters:GetAdjustedBuffDuration(caster, 7 + 0.2*ability.d_d_level, false)
+		local avatarDuration = Filters:GetAdjustedBuffDuration(caster, 7 + 0.2*ability.r_4_level, false)
 		ability.wingsPFX = ParticleManager:CreateParticle("particles/roshpit/sorceress/ice_avatar_wings_omni_omni.vpcf", PATTACH_POINT_FOLLOW, caster)
 		for i = 0, 4, 1 do
 			ParticleManager:SetParticleControlEnt(ability.wingsPFX, i, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)

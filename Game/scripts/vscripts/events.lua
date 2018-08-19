@@ -797,7 +797,7 @@ end
 
 function Events:InitializeHero(heroEntity)
   local ability = nil
-  for i = 0, 5, 1 do
+  for i = 0, 6, 1 do
     ability = heroEntity:GetAbilityByIndex(i)
     if ability then
       ability:SetLevel(1)
@@ -1225,7 +1225,7 @@ function GameMode:OnEntityKilled( keys )
   if GameState:IsPVPAlpha() then
     PVP:PlayerKill(killerEntity, killedUnit)
   else
-    if killedUnit:GetTeamNumber() == DOTA_TEAM_GOODGUYS and killedUnit:IsHero() and not killedUnit:HasModifier("modifier_paladin_rune_a_c_revivable") and not killedUnit:HasModifier("modifier_phoenix_rebirthing") then
+    if killedUnit:GetTeamNumber() == DOTA_TEAM_GOODGUYS and killedUnit:IsHero() and not killedUnit:HasModifier("modifier_paladin_rune_e_1_revivable") and not killedUnit:HasModifier("modifier_phoenix_rebirthing") then
       Timers:CreateTimer(0.06, function()
         local respawnTime = 20
         if MAIN_HERO_TABLE then
@@ -1317,7 +1317,7 @@ end
 function Events:CheckLoseCondition()
   local deadCount = 0
   for i = 1, #MAIN_HERO_TABLE, 1 do
-    if not MAIN_HERO_TABLE[i]:IsAlive() and not MAIN_HERO_TABLE[i]:HasModifier("modifier_phoenix_rebirthing") and not MAIN_HERO_TABLE[i]:HasModifier("modifier_paladin_rune_a_c_reviving") then
+    if not MAIN_HERO_TABLE[i]:IsAlive() and not MAIN_HERO_TABLE[i]:HasModifier("modifier_phoenix_rebirthing") and not MAIN_HERO_TABLE[i]:HasModifier("modifier_paladin_rune_e_1_reviving") then
       if (PlayerResource:GetConnectionState(MAIN_HERO_TABLE[i]:GetPlayerOwnerID()) == 2) or (PlayerResource:GetConnectionState(MAIN_HERO_TABLE[i]:GetPlayerOwnerID()) ==1) then
         deadCount = deadCount + 1
       end
@@ -1453,7 +1453,7 @@ end
 
 function Events:beginQuests()
   -- print("BEGINQUESTS IS HAPPENING")
-  -- Beacons:DEBUG()
+   Beacons:DEBUG()
 end
 
 function Events:InitGameEntities()

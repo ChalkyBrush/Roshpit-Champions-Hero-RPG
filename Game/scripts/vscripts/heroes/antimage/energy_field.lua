@@ -31,8 +31,8 @@ function channel_complete(event)
 	StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_4, rate=1})
 	EmitSoundOn("Arkimus.EnergyField.VO", caster)
 
-	ability.a_d_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
-	ability.b_d_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
+	ability.r_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
+	ability.r_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
 	local count = event.spirits
 	if caster:HasModifier("modifier_arkimus_glyph_3_1") then
 		count = count + 2
@@ -95,12 +95,12 @@ function channel_complete(event)
 end
 
 function calculate_a_d(caster, ability)
-	if ability.a_d_level > 0 then
+	if ability.r_1_level > 0 then
 		if #ability.energyTable > 0 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_energy_shield_a_a_buff_visible", {})
 			caster:SetModifierStackCount("modifier_energy_shield_a_a_buff_visible", caster, #ability.energyTable)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_energy_shield_a_a_buff_invisible", {})
-			caster:SetModifierStackCount("modifier_energy_shield_a_a_buff_invisible", caster, #ability.energyTable*ability.a_d_level)
+			caster:SetModifierStackCount("modifier_energy_shield_a_a_buff_invisible", caster, #ability.energyTable*ability.r_1_level)
 		else
 			caster:RemoveModifierByName("modifier_energy_shield_a_a_buff_visible")
 			caster:RemoveModifierByName("modifier_energy_shield_a_a_buff_invisible")
@@ -118,7 +118,7 @@ function energy_thinker(event)
 	local movement = ((dummy.pullPoint - dummy:GetAbsOrigin()):Normalized()*0.03)*ability.velocity
 	movement = movement*Vector(1,1,0)
 	dummy:SetAbsOrigin(dummy:GetAbsOrigin()+movement)
-	local damage = event.damage + ability.b_d_level*caster:GetAverageTrueAttackDamage(caster)*0.02
+	local damage = event.damage + ability.r_2_level*caster:GetAverageTrueAttackDamage(caster)*0.02
 	if dummy.interval == 3 then
 		dummy.interval = 0
 		local newFV = WallPhysics:rotateVector(dummy.baseFV, 2*math.pi/ability.rotationDelta)

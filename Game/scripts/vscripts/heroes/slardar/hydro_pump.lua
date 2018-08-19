@@ -7,11 +7,11 @@ function begin_hydro_pump(event)
 	caster:RemoveModifierByName("modifier_hydroxis_b_a_shield_visible")
 	caster:RemoveModifierByName("modifier_hydroxis_b_a_shield_visible_glyphed")
 	caster:RemoveModifierByName("modifier_hydroxis_b_a_shield_invisible")
-	ability.b_a_level = Runes:GetTotalRuneLevel(caster, 2, "b_a", "hydroxis")
-	ability.c_a_level = Runes:GetTotalRuneLevel(caster, 3, "c_a", "hydroxis")
-	caster.d_c_Level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "hydroxis")
-	local d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "hydroxis")
-	local procs = Runes:Procs(d_a_level, 10, 1)
+	ability.q_2_level = Runes:GetTotalRuneLevel(caster, 2, "q_2", "hydroxis")
+	ability.q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "hydroxis")
+	caster.e_4_Level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "hydroxis")
+	local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "hydroxis")
+	local procs = Runes:Procs(q_4_level, 10, 1)
 	local targetPoint = event.target_points[1]
 	local pumpDelay = 0.9
 	if caster:HasModifier("modifier_hydroxis_immortal_weapon_3") then
@@ -56,13 +56,13 @@ function begin_hydro_pump(event)
 								end
 							end
 							Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
-							if ability.c_a_level > 0 then
+							if ability.q_3_level > 0 then
 								ability:ApplyDataDrivenModifier(caster, enemy, "modifier_hydroxis_c_a_magic_resist_lost", {duration = 8})
-								enemy:SetModifierStackCount("modifier_hydroxis_c_a_magic_resist_lost", caster, ability.c_a_level)
+								enemy:SetModifierStackCount("modifier_hydroxis_c_a_magic_resist_lost", caster, ability.q_3_level)
 							end
 						end
 					end
-					if ability.b_a_level > 0 then
+					if ability.q_2_level > 0 then
 						local allies = FindUnitsInRadius( caster:GetTeamNumber(), hydroPosition, nil, 270, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
 						if #allies > 0 then
 							for _,ally in pairs(allies) do
@@ -79,7 +79,7 @@ function begin_hydro_pump(event)
 									end
 
 									ability:ApplyDataDrivenModifier(caster, caster, "modifier_hydroxis_b_a_shield_invisible", {duration = 12})
-									caster:SetModifierStackCount("modifier_hydroxis_b_a_shield_invisible", caster, newStacks*ability.b_a_level)
+									caster:SetModifierStackCount("modifier_hydroxis_b_a_shield_invisible", caster, newStacks*ability.q_2_level)
 								end
 							end
 						end
@@ -88,8 +88,8 @@ function begin_hydro_pump(event)
 			end
 		end)
 	end
-	ability.a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a", "hydroxis")
-	if ability.a_a_level > 0 then
+	ability.q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "hydroxis")
+	if ability.q_1_level > 0 then
 		if caster:HasModifier("modifier_hydroxis_arcana2") then
 			local eventTable = {}
 			eventTable.ability = caster:FindAbilityByName("hydroxis_spellbound_flood_basin")
@@ -105,7 +105,7 @@ function begin_hydro_pump(event)
 
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), targetPoint, nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 			local oceanQuake = caster:FindAbilityByName("hydroxis_tsunami")
-			local damage = oceanQuake:GetSpecialValueFor("strength_damage")*caster:GetStrength()*ability.a_a_level*0.08
+			local damage = oceanQuake:GetSpecialValueFor("strength_damage")*caster:GetStrength()*ability.q_1_level*0.08
 			local stunDuration = oceanQuake:GetSpecialValueFor("stun_duration")
 			local slow_duration = oceanQuake:GetSpecialValueFor("slow_duration") + stunDuration
 			if #enemies > 0 then
@@ -167,7 +167,7 @@ function hydroxis_animation_think(event)
 			caster:AddNewModifier(caster, nil, "modifier_animation_translate", {translate="sprint"})
 		end
 	end
-	local d_c_Level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "hydroxis")
+	local d_c_Level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "hydroxis")
 	if d_c_Level > 0 then
 		local ability = event.ability
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_hydroxis_d_c", {})
@@ -181,7 +181,7 @@ function mystic_water_shield_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local stacks = caster:GetModifierStackCount("modifier_hydroxis_b_a_shield_visible", caster) + caster:GetModifierStackCount("modifier_hydroxis_b_a_shield_visible_glyphed", caster)
-	local healAmount = ability.b_a_level*200*stacks
+	local healAmount = ability.q_2_level*200*stacks
 	Filters:ApplyHeal(caster, caster, healAmount, true)
 	-- PopupHealing(caster, healAmount)
 	CustomAbilities:QuickAttachParticle("particles/roshpit/hydroxis/mystic_water_shield_heal.vpcf", caster, 1)

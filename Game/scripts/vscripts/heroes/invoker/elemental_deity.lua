@@ -6,10 +6,10 @@ function begin_deity(event)
 	EmitSoundOn("invoker_invo_win_01", caster)
 	EmitSoundOn("invoker_invo_win_01", caster)
     StartAnimation(caster, {duration=0.75, activity=ACT_DOTA_CAST_TORNADO, rate=1.0})
-	ability.a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d_arcana1", "conjuror")
-	ability.b_d_level = Runes:GetTotalRuneLevel(caster, 2, "b_d_arcana1", "conjuror")
-	ability.c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d_arcana1", "conjuror")
-	ability.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d_arcana1", "conjuror")
+	ability.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "a_d_arcana1", "conjuror")
+	ability.r_2_level = Runes:GetTotalRuneLevel(caster, 2, "b_d_arcana1", "conjuror")
+	ability.r_3_level = Runes:GetTotalRuneLevel(caster, 3, "c_d_arcana1", "conjuror")
+	ability.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "d_d_arcana1", "conjuror")
     if caster.deity then
     	if IsValidEntity(caster.deity) then
     		if caster.deity:IsAlive() then
@@ -43,20 +43,20 @@ function begin_deity(event)
 	end)
 	EmitSoundOn("Conjuror.ElementalDeity.Summon", summon)
 	EmitSoundOn("Conjuror.DeityCast", caster)
-	if ability.a_d_level > 0 then
-		summon.a_d_level = ability.a_d_level
+	if ability.r_1_level > 0 then
+		summon.r_1_level = ability.r_1_level
 		summon:AddAbility("conjuror_deity_a_d"):SetLevel(1)
 	end
-	if ability.b_d_level > 0 then
-		summon.b_d_level = ability.b_d_level
+	if ability.r_2_level > 0 then
+		summon.r_2_level = ability.r_2_level
 		summon:AddAbility("conjuror_deity_terra_blast"):SetLevel(1)
 	end
-	if ability.c_d_level > 0 then
-		summon.c_d_level = ability.c_d_level
+	if ability.r_3_level > 0 then
+		summon.r_3_level = ability.r_3_level
 		summon:AddAbility("call_of_elements"):SetLevel(ability:GetLevel())
 	end
-	if ability.d_d_level > 0 then
-		summon.d_d_level = ability.d_d_level
+	if ability.r_4_level > 0 then
+		summon.r_4_level = ability.r_4_level
 		summon:AddAbility("conjuror_deity_shadow_shield"):SetLevel(ability:GetLevel())
 	end
 	
@@ -89,7 +89,7 @@ function deity_a_d_attack_land(event)
 	EmitSoundOn("Conjuror.Deity.Attack", attacker)
 
 	local fv = ((target:GetAbsOrigin()-attacker:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-	local damage = damage*0.08*attacker.a_d_level
+	local damage = damage*0.08*attacker.r_1_level
 	print(damage)
 	-- CustomAbilities:QuickAttachParticle("particles/econ/items/kunkka/divine_anchor/hero_kunkka_dafx_weapon/kunkka_spell_tidebringer_fxset.vpcf", attacker, 2)
 	local pfx = ParticleManager:CreateParticle( "particle/roshpit/conjuror/deity_a_d.vpcf", PATTACH_CUSTOMORIGIN, caster )
@@ -122,8 +122,8 @@ function terra_blast_start(event)
 	local length = math.max(WallPhysics:GetDistance(caster:GetAbsOrigin()*Vector(1,1,0), point*Vector(1,1,0))/190, 1) + 2
 	local fv = (point*Vector(1,1,0) - caster:GetAbsOrigin()*Vector(1,1,0)):Normalized()
 	local startPosition = caster:GetAbsOrigin()
-	local damage = caster.b_d_level*caster:GetAverageTrueAttackDamage(caster)*0.1
-	local stun_duration = caster.b_d_level*0.05
+	local damage = caster.r_2_level*caster:GetAverageTrueAttackDamage(caster)*0.1
+	local stun_duration = caster.r_2_level*0.05
 	for i = 1, math.floor(length), 1 do
 		Timers:CreateTimer(0.1*(i-1), function()
 			local position = startPosition + fv*i*200
@@ -156,6 +156,6 @@ function shadow_shield_start(event)
 	local caster = event.caster
 	local target = event.target
 	EmitSoundOn("Conjuror.Deity.ShadowShield", target)
-	local duration = caster.d_d_level*0.3
+	local duration = caster.r_4_level*0.3
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_deity_shadow_shield", {duration = duration})
 end

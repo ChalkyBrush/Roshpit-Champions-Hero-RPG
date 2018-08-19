@@ -176,8 +176,8 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     end
 
     if casterName == "npc_dota_hero_spirit_breaker" then
-        if caster.b_a_level then
-            mult = mult + 0.1 * caster.b_a_level
+        if caster.q_2_level then
+            mult = mult + 0.1 * caster.q_2_level
         end
     end
 
@@ -200,7 +200,7 @@ end
 
 function Filters:GetAdjustedBuffDuration(caster, baseDuration, bItem)
     if caster:GetUnitName() == "npc_dota_hero_zuus" then
-        local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "auriun")
+        local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "auriun")
         baseDuration = baseDuration + c_d_level*0.15
     end
     if caster:HasModifier("modifier_arbor_dragonfly") then
@@ -237,8 +237,8 @@ function Filters:GetProc(caster, percentageChance)
     if caster:HasModifier("modifier_fortunes_talisman_of_truth") then
         percentageChance = math.ceil(percentageChance*1.5)
     end
-    if caster:HasModifier("modifier_astral_rune_d_d_invisible") then
-        local chanceModifier = 1 + 0.01 * caster:GetModifierStackCount("modifier_astral_rune_d_d_invisible", Events.GameMaster)
+    if caster:HasModifier("modifier_astral_rune_r_4_invisible") then
+        local chanceModifier = 1 + 0.01 * caster:GetModifierStackCount("modifier_astral_rune_r_4_invisible", Events.GameMaster)
         percentageChance = math.ceil(percentageChance * chanceModifier)
     end
 
@@ -280,7 +280,7 @@ function Filters:MagicImmuneBreak(attacker, target)
         target:RemoveModifierByName("modifier_black_widow_invis_range_debuff")
         target:RemoveModifierByName("modifier_warlord_stone_form")
         target:RemoveModifierByName("modifier_warlord_stone_form_slow_portion")
-        target:RemoveModifierByName("modifier_warlord_rune_a_a")
+        target:RemoveModifierByName("modifier_warlord_rune_q_1")
         target:RemoveModifierByName("modifier_gilded_soul_immunity")
         EmitSoundOn("RPC.MagicImmuneBreakAttacker", attacker)
         EmitSoundOn("RPC.MagicImmuneBreakTarget", target)
@@ -483,7 +483,7 @@ function Filters:ApplyStun(caster, duration, target)
         mult = mult*0.5
     end
     if caster:HasModifier("modifier_steelforge_passive") then
-        caster.b_b_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
+        caster.w_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
     end
     if caster:HasModifier("modifier_stormcrack_helm") then
 		if caster:GetTeamNumber() == target:GetTeamNumber() then
@@ -603,19 +603,19 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap,doPopUp)
         end
     end
     if caster:GetUnitName() == "npc_dota_hero_omniknight" then
-        if caster:HasAbility("holy_wings") then
-            local ability = caster:FindAbilityByName("holy_wings")
-            local d_a_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
-            if d_a_level > 0 then
+        if caster:HasAbility("heroic_fury") then
+            local ability = caster:FindAbilityByName("heroic_fury")
+            local q_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+            if q_4_level > 0 then
                 local origHeal = healAmount
                 local actualHeal = math.min(target:GetMaxHealth() - target:GetHealth(), origHeal)
                 local shieldAmount = origHeal - actualHeal
                 if not target.paladin_d_b_absorb then
                     target.paladin_d_b_absorb = 0
                 end
-                target.paladin_d_b_absorb = math.min(target.paladin_d_b_absorb + shieldAmount, target:GetMaxHealth()*0.1*d_a_level)
+                target.paladin_d_b_absorb = math.min(target.paladin_d_b_absorb + shieldAmount, target:GetMaxHealth()*0.1*q_4_level)
                 local shieldDuration = Filters:GetAdjustedBuffDuration(caster, 12, false)
-                ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_rune_b_b_shield", {duration = shieldDuration})
+                ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_rune_q_4_shield", {duration = shieldDuration})
             end
         end
     end
@@ -689,10 +689,10 @@ end
 
 function Filters:CastSkillArguments(slot, caster)
     if caster:GetUnitName() == "npc_dota_hero_beastmaster" then
-        caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "warlord")
+        caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "warlord")
     end
     if caster:GetUnitName() == "npc_dota_hero_legion_commander" then
-        caster.d_d_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+        caster.r_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
     end
     if slot == 1 then
         Filters:ApplyQskills(caster)
@@ -1145,11 +1145,11 @@ function Filters:ApplyRskills(caster)
     if caster:HasModifier("modifier_shadow_trap_passive") then
         local shadowAbility = caster:FindAbilityByName("auriun_shadow_trap")
         if IsValidEntity(shadowAbility) then
-            shadowAbility.d_a_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
-            if shadowAbility.d_a_level > 0 then
+            shadowAbility.q_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+            if shadowAbility.q_4_level > 0 then
                 local duration = Filters:GetAdjustedBuffDuration(caster, 18, false)
                 shadowAbility:ApplyDataDrivenModifier(caster, caster, "modifier_shadow_trap_d_a_buff", {duration = duration})
-                caster:SetModifierStackCount("modifier_shadow_trap_d_a_buff", caster, shadowAbility.d_a_level)
+                caster:SetModifierStackCount("modifier_shadow_trap_d_a_buff", caster, shadowAbility.q_4_level)
             end
         end
     end
@@ -1233,7 +1233,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     local attackerName = attacker:GetUnitName()
     if attackerName == "zap_assassin_clone" then
         attacker = attacker.hero
-        damage = damage*(0.4+0.02*attacker.a_c_level)
+        damage = damage*(0.4+0.02*attacker.e_1_level)
     end
 
     if not ignore_effects then
@@ -1279,9 +1279,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     if slot > 0 then
         damageMult = damageMult + heroes.venomort.getBad(attacker)
         if not ignore_effects and attacker:HasModifier("modifier_solunia_arcana1") then
-            local b_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 0)
-            if b_a_level > 0 then
-                damage = damage + attacker:GetHealth()*0.1*b_a_level
+            local q_2_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 0)
+            if q_2_level > 0 then
+                damage = damage + attacker:GetHealth()*0.1*q_2_level
             end
         end
         if attacker:HasModifier("modifier_watcher_two") then
@@ -1338,23 +1338,23 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + 0.01*current_stack
         end
         if attacker:HasModifier("modifier_bahamut_a_b_buff") then
-            local current_stack = attacker:GetModifierStackCount( "modifier_bahamut_a_b_buff", attacker.runeUnit:FindAbilityByName("bahamut_rune_a_b") )
+            local current_stack = attacker:GetModifierStackCount( "modifier_bahamut_a_b_buff", attacker.runeUnit:FindAbilityByName("bahamut_rune_w_1") )
             damageMult = damageMult + 0.12*current_stack
         end
-        if attacker:HasModifier("modifier_venomort_rune_d_d") then
-            local current_stack = attacker:GetModifierStackCount( "modifier_venomort_rune_d_d", attacker.runeUnit4:FindAbilityByName("venomort_rune_d_d") )
+        if attacker:HasModifier("modifier_venomort_rune_r_4") then
+            local current_stack = attacker:GetModifierStackCount( "modifier_venomort_rune_r_4", attacker.runeUnit4:FindAbilityByName("venomort_rune_r_4") )
             damageMult = damageMult + 0.1*current_stack
         end
-        if attacker:HasModifier("modifier_auriun_rune_d_a_effect") then
-            local current_stack = attacker:GetModifierStackCount( "modifier_auriun_rune_d_a_effect", attacker.auriun_d_a_ability )
+        if attacker:HasModifier("modifier_auriun_rune_q_4_effect") then
+            local current_stack = attacker:GetModifierStackCount( "modifier_auriun_rune_q_4_effect", attacker.auriun_d_a_ability )
             damageMult = damageMult + 0.07*current_stack
         end
 
         if attacker:HasModifier("modifier_venomort_glyph_4_1") then
             damageMult = damageMult + 2
         end
-        if attacker:HasModifier("modifier_mountain_rune_d_c_effect") and not attacker:HasModifier("modifier_rockfall_passive") then
-            local current_stack = attacker:GetModifierStackCount( "modifier_mountain_rune_d_c_effect", attacker.runeUnit4 )
+        if attacker:HasModifier("modifier_mountain_rune_e_4_effect") and not attacker:HasModifier("modifier_rockfall_passive") then
+            local current_stack = attacker:GetModifierStackCount( "modifier_mountain_rune_e_4_effect", attacker.runeUnit4 )
             local multIncrease = 0.2
             damageMult = damageMult + multIncrease*current_stack
         end
@@ -1635,15 +1635,15 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     if not ignore_effects then
         if slot > 0 then
             if attacker:HasModifier("modifier_mach_punch_passive") then
-                local d_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
-                if d_b_level > 0 then
+                local w_4_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
+                if w_4_level > 0 then
                     if not victim.dummy then
                         local ability = attacker:FindAbilityByName("zonik_mach_punch")
                         ability:ApplyDataDrivenModifier(attacker, victim, "modifier_zonik_echo", {duration = 4})
                         if not victim.zonikEcho then
                             victim.zonikEcho = 0
                         end
-                        victim.zonikEcho = victim.zonikEcho + damage*d_b_level*0.005
+                        victim.zonikEcho = victim.zonikEcho + damage*w_4_level*0.005
                     end
                 end
             end
@@ -1796,19 +1796,19 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             normalMult = normalMult + 0.5
         end
         if attacker:HasModifier("modifier_trapper_arcana1") then
-            local b_b_level = Runes:GetTotalRuneLevel(attacker, 2, "b_b_arcana1", "trapper")
-            normalMult = normalMult + b_b_level*0.05
+            local w_2_level = Runes:GetTotalRuneLevel(attacker, 2, "b_b_arcana1", "trapper")
+            normalMult = normalMult + w_2_level*0.05
         end
         if unitName == "npc_dota_hero_axe" then
-            if victim:HasModifier("modifier_axe_rune_d_a_invisible") then
-                local modifier = victim:FindModifierByName("modifier_axe_rune_d_a_invisible")
+            if victim:HasModifier("modifier_axe_rune_q_4_invisible") then
+                local modifier = victim:FindModifierByName("modifier_axe_rune_q_4_invisible")
                 if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
                     local stacks = modifier:GetStackCount()
                     normalMult = normalMult + stacks * 0.02
                 end
             end
-            if victim:HasModifier("modifier_axe_rune_c_d_arcana1_invisible") then
-                local stacks = victim:GetModifierStackCount("modifier_axe_rune_c_d_arcana1_invisible", attacker)
+            if victim:HasModifier("modifier_axe_rune_r_3_arcana1_invisible") then
+                local stacks = victim:GetModifierStackCount("modifier_axe_rune_r_3_arcana1_invisible", attacker)
                 normalMult = normalMult + stacks * 0.15
             end
         end
@@ -1827,21 +1827,21 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             fireMult = fireMult + 10
         end
         if unitName == "npc_dota_hero_dragon_knight" then
-            if attacker.d_d_level then
-                fireMult = fireMult + 0.0015*attacker:GetStrength()/10*attacker.d_d_level
+            if attacker.r_4_level then
+                fireMult = fireMult + 0.0015*attacker:GetStrength()/10*attacker.r_4_level
             end
             if attacker:HasModifier("modifier_flamewaker_arcana2_passive") then
                 if victim:IsStunned() or victim:IsFakeStunned() then
-                    local a_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 1)
-                    if a_b_level > 0 then
-                        fireMult = fireMult + 1.25*a_b_level
+                    local w_1_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 1)
+                    if w_1_level > 0 then
+                        fireMult = fireMult + 1.25*w_1_level
                     end
                 end
             end
         end
         if unitName == "npc_dota_hero_crystal_maiden" then
-            if attacker.d_d_level then
-                fireMult = fireMult + 0.0001*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_d_level
+            if attacker.r_4_level then
+                fireMult = fireMult + 0.0001*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.r_4_level
             end
             if attacker:HasModifier("modifier_fire_avatar") then
                 local stacks = attacker:GetModifierStackCount("modifier_fire_avatar", attacker)
@@ -1857,42 +1857,42 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 end
             end
         end
-        if victim:HasModifier("modifier_sorceress_rune_c_d") then
-            local runesCount = victim:GetModifierStackCount("modifier_sorceress_rune_c_d", attacker)
+        if victim:HasModifier("modifier_sorceress_rune_r_3") then
+            local runesCount = victim:GetModifierStackCount("modifier_sorceress_rune_r_3", attacker)
             if attacker:HasModifier("modifier_sorceress_glyph_6_2") then
                 runesCount = runesCount * 2
             end
             fireMult = fireMult + 0.1 * runesCount
         end
         if unitName == "npc_dota_hero_huskar" then
-            if attacker.d_a_level then
-                fireMult = fireMult + 0.0002*attacker:GetStrength()/10*attacker.d_a_level
+            if attacker.q_4_level then
+                fireMult = fireMult + 0.0002*attacker:GetStrength()/10*attacker.q_4_level
             end
             if attacker:HasModifier("modifier_spirit_warrior_arcana2") then
-                local d_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
-                fireMult = fireMult + spirit_warrior_arcana_w4/100*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_b_level
+                local w_4_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
+                fireMult = fireMult + spirit_warrior_arcana_w4/100*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*w_4_level
             end
         elseif unitName == "npc_dota_hero_beastmaster" then
             if attacker:HasModifier("modifier_warlord_fire_charge") then
                 local stacks = attacker:GetModifierStackCount("modifier_warlord_fire_charge", attacker)
                 fireMult = fireMult + stacks*0.06
             end
-            if attacker.d_c_level then
-                fireMult = fireMult + 0.0005*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_c_level
+            if attacker.e_4_level then
+                fireMult = fireMult + 0.0005*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.e_4_level
             end
         elseif unitName == "npc_dota_hero_templar_assassin" then
             if attacker:HasModifier("modifier_trapper_arcana1") then
-                local d_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
-                fireMult = fireMult + 0.0003*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_b_level
+                local w_4_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
+                fireMult = fireMult + 0.0003*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*w_4_level
             end
         elseif unitName == "npc_dota_hero_invoker" then
-            if attacker.d_a_level then
-                fireMult = fireMult + 0.0015*attacker:GetStrength()/10*attacker.d_a_level
+            if attacker.q_4_level then
+                fireMult = fireMult + 0.0015*attacker:GetStrength()/10*attacker.q_4_level
             end
         elseif unitName == "npc_dota_hero_legion_commander" then
             if attacker:HasAbility("mountain_protector_aeon_fracture") then
-                if attacker.d_d_level then
-                    fireMult = fireMult + 0.0005*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_d_level
+                if attacker.r_4_level then
+                    fireMult = fireMult + 0.0005*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.r_4_level
                 end
             end
         elseif unitName == "npc_dota_hero_axe" then
@@ -1940,29 +1940,29 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     end
     if element1 == RPC_ELEMENT_EARTH or element2 == RPC_ELEMENT_EARTH then
         if unitName == "npc_dota_hero_dragon_knight" then
-            if attacker.d_d_level then
-                mult = mult + 0.0015*attacker:GetStrength()/10*attacker.d_d_level
+            if attacker.r_4_level then
+                mult = mult + 0.0015*attacker:GetStrength()/10*attacker.r_4_level
             end
         elseif unitName == "npc_dota_hero_beastmaster" then
             if attacker:HasModifier("modifier_warlord_earth_charge") then
                 local stacks = attacker:GetModifierStackCount("modifier_warlord_earth_charge", attacker)
                 mult = mult + stacks*0.06
             end
-            if attacker.d_c_level then
-                mult = mult + 0.0005*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_c_level
+            if attacker.e_4_level then
+                mult = mult + 0.0005*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.e_4_level
             end
         elseif unitName == "npc_dota_hero_invoker" then
-            if attacker.d_a_level then
-                mult = mult + 0.0015*attacker:GetStrength()/10*attacker.d_a_level
+            if attacker.q_4_level then
+                mult = mult + 0.0015*attacker:GetStrength()/10*attacker.q_4_level
             end
         elseif unitName == "npc_dota_hero_legion_commander" then
             if attacker:HasAbility("mountain_protector_aeon_fracture") then
-                if attacker.d_d_level then
-                    mult = mult + 0.0005*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_d_level
+                if attacker.r_4_level then
+                    mult = mult + 0.0005*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.r_4_level
                 end
             elseif attacker:HasAbility("mountain_protector_hailstorm") then
-                if attacker.d_d_level then
-                    mult = mult + 0.0008*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_d_level
+                if attacker.r_4_level then
+                    mult = mult + 0.0008*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.r_4_level
                 end
             end
         end
@@ -1986,11 +1986,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 lightningRuneRate = 0.0015
             end
             mult = mult + lightningRuneRate*attacker:GetAgility()/10*d_c_level
-            if attacker:HasAbility("lightning_attack") then
+            if attacker:HasAbility("overcharge") then
                 if bIsRealDamage then
-                    local b_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 0)
-                    if b_a_level > 0 then
-                        damage = damage + attacker:GetAgility()*0.02*b_a_level
+                    local q_2_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 0)
+                    if q_2_level > 0 then
+                        damage = damage + attacker:GetAgility()*0.02*q_2_level
                     end 
                 end
             end
@@ -2015,8 +2015,8 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     if element1 == RPC_ELEMENT_POISON or element2 == RPC_ELEMENT_POISON then
         if unitName == "npc_dota_hero_templar_assassin" then
             if attacker:HasModifier("modifier_trapper_arcana1") then
-                local d_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
-                mult = mult + 0.0003*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_b_level
+                local w_4_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
+                mult = mult + 0.0003*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*w_4_level
             end
         end
         if attacker:HasModifier("modifier_helm_poison") then
@@ -2064,8 +2064,8 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             -- print("OD HERE")
             local d_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 3)
             if d_d_level > 0 then
-                -- print("OD HERE2 r4: "..d_d_level)
-                mult = mult + attacker:GetManaRegen()*d_d_level*epoch_r4_elem_time/1000
+                -- print("OD HERE2 r4: "..r_4_level)
+                mult = mult + attacker:GetManaRegen()*d_d_level*EPOCH_R4_ELEM_TIME/1000
             end   
         end    
         if victim:HasModifier("modifier_tempo_flux_invisible") then
@@ -2077,19 +2077,19 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     end
     if element1 == RPC_ELEMENT_HOLY or element2 == RPC_ELEMENT_HOLY then
         if unitName == "npc_dota_hero_omniknight" then
-            if attacker:HasAbility("holy_wings") then
-                local d_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 0)
-                mult = mult + 0.0004*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_a_level
+            if attacker:HasAbility("heroic_fury") then
+                local q_4_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 0)
+                mult = mult + 0.0004*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*q_4_level
             end
         elseif unitName == "npc_dota_hero_leshrac" then
-            if attacker.d_c_level then
-                mult = mult + 0.0006*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_c_level
+            if attacker.e_4_level then
+                mult = mult + 0.0006*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.e_4_level
             end
         elseif unitName == "npc_dota_hero_zuus" then
             if attacker:HasModifier("modifier_holy_wrath_passive") then
-                local c_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 3, 0)
-                if c_a_level then
-                    mult = mult + 0.0006*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*c_a_level
+                local q_3_level = Runes:GetTotalRuneLevelGeneric(attacker, 3, 0)
+                if q_3_level then
+                    mult = mult + 0.0006*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*q_3_level
                 end         
             end  
         elseif unitName == "npc_dota_hero_skywrath_mage" then
@@ -2125,12 +2125,12 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             mult = mult + stacks/100
         end
 
-        if victim:HasModifier("modifier_seinaru_gorudo_rune_a_d") then
+        if victim:HasModifier("modifier_seinaru_gorudo_rune_r_1") then
             if victim:GetPhysicalArmorValue() < 0 then
-                local modifier = victim:FindModifierByName("modifier_seinaru_gorudo_rune_a_d")
+                local modifier = victim:FindModifierByName("modifier_seinaru_gorudo_rune_r_1")
                 if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-                    if attacker.d_c_level > 0 then
-                        local stacks = attacker.d_c_level
+                    if attacker.e_4_level > 0 then
+                        local stacks = attacker.e_4_level
                         local multIncrease = stacks*5/100*math.abs(victim:GetPhysicalArmorValue())/10
                         mult = mult + multIncrease
                     end
@@ -2144,18 +2144,18 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             cosmosMult = cosmosMult + 10
         end
         if unitName == "npc_dota_hero_drow_ranger" then
-            cosmosMult = cosmosMult + 0.0007*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_c_level
+            cosmosMult = cosmosMult + 0.0007*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.e_4_level
             if victim:HasModifier("modifier_apollo_c_b_proc_invisible") then
                 cosmosMult = cosmosMult + 0.01*victim:GetModifierStackCount("modifier_apollo_c_b_proc_invisible", attacker)
             end
         end
         if unitName == "npc_dota_hero_vengefulspirit" then
-            local d_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 0)
+            local q_4_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 0)
             local d_a_mult = 0.0008
             if attacker:HasModifier("modifier_solunia_arcana1") then
                 d_a_mult = 0.0016
             end
-            cosmosMult = cosmosMult + d_a_mult*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_a_level
+            cosmosMult = cosmosMult + d_a_mult*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*q_4_level
             if attacker:HasModifier("modifier_solunia_arcana2") then
                 local d_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 3)
                 cosmosMult = cosmosMult + 0.0005*attacker:GetIntellect()/10*d_d_level
@@ -2193,8 +2193,8 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if unitName == "npc_dota_hero_crystal_maiden" then
             if attacker:HasAbility("blizzard") then
-                local d_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 0)
-                mult = mult + 0.0002*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_a_level
+                local q_4_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 0)
+                mult = mult + 0.0002*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*q_4_level
             end
             if attacker:HasModifier("modifier_ice_avatar") then
                 local stacks = attacker:GetModifierStackCount("modifier_ice_avatar", attacker)
@@ -2209,13 +2209,13 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 local stacks = attacker:GetModifierStackCount("modifier_warlord_ice_charge", attacker)
                 mult = mult + stacks*0.06
             end
-            if attacker.d_c_level then
-                mult = mult + 0.0005*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_c_level
+            if attacker.e_4_level then
+                mult = mult + 0.0005*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.e_4_level
             end
         elseif unitName == "npc_dota_hero_legion_commander" then
             if attacker:HasAbility("mountain_protector_hailstorm") then
-                if attacker.d_d_level then
-                    mult = mult + 0.0008*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_d_level
+                if attacker.r_4_level then
+                    mult = mult + 0.0008*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*attacker.r_4_level
                 end
             end
         elseif unitName == "npc_dota_hero_vengefulspirit" then
@@ -2255,8 +2255,8 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local stacks = attacker:GetModifierStackCount("modifier_trinket_arcane", attacker.InventoryUnit)
             mult = mult + stacks/100
         end
-        if victim:HasModifier("modifier_sorceress_rune_b_b_invisible") then
-            local modifier = victim:FindModifierByName("modifier_sorceress_rune_b_b_invisible")
+        if victim:HasModifier("modifier_sorceress_rune_w_2_invisible") then
+            local modifier = victim:FindModifierByName("modifier_sorceress_rune_w_2_invisible")
             local multIncrease = modifier:GetStackCount()*0.05
             mult = mult + multIncrease
         end
@@ -2268,10 +2268,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if unitName == "npc_dota_hero_antimage" then
             if attacker:HasAbility("arkimus_storm_weapon") then
                 if bIsRealDamage then
-                    local a_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 1)
-                    if a_b_level > 0 then
+                    local w_1_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 1)
+                    if w_1_level > 0 then
                         local specialDamage = damage*mult
-                        local damageBoost = math.min(specialDamage*0.002*a_b_level, a_b_level*50000)
+                        local damageBoost = math.min(specialDamage*0.002*w_1_level, w_1_level*50000)
                         local stormAbility = attacker:FindAbilityByName("arkimus_storm_weapon")
                         stormAbility:ApplyDataDrivenModifier(attacker, attacker, "modifier_damage_boost_a_a_visible", {duration = 15})
                         stormAbility:ApplyDataDrivenModifier(attacker, attacker, "modifier_damage_boost_a_a_invisible", {duration = 15})
@@ -2302,15 +2302,15 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     if element1 == RPC_ELEMENT_SHADOW or element2 == RPC_ELEMENT_SHADOW then
         if unitName == "npc_dota_hero_zuus" then
             if attacker:HasModifier("modifier_shadow_trap_passive") then
-                local c_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 3, 0)
-                if c_a_level then
-                    mult = mult + 0.0006*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*c_a_level
+                local q_3_level = Runes:GetTotalRuneLevelGeneric(attacker, 3, 0)
+                if q_3_level then
+                    mult = mult + 0.0006*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*q_3_level
                 end         
             end  
         elseif unitName == "npc_dota_hero_slark" then
-            attacker.d_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 0)
-            if attacker.d_a_level then
-                mult = mult + 0.0007*attacker:GetAgility()/10*attacker.d_a_level
+            attacker.q_4_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 0)
+            if attacker.q_4_level then
+                mult = mult + 0.0007*attacker:GetAgility()/10*attacker.q_4_level
             end
         end
         if attacker:HasModifier("modifier_helm_shadow") then
@@ -2342,27 +2342,27 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                     mult = mult + 0.0008*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_c_arcana_level
                 end
             else
-                if attacker.d_c_level then
-                    mult = mult + 0.0015*attacker:GetIntellect()/10*attacker.d_c_level
+                if attacker.e_4_level then
+                    mult = mult + 0.0015*attacker:GetIntellect()/10*attacker.e_4_level
                 end
             end
-            if attacker.d_a_level then
-                mult = mult + 0.0002*attacker:GetAgility()/10*attacker.d_c_level
+            if attacker.q_4_level then
+                mult = mult + 0.0002*attacker:GetAgility()/10*attacker.e_4_level
             end
         elseif unitName == "npc_dota_hero_juggernaut" then
-            if attacker.d_b_level then
-                mult = mult + 0.0007*attacker:GetAgility()/10*attacker.d_b_level
+            if attacker.w_4_level then
+                mult = mult + 0.0007*attacker:GetAgility()/10*attacker.w_4_level
             end
         elseif unitName == "npc_dota_hero_skywrath_mage" then
             if attacker:HasModifier("modifier_sephyr_arcana1") then
-                local d_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
-                if d_b_level > 0 then
-                    mult = mult + 0.0015*(attacker:GetIntellect()+attacker:GetStrength()+attacker:GetAgility())/10*d_b_level
+                local w_4_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
+                if w_4_level > 0 then
+                    mult = mult + 0.0015*(attacker:GetIntellect()+attacker:GetStrength()+attacker:GetAgility())/10*w_4_level
                 end
             else
-                local d_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
-                if d_b_level > 0 then
-                    mult = mult + 0.0012*attacker:GetIntellect()/10*d_b_level
+                local w_4_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
+                if w_4_level > 0 then
+                    mult = mult + 0.0012*attacker:GetIntellect()/10*w_4_level
                 end
             end
         end
@@ -2385,8 +2385,8 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     end
     if element1 == RPC_ELEMENT_GHOST or element2 == RPC_ELEMENT_GHOST then
         if attacker:GetUnitName() == "npc_dota_hero_spirit_breaker" then
-            if attacker.d_d_level then
-                mult = mult + 0.0008*attacker:GetStrength()/10*attacker.d_d_level
+            if attacker.r_4_level then
+                mult = mult + 0.0008*attacker:GetStrength()/10*attacker.r_4_level
             end
         end
         if attacker:HasModifier("modifier_hand_ghost") then
@@ -2401,14 +2401,14 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     if element1 == RPC_ELEMENT_WATER or element2 == RPC_ELEMENT_WATER then
         local waterMult = 0
         if unitName == "npc_dota_hero_slardar" then
-            if attacker.d_c_level then
-                waterMult = waterMult + 0.001*(attacker:GetAgility()+attacker:GetIntellect())/10*attacker.d_c_level
+            if attacker.e_4_level then
+                waterMult = waterMult + 0.001*(attacker:GetAgility()+attacker:GetIntellect())/10*attacker.e_4_level
             end
             if attacker:HasAbility("hydroxis_arcana_ability_1") then
                 if bIsRealDamage then
-                    local d_b_level = Runes:GetTotalRuneLevelGeneric(attacker,4, 1)
-                    if d_b_level > 0 then
-                        local duration = 0.5 + d_b_level*0.15
+                    local w_4_level = Runes:GetTotalRuneLevelGeneric(attacker,4, 1)
+                    if w_4_level > 0 then
+                        local duration = 0.5 + w_4_level*0.15
                         local mist_mod = victim:FindModifierByName("modifier_hydroxis_mist_debuff_timered")
                         if mist_mod then
                             duration = math.max(duration, mist_mod:GetRemainingTime())
@@ -2421,8 +2421,8 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         elseif unitName == "npc_dota_hero_templar_assassin" then
             if attacker:HasModifier("modifier_trapper_arcana1") then
-                local d_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
-                waterMult = waterMult + 0.0003*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_b_level
+                local w_4_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
+                waterMult = waterMult + 0.0003*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*w_4_level
             end
         elseif unitName == "npc_dota_hero_huskar" then
             if attacker:HasModifier("modifier_spirit_warrior_arcana1") then
@@ -2432,9 +2432,9 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 end
             end
         elseif unitName == "npc_dota_hero_slark" then
-            attacker.d_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 0)
-            if attacker.d_a_level then
-                waterMult = waterMult + 0.0007*attacker:GetAgility()/10*attacker.d_a_level
+            attacker.q_4_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 0)
+            if attacker.q_4_level then
+                waterMult = waterMult + 0.0007*attacker:GetAgility()/10*attacker.q_4_level
             end
         end
         if attacker:HasModifier("modifier_body_water") then
@@ -2471,9 +2471,9 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     end
     if element1 == RPC_ELEMENT_DEMON or element2 == RPC_ELEMENT_DEMON then
         if unitName == "npc_dota_hero_night_stalker" then
-            local d_a_level = Runes:GetTotalRuneLevel(attacker, 4, "d_a", "chernobog")
-            if d_a_level > 0 then
-                mult = mult + 0.001*(attacker:GetAgility())/10*d_a_level
+            local q_4_level = Runes:GetTotalRuneLevel(attacker, 4, "q_4", "chernobog")
+            if q_4_level > 0 then
+                mult = mult + 0.001*(attacker:GetAgility())/10*q_4_level
             end
         end
         if attacker:HasModifier("modifier_hand_demon") then
@@ -2495,8 +2495,8 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     end
     if element1 == RPC_ELEMENT_NATURE or element2 == RPC_ELEMENT_NATURE then
         if unitName == "npc_dota_hero_monkey_king" then
-           local d_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
-           mult = mult + 0.0005*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_b_level
+           local w_4_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 1)
+           mult = mult + 0.0005*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*w_4_level
         end
         if attacker:HasModifier("modifier_trinket_nature") then
             local stacks = attacker:GetModifierStackCount("modifier_trinket_nature", attacker.InventoryUnit)
@@ -2504,7 +2504,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if victim:HasModifier("modifier_monkey_a_c_effect") then
             local monkeyAbility = victim:FindModifierByName("modifier_monkey_a_c_effect"):GetAbility()
-            mult = mult + 0.15*monkeyAbility.a_c_level
+            mult = mult + 0.15*monkeyAbility.e_1_level
         end
     end
     if element1 == RPC_ELEMENT_UNDEAD or element2 == RPC_ELEMENT_UNDEAD then
@@ -3201,7 +3201,7 @@ function Filters:GetBaseBaseArmor(unit)
     if unit:IsHero() then
         rootedArmor = unit:GetModifierStackCount("modifier_rooted_feet_armor_portion", unit.InventoryUnit)
         livingGauntArmor = unit:GetModifierStackCount("modifier_living_gauntlet_effect_armor", unit.InventoryUnit)
-        warlord_b_a_armor = unit:GetModifierStackCount("modifier_warlord_rune_b_a_invisible", unit)
+        warlord_b_a_armor = unit:GetModifierStackCount("modifier_warlord_rune_q_2_invisible", unit)
     end
     local baseBaseArmor = unit:GetPhysicalArmorValue() - rootedArmor - livingGauntArmor - warlord_b_a_armor
     return baseBaseArmor
@@ -3556,7 +3556,7 @@ function Filters:SpellShieldHit(victim, damage)
 end
 
 function Filters:HasDamageBlockShield(victim)
-    if victim:HasModifier("modifier_secret_temple_refraction") or victim:HasModifier("modifier_windsteel_effect") or victim:HasModifier("modifier_heavens_shield") or victim:HasModifier("modifier_shipyard_veil_shield") or victim:HasModifier("modifier_arcane_shell") or victim:HasModifier("modifier_duskbringer_ghost_armor") or victim:HasModifier("modifier_paladin_rune_c_a_shield") or victim:HasModifier("modifier_voltex_rune_c_b_shield") or victim:HasModifier("modifier_light_seer_shield") or victim:HasModifier("modifier_black_dominion_shield") then
+    if victim:HasModifier("modifier_secret_temple_refraction") or victim:HasModifier("modifier_windsteel_effect") or victim:HasModifier("modifier_heavens_shield") or victim:HasModifier("modifier_shipyard_veil_shield") or victim:HasModifier("modifier_arcane_shell") or victim:HasModifier("modifier_duskbringer_ghost_armor") or victim:HasModifier("modifier_paladin_rune_q_3_shield") or victim:HasModifier("modifier_voltex_rune_w_3_shield") or victim:HasModifier("modifier_light_seer_shield") or victim:HasModifier("modifier_black_dominion_shield") then
         return true
     else
         return false
@@ -3773,8 +3773,8 @@ function Filters:ShatterArcaneShell(victim, attacker)
     end
     
     EmitSoundOn("Sorceress.ArcaneShellZap", attacker)
-    local a_b_level =  Runes:GetTotalRuneLevel(victim, 1, "a_b", "sorceress")
-    local damage = 0.2*a_b_level*victim:GetIntellect()
+    local w_1_level =  Runes:GetTotalRuneLevel(victim, 1, "w_1", "sorceress")
+    local damage = 0.2*w_1_level*victim:GetIntellect()
     Filters:TakeArgumentsAndApplyDamage(attacker, victim, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
 
     local particleName = "particles/roshpit/sorceress_arcane_shield_blast.vpcf"
@@ -3793,14 +3793,14 @@ function Filters:ShatterArcaneShell(victim, attacker)
         local ability = arcaneExplosionAbility
         local caster = victim
         local target = attacker
-        local b_b_level = Runes:GetTotalRuneLevel(victim, 2, "b_b", "sorceress")
-        if b_b_level > 0 then
+        local w_2_level = Runes:GetTotalRuneLevel(victim, 2, "w_2", "sorceress")
+        if w_2_level > 0 then
             -- local arcane_explosion = caster:FindAbilityByName("arcane_explosion")
-            ability:ApplyDataDrivenModifier(caster, target, "modifier_sorceress_rune_b_b_invisible", {duration = 9})
-            ability:ApplyDataDrivenModifier(caster, target, "modifier_sorceress_rune_b_b", {duration = 9})
-            local newStacks = math.min(target:GetModifierStackCount("modifier_sorceress_rune_b_b", caster) + 1, 10)
-            target:SetModifierStackCount("modifier_sorceress_rune_b_b", ability, newStacks )
-            target:SetModifierStackCount("modifier_sorceress_rune_b_b_invisible", ability, newStacks*b_b_level )
+            ability:ApplyDataDrivenModifier(caster, target, "modifier_sorceress_rune_w_2_invisible", {duration = 9})
+            ability:ApplyDataDrivenModifier(caster, target, "modifier_sorceress_rune_w_2", {duration = 9})
+            local newStacks = math.min(target:GetModifierStackCount("modifier_sorceress_rune_w_2", caster) + 1, 10)
+            target:SetModifierStackCount("modifier_sorceress_rune_w_2", ability, newStacks )
+            target:SetModifierStackCount("modifier_sorceress_rune_w_2_invisible", ability, newStacks*w_2_level )
         end
     end      
 end
@@ -3820,11 +3820,11 @@ function Filters:MysticWaterShield(victim)
 end
 
 function Filters:HitAxeCCShield(victim, attacker)
-    local currentStacks = victim:GetModifierStackCount("modifier_axe_rune_c_d_shield", victim)
+    local currentStacks = victim:GetModifierStackCount("modifier_axe_rune_r_3_shield", victim)
     if currentStacks > 1 then
-        victim:SetModifierStackCount("modifier_axe_rune_c_d_shield", victim, currentStacks-1)
+        victim:SetModifierStackCount("modifier_axe_rune_r_3_shield", victim, currentStacks-1)
     else
-        victim:RemoveModifierByName("modifier_axe_rune_c_d_shield")
+        victim:RemoveModifierByName("modifier_axe_rune_r_3_shield")
         CustomAbilities:QuickAttachParticle("particles/roshpit/sorceress/shield_shatter.vpcf", victim, 1.2)
     end   
 end
@@ -3843,16 +3843,16 @@ end
 
 
 function Filters:ShatterPaladinShell(victim, attacker)
-    local currentStacks = victim:GetModifierStackCount("modifier_paladin_rune_c_a_shield", victim)
+    local currentStacks = victim:GetModifierStackCount("modifier_paladin_rune_q_3_shield", victim)
     if currentStacks > 1 then
-        victim:SetModifierStackCount("modifier_paladin_rune_c_a_shield", victim, currentStacks-1)
+        victim:SetModifierStackCount("modifier_paladin_rune_q_3_shield", victim, currentStacks-1)
     else
-        victim:RemoveModifierByName("modifier_paladin_rune_c_a_shield")
+        victim:RemoveModifierByName("modifier_paladin_rune_q_3_shield")
     end
 
     EmitSoundOn("Paladin.AegisZap", attacker)
-    local c_a_level =  Runes:GetTotalRuneLevel(victim, 3, "c_a", "paladin")
-    local damage = 5*c_a_level*victim:GetStrength()
+    local q_3_level =  Runes:GetTotalRuneLevel(victim, 3, "q_3", "paladin")
+    local damage = 5*q_3_level*victim:GetStrength()
     Filters:TakeArgumentsAndApplyDamage(attacker, victim, damage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 
 
@@ -3866,16 +3866,16 @@ function Filters:ShatterPaladinShell(victim, attacker)
 end
 
 function Filters:ShatterVoltexShell(victim, attacker)
-    local currentStacks = victim:GetModifierStackCount("modifier_voltex_rune_c_b_shield", victim)
+    local currentStacks = victim:GetModifierStackCount("modifier_voltex_rune_w_3_shield", victim)
     if currentStacks > 1 then
-        victim:SetModifierStackCount("modifier_voltex_rune_c_b_shield", victim, currentStacks-1)
+        victim:SetModifierStackCount("modifier_voltex_rune_w_3_shield", victim, currentStacks-1)
     else
-        victim:RemoveModifierByName("modifier_voltex_rune_c_b_shield")
+        victim:RemoveModifierByName("modifier_voltex_rune_w_3_shield")
     end
 
     EmitSoundOn("Voltex.IonShellZap", attacker)
-    local c_b_level =  Runes:GetTotalRuneLevel(victim, 3, "c_b", "voltex")
-    local damage = 5*c_b_level*victim:GetAgility()
+    local w_3_level =  Runes:GetTotalRuneLevel(victim, 3, "w_3", "voltex")
+    local damage = 5*w_3_level*victim:GetAgility()
     Filters:TakeArgumentsAndApplyDamage(attacker, victim, damage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 
     local particleName = "particles/roshpit/voltex_shell_zap.vpcf"
@@ -4344,28 +4344,28 @@ function Filters:DarkEmissary(caster)
 end
 
 function Filters:Bahamut_DB_rune(caster, damage, slot, enemy)
-    local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "bahamut")
+    local w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "bahamut")
     if caster:HasAbility("leshrac_nuke") then
         if enemy:HasModifier("modifier_leshrac_nuke_judged") then
-            local ability = caster.runeUnit4:FindAbilityByName("bahamut_rune_d_b")
+            local ability = caster.runeUnit4:FindAbilityByName("bahamut_rune_w_4")
             local property_one = ability:GetSpecialValueFor("property_one")
             local property_two = ability:GetSpecialValueFor("property_two")
-            if d_b_level > 0 then
-                local bonusDamage = caster:GetMaxMana()*(property_one/100)*d_b_level
+            if w_4_level > 0 then
+                local bonusDamage = caster:GetMaxMana()*(property_one/100)*w_4_level
                 if slot == 2 then
                     bonusDamage = bonusDamage*10
                 end
                 damage = damage + bonusDamage
-                local manaDrain = math.ceil(caster:GetMaxMana()/100*property_two)*d_b_level
+                local manaDrain = math.ceil(caster:GetMaxMana()/100*property_two)*w_4_level
                 caster:ReduceMana(manaDrain)
             end
         end
     elseif caster:HasAbility("bahamut_arcana_orb") then
-        local ability = caster.runeUnit4:FindAbilityByName("bahamut_rune_d_b_arcana2")
+        local ability = caster.runeUnit4:FindAbilityByName("bahamut_rune_w_4_arcana2")
         local property_one = ability:GetSpecialValueFor("property_one")
-        local d_b_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
-        if d_b_level > 0 then
-            local bonusDamage = (caster:GetMaxMana()-caster:GetMana())*(property_one/100)*d_b_level
+        local w_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
+        if w_4_level > 0 then
+            local bonusDamage = (caster:GetMaxMana()-caster:GetMana())*(property_one/100)*w_4_level
             damage = damage + bonusDamage
         end
     end

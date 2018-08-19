@@ -13,15 +13,15 @@ end
 function createWall(event)
 	local caster = event.caster
 	local ability = event.ability
-	ability.a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a", "bahamut")
-	ability.c_a_level = Runes:GetTotalRuneLevel(caster, 3, "c_a", "bahamut")
-	caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "bahamut")
+	ability.q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "bahamut")
+	ability.q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "bahamut")
+	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "bahamut")
 	if caster:HasModifier("modifier_bahamut_arcana1") then
-		ability.a_d_level = 0
-		ability.b_d_level = 0
+		ability.r_1_level = 0
+		ability.r_2_level = 0
 	else
-		ability.a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d", "bahamut")
-		ability.b_d_level = Runes:GetTotalRuneLevel(caster, 2, "b_d", "bahamut")
+		ability.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "bahamut")
+		ability.r_2_level = Runes:GetTotalRuneLevel(caster, 2, "r_2", "bahamut")
 	end
 	local soundTable = {"leshrac_lesh_deny_14", "leshrac_lesh_deny_15", "leshrac_lesh_deny_16", "leshrac_lesh_deny_12", "leshrac_lesh_deny_12", "leshrac_lesh_deny_10", "leshrac_lesh_deny_10", "leshrac_lesh_deny_06"}
 	local point = event.target_points[1]
@@ -128,8 +128,8 @@ function WallDamageThink(event)
 	Timers:CreateTimer(0.5, function() 
 	  ParticleManager:DestroyParticle( pfx, false )
 	end) 	
-	if ability.c_a_level > 0 then
+	if ability.q_3_level > 0 then
 	  	ability:ApplyDataDrivenModifier(caster, target, "modifier_leshrac_wall_slow", {})
-	  	target:SetModifierStackCount( "modifier_leshrac_wall_slow", ability, ability.c_a_level )
+	  	target:SetModifierStackCount( "modifier_leshrac_wall_slow", ability, ability.q_3_level )
 	end
 end

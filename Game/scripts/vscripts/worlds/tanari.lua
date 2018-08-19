@@ -414,11 +414,11 @@ function Tanari:CreateAugmentedRingOfNobility(hero)
     end
 
     item.property3 = 10
-    item.property3name = "rune_b_a"
+    item.property3name = "rune_q_2"
     RPCItems:SetPropertyValues(item, item.property3, "rune", "#7DFF12",  3) 
 
     item.property4 = 20
-    item.property4name = "rune_a_b"
+    item.property4name = "rune_w_1"
     RPCItems:SetPropertyValues(item, item.property4, "rune", "#7DFF12",  4) 
     RPCItems:AmuletPickup(hero, item)
     Weapons:Equip(hero, item)

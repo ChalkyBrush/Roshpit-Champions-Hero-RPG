@@ -991,7 +991,7 @@ function mountain_crush_end(event)
 	local caster = event.caster
 	local radius = 320
 	local position = caster:GetAbsOrigin()
-	local splitEarthParticle = "particles/units/heroes/hero_leshrac/astral_rune_b_d.vpcf"
+	local splitEarthParticle = "particles/units/heroes/hero_leshrac/astral_rune_r_2.vpcf"
 	local damage = event.damage
 	local ability = event.ability
 	local pfx = ParticleManager:CreateParticle( splitEarthParticle, PATTACH_CUSTOMORIGIN, caster )
@@ -1838,7 +1838,7 @@ function create_shot2(ability, caster, fv, arrowOrigin)
 		local info = 
 		{
 				Ability = ability,
-		    	EffectName = "particles/frostivus_gameplay/astral_rune_c_b_linear_frost_arrow.vpcf",
+		    	EffectName = "particles/frostivus_gameplay/astral_rune_w_3_linear_frost_arrow.vpcf",
 		    	vSpawnOrigin = arrowOrigin,
 		    	fDistance = 1200,
 		    	fStartRadius = start_radius,

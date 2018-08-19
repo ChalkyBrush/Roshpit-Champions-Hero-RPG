@@ -6,15 +6,15 @@ function shadow_gate_cast(event)
     target = WallPhysics:WallSearch(casterOrigin, target, caster)
     local b_c_level = get_b_c_level(caster)
 
-    ability.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "conjuror")
+    ability.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "conjuror")
     local lanceParticle = "particles/units/heroes/hero_phantom_lancer/shadow_flare_phantomlancer_spiritlance_projectile.vpcf"
-    if ability.d_c_level > 0 then
+    if ability.e_4_level > 0 then
     	lanceParticle = "particles/units/heroes/hero_phantom_lancer/conjuror_d_c_phantomlancer_spiritlance_projectile.vpcf"
     end
     if b_c_level > 0 then
     	local fv = (target-casterOrigin):Normalized()*Vector(1,1,0)
-    	ability.b_c_damage = b_c_level*1000 + 1000 + caster:GetAgility()*4*b_c_level
-    	ability.d_c_pure_damage = ability.b_c_damage*0.15*ability.d_c_level
+    	ability.e_2_damage = b_c_level*1000 + 1000 + caster:GetAgility()*4*b_c_level
+    	ability.e_4_pure_damage = ability.e_2_damage*0.15*ability.e_4_level
 		arc_piece_shadow(casterOrigin, fv, ability, caster, lanceParticle)
 		arc_piece_shadow(casterOrigin+WallPhysics:rotateVector(fv, math.pi/2)*50-fv*50, fv, ability, caster, lanceParticle)
 		arc_piece_shadow(casterOrigin+WallPhysics:rotateVector(fv, -math.pi/2)*50-fv*50, fv, ability, caster, lanceParticle)
@@ -74,9 +74,9 @@ end
 
 function get_b_c_level(caster)
 	local runeUnit = caster.runeUnit2
-	local runeAbility = runeUnit:FindAbilityByName("conjuror_rune_b_c")
+	local runeAbility = runeUnit:FindAbilityByName("conjuror_rune_e_2")
 	local abilityLevel = runeAbility:GetLevel()
-	local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_c")
+	local bonusLevel = Runes:GetTotalBonus(runeUnit, "e_2")
 	local totalLevel = abilityLevel + bonusLevel
 	return totalLevel
 end
@@ -126,8 +126,8 @@ function arc_hit(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	local damage = ability.b_c_damage
+	local damage = ability.e_2_damage
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
-	local pureDamage = ability.d_c_pure_damage
+	local pureDamage = ability.e_4_pure_damage
 	Filters:TakeArgumentsAndApplyDamage(target, caster, pureDamage, DAMAGE_TYPE_PURE, 3, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
 end

@@ -2,7 +2,7 @@ function heaven_charge_start(event)
 	local caster = event.caster
 	local ability = event.ability
     local position = event.target_points[1]
-    local maxDistance = ability.rune_c_c_level*5 + 900
+    local maxDistance = ability.rune_e_3_level*5 + 900
     local startPosition = caster:GetAbsOrigin()
     local castedDistance = WallPhysics:GetDistance(startPosition,position)
     if castedDistance > maxDistance then
@@ -10,7 +10,7 @@ function heaven_charge_start(event)
     	position = startPosition + displacementVector*maxDistance
     end
     local newPosition = WallPhysics:WallSearch(startPosition, position, caster)
-    caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "voltex")
+    caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "voltex")
     caster:SetOrigin(newPosition+Vector(0,0,900))
     caster:RemoveModifierByName("modfier_voltex_jumping")
 	local particleName = "particles/units/heroes/hero_zuus/zeus_loadout.vpcf"
@@ -35,7 +35,7 @@ function heaven_charge_start(event)
 	        ParticleManager:DestroyParticle( particle1, false )
 	      end)
 	if caster:HasModifier("modifier_voltex_glyph_3_1") then
-		local overcharge = caster:FindAbilityByName("lightning_attack")
+		local overcharge = caster:FindAbilityByName("overcharge")
 		overcharge:EndCooldown()
 	end
 end
@@ -57,7 +57,7 @@ function heaven_charge_fall_think(event)
 	        ParticleManager:DestroyParticle( particle1, false )
 	      end)
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-			local damage = ability.rune_c_c_level * 6000
+			local damage = ability.rune_e_3_level * 6000
 			local stun_duration = 1.5
 			if #enemies > 0 then	
 				for _,enemy in pairs(enemies) do

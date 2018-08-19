@@ -60,7 +60,7 @@ function UpdateRuneList()
 	var nUsedPanels = 0;
 	for ( var i = 0; i < Entities.GetAbilityCount( queryUnit ); ++i )
 	{
-		var ability = Entities.GetAbility( queryUnit, i );
+        var ability = Entities.GetAbility(queryUnit, i);
 		if ( ability == -1 )
 			continue;
 

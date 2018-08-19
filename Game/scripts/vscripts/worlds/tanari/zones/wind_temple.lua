@@ -340,7 +340,7 @@ end
 
 function Tanari:AttachParticleToBoss(color, staff, boss)
 	local blueParticle = "particles/units/heroes/hero_wisp/wisp_tether.vpcf"
-	local redParticle = "particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
+	local redParticle = "particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
 	local greenParticle = "particles/units/heroes/hero_wisp/tether_green.vpcf"
 	local particleName = ""
 	if color == "red" then

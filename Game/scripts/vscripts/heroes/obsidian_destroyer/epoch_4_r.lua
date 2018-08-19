@@ -1,4 +1,4 @@
-require('/heroes/obsidian_destroyer/constants_epoch')
+require('/heroes/obsidian_destroyer/epoch_constants')
 
 function Vacuum( keys )
     local caster = keys.caster
@@ -29,24 +29,24 @@ function Vacuum( keys )
 
         -- Check if its a new vacuum cast
         -- Set the new pull speed if it is
-        if unit.time_ulti_vacuum ~= target then
-            unit.time_ulti_vacuum = target
+        if unit.eternity_flood_vacuum ~= target then
+            unit.eternity_flood_vacuum = target
             -- The standard speed value is for 1 second durations so we have to calculate the difference
             -- with 1/duration
-            unit.time_ulti_vacuum.pull_speed = distance * 1/duration * 1/50
+            unit.eternity_flood_vacuum.pull_speed = distance * 1/duration * 1/50
         end
 
         -- Apply the stun and no collision modifier then set the new location
         ability:ApplyDataDrivenModifier(caster, unit, vacuum_modifier, {duration = remaining_duration})
         if not unit.jumpLock then
-          unit:SetAbsOrigin(unit_location + direction * unit.time_ulti_vacuum.pull_speed)
+          unit:SetAbsOrigin(unit_location + direction * unit.eternity_flood_vacuum.pull_speed)
         end
     end
     if remaining_duration < 0.02 then
-      ability.c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "epoch")
+      ability.r_3_level = caster:GetRuneValue("r", 3)
       new_lock(units, target_location, caster, damage, duration, ability, keys.stun_duration)
     	-- knockback(units, target_location, caster, damage, duration)
-     --  rune_c_d_lock(units, caster, duration, ability)
+     --  rune_r_3_lock(units, caster, duration, ability)
     end
 end
 
@@ -63,9 +63,9 @@ function new_lock(units, target_location, caster, damage, duration, ability, stu
         end)
       end
       Timers:CreateTimer(0.6, function()
-        ability:ApplyDataDrivenModifier(caster, unit, "modifier_time_ulti_locked", {duration = stun_duration})
-        if ability.c_d_level > 0 then
-          ability:ApplyDataDrivenModifier(caster, unit, "modifier_time_ulti_locked_rune_c_d_exploding", {duration = stun_duration})
+        ability:ApplyDataDrivenModifier(caster, unit, "modifier_eternity_flood_locked", {duration = stun_duration})
+        if ability.r_3_level > 0 then
+          ability:ApplyDataDrivenModifier(caster, unit, "modifier_eternity_flood_locked_rune_r_3_exploding", {duration = stun_duration})
         end
         Timers:CreateTimer(stun_duration, function()
           WallPhysics:Jump(unit, Vector(1,1), 0, 0, 0, 1)
@@ -82,7 +82,7 @@ function VacuumStart( keys )
     local target_location = target:GetAbsOrigin()
     local duration = keys.duration
     target.vacuum_start_time = GameRules:GetGameTime()
-    rune_a_d(caster, target_location, duration, ability)
+    epoch_r_1(caster, target_location, duration, ability)
     StartAnimation(caster, {duration=0.6, activity=ACT_DOTA_ATTACK, rate=1.8})
 
       local particleName = "particles/econ/items/enigma/enigma_world_chasm/time_ulti.vpcf"
@@ -95,9 +95,9 @@ function VacuumStart( keys )
     Filters:CastSkillArguments(4, caster)
 end
 
-function rune_a_d(caster, target_location, duration, ability)
-  local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d", "epoch")
-  if a_d_level > 0 then
+function epoch_r_1(caster, target_location, duration, ability)
+  local r_1_level = caster:GetRuneValue("r", 1)
+  if r_1_level > 0 then
     for i = 1, 4, 1 do
       local position = caster:GetAbsOrigin()
       local particleName = "particles/econ/items/monkey_king/arcana/death/mk_arcana_spring_cast_outer_death_pnt.vpcf"
@@ -109,18 +109,18 @@ function rune_a_d(caster, target_location, duration, ability)
         ParticleManager:DestroyParticle( particle1, false )
       end)
     end
-    local a_d_duration = Filters:GetAdjustedBuffDuration(caster, 10 + a_d_level*epoch_r1_extra_duration, false)
-    ability:ApplyDataDrivenModifier(caster, caster, "modifier_time_ulti_a_d_visible", {duration = a_d_duration})
-    caster:SetModifierStackCount("modifier_time_ulti_a_d_visible", caster, a_d_level)
+    local a_d_duration = Filters:GetAdjustedBuffDuration(caster, 10 + r_1_level*EPOCH_R1_EXTRA_DURATION, false)
+    ability:ApplyDataDrivenModifier(caster, caster, "modifier_eternity_flood_a_d_visible", {duration = a_d_duration})
+    caster:SetModifierStackCount("modifier_eternity_flood_a_d_visible", caster, r_1_level)
 
-    ability:ApplyDataDrivenModifier(caster, caster, "modifier_time_ulti_a_d_invisible", {duration = a_d_duration})
-    --ability:ApplyDataDrivenModifier(caster, caster, "modifier_time_ulti_a_d_invisible_str_and_agi", {duration = a_d_duration})
+    ability:ApplyDataDrivenModifier(caster, caster, "modifier_eternity_flood_a_d_invisible", {duration = a_d_duration})
+    --ability:ApplyDataDrivenModifier(caster, caster, "modifier_eternity_flood_a_d_invisible_str_and_agi", {duration = a_d_duration})
     
   end
   -- local runeUnit = caster.runeUnit
-  -- local runeAbility = runeUnit:FindAbilityByName("epoch_rune_a_d")
+  -- local runeAbility = runeUnit:FindAbilityByName("epoch_rune_r_1")
   -- local abilityLevel = runeAbility:GetLevel()
-  -- local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_d")
+  -- local bonusLevel = Runes:GetTotalBonus(runeUnit, "r_1")
   -- local totalLevel = abilityLevel + bonusLevel
   -- if totalLevel > 0 then
   --   local distance = 600
@@ -143,18 +143,18 @@ function rune_a_d(caster, target_location, duration, ability)
   -- end
 end
 
-function a_d_buff_think(event)
+function epoch_r_1_buff_think(event)
   local caster = event.caster
   local ability = event.ability
 
-  local a_d_level = caster:GetModifierStackCount("modifier_time_ulti_a_d_visible", caster)
+  local r_1_level = caster:GetModifierStackCount("modifier_eternity_flood_a_d_visible", caster)
 
-  local percent_damage_stacks = caster:GetMana()*a_d_level*epoch_r1_dmg_pct/1000
-  caster:SetModifierStackCount("modifier_time_ulti_a_d_invisible", caster, percent_damage_stacks)
+  local percent_damage_stacks = caster:GetMana()*r_1_level*EPOCH_R1_DMG_PCT/1000
+  caster:SetModifierStackCount("modifier_eternity_flood_a_d_invisible", caster, percent_damage_stacks)
 
   --local missingManaStacks = ((caster:GetMaxMana()-caster:GetMana())/caster:GetMaxMana())*10
   --missingManaStacks = math.ceil(missingManaStacks)
-  --caster:SetModifierStackCount("modifier_time_ulti_a_d_invisible_str_and_agi", caster, missingManaStacks*a_d_level)
+  --caster:SetModifierStackCount("modifier_eternity_flood_a_d_invisible_str_and_agi", caster, missingManaStacks*r_1_level)
   
 end
 
@@ -169,7 +169,7 @@ function create_epoch_copy(caster, ability, position, duration, fv, distance, to
     dummy:SetForwardVector(fv)
 
 
- ability:ApplyDataDrivenModifier(caster, dummy, "modifier_time_ulti_ghost", {duration = duration+1})
+ ability:ApplyDataDrivenModifier(caster, dummy, "modifier_eternity_flood_ghost", {duration = duration+1})
 
     -- FindClearSpaceForUnit(dummy, position, true)
       Timers:CreateTimer(duration, -- Start this timer 10 game-time seconds later
@@ -196,7 +196,7 @@ function create_epoch_copy(caster, ability, position, duration, fv, distance, to
         local info = 
         {
             Ability = ability,
-              EffectName = "particles/units/heroes/hero_alchemist/epoch_rune_a_d_concoction_projectile.vpcf",
+              EffectName = "particles/units/heroes/hero_alchemist/epoch_rune_r_1_concoction_projectile.vpcf",
               vSpawnOrigin = position+Vector(0,0,100),
               fDistance = math.sqrt(distance*distance+distance*distance),
               fStartRadius = start_radius,
@@ -226,18 +226,18 @@ function time_orb_strike(event)
   ApplyDamage(damageTable)
 end
 
-function rune_c_d_lock(units, caster, duration, ability)
+function rune_r_3_lock(units, caster, duration, ability)
   local runeUnit = caster.runeUnit3
-  local runeAbility = runeUnit:FindAbilityByName("epoch_rune_c_d")
+  local runeAbility = runeUnit:FindAbilityByName("epoch_rune_r_3")
   local abilityLevel = runeAbility:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_d")
+  local bonusLevel = Runes:GetTotalBonus(runeUnit, "r_3")
   local totalLevel = abilityLevel + bonusLevel
   if totalLevel > 0 then
     local lockDuration = 0.5 + 0.2*totalLevel
     Timers:CreateTimer(1.1, function() 
       for _,unit in ipairs(units) do
         if unit:IsAlive() then
-          ability:ApplyDataDrivenModifier(caster, unit, "modifier_time_ulti_locked", {duration = lockDuration})
+          ability:ApplyDataDrivenModifier(caster, unit, "modifier_eternity_flood_locked", {duration = lockDuration})
         end
       end
     end)
@@ -300,12 +300,12 @@ function channel_start(event)
   -- local ability = event.ability
   StartAnimation(caster, {duration=2.1, activity=ACT_DOTA_CAST_ABILITY_4, rate=0.18})
   -- local runeUnit = caster.runeUnit2
-  -- local runeAbility = runeUnit:FindAbilityByName("epoch_rune_b_d")
-  -- caster:RemoveModifierByName("modifier_epoch_rune_d_d_visible")
+  -- local runeAbility = runeUnit:FindAbilityByName("epoch_rune_r_2")
+  -- caster:RemoveModifierByName("modifier_epoch_rune_r_4_visible")
   -- local abilityLevel = runeAbility:GetLevel()
-  -- local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_d")
+  -- local bonusLevel = Runes:GetTotalBonus(runeUnit, "r_2")
   -- local totalLevel = abilityLevel + bonusLevel
-  -- ability.rune_b_d_level = totalLevel
+  -- ability.rune_r_2_level = totalLevel
   -- if not ability.agesTable then
   --   ability.agesTable = {}
   -- end
@@ -355,8 +355,8 @@ end
 --     dummy:SetForwardVector(fv)
 --     ability.dummy = dummy
 --     table.insert(ability.agesTable, dummy)
---     ability.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "epoch")
---     ability.d_d_ability = caster.runeUnit4:FindAbilityByName("epoch_rune_d_d")
+--     ability.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "epoch")
+--     ability.r_4_ability = caster.runeUnit4:FindAbilityByName("epoch_rune_r_4")
 --     -- local particleName = "particles/units/heroes/hero_wisp/tether_green.vpcf"
 --     -- local particleVector = point
 --     -- local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
@@ -364,13 +364,13 @@ end
 --     -- ParticleManager:SetParticleControlEnt( pfx, 0, dummy, PATTACH_POINT_FOLLOW, "attach_hitloc", position, true )
 --     -- ability.transfer_particle = pfx
 
---     ability:ApplyDataDrivenModifier(caster, dummy, "modifier_time_ulti_ghost", {duration = 3})
+--     ability:ApplyDataDrivenModifier(caster, dummy, "modifier_eternity_flood_ghost", {duration = 3})
 -- end
 
 -- function channel_think(event)
 --   local caster = event.caster
 --   local ability = event.ability
---   local totalLevel = ability.rune_b_d_level
+--   local totalLevel = ability.rune_r_2_level
 --   if totalLevel > 0 then
 --     if caster:HasModifier("modifier_epoch_glyph_4_1") then
 --       totalLevel = totalLevel*2
@@ -378,12 +378,12 @@ end
 --     caster:Heal(totalLevel*15, caster)
 --     local manaRestore = totalLevel*8
 --     caster:GiveMana(manaRestore)
---     if ability.d_d_level > 0 then
+--     if ability.r_4_level > 0 then
 --       local d_d_duration = Filters:GetAdjustedBuffDuration(caster, 12, false)
---       ability.d_d_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_epoch_rune_d_d_visible", {duration = d_d_duration})
---       local current_stack = caster:GetModifierStackCount( "modifier_epoch_rune_d_d_visible", ability.d_d_ability )
---       local newStack = current_stack + manaRestore*0.2*ability.d_d_level
---       caster:SetModifierStackCount( "modifier_epoch_rune_d_d_visible", ability.d_d_ability, newStack )      
+--       ability.r_4_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_epoch_rune_r_4_visible", {duration = d_d_duration})
+--       local current_stack = caster:GetModifierStackCount( "modifier_epoch_rune_r_4_visible", ability.r_4_ability )
+--       local newStack = current_stack + manaRestore*0.2*ability.r_4_level
+--       caster:SetModifierStackCount( "modifier_epoch_rune_r_4_visible", ability.r_4_ability, newStack )      
 --     end
 --   end
 -- end
@@ -414,30 +414,30 @@ end
   
 -- end
 
-function c_d_crackle_think(event)
+function epoch_r_3_crackle_think(event)
   local target = event.target
   local caster = event.caster
   local ability = event.ability
-  local damage = caster:GetAverageTrueAttackDamage(caster)*ability.c_d_level*epoch_r3_dmg_multi_pct/100
+  local damage = caster:GetAverageTrueAttackDamage(caster)*ability.r_3_level*EPOCH_R3_DMG_MULTI_PCT/100
   Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
   CustomAbilities:QuickAttachParticle("particles/econ/items/morphling/morphling_crown_of_tears/morphling_crown_waveform_dmg_flash.vpcf", target, 1)
 end
 
-function time_ulti_script(event)
+function eternity_flood_script(event)
   local caster = event.caster
   local ability = event.ability
   local point = event.target_points[1]
   local radius = event.radius
 
   EmitSoundOn("Epoch.UltiStart", caster)
-  ability:ApplyDataDrivenThinker(caster, point, "modifier_time_ulti_vacuum_thinker_datadriven", {})
+  ability:ApplyDataDrivenThinker(caster, point, "modifier_eternity_flood_vacuum_thinker_datadriven", {})
   Timers:CreateTimer(4.0, function()
-    rune_a_d(caster, point, 3, ability)
+    epoch_r_1(caster, point, 3, ability)
   end)
   local enemies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
   if #enemies > 0 then
     for _,enemy in pairs(enemies) do
-      ability:ApplyDataDrivenModifier(caster, enemy, "modifier_time_ulti_locked_datadriven", {duration = event.duration})
+      ability:ApplyDataDrivenModifier(caster, enemy, "modifier_eternity_flood_locked_datadriven", {duration = event.duration})
     end
   end 
 end
@@ -448,7 +448,7 @@ function immortal_weapon_2_die(event)
   local respawnPoint = caster:GetAbsOrigin()
   print("IMMO DIE: "..ulti:GetCooldownTimeRemaining())
   if ulti:GetCooldownTimeRemaining() == 0 then
-    if ulti:GetAbilityName() == "time_ulti" then
+    if ulti:GetAbilityName() == "eternity_flood" then
       local eventTable = {}
       eventTable.caster = caster
       eventTable.ability = ulti
@@ -456,7 +456,7 @@ function immortal_weapon_2_die(event)
       eventTable.target_points[1] = respawnPoint
       eventTable.radius = ulti:GetLevelSpecialValueFor("radius", ulti:GetLevel())
       eventTable.duration = ulti:GetLevelSpecialValueFor("duration", ulti:GetLevel())
-      time_ulti_script(eventTable)
+      eternity_flood_script(eventTable)
       local CD = ulti:GetCooldown(ulti:GetLevel())
       ulti:StartCooldown(CD*1.5)
     end
@@ -472,22 +472,20 @@ end
 
 function rune_think(event)
   local caster = event.caster
-  rune_a_b(caster)
-  rune_b_a(caster)
+  rune_w_1(caster)
+  rune_q_2(caster)
 end
 
-function epoch_rune_b_d_think(event)
+function epoch_rune_r_2_think(event)
   local caster = event.caster
   local runeUnit = caster.runeUnit2
-  local runeAbility = runeUnit:FindAbilityByName("epoch_rune_b_d")
-  local abilityLevel = runeAbility:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_d")
-  local totalLevel = abilityLevel + bonusLevel
+  local runeAbility = runeUnit:FindAbilityByName("epoch_rune_r_2")
+  local totalLevel = caster:GetRuneValue("r", 2)
   if totalLevel > 0 then
-    runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_epoch_b_d_buff", {})
-    caster:SetModifierStackCount( "modifier_epoch_b_d_buff", runeAbility, totalLevel )
+    runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_epoch_r_2_buff", {})
+    caster:SetModifierStackCount( "modifier_epoch_r_2_buff", runeAbility, totalLevel )
   else
-    caster:RemoveModifierByName("modifier_epoch_b_d_buff")
+    caster:RemoveModifierByName("modifier_epoch_r_2_buff")
   end
   -- print(totalLevel)
 end

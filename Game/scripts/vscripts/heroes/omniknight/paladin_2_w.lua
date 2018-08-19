@@ -1,3 +1,5 @@
+require('heroes/omniknight/paladin_constants')
+
 function StartCone(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -9,9 +11,9 @@ function fireCone(args)
 
 	local caster = args.caster
 	local ability = args.ability
-	ability.a_b_level = a_b_level(caster, ability)
-	ability.b_b_level = b_b_level(caster)	
-	if ability.b_b_level > 0 then
+	ability.w_1_level = paladin_get_w_1_level(caster, ability)
+	ability.w_2_level = paladin_get_w_2_level(caster)	
+	if ability.w_2_level > 0 then
 		local coneImpactSelfTable = {}
 		coneImpactSelfTable.caster = caster
 		coneImpactSelfTable.ability = ability
@@ -19,12 +21,12 @@ function fireCone(args)
 		coneImpactSelfTable.target = caster
 		cone_impact(coneImpactSelfTable)
 	end
-	-- rune_c_b(caster, ability)
+	-- rune_w_3(caster, ability)
 	local fv = caster:GetForwardVector()
 	local origin = caster:GetAbsOrigin()
 	local spellOrigin = origin+fv*80
 	--A Liner Projectile must have a table with projectile info
-	caster.holy_cone_direction = fv
+	caster.justice_overwhelming_direction = fv
 	local info = 
 	{
 		Ability = args.ability,
@@ -59,37 +61,37 @@ function fireCone(args)
 		should_stun = 0
 	}
 	caster.cone_velocity = 50
-	caster.d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "paladin")
+	caster.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "paladin")
 	--caster:RemoveModifierByName("modifier_knockback")
     --caster:AddNewModifier( caster, nil, "modifier_knockback", modifierKnockback );
     if caster:HasModifier("modifier_paladin_glyph_4_1") then
     else
 	    Timers:CreateTimer(0.03, function()
-	    	ability:ApplyDataDrivenModifier(caster, caster, "modifier_holy_cone", {duration = 0.5})
+	    	ability:ApplyDataDrivenModifier(caster, caster, "modifier_justice_overwhelming", {duration = 0.5})
 	    end)
 	end
     Filters:CastSkillArguments(2, caster)
 end
 
-function a_b_level(caster, ability)
+function paladin_get_w_1_level(caster, ability)
 	local runeUnit = caster.runeUnit
-	local runeAbility = runeUnit:FindAbilityByName("paladin_rune_a_b")
+	local runeAbility = runeUnit:FindAbilityByName("paladin_rune_w_1")
 	local abilityLevel = runeAbility:GetLevel()
-	local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_b")
+	local bonusLevel = Runes:GetTotalBonus(runeUnit, "w_1")
 	local totalLevel = abilityLevel + bonusLevel
-	ability.a_b_damage = (150 + totalLevel*5000)/2
-	ability.d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "paladin")
+	ability.w_1_damage = (150 + totalLevel*5000)/2
+	ability.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "paladin")
 	if caster:HasModifier("modifier_paladin_glyph_5_1") then
-		ability.a_b_damage = ability.a_b_damage * 3
+		ability.w_1_damage = ability.w_1_damage * 3
 	end
   	return totalLevel
 end
 
-function b_b_level(caster)
+function paladin_get_w_2_level(caster)
   local runeUnit = caster.runeUnit2
-  local runeAbility = runeUnit:FindAbilityByName("paladin_rune_b_b")
+  local runeAbility = runeUnit:FindAbilityByName("paladin_rune_w_2")
   local abilityLevel = runeAbility:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_b")
+  local bonusLevel = Runes:GetTotalBonus(runeUnit, "w_2")
   local totalLevel = abilityLevel + bonusLevel
   return totalLevel
 end
@@ -97,9 +99,9 @@ end
 function knockback_interval(keys)
 	
 	local caster = keys.caster
-	local modifier = caster:FindModifierByName("modifier_holy_cone")
+	local modifier = caster:FindModifierByName("modifier_justice_overwhelming")
 	local origin = caster:GetAbsOrigin()
-	local fv = caster.holy_cone_direction
+	local fv = caster.justice_overwhelming_direction
 	caster.blowback = true
 	if not caster.cone_velocity then
 		caster.cone_velocity = 50
@@ -133,64 +135,46 @@ function cone_impact(event)
 		damage = damage*3
 	end
 	if caster:GetTeamNumber() == target:GetTeamNumber() then
-		if ability.b_b_level > 0 then
-			local amount = damage*ability.b_b_level*0.04
+		if ability.w_2_level > 0 then
+			local amount = damage*ability.w_2_level*0.04
 			amount = math.floor(amount)
-			ability:ApplyDataDrivenModifier(caster, target, "holy_cone_heal_effect", {})
+			ability:ApplyDataDrivenModifier(caster, target, "justice_overwhelming_heal_effect", {})
 
 			-- d_b_heal(caster, target, ability, amount)
 			Filters:ApplyHeal(caster, target, amount, false)
 		end
 	else
 		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
-		apply_holy_fire(caster, target, ability)
+		paladin_w_1_apply(caster, target, ability)
 	end
 end
 
-function apply_holy_fire(caster, target, ability)
-	if not ability.d_b_level then
-		ability.d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "paladin")
-	end
-	if not ability.a_b_level then
-		a_b_level(caster, ability)
-	end
-	if not ability.b_b_level then
-		ability.b_b_level = b_b_level(caster)	
-	end
-	if ability.a_b_level > 0 then
-		local burnDuration = ability.a_b_level*0.3 + 1
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_rune_a_b", {duration = burnDuration})
+function paladin_w_1_apply(caster, target, ability)
+	ability.w_1_level = caster:GetRuneValue("w", 1)
+	ability.w_2_level = caster:GetRuneValue("w", 2)
+	ability.w_4_level = caster:GetRuneValue("w", 4)
+	if ability.w_1_level > 0 then
+		ability.w_1_damage = (PALADIN_W1_BASE_DMG + ability.w_1_level * PALADIN_W1_DMG_PER_LEVEL)/2
+		if caster:HasModifier("modifier_paladin_glyph_5_1") then
+			ability.w_1_damage = ability.w_1_damage * 3
+		end
+		local burnDuration = ability.w_1_level * PALADIN_W1_DURATION_PER_LEVEL + PALADIN_W1_BASE_DURATION
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_rune_w_1", {duration = burnDuration})
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_holy_fire_burn_effect", {duration = burnDuration})
-		if ability.d_b_level > 0 then
-			print("STACKS!")
-			local stackCount = target:GetModifierStackCount("modifier_paladin_rune_a_b", caster)
+		if ability.w_4_level > 0 then
+			local stackCount = target:GetModifierStackCount("modifier_paladin_rune_w_1", caster)
 			local additionalStacks = 1
 			if caster:HasModifier("modifier_paladin_glyph_5_1") then
-				additionalStacks = additionalStacks+9
+				additionalStacks = additionalStacks + 9
 			end
 			if caster:HasModifier("modifier_paladin_glyph_4_1") then
-				additionalStacks = additionalStacks*5
+				additionalStacks = additionalStacks * 5
 			end
-			local newStacks = math.min(stackCount + additionalStacks, ability.d_b_level + 1)
-			target:SetModifierStackCount("modifier_paladin_rune_a_b", caster, newStacks)
+			local newStacks = math.min(stackCount + additionalStacks, ability.w_4_level + 1)
+			target:SetModifierStackCount("modifier_paladin_rune_w_1", caster, newStacks)
 		end
 	end
 end
-
--- function d_b_heal(caster, target, ability, origHeal)
--- 	local d_b_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
--- 	if d_b_level > 0 then
--- 		Filters:ApplyHeal(caster, ally, origHeal, false)
--- 		local actualHeal = math.min(target:GetMaxHealth() - target:GetHealth(), origHeal)
--- 		local shieldAmount = origHeal - actualHeal
--- 		if not target.paladin_d_b_absorb then
--- 			target.paladin_d_b_absorb = 0
--- 		end
--- 		target.paladin_d_b_absorb = math.min(target.paladin_d_b_absorb + shieldAmount, target:GetMaxHealth()*0.04*d_b_level)
--- 		local shieldDuration = Filters:GetAdjustedBuffDuration(caster, 12, false)
--- 		ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_rune_b_b_shield", {duration = shieldDuration})
--- 	end
--- end
 
 function modifier_on_destroy(keys)
 	local caster = keys.caster
@@ -200,22 +184,19 @@ function modifier_on_destroy(keys)
 	caster.cone_velocity = nil	
 end
 
-function a_b_DamageThink(event)
+function paladin_w_1_damage_think(event)
 	local target = event.target
 	local caster = event.caster
 	local ability = event.ability
-	local damage = ability.a_b_damage
-	-- damage = damage + 0.0004*(caster:GetIntellect()+caster:GetStrength()+caster:GetAgility())/10*ability.d_b_level*damage
-	-- ability.d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "paladin")
-	local stacks = target:GetModifierStackCount("modifier_paladin_rune_a_b", caster)
+	local damage = ability.w_1_damage
+	local stacks = target:GetModifierStackCount("modifier_paladin_rune_w_1", caster)
 	stacks = math.max(1, stacks)
 	if stacks == 1 then
 	elseif stacks > 1 then 
 		for i = 1, stacks-1, 1 do
-			damage = damage + ability.a_b_damage*(1+0.20*i)
+			damage = damage + ability.w_1_damage * (1 + i * PALADIN_W4_DMG_PER_STACK_PCT/100)
 			end
 		end
-	-- damage = damage + ability.a_b_damage*(stacks-1)
 	Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_HOLY, RPC_ELEMENT_FIRE)
 end
 --DESIRED OUTPUT: 100, 210, 331, 463
@@ -223,23 +204,19 @@ end
 function c_b_attacked(event)
 	local luck = RandomInt(1,100)
 	if luck <= 15 then
-		rune_c_b(event.caster, event.ability)
+		rune_w_3(event.caster, event.ability)
 	end
 end
 
-function rune_c_b(caster, ability)
+function rune_w_3(caster, ability)
   local runeUnit = caster.runeUnit3
-  local runeAbility = runeUnit:FindAbilityByName("paladin_rune_c_b")
+  local runeAbility = runeUnit:FindAbilityByName("paladin_rune_w_3")
   local abilityLevel = runeAbility:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_b")
+  local bonusLevel = Runes:GetTotalBonus(runeUnit, "w_3")
   local totalLevel = abilityLevel + bonusLevel
   if totalLevel > 0 then
   		local radius = 550
   		local damage = totalLevel*5*caster:GetIntellect()
-
-		-- local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "paladin")
-		-- damage = damage + 0.0007*caster:GetIntellect()/10*d_b_level*damage
-		-- damage = damage + 0.0004*(caster:GetIntellect()+caster:GetStrength()+caster:GetAgility())/10*d_b_level*damage
 		damage = math.floor(damage)
 
   		EmitSoundOn("Paladin.HolyNova", caster)
@@ -264,29 +241,9 @@ function rune_c_b(caster, ability)
 		if #allies > 0 then
 			for _,ally in pairs(allies) do
 				-- d_b_heal(caster, ally, ability, heal)
-				ability:ApplyDataDrivenModifier(caster, ally, "holy_cone_heal_effect", {})
+				ability:ApplyDataDrivenModifier(caster, ally, "justice_overwhelming_heal_effect", {})
 				Filters:ApplyHeal(caster, ally, heal, false)
 			end
 		end  
   end
-end
-
-function paladin_attack_land(event)
-	local attacker = event.attacker
-	local caster = attacker
-	local ability = event.ability
-	local c_a_level = Runes:GetTotalRuneLevel(caster, 3, "c_a", "paladin")
-	if c_a_level > 0 then
-		local duration = c_a_level*0.1 + 0.8		
-		caster.d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "paladin")
-		duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
-		local currentStacks = caster:GetModifierStackCount("modifier_paladin_rune_c_a_shield", caster)
-		local maxStacks = 1
-		if caster:HasModifier("modifier_paladin_immortal_weapon_1") then
-			maxStacks = 4
-		end
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_paladin_rune_c_a_shield", {duration = duration})
-		local newStacks = math.min(currentStacks+1, maxStacks)
-		caster:SetModifierStackCount("modifier_paladin_rune_c_a_shield", caster, newStacks)
-	end
 end

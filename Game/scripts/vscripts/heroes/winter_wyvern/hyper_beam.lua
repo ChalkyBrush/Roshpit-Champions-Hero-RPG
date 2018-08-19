@@ -26,9 +26,9 @@ function hyperbeam_start_channel(event)
 	hyperbeam:SetDayTimeVisionRange(200)
 	hyperbeam:SetNightTimeVisionRange(200)
 	hyperbeam.distanceTravelled = 0
-	hyperbeam.a_d_level = caster:GetRuneValue("r", 1)
-	hyperbeam.b_d_level = caster:GetRuneValue("r", 2)
-	hyperbeam.c_d_level = caster:GetRuneValue("r", 3)
+	hyperbeam.r_1_level = caster:GetRuneValue("r", 1)
+	hyperbeam.r_2_level = caster:GetRuneValue("r", 2)
+	hyperbeam.r_3_level = caster:GetRuneValue("r", 3)
 	ability.channeledBeam = hyperbeam
 	table.insert(ability.hyperbeamTable, hyperbeam)
 	StartSoundEvent("Dinath.HyperBeam.Start", caster)
@@ -41,7 +41,7 @@ function hyperbeam_start_channel(event)
 	end
 	if caster:HasModifier("modifier_iron_treads_of_destruction") then
 		local growth_rate = 2.5
-		growth_rate = growth_rate + growth_rate*0.01*hyperbeam.c_d_level 
+		growth_rate = growth_rate + growth_rate*0.01*hyperbeam.r_3_level 
 		hyperbeam.size = hyperbeam.size + growth_rate*40
 		ParticleManager:SetParticleControl(hyperbeam.pfx, 2, Vector(hyperbeam.size, hyperbeam.size, hyperbeam.size))
 	end
@@ -131,14 +131,14 @@ function hyperbeam_orb_thinking(event)
 						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_hyperbeam_immunity", {duration = 5})
 						enemy:SetModifierStackCount("modifier_hyperbeam_immunity", caster, immunityStacks+1)
 					end
-					if hyperbeam.b_d_level > 0 then
+					if hyperbeam.r_2_level > 0 then
 						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_hyperbeam_postmit", {duration = 7})
-						enemy:SetModifierStackCount("modifier_hyperbeam_postmit", caster, hyperbeam.b_d_level)
+						enemy:SetModifierStackCount("modifier_hyperbeam_postmit", caster, hyperbeam.r_2_level)
 					end
 				end				
 			end			
 		end
-		if hyperbeam.a_d_level > 0 then
+		if hyperbeam.r_1_level > 0 then
 			if hyperbeam.interval%6 == 0 then
 				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), hyperbeam:GetAbsOrigin(), nil, hyperbeam.size*2, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 				if #enemies > 0 then	
@@ -155,7 +155,7 @@ function hyperbeam_orb_thinking(event)
 		local flightStacks = caster:GetModifierStackCount("modifier_dinath_postflight_zheight", caster)
 		hyperbeam:SetAbsOrigin(((caster:GetAbsOrigin() + caster:GetForwardVector()*120)*Vector(1,1,0))+Vector(0,0,caster:GetAbsOrigin().z+150+flightStacks))
 		local growth_rate = 2.5
-		growth_rate = growth_rate + growth_rate*0.01*hyperbeam.c_d_level 
+		growth_rate = growth_rate + growth_rate*0.01*hyperbeam.r_3_level 
 		hyperbeam.size = hyperbeam.size + growth_rate
 		ParticleManager:SetParticleControl(hyperbeam.pfx, 2, Vector(hyperbeam.size, hyperbeam.size, hyperbeam.size))
 	end
@@ -174,7 +174,7 @@ end
 
 function hyperbeam_jolt(caster, hyperbeam, enemy)
 	if IsValidEntity(hyperbeam) then
-	  local damage = caster:GetAverageTrueAttackDamage(caster)*0.01*hyperbeam.a_d_level
+	  local damage = caster:GetAverageTrueAttackDamage(caster)*0.01*hyperbeam.r_1_level
 	  damage = damage*(hyperbeam.size/100)
       local particleName = "particles/roshpit/dinath/hyper_zap_beam.vpcf"
       local attachPointA = hyperbeam:GetAbsOrigin()

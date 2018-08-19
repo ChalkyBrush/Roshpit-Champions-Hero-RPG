@@ -19,9 +19,9 @@ function knights_disciple_cast(event)
 	Timers:CreateTimer(4, function() 
 	  ParticleManager:DestroyParticle( pfx, false )
 	end) 	
-	healAbility.b_d_level = Runes:GetTotalRuneLevel(caster, 2, "b_d", "paladin")
-	ability.a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d", "paladin")
-	if ability.a_d_level > 0 then
+	healAbility.r_2_level = Runes:GetTotalRuneLevel(caster, 2, "r_2", "paladin")
+	ability.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "paladin")
+	if ability.r_1_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, summon, "modifier_paladin_a_d_aura", {})
 	end
 	summon.falling = true
@@ -29,12 +29,12 @@ function knights_disciple_cast(event)
 		EmitSoundOn("Paladin.DiscipleSummon", summon)
 		EmitSoundOnLocationWithCaster(summon:GetAbsOrigin(), "Paladin.DiscipleLeaveSound", summon)
 	end)
-	local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "paladin")
+	local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "paladin")
 	if c_d_level > 0 then
 		summon:AddAbility("knights_disciple_bolt"):SetLevel(1)
 	end
-	caster.d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "paladin")
-	local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "paladin")
+	caster.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "paladin")
+	local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "paladin")
 	if d_d_level > 0 then
 		summon:AddAbility("knights_disciple_purifying_spark"):SetLevel(1)
 	end
@@ -125,7 +125,7 @@ function disciple_think(event)
 			if #allies >= 2 then
 				for i = 2, #allies, 1 do
 					if (allies[i]:GetHealth()/allies[i]:GetMaxHealth()) < (ally:GetHealth()/ally:GetMaxHealth()) then
-						if allies[i]:HasModifier("modifier_paladin_rune_b_d_effect_visible") or allies[i]:GetEntityIndex() == caster:GetEntityIndex() then
+						if allies[i]:HasModifier("modifier_paladin_rune_r_2_effect_visible") or allies[i]:GetEntityIndex() == caster:GetEntityIndex() then
 						else
 							if allies[i]:IsAlive() then
 								ally = allies[i]
@@ -210,7 +210,7 @@ function disciple_heal_start(event)
 	  ParticleManager:DestroyParticle( pfx, false )
 	end) 
 
-	event.ability:ApplyDataDrivenModifier(attacker, victim, "modifier_paladin_rune_b_d_hidden_block", {duration = 16})
+	event.ability:ApplyDataDrivenModifier(attacker, victim, "modifier_paladin_rune_r_2_hidden_block", {duration = 16})
 	if attacker:HasModifier("modifier_disciple_cooldown_reduction") then
 		local cd = ability:GetCooldownTimeRemaining()
 		local newCD = cd*0.75
@@ -227,19 +227,19 @@ function disciple_heal_think(event)
 	else
 		caster = event.caster.paladin
 		local healDuration = Filters:GetAdjustedBuffDuration(caster, 16, false)
-		local b_d_level = ability.b_d_level
+		local b_d_level = ability.r_2_level
 		local target = event.target
 		if b_d_level > 0 then
-			if not target:HasModifier("modifier_paladin_rune_b_d_effect_visible") then
-				ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_rune_b_d_effect_visible", {duration = healDuration})
+			if not target:HasModifier("modifier_paladin_rune_r_2_effect_visible") then
+				ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_rune_r_2_effect_visible", {duration = healDuration})
 			end
-			local stackCount = target:GetModifierStackCount("modifier_paladin_rune_b_d_effect_visible", caster)
+			local stackCount = target:GetModifierStackCount("modifier_paladin_rune_r_2_effect_visible", caster)
 			local newStacks = math.min(stackCount + 1, 30)
-			target:SetModifierStackCount("modifier_paladin_rune_b_d_effect_visible", caster, newStacks)
-			if not target:HasModifier("modifier_paladin_rune_b_d_invisible") then
-				ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_rune_b_d_invisible", {duration = healDuration})
+			target:SetModifierStackCount("modifier_paladin_rune_r_2_effect_visible", caster, newStacks)
+			if not target:HasModifier("modifier_paladin_rune_r_2_invisible") then
+				ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_rune_r_2_invisible", {duration = healDuration})
 			end
-			target:SetModifierStackCount("modifier_paladin_rune_b_d_invisible", caster, newStacks*b_d_level)
+			target:SetModifierStackCount("modifier_paladin_rune_r_2_invisible", caster, newStacks*b_d_level)
 		end
 	end
 
@@ -253,9 +253,9 @@ function armor_aura_create(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	if ability.a_d_level > 0 then
+	if ability.r_1_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_a_d_aura_armor_stacks", {})
-		target:SetModifierStackCount("modifier_paladin_a_d_aura_armor_stacks", caster, ability.a_d_level)
+		target:SetModifierStackCount("modifier_paladin_a_d_aura_armor_stacks", caster, ability.r_1_level)
 	end
 end
 
@@ -264,7 +264,7 @@ function disciple_bolt_start(event)
 	local ability = event.ability
 	local paladin = caster.paladin
 	local target = event.target
-	local c_d_level = Runes:GetTotalRuneLevel(paladin, 3, "c_d", "paladin")
+	local c_d_level = Runes:GetTotalRuneLevel(paladin, 3, "r_3", "paladin")
 	local damage = paladin:GetAverageTrueAttackDamage(paladin)*8*c_d_level
 	EmitSoundOn("Paladin.HolyBolt", target)
 	Filters:TakeArgumentsAndApplyDamage(target, paladin, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
@@ -378,7 +378,7 @@ function purifying_spark_hit(event)
 			end
 		end
 	end
-	local d_d_level = Runes:GetTotalRuneLevel(paladin, 4, "d_d", "paladin")
+	local d_d_level = Runes:GetTotalRuneLevel(paladin, 4, "r_4", "paladin")
 	local duration = d_d_level*0.1 + 0.5
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_disciple_purifying_spark", {duration = duration})
 	ability.split = false

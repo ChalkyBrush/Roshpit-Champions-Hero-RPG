@@ -14,16 +14,16 @@ function begin_lightning_dash(event)
 
 	local arcanaUlti = caster:FindAbilityByName("bahamut_arcana_ulti")
 	if arcanaUlti then
-		arcanaUlti.a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d_arcana1", "bahamut")
+		arcanaUlti.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "a_d_arcana1", "bahamut")
 	end
 
 	ability.pfx = pfx
 	if caster:GetUnitName() == "npc_dota_hero_leshrac" then
-		ability.b_b_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
-		ability.c_b_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+		ability.w_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
+		ability.w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
 	elseif caster:GetUnitName() == "seafortress_shadow_of_bahamut" then
-		ability.b_b_level = 0
-		ability.c_b_level = 0
+		ability.w_2_level = 0
+		ability.w_3_level = 0
 	end
 	ability.interval = 0
 	if not ability.particles then
@@ -69,14 +69,14 @@ function dash_think(event)
 	if distance < forwardSpeed*1.5 then
 		caster:RemoveModifierByName("modifier_bahamut_sphere_of_divinity")
 	end
-	if ability.b_b_level > 0 then
+	if ability.w_2_level > 0 then
 		if ability.interval%3 == 0 then
 			local allies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
 			if #allies > 0 then
 				for _,ally in pairs(allies) do
 					if not ally:HasModifier("modifier_bahamut_arcana_post_mit") then
 						ability:ApplyDataDrivenModifier(caster, ally, "modifier_bahamut_arcana_post_mit", {duration = 7})
-						ally:SetModifierStackCount("modifier_bahamut_arcana_post_mit", caster, ability.b_b_level)
+						ally:SetModifierStackCount("modifier_bahamut_arcana_post_mit", caster, ability.w_2_level)
 						CustomAbilities:QuickAttachParticle("particles/roshpit/bahamut/bahamut_arcana_postmit_heal_core.vpcf", ally, 1)
 					else
 						if ally:GetEntityIndex() == caster:GetEntityIndex() then
@@ -88,7 +88,7 @@ function dash_think(event)
 			end 
 		end
 	end
-	if ability.c_b_level > 0 then
+	if ability.w_3_level > 0 then
 		bUltNuke = false
 		if caster:HasModifier("modifier_leshrac_arcana_effect") then
 			local arcanaAbility = caster:FindAbilityByName("bahamut_arcana_ulti")	
@@ -99,7 +99,7 @@ function dash_think(event)
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do
 					if not enemy:HasModifier("modifier_arcana2_purity_freeze") then
-						local freezeDuration = ability.c_b_level*0.02
+						local freezeDuration = ability.w_3_level*0.02
 						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_arcana2_purity_freeze", {duration = freezeDuration})
 						if bUltNuke then
 							local arcanaAbility = caster:FindAbilityByName("bahamut_arcana_ulti")

@@ -1,6 +1,6 @@
 require('heroes/moon_ranger/init')
 local function hitUnitsAndApplyMidifier(caster, ability, target)
-    local runesCount =  caster.b_c_level
+    local runesCount =  caster.e_2_level
     if runesCount == nil or runesCount <= 0 then
         return
     end
@@ -12,8 +12,8 @@ local function hitUnitsAndApplyMidifier(caster, ability, target)
             caster:PerformAttack(enemy, true, true, true, false, true, false, false)
         end
     end
-    ability:ApplyDataDrivenModifier(caster, caster, 'modifier_astral_rune_b_c_visible', {duration = E2_DURATION})
-    caster:SetModifierStackCount('modifier_astral_rune_b_c_visible', caster, runesCount)
+    ability:ApplyDataDrivenModifier(caster, caster, 'modifier_astral_rune_e_2_visible', {duration = E2_DURATION})
+    caster:SetModifierStackCount('modifier_astral_rune_e_2_visible', caster, runesCount)
 end
 
 local module = {}

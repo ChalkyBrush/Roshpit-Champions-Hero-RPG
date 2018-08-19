@@ -7,7 +7,7 @@ function Amulet:AdjustAttackPowerBonus(hero, value)
 		-- local b_c_level = hero:GetRuneValue("e", 2)
 		-- if hero:HasModifier("modifier_recently_respawned") then
 		-- 	local ability = hero:FindAbilityByName("dinath_dragon_dive")
-		-- 	b_c_level = ability.b_c_level
+		-- 	b_c_level = ability.e_2_level
 		-- end
 		-- value = value + value*0.15*b_c_level
 	end
@@ -254,67 +254,67 @@ function Amulet:addItemModifier(propertyValue, hero, inventory_unit, modifier_na
 end
 
 function Amulet:runeProperty(propertyName, propertyValue, hero)
-	if propertyName == "rune_a_a" then
-		hero.runeUnit.amulet.a_a = hero.runeUnit.amulet.a_a + propertyValue
-		Amulet:setRuneBonusNetTable(hero.runeUnit.amulet.a_a, propertyName, hero)
-	elseif propertyName == "rune_a_b" then
-		hero.runeUnit.amulet.a_b = hero.runeUnit.amulet.a_b + propertyValue
-		Amulet:setRuneBonusNetTable(hero.runeUnit.amulet.a_b, propertyName, hero)
-	elseif propertyName == "rune_a_c" then
-		hero.runeUnit.amulet.a_c = hero.runeUnit.amulet.a_c + propertyValue
-		Amulet:setRuneBonusNetTable(hero.runeUnit.amulet.a_c, propertyName, hero)
-	elseif propertyName == "rune_a_d" then
-		hero.runeUnit.amulet.a_d = hero.runeUnit.amulet.a_d + propertyValue
-		Amulet:setRuneBonusNetTable(hero.runeUnit.amulet.a_d, propertyName, hero)
-	elseif propertyName == "rune_b_a" then
-		hero.runeUnit2.amulet.b_a = hero.runeUnit2.amulet.b_a + propertyValue
-		Amulet:setRuneBonusNetTable(hero.runeUnit2.amulet.b_a, propertyName, hero)
-	elseif propertyName == "rune_b_b" then
-		hero.runeUnit2.amulet.b_b = hero.runeUnit2.amulet.b_b + propertyValue
-		Amulet:setRuneBonusNetTable(hero.runeUnit2.amulet.b_b, propertyName, hero)
-	elseif propertyName == "rune_b_c" then
-		hero.runeUnit2.amulet.b_c = hero.runeUnit2.amulet.b_c + propertyValue
-		Amulet:setRuneBonusNetTable(hero.runeUnit2.amulet.b_c, propertyName, hero)
-	elseif propertyName == "rune_b_d" then
-		hero.runeUnit2.amulet.b_d = hero.runeUnit2.amulet.b_d + propertyValue
-		Amulet:setRuneBonusNetTable(hero.runeUnit2.amulet.b_d, propertyName, hero)
-	elseif propertyName == "rune_c_a" then
-		hero.runeUnit3.amulet.c_a = hero.runeUnit3.amulet.c_a + propertyValue
-		Amulet:setRuneBonusNetTable(hero.runeUnit3.amulet.c_a, propertyName, hero)
-	elseif propertyName == "rune_c_b" then
-		hero.runeUnit3.amulet.c_b = hero.runeUnit3.amulet.c_b + propertyValue
-		Amulet:setRuneBonusNetTable(hero.runeUnit3.amulet.c_b, propertyName, hero)
-	elseif propertyName == "rune_c_c" then
-		hero.runeUnit3.amulet.c_c = hero.runeUnit3.amulet.c_c + propertyValue
-		Amulet:setRuneBonusNetTable(hero.runeUnit3.amulet.c_c, propertyName, hero)
-	elseif propertyName == "rune_c_d" then
-		hero.runeUnit3.amulet.c_d = hero.runeUnit3.amulet.c_d + propertyValue
-		Amulet:setRuneBonusNetTable(hero.runeUnit3.amulet.c_d, propertyName, hero)
-	elseif propertyName == "rune_d_a" then
-		hero.runeUnit4.amulet.d_a = hero.runeUnit4.amulet.d_a + propertyValue
-		Amulet:setRuneBonusNetTable(hero.runeUnit4.amulet.d_a, propertyName, hero)
-	elseif propertyName == "rune_d_b" then
-		hero.runeUnit4.amulet.d_b = hero.runeUnit4.amulet.d_b + propertyValue
-		Amulet:setRuneBonusNetTable(hero.runeUnit4.amulet.d_b, propertyName, hero)
-	elseif propertyName == "rune_d_c" then
-		hero.runeUnit4.amulet.d_c = hero.runeUnit4.amulet.d_c + propertyValue
-		Amulet:setRuneBonusNetTable(hero.runeUnit4.amulet.d_c, propertyName, hero)
-	elseif propertyName == "rune_d_d" then
-		hero.runeUnit4.amulet.d_d = hero.runeUnit4.amulet.d_d + propertyValue
-		Amulet:setRuneBonusNetTable(hero.runeUnit4.amulet.d_d, propertyName, hero)
+	if propertyName == "rune_q_1" then
+		hero.runeUnit.amulet.q_1 = hero.runeUnit.amulet.q_1 + propertyValue
+		Amulet:setRuneBonusNetTable(hero.runeUnit.amulet.q_1, propertyName, hero)
+	elseif propertyName == "rune_w_1" then
+		hero.runeUnit.amulet.w_1 = hero.runeUnit.amulet.w_1 + propertyValue
+		Amulet:setRuneBonusNetTable(hero.runeUnit.amulet.w_1, propertyName, hero)
+	elseif propertyName == "rune_e_1" then
+		hero.runeUnit.amulet.e_1 = hero.runeUnit.amulet.e_1 + propertyValue
+		Amulet:setRuneBonusNetTable(hero.runeUnit.amulet.e_1, propertyName, hero)
+	elseif propertyName == "rune_r_1" then
+		hero.runeUnit.amulet.r_1 = hero.runeUnit.amulet.r_1 + propertyValue
+		Amulet:setRuneBonusNetTable(hero.runeUnit.amulet.r_1, propertyName, hero)
+	elseif propertyName == "rune_q_2" then
+		hero.runeUnit2.amulet.q_2 = hero.runeUnit2.amulet.q_2 + propertyValue
+		Amulet:setRuneBonusNetTable(hero.runeUnit2.amulet.q_2, propertyName, hero)
+	elseif propertyName == "rune_w_2" then
+		hero.runeUnit2.amulet.w_2 = hero.runeUnit2.amulet.w_2 + propertyValue
+		Amulet:setRuneBonusNetTable(hero.runeUnit2.amulet.w_2, propertyName, hero)
+	elseif propertyName == "rune_e_2" then
+		hero.runeUnit2.amulet.e_2 = hero.runeUnit2.amulet.e_2 + propertyValue
+		Amulet:setRuneBonusNetTable(hero.runeUnit2.amulet.e_2, propertyName, hero)
+	elseif propertyName == "rune_r_2" then
+		hero.runeUnit2.amulet.r_2 = hero.runeUnit2.amulet.r_2 + propertyValue
+		Amulet:setRuneBonusNetTable(hero.runeUnit2.amulet.r_2, propertyName, hero)
+	elseif propertyName == "rune_q_3" then
+		hero.runeUnit3.amulet.q_3 = hero.runeUnit3.amulet.q_3 + propertyValue
+		Amulet:setRuneBonusNetTable(hero.runeUnit3.amulet.q_3, propertyName, hero)
+	elseif propertyName == "rune_w_3" then
+		hero.runeUnit3.amulet.w_3 = hero.runeUnit3.amulet.w_3 + propertyValue
+		Amulet:setRuneBonusNetTable(hero.runeUnit3.amulet.w_3, propertyName, hero)
+	elseif propertyName == "rune_e_3" then
+		hero.runeUnit3.amulet.e_3 = hero.runeUnit3.amulet.e_3 + propertyValue
+		Amulet:setRuneBonusNetTable(hero.runeUnit3.amulet.e_3, propertyName, hero)
+	elseif propertyName == "rune_r_3" then
+		hero.runeUnit3.amulet.r_3 = hero.runeUnit3.amulet.r_3 + propertyValue
+		Amulet:setRuneBonusNetTable(hero.runeUnit3.amulet.r_3, propertyName, hero)
+	elseif propertyName == "rune_q_4" then
+		hero.runeUnit4.amulet.q_4 = hero.runeUnit4.amulet.q_4 + propertyValue
+		Amulet:setRuneBonusNetTable(hero.runeUnit4.amulet.q_4, propertyName, hero)
+	elseif propertyName == "rune_w_4" then
+		hero.runeUnit4.amulet.w_4 = hero.runeUnit4.amulet.w_4 + propertyValue
+		Amulet:setRuneBonusNetTable(hero.runeUnit4.amulet.w_4, propertyName, hero)
+	elseif propertyName == "rune_e_4" then
+		hero.runeUnit4.amulet.e_4 = hero.runeUnit4.amulet.e_4 + propertyValue
+		Amulet:setRuneBonusNetTable(hero.runeUnit4.amulet.e_4, propertyName, hero)
+	elseif propertyName == "rune_r_4" then
+		hero.runeUnit4.amulet.r_4 = hero.runeUnit4.amulet.r_4 + propertyValue
+		Amulet:setRuneBonusNetTable(hero.runeUnit4.amulet.r_4, propertyName, hero)
 	elseif propertyName == "all_runes" then
 		for i = 1, #AVAILABLE_RUNE_TABLE, 1 do
 			Amulet:runeProperty(AVAILABLE_RUNE_TABLE[i], propertyValue, hero)
 		end
 	elseif propertyName == "t4_runes" then
-		local runeTable = {"rune_d_a", "rune_d_b", "rune_d_c", "rune_d_d"}
+		local runeTable = {"rune_q_4", "rune_w_4", "rune_e_4", "rune_r_4"}
 		for i = 1, #runeTable, 1 do
 			Amulet:runeProperty(runeTable[i], propertyValue, hero)
 		end
 	end
 end
 
-AVAILABLE_RUNE_TABLE = {"rune_a_a", "rune_a_b", "rune_a_c", "rune_a_d", "rune_b_a", "rune_b_b", "rune_b_c", "rune_b_d", "rune_c_a", "rune_c_b", "rune_c_c", "rune_c_d"}
+AVAILABLE_RUNE_TABLE = {"rune_q_1", "rune_w_1", "rune_e_1", "rune_r_1", "rune_q_2", "rune_w_2", "rune_e_2", "rune_r_2", "rune_q_3", "rune_w_3", "rune_e_3", "rune_r_3"}
 
 function Amulet:setRuneBonusNetTable(value, rune, hero)
 	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()).."_"..rune.."_amulet", {bonus = value} )
@@ -407,21 +407,21 @@ function Amulet:remove_modifiers(hero)
 	hero.eternal_frost_gem = false
 	hero.galaxy_orb = false
 	hero.tome_of_chaos = false
-	hero.runeUnit.amulet.a_a = 0
-	hero.runeUnit.amulet.a_b = 0
-	hero.runeUnit.amulet.a_c = 0
-	hero.runeUnit.amulet.a_d = 0
-	hero.runeUnit2.amulet.b_a = 0
-	hero.runeUnit2.amulet.b_b = 0
-	hero.runeUnit2.amulet.b_c = 0
-	hero.runeUnit2.amulet.b_d = 0
-	hero.runeUnit3.amulet.c_a = 0
-	hero.runeUnit3.amulet.c_b = 0
-	hero.runeUnit3.amulet.c_c = 0
-	hero.runeUnit3.amulet.c_d = 0
-	hero.runeUnit4.amulet.d_a = 0
-	hero.runeUnit4.amulet.d_b = 0 
-	hero.runeUnit4.amulet.d_c = 0 
-	hero.runeUnit4.amulet.d_d = 0
+	hero.runeUnit.amulet.q_1 = 0
+	hero.runeUnit.amulet.w_1 = 0
+	hero.runeUnit.amulet.e_1 = 0
+	hero.runeUnit.amulet.r_1 = 0
+	hero.runeUnit2.amulet.q_2 = 0
+	hero.runeUnit2.amulet.w_2 = 0
+	hero.runeUnit2.amulet.e_2 = 0
+	hero.runeUnit2.amulet.r_2 = 0
+	hero.runeUnit3.amulet.q_3 = 0
+	hero.runeUnit3.amulet.w_3 = 0
+	hero.runeUnit3.amulet.e_3 = 0
+	hero.runeUnit3.amulet.r_3 = 0
+	hero.runeUnit4.amulet.q_4 = 0
+	hero.runeUnit4.amulet.w_4 = 0 
+	hero.runeUnit4.amulet.e_4 = 0 
+	hero.runeUnit4.amulet.r_4 = 0
 	Runes:ResetRuneBonuses(hero, "amulet")
 end

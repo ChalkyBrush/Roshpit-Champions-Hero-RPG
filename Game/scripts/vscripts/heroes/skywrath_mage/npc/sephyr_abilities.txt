@@ -492,7 +492,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"sephyr/sephyr_rune_c_d"
+				"TextureName"	"sephyr/sephyr_rune_r_3"
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -543,7 +543,7 @@
 			{
 				"IsDebuff"	"1"
 				"IsHidden"	"0"
-				"TextureName"	"sephyr/sephyr_rune_b_d"
+				"TextureName"	"sephyr/sephyr_rune_r_2"
 				"OnCreated"
 				{
 					"RunScript"
@@ -711,19 +711,19 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"sephyr/sephyr_rune_a_a"
+				"TextureName"	"sephyr/sephyr_rune_q_1"
 			}
 			"modifier_lightbomb_postmit"
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"TextureName"	"sephyr/sephyr_rune_b_a"
+				"TextureName"	"sephyr/sephyr_rune_q_2"
 			}
 			"modifier_lightbomb_freecast"
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"sephyr/sephyr_rune_c_a"
+				"TextureName"	"sephyr/sephyr_rune_q_3"
 			}
 			"modifier_sephyr_holy_amp"
 			{
@@ -807,7 +807,7 @@
 				"IsDebuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_blinding_light_debuff.vpcf"
 				"EffectAttachType"	"follow_overhead"
-				"TextureName"	"sephyr/sephyr_rune_a_c"
+				"TextureName"	"sephyr/sephyr_rune_e_1"
 				"States"
 				{
 					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -818,7 +818,7 @@
 				"IsHidden"	"0"
 				"IsBuff"	"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
-				"TextureName"	"sephyr/sephyr_rune_b_c"
+				"TextureName"	"sephyr/sephyr_rune_e_2"
 			}
 			"modifier_boomerang_attack_damage_invisible"
 			{
@@ -834,14 +834,14 @@
 
 	}
 
-	"sephyr_rune_a_a"
+	"sephyr_rune_q_1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"sephyr/sephyr_rune_a_a"
+		"AbilityTextureName"	"sephyr/sephyr_rune_q_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -856,14 +856,14 @@
 
 	}
 
-	"sephyr_rune_a_b"
+	"sephyr_rune_w_1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"sephyr/sephyr_rune_a_b"
+		"AbilityTextureName"	"sephyr/sephyr_rune_w_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -878,14 +878,14 @@
 
 	}
 
-	"sephyr_rune_a_c"
+	"sephyr_rune_e_1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"sephyr/sephyr_rune_a_c"
+		"AbilityTextureName"	"sephyr/sephyr_rune_e_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -916,14 +916,14 @@
 
 	}
 
-	"sephyr_rune_a_d"
+	"sephyr_rune_r_1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"sephyr/sephyr_rune_a_d"
+		"AbilityTextureName"	"sephyr/sephyr_rune_r_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -938,14 +938,14 @@
 
 	}
 
-	"sephyr_rune_b_a"
+	"sephyr_rune_q_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"sephyr/sephyr_rune_b_a"
+		"AbilityTextureName"	"sephyr/sephyr_rune_q_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -960,14 +960,14 @@
 
 	}
 
-	"sephyr_rune_b_b"
+	"sephyr_rune_w_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"sephyr/sephyr_rune_b_b"
+		"AbilityTextureName"	"sephyr/sephyr_rune_w_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -982,14 +982,14 @@
 
 	}
 
-	"sephyr_rune_b_c"
+	"sephyr_rune_e_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"sephyr/sephyr_rune_b_c"
+		"AbilityTextureName"	"sephyr/sephyr_rune_e_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -1009,14 +1009,14 @@
 
 	}
 
-	"sephyr_rune_b_d"
+	"sephyr_rune_r_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"sephyr/sephyr_rune_b_d"
+		"AbilityTextureName"	"sephyr/sephyr_rune_r_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -1036,14 +1036,14 @@
 
 	}
 
-	"sephyr_rune_c_a"
+	"sephyr_rune_q_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"sephyr/sephyr_rune_c_a"
+		"AbilityTextureName"	"sephyr/sephyr_rune_q_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -1058,14 +1058,14 @@
 
 	}
 
-	"sephyr_rune_c_b"
+	"sephyr_rune_w_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"sephyr/sephyr_rune_c_b"
+		"AbilityTextureName"	"sephyr/sephyr_rune_w_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -1080,14 +1080,14 @@
 
 	}
 
-	"sephyr_rune_c_c"
+	"sephyr_rune_e_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"sephyr/sephyr_rune_c_c"
+		"AbilityTextureName"	"sephyr/sephyr_rune_e_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -1107,14 +1107,14 @@
 
 	}
 
-	"sephyr_rune_c_d"
+	"sephyr_rune_r_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"sephyr/sephyr_rune_c_d"
+		"AbilityTextureName"	"sephyr/sephyr_rune_r_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -1134,14 +1134,14 @@
 
 	}
 
-	"sephyr_rune_d_a"
+	"sephyr_rune_q_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"sephyr/sephyr_rune_d_a"
+		"AbilityTextureName"	"sephyr/sephyr_rune_q_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -1161,14 +1161,14 @@
 
 	}
 
-	"sephyr_rune_d_b"
+	"sephyr_rune_w_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"sephyr/sephyr_rune_d_b"
+		"AbilityTextureName"	"sephyr/sephyr_rune_w_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -1183,14 +1183,14 @@
 
 	}
 
-	"sephyr_rune_d_c"
+	"sephyr_rune_e_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"sephyr/sephyr_rune_d_c"
+		"AbilityTextureName"	"sephyr/sephyr_rune_e_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -1210,14 +1210,14 @@
 
 	}
 
-	"sephyr_rune_d_d"
+	"sephyr_rune_r_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"sephyr/sephyr_rune_d_d"
+		"AbilityTextureName"	"sephyr/sephyr_rune_r_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -1386,7 +1386,7 @@
 			}
 			"modifier_icewind_shield"
 			{
-				"TextureName"	"sephyr/sephyr_rune_c_b_arcana1"
+				"TextureName"	"sephyr/sephyr_rune_w_3_arcana1"
 				"IsHidden"	"0"
 				"EffectName"	"particles/roshpit/sephyr/icewind_shield.vpcf"
 				"EffectAttachType"	"attach_origin"
@@ -1394,14 +1394,14 @@
 		}
 	}
 
-	"sephyr_rune_a_b_arcana1"
+	"sephyr_rune_w_1_arcana1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"sephyr/sephyr_rune_a_b_arcana1"
+		"AbilityTextureName"	"sephyr/sephyr_rune_w_1_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -1421,14 +1421,14 @@
 
 	}
 
-	"sephyr_rune_b_b_arcana1"
+	"sephyr_rune_w_2_arcana1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"sephyr/sephyr_rune_b_b_arcana1"
+		"AbilityTextureName"	"sephyr/sephyr_rune_w_2_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -1443,14 +1443,14 @@
 
 	}
 
-	"sephyr_rune_c_b_arcana1"
+	"sephyr_rune_w_3_arcana1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"sephyr/sephyr_rune_c_b_arcana1"
+		"AbilityTextureName"	"sephyr/sephyr_rune_w_3_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -1465,14 +1465,14 @@
 
 	}
 
-	"sephyr_rune_d_b_arcana1"
+	"sephyr_rune_w_4_arcana1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"sephyr/sephyr_rune_d_b_arcana1"
+		"AbilityTextureName"	"sephyr/sephyr_rune_w_4_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"

@@ -6,21 +6,8 @@ function begin_judgement(event)
 	local radius = event.radius
 	local damage = event.damage
 
-	-- local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "bahamut")
-	-- if d_b_level > 0 then
-	-- 	local manaDrain = caster:GetMaxMana()*0.1
-	-- 	if caster:GetMana() < manaDrain then
-	-- 		manaDrain = caster:GetMana()
-	-- 	end
-	-- 	caster:ReduceMana(manaDrain)
-	-- 	damage = damage*(manaDrain/100)*0.004*d_b_level + damage
-	-- 	ability.damageAmp = (manaDrain/100)*0.004*d_b_level + 1
-	-- else
-	-- 	ability.damageAmp = 1
-	-- end
 	ability.damageAmp = 1
-	caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "bahamut")
-	ability.d_b_level = d_b_level
+	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "bahamut")
 	local casterOrigin = caster:GetAbsOrigin() 
 	local fv = caster:GetForwardVector()
 	local nukeRange = Filters:GetAdjustedRange(caster, 500)
@@ -34,8 +21,8 @@ function begin_judgement(event)
 	Filters:CastSkillArguments(2, caster)
 	local animationTable = {ACT_DOTA_ATTACK, ACT_DOTA_ATTACK2}
 	StartAnimation(caster, {duration=0.25, activity=animationTable[RandomInt(1, #animationTable)], rate=2.5})
-	ability.b_b_level = Runes:GetTotalRuneLevel(caster, 2, "b_b", "bahamut")
-	rune_c_b(caster, ability, caster:GetForwardVector())
+	ability.w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "bahamut")
+	rune_w_3(caster, ability, caster:GetForwardVector())
 end
 
 function blast(caster, point, radius, damage, ability)
@@ -77,18 +64,18 @@ function c_b_attack_land(event)
 	local target = event.target
 	local fv = ((target:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 	ability.damageAmp = 1
-	rune_c_b(caster, ability, fv)
-	if not ability.b_b_level then
-		ability.b_b_level = Runes:GetTotalRuneLevel(caster, 2, "b_b", "bahamut")
+	rune_w_3(caster, ability, fv)
+	if not ability.w_2_level then
+		ability.w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "bahamut")
 	end
 end
 
-function rune_c_b(caster, ability, fv)
+function rune_w_3(caster, ability, fv)
 
     local runeUnit = caster.runeUnit3
-    local runeAbility = runeUnit:FindAbilityByName("bahamut_rune_c_b")
+    local runeAbility = runeUnit:FindAbilityByName("bahamut_rune_w_3")
     local abilityLevel = runeAbility:GetLevel()
-    local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_b")
+    local bonusLevel = Runes:GetTotalBonus(runeUnit, "w_3")
     local totalLevel = abilityLevel + bonusLevel
     runeAbility.totalLevel = totalLevel
     runeAbility.origCaster = caster
@@ -139,8 +126,8 @@ function c_b_strike(event)
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 
 	ability = caster:FindAbilityByName("leshrac_nuke")
-	if ability.b_b_level then
-		if ability.b_b_level > 0 then
+	if ability.w_2_level then
+		if ability.w_2_level > 0 then
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_leshrac_nuke_judged", {duration = 5}) 
 		end
 	end

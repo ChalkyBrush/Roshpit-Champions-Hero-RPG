@@ -339,7 +339,7 @@ function tomb_boss_think(event)
 			end
 		end
 		if ability.thinkInterval%5 == 0 then
-			local galeNova = caster:FindAbilityByName("venomort_rune_a_a_poison_nova_one")
+			local galeNova = caster:FindAbilityByName("venomort_rune_q_1_poison_nova_one")
 			galeNova:SetLevel(RandomInt(12, 20))
 			local order =
 			{
@@ -364,8 +364,8 @@ function sand_tomb_boss_ward_die(event)
 	local boss = caster.boss
 	boss.wardCount = boss.wardCount - 1
 	boss:RemoveModifierByNameAndCaster("modifier_silithicus_bind", caster)
-         --    local current_stack = caster:GetModifierStackCount( "modifier_voltex_rune_a_b", ability )
-        	-- caster:SetModifierStackCount( "modifier_voltex_rune_a_b", ability, current_stack+1 )	
+         --    local current_stack = caster:GetModifierStackCount( "modifier_voltex_rune_w_1", ability )
+        	-- caster:SetModifierStackCount( "modifier_voltex_rune_w_1", ability, current_stack+1 )	
 end
 
 function bigPoison(caster, ability)

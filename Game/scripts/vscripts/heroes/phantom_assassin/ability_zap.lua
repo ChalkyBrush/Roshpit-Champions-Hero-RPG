@@ -18,34 +18,34 @@ function begin_zap(event)
     end)
     EmitSoundOn("Hero_Zuus.GodsWrath.Target", caster)
   end
-  caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "voltex")
-  ability.a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "voltex")
-  local b_b_level = Runes:GetTotalRuneLevel(caster, 2, "b_b", "voltex")
-  if b_b_level > 0 then
-    ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_rune_b_b_self", {})
-    caster:SetModifierStackCount( "modifier_voltex_rune_b_b_self", ability, b_b_level )
+  caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "voltex")
+  ability.w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "voltex")
+  local w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "voltex")
+  if w_2_level > 0 then
+    ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_rune_w_2_self", {})
+    caster:SetModifierStackCount( "modifier_voltex_rune_w_2_self", ability, w_2_level )
     local radius = event.radius
     local allies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
     if #allies > 0 then
       for _,ally in pairs(allies) do
         if  ally:GetEntityIndex() == caster:GetEntityIndex() then
         else
-          ability:ApplyDataDrivenModifier(caster, ally, "modifier_voltex_rune_b_b_ally", {})
-          ally:SetModifierStackCount( "modifier_voltex_rune_b_b_ally", ability, b_b_level )
+          ability:ApplyDataDrivenModifier(caster, ally, "modifier_voltex_rune_w_2_ally", {})
+          ally:SetModifierStackCount( "modifier_voltex_rune_w_2_ally", ability, w_2_level )
         end
       end
     end 
   end
 
-  local c_b_level = Runes:GetTotalRuneLevel(caster, 3, "c_b", "voltex")
-  if c_b_level > 0 then
-    local duration = c_b_level*0.1 + 2.1   
+  local w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "voltex")
+  if w_3_level > 0 then
+    local duration = w_3_level*0.1 + 2.1   
     duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
-    local currentStacks = caster:GetModifierStackCount("modifier_voltex_rune_c_b_shield", caster)
-    ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_rune_c_b_shield", {duration = duration})
-    caster:SetModifierStackCount("modifier_voltex_rune_c_b_shield", caster, 3)
+    local currentStacks = caster:GetModifierStackCount("modifier_voltex_rune_w_3_shield", caster)
+    ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_rune_w_3_shield", {duration = duration})
+    caster:SetModifierStackCount("modifier_voltex_rune_w_3_shield", caster, 3)
   end
-  ability.d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "voltex")
+  ability.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "voltex")
   if caster:HasModifier("modifier_magnet_d_d") then
     caster:Stop()
     if caster:HasAbility("voltex_magnet") then
@@ -92,13 +92,13 @@ function zap_damage(event)
       damage = damage*200
       Filters:ApplyStun(caster, 2.5, target)
     end
-    if ability.a_b_level > 0 then
-      local pureDamage = caster:GetAverageTrueAttackDamage(caster)*ability.a_b_level*0.01*ability:GetLevel()
+    if ability.w_1_level > 0 then
+      local pureDamage = caster:GetAverageTrueAttackDamage(caster)*ability.w_1_level*0.01*ability:GetLevel()
       Filters:TakeArgumentsAndApplyDamage(target, caster, pureDamage, DAMAGE_TYPE_PURE, 2, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
     end
-    if ability.d_b_level > 0 then
+    if ability.w_4_level > 0 then
       ability:ApplyDataDrivenModifier(caster, target, "modifier_voltex_d_b_debuff", {duration = 12})
-      target:SetModifierStackCount("modifier_voltex_d_b_debuff", caster, ability.d_b_level)
+      target:SetModifierStackCount("modifier_voltex_d_b_debuff", caster, ability.w_4_level)
     end
     Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 end

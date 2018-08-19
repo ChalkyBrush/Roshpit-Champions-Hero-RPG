@@ -44,7 +44,7 @@ function start(event)
     local location = caster:GetOrigin() - caster:GetForwardVector()*Vector(-100, -100, 0)
     local abilityLevel = ability:GetLevel()
 
-    Helper.initializeAbilityRunes(caster, 'axe', 'b')
+    Helper.initializeAbilityRunes(caster, 'axe', 'w')
 
     ability.speed = event.speed
     ability.damage = event.damage * ThunderFoot.getAmplify(caster) * WAmplify.getAmplify(caster)

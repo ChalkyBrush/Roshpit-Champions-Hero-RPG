@@ -556,8 +556,8 @@ function WallPhysics:UnitLand(unit)
 			caster.jumpEnd = false
 			local ability = caster:FindAbilityByName("sunder")
 			local damage = ability:GetSpecialValueFor("main_damage")
-			local c_a_level = Runes:GetTotalRuneLevel(caster, 3, "c_a", "axe")
-			local damageAmp = 0.5 + c_a_level*0.1
+			local q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "axe")
+			local damageAmp = 0.5 + q_3_level*0.1
 			CustomAbilities:AxeSunder(caster, ability, damage, damageAmp, "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start.vpcf")		
 		elseif caster.flamewaker_d_b_target then
 			print("block1")
@@ -583,7 +583,7 @@ function WallPhysics:UnitLand(unit)
 						local damageApprox = math.ceil(caster:GetAverageTrueAttackDamage(caster))
 						PopupDamage(target, damageApprox)
 						Timers:CreateTimer(0.03, function()
-							caster:RemoveModifierByName("modifier_flamewaker_rune_d_b")
+							caster:RemoveModifierByName("modifier_flamewaker_rune_w_4")
 						end)
 					end)
 				end

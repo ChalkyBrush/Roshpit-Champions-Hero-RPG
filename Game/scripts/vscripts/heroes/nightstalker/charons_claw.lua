@@ -8,10 +8,10 @@ function charons_claw_cast(event)
 	local ability = event.ability
 	local target = event.target_points[1]
 	EmitSoundOn("Chernobog.CharonsClaw", caster)
-	ability.rune_a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a", "chernobog")
-	ability.b_a_level = Runes:GetTotalRuneLevel(caster, 2, "b_a", "chernobog")
-	ability.c_a_level = Runes:GetTotalRuneLevel(caster, 3, "c_a", "chernobog")
-	ability.d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "chernobog")
+	ability.rune_q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "chernobog")
+	ability.q_2_level = Runes:GetTotalRuneLevel(caster, 2, "q_2", "chernobog")
+	ability.q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "chernobog")
+	ability.q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "chernobog")
 	local projectileParticle = "particles/roshpit/chernobog/charons_clawpectral_dagger.vpcf"
 	local casterOrigin = caster:GetAbsOrigin()
 	local range = event.range
@@ -100,15 +100,15 @@ function claw_path_apply(event)
 	local caster = event.caster
 	if caster:GetEntityIndex() == target:GetEntityIndex() then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_charons_claw_caster", {})
-		if ability.c_a_level > 0 then
+		if ability.q_3_level > 0 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_charons_claw_c_a", {})
-			caster:SetModifierStackCount("modifier_charons_claw_c_a", caster, ability.c_a_level)
+			caster:SetModifierStackCount("modifier_charons_claw_c_a", caster, ability.q_3_level)
 		end
-		if ability.d_a_level > 0 then
+		if ability.q_4_level > 0 then
 
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_rune_d_a_attack", {})
-			local bonusAttack = 0.1*caster:GetAgility()*ability.d_a_level
-			caster:SetModifierStackCount("modifier_chernobog_rune_d_a_attack", caster, bonusAttack)
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_rune_q_4_attack", {})
+			local bonusAttack = 0.1*caster:GetAgility()*ability.q_4_level
+			caster:SetModifierStackCount("modifier_chernobog_rune_q_4_attack", caster, bonusAttack)
 			
 		end
 	end
@@ -116,13 +116,13 @@ function claw_path_apply(event)
 	else
 		print("CHARONS??")
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_charons_claw_enemy", {})
-		if ability.rune_a_a_level > 0 then
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_charons_claw_rune_a_a_effect", {})
-			target:SetModifierStackCount("modifier_charons_claw_rune_a_a_effect", caster, ability.rune_a_a_level)
+		if ability.rune_q_1_level > 0 then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_charons_claw_rune_q_1_effect", {})
+			target:SetModifierStackCount("modifier_charons_claw_rune_q_1_effect", caster, ability.rune_q_1_level)
 		end
 		if caster:HasModifier("modifier_chernobog_glyph_4_1") then
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_charons_claw_glyph_4", {})
-			target:SetModifierStackCount("modifier_charons_claw_glyph_4", caster, ability.rune_a_a_level)
+			target:SetModifierStackCount("modifier_charons_claw_glyph_4", caster, ability.rune_q_1_level)
 		end
 	end
 end
@@ -133,20 +133,20 @@ function claw_path_end(event)
 	local caster = event.caster
 	target:RemoveModifierByName("modifier_charons_claw_caster")
 	target:RemoveModifierByName("modifier_charons_claw_enemy")
-	target:RemoveModifierByName("modifier_charons_claw_rune_a_a_effect")
-	target:RemoveModifierByName("modifier_chernobog_rune_d_a_attack")
+	target:RemoveModifierByName("modifier_charons_claw_rune_q_1_effect")
+	target:RemoveModifierByName("modifier_chernobog_rune_q_4_attack")
 	target:RemoveModifierByName("modifier_charons_claw_glyph_4")
 	target:RemoveModifierByName("modifier_charons_claw_c_a")
 end
 
-function charons_claw_rune_a_a_stay_still_end(event)
+function charons_claw_rune_q_1_stay_still_end(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
 	if target:HasModifier("modifier_charons_claw_enemy") then
-		if ability.rune_a_a_level > 0 then
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_charons_claw_rune_a_a_effect", {})
-			target:SetModifierStackCount("modifier_charons_claw_rune_a_a_effect", caster, ability.rune_a_a_level)
+		if ability.rune_q_1_level > 0 then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_charons_claw_rune_q_1_effect", {})
+			target:SetModifierStackCount("modifier_charons_claw_rune_q_1_effect", caster, ability.rune_q_1_level)
 		end
 	end
 end
@@ -157,8 +157,8 @@ function charons_claw_a_a_move(event)
 	local caster = event.caster
 	if caster:HasModifier("modifier_chernobog_glyph_4_1") then
 	else
-		target:RemoveModifierByName("modifier_charons_claw_rune_a_a_effect")
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_charons_claw_rune_a_a_waiting_to_stay_still", {duration = 0.2})
+		target:RemoveModifierByName("modifier_charons_claw_rune_q_1_effect")
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_charons_claw_rune_q_1_waiting_to_stay_still", {duration = 0.2})
 	end
 
 end
@@ -167,8 +167,8 @@ function charons_claw_enemy_think(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	if ability.b_a_level > 0 then
-		local damage = ability.b_a_level*7000
+	if ability.q_2_level > 0 then
+		local damage = ability.q_2_level*7000
 		CustomAbilities:QuickAttachParticle("particles/econ/items/nightstalker/nightstalker_black_nihility/nightstalker_black_nihility_void_hit_body_flash.vpcf", target, 2)
 		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_DEMON, RPC_ELEMENT_SHADOW)
 	end

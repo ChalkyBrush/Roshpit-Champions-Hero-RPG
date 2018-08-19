@@ -4,8 +4,8 @@ function CastSunRay( event )
     local ability   = event.ability
     Filters:CastSkillArguments(3, caster)
     ability.deltaTime = 0
-    ability.rune_a_c = rune_a_c(caster)
-    caster.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "flamewaker")
+    ability.rune_e_1 = rune_e_1(caster)
+    caster.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "flamewaker")
     local pathLength                    = event.path_length
     local numThinkers                   = event.num_thinkers
     local thinkerStep                   = event.thinker_step
@@ -146,7 +146,7 @@ function CastSunRay( event )
             casterOrigin = casterOrigin + casterForward * forwardMoveSpeed * deltaTime
             casterOrigin = GetGroundPosition( casterOrigin, caster )
             caster:SetAbsOrigin( casterOrigin )
-            if ability.rune_a_c > 0 then
+            if ability.rune_e_1 > 0 then
                 if ability.deltaTime%6 == 0 then
                     ability:ApplyDataDrivenThinker(caster, casterOrigin, "fire_thinker", {duration = 4})
                 end
@@ -175,51 +175,45 @@ function CastSunRay( event )
 
 end
 
-function rune_a_c(caster)
+function rune_e_1(caster)
 
-    local runeUnit = caster.runeUnit
-    local ability = runeUnit:FindAbilityByName("flamewaker_rune_a_c")
-    local abilityLevel = ability:GetLevel()
-    local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_c")
-    local totalLevel = caster:GetRuneValue("e",1)
+    local e_1_level = caster:GetRuneValue("e", 1)
 
-    if totalLevel > 0 then
-        return totalLevel
+    if e_1_level > 0 then
+        return e_1_level
     else
         return 0
     end
 end
 
-function rune_a_c_damage(event)
+function rune_e_1_damage(event)
     local ability = event.ability
     local caster = event.caster
     local target = event.target
-    if ability.rune_a_c > 0 then
-        local runeAbility = caster.runeUnit4:FindAbilityByName("flamewaker_rune_d_c")
-        local runeLevel = runeAbility:GetLevel()
-        local bonusLevel = Runes:GetTotalBonus(caster.runeUnit4, "d_c")
-        local d_c_level = caster:GetRuneValue("e",4)
-        local damage = ability.rune_a_c*500
+    if ability.rune_e_1 then
+        local runeAbility = caster.runeUnit4:FindAbilityByName("flamewaker_rune_e_4")
+        local e_4_level = caster:GetRuneValue("e", 4)
+        local damage = ability.rune_e_1*500
         if ability.glyphed then
             damage = damage*2
         end
         CustomAbilities:QuickAttachParticle("particles/econ/courier/courier_greevil_orange/courier_greevil_orange_ambient_c.vpcf", target, 1)
-        if d_c_level > 0 then
-            target.flamewaker_d_c_burn = damage*1.0*d_c_level
-            runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, target, "modifier_flamewaker_rune_d_c", {duration = 4})
-            target:SetModifierStackCount( "modifier_flamewaker_rune_d_c", runeAbility, d_c_level )
+        if e_4_level > 0 then
+            target.flamewaker_d_c_burn = damage*1.0*e_4_level
+            runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, target, "modifier_flamewaker_rune_e_4", {duration = 4})
+            target:SetModifierStackCount( "modifier_flamewaker_rune_e_4", runeAbility, e_4_level )
         end
         Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
     end
 
 end
 
-function rune_c_c(event)
+function rune_e_3(event)
     local caster = event.caster
     local runeUnit = caster.runeUnit3
-    local runeAbility = runeUnit:FindAbilityByName("flamewaker_rune_c_c")
+    local runeAbility = runeUnit:FindAbilityByName("flamewaker_rune_e_3")
     local abilityLevel = runeAbility:GetLevel()
-    local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_c")
+    local bonusLevel = Runes:GetTotalBonus(runeUnit, "e_3")
     local totalLevel = abilityLevel + bonusLevel
     local pathLength = event.path_length
     local fv = caster:GetForwardVector()
@@ -228,9 +222,9 @@ function rune_c_c(event)
     runeAbility.fv = fv
     runeAbility.endcapPos = (fv * pathLength)/3
     runeAbility.intervalCount = 0
-    runeAbility.c_c_level = totalLevel
+    runeAbility.e_3_level = totalLevel
     runeAbility.mainAbility = event.ability
-    event.ability.c_c_damage = 200 + totalLevel*240
+    event.ability.e_3_damage = 200 + totalLevel*240
     if totalLevel > 0 then
         create_dragon(caster, fv, casterOrigin - fv*250, totalLevel, runeAbility, runeUnit)
     end
@@ -244,7 +238,7 @@ function create_dragon(caster, fv, position, totalLevel, runeAbility, runeUnit)
     dummy:AddAbility("replica")
     dummy:FindAbilityByName("replica"):SetLevel(1)
     dummy:SetForwardVector(fv)
-    runeAbility:ApplyDataDrivenModifier(runeUnit, dummy, "modifier_rune_c_c_dragon", {duration = 3.5})
+    runeAbility:ApplyDataDrivenModifier(runeUnit, dummy, "modifier_rune_e_3_dragon", {duration = 3.5})
     dummy:SetAbsOrigin(position + Vector(0,0,200))
 
 end
@@ -264,7 +258,7 @@ function dragon_think(event)
     target:SetAbsOrigin(newPosition)
     if ability.intervalCount < 85 then
         if ability.intervalCount%25 == 0 then
-            dragon_projectile(ability.c_c_level, ability.runeUnit, ability.fv, target:GetAbsOrigin()+ability.fv*200, ability.mainAbility, target)
+            dragon_projectile(ability.e_3_level, ability.runeUnit, ability.fv, target:GetAbsOrigin()+ability.fv*200, ability.mainAbility, target)
         end
     end
 
@@ -309,7 +303,7 @@ end
 function dragon_projectile_hit(event)
     local target = event.target
     local caster = event.caster
-    local damage = event.ability.c_c_damage
+    local damage = event.ability.e_3_damage
     local damageTable = {
         victim = target,
         attacker = caster,
@@ -342,16 +336,14 @@ function EndSunRay( event )
     --caster:SwapAbilities( event.toggle_move_empty_ability_name, event.toggle_move_ability_name, true, false )
 end
 
-function rune_b_c(caster)
+function rune_e_2(caster)
     local runeUnit = caster.runeUnit2
-    local ability = runeUnit:FindAbilityByName("flamewaker_rune_b_c")
-    local abilityLevel = ability:GetLevel()
-    local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_c")
-    local totalLevel = caster:GetRuneValue("e",2)
-    if totalLevel > 0 then
-        ability.b_c_level = totalLevel
-        ability:ApplyDataDrivenModifier(runeUnit, caster, "flamewaker_rune_b_c_buff", {})
-        caster:SetModifierStackCount( "flamewaker_rune_b_c_buff", ability, totalLevel )
+    local ability = runeUnit:FindAbilityByName("flamewaker_rune_e_2")
+    local e_2_level = caster:GetRuneValue("e", 2)
+    if e_2_level > 0 then
+        ability.e_2_level = e_2_level
+        ability:ApplyDataDrivenModifier(runeUnit, caster, "flamewaker_rune_e_2_buff", {})
+        caster:SetModifierStackCount( "flamewaker_rune_e_2_buff", ability, e_2_level )
     end
 end
 --[[
@@ -472,8 +464,8 @@ function CastNewHeatwave(event)
             ability.glyphed = false
         end
 
-        rune_b_c(caster)
-        rune_c_c(caster)
+        rune_e_2(caster)
+        rune_e_3(caster)
 
         if caster:HasModifier("modifier_flamewaker_immortal_weapon_2") then
             caster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_flamewaker_weapon_agility", {duration = duration})
@@ -487,7 +479,7 @@ function heatwave_phase_think(event)
    
     ability.interval = ability.interval + 1
     
-    ability.rune_a_c = rune_a_c(caster)
+    ability.rune_e_1 = rune_e_1(caster)
     local casterOrigin = caster:GetAbsOrigin()
     if caster:HasModifier("modifier_heatwave_flying_portion") then
         local newPos = casterOrigin + ability.forward*62
@@ -500,7 +492,7 @@ function heatwave_phase_think(event)
 
         end
     end
-    if ability.rune_a_c > 0 then
+    if ability.rune_e_1 > 0 then
         if ability.interval%2 == 0 then
             ability:ApplyDataDrivenThinker(caster, casterOrigin, "fire_thinker", {duration = 4})
             if ability.glyphed then
@@ -536,16 +528,14 @@ function phase_one_end(event)
 
 end
 
-function rune_c_c(caster)
+function rune_e_3(caster)
     local runeUnit = caster.runeUnit3
-    local ability = runeUnit:FindAbilityByName("flamewaker_rune_c_c")
-    local abilityLevel = ability:GetLevel()
-    local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_c")
-    local totalLevel = caster:GetRuneValue("e",3)
-    if totalLevel > 0 then
+    local ability = runeUnit:FindAbilityByName("flamewaker_rune_e_3")
+    local e_3_level = caster:GetRuneValue("e", 3)
+    if e_3_level > 0 then
         local duration = Filters:GetAdjustedBuffDuration(caster, 6, false)
-        ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_rune_c_c_damage_boost", {duration = duration})
-        caster:SetModifierStackCount( "modifier_rune_c_c_damage_boost", ability, totalLevel )
+        ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_rune_e_3_damage_boost", {duration = duration})
+        caster:SetModifierStackCount( "modifier_rune_e_3_damage_boost", ability, e_3_level )
     end
     
 end
@@ -573,7 +563,7 @@ end
 
 function dragon_rage_b_c_think(event)
     local caster = event.caster.hero
-    local level = event.ability.b_c_level
+    local level = event.ability.e_2_level
     local damage = (level*1200 + caster:GetAgility()*2*level)
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
     if #enemies > 0 then    
