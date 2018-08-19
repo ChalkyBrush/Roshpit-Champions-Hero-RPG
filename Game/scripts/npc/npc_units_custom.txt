@@ -9042,7 +9042,7 @@
         "VisionDaytimeRange"    "500"
         "VisionNighttimeRange"  "500"
         "PathfindingSearchDepthScale" "0.2"
-        "Ability1"  "lightning_attack"
+        "Ability1"  "overcharge"
         "Creature"
         {
             "AttachWearables"
@@ -9551,7 +9551,7 @@
             "particle"    "particles/econ/items/doom/doom_weapon_demonshard/doom_demonshard_ambient.vpcf"
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
             "particle"  "particles/units/heroes/hero_elder_titan/doomguard_leap_effect.vpcf"
-            "particle"  "particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
+            "particle"  "particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
         }
         "ArmorPhysical" "0"
         "MagicalResistance" "0"
@@ -13587,7 +13587,7 @@
 
         "Ability1" "cant_die_generic"
         "Ability2" "sand_tomb_boss_ability"
-        "Ability3" "venomort_rune_a_a_poison_nova_one"
+        "Ability3" "venomort_rune_q_1_poison_nova_one"
         "Ability4" "knockback_immunity"
         "Ability5"  "boss_health"
     }
@@ -18096,7 +18096,7 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_pugna.vsndevts"
             "particle"  "particles/units/heroes/hero_pugna/pugna_ward_attack.vpcf"
             "particle"  "particles/econ/items/pugna/pugna_ward_ti5/pugna_ward_lightning.vpcf"
-            "particle"  "particles/units/heroes/hero_alchemist/epoch_rune_a_d_concoction_projectile.vpcf"
+            "particle"  "particles/units/heroes/hero_alchemist/epoch_rune_r_1_concoction_projectile.vpcf"
             "particle"   "particles/units/heroes/hero_pugna/pugna_netherblast.vpcf"
             "particle"  "particles/units/heroes/hero_undying/undying_loadout.vpcf"
             "particle"  "particles/items3_fx/courtyard_summoner_shield.vpcf"
@@ -18432,7 +18432,7 @@
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"          "aspect_abilities"
-        "Ability2"          "earth_aspect_rune_b_a_clap"
+        "Ability2"          "earth_aspect_rune_q_2_clap"
         "Ability3"          "earth_aspect_a_a_ability"
         "Creature"
         {   
@@ -27349,7 +27349,7 @@
         "precache"
         {
             "particle"  "particles/units/heroes/hero_pugna/epoch_life_give.vpcf"
-            "particle"  "particles/units/heroes/hero_alchemist/epoch_rune_a_d_concoction_projectile.vpcf"
+            "particle"  "particles/units/heroes/hero_alchemist/epoch_rune_r_1_concoction_projectile.vpcf"
             "particle"  "particles/units/heroes/hero_pugna/pugna_netherblast.vpcf"
             "model"     "models/items/wards/ocula/ocula.vmdl"
             "model"     "models/props_stone/colosseum_wall/colosseum_wall001.vmdl"
@@ -29300,7 +29300,7 @@
         {
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_sandking.vsndevts"
             "particle"  "particles/units/heroes/hero_wisp/tether_green.vpcf"
-            "particle"  "particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
+            "particle"  "particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
             "particle"  "particles/econ/generic/generic_buff_1/charge_of_light_effect_buff.vpcf"
             "particle"  "particles/econ/events/ti6/wind_temple_light_beam.vpcf"
         }
@@ -29478,7 +29478,7 @@
         "precache"
         {
             "particle"  "particles/units/heroes/hero_wisp/wisp_tether.vpcf"
-            "particle"  "particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
+            "particle"  "particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
             "particle"  "particles/units/heroes/hero_wisp/tether_green.vpcf"
             "particle"  "particles/units/heroes/hero_elder_titan/monk_cloud_burst.vpcf"
             "particle"  "particles/econ/generic/generic_buff_1/charge_of_light_effect_buff.vpcf"
@@ -29749,7 +29749,7 @@
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "100"
         "ProjectileSpeed"           "1400"
-        "ProjectileModel"           "particles/units/heroes/hero_skywrath_mage/leshrac_rune_b_c_arcane_bolt.vpcf"
+        "ProjectileModel"           "particles/units/heroes/hero_skywrath_mage/leshrac_rune_e_2_arcane_bolt.vpcf"
         "AttackRange"   "700"
         "BountyGoldMin" "150"
         "BountyGoldMax" "200"
@@ -35197,7 +35197,7 @@
         "SoundSet"              "n_creep_Ranged"
         "precache"
         {
-            "particle"      "particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
+            "particle"      "particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
         }
         "ArmorPhysical" "0"
         "MagicalResistance" "25"
@@ -39253,7 +39253,7 @@
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "100"
         "ProjectileSpeed"           "1400"
-        "ProjectileModel"           "particles/units/heroes/hero_skywrath_mage/leshrac_rune_b_c_arcane_bolt.vpcf"
+        "ProjectileModel"           "particles/units/heroes/hero_skywrath_mage/leshrac_rune_e_2_arcane_bolt.vpcf"
         "AttackRange"   "470"
         "BountyGoldMin" "150"
         "BountyGoldMax" "200"
@@ -42136,7 +42136,7 @@
             "soundfile"      "soundevents/game_sounds_heroes/game_sounds_spectre.vsndevts"
             "particle"  "particles/units/heroes/hero_pugna/pugna_ward_attack.vpcf"
             "particle"  "particles/econ/items/pugna/pugna_ward_ti5/pugna_ward_lightning.vpcf"
-            "particle"  "particles/units/heroes/hero_alchemist/epoch_rune_a_d_concoction_projectile.vpcf"
+            "particle"  "particles/units/heroes/hero_alchemist/epoch_rune_r_1_concoction_projectile.vpcf"
             "particle"   "particles/units/heroes/hero_pugna/pugna_netherblast.vpcf"
         }
         "ArmorPhysical" "40"
@@ -47478,7 +47478,7 @@
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "100"
         "ProjectileSpeed"           "1400"
-        "ProjectileModel"           "particles/units/heroes/hero_skywrath_mage/leshrac_rune_b_c_arcane_bolt.vpcf"
+        "ProjectileModel"           "particles/units/heroes/hero_skywrath_mage/leshrac_rune_e_2_arcane_bolt.vpcf"
         "AttackRange"   "470"
         "BountyGoldMin" "5000"
         "BountyGoldMax" "5000"
@@ -52574,7 +52574,7 @@
         "HealthBarOffset"   "180"
         "precache"
         {
-            "particle"  "particles/units/heroes/hero_leshrac/astral_rune_b_d.vpcf"
+            "particle"  "particles/units/heroes/hero_leshrac/astral_rune_r_2.vpcf"
             "soundfile"      "soundevents/game_sounds_heroes/game_sounds_magnataur.vsndevts"
         }
         "HasInventory"  "0"
@@ -54756,7 +54756,7 @@
             "particle"  "particles/roshpit/redfall/ashara_moonbeam_lucent_beam_impact_shared_ti_5_gold.vpcf"
             "particle"  "particles/roshpit/spotlight.vpcf"
             "particle"  "particles/units/heroes/hero_legion_commander/cheiftain_buff.vpcf"
-            "particle"  "particles/econ/courier/courier_faceless_rex/astral_rune_c_c_effect.vpcf"
+            "particle"  "particles/econ/courier/courier_faceless_rex/astral_rune_e_3_effect.vpcf"
             "model"     "models/items/beastmaster/hawk/beast_heart_marauder_beast_heart_marauder_raven/beast_heart_marauder_beast_heart_marauder_raven.vmdl"
         }
         "ArmorPhysical" "15"
@@ -54929,7 +54929,7 @@
         "precache"
         {
             "particle"      "particles/econ/items/lanaya/lanaya_epit_trap/templar_assassin_epit_trap_explosion_shock.vpcf"
-            "particle"      "particles/frostivus_gameplay/astral_rune_c_b_linear_frost_arrow.vpcf"
+            "particle"      "particles/frostivus_gameplay/astral_rune_w_3_linear_frost_arrow.vpcf"
         }
         "ArmorPhysical" "15"
         "MagicalResistance" "10"
@@ -78090,7 +78090,7 @@
             "particle"      "particles/status_fx/status_effect_wraithking_ghosts.vpcf"
             "particle"      "particles/items/hurricane_vest_projectile.vpcf"
             "particle"      "particles/roshpit/tanari/wind_spirit_death.vpcf"
-            "particle"      "particles/radiant_fx/epoch_rune_c_b_ranged001_lvl3_disintegrate.vpcf"
+            "particle"      "particles/radiant_fx/epoch_rune_w_3_ranged001_lvl3_disintegrate.vpcf"
             "particle"      "particles/radiant_fx/good_barracks_melee002_lvl3_hit.vpcf"
         }
         "ArmorPhysical" "1"
@@ -86559,7 +86559,7 @@
             "particle"  "particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
             "particle"  "particles/roshpit/winterblight/tether_yellow.vpcf"
-            "particle"  "particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
+            "particle"  "particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
             "particle"  "particles/units/heroes/hero_wisp/wisp_tether_agh.vpcf"
             "particle"  "particles/units/heroes/hero_wisp/wisp_death.vpcf"
             "model"     "models/winterblight/azalea_crystal.vmdl"
