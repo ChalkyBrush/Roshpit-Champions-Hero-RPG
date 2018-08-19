@@ -7681,6 +7681,7 @@
         }
     }
 
+
     "phoenix_summon"
     {
         "BaseClass" "npc_dota_creature"
@@ -9352,6 +9353,7 @@
 
         }
     }
+
     "doomguard_a"
     {
         "BaseClass" "npc_dota_creature"
@@ -91457,5 +91459,6 @@
 
         }
 
-    }    
+    }
+    
 }

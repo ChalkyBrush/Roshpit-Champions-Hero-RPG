@@ -5654,6 +5654,7 @@
 			}
 		}
 	}
+
 "venomort_viper_ability"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
@@ -5699,6 +5700,7 @@
 		}
 
 	}
+
 	"custom_gale"
 	{
 		// General
@@ -7059,6 +7061,7 @@
 			}
 		}
 	}
+
 
 	"sunder_slam"
 	{
@@ -11409,6 +11412,7 @@
 			}
 		}
 	}
+
 	// PALADIN
 
 	"holy_cone"
@@ -14253,7 +14257,8 @@
 			}
 		}
 
-	}	"sorceress_arcana_ice_tornado"
+	}
+	"sorceress_arcana_ice_tornado"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"BaseClass"	"ability_datadriven"
@@ -14979,6 +14984,7 @@
     			}
     		}
     	}
+
 	//CONJUROR
 	"summon_earth_aspect"
 	{
@@ -16415,6 +16421,7 @@
 		}
 
 	}
+
 
 	"ivory_gryffin_ability"//item
 	{
@@ -18752,6 +18759,7 @@
 	}
 
 
+
 	//BAHAMUT
 
 	"leshrac_nuke"
@@ -20884,6 +20892,7 @@
 			}
 		}
 	}
+
 
 	"ghost_hallow"
 	{
@@ -24011,7 +24020,8 @@
 			}
 		}
 
-	}    "lanaya_decoy_passive"
+	}
+    "lanaya_decoy_passive"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	        "ability_datadriven"
@@ -24024,6 +24034,7 @@
 			}
 		}
 	}
+
 	//SPIRIT WARRIOR
 
 	"spirit_warrior_flametongue"
@@ -25464,6 +25475,7 @@
 			}
 		}
 	}
+
 
 	//mystic_assassin
 
@@ -37894,6 +37906,7 @@
 
 
 	}
+
 	"piercing_gale"
 	{
 		// General
@@ -39382,6 +39395,7 @@
 
 
 	}
+
 	"dinath_dragon_dive"
 	{
 		// General
@@ -40805,7 +40819,8 @@
 		}
 
 
-	}	"creep_jump"
+	}
+	"creep_jump"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -41465,6 +41480,7 @@
 		}
 
 	}
+
 	"hero_summon_ai"
 	{
 		// General
@@ -50113,6 +50129,7 @@
 			}
 		}
 	}
+
 	"voltex_rune_a_a"
 	{
 		"BaseClass"				"ability_datadriven"
@@ -51498,7 +51515,8 @@
 				"property_one"			"0.1"
 			}
 		}
-	}	
+	}
+	
 "venomort_rune_a_a"
 	{
 		// General
@@ -52150,7 +52168,7 @@
     			"01"
     			{
     				"var_type"				"FIELD_INTEGER"
-    				"property_one"			"15000"
+    				"property_one"			"45000"
     			}
     			"02"
     			{
@@ -52260,6 +52278,7 @@
 
 
     	}
+
 
 "axe_rune_a_a"
 	{
@@ -52885,6 +52904,7 @@
 			}
 		}
 	}
+
 	"astral_rune_a_a"
 	{
 		"BaseClass"				"ability_datadriven"
@@ -53984,6 +54004,7 @@
 			}
 		}
 	}
+
 	 //----------------------------------
 
 	"epoch_rune_a_a"
@@ -54603,6 +54624,7 @@
 			}
 		}
 	}
+
 	//--PALADIN--
 
 	"paladin_rune_a_a"
@@ -55469,6 +55491,7 @@
 			}
 		}
 	}
+
 	"paladin_rune_a_b_arcana1"
 	{
 		"BaseClass"				"ability_datadriven"
@@ -58962,7 +58985,8 @@
 				"property_one"			"0.01"
 			}
 		}
-	}	"sorceress_rune_a_d_arcana1"
+	}
+	"sorceress_rune_a_d_arcana1"
     	{
     		// General
     		//-------------------------------------------------------------------------------------------------------------
@@ -59087,6 +59111,7 @@
     			}
     		}
     	}
+
 	//CONJUROR
 	"conjuror_rune_a_a"
 	{
@@ -59939,7 +59964,8 @@
 				}
 			}
 		}
-	}	
+	}
+	
 
 	"seinaru_sunstrider"
 	{
@@ -62725,7 +62751,8 @@
 				"property_one"			"0.15"
 			}
 		}
-	}	//--------------------------------------------
+	}
+	//--------------------------------------------
 	
 	//Elemental Warlord
 	"warlord_rune_a_a"
@@ -63437,7 +63464,8 @@
 			}
 		}
 
-	}	
+	}
+	
 
 	//BAHAMUT RUNES
 
@@ -64741,6 +64769,7 @@
 			}
 		}
 	}
+
 	//AURIUN RUNES
 
 	"auriun_rune_a_a"
@@ -66243,6 +66272,7 @@
 			}
 		}
 	}
+
 	//SPIRIT_WARRIOR
 
 	"spirit_warrior_rune_a_a"
@@ -67318,6 +67348,7 @@
 		}
 	}
 
+
 	//MOUNTAIN PROTECTOR
 
 	"mountain_protector_rune_a_a"
@@ -68305,6 +68336,7 @@
 			}
 		}
 	}
+
 	//CHERONOBOG RUNES
 
 	"chernobog_rune_a_a"
@@ -69288,6 +69320,7 @@
 			}
 		}
 	}
+
 	//------SOLUNIA RUNES
 
 	"solunia_rune_a_a"
@@ -70522,6 +70555,7 @@
 			}
 		}
 	}
+
 	//------HYDROXIS RUNES RUNES
 
 	"hydroxis_rune_a_a"
@@ -71418,6 +71452,7 @@
 			}
 		}
 	}
+
 	//------EKKAN RUNES RUNES
 
 	"ekkan_rune_a_a"
@@ -72719,6 +72754,7 @@
 			}
 		}
 	}
+
 	//------ARKIMUS RUNES-----
 
 	"arkimus_rune_a_a"
@@ -73485,7 +73521,8 @@
 				"property_one"			"0.01"
 			}
 		}
-	}	//----------------- DRAGHOR
+	}
+	//----------------- DRAGHOR
 
 	"djanghor_rune_a_a"
 	{
@@ -74731,6 +74768,7 @@
 			}
 		}
 	}
+
 	//-------------------------
 
 	"graveyard_boss_skill"
@@ -113392,6 +113430,7 @@
 
 
 	}
+
 	"ruby_dragon_ability"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -130131,6 +130170,7 @@
 		}
 
 	}
+
 	"winterblight_azalea_triple_boss_ability"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
