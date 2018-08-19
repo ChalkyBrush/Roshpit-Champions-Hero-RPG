@@ -157,10 +157,17 @@ def replace_in_file(input_file_patch, output_file_path, replaces):
     for line in input_file:
         if replaces.get(line.strip()):
             output_file.write(replaces.get(line.strip()))
+            output_file.write("\n")
         else:
             output_file.write(line)
     input_file.close()
     output_file.close()
+
+    output_file = open(settings['output_path'] + output_file_path, 'r')
+    content = output_file.read()
+    output_file.close()
+
+    validate_content(content, output_file_path)
 
 
 def prepare_file(file_path, constants):

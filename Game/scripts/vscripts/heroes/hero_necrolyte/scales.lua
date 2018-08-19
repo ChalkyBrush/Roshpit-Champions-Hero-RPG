@@ -18,6 +18,10 @@ local module = {
             return
         end
 
+        if not target:IsAlive() then
+            return
+        end
+
         local q3_level =  Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
         if q3_level ~= 0 then
             local duration = constants.ARCANA2_Q3_DURATION

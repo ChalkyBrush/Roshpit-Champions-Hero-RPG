@@ -159,11 +159,10 @@ function e3_think(event)
 	end
 end
 
-function increase_e4_stacks(event)
+function apply_e4_stacks(event)
 	local caster = event.caster
-	local target = event.target
 	local ability = event.ability
-	ability.e4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
+	local target = event.target
 
 	local bossesCountAs = constants.BOSSES_COUNT_AS_ENEMIES
 	local paragonsCountAs = constants.PARAGONS_COUNT_AS_ENEMIES
@@ -172,25 +171,6 @@ function increase_e4_stacks(event)
 		paragonsCountAs = constants.T21_PARAGONS_COUNT_AS_ENEMIES
 	end
 
-	local modifier = caster:FindModifierByName('modifier_venomort_e4_hero_bonus')
-	if not modifier then
-		return
-	end
-
-	local stacks = modifier:GetStackCount() + 1 * ability.e4_level
-	if target.mainBoss then
-		stacks = stacks + (bossesCountAs - 1) * ability.e4_level
-	end
-	if target.paragon then
-		stacks = stacks + (paragonsCountAs - 1) * ability.e4_level
-	end
-
-	modifier:SetStackCount(stacks)
-end
-
-function apply_e4_stacks(event)
-	local caster = event.caster
-	local ability = event.ability
 
 	local duration = constants.E4_DURATION + constants.E4_DELAY
 
@@ -206,6 +186,12 @@ function apply_e4_stacks(event)
 	local thisStack = {}
 	thisStack.createdAt = GameRules:GetGameTime()
 	thisStack.value = 1
+	if target.mainBoss then
+		thisStack.value = thisStack.value + bossesCountAs - 1
+	end
+	if target.paragon then
+		thisStack.value = thisStack.value + paragonsCountAs - 1
+	end
 	table.insert(ability.e4_data, thisStack)
 	recalculate_e4_stacks(event, true)
 end
