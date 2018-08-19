@@ -78,7 +78,7 @@ function CustomAbilities:AxeSunder(caster, ability, damage, damageAmp, particleN
         ParticleManager:DestroyParticle( particle1, false )
       end)
 
-    local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "axe")
+    local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "axe")
 
 
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), slamPoint, nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
@@ -86,15 +86,15 @@ function CustomAbilities:AxeSunder(caster, ability, damage, damageAmp, particleN
 		for _,enemy in pairs(enemies) do
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage*damageAmp, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 			if d_d_level > 0 then
-				local runeAbility = caster.runeUnit4:FindAbilityByName("axe_rune_d_d")
-				runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, enemy, "modifier_axe_rune_d_d_visible", {duration = 7})
-				local current_stacks = enemy:GetModifierStackCount( "modifier_axe_rune_d_d_visible", runeAbility )
+				local runeAbility = caster.runeUnit4:FindAbilityByName("axe_rune_r_4")
+				runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, enemy, "modifier_axe_rune_r_4_visible", {duration = 7})
+				local current_stacks = enemy:GetModifierStackCount( "modifier_axe_rune_r_4_visible", runeAbility )
 				local newStacks = current_stacks + 1
 				print(newStacks)
-				enemy:SetModifierStackCount( "modifier_axe_rune_d_d_visible", runeAbility, newStacks )
+				enemy:SetModifierStackCount( "modifier_axe_rune_r_4_visible", runeAbility, newStacks )
 
-				runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, enemy, "modifier_axe_rune_d_d_invisible", {duration = 7})
-				enemy:SetModifierStackCount( "modifier_axe_rune_d_d_invisible", runeAbility, newStacks*d_d_level )
+				runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, enemy, "modifier_axe_rune_r_4_invisible", {duration = 7})
+				enemy:SetModifierStackCount( "modifier_axe_rune_r_4_invisible", runeAbility, newStacks*d_d_level )
 			end
 		end
 	end       
@@ -103,11 +103,11 @@ end
 
 function CustomAbilities:AxeSunderB_D(sunderAbility, caster, slamPoint)
 	local runeUnit = caster.runeUnit2
-	local ability = runeUnit:FindAbilityByName("axe_rune_b_d")
+	local ability = runeUnit:FindAbilityByName("axe_rune_r_2")
 	local abilityLevel = ability:GetLevel()
-	local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_d")
+	local bonusLevel = Runes:GetTotalBonus(runeUnit, "r_2")
 	local totalLevel = abilityLevel + bonusLevel
-	ability.b_d_level = totalLevel
+	ability.r_2_level = totalLevel
 		local start_radius = 200
 		local end_radius = 200
 		local range = totalLevel*30+500
@@ -147,18 +147,18 @@ end
 function CustomAbilities:HeroicLeapThink(target)
     local skullBasher = target:FindAbilityByName("stun_attack")
     skullBasher:ApplyDataDrivenModifier(target, target, "modifier_stun_attack", {duration = skullBasher:GetDuration()})
-    if target:HasModifier("modifier_axe_rune_c_b_visible") then
+    if target:HasModifier("modifier_axe_rune_w_3_visible") then
         local runeUnit = target.runeUnit3
-        local runeAbility = runeUnit:FindAbilityByName("axe_rune_c_b")
+        local runeAbility = runeUnit:FindAbilityByName("axe_rune_w_3")
         local duration = Filters:GetAdjustedBuffDuration(caster, 4, false)
-        runeAbility:ApplyDataDrivenModifier(runeUnit, target, "modifier_axe_rune_c_b_visible", {duration = duration})
-        runeAbility:ApplyDataDrivenModifier(runeUnit, target, "modifier_axe_rune_c_b_invisible", {duration = duration})
+        runeAbility:ApplyDataDrivenModifier(runeUnit, target, "modifier_axe_rune_w_3_visible", {duration = duration})
+        runeAbility:ApplyDataDrivenModifier(runeUnit, target, "modifier_axe_rune_w_3_invisible", {duration = duration})
     end
-    if target:HasModifier("modifier_axe_rune_b_a_stacker") then
+    if target:HasModifier("modifier_axe_rune_q_2_stacker") then
         local runeUnit = target.runeUnit2
-        local runeAbility = runeUnit:FindAbilityByName("axe_rune_b_a")
+        local runeAbility = runeUnit:FindAbilityByName("axe_rune_q_2")
         local duration = Filters:GetAdjustedBuffDuration(caster, 3, false)
-        runeAbility:ApplyDataDrivenModifier(runeUnit, target, "modifier_axe_rune_b_a_stacker", {duration = duration})
+        runeAbility:ApplyDataDrivenModifier(runeUnit, target, "modifier_axe_rune_q_2_stacker", {duration = duration})
     end
 end
 
@@ -405,10 +405,10 @@ function CustomAbilities:ChernobogSuddenStrike(unit, enemy, ability)
 		shadowStrikeCD = 0.5
 	end
 	ability:ApplyDataDrivenModifier(unit, unit, "modifier_chernobog_c_c_cooldown", {duration = shadowStrikeCD})
-	ability:ApplyDataDrivenModifier(unit, unit, "modifier_chernobog_rune_c_c_damage", {duration = 0.3})
-	unit:SetModifierStackCount("modifier_chernobog_rune_c_c_damage", unit, ability.c_c_level)
+	ability:ApplyDataDrivenModifier(unit, unit, "modifier_chernobog_rune_e_3_damage", {duration = 0.3})
+	unit:SetModifierStackCount("modifier_chernobog_rune_e_3_damage", unit, ability.e_3_level)
 
-	local particleName = "particles/roshpit/chernobog/chernobog_rune_c_c.vpcf"
+	local particleName = "particles/roshpit/chernobog/chernobog_rune_e_3.vpcf"
    	local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
 	ParticleManager:SetParticleControl( particle1, 0, unit:GetAbsOrigin()+Vector(0,0,40) )
 
@@ -656,14 +656,14 @@ end
 
 LinkLuaModifier("modifier_arkimus_speed_dash", "modifiers/arkimus/modifier_arkimus_speed_dash", LUA_MODIFIER_MOTION_NONE)
 
-function CustomAbilities:ArkimusSpeedDash(unit, enemy, ability, c_b_level)
+function CustomAbilities:ArkimusSpeedDash(unit, enemy, ability, w_3_level)
 	local duration = 3
 	local caster = unit
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_c_b_sprinting", {duration = duration})
 	caster:AddNewModifier( caster, ability, "modifier_arkimus_speed_dash", {duration = duration} )
 	caster:AddNewModifier(caster, nil, "modifier_animation_translate", {translate="haste"})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_c_b_attack_power", {duration = duration})
-	caster:SetModifierStackCount("modifier_arkimus_c_b_attack_power", caster, c_b_level)
+	caster:SetModifierStackCount("modifier_arkimus_c_b_attack_power", caster, w_3_level)
 end
 
 function CustomAbilities:AddAndOrSwapSkill(caster, originalSkillName, newSkillName, index)
@@ -740,9 +740,9 @@ function CustomAbilities:SephyrPuck(caster, ability, enemy)
     boomerang:SetDayTimeVisionRange(280)
     boomerang:SetNightTimeVisionRange(200)
     boomerang.target = enemy
-    boomerang.a_c_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
-    boomerang.b_c_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
-    local bounces = Runes:Procs(boomerang.a_c_level, 10, 1) + 1
+    boomerang.e_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
+    boomerang.e_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
+    local bounces = Runes:Procs(boomerang.e_1_level, 10, 1) + 1
     boomerang.bounces = bounces
     boomerang.current_bounces = 0
     boomerang.speed = 30
@@ -794,16 +794,16 @@ function CustomAbilities:AuriunFlashHeal(unit, orderTable)
 	--SHIELD SOUND: "Auriun.HeavensShield"
 	--RUNE 1: SHADOW BOMB. MAKE SMALL AOE AT CURSOR POSITION
 	--"Auriun.ShadowFlare"
-	ability.a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "auriun")
-	ability.b_b_level = Runes:GetTotalRuneLevel(caster, 2, "b_b", "auriun")
-	ability.d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "auriun")
-	ability.d_b_ability = caster.runeUnit4:FindAbilityByName("auriun_rune_d_b")
+	ability.w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "auriun")
+	ability.w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "auriun")
+	ability.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "auriun")
+	ability.w_4_ability = caster.runeUnit4:FindAbilityByName("auriun_rune_w_4")
 
 	local distance =  WallPhysics:GetDistance2d(caster:GetAbsOrigin(), Vector(orderTable.position_x, orderTable.position_y))
 
 	local healAmount = ability:GetSpecialValueFor("heal")
-	if ability.b_b_level > 0 then
-		healAmount = healAmount*(1+(caster:GetIntellect()/10)*0.0006*ability.b_b_level)
+	if ability.w_2_level > 0 then
+		healAmount = healAmount*(1+(caster:GetIntellect()/10)*0.0006*ability.w_2_level)
 	end
 
 	local max_dis = ability:GetSpecialValueFor("max_distance")
@@ -843,10 +843,10 @@ function CustomAbilities:AuriunFlashHeal(unit, orderTable)
 			end
 			local function c_b_effect(caster, ability, target, healAmount)
 				local runeUnit = caster.runeUnit3
-				local runeAbility = runeUnit:FindAbilityByName("auriun_rune_c_b")
-				local c_b_level = Runes:GetTotalRuneLevel(caster, 3, "c_b", "auriun")
-				if c_b_level > 0 then 
-					ability.auriun_c_b_heal = c_b_level*0.005*healAmount
+				local runeAbility = runeUnit:FindAbilityByName("auriun_rune_w_3")
+				local w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "auriun")
+				if w_3_level > 0 then 
+					ability.auriun_c_b_heal = w_3_level*0.005*healAmount
 					local duration = Filters:GetAdjustedBuffDuration(caster, 3, false)
 					ability:ApplyDataDrivenModifier(caster, target, "modifier_auriun_c_b_heal", {duration = duration})
 				end
@@ -861,16 +861,16 @@ function CustomAbilities:AuriunFlashHeal(unit, orderTable)
 					EmitSoundOnLocationWithCaster(cursorPos, "Grizzly.AllyHeal", caster)
 				end
 			else
-				if ability.a_b_level > 0 then
-				  local function d_b_apply(caster, enemy, d_b_level, d_b_ability)
-						if d_b_level > 0 then
-						    d_b_ability:ApplyDataDrivenModifier(caster.runeUnit4, enemy, "modifier_auriun_rune_d_b_effect_visible", {duration = 7})
-						    local current_stacks = enemy:GetModifierStackCount( "modifier_auriun_rune_d_b_effect_visible", d_b_ability )
+				if ability.w_1_level > 0 then
+				  local function d_b_apply(caster, enemy, w_4_level, d_b_ability)
+						if w_4_level > 0 then
+						    d_b_ability:ApplyDataDrivenModifier(caster.runeUnit4, enemy, "modifier_auriun_rune_w_4_effect_visible", {duration = 7})
+						    local current_stacks = enemy:GetModifierStackCount( "modifier_auriun_rune_w_4_effect_visible", d_b_ability )
 						    local new_stacks = math.min(current_stacks + 1, 5)
-						    enemy:SetModifierStackCount( "modifier_auriun_rune_d_b_effect_visible", d_b_ability, new_stacks )
+						    enemy:SetModifierStackCount( "modifier_auriun_rune_w_4_effect_visible", d_b_ability, new_stacks )
 
-						    d_b_ability:ApplyDataDrivenModifier(caster.runeUnit4, enemy, "modifier_auriun_rune_d_b_effect_invisible", {duration = 7})
-						    enemy:SetModifierStackCount( "modifier_auriun_rune_d_b_effect_invisible", d_b_ability, new_stacks*d_b_level )
+						    d_b_ability:ApplyDataDrivenModifier(caster.runeUnit4, enemy, "modifier_auriun_rune_w_4_effect_invisible", {duration = 7})
+						    enemy:SetModifierStackCount( "modifier_auriun_rune_w_4_effect_invisible", d_b_ability, new_stacks*w_4_level )
 						end
 					end
 			      particleName = "particles/units/heroes/hero_nevermore/shadow_flare.vpcf"
@@ -886,13 +886,13 @@ function CustomAbilities:AuriunFlashHeal(unit, orderTable)
 						EmitSoundOnLocationWithCaster(cursorPos, "Auriun.ShadowFlare", caster)
 					end
 					local enemies = FindUnitsInRadius( caster:GetTeamNumber(), cursorPos, nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-					local damage = ability.a_b_level*1920 + 400
-					if ability.b_b_level > 0 then
-						damage = damage*(1+(caster:GetIntellect()/10)*0.0006*ability.b_b_level)
+					local damage = ability.w_1_level*1920 + 400
+					if ability.w_2_level > 0 then
+						damage = damage*(1+(caster:GetIntellect()/10)*0.0006*ability.w_2_level)
 					end
 					for _,enemy in pairs(enemies) do
 						Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
-						d_b_apply(caster, enemy, ability.d_b_level, ability.d_b_ability)
+						d_b_apply(caster, enemy, ability.w_4_level, ability.w_4_ability)
 					end			
 				else
 					Filters:ApplyHeal(caster, caster, healAmount, true)

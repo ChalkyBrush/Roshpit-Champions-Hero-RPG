@@ -4,12 +4,12 @@ function rune_unit_3_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local hero = caster.hero
-	local c_c_level = Runes:GetTotalRuneLevel(hero, 3, "c_c", "trapper")
+	local c_c_level = Runes:GetTotalRuneLevel(hero, 3, "e_3", "trapper")
 	
-	ability.c_c_level = c_c_level
+	ability.e_3_level = c_c_level
 	if c_c_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_psi_blades_c_c", {})
-		hero:SetModifierStackCount( "modifier_psi_blades_c_c", ability, ability.c_c_level )
+		hero:SetModifierStackCount( "modifier_psi_blades_c_c", ability, ability.e_3_level )
 	else
 		hero:RemoveModifierByName("modifier_psi_blades_c_c")
 	end
@@ -23,7 +23,7 @@ function CheckAngles(keys)
 	-- Notes the origin of the first target to be the center of the findunits radius
 	local first_target_origin = target:GetAbsOrigin()
 	-- Notes the damage the first target takes to apply to the other targets
-	local c_c_level = ability.c_c_level
+	local c_c_level = ability.e_3_level
 	ability.line_damage = keys.damage*TRAPPER_E3_DAMAGE_PERCENT/100*c_c_level
 	ability.origCaster = caster
 

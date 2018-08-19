@@ -23,11 +23,11 @@ end
 function astral_arcana_passive_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a_arcana1", "astral")
-	if d_a_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_rune_d_a", {})
-		local damageStacks = (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect())*0.75*d_a_level
-		caster:SetModifierStackCount("modifier_astral_rune_d_a", caster, damageStacks)
+	local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "d_a_arcana1", "astral")
+	if q_4_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_rune_q_4", {})
+		local damageStacks = (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect())*0.75*q_4_level
+		caster:SetModifierStackCount("modifier_astral_rune_q_4", caster, damageStacks)
 	end
 end
 
@@ -48,15 +48,15 @@ function astral_arcana_lifting_think(event)
 		local platformDuration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_arcana_on_platform", {duration = platformDuration})
 		StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_SPAWN, rate=1.2, translate="loadout"})
-		local a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a_arcana1", "astral")
-		if a_a_level > 0 then
+		local q_1_level = Runes:GetTotalRuneLevel(caster, 1, "a_a_arcana1", "astral")
+		if q_1_level > 0 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_arcana_a_a_effect", {})
-			caster:SetModifierStackCount("modifier_astral_arcana_a_a_effect", caster, a_a_level)
+			caster:SetModifierStackCount("modifier_astral_arcana_a_a_effect", caster, q_1_level)
 		end
-		local c_a_level = Runes:GetTotalRuneLevel(caster, 3, "c_a_arcana1", "astral")
-		if c_a_level > 0 then
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_rune_c_a", {})
-			caster:SetModifierStackCount("modifier_astral_rune_c_a", caster, c_a_level)
+		local q_3_level = Runes:GetTotalRuneLevel(caster, 3, "c_a_arcana1", "astral")
+		if q_3_level > 0 then
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_rune_q_3", {})
+			caster:SetModifierStackCount("modifier_astral_rune_q_3", caster, q_3_level)
 		end
 
 		-- caster:SetModifierStackCount("modifier_astral_arcana_on_platform", caster, ability.heroZ)

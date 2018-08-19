@@ -16,11 +16,11 @@ function gorudo_start(event)
 	Timers:CreateTimer(0.1, function()
 		EmitSoundOn("Seinaru.GorudoGrowl", caster)
 	end)
-  caster.d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "monk")
+  caster.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "monk")
   local particleName = "particles/roshpit/seinaru/seinaru_d_b_ring.vpcf"
   local position = caster:GetAbsOrigin()
-  local b_d_level = Runes:GetTotalRuneLevel(caster, 2, "b_d", "monk")
-  ability.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "monk")
+  local b_d_level = Runes:GetTotalRuneLevel(caster, 2, "r_2", "monk")
+  ability.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "monk")
   if b_d_level > 0 then
 	  	local radius = 500+b_d_level*5
 	  	local ringDuration = 8+b_d_level*0.1
@@ -152,9 +152,9 @@ function gorudo_attack_start(event)
 	local attacker = event.attacker
 	local target = event.target
 	local ability = event.ability
-	local a_d_level = Runes:GetTotalRuneLevel(attacker, 1, "a_d", "monk")
+	local a_d_level = Runes:GetTotalRuneLevel(attacker, 1, "r_1", "monk")
 	if a_d_level > 0 then
-		apply_a_d(attacker, target, ability, a_d_level, attacker.d_c_level)
+		apply_a_d(attacker, target, ability, a_d_level, attacker.e_4_level)
 	end
 end
 
@@ -162,7 +162,7 @@ function gorudo_attack_land(event)
 	local attacker = event.attacker
 	local target = event.target
 	local ability = event.ability
-	local c_d_level = Runes:GetTotalRuneLevel(attacker, 3, "c_d", "monk")
+	local c_d_level = Runes:GetTotalRuneLevel(attacker, 3, "r_3", "monk")
 	if c_d_level > 0 then
 		local luck = RandomInt(1, 4)
 		local critModifier = attacker:FindModifierByName("modifier_seinaru_a_a_crit")
@@ -172,7 +172,7 @@ function gorudo_attack_land(event)
 			local damage = attacker:GetAverageTrueAttackDamage(attacker)*c_d_level*SEINARU_R3_ATTACK_DAMAGE_PERCENT/100
 			if critModifier then
 				local arcanaAbility = critModifier:GetAbility()
-				damage = damage * 1.5*arcanaAbility.a_a_level
+				damage = damage * 1.5*arcanaAbility.q_1_level
 			end
 			Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_HOLY, RPC_ELEMENT_NORMAL)
 		end
@@ -181,18 +181,18 @@ end
 
 
 function apply_a_d(attacker, target, ability, a_d_level, d_c_level)
-		local currentStacks = target:GetModifierStackCount("modifier_seinaru_gorudo_rune_a_d", attacker)
+		local currentStacks = target:GetModifierStackCount("modifier_seinaru_gorudo_rune_r_1", attacker)
 		local currentArmor = target:GetPhysicalArmorValue() + currentStacks
 		local ArmorRed = math.min(currentArmor+200*d_c_level, a_d_level*240)
 		if ArmorRed > 0 then
-			ability:ApplyDataDrivenModifier(attacker, target, "modifier_seinaru_gorudo_rune_a_d", {duration = 8})
-			target:SetModifierStackCount("modifier_seinaru_gorudo_rune_a_d", attacker, ArmorRed)
+			ability:ApplyDataDrivenModifier(attacker, target, "modifier_seinaru_gorudo_rune_r_1", {duration = 8})
+			target:SetModifierStackCount("modifier_seinaru_gorudo_rune_r_1", attacker, ArmorRed)
 		end
 		
 end
 
 function gorudo_passive_think(event)
 	local caster = event.caster
-	caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "monk")
+	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "monk")
 end
 --IDEA: MOVE SPIRAL STRIKE TO REPLACE ODACHI RUSH, POINT TARGET

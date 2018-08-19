@@ -16,11 +16,11 @@ function arcana_zap_field_start(event)
 		local avatarDuration = Filters:GetAdjustedBuffDuration(caster, event.duration, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_zap_field", {duration = avatarDuration})
 	end)
-	ability.b_a_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
-	local d_a_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
-	if d_a_level > 0 then
+	ability.q_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
+	local q_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+	if q_4_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_arcana1_q4", {duration = avatarDuration})
-		caster:SetModifierStackCount("modifier_arkimus_arcana1_q4", caster, d_a_level)
+		caster:SetModifierStackCount("modifier_arkimus_arcana1_q4", caster, q_4_level)
 	end
 	Filters:CastSkillArguments(1, caster)
 end
@@ -99,9 +99,9 @@ function damage_taken(event)
 	if not ability.pfxCount then
 		ability.pfxCount = 0
 	end
-	local a_a_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
-	if a_a_level > 0 then
-		local manaRestore = math.ceil(damage*0.01*a_a_level/100)
+	local q_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
+	if q_1_level > 0 then
+		local manaRestore = math.ceil(damage*0.01*q_1_level/100)
     	caster:GiveMana(manaRestore)
 		PopupMana(caster, manaRestore)
 		if ability.pfxCount < 3 then
@@ -112,21 +112,21 @@ function damage_taken(event)
 			end)
 		end
 	end
-	local c_a_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
-	if c_a_level > 0 then
+	local q_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
+	if q_3_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_arcana1_q3", {duration = 3})
-		local newStacks = math.min(caster:GetModifierStackCount("modifier_arkimus_arcana1_q3", caster) + 1, c_a_level * 3)
+		local newStacks = math.min(caster:GetModifierStackCount("modifier_arkimus_arcana1_q3", caster) + 1, q_3_level * 3)
 		caster:SetModifierStackCount("modifier_arkimus_arcana1_q3", caster, newStacks)
-		ability.c_a_stacks = newStacks
+		ability.q_3_stacks = newStacks
 	end
 end
 
 function q3_destroy(event)
 	local caster = event.caster
 	local ability = event.ability
-	if ability.c_a_stacks > 0 then
-		ability.c_a_stacks = ability.c_a_stacks - 1
+	if ability.q_3_stacks > 0 then
+		ability.q_3_stacks = ability.q_3_stacks - 1
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_arcana1_q3", {duration = 5})
-		caster:SetModifierStackCount("modifier_arkimus_arcana1_q3", caster, ability.c_a_stacks)
+		caster:SetModifierStackCount("modifier_arkimus_arcana1_q3", caster, ability.q_3_stacks)
 	end
 end

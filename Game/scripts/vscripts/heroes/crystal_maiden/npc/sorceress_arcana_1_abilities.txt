@@ -187,7 +187,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"TextureName"	"sorceress/sorceress_rune_c_d_arcana1"
+				"TextureName"	"sorceress/sorceress_rune_r_3_arcana1"
 			}
 			"modifier_tornado_ice_resist_loss_invisible"
 			{
@@ -202,7 +202,7 @@
 				"StatusEffectPriority"  "90"
 				"EffectName"	"particles/roshpit/sorceress/ice_avatar.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"TextureName"	"sorceress/sorceress_rune_d_d_arcana1"
+				"TextureName"	"sorceress/sorceress_rune_r_4_arcana1"
 				"OnCreated"
 				{
 					"RunScript"
@@ -224,7 +224,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"   "sorceress/sorceress_rune_b_d_arcana1"
+				"TextureName"   "sorceress/sorceress_rune_r_2_arcana1"
 			}
 			"modifier_sorceress_arcana_b_d_immune_stacks"
 			{
@@ -235,7 +235,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"TextureName"   "sorceress/sorceress_rune_b_d_arcana1"
+				"TextureName"   "sorceress/sorceress_rune_r_2_arcana1"
 				"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
 				"EffectAttachType"	"follow_origin"
 
@@ -445,7 +445,7 @@
 				"IsBuff"	"1"
 				"EffectName"	"particles/roshpit/sorceress/fire_avatar.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"TextureName"	"sorceress/sorceress_rune_d_a_arcana2"
+				"TextureName"	"sorceress/sorceress_rune_q_4_arcana2"
 				"StatusEffectName" 		"particles/status_fx/status_effect_burn.vpcf" 	   
 				"StatusEffectPriority"  "10"
 				"OnCreated"
@@ -570,7 +570,7 @@
 				"IsDebuff"			"1"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType"	"follow_origin"
-				"TextureName"		"sorceress/sorceress_rune_c_a_arcana2"
+				"TextureName"		"sorceress/sorceress_rune_q_3_arcana2"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-140"
@@ -580,7 +580,7 @@
 
 	}
 
-	"sorceress_rune_a_a_arcana2"
+	"sorceress_rune_q_1_arcana2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -623,14 +623,14 @@
 
 	}
 
-	"sorceress_rune_b_a_arcana2"
+	"sorceress_rune_q_2_arcana2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"sorceress/sorceress_rune_b_a_arcana2"
+		"AbilityTextureName"	"sorceress/sorceress_rune_q_2_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -666,14 +666,14 @@
 
 	}
 
-	"sorceress_rune_c_a_arcana2"
+	"sorceress_rune_q_3_arcana2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"sorceress/sorceress_rune_c_a_arcana2"
+		"AbilityTextureName"	"sorceress/sorceress_rune_q_3_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -699,14 +699,14 @@
 
 	}
 
-    	"sorceress_rune_d_a_arcana2"
+    	"sorceress_rune_q_4_arcana2"
     	{
     		// General
     		//-------------------------------------------------------------------------------------------------------------
     		"BaseClass"				"ability_datadriven"
     		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
     		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-    		"AbilityTextureName"	"sorceress/sorceress_rune_d_a_arcana2"
+    		"AbilityTextureName"	"sorceress/sorceress_rune_q_4_arcana2"
     		"MaxLevel"				"20"
     		"LevelsBetweenUpgrades" "0"
 

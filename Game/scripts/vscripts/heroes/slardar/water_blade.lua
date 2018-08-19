@@ -16,7 +16,7 @@ function water_bomb_start(event)
 	Timers:CreateTimer(1.5, function()
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
-	caster.d_c_Level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "hydroxis")
+	caster.e_4_Level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "hydroxis")
 	local target = event.target_points[1]
 	local damage = event.damage
 	water_bomb_throw(caster, ability, target, event.damage, 1)
@@ -24,19 +24,19 @@ function water_bomb_start(event)
 end
 
 function water_bomb_throw(caster, ability, target, damage, damageAmp)
-	local c_b_level = Runes:GetTotalRuneLevel(caster, 3, "c_b", "hydroxis")
-	if c_b_level > 0 then
-		damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.08*c_b_level
+	local w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "hydroxis")
+	if w_3_level > 0 then
+		damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.08*w_3_level
 	end
-	local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "hydroxis")
+	local w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "hydroxis")
 	local manaAmp = 1
-	if d_b_level > 0 then
+	if w_4_level > 0 then
 		local manaDrain = caster:GetMaxMana()*0.03
 		if caster:GetMana() < manaDrain then
 			manaDrain = caster:GetMana()
 		end
 		caster:ReduceMana(manaDrain)
-		manaAmp = (manaDrain/100)*0.002*d_b_level + 1
+		manaAmp = (manaDrain/100)*0.002*w_4_level + 1
 	else
 
 	end
@@ -63,7 +63,7 @@ function water_bomb_throw(caster, ability, target, damage, damageAmp)
     flare.damage = damage*damageAmp*manaAmp
     flare.origCaster = caster
     flare.origAbility = ability
-    flare.b_b_level = Runes:GetTotalRuneLevel(caster, 2, "b_b", "hydroxis")
+    flare.w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "hydroxis")
     flare:AddAbility("hydroxis_water_bomb_ability"):SetLevel(1)
     local flareSubAbility = flare:FindAbilityByName("hydroxis_water_bomb_ability")
     flareSubAbility:ApplyDataDrivenModifier(flare, flare, "modifier_water_bomb_motion", {})
@@ -142,14 +142,14 @@ function bombImpact(caster, ability)
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster.origCaster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 			caster.origAbility:ApplyDataDrivenModifier(caster.origCaster, enemy, "modifier_water_bomb_slow", {duration = caster.slow_duration})
 		end
-		if caster.b_b_level > 0 then
+		if caster.w_2_level > 0 then
 			local b_b_duration = Filters:GetAdjustedBuffDuration(caster, 15, false)
 			if not caster.origCaster:HasModifier("modifier_water_bomb_b_b_damage_buff_spillover") then 
 				caster.origAbility:ApplyDataDrivenModifier(caster.origCaster, caster.origCaster, "modifier_water_bomb_b_b_damage_buff_visible", {duration = b_b_duration})
 			else
 				caster.origAbility:ApplyDataDrivenModifier(caster.origCaster, caster.origCaster, "modifier_water_bomb_b_b_damage_buff_spillover",{duration = b_b_duration})
 				caster.origAbility:ApplyDataDrivenModifier(caster.origCaster, caster.origCaster, "modifier_water_bomb_b_b_damage_buff_spillover_invis",{duration = b_b_duration})
-				caster.origCaster:SetModifierStackCount("modifier_water_bomb_b_b_damage_buff_spillover_invis", caster.origCaster, caster.b_b_level)
+				caster.origCaster:SetModifierStackCount("modifier_water_bomb_b_b_damage_buff_spillover_invis", caster.origCaster, caster.w_2_level)
 			end
 			local newStacks = caster.origCaster:GetModifierStackCount("modifier_water_bomb_b_b_damage_buff_visible", caster.origCaster) + #enemies
 			if newStacks >= 20 then
@@ -157,11 +157,11 @@ function bombImpact(caster, ability)
 				caster.origCaster:RemoveModifierByName("modifier_water_bomb_b_b_damage_buff_invisible")
 				caster.origAbility:ApplyDataDrivenModifier(caster.origCaster, caster.origCaster, "modifier_water_bomb_b_b_damage_buff_spillover",{duration = b_b_duration})
 				caster.origAbility:ApplyDataDrivenModifier(caster.origCaster, caster.origCaster, "modifier_water_bomb_b_b_damage_buff_spillover_invis",{duration = b_b_duration})
-				caster.origCaster:SetModifierStackCount("modifier_water_bomb_b_b_damage_buff_spillover_invis", caster.origCaster, caster.b_b_level)
+				caster.origCaster:SetModifierStackCount("modifier_water_bomb_b_b_damage_buff_spillover_invis", caster.origCaster, caster.w_2_level)
 			else
 				caster.origCaster:SetModifierStackCount("modifier_water_bomb_b_b_damage_buff_visible", caster.origCaster, newStacks)
 				caster.origAbility:ApplyDataDrivenModifier(caster.origCaster, caster.origCaster, "modifier_water_bomb_b_b_damage_buff_invisible", {duration = b_b_duration})
-				caster.origCaster:SetModifierStackCount("modifier_water_bomb_b_b_damage_buff_invisible", caster.origCaster, newStacks*caster.b_b_level)
+				caster.origCaster:SetModifierStackCount("modifier_water_bomb_b_b_damage_buff_invisible", caster.origCaster, newStacks*caster.w_2_level)
 			end
 		end
 	end 
@@ -173,8 +173,8 @@ function hydroxis_attack_land(event)
 	local ability = event.ability
 	local target = event.target
 	local caster = attacker
-	local a_b_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
-	if a_b_level > 0 then
+	local w_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
+	if w_1_level > 0 then
 		local crit = false
 		if caster:HasModifier("modifier_hydroxis_glyph_5_1") then
 			local luck = RandomInt(1, 100)
@@ -184,9 +184,9 @@ function hydroxis_attack_land(event)
 			end
 		end
 		local fv = ((target:GetAbsOrigin()-attacker:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-		local damage = event.attack_damage*a_b_level*0.05
+		local damage = event.attack_damage*w_1_level*0.05
 		if caster:HasAbility("hydroxis_arcana_ability_1") then
-			damage = event.attack_damage*a_b_level*0.075
+			damage = event.attack_damage*w_1_level*0.075
 		end
 		-- CustomAbilities:QuickAttachParticle("particles/econ/items/kunkka/divine_anchor/hero_kunkka_dafx_weapon/kunkka_spell_tidebringer_fxset.vpcf", attacker, 2)
 		local pfx = ParticleManager:CreateParticle( "particle/roshpit/hydroxis/hydroxis_a_b.vpcf", PATTACH_CUSTOMORIGIN, caster )
@@ -229,20 +229,20 @@ function weapon_particle_buff(event)
 	local caster = event.caster
 	print("WEAPON PARTICLE BUFF")
 	local ability = event.ability
-	if not ability.b_b_particle then
+	if not ability.w_2_particle then
 		print("ATTACH PARTICLE")
 	    local index = ParticleManager:CreateParticle("particles/roshpit/hydroxis/b_b_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	    ParticleManager:SetParticleControlEnt(index, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
 	    ParticleManager:SetParticleControlEnt(index, 1, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
 	    ParticleManager:SetParticleControl(index, 2, Vector(-100,-100,-100))
 	    ParticleManager:SetParticleControl(index, 3, Vector(-100,-100,-100))
-	    ability.b_b_particle = index
+	    ability.w_2_particle = index
 	end
 end
 
 function weapon_particle_end(event)
 	local caster = event.caster
 	local ability = event.ability
-	ParticleManager:DestroyParticle(ability.b_b_particle, false)
-	ability.b_b_particle = nil
+	ParticleManager:DestroyParticle(ability.w_2_particle, false)
+	ability.w_2_particle = nil
 end

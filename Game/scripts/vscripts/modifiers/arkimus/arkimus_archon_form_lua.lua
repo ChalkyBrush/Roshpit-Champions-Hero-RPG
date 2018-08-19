@@ -37,7 +37,7 @@ function arkimus_archon_form_lua:GetModifierBaseAttackTimeConstant( params )
     local parent = self:GetParent()
     if IsValidEntity(parent) and parent then
         if parent:GetUnitName() == "npc_dota_hero_antimage" then
-            local d_d_level = self:GetParent():FindAbilityByName("arkimus_archon_form").d_d_level
+            local d_d_level = self:GetParent():FindAbilityByName("arkimus_archon_form").r_4_level
             if d_d_level > 0 then
                 bat = bat - 0.01*d_d_level
             end

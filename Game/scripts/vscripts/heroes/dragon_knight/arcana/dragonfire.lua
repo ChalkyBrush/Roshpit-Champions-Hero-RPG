@@ -26,7 +26,7 @@ function turn_toggle_on(event)
 		end)
 	end
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_dragonflame_shield_waiter", {duration = 1.5})
-	ability.c_b_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+	ability.w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
 end
 
 function turn_toggle_off(event)
@@ -67,10 +67,10 @@ function shield_waiter_end(event)
 		EmitSoundOn("Flamewaker.Dragonfire.ShieldApply", caster)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_dragonflame_shield", {})
 
-        local b_b_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
-        if b_b_level > 0 then
+        local w_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
+        if w_2_level > 0 then
             ability:ApplyDataDrivenModifier(caster, caster, "modifier_b_b_shimmer", {})
-            caster:SetModifierStackCount("modifier_b_b_shimmer", caster, b_b_level)
+            caster:SetModifierStackCount("modifier_b_b_shimmer", caster, w_2_level)
         end
 	end
 end
@@ -153,7 +153,7 @@ function flame_proj_hit(event)
 	local target = event.target
 	local base_damage = event.base_damage
 	local attack_dmg_bonus = event.attack_dmg_bonus
-	attack_dmg_bonus = attack_dmg_bonus + ability.c_b_level*5
+	attack_dmg_bonus = attack_dmg_bonus + ability.w_3_level*5
 	local damage = base_damage + (attack_dmg_bonus/100)*caster:GetAverageTrueAttackDamage(caster)
 	if caster:HasModifier("modifier_flamewaker_glyph_4_1") then
 		damage = damage + ((caster:GetStrength() + caster:GetAgility() + caster:GetIntellect())*5 + caster:GetAverageTrueAttackDamage(caster)*0.2)*ability:GetLevel()
@@ -166,14 +166,14 @@ function dragon_attack(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-    local c_b_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+    local w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
     local speed = -30
     if ability.movespeed then
     	speed = ability.movespeed - 30
     end
-    if c_b_level > 0 then
+    if w_3_level > 0 then
 		local fv = ((target:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-		local range = 300 + c_b_level*5
+		local range = 300 + w_3_level*5
 		dragonflame_projectile(caster, ability, range, fv, speed)
 	end
 end
@@ -181,10 +181,10 @@ end
 function dragonfire_passive_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local d_b_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
-	if d_b_level > 0 then
+	local w_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
+	if w_4_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_d_b_attack_power", {})
-		local atkPowerBonus = caster:GetAgility()*0.6*d_b_level
+		local atkPowerBonus = caster:GetAgility()*0.6*w_4_level
 		local stacks =  math.floor(atkPowerBonus/10)
 		caster:SetModifierStackCount("modifier_d_b_attack_power", caster, stacks)
 	else

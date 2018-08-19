@@ -14,33 +14,33 @@ function begin_kaze_gust(event)
 	local fv = ((target-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 	ability.fv = fv
 
-	caster:RemoveModifierByName("modifier_seinaru_rune_a_a")
-	caster:RemoveModifierByName("modifier_seinaru_rune_a_a_invisible")
+	caster:RemoveModifierByName("modifier_seinaru_rune_q_1")
+	caster:RemoveModifierByName("modifier_seinaru_rune_q_1_invisible")
 	local startPoint = caster:GetAbsOrigin()
 	ability.castPosition = startPoint
 	local particle = "particles/roshpit/seinaru/kaze_gust_wave.vpcf"
 	local start_radius = 340
 	local end_radius = 340
-	ability.a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a", "monk")
-	local b_a_level = Runes:GetTotalRuneLevel(caster, 2, "b_a", "monk")
-	ability.b_a_level = b_a_level
-	if b_a_level > 0 then
+	ability.q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "monk")
+	local q_2_level = Runes:GetTotalRuneLevel(caster, 2, "q_2", "monk")
+	ability.q_2_level = q_2_level
+	if q_2_level > 0 then
 		local b_a_duration = Filters:GetAdjustedBuffDuration(caster, 10, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_b_a_speed", {duration = b_a_duration})
-		caster:SetModifierStackCount("modifier_seinaru_b_a_speed", caster, b_a_level)
+		caster:SetModifierStackCount("modifier_seinaru_b_a_speed", caster, q_2_level)
 	end
-	ability.c_a_level = Runes:GetTotalRuneLevel(caster, 3, "c_a", "monk")
+	ability.q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "monk")
 	ability.damage = event.damage
-	if ability.c_a_level > 0 then
-		local c_a_duration = 0.5 + 0.15*ability.c_a_level
+	if ability.q_3_level > 0 then
+		local c_a_duration = 0.5 + 0.15*ability.q_3_level
 		c_a_duration = Filters:GetAdjustedBuffDuration(caster, c_a_duration, false)
-		ability:ApplyDataDrivenModifier(caster, caster, "seinaru_rune_c_a_evasion", {duration = c_a_duration})
+		ability:ApplyDataDrivenModifier(caster, caster, "seinaru_rune_q_3_evasion", {duration = c_a_duration})
 
-		ability.damage = ability.damage + caster:GetAgility()*0.1*ability.c_a_level
+		ability.damage = ability.damage + caster:GetAgility()*0.1*ability.q_3_level
 	end
-	local d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "monk")
-	if d_a_level > 0 then
-		ability.damage = ability.damage + caster:GetAverageTrueAttackDamage(caster)*Q4_DAMAGE_PERCENT/100*d_a_level
+	local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "monk")
+	if q_4_level > 0 then
+		ability.damage = ability.damage + caster:GetAverageTrueAttackDamage(caster)*Q4_DAMAGE_PERCENT/100*q_4_level
 	end
 
 
@@ -102,18 +102,18 @@ function gust_impact(event)
 	Timers:CreateTimer(0.5, function() 
 	  ParticleManager:DestroyParticle( pfx, false )
 	end)
-	if ability.a_a_level > 0 then
+	if ability.q_1_level > 0 then
 		local a_a_duration = Filters:GetAdjustedBuffDuration(caster, 10, false)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_rune_a_a", {duration = a_a_duration})
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_rune_a_a_invisible", {duration = a_a_duration})
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_rune_q_1", {duration = a_a_duration})
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_rune_q_1_invisible", {duration = a_a_duration})
 
-		local newStacks = caster:GetModifierStackCount("modifier_seinaru_rune_a_a", caster) + 1
-		caster:SetModifierStackCount("modifier_seinaru_rune_a_a", caster, newStacks)
-		caster:SetModifierStackCount("modifier_seinaru_rune_a_a_invisible", caster, newStacks*ability.a_a_level)
+		local newStacks = caster:GetModifierStackCount("modifier_seinaru_rune_q_1", caster) + 1
+		caster:SetModifierStackCount("modifier_seinaru_rune_q_1", caster, newStacks)
+		caster:SetModifierStackCount("modifier_seinaru_rune_q_1_invisible", caster, newStacks*ability.q_1_level)
 	end
-	if ability.b_a_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_seinaru_rune_b_a_slow", {duration = blind_duration})
-		target:SetModifierStackCount("modifier_seinaru_rune_b_a_slow", caster, ability.b_a_level)
+	if ability.q_2_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_seinaru_rune_q_2_slow", {duration = blind_duration})
+		target:SetModifierStackCount("modifier_seinaru_rune_q_2_slow", caster, ability.q_2_level)
 	end
 end
 

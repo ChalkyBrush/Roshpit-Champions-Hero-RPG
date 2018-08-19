@@ -10,8 +10,8 @@ function start_channel(event)
 		ability:StartCooldown(newCD)
 	end
 
-	ability.a_d_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
-	ability.c_d_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
+	ability.r_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
+	ability.r_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
 end
 
 function channel_interrupt(event)
@@ -91,10 +91,10 @@ end
 function hailstorm_explosion(caster, position, damage, amp, explosionAOE, ability, canBD, a_c_stun_duration)
 		local stun_duration = 1.5
 		damage = damage*amp
-		-- if not ability.d_d_level then
-		-- 	ability.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "mountain_protector")
+		-- if not ability.r_4_level then
+		-- 	ability.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "mountain_protector")
 		-- end
-		-- damage = damage + 0.0003*caster:GetStrength()/10*ability.d_d_level*damage
+		-- damage = damage + 0.0003*caster:GetStrength()/10*ability.r_4_level*damage
 		local particleName = "particles/roshpit/mountain_protector/ice_fracture.vpcf"
 		local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
 		ParticleManager:SetParticleControl( particle1, 0, position )
@@ -149,10 +149,10 @@ function hailstorm_aura_apply(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	if ability.a_d_level > 0 then
+	if ability.r_1_level > 0 then
 		if target:GetEntityIndex() == caster:GetEntityIndex() then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_hailstorm_strength", {})
-			caster:SetModifierStackCount("modifier_hailstorm_strength", caster, ability.a_d_level)
+			caster:SetModifierStackCount("modifier_hailstorm_strength", caster, ability.r_1_level)
 		end
 	end
 end
@@ -210,8 +210,8 @@ function hailstorm_enemy_aura_start(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	if ability.c_d_level > 0 then
+	if ability.r_3_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_hailstorm_enemy_amp", {})	
-		target:SetModifierStackCount("modifier_hailstorm_enemy_amp", caster, ability.c_d_level)
+		target:SetModifierStackCount("modifier_hailstorm_enemy_amp", caster, ability.r_3_level)
 	end
 end

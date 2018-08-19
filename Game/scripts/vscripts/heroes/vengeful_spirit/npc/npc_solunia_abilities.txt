@@ -151,7 +151,7 @@
 				"IsBuff"	"1"
 				"EffectName"	"particles/roshpit/solunia/ultraviolet.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"TextureName"	"solunia/solunia_rune_a_a_arcana1"
+				"TextureName"	"solunia/solunia_rune_q_1_arcana1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "3000"
@@ -163,7 +163,7 @@
 				"IsDebuff"	"1"
 				"EffectName"	"particles/roshpit/solunia/solunia_compression_solar_heal.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"TextureName"	"solunia/solunia_rune_c_a_arcana1"
+				"TextureName"	"solunia/solunia_rune_q_3_arcana1"
 			}
 			"modifier_solar_compression_invisible"
 			{
@@ -263,7 +263,7 @@
 				"IsBuff"	"1"
 				"EffectName"	"particles/roshpit/solunia/ultraviolet.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"TextureName"	"solunia/solunia_rune_a_a_arcana1"
+				"TextureName"	"solunia/solunia_rune_q_1_arcana1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "3000"
@@ -276,7 +276,7 @@
 				"IsDebuff"	"1"
 				"EffectName"	"particles/roshpit/solunia/solunia_compression_lunar_heal.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"TextureName"	"solunia/solunia_rune_c_a_arcana1"
+				"TextureName"	"solunia/solunia_rune_q_3_arcana1"
 			}
 			"modifier_lunar_compression_invisible"
 			{
@@ -286,12 +286,12 @@
 
 	}
 
-	"solunia_rune_a_a_arcana1"
+	"solunia_rune_q_1_arcana1"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"solunia/solunia_rune_a_a_arcana1"
+		"AbilityTextureName"	"solunia/solunia_rune_q_1_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -309,12 +309,12 @@
 		}
 	}
 
-	"solunia_rune_b_a_arcana1"
+	"solunia_rune_q_2_arcana1"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"solunia/solunia_rune_b_a_arcana1"
+		"AbilityTextureName"	"solunia/solunia_rune_q_2_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -332,14 +332,14 @@
 		}
 	}
 
-	"solunia_rune_c_a_arcana1"
+	"solunia_rune_q_3_arcana1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"solunia/solunia_rune_c_a_arcana1"
+		"AbilityTextureName"	"solunia/solunia_rune_q_3_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -358,14 +358,14 @@
 		}
 	}
 
-	"solunia_rune_d_a_arcana1"
+	"solunia_rune_q_4_arcana1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"solunia/solunia_rune_d_a_arcana1"
+		"AbilityTextureName"	"solunia/solunia_rune_q_4_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -435,7 +435,7 @@
 				"ThinkInterval"  "0.5"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
-				"TextureName"	"solunia/solunia_rune_b_d_arcana2"
+				"TextureName"	"solunia/solunia_rune_r_2_arcana2"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -464,7 +464,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"solunia/solunia_rune_a_d_arcana2"
+				"TextureName"	"solunia/solunia_rune_r_1_arcana2"
 			}
 			"modifier_solunia_arcana_a_d_health_invisible"
 			{
@@ -479,7 +479,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"solunia/solunia_rune_c_d_arcana2"
+				"TextureName"	"solunia/solunia_rune_r_3_arcana2"
 				"StatusEffectName" 		"particles/roshpit/solunia/status_arcana_shell.vpcf" 	   
 				"StatusEffectPriority"  "240"
 				"States"
@@ -587,7 +587,7 @@
 				"ThinkInterval"  "1.0"
 				"EffectName"		"particles/roshpit/solunia/lunarang_ambient.vpcf"
 				"EffectAttachType" 	"attach_origin"
-				"TextureName"	"solunia/solunia_rune_b_d_arcana2"
+				"TextureName"	"solunia/solunia_rune_r_2_arcana2"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -616,7 +616,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"solunia/solunia_rune_a_d_arcana2"
+				"TextureName"	"solunia/solunia_rune_r_1_arcana2"
 			}
 			"modifier_solunia_arcana_a_d_health_invisible"
 			{
@@ -631,7 +631,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"solunia/solunia_rune_c_d_arcana2"
+				"TextureName"	"solunia/solunia_rune_r_3_arcana2"
 				"StatusEffectName" 		"particles/roshpit/solunia/status_arcana_shell.vpcf" 	   
 				"StatusEffectPriority"  "240"
 				"States"
@@ -683,12 +683,12 @@
 
 	}
 
-	"solunia_rune_a_d_arcana2"
+	"solunia_rune_r_1_arcana2"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"solunia/solunia_rune_a_d_arcana2"
+		"AbilityTextureName"	"solunia/solunia_rune_r_1_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -706,12 +706,12 @@
 		}
 	}
 
-	"solunia_rune_b_d_arcana2"
+	"solunia_rune_r_2_arcana2"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"solunia/solunia_rune_b_d_arcana2"
+		"AbilityTextureName"	"solunia/solunia_rune_r_2_arcana2"
 		"MaxLevel"				"20"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"LevelsBetweenUpgrades" "0"
@@ -740,12 +740,12 @@
 		}
 	}
 
-	"solunia_rune_c_d_arcana2"
+	"solunia_rune_r_3_arcana2"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"solunia/solunia_rune_c_d_arcana2"
+		"AbilityTextureName"	"solunia/solunia_rune_r_3_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -758,12 +758,12 @@
 		}
 	}
 
-	"solunia_rune_d_d_arcana2"
+	"solunia_rune_r_4_arcana2"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"solunia/solunia_rune_d_d_arcana2"
+		"AbilityTextureName"	"solunia/solunia_rune_r_4_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"

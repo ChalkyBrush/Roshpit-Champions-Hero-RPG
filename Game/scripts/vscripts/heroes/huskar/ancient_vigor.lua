@@ -4,8 +4,8 @@ function start_channel(event)
 	local caster = event.caster
 	local soundTable = {"SpiritWarrior.SpiritYell1", "SpiritWarrior.SpiritYell2", "SpiritWarrior.SpiritYell3"}
 	EmitSoundOn(soundTable[RandomInt(1,3)], caster)
-	caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "spirit_warrior")
-	caster.d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "spirit_warrior")
+	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "spirit_warrior")
+	caster.q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "spirit_warrior")
 	StartSoundEvent("SpiritWarrior.AncientVigorChannel", caster)
 end
 
@@ -27,19 +27,19 @@ function vigor_start(event)
 	end)
 	Filters:CastSkillArguments(4, caster)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_ancient_vigor", {duration = duration})
-	-- local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d", "spirit_warrior")
+	-- local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "spirit_warrior")
 	-- if a_d_level > 0 then
 	-- 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_ancient_vigor_regen", {duration = duration})
 	-- 	caster:SetModifierStackCount("modifier_ancient_vigor_regen", caster, a_d_level)
 	-- end
-	local b_d_level = Runes:GetTotalRuneLevel(caster, 2, "b_d", "spirit_warrior")
+	local b_d_level = Runes:GetTotalRuneLevel(caster, 2, "r_2", "spirit_warrior")
 	if b_d_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_ancient_vigor_attack_percent", {duration = duration})
 		caster:SetModifierStackCount("modifier_ancient_vigor_attack_percent", caster, b_d_level)
 	end
-	local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "spirit_warrior")
+	local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "spirit_warrior")
 	if c_d_level > 0 then
-		local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "spirit_warrior")
+		local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "spirit_warrior")
 		local spiritAbility = caster:FindAbilityByName("spirit_warrior_ancient_spirit")
 		if not spiritAbility then
 			spiritAbility = caster:FindAbilityByName("spirit_warrior_ancient_spirit_elite")
@@ -50,7 +50,7 @@ function vigor_start(event)
 				for i = 1, #spiritTable, 1 do
 					spiritTable[i]:RemoveModifierByName("modifier_ancient_spirit_disarm")
 					spiritAbility:ApplyDataDrivenModifier(caster, spiritTable[i], "modifier_spirit_attacking", {duration = duration})
-					spiritTable[i].c_d_level = c_d_level
+					spiritTable[i].r_3_level = c_d_level
 					if d_d_level > 0 then
 						ability:ApplyDataDrivenModifier(caster, spiritTable[i], "modifier_ancient_spirit_attackspeed", {duration = duration})
 						spiritTable[i]:SetModifierStackCount("modifier_ancient_spirit_attackspeed", caster, d_d_level+80)
@@ -70,13 +70,13 @@ end
 function vigor_passive_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	ability.a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d", "spirit_warrior")
+	ability.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "spirit_warrior")
 end
 
 function vigor_deal_damage(event)
 	local caster = event.caster
 	local ability = event.ability
-	if ability.a_d_level > 0 then
+	if ability.r_1_level > 0 then
 		local damage = event.damage
 		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 		ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
@@ -91,7 +91,7 @@ function vigor_deal_damage(event)
 		end
 		local trollBloodDuration = Filters:GetAdjustedBuffDuration(caster, 5, false)
 		ability.trollBloodDuration = trollBloodDuration*10
-		ability.trollBloodHeal = ability.trollBloodHeal + damage*0.003*ability.a_d_level
+		ability.trollBloodHeal = ability.trollBloodHeal + damage*0.003*ability.r_1_level
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_ancient_vigor_troll_blood", {duration = trollBloodDuration})
 
 	end

@@ -3,11 +3,11 @@ local Sunder = require('heroes/axe/abilities/r/r_sunder')
 local TectonicSunder = require('heroes/axe/abilities/arcana1_r/r_tectonic_sunder')
 local function cast(caster, ability)
 
-    if caster.c_a_level <= 0 then
+    if caster.q_3_level <= 0 then
         return false
     end
 
-    local damageAmp = caster.c_a_level*RED_GENERAL_Q3_AMPLIFY_PERCENT/100
+    local damageAmp = caster.q_3_level*RED_GENERAL_Q3_AMPLIFY_PERCENT/100
     if caster:HasAbility("sunder") then
         local sunderAbility = caster:FindAbilityByName("sunder")
         local damage = sunderAbility:GetSpecialValueFor("main_damage")/100 * caster:GetHealth() * damageAmp

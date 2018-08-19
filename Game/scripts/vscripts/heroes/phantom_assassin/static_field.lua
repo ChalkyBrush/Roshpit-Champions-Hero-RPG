@@ -17,11 +17,11 @@ function begin_static_field(event)
 		local rotatedVector = WallPhysics:rotateVector(fv, randomRadian)
 		create_spark(rotatedVector, event)
 	end
-	caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "voltex")
+	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "voltex")
 	Filters:CastSkillArguments(4, caster)
 	d_d_set(caster, ability)
-	rune_a_d(caster, ability)
-	rune_c_d(caster)
+	rune_r_1(caster, ability)
+	rune_r_3(caster)
 end
 
 function begin_static_channel(event)
@@ -72,8 +72,8 @@ function spark_hit(event)
 	local target = event.target
 	local ability = event.ability
 	local damage = event.damage
-	if ability.d_d_level then
-		damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.1*ability.d_d_level
+	if ability.r_4_level then
+		damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.1*ability.r_4_level
 	end
 	increment_d_d(caster, ability)
 	if caster:HasModifier("modifier_voltex_glyph_6_1") then
@@ -85,12 +85,12 @@ function spark_hit(event)
 	end
 end
 
-function rune_c_d(caster)
+function rune_r_3(caster)
     local runeUnit = caster.runeUnit3
-    local ability = runeUnit:FindAbilityByName("voltex_rune_c_d")
+    local ability = runeUnit:FindAbilityByName("voltex_rune_r_3")
     local abilityLevel = ability:GetLevel()
-    local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_d")
-    local totalLevel = Runes:GetTotalRuneLevel(caster, 3, "c_d", "voltex")
+    local bonusLevel = Runes:GetTotalBonus(runeUnit, "r_3")
+    local totalLevel = Runes:GetTotalRuneLevel(caster, 3, "r_3", "voltex")
     	if totalLevel > 0 then
     		EmitSoundOn("DOTA_Item.BlackKingBar.Activate", caster)
     		local duration = 12
@@ -99,11 +99,11 @@ function rune_c_d(caster)
  			end
  			duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
  			if caster:HasModifier("modifier_voltex_glyph_5_1") then
-    			ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_voltex_rune_c_d_buff_glyph_5_1", {duration = duration})
+    			ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_voltex_rune_r_3_buff_glyph_5_1", {duration = duration})
     		end
-    		ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_voltex_rune_c_d_avatar", {duration = duration})
-    		ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_voltex_rune_c_d_buff", {duration = duration})
-    		caster:SetModifierStackCount( "modifier_voltex_rune_c_d_buff", ability, totalLevel )
+    		ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_voltex_rune_r_3_avatar", {duration = duration})
+    		ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_voltex_rune_r_3_buff", {duration = duration})
+    		caster:SetModifierStackCount( "modifier_voltex_rune_r_3_buff", ability, totalLevel )
 
     	end
 end
@@ -141,17 +141,17 @@ function c_d_end(event)
 	caster:SetAttackCapability(DOTA_UNIT_CAP_MELEE_ATTACK)
 end
 
-function rune_a_d(caster, ability)
+function rune_r_1(caster, ability)
     local runeUnit = caster.runeUnit
-    local runeAbility = runeUnit:FindAbilityByName("voltex_rune_a_d")
+    local runeAbility = runeUnit:FindAbilityByName("voltex_rune_r_1")
     local abilityLevel = runeAbility:GetLevel()
-    local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_d")
+    local bonusLevel = Runes:GetTotalBonus(runeUnit, "r_1")
     local totalLevel = abilityLevel + bonusLevel
     local point = caster:GetAbsOrigin() + caster:GetForwardVector()*300
 	if totalLevel > 0 then
 		local damage = 1200 + 730*totalLevel
-		if ability.d_d_level then
-			damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.1*ability.d_d_level
+		if ability.r_4_level then
+			damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.1*ability.r_4_level
 		end
 		if caster:HasModifier("modifier_voltex_glyph_6_1") then
 			damage = damage*30
@@ -193,19 +193,19 @@ function a_d_bolt(caster, ability, damage, point)
 end
 
 function d_d_set(caster, ability)
-    ability.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "voltex")
+    ability.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "voltex")
 end
 
 function increment_d_d(caster, ability)
-	if ability.d_d_level > 0 then
+	if ability.r_4_level > 0 then
 	  local d_d_duration = Filters:GetAdjustedBuffDuration(caster, 6, false)
-      local d_d_ability = caster.runeUnit4:FindAbilityByName("voltex_rune_d_d")
-      d_d_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_voltex_rune_d_d_visible", {duration = d_d_duration})
-      local newStacks = caster:GetModifierStackCount( "modifier_voltex_rune_d_d_visible", d_d_ability ) + 1
-      caster:SetModifierStackCount( "modifier_voltex_rune_d_d_visible", d_d_ability, newStacks )
+      local d_d_ability = caster.runeUnit4:FindAbilityByName("voltex_rune_r_4")
+      d_d_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_voltex_rune_r_4_visible", {duration = d_d_duration})
+      local newStacks = caster:GetModifierStackCount( "modifier_voltex_rune_r_4_visible", d_d_ability ) + 1
+      caster:SetModifierStackCount( "modifier_voltex_rune_r_4_visible", d_d_ability, newStacks )
 
 
-      d_d_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_voltex_rune_d_d_invisible", {duration = d_d_duration})
-      caster:SetModifierStackCount( "modifier_voltex_rune_d_d_invisible", d_d_ability, newStacks*ability.d_d_level )
+      d_d_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_voltex_rune_r_4_invisible", {duration = d_d_duration})
+      caster:SetModifierStackCount( "modifier_voltex_rune_r_4_invisible", d_d_ability, newStacks*ability.r_4_level )
 	end
 end

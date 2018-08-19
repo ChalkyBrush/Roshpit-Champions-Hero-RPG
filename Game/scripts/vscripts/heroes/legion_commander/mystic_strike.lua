@@ -140,20 +140,20 @@ function bomb_land(bomb, caster, ability)
 		teleportToPosition(caster, ability, bomb:GetAbsOrigin())
 		UTIL_Remove(bomb)
 	end)
-	local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "a_c", "mountain_protector")
+	local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "mountain_protector")
 	if a_c_level > 0 then
         if caster:HasAbility("mountain_protector_aeon_fracture") then
     		local aeonFracture = caster:FindAbilityByName("mountain_protector_aeon_fracture")
-    		aeonFracture.a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d", "mountain_protector")
+    		aeonFracture.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "mountain_protector")
     		local damage = aeonFracture:GetSpecialValueFor("damage")
     		local amp = 1+(0.3*a_c_level)
             local stun_duration = 0.1*a_c_level
     		local explosionAOE = 300
-            if not aeonFracture.a_d_level then
-                aeonFracture.a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d", "mountain_protector")
+            if not aeonFracture.r_1_level then
+                aeonFracture.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "mountain_protector")
             end
-            if not aeonFracture.b_d_level then
-                aeonFracture.b_d_level = Runes:GetTotalRuneLevel(caster, 2, "b_d", "mountain_protector")
+            if not aeonFracture.r_2_level then
+                aeonFracture.r_2_level = Runes:GetTotalRuneLevel(caster, 2, "r_2", "mountain_protector")
             end
     		aeon_fracture_explosion(caster, bomb:GetAbsOrigin(), damage, amp, explosionAOE, aeonFracture, false, stun_duration)
         elseif caster:HasAbility("mountain_protector_hailstorm") then
@@ -175,14 +175,14 @@ function rock_change_angle(event)
 end
 
 function teleportToPosition(caster, ability, target)
-	local b_c_level = Runes:GetTotalRuneLevel(caster, 2, "b_c", "mountain_protector")
+	local b_c_level = Runes:GetTotalRuneLevel(caster, 2, "e_2", "mountain_protector")
 	if b_c_level > 0 then
         local b_c_duration = Filters:GetAdjustedBuffDuration(caster, 15, false)
-		local runeAbility = caster.runeUnit2:FindAbilityByName("mountain_protector_rune_b_c")
-		runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, caster, "modifier_mountain_protector_rune_b_c", {duration = b_c_duration})
-		caster:SetModifierStackCount("modifier_mountain_protector_rune_b_c", caster.runeUnit2, b_c_level)
+		local runeAbility = caster.runeUnit2:FindAbilityByName("mountain_protector_rune_e_2")
+		runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, caster, "modifier_mountain_protector_rune_e_2", {duration = b_c_duration})
+		caster:SetModifierStackCount("modifier_mountain_protector_rune_e_2", caster.runeUnit2, b_c_level)
 	end
-	local c_c_level = Runes:GetTotalRuneLevel(caster, 3, "c_c", "mountain_protector")
+	local c_c_level = Runes:GetTotalRuneLevel(caster, 3, "e_3", "mountain_protector")
 	if c_c_level > 0 then
         local c_c_duration = Filters:GetAdjustedBuffDuration(caster, 7, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_emberstone_wave", {duration = c_c_duration})
@@ -219,14 +219,14 @@ function rune_unit_4_think(event)
         return
     end
 
-	local d_c_level = Runes:GetTotalRuneLevel(hero, 4, "d_c", "mountain_protector")
+	local d_c_level = Runes:GetTotalRuneLevel(hero, 4, "e_4", "mountain_protector")
 	if d_c_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, hero, "modifier_mountain_rune_d_c_effect", {})
-		hero:SetModifierStackCount("modifier_mountain_rune_d_c_effect", caster, d_c_level)
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_mountain_rune_e_4_effect", {})
+		hero:SetModifierStackCount("modifier_mountain_rune_e_4_effect", caster, d_c_level)
 	else
-		hero:RemoveModifierByName("modifier_mountain_rune_d_c_effect")
+		hero:RemoveModifierByName("modifier_mountain_rune_e_4_effect")
 	end
-    if hero:HasModifier("modifier_rockfall_passive") and ability:GetAbilityName() == "mountain_protector_rune_d_c_arcana3" then
-        hero:RemoveModifierByName("modifier_mountain_rune_d_c_effect")
+    if hero:HasModifier("modifier_rockfall_passive") and ability:GetAbilityName() == "mountain_protector_rune_e_4_arcana3" then
+        hero:RemoveModifierByName("modifier_mountain_rune_e_4_effect")
     end
 end

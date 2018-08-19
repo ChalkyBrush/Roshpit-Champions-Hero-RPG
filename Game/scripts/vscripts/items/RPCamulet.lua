@@ -797,28 +797,28 @@ function RPCItems:RollSkillProperty()
         value = RandomInt(4, 10)
     end
     if luck < 120 then
-        propertyName = "rune_a_a"
+        propertyName = "rune_q_1"
         tier = 1
     elseif luck < 240 then
-        propertyName = "rune_a_b"
+        propertyName = "rune_w_1"
         tier = 1
     elseif luck < 360 then
-        propertyName = "rune_a_c"
+        propertyName = "rune_e_1"
         tier = 1
     elseif luck < 485 then
-        propertyName = "rune_a_d"
+        propertyName = "rune_r_1"
         tier = 1
     elseif luck < 590 then
-        propertyName = "rune_b_a"
+        propertyName = "rune_q_2"
         tier = 2
     elseif luck < 695 then
-        propertyName = "rune_b_b"
+        propertyName = "rune_w_2"
         tier = 2
     elseif luck < 800 then
-        propertyName = "rune_b_c"
+        propertyName = "rune_e_2"
         tier = 2
     elseif luck < 910 then
-        propertyName = "rune_b_d"
+        propertyName = "rune_r_2"
         tier = 2
     end
     value = value + RandomInt(0, math.floor(maxFactor/4))

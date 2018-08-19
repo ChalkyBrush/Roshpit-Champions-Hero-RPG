@@ -6,8 +6,8 @@ function start_channel(event)
 		caster:RemoveModifierByName("modifier_elemental_beam")
 		caster:Stop()
 	else
-		ability.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "warlord")
-		ability.d_d_ability = caster.runeUnit4:FindAbilityByName("warlord_rune_d_d")
+		ability.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "warlord")
+		ability.r_4_ability = caster.runeUnit4:FindAbilityByName("warlord_rune_r_4")
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_channel_for_items", {duration = 1.8})
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_channel_start", {duration = 0.05})
 		EmitSoundOn("beastmaster_beas_ability_axes_06", caster)
@@ -48,19 +48,19 @@ function beginBeam(event)
     ability.interval = 0
     EmitSoundOn("Hero_Invoker.DeafeningBlast", caster)
     Filters:CastSkillArguments(4, caster)
-    local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d", "warlord")
-    local runeAbility = caster.runeUnit:FindAbilityByName("warlord_rune_a_d")
+    local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "warlord")
+    local runeAbility = caster.runeUnit:FindAbilityByName("warlord_rune_r_1")
     if a_d_level> 0 then
 		local duration = 0.5+a_d_level*0.2
 		duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
-		runeAbility:ApplyDataDrivenModifier(caster.runeUnit, caster, "modifier_warlord_rune_a_d", {duration = duration})
-		caster:SetModifierStackCount( "modifier_warlord_rune_a_d", runeAbility, a_d_level )
+		runeAbility:ApplyDataDrivenModifier(caster.runeUnit, caster, "modifier_warlord_rune_r_1", {duration = duration})
+		caster:SetModifierStackCount( "modifier_warlord_rune_r_1", runeAbility, a_d_level )
 		EmitSoundOn("DOTA_Item.BlackKingBar.Activate", caster)
     end
-    ability.b_d_level = Runes:GetTotalRuneLevel(caster, 2, "b_d", "warlord")
-    ability.c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "warlord")
-    if ability.c_d_level > 0 then
-    	local c_d_beamRange = ability.c_d_level*30 + 300
+    ability.r_2_level = Runes:GetTotalRuneLevel(caster, 2, "r_2", "warlord")
+    ability.r_3_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "warlord")
+    if ability.r_3_level > 0 then
+    	local c_d_beamRange = ability.r_3_level*30 + 300
     	particleVector = caster:GetAbsOrigin()+Vector(0,0,50) + (WallPhysics:rotateVector(caster:GetForwardVector(),math.pi/8) * c_d_beamRange)
 	    ability.pfx3 = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN_FOLLOW, caster )
 	    ability.pfx4 = ParticleManager:CreateParticle( particleName2, PATTACH_ABSORIGIN_FOLLOW, caster )
@@ -104,8 +104,8 @@ function beamThink(event)
     if ability.interval%2 == 0 then
     	beamProjectile(caster:GetAbsOrigin(), beamLength, caster, ability, caster:GetForwardVector())
     end
-    if ability.c_d_level > 0 then
-    	local c_d_beamRange = ability.c_d_level*30 + 300
+    if ability.r_3_level > 0 then
+    	local c_d_beamRange = ability.r_3_level*30 + 300
     	local rotatedVector = WallPhysics:rotateVector(caster:GetForwardVector(),math.pi/8)
     	particleVector = caster:GetAbsOrigin()+Vector(0,0,50) + ( rotatedVector* c_d_beamRange)
 	    ParticleManager:SetParticleControl( ability.pfx3, 1, particleVector )
@@ -118,15 +118,15 @@ function beamThink(event)
 	    ParticleManager:SetParticleControl( ability.pfx6, 1, particleVector )
 	    beamProjectile(caster:GetAbsOrigin(), c_d_beamRange, caster, ability, rotatedVector)
     end
-    if ability.d_d_level > 0 then
+    if ability.r_4_level > 0 then
       local d_d_duration = Filters:GetAdjustedBuffDuration(caster, 15, false)
-      ability.d_d_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_warlord_rune_d_d_visible", {duration = d_d_duration})
-      local current_stack = caster:GetModifierStackCount( "modifier_warlord_rune_d_d_visible", ability.d_d_ability )
+      ability.r_4_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_warlord_rune_r_4_visible", {duration = d_d_duration})
+      local current_stack = caster:GetModifierStackCount( "modifier_warlord_rune_r_4_visible", ability.r_4_ability )
       local newStack = current_stack + 1
-      caster:SetModifierStackCount( "modifier_warlord_rune_d_d_visible", ability.d_d_ability, newStack )   
+      caster:SetModifierStackCount( "modifier_warlord_rune_r_4_visible", ability.r_4_ability, newStack )   
 
-      ability.d_d_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_warlord_rune_d_d_invisible", {duration = d_d_duration})
-      caster:SetModifierStackCount( "modifier_warlord_rune_d_d_invisible", ability.d_d_ability, newStack*ability.d_d_level )   
+      ability.r_4_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_warlord_rune_r_4_invisible", {duration = d_d_duration})
+      caster:SetModifierStackCount( "modifier_warlord_rune_r_4_invisible", ability.r_4_ability, newStack*ability.r_4_level )   
     end
 end
 
@@ -165,7 +165,7 @@ function beamEnd(event)
 	ParticleManager:DestroyParticle(ability.pfx, false)
 	ParticleManager:DestroyParticle(ability.pfx2, false)
 	StartAnimation(caster, {duration=5.0, activity=ACT_DOTA_CAST_WILD_AXES_END, rate=1})
-	if ability.c_d_level > 0 then
+	if ability.r_3_level > 0 then
 		ParticleManager:DestroyParticle(ability.pfx3, false)
 		ParticleManager:DestroyParticle(ability.pfx4, false)
 		ParticleManager:DestroyParticle(ability.pfx5, false)
@@ -191,10 +191,10 @@ function projectileHit(event)
     local ability = event.ability
     local damage = event.damage/5
     Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 4)
-    if ability.b_d_level then
-	    if ability.b_d_level > 0 then
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_warlord_rune_b_d", {duration = 0.5})
-			target:SetModifierStackCount( "modifier_warlord_rune_b_d", ability, ability.b_d_level )	    	
+    if ability.r_2_level then
+	    if ability.r_2_level > 0 then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_warlord_rune_r_2", {duration = 0.5})
+			target:SetModifierStackCount( "modifier_warlord_rune_r_2", ability, ability.r_2_level )	    	
 	    end
 	end
 end

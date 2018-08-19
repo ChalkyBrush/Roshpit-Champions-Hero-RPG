@@ -54,7 +54,7 @@ function begin_drop(event)
 	caster.holy_lift_velocty = 0
 	--caster:SetOrigin(ability.blink_position)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_holy_blink_drop", nil)
-	rune_c_c(caster, ability)
+	rune_e_3(caster, ability)
 end
 
 function drop_think(keys)
@@ -121,7 +121,7 @@ function drop_end(keys)
 			caster:SetOrigin(newLoc)
 		end
 	end
-	rune_c_c(caster, ability)
+	rune_e_3(caster, ability)
 	
 end
 
@@ -154,7 +154,7 @@ function slide_end(keys)
 	local location = caster:GetAbsOrigin()
 	local ability = keys.ability
 	local newLoc = GetGroundPosition(location, caster)
-	rune_d_c(caster, ability)
+	rune_e_4(caster, ability)
 	caster:SetOrigin(newLoc)
 	FindClearSpaceForUnit(caster, newLoc, true)
   	Timers:CreateTimer(0.5, -- Start this timer 10 game-time seconds later
@@ -165,11 +165,11 @@ function slide_end(keys)
 	
 end
 
-function rune_c_c(caster, ability)
+function rune_e_3(caster, ability)
   local runeUnit = caster.runeUnit3
-  local runeAbility = runeUnit:FindAbilityByName("paladin_rune_c_c")
+  local runeAbility = runeUnit:FindAbilityByName("paladin_rune_e_3")
   local abilityLevel = runeAbility:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_c")
+  local bonusLevel = Runes:GetTotalBonus(runeUnit, "e_3")
   local totalLevel = abilityLevel + bonusLevel
   if totalLevel > 0 then
   	local position = caster:GetAbsOrigin()
@@ -207,7 +207,7 @@ function rune_c_c(caster, ability)
   end
 end
 
-function paladin_rune_c_c_strike(event)
+function paladin_rune_e_3_strike(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
@@ -215,17 +215,17 @@ function paladin_rune_c_c_strike(event)
 	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
 end
 
-function rune_d_c(caster, ability)
-	local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "paladin")
+function rune_e_4(caster, ability)
+	local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "paladin")
 	if not ability.projectileDamage then
 		ability.projectileDamage = 0
 	end
 	if d_c_level > 0 then
 		local position = caster:GetAbsOrigin()
-		local runeAbility = caster.runeUnit4:FindAbilityByName("paladin_rune_d_c")
+		local runeAbility = caster.runeUnit4:FindAbilityByName("paladin_rune_e_4")
 		runeAbility.paladin = caster
 		runeAbility.projectileDamage = ability.projectileDamage
-		runeAbility.d_c_level = d_c_level
+		runeAbility.e_4_level = d_c_level
 		local particleName = "particles/econ/items/enigma/enigma_world_chasm/paladin_d_c_ring_spiral.vpcf"
 		  local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN, caster )
 		  ParticleManager:SetParticleControl( particle1, 0, caster:GetAbsOrigin()+Vector(0,0,50) )
@@ -284,13 +284,13 @@ function d_c_projectile_hit(event)
 	local caster = ability.paladin
 	local target = event.target
 	if target:GetTeamNumber() == caster:GetTeamNumber() then
-		local healAmount = math.floor(ability.projectileDamage * 0.1 * ability.d_c_level)
+		local healAmount = math.floor(ability.projectileDamage * 0.1 * ability.e_4_level)
 		
 		Filters:ApplyHeal(caster, target, healAmount, true)
 		PopupHealing(target, healAmount)
 	else
 		print('d_c_projectile damage')
-		local damage = ability.projectileDamage * 0.5 * ability.d_c_level
+		local damage = ability.projectileDamage * 0.5 * ability.e_4_level
 		print(damage)
 		ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
 	end

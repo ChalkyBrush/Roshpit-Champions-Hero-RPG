@@ -2,7 +2,7 @@ function lightning_attack_start(event)
     local caster = event.caster
     local ability = event.ability
     Filters:CastSkillArguments(1, caster)
-    caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "voltex")
+    caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "voltex")
     local buffDuration = ability:GetSpecialValueFor("duration")
     if caster:HasModifier("modifier_voltex_glyph_5_a") then
         buffDuration = buffDuration + 3
@@ -75,48 +75,48 @@ function LightningAttack( keys )
             end)    
         end
         if not caster:IsIllusion() then    
-            if caster.d_a_level then
-                damage = damage + attacker:GetAverageTrueAttackDamage(attacker)*0.15*caster.d_a_level
+            if caster.q_4_level then
+                damage = damage + attacker:GetAverageTrueAttackDamage(attacker)*0.15*caster.q_4_level
             end
             Filters:TakeArgumentsAndApplyDamage(unit, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
         else
-            if caster.hero.d_a_level then
-                damage = damage + attacker:GetAverageTrueAttackDamage(attacker)*0.15*caster.hero.d_a_level
+            if caster.hero.q_4_level then
+                damage = damage + attacker:GetAverageTrueAttackDamage(attacker)*0.15*caster.hero.q_4_level
             end
             Filters:TakeArgumentsAndApplyDamage(unit, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
         end
         targets_shocked = targets_shocked + 1
         if not caster:IsIllusion() then
-            if caster.c_a_level then
-                if caster.c_a_level > 0 then
-                    caster.c_a_ability:ApplyDataDrivenModifier(caster.c_a_runeUnit, unit, "modifier_voltex_rune_c_a", {duration = 6})
-                    additional_stacks = caster.c_a_level
-                    local current_stack = unit:GetModifierStackCount( "modifier_voltex_rune_c_a", caster.c_a_ability )
+            if caster.q_3_level then
+                if caster.q_3_level > 0 then
+                    caster.q_3_ability:ApplyDataDrivenModifier(caster.q_3_runeUnit, unit, "modifier_voltex_rune_q_3", {duration = 6})
+                    additional_stacks = caster.q_3_level
+                    local current_stack = unit:GetModifierStackCount( "modifier_voltex_rune_q_3", caster.q_3_ability )
                     local stacks = current_stack+additional_stacks
                     if stacks > 2000 then
                         stacks = 2000
                     end
-                    unit:SetModifierStackCount( "modifier_voltex_rune_c_a", caster.c_a_ability, stacks ) 
+                    unit:SetModifierStackCount( "modifier_voltex_rune_q_3", caster.q_3_ability, stacks ) 
                 end
             end
         else
-            if caster.hero.c_a_level then
-                if caster.hero.c_a_level > 0 then
-                    caster.hero.c_a_ability:ApplyDataDrivenModifier(caster.hero.c_a_runeUnit, unit, "modifier_voltex_rune_c_a", {duration = 6})
-                    additional_stacks = caster.hero.c_a_level
-                    local current_stack = unit:GetModifierStackCount( "modifier_voltex_rune_c_a", caster.hero.c_a_ability )
+            if caster.hero.q_3_level then
+                if caster.hero.q_3_level > 0 then
+                    caster.hero.q_3_ability:ApplyDataDrivenModifier(caster.hero.q_3_runeUnit, unit, "modifier_voltex_rune_q_3", {duration = 6})
+                    additional_stacks = caster.hero.q_3_level
+                    local current_stack = unit:GetModifierStackCount( "modifier_voltex_rune_q_3", caster.hero.q_3_ability )
                     local stacks = current_stack+additional_stacks
                     if stacks > 2000 then
                         stacks = 2000
                     end
-                    unit:SetModifierStackCount( "modifier_voltex_rune_c_a", caster.hero.c_a_ability, stacks ) 
+                    unit:SetModifierStackCount( "modifier_voltex_rune_q_3", caster.hero.q_3_ability, stacks ) 
                 end
             end
         end
     end
 end
 
-function rune_c_a_strike(attacker, ability, totalLevel, target)
+function rune_q_3_strike(attacker, ability, totalLevel, target)
 
     local particleName = "particles/items_fx/chain_lightning.vpcf"
     local radius = 300 + totalLevel*40

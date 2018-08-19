@@ -11,7 +11,7 @@ function penance_start(event)
 		source = caster
 	end
 	if ability:GetAbilityName() == "paladin_penance" then
-		ability.d_b_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
+		ability.w_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
 		dummyAbility = caster.InventoryUnit:AddAbility("paladin_penance_dummy")
 		dummyAbility.creationTime = GameRules:GetGameTime()
 		print("---------")
@@ -31,7 +31,7 @@ function penance_start(event)
 		end
 		print(ability.projectileCount)
 		dummyAbility:SetLevel(ability:GetLevel())
-		dummyAbility.penanceProcs = Runes:Procs(ability.d_b_level, 10, 1)
+		dummyAbility.penanceProcs = Runes:Procs(ability.w_4_level, 10, 1)
 	else
 		dummyAbility = ability
 		dummyAbility.creationTime = GameRules:GetGameTime()
@@ -60,16 +60,16 @@ function penance_start(event)
 	projectile = ProjectileManager:CreateTrackingProjectile(info)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin()+RandomVector(RandomInt(1,400)), "Paladin.PenanceLaunch", caster)
 	print(ability.projectileCount)
-	ability.a_b_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
-	ability.b_b_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
-	ability.c_b_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+	ability.w_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
+	ability.w_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
+	ability.w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
 	
-	if ability.a_b_level > 0 then
+	if ability.w_1_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_paladin_a_b_damage_growth_visible", {duration = 4})
 		local newStacks = caster:GetModifierStackCount("modifier_paladin_a_b_damage_growth_visible", caster) + 1
 		-- caster:SetModifierStackCount("modifier_paladin_a_b_damage_growth_visible", caster, newStacks)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_paladin_a_b_damage_growth_invisible", {duration = 4})
-		caster:SetModifierStackCount("modifier_paladin_a_b_damage_growth_invisible", caster, ability.a_b_level)
+		caster:SetModifierStackCount("modifier_paladin_a_b_damage_growth_invisible", caster, ability.w_1_level)
 	end
 	if castArgs then
 		if ability:GetAbilityName() == "paladin_penance" then
@@ -82,18 +82,18 @@ function passive_think(event)
 	local caster = event.caster
 	local ability = event.ability
 
-	ability.c_b_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
-	if ability.c_b_level > 0 then
+	ability.w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+	if ability.w_3_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_paladin_c_b_armor", {})
-		caster:SetModifierStackCount("modifier_paladin_c_b_armor", caster, ability.c_b_level)
+		caster:SetModifierStackCount("modifier_paladin_c_b_armor", caster, ability.w_3_level)
 	else
 		caster:RemoveModifierByName("modifier_paladin_c_b_armor")
 	end
-	if not ability.d_b_level then
-		ability.d_b_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
+	if not ability.w_4_level then
+		ability.w_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
 	end
-	if ability.d_b_level > 0 then
-		local stacks = caster:GetPhysicalArmorValue()*ability.d_b_level*1.0
+	if ability.w_4_level > 0 then
+		local stacks = caster:GetPhysicalArmorValue()*ability.w_4_level*1.0
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_paladin_arcana_armor", {})
 		caster:SetModifierStackCount("modifier_paladin_arcana_armor", caster, stacks)
 	else
@@ -168,8 +168,8 @@ function penance_impact(event)
 		ParticleManager:DestroyParticle( pfx, false )
 	end)	
 	local damage = event.damage
-	if ability.c_b_level > 0 then
-		damage = damage + caster:GetPhysicalArmorValue()*6*ability.c_b_level
+	if ability.w_3_level > 0 then
+		damage = damage + caster:GetPhysicalArmorValue()*6*ability.w_3_level
 	end
 	local heal_percent = event.heal_percentage
 	if target:GetTeamNumber() == caster:GetTeamNumber() then
@@ -177,7 +177,7 @@ function penance_impact(event)
 		Filters:ApplyHeal(caster, target, healAmount, true)
 		--ally effect
 	else
-		if ability.a_b_level > 0 then
+		if ability.w_1_level > 0 then
 			print("ATTACK??")
 			if not target.dummy then
 				caster:AddNewModifier( caster, ability, "modifier_paladin_penance_attack_lua", {} )
@@ -207,16 +207,12 @@ function penance_impact(event)
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_HOLY, RPC_ELEMENT_GHOST)
 		end
 	end 
-	if ability.b_b_level > 0 then
+	if ability.w_2_level > 0 then
 		local luck = RandomInt(1,4)
 		luck = 1
 		if luck == 1 then
 	  		local radius = 550
-	  		local damage = ability.b_b_level*30*caster:GetIntellect() + caster:GetAverageTrueAttackDamage(caster)*0.3*ability.b_b_level
-
-			-- local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "paladin")
-			-- damage = damage + 0.0007*caster:GetIntellect()/10*d_b_level*damage
-			-- damage = damage + 0.0004*(caster:GetIntellect()+caster:GetStrength()+caster:GetAgility())/10*d_b_level*damage
+	  		local damage = ability.w_2_level*30*caster:GetIntellect() + caster:GetAverageTrueAttackDamage(caster)*0.3*ability.w_2_level
 			damage = math.floor(damage)
 
 	  		EmitSoundOn("Paladin.HolyNova", caster)

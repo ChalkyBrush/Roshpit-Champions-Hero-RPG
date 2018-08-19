@@ -94,7 +94,7 @@ function tomahawk_attack_land(event)
 	end
 	local b_d_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
 	if b_d_level > 0 then
-		ability.b_d_level = b_d_level
+		ability.r_2_level = b_d_level
 		if not target:HasModifier("modifier_tomahawk_ice_effect") then
 			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_ancient_apparition/ancient_apparition_chilling_touch.vpcf", target, 2)
 			
@@ -103,7 +103,7 @@ function tomahawk_attack_land(event)
 	end
 	local c_d_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
 	if c_d_level > 0 then
-		ability.c_d_level = c_d_level
+		ability.r_3_level = c_d_level
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_tomahawk_tectonic_pressure", {duration = 15})
 		local newStacks = caster:GetModifierStackCount("modifier_tomahawk_tectonic_pressure", caster) + 1
 		caster:SetModifierStackCount("modifier_tomahawk_tectonic_pressure", caster, newStacks)
@@ -114,7 +114,7 @@ function tomahawk_ice_dot_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	local damage = (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect())*2*ability.b_d_level
+	local damage = (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect())*2*ability.r_2_level
 	local threshold = 0.3
 	if target.bossStatus then
 		threshold = 0.15
@@ -199,7 +199,7 @@ function tectonic_take_damage(event)
 					function()
 					ParticleManager:DestroyParticle( particle2, false )
 				end)
-				local damage = ability.c_d_level*caster:GetMaxHealth()*0.1
+				local damage = ability.r_3_level*caster:GetMaxHealth()*0.1
 				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 				if #enemies > 0 then	
 					for _,enemy in pairs(enemies) do
@@ -216,7 +216,7 @@ function pressure_fireball_impact(event)
 	local ability = event.ability
 	local target = event.target
 
-	local damage = ability.c_d_level*caster:GetMaxHealth()*0.1
+	local damage = ability.r_3_level*caster:GetMaxHealth()*0.1
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 

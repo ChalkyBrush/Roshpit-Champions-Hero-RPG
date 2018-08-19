@@ -23,21 +23,21 @@ function shadow_walk_start(event)
 	caster:AddNewModifier( caster, nil, 'modifier_movespeed_cap_shadow_walk_'..abilityLevel, {} )
 	
 
-	local rune_a_c_level = Runes:GetTotalRuneLevel(caster, 1, "a_c", "chernobog")
-	ability.b_c_level = Runes:GetTotalRuneLevel(caster, 2, "b_c", "chernobog")
-	ability.c_c_level = Runes:GetTotalRuneLevel(caster, 3, "c_c", "chernobog")
-	if rune_a_c_level > 0 then
+	local rune_e_1_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "chernobog")
+	ability.e_2_level = Runes:GetTotalRuneLevel(caster, 2, "e_2", "chernobog")
+	ability.e_3_level = Runes:GetTotalRuneLevel(caster, 3, "e_3", "chernobog")
+	if rune_e_1_level > 0 then
 		local a_c_duration = 3.5
 		if caster:HasModifier("modifier_chernobog_glyph_1_1") then
 			a_c_duration = a_c_duration + 1
 		end
 		a_c_duration = Filters:GetAdjustedBuffDuration(caster, a_c_duration, false)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_rune_a_c", {})
-		caster:SetModifierStackCount("modifier_chernobog_rune_a_c", caster, rune_a_c_level)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_rune_e_1", {})
+		caster:SetModifierStackCount("modifier_chernobog_rune_e_1", caster, rune_e_1_level)
 	end
-    if ability.b_c_level > 0 then
-    	ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_rune_b_c", {})
-    	caster:SetModifierStackCount("modifier_chernobog_rune_b_c", caster, ability.b_c_level)
+    if ability.e_2_level > 0 then
+    	ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_rune_e_2", {})
+    	caster:SetModifierStackCount("modifier_chernobog_rune_e_2", caster, ability.e_2_level)
     end
     if caster:HasModifier("modifier_chernobog_glyph_2_1") then
     	ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_night_vision", {})
@@ -62,15 +62,15 @@ function shadow_walk_end(event)
 	caster:RemoveModifierByName("modifier_movespeed_cap_shadow_walk_5")
 	caster:RemoveModifierByName("modifier_movespeed_cap_shadow_walk_6")
 	caster:RemoveModifierByName("modifier_movespeed_cap_shadow_walk_7")
-	caster:RemoveModifierByName("modifier_chernobog_rune_a_c")
-	caster:RemoveModifierByName("modifier_chernobog_rune_b_c")
+	caster:RemoveModifierByName("modifier_chernobog_rune_e_1")
+	caster:RemoveModifierByName("modifier_chernobog_rune_e_2")
 	caster:RemoveModifierByName("modifier_chernobog_night_vision")
-	caster:RemoveModifierByName("modifier_chernobog_rune_a_c")
-	local rune_d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "chernobog")
-	if rune_d_c_level > 0 then
-		local d_c_duration = 0.7 + 0.2*rune_d_c_level
+	caster:RemoveModifierByName("modifier_chernobog_rune_e_1")
+	local rune_e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "chernobog")
+	if rune_e_4_level > 0 then
+		local d_c_duration = 0.7 + 0.2*rune_e_4_level
 		d_c_duration = Filters:GetAdjustedBuffDuration(caster, d_c_duration, false)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_rune_d_c", {duration = d_c_duration})
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_rune_e_4", {duration = d_c_duration})
 	end
 	Filters:ReduceECooldown(caster, ability, 5, true)
 
@@ -93,12 +93,12 @@ function shadow_walk_think(event)
 	end
 end
 
-function rune_b_c_illusion(event)
+function rune_e_2_illusion(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
 	print(b_c_illusion)
-	local damage = caster:GetAverageTrueAttackDamage(caster)*ability.b_c_level*0.5
+	local damage = caster:GetAverageTrueAttackDamage(caster)*ability.e_2_level*0.5
 	CustomAbilities:QuickAttachParticle("particles/roshpit/chernobog/nights_procession_illusion.vpcf", target, 1.4)
 	Timers:CreateTimer(0.5, function()
 		EmitSoundOn("Chernobog.BC.Hit", target)

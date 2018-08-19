@@ -11,11 +11,11 @@ function HideCaster( event )
     --     ParticleManager:SetParticleControl( pfx, 0, position )
     local newPosition = target
     FindClearSpaceForUnit(event.caster, newPosition, false)
-    rune_a_c(event.caster, event.ability)
-    rune_c_c(event.caster, event.ability)
+    rune_e_1(event.caster, event.ability)
+    rune_e_3(event.caster, event.ability)
     --WATER ELEMENTAL
     if not caster:HasModifier("modifier_sorceress_immortal_ice_avatar") and not caster:HasModifier("modifier_sorceress_immortal_fire_avatar") then
-      rune_b_c(event.caster, newPosition, event.ability)
+      rune_e_2(event.caster, newPosition, event.ability)
     end
     Filters:CastSkillArguments(3, event.caster)
     ProjectileManager:ProjectileDodge(event.caster)
@@ -27,7 +27,7 @@ function ShowCaster( event )
     event.caster:SetMoveCapability(DOTA_UNIT_CAP_MOVE_GROUND)
 end
 
-function rune_a_c(caster, ability)
+function rune_e_1(caster, ability)
   local totalLevel = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
   if totalLevel > 0 then
     local current_stack = caster:GetModifierStackCount( "modifier_flicker_charges", ability )
@@ -43,11 +43,11 @@ function rune_a_c(caster, ability)
   end   
 end
 
-function rune_b_c(caster, origin, ability)
+function rune_e_2(caster, origin, ability)
   local runeUnit = caster.runeUnit2
-  local runeAbility = runeUnit:FindAbilityByName("sorceress_rune_b_c")
+  local runeAbility = runeUnit:FindAbilityByName("sorceress_rune_e_2")
   local abilityLevel = runeAbility:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_c")
+  local bonusLevel = Runes:GetTotalBonus(runeUnit, "e_2")
   local totalLevel = abilityLevel + bonusLevel
   if totalLevel > 0 then
     if not caster.waterElemental then
@@ -79,7 +79,7 @@ end
 
 
 
-function rune_c_c(caster, ability)
+function rune_e_3(caster, ability)
   local totalLevel = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
   if totalLevel > 0 then
     local lucky = RandomInt(1, 2)
@@ -89,7 +89,7 @@ function rune_c_c(caster, ability)
         local pyroblast = caster:FindAbilityByName("pyroblast")
         local c_c_amp = totalLevel*0.05
         if pyroblast then
-          pyroblast.c_c_amp = c_c_amp
+          pyroblast.e_3_amp = c_c_amp
         end
         local clearCastDuration = Filters:GetAdjustedBuffDuration(caster, 3, false)
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_clear_cast", {duration = clearCastDuration})
@@ -99,7 +99,7 @@ function rune_c_c(caster, ability)
         end
         local ice_tornado = caster:FindAbilityByName("sorceress_arcana_ice_tornado")
         if ice_tornado then
-            ice_tornado.c_c_amp = c_c_amp
+            ice_tornado.e_3_amp = c_c_amp
             ice_tornado:EndCooldown()
         end
     end
@@ -110,7 +110,7 @@ function clearcast_end(event)
   local caster = event.caster
   local ice_tornado = caster:FindAbilityByName("sorceress_arcana_ice_tornado")
   if ice_tornado then
-      ice_tornado.c_c_amp = 0
+      ice_tornado.e_3_amp = 0
   end
 end
 
@@ -141,7 +141,7 @@ function summon_water_elemental(caster, origin, totalLevel, ability)
     local health = caster:GetMaxHealth()
     local baseDamage = 300+totalLevel*500
 
-    local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "sorceress")
+    local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "sorceress")
     baseDamage = baseDamage + 0.008*(caster:GetAverageTrueAttackDamage(caster))/100*d_c_level*baseDamage
     baseDamage = math.min(baseDamage, 2^30)
     Timers:CreateTimer(0.05, function()
@@ -153,7 +153,7 @@ function summon_water_elemental(caster, origin, totalLevel, ability)
       caster.waterElemental:SetBaseDamageMin(baseDamage)
       caster.waterElemental:SetBaseDamageMax(baseDamage)
       caster.waterElemental:SetPhysicalArmorBaseValue(caster:GetPhysicalArmorValue())
-      caster.waterElemental.d_c_level = d_c_level
+      caster.waterElemental.e_4_level = d_c_level
     end)
     caster:ReduceMana(totalLevel*100 + 100)
   
@@ -191,9 +191,9 @@ function water_elemental_attack(event)
         ability:ApplyDataDrivenModifier(attacker, enemy, "modifier_elemental_slow", {duration = slowDuration})
       end
     end 
-    if attacker.d_c_level > 0 then
+    if attacker.e_4_level > 0 then
       local luck = RandomInt(1, 100)
-      if luck < attacker.d_c_level then
+      if luck < attacker.e_4_level then
         elemental_projectile(attacker, target, ability)
       end
     end

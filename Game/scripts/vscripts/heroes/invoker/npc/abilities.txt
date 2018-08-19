@@ -365,7 +365,7 @@
 					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
-			"modifier_conjuror_rune_c_b_effect"
+			"modifier_conjuror_rune_w_3_effect"
 			{
 				"Passive"			"1"
 				"IsHidden"			"1"
@@ -543,7 +543,7 @@
 					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "420"
 				}
 			}
-			"modifier_conjuror_rune_c_c_range"
+			"modifier_conjuror_rune_e_3_range"
 			{
 				"IsHidden"	"1"
 				"Properties"
@@ -884,7 +884,7 @@
 					}
 				}
 			}
-			"modifier_conjuror_rune_c_d"
+			"modifier_conjuror_rune_r_3"
 			{
 				"IsBuff"		"1"
 				"IsHidden"		"0"
@@ -898,7 +898,7 @@
 					}
 				}
 			}
-			"modifier_conjuror_rune_c_d_lifesteal_effect"
+			"modifier_conjuror_rune_r_3_lifesteal_effect"
 			{
 				"IsHidden"		"1"
 				"IsDebuff"		"0"

@@ -1,6 +1,6 @@
 require('heroes/crystal_maiden/init')
 local function summon(caster, ability, origin)
-    local runesCount = caster.b_c_level
+    local runesCount = caster.e_2_level
     if runesCount == nil or runesCount <= 0 then
         return
     end
@@ -82,12 +82,12 @@ function attack(event)
     end)
     -- EmitSoundOn("Hero_Ancient_Apparition.IceBlast.Target", caster)
     local damage = attacker:GetAverageTrueAttackDamage(attacker)
-    if creator.d_c_level then
-        damage = damage * (1 + E4_AMPLIFY_PERCENT/100 * creator:GetAverageTrueAttackDamage(creator) * creator.d_c_level)
+    if creator.e_4_level then
+        damage = damage * (1 + E4_AMPLIFY_PERCENT/100 * creator:GetAverageTrueAttackDamage(creator) * creator.e_4_level)
     end
     local frozenDamage = damage
-    if creator.c_c_level > 0 then
-        frozenDamage = damage * (1 + E3_AMPLIFY_PERCENT/100 * creator.c_c_level)
+    if creator.e_3_level > 0 then
+        frozenDamage = damage * (1 + E3_AMPLIFY_PERCENT/100 * creator.e_3_level)
     end
 
     local attacksFreeze = false
@@ -114,9 +114,9 @@ function attack(event)
             ability:ApplyDataDrivenModifier(attacker, enemy, "modifier_elemental_slow", {duration = slowDuration})
         end
     end
-    if creator.d_c_level > 0 then
+    if creator.e_4_level > 0 then
         local luck = RandomInt(1, 100)
-        if luck < creator.d_c_level then
+        if luck < creator.e_4_level then
             StartAnimation(attacker, {duration=0.6, activity=ACT_DOTA_ATTACK, rate=1.8})
             Timers:CreateTimer(0.24, function()
                 Filters:PerformAttackSpecial(attacker, target, true, true, true, false, true, false, false)

@@ -10,8 +10,8 @@ function burning_charge_start(event)
 	local warpDuration = 3.0
 	ability.fallVelocity = 1
 	ability.forwardVelocity = 42
-	local c_a_level = caster:GetRuneValue("q", 3)
-	local max_distance = 500 + c_a_level*12
+	local q_3_level = caster:GetRuneValue("q", 3)
+	local max_distance = 500 + q_3_level*12
 	ability.max_distance = max_distance
 	ability.distance_travelled = 0
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_dinath_scorch_charge_flying", {duration = warpDuration})

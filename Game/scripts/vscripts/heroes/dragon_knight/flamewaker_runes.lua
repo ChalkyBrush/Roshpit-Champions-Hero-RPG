@@ -3,19 +3,19 @@ function a_a_think(event)
 	local hero = caster.hero
 	local ability = event.ability
 	if hero:GetHealth() <= hero:GetMaxHealth()*1.1 then
-		if hero.runeUnit:HasAbility("flamewaker_rune_a_a") then
-			local a_a_level = Runes:GetTotalRuneLevel(hero, 1, "a_a", "flamewaker")
-			if a_a_level > 0 then
-				ability:ApplyDataDrivenModifier(caster, hero, "modifier_flamewaker_rune_a_a", {})
-				hero:SetModifierStackCount("modifier_flamewaker_rune_a_a", ability, a_a_level )
+		if hero.runeUnit:HasAbility("flamewaker_rune_q_1") then
+			local q_1_level = Runes:GetTotalRuneLevel(hero, 1, "q_1", "flamewaker")
+			if q_1_level > 0 then
+				ability:ApplyDataDrivenModifier(caster, hero, "modifier_flamewaker_rune_q_1", {})
+				hero:SetModifierStackCount("modifier_flamewaker_rune_q_1", ability, q_1_level )
 			else
-				hero:RemoveModifierByName("modifier_flamewaker_rune_a_a")
+				hero:RemoveModifierByName("modifier_flamewaker_rune_q_1")
 			end
 		else
-			hero:RemoveModifierByName("modifier_flamewaker_rune_a_a")
+			hero:RemoveModifierByName("modifier_flamewaker_rune_q_1")
 		end
 	else
-		hero:RemoveModifierByName("modifier_flamewaker_rune_a_a")
+		hero:RemoveModifierByName("modifier_flamewaker_rune_q_1")
 	end
 end
 
@@ -28,9 +28,9 @@ function a_b(event)
 	local ability = event.ability
 	local damage = event.damage
 	local target = event.target
-	target:RemoveModifierByName("modifier_flamewaker_rune_a_b_burn")
+	target:RemoveModifierByName("modifier_flamewaker_rune_w_1_burn")
 	local abilityLevel = ability:GetLevel()
-	local bonusLevels = Runes:GetTotalBonus(caster, "a_b")
+	local bonusLevels = Runes:GetTotalBonus(caster, "w_1")
 	local totalLevel = bonusLevels + abilityLevel
 	damage = damage * totalLevel + 50
 
@@ -44,14 +44,14 @@ function a_b(event)
 	ApplyDamage(damageTable)	
 end
 
-function rune_b_a(event)
+function rune_q_2(event)
 	local caster = event.caster
 	local runeUnit = caster.runeUnit2
-	local ability = runeUnit:FindAbilityByName("flamewaker_rune_b_a")
-	if ability.b_a_level > 0 then
+	local ability = runeUnit:FindAbilityByName("flamewaker_rune_q_2")
+	if ability.q_2_level > 0 then
 		local duration = Filters:GetAdjustedBuffDuration(caster, 5, false)
-		ability.heal = ability.heal + ability.b_a_level*40
-		ability:ApplyDataDrivenModifier(runeUnit, caster, "flamewaker_rune_b_a_heal_effect", {duration = duration})
+		ability.heal = ability.heal + ability.q_2_level*40
+		ability:ApplyDataDrivenModifier(runeUnit, caster, "flamewaker_rune_q_2_heal_effect", {duration = duration})
 	end
 
 end
@@ -61,31 +61,27 @@ function b_a_modifier_think(event)
 	local ability = event.ability
 	local amount = ability.heal
 	Filters:ApplyHeal(caster, caster, amount, true)
-	local seismicFlare = caster:FindAbilityByName("fire_blast")
-	if seismicFlare.d_a_level > 0 then
+	local seismicFlare = caster:FindAbilityByName("seismic_flare")
+	if seismicFlare.q_4_level > 0 then
 		local duration = Filters:GetAdjustedBuffDuration(caster, 4, false)
-		seismicFlare.d_a_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_flamewaker_rune_d_a", {duration = duration})
-	    local current_stack = caster:GetModifierStackCount( "modifier_flamewaker_rune_d_a", seismicFlare.d_a_ability )
-	    local stackBonus = math.floor(amount*0.05*seismicFlare.d_a_level/10)
-	    caster:SetModifierStackCount("modifier_flamewaker_rune_d_a", seismicFlare.d_a_ability, current_stack+stackBonus )
+		seismicFlare.q_4_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_flamewaker_rune_q_4", {duration = duration})
+	    local current_stack = caster:GetModifierStackCount( "modifier_flamewaker_rune_q_4", seismicFlare.q_4_ability )
+	    local stackBonus = math.floor(amount*0.05*seismicFlare.q_4_level/10)
+	    caster:SetModifierStackCount("modifier_flamewaker_rune_q_4", seismicFlare.q_4_ability, current_stack+stackBonus )
 	end
 end
 
-function b_d(event)
+function flamewaker_r_2(event)
 
 	local caster = event.caster
 	local ability = event.ability
 	local heroName = caster:GetName()
 	if heroName == "npc_dota_hero_dragon_knight" then
-		local runeUnit = caster.runeUnit2
-		local runeAbility = runeUnit:FindAbilityByName("flamewaker_rune_b_d")
-		local abilityLevel = runeAbility:GetLevel()
-		local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_d")
-		local totalLevel = caster:GetRuneValue("r",2)
+		local r_2_level = caster:GetRuneValue("r",2)
 		local fv = caster:GetForwardVector()
-		ability.b_d_level = totalLevel
-		ability.b_d_damage = ability.b_d_level*2000 + 2000
-		if totalLevel > 0 then
+		ability.r_2_level = r_2_level
+		ability.r_2_damage = ability.r_2_level*2000 + 2000
+		if r_2_level > 0 then
 			EmitSoundOn("Flamewaker.SecondHeartbeat", caster)
 			for i = -24, 24, 1 do
 				Timers:CreateTimer(0.05*(i+24), function()
@@ -93,14 +89,14 @@ function b_d(event)
 						EmitSoundOn("Hero_Batrider.Firefly.Cast", caster)
 					end
 					local rotatedVector = WallPhysics:rotateVector(fv, math.pi/6*i)
-					create_b_d_flame(caster:GetAbsOrigin(), caster, rotatedVector, totalLevel, ability)
+					flamewaker_r_2_create_flame(caster:GetAbsOrigin(), caster, rotatedVector, r_2_level, ability)
 				end)
 			end
 		end
 	end
 end
 
-function create_b_d_flame(origin, caster, fv, totalLevel, ability)
+function flamewaker_r_2_create_flame(origin, caster, fv, totalLevel, ability)
 	local start_radius = 120
 	local end_radius = 200
 	local range = 540
@@ -128,52 +124,25 @@ function create_b_d_flame(origin, caster, fv, totalLevel, ability)
 	projectile = ProjectileManager:CreateLinearProjectile(info)
 end
 
-function b_d_impact(event)
+function flamewaker_r_2_impact(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local damage = ability.b_d_damage
+	local damage = ability.r_2_damage
     if caster:HasModifier("modifier_flamewaker_glyph_5_1") then
     	damage = damage*2.5
     end
     Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 
--- function b_d_create_replica(origin, caster, cataclysmLevel, runeUnit, ability)
--- 	local randomVector = origin + RandomVector(RandomInt(500, 700))
---   	local dummy = CreateUnitByName("flamewaker_copy", randomVector, true, caster, caster, caster:GetTeamNumber())
---     dummy.owner = caster:GetPlayerOwnerID()
-
---   	dummy:AddAbility("example_ability_two")
---   	dummy:AddAbility("replica")
---   	dummy:FindAbilityByName("replica"):SetLevel(1)
---   	ability:ApplyDataDrivenModifier(runeUnit, dummy, "modifier_flamewaker_rune_b_d_effect", {})
-  	
-
---   	local blast = dummy:FindAbilityByName("example_ability_two")
---   	blast:SetLevel(cataclysmLevel)
--- 	local order =
--- 	{
--- 		UnitIndex = dummy:GetEntityIndex(),
--- 		OrderType =	DOTA_UNIT_ORDER_CAST_NO_TARGET,
--- 		AbilityIndex = blast:GetEntityIndex(),
--- 		Queue = true
--- 	}
--- 	ExecuteOrderFromTable(order)
--- 	  Timers:CreateTimer(3, -- Start this timer 10 game-time seconds later
--- 	  function()
---       UTIL_Remove(dummy)
--- 	  end)	
--- end
-
 function a_d(event)
 	local caster = event.caster
 	local heroName = caster:GetName()
 	if heroName == "npc_dota_hero_dragon_knight" then
 		local runeUnit = caster.runeUnit
-		local ability = runeUnit:FindAbilityByName("flamewaker_rune_a_d")
+		local ability = runeUnit:FindAbilityByName("flamewaker_rune_r_1")
 		local abilityLevel = ability:GetLevel()
-		local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_d")
+		local bonusLevel = Runes:GetTotalBonus(runeUnit, "r_1")
 		local totalLevel = abilityLevel + bonusLevel
 		if totalLevel > 0 then
 			local origin = caster:GetAbsOrigin()
@@ -184,12 +153,12 @@ function a_d(event)
 		  	dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
 		  	local blast = nil
 		  	if totalLevel <= 20 then
-		  		dummy:AddAbility("flamewaker_rune_a_d_meteor")
-			  	blast = dummy:FindAbilityByName("flamewaker_rune_a_d_meteor")
+		  		dummy:AddAbility("flamewaker_rune_r_1_meteor")
+			  	blast = dummy:FindAbilityByName("flamewaker_rune_r_1_meteor")
 			  	blast:SetLevel(abilityLevel)
 		  	else
-		  		dummy:AddAbility("flamewaker_rune_a_d_meteor_two")
-			  	blast = dummy:FindAbilityByName("flamewaker_rune_a_d_meteor_two")
+		  		dummy:AddAbility("flamewaker_rune_r_1_meteor_two")
+			  	blast = dummy:FindAbilityByName("flamewaker_rune_r_1_meteor_two")
 			  	blast:SetLevel(abilityLevel%20)	
 		  	end
 		  	local targetPoint = origin+caster:GetForwardVector()*200
@@ -241,21 +210,21 @@ function a_d(event)
 	-- projectile = ProjectileManager:CreateLinearProjectile(info)
 end
 
-function rune_c_a_start(event)
+function rune_q_3_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local delay = event.duration
 	local runeUnit = caster.runeUnit3
-	local runeAbility = runeUnit:FindAbilityByName("flamewaker_rune_c_a")
+	local runeAbility = runeUnit:FindAbilityByName("flamewaker_rune_q_3")
 	local abilityLevel = runeAbility:GetLevel()
-	ability.c_a_totalLevel = caster:GetRuneValue("q",3)
-	if ability.c_a_totalLevel > 0 then
-		ability.tauntDuration = ability.c_a_totalLevel*0.15 + 2.0
+	ability.q_3_level = caster:GetRuneValue("q",3)
+	if ability.q_3_level > 0 then
+		ability.tauntDuration = ability.q_3_level*0.15 + 2.0
 		print(ability.tauntDuration)
 		ability.runeAbility = runeAbility
 		ability.runeUnit = runeUnit
-		runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "flamewaker_rune_c_a_buff", {duration = ability.tauntDuration})
-		caster:SetModifierStackCount( "flamewaker_rune_c_a_buff", runeAbility, ability.c_a_totalLevel )
+		runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "flamewaker_rune_q_3_buff", {duration = ability.tauntDuration})
+		caster:SetModifierStackCount( "flamewaker_rune_q_3_buff", runeAbility, ability.q_3_totalLevel )
 
 	  	local particleName = "particles/units/heroes/hero_axe/axe_beserkers_call_owner.vpcf"
 		local lightningBolt = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, attacker)
@@ -270,10 +239,10 @@ function rune_c_a_start(event)
 
 end
 
-function rune_c_a(event)
+function rune_q_3(event)
 	local ability = event.ability
-	if ability.c_a_totalLevel then
-		if ability.c_a_totalLevel > 0 then
+	if ability.q_3_totalLevel then
+		if ability.q_3_totalLevel > 0 then
 			local caster = event.caster
 			local stunDuration = event.duration
 			local tauntDuration = ability.tauntDuration
@@ -281,7 +250,7 @@ function rune_c_a(event)
 			  Timers:CreateTimer(stunDuration, -- Start this timer 10 game-time seconds later
 			  function()
 
-			ability.runeAbility:ApplyDataDrivenModifier(runeUnit, target, "flamewaker_rune_c_a_taunt", {duration = tauntDuration})
+			ability.runeAbility:ApplyDataDrivenModifier(runeUnit, target, "flamewaker_rune_q_3_taunt", {duration = tauntDuration})
 			target:SetForceAttackTarget(caster)
 			end)
 		end
@@ -293,23 +262,23 @@ function TauntEnd(event)
 	target:Stop()
 end
 
-function c_d(event)
+function flamewaker_r_3(event)
 
 	local caster = event.caster
 	local heroName = caster:GetName()
 	local ability = event.ability
 	if heroName == "npc_dota_hero_dragon_knight" then
 		-- local runeUnit = caster.runeUnit3
-		-- local ability = runeUnit:FindAbilityByName("flamewaker_rune_c_d")
+		-- local ability = runeUnit:FindAbilityByName("flamewaker_rune_r_3")
 		-- local abilityLevel = ability:GetLevel()
-		-- local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_d")
+		-- local bonusLevel = Runes:GetTotalBonus(runeUnit, "r_3")
 		-- local totalLevel = abilityLevel + bonusLevel
 
 		-- if totalLevel > 0 then
-		-- 	ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_flamewaker_rune_c_d", {duration = 6.0})
-		-- 	caster:SetModifierStackCount( "modifier_flamewaker_rune_c_d", ability, totalLevel )		
+		-- 	ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_flamewaker_rune_r_3", {duration = 6.0})
+		-- 	caster:SetModifierStackCount( "modifier_flamewaker_rune_r_3", ability, totalLevel )		
 		-- end
-		local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "flamewaker")
+		local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "flamewaker")
 		if c_d_level > 0 then
 			local pfx = ParticleManager:CreateParticle("particles/roshpit/flamewaker/flamewaker_r3.vpcf", PATTACH_CUSTOMORIGIN, caster)
 			ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
@@ -317,8 +286,8 @@ function c_d(event)
 				ParticleManager:DestroyParticle(pfx, false)
 			end)
 			local duration = Filters:GetAdjustedBuffDuration(caster, 12, false)
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_flamewaker_rune_c_d", {duration = duration})
-			caster:SetModifierStackCount("modifier_flamewaker_rune_c_d", caster, c_d_level)
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_flamewaker_rune_r_3", {duration = duration})
+			caster:SetModifierStackCount("modifier_flamewaker_rune_r_3", caster, c_d_level)
 		end
 	end
 end
@@ -326,10 +295,10 @@ end
 function flamewaker_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	ability.a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "flamewaker")
-	if ability.a_b_level > 0 then
+	ability.w_1_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "flamewaker")
+	if ability.w_1_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_flamewaker_rune_a_b", {})
-		caster:SetModifierStackCount( "modifier_flamewaker_rune_a_b", ability, ability.a_b_level )
+		caster:SetModifierStackCount( "modifier_flamewaker_rune_a_b", ability, ability.w_1_level )
 	else
 		caster:RemoveModifierByName("modifier_flamewaker_rune_a_b")
 	end
@@ -339,7 +308,7 @@ function a_b_attack(event)
 	local caster = event.attacker
 	local target = event.target
 	local ability = event.ability
-	local damage = caster:GetAverageTrueAttackDamage(caster)*ability.a_b_level*0.04
+	local damage = caster:GetAverageTrueAttackDamage(caster)*ability.w_1_level*0.04
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 420, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 	if #enemies > 0 then	
 		for _,enemy in pairs(enemies) do
@@ -361,11 +330,11 @@ function a_d_attack_land(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d", "flamewaker")
+	local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "flamewaker")
 	if a_d_level > 0 then
 		local luck = RandomInt(1,100)
 		if luck <= 15 then
-			if not target:IsNull() and not caster:HasModifier("modifier_flamewaker_a_d_crit_damage") and not caster:HasModifier("modifier_flamewaker_rune_d_b") then
+			if not target:IsNull() and not caster:HasModifier("modifier_flamewaker_a_d_crit_damage") and not caster:HasModifier("modifier_flamewaker_rune_w_4") then
 				StartAnimation(caster, {duration=0.1, activity=ACT_DOTA_TELEPORT_END, rate=2})
 				EmitSoundOn("Flamewaker.QuietShield", target)
 
@@ -411,6 +380,6 @@ end
 
 function flamewaker_passive_think(event)
 	local caster = event.caster
-	local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "flamewaker")
-	caster.d_d_level = d_d_level
+	local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "flamewaker")
+	caster.r_4_level = d_d_level
 end

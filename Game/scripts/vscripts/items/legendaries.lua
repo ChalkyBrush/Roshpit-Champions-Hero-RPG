@@ -16,28 +16,28 @@ function RPCItems:RollNeverlordRingProperty()
         value = RandomInt(15, 20)
     end
     if luck < 140 then
-        propertyName = "rune_a_a"
+        propertyName = "rune_q_1"
         tier = 1
     elseif luck < 240 then
-        propertyName = "rune_a_b"
+        propertyName = "rune_w_1"
         tier = 1
     elseif luck < 360 then
-        propertyName = "rune_a_c"
+        propertyName = "rune_e_1"
         tier = 1
     elseif luck < 485 then
-        propertyName = "rune_a_d"
+        propertyName = "rune_r_1"
         tier = 1
     elseif luck < 590 then
-        propertyName = "rune_b_a"
+        propertyName = "rune_q_2"
         tier = 2
     elseif luck < 695 then
-        propertyName = "rune_b_b"
+        propertyName = "rune_w_2"
         tier = 2
     elseif luck < 800 then
-        propertyName = "rune_b_c"
+        propertyName = "rune_e_2"
         tier = 2
     elseif luck < 910 then
-        propertyName = "rune_b_d"
+        propertyName = "rune_r_2"
         tier = 2
     end
     return tier, value, propertyName
@@ -144,16 +144,16 @@ function RPCItems:RollSlithicusRingProperty()
     local maxFactor = RPCItems:GetMaxFactor()
     local value = RPCItems:GetLogarithmicVarianceValue(math.ceil(maxFactor/3.5), 0, 0, 0, 0)
     if luck < 100 then
-        propertyName = "rune_a_a"
+        propertyName = "rune_q_1"
         tier = 1
     elseif luck < 200 then
-        propertyName = "rune_a_b"
+        propertyName = "rune_w_1"
         tier = 1
     elseif luck < 300 then
-        propertyName = "rune_a_c"
+        propertyName = "rune_e_1"
         tier = 1
     elseif luck < 405 then
-        propertyName = "rune_a_d"
+        propertyName = "rune_r_1"
         tier = 1
     end
     return value
@@ -373,28 +373,28 @@ function RPCItems:RollMagebaneRuneProperty()
         value = RandomInt(7, 10)
     end
     if luck < 140 then
-        propertyName = "rune_a_a"
+        propertyName = "rune_q_1"
         tier = 1
     elseif luck < 240 then
-        propertyName = "rune_a_b"
+        propertyName = "rune_w_1"
         tier = 1
     elseif luck < 360 then
-        propertyName = "rune_a_c"
+        propertyName = "rune_e_1"
         tier = 1
     elseif luck < 485 then
-        propertyName = "rune_a_d"
+        propertyName = "rune_r_1"
         tier = 1
     elseif luck < 590 then
-        propertyName = "rune_b_a"
+        propertyName = "rune_q_2"
         tier = 2
     elseif luck < 695 then
-        propertyName = "rune_b_b"
+        propertyName = "rune_w_2"
         tier = 2
     elseif luck < 800 then
-        propertyName = "rune_b_c"
+        propertyName = "rune_e_2"
         tier = 2
     elseif luck < 910 then
-        propertyName = "rune_b_d"
+        propertyName = "rune_r_2"
         tier = 2
     end
     -- print("VALUE".. value)
@@ -740,9 +740,9 @@ function RPCItems:RollSkulldiggerGloves(deathLocation)
         item.property2 = math.ceil(value*2.0)
         local luck = RandomInt(1, 2)
         if luck == 1 then
-            propertyName = "rune_a_a"
+            propertyName = "rune_q_1"
         elseif luck == 2 then
-            propertyName = "rune_b_a"
+            propertyName = "rune_q_2"
         end
         item.property2name = propertyName
         RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -1109,22 +1109,22 @@ function RPCItems:RollMasterGloves(deathLocation)
     if maxFactor < 40 then
         value, nameLevel = RPCItems:RollAttribute(0, 1, 2, 0, 0, item.rarity, false, maxFactor/3 + 4)
         item.property2 = WallPhysics:round(value, 0)
-        item.property2name = "rune_a_d"
+        item.property2name = "rune_r_1"
         RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
 
         value, nameLevel = RPCItems:RollAttribute(0, 1, 2, 0, 0, item.rarity, false, maxFactor/3 + 4)
         item.property3 = WallPhysics:round(value, 0)
-        item.property3name = "rune_b_d"
+        item.property3name = "rune_r_2"
         RPCItems:SetPropertyValues(item, item.property3, "rune", "#7DFF12",  3)
     else
         value, nameLevel = RPCItems:RollAttribute(0, 1, 2, 0, 0, item.rarity, false, maxFactor/3 + 4)
         item.property2 = WallPhysics:round(value, 0)
-        item.property2name = "rune_b_d"
+        item.property2name = "rune_r_2"
         RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
 
         value, nameLevel = RPCItems:RollAttribute(0, 1, 2, 0, 0, item.rarity, false, maxFactor/3 + 4)
         item.property3 = WallPhysics:round(value, 0)
-        item.property3name = "rune_c_d"
+        item.property3name = "rune_r_3"
         RPCItems:SetPropertyValues(item, item.property3, "rune", "#7DFF12",  3)
     end
 
@@ -1321,11 +1321,11 @@ function RPCItems:RollGravekeepersGauntlet(deathLocation)
     item.property4 = math.ceil(value*1.5)
     local luck = RandomInt(1, 3)
     if luck == 1 then
-        propertyName = "rune_a_b"
+        propertyName = "rune_w_1"
     elseif luck == 2 then
-        propertyName = "rune_b_b"
+        propertyName = "rune_w_2"
     elseif luck == 3 then
-        propertyName = "rune_c_b"
+        propertyName = "rune_w_3"
     end
     item.property4name = propertyName
     RPCItems:SetPropertyValues(item, item.property4, "rune", "#7DFF12",  4)
@@ -1573,16 +1573,16 @@ function RPCItems:RollClawOfTheEtherealRevenant(deathLocation)
     local luck = RandomInt(1, 4+(GameState:GetDifficultyFactor()*3))
     if luck <= 3 then
         value = math.floor(value*1.3)
-        propertyName = "rune_a_b"
+        propertyName = "rune_w_1"
     elseif luck <= 6 then
         value = math.floor(value*1.3)
-        propertyName = "rune_b_b"
+        propertyName = "rune_w_2"
     elseif luck <= 9 then
         value = math.floor(value*1)
-        propertyName = "rune_c_b"
+        propertyName = "rune_w_3"
     elseif luck == 10 then
         value = math.floor(value*0.7)
-        propertyName = "rune_d_b"
+        propertyName = "rune_w_4"
     end
     item.property2 = value
     item.property2name = propertyName
@@ -1610,16 +1610,16 @@ function RPCItems:RollEnergyWhipGlove(deathLocation)
     local luck = RandomInt(1, 4+(GameState:GetDifficultyFactor()*2))
     if luck <= 3 then
         value = math.floor(value*1.2)
-        propertyName = "rune_a_b"
+        propertyName = "rune_w_1"
     elseif luck <= 6 then
         value = math.floor(value*1.2)
-        propertyName = "rune_b_b"
+        propertyName = "rune_w_2"
     elseif luck <= 9 then
         value = math.floor(value*0.8)
-        propertyName = "rune_c_b"
+        propertyName = "rune_w_3"
     elseif luck == 10 then
         value = math.min(math.floor(value*0.3), 10)
-        propertyName = "rune_d_b"
+        propertyName = "rune_w_4"
     end
     item.property2 = value
     item.property2name = propertyName
@@ -1629,16 +1629,16 @@ function RPCItems:RollEnergyWhipGlove(deathLocation)
     local luck = RandomInt(1, 4+(GameState:GetDifficultyFactor()*2))
     if luck <= 3 then
         value = math.floor(value*1.3)
-        propertyName = "rune_a_b"
+        propertyName = "rune_w_1"
     elseif luck <= 6 then
         value = math.floor(value*1.3)
-        propertyName = "rune_b_b"
+        propertyName = "rune_w_2"
     elseif luck <= 9 then
         value = math.floor(value*0.9)
-        propertyName = "rune_c_b"
+        propertyName = "rune_w_3"
     elseif luck == 10 then
         value = math.min(math.floor(value*0.5), 15)
-        propertyName = "rune_d_b"
+        propertyName = "rune_w_4"
     end
     item.property3 = value
     item.property3name = propertyName
@@ -1997,16 +1997,16 @@ function RPCItems:RollBorealGraniteVest(deathLocation)
     local luck = RandomInt(1, 4+(GameState:GetDifficultyFactor()*2))
     if luck <= 3 then
         value = math.floor(value*1.2)
-        propertyName = "rune_a_a"
+        propertyName = "rune_q_1"
     elseif luck <= 6 then
         value = math.floor(value*1.2)
-        propertyName = "rune_b_a"
+        propertyName = "rune_q_2"
     elseif luck <= 9 then
         value = math.floor(value*0.8)
-        propertyName = "rune_c_a"
+        propertyName = "rune_q_3"
     elseif luck == 10 then
         value = math.min(math.floor(value*0.3), 10)
-        propertyName = "rune_d_a"
+        propertyName = "rune_q_4"
     end
     item.property2 = value
     item.property2name = propertyName
@@ -2016,16 +2016,16 @@ function RPCItems:RollBorealGraniteVest(deathLocation)
     local luck = RandomInt(1, 4+(GameState:GetDifficultyFactor()*2))
     if luck <= 3 then
         value = math.floor(value*1.3)
-        propertyName = "rune_a_a"
+        propertyName = "rune_q_1"
     elseif luck <= 6 then
         value = math.floor(value*1.3)
-        propertyName = "rune_b_a"
+        propertyName = "rune_q_2"
     elseif luck <= 9 then
         value = math.floor(value*0.9)
-        propertyName = "rune_c_a"
+        propertyName = "rune_q_3"
     elseif luck == 10 then
         value = math.min(math.floor(value*0.5), 15)
-        propertyName = "rune_d_a"
+        propertyName = "rune_q_4"
     end
     item.property3 = value
     item.property3name = propertyName
@@ -2108,18 +2108,18 @@ function RPCItems:RollTwilightVestments(deathLocation)
     item.property2 = math.floor(value*1.5)
     local luck = RandomInt(1, 10)
     if luck <= 4 then
-        propertyName = "rune_a_d"
+        propertyName = "rune_r_1"
     elseif luck <=7 then
-        propertyName = "rune_b_d"
+        propertyName = "rune_r_2"
     elseif luck <= 9 then
         item.property2 = math.ceil(item.property2/2)
-        propertyName = "rune_c_d"
+        propertyName = "rune_r_3"
     else
         if GameState:GetDifficultyFactor() > 2 then
             item.property2 = RPCItems:GetLogarithmicVarianceValue(12, 0, 0, 0, 0)
-            propertyName = "rune_d_d"
+            propertyName = "rune_r_4"
         else
-            propertyName = "rune_a_d"
+            propertyName = "rune_r_1"
         end
     end
     item.property2name = propertyName
@@ -2279,7 +2279,7 @@ function RPCItems:RollTanariWindArmor(deathLocation)
         item.hasRunePoints = true
         local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
         item.property3 = math.ceil(value*1.0)
-        item.property3name = "rune_c_a"
+        item.property3name = "rune_q_3"
         RPCItems:SetPropertyValues(item, item.property3, "rune", "#7DFF12",  3)
     else
         Elements:RollElementAttribute(item, RPC_ELEMENT_WIND, 2.5, 1, 50, 3)
@@ -2440,11 +2440,11 @@ function RPCItems:RollSorcererRegalia(deathLocation)
     item.property2 = value*3
     local luck = RandomInt(1, 3)
     if luck == 1 then
-        propertyName = "rune_a_b"
+        propertyName = "rune_w_1"
     elseif luck == 2 then
-        propertyName = "rune_b_b"
+        propertyName = "rune_w_2"
     elseif luck == 3 then
-        propertyName = "rune_c_b"
+        propertyName = "rune_w_3"
     end
     item.property2name = propertyName
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -2473,11 +2473,11 @@ function RPCItems:RollSpellslingerCoat(deathLocation)
     item.property2 = math.ceil(value*1.4)
     local luck = RandomInt(1, 5)
     if luck <= 2 then
-        propertyName = "rune_a_b"
+        propertyName = "rune_w_1"
     elseif luck <= 4 then
-        propertyName = "rune_b_b"
+        propertyName = "rune_w_2"
     elseif luck == 5 then
-        propertyName = "rune_c_b"
+        propertyName = "rune_w_3"
     end
     item.property2name = propertyName
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -2502,11 +2502,11 @@ function RPCItems:RollDoomplate(deathLocation)
     item.property2 = value*2
     local luck = RandomInt(1, 3)
     if luck == 1 then
-        propertyName = "rune_a_d"
+        propertyName = "rune_r_1"
     elseif luck == 2 then
-        propertyName = "rune_b_d"
+        propertyName = "rune_r_2"
     elseif luck == 3 then
-        propertyName = "rune_c_d"
+        propertyName = "rune_r_3"
     end
     item.property2name = propertyName
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -2709,7 +2709,7 @@ function RPCItems:RollGuardOfFeronia(deathLocation)
     item.hasRunePoints = true
     local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
     item.property2 = math.ceil(value*1.3)
-    item.property2name = "rune_c_a"
+    item.property2name = "rune_q_3"
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
 
     RPCItems:RollBodyProperty3(item, 0)
@@ -3159,13 +3159,13 @@ function RPCItems:RollTatteredNoviceArmor(deathLocation)
     local t1_rune_value = RPCItems:RollSlithicusRingProperty()
     local luck = RandomInt(1, 4)
     if luck == 1 then
-        item.property2name = "rune_a_a"
+        item.property2name = "rune_q_1"
     elseif luck == 2 then
-        item.property2name = "rune_a_b"
+        item.property2name = "rune_w_1"
     elseif luck == 3 then
-        item.property2name = "rune_a_c"
+        item.property2name = "rune_e_1"
     else
-        item.property2name = "rune_a_d"
+        item.property2name = "rune_r_1"
     end
     item.property2 = t1_rune_value
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -3354,7 +3354,7 @@ function RPCItems:RollHoodOfTheSeaOracle(deathLocation)
 
     item.hasRunePoints = true
     item.property2 = Weapons:GetDeviation(10, 0)
-    item.property2name = "rune_d_a"
+    item.property2name = "rune_q_4"
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
 
     RPCItems:RollHoodProperty3(item, 0)
@@ -3423,13 +3423,13 @@ function RPCItems:RollOceanHelmOfValdun(deathLocation, bBossDrop)
     item.property2 = Weapons:GetDeviation(rollFactor, 0)
     local luck = RandomInt(1,4)
     if luck == 1 then
-        item.property2name = "rune_d_a"
+        item.property2name = "rune_q_4"
     elseif luck == 2 then
-        item.property2name = "rune_d_b"
+        item.property2name = "rune_w_4"
     elseif luck == 3 then
-        item.property2name = "rune_d_c"
+        item.property2name = "rune_e_4"
     elseif luck == 4 then
-        item.property2name = "rune_d_d"
+        item.property2name = "rune_r_4"
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
 
@@ -3452,7 +3452,7 @@ function RPCItems:RollTwistedMaskOfAhnqhirBlue(deathLocation)
     item.hasRunePoints = true
     local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
     item.property2 = math.ceil(value*0.9)
-    item.property2name = "rune_c_c"
+    item.property2name = "rune_e_3"
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
 
     RPCItems:RollHoodProperty3(item, 0)
@@ -3474,7 +3474,7 @@ function RPCItems:RollTwistedMaskOfAhnqhirYellow(deathLocation)
     item.hasRunePoints = true
     local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
     item.property2 = math.ceil(value*0.9)
-    item.property2name = "rune_c_b"
+    item.property2name = "rune_w_3"
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
 
     RPCItems:RollHoodProperty3(item, 0)
@@ -3496,7 +3496,7 @@ function RPCItems:RollTwistedMaskOfAhnqhirPurple(deathLocation)
     item.hasRunePoints = true
     local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
     item.property2 = math.ceil(value*0.9)
-    item.property2name = "rune_c_a"
+    item.property2name = "rune_q_3"
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
 
     RPCItems:RollHoodProperty3(item, 0)
@@ -3518,7 +3518,7 @@ function RPCItems:RollShipyardVeil1(deathLocation)
     item.hasRunePoints = true
     local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
     item.property2 = math.ceil(value*1.15)
-    item.property2name = "rune_c_a"
+    item.property2name = "rune_q_3"
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
 
     RPCItems:RollHoodProperty3(item, 0)
@@ -4083,13 +4083,13 @@ function RPCItems:RollDemonMask(deathLocation, isShop, waveBonus)
     local luck = RandomInt(1,4)
     local propertyName = ""
     if luck == 1 then
-        propertyName = "rune_c_a"
+        propertyName = "rune_q_3"
     elseif luck == 2 then
-        propertyName = "rune_c_b"
+        propertyName = "rune_w_3"
     elseif luck == 3 then
-        propertyName = "rune_c_c"
+        propertyName = "rune_e_3"
     elseif luck == 4 then
-        propertyName = "rune_c_d"
+        propertyName = "rune_r_3"
     end
     local difficulty = GameState:GetDifficultyFactor()
     if difficulty == 1 then
@@ -4125,11 +4125,11 @@ function RPCItems:RollCrestOfTheUmbralSentinel(deathLocation, isShop)
     local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
     value = math.floor(value*1.5)
     if luck <= 5 then
-        propertyName = "rune_a_b"
+        propertyName = "rune_w_1"
     elseif luck <= 9 then
-        propertyName = "rune_b_b"
+        propertyName = "rune_w_2"
     elseif luck == 10 then
-        propertyName = "rune_c_b"
+        propertyName = "rune_w_3"
     end
 
     item.property2 = value
@@ -4838,7 +4838,7 @@ function RPCItems:RollAlaranaIceBoot(deathLocation)
         if luck == 1 then
             local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
             item.property2 = math.floor(value*1.0)
-            item.property2name = "rune_c_c"
+            item.property2name = "rune_e_3"
             RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2) 
         else
             local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
@@ -4944,11 +4944,11 @@ function RPCItems:RollNeptunesWaterGliders(deathLocation)
 
     item.hasRunePoints = true
     local luck = RandomInt(1, 10)
-    local runeName = "rune_a_c"
+    local runeName = "rune_e_1"
     if luck <= 8 and luck > 4 then
-        runeName = "rune_b_c"
+        runeName = "rune_e_2"
     elseif luck > 8 then
-        runeName = "rune_c_c"
+        runeName = "rune_e_3"
     end
 
     local value, nameLevel = RPCItems:RollAttribute(0, 1, math.ceil(maxFactor/4), 0, 0, item.rarity, false, math.ceil(maxFactor/2.6 + 4))
@@ -5245,7 +5245,7 @@ function RPCItems:RollBlueDragonGreaves(deathLocation)
         if luck == 1 then
             local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
             item.property2 = math.floor(value*1.2)
-            item.property2name = "rune_c_c"
+            item.property2name = "rune_e_3"
             RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2) 
         else
             local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
@@ -5506,7 +5506,7 @@ function RPCItems:RollRedOctoberBoots(deathLocation, isSpirit)
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_red_october", "#E87B7B",  1, "#property_red_october_description")
 
     item.hasRunePoints = true
-    local runeName = "rune_d_c"
+    local runeName = "rune_e_4"
     local runeValue = 0
     if isSpirit then
         runeValue = RPCItems:GetLogarithmicVarianceValue(14, 0, 0, 0, 0)
@@ -5594,17 +5594,17 @@ function RPCItems:RollIceFloeSlippers(deathLocation)
     if luck <=6 then
         value, nameLevel = RPCItems:RollAttribute(0, 1, 2, 0, 0, item.rarity, false, maxFactor/4 + 5)
         item.property3 = WallPhysics:round(value, 0)
-        item.property3name = "rune_b_c"
+        item.property3name = "rune_e_2"
         RPCItems:SetPropertyValues(item, item.property3, "rune", "#7DFF12",  3)
     elseif luck <=9 then
         value, nameLevel = RPCItems:RollAttribute(0, 1, 2, 0, 0, item.rarity, false, maxFactor/6 + 5)
         item.property3 = WallPhysics:round(value, 0)
-        item.property3name = "rune_c_c"
+        item.property3name = "rune_e_3"
         RPCItems:SetPropertyValues(item, item.property3, "rune", "#7DFF12",  3)
     else
         value, nameLevel = RPCItems:RollAttribute(0, 1, 2, 0, 0, item.rarity, false, maxFactor/20)
         item.property3 = math.floor(value)
-        item.property3name = "rune_d_c"
+        item.property3name = "rune_e_4"
         RPCItems:SetPropertyValues(item, item.property3, "rune", "#7DFF12",  3)
     end
     RPCItems:RollFootProperty4(item, 0)
@@ -5627,22 +5627,22 @@ function RPCItems:RollIronTreadsOfDestruction(deathLocation)
     if luck <=3 then
         value, nameLevel = RPCItems:RollAttribute(0, 1, 2, 0, 0, item.rarity, false, maxFactor/5 + 5)
         item.property2 = WallPhysics:round(value, 0)
-        item.property2name = "rune_a_d"
+        item.property2name = "rune_r_1"
         RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
     elseif luck <=6 then
         value, nameLevel = RPCItems:RollAttribute(0, 1, 2, 0, 0, item.rarity, false, maxFactor/5 + 5)
         item.property2 = WallPhysics:round(value, 0)
-        item.property2name = "rune_b_d"
+        item.property2name = "rune_r_2"
         RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
     elseif luck <=9 then
         value, nameLevel = RPCItems:RollAttribute(0, 1, 2, 0, 0, item.rarity, false, maxFactor/6 + 5)
         item.property2 = WallPhysics:round(value, 0)
-        item.property2name = "rune_c_d"
+        item.property2name = "rune_r_3"
         RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
     else
         value, nameLevel = RPCItems:RollAttribute(0, 1, 2, 0, 0, item.rarity, false, maxFactor/24)
         item.property2 = math.floor(value)
-        item.property2name = "rune_d_d"
+        item.property2name = "rune_r_4"
         RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
     end
     RPCItems:RollFootProperty3(item, 0)
@@ -5682,7 +5682,7 @@ function RPCItems:RollBootsOfGreatFortune(deathLocation)
 
     item.hasRunePoints = true
     item.property2 = RPCItems:GetLogarithmicVarianceValue(GameState:GetDifficultyFactor()*5, 0, 0, 0, 0)
-    item.property2name = "rune_d_c"
+    item.property2name = "rune_e_4"
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2) 
 
     RPCItems:RollFootProperty3(item, 0)
@@ -5925,22 +5925,22 @@ function RPCItems:RollAdmiralBoot(deathLocation)
     if maxFactor < 40 then
         value, nameLevel = RPCItems:RollAttribute(0, 1, 2, 0, 0, item.rarity, false, maxFactor/3 + 4)
         item.property2 = WallPhysics:round(value, 0)
-        item.property2name = "rune_a_c"
+        item.property2name = "rune_e_1"
         RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
 
         value, nameLevel = RPCItems:RollAttribute(0, 1, 2, 0, 0, item.rarity, false, maxFactor/3 + 4)
         item.property3 = WallPhysics:round(value, 0)
-        item.property3name = "rune_b_c"
+        item.property3name = "rune_e_2"
         RPCItems:SetPropertyValues(item, item.property3, "rune", "#7DFF12",  3)
     else
         value, nameLevel = RPCItems:RollAttribute(0, 1, 2, 0, 0, item.rarity, false, maxFactor/3 + 4)
         item.property2 = WallPhysics:round(value, 0)
-        item.property2name = "rune_b_c"
+        item.property2name = "rune_e_2"
         RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
 
         value, nameLevel = RPCItems:RollAttribute(0, 1, 2, 0, 0, item.rarity, false, maxFactor/3 + 4)
         item.property3 = WallPhysics:round(value, 0)
-        item.property3name = "rune_c_c"
+        item.property3name = "rune_e_3"
         RPCItems:SetPropertyValues(item, item.property3, "rune", "#7DFF12",  3)
     end
 
@@ -7798,7 +7798,7 @@ function RPCItems:RollChampionsGearHelm(deathLocation)
 
     item.hasRunePoints = true
     
-    local runeName = "rune_d_d"
+    local runeName = "rune_r_4"
     local runeValue = RPCItems:GetLogarithmicVarianceValue(20, 0, 0, 0, 0)
     item.property1name = runeName
     item.property1 = runeValue
@@ -7824,11 +7824,11 @@ function RPCItems:RollSpellfireGloves(deathLocation, spiritRealm)
 
     item.hasRunePoints = true
 
-    local runeName = "rune_c_b"
+    local runeName = "rune_w_3"
     if GameState:GetDifficultyFactor() > 1 then
         local luck = RandomInt(1, 5-GameState:GetDifficultyFactor())
         if luck == 1 then
-            runeName = "rune_d_b"
+            runeName = "rune_w_4"
         end
     end
     local bonus = 0
@@ -7891,7 +7891,7 @@ function RPCItems:RollWindDeityCrown(deathLocation, isSpirit, paragonBonus)
 
     item.hasRunePoints = true
 
-    local runeName = "rune_c_c"
+    local runeName = "rune_e_3"
     local runeValue = 0
     if isSpirit then
         runeValue = RPCItems:GetLogarithmicVarianceValue(45+(paragonBonus*2), 0, 0, 0, 0)
@@ -7900,7 +7900,7 @@ function RPCItems:RollWindDeityCrown(deathLocation, isSpirit, paragonBonus)
     end
     local luck = RandomInt(1,3)
     if luck == 3 then
-        runeName = "rune_d_c"
+        runeName = "rune_e_4"
         if isSpirit then
             runeValue = RPCItems:GetLogarithmicVarianceValue(20+paragonBonus, 0, 0, 0, 0)
         else
@@ -7933,7 +7933,7 @@ function RPCItems:RollWaterDeityCrown(deathLocation, isSpirit, paragonBonus)
 
     item.hasRunePoints = true
 
-    local runeName = "rune_c_d"
+    local runeName = "rune_r_3"
     local runeValue = 0
     if isSpirit then
         runeValue = RPCItems:GetLogarithmicVarianceValue(45+(paragonBonus*2), 0, 0, 0, 0)
@@ -7942,7 +7942,7 @@ function RPCItems:RollWaterDeityCrown(deathLocation, isSpirit, paragonBonus)
     end
     local luck = RandomInt(1,3)
     if luck == 3 then
-        runeName = "rune_d_d"
+        runeName = "rune_r_4"
         if isSpirit then
             runeValue = RPCItems:GetLogarithmicVarianceValue(20+paragonBonus, 0, 0, 0, 0)
         else
@@ -7971,7 +7971,7 @@ function RPCItems:RollFireDeityCrown(deathLocation, isSpirit, paragonBonus)
 
     item.hasRunePoints = true
 
-    local runeName = "rune_c_b"
+    local runeName = "rune_w_3"
     local runeValue = 0
     if isSpirit then
         runeValue = RPCItems:GetLogarithmicVarianceValue(45+(paragonBonus*2), 0, 0, 0, 0)
@@ -7980,7 +7980,7 @@ function RPCItems:RollFireDeityCrown(deathLocation, isSpirit, paragonBonus)
     end
     local luck = RandomInt(1,3)
     if luck == 3 then
-        runeName = "rune_d_b"
+        runeName = "rune_w_4"
         if isSpirit then
             runeValue = RPCItems:GetLogarithmicVarianceValue(20+paragonBonus, 0, 0, 0, 0)
         else
@@ -8006,7 +8006,7 @@ function RPCItems:RollChampionsGearGauntlet(deathLocation)
 
     item.hasRunePoints = true
     
-    local runeName = "rune_d_b"
+    local runeName = "rune_w_4"
     local runeValue = RPCItems:GetLogarithmicVarianceValue(20, 0, 0, 0, 0)
     item.property1name = runeName
     item.property1 = runeValue
@@ -8027,7 +8027,7 @@ function RPCItems:RollChampionsGearMail(deathLocation)
 
     item.hasRunePoints = true
     
-    local runeName = "rune_d_a"
+    local runeName = "rune_q_4"
     local runeValue = RPCItems:GetLogarithmicVarianceValue(20, 0, 0, 0, 0)
     item.property1name = runeName
     item.property1 = runeValue
@@ -8048,7 +8048,7 @@ function RPCItems:RollChampionsGearBoots(deathLocation)
 
     item.hasRunePoints = true
     
-    local runeName = "rune_d_c"
+    local runeName = "rune_e_4"
     local runeValue = RPCItems:GetLogarithmicVarianceValue(20, 0, 0, 0, 0)
     item.property1name = runeName
     item.property1 = runeValue
@@ -8069,25 +8069,25 @@ function RPCItems:RollHeroicConquerorVestments(deathLocation, pitLevel)
 
     item.hasRunePoints = true
     
-    local runeName = "rune_d_a"
+    local runeName = "rune_q_4"
     local runeValue = RPCItems:GetLogarithmicVarianceValue(11+pitLevel, 0, 0, 0, 0)
     item.property1name = runeName
     item.property1 = runeValue
     RPCItems:SetPropertyValues(item, item.property1, "rune", "#7DFF12",  1)
 
-    local runeName = "rune_d_b"
+    local runeName = "rune_w_4"
     local runeValue = RPCItems:GetLogarithmicVarianceValue(11+pitLevel, 0, 0, 0, 0)
     item.property2name = runeName
     item.property2 = runeValue
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
 
-    local runeName = "rune_d_c"
+    local runeName = "rune_e_4"
     local runeValue = RPCItems:GetLogarithmicVarianceValue(11+pitLevel, 0, 0, 0, 0)
     item.property3name = runeName
     item.property3 = runeValue
     RPCItems:SetPropertyValues(item, item.property3, "rune", "#7DFF12",  3)
 
-    local runeName = "rune_d_d"
+    local runeName = "rune_r_4"
     local runeValue = RPCItems:GetLogarithmicVarianceValue(11+pitLevel, 0, 0, 0, 0)
     item.property4name = runeName
     item.property4 = runeValue

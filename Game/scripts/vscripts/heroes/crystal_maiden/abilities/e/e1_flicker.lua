@@ -1,5 +1,5 @@
 local function cast(caster, ability)
-    local runesCount = caster.a_c_level
+    local runesCount = caster.e_1_level
     if runesCount == nil or runesCount <= 0 then
         return
     end

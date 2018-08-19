@@ -1,18 +1,18 @@
-require('/heroes/obsidian_destroyer/constants_epoch')
+require('/heroes/obsidian_destroyer/epoch_constants')
 
 function time_bind_cast(event)
 	local caster = event.caster
 	local ability = event.ability
 	Filters:CastSkillArguments(1, caster)
 	
-	local d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "epoch")
-	if d_a_level > 0 then
+	local q_4_level = caster:GetRuneValue("q", 4)
+	if q_4_level > 0 then
 		local manaDrain = caster:GetMaxMana()*0.5
 		if caster:GetMana() < manaDrain then
 			manaDrain = caster:GetMana()
 		end
 		caster:ReduceMana(manaDrain)
-		ability.damageAmp = manaDrain*epoch_q4_dmg_bonus_pct*d_a_level/10000 + 1 -- /10000 -> % mana * % rune
+		ability.damageAmp = manaDrain*EPOCH_Q4_DMG_BONUS_PCT*q_4_level/10000 + 1 -- /10000 -> % mana * % rune
 	else
 		ability.damageAmp = 1
 	end
@@ -35,8 +35,8 @@ function projectile_hit(event)
 	local number_of_targets = event.number_of_targets
 	--table.insert(caster.time_bound_units, target)
 	target.time_bound = true
-	ability.rune_a_a_level = rune_a_a_level(caster)
-	local rune_b_a_level = rune_b_a_level(caster)
+	ability.rune_q_1_level = rune_q_1_level(caster)
+	local rune_q_2_level = rune_q_2_level(caster)
 	-- if caster:HasModifier("modifier_epoch_glyph_5_a") then
 	-- 	local particleName = "particles/roshpit/epoch/binder_bomb_epoch_5_a_immortal1.vpcf"
 	-- 	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
@@ -101,20 +101,20 @@ function projectile_hit(event)
 	Timers:CreateTimer(4, function()
 		ParticleManager:DestroyParticle( pfx, false )
 	end)
-	if ability.rune_a_a_level > 0 then
+	if ability.rune_q_1_level > 0 then
 		ability.jump_count = 0
 		a_a_search(caster, target, ability)
 	end
-	if rune_b_a_level > 0 then
+	if rune_q_2_level > 0 then
 		if caster:HasModifier("modifier_epoch_glyph_6_1") then 
-			rune_b_a_level = rune_b_a_level * epoch_glyph_6_1_q2_multi
+			rune_q_2_level = rune_q_2_level * EPOCH_GLYPH_6_1_Q2_MULTI
 		end
 		local b_a_duration = Filters:GetAdjustedBuffDuration(caster, 7, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_eon_channel_friendly", {duration = b_a_duration})
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_eon_channel_enemy", {duration = b_a_duration})
-		caster:SetModifierStackCount( "modifier_eon_channel_friendly", ability, rune_b_a_level)
-		target:SetModifierStackCount( "modifier_eon_channel_enemy", ability, rune_b_a_level)
-		local particleName = "particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
+		caster:SetModifierStackCount( "modifier_eon_channel_friendly", ability, rune_q_2_level)
+		target:SetModifierStackCount( "modifier_eon_channel_enemy", ability, rune_q_2_level)
+		local particleName = "particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
 		local eonPfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, enemy )
 		ParticleManager:SetParticleControlEnt(eonPfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin()+Vector(0,0,90), true)
 		ParticleManager:SetParticleControlEnt(eonPfx, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin()+Vector(0,0,90), true)
@@ -154,7 +154,7 @@ end
 function spacelink_think(event)
 	local damage = event.damage_per_tick
 	local ability = event.ability
-	damage = damage * ability.rune_a_a_level*epoch_q1_dmg_multi_pct/100
+	damage = damage * ability.rune_q_1_level*EPOCH_Q1_DMG_MULTI_PCT/100
 	damage = damage*ability.damageAmp
 	local dummy_binder = event.target
 	local caster = event.caster
@@ -184,16 +184,16 @@ function time_bind_end(event)
 	end
 end
 
-function rune_a_a_level(caster)
+function rune_q_1_level(caster)
   local runeUnit = caster.runeUnit
-  local runeAbility = runeUnit:FindAbilityByName("epoch_rune_a_a")
+  local runeAbility = runeUnit:FindAbilityByName("epoch_rune_q_1")
   local abilityLevel = runeAbility:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_a")
+  local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_1")
   local totalLevel = abilityLevel + bonusLevel
   return totalLevel
 end
 
-function time_bind(target, next_target, caster, time_bind_name, rune_a_a_level, enemies, rune_b_a_level, rune_c_a_level)
+function time_bind(target, next_target, caster, time_bind_name, rune_q_1_level, enemies, rune_q_2_level, rune_q_3_level)
 	if target and next_target then
 		target:AddAbility(time_bind_name)
 		local dummy_time_bind = target:FindAbilityByName( time_bind_name )
@@ -212,23 +212,23 @@ function time_bind(target, next_target, caster, time_bind_name, rune_a_a_level, 
 	        Queue = queue
 	    }
 	    ExecuteOrderFromTable(order)
-	    if time_bind_name == "dummy_time_bind" and rune_a_a_level > 0 then
-	    	local procs = Runes:Procs(rune_a_a_level, 10, 1)
+	    if time_bind_name == "dummy_time_bind" and rune_q_1_level > 0 then
+	    	local procs = Runes:Procs(rune_q_1_level, 10, 1)
 	    	if procs > 0 then
 	    		for i = 0, procs, 1 do
 					Timers:CreateTimer(i*0.15,
 					function()
-	    				time_bind(target, enemies[RandomInt(1, #enemies)], caster, "dummy_time_bind_two", rune_a_a_level, enemies, rune_b_a_level)
+	    				time_bind(target, enemies[RandomInt(1, #enemies)], caster, "dummy_time_bind_two", rune_q_1_level, enemies, rune_q_2_level)
 	    			end)
 	    		end
 	    	end
 	    end
-	    if time_bind_name == "dummy_time_bind" and rune_b_a_level > 0 then
+	    if time_bind_name == "dummy_time_bind" and rune_q_2_level > 0 then
 	    	local lucky = RandomInt(1,100)
-	    	if lucky < rune_b_a_level*2 then
+	    	if lucky < rune_q_2_level*2 then
 		    	Timers:CreateTimer(0.06,
 		    	function()
-		    		time_bind(target, caster, caster, "dummy_time_bind_three", rune_a_a_level, enemies, rune_b_a_level)
+		    		time_bind(target, caster, caster, "dummy_time_bind_three", rune_q_1_level, enemies, rune_q_2_level)
 		    	end)
 	    	end
 	    end
@@ -257,176 +257,65 @@ function modifier_end(event)
 	unit:RemoveAbility("dummy_time_bind")
 end
 
-function rune_b_a_level(caster)
+function rune_q_2_level(caster)
   local runeUnit = caster.runeUnit2
-  local runeAbility = runeUnit:FindAbilityByName("epoch_rune_b_a")
+  local runeAbility = runeUnit:FindAbilityByName("epoch_rune_q_2")
   local abilityLevel = runeAbility:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_a")
+  local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_2")
   local totalLevel = abilityLevel + bonusLevel
   return totalLevel
 end
 
-function rune_c_a(caster, target, enemies, origLevel)
-  local runeUnit = caster.runeUnit3
-  local runeAbility = runeUnit:FindAbilityByName("epoch_rune_c_a")
-  runeAbility.enemies = enemies
-  runeAbility.origLevel = origLevel
-  local abilityLevel = runeAbility:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_a")
-  local totalLevel = abilityLevel + bonusLevel
-	if totalLevel > 0 then
-		summon_c_a_guardian(caster, target, totalLevel, runeUnit, runeAbility)
-	end
-end
-
-function summon_c_a_guardian(caster, target, totalLevel, runeUnit, runeAbility)
-  	runeAbility.origCaster = caster
-  	runeAbility.c_a_level = totalLevel
-    local dummy = CreateUnitByName("epoch_summon_two", target:GetAbsOrigin()-Vector(100,100,0), true, caster, caster, caster:GetTeamNumber())
-    dummy:SetModelScale(0.9+totalLevel/80)
-    dummy.owner = caster:GetPlayerOwnerID()
-    dummy:AddAbility("replica")
-    dummy:FindAbilityByName("replica"):SetLevel(1)
-    dummy:AddAbility("dummy_time_bind_four")
-    dummy:FindAbilityByName("dummy_time_bind_four"):SetLevel(runeAbility.origLevel)
-    runeAbility:ApplyDataDrivenModifier(runeUnit, dummy, "modifier_rune_c_a_ghost_thinker", {duration = 10})
-    --dummy:MoveToNPC(caster)
-    local number_of_targets = 3 + totalLevel
-    if number_of_targets > 30 then
-    	number_of_targets = 36
-    end
-	for i = 1, number_of_targets, 1 do
-		Timers:CreateTimer(i*0.2,
-		function()
-			time_bind_c_a(dummy, runeAbility.enemies[i])
-		end)
-	end
-end
-
-function time_bind_c_a(c_a_guardian, next_target)
-		local dummy_time_bind = c_a_guardian:FindAbilityByName( "dummy_time_bind_four")
-		local queue = true
-	    local order =
-	    {
-	        UnitIndex = c_a_guardian:GetEntityIndex(),
-	        OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-	        AbilityIndex = dummy_time_bind:GetEntityIndex(),
-	        TargetIndex = next_target:GetEntityIndex(),
-	        Queue = queue
-	    }
-	    ExecuteOrderFromTable(order)
-end
-
-function c_a_think(event)
-	local guardian = event.target
-	local caster = event.caster
-	local ability = event.ability
-	local orig_caster = ability.origCaster
-	local radius = 700
-	guardian:MoveToPosition(orig_caster:GetAbsOrigin()+RandomVector(200))
-end
-
-function c_a_enter(event)
- 	local target = event.target
-	StartAnimation(target, {duration=1.5, activity=ACT_DOTA_SPAWN, rate=1.0})
-	local origin = target:GetAbsOrigin()+Vector(0,0,400)
-	target:SetAbsOrigin(origin)
- 	for i = 0, 30, 1 do
-      Timers:CreateTimer(0.03*i,
-      function()
-        target:SetAbsOrigin(origin+Vector(0,0,10*-i))
-      end)
- 	end
-end
-
-function c_a_end(event)
- local target = event.target
- local ability = event.ability
- local caster = event.caster
-
-target:SetMoveCapability(DOTA_UNIT_CAP_MOVE_NONE)
-local particleName =  "particles/units/heroes/hero_oracle/oracle_false_promise_cast.vpcf"
-local position = target:GetAbsOrigin()+Vector(0,0,300)
-local particleVector = position
-
-local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
-ParticleManager:SetParticleControl( pfx, 0, particleVector )
-	Timers:CreateTimer(0.4, function() 
-	  ParticleManager:DestroyParticle( pfx, false )
-	  
-	end)  
-	UTIL_Remove(target)
-end
-
 function binder_passive_think(event)
 	local caster = event.caster
-	local level = Runes:GetTotalRuneLevel(caster, 3, "c_a", "epoch")
-	if level > 0 then
-		local runeAbility = caster.runeUnit3:FindAbilityByName("epoch_rune_c_a")
+	local q_3_level = caster:GetRuneValue("q", 3)
+	if q_3_level > 0 then
+		local runeAbility = caster.runeUnit3:FindAbilityByName("epoch_rune_q_3")
 		runeAbility:ApplyDataDrivenModifier(caster.runeUnit3, caster, "modifier_epoch_c_a", {})
-		runeAbility.level = level
-		caster.c_a_level = level
+		runeAbility.q_3_level = q_3_level
+		caster.q_3_level = q_3_level
 	else
 		caster:RemoveModifierByName("modifier_epoch_c_a")
 	end
 end
 
-function c_a_attack_start(event)
-	local ability = event.ability
-	local caster = event.caster
-	local attacker = event.attacker
-	local manaDrain = attacker:GetMaxMana()*0.01
-	-- print("man drain before "..manaDrain)
-	local d_a_level = Runes:GetTotalRuneLevel(attacker, 4, "d_a", "epoch")
- 	if d_a_level > 0 then
-		manaDrain = manaDrain + attacker:GetMaxMana()*d_a_level*0.001
+function epoch_q_3_get_damage(attacker, caster, reduceMana)
+	local ability = caster:FindAbilityByName("epoch_rune_q_3")
+	local manaDrain = attacker:GetMaxMana() * EPOCH_Q3_BASE_MANA_DRAIN_PCT / 100
+	local damage = 0
+	print("man drain before "..manaDrain)
+	local q_4_level = attacker:GetRuneValue("q", 4)
+	print("q_4_level: "..q_4_level)
+ 	if q_4_level > 0 then
+		manaDrain = manaDrain + attacker:GetMaxMana() * q_4_level * EPOCH_Q4_BONUS_MANA_DRAIN_PCT / 100
 	end		
-	-- print("man drain after "..manaDrain)
+	print("man drain after "..manaDrain)
 	if not ability then
 		return false
 	end
 	if manaDrain > attacker:GetMana() then
 		return nil
 	end
-	ability.level = Runes:GetTotalRuneLevel(attacker, 3, "c_a", "epoch")
-	if ability.level > 0 then
-		ability.attacker = attacker
-		if not attacker:HasModifier("modifier_epoch_c_a_lock") then
+	local q_3_level = attacker:GetRuneValue("q", 3)
+	print("q_3_level: "..q_3_level)
+	if q_3_level > 0 then
+		if not attacker:HasModifier("modifier_epoch_c_a_lock") and reduceMana then
 			ability:ApplyDataDrivenModifier(caster, attacker, "modifier_epoch_c_a_lock", {duration = 0.1})
 			attacker:ReduceMana(manaDrain)
 		end
-		local damage = manaDrain*ability.level*epoch_q3_times_mana_drained
-		local projectileSpeed = attacker:GetProjectileSpeed()
-
-		ability.damage = damage
-		local info = 
-		{
-			Target = event.target,
-			Source = attacker,
-			Ability = ability,	
-			EffectName = "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_arcane_orb.vpcf",
-			StartPosition = "attach_attack1",
-			bDrawsOnMinimap = false, 
-		        bDodgeable = true,
-		        bIsAttack = true, 
-		        bVisibleToEnemies = true,
-		        bReplaceExisting = false,
-		        flExpireTime = GameRules:GetGameTime() + 5,
-			bProvidesVision = false,
-			iVisionRadius = 0,
-			iMoveSpeed = projectileSpeed,
-		}
-		projectile = ProjectileManager:CreateTrackingProjectile(info)
+		damage = manaDrain * q_3_level * EPOCH_Q3_TIMES_MANA_DRAINED
 	end
+	print("q_3_damage: "..damage)
+	return damage
 end
 
-function c_a_strike(event)
+function epoch_q_3_strike(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
 
 	if not target.dummy then
-		Filters:TakeArgumentsAndApplyDamage(target, ability.attacker, ability.damage, DAMAGE_TYPE_PURE, 1, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
+		Filters:TakeArgumentsAndApplyDamage(target, caster, ability.q_3_damage, DAMAGE_TYPE_PURE, 1, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 	end
 end
 

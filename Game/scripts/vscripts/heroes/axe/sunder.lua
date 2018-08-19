@@ -4,10 +4,10 @@ function begin_sunder(keys)
   local caster =  keys.caster
   local ability = keys.ability
   local abilityLevel = ability:GetLevel()
-  local procs = rune_a_d(caster)
+  local procs = rune_r_1(caster)
   local damage = keys.damage
-  ability.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "axe")
-  ability.b_d_level = Runes:GetTotalRuneLevel(caster, 2, "b_d", "axe")
+  ability.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "axe")
+  ability.r_2_level = Runes:GetTotalRuneLevel(caster, 2, "r_2", "axe")
   if caster:HasModifier("modifier_axe_glyph_3_1") then
     sunderLoop(caster, ability, damage*procs*0.75, "particles/econ/items/earthshaker/egteam_set/hero_earthshaker_egset/earthshaker_echoslam_start_egset.vpcf")
   else
@@ -20,19 +20,19 @@ function begin_sunder(keys)
     		end)
     end
   end
-  rune_c_d(caster)
+  rune_r_3(caster)
   Filters:CastSkillArguments(4, caster)
 end
 
-function rune_c_d(caster)
+function rune_r_3(caster)
     local runeUnit = caster.runeUnit3
-    local ability = runeUnit:FindAbilityByName("axe_rune_c_d")
+    local ability = runeUnit:FindAbilityByName("axe_rune_r_3")
     local abilityLevel = ability:GetLevel()
-    local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_d")
+    local bonusLevel = Runes:GetTotalBonus(runeUnit, "r_3")
     local totalLevel = abilityLevel + bonusLevel
     if totalLevel > 0 then
-      ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_axe_rune_c_d", {duration = 5})
-      caster:SetModifierStackCount( "modifier_axe_rune_c_d", ability, totalLevel )
+      ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_axe_rune_r_3", {duration = 5})
+      caster:SetModifierStackCount( "modifier_axe_rune_r_3", ability, totalLevel )
     end
 end
 
@@ -46,7 +46,7 @@ end
 
 function sunder(caster, ability, damage)
 	local slamPoint = caster:GetAbsOrigin() + caster:GetForwardVector()*250
-	rune_b_d(ability, caster, slamPoint)
+	rune_r_2(ability, caster, slamPoint)
 	EmitSoundOn("RedGeneral.Sunder", caster)
       particleName = "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start.vpcf"
       local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
@@ -64,17 +64,17 @@ function sunder(caster, ability, damage)
 	
 end
 
-function rune_a_d(caster)
+function rune_r_1(caster)
 	local runeUnit = caster.runeUnit
-	local ability = runeUnit:FindAbilityByName("axe_rune_a_d")
+	local ability = runeUnit:FindAbilityByName("axe_rune_r_1")
 	local abilityLevel = ability:GetLevel()
-	local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_d")
+	local bonusLevel = Runes:GetTotalBonus(runeUnit, "r_1")
 	local totalLevel = abilityLevel + bonusLevel
 	local procs = Runes:Procs(totalLevel, 10, 1)
 	return procs
 end
 
-function rune_b_d(sunderAbility, caster, strikePosition)
+function rune_r_2(sunderAbility, caster, strikePosition)
 
 end
 
@@ -89,20 +89,20 @@ function b_d_damage(event)
   shockStrikeTable.caster = caster
   shockStrikeTable.ability = caster:FindAbilityByName("backshock")
   shockStrikeTable.ability.damage = shockStrikeTable.ability:GetSpecialValueFor("main_damage")
-  shockStrikeTable.amp = 0.3*ability.b_d_level
+  shockStrikeTable.amp = 0.3*ability.r_2_level
   shock_strike(shockStrikeTable)
- --  if not ability.d_d_level then
- --    ability.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "axe")
+ --  if not ability.r_4_level then
+ --    ability.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "axe")
  --  end
- --  if ability.d_d_level > 0 then
- --    local runeAbility = caster.runeUnit4:FindAbilityByName("axe_rune_d_d")
- --    runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, target, "modifier_axe_rune_d_d_visible", {duration = 7})
- --    local current_stacks = target:GetModifierStackCount( "modifier_axe_rune_d_d_visible", runeAbility )
+ --  if ability.r_4_level > 0 then
+ --    local runeAbility = caster.runeUnit4:FindAbilityByName("axe_rune_r_4")
+ --    runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, target, "modifier_axe_rune_r_4_visible", {duration = 7})
+ --    local current_stacks = target:GetModifierStackCount( "modifier_axe_rune_r_4_visible", runeAbility )
  --    newStacks = current_stacks + math.ceil(damage/100)
- --    target:SetModifierStackCount( "modifier_axe_rune_d_d_visible", runeAbility, newStacks )
+ --    target:SetModifierStackCount( "modifier_axe_rune_r_4_visible", runeAbility, newStacks )
 
- --    runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, target, "modifier_axe_rune_d_d_invisible", {duration = 7})
- --    target:SetModifierStackCount( "modifier_axe_rune_d_d_invisible", runeAbility, newStacks*ability.d_d_level )
+ --    runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, target, "modifier_axe_rune_r_4_invisible", {duration = 7})
+ --    target:SetModifierStackCount( "modifier_axe_rune_r_4_invisible", runeAbility, newStacks*ability.r_4_level )
  --  end
 	-- Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 4) 
 end

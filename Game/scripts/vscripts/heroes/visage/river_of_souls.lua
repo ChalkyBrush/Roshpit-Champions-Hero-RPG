@@ -47,7 +47,7 @@ function river_of_souls_start(event)
 			ParticleManager:DestroyParticle(beamPFX, false)
 			ParticleManager:ReleaseParticleIndex(beamPFX)
 		end)
-		local b_c_level = Runes:GetTotalRuneLevel(caster, 2, "b_c", "ekkan")
+		local b_c_level = Runes:GetTotalRuneLevel(caster, 2, "e_2", "ekkan")
 		if b_c_level > 0 then
 			SummonFamiliar(caster, ability, portalPosition, b_c_level)
 		end
@@ -65,7 +65,7 @@ function river_of_souls_start(event)
 		end
 	else
 		EmitSoundOn("Ekkan.CorpseExplosion.Cast", caster)
-		local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "a_c", "ekkan")
+		local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "ekkan")
 		local targetCorpse = EntIndexToHScript(caster.corpseExplosionIndex)
 		ability.corpseDamage = targetCorpse.hp*0.05*a_c_level
 		local range = 700 + a_c_level*5
@@ -134,10 +134,10 @@ function SummonFamiliar(caster, ability, portalPosition, b_c_level)
 		
 			
 		familiar:SetAcquisitionRange(1500)
-		familiar.c_c_level = Runes:GetTotalRuneLevel(caster, 3, "c_c", "ekkan")
-		familiar.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "ekkan")
+		familiar.e_3_level = Runes:GetTotalRuneLevel(caster, 3, "e_3", "ekkan")
+		familiar.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "ekkan")
 
-		if familiar.d_c_level > 0 then
+		if familiar.e_4_level > 0 then
 			familiar:AddAbility("ekkan_familiar_stoneform"):SetLevel(1)
 		end
 		familiar.stance = "aggressive"
@@ -290,16 +290,16 @@ function familiar_attack_land(event)
 	local hero = attacker.hero
 	local ability = event.ability
 	local target = event.target
-	if attacker.c_c_level > 0 then
+	if attacker.e_3_level > 0 then
 		ability:ApplyDataDrivenModifier(attacker, target, "modifier_familiar_armor_break", {duration = 12})
-		target:SetModifierStackCount("modifier_familiar_armor_break", attacker, attacker.c_c_level)
+		target:SetModifierStackCount("modifier_familiar_armor_break", attacker, attacker.e_3_level)
 	end
 end
 
 function familiar_stone_form(event)
 	local ability = event.ability
 	local caster = event.caster
-	local stun_duration = caster.d_c_level*0.25
+	local stun_duration = caster.e_4_level*0.25
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_familiar_stoneform_effect", {duration = 6.2})
 	StartAnimation(caster, {duration=6.2, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.0})
 	Timers:CreateTimer(0.7, function()
@@ -308,7 +308,7 @@ function familiar_stone_form(event)
 				EmitSoundOn("Ekkan.Familiar.StoneForm", caster)
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_familiar_stoneform", {duration = 5.2})
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_familiar_stoneform_regen", {duration = 5.2})
-				caster:SetModifierStackCount("modifier_familiar_stoneform_regen", caster, caster.d_c_level)
+				caster:SetModifierStackCount("modifier_familiar_stoneform_regen", caster, caster.e_4_level)
 				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_visage/visage_stone_form.vpcf", caster, 3)
 				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 				if #enemies > 0 then

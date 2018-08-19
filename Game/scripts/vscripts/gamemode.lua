@@ -63,7 +63,7 @@ Statistics = require('statistic')
 function GameMode:PostLoadPrecache()
   DebugPrint("[BAREBONES] Performing Post-Load precache")    
   --PrecacheItemByNameAsync("item_example_item", function(...) end)
-  --PrecacheItemByNameAsync("example_ability", function(...) end)
+  --PrecacheItemByNameAsync("cataclysm", function(...) end)
 
   --PrecacheUnitByNameAsync("npc_dota_hero_viper", function(...) end)
   --PrecacheUnitByNameAsync("npc_dota_hero_enigma", function(...) end)
@@ -305,11 +305,11 @@ function GameMode:OnHeroInGame(hero)
   --hero:AddItem(item)
 
   --[[ --These lines if uncommented will replace the W ability of any hero that loads into the game
-    --with the "example_ability" ability
+    --with the "cataclysm" ability
 
   local abil = hero:GetAbilityByIndex(1)
   hero:RemoveAbility(abil:GetAbilityName())
-  hero:AddAbility("example_ability")]]
+  hero:AddAbility("cataclysm")]]
 end
 
 --[[

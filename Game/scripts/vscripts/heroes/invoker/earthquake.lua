@@ -14,7 +14,7 @@ function earthquake_cast(event)
     if caster:HasModifier("modifier_conjuror_glyph_5_1") then
     	radius = radius + 80
     end
-	ability.c_a_level = get_c_a_level(caster, ability)
+	ability.q_3_level = get_q_3_level(caster, ability)
 	fireQuake(point, caster, radius, stun_duration, damage, true, ability, 1)
 	if caster.earthAspect then
 		fireQuake(caster.earthAspect:GetAbsOrigin(), caster, radius, stun_duration, damage, false, ability, 1)
@@ -32,20 +32,20 @@ function earthquake_cast(event)
 		ability.procCast = true
 	end
 	if caster.earthAspect then
-		local rune_b_a_level = Runes:GetTotalRuneLevel(caster, 2, "b_a", "conjuror")
-		if rune_b_a_level > 0 then
+		local rune_q_2_level = Runes:GetTotalRuneLevel(caster, 2, "q_2", "conjuror")
+		if rune_q_2_level > 0 then
 			local eventTable = {}
 			eventTable.caster = caster.earthAspect
-			eventTable.rune_b_a_level = rune_b_a_level
-			eventTable.ability = caster.earthAspect:FindAbilityByName("earth_aspect_rune_b_a_clap")
-			rune_b_a_clap_start(eventTable)
+			eventTable.rune_q_2_level = rune_q_2_level
+			eventTable.ability = caster.earthAspect:FindAbilityByName("earth_aspect_rune_q_2_clap")
+			rune_q_2_clap_start(eventTable)
 		end
 	end
 end
 
 function fireQuake(position, caster, radius, stun_duration, damage, bSound, ability, amp)
-	caster.d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "conjuror")
-	-- damage = damage + 0.0015*caster:GetStrength()/10*d_a_level*damage
+	caster.q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "conjuror")
+	-- damage = damage + 0.0015*caster:GetStrength()/10*q_4_level*damage
 	damage = damage*amp
 
 	local splitEarthParticle = "particles/roshpit/conjuror/earthquake.vpcf"
@@ -76,11 +76,11 @@ function free_quake_expire(event)
 	Filters:ReduceCooldownAll(caster, ability, 12)
 end
 
-function get_c_a_level(caster, ability)
+function get_q_3_level(caster, ability)
 	local runeUnit = caster.runeUnit3
-	local runeAbility = runeUnit:FindAbilityByName("conjuror_rune_c_a")
+	local runeAbility = runeUnit:FindAbilityByName("conjuror_rune_q_3")
 	local abilityLevel = runeAbility:GetLevel()
-	local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_a")
+	local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_3")
 	local totalLevel = abilityLevel + bonusLevel
 	ability.runeUnit = runeUnit
 	ability.runeAbility = runeAbility
@@ -88,18 +88,18 @@ function get_c_a_level(caster, ability)
 end
 
 function healUnit(unit, ability)
-	if unit and ability.c_a_level > 0 then
-		amount = ability.c_a_level*8
+	if unit and ability.q_3_level > 0 then
+		amount = ability.q_3_level*8
 		Filters:ApplyHeal(unit, unit, amount, true)
-		ability.runeAbility:ApplyDataDrivenModifier(ability.runeUnit, unit, "conjuror_rune_c_a_heal_effect", {})
+		ability.runeAbility:ApplyDataDrivenModifier(ability.runeUnit, unit, "conjuror_rune_q_3_heal_effect", {})
 	end
 end
 
 function get_a_d_level(caster)
 	local runeUnit = caster.runeUnit
-	local runeAbility = runeUnit:FindAbilityByName("conjuror_rune_a_d")
+	local runeAbility = runeUnit:FindAbilityByName("conjuror_rune_r_1")
 	local abilityLevel = runeAbility:GetLevel()
-	local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_d")
+	local bonusLevel = Runes:GetTotalBonus(runeUnit, "r_1")
 	local totalLevel = abilityLevel + bonusLevel
 	return totalLevel
 end

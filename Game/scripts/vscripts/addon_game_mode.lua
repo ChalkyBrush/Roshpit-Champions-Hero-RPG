@@ -167,7 +167,7 @@ PrecacheResource("particle", "particles/econ/items/meepo/meepo_colossal_crystal_
 
   -- Entire items can be precached by name
   -- Abilities can also be precached in this way despite the name
-  -- PrecacheItemByNameSync("example_ability", context)
+  -- PrecacheItemByNameSync("cataclysm", context)
   -- PrecacheItemByNameSync("item_example_item", context)
   -- PrecacheItemByNameSync("item_potion_green", context)
   -- PrecacheItemByNameSync("item_potion_red", context)
@@ -218,7 +218,7 @@ end
 function SpecialPrecache(context)
   print("performing pre-load precache")    
   --PrecacheItemByNameAsync("item_example_item", function(...) end)
-  --PrecacheItemByNameAsync("example_ability", function(...) end)
+  --PrecacheItemByNameAsync("cataclysm", function(...) end)
 
   --PrecacheUnitByNameAsync("npc_dota_hero_viper", function(...) end)
   --PrecacheUnitByNameAsync("npc_dota_hero_enigma", function(...) end)

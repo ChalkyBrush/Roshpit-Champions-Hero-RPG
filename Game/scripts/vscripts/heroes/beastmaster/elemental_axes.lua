@@ -4,19 +4,19 @@ function swingEarth(event)
 	local swingType = event.type
 	local radius = 240
 	local damage = event.damage
-	damage = damage+rune_b_b(caster)*0.025*caster:GetAverageTrueAttackDamage(caster)
+	damage = damage+rune_w_2(caster)*0.025*caster:GetAverageTrueAttackDamage(caster)
 	local damageDelay = 0.12
 	local animationRate = 1.5
 	local animationDuration = 0.36
 	local swingCooldown = 0.4
 	local swingDuration = 0.3
-	local d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "warlord")
-	if d_a_level > 0 then
-		damageDelay = damageDelay - math.min(d_a_level*0.005, 0.06)
-		animationRate = animationRate + math.min(d_a_level*0.12, 0.6)
-		animationDuration = animationDuration - math.min(d_a_level*0.006, 0.14)
-		swingCooldown = swingCooldown - math.min(d_a_level*0.01, 0.2)
-		swingDuration = swingDuration - math.min(d_a_level*0.008, 0.2)
+	local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "warlord")
+	if q_4_level > 0 then
+		damageDelay = damageDelay - math.min(q_4_level*0.005, 0.06)
+		animationRate = animationRate + math.min(q_4_level*0.12, 0.6)
+		animationDuration = animationDuration - math.min(q_4_level*0.006, 0.14)
+		swingCooldown = swingCooldown - math.min(q_4_level*0.01, 0.2)
+		swingDuration = swingDuration - math.min(q_4_level*0.008, 0.2)
 	end
 	if swingType == "earth" then
 		hackEarth(caster, radius, damage, damageDelay, 0.4, event.stun_duration)
@@ -51,11 +51,11 @@ function swingEarth(event)
 	Filters:CastSkillArguments(1, caster)
 end
 
-function rune_b_b(caster)
+function rune_w_2(caster)
     local runeUnit = caster.runeUnit2
-    local runeAbility = runeUnit:FindAbilityByName("warlord_rune_b_b")
+    local runeAbility = runeUnit:FindAbilityByName("warlord_rune_w_2")
     local abilityLevel = runeAbility:GetLevel()
-    local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_b")
+    local bonusLevel = Runes:GetTotalBonus(runeUnit, "w_2")
     local totalLevel = abilityLevel + bonusLevel
     return totalLevel
 end
@@ -87,13 +87,13 @@ function swapSkillsToIce(caster, swingAbility, swingCooldown)
   	iceThrow:SetLevel(throwAbility:GetLevel())
 	caster:SwapAbilities("axe_throw_earth", "axe_throw_ice", false, true)
 	iceThrow:ApplyDataDrivenModifier(caster, caster, "modifier_elemental_axe_ice", {})
-	-- local b_b_level = Runes:GetTotalRuneLevel(caster, 2, "b_b", "warlord")
-	-- if b_b_level > 0 then
-	-- 	iceThrow:ApplyDataDrivenModifier(caster, caster,  "modifier_warlord_rune_b_b", {})
-	-- 	caster:SetModifierStackCount("modifier_warlord_rune_b_b", caster, b_b_level)
+	-- local w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "warlord")
+	-- if w_2_level > 0 then
+	-- 	iceThrow:ApplyDataDrivenModifier(caster, caster,  "modifier_warlord_rune_w_2", {})
+	-- 	caster:SetModifierStackCount("modifier_warlord_rune_w_2", caster, w_2_level)
 	-- end
-	caster:RemoveModifierByName("modifier_warlord_rune_c_b_effect")
-	caster:RemoveModifierByName("modifier_warlord_rune_a_b_effect")
+	caster:RemoveModifierByName("modifier_warlord_rune_w_3_effect")
+	caster:RemoveModifierByName("modifier_warlord_rune_w_1_effect")
 end
 
 function swapSkillsToFire(caster, swingAbility, swingCooldown)
@@ -125,13 +125,13 @@ function swapSkillsToFire(caster, swingAbility, swingCooldown)
 	caster:SwapAbilities("axe_throw_ice", "axe_throw_fire", false, true)
 	fireThrow:ApplyDataDrivenModifier(caster, caster, "modifier_elemental_axe_fire", {})
 
-	-- local c_b_level = Runes:GetTotalRuneLevel(caster, 3, "c_b", "warlord")
-	-- if c_b_level > 0 then
-	-- 	fireThrow:ApplyDataDrivenModifier(caster, caster,  "modifier_warlord_rune_c_b_effect", {})
-	-- 	caster:SetModifierStackCount("modifier_warlord_rune_c_b_effect", caster, c_b_level)
+	-- local w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "warlord")
+	-- if w_3_level > 0 then
+	-- 	fireThrow:ApplyDataDrivenModifier(caster, caster,  "modifier_warlord_rune_w_3_effect", {})
+	-- 	caster:SetModifierStackCount("modifier_warlord_rune_w_3_effect", caster, w_3_level)
 	-- end
-	caster:RemoveModifierByName("modifier_warlord_rune_b_b")
-	caster:RemoveModifierByName("modifier_warlord_rune_a_b_effect")	
+	caster:RemoveModifierByName("modifier_warlord_rune_w_2")
+	caster:RemoveModifierByName("modifier_warlord_rune_w_1_effect")	
 	Timers:CreateTimer(0.05, function()
 		caster:SetMana(math.floor(caster:GetMaxMana()*manaPercentage))
 	end)
@@ -154,13 +154,13 @@ function swapSkillsToEarth(caster, swingAbility, swingCooldown)
   	earthThrow:SetLevel(throwAbility:GetLevel())
 	caster:SwapAbilities("axe_throw_fire", "axe_throw_earth", false, true)
 	earthThrow:ApplyDataDrivenModifier(caster, caster, "modifier_elemental_axe_earth", {})
-	-- local a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "warlord")
-	-- if a_b_level > 0 then
-	-- 	earthThrow:ApplyDataDrivenModifier(caster, caster,  "modifier_warlord_rune_a_b_effect", {})
-	-- 	caster:SetModifierStackCount("modifier_warlord_rune_a_b_effect", caster, a_b_level)
+	-- local w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "warlord")
+	-- if w_1_level > 0 then
+	-- 	earthThrow:ApplyDataDrivenModifier(caster, caster,  "modifier_warlord_rune_w_1_effect", {})
+	-- 	caster:SetModifierStackCount("modifier_warlord_rune_w_1_effect", caster, w_1_level)
 	-- end
-	caster:RemoveModifierByName("modifier_warlord_rune_b_b")
-	caster:RemoveModifierByName("modifier_warlord_rune_c_b_effect")		
+	caster:RemoveModifierByName("modifier_warlord_rune_w_2")
+	caster:RemoveModifierByName("modifier_warlord_rune_w_3_effect")		
 end
 
 
@@ -263,9 +263,9 @@ function elementalThink(event)
 	end
 	if caster.warlordElement == "earth" and element == "earth" then
 	    local runeUnit = caster.runeUnit
-	    local runeAbility = runeUnit:FindAbilityByName("warlord_rune_a_a")
+	    local runeAbility = runeUnit:FindAbilityByName("warlord_rune_q_1")
 	    local abilityLevel = runeAbility:GetLevel()
-	    local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_a")
+	    local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_1")
 	    local totalLevel = abilityLevel + bonusLevel
 	    if totalLevel > 0 then
 	        runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_earth_buff", {})
@@ -275,9 +275,9 @@ function elementalThink(event)
         caster:RemoveModifierByName("modifier_fire_buff") 
 	elseif caster.warlordElement == "ice" and element == "ice" then
 	    local runeUnit = caster.runeUnit2
-	    local runeAbility = runeUnit:FindAbilityByName("warlord_rune_b_a")
+	    local runeAbility = runeUnit:FindAbilityByName("warlord_rune_q_2")
 	    local abilityLevel = runeAbility:GetLevel()
-	    local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_a")
+	    local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_2")
 	    local totalLevel = abilityLevel + bonusLevel
 	    if totalLevel > 0 then
 	        runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_ice_buff", {})
@@ -287,9 +287,9 @@ function elementalThink(event)
         caster:RemoveModifierByName("modifier_fire_buff") 
 	elseif caster.warlordElement == "fire" and element == "fire" then
 	    local runeUnit = caster.runeUnit3
-	    local runeAbility = runeUnit:FindAbilityByName("warlord_rune_c_a")
+	    local runeAbility = runeUnit:FindAbilityByName("warlord_rune_q_3")
 	    local abilityLevel = runeAbility:GetLevel()
-	    local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_a")
+	    local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_3")
 	    local totalLevel = abilityLevel + bonusLevel
 	    if totalLevel > 0 then
 	        runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_fire_buff", {})
@@ -318,7 +318,7 @@ function elemental_axe_attack_land(event)
 		maxCharges = maxCharges + additionalMaxCharges
 	end
 	if element == "earth" then
-		local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "a_c", "warlord")
+		local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "warlord")
 		if a_c_level > 0 then
 			maxCharges = maxCharges + a_c_level
 		end
@@ -326,8 +326,8 @@ function elemental_axe_attack_land(event)
 		local newStacks = math.min(caster:GetModifierStackCount("modifier_warlord_earth_charge", caster) + charges, maxCharges)
 		caster:SetModifierStackCount("modifier_warlord_earth_charge", caster, newStacks)
 		if a_c_level > 0 then
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_warlord_rune_a_c_effect", {})
-			caster:SetModifierStackCount("modifier_warlord_rune_a_c_effect", caster, newStacks*a_c_level*5)
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_warlord_rune_e_1_effect", {})
+			caster:SetModifierStackCount("modifier_warlord_rune_e_1_effect", caster, newStacks*a_c_level*5)
 		end
 	elseif element == "ice" then
 
@@ -344,20 +344,20 @@ function elemental_axe_attack_land(event)
 		local newStacks = math.min(caster:GetModifierStackCount("modifier_warlord_fire_charge", caster) + charges, maxCharges)
 		caster:SetModifierStackCount("modifier_warlord_fire_charge", caster, newStacks)
 		if caster:HasAbility("elemental_overload_2") then
-			local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "warlord")
+			local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "warlord")
 			if c_d_level > 0 then
 				local c_d_stacks = math.ceil(newStacks*1.0*c_d_level)
-				local runeAbility = caster.runeUnit3:FindAbilityByName("warlord_rune_c_d")
-				runeAbility:ApplyDataDrivenModifier(caster.runeUnit3, caster, "modifier_warlord_rune_c_d_effect", {})
-				caster:SetModifierStackCount("modifier_warlord_rune_c_d_effect", caster.runeUnit3, c_d_stacks)
+				local runeAbility = caster.runeUnit3:FindAbilityByName("warlord_rune_r_3")
+				runeAbility:ApplyDataDrivenModifier(caster.runeUnit3, caster, "modifier_warlord_rune_r_3_effect", {})
+				caster:SetModifierStackCount("modifier_warlord_rune_r_3_effect", caster.runeUnit3, c_d_stacks)
 			end
 		elseif caster:HasAbility("enhchant_tomahawk") then
 			local d_d_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
 			if d_d_level > 0 then
 				local d_d_stacks = math.ceil(newStacks*1.0*d_d_level)
 				local tomahawk = caster:FindAbilityByName("enhchant_tomahawk")
-				tomahawk:ApplyDataDrivenModifier(caster, caster, "modifier_warlord_rune_d_d_effect", {})
-				caster:SetModifierStackCount("modifier_warlord_rune_d_d_effect", caster, d_d_stacks)
+				tomahawk:ApplyDataDrivenModifier(caster, caster, "modifier_warlord_rune_r_4_effect", {})
+				caster:SetModifierStackCount("modifier_warlord_rune_r_4_effect", caster, d_d_stacks)
 			end
 		end
 	end

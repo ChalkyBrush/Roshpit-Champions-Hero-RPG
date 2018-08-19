@@ -5,8 +5,8 @@ function attackLand(event)
     local ability = event.ability
     local target = event.target
 
-    Helper.initializeAbilityRunes(caster, 'axe', 'a')
-    local runesCount = caster.b_a_level
+    Helper.initializeAbilityRunes(caster, 'axe', 'q')
+    local runesCount = caster.q_2_level
 
     if runesCount <= 0 then
         return
@@ -26,13 +26,13 @@ function attackLand(event)
         maxStacksCount = T72_MAX_STACKS_COUNT
     end
 
-    local visibleModifier = "modifier_axe_rune_b_a_visible"
+    local visibleModifier = "modifier_axe_rune_q_2_visible"
     local newStacks = math.min(caster:GetModifierStackCount(visibleModifier, caster) + stacksGain, maxStacksCount)
 
     ability:ApplyDataDrivenModifier(caster, caster, visibleModifier, {duration = duration})
     caster:SetModifierStackCount(visibleModifier, caster, newStacks)
 
-    local invisibleModifier =  "modifier_axe_rune_b_a_invisible"
+    local invisibleModifier =  "modifier_axe_rune_q_2_invisible"
     ability:ApplyDataDrivenModifier(caster, caster, invisibleModifier, {duration = duration})
     caster:SetModifierStackCount(invisibleModifier, caster, newStacks * runesCount)
 end

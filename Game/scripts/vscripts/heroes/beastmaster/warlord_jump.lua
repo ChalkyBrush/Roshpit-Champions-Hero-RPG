@@ -109,21 +109,21 @@ end
 function fallBegin(event)
 	local caster = event.caster
 	if event.type == "fire" then
-		rune_c_c(caster, event.ability)
+		rune_e_3(caster, event.ability)
 	end
 end
 
-function rune_c_c(caster, ability)
+function rune_e_3(caster, ability)
     local runeUnit = caster.runeUnit3
-    local runeAbility = runeUnit:FindAbilityByName("warlord_rune_c_c")
+    local runeAbility = runeUnit:FindAbilityByName("warlord_rune_e_3")
     local abilityLevel = runeAbility:GetLevel()
-    local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_c")
+    local bonusLevel = Runes:GetTotalBonus(runeUnit, "e_3")
     local totalLevel = abilityLevel + bonusLevel
     if totalLevel > 0 then
  		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
  		local projectileCount = 0
- 		ability.c_c_damage = 10000 + totalLevel*15400
-	    caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "warlord")
+ 		ability.e_3_damage = 10000 + totalLevel*15400
+	    caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "warlord")
 		for _,enemy in pairs(enemies) do
 			projectileCount = projectileCount + 1
 			c_c_projectile(enemy, caster, ability)
@@ -160,7 +160,7 @@ function c_c_projectile_hit(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	local damage = ability.c_c_damage
+	local damage = ability.e_3_damage
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 
@@ -183,7 +183,7 @@ function warlordLand(event)
 	local ability = event.ability
 	local damage = event.damage
 
-    caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "warlord")
+    caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "warlord")
 
 	local radius = event.radius
 	local position = caster:GetAbsOrigin()
@@ -233,7 +233,7 @@ function warlordLandFire(event)
 	local ability = event.ability
 	local damage = event.damage
 
-    caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "warlord")
+    caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "warlord")
 
 	local radius = event.radius
 	local position = caster:GetAbsOrigin()+Vector(0,0,200)
@@ -262,17 +262,17 @@ function iceSprintStart(event)
 	ability.forwardVec = caster:GetForwardVector()
 	ability.interval = 0
 	StartAnimation(caster, {duration=event.duration, activity=ACT_DOTA_RUN, rate=1.2, translate="haste"})
-	-- rune_b_c(caster, ability)
+	-- rune_e_2(caster, ability)
 	Filters:CastSkillArguments(3, caster)
 	if caster:HasModifier("modifier_warlord_glyph_1_1") then
 		swapSkills("ice", caster, ability)
 	end
 	local level = ability:GetLevel()
 	caster:MoveToPosition(caster:GetAbsOrigin()+ability.forwardVec*(level/0.03)*25)
-	ability.b_c_level = Runes:GetTotalRuneLevel(caster, 2, "b_c", "warlord")
-	-- ability.b_c_damage = ability.b_c_level*120 + 300
-	ability.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "warlord")
-	-- ability.b_c_damage = ability.b_c_damage + 0.0007*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*ability.d_c_level*ability.b_c_damage
+	ability.e_2_level = Runes:GetTotalRuneLevel(caster, 2, "e_2", "warlord")
+	-- ability.e_2_damage = ability.e_2_level*120 + 300
+	ability.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "warlord")
+	-- ability.e_2_damage = ability.e_2_damage + 0.0007*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*ability.e_4_level*ability.e_2_damage
     
 end
 
@@ -290,12 +290,12 @@ function iceSprintThink(event)
   local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (position+caster:GetForwardVector()*95), caster)
   if ability.interval%3 == 0 then
   	local baseDamage = event.damage
-  	baseDamage = baseDamage + 0.0007*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*ability.d_c_level*baseDamage
+  	baseDamage = baseDamage + 0.0007*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*ability.e_4_level*baseDamage
   	iceSprintBlast(caster, newPosition, event.radius, baseDamage, ability)
   end
-  if ability.interval%3 == 0 and ability.b_c_level > 0 then
-  	caster:GiveMana(ability.b_c_level*100)
-  	PopupMana(caster, ability.b_c_level*100)
+  if ability.interval%3 == 0 and ability.e_2_level > 0 then
+  	caster:GiveMana(ability.e_2_level*100)
+  	PopupMana(caster, ability.e_2_level*100)
   	CustomAbilities:QuickAttachParticle("particles/items3_fx/mango_active.vpcf", caster, 1)
   end
   if not blockUnit then

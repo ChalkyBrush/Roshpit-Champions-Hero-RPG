@@ -65,7 +65,7 @@ end
 
 function PVP:PlayerKill(killerEntity, killedUnit)
     -- PlayerResource:IncrementKills(killerEntity:GetPlayerOwnerID(), 1)
-    if killedUnit:HasModifier("modifier_paladin_rune_a_c_revivable") or killedUnit:HasModifier("modifier_phoenix_rebirthing") then
+    if killedUnit:HasModifier("modifier_paladin_rune_e_1_revivable") or killedUnit:HasModifier("modifier_phoenix_rebirthing") then
       return false
     end
     if killedUnit:IsHero() then

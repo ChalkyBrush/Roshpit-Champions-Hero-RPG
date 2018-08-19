@@ -2,7 +2,7 @@ function begin_combo_strike(event)
 	local ability = event.ability
 	local caster = event.caster
 
-	local a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a", "monk")
+	local q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "monk")
 
 
 	if not ability.phase then
@@ -13,10 +13,10 @@ function begin_combo_strike(event)
 	end
 	ability.phase = ability.phase+1
 
-	local d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "monk")
-	local animationRate = math.min(1+d_a_level*0.07, 2)
-	local durationReduce = math.min(d_a_level*0.005, 0.16)
-	local cdReduce = math.min(d_a_level*0.01, 0.25)
+	local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "monk")
+	local animationRate = math.min(1+q_4_level*0.07, 2)
+	local durationReduce = math.min(q_4_level*0.005, 0.16)
+	local cdReduce = math.min(q_4_level*0.01, 0.25)
 	if ability.phase == 1 then
 		StartAnimation(caster, {duration=0.36-durationReduce, activity=ACT_DOTA_ATTACK, rate=animationRate})
 		EmitSoundOn("juggernaut_jug_ability_omnislash_15", caster)
@@ -29,8 +29,8 @@ function begin_combo_strike(event)
 		EmitSoundOn("Hero_Juggernaut.BladeDance", caster)
 		Timers:CreateTimer(0.2, function()
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_final_slice", {})
-			if a_a_level > 0 then
-				a_a_cloud_burst(caster, a_a_level, ability, d_a_level)
+			if q_1_level > 0 then
+				a_a_cloud_burst(caster, q_1_level, ability, q_4_level)
 			end
 		end)
 		if caster:HasModifier("modifier_monk_glyph_3_1") then
@@ -40,13 +40,13 @@ function begin_combo_strike(event)
 	end
 	EmitSoundOn("Hero_Juggernaut.PreAttack", caster)
 	EmitSoundOn("Hero_Juggernaut.PreAttack", caster)
-	local b_a_level = Runes:GetTotalRuneLevel(caster, 2, "b_a", "monk")
+	local q_2_level = Runes:GetTotalRuneLevel(caster, 2, "q_2", "monk")
 	if ability.phase <= 2 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_combo_no_cooldown", {duration = 1.5})
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_combo_slicing", {duration = 0.38-cdReduce})
 		ability:StartCooldown(0.38-cdReduce)
 		slice(caster, 200, event.damage, 0.15)
-	elseif b_a_level > 0 and ability.phase <= 3 then
+	elseif q_2_level > 0 and ability.phase <= 3 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_combo_no_cooldown", {duration = 1.5})
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_combo_slicing", {duration = 0.38-cdReduce})
 		ability:StartCooldown(0.38-cdReduce)
@@ -54,11 +54,11 @@ function begin_combo_strike(event)
 			event.damage = event.damage*3
 		end
 		slice(caster, 240, event.damage*2, 0.35)
-	elseif b_a_level > 0 then
+	elseif q_2_level > 0 then
 		ability.phase = 0
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_combo_slicing", {duration = 0.63-cdReduce})
 		caster:RemoveModifierByName("modifier_combo_no_cooldown")
-		tornado(caster, event.damage*2, ability, b_a_level)		
+		tornado(caster, event.damage*2, ability, q_2_level)		
 	else
 		ability.phase = 0
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_combo_slicing", {duration = 0.63-cdReduce})
@@ -84,11 +84,11 @@ function slice(caster, radius, damage, delay)
 		}
 	      
 		if #enemies > 0 then
-			local c_a_level = Runes:GetTotalRuneLevel(caster, 3, "c_a", "monk")
-			local c_a_damage = caster:GetAverageTrueAttackDamage(caster)*c_a_level*0.1
-			local c_b_ability = caster.runeUnit3:FindAbilityByName("monk_rune_c_b")
-			local c_b_level = Runes:GetTotalRuneLevel(caster, 3, "c_b", "monk")
-			local healPercent = c_b_level*0.025
+			local q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "monk")
+			local c_a_damage = caster:GetAverageTrueAttackDamage(caster)*q_3_level*0.1
+			local c_b_ability = caster.runeUnit3:FindAbilityByName("monk_rune_w_3")
+			local w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "monk")
+			local healPercent = w_3_level*0.025
 
 			damage = damage+c_a_damage
 			EmitSoundOn("Hero_Juggernaut.Attack", caster)
@@ -101,10 +101,10 @@ function slice(caster, radius, damage, delay)
 			for _,enemy in pairs(enemies) do
 				enemy:AddNewModifier( caster, nil, "modifier_knockback", modifierKnockback )
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 1, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
-				if c_b_level > 0 then
+				if w_3_level > 0 then
 					caster:Heal(damage*healPercent, caster)
-					caster:RemoveModifierByName("modifier_monk_rune_c_b_heal_effect")
-					c_b_ability:ApplyDataDrivenModifier(caster.runeUnit3, caster, "modifier_monk_rune_c_b_heal_effect", {duration = 0.5})
+					caster:RemoveModifierByName("modifier_monk_rune_w_3_heal_effect")
+					c_b_ability:ApplyDataDrivenModifier(caster.runeUnit3, caster, "modifier_monk_rune_w_3_heal_effect", {duration = 0.5})
 				end
 			end
 		end
@@ -116,9 +116,9 @@ function end_no_cooldown(event)
 	local caster = event.caster
 	ability.phase = 0
 	caster:RemoveModifierByName("modifier_monk_glyph_2_1_effect")
-	-- local b_a_level = Runes:GetTotalRuneLevel(caster, 2, "b_a", "monk")
-	-- if b_a_level > 40 then
-	-- 	b_a_level = 40
+	-- local q_2_level = Runes:GetTotalRuneLevel(caster, 2, "q_2", "monk")
+	-- if q_2_level > 40 then
+	-- 	q_2_level = 40
 	-- end
 	ability:StartCooldown(4)
 
@@ -132,13 +132,13 @@ function start_no_cooldown(event)
 	end
 end
 
-function tornado(caster, damage, ability, b_a_level)	
+function tornado(caster, damage, ability, q_2_level)	
 	ability.liftVelocity = 30
 	ability.fallVelocity = 0
 	ability.forwardVector = caster:GetForwardVector()
-	ability.sliceDamage = b_a_level*300
-	ability.c_a_level = Runes:GetTotalRuneLevel(caster, 3, "c_a", "monk")
-	local duration = 0.5 + b_a_level*0.02
+	ability.sliceDamage = q_2_level*300
+	ability.q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "monk")
+	local duration = 0.5 + q_2_level*0.02
 	if duration > 1 then
 		duration = 1
 	end
@@ -170,7 +170,7 @@ function tornado_think(event)
 		knockback_distance = 140,
 		knockback_height = 35,
 	}
-	local c_a_damage = caster:GetAverageTrueAttackDamage(caster)*ability.c_a_level*0.05/3
+	local c_a_damage = caster:GetAverageTrueAttackDamage(caster)*ability.q_3_level*0.05/3
 	damage = damage+c_a_damage     
 	if #enemies > 0 then
 		EmitSoundOn("Hero_Juggernaut.Attack", caster)
@@ -229,9 +229,9 @@ function falling_end(event)
 	caster:SetForwardVector(Vector(ability.forwardVector.x, ability.forwardVector.y, ability.forwardVector.z))
 end
 
-function a_a_cloud_burst(caster, totalLevel, ability, d_a_level)
+function a_a_cloud_burst(caster, totalLevel, ability, q_4_level)
 	local damage = totalLevel*140
-	damage = damage + 0.0005*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*d_a_level*damage
+	damage = damage + 0.0005*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*q_4_level*damage
 	if caster:HasModifier("modifier_monk_glyph_1_1") then
 		damage = damage*1.4
 	end

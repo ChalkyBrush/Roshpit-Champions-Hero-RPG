@@ -19,7 +19,7 @@ local function createTauntWaves(caster, ability, damage)
                 for _,enemy in pairs(enemies) do
                     if enemy:GetAttackCapability() == DOTA_UNIT_CAP_NO_ATTACK then
                     else
-                        ability:ApplyDataDrivenModifier(caster, enemy, "modifier_axe_rune_a_d_taunt", {duration = 1.5})
+                        ability:ApplyDataDrivenModifier(caster, enemy, "modifier_axe_rune_r_1_taunt", {duration = 1.5})
                         enemy:MoveToTargetToAttack(caster)
                     end
                     Shockwaves.dealDamage(caster, enemy, ability, damage)
@@ -29,11 +29,11 @@ local function createTauntWaves(caster, ability, damage)
     end
 end
 local function cast(caster, ability, damage)
-    if caster.a_d_level <= 0 then
+    if caster.r_1_level <= 0 then
         return
     end
     createTauntWaves(caster, ability, damage)
-    ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_b_d_visible", {duration = R1_BUFF_DURATION})
+    ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_r_2_visible", {duration = R1_BUFF_DURATION})
 end
 
 function takeDamage(event)
@@ -55,7 +55,7 @@ function takeDamage(event)
 
             local damage = math.min(event.damage, 20 * caster:GetHealth());
             print("incoming damage = " .. event.damage)
-            damage = damage * caster.a_d_level*RED_GENERAL_R1_DAMAGE
+            damage = damage * caster.r_1_level*RED_GENERAL_R1_DAMAGE
             if caster:HasModifier("modifier_axe_glyph_5_a") then
                 damage = damage * (1 + T5A_AMPLIFY_PERCENT/100)
             end

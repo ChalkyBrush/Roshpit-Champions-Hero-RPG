@@ -1,4 +1,5 @@
-require('heroes/omniknight/constants')
+require('heroes/omniknight/paladin_constants')
+
 function begin_crusader_comet(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -12,7 +13,7 @@ function begin_crusader_comet(event)
 	EmitSoundOn("Paladin.CometLift.VO", caster)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_antimage/holy_blinkend.vpcf", caster, 1.7)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Paladin.CometFlying", caster)
-	local c_c_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
+	local c_c_level = caster:GetRuneValue("e", 3)
 	caster:RemoveModifierByName("modifier_comet_storming")
 	if c_c_level > 0 then
 		local c_c_duration = 1.0 + 0.1*c_c_level
@@ -103,7 +104,7 @@ end
 function calculate_and_apply_b_c_attack_power(event)
 	local caster = event.caster
 	local ability = event.ability
-	local b_c_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
+	local b_c_level = caster:GetRuneValue("e", 2)
 	if b_c_level > 0 then
 		local damageDealt = 1000
 		local damageHOLY = Filters:ElementalDamage(Events.GameMaster, caster, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE, false)
@@ -113,13 +114,13 @@ function calculate_and_apply_b_c_attack_power(event)
 	else
 		caster:RemoveModifierByName("modifier_paladin_b_c_attackpower")
 	end
-	local d_c_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
+	local d_c_level = caster:GetRuneValue("e", 4)
 	if d_c_level > 0 then
 		local damageDealt = 1000
 		local damageHOLY = Filters:ElementalDamage(Events.GameMaster, caster, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE, false)
 		local amp = damageHOLY/damageDealt
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_paladin_d_c_postmit", {})
-		caster:SetModifierStackCount("modifier_paladin_d_c_postmit", caster, amp*ARCANA2_E4_AMPLIFY*d_c_level/100)
+		caster:SetModifierStackCount("modifier_paladin_d_c_postmit", caster, amp*PALADIN_ARCANA2_E4_AMPLIFY*d_c_level/100)
 	else
 		caster:RemoveModifierByName("modifier_paladin_d_c_postmit")
 	end	

@@ -10,7 +10,7 @@ function modifier_zonik_temporal_field_cap:DeclareFunctions()
 end
 
 function modifier_zonik_temporal_field_cap:GetModifierMoveSpeed_Max( params )
-	-- local cap = self:GetAbility():GetSpecialValueFor("movespeed_cap") + self:GetAbility().d_c_level*10
+	-- local cap = self:GetAbility():GetSpecialValueFor("movespeed_cap") + self:GetAbility().e_4_level*10
  --    if self:GetAbility():GetOwner():HasModifier("modifier_zonik_speedball") then
  --        cap = cap + 600
  --    end
@@ -22,7 +22,7 @@ function modifier_zonik_temporal_field_cap:GetModifierMoveSpeed_Max( params )
 end
 
 function modifier_zonik_temporal_field_cap:GetModifierMoveSpeed_Limit( params )
-	-- local cap = self:GetAbility():GetSpecialValueFor("movespeed_cap") + self:GetAbility().d_c_level*10
+	-- local cap = self:GetAbility():GetSpecialValueFor("movespeed_cap") + self:GetAbility().e_4_level*10
  --    if self:GetAbility():GetOwner():HasModifier("modifier_zonik_speedball") then
  --        cap = cap + 600
  --    end
