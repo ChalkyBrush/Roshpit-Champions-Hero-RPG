@@ -214,6 +214,11 @@ function rune_unit_4_think(event)
 	local caster = event.caster
 	local hero = caster.hero
 	local ability = event.ability
+
+    if not ability then
+        return
+    end
+
 	local d_c_level = Runes:GetTotalRuneLevel(hero, 4, "d_c", "mountain_protector")
 	if d_c_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_mountain_rune_d_c_effect", {})
@@ -222,12 +227,6 @@ function rune_unit_4_think(event)
 		hero:RemoveModifierByName("modifier_mountain_rune_d_c_effect")
 	end
     if hero:HasModifier("modifier_rockfall_passive") and ability:GetAbilityName() == "mountain_protector_rune_d_c_arcana3" then
-        local d_c_level = Runes:GetTotalRuneLevelGeneric(hero, 4, 2)
-        if d_c_level > 0 then
-            ability:ApplyDataDrivenModifier(caster, hero, "modifier_mountain_rune_d_c_effect", {})
-            hero:SetModifierStackCount("modifier_mountain_rune_d_c_effect", caster, d_c_level)
-        else
-            hero:RemoveModifierByName("modifier_mountain_rune_d_c_effect")
-        end
+        hero:RemoveModifierByName("modifier_mountain_rune_d_c_effect")
     end
 end

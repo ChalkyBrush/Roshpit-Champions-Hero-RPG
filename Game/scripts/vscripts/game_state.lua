@@ -6,7 +6,8 @@ require('/heroes/huskar/constants_SPIRIT_WARRIOR')
 require('/heroes/obsidian_destroyer/constants_epoch')
 
 local heroes = {
-	venomort = require('/heroes/hero_necrolyte/scales')
+	venomort = require('/heroes/hero_necrolyte/scales'),
+	mountain_protector = require('/heroes/legion_commander/constants')
 }
 
 GameState.PVP_REDUCTION = 0.01
@@ -2019,7 +2020,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if attacker:HasModifier("modifier_steelforge_passive") then
 		if victim:IsStunned() or victim:HasModifier("modifier_knockback") or victim:IsFakeStunned() then
-			mult = mult + 0.03*attacker.b_b_level
+			mult = mult + heroes.mountain_protector.ARCANA1_W2_POSTMITIGATION_PERCENT/100 * attacker.b_b_level
 		end
 	end
 	if attacker:HasModifier("modifier_waterheart_weapon") then
@@ -2774,7 +2775,10 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + thresholdMult - 1
 			divisor = divisor + thresholdMult - 1
 			print("threshold increase")
-		end
+        end
+        if attacker:HasModifier("modifier_rockfall_passive") then
+            thresholdMult = 1 + attacker:GetRuneValue("e", 4) * heroes.mountain_protector.ARCANA3_E4_THRESHOLD_INCREASE_PERCENT
+        end
 		if attacker:HasModifier("modifier_slipfinn_passive") then
 			local d_c_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 2)
 			local luck = RandomInt(1, 1000)
@@ -3198,8 +3202,7 @@ function GameState:FilterDamage(filterTable)
 				local hailstormAbility = victim:FindAbilityByName("mountain_protector_hailstorm")
 				local b_d_level = Runes:GetTotalRuneLevelGeneric(victim, 2, 3)
 				if b_d_level > 0 then
-					hailstormAbility:ApplyDataDrivenModifier(victim, victim, "modifier_frozen_stand", {duration = 6})
-					hailstormAbility:ApplyDataDrivenModifier(victim, victim, "modifier_hailstorm_ice_case_cooldown", {duration = 35})
+					hailstormAbility:ApplyDataDrivenModifier(victim, victim, "modifier_frozen_stand", nil)
 					rezzed = true
 				end
 			end	

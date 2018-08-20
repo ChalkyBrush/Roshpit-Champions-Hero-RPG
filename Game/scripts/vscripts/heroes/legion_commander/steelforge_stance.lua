@@ -1,19 +1,29 @@
+local constants = require('/heroes/legion_commander/constants')
+
 function energy_shield_create(event)
 	local caster = event.caster
 	local ability = event.ability
+	local regen_percent = event.regen_percent
 	if not caster:HasModifier("modifier_energy_channel_no_cast_filter") then
 		Filters:CastSkillArguments(2, caster)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_energy_channel_no_cast_filter", {duration = 0.5})
 	end
+
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_protector_steelforge_regen", {})
+	caster:SetModifierStackCount("modifier_protector_steelforge_regen", caster, regen_percent)
+
 	local b_b_level = Runes:GetTotalRuneLevel(caster, 2, "b_b", "mountain_protector")
 	ability.c_b_level = Runes:GetTotalRuneLevel(caster, 3, "c_b", "mountain_protector")
 	if ability.c_b_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_protector_rune_c_b_aura", {})
 	end
-	ability.d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "mountain_protector")
-	if ability.d_b_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_protector_rune_d_b_aura", {})
+
+	ability.w4_level = caster:GetRuneValue("w", 4)
+	if ability.w4_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_protector_rune_w4_bonus_damage", {})
 	end
+
+
 	caster.mountainGuardianMagic = 1+(b_b_level*0.04)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_energy_channel_animating", {duration = 6})
 	Timers:CreateTimer(0.05, function()
@@ -43,11 +53,11 @@ function energy_shield_create(event)
 		local damage = a_b_level*caster:GetAverageTrueAttackDamage(caster)*0.50 + a_b_level*caster:GetStrength()*10
 		EmitSoundOnLocationWithCaster(position, "MysticAssasin.FissureExplosion", caster)
 		local explosionAOE = 800
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, explosionAOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, explosionAOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
 				Filters:ApplyStun(caster, 0.5, enemy)
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_EARTH, RPC_ELEMENT_ICE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 2, RPC_ELEMENT_EARTH, RPC_ELEMENT_ICE)
 			end
 		end 
 	end
@@ -66,13 +76,19 @@ function energy_shield_think(event)
 	if caster:GetMana() < mana_drain then
 		ability:ToggleAbility()
 	end
+
+	local bonus_damage = caster:GetStrength() * constants.ARCANA1_W4_ATTACK_PER_STR * ability.w4_level
+	if bonus_damage then
+		caster:SetModifierStackCount("modifier_protector_rune_w4_bonus_damage", caster, bonus_damage)
+	end
 end
 
 function energy_shield_end(event)
 	local caster = event.caster
 	StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_TELEPORT_END, rate=1.4})
 	caster:RemoveModifierByName("modifier_protector_rune_c_b_aura")
-	caster:RemoveModifierByName("modifier_protector_rune_d_b_aura")
+	caster:RemoveModifierByName("modifier_protector_rune_w4_bonus_damage")
+	caster:RemoveModifierByName("modifier_protector_steelforge_regen")
 
 
 end
@@ -89,22 +105,15 @@ function steelforge_take_damage(event)
 			return false
 		end
 		if caster:HasModifier("modifier_steelforge_stance") then
-			if ability.d_b_level > 0 then
-				local luck = RandomInt(1, 2)
-				if luck == 1 then
-					local stunDuration = ability.d_b_level*0.04
-					Filters:ApplyStun(caster, stunDuration, target)
-				end
-			end
-			print(ability.c_b_level)
+			Filters:ApplyStun(caster, constants.ARCANA1_W3_STUN_DURATION_CONST, target)
 			if ability.c_b_level > 0 then
 				if not ability.c_b_particles then
 					ability.c_b_particles = 0
 				end
 				if ability.c_b_particles < 10 then
 					ability.c_b_particles = ability.c_b_particles + 1
-					local c_b_damage = caster:GetAverageTrueAttackDamage(caster)*0.50*ability.c_b_level
-					Filters:TakeArgumentsAndApplyDamage(target, caster, c_b_damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_ICE)
+					local c_b_damage = caster:GetAverageTrueAttackDamage(caster)*constants.ARCANA1_W3_DAMAGE_PERCENT/100 * ability.c_b_level
+					Filters:TakeArgumentsAndApplyDamage(target, caster, c_b_damage, DAMAGE_TYPE_PURE, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_ICE)
 					local pfx = ParticleManager:CreateParticle( "particles/roshpit/mountain_protector/blue_steel_dagon_lvl2_ti5.vpcf", PATTACH_POINT_FOLLOW, caster )
 					ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT, "attach_hitloc", caster:GetAbsOrigin()+Vector(0,0,80), true)
 					ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_POINT, "attach_hitloc", target:GetAbsOrigin()+Vector(0,0,80), true)
