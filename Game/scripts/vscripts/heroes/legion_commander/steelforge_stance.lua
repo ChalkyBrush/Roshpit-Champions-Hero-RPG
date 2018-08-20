@@ -23,6 +23,10 @@ function energy_shield_create(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_protector_rune_w4_bonus_damage", {})
 	end
 
+	local bonus_damage = caster:GetStrength() * constants.ARCANA1_W4_ATTACK_PER_STR * ability.w4_level
+	if bonus_damage then
+		caster:SetModifierStackCount("modifier_protector_rune_w4_bonus_damage", caster, bonus_damage)
+	end
 
 	caster.mountainGuardianMagic = 1+(b_b_level*0.04)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_energy_channel_animating", {duration = 6})

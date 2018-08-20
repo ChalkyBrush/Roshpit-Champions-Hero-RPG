@@ -2777,7 +2777,7 @@ function GameState:FilterDamage(filterTable)
 			print("threshold increase")
         end
         if attacker:HasModifier("modifier_rockfall_passive") then
-            thresholdMult = 1 + attacker:GetRuneValue("e", 4) * heroes.mountain_protector.ARCANA3_E4_THRESHOLD_INCREASE_PERCENT
+            thresholdMult = 1 + attacker:GetRuneValue("e", 4) * heroes.mountain_protector.ARCANA3_E4_THRESHOLD_INCREASE_PERCENT/100
         end
 		if attacker:HasModifier("modifier_slipfinn_passive") then
 			local d_c_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 2)
