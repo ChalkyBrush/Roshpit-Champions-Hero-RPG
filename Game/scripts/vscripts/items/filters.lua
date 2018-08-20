@@ -875,7 +875,7 @@ function Filters:ApplyQskills(caster)
     end
     if caster:HasModifier("modifier_outland_stone_cuirass") then
         CustomAbilities:QuickAttachParticle("particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf", caster, 4)
-        Filters:ApplyStun(caster, 5, caster)
+        caster:AddNewModifier(caster, nil, "modifier_stunned", {duration = 2.5})
     end
     if caster:HasModifier("modifier_dark_emissary_glove") then
         Filters:DarkEmissary(caster)
@@ -1424,7 +1424,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + 3.5
         end
         if attacker:HasModifier("modifier_outland_stone_cuirass") then
-            damageMult = damageMult + 7
+            damageMult = damageMult + 30
         end
         if attacker:HasModifier("modifier_mana_relic_damage_boost") then
             damageMult = damageMult + 4
