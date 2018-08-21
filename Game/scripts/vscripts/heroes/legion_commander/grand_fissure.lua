@@ -1,3 +1,4 @@
+local constants = require('/heroes/legion_commander/constants')
 function start_channel(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -126,10 +127,11 @@ function aeon_fracture_explosion(caster, position, damage, amp, explosionAOE, ab
 						local runeAbility = caster.runeUnit2:FindAbilityByName("mountain_protector_rune_b_d")
 						runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, caster, "modifier_mountain_protector_rune_b_d_visible", {duration = b_d_duration})
 						local currentStacks = caster:GetModifierStackCount("modifier_mountain_protector_rune_b_d_visible", caster.runeUnit2)
-						caster:SetModifierStackCount("modifier_mountain_protector_rune_b_d_visible", caster.runeUnit2, currentStacks + 1)
+						local stacksCount = min(currentStacks + 1, constants.R2_MAX_STACKS)
+						caster:SetModifierStackCount("modifier_mountain_protector_rune_b_d_visible", caster.runeUnit2, stacksCount)
 
 						runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, caster, "modifier_mountain_protector_rune_b_d_invisible", {duration = b_d_duration})
-						caster:SetModifierStackCount("modifier_mountain_protector_rune_b_d_invisible", caster.runeUnit2, (currentStacks)*ability.b_d_level)
+						caster:SetModifierStackCount("modifier_mountain_protector_rune_b_d_invisible", caster.runeUnit2, stacksCount*ability.b_d_level)
 					end
 				end
 			end
