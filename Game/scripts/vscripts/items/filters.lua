@@ -4,7 +4,8 @@ end
 
 
 local heroes = {
-    venomort = require('/heroes/hero_necrolyte/scales')
+    venomort = require('/heroes/hero_necrolyte/scales'),
+    mountain_protector = require('/heroes/legion_commander/constants')
 }
 
 require('/heroes/huskar/constants_SPIRIT_WARRIOR')
@@ -143,7 +144,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     if caster:HasModifier("modifier_rockfall_passive") then
         local a_c_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
         if a_c_level > 0 then
-            mult = mult + 0.0001*((caster:GetMaxHealth()-caster:GetHealth())/1000)*a_c_level
+            mult = mult + heroes.mountain_protector.ARCANA3_E1_BAD_PER_MISSING_1000HP_PERCENT/100*((caster:GetMaxHealth()-caster:GetHealth())/1000)*a_c_level
         end
     end
     if caster:HasModifier("modifier_depth_crest_armor") then
@@ -874,7 +875,7 @@ function Filters:ApplyQskills(caster)
     end
     if caster:HasModifier("modifier_outland_stone_cuirass") then
         CustomAbilities:QuickAttachParticle("particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf", caster, 4)
-        Filters:ApplyStun(caster, 5, caster)
+        caster:AddNewModifier(caster, nil, "modifier_stunned", {duration = 2.5})
     end
     if caster:HasModifier("modifier_dark_emissary_glove") then
         Filters:DarkEmissary(caster)
@@ -1253,7 +1254,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_rockfall_passive") then
             local b_c_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 2)
             if b_c_level > 0 then
-                damage = damage + attacker:GetStrength()*b_c_level
+                damage = damage + attacker:GetStrength()*b_c_level*heroes.mountain_protector.ARCANA3_E2_STR_TO_ABILITIES_DAMAGE
             end
         end
         -- if attacker:HasModifier("modifier_heavy_echo_gauntlet") then
@@ -1352,12 +1353,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_venomort_glyph_4_1") then
             damageMult = damageMult + 2
         end
-        if attacker:HasModifier("modifier_mountain_rune_d_c_effect") then
+        if attacker:HasModifier("modifier_mountain_rune_d_c_effect") and not attacker:HasModifier("modifier_rockfall_passive") then
             local current_stack = attacker:GetModifierStackCount( "modifier_mountain_rune_d_c_effect", attacker.runeUnit4 )
             local multIncrease = 0.2
-            if attacker:HasModifier("modifier_rockfall_passive") then
-                multIncrease = 0.25
-            end
             damageMult = damageMult + multIncrease*current_stack
         end
         if attacker:HasModifier("modifier_infused_mageplate_stack") then
@@ -1413,7 +1411,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             if slot > 0 then
                 local a_c_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 2)
                 if a_c_level > 0 then
-                    damageMult = damageMult + 0.0001*((attacker:GetMaxHealth()-attacker:GetHealth())/1000)*a_c_level
+                    damageMult = damageMult + heroes.mountain_protector.ARCANA3_E1_BAD_PER_MISSING_1000HP_PERCENT/100*((attacker:GetMaxHealth()-attacker:GetHealth())/1000)*a_c_level
                 end
             end
         end
@@ -1426,7 +1424,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + 3.5
         end
         if attacker:HasModifier("modifier_outland_stone_cuirass") then
-            damageMult = damageMult + 7
+            damageMult = damageMult + 30
         end
         if attacker:HasModifier("modifier_mana_relic_damage_boost") then
             damageMult = damageMult + 4

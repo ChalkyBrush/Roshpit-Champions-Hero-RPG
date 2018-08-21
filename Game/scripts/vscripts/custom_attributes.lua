@@ -3,7 +3,8 @@ if CustomAttributes == nil then
 end
 
 local hero_values = {
-	venomort = require('/heroes/hero_necrolyte/constants')
+	venomort = require('/heroes/hero_necrolyte/constants'),
+	mountain_protector = require('/heroes/legion_commander/constants'),
 }
 
 require('/heroes/obsidian_destroyer/constants_epoch')
@@ -31,7 +32,7 @@ CustomAttributes.BAHAMUT_R4_STATS = 7
 CustomAttributes.AURIUN_E2_INT = 120
 CustomAttributes.AURIUN_E3_STATS = 40
 CustomAttributes.MOUNTAIN_PROTECTOR_E2_STR = 120
-CustomAttributes.MOUNTAIN_PROTECTOR_R2_STR = 40
+CustomAttributes.MOUNTAIN_PROTECTOR_R2_STR = hero_values.mountain_protector.R2_STRENGTH_PER_STACK
 CustomAttributes.SEINARU_Q3_ARCANA1_AGI = 400
 CustomAttributes.SOLUNIA_R4_STATS = 200
 CustomAttributes.AXE_E1_STATS = 10

@@ -1,0 +1,7 @@
+-- Standart for file
+-- Can have the methods:
+-- GetBadMultiplier
+-- GetPostmitigationMultiplier
+-- GetElementMultiplier
+-- GetBadFlatBonus
+-- GetIncomingDamageReduction
