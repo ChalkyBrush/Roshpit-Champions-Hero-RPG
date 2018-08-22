@@ -647,10 +647,15 @@
 				"var_type"				"FIELD_FLOAT"
 				"property_one"		"<% ARCANA2_R2_DURATION %>"
 			}
-			"02"
+			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_two"			"<% ARCANA2_R2_STUN_DURATION %>"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"constant_one"			"<% ARCANA2_R2_RADIUS %>"
 			}
 		}
 	}

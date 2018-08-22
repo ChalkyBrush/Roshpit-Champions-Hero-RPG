@@ -220,6 +220,8 @@ function getPosition(str, m, i) {
    return str.split(m, i).join(m).length;
 }
 
+
+
 function AbilityShowTooltip()
 {
 	// //var abilityButton = $( "#AbilityButton" );

@@ -36,8 +36,10 @@ function slice_start(event)
 	for _,enemy in pairs(enemies) do
 		if not enemy.venomort_reaper_active then
 			enemy.venomort_reaper_active = true
-			target = enemy
-			break
+			if not enemy.dummy then
+				target = enemy
+				break
+			end
 		end
 	end
 	if not target then
@@ -81,7 +83,7 @@ function slice_start(event)
 							local pfx2 = ParticleManager:CreateParticle("particles/roshpit/venomort/reapers_slice_a_d_magical.vpcf", PATTACH_CUSTOMORIGIN, caster)
 							ParticleManager:SetParticleControl(pfx2, 0, target:GetAbsOrigin())
 							ParticleManager:SetParticleControl(pfx2, 2, Vector(90, 255, 60))
-							Timers:CreateTimer(3.5, function()
+							Timers:CreateTimer(2.7, function()
 								ParticleManager:DestroyParticle(pfx2, false)
 							end)
 							Timers:CreateTimer(2, function()

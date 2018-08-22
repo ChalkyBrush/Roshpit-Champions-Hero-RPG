@@ -189,6 +189,17 @@ function frozen_stand_end(event)
 			Filters:ApplyStun(caster, stun_duration, enemy)
 		end
 	end
+    local particleName = "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
+    local radius = 260
+    local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, nil )
+    local origin = caster:GetAbsOrigin()
+    ParticleManager:SetParticleControl( particle1, 0, caster:GetAbsOrigin()+Vector(0,0,20) )
+    ParticleManager:SetParticleControl( particle1, 1, Vector(constants.ARCANA2_R2_RADIUS, 1, constants.ARCANA2_R2_RADIUS) )
+    ParticleManager:SetParticleControl( particle1, 3, Vector(constants.ARCANA2_R2_RADIUS, constants.ARCANA2_R2_RADIUS, constants.ARCANA2_R2_RADIUS) )
+    Timers:CreateTimer(3, function()
+        ParticleManager:DestroyParticle(particle1, false)
+    end)
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "MysticAssasin.FrozenStandBreak", caster)
 end
 
 function hailstorm_enemy_aura_start(event)

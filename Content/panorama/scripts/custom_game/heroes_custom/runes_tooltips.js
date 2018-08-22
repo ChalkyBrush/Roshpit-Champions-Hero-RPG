@@ -77,6 +77,7 @@ function initializeTooltip(func){
 		$('#element_container').AddClass("invisible")
 	}
 	var raw_description = $.Localize( "#DOTA_Tooltip_Ability_"+abilityNameInternal+"_Description")
+	raw_description = replaceConstantsInTooltip(rune, raw_description)
 	$('#rune_description').text = raw_description
 
 
@@ -130,6 +131,27 @@ function initializeTooltip(func){
 		$('#current_level_text_2').AddClass('invisible')
 		$('#next_level_text_2').AddClass('invisible')
 	}
+}
+
+function replaceConstantsInTooltip(ability, tooltip)
+{
+	if (tooltip.indexOf("@constant1") > -1){
+		var constant1 = Abilities.GetLevelSpecialValueFor( ability, "constant_one", 1)
+		tooltip = tooltip.replace("@constant1", "<font color='#edf2a7'>"+constant1+"</font>")
+	}
+	if (tooltip.indexOf("@constant2") > -1){
+		var constant2 = Abilities.GetLevelSpecialValueFor( ability, "constant_two", 1)
+		tooltip = tooltip.replace("@constant2", "<font color='#edf2a7'>"+constant2+"</font>")
+	}
+	if (tooltip.indexOf("@constant3") > -1){
+		var constant3 = Abilities.GetLevelSpecialValueFor( ability, "constant_three", 1)
+		tooltip = tooltip.replace("@constant3", "<font color='#edf2a7'>"+constant3+"</font>")
+	}
+	if (tooltip.indexOf("@constant4") > -1){
+		var constant4 = Abilities.GetLevelSpecialValueFor( ability, "constant_four", 1)
+		tooltip = tooltip.replace("@constant4", "<font color='#edf2a7'>"+constant4+"</font>")
+	}
+	return tooltip
 }
 
 function GetRuneBonus(mainHero, rune_slot)
