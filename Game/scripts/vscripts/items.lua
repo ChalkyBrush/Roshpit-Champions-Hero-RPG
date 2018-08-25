@@ -1717,13 +1717,13 @@ function RPCItems:GetRandomRuneLetter(min, max)
 	local luck = RandomInt(min, max)
 	local letter = ""
 	if luck == 1 then
-		letter = "a"
+		letter = "q"
 	elseif luck == 2 then
-		letter = "b"
+		letter = "w"
 	elseif luck == 3 then
-		letter = "c"
+		letter = "e"
 	elseif luck == 4 then
-		letter = "d"
+		letter = "r"
 	end
 	return letter
 end

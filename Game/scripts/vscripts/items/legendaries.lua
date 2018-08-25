@@ -3211,7 +3211,7 @@ function RPCItems:VermillionDreamRobes(deathLocation)
     local luck = RandomInt(1,4)
     if luck == 4 and maxFactor >= 270 then
         local letter = RPCItems:GetRandomRuneLetter(1, 4)
-        runeName = "rune_d_"..letter
+        runeName = "rune_"..letter.."_4"
         runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor/30, 0, 0, 0, 0)
 
         item.property2name = runeName
@@ -3383,7 +3383,7 @@ function RPCItems:RollFrostmawHuntersHood(deathLocation)
     local luck = RandomInt(1, 4)
     if luck == 4 and maxFactor >= 150 then
         local letter = RPCItems:GetRandomRuneLetter(1, 4)
-        runeName = "rune_d_"..letter
+        runeName = "rune_"..letter.."_4"
         runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor/30, 0, 0, 0, 0)
 
         item.property3name = runeName
@@ -5028,7 +5028,7 @@ function RPCItems:RollHarvesterBoots(deathLocation)
     local luck = RandomInt(1,3)
     if luck == 3 then
         local letter = RPCItems:GetRandomRuneLetter(1, 4)
-        runeName = "rune_a_"..letter
+        runeName = "rune_"..letter.."_1"
         runeValue = math.floor(RPCItems:GetLogarithmicVarianceValue(maxFactor/5, 0, 0, 0, 0))
 
         item.property1name = runeName
@@ -5050,7 +5050,7 @@ function RPCItems:RollHarvesterBoots(deathLocation)
     local luck = RandomInt(1,3)
     if luck == 3 then
         local letter = RPCItems:GetRandomRuneLetter(1, 4)
-        runeName = "rune_b_"..letter
+        runeName = "rune_"..letter.."_2"
         runeValue = math.floor(RPCItems:GetLogarithmicVarianceValue(maxFactor/5, 0, 0, 0, 0))
 
         item.property2name = runeName
@@ -5072,7 +5072,7 @@ function RPCItems:RollHarvesterBoots(deathLocation)
     local luck = RandomInt(1,3)
     if luck == 3 and maxFactor >= 150 then
         local letter = RPCItems:GetRandomRuneLetter(1, 4)
-        runeName = "rune_c_"..letter
+        runeName = "rune_"..letter.."_3"
         runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor/10, 0, 0, 0, 0)
 
         item.property3name = runeName
@@ -5094,7 +5094,7 @@ function RPCItems:RollHarvesterBoots(deathLocation)
     local luck = RandomInt(1,4)
     if luck == 4 and maxFactor >= 270 then
         local letter = RPCItems:GetRandomRuneLetter(1, 4)
-        runeName = "rune_d_"..letter
+        runeName = "rune_"..letter.."_4"
         runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor/30, 0, 0, 0, 0)
 
         item.property4name = runeName
