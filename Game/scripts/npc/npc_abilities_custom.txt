@@ -67786,7 +67786,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"40"
+				"property_two"			"20"
 			}
 		}
 		"Modifiers"
