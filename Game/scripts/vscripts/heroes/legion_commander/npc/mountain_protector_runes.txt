@@ -227,7 +227,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"40"
+				"property_two"			"<% R2_STRENGTH_PER_STACK %>"
 			}
 		}
 		"Modifiers"
