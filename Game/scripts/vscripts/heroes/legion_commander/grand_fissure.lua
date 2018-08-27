@@ -52,9 +52,6 @@ function channel_complete(event)
 		ability.cast_difference = (target - caster:GetAbsOrigin())*Vector(1,1,0)
 	end
 	local explosionCount = event.numExplosions
-	if caster:HasModifier("modifier_mountain_protector_glyph_3_1") then
-		explosionCount = explosionCount + 6
-	end
 	for i = 1, explosionCount, 1 do
 		Timers:CreateTimer(i*0.3, function()
 			local randomExplosionLocation = target + RandomVector(RandomInt(0,500)) + Vector(0,0,20)
@@ -106,10 +103,17 @@ function aeon_fracture_explosion(caster, position, damage, amp, explosionAOE, ab
 		end)	
 		EmitSoundOnLocationWithCaster(position, "MysticAssasin.FissureExplosion", caster)
 
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, explosionAOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+		local targetFlag = 0
+		local damageType = DAMAGE_TYPE_MAGICAL
+		if caster:HasModifier("modifier_mountain_protector_glyph_3_1") then
+			damageType = DAMAGE_TYPE_PURE
+			targetFlag = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+		end
+
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, explosionAOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, targetFlag, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_EARTH, RPC_ELEMENT_FIRE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, damageType, 4, RPC_ELEMENT_EARTH, RPC_ELEMENT_FIRE)
 				Filters:ApplyStun(caster, stun_duration+a_c_stun_duration, enemy)
 				if ability.a_d_level > 0 then
 					local a_d_damage = caster:GetAverageTrueAttackDamage(caster)*0.3*ability.a_d_level
