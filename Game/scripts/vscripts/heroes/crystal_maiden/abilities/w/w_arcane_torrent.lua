@@ -11,18 +11,18 @@ function calculateDamage(event)
 
     ability.target = target
 
-    Helper.initializeAbilityRunes(caster, 'sorceress', 'a')
-    Helper.initializeAbilityRunes(caster, 'sorceress', 'b')
-    Helper.initializeAbilityRunes(caster, 'sorceress', 'c')
-    Helper.initializeAbilityRunes(caster, 'sorceress', 'd')
+    Helper.initializeAbilityRunes(caster, 'sorceress', 'q')
+    Helper.initializeAbilityRunes(caster, 'sorceress', 'w')
+    Helper.initializeAbilityRunes(caster, 'sorceress', 'e')
+    Helper.initializeAbilityRunes(caster, 'sorceress', 'r')
 
     Filters:CastSkillArguments(2, caster)
 
     local arcane_explosion_damage = caster:FindAbilityByName("arcane_explosion"):GetLevelSpecialValueFor("damage", ability:GetLevel())
     arcane_explosion_damage = arcane_explosion_damage * T51_AMPLIFY * caster:GetMaxMana()/100
 
-    if caster.d_b_level > 0 then
-        arcane_explosion_damage = arcane_explosion_damage * (1 + SORCERESS_W4_AMPLIFY_PERCENT/100 * caster.d_b_level)
+    if caster.w_4_level > 0 then
+        arcane_explosion_damage = arcane_explosion_damage * (1 + SORCERESS_W4_AMPLIFY_PERCENT/100 * caster.w_4_level)
     end
 
     ability.manacost = event.mana_drain/5

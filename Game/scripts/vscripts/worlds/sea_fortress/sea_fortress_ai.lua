@@ -381,7 +381,7 @@ function barnacle_ground_slam_cast(event)
 			radius = 440
 			damage = damage*2
 		end
-		local splitEarthParticle = "particles/units/heroes/hero_leshrac/astral_rune_b_d.vpcf"
+		local splitEarthParticle = "particles/units/heroes/hero_leshrac/astral_rune_r_2.vpcf"
 		local pfx = ParticleManager:CreateParticle( splitEarthParticle, PATTACH_CUSTOMORIGIN, caster )
 		ParticleManager:SetParticleControl( pfx, 0, position )
 		ParticleManager:SetParticleControl( pfx, 1, Vector(radius, radius, radius) )
@@ -1663,7 +1663,7 @@ function exiler_attack_land(event)
 	local damage = event.damage
 	local position = caster:GetAbsOrigin() + caster:GetForwardVector()*240
 	local radius = 240
-	local splitEarthParticle = "particles/units/heroes/hero_leshrac/astral_rune_b_d.vpcf"
+	local splitEarthParticle = "particles/units/heroes/hero_leshrac/astral_rune_r_2.vpcf"
 	local pfx = ParticleManager:CreateParticle( splitEarthParticle, PATTACH_CUSTOMORIGIN, caster )
 	ParticleManager:SetParticleControl( pfx, 0, position )
 	ParticleManager:SetParticleControl( pfx, 1, Vector(radius, radius, radius) )
@@ -5694,7 +5694,7 @@ function boss_crush_end(event)
 	local radius = 320
 	local ability = event.ability
 	local position = caster:GetAbsOrigin()
-	local splitEarthParticle = "particles/units/heroes/hero_leshrac/astral_rune_b_d.vpcf"
+	local splitEarthParticle = "particles/units/heroes/hero_leshrac/astral_rune_r_2.vpcf"
 	local pfx = ParticleManager:CreateParticle( splitEarthParticle, PATTACH_CUSTOMORIGIN, caster )
 	ParticleManager:SetParticleControl( pfx, 0, position )
 	ParticleManager:SetParticleControl( pfx, 1, Vector(radius, radius, radius) )
@@ -6128,7 +6128,7 @@ end
 function archon_wizard_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	ability.d_d_level = 20
+	ability.r_4_level = 20
 	if not caster.golems then
 		caster.interval = 0
 		caster.golemsSpawned = 0

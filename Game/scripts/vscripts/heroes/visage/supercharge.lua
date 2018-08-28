@@ -29,8 +29,8 @@ function supercharge_start(event)
 			ParticleManager:DestroyParticle(beamPFX, false)
 			ParticleManager:ReleaseParticleIndex(beamPFX)
 		end)
-		ability.a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d", "ekkan")
-		local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "ekkan")
+		ability.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "ekkan")
+		local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "ekkan")
 		local procs = Runes:Procs(d_d_level, 10, 1)
 		if procs > 0 then
 			ability.origChain = target
@@ -52,7 +52,7 @@ function supercharge_start(event)
 			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Ekkan.SuperCharge.Buff", caster)
 			EmitSoundOn("Ekkan.SuperCharge.VO", caster)
 			Timers:CreateTimer(0.25, function()
-				local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "ekkan")
+				local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "ekkan")
 				EmitSoundOn("Ekkan.SuperCharge.BuffTarget", target)
 				local superSkeleton = CreateUnitByName("ekkan_supercharged_skeleton", target:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
 				superSkeleton.hero = caster
@@ -126,12 +126,12 @@ function supercharge_attack_land(event)
 	local attacker = event.attacker
 	local target = event.target
 	local caster = event.caster
-	if ability.a_d_level > 0 then
+	if ability.r_1_level > 0 then
 		attacker:RemoveModifierByName("modifier_supercharge_lifesteal_particle")
 		caster:RemoveModifierByName("modifier_supercharge_lifesteal_particle")
 		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_supercharge_lifesteal_particle", {duration = 0.7})
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_supercharge_lifesteal_particle", {duration = 0.7})
-		local healAmount = math.max(event.attack_damage*0.005*ability.a_d_level, 1)
+		local healAmount = math.max(event.attack_damage*0.005*ability.r_1_level, 1)
 		local casterHeal = math.min(caster:GetMaxHealth(), healAmount)
 		local creepHeal = math.min(attacker:GetMaxHealth(), healAmount)
 		Filters:ApplyHeal(caster, caster, casterHeal, true)
@@ -170,7 +170,7 @@ function supercharge_enemy(caster, target, ability)
 			end
 		end
 	end
-	local b_d_level = Runes:GetTotalRuneLevel(caster, 2, "b_d", "ekkan")
+	local b_d_level = Runes:GetTotalRuneLevel(caster, 2, "r_2", "ekkan")
 	local swarmDamage = 0
 	for i = 1, #unitTable, 1 do
 		local beamPFX = ParticleManager:CreateParticle("particles/roshpit/ekkan/cast_beams_beams.vpcf", PATTACH_CUSTOMORIGIN, unitTable[i])

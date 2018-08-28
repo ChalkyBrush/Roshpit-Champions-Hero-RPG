@@ -2,11 +2,11 @@ function start_channel(event)
 	local caster = event.caster
 	local ability = event.ability
 	if caster:HasAbility("bahamut_arcana_ulti") then
-		ability.a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d_arcana1", "bahamut")
-		ability.c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d_arcana1", "bahamut")
-		ability.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d_arcana1", "bahamut")
+		ability.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "a_d_arcana1", "bahamut")
+		ability.r_3_level = Runes:GetTotalRuneLevel(caster, 3, "c_d_arcana1", "bahamut")
+		ability.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "d_d_arcana1", "bahamut")
 	end
-	caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "bahamut")
+	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "bahamut")
 	-- StartAnimation(caster, {duration=2, activity=ACT_DOTA_TAUNT, rate=1.5, translate="disco_gesture"})
 end
 
@@ -46,8 +46,8 @@ function leshrac_arcana_ult_effect_think(event)
 
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 750, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	local maxTargets = 1
-	if ability.d_d_level > 0 then
-		local procs = Runes:Procs(ability.d_d_level, 10, 1)
+	if ability.r_4_level > 0 then
+		local procs = Runes:Procs(ability.r_4_level, 10, 1)
 		maxTargets = maxTargets + procs
 		maxTargets = math.min(maxTargets, #enemies)
 	end
@@ -62,17 +62,17 @@ function leshrac_arcana_ult_effect_think(event)
 end
 
 function leshrac_ult_go(ability, caster, damage, amp, enemy)
-	if not ability.a_d_level then
-		ability.a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d_arcana1", "bahamut")
+	if not ability.r_1_level then
+		ability.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "a_d_arcana1", "bahamut")
 	end
-	if not ability.c_d_level then
-		ability.c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d_arcana1", "bahamut")
+	if not ability.r_3_level then
+		ability.r_3_level = Runes:GetTotalRuneLevel(caster, 3, "c_d_arcana1", "bahamut")
 	end
-	if ability.c_d_level > 0 then
-		damage = damage + ability.c_d_level*caster:GetAverageTrueAttackDamage(caster)*0.04
+	if ability.r_3_level > 0 then
+		damage = damage + ability.r_3_level*caster:GetAverageTrueAttackDamage(caster)*0.04
 	end
 	if amp then
-		damage = damage*ability.a_d_level*0.05
+		damage = damage*ability.r_1_level*0.05
 	end
 	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 	ability:ApplyDataDrivenModifier(caster, enemy, "modifier_leshrac_arcana_slow", {duration = 0.2})

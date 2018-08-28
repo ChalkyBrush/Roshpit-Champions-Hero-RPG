@@ -8,7 +8,7 @@ function begin_revenant_strikes(event)
 		ability.phase = 0
 	end
 	local damage = event.damage
-	ability.a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "duskbringer")
+	ability.w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "duskbringer")
 	if ability.phase == 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_revenant_strikes_swinging", {duration = 0.3})
 		StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_SPAWN, rate=2.6, translate="loadout"})
@@ -74,7 +74,7 @@ function begin_revenant_strikes(event)
 				end)
 			end
 		end)
-		if ability.a_b_level > 0 then
+		if ability.w_1_level > 0 then
 			ability.phase = 3
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_revenant_strikes_state", {duration = 3})
 		else
@@ -117,15 +117,15 @@ function revenant_strike(caster, radius, damage, delay)
 		local casterOrigin = caster:GetAbsOrigin()
 		local position = casterOrigin + caster:GetForwardVector()*(radius-60)
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-	    local b_b_level = Runes:GetTotalRuneLevel(caster, 2, "b_b", "duskbringer")
+	    local w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "duskbringer")
 	    local b_b_damage = 0
-	    if b_b_level > 0 then
+	    if w_2_level > 0 then
 	    	local manaDrain = caster:GetMaxMana()*0.1
 	    	if manaDrain > caster:GetMana() then
 	    		manaDrain = caster:GetMana()
 	    	end
 	    	caster:ReduceMana(manaDrain)
-	    	b_b_damage = b_b_level*manaDrain*0.1
+	    	b_b_damage = w_2_level*manaDrain*0.1
 			local particleName = "particles/units/heroes/hero_spirit_breaker/duskbringer_b_b_effect.vpcf"
 			local pfx = ParticleManager:CreateParticle( particleName, PATTACH_POINT_FOLLOW, caster )
 			ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
@@ -133,10 +133,10 @@ function revenant_strike(caster, radius, damage, delay)
 				ParticleManager:DestroyParticle(pfx, false)
 			end)
 		end
-	    local c_b_level = Runes:GetTotalRuneLevel(caster, 3, "c_b", "duskbringer")
+	    local w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "duskbringer")
 	    local c_b_damage = 0
-	    if c_b_level > 0 then
-	    	c_b_damage = caster:GetAverageTrueAttackDamage(caster)*0.1*c_b_level
+	    if w_3_level > 0 then
+	    	c_b_damage = caster:GetAverageTrueAttackDamage(caster)*0.1*w_3_level
 	    end
 	    damage = damage+b_b_damage+c_b_damage
 		if #enemies > 0 then
@@ -171,33 +171,33 @@ function revenant_strikes_a_b_fall_end(event)
 	end)  
 	-- ScreenShake(position, 200, 0.4, 0.8, 9000, 0, true)
 	local baseAbilityDamage = ability:GetSpecialValueFor("damage")
-	local damage = ability.a_b_level*640 + 1240 + baseAbilityDamage
+	local damage = ability.w_1_level*640 + 1240 + baseAbilityDamage
 	local stunDuration = 0.6
 	if caster:HasModifier("modifier_duskbringer_glyph_4_1") then
 		damage = damage*4
 		stunDuration = 1.2
 	end
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, 520, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-	local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "duskbringer")
+	local w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "duskbringer")
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
 			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
 			Filters:ApplyStun(caster, stunDuration, enemy)
-			d_b_apply(caster, enemy, d_b_level, damage)
+			d_b_apply(caster, enemy, w_4_level, damage)
 		end
 	end
 	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 end
 
-function d_b_apply(caster, enemy, d_b_level, damage)
-  if d_b_level > 0 then
-    local runeAbility = caster.runeUnit4:FindAbilityByName("duskbringer_rune_d_b")
-    runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, enemy, "modifier_duskbringer_rune_d_b_visible", {duration = 7})
+function d_b_apply(caster, enemy, w_4_level, damage)
+  if w_4_level > 0 then
+    local runeAbility = caster.runeUnit4:FindAbilityByName("duskbringer_rune_w_4")
+    runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, enemy, "modifier_duskbringer_rune_w_4_visible", {duration = 7})
     local stacksToApply = (damage/100)
-    enemy:SetModifierStackCount( "modifier_duskbringer_rune_d_b_visible", runeAbility, stacksToApply )
+    enemy:SetModifierStackCount( "modifier_duskbringer_rune_w_4_visible", runeAbility, stacksToApply )
 
-    runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, enemy, "modifier_duskbringer_rune_d_b_invisible", {duration = 7})
-    enemy:SetModifierStackCount( "modifier_duskbringer_rune_d_b_invisible", runeAbility, stacksToApply*d_b_level )
+    runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, enemy, "modifier_duskbringer_rune_w_4_invisible", {duration = 7})
+    enemy:SetModifierStackCount( "modifier_duskbringer_rune_w_4_invisible", runeAbility, stacksToApply*w_4_level )
   end
 end
 

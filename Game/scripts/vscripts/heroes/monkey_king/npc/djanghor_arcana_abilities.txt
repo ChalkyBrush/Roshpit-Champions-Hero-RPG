@@ -232,7 +232,7 @@
 			"modifier_year_beast_b_d_health"
 			{
 				"IsHidden"	"0"
-				"TextureName"	"djanghor/year_beast/djanghor_rune_b_d_arcana1"
+				"TextureName"	"djanghor/year_beast/djanghor_rune_r_2_arcana1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "1"
@@ -385,8 +385,8 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"djanghor/djanghor_rune_a_a"
-				"EffectName"	"particles/roshpit/draghor/rune_a_a_regen.vpcf"
+				"TextureName"	"djanghor/djanghor_rune_q_1"
+				"EffectName"	"particles/roshpit/draghor/rune_q_1_regen.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"ThinkInterval"  "0.1"
 				"OnIntervalThink"
@@ -401,7 +401,7 @@
 			"modifier_wolf_howl_flat_b_b"
 			{
 				"IsHidden"	"0"
-				"TextureName"	"djanghor/djanghor_rune_b_a"
+				"TextureName"	"djanghor/djanghor_rune_q_2"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "2000"
@@ -536,7 +536,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"TextureName"	"djanghor/djanghor_rune_b_b"
+				"TextureName"	"djanghor/djanghor_rune_w_2"
 				"ThinkInterval"  "0.5"
 				"EffectName"	"particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf"
 				"EffectAttachType"	"attach_origin"
@@ -877,12 +877,12 @@
 		}
 	}
 
-	"djanghor_rune_a_d_arcana1"
+	"djanghor_rune_r_1_arcana1"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"djanghor/year_beast/djanghor_rune_a_d_arcana1"
+		"AbilityTextureName"	"djanghor/year_beast/djanghor_rune_r_1_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -895,12 +895,12 @@
 		}
 	}
 
-	"djanghor_rune_b_d_arcana1"
+	"djanghor_rune_r_2_arcana1"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"djanghor/year_beast/djanghor_rune_b_d_arcana1"
+		"AbilityTextureName"	"djanghor/year_beast/djanghor_rune_r_2_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -913,12 +913,12 @@
 		}
 	}
 
-	"djanghor_rune_c_d_arcana1"
+	"djanghor_rune_r_3_arcana1"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"djanghor/year_beast/djanghor_rune_c_d_arcana1"
+		"AbilityTextureName"	"djanghor/year_beast/djanghor_rune_r_3_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -931,12 +931,12 @@
 		}
 	}
 
-	"djanghor_rune_d_d_arcana1"
+	"djanghor_rune_r_4_arcana1"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"djanghor/year_beast/djanghor_rune_d_d_arcana1"
+		"AbilityTextureName"	"djanghor/year_beast/djanghor_rune_r_4_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"

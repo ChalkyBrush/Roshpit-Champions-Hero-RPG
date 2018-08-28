@@ -15,19 +15,19 @@ function start_arcana_ability(event)
 	local caster = event.caster
 	local ability = event.ability
 	local targetPoint = Vector(1,1,1)
-	local c_a_level = Runes:GetTotalRuneLevel(caster, 3, "c_a_arcana1", "flamewaker")
-	if c_a_level > 0 then
+	local q_3_level = caster:GetRuneValue("q", 3)
+	if q_3_level > 0 then
 		targetPoint =  ability.PointTable[1][1]
 		ability.PointTable[1].Used = true
 	else
 		targetPoint = event.target_points[1]
 	end
-	local b_a_level = Runes:GetTotalRuneLevel(caster, 2, "b_a_arcana1", "flamewaker")
+	local q_2_level = caster:GetRuneValue("q", 2)
 	ability.Vector2 = event.target_points[1]
 	local damage = event.strength_mult*caster:GetStrength() + event.damage
 	local radius = 360
 	local max_dis = ability:GetSpecialValueFor("max_distance")
-	local procs = Runes:Procs(c_a_level, 10, 1)
+	local procs = Runes:Procs(q_3_level, 10, 1)
 	local direction = (ability.Vector2 - targetPoint):Normalized()
 	if ability.Vector2 == targetPoint then
 		direction = RandomVector(1)
@@ -53,12 +53,12 @@ function start_arcana_ability(event)
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), targetPoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do
-					if b_a_level > 0 then
+					if q_2_level > 0 then
 						local newStacks = enemy:GetModifierStackCount("modifier_flamewaker_arcana_b_a_effect_stacking_visible", caster) + 1
 						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_flamewaker_arcana_b_a_effect_stacking_visible", {duration = 6})
 						enemy:SetModifierStackCount("modifier_flamewaker_arcana_b_a_effect_stacking_visible", caster, newStacks)
 						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_flamewaker_arcana_b_a_effect_stacking_invisible", {duration = 6})
-						enemy:SetModifierStackCount("modifier_flamewaker_arcana_b_a_effect_stacking_invisible", caster, newStacks*b_a_level)
+						enemy:SetModifierStackCount("modifier_flamewaker_arcana_b_a_effect_stacking_invisible", caster, newStacks*q_2_level)
 					end
 					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 					Filters:ApplyStun(caster, stunDuration, enemy)
@@ -67,9 +67,9 @@ function start_arcana_ability(event)
 			GridNav:DestroyTreesAroundPoint(targetPoint, radius-20, false)
 		end)
 	end	
-	if b_a_level > 0 then
+	if q_2_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_flamewaker_arcana_b_a_effect", {duration = 6})
-		caster:SetModifierStackCount("modifier_flamewaker_arcana_b_a_effect", caster, b_a_level)
+		caster:SetModifierStackCount("modifier_flamewaker_arcana_b_a_effect", caster, q_2_level)
 		local b_a_particle = CustomAbilities:QuickAttachParticle("particles/econ/items/monkey_king/arcana/fire/monkey_king_spring_arcana_fire_channel.vpcf", caster, 4)
 		ParticleManager:SetParticleControlEnt(b_a_particle, 1, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 	end
@@ -79,21 +79,21 @@ end
 function arcana_ability_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a_arcana1", "flamewaker")
-	if a_a_level > 0 then
+	local q_1_level = Runes:GetTotalRuneLevel(caster, 1, "a_a_arcana1", "flamewaker")
+	if q_1_level > 0 then
 		local missingHealth = caster:GetMaxHealth() - caster:GetHealth()
-		local a_a_stacks = (missingHealth/200)*a_a_level
+		local a_a_stacks = (missingHealth/200)*q_1_level
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_flamewaker_arcana_a_a_effect", {})
 		caster:SetModifierStackCount("modifier_flamewaker_arcana_a_a_effect", caster, a_a_stacks)
 	else
 		caster:RemoveModifierByName("modifier_flamewaker_arcana_a_a_effect")
 	end
 
-	local d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a_arcana1", "flamewaker")
-	ability.d_a_level = d_a_level
-	if d_a_level > 0 then
+	local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "d_a_arcana1", "flamewaker")
+	ability.q_4_level = q_4_level
+	if q_4_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_flamewaker_arcana_d_a_effect", {})
-		caster:SetModifierStackCount("modifier_flamewaker_arcana_d_a_effect", caster, d_a_level)
+		caster:SetModifierStackCount("modifier_flamewaker_arcana_d_a_effect", caster, q_4_level)
 	else
 		caster:RemoveModifierByName("modifier_flamewaker_arcana_d_a_effect")
 	end
@@ -104,7 +104,7 @@ function d_a_stun(event)
 	local target = event.target
 	local ability = event.ability
 	if not target:HasModifier("modifier_flamewaker_arcana_d_a_immune") then
-		local damage = caster:GetAverageTrueAttackDamage(caster)*0.65*ability.d_a_level
+		local damage = caster:GetAverageTrueAttackDamage(caster)*0.65*ability.q_4_level
 		EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "Flamewaker.ArcanaDAStun", target)
 		CustomAbilities:QuickAttachParticle("particles/econ/items/techies/techies_arcana/techies_suicide_flame.vpcf", target, 3)
 		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)

@@ -1,36 +1,29 @@
-function a_a(event)
+function voltex_q_1(event)
 	local caster = event.caster
     local runeUnit = caster.runeUnit
-    local ability = runeUnit:FindAbilityByName("voltex_rune_a_a")
-    local abilityBASE = event.ability
-    local abilityLevel = ability:GetLevel()
-    local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_a")
-    local totalLevel = abilityLevel + bonusLevel
-    local buffDuration = abilityBASE:GetSpecialValueFor("duration")
+    local ability = runeUnit:FindAbilityByName("voltex_rune_q_1")
+    local totalLevel = caster:GetRuneValue("q", 1)
+    local duration = event.ability:GetSpecialValueFor("duration")
     if caster:HasModifier("modifier_voltex_glyph_5_a") then
-      buffDuration = buffDuration + 3
+      duration = duration + 3
     end
-    print("WOW")
     if totalLevel > 0 then
-        ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_voltex_rune_a_a_buff", {duration = buffDuration})
-        caster:SetModifierStackCount( "modifier_voltex_rune_a_a_buff", ability, totalLevel )
+        ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_voltex_rune_q_1_buff", {duration = duration})
+        caster:SetModifierStackCount( "modifier_voltex_rune_q_1_buff", ability, totalLevel )
     end
 end
 
-function b_a(event)
+function voltex_q_2(event)
 	local caster = event.attacker
-    local runeUnit = caster.runeUnit2
-    local ability = runeUnit:FindAbilityByName("voltex_rune_b_a")
-    local abilityLevel = ability:GetLevel()
-    local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_a")
-    local totalLevel = abilityLevel + bonusLevel
-    if totalLevel > 0 then
+    local q_2_level = caster:GetRuneValue("q", 2)
+    if q_2_level > 0 then
     	local target = event.target
 		local lucky = RandomInt(1, 100)
-        local maxTargets = totalLevel+3
+        local maxTargets = q_2_level + 3
+		local damage = q_2_level * caster:GetAgility()
 		if lucky <= 15 then
-            ApplyDamage({ victim = target, attacker = caster, damage = totalLevel*caster:GetAgility(), damage_type = DAMAGE_TYPE_MAGICAL })
-			     b_a_lightning_improved(target, caster, totalLevel, 0, maxTargets)
+            ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+			b_a_lightning_improved(target, caster, q_2_level, 0, maxTargets)
 		end
     end
 end
@@ -39,11 +32,11 @@ function apply_b_a_think(event)
     local caster = event.caster
     local ability = event.ability
     if caster:GetUnitName() == "npc_dota_hero_phantom_assassin" then
-        -- ability.b_a_level = Runes:GetTotalRuneLevel(caster, 2, "b_a", "voltex")
-        -- if ability.b_a_level > 0 then
-        --     ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_rune_b_a", {})
+        -- ability.q_2_level = Runes:GetTotalRuneLevel(caster, 2, "q_2", "voltex")
+        -- if ability.q_2_level > 0 then
+        --     ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_rune_q_2", {})
         -- else
-        --     caster:RemoveModifierByName("modifier_voltex_rune_b_a")
+        --     caster:RemoveModifierByName("modifier_voltex_rune_q_2")
         -- end
     end
 end
@@ -52,11 +45,11 @@ function b_a_lightning_improved(target, caster, totalLevel, targetNumber, maxTar
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 575, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
     if #enemies > 0 then
         local damage = totalLevel*1240
-        local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "voltex")
-        if d_b_level > 0 then
-          local a_b_ability = caster.runeUnit:FindAbilityByName("voltex_rune_a_b")
-          local stacks = caster:GetModifierStackCount( "modifier_voltex_rune_a_b", a_b_ability )
-          damage = damage + damage*0.03*stacks*d_b_level
+        local w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "voltex")
+        if w_4_level > 0 then
+          local a_b_ability = caster.runeUnit:FindAbilityByName("voltex_rune_w_1")
+          local stacks = caster:GetModifierStackCount( "modifier_voltex_rune_w_1", a_b_ability )
+          damage = damage + damage*0.03*stacks*w_4_level
         end
         local newTarget = enemies[1]
         if newTarget == target then
@@ -112,9 +105,9 @@ function a_d(event)
 	local caster = event.caster
 	local caster = event.attacker
     local runeUnit = caster.runeUnit
-    local ability = runeUnit:FindAbilityByName("voltex_rune_a_d")
+    local ability = runeUnit:FindAbilityByName("voltex_rune_r_1")
     local abilityLevel = ability:GetLevel()
-    local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_d")
+    local bonusLevel = Runes:GetTotalBonus(runeUnit, "r_1")
     local totalLevel = abilityLevel + bonusLevel
     	if totalLevel > 0 then
     		local heroOrigin = caster:GetAbsOrigin()
@@ -133,7 +126,7 @@ function a_d_lightning_damage(event)
 
 	local targetPoint = event.target_points[1]
 	local radius = event.Radius
-	local damage = ability.a_d_damage
+	local damage = ability.r_1_damage
 	EmitSoundOn("Hero_Leshrac.Lightning_Storm", caster)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), targetPoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
@@ -148,9 +141,9 @@ function b_d(event)
 	-- local caster = event.caster
  --    local ability = event.ability
  --    local runeUnit = caster.runeUnit2
- --    local runeAbility = runeUnit:FindAbilityByName("voltex_rune_b_d")
+ --    local runeAbility = runeUnit:FindAbilityByName("voltex_rune_r_2")
  --    local runeLevel = runeAbility:GetLevel()
- --    local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_d")
+ --    local bonusLevel = Runes:GetTotalBonus(runeUnit, "r_2")
  --    local totalLevel = runeLevel + bonusLevel
  --    	if totalLevel > 0 then
  --    		local heroOrigin = caster:GetAbsOrigin()
@@ -167,12 +160,12 @@ function b_d_lightning_cast(targetPoint, caster, abilityLevel, casterOrigin)
   	local dummy = CreateUnitByName("npc_dummy_unit", targetPoint, true, caster, caster, caster:GetTeamNumber())
   	dummy.owner = caster:GetPlayerOwnerID()
 
-  	dummy:AddAbility("voltex_rune_b_d_thunder_stun")
+  	dummy:AddAbility("voltex_rune_r_2_thunder_stun")
   	dummy:NoHealthBar()
   	dummy:AddAbility("dummy_unit")
   	dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
 
-  	local blast = dummy:FindAbilityByName("voltex_rune_b_d_thunder_stun")
+  	local blast = dummy:FindAbilityByName("voltex_rune_r_2_thunder_stun")
   	blast:SetLevel(1)
   	blast.damage = abilityLevel*20+30
     blast.voltex = caster
@@ -225,15 +218,15 @@ end
 function a_b(event)
 	local caster = event.caster
     local runeUnit = caster.runeUnit
-    local ability = runeUnit:FindAbilityByName("voltex_rune_a_b")
+    local ability = runeUnit:FindAbilityByName("voltex_rune_w_1")
     local abilityLevel = ability:GetLevel()
-    local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_b")
+    local bonusLevel = Runes:GetTotalBonus(runeUnit, "w_1")
     local totalLevel = abilityLevel + bonusLevel
     if totalLevel > 0 then
-        ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_voltex_rune_a_b", {})
-        local current_stack = caster:GetModifierStackCount( "modifier_voltex_rune_a_b", ability )
+        ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_voltex_rune_w_1", {})
+        local current_stack = caster:GetModifierStackCount( "modifier_voltex_rune_w_1", ability )
         if current_stack < 30 then
-        	caster:SetModifierStackCount( "modifier_voltex_rune_a_b", ability, current_stack+1 )
+        	caster:SetModifierStackCount( "modifier_voltex_rune_w_1", ability, current_stack+1 )
     	end
     end
 
@@ -242,19 +235,19 @@ end
 function a_b_activate(event)
 	local caster = event.caster
     local runeUnit = caster.runeUnit
-    local ability = runeUnit:FindAbilityByName("voltex_rune_a_b")   
-    local current_stack = caster:GetModifierStackCount( "modifier_voltex_rune_a_b", ability)
+    local ability = runeUnit:FindAbilityByName("voltex_rune_w_1")   
+    local current_stack = caster:GetModifierStackCount( "modifier_voltex_rune_w_1", ability)
     if current_stack > 0 then
   	   
   		local location = caster:GetOrigin()
   		local forwardVector = caster:GetForwardVector()
-          local runeLevel = Runes:GetTotalRuneLevel(caster, 1, "a_b", "voltex")
+          local runeLevel = Runes:GetTotalRuneLevel(caster, 1, "w_1", "voltex")
   		for i=-3, 3, 1 do 
   			rotatedVector = rotateVector(forwardVector, i*2*math.pi/7)*Vector(200, 200, 0)
   			targetPoint = rotatedVector + location*Vector(1,1,0)
   			a_b_lightning_cast(targetPoint, caster, runeLevel, location, current_stack)
   		end
-      caster:RemoveModifierByName("modifier_voltex_rune_a_b")
+      caster:RemoveModifierByName("modifier_voltex_rune_w_1")
 	end
 end
 
@@ -262,12 +255,12 @@ function a_b_lightning_cast(targetPoint, caster, abilityLevel, casterOrigin, sta
   	local dummy = CreateUnitByName("npc_dummy_unit", targetPoint, true, caster, caster, caster:GetTeamNumber())
   	dummy.owner = caster:GetPlayerOwnerID()
 
-  	dummy:AddAbility("voltex_rune_a_b_thunder_stun")
+  	dummy:AddAbility("voltex_rune_w_1_thunder_stun")
   	dummy:NoHealthBar()
   	dummy:AddAbility("dummy_unit")
   	dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
 
-  	local blast = dummy:FindAbilityByName("voltex_rune_a_b_thunder_stun")
+  	local blast = dummy:FindAbilityByName("voltex_rune_w_1_thunder_stun")
   	blast:SetLevel(1)
   	blast.damage = stacks*130
   	blast.stunDuration = math.min(abilityLevel*0.01*stacks, 5)
@@ -296,13 +289,13 @@ function a_b_thunder_stun(event)
 	local radius = event.Radius
 	local damage = ability.damage
 
-  local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "voltex")
-  if d_b_level > 0 then
-    local a_b_ability = caster.runeUnit:FindAbilityByName("voltex_rune_a_b")
+  local w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "voltex")
+  if w_4_level > 0 then
+    local a_b_ability = caster.runeUnit:FindAbilityByName("voltex_rune_w_1")
     local stacks = ability.stacks
-    damage = damage + damage*0.03*stacks*d_b_level
+    damage = damage + damage*0.03*stacks*w_4_level
   end
-  local a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "voltex")
+  local w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "voltex")
 
 	EmitSoundOn("Hero_Disruptor.ThunderStrike.Target", caster)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), targetPoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
@@ -331,21 +324,21 @@ end
 function b_b(event)
 	local caster = event.caster
     local runeUnit = caster.runeUnit2
-    local ability = runeUnit:FindAbilityByName("voltex_rune_b_b")
+    local ability = runeUnit:FindAbilityByName("voltex_rune_w_2")
     local abilityLevel = ability:GetLevel()
-    local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_b")
+    local bonusLevel = Runes:GetTotalBonus(runeUnit, "w_2")
     local totalLevel = abilityLevel + bonusLevel
     if totalLevel > 0 then
-        ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_voltex_rune_b_b_self", {})
-        caster:SetModifierStackCount( "modifier_voltex_rune_b_b_self", ability, totalLevel )
+        ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_voltex_rune_w_2_self", {})
+        caster:SetModifierStackCount( "modifier_voltex_rune_w_2_self", ability, totalLevel )
         local radius = event.radius
 		local allies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #allies > 0 then
 			for _,ally in pairs(allies) do
 				if 	ally:GetEntityIndex() == caster:GetEntityIndex() then
 				else
-	        		ability:ApplyDataDrivenModifier(runeUnit, ally, "modifier_voltex_rune_b_b_ally", {})
-	        		ally:SetModifierStackCount( "modifier_voltex_rune_b_b_ally", ability, totalLevel )
+	        		ability:ApplyDataDrivenModifier(runeUnit, ally, "modifier_voltex_rune_w_2_ally", {})
+	        		ally:SetModifierStackCount( "modifier_voltex_rune_w_2_ally", ability, totalLevel )
 	        	end
 			end
 		end 
@@ -354,7 +347,7 @@ end
 
 function b_c_think(event)
   local caster = event.target
-  local totalLevel = event.ability.b_c_level
+  local totalLevel = event.ability.e_2_level
   local ability = event.ability
   local damage = (totalLevel*22500 + 300)/2
 
@@ -372,7 +365,7 @@ function b_c_think(event)
         local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
         ParticleManager:SetParticleControl( particle1, 0, enemy:GetAbsOrigin() )
         ParticleManager:SetParticleControl( particle1, 1, enemy:GetAbsOrigin() )
-        ability:ApplyDataDrivenModifier(caster, enemy, "modifier_voltex_rune_b_c_slow_glyphed", {duration = 4})
+        ability:ApplyDataDrivenModifier(caster, enemy, "modifier_voltex_rune_e_2_slow_glyphed", {duration = 4})
         Timers:CreateTimer(0.6, 
         function()
           ParticleManager:DestroyParticle( particle1, false )
@@ -384,18 +377,15 @@ function b_c_think(event)
   end 
 end
 
-function c_a(event)
+function voltex_q_3(event)
     local ability = event.ability
     local caster = event.caster
     local runeUnit = caster.runeUnit3
-    local runeAbility = runeUnit:FindAbilityByName("voltex_rune_c_a")
-    local abilityLevel = runeAbility:GetLevel()
-    local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_a")
-    local totalLevel = abilityLevel + bonusLevel
-    caster.c_a_level = totalLevel
-    caster.c_a_ability = runeAbility
-    caster.c_a_runeUnit = runeUnit
-    caster.d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "voltex")
+    local runeAbility = runeUnit:FindAbilityByName("voltex_rune_q_3")
+    caster.q_3_level = caster:GetRuneValue("q", 3)
+    caster.q_3_ability = runeAbility
+    caster.q_3_runeUnit = runeUnit
+    caster.q_4_level = caster:GetRuneValue("q", 4)
 end
 
 function c_b(event)
@@ -403,17 +393,17 @@ function c_b(event)
     local caster = event.caster
     local radius = event.radius
     local runeUnit = caster.runeUnit3
-    local runeAbility = runeUnit:FindAbilityByName("voltex_rune_c_b")
+    local runeAbility = runeUnit:FindAbilityByName("voltex_rune_w_3")
     local abilityLevel = runeAbility:GetLevel()
-    local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_b")
+    local bonusLevel = Runes:GetTotalBonus(runeUnit, "w_3")
     local totalLevel = abilityLevel + bonusLevel
     if totalLevel > 0 then
-    	rune_c_b_strike(caster, ability, totalLevel, caster, radius)
-    	runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "voltex_rune_c_b_heal_effect", {})
+    	rune_w_3_strike(caster, ability, totalLevel, caster, radius)
+    	runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "voltex_rune_w_3_heal_effect", {})
     end
 end
 
-function rune_c_b_strike(attacker, ability, totalLevel, target, radius)
+function rune_w_3_strike(attacker, ability, totalLevel, target, radius)
 
     local particleName = "particles/items_fx/green_lightning.vpcf"
     local radius = radius + 200
@@ -438,11 +428,11 @@ function rune_c_b_strike(attacker, ability, totalLevel, target, radius)
     end
 end
 
-function rune_c_c_think(event)
+function rune_e_3_think(event)
     local ability = event.ability
     local caster = event.target
     local particleName = "particles/items_fx/chain_lightning.vpcf"
-    local totalLevel = ability.c_c_level
+    local totalLevel = ability.e_3_level
     local radius = 300 + totalLevel*20
     local damage = 12*totalLevel
     local lightningBolt = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, attacker)
@@ -471,12 +461,12 @@ function rune_unit_2_think(event)
     local caster = event.caster
     local ability = event.ability
     local hero = caster.hero
-    local totalLevel = Runes:GetTotalRuneLevel(hero, 2, "b_d", "voltex")
-    ability.b_d_level = totalLevel
+    local totalLevel = Runes:GetTotalRuneLevel(hero, 2, "r_2", "voltex")
+    ability.r_2_level = totalLevel
     if totalLevel > 0 then
-        ability:ApplyDataDrivenModifier(caster, hero, "modifier_voltex_rune_b_d_rune_effect", {})
+        ability:ApplyDataDrivenModifier(caster, hero, "modifier_voltex_rune_r_2_rune_effect", {})
     else
-    	hero:RemoveModifierByName("modifier_voltex_rune_b_d_rune_effect")
+    	hero:RemoveModifierByName("modifier_voltex_rune_r_2_rune_effect")
     end
 end
 
@@ -486,7 +476,7 @@ function b_d_attack(event)
         local attacker = event.attacker
         local target = event.target
         local ability = event.ability
-        local damage = attacker:GetAverageTrueAttackDamage(attacker)*(1+0.1*ability.b_d_level)
+        local damage = attacker:GetAverageTrueAttackDamage(attacker)*(1+0.1*ability.r_2_level)
         Filters:ApplyStun(attacker, 0.2, target)
         Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
         -- Renders the particle on the target
@@ -496,8 +486,8 @@ function b_d_attack(event)
         ParticleManager:SetParticleControl(particle, 1, Vector(target:GetAbsOrigin().x,target:GetAbsOrigin().y,target:GetAbsOrigin().z+1000 ))
         ParticleManager:SetParticleControl(particle, 2, Vector(target:GetAbsOrigin().x,target:GetAbsOrigin().y,target:GetAbsOrigin().z + target:GetBoundingMaxs().z ))
 
-        ability:ApplyDataDrivenModifier(attacker.runeUnit2, target, "modifier_voltex_rune_b_d_armor_loss", {duration = 6})
-        target:SetModifierStackCount( "modifier_voltex_rune_b_d_armor_loss", ability, ability.b_d_level )
+        ability:ApplyDataDrivenModifier(attacker.runeUnit2, target, "modifier_voltex_rune_r_2_armor_loss", {duration = 6})
+        target:SetModifierStackCount( "modifier_voltex_rune_r_2_armor_loss", ability, ability.r_2_level )
         EmitSoundOn("Voltex.LightningBolt", target)
         Timers:CreateTimer(2, function()
             ParticleManager:DestroyParticle(particle, false)

@@ -15,11 +15,11 @@ function seven_visions_start(event)
 	end
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_seven_visions_striking_glyphed", {duration = (attacks-1)*0.3})
 
-	ability.a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d", "duskbringer")
-	ability.b_d_level = Runes:GetTotalRuneLevel(caster, 2, "b_d", "duskbringer")
-	ability.c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "duskbringer")
-	caster.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "duskbringer")
-	caster:RemoveModifierByName("modifier_duskbringer_rune_c_d")
+	ability.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "duskbringer")
+	ability.r_2_level = Runes:GetTotalRuneLevel(caster, 2, "r_2", "duskbringer")
+	ability.r_3_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "duskbringer")
+	caster.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "duskbringer")
+	caster:RemoveModifierByName("modifier_duskbringer_rune_r_3")
 	seven_visions_strike(caster, caster:GetAbsOrigin(), damage, ability)
 
 	Filters:CastSkillArguments(4, caster)
@@ -43,17 +43,17 @@ function seven_visions_strike(caster, position, damage, ability)
 		EmitSoundOn("Hero_Spirit_Breaker.NetherStrike.End", caster)
 		StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_ATTACK, rate=2.0})
 			Timers:CreateTimer(0.2, function()
-				if ability.b_d_level > 0 then
+				if ability.r_2_level > 0 then
 					print('[GAME STATE] stacks')
-					Helper.updateStackModifier(enemy, caster, ability, 'duskbringer_b_d', DUSK_R2_DURATION, DUSK_R2_MAX_STACKS_COUNT, ability.b_d_level)
+					Helper.updateStackModifier(enemy, caster, ability, 'duskbringer_b_d', DUSK_R2_DURATION, DUSK_R2_MAX_STACKS_COUNT, ability.r_2_level)
 
 				end
-				if ability.c_d_level > 0 then
-					local runeAbility = caster.runeUnit3:FindAbilityByName("duskbringer_rune_c_d")
+				if ability.r_3_level > 0 then
+					local runeAbility = caster.runeUnit3:FindAbilityByName("duskbringer_rune_r_3")
 					local c_d_duration = Filters:GetAdjustedBuffDuration(caster, 6, false)
-					runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, caster, "modifier_duskbringer_rune_c_d", {duration = c_d_duration})
-					local current_stack = caster:GetModifierStackCount("modifier_duskbringer_rune_c_d", runeAbility)
-					caster:SetModifierStackCount( "modifier_duskbringer_rune_c_d", runeAbility, current_stack + ability.c_d_level )
+					runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, caster, "modifier_duskbringer_rune_r_3", {duration = c_d_duration})
+					local current_stack = caster:GetModifierStackCount("modifier_duskbringer_rune_r_3", runeAbility)
+					caster:SetModifierStackCount( "modifier_duskbringer_rune_r_3", runeAbility, current_stack + ability.r_3_level )
 				end
 				caster:PerformAttack(enemy, true, true, true, true, false, false, false)
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 4, RPC_ELEMENT_GHOST, RPC_ELEMENT_NORMAL)
@@ -67,7 +67,7 @@ function seven_visions_strike(caster, position, damage, ability)
 				Timers:CreateTimer(0.8, function() 
 				  ParticleManager:DestroyParticle( pfx, false )
 				end) 
-				if ability.a_d_level > 0 then
+				if ability.r_1_level > 0 then
 				local particleName = "particles/units/heroes/hero_abaddon/abaddon_aphotic_shield_explosion.vpcf"
 					local pfx2 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, enemy )
 					ParticleManager:SetParticleControlEnt(pfx2, 0, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
@@ -75,7 +75,7 @@ function seven_visions_strike(caster, position, damage, ability)
 					  ParticleManager:DestroyParticle( pfx2, false )
 					end) 
 					local enemies_a_d = FindUnitsInRadius( caster:GetTeamNumber(), enemy:GetAbsOrigin(), nil, 680, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-					local a_d_damage = ability.a_d_level * R1_PERCENT/100 * damage
+					local a_d_damage = ability.r_1_level * R1_PERCENT/100 * damage
 					for _,enemy_a_d in pairs(enemies_a_d) do
 						Filters:TakeArgumentsAndApplyDamage(enemy_a_d, caster, a_d_damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
 					end

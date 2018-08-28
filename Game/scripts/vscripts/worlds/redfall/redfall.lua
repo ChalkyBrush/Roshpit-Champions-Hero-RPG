@@ -19,18 +19,18 @@ function Redfall:Debug()
       MAIN_HERO_TABLE[1]:SetBaseDamageMin(50000)
       MAIN_HERO_TABLE[1]:CalculateStatBonus()
       -- local hero = MAIN_HERO_TABLE[1]
-      -- hero.runeUnit2.amulet.b_c = hero.runeUnit2.amulet.b_c + 1500
-      -- Amulet:setRuneBonusNetTable(hero.runeUnit2.amulet.b_c, "rune_b_c", hero)
-      -- hero.runeUnit3.amulet.c_b = hero.runeUnit3.amulet.c_b + 500
-      -- Amulet:setRuneBonusNetTable(hero.runeUnit3.amulet.c_b, "rune_c_b", hero)
-      -- hero.runeUnit2.amulet.b_a = hero.runeUnit2.amulet.b_a + 500
-      -- Amulet:setRuneBonusNetTable(hero.runeUnit2.amulet.b_a, "rune_b_a", hero)
-      -- hero.runeUnit.amulet.a_a = hero.runeUnit.amulet.a_a + 500
-      -- Amulet:setRuneBonusNetTable(hero.runeUnit.amulet.a_a, "rune_a_a", hero)
-      -- hero.runeUnit.amulet.a_d = hero.runeUnit.amulet.a_d + 500
-      -- Amulet:setRuneBonusNetTable(hero.runeUnit.amulet.a_d, "rune_a_d", hero)
-      -- hero.runeUnit3.amulet.c_d = hero.runeUnit3.amulet.c_d + 500
-      -- Amulet:setRuneBonusNetTable(hero.runeUnit3.amulet.c_d, "rune_c_d", hero)
+      -- hero.runeUnit2.amulet.e_2 = hero.runeUnit2.amulet.e_2 + 1500
+      -- Amulet:setRuneBonusNetTable(hero.runeUnit2.amulet.e_2, "rune_e_2", hero)
+      -- hero.runeUnit3.amulet.w_3 = hero.runeUnit3.amulet.w_3 + 500
+      -- Amulet:setRuneBonusNetTable(hero.runeUnit3.amulet.w_3, "rune_w_3", hero)
+      -- hero.runeUnit2.amulet.q_2 = hero.runeUnit2.amulet.q_2 + 500
+      -- Amulet:setRuneBonusNetTable(hero.runeUnit2.amulet.q_2, "rune_q_2", hero)
+      -- hero.runeUnit.amulet.q_1 = hero.runeUnit.amulet.q_1 + 500
+      -- Amulet:setRuneBonusNetTable(hero.runeUnit.amulet.q_1, "rune_q_1", hero)
+      -- hero.runeUnit.amulet.r_1 = hero.runeUnit.amulet.r_1 + 500
+      -- Amulet:setRuneBonusNetTable(hero.runeUnit.amulet.r_1, "rune_r_1", hero)
+      -- hero.runeUnit3.amulet.r_3 = hero.runeUnit3.amulet.r_3 + 500
+      -- Amulet:setRuneBonusNetTable(hero.runeUnit3.amulet.r_3, "rune_r_3", hero)
     end
     local item = CreateItem("item_debug_blink", nil, nil)
     local drop = CreateItemOnPositionSync(Vector(-15168, -14976), item )

@@ -8,10 +8,10 @@ function begin_arcana_comet(event)
 	local target = event.target_points[1]
 	local damage = event.damage
 
-	ability.b_a_level = b_a_level
-	ability.c_a_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
-	if ability.c_a_level > 0 then
-		damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.02*ability.c_a_level
+	ability.q_2_level = q_2_level
+	ability.q_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
+	if ability.q_3_level > 0 then
+		damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.02*ability.q_3_level
 	end
 	StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.8})
 	local starParticle = "particles/roshpit/solunia/comet_sun_attack.vpcf"
@@ -89,21 +89,21 @@ function flareImpact(caster, ability, damage, element2, damageType, position, st
 			end
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, damageType, 1, RPC_ELEMENT_COSMOS, element2)
 			Filters:ApplyStun(caster, stun_duration, enemy)
-			if ability.c_a_level > 0 then
+			if ability.q_3_level > 0 then
 				if sun_moon == "sun" then
 					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_solar_compression_visible", {duration = adjustedBuffDuration})
 					local newStacks = math.min(enemy:GetModifierStackCount("modifier_solar_compression_visible", caster) + 1, 10)
 					enemy:SetModifierStackCount("modifier_solar_compression_visible", caster, newStacks)
 
 					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_solar_compression_invisible", {duration = adjustedBuffDuration})
-					enemy:SetModifierStackCount("modifier_solar_compression_invisible", caster, newStacks*ability.c_a_level)
+					enemy:SetModifierStackCount("modifier_solar_compression_invisible", caster, newStacks*ability.q_3_level)
 				elseif sun_moon == "moon" then
 					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_lunar_compression_visible", {duration = adjustedBuffDuration})
 					local newStacks = math.min(enemy:GetModifierStackCount("modifier_lunar_compression_visible", caster) + 1, 10)
 					enemy:SetModifierStackCount("modifier_lunar_compression_visible", caster, newStacks)
 
 					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_lunar_compression_invisible", {duration = adjustedBuffDuration})
-					enemy:SetModifierStackCount("modifier_lunar_compression_invisible", caster, newStacks*ability.c_a_level)
+					enemy:SetModifierStackCount("modifier_lunar_compression_invisible", caster, newStacks*ability.q_3_level)
 				end
 			end
 		end
@@ -122,11 +122,11 @@ end
 function deal_damage_with_arcana_equipped(event)
 	local attacker = event.attacker
 	local ability = event.ability
-	local a_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 0)
-	if a_a_level > 0 then
+	local q_1_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 0)
+	if q_1_level > 0 then
 		local duration = Filters:GetAdjustedBuffDuration(attacker, 0.5, false)
 		ability:ApplyDataDrivenModifier(attacker, attacker, "modifier_solunia_ultraviolet", {duration = duration})
-		attacker:SetModifierStackCount("modifier_solunia_ultraviolet", attacker, a_a_level)
+		attacker:SetModifierStackCount("modifier_solunia_ultraviolet", attacker, q_1_level)
 	end
 end
 
@@ -139,24 +139,24 @@ function arcana_passive_think(event)
 	ability.interval = ability.interval + 1
 
 	if ability.interval == 10 then
-		local a_a_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
-		if a_a_level > 0 then
+		local q_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
+		if q_1_level > 0 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_solunia_ultraviolet_damage", {duration = 5})
-			caster:SetModifierStackCount("modifier_solunia_ultraviolet_damage", caster, a_a_level)
+			caster:SetModifierStackCount("modifier_solunia_ultraviolet_damage", caster, q_1_level)
 		end
 	end
 	if ability.interval >= 20 then
 		ability.interval = 0
-		ability.b_a_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
+		ability.q_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
 	end
-	if not ability.b_a_level then
-		ability.b_a_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
+	if not ability.q_2_level then
+		ability.q_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
 	end
-	if ability.b_a_level > 0 then
+	if ability.q_2_level > 0 then
 		if not caster:HasModifier("modifier_polythea_damage") then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_polythea_damage", {})
 		end
-		local damageStacks = ability.b_a_level*0.05*caster:GetHealth()
+		local damageStacks = ability.q_2_level*0.05*caster:GetHealth()
 		caster:SetModifierStackCount("modifier_polythea_damage", caster, damageStacks)
 	else
 		caster:RemoveModifierByName("modifier_polythea_damage")

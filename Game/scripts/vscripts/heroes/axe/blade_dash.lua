@@ -1,21 +1,21 @@
 function begin_dash(keys)  
   local hero =  keys.caster
   local ability = keys.ability
-  -- rune_b_c_setter(ability, hero)
+  -- rune_e_2_setter(ability, hero)
   local abilityLevel = ability:GetLevel()
   ability.forwardVec = hero:GetForwardVector()
   ability.interval = 0
   ability.tornados_fired = 0
   hero:StartGesture(ACT_DOTA_CAST_ABILITY_3)
-  rune_c_c(hero, ability)
+  rune_e_3(hero, ability)
 
-  ability.b_c_level = Runes:GetTotalRuneLevel(hero, 2, "b_c", "axe")
-  if ability.b_c_level > 0 then
+  ability.e_2_level = Runes:GetTotalRuneLevel(hero, 2, "e_2", "axe")
+  if ability.e_2_level > 0 then
     local b_c_duration = Filters:GetAdjustedBuffDuration(hero, 5, false)
-    ability:ApplyDataDrivenModifier(hero, hero, "modifier_axe_rune_b_c_tornado", {duration = b_c_duration})
-    hero:SetModifierStackCount("modifier_axe_rune_b_c_tornado", hero, ability.b_c_level)
+    ability:ApplyDataDrivenModifier(hero, hero, "modifier_axe_rune_e_2_tornado", {duration = b_c_duration})
+    hero:SetModifierStackCount("modifier_axe_rune_e_2_tornado", hero, ability.e_2_level)
   end
-  ability.d_c_level = Runes:GetTotalRuneLevel(hero, 4, "d_c", "axe")
+  ability.e_4_level = Runes:GetTotalRuneLevel(hero, 4, "e_4", "axe")
   Filters:CastSkillArguments(3, hero)
   ability.forwardVelocity = 20
   local modifierName = "modifier_whirlwind"
@@ -70,7 +70,7 @@ function dash_think(event)
   end
   -- if interval%3==0 then
   --   if ability.tornados_fired<ability.tornado_count then
-  --     rune_b_c(ability, hero, newPosition)
+  --     rune_e_2(ability, hero, newPosition)
   --     ability.tornados_fired = ability.tornados_fired + 1
   --   end
   -- end
@@ -89,7 +89,7 @@ function dash_damage_and_knockback(ability,caster,position,damage_percent,distan
     knockback_height = 160,
   }
     local damage = caster:GetAverageTrueAttackDamage(caster)*damage_percent/100
-    -- local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "axe")
+    -- local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "axe")
     -- damage = damage + 0.001*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*d_c_level*damage
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
     if #enemies > 0 then
@@ -104,9 +104,9 @@ function dash_end(event)
   local hero = event.caster
   local ability = event.ability
   hero.EFV = false
-  -- if ability.b_c_level > 0 then
+  -- if ability.e_2_level > 0 then
   --   print("APPLY BC AGAIN")
-  --   ability:ApplyDataDrivenModifier(hero, hero, "modifier_axe_rune_b_c_tornado", {duration = 2})
+  --   ability:ApplyDataDrivenModifier(hero, hero, "modifier_axe_rune_e_2_tornado", {duration = 2})
   -- end
   if not hero:HasModifier("modfier_axe_jumping") then
     hero:RemoveModifierByName("modifier_whirlwind_flying_portion")
@@ -114,24 +114,24 @@ function dash_end(event)
   end
 end
 
-function rune_a_c(caster)
+function rune_e_1(caster)
   local runeUnit = caster.runeUnit
-  local ability = runeUnit:FindAbilityByName("axe_rune_a_c")
+  local ability = runeUnit:FindAbilityByName("axe_rune_e_1")
   local abilityLevel = ability:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_c")
+  local bonusLevel = Runes:GetTotalBonus(runeUnit, "e_1")
   local totalLevel = abilityLevel + bonusLevel
   return totalLevel
 end
 
-function rune_b_c_setter(ability, caster)
+function rune_e_2_setter(ability, caster)
   local runeUnit = caster.runeUnit2
-  local rune = runeUnit:FindAbilityByName("axe_rune_b_c")
+  local rune = runeUnit:FindAbilityByName("axe_rune_e_2")
   local runeLevel = rune:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_c")
+  local bonusLevel = Runes:GetTotalBonus(runeUnit, "e_2")
   local totalLevel = runeLevel + bonusLevel
   ability.tornado_damage = totalLevel*80 + 200
 
-  -- local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "axe")
+  -- local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "axe")
   -- ability.tornado_damage = ability.tornado_damage + 0.001*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*d_c_level*ability.tornado_damage
   -- if totalLevel > 0 then
   --   ability.tornado_count = 20
@@ -140,7 +140,7 @@ function rune_b_c_setter(ability, caster)
   -- end
 end
 
-function rune_b_c(whirlwindAbility, caster, strikePosition)
+function rune_e_2(whirlwindAbility, caster, strikePosition)
 
     local start_radius = 240
     local end_radius = 240
@@ -188,14 +188,14 @@ function b_c_damage(event)
   ApplyDamage(damageTable)
 end
 
-function rune_c_c(caster, ability)
-    local c_c_level = Runes:GetTotalRuneLevel(caster, 3, "c_c", "axe")
+function rune_e_3(caster, ability)
+    local c_c_level = Runes:GetTotalRuneLevel(caster, 3, "e_3", "axe")
     if c_c_level > 0 then
       local duration = Filters:GetAdjustedBuffDuration(caster, 12, false)
-      ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_c_c_shield", {duration = duration})
-      caster:SetModifierStackCount("modifier_axe_rune_c_c_shield", caster, c_c_level)
-      -- ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_axe_rune_c_c", {duration = 1.8})
-      -- caster:SetModifierStackCount( "modifier_axe_rune_c_c", ability, totalLevel )
+      ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_e_3_shield", {duration = duration})
+      caster:SetModifierStackCount("modifier_axe_rune_e_3_shield", caster, c_c_level)
+      -- ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_axe_rune_e_3", {duration = 1.8})
+      -- caster:SetModifierStackCount( "modifier_axe_rune_e_3", ability, totalLevel )
     end
 end
 
@@ -219,7 +219,7 @@ function c_c_take_damage(event)
   local attacker = event.attacker
   local unit = caster.hero
   local level = ability:GetLevel()
-  local bonusLevels = Runes:GetTotalBonus(unit.runeUnit3, "c_c")
+  local bonusLevels = Runes:GetTotalBonus(unit.runeUnit3, "e_3")
   local totalLevel = level + bonusLevels
   local attack_damage = event.attack_damage
   local damage = attack_damage*1*totalLevel+100+50*totalLevel
@@ -239,18 +239,18 @@ end
 
 function a_c_think(event)
   local caster = event.caster
-  local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "a_c", "axe")
+  local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "axe")
   if a_c_level > 0 then
     local stacks = math.floor(20 - 20*(caster:GetHealth()/caster:GetMaxHealth()))
-    local runeAbility = caster.runeUnit:FindAbilityByName("axe_rune_a_c")
+    local runeAbility = caster.runeUnit:FindAbilityByName("axe_rune_e_1")
     if stacks > 0 then
-      runeAbility:ApplyDataDrivenModifier(caster.runeUnit, caster, "modifier_axe_rune_a_c_visible", {})
-      caster:SetModifierStackCount( "modifier_axe_rune_a_c_visible", runeAbility, stacks )
-      runeAbility:ApplyDataDrivenModifier(caster.runeUnit, caster, "modifier_axe_rune_a_c_invisible", {})
-      caster:SetModifierStackCount( "modifier_axe_rune_a_c_invisible", runeAbility, stacks*a_c_level )
+      runeAbility:ApplyDataDrivenModifier(caster.runeUnit, caster, "modifier_axe_rune_e_1_visible", {})
+      caster:SetModifierStackCount( "modifier_axe_rune_e_1_visible", runeAbility, stacks )
+      runeAbility:ApplyDataDrivenModifier(caster.runeUnit, caster, "modifier_axe_rune_e_1_invisible", {})
+      caster:SetModifierStackCount( "modifier_axe_rune_e_1_invisible", runeAbility, stacks*a_c_level )
     else
-      caster:RemoveModifierByName("modifier_axe_rune_a_c_visible")
-      caster:RemoveModifierByName("modifier_axe_rune_a_c_invisible")
+      caster:RemoveModifierByName("modifier_axe_rune_e_1_visible")
+      caster:RemoveModifierByName("modifier_axe_rune_e_1_invisible")
     end
   end
 end
@@ -288,11 +288,11 @@ function d_c_projectile_hit(event)
   local target = event.target
   
   local ability = event.ability
-  if not ability.d_c_level then
-    ability.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "axe")
+  if not ability.e_4_level then
+    ability.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "axe")
   end
 
-  local damage = (1 + ability.d_c_level*0.3)*caster:GetAverageTrueAttackDamage(caster)
+  local damage = (1 + ability.e_4_level*0.3)*caster:GetAverageTrueAttackDamage(caster)
   local radius = 190
   local position = target:GetAbsOrigin()
 

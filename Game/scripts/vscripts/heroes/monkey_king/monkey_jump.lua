@@ -111,8 +111,8 @@ function jump_end(event)
 		StartAnimation(caster, {duration=1, activity=ACT_DOTA_MK_SPRING_END, rate=1})
 		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 	end)
-	ability.a_c_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
-	if ability.a_c_level > 0 then
+	ability.e_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
+	if ability.e_1_level > 0 then
 		ability:ApplyDataDrivenThinker(caster, caster:GetAbsOrigin(), "modifier_monkey_a_c_thinker", {duration = 20})
 	end
 end

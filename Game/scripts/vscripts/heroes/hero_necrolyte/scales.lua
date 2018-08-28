@@ -6,7 +6,7 @@ local module = {
         if modifier then
             mult = mult + modifier:GetStackCount() * constants.Q1_BAD_PER_ENEMY_PERCENT/100
         end
-         modifier = caster:FindModifierByName("modifier_venomort_arcana2_d_a_invisible")
+         modifier = caster:FindModifierByName("modifier_venomort_arcana2_q_4_invisible")
          if modifier then
              mult = mult + modifier:GetStackCount() * constants.ARCANA2_Q4_BAD_PERCENT/100
          end

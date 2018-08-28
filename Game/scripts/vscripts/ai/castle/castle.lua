@@ -705,7 +705,7 @@ function createSummonerProjectile(spellOrigin, forward, caster, ability)
 	local info = 
 	{
 		Ability = ability,
-        	EffectName = "particles/units/heroes/hero_alchemist/epoch_rune_a_d_concoction_projectile.vpcf",
+        	EffectName = "particles/units/heroes/hero_alchemist/epoch_rune_r_1_concoction_projectile.vpcf",
         	vSpawnOrigin = spellOrigin,
         	fDistance = 1450,
         	fStartRadius = 120,

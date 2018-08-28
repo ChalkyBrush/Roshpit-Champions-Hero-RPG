@@ -9,31 +9,31 @@ function begin_slice(event)
 	ability.fallVelocity = 0
 	ability.forwardVector = caster:GetForwardVector()
 	
-	local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "a_c", "monk")
-	local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "monk")
-	ability.d_c_level = d_c_level
-	caster.d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "monk")
+	local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "monk")
+	local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "monk")
+	ability.e_4_level = d_c_level
+	caster.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "monk")
 	-- if a_c_level > 0 then
-	-- 	ability.a_c_damage = a_c_level*200
- --    	ability.a_c_damage = ability.a_c_damage + 0.0003*caster:GetAgility()/10*d_c_level*ability.a_c_damage
+	-- 	ability.e_1_damage = a_c_level*200
+ --    	ability.e_1_damage = ability.e_1_damage + 0.0003*caster:GetAgility()/10*d_c_level*ability.e_1_damage
 
 	-- 	gust(caster, ability.forwardVector, ability, a_c_level)
 		
 	-- end
-	ability.b_c_level = Runes:GetTotalRuneLevel(caster, 2, "b_c", "monk")
-	ability.c_c_level = Runes:GetTotalRuneLevel(caster, 3, "c_c", "monk")
-	ability.a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d", "monk")
+	ability.e_2_level = Runes:GetTotalRuneLevel(caster, 2, "e_2", "monk")
+	ability.e_3_level = Runes:GetTotalRuneLevel(caster, 3, "e_3", "monk")
+	ability.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "monk")
 	caster.EFV = ability.forwardVector
 
 	ability.repeatedZ = 0
 	ability.lastZ = 0
 
-	ability.a_c_level = a_c_level
-	ability.a_c_unit_table = {}
-	if ability.a_c_particleTable then
-		if #ability.a_c_particleTable > 0 then
-			for i = 1, #ability.a_c_particleTable, 1 do
-				ParticleManager:DestroyParticle(ability.a_c_particleTable[i], false)
+	ability.e_1_level = a_c_level
+	ability.e_1_unit_table = {}
+	if ability.e_1_particleTable then
+		if #ability.e_1_particleTable > 0 then
+			for i = 1, #ability.e_1_particleTable, 1 do
+				ParticleManager:DestroyParticle(ability.e_1_particleTable[i], false)
 			end
 		end
 	end
@@ -98,7 +98,7 @@ function gust_hit(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local damage = ability.a_c_damage
+	local damage = ability.e_1_damage
 	if caster:HasModifier("modifier_monk_glyph_1_1") then
 		damage = damage*1.4
 	end
@@ -137,12 +137,12 @@ function slice_think(event)
 		end
 		for _,enemy in pairs(enemies) do
 			enemy:AddNewModifier( caster, nil, "modifier_knockback", modifierKnockback )
-			if ability.a_c_level > 0 then
-				if #ability.a_c_unit_table < 1 + ability.a_c_level then
-					table.insert(ability.a_c_unit_table, enemy:GetEntityIndex())
+			if ability.e_1_level > 0 then
+				if #ability.e_1_unit_table < 1 + ability.e_1_level then
+					table.insert(ability.e_1_unit_table, enemy:GetEntityIndex())
 				end
 			end
-			DeepPrintTable(ability.a_c_unit_table)
+			DeepPrintTable(ability.e_1_unit_table)
 			if damage then
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 3, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)	
 			end
@@ -199,17 +199,17 @@ function falling_end(event)
 	local caster = event.caster
 	local ability = event.ability
 	WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
-	if ability.c_c_level > 0 then
+	if ability.e_3_level > 0 then
 		switchToSpiral(caster, ability)	
 	end
-	print(#ability.a_c_unit_table)
+	print(#ability.e_1_unit_table)
 	if caster:HasModifier("modifier_falcon_boots") then
 		if caster.foot.liftedTargetsTable then
-			ability.a_c_unit_table = {"length"}
+			ability.e_1_unit_table = {"length"}
 		end
 	end
-	if #ability.a_c_unit_table > 0 then
-		ability.a_c_particleTable = {}
+	if #ability.e_1_unit_table > 0 then
+		ability.e_1_particleTable = {}
 		ability.movespeed = 50
 		ability.particle = true
 		-- "modifier_falcon_boots"
@@ -217,36 +217,36 @@ function falling_end(event)
 
 			caster.foot:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_falcon_freeze_self", {duration = 2.5})
 			Timers:CreateTimer(2.5, function()
-				ability.a_c_unit_table = {}
+				ability.e_1_unit_table = {}
 				for i = 1, #caster.foot.liftedTargetsTable, 1 do
 					print(caster.foot.liftedTargetsTable[i]:GetUnitName())
-					if #ability.a_c_unit_table < (1 + ability.a_c_level) then
+					if #ability.e_1_unit_table < (1 + ability.e_1_level) then
 						print("INSIDE A_C_UNIT_TABLE")
-						table.insert(ability.a_c_unit_table, caster.foot.liftedTargetsTable[i]:GetEntityIndex())
+						table.insert(ability.e_1_unit_table, caster.foot.liftedTargetsTable[i]:GetEntityIndex())
 					end
 				end
-				if #ability.a_c_unit_table > 0 then
+				if #ability.e_1_unit_table > 0 then
 					ability.startPosition = caster.foot.transportLocation
 					ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_a_c_dbz", {duration = 0.1})
 					ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_a_c_dbz_attack_power", {duration = 10})
-					caster:SetModifierStackCount("modifier_seinaru_a_c_dbz_attack_power", caster, ability.a_c_level)
+					caster:SetModifierStackCount("modifier_seinaru_a_c_dbz_attack_power", caster, ability.e_1_level)
 				end
 			end)
 		else
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_a_c_dbz", {duration = 0.1})
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_a_c_dbz_attack_power", {duration = 8})
 			ability.startPosition = caster:GetAbsOrigin()
-			caster:SetModifierStackCount("modifier_seinaru_a_c_dbz_attack_power", caster, ability.a_c_level)
+			caster:SetModifierStackCount("modifier_seinaru_a_c_dbz_attack_power", caster, ability.e_1_level)
 		end
 	else
-		if ability.b_c_level > 0 then
+		if ability.e_2_level > 0 then
 			local b_c_duration = Filters:GetAdjustedBuffDuration(caster, 2.5, false)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_b_c_wakizashi", {duration = b_c_duration})
 		end
 	end
 	caster.EFV = nil
 	-- Timers:CreateTimer(0.7, function()
-	-- 	caster:RemoveModifierByName("modifier_rune_c_c")
+	-- 	caster:RemoveModifierByName("modifier_rune_e_3")
 	-- end)
 end
 
@@ -257,7 +257,7 @@ function switchToSpiral(caster, ability)
   	end
   	spiral:SetLevel(ability:GetLevel())
   	spiral:SetAbilityIndex(2)
-  	spiral.c_c_level = ability.c_c_level
+  	spiral.e_3_level = ability.e_3_level
   	caster:SwapAbilities("odachi_slice", "spiral_leap", false, true)	
 end
 
@@ -265,8 +265,8 @@ function c_c_think(event)
 	local ability = event.ability
 	local caster = event.target
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 280, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-	local damage = ability.c_c_level*400 + 400
-	damage = damage + 0.0003*caster:GetAgility()/10*ability.d_c_level*damage
+	local damage = ability.e_3_level*400 + 400
+	damage = damage + 0.0003*caster:GetAgility()/10*ability.e_4_level*damage
 	for _,enemy in pairs(enemies) do
 		Filters:ApplyDamageBasic(enemy,caster,damage,DAMAGE_TYPE_PHYSICAL)
 		-- ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL })
@@ -282,7 +282,7 @@ function hikari_heal_c_c(event)
 	local ability = event.ability
 	local caster = event.caster
 	local position = caster:GetAbsOrigin()
-	local ampFactor = 0.5*ability.c_c_level
+	local ampFactor = 0.5*ability.e_3_level
 	EmitSoundOn("Hero_Warlock.ShadowWordCastGood", caster)
 	local hikariAbility = caster:FindAbilityByName("monk_heal")
 	local radius = hikariAbility:GetSpecialValueFor("radius")
@@ -313,7 +313,7 @@ function odachi_rush(event)
 		StartAnimation(caster, {duration=0.2, activity=ACT_DOTA_ATTACK, rate=2, translate="odachi"})
 		EmitSoundOn("Hero_Juggernaut.Attack", caster)
 		ability:ApplyDataDrivenModifier(caster, enemy, "modifier_odachi_rush", {duration = 0.4})
-		local damage = ability.b_c_level*0.1*caster:GetAverageTrueAttackDamage()
+		local damage = ability.e_2_level*0.1*caster:GetAverageTrueAttackDamage()
 		Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 3, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 
 		local playerID = caster:GetPlayerOwnerID()
@@ -340,38 +340,38 @@ function odachi_a_c_think(event)
 		return false
 	end
 	buff:SetDuration(0.1, false)
-	if #ability.a_c_unit_table > 0 then
-		local target = EntIndexToHScript(ability.a_c_unit_table[1])
+	if #ability.e_1_unit_table > 0 then
+		local target = EntIndexToHScript(ability.e_1_unit_table[1])
 		local distance = 0
 		if IsValidEntity(target) then
 			distance = WallPhysics:GetDistance(caster:GetAbsOrigin(), target:GetAbsOrigin())
 			if not target:IsAlive() then
 				local newTable = {}
-				for i = 2, #ability.a_c_unit_table, 1 do
-					table.insert(newTable, ability.a_c_unit_table[i])
+				for i = 2, #ability.e_1_unit_table, 1 do
+					table.insert(newTable, ability.e_1_unit_table[i])
 				end
-				ability.a_c_unit_table = newTable
+				ability.e_1_unit_table = newTable
 				-- caster:SetAbsOrigin(caster:GetAbsOrigin()+RandomVector(RandomInt(80, 200))+Vector(0,0,RandomInt(140, 380)))
-				if #ability.a_c_unit_table <= 1 then
+				if #ability.e_1_unit_table <= 1 then
 					end_eagle_strike(ability, caster)
 				end
 				return
 			end
 		else
 			local newTable = {}
-			for i = 2, #ability.a_c_unit_table, 1 do
-				table.insert(newTable, ability.a_c_unit_table[i])
+			for i = 2, #ability.e_1_unit_table, 1 do
+				table.insert(newTable, ability.e_1_unit_table[i])
 			end
-			ability.a_c_unit_table = newTable
+			ability.e_1_unit_table = newTable
 			-- caster:SetAbsOrigin(caster:GetAbsOrigin()+RandomVector(RandomInt(80, 200))+Vector(0,0,RandomInt(140, 380)))
-			if #ability.a_c_unit_table <= 1 then
+			if #ability.e_1_unit_table <= 1 then
 				end_eagle_strike(ability, caster)
 			end
 			return
 		end
 		if distance <= ability.movespeed + 5 then
 			ability.particle = true
-			DeepPrintTable(ability.a_c_unit_table)
+			DeepPrintTable(ability.e_1_unit_table)
 			-- CustomAbilities:QuickAttachParticle("particles/econ/items/riki/riki_immortal_ti6/riki_immortal_ti6_blinkstrike_gold.vpcf", target, 1.5)	
 			local particleName = "particles/econ/items/riki/riki_immortal_ti6/riki_immortal_ti6_blinkstrike_gold.vpcf"
 			local pfx = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN_FOLLOW, target )
@@ -384,9 +384,9 @@ function odachi_a_c_think(event)
 			Timers:CreateTimer(1.5, function() 
 			  ParticleManager:DestroyParticle( pfx, false )
 			end)
-			if ability.a_d_level > 0 then
+			if ability.r_1_level > 0 then
 				if caster:HasAbility("seinaru_gorudo") then
-					apply_a_d(caster, target, caster:FindAbilityByName("seinaru_gorudo"), ability.a_d_level, ability.d_c_level) 
+					apply_a_d(caster, target, caster:FindAbilityByName("seinaru_gorudo"), ability.r_1_level, ability.e_4_level) 
 				end
 			end	
 			caster:PerformAttack(target, true, true, true, true, false, false, false)
@@ -395,12 +395,12 @@ function odachi_a_c_think(event)
 				ApplyDamage({ victim = target, attacker = caster, damage = glyphDamage, damage_type = DAMAGE_TYPE_MAGICAL })	
 			end
 			EmitSoundOn("Seinaru.AChit", target)	
-			if #ability.a_c_unit_table >= 2 then
+			if #ability.e_1_unit_table >= 2 then
 				local newTable = {}
-				for i = 2, #ability.a_c_unit_table, 1 do
-					table.insert(newTable, ability.a_c_unit_table[i])
+				for i = 2, #ability.e_1_unit_table, 1 do
+					table.insert(newTable, ability.e_1_unit_table[i])
 				end
-				ability.a_c_unit_table = newTable
+				ability.e_1_unit_table = newTable
 				caster:SetAbsOrigin(caster:GetAbsOrigin()+RandomVector(RandomInt(340, 500))+Vector(0,0,RandomInt(20, 280)))
 				EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Seinaru.ACStartDash", caster)
 				StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_OVERRIDE_ABILITY_4, rate=1.2})
@@ -408,13 +408,13 @@ function odachi_a_c_think(event)
 			else
 				end_eagle_strike(ability, caster)
 			end
-			if #ability.a_c_particleTable >= 5 then
-				ParticleManager:DestroyParticle(ability.a_c_particleTable[1], false)
+			if #ability.e_1_particleTable >= 5 then
+				ParticleManager:DestroyParticle(ability.e_1_particleTable[1], false)
 				local newTable = {}
-				for i = 2, #ability.a_c_particleTable, 1 do
-					table.insert(newTable, ability.a_c_particleTable[i])
+				for i = 2, #ability.e_1_particleTable, 1 do
+					table.insert(newTable, ability.e_1_particleTable[i])
 				end
-				ability.a_c_particleTable = newTable
+				ability.e_1_particleTable = newTable
 			end
 		else
 			local pfx = nil
@@ -423,9 +423,9 @@ function odachi_a_c_think(event)
 				pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
 				ability.particle = false
 				ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()+Vector(0,0,100))
-				table.insert(ability.a_c_particleTable, pfx)
+				table.insert(ability.e_1_particleTable, pfx)
 			else
-				pfx = ability.a_c_particleTable[#ability.a_c_particleTable]
+				pfx = ability.e_1_particleTable[#ability.e_1_particleTable]
 			end
 			if pfx then
 				ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin()+Vector(0,0,100)+caster:GetForwardVector()*ability.movespeed*2)
@@ -449,12 +449,12 @@ function end_eagle_strike(ability, caster)
 		FindClearSpaceForUnit(caster, ability.startPosition, false)
 	end)
 	Timers:CreateTimer(1, function()
-		for i = 1, #ability.a_c_particleTable, 1 do
-			ParticleManager:DestroyParticle(ability.a_c_particleTable[i], false)
+		for i = 1, #ability.e_1_particleTable, 1 do
+			ParticleManager:DestroyParticle(ability.e_1_particleTable[i], false)
 		end
-		ability.a_c_particleTable = {}
+		ability.e_1_particleTable = {}
 	end)
-	if ability.b_c_level > 0 then
+	if ability.e_2_level > 0 then
 		local b_c_duration = Filters:GetAdjustedBuffDuration(caster, 2, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_b_c_wakizashi", {duration = b_c_duration})
 	end
@@ -483,7 +483,7 @@ function wakizashi_think(event)
 	-- 	knockback_distance = 80,
 	-- 	knockback_height = 15,
 	-- }
-    local damage = caster:GetAverageTrueAttackDamage(caster) * (1+ability.b_c_level*1.0)
+    local damage = caster:GetAverageTrueAttackDamage(caster) * (1+ability.e_2_level*1.0)
 	if #enemies > 0 then
 		EmitSoundOn("Hero_Juggernaut.Attack", caster)
 		if #enemies > 6 then
@@ -496,7 +496,7 @@ function wakizashi_think(event)
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 3, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 		end
 	end 
-	hikari_heal(caster, caster:GetAbsOrigin(), caster:FindAbilityByName("monk_heal"), 0.1*ability.b_c_level)			
+	hikari_heal(caster, caster:GetAbsOrigin(), caster:FindAbilityByName("monk_heal"), 0.1*ability.e_2_level)			
 end
 
 function wakizashi_end(event)

@@ -216,8 +216,8 @@ function wb_bandit_jump_start(event)
 			end
 		end
 	end
-	ability.a_c_level = 0
-	ability.c_c_level = 0
+	ability.e_1_level = 0
+	ability.e_3_level = 0
 end
 
 function jump_think(event)
@@ -265,9 +265,9 @@ function jump_end(event)
 	Timers:CreateTimer(0.03, function()
 		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 	end)
-	if ability.a_c_level > 0 then
-		local searchRadius = 300 + ability.a_c_level*2
-		local damage = caster:GetAverageTrueAttackDamage(caster)*0.3*ability.a_c_level
+	if ability.e_1_level > 0 then
+		local searchRadius = 300 + ability.e_1_level*2
+		local damage = caster:GetAverageTrueAttackDamage(caster)*0.3*ability.e_1_level
 
 	    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, searchRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	    if #enemies > 0 then
@@ -285,10 +285,10 @@ function jump_end(event)
 	    end 
 	    EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Arkimus.JumpLightning", caster)
 	end
-	if ability.c_c_level > 0 then
+	if ability.e_3_level > 0 then
 		local duration = Filters:GetAdjustedBuffDuration(caster, 3, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_machinal_jump_c_c_amp", {duration = duration})
-		caster:SetModifierStackCount("modifier_machinal_jump_c_c_amp", caster, ability.c_c_level)
+		caster:SetModifierStackCount("modifier_machinal_jump_c_c_amp", caster, ability.e_3_level)
 	end
 end
 
@@ -882,7 +882,7 @@ function iceSprintStart(event)
 	ability.forwardVec = caster:GetForwardVector()
 	ability.interval = 0
 	StartAnimation(caster, {duration=event.duration, activity=ACT_DOTA_RUN, rate=1.2, translate="haste"})
-	-- rune_b_c(caster, ability)
+	-- rune_e_2(caster, ability)
 	local level = ability:GetLevel()
 	caster:MoveToPosition(caster:GetAbsOrigin()+ability.forwardVec*(level/0.03)*25)
 end
@@ -1051,8 +1051,8 @@ function blade_jump_start(event)
 			end
 		end
 	end
-	ability.a_c_level = 0
-	ability.c_c_level = 0
+	ability.e_1_level = 0
+	ability.e_3_level = 0
 end
 
 function blade_jump_think(event)

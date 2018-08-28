@@ -167,7 +167,7 @@ if caster:IsAlive() then
   	caster:SwapAbilities("trapper_stealth", "trapper_backstab", false, true)
 
     if caster:HasModifier("modifier_trapper_arcana1") then
-    	caster.d_b_arcana_level = Runes:GetTotalRuneLevel(caster, 4, "d_b_arcana1", "trapper")
+    	caster.w_4_arcana_level = Runes:GetTotalRuneLevel(caster, 4, "d_b_arcana1", "trapper")
 	end
 end
 end
@@ -236,7 +236,7 @@ function switchOutOfStealth(caster)
   	CustomGameEventManager:Send_ServerToPlayer(caster:GetPlayerOwner(), "ability_tree_upgrade", {})
 
     if caster:HasModifier("modifier_trapper_arcana1") then
-    	caster.d_b_arcana_level = Runes:GetTotalRuneLevel(caster, 4, "d_b_arcana1", "trapper")
+    	caster.w_4_arcana_level = Runes:GetTotalRuneLevel(caster, 4, "d_b_arcana1", "trapper")
 	end
 end
 
@@ -266,8 +266,8 @@ function backstab_channel_succeed(event)
 	WallPhysics:Jump(target, target:GetForwardVector(), 0, 40, 10, 0.3)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_backstab_flailing", {duration = 4})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_backstab_jumping", {duration = 0.7})
-	local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d", "trapper")
-	ability.a_d_damage = math.floor(a_d_level*0.03*damage)
+	local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "trapper")
+	ability.r_1_damage = math.floor(a_d_level*0.03*damage)
 	ability.bSound = true
 	Timers:CreateTimer(0.5, function()
 			EmitSoundOn("Hero_Pudge.Attack", caster)
@@ -284,11 +284,11 @@ function backstab_channel_succeed(event)
 			Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 			PopupDamage(target, damage)
 			if a_d_level > 0 then
-				rune_a_d(caster, ability, target:GetAbsOrigin())
+				rune_r_1(caster, ability, target:GetAbsOrigin())
 			end
 	end)
-	local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "trapper")
-	caster.c_d_level = c_d_level
+	local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "trapper")
+	caster.r_3_level = c_d_level
 	if c_d_level > 0 then
         local duration = TRAPPER_R3_DURATION
         duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
@@ -296,7 +296,7 @@ function backstab_channel_succeed(event)
 	end
 end
 
-function rune_a_d(caster, ability, position)
+function rune_r_1(caster, ability, position)
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
     if #enemies > 0 then    
         for _,enemy in pairs(enemies) do
@@ -331,7 +331,7 @@ function trapper_a_d_projectile_strike(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	local damage = ability.a_d_damage
+	local damage = ability.r_1_damage
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 
 	local particleName = "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
@@ -390,14 +390,14 @@ function invisible_think(event)
 		return
 	end
 
-	local runesCount = Runes:GetTotalRuneLevel(caster, 2, "b_d", "trapper")
+	local runesCount = Runes:GetTotalRuneLevel(caster, 2, "r_2", "trapper")
 	if runesCount > 0 then
 		local duration =  Filters:GetAdjustedBuffDuration(caster, TRAPPER_R2_DURATION, false)
 		local maxStacksCount = TRAPPER_R2_MAX_STACKS_COUNT
         if caster:HasModifier("modifier_trapper_glyph_5_2") then
             maxStacksCount = maxStacksCount + T52_STACKS_COUNT
         end
-		Helper.updateStackModifier(caster, caster, ability, 'trapper_rune_b_d', duration, maxStacksCount, runesCount)
+		Helper.updateStackModifier(caster, caster, ability, 'trapper_rune_r_2', duration, maxStacksCount, runesCount)
 	end
 
 	if caster:HasModifier("modifier_trapper_glyph_7_2") then
@@ -407,17 +407,17 @@ function invisible_think(event)
 		end
 		backstab:ApplyDataDrivenModifier(caster, caster, "modifier_trapper_c_d_buff", {duration = 0.6})
 	end
-	runesCount = Runes:GetTotalRuneLevel(caster, 4, "d_d", "trapper")
+	runesCount = Runes:GetTotalRuneLevel(caster, 4, "r_4", "trapper")
 	if runesCount > 0 then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_trapper_rune_d_d_bonus_agi", {duration = 0.6})
-		caster:SetModifierStackCount("modifier_trapper_rune_d_d_bonus_agi", caster, runesCount)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_trapper_rune_r_4_bonus_agi", {duration = 0.6})
+		caster:SetModifierStackCount("modifier_trapper_rune_r_4_bonus_agi", caster, runesCount)
 	end
 end
 
 function crit_attack_start(event)
 	local caster = event.caster
 	local ability = event.ability
-	local runesCount = Runes:GetTotalRuneLevel(caster, 3, "c_d", "trapper")
+	local runesCount = Runes:GetTotalRuneLevel(caster, 3, "r_3", "trapper")
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_trapper_c_d_crit", {})
 	caster:SetModifierStackCount("modifier_trapper_c_d_crit", caster, runesCount)
 end

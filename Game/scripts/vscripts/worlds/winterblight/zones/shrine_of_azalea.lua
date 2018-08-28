@@ -527,7 +527,7 @@ function Winterblight:CheckAndProcessCrystals()
 	local match_count = 0
 	local pfxName = ""
 	if Winterblight.MasterCrystalColor == "red" then
-		pfxName = "particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
+		pfxName = "particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
 	elseif Winterblight.MasterCrystalColor == "blue" then
 		pfxName = "particles/units/heroes/hero_wisp/wisp_tether_agh.vpcf"
 	elseif Winterblight.MasterCrystalColor == "yellow" then
@@ -3742,8 +3742,8 @@ function Winterblight:azalea_jump_start(event)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.TriBoss.AzaleaJump", caster)
 	EmitSoundOn(event.jumpVO, caster)
 
-	ability.a_c_level = 0
-	ability.c_c_level = 0
+	ability.e_1_level = 0
+	ability.e_3_level = 0
 end
 
 function Winterblight:TriBossInit()

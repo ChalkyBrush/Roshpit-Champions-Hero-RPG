@@ -33,9 +33,9 @@ function storm_weapon_cast(event)
 		end
 	end
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Akrimus.StormWeapon", caster)
-	ability.b_b_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
-	-- local d_b_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
-	-- local procs = Runes:Procs(d_b_level, 6, 1)
+	ability.w_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
+	-- local w_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
+	-- local procs = Runes:Procs(w_4_level, 6, 1)
 	-- procs = 1 + procs
 	-- caster:SetModifierStackCount("modifier_arkimus_storm_weapon", caster, procs)
 
@@ -58,7 +58,7 @@ function storm_weapon_strike(event)
         for _,enemy in pairs(enemies) do
         	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
         	CustomAbilities:QuickAttachParticle("particles/econ/items/antimage/antimage_weapon_basher_ti5/antimage_manavoid_explode_b_basher_cast.vpcf", enemy, 3)
-        	if ability.b_b_level > 0 then
+        	if ability.w_2_level > 0 then
         		ability:ApplyDataDrivenModifier(caster, enemy, "modifier_storm_weapon_b_b_visible", {duration = 9})
         		local stackGain = 1
         		if caster:HasModifier("modifier_arkimus_immortal_weapon_1") then
@@ -72,12 +72,12 @@ function storm_weapon_strike(event)
         		ParticleManager:SetParticleControl(enemy.arkimus_b_b_pfx, 1, Vector(math.floor(newStacks/10), newStacks%10, newStacks))
 
         		ability:ApplyDataDrivenModifier(caster, enemy, "modifier_storm_weapon_b_b_invisible", {duration = 9})
-        		enemy:SetModifierStackCount("modifier_storm_weapon_b_b_invisible", caster, newStacks*ability.b_b_level)
+        		enemy:SetModifierStackCount("modifier_storm_weapon_b_b_invisible", caster, newStacks*ability.w_2_level)
         	end
         end
     end 
-	local d_b_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
-	local procs = Runes:Procs(d_b_level, 10, 1)
+	local w_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
+	local procs = Runes:Procs(w_4_level, 10, 1)
 	if procs > 0 then
 		local duration = Filters:GetAdjustedBuffDuration(caster, 7, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_d_b_shield", {duration = duration})

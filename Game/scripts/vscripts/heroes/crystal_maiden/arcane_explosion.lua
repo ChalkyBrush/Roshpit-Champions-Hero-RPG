@@ -1,10 +1,10 @@
-function rune_c_d(caster, ability)
+function rune_r_3(caster, ability)
   local runeUnit = caster.runeUnit3
-  local runeAbility = runeUnit:FindAbilityByName("sorceress_rune_c_d")
+  local runeAbility = runeUnit:FindAbilityByName("sorceress_rune_r_3")
   local abilityLevel = runeAbility:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_d")
+  local bonusLevel = Runes:GetTotalBonus(runeUnit, "r_3")
   local totalLevel = abilityLevel + bonusLevel
-  ability.rune_c_d_level = totalLevel
+  ability.rune_r_3_level = totalLevel
   if totalLevel > 0 and caster:HasModifier("modifier_ring_of_fire_up") then
   	caster:RemoveModifierByName("modifier_ring_of_fire_up")
   	ringOfFire(caster, ability, totalLevel)
@@ -30,7 +30,7 @@ function ringOfFire(caster, ability, totalLevel)
       	local radius = 600
       	local damage = totalLevel*200 + 300
 
-	    local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "sorceress")
+	    local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "sorceress")
 	    damage = damage + 0.0001*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*d_d_level*damage
 
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), origin, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
@@ -46,7 +46,7 @@ function ring_of_fire_think(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	local damage = 40*ability.rune_c_d_level
+	local damage = 40*ability.rune_r_3_level
 	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
 end
 
@@ -93,12 +93,12 @@ function missleStrike(event)
 	local ability = event.ability
 	local caster = event.caster
 	ApplyDamage({ victim = target, attacker = caster, damage = ability.damage, damage_type = DAMAGE_TYPE_MAGICAL })
-	if ability.rune_b_b_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_sorceress_rune_b_b_invisible", {duration = 9})
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_sorceress_rune_b_b", {duration = 9})
-		local newStacks = math.min(target:GetModifierStackCount("modifier_sorceress_rune_b_b", caster) + 1, 10)
-		target:SetModifierStackCount("modifier_sorceress_rune_b_b", ability, newStacks )
-		target:SetModifierStackCount("modifier_sorceress_rune_b_b_invisible", ability, newStacks*ability.rune_b_b_level)
+	if ability.rune_w_2_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_sorceress_rune_w_2_invisible", {duration = 9})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_sorceress_rune_w_2", {duration = 9})
+		local newStacks = math.min(target:GetModifierStackCount("modifier_sorceress_rune_w_2", caster) + 1, 10)
+		target:SetModifierStackCount("modifier_sorceress_rune_w_2", ability, newStacks )
+		target:SetModifierStackCount("modifier_sorceress_rune_w_2_invisible", ability, newStacks*ability.rune_w_2_level)
 	end
 end
 
@@ -107,10 +107,10 @@ function start_arcane_torrent_channel(event)
 	local ability = event.ability
 	local target = event.target
 	ability.target = target
-	ability.a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "sorceress")
-	ability.b_b_level = Runes:GetTotalRuneLevel(caster, 2, "b_b", "sorceress")
-	ability.d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "sorceress")
-	rune_a_b(caster, ability, 0)
+	ability.w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "sorceress")
+	ability.w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "sorceress")
+	ability.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "sorceress")
+	rune_w_1(caster, ability, 0)
 	local arcane_explosion_damage = caster:FindAbilityByName("arcane_explosion"):GetLevelSpecialValueFor("damage", ability:GetLevel())
 	ability.base_damage = arcane_explosion_damage*10
 end
@@ -122,7 +122,7 @@ function arcane_torrent_channel_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = ability.target
-	rune_a_b(caster, ability, 0)
+	rune_w_1(caster, ability, 0)
 	EmitSoundOn("Sorceress.ArcaneTorrentLaunch", caster)
 	local info = 
 	{
@@ -144,20 +144,20 @@ function arcane_torrent_channel_think(event)
 	}
 
 	local manaDrainPercent = 0.0033
-	if ability.d_b_level > 0 then
+	if ability.w_4_level > 0 then
 		manaDrainPercent = 0.02
 	end
 	local manaDrain = math.min(caster:GetMaxMana()*manaDrainPercent, caster:GetMana())
 	manaDrain = math.floor(manaDrain)
 	caster:ReduceMana(manaDrain)
-	ability.damage = ability.base_damage + (manaDrain/100)*0.003*ability.d_b_level*ability.base_damage
+	ability.damage = ability.base_damage + (manaDrain/100)*0.003*ability.w_4_level*ability.base_damage
 
 	projectile = ProjectileManager:CreateTrackingProjectile(info)
 	if WallPhysics:GetDistance(caster:GetAbsOrigin(), target:GetAbsOrigin()) > 1800 then
 		caster:RemoveModifierByName("modifier_channel_arcane_torrent")
 	end
-	local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "sorceress")
-	if d_b_level > 0 then
+	local w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "sorceress")
+	if w_4_level > 0 then
 		local currentStacks = caster:GetModifierStackCount("modifier_arcane_enchantment", caster)
 		local manaDrain = 0
 		if currentStacks < 3 then
@@ -165,7 +165,7 @@ function arcane_torrent_channel_think(event)
 			caster:ReduceMana(manaDrain)
 		end
 		local blinkAbility = caster:FindAbilityByName("sorceress_blink")
-		blinkAbility.d_b_amp = ((caster:GetMaxMana()*0.1)/100)*SORCERESS_D_B_FACTOR*d_b_level
+		blinkAbility.w_4_amp = ((caster:GetMaxMana()*0.1)/100)*SORCERESS_D_B_FACTOR*w_4_level
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_arcane_enchantment", {duration = 7})
 		caster:SetModifierStackCount("modifier_arcane_enchantment", caster, math.min(3, currentStacks + 1))
 	end
@@ -176,13 +176,13 @@ function arcane_torrent_projectile_hit(event)
 	local ability = event.ability
 	local target = event.target
 	local damage = ability.damage
-	if ability.b_b_level > 0 then
+	if ability.w_2_level > 0 then
 		-- local arcane_explosion = caster:FindAbilityByName("arcane_explosion")
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_sorceress_rune_b_b_invisible", {duration = 9})
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_sorceress_rune_b_b", {duration = 9})
-		local newStacks = math.min(target:GetModifierStackCount("modifier_sorceress_rune_b_b", caster) + 1, 10)
-		target:SetModifierStackCount("modifier_sorceress_rune_b_b", ability, newStacks )
-		target:SetModifierStackCount("modifier_sorceress_rune_b_b_invisible", ability, newStacks*ability.b_b_level )
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_sorceress_rune_w_2_invisible", {duration = 9})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_sorceress_rune_w_2", {duration = 9})
+		local newStacks = math.min(target:GetModifierStackCount("modifier_sorceress_rune_w_2", caster) + 1, 10)
+		target:SetModifierStackCount("modifier_sorceress_rune_w_2", ability, newStacks )
+		target:SetModifierStackCount("modifier_sorceress_rune_w_2_invisible", ability, newStacks*ability.w_2_level )
 	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/duskbringer_c_a_heal_heal_core.vpcf", target, 0.5)
@@ -194,7 +194,7 @@ function arcane_enhancement_impact(event)
 	local ability = event.ability
 	local target = event.target
 	EmitSoundOn("Hero_SkywrathMage.ArcaneBolt.Impact", target)
-	if ability.d_b_damage then
+	if ability.w_4_damage then
 
 	  local radius = 280
 	  if ability.baseIndex == 4 then
@@ -210,7 +210,7 @@ function arcane_enhancement_impact(event)
       function()
         ParticleManager:DestroyParticle( particle2, false )
       end)
-      	local damage = ability.d_b_damage*ability.d_b_amp
+      	local damage = ability.w_4_damage*ability.w_4_amp
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do

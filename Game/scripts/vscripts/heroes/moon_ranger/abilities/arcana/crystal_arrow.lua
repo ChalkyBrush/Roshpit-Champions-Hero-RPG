@@ -41,7 +41,7 @@ function crystal_arrow_channel_start(event)
 	-- 	ability.pfx = false
 	-- end
 	local a_d_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
-	ability.a_d_level = a_d_level
+	ability.r_1_level = a_d_level
 	if a_d_level > 0 then
 		ability.r1_dummy = CreateUnitByName("npc_dummy_unit", ability.target_point, false, nil, nil, caster:GetTeamNumber())
 		ability.r1_dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
@@ -177,12 +177,12 @@ function fire_crystal_arrow(event)
 		table.insert(ability.arrow_table, arrow)
 	end
 	local b_d_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
-	ability.b_d_level = b_d_level
+	ability.r_2_level = b_d_level
 	if b_d_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_crystal_arrow_b_d", {duration = 7})
 		caster:SetModifierStackCount("modifier_crystal_arrow_b_d", caster, b_d_level)
 	end
-	ability.d_d_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+	ability.r_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
 	Filters:CastSkillArguments(4, caster)
 end
 
@@ -233,18 +233,18 @@ function arrow_explode(caster, ability, position, damage)
 	Timers:CreateTimer(3.5, function()
 		ParticleManager:DestroyParticle(pfx2, false)
 	end)
-	damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.05*ability.b_d_level
+	damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.05*ability.r_2_level
 	if caster:HasModifier("modifier_astral_glyph_7_1") then
 		damage = damage*10
 	end
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_backstab_jumping", {duration = 0.06})
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, 550, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-    local slowDuration = 0.3*ability.d_d_level
+    local slowDuration = 0.3*ability.r_4_level
     if #enemies > 0 then
     	local AOEDamage = damage
         for _,enemy in pairs(enemies) do
         	Filters:TakeArgumentsAndApplyDamage(enemy, caster, AOEDamage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_ICE, RPC_ELEMENT_COSMOS)
-        	if ability.d_d_level > 0 then
+        	if ability.r_4_level > 0 then
         		ability:ApplyDataDrivenModifier(caster, enemy, "modifier_crystal_arrow_chilled", {duration = slowDuration})
         	end
         end

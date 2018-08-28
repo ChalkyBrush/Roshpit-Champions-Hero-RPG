@@ -22,10 +22,10 @@ end
 function begin_demon_morph(event)
 	local caster = event.caster
 	local ability = event.ability
-	ability.a_d_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
-	ability.b_d_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
-	ability.c_d_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
-	ability.d_d_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+	ability.r_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
+	ability.r_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
+	ability.r_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
+	ability.r_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
 	local particleName = "particles/roshpit/chernobog/demon_form_transition.vpcf"
 	if caster:HasModifier("modifier_demon_hunter") then
 		particleName = "particles/units/heroes/hero_shadow_demon/shadow_demon_disruption.vpcf"
@@ -38,7 +38,7 @@ function begin_demon_morph(event)
 	end)
 	caster:AddNoDraw()
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_transitioning", {duration = 2.0})
-	local duration = event.duration + ability.d_d_level*0.5
+	local duration = event.duration + ability.r_4_level*0.5
 	local morphDuration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	Timers:CreateTimer(2.0, function()
 		caster:RemoveNoDraw()
@@ -52,7 +52,7 @@ function begin_demon_morph(event)
 		end
 		
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_demon_form", {duration = morphDuration})
-		if ability.b_d_level > 0 then
+		if ability.r_2_level > 0 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_demon_form_aura", {duration = morphDuration})
 		end
 		if caster:HasModifier("modifier_chernobog_arcana2") then
@@ -115,8 +115,8 @@ function demon_form_attack_land(event)
 	local ability = event.ability
 	local target = event.target
 	local damage = event.attack_damage
-	local splashDamage = damage*0.02*ability.a_d_level
-	if ability.a_d_level > 0 then
+	local splashDamage = damage*0.02*ability.r_1_level
+	if ability.r_1_level > 0 then
 		-- if target:IsAlive() then
 		    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 320, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		    if #enemies > 0 then
@@ -138,8 +138,8 @@ function demon_form_attack_start(event)
 	local ability = event.ability
 	local target = event.target
 	if not caster:HasModifier("modifier_demon_form_dont_split") then
-		if ability.c_d_level > 0 then
-			local procs = Runes:Procs(ability.c_d_level, 15, 1)
+		if ability.r_3_level > 0 then
+			local procs = Runes:Procs(ability.r_3_level, 15, 1)
 			local splitCount = 0
 			print(procs)
 			if procs > 0 then
@@ -165,8 +165,8 @@ function demon_aura_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	if ability.b_d_level > 0 then
+	if ability.r_2_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_chernobog_demon_form_aura_stacks", {})
-		target:SetModifierStackCount("modifier_chernobog_demon_form_aura_stacks", caster, ability.b_d_level)
+		target:SetModifierStackCount("modifier_chernobog_demon_form_aura_stacks", caster, ability.r_2_level)
 	end
 end

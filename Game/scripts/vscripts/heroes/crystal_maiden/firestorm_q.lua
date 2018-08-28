@@ -8,11 +8,11 @@ function firestorm_precast(event)
 	StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.0, translate="wardstaff"})
 	CustomAbilities:QuickAttachParticle("particles/roshpit/sorceress/firestorm_precast.vpcf", caster, 2.5)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_firestorm_precast", {duration = 1})
-    Helper.initializeAbilityRunes(caster, 'sorceress', 'a')
-    Helper.initializeAbilityRunes(caster, 'sorceress', 'b')
-    Helper.initializeAbilityRunes(caster, 'sorceress', 'c')
-    Helper.initializeAbilityRunes(caster, 'sorceress', 'd')
-    caster.c_a_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
+    Helper.initializeAbilityRunes(caster, 'sorceress', 'q')
+    Helper.initializeAbilityRunes(caster, 'sorceress', 'w')
+    Helper.initializeAbilityRunes(caster, 'sorceress', 'e')
+    Helper.initializeAbilityRunes(caster, 'sorceress', 'r')
+    caster.q_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
     EmitSoundOn("Sorceress.FirestormPrecast.VO", caster)
 end
 
@@ -47,18 +47,18 @@ function begin_firestorm(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_sorceress_firestorm_channel", {duration = 4.5})
 	end
 	Filters:CastSkillArguments(1, caster)
-	local a_a_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
-	if a_a_level > 0 then
+	local q_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
+	if q_1_level > 0 then
 		if ability:GetCooldownTimeRemaining() > 0 then
 			caster.sunlance = true
 			CustomAbilities:AddAndOrSwapSkill(caster, "sorceress_fire_arcana_q", "sorceress_sun_lance", 0)
 		end
 	end
-	ability.d_a_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
-	if ability.d_a_level > 0 then
+	ability.q_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+	if ability.q_4_level > 0 then
 		local avatarDuration = Filters:GetAdjustedBuffDuration(caster, 12, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_fire_avatar", {duration = avatarDuration})
-		caster:SetModifierStackCount("modifier_fire_avatar", caster, ability.d_a_level)
+		caster:SetModifierStackCount("modifier_fire_avatar", caster, ability.q_4_level)
 	end
 end
 
@@ -132,11 +132,11 @@ function firestorm_channel_think(event)
 					end
 					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_sorceress_firestorm", {duration = 10})
 					local damage = event.damage
-					if ability.d_a_level then
+					if ability.q_4_level then
 						if caster:HasModifier("modifier_sorceress_immortal_ice_avatar") then
-							damage = damage + ability.d_a_level * ARCANA2_Q4_INT_TO_DAMAGE * caster.origCaster:GetIntellect()
+							damage = damage + ability.q_4_level * ARCANA2_Q4_INT_TO_DAMAGE * caster.origCaster:GetIntellect()
 						else
-							damage = damage + ability.d_a_level * ARCANA2_Q4_INT_TO_DAMAGE * caster:GetIntellect()
+							damage = damage + ability.q_4_level * ARCANA2_Q4_INT_TO_DAMAGE * caster:GetIntellect()
 						end
 					end
 					if caster:HasModifier("modifier_sorceress_glyph_1_1") then
@@ -161,11 +161,11 @@ function sorceress_firestorm_debuff_think(event)
 	local luck = RandomInt(1, 6)
 	if luck == 1 then
 		local damage = event.damage
-		if ability.d_a_level then
+		if ability.q_4_level then
 			if caster:HasModifier("modifier_sorceress_immortal_ice_avatar") then
-				damage = damage + ability.d_a_level * ARCANA2_Q4_INT_TO_DAMAGE * caster.origCaster:GetIntellect()
+				damage = damage + ability.q_4_level * ARCANA2_Q4_INT_TO_DAMAGE * caster.origCaster:GetIntellect()
 			else
-				damage = damage + ability.d_a_level * ARCANA2_Q4_INT_TO_DAMAGE * caster:GetIntellect()
+				damage = damage + ability.q_4_level * ARCANA2_Q4_INT_TO_DAMAGE * caster:GetIntellect()
 			end
 		end
 		if caster:HasModifier("modifier_sorceress_glyph_1_1") then
@@ -187,7 +187,7 @@ function sorceress_firestorm_impact(caster, target, ability, damage, bBurn, amp)
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage*amp, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 			end
 			if bBurn then
-				local burnDuration = Q3_BASE_DURATION + (caster.c_a_level * Q3_ADD_DURATION)
+				local burnDuration = Q3_BASE_DURATION + (caster.q_3_level * Q3_ADD_DURATION)
 				local sunLance = caster:FindAbilityByName("sorceress_sun_lance")
 				sunLance:ApplyDataDrivenModifier(caster, target, "modifier_sun_lance_burn", {duration = burnDuration})
 			end
@@ -199,7 +199,7 @@ function fire_avatar_start(event)
 	-- local caster = event.caster
 	-- local ability = event.ability
 	-- if not ability.wingsPFX then
-	-- 	local avatarDuration = Filters:GetAdjustedBuffDuration(caster, 7 + 0.2*ability.d_d_level, false)
+	-- 	local avatarDuration = Filters:GetAdjustedBuffDuration(caster, 7 + 0.2*ability.r_4_level, false)
 	-- 	ability.wingsPFX = ParticleManager:CreateParticle("particles/roshpit/sorceress/fire_avatar_wings_omni_omni.vpcf", PATTACH_POINT_FOLLOW, caster)
 	-- 	for i = 0, 4, 1 do
 	-- 		ParticleManager:SetParticleControlEnt(ability.wingsPFX, i, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
@@ -221,5 +221,5 @@ end
 
 function passive_think(event)
 	local caster = event.caster
-	caster.b_a_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
+	caster.q_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
 end

@@ -20,7 +20,7 @@ function dominion_bolt_fire(event)
         iMoveSpeed = 750,
         iVisionTeamNumber = caster:GetTeamNumber()
     }
-    caster.a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a", "ekkan")
+    caster.q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "ekkan")
     projectile = ProjectileManager:CreateTrackingProjectile(info)
     EmitSoundOn("Ekkan.Dominion.Launch", caster)
     Filters:CastSkillArguments(1, caster)
@@ -37,7 +37,7 @@ function dominion_bolt_impact(event)
 		EmitSoundOn("Ekkan.Dominion.Impact", target)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_ekkan_dominion_debuff", {duration = debuff_duration})
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_ekkan_dominion_overhead_effect", {duration = debuff_duration})
-		-- ability.a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a", "ekkan")
+		-- ability.q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "ekkan")
 	end
 end
 
@@ -71,9 +71,9 @@ function dominion_debuff_death(event)
 		summon:SetControllableByPlayer(caster:GetPlayerOwnerID(), true)
 		summon:SetForwardVector(fv)
 		local hp = unit:GetMaxHealth()
-		local b_a_level = Runes:GetTotalRuneLevel(caster, 2, "b_a", "ekkan")
-		if b_a_level > 0 then
-			hp = hp + hp*0.06*b_a_level
+		local q_2_level = Runes:GetTotalRuneLevel(caster, 2, "q_2", "ekkan")
+		if q_2_level > 0 then
+			hp = hp + hp*0.06*q_2_level
 			hp = math.min(hp, 2000000000)
 		end
 		local armor = unit:GetPhysicalArmorBaseValue()
@@ -99,7 +99,7 @@ function dominion_debuff_death(event)
 	    summon:SetNightTimeVisionRange(90)
 	    summon:SetHullRadius(8)
 	    summon.hero = caster
-	    if caster.a_a_level > 0 then
+	    if caster.q_1_level > 0 then
 	    	summon:AddAbility("ekkan_zombie_strike"):SetLevel(1)
 	    end
 	    table.insert(ability.dominionTable, summon)
@@ -119,10 +119,10 @@ function dominion_debuff_death(event)
 		summon.targetFindOrder = FIND_ANY_ORDER
 		summon.autoAbilityCD = 2
 		summon.owner = caster:GetPlayerOwnerID()
-		local d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "ekkan")
-		if d_a_level > 0 then
+		local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "ekkan")
+		if q_4_level > 0 then
 			ability:ApplyDataDrivenModifier(caster, summon, "modifier_ekkan_d_a_alacrity", {})
-			summon:SetModifierStackCount("modifier_ekkan_d_a_alacrity", caster, d_a_level)
+			summon:SetModifierStackCount("modifier_ekkan_d_a_alacrity", caster, q_4_level)
 		end
 		if summon.aggroSound then
 			EmitSoundOn(summon.aggroSound, summon)
@@ -242,15 +242,15 @@ function dominion_unit_kill(event)
 	local ability = event.ability
 	if not unit.dominionLock then
 		unit.dominionLock = true
-		local c_a_level = Runes:GetTotalRuneLevel(caster, 3, "c_a", "ekkan")
+		local q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "ekkan")
 		if unit:GetDeathXP() > 10 then
-			if c_a_level > 0 then
-				attacker.armor = attacker.armor + c_a_level*4
+			if q_3_level > 0 then
+				attacker.armor = attacker.armor + q_3_level*4
 				local damageGainMult = 1200
 				if caster:HasModifier("modifier_ekkan_glyph_5_a") then
 					damageGainMult = 2400
 				end
-				attacker.attackDamage = math.min(attacker.attackDamage + c_a_level*damageGainMult, 2^26.5)
+				attacker.attackDamage = math.min(attacker.attackDamage + q_3_level*damageGainMult, 2^26.5)
 				attacker:SetPhysicalArmorBaseValue(attacker.armor)
 			    attacker:SetBaseDamageMin(attacker.attackDamage)
 			    attacker:SetBaseDamageMax(attacker.attackDamage) 
@@ -311,7 +311,7 @@ function dominion_zombie_strike_hit(event)
 	local caster = event.caster.hero
 	local target = event.target
 	local ability = event.ability
-	local damage = caster.a_a_level*0.12*ability.attack_damage
+	local damage = caster.q_1_level*0.12*ability.attack_damage
 	ability:ApplyDataDrivenModifier(event.caster, target, "modifier_hit_by_zombie_strike", {duration = 0.3})
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
 end

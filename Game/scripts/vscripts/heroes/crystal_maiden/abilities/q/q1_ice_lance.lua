@@ -4,7 +4,7 @@ function cast(event)
     local caster = event.caster
     local ability = event.ability
 
-    Helper.initializeAbilityRunes(caster, 'sorceress', 'a')
+    Helper.initializeAbilityRunes(caster, 'sorceress', 'q')
 
     --Timers:CreateTimer(0.3,function()
     local target = event.target_points[1]
@@ -14,7 +14,7 @@ function cast(event)
 
     if caster:HasModifier("modifier_sorceress_immortal_ice_avatar") then
         caster = caster.origCaster
-        Helper.initializeAbilityRunes(caster, 'sorceress', 'a')
+        Helper.initializeAbilityRunes(caster, 'sorceress', 'q')
     end
 
     createProjectile(caster, fv, ability, Q1_ICE_LANCE_PROJECTILE, casterOrigin, 120)
@@ -64,7 +64,7 @@ function projectileHit(event)
     local target = event.target
     local ability = event.ability
     EmitSoundOn("hero_Crystal.projectileImpact", target)
-    local damage = caster.a_a_level * Q1_ADD_DAMAGE + Q1_BASE_DAMAGE
+    local damage = caster.q_1_level * Q1_ADD_DAMAGE + Q1_BASE_DAMAGE
     damage = damage*event.mult
 
     
@@ -112,7 +112,7 @@ function projectileHit(event)
     target:SetModifierStackCount("modifier_ice_lance_cold", caster, stacks)
 
     local luck = RandomInt(1, 100)
-    if chance > luck and caster.c_a_level > 0 then
+    if chance > luck and caster.q_3_level > 0 then
         IceExplode.cast(caster, target, ability, damage)
     else
         Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)

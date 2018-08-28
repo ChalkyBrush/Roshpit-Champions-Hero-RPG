@@ -1717,20 +1717,20 @@ function RPCItems:GetRandomRuneLetter(min, max)
 	local luck = RandomInt(min, max)
 	local letter = ""
 	if luck == 1 then
-		letter = "a"
+		letter = "q"
 	elseif luck == 2 then
-		letter = "b"
+		letter = "w"
 	elseif luck == 3 then
-		letter = "c"
+		letter = "e"
 	elseif luck == 4 then
-		letter = "d"
+		letter = "r"
 	end
 	return letter
 end
 
 function RPCItems:AdjustAttributeValue(hero, value)
 	if hero:GetUnitName() == "npc_dota_hero_zuus" then
-		local b_d_level = Runes:GetTotalRuneLevel(hero, 2, "b_d", "auriun")
+		local b_d_level = Runes:GetTotalRuneLevel(hero, 2, "r_2", "auriun")
 		value = value + value*0.005*b_d_level
 	end
 	return value

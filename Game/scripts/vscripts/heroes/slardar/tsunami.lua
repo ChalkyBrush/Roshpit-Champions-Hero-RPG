@@ -3,12 +3,12 @@ function start_channel(event)
 	local ability = event.ability
 	EmitSoundOn("Hydroxis.Ultimate.Voice", caster)
 
-	ability.b_d_level = Runes:GetTotalRuneLevel(caster, 2, "b_d", "hydroxis")
-	if ability.b_d_level > 0 then
+	ability.r_2_level = Runes:GetTotalRuneLevel(caster, 2, "r_2", "hydroxis")
+	if ability.r_2_level > 0 then
 		local b_d_duration = Filters:GetAdjustedBuffDuration(caster, 12, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_hydroxis_b_d", {duration = b_d_duration})
 	end
-	caster.d_c_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
+	caster.e_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
 
 	if caster:HasModifier("modifier_hydroxis_glyph_6_1") then
 		channel_complete(event)
@@ -53,8 +53,8 @@ function channel_complete(event)
 			stunDuration = hydroxis_tsunami_ability:GetLevelSpecialValueFor("stun_duration", hydroxis_tsunami_ability_LVL)
 			slow_duration = hydroxis_tsunami_ability:GetLevelSpecialValueFor("slow_duration", hydroxis_tsunami_ability_LVL) + stunDuration
 
-			local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d", "hydroxis")
-			ability.a_d_level = a_d_level
+			local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "hydroxis")
+			ability.r_1_level = a_d_level
 			damage = damage * (1 + 0.00005 * a_d_level * caster:GetPhysicalArmorValue())
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do
@@ -73,7 +73,7 @@ function channel_complete(event)
 				ParticleManager:DestroyParticle(pfx, false)
 			end)
 
-			local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "hydroxis")
+			local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "hydroxis")
 
 			if c_d_level > 0 then
 				local baseCD = 12
@@ -86,17 +86,17 @@ function channel_complete(event)
 			end
 			if caster:HasAbility("hydroxis_water_blade") then
 				local waterBombAbility = caster:FindAbilityByName("hydroxis_water_blade")
-				waterBombAbility.c_d_level = c_d_level
-				waterBombAbility.a_d_level = a_d_level
+				waterBombAbility.r_3_level = c_d_level
+				waterBombAbility.r_1_level = a_d_level
 			else
 				local arcanaAbility = caster:FindAbilityByName("hydroxis_arcana_ability_1")
-				arcanaAbility.c_d_level = c_d_level
-				arcanaAbility.a_d_level = a_d_level
+				arcanaAbility.r_3_level = c_d_level
+				arcanaAbility.r_1_level = a_d_level
 			end
 		end)
 	end
-	ability.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "hydroxis")
-	if ability.d_d_level > 0 then
+	ability.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "hydroxis")
+	if ability.r_4_level > 0 then
 		local modelName = "models/hydroxis/hydroxis_water_pool.vmdl"
 		local thinkerName = "modifier_drowning_pool_thinker"
 		if caster:HasModifier("modifier_hydroxis_glyph_6_1") then
@@ -126,7 +126,7 @@ function drowning_pool_aura_start(event)
 	local target = event.target
 	if caster:GetEntityIndex() == target:GetEntityIndex() then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_drowning_pool_actual_effect", {})
-		target:SetModifierStackCount("modifier_drowning_pool_actual_effect", caster, ability.d_d_level)
+		target:SetModifierStackCount("modifier_drowning_pool_actual_effect", caster, ability.r_4_level)
 	end
 end
 
@@ -219,7 +219,7 @@ function tsunami_impact(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local damage = 85000*ability.b_d_level * (1 + 0.00003 * ability.a_d_level * caster:GetPhysicalArmorValue())
+	local damage = 85000*ability.r_2_level * (1 + 0.00003 * ability.r_1_level * caster:GetPhysicalArmorValue())
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 	local slow_duration = event.slow_duration
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_ocean_quake_slowed", {duration = slow_duration})
@@ -280,7 +280,7 @@ function poseidon_wrath_attack_hit(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	local damage = ability.c_d_level*0.35*caster:GetAverageTrueAttackDamage(caster) * (1 + 0.00003 * ability.a_d_level * caster:GetPhysicalArmorValue())
+	local damage = ability.r_3_level*0.35*caster:GetAverageTrueAttackDamage(caster) * (1 + 0.00003 * ability.r_1_level * caster:GetPhysicalArmorValue())
 	if caster:HasModifier("modifier_hydroxis_immortal_weapon_1") then
 		damage = damage*2
 	end

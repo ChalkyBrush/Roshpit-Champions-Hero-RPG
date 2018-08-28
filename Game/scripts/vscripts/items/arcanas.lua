@@ -11,16 +11,16 @@ function RPCItems:RollFlamewakerArcana1(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_a"
+        item.property2name = "rune_q_1"
         item.property2 = math.ceil(value*1.1)
     elseif luck <= 70 then
-        item.property2name = "rune_b_a"
+        item.property2name = "rune_q_2"
         item.property2 = math.ceil(value*1.1)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_a"
+        item.property2name = "rune_q_3"
         item.property2 = math.ceil(value*1) 
     else
-        item.property2name = "rune_d_a"
+        item.property2name = "rune_q_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -50,16 +50,16 @@ function RPCItems:RollSeinaruArcana1(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_a"
+        item.property2name = "rune_q_1"
         item.property2 = math.ceil(value*1.1)
     elseif luck <= 70 then
-        item.property2name = "rune_b_a"
+        item.property2name = "rune_q_2"
         item.property2 = math.ceil(value*1.1)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_a"
+        item.property2name = "rune_q_3"
         item.property2 = math.ceil(value*1) 
     else
-        item.property2name = "rune_d_a"
+        item.property2name = "rune_q_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -90,16 +90,16 @@ function RPCItems:RollSeinaruArcana2(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_c"
+        item.property2name = "rune_e_1"
         item.property2 = math.ceil(value*1.1)
     elseif luck <= 70 then
-        item.property2name = "rune_b_c"
+        item.property2name = "rune_e_2"
         item.property2 = math.ceil(value*1.1)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_c"
+        item.property2name = "rune_e_3"
         item.property2 = math.ceil(value*1) 
     else
-        item.property2name = "rune_d_c"
+        item.property2name = "rune_e_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -128,16 +128,16 @@ function RPCItems:RollPaladinArcana2(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_c"
+        item.property2name = "rune_e_1"
         item.property2 = math.ceil(value*1.1)
     elseif luck <= 70 then
-        item.property2name = "rune_b_c"
+        item.property2name = "rune_e_2"
         item.property2 = math.ceil(value*1.1)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_c"
+        item.property2name = "rune_e_3"
         item.property2 = math.ceil(value*1) 
     else
-        item.property2name = "rune_d_c"
+        item.property2name = "rune_e_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -166,16 +166,16 @@ function RPCItems:RollAstralArcana1(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_a"
+        item.property2name = "rune_q_1"
         item.property2 = math.ceil(value*1.1)
     elseif luck <= 70 then
-        item.property2name = "rune_b_a"
+        item.property2name = "rune_q_2"
         item.property2 = math.ceil(value*1.1)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_a"
+        item.property2name = "rune_q_3"
         item.property2 = math.ceil(value*1) 
     else
-        item.property2name = "rune_d_a"
+        item.property2name = "rune_q_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -205,16 +205,16 @@ function RPCItems:RollBahamutArcana1(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_d"
+        item.property2name = "rune_r_1"
         item.property2 = math.ceil(value*1.1)
     elseif luck <= 70 then
-        item.property2name = "rune_b_d"
+        item.property2name = "rune_r_2"
         item.property2 = math.ceil(value*1.1)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_d"
+        item.property2name = "rune_r_3"
         item.property2 = math.ceil(value*1) 
     else
-        item.property2name = "rune_d_d"
+        item.property2name = "rune_r_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -244,16 +244,16 @@ function RPCItems:RollDuskbringerArcana1(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_b"
+        item.property2name = "rune_w_1"
         item.property2 = math.ceil(value*1.1)
     elseif luck <= 70 then
-        item.property2name = "rune_b_b"
+        item.property2name = "rune_w_2"
         item.property2 = math.ceil(value*1.1)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_b"
+        item.property2name = "rune_w_3"
         item.property2 = math.ceil(value*1) 
     else
-        item.property2name = "rune_d_b"
+        item.property2name = "rune_w_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -283,16 +283,16 @@ function RPCItems:RollConjurorArcana1(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_d"
+        item.property2name = "rune_r_1"
         item.property2 = math.ceil(value*1.1)
     elseif luck <= 70 then
-        item.property2name = "rune_b_d"
+        item.property2name = "rune_r_2"
         item.property2 = math.ceil(value*1.1)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_d"
+        item.property2name = "rune_r_3"
         item.property2 = math.ceil(value*1) 
     else
-        item.property2name = "rune_d_d"
+        item.property2name = "rune_r_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -322,16 +322,16 @@ function RPCItems:RollTrapperArcana1(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_b"
+        item.property2name = "rune_w_1"
         item.property2 = math.ceil(value*1.1)
     elseif luck <= 70 then
-        item.property2name = "rune_b_b"
+        item.property2name = "rune_w_2"
         item.property2 = math.ceil(value*1.1)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_b"
+        item.property2name = "rune_w_3"
         item.property2 = math.ceil(value*1) 
     else
-        item.property2name = "rune_d_b"
+        item.property2name = "rune_w_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -361,16 +361,16 @@ function RPCItems:RollSpiritWarriorArcana1(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_d"
+        item.property2name = "rune_r_1"
         item.property2 = math.ceil(value*1.1)
     elseif luck <= 70 then
-        item.property2name = "rune_b_d"
+        item.property2name = "rune_r_2"
         item.property2 = math.ceil(value*1.1)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_d"
+        item.property2name = "rune_r_3"
         item.property2 = math.ceil(value*1) 
     else
-        item.property2name = "rune_d_d"
+        item.property2name = "rune_r_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -400,16 +400,16 @@ function RPCItems:RollSpiritWarriorArcana2(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_b"
+        item.property2name = "rune_w_1"
         item.property2 = math.ceil(value*1.1)
     elseif luck <= 70 then
-        item.property2name = "rune_b_b"
+        item.property2name = "rune_w_2"
         item.property2 = math.ceil(value*1.1)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_b"
+        item.property2name = "rune_w_3"
         item.property2 = math.ceil(value*1) 
     else
-        item.property2name = "rune_d_b"
+        item.property2name = "rune_w_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -439,16 +439,16 @@ function RPCItems:RollSpiritWarriorArcana3(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_c"
+        item.property2name = "rune_e_1"
         item.property2 = math.ceil(value*1.1)
     elseif luck <= 70 then
-        item.property2name = "rune_b_c"
+        item.property2name = "rune_e_2"
         item.property2 = math.ceil(value*1.1)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_c"
+        item.property2name = "rune_e_3"
         item.property2 = math.ceil(value*1) 
     else
-        item.property2name = "rune_d_c"
+        item.property2name = "rune_e_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -478,16 +478,16 @@ function RPCItems:RollMountainProtectorArcana1(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_b"
+        item.property2name = "rune_w_1"
         item.property2 = math.ceil(value*1.1)
     elseif luck <= 70 then
-        item.property2name = "rune_b_b"
+        item.property2name = "rune_w_2"
         item.property2 = math.ceil(value*1.1)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_b"
+        item.property2name = "rune_w_3"
         item.property2 = math.ceil(value*1) 
     else
-        item.property2name = "rune_d_b"
+        item.property2name = "rune_w_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -517,16 +517,16 @@ function RPCItems:RollMountainProtectorArcana2(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_d"
+        item.property2name = "rune_r_1"
         item.property2 = math.ceil(value*1.1)
     elseif luck <= 70 then
-        item.property2name = "rune_b_d"
+        item.property2name = "rune_r_2"
         item.property2 = math.ceil(value*1.1)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_d"
+        item.property2name = "rune_r_3"
         item.property2 = math.ceil(value*1) 
     else
-        item.property2name = "rune_d_d"
+        item.property2name = "rune_r_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -556,16 +556,16 @@ function RPCItems:RollMountainProtectorArcana3(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_c"
+        item.property2name = "rune_e_1"
         item.property2 = math.ceil(value*1.5)
     elseif luck <= 70 then
-        item.property2name = "rune_b_c"
+        item.property2name = "rune_e_2"
         item.property2 = math.ceil(value*1.5)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_c"
+        item.property2name = "rune_e_3"
         item.property2 = math.ceil(value*1.2) 
     else
-        item.property2name = "rune_d_c"
+        item.property2name = "rune_e_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(11, 16), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -596,16 +596,16 @@ function RPCItems:RollVenomortArcana1(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_d"
+        item.property2name = "rune_r_1"
         item.property2 = math.ceil(value*1.1)
     elseif luck <= 70 then
-        item.property2name = "rune_b_d"
+        item.property2name = "rune_r_2"
         item.property2 = math.ceil(value*1.1)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_d"
+        item.property2name = "rune_r_3"
         item.property2 = math.ceil(value*1) 
     else
-        item.property2name = "rune_d_d"
+        item.property2name = "rune_r_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -636,16 +636,16 @@ function RPCItems:RollVenomortArcana2(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_a"
+        item.property2name = "rune_q_1"
         item.property2 = math.ceil(value*1.1)
     elseif luck <= 70 then
-        item.property2name = "rune_b_a"
+        item.property2name = "rune_q_2"
         item.property2 = math.ceil(value*1.1)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_a"
+        item.property2name = "rune_q_3"
         item.property2 = math.ceil(value*1.0) 
     else
-        item.property2name = "rune_d_a"
+        item.property2name = "rune_q_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(8, 12), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -674,16 +674,16 @@ function RPCItems:RollChernobogArcana1(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_d"
+        item.property2name = "rune_r_1"
         item.property2 = math.ceil(value*1.1)
     elseif luck <= 70 then
-        item.property2name = "rune_b_d"
+        item.property2name = "rune_r_2"
         item.property2 = math.ceil(value*1.1)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_d"
+        item.property2name = "rune_r_3"
         item.property2 = math.ceil(value*1) 
     else
-        item.property2name = "rune_d_d"
+        item.property2name = "rune_r_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -713,16 +713,16 @@ function RPCItems:RollChernobogArcana2(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_c"
+        item.property2name = "rune_e_1"
         item.property2 = math.ceil(value*1)
     elseif luck <= 70 then
-        item.property2name = "rune_b_c"
+        item.property2name = "rune_e_2"
         item.property2 = math.ceil(value*1)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_c"
+        item.property2name = "rune_e_3"
         item.property2 = math.ceil(value*1) 
     else
-        item.property2name = "rune_d_c"
+        item.property2name = "rune_e_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(7, 12), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -732,16 +732,16 @@ function RPCItems:RollChernobogArcana2(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property3name = "rune_a_c"
+        item.property3name = "rune_e_1"
         item.property3 = math.ceil(value*1)
     elseif luck <= 70 then
-        item.property3name = "rune_b_c"
+        item.property3name = "rune_e_2"
         item.property3 = math.ceil(value*1)       
     elseif luck <= 90 then
-        item.property3name = "rune_c_c"
+        item.property3name = "rune_e_3"
         item.property3 = math.ceil(value*1) 
     else
-        item.property3name = "rune_d_c"
+        item.property3name = "rune_e_4"
         item.property3 = RPCItems:GetLogarithmicVarianceValue(RandomInt(7, 12), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property3, "rune", "#7DFF12",  3)
@@ -765,16 +765,16 @@ function RPCItems:RollAuriunArcana1(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_a"
+        item.property2name = "rune_q_1"
         item.property2 = math.ceil(value*1.1)
     elseif luck <= 70 then
-        item.property2name = "rune_b_a"
+        item.property2name = "rune_q_2"
         item.property2 = math.ceil(value*1.1)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_a"
+        item.property2name = "rune_q_3"
         item.property2 = math.ceil(value*1) 
     else
-        item.property2name = "rune_d_a"
+        item.property2name = "rune_q_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -804,16 +804,16 @@ function RPCItems:RollAuriunArcana2(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_a"
+        item.property2name = "rune_q_1"
         item.property2 = math.ceil(value*1.1)
     elseif luck <= 70 then
-        item.property2name = "rune_b_a"
+        item.property2name = "rune_q_2"
         item.property2 = math.ceil(value*1.1)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_a"
+        item.property2name = "rune_q_3"
         item.property2 = math.ceil(value*1) 
     else
-        item.property2name = "rune_d_a"
+        item.property2name = "rune_q_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -843,16 +843,16 @@ function RPCItems:RollVoltexArcana1(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_c"
+        item.property2name = "rune_e_1"
         item.property2 = math.ceil(value*1.1)
     elseif luck <= 70 then
-        item.property2name = "rune_b_c"
+        item.property2name = "rune_e_2"
         item.property2 = math.ceil(value*1.1)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_c"
+        item.property2name = "rune_e_3"
         item.property2 = math.ceil(value*1) 
     else
-        item.property2name = "rune_d_c"
+        item.property2name = "rune_e_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -882,16 +882,16 @@ function RPCItems:RollPaladinArcana1(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_b"
+        item.property2name = "rune_w_1"
         item.property2 = math.ceil(value*2.0)
     elseif luck <= 70 then
-        item.property2name = "rune_b_b"
+        item.property2name = "rune_w_2"
         item.property2 = math.ceil(value*2.0)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_b"
+        item.property2name = "rune_w_3"
         item.property2 = math.ceil(value*1.5) 
     else
-        item.property2name = "rune_d_b"
+        item.property2name = "rune_w_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -921,16 +921,16 @@ function RPCItems:RollSorceressArcana1(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_d"
+        item.property2name = "rune_r_1"
         item.property2 = math.ceil(value*1.5)
     elseif luck <= 70 then
-        item.property2name = "rune_b_d"
+        item.property2name = "rune_r_2"
         item.property2 = math.ceil(value*1.5)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_d"
+        item.property2name = "rune_r_3"
         item.property2 = math.ceil(value*1.3) 
     else
-        item.property2name = "rune_d_d"
+        item.property2name = "rune_r_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -960,16 +960,16 @@ function RPCItems:RollEpochArcana1(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_a"
+        item.property2name = "rune_q_1"
         item.property2 = math.ceil(value*1.1)
     elseif luck <= 70 then
-        item.property2name = "rune_b_a"
+        item.property2name = "rune_q_2"
         item.property2 = math.ceil(value*1.1)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_a"
+        item.property2name = "rune_q_3"
         item.property2 = math.ceil(value*1) 
     else
-        item.property2name = "rune_d_a"
+        item.property2name = "rune_q_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -999,16 +999,16 @@ function RPCItems:RollAxeArcana1(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_d"
+        item.property2name = "rune_r_1"
         item.property2 = math.ceil(value*1.4)
     elseif luck <= 70 then
-        item.property2name = "rune_b_d"
+        item.property2name = "rune_r_2"
         item.property2 = math.ceil(value*1.4)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_d"
+        item.property2name = "rune_r_3"
         item.property2 = math.ceil(value*1.2) 
     else
-        item.property2name = "rune_d_d"
+        item.property2name = "rune_r_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -1038,16 +1038,16 @@ function RPCItems:RollWarlordArcana1(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_d"
+        item.property2name = "rune_r_1"
         item.property2 = math.ceil(value*1.6)
     elseif luck <= 70 then
-        item.property2name = "rune_b_d"
+        item.property2name = "rune_r_2"
         item.property2 = math.ceil(value*1.4)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_d"
+        item.property2name = "rune_r_3"
         item.property2 = math.ceil(value*1.2) 
     else
-        item.property2name = "rune_d_d"
+        item.property2name = "rune_r_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -1077,16 +1077,16 @@ function RPCItems:RollEkkanArcana1(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_a"
+        item.property2name = "rune_q_1"
         item.property2 = math.ceil(value*1.1)
     elseif luck <= 70 then
-        item.property2name = "rune_b_a"
+        item.property2name = "rune_q_2"
         item.property2 = math.ceil(value*1.1)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_a"
+        item.property2name = "rune_q_3"
         item.property2 = math.ceil(value*1.0) 
     else
-        item.property2name = "rune_d_a"
+        item.property2name = "rune_q_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(8, 12), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -1099,16 +1099,16 @@ function RPCItems:RollEkkanArcana1(deathLocation)
     else
         local luck = RandomInt(1, 100)
         if luck <= 35 then
-            item.property3name = "rune_a_a"
+            item.property3name = "rune_q_1"
             item.property3 = math.ceil(value*1.4)
         elseif luck <= 70 then
-            item.property3name = "rune_b_a"
+            item.property3name = "rune_q_2"
             item.property3 = math.ceil(value*1.4)       
         elseif luck <= 90 then
-            item.property3name = "rune_c_a"
+            item.property3name = "rune_q_3"
             item.property3 = math.ceil(value*1.2) 
         else
-            item.property3name = "rune_d_a"
+            item.property3name = "rune_q_4"
             item.property3 = RPCItems:GetLogarithmicVarianceValue(RandomInt(11, 16), 0, 0, 0, 0)
         end
         RPCItems:SetPropertyValues(item, item.property3, "rune", "#7DFF12",  3)
@@ -1133,16 +1133,16 @@ function RPCItems:RollSoluniaArcana1(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_a"
+        item.property2name = "rune_q_1"
         item.property2 = math.ceil(value*1.1)
     elseif luck <= 70 then
-        item.property2name = "rune_b_a"
+        item.property2name = "rune_q_2"
         item.property2 = math.ceil(value*1.1)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_a"
+        item.property2name = "rune_q_3"
         item.property2 = math.ceil(value*1.0) 
     else
-        item.property2name = "rune_d_a"
+        item.property2name = "rune_q_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(8, 12), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -1171,16 +1171,16 @@ function RPCItems:RollSoluniaArcana2(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_d"
+        item.property2name = "rune_r_1"
         item.property2 = math.ceil(value*1.2)
     elseif luck <= 70 then
-        item.property2name = "rune_b_d"
+        item.property2name = "rune_r_2"
         item.property2 = math.ceil(value*1.2)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_d"
+        item.property2name = "rune_r_3"
         item.property2 = math.ceil(value*1) 
     else
-        item.property2name = "rune_d_d"
+        item.property2name = "rune_r_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -1210,16 +1210,16 @@ function RPCItems:RollArkimusArcana1(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_a"
+        item.property2name = "rune_q_1"
         item.property2 = math.ceil(value*1.1)
     elseif luck <= 70 then
-        item.property2name = "rune_b_a"
+        item.property2name = "rune_q_2"
         item.property2 = math.ceil(value*1.1)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_a"
+        item.property2name = "rune_q_3"
         item.property2 = math.ceil(value*1) 
     else
-        item.property2name = "rune_d_a"
+        item.property2name = "rune_q_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -1249,16 +1249,16 @@ function RPCItems:RollArkimusArcana2(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_d"
+        item.property2name = "rune_r_1"
         item.property2 = math.ceil(value*1.2)
     elseif luck <= 70 then
-        item.property2name = "rune_b_d"
+        item.property2name = "rune_r_2"
         item.property2 = math.ceil(value*1.2)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_d"
+        item.property2name = "rune_r_3"
         item.property2 = math.ceil(value*1) 
     else
-        item.property2name = "rune_d_d"
+        item.property2name = "rune_r_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -1288,16 +1288,16 @@ function RPCItems:RollZhonikArcana1(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_c"
+        item.property2name = "rune_e_1"
         item.property2 = math.ceil(value*1.1)
     elseif luck <= 70 then
-        item.property2name = "rune_b_c"
+        item.property2name = "rune_e_2"
         item.property2 = math.ceil(value*1.1)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_c"
+        item.property2name = "rune_e_3"
         item.property2 = math.ceil(value*1) 
     else
-        item.property2name = "rune_d_c"
+        item.property2name = "rune_e_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -1327,16 +1327,16 @@ function RPCItems:RollZhonikArcana2(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_d"
+        item.property2name = "rune_r_1"
         item.property2 = math.ceil(value*1.1)
     elseif luck <= 70 then
-        item.property2name = "rune_b_d"
+        item.property2name = "rune_r_2"
         item.property2 = math.ceil(value*1.1)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_d"
+        item.property2name = "rune_r_3"
         item.property2 = math.ceil(value*1) 
     else
-        item.property2name = "rune_d_d"
+        item.property2name = "rune_r_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -1365,16 +1365,16 @@ function RPCItems:RollHydroxisArcana1(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_b"
+        item.property2name = "rune_w_1"
         item.property2 = math.ceil(value*1.5)
     elseif luck <= 70 then
-        item.property2name = "rune_b_b"
+        item.property2name = "rune_w_2"
         item.property2 = math.ceil(value*1.5)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_b"
+        item.property2name = "rune_w_3"
         item.property2 = math.ceil(value*1.1) 
     else
-        item.property2name = "rune_d_b"
+        item.property2name = "rune_w_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -1405,22 +1405,22 @@ function RPCItems:RollBahamutArcana2(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_b"
+        item.property2name = "rune_w_1"
         item.property2 = math.ceil(value*1.2)
         if RandomInt(1, 3) == 3 then
             item.property2 = math.ceil(item.property2*1.2)
         end
     elseif luck <= 70 then
-        item.property2name = "rune_b_b"
+        item.property2name = "rune_w_2"
         item.property2 = math.ceil(value*1.2)   
         if RandomInt(1, 3) == 3 then
             item.property2 = math.ceil(item.property2*1.1)
         end
     elseif luck <= 90 then
-        item.property2name = "rune_c_b"
+        item.property2name = "rune_w_3"
         item.property2 = math.ceil(value*1.1) 
     else
-        item.property2name = "rune_d_b"
+        item.property2name = "rune_w_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(12, 18), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -1450,16 +1450,16 @@ function RPCItems:RollSorceressArcana2(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_a"
+        item.property2name = "rune_q_1"
         item.property2 = math.ceil(value*1.1)
     elseif luck <= 70 then
-        item.property2name = "rune_b_a"
+        item.property2name = "rune_q_2"
         item.property2 = math.ceil(value*1.1)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_a"
+        item.property2name = "rune_q_3"
         item.property2 = math.ceil(value*1) 
     else
-        item.property2name = "rune_d_a"
+        item.property2name = "rune_q_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -1489,16 +1489,16 @@ function RPCItems:RollDjanghorArcana1(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_d"
+        item.property2name = "rune_r_1"
         item.property2 = math.ceil(value*1.1)
     elseif luck <= 70 then
-        item.property2name = "rune_b_d"
+        item.property2name = "rune_r_2"
         item.property2 = math.ceil(value*1.1)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_d"
+        item.property2name = "rune_r_3"
         item.property2 = math.ceil(value*1) 
     else
-        item.property2name = "rune_d_d"
+        item.property2name = "rune_r_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -1528,22 +1528,22 @@ function RPCItems:RollFlamewakerArcana2(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_b"
+        item.property2name = "rune_w_1"
         item.property2 = math.ceil(value*1.2)
         if RandomInt(1, 3) == 3 then
             item.property2 = math.ceil(item.property2*1.2)
         end
     elseif luck <= 70 then
-        item.property2name = "rune_b_b"
+        item.property2name = "rune_w_2"
         item.property2 = math.ceil(value*1.2)   
         if RandomInt(1, 3) == 3 then
             item.property2 = math.ceil(item.property2*1.1)
         end
     elseif luck <= 90 then
-        item.property2name = "rune_c_b"
+        item.property2name = "rune_w_3"
         item.property2 = math.ceil(value*1.1) 
     else
-        item.property2name = "rune_d_b"
+        item.property2name = "rune_w_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(12, 18), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -1573,22 +1573,22 @@ function RPCItems:RollAstralArcana2(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_b"
+        item.property2name = "rune_w_1"
         item.property2 = math.ceil(value*1.2)
         if RandomInt(1, 3) == 3 then
             item.property2 = math.ceil(item.property2*1.2)
         end
     elseif luck <= 70 then
-        item.property2name = "rune_b_b"
+        item.property2name = "rune_w_2"
         item.property2 = math.ceil(value*1.2)   
         if RandomInt(1, 3) == 3 then
             item.property2 = math.ceil(item.property2*1.1)
         end
     elseif luck <= 90 then
-        item.property2name = "rune_c_b"
+        item.property2name = "rune_w_3"
         item.property2 = math.ceil(value*1.1) 
     else
-        item.property2name = "rune_d_b"
+        item.property2name = "rune_w_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(12, 18), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -1618,16 +1618,16 @@ function RPCItems:RollAstralArcana3(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_d"
+        item.property2name = "rune_r_1"
         item.property2 = math.ceil(value*1.2)
     elseif luck <= 70 then
-        item.property2name = "rune_b_d"
+        item.property2name = "rune_r_2"
         item.property2 = math.ceil(value*1.2)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_d"
+        item.property2name = "rune_r_3"
         item.property2 = math.ceil(value*1.2) 
     else
-        item.property2name = "rune_d_d"
+        item.property2name = "rune_r_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -1657,16 +1657,16 @@ function RPCItems:RollSephyrArcana1(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_b"
+        item.property2name = "rune_w_1"
         item.property2 = math.ceil(value*1.5)
     elseif luck <= 70 then
-        item.property2name = "rune_b_b"
+        item.property2name = "rune_w_2"
         item.property2 = math.ceil(value*1.5)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_b"
+        item.property2name = "rune_w_3"
         item.property2 = math.ceil(value*1) 
     else
-        item.property2name = "rune_d_b"
+        item.property2name = "rune_w_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 18), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -1696,16 +1696,16 @@ function RPCItems:RollHydroxisArcana2(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_d"
+        item.property2name = "rune_r_1"
         item.property2 = math.ceil(value*1.5)
     elseif luck <= 70 then
-        item.property2name = "rune_b_d"
+        item.property2name = "rune_r_2"
         item.property2 = math.ceil(value*1.5)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_d"
+        item.property2name = "rune_r_3"
         item.property2 = math.ceil(value*1.2) 
     else
-        item.property2name = "rune_d_d"
+        item.property2name = "rune_r_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -1735,16 +1735,16 @@ function RPCItems:RollVoltexArcana2(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_a"
+        item.property2name = "rune_q_1"
         item.property2 = math.ceil(value*1.2)
     elseif luck <= 70 then
-        item.property2name = "rune_b_a"
+        item.property2name = "rune_q_2"
         item.property2 = math.ceil(value*1.5)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_a"
+        item.property2name = "rune_q_3"
         item.property2 = math.ceil(value*1.3) 
     else
-        item.property2name = "rune_d_a"
+        item.property2name = "rune_q_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
@@ -1774,16 +1774,16 @@ function RPCItems:RollDinathArcana1(deathLocation)
     
     local luck = RandomInt(1, 100)
     if luck <= 35 then
-        item.property2name = "rune_a_b"
+        item.property2name = "rune_w_1"
         item.property2 = math.ceil(value*1.2)
     elseif luck <= 70 then
-        item.property2name = "rune_b_b"
+        item.property2name = "rune_w_2"
         item.property2 = math.ceil(value*1.2)       
     elseif luck <= 90 then
-        item.property2name = "rune_c_b"
+        item.property2name = "rune_w_3"
         item.property2 = math.ceil(value*0.8) 
     else
-        item.property2name = "rune_d_b"
+        item.property2name = "rune_w_4"
         item.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 18), 0, 0, 0, 0)
     end
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)

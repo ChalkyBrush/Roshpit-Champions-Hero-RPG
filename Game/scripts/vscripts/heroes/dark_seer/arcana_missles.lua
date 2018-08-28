@@ -117,10 +117,10 @@ function passive_think(event)
 	local baseMS = caster:GetBaseMoveSpeed()
 	local actualMS = caster:GetMoveSpeedModifier(baseMS)
 	damage = damage*actualMS
-	if not ability.d_d_interval then
-		ability.d_d_interval = 0
+	if not ability.r_4_interval then
+		ability.r_4_interval = 0
 	end
-	ability.d_d_interval = ability.d_d_interval + 1
+	ability.r_4_interval = ability.r_4_interval + 1
 	if ability.missleTable then
 		for i = 1, #ability.missleTable, 1 do
 			local missle = ability.missleTable[i]
@@ -198,8 +198,8 @@ function passive_think(event)
 			end
 		end
 	end
-	if ability.d_d_interval > 20 then
-		ability.d_d_interval = 0
+	if ability.r_4_interval > 20 then
+		ability.r_4_interval = 0
 		local d_d_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
 		if d_d_level > 0 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_arcana_missles_d_d_agility", {})

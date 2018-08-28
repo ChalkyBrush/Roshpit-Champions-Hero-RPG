@@ -136,16 +136,16 @@ function slipfinn_main_thinker(event)
 	ability.interval = ability.interval + 1
 	if ability.interval == 10 then
 		ability.interval = 0
-		ability.b_c_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
-		if ability.b_c_level > 0 then
+		ability.e_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
+		if ability.e_2_level > 0 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_b_c_health_regen", {})
 			local healthRegenMult = 1
 			if caster:HasModifier("modifier_slipfinn_prone") then
 				healthRegenMult = 2
 			end
-			caster:SetModifierStackCount("modifier_slipfinn_b_c_health_regen", caster, ability.b_c_level*healthRegenMult*SLIPFINN_E2_HEALTH_REGEN*caster:GetAgility())
+			caster:SetModifierStackCount("modifier_slipfinn_b_c_health_regen", caster, ability.e_2_level*healthRegenMult*SLIPFINN_E2_HEALTH_REGEN*caster:GetAgility())
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_b_c_health", {})
-			caster:SetModifierStackCount("modifier_slipfinn_b_c_health", caster, ability.b_c_level*SLIPFINN_E2_HEALTH*caster:GetAgility())
+			caster:SetModifierStackCount("modifier_slipfinn_b_c_health", caster, ability.e_2_level*SLIPFINN_E2_HEALTH*caster:GetAgility())
 		else
 			caster:RemoveModifierByName("modifier_slipfinn_b_c_health_regen")
 			caster:RemoveModifierByName("modifier_slipfinn_b_c_health")
@@ -162,10 +162,10 @@ function slipfinn_jump_start(event)
 
 	local movespeed = caster:GetBaseMoveSpeed()
 	local actualMS = caster:GetMoveSpeedModifier(movespeed)
-	ability.a_b_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
-	ability.b_b_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
-	ability.c_b_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
-	ability.d_b_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
+	ability.w_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
+	ability.w_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
+	ability.w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+	ability.w_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
 	if ((caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster)) < 30) or event.guarantee then
 		caster:RemoveModifierByName("modifier_slipfinn_agitated_visible")
 		caster:RemoveModifierByName("modifier_slipfinn_agitated_invisible")
@@ -240,7 +240,7 @@ function jump_force(caster, ability)
 			rate = 0.8
 		end
 	elseif caster.jumpPhase == 2 then
-		caster.jump_force = 46 + ability.d_b_level*SLIPFINN_W4_JUMP_FORCE
+		caster.jump_force = 46 + ability.w_4_level*SLIPFINN_W4_JUMP_FORCE
 		caster:RemoveModifierByName("modifier_slipfinn_jump_phase")
 		activity = ACT_DOTA_SLARK_POUNCE
 		rate = 0.8
@@ -258,7 +258,7 @@ function jump_force(caster, ability)
 	elseif caster.highJump then
 		EmitSoundOn("Slipfinn.JumpWoosh2", caster)
 		caster.highJump = nil
-		caster.jump_force = caster.jump_force*HIGH_JUMP_HEIGHT_MULT + ability.d_b_level*SLIPFINN_W4_JUMP_FORCE
+		caster.jump_force = caster.jump_force*HIGH_JUMP_HEIGHT_MULT + ability.w_4_level*SLIPFINN_W4_JUMP_FORCE
 	end
 
 	Timers:CreateTimer(jumpDelay, function()
@@ -339,7 +339,7 @@ function slipfinn_jump_think(event)
 					StartAnimation(caster, {duration=animation_duration, activity=activity, rate=rate})
 				end
 				Filters:ApplyStun(caster, 0.15, jumpEnemy)
-				if ability.a_b_level > 0 then
+				if ability.w_1_level > 0 then
 					EmitSoundOn("Slipfinn.BounceW1", jumpEnemy)
 					local pfx = ParticleManager:CreateParticle("particles/roshpit/slipfinn/dark_bog_fallback_mid_egset.vpcf", PATTACH_CUSTOMORIGIN, caster )
 					ParticleManager:SetParticleControl(pfx, 0, jumpEnemy:GetAbsOrigin())
@@ -353,38 +353,38 @@ function slipfinn_jump_think(event)
 						ParticleManager:DestroyParticle(pfx, false)
 						ParticleManager:ReleaseParticleIndex(pfx)
 					end)
-					local a_b_damage = SLIPFINN_W1_BASE*ability.a_b_level + caster:GetAverageTrueAttackDamage(caster)*SLIPFINN_W1_ATK*ability.a_b_level
+					local a_b_damage = SLIPFINN_W1_BASE*ability.w_1_level + caster:GetAverageTrueAttackDamage(caster)*SLIPFINN_W1_ATK*ability.w_1_level
 					local enemies = FindUnitsInRadius( caster:GetTeamNumber(), jumpEnemy:GetAbsOrigin(), nil, searchRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 					if #enemies > 0 then
 						for _,enemy in pairs(enemies) do
 							Filters:TakeArgumentsAndApplyDamage(enemy, caster, a_b_damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_SHADOW, RPC_ELEMENT_WATER)
-							if ability.b_b_level > 0 then
+							if ability.w_2_level > 0 then
 								ability:ApplyDataDrivenModifier(caster, enemy, "modifier_slipfinn_gloomshade_visible", {duration = 10})
 								local newStacks = enemy:GetModifierStackCount("modifier_slipfinn_gloomshade_visible", caster) + 1
 								enemy:SetModifierStackCount("modifier_slipfinn_gloomshade_visible", caster, newStacks)
 
 								ability:ApplyDataDrivenModifier(caster, enemy, "modifier_slipfinn_gloomshade_invisible", {duration = 10})
-								enemy:SetModifierStackCount("modifier_slipfinn_gloomshade_invisible", caster, newStacks*ability.b_b_level)
+								enemy:SetModifierStackCount("modifier_slipfinn_gloomshade_invisible", caster, newStacks*ability.w_2_level)
 							end
 						end
 					end 
 				end
-				if ability.b_b_level > 0 then
+				if ability.w_2_level > 0 then
 					ability:ApplyDataDrivenModifier(caster, jumpEnemy, "modifier_slipfinn_gloomshade_visible", {duration = 10})
 					local newStacks = jumpEnemy:GetModifierStackCount("modifier_slipfinn_gloomshade_visible", caster) + 1
 					jumpEnemy:SetModifierStackCount("modifier_slipfinn_gloomshade_visible", caster, newStacks)
 
 					ability:ApplyDataDrivenModifier(caster, jumpEnemy, "modifier_slipfinn_gloomshade_invisible", {duration = 10})
-					jumpEnemy:SetModifierStackCount("modifier_slipfinn_gloomshade_invisible", caster, newStacks*ability.b_b_level)
+					jumpEnemy:SetModifierStackCount("modifier_slipfinn_gloomshade_invisible", caster, newStacks*ability.w_2_level)
 				end
-				if ability.c_b_level > 0 then
+				if ability.w_3_level > 0 then
 					local duration = Filters:GetAdjustedBuffDuration(caster, 12, false)
 					ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_agitated_visible", {duration = duration})
 					local newStacks = caster:GetModifierStackCount("modifier_slipfinn_agitated_visible", caster) + 1
 					caster:SetModifierStackCount("modifier_slipfinn_agitated_visible", caster, newStacks)
 
 					ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_agitated_invisible", {duration = duration})
-					caster:SetModifierStackCount("modifier_slipfinn_agitated_invisible", caster, newStacks*ability.c_b_level)
+					caster:SetModifierStackCount("modifier_slipfinn_agitated_invisible", caster, newStacks*ability.w_3_level)
 				end
 				
 			end

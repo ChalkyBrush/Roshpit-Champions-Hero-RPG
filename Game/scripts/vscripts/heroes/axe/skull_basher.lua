@@ -36,7 +36,7 @@ function skull_basher_start(event)
     Timers:CreateTimer(0.3, function()
     	ability.lifting = false
     end)
-    ability.c_a_level = Runes:GetTotalRuneLevel(caster, 3, "c_a", "axe")
+    ability.q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "axe")
 end
 
 function new_jumping_think(event)
@@ -49,15 +49,15 @@ function new_jumping_think(event)
 	if blockUnit then
 		forwardSpeed = 0
 	end
-	if caster:HasModifier("modifier_axe_rune_b_a_invisible") then
-		local modifierDuration = caster:FindModifierByName("modifier_axe_rune_b_a_visible"):GetRemainingTime()
-        ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_b_a_visible", {duration = modifierDuration})
-        ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_b_a_invisible", {duration = modifierDuration})
+	if caster:HasModifier("modifier_axe_rune_q_2_invisible") then
+		local modifierDuration = caster:FindModifierByName("modifier_axe_rune_q_2_visible"):GetRemainingTime()
+        ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_q_2_visible", {duration = modifierDuration})
+        ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_q_2_invisible", {duration = modifierDuration})
 	end
-	if caster:HasModifier("modifier_axe_rune_b_c_tornado") then
+	if caster:HasModifier("modifier_axe_rune_e_2_tornado") then
 		local whirlwindAbility = caster:FindAbilityByName("whirlwind")
         local b_c_duration = Filters:GetAdjustedBuffDuration(caster, 5, false)
-		whirlwindAbility:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_b_c_tornado", {duration = b_c_duration})
+		whirlwindAbility:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_e_2_tornado", {duration = b_c_duration})
 	end
 	caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,ability.jump_velocity)+ability.jumpFV*forwardSpeed)
 	ability.jump_velocity = ability.jump_velocity - 3.3
@@ -92,8 +92,8 @@ function drop_end(keys)
         local skullBasherDuration = Filters:GetAdjustedBuffDuration(caster, keys.duration, false)
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_stun_attack", {duration = skullBasherDuration})
     end
-	if ability.c_a_level > 0 then
-        local damageAmp = ability.c_a_level*0.3
+	if ability.q_3_level > 0 then
+        local damageAmp = ability.q_3_level*0.3
         if caster:HasAbility("sunder") then
     		StartAnimation(caster, {duration=jumpDuration, activity=ACT_DOTA_CAST_ABILITY_4, rate=2.5})
     		Timers:CreateTimer(0.2, function()
@@ -130,15 +130,15 @@ function StunAttack( keys )
     local position = targetUnit:GetAbsOrigin()
     local stun_duration = keys.duration
     local aoe_damage = keys.aoe_damage
-    local d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "axe")
-    if d_a_level > 0 then
-        aoe_damage = aoe_damage + caster:GetAverageTrueAttackDamage(caster)*0.06*d_a_level
+    local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "axe")
+    if q_4_level > 0 then
+        aoe_damage = aoe_damage + caster:GetAverageTrueAttackDamage(caster)*0.06*q_4_level
     end
     if caster:HasModifier("modifier_axe_glyph_5_1") then
         aoe_damage = aoe_damage*3
         stun_duration = 0.03
     end
-    local base_radius = rune_a_a(caster, keys.base_radius)
+    local base_radius = rune_q_1(caster, keys.base_radius)
 
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), targetUnit:GetAbsOrigin(), nil, base_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
     if #enemies > 0 then
@@ -152,11 +152,11 @@ function StunAttack( keys )
 end
 
 
-function rune_a_a(caster, base_radius)
+function rune_q_1(caster, base_radius)
     local runeUnit = caster.runeUnit
-    local ability = runeUnit:FindAbilityByName("axe_rune_a_a")
+    local ability = runeUnit:FindAbilityByName("axe_rune_q_1")
     local abilityLevel = ability:GetLevel()
-    local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_a")
+    local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_1")
     local totalLevel = abilityLevel + bonusLevel
     return 300 + totalLevel*20
 end
@@ -165,16 +165,16 @@ function skull_basher_attack_land(event)
 	local attacker = event.attacker
 	local caster = event.caster
 	local ability = event.ability
-	local b_a_level = Runes:GetTotalRuneLevel(caster, 2, "b_a", "axe")
-	if b_a_level > 0 then
+	local q_2_level = Runes:GetTotalRuneLevel(caster, 2, "q_2", "axe")
+	if q_2_level > 0 then
         local b_a_duration = Filters:GetAdjustedBuffDuration(caster, 10, false)
-        ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_b_a_visible", {duration = b_a_duration})
-        local current_stack = caster:GetModifierStackCount("modifier_axe_rune_b_a_visible", ability )
+        ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_q_2_visible", {duration = b_a_duration})
+        local current_stack = caster:GetModifierStackCount("modifier_axe_rune_q_2_visible", ability )
         local newStack = math.min(current_stack + 1, 100)
-        caster:SetModifierStackCount( "modifier_axe_rune_b_a_visible", ability, newStack )
+        caster:SetModifierStackCount( "modifier_axe_rune_q_2_visible", ability, newStack )
 
-        ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_b_a_invisible", {duration = b_a_duration})
-        caster:SetModifierStackCount( "modifier_axe_rune_b_a_invisible", ability, newStack*b_a_level )
+        ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_q_2_invisible", {duration = b_a_duration})
+        caster:SetModifierStackCount( "modifier_axe_rune_q_2_invisible", ability, newStack*q_2_level )
 	end
 end
 
@@ -182,13 +182,13 @@ function general_take_damage(event)
 	local attacker = event.attacker
 	local caster = event.caster
 	local ability = event.ability
-	local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "axe")
+	local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "axe")
 	if d_c_level > 0 then
 		local whirlwind = caster:FindAbilityByName("whirlwind")
-        whirlwind:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_d_c_furnace", {})
-        local current_stack = caster:GetModifierStackCount("modifier_axe_rune_d_c_furnace", caster)
+        whirlwind:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_e_4_furnace", {})
+        local current_stack = caster:GetModifierStackCount("modifier_axe_rune_e_4_furnace", caster)
         local newStack = math.min(current_stack + 1, d_c_level)
-        caster:SetModifierStackCount( "modifier_axe_rune_d_c_furnace", whirlwind, newStack)
+        caster:SetModifierStackCount( "modifier_axe_rune_e_4_furnace", whirlwind, newStack)
 	end
 end
 

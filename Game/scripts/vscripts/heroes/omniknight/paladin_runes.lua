@@ -1,9 +1,9 @@
-function rune_a_a_strike(event)
+function rune_q_1_strike(event)
 	local ability = event.ability
 	local target = event.target
 	local attacker = event.attacker
-	local totalLevel = ability:GetLevel() + Runes:GetTotalBonus(attacker.runeUnit, "a_a")
-	local particleName = "particles/units/heroes/hero_shadowshaman/paladin_rune_a_a.vpcf"
+	local totalLevel = ability:GetLevel() + Runes:GetTotalBonus(attacker.runeUnit, "q_1")
+	local particleName = "particles/units/heroes/hero_shadowshaman/paladin_rune_q_1.vpcf"
 	local radius = 25 + totalLevel*25
 	if radius > 700 then
 		radius = 700
@@ -39,15 +39,15 @@ function paladin_die(event)
 	local caster = event.caster
 	local deathLocation = caster:GetAbsOrigin()
 	print("a_c_death")
-	local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "a_c", "paladin")
+	local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "paladin")
 	local runeUnit = caster.runeUnit
-	local runeAbility = runeUnit:FindAbilityByName("paladin_rune_a_c")
+	local runeAbility = runeUnit:FindAbilityByName("paladin_rune_e_1")
 	local reviveCooldown = 120
 	if caster:HasModifier("modifier_paladin_glyph_1_1") then
 		reviveCooldown = 80
 	end
-	if a_c_level > 0 and not caster:HasModifier("modifier_paladin_rune_a_c_revive_cooldown") then	
-		caster:RemoveModifierByName("modifier_paladin_rune_a_c_revivable")
+	if a_c_level > 0 and not caster:HasModifier("modifier_paladin_rune_e_1_revive_cooldown") then	
+		caster:RemoveModifierByName("modifier_paladin_rune_e_1_revivable")
 		local ability = event.ability
         Timers:CreateTimer(0.5, 
         function()
@@ -63,8 +63,8 @@ function paladin_die(event)
 
 				      local playerID = caster:GetPlayerID()
 				      PlayerResource:SetCameraTarget(playerID, caster)
-				      runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_paladin_rune_a_c_reviving", {duration = 4})
-				      runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_paladin_rune_a_c_revive_cooldown", {duration = reviveCooldown})
+				      runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_paladin_rune_e_1_reviving", {duration = 4})
+				      runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_paladin_rune_e_1_revive_cooldown", {duration = reviveCooldown})
 				      Timers:CreateTimer(2,
 				      function()
 				        PlayerResource:SetCameraTarget(playerID, nil)
@@ -76,19 +76,19 @@ function paladin_die(event)
     end	
 end
 
-function rune_a_c_death(event)
+function rune_e_1_death(event)
 	local dyingUnit = event.unit
 	local deathLocation = dyingUnit:GetAbsOrigin()
 	print("a_c_death")
-	local a_c_level = Runes:GetTotalRuneLevel(dyingUnit, 1, "a_c", "paladin")
-	if dyingUnit:HasModifier("modifier_paladin_rune_a_c_revivable") then	
+	local a_c_level = Runes:GetTotalRuneLevel(dyingUnit, 1, "e_1", "paladin")
+	if dyingUnit:HasModifier("modifier_paladin_rune_e_1_revivable") then	
 		local caster = event.caster
 		local ability = event.ability
 		--ability.respawnTime = dyingUnit:GetRespawnTime()
         Timers:CreateTimer(0.5, 
         function()
         	
-				dyingUnit:RemoveModifierByName("modifier_paladin_rune_a_c_revivable")
+				dyingUnit:RemoveModifierByName("modifier_paladin_rune_e_1_revivable")
 				dyingUnit:RespawnHero(false, false)
 			        Timers:CreateTimer(0.1, 
 			        function()
@@ -96,7 +96,7 @@ function rune_a_c_death(event)
 			        dyingUnit:SetMana(500+350*a_c_level)
 				      local playerID = dyingUnit:GetPlayerID()
 				      PlayerResource:SetCameraTarget(playerID, dyingUnit)
-				      ability:ApplyDataDrivenModifier(caster, dyingUnit, "modifier_paladin_rune_a_c_reviving", {duration = 4})
+				      ability:ApplyDataDrivenModifier(caster, dyingUnit, "modifier_paladin_rune_e_1_reviving", {duration = 4})
 				      Timers:CreateTimer(2,
 				      function()
 				        PlayerResource:SetCameraTarget(playerID, nil)
@@ -108,7 +108,7 @@ function rune_a_c_death(event)
     end
 end
 
-function rune_a_c_reviving_end(event)
+function rune_e_1_reviving_end(event)
 	local dyingUnit = event.target
 	local caster = event.caster
 	local ability = event.ability
@@ -116,17 +116,17 @@ function rune_a_c_reviving_end(event)
 	if caster:HasModifier("modifier_paladin_glyph_1_1") then
 		cooldown = 80
 	end
-	ability:ApplyDataDrivenModifier(caster, dyingUnit, "modifier_paladin_rune_a_c_revive_cooldown", {duration = cooldown})
+	ability:ApplyDataDrivenModifier(caster, dyingUnit, "modifier_paladin_rune_e_1_revive_cooldown", {duration = cooldown})
 end
 
-function rune_a_c_revive_cooldown_end(event)
+function rune_e_1_revive_cooldown_end(event)
 	local unit = event.target
 	local caster = event.caster
 	local ability = event.ability
-	ability:ApplyDataDrivenModifier(caster, unit, "modifier_paladin_rune_a_c_revivable", {})
+	ability:ApplyDataDrivenModifier(caster, unit, "modifier_paladin_rune_e_1_revivable", {})
 end
 
-function rune_b_c_attacked(event)
+function rune_e_2_attacked(event)
 	local caster = event.caster
 	local ability = event.ability
 	local attacker = event.attacker
@@ -136,7 +136,7 @@ function rune_b_c_attacked(event)
 			return false
 		end
 		local level = ability:GetLevel()
-		local bonusLevels = Runes:GetTotalBonus(unit.runeUnit2, "b_c")
+		local bonusLevels = Runes:GetTotalBonus(unit.runeUnit2, "e_2")
 		local totalLevel = level + bonusLevels
 		local attack_damage = event.attack_damage
 		local damage = unit:GetAverageTrueAttackDamage(unit)*2*totalLevel+100+50*totalLevel
@@ -159,20 +159,6 @@ function rune_b_c_attacked(event)
 					unit.retributions = unit.retributions - 1
 				end)
 			end
-		end
-	end
-
-end
-
-function paladin_wealth_attack(event)
-	local attacker = event.attacker
-	local ability = event.ability
-	local totalLevel = ability.b_a_level
-	if totalLevel > 0 then
-		local playerID = attacker:GetPlayerOwnerID()
-		local goldDrain = math.floor(PlayerResource:GetGold(playerID)*0.00001*totalLevel)
-		if PlayerResource:GetGold(playerID) > goldDrain then
-			PlayerResource:SpendGold(playerID, goldDrain, 0)
 		end
 	end
 end

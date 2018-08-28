@@ -9,15 +9,15 @@ function begin_specter_rush_two(event)
 	local duration = distance/chargeSpeed
 	StartAnimation(caster, {duration=duration+0.39, activity=ACT_DOTA_RUN, rate=1.4, translate="charge"})
 	ability.fv = ((target-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-	ability.c_c_level = Runes:GetTotalRuneLevel(caster, 3, "c_c", "duskbringer")
-	ability.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "duskbringer")
+	ability.e_3_level = Runes:GetTotalRuneLevel(caster, 3, "e_3", "duskbringer")
+	ability.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "duskbringer")
 	print("charge wind up")
 	-- caster:MoveToPosition(caster:GetAbsOrigin() + ability.fv*800)
 	local soundTable = {"spirit_breaker_spir_anger_05", "spirit_breaker_spir_laugh_07", "spirit_breaker_spir_move_03"}
 	EmitSoundOn(soundTable[RandomInt(1,#soundTable)], caster)
 	ability.interval = 0
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_specter_rush_charging", {duration = duration})
-	local b_c_level = Runes:GetTotalRuneLevel(caster, 2, "b_c", "duskbringer")
+	local b_c_level = Runes:GetTotalRuneLevel(caster, 2, "e_2", "duskbringer")
 	if b_c_level > 0 then
 		local b_c_duration = 0.7 + 0.2*b_c_level
 		b_c_duration = Filters:GetAdjustedBuffDuration(caster, b_c_duration, false)
@@ -25,8 +25,8 @@ function begin_specter_rush_two(event)
 		caster:SetModifierStackCount("modifier_duskbringer_ghost_armor", caster, 6)
 	end
 
-	caster:RemoveModifierByName("modifier_duskbringer_rune_d_c_visible")
-	caster:RemoveModifierByName("modifier_duskbringer_rune_d_c_invisible")
+	caster:RemoveModifierByName("modifier_duskbringer_rune_e_4_visible")
+	caster:RemoveModifierByName("modifier_duskbringer_rune_e_4_invisible")
 	
 	Filters:CastSkillArguments(3, caster)
 
@@ -45,7 +45,7 @@ function specter_rush_thinking(event)
 		caster:SetAbsOrigin(newPos)
 	end
 
-	if ability.interval%9==0 and ability.c_c_level > 0 then
+	if ability.interval%9==0 and ability.e_3_level > 0 then
 		local casterOrigin = caster:GetAbsOrigin()
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), casterOrigin, nil, 380, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		local modifierKnockback =
@@ -61,7 +61,7 @@ function specter_rush_thinking(event)
 		local flailAbility = caster:FindAbilityByName("whirling_flail")
 		if #enemies > 0 then
 			EmitSoundOn("Hero_Spirit_Breaker.GreaterBash", caster)
-			local stacksCount = Runes:Procs(ability.c_c_level, E3_PROC_CHANCE, 1)
+			local stacksCount = Runes:Procs(ability.e_3_level, E3_PROC_CHANCE, 1)
 			for _,enemy in pairs(enemies) do
 				increment_duskfire_stacks(caster,enemy, flailAbility, stacksCount)
 			end
@@ -103,17 +103,17 @@ end
 
 function d_c_up(caster, d_c_level, damage)
 	local d_c_duration = Filters:GetAdjustedBuffDuration(caster, 15, false)
-    local runeAbility = caster.runeUnit4:FindAbilityByName("duskbringer_rune_d_c")
-    runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_duskbringer_rune_d_c_visible", {duration = d_c_duration})
-    local current_stacks = caster:GetModifierStackCount( "modifier_duskbringer_rune_d_c_visible", runeAbility )
+    local runeAbility = caster.runeUnit4:FindAbilityByName("duskbringer_rune_e_4")
+    runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_duskbringer_rune_e_4_visible", {duration = d_c_duration})
+    local current_stacks = caster:GetModifierStackCount( "modifier_duskbringer_rune_e_4_visible", runeAbility )
     newStacks = current_stacks + 1
-    caster:SetModifierStackCount( "modifier_duskbringer_rune_d_c_visible", runeAbility, newStacks )
+    caster:SetModifierStackCount( "modifier_duskbringer_rune_e_4_visible", runeAbility, newStacks )
 
 
-    runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_duskbringer_rune_d_c_invisible", {duration = d_c_duration})
-    local current_stacks_true = caster:GetModifierStackCount( "modifier_duskbringer_rune_d_c_invisible", runeAbility )
+    runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_duskbringer_rune_e_4_invisible", {duration = d_c_duration})
+    local current_stacks_true = caster:GetModifierStackCount( "modifier_duskbringer_rune_e_4_invisible", runeAbility )
     local new_stacks_true = current_stacks_true + (damage/100) * 0.5 * d_c_level
-    caster:SetModifierStackCount( "modifier_duskbringer_rune_d_c_invisible", runeAbility, new_stacks_true)
+    caster:SetModifierStackCount( "modifier_duskbringer_rune_e_4_invisible", runeAbility, new_stacks_true)
 end
 
 function immortal3_attack_land(event)
@@ -146,7 +146,7 @@ function immortal3_attack_land(event)
 		  ParticleManager:DestroyParticle( pfx, false )
 		end) 	
 		local ability = caster:FindAbilityByName("specter_rush_two")
-		local b_c_level = Runes:GetTotalRuneLevel(caster, 2, "b_c", "duskbringer")
+		local b_c_level = Runes:GetTotalRuneLevel(caster, 2, "e_2", "duskbringer")
 		local b_c_duration = 0.7 + 0.2*b_c_level
 		b_c_duration = Filters:GetAdjustedBuffDuration(caster, b_c_duration, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_duskbringer_ghost_armor", {duration = b_c_duration})
@@ -158,5 +158,5 @@ end
 
 function duskbringer_passive_think(event)
 	local caster = event.caster
-	caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "duskbringer")
+	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "duskbringer")
 end

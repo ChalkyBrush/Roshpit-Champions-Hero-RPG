@@ -6,12 +6,12 @@ function begin_manifestation(event)
 	local ability = event.ability
     local target = event.target_points[1]
     local casterOrigin = caster:GetAbsOrigin()
-	caster:RemoveModifierByName("modifier_duskbringer_rune_d_c_visible")
-	caster:RemoveModifierByName("modifier_duskbringer_rune_d_c_invisible")
+	caster:RemoveModifierByName("modifier_duskbringer_rune_e_4_visible")
+	caster:RemoveModifierByName("modifier_duskbringer_rune_e_4_invisible")
     EmitSoundOn("Duskbringer.Manifestation", caster)
     target = WallPhysics:WallSearch(casterOrigin, target, caster)
-    caster.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "duskbringer")
-	local b_c_level = Runes:GetTotalRuneLevel(caster, 2, "b_c", "duskbringer")
+    caster.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "duskbringer")
+	local b_c_level = Runes:GetTotalRuneLevel(caster, 2, "e_2", "duskbringer")
 	if b_c_level > 0 then
 		local specterAbility = caster:FindAbilityByName("specter_rush_two")
 		local b_c_duration = 0.7 + 0.2*b_c_level
@@ -19,8 +19,8 @@ function begin_manifestation(event)
 		specterAbility:ApplyDataDrivenModifier(caster, caster, "modifier_duskbringer_ghost_armor", {duration = b_c_duration})
 		caster:SetModifierStackCount("modifier_duskbringer_ghost_armor", caster, 6)
 	end
-    local c_c_level = Runes:GetTotalRuneLevel(caster, 3, "c_c", "duskbringer")
-    local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "duskbringer")
+    local c_c_level = Runes:GetTotalRuneLevel(caster, 3, "e_3", "duskbringer")
+    local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "duskbringer")
     manifestParticle(casterOrigin, caster)
 	FindClearSpaceForUnit(caster, target, true)
 	manifestParticle(target, caster)
@@ -53,15 +53,15 @@ function manifestParticle(position, caster)
 end
 
 -- function d_c_up(caster, d_c_level, damage)
---     local runeAbility = caster.runeUnit4:FindAbilityByName("duskbringer_rune_d_c")
---     runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_duskbringer_rune_d_c_visible", {duration = 15})
---     local current_stacks = caster:GetModifierStackCount( "modifier_duskbringer_rune_d_c_visible", runeAbility )
+--     local runeAbility = caster.runeUnit4:FindAbilityByName("duskbringer_rune_e_4")
+--     runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_duskbringer_rune_e_4_visible", {duration = 15})
+--     local current_stacks = caster:GetModifierStackCount( "modifier_duskbringer_rune_e_4_visible", runeAbility )
 --     newStacks = current_stacks + 1
---     caster:SetModifierStackCount( "modifier_duskbringer_rune_d_c_visible", runeAbility, newStacks )
+--     caster:SetModifierStackCount( "modifier_duskbringer_rune_e_4_visible", runeAbility, newStacks )
 
 
---     runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_duskbringer_rune_d_c_invisible", {duration = 7})
---     local current_stacks_true = caster:GetModifierStackCount( "modifier_duskbringer_rune_d_c_invisible", runeAbility )
+--     runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_duskbringer_rune_e_4_invisible", {duration = 7})
+--     local current_stacks_true = caster:GetModifierStackCount( "modifier_duskbringer_rune_e_4_invisible", runeAbility )
 --     local new_stacks_true = current_stacks_true + (damage/100) * 0.5 * d_c_level
---     caster:SetModifierStackCount( "modifier_duskbringer_rune_d_c_invisible", runeAbility, new_stacks_true)
+--     caster:SetModifierStackCount( "modifier_duskbringer_rune_e_4_invisible", runeAbility, new_stacks_true)
 -- end

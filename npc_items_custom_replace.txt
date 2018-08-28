@@ -23,8 +23,13 @@ ELEMENTAL_WARLORD_GLYPHS:heroes\beastmaster\npc\glyphs.txt
 <% heroes\invoker\constants_CONJUROR.lua %>
 CONJUROR_GLYPHS:heroes\invoker\npc\glyphs.txt
 
-<% heroes\obsidian_destroyer\constants_epoch.lua %>
-EPOCH_GLYPHS:heroes\obsidian_destroyer\npc\glyphs.txt
+<% heroes\obsidian_destroyer\epoch_constants.lua %>
+EPOCH_GLYPHS:heroes\obsidian_destroyer\npc\epoch_glyphs.txt
+
+<% heroes\omniknight\paladin_constants.lua %>
+PALADIN_GLYPHS:heroes\omniknight\npc\paladin_glyphs.txt
+PALADIN_ARCANAS:heroes\omniknight\npc\paladin_arcanas.txt
+PALADIN_WEAPONS:heroes\omniknight\npc\paladin_weapons.txt
 
 <% heroes\hero_necrolyte\constants.lua %>
 VENOMORT_GLYPHS:heroes\hero_necrolyte\npc\glyphs.txt

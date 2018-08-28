@@ -137,7 +137,7 @@ function lightbomb_cast(event)
 
 	local damage = event.base_damage + event.int_damage*caster:GetIntellect()
 	local stun_duration = event.stun_duration
-	local b_a_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
+	local q_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
 	Timers:CreateTimer(distance/ability.speed-0.03, function()
 		EmitSoundOnLocationWithCaster(bombPos, "Sephyr.Lightbomb.ImpactFlare", caster)
 		ParticleManager:DestroyParticle(destPFX, false)
@@ -149,9 +149,9 @@ function lightbomb_cast(event)
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, 1, RPC_ELEMENT_HOLY, RPC_ELEMENT_WIND)
-				if b_a_level > 0 then
+				if q_2_level > 0 then
 					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_lightbomb_postmit", {duration = 7})
-					enemy:SetModifierStackCount("modifier_lightbomb_postmit", caster, b_a_level)
+					enemy:SetModifierStackCount("modifier_lightbomb_postmit", caster, q_2_level)
 				end
 			end
 		end 
@@ -170,21 +170,21 @@ function lightbomb_cast(event)
 		end 
 	end)
 
-	local a_a_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
-	if a_a_level > 0 then
+	local q_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
+	if q_1_level > 0 then
 		local buffDuration = Filters:GetAdjustedBuffDuration(caster, 12, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_lightbomb_a_a", {duration = buffDuration})
-		caster:SetModifierStackCount("modifier_lightbomb_a_a", caster, a_a_level)
+		caster:SetModifierStackCount("modifier_lightbomb_a_a", caster, q_1_level)
 	end
-	local c_a_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
-	if c_a_level > 0 then
+	local q_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
+	if q_3_level > 0 then
 		local freeStacks = caster:GetModifierStackCount("modifier_lightbomb_freecast", caster)
 		if freeStacks >= 10 then
 			caster:SetModifierStackCount("modifier_lightbomb_freecast", caster, freeStacks - 10)
 			ability:EndCooldown()
 		else
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_lightbomb_freecast", {})
-			caster:SetModifierStackCount("modifier_lightbomb_freecast", caster, freeStacks + c_a_level)
+			caster:SetModifierStackCount("modifier_lightbomb_freecast", caster, freeStacks + q_3_level)
 		end
 	end
 	Filters:CastSkillArguments(1, caster)
@@ -193,16 +193,16 @@ end
 function sephyr_passive_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local d_a_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
-	if d_a_level > 0 then
+	local q_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+	if q_4_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_sephyr_holy_amp", {})
-		caster:SetModifierStackCount("modifier_sephyr_holy_amp", caster, d_a_level)
+		caster:SetModifierStackCount("modifier_sephyr_holy_amp", caster, q_4_level)
 
 		local damageDealt = 10000
 		local damageHOLY = Filters:ElementalDamage(Events.GameMaster, caster, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE, false)
 		local holyAmp =  math.floor(damageHOLY/damageDealt)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_sephyr_d_d_attack_damage", {})
-		local attack_percent = (holyAmp/200)*d_a_level
+		local attack_percent = (holyAmp/200)*q_4_level
 		caster:SetModifierStackCount("modifier_sephyr_d_d_attack_damage", caster, attack_percent)
 	else
 		caster:RemoveModifierByName("modifier_sephyr_d_d_attack_damage")

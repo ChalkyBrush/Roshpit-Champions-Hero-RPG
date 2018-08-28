@@ -2,7 +2,7 @@ function phantomRaceRefresh(caster, duration)
     local event = {}
     event.caster = caster.runeUnit
     event.duration = duration
-    event.ability = caster.runeUnit:FindAbilityByName("duskbringer_rune_a_c")
+    event.ability = caster.runeUnit:FindAbilityByName("duskbringer_rune_e_1")
     event.ability.distanceMoved = 350
     rune_unit_1_think(event)
 end
@@ -11,7 +11,7 @@ function rune_unit_1_think(event)
     local ability = event.ability
     local hero = caster.hero
 
-    local totalLevel = Runes:GetTotalRuneLevel(hero, 1, "a_c", "duskbringer")
+    local totalLevel = Runes:GetTotalRuneLevel(hero, 1, "e_1", "duskbringer")
     if totalLevel > 0 then
         local target = hero
         if not ability.lastPos then
@@ -34,8 +34,8 @@ function rune_unit_1_think(event)
 
         a_c_duration = Filters:GetAdjustedBuffDuration(hero, a_c_duration, false)
         if ability.distanceMoved > 300 then
-            ability:ApplyDataDrivenModifier(caster, target, "modifier_duskbringer_rune_a_c_effect", {duration = a_c_duration})
-            target:SetModifierStackCount( "modifier_duskbringer_rune_a_c_effect", ability, totalLevel )
+            ability:ApplyDataDrivenModifier(caster, target, "modifier_duskbringer_rune_e_1_effect", {duration = a_c_duration})
+            target:SetModifierStackCount( "modifier_duskbringer_rune_e_1_effect", ability, totalLevel )
             ability.distanceMoved = ability.distanceMoved % 300
         end
 

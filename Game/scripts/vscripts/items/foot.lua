@@ -305,54 +305,54 @@ function Foot:remove_modifiers(hero)
 end
 
 function Foot:runeProperty(propertyName, propertyValue, hero)
-	if propertyName == "rune_a_a" then
-		hero.runeUnit.foot.a_a = hero.runeUnit.foot.a_a + propertyValue
-		Foot:setRuneBonusNetTable(hero.runeUnit.foot.a_a, propertyName, hero)
-	elseif propertyName == "rune_a_b" then
-		hero.runeUnit.foot.a_b = hero.runeUnit.foot.a_b + propertyValue
-		Foot:setRuneBonusNetTable(hero.runeUnit.foot.a_b, propertyName, hero)
-	elseif propertyName == "rune_a_c" then
-		hero.runeUnit.foot.a_c = hero.runeUnit.foot.a_c + propertyValue
-		Foot:setRuneBonusNetTable(hero.runeUnit.foot.a_c, propertyName, hero)
-	elseif propertyName == "rune_a_d" then
-		hero.runeUnit.foot.a_d = hero.runeUnit.foot.a_d + propertyValue
-		Foot:setRuneBonusNetTable(hero.runeUnit.foot.a_d, propertyName, hero)
-	elseif propertyName == "rune_b_a" then
-		hero.runeUnit2.foot.b_a = hero.runeUnit2.foot.b_a + propertyValue
-		Foot:setRuneBonusNetTable(hero.runeUnit2.foot.b_a, propertyName, hero)
-	elseif propertyName == "rune_b_b" then
-		hero.runeUnit2.foot.b_b = hero.runeUnit2.foot.b_b + propertyValue
-		Foot:setRuneBonusNetTable(hero.runeUnit2.foot.b_b, propertyName, hero)
-	elseif propertyName == "rune_b_c" then
-		hero.runeUnit2.foot.b_c = hero.runeUnit2.foot.b_c + propertyValue
-		Foot:setRuneBonusNetTable(hero.runeUnit2.foot.b_c, propertyName, hero)
-	elseif propertyName == "rune_b_d" then
-		hero.runeUnit2.foot.b_d = hero.runeUnit2.foot.b_d + propertyValue
-		Foot:setRuneBonusNetTable(hero.runeUnit2.foot.b_d, propertyName, hero)
-	elseif propertyName == "rune_c_a" then
-		hero.runeUnit3.foot.c_a = hero.runeUnit3.foot.c_a + propertyValue
-		Foot:setRuneBonusNetTable(hero.runeUnit3.foot.c_a, propertyName, hero)
-	elseif propertyName == "rune_c_b" then
-		hero.runeUnit3.foot.c_b = hero.runeUnit3.foot.c_b + propertyValue
-		Foot:setRuneBonusNetTable(hero.runeUnit3.foot.c_b, propertyName, hero)
-	elseif propertyName == "rune_c_c" then
-		hero.runeUnit3.foot.c_c = hero.runeUnit3.foot.c_c + propertyValue
-		Foot:setRuneBonusNetTable(hero.runeUnit3.foot.c_c, propertyName, hero)
-	elseif propertyName == "rune_c_d" then
-		hero.runeUnit3.foot.c_d = hero.runeUnit3.foot.c_d + propertyValue
-		Foot:setRuneBonusNetTable(hero.runeUnit3.foot.c_d, propertyName, hero)
-	elseif propertyName == "rune_d_a" then
-		hero.runeUnit4.foot.d_a = hero.runeUnit4.foot.d_a + propertyValue
-		Foot:setRuneBonusNetTable(hero.runeUnit4.foot.d_a, propertyName, hero)
-	elseif propertyName == "rune_d_b" then
-		hero.runeUnit4.foot.d_b = hero.runeUnit4.foot.d_b + propertyValue
-		Foot:setRuneBonusNetTable(hero.runeUnit4.foot.d_b, propertyName, hero)
-	elseif propertyName == "rune_d_c" then
-		hero.runeUnit4.foot.d_c = hero.runeUnit4.foot.d_c + propertyValue
-		Foot:setRuneBonusNetTable(hero.runeUnit4.foot.d_c, propertyName, hero)
-	elseif propertyName == "rune_d_d" then
-		hero.runeUnit4.foot.d_d = hero.runeUnit4.foot.d_d + propertyValue
-		Foot:setRuneBonusNetTable(hero.runeUnit4.foot.d_d, propertyName, hero)
+	if propertyName == "rune_q_1" then
+		hero.runeUnit.foot.q_1 = hero.runeUnit.foot.q_1 + propertyValue
+		Foot:setRuneBonusNetTable(hero.runeUnit.foot.q_1, propertyName, hero)
+	elseif propertyName == "rune_w_1" then
+		hero.runeUnit.foot.w_1 = hero.runeUnit.foot.w_1 + propertyValue
+		Foot:setRuneBonusNetTable(hero.runeUnit.foot.w_1, propertyName, hero)
+	elseif propertyName == "rune_e_1" then
+		hero.runeUnit.foot.e_1 = hero.runeUnit.foot.e_1 + propertyValue
+		Foot:setRuneBonusNetTable(hero.runeUnit.foot.e_1, propertyName, hero)
+	elseif propertyName == "rune_r_1" then
+		hero.runeUnit.foot.r_1 = hero.runeUnit.foot.r_1 + propertyValue
+		Foot:setRuneBonusNetTable(hero.runeUnit.foot.r_1, propertyName, hero)
+	elseif propertyName == "rune_q_2" then
+		hero.runeUnit2.foot.q_2 = hero.runeUnit2.foot.q_2 + propertyValue
+		Foot:setRuneBonusNetTable(hero.runeUnit2.foot.q_2, propertyName, hero)
+	elseif propertyName == "rune_w_2" then
+		hero.runeUnit2.foot.w_2 = hero.runeUnit2.foot.w_2 + propertyValue
+		Foot:setRuneBonusNetTable(hero.runeUnit2.foot.w_2, propertyName, hero)
+	elseif propertyName == "rune_e_2" then
+		hero.runeUnit2.foot.e_2 = hero.runeUnit2.foot.e_2 + propertyValue
+		Foot:setRuneBonusNetTable(hero.runeUnit2.foot.e_2, propertyName, hero)
+	elseif propertyName == "rune_r_2" then
+		hero.runeUnit2.foot.r_2 = hero.runeUnit2.foot.r_2 + propertyValue
+		Foot:setRuneBonusNetTable(hero.runeUnit2.foot.r_2, propertyName, hero)
+	elseif propertyName == "rune_q_3" then
+		hero.runeUnit3.foot.q_3 = hero.runeUnit3.foot.q_3 + propertyValue
+		Foot:setRuneBonusNetTable(hero.runeUnit3.foot.q_3, propertyName, hero)
+	elseif propertyName == "rune_w_3" then
+		hero.runeUnit3.foot.w_3 = hero.runeUnit3.foot.w_3 + propertyValue
+		Foot:setRuneBonusNetTable(hero.runeUnit3.foot.w_3, propertyName, hero)
+	elseif propertyName == "rune_e_3" then
+		hero.runeUnit3.foot.e_3 = hero.runeUnit3.foot.e_3 + propertyValue
+		Foot:setRuneBonusNetTable(hero.runeUnit3.foot.e_3, propertyName, hero)
+	elseif propertyName == "rune_r_3" then
+		hero.runeUnit3.foot.r_3 = hero.runeUnit3.foot.r_3 + propertyValue
+		Foot:setRuneBonusNetTable(hero.runeUnit3.foot.r_3, propertyName, hero)
+	elseif propertyName == "rune_q_4" then
+		hero.runeUnit4.foot.q_4 = hero.runeUnit4.foot.q_4 + propertyValue
+		Foot:setRuneBonusNetTable(hero.runeUnit4.foot.q_4, propertyName, hero)
+	elseif propertyName == "rune_w_4" then
+		hero.runeUnit4.foot.w_4 = hero.runeUnit4.foot.w_4 + propertyValue
+		Foot:setRuneBonusNetTable(hero.runeUnit4.foot.w_4, propertyName, hero)
+	elseif propertyName == "rune_e_4" then
+		hero.runeUnit4.foot.e_4 = hero.runeUnit4.foot.e_4 + propertyValue
+		Foot:setRuneBonusNetTable(hero.runeUnit4.foot.e_4, propertyName, hero)
+	elseif propertyName == "rune_r_4" then
+		hero.runeUnit4.foot.r_4 = hero.runeUnit4.foot.r_4 + propertyValue
+		Foot:setRuneBonusNetTable(hero.runeUnit4.foot.r_4, propertyName, hero)
 	end
 end
 
@@ -363,21 +363,21 @@ function Foot:setRuneBonusNetTable(value, rune, hero)
 end
 
 function Foot:remove_rune_bonuses(hero)
-	hero.runeUnit.foot.a_a = 0
-	hero.runeUnit.foot.a_b = 0
-	hero.runeUnit.foot.a_c = 0
-	hero.runeUnit.foot.a_d = 0
-	hero.runeUnit2.foot.b_a = 0
-	hero.runeUnit2.foot.b_b = 0
-	hero.runeUnit2.foot.b_c = 0
-	hero.runeUnit2.foot.b_d = 0
-	hero.runeUnit3.foot.c_a = 0
-	hero.runeUnit3.foot.c_b = 0
-	hero.runeUnit3.foot.c_c = 0
-	hero.runeUnit3.foot.c_d = 0
-	hero.runeUnit4.foot.d_a = 0
-	hero.runeUnit4.foot.d_b = 0
-	hero.runeUnit4.foot.d_c = 0
-	hero.runeUnit4.foot.d_d = 0
+	hero.runeUnit.foot.q_1 = 0
+	hero.runeUnit.foot.w_1 = 0
+	hero.runeUnit.foot.e_1 = 0
+	hero.runeUnit.foot.r_1 = 0
+	hero.runeUnit2.foot.q_2 = 0
+	hero.runeUnit2.foot.w_2 = 0
+	hero.runeUnit2.foot.e_2 = 0
+	hero.runeUnit2.foot.r_2 = 0
+	hero.runeUnit3.foot.q_3 = 0
+	hero.runeUnit3.foot.w_3 = 0
+	hero.runeUnit3.foot.e_3 = 0
+	hero.runeUnit3.foot.r_3 = 0
+	hero.runeUnit4.foot.q_4 = 0
+	hero.runeUnit4.foot.w_4 = 0
+	hero.runeUnit4.foot.e_4 = 0
+	hero.runeUnit4.foot.r_4 = 0
 	Runes:ResetRuneBonuses(hero, "foot")
 end

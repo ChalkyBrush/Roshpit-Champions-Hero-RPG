@@ -2,7 +2,7 @@ function begin_cast(event)
 	local caster = event.caster
 	local ability = event.ability
 	StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_CAST_SUN_STRIKE, rate=0.8})
-	caster.d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "conjuror")
+	caster.q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "conjuror")
 end
 
 function aspect_global_think(event)
@@ -48,7 +48,7 @@ function earth_aspect(event)
 	if caster.bIsAIonEARTH == true or caster.bIsAIonEARTH == nil then
 	aspectAbility:ToggleAbility()
     end
-	caster.earthAspect:FindAbilityByName("earth_aspect_rune_b_a_clap"):SetLevel(1)
+	caster.earthAspect:FindAbilityByName("earth_aspect_rune_q_2_clap"):SetLevel(1)
 	caster.earthAspect.aspect = true
 	-- aspectAbility:ApplyDataDrivenModifier(caster.earthAspect, caster.earthAspect, "modifier_aspect_main", {})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_earth_guardian", {})
@@ -80,8 +80,8 @@ function earth_aspect(event)
 		if caster:HasModifier("modifier_conjuror_glyph_2_1") then
 			aspectHealth = aspectHealth*1.8
 		end
-		local a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a", "conjuror")
-		aspectHealth = aspectHealth*(1+a_a_level*0.05)
+		local q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "conjuror")
+		aspectHealth = aspectHealth*(1+q_1_level*0.05)
 		Timers:CreateTimer(0.05, function()
 			
 			caster.earthAspect:SetMaxHealth(aspectHealth)
@@ -89,9 +89,9 @@ function earth_aspect(event)
 			caster.earthAspect:SetHealth(aspectHealth)
 			caster.earthAspect:Heal(aspectHealth, caster.earthAspect)
 		end)
-	if has_rune_a_a(ability, caster) then
+	if has_rune_q_1(ability, caster) then
 		local runeUnit = caster.runeUnit
-		local runeAbility = runeUnit:FindAbilityByName("conjuror_rune_a_a")
+		local runeAbility = runeUnit:FindAbilityByName("conjuror_rune_q_1")
 		runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_earth_guardian", {})
 	end
 	glyph_5_a(caster, ability, caster.earthAspect)
@@ -153,8 +153,8 @@ function fire_aspect(event)
 		if caster:HasModifier("modifier_conjuror_glyph_2_1") then
 			aspectHealth = aspectHealth*1.8
 		end
-		local a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a", "conjuror")
-		aspectHealth = aspectHealth*(1+a_a_level*0.05)
+		local q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "conjuror")
+		aspectHealth = aspectHealth*(1+q_1_level*0.05)
 		Timers:CreateTimer(0.05, function()
 			caster.fireAspect:SetMaxHealth(aspectHealth)
 			caster.fireAspect:SetBaseMaxHealth(aspectHealth)
@@ -164,16 +164,16 @@ function fire_aspect(event)
   	if caster:HasModifier("modifier_conjuror_immortal_weapon_3") then
   		caster.fireAspect:AddAbility("fire_temple_steadfast"):SetLevel(1)
   	end
-	local a_b_level = get_a_b_level(caster)
-	if a_b_level > 0 then
-		immolationAbility.totalLevel = a_b_level		
+	local w_1_level = get_w_1_level(caster)
+	if w_1_level > 0 then
+		immolationAbility.totalLevel = w_1_level		
 		immolationAbility:ApplyDataDrivenModifier(caster.fireAspect, caster.fireAspect, "modifier_permanent_immolation", {})
 	end
-	local criticalStrikeRune = caster.runeUnit3:FindAbilityByName("conjuror_rune_c_b")
-	criticalStrikeRune:ApplyDataDrivenModifier(caster.runeUnit3, caster, "modifier_conjuror_rune_c_b_effect", {})
+	local criticalStrikeRune = caster.runeUnit3:FindAbilityByName("conjuror_rune_w_3")
+	criticalStrikeRune:ApplyDataDrivenModifier(caster.runeUnit3, caster, "modifier_conjuror_rune_w_3_effect", {})
 
-    local d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "conjuror")
-   	caster.fireAspect.d_a_level = d_a_level
+    local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "conjuror")
+   	caster.fireAspect.q_4_level = q_4_level
    	glyph_5_a(caster, ability, caster.fireAspect)
 end
 
@@ -226,8 +226,8 @@ function shadow_aspect(event)
 		if caster:HasModifier("modifier_conjuror_glyph_2_1") then
 			aspectHealth = aspectHealth*1.8
 		end
-		local a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a", "conjuror")
-		aspectHealth = aspectHealth*(1+a_a_level*0.05)
+		local q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "conjuror")
+		aspectHealth = aspectHealth*(1+q_1_level*0.05)
 		Timers:CreateTimer(0.05, function()
 			caster.shadowAspect:SetMaxHealth(aspectHealth)
 			caster.shadowAspect:SetBaseMaxHealth(aspectHealth)
@@ -240,11 +240,11 @@ function shadow_aspect(event)
 		local stacks = (totalStats/10)*c_c_level*0.15
 		ability:ApplyDataDrivenModifier(caster, caster.shadowAspect, "modifier_conjuror_c_c_damage", {})
 		caster.shadowAspect:SetModifierStackCount( "modifier_conjuror_c_c_damage", ability, stacks )
-		ability:ApplyDataDrivenModifier(caster, caster.shadowAspect, "modifier_conjuror_rune_c_c_range", {})
-		caster.shadowAspect:SetModifierStackCount("modifier_conjuror_rune_c_c_range", ability, c_c_level )
+		ability:ApplyDataDrivenModifier(caster, caster.shadowAspect, "modifier_conjuror_rune_e_3_range", {})
+		caster.shadowAspect:SetModifierStackCount("modifier_conjuror_rune_e_3_range", ability, c_c_level )
 	end
-	local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "conjuror")
-	caster.shadowAspect.d_c_level = d_c_level
+	local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "conjuror")
+	caster.shadowAspect.e_4_level = d_c_level
 	if d_c_level > 0 then
 		caster.shadowAspect:SetRangedProjectileName("particles/econ/items/enigma/enigma_geodesic/conjuror_d_c_aspect_eidolon_geodesic.vpcf")
 	end
@@ -399,9 +399,9 @@ function aspect_die(event)
 		fireAspectSkill:SetLevel(immolationSkill:GetLevel())
 		caster.conjuror:SwapAbilities("summon_fire_aspect", "immolation", true, false)
 		caster.conjuror.fireAspect = false
-		local d_b_level = Runes:GetTotalRuneLevel(caster.conjuror, 4, "d_b", "conjuror")
-		if d_b_level > 0 then
-			fireAspectDie(caster.conjuror, caster, d_b_level)
+		local w_4_level = Runes:GetTotalRuneLevel(caster.conjuror, 4, "w_4", "conjuror")
+		if w_4_level > 0 then
+			fireAspectDie(caster.conjuror, caster, w_4_level)
 		end
 	elseif event.caster:GetUnitName() == "shadow_aspect" then
 		local shadowAspectSkill = caster.conjuror:FindAbilityByName("summon_shadow_aspect")
@@ -414,7 +414,7 @@ function aspect_die(event)
 	end
 end
 
-function fireAspectDie(caster, fireAspect, d_b_level)
+function fireAspectDie(caster, fireAspect, w_4_level)
 	EmitSoundOn("Hero_OgreMagi.Fireblast.Target", fireAspect)
 	local position = fireAspect:GetAbsOrigin()
 	local particleName = "particles/units/heroes/hero_elder_titan/ring_of_fire.vpcf"
@@ -434,7 +434,7 @@ function fireAspectDie(caster, fireAspect, d_b_level)
 	  ParticleManager:DestroyParticle( particle1, false )
 	end)  
 	
-	local damage = fireAspect:GetMaxHealth()*1.5*d_b_level
+	local damage = fireAspect:GetMaxHealth()*1.5*w_4_level
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, 440, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
@@ -472,11 +472,11 @@ function conjurorDie(event)
     end	
 end
 
-function has_rune_a_a(ability, caster)
+function has_rune_q_1(ability, caster)
 	local runeUnit = caster.runeUnit
-	local runeAbility = runeUnit:FindAbilityByName("conjuror_rune_a_a")
+	local runeAbility = runeUnit:FindAbilityByName("conjuror_rune_q_1")
 	local abilityLevel = runeAbility:GetLevel()
-	local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_a")
+	local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_1")
 	local totalLevel = abilityLevel + bonusLevel
 	if totalLevel > 0 then
 		return true
@@ -485,29 +485,29 @@ function has_rune_a_a(ability, caster)
 	end
 end
 
-function get_b_a_level(caster)
+function get_q_2_level(caster)
 	local runeUnit = caster.runeUnit2
-	local runeAbility = runeUnit:FindAbilityByName("conjuror_rune_b_a")
+	local runeAbility = runeUnit:FindAbilityByName("conjuror_rune_q_2")
 	local abilityLevel = runeAbility:GetLevel()
-	local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_a")
+	local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_2")
 	local totalLevel = abilityLevel + bonusLevel
 	return totalLevel
 end
 
-function get_a_b_level(caster)
+function get_w_1_level(caster)
 	local runeUnit = caster.runeUnit
-	local runeAbility = runeUnit:FindAbilityByName("conjuror_rune_a_b")
+	local runeAbility = runeUnit:FindAbilityByName("conjuror_rune_w_1")
 	local abilityLevel = runeAbility:GetLevel()
-	local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_b")
+	local bonusLevel = Runes:GetTotalBonus(runeUnit, "w_1")
 	local totalLevel = abilityLevel + bonusLevel
 	return totalLevel
 end
 
 function get_a_c_level(caster)
 	local runeUnit = caster.runeUnit
-	local runeAbility = runeUnit:FindAbilityByName("conjuror_rune_a_c")
+	local runeAbility = runeUnit:FindAbilityByName("conjuror_rune_e_1")
 	local abilityLevel = runeAbility:GetLevel()
-	local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_c")
+	local bonusLevel = Runes:GetTotalBonus(runeUnit, "e_1")
 	local totalLevel = abilityLevel + bonusLevel
 	return totalLevel
 end
@@ -519,10 +519,10 @@ function shadow_aspect_attack(event)
 	local target = event.target
 	local ability = event.ability
 	ability.damage = damage
-	ability.pureDamage = damage*0.12*attacker.d_c_level
+	ability.pureDamage = damage*0.12*attacker.e_4_level
 	ability.attacker = attacker
 	local projectileParticle = "particles/econ/items/enigma/enigma_geodesic/enigma_base_attack_eidolon_geodesic.vpcf"
-	if attacker.d_c_level > 0 then
+	if attacker.e_4_level > 0 then
 		projectileParticle = "particles/econ/items/enigma/enigma_geodesic/conjuror_d_c_aspect_eidolon_geodesic.vpcf"
 	end
 
@@ -539,7 +539,7 @@ function shadow_aspect_attack(event)
 			count = count+1
 		end  	
 	end
-	local a_c_level = Runes:GetTotalRuneLevel(attacker.conjuror, 1, "a_c", "conjuror")
+	local a_c_level = Runes:GetTotalRuneLevel(attacker.conjuror, 1, "e_1", "conjuror")
 	if a_c_level > 0 then
 		local conjuror = attacker.conjuror
 		local unitsToBuffTable = {attacker}
@@ -568,7 +568,7 @@ end
 
 function apply_c_d_slow(attacker, target, ability)
 	ability:ApplyDataDrivenModifier(attacker, target, "modifier_conjuror_c_d_slow_effect", {duration = 6})
-	target:SetModifierStackCount("modifier_conjuror_c_d_slow_effect", attacker, ability.c_d_level)
+	target:SetModifierStackCount("modifier_conjuror_c_d_slow_effect", attacker, ability.r_3_level)
 end
 
 function create_extra_attack(attacker, damage, enemy, target, ability, projectileParticle)
@@ -618,9 +618,9 @@ end
 
 function get_c_c_level(caster)
 	local runeUnit = caster.runeUnit3
-	local runeAbility = runeUnit:FindAbilityByName("conjuror_rune_c_c")
+	local runeAbility = runeUnit:FindAbilityByName("conjuror_rune_e_3")
 	local abilityLevel = runeAbility:GetLevel()
-	local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_c")
+	local bonusLevel = Runes:GetTotalBonus(runeUnit, "e_3")
 	local totalLevel = abilityLevel + bonusLevel
 	return totalLevel
 end
@@ -628,14 +628,14 @@ end
 function earth_aspect_a_a_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	ability.a_a_ability_level = Runes:GetTotalRuneLevel(caster.conjuror, 1, "a_a", "conjuror")
-	if ability.a_a_ability_level > 0 then
+	ability.q_1_ability_level = Runes:GetTotalRuneLevel(caster.conjuror, 1, "q_1", "conjuror")
+	if ability.q_1_ability_level > 0 then
 		local a_a_duration = Filters:GetAdjustedBuffDuration(caster.conjuror, 2, false)
 	  	local allies = FindUnitsInRadius( caster.conjuror:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	  	if #allies > 0 then
 		    for _,ally in pairs(allies) do
 		    	ability:ApplyDataDrivenModifier(caster, ally, "modifier_conjuror_a_a_buff", {duration = a_a_duration}) 
-		    	ally:SetModifierStackCount( "modifier_conjuror_a_a_buff", ability, ability.a_a_ability_level )
+		    	ally:SetModifierStackCount( "modifier_conjuror_a_a_buff", ability, ability.q_1_ability_level )
 		    end 
 	    end 	
 	    ability:ApplyDataDrivenModifier(caster, caster, "modifier_earth_aspect_a_a_effect", {duration = a_a_duration})

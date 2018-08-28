@@ -6,12 +6,10 @@ local hero_values = {
 	venomort = require('/heroes/hero_necrolyte/constants'),
 	mountain_protector = require('/heroes/legion_commander/constants'),
 }
+require('/heroes/obsidian_destroyer/epoch_constants')
 
-require('/heroes/obsidian_destroyer/constants_epoch')
 
 CustomAttributes.FLAMEWAKER_R3_STRENGTH = 260
--- CustomAttributes.EPOCH_W3_INT = 25 --now is const
--- CustomAttributes.EPOCH_R1_STR_AGI = 15
 CustomAttributes.CONJUROR_E1_AGI = 25
 CustomAttributes.WARLORD_W2_STATS = 60
 CustomAttributes.MOUNTAIN_PROTECTOR_R1_ARCANA1_STRENGTH = 250
@@ -19,8 +17,6 @@ CustomAttributes.CHERNOBOG_W4_STR_OR_AGI = 300
 CustomAttributes.HYDROXIS_E4_AGI_INT = 350
 CustomAttributes.ZHONIK_R4_STR = 350
 CustomAttributes.ZHONIK_ARCANA_R4_AGI = 500
-CustomAttributes.ARKIMUS_Q4_ARCANA1_AGI = 400
-CustomAttributes.ARKIMUS_E4_AGI = 250
 CustomAttributes.DJANGHOR_R4_STATS = 500
 CustomAttributes.DJANGHOR_R4_ARCANA_STATS = 300
 CustomAttributes.AXE_Q3_STATS = 14
@@ -106,8 +102,8 @@ function CustomAttributes:SetAttributes(hero)
 	local agi_bonus = 0
 	local int_bonus = 0
 	local heroName = hero:GetUnitName()
-	if hero:HasModifier("modifier_flamewaker_rune_c_d") then
-		local stacks = hero:GetModifierStackCount("modifier_flamewaker_rune_c_d", hero)
+	if hero:HasModifier("modifier_flamewaker_rune_r_3") then
+		local stacks = hero:GetModifierStackCount("modifier_flamewaker_rune_r_3", hero)
 		str_bonus = str_bonus + CustomAttributes.FLAMEWAKER_R3_STRENGTH*stacks
 	end
 	if hero:HasModifier("modifier_voltex_glyph_2_1_effect_invisible") then
@@ -126,18 +122,14 @@ function CustomAttributes:SetAttributes(hero)
 		agi_bonus = agi_bonus + stacks*CustomAttributes.ASTRAL_W1_ARCANA2_STATS
 		int_bonus = int_bonus + stacks*CustomAttributes.ASTRAL_W1_ARCANA2_STATS
 	end
-	if hero:HasModifier("modifier_epoch_rune_c_b_invisible") then
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_epoch_rune_c_b_invisible", epoch_w3_int)
+	if hero:HasModifier("modifier_epoch_rune_w_3_invisible") then
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_epoch_rune_w_3_invisible", EPOCH_W3_INT)
 	end
-	--if hero:HasModifier("modifier_time_ulti_a_d_invisible_str_and_agi") then
-	--	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_time_ulti_a_d_invisible_str_and_agi", CustomAttributes.EPOCH_R1_STR_AGI)
-	--	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_time_ulti_a_d_invisible_str_and_agi", CustomAttributes.EPOCH_R1_STR_AGI)
-	--end
 	if hero:HasModifier("modifier_conjuror_a_c_buff_invisible") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_conjuror_a_c_buff_invisible", CustomAttributes.CONJUROR_E1_AGI)
 	end
-	if hero:HasModifier("modifier_warlord_rune_b_b") then
-		local stacks = hero:GetModifierStackCount("modifier_warlord_rune_b_b", hero)
+	if hero:HasModifier("modifier_warlord_rune_w_2") then
+		local stacks = hero:GetModifierStackCount("modifier_warlord_rune_w_2", hero)
 		str_bonus = str_bonus + stacks*CustomAttributes.WARLORD_W2_STATS
 		agi_bonus = agi_bonus + stacks*CustomAttributes.WARLORD_W2_STATS
 		int_bonus = int_bonus + stacks*CustomAttributes.WARLORD_W2_STATS
@@ -145,11 +137,11 @@ function CustomAttributes:SetAttributes(hero)
 	if hero:HasModifier("modifier_hailstorm_strength") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hailstorm_strength", CustomAttributes.MOUNTAIN_PROTECTOR_R1_ARCANA1_STRENGTH)
 	end
-	if hero:HasModifier("modifier_chernobog_rune_d_b_inactive") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_chernobog_rune_d_b_inactive", CustomAttributes.CHERNOBOG_W4_STR_OR_AGI)	
+	if hero:HasModifier("modifier_chernobog_rune_w_4_inactive") then
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_chernobog_rune_w_4_inactive", CustomAttributes.CHERNOBOG_W4_STR_OR_AGI)	
 	end
-	if hero:HasModifier("modifier_chernobog_rune_d_b_active") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_chernobog_rune_d_b_active", CustomAttributes.CHERNOBOG_W4_STR_OR_AGI)
+	if hero:HasModifier("modifier_chernobog_rune_w_4_active") then
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_chernobog_rune_w_4_active", CustomAttributes.CHERNOBOG_W4_STR_OR_AGI)
 	end
 	if hero:HasModifier("modifier_hydroxis_d_c") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hydroxis_d_c", CustomAttributes.HYDROXIS_E4_AGI_INT)
@@ -206,8 +198,8 @@ function CustomAttributes:SetAttributes(hero)
 
 	--RUNES
 
-	if hero:HasModifier("modifier_axe_rune_a_c_invisible") then
-		local stacks = CustomAttributes:GetStackWithNoCaster(hero, "modifier_axe_rune_a_c_invisible")
+	if hero:HasModifier("modifier_axe_rune_e_1_invisible") then
+		local stacks = CustomAttributes:GetStackWithNoCaster(hero, "modifier_axe_rune_e_1_invisible")
 		str_bonus = str_bonus + stacks*CustomAttributes.AXE_Q3_STATS
 		agi_bonus = agi_bonus + stacks*CustomAttributes.AXE_Q3_STATS
 		int_bonus = int_bonus + stacks*CustomAttributes.AXE_Q3_STATS
@@ -222,46 +214,46 @@ function CustomAttributes:SetAttributes(hero)
 	-- 	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_arcane_intellect_visible", CustomAttributes.SORCERESS_ARCANE_INTELLECT)
 	-- end
 	if heroName == "npc_dota_hero_beastmaster" then
-		if hero:HasModifier("modifier_warlord_rune_d_a_strength") then
-			str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_warlord_rune_d_a_strength", CustomAttributes.WARLORD_Q4_STATS)
+		if hero:HasModifier("modifier_warlord_rune_q_4_strength") then
+			str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_warlord_rune_q_4_strength", CustomAttributes.WARLORD_Q4_STATS)
 		end
-		if hero:HasModifier("modifier_warlord_rune_d_a_agility") then
-			agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_warlord_rune_d_a_agility", CustomAttributes.WARLORD_Q4_STATS)
+		if hero:HasModifier("modifier_warlord_rune_q_4_agility") then
+			agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_warlord_rune_q_4_agility", CustomAttributes.WARLORD_Q4_STATS)
 		end
-		if hero:HasModifier("modifier_warlord_rune_d_a_intelligence") then
-			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_warlord_rune_d_a_intelligence", CustomAttributes.WARLORD_Q4_STATS)
+		if hero:HasModifier("modifier_warlord_rune_q_4_intelligence") then
+			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_warlord_rune_q_4_intelligence", CustomAttributes.WARLORD_Q4_STATS)
 		end
 	end
-	if hero:HasModifier("modifier_bahamut_rune_d_a") then
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_bahamut_rune_d_a", CustomAttributes.BAHAMUT_Q4_INT)
+	if hero:HasModifier("modifier_bahamut_rune_q_4") then
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_bahamut_rune_q_4", CustomAttributes.BAHAMUT_Q4_INT)
 	end
-	if hero:HasModifier("modifier_bahamut_rune_d_d_buff_invisible") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_bahamut_rune_d_d_buff_invisible", CustomAttributes.BAHAMUT_R4_STATS)
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_bahamut_rune_d_d_buff_invisible", CustomAttributes.BAHAMUT_R4_STATS)
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_bahamut_rune_d_d_buff_invisible", CustomAttributes.BAHAMUT_R4_STATS)
+	if hero:HasModifier("modifier_bahamut_rune_r_4_buff_invisible") then
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_bahamut_rune_r_4_buff_invisible", CustomAttributes.BAHAMUT_R4_STATS)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_bahamut_rune_r_4_buff_invisible", CustomAttributes.BAHAMUT_R4_STATS)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_bahamut_rune_r_4_buff_invisible", CustomAttributes.BAHAMUT_R4_STATS)
 	end
-	if hero:HasModifier("modifier_auriun_rune_b_c") then
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_auriun_rune_b_c", CustomAttributes.AURIUN_E2_INT)
+	if hero:HasModifier("modifier_auriun_rune_e_2") then
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_auriun_rune_e_2", CustomAttributes.AURIUN_E2_INT)
 	end
-	if hero:HasModifier("modifier_auriun_rune_c_c_effect") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_auriun_rune_c_c_effect", CustomAttributes.AURIUN_E3_STATS)
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_auriun_rune_c_c_effect", CustomAttributes.AURIUN_E3_STATS)
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_auriun_rune_c_c_effect", CustomAttributes.AURIUN_E3_STATS)
+	if hero:HasModifier("modifier_auriun_rune_e_3_effect") then
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_auriun_rune_e_3_effect", CustomAttributes.AURIUN_E3_STATS)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_auriun_rune_e_3_effect", CustomAttributes.AURIUN_E3_STATS)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_auriun_rune_e_3_effect", CustomAttributes.AURIUN_E3_STATS)
 	end
-	if hero:HasModifier("modifier_auriun_rune_c_d_effect_agility") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_auriun_rune_c_d_effect_agility", 1)
+	if hero:HasModifier("modifier_auriun_rune_r_3_effect_agility") then
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_auriun_rune_r_3_effect_agility", 1)
 	end
-	if hero:HasModifier("modifier_auriun_rune_c_d_effect_strength") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_auriun_rune_c_d_effect_strength", 1)
+	if hero:HasModifier("modifier_auriun_rune_r_3_effect_strength") then
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_auriun_rune_r_3_effect_strength", 1)
 	end
-	if hero:HasModifier("modifier_mountain_protector_rune_b_c") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_mountain_protector_rune_b_c", CustomAttributes.MOUNTAIN_PROTECTOR_E2_STR)
+	if hero:HasModifier("modifier_mountain_protector_rune_e_2") then
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_mountain_protector_rune_e_2", CustomAttributes.MOUNTAIN_PROTECTOR_E2_STR)
 	end
-	if hero:HasModifier("modifier_mountain_protector_rune_b_d_invisible") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_mountain_protector_rune_b_d_invisible", CustomAttributes.MOUNTAIN_PROTECTOR_R2_STR)
+	if hero:HasModifier("modifier_mountain_protector_rune_r_2_invisible") then
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_mountain_protector_rune_r_2_invisible", CustomAttributes.MOUNTAIN_PROTECTOR_R2_STR)
 	end
-	if hero:HasModifier("modifier_trapper_rune_d_d_bonus_agi") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_trapper_rune_d_d_bonus_agi", CustomAttributes.TRAPPER_R4_AGI)
+	if hero:HasModifier("modifier_trapper_rune_r_4_bonus_agi") then
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_trapper_rune_r_4_bonus_agi", CustomAttributes.TRAPPER_R4_AGI)
 	end
 	if hero:HasModifier("modifier_lightbomb_a_a") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_lightbomb_a_a", CustomAttributes.SEPHYR_Q1_INT)
@@ -602,11 +594,11 @@ function CustomAttributes:GetMaxHealth(hero, strength_health)
 	if hero:HasModifier("modifier_trinket_max_health") then
 		maxHealth = maxHealth + hero:GetModifierStackCount("modifier_trinket_max_health", hero.InventoryUnit)
 	end
-	if hero:HasModifier("modifier_venomort_rune_d_c_invisible") then
-		maxHealth = maxHealth + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_rune_d_c_invisible", 300)
+	if hero:HasModifier("modifier_venomort_rune_e_4_invisible") then
+		maxHealth = maxHealth + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_rune_e_4_invisible", 300)
 	end
-	if hero:HasModifier("modifier_solunia_rune_d_c_effect") then
-		maxHealth = maxHealth + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_rune_d_c_effect", CustomAttributes.SOLUNIA_E4_MAX_HEALTH)
+	if hero:HasModifier("modifier_solunia_rune_e_4_effect") then
+		maxHealth = maxHealth + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_rune_e_4_effect", CustomAttributes.SOLUNIA_E4_MAX_HEALTH)
 	end
 	if hero:HasModifier("modifier_bear_b_d") then
 		maxHealth = maxHealth + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_bear_b_d", CustomAttributes.DJANGHOR_BEAR_MAX_HEALTH)
@@ -649,10 +641,10 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 	tableData.pure = tableData.pure - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_PURE) - 1)*100000
 	local level = unit:GetLevel()
 	if unit:IsHero() then
-		unit.d_a_level = Runes:GetTotalRuneLevelGeneric(unit, 4, 0)
-		unit.d_b_level = Runes:GetTotalRuneLevelGeneric(unit, 4, 1)
-		unit.d_c_level = Runes:GetTotalRuneLevelGeneric(unit, 4, 2)
-		unit.d_d_level = Runes:GetTotalRuneLevelGeneric(unit, 4, 3)
+		unit.q_4_level = Runes:GetTotalRuneLevelGeneric(unit, 4, 0)
+		unit.w_4_level = Runes:GetTotalRuneLevelGeneric(unit, 4, 1)
+		unit.e_4_level = Runes:GetTotalRuneLevelGeneric(unit, 4, 2)
+		unit.r_4_level = Runes:GetTotalRuneLevelGeneric(unit, 4, 3)
 		tableData.elements = {}
 		local damageDealt = 1000
 		local damageNORMAL = Filters:ElementalDamage(Events.GameMaster, unit, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE, false)

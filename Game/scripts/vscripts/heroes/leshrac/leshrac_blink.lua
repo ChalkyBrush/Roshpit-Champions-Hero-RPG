@@ -16,7 +16,7 @@ function HideCaster( event )
     	ability:EndCooldown()
     	ability:StartCooldown(cd*2)
     end
-	caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "bahamut")
+	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "bahamut")
     event.caster.newPosition =  event.target_points[1]
     -- local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_undying/undying_loadout.vpcf", PATTACH_ABSORIGIN, event.caster )
     --     ParticleManager:SetParticleControl( pfx, 0, position )
@@ -63,10 +63,10 @@ function HideCaster( event )
 		EmitSoundOn("Hero_Terrorblade.Reflection", caster)
 	end)
 	-- StartAnimation(caster, {duration=2, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.9})
-	ability.b_c_level = Runes:GetTotalRuneLevel(caster, 2, "b_c", "bahamut")
-	if ability.b_c_level > 0 then
-		ability.b_c_damage = ability.b_c_level*4200 + 6000
-		ability.b_c_duration = ability.b_c_level*0.05
+	ability.e_2_level = Runes:GetTotalRuneLevel(caster, 2, "e_2", "bahamut")
+	if ability.e_2_level > 0 then
+		ability.e_2_damage = ability.e_2_level*4200 + 6000
+		ability.e_2_duration = ability.e_2_level*0.05
 		b_c_sequence(caster, position, fv, ability)
 	end
 	caster:RemoveModifierByName("modifier_pulse_slow")
@@ -87,7 +87,7 @@ function b_c_sequence(caster, position, fv, ability)
 				Target = enemy,
 				Source = caster,
 				Ability = ability,	
-				EffectName = "particles/units/heroes/hero_skywrath_mage/leshrac_rune_b_c_arcane_bolt.vpcf",
+				EffectName = "particles/units/heroes/hero_skywrath_mage/leshrac_rune_e_2_arcane_bolt.vpcf",
 				StartPosition = "attach_attack1",
 				bDrawsOnMinimap = false, 
 			        bDodgeable = true,
@@ -109,11 +109,11 @@ function b_c_strike(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local damage = ability.b_c_damage
+	local damage = ability.e_2_damage
 	EmitSoundOn("Bahamut.Purity.Hit", target)
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 	if not target:HasModifier("modifier_purity_freeze") then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_purity_freeze", {duration = ability.b_c_duration})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_purity_freeze", {duration = ability.e_2_duration})
 	end
 end
 
@@ -136,13 +136,13 @@ function ShowCaster( event )
 	Timers:CreateTimer(3, function()
 		ParticleManager:DestroyParticle(pfx2, false)
 	end)
-	-- local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "a_c", "bahamut")
+	-- local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "bahamut")
 	-- if a_c_level > 0 then
 	-- 	local healAmount = a_c_level*550
-	-- 	healAmount = math.floor(healAmount + 0.0005*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*ability.d_c_level*healAmount)
+	-- 	healAmount = math.floor(healAmount + 0.0005*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*ability.e_4_level*healAmount)
 	-- 	Filters:ApplyHeal(caster, caster, healAmount, true)
 	-- end
-	rune_c_c(caster, event.ability)
+	rune_e_3(caster, event.ability)
 
 end
 
@@ -152,7 +152,7 @@ function leshrac_take_damage(event)
 	local damage = event.damage
 	local luck = RandomInt(1, 10)
 	if luck > 1 then
-		local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "a_c", "bahamut")
+		local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "bahamut")
 		if a_c_level > 0 then
 			local healAmount = math.ceil(damage*0.01*a_c_level)
 			Filters:ApplyHeal(caster, caster, healAmount, true)
@@ -162,11 +162,11 @@ function leshrac_take_damage(event)
 	end
 end
 
-function rune_c_c(caster, ability)
+function rune_e_3(caster, ability)
   local runeUnit = caster.runeUnit3
-  local runeAbility = runeUnit:FindAbilityByName("bahamut_rune_c_c")
+  local runeAbility = runeUnit:FindAbilityByName("bahamut_rune_e_3")
   local abilityLevel = runeAbility:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_c")
+  local bonusLevel = Runes:GetTotalBonus(runeUnit, "e_3")
   local totalLevel = abilityLevel + bonusLevel
   if totalLevel > 0 then
   	local bahamut_pulse = caster:FindAbilityByName("bahamut_pulse")
@@ -178,7 +178,7 @@ function rune_c_c(caster, ability)
   	bahamut_pulse:SetLevel(ability:GetLevel())
   	bahamut_pulse:SetAbilityIndex(2)
   	bahamut_pulse.strikes = 0
-  	bahamut_pulse.c_c_damage = totalLevel*2440 + 3000
+  	bahamut_pulse.e_3_damage = totalLevel*2440 + 3000
   	caster:SwapAbilities("leshrac_blink", "bahamut_pulse", false, true)
   	caster.pulse = true
   end

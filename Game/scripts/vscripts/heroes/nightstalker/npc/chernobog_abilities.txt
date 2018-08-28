@@ -161,7 +161,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"chernobog/chernobog_rune_b_c_arcana2"
+				"TextureName"	"chernobog/chernobog_rune_e_2_arcana2"
 			}
 			"modifier_demonflight_c_c_attack"
 			{
@@ -401,7 +401,7 @@
 
 	}
 
-	"chernobog_rune_a_c_arcana2"
+	"chernobog_rune_e_1_arcana2"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -429,12 +429,12 @@
 		}
 	}
 
-	"chernobog_rune_b_c_arcana2"
+	"chernobog_rune_e_2_arcana2"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"chernobog/chernobog_rune_b_c_arcana2"
+		"AbilityTextureName"	"chernobog/chernobog_rune_e_2_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -447,12 +447,12 @@
 		}
 	}
 
-	"chernobog_rune_c_c_arcana2"
+	"chernobog_rune_e_3_arcana2"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"chernobog/chernobog_rune_c_c_arcana2"
+		"AbilityTextureName"	"chernobog/chernobog_rune_e_3_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -465,12 +465,12 @@
 		}
 	}
 
-	"chernobog_rune_d_c_arcana2"
+	"chernobog_rune_e_4_arcana2"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"chernobog/chernobog_rune_d_c_arcana2"
+		"AbilityTextureName"	"chernobog/chernobog_rune_e_4_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"

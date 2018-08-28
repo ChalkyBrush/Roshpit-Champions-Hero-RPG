@@ -181,7 +181,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
-				"TextureName"		"sorceress/sorceress_rune_b_a_arcana2"
+				"TextureName"		"sorceress/sorceress_rune_q_2_arcana2"
 				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"TextureName"		"crystal_maiden_crystal_nova_icecowl"
 			}
@@ -192,7 +192,7 @@
 				"IsDebuff"			"1"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType"	"follow_origin"
-				"TextureName"		"sorceress/sorceress_rune_b_a_arcana2"
+				"TextureName"		"sorceress/sorceress_rune_q_2_arcana2"
 				"ThinkInterval"  "0.5"
 				"OnIntervalThink"
 				{
@@ -208,7 +208,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-140"
 				}
 			}
-			"modifier_sorceress_rune_b_b_visible"
+			"modifier_sorceress_rune_w_2_visible"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -217,7 +217,7 @@
 				"EffectName"		"particles/items2_fx/veil_of_discord_debuff.vpcf"
 				"EffectAttachType"	"follow_origin"
 			}
-			"modifier_sorceress_rune_b_b_invisible"
+			"modifier_sorceress_rune_w_2_invisible"
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
@@ -1168,7 +1168,7 @@
 	            	}
 				}
 			}
-			"modifier_sorceress_rune_c_d"
+			"modifier_sorceress_rune_r_3"
 			{
 				"IsHidden"	        "0"
 				"IsDebuff"			"1"
@@ -1293,7 +1293,7 @@
 					}
 				}
 			}
-			"modifier_sorceress_rune_b_b_visible"
+			"modifier_sorceress_rune_w_2_visible"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -1302,7 +1302,7 @@
 				"EffectName"		"particles/items2_fx/veil_of_discord_debuff.vpcf"
 				"EffectAttachType"	"follow_origin"
 			}
-			"modifier_sorceress_rune_b_b_invisible"
+			"modifier_sorceress_rune_w_2_invisible"
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"

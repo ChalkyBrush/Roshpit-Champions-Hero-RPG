@@ -35,7 +35,7 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 			var ability = Entities.GetAbility( skill_tree_data, 0 );
 			tooltip = tooltip.replace("[Q1]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+Abilities.GetAbilityName( ability ))+"</font>");
 		}else if (!(requiredHero == "")){
-			tooltip = tooltip.replace("[Q1]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_a_a")+"</font>");
+			tooltip = tooltip.replace("[Q1]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_q_1")+"</font>");
 		}
 	}else if (tooltip.indexOf("[Q2]") > -1){
 		if (queryUnit > 0){
@@ -43,7 +43,7 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 			var ability = Entities.GetAbility( skill_tree_data, 0 );
 			tooltip = tooltip.replace("[Q2]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+Abilities.GetAbilityName( ability ))+"</font>");
 		}else if (!(requiredHero == "")){
-			tooltip = tooltip.replace("[Q2]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_b_a")+"</font>");
+			tooltip = tooltip.replace("[Q2]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_q_2")+"</font>");
 		}
 	}else if (tooltip.indexOf("[Q3]") > -1){
 		if (queryUnit > 0){
@@ -51,7 +51,7 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 			var ability = Entities.GetAbility( skill_tree_data, 0 );
 			tooltip = tooltip.replace("[Q3]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+Abilities.GetAbilityName( ability ))+"</font>");
 		}else if (!(requiredHero == "")){
-			tooltip = tooltip.replace("[Q3]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_c_a")+"</font>");
+			tooltip = tooltip.replace("[Q3]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_q_3")+"</font>");
 		}
 	}else if (tooltip.indexOf("[Q4]") > -1){
 		if (queryUnit > 0){
@@ -59,7 +59,7 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 			var ability = Entities.GetAbility( skill_tree_data, 0 );
 			tooltip = tooltip.replace("[Q4]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+Abilities.GetAbilityName( ability ))+"</font>");
 		}else if (!(requiredHero == "")){
-			tooltip = tooltip.replace("[Q4]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_d_a")+"</font>");
+			tooltip = tooltip.replace("[Q4]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_q_4")+"</font>");
 		}
 	}else if (tooltip.indexOf("[W1]") > -1){
 		if (queryUnit > 0){
@@ -67,7 +67,7 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 			var ability = Entities.GetAbility( skill_tree_data, 1 );
 			tooltip = tooltip.replace("[W1]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+Abilities.GetAbilityName( ability ))+"</font>");
 		}else if (!(requiredHero == "")){
-			tooltip = tooltip.replace("[W1]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_a_b")+"</font>");
+			tooltip = tooltip.replace("[W1]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_w_1")+"</font>");
 		}
 	}else if (tooltip.indexOf("[W2]") > -1){
 		if (queryUnit > 0){
@@ -75,7 +75,7 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 			var ability = Entities.GetAbility( skill_tree_data, 1 );
 			tooltip = tooltip.replace("[W2]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+Abilities.GetAbilityName( ability ))+"</font>");
 		}else if (!(requiredHero == "")){
-			tooltip = tooltip.replace("[W2]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_b_b")+"</font>");
+			tooltip = tooltip.replace("[W2]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_w_2")+"</font>");
 		}
 	}else if (tooltip.indexOf("[W3]") > -1){
 		if (queryUnit > 0){
@@ -83,7 +83,7 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 			var ability = Entities.GetAbility( skill_tree_data, 1 );
 			tooltip = tooltip.replace("[W3]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+Abilities.GetAbilityName( ability ))+"</font>");
 		}else if (!(requiredHero == "")){
-			tooltip = tooltip.replace("[W3]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_c_b")+"</font>");
+			tooltip = tooltip.replace("[W3]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_w_3")+"</font>");
 		}
 	}else if (tooltip.indexOf("[W4]") > -1){
 		if (queryUnit > 0){
@@ -91,7 +91,7 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 			var ability = Entities.GetAbility( skill_tree_data, 1 );
 			tooltip = tooltip.replace("[W4]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+Abilities.GetAbilityName( ability ))+"</font>");
 		}else if (!(requiredHero == "")){
-			tooltip = tooltip.replace("[W4]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_d_b")+"</font>");
+			tooltip = tooltip.replace("[W4]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_w_4")+"</font>");
 		}
 	}else if (tooltip.indexOf("[E1]") > -1){
 		if (queryUnit > 0){
@@ -99,7 +99,7 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 			var ability = Entities.GetAbility( skill_tree_data, 2 );
 			tooltip = tooltip.replace("[E1]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+Abilities.GetAbilityName( ability ))+"</font>");
 		}else if (!(requiredHero == "")){
-			tooltip = tooltip.replace("[E1]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_a_c")+"</font>");
+			tooltip = tooltip.replace("[E1]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_e_1")+"</font>");
 		}
 	}else if (tooltip.indexOf("[E2]") > -1){
 		if (queryUnit > 0){
@@ -107,7 +107,7 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 			var ability = Entities.GetAbility( skill_tree_data, 2 );
 			tooltip = tooltip.replace("[E2]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+Abilities.GetAbilityName( ability ))+"</font>");
 		}else if (!(requiredHero == "")){
-			tooltip = tooltip.replace("[E2]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_b_c")+"</font>");
+			tooltip = tooltip.replace("[E2]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_e_2")+"</font>");
 		}
 	}else if (tooltip.indexOf("[E3]") > -1){
 		if (queryUnit > 0){
@@ -115,7 +115,7 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 			var ability = Entities.GetAbility( skill_tree_data, 2 );
 			tooltip = tooltip.replace("[E3]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+Abilities.GetAbilityName( ability ))+"</font>");
 		}else if (!(requiredHero == "")){
-			tooltip = tooltip.replace("[E3]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_c_c")+"</font>");
+			tooltip = tooltip.replace("[E3]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_e_3")+"</font>");
 		}
 	}else if (tooltip.indexOf("[E4]") > -1){
 		if (queryUnit > 0){
@@ -123,7 +123,7 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 			var ability = Entities.GetAbility( skill_tree_data, 2 );
 			tooltip = tooltip.replace("[E4]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+Abilities.GetAbilityName( ability ))+"</font>");
 		}else if (!(requiredHero == "")){
-			tooltip = tooltip.replace("[E4]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_d_c")+"</font>");
+			tooltip = tooltip.replace("[E4]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_e_4")+"</font>");
 		}
 	}else if (tooltip.indexOf("[R1]") > -1){
 		if (queryUnit > 0){
@@ -131,7 +131,7 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 			var ability = Entities.GetAbility( skill_tree_data, 3 );
 			tooltip = tooltip.replace("[R1]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+Abilities.GetAbilityName( ability ))+"</font>");
 		}else if (!(requiredHero == "")){
-			tooltip = tooltip.replace("[R1]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_a_d")+"</font>");
+			tooltip = tooltip.replace("[R1]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_r_1")+"</font>");
 		}
 	}else if (tooltip.indexOf("[R2]") > -1){
 		if (queryUnit > 0){
@@ -139,7 +139,7 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 			var ability = Entities.GetAbility( skill_tree_data, 3 );
 			tooltip = tooltip.replace("[R2]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+Abilities.GetAbilityName( ability ))+"</font>");
 		}else if (!(requiredHero == "")){
-			tooltip = tooltip.replace("[R2]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_b_d")+"</font>");
+			tooltip = tooltip.replace("[R2]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_r_2")+"</font>");
 		}
 	}else if (tooltip.indexOf("[R3]") > -1){
 		if (queryUnit > 0){
@@ -147,7 +147,7 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 			var ability = Entities.GetAbility( skill_tree_data, 3 );
 			tooltip = tooltip.replace("[R3]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+Abilities.GetAbilityName( ability ))+"</font>");
 		}else if (!(requiredHero == "")){
-			tooltip = tooltip.replace("[R3]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_c_d")+"</font>");
+			tooltip = tooltip.replace("[R3]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_r_3")+"</font>");
 		}
 	}else if (tooltip.indexOf("[R4]") > -1){
 		if (queryUnit > 0){
@@ -155,7 +155,7 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 			var ability = Entities.GetAbility( skill_tree_data, 3 );
 			tooltip = tooltip.replace("[R4]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+Abilities.GetAbilityName( ability ))+"</font>");
 		}else if (!(requiredHero == "")){
-			tooltip = tooltip.replace("[R4]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_d_d")+"</font>");
+			tooltip = tooltip.replace("[R4]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_r_4")+"</font>");
 		}
 	}
 	return tooltip
@@ -298,7 +298,7 @@ function getFlamewakerSkill(slot){
 	}else if(slot == 3){
 		skillName = "DOTA_Tooltip_Ability_flame_ray"
 	}else if(slot == 4){
-		skillName = "DOTA_Tooltip_Ability_example_ability"
+		skillName = "DOTA_Tooltip_Ability_cataclysm"
 	}
 	return skillName
 }
@@ -368,7 +368,7 @@ function getEpochSkill(slot){
 	}else if(slot == 3){
 		skillName = "DOTA_Tooltip_Ability_time_warp"
 	}else if(slot == 4){
-		skillName = "DOTA_Tooltip_Ability_time_ulti"	
+		skillName = "DOTA_Tooltip_Ability_eternity_flood"	
 	}
 	return skillName
 }
@@ -376,13 +376,13 @@ function getEpochSkill(slot){
 function getPaladinSkill(slot){
 	var skillName = ""
 	if (slot == 1){
-		skillName = "DOTA_Tooltip_Ability_holy_wings"
+		skillName = "DOTA_Tooltip_Ability_heroic_fury"
 	}else if(slot == 2){
-		skillName = "DOTA_Tooltip_Ability_holy_cone"
+		skillName = "DOTA_Tooltip_Ability_justice_overwhelming"
 	}else if(slot == 3){
 		skillName = "DOTA_Tooltip_Ability_crusader_dash"
 	}else if(slot == 4){
-		skillName = "DOTA_Tooltip_Ability_holy_ulti"	
+		skillName = "DOTA_Tooltip_Ability_knights_disciple"	
 	}
 	return skillName
 }

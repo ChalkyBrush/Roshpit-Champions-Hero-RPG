@@ -6,7 +6,7 @@ function c_d_end(event)
  local target = event.target
  local ability = event.ability
  local caster = event.caster
- ability:ApplyDataDrivenModifier(caster, target, "modifier_rune_c_d_phoenix_leaving", {duration = 5})
+ ability:ApplyDataDrivenModifier(caster, target, "modifier_rune_r_3_phoenix_leaving", {duration = 5})
  target:SetMoveCapability(DOTA_UNIT_CAP_MOVE_NONE)
  EmitSoundOn("phoenix_phoenix_bird_denied", target)
  local origin = target:GetAbsOrigin()
@@ -28,7 +28,7 @@ function c_d_enter(event)
  	local ability = event.ability
  	local caster = ability.origCaster
 
- 	local damage = ability.c_d_level * ASTRAL_R3_ATTACK_DAMAGE_PERCENT * caster:GetAverageTrueAttackDamage(caster)
+ 	local damage = ability.r_3_level * ASTRAL_R3_ATTACK_DAMAGE_PERCENT * caster:GetAverageTrueAttackDamage(caster)
     print(caster:GetUnitName())
     if caster:HasModifier("modifier_astral_glyph_2_1") then
     	damage = damage*3
@@ -36,7 +36,7 @@ function c_d_enter(event)
     else
     	ability.glyphed = false
     end
-    ability.c_d_damage = damage
+    ability.r_3_damage = damage
 	StartAnimation(target, {duration=1.5, activity=ACT_DOTA_SPAWN, rate=1.0})
 	local origin = target:GetAbsOrigin()+Vector(0,0,600)
 	target:SetAbsOrigin(origin)
@@ -89,7 +89,7 @@ end
 function c_d_projectile_hit(event)
 	local target = event.target
 	local ability = event.ability
-	local damage = ability.c_d_damage
+	local damage = ability.r_3_damage
 	Filters:TakeArgumentsAndApplyDamage(target, ability.origCaster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
 	if ability.glyphed then
 		ability:ApplyDataDrivenModifier(ability.origCaster.runeUnit3, target, "modifier_astral_glyph_2_1_slow", {duration = 4})
@@ -98,10 +98,10 @@ end
 
 function astral_think(event)
 	local caster = event.caster
-    caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "astral")
+    caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "astral")
 
-	local d_c_level = caster.d_c_level
-	local d_c_ability = caster.runeUnit4:FindAbilityByName("astral_rune_d_c")
+	local d_c_level = caster.e_4_level
+	local d_c_ability = caster.runeUnit4:FindAbilityByName("astral_rune_e_4")
 	if d_c_level > 0 then
 		d_c_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_astral_d_c_visible", {})
 		caster:SetModifierStackCount( "modifier_astral_d_c_visible", d_c_ability, d_c_level )

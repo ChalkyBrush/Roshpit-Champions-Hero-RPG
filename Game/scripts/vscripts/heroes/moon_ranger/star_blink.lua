@@ -7,12 +7,12 @@ function star_blink_impact(event)
     local abilityLevel = ability:GetLevel()
     local target = event.target_points[1]
     target = WallPhysics:WallSearch(caster:GetAbsOrigin(), target, caster)
-    rune_a_c(caster, target, ability)
-    rune_b_c(caster)
-    rune_c_c(caster, target)
+    rune_e_1(caster, target, ability)
+    rune_e_2(caster)
+    rune_e_3(caster, target)
     print("particle attached")
-    caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "astral")
-    caster.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "astral")
+    caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "astral")
+    caster.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "astral")
     local delay = 2
     if caster:HasModifier("modifier_astral_glyph_4_1") then
       delay = 1
@@ -43,7 +43,7 @@ function star_blink_impact(event)
         arcana_star_blink_move(caster, ability)
       end
     end)
-    local b_c_level = Runes:GetTotalRuneLevel(caster, 2, "b_c", "astral")
+    local b_c_level = Runes:GetTotalRuneLevel(caster, 2, "e_2", "astral")
     if b_c_level > 0 then
       local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target, nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
       if #enemies > 0 then
@@ -66,26 +66,26 @@ function star_blink_damage(event)
     Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 3, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
 end
 
-function rune_a_c(caster, targetPoint, starAbility)
+function rune_e_1(caster, targetPoint, starAbility)
   local runeUnit = caster.runeUnit
-  local ability = runeUnit:FindAbilityByName("astral_rune_a_c")
+  local ability = runeUnit:FindAbilityByName("astral_rune_e_1")
   local abilityLevel = ability:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_c")
+  local bonusLevel = Runes:GetTotalBonus(runeUnit, "e_1")
   local totalLevel = abilityLevel + bonusLevel
   if totalLevel > 0 then 
     local startPoint = caster:GetAbsOrigin()
-    rune_a_c_projectile(caster, targetPoint, totalLevel, starAbility, startPoint)
+    rune_e_1_projectile(caster, targetPoint, totalLevel, starAbility, startPoint)
     if caster:HasModifier("modifier_astral_glyph_1_1") then
 
         Timers:CreateTimer(1.9, function()
           local nextStartPoint = caster:GetAbsOrigin()
           Timers:CreateTimer(0.1, function()
-            rune_a_c_projectile(caster, nextStartPoint, totalLevel, starAbility, targetPoint)
+            rune_e_1_projectile(caster, nextStartPoint, totalLevel, starAbility, targetPoint)
             Timers:CreateTimer(2, function()
-              rune_a_c_projectile(caster, caster:GetAbsOrigin(), totalLevel, starAbility, nextStartPoint)
+              rune_e_1_projectile(caster, caster:GetAbsOrigin(), totalLevel, starAbility, nextStartPoint)
               nextStartPoint = caster:GetAbsOrigin()
               Timers:CreateTimer(2, function()
-                rune_a_c_projectile(caster, caster:GetAbsOrigin(), totalLevel, starAbility, nextStartPoint)
+                rune_e_1_projectile(caster, caster:GetAbsOrigin(), totalLevel, starAbility, nextStartPoint)
               end)
             end)
           end)
@@ -94,14 +94,14 @@ function rune_a_c(caster, targetPoint, starAbility)
   end
 end
 
-function rune_a_c_projectile(caster, targetPoint, totalLevel, starAbility, startPoint)
+function rune_e_1_projectile(caster, targetPoint, totalLevel, starAbility, startPoint)
   local casterOrigin = startPoint
   local start_radius = 350
   local end_radius = 350
   local range = getDistance(casterOrigin, targetPoint)
   local speed = (range*7)/11
   local fv = getFacingVector(casterOrigin, targetPoint)
-  -- local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "astral")
+  -- local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "astral")
   -- damage = damage + 0.002*caster:GetAgility()/10*d_c_level*damage
 
   starAbility.rootDuration = totalLevel*0.05 + 0.5
@@ -146,22 +146,22 @@ function getFacingVector(a, b)
   return netVector:Normalized()*Vector(1,1,0)
 end
 
-function rune_a_c_strike(event)
+function rune_e_1_strike(event)
   local target = event.target
   local caster = event.caster
   local ability = event.ability
 
   if ability.rootDuration > 0 then
-      local newStacks = math.min(target:GetModifierStackCount("modifier_astral_rune_a_c_visible", caster) + 1, 10)
+      local newStacks = math.min(target:GetModifierStackCount("modifier_astral_rune_e_1_visible", caster) + 1, 10)
 
-      caster:RemoveModifierByName("modifier_astral_rune_a_c_invisible")
-      caster:RemoveModifierByName("modifier_astral_rune_a_c_visible")
+      caster:RemoveModifierByName("modifier_astral_rune_e_1_invisible")
+      caster:RemoveModifierByName("modifier_astral_rune_e_1_visible")
 
-      ability:ApplyDataDrivenModifier(caster, target, "modifier_astral_rune_a_c_invisible", {duration = ability.rootDuration})
-      ability:ApplyDataDrivenModifier(caster, target, "modifier_astral_rune_a_c_visible", {duration = ability.rootDuration})
+      ability:ApplyDataDrivenModifier(caster, target, "modifier_astral_rune_e_1_invisible", {duration = ability.rootDuration})
+      ability:ApplyDataDrivenModifier(caster, target, "modifier_astral_rune_e_1_visible", {duration = ability.rootDuration})
 
-      target:SetModifierStackCount("modifier_astral_rune_a_c_visible", caster, newStacks);
-      target:SetModifierStackCount("modifier_astral_rune_a_c_invisible", caster, newStacks * ability.level);
+      target:SetModifierStackCount("modifier_astral_rune_e_1_visible", caster, newStacks);
+      target:SetModifierStackCount("modifier_astral_rune_e_1_invisible", caster, newStacks * ability.level);
       print('stacksCount')
       print(newStacks)
       print(newStacks * ability.level)
@@ -170,34 +170,34 @@ function rune_a_c_strike(event)
   end
 end
 
-function rune_b_c(caster)
+function rune_e_2(caster)
   local runeUnit = caster.runeUnit2
-  local ability = runeUnit:FindAbilityByName("astral_rune_b_c")
+  local ability = runeUnit:FindAbilityByName("astral_rune_e_2")
   local abilityLevel = ability:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_c")
+  local bonusLevel = Runes:GetTotalBonus(runeUnit, "e_2")
   local totalLevel = abilityLevel + bonusLevel
   if totalLevel > 0 then
     local b_c_duration = Filters:GetAdjustedBuffDuration(caster, 8, false)
-    ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_astral_rune_b_c", {duration = b_c_duration})
-    caster:SetModifierStackCount( "modifier_astral_rune_b_c", ability, totalLevel )
+    ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_astral_rune_e_2", {duration = b_c_duration})
+    caster:SetModifierStackCount( "modifier_astral_rune_e_2", ability, totalLevel )
   end
 end
 
-function rune_c_c(caster, targetPoint)
+function rune_e_3(caster, targetPoint)
   local runeUnit = caster.runeUnit3
-  local ability = runeUnit:FindAbilityByName("astral_rune_c_c")
+  local ability = runeUnit:FindAbilityByName("astral_rune_e_3")
   local abilityLevel = ability:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_c")
+  local bonusLevel = Runes:GetTotalBonus(runeUnit, "e_3")
   local totalLevel = abilityLevel + bonusLevel
   if totalLevel > 0 then
       local c_c_duration = Filters:GetAdjustedBuffDuration(caster, 6.0, false)
-      ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_astral_rune_c_c", {duration = c_c_duration})
-      caster:SetModifierStackCount( "modifier_astral_rune_c_c", ability, totalLevel )
+      ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_astral_rune_e_3", {duration = c_c_duration})
+      caster:SetModifierStackCount( "modifier_astral_rune_e_3", ability, totalLevel )
   end
 
 end
 
-function rune_c_c_think(event)
+function rune_e_3_think(event)
     Filters:CleanseStuns(eventtarget)
     Filters:CleanseSilences(target)
 end

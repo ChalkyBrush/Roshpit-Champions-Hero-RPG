@@ -6,8 +6,8 @@ function spire_toggle_on(event)
 	StartAnimation(caster, {duration=1.2, activity=ACT_DOTA_CAST_ABILITY_3, rate=1.0})
 	EmitSoundOn("Dinath.Spire.ToggleVO", caster)
 	local flight_stacks = math.max(caster:GetModifierStackCount("modifier_dinath_postflight_zheight", caster) + 50, 96)
-	local c_b_level = caster:GetRuneValue("w", 3)
-	if c_b_level > 0 then
+	local w_3_level = caster:GetRuneValue("w", 3)
+	if w_3_level > 0 then
 		local pfx = ParticleManager:CreateParticle("particles/roshpit/dinath/w_inhale.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()+caster:GetForwardVector()*300+Vector(0,0,flight_stacks+50))
 		ParticleManager:SetParticleControl(pfx, 1, caster:GetForwardVector()*-300)
@@ -17,7 +17,7 @@ function spire_toggle_on(event)
 		end)
 	end
 	
-	local speedStacks = c_b_level*8
+	local speedStacks = w_3_level*8
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_spire_breath_speed_burst", {duration = speedStacks*0.03})
 	caster:SetModifierStackCount("modifier_spire_breath_speed_burst", caster, speedStacks)
 	Filters:CastSkillArguments(2, caster)
@@ -29,8 +29,8 @@ function spire_toggle_off(event)
 	StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.2})
 	EmitSoundOn("Dinath.Spire.ToggleOffVO", caster)
 	local flight_stacks = math.max(caster:GetModifierStackCount("modifier_dinath_postflight_zheight", caster) + 50, 96)
-	local c_b_level = caster:GetRuneValue("w", 3)
-	if c_b_level > 0 then
+	local w_3_level = caster:GetRuneValue("w", 3)
+	if w_3_level > 0 then
 		local pfx = ParticleManager:CreateParticle("particles/roshpit/dinath/w_inhale.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()+caster:GetForwardVector()*-50+Vector(0,0,flight_stacks))
 		ParticleManager:SetParticleControl(pfx, 1, caster:GetForwardVector()*300)
@@ -40,7 +40,7 @@ function spire_toggle_off(event)
 	end
 	ability:StartCooldown(1)
 	
-	local speedStacks = c_b_level*8
+	local speedStacks = w_3_level*8
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_spire_breath_speed_burst", {duration = speedStacks*0.03})
 	caster:SetModifierStackCount("modifier_spire_breath_speed_burst", caster, speedStacks)
 	Filters:CastSkillArguments(2, caster)
@@ -94,10 +94,10 @@ function spire_attack_start(event)
 	local lock_duration = 1/attacker:GetAttacksPerSecond()
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_breath_lock", {duration = lock_duration})
 	local radius = 800
-	local d_b_level = caster:GetRuneValue("w", 4)
-	radius = radius + d_b_level*8
+	local w_4_level = caster:GetRuneValue("w", 4)
+	radius = radius + w_4_level*8
 	local splits = event.splits
-	splits = splits + Runes:Procs(d_b_level, 10, 1)
+	splits = splits + Runes:Procs(w_4_level, 10, 1)
 	local count = 0
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES+DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false )
 	if #enemies > 0 then
@@ -129,15 +129,15 @@ end
 function spire_passive_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local a_b_level = caster:GetRuneValue("w", 1)
-	if a_b_level > 0 then
+	local w_1_level = caster:GetRuneValue("w", 1)
+	if w_1_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_spire_breath_a_b_buff", {})
-		caster:SetModifierStackCount("modifier_spire_breath_a_b_buff", caster, a_b_level)
+		caster:SetModifierStackCount("modifier_spire_breath_a_b_buff", caster, w_1_level)
 	else
 		caster:RemoveModifierByName("modifier_spire_breath_a_b_buff")
 	end
-	ability.c_b_level = caster:GetRuneValue("w", 3)
-	if ability.c_b_level > 0 then
+	ability.w_3_level = caster:GetRuneValue("w", 3)
+	if ability.w_3_level > 0 then
 		caster:AddNewModifier( caster, ability, "modifier_dinath_passive_ms_cap", {duration = duration} )
 	else
 		caster:RemoveModifierByName("modifier_dinath_passive_ms_cap")

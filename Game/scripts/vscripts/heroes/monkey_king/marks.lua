@@ -50,10 +50,10 @@ function mark_of_the_fang(event)
 
 	StartAnimation(caster, {duration=0.64, activity=ACT_DOTA_MK_FUR_ARMY, rate=1.0})
 
-	ability.d_a_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
-	if ability.d_a_level > 0 then
+	ability.q_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+	if ability.q_4_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_mark_of_the_fang_rune", {})
-		caster:SetModifierStackCount("modifier_mark_of_the_fang_rune", caster, ability.d_a_level)
+		caster:SetModifierStackCount("modifier_mark_of_the_fang_rune", caster, ability.q_4_level)
 	end
 end
 
@@ -81,10 +81,10 @@ function mark_of_the_claw(event)
 
 	StartAnimation(caster, {duration=0.64, activity=ACT_DOTA_MK_FUR_ARMY, rate=1.0})
 
-	ability.d_a_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
-	if ability.d_a_level > 0 then
+	ability.q_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+	if ability.q_4_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_mark_of_the_claw_rune", {})
-		caster:SetModifierStackCount("modifier_mark_of_the_claw_rune", caster, ability.d_a_level)
+		caster:SetModifierStackCount("modifier_mark_of_the_claw_rune", caster, ability.q_4_level)
 	end
 end
 
@@ -112,10 +112,10 @@ function mark_of_the_talon(event)
 
 	StartAnimation(caster, {duration=0.64, activity=ACT_DOTA_MK_FUR_ARMY, rate=1.0})
 
-	ability.d_a_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
-	if ability.d_a_level > 0 then
+	ability.q_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+	if ability.q_4_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_mark_of_the_talon_rune", {})
-		caster:SetModifierStackCount("modifier_mark_of_the_talon_rune", caster, ability.d_a_level)
+		caster:SetModifierStackCount("modifier_mark_of_the_talon_rune", caster, ability.q_4_level)
 	end
 end
 
@@ -125,9 +125,9 @@ function draghor_attack_land(event)
 	if target.dummy then
 		return false
 	end
-	local a_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 1)
-	if a_b_level > 0 then
-		local damage = event.damage*DJANGHOR_W1_DAMAGE_MULT*a_b_level
+	local w_1_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 1)
+	if w_1_level > 0 then
+		local damage = event.damage*DJANGHOR_W1_DAMAGE_MULT*w_1_level
 		Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NATURE, RPC_ELEMENT_NONE)
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_venomancer/venomancer_venomous_gale_impact.vpcf", target, 0.4)
 	end 

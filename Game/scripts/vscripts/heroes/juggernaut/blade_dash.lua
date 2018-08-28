@@ -20,7 +20,7 @@ function blade_dash_start(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_arcana_dashing", {duration = 4})
 	caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0,0,80))
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Hero_Juggernaut.PreAttack", caster)
-	ability.b_a_level = Runes:GetTotalRuneLevel(caster, 2, "b_a_arcana1", "monk")
+	ability.q_2_level = Runes:GetTotalRuneLevel(caster, 2, "b_a_arcana1", "monk")
 	local particleName = "particles/econ/items/riki/riki_immortal_ti6/riki_immortal_ti6_blinkstrike_gold.vpcf"
 	local pfx = 0
 	if ability.target then
@@ -38,15 +38,15 @@ function blade_dash_start(event)
 
 	ability.damage = event.damage_attack*caster:GetAverageTrueAttackDamage(caster)/100
 	ability.pfx = pfx
-	caster.d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "monk")
-	local c_a_level = Runes:GetTotalRuneLevel(caster, 3, "c_a_arcana1", "monk")
-	if c_a_level > 0 then
+	caster.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "monk")
+	local q_3_level = Runes:GetTotalRuneLevel(caster, 3, "c_a_arcana1", "monk")
+	if q_3_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_arcana_agility_buff", {duration = 10})
-		caster:SetModifierStackCount("modifier_seinaru_arcana_agility_buff", caster, c_a_level)
+		caster:SetModifierStackCount("modifier_seinaru_arcana_agility_buff", caster, q_3_level)
 	end
-	local d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a_arcana1", "monk")
-	if d_a_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_arcana_evasion_buff", {duration = d_a_level*0.15})
+	local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "d_a_arcana1", "monk")
+	if q_4_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_arcana_evasion_buff", {duration = q_4_level*0.15})
 	end
 	Filters:CastSkillArguments(1, caster)
 
@@ -117,7 +117,7 @@ function arcana_dashing_think(event)
 			end
 			StartAnimation(caster, {duration=0.6, activity=ACT_DOTA_ATTACK, rate=2.0})
 			ParticleManager:DestroyParticle(ability.pfx, false)
-			if ability.b_a_level > 0 then
+			if ability.q_2_level > 0 then
 				if #caster.bladeTableArcana < 3 then
 					local sword = CreateUnitByName("selethas_boomerang", caster:GetAbsOrigin()+Vector(0,0,100), false, caster, nil, caster:GetTeamNumber())
 					ability:ApplyDataDrivenModifier(caster, sword, "modifier_seinaru_flying_sword_modifier", {})
@@ -132,7 +132,7 @@ function arcana_dashing_think(event)
 					ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_flying_sword_buff_visible", {})
 					caster:SetModifierStackCount("modifier_seinaru_flying_sword_buff_visible", caster, #caster.bladeTableArcana)
 					ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_flying_sword_buff_invisible", {})
-					caster:SetModifierStackCount("modifier_seinaru_flying_sword_buff_invisible", caster, #caster.bladeTableArcana*ability.b_a_level)
+					caster:SetModifierStackCount("modifier_seinaru_flying_sword_buff_invisible", caster, #caster.bladeTableArcana*ability.q_2_level)
 					sword.index = #caster.bladeTableArcana
 				end
 			end
@@ -153,10 +153,10 @@ function arcana_attack_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	-- local a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a_arcana1", "monk")
-	local a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a_arcana1", "monk")
-	ability.a_a_level = a_a_level
-	if a_a_level > 0 then
+	-- local q_1_level = Runes:GetTotalRuneLevel(caster, 1, "a_a_arcana1", "monk")
+	local q_1_level = Runes:GetTotalRuneLevel(caster, 1, "a_a_arcana1", "monk")
+	ability.q_1_level = q_1_level
+	if q_1_level > 0 then
 		local luck = RandomInt(1, 5)
 		if luck == 1 then
 			CustomAbilities:QuickAttachParticle("particles/econ/items/phantom_assassin/phantom_assassin_weapon_runed_scythe/phantom_assassin_attack_blur_crit_runed_scythe.vpcf", caster, 2.5)
@@ -181,7 +181,7 @@ function arcana_attack_start(event)
 				end
 			end
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_a_a_crit", {duration = 1.5})
-			-- local damageBonus = caster:GetAverageTrueAttackDamage(caster)*0.3*a_a_level
+			-- local damageBonus = caster:GetAverageTrueAttackDamage(caster)*0.3*q_1_level
 			-- caster:SetModifierStackCount("modifier_seinaru_a_a_crit", caster, damageBonus)
 		end
 	end
@@ -192,7 +192,7 @@ function arcana_attack_land(event)
 	local ability = event.ability
 	local target = event.target
 	if caster:HasModifier("modifier_seinaru_a_a_crit") then
-		local critDamage = caster:GetAverageTrueAttackDamage(caster)*1.5*ability.a_a_level
+		local critDamage = caster:GetAverageTrueAttackDamage(caster)*1.5*ability.q_1_level
 		ApplyDamage({ victim = target, attacker = caster, damage = critDamage, damage_type = DAMAGE_TYPE_PHYSICAL })
 		PopupDamage(target, critDamage)
 		Timers:CreateTimer(0.03, function()
@@ -225,7 +225,7 @@ function arcana_attack_land(event)
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_flying_sword_buff_visible", {})
 				caster:SetModifierStackCount("modifier_seinaru_flying_sword_buff_visible", caster, #caster.bladeTableArcana)
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_flying_sword_buff_invisible", {})
-				caster:SetModifierStackCount("modifier_seinaru_flying_sword_buff_invisible", caster, #caster.bladeTableArcana*ability.b_a_level)
+				caster:SetModifierStackCount("modifier_seinaru_flying_sword_buff_invisible", caster, #caster.bladeTableArcana*ability.q_2_level)
 			else
 				caster:RemoveModifierByName("modifier_seinaru_flying_sword_buff_visible")
 				caster:RemoveModifierByName("modifier_seinaru_flying_sword_buff_invisible")

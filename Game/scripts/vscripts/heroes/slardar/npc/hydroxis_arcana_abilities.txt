@@ -225,7 +225,7 @@
 				"IsDebuff"	"1"
 				"EffectName"	"particles/roshpit/hydroxis/arcana/basin_root.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"TexureName"	"hydroxis/hydroxis_rune_c_d_arcana2"
+				"TexureName"	"hydroxis/hydroxis_rune_r_3_arcana2"
 				"States"
 				{
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -307,12 +307,12 @@
 
 	}
 
-	"hydroxis_rune_a_d_arcana2"
+	"hydroxis_rune_r_1_arcana2"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"hydroxis/hydroxis_rune_a_d_arcana2"
+		"AbilityTextureName"	"hydroxis/hydroxis_rune_r_1_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -330,12 +330,12 @@
 		}
 	}
 
-	"hydroxis_rune_b_d_arcana2"
+	"hydroxis_rune_r_2_arcana2"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"hydroxis/hydroxis_rune_b_d_arcana2"
+		"AbilityTextureName"	"hydroxis/hydroxis_rune_r_2_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -348,12 +348,12 @@
 		}
 	}
 
-	"hydroxis_rune_c_d_arcana2"
+	"hydroxis_rune_r_3_arcana2"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"hydroxis/hydroxis_rune_c_d_arcana2"
+		"AbilityTextureName"	"hydroxis/hydroxis_rune_r_3_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -376,12 +376,12 @@
 		}
 	}
 
-	"hydroxis_rune_d_d_arcana2"
+	"hydroxis_rune_r_4_arcana2"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"hydroxis/hydroxis_rune_d_d_arcana2"
+		"AbilityTextureName"	"hydroxis/hydroxis_rune_r_4_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"

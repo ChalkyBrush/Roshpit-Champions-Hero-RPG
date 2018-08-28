@@ -46,7 +46,7 @@ function drop_end(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local location = caster:GetAbsOrigin()
-	local a_d_level = Runes:GetTotalRuneLevel(caster.conjuror, 1, "a_d", "conjuror")
+	local a_d_level = Runes:GetTotalRuneLevel(caster.conjuror, 1, "r_1", "conjuror")
 	FindClearSpaceForUnit(caster, location, false)
 	if a_d_level > 0 then
 		local quakeAbility = caster.conjuror:FindAbilityByName("earthquake")
