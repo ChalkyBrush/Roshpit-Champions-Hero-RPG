@@ -9,9 +9,9 @@
 	<Panel class="HeroMenu">
 		<Panel id="boxer">
 		</Panel>
-		<Button class="ItemMenuButton" id="trade-request" onmouseactivate="traderequest()">
+<!-- 		<Button class="ItemMenuButton" id="trade-request" onmouseactivate="traderequest()">
 			<Label class="menu-label" id="trade-request-label" text="Trade" />
-		</Button>
+		</Button> -->
 		<Button class="ItemMenuButton" id="stars-request" onmouseactivate="star_request()">
 			<Label class="menu-label" id="stars-request-label" text="stars_menu" />
 		</Button>

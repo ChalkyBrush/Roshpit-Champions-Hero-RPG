@@ -46,9 +46,6 @@ function channel_complete(event)
 	ParticleManager:SetParticleControl(hailstormThinker.pfx, 0, hailstormThinker:GetAbsOrigin())
 
 	local duration = 14
-	if caster:HasModifier("modifier_mountain_protector_glyph_3_1") then
-		duration = duration + 2
-	end
 	ability:ApplyDataDrivenModifier(caster, hailstormThinker, "modifier_hailstorm_thinker", {duration = duration})
 	ability:ApplyDataDrivenModifier(caster, hailstormThinker, "modifier_hailstorm_thinker_enemy", {duration = duration})
 	ability:ApplyDataDrivenModifier(caster, hailstormThinker, "modifier_hailstorm_aura_friendly", {duration = duration})
@@ -107,10 +104,17 @@ function hailstorm_explosion(caster, position, damage, amp, explosionAOE, abilit
 		end)	
 		EmitSoundOnLocationWithCaster(position, "MysticAssasin.HailstormExplosion", caster)
 
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, explosionAOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+		local targetFlag = 0
+		local damageType = DAMAGE_TYPE_MAGICAL
+		if caster:HasModifier("modifier_mountain_protector_glyph_3_1") then
+			damageType = DAMAGE_TYPE_PURE
+			targetFlag = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+		end
+
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, explosionAOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, targetFlag, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_EARTH, RPC_ELEMENT_ICE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, damageType, 4, RPC_ELEMENT_EARTH, RPC_ELEMENT_ICE)
 				Filters:ApplyStun(caster, stun_duration+a_c_stun_duration, enemy)
 			end
 		end 

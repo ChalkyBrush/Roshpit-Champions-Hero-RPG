@@ -178,11 +178,11 @@ function GameMode:_InitGameMode()
 
   CustomGameEventManager:RegisterListener( "flash_heal", Dynamic_Wrap(CustomAbilities, "UpdateAuriunCursorPosition"))
 
-  CustomGameEventManager:RegisterListener( "tradeRequest", Dynamic_Wrap(RPCItems, "InitiateTrade"))
-  CustomGameEventManager:RegisterListener( "cancel_trade", Dynamic_Wrap(RPCItems, "CancelTrade"))
-  CustomGameEventManager:RegisterListener( "item_placed_in_trade", Dynamic_Wrap(RPCItems, "ItemPlaceInTrade"))
-  CustomGameEventManager:RegisterListener( "item_removed_from_trade", Dynamic_Wrap(RPCItems, "ItemRemoveFromTrade"))
-  CustomGameEventManager:RegisterListener( "update_trade_lock", Dynamic_Wrap(RPCItems, "UpdateLock"))
+  -- CustomGameEventManager:RegisterListener( "tradeRequest", Dynamic_Wrap(RPCItems, "InitiateTrade"))
+  -- CustomGameEventManager:RegisterListener( "cancel_trade", Dynamic_Wrap(RPCItems, "CancelTrade"))
+  -- CustomGameEventManager:RegisterListener( "item_placed_in_trade", Dynamic_Wrap(RPCItems, "ItemPlaceInTrade"))
+  -- CustomGameEventManager:RegisterListener( "item_removed_from_trade", Dynamic_Wrap(RPCItems, "ItemRemoveFromTrade"))
+  -- CustomGameEventManager:RegisterListener( "update_trade_lock", Dynamic_Wrap(RPCItems, "UpdateLock"))
 
   CustomGameEventManager:RegisterListener( "glyph_in_slot", Dynamic_Wrap(Glyphs, "PlaceGlyphInSlot"))
   CustomGameEventManager:RegisterListener( "upgrade_arcane_tier", Dynamic_Wrap(Glyphs, "UpgradeArcaneTier"))
