@@ -2,6 +2,9 @@ function target_dummy_take_damage(event)
 	local caster = event.caster
 	local ability = event.ability
 	local bInit = false
+	if not caster.angle then
+		caster.angle = -45
+	end
 	if event.attacker:IsHero() then
 		bInit = true
 	end
@@ -23,7 +26,7 @@ function target_dummy_take_damage(event)
 		ability.moveMomentum = math.min(ability.moveMomentum + 10, 60)
 		ability.sway = ability.sway + ability.moveMomentum
 		local actualSway = math.sin(math.pi*(ability.sway/60))*45
-		caster:SetAngles(actualSway, -45, 0)
+		caster:SetAngles(actualSway, caster.angle, 0)
 	end
 end
 
@@ -74,7 +77,7 @@ function moveDummyTowardCenter(caster, ability)
 					ability.sway = ability.sway + 1.8
 				end
 				local actualSway = math.sin(math.pi*(ability.sway/90))*baseMaxSway
-				caster:SetAngles(actualSway, -45, 0)
+				caster:SetAngles(actualSway, caster.angle, 0)
 			end
 		end
 		return
@@ -94,7 +97,7 @@ function moveDummyTowardCenter(caster, ability)
 	end
 	if angleVector.x > 0 or angleVector.x < 0 then
 		local actualSway = math.sin(math.pi*(ability.sway/90))*baseMaxSway
-		caster:SetAngles(actualSway, -45, 0)
+		caster:SetAngles(actualSway, caster.angle, 0)
 	end
 end
 
@@ -102,7 +105,7 @@ function endTargetDummy(event)
 	local caster = event.caster
 	local attacker = EntIndexToHScript(caster.attackerIndex)
 	attacker:RemoveModifierByName("modifier_attacking_dummy")
-	caster:SetAngles(0, -45, 0)
+	caster:SetAngles(0, caster.angle, 0)
 	caster.attackerIndex = -1
 	caster:RemoveModifierByName("modifier_dummy_timer")
 	caster:SetPhysicalArmorBaseValue(0)

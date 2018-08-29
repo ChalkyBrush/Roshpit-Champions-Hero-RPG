@@ -189,6 +189,9 @@ function GameMode:PostLoadPrecache()
   if GameState:IsWinterblight() then
     Precache:Winterblight()
   end
+  if GameState:IsTutorial() then
+    Precache:Tutorial()
+  end
 end
 
 function superPrecache()
@@ -281,6 +284,8 @@ function GameMode:OnAllPlayersLoaded()
     require('worlds/sea_fortress/seafortress')
   elseif GameState:IsWinterblight() then
     require('worlds/winterblight/winterblight')
+  elseif GameState:IsTutorial() then
+    require('worlds/tutorial/tutorial')
   end
 end
 

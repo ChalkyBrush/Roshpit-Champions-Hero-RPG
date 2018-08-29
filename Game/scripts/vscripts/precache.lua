@@ -425,6 +425,17 @@ function Precache:Winterblight()
 	end
 end
 
+function Precache:Tutorial()
+	local unitTable = {"tutorial_master"}
+	for i = 1, #unitTable, 1 do
+		Timers:CreateTimer(i*0.3, 
+		function()
+			print("precaching: "..unitTable[i])
+			PrecacheUnitByNameAsync(unitTable[i], function(...) end)
+	    end)
+	end
+end
+
 --###################
 --PRECACHE SYNC TEST
 --###################

@@ -1,5 +1,5 @@
 WINTERBLIGHT_UNITS:worlds\winterblight\winterblight_units.txt
-
+TUTORIAL_UNITS:worlds\tutorial\tutorial_units.txt
 
 TRAPPER_UNITS:heroes\lanaya\npc\units.txt
 

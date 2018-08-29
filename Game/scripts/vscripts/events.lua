@@ -117,6 +117,8 @@ function GameMode:OnGameRulesStateChange(keys)
         Seafortress:Init()
     elseif GameState:IsWinterblight() then
         Winterblight:InitCamp()
+    elseif GameState:IsTutorial() then
+        Tutorial:InitTutorialMap()
     end
 
     if GameState:IsPVPAlpha() then

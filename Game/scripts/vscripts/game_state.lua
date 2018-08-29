@@ -135,6 +135,15 @@ function GameState:IsSerengaardEarlyCheck()
 	end
 end
 
+function GameState:IsTutorial()
+	local mapName = Events.MapName
+	if mapName == "rpc_tutorial" then
+		return true
+	else
+		return false
+	end
+end
+
 
 function GameState:IsPVPAlpha()
 	local mapName = Events.MapName

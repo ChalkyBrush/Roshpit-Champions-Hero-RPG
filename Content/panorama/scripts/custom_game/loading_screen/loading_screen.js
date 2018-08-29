@@ -65,6 +65,10 @@ function SetMapImage(){
 		$('#seq_bg').SetImage("file://{images}/custom_game/loading_screen/descent_of_winterblight_load.jpg")
 		status = 1
 	}
+	if(mapName === "tutorial"){
+		$('#seq_bg').SetImage("file://{images}/custom_game/loading_screen/tutorial_load.jpg")
+		status = 1
+	}
 	if (status == 1){
 		UpdateValidDifficulties()
 	}
@@ -114,6 +118,9 @@ function getMap(){
 	if (mapName === "rpc_winterblight_mountain" || mapName == "rpc_winterblight_mountain_work"){
 		map = "winterblight"
 	}
+	if (mapName === "rpc_tutorial"){
+		map = "tutorial"
+	}
 	return map
 }
 
@@ -138,6 +145,8 @@ function UpdateValidDifficulties(){
 		$('#difficulty_container3').RemoveClass('invisible')
 	}else if(mapName == "rpc_pvp_linewar_no_oracle"){
 		$('#difficulty_vote_container').AddClass('invisible')
+	}else if(mapName == "rpc_tutorial"){
+		$('#difficulty_container1').RemoveClass('invisible')
 	}else{
 		$('#difficulty_container1').RemoveClass('invisible')
 		$('#difficulty_container2').RemoveClass('invisible')
