@@ -84,7 +84,7 @@ function Tanari:Debug()
     -- RPCItems:RollSoluniaArcana2(Vector(-4928, 2048))
     -- SaveLoad:KeyDebug()
     RPCItems:RollMountainProtectorArcana2(Vector(-4928, 2048))
-
+    Curator:CurateALLHeroes()
     -- RPCItems:RollBahamutArcana2(Vector(-4928, 2048))
     -- Glyphs:RollGlyphAll("item_rpc_flamewaker_glyph_4_1", Vector(-4928, 2048), 0)
 

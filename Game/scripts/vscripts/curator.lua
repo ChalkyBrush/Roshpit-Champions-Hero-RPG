@@ -873,3 +873,19 @@ end
 
 function Curator:OpenSoulBank()
 end
+
+function Curator:CurateALLHeroes()
+	local hero_table = HerosCustom:GetAvailableHerosTable()
+	local playerID = MAIN_HERO_TABLE[1]:GetPlayerOwnerID()
+	for i = 1, #hero_table, 1 do
+		local delay = (i-1)*60 + 5
+		Timers:CreateTimer(delay, function()
+			PlayerResource:ReplaceHeroWith(playerID, hero_table[i], 0, 0)
+			Timers:CreateTimer(1, function()
+				local hero = GameState:GetHeroByPlayerID(playerID)
+				print("Curating: "..hero:GetUnitName())
+				Curator:FullCurateHero(hero)
+			end)
+		end)
+	end
+end
