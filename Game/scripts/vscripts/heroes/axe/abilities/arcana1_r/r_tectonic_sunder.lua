@@ -10,7 +10,7 @@ function startChannel(event)
     local caster = event.caster
     local ability = event.ability
     ability.isInterrupted = false
-    Helper.initializeAbilityRunes(caster, 'axe', 'd')
+    Helper.initializeAbilityRunes(caster, 'axe', 'r')
     ImmortalWeapon3.amplifyShieldsCount(caster)
 
 

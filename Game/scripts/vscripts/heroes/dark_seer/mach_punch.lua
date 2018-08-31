@@ -46,16 +46,16 @@ function mach_punch_cast(event)
 	print("MACH PUNCH GO!")
 	if caster:HasModifier("modifier_temporal_discharge") then
 		local stacks = caster:GetModifierStackCount("modifier_temporal_discharge", caster)
-		local b_b_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
-		damage = damage + damage*0.01*stacks*b_b_level
+		local w_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
+		damage = damage + damage*0.01*stacks*w_2_level
 		caster:RemoveModifierByName("modifier_temporal_discharge")
 	end
 	if event.arcana_missle_amp then
 		damage = damage*event.arcana_missle_amp
 	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PHYSICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_TIME)
-	local a_b_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
-	if a_b_level > 0 then
+	local w_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
+	if w_1_level > 0 then
 		local pfx = ParticleManager:CreateParticle("particles/roshpit/zonik/sonic_boom_fallback_mid_egset.vpcf", PATTACH_CUSTOMORIGIN, caster )
 		ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin())
 		local particleRadius = 92
@@ -74,7 +74,7 @@ function mach_punch_cast(event)
 			ParticleManager:DestroyParticle(pfx, false)
 			ParticleManager:ReleaseParticleIndex(pfx)
 		end)
-		local a_b_damage = damage*0.04*a_b_level
+		local a_b_damage = damage*0.04*w_1_level
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, searchRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
@@ -117,8 +117,8 @@ function mach_punch_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	local b_b_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
-	if b_b_level > 0 then
+	local w_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
+	if w_2_level > 0 then
 		if not ability.distanceMoved then
 			ability.distanceMoved = 0
 		end
@@ -138,15 +138,15 @@ function mach_punch_think(event)
 		end
 	end
 	if caster:IsRooted() or caster:IsStunned() or caster:HasModifier("modifier_knockback") then
-		local c_b_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
-		if c_b_level > 0 then
+		local w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+		if w_3_level > 0 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_mach_punch_whiplash", {})
 			local newStacks = caster:GetModifierStackCount("modifier_mach_punch_whiplash", caster) + 1
 			caster:SetModifierStackCount("modifier_mach_punch_whiplash", caster, newStacks)
 		end
 	else
 		if caster:HasModifier("modifier_mach_punch_whiplash") then
-			local c_b_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+			local w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
 
 			local pfx = ParticleManager:CreateParticle("particles/roshpit/zonik/whiplash_choslam_start.vpcf", PATTACH_CUSTOMORIGIN, caster )
 			ParticleManager:SetParticleControl(pfx, 0,caster:GetAbsOrigin())
@@ -155,11 +155,11 @@ function mach_punch_think(event)
 				ParticleManager:DestroyParticle(pfx, false)
 				ParticleManager:ReleaseParticleIndex(pfx)
 			end)
-			local c_b_damage = caster:GetModifierStackCount("modifier_mach_punch_whiplash", caster)*1000*c_b_level
+			local c_b_damage = caster:GetModifierStackCount("modifier_mach_punch_whiplash", caster)*1000*w_3_level
 			if caster:HasModifier("modifier_zonik_immortal_weapon_1") then
 				c_b_damage = c_b_damage*4
 			end
-			local stun_duration = 0.005*c_b_level*caster:GetModifierStackCount("modifier_mach_punch_whiplash", caster)
+			local stun_duration = 0.005*w_3_level*caster:GetModifierStackCount("modifier_mach_punch_whiplash", caster)
 			caster:RemoveModifierByName("modifier_mach_punch_whiplash")
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 550, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 			if #enemies > 0 then
@@ -179,14 +179,14 @@ function mach_punch_attack_land(event)
 	local target = event.target
 	local ability = event.ability
 	local attack_damage = event.attack_damage
-	local d_b_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
-	if d_b_level > 0 then
+	local w_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
+	if w_4_level > 0 then
 		if not target.dummy then
 			ability:ApplyDataDrivenModifier(attacker, target, "modifier_zonik_echo", {duration = 4})
 			if not target.zonikEcho then
 				target.zonikEcho = 0
 			end
-			target.zonikEcho = target.zonikEcho + attack_damage*d_b_level*0.012
+			target.zonikEcho = target.zonikEcho + attack_damage*w_4_level*0.012
 			print(target.zonikEcho)
 			print(target:GetEntityIndex())
 		end

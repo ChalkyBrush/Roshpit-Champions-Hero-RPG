@@ -81,9 +81,9 @@ function solarang_start(event)
     boomerang.rotationAngle = 0
     boomerang.interval = 0
     boomerang:SetModelScale(0)
-    boomerang.a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "solunia")
-    boomerang.b_b_level = Runes:GetTotalRuneLevel(caster, 2, "b_b", "solunia")
-    boomerang.d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "solunia")
+    boomerang.w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "solunia")
+    boomerang.w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "solunia")
+    boomerang.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "solunia")
     boomerang:SetAbsOrigin(boomerang:GetAbsOrigin()+Vector(0,0,90)+fv*58-boomerang.spinAngularVelocity*28)
 
     boomerang.throwPower = WallPhysics:GetDistance2d(target, caster:GetAbsOrigin())/30 + 6
@@ -109,16 +109,16 @@ function solarang_start(event)
 end
 
 function a_c_prep(caster, boomerang)
-    if caster:HasModifier("modifier_solunia_rune_a_c_ready") then
-	    local currentStacks = caster:GetModifierStackCount("modifier_solunia_rune_a_c_ready", caster)
+    if caster:HasModifier("modifier_solunia_rune_e_1_ready") then
+	    local currentStacks = caster:GetModifierStackCount("modifier_solunia_rune_e_1_ready", caster)
 	    if currentStacks > 1 then
-	        caster:SetModifierStackCount("modifier_solunia_rune_a_c_ready", caster, currentStacks-1)
+	        caster:SetModifierStackCount("modifier_solunia_rune_e_1_ready", caster, currentStacks-1)
 	    else
-	        caster:RemoveModifierByName("modifier_solunia_rune_a_c_ready")
+	        caster:RemoveModifierByName("modifier_solunia_rune_e_1_ready")
 	    end
-	    boomerang.a_c_level = Runes:GetTotalRuneLevel(caster, 1, "a_c", "solunia")
+	    boomerang.e_1_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "solunia")
     else
-    	boomerang.a_c_level = 0
+    	boomerang.e_1_level = 0
     end
 end
 
@@ -190,7 +190,7 @@ function boomerang_thinking(event)
 		end
 	end
 
-	if caster.a_c_level > 0 then
+	if caster.e_1_level > 0 then
 		a_c_explosion(caster, finalMoveVector)
 	end
 end
@@ -258,8 +258,8 @@ function a_c_explosion(caster, finalMoveVector)
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
 				print(caster.damage)
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster.origCaster, caster.damage*(1+caster.a_c_level*0.5), damageType, 2, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
-				Filters:ApplyStun(caster.origCaster, caster.a_c_level*0.05, enemy)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster.origCaster, caster.damage*(1+caster.e_1_level*0.5), damageType, 2, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+				Filters:ApplyStun(caster.origCaster, caster.e_1_level*0.05, enemy)
 			end
 		end 
 		boomerangFinishAll(caster)
@@ -315,9 +315,9 @@ function lunarang_start(event)
     boomerang.rotationAngle = 0
     boomerang.interval = 0
     boomerang:SetModelScale(0)
-    boomerang.a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "solunia")
-    boomerang.b_b_level = Runes:GetTotalRuneLevel(caster, 2, "b_b", "solunia")
-    boomerang.d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "solunia")
+    boomerang.w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "solunia")
+    boomerang.w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "solunia")
+    boomerang.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "solunia")
     boomerang:SetAbsOrigin(boomerang:GetAbsOrigin()+Vector(0,0,90)+fv*58-boomerang.spinAngularVelocity*28)
 
     boomerang.throwPower = WallPhysics:GetDistance2d(target, caster:GetAbsOrigin())/30 + 6
@@ -367,11 +367,11 @@ function boomerang_impact(caster, ability, target)
 			damageType = DAMAGE_TYPE_PURE
 		end
 		local damage = caster.damage
-		if caster.a_b_level > 0 then
+		if caster.w_1_level > 0 then
 			local luck = RandomInt(1,1000)
-			if luck <= (150 + caster.a_b_level) then
+			if luck <= (150 + caster.w_1_level) then
 				EmitSoundOn("Solunia.BoomerangCrit", caster)
-				damage = damage*caster.a_b_level*0.12 + damage
+				damage = damage*caster.w_1_level*0.12 + damage
 				local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, target )
 				ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "follow_origin", target:GetAbsOrigin(), true)
 				ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_ABSORIGIN_FOLLOW, "follow_origin", target:GetAbsOrigin(), true)
@@ -400,12 +400,12 @@ function boomerang_impact(caster, ability, target)
 				end
 			end
 		end
-		if caster.b_b_level > 0 then
+		if caster.w_2_level > 0 then
 			local solarang = caster.origCaster:FindAbilityByName("solunia_solarang")
 			solarang:ApplyDataDrivenModifier(caster.origCaster, target, "modifier_boomerang_magic_marker", {duration = 10})
-			target:SetModifierStackCount("modifier_boomerang_magic_marker", caster.origCaster, caster.b_b_level)
+			target:SetModifierStackCount("modifier_boomerang_magic_marker", caster.origCaster, caster.w_2_level)
 		end
-		if caster.d_b_level > 0 then
+		if caster.w_4_level > 0 then
 			if not caster.origCaster:HasModifier("modifier_black_widow_stacks") then
 				caster.origAbility:ApplyDataDrivenModifier(caster.origCaster, caster.origCaster, "modifier_black_widow_stacks", {})
 			end
@@ -449,14 +449,14 @@ function EndMarkerParticle( event )
 end
 
 function c_b_prep(caster, boomerang)
-	local c_b_level = Runes:GetTotalRuneLevel(caster, 3, "c_b", "solunia")
-	if c_b_level > 0 then
-		boomerang.damage = boomerang.damage + caster:GetAverageTrueAttackDamage(caster)*0.06*c_b_level
+	local w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "solunia")
+	if w_3_level > 0 then
+		boomerang.damage = boomerang.damage + caster:GetAverageTrueAttackDamage(caster)*0.06*w_3_level
 	end
 end
 
 function d_b_prep(caster, boomerang, ability)
-	if boomerang.d_b_level > 0 then
+	if boomerang.w_4_level > 0 then
 		local stackCount = caster:GetModifierStackCount("modifier_black_widow_stacks", caster)
 		if stackCount >= 50 then
 			caster:RemoveModifierByName("modifier_black_widow_stacks")
@@ -472,11 +472,11 @@ function d_b_prep(caster, boomerang, ability)
 				ParticleManager:DestroyParticle(pfx, false)
 				ParticleManager:ReleaseParticleIndex(pfx)
 			end)
-			local duration = boomerang.d_b_level*0.35 + 3
+			local duration = boomerang.w_4_level*0.35 + 3
 			duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 			local solarangAbility = caster:FindAbilityByName("solunia_solarang")
 			solarangAbility:ApplyDataDrivenModifier(caster, caster, "modifier_black_widow_invisible_damage_buff", {duration = duration})
-			caster:SetModifierStackCount("modifier_black_widow_invisible_damage_buff", caster, boomerang.d_b_level)
+			caster:SetModifierStackCount("modifier_black_widow_invisible_damage_buff", caster, boomerang.w_4_level)
 			solarangAbility:ApplyDataDrivenModifier(caster, caster, "modifier_black_widow", {duration = duration})
 
 			solarangAbility:ApplyDataDrivenModifier(caster, caster, "modifier_black_widow_invis_range_debuff", {duration = duration})

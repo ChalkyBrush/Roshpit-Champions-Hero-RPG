@@ -241,54 +241,54 @@ function Hand:addItemModifier(propertyValue, hero, inventory_unit, modifier_name
 end
 
 function Hand:runeProperty(propertyName, propertyValue, hero)
-	if propertyName == "rune_a_a" then
-		hero.runeUnit.hand.a_a = hero.runeUnit.hand.a_a + propertyValue
-		Hand:setRuneBonusNetTable(hero.runeUnit.hand.a_a, propertyName, hero)
-	elseif propertyName == "rune_a_b" then
-		hero.runeUnit.hand.a_b = hero.runeUnit.hand.a_b + propertyValue
-		Hand:setRuneBonusNetTable(hero.runeUnit.hand.a_b, propertyName, hero)
-	elseif propertyName == "rune_a_c" then
-		hero.runeUnit.hand.a_c = hero.runeUnit.hand.a_c + propertyValue
-		Hand:setRuneBonusNetTable(hero.runeUnit.hand.a_c, propertyName, hero)
-	elseif propertyName == "rune_a_d" then
-		hero.runeUnit.hand.a_d = hero.runeUnit.hand.a_d + propertyValue
-		Hand:setRuneBonusNetTable(hero.runeUnit.hand.a_d, propertyName, hero)
-	elseif propertyName == "rune_b_a" then
-		hero.runeUnit2.hand.b_a = hero.runeUnit2.hand.b_a + propertyValue
-		Hand:setRuneBonusNetTable(hero.runeUnit2.hand.b_a, propertyName, hero)
-	elseif propertyName == "rune_b_b" then
-		hero.runeUnit2.hand.b_b = hero.runeUnit2.hand.b_b + propertyValue
-		Hand:setRuneBonusNetTable(hero.runeUnit2.hand.b_b, propertyName, hero)
-	elseif propertyName == "rune_b_c" then
-		hero.runeUnit2.hand.b_c = hero.runeUnit2.hand.b_c + propertyValue
-		Hand:setRuneBonusNetTable(hero.runeUnit2.hand.b_c, propertyName, hero)
-	elseif propertyName == "rune_b_d" then
-		hero.runeUnit2.hand.b_d = hero.runeUnit2.hand.b_d + propertyValue
-		Hand:setRuneBonusNetTable(hero.runeUnit2.hand.b_d, propertyName, hero)
-	elseif propertyName == "rune_c_a" then
-		hero.runeUnit3.hand.c_a = hero.runeUnit3.hand.c_a + propertyValue
-		Hand:setRuneBonusNetTable(hero.runeUnit3.hand.c_a, propertyName, hero)
-	elseif propertyName == "rune_c_b" then
-		hero.runeUnit3.hand.c_b = hero.runeUnit3.hand.c_b + propertyValue
-		Hand:setRuneBonusNetTable(hero.runeUnit3.hand.c_b, propertyName, hero)
-	elseif propertyName == "rune_c_c" then
-		hero.runeUnit3.hand.c_c = hero.runeUnit3.hand.c_c + propertyValue
-		Hand:setRuneBonusNetTable(hero.runeUnit3.hand.c_c, propertyName, hero)
-	elseif propertyName == "rune_c_d" then
-		hero.runeUnit3.hand.c_d = hero.runeUnit3.hand.c_d + propertyValue
-		Hand:setRuneBonusNetTable(hero.runeUnit3.hand.c_d, propertyName, hero)
-	elseif propertyName == "rune_d_a" then
-		hero.runeUnit4.hand.d_a = hero.runeUnit4.hand.d_a + propertyValue
-		Hand:setRuneBonusNetTable(hero.runeUnit4.hand.d_a, propertyName, hero)
-	elseif propertyName == "rune_d_b" then
-		hero.runeUnit4.hand.d_b = hero.runeUnit4.hand.d_b + propertyValue
-		Hand:setRuneBonusNetTable(hero.runeUnit4.hand.d_b, propertyName, hero)
-	elseif propertyName == "rune_d_c" then
-		hero.runeUnit4.hand.d_c = hero.runeUnit4.hand.d_c + propertyValue
-		Hand:setRuneBonusNetTable(hero.runeUnit4.hand.d_c, propertyName, hero)
-	elseif propertyName == "rune_d_d" then
-		hero.runeUnit4.hand.d_d = hero.runeUnit4.hand.d_d + propertyValue
-		Hand:setRuneBonusNetTable(hero.runeUnit4.hand.d_d, propertyName, hero)
+	if propertyName == "rune_q_1" then
+		hero.runeUnit.hand.q_1 = hero.runeUnit.hand.q_1 + propertyValue
+		Hand:setRuneBonusNetTable(hero.runeUnit.hand.q_1, propertyName, hero)
+	elseif propertyName == "rune_w_1" then
+		hero.runeUnit.hand.w_1 = hero.runeUnit.hand.w_1 + propertyValue
+		Hand:setRuneBonusNetTable(hero.runeUnit.hand.w_1, propertyName, hero)
+	elseif propertyName == "rune_e_1" then
+		hero.runeUnit.hand.e_1 = hero.runeUnit.hand.e_1 + propertyValue
+		Hand:setRuneBonusNetTable(hero.runeUnit.hand.e_1, propertyName, hero)
+	elseif propertyName == "rune_r_1" then
+		hero.runeUnit.hand.r_1 = hero.runeUnit.hand.r_1 + propertyValue
+		Hand:setRuneBonusNetTable(hero.runeUnit.hand.r_1, propertyName, hero)
+	elseif propertyName == "rune_q_2" then
+		hero.runeUnit2.hand.q_2 = hero.runeUnit2.hand.q_2 + propertyValue
+		Hand:setRuneBonusNetTable(hero.runeUnit2.hand.q_2, propertyName, hero)
+	elseif propertyName == "rune_w_2" then
+		hero.runeUnit2.hand.w_2 = hero.runeUnit2.hand.w_2 + propertyValue
+		Hand:setRuneBonusNetTable(hero.runeUnit2.hand.w_2, propertyName, hero)
+	elseif propertyName == "rune_e_2" then
+		hero.runeUnit2.hand.e_2 = hero.runeUnit2.hand.e_2 + propertyValue
+		Hand:setRuneBonusNetTable(hero.runeUnit2.hand.e_2, propertyName, hero)
+	elseif propertyName == "rune_r_2" then
+		hero.runeUnit2.hand.r_2 = hero.runeUnit2.hand.r_2 + propertyValue
+		Hand:setRuneBonusNetTable(hero.runeUnit2.hand.r_2, propertyName, hero)
+	elseif propertyName == "rune_q_3" then
+		hero.runeUnit3.hand.q_3 = hero.runeUnit3.hand.q_3 + propertyValue
+		Hand:setRuneBonusNetTable(hero.runeUnit3.hand.q_3, propertyName, hero)
+	elseif propertyName == "rune_w_3" then
+		hero.runeUnit3.hand.w_3 = hero.runeUnit3.hand.w_3 + propertyValue
+		Hand:setRuneBonusNetTable(hero.runeUnit3.hand.w_3, propertyName, hero)
+	elseif propertyName == "rune_e_3" then
+		hero.runeUnit3.hand.e_3 = hero.runeUnit3.hand.e_3 + propertyValue
+		Hand:setRuneBonusNetTable(hero.runeUnit3.hand.e_3, propertyName, hero)
+	elseif propertyName == "rune_r_3" then
+		hero.runeUnit3.hand.r_3 = hero.runeUnit3.hand.r_3 + propertyValue
+		Hand:setRuneBonusNetTable(hero.runeUnit3.hand.r_3, propertyName, hero)
+	elseif propertyName == "rune_q_4" then
+		hero.runeUnit4.hand.q_4 = hero.runeUnit4.hand.q_4 + propertyValue
+		Hand:setRuneBonusNetTable(hero.runeUnit4.hand.q_4, propertyName, hero)
+	elseif propertyName == "rune_w_4" then
+		hero.runeUnit4.hand.w_4 = hero.runeUnit4.hand.w_4 + propertyValue
+		Hand:setRuneBonusNetTable(hero.runeUnit4.hand.w_4, propertyName, hero)
+	elseif propertyName == "rune_e_4" then
+		hero.runeUnit4.hand.e_4 = hero.runeUnit4.hand.e_4 + propertyValue
+		Hand:setRuneBonusNetTable(hero.runeUnit4.hand.e_4, propertyName, hero)
+	elseif propertyName == "rune_r_4" then
+		hero.runeUnit4.hand.r_4 = hero.runeUnit4.hand.r_4 + propertyValue
+		Hand:setRuneBonusNetTable(hero.runeUnit4.hand.r_4, propertyName, hero)
 	end
 end
 
@@ -401,21 +401,21 @@ function Hand:remove_modifiers(hero)
 end
 
 function Hand:remove_rune_bonuses(hero)
-	hero.runeUnit.hand.a_a = 0
-	hero.runeUnit.hand.a_b = 0
-	hero.runeUnit.hand.a_c = 0
-	hero.runeUnit.hand.a_d = 0
-	hero.runeUnit2.hand.b_a = 0
-	hero.runeUnit2.hand.b_b = 0
-	hero.runeUnit2.hand.b_c = 0
-	hero.runeUnit2.hand.b_d = 0
-	hero.runeUnit3.hand.c_a = 0
-	hero.runeUnit3.hand.c_b = 0
-	hero.runeUnit3.hand.c_c = 0
-	hero.runeUnit3.hand.c_d = 0
-	hero.runeUnit4.hand.d_a = 0
-	hero.runeUnit4.hand.d_b = 0
-	hero.runeUnit4.hand.d_c = 0
-	hero.runeUnit4.hand.d_d = 0
+	hero.runeUnit.hand.q_1 = 0
+	hero.runeUnit.hand.w_1 = 0
+	hero.runeUnit.hand.e_1 = 0
+	hero.runeUnit.hand.r_1 = 0
+	hero.runeUnit2.hand.q_2 = 0
+	hero.runeUnit2.hand.w_2 = 0
+	hero.runeUnit2.hand.e_2 = 0
+	hero.runeUnit2.hand.r_2 = 0
+	hero.runeUnit3.hand.q_3 = 0
+	hero.runeUnit3.hand.w_3 = 0
+	hero.runeUnit3.hand.e_3 = 0
+	hero.runeUnit3.hand.r_3 = 0
+	hero.runeUnit4.hand.q_4 = 0
+	hero.runeUnit4.hand.w_4 = 0
+	hero.runeUnit4.hand.e_4 = 0
+	hero.runeUnit4.hand.r_4 = 0
 	Runes:ResetRuneBonuses(hero, "hand")
 end

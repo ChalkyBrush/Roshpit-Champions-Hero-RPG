@@ -50,35 +50,35 @@ function getFlamewakerWeapons(index){
 		amount = 200
 	}
 	else if (index == "12"){
-			property = "rune_a_b"
+			property = "rune_w_1"
 			amount = 12
 	}
 	else if (index == "13"){
-			property = "rune_a_c"
+			property = "rune_e_1"
 			amount = 20
 	}
 	else if (index == "14"){
-			property = "rune_c_d"
+			property = "rune_r_3"
 			amount = 15
 	}
 	else if (index == "21"){
-			property = "rune_c_a"
+			property = "rune_q_3"
 			amount = 20
 	}
 	else if (index == "22"){
-			property = "rune_b_d"
+			property = "rune_r_2"
 			amount = 20
 	}
 	else if (index == "23"){
-			property = "rune_b_c"
+			property = "rune_e_2"
 			amount = 20
 	}
 	else if (index == "24"){
-			property = "rune_c_b"
+			property = "rune_w_3"
 			amount = 20
 	}
 	else if (index == "25"){
-			property = "rune_b_b"
+			property = "rune_w_2"
 			amount = 3
 	}
 	itemName = $.Localize("flamewaker_sword_"+index)
@@ -107,19 +107,19 @@ function getVoltexWeapons(index){
 		amount = 200
 	}
 	else if (index == "12"){
-			property = "rune_a_d"
+			property = "rune_r_1"
 			amount = 15
 	}
 	else if (index == "13"){
-			property = "rune_b_a"
+			property = "rune_q_2"
 			amount = 20
 	}
 	else if (index == "14"){
-			property = "rune_b_c"
+			property = "rune_e_2"
 			amount = 15
 	}
 	else if (index == "21"){
-			property = "rune_c_b"
+			property = "rune_w_3"
 			amount = 20
 	}
 	else if (index == "22"){
@@ -127,11 +127,11 @@ function getVoltexWeapons(index){
 			amount = 225
 	}
 	else if (index == "23"){
-			property = "rune_c_c"
+			property = "rune_e_3"
 			amount = 20
 	}
 	else if (index == "24"){
-			property = "rune_c_a"
+			property = "rune_q_3"
 			amount = 15
 	}
 	else if (index == "25"){
@@ -164,19 +164,19 @@ function getAxeWeapons(index){
 		amount = 160
 	}
 	else if (index == "12"){
-			property = "rune_a_c"
+			property = "rune_e_1"
 			amount = 12
 	}
 	else if (index == "13"){
-			property = "rune_a_b"
+			property = "rune_w_1"
 			amount = 12
 	}
 	else if (index == "14"){
-			property = "rune_b_d"
+			property = "rune_r_2"
 			amount = 15
 	}
 	else if (index == "21"){
-			property = "rune_c_a"
+			property = "rune_q_3"
 			amount = 16
 	}
 	else if (index == "22"){
@@ -188,11 +188,11 @@ function getAxeWeapons(index){
 			amount = 240
 	}
 	else if (index == "24"){
-			property = "rune_c_b"
+			property = "rune_w_3"
 			amount = 12
 	}
 	else if (index == "25"){
-			property = "rune_c_d"
+			property = "rune_r_3"
 			amount = 12
 	}
 	itemName = $.Localize("axe_weapon_"+index)
@@ -217,31 +217,31 @@ function getPaladinWeapons(index){
 			amount = 100
 	}
 	else if (index == "11"){ 
-			property = "rune_a_d"
+			property = "rune_r_1"
 			amount = 12
 	}
 	else if (index == "12"){
-			property = "rune_b_b"
+			property = "rune_w_2"
 			amount = 10
 	}
 	else if (index == "13"){
-			property = "rune_a_a"
+			property = "rune_q_1"
 			amount = 12
 	}
 	else if (index == "14"){
-			property = "rune_a_b"
+			property = "rune_w_1"
 			amount = 10
 	}
 	else if (index == "21"){
-			property = "rune_c_a"
+			property = "rune_q_3"
 			amount = 12
 	}
 	else if (index == "22"){
-			property = "rune_c_c"
+			property = "rune_e_3"
 			amount = 12
 	}
 	else if (index == "23"){
-			property = "rune_b_c"
+			property = "rune_e_2"
 			amount = 12
 	}
 	else if (index == "24"){
@@ -249,7 +249,7 @@ function getPaladinWeapons(index){
 			amount = 225
 	}
 	else if (index == "25"){
-			property = "rune_c_b"
+			property = "rune_w_3"
 			amount = 10
 	}
 	itemName = $.Localize("paladin_weapon_"+index)
@@ -274,15 +274,15 @@ function getVenoWeapons(index){
 		amount = 100
 	}
 	else if (index == "11"){ 
-		property = "rune_a_a"
+		property = "rune_q_1"
 		amount = 12
 	}
 	else if (index == "12"){
-			property = "rune_a_c"
+			property = "rune_e_1"
 			amount = 10
 	}
 	else if (index == "13"){
-			property = "rune_a_b"
+			property = "rune_w_1"
 			amount = 12
 	}
 	else if (index == "14"){
@@ -290,7 +290,7 @@ function getVenoWeapons(index){
 			amount = 200
 	}
 	else if (index == "21"){
-			property = "rune_c_d"
+			property = "rune_r_3"
 			amount = 10
 	}
 	else if (index == "22"){
@@ -298,11 +298,11 @@ function getVenoWeapons(index){
 			amount = 225
 	}
 	else if (index == "23"){
-			property = "rune_b_c"
+			property = "rune_e_2"
 			amount = 20
 	}
 	else if (index == "24"){
-			property = "rune_b_b"
+			property = "rune_w_2"
 			amount = 15
 	}
 	else if (index == "25"){
@@ -339,19 +339,19 @@ function getAstralWeapons(index){
 			amount = 140
 	}
 	else if (index == "13"){
-			property = "rune_a_c"
+			property = "rune_e_1"
 			amount = 15 
 	}
 	else if (index == "14"){
-			property = "rune_a_d"
+			property = "rune_r_1"
 			amount = 10
 	}
 	else if (index == "21"){
-			property = "rune_b_a"
+			property = "rune_q_2"
 			amount = 15
 	}
 	else if (index == "22"){
-			property = "rune_c_a"
+			property = "rune_q_3"
 			amount = 12
 	}
 	else if (index == "23"){
@@ -359,11 +359,11 @@ function getAstralWeapons(index){
 			amount = 150
 	}
 	else if (index == "24"){
-			property = "rune_c_d"
+			property = "rune_r_3"
 			amount = 15
 	}
 	else if (index == "25"){
-			property = "rune_b_d"
+			property = "rune_r_2"
 			amount = 15
 	}
 	itemName = $.Localize("astral_weapon_"+index)
@@ -388,39 +388,39 @@ function getSorcWeapons(index){
 		amount = 100
 	}
 	else if (index == "11"){ 
-		property = "rune_a_d"
+		property = "rune_r_1"
 		amount = 12
 	}
 	else if (index == "12"){
-			property = "rune_b_d"
+			property = "rune_r_2"
 			amount = 10
 	}
 	else if (index == "13"){
-			property = "rune_a_a"
+			property = "rune_q_1"
 			amount = 12
 	}
 	else if (index == "14"){
-			property = "rune_a_b"
+			property = "rune_w_1"
 			amount = 8
 	}
 	else if (index == "21"){
-			property = "rune_c_d"
+			property = "rune_r_3"
 			amount = 10
 	}
 	else if (index == "22"){
-			property = "rune_b_b"
+			property = "rune_w_2"
 			amount = 15
 	}
 	else if (index == "23"){
-			property = "rune_b_a"
+			property = "rune_q_2"
 			amount = 15
 	}
 	else if (index == "24"){
-			property = "rune_c_b"
+			property = "rune_w_3"
 			amount = 12
 	}
 	else if (index == "25"){
-			property = "rune_b_c"
+			property = "rune_e_2"
 			amount = 20
 	}
 	itemName = $.Localize("sorceress_weapon_"+index)
@@ -445,15 +445,15 @@ function getEpochWeapons(index){
 		amount = 100
 	}
 	else if (index == "11"){ 
-		property = "rune_a_a"
+		property = "rune_q_1"
 		amount = 10
 	}
 	else if (index == "12"){
-			property = "rune_a_d"
+			property = "rune_r_1"
 			amount = 10
 	}
 	else if (index == "13"){
-			property = "rune_a_b"
+			property = "rune_w_1"
 			amount = 10
 	}
 	else if (index == "14"){
@@ -461,23 +461,23 @@ function getEpochWeapons(index){
 			amount = 240
 	}
 	else if (index == "21"){
-			property = "rune_b_c"
+			property = "rune_e_2"
 			amount = 10
 	}
 	else if (index == "22"){
-			property = "rune_b_d"
+			property = "rune_r_2"
 			amount = 15
 	}
 	else if (index == "23"){
-			property = "rune_b_a"
+			property = "rune_q_2"
 			amount = 10
 	}
 	else if (index == "24"){
-			property = "rune_b_b"
+			property = "rune_w_2"
 			amount = 10
 	}
 	else if (index == "25"){
-			property = "rune_c_b"
+			property = "rune_w_3"
 			amount = 10
 	}
 	itemName = $.Localize("epoch_weapon_"+index)
@@ -510,7 +510,7 @@ function getConjurorWeapons(index){
 			amount = 500
 	}
 	else if (index == "13"){
-			property = "rune_b_a"
+			property = "rune_q_2"
 			amount = 10
 	}
 	else if (index == "14"){
@@ -522,19 +522,19 @@ function getConjurorWeapons(index){
 			amount = 400
 	}
 	else if (index == "22"){
-			property = "rune_b_c"
+			property = "rune_e_2"
 			amount = 12
 	}
 	else if (index == "23"){
-			property = "rune_c_c"
+			property = "rune_e_3"
 			amount = 10
 	}
 	else if (index == "24"){
-			property = "rune_c_b"
+			property = "rune_w_3"
 			amount = 12
 	}
 	else if (index == "25"){
-			property = "rune_b_b"
+			property = "rune_w_2"
 			amount = 10
 	}
 	itemName = $.Localize("conjuror_weapon_"+index)
@@ -565,23 +565,23 @@ function getSeinaruWeapons(index){
 		amount = 160
 	}
 	else if (index == "12"){
-			property = "rune_a_c"
+			property = "rune_e_1"
 			amount = 12
 	}
 	else if (index == "13"){
-			property = "rune_a_d"
+			property = "rune_r_1"
 			amount = 12
 	}
 	else if (index == "14"){
-			property = "rune_a_b"
+			property = "rune_w_1"
 			amount = 10
 	}
 	else if (index == "21"){
-			property = "rune_a_a"
+			property = "rune_q_1"
 			amount = 20
 	}
 	else if (index == "22"){
-			property = "rune_c_a"
+			property = "rune_q_3"
 			amount = 20
 	}
 	else if (index == "23"){
@@ -589,7 +589,7 @@ function getSeinaruWeapons(index){
 			amount = 210
 	}
 	else if (index == "24"){
-			property = "rune_b_a"
+			property = "rune_q_2"
 			amount = 25
 	}
 	else if (index == "25"){
@@ -618,7 +618,7 @@ function getWarlordWeapons(index){
 		amount = 100
 	}
 	else if (index == "11"){ 
-		property = "rune_a_a"
+		property = "rune_q_1"
 		amount = 10
 	}
 	else if (index == "12"){
@@ -626,31 +626,31 @@ function getWarlordWeapons(index){
 			amount = 25
 	}
 	else if (index == "13"){
-			property = "rune_c_a"
+			property = "rune_q_3"
 			amount = 10
 	}
 	else if (index == "14"){
-			property = "rune_b_a"
+			property = "rune_q_2"
 			amount = 10
 	}
 	else if (index == "21"){
-			property = "rune_a_c"
+			property = "rune_e_1"
 			amount = 20
 	}
 	else if (index == "22"){
-			property = "rune_c_c"
+			property = "rune_e_3"
 			amount = 12
 	}
 	else if (index == "23"){
-			property = "rune_b_b"
+			property = "rune_w_2"
 			amount = 15
 	}
 	else if (index == "24"){
-			property = "rune_c_b"
+			property = "rune_w_3"
 			amount = 10
 	}
 	else if (index == "25"){
-			property = "rune_a_b"
+			property = "rune_w_1"
 			amount = 10
 	}
 	itemName = $.Localize("warlord_weapon_"+index)
@@ -675,23 +675,23 @@ function getBahamutWeapons(index){
 		amount = 100
 	}
 	else if (index == "11"){ 
-		property = "rune_a_c"
+		property = "rune_e_1"
 		amount = 12
 	}
 	else if (index == "12"){
-			property = "rune_a_b"
+			property = "rune_w_1"
 			amount = 12
 	}
 	else if (index == "13"){
-			property = "rune_b_c"
+			property = "rune_e_2"
 			amount = 10
 	}
 	else if (index == "14"){
-			property = "rune_a_a"
+			property = "rune_q_1"
 			amount = 10
 	}
 	else if (index == "21"){
-			property = "rune_c_c"
+			property = "rune_e_3"
 			amount = 10
 	}
 	else if (index == "22"){
@@ -699,15 +699,15 @@ function getBahamutWeapons(index){
 			amount = 220
 	}
 	else if (index == "23"){
-			property = "rune_b_b"
+			property = "rune_w_2"
 			amount = 15
 	}
 	else if (index == "24"){
-			property = "rune_b_d"
+			property = "rune_r_2"
 			amount = 10
 	}
 	else if (index == "25"){
-			property = "rune_c_b"
+			property = "rune_w_3"
 			amount = 10
 	}
 	itemName = $.Localize("bahamut_weapon_"+index)

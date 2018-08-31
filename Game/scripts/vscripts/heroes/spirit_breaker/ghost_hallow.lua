@@ -6,13 +6,13 @@ function begin_ghost_hallow(event)
 	local ability = event.ability
 	local target = event.target_points[1]
 	Filters:CastSkillArguments(2, caster)
-	ability.a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a", "duskbringer")
+	ability.q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "duskbringer")
 	EmitSoundOnLocationWithCaster(target, "Duskbringer.GhostHallow", caster)
 	ability:ApplyDataDrivenThinker(caster, GetGroundPosition(target, caster), "ghost_hallow", {duration = 6})
 	StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_ATTACK, rate=2.1})
---	ability.d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "duskbringer")
---	caster.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "duskbringer")
---	if ability.d_b_level > 0 then
+--	ability.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "duskbringer")
+--	caster.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "duskbringer")
+--	if ability.w_4_level > 0 then
 --		d_b_ghost_blast(caster, ability, target)
 --	end
 end
@@ -60,11 +60,11 @@ end
 --			Timers:CreateTimer(1, function()
 --			  ParticleManager:DestroyParticle( pfx2, false )
 --			end)
---		local damage = caster:GetAverageTrueAttackDamage(caster)*ability.d_b_level*0.25
+--		local damage = caster:GetAverageTrueAttackDamage(caster)*ability.w_4_level*0.25
 --		local flailAbility = caster:FindAbilityByName("whirling_flail")
 --		for _,enemy in pairs(enemies) do
 --			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_GHOST, RPC_ELEMENT_FIRE)
---			increment_duskfire_stacks(caster, enemy, flailAbility, ability.d_b_level)
+--			increment_duskfire_stacks(caster, enemy, flailAbility, ability.w_4_level)
 --		end
 --	end
 --end
@@ -82,29 +82,29 @@ function ghost_trap_enter(event)
 	if not target:HasModifier("modifier_ghost_trap_immune") then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_ghost_trap_immune", {duration = duration+3})
 		ability:ApplyDataDrivenModifier(caster, target, "ghost_hallow_stun", {duration = duration})
-		local b_b_level = Runes:GetTotalRuneLevel(caster, 2, "b_b", "duskbringer")
-		if b_b_level > 0 then
+		local w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "duskbringer")
+		if w_2_level > 0 then
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_ghost_hallow_magic_resist_loss", {duration = duration})
-			target:SetModifierStackCount("modifier_ghost_hallow_magic_resist_loss", caster, b_b_level)
+			target:SetModifierStackCount("modifier_ghost_hallow_magic_resist_loss", caster, w_2_level)
 		end
 		if caster:HasModifier("modifier_duskbringer_glyph_4_1") then
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_ghost_hallow_disarm", {duration = duration})
 		end
-		-- local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "duskbringer")
-		-- if d_b_level > 0 then
-		-- 	local runeAbility = caster.runeUnit4:FindAbilityByName("duskbringer_rune_d_b")
-		-- 	runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, target, "modifier_duskbringer_rune_d_b_visible", {duration = duration})
-		-- 	runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, target, "modifier_duskbringer_rune_d_b_invisible", {duration = duration})
-		-- 	target:SetModifierStackCount("modifier_duskbringer_rune_d_b_invisible", caster.runeUnit4, d_b_level)
+		-- local w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "duskbringer")
+		-- if w_4_level > 0 then
+		-- 	local runeAbility = caster.runeUnit4:FindAbilityByName("duskbringer_rune_w_4")
+		-- 	runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, target, "modifier_duskbringer_rune_w_4_visible", {duration = duration})
+		-- 	runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, target, "modifier_duskbringer_rune_w_4_invisible", {duration = duration})
+		-- 	target:SetModifierStackCount("modifier_duskbringer_rune_w_4_invisible", caster.runeUnit4, w_3_level)
 		-- end
 	end
 	-- print("test duskbringer w1 2")
 	if target.ghost_hallow_think_interval%10 == 0 or event.apply == 1 then
-		ability.a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "duskbringer")
+		ability.w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "duskbringer")
 		ghost_trap_a_b_thinker(event)
-		if ability.a_b_level > 0 then
+		if ability.w_1_level > 0 then
 			if not target.duskABparticle then
-				target.duskABparticle = CustomAbilities:QuickAttachParticle("particles/roshpit/duskbringer/duskbringer_rune_a_b_2.vpcf", target, 10)
+				target.duskABparticle = CustomAbilities:QuickAttachParticle("particles/roshpit/duskbringer/duskbringer_rune_w_1_2.vpcf", target, 10)
 				ParticleManager:SetParticleControl(target.duskABparticle, 1, target:GetForwardVector()*150)
 			end
 		end
@@ -133,10 +133,10 @@ function ghost_trap_a_b_thinker(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	ability.a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "duskbringer")
-	if ability.a_b_level > 0 then
+	ability.w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "duskbringer")
+	if ability.w_1_level > 0 then
 		
-		local damage = caster:GetAverageTrueAttackDamage(caster)*ability.a_b_level*0.4
+		local damage = caster:GetAverageTrueAttackDamage(caster)*ability.w_1_level*0.4
 		Timers:CreateTimer(0.15, function()
 			if target:IsAlive() then
 				CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash_flash.vpcf", target:GetAbsOrigin()+Vector(0,0,40), 0.2)
@@ -152,30 +152,30 @@ function ghost_hallow_think(event)
 	local target = event.target
 	local caster = event.caster
 	local ability = caster:FindAbilityByName("whirling_flail")
-	if caster:HasModifier("modifier_duskbringer_glyph_2_1") and event.ability.a_a_level > 0 then
-		if not ability.a_a_level then
-			ability.a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a", "duskbringer")
-			ability.d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "duskbringer")
+	if caster:HasModifier("modifier_duskbringer_glyph_2_1") and event.ability.q_1_level > 0 then
+		if not ability.q_1_level then
+			ability.q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "duskbringer")
+			ability.q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "duskbringer")
 		end
 		increment_duskfire_stacks(caster, target, ability, 3)
 	end
 
 end
 
-function update_c_b_level(event)
+function update_w_3_level(event)
 	local ability = event.ability
 	local caster = event.caster
-	ability.c_b_level = Runes:GetTotalRuneLevel(caster, 3, "c_b", "duskbringer")
+	ability.w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "duskbringer")
 end
 
 function duskbringer_take_damage(event)
 	local target = event.caster
 	local ability = event.ability
-	if ability.c_b_level > 0 then
+	if ability.w_3_level > 0 then
 		Timers:CreateTimer(0.06, function()
 			if target:IsAlive() then
 				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/duskbringer_c_a_heal_heal_core.vpcf", target, 1)
-				local healAmount = ability.c_b_level*200
+				local healAmount = ability.w_3_level*200
 				Filters:ApplyHeal(target, target, healAmount, true)
 			end
 		end)
@@ -184,5 +184,5 @@ end
 
 function duskbringer_passive_think(event)
 	local caster = event.caster
-	caster.d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "duskbringer")
+	caster.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "duskbringer")
 end

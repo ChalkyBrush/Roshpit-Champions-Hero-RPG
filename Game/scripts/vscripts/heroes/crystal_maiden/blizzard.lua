@@ -15,7 +15,7 @@ function BlizzardStart( event )
 	else
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_blizzard_channelling", {})
 		StartSoundEvent("hero_Crystal.freezingField.wind", caster)
-		rune_a_a(caster, event.ability)
+		rune_q_1(caster, event.ability)
 	end
 	
 	if not ability.blizzard_dummy_table then
@@ -30,8 +30,8 @@ function BlizzardStart( event )
 	event.ability:ApplyDataDrivenModifier(caster, dummy, "modifier_blizzard_thinker", {duration = 5})
 	table.insert(ability.blizzard_dummy_table, dummy)
 	
-	-- rune_c_a(caster, event.ability)
-    caster.d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "sorceress")
+	-- rune_q_3(caster, event.ability)
+    caster.q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "sorceress")
     
 	Filters:CastSkillArguments(1, caster)
 	if caster:HasModifier("modifier_sorceress_glyph_6_1") then
@@ -43,11 +43,11 @@ function BlizzardStart( event )
 	ParticleManager:SetParticleControl( dummy.windParticle, 0, point )
 end
 
-function rune_a_a(caster, ability)
+function rune_q_1(caster, ability)
   local runeUnit = caster.runeUnit
-  local runeAbility = runeUnit:FindAbilityByName("sorceress_rune_a_a")
+  local runeAbility = runeUnit:FindAbilityByName("sorceress_rune_q_1")
   local abilityLevel = runeAbility:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_a")
+  local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_1")
   local totalLevel = abilityLevel + bonusLevel
   if totalLevel > 0 then
   	local iceLance = caster:FindAbilityByName("ice_lance")
@@ -57,8 +57,8 @@ function rune_a_a(caster, ability)
   	ability:ApplyDataDrivenModifier(caster, caster, "modifier_blizzard_cooldown", {duration = 15})
   	iceLance:SetLevel(ability:GetLevel())
   	iceLance:SetAbilityIndex(0)
-  	iceLance.rune_a_a_level = totalLevel
-  	ability.rune_a_a_level = totalLevel
+  	iceLance.rune_q_1_level = totalLevel
+  	ability.rune_q_1_level = totalLevel
   	caster:SwapAbilities("blizzard", "ice_lance", false, true)
   end
 end
@@ -71,11 +71,11 @@ function cooldownEnd(event)
   	caster:SwapAbilities("blizzard", "ice_lance", true, false)	
 end
 
-function rune_c_a(caster, ability)
+function rune_q_3(caster, ability)
   local runeUnit = caster.runeUnit3
-  local runeAbility = runeUnit:FindAbilityByName("sorceress_rune_c_a")
+  local runeAbility = runeUnit:FindAbilityByName("sorceress_rune_q_3")
   local abilityLevel = runeAbility:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_a")
+  local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_3")
   local totalLevel = abilityLevel + bonusLevel
   if totalLevel > 0 then
   	ability:ApplyDataDrivenModifier(caster, caster, "modifier_ice_block", {duration = 5})
@@ -142,7 +142,7 @@ function BlizzardWave( event )
 	    EmitSoundOn("hero_Crystal.freezingField.explosion", caster)
 		local radius = event.radius
 		local damage = event.damage
-		-- damage = damage + 0.0002*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*ability.d_a_level*damage
+		-- damage = damage + 0.0002*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*ability.q_4_level*damage
 		if caster:HasModifier("modifier_sorceress_glyph_1_1") then
 			damage = damage*2
 		end
@@ -241,10 +241,10 @@ end
 function sorceress_passive_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local c_a_level = Runes:GetTotalRuneLevel(caster, 3, "c_a", "sorceress")
-	if c_a_level > 0 then
+	local q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "sorceress")
+	if q_3_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_sorceress_spell_damage_amp", {})
-		caster:SetModifierStackCount("modifier_sorceress_spell_damage_amp", caster, c_a_level)
+		caster:SetModifierStackCount("modifier_sorceress_spell_damage_amp", caster, q_3_level)
 	else
 		caster:RemoveModifierByName("modifier_sorceress_spell_damage_amp")
 	end

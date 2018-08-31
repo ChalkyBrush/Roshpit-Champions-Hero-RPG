@@ -4,7 +4,7 @@ function prone_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local duration = 3
-	ability.a_a_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
+	ability.q_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
 	if caster:HasModifier("modifier_slipfinn_basic_jump") and caster:GetAbsOrigin().z > GetGroundHeight(caster:GetAbsOrigin(), caster) + 90 then
 		caster.speed = 0
 		caster:RemoveModifierByName("modifier_slipfinn_basic_jump")
@@ -31,11 +31,11 @@ function prone_start(event)
 		end
 		StartAnimation(caster, {duration=animDur, activity=ACT_DOTA_SLARK_POUNCE, rate=animRate})
 
-		local b_a_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
-		if b_a_level > 0 then
+		local q_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
+		if q_2_level > 0 then
 			caster:RemoveModifierByName("modifier_shimmer_cape")
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_shimmer_cape", {duration = 4})
-			caster:SetModifierStackCount("modifier_shimmer_cape", caster, b_a_level)
+			caster:SetModifierStackCount("modifier_shimmer_cape", caster, q_2_level)
 		end
 			
 		Timers:CreateTimer(delay, function()
@@ -69,11 +69,11 @@ function prone_start(event)
 			EmitSoundOn("Slipfinn.Prone", caster)
 			CustomAbilities:AddAndOrSwapSkill(caster, "slipfinn_shadow_rush", "slipfinn_shadow_warp", 2)
 			print("APPLY PRONE")
-			local b_a_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
-			if b_a_level > 0 then
+			local q_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
+			if q_2_level > 0 then
 				caster:RemoveModifierByName("modifier_shimmer_cape")
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_shimmer_cape", {})
-				caster:SetModifierStackCount("modifier_shimmer_cape", caster, b_a_level)
+				caster:SetModifierStackCount("modifier_shimmer_cape", caster, q_2_level)
 			end
 		end
 	end
@@ -111,11 +111,11 @@ function stomp(caster, ability, damage)
 	ParticleManager:SetParticleControl( pfx, 0, position )
 	ParticleManager:SetParticleControl( pfx, 1, Vector(radius, radius, radius) )
 	
-	local damageBonus = ability.a_a_level*SLIPFINN_Q1_DISTANCE_BONUS
+	local damageBonus = ability.q_1_level*SLIPFINN_Q1_DISTANCE_BONUS
 	local heightBonus = 0
-	local c_a_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
-	if c_a_level > 0 then
-		heightBonus = SLIPFINN_Q3_HEIGHT_SQ_MULT*c_a_level*(ability.height^2)
+	local q_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
+	if q_3_level > 0 then
+		heightBonus = SLIPFINN_Q3_HEIGHT_SQ_MULT*q_3_level*(ability.height^2)
 	end
 	local stun_duration = 0.3
 	if caster:HasModifier("modifier_slipfinn_glyph_5_1") then

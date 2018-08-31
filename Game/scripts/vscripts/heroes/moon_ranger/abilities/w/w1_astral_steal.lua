@@ -4,7 +4,7 @@ local function projectileHit(event)
     local ability = event.ability
     local caster = event.caster
 
-    local runesCount = Runes:GetTotalRuneLevel(caster, 1, "a_b", "astral")
+    local runesCount = Runes:GetTotalRuneLevel(caster, 1, "w_1", "astral")
 
     if runesCount == nill or runesCount <= 0 then
         return

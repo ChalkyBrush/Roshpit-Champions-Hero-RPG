@@ -3,7 +3,7 @@ local function cast(caster, target, ability, damage)
     local particleName = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
     local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
     local origin = target:GetAbsOrigin()
-    local runesCount = caster.c_a_level
+    local runesCount = caster.q_3_level
 
     ParticleManager:SetParticleControl( particle1, 0, origin+Vector(0,0,20) )
     ParticleManager:SetParticleControl( particle1, 1, Vector(Q3_RADIUS, 2, 1000) )

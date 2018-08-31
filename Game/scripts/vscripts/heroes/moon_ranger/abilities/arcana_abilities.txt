@@ -45,14 +45,14 @@
 		}
 	}
 
-	"astral_rune_a_b_arcana2"
+	"astral_rune_w_1_arcana2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"astral_ranger/astral_rune_a_b_arcana2"
+		"AbilityTextureName"	"astral_ranger/astral_rune_w_1_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -65,11 +65,11 @@
 		}
 	}
 
-	"astral_rune_b_b_arcana2"
+	"astral_rune_w_2_arcana2"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"	"astral_ranger/astral_rune_b_b_arcana2"
+		"AbilityTextureName"	"astral_ranger/astral_rune_w_2_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -82,12 +82,12 @@
 		}
 	}
 
-	"astral_rune_c_b_arcana2"
+	"astral_rune_w_3_arcana2"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"astral_ranger/astral_rune_c_b_arcana2"
+		"AbilityTextureName"	"astral_ranger/astral_rune_w_3_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -116,12 +116,12 @@
 		}
 	}
 
-	"astral_rune_d_b_arcana2"
+	"astral_rune_w_4_arcana2"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"astral_ranger/astral_rune_d_b_arcana2"
+		"AbilityTextureName"	"astral_ranger/astral_rune_w_4_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -359,13 +359,13 @@
 			{
 			    "IsDebuff"  "1"
 				"IsHidden"	"0"
-				"TextureName"			"astral_ranger/astral_rune_a_d_arcana3"
+				"TextureName"			"astral_ranger/astral_rune_r_1_arcana3"
 			}
 			"modifier_crystal_arrow_b_d"
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"			"astral_ranger/astral_rune_b_d_arcana3"
+				"TextureName"			"astral_ranger/astral_rune_r_2_arcana3"
 				"EffectName"	"particles/roshpit/sorceress/ice_lance_cast.vpcf"
 				"EffectAttachType" "follow_origin"
 				"Properties"
@@ -378,7 +378,7 @@
 				"IsDebuff"	"1"
 				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
 				"StatusEffectPriority"  "20"
-				"TextureName"			"astral_ranger/astral_rune_d_d_arcana3"
+				"TextureName"			"astral_ranger/astral_rune_r_4_arcana3"
 				"Properties"
 				{
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-10"
@@ -407,14 +407,14 @@
 
 	}
 
-	"astral_rune_a_d_arcana3"
+	"astral_rune_r_1_arcana3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"astral_ranger/astral_rune_a_d_arcana3"
+		"AbilityTextureName"	"astral_ranger/astral_rune_r_1_arcana3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -427,11 +427,11 @@
 		}
 	}
 
-	"astral_rune_b_d_arcana3"
+	"astral_rune_r_2_arcana3"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"	"astral_ranger/astral_rune_b_d_arcana3"
+		"AbilityTextureName"	"astral_ranger/astral_rune_r_2_arcana3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -449,12 +449,12 @@
 		}
 	}
 
-	"astral_rune_c_d_arcana3"
+	"astral_rune_r_3_arcana3"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"astral_ranger/astral_rune_c_d_arcana3"
+		"AbilityTextureName"	"astral_ranger/astral_rune_r_3_arcana3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -468,12 +468,12 @@
 		}
 	}
 
-	"astral_rune_d_d_arcana3"
+	"astral_rune_r_4_arcana3"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"astral_ranger/astral_rune_d_d_arcana3"
+		"AbilityTextureName"	"astral_ranger/astral_rune_r_4_arcana3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"

@@ -36,11 +36,11 @@ function cast_ancient_spirit(event)
 			ability:ApplyDataDrivenModifier(caster, spirit, "modifier_ancient_spirit_disarm", {})
 		else
 			ability:ApplyDataDrivenModifier(caster, spirit, "modifier_spirit_attacking", {})
-			local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "spirit_warrior")
-			spirit.c_d_level = c_d_level
+			local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "spirit_warrior")
+			spirit.r_3_level = c_d_level
 			local vigor_ability = caster:FindAbilityByName("spirit_warrior_ancient_vigor")
 			if vigor_ability then
-				local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "spirit_warrior")
+				local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "spirit_warrior")
 				if d_d_level > 0 then
 					vigor_ability:ApplyDataDrivenModifier(caster, spirit, "modifier_ancient_spirit_attackspeed", {duration = duration})
 					spirit:SetModifierStackCount("modifier_ancient_spirit_attackspeed", caster, d_d_level)
@@ -62,17 +62,17 @@ function cast_ancient_spirit(event)
 
 		table.insert(ability.spiritTable, spirit)
 
-		local b_c_level = Runes:GetTotalRuneLevel(caster, 2, "b_c", "spirit_warrior")
+		local b_c_level = Runes:GetTotalRuneLevel(caster, 2, "e_2", "spirit_warrior")
 		if b_c_level > 0 then
 			local spiritAbility = spirit:AddAbility("spirit_warrior_b_c_special")
 			spiritAbility.level = b_c_level
 			spiritAbility:SetLevel(1)
 		end
-		-- local c_c_level = Runes:GetTotalRuneLevel(caster, 3, "c_c", "spirit_warrior")
+		-- local c_c_level = Runes:GetTotalRuneLevel(caster, 3, "e_3", "spirit_warrior")
 		-- if c_c_level > 0 then
-		-- 	local runeAbility = caster.runeUnit3:FindAbilityByName("spirit_warrior_rune_c_c")
+		-- 	local runeAbility = caster.runeUnit3:FindAbilityByName("spirit_warrior_rune_e_3")
 		-- 	runeAbility.level = c_c_level
-		-- 	runeAbility:ApplyDataDrivenModifier(caster.runeUnit3, spirit, "modifier_spirit_rune_c_c_aura", {})
+		-- 	runeAbility:ApplyDataDrivenModifier(caster.runeUnit3, spirit, "modifier_spirit_rune_e_3_aura", {})
 		-- end
 		local maxSpirits = 3
 		if caster:HasModifier("modifier_spirit_warrior_glyph_3_1") then
@@ -185,15 +185,15 @@ function spirit_moving_out(event)
 end
 
 function reachSpirit(caster, ability, spiritPosition)
-	local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "spirit_warrior")
-	if d_b_level > 0 then
-		local runeAbility = caster.runeUnit4:FindAbilityByName("spirit_warrior_rune_d_b")
+	local w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "spirit_warrior")
+	if w_4_level > 0 then
+		local runeAbility = caster.runeUnit4:FindAbilityByName("spirit_warrior_rune_w_4")
 		local duration = Filters:GetAdjustedBuffDuration(caster, 30, false)
 		runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_spirit_warrior_d_b", {duration = duration})
-		runeAbility.level = d_b_level
+		runeAbility.level = w_4_level
 	end
-	local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "a_c", "spirit_warrior")
-	caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "spirit_warrior")
+	local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "spirit_warrior")
+	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "spirit_warrior")
 	if a_c_level > 0 then
 		local loops = 1
 		if caster:HasModifier("modifier_spirit_warrior_glyph_4_1") then
@@ -221,7 +221,7 @@ function reachSpirit(caster, ability, spiritPosition)
 			end)
 		end
 	end
-	local c_c_level = Runes:GetTotalRuneLevel(caster, 3, "c_c", "spirit_warrior")
+	local c_c_level = Runes:GetTotalRuneLevel(caster, 3, "e_3", "spirit_warrior")
 	if c_c_level > 0 then
 		EmitSoundOnLocationWithCaster(spiritPosition, "SpiritWarrior.TempestHaze", caster)
 		local duration = 4 + c_c_level*0.15
@@ -232,7 +232,7 @@ function reachSpirit(caster, ability, spiritPosition)
 		ability:ApplyDataDrivenThinker(caster, spiritPosition, "modifier_tempest_haze_aura_thinker_enemy", {duration = duration})
 		ability:ApplyDataDrivenThinker(caster, spiritPosition, "modifier_tempest_haze_aura_thinker_friendly", {duration = duration})
 		
-		ability.c_c_damage_tick = 6000*c_c_level*0.5
+		ability.e_3_damage_tick = 6000*c_c_level*0.5
 	end
 	-- "particles/roshpit/spirit_warrior/tempest_haze_storm.vpcf"
 
@@ -243,7 +243,7 @@ function b_c_start(event)
 	if ability.level then
 		local caster = event.caster
 		local target = event.target
-		target:SetModifierStackCount("modifier_spirit_rune_b_c_buff", caster, ability.level)
+		target:SetModifierStackCount("modifier_spirit_rune_e_2_buff", caster, ability.level)
 	end
 end
 
@@ -252,7 +252,7 @@ function c_c_start(event)
 	if ability.level then
 		local caster = event.caster
 		local target = event.target
-		target:SetModifierStackCount("modifier_spirit_rune_c_c_debuff", caster, ability.level)
+		target:SetModifierStackCount("modifier_spirit_rune_e_3_debuff", caster, ability.level)
 	end
 end
 
@@ -260,7 +260,7 @@ function ancient_spirit_attack_hit(event)
 	local attacker = event.attacker
 	local target = event.target
 	local origCaster = attacker.origCaster
-	local damage = attacker.c_d_level*0.5*origCaster:GetAverageTrueAttackDamage(origCaster)
+	local damage = attacker.r_3_level*0.5*origCaster:GetAverageTrueAttackDamage(origCaster)
 	Filters:TakeArgumentsAndApplyDamage(target, origCaster, damage, DAMAGE_TYPE_PHYSICAL, 4, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 end
 
@@ -285,7 +285,7 @@ function tempest_haze_enemy_think(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	Filters:TakeArgumentsAndApplyDamage(target, caster, ability.c_c_damage_tick, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_WIND, RPC_ELEMENT_LIGHTNING)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, ability.e_3_damage_tick, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_WIND, RPC_ELEMENT_LIGHTNING)
 end
 
 function tempest_haze_friendly_think(event)

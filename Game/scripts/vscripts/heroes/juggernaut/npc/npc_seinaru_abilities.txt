@@ -94,7 +94,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"seinaru/seinaru_rune_b_c_arcana2"
+				"TextureName"	"seinaru/seinaru_rune_e_2_arcana2"
 				"EffectName"	"particles/roshpit/seinaru/lightsword_omni.vpcf"
 				"EffectAttachType"	"attach_origin"
 			}
@@ -102,7 +102,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"seinaru/seinaru_rune_c_c_arcana2"
+				"TextureName"	"seinaru/seinaru_rune_e_3_arcana2"
 				"OnAttackLanded"
 				// "%attack_damage" is set to the damage value before mitigation
 				{
@@ -117,7 +117,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"seinaru/seinaru_rune_c_c_arcana2"
+				"TextureName"	"seinaru/seinaru_rune_e_3_arcana2"
 			}
 			"modifier_sunstrider_passive_think"
 			{
@@ -144,7 +144,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"seinaru/seinaru_rune_d_c_arcana2"
+				"TextureName"	"seinaru/seinaru_rune_e_4_arcana2"
 			}
 		}
 	}
@@ -728,13 +728,13 @@
             			"MODIFIER_PROPERTY_MISS_PERCENTAGE" "%blind_chance"
             		}
             	}
-            	"modifier_seinaru_rune_a_a"
+            	"modifier_seinaru_rune_q_1"
             	{
             		"TextureName"	"seinaru/seinaru_a_a"
             		"IsHidden"	"0"
             		"IsBuff"	"1"
             	}
-            	"modifier_seinaru_rune_a_a_invisible"
+            	"modifier_seinaru_rune_q_1_invisible"
             	{
             		"IsHidden"	"1"
             		"IsBuff"	"1"
@@ -766,7 +766,7 @@
     					}
     				}
             	}
-            	"modifier_seinaru_rune_b_a_slow"
+            	"modifier_seinaru_rune_q_2_slow"
             	{
             		"IsHidden"	"1"
             		"IsBuff"	"1"
@@ -776,7 +776,7 @@
             			"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-6"
             		}
             	}
-    			"seinaru_rune_c_a_evasion"
+    			"seinaru_rune_q_3_evasion"
     			{
     				"TextureName"		"seinaru/seinaru_c_a"
     				"IsHidden"	"0"
@@ -910,27 +910,27 @@
     				}
     			}
 
-            	"modifier_seinaru_rune_a_b"
+            	"modifier_seinaru_rune_w_1"
             	{
             		"TextureName"	"seinaru/seinaru_a_b"
             		"IsHidden"	"0"
             		"IsBuff"	"1"
             	}
-            	"modifier_seinaru_rune_a_b_invisible"
+            	"modifier_seinaru_rune_w_1_invisible"
             	{
             		"IsHidden"	"1"
             		"IsBuff"	"1"
             	}
 
-                "modifier_seinaru_rune_c_b_shield"
+                "modifier_seinaru_rune_w_3_shield"
                 {
                     "IsHidden"	"0"
                     "IsBuff"	"1"
-                    "TextureName"		"seinaru/seinaru_rune_c_b"
+                    "TextureName"		"seinaru/seinaru_rune_w_3"
                     "EffectName"		"particles/roshpit/seinaru/hikari_shield.vpcf"
                     "EffectAttachType"	"follow_origin"
                 }
-    			"modifier_monk_rune_c_b_heal_effect"
+    			"modifier_monk_rune_w_3_heal_effect"
     			{
     				"IsHidden"		"1"
     				"IsDebuff"		"0"
@@ -1066,7 +1066,7 @@
             			}
             		}
                 }
-                "modifier_rune_c_c"
+                "modifier_rune_e_3"
                 {
                     "Passive"            "0"
                     "IsHidden"            "0"
@@ -1574,7 +1574,7 @@
     			"RemoveModifier"
     			{
     				"Target"	"CASTER"
-    				"ModifierName"	"modifier_monk_rune_b_d_charge_up"
+    				"ModifierName"	"modifier_monk_rune_r_2_charge_up"
     			}
 
     		}
@@ -1775,7 +1775,7 @@
     			"RemoveModifier"
     			{
     				"Target"	"CASTER"
-    				"ModifierName"	"modifier_monk_rune_b_d_charge_up"
+    				"ModifierName"	"modifier_monk_rune_r_2_charge_up"
     			}
 
     		}
@@ -1885,7 +1885,7 @@
     			{
     				"IsHidden"	"0"
     				"IsDebuff"	"1"
-    				"TextureName"	"seinaru/seinaru_b_d"
+    				"TextureName"	"seinaru/seinaru_r_2"
     			}
     			"modifier_seinaru_glyph_2_1"
     			{
@@ -1896,11 +1896,11 @@
     					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1000"
     				}
     			}
-    			"modifier_seinaru_gorudo_rune_a_d"
+    			"modifier_seinaru_gorudo_rune_r_1"
     			{
     				"IsHidden"	"0"
     				"IsDebuff"	"1"
-    				"TextureName"	"seinaru/seinaru_a_d"
+    				"TextureName"	"seinaru/seinaru_r_1"
 
     				"OnCreated"
     				{
@@ -2083,12 +2083,12 @@
 
     //RUNES
 
-	"monk_rune_a_c_arcana2"
+	"monk_rune_e_1_arcana2"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_rune_a_c_arcana2"
+		"AbilityTextureName"	"seinaru/seinaru_rune_e_1_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -2111,12 +2111,12 @@
 		}
 	}
 
-	"monk_rune_b_c_arcana2"
+	"monk_rune_e_2_arcana2"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_rune_b_c_arcana2"
+		"AbilityTextureName"	"seinaru/seinaru_rune_e_2_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -2129,12 +2129,12 @@
 		}
 	}
 
-	"monk_rune_c_c_arcana2"
+	"monk_rune_e_3_arcana2"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_rune_c_c_arcana2"
+		"AbilityTextureName"	"seinaru/seinaru_rune_e_3_arcana2"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
@@ -2163,12 +2163,12 @@
 		}
 	}
 
-	"monk_rune_d_c_arcana2"
+	"monk_rune_e_4_arcana2"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_rune_d_c_arcana2"
+		"AbilityTextureName"	"seinaru/seinaru_rune_e_4_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -2186,14 +2186,14 @@
 		}
 	}
 
-	"monk_rune_a_a"
+	"monk_rune_q_1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_a_a"
+		"AbilityTextureName"	"seinaru/seinaru_q_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -2213,7 +2213,7 @@
 
 	}
 
-	"monk_rune_a_b"
+	"monk_rune_w_1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -2237,14 +2237,14 @@
 	}
 
 
-	"monk_rune_a_c"
+	"monk_rune_e_1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_a_c"
+		"AbilityTextureName"	"seinaru/seinaru_e_1"
 
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
@@ -2276,14 +2276,14 @@
 
 	}
 
-	"monk_rune_a_d"
+	"monk_rune_r_1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_a_d"
+		"AbilityTextureName"	"seinaru/seinaru_r_1"
 
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
@@ -2299,14 +2299,14 @@
 
 	}
 
-	"monk_rune_b_a"
+	"monk_rune_q_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_b_a"
+		"AbilityTextureName"	"seinaru/seinaru_q_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -2326,7 +2326,7 @@
 
 	}
 
-	"monk_rune_b_b"
+	"monk_rune_w_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -2368,14 +2368,14 @@
 
 	}
 
-	"monk_rune_b_c"
+	"monk_rune_e_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/seinaru_c_c"
+		"AbilityTextureName"	"rpc/seinaru_e_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
@@ -2411,14 +2411,14 @@
 
 	}
 
-	"monk_rune_b_d"
+	"monk_rune_r_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_b_d"
+		"AbilityTextureName"	"seinaru/seinaru_r_2"
 
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
@@ -2448,14 +2448,14 @@
 		}
 	}
 
-	"monk_rune_c_a"
+	"monk_rune_q_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_c_a"
+		"AbilityTextureName"	"seinaru/seinaru_q_3"
 
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
@@ -2481,14 +2481,14 @@
 
 	}
 
-	"monk_rune_c_b"
+	"monk_rune_w_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_rune_c_b"
+		"AbilityTextureName"	"seinaru/seinaru_rune_w_3"
 
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
@@ -2508,7 +2508,7 @@
 
 	}
 
-	"monk_rune_c_c"
+	"monk_rune_e_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -2536,7 +2536,7 @@
 
 	}
 
-	"monk_rune_c_d"
+	"monk_rune_r_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -2578,7 +2578,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_monk_rune_c_d_passive"
+			"modifier_monk_rune_r_3_passive"
 			{
 				"Passive"			"1"
 				"IsHidden"			"0"
@@ -2594,7 +2594,7 @@
 					}
 				}
 			}
-			"modifier_monk_rune_c_d_effect"
+			"modifier_monk_rune_r_3_effect"
 			{
 				"IsBuff"	"1"
 				"IsHidden"	"0"
@@ -2607,14 +2607,14 @@
 
 	}
 
-	"monk_rune_d_a"
+	"monk_rune_q_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_d_a"
+		"AbilityTextureName"	"seinaru/seinaru_q_4"
 
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
@@ -2630,14 +2630,14 @@
 
 	}
 
-	"monk_rune_d_b"
+	"monk_rune_w_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/seinaru_d_b"
+		"AbilityTextureName"	"rpc/seinaru_w_4"
 
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
@@ -2653,14 +2653,14 @@
 
 	}
 
-	"monk_rune_d_c"
+	"monk_rune_e_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/seinaru_d_c"
+		"AbilityTextureName"	"rpc/seinaru_e_4"
 
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
@@ -2681,14 +2681,14 @@
 
 	}
 
-	"monk_rune_d_d"
+	"monk_rune_r_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_d_d"
+		"AbilityTextureName"	"seinaru/seinaru_r_4"
 
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
@@ -2704,14 +2704,14 @@
 
 	}
 
-	"monk_rune_a_a_arcana1"
+	"monk_rune_q_1_arcana1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_a_a_arcana1"
+		"AbilityTextureName"	"seinaru/seinaru_q_1_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -2724,14 +2724,14 @@
 		}
 	}
 
-	"monk_rune_b_a_arcana1"
+	"monk_rune_q_2_arcana1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_b_a_arcana1"
+		"AbilityTextureName"	"seinaru/seinaru_q_2_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -2744,14 +2744,14 @@
 		}
 	}
 
-	"monk_rune_c_a_arcana1"
+	"monk_rune_q_3_arcana1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_c_a_arcana1"
+		"AbilityTextureName"	"seinaru/seinaru_q_3_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -2764,14 +2764,14 @@
 		}
 	}
 
-	"monk_rune_d_a_arcana1"
+	"monk_rune_q_4_arcana1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_d_a_arcana1"
+		"AbilityTextureName"	"seinaru/seinaru_q_4_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"

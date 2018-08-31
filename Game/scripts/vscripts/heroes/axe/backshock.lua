@@ -3,11 +3,11 @@ function begin_backshock(event)
 	local ability = event.ability
 	local location = caster:GetOrigin() - caster:GetForwardVector()*Vector(-100, -100, 0)
 	local abilityLevel = ability:GetLevel()
-	ability.root_duration_level = rune_b_b(caster)
+	ability.root_duration_level = rune_w_2(caster)
 	ability.speed = event.speed
 	ability.damage = event.damage
-	rune_a_b(caster, ability)
-	ability.c_b_level = rune_c_b(caster, ability)
+	rune_w_1(caster, ability)
+	ability.w_3_level = rune_w_3(caster, ability)
 	local backVector = rotateVector(caster:GetForwardVector(), math.pi)
 
 	if caster:HasModifier("modifier_axe_glyph_2_1") then
@@ -34,43 +34,43 @@ function begin_backshock(event)
 		EmitSoundOn("RedGeneral.Helix", caster)
 		CustomAbilities:QuickAttachParticle("particles/econ/items/axe/axe_weapon_bloodchaser/axe_attack_blur_counterhelix_bloodchaser.vpcf", caster, 0.5)
 	end
-	if ability.c_b_level > 0 then
-		local healAmount = ability.c_b_level*500
+	if ability.w_3_level > 0 then
+		local healAmount = ability.w_3_level*500
 		Filters:ApplyHeal(caster, caster, healAmount, true)
 		-- PopupHealing(caster, healAmount)
 	end
-	if caster:HasModifier("modifier_axe_rune_d_c_furnace") then
-		local currentStacks = caster:GetModifierStackCount("modifier_axe_rune_d_c_furnace", caster)
+	if caster:HasModifier("modifier_axe_rune_e_4_furnace") then
+		local currentStacks = caster:GetModifierStackCount("modifier_axe_rune_e_4_furnace", caster)
 		local whirlwind = caster:FindAbilityByName("whirlwind")
-		if not whirlwind.d_c_extra_fire then
-			whirlwind.d_c_extra_fire = 0
+		if not whirlwind.e_4_extra_fire then
+			whirlwind.e_4_extra_fire = 0
 		end
-		if not caster:HasModifier("modifier_axe_rune_d_c_extra_stacks") then
-			whirlwind.d_c_extra_fire = 0
+		if not caster:HasModifier("modifier_axe_rune_e_4_extra_stacks") then
+			whirlwind.e_4_extra_fire = 0
 		end
-		if caster:HasModifier("modifier_axe_rune_d_c_extra_stacks") then
-			whirlwind.d_c_extra_fire = math.max(whirlwind.d_c_extra_fire, 1)
+		if caster:HasModifier("modifier_axe_rune_e_4_extra_stacks") then
+			whirlwind.e_4_extra_fire = math.max(whirlwind.e_4_extra_fire, 1)
 		end
-		local fireballsShot = math.min(whirlwind.d_c_extra_fire + 1, currentStacks)
+		local fireballsShot = math.min(whirlwind.e_4_extra_fire + 1, currentStacks)
 		print(fireballsShot)
 		for i = 1, fireballsShot, 1 do
 			local j = i - 1
 			local dc_fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi*j/(15*fireballsShot))
 			createFireBall_d_c(whirlwind, dc_fv, caster, caster:GetAbsOrigin())
 		end
-		if caster:HasModifier("modifier_axe_rune_d_c_extra_stacks") then
-			whirlwind.d_c_extra_fire = whirlwind.d_c_extra_fire + 1
+		if caster:HasModifier("modifier_axe_rune_e_4_extra_stacks") then
+			whirlwind.e_4_extra_fire = whirlwind.e_4_extra_fire + 1
 		else
-			whirlwind.d_c_extra_fire = 0
+			whirlwind.e_4_extra_fire = 0
 		end
 		local newStacks = math.max(0, currentStacks-fireballsShot)
 		if newStacks > 0 then
-			caster:SetModifierStackCount("modifier_axe_rune_d_c_furnace", caster, newStacks)
+			caster:SetModifierStackCount("modifier_axe_rune_e_4_furnace", caster, newStacks)
 		else
-			caster:RemoveModifierByName("modifier_axe_rune_d_c_furnace")
+			caster:RemoveModifierByName("modifier_axe_rune_e_4_furnace")
 		end
 		local duration = Filters:GetAdjustedBuffDuration(caster, 0.5, false)
-		whirlwind:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_d_c_extra_stacks", {duration = duration})
+		whirlwind:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_e_4_extra_stacks", {duration = duration})
 		
 	end
 	Filters:CastSkillArguments(2, caster)
@@ -104,11 +104,11 @@ function createFireBall_d_c(ability, fv, caster, casterOrigin)
     projectile = ProjectileManager:CreateLinearProjectile(info)
 end
 
-function rune_a_b(caster, ability)
+function rune_w_1(caster, ability)
 	local runeUnit = caster.runeUnit
-	local runeAbility = runeUnit:FindAbilityByName("axe_rune_a_b")
+	local runeAbility = runeUnit:FindAbilityByName("axe_rune_w_1")
 	local abilityLevel = runeAbility:GetLevel()
-	local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_b")
+	local bonusLevel = Runes:GetTotalBonus(runeUnit, "w_1")
 	local totalLevel = abilityLevel + bonusLevel
 	if totalLevel > 0 then
 		heel_stomp(caster, ability, totalLevel)
@@ -137,24 +137,24 @@ function heel_stomp(caster, ability, totalLevel)
       	end
       	local radius = 300
       	local damage = totalLevel*350
-	    local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "axe")
-	    damage = damage + 0.0003*caster:GetStrength()/10*d_b_level*damage
+	    local w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "axe")
+	    damage = damage + 0.0003*caster:GetStrength()/10*w_4_level*damage
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), origin, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
-				if d_b_level > 0 then
-					Filters:ApplyStun(caster, 0.01*d_b_level, enemy)
+				if w_4_level > 0 then
+					Filters:ApplyStun(caster, 0.01*w_4_level, enemy)
 				end
 			end
 		end 
 end
 
-function rune_b_b(caster)
+function rune_w_2(caster)
 	local runeUnit = caster.runeUnit2
-	local ability = runeUnit:FindAbilityByName("axe_rune_b_b")
+	local ability = runeUnit:FindAbilityByName("axe_rune_w_2")
 	local abilityLevel = ability:GetLevel()
-	local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_b")
+	local bonusLevel = Runes:GetTotalBonus(runeUnit, "w_2")
 	local totalLevel = abilityLevel + bonusLevel
 	if not totalLevel then
 		totalLevel = 0
@@ -162,11 +162,11 @@ function rune_b_b(caster)
 	return totalLevel
 end
 
-function rune_c_b(caster, ability)
+function rune_w_3(caster, ability)
 	local runeUnit = caster.runeUnit3
-	local runeAbility = runeUnit:FindAbilityByName("axe_rune_c_b")
+	local runeAbility = runeUnit:FindAbilityByName("axe_rune_w_3")
 	local abilityLevel = runeAbility:GetLevel()
-	local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_b")
+	local bonusLevel = Runes:GetTotalBonus(runeUnit, "w_3")
 	local totalLevel = abilityLevel + bonusLevel
 	ability.runeAbility_c_b = runeAbility
 	runeAbility.totalLevel = totalLevel
@@ -227,20 +227,20 @@ function shock_strike(event)
 	local caster = event.caster
 	local ability = event.ability
 	local damage = ability.damage
-	if caster:HasModifier("modifier_axe_rune_c_d") then
+	if caster:HasModifier("modifier_axe_rune_r_3") then
 	    local runeUnit = caster.runeUnit3
-	    local runeAbility = runeUnit:FindAbilityByName("axe_rune_c_d")
-		local current_stack = caster:GetModifierStackCount( "modifier_axe_rune_c_d", runeAbility )
+	    local runeAbility = runeUnit:FindAbilityByName("axe_rune_r_3")
+		local current_stack = caster:GetModifierStackCount( "modifier_axe_rune_r_3", runeAbility )
 		damage = damage*(1+current_stack/10)
 	end
 	if event.amp then
 		damage = damage*event.amp
 	end
-    local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "axe")
-    damage = damage + 0.0003*caster:GetStrength()/10*d_b_level*damage
+    local w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "axe")
+    damage = damage + 0.0003*caster:GetStrength()/10*w_4_level*damage
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 
-	-- if ability.c_b_level > 0 then
+	-- if ability.w_3_level > 0 then
 	-- 	tracking_c_b_projectile(caster, target, ability)
 	-- end
 	if ability.root_duration_level then
@@ -278,11 +278,11 @@ function c_b_projectile_hit(event)
 	local ability = event.ability
 	local totalLevel = ability.totalLevel
 	local duration = Filters:GetAdjustedBuffDuration(caster, 4, false)
-    ability:ApplyDataDrivenModifier(caster, target, "modifier_axe_rune_c_b_visible", {duration = duration})
-    local current_stack = target:GetModifierStackCount( "modifier_axe_rune_c_b_visible", ability )
+    ability:ApplyDataDrivenModifier(caster, target, "modifier_axe_rune_w_3_visible", {duration = duration})
+    local current_stack = target:GetModifierStackCount( "modifier_axe_rune_w_3_visible", ability )
     --if current_stack < 21 then
-    	target:SetModifierStackCount( "modifier_axe_rune_c_b_visible",  ability, current_stack + 1 )
-    	ability:ApplyDataDrivenModifier(caster, target, "modifier_axe_rune_c_b_invisible", {duration = duration})
-    	target:SetModifierStackCount( "modifier_axe_rune_c_b_invisible", ability, current_stack*totalLevel )
+    	target:SetModifierStackCount( "modifier_axe_rune_w_3_visible",  ability, current_stack + 1 )
+    	ability:ApplyDataDrivenModifier(caster, target, "modifier_axe_rune_w_3_invisible", {duration = duration})
+    	target:SetModifierStackCount( "modifier_axe_rune_w_3_invisible", ability, current_stack*totalLevel )
 	--end
 end

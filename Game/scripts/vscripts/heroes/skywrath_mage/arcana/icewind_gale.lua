@@ -91,9 +91,9 @@ function begin_icewind_gale(event)
 	end
 	ability.pushSpeed = 12
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_gale_speed_burst", {duration = 0.8})
-	local c_b_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
-	if c_b_level > 0 then
-		local shieldStacks = Runes:Procs(c_b_level, 6, 1)
+	local w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+	if w_3_level > 0 then
+		local shieldStacks = Runes:Procs(w_3_level, 6, 1)
 		if shieldStacks > 0 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_icewind_shield", {duration = 7})
 			caster:SetModifierStackCount("modifier_icewind_shield", caster, shieldStacks)
@@ -145,9 +145,9 @@ function ice_gale_hit(event)
 		ability = caster:FindAbilityByName("icewind_gale")
 		crit = true
 	end
-	local b_b_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
-	if b_b_level > 0 then
-		damage = damage + caster:GetAverageTrueAttackDamage(caster)*ARCANA1_W2_AD_TO_W_DAMAGE_PERCENT/100*b_b_level
+	local w_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
+	if w_2_level > 0 then
+		damage = damage + caster:GetAverageTrueAttackDamage(caster)*ARCANA1_W2_AD_TO_W_DAMAGE_PERCENT/100*w_2_level
 	end
 	if crit then
 		damage = damage + damage*(event.crit_mult/100)
@@ -160,13 +160,13 @@ end
 function sephyr_passive_think_icegale(event)
 	local ability = event.ability
 	local caster = event.caster
-	local a_b_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
-	if a_b_level > 0 then
+	local w_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
+	if w_1_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_icewind_mana_regen", {})
-		caster:SetModifierStackCount("modifier_icewind_mana_regen", caster, a_b_level)
+		caster:SetModifierStackCount("modifier_icewind_mana_regen", caster, w_1_level)
 
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_icewind_attack_power", {})
-		local attackPower = caster:GetManaRegen()*a_b_level*ARCANA1_W1_DAMAGE_PER_MANAREGEN
+		local attackPower = caster:GetManaRegen()*w_1_level*ARCANA1_W1_DAMAGE_PER_MANAREGEN
 		caster:SetModifierStackCount("modifier_icewind_attack_power", caster, attackPower)
 		
 	else

@@ -7,7 +7,7 @@ local function applyBuff(caster, ability)
 
     local duration = Filters:GetAdjustedBuffDuration(caster, ARCANA1_R2_DURATION, false)
 
-    Helper.updateStackModifier(caster, caster, ability, 'axe_rune_b_d_arcana1', duration, ARCANA1_R2_MAX_STACKS_COUNT, runesCount)
+    Helper.updateStackModifier(caster, caster, ability, 'axe_rune_r_2_arcana1', duration, ARCANA1_R2_MAX_STACKS_COUNT, runesCount)
 end
 
 local module = {}

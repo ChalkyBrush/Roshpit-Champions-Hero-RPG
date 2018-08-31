@@ -19,8 +19,8 @@ function bomb_throw_start(event)
     bomb.origCaster = caster
     bomb.origAbility = ability
     bomb.damage = event.damage
-    local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "trapper")
-    bomb.damage = bomb.damage + TRAPPER_W4_AMPLIFY_PERCENT/100*(caster:GetIntellect()+caster:GetStrength()+caster:GetAgility())/10*d_b_level*bomb.damage
+    local w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "trapper")
+    bomb.damage = bomb.damage + TRAPPER_W4_AMPLIFY_PERCENT/100*(caster:GetIntellect()+caster:GetStrength()+caster:GetAgility())/10*w_4_level*bomb.damage
     bomb.detonate = true
     if ability.total_bombs == nil then
         ability.total_bombs = 0
@@ -39,8 +39,8 @@ function bomb_throw_start(event)
 --        end
 --    end
 
-    bomb.a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "trapper")
-    bomb.c_b_level = Runes:GetTotalRuneLevel(caster, 3, "c_b", "trapper")
+    bomb.w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "trapper")
+    bomb.w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "trapper")
     if bomb.detonate then
         Timers:CreateTimer(0.1, function()
          StartSoundEvent("Trapper.BombTicking", bomb)
@@ -138,8 +138,8 @@ function bomb_explode(unit)
     local ability = unit.origAbility
     local damage = unit.damage
     local stun_duration = unit.stun_duration
-    local a_b_level = unit.a_b_level
-    local c_b_level = unit.c_b_level
+    local w_1_level = unit.w_1_level
+    local w_3_level = unit.w_3_level
     ability.total_bombs = ability.total_bombs - 1
     print("BOMB EXPLODE??")
     Timers:CreateTimer(0.05, function()
@@ -170,18 +170,18 @@ function bomb_explode(unit)
             if #enemies > 0 then    
                 for _,enemy in pairs(enemies) do
                     local a_b_damage = damage
-                    if a_b_level > 0 then
+                    if w_1_level > 0 then
                         local distance = WallPhysics:GetDistance(enemy:GetAbsOrigin(), position)
                         local damageBonusMult = 1 - (distance/explosionRadius)
-                        a_b_damage = damage + damage*damageBonusMult*a_b_level*W1_AMP_PERCENT/100
+                        a_b_damage = damage + damage*damageBonusMult*w_1_level*W1_AMP_PERCENT/100
                     end
                     Filters:TakeArgumentsAndApplyDamage(enemy, caster, a_b_damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NORMAL)
                     Filters:ApplyStun(caster, stun_duration, enemy)
                 end
             end
-            if c_b_level > 0 then
+            if w_3_level > 0 then
                 for i = 1, 3, 1 do
-                    shrapnel_bomb(caster, ability, stun_duration/2, damage*(c_b_level*0.015+0.1), unit:GetAbsOrigin())
+                    shrapnel_bomb(caster, ability, stun_duration/2, damage*(w_3_level*0.015+0.1), unit:GetAbsOrigin())
                 end
             end
     end)
@@ -208,8 +208,8 @@ function shrapnel_bomb(caster, ability, stun_duration, damage, origin)
     bomb.origAbility = ability
     bomb.damage = damage
     bomb.detonate = true
-    bomb.a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "trapper")
-    bomb.c_b_level = 0
+    bomb.w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "trapper")
+    bomb.w_3_level = 0
     Timers:CreateTimer(0.1, function()
      StartSoundEvent("Trapper.BombTicking", bomb)
     end)
@@ -292,11 +292,11 @@ function smoke_bomb_think(event)
     Timers:CreateTimer(2, function()
         ParticleManager:DestroyParticle(particle1, false)
     end)
-    local b_b_damage = caster.b_b_damage
+    local b_b_damage = caster.w_2_damage
     
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 
-    local a_b_level = caster.a_b_level
+    local w_1_level = caster.w_1_level
 
     local damage = b_b_damage
 
@@ -304,10 +304,10 @@ function smoke_bomb_think(event)
         for _,enemy in pairs(enemies) do
              origAbility:ApplyDataDrivenModifier(origCaster, enemy, "modifier_smoke_bomb_effect", {duration = 0.6}) 
              if b_b_damage > 0 then
-                 if a_b_level > 0 then
+                 if w_1_level > 0 then
                      local distance = WallPhysics:GetDistance(enemy:GetAbsOrigin(), position)
                      local damageBonusMult = 1 - (distance/radius)
-                     damage = b_b_damage + b_b_damage*damageBonusMult*a_b_level*W1_AMP_PERCENT/100
+                     damage = b_b_damage + b_b_damage*damageBonusMult*w_1_level*W1_AMP_PERCENT/100
                  end
                 Filters:ApplyDotDamage(origCaster, ability, enemy, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_POISON)
              end
@@ -349,15 +349,15 @@ function bomb_throw_start_smoke(event)
     bomb.origCaster = caster
     bomb.origAbility = ability
     bomb.damage = event.damage
-    bomb.a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "trapper")
-    local b_b_level = Runes:GetTotalRuneLevel(caster, 2, "b_b", "trapper")
-    bomb.b_b_damage = b_b_level*TRAPPER_W2_DAMAGE
-    local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "trapper")
-    bomb.b_b_damage = bomb.b_b_damage + TRAPPER_W4_AMPLIFY_PERCENT/100*(caster:GetIntellect()+caster:GetStrength()+caster:GetAgility())/10*d_b_level*bomb.b_b_damage
+    bomb.w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "trapper")
+    local w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "trapper")
+    bomb.w_2_damage = w_2_level*TRAPPER_W2_DAMAGE
+    local w_3_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "trapper")
+    bomb.w_2_damage = bomb.w_2_damage + TRAPPER_W4_AMPLIFY_PERCENT/100*(caster:GetIntellect()+caster:GetStrength()+caster:GetAgility())/10*w_3_level*bomb.w_2_damage
 
     EmitSoundOn("Trapper.BombThrow", caster)
     bomb_start(bomb, ability, target)
-    -- rune_c_d(caster)
+    -- rune_r_3(caster)
 end
 
 --function bomb_throw_start_flash(event)
@@ -382,7 +382,7 @@ end
 --    bomb.origCaster = caster
 --    bomb.origAbility = ability
 --    bomb.damage = event.damage
---    local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "trapper")
+--    local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "trapper")
 --    bomb.blind_duration = 2 + 0.1*c_d_level
 --    EmitSoundOn("Trapper.BombThrow", caster)
 --    bomb_start(bomb, ability, target)
@@ -437,8 +437,8 @@ end
 --    end)
 --end
 
---function rune_c_d(caster)
---    local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "trapper")
+--function rune_r_3(caster)
+--    local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "trapper")
 --    if c_d_level > 0 then
 --        local flash_grenade = caster:FindAbilityByName("flash_grenade")
 --        if not flash_grenade then

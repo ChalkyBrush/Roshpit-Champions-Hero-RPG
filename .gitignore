@@ -11,9 +11,8 @@ Game/models
 Game/particles
 Game/screenshots
 *.bin
-Game/tool_asset_info
-Game/tools_thumbnail_cache
-game/scripts/npc
-*.bin
-Game/tools_asset_info.bin
-Game/tools_thumbnail_cache.bin
+/.vs
+Game/soundevents
+Game/scripts/npc/npc_abilities_custom.txt
+Game/scripts/npc/npc_items_custom.txt
+Game/scripts/npc/npc_units_custom.txt

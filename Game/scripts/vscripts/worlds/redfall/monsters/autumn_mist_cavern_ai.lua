@@ -18,7 +18,7 @@ function redfall_tyrant_quake(event)
 	local ability = event.ability
 	local radius = 240
 	local position = ability.position
-	local splitEarthParticle = "particles/units/heroes/hero_leshrac/astral_rune_b_d.vpcf"
+	local splitEarthParticle = "particles/units/heroes/hero_leshrac/astral_rune_r_2.vpcf"
 	local damage = event.damage
 	local pfx = ParticleManager:CreateParticle( splitEarthParticle, PATTACH_CUSTOMORIGIN, caster )
 	ParticleManager:SetParticleControl( pfx, 0, position )

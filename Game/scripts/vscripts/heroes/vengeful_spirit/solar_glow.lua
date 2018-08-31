@@ -15,12 +15,12 @@ function solar_glow_start(event)
 	ability.baseFV = baseFV
 	local forwardVelocity = WallPhysics:GetDistance2d(target, caster:GetAbsOrigin())/35 + 6
 	local damage = event.damage
-    local d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "solunia")
+    local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "solunia")
 	local projectiles = event.projectiles
 	local stun_duration = event.stun_duration
-	local b_a_level = Runes:GetTotalRuneLevel(caster, 2, "b_a", "solunia")
-	local c_a_level = Runes:GetTotalRuneLevel(caster, 3, "c_a", "solunia")
-	ability.b_a_level = b_a_level
+	local q_2_level = Runes:GetTotalRuneLevel(caster, 2, "q_2", "solunia")
+	local q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "solunia")
+	ability.q_2_level = q_2_level
 	for i = 0, projectiles-1, 1 do
 		Timers:CreateTimer(i*0.2, function()
 			local randomOffset = RandomInt(-20,20)
@@ -36,8 +36,8 @@ function solar_glow_start(event)
 		    	flare.stun_duration = flare.stun_duration + 1
 		    end
 		    flare.liftVelocity = 40
-		    flare.b_a_level = b_a_level
-		    flare.c_a_level = c_a_level
+		    flare.q_2_level = q_2_level
+		    flare.q_3_level = q_3_level
 		    flare.forwardVelocity = forwardVelocity + RandomInt(-3,3)
 		    flare.interval = 0
 		    flare.damage = damage
@@ -58,7 +58,7 @@ function solar_glow_start(event)
 	end)
 	EmitSoundOn("Solunia.NitroInitialCast", caster)
 	Filters:CastSkillArguments(1, caster)
-	glow_rune_a_a(caster, ability, baseFV, WallPhysics:GetDistance2d(target, caster:GetAbsOrigin()))
+	glow_rune_q_1(caster, ability, baseFV, WallPhysics:GetDistance2d(target, caster:GetAbsOrigin()))
 	if caster:HasModifier("modifier_solunia_glyph_6_1_ready") then
 		caster:RemoveModifierByName("modifier_solunia_glyph_6_1_ready")
 		ability:EndCooldown()
@@ -127,11 +127,11 @@ function flareImpact(caster, ability)
 				local stacks = enemy:GetModifierStackCount("modifier_boomerang_magic_marker", caster.origCaster)
 				damage = damage + stacks*0.2*damage
 			end
-			if caster.c_a_level > 0 then
+			if caster.q_3_level > 0 then
 				if caster.typeName == "sun" then
-					damage = damage + enemy:GetHealth()*0.004*caster.c_a_level
+					damage = damage + enemy:GetHealth()*0.004*caster.q_3_level
 				else
-					damage = damage + (enemy:GetMaxHealth()-enemy:GetHealth())*0.004*caster.c_a_level
+					damage = damage + (enemy:GetMaxHealth()-enemy:GetHealth())*0.004*caster.q_3_level
 				end
 			end
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster.origCaster, damage, damageType, 1, RPC_ELEMENT_COSMOS, element2)
@@ -139,7 +139,7 @@ function flareImpact(caster, ability)
 			b_a_stack_gain = b_a_stack_gain + 1
 		end
 	end 
-	if caster.b_a_level > 0 then
+	if caster.q_2_level > 0 then
 		local solunia = caster.origCaster
 		local buffDuration = Filters:GetAdjustedBuffDuration(solunia, 3, false)
 		if caster.typeName == "moon" then
@@ -148,18 +148,18 @@ function flareImpact(caster, ability)
 			solunia:SetModifierStackCount("modifier_solunia_b_a_lunar_visible", solunia, newStacks)
 
 			caster.origAbility:ApplyDataDrivenModifier(solunia, solunia, "modifier_solunia_b_a_lunar_invisible", {duration = buffDuration})
-			solunia:SetModifierStackCount("modifier_solunia_b_a_lunar_invisible", solunia, newStacks*caster.b_a_level)
+			solunia:SetModifierStackCount("modifier_solunia_b_a_lunar_invisible", solunia, newStacks*caster.q_2_level)
 
-			caster.origAbility.b_a_stacks = newStacks
+			caster.origAbility.q_2_stacks = newStacks
 		elseif caster.typeName == "sun" then
 			caster.origAbility:ApplyDataDrivenModifier(solunia, solunia, "modifier_solunia_b_a_solar_visible", {duration = buffDuration})
 			local newStacks = math.min(solunia:GetModifierStackCount("modifier_solunia_b_a_solar_visible", solunia) + b_a_stack_gain, 50)
 			solunia:SetModifierStackCount("modifier_solunia_b_a_solar_visible", solunia, newStacks)
 
 			caster.origAbility:ApplyDataDrivenModifier(solunia, solunia, "modifier_solunia_b_a_solar_invisible", {duration = buffDuration})
-			solunia:SetModifierStackCount("modifier_solunia_b_a_solar_invisible", solunia, newStacks*caster.b_a_level)
+			solunia:SetModifierStackCount("modifier_solunia_b_a_solar_invisible", solunia, newStacks*caster.q_2_level)
 
-			caster.origAbility.b_a_stacks = newStacks
+			caster.origAbility.q_2_stacks = newStacks
 		end
 	end
 end
@@ -169,8 +169,8 @@ function b_a_buff_timeout(event)
 	local ability = event.ability
 	local buffDuration = Filters:GetAdjustedBuffDuration(caster, 3, false)
 	if ability:GetAbilityName() == "solunia_lunar_glow" then
-		local newStacks = ability.b_a_stacks - 1
-		ability.b_a_stacks = newStacks
+		local newStacks = ability.q_2_stacks - 1
+		ability.q_2_stacks = newStacks
 		if newStacks < 1 then
 			caster:RemoveModifierByName("modifier_solunia_b_a_lunar_visible")
 			caster:RemoveModifierByName("modifier_solunia_b_a_lunar_invisible")
@@ -178,11 +178,11 @@ function b_a_buff_timeout(event)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_solunia_b_a_lunar_visible", {duration = buffDuration})
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_solunia_b_a_lunar_invisible", {duration = buffDuration})
 			caster:SetModifierStackCount("modifier_solunia_b_a_lunar_visible", caster, newStacks)
-			caster:SetModifierStackCount("modifier_solunia_b_a_lunar_invisible", caster, newStacks*ability.b_a_level)
+			caster:SetModifierStackCount("modifier_solunia_b_a_lunar_invisible", caster, newStacks*ability.q_2_level)
 		end
 	elseif ability:GetAbilityName() == "solunia_solar_glow" then
-		local newStacks = ability.b_a_stacks - 1
-		ability.b_a_stacks = newStacks
+		local newStacks = ability.q_2_stacks - 1
+		ability.q_2_stacks = newStacks
 		if newStacks < 1 then
 			caster:RemoveModifierByName("modifier_solunia_b_a_solar_visible")
 			caster:RemoveModifierByName("modifier_solunia_b_a_solar_invisible")
@@ -190,7 +190,7 @@ function b_a_buff_timeout(event)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_solunia_b_a_solar_visible", {duration = buffDuration})
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_solunia_b_a_solar_invisible", {duration = buffDuration})
 			caster:SetModifierStackCount("modifier_solunia_b_a_solar_visible", caster, newStacks)
-			caster:SetModifierStackCount("modifier_solunia_b_a_solar_invisible", caster, newStacks*ability.b_a_level)
+			caster:SetModifierStackCount("modifier_solunia_b_a_solar_invisible", caster, newStacks*ability.q_2_level)
 		end
 	end
 end
@@ -215,12 +215,12 @@ function lunar_glow_start(event)
 	ability.baseFV = baseFV
 	local forwardVelocity = WallPhysics:GetDistance2d(target, caster:GetAbsOrigin())/100 + 11
 	local damage = event.damage
-    local d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "solunia")
+    local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "solunia")
 	local projectiles = event.projectiles
 	local stun_duration = event.stun_duration
-	local b_a_level = Runes:GetTotalRuneLevel(caster, 2, "b_a", "solunia")
-	local c_a_level = Runes:GetTotalRuneLevel(caster, 3, "c_a", "solunia")
-	ability.b_a_level = b_a_level
+	local q_2_level = Runes:GetTotalRuneLevel(caster, 2, "q_2", "solunia")
+	local q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "solunia")
+	ability.q_2_level = q_2_level
 	for i = 0, projectiles-1, 1 do
 		Timers:CreateTimer(i*0.2, function()
 			local randomOffset = RandomInt(-10,10)
@@ -232,8 +232,8 @@ function lunar_glow_start(event)
 		    flare:SetRenderColor(0, 140, 255)
 		    flare:SetModelScale(0.1)
 		    flare.fv = flareAngle
-		    flare.b_a_level = b_a_level
-		    flare.c_a_level = c_a_level
+		    flare.q_2_level = q_2_level
+		    flare.q_3_level = q_3_level
 		    flare.stun_duration = stun_duration
 		    if caster:HasModifier("modifier_solunia_glyph_3_1") then
 		    	flare.stun_duration = flare.stun_duration + 1
@@ -260,17 +260,17 @@ function lunar_glow_start(event)
 	end)
 	EmitSoundOn("Solunia.NitroInitialCast", caster)
 	Filters:CastSkillArguments(1, caster)
-	glow_rune_a_a(caster, ability, baseFV, WallPhysics:GetDistance2d(target, caster:GetAbsOrigin()))
+	glow_rune_q_1(caster, ability, baseFV, WallPhysics:GetDistance2d(target, caster:GetAbsOrigin()))
 	if caster:HasModifier("modifier_solunia_glyph_6_1_ready") then
 		caster:RemoveModifierByName("modifier_solunia_glyph_6_1_ready")
 		ability:EndCooldown()
 	end
 end
 
-function glow_rune_a_a(caster, ability, fv, range)
-	ability.rune_a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a", "solunia")
-	if ability.rune_a_a_level > 0 then
-			ability.a_a_damage = caster:GetAverageTrueAttackDamage(caster)*0.3*ability.rune_a_a_level
+function glow_rune_q_1(caster, ability, fv, range)
+	ability.rune_q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "solunia")
+	if ability.rune_q_1_level > 0 then
+			ability.q_1_damage = caster:GetAverageTrueAttackDamage(caster)*0.3*ability.rune_q_1_level
 			local speed = math.max(range/2 + 200, 400)
 			local casterOrigin = caster:GetAbsOrigin()
 			local particleName = "particles/roshpit/solunia/a_a_wave_solar.vpcf"
@@ -314,9 +314,9 @@ function a_a_projectile_hit(event)
 	print("TARGET HIT")
 	local distanceToPoint = WallPhysics:GetDistance2d(targetPoint, target:GetAbsOrigin())
 	local pushVector = (((targetPoint+ability.baseFV*200)-target:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-	local divider = math.max(4000 - ability.rune_a_a_level*10, 1500)
+	local divider = math.max(4000 - ability.rune_q_1_level*10, 1500)
 	target.solunia_a_a_push_vector = pushVector*(distanceToPoint/divider)*100
-	Filters:TakeArgumentsAndApplyDamage(target, caster, ability.a_a_damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, ability.q_1_damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
 end
 
 function a_a_push_end(event)

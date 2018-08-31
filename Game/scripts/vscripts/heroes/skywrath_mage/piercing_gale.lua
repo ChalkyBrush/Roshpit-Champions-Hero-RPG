@@ -24,16 +24,16 @@ function begin_piercing_gale(event)
 	local critParticle = "particles/roshpit/sephyr/gale/crit.vpcf"
 	local range = 800
 	local speed = 2500
-	local b_b_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
+	local w_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
 	local castAbility = ability
-	ability.b_b_level = b_b_level
+	ability.w_2_level = w_2_level
 	if caster:HasModifier("modifier_sephyr_glyph_4_1") then
 		range = 1200
 		speed = 3500
 		galeParticle = "particles/roshpit/sephyr/glyphed_piercing_gale.vpcf"
 		critParticle = "particles/roshpit/sephyr/gale/glyphed_crit.vpcf"
 	end
-	if ability.b_b_level > 0 then
+	if ability.w_2_level > 0 then
 		local procChance = 20
 		if caster:HasModifier("modifier_sephyr_immortal_weapon_1") then
 			procChance = procChance + 15
@@ -162,12 +162,12 @@ function gale_hit(event)
 		ability = caster:FindAbilityByName("piercing_gale")
 		crit = true
 	end
-	local c_b_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
-	if c_b_level > 0 then
-		damage = damage + caster:GetAverageTrueAttackDamage(caster)*W3_AD_TO_W_DAMAGE_PERCENT/100*c_b_level
+	local w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+	if w_3_level > 0 then
+		damage = damage + caster:GetAverageTrueAttackDamage(caster)*W3_AD_TO_W_DAMAGE_PERCENT/100*w_3_level
 	end
 	if crit then
-		damage = damage + damage*0.2*ability.b_b_level
+		damage = damage + damage*0.2*ability.w_2_level
 		PopupDamage(target, damage)
 	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
@@ -176,10 +176,10 @@ end
 function sephyr_passive_think_gale(event)
 	local ability = event.ability
 	local caster = event.caster
-	local a_b_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
-	if a_b_level > 0 then
+	local w_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
+	if w_1_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_sephyr_mana_regen", {})
-		local manaRegen = caster:GetIntellect()*0.025*a_b_level
+		local manaRegen = caster:GetIntellect()*0.025*w_1_level
 		caster:SetModifierStackCount("modifier_sephyr_mana_regen", caster, manaRegen)
 	else
 		caster:RemoveModifierByName("modifier_sephyr_mana_regen")

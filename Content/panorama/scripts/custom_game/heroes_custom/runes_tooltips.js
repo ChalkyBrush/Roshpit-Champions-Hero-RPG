@@ -239,38 +239,38 @@ function GetElementColor(element_index){
 }
 
 function GetRuneSlot(abilityName){
-	if (abilityName.indexOf("rune_a_a") > -1){
-		return "rune_a_a"
-	}else if (abilityName.indexOf("rune_a_b") > -1){
-		return "rune_a_b"
-	}else if (abilityName.indexOf("rune_a_c") > -1){
-		return "rune_a_c"
-	}else if (abilityName.indexOf("rune_a_d") > -1){
-		return "rune_a_d"
-	}else if (abilityName.indexOf("rune_b_a") > -1){
-		return "rune_b_a"
-	}else if (abilityName.indexOf("rune_b_b") > -1){
-		return "rune_b_b"
-	}else if (abilityName.indexOf("rune_b_c") > -1){
-		return "rune_b_c"
-	}else if (abilityName.indexOf("rune_b_d") > -1){
-		return "rune_b_d"
-	}else if (abilityName.indexOf("rune_c_a") > -1){
-		return "rune_c_a"
-	}else if (abilityName.indexOf("rune_c_b") > -1){
-		return "rune_c_b"
-	}else if (abilityName.indexOf("rune_c_c") > -1){
-		return "rune_c_c"
-	}else if (abilityName.indexOf("rune_c_d") > -1){
-		return "rune_c_d"
-	}else if (abilityName.indexOf("rune_d_a") > -1){
-		return "rune_d_a"
-	}else if (abilityName.indexOf("rune_d_b") > -1){
-		return "rune_d_b"
-	}else if (abilityName.indexOf("rune_d_c") > -1){
-		return "rune_d_c"
-	}else if (abilityName.indexOf("rune_d_d") > -1){
-		return "rune_d_d"
+	if (abilityName.indexOf("rune_q_1") > -1){
+		return "rune_q_1"
+	}else if (abilityName.indexOf("rune_w_1") > -1){
+		return "rune_w_1"
+	}else if (abilityName.indexOf("rune_e_1") > -1){
+		return "rune_e_1"
+	}else if (abilityName.indexOf("rune_r_1") > -1){
+		return "rune_r_1"
+	}else if (abilityName.indexOf("rune_q_2") > -1){
+		return "rune_q_2"
+	}else if (abilityName.indexOf("rune_w_2") > -1){
+		return "rune_w_2"
+	}else if (abilityName.indexOf("rune_e_2") > -1){
+		return "rune_e_2"
+	}else if (abilityName.indexOf("rune_r_2") > -1){
+		return "rune_r_2"
+	}else if (abilityName.indexOf("rune_q_3") > -1){
+		return "rune_q_3"
+	}else if (abilityName.indexOf("rune_w_3") > -1){
+		return "rune_w_3"
+	}else if (abilityName.indexOf("rune_e_3") > -1){
+		return "rune_e_3"
+	}else if (abilityName.indexOf("rune_r_3") > -1){
+		return "rune_r_3"
+	}else if (abilityName.indexOf("rune_q_4") > -1){
+		return "rune_q_4"
+	}else if (abilityName.indexOf("rune_w_4") > -1){
+		return "rune_w_4"
+	}else if (abilityName.indexOf("rune_e_4") > -1){
+		return "rune_e_4"
+	}else if (abilityName.indexOf("rune_r_4") > -1){
+		return "rune_r_4"
 	}else{
 		return ""
 	}
@@ -341,7 +341,7 @@ function AddAffixToItem(tooltip, itemProperty, queryUnit, requiredHero, rarityFa
 		var runeIndex = 1
 		if (OGpropertyName.indexOf("rune_a") >= 0){
 			runeIndex = 1
-		}else if (OGpropertyName.indexOf("rune_b") >= 0){
+		}else if (OGpropertyName.indexOf("rune_w") >= 0){
 			runeIndex = 2
 		}else if (OGpropertyName.indexOf("rune_c") >= 0){
 			runeIndex = 3
@@ -446,11 +446,11 @@ function getControllingPlayerIndex()
 
 function getRuneIndexFromRuneName(propertyName){
 	var index = 3
-	if (propertyName.indexOf("a_a") >= 1 || propertyName.indexOf("b_a") >= 1 || propertyName.indexOf("c_a") >= 1 || propertyName.indexOf("d_a") >= 1 ){
+	if (propertyName.indexOf("q_1") >= 1 || propertyName.indexOf("q_2") >= 1 || propertyName.indexOf("q_3") >= 1 || propertyName.indexOf("q_4") >= 1 ){
 		index = 0
-	}else if (propertyName.indexOf("a_b") >= 1 || propertyName.indexOf("b_b") >= 1 || propertyName.indexOf("c_b") >= 1 || propertyName.indexOf("d_b") >= 1 ){
+	}else if (propertyName.indexOf("w_1") >= 1 || propertyName.indexOf("w_2") >= 1 || propertyName.indexOf("w_3") >= 1 || propertyName.indexOf("w_4") >= 1 ){
 		index = 1
-	}else if (propertyName.indexOf("a_c") >= 1 || propertyName.indexOf("b_c") >= 1 || propertyName.indexOf("c_c") >= 1 || propertyName.indexOf("d_c") >= 1 ){
+	}else if (propertyName.indexOf("e_1") >= 1 || propertyName.indexOf("e_2") >= 1 || propertyName.indexOf("e_3") >= 1 || propertyName.indexOf("e_4") >= 1 ){
 		index = 2
 	}
 	return index

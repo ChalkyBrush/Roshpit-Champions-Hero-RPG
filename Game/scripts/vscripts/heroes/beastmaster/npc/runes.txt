@@ -1,4 +1,4 @@
-	"warlord_rune_a_a"
+	"warlord_rune_q_1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -21,7 +21,7 @@
 
 		"Modifiers"
 		{
-			"modifier_warlord_rune_a_a"
+			"modifier_warlord_rune_q_1"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -36,7 +36,7 @@
 
 	}
 
-	"warlord_rune_a_b"
+	"warlord_rune_w_1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -68,7 +68,7 @@
 
 	}
 
-	"warlord_rune_a_c"
+	"warlord_rune_e_1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -95,7 +95,7 @@
 
 	}
 
-	"warlord_rune_a_d"
+	"warlord_rune_r_1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -127,7 +127,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_warlord_rune_a_d"
+			"modifier_warlord_rune_r_1"
 			{
 				"IsBuff"		"1"
 				"IsPurgable"	"0"
@@ -148,7 +148,7 @@
 
 	}
 
-	"warlord_rune_b_a"
+	"warlord_rune_q_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -170,13 +170,13 @@
 
 		"Modifiers"
 		{
-			"modifier_warlord_rune_b_a_visible"
+			"modifier_warlord_rune_q_2_visible"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
 			}
-			"modifier_warlord_rune_b_a_invisible"
+			"modifier_warlord_rune_q_2_invisible"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
@@ -190,7 +190,7 @@
 
 	}
 
-	"warlord_rune_b_b"
+	"warlord_rune_w_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -222,7 +222,7 @@
 
 	}
 
-	"warlord_rune_b_c"
+	"warlord_rune_e_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -244,7 +244,7 @@
 
 	}
 
-	"warlord_rune_b_d"
+	"warlord_rune_r_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -266,7 +266,7 @@
 	}
 
 
-	"warlord_rune_c_a"
+	"warlord_rune_q_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -288,7 +288,7 @@
 
 		"Modifiers"
 		{
-			"modifier_warlord_rune_c_a_hero"
+			"modifier_warlord_rune_q_3_hero"
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
@@ -302,7 +302,7 @@
 					}
 				}
 			}
-			"modifier_warlord_rune_c_a_visible"
+			"modifier_warlord_rune_q_3_visible"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -310,7 +310,7 @@
 				"EffectName"		"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
 			}
-			"modifier_warlord_rune_c_a_invisible"
+			"modifier_warlord_rune_q_3_invisible"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -324,7 +324,7 @@
 
 	}
 
-	"warlord_rune_c_b"
+	"warlord_rune_w_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -351,7 +351,7 @@
 
 	}
 
-	"warlord_rune_c_c"
+	"warlord_rune_e_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -399,7 +399,7 @@
 
 	}
 
-	"warlord_rune_c_d"
+	"warlord_rune_r_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -420,7 +420,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_warlord_rune_c_d_effect"
+			"modifier_warlord_rune_r_3_effect"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -434,7 +434,7 @@
 		}
 	}
 
-	"warlord_rune_d_a"
+	"warlord_rune_q_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -455,20 +455,20 @@
 		}
 		"Modifiers"
 		{
-			"modifier_warlord_rune_d_a_strength"
+			"modifier_warlord_rune_q_4_strength"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
 
 			}
-			"modifier_warlord_rune_d_a_agility"
+			"modifier_warlord_rune_q_4_agility"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
 			}
-			"modifier_warlord_rune_d_a_intelligence"
+			"modifier_warlord_rune_q_4_intelligence"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -478,14 +478,14 @@
 
 	}
 
-	"warlord_rune_d_b"
+	"warlord_rune_w_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/warlord_d_b"
+		"AbilityTextureName"	"rpc/warlord_w_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -505,7 +505,7 @@
 
 	}
 
-	"warlord_rune_d_c"
+	"warlord_rune_e_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -527,14 +527,14 @@
 
 	}
 
-	"warlord_rune_d_d"
+	"warlord_rune_r_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/warlord_d_d"
+		"AbilityTextureName"	"rpc/warlord_r_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -548,7 +548,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_warlord_rune_d_d_invisible"
+			"modifier_warlord_rune_r_4_invisible"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
@@ -559,7 +559,7 @@
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "740"
 				}
 			}
-			"modifier_warlord_rune_d_d_visible"
+			"modifier_warlord_rune_r_4_visible"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -580,14 +580,14 @@
 
 	}
 
-	"warlord_rune_a_d_arcana1"
+	"warlord_rune_r_1_arcana1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"warlord/warlord_rune_a_d_arcana1"
+		"AbilityTextureName"	"warlord/warlord_rune_r_1_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
@@ -613,14 +613,14 @@
 
 	}
 
-	"warlord_rune_b_d_arcana1"
+	"warlord_rune_r_2_arcana1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"warlord/warlord_rune_b_d_arcana1"
+		"AbilityTextureName"	"warlord/warlord_rune_r_2_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -646,14 +646,14 @@
 
 	}
 
-	"warlord_rune_c_d_arcana1"
+	"warlord_rune_r_3_arcana1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"warlord/warlord_rune_c_d_arcana1"
+		"AbilityTextureName"	"warlord/warlord_rune_r_3_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -683,14 +683,14 @@
 		}
 	}
 
-	"warlord_rune_d_d_arcana1"
+	"warlord_rune_r_4_arcana1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"warlord/warlord_rune_d_d_arcana1"
+		"AbilityTextureName"	"warlord/warlord_rune_r_4_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"

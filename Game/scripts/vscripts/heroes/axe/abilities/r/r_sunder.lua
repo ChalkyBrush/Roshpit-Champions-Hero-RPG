@@ -7,7 +7,7 @@ local ImmortalWeapon3 = require('heroes/axe/weapons/immortal_weapon_3')
 function startChannel(event)
     local caster = event.caster
     local ability = event.ability
-    Helper.initializeAbilityRunes(caster, 'axe', 'd')
+    Helper.initializeAbilityRunes(caster, 'axe', 'r')
     VisceralForce.cast(caster, ability)
     ImmortalWeapon3.amplifyShieldsCount(caster)
 end

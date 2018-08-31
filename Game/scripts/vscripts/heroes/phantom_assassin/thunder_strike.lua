@@ -20,7 +20,7 @@ function begin_strike(keys)
 	        	caster:SetMoveCapability(DOTA_UNIT_CAP_MOVE_GROUND)
 	        	create_rings(ability, caster)
 	        	caster:StartGesture(ACT_DOTA_CAST_ABILITY_1)
-	        	rune_c_d(caster)
+	        	rune_r_3(caster)
 	        end
 	      end)
 	end
@@ -64,16 +64,16 @@ function create_individual_ring(ability, caster, point)
 end
 
 
-function rune_c_d(caster)
+function rune_r_3(caster)
     local runeUnit = caster.runeUnit3
-    local ability = runeUnit:FindAbilityByName("voltex_rune_c_d")
+    local ability = runeUnit:FindAbilityByName("voltex_rune_r_3")
     local abilityLevel = ability:GetLevel()
-    local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_d")
+    local bonusLevel = Runes:GetTotalBonus(runeUnit, "r_3")
     local totalLevel = abilityLevel + bonusLevel
     	if totalLevel > 0 then
     		EmitSoundOn("DOTA_Item.BlackKingBar.Activate", caster)
     		local immune_duration = 1 + totalLevel*0.35
     		immune_duration = Filters:GetAdjustedBuffDuration(caster, immune_duration, false)
-    		ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_voltex_rune_c_d_immunity", {duration = immune_duration})
+    		ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_voltex_rune_r_3_immunity", {duration = immune_duration})
     	end
 end

@@ -8,8 +8,8 @@ function begin_moon_shroud(event)
 	local caster = event.caster
 	local ability = event.ability
 	local abilityLevel = ability:GetLevel()
-	local totalLevel = rune_a_a(caster, ability)
-  local c_a_level = rune_c_a(caster, ability)
+	local totalLevel = rune_q_1(caster, ability)
+  local q_3_level = rune_q_3(caster, ability)
 	local origin = caster:GetForwardVector()*Vector(100,100,0)
 	local location = caster:GetOrigin() + origin
 	local duration = event.duration
@@ -17,35 +17,35 @@ function begin_moon_shroud(event)
     duration = duration+2.5
     print("DURATION INCREASED")
   end 
-  caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "astral")
-  caster.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "astral")
+  caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "astral")
+  caster.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "astral")
   
   duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
-	create_moon_shroud_dummy(abilityLevel, location, caster, totalLevel, c_a_level, duration, ability)
-  ability.d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "astral")
-	-- rune_b_a(caster, ability, location, duration)
+	create_moon_shroud_dummy(abilityLevel, location, caster, totalLevel, q_3_level, duration, ability)
+  ability.q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "astral")
+	-- rune_q_2(caster, ability, location, duration)
   Filters:CastSkillArguments(1, caster)
   
-  if ability.d_a_level > 0 then
-    local runeAbility = caster.runeUnit4:FindAbilityByName("astral_rune_d_a")
-    runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_astral_rune_d_a_visible", {})
-    caster:SetModifierStackCount( "modifier_astral_rune_d_a_visible", runeAbility, ability.d_a_level )
-    runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_astral_rune_d_a_invisible", {})
-    local damageBonus = (caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())*0.5*ability.d_a_level
-    caster:SetModifierStackCount( "modifier_astral_rune_d_a_invisible", runeAbility, damageBonus )
+  if ability.q_4_level > 0 then
+    local runeAbility = caster.runeUnit4:FindAbilityByName("astral_rune_q_4")
+    runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_astral_rune_q_4_visible", {})
+    caster:SetModifierStackCount( "modifier_astral_rune_q_4_visible", runeAbility, ability.q_4_level )
+    runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_astral_rune_q_4_invisible", {})
+    local damageBonus = (caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())*0.5*ability.q_4_level
+    caster:SetModifierStackCount( "modifier_astral_rune_q_4_invisible", runeAbility, damageBonus )
   else
-    caster:RemoveModifierByName("modifier_astral_rune_d_a_visible")
-    caster:RemoveModifierByName("modifier_astral_rune_d_a_invisible")
+    caster:RemoveModifierByName("modifier_astral_rune_q_4_visible")
+    caster:RemoveModifierByName("modifier_astral_rune_q_4_invisible")
   end
 end
 
-function create_moon_shroud_dummy(abilityLevel, location, caster, totalLevel, c_a_level, duration, ability)
+function create_moon_shroud_dummy(abilityLevel, location, caster, totalLevel, q_3_level, duration, ability)
       ability:ApplyDataDrivenThinker(caster, location, "modifier_moon_shroud_thinker", {duration = duration})
       ability:ApplyDataDrivenThinker(caster, location, "friendly_moon_shroud_thinker", {duration = duration})
 
       ability.caster = caster
-      ability.rune_a_a_level = totalLevel
-      ability.rune_c_a_level = c_a_level
+      ability.rune_q_1_level = totalLevel
+      ability.rune_q_3_level = q_3_level
 
       local cloudParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_riki/astral_smoke.vpcf", PATTACH_CUSTOMORIGIN, nil)
       ParticleManager:SetParticleControl(cloudParticle, 0, location+Vector(0,0,80))
@@ -64,8 +64,8 @@ function create_moon_shroud_dummy(abilityLevel, location, caster, totalLevel, c_
  --  	local blast = dummy:FindAbilityByName("dummy_moon_shroud")
  --  	blast:SetLevel(abilityLevel)
  --    blast.caster = caster
- --  	blast.rune_a_a_level = totalLevel
- --    blast.rune_c_a_level = c_a_level
+ --  	blast.rune_q_1_level = totalLevel
+ --    blast.rune_q_3_level = q_3_level
 	-- local order =
 	-- {
 	-- 	UnitIndex = dummy:GetEntityIndex(),
@@ -88,20 +88,20 @@ function moon_shroud_damage(event)
     Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
 end
 
-function rune_a_a(caster, ability)
+function rune_q_1(caster, ability)
   local runeUnit = caster.runeUnit
-  local runeAbility = runeUnit:FindAbilityByName("astral_rune_a_a")
+  local runeAbility = runeUnit:FindAbilityByName("astral_rune_q_1")
   local abilityLevel = runeAbility:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_a")
+  local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_1")
   local totalLevel = abilityLevel + bonusLevel
   return totalLevel
 end
 
-function rune_c_a(caster, ability)
+function rune_q_3(caster, ability)
   local runeUnit = caster.runeUnit3
-  local runeAbility = runeUnit:FindAbilityByName("astral_rune_c_a")
+  local runeAbility = runeUnit:FindAbilityByName("astral_rune_q_3")
   local abilityLevel = runeAbility:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_a")
+  local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_3")
   local totalLevel = abilityLevel + bonusLevel
   return totalLevel
 end
@@ -110,13 +110,13 @@ function moon_shroud_think(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	if (caster:GetPlayerOwner() == target:GetPlayerOwner()) and ability.rune_a_a_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_rune_a_a", {duration = 0.3})
-		target:SetModifierStackCount( "modifier_rune_a_a", ability, ability.rune_a_a_level )
+	if (caster:GetPlayerOwner() == target:GetPlayerOwner()) and ability.rune_q_1_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_rune_q_1", {duration = 0.3})
+		target:SetModifierStackCount( "modifier_rune_q_1", ability, ability.rune_q_1_level )
 	end
-  if (caster:GetPlayerOwner() == target:GetPlayerOwner()) and ability.rune_c_a_level > 0 then
-    ability:ApplyDataDrivenModifier(caster, target, "modifier_astral_rune_c_a", {duration = 0.3})
-    target:SetModifierStackCount( "modifier_astral_rune_c_a", ability, ability.rune_c_a_level )
+  if (caster:GetPlayerOwner() == target:GetPlayerOwner()) and ability.rune_q_3_level > 0 then
+    ability:ApplyDataDrivenModifier(caster, target, "modifier_astral_rune_q_3", {duration = 0.3})
+    target:SetModifierStackCount( "modifier_astral_rune_q_3", ability, ability.rune_q_3_level )
   end
 end
 
@@ -130,11 +130,11 @@ function c_a_projectile_remove(event)
   target:SetRangedProjectileName("particles/units/heroes/hero_drow/drow_base_attack.vpcf")
 end
 
-function rune_b_a(caster, ability, origin, duration)
+function rune_q_2(caster, ability, origin, duration)
   local runeUnit = caster.runeUnit2
-  local runeAbility = runeUnit:FindAbilityByName("astral_rune_b_a")
+  local runeAbility = runeUnit:FindAbilityByName("astral_rune_q_2")
   local abilityLevel = runeAbility:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_a")
+  local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_2")
   local totalLevel = abilityLevel + bonusLevel
   if totalLevel > 0 then
   	create_andromeda(caster, ability, totalLevel, origin, duration)
@@ -150,12 +150,12 @@ function create_andromeda(caster, ability, level, position, duration)
     dummy:FindAbilityByName("replica"):SetLevel(1)
     StartAnimation(dummy, {duration=0.5, activity=ACT_DOTA_SPAWN, rate=1.0})
     
-    local damageBonus = (caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())*0.05*ability.d_a_level*level
+    local damageBonus = (caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())*0.05*ability.q_4_level*level
     dummy:SetBaseDamageMin(damageBonus)
     dummy:SetBaseDamageMax(damageBonus) 
 
- ability:ApplyDataDrivenModifier(caster, dummy, "modifier_rune_b_a", {duration = duration})
- dummy:SetModifierStackCount( "modifier_rune_b_a", ability, level )
+ ability:ApplyDataDrivenModifier(caster, dummy, "modifier_rune_q_2", {duration = duration})
+ dummy:SetModifierStackCount( "modifier_rune_q_2", ability, level )
  dummy:AddNewModifier(caster, ability, "modifier_illusion", { duration = duration, outgoing_damage = 1, incoming_damage = 1 })
  
  dummy:MakeIllusion()
@@ -187,16 +187,16 @@ function moon_shroud_attack_land(event)
   local caster = event.attacker
   local target = event.target
   local damage = caster:GetAverageTrueAttackDamage(caster)
-  local b_a_level = 0
+  local q_2_level = 0
   if caster:HasModifier("modifier_astral_arcana1") then
-    b_a_level = Runes:GetTotalRuneLevel(caster, 2, "b_a_arcana1", "astral")
+    q_2_level = Runes:GetTotalRuneLevel(caster, 2, "b_a_arcana1", "astral")
   else
-    b_a_level = Runes:GetTotalRuneLevel(caster, 2, "b_a", "astral")
+    q_2_level = Runes:GetTotalRuneLevel(caster, 2, "q_2", "astral")
   end
   if target.dummy then
     return false
   end
-  if b_a_level > 0 then
+  if q_2_level > 0 then
     local procMin = 20
     if caster:HasModifier("modifier_astral_immortal_weapon_2") then
       procMin = 40
@@ -209,7 +209,7 @@ function moon_shroud_attack_land(event)
       if caster:HasModifier("modifier_astral_arcana1") then
         mult = 0.05
       end
-      local pureDamage = damage*(b_a_level*mult)
+      local pureDamage = damage*(q_2_level*mult)
       local particleName = "particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf"
       local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
       ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_OVERHEAD_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
@@ -224,10 +224,10 @@ function moon_shroud_attack_land(event)
               if caster:HasModifier("modifier_astral_arcana1") then
                 ability = caster:FindAbilityByName("astral_arcana_ability")
                 ability:ApplyDataDrivenModifier(caster, target, "modifier_astral_b_a_arcana_armor_loss", {duration = 6})
-                target:SetModifierStackCount("modifier_astral_b_a_arcana_armor_loss", ability, b_a_level)                
+                target:SetModifierStackCount("modifier_astral_b_a_arcana_armor_loss", ability, q_2_level)                
               else
                 ability:ApplyDataDrivenModifier(caster, target, "modifier_astral_b_a_armor_loss", {duration = 6})
-                target:SetModifierStackCount("modifier_astral_b_a_armor_loss", ability, b_a_level)
+                target:SetModifierStackCount("modifier_astral_b_a_armor_loss", ability, q_2_level)
               end
             end
           end)     

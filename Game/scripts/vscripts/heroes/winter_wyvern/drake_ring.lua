@@ -35,8 +35,8 @@ function drake_ring_cast(event)
 		caster:RemoveModifierByName("modifier_drake_ring_a_b")
 		local drake_ring = CreateUnitByName("npc_dummy_unit", point, false, nil, nil, caster:GetTeamNumber())
 		local radius = event.radius
-		local d_b_level = caster:GetRuneValue("w", 4)
-		radius = radius + d_b_level*2
+		local w_4_level = caster:GetRuneValue("w", 4)
+		radius = radius + w_4_level*2
 		local ring_duration = 30
 		drake_ring:SetDayTimeVisionRange(radius)
 		drake_ring:SetNightTimeVisionRange(radius)
@@ -49,9 +49,9 @@ function drake_ring_cast(event)
 		drake_ring.interval = 0
 		ability.ring = drake_ring
 		ability:ApplyDataDrivenModifier(caster, drake_ring, "modifier_dinath_drake_ring", {duration = ring_duration})
-		local c_b_level = caster:GetRuneValue("w", 3)
-		if c_b_level > 0 then
-			local rootDuration = 0.3 + 0.1*c_b_level
+		local w_3_level = caster:GetRuneValue("w", 3)
+		if w_3_level > 0 then
+			local rootDuration = 0.3 + 0.1*w_3_level
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), drake_ring:GetAbsOrigin(), nil, drake_ring.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 			for _,enemy in pairs(enemies) do
 				if not enemy:HasModifier("modifier_drake_ring_root_immune") then
@@ -86,22 +86,22 @@ function drake_ring_thinker(event)
 		end
 	end
 	if drake_ring.interval%15 == 1 then
-		local b_b_level = caster:GetRuneValue("w", 2)
-		if b_b_level > 0 then
+		local w_2_level = caster:GetRuneValue("w", 2)
+		if w_2_level > 0 then
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), drake_ring:GetAbsOrigin(), nil, drake_ring.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 			for _,enemy in pairs(enemies) do
-				if b_b_level > 0 then
+				if w_2_level > 0 then
 					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_drake_ring_postmit", {duration = 0.5})
-					enemy:SetModifierStackCount("modifier_drake_ring_postmit", caster, b_b_level)
+					enemy:SetModifierStackCount("modifier_drake_ring_postmit", caster, w_2_level)
 				end
 			end
 		end
 	end
 	if drake_ring.interval == 100 then
-		local a_b_level = caster:GetRuneValue("w", 1)
-		if a_b_level > 0 then
+		local w_1_level = caster:GetRuneValue("w", 1)
+		if w_1_level > 0 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_drake_ring_a_b", {duration = 27})
-			caster:SetModifierStackCount("modifier_drake_ring_a_b", caster, a_b_level)
+			caster:SetModifierStackCount("modifier_drake_ring_a_b", caster, w_1_level)
 		end
 	end
 end

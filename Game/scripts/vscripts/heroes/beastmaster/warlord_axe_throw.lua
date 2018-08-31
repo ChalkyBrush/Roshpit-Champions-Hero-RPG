@@ -9,7 +9,7 @@ function prepareAxeLaunch(event)
 	local casterOrigin = caster:GetAbsOrigin()
 	local fv = (point-casterOrigin):Normalized()
 
-	ability.d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "warlord")
+	ability.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "warlord")
 	if element == "earth" then
 		launchAxe(ability, caster, "particles/units/heroes/hero_troll_warlord/warlord_range_axe_earth.vpcf", fv, casterOrigin, true)
 	elseif element == "ice" then
@@ -93,12 +93,12 @@ function swapSkills(element, caster, ability)
 	end
 end
 
-function rune_b_b(caster)
+function rune_w_2(caster)
 	return 0
     -- local runeUnit = caster.runeUnit2
-    -- local runeAbility = runeUnit:FindAbilityByName("warlord_rune_b_b")
+    -- local runeAbility = runeUnit:FindAbilityByName("warlord_rune_w_2")
     -- local abilityLevel = runeAbility:GetLevel()
-    -- local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_b")
+    -- local bonusLevel = Runes:GetTotalBonus(runeUnit, "w_2")
     -- local totalLevel = abilityLevel + bonusLevel
     -- return totalLevel
 end
@@ -149,10 +149,10 @@ function earthAxeStrike(event)
 
 
 	local pureDamage = 0
-	if ability.d_b_level > 0 then
+	if ability.w_4_level > 0 then
 		
-		damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.02*ability.d_b_level
-		pureDamage = damage*0.025*ability.d_b_level
+		damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.02*ability.w_4_level
+		pureDamage = damage*0.025*ability.w_4_level
 	end
 
 	local stun_duration = event.stun_duration
@@ -179,10 +179,10 @@ function earthAxeStrike(event)
 		ParticleManager:DestroyParticle(pfx, false)
 		ParticleManager:ReleaseParticleIndex(pfx)
 	end)
-	local a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "warlord")
-	if a_b_level > 0 then
-		local radius = a_b_level*4 + 240
-		local stunDuration = a_b_level*0.05
+	local w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "warlord")
+	if w_1_level > 0 then
+		local radius = w_1_level*4 + 240
+		local stunDuration = w_1_level*0.05
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then	
 			for _,enemy in pairs(enemies) do
@@ -206,24 +206,24 @@ function earthAxeStrike(event)
 end
 
 function c_b_mana(ability, caster)
-	if ability.c_b_level > 0 then
+	if ability.w_3_level > 0 then
 		local manaDrain = caster:GetMaxMana()*0.1
 		if caster:GetMana() < manaDrain then
 			manaDrain = caster:GetMana()
 		end
 		caster:ReduceMana(manaDrain)
-		local damageBonus = (manaDrain/100)*150*ability.c_b_level
+		local damageBonus = (manaDrain/100)*150*ability.w_3_level
 		return damageBonus
 	else
 		return 0
 	end
 end
 
-function rune_a_b(caster, target, ability, element)
+function rune_w_1(caster, target, ability, element)
 	    local runeUnit = caster.runeUnit
-	    local runeAbility = runeUnit:FindAbilityByName("warlord_rune_a_b")
+	    local runeAbility = runeUnit:FindAbilityByName("warlord_rune_w_1")
 	    local abilityLevel = runeAbility:GetLevel()
-	    local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_b")
+	    local bonusLevel = Runes:GetTotalBonus(runeUnit, "w_1")
 	    local totalLevel = abilityLevel + bonusLevel
 	    local projectile = "particles/units/heroes/hero_troll_warlord/warlord_range_axe_earth.vpcf"
 	    if totalLevel > 0 then
@@ -256,18 +256,18 @@ function iceAxeStrike(event)
 
 
 	local pureDamage = 0
-	if ability.d_b_level > 0 then
+	if ability.w_4_level > 0 then
 		
-		damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.02*ability.d_b_level
-		pureDamage = damage*0.025*ability.d_b_level
+		damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.02*ability.w_4_level
+		pureDamage = damage*0.025*ability.w_4_level
 	end
 
 	local radius = event.radius
 	local duration = event.duration
 	local freezeDuration = 0
-	local b_b_level = Runes:GetTotalRuneLevel(caster, 2, "b_b", "warlord")
-	if b_b_level > 0 then
-		freezeDuration = 1 + 0.1*b_b_level
+	local w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "warlord")
+	if w_2_level > 0 then
+		freezeDuration = 1 + 0.1*w_2_level
 	end	
 	local stun_duration = event.stun_duration
 	local position = target:GetAbsOrigin()
@@ -286,7 +286,7 @@ function iceAxeStrike(event)
 				if freezeDuration > 0 then
 					if enemy:HasModifier("modifier_ice_axe_slow") then
 						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_ice_throw_b_b_frozen", {duration = freezeDuration})
-						enemy:SetModifierStackCount("modifier_ice_throw_b_b_frozen", caster, b_b_level)
+						enemy:SetModifierStackCount("modifier_ice_throw_b_b_frozen", caster, w_2_level)
 						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_ice_throw_b_b_immunity", {duration = freezeDuration + 4})
 					end
 				end
@@ -320,15 +320,15 @@ function fireAxeStrike(event)
 	local duration = event.duration
 	local stun_duration = event.stun_duration
 	local position = target:GetAbsOrigin()
-	local c_b_level = Runes:GetTotalRuneLevel(caster, 3, "c_b", "warlord")
-	if c_b_level > 0 then
-		radius = radius + c_b_level*5
-		damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.06*c_b_level
+	local w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "warlord")
+	if w_3_level > 0 then
+		radius = radius + w_3_level*5
+		damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.06*w_3_level
 	end
-	if ability.d_b_level > 0 then
+	if ability.w_4_level > 0 then
 		
-		damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.02*ability.d_b_level
-		pureDamage = damage*0.025*ability.d_b_level
+		damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.02*ability.w_4_level
+		pureDamage = damage*0.025*ability.w_4_level
 	end
 	EmitSoundOn("Hero_Invoker.SunStrike.Ignite", target)
       local particleName = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
@@ -359,11 +359,11 @@ function fireAxeStrike(event)
 	elemental_axe_attack_land(eventTable)
 end
 
-function rune_c_b(caster)
+function rune_w_3(caster)
     local runeUnit = caster.runeUnit3
-    local runeAbility = runeUnit:FindAbilityByName("warlord_rune_c_b")
+    local runeAbility = runeUnit:FindAbilityByName("warlord_rune_w_3")
     local abilityLevel = runeAbility:GetLevel()
-    local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_b")
+    local bonusLevel = Runes:GetTotalBonus(runeUnit, "w_3")
     local totalLevel = abilityLevel + bonusLevel
     return totalLevel
 end

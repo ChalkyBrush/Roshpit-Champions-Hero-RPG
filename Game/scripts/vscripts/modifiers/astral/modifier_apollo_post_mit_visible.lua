@@ -8,7 +8,7 @@ function modifier_apollo_post_mit_visible:DeclareFunctions()
 end
 
 function modifier_apollo_post_mit_visible:GetTexture()
-	return "astral_ranger/astral_rune_d_b_arcana2"
+	return "astral_ranger/astral_rune_w_4_arcana2"
 end
 
 function modifier_apollo_post_mit_visible:IsHidden()

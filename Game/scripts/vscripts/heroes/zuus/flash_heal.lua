@@ -4,10 +4,10 @@ function initialize_flash_heal(event)
 	--SHIELD SOUND: "Auriun.HeavensShield"
 	--RUNE 1: SHADOW BOMB. MAKE SMALL AOE AT CURSOR POSITION
 	--"Auriun.ShadowFlare"
-	ability.a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "auriun")
-	ability.b_b_level = Runes:GetTotalRuneLevel(caster, 2, "b_b", "auriun")
-	ability.d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "auriun")
-	ability.d_b_ability = caster.runeUnit4:FindAbilityByName("auriun_rune_d_b")
+	ability.w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "auriun")
+	ability.w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "auriun")
+	ability.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "auriun")
+	ability.w_4_ability = caster.runeUnit4:FindAbilityByName("auriun_rune_w_4")
 
 	if ability.casted == true or ability.casted == nil then
 		ability.casted = false
@@ -45,7 +45,7 @@ function initialize_flash_heal(event)
 				EmitSoundOnLocationWithCaster(cursorPos, "Grizzly.AllyHeal", caster)
 			end
 		else
-			if ability.a_b_level > 0 and distance <= max_distance then
+			if ability.w_1_level > 0 and distance <= max_distance then
 		      particleName = "particles/units/heroes/hero_nevermore/shadow_flare.vpcf"
 		      local shadowFlarePos = GetGroundPosition(cursorPos, caster)
 		      local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_WORLDORIGIN, caster )
@@ -59,11 +59,11 @@ function initialize_flash_heal(event)
 					EmitSoundOnLocationWithCaster(cursorPos, "Auriun.ShadowFlare", caster)
 				end
 				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), cursorPos, nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-				local damage = ability.a_b_level*1920 + 400
+				local damage = ability.w_1_level*1920 + 400
 				damage = b_b_amp(damage, caster, ability)
 				for _,enemy in pairs(enemies) do
 					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
-					d_b_apply(caster, enemy, ability.d_b_level, ability.d_b_ability)
+					d_b_apply(caster, enemy, ability.w_4_level, ability.w_4_ability)
 				end			
 			else
 				Filters:ApplyHeal(caster, caster, healAmount, true)
@@ -83,32 +83,32 @@ function cast_flash_heal(event)
 	ability.casted = true
 end
 
-function d_b_apply(caster, enemy, d_b_level, d_b_ability)
-	if d_b_level > 0 then
-	    d_b_ability:ApplyDataDrivenModifier(caster.runeUnit4, enemy, "modifier_auriun_rune_d_b_effect_visible", {duration = 7})
-	    local current_stacks = enemy:GetModifierStackCount( "modifier_auriun_rune_d_b_effect_visible", d_b_ability )
+function d_b_apply(caster, enemy, w_4_level, d_b_ability)
+	if w_4_level > 0 then
+	    d_b_ability:ApplyDataDrivenModifier(caster.runeUnit4, enemy, "modifier_auriun_rune_w_4_effect_visible", {duration = 7})
+	    local current_stacks = enemy:GetModifierStackCount( "modifier_auriun_rune_w_4_effect_visible", d_b_ability )
 	    local new_stacks = math.min(current_stacks + 1, 5)
-	    enemy:SetModifierStackCount( "modifier_auriun_rune_d_b_effect_visible", d_b_ability, new_stacks )
+	    enemy:SetModifierStackCount( "modifier_auriun_rune_w_4_effect_visible", d_b_ability, new_stacks )
 
-	    d_b_ability:ApplyDataDrivenModifier(caster.runeUnit4, enemy, "modifier_auriun_rune_d_b_effect_invisible", {duration = 7})
-	    enemy:SetModifierStackCount( "modifier_auriun_rune_d_b_effect_invisible", d_b_ability, new_stacks*d_b_level )
+	    d_b_ability:ApplyDataDrivenModifier(caster.runeUnit4, enemy, "modifier_auriun_rune_w_4_effect_invisible", {duration = 7})
+	    enemy:SetModifierStackCount( "modifier_auriun_rune_w_4_effect_invisible", d_b_ability, new_stacks*w_4_level )
 	end
-	--"modifier_auriun_rune_d_b_effect_visible"
+	--"modifier_auriun_rune_w_4_effect_visible"
 end
 
 function b_b_amp(amount, caster, ability)
 	local ampPerTenInt = 0.0006
-	local adjustment = (caster:GetIntellect()/10)*ampPerTenInt*ability.b_b_level
+	local adjustment = (caster:GetIntellect()/10)*ampPerTenInt*ability.w_2_level
 	local adjustedAmount = amount*(1+adjustment)
 	return math.ceil(adjustedAmount)
 end
 
 function c_b_effect(caster, ability, target, healAmount)
 	local runeUnit = caster.runeUnit3
-	local runeAbility = runeUnit:FindAbilityByName("auriun_rune_c_b")
-	local c_b_level = Runes:GetTotalRuneLevel(caster, 3, "c_b", "auriun")
-	if c_b_level > 0 then 
-		ability.auriun_c_b_heal = c_b_level*0.005*healAmount
+	local runeAbility = runeUnit:FindAbilityByName("auriun_rune_w_3")
+	local w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "auriun")
+	if w_3_level > 0 then 
+		ability.auriun_c_b_heal = w_3_level*0.005*healAmount
 		local duration = Filters:GetAdjustedBuffDuration(caster, 3, false)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_auriun_c_b_heal", {duration = duration})
 	end
@@ -120,20 +120,20 @@ function c_b_effect(caster, ability, target, healAmount)
 	-- 	manaSpent = manaSpent + 2000
 	-- end
 	-- local c_b_percentage = 0.02
-	-- local damageBuff = manaSpent*c_b_percentage*c_b_level
+	-- local damageBuff = manaSpent*c_b_percentage*w_3_level
 
-	-- local currentStacks = target:GetModifierStackCount( "modifier_auriun_rune_c_b_visible", ability )
+	-- local currentStacks = target:GetModifierStackCount( "modifier_auriun_rune_w_3_visible", ability )
 	-- currentStacks = math.min(currentStacks+1, 5)
 
 	-- local c_b_duration = Filters:GetAdjustedBuffDuration(caster, 7, false)
-	-- runeAbility:ApplyDataDrivenModifier(runeUnit, target, "modifier_auriun_rune_c_b_visible", {duration = c_b_duration})
-	-- runeAbility:ApplyDataDrivenModifier(runeUnit, target, "modifier_auriun_rune_c_b_effect", {duration = c_b_duration})
+	-- runeAbility:ApplyDataDrivenModifier(runeUnit, target, "modifier_auriun_rune_w_3_visible", {duration = c_b_duration})
+	-- runeAbility:ApplyDataDrivenModifier(runeUnit, target, "modifier_auriun_rune_w_3_effect", {duration = c_b_duration})
 
-	-- target:SetModifierStackCount( "modifier_auriun_rune_c_b_visible", runeAbility, currentStacks)
-	-- target:SetModifierStackCount( "modifier_auriun_rune_c_b_effect", runeAbility, math.floor(currentStacks*damageBuff))
+	-- target:SetModifierStackCount( "modifier_auriun_rune_w_3_visible", runeAbility, currentStacks)
+	-- target:SetModifierStackCount( "modifier_auriun_rune_w_3_effect", runeAbility, math.floor(currentStacks*damageBuff))
 
-	--"modifier_auriun_rune_c_b_visible"
-	--"modifier_auriun_rune_c_b_effect"
+	--"modifier_auriun_rune_w_3_visible"
+	--"modifier_auriun_rune_w_3_effect"
 end
 
 function c_b_heal_think(event)

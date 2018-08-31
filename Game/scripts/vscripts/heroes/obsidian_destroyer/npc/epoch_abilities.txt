@@ -25,7 +25,7 @@
 			"particle"			"particles/units/heroes/hero_wisp/tether_green.vpcf"
 			"particle"			"particles/roshpit/epoch/time_binder_projectile_hellfire_linear.vpcf"
 			"particle"			"particles/units/heroes/hero_wisp/wisp_tether.vpcf"
-			"particle"			"particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
+			"particle"			"particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
 			"particle"			"particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_arcane_orb.vpcf"
 			"particle"			"particles/status_fx/status_effect_ghost.vpcf"
 			"particle"			"particles/econ/items/antimage/antimage_weapon_basher_ti5/time_bind_damage.vpcf"
@@ -129,7 +129,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/obsidian_destroyer/time_binder.lua"
+				"ScriptFile"	"heroes/obsidian_destroyer/epoch_1_q.lua"
 				"Function"		"time_binder_phase_start"
 			}
 		}
@@ -152,7 +152,7 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"			"scripts/vscripts/heroes/obsidian_destroyer/time_binder.lua"
+				"ScriptFile"			"scripts/vscripts/heroes/obsidian_destroyer/epoch_1_q.lua"
 				"Function"				"time_bind_cast"
 			}
 			"FireSound"
@@ -166,7 +166,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"			"scripts/vscripts/heroes/obsidian_destroyer/time_binder.lua"
+				"ScriptFile"			"scripts/vscripts/heroes/obsidian_destroyer/epoch_1_q.lua"
 				"Function"				"projectile_hit"
 				"Target"				"TARGET"
 				"number_of_targets"		"%number_of_targets"
@@ -190,7 +190,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"scripts/vscripts/heroes/obsidian_destroyer/time_binder.lua"
+						"ScriptFile"	"scripts/vscripts/heroes/obsidian_destroyer/epoch_1_q.lua"
 						"Function"		"binder_passive_think"
 					}
 				}
@@ -211,7 +211,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"			"scripts/vscripts/heroes/obsidian_destroyer/time_binder.lua"
+						"ScriptFile"			"scripts/vscripts/heroes/obsidian_destroyer/epoch_1_q.lua"
 						"Function"				"damage_think"
 						"damage_per_tick"		"%damage_per_tick"
 						"target"				"TARGET"
@@ -225,7 +225,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"scripts/vscripts/heroes/obsidian_destroyer/time_binder.lua"
+						"ScriptFile"	"scripts/vscripts/heroes/obsidian_destroyer/epoch_1_q.lua"
 						"Function"		"time_bind_end"
 						"target"		"TARGET"
 					}
@@ -234,7 +234,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"scripts/vscripts/heroes/obsidian_destroyer/time_binder.lua"
+						"ScriptFile"	"scripts/vscripts/heroes/obsidian_destroyer/epoch_1_q.lua"
 						"Function"		"epoch_glyph_1_1"
 						"target"		"TARGET"
 					}
@@ -248,7 +248,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"			"scripts/vscripts/heroes/obsidian_destroyer/time_binder.lua"
+						"ScriptFile"			"scripts/vscripts/heroes/obsidian_destroyer/epoch_1_q.lua"
 						"Function"				"spacelink_think"
 						"damage_per_tick"		"%damage_per_tick"
 						"target"				"TARGET"
@@ -262,7 +262,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"scripts/vscripts/heroes/obsidian_destroyer/time_binder.lua"
+						"ScriptFile"	"scripts/vscripts/heroes/obsidian_destroyer/epoch_1_q.lua"
 						"Function"		"epoch_glyph_1_1"
 						"target"		"TARGET"
 					}
@@ -271,7 +271,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"scripts/vscripts/heroes/obsidian_destroyer/time_binder.lua"
+						"ScriptFile"	"scripts/vscripts/heroes/obsidian_destroyer/epoch_1_q.lua"
 						"Function"		"space_link_end"
 						"target"		"TARGET"
 					}
@@ -282,7 +282,7 @@
 				"IsBuff" "1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% epoch_q2_flat_dmg %>"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% EPOCH_Q2_FLAT_DMG %>"
 				}
 			}
 			"modifier_eon_channel_enemy"
@@ -290,7 +290,7 @@
 				"IsBuff" "1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% epoch_q2_flat_dmg_negative %>"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% EPOCH_Q2_FLAT_DMG_NEGATIVE %>"
 				}
 			}
 			"modifier_epoch_glyph_1_1_effect"
@@ -406,7 +406,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"			"scripts/vscripts/heroes/obsidian_destroyer/time_binder.lua"
+						"ScriptFile"			"scripts/vscripts/heroes/obsidian_destroyer/epoch_1_q.lua"
 						"Function"				"modifier_end"
 					}
 				}
@@ -419,7 +419,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"			"scripts/vscripts/heroes/obsidian_destroyer/time_binder.lua"
+						"ScriptFile"			"scripts/vscripts/heroes/obsidian_destroyer/epoch_1_q.lua"
 						"Function"				"damage_think"
 						"damage_per_tick"		"%damage_per_tick"
 					}
@@ -520,7 +520,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"			"scripts/vscripts/heroes/obsidian_destroyer/time_binder.lua"
+						"ScriptFile"			"scripts/vscripts/heroes/obsidian_destroyer/epoch_1_q.lua"
 						"Function"				"modifier_end"
 					}
 				}
@@ -533,7 +533,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"			"scripts/vscripts/heroes/obsidian_destroyer/time_binder.lua"
+						"ScriptFile"			"scripts/vscripts/heroes/obsidian_destroyer/epoch_1_q.lua"
 						"Function"				"damage_think"
 						"damage_per_tick"		"%damage_per_tick"
 					}
@@ -622,7 +622,7 @@
 					"AttachEffect"
 					{
 						"Target"	"TARGET"
-						"EffectName"	"particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
+						"EffectName"	"particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
 						"EffectAttachType"	"start_at_customorigin"
 						"ControlPointEntities"
 						{
@@ -726,7 +726,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"			"scripts/vscripts/heroes/obsidian_destroyer/time_binder.lua"
+						"ScriptFile"			"scripts/vscripts/heroes/obsidian_destroyer/epoch_1_q.lua"
 						"Function"				"modifier_end"
 					}
 				}
@@ -743,7 +743,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"			"scripts/vscripts/heroes/obsidian_destroyer/time_binder.lua"
+						"ScriptFile"			"scripts/vscripts/heroes/obsidian_destroyer/epoch_1_q.lua"
 						"Function"				"damage_think"
 						"damage_per_tick"		"%damage_per_tick"
 					}
@@ -778,7 +778,7 @@
 			"particle"				"particles/units/heroes/hero_puck/time_warp.vpcf"
 			"particle"				"particles/units/heroes/hero_oracle/oracle_false_promise_cast.vpcf"
 			"particle"				"particles/units/heroes/hero_broodmother/broodmother_spiderlings_debuff.vpcf"
-			"particle"				"particles/units/heroes/hero_phantom_assassin/epoch_rune_a_c.vpcf"
+			"particle"				"particles/units/heroes/hero_phantom_assassin/epoch_rune_e_1.vpcf"
 			"particle"				"particles/status_fx/status_effect_huskar_lifebreak_experimental.vpcf"
 			"particle"				"particles/units/heroes/hero_puck/epoch_glyph_7_1.vpcf"
 		}
@@ -835,7 +835,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/obsidian_destroyer/time_warp.lua"
+				"ScriptFile"	"heroes/obsidian_destroyer/epoch_3_e.lua"
 				"Function"		"onWarpFire"
 			}
 		}
@@ -845,8 +845,8 @@
 
 	        "RunScript"
 	        {
-	        	"ScriptFile"	"scripts/vscripts/heroes/obsidian_destroyer/time_warp.lua"
-	        	"Function"		"onProjectileHit_b_c"
+	        	"ScriptFile"	"scripts/vscripts/heroes/obsidian_destroyer/epoch_3_e.lua"
+	        	"Function"		"epoch_e_2_projectile_hit"
 	        	"Target"		"TARGET"
 	        }
 		}
@@ -865,7 +865,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"			"scripts/vscripts/heroes/obsidian_destroyer/time_warp.lua"
+						"ScriptFile"			"scripts/vscripts/heroes/obsidian_destroyer/epoch_3_e.lua"
 						"Function"				"startCooldown"
 					}
 				}
@@ -874,7 +874,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"			"scripts/vscripts/heroes/obsidian_destroyer/time_warp.lua"
+						"ScriptFile"			"scripts/vscripts/heroes/obsidian_destroyer/epoch_3_e.lua"
 						"Function"				"getProjectilePosition"
 					}
 				}
@@ -938,7 +938,6 @@
 					"MODIFIER_STATE_DISARMED"				"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
-
 		}
 
 	}
@@ -1008,7 +1007,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"scripts/vscripts/heroes/obsidian_destroyer/time_warp.lua"
+				"ScriptFile"	"scripts/vscripts/heroes/obsidian_destroyer/epoch_3_e.lua"
 				"Function"		"fire_main_orb"
 				"speed"			"%speed"
 				"radius"		"%start_radius"
@@ -1023,7 +1022,7 @@
 
 	        "RunScript"
 	        {
-	        	"ScriptFile"	"scripts/vscripts/heroes/obsidian_destroyer/time_warp.lua"
+	        	"ScriptFile"	"scripts/vscripts/heroes/obsidian_destroyer/epoch_3_e.lua"
 	        	"Function"		"onProjectileHit"
 	        	"damage"		"%damage"
 	        	"Target"		"TARGET"
@@ -1055,7 +1054,7 @@
 			"particle"				"particles/units/heroes/hero_oracle/time_blast2hit.vpcf"
 			"particle"				"particles/units/heroes/hero_oracle/oracle_purifyingflames_hit.vpcf"
 			"particle"				"particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_essence_effect.vpcf"
-			"particle"				"particles/radiant_fx/epoch_rune_c_b_ranged002_destroy.vpcf"
+			"particle"				"particles/radiant_fx/epoch_rune_w_3_ranged002_destroy.vpcf"
 		}
 
 		// Casting
@@ -1109,7 +1108,6 @@
 				"Target"		"CASTER"
 			}
 		}
-
 	}
 
 
@@ -1274,7 +1272,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/obsidian_destroyer/genesis_orb.lua"
+				"ScriptFile"	"heroes/obsidian_destroyer/epoch_2_w.lua"
 				"Function"		"genesis_phase_start"
 			}
 		}
@@ -1282,7 +1280,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/obsidian_destroyer/genesis_orb.lua"
+				"ScriptFile"	"heroes/obsidian_destroyer/epoch_2_w.lua"
 				"Function"		"begin_genesis_orb"
 				"range"			"%range"
 			}
@@ -1293,7 +1291,7 @@
 			"DeleteOnHit"	"0"
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/obsidian_destroyer/genesis_orb.lua"
+				"ScriptFile"	"heroes/obsidian_destroyer/epoch_2_w.lua"
 				"Function"		"genesis_orb_impact"
 				"damage"		"%damage"
 				"target"		"TARGET"
@@ -1310,12 +1308,12 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/obsidian_destroyer/time_ulti.lua"
-						"Function"		"epoch_rune_b_d_think"
+						"ScriptFile"	"heroes/obsidian_destroyer/epoch_4_r.lua"
+						"Function"		"epoch_rune_r_2_think"
 					}
 				}
 			}
-			"modifier_epoch_rune_b_b_visible"
+			"modifier_epoch_rune_w_2_visible"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -1325,7 +1323,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/obsidian_destroyer/genesis_orb.lua"
+						"ScriptFile"	"heroes/obsidian_destroyer/epoch_2_w.lua"
 						"Function"		"AmplifyDamageParticle"
 						"particleName"	"particles/roshpit/epoch/epoch_b_b_debuff_amp_damage.vpcf"
 					}
@@ -1335,7 +1333,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/obsidian_destroyer/genesis_orb.lua"
+						"ScriptFile"	"heroes/obsidian_destroyer/epoch_2_w.lua"
 						"Function"		"EndAmplifyDamageParticle"
 					}
 				}
@@ -1344,7 +1342,7 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-50"
 				}
 			}
-			"modifier_epoch_rune_c_b_visible"
+			"modifier_epoch_rune_w_3_visible"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -1354,7 +1352,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/obsidian_destroyer/genesis_orb.lua"
+						"ScriptFile"	"heroes/obsidian_destroyer/epoch_2_w.lua"
 						"Function"		"AmplifyDamageParticle"
 						"particleName"	"particles/roshpit/epoch/epoch_c_b_buff_amp_damage.vpcf"
 					}
@@ -1364,7 +1362,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/obsidian_destroyer/genesis_orb.lua"
+						"ScriptFile"	"heroes/obsidian_destroyer/epoch_2_w.lua"
 						"Function"		"EndAmplifyDamageParticle"
 
 					}
@@ -1374,22 +1372,20 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/obsidian_destroyer/genesis_orb.lua"
+						"ScriptFile"	"heroes/obsidian_destroyer/epoch_2_w.lua"
 						"Function"		"epoch_c_b_attack_land"
 					}
 				}
 			}
-			"modifier_epoch_rune_c_b_invisible"
+			"modifier_epoch_rune_w_3_invisible"
 			{
 				"IsHidden"	"1"
 				"IsBuff"	"1"
 			}
-
 		}
-
 	}
 
-	"time_ulti"
+	"eternity_flood"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -1419,7 +1415,7 @@
 			"particle"	"particles/econ/items/enigma/enigma_world_chasm/time_ulti.vpcf"
 			"particle"	"particles/units/heroes/hero_abaddon/abaddon_aphotic_shield_explosion.vpcf"
 			"particle"	"particles/econ/events/snowball/snowball_projectile_explosion.vpcf"
-			"particle"	"particles/units/heroes/hero_alchemist/epoch_rune_a_d_concoction_projectile.vpcf"
+			"particle"	"particles/units/heroes/hero_alchemist/epoch_rune_r_1_concoction_projectile.vpcf"
 			"particle"	"particles/units/heroes/hero_pugna/epoch_life_give.vpcf"
 			"model"		"models/heroes/obsidian_destroyer/obsidian_destroyer_head.vmdl"
 			"particle"	"particles/econ/items/morphling/morphling_crown_of_tears/morphling_crown_waveform_dmg_flash.vpcf"
@@ -1445,7 +1441,7 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/obsidian_destroyer/time_ulti.lua"
+				"ScriptFile"	"heroes/obsidian_destroyer/epoch_4_r.lua"
 				"Function"		"channel_start"
 			}
 		}
@@ -1470,7 +1466,7 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/obsidian_destroyer/time_ulti.lua"
+				"ScriptFile"	"heroes/obsidian_destroyer/epoch_4_r.lua"
 				"Function"		"channel_end"
 			}
 			"FireSound"
@@ -1493,7 +1489,7 @@
 
 	            	"ApplyModifier"
 	            	{
-	            		"ModifierName"	"modifier_time_ulti_locked_datadriven"
+	            		"ModifierName"	"modifier_eternity_flood_locked_datadriven"
 	            		"Target"		"TARGET"
 	            		"Duration"		"%duration"
 	            	}
@@ -1503,7 +1499,7 @@
 
 			"CreateThinker"
 			{
-				"ModifierName"	"modifier_time_ulti_vacuum_thinker_datadriven"
+				"ModifierName"	"modifier_eternity_flood_vacuum_thinker_datadriven"
 				"Target" 		"POINT"
 			}
 
@@ -1518,7 +1514,7 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/obsidian_destroyer/time_ulti.lua"
+				"ScriptFile"	"heroes/obsidian_destroyer/epoch_4_r.lua"
 				"Function"		"channel_end"
 			}
 
@@ -1533,7 +1529,7 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/obsidian_destroyer/time_ulti.lua"
+				"ScriptFile"	"heroes/obsidian_destroyer/epoch_4_r.lua"
 				"Function"		"channel_end"
 			}
 
@@ -1541,12 +1537,11 @@
 
 		"OnProjectileHitUnit"
 		{
-			"DeleteOnHit"	"0"
+			"DeleteOnHit"	"1"
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/obsidian_destroyer/time_ulti.lua"
-				"Function"		"time_orb_strike"
-				"Target"		"TARGET"
+				"ScriptFile"	"heroes/obsidian_destroyer/epoch_attack.lua"
+				"Function"		"epoch_attack_land"
 			}
 		}
 
@@ -1590,7 +1585,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/obsidian_destroyer/time_ulti.lua"
+						"ScriptFile"	"heroes/obsidian_destroyer/epoch_4_r.lua"
 						"Function"		"channel_think"
 					}
 				}
@@ -1607,7 +1602,7 @@
 					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
-			"modifier_time_ulti_locked"
+			"modifier_eternity_flood_locked"
 			{
 				"IsDebuff"	"1"
 
@@ -1623,7 +1618,7 @@
 					"MODIFIER_STATE_FROZEN"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
-			"modifier_time_ulti_locked_rune_c_d_exploding"
+			"modifier_eternity_flood_locked_rune_r_3_exploding"
 			{
 				"IsDebuff"	"1"
 				"IsHidden"	"0"
@@ -1633,13 +1628,13 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/obsidian_destroyer/time_ulti.lua"
-						"Function"		"c_d_crackle_think"
+						"ScriptFile"	"heroes/obsidian_destroyer/epoch_4_r.lua"
+						"Function"		"epoch_r_3_crackle_think"
 						"target"		"TARGET"
 					}
 				}
 			}
-			"modifier_time_ulti_vacuum_thinker_datadriven"
+			"modifier_eternity_flood_vacuum_thinker_datadriven"
 			{
 				"Duration"		"%duration"
 				"OnCreated"
@@ -1647,7 +1642,7 @@
 
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/obsidian_destroyer/time_ulti.lua"
+						"ScriptFile"	"heroes/obsidian_destroyer/epoch_4_r.lua"
 						"Function"		"VacuumStart"
 						"dummy_aura"	"modifier_chronosphere_aura_datadriven"
 						"duration"		"%duration"
@@ -1658,16 +1653,16 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/obsidian_destroyer/time_ulti.lua"
+						"ScriptFile"	"heroes/obsidian_destroyer/epoch_4_r.lua"
 						"Function"		"Vacuum"
-						"vacuum_modifier"	"modifier_time_ulti_vacuum_datadriven"
+						"vacuum_modifier"	"modifier_eternity_flood_vacuum_datadriven"
 						"damage"		"%damage"
 						"duration"		"%duration"
 						"stun_duration"	"%stun_duration"
 					}
 				}
 			}
-			"modifier_time_ulti_vacuum_datadriven"
+			"modifier_eternity_flood_vacuum_datadriven"
 			{
 				"IsPurgable"	"0"
 
@@ -1698,13 +1693,13 @@
 					}
 				}
 			}
-			"modifier_time_ulti_ghost"
+			"modifier_eternity_flood_ghost"
 			{
 				"Passive"	"0"
 				"StatusEffectName" 		"particles\status_fx\status_effect_ghost.vpcf"
 				"StatusEffectPriority"  "10"
 			}
-			"modifier_time_ulti_a_d_visible"
+			"modifier_eternity_flood_a_d_visible"
 			{
 				"TextureName"		"obsidian_destroyer_essence_aura"
 				"IsHidden"	"0"
@@ -1716,12 +1711,12 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/obsidian_destroyer/time_ulti.lua"
-						"Function"		"a_d_buff_think"
+						"ScriptFile"	"heroes/obsidian_destroyer/epoch_4_r.lua"
+						"Function"		"epoch_r_1_buff_think"
 					}
 				}
 			}
-			"modifier_time_ulti_a_d_invisible"
+			"modifier_eternity_flood_a_d_invisible"
 			{
 				"TextureName"		"rubick/harlequin_icons/rubick_telekinesis_land"
 				"IsHidden"	"1"
@@ -1731,11 +1726,46 @@
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
 				}
 			}
-			"modifier_time_ulti_a_d_invisible_str_and_agi"
+			"modifier_eternity_flood_a_d_invisible_str_and_agi"
 			{
 				"TextureName"		"rubick/harlequin_icons/rubick_telekinesis_land"
 				"IsHidden"	"1"
 				"IsBuff"	"1"
+			}
+			"modifier_eternity_flood_epoch_attack"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"IsPurgable"		"0"
+				"Passive"	"1"
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/obsidian_destroyer/epoch_attack.lua"
+						"Function"		"epoch_attack_start"
+					}
+				}
+
+				"OnAttack"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/obsidian_destroyer/epoch_attack.lua"
+						"Function"		"epoch_attack"
+					}
+				}
+
+				"OnAttackLanded"
+				{
+					"DeleteOnHit"	"1"
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/obsidian_destroyer/epoch_attack.lua"
+						"Function"		"epoch_attack_land"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"OnDestroy"
 			{
@@ -1839,8 +1869,8 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/obsidian_destroyer/epoch_arcana.lua"
-				"Function"		"ability_start"
+				"ScriptFile"	"heroes/obsidian_destroyer/epoch_1_q_arcana.lua"
+				"Function"		"epoch_arcana_q_start"
 				"target"		"POINT"
 				"root_duration"	"%root_duration"
 			}
@@ -1852,21 +1882,13 @@
 			{
 				"IsHidden"	"1"
 				"Passive"	"1"
-				"OnAttack"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/obsidian_destroyer/epoch_arcana.lua"
-						"Function"		"arcana_attack"
-					}
-				}
 				"ThinkInterval"  "0.5"
 				"OnIntervalThink"
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/obsidian_destroyer/epoch_arcana.lua"
-						"Function"		"passive_think"
+						"ScriptFile"	"heroes/obsidian_destroyer/epoch_1_q_arcana.lua"
+						"Function"		"epoch_arcana_q_3_damage_think"
 					}
 				}
 			}
@@ -1886,13 +1908,13 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"TextureName"	"epoch/epoch_rune_a_a_arcana1"
+				"TextureName"	"epoch/epoch_rune_q_1_arcana1"
 				"OnDestroy"
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/obsidian_destroyer/epoch_arcana.lua"
-						"Function"		"a_a_end"
+						"ScriptFile"	"heroes/obsidian_destroyer/epoch_1_q_arcana.lua"
+						"Function"		"epoch_arcana_q_1_end"
 						"target"		"TARGET"
 					}
 				}
@@ -1912,15 +1934,6 @@
 			"modifier_epoch_c_a_lock"
 			{
 				"IsHidden"	"1"
-			}
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"1"
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/obsidian_destroyer/epoch_arcana.lua"
-				"Function"		"c_a_strike"
 			}
 		}
 	}

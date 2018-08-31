@@ -1,7 +1,7 @@
 require('heroes/moon_ranger/init')
 
 function createPegasus(caster, ability, startPoint, endPoint, delay)
-    local runesCount = caster.a_c_level
+    local runesCount = caster.e_1_level
     if runesCount == nil or runesCount <= 0 then
         return
     end
@@ -85,7 +85,7 @@ function projectileHit(event)
     print(duration)
     ability:ApplyDataDrivenModifier(caster, target, "modifier_star_blink_root", {duration = duration})
     if duration > 0 then
-        Helper.updateStackModifier(target, caster, ability, 'astral_rune_a_c', duration, E1_MAX_STACKS_COUNT, runesCount)
+        Helper.updateStackModifier(target, caster, ability, 'astral_rune_e_1', duration, E1_MAX_STACKS_COUNT, runesCount)
     end
 end
 

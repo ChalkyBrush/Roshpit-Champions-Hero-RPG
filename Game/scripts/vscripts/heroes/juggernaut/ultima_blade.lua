@@ -14,15 +14,15 @@ function start_ultima(event)
 	end)
 	Timers:CreateTimer(0.2, function()
 		EmitSoundOn("juggernaut_jugg_ability_bladefury_12", caster)
-		rune_a_d(caster, fv)
+		rune_r_1(caster, fv)
 	end)
-	if ability.b_d_level > 0 then
-		local duration = 1+ability.b_d_level*0.15
+	if ability.r_2_level > 0 then
+		local duration = 1+ability.r_2_level*0.15
 		duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
-		ability.runeAbility:ApplyDataDrivenModifier(ability.runeUnit, caster, "modifier_monk_rune_b_d_immunity", {duration = duration})
+		ability.runeAbility:ApplyDataDrivenModifier(ability.runeUnit, caster, "modifier_monk_rune_r_2_immunity", {duration = duration})
 		EmitSoundOn("DOTA_Item.BlackKingBar.Activate", caster)
 	end
-	-- local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "monk")
+	-- local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "monk")
 	-- if c_d_level > 0 then
 	--   	local rush = caster:FindAbilityByName("monk_ultima_blade_heal_alt")
 	--   	if not rush then
@@ -37,7 +37,7 @@ function start_ultima(event)
 	Filters:CastSkillArguments(4, caster)
 
 	ability.damage = event.damage
-	local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "monk")
+	local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "monk")
 	ability.damage = ability.damage + 0.0007*caster:GetStrength()/10*d_d_level*ability.damage
 end
 
@@ -46,31 +46,31 @@ function start_channel(event)
 	local ability = event.ability
 	StartAnimation(caster, {duration=2.0, activity=ACT_DOTA_TAUNT, rate=1, translate="face_me"})
 	-- caster:SetAnimation("idle_spin_sword")
-	ability.b_d_level = Runes:GetTotalRuneLevel(caster, 2, "b_d", "monk")
-	if ability.b_d_level > 0 then
+	ability.r_2_level = Runes:GetTotalRuneLevel(caster, 2, "r_2", "monk")
+	if ability.r_2_level > 0 then
 		ability.runeUnit = caster.runeUnit2
-		ability.runeAbility = ability.runeUnit:FindAbilityByName("monk_rune_b_d")
+		ability.runeAbility = ability.runeUnit:FindAbilityByName("monk_rune_r_2")
 		Timers:CreateTimer(0.6, function()
-			ability.runeAbility:ApplyDataDrivenModifier(ability.runeUnit, caster, "modifier_monk_rune_b_d_charge_up", {duration = 2.5})
+			ability.runeAbility:ApplyDataDrivenModifier(ability.runeUnit, caster, "modifier_monk_rune_r_2_charge_up", {duration = 2.5})
 		end)
 	end
 end
 
 function end_channel(event)
 	local caster = event.caster
-	-- caster:RemoveModifierByName("modifier_monk_rune_b_d_charge_up")
+	-- caster:RemoveModifierByName("modifier_monk_rune_r_2_charge_up")
 	EndAnimation(caster)
 end
 
-function rune_a_d(caster, fv)
-	local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d", "monk")
+function rune_r_1(caster, fv)
+	local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "monk")
 	if a_d_level > 0 then
 		local runeUnit = caster.runeUnit
-		local ability = runeUnit:FindAbilityByName("monk_rune_a_d")
+		local ability = runeUnit:FindAbilityByName("monk_rune_r_1")
 		ability.caster = caster
 		ability.damage = a_d_level*3500
 
-	    local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "monk")
+	    local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "monk")
 	    ability.damage = ability.damage + 0.0007*caster:GetStrength()/10*d_d_level*ability.damage
 
 		local casterOrigin = caster:GetAbsOrigin()
@@ -187,7 +187,7 @@ function start_channel_heal(event)
 	local caster = event.caster
 	local ability = event.ability
 	StartAnimation(caster, {duration=2.0, activity=ACT_DOTA_TAUNT, rate=1, translate="face_me"})
-	ability.c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "monk")
+	ability.r_3_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "monk")
 	-- caster:SetAnimation("idle_spin_sword")
 end
 
@@ -246,7 +246,7 @@ function projectileHitHeal(event)
 	local caster = event.caster
 	local damage = ability.damage
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_monk_ulti_heal", {duration = 5})
-	target:SetModifierStackCount( "modifier_monk_ulti_heal", ability, ability.c_d_level )
+	target:SetModifierStackCount( "modifier_monk_ulti_heal", ability, ability.r_3_level )
 end
 
 function cooldownEnd(event)
@@ -261,11 +261,11 @@ function rune_unit_3_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local hero = caster.hero
-	local totalLevel = Runes:GetTotalRuneLevel(hero, 3, "c_d", "monk")
+	local totalLevel = Runes:GetTotalRuneLevel(hero, 3, "r_3", "monk")
 	print("RUNNING?")
 	if totalLevel > 0 then
 		local stackCount = hero:GetAgility()*0.2*totalLevel
-		ability:ApplyDataDrivenModifier(caster, hero, "modifier_monk_rune_c_d_effect", {})
-		hero:SetModifierStackCount( "modifier_monk_rune_c_d_effect", ability, stackCount )
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_monk_rune_r_3_effect", {})
+		hero:SetModifierStackCount( "modifier_monk_rune_r_3_effect", ability, stackCount )
 	end
 end

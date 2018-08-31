@@ -22,9 +22,9 @@ function dominion_bolt_fire(event)
         iMoveSpeed = 750,
         iVisionTeamNumber = caster:GetTeamNumber()
     }
-    caster.a_a_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
-    caster.b_a_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
-    caster.d_a_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+    caster.q_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
+    caster.q_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
+    caster.q_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
     projectile = ProjectileManager:CreateTrackingProjectile(info)
     EmitSoundOn("Ekkan.Dominion.Launch", caster)
     Filters:CastSkillArguments(1, caster)
@@ -94,14 +94,14 @@ function dominion_debuff_death(event)
 	    summon:SetNightTimeVisionRange(90)
 	    summon.hero = caster
 	    summon:SetHullRadius(8)
-	    if caster.a_a_level > 0 then
+	    if caster.q_1_level > 0 then
 	    	summon:AddAbility("black_dominion_lifesteal"):SetLevel(1)
 	    end
-	    if caster.b_a_level > 0 then
+	    if caster.q_2_level > 0 then
 	    	print("ADD CORPSE PICKUP ABILITY")
 	    	summon:AddAbility("black_dominion_corpse_pickup"):SetLevel(1)
 	    end
-	    if caster.d_a_level > 0 then
+	    if caster.q_4_level > 0 then
 	    	ability:ApplyDataDrivenModifier(caster, summon, "modifier_black_dominion_d_a_aura", {})
 	    end
 
@@ -126,10 +126,10 @@ function dominion_debuff_death(event)
 		summon.targetFindOrder = FIND_ANY_ORDER
 		summon.autoAbilityCD = 2
 		summon.owner = caster:GetPlayerOwnerID()
-		local d_a_level = 0
-		if d_a_level > 0 then
+		local q_4_level = 0
+		if q_4_level > 0 then
 			ability:ApplyDataDrivenModifier(caster, summon, "modifier_ekkan_d_a_alacrity", {})
-			summon:SetModifierStackCount("modifier_ekkan_d_a_alacrity", caster, d_a_level)
+			summon:SetModifierStackCount("modifier_ekkan_d_a_alacrity", caster, q_4_level)
 		end
 		if summon.aggroSound then
 			EmitSoundOn(summon.aggroSound, summon)
@@ -254,12 +254,12 @@ function dominion_unit_kill(event)
 	local ability = event.ability
 	if not unit.dominionLock then
 		unit.dominionLock = true
-		local c_a_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
+		local q_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
 		if unit:GetDeathXP() > 10 then
-			if c_a_level > 0 then
-				attacker.armor = attacker.armor + c_a_level*10
+			if q_3_level > 0 then
+				attacker.armor = attacker.armor + q_3_level*10
 				local damageGainMult = 5000
-				attacker.attackDamage = math.min(attacker.attackDamage + c_a_level*damageGainMult, 2^26.5)
+				attacker.attackDamage = math.min(attacker.attackDamage + q_3_level*damageGainMult, 2^26.5)
 				attacker:SetPhysicalArmorBaseValue(attacker.armor)
 			    attacker:SetBaseDamageMin(attacker.attackDamage)
 			    attacker:SetBaseDamageMax(attacker.attackDamage) 
@@ -320,7 +320,7 @@ function dominion_zombie_strike_hit(event)
 	local caster = event.caster.hero
 	local target = event.target
 	local ability = event.ability
-	local damage = caster.a_a_level*0.12*ability.attack_damage
+	local damage = caster.q_1_level*0.12*ability.attack_damage
 	ability:ApplyDataDrivenModifier(event.caster, target, "modifier_hit_by_zombie_strike", {duration = 0.3})
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
 end
@@ -339,7 +339,7 @@ function black_dominion_lifesteal_think(event)
 	local ability = event.ability
 	local origCaster = caster.hero
 	local target = event.target
-	local damage = caster:GetAverageTrueAttackDamage(caster)*0.07*origCaster.a_a_level
+	local damage = caster:GetAverageTrueAttackDamage(caster)*0.07*origCaster.q_1_level
 	Filters:TakeArgumentsAndApplyDamage(target, origCaster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
 	local heal = math.min(damage*0.1, caster:GetMaxHealth()-caster:GetHealth())
 	if heal > 0 then
@@ -361,7 +361,7 @@ function corpse_pickup_aura_start(event)
 			ability:ApplyDataDrivenModifier(event.caster, caster, "modifier_corpse_picked_up_visible", {duration = 10})
 			ability:ApplyDataDrivenModifier(event.caster, caster, "modifier_corpse_picked_up_invisible", {duration = 10})
 			caster:SetModifierStackCount("modifier_corpse_picked_up_visible", caster, caster.immortalSouls)
-			caster:SetModifierStackCount("modifier_corpse_picked_up_invisible", caster, caster.immortalSouls*caster.hero.b_a_level)
+			caster:SetModifierStackCount("modifier_corpse_picked_up_invisible", caster, caster.immortalSouls*caster.hero.q_2_level)
 			UTIL_Remove(target)
 			if not caster.immortalSoulsPFX then
 				caster.immortalSoulsPFX = ParticleManager:CreateParticle("particles/units/heroes/hero_visage/visage_soul_overhead.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
@@ -430,8 +430,8 @@ function swarm_hit(event)
 	local caster = event.caster
 	local ability = event.ability
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_swarm_effect", {duration = 12})
-	local b_a_level = Runes:GetTotalRuneLevelGeneric(caster.hero, 2, 0)
-	target:SetModifierStackCount("modifier_swarm_effect", caster, b_a_level)
+	local q_2_level = Runes:GetTotalRuneLevelGeneric(caster.hero, 2, 0)
+	target:SetModifierStackCount("modifier_swarm_effect", caster, q_2_level)
 end
 
 function swarm_poison_think(event)
@@ -448,11 +448,11 @@ function aura_starter_start(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	local d_a_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
-	if d_a_level > 0 then
+	local q_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+	if q_4_level > 0 then
 		if target.ekkan_unit or (target:GetEntityIndex() == caster:GetEntityIndex()) then
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_black_dominion_d_a_aura_effect", {})
-			target:SetModifierStackCount("modifier_black_dominion_d_a_aura_effect", caster, d_a_level)
+			target:SetModifierStackCount("modifier_black_dominion_d_a_aura_effect", caster, q_4_level)
 		end
 	end
 

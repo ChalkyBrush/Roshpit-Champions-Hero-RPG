@@ -28,8 +28,8 @@ function bear_roar(event)
 	end)
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_bear_armor_buff", {duration = duration})
-	ability.a_a_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
-	if ability.a_a_level > 0 then
+	ability.q_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
+	if ability.q_1_level > 0 then
 		caster:RemoveModifierByName("modifier_bear_regen")
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_bear_regen", {duration = 12})
 		EmitSoundOn("Draghor.Bear.Regeneration", caster)
@@ -50,9 +50,9 @@ function bear_warstomp(event)
 	local ability = event.ability
 	local stun_duration = event.stun_duration
 	local damage = event.damage
-	local c_b_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
-	if c_b_level > 0 then
-		damage = damage + caster:GetAverageTrueAttackDamage(caster)*DJANGHOR_W3_ATTACK_PERCENT_ADDED_TO_TORNADO_AND_STOMP*c_b_level
+	local w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+	if w_3_level > 0 then
+		damage = damage + caster:GetAverageTrueAttackDamage(caster)*DJANGHOR_W3_ATTACK_PERCENT_ADDED_TO_TORNADO_AND_STOMP*w_3_level
 	end
 	local position = caster:GetAbsOrigin()
 	local splitEarthParticle = "particles/roshpit/draghor/bear_warstomp.vpcf"
@@ -163,6 +163,6 @@ end
 function bear_regen_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local healAmount = ability.a_a_level*DJANGHOR_Q1_REGEN_FLAT
+	local healAmount = ability.q_1_level*DJANGHOR_Q1_REGEN_FLAT
 	Filters:ApplyHeal(caster, caster, healAmount, true)
 end

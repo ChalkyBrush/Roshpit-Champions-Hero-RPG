@@ -11,16 +11,16 @@ end
 
 function modifier_dinath_passive_ms_cap:GetModifierMoveSpeed_Max( params )
     local cap = 600
-    if self:GetAbility().c_b_level then
-    	cap = 600 + self:GetAbility().c_b_level*5
+    if self:GetAbility().w_3_level then
+    	cap = 600 + self:GetAbility().w_3_level*5
     end
     return cap
 end
 
 function modifier_dinath_passive_ms_cap:GetModifierMoveSpeed_Limit( params )
     local cap = 600
-    if self:GetAbility().c_b_level then
-    	cap = 600 + self:GetAbility().c_b_level*5
+    if self:GetAbility().w_3_level then
+    	cap = 600 + self:GetAbility().w_3_level*5
     end
     return cap
 end

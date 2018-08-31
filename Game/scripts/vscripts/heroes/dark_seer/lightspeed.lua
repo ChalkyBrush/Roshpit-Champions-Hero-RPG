@@ -3,7 +3,7 @@ LinkLuaModifier("modifier_zonik_lightspeed_cap", "modifiers/zonik/modifier_zonik
 function lightspeed_precast(event)
 	local caster = event.caster
 	local ability = event.ability
-	ability.d_c_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
+	ability.e_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
 end
 
 function lightspeed_cast(event)
@@ -28,7 +28,7 @@ function lightspeed_cast(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_lightspeed_a_c", {duration = duration})
 		caster:SetModifierStackCount("modifier_lightspeed_a_c", caster, a_c_level*6+zonik_glyph_5_1_speed)
 	end
-	ability.c_c_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
+	ability.e_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
 	Filters:CastSkillArguments(3, caster)
 
 	if caster:HasModifier("modifier_zonik_glyph_5_a") then

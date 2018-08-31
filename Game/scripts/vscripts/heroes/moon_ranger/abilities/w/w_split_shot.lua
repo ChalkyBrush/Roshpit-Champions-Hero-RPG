@@ -10,9 +10,9 @@ end
 
 function beginCast(event)
     local caster = event.caster
-    Helper.initializeAbilityRunes(event.caster, 'astral', 'b')
-    Helper.initializeAbilityRunes(event.caster, 'astral', 'c')
-    Helper.initializeAbilityRunes(event.caster, 'astral', 'd')
+    Helper.initializeAbilityRunes(event.caster, 'astral', 'w')
+    Helper.initializeAbilityRunes(event.caster, 'astral', 'e')
+    Helper.initializeAbilityRunes(event.caster, 'astral', 'r')
     local ability = event.ability
     local damage = event.damage
     local range = event.range
@@ -35,7 +35,7 @@ function beginCast(event)
         arrowCount = W_ARROWS_COUNT
     end
     ability.damage = damage
-    local empyralArrowsRunesCount = Runes:GetTotalRuneLevel(caster, 3, "c_b", "astral")
+    local empyralArrowsRunesCount = Runes:GetTotalRuneLevel(caster, 3, "w_3", "astral")
 
     if empyralArrowsRunesCount == nil or empyralArrowsRunesCount <= 0 then
         empyralArrowsProcChance = 0
@@ -44,7 +44,7 @@ function beginCast(event)
     local maxArrow = math.floor(arrowCount/2)
     local minArrow = -maxArrow
 
-    local w3ability = caster.runeUnit3:FindAbilityByName("astral_rune_c_b")
+    local w3ability = caster.runeUnit3:FindAbilityByName("astral_rune_w_3")
     w3ability.damage = damage
     w3ability.caster = caster
 

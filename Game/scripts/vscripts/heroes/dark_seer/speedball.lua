@@ -63,7 +63,7 @@ function speedball_start(event)
 	caster:AddNewModifier( caster, ability, "modifier_zonik_speedball_cap", {duration = duration} )
 
 	local a_d_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
-	ability.a_d_level = a_d_level
+	ability.r_1_level = a_d_level
 
 	caster:RemoveModifierByName("modifier_speedball_a_d_visible")
 	caster:RemoveModifierByName("modifier_speedball_a_d_invisible")
@@ -101,10 +101,10 @@ function speedball_thinking(event)
 				speedball_explode(caster, ability, damage, stun_duration)
 			end
 
-			if ability.a_d_level > 0 then
+			if ability.r_1_level > 0 then
 				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 180, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 				if #enemies > 0 then
-					local stun_duration = 0.5 + ability.a_d_level*0.01
+					local stun_duration = 0.5 + ability.r_1_level*0.01
 					local bSound = false
 					for _,enemy in pairs(enemies) do
 						if not enemy:HasModifier("modifier_speedball_stun") then
@@ -117,7 +117,7 @@ function speedball_thinking(event)
 							caster:SetModifierStackCount("modifier_speedball_a_d_visible", caster, newStacks)		
 
 							ability:ApplyDataDrivenModifier(caster, caster, "modifier_speedball_a_d_invisible", {})
-							caster:SetModifierStackCount("modifier_speedball_a_d_invisible", caster, newStacks*ability.a_d_level)
+							caster:SetModifierStackCount("modifier_speedball_a_d_invisible", caster, newStacks*ability.r_1_level)
 
 							caster:PerformAttack(enemy, true, true, true, false, true, false, false)
 						end

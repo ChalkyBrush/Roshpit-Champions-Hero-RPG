@@ -141,7 +141,7 @@
 			"modifier_dinath_dive_attack_range"
 			{
 				"IsHidden"	"0"
-				"TextureName"	"dinath/dinath_rune_c_c"
+				"TextureName"	"dinath/dinath_rune_e_3"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "15"
@@ -180,7 +180,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"dinath/dinath_rune_a_c"
+				"TextureName"	"dinath/dinath_rune_e_1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "12"
@@ -190,7 +190,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"dinath/dinath_rune_d_c"
+				"TextureName"	"dinath/dinath_rune_e_4"
 				"States"
 				{
 					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -359,7 +359,7 @@
 			"modifier_spire_breath_speed_burst"
 			{
 				"IsHidden"	"0"
-				"TextureName" "dinath/dinath_rune_c_b_arcana1"
+				"TextureName" "dinath/dinath_rune_w_3_arcana1"
 				"Properties"
 				{
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "1" 
@@ -547,7 +547,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"TextureName"	"dinath/dinath_rune_b_d"
+				"TextureName"	"dinath/dinath_rune_r_2"
 			}
 		}
 
@@ -809,7 +809,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-				"TextureName"		"dinath/dinath_rune_a_b"
+				"TextureName"		"dinath/dinath_rune_w_1"
 				"EffectName"		"particles/roshpit/dinath/a_b_buff_heal.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"Properties"
@@ -842,7 +842,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"dinath/dinath_rune_c_a"
+		"AbilityTextureName"			"dinath/dinath_rune_q_3"
 		"RequiredLevel"          		"0"
 		"LevelsBetweenUpgrades"  		"0"
 		"MaxLevel"				 		"7"
@@ -929,14 +929,14 @@
 
 	}
 
-	"dinath_rune_a_a"
+	"dinath_rune_q_1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"dinath/dinath_rune_a_a"
+		"AbilityTextureName"	"dinath/dinath_rune_q_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -951,14 +951,14 @@
 
 	}
 
-	"dinath_rune_a_b"
+	"dinath_rune_w_1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"dinath/dinath_rune_a_b"
+		"AbilityTextureName"	"dinath/dinath_rune_w_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -973,14 +973,14 @@
 
 	}
 
-	"dinath_rune_a_c"
+	"dinath_rune_e_1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"dinath/dinath_rune_a_c"
+		"AbilityTextureName"	"dinath/dinath_rune_e_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -995,14 +995,14 @@
 
 	}
 
-	"dinath_rune_a_d"
+	"dinath_rune_r_1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"dinath/dinath_rune_a_d"
+		"AbilityTextureName"	"dinath/dinath_rune_r_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -1033,14 +1033,14 @@
 
 	}
 
-	"dinath_rune_b_a"
+	"dinath_rune_q_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"dinath/dinath_rune_b_a"
+		"AbilityTextureName"	"dinath/dinath_rune_q_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -1055,14 +1055,14 @@
 
 	}
 
-	"dinath_rune_b_b"
+	"dinath_rune_w_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"dinath/dinath_rune_b_b"
+		"AbilityTextureName"	"dinath/dinath_rune_w_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -1077,14 +1077,14 @@
 
 	}
 
-	"dinath_rune_b_c"
+	"dinath_rune_e_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"dinath/dinath_rune_b_c"
+		"AbilityTextureName"	"dinath/dinath_rune_e_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -1099,14 +1099,14 @@
 
 	}
 
-	"dinath_rune_b_d"
+	"dinath_rune_r_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"dinath/dinath_rune_b_d"
+		"AbilityTextureName"	"dinath/dinath_rune_r_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -1119,14 +1119,14 @@
 		}
 	}
 
-	"dinath_rune_c_a"
+	"dinath_rune_q_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"dinath/dinath_rune_c_a"
+		"AbilityTextureName"	"dinath/dinath_rune_q_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -1161,14 +1161,14 @@
 
 	}
 
-	"dinath_rune_c_b"
+	"dinath_rune_w_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"dinath/dinath_rune_c_b"
+		"AbilityTextureName"	"dinath/dinath_rune_w_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -1188,14 +1188,14 @@
 
 	}
 
-	"dinath_rune_c_c"
+	"dinath_rune_e_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"dinath/dinath_rune_c_c"
+		"AbilityTextureName"	"dinath/dinath_rune_e_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -1210,14 +1210,14 @@
 
 	}
 
-	"dinath_rune_c_d"
+	"dinath_rune_r_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"dinath/dinath_rune_c_d"
+		"AbilityTextureName"	"dinath/dinath_rune_r_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -1232,14 +1232,14 @@
 
 	}
 
-	"dinath_rune_d_a"
+	"dinath_rune_q_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"dinath/dinath_rune_d_a"
+		"AbilityTextureName"	"dinath/dinath_rune_q_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -1254,14 +1254,14 @@
 
 	}
 
-	"dinath_rune_d_b"
+	"dinath_rune_w_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"dinath/dinath_rune_d_b"
+		"AbilityTextureName"	"dinath/dinath_rune_w_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -1276,14 +1276,14 @@
 
 	}
 
-	"dinath_rune_d_c"
+	"dinath_rune_e_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"dinath/dinath_rune_d_c"
+		"AbilityTextureName"	"dinath/dinath_rune_e_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -1303,14 +1303,14 @@
 
 	}
 
-	"dinath_rune_d_d"
+	"dinath_rune_r_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"dinath/dinath_rune_d_d"
+		"AbilityTextureName"	"dinath/dinath_rune_r_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -1325,14 +1325,14 @@
 
 	}
 
-	"dinath_rune_a_b_arcana1"
+	"dinath_rune_w_1_arcana1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"dinath/dinath_rune_a_b_arcana1"
+		"AbilityTextureName"	"dinath/dinath_rune_w_1_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -1347,14 +1347,14 @@
 
 	}
 
-	"dinath_rune_b_b_arcana1"
+	"dinath_rune_w_2_arcana1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"dinath/dinath_rune_b_b_arcana1"
+		"AbilityTextureName"	"dinath/dinath_rune_w_2_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -1369,14 +1369,14 @@
 
 	}
 
-	"dinath_rune_c_b_arcana1"
+	"dinath_rune_w_3_arcana1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"dinath/dinath_rune_c_b_arcana1"
+		"AbilityTextureName"	"dinath/dinath_rune_w_3_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -1396,14 +1396,14 @@
 
 	}
 
-	"dinath_rune_d_b_arcana1"
+	"dinath_rune_w_4_arcana1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"dinath/dinath_rune_d_b_arcana1"
+		"AbilityTextureName"	"dinath/dinath_rune_w_4_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"

@@ -1,11 +1,11 @@
-require('/heroes/obsidian_destroyer/constants_epoch')
+require('/heroes/obsidian_destroyer/epoch_constants')
 
-function ability_start(event)
+function epoch_arcana_q_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target_points[1]
-	local d_a_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
-	local procs = Runes:Procs(d_a_level, epoch_arcana_q4_procs_pct, 1)
+	local q_4_level = caster:GetRuneValue("q", 4)
+	local procs = Runes:Procs(q_4_level, EPOCH_ARCANA_Q4_PROCS_PCT, 1)
 	for i = 0, procs, 1 do
 		Timers:CreateTimer(0.2*i, function()
 			if i > 0 then
@@ -13,13 +13,13 @@ function ability_start(event)
 			end
 			local pfx = ParticleManager:CreateParticle("particles/roshpit/epoch/arcana_ability_area.vpcf", PATTACH_CUSTOMORIGIN, caster)
 			EmitSoundOnLocationWithCaster(target, "Epoch.ArcanaAbility.Cast", caster)
-			local radius = 400 + d_a_level*5
+			local radius = 400 + q_4_level*5
 			ParticleManager:SetParticleControl(pfx, 0, target+Vector(0,0,120))
 			ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 100, radius))
 			Timers:CreateTimer(3, function()
 				ParticleManager:DestroyParticle(pfx, false)
 			end)
-			ability.c_a_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
+			ability.q_3_level = caster:GetRuneValue("q", 3)
 			local rootDuration = event.root_duration
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 			if #enemies > 0 then
@@ -29,9 +29,6 @@ function ability_start(event)
 					if not alreadyHave then 
 						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_epoch_arcana_root", {duration = rootDuration})
 					end
-					if ability.c_a_level > 0 then
-						c_a_attack_start2(caster, enemy, ability, ability.c_a_level)
-					end
 				end
 			end 
 			Filters:CastSkillArguments(1, caster)
@@ -39,12 +36,12 @@ function ability_start(event)
 	end
 end
 
-function a_a_end(event)
+function epoch_arcana_q_1_end(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	local a_a_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
-	local damageMult = a_a_level*epoch_arcana_q1_dmg_multi_pct/100 + 0.05
+	local q_1_level = caster:GetRuneValue("q", 1)
+	local damageMult = q_1_level*EPOCH_ARCANA_Q1_DMG_MULTI_PCT/100 + 0.05
 	local typeCheck = type(target.epochArcanaAA)
 	if typeCheck == "number" then
 		local damage = target.epochArcanaAA*damageMult
@@ -72,25 +69,12 @@ function a_a_end(event)
 	end
 end
 
-function arcana_attack(event)
-	local caster = event.caster
-	local target = event.target
-	local ability = event.ability
-	local c_a_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
-	if c_a_level > 0 then
-		-- local delay = caster:GetAttacksPerSecond()
-		-- Timers:CreateTimer(delay, function()
-			c_a_attack_start2(caster, target, ability, c_a_level)
-		-- end)
-	end
-end
-
-function passive_think(event)
+function epoch_arcana_q_3_damage_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	ability.c_a_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
-	if ability.c_a_level > 0 then
-		local bonusDamage = math.floor(caster:GetMaxMana()*ability.c_a_level*epoch_arcana_q3_extra_base_att_dmg_pct/100)
+	ability.q_3_level = caster:GetRuneValue("q", 3)
+	if ability.q_3_level > 0 then
+		local bonusDamage = math.floor(caster:GetMaxMana()*ability.q_3_level*EPOCH_ARCANA_Q3_EXTRA_BASE_ATT_DMG_PCT/100)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_epoch_arcana_attack_damage", {})
 		caster:SetModifierStackCount("modifier_epoch_arcana_attack_damage", caster, bonusDamage)
 	else
@@ -98,47 +82,34 @@ function passive_think(event)
 	end
 end
 
-function c_a_attack_start2(caster, target, ability, c_a_level)
-	local attacker = caster
-	local manaDrain = attacker:GetMaxMana()*0.01
+function epoch_arcana_q_3_get_damage(attacker, caster, reduceMana)
+	local ability = caster:FindAbilityByName("epoch_rune_q_3_arcana1")
+	local manaDrain = attacker:GetMaxMana() * EPOCH_ARCANA_Q3_BASE_MANA_DRAIN_PCT / 100
+	local damage = 0
+	if not ability then
+		return false
+	end
 	if manaDrain > attacker:GetMana() then
 		return nil
 	end
-
-	ability.attacker = attacker
-	if not attacker:HasModifier("modifier_epoch_c_a_lock") then
-		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_epoch_c_a_lock", {duration = 0.1})
-		attacker:ReduceMana(manaDrain)
+	local q_3_level = attacker:GetRuneValue("q", 3)
+	print("q_3_level: "..q_3_level)
+	if q_3_level > 0 then
+		if not attacker:HasModifier("modifier_epoch_c_a_lock") and reduceMana then
+			ability:ApplyDataDrivenModifier(caster, attacker, "modifier_epoch_c_a_lock", {duration = 0.1})
+			attacker:ReduceMana(manaDrain)
+		end
+		damage = manaDrain * q_3_level * EPOCH_Q3_TIMES_MANA_DRAINED
 	end
-	local damage = manaDrain*c_a_level*epoch_arcana_q3_dmg_multi_pct
-	local projectileSpeed = attacker:GetProjectileSpeed()
-	ability.damage = damage
-	local info = 
-	{
-		Target = target,
-		Source = caster,
-		Ability = ability,	
-		EffectName = "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_arcane_orb.vpcf",
-		StartPosition = "attach_attack1",
-		bDrawsOnMinimap = false, 
-	        bDodgeable = true,
-	        bIsAttack = true, 
-	        bVisibleToEnemies = true,
-	        bReplaceExisting = false,
-	        flExpireTime = GameRules:GetGameTime() + 5,
-		bProvidesVision = false,
-		iVisionRadius = 0,
-		iMoveSpeed = projectileSpeed,
-	}
-	projectile = ProjectileManager:CreateTrackingProjectile(info)
-
+	print("q_3_damage: "..damage)
+	return damage
 end
 
-function c_a_strike(event)
+function epoch_arcana_q_3_strike(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
 	if not target.dummy then
-		Filters:TakeArgumentsAndApplyDamage(target, caster, ability.damage, DAMAGE_TYPE_PURE, 1, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
+		Filters:TakeArgumentsAndApplyDamage(target, caster, ability.q_3_damage, DAMAGE_TYPE_PURE, 1, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 	end
 end

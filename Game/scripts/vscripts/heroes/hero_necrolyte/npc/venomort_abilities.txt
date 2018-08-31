@@ -116,13 +116,13 @@
 					}
 				}
 			}
-			"modifier_venomort_arcana2_d_a_visible"
+			"modifier_venomort_arcana2_q_4_visible"
 			{
 				"IsHidden"	"0"
-				"TextureName"	"venomort/venomort_rune_d_a_arcana2"
+				"TextureName"	"venomort/venomort_rune_q_4_arcana2"
 				"IsBuff"	"1"
 			}
-			"modifier_venomort_arcana2_d_a_invisible"
+			"modifier_venomort_arcana2_q_4_invisible"
 			{
 				"IsHidden"	"1"
 				"IsBuff"	"1"
@@ -281,8 +281,8 @@
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_shadowshaman.vsndevts"
 			"particle_folder"   "particles/units/heroes/hero_pugna"
 			"particle"			"particles/econ/courier/courier_faceless_rex/venomort_toxic_veil.vpcf"
-			"particle"			"particles/units/heroes/venomort/glyph_3_1_venomort_rune_b_b_wave.vpcf"
-			"particle"			"particles/units/heroes/hero_vengeful/venomort_rune_b_b_wave.vpcf"
+			"particle"			"particles/units/heroes/venomort/glyph_3_1_venomort_rune_w_2_wave.vpcf"
+			"particle"			"particles/units/heroes/hero_vengeful/venomort_rune_w_2_wave.vpcf"
 			"particle"			"particles/units/heroes/hero_skeletonking/wraith_king_ghosts_ambient.vpcf"
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_viper.vsndevts"
 		}
@@ -922,7 +922,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-				"TextureName"		"venomort/venomort_rune_c_d_arcana1"
+				"TextureName"		"venomort/venomort_rune_r_3_arcana1"
 
 				"EffectName"		"particles/econ/items/medusa/medusa_daughters/medusa_daughters_mana_shield.vpcf"
 				"EffectAttachType"	"attach_hitloc"
