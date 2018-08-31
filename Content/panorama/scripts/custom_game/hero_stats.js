@@ -94,7 +94,6 @@ function UpdateHeroStats(){
 				GameUI.HealthRegenLabel.text = "+"+Math.round(Entities.GetHealthThinkRegen( queryUnit ))
 				GameUI.ManaRegenLabel.text = "+"+Math.round(Entities.GetManaThinkRegen( queryUnit ))
 			}
-			GameUI.MovespeedLabel.text = Entities.GetMoveSpeedModifier(queryUnit, Entities.GetBaseMoveSpeed(queryUnit))
 		}
 	}
 }

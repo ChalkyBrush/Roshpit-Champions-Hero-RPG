@@ -44312,15 +44312,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/glyph_abilities.lua"
-						"Function"		"paladin_2_1_destroy"
-						"target"		"TARGET"
-					}
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -44357,12 +44348,27 @@
 			"modifier_paladin_glyph_3_1"
 			{
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"EffectName"		"particles/items_fx/command_aura.vpcf"
 				"EffectAttachType" 	"follow_origin"
 				"IsPurgable"			"0"
 				"Passive" 			"0"
 				"IsHidden" 			"1"
 				"IsBuff"			"1"
 				"Aura"					"modifier_paladin_glyph_3_1_effect"
+				"Aura_Radius"			"850"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			}
+			"modifier_paladin_glyph_3_1_effect"
+			{
+				"IsBuff"				"1"
+				"IsHidden"				"0"
+				"IsPurgable"			"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "20"
+				}
 			}
 		}
 		"AbilitySpecial"
