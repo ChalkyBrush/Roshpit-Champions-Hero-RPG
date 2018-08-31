@@ -2423,7 +2423,7 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = 0
 		Filters:ShatterPaladinShell(victim, attacker)
 	end
-	if victim:HasModifier("modifier_voltex_rune_c_b_shield") then
+	if victim:HasModifier("modifier_voltex_rune_w_3_shield") then
 		filterTable["damage"] = 0
 		Filters:ShatterVoltexShell(victim, attacker)
 	end

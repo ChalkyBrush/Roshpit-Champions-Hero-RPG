@@ -11,6 +11,7 @@ local heroes = {
 require('/heroes/huskar/constants_SPIRIT_WARRIOR')
 require('items/special_item_effects')
 require('/heroes/omniknight/paladin_constants')
+require('/heroes/phantom_assassin/voltex_constants')
 
 LinkLuaModifier("modifier_buzuki_finger_lua", "modifiers/modifier_buzuki_finger_lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -3875,8 +3876,8 @@ function Filters:ShatterVoltexShell(victim, attacker)
     end
 
     EmitSoundOn("Voltex.IonShellZap", attacker)
-    local w_3_level =  Runes:GetTotalRuneLevel(victim, 3, "w_3", "voltex")
-    local damage = 5*w_3_level*victim:GetAgility()
+    local w_3_level =  victim:GetRuneValue("w", 3)
+    local damage = VOLTEX_W3_DMG_PER_AGI * w_3_level*victim:GetAgility()
     Filters:TakeArgumentsAndApplyDamage(attacker, victim, damage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 
     local particleName = "particles/roshpit/voltex_shell_zap.vpcf"
