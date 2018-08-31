@@ -137,10 +137,10 @@ function jump_passive_think(event)
 		local newStacks = math.min(stackCount + 1, maxStacks)
 		caster:SetModifierStackCount("modifier_machinal_jump_freecast", caster, newStacks)
 	end
-	local d_c_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
-	if d_c_level > 0 then
+	local e_4_level = caster:GetRuneValue("e", 4)
+	if e_4_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_machinal_jump_d_c_effect", {})
-		caster:SetModifierStackCount("modifier_machinal_jump_d_c_effect", caster, d_c_level)
+		caster:SetModifierStackCount("modifier_machinal_jump_d_c_effect", caster, e_4_level)
 	else
 		caster:RemoveModifierByName("modifier_machinal_jump_d_c_effect")
 	end
@@ -149,15 +149,15 @@ end
 function jump_passive_think_2(event)
 	local caster = event.caster
 	local ability = event.ability
-	local b_c_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
-	if b_c_level > 0 then
+	local e_2_level = caster:GetRuneValue("e", 2)
+	if e_2_level > 0 then
 		if not ability.lastMana then
 			ability.lastMana = caster:GetMana()
 		end
 		local manaDifferential = caster:GetMana() - ability.lastMana
 		if manaDifferential > 0 then
 
-			local heal = manaDifferential*b_c_level
+			local heal = manaDifferential * e_2_level
 			print("HEAL: "..heal)
 			Filters:ApplyHeal(caster, caster, heal, true,false)
 		end

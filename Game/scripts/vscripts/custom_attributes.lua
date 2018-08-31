@@ -7,6 +7,7 @@ local hero_values = {
 	mountain_protector = require('/heroes/legion_commander/constants'),
 }
 require('/heroes/obsidian_destroyer/epoch_constants')
+require('/heroes/antimage/arkimus_constants')
 
 
 CustomAttributes.FLAMEWAKER_R3_STRENGTH = 260
@@ -157,10 +158,10 @@ function CustomAttributes:SetAttributes(hero)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_arcana_missles_d_d_agility", CustomAttributes.ZHONIK_ARCANA_R4_AGI)	
 	end
 	if hero:HasModifier("modifier_arkimus_arcana1_q4") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_arkimus_arcana1_q4", CustomAttributes.ARKIMUS_Q4_ARCANA1_AGI)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_arkimus_arcana1_q4", ARKIMUS_Q4_ARCANA1_AGI)
 	end
 	if hero:HasModifier("modifier_machinal_jump_d_c_effect") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_machinal_jump_d_c_effect", CustomAttributes.ARKIMUS_E4_AGI)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_machinal_jump_d_c_effect", ARKIMUS_E4_AGI)
 	end
 	if heroName == "npc_dota_hero_monkey_king" then
 		if hero:HasModifier("modifier_shapeshift_cat") then
