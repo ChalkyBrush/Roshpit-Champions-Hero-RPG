@@ -44312,6 +44312,15 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/glyph_abilities.lua"
+						"Function"		"paladin_2_1_destroy"
+						"target"		"TARGET"
+					}
+				}
 			}
 		}
 		"AbilitySpecial"
