@@ -89,21 +89,11 @@ function moon_shroud_damage(event)
 end
 
 function rune_q_1(caster, ability)
-  local runeUnit = caster.runeUnit
-  local runeAbility = runeUnit:FindAbilityByName("astral_rune_q_1")
-  local abilityLevel = runeAbility:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_1")
-  local totalLevel = abilityLevel + bonusLevel
-  return totalLevel
+  return caster:GetRuneValue("q", 1)
 end
 
 function rune_q_3(caster, ability)
-  local runeUnit = caster.runeUnit3
-  local runeAbility = runeUnit:FindAbilityByName("astral_rune_q_3")
-  local abilityLevel = runeAbility:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_3")
-  local totalLevel = abilityLevel + bonusLevel
-  return totalLevel
+  return caster:GetRuneValue("q", 3)
 end
 
 function moon_shroud_think(event)
@@ -131,14 +121,8 @@ function c_a_projectile_remove(event)
 end
 
 function rune_q_2(caster, ability, origin, duration)
-  local runeUnit = caster.runeUnit2
-  local runeAbility = runeUnit:FindAbilityByName("astral_rune_q_2")
-  local abilityLevel = runeAbility:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_2")
-  local totalLevel = abilityLevel + bonusLevel
-  if totalLevel > 0 then
-  	create_andromeda(caster, ability, totalLevel, origin, duration)
-  end
+  local q_2_level = caster:GetRuneValue("q", 2)
+  	create_andromeda(caster, ability, q_2_level, origin, duration)
 end
 
 function create_andromeda(caster, ability, level, position, duration)
@@ -188,11 +172,7 @@ function moon_shroud_attack_land(event)
   local target = event.target
   local damage = caster:GetAverageTrueAttackDamage(caster)
   local q_2_level = 0
-  if caster:HasModifier("modifier_astral_arcana1") then
-    q_2_level = Runes:GetTotalRuneLevel(caster, 2, "b_a_arcana1", "astral")
-  else
-    q_2_level = Runes:GetTotalRuneLevel(caster, 2, "q_2", "astral")
-  end
+  q_2_level = caster:GetRuneValue("q", 2)
   if target.dummy then
     return false
   end
