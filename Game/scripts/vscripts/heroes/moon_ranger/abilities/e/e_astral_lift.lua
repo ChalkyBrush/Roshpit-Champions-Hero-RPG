@@ -7,9 +7,9 @@ local astralShroud = require('heroes/moon_ranger/abilities/e/e3_astral_shroud')
 
 function cast(event)
     local caster = event.caster
-    Helper.initializeAbilityRunes(event.caster, 'astral', 'b')
-    Helper.initializeAbilityRunes(event.caster, 'astral', 'c')
-    Helper.initializeAbilityRunes(event.caster, 'astral', 'd')
+    Helper.initializeAbilityRunes(event.caster, 'astral', 'w')
+    Helper.initializeAbilityRunes(event.caster, 'astral', 'e')
+    Helper.initializeAbilityRunes(event.caster, 'astral', 'r')
 
     local ability = event.ability
 

@@ -32,25 +32,25 @@ function modifier_apollo_strikes:OnIntervalThink()
 				target:SetModifierStackCount("modifier_apollo_strikes", caster, newStacks)
 			end
 			StartAnimation(caster, {duration=0.1, activity=ACT_DOTA_ATTACK, rate=4})
-			if ability.a_b_level > 0 then
+			if ability.w_1_level > 0 then
 				caster:AddNewModifier(caster, ability, "modifier_apollo_stats_visible", {duration = 8})
 				local newStacks = math.min(100, caster:GetModifierStackCount("modifier_apollo_stats_visible", caster) + 1)
 				caster:SetModifierStackCount("modifier_apollo_stats_visible", caster, newStacks)
 				caster:AddNewModifier(caster, ability, "modifier_apollo_stats_invisible", {duration = 8})
-				caster:SetModifierStackCount("modifier_apollo_stats_invisible", caster, newStacks*ability.a_b_level)
+				caster:SetModifierStackCount("modifier_apollo_stats_invisible", caster, newStacks*ability.w_1_level)
 			end
-			if ability.d_b_level > 0 then
-				if not ability.d_b_target then
-					ability.d_b_target = target
+			if ability.w_4_level > 0 then
+				if not ability.w_4_target then
+					ability.w_4_target = target
 				end
-				if ability.d_b_target == target then
+				if ability.w_4_target == target then
 					caster:AddNewModifier(caster, ability, "modifier_apollo_post_mit_visible", {duration = 8})
 					local newStacks = math.min(50, caster:GetModifierStackCount("modifier_apollo_post_mit_visible", caster) + 1)
 					caster:SetModifierStackCount("modifier_apollo_post_mit_visible", caster, newStacks)
 					caster:AddNewModifier(caster, ability, "modifier_apollo_post_mit_invisible", {duration = 8})
-					caster:SetModifierStackCount("modifier_apollo_post_mit_invisible", caster, newStacks*ability.d_b_level)
+					caster:SetModifierStackCount("modifier_apollo_post_mit_invisible", caster, newStacks*ability.w_4_level)
 				else
-					ability.d_b_target = target
+					ability.w_4_target = target
 					caster:RemoveModifierByName("modifier_apollo_post_mit_visible")
 					caster:RemoveModifierByName("modifier_apollo_post_mit_invisible")
 				end

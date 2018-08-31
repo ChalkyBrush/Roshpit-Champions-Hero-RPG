@@ -17,7 +17,7 @@ function start_channel(event)
 	ability.fv = caster:GetForwardVector()
 	StartSoundEvent("Slipfinn.Possess.Channel.LP", caster)
 	EmitSoundOn("Slipfinn.PossessStartChannel.VO", caster)
-	ability.b_d_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
+	ability.r_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
 	if caster:HasModifier("modifier_slipfinn_glyph_6_1") then
 		ability:ApplyDataDrivenModifier(caster, ability.target, "modifier_bubble_possess_6_1_glyph", {duration = 3.0})
 	end
@@ -144,8 +144,8 @@ function possession_moving_towards_think(event)
 			ParticleManager:DestroyParticle(pfx, false)
 			ParticleManager:ReleaseParticleIndex(pfx)
 		end)
-		if ability.b_d_level > 0 then
-			local stun_duration = SLIPFINN_R2_STUN_DURATION*ability.b_d_level
+		if ability.r_2_level > 0 then
+			local stun_duration = SLIPFINN_R2_STUN_DURATION*ability.r_2_level
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), ability.lockedTarget:GetAbsOrigin(), nil, 440, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do
@@ -229,8 +229,8 @@ function enemy_locked_end(event)
 	if ability.lockedTarget then
 		if IsValidEntity(ability.lockedTarget) then
 			if ability.lockedTarget:IsAlive() then
-				if ability.b_d_level > 0 then
-					local stun_duration = SLIPFINN_R2_STUN_DURATION*ability.b_d_level
+				if ability.r_2_level > 0 then
+					local stun_duration = SLIPFINN_R2_STUN_DURATION*ability.r_2_level
 					if caster:HasModifier("modifier_slipfinn_glyph_6_1") then
 						stun_duration = stun_duration*SLIPFINN_GLYPH_6_1_STUN_MULT
 					end

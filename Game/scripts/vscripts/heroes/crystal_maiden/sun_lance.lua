@@ -15,7 +15,6 @@ function begin_fireball(event)
         rotatedFV = WallPhysics:rotateVector(fv, -math.pi/10)
         launchFireBall(caster, ability, rotatedFV, "particles/roshpit/sorceress/sun_lance.vpcf", 110)
     end
-    local a_a_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
 	if caster:HasModifier("modifier_sorceress_immortal_ice_avatar") then
 	    if caster.origCaster:HasModifier("modifier_sorceress_glyph_2_1") then
 	        local rotatedFV = WallPhysics:rotateVector(fv, math.pi/10)
@@ -25,7 +24,8 @@ function begin_fireball(event)
 	    end
 	    caster = caster.origCaster
 	end
-	ability.damage = a_a_level*12000 + 5000 + caster:GetAverageTrueAttackDamage(caster)*1*a_a_level
+    local q_1_level = caster:GetRuneValue("q", 1)
+	ability.damage = q_1_level*12000 + 5000 + caster:GetAverageTrueAttackDamage(caster)*1*q_1_level
 	Filters:CastSkillArguments(1, caster)
 	ability.projectileFV = fv
 end
@@ -95,8 +95,8 @@ function fireball_hit(event)
 		local caster = caster
 		local target = target
 		local fireAbility = caster:FindAbilityByName("sorceress_fire_arcana_q")
-		local damage = fireAbility:GetLevelSpecialValueFor("damage", fireAbility:GetLevel()-1) + fireAbility.d_a_level * ARCANA2_Q4_INT_TO_DAMAGE * caster:GetIntellect()
-		sorceress_firestorm_impact(caster, target, fireAbility, damage, true, 0.2*caster.c_a_level)
+		local damage = fireAbility:GetLevelSpecialValueFor("damage", fireAbility:GetLevel()-1) + fireAbility.q_4_level * ARCANA2_Q4_INT_TO_DAMAGE * caster:GetIntellect()
+		sorceress_firestorm_impact(caster, target, fireAbility, damage, true, 0.2*caster.q_3_level)
 	end
 end
 

@@ -1,4 +1,4 @@
-function rune_a_a(event)
+function rune_q_1(event)
 	local damageTaken = event.damageTaken
 	local caster = event.unit
 
@@ -19,26 +19,26 @@ function rune_a_a(event)
 
 end
 
-function get_a_a_level(runeAbility, runeUnit)
+function get_q_1_level(runeAbility, runeUnit)
   local abilityLevel = runeAbility:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_a")
+  local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_1")
   local totalLevel = abilityLevel + bonusLevel
   return totalLevel	
 end
 
-function rune_b_a_damage(event)
+function rune_q_2_damage(event)
 	local target = event.target
 	local caster = event.caster
-	local totalLevel = get_b_a_level(caster.conjuror)
+	local totalLevel = get_q_2_level(caster.conjuror)
 	local damage = caster:GetHealth()*0.08*totalLevel
 	Filters:TakeArgumentsAndApplyDamage(target, caster.conjuror, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
 end
 
-function get_b_a_level(caster)
+function get_q_2_level(caster)
 	local runeUnit = caster.runeUnit2
-	local runeAbility = runeUnit:FindAbilityByName("conjuror_rune_b_a")
+	local runeAbility = runeUnit:FindAbilityByName("conjuror_rune_q_2")
 	local abilityLevel = runeAbility:GetLevel()
-	local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_a")
+	local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_2")
 	local totalLevel = abilityLevel + bonusLevel
 	return totalLevel
 end
@@ -46,11 +46,11 @@ end
 function earth_aspect_thunder_clap(event)
 	local target = event.target
 	if target.conjuror then
-		local b_a_level = get_b_a_level(target.conjuror)
-		if b_a_level > 0 then
-			local clap = target:FindAbilityByName("rune_b_a_clap")
+		local q_2_level = get_q_2_level(target.conjuror)
+		if q_2_level > 0 then
+			local clap = target:FindAbilityByName("rune_q_2_clap")
 			if not clap then
-				clap = target:AddAbility("rune_b_a_clap")
+				clap = target:AddAbility("rune_q_2_clap")
 			end
 			clap:SetLevel(1)
 			order =
@@ -64,13 +64,13 @@ function earth_aspect_thunder_clap(event)
 	end
 end
 
-function rune_b_a_clap_start(event)
+function rune_q_2_clap_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	StartAnimation(caster, {duration=1, activity=ACT_DOTA_SPAWN, rate=0.8})
 	EmitSoundOn("Conjuror.ThunderClap", caster)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_brewmaster/brewmaster_thunder_clap.vpcf", caster, 3)
-	local damage = caster:GetHealth()*0.05*event.rune_b_a_level
+	local damage = caster:GetHealth()*0.05*event.rune_q_2_level
 	local point = caster:GetAbsOrigin()
 	local radius = 380
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )	
@@ -90,22 +90,22 @@ function earth_aspect_take_damage(event)
 		local ability = event.ability
 		local target = event.target
 		local attacker = event.attacker
-		local rune_b_a_level = Runes:GetTotalRuneLevel(caster.conjuror, 2, "b_a", "conjuror")
-		if rune_b_a_level > 0 then
+		local rune_q_2_level = Runes:GetTotalRuneLevel(caster.conjuror, 2, "q_2", "conjuror")
+		if rune_q_2_level > 0 then
 			local eventTable = {}
 			eventTable.caster = caster
 			eventTable.ability = ability
-			eventTable.rune_b_a_level = rune_b_a_level
-			rune_b_a_clap_start(eventTable)
+			eventTable.rune_q_2_level = rune_q_2_level
+			rune_q_2_clap_start(eventTable)
 		end
 	end
 	local caster = event.caster
-	local c_a_level = Runes:GetTotalRuneLevel(caster.conjuror, 3, "c_a", "conjuror")
-	if c_a_level > 0 then
+	local q_3_level = Runes:GetTotalRuneLevel(caster.conjuror, 3, "q_3", "conjuror")
+	if q_3_level > 0 then
 		local c_a_duration = Filters:GetAdjustedBuffDuration(caster.conjuror, 1.5, false)
 		local ability = caster.conjuror:FindAbilityByName("summon_earth_aspect")
 		ability:ApplyDataDrivenModifier(caster.conjuror, caster.conjuror, "modifier_aspect_earth_well", {duration = c_a_duration})
-		caster.conjuror:SetModifierStackCount("modifier_aspect_earth_well", caster.conjuror, c_a_level)
+		caster.conjuror:SetModifierStackCount("modifier_aspect_earth_well", caster.conjuror, q_3_level)
 	end
 	
 end
@@ -128,10 +128,10 @@ end
 
 function immolation_global_think(event)
 	local caster = event.caster
-	local a_b_level = Runes:GetTotalRuneLevel(caster.conjuror, 1, "a_b", "conjuror")
+	local w_1_level = Runes:GetTotalRuneLevel(caster.conjuror, 1, "w_1", "conjuror")
 	local immolationAbility = event.ability
-	if a_b_level > 0 then
-		immolationAbility.totalLevel = a_b_level		
+	if w_1_level > 0 then
+		immolationAbility.totalLevel = w_1_level		
 		immolationAbility:ApplyDataDrivenModifier(caster, caster, "modifier_permanent_immolation", {})
 	end
 end

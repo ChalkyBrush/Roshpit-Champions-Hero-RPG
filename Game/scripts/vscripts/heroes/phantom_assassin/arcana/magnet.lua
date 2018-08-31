@@ -14,8 +14,8 @@ function blazing_magnet_cast(event)
 	local solidFV = fv
 
 	local range = event.cast_range
-	local c_a_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
-	local procs = Runes:Procs(c_a_level, 10, 1) + 1
+	local q_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
+	local procs = Runes:Procs(q_3_level, 10, 1) + 1
 	EmitSoundOn("Voltex.MagnetWindUp", caster)
 	local delay = 0
 	for i = 1, procs, 1 do
@@ -118,13 +118,13 @@ function magnet_thinker(event)
 				Timers:CreateTimer(0.05, function()
 					StartAnimation(caster, {duration=0.1, activity=ACT_DOTA_ATTACK, rate=2.1})
 					Filters:PerformAttackSpecial(caster, target, true, true, true, false, true, false, false)
-					if not caster:HasModifier("modifier_voltex_rune_c_d_avatar") then
+					if not caster:HasModifier("modifier_voltex_rune_r_3_avatar") then
 						EmitSoundOn("Voltex.MagnetAttack", target)
 					end
 				end)
 			end
-			local b_a_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
-			local procs = Runes:Procs(b_a_level, 0.5, 1)
+			local q_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
+			local procs = Runes:Procs(q_2_level, 0.5, 1)
 			if procs > 0 then
 				Filters:CleanseStuns(caster)
 				Filters:CleanseSilences(caster)
@@ -138,9 +138,9 @@ function magnet_thinker(event)
 		if not caster:HasModifier("modifier_magnet_travelling") then
 			caster:RemoveModifierByName("modifier_voltex_magnet")
 			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
-			local d_a_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
-			local d_a_duration = Filters:GetAdjustedBuffDuration(caster, d_a_level*0.1, false)
-			if d_a_level > 0 then
+			local q_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+			local d_a_duration = Filters:GetAdjustedBuffDuration(caster, q_4_level*0.1, false)
+			if q_4_level > 0 then
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_magnet_d_d", {duration = d_a_duration})
 			end
 		end
@@ -152,13 +152,13 @@ function magnet_attack_land(event)
 	local ability = event.ability
 	local target = event.target
 	local attacker = event.attacker
-	local a_a_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
+	local q_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
 	if not ability.particleCount then
 		ability.particleCount = 0
 	end
-	if a_a_level > 0 then
-		magnet_bolt(attacker, attacker, ability, target, a_a_level)
-		local procs = Runes:Procs(a_a_level, 10, 1)
+	if q_1_level > 0 then
+		magnet_bolt(attacker, attacker, ability, target, q_1_level)
+		local procs = Runes:Procs(q_1_level, 10, 1)
 		local enemyCount = 0 + procs
 		if enemyCount > 0 then
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
@@ -166,9 +166,9 @@ function magnet_attack_land(event)
 			if #enemies > 0 then	
 				for i = 1, enemyCount, 1 do
 					if i == 1 then
-						magnet_bolt(attacker, target, ability, enemies[1], a_a_level)
+						magnet_bolt(attacker, target, ability, enemies[1], q_1_level)
 					else
-						magnet_bolt(attacker, enemies[i-1], ability, enemies[i], a_a_level)
+						magnet_bolt(attacker, enemies[i-1], ability, enemies[i], q_1_level)
 					end
 				end				
 			end 
@@ -176,7 +176,7 @@ function magnet_attack_land(event)
 	end
 end
 
-function magnet_bolt(attacker, bolt_origin, ability, target, a_a_level)
+function magnet_bolt(attacker, bolt_origin, ability, target, q_1_level)
 	if IsValidEntity(target) and target:IsAlive() then
 		if ability.particleCount < 14 then
 		    local lightningBolt = ParticleManager:CreateParticle("particles/roshpit/voltex/overcharge_lightning_attack.vpcf", PATTACH_WORLDORIGIN, attacker)
@@ -191,7 +191,7 @@ function magnet_bolt(attacker, bolt_origin, ability, target, a_a_level)
 		    	ability.particleCount = ability.particleCount - 1
 		    end)
 		end
-	    local damage = a_a_level*attacker:GetAverageTrueAttackDamage(attacker)*0.05
+	    local damage = q_1_level*attacker:GetAverageTrueAttackDamage(attacker)*0.05
 	    Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 	end
 end

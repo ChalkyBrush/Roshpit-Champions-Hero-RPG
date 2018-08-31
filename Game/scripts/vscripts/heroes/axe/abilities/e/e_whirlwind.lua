@@ -8,7 +8,7 @@ function start(event)
     local hero =  event.caster
     local ability = event.ability
 
-    Helper.initializeAbilityRunes(hero, 'axe', 'c')
+    Helper.initializeAbilityRunes(hero, 'axe', 'e')
 
     hero.oldEposition = hero:GetAbsOrigin()
     ability.forwardVec = hero:GetForwardVector()

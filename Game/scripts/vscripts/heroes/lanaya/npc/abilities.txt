@@ -1192,7 +1192,7 @@
 					}
 					"RemoveModifier"
 					{
-						"ModifierName"	"modifier_trapper_rune_b_c_effect"
+						"ModifierName"	"modifier_trapper_rune_e_2_effect"
 						"Target" 		"TARGET"
 					}
 				}
@@ -1246,7 +1246,7 @@
 				"Passive"	"0"
 				"IsBuff"	"1"
 			}
-			"modifier_trapper_rune_d_c_think"
+			"modifier_trapper_rune_e_4_think"
 			{
 				"IsHidden"			"1"
 				"IsBuff"			"1"
@@ -1547,14 +1547,14 @@
                     }
                  }
 			}
-			"modifier_trapper_rune_b_d_visible"
+			"modifier_trapper_rune_r_2_visible"
         	{
         		"Passive"			"0"
         		"IsHidden"			"0"
         		"IsDebuff"			"0"
-        		"TextureName"		"trapper/trapper_rune_b_d"
+        		"TextureName"		"trapper/trapper_rune_r_2"
         	}
-        	"modifier_trapper_rune_b_d_invisible"
+        	"modifier_trapper_rune_r_2_invisible"
         	{
         		"Passive"			"0"
         		"IsHidden"			"1"
@@ -1565,7 +1565,7 @@
         			"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% R2_ATTACK_DAMAGE %>"
         		}
         	}
-			"modifier_trapper_rune_d_d_bonus_agi"
+			"modifier_trapper_rune_r_4_bonus_agi"
         	{
         		"Passive"			"0"
         		"IsHidden"			"0"
@@ -1764,7 +1764,7 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"0"
-				"TextureName"	"trapper/trapper_rune_c_d"
+				"TextureName"	"trapper/trapper_rune_r_3"
 				"OnAttackStart"
 			    {
 			        "RemoveModifier"

@@ -9,7 +9,7 @@ function start_channel(event)
 	EmitSoundOn("Chernobog.NightsProcessionChannelStart", caster)
 	ability.targetPoint = event.target_points[1]
 
-	local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "chernobog")
+	local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "chernobog")
 	if d_d_level > 0 then
 		print("D_D_INTO")
 		local particleName = "particles/roshpit/chernobog/d_d_intro.vpcf"
@@ -39,10 +39,10 @@ function begin_nights_procession(event)
 	local ability = event.ability
 	local radius = event.radius
 	local originalPosition = caster:GetAbsOrigin()
-	ability.a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d", "chernobog")
-	ability.b_d_level = Runes:GetTotalRuneLevel(caster, 2, "b_d", "chernobog")
-	ability.c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "chernobog")
-	local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "chernobog")
+	ability.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "chernobog")
+	ability.r_2_level = Runes:GetTotalRuneLevel(caster, 2, "r_2", "chernobog")
+	ability.r_3_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "chernobog")
+	local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "chernobog")
 	caster:RemoveModifierByName("modifier_chernobog_demon_flight")
 	if d_d_level > 0 then
 		local clawEvent = {}
@@ -58,7 +58,7 @@ function begin_nights_procession(event)
 		ParticleManager:DestroyParticle(ability.channelPFX, false)
 	end
 	ability.channelPFX = false
-	-- ability.d_d_level = d_d_level
+	-- ability.r_4_level = d_d_level
 	-- radius = radius + d_d_level*6
 	ability.trappedUnitTable = {}
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_antimage/antimage_manavoid.vpcf", caster, 4)
@@ -130,11 +130,11 @@ function freeze_start(event)
 	local target = event.target
 	local ability = event.ability
 	-- CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_faceless_void/faceless_void_backtrack.vpcf", event.target, 2)
-	if ability.a_d_level > 0 then
+	if ability.r_1_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_nights_procession_a_d_rune", {duration = 6})
-		target:SetModifierStackCount("modifier_nights_procession_a_d_rune",caster, ability.a_d_level)
+		target:SetModifierStackCount("modifier_nights_procession_a_d_rune",caster, ability.r_1_level)
 	end
-	if ability.b_d_level > 0 then
+	if ability.r_2_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_nights_procession_illusion", {duration = 8})
 	end
 	table.insert(ability.trappedUnitTable, target)
@@ -146,13 +146,13 @@ function freeze_end(event)
 	target:RemoveModifierByName("modifier_nights_procession_illusion")
 end
 
-function rune_b_d_illusion(event)
+function rune_r_2_illusion(event)
 	local timerRand = RandomInt(1,48)
 	Timers:CreateTimer(timerRand/100, function()
 		local caster = event.caster
 		local target = event.target
 		local ability = event.ability
-		local damage = caster:GetAverageTrueAttackDamage(caster)*ability.b_d_level*0.03
+		local damage = caster:GetAverageTrueAttackDamage(caster)*ability.r_2_level*0.03
 		CustomAbilities:QuickAttachParticle("particles/roshpit/chernobog/nights_procession_illusion.vpcf", target, 1.4)
 		Timers:CreateTimer(0.5, function()
 			EmitSoundOn("Chernobog.BC.Hit", target)
@@ -169,9 +169,9 @@ function locked_unit_attack(event)
 	if attacker:GetEntityIndex() == caster:GetEntityIndex() then
 		local caster = attacker
 		print("HELLO?")
-		if ability.c_d_level > 0 then
+		if ability.r_3_level > 0 then
 			-- for i = 1, #ability.trappedUnitTable, 1 do
-			-- 	local damage = event.attack_damage*0.03*ability.c_d_level
+			-- 	local damage = event.attack_damage*0.03*ability.r_3_level
 			-- 	ApplyDamage({ victim = ability.trappedUnitTable[i], attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE })
 			-- end
 			local particleNameS = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
@@ -185,7 +185,7 @@ function locked_unit_attack(event)
 			function()
 			ParticleManager:DestroyParticle( particle2, false )
 			end)
-			local damage = event.attack_damage*0.05*ability.c_d_level
+			local damage = event.attack_damage*0.05*ability.r_3_level
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do

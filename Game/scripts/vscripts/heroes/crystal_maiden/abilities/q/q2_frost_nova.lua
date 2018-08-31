@@ -41,7 +41,7 @@ local function cast(caster, ability, runesCount)
 end
 
 local function tryToCast(caster, ability, bInstant)
-    local runesCount = caster.b_a_level
+    local runesCount = caster.q_2_level
     if runesCount == nil or runesCount <= 0 then
         return
     end

@@ -7,7 +7,7 @@ function channel_start(event)
 		EmitSoundOn("Conjuror.ElementalDeity.Cast", caster)
 		StartAnimation(caster, {duration=2.5, activity=ACT_DOTA_FLAIL, rate=2.0})
 	end
-	caster.d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "conjuror")
+	caster.q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "conjuror")
 end
 
 function begin_call(event)
@@ -19,7 +19,7 @@ function begin_call(event)
 		local shadow = false
 		EmitSoundOn("invoker_invo_win_01", caster)
 		EmitSoundOn("invoker_invo_win_01", caster)
-		ability.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "conjuror")
+		ability.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "conjuror")
 		local growCount = 0
 	    if caster.earthAspect then
 	    	earth = true
@@ -33,7 +33,7 @@ function begin_call(event)
 	 		shadow = true
 	 		growCount = growCount + 1
 	    end
-	    local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d", "conjuror")
+	    local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "conjuror")
 	    if caster.earthAspect then
 	    	applyCalls(ability, caster.earthAspect, earth, fire, shadow, caster, 0.95, growCount)
 	    	if a_d_level > 0 then
@@ -44,8 +44,8 @@ function begin_call(event)
 	    end
 	    if caster.fireAspect then
 	    	applyCalls(ability, caster.fireAspect, earth, fire, shadow, caster, 0.82, growCount)
-	    	local b_d_level =  Runes:GetTotalRuneLevel(caster, 2, "b_d", "conjuror")
-	    	ability.b_d_level = b_d_level
+	    	local b_d_level =  Runes:GetTotalRuneLevel(caster, 2, "r_2", "conjuror")
+	    	ability.r_2_level = b_d_level
 	    	if b_d_level > 0 then
 	    		ability:ApplyDataDrivenModifier(caster, caster.fireAspect, "modifier_fire_aspect_b_d_effect", {})
 	    		caster.fireAspect:SetModifierStackCount("modifier_fire_aspect_b_d_effect", caster, b_d_level)
@@ -55,8 +55,8 @@ function begin_call(event)
 	    		caster.fireAspect:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
 	    	end
 	    end
-	    local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "conjuror")
-	    caster:FindAbilityByName("summon_shadow_aspect").c_d_level = c_d_level
+	    local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "conjuror")
+	    caster:FindAbilityByName("summon_shadow_aspect").r_3_level = c_d_level
 	    if caster.shadowAspect then
 	    	applyCalls(ability, caster.shadowAspect, earth, fire, shadow, caster, 1.1, growCount)
 	    	if c_d_level > 0 then
@@ -78,7 +78,7 @@ end
 
 
 function applyCalls(ability, unit, earth, fire, shadow, caster, origScale, growCount)
-	local durationIncrease = ability.d_d_level*0.6
+	local durationIncrease = ability.r_4_level*0.6
 	local buffDuration = 20+durationIncrease
 	buffDuration = Filters:GetAdjustedBuffDuration(caster, buffDuration, false)
 	ability:ApplyDataDrivenModifier(caster, unit, "modifier_call_of_elements", {duration = buffDuration})
@@ -152,19 +152,19 @@ function deity_call(event)
     end
 
     if caster.earthAspect then
-    	applyCallsArcana(ability, caster.earthAspect, earth, fire, shadow, caster, 0.95, growCount, event.caster.c_d_level, event.caster.d_d_level)
+    	applyCallsArcana(ability, caster.earthAspect, earth, fire, shadow, caster, 0.95, growCount, event.caster.r_3_level, event.caster.r_4_level)
     end
     if caster.fireAspect then
-    	applyCallsArcana(ability, caster.fireAspect, earth, fire, shadow, caster, 0.82, growCount, event.caster.c_d_level, event.caster.d_d_level)
+    	applyCallsArcana(ability, caster.fireAspect, earth, fire, shadow, caster, 0.82, growCount, event.caster.r_3_level, event.caster.r_4_level)
     end
     if caster.shadowAspect then
-    	applyCallsArcana(ability, caster.shadowAspect, earth, fire, shadow, caster, 1.1, growCount, event.caster.c_d_level, event.caster.d_d_level)
+    	applyCallsArcana(ability, caster.shadowAspect, earth, fire, shadow, caster, 1.1, growCount, event.caster.r_3_level, event.caster.r_4_level)
     end
     
 
-    applyCallsArcana(ability, caster, earth, fire, shadow, caster, 0.8, growCount, event.caster.c_d_level, event.caster.d_d_level)
+    applyCallsArcana(ability, caster, earth, fire, shadow, caster, 0.8, growCount, event.caster.r_3_level, event.caster.r_4_level)
 
-    applyCallsArcana(ability, event.caster, earth, fire, shadow, caster, 0.88, growCount, event.caster.c_d_level, event.caster.d_d_level)
+    applyCallsArcana(ability, event.caster, earth, fire, shadow, caster, 0.88, growCount, event.caster.r_3_level, event.caster.r_4_level)
 
     StartAnimation(caster, {duration=0.75, activity=ACT_DOTA_FLAIL, rate=2.0})
     ability.growCount = growCount

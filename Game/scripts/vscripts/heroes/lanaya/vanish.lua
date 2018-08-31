@@ -9,13 +9,13 @@ function vanish_cast(event)
 	EmitSoundOn("Trapper.Vanish", caster)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_trapper_vanish", {duration = duration})
 	ProjectileManager:ProjectileDodge(caster)
-	local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "a_c", "trapper")
+	local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "trapper")
 	if a_c_level > 0 then
-		local runeAbility = caster.runeUnit:FindAbilityByName("trapper_rune_a_c")
-		runeAbility:ApplyDataDrivenModifier(caster.runeUnit, caster, "modifier_trapper_rune_a_c_effect", {duration = duration})
-		caster:SetModifierStackCount( "modifier_trapper_rune_a_c_effect", runeAbility, a_c_level)
+		local runeAbility = caster.runeUnit:FindAbilityByName("trapper_rune_e_1")
+		runeAbility:ApplyDataDrivenModifier(caster.runeUnit, caster, "modifier_trapper_rune_e_1_effect", {duration = duration})
+		caster:SetModifierStackCount( "modifier_trapper_rune_e_1_effect", runeAbility, a_c_level)
 	end
-    local b_c_level = Runes:GetTotalRuneLevel(caster, 2, "b_c", "trapper")
+    local b_c_level = Runes:GetTotalRuneLevel(caster, 2, "e_2", "trapper")
 	if b_c_level > 0 then
         decoy(caster, b_c_level)
 	end
@@ -148,7 +148,7 @@ function decoy(caster, runesCount)
     decoy:Heal(minionHealth, decoy)
     decoy:SetPhysicalArmorBaseValue(0)
 
-    local runeAbility = caster.runeUnit2:FindAbilityByName("trapper_rune_b_d")
+    local runeAbility = caster.runeUnit2:FindAbilityByName("trapper_rune_r_2")
     local decoyDuration = Filters:GetAdjustedBuffDuration(caster, 15, false)
     runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, decoy, "modifier_decoy_effect", {duration = E2_DECOY_DURATION - 0.5})
 
@@ -183,7 +183,7 @@ function invisible_think(event)
         return
     end
 
-    local runesCount = Runes:GetTotalRuneLevel(caster, 4, "d_c", "trapper")
+    local runesCount = Runes:GetTotalRuneLevel(caster, 4, "e_4", "trapper")
     if runesCount <= 0 then
         return
     end

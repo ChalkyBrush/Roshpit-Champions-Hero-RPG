@@ -13,8 +13,8 @@ function waterheart_phase_start(event)
 		end
 		caster.waterheartStarted = false
 	end)
-	caster.d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "spirit_warrior")
-	caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "spirit_warrior")
+	caster.q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "spirit_warrior")
+	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "spirit_warrior")
 end
 
 function waterheart_start(event)
@@ -41,7 +41,7 @@ function waterheart_attack_land(event)
 	local target = event.target
 	local mult = event.mult
 	CustomAbilities:QuickAttachParticle("particles/econ/items/monkey_king/arcana/water/mk_spring_water_splash_c.vpcf", target, 1)
-	local damage = attacker:GetHealth()*ability.c_d_level*0.6*mult
+	local damage = attacker:GetHealth()*ability.r_3_level*0.6*mult
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 	EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "SpiritWarrior.Waterheart.Impact", attacker)
 end

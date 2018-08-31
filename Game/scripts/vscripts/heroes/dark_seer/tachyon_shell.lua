@@ -3,9 +3,9 @@ function tachyon_shield_cast(event)
 	local target = event.target
 	local ability = event.ability
 
-	ability.a_a_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
-	ability.c_a_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
-	ability.d_a_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+	ability.q_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
+	ability.q_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
+	ability.q_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
 
 	local modifierDuration = Filters:GetAdjustedBuffDuration(caster, event.duration, false)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_tachyon_shell", {duration = modifierDuration})
@@ -54,9 +54,9 @@ function tachyon_shield_think(event)
 	local ability = event.ability
 
 	local damage = event.damage
-	if ability.a_a_level > 0 then
+	if ability.q_1_level > 0 then
 		if caster:GetEntityIndex() == target:GetEntityIndex() then
-			damage = damage + damage*0.15*ability.a_a_level
+			damage = damage + damage*0.15*ability.q_1_level
 		end
 	end
 	local radius = 220
@@ -72,9 +72,9 @@ function tachyon_shield_think(event)
 				if caster:HasModifier("modifier_zonik_glyph_2_1") then
 					local glyphDamage = damage*3
 					Filters:TakeArgumentsAndApplyDamage(enemy, caster, glyphDamage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
-					if ability.c_a_level > 0 then
+					if ability.q_3_level > 0 then
 						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_tachyon_amp", {duration = 0.4})
-						enemy:SetModifierStackCount("modifier_tachyon_amp", caster, ability.c_a_level)
+						enemy:SetModifierStackCount("modifier_tachyon_amp", caster, ability.q_3_level)
 					end
 
 					ability:ApplyDataDrivenModifier(caster, target, "modifier_tachyon_slow", {duration = 0.25})
@@ -89,9 +89,9 @@ function tachyon_shield_think(event)
 					ParticleManager:ReleaseParticleIndex(pfx)
 				end)
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_tachyon_slow", {duration = 0.25})
-				if ability.c_a_level > 0 then
+				if ability.q_3_level > 0 then
 					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_tachyon_amp", {duration = 0.4})
-					enemy:SetModifierStackCount("modifier_tachyon_amp", caster, ability.c_a_level)
+					enemy:SetModifierStackCount("modifier_tachyon_amp", caster, ability.q_3_level)
 				end
 			end
 		end
@@ -103,10 +103,10 @@ function die_under_tachyon(event)
 	local target = event.unit
 	local ability = event.ability
 
-	local b_a_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
-	if b_a_level > 0 then
-		local radius = 200 + b_a_level*5
-		local duration = 6 + b_a_level*0.1
+	local q_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
+	if q_2_level > 0 then
+		local radius = 200 + q_2_level*5
+		local duration = 6 + q_2_level*0.1
 		local units = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY+DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #units > 0 then
 			local modifierDuration = Filters:GetAdjustedBuffDuration(caster, duration, false)

@@ -113,7 +113,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"bahamut/bahamut_rune_b_b_arcana2"
+				"TextureName"	"bahamut/bahamut_rune_w_2_arcana2"
 				"EffectName"	"particles/roshpit/bahamut/bahamut_arcana_postmit_heal.vpcf"
 				"EffectAttachType"	"attach_origin"
 			}
@@ -130,7 +130,7 @@
 					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_FROZEN"			"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"TextureName"	"bahamut/bahamut_rune_c_b_arcana2"
+				"TextureName"	"bahamut/bahamut_rune_w_3_arcana2"
 				"OnCreated"
 				{
 					"FireEffect"
@@ -149,14 +149,14 @@
 
 	}
 
-	"bahamut_rune_a_b_arcana2"
+	"bahamut_rune_w_1_arcana2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"bahamut/bahamut_rune_a_b_arcana2"
+		"AbilityTextureName"	"bahamut/bahamut_rune_w_1_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -172,14 +172,14 @@
 
 	}
 
-	"bahamut_rune_b_b_arcana2"
+	"bahamut_rune_w_2_arcana2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"bahamut/bahamut_rune_b_b_arcana2"
+		"AbilityTextureName"	"bahamut/bahamut_rune_w_2_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -195,14 +195,14 @@
 
 	}
 
-	"bahamut_rune_c_b_arcana2"
+	"bahamut_rune_w_3_arcana2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"bahamut/bahamut_rune_c_b_arcana2"
+		"AbilityTextureName"	"bahamut/bahamut_rune_w_3_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 

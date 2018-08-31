@@ -1,15 +1,15 @@
 function rune_think(event)
 	local caster = event.caster
-	rune_a_b(caster)
-	rune_b_a(caster)
+	rune_w_1(caster)
+	rune_q_2(caster)
 end
 
-function rune_a_b(caster)
+function rune_w_1(caster)
   if caster:HasAbility("leshrac_nuke") then
 	  local runeUnit = caster.runeUnit
-	  local runeAbility = runeUnit:FindAbilityByName("bahamut_rune_a_b")
+	  local runeAbility = runeUnit:FindAbilityByName("bahamut_rune_w_1")
 	  local abilityLevel = runeAbility:GetLevel()
-	  local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_b")
+	  local bonusLevel = Runes:GetTotalBonus(runeUnit, "w_1")
 	  local totalLevel = abilityLevel + bonusLevel
 	  if totalLevel > 0 then
 	  	runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_bahamut_a_b_buff", {})
@@ -20,11 +20,11 @@ function rune_a_b(caster)
 	 end
 end
 
-function rune_b_a(caster)
+function rune_q_2(caster)
   local runeUnit = caster.runeUnit2
-  local runeAbility = runeUnit:FindAbilityByName("bahamut_rune_b_a")
+  local runeAbility = runeUnit:FindAbilityByName("bahamut_rune_q_2")
   local abilityLevel = runeAbility:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_a")
+  local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_2")
   local totalLevel = abilityLevel + bonusLevel
   if totalLevel > 0 then
   	runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_bahamut_b_a_buff", {})
@@ -38,12 +38,12 @@ function WallAllyBuff(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	local a_a_level = ability.a_a_level
-	local a_d_level = ability.a_d_level
-	local b_d_level = ability.b_d_level
+	local q_1_level = ability.q_1_level
+	local a_d_level = ability.r_1_level
+	local b_d_level = ability.r_2_level
 	if caster:GetEntityIndex() == target:GetEntityIndex() then
-		if a_a_level then
-			if a_a_level > 0 then
+		if q_1_level then
+			if q_1_level > 0 then
 				local acceptable_particle_thinkers = {}
 				for i = 1, #ability.wallThinkerTable, 1 do
 					local wallThinker = ability.wallThinkerTable[i]
@@ -64,13 +64,13 @@ function WallAllyBuff(event)
 				local attachPoint = wallCenter+wallNinety*RandomInt(-maxBound, maxBound)
 				EmitSoundOnLocationWithCaster(attachPoint, "Hero_VengefulSpirit.ProjectileImpact", caster)
 				CreateLightningBeam(attachPoint+Vector(0,0,100), caster:GetAbsOrigin()+Vector(0,0,80))
-				caster:GiveMana(a_a_level*3)
-				PopupMana(caster, a_a_level*3)
+				caster:GiveMana(q_1_level*3)
+				PopupMana(caster, q_1_level*3)
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_wall_max_mana", {duration = 20})
 				local stacks = math.min(caster:GetModifierStackCount("modifier_bahamut_wall_max_mana", caster) + 1, 600)
 				caster:SetModifierStackCount("modifier_bahamut_wall_max_mana", caster, stacks)
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_wall_max_mana_invisible", {duration = 20})
-				caster:SetModifierStackCount("modifier_bahamut_wall_max_mana_invisible", caster, stacks*a_a_level)
+				caster:SetModifierStackCount("modifier_bahamut_wall_max_mana_invisible", caster, stacks*q_1_level)
 			end
 		end
 		if a_d_level then
@@ -161,8 +161,8 @@ function leshrac_attack_start(event)
 	local caster = event.attacker
 	local ability = event.ability
 	local radius = 700
-	if ability.b_b_level and not target:IsNull() then
-		if ability.b_b_level > 0 and target:HasModifier("modifier_leshrac_nuke_judged") then
+	if ability.w_2_level and not target:IsNull() then
+		if ability.w_2_level > 0 and target:HasModifier("modifier_leshrac_nuke_judged") then
 			local targetPoint = target:GetAbsOrigin()
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), targetPoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 			if #enemies > 0 then
@@ -199,7 +199,7 @@ function leshrac_attack_land(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local damage = ability.b_b_level*caster:GetAverageTrueAttackDamage(caster)*0.05
+	local damage = ability.w_2_level*caster:GetAverageTrueAttackDamage(caster)*0.05
 	if caster:HasModifier("modifier_bahamut_immortal_weapon_1") then
 		local luck = RandomInt(1,5)
 		if luck == 1 then
@@ -221,10 +221,10 @@ function rune_unit_4_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local hero = caster.hero
-	local totalLevel = Runes:GetTotalRuneLevel(hero, 4, "d_a", "bahamut")
+	local totalLevel = Runes:GetTotalRuneLevel(hero, 4, "q_4", "bahamut")
 	if totalLevel > 0 then
-		ability:ApplyDataDrivenModifier(caster, hero, "modifier_bahamut_rune_d_a", {})
-		hero:SetModifierStackCount( "modifier_bahamut_rune_d_a", ability, totalLevel )
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_bahamut_rune_q_4", {})
+		hero:SetModifierStackCount( "modifier_bahamut_rune_q_4", ability, totalLevel )
 	end
 end
 
@@ -232,15 +232,15 @@ function d_d_shell_think(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	local d_d_level = ability.d_d_level
+	local d_d_level = ability.r_4_level
 	local d_d_duration = Filters:GetAdjustedBuffDuration(caster, 9, false)
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_bahamut_rune_d_d_buff_visible", {duration = d_d_duration})
-	local current_stack = target:GetModifierStackCount( "modifier_bahamut_rune_d_d_buff_visible", ability )
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_bahamut_rune_r_4_buff_visible", {duration = d_d_duration})
+	local current_stack = target:GetModifierStackCount( "modifier_bahamut_rune_r_4_buff_visible", ability )
 	local newStack = current_stack + 1
-	target:SetModifierStackCount( "modifier_bahamut_rune_d_d_buff_visible", ability, newStack )   
+	target:SetModifierStackCount( "modifier_bahamut_rune_r_4_buff_visible", ability, newStack )   
 
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_bahamut_rune_d_d_buff_invisible", {duration = d_d_duration})
-	target:SetModifierStackCount( "modifier_bahamut_rune_d_d_buff_invisible", ability, newStack*d_d_level )   	
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_bahamut_rune_r_4_buff_invisible", {duration = d_d_duration})
+	target:SetModifierStackCount( "modifier_bahamut_rune_r_4_buff_invisible", ability, newStack*d_d_level )   	
 	if target:HasModifier("modifier_charge_of_light_hyper_state") then
 		local wallAbility = target:FindAbilityByName("leshrac_wall")
 		local hyperStateDuration = Filters:GetAdjustedBuffDuration(caster, 12, false)
@@ -252,7 +252,7 @@ function d_d_shell_think(event)
 		local modifier = modifiers[i]
 		local modifierMaker = modifier:GetCaster()
 		
-		if modifier:GetName() == "modifier_bahamut_rune_d_d_shell" or modifier:GetName() == "modifier_charge_of_light_sliding" then
+		if modifier:GetName() == "modifier_bahamut_rune_r_4_shell" or modifier:GetName() == "modifier_charge_of_light_sliding" then
 		else
 			if modifierMaker:GetEntityIndex() == caster:GetEntityIndex() or modifierMaker:GetEntityIndex() == caster.InventoryUnit:GetEntityIndex() then
 

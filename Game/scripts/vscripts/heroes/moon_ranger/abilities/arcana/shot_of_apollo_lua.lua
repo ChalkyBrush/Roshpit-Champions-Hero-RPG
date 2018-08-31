@@ -55,9 +55,9 @@ function shot_of_apollo:OnSpellStart()
 	end
 	ability.pfx = pfx
 	StartSoundEvent("Astral.ApolloStart", caster)
-	ability.a_b_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
-	ability.c_b_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
-	ability.d_b_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
+	ability.w_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
+	ability.w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+	ability.w_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
 end
 
 function shot_of_apollo:GetBehavior()
@@ -90,8 +90,8 @@ function shot_of_apollo:OnChannelFinish(bInterrupted)
 		if caster:HasModifier("modifier_astral_glyph_3_1") then
 			shots = 9
 		end
-		local b_b_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
-		shots = shots + Runes:Procs(b_b_level, 2*ability:GetLevel(), 1)
+		local w_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
+		shots = shots + Runes:Procs(w_2_level, 2*ability:GetLevel(), 1)
 		ability.shots = shots
 		if ability.pfx then
 			ParticleManager:DestroyParticle(ability.pfx, false)

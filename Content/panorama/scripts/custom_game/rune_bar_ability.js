@@ -39,6 +39,7 @@ function AutoUpdateRunes()
 
 function GetRuneBonus(mainHero, rune_slot)
 {
+    $.Msg("RuneSlot: " + rune_slot)
 	var total_bonus = 0;
 	var values = CustomNetTables.GetTableValue( "skill_tree", mainHero.toString()+"_"+rune_slot+"_amulet" );
 	if (values === undefined){
@@ -94,38 +95,38 @@ function getSelectedHeroIndex()
 }
 
 function GetRuneSlot(abilityName){
-	if (abilityName.indexOf("rune_a_a") > -1){
-		return "rune_a_a"
-	}else if (abilityName.indexOf("rune_a_b") > -1){
-		return "rune_a_b"
-	}else if (abilityName.indexOf("rune_a_c") > -1){
-		return "rune_a_c"
-	}else if (abilityName.indexOf("rune_a_d") > -1){
-		return "rune_a_d"
-	}else if (abilityName.indexOf("rune_b_a") > -1){
-		return "rune_b_a"
-	}else if (abilityName.indexOf("rune_b_b") > -1){
-		return "rune_b_b"
-	}else if (abilityName.indexOf("rune_b_c") > -1){
-		return "rune_b_c"
-	}else if (abilityName.indexOf("rune_b_d") > -1){
-		return "rune_b_d"
-	}else if (abilityName.indexOf("rune_c_a") > -1){
-		return "rune_c_a"
-	}else if (abilityName.indexOf("rune_c_b") > -1){
-		return "rune_c_b"
-	}else if (abilityName.indexOf("rune_c_c") > -1){
-		return "rune_c_c"
-	}else if (abilityName.indexOf("rune_c_d") > -1){
-		return "rune_c_d"
-	}else if (abilityName.indexOf("rune_d_a") > -1){
-		return "rune_d_a"
-	}else if (abilityName.indexOf("rune_d_b") > -1){
-		return "rune_d_b"
-	}else if (abilityName.indexOf("rune_d_c") > -1){
-		return "rune_d_c"
-	}else if (abilityName.indexOf("rune_d_d") > -1){
-		return "rune_d_d"
+	if (abilityName.indexOf("rune_q_1") > -1){
+		return "rune_q_1"
+	}else if (abilityName.indexOf("rune_w_1") > -1){
+		return "rune_w_1"
+	}else if (abilityName.indexOf("rune_e_1") > -1){
+		return "rune_e_1"
+	}else if (abilityName.indexOf("rune_r_1") > -1){
+		return "rune_r_1"
+	}else if (abilityName.indexOf("rune_q_2") > -1){
+		return "rune_q_2"
+	}else if (abilityName.indexOf("rune_w_2") > -1){
+		return "rune_w_2"
+	}else if (abilityName.indexOf("rune_e_2") > -1){
+		return "rune_e_2"
+	}else if (abilityName.indexOf("rune_r_2") > -1){
+		return "rune_r_2"
+	}else if (abilityName.indexOf("rune_q_3") > -1){
+		return "rune_q_3"
+	}else if (abilityName.indexOf("rune_w_3") > -1){
+		return "rune_w_3"
+	}else if (abilityName.indexOf("rune_e_3") > -1){
+		return "rune_e_3"
+	}else if (abilityName.indexOf("rune_r_3") > -1){
+		return "rune_r_3"
+	}else if (abilityName.indexOf("rune_q_4") > -1){
+		return "rune_q_4"
+	}else if (abilityName.indexOf("rune_w_4") > -1){
+		return "rune_w_4"
+	}else if (abilityName.indexOf("rune_e_4") > -1){
+		return "rune_e_4"
+	}else if (abilityName.indexOf("rune_r_4") > -1){
+		return "rune_r_4"
 	}else{
 		return ""
 	}
@@ -134,8 +135,8 @@ function GetRuneSlot(abilityName){
 function UpdateRune()
 {
 	var abilityButton = $( "#AbilityButton" );
-	var abilityName = Abilities.GetAbilityName( r_Ability );
-
+    var abilityName = Abilities.GetAbilityName(r_Ability);
+    $.Msg("AbilityName: " + abilityName)
 	var noLevel =( 0 == Abilities.GetLevel( r_Ability ) );
 	var isCastable = !Abilities.IsPassive( r_Ability ) && !noLevel;
 	var manaCost = Abilities.GetManaCost( r_Ability );
@@ -143,7 +144,8 @@ function UpdateRune()
 	var unitMana = Entities.GetMana( r_QueryUnit );
 	var runeIndex = $.GetContextPanel().GetAttributeInt( "index", -1 );
 	var runeTier = $.GetContextPanel().GetAttributeInt( "tier", -1 );
-	var mainHero = r_mainHero
+    var mainHero = r_mainHero
+    $.Msg("MainHero: " + mainHero)
 	var baseAbilityIndex = runeIndex
 	if (baseAbilityIndex == 3){
 		baseAbilityIndex = 5
@@ -170,8 +172,10 @@ function UpdateRune()
 	
 	//$( "#HotkeyText" ).text = runeTier;
 	// $.Msg("RUNEBONUS HERO: "+mainHero)
-	var RuneBonus = GetRuneBonus(mainHero, GetRuneSlot(abilityName))
-	var AbilityLevel = Abilities.GetLevel( r_Ability )
+    var RuneBonus = GetRuneBonus(mainHero, GetRuneSlot(abilityName))
+    $.Msg("RuneBonus: " + RuneBonus)
+    var AbilityLevel = Abilities.GetLevel(r_Ability)
+    $.Msg("AbilityLevel: " + AbilityLevel)
 	// $.Msg("RUNEBONUS: "+RuneBonus)
 	if (RuneBonus == 0){
 		$( "#LevelText" ).text = AbilityLevel;

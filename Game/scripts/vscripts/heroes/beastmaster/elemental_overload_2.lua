@@ -23,7 +23,7 @@ function overload_start(event)
 	EmitSoundOn(soundString, caster)
 	StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_CAST_ABILITY_5, rate=1.0})
 	local healPerEarthCharge = event.heal_per_earth_charge
-	caster:RemoveModifierByName("modifier_warlord_rune_a_c_effect")
+	caster:RemoveModifierByName("modifier_warlord_rune_e_1_effect")
 	if earthCharges > 0 then
 		local newStacks = math.floor(earthCharges/2)
 		local healAmount = healPerEarthCharge*earthCharges
@@ -51,13 +51,13 @@ function overload_start(event)
 			earthSound = "Warlord.Ulti.Earth2"
 		end
 		EmitSoundOn(earthSound, caster)
-		local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "a_d", "warlord")
+		local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "warlord")
 		if a_d_level > 0 then
-			local a_d_ability = caster.runeUnit:FindAbilityByName("warlord_rune_a_d")
+			local a_d_ability = caster.runeUnit:FindAbilityByName("warlord_rune_r_1")
 			local a_d_duration = Filters:GetAdjustedBuffDuration(caster, 8, false)
-			a_d_ability:ApplyDataDrivenModifier(caster.runeUnit, caster, "modifier_warlord_rune_a_d", {duration = a_d_duration})
+			a_d_ability:ApplyDataDrivenModifier(caster.runeUnit, caster, "modifier_warlord_rune_r_1", {duration = a_d_duration})
 			a_d_ability.heal = healAmount*0.015*a_d_level
-			a_d_ability.a_d_level = a_d_level 
+			a_d_ability.r_1_level = a_d_level 
 			a_d_ability.earthCharges = earthCharges
 		end
 	end
@@ -81,7 +81,7 @@ function overload_start(event)
       	Timers:CreateTimer(3, function()
       		ParticleManager:DestroyParticle(particle1, false)
       	end)
-      	local b_d_level = Runes:GetTotalRuneLevel(caster, 2, "b_d", "warlord")
+      	local b_d_level = Runes:GetTotalRuneLevel(caster, 2, "r_2", "warlord")
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), origin, nil, iceRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then	
 			for _,enemy in pairs(enemies) do
@@ -118,15 +118,15 @@ function overload_start(event)
 			caster:RemoveModifierByName("modifier_warlord_fire_charge")
 		end
 		if caster:HasAbility("elemental_overload_2") then
-			local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "warlord")
+			local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "warlord")
 			if c_d_level > 0 then
 					if newStacks > 0 then
 					local c_d_stacks = math.ceil(newStacks*1.0*c_d_level)
-					local runeAbility = caster.runeUnit3:FindAbilityByName("warlord_rune_c_d")
-					runeAbility:ApplyDataDrivenModifier(caster.runeUnit3, caster, "modifier_warlord_rune_c_d_effect", {})
-					caster:SetModifierStackCount("modifier_warlord_rune_c_d_effect", caster.runeUnit3, c_d_stacks)
+					local runeAbility = caster.runeUnit3:FindAbilityByName("warlord_rune_r_3")
+					runeAbility:ApplyDataDrivenModifier(caster.runeUnit3, caster, "modifier_warlord_rune_r_3_effect", {})
+					caster:SetModifierStackCount("modifier_warlord_rune_r_3_effect", caster.runeUnit3, c_d_stacks)
 				else
-					caster:RemoveModifierByName("modifier_warlord_rune_c_d_effect")
+					caster:RemoveModifierByName("modifier_warlord_rune_r_3_effect")
 				end
 			end
 		elseif caster:HasAbility("enhchant_tomahawk") then
@@ -134,21 +134,21 @@ function overload_start(event)
 			if d_d_level > 0 then
 				local d_d_stacks = math.ceil(newStacks*1.0*d_d_level)
 				local tomahawk = caster:FindAbilityByName("enhchant_tomahawk")
-				tomahawk:ApplyDataDrivenModifier(caster, caster, "modifier_warlord_rune_d_d_effect", {})
-				caster:SetModifierStackCount("modifier_warlord_rune_d_d_effect", caster, d_d_stacks)
+				tomahawk:ApplyDataDrivenModifier(caster, caster, "modifier_warlord_rune_r_4_effect", {})
+				caster:SetModifierStackCount("modifier_warlord_rune_r_4_effect", caster, d_d_stacks)
 			end
 		end
-		-- caster:RemoveModifierByName("modifier_warlord_rune_c_d_effect")
+		-- caster:RemoveModifierByName("modifier_warlord_rune_r_3_effect")
 	end
 	if totalCharges > 0 then
-		local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "warlord")
+		local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "warlord")
 		if d_d_level > 0 then
-			local d_d_ability = caster.runeUnit4:FindAbilityByName("warlord_rune_d_d")
+			local d_d_ability = caster.runeUnit4:FindAbilityByName("warlord_rune_r_4")
 			local d_d_duration = Filters:GetAdjustedBuffDuration(caster, 16, false)
-			d_d_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_warlord_rune_d_d_invisible", {duration = d_d_duration})
-			d_d_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_warlord_rune_d_d_visible", {duration = d_d_duration})
-			caster:SetModifierStackCount("modifier_warlord_rune_d_d_visible", caster.runeUnit4, totalCharges)
-			caster:SetModifierStackCount("modifier_warlord_rune_d_d_invisible", caster.runeUnit4, d_d_level*totalCharges)
+			d_d_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_warlord_rune_r_4_invisible", {duration = d_d_duration})
+			d_d_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_warlord_rune_r_4_visible", {duration = d_d_duration})
+			caster:SetModifierStackCount("modifier_warlord_rune_r_4_visible", caster.runeUnit4, totalCharges)
+			caster:SetModifierStackCount("modifier_warlord_rune_r_4_invisible", caster.runeUnit4, d_d_level*totalCharges)
 		end
 	end
 	

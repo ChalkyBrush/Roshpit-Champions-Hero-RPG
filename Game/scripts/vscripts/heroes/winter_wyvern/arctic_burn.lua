@@ -45,8 +45,8 @@ function arctic_burn_finish_channel(event)
 	Timers:CreateTimer(0.05, function()
 		fire_arctic_burn_bomb(caster, ability, bomb)
 	end)
-	ability.a_a_level = caster:GetRuneValue("q", 1)
-	ability.d_a_level = caster:GetRuneValue("q", 4)
+	ability.q_1_level = caster:GetRuneValue("q", 1)
+	ability.q_4_level = caster:GetRuneValue("q", 4)
 	if caster:HasModifier("modifier_arctic_burn_freecast") then
 		ability:EndCooldown()
 		local stacks = caster:GetModifierStackCount("modifier_arctic_burn_freecast", caster) - 1
@@ -202,13 +202,13 @@ function arctic_burn_thinker(event)
 		for i = 1, #enemies, 1 do
 			local enemy = enemies[i]
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_DRAGON, RPC_ELEMENT_FIRE)
-			if ability.a_a_level > 0 then
+			if ability.q_1_level > 0 then
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_arctic_burn_slow", {duration = 0.5})
-				enemy:SetModifierStackCount("modifier_arctic_burn_slow", caster, ability.a_a_level)
+				enemy:SetModifierStackCount("modifier_arctic_burn_slow", caster, ability.q_1_level)
 			end
-			if ability.d_a_level > 0 then
+			if ability.q_4_level > 0 then
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_arctic_burn_casttime", {duration = 0.5})
-				enemy:SetModifierStackCount("modifier_arctic_burn_casttime", caster, ability.a_a_level)
+				enemy:SetModifierStackCount("modifier_arctic_burn_casttime", caster, ability.q_1_level)
 			end
 		end
 	end
@@ -233,10 +233,10 @@ function arctic_burn_passive_thinker(event)
 	end
 	if ability:GetCooldownTimeRemaining() > 0 then
 		local indexSkill = caster:GetAbilityByIndex(0)
-		local c_a_level = caster:GetRuneValue("q", 3)
-		print("c_a_level")
-		print(c_a_level)
-		if c_a_level > 0 then
+		local q_3_level = caster:GetRuneValue("q", 3)
+		print("q_3_level")
+		print(q_3_level)
+		if q_3_level > 0 then
 			if indexSkill:GetAbilityName() == "dinath_arctic_burn" then
 				CustomAbilities:AddAndOrSwapSkill(caster, "dinath_arctic_burn", "dinath_scorch_charge", 0)
 			end

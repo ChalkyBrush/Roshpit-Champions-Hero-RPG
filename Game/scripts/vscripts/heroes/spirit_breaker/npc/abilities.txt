@@ -143,7 +143,7 @@
 	        	"IsHidden"			"0"
 	            "IsBuff"			"0"
 	            "Duration"			"4"
-	            "TextureName"		"rpc/duskbringer_rune_a_a"
+	            "TextureName"		"rpc/duskbringer_rune_q_1"
 				"EffectName"		"particles/units/heroes/hero_huskar/duskbringer_flail_fire.vpcf"
 				"EffectAttachType" 	"attach_origin"
 				"ThinkInterval"  "0.5"
@@ -430,7 +430,7 @@
         	{
         		"IsHidden"	"0"
         		"IsBuff"	"1"
-        		"TextureName"	"duskbringer/duskbringer_rune_b_b_arcana"
+        		"TextureName"	"duskbringer/duskbringer_rune_w_2_arcana"
         		"Properties"
         		{
         			"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "120"
@@ -441,7 +441,7 @@
         		"Passive"			"0"
         		"IsHidden"			"0"
         		"IsDebuff"			"0"
-        		"TextureName"		"duskbringer/duskbringer_rune_d_b_arcana"
+        		"TextureName"		"duskbringer/duskbringer_rune_w_4_arcana"
 
         		"EffectName"		"particles/econ/courier/courier_roshan_darkmoon/courier_roshan_darkmoon.vpcf"
         		"EffectAttachType"	"follow_origin"
@@ -787,7 +787,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-				"TextureName"		"rpc/duskbringer_rune_b_c"
+				"TextureName"		"rpc/duskbringer_rune_e_2"
 
 				"EffectName"		"particles/roshpit/duskbringer/ghost_armor.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -1074,7 +1074,7 @@
 			{
 				"IsBuff"	"1"
 				"IsPurgable"	"0"
-				"TextureName"	"duskbringer_rune_b_d"
+				"TextureName"	"duskbringer_rune_r_2"
 			}
 			"modifier_duskbringer_b_d_invisible"
 			{

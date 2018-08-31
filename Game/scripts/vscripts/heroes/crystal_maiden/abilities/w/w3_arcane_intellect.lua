@@ -6,12 +6,12 @@ function applyBuff(event)
         caster = event.caster.hero
     end
 
-    Helper.initializeAbilityRunes(caster, 'sorceress', 'a')
-    Helper.initializeAbilityRunes(caster, 'sorceress', 'b')
-    Helper.initializeAbilityRunes(caster, 'sorceress', 'c')
-    Helper.initializeAbilityRunes(caster, 'sorceress', 'd')
+    Helper.initializeAbilityRunes(caster, 'sorceress', 'q')
+    Helper.initializeAbilityRunes(caster, 'sorceress', 'w')
+    Helper.initializeAbilityRunes(caster, 'sorceress', 'e')
+    Helper.initializeAbilityRunes(caster, 'sorceress', 'r')
 
-    local stacksCount = caster.c_b_level
+    local stacksCount = caster.w_3_level
     if stacksCount == nil or stacksCount <= 0 then
         return
     end
@@ -21,7 +21,7 @@ function applyBuff(event)
     end
 
     local runeUnit = caster.runeUnit3
-    local runeAbility = runeUnit:FindAbilityByName("sorceress_rune_c_b")
+    local runeAbility = runeUnit:FindAbilityByName("sorceress_rune_w_3")
 
     runeAbility:ApplyDataDrivenModifier(caster, event.target, "modifier_arcane_intellect_visible", {})
     event.target:SetModifierStackCount("modifier_arcane_intellect_visible", caster, stacksCount)

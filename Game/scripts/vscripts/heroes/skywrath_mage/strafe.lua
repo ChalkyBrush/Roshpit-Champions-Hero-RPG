@@ -31,8 +31,8 @@ function strafe_thinking(event)
     local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
     local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch+fv*30), caster)
     local forwardSpeed = event.strafe_speed
-    if ability.d_c_level > 0 then
-    	forwardSpeed = forwardSpeed + 0.15*ability.d_c_level
+    if ability.e_4_level > 0 then
+    	forwardSpeed = forwardSpeed + 0.15*ability.e_4_level
     end
     if caster:HasModifier("modifier_nefali_c_d_speed") then
     	local stacks = caster:GetModifierStackCount("modifier_nefali_c_d_speed", caster)
@@ -105,9 +105,9 @@ function boomerang_think(event)
     	end
     	if distance < (boomerang.speed+5) or not IsValidEntity(boomerang.target) or not boomerang.target:IsAlive() then
     		if IsValidEntity(boomerang.target) then
-	    		local damage = boomerang.a_c_level * 1500
-	    		if boomerang.b_c_level > 0 then
-	    			damage = damage + boomerang.b_c_level*0.15*boomerang.caster:GetAverageTrueAttackDamage(boomerang.caster)
+	    		local damage = boomerang.e_1_level * 1500
+	    		if boomerang.e_2_level > 0 then
+	    			damage = damage + boomerang.e_2_level*0.15*boomerang.caster:GetAverageTrueAttackDamage(boomerang.caster)
 	    		end
 	    		local c_c_level = Runes:GetTotalRuneLevelGeneric(boomerang.caster, 3, 2)
 	    		if c_c_level > 0 then
@@ -155,7 +155,7 @@ function boomerang_think(event)
     			ParticleManager:DestroyParticle(boomerang.pfx, false)
     			local strafe = boomerang.caster:FindAbilityByName("sephyr_strafe")
 	    		if boomerang.actual_hits > 0 then
-	    			local b_c_level = boomerang.b_c_level
+	    			local b_c_level = boomerang.e_2_level
 	    			if b_c_level > 0 then
 	    				local duration = Filters:GetAdjustedBuffDuration(boomerang.caster, 9, false)
 	    				ability:ApplyDataDrivenModifier(boomerang, boomerang.caster, "modifier_boomerang_attack_damage_visible", {duration = duration})

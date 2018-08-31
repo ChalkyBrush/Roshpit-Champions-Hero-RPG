@@ -786,7 +786,7 @@
             		}
             		"RemoveModifier"
             		{
-            			"ModifierName"	"modifier_warlord_rune_b_c"
+            			"ModifierName"	"modifier_warlord_rune_e_2"
             			"Target" 		"TARGET"
             		}
             	}
@@ -814,7 +814,7 @@
             	    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-40"
             	}
             }
-            "modifier_warlord_rune_b_c"
+            "modifier_warlord_rune_e_2"
             {
             	"IsHidden"	"1"
             	"Properties"
@@ -970,7 +970,7 @@
             	"IsHidden"		"0"
             	"IsBuff"		"1"
             }
-            "modifier_warlord_rune_a_c_effect"
+            "modifier_warlord_rune_e_1_effect"
             {
             	"Passive"			"0"
             	"IsHidden"			"1"
@@ -1110,7 +1110,7 @@
             	"IsHidden"		"0"
             	"IsBuff"		"1"
             }
-            "modifier_warlord_rune_b_b"
+            "modifier_warlord_rune_w_2"
             {
             	"Passive"			"0"
             	"IsHidden"			"1"
@@ -1275,7 +1275,7 @@
             	"IsHidden"		"0"
             	"IsBuff"		"1"
             }
-            "modifier_warlord_rune_c_b_effect"
+            "modifier_warlord_rune_w_3_effect"
             {
             	"Passive"			"0"
             	"IsHidden"			"1"
@@ -1464,12 +1464,12 @@
             	{
             		"RemoveModifier"
             		{
-            			"ModifierName"	"modifier_warlord_rune_b_a_visible"
+            			"ModifierName"	"modifier_warlord_rune_q_2_visible"
             			"Target" 		"TARGET"
             		}
             		"RemoveModifier"
             		{
-            			"ModifierName"	"modifier_warlord_rune_b_a_invisible"
+            			"ModifierName"	"modifier_warlord_rune_q_2_invisible"
             			"Target" 		"TARGET"
             		}
             	}
@@ -1739,7 +1739,7 @@
 					}
 				}
 			}
-			"modifier_warlord_rune_b_d"
+			"modifier_warlord_rune_r_2"
 			{
 				"IsDebuff"	"1"
 				"Properties"
@@ -2165,7 +2165,7 @@
 				"ThinkInterval"  "0.5"
 				"StatusEffectName" 		"particles/status_fx/status_effect_iceblast.vpcf"
 				"StatusEffectPriority"  "20"
-				"TextureName"	"warlord/warlord_rune_b_d_arcana1"
+				"TextureName"	"warlord/warlord_rune_r_2_arcana1"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -2184,7 +2184,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"warlord/warlord_rune_c_d_arcana1"
+				"TextureName"	"warlord/warlord_rune_r_3_arcana1"
 				"OnTakeDamage"
 				// "%attack_damage" is set to the damage value after mitigation
 				{
@@ -2195,12 +2195,12 @@
 					}
 				}
 			}
-			"modifier_warlord_rune_d_d_effect"
+			"modifier_warlord_rune_r_4_effect"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-				"TextureName"	"warlord/warlord_rune_d_d_arcana1"
+				"TextureName"	"warlord/warlord_rune_r_4_arcana1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"1"

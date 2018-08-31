@@ -3,19 +3,19 @@ function heavens_shield_cast(event)
 	local ability = event.ability
 	local target = event.target
 	local shieldStacks = event.stacks
-	local b_a_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
-	ability.b_a_level = b_a_level
+	local q_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
+	ability.q_2_level = q_2_level
 	local duration = 9
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_heavens_shield", {duration = duration})
-	if b_a_level > 0 then
-		local procs = Runes:Procs(b_a_level, 8, 1)
+	if q_2_level > 0 then
+		local procs = Runes:Procs(q_2_level, 8, 1)
 		shieldStacks = shieldStacks + procs
 	end
 	target:SetModifierStackCount( "modifier_heavens_shield", ability, shieldStacks)
 	target.heavensShieldSource = ability
 
-	ability.a_a_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
+	ability.q_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
 
 	local particleName = "particles/units/heroes/hero_oracle/white_mage_healheal_core.vpcf"
 	local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
@@ -29,10 +29,10 @@ function heavens_shield_cast(event)
 	end
 
 	if ability:GetAbilityName() == "heavens_shield" then
-		local d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "auriun")
-		if d_a_level > 0 then
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_auriun_rune_d_a_effect", {duration = duration})
-			target:SetModifierStackCount( "modifier_auriun_rune_d_a_effect", ability, d_a_level)
+		local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "auriun")
+		if q_4_level > 0 then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_auriun_rune_q_4_effect", {duration = duration})
+			target:SetModifierStackCount( "modifier_auriun_rune_q_4_effect", ability, q_4_level)
 			target.auriun_d_a_ability = ability
 			
 		end
@@ -74,11 +74,11 @@ function heavens_shield_take_damage(event)
 	local damage = event.damage
 	local target = event.unit
 	local ability = event.ability
-	if ability.a_a_level > 0 then
+	if ability.q_1_level > 0 then
 		if event.attacker:GetEntityIndex() == target:GetEntityIndex() then
 			return false
 		end
-		local returnDamage = target:GetAverageTrueAttackDamage(target)*(1+0.15*ability.a_a_level)
+		local returnDamage = target:GetAverageTrueAttackDamage(target)*(1+0.15*ability.q_1_level)
 		local victim = event.attacker
 		Filters:TakeArgumentsAndApplyDamage(victim, caster, returnDamage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 		EmitSoundOn("Auriun.ShieldHit", target)
@@ -97,26 +97,26 @@ function heavens_shield_end(event)
 	local caster = event.caster
 	local ability = event.ability
 	if ability:GetAbilityName() == "heavens_shield" then
-		local c_a_level = Runes:GetTotalRuneLevel(caster, 3, "c_a", "auriun")
-		if c_a_level > 0 then
+		local q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "auriun")
+		if q_3_level > 0 then
 			local secondWindDuration = 10
 			secondWindDuration = Filters:GetAdjustedBuffDuration(caster, secondWindDuration, false)
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_auriun_rune_c_a_effect", {duration = secondWindDuration})
-			target:SetModifierStackCount( "modifier_auriun_rune_c_a_effect", ability, c_a_level)
-			ability.c_a_level = c_a_level
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_auriun_rune_c_a_thinker", {duration = secondWindDuration})
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_auriun_rune_q_3_effect", {duration = secondWindDuration})
+			target:SetModifierStackCount( "modifier_auriun_rune_q_3_effect", ability, q_3_level)
+			ability.q_3_level = q_3_level
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_auriun_rune_q_3_thinker", {duration = secondWindDuration})
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_auriun_c_a_attack_power", {duration = secondWindDuration})
 		end
 	end
 end
 
-function rune_c_a_think(event)
+function rune_q_3_think(event)
 	local target = event.target
 	local caster = event.caster
 	local ability = event.ability
 	if IsValidEntity(ability) then
 		local armor = target:GetPhysicalArmorValue()
-		local attackPowerStacks = 0.4*ability.c_a_level*armor
+		local attackPowerStacks = 0.4*ability.q_3_level*armor
 		if attackPowerStacks + target:GetAttackDamage() - target:GetModifierStackCount("modifier_auriun_c_a_attack_power", caster) > 2^31 then
 			attackPowerStacks = 2^31 - target:GetAttackDamage()
 		end

@@ -20,7 +20,7 @@ function start_channel(event)
 		waterheart:SetAbilityIndex(3)
 		caster:SwapAbilities("spirit_warrior_ancient_rain", "spirit_warrior_waterheart_weapon", false, true)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_rain_hidden_waterheart_thinker", {})
-		waterheart.c_d_level = c_d_level
+		waterheart.r_3_level = c_d_level
 	end
 end
 
@@ -59,9 +59,9 @@ function ancient_rain_start(event)
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "SpiritWarrior.AncientVigorStart2", caster)
 	end)
 	StartAnimation(caster, {duration=1, activity=ACT_DOTA_TELEPORT_END, rate=1})
-	ability.a_d_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
-	ability.b_d_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
-	if ability.a_d_level > 0 then
+	ability.r_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
+	ability.r_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
+	if ability.r_1_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_ancient_rain_regen", {duration = duration})
 	end
 	Filters:CastSkillArguments(4, caster)
@@ -70,8 +70,8 @@ end
 function ancient_rain_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	if ability.b_d_level > 0 then
-		local damage = ability.b_d_level*0.35*caster:GetAverageTrueAttackDamage(caster)
+	if ability.r_2_level > 0 then
+		local damage = ability.r_2_level*0.35*caster:GetAverageTrueAttackDamage(caster)
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 900, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
 		if #enemies > 0 then
 			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "SpiritWarrior.RainLightning", caster)
@@ -94,7 +94,7 @@ end
 function ancient_rain_regen_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local healAmount = caster:GetMaxHealth()*0.003*ability.a_d_level
+	local healAmount = caster:GetMaxHealth()*0.003*ability.r_1_level
 	Filters:ApplyHeal(caster, caster, healAmount, true)
 end
 
@@ -124,8 +124,8 @@ function blazing_javelin_cast(event)
 	local spellStartPoint = caster:GetAbsOrigin()+Vector(0,0,120) + perpVector*80
 	local fv = ((point-spellStartPoint)*Vector(1,1,0)):Normalized()
 	local solidFV = fv
-	local c_b_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
-	local procs = Runes:Procs(c_b_level, 10, 1)
+	local w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
+	local procs = Runes:Procs(w_3_level, 10, 1)
 	ability:SetActivated(false)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_javelin_root", {duration = 0.15*procs})
 	for i = 0, procs, 1 do
@@ -174,7 +174,7 @@ function blazing_javelin_cast(event)
 			projectile = ProjectileManager:CreateLinearProjectile(info)
 		end)
 	end
-	ability.b_b_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
+	ability.w_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
 end
 
 function javelin_hit(event)
@@ -198,9 +198,9 @@ function javelin_hit(event)
 			end)
 	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NORMAL)
-	local b_b_level = ability.b_b_level
-	if b_b_level > 0 then
-		local mult = b_b_level*0.04
+	local w_2_level = ability.w_2_level
+	if w_2_level > 0 then
+		local mult = w_2_level*0.04
 		if caster:HasModifier("modifier_flametongue") then
 	  	local eventTable = {}
 	  	eventTable.caster = caster
@@ -232,8 +232,8 @@ function javelin_hit(event)
 	end
 	if caster:HasModifier("modifier_flametongue") and caster:HasModifier("modifier_spirit_warrior_glyph_2_1") then
     	local flametongueAbility = caster:FindAbilityByName("spirit_warrior_flametongue")
-    	flametongueAbility.a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a", "spirit_warrior")
-		if flametongueAbility.a_a_level > 0 then
+    	flametongueAbility.q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "spirit_warrior")
+		if flametongueAbility.q_1_level > 0 then
 			flametongueAbility:ApplyDataDrivenModifier(caster,target, "modifier_flametongue_a_a_rune", {duration = 5})
 			local stacks = target:GetModifierStackCount("modifier_flametongue_a_a_rune", caster)
 			local newStacks = math.min(stacks+1, 10)
@@ -249,17 +249,17 @@ end
 function blazing_javelin_passive_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local a_b_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
-	local damageBonus = (caster:GetMaxHealth() - caster:GetHealth())*0.12*a_b_level
+	local w_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 1)
+	local damageBonus = (caster:GetMaxHealth() - caster:GetHealth())*0.12*w_1_level
 	if damageBonus > 1 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_spirit_warrior_arcana2_attack_damage", {})
 		caster:SetModifierStackCount("modifier_spirit_warrior_arcana2_attack_damage", caster, damageBonus)
 	else
 		caster:RemoveModifierByName("modifier_spirit_warrior_arcana2_attack_damage")
 	end
-	if a_b_level > 0 then
+	if w_1_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_spirit_warrior_arcana2_health", {})
-		caster:SetModifierStackCount("modifier_spirit_warrior_arcana2_health", caster, a_b_level)
+		caster:SetModifierStackCount("modifier_spirit_warrior_arcana2_health", caster, w_1_level)
 	else
 		caster:RemoveModifierByName("modifier_spirit_warrior_arcana2_health")
 	end
@@ -352,8 +352,8 @@ function create_spirit_elite(caster, ability, target)
 			ability:ApplyDataDrivenModifier(caster, spirit, "modifier_ancient_spirit_disarm", {})
 		else
 			ability:ApplyDataDrivenModifier(caster, spirit, "modifier_spirit_attacking", {})
-			local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "spirit_warrior")
-			spirit.c_d_level = c_d_level
+			local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "spirit_warrior")
+			spirit.r_3_level = c_d_level
 		end
 		-- spirit:AddNewModifier( spirit, nil, 'modifier_movespeed_cap', nil )
 
@@ -415,15 +415,15 @@ function removeSpirit(spirit, ability, caster)
 end
 
 function reachSpirit(caster, ability, spiritPosition)
-	local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "spirit_warrior")
-	if d_b_level > 0 then
-		local runeAbility = caster.runeUnit4:FindAbilityByName("spirit_warrior_rune_d_b")
+	local w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "spirit_warrior")
+	if w_4_level > 0 then
+		local runeAbility = caster.runeUnit4:FindAbilityByName("spirit_warrior_rune_w_4")
 		local duration = Filters:GetAdjustedBuffDuration(caster, 30, false)
 		runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_spirit_warrior_d_b", {duration = duration})
-		runeAbility.level = d_b_level
+		runeAbility.level = w_4_level
 	end
 	local a_c_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
-	caster.d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "spirit_warrior")
+	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "spirit_warrior")
 	if a_c_level > 0 then
 		local loops = 1
 		if caster:HasModifier("modifier_spirit_warrior_glyph_4_1") then
@@ -462,7 +462,7 @@ function reachSpirit(caster, ability, spiritPosition)
 		ability:ApplyDataDrivenThinker(caster, spiritPosition, "modifier_tempest_haze_aura_thinker_enemy", {duration = duration})
 		ability:ApplyDataDrivenThinker(caster, spiritPosition, "modifier_tempest_haze_aura_thinker_friendly", {duration = duration})
 		
-		ability.c_c_damage_tick = 12000*c_c_level*0.5
+		ability.e_3_damage_tick = 12000*c_c_level*0.5
 	end
 	-- "particles/roshpit/spirit_warrior/tempest_haze_storm.vpcf"
 

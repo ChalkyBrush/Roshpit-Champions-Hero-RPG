@@ -20,8 +20,8 @@ function trap_start(event)
 		end
 		local trap = CreateUnitByName("lanaya_trap", point, true, caster, nil, caster:GetTeam())
 		trap.damage = event.damage/2
-	    local d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "trapper")
-	    trap.damage = trap.damage + 0.0025*caster:GetIntellect()/10*d_a_level*trap.damage
+	    local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "trapper")
+	    trap.damage = trap.damage + 0.0025*caster:GetIntellect()/10*q_4_level*trap.damage
 	    if caster:HasModifier("modifier_trapper_glyph_5_a") then
 	    	trap.damage = trap.damage * T5A_DAMAGE_AMPLIFY
 	    end
@@ -38,9 +38,9 @@ function trap_start(event)
 		
 
 		trap:RemoveAbility("templar_assassin_self_trap")
-		trap.c_a_level = Runes:GetTotalRuneLevel(caster, 3, "c_a", "trapper")
+		trap.q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "trapper")
         if caster:HasModifier("modifier_trapper_glyph_1_2") then
-            trap.c_a_level = trap.c_a_level * T12_AMPLIFY
+            trap.q_3_level = trap.q_3_level * T12_AMPLIFY
         end
 		
 		local trapAbility = trap:AddAbility("fuliminating_trap_passive")
@@ -52,20 +52,20 @@ function trap_start(event)
 		ParticleManager:SetParticleControl(trap.particle, 1, point)
 		ParticleManager:SetParticleControl(trap.particle, 2, point)	
 
-		rune_a_a(caster)
+		rune_q_1(caster)
 		trap_cast(caster)
 
 end
 
 function trap_cast(caster)
     if caster:HasModifier("modifier_trapper_arcana1") then
-    	caster.d_b_arcana_level = Runes:GetTotalRuneLevel(caster, 4, "d_b_arcana1", "trapper")
+    	caster.w_4_arcana_level = Runes:GetTotalRuneLevel(caster, 4, "d_b_arcana1", "trapper")
 	end
 end
 
-function rune_a_a(caster)
-	local a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a", "trapper")
-	if a_a_level > 0 then
+function rune_q_1(caster)
+	local q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "trapper")
+	if q_1_level > 0 then
 	    local poison_trap = caster:FindAbilityByName("poison_trap")
 	  	if not poison_trap then
 	  		poison_trap = caster:AddAbility("poison_trap")
@@ -102,9 +102,9 @@ function trap_start_poison(event)
 		local trap = CreateUnitByName("lanaya_trap", point, true, caster, nil, caster:GetTeam())
 		trap.origCaster = caster
 
-		trap.c_a_level = Runes:GetTotalRuneLevel(caster, 3, "c_a", "trapper")
+		trap.q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "trapper")
         if caster:HasModifier("modifier_trapper_glyph_1_2") then
-            trap.c_a_level = trap.c_a_level * T12_AMPLIFY
+            trap.q_3_level = trap.q_3_level * T12_AMPLIFY
         end
 		-- Places the trap in the list and increments the total
 		ability.total_traps = ability.total_traps + 1
@@ -124,10 +124,10 @@ function trap_start_poison(event)
 		trapAbility:SetLevel(1)
 		trapAbility:ApplyDataDrivenModifier(trap, trap, "lanaya_poison_trap_passive", {})
 
-		local a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a", "trapper")
-		trapAbility.poisonDamage = a_a_level*TRAPPER_Q1_DAMAGE
-	    local d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "trapper")
-	    trapAbility.poisonDamage = trapAbility.poisonDamage + 0.0025*caster:GetIntellect()/10*d_a_level*trapAbility.poisonDamage
+		local q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "trapper")
+		trapAbility.poisonDamage = q_1_level*TRAPPER_Q1_DAMAGE
+	    local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "trapper")
+	    trapAbility.poisonDamage = trapAbility.poisonDamage + 0.0025*caster:GetIntellect()/10*q_4_level*trapAbility.poisonDamage
 		print("poison damage " .. trapAbility.poisonDamage)
 		if caster:HasModifier("modifier_trapper_glyph_5_a") then
 	    	trapAbility.poisonDamage = trapAbility.poisonDamage * T5A_DAMAGE_AMPLIFY
@@ -169,16 +169,16 @@ function trap_think(event)
 	local position = trap:GetAbsOrigin()
 	local radius = TRAP_RADIUS
 	local damage = trap.damage
-	local c_a_level = trap.c_a_level
+	local q_3_level = trap.q_3_level
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
     if #enemies > 0 then    
         for _,enemy in pairs(enemies) do
         	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
             ability:ApplyDataDrivenModifier(trap, enemy, "modifier_fulminating_burn_effect", {duration = 0.5})
             CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_leshrac/fulminating_effect.vpcf", enemy, 0.5)
-            if c_a_level > 0 then
+            if q_3_level > 0 then
             	ability:ApplyDataDrivenModifier(trap, enemy, "modifier_fulminating_magic_resist_loss", {duration = 1.0})
-            	enemy:SetModifierStackCount("modifier_fulminating_magic_resist_loss", ability, c_a_level)
+            	enemy:SetModifierStackCount("modifier_fulminating_magic_resist_loss", ability, q_3_level)
             end
         end
         EmitSoundOn("Trapper.FulminatingHit", trap)
@@ -208,9 +208,9 @@ function trap_start_net(event)
 		local trap = CreateUnitByName("lanaya_trap", point, true, caster, nil, caster:GetTeam())
 		trap.origCaster = caster
 
-		trap.c_a_level = Runes:GetTotalRuneLevel(caster, 3, "c_a", "trapper")
+		trap.q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "trapper")
         if caster:HasModifier("modifier_trapper_glyph_1_2") then
-            trap.c_a_level = trap.c_a_level * T12_AMPLIFY
+            trap.q_3_level = trap.q_3_level * T12_AMPLIFY
         end
 		Filters:CastSkillArguments(1, caster)
 		-- Places the trap in the list and increments the total
@@ -240,14 +240,14 @@ function trap_start_net(event)
 		ParticleManager:SetParticleControl(trap.particle, 0, point)
 		ParticleManager:SetParticleControl(trap.particle, 1, point)
 		ParticleManager:SetParticleControl(trap.particle, 2, point)	
-		rune_b_a(caster)
+		rune_q_2(caster)
 		trap_cast(caster)
 
 end
 
-function rune_b_a(caster)
-	local b_a_level = Runes:GetTotalRuneLevel(caster, 2, "b_a", "trapper")
-	if b_a_level > 0 then
+function rune_q_2(caster)
+	local q_2_level = Runes:GetTotalRuneLevel(caster, 2, "q_2", "trapper")
+	if q_2_level > 0 then
 	    local torrent_trap = caster:FindAbilityByName("torrent_trap")
 	  	if not torrent_trap then
 	  		torrent_trap = caster:AddAbility("torrent_trap")
@@ -270,7 +270,7 @@ function net_trap_think(event)
 	local root_duration = trap.root_duration
 	local damage = trap.damage
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-    local c_a_level = trap.c_a_level
+    local q_3_level = trap.q_3_level
 	if #enemies > 0 then
         for _,enemy in pairs(enemies) do
         	if not enemy:HasModifier("modifier_net_trap_immunity") then
@@ -285,9 +285,9 @@ function net_trap_think(event)
                     end
 	            	ability:ApplyDataDrivenModifier(trap, enemy, "modifier_net_trap_immunity", {duration = 11})
 				end
-				if c_a_level > 0 then
+				if q_3_level > 0 then
 					ability:ApplyDataDrivenModifier(trap, enemy, "modifier_fulminating_magic_resist_loss", {duration = 1.0})
-					enemy:SetModifierStackCount("modifier_fulminating_magic_resist_loss", ability, c_a_level)
+					enemy:SetModifierStackCount("modifier_fulminating_magic_resist_loss", ability, q_3_level)
 				end
 	        end
         end
@@ -302,7 +302,7 @@ function poison_trap_think(event)
 	local position = trap:GetAbsOrigin()
 	local radius = TRAP_RADIUS
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-    local c_a_level = trap.c_a_level
+    local q_3_level = trap.q_3_level
 
 	ability.origCaster = caster
 
@@ -317,9 +317,9 @@ function poison_trap_think(event)
             	ability:ApplyDataDrivenModifier(trap, enemy, "modifier_poison_trap_glyph_3_1", {duration = 6})
             	enemy:SetModifierStackCount( "modifier_poison_trap_glyph_3_1", ability, newStacks )
 			end
-			if c_a_level > 0 then
+			if q_3_level > 0 then
 				ability:ApplyDataDrivenModifier(trap, enemy, "modifier_fulminating_magic_resist_loss", {duration = 1.0})
-				enemy:SetModifierStackCount("modifier_fulminating_magic_resist_loss", ability, c_a_level)
+				enemy:SetModifierStackCount("modifier_fulminating_magic_resist_loss", ability, q_3_level)
 			end
         end
         EmitSoundOn("Trapper.PoisonTrapHit", trap)
@@ -358,9 +358,9 @@ function trap_start_torrent(event)
 		local trap = CreateUnitByName("lanaya_trap", point, true, caster, nil, caster:GetTeam())
 		trap.origCaster = caster
 
-		trap.c_a_level = Runes:GetTotalRuneLevel(caster, 3, "c_a", "trapper")
+		trap.q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "trapper")
         if caster:HasModifier("modifier_trapper_glyph_1_2") then
-            trap.c_a_level = trap.c_a_level * T12_AMPLIFY
+            trap.q_3_level = trap.q_3_level * T12_AMPLIFY
         end
 		-- Places the trap in the list and increments the total
 		ability.total_traps = ability.total_traps + 1
@@ -380,13 +380,13 @@ function trap_start_torrent(event)
 		trapAbility:SetLevel(1)
 		trapAbility:ApplyDataDrivenModifier(trap, trap, "lanaya_torrent_passive", {})
 
-		local b_a_level = Runes:GetTotalRuneLevel(caster, 2, "b_a", "trapper")
-		trapAbility.b_a_level = b_a_level
-		trapAbility.b_a_damage = b_a_level*Q2_DAMAGE
-	    local d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "trapper")
-	    trapAbility.b_a_damage = trapAbility.b_a_damage + 0.0025*caster:GetIntellect()/10*d_a_level*trapAbility.b_a_damage
+		local q_2_level = Runes:GetTotalRuneLevel(caster, 2, "q_2", "trapper")
+		trapAbility.q_2_level = q_2_level
+		trapAbility.q_2_damage = q_2_level*Q2_DAMAGE
+	    local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "trapper")
+	    trapAbility.q_2_damage = trapAbility.q_2_damage + 0.0025*caster:GetIntellect()/10*q_4_level*trapAbility.q_2_damage
 	    if caster:HasModifier("modifier_trapper_glyph_5_a") then
-	    	trapAbility.b_a_damage = trapAbility.b_a_damage * T5A_DAMAGE_AMPLIFY
+	    	trapAbility.q_2_damage = trapAbility.q_2_damage * T5A_DAMAGE_AMPLIFY
 	    end
 		-- Plays the sounds
 		-- EmitSoundOn(keys.sound, caster)
@@ -412,9 +412,9 @@ function torrent_trap_think(event)
 	local ability = event.ability
 	local position = trap:GetAbsOrigin()
 	local radius = TRAP_RADIUS
-	local damage = ability.b_a_damage
+	local damage = ability.q_2_damage
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-	local c_a_level = trap.c_a_level
+	local q_3_level = trap.q_3_level
 
     if #enemies > 0 then    
         for _,enemy in pairs(enemies) do
@@ -440,7 +440,7 @@ function torrent_trap_think(event)
 	            	EmitSoundOn("Trapper.TorrentImpact", enemy)
 	            	ability:ApplyDataDrivenModifier(trap, enemy, "modifier_torrent_trap_slowed_effect", {duration = 2})
 	            	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
-	            	enemy:SetModifierStackCount("modifier_torrent_trap_slowed_effect", ability, ability.b_a_level)
+	            	enemy:SetModifierStackCount("modifier_torrent_trap_slowed_effect", ability, ability.q_2_level)
 	            	ability:ApplyDataDrivenModifier(trap, enemy, "modifier_torrent_trap_immunity", {duration = 1})
 	            	-- CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_morphling/morphling_adaptive_strike.vpcf", enemy, 1)
 					local particleName = "particles/units/heroes/hero_morphling/morphling_adaptive_strike.vpcf"
@@ -452,9 +452,9 @@ function torrent_trap_think(event)
 					end)
 				end
 
-				if c_a_level > 0 then
+				if q_3_level > 0 then
 					ability:ApplyDataDrivenModifier(trap, enemy, "modifier_fulminating_magic_resist_loss", {duration = 1.0})
-					enemy:SetModifierStackCount("modifier_fulminating_magic_resist_loss", ability, c_a_level)
+					enemy:SetModifierStackCount("modifier_fulminating_magic_resist_loss", ability, q_3_level)
 				end
 	        end
         end

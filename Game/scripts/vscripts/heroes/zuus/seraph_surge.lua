@@ -5,7 +5,7 @@ function initialize_seraph_surge(event)
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	EmitSoundOn("Auriun.HeavensShield", caster)
 	
-	local b_c_level = Runes:GetTotalRuneLevel(caster, 2, "b_c", "auriun")
+	local b_c_level = Runes:GetTotalRuneLevel(caster, 2, "e_2", "auriun")
 	if caster:HasModifier("modifier_auriun_glyph_5_1") then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seraph_surge_glyphed", {duration = duration})
 	else
@@ -14,22 +14,22 @@ function initialize_seraph_surge(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_seraph_surge_flying_portion", {duration = duration})
 	-- if a_c_level > 0 then
 	-- 	local runeUnit = caster.runeUnit
-	-- 	local runeAbility = runeUnit:FindAbilityByName("auriun_rune_a_c")
-	-- 	runeAbility.a_c_level = a_c_level
-	-- 	runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_auriun_rune_a_c", {duration = duration})
+	-- 	local runeAbility = runeUnit:FindAbilityByName("auriun_rune_e_1")
+	-- 	runeAbility.e_1_level = a_c_level
+	-- 	runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_auriun_rune_e_1", {duration = duration})
 	-- end
 	if b_c_level > 0 then
 		local runeUnit = caster.runeUnit2
-		local runeAbility = runeUnit:FindAbilityByName("auriun_rune_b_c")
+		local runeAbility = runeUnit:FindAbilityByName("auriun_rune_e_2")
 		local b_c_buffDuration = Filters:GetAdjustedBuffDuration(caster, 8, false)
 
-		runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_auriun_rune_b_c", {duration = b_c_buffDuration})
-		caster:SetModifierStackCount( "modifier_auriun_rune_b_c", runeAbility, b_c_level)
+		runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_auriun_rune_e_2", {duration = b_c_buffDuration})
+		caster:SetModifierStackCount( "modifier_auriun_rune_e_2", runeAbility, b_c_level)
 		Timers:CreateTimer(b_c_buffDuration-0.06, function()
 			runeAbility.manaPercent = caster:GetMana()/caster:GetMaxMana()
 		end)
 	end
-	local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "d_c", "auriun")
+	local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "auriun")
 	if d_c_level > 0 then
 		d_c(caster, d_c_level)
 	end
@@ -132,7 +132,7 @@ function a_c_think(event)
 	Timers:CreateTimer(0.5, function() 
 	  ParticleManager:DestroyParticle( pfx, false )
 	end) 	
-	local totalLevel = event.ability.a_c_level
+	local totalLevel = event.ability.e_1_level
 	local manaRestore = totalLevel * 30
 	PopupMana(caster, manaRestore)
 	caster:GiveMana(manaRestore)
@@ -142,10 +142,10 @@ function rune_unit_3_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local hero = caster.hero
-	local totalLevel = Runes:GetTotalRuneLevel(hero, 3, "c_c", "auriun")
+	local totalLevel = Runes:GetTotalRuneLevel(hero, 3, "e_3", "auriun")
 	if totalLevel > 0 then
-		ability:ApplyDataDrivenModifier(caster, hero, "modifier_auriun_rune_c_c_effect", {})
-		hero:SetModifierStackCount( "modifier_auriun_rune_c_c_effect", ability, totalLevel )
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_auriun_rune_e_3_effect", {})
+		hero:SetModifierStackCount( "modifier_auriun_rune_e_3_effect", ability, totalLevel )
 	end
 end
 
@@ -197,6 +197,6 @@ end
 function auriun_passive_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	caster.a_c_level = Runes:GetTotalRuneLevel(caster, 1, "a_c", "auriun")
+	caster.e_1_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "auriun")
 end
 

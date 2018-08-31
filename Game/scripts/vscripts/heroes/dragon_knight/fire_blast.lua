@@ -4,9 +4,9 @@ function Vacuum( keys )
     local target_location = target:GetAbsOrigin()
     local ability = keys.ability
     local ability_level = ability:GetLevel() - 1
-    ability.d_a_level = Runes:GetTotalRuneLevel(caster, 4, "d_a", "flamewaker")
-    ability.d_a_ability = caster.runeUnit4:FindAbilityByName("flamewaker_rune_d_a")
-    caster.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "flamewaker")
+    ability.q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "flamewaker")
+    ability.q_4_ability = caster.runeUnit4:FindAbilityByName("flamewaker_rune_q_4")
+    caster.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "flamewaker")
     -- Ability variables
     local duration = ability:GetLevelSpecialValueFor("light_strike_array_stun_duration", ability_level)
     local radius = ability:GetLevelSpecialValueFor("light_strike_array_aoe", ability_level)
@@ -68,17 +68,14 @@ function cast_fire_blast(event)
             glyph_3_1_start(caster, ability, target_location, radius)
         end)
     end
-    rune_c_a_eruption(ability, caster, target_location, radius)
-    rune_b_a(caster)
+    rune_q_3_eruption(ability, caster, target_location, radius)
+    rune_q_2(caster)
 end
 
-function rune_b_a(caster)
+function rune_q_2(caster)
     local runeUnit = caster.runeUnit2
-    local ability = runeUnit:FindAbilityByName("flamewaker_rune_b_a")
-    local abilityLevel = ability:GetLevel()
-    local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_a")
-    local totalLevel = abilityLevel + bonusLevel
-    ability.b_a_level = caster:GetRuneValue("q",2)
+    local ability = runeUnit:FindAbilityByName("flamewaker_rune_q_2")
+    ability.q_2_level = caster:GetRuneValue("q",2)
     ability.heal = 0
 end
 
@@ -94,14 +91,14 @@ function fire_blast_damage(event)
     Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_EARTH)
 end
 
-function rune_c_a_eruption(ability, caster, point, radius)
+function rune_q_3_eruption(ability, caster, point, radius)
     local runeUnit = caster.runeUnit3
-    local runeAbility = runeUnit:FindAbilityByName("flamewaker_rune_c_a")
+    local runeAbility = runeUnit:FindAbilityByName("flamewaker_rune_q_3")
     local abilityLevel = runeAbility:GetLevel()
-    local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_a")
+    local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_3")
     local totalLevel = abilityLevel + bonusLevel
     if totalLevel > 0 then
-        ability.c_a_damage = caster:GetStrength()*totalLevel*0.5 + totalLevel*800
+        ability.q_3_damage = caster:GetStrength()*totalLevel*0.5 + totalLevel*800
         ability:ApplyDataDrivenThinker(caster, point, "modifier_eruption_thinker", {})
     else
         return 0
@@ -113,16 +110,16 @@ function eruption_damage(event)
     local caster = event.caster
     local ability = event.ability
     if IsValidEntity(ability) then
-        local damage = ability.c_a_damage
+        local damage = ability.q_3_damage
         Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
-        local seismicFlare = caster:FindAbilityByName("fire_blast")
+        local seismicFlare = caster:FindAbilityByName("seismic_flare")
         CustomAbilities:QuickAttachParticle("particles/econ/courier/courier_greevil_orange/courier_greevil_orange_ambient_c.vpcf", target, 1)
-        if seismicFlare.d_a_level > 0 then
+        if seismicFlare.q_4_level > 0 then
             local d_a_duration = Filters:GetAdjustedBuffDuration(caster, 5, false)
-            seismicFlare.d_a_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_flamewaker_rune_d_a", {duration = d_a_duration})
-            local current_stack = caster:GetModifierStackCount( "modifier_flamewaker_rune_d_a", seismicFlare.d_a_ability )
-            local stackBonus = math.floor(damage*0.001*seismicFlare.d_a_level/10)
-            caster:SetModifierStackCount("modifier_flamewaker_rune_d_a", seismicFlare.d_a_ability, current_stack+stackBonus )
+            seismicFlare.q_4_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_flamewaker_rune_q_4", {duration = d_a_duration})
+            local current_stack = caster:GetModifierStackCount( "modifier_flamewaker_rune_q_4", seismicFlare.q_4_ability )
+            local stackBonus = math.floor(damage*0.001*seismicFlare.q_4_level/10)
+            caster:SetModifierStackCount("modifier_flamewaker_rune_q_4", seismicFlare.q_4_ability, current_stack+stackBonus )
         end
     end
 end

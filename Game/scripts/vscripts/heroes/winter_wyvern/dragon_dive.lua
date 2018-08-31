@@ -9,7 +9,7 @@ function dinath_dive_precast(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_dinath_postflight_zheight", {duration = 30})
 	caster:AddNewModifier(caster, nil, "modifier_animation_translate", {translate="flying"})
 	EmitSoundOn("Dinath.DivePre", caster)
-	ability.d_c_level = caster:GetRuneValue("e", 4)
+	ability.e_4_level = caster:GetRuneValue("e", 4)
 end
 
 
@@ -163,8 +163,8 @@ function dragon_height_z_thinker(event)
 			caster:SetAbsOrigin(caster:GetAbsOrigin()+ability.dashSpeed*pushDirection+ability.curveVector*4)
 		end
 	end
-	if ability.d_c_level > 0 then
-		local threshold = 450 - ability.d_c_level*3
+	if ability.e_4_level > 0 then
+		local threshold = 450 - ability.e_4_level*3
 		if stacks >= threshold then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_dinath_dive_attack_immune", {})
 		else

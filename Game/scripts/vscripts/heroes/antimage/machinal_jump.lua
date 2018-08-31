@@ -37,8 +37,8 @@ function arkimus_jump_start(event)
 			end
 		end
 	end
-	ability.a_c_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
-	ability.c_c_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
+	ability.e_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
+	ability.e_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
 end
 
 function arkimus_jump_think(event)
@@ -86,9 +86,9 @@ function jump_end(event)
 	Timers:CreateTimer(0.03, function()
 		WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
 	end)
-	if ability.a_c_level > 0 then
-		local searchRadius = 300 + ability.a_c_level*2
-		local damage = caster:GetAverageTrueAttackDamage(caster)*0.3*ability.a_c_level
+	if ability.e_1_level > 0 then
+		local searchRadius = 300 + ability.e_1_level*2
+		local damage = caster:GetAverageTrueAttackDamage(caster)*0.3*ability.e_1_level
 
 	    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, searchRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	    if #enemies > 0 then
@@ -106,10 +106,10 @@ function jump_end(event)
 	    end 
 	    EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Arkimus.JumpLightning", caster)
 	end
-	if ability.c_c_level > 0 then
+	if ability.e_3_level > 0 then
 		local duration = Filters:GetAdjustedBuffDuration(caster, 3, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_machinal_jump_c_c_amp", {duration = duration})
-		caster:SetModifierStackCount("modifier_machinal_jump_c_c_amp", caster, ability.c_c_level)
+		caster:SetModifierStackCount("modifier_machinal_jump_c_c_amp", caster, ability.e_3_level)
 	end
 end
 

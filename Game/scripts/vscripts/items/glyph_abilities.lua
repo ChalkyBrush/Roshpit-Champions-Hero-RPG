@@ -250,41 +250,6 @@ function astral_glyph_6_1_attack_land(event)
 	print("EXTRAPURE"..extraPure)
 end
 
-function epoch_glyph_5_1_attack_land(event)
-	local ability = event.ability
-	local caster = event.caster
-	local attacker = event.attacker
-	local target = event.target
-	local b_b_lvl = Runes:GetTotalRuneLevel(attacker, 2, "b_b", "epoch")
-	if b_b_lvl > 0 then
-		local runeW2ArmourDecrease = 50 --each w2 reduce armor for -50
-		local maximumNegativeArmor = 1000 --w2 cap at -1000
-		local finalStacksCount = b_b_lvl
-		local currentStacks = 0
-		local currentTargetArmor = target:GetPhysicalArmorValue()
-		if target:HasModifier("modifier_epoch_rune_b_b_visible") then
-			currentStacks = target:GetModifierStackCount("modifier_epoch_rune_b_b_visible", attacker)
-			currentTargetArmor = currentTargetArmor + (currentStacks * runeW2ArmourDecrease)
-		end
-		if currentTargetArmor > 0 then
-			local runesToDecrease = (currentTargetArmor + maximumNegativeArmor)/runeW2ArmourDecrease - b_b_lvl
-			if runesToDecrease < 0 then
-				finalStacksCount = math.ceil ((currentTargetArmor + maximumNegativeArmor)/runeW2ArmourDecrease);
-			end
-		else
-			local runesToDecrease = maximumNegativeArmor/runeW2ArmourDecrease - b_b_lvl
-			if runesToDecrease < 0 then
-				finalStacksCount = math.ceil (maximumNegativeArmor/runeW2ArmourDecrease);
-			end
-		end
-
-		local abilityToApplyModifier = attacker:FindAbilityByName("time_genesis_orb")
-		abilityToApplyModifier:ApplyDataDrivenModifier(attacker, target, "modifier_epoch_rune_b_b_visible", {duration = 6})
-		target:SetModifierStackCount("modifier_epoch_rune_b_b_visible", attacker, finalStacksCount)
-
-	end
-end
-
 function monk_glyph_6_1_activate(event)
 	local target = event.target
 	local hikari = target:FindAbilityByName("monk_heal")

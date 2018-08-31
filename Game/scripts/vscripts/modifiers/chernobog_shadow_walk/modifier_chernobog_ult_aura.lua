@@ -22,7 +22,7 @@ end
 
 function modifier_chernobog_ult_aura:GetAuraRadius( params )
 	local radius = self:GetAbility():GetSpecialValueFor("radius")
-	radius = radius + self:GetAbility().d_d_level * 6
+	radius = radius + self:GetAbility().r_4_level * 6
     return radius
 end
 
@@ -80,11 +80,11 @@ function modifier_chernobog_ult_freeze_special:freeze_start(caster, ability, tar
 	if not IsValidEntity(ability) then
 		return false
 	end
-	if ability.a_d_level > 0 then
+	if ability.r_1_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_nights_procession_a_d_rune", {duration = 6})
-		target:SetModifierStackCount("modifier_nights_procession_a_d_rune",caster, ability.a_d_level)
+		target:SetModifierStackCount("modifier_nights_procession_a_d_rune",caster, ability.r_1_level)
 	end
-	if ability.b_d_level > 0 then
+	if ability.r_2_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_nights_procession_illusion", {duration = 8})
 	end
 	table.insert(ability.trappedUnitTable, target)
@@ -106,9 +106,9 @@ function modifier_chernobog_ult_freeze_special:locked_unit_attack(event)
 	if not IsValidEntity(ability) then
 		return false
 	end
-	if ability.c_d_level > 0 then
+	if ability.r_3_level > 0 then
 		for i = 1, #ability.trappedUnitTable, 1 do
-			local damage = event.attack_damage*0.03*ability.c_d_level
+			local damage = event.attack_damage*0.03*ability.r_3_level
 			ApplyDamage({ victim = ability.trappedUnitTable[i], attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE })
 		end
 	end

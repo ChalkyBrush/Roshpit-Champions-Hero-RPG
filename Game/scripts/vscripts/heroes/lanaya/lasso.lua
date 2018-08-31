@@ -50,8 +50,8 @@ function trapper_lasso_start(event)
 		  ParticleManager:ReleaseParticleIndex(pfx)
 		end) 
 	end
-	ability.c_b_level = Runes:GetTotalRuneLevel(caster, 3, "c_b_arcana1", "trapper")
-	caster.d_b_arcana_level = Runes:GetTotalRuneLevel(caster, 4, "d_b_arcana1", "trapper")
+	ability.w_3_level = Runes:GetTotalRuneLevel(caster, 3, "c_b_arcana1", "trapper")
+	caster.w_4_arcana_level = Runes:GetTotalRuneLevel(caster, 4, "d_b_arcana1", "trapper")
 	Filters:CastSkillArguments(2, caster)
 end
 
@@ -73,8 +73,8 @@ function trapper_lasso_think(event)
 	local travelDistance = WallPhysics:GetDistance(oldTargetPosition, newTargetPosition)
 	target:SetAbsOrigin(newTargetPosition)
 	target.lassoLiftSpeed = target.lassoLiftSpeed - 2.4
-	if ability.c_b_level > 0 then
-		local damage = ability.c_b_level * travelDistance/100 * ARCANA1_W3_AGI_DAMAGE * caster:GetAgility()
+	if ability.w_3_level > 0 then
+		local damage = ability.w_3_level * travelDistance/100 * ARCANA1_W3_AGI_DAMAGE * caster:GetAgility()
 		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 	end
 	if not ability.lifting then
@@ -95,10 +95,10 @@ function trapper_poison_whip_start(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	Filters:CastSkillArguments(2, caster)
     EmitSoundOn("Trapper.LassoCast", caster)
-    ability.a_b_level = Runes:GetTotalRuneLevel(caster, 1, "a_b_arcana1", "trapper")
+    ability.w_1_level = Runes:GetTotalRuneLevel(caster, 1, "a_b_arcana1", "trapper")
     EmitSoundOn("Trapper.VenomwhipCast", caster)
     if caster:HasModifier("modifier_trapper_arcana1") then
-    	caster.d_b_arcana_level = Runes:GetTotalRuneLevel(caster, 4, "d_b_arcana1", "trapper")
+    	caster.w_4_arcana_level = Runes:GetTotalRuneLevel(caster, 4, "d_b_arcana1", "trapper")
 	end
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do

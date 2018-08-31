@@ -37,7 +37,7 @@ function warp_flare_start(event)
 	table.insert(ability.bandTable, pfx)
 	ability.currentBand = #ability.bandTable
 	EmitSoundOn("Solunia.WarpFlare", caster)
-	rune_b_c_galaxy_nitro(caster, ability)
+	rune_e_2_galaxy_nitro(caster, ability)
 	c_c_pit(caster, ability, target)
 
 	caster:FindAbilityByName("solunia_solarang"):SetActivated(false)
@@ -217,12 +217,12 @@ function end_warp_flare(ability,caster)
 		end
 		ability.bandTable = {}
 	end)
-	local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "a_c", "solunia")
+	local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "solunia")
 	if a_c_level > 0 then
 		local warpAbility = caster:FindAbilityByName("solunia_warp_flare")
 		local a_c_duration = Filters:GetAdjustedBuffDuration(caster, 18, false)
-		warpAbility:ApplyDataDrivenModifier(caster, caster, "modifier_solunia_rune_a_c_ready", {duration = a_c_duration})
-		caster:SetModifierStackCount("modifier_solunia_rune_a_c_ready", caster, 2)
+		warpAbility:ApplyDataDrivenModifier(caster, caster, "modifier_solunia_rune_e_1_ready", {duration = a_c_duration})
+		caster:SetModifierStackCount("modifier_solunia_rune_e_1_ready", caster, 2)
 	end
 end
 
@@ -239,8 +239,8 @@ function after_flare_falling(event)
 	end
 end
 
-function rune_b_c_galaxy_nitro(caster, ability)
-	local b_c_level =  Runes:GetTotalRuneLevel(caster, 2, "b_c", "solunia")
+function rune_e_2_galaxy_nitro(caster, ability)
+	local b_c_level =  Runes:GetTotalRuneLevel(caster, 2, "e_2", "solunia")
 	if b_c_level > 0 then
 		local solarangAbility = caster:FindAbilityByName("solunia_solarang")
 		local lunarangAbility = caster:FindAbilityByName("solunia_lunarang")
@@ -288,8 +288,8 @@ function rune_b_c_galaxy_nitro(caster, ability)
 end
 
 function c_c_pit(caster, ability, targetPoint)
-	local c_c_level = Runes:GetTotalRuneLevel(caster, 3, "c_c", "solunia")
-	ability.c_c_level = c_c_level
+	local c_c_level = Runes:GetTotalRuneLevel(caster, 3, "e_3", "solunia")
+	ability.e_3_level = c_c_level
 	if c_c_level > 0 then
 		local duration = 1 + 0.3*c_c_level
 		local modifierName = "modifier_solunia_warp_core_thinker"
@@ -306,11 +306,11 @@ function rune_unit_4_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local hero = caster.hero
-	local totalLevel = Runes:GetTotalRuneLevel(hero, 4, "d_c", "solunia")
+	local totalLevel = Runes:GetTotalRuneLevel(hero, 4, "e_4", "solunia")
 	if totalLevel > 0 then
 		local stackCount = totalLevel
-		ability:ApplyDataDrivenModifier(caster, hero, "modifier_solunia_rune_d_c_effect", {})
-		hero:SetModifierStackCount( "modifier_solunia_rune_d_c_effect", ability, stackCount )
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_solunia_rune_e_4_effect", {})
+		hero:SetModifierStackCount( "modifier_solunia_rune_e_4_effect", ability, stackCount )
 	end
 end
 

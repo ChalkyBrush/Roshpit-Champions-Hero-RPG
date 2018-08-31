@@ -265,54 +265,54 @@ function Head:addItemModifier(propertyValue, hero, inventory_unit, modifier_name
 end
 
 function Head:runeProperty(propertyName, propertyValue, hero)
-	if propertyName == "rune_a_a" then
-		hero.runeUnit.head.a_a = hero.runeUnit.head.a_a + propertyValue
-		Head:setRuneBonusNetTable(hero.runeUnit.head.a_a, propertyName, hero)
-	elseif propertyName == "rune_a_b" then
-		hero.runeUnit.head.a_b = hero.runeUnit.head.a_b + propertyValue
-		Head:setRuneBonusNetTable(hero.runeUnit.head.a_b, propertyName, hero)
-	elseif propertyName == "rune_a_c" then
-		hero.runeUnit.head.a_c = hero.runeUnit.head.a_c + propertyValue
-		Head:setRuneBonusNetTable(hero.runeUnit.head.a_c, propertyName, hero)
-	elseif propertyName == "rune_a_d" then
-		hero.runeUnit.head.a_d = hero.runeUnit.head.a_d + propertyValue
-		Head:setRuneBonusNetTable(hero.runeUnit.head.a_d, propertyName, hero)
-	elseif propertyName == "rune_b_a" then
-		hero.runeUnit2.head.b_a = hero.runeUnit2.head.b_a + propertyValue
-		Head:setRuneBonusNetTable(hero.runeUnit2.head.b_a, propertyName, hero)
-	elseif propertyName == "rune_b_b" then
-		hero.runeUnit2.head.b_b = hero.runeUnit2.head.b_b + propertyValue
-		Head:setRuneBonusNetTable(hero.runeUnit2.head.b_b, propertyName, hero)
-	elseif propertyName == "rune_b_c" then
-		hero.runeUnit2.head.b_c = hero.runeUnit2.head.b_c + propertyValue
-		Head:setRuneBonusNetTable(hero.runeUnit2.head.b_c, propertyName, hero)
-	elseif propertyName == "rune_b_d" then
-		hero.runeUnit2.head.b_d = hero.runeUnit2.head.b_d + propertyValue
-		Head:setRuneBonusNetTable(hero.runeUnit2.head.b_d, propertyName, hero)
-	elseif propertyName == "rune_c_a" then
-		hero.runeUnit3.head.c_a = hero.runeUnit3.head.c_a + propertyValue
-		Head:setRuneBonusNetTable(hero.runeUnit3.head.c_a, propertyName, hero)
-	elseif propertyName == "rune_c_b" then
-		hero.runeUnit3.head.c_b = hero.runeUnit3.head.c_b + propertyValue
-		Head:setRuneBonusNetTable(hero.runeUnit3.head.c_b, propertyName, hero)
-	elseif propertyName == "rune_c_c" then
-		hero.runeUnit3.head.c_c = hero.runeUnit3.head.c_c + propertyValue
-		Head:setRuneBonusNetTable(hero.runeUnit3.head.c_c, propertyName, hero)
-	elseif propertyName == "rune_c_d" then
-		hero.runeUnit3.head.c_d = hero.runeUnit3.head.c_d + propertyValue
-		Head:setRuneBonusNetTable(hero.runeUnit3.head.c_d, propertyName, hero)
-	elseif propertyName == "rune_d_a" then
-		hero.runeUnit4.head.d_a = hero.runeUnit4.head.d_a + propertyValue
-		Head:setRuneBonusNetTable(hero.runeUnit4.head.d_a, propertyName, hero)
-	elseif propertyName == "rune_d_b" then
-		hero.runeUnit4.head.d_b = hero.runeUnit4.head.d_b + propertyValue
-		Head:setRuneBonusNetTable(hero.runeUnit4.head.d_b, propertyName, hero)
-	elseif propertyName == "rune_d_c" then
-		hero.runeUnit4.head.d_c = hero.runeUnit4.head.d_c + propertyValue
-		Head:setRuneBonusNetTable(hero.runeUnit4.head.d_c, propertyName, hero)
-	elseif propertyName == "rune_d_d" then
-		hero.runeUnit4.head.d_d = hero.runeUnit4.head.d_d + propertyValue
-		Head:setRuneBonusNetTable(hero.runeUnit4.head.d_d, propertyName, hero)
+	if propertyName == "rune_q_1" then
+		hero.runeUnit.head.q_1 = hero.runeUnit.head.q_1 + propertyValue
+		Head:setRuneBonusNetTable(hero.runeUnit.head.q_1, propertyName, hero)
+	elseif propertyName == "rune_w_1" then
+		hero.runeUnit.head.w_1 = hero.runeUnit.head.w_1 + propertyValue
+		Head:setRuneBonusNetTable(hero.runeUnit.head.w_1, propertyName, hero)
+	elseif propertyName == "rune_e_1" then
+		hero.runeUnit.head.e_1 = hero.runeUnit.head.e_1 + propertyValue
+		Head:setRuneBonusNetTable(hero.runeUnit.head.e_1, propertyName, hero)
+	elseif propertyName == "rune_r_1" then
+		hero.runeUnit.head.r_1 = hero.runeUnit.head.r_1 + propertyValue
+		Head:setRuneBonusNetTable(hero.runeUnit.head.r_1, propertyName, hero)
+	elseif propertyName == "rune_q_2" then
+		hero.runeUnit2.head.q_2 = hero.runeUnit2.head.q_2 + propertyValue
+		Head:setRuneBonusNetTable(hero.runeUnit2.head.q_2, propertyName, hero)
+	elseif propertyName == "rune_w_2" then
+		hero.runeUnit2.head.w_2 = hero.runeUnit2.head.w_2 + propertyValue
+		Head:setRuneBonusNetTable(hero.runeUnit2.head.w_2, propertyName, hero)
+	elseif propertyName == "rune_e_2" then
+		hero.runeUnit2.head.e_2 = hero.runeUnit2.head.e_2 + propertyValue
+		Head:setRuneBonusNetTable(hero.runeUnit2.head.e_2, propertyName, hero)
+	elseif propertyName == "rune_r_2" then
+		hero.runeUnit2.head.r_2 = hero.runeUnit2.head.r_2 + propertyValue
+		Head:setRuneBonusNetTable(hero.runeUnit2.head.r_2, propertyName, hero)
+	elseif propertyName == "rune_q_3" then
+		hero.runeUnit3.head.q_3 = hero.runeUnit3.head.q_3 + propertyValue
+		Head:setRuneBonusNetTable(hero.runeUnit3.head.q_3, propertyName, hero)
+	elseif propertyName == "rune_w_3" then
+		hero.runeUnit3.head.w_3 = hero.runeUnit3.head.w_3 + propertyValue
+		Head:setRuneBonusNetTable(hero.runeUnit3.head.w_3, propertyName, hero)
+	elseif propertyName == "rune_e_3" then
+		hero.runeUnit3.head.e_3 = hero.runeUnit3.head.e_3 + propertyValue
+		Head:setRuneBonusNetTable(hero.runeUnit3.head.e_3, propertyName, hero)
+	elseif propertyName == "rune_r_3" then
+		hero.runeUnit3.head.r_3 = hero.runeUnit3.head.r_3 + propertyValue
+		Head:setRuneBonusNetTable(hero.runeUnit3.head.r_3, propertyName, hero)
+	elseif propertyName == "rune_q_4" then
+		hero.runeUnit4.head.q_4 = hero.runeUnit4.head.q_4 + propertyValue
+		Head:setRuneBonusNetTable(hero.runeUnit4.head.q_4, propertyName, hero)
+	elseif propertyName == "rune_w_4" then
+		hero.runeUnit4.head.w_4 = hero.runeUnit4.head.w_4 + propertyValue
+		Head:setRuneBonusNetTable(hero.runeUnit4.head.w_4, propertyName, hero)
+	elseif propertyName == "rune_e_4" then
+		hero.runeUnit4.head.e_4 = hero.runeUnit4.head.e_4 + propertyValue
+		Head:setRuneBonusNetTable(hero.runeUnit4.head.e_4, propertyName, hero)
+	elseif propertyName == "rune_r_4" then
+		hero.runeUnit4.head.r_4 = hero.runeUnit4.head.r_4 + propertyValue
+		Head:setRuneBonusNetTable(hero.runeUnit4.head.r_4, propertyName, hero)
 	end
 end
 
@@ -354,21 +354,21 @@ function Head:remove_modifiers(hero)
 end
 
 function Head:remove_rune_bonuses(hero)
-	hero.runeUnit.head.a_a = 0
-	hero.runeUnit.head.a_b = 0
-	hero.runeUnit.head.a_c = 0
-	hero.runeUnit.head.a_d = 0
-	hero.runeUnit2.head.b_a = 0
-	hero.runeUnit2.head.b_b = 0
-	hero.runeUnit2.head.b_c = 0
-	hero.runeUnit2.head.b_d = 0
-	hero.runeUnit3.head.c_a = 0
-	hero.runeUnit3.head.c_b = 0
-	hero.runeUnit3.head.c_c = 0
-	hero.runeUnit3.head.c_d = 0
-	hero.runeUnit4.head.d_a = 0
-	hero.runeUnit4.head.d_b = 0
-	hero.runeUnit4.head.d_c = 0
-	hero.runeUnit4.head.d_d = 0
+	hero.runeUnit.head.q_1 = 0
+	hero.runeUnit.head.w_1 = 0
+	hero.runeUnit.head.e_1 = 0
+	hero.runeUnit.head.r_1 = 0
+	hero.runeUnit2.head.q_2 = 0
+	hero.runeUnit2.head.w_2 = 0
+	hero.runeUnit2.head.e_2 = 0
+	hero.runeUnit2.head.r_2 = 0
+	hero.runeUnit3.head.q_3 = 0
+	hero.runeUnit3.head.w_3 = 0
+	hero.runeUnit3.head.e_3 = 0
+	hero.runeUnit3.head.r_3 = 0
+	hero.runeUnit4.head.q_4 = 0
+	hero.runeUnit4.head.w_4 = 0
+	hero.runeUnit4.head.e_4 = 0
+	hero.runeUnit4.head.r_4 = 0
 	Runes:ResetRuneBonuses(hero, "head")
 end

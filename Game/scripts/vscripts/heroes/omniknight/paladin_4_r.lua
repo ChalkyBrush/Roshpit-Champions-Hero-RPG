@@ -30,31 +30,31 @@ function chronosphere( keys )
       --  ParticleManager:DestroyParticle( particle1, false )
       --end)
 	ability.radius = vision_radius
-	rune_a_d(caster, target_point, ability, duration, vision_radius)
-	rune_b_d_level(caster, ability, target_point)
-	rune_c_d(caster, ability)
+	rune_r_1(caster, target_point, ability, duration, vision_radius)
+	rune_r_2_level(caster, ability, target_point)
+	rune_r_3(caster, ability)
 	Filters:CastSkillArguments(4, caster)
 end
 
-function rune_b_d_level(caster, ability, target_point)
+function rune_r_2_level(caster, ability, target_point)
 	  local runeUnit = caster.runeUnit2
-	  local runeAbility = runeUnit:FindAbilityByName("paladin_rune_b_d")
+	  local runeAbility = runeUnit:FindAbilityByName("paladin_rune_r_2")
 	  local abilityLevel = runeAbility:GetLevel()
-	  local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_d")
+	  local bonusLevel = Runes:GetTotalBonus(runeUnit, "r_2")
 	  local totalLevel = abilityLevel + bonusLevel
 	  ability.runeUnit = runeUnit
 	  ability.runeAbility_b_d = runeAbility
 	  ability.centerPoint = target_point
-	  ability.rune_b_d_level = totalLevel
+	  ability.rune_r_2_level = totalLevel
 end
 
 
 
-function rune_a_d(caster, target_point, ability, duration, radius)
+function rune_r_1(caster, target_point, ability, duration, radius)
 	  local runeUnit = caster.runeUnit
-	  local runeAbility = runeUnit:FindAbilityByName("paladin_rune_a_d")
+	  local runeAbility = runeUnit:FindAbilityByName("paladin_rune_r_1")
 	  local abilityLevel = runeAbility:GetLevel()
-	  local bonusLevel = Runes:GetTotalBonus(runeUnit, "a_d")
+	  local bonusLevel = Runes:GetTotalBonus(runeUnit, "r_1")
 	  local totalLevel = abilityLevel + bonusLevel
 	  if totalLevel > 0 then
 		local hammer = CreateUnitByName("prop_unit", target_point, false, caster, caster, caster:GetTeam())
@@ -72,10 +72,10 @@ function rune_a_d(caster, target_point, ability, duration, radius)
 		ability.totalLift = 0
 		ability.liftVelocity = 0
 		ability.lifting = true
-		ability.a_d_level = totalLevel
+		ability.r_1_level = totalLevel
 		ability.caster = caster
-		ability.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "paladin")
-		ability.d_d_ability = caster.runeUnit4:FindAbilityByName("paladin_rune_d_d")
+		ability.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "paladin")
+		ability.r_4_ability = caster.runeUnit4:FindAbilityByName("paladin_rune_r_4")
 	  end
 end
 
@@ -98,13 +98,13 @@ function hammer_think(event)
 	end
 	ability.hammer:SetAbsOrigin(ability.hammerPosition + Vector(0,0,ability.liftPos))
 	if ability.totalLift%100 == 0 then
-		hammer_strike(ability, ability.hammer, ability.a_d_level, ability.radius, ability.caster)
+		hammer_strike(ability, ability.hammer, ability.r_1_level, ability.radius, ability.caster)
 	end
 end
 
 function hammer_strike(ability, hammer, abilityLevel, radius, caster)
 	local totalLevel = ability:GetLevel()
-	local particleName = "particles/units/heroes/hero_shadowshaman/paladin_rune_a_a.vpcf"
+	local particleName = "particles/units/heroes/hero_shadowshaman/paladin_rune_q_1.vpcf"
 	local damage = 15*abilityLevel
 
 	
@@ -113,8 +113,8 @@ function hammer_strike(ability, hammer, abilityLevel, radius, caster)
 	if #enemies > 0 then
 		EmitSoundOn("Hero_Chen.HandOfGodHealCreep", hammer)
 	end
-	local d_d_ability = ability.d_d_ability
-	local d_d_level = ability.d_d_level
+	local d_d_ability = ability.r_4_ability
+	local d_d_level = ability.r_4_level
 	for _,unit in pairs(enemies) do
 		-- Particle
 		local origin = unit:GetAbsOrigin()
@@ -125,10 +125,10 @@ function hammer_strike(ability, hammer, abilityLevel, radius, caster)
 		-- Damage
 		ApplyDamage({ victim = unit, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
 		if d_d_level > 0 then
-		    d_d_ability:ApplyDataDrivenModifier(caster.runeUnit4, unit, "modifier_paladin_rune_d_d_effect", {duration = 7})
-		    local current_stacks = unit:GetModifierStackCount( "modifier_paladin_rune_d_d_effect", d_d_ability )
+		    d_d_ability:ApplyDataDrivenModifier(caster.runeUnit4, unit, "modifier_paladin_rune_r_4_effect", {duration = 7})
+		    local current_stacks = unit:GetModifierStackCount( "modifier_paladin_rune_r_4_effect", d_d_ability )
 		    newStacks = current_stacks + math.ceil(damage/100)*d_d_level
-		    unit:SetModifierStackCount( "modifier_paladin_rune_d_d_effect", d_d_ability, newStacks )
+		    unit:SetModifierStackCount( "modifier_paladin_rune_r_4_effect", d_d_ability, newStacks )
 		end
 		-- Increment counter
 		--targets_shocked = targets_shocked + 1
@@ -139,31 +139,31 @@ function b_d_think(event)
 	local ability = event.ability
 	local caster = event.caster
 	local runeAbility = ability.runeAbility_b_d
-	local level = ability.rune_b_d_level
+	local level = ability.rune_r_2_level
 	if level > 0 then
 		local allies = FindUnitsInRadius( event.caster:GetTeamNumber(), ability.centerPoint, nil, ability.radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		for _,unit in pairs(allies) do
-	        local current_stack = unit:GetModifierStackCount( "modifier_paladin_rune_b_d", ability )
+	        local current_stack = unit:GetModifierStackCount( "modifier_paladin_rune_r_2", ability )
 	        if not current_stack then
 	        	current_stack = 0
 	        end
-	        ability:ApplyDataDrivenModifier(caster, unit, "modifier_paladin_rune_b_d", {duration = 5})
-	        unit:SetModifierStackCount( "modifier_paladin_rune_b_d", ability, current_stack+level )		
+	        ability:ApplyDataDrivenModifier(caster, unit, "modifier_paladin_rune_r_2", {duration = 5})
+	        unit:SetModifierStackCount( "modifier_paladin_rune_r_2", ability, current_stack+level )		
 		end
 	end
 end
 
-function rune_c_d(caster, ability)
+function rune_r_3(caster, ability)
   local runeUnit = caster.runeUnit3
-  local runeAbility = runeUnit:FindAbilityByName("paladin_rune_c_d")
+  local runeAbility = runeUnit:FindAbilityByName("paladin_rune_r_3")
   local abilityLevel = runeAbility:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_d")
+  local bonusLevel = Runes:GetTotalBonus(runeUnit, "r_3")
   local totalLevel = abilityLevel + bonusLevel
   if totalLevel > 0 then
 	-- EmitSoundOn("DOTA_Item.BlackKingBar.Activate", caster)
-	runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_paladin_rune_c_d_savior", {duration = 8})
-	runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_paladin_rune_c_d_buff", {duration = 8})
-	caster:SetModifierStackCount( "modifier_paladin_rune_c_d_buff", runeAbility, totalLevel )
+	runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_paladin_rune_r_3_savior", {duration = 8})
+	runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_paladin_rune_r_3_buff", {duration = 8})
+	caster:SetModifierStackCount( "modifier_paladin_rune_r_3_buff", runeAbility, totalLevel )
   end
 end
 
@@ -188,8 +188,8 @@ function c_d_attack_hit(event)
 	local attacker = event.attacker
 	local target= event.target
 	local ability = event.ability
-	ability.c_d_damage = attacker:GetAverageTrueAttackDamage(attacker)
-	ability.c_d_source = attacker
+	ability.r_3_damage = attacker:GetAverageTrueAttackDamage(attacker)
+	ability.r_3_source = attacker
 	      local enemies = FindUnitsInRadius( attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, 650, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE+DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false )
 	      if #enemies > 0 then
 	      	local count = 0
@@ -228,10 +228,10 @@ function create_split_attack_c_d(attacker, enemy, target, ability, arrowParticle
 	projectile = ProjectileManager:CreateTrackingProjectile(info)
 end
 
-function paladin_rune_c_d_splash_attack_hit(event)
-	local caster = event.ability.c_d_source
+function paladin_rune_r_3_splash_attack_hit(event)
+	local caster = event.ability.r_3_source
 	local target = event.target
-	local damage = event.ability.c_d_damage
+	local damage = event.ability.r_3_damage
 	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
 end
 
@@ -270,11 +270,11 @@ function hammer_throwing_thinker(event)
 	end
 end
 
-function paladin_rune_c_d_strike(event)
+function paladin_rune_r_3_strike(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = ability.origCaster
-	local damage = ability.c_d_level*100
+	local damage = ability.r_3_level*100
 	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
 end
 

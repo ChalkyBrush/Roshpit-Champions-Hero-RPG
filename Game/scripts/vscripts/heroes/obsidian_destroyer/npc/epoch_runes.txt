@@ -1,4 +1,4 @@
-	"epoch_rune_a_a"
+	"epoch_rune_q_1"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -12,7 +12,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% epoch_q1_dmg_multi_pct %>"
+				"property_one"			"<% EPOCH_Q1_DMG_MULTI_PCT %>"
 			}
 			"02"
 			{
@@ -27,7 +27,7 @@
 		}
 	}
 
-	"epoch_rune_a_b"
+	"epoch_rune_w_1"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -40,12 +40,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% epoch_w1_mana_restore_pct %>"
+				"property_one"			"<% EPOCH_W1_MANA_RESTORE_PCT %>"
 			}
 		}
 		"Modifiers"
 		{
-			"modifier_epoch_rune_a_b"
+			"modifier_epoch_rune_w_1"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -54,7 +54,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_epoch_rune_a_b_effect"
+			"modifier_epoch_rune_w_1_effect"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
@@ -76,7 +76,7 @@
 		}
 	}
 
-	"epoch_rune_a_c"
+	"epoch_rune_e_1"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -94,15 +94,15 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% epoch_e1_duration %>"
+				"property_one"			"<% EPOCH_E1_DURATION %>"
 			}
 		}
 		"Modifiers"
 		{
-			"modifier_epoch_rune_a_c"
+			"modifier_epoch_rune_e_1"
 			{
 				"Passive"	"0"
-				"EffectName"		"particles/units/heroes/hero_phantom_assassin/epoch_rune_a_c.vpcf"
+				"EffectName"		"particles/units/heroes/hero_phantom_assassin/epoch_rune_e_1.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"Properties"
 				{
@@ -117,7 +117,7 @@
 		}
 	}
 
-	"epoch_rune_a_d"
+	"epoch_rune_r_1"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -130,17 +130,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% epoch_r1_dmg_pct %>"
+				"property_one"			"<% EPOCH_R1_DMG_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% epoch_r1_extra_duration %>"
+				"property_two"			"<% EPOCH_R1_EXTRA_DURATION %>"
 			}
 		}
 	}
 
-	"epoch_rune_b_a"
+	"epoch_rune_q_2"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -153,12 +153,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% epoch_q2_flat_dmg %>"
+				"property_one"			"<% EPOCH_Q2_FLAT_DMG %>"
 			}
 		}
 	}
 
-	"epoch_rune_b_b"
+	"epoch_rune_w_2"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -177,12 +177,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% epoch_w2_post_miti_pct %>"
+				"property_two"			"<% EPOCH_W2_POST_MITI_PCT %>"
 			}
 		}
 	}
 
-	"epoch_rune_b_c"
+	"epoch_rune_e_2"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -221,7 +221,7 @@
 		}
 	}
 
-	"epoch_rune_b_d"
+	"epoch_rune_r_2"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -234,18 +234,18 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% epoch_r2_attack_range %>"
+				"property_one"			"<% EPOCH_R2_ATTACK_RANGE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% epoch_r2_attack_speed %>"
+				"property_two"			"<% EPOCH_R2_ATTACK_SPEED %>"
 			}
 		}
 
 		"Modifiers"
 		{
-			"modifier_epoch_b_d_buff"
+			"modifier_epoch_r_2_buff"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -260,7 +260,7 @@
 		}
 	}
 
-	"epoch_rune_c_a"
+	"epoch_rune_q_3"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -274,7 +274,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% epoch_q3_times_mana_drained %>"
+				"property_one"			"<% EPOCH_Q3_TIMES_MANA_DRAINED %>"
 			}
 			"02"
 			{
@@ -299,33 +299,15 @@
 				"IsHidden"	"0"
 				"IsBuff"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnAttack"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/obsidian_destroyer/time_binder.lua"
-						"Function"		"c_a_attack_start"
-					}
-				}
 			}
 			"modifier_epoch_c_a_lock"
 			{
 				"IsHidden"	"1"
 			}
 		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"1"
-			"RunScript"
-			{
-				"ScriptFile"	"scripts/vscripts/heroes/obsidian_destroyer/time_binder.lua"
-				"Function"		"c_a_strike"
-				"target"		"TARGET"
-			}
-		}
 	}
 
-	"epoch_rune_c_b"
+	"epoch_rune_w_3"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -338,17 +320,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% epoch_w3_int %>"
+				"property_one"			"<% EPOCH_W3_INT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% epoch_w3_heal %>"
+				"property_two"			"<% EPOCH_W3_HEAL %>"
 			}
 		}
 	}
 
-	"epoch_rune_c_c"
+	"epoch_rune_e_3"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -371,7 +353,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_epoch_rune_c_c"
+			"modifier_epoch_rune_e_3"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -380,33 +362,15 @@
 				"StatusEffectName" 		"particles/status_fx/status_effect_huskar_lifebreak_experimental.vpcf"
 				"StatusEffectPriority"  "10"
 
-				"OnAttack"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/obsidian_destroyer/time_warp.lua"
-						"Function"		"rune_c_c_attack_start"
-					}
-				}
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "100"
 				}
 			}
 		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"1"
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/obsidian_destroyer/time_warp.lua"
-				"Function"		"rune_c_c_projectile_land"
-				"Target"		"TARGET"
-			}
-		}
 	}
 
-	"epoch_rune_c_d"
+	"epoch_rune_r_3"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -420,7 +384,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% epoch_r3_dmg_multi_pct %>"
+				"property_one"			"<% EPOCH_R3_DMG_MULTI_PCT %>"
 			}
 			"02"
 			{
@@ -435,7 +399,7 @@
 		}
 	}
 
-	"epoch_rune_d_a"
+	"epoch_rune_q_4"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -448,7 +412,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% epoch_q4_dmg_bonus_pct %>"
+				"property_one"			"<% EPOCH_Q4_DMG_BONUS_PCT %>"
 			}
 			"02"
 			{
@@ -458,7 +422,7 @@
 		}
 	}
 
-	"epoch_rune_d_b"
+	"epoch_rune_w_4"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -471,12 +435,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% epoch_w4_dmg_multi_pct %>"
+				"property_one"			"<% EPOCH_W4_DMG_MULTI_PCT %>"
 			}
 		}
 	}
 
-	"epoch_rune_d_c"
+	"epoch_rune_e_4"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -489,12 +453,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% epoch_e4_dmg_multi_pct %>"
+				"property_one"			"<% EPOCH_E4_DMG_MULTI_PCT %>"
 			}
 		}
 	}
 
-	"epoch_rune_d_d"
+	"epoch_rune_r_4"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -507,17 +471,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% epoch_r4_elem_time %>"
+				"property_one"			"<% EPOCH_R4_ELEM_TIME %>"
 			}
 		}
 	}
 
-	"epoch_rune_a_a_arcana1"
+	"epoch_rune_q_1_arcana1"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"epoch/epoch_rune_a_a_arcana1"
+		"AbilityTextureName"	"epoch/epoch_rune_q_1_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
@@ -526,7 +490,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% epoch_arcana_q1_dmg_multi_pct %>"
+				"property_one"			"<% EPOCH_ARCANA_Q1_DMG_MULTI_PCT %>"
 			}
 			"02"
 			{
@@ -536,12 +500,12 @@
 		}
 	}
 
-	"epoch_rune_b_a_arcana1"
+	"epoch_rune_q_2_arcana1"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"epoch/epoch_rune_b_a_arcana1"
+		"AbilityTextureName"	"epoch/epoch_rune_q_2_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -549,17 +513,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% epoch_arcana_q2_post_miti_pct %>"
+				"property_one"			"<% EPOCH_ARCANA_Q2_POST_MITI_PCT %>"
 			}
 		}
 	}
 
-	"epoch_rune_c_a_arcana1"
+	"epoch_rune_q_3_arcana1"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"epoch/epoch_rune_c_a_arcana1"
+		"AbilityTextureName"	"epoch/epoch_rune_q_3_arcana1"
 		"MaxLevel"				"20"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"LevelsBetweenUpgrades" "0"
@@ -568,12 +532,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% epoch_arcana_q3_dmg_multi_pct %>"
+				"property_one"			"<% EPOCH_ARCANA_Q3_DMG_MULTI_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% epoch_arcana_q3_extra_base_att_dmg_pct %>"
+				"property_two"			"<% EPOCH_ARCANA_Q3_EXTRA_BASE_ATT_DMG_PCT %>"
 			}
 			"03"
 			{
@@ -593,12 +557,12 @@
 		}
 	}
 
-	"epoch_rune_d_a_arcana1"
+	"epoch_rune_q_4_arcana1"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"epoch/epoch_rune_d_a_arcana1"
+		"AbilityTextureName"	"epoch/epoch_rune_q_4_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -606,7 +570,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% epoch_arcana_q4_procs_pct %>"
+				"property_one"			"<% EPOCH_ARCANA_Q4_PROCS_PCT %>"
 			}
 			"02"
 			{

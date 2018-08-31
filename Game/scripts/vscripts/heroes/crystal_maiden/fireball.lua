@@ -10,7 +10,7 @@ function begin_fireball(event)
 	local fireBallStartPosition = caster:GetAbsOrigin()
 	if caster:HasModifier("modifier_sorceress_immortal_fire_avatar") then
 		caster = caster.origCaster
-		ability.rune_a_d_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
+		ability.rune_r_1_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
 	end
 	launchFireBall(caster, ability, fv, "particles/units/heroes/hero_jakiro/fireball.vpcf", 140, fireBallStartPosition)
 	if bArcane then
@@ -37,10 +37,10 @@ function begin_fireball(event)
 			end)
 		end)
 	end
-	local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "c_d", "sorceress") 
-	caster.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "sorceress")
+	local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "sorceress") 
+	caster.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "sorceress")
 	if c_d_level > 0 then
-		-- local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "sorceress")
+		-- local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "sorceress")
 		-- damage = damage + 0.0001*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*d_d_level*damage
 		sorceress_c_d(caster, target, 280, c_d_level)
 	end
@@ -80,8 +80,8 @@ function sorceress_c_d(caster, point, radius, runesCount)
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false )	
 		if #enemies > 0 then	
 			for i = 1, #enemies, 1 do
-				ability:ApplyDataDrivenModifier(caster, enemies[i], "modifier_sorceress_rune_c_d", {duration = SORCERESS_R3_DURATION})
-				enemies[i]:SetModifierStackCount("modifier_sorceress_rune_c_d", caster, runesCount)
+				ability:ApplyDataDrivenModifier(caster, enemies[i], "modifier_sorceress_rune_r_3", {duration = SORCERESS_R3_DURATION})
+				enemies[i]:SetModifierStackCount("modifier_sorceress_rune_r_3", caster, runesCount)
 				Filters:ApplyStun(caster, 0.5, enemies[i])
 			end
 		end
@@ -137,22 +137,22 @@ function fireball_hit(event)
 	EmitSoundOn("Hero_Invoker.SunStrike.Ignite", target)
 
 	local damage = 0
-	if not ability.rune_a_d_level then
-		ability.rune_a_d_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
+	if not ability.rune_r_1_level then
+		ability.rune_r_1_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
 	end
-	local damage = ability.rune_a_d_level*R1_ADD_DAMAGE + R1_BASE_DAMAGE
+	local damage = ability.rune_r_1_level*R1_ADD_DAMAGE + R1_BASE_DAMAGE
 
     local blinkAbility = caster:FindAbilityByName("sorceress_blink")
-    blinkAbility.d_b_damage = damage
+    blinkAbility.w_4_damage = damage
     blinkAbility.baseIndex = 4
 
-    -- local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "sorceress")
+    -- local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "sorceress")
     -- damage = damage + 0.0001*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*d_d_level*damage
 	local radius = 360
 	local pyroblast = caster:FindAbilityByName("pyroblast")
 	local b_d_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
-	if not pyroblast.rune_b_d_level then
-		pyroblast.rune_b_d_level = b_d_level
+	if not pyroblast.rune_r_2_level then
+		pyroblast.rune_r_2_level = b_d_level
 	end
 	
       local particleNameS = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
@@ -189,7 +189,7 @@ function fireball_hit(event)
 	local newStacksCount = math.min(R1_MAX_STACKS_COUNT, stacksCount + 1)
 	caster:SetModifierStackCount("modifier_fireball_stacks", caster,newStacksCount)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_fireball_attackspeed", {duration = duration})
-	caster:SetModifierStackCount("modifier_fireball_attackspeed", caster,newStacksCount * ability.rune_a_d_level)
+	caster:SetModifierStackCount("modifier_fireball_attackspeed", caster,newStacksCount * ability.rune_r_1_level)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_fireball_attack_damage", {duration = duration})
 	caster:SetModifierStackCount("modifier_fireball_attack_damage", caster,newStacksCount * damage)
 end

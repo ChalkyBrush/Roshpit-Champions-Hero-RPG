@@ -3,7 +3,7 @@ require('heroes/leshrac/leshrac_blink')
 function begin_pulse(event)
 	local caster = event.caster
 	local ability = event.ability
-	local damage = ability.c_c_damage
+	local damage = ability.e_3_damage
 	local point = caster:GetAbsOrigin()
 	local radius = 500
 	if caster:HasModifier("modifier_bahamut_glyph_4_1") then

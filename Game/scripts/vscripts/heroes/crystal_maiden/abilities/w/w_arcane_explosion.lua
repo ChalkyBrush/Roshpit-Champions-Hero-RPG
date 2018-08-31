@@ -8,15 +8,15 @@ function cast(event)
     local caster = event.caster
     local ability = event.ability
 
-    Helper.initializeAbilityRunes(caster, 'sorceress', 'a')
-    Helper.initializeAbilityRunes(caster, 'sorceress', 'b')
-    Helper.initializeAbilityRunes(caster, 'sorceress', 'c')
-    Helper.initializeAbilityRunes(caster, 'sorceress', 'd')
+    Helper.initializeAbilityRunes(caster, 'sorceress', 'q')
+    Helper.initializeAbilityRunes(caster, 'sorceress', 'w')
+    Helper.initializeAbilityRunes(caster, 'sorceress', 'e')
+    Helper.initializeAbilityRunes(caster, 'sorceress', 'r')
 
     local currentMana = caster:GetMana()
     local damage = event.damage/100 * currentMana
-    if caster.d_b_level > 0 then
-        damage = damage * (1 + SORCERESS_W4_AMPLIFY_PERCENT/100 * caster.d_b_level)
+    if caster.w_4_level > 0 then
+        damage = damage * (1 + SORCERESS_W4_AMPLIFY_PERCENT/100 * caster.w_4_level)
     end
 
     if caster:HasModifier("modifier_sorceress_glyph_7_2") then

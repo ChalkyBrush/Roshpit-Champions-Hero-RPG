@@ -16,18 +16,18 @@ function cast(event)
 		ability:StartCooldown(constants.T11_COOLDOWN)
 	end
 
-	local q1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
+	local q1_level = caster:GetRuneValue("q", 1)
 	local q1_duration = constants.Q1_DURATION
 
-	local q2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
+	local q2_level = caster:GetRuneValue("q", 2)
 	if q2_level > 0 then
 		damage = damage + constants.Q2_DAMAGE_PER_INT * q2_level * caster:GetIntellect()
 	end
 	ability.dot_damage = damage
 
-	local q3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
+	local q3_level = caster:GetRuneValue("q", 3)
 
-	local q4_level =  Runes:GetTotalRuneLevelGeneric(caster, 4, 0)
+	local q4_level =  caster:GetRuneValue("q", 4)
 	if q4_level > 0 then
 		radius = radius + q4_level * constants.Q4_RANGE
 	end
@@ -63,7 +63,7 @@ function cast(event)
 	local w_ability = caster:FindAbilityByName('nether_blaster')
 	local modifier = caster:FindModifierByName("modifier_venomort_glyph_1_2")
 	if modifier then
-		local w2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
+		local w2_level = caster:GetRuneValue("w", 2)
 		if w2_level > 0 then
 			apply_demoralize = true
 			demoralize_duration =  w2_level * constants.W2_DURATION * (1 + constants.T12_DURATION_INCREASE_PERCENT/100)

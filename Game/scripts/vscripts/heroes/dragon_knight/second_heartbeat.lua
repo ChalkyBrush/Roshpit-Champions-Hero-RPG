@@ -5,16 +5,16 @@ function begin_second_heartbeat(event)
 	local abilityLevel = ability:GetLevel()
 	local forwardVector = caster:GetForwardVector() 
 	local fv = forwardVector
-	local b_b_level = rune_b_b(caster)
-	local rangeblast = b_b_level * 10
+	local w_2_level = rune_w_2(caster)
+	local rangeblast = w_2_level * 10
 	if rangeblast > 1000 then
 		rangeblast = 1000
 	end
 	fire_projectile(abilityLevel, caster, fv, location, event, rangeblast)
-	ability.b_b_level = b_b_level
-	ability.c_b_level = rune_c_b(caster)
-	rune_d_b(caster, ability)
-	caster.d_d_level = Runes:GetTotalRuneLevel(caster, 4, "d_d", "flamewaker")
+	ability.w_2_level = w_2_level
+	ability.w_3_level = rune_w_3(caster)
+	rune_w_4(caster, ability)
+	caster.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "flamewaker")
 	-- if caster:HasModifier("modifier_flamewaker_glyph_4_1") then
 	-- 	caster:ReduceMana(ability:GetManaCost(ability:GetLevel())*2)
 	-- end
@@ -35,9 +35,9 @@ function second_heartbeat_damage(event)
 		damage = damage + ((caster:GetStrength() + caster:GetAgility() + caster:GetIntellect())*5 + caster:GetAverageTrueAttackDamage(caster)*0.2)*ability:GetLevel()
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_flamewaker_glyph_4_1_effect", {duration = 3})
 	end
-	damage = damage * (1 + 0.2 * ability.b_b_level)
-    if ability.c_b_level > 0 then
-    	local additional_armorLoss = math.ceil(1.0*ability.c_b_level)
+	damage = damage * (1 + 0.2 * ability.w_2_level)
+    if ability.w_3_level > 0 then
+    	local additional_armorLoss = math.ceil(1.0*ability.w_3_level)
 	    ability:ApplyDataDrivenModifier(caster, target, "modifier_searing_heat", {duration = 6})
 	    local current_stack = target:GetModifierStackCount( "modifier_searing_heat", ability )
 	    local stacks = math.min(current_stack+additional_armorLoss, 10000)
@@ -81,8 +81,8 @@ function fire_projectile(abilityLevel, caster, fv, casterOrigin, event, rangebla
 	projectile = ProjectileManager:CreateLinearProjectile(info)
 end
 
-function fire_projectile_c_b(abilityLevel, caster, fv, casterOrigin, event, c_b_level)
-	local rangeblast = 300+c_b_level*30
+function fire_projectile_c_b(abilityLevel, caster, fv, casterOrigin, event, w_3_level)
+	local rangeblast = 300+w_3_level*30
 	local ability = event.ability
 	local start_radius = event.start_radius
 	local end_radius = event.end_radius + rangeblast/2
@@ -113,22 +113,14 @@ function fire_projectile_c_b(abilityLevel, caster, fv, casterOrigin, event, c_b_
 end
 
 
-function rune_b_b(caster)
-	local runeUnit = caster.runeUnit2
-	local ability = runeUnit:FindAbilityByName("flamewaker_rune_b_b")
-	local abilityLevel = ability:GetLevel()
-	local bonusLevel = Runes:GetTotalBonus(runeUnit, "b_b")
-	local totalLevel = caster:GetRuneValue("w",2)
-	return totalLevel
+function rune_w_2(caster)
+	local w_2_level = caster:GetRuneValue("w", 2)
+	return w_2_level
 end
 
-function rune_c_b(caster)
-	local runeUnit = caster.runeUnit3
-	local ability = runeUnit:FindAbilityByName("flamewaker_rune_c_b")
-	local abilityLevel = ability:GetLevel()
-	local bonusLevel = Runes:GetTotalBonus(runeUnit, "c_b")
-	local totalLevel = caster:GetRuneValue("w",3)
-	return totalLevel
+function rune_w_3(caster)
+	local w_3_level = caster:GetRuneValue("w", 3)
+	return w_3_level
 end
 
 
@@ -154,19 +146,19 @@ function last_damaging_unit(event)
 	end
 end
 
-function rune_d_b(caster, ability)
-	local d_b_level = Runes:GetTotalRuneLevel(caster, 4, "d_b", "flamewaker")
-	if d_b_level > 0 and not caster:HasModifier("modifier_flamewaker_rune_d_b_cooldown") and caster.lastDamagingUnit then
+function rune_w_4(caster, ability)
+	local w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "flamewaker")
+	if w_4_level > 0 and not caster:HasModifier("modifier_flamewaker_rune_w_4_cooldown") and caster.lastDamagingUnit then
 		if IsValidEntity(caster.lastDamagingUnit) then
 			if caster.lastDamagingUnit:IsAlive() then
 				if caster.lastDamagingUnit.dummy or caster.lastDamagingUnit:HasAbility("dummy_unit") then
 				else
-					local runeAbility = caster.runeUnit4:FindAbilityByName("flamewaker_rune_d_b")
-					runeAbility.d_b_level = d_b_level
-					runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_flamewaker_rune_d_b_cooldown", {duration = 0.5})
+					local runeAbility = caster.runeUnit4:FindAbilityByName("flamewaker_rune_w_4")
+					runeAbility.w_4_level = w_4_level
+					runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_flamewaker_rune_w_4_cooldown", {duration = 0.5})
 					local duration = Filters:GetAdjustedBuffDuration(caster, 5, false)
-					runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_flamewaker_rune_d_b", {duration = duration})
-					caster:SetModifierStackCount( "modifier_flamewaker_rune_d_b", runeAbility, d_b_level )
+					runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_flamewaker_rune_w_4", {duration = duration})
+					caster:SetModifierStackCount( "modifier_flamewaker_rune_w_4", runeAbility, w_4_level )
 				 	begin_dragon_wrath(caster, ability, caster.lastDamagingUnit)
 				end
 		    end
@@ -307,7 +299,7 @@ function drop_end(keys)
 				PopupDamage(target, damageApprox)
 				StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_ATTACK, rate=2.4})
 				Timers:CreateTimer(0.03, function()
-					caster:RemoveModifierByName("modifier_flamewaker_rune_d_b")
+					caster:RemoveModifierByName("modifier_flamewaker_rune_w_4")
 				end)
 			end)
 		end

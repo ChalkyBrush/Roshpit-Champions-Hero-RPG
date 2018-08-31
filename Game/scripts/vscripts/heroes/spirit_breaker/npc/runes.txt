@@ -1,11 +1,11 @@
-"duskbringer_rune_a_a"
+"duskbringer_rune_q_1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/duskbringer_rune_a_a"
+		"AbilityTextureName"	"rpc/duskbringer_rune_q_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -41,7 +41,7 @@
 
 	}
 
-	"duskbringer_rune_a_b"
+	"duskbringer_rune_w_1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -74,7 +74,7 @@
 
 	}
 
-	"duskbringer_rune_a_c"
+	"duskbringer_rune_e_1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -100,7 +100,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_duskbringer_rune_a_c_passive"
+			"modifier_duskbringer_rune_e_1_passive"
 			{
 				"Passive"			"1"
 				"IsHidden"			"0"
@@ -116,7 +116,7 @@
 					}
 				}
 			}
-			"modifier_duskbringer_rune_a_c_effect"
+			"modifier_duskbringer_rune_e_1_effect"
 			{
 				"IsBuff"	"1"
 				"IsHidden"	"0"
@@ -148,14 +148,14 @@
 
 	}
 
-	"duskbringer_rune_a_d"
+	"duskbringer_rune_r_1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/duskbringer_rune_a_d"
+		"AbilityTextureName"	"rpc/duskbringer_rune_r_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -181,14 +181,14 @@
 
 	}
 
-	"duskbringer_rune_b_a"
+	"duskbringer_rune_q_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/duskbringer_rune_b_a"
+		"AbilityTextureName"	"rpc/duskbringer_rune_q_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -203,14 +203,14 @@
 
 	}
 
-	"duskbringer_rune_b_b"
+	"duskbringer_rune_w_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/duskbringer_rune_b_b"
+		"AbilityTextureName"	"rpc/duskbringer_rune_w_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -226,14 +226,14 @@
 	}
 
 
-	"duskbringer_rune_b_c"
+	"duskbringer_rune_e_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/duskbringer_rune_b_c"
+		"AbilityTextureName"	"rpc/duskbringer_rune_e_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -254,7 +254,7 @@
 
 	}
 
-	"duskbringer_rune_b_d"
+	"duskbringer_rune_r_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -275,7 +275,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_duskbringer_rune_b_d"
+			"modifier_duskbringer_rune_r_2"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -285,14 +285,14 @@
 
 	}
 
-	"duskbringer_rune_c_a"
+	"duskbringer_rune_q_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/duskbringer_rune_c_a"
+		"AbilityTextureName"	"rpc/duskbringer_rune_q_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -307,7 +307,7 @@
 
 	}
 
-	"duskbringer_rune_c_b"
+	"duskbringer_rune_w_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -329,14 +329,14 @@
 
 	}
 
-	"duskbringer_rune_c_c"
+	"duskbringer_rune_e_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/duskbringer_rune_c_c"
+		"AbilityTextureName"	"rpc/duskbringer_rune_e_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -351,14 +351,14 @@
 
 	}
 
-	"duskbringer_rune_c_d"
+	"duskbringer_rune_r_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/duskbringer_rune_c_d"
+		"AbilityTextureName"	"rpc/duskbringer_rune_r_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -372,7 +372,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_duskbringer_rune_c_d"
+			"modifier_duskbringer_rune_r_3"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -388,7 +388,7 @@
 
 	}
 
-	"duskbringer_rune_d_a"
+	"duskbringer_rune_q_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -415,7 +415,7 @@
 
 	}
 
-	"duskbringer_rune_d_b"
+	"duskbringer_rune_w_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -436,7 +436,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_duskbringer_rune_d_b_visible"
+			"modifier_duskbringer_rune_w_4_visible"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -459,7 +459,7 @@
 					}
 				}
 			}
-			"modifier_duskbringer_rune_d_b_invisible"
+			"modifier_duskbringer_rune_w_4_invisible"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
@@ -473,7 +473,7 @@
 
 	}
 
-	"duskbringer_rune_d_c"
+	"duskbringer_rune_e_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -495,7 +495,7 @@
 
 	}
 
-	"duskbringer_rune_d_d"
+	"duskbringer_rune_r_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -516,7 +516,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_duskbringer_rune_d_d"
+			"modifier_duskbringer_rune_r_4"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -532,14 +532,14 @@
 
 	}
 
-	"duskbringer_rune_a_b_arcana1"
+	"duskbringer_rune_w_1_arcana1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"duskbringer/duskbringer_rune_a_b_arcana"
+		"AbilityTextureName"	"duskbringer/duskbringer_rune_w_1_arcana"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -552,14 +552,14 @@
 		}
 	}
 
-	"duskbringer_rune_b_b_arcana1"
+	"duskbringer_rune_w_2_arcana1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"duskbringer/duskbringer_rune_b_b_arcana"
+		"AbilityTextureName"	"duskbringer/duskbringer_rune_w_2_arcana"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -577,14 +577,14 @@
 		}
 	}
 
-	"duskbringer_rune_c_b_arcana1"
+	"duskbringer_rune_w_3_arcana1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"duskbringer/duskbringer_rune_c_b_arcana"
+		"AbilityTextureName"	"duskbringer/duskbringer_rune_w_3_arcana"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -597,14 +597,14 @@
 		}
 	}
 
-	"duskbringer_rune_d_b_arcana1"
+	"duskbringer_rune_w_4_arcana1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"duskbringer/duskbringer_rune_d_b_arcana"
+		"AbilityTextureName"	"duskbringer/duskbringer_rune_w_4_arcana"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"

@@ -5,7 +5,7 @@ function projectileHit(event)
     local target = event.target
     local caster = event.caster.hero
     local ability = caster:FindAbilityByName("split_shot")
-    local runesCount = caster.c_b_level
+    local runesCount = caster.w_3_level
 
     local eventTable = {
         ability = ability,

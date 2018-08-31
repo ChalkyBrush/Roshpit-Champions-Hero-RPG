@@ -21,7 +21,7 @@ function begin_lightning_dash(event)
 
 	ability.pfx = pfx
 
-	ability.a_c_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
+	ability.e_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
 	ability.interval = 0
 	if not ability.particles then
 		ability.particles = 0
@@ -71,9 +71,9 @@ function dash_think(event)
 	if distance < forwardSpeed*1.5 then
 		caster:RemoveModifierByName("modifier_lightning_dash")
 	end
-	if ability.a_c_level > 0 then
+	if ability.e_1_level > 0 then
 		if ability.interval%3 == 0 then
-			local damage = ability.a_c_level*0.15*caster:GetAverageTrueAttackDamage(caster)
+			local damage = ability.e_1_level*0.15*caster:GetAverageTrueAttackDamage(caster)
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do
