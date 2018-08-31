@@ -6,10 +6,10 @@ function begin_deity(event)
 	EmitSoundOn("invoker_invo_win_01", caster)
 	EmitSoundOn("invoker_invo_win_01", caster)
     StartAnimation(caster, {duration=0.75, activity=ACT_DOTA_CAST_TORNADO, rate=1.0})
-	ability.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "a_d_arcana1", "conjuror")
-	ability.r_2_level = Runes:GetTotalRuneLevel(caster, 2, "b_d_arcana1", "conjuror")
-	ability.r_3_level = Runes:GetTotalRuneLevel(caster, 3, "c_d_arcana1", "conjuror")
-	ability.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "d_d_arcana1", "conjuror")
+	ability.r_1_level = caster:GetRuneValue("r", 1)
+	ability.r_2_level = caster:GetRuneValue("r", 2)
+	ability.r_3_level = caster:GetRuneValue("r", 3)
+	ability.r_4_level = caster:GetRuneValue("r", 4)
     if caster.deity then
     	if IsValidEntity(caster.deity) then
     		if caster.deity:IsAlive() then

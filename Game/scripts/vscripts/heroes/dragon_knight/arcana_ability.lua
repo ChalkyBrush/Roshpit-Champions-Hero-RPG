@@ -5,7 +5,7 @@ function PhaseStartArcanaAbility(event)
 		ability.PointTable = {}
 	end
 	local target = event.target_points[1]
-	if Runes:GetTotalRuneLevel(caster, 3, "c_a_arcana1", "flamewaker") > 0 and (ability.PointTable[1] == nil or ability.PointTable[1].Used == true) then
+	if caster:GetRuneValue("q", 3) > 0 and (ability.PointTable[1] == nil or ability.PointTable[1].Used == true) then
 		table.insert(ability.PointTable, 1, {target, Used = false})
 		caster:Stop()
 	end
@@ -79,7 +79,7 @@ end
 function arcana_ability_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local q_1_level = Runes:GetTotalRuneLevel(caster, 1, "a_a_arcana1", "flamewaker")
+	local q_1_level = caster:GetRuneValue("q", 1)
 	if q_1_level > 0 then
 		local missingHealth = caster:GetMaxHealth() - caster:GetHealth()
 		local a_a_stacks = (missingHealth/200)*q_1_level
@@ -89,7 +89,7 @@ function arcana_ability_think(event)
 		caster:RemoveModifierByName("modifier_flamewaker_arcana_a_a_effect")
 	end
 
-	local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "d_a_arcana1", "flamewaker")
+	local q_4_level = caster:GetRuneValue("q", 4)
 	ability.q_4_level = q_4_level
 	if q_4_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_flamewaker_arcana_d_a_effect", {})

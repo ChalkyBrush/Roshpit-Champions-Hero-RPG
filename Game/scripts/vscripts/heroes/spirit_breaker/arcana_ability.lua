@@ -51,14 +51,14 @@ function smashing_end(event)
 	EmitSoundOn("Duskbringer.Arcana1.Smash", caster)
 	local stunDuration = event.stun_duration
 	local damage = event.damage
-	local w_1_level = Runes:GetTotalRuneLevel(caster, 1, "a_b_arcana1", "duskbringer")
+	local w_1_level = caster:GetRuneValue("w", 1)
 	if w_1_level > 0 then
 		damage = damage + w_1_level*caster:GetAverageTrueAttackDamage(caster) * ability:GetLevel() * W1_ARCANA1_AMP_PERCENT / 100
 	end
 
-	local w_2_level = Runes:GetTotalRuneLevel(caster, 2, "b_b_arcana1", "duskbringer")
-	local w_3_level = Runes:GetTotalRuneLevel(caster, 3, "c_b_arcana1", "duskbringer")
-	local w_4_level = Runes:GetTotalRuneLevel(caster, 4, "d_b_arcana1", "duskbringer")
+	local w_2_level = caster:GetRuneValue("w", 2)
+	local w_3_level = caster:GetRuneValue("w", 3)
+	local w_4_level = caster:GetRuneValue("w", 4)
 	local flailAbility = caster:FindAbilityByName("whirling_flail")
 	local stacksCount = Runes:Procs(w_3_level, W3_ARCANA1_PROC_CHANCE, 1)
 					

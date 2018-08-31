@@ -153,7 +153,6 @@ function arcana_attack_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	-- local q_1_level = Runes:GetTotalRuneLevel(caster, 1, "a_a_arcana1", "monk")
 	local q_1_level = caster:GetRuneValue("q", 1)
 	ability.q_1_level = q_1_level
 	if q_1_level > 0 then

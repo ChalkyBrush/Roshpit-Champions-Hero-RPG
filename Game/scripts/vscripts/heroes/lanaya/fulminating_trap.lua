@@ -59,7 +59,7 @@ end
 
 function trap_cast(caster)
     if caster:HasModifier("modifier_trapper_arcana1") then
-    	caster.w_4_arcana_level = Runes:GetTotalRuneLevel(caster, 4, "d_b_arcana1", "trapper")
+    	caster.w_4_arcana_level = caster:GetRuneValue("w", 4)
 	end
 end
 
