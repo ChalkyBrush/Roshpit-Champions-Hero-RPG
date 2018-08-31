@@ -18,9 +18,9 @@ function begin_zap(event)
     end)
     EmitSoundOn("Hero_Zuus.GodsWrath.Target", caster)
   end
-  caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "voltex")
-  ability.w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "voltex")
-  local w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "voltex")
+  caster.e_4_level = caster:GetRuneValue("e", 4)
+  ability.w_1_level = caster:GetRuneValue("w", 1)
+  local w_2_level = caster:GetRuneValue("w", 2)
   if w_2_level > 0 then
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_rune_w_2_self", {})
     caster:SetModifierStackCount( "modifier_voltex_rune_w_2_self", ability, w_2_level )
@@ -37,7 +37,7 @@ function begin_zap(event)
     end 
   end
 
-  local w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "voltex")
+  local w_3_level = caster:GetRuneValue("w", 3)
   if w_3_level > 0 then
     local duration = w_3_level*0.1 + 2.1   
     duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
@@ -45,7 +45,7 @@ function begin_zap(event)
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_rune_w_3_shield", {duration = duration})
     caster:SetModifierStackCount("modifier_voltex_rune_w_3_shield", caster, 3)
   end
-  ability.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "voltex")
+  ability.w_4_level = caster:GetRuneValue("w", 4)
   if caster:HasModifier("modifier_magnet_d_d") then
     caster:Stop()
     if caster:HasAbility("voltex_magnet") then
