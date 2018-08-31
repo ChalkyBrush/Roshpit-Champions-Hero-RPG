@@ -11,7 +11,7 @@ def get_operator_value(operator, file_path, constants, warnings):
         else:
             if warnings['replace_invalid_constant']:
                 print("Warning: constant " + operator + " in " + file_path + " don't parsed.")
-            operator = 0
+            operator = "0"
     return operator
 
 
@@ -36,8 +36,8 @@ def validate_content(content, file_path, warnings):
             print(str(e))
 
 
-def parse(file_path, constants, settings, warnings):
-    file = open(file_path, 'r', encoding='utf-8')
+def parse(file_path, constants, settings, warnings, encoding="utf-8"):
+    file = open(file_path, 'r', encoding=encoding)
     content = file.read()
     file.close()
 

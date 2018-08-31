@@ -21,7 +21,7 @@ function slice_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local damage_mult = event.damage_mult
-	local radius = constants.ARCANA1_R_RADIUS
+	local radius = constants.VENOMORT_ARCANA1_R_RADIUS
 	local r1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
 	local r2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
 	local r3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)

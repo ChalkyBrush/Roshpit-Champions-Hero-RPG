@@ -76,7 +76,7 @@ function ghost_warp_take_damage(event)
 	local caster = event.caster
 	local ability = event.ability
 	local attacker = event.attacker
-	local duration = constants.E2_DURATION
+	local duration = constants.VENONORT_E2_DURATION
 	if attacker:GetTeamNumber() == caster:GetTeamNumber() then
 		return false
 	end
@@ -100,7 +100,7 @@ function ghost_warp_take_damage(event)
 		if ability.previous_health then
 			local currentHealth = caster:GetHealth()
 			if math.floor(ability.previous_health * constants.T32_HEALTH_THRESHOLD_PERCENT/caster:GetMaxHealth()) - math.floor(currentHealth * constants.T32_HEALTH_THRESHOLD_PERCENT/caster:GetMaxHealth()) > 0 then
-				e2_damage = e2_damage * constants.T32_AMPLIFY
+				e2_damage = e2_damage * constants.VENOMORT_T32_AMPLIFY
 				print('E2 amplify apply')
 			end
 		end
@@ -172,7 +172,7 @@ function apply_e4_stacks(event)
 	end
 
 
-	local duration = constants.E4_DURATION + constants.E4_DELAY
+	local duration = constants.VENOMORT_E4_DURATION + constants.E4_DELAY
 
 	if caster:HasModifier("modifier_venomort_glyph_4_2") then
 		duration = constants.T42_DURATION + constants.E4_DELAY
@@ -212,7 +212,7 @@ function recalculate_e4_stacks(event)
 		ability.e4_use_previous_stacks = false
 	end
 
-	local duration = constants.E4_DURATION
+	local duration = constants.VENOMORT_E4_DURATION
 
 	if caster:HasModifier("modifier_venomort_glyph_4_2") then
 		duration = constants.T42_DURATION

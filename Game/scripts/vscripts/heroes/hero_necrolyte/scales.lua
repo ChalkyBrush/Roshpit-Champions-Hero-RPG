@@ -39,7 +39,7 @@ local module = {
 
         local e4_level =  Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
         if e4_level ~= 0 then
-            local duration = constants.E4_DURATION
+            local duration = constants.VENOMORT_E4_DURATION
 
             if caster:HasModifier("modifier_venomort_glyph_4_2") then
                 duration = constants.T42_DURATION

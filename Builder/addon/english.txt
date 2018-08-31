@@ -860,7 +860,7 @@
     	"property_venomort_arcana1_description"								"Replaces @Ability4 and all of its runes with Reaper's Judgement."
 
     	"DOTA_Tooltip_ability_venom_reaper_slice"								"Reaper's Judgement"
-    	"DOTA_Tooltip_ability_venom_reaper_slice_Description"					"Element: <font color=\"#37DD3D\">Poison</font> / <font color=\"#5C776E\">Undead</font><br>Toggle on to conjure up to 3 venomous reapers of Death against random enemies within 600 range, whose strikes deal a multiple of Venomort's total attack damage. While the reapers are active, Venomort's base movement speed is set to 100."
+    	"DOTA_Tooltip_ability_venom_reaper_slice_Description"					"Element: <font color=\"#37DD3D\">Poison</font> / <font color=\"#5C776E\">Undead</font><br>Toggle on to conjure up to 3 venomous reapers of Death against random enemies within <% VENOMORT_ARCANA1_R_RADIUS %> range, whose strikes deal a multiple of Venomort's total attack damage. While the reapers are active, Venomort's base movement speed is set to 100."
     	"DOTA_Tooltip_ability_venom_reaper_slice_damage_mult"					"ATTACK POWER DAMAGE MULTIPLIER:"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1"						"[R1] Purgatory"
