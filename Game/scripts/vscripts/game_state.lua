@@ -1603,10 +1603,10 @@ function GameState:FilterDamage(filterTable)
 			local a_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 0)
 			if a_a_level > 0 then
 				if attacker:HasAbility("epoch_arcana_ability") then
-					local affectedByQ1 = victim:FindModifierByName("modifier_epoch_arcana_a_a_effect")
+					local affectedByQ1 = victim:FindModifierByName("modifier_epoch_arcana_q_1_effect")
 					if not affectedByQ1 then
 						-- print("affectedByQ1 true")
-						attacker:FindAbilityByName("epoch_arcana_ability"):ApplyDataDrivenModifier(attacker, victim, "modifier_epoch_arcana_a_a_effect", {duration = 3})
+						attacker:FindAbilityByName("epoch_arcana_ability"):ApplyDataDrivenModifier(attacker, victim, "modifier_epoch_arcana_q_1_effect", {duration = 3})
 					end
 					-- attacker:FindAbilityByName("epoch_arcana_ability"):ApplyDataDrivenModifier(attacker, victim, "modifier_epoch_arcana_a_a_effect", {duration = 3})
 					local damage = filterTable["damage"]
@@ -1868,8 +1868,8 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_nightmare_rider_effect_visible") then
 		mult = mult + 2
 	end
-	if attacker:HasModifier("modifier_axe_rune_d_d_invisible") then
-		local stacksCount = attacker:GetModifierStackCount("modifier_axe_rune_d_d_invisible", attacker)
+	if attacker:HasModifier("modifier_axe_rune_r_4_invisible") then
+		local stacksCount = attacker:GetModifierStackCount("modifier_axe_rune_r_4_invisible", attacker)
 		mult = mult + stacksCount * 0.02
 	end
 
@@ -1885,10 +1885,10 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_mordiggus_gauntlet") then
 		mult = mult+1
 	end
-	if victim:HasModifier("modifier_epoch_rune_b_b_visible") then
+	if victim:HasModifier("modifier_epoch_rune_w_2_visible") then
 		if victim:GetPhysicalArmorValue() < 0 then
 			if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
-				modifier = victim:FindModifierByName("modifier_epoch_rune_b_b_visible")
+				modifier = victim:FindModifierByName("modifier_epoch_rune_w_2_visible")
 				if Runes:GetTotalRuneLevelGeneric(attacker, 2, 1) > 0 then
 					local multIncrease = Runes:GetTotalRuneLevelGeneric(attacker, 2, 1)*epoch_w2_post_miti_pct*math.abs(victim:GetPhysicalArmorValue())/10
 					-- print("test runes b_b: "..Runes:GetTotalRuneLevelGeneric(attacker, 2, 1))
@@ -1898,8 +1898,8 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
-	if victim:HasModifier("modifier_astral_rune_a_c_visible") then
-		modifier = victim:FindModifierByName("modifier_astral_rune_a_c_invisible")
+	if victim:HasModifier("modifier_astral_rune_e_1_visible") then
+		modifier = victim:FindModifierByName("modifier_astral_rune_e_1_invisible")
 		local stacks = modifier:GetStackCount()
 		local multIncrease = 0.006*stacks
 		mult = mult + multIncrease
@@ -2710,11 +2710,11 @@ function GameState:FilterDamage(filterTable)
 		end
 		filterTable["damage"] = filterTable["damage"] - damageAbsorb
 	end
-	if victim:HasModifier("modifier_seinaru_rune_c_b_shield") then
+	if victim:HasModifier("modifier_seinaru_rune_w_3_shield") then
 		local damageAbsorb = math.min(filterTable["damage"], victim.seinaru_c_b_absorb)
 		victim.seinaru_c_b_absorb = victim.seinaru_c_b_absorb - damageAbsorb
 		if damageAbsorb <= 0 then
-			victim:RemoveModifierByName("modifier_seinaru_rune_c_b_shield")
+			victim:RemoveModifierByName("modifier_seinaru_rune_w_3_shield")
 		end
 		print("damage absorb " .. damageAbsorb)
 		filterTable["damage"] = filterTable["damage"] - damageAbsorb
@@ -2930,7 +2930,7 @@ function GameState:FilterDamage(filterTable)
 
 	--SEINARU
 
-	modifier = victim:FindModifierByName("modifier_seinaru_rune_a_b_invisible")
+	modifier = victim:FindModifierByName("modifier_seinaru_rune_w_1_invisible")
 	if modifier then
 		local stacks = modifier:GetStackCount()
 		mult = mult + 0.1/100 * stacks
@@ -3117,7 +3117,7 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_no_damage") then
 		filterTable["damage"] = 0
 	end
-	if victim:HasModifier("modifier_bahamut_rune_d_d_shell") then
+	if victim:HasModifier("modifier_bahamut_rune_r_4_shell") then
 		filterTable["damage"] = 0
 	end
 	--INCREASE INCOMING--

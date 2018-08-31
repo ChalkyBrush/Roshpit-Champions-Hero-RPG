@@ -1594,6 +1594,14 @@ function essence_drain_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
+	local ignoreSuffixList = {
+	"charging",
+	"jumping",
+	"flying",
+	"falling",
+	"moving",
+	"cooldown"
+}
 
 	local modifiers = target:FindAllModifiers()
 	for i = 1, #modifiers, 1 do
@@ -1601,6 +1609,11 @@ function essence_drain_think(event)
 			return
 		end
 		local modifier = modifiers[i]
+		for _,word in pairs() do
+			if string.find(modifier:GetName(),word) then
+				return
+			end
+		end
 		local modifierMaker = modifier:GetCaster()
 		if IsValidEntity(modifierMaker) then
 			local condition = false
