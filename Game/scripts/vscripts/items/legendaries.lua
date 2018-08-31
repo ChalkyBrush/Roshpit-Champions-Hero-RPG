@@ -7857,11 +7857,11 @@ function RPCItems:RollHoodOfLords(deathLocation, spiritRealm)
 
     item.hasRunePoints = true
 
-    local runeName = "rune_c_"..RPCItems:GetRandomRuneLetter(1, 4)
+    local runeName = "rune_"..RPCItems:GetRandomRuneLetter(1, 4).."_3"
     if GameState:GetDifficultyFactor() > 1 then
         local luck = RandomInt(1, 5-GameState:GetDifficultyFactor())
         if luck == 1 then
-            runeName = "rune_d_"..RPCItems:GetRandomRuneLetter(1, 4)
+            runeName = "rune_"..RPCItems:GetRandomRuneLetter(1, 4).."_4"
         end
     end
     local bonus = 0
