@@ -1,7 +1,6 @@
-require('heroes/juggernaut/gorudo')
-require('heroes/juggernaut/blade_dash')
-
-
+require('heroes/juggernaut/seinaru_4_r')
+require('heroes/juggernaut/seinaru_1_q_arcana')
+require('heroes/juggernaut/seinaru_constants')
 
 function sunstrider_start(event)
 	local caster = event.caster
@@ -10,9 +9,9 @@ function sunstrider_start(event)
 	caster:AddNoDraw()
 	local travelTime = 0.5
 
-	local a_c_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
-	ability.e_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
-	ability.r_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
+	local a_c_level = caster:GetRuneValue("e", 1)
+	ability.e_3_level = caster:GetRuneValue("e", 3)
+	ability.r_1_level = caster:GetRuneValue("r", 1)
 
 	if ability.e_3_level > 0 then
 		local c_c_duration = Filters:GetAdjustedBuffDuration(caster, 3, false)
@@ -21,7 +20,7 @@ function sunstrider_start(event)
 	end
 
 	if a_c_level > 0 then
-		local maxTargets = 2 + math.ceil(0.5*a_c_level)
+		local maxTargets = SEINARU_ARCANA_E1_TARGETS_BASE + math.ceil(SEINARU_ARCANA_E1_TARGETS * a_c_level)
 		local targetsCounter = 0
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target, nil, 440, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
@@ -40,17 +39,21 @@ function sunstrider_start(event)
 						Timers:CreateTimer(0.2, function()
 							CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_legion_commander/legion_commander_courage_hit.vpcf", enemy, 0.5)
 							Filters:PerformAttackSpecial(caster, enemy, true, true, true, false, true, false, false)
-							if caster:HasAbility("seinaru_arcana_ability") then
+							if caster:HasAbility("seinaru_blade_dash") then
 								local eventTable = {}
 								eventTable.caster = caster
 								eventTable.target = enemy
-								eventTable.ability = caster:FindAbilityByName("seinaru_arcana_ability")
+								eventTable.ability = caster:FindAbilityByName("seinaru_blade_dash")
 								arcana_attack_start(eventTable)
+							end
+							if caster:HasModifier("modifier_seinaru_glyph_3_1") then
+								local glyphDamage = caster:GetAverageTrueAttackDamage(caster) * SEINARU_GLYPH3_DMG_PER_ATT
+								ApplyDamage({ victim = target, attacker = caster, damage = glyphDamage, damage_type = DAMAGE_TYPE_MAGICAL })	
 							end
 						end)
 
-						if caster:HasAbility("seinaru_gorudo") then
-							apply_a_d(caster, enemy, caster:FindAbilityByName("seinaru_gorudo"), ability.r_1_level, 0) 
+						if caster:HasAbility("gorudo") then
+							apply_a_d(caster, enemy, caster:FindAbilityByName("gorudo"), ability.r_1_level, 0) 
 						end
 					end)
 				end
@@ -124,9 +127,9 @@ function sunstrider_end(event)
 	Timers:CreateTimer(0.06, function()
 		caster:RemoveNoDraw()
 		caster:RemoveModifierByName("modifier_sunstrider_a_c_damage_bonus")
-		local b_c_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
+		local b_c_level = caster:GetRuneValue("e", 2)
 		if b_c_level > 0 then
-			local b_c_duration = Filters:GetAdjustedBuffDuration(caster, 0.08*b_c_level, false)
+			local b_c_duration = Filters:GetAdjustedBuffDuration(caster, SEINARU_ARCANA_E2_DUR * b_c_level, false)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_sunstrider_lightsworn", {duration = b_c_duration})
 		end
 		Timers:CreateTimer(0.24, function()
@@ -135,7 +138,7 @@ function sunstrider_end(event)
 
 	end)
 	if ability:GetCooldownTimeRemaining() > 0 then
-		local d_c_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
+		local d_c_level = caster:GetRuneValue("e", 4)
 		local procs = Runes:Procs(d_c_level, 10, 1)
 		if procs > 0 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_sunstrider_freecast", {})
@@ -159,7 +162,7 @@ function vengeance_hit(event)
     Timers:CreateTimer(3, function()
         ParticleManager:DestroyParticle(particle1, false)
     end)
-    local damage = ability.e_3_level*0.3*caster:GetAverageTrueAttackDamage(caster)
+    local damage = ability.e_3_level * SEINARU_ARCANA_E3_DMG_PER_ATT * caster:GetAverageTrueAttackDamage(caster)
     EmitSoundOn("Seinaru.Sunstrider.Vengeance", target)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
@@ -173,11 +176,11 @@ end
 function passive_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local runesCount = Runes:GetTotalRuneLevelGeneric(caster, 4, 2)
+	local runesCount = caster:GetRuneValue("e", 4)
 	if not runesCount then
 		return
 	end
 
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_sunstrider_holy_amplify", {})
-	caster:SetModifierStackCount("modifier_sunstrider_holy_amplify", caster, runesCount * ARCANA2_E4_AMPLIFY_PERCENT)
+	caster:SetModifierStackCount("modifier_sunstrider_holy_amplify", caster, runesCount)
 end

@@ -26,6 +26,8 @@
 	##RED_GENERAL_ABILITIES##
 	##RED_GENERAL_RUNES##
 	##SEINARU_ABILITIES##
+	##SEINARU_RUNES##
+	##SEINARU_ARCANAS##
 	##SEPHYR_ABILITIES##
 	##SLIPFINN_ABILITIES##
 	##SOLUNIA_ABILITIES##
@@ -4997,12 +4999,6 @@
 			}
 		}
 	}
-
-
-	//SEINARU
-	
-	//Elemental Warlord
-
 
 	//BAHAMUT
 
@@ -53852,7 +53848,7 @@
 				{
 					"ApplyModifier"
 					{
-						"ModifierName"	"modifier_monk_rune_r_2_immunity"
+						"ModifierName"	"modifier_seinaru_rune_r_2_immunity"
 						"Target" 		"CASTER"
 						"Duration"		"8"
 					}
@@ -53863,7 +53859,7 @@
 					}
 				}
 			}
-			"modifier_monk_rune_r_2_immunity"
+			"modifier_seinaru_rune_r_2_immunity"
 			{
 				"IsBuff"		"1"
 				"IsPurgable"	"0"

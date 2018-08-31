@@ -172,7 +172,7 @@ function getSkillSlot2(queryUnit, slot)
 		abilityName = "Tooltip_sorceress_q"
 	}else if(abilityName == "pyroblast" || abilityName == "fireball"){
 		abilityName = "Tooltip_sorceress_r"
-	}else if(abilityName == "monk_heal"){
+	}else if(abilityName == "seinaru_hands_of_hikari"){
 		abilityName = "Tooltip_seinaru_w"
 	}else if(abilityName == "warlord_flame_rush" || abilityName == "warlord_ice_shell" || abilityName == "warlord_stone_form"){
 		abilityName = "tooltip_warlord_q_abilities"
@@ -418,11 +418,11 @@ function getConjurorSkill(slot){
 function getMonkSkill(slot){
 	var skillName = ""
 	if (slot == 1){
-		skillName = "DOTA_Tooltip_Ability_seinaru_kaze_gust"
+		skillName = "DOTA_Tooltip_Ability_seinaru_konokaze"
 	}else if(slot == 2){
-		skillName = "Tooltip_seinaru_w"
+		skillName = "DOTA_Tooltip_Ability_seinaru_hands_of_hikari"
 	}else if(slot == 3){
-		skillName = "DOTA_Tooltip_Ability_odachi_slice"
+		skillName = "DOTA_Tooltip_Ability_seinaru_odachi_leap"
 	}else if(slot == 4){
 		skillName = "DOTA_Tooltip_Ability_seinaru_gorudo"
 	}
@@ -714,7 +714,7 @@ function convertFullHeroNameToRPC(heroName){
 	}else if (heroName == "npc_dota_hero_invoker"){
 		rpcName = "conjuror"
 	}else if (heroName == "npc_dota_hero_juggernaut"){
-		rpcName = "monk"
+		rpcName = "seinaru"
 	}else if (heroName == "npc_dota_hero_beastmaster"){
 		rpcName = "warlord"
 	}else if (heroName == "npc_dota_hero_leshrac"){

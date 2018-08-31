@@ -1,3 +1,5 @@
+require('heroes/juggernaut/seinaru_constants')
+
 function blade_dash_start(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -118,7 +120,7 @@ function arcana_dashing_think(event)
 			StartAnimation(caster, {duration=0.6, activity=ACT_DOTA_ATTACK, rate=2.0})
 			ParticleManager:DestroyParticle(ability.pfx, false)
 			if ability.q_2_level > 0 then
-				if #caster.bladeTableArcana < 3 then
+				if #caster.bladeTableArcana < SEINARU_ARCANA_Q2_MAX_STACKS then
 					local sword = CreateUnitByName("selethas_boomerang", caster:GetAbsOrigin()+Vector(0,0,100), false, caster, nil, caster:GetTeamNumber())
 					ability:ApplyDataDrivenModifier(caster, sword, "modifier_seinaru_flying_sword_modifier", {})
 					sword:SetOriginalModel("models/props_gameplay/disarm.vmdl")
@@ -156,18 +158,15 @@ function arcana_attack_start(event)
 	local q_1_level = caster:GetRuneValue("q", 1)
 	ability.q_1_level = q_1_level
 	if q_1_level > 0 then
-		local luck = RandomInt(1, 5)
-		if luck == 1 then
+		local luck = RandomInt(1, 100)
+		if luck <= SEINARU_ARCANA_Q1_CRIT_CHANCE then
 			CustomAbilities:QuickAttachParticle("particles/econ/items/phantom_assassin/phantom_assassin_weapon_runed_scythe/phantom_assassin_attack_blur_crit_runed_scythe.vpcf", caster, 2.5)
 			CustomAbilities:QuickAttachParticle("particles/econ/items/phantom_assassin/phantom_assassin_weapon_runed_scythe/phantom_assassin_attack_blur_crit_runed_scythe.vpcf", target, 2.5)
 			EmitSoundOn("Seinaru.ArcanaCritVO", caster)
 			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Seinaru.ArcanaCrit", caster)
 			local speed = caster:GetAttackAnimationPoint()
-			print(speed)
-			print(caster:GetAttackSpeed())
 			local rate = 2.6-(caster:GetAttackSpeed()/20)
 			local duration = 1/caster:GetAttackSpeed() + speed
-			print(rate)
 			StartAnimation(caster, {duration=duration, activity=ACT_DOTA_ATTACK_EVENT, rate=rate, translate="favor"})
 			if not caster:HasModifier("modifier_jumping") and not caster:HasModifier("modifier_sunstrider_in_air") then
 				WallPhysics:Jump(caster, caster:GetForwardVector(), 0, 30, 8, 2)
@@ -191,7 +190,7 @@ function arcana_attack_land(event)
 	local ability = event.ability
 	local target = event.target
 	if caster:HasModifier("modifier_seinaru_a_a_crit") then
-		local critDamage = caster:GetAverageTrueAttackDamage(caster)*1.5*ability.q_1_level
+		local critDamage = caster:GetAverageTrueAttackDamage(caster) * SEINARU_ARCANA_Q1_CRIT_DMG * ability.q_1_level
 		ApplyDamage({ victim = target, attacker = caster, damage = critDamage, damage_type = DAMAGE_TYPE_PHYSICAL })
 		PopupDamage(target, critDamage)
 		Timers:CreateTimer(0.03, function()

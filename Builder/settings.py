@@ -27,7 +27,6 @@ data = {
             "+": lambda x, y: x + y,
             "-": lambda x, y: x - y,
         },
-        "convert": lambda constant: float(constant) if constant.isnumeric() else constant,
         "expression_result_convert": lambda result: round(result, 2) if type(result) is not str else result,
     },
     "warnings": {

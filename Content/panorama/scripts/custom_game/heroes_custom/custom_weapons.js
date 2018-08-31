@@ -796,7 +796,7 @@ function runeTranslate(queryUnit, rune){
 	}else if (heroName == "npc_dota_hero_invoker"){
 		runeName = "conjuror_"+rune
 	}else if (heroName == "npc_dota_hero_juggernaut"){
-		runeName = "monk_"+rune
+		runeName = "seinaru_"+rune
 	}else if (heroName == "npc_dota_hero_beastmaster"){
 		runeName = "warlord_"+rune
 	}else if (heroName == "npc_dota_hero_leshrac"){

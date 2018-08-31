@@ -11,14 +11,7 @@ function Winterblight:Debug()
     local position = Vector(-15424,-2560)
     RPCItems:DropItem(item, Vector(-15424,-2560))
 
-    RPCItems:DropSynthesisVessel(Vector(-15424,-2560))
-    -- for i = 1, 4, 1 do
-    --   RPCItems:RollRandomArcanaCachePart(Vector(-15424,-2560))
-    -- end
-    for i = 1, 3, 1 do
-      Winterblight:DropGlacierStone(Vector(-15424,-2560))
-    end
-	RPCItems:RollEpochArcana1(position)
+	RPCItems:RollHoodOfLords(position, true)
     -- RPCItems:RollFrostmawHuntersHood(Vector(-15424,-2560))
     -- RPCItems:RollFrozenHeart(Vector(-15424,-2560))
     -- RPCItems:RollEnergyWhipGlove(Vector(-15424,-2560))

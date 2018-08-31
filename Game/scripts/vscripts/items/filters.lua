@@ -12,6 +12,7 @@ require('/heroes/huskar/constants_SPIRIT_WARRIOR')
 require('items/special_item_effects')
 require('/heroes/omniknight/paladin_constants')
 require('/heroes/phantom_assassin/voltex_constants')
+require('/heroes/juggernaut/seinaru_constants')
 
 LinkLuaModifier("modifier_buzuki_finger_lua", "modifiers/modifier_buzuki_finger_lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -2099,6 +2100,13 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 local stacks = attacker:GetModifierStackCount("modifier_sephyr_holy_amp", caster)
                 mult = mult + stacks*1
             end
+		elseif unitName == "npc_dota_hero_seinaru" then
+            if victim:GetPhysicalArmorValue() < 0 then
+                if attacker.e_4_level and attacker.e_4_level > 0 then
+                    local multIncrease = attacker.e_4_level * SEINARU_E4_HOLY_PCT_PER_NEG_ARMOR * math.abs(victim:GetPhysicalArmorValue())
+                    mult = mult + multIncrease
+                end
+            end
         end
         if attacker:HasModifier("modifier_gilded_soul_buff") then
             local stacks = attacker:GetModifierStackCount("modifier_gilded_soul_buff", attacker.InventoryUnit)
@@ -2124,20 +2132,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
 
         if attacker:HasModifier("modifier_sunstrider_holy_amplify") then
             local stacks = attacker:GetModifierStackCount("modifier_sunstrider_holy_amplify", attacker)
-            mult = mult + stacks/100
-        end
-
-        if victim:HasModifier("modifier_seinaru_gorudo_rune_r_1") then
-            if victim:GetPhysicalArmorValue() < 0 then
-                local modifier = victim:FindModifierByName("modifier_seinaru_gorudo_rune_r_1")
-                if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-                    if attacker.e_4_level > 0 then
-                        local stacks = attacker.e_4_level
-                        local multIncrease = stacks*5/100*math.abs(victim:GetPhysicalArmorValue())/10
-                        mult = mult + multIncrease
-                    end
-                end
-            end
+            mult = mult + stacks * SEINARU_ARCANA_E4_HOLY_PCT
         end
     end
     if element1 == RPC_ELEMENT_COSMOS or element2 == RPC_ELEMENT_COSMOS then
@@ -2353,7 +2348,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         elseif unitName == "npc_dota_hero_juggernaut" then
             if attacker.w_4_level then
-                mult = mult + 0.0007*attacker:GetAgility()/10*attacker.w_4_level
+                mult = mult + SEINARU_W4_WIND_PCT_PER_AGI * attacker:GetAgility() * attacker.w_4_level
             end
         elseif unitName == "npc_dota_hero_skywrath_mage" then
             if attacker:HasModifier("modifier_sephyr_arcana1") then

@@ -1,9 +1,9 @@
-require('heroes/juggernaut/constants')
+require('heroes/juggernaut/seinaru_constants')
 function lifesteal_glyph(event)
     local attacker = event.attacker
     local ability = attacker.InventoryUnit:FindAbilityByName("hand_slot")
     local damage = event.attack_damage
-    local lifesteal = math.floor(damage*T1_LIFESTEAL_PERCENT/100)
+    local lifesteal = math.floor(damage * SEINARU_GLYPH1_LIFESTEAL)
 
     Filters:ApplyHeal(attacker, attacker, lifesteal, true)
     local particleName = "particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
