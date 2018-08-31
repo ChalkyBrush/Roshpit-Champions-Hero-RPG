@@ -1,3 +1,5 @@
+LinkLuaModifier("modifier_disciple_bonus_movespeed", "modifiers/paladin/modifier_disciple_bonus_movespeed", LUA_MODIFIER_MOTION_NONE)
+
 function knights_disciple_cast(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -6,6 +8,12 @@ function knights_disciple_cast(event)
 	summon:FindAbilityByName("paladin_disciple_ability"):SetLevel(1)
 	local summonAbility = summon:FindAbilityByName("paladin_disciple_ability")
 	summonAbility:SetLevel(1)
+	if caster:HasModifier("modifier_paladin_glyph_3_1") then
+		summon:SetControllableByPlayer(caster:GetPlayerID(), true)
+		summon:AddNewModifier(summon, nil, "modifier_disciple_bonus_movespeed", {movespeed = 1000})
+	else
+		summonAbility:ApplyDataDrivenModifier(summon, summon, "modifier_disciple_unselectable", {})
+	end
 	local discipleDuration = Filters:GetAdjustedBuffDuration(caster, 30, false)
 	summonAbility:ApplyDataDrivenModifier(summon, summon, "modifier_disciple_duration", {duration = discipleDuration})
 	local healAbility = summon:FindAbilityByName("knights_disciple_heal")
@@ -31,12 +39,16 @@ function knights_disciple_cast(event)
 	end)
 	local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "paladin")
 	if c_d_level > 0 then
-		summon:AddAbility("knights_disciple_bolt"):SetLevel(1)
+		summon:FindAbilityByName("knights_disciple_bolt"):SetLevel(1)
+	else
+		summon:FindAbilityByName("knights_disciple_bolt"):SetHidden(true)
 	end
 	caster.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "paladin")
 	local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "paladin")
 	if d_d_level > 0 then
-		summon:AddAbility("knights_disciple_purifying_spark"):SetLevel(1)
+		summon:FindAbilityByName("knights_disciple_purifying_spark"):SetLevel(1)
+	else
+		summon:FindAbilityByName("knights_disciple_purifying_spark"):SetHidden(true)
 	end
 	if caster:HasModifier("modifier_paladin_immortal_weapon_2") then
 		caster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, summon, "modifier_disciple_cooldown_reduction", {})
@@ -46,8 +58,10 @@ end
 
 function disciple_think(event)
 	local summon = event.caster
+	print(summon:HasModifier("modifier_disciple_bonus_movespeed"))
 	local paladin = summon.paladin
 	local distance = WallPhysics:GetDistance(paladin:GetAbsOrigin()*Vector(1,1,0), summon:GetAbsOrigin()*Vector(1,1,0))
+	local ability = paladin:FindAbilityByName("knights_disciple")
 	if summon.casting then
 		summon.casting = false
 		return
@@ -64,8 +78,14 @@ function disciple_think(event)
 		summonAbility:ApplyDataDrivenModifier(summon, summon, "modifier_disple_leaving", {duration = 1})
 		return true
 	elseif distance > 600 then
+		if ability and ability:GetAutoCastState() then
+			return
+		end
 		local movePosition = paladin:GetAbsOrigin()-paladin:GetForwardVector()*400+RandomVector(150)
 		summon:MoveToPosition(movePosition)
+	end
+	if ability and ability:GetAutoCastState() then
+		return
 	end
 	if summon:HasAbility("knights_disciple_purifying_spark") then
 		local boltAbility = summon:FindAbilityByName("knights_disciple_purifying_spark")
