@@ -23,7 +23,7 @@ end
 function astral_arcana_passive_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "d_a_arcana1", "astral")
+	local q_4_level = caster:GetRuneValue("q", 4)
 	if q_4_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_rune_q_4", {})
 		local damageStacks = (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect())*0.75*q_4_level
@@ -48,12 +48,12 @@ function astral_arcana_lifting_think(event)
 		local platformDuration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_arcana_on_platform", {duration = platformDuration})
 		StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_SPAWN, rate=1.2, translate="loadout"})
-		local q_1_level = Runes:GetTotalRuneLevel(caster, 1, "a_a_arcana1", "astral")
+		local q_1_level = caster:GetRuneValue("q", 1)
 		if q_1_level > 0 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_arcana_a_a_effect", {})
 			caster:SetModifierStackCount("modifier_astral_arcana_a_a_effect", caster, q_1_level)
 		end
-		local q_3_level = Runes:GetTotalRuneLevel(caster, 3, "c_a_arcana1", "astral")
+		local q_3_level = caster:GetRuneValue("q", 3)
 		if q_3_level > 0 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_rune_q_3", {})
 			caster:SetModifierStackCount("modifier_astral_rune_q_3", caster, q_3_level)

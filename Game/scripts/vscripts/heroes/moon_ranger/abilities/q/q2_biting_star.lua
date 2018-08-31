@@ -13,7 +13,7 @@ function attackLand(event)
     end
 
     if caster:HasModifier("modifier_astral_arcana1") then
-        q_2_level = Runes:GetTotalRuneLevel(caster, 2, "b_a_arcana1", "astral")
+        q_2_level = caster:GetRuneValue("q", 2)
         if caster:HasModifier("modifier_astral_immortal_weapon_2") then
             procChance = WEAPON2_ARCANA1_Q2_PROC_CHANCE
         else
@@ -22,7 +22,7 @@ function attackLand(event)
         damageMultiply = ARCANA1_Q2_ATTACK_DAMAGE_PERCENT
         baseAbilityFor = 1
     else
-        q_2_level = Runes:GetTotalRuneLevel(caster, 2, "q_2", "astral")
+        q_2_level = caster:GetRuneValue("q", 2)
         if caster:HasModifier("modifier_astral_immortal_weapon_2") then
             procChance = WEAPON2_Q2_PROC_CHANCE
         else
