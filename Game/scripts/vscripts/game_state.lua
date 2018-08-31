@@ -1291,7 +1291,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			damage = damage*reduction
 		end
 	end
-	if victim:HasModifier("modifier_axe_rune_c_d_shield") then
+	if victim:HasModifier("modifier_axe_rune_r_3_shield") then
 		damage = damage*0.2
 		if victim:HasModifier("modifier_axe_glyph_6_2") then
 			damage = damage * 0.5
