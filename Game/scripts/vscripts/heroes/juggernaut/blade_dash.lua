@@ -20,7 +20,7 @@ function blade_dash_start(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_arcana_dashing", {duration = 4})
 	caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0,0,80))
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Hero_Juggernaut.PreAttack", caster)
-	ability.q_2_level = Runes:GetTotalRuneLevel(caster, 2, "b_a_arcana1", "monk")
+	ability.q_2_level = caster:GetRuneValue("q", 2)
 	local particleName = "particles/econ/items/riki/riki_immortal_ti6/riki_immortal_ti6_blinkstrike_gold.vpcf"
 	local pfx = 0
 	if ability.target then
@@ -38,13 +38,13 @@ function blade_dash_start(event)
 
 	ability.damage = event.damage_attack*caster:GetAverageTrueAttackDamage(caster)/100
 	ability.pfx = pfx
-	caster.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "monk")
-	local q_3_level = Runes:GetTotalRuneLevel(caster, 3, "c_a_arcana1", "monk")
+	caster.w_4_level = caster:GetRuneValue("w", 4)
+	local q_3_level = caster:GetRuneValue("q", 3)
 	if q_3_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_arcana_agility_buff", {duration = 10})
 		caster:SetModifierStackCount("modifier_seinaru_arcana_agility_buff", caster, q_3_level)
 	end
-	local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "d_a_arcana1", "monk")
+	local q_4_level = caster:GetRuneValue("q", 4)
 	if q_4_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_arcana_evasion_buff", {duration = q_4_level*0.15})
 	end
@@ -154,7 +154,7 @@ function arcana_attack_start(event)
 	local ability = event.ability
 	local target = event.target
 	-- local q_1_level = Runes:GetTotalRuneLevel(caster, 1, "a_a_arcana1", "monk")
-	local q_1_level = Runes:GetTotalRuneLevel(caster, 1, "a_a_arcana1", "monk")
+	local q_1_level = caster:GetRuneValue("q", 1)
 	ability.q_1_level = q_1_level
 	if q_1_level > 0 then
 		local luck = RandomInt(1, 5)
