@@ -17234,7 +17234,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/omniknight/paladin_2_w.lua"
+						"ScriptFile"	"heroes/omniknight/paladin_1_q.lua"
 						"Function"		"paladin_q_3_attack"
 					}
 				}
@@ -21474,7 +21474,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"seinaru/seinaru_b_a_arcana1"
+				"TextureName"	"seinaru/seinaru_q_2_arcana1"
 			}
 			"modifier_seinaru_flying_sword_buff_invisible"
 			{
@@ -21488,13 +21488,13 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"seinaru/seinaru_c_a_arcana1"
+				"TextureName"	"seinaru/seinaru_q_3_arcana1"
 			}
 			"modifier_seinaru_arcana_evasion_buff"
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"TextureName"	"seinaru/seinaru_d_a_arcana1"
+				"TextureName"	"seinaru/seinaru_q_4_arcana1"
 				"OnCreated"
 				{
 					"AttachEffect"
