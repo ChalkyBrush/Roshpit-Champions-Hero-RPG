@@ -49972,10 +49972,8 @@
         "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-        "Ability1"          "knights_disciple_heal" 
-        "Ability2"          "knights_disciple_bolt"
-        "Ability3"          "knights_disciple_purifying_spark"
-        "Ability4"          "paladin_disciple_ability"    
+        "Ability1"          "paladin_disciple_ability" 
+        "Ability2"          "knights_disciple_heal"     
         "Creature"
         {
             "DisableClumpingBehavior"   "1"

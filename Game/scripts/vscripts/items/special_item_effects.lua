@@ -1,18 +1,5 @@
 LinkLuaModifier("modifier_super_ascendency_lua", "modifiers/modifier_super_ascendency", LUA_MODIFIER_MOTION_NONE)
 
-function paladin_2_1_destroy(event)
-	local caster = event.target
-	local ability = caster:FindAbilityByName("heroic_fury")
-	local cd = ability:GetCooldownTimeRemaining()
-	if ability:GetToggleState() then
-		ability:ToggleAbility()
-	end
-	ability:EndCooldown()
-	ability:StartCooldown(cd)
-	caster:RemoveModifierByName("modifier_paladin_q")
-	caster:RemoveModifierByName("modifier_paladin_q2_aura")
-end
-
 function steelbark_think(event)
 	local caster = event.caster
 	local target = event.target
