@@ -16,3 +16,4 @@ Game/soundevents
 Game/scripts/npc/npc_abilities_custom.txt
 Game/scripts/npc/npc_items_custom.txt
 Game/scripts/npc/npc_units_custom.txt
+Builder/__pycache__/
