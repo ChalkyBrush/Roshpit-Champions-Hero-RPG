@@ -2419,7 +2419,7 @@ function GameState:FilterDamage(filterTable)
 	end
 
 
-	if victim:HasModifier("modifier_paladin_rune_c_a_shield") then
+	if victim:HasModifier("modifier_paladin_rune_q_3_shield") then
 		filterTable["damage"] = 0
 		Filters:ShatterPaladinShell(victim, attacker)
 	end
@@ -2702,11 +2702,11 @@ function GameState:FilterDamage(filterTable)
     if attacker:HasModifier("modifier_boss_illusion_ability_effect") then
     	filterTable["damage"] = filterTable["damage"]*0.1
     end
-	if victim:HasModifier("modifier_paladin_rune_b_b_shield") then
-		local damageAbsorb = math.min(filterTable["damage"], victim.paladin_d_b_absorb)
-		victim.paladin_d_b_absorb = victim.paladin_d_b_absorb - damageAbsorb
+	if victim:HasModifier("modifier_paladin_rune_q_4_shield") then
+		local damageAbsorb = math.min(filterTable["damage"], victim.paladin_q_4_absorb)
+		victim.paladin_q_4_absorb = victim.paladin_q_4_absorb - damageAbsorb
 		if damageAbsorb <= 0 then
-			victim:RemoveModifierByName("modifier_paladin_rune_b_b_shield")
+			victim:RemoveModifierByName("modifier_paladin_rune_q_4_shield")
 		end
 		filterTable["damage"] = filterTable["damage"] - damageAbsorb
 	end

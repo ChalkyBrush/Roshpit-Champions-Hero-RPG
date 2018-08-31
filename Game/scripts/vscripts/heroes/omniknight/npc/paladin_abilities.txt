@@ -791,7 +791,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/omniknight/paladin_2_w.lua"
+						"ScriptFile"	"heroes/omniknight/paladin_1_q.lua"
 						"Function"		"paladin_q_3_attack"
 					}
 				}

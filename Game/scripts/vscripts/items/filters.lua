@@ -10,6 +10,7 @@ local heroes = {
 
 require('/heroes/huskar/constants_SPIRIT_WARRIOR')
 require('items/special_item_effects')
+require('/heroes/omniknight/paladin_constants')
 
 LinkLuaModifier("modifier_buzuki_finger_lua", "modifiers/modifier_buzuki_finger_lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -610,10 +611,10 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap,doPopUp)
                 local origHeal = healAmount
                 local actualHeal = math.min(target:GetMaxHealth() - target:GetHealth(), origHeal)
                 local shieldAmount = origHeal - actualHeal
-                if not target.paladin_d_b_absorb then
-                    target.paladin_d_b_absorb = 0
+                if not target.paladin_q_4_absorb then
+                    target.paladin_q_4_absorb = 0
                 end
-                target.paladin_d_b_absorb = math.min(target.paladin_d_b_absorb + shieldAmount, target:GetMaxHealth()*0.1*q_4_level)
+                target.paladin_q_4_absorb = math.min(target.paladin_q_4_absorb + shieldAmount, target:GetMaxHealth()*0.1*q_4_level)
                 local shieldDuration = Filters:GetAdjustedBuffDuration(caster, 12, false)
                 ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_rune_q_4_shield", {duration = shieldDuration})
             end
@@ -3851,8 +3852,8 @@ function Filters:ShatterPaladinShell(victim, attacker)
     end
 
     EmitSoundOn("Paladin.AegisZap", attacker)
-    local q_3_level =  Runes:GetTotalRuneLevel(victim, 3, "q_3", "paladin")
-    local damage = 5*q_3_level*victim:GetStrength()
+    local q_3_level =  victim:GetRuneValue("q", 3)
+    local damage = PALADIN_Q3_DMG_PER_STR * q_3_level * victim:GetStrength()
     Filters:TakeArgumentsAndApplyDamage(attacker, victim, damage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 
 
