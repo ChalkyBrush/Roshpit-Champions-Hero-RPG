@@ -713,11 +713,11 @@ function GameState:OrderFilter(orderTable)
 					if distance > 120 then
 						local abilityDistance = math.min(distance, strafe:GetLevelSpecialValueFor("max_distance", strafe:GetLevel()))
 						print(abilityDistance)
-						local d_c_level = Runes:GetTotalRuneLevelGeneric(unit, 4, 2)
-						if d_c_level > 0 then
-							abilityDistance = abilityDistance + d_c_level*6
+						local e_4_level = Runes:GetTotalRuneLevelGeneric(unit, 4, 2)
+						if e_4_level > 0 then
+							abilityDistance = abilityDistance + e_4_level*6
 						end
-						strafe.d_c_level = d_c_level
+						strafe.e_4_level = e_4_level
 						local manaReduce = strafe:GetLevelSpecialValueFor("mana_percent_use", strafe:GetLevel())/100
 						unit:ReduceMana(unit:GetMaxMana()*manaReduce)
 						strafe:ApplyDataDrivenModifier(unit, unit, "modifier_strafe_sprinting", {duration = 3})
@@ -768,7 +768,7 @@ function GameState:OrderFilter(orderTable)
 						if IsValidEntity(ability) then
 							ability:ApplyDataDrivenModifier(unit, unit, "modifier_holy_wrath_d_a_cooldown", {duration = 1.0})
 							CustomAbilities:QuickAttachParticle("particles/econ/events/ti5/blink_dagger_start_lvl2_ti5.vpcf", unit, 3)
-							local clampDistance = ability.d_a_level*10 + 400
+							local clampDistance = ability.q_4_level*10 + 400
 							local distance = math.min(WallPhysics:GetDistance2d(Vector(orderTable.position_x, orderTable.position_y), unit:GetAbsOrigin()), clampDistance)
 							print("AHOLA1")
 							print(Vector(orderTable.position_x, orderTable.position_y))
@@ -894,14 +894,14 @@ function GameState:OrderFilter(orderTable)
 			if orderTable.entindex_target then
 				if not unit:IsRooted() and not unit:HasModifier("modifier_chernobog_c_c_cooldown") then
 					local ability = unit:FindAbilityByName("chernobog_shadow_walk")
-					if ability.c_c_level then
-						if ability.c_c_level > 0 then
+					if ability.e_3_level then
+						if ability.e_3_level > 0 then
 							local enemy = EntIndexToHScript(orderTable.entindex_target)
 							if IsValidEntity(enemy) then
 								if orderTable.entindex_target == 0 then
 								else
 									local distance = WallPhysics:GetDistance2d(enemy:GetAbsOrigin(), unit:GetAbsOrigin())
-									if distance < ability.c_c_level*12 + 400 then
+									if distance < ability.e_3_level*12 + 400 then
 										DeepPrintTable(orderTable)
 										if enemy.dummy then
 										elseif enemy:GetClassname() == "dota_item_drop" then
@@ -1386,7 +1386,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_tachyon_shell") then
         local modifier = victim:FindModifierByName("modifier_tachyon_shell")
         if modifier:GetCaster():GetTeamNumber() == victim:GetTeamNumber() then
-            local reduction = math.max(modifier:GetAbility().d_a_level*0.005, 0.01)
+            local reduction = math.max(modifier:GetAbility().q_4_level*0.005, 0.01)
             if victim:GetEntityIndex() == modifier:GetCaster():GetEntityIndex() then
                 reduction = reduction*2
             end
@@ -1533,7 +1533,7 @@ function GameState:FilterDamage(filterTable)
 	if attacker:GetUnitName() == "zap_assassin_clone" then
 		filterTable["entindex_attacker_const"] = attacker.hero:GetEntityIndex()
 		attacker = EntIndexToHScript(filterTable["entindex_attacker_const"])
-		filterTable["damage"] = filterTable["damage"]*(0.4+0.02*attacker.a_c_level)
+		filterTable["damage"] = filterTable["damage"]*(0.4+0.02*attacker.e_1_level)
 	end
 	local damagetype = filterTable["damagetype_const"]
 
@@ -1712,8 +1712,8 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 		if attacker:HasModifier("modifier_auriun_passive") then
-			if attacker.a_c_level then
-				mult = mult + 0.02*attacker.a_c_level
+			if attacker.e_1_level then
+				mult = mult + 0.02*attacker.e_1_level
 			end
 		end
 		if attacker:HasModifier("modifier_sorcerers_regalia") then
@@ -1734,8 +1734,8 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_mark_of_the_talon") then
 			local talonAbility = attacker:FindModifierByName("modifier_mark_of_the_talon"):GetAbility()
 			local multIncrease = talonAbility:GetLevelSpecialValueFor("post_mitigation_magic", talonAbility:GetLevel())/100
-			if talonAbility.d_a_level then
-				multIncrease = multIncrease + multIncrease*talonAbility.d_a_level*0.02
+			if talonAbility.q_4_level then
+				multIncrease = multIncrease + multIncrease*talonAbility.q_4_level*0.02
 			end
 			mult = mult + multIncrease
 		end
@@ -1776,12 +1776,12 @@ function GameState:FilterDamage(filterTable)
 
 		if victim:HasModifier("modifier_solunia_warp_core_aura_solar") then
 			modifier = victim:FindModifierByName("modifier_solunia_warp_core_aura_solar")
-			mult = mult + modifier:GetAbility().c_c_level*0.05
+			mult = mult + modifier:GetAbility().e_3_level*0.05
 		end
 	elseif damagetype == DAMAGE_TYPE_PURE then
 		if victim:HasModifier("modifier_solunia_warp_core_aura_lunar") then
 			modifier = victim:FindModifierByName("modifier_solunia_warp_core_aura_lunar")
-			mult = mult + modifier:GetAbility().c_c_level*0.05
+			mult = mult + modifier:GetAbility().e_3_level*0.05
 		end
 	end
 	if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
@@ -1806,10 +1806,10 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 		if attacker:HasModifier("modifier_bahamut_arcana_passive") then
-			local a_b_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 1)
+			local w_1_level = Runes:GetTotalRuneLevelGeneric(attacker, 1, 1)
 			print("LESHRAC ABLEVEL!!")
-			if a_b_level > 0 then
-				local healAmount = math.ceil(filterTable["damage"]*0.001/100*a_b_level)
+			if w_1_level > 0 then
+				local healAmount = math.ceil(filterTable["damage"]*0.001/100*w_1_level)
 				if healAmount > attacker:GetMaxHealth() - attacker:GetHealth() then
 					local allyHealAmount = healAmount - (attacker:GetMaxHealth() - attacker:GetHealth())
 					local arcanaAbility = attacker:FindAbilityByName("bahamut_arcana_orb")
@@ -1828,7 +1828,7 @@ function GameState:FilterDamage(filterTable)
     end
     if damagetype == DAMAGE_TYPE_PHYSICAL or damagetype == DAMAGE_TYPE_MAGICAL then
 		if victim:HasModifier("modifier_zonik_lightspeed") then
-			local c_c_level = victim:FindAbilityByName("zonik_lightspeed").c_c_level
+			local c_c_level = victim:FindAbilityByName("zonik_lightspeed").e_3_level
 			filterTable["damage"] = math.max(filterTable["damage"] - Filters:GetHeroAttribute(victim, "agility")*c_c_level, 0)
 		end
 	end
@@ -1879,7 +1879,7 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_chernobog_demon_form") then
 		local demonForm = attacker:FindAbilityByName("chernobog_demon_morph")
 		if demonForm then
-			mult = mult + 0.1*demonForm.d_d_level
+			mult = mult + 0.1*demonForm.r_4_level
 		end
 	end
 	if attacker:HasModifier("modifier_mordiggus_gauntlet") then
@@ -1908,7 +1908,7 @@ function GameState:FilterDamage(filterTable)
 		local modifier = victim:FindModifierByName("crystal_arrow_ad_aura")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local abil = modifier:GetAbility()
-			mult = mult + abil.a_d_level*0.05
+			mult = mult + abil.r_1_level*0.05
 		end
 	end
 	if victim:HasModifier("modifier_rockfall_post_mit") then
@@ -1930,7 +1930,7 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_wolf_rend_bleed") then
 		modifier = victim:FindModifierByName("modifier_wolf_rend_bleed")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-			local multIncrease = 0.04*modifier:GetAbility().b_b_level
+			local multIncrease = 0.04*modifier:GetAbility().w_2_level
 			mult = mult + multIncrease
 		end
 	end
@@ -2017,7 +2017,7 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_flamewaker_arcana_d_a_aura") then
 		modifier = attacker:FindModifierByName("modifier_flamewaker_arcana_d_a_aura")
 		if victim:GetEntityIndex() == modifier:GetCaster():GetEntityIndex() then
-			local stacks = modifier:GetAbility().d_a_level
+			local stacks = modifier:GetAbility().q_4_level
 			local damageReduc = math.min(stacks*0.015, 0.9)
 			filterTable["damage"] = filterTable["damage"]*(1-damageReduc)
 		end
@@ -2029,13 +2029,13 @@ function GameState:FilterDamage(filterTable)
 	end
 	if attacker:HasModifier("modifier_steelforge_passive") then
 		if victim:IsStunned() or victim:HasModifier("modifier_knockback") or victim:IsFakeStunned() then
-			mult = mult + heroes.mountain_protector.ARCANA1_W2_POSTMITIGATION_PERCENT/100 * attacker.b_b_level
+			mult = mult + heroes.mountain_protector.ARCANA1_W2_POSTMITIGATION_PERCENT/100 * attacker.w_2_level
 		end
 	end
 	if attacker:HasModifier("modifier_waterheart_weapon") then
 		local waterheart = attacker:FindModifierByName("modifier_waterheart_weapon"):GetAbility()
 		if waterheart then
-			mult = mult + 0.03*waterheart.c_d_level
+			mult = mult + 0.03*waterheart.r_3_level
 		end
 	end
 	if attacker:HasModifier("modifier_bahamut_charge_of_light_postmitigation") then
@@ -2048,7 +2048,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if attacker:HasModifier("modifier_apollo_post_mit_invisible") then
 		if attacker:HasAbility("shot_of_apollo") then
-			if attacker:FindAbilityByName("shot_of_apollo").d_b_target == victim then
+			if attacker:FindAbilityByName("shot_of_apollo").w_4_target == victim then
 				local stacks = attacker:GetModifierStackCount("modifier_apollo_post_mit_invisible", attacker)
 				mult = mult + 0.007*stacks
 			end
@@ -2287,13 +2287,13 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if Filters:IsIceFrozen(victim) and attacker:HasModifier('modifier_frost_nova_passive') then
-		if attacker.b_a_level then
-			mult = mult + 0.035*attacker.b_a_level
+		if attacker.q_2_level then
+			mult = mult + 0.035*attacker.q_2_level
 		end
 	end
 	if Filters:IsFireBurning(victim) and attacker:HasModifier('modifier_fire_ring_passive') then
-		if attacker.b_a_level then
-			mult = mult + 0.035*attacker.b_a_level
+		if attacker.q_2_level then
+			mult = mult + 0.035*attacker.q_2_level
 		end
 	end
 
@@ -2578,8 +2578,8 @@ function GameState:FilterDamage(filterTable)
     if victim:HasModifier("modifier_gorudo_b_d_inside_ring") then
     	modifier = victim:FindModifierByName("modifier_gorudo_b_d_inside_ring")
     	if attacker:GetEntityIndex() == modifier:GetCaster():GetEntityIndex() then
-    		local d_d_level = attacker:FindAbilityByName("seinaru_gorudo").d_d_level
-    		filterTable["damage"] = filterTable["damage"]*(1+d_d_level*0.2)
+    		local r_4_level = attacker:FindAbilityByName("seinaru_gorudo").r_4_level
+    		filterTable["damage"] = filterTable["damage"]*(1+r_4_level*0.2)
     	end
     end
 
@@ -2831,7 +2831,7 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_zonis_stun_arcana1") then
 		if attacker:HasAbility("arkimus_zap_ring") then
 			local zapRing = attacker:FindAbilityByName("arkimus_zap_ring")
-			mult = mult + zapRing.b_a_level*0.015
+			mult = mult + zapRing.q_2_level*0.015
 		end
 	end
 	if attacker:HasModifier("modifier_world_tree_effect") then
@@ -2889,7 +2889,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	--DUSKBRINGER
 	if attacker:GetUnitName() == "npc_dota_hero_spirit_breaker" and victim:IsRooted() then
-		mult = mult + attacker.d_b_level * 8/100
+		mult = mult + attacker.w_4_level * 8/100
 	end
 	modifier = victim:FindModifierByName("modifier_duskbringer_b_d_invisible")
 	if modifier then
@@ -2918,8 +2918,8 @@ function GameState:FilterDamage(filterTable)
 	if modifier then
 		local stacks = modifier:GetStackCount()
 		local ability = modifier:GetAbility()
-		local a_b_level = ability.a_b_level
-		mult = mult + 0.01*a_b_level*stacks
+		local w_1_level = ability.w_1_level
+		mult = mult + 0.01*w_1_level*stacks
 	end
 
 	if attacker:HasModifier("modifier_torrent_trap_immunity") and victim:HasModifier("modifier_trapper_glyph_3_2") then
@@ -3306,7 +3306,7 @@ function GameState:FilterDamage(filterTable)
 		end
 		if victim:HasModifier('modifier_duskbringer_ghost_form_checker') and not rezzed then
             local caster = victim:FindModifierByName('modifier_duskbringer_ghost_form_checker'):GetCaster()
-			if caster.d_c_level > 0 then
+			if caster.e_4_level > 0 then
 				if caster:HasModifier('modifier_duskbringer_glyph_1_1') then
 			        for i = 0, 3, 1 do
 			            local abilityIndex = i
@@ -3317,7 +3317,7 @@ function GameState:FilterDamage(filterTable)
 			        end
 			    end
                 local ability = caster:FindAbilityByName('specter_rush_two')
-                ability:ApplyDataDrivenModifier(caster, victim, "modifier_duskbringer_ghost_form_active", {duration = 0.2 * caster.d_c_level})
+                ability:ApplyDataDrivenModifier(caster, victim, "modifier_duskbringer_ghost_form_active", {duration = 0.2 * caster.e_4_level})
                 CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash_flash.vpcf", victim:GetAbsOrigin()+Vector(0,0,50), 0.4)
                 EmitSoundOn("Duskbringer.Wraithform", victim)
 				filterTable["damage"] =  0

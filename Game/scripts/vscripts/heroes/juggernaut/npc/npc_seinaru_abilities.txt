@@ -1885,7 +1885,7 @@
     			{
     				"IsHidden"	"0"
     				"IsDebuff"	"1"
-    				"TextureName"	"seinaru/seinaru_b_d"
+    				"TextureName"	"seinaru/seinaru_r_2"
     			}
     			"modifier_seinaru_glyph_2_1"
     			{
@@ -1900,7 +1900,7 @@
     			{
     				"IsHidden"	"0"
     				"IsDebuff"	"1"
-    				"TextureName"	"seinaru/seinaru_a_d"
+    				"TextureName"	"seinaru/seinaru_r_1"
 
     				"OnCreated"
     				{
@@ -2193,7 +2193,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_a_a"
+		"AbilityTextureName"	"seinaru/seinaru_q_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -2244,7 +2244,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_a_c"
+		"AbilityTextureName"	"seinaru/seinaru_e_1"
 
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
@@ -2283,7 +2283,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_a_d"
+		"AbilityTextureName"	"seinaru/seinaru_r_1"
 
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
@@ -2306,7 +2306,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_b_a"
+		"AbilityTextureName"	"seinaru/seinaru_q_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -2375,7 +2375,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/seinaru_c_c"
+		"AbilityTextureName"	"rpc/seinaru_e_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
@@ -2418,7 +2418,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_b_d"
+		"AbilityTextureName"	"seinaru/seinaru_r_2"
 
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
@@ -2455,7 +2455,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_c_a"
+		"AbilityTextureName"	"seinaru/seinaru_q_3"
 
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
@@ -2614,7 +2614,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_d_a"
+		"AbilityTextureName"	"seinaru/seinaru_q_4"
 
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
@@ -2637,7 +2637,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/seinaru_d_b"
+		"AbilityTextureName"	"rpc/seinaru_w_4"
 
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
@@ -2660,7 +2660,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/seinaru_d_c"
+		"AbilityTextureName"	"rpc/seinaru_e_4"
 
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
@@ -2688,7 +2688,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_d_d"
+		"AbilityTextureName"	"seinaru/seinaru_r_4"
 
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
@@ -2711,7 +2711,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_a_a_arcana1"
+		"AbilityTextureName"	"seinaru/seinaru_q_1_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -2731,7 +2731,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_b_a_arcana1"
+		"AbilityTextureName"	"seinaru/seinaru_q_2_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -2751,7 +2751,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_c_a_arcana1"
+		"AbilityTextureName"	"seinaru/seinaru_q_3_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -2771,7 +2771,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"seinaru/seinaru_d_a_arcana1"
+		"AbilityTextureName"	"seinaru/seinaru_q_4_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
