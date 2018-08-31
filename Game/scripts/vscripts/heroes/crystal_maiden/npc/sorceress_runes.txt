@@ -282,7 +282,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/sorceress_c_a_2"
+		"AbilityTextureName"	"rpc/sorceress_q_3_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 

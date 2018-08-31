@@ -1,13 +1,13 @@
 
 
-	"mountain_protector_rune_a_a"
+	"mountain_protector_rune_q_1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"mountain_protector/mountain_protector_c_a"
+		"AbilityTextureName"	"mountain_protector/mountain_protector_q_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -27,14 +27,14 @@
 
 	}
 
-	"mountain_protector_rune_a_b"
+	"mountain_protector_rune_w_1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"mountain_protector/mountain_protector_rune_a_b"
+		"AbilityTextureName"	"mountain_protector/mountain_protector_rune_w_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -49,7 +49,7 @@
 
 	}
 
-	"mountain_protector_rune_a_c"
+	"mountain_protector_rune_e_1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -97,7 +97,7 @@
 
 	}
 
-	"mountain_protector_rune_a_d"
+	"mountain_protector_rune_r_1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -129,14 +129,14 @@
 
 	}
 
-	"mountain_protector_rune_b_a"
+	"mountain_protector_rune_q_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"mountain_protector/mountain_protector_b_a"
+		"AbilityTextureName"	"mountain_protector/mountain_protector_q_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -151,14 +151,14 @@
 
 	}
 
-	"mountain_protector_rune_b_b"
+	"mountain_protector_rune_w_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"mountain_protector/mountain_protector_b_b"
+		"AbilityTextureName"	"mountain_protector/mountain_protector_w_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -173,7 +173,7 @@
 
 	}
 
-	"mountain_protector_rune_b_c"
+	"mountain_protector_rune_e_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -195,7 +195,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_mountain_protector_rune_b_c"
+			"modifier_mountain_protector_rune_e_2"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -206,14 +206,14 @@
 		}
 	}
 
-	"mountain_protector_rune_b_d"
+	"mountain_protector_rune_r_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"mountain_protector/mountain_protector_b_d"
+		"AbilityTextureName"	"mountain_protector/mountain_protector_r_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -232,13 +232,13 @@
 		}
 		"Modifiers"
 		{
-			"modifier_mountain_protector_rune_b_d_visible"
+			"modifier_mountain_protector_rune_r_2_visible"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
 			}
-			"modifier_mountain_protector_rune_b_d_invisible"
+			"modifier_mountain_protector_rune_r_2_invisible"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
@@ -247,7 +247,7 @@
 		}
 	}
 
-	"mountain_protector_rune_c_a"
+	"mountain_protector_rune_q_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -269,14 +269,14 @@
 
 	}
 
-	"mountain_protector_rune_c_b"
+	"mountain_protector_rune_w_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"mountain_protector/mountain_protector_c_b"
+		"AbilityTextureName"	"mountain_protector/mountain_protector_w_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -307,7 +307,7 @@
 
 	}
 
-	"mountain_protector_rune_c_c"
+	"mountain_protector_rune_e_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -330,14 +330,14 @@
 
 	}
 
-	"mountain_protector_rune_c_d"
+	"mountain_protector_rune_r_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"mountain_protector/mountain_protector_c_d"
+		"AbilityTextureName"	"mountain_protector/mountain_protector_r_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -368,7 +368,7 @@
 
 	}
 
-	"mountain_protector_rune_d_a"
+	"mountain_protector_rune_q_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -390,14 +390,14 @@
 
 	}
 
-	"mountain_protector_rune_d_b"
+	"mountain_protector_rune_w_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"mountain_protector/mountain_protector_d_b"
+		"AbilityTextureName"	"mountain_protector/mountain_protector_w_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -412,7 +412,7 @@
 
 	}
 
-	"mountain_protector_rune_d_c"
+	"mountain_protector_rune_e_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -438,7 +438,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_mountain_rune_d_c_think"
+			"modifier_mountain_rune_e_4_think"
 			{
 				"Passive"			"1"
 				"IsHidden"			"0"
@@ -454,7 +454,7 @@
 					}
 				}
 			}
-			"modifier_mountain_rune_d_c_effect"
+			"modifier_mountain_rune_e_4_effect"
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
@@ -466,14 +466,14 @@
 		}
 	}
 
-	"mountain_protector_rune_d_d"
+	"mountain_protector_rune_r_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"mountain_protector/mountain_protector_d_d"
+		"AbilityTextureName"	"mountain_protector/mountain_protector_r_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -488,14 +488,14 @@
 
 	}
 
-	"mountain_protector_rune_a_b_arcana1"
+	"mountain_protector_rune_w_1_arcana1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"mountain_protector/mountain_protector_rune_a_b_arcana1"
+		"AbilityTextureName"	"mountain_protector/mountain_protector_rune_w_1_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
@@ -529,14 +529,14 @@
 		}
 	}
 
-	"mountain_protector_rune_b_b_arcana1"
+	"mountain_protector_rune_w_2_arcana1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"			"mountain_protector/mountain_protector_b_b_arcana1"
+		"AbilityTextureName"			"mountain_protector/mountain_protector_w_2_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -549,14 +549,14 @@
 		}
 	}
 
-	"mountain_protector_rune_c_b_arcana1"
+	"mountain_protector_rune_w_3_arcana1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"			"mountain_protector/mountain_protector_c_b_arcana1"
+		"AbilityTextureName"			"mountain_protector/mountain_protector_w_3_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
@@ -585,14 +585,14 @@
 		}
 	}
 
-	"mountain_protector_rune_d_b_arcana1"
+	"mountain_protector_rune_w_4_arcana1"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"			"mountain_protector/mountain_protector_rune_d_b_arcana1"
+		"AbilityTextureName"			"mountain_protector/mountain_protector_rune_w_4_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -605,14 +605,14 @@
 		}
 	}
 
-	"mountain_protector_rune_a_d_arcana2"
+	"mountain_protector_rune_r_1_arcana2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"			"mountain_protector/mountain_protector_rune_a_d_arcana2"
+		"AbilityTextureName"			"mountain_protector/mountain_protector_rune_r_1_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -625,14 +625,14 @@
 		}
 	}
 
-	"mountain_protector_rune_b_d_arcana2"
+	"mountain_protector_rune_r_2_arcana2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"			"mountain_protector/mountain_protector_rune_b_d_arcana2"
+		"AbilityTextureName"			"mountain_protector/mountain_protector_rune_r_2_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -660,14 +660,14 @@
 		}
 	}
 
-	"mountain_protector_rune_c_d_arcana2"
+	"mountain_protector_rune_r_3_arcana2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"			"mountain_protector/mountain_protector_rune_c_d_arcana2"
+		"AbilityTextureName"			"mountain_protector/mountain_protector_rune_r_3_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -680,14 +680,14 @@
 		}
 	}
 
-	"mountain_protector_rune_d_d_arcana2"
+	"mountain_protector_rune_r_4_arcana2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"			"mountain_protector/mountain_protector_rune_d_d_arcana2"
+		"AbilityTextureName"			"mountain_protector/mountain_protector_rune_r_4_arcana2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -700,14 +700,14 @@
 		}
 	}
 
-	"mountain_protector_rune_a_c_arcana3"
+	"mountain_protector_rune_e_1_arcana3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"mountain_protector/mountain_protector_rune_a_c_arcana3"
+		"AbilityTextureName"	"mountain_protector/mountain_protector_rune_e_1_arcana3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -722,14 +722,14 @@
 
 	}
 
-	"mountain_protector_rune_b_c_arcana3"
+	"mountain_protector_rune_e_2_arcana3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"mountain_protector/mountain_protector_rune_b_c_arcana3"
+		"AbilityTextureName"	"mountain_protector/mountain_protector_rune_e_2_arcana3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -744,14 +744,14 @@
 
 	}
 
-	"mountain_protector_rune_c_c_arcana3"
+	"mountain_protector_rune_e_3_arcana3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"mountain_protector/mountain_protector_rune_c_c_arcana3"
+		"AbilityTextureName"	"mountain_protector/mountain_protector_rune_e_3_arcana3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -766,14 +766,14 @@
 
 	}
 
-	"mountain_protector_rune_d_c_arcana3"
+	"mountain_protector_rune_e_4_arcana3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"mountain_protector/mountain_protector_rune_d_c_arcana3"
+		"AbilityTextureName"	"mountain_protector/mountain_protector_rune_e_4_arcana3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 

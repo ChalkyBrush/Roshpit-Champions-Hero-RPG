@@ -769,7 +769,7 @@
 				"IsDebuff"			"1"
 				"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
 				"EffectAttachType"	"follow_origin"
-				"TextureName"		"rpc/sorceress_c_a_2"
+				"TextureName"		"rpc/sorceress_q_3_2"
 
 				"States"
 				{
