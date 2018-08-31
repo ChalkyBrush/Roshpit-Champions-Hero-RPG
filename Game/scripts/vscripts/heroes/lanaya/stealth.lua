@@ -167,7 +167,7 @@ if caster:IsAlive() then
   	caster:SwapAbilities("trapper_stealth", "trapper_backstab", false, true)
 
     if caster:HasModifier("modifier_trapper_arcana1") then
-    	caster.w_4_arcana_level = Runes:GetTotalRuneLevel(caster, 4, "d_b_arcana1", "trapper")
+    	caster.w_4_arcana_level = caster:GetRuneValue("w", 4)
 	end
 end
 end
@@ -236,7 +236,7 @@ function switchOutOfStealth(caster)
   	CustomGameEventManager:Send_ServerToPlayer(caster:GetPlayerOwner(), "ability_tree_upgrade", {})
 
     if caster:HasModifier("modifier_trapper_arcana1") then
-    	caster.w_4_arcana_level = Runes:GetTotalRuneLevel(caster, 4, "d_b_arcana1", "trapper")
+    	caster.w_4_arcana_level = caster:GetRuneValue("w", 4)
 	end
 end
 

@@ -2,9 +2,9 @@ function start_channel(event)
 	local caster = event.caster
 	local ability = event.ability
 	if caster:HasAbility("bahamut_arcana_ulti") then
-		ability.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "a_d_arcana1", "bahamut")
-		ability.r_3_level = Runes:GetTotalRuneLevel(caster, 3, "c_d_arcana1", "bahamut")
-		ability.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "d_d_arcana1", "bahamut")
+		ability.r_1_level = caster:GetRuneValue("r", 1)
+		ability.r_3_level = caster:GetRuneValue("r", 3)
+		ability.r_4_level = caster:GetRuneValue("r", 4)
 	end
 	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "bahamut")
 	-- StartAnimation(caster, {duration=2, activity=ACT_DOTA_TAUNT, rate=1.5, translate="disco_gesture"})
@@ -16,7 +16,7 @@ function begin_bahamut_arcana_ult(event)
 	local duration = Filters:GetAdjustedBuffDuration(caster, event.duration, false)
 	ability.interval = 0
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_leshrac_arcana_effect", {duration = duration})
-	local b_d_level = Runes:GetTotalRuneLevel(caster, 2, "b_d_arcana1", "bahamut")
+	local b_d_level = caster:GetRuneValue("r", 2)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Bahamut.ArcanaUltActivate", caster)
 	EmitSoundOn("Bahamut.ArcanaUltActivateVO", caster)
 	if b_d_level > 0 then
@@ -63,10 +63,10 @@ end
 
 function leshrac_ult_go(ability, caster, damage, amp, enemy)
 	if not ability.r_1_level then
-		ability.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "a_d_arcana1", "bahamut")
+		ability.r_1_level = caster:GetRuneValue("r", 1)
 	end
 	if not ability.r_3_level then
-		ability.r_3_level = Runes:GetTotalRuneLevel(caster, 3, "c_d_arcana1", "bahamut")
+		ability.r_3_level = caster:GetRuneValue("r", 3)
 	end
 	if ability.r_3_level > 0 then
 		damage = damage + ability.r_3_level*caster:GetAverageTrueAttackDamage(caster)*0.04

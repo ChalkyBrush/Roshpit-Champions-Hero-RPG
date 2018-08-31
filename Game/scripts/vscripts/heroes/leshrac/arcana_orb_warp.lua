@@ -14,7 +14,7 @@ function begin_lightning_dash(event)
 
 	local arcanaUlti = caster:FindAbilityByName("bahamut_arcana_ulti")
 	if arcanaUlti then
-		arcanaUlti.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "a_d_arcana1", "bahamut")
+		arcanaUlti.r_1_level = caster:GetRuneValue("r", 1)
 	end
 
 	ability.pfx = pfx
