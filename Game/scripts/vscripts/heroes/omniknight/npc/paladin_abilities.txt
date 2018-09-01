@@ -1560,7 +1560,6 @@
 					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"ThinkInterval"  "0.5"
 				"OnIntervalThink"
@@ -1595,6 +1594,14 @@
 						"ScriptFile"	"heroes/omniknight/paladin_4_r_summon.lua"
 						"Function"		"disciple_duration_end"
 					}
+				}
+			}
+			"modifier_disciple_unselectable"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 			"modifier_disple_leaving"
