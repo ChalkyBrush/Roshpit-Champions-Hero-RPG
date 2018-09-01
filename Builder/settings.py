@@ -9,7 +9,9 @@ data = {
     ],
     "replaces": [
         "heroes/[^/]*/npc/[^/]*\.txt",
+        "heroes/[^/]*/localizations/[^/]*\.txt",
         "worlds/[^/]*/[^/]*\.txt",
+        "worlds/[^/]*/localizations/[^/]*\.txt",
     ],
     "output_encoding": "utf-8",
     "base_destination_path": "Game/",
