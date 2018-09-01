@@ -240,7 +240,7 @@
 
 	"knights_disciple"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
@@ -559,7 +559,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/omniknight/paladin_1_q_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"omni_knight/adoring_wingfall/omniknight_purification"
@@ -650,170 +651,6 @@
 			{
 				"var_type" 				"FIELD_INTEGER"
 				"movespeed"				"500"
-			}
-		}
-
-		"OnSpellStart"
-		{
-			"FireSound"
-			{
-				"EffectName"	"Paladin.HeroicFuryActivate"
-				"Target"		"CASTER"
-			}
-
-			"FireEffect"
-			{
-				"EffectName"	"particles/units/heroes/hero_sven/sven_spell_gods_strength.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"Target"		"CASTER"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/omniknight/paladin_1_q.lua"
-				"Function"		"paladin_q_cast"
-				"duration"		"%duration"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_heroic_fury"
-			{
-				"IsBuff"			"1"
-				"IsPurgable"		"1"
-				"StatusEffectName"     "particles/status_fx/status_effect_guardian_angel.vpcf"
-				"StatusEffectPriority" "10"
-
-				"OnCreated"
-				{
-
-				 	"AttachEffect"
-					{
-						"Target"					"CASTER"
-						"EffectName"				"particles/roshpit/paladin/heroic_fury_ally.vpcf"
-						"EffectAttachType"			"follow_origin"
-						"EffectRadius"				"200"
-					}
-
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/omniknight/paladin_1_q.lua"
-						"Function"		"set_q_2_level"
-					}
-				}
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "500"
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%attack_damage_bonus"
-				}
-				"OnAttackStart"
-				{
-					"FireSound"
-					{
-						"EffectName"	"Paladin.HeroicAttackStart"
-						"Target" 		"ATTACKER"
-					}
-				}
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/omniknight/paladin_1_q.lua"
-						"Function"		"paladin_q_attack"
-						"Target"	"TARGET"
-						"radius"	"%radius"
-						"damage"	"%damage"
-						"heal_percent"	"%heal_percent"
-					}
-					"FireSound"
-					{
-						"EffectName"	"Paladin.HeroicAttackLand"
-						"Target" 		"TARGET"
-					}
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_holy_struck"
-						"Target" 		"TARGET"
-					}
-				}
-
-
-			}
-			"modifier_no_coins"
-			{
-				"IsDebuff"	"1"
-				"Duration"	"1"
-				"IsHidden"	"1"
-			}
-			"modifier_heroic_fury_slow"
-			{
-				"IsDebuff"	"1"
-				"IsHidden"	"0"
-				"EffectName"	"particles/econ/courier/courier_shagbark/heroic_fury_slow.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%slow"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%slow"
-				}
-			}
-			"modifier_holy_struck"
-			{
-				"IsDebuff"	"1"
-				"Duration"	"8"
-				"IsHidden"	"1"
-
-			}
-			"modifier_paladin_q_2_radiance"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"Passive"	"0"
-				"ThinkInterval"  "0.5"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/omniknight/paladin_1_q.lua"
-						"Function"		"paladin_q_2_think"
-					}
-				}
-			}
-			"modifier_paladin_q_3_passive" 
-			{
-				"IsHidden"	"1"
-				"IsBuff"	"1"
-				"IsPurgable"		"0"
-				"Passive"	"1"
-				"OnAttackLanded"
-				// "%attack_damage" is set to the damage value before mitigation
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/omniknight/paladin_1_q.lua"
-						"Function"		"paladin_q_3_attack"
-					}
-				}
-			}
-			"modifier_paladin_rune_q_3_shield"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				"TextureName"		"sven/vigil_signet/sven_warcry"
-				"EffectName"		"particles/units/heroes/hero_medusa/divine_aegis.vpcf"
-				"EffectAttachType"	"follow_origin"
-
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-			"modifier_paladin_rune_q_4_shield"
-			{
-				"IsHidden"	"0"
-				"TextureName"	"rpc/paladin_d_b"
-				"IsBuff"	"1"
-				"EffectName"		"particles/units/heroes/hero_medusa/divine_aegis_oval_highlight.vpcf"
-				"EffectAttachType"	"follow_origin"
 			}
 		}
 	}
@@ -1723,7 +1560,6 @@
 					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"ThinkInterval"  "0.5"
 				"OnIntervalThink"
@@ -1758,6 +1594,14 @@
 						"ScriptFile"	"heroes/omniknight/paladin_4_r_summon.lua"
 						"Function"		"disciple_duration_end"
 					}
+				}
+			}
+			"modifier_disciple_unselectable"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 			"modifier_disple_leaving"

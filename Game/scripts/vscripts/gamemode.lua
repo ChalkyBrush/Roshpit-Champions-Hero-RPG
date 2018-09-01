@@ -364,6 +364,7 @@ function GameMode:InitGameMode()
   LinkLuaModifier("modifier_rpc_attributes", "modifiers/modifier_rpc_attributes.lua", LUA_MODIFIER_MOTION_NONE )
   LinkLuaModifier("modifier_epsilon", "modifiers/modifier_epsilon", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_duskbringer_ghost_form_active", "modifiers/duskbringer/modifier_duskbringer_ghost_form_active", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_paladin_q4_shield", "modifiers/paladin/modifier_paladin_q4_shield", LUA_MODIFIER_MOTION_NONE)
 
 
   DebugPrint('[BAREBONES] Done loading Barebones gamemode!\n\n')

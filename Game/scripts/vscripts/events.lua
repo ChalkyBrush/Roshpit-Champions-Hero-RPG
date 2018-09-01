@@ -511,6 +511,55 @@ function GameMode:OnPlayerChat(keys)
     end
   elseif string.match(text, "pvp") then
     PVP:Debug()
+  elseif string.match(text, "-hero") then
+    if Beacons.cheats then
+      local hero = string.gsub(text, "-hero ", "")
+      hero = "npc_dota_hero_"..hero
+      local playerid = keys.playerid
+      PlayerResource:ReplaceHeroWith(playerid, hero, 0, 0)
+    end
+  elseif string.match(text, "-immo") then
+    if Beacons.cheats then
+      local name = string.gsub(text, "-immo ", "")
+      name = "item_rpc_"..name
+      local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+      RPCItems:RollImmortalByName(name, hero:GetAbsOrigin())
+    end
+  elseif string.match(text, "-arc") then
+    if Beacons.cheats then
+      local name = string.gsub(text, "-arc ", "")
+      name = "item_rpc_"..name
+      local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+      RPCItems:RollArcanaByName(name, hero:GetAbsOrigin())
+    end
+  elseif string.match(text, "-gly") then
+    if Beacons.cheats then
+      local name = string.gsub(text, "-gly ", "")
+      name = "item_rpc_"..name
+      local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+      Glyphs:RollGlyphAll(name, hero:GetAbsOrigin(), 0)
+    end
+  elseif string.match(text, "-iweap1") then
+    if Beacons.cheats then
+      local name = string.gsub(text, "-iweap1 ", "")
+      name = "npc_dota_hero_"..name
+      local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+      Weapons:RollLegendWeapon1WithDotaName(name, hero:GetAbsOrigin())
+    end
+  elseif string.match(text, "-iweap2") then
+  if Beacons.cheats then
+    local name = string.gsub(text, "-iweap2 ", "")
+    name = "npc_dota_hero_"..name
+    local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+    Weapons:RollLegendWeapon2WithDotaName(name, hero:GetAbsOrigin())
+  end
+  elseif string.match(text, "-iweap3") then
+  if Beacons.cheats then
+    local name = string.gsub(text, "-iweap3 ", "")
+    name = "npc_dota_hero_"..name
+    local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+    Weapons:RollLegendWeapon3WithDotaName(name, hero:GetAbsOrigin())
+  end
   elseif GameState:GetDifficultyFactor() == 3 then
     local playerid = keys.playerid
     --if GameState:IsSerengaard() then

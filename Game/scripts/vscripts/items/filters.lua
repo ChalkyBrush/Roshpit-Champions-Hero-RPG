@@ -612,12 +612,12 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap,doPopUp)
                 local origHeal = healAmount
                 local actualHeal = math.min(target:GetMaxHealth() - target:GetHealth(), origHeal)
                 local shieldAmount = origHeal - actualHeal
-                if not target.paladin_q_4_absorb then
-                    target.paladin_q_4_absorb = 0
+                if not target.paladin_q4_absorb then
+                    target.paladin_q4_absorb = 0
                 end
-                target.paladin_q_4_absorb = math.min(target.paladin_q_4_absorb + shieldAmount, target:GetMaxHealth()*0.1*q_4_level)
+                target.paladin_q4_absorb = math.min(target.paladin_q4_absorb + shieldAmount, target:GetMaxHealth()*0.1*q_4_level)
                 local shieldDuration = Filters:GetAdjustedBuffDuration(caster, 12, false)
-                ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_rune_q_4_shield", {duration = shieldDuration})
+                target:AddNewModifier(caster, ability, "modifier_paladin_q4_shield", {duration = shieldDuration})
             end
         end
     end
@@ -3558,7 +3558,7 @@ function Filters:SpellShieldHit(victim, damage)
 end
 
 function Filters:HasDamageBlockShield(victim)
-    if victim:HasModifier("modifier_secret_temple_refraction") or victim:HasModifier("modifier_windsteel_effect") or victim:HasModifier("modifier_heavens_shield") or victim:HasModifier("modifier_shipyard_veil_shield") or victim:HasModifier("modifier_arcane_shell") or victim:HasModifier("modifier_duskbringer_ghost_armor") or victim:HasModifier("modifier_paladin_rune_q_3_shield") or victim:HasModifier("modifier_voltex_rune_w_3_shield") or victim:HasModifier("modifier_light_seer_shield") or victim:HasModifier("modifier_black_dominion_shield") then
+    if victim:HasModifier("modifier_secret_temple_refraction") or victim:HasModifier("modifier_windsteel_effect") or victim:HasModifier("modifier_heavens_shield") or victim:HasModifier("modifier_shipyard_veil_shield") or victim:HasModifier("modifier_arcane_shell") or victim:HasModifier("modifier_duskbringer_ghost_armor") or victim:HasModifier("modifier_paladin_q3_shield") or victim:HasModifier("modifier_voltex_rune_w_3_shield") or victim:HasModifier("modifier_light_seer_shield") or victim:HasModifier("modifier_black_dominion_shield") then
         return true
     else
         return false
@@ -3845,11 +3845,11 @@ end
 
 
 function Filters:ShatterPaladinShell(victim, attacker)
-    local currentStacks = victim:GetModifierStackCount("modifier_paladin_rune_q_3_shield", victim)
+    local currentStacks = victim:GetModifierStackCount("modifier_paladin_q3_shield", victim)
     if currentStacks > 1 then
-        victim:SetModifierStackCount("modifier_paladin_rune_q_3_shield", victim, currentStacks-1)
+        victim:SetModifierStackCount("modifier_paladin_q3_shield", victim, currentStacks-1)
     else
-        victim:RemoveModifierByName("modifier_paladin_rune_q_3_shield")
+        victim:RemoveModifierByName("modifier_paladin_q3_shield")
     end
 
     EmitSoundOn("Paladin.AegisZap", attacker)

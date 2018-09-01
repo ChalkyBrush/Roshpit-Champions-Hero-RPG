@@ -12651,7 +12651,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_1"		"Radiance"
 		"item_property_paladin_immortal_weapon"								"Radiant Aegis"
-		"property_paladin_immortal_weapon_description"						"Casting Heroic Fury applies a @special_property1 charge Divine Aegis for 8 seconds. Max Divine Aegis stacks from attacks increased to 7."
+		"property_paladin_immortal_weapon_description"						"Casting Heroic Fury applies a @special_property1 charge Divine Aegis for @special_property2 seconds. Max Divine Aegis stacks from attacks increased to @special_property3."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_immortal_weapon_1"		"Staff of Yulsaria"
 
