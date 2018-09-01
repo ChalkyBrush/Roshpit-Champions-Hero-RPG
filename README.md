@@ -33,7 +33,7 @@ _________________________________________
 ### Updating ability, item or unit definitions
 
 Do not use npc_abilties_custom or npc_units_custom or npc_items_custom. Instead, use the templates found in the root directory /builder.
-Go to your root directory in command line and type py rpc_builder.py to run the builder. Whenever you save a change to the template, it updates your npc_abilities_custom file. Abilities and glyphs go in heroes/{heroname}/npc folders.
+Go to your root directory in command line and type py rpc_builder.py to run the builder. Whenever you save a change to the template, it updates your npc_abilities_custom file. Abilities and glyphs go in heroes/{heroname}/npc folders. Root template file is in Builder/addons/[english.txt, russian.txt, schinese.txt].
 
 ### Localizations ###
 
