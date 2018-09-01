@@ -7610,6 +7610,7 @@
         "PathfindingSearchDepthScale" "0.2"
     }
 
+
 "venomort_viper_summon"
     {
         "BaseClass" "npc_dota_creature"
@@ -9158,6 +9159,7 @@
             }
         }
     }
+
 
     "lanaya_explosive_bomb"
     {
@@ -49983,10 +49985,6 @@
                 {
                     "ItemDef"   "617"
                 }
-                "Wearable6"
-                {
-                    "ItemDef"   "666"
-                }
             }
             "States"
             {
@@ -82496,6 +82494,7 @@
         "MinimapIconSize" "600"
         "MinimapDisableTint" "0"
     }
+
     "winterblight_snowball_kid"
     {
         "BaseClass" "npc_dota_creature"
@@ -91461,6 +91460,7 @@
 
     }
     
+
     "tutorial_master"
     {
         "BaseClass" "npc_dota_creature"

@@ -4,6 +4,7 @@
 
 "DOTAAbilities"
 {
+
 	"arkimus_archon_form"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
@@ -325,6 +326,7 @@
 			}
 		}
 	}
+
 	"shot_of_apollo"
 	{
 		// General
@@ -817,6 +819,7 @@
 			}
 		}
 	}
+
 	"bahamut_arcana_orb"
 	{
 		// General
@@ -1036,6 +1039,7 @@
 
 
 	}
+
 	"chernobog_demon_flight"
 	{
 		// General
@@ -1525,6 +1529,7 @@
 			}
 		}
 	}
+
 	"summon_earth_aspect"
 	{
 		// General
@@ -2960,6 +2965,7 @@
 		}
 
 	}
+
 	"conjuror_rune_q_1"
 	{
 		// General
@@ -3812,6 +3818,7 @@
 			}
 		}
 	}
+
 	"dinath_dragon_dive"
 	{
 		// General
@@ -5236,6 +5243,7 @@
 
 
 	}
+
 	"draghor_shapeshift_year_beast"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
@@ -6186,6 +6194,7 @@
 			}
 		}
 	}
+
 
 	"whirling_flail"
 	{
@@ -7340,6 +7349,7 @@
 		}
 	}
 
+
 "duskbringer_rune_q_1"
 	{
 		// General
@@ -7963,6 +7973,7 @@
 			}
 		}
 	}
+
 	"elemental_axe_earth"
 	{
 		// General
@@ -10196,6 +10207,7 @@
 		}
 	}
 
+
 	"warlord_rune_q_1"
 	{
 		// General
@@ -10906,6 +10918,7 @@
 		}
 
 	}
+
 	"time_binder"
 	{
 		// General
@@ -12845,6 +12858,7 @@
 			}
 		}
 	}
+
 	"epoch_rune_q_1"
 	{
 		"BaseClass"				"ability_datadriven"
@@ -13426,6 +13440,7 @@
 			}
 		}
 	}
+
 	"seismic_flare"
 	{
 		// General
@@ -15120,6 +15135,7 @@
 	}
 
 
+
 	"flamewaker_rune_q_1"
 	{
 		// General
@@ -16041,6 +16057,7 @@
 			}
 		}
 	}
+
 	"hydroxis_spellbound_flood_basin"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
@@ -16441,6 +16458,7 @@
 			}
 		}
 	}
+
 	"justice_overwhelming"
 	{
 		// General
@@ -18464,6 +18482,7 @@
 			}
 		}
 	}
+
 	"paladin_rune_q_1"
 	{
 		"BaseClass"				"ability_datadriven"
@@ -19234,6 +19253,7 @@
 			}
 		}
 	}
+
 "whirlwind"
 	{
 		// General
@@ -20530,6 +20550,7 @@
 		}
 	}
 
+
 "axe_rune_q_1"
 	{
 		"BaseClass"				"ability_datadriven"
@@ -21154,6 +21175,7 @@
 			}
 		}
 	}
+
 	"seinaru_sunstrider"
 	{
 		// General
@@ -23939,6 +23961,7 @@
 			}
 		}
 	}
+
 	"piercing_gale"
 	{
 		// General
@@ -25377,7 +25400,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"7;"
+				"property_one"			"7"
 			}
 		}
 
@@ -25427,6 +25450,7 @@
 
 
 	}
+
 	"slipfinn_jump"
 	{
 		// General
@@ -26634,6 +26658,7 @@
 
 
 	}
+
 	"solunia_arcana_solar_comet"
 	{
 		// General
@@ -27416,6 +27441,7 @@
 			}
 		}
 	}
+
 	"arcane_explosion"
 	{
 		// General
@@ -28742,6 +28768,7 @@
 		}
 
 	}
+
 	"sorceress_arcana_ice_tornado"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
@@ -29468,6 +29495,7 @@
     			}
     		}
     	}
+
 	"sorceress_rune_r_1_arcana1"
     	{
     		// General
@@ -29593,6 +29621,7 @@
     			}
     		}
     	}
+
 "sorc_elemental_ability"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -29660,6 +29689,7 @@
 		}
 
 	}
+
 	"sorceress_rune_q_1"
 	{
 		// General
@@ -30252,6 +30282,7 @@
 			}
 		}
 	}
+
 	"spirit_warrior_flametongue"
 	{
 		// General
@@ -31691,6 +31722,7 @@
 		}
 	}
 
+
 	"spirit_warrior_rune_q_1"
 	{
 		// General
@@ -32763,6 +32795,7 @@
 			}
 		}
 	}
+
 
 "explosive_bomb"
 	{
@@ -34654,6 +34687,7 @@
 
 	}
 
+
 	"trapper_rune_q_1"
 	{
 		// General
@@ -35291,6 +35325,7 @@
 			}
 		}
 	}
+
     "lanaya_decoy_passive"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -35304,6 +35339,7 @@
 			}
 		}
 	}
+
 
 
 	"venomort_frostvenom_grasp"
@@ -36245,6 +36281,7 @@
 		}
 	}
 
+
 "venomort_rune_q_1"
 	{
 		// General
@@ -37006,6 +37043,7 @@
 
 
     	}
+
 "venomort_viper_ability"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
@@ -37051,6 +37089,7 @@
 		}
 
 	}
+
 	"overcharge"
 	{
 		// General
@@ -38472,6 +38511,7 @@
 			}
 		}
 	}
+
 	"winterblight_master_ability"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -47969,6 +48009,7 @@
 		}
 
 	}
+
 	"timewarp_missles"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -59725,7 +59766,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-				"TextureName"		"hydroxis/hydroxis_b_a"
+				"TextureName"		"hydroxis/hydroxis_q_2"
 				"EffectName"		"particles/roshpit/hydroxis/b_a_shield.vpcf"
 				"EffectAttachType"	"follow_origin"
 
@@ -59744,7 +59785,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-				"TextureName"		"hydroxis/hydroxis_b_a"
+				"TextureName"		"hydroxis/hydroxis_q_2"
 				"EffectName"		"particles/roshpit/hydroxis/b_a_shield.vpcf"
 				"EffectAttachType"	"follow_origin"
 
@@ -59772,7 +59813,7 @@
 			"modifier_hydroxis_c_a_magic_resist_lost"
 			{
 				"IsDebuff"	"1"
-				"TextureName"		"hydroxis/hydroxis_c_a"
+				"TextureName"		"hydroxis/hydroxis_q_3"
 				"TextureName"	"leshrac_lightning_storm"
 				"Properties"
 				{
@@ -76070,7 +76111,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/astral_d_b"
+		"AbilityTextureName"	"rpc/astral_w_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -80579,6 +80620,7 @@
 	//MOUNTAIN PROTECTOR
 
 
+
 	"mountain_protector_shockwave"
 	{
 		// General
@@ -81897,6 +81939,7 @@
         	}
         }
 	}
+
 
 
 	"mountain_protector_rune_q_1"
@@ -83641,7 +83684,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"hydroxis/hydroxis_a_a"
+		"AbilityTextureName"	"hydroxis/hydroxis_q_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -83675,7 +83718,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"hydroxis/hydroxis_a_b"
+		"AbilityTextureName"	"hydroxis/hydroxis_w_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
@@ -83704,7 +83747,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"hydroxis/hydroxis_a_c"
+		"AbilityTextureName"	"hydroxis/hydroxis_e_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -83755,7 +83798,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"hydroxis/hydroxis_b_a"
+		"AbilityTextureName"	"hydroxis/hydroxis_q_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -83778,7 +83821,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"hydroxis/hydroxis_b_b"
+		"AbilityTextureName"	"hydroxis/hydroxis_w_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -83796,7 +83839,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"hydroxis/hydroxis_b_c"
+		"AbilityTextureName"	"hydroxis/hydroxis_e_2"
 		"MaxLevel"				"20"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"LevelsBetweenUpgrades" "0"
@@ -83854,7 +83897,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"hydroxis/hydroxis_c_a"
+		"AbilityTextureName"	"hydroxis/hydroxis_q_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -83896,7 +83939,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"hydroxis/hydroxis_c_c"
+		"AbilityTextureName"	"hydroxis/hydroxis_e_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -83914,7 +83957,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"hydroxis/hydroxis_c_d"
+		"AbilityTextureName"	"hydroxis/hydroxis_r_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
@@ -83938,7 +83981,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"hydroxis/hydroxis_d_a"
+		"AbilityTextureName"	"hydroxis/hydroxis_q_4"
 		"MaxLevel"				"20"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"LevelsBetweenUpgrades" "0"
@@ -83957,7 +84000,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"hydroxis/hydroxis_d_b"
+		"AbilityTextureName"	"hydroxis/hydroxis_w_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -83975,7 +84018,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"hydroxis/hydroxis_d_c"
+		"AbilityTextureName"	"hydroxis/hydroxis_e_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -83998,7 +84041,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"hydroxis/hydroxis_d_d"
+		"AbilityTextureName"	"hydroxis/hydroxis_r_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"

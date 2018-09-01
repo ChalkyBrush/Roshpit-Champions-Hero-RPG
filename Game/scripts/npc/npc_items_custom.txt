@@ -36675,6 +36675,7 @@
 		}
 	}
 
+
 	"item_rpc_axe_immortal_weapon_1"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -42039,6 +42040,7 @@
 		}
 	}
 
+
     "item_rpc_venomort_glyph_book"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -42516,7 +42518,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
+				"property_two"			"0.6"
 			}
 		}
 	}
@@ -42673,6 +42675,7 @@
 			}
 		}
 	}
+
 
 	"item_rpc_venomort_arcana1"
 	{
@@ -42951,6 +42954,7 @@
 			}
 		}
 	}
+
 
     "item_rpc_axe_glyph_book"
      {
@@ -43899,6 +43903,7 @@
 	}
 
 	//EPOCH GLYPHS
+
 	"item_rpc_epoch_glyph_1_1"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -44246,6 +44251,7 @@
 	}
 
 	//PALADIN GLYPHS
+
 	"item_rpc_paladin_glyph_1_1"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -44621,6 +44627,7 @@
 			}
 		}
 	}
+
 	"item_rpc_paladin_arcana1"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -44748,6 +44755,7 @@
 			}
 		}
 	}
+
 	"item_rpc_basic_hammer"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -45326,6 +45334,7 @@
 
 
 	//SORCERESS GLYPHS
+
     "item_rpc_sorceress_glyph_book"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -45945,6 +45954,7 @@
 	}
 
 	//CONJUROR GLYPHS
+
 	"item_rpc_conjuror_glyph_1_1"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -46273,6 +46283,7 @@
 	}
 	
 	//SEINARU GLYPHS
+
 "item_rpc_monk_glyph_1_1"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -46611,6 +46622,7 @@
 	}
 
 	//ELEMENTAL WARLORD GLYPHS
+
 	"item_rpc_warlord_glyph_1_1"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -47259,6 +47271,7 @@
 	}
 
 	//DUSKBRINGER GLYPHS
+
     "item_rpc_duskbringer_glyph_book"
      {
           "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -48262,6 +48275,7 @@
 
 	//TRAPPER GLYPHS
 
+
     "item_rpc_trapper_glyph_book"
      {
           "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -48912,6 +48926,7 @@
 	}
 
 	//SPIRIT WARRIOR
+
 
 	"item_rpc_spirit_warrior_glyph_1_1"
 	{
@@ -52096,6 +52111,7 @@
 			}
 		}
 	}
+
 
 	"item_rpc_dinath_glyph_1_1"
 	{
