@@ -78,14 +78,18 @@ function disciple_think(event)
 		summonAbility:ApplyDataDrivenModifier(summon, summon, "modifier_disple_leaving", {duration = 1})
 		return true
 	elseif distance > 600 then
-		if ability and not ability:GetAutoCastState() then
-			return
+		if paladin:HasModifier("modifier_paladin_glyph_3_1") then
+			if ability and not ability:GetAutoCastState() then
+				return
+			end
 		end
 		local movePosition = paladin:GetAbsOrigin()-paladin:GetForwardVector()*400+RandomVector(150)
 		summon:MoveToPosition(movePosition)
 	end
-	if ability and not ability:GetAutoCastState() then
-		return
+	if paladin:HasModifier("modifier_paladin_glyph_3_1") then
+		if ability and not ability:GetAutoCastState() then
+			return
+		end
 	end
 	if summon:HasAbility("knights_disciple_purifying_spark") then
 		local boltAbility = summon:FindAbilityByName("knights_disciple_purifying_spark")
