@@ -32,8 +32,12 @@ _________________________________________
 
 ### Updating ability, item or unit definitions
 
-Do not use npc_abilties_custom or npc_units_custom or npc_items_custom. Instead, use the templates found in the root directory.
-Go to your root directory in command line and type py roshpit_npc_builder.py to run the builder. Whenever you save a change to the template, it updates your npc_abilities_custom file.
+Do not use npc_abilties_custom or npc_units_custom or npc_items_custom. Instead, use the templates found in the root directory /builder.
+Go to your root directory in command line and type py rpc_builder.py to run the builder. Whenever you save a change to the template, it updates your npc_abilities_custom file. Abilities and glyphs go in heroes/{heroname}/npc folders.
+
+### Localizations ###
+
+Localizations now use the builder system as well. Hero localizations go into heroes/{heroname}/localizations folder. A reference must be added to root/builder/{language}.txt so that the builder can inject the hero localizations into the final output.
 
 please add the following line to your gitignore: game/scripts/npc
 
