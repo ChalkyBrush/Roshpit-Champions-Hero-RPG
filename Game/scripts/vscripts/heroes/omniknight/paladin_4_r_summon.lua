@@ -10,7 +10,7 @@ function knights_disciple_cast(event)
 	summonAbility:SetLevel(1)
 	if caster:HasModifier("modifier_paladin_glyph_3_1") then
 		summon:SetControllableByPlayer(caster:GetPlayerID(), true)
-		summon:AddNewModifier(summon, nil, "modifier_disciple_bonus_movespeed", {movespeed = 800})
+		summon:AddNewModifier(summon, nil, "modifier_disciple_bonus_movespeed", {movespeed = PALADIN_DISCIPLE_GLYPH_3_MS})
 	else
 		summonAbility:ApplyDataDrivenModifier(summon, summon, "modifier_disciple_unselectable", {})
 	end
