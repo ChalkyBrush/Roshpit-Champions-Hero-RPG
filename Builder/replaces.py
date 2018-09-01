@@ -28,8 +28,10 @@ def validate_content(content, file_path, warnings):
     json_content = re.sub('}(\s+")', r"},\1", json_content, 0, re.MULTILINE)
     json_content = json_content.replace('\\', "\\\\")
     json_content = re.sub("@\$#@\$!", '\\\\\\\\\\"', json_content, 0, re.MULTILINE)
+    json_content = "{ " + json_content + " }"
+    json_content = re.sub(',(\s+)}', r"\1}", json_content, 0, re.MULTILINE)
     try:
-        json.loads("{" + json_content + "}")
+        json.loads(json_content)
     except Exception as e:
         if warnings['syntax_invalid']:
             print('Warning: Syntax parse error in ' + file_path)

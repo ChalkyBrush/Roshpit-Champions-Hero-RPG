@@ -1,0 +1,251 @@
+
+		"DOTA_Tooltip_ability_phase_walk"									"Poison Step"
+		"DOTA_Tooltip_ability_phase_walk_Description"						"Element: <font color=\"#37DD3D\">Poison</font><br>Venomort casts himself into a puddle of his own conconction, reappearing in a forward location and leaving pools of damaging poison at his entry and exit points."
+		"DOTA_Tooltip_ability_phase_walk_Lore"								""
+		"DOTA_Tooltip_ability_phase_walk_step_distance"						"STEP DISTANCE:"
+    	"DOTA_Tooltip_ability_phase_walk_radius"							"POISON RADIUS:"
+    	"DOTA_Tooltip_ability_phase_walk_damage"							"POISON TICK DAMAGE:"
+    	"DOTA_Tooltip_ability_phase_walk_tick_rate"							"POISON DAMAGE INTERVAL:"
+    	"DOTA_Tooltip_ability_phase_walk_poison_duration"					"POISON POOL DURATION: "
+
+    	"DOTA_Tooltip_modifier_ghost_warp_invisible"						"Ghost Warp"
+    	"DOTA_Tooltip_modifier_ghost_warp_invisible_Description"			"Invisible"
+
+
+		"DOTA_Tooltip_ability_venomort_ghost_warp"				"Ghost Warp"
+		"DOTA_Tooltip_ability_venomort_ghost_warp_Description"	"Venomort floats off toward a target point while taking on an invisible ghost form for a brief period."
+		"DOTA_Tooltip_ability_venomort_ghost_warp_invisible_duration"	"INVISIBILITY DURATION:"
+		"DOTA_Tooltip_ability_venomort_ghost_warp_cast_range"			"CAST RANGE:"
+
+		"DOTA_Tooltip_ability_snake_trap"									"Summon Viper"
+		"DOTA_Tooltip_ability_snake_trap_Description"						"Venomort performs a ritual to summon a poisonous snake, which inherits his total Armor value but has its own health and damage."
+		"DOTA_Tooltip_ability_snake_trap_damage"							"ATTACK DAMAGE:"
+		"DOTA_Tooltip_ability_snake_trap_health"							"MAXIMUM HEALTH:"
+		"DOTA_Tooltip_ability_snake_trap_attack_speed"						"ATTACK SPEED:"
+		"DOTA_Tooltip_ability_snake_trap_duration"							"DURATION:"
+		"DOTA_Tooltip_ability_snake_trap_duration_suffix"					" seconds"
+
+		"venomort_viper_summon"												"Venomort Viper"
+
+		"DOTA_Tooltip_ability_nether_blaster"								"Necrofusion"
+		"DOTA_Tooltip_ability_nether_blaster_Description"					"Element: <font color=\"#37DD3D\">Poison</font>/<font color=\"#9ACCD1\">Ghost</font><br>Conjures a skull-shaped bolt of poison magic in front of venomort, damaging and slowing enemies struck."
+		"DOTA_Tooltip_ability_nether_blaster_Lore"							""
+		"DOTA_Tooltip_ability_nether_blaster_movespeed_slow"				"MOVESPEED SLOW:"
+		"DOTA_Tooltip_ability_nether_blaster_damage"					    "DAMAGE:"
+		"DOTA_Tooltip_ability_nether_blaster_range"					    	"RANGE:"
+
+    	"DOTA_Tooltip_modifier_necrofusion_slowed"							"Necrofusion"
+    	"DOTA_Tooltip_modifier_necrofusion_slowed_Description"				"Slowed"
+
+		"DOTA_Tooltip_ability_gale_nova"										"Plague Spreader"
+		"DOTA_Tooltip_ability_gale_nova_Description"							"Element: <font color=\"#37DD3D\">Poison</font><br>Venomort conjures a mist of venomous smoke, causing all nearby enemies to contract a disease which deals damage every 0.4 seconds."
+		"DOTA_Tooltip_ability_gale_nova_Lore"									""
+    	"DOTA_Tooltip_ability_gale_nova_damage"							        "POISON DAMAGE/TICK:"
+    	"DOTA_Tooltip_ability_gale_nova_duration"								"POISON DURATION:"
+    	"DOTA_Tooltip_ability_gale_nova_range"								    "RADIUS:"
+
+    	"DOTA_Tooltip_modifier_gale_nova_dot"									"Plague Spreader"
+    	"DOTA_Tooltip_modifier_gale_nova_dot_Description"						"Taking poison damage"
+
+    	"DOTA_Tooltip_modifier_gale_nova_bad"									"Mass Hysteria"
+    	"DOTA_Tooltip_modifier_gale_nova_bad_Description"						"Increased Base Ability Damage"
+
+    	"DOTA_Tooltip_modifier_gale_nova_target"								"Plague Spreader"
+    	"DOTA_Tooltip_modifier_gale_nova_target_Description"					"Taking damage over time"
+
+    	"DOTA_Tooltip_modifier_q_1_nova"										"Poison Nova"
+    	"DOTA_Tooltip_modifier_q_1_nova_Description"							"Venomort's old Q1 applied this debuff, but the rune was entirely changed in an update. If you see this message, please report it to RPC's development team."
+
+    	"DOTA_Tooltip_ability_venomort_rune_q_1"							"[Q1] Mass Hysteria"
+    	"DOTA_Tooltip_ability_venomort_rune_q_1_Description"				"Increases Base Ability Damage based on the number of targets Venomort infected with his most recent casting of Plague Spreader. Paragon enemies count as 5 units, while bosses count as 20. Casting it again resets this bonus. Lasts 20 seconds."
+    	"DOTA_Tooltip_ability_venomort_rune_q_1_property_one"				"Base Ability Damage"
+    	"DOTA_Tooltip_ability_venomort_rune_q_1_suffix"						"% per unit"
+
+    	"DOTA_Tooltip_ability_venomort_rune_w_1"							"[W1] Necrosis"
+    	"DOTA_Tooltip_ability_venomort_rune_w_1_Description"				"Increases the base damage of Necrofusion by a factor of Venomort's current health."
+    	"DOTA_Tooltip_ability_venomort_rune_w_1_property_one"				"Current HP to Base Damage"
+    	"DOTA_Tooltip_ability_venomort_rune_w_1_suffix"						"%"
+
+
+    	"DOTA_Tooltip_ability_venomort_rune_e_1"							"[E1] Infection"
+    	"DOTA_Tooltip_ability_venomort_rune_e_1_Description"				"Increases all <font color=\"#37DD3D\">Poison</font> damage dealt by Venomort."
+    	"DOTA_Tooltip_ability_venomort_rune_e_1_property_one"				"Poison damage"
+    	"DOTA_Tooltip_ability_venomort_rune_e_1_suffix"						"%"
+
+		"DOTA_Tooltip_modifier_venomort_rune_e_1" 							"Ghost Walk"
+		"DOTA_Tooltip_modifier_venomort_rune_e_1_description" 				"Venomort's old E1 applied this buff, but the rune was entirely changed in an update. If you see this message, please report it to RPC's development team."
+
+    	"DOTA_Tooltip_ability_venomort_rune_r_1"							"[R1] Deadly Spittle"
+    	"DOTA_Tooltip_ability_venomort_rune_r_1_Description"				"Vile Familiars deal additional damage with every attack."
+    	"DOTA_Tooltip_ability_venomort_rune_r_1_property_one"				"Damage"
+    	"DOTA_Tooltip_ability_venomort_rune_r_1_suffix"						"% of Viper's attack damage"
+
+    	"DOTA_Tooltip_ability_venomort_rune_r_2"							"[R2] Molting"
+    	"DOTA_Tooltip_ability_venomort_rune_r_2_Description"				"Improves Vipers, increasing their attack damage, maximum health, and attack speed, as well as their total Armor value."
+    	"DOTA_Tooltip_ability_venomort_rune_r_2_property_one"				"Additional Stats"
+    	"DOTA_Tooltip_ability_venomort_rune_r_2_suffix"						"% of base stats"
+
+    	"DOTA_Tooltip_ability_venomort_rune_e_2"							"[E2] Acid Armor"
+    	"DOTA_Tooltip_ability_venomort_rune_e_2_Description"				"Enemies who damage Venomort are covered in corrosive acid, dealing damage every second for 5 seconds. The base damage is multiplied by Venomort's level."
+    	"DOTA_Tooltip_ability_venomort_rune_e_2_property_one"				"Damage"
+    	"DOTA_Tooltip_ability_venomort_rune_e_2_suffix"						"x hero level"
+
+		"DOTA_Tooltip_modifier_venomort_rune_e_2" 							"Venom Raze"
+		"DOTA_Tooltip_modifier_venomort_rune_e_2_description" 				"Venomort's old E2 applied this buff, but the rune was entirely changed in an update. If you see this message, please report it to RPC's development team."
+
+    	"DOTA_Tooltip_ability_venomort_rune_w_2"							"[W2] Brain Poison"
+    	"DOTA_Tooltip_ability_venomort_rune_w_2_Description"				"Enemies struck by Necrofusion have a 40% chance to be afflicted with brain poison, causing them to run around in horrified desperation and taking no actions besides movement. Victims become immune to this effect for 7 seconds after it ends."
+    	"DOTA_Tooltip_ability_venomort_rune_w_2_property_one"				"Duration"
+    	"DOTA_Tooltip_ability_venomort_rune_w_2_suffix"						" seconds"
+
+    	"DOTA_Tooltip_modifier_venomort_demoralize"							"Brain Poison"
+    	"DOTA_Tooltip_modifier_venomort_demoralize_Description"				"Confused"
+
+    	"DOTA_Tooltip_ability_venomort_rune_q_2"							"[Q2] Toxicology"
+    	"DOTA_Tooltip_ability_venomort_rune_q_2_Description"				"Venomort's Intelligence attribute increases the base damage of Plague Spreader."
+    	"DOTA_Tooltip_ability_venomort_rune_q_2_property_one"				"INT to Base Damage"
+    	"DOTA_Tooltip_ability_venomort_rune_q_2_suffix"						"x"
+
+		"DOTA_Tooltip_modifier_venomort_rune_q_2" 							"Brain Poison"
+		"DOTA_Tooltip_modifier_venomort_rune_q_2_description" 				"Venomort's old Q2 applied this buff, but the rune was entirely changed in an update. If you see this message, please report it to RPC's development team."
+
+		"DOTA_Tooltip_modifier_venomort_rune_q_2_confuse" 					"Brain Poison"
+		"DOTA_Tooltip_modifier_venomort_rune_q_2_confuse_description" 		"Fleeing"
+
+    	"DOTA_Tooltip_ability_venomort_rune_q_3"							"[Q3] Atrophy"
+    	"DOTA_Tooltip_ability_venomort_rune_q_3_Description"				"Plague Spreader's disease stiffens the muscles of his victims, reducing their attack speed."
+    	"DOTA_Tooltip_ability_venomort_rune_q_3_property_one"				"Attack Speed Loss"
+    	"DOTA_Tooltip_ability_venomort_rune_q_3_suffix"						""
+
+    	"DOTA_Tooltip_ability_venomort_rune_w_3"							"[W3] Scourge Fervor"
+    	"DOTA_Tooltip_ability_venomort_rune_w_3_Description"				"Tagging an enemy with Necrofusion at least once causes it to increase all of Venomort's attributes as long as it lives. Paragon enemies count as <% PARAGONS_COUNT_AS_ENEMIES %> units, while bosses count as 20."
+    	"DOTA_Tooltip_ability_venomort_rune_w_3_property_one"				"Bonus Attributes"
+    	"DOTA_Tooltip_ability_venomort_rune_w_3_suffix"						" per affected enemy"
+
+		"DOTA_Tooltip_modifier_venomort_rune_w_3_visible" 					"Scourge Fervor"
+		"DOTA_Tooltip_modifier_venomort_rune_w_3_visible_description" 		"Venomort's old W3 applied this buff, but the rune was entirely changed in an update. If you see this message, please report it to RPC's development team."
+
+    	"DOTA_Tooltip_ability_venomort_rune_e_3"							"[E3] Phantom Initiative"
+    	"DOTA_Tooltip_ability_venomort_rune_e_3_Description"				"Venomort adds increased attack damage % to himself and allies with 900 range."
+    	"DOTA_Tooltip_ability_venomort_rune_e_3_property_one"				"Bonus Damage"
+    	"DOTA_Tooltip_ability_venomort_rune_e_3_suffix"						""
+    	"DOTA_Tooltip_ability_venomort_rune_e_3_property_two"				"%"
+    	"DOTA_Tooltip_ability_venomort_rune_e_3_suffix_two"					""
+
+    	"DOTA_Tooltip_modifier_venomort_bonus_attack_damage_ally"			"Phantom Initiative"
+    	"DOTA_Tooltip_modifier_venomort_bonus_attack_damage_ally_Description"	"Increased attack power %"
+
+    	"DOTA_Tooltip_ability_venomort_rune_r_3"							"[R3] Numbing Agent"
+    	"DOTA_Tooltip_ability_venomort_rune_r_3_Description"				"Enemies damaged by a Vile Familiar receive a stacking debuff that causes them to deal less total damage to Venomort himself. Each stack further reduces damage dealt down to 97% of its previous value. Debuff lasts 5 seconds before expiring."
+    	"DOTA_Tooltip_ability_venomort_rune_r_3_property_one"				"Maximum Stack Count"
+    	"DOTA_Tooltip_ability_venomort_rune_r_3_suffix"						""
+
+    	"DOTA_Tooltip_modifier_venomort_c_d_poison"							"Numbing Agent"
+    	"DOTA_Tooltip_modifier_venomort_c_d_poison_Description"				"Dealing reduced damage to Venomort."
+
+    	"DOTA_Tooltip_ability_venomort_rune_q_4"							"[Q4] Pneumonia"
+    	"DOTA_Tooltip_ability_venomort_rune_q_4_Description"				"Increases the radius of @Ability1."
+    	"DOTA_Tooltip_ability_venomort_rune_q_4_property_one"				"Additional Radius"
+    	"DOTA_Tooltip_ability_venomort_rune_q_4_suffix"						""
+
+    	"DOTA_Tooltip_modifier_venomort_rune_q_4_effect"					"Corrosion"
+    	"DOTA_Tooltip_modifier_venomort_rune_q_4_effect_Description"		"Venomort's old Q4 applied this debuff, but the rune was entirely changed in an update. If you see this message, please report it to RPC's development team."
+
+    	"DOTA_Tooltip_ability_venomort_rune_w_4"							"[W4] Euthanasia"
+    	"DOTA_Tooltip_ability_venomort_rune_w_4_Description"				"Enemies take increased post-mitigation damage from Venomort for each 1% of their maximum health they're missing."
+    	"DOTA_Tooltip_ability_venomort_rune_w_4_property_one"				"Enhanced Damage"
+    	"DOTA_Tooltip_ability_venomort_rune_w_4_suffix"						"% for every 1% of missing HP"
+
+    	"DOTA_Tooltip_ability_venomort_rune_e_4"							"[E4] Sadism"
+    	"DOTA_Tooltip_ability_venomort_rune_e_4_Description"				"Each enemy unit currently suffering from any of Venomort's various poisons grants him a stack of increased health and evasion. Paragon enemies count as 5 units, while bosses count as 20."
+    	"DOTA_Tooltip_ability_venomort_rune_e_4_property_one"				"Bonus Health"
+    	"DOTA_Tooltip_ability_venomort_rune_e_4_suffix"						" per enemy"
+    	"DOTA_Tooltip_ability_venomort_rune_e_4_property_two"				"Bonus Evasion"
+    	"DOTA_Tooltip_ability_venomort_rune_e_4_suffix_two"					"% per enemy"
+
+    	"DOTA_Tooltip_modifier_venomort_e4_hero_bonus_visible"				"Sadism"
+    	"DOTA_Tooltip_modifier_venomort_e4_hero_bonus_visible_Description"	"Increased health and evasion"
+
+    	"DOTA_Tooltip_modifier_venomort_rune_e_4_visible"					"Corrupted Strikes"
+    	"DOTA_Tooltip_modifier_venomort_rune_e_4_visible_Description"		"Venomort's old E4 applied this debuff, but the rune was entirely changed in an update. If you see this message, please report it to RPC's development team."
+
+		"DOTA_Tooltip_ability_venomort_rune_r_4"                            "[R4] Morticulture"
+        "DOTA_Tooltip_ability_venomort_rune_r_4_Description"                "Increases the base health and damage of Vile Familiars."
+        "DOTA_Tooltip_ability_venomort_rune_r_4_property_one"               "Bonus Maximum Health"
+        "DOTA_Tooltip_ability_venomort_rune_r_4_property_two"               "Bonus Base Damage"
+        "DOTA_Tooltip_ability_venomort_rune_r_4_suffix"                     ""
+        "DOTA_Tooltip_ability_venomort_rune_r_4_suffix_two" 				""
+
+    	"DOTA_Tooltip_modifier_venomort_rune_r_4"							"Contamination"
+    	"DOTA_Tooltip_modifier_venomort_rune_r_4_Description"				"Gaining Base Ability Damage"
+
+    	"item_property_venomort_arcana1"									"Reaper's Judgement"
+    	"property_venomort_arcana1_description"								"Replaces @Ability4 and all of its runes with Reaper's Judgement."
+
+    	"DOTA_Tooltip_ability_venom_reaper_slice"								"Reaper's Judgement"
+    	"DOTA_Tooltip_ability_venom_reaper_slice_Description"					"Element: <font color=\"#37DD3D\">Poison</font> / <font color=\"#5C776E\">Undead</font><br>Toggle on to conjure up to 3 venomous reapers of Death against random enemies within <% VENOMORT_ARCANA1_R_RADIUS %> range, whose strikes deal a multiple of Venomort's total attack damage. While the reapers are active, Venomort's base movement speed is set to 100."
+    	"DOTA_Tooltip_ability_venom_reaper_slice_damage_mult"					"ATTACK POWER DAMAGE MULTIPLIER:"
+
+  		"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1"						"[R1] Purgatory"
+    	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_Description"			"The slashes of a Phantasmal Killer sear the souls of their victims, dealing additional damage every 0.5 seconds for 3 seconds."
+    	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_property_one"			"Damage Over Time"
+    	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_suffix"					"% of Phantasmal Killer"
+
+  		"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1"						"[R2] Pandemic"
+    	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_Description"			"Increases the target acquisition radius of Reaper's Judgement."
+    	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_property_one"			"Bonus Search Radius"
+    	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_suffix"					""
+
+  		"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1"						"[R3] Death's Embrace"
+    	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_Description"			"A portion of the damage dealt by a Phantasmal Killer's initial strike heals Venomort. Any overhealing applies a shield that absorbs incoming damage for 30 seconds."
+    	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_property_one"			"Heal Amount"
+    	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_suffix"					"% of damage"
+    	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_property_two"			"Maximum Shield Capacity"
+    	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_suffix_two"				"% of Max Health"
+
+    	"DOTA_Tooltip_modifier_reaper_slice_shield"								"Death's Embrace"
+    	"DOTA_Tooltip_modifier_reaper_slice_shield_Description"					"Absorbing Damage"
+
+  		"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1"						"[R4] Disencumber"
+    	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_Description"			"Increases base movement speed while @Ability4 is toggled on."
+    	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_property_one"			"Bonus Movespeed"
+    	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_suffix"					""
+
+    	"DOTA_Tooltip_modifier_reaper_slice_amp_debuff"							"Descent of Death"
+    	"DOTA_Tooltip_modifier_reaper_slice_amp_debuff_Description"				"Venomort's old Arcana R4 applied this debuff, but the rune was entirely changed in an update. If you see this message, please report it to RPC's development team."
+
+    	"item_property_venomort_arcana2"									"Frostvenom Grasp"
+    	"property_venomort_arcana2_description"								"Replaces @Ability1 and all of its runes with Frostvenom Grasp."
+
+    	"DOTA_Tooltip_modifier_chilled_stacking"							"Frostvenom Grasp"
+
+    	"DOTA_Tooltip_ability_venomort_frostvenom_grasp"								"Frostvenom Grasp"
+    	"DOTA_Tooltip_ability_venomort_frostvenom_grasp_Description"					"Element: <font color=\"#37DD3D\">Poison</font> / <font color=\"#87D9FF\">Ice</font><br>Venomort raps his scythe against the ground, calling up the sheer cold of the Winterblight against nearby enemies. Each Frostvenom Grasp explosion damages and slows all targets caught in each blast. Limit 1 blast per enemy."
+    	"DOTA_Tooltip_ability_venomort_frostvenom_grasp_explosions"						"EXPLOSIONS:"
+    	"DOTA_Tooltip_ability_venomort_frostvenom_grasp_damage"							"DAMAGE:"
+    	"DOTA_Tooltip_ability_venomort_frostvenom_grasp_bonus_attack_speed"				"ATTACK SPEED SLOW:"
+    	"DOTA_Tooltip_ability_venomort_frostvenom_grasp_bonus_movement_speed"			"MOVE SPEED SLOW:"
+
+  		"DOTA_Tooltip_ability_venomort_rune_q_1_arcana2"						"[Q1] Frostbite Venom"
+    	"DOTA_Tooltip_ability_venomort_rune_q_1_arcana2_Description"			"Each time an enemy is damaged by Frostvenom Grasp they gain a stack of Frostbite Venom. Each stack deals damage on a 0.1 second interval."
+    	"DOTA_Tooltip_ability_venomort_rune_q_1_arcana2_property_one"			"Damage"
+    	"DOTA_Tooltip_ability_venomort_rune_q_1_arcana2_suffix"					" every 0.1s"
+
+  		"DOTA_Tooltip_ability_venomort_rune_q_2_arcana2"						"[Q2] Icemeter"
+    	"DOTA_Tooltip_ability_venomort_rune_q_2_arcana2_Description"			"Frostvenom Grasp's target search AOE expands, and the original burst sends Venomort sliding forward."
+    	"DOTA_Tooltip_ability_venomort_rune_q_2_arcana2_property_one"			"Bonus Search Radius"
+    	"DOTA_Tooltip_ability_venomort_rune_q_2_arcana2_suffix"					""
+     	"DOTA_Tooltip_ability_venomort_rune_q_2_arcana2_property_two"			"Push Force"
+    	"DOTA_Tooltip_ability_venomort_rune_q_2_arcana2_suffix_two"				""
+
+  		"DOTA_Tooltip_ability_venomort_rune_q_3_arcana2"						"[Q3] Fangs of Ozubu"
+    	"DOTA_Tooltip_ability_venomort_rune_q_3_arcana2_Description"			"Every time an enemy unit takes an instance of damage from any of Venomort's various poisons, it gains a stacking debuff which increases damage received from all of Venomort's damage-over-time effects. Max 15 stacks, lasts 10 seconds."
+    	"DOTA_Tooltip_ability_venomort_rune_q_3_arcana2_property_one"			"Damage Boost"
+    	"DOTA_Tooltip_ability_venomort_rune_q_3_arcana2_suffix"					"% per stack"
+
+  		"DOTA_Tooltip_ability_venomort_rune_q_4_arcana2"						"[Q4] Pulse Nova"
+    	"DOTA_Tooltip_ability_venomort_rune_q_4_arcana2_Description"			"Adds a chance for Frostvenom Grasp to produce additional explosions with each cast, and causes each strike to increase Base Ability Damage for 12 seconds, up to 50 stacks. Greater than 100% chance means it can proc multiple times."
+    	"DOTA_Tooltip_ability_venomort_rune_q_4_arcana2_property_one"			"Chance for Additional Explosion"
+    	"DOTA_Tooltip_ability_venomort_rune_q_4_arcana2_suffix"					"%"
+    	"DOTA_Tooltip_ability_venomort_rune_q_4_arcana2_property_two"			"Base Ability Damage"
+    	"DOTA_Tooltip_ability_venomort_rune_q_4_arcana2_suffix_two"				"% per stack"
