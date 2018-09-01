@@ -2419,7 +2419,7 @@ function GameState:FilterDamage(filterTable)
 	end
 
 
-	if victim:HasModifier("modifier_paladin_rune_q_3_shield") then
+	if victim:HasModifier("modifier_paladin_q3_shield") then
 		filterTable["damage"] = 0
 		Filters:ShatterPaladinShell(victim, attacker)
 	end
