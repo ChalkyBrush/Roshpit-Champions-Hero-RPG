@@ -10,6 +10,8 @@ local heroes = {
 
 require('/heroes/huskar/constants_SPIRIT_WARRIOR')
 require('items/special_item_effects')
+require('/heroes/omniknight/paladin_constants')
+require('/heroes/phantom_assassin/voltex_constants')
 
 LinkLuaModifier("modifier_buzuki_finger_lua", "modifiers/modifier_buzuki_finger_lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -3556,7 +3558,7 @@ function Filters:SpellShieldHit(victim, damage)
 end
 
 function Filters:HasDamageBlockShield(victim)
-    if victim:HasModifier("modifier_secret_temple_refraction") or victim:HasModifier("modifier_windsteel_effect") or victim:HasModifier("modifier_heavens_shield") or victim:HasModifier("modifier_shipyard_veil_shield") or victim:HasModifier("modifier_arcane_shell") or victim:HasModifier("modifier_duskbringer_ghost_armor") or victim:HasModifier("modifier_paladin_rune_q_3_shield") or victim:HasModifier("modifier_voltex_rune_w_3_shield") or victim:HasModifier("modifier_light_seer_shield") or victim:HasModifier("modifier_black_dominion_shield") then
+    if victim:HasModifier("modifier_secret_temple_refraction") or victim:HasModifier("modifier_windsteel_effect") or victim:HasModifier("modifier_heavens_shield") or victim:HasModifier("modifier_shipyard_veil_shield") or victim:HasModifier("modifier_arcane_shell") or victim:HasModifier("modifier_duskbringer_ghost_armor") or victim:HasModifier("modifier_paladin_q3_shield") or victim:HasModifier("modifier_voltex_rune_w_3_shield") or victim:HasModifier("modifier_light_seer_shield") or victim:HasModifier("modifier_black_dominion_shield") then
         return true
     else
         return false
@@ -3851,8 +3853,8 @@ function Filters:ShatterPaladinShell(victim, attacker)
     end
 
     EmitSoundOn("Paladin.AegisZap", attacker)
-    local q_3_level =  Runes:GetTotalRuneLevel(victim, 3, "q_3", "paladin")
-    local damage = 5*q_3_level*victim:GetStrength()
+    local q_3_level =  victim:GetRuneValue("q", 3)
+    local damage = PALADIN_Q3_DMG_PER_STR * q_3_level * victim:GetStrength()
     Filters:TakeArgumentsAndApplyDamage(attacker, victim, damage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 
 
@@ -3874,8 +3876,8 @@ function Filters:ShatterVoltexShell(victim, attacker)
     end
 
     EmitSoundOn("Voltex.IonShellZap", attacker)
-    local w_3_level =  Runes:GetTotalRuneLevel(victim, 3, "w_3", "voltex")
-    local damage = 5*w_3_level*victim:GetAgility()
+    local w_3_level =  victim:GetRuneValue("w", 3)
+    local damage = VOLTEX_W3_DMG_PER_AGI * w_3_level*victim:GetAgility()
     Filters:TakeArgumentsAndApplyDamage(attacker, victim, damage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 
     local particleName = "particles/roshpit/voltex_shell_zap.vpcf"
