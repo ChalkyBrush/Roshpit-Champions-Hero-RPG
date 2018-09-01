@@ -1610,7 +1610,7 @@ function essence_drain_think(event)
 			return
 		end
 		local modifier = modifiers[i]
-		for _,word in pairs() do
+		for _,word in pairs(ignoreSuffixList) do
 			if string.find(modifier:GetName(),word) then
 				continue = false
 			end
