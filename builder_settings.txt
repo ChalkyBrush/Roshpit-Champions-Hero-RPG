@@ -1,2 +1,0 @@
-base_path:Game\scripts\vscripts\
-output_path:Game\scripts\npc\
