@@ -448,6 +448,16 @@
 				"var_type"			"FIELD_INTEGER"
 				"property_one"			"4"
 			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_two"			"8"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_three"			"4"
+			}
 		}
 	}
 

@@ -119,7 +119,7 @@ function initializeTooltip(func){
 		propertyValue2 = Math.round(propertyValue2 * 100, 1) / 100
 		var propertyValueNext2 = amount_per_level2*(total_level+1)+property_two_base
 		if (property_two_max > 0){
-			if ((amount_per_level*(total_level+1)+property_two_base) > property_two_max){
+			if ((amount_per_level2*(total_level+1)+property_two_base) > property_two_max){
 				propertyValueNext2 = property_two_max
 			}
 		}

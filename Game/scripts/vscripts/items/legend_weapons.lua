@@ -4,15 +4,33 @@ function Weapons:RollRandomLegendWeapon1(deathLocation)
 	Weapons:RollLegendWeapon1(deathLocation, class)
 end
 
+function Weapons:RollLegendWeapon1WithDotaName(class, deathLocation)
+	local classTable = HerosCustom:GetInternalNameTable()
+	class = HerosCustom:GetInternalHeroNameMain(class)
+	Weapons:RollLegendWeapon1(deathLocation, class)
+end
+
 function Weapons:RollRandomLegendWeapon2(deathLocation)
 	local classTable = HerosCustom:GetInternalNameTable()
 	local class = classTable[RandomInt(1, #classTable)]
 	Weapons:RollLegendWeapon2(deathLocation, class)
 end
 
+function Weapons:RollLegendWeapon2WithDotaName(class, deathLocation)
+	local classTable = HerosCustom:GetInternalNameTable()
+	class = HerosCustom:GetInternalHeroNameMain(class)
+	Weapons:RollLegendWeapon2(deathLocation, class)
+end
+
 function Weapons:RollRandomLegendWeapon3(deathLocation)
 	local classTable = HerosCustom:GetInternalNameTable()
 	local class = classTable[RandomInt(1, #classTable)]
+	Weapons:RollLegendWeapon3(deathLocation, class)
+end
+
+function Weapons:RollLegendWeapon3WithDotaName(class, deathLocation)
+	local classTable = HerosCustom:GetInternalNameTable()
+	class = HerosCustom:GetInternalHeroNameMain(class)
 	Weapons:RollLegendWeapon3(deathLocation, class)
 end
 
@@ -26,6 +44,10 @@ function Weapons:RollLegendWeapon1(deathLocation, class)
 	local internalName = class
 	local whichHero = HerosCustom:ConvertRPCNameToStringHeroNameSeinaru(class)
 	local rarityFactor = RPCItems:GetRarityFactor(rarity)
+	if Beacons.cheats and Arena == nil then
+		Arena = {}
+		Arena.PitLevel = 7
+	end
 	local maxLevel = math.min(12 + RandomInt(Arena.PitLevel*3, Arena.PitLevel*4) + GameState:GetPlayerPremiumStatusCount()*2, 50)
 	local maxLuck = RandomInt(1,200)
 	if maxLuck == 200 then
