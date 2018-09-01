@@ -48362,6 +48362,35 @@
 		}
 	}
 
+	"tutorial_master_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"tusk_snowball"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"armor"			"4 100 1500"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_tutorial_passive"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"States"
+				{
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	
 
 	"oracle_ability"
 	{

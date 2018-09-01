@@ -460,3 +460,8 @@
 .invisible{
 	visibility: collapse;
 }
+
+.horizontal_center{
+	text-align: center;
+	horizontal-align:center;
+}

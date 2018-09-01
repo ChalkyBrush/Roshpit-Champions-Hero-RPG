@@ -8,8 +8,8 @@
 	<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/salve_red.png" /> -->
 
 		<Panel class="invisible">
-<Image id="seq_bg" class="SeqBg" src="file://{images}/items/potion_blue.png"/>
-<Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/winterblight_glacier_stone.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/custom_game/loading_screen/tutorial_load.jpg"/>
+<!-- <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/winterblight_glacier_stone.png"/>
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc_ruby_ring.png"/>
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/wraps_of_the_grand_arcanist.png"/>
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/firelock_pendant.png"/>
@@ -841,7 +841,7 @@
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/hood_of_the_black_mage.png"/>
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/guard_of_grithault.png"/>
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc_talisman.png"/>
-<Image id="seq_bg" class="SeqBg" src="file://{images}/items/frostburn_gauntlets.png"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/items/frostburn_gauntlets.png"/> -->
 <!-- 			<Image id="seq_bg" class="SeqBg" src="file://{images}/spellicons/rpc/action_leap_2.png" />
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/spellicons/rpc/astral_d_b.png" />
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/spellicons/rpc/aurian_ult.png" />

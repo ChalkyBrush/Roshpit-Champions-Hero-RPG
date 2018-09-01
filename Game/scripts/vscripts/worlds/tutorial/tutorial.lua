@@ -27,6 +27,8 @@ function Tutorial:InitTutorialMap()
   Tutorial:NatureAmbience()
   Tutorial:WaterfallAmbience()
   Tutorial:BlacksmithSounds()
+
+  Tutorial:SpawnTutorialMaster(Vector(-64, 2176))
   -- Winterblight:CalculateHeroZones()
   -- Winterblight:StarterMusic()
   -- Winterblight:HowlingWind()
@@ -79,4 +81,11 @@ function Tutorial:BlacksmithSounds()
 		return 15
 	end)
 	
+end
+
+function Tutorial:SpawnTutorialMaster(position)
+	local master = CreateUnitByName("tutorial_master", position, false, nil, nil, DOTA_TEAM_GOODGUYS)
+	master:AddAbility("tutorial_master_ability"):SetLevel(1)
+	master:SetForwardVector(Vector(1,0))
+	Tutorial.Master = master
 end

@@ -676,6 +676,7 @@
     	"DOTA_Tooltip_modifier_magnet_d_d"									"Quantum Path"
     	//--------------------
 
+
 		"DOTA_Tooltip_ability_phase_walk"									"Poison Step"
 		"DOTA_Tooltip_ability_phase_walk_Description"						"Element: <font color=\"#37DD3D\">Poison</font><br>Venomort casts himself into a puddle of his own conconction, reappearing in a forward location and leaving pools of damaging poison at his entry and exit points."
 		"DOTA_Tooltip_ability_phase_walk_Lore"								""
@@ -686,7 +687,7 @@
     	"DOTA_Tooltip_ability_phase_walk_poison_duration"					"POISON POOL DURATION: "
 
     	"DOTA_Tooltip_modifier_ghost_warp_invisible"						"Ghost Warp"
-    	"DOTA_Tooltip_modifier_ghost_warp_invisible_Description"			"Invisible"	
+    	"DOTA_Tooltip_modifier_ghost_warp_invisible_Description"			"Invisible"
 
 
 		"DOTA_Tooltip_ability_venomort_ghost_warp"				"Ghost Warp"
@@ -710,9 +711,9 @@
 		"DOTA_Tooltip_ability_nether_blaster_movespeed_slow"				"MOVESPEED SLOW:"
 		"DOTA_Tooltip_ability_nether_blaster_damage"					    "DAMAGE:"
 		"DOTA_Tooltip_ability_nether_blaster_range"					    	"RANGE:"
-    	
+
     	"DOTA_Tooltip_modifier_necrofusion_slowed"							"Necrofusion"
-    	"DOTA_Tooltip_modifier_necrofusion_slowed_Description"				"Slowed"	
+    	"DOTA_Tooltip_modifier_necrofusion_slowed_Description"				"Slowed"
 
 		"DOTA_Tooltip_ability_gale_nova"										"Plague Spreader"
 		"DOTA_Tooltip_ability_gale_nova_Description"							"Element: <font color=\"#37DD3D\">Poison</font><br>Venomort conjures a mist of venomous smoke, causing all nearby enemies to contract a disease which deals damage every 0.4 seconds."
@@ -776,7 +777,7 @@
     	"DOTA_Tooltip_ability_venomort_rune_w_2_suffix"						" seconds"
 
     	"DOTA_Tooltip_modifier_venomort_demoralize"							"Brain Poison"
-    	"DOTA_Tooltip_modifier_venomort_demoralize_Description"				"Confused"	
+    	"DOTA_Tooltip_modifier_venomort_demoralize_Description"				"Confused"
 
     	"DOTA_Tooltip_ability_venomort_rune_q_2"							"[Q2] Toxicology"
     	"DOTA_Tooltip_ability_venomort_rune_q_2_Description"				"Venomort's Intelligence attribute increases the base damage of Plague Spreader."
@@ -810,7 +811,7 @@
     	"DOTA_Tooltip_ability_venomort_rune_e_3_suffix_two"					""
 
     	"DOTA_Tooltip_modifier_venomort_bonus_attack_damage_ally"			"Phantom Initiative"
-    	"DOTA_Tooltip_modifier_venomort_bonus_attack_damage_ally_Description"	"Increased attack power %"	
+    	"DOTA_Tooltip_modifier_venomort_bonus_attack_damage_ally_Description"	"Increased attack power %"
 
     	"DOTA_Tooltip_ability_venomort_rune_r_3"							"[R3] Numbing Agent"
     	"DOTA_Tooltip_ability_venomort_rune_r_3_Description"				"Enemies damaged by a Vile Familiar receive a stacking debuff that causes them to deal less total damage to Venomort himself. Each stack further reduces damage dealt down to 97% of its previous value. Debuff lasts 5 seconds before expiring."
@@ -818,7 +819,7 @@
     	"DOTA_Tooltip_ability_venomort_rune_r_3_suffix"						""
 
     	"DOTA_Tooltip_modifier_venomort_c_d_poison"							"Numbing Agent"
-    	"DOTA_Tooltip_modifier_venomort_c_d_poison_Description"				"Dealing reduced damage to Venomort."		
+    	"DOTA_Tooltip_modifier_venomort_c_d_poison_Description"				"Dealing reduced damage to Venomort."
 
     	"DOTA_Tooltip_ability_venomort_rune_q_4"							"[Q4] Pneumonia"
     	"DOTA_Tooltip_ability_venomort_rune_q_4_Description"				"Increases the radius of @Ability1."
@@ -881,7 +882,7 @@
     	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_suffix_two"				"% of Max Health"
 
     	"DOTA_Tooltip_modifier_reaper_slice_shield"								"Death's Embrace"
-    	"DOTA_Tooltip_modifier_reaper_slice_shield_Description"					"Absorbing Damage"	
+    	"DOTA_Tooltip_modifier_reaper_slice_shield_Description"					"Absorbing Damage"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1"						"[R4] Disencumber"
     	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_Description"			"Increases base movement speed while @Ability4 is toggled on."
@@ -926,8 +927,6 @@
     	"DOTA_Tooltip_ability_venomort_rune_q_4_arcana2_suffix"					"%"
     	"DOTA_Tooltip_ability_venomort_rune_q_4_arcana2_property_two"			"Base Ability Damage"
     	"DOTA_Tooltip_ability_venomort_rune_q_4_arcana2_suffix_two"				"% per stack"
-
-
     	//--------------------
  
         "DOTA_Tooltip_ability_sunder"                                   "Sunder"
