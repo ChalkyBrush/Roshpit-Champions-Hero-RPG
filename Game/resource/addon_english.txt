@@ -1875,6 +1875,34 @@
     	"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_property_one"		"Post-Mitigation Damage"
     	"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_suffix"				" % of Holy Damage Amplification"
 
+		//Glyphs
+
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_1_1"		"Glyph of Resurrection"
+		"item_rpc_paladin_glyph_1_1_description" 				"Reduces the cooldown of Second Coming to @glyph_property1 seconds."
+
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_2_1"		"Glyph of Consecration"
+		"item_rpc_paladin_glyph_2_1_description" 				"@Ability1 becomes a toggle ability that remains active while it is toggled on."
+
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_3_1"		"Glyph of Command"
+		"item_rpc_paladin_glyph_3_1_description" 				"@Ability4 becomes fully controllable and increases their movespeed to 800. Right-clicking the ability turns on his automatic AI."
+
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_1"		"Glyph of Unwavering Justice"
+		"item_rpc_paladin_glyph_4_1_description" 				"Justice Overwhelming has no self-knockback effect and provide 5x stack generation. "
+
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_1"		"Glyph of Holy Authority"
+		"item_rpc_paladin_glyph_5_1_description" 				"Increases the damage of Justice Overwhelming and Holy Fire by 200%, also each hit provide an additional 9 stacks."
+
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_1"		"Glyph of Nobility"
+		"item_rpc_paladin_glyph_6_1_description" 				"Grants a @glyph_property1 increased movespeed aura."
+
+		"DOTA_Tooltip_modifier_paladin_glyph_6_1_effect"		"Nobility Aura"
+		"DOTA_Tooltip_modifier_paladin_glyph_6_1_effect_Description"	"Increased Movespeed"
+
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_7_1"		"Glyph of Zeal"
+		"item_rpc_paladin_glyph_7_1_description" 				"When landing an attack, @glyph_property1% chance to immediately attack another target within range with no cooldown."
+
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_a"		"Glyph of Holy Wrath"
+		"item_rpc_paladin_glyph_5_a_description" 				"Knight's Disciple's Holy Bolt hits enemies in a @glyph_property1 AOE and hits the primary target twice."
     	//--------------------
 
 		"DOTA_Tooltip_ability_blizzard"									"Blizzard"
@@ -9434,39 +9462,6 @@
 
 		"DOTA_Tooltip_modifier_epoch_glyph_5_a_cooldown"	"Time Travel Cooldown"
 		"DOTA_Tooltip_modifier_epoch_glyph_5_a_little_shield"	"Time Travel Damage immune"
-
-
-		//Paladin
-
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_1_1"		"Glyph of Resurrection"
-		"item_rpc_paladin_glyph_1_1_description" 				"Reduces the cooldown of Second Coming to @glyph_property1 seconds."
-
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_2_1"		"Glyph of Consecration"
-		"item_rpc_paladin_glyph_2_1_description" 				"Enemies hit by Heroic Fury have your current power of Holy Fire applied to them."
-
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_3_1"		"Glyph of Command"
-		"item_rpc_paladin_glyph_3_1_description" 				"Grants a @glyph_property1% bonus attack damage aura."
-
-		"DOTA_Tooltip_modifier_paladin_glyph_3_1_effect"		"Command Aura"
-		"DOTA_Tooltip_modifier_paladin_glyph_3_1_effect_Description"	"Increased Attack Damage"
-
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_1"		"Glyph of Unwavering Justice"
-		"item_rpc_paladin_glyph_4_1_description" 				"Justice Overwhelming has no self-knockback effect and provide 5x stack generation. "
-
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_1"		"Glyph of Holy Authority"
-		"item_rpc_paladin_glyph_5_1_description" 				"Increases the damage of Justice Overwhelming and Holy Fire by 200%, also each hit provide an additional 9 stacks."
-
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_1"		"Glyph of Nobility"
-		"item_rpc_paladin_glyph_6_1_description" 				"Grants a @glyph_property1 increased movespeed aura."
-
-		"DOTA_Tooltip_modifier_paladin_glyph_6_1_effect"		"Nobility Aura"
-		"DOTA_Tooltip_modifier_paladin_glyph_6_1_effect_Description"	"Increased Movespeed"
-
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_7_1"		"Glyph of Zeal"
-		"item_rpc_paladin_glyph_7_1_description" 				"When landing an attack, @glyph_property1% chance to immediately attack another target within range with no cooldown."
-
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_a"		"Glyph of Holy Wrath"
-		"item_rpc_paladin_glyph_5_a_description" 				"Knight's Disciple's Holy Bolt hits enemies in a @glyph_property1 AOE and hits the primary target twice."
 
 		//Sorceress
 

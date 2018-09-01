@@ -539,6 +539,17 @@ function GameMode:OnPlayerChat(keys)
       local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
       Glyphs:RollGlyphAll(name, hero:GetAbsOrigin(), 0)
     end
+  elseif string.match(text, "-allglyph") then
+    if Beacons.cheats then
+      local name = string.gsub(text, "-allglyph ", "")
+      local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+      Glyphs:DebugRollHeroGlyphs(name, hero:GetAbsOrigin())
+    end
+  elseif string.match(text, "-curatehero") then
+    if Beacons.cheats then
+      local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+      Curator:FullCurateHero(hero)
+    end
   elseif string.match(text, "-iweap1") then
     if Beacons.cheats then
       local name = string.gsub(text, "-iweap1 ", "")
