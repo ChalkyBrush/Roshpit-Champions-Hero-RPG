@@ -43,11 +43,11 @@ function Tanari:Debug()
     local drop = CreateItemOnPositionSync( Vector(-4928, 2048), item )
     local position = Vector(-4928, 2048)
     RPCItems:DropItem(item, Vector(-4928, 2048))
-    RPCItems:RollCaptainsVest(Vector(-4928, 2048))
+    -- RPCItems:RollCaptainsVest(Vector(-4928, 2048))
     -- RPCItems:RollHydroxisArcana2(Vector(-4928, 2048))
     -- RPCItems:RollVoltexArcana2(Vector(-4928, 2048))
     -- RPCItems:RollVenomortArcana1(Vector(-4928, 2048))
-    RPCItems:RollVenomortArcana2(Vector(-4928, 2048))
+    -- RPCItems:RollVenomortArcana2(Vector(-4928, 2048))
     -- for i = 1, 5, 1 do
     --     RPCItems:RollMountainProtectorArcana3(Vector(-4928, 2048))
     -- end
@@ -83,8 +83,8 @@ function Tanari:Debug()
     -- RPCItems:RollArkimusArcana2(Vector(-4928, 2048))
     -- RPCItems:RollSoluniaArcana2(Vector(-4928, 2048))
     -- SaveLoad:KeyDebug()
-    RPCItems:RollMountainProtectorArcana2(Vector(-4928, 2048))
-    Curator:CurateALLHeroes()
+    -- RPCItems:RollMountainProtectorArcana2(Vector(-4928, 2048))
+
     -- RPCItems:RollBahamutArcana2(Vector(-4928, 2048))
     -- Glyphs:RollGlyphAll("item_rpc_flamewaker_glyph_4_1", Vector(-4928, 2048), 0)
 
@@ -235,7 +235,8 @@ function Tanari:Debug()
 
             ---------MAX CURATION----------
     -- Curator:FullCurateHero(MAIN_HERO_TABLE[1])
-
+    -- Curator:CurateAllGlyphsForHero("neutral")
+    -- Curator:CurateALLHeroes()
     -- Curator:CurateHero(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
 
     -- Timers:CreateTimer(10, function()

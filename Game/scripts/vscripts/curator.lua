@@ -558,6 +558,9 @@ function Curator:CurateAllGlyphsForHero(heroName)
 	if heroName == "trapper" or heroName == "sorceress" or heroName == "axe" or heroName == "duskbringer" then
 		maxTiers = 2
 	end
+	if heroName == "neutral" then
+		maxTiers = 3
+	end
 	for j = 1, maxTiers, 1 do
 		for i = 1, 7, 1 do
 			Timers:CreateTimer(i*2, function()
@@ -568,11 +571,13 @@ function Curator:CurateAllGlyphsForHero(heroName)
 			end)
 		end
 	end
-	Timers:CreateTimer(16, function()
-		local variantName = "item_rpc_"..heroName.."_glyph_5_a"
-		local glyph = Glyphs:RollGlyphAll(variantName, Vector(0,0), 0)
-		Curator:CurateGlyph(glyph, heroName)
-	end)
+	if not heroName == "neutral" then
+		Timers:CreateTimer(16, function()
+			local variantName = "item_rpc_"..heroName.."_glyph_5_a"
+			local glyph = Glyphs:RollGlyphAll(variantName, Vector(0,0), 0)
+			Curator:CurateGlyph(glyph, heroName)
+		end)
+	end
 end
 
 function Curator:CurateAllGlyphsForHeroWithTiers(heroName, tiers)

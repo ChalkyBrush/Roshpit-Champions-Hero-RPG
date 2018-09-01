@@ -31239,7 +31239,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/bahamut_d_b"
+		"AbilityTextureName"	"rpc/bahamut_w_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -31259,29 +31259,6 @@
 
 	}
 
-	"bahamut_rune_w_4_arcana2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"bahamut/bahamut_d_b_arcana2"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"500"
-			}
-		}
-
-
-	}
-
 	"bahamut_rune_e_4"
 	{
 		// General
@@ -31289,7 +31266,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/bahamut_d_c"
+		"AbilityTextureName"	"rpc/bahamut_e_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -31311,7 +31288,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/bahamut_d_d"
+		"AbilityTextureName"	"rpc/bahamut_r_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -31935,7 +31912,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/auriun_d_a"
+		"AbilityTextureName"	"rpc/auriun_q_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -31966,7 +31943,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/auriun_d_b"
+		"AbilityTextureName"	"rpc/auriun_w_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -32026,7 +32003,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/auriun_d_c"
+		"AbilityTextureName"	"rpc/auriun_e_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -32079,7 +32056,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/auriun_d_d"
+		"AbilityTextureName"	"rpc/auriun_r_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 

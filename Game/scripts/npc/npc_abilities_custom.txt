@@ -1040,6 +1040,27 @@
 
 	}
 
+	"bahamut_rune_w_4_arcana2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"bahamut/bahamut_w_4_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"500"
+			}
+		}
+	}
+
 	"chernobog_demon_flight"
 	{
 		// General
@@ -7747,7 +7768,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/duskbringer_d_a"
+		"AbilityTextureName"	"rpc/duskbringer_q_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -7774,7 +7795,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/duskbringer_d_b"
+		"AbilityTextureName"	"rpc/duskbringer_w_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -7832,7 +7853,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/duskbringer_d_c"
+		"AbilityTextureName"	"rpc/duskbringer_e_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -7854,7 +7875,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/duskbringer_d_d"
+		"AbilityTextureName"	"rpc/duskbringer_r_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -31818,7 +31839,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_d_a"
+		"AbilityTextureName"	"spirit_warrior/spirit_warrior_q_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -31845,7 +31866,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_a_b"
+		"AbilityTextureName"	"spirit_warrior/spirit_warrior_w_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -31881,7 +31902,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_b_b"
+		"AbilityTextureName"	"spirit_warrior/spirit_warrior_w_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -31931,7 +31952,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_c_b"
+		"AbilityTextureName"	"spirit_warrior/spirit_warrior_w_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -31953,7 +31974,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_d_b"
+		"AbilityTextureName"	"spirit_warrior/spirit_warrior_w_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -32020,7 +32041,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_b_c"
+		"AbilityTextureName"	"spirit_warrior/spirit_warrior_e_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -32223,7 +32244,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_d_c"
+		"AbilityTextureName"	"spirit_warrior/spirit_warrior_e_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -32244,7 +32265,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_a_d"
+		"AbilityTextureName"	"spirit_warrior/spirit_warrior_r_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -32266,7 +32287,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_b_d"
+		"AbilityTextureName"	"spirit_warrior/spirit_warrior_r_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -32288,7 +32309,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_c_d"
+		"AbilityTextureName"	"spirit_warrior/spirit_warrior_r_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
@@ -32321,7 +32342,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_d_d"
+		"AbilityTextureName"	"spirit_warrior/spirit_warrior_r_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -32540,7 +32561,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_a_c_arcana3"
+		"AbilityTextureName"	"spirit_warrior/spirit_warrior_e_1_arcana3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -32573,7 +32594,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_b_c_arcana3"
+		"AbilityTextureName"	"spirit_warrior/spirit_warrior_e_2_arcana3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -32600,7 +32621,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_c_c_arcana3"
+		"AbilityTextureName"	"spirit_warrior/spirit_warrior_e_3_arcana3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -32722,7 +32743,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_d_c_arcana3"
+		"AbilityTextureName"	"spirit_warrior/spirit_warrior_e_4_arcana3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -32754,7 +32775,7 @@
 				"property_one"			"12"
 			}
 		}
-		"Modifiers"
+	"Modifiers"
 		{
 			"modifier_spirit_rune_e_2_aura"
 			{
@@ -35159,7 +35180,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/trapper_d_a"
+		"AbilityTextureName"	"rpc/trapper_q_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -35201,7 +35222,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/trapper_d_c"
+		"AbilityTextureName"	"rpc/trapper_e_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -79534,7 +79555,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/bahamut_d_b"
+		"AbilityTextureName"	"rpc/bahamut_w_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -79554,29 +79575,6 @@
 
 	}
 
-	"bahamut_rune_w_4_arcana2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"bahamut/bahamut_d_b_arcana2"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"500"
-			}
-		}
-
-
-	}
-
 	"bahamut_rune_e_4"
 	{
 		// General
@@ -79584,7 +79582,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/bahamut_d_c"
+		"AbilityTextureName"	"rpc/bahamut_e_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -79606,7 +79604,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/bahamut_d_d"
+		"AbilityTextureName"	"rpc/bahamut_r_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -80230,7 +80228,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/auriun_d_a"
+		"AbilityTextureName"	"rpc/auriun_q_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -80261,7 +80259,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/auriun_d_b"
+		"AbilityTextureName"	"rpc/auriun_w_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -80321,7 +80319,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/auriun_d_c"
+		"AbilityTextureName"	"rpc/auriun_e_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -80374,7 +80372,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/auriun_d_d"
+		"AbilityTextureName"	"rpc/auriun_r_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
