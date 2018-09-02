@@ -95,8 +95,8 @@
     	"DOTA_Tooltip_ability_paladin_rune_w_2_property_one"			"Исцеление"
     	"DOTA_Tooltip_ability_paladin_rune_w_2_suffix"					"% от базового урона способности"
 
-    	"DOTA_Tooltip_modifier_paladin_rune_q_4_shield"					"Holy Crusader"
-    	"DOTA_Tooltip_modifier_paladin_rune_q_4_shield_Description"		"Поглощает урон."
+    	"DOTA_Tooltip_modifier_paladin_q4_shield"					"Holy Crusader"
+    	"DOTA_Tooltip_modifier_paladin_q4_shield_Description"		"Поглощает урон."
 
     	"DOTA_Tooltip_ability_paladin_rune_e_2"							"[E2] Retribution"
     	"DOTA_Tooltip_ability_paladin_rune_e_2_Description"				"Наносит часть базового урона всем атакующим героя существам. Тип урона - Физический."
@@ -125,8 +125,8 @@
     	"DOTA_Tooltip_ability_paladin_rune_q_3_property_two"				"Урон"
     	"DOTA_Tooltip_ability_paladin_rune_q_3_suffix_two"				"x Силы"
 
-    	"DOTA_Tooltip_modifier_paladin_rune_q_3_shield"					"Divine Aegis"
-    	"DOTA_Tooltip_modifier_paladin_rune_q_3_shield_Description"		"Поглощает следующий входящий урон и наносит урон врагам, разрушившим щит."
+    	"DOTA_Tooltip_modifier_paladin_q3_shield"					"Divine Aegis"
+    	"DOTA_Tooltip_modifier_paladin_q3_shield_Description"		"Поглощает следующий входящий урон и наносит урон врагам, разрушившим щит."
 
 		"DOTA_Tooltip_modifier_paladin_rune_q_3"						"Divine Aegis"
 		"DOTA_Tooltip_modifier_paladin_rune_q_3_description" 			"100% поглощение урона."
