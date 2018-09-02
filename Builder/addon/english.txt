@@ -1497,8 +1497,8 @@
     	"DOTA_Tooltip_ability_paladin_rune_q_3_property_two"				"Damage"
     	"DOTA_Tooltip_ability_paladin_rune_q_3_suffix_two"				"x Strength"
 
-    	"DOTA_Tooltip_modifier_paladin_rune_q_3_shield"					"Divine Aegis"
-    	"DOTA_Tooltip_modifier_paladin_rune_q_3_shield_Description"		"Absorbs the next instance of damage and zaps the shield breaker."
+    	"DOTA_Tooltip_modifier_paladin_q3_shield"					"Divine Aegis"
+    	"DOTA_Tooltip_modifier_paladin_q3_shield_Description"		"Absorbs the next instance of damage and zaps the shield breaker."
 		
     	"DOTA_Tooltip_ability_paladin_rune_w_3"							"[W3] Holy Nova"
     	"DOTA_Tooltip_ability_paladin_rune_w_3_Description"				"Adds a 15% chance when attacked to emanate a Holy Nova - dealing damage to enemies and healing allies nearby. Enemies hit by Holy Nova are disarmed for 1 second."
@@ -1527,8 +1527,8 @@
     	"DOTA_Tooltip_ability_paladin_rune_q_4_property_two"			"Holy Damage Increase"
     	"DOTA_Tooltip_ability_paladin_rune_q_4_suffix_two"				"% for each 10 points of Attributes"
 
-    	"DOTA_Tooltip_modifier_paladin_rune_q_4_shield"					"Holy Crusader"
-    	"DOTA_Tooltip_modifier_paladin_rune_q_4_shield_Description"		"Absorbs damage."	
+    	"DOTA_Tooltip_modifier_paladin_q4_shield"					"Holy Crusader"
+    	"DOTA_Tooltip_modifier_paladin_q4_shield_Description"		"Absorbs damage."	
 
     	"DOTA_Tooltip_ability_paladin_rune_w_4"							"[W4] Intensifying Fire"
     	"DOTA_Tooltip_ability_paladin_rune_w_4_Description"				"Holy Fire can stack with successive strikes from Justice Overwhelming. Each stack deals 20% more damage than the previous."

@@ -1904,7 +1904,7 @@
 				}
 
 			}
-			"modifier_epoch_arcana_a_a_effect"
+			"modifier_epoch_arcana_q_1_effect"
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
