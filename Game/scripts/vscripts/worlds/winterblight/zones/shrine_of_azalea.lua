@@ -5099,7 +5099,7 @@ function Winterblight:AzaleaBossDie(boss)
 		end)
 	end)
 	Timers:CreateTimer(15, function()
-		Winterblight:MithrilReward(position)
+		Winterblight:MithrilReward(position, "azalea")
 	end)
 
 end

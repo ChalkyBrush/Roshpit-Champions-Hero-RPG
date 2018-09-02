@@ -8,8 +8,8 @@ mActiveCategoryButton = false
 
 mButtonRows = 3
 mButtonsPerRow = 10
-TOTAL_HERO_CATEGORIES = 10
-MAX_STARS = 996
+TOTAL_HERO_CATEGORIES = 12
+MAX_STARS = 1164
 
 function openStarsFromServer(msg){
 	$('#stars_container').RemoveClass('invisible')
@@ -69,9 +69,12 @@ function OpenStarsMenu(playerID, starData, grandTotalStars)
 			newChildPanel.FindChildTraverse('stars_button_image').SetImage("file://{images}/items/weapons/mountain_protector/mountain_protector_weapon_00.png")
 		}
 		totalButtons = totalButtons + 1
+		$.Msg("------")
+		$.Msg(mHeroName)
 		var category = starData[i]
 		setButtonEvents(newChildPanel, mHeroName, category)
 		$.Msg(category)
+		$.Msg("-------")
 	}
 }
 
@@ -104,7 +107,7 @@ function setCategoryButtonFunction(starsContainer, heroName, buttonParent, categ
 	$.Msg("-----------")
 	$.Msg(categoryData)
 
-	starsContainer.FindChildTraverse('stars_details_meta_container').style.height = "480px"
+	starsContainer.FindChildTraverse('stars_details_meta_container').style.height = "580px"
 	$.GetContextPanel().FindChildTraverse("stars_details_left_side").RemoveAndDeleteChildren()
 	$.GetContextPanel().FindChildTraverse("stars_details_right_side").RemoveAndDeleteChildren()
 	
@@ -116,7 +119,7 @@ function setCategoryButtonFunction(starsContainer, heroName, buttonParent, categ
 	}
 	for (var i = 1; i <= herosStarsArray.length; i++) {
 		var sidePanel = $.GetContextPanel().FindChildTraverse("stars_details_left_side")
-		if (i > 6){
+		if (i > 7){
 			sidePanel = $.GetContextPanel().FindChildTraverse("stars_details_right_side")
 		}
 		var newChildPanel = $.CreatePanel( "Panel", sidePanel, "starDetail"+i );
@@ -174,9 +177,9 @@ function setCategoryButtonFunction(starsContainer, heroName, buttonParent, categ
 		$.Msg(categoryStars)			
 		// newChildPanel.FindChildTraverse('stars_visual').text = "<font color='"+herosStarsArray[i-1][2]+"'>★</font><font color='"+herosStarsArray[i-1][3]+"'>★</font><font color='"+herosStarsArray[i-1][4]+"'>★</font>"
 	}
-	var categoryStarMax = 36
+	var categoryStarMax = 42
 	if (heroName == "solo_stars"){
-		categoryStarMax = 24
+		categoryStarMax = 30
 	}
 	$.GetContextPanel().FindChildTraverse('stars_category_text').text = $.Localize(heroName)+" "+$.Localize("stars_menu")+": <font color='#F4DC42'>★"+categoryStars+"/"+categoryStarMax+"</font>"
 }
@@ -189,6 +192,8 @@ function getStarDescription(categoryData, star_title, heroName, starOverride)
 	var starAmount = 0
 	if (heroName == "solo_stars"){
 		heroName = "solo_stars_in_description"
+		$.Msg(categoryData)
+		$.Msg("HEJHEHEHE")
 	}
 	if (star_title == "stars_hero_level_title"){
 		starDescription = $.Localize('stars_hero_level_description')
@@ -350,7 +355,43 @@ function getStarDescription(categoryData, star_title, heroName, starOverride)
 		}else if (starAmount >= 2){
 			starDescription = $.Localize("star_serengaard_infinite_description").replace("@heroname", localizeWithColor(heroName)).replace("@wave_number", localizeWithColor(30))
 		}
-	}								
+	}else if (star_title == "star_valdun_title"){
+		starAmount = categoryData.valdun
+		if (starOverride > 0){
+			starAmount = starOverride - 1
+		}
+		if (starAmount == 0){
+			starDescription = $.Localize("star_valdun_description").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("seafortress_final_boss")).replace("@mapname", $.Localize("rpc_sea_fortress"))
+		}else if (starAmount == 1){
+			starDescription = $.Localize("star_valdun_description2").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("seafortress_final_boss")).replace("@mapname", $.Localize("rpc_sea_fortress"))
+		}else if (starAmount >= 2){
+			starDescription = $.Localize("star_valdun_description3").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("seafortress_final_boss")).replace("@mapname", $.Localize("rpc_sea_fortress"))
+		}
+	}else if (star_title == "star_azalea_title"){
+		starAmount = categoryData.azalea
+		if (starOverride > 0){
+			starAmount = starOverride - 1
+		}
+		if (starAmount == 0){
+			starDescription = $.Localize("star_azalea_description").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("azalea_boss")).replace("@mapname", $.Localize("rpc_winterblight_mountain"))
+		}else if (starAmount == 1){
+			starDescription = $.Localize("star_azalea_description2").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("azalea_boss")).replace("@mapname", $.Localize("rpc_winterblight_mountain"))
+		}else if (starAmount >= 2){
+			starDescription = $.Localize("star_azalea_description3").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("azalea_boss")).replace("@mapname", $.Localize("rpc_winterblight_mountain"))
+		}
+	}else if (star_title == "star_valdun_title_solo"){
+		starAmount = categoryData.valdun
+		if (starOverride > 0){
+			starAmount = starOverride - 1
+		}
+		if (starAmount == 0){
+			starDescription = $.Localize("star_valdun_description1solo").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("seafortress_final_boss")).replace("@mapname", $.Localize("rpc_sea_fortress"))
+		}else if (starAmount == 1){
+			starDescription = $.Localize("star_valdun_description2solo").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("seafortress_final_boss")).replace("@mapname", $.Localize("rpc_sea_fortress"))
+		}else if (starAmount >= 2){
+			starDescription = $.Localize("star_valdun_description3solo").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("seafortress_final_boss")).replace("@mapname", $.Localize("rpc_sea_fortress"))
+		}
+	}									
 	return [starDescription, starAmount]
 }
 
@@ -412,12 +453,12 @@ function buttonMouseOut(buttonParent){
 }
 
 function getHeroStarsArray(heroName){
-	var newTable = ["stars_hero_level_title", "autumn_mist_canyon", "abandoned_shipyard", "redfall_crimsyth_castle", "zone_tanari_wind_temple", "zone_tanari_water_temple", "zone_tanari_fire_temple", "star_serengaard_title", "star_serengaard_infinite_title", "arena_left_leaderboard_title", "tooltip_pit_of_trials", "immortal_weapon_title"]
+	var newTable = ["stars_hero_level_title", "autumn_mist_canyon", "abandoned_shipyard", "redfall_crimsyth_castle", "zone_tanari_wind_temple", "zone_tanari_water_temple", "zone_tanari_fire_temple", "star_serengaard_title", "star_serengaard_infinite_title", "arena_left_leaderboard_title", "tooltip_pit_of_trials", "immortal_weapon_title", "star_valdun_title", "star_azalea_title"]
 	return newTable
 }
 
 function getSoloStarsArray(heroName){
-	var newTable = ["autumn_mist_canyon", "abandoned_shipyard", "redfall_crimsyth_castle", "zone_tanari_wind_temple", "zone_tanari_water_temple", "zone_tanari_fire_temple", "tooltip_pit_of_trials", "tanari_ancient_hero"]
+	var newTable = ["autumn_mist_canyon", "abandoned_shipyard", "redfall_crimsyth_castle", "zone_tanari_wind_temple", "zone_tanari_water_temple", "zone_tanari_fire_temple", "tooltip_pit_of_trials", "tanari_ancient_hero", "star_valdun_title_solo", "star_azalea_title"]
 	return newTable
 }
 
@@ -448,6 +489,10 @@ function convertStarNameToTitle(starName)
 		title = "star_serengaard_title"
 	}else if (starName == "serengaard_infinite"){
 		title = "star_serengaard_infinite_title"	
+	}else if (starName == "valdun"){
+		title = "star_valdun_title"
+	}else if (starName == "azalea"){
+		title = "star_azalea_title"
 	}
 	return title
 }

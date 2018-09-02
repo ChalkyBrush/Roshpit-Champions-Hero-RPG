@@ -4466,6 +4466,11 @@ function Seafortress:DefeatFinalBoss(position)
         crystal.fallVelocity = 45
         crystal.falling = true
         crystal.winnerTable = RPCItems:GetConnectedPlayerTable()
+        Timers:CreateTimer(7, function()
+          for i = 1, #MAIN_HERO_TABLE, 1 do
+            Stars:StarEventPlayer("valdun", MAIN_HERO_TABLE[i])
+          end
+        end)
         -- for i = 1, #MAIN_HERO_TABLE, 1 do
         --   Stars:StarEventPlayer("pitoftrials", MAIN_HERO_TABLE[i])
         -- end

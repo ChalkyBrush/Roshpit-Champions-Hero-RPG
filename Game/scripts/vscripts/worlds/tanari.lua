@@ -43,6 +43,14 @@ function Tanari:Debug()
     local drop = CreateItemOnPositionSync( Vector(-4928, 2048), item )
     local position = Vector(-4928, 2048)
     RPCItems:DropItem(item, Vector(-4928, 2048))
+    Winterblight = {}
+    Winterblight.Stones = 3
+        for i = 1, #MAIN_HERO_TABLE, 1 do
+          Stars:StarEventPlayer("azalea", MAIN_HERO_TABLE[i])
+        end
+        for i = 1, #MAIN_HERO_TABLE, 1 do
+          Stars:StarEventPlayer("valdun", MAIN_HERO_TABLE[i])
+        end
     -- RPCItems:RollCaptainsVest(Vector(-4928, 2048))
     -- RPCItems:RollHydroxisArcana2(Vector(-4928, 2048))
     -- RPCItems:RollVoltexArcana2(Vector(-4928, 2048))

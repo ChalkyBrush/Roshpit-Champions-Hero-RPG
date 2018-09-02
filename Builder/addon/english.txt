@@ -13688,6 +13688,22 @@
 		"star_serengaard_infinite_title"								"Serengaard Infinite"
 		"star_serengaard_infinite_description"							"Clear wave @wave_number in the infinite wave battle in Serengaard as @heroname."
 
+		"star_valdun_title"											"Sea Fortress"
+		"star_valdun_title_solo"									"Sea Fortress"
+		"star_valdun_description"									"Defeat @bossname of @mapname as @heroname."
+		"star_valdun_description2"									"Defeat @bossname of @mapname as @heroname solo."
+		"star_valdun_description3"									"Defeat @bossname of @mapname as @heroname solo within 60 minutes."
+		"star_valdun_description1solo"									"Defeat @bossname of @mapname as a solo player."
+		"star_valdun_description2solo"									"Defeat @bossname of @mapname as a solo player within 45 minutes."
+		"star_valdun_description3solo"									"Defeat @bossname of @mapname as a solo player within 30 minutes."
+
+		"star_azalea_title"											"Shrine of Azalea"
+		"star_azalea_title_solo"									"Shrine of Azalea"
+		"star_azalea_description"									"Defeat @bossname on @mapname as @heroname on Normal Difficulty."
+		"star_azalea_description2"									"Defeat @bossname on @mapname as @heroname on Legend Difficulty."
+		"star_azalea_description3"									"Defeat @bossname on @mapname as @heroname on Legend Difficulty with 3 active Glacier Stones."
+
+
 
 		//SERENGAARD
 

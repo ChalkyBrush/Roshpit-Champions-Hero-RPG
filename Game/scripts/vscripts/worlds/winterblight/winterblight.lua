@@ -714,7 +714,7 @@ function Winterblight:SpawnGrandStalacorr(position, fv)
   return queen
 end
 
-function Winterblight:MithrilReward(position)
+function Winterblight:MithrilReward(position, code)
   Timers:CreateTimer(5, function()
         local reward = 1000
         local stonesReward = 1000
@@ -725,6 +725,14 @@ function Winterblight:MithrilReward(position)
           reward = 5000
           stonesReward = 6000
         end
+        if code == "azalea" then
+          Timers:CreateTimer(4, function()
+            for i = 1, #MAIN_HERO_TABLE, 1 do
+              Stars:StarEventPlayer("azalea", MAIN_HERO_TABLE[i])
+            end
+          end)
+        end
+
         local mithrilReward = reward*Events.ResourceBonus+(stonesReward*(Winterblight.Stones))
         local crystal = CreateUnitByName("arcane_crystal", position+Vector(0,0,1000), false, nil, nil, DOTA_TEAM_GOODGUYS)
         crystal:SetAbsOrigin(crystal:GetAbsOrigin()+Vector(0,0,1300))
