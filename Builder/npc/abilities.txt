@@ -45,7 +45,8 @@
 	##VOLTEX_ABILITIES##
 	##WINTERBLIGHT_ABILITIES##
 	##ZHONIK_ARCANA##
-
+	##TUTORIAL_ABILITIES##
+	
 
 	"oracle_ability"
 	{

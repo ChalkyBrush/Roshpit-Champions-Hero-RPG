@@ -1,5 +1,3 @@
-require('heroes/omniknight/holy_cone')
-
 function cast_wings(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -239,4 +237,13 @@ function rune_c_a_reapply_shield(event)
 
 	  ability:ApplyDataDrivenModifier(runeUnit, target, "modifier_paladin_rune_c_a", {})
   end
+end
+
+function paladin_2_1_destroy(event)
+	local target = event.target
+	local wings = target:GetAbilityByIndex(0)
+	print(wings:GetToggleState())
+	if wings:GetToggleState() == true then
+		wings:ToggleAbility()
+	end
 end

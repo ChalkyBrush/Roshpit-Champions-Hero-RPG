@@ -1608,6 +1608,7 @@
 
     	//--------------------Paladin/Omniknight
 
+
 		"DOTA_Tooltip_ability_justice_overwhelming"								"Justice Overwhelming"
 		"DOTA_Tooltip_ability_justice_overwhelming_Description"					"Стихия: <font color=\"#F6FFB5\">Свет</font><br>Чистая взрывная волна святого правосудия вырывается из рук Паладина, отбрасывает его назад и наносит урон врагам перед собой."
 		"DOTA_Tooltip_ability_justice_overwhelming_Lore"							""
@@ -1705,8 +1706,8 @@
     	"DOTA_Tooltip_ability_paladin_rune_w_2_property_one"			"Исцеление"
     	"DOTA_Tooltip_ability_paladin_rune_w_2_suffix"					"% от базового урона способности"
 
-    	"DOTA_Tooltip_modifier_paladin_rune_q_4_shield"					"Holy Crusader"
-    	"DOTA_Tooltip_modifier_paladin_rune_q_4_shield_Description"		"Поглощает урон."
+    	"DOTA_Tooltip_modifier_paladin_q4_shield"					"Holy Crusader"
+    	"DOTA_Tooltip_modifier_paladin_q4_shield_Description"		"Поглощает урон."
 
     	"DOTA_Tooltip_ability_paladin_rune_e_2"							"[E2] Retribution"
     	"DOTA_Tooltip_ability_paladin_rune_e_2_Description"				"Наносит часть базового урона всем атакующим героя существам. Тип урона - Физический."
@@ -1735,8 +1736,8 @@
     	"DOTA_Tooltip_ability_paladin_rune_q_3_property_two"				"Урон"
     	"DOTA_Tooltip_ability_paladin_rune_q_3_suffix_two"				"x Силы"
 
-    	"DOTA_Tooltip_modifier_paladin_rune_q_3_shield"					"Divine Aegis"
-    	"DOTA_Tooltip_modifier_paladin_rune_q_3_shield_Description"		"Поглощает следующий входящий урон и наносит урон врагам, разрушившим щит."
+    	"DOTA_Tooltip_modifier_paladin_q3_shield"					"Divine Aegis"
+    	"DOTA_Tooltip_modifier_paladin_q3_shield_Description"		"Поглощает следующий входящий урон и наносит урон врагам, разрушившим щит."
 
 		"DOTA_Tooltip_modifier_paladin_rune_q_3"						"Divine Aegis"
 		"DOTA_Tooltip_modifier_paladin_rune_q_3_description" 			"100% поглощение урона."
@@ -1864,6 +1865,38 @@
     	"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_Description"			"Часть от % усиления стихии <font color=\"#F6FFB5\">Света</font> добавляется к % пост-резистного урона."
     	"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_property_one"		"Доп. пост-резистный урон"
     	"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_suffix"				" % от усиления стихии Света"
+
+		//Glyphs
+
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_1_1"		"(T1) Символ воскрешения"
+		"item_rpc_paladin_glyph_1_1_description" 				"Снижает время перезарядки [E1] Second Coming до @glyph_property1 сек."
+
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_2_1"		"(T2) Символ святого гнева"
+		"item_rpc_paladin_glyph_2_1_description" 				"Враги, задетые (Q) Heroic Fury также получат эффект [W1] Holy Fire текущего уровня"
+
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_3_1"		"(T3) Символ всевышнего"
+		"item_rpc_paladin_glyph_3_1_description" 				"Герой распространяет ауру, увеличивающую основной урон на @glyph_property1%."
+
+		"DOTA_Tooltip_modifier_paladin_glyph_3_1_effect"		"Command Aura"
+		"DOTA_Tooltip_modifier_paladin_glyph_3_1_effect_Description"	"Урон увеличен"
+
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_1"		"(T4) Символ неизбежного рока"
+		"item_rpc_paladin_glyph_4_1_description" 				"(W) Justice Overwhelming не отталкивает героя. Х5 больше зарядов" //в английском варианте нет подсказок, зарядов чего добавляется... жду комментария
+
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_1"		"(T5) Символ святого величия"
+		"item_rpc_paladin_glyph_5_1_description" 				"Увеличивает урон от (W) Justice Overwhelming и [W1] Holy Fire на 200%. 9 дополнительных зарядов при каждом успешном ударе." //в английском варианте нет подсказок, зарядов чего добавляется... жду комментария
+
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_1"		"(T6) Символ величия"
+		"item_rpc_paladin_glyph_6_1_description" 				"Герой растространяет ауру повышения скорости передвижения на @glyph_property1."
+
+		"DOTA_Tooltip_modifier_paladin_glyph_6_1_effect"		"Nobility Aura"
+		"DOTA_Tooltip_modifier_paladin_glyph_6_1_effect_Description"	"Скорость передвижения увеличена"
+
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_7_1"		"(T7) Символ усердия"
+		"item_rpc_paladin_glyph_7_1_description" 				"С каждой атакой есть шанс @glyph_property1%, что герой без задержки атакует соседнюю цель."
+
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_a"		"(Immortal) Символ святого гнева"
+		"item_rpc_paladin_glyph_5_a_description" 				"Удар молнии от [R4] Knight's Disciple's поражает врагов в радиусе @glyph_property1, а основная цель будет атакована дважды."
     	
     	//--------------------Sorceress/Crystal Maiden
 
@@ -9425,39 +9458,6 @@
 
 		"DOTA_Tooltip_modifier_epoch_glyph_5_a_cooldown"	"Time Travel Cooldown"
 		"DOTA_Tooltip_modifier_epoch_glyph_5_a_little_shield"	"Невосприимчив к урону, Immortal символ путешествия во времени"
-
-
-		//Paladin
-
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_1_1"		"(T1) Символ воскрешения"
-		"item_rpc_paladin_glyph_1_1_description" 				"Снижает время перезарядки [E1] Second Coming до @glyph_property1 сек."
-
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_2_1"		"(T2) Символ святого гнева"
-		"item_rpc_paladin_glyph_2_1_description" 				"Враги, задетые (Q) Heroic Fury также получат эффект [W1] Holy Fire текущего уровня"
-
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_3_1"		"(T3) Символ всевышнего"
-		"item_rpc_paladin_glyph_3_1_description" 				"Герой распространяет ауру, увеличивающую основной урон на @glyph_property1%."
-
-		"DOTA_Tooltip_modifier_paladin_glyph_3_1_effect"		"Command Aura"
-		"DOTA_Tooltip_modifier_paladin_glyph_3_1_effect_Description"	"Урон увеличен"
-
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_1"		"(T4) Символ неизбежного рока"
-		"item_rpc_paladin_glyph_4_1_description" 				"(W) Justice Overwhelming не отталкивает героя. Х5 больше зарядов" //в английском варианте нет подсказок, зарядов чего добавляется... жду комментария
-
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_1"		"(T5) Символ святого величия"
-		"item_rpc_paladin_glyph_5_1_description" 				"Увеличивает урон от (W) Justice Overwhelming и [W1] Holy Fire на 200%. 9 дополнительных зарядов при каждом успешном ударе." //в английском варианте нет подсказок, зарядов чего добавляется... жду комментария
-
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_1"		"(T6) Символ величия"
-		"item_rpc_paladin_glyph_6_1_description" 				"Герой растространяет ауру повышения скорости передвижения на @glyph_property1."
-
-		"DOTA_Tooltip_modifier_paladin_glyph_6_1_effect"		"Nobility Aura"
-		"DOTA_Tooltip_modifier_paladin_glyph_6_1_effect_Description"	"Скорость передвижения увеличена"
-
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_7_1"		"(T7) Символ усердия"
-		"item_rpc_paladin_glyph_7_1_description" 				"С каждой атакой есть шанс @glyph_property1%, что герой без задержки атакует соседнюю цель."
-
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_a"		"(Immortal) Символ святого гнева"
-		"item_rpc_paladin_glyph_5_a_description" 				"Удар молнии от [R4] Knight's Disciple's поражает врагов в радиусе @glyph_property1, а основная цель будет атакована дважды."
 
 		//Sorceress
 

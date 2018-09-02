@@ -85,5 +85,6 @@
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/hero_selection.xml" /> 
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/difficulty_overlay.xml" />
 
+    <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/tutorial/tutorial.xml" />
   </Panel>
 </root>

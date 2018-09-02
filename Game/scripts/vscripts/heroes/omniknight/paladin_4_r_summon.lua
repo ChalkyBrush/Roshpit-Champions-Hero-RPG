@@ -10,7 +10,7 @@ function knights_disciple_cast(event)
 	summonAbility:SetLevel(1)
 	if caster:HasModifier("modifier_paladin_glyph_3_1") then
 		summon:SetControllableByPlayer(caster:GetPlayerID(), true)
-		summon:AddNewModifier(summon, nil, "modifier_disciple_bonus_movespeed", {movespeed = 1000})
+		summon:AddNewModifier(summon, nil, "modifier_disciple_bonus_movespeed", {movespeed = PALADIN_DISCIPLE_GLYPH_3_MS})
 	else
 		summonAbility:ApplyDataDrivenModifier(summon, summon, "modifier_disciple_unselectable", {})
 	end
@@ -78,14 +78,18 @@ function disciple_think(event)
 		summonAbility:ApplyDataDrivenModifier(summon, summon, "modifier_disple_leaving", {duration = 1})
 		return true
 	elseif distance > 600 then
-		if ability and ability:GetAutoCastState() then
-			return
+		if paladin:HasModifier("modifier_paladin_glyph_3_1") then
+			if ability and not ability:GetAutoCastState() then
+				return
+			end
 		end
 		local movePosition = paladin:GetAbsOrigin()-paladin:GetForwardVector()*400+RandomVector(150)
 		summon:MoveToPosition(movePosition)
 	end
-	if ability and ability:GetAutoCastState() then
-		return
+	if paladin:HasModifier("modifier_paladin_glyph_3_1") then
+		if ability and not ability:GetAutoCastState() then
+			return
+		end
 	end
 	if summon:HasAbility("knights_disciple_purifying_spark") then
 		local boltAbility = summon:FindAbilityByName("knights_disciple_purifying_spark")

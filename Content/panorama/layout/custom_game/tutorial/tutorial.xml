@@ -1,0 +1,29 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/tutorial/tutorial.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/tutorial/tutorial.js" />
+	</scripts>
+	<snippets>
+		<snippet name="tutorial_scoreboard">
+			<Panel class="tutorial_scoreboard" hittest="false">
+				<Panel class="tutorial_scoreboard_bg" hittest="false">
+				</Panel>
+				<Panel id="leadboard_title">
+					<Panel class="tutorial_leaderboard_title_bg" hittest="false">
+					</Panel>
+					<Label id="leaderboard_title_text" text="tutorial_left_leaderboard_title" hittest="false"></Label>
+				</Panel>
+				<Panel id="leaderboard-leaders-box">
+				</Panel>
+			</Panel>
+		</snippet>
+	</snippets>
+
+	<Panel class="tutorial_content" hittest="false">
+		<Panel id="tutorial_container" hittest="false">
+
+		</Panel>
+	</Panel>
+</root>

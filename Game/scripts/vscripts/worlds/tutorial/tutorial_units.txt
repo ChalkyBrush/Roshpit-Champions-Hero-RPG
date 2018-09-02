@@ -2,7 +2,7 @@
     {
         "BaseClass" "npc_dota_creature"
         "Model" "models/heroes/furion/furion.vmdl"
-        "ModelScale"    "0.85"
+        "ModelScale"    "1.05"
         "Level" "1"
         "HealthBarOffset"   "140"
         "HasInventory"  "0"
@@ -52,9 +52,28 @@
                 //weapon
                 "Wearable1"
                 {
-                    "ItemDef"   "6708"
+                    "ItemDef"   "6248"
                 }
-
+                "Wearable2"
+                {
+                    "ItemDef"   "6247"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "6286"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "6245"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "6246"
+                }
+                "Wearable6"
+                {
+                    "ItemDef"   "6285"
+                }
             }
 
             "States"

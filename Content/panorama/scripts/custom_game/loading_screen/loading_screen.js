@@ -147,6 +147,7 @@ function UpdateValidDifficulties(){
 		$('#difficulty_vote_container').AddClass('invisible')
 	}else if(mapName == "rpc_tutorial"){
 		$('#difficulty_container1').RemoveClass('invisible')
+		$('#difficulty_container1').style.marginLeft = "220px"
 	}else{
 		$('#difficulty_container1').RemoveClass('invisible')
 		$('#difficulty_container2').RemoveClass('invisible')
