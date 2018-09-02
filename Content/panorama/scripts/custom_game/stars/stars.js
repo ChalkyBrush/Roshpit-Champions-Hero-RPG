@@ -351,9 +351,9 @@ function getStarDescription(categoryData, star_title, heroName, starOverride)
 		if (starAmount == 0){
 			starDescription = $.Localize("star_serengaard_infinite_description").replace("@heroname", localizeWithColor(heroName)).replace("@wave_number", localizeWithColor(10))
 		}else if (starAmount == 1){
-			starDescription = $.Localize("star_serengaard_infinite_description").replace("@heroname", localizeWithColor(heroName)).replace("@wave_number", localizeWithColor(20))
-		}else if (starAmount >= 2){
 			starDescription = $.Localize("star_serengaard_infinite_description").replace("@heroname", localizeWithColor(heroName)).replace("@wave_number", localizeWithColor(30))
+		}else if (starAmount >= 2){
+			starDescription = $.Localize("star_serengaard_infinite_description").replace("@heroname", localizeWithColor(heroName)).replace("@wave_number", localizeWithColor(60))
 		}
 	}else if (star_title == "star_valdun_title"){
 		starAmount = categoryData.valdun

@@ -123,7 +123,8 @@ function Stars:StarEventSolo(starEventName, hero)
 			starAmount = 1
 			if GameState:GetDifficultyFactor() >= 3 then
 				starAmount = 2
-			elseif GameState:GetDifficultyFactor() >= 3 and Winterblight.Stones >= 3 then
+			end
+			if GameState:GetDifficultyFactor() >= 3 and Winterblight.Stones >= 3 then
 				starAmount = 3
 			end
 			if categoryData.azalea < starAmount then
@@ -230,9 +231,9 @@ function Stars:StarEventPlayer(starEventName, hero)
 				local categoryData = starData[HerosCustom:GetHeroIndex(hero:GetUnitName())]
 				if Serengaard.InfiniteWaveCount == 10 then
 					starAmount = 1
-				elseif Serengaard.InfiniteWaveCount == 20 then
-					starAmount = 2
 				elseif Serengaard.InfiniteWaveCount == 30 then
+					starAmount = 2
+				elseif Serengaard.InfiniteWaveCount == 60 then
 					starAmount = 3
 				end
 				if categoryData.serengaard_infinite < starAmount then
@@ -284,7 +285,8 @@ function Stars:StarEventPlayer(starEventName, hero)
 				starAmount = 1
 				if GameState:GetDifficultyFactor() >= 3 then
 					starAmount = 2
-				elseif GameState:GetDifficultyFactor() >= 3 and Winterblight.Stones >= 3 then
+				end
+				if GameState:GetDifficultyFactor() >= 3 and Winterblight.Stones >= 3 then
 					starAmount = 3
 				end
 				if categoryData.azalea < starAmount then
