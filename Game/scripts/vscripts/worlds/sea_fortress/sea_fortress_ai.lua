@@ -1741,31 +1741,16 @@ function prop_attacked(event)
 	if shield.laser then
 		return false
 	end
-    local newYaw = shield.yaw
- --    if shield.rangeMin < shield.rangeMax then
-	--     if shield.clockwise then
-	--     	newYaw = shield.yaw - 15
-	--     	if newYaw < shield.rangeMin then
-	--     		newYaw = shield.yaw + 30
-	--     		shield.clockwise = false
-	--     	end
-	--     else
-	--     	newYaw = shield.yaw + 15
-	--     	if newYaw > shield.rangeMax then
-	--     		newYaw = shield.yaw - 30
-	--     		shield.clockwise = true
-	--     	end
-	--     end
-	-- else
-	    -- if shield.clockwise then
-	    	newYaw = shield.yaw - 15
-	    	if shield.yaw < 0 then
-	    		shield.yaw = 345
-	    	end
-	    -- end
-	-- end
-    shield.yaw = newYaw
-    shield:SetAngles(0, shield.yaw, 0)
+	local attacker = event.attacker
+	if attacker:IsRealHero() then
+	    local newYaw = shield.yaw
+		newYaw = shield.yaw - 15
+		if shield.yaw < 0 then
+			shield.yaw = 345
+		end
+	    shield.yaw = newYaw
+	    shield:SetAngles(0, shield.yaw, 0)
+	end
 end
 
 function attackable_prop_think(event)

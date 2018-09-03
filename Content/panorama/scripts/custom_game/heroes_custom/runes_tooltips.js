@@ -104,7 +104,7 @@ function initializeTooltip(func){
 	$('#next_level_text_1').text ="<font color='#70ccea'>" + $.Localize( "#DOTA_Tooltip_Ability_"+abilityNameInternal+"_property_one") + ":</font> " + propertyValueNext + $.Localize( "#DOTA_Tooltip_Ability_"+abilityNameInternal+"_suffix")
 
 	var amount_per_level2 = Abilities.GetLevelSpecialValueFor( rune, "property_two", 1)
-	if (amount_per_level2 > 0){
+	if (!(amount_per_level2 == 0)){
 		amount_per_level2 = Math.round(amount_per_level2 * 100) / 100
 		var property_two_base = Abilities.GetLevelSpecialValueFor( rune, "property_two_base", 1)
 		property_two_base = Math.round(property_two_base * 100, 1) / 100

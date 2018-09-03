@@ -16,7 +16,7 @@ E3_PROC_CHANCE = 10
 E4_RADIUS = 900
 E4_ADD_TIME = 0.2 --  don't affect game_state.lua
 
-R1_PERCENT = 1
+R1_PERCENT = 2
 DUSK_R2_DURATION = 5
 DUSK_R2_AMPLIFY_PERCENT = 0.7 -- don't affect game_state.lua
 DUSK_R2_MAX_STACKS_COUNT = 20

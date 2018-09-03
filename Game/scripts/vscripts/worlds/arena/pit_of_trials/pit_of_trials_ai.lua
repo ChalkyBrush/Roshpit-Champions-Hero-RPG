@@ -399,53 +399,58 @@ end
 
 function ConquestBirdTrigger()
 	local bird = Arena.StaffBird
-	EmitSoundOn("Arena.Bird.Squawk", bird)
-	Timers:CreateTimer(1, function()
-	StartAnimation(bird, {duration=3, activity=ACT_DOTA_STARTLE, rate=1.0})
-	
-		Timers:CreateTimer(3, function()
-			local flyToPosition = Vector(-8907, 13922, 866)
-			local currentPosition = bird:GetAbsOrigin()
-			local flightPath = flyToPosition - currentPosition
-			bird:SetForwardVector(flightPath*Vector(1,1,0):Normalized())
-			StartAnimation(bird, {duration=6.3, activity=ACT_DOTA_RUN, rate=1.0})
-			for i = 1, 210, 1 do
-				Timers:CreateTimer(i*0.03, function()
-					bird:SetAbsOrigin(currentPosition+((flightPath/210)*i))
-				end)
-			end
-			Timers:CreateTimer(6.4, function()
-				StartAnimation(bird, {duration=1.8, activity=ACT_DOTA_ROQUELAIRE_LAND, rate=1.0})
-				bird:SetForwardVector(Vector(1,0))
-				Timers:CreateTimer(1.9, function()
-					StartAnimation(bird, {duration=99999, activity=ACT_DOTA_ROQUELAIRE_LAND_IDLE, rate=1.0})
-				end)
-				local staff = Entities:FindByNameNearest("conquest_staff", Vector(-8871, 13917, 370), 800)
-				for j = 1, 80, 1 do
-					Timers:CreateTimer(j*0.03, function()
-						staff:SetRenderColor(40+(j*2.5), 40+(j*2.5), 40+(j*2.5))
+	if bird then
+		if not Arena.FirstBirdTriggered then
+			Arena.FirstBirdTriggered = true
+			EmitSoundOn("Arena.Bird.Squawk", bird)
+			Timers:CreateTimer(1, function()
+			StartAnimation(bird, {duration=3, activity=ACT_DOTA_STARTLE, rate=1.0})
+			
+				Timers:CreateTimer(3, function()
+					local flyToPosition = Vector(-8907, 13922, 866)
+					local currentPosition = bird:GetAbsOrigin()
+					local flightPath = flyToPosition - currentPosition
+					bird:SetForwardVector(flightPath*Vector(1,1,0):Normalized())
+					StartAnimation(bird, {duration=6.3, activity=ACT_DOTA_RUN, rate=1.0})
+					for i = 1, 210, 1 do
+						Timers:CreateTimer(i*0.03, function()
+							bird:SetAbsOrigin(currentPosition+((flightPath/210)*i))
+						end)
+					end
+					Timers:CreateTimer(6.4, function()
+						StartAnimation(bird, {duration=1.8, activity=ACT_DOTA_ROQUELAIRE_LAND, rate=1.0})
+						bird:SetForwardVector(Vector(1,0))
+						Timers:CreateTimer(1.9, function()
+							StartAnimation(bird, {duration=99999, activity=ACT_DOTA_ROQUELAIRE_LAND_IDLE, rate=1.0})
+						end)
+						local staff = Entities:FindByNameNearest("conquest_staff", Vector(-8871, 13917, 370), 800)
+						for j = 1, 80, 1 do
+							Timers:CreateTimer(j*0.03, function()
+								staff:SetRenderColor(40+(j*2.5), 40+(j*2.5), 40+(j*2.5))
+							end)
+						end
+						Timers:CreateTimer(4.4, function()
+							Events:CreateCollectionBeam(Vector(-8907, 13922, 766), Vector(-8640, 14336, 456))
+							EmitSoundOnLocationWithCaster(Vector(-8640, 14336, 256), "Arena.StaffBeam", Arena.ArenaMaster)
+							local mountainSpirit = CreateUnitByName("arena_cliff_spirit", Vector(-8567, 14144, 0), false, nil, nil, DOTA_TEAM_NEUTRALS)
+							mountainSpirit:SetForwardVector(Vector(-0.5, 1))
+							Timers:CreateTimer(0.1, function()
+								StartAnimation(mountainSpirit, {duration=2, activity=ACT_DOTA_ANCESTRAL_SPIRIT, rate=1.0})
+							end)
+							Timers:CreateTimer(1.4, function()
+								mountainSpirit:MoveToPosition(Vector(-9536, 15488))
+							end)
+							Arena:AddPatrolArguments(mountainSpirit, 0, 4, 20, {mountainSpirit:GetAbsOrigin(), Vector(-9536, 15488)})
+							mountainSpirit:AddAbility("arena_mountain_spirit_ai"):SetLevel(1)
+							CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_elder_titan/elder_titan_ancestral_spirit_cast.vpcf", mountainSpirit, 2)
+							EmitSoundOn("Arena.SpiritSPawn", mountainSpirit)
+							Arena:SpawnConquestPart2()
+						end)
 					end)
-				end
-				Timers:CreateTimer(4.4, function()
-					Events:CreateCollectionBeam(Vector(-8907, 13922, 766), Vector(-8640, 14336, 456))
-					EmitSoundOnLocationWithCaster(Vector(-8640, 14336, 256), "Arena.StaffBeam", Arena.ArenaMaster)
-					local mountainSpirit = CreateUnitByName("arena_cliff_spirit", Vector(-8567, 14144, 0), false, nil, nil, DOTA_TEAM_NEUTRALS)
-					mountainSpirit:SetForwardVector(Vector(-0.5, 1))
-					Timers:CreateTimer(0.1, function()
-						StartAnimation(mountainSpirit, {duration=2, activity=ACT_DOTA_ANCESTRAL_SPIRIT, rate=1.0})
-					end)
-					Timers:CreateTimer(1.4, function()
-						mountainSpirit:MoveToPosition(Vector(-9536, 15488))
-					end)
-					Arena:AddPatrolArguments(mountainSpirit, 0, 4, 20, {mountainSpirit:GetAbsOrigin(), Vector(-9536, 15488)})
-					mountainSpirit:AddAbility("arena_mountain_spirit_ai"):SetLevel(1)
-					CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_elder_titan/elder_titan_ancestral_spirit_cast.vpcf", mountainSpirit, 2)
-					EmitSoundOn("Arena.SpiritSPawn", mountainSpirit)
-					Arena:SpawnConquestPart2()
 				end)
 			end)
-		end)
-	end)
+		end
+	end
 end
 
 function mountain_spirit_think(event)

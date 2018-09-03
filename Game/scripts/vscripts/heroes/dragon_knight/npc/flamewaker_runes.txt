@@ -594,7 +594,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"-15"
+				"property_two"			"-35"
 			}
 			"03"
 			{

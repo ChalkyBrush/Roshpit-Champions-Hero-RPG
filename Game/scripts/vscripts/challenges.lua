@@ -28,7 +28,9 @@ function Challenges:ChiselItem(msg)
 	local itemIndex = msg.itemIndex
 	local item = nil
 	local itemSlot = msg.slot
-
+	if not SaveLoad:GetAllowSaving() then
+		return false
+	end
 	local itemEntity = CustomNetTables:GetTableValue("equipment", tostring(playerID).."-"..tostring(itemSlot))
 	if itemEntity.itemIndex == itemIndex then
 		item = EntIndexToHScript(itemEntity.itemIndex)

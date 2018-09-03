@@ -2823,7 +2823,7 @@
 		"DOTA_Tooltip_modifier_duskbringer_rune_e_2_effect_Description"	"%property_one physical block and %property_two magic block."
 
 		"DOTA_Tooltip_ability_duskbringer_rune_r_2"						"[R2] Doom"
-		"DOTA_Tooltip_ability_duskbringer_rune_r_2_Description"			"Enemies struck by Seven Visions receive a debuff that increases all post-mitigation damage taken. This debuff stacks if a target is hit multiple times, and lasts 5 seconds."
+		"DOTA_Tooltip_ability_duskbringer_rune_r_2_Description"			"Enemies struck by Seven Visions receive a debuff that increases all post-mitigation damage taken. This debuff stacks if a target is hit multiple times, and lasts 5 seconds. Max 20 stacks."
 		"DOTA_Tooltip_ability_duskbringer_rune_r_2_property_one"		"Post-mitigation damage bonus"
 		"DOTA_Tooltip_ability_duskbringer_rune_r_2_suffix"				"%"
 
@@ -15144,13 +15144,13 @@
 		"DOTA_Tooltip_ability_winterblight_syphon_regen_per_stack"	"% HP REGEN STEAL PER ATTACK:"
 		"DOTA_Tooltip_ability_winterblight_syphon_lost_regen"		"% HP REGEN LOST WHEN TAKING DAMAGE:"
 
-		"DOTA_Tooltip_modifier_syphist_regen"				"Sypon Stream (Syphist)"
+		"DOTA_Tooltip_modifier_syphist_regen"				"Syphon Stream (Syphist)"
 		"DOTA_Tooltip_modifier_syphist_regen_Description"	"Gaining Health Regen"
 
 		"DOTA_Tooltip_modifier_syphist_negative"				"Syphon Stream (Negative)"
 		"DOTA_Tooltip_modifier_syphist_negative_Description"	"Losing Health Regen"
 
-		"DOTA_Tooltip_modifier_modifier_syphist_regen_opponent"				"Sypon Stream (Opponent)"
+		"DOTA_Tooltip_modifier_modifier_syphist_regen_opponent"				"Syphon Stream (Opponent)"
 		"DOTA_Tooltip_modifier_modifier_syphist_regen_opponent_Description"	"Losing Health Regen"
 
 		"DOTA_Tooltip_ability_source_revenant_passive"			"Energy Source"

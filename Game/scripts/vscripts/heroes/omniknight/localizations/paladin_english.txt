@@ -31,7 +31,7 @@
 		"DOTA_Tooltip_modifier_heroic_fury_slow_Description"			"Move and Attack Slow"				
 
 		"DOTA_Tooltip_modifier_heroic_fury" 								"Heroic Fury"
-		"DOTA_Tooltip_modifier_heroic_fury_description" 					"Enemies are damage and knocked back in an area on attack. Attacks also heal the Paladin."
+		"DOTA_Tooltip_modifier_heroic_fury_description" 					"Enemies take damage and are slowed in an area on attack. Attacks also heal the Paladin."
 
 
 		"DOTA_Tooltip_ability_holy_blink"								"Empyrean Wings"

@@ -1335,6 +1335,7 @@ end
 function Winterblight:AzaleaWaveUnitSpawn(unit, jumpFV)
 	local animation_name = ACT_DOTA_SPAWN
 	unit:SetForwardVector(jumpFV)
+	
 	if unit:GetUnitName() == "azalea_spineback" or unit:GetUnitName() == "winterblight_icetaur" or unit:GetUnitName() == "winterblight_source_revenant" then
 		animation_name = ACT_DOTA_TELEPORT_END
 	elseif unit:GetUnitName() == "winterblight_syphist" then

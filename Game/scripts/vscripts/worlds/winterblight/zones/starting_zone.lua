@@ -916,6 +916,7 @@ function Winterblight:AdjustWaveUnit(unit)
   elseif unit:GetUnitName() == "winterblight_source_revenant" then
   	unit:SetMana(0)
   end
+  Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_Winterblight_unit", {})
 end
 
 function Winterblight:FinishCaveWaves()
