@@ -300,7 +300,7 @@ function Stars:StarEventPlayer(starEventName, hero)
 				if #MAIN_HERO_TABLE == 1 then
 					starAmount = 2
 				end
-				if #MAIN_HERO_TABLE == 1 and GameRules:GetGameTime() <= 2700 then
+				if #MAIN_HERO_TABLE == 1 and GameRules:GetGameTime() <= 3600 then
 					starAmount = 3
 				end
 				if categoryData.valdun < starAmount then
