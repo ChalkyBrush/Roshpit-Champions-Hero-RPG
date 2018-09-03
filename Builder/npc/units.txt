@@ -72636,10 +72636,6 @@
                 {
                     "ItemDef"   "617"
                 }
-                "Wearable5"
-                {
-                    "ItemDef"   "666"
-                }
             }
             "States"
             {
