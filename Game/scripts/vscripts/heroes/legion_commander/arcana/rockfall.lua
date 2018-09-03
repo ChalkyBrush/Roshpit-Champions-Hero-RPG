@@ -89,7 +89,7 @@ function volcanic_glissade(event)
 	if ability.beamPFX then
 		ParticleManager:DestroyParticle(ability.beamPFX, false)
 	end	
-	ability.beamPFX = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	ability.beamPFX = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(ability.beamPFX, 0, caster:GetAbsOrigin()+Vector(0,0,90))
 	Filters:CastSkillArguments(3, caster)
 	local glyphFreeCast = false

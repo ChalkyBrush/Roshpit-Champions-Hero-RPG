@@ -4061,7 +4061,7 @@
             "particle"  "particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
             "particle"  "particles/roshpit/winterblight/tether_yellow.vpcf"
-            "particle"  "particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
+            "particle"  "particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
             "particle"  "particles/units/heroes/hero_wisp/wisp_tether_agh.vpcf"
             "particle"  "particles/units/heroes/hero_wisp/wisp_death.vpcf"
             "model"     "models/winterblight/azalea_crystal.vmdl"

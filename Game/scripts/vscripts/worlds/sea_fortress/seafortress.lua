@@ -4471,9 +4471,7 @@ function Seafortress:DefeatFinalBoss(position)
             Stars:StarEventPlayer("valdun", MAIN_HERO_TABLE[i])
           end
         end)
-        -- for i = 1, #MAIN_HERO_TABLE, 1 do
-        --   Stars:StarEventPlayer("pitoftrials", MAIN_HERO_TABLE[i])
-        -- end
+
         -- local potentialWinnerTable = RPCItems:GetConnectedPlayerTable()
         -- for i = 1, #potentialWinnerTable, 1 do
         --  local completedTable = CustomNetTables:GetTableValue("player_stats", tostring(potentialWinnerTable[i]:GetPlayerOwnerID()).."-challenge")

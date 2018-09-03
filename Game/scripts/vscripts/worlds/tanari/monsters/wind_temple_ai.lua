@@ -388,7 +388,7 @@ end
 
 function attachParticle(color, staff1, staff2)
 	local blueParticle = "particles/units/heroes/hero_wisp/wisp_tether.vpcf"
-	local redParticle = "particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
+	local redParticle = "particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
 	local greenParticle = "particles/units/heroes/hero_wisp/tether_green.vpcf"
 	local particleName = ""
 	if color == "red" then

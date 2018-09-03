@@ -25,7 +25,7 @@
 			"particle"			"particles/units/heroes/hero_wisp/tether_green.vpcf"
 			"particle"			"particles/roshpit/epoch/time_binder_projectile_hellfire_linear.vpcf"
 			"particle"			"particles/units/heroes/hero_wisp/wisp_tether.vpcf"
-			"particle"			"particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
+			"particle"			"particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
 			"particle"			"particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_arcane_orb.vpcf"
 			"particle"			"particles/status_fx/status_effect_ghost.vpcf"
 			"particle"			"particles/econ/items/antimage/antimage_weapon_basher_ti5/time_bind_damage.vpcf"
@@ -622,7 +622,7 @@
 					"AttachEffect"
 					{
 						"Target"	"TARGET"
-						"EffectName"	"particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
+						"EffectName"	"particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
 						"EffectAttachType"	"start_at_customorigin"
 						"ControlPointEntities"
 						{

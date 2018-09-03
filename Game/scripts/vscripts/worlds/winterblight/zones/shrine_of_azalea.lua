@@ -527,7 +527,7 @@ function Winterblight:CheckAndProcessCrystals()
 	local match_count = 0
 	local pfxName = ""
 	if Winterblight.MasterCrystalColor == "red" then
-		pfxName = "particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
+		pfxName = "particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
 	elseif Winterblight.MasterCrystalColor == "blue" then
 		pfxName = "particles/units/heroes/hero_wisp/wisp_tether_agh.vpcf"
 	elseif Winterblight.MasterCrystalColor == "yellow" then

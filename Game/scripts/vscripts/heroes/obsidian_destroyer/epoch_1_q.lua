@@ -114,7 +114,7 @@ function projectile_hit(event)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_eon_channel_enemy", {duration = b_a_duration})
 		caster:SetModifierStackCount( "modifier_eon_channel_friendly", ability, rune_q_2_level)
 		target:SetModifierStackCount( "modifier_eon_channel_enemy", ability, rune_q_2_level)
-		local particleName = "particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
+		local particleName = "particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
 		local eonPfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, enemy )
 		ParticleManager:SetParticleControlEnt(eonPfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin()+Vector(0,0,90), true)
 		ParticleManager:SetParticleControlEnt(eonPfx, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin()+Vector(0,0,90), true)

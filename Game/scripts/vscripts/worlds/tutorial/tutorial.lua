@@ -54,6 +54,7 @@ end
 function Tutorial:WaterfallAmbience()
 	Timers:CreateTimer(3, function()
 		EmitSoundOnLocationWithCaster(Vector(2368, 854), "Tutorial.Waterfall", Events.GameMaster)
+		EmitSoundOnLocationWithCaster(Vector(-576, 528), "Tutorial.River", Events.GameMaster)
 		return 20
 	end)
 end

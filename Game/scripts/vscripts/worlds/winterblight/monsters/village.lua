@@ -26,7 +26,7 @@ function winterblight_unit_die(event)
 		local luck = RandomInt(1,13000-(1000*premiumCount))
 		if luck == 1 then
 			RPCItems:RollHelmOfTheMountainGiant(unit:GetAbsOrigin(), false)
-		elseif luck == 2 then
+	elseif luck == 2 then
 			RPCItems:RollSwiftspikeBracer(unit:GetAbsOrigin())
 		elseif luck == 3 then
 			RPCItems:RollTatteredNoviceArmor(unit:GetAbsOrigin())
