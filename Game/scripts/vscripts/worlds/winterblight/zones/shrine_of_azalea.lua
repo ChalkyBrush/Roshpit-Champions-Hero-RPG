@@ -840,6 +840,7 @@ function Winterblight:AzaleaSwitch1()
 						    		WallPhysics:Jump(unit, Vector(1,0), 0, 0, 0, 1)
 						    		unit.jumpEnd = "basic_dust"
 						    		unit.deathCode = 2
+						    		unit.mathUnit = true
 						    		Timers:CreateTimer(0.7, function()
 						    			unit.cantAggro = false
 						    		end)

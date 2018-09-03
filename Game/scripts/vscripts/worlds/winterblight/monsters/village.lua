@@ -1,14 +1,14 @@
 function winterblight_unit_die(event)
 	local unit = event.unit
 	if unit.deathCode == 1 then
-		if not Winterblight.TitansSlain then
-			Winterblight.TitansSlain = 0
-		end
-		Winterblight.TitansSlain = Winterblight.TitansSlain + 1
-		if Winterblight.TitansSlain == 3 then
-			Winterblight:StartOrbSequence()
-		end
-	elseif unit.deathCode == 2 then
+		-- if not Winterblight.TitansSlain then
+		-- 	Winterblight.TitansSlain = 0
+		-- end
+		-- Winterblight.TitansSlain = Winterblight.TitansSlain + 1
+		-- if Winterblight.TitansSlain == 3 then
+		-- 	Winterblight:StartOrbSequence()
+		-- end
+	elseif unit.deathCode == 2 and unit.mathUnit then
 		Winterblight:AzaleaMathUnitDie(unit)
 	end
 	if not Winterblight.WinterblightUnitsSlain then
@@ -23,7 +23,7 @@ function winterblight_unit_die(event)
 	end
 	if unit:GetDeathXP() > 0 then
 		local premiumCount = GameState:GetPlayerPremiumStatusCount()
-		local luck = RandomInt(1,12000-(1000*premiumCount))
+		local luck = RandomInt(1,13000-(1000*premiumCount))
 		if luck == 1 then
 			RPCItems:RollHelmOfTheMountainGiant(unit:GetAbsOrigin(), false)
 		elseif luck == 2 then
