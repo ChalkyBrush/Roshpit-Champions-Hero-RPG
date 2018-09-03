@@ -9553,7 +9553,7 @@
             "particle"    "particles/econ/items/doom/doom_weapon_demonshard/doom_demonshard_ambient.vpcf"
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
             "particle"  "particles/units/heroes/hero_elder_titan/doomguard_leap_effect.vpcf"
-            "particle"  "particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
+            "particle"  "particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
         }
         "ArmorPhysical" "0"
         "MagicalResistance" "0"
@@ -29302,7 +29302,7 @@
         {
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_sandking.vsndevts"
             "particle"  "particles/units/heroes/hero_wisp/tether_green.vpcf"
-            "particle"  "particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
+            "particle"  "particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
             "particle"  "particles/econ/generic/generic_buff_1/charge_of_light_effect_buff.vpcf"
             "particle"  "particles/econ/events/ti6/wind_temple_light_beam.vpcf"
         }
@@ -29480,7 +29480,7 @@
         "precache"
         {
             "particle"  "particles/units/heroes/hero_wisp/wisp_tether.vpcf"
-            "particle"  "particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
+            "particle"  "particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
             "particle"  "particles/units/heroes/hero_wisp/tether_green.vpcf"
             "particle"  "particles/units/heroes/hero_elder_titan/monk_cloud_burst.vpcf"
             "particle"  "particles/econ/generic/generic_buff_1/charge_of_light_effect_buff.vpcf"
@@ -35199,7 +35199,7 @@
         "SoundSet"              "n_creep_Ranged"
         "precache"
         {
-            "particle"      "particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
+            "particle"      "particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
         }
         "ArmorPhysical" "0"
         "MagicalResistance" "25"
@@ -72900,10 +72900,6 @@
                 "Wearable4"
                 {
                     "ItemDef"   "617"
-                }
-                "Wearable5"
-                {
-                    "ItemDef"   "666"
                 }
             }
             "States"
