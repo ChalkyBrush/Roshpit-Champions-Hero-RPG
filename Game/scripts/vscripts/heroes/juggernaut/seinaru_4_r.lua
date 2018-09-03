@@ -1,13 +1,14 @@
-require('heroes/juggernaut/constants')
+require('heroes/juggernaut/seinaru_constants')
+
 function gorudo_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local duration = event.duration
+	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_monk_ulti_gorudo", {duration = duration})
-	if caster:HasModifier("modifier_monk_glyph_2_1") then
+	if caster:HasModifier("modifier_seinaru_glyph_2_1") then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_glyph_2_1", {duration = duration})
 	end
-	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	EmitSoundOn("Seinaru.Gorudo", caster)
 	Timers:CreateTimer(0.05, function()
 		StartAnimation(caster, {duration=0.6, activity=ACT_DOTA_ATTACK_EVENT, rate=0.8})
@@ -16,11 +17,11 @@ function gorudo_start(event)
 	Timers:CreateTimer(0.1, function()
 		EmitSoundOn("Seinaru.GorudoGrowl", caster)
 	end)
-  caster.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "monk")
+  caster.w_4_level = caster:GetRuneValue("w", 4)
   local particleName = "particles/roshpit/seinaru/seinaru_d_b_ring.vpcf"
   local position = caster:GetAbsOrigin()
-  local b_d_level = Runes:GetTotalRuneLevel(caster, 2, "r_2", "monk")
-  ability.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "monk")
+  local b_d_level = caster:GetRuneValue("r", 2)
+  ability.r_4_level = caster:GetRuneValue("r", 4)
   if b_d_level > 0 then
 	  	local radius = 500+b_d_level*5
 	  	local ringDuration = 8+b_d_level*0.1
@@ -39,7 +40,7 @@ function gorudo_start(event)
 
   		local pattach = nil
 
-	    if caster:HasModifier("modifier_monk_glyph_5_a") then
+	    if caster:HasModifier("modifier_seinaru_glyph_5_a") then
 		    pattach = PATTACH_ABSORIGIN_FOLLOW
 		else
 			pattach = PATTACH_CUSTOMORIGIN
@@ -96,7 +97,7 @@ function gorudo_b_d_think(event)
 		radius = radius - dummy.speed*(dummy.shrinkThinks/10)
 	end
 	local position = nil
-	if caster:HasModifier("modifier_monk_glyph_5_a") then
+	if caster:HasModifier("modifier_seinaru_glyph_5_a") then
 		position = caster:GetAbsOrigin()
 	else
 		position = dummy.position
@@ -105,8 +106,6 @@ function gorudo_b_d_think(event)
 	for i = 1, #enemies, 1 do
 		ability:ApplyDataDrivenModifier(caster, enemies[i], "modifier_gorudo_b_d_inside_ring", {duration = 0.12})
 	end
-	print(dummy.thinks)
-	print(dummy.duration)
 	if dummy.thinks == dummy.duration - 2 then
 		EmitSoundOn("Seinaru.BDend", dummy)
 	end
@@ -152,7 +151,7 @@ function gorudo_attack_start(event)
 	local attacker = event.attacker
 	local target = event.target
 	local ability = event.ability
-	local a_d_level = Runes:GetTotalRuneLevel(attacker, 1, "r_1", "monk")
+	local a_d_level = attacker:GetRuneValue("r", 1)
 	if a_d_level > 0 then
 		apply_a_d(attacker, target, ability, a_d_level, attacker.e_4_level)
 	end
@@ -162,17 +161,17 @@ function gorudo_attack_land(event)
 	local attacker = event.attacker
 	local target = event.target
 	local ability = event.ability
-	local c_d_level = Runes:GetTotalRuneLevel(attacker, 3, "r_3", "monk")
+	local c_d_level = attacker:GetRuneValue("r", 3)
 	if c_d_level > 0 then
-		local luck = RandomInt(1, 4)
+		local luck = RandomInt(1, 100)
 		local critModifier = attacker:FindModifierByName("modifier_seinaru_a_a_crit")
-		if luck == 1 or critModifier then
+		if luck <= SEINARU_R3_PROC_CHANCE or critModifier then
 			local particleName = "particles/units/heroes/hero_monkey_king/monkey_king_spring_cast_rays.vpcf"
 			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_monkey_king/monkey_king_spring_cast_rays.vpcf", target, 3)
-			local damage = attacker:GetAverageTrueAttackDamage(attacker)*c_d_level*SEINARU_R3_ATTACK_DAMAGE_PERCENT/100
+			local damage = attacker:GetAverageTrueAttackDamage(attacker)*c_d_level*SEINARU_R3_DMG_PER_ATT
 			if critModifier then
 				local arcanaAbility = critModifier:GetAbility()
-				damage = damage * 1.5*arcanaAbility.q_1_level
+				damage = damage * 1.5 * arcanaAbility.q_1_level
 			end
 			Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_HOLY, RPC_ELEMENT_NORMAL)
 		end
@@ -180,19 +179,35 @@ function gorudo_attack_land(event)
 end
 
 
-function apply_a_d(attacker, target, ability, a_d_level, d_c_level)
-		local currentStacks = target:GetModifierStackCount("modifier_seinaru_gorudo_rune_r_1", attacker)
+function apply_a_d(attacker, target, ability, r_1_level, e_4_level)
+		local currentStacks = target:GetModifierStackCount("modifier_gorudo_rune_r_1", attacker)
 		local currentArmor = target:GetPhysicalArmorValue() + currentStacks
-		local ArmorRed = math.min(currentArmor+200*d_c_level, a_d_level*240)
+		local ArmorRed = 0
+		if attacker:HasAbility("seinaru_blade_dash") then
+			ArmorRed = math.min(currentArmor, r_1_level * SEINARU_R1_ARMOR_RED)
+		else
+			ArmorRed = math.min(currentArmor + SEINARU_E4_MAX_NEG_ARMOR * e_4_level, r_1_level * SEINARU_R1_ARMOR_RED)
+		end
 		if ArmorRed > 0 then
-			ability:ApplyDataDrivenModifier(attacker, target, "modifier_seinaru_gorudo_rune_r_1", {duration = 8})
-			target:SetModifierStackCount("modifier_seinaru_gorudo_rune_r_1", attacker, ArmorRed)
+			ability:ApplyDataDrivenModifier(attacker, target, "modifier_gorudo_rune_r_1", {duration = 8})
+			target:SetModifierStackCount("modifier_gorudo_rune_r_1", attacker, ArmorRed)
 		end
 		
 end
 
 function gorudo_passive_think(event)
 	local caster = event.caster
-	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "monk")
+	caster.e_4_level = caster:GetRuneValue("e", 4)
 end
---IDEA: MOVE SPIRAL STRIKE TO REPLACE ODACHI RUSH, POINT TARGET
+
+function seinaru_r_3_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = caster.hero
+	local totalLevel = hero:GetRuneValue("r", 3)
+	if totalLevel > 0 then
+		local stackCount = hero:GetAgility() * SEINARU_R3_ATT_PER_AGI * totalLevel
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_seinaru_rune_r_3_effect", {})
+		hero:SetModifierStackCount( "modifier_seinaru_rune_r_3_effect", ability, stackCount )
+	end
+end

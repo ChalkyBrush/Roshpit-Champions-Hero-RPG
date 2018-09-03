@@ -1,10 +1,12 @@
+require('heroes/juggernaut/seinaru_constants')
+
 function spiral_leap_start(event)
 	local caster = event.caster
 	local ability = event.ability
 
     local position = event.target_points[1]
-    local c_c_level = Runes:GetTotalRuneLevel(caster, 3, "e_3", "monk")
-    local maxDistance = c_c_level*5 + 900
+    local c_c_level = caster:GetRuneValue("e", 3)
+    local maxDistance = c_c_level * SEINARU_E3_CAST_RANGE + SEINARU_E3_CAST_RANGE_BASE
     local startPosition = caster:GetAbsOrigin()
     local castedDistance = WallPhysics:GetDistance(startPosition,position)
     local actualDistance = castedDistance
@@ -26,11 +28,11 @@ function spiral_leap_start(event)
 	caster:SetForwardVector(Vector(ability.forwardVector.x, ability.forwardVector.y, -math.pi))
 	StartAnimation(caster, {duration=3, activity=ACT_DOTA_OVERRIDE_ABILITY_1, rate=1.0})
 	EmitSoundOn("juggernaut_jug_ability_omnislash_05", caster)
-	caster.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "monk")
-  	local odachi = caster:FindAbilityByName("odachi_slice")
+	caster.w_4_level = caster:GetRuneValue("w", 4)
+  	local odachi = caster:FindAbilityByName("seinaru_odachi_leap")
   	odachi:SetLevel(ability:GetLevel())
   	odachi:SetAbilityIndex(2)
-  	caster:SwapAbilities("odachi_slice", "spiral_leap", true, false)
+  	caster:SwapAbilities("seinaru_odachi_leap", "seinaru_spiral_leap", true, false)
 end
 
 function spiral_think(event)

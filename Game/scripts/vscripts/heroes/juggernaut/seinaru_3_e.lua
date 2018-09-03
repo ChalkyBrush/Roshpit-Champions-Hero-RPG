@@ -1,5 +1,6 @@
-require('heroes/juggernaut/gorudo')
-require('heroes/juggernaut/hikari')
+require('heroes/juggernaut/seinaru_4_r')
+require('heroes/juggernaut/seinaru_2_w')
+require('heroes/juggernaut/seinaru_constants')
 
 function begin_slice(event)
 	local caster = event.caster
@@ -9,26 +10,17 @@ function begin_slice(event)
 	ability.fallVelocity = 0
 	ability.forwardVector = caster:GetForwardVector()
 	
-	local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "monk")
-	local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "monk")
-	ability.e_4_level = d_c_level
-	caster.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "monk")
-	-- if a_c_level > 0 then
-	-- 	ability.e_1_damage = a_c_level*200
- --    	ability.e_1_damage = ability.e_1_damage + 0.0003*caster:GetAgility()/10*d_c_level*ability.e_1_damage
-
-	-- 	gust(caster, ability.forwardVector, ability, a_c_level)
-		
-	-- end
-	ability.e_2_level = Runes:GetTotalRuneLevel(caster, 2, "e_2", "monk")
-	ability.e_3_level = Runes:GetTotalRuneLevel(caster, 3, "e_3", "monk")
-	ability.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "monk")
+	caster.w_4_level = caster:GetRuneValue("w", 4)
+	ability.e_1_level = caster:GetRuneValue("e", 1)
+	ability.e_2_level = caster:GetRuneValue("e", 2)
+	ability.e_3_level = caster:GetRuneValue("e", 3)
+	ability.e_4_level = caster:GetRuneValue("e", 4)
+	ability.r_1_level = caster:GetRuneValue("r", 1)
 	caster.EFV = ability.forwardVector
 
 	ability.repeatedZ = 0
 	ability.lastZ = 0
 
-	ability.e_1_level = a_c_level
 	ability.e_1_unit_table = {}
 	if ability.e_1_particleTable then
 		if #ability.e_1_particleTable > 0 then
@@ -62,7 +54,7 @@ function cooldownEnd(event)
 	local caster = event.caster
 	local level = caster:FindAbilityByName("odachi_rush"):GetLevel()
   	ability:SetLevel(level)
-  	caster:SwapAbilities("odachi_slice", "odachi_rush", true, false)	
+  	caster:SwapAbilities("seinaru_odachi_leap", "odachi_rush", true, false)	
 end
 
 function gust(caster, fv, ability, a_c_level)
@@ -99,7 +91,7 @@ function gust_hit(event)
 	local ability = event.ability
 	local caster = event.caster
 	local damage = ability.e_1_damage
-	if caster:HasModifier("modifier_monk_glyph_1_1") then
+	if caster:HasModifier("modifier_seinaru_glyph_1_1") then
 		damage = damage*1.4
 	end
 	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })	
@@ -138,7 +130,7 @@ function slice_think(event)
 		for _,enemy in pairs(enemies) do
 			enemy:AddNewModifier( caster, nil, "modifier_knockback", modifierKnockback )
 			if ability.e_1_level > 0 then
-				if #ability.e_1_unit_table < 1 + ability.e_1_level then
+				if #ability.e_1_unit_table < SEINARU_E1_TARGETS_BASE + SEINARU_E1_TARGETS * ability.e_1_level then
 					table.insert(ability.e_1_unit_table, enemy:GetEntityIndex())
 				end
 			end
@@ -202,7 +194,6 @@ function falling_end(event)
 	if ability.e_3_level > 0 then
 		switchToSpiral(caster, ability)	
 	end
-	print(#ability.e_1_unit_table)
 	if caster:HasModifier("modifier_falcon_boots") then
 		if caster.foot.liftedTargetsTable then
 			ability.e_1_unit_table = {"length"}
@@ -219,9 +210,7 @@ function falling_end(event)
 			Timers:CreateTimer(2.5, function()
 				ability.e_1_unit_table = {}
 				for i = 1, #caster.foot.liftedTargetsTable, 1 do
-					print(caster.foot.liftedTargetsTable[i]:GetUnitName())
 					if #ability.e_1_unit_table < (1 + ability.e_1_level) then
-						print("INSIDE A_C_UNIT_TABLE")
 						table.insert(ability.e_1_unit_table, caster.foot.liftedTargetsTable[i]:GetEntityIndex())
 					end
 				end
@@ -251,14 +240,14 @@ function falling_end(event)
 end
 
 function switchToSpiral(caster, ability)
-  	local spiral = caster:FindAbilityByName("spiral_leap")
+  	local spiral = caster:FindAbilityByName("seinaru_spiral_leap")
   	if not spiral then
-  		spiral = caster:AddAbility("spiral_leap")
+  		spiral = caster:AddAbility("seinaru_spiral_leap")
   	end
   	spiral:SetLevel(ability:GetLevel())
   	spiral:SetAbilityIndex(2)
   	spiral.e_3_level = ability.e_3_level
-  	caster:SwapAbilities("odachi_slice", "spiral_leap", false, true)	
+  	caster:SwapAbilities("seinaru_odachi_leap", "seinaru_spiral_leap", false, true)	
 end
 
 function c_c_think(event)
@@ -284,14 +273,14 @@ function hikari_heal_c_c(event)
 	local position = caster:GetAbsOrigin()
 	local ampFactor = 0.5*ability.e_3_level
 	EmitSoundOn("Hero_Warlock.ShadowWordCastGood", caster)
-	local hikariAbility = caster:FindAbilityByName("monk_heal")
+	local hikariAbility = caster:FindAbilityByName("seinaru_hands_of_hikari")
 	local radius = hikariAbility:GetSpecialValueFor("radius")
 	local heal = hikariAbility:GetSpecialValueFor("heal")
 	local allies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #allies > 0 then
 		for _,ally in pairs(allies) do
-			ally:RemoveModifierByName("modifier_monk_heal_effect")
-			hikariAbility:ApplyDataDrivenModifier(caster, ally, "modifier_monk_heal_effect", {})
+			ally:RemoveModifierByName("modifier_seinaru_hands_of_hikari_effect")
+			hikariAbility:ApplyDataDrivenModifier(caster, ally, "modifier_seinaru_hands_of_hikari_effect", {})
 			local healAmount = heal*ampFactor
 			Filters:ApplyHeal(caster, ally, healAmount, true)
 		end
@@ -385,13 +374,13 @@ function odachi_a_c_think(event)
 			  ParticleManager:DestroyParticle( pfx, false )
 			end)
 			if ability.r_1_level > 0 then
-				if caster:HasAbility("seinaru_gorudo") then
-					apply_a_d(caster, target, caster:FindAbilityByName("seinaru_gorudo"), ability.r_1_level, ability.e_4_level) 
+				if caster:HasAbility("gorudo") then
+					apply_a_d(caster, target, caster:FindAbilityByName("gorudo"), ability.r_1_level, ability.e_4_level) 
 				end
 			end	
 			caster:PerformAttack(target, true, true, true, true, false, false, false)
-			if caster:HasModifier("modifier_monk_glyph_3_1") then
-				local glyphDamage = caster:GetAverageTrueAttackDamage(caster)*0.2
+			if caster:HasModifier("modifier_seinaru_glyph_3_1") then
+				local glyphDamage = caster:GetAverageTrueAttackDamage(caster) * SEINARU_GLYPH3_DMG_PER_ATT
 				ApplyDamage({ victim = target, attacker = caster, damage = glyphDamage, damage_type = DAMAGE_TYPE_MAGICAL })	
 			end
 			EmitSoundOn("Seinaru.AChit", target)	
@@ -483,7 +472,7 @@ function wakizashi_think(event)
 	-- 	knockback_distance = 80,
 	-- 	knockback_height = 15,
 	-- }
-    local damage = caster:GetAverageTrueAttackDamage(caster) * (1+ability.e_2_level*1.0)
+    local damage = caster:GetAverageTrueAttackDamage(caster) * (SEINARU_E2_DMG_PER_ATT_BASE + ability.e_2_level * SEINARU_E2_DMG_PER_ATT)
 	if #enemies > 0 then
 		EmitSoundOn("Hero_Juggernaut.Attack", caster)
 		if #enemies > 6 then
@@ -496,15 +485,15 @@ function wakizashi_think(event)
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 3, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 		end
 	end 
-	hikari_heal(caster, caster:GetAbsOrigin(), caster:FindAbilityByName("monk_heal"), 0.1*ability.e_2_level)			
+	hikari_heal(caster, caster:GetAbsOrigin(), caster:FindAbilityByName("seinaru_hands_of_hikari"), SEINARU_E2_W_MULT * ability.e_2_level)			
 end
 
 function wakizashi_end(event)
 	local caster = event.caster
 	local ability = event.ability
 	caster:RemoveGesture(ACT_DOTA_OVERRIDE_ABILITY_1)
-	if caster:HasModifier("modifier_monk_glyph_7_1") then
-		local glyph_duration = Filters:GetAdjustedBuffDuration(caster, 2, false)
+	if caster:HasModifier("modifier_seinaru_glyph_7_1") then
+		local glyph_duration = Filters:GetAdjustedBuffDuration(caster, SEINARU_GLYPH7_DUR, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_glyph_7_1_effect", {duration = glyph_duration})
 	end
 end

@@ -138,13 +138,13 @@ function getGlyphProperty1(glyphName){
 		property = 80
 	}else if(glyphName == "item_rpc_conjuror_glyph_6_1"){
 		property = 5
-	}else if(glyphName == "item_rpc_monk_glyph_1_1"){
+	}else if(glyphName == "item_rpc_seinaru_glyph_1_1"){
 		property = 200
-	}else if(glyphName == "item_rpc_monk_glyph_2_1"){
+	}else if(glyphName == "item_rpc_seinaru_glyph_2_1"){
 		property = 1000
-	}else if(glyphName == "item_rpc_monk_glyph_3_1"){
+	}else if(glyphName == "item_rpc_seinaru_glyph_3_1"){
 		property = 20
-	}else if(glyphName == "item_rpc_monk_glyph_4_1"){
+	}else if(glyphName == "item_rpc_seinaru_glyph_4_1"){
 		property = 120
 	}else if(glyphName == "item_rpc_warlord_glyph_1_1"){
 		property = 35

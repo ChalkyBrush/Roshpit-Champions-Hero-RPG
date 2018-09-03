@@ -8,6 +8,7 @@ local hero_values = {
 }
 require('/heroes/obsidian_destroyer/epoch_constants')
 require('/heroes/antimage/arkimus_constants')
+require('/heroes/juggernaut/seinaru_constants')
 
 
 CustomAttributes.FLAMEWAKER_R3_STRENGTH = 260
@@ -30,7 +31,6 @@ CustomAttributes.AURIUN_E2_INT = 120
 CustomAttributes.AURIUN_E3_STATS = 40
 CustomAttributes.MOUNTAIN_PROTECTOR_E2_STR = 120
 CustomAttributes.MOUNTAIN_PROTECTOR_R2_STR = hero_values.mountain_protector.R2_STRENGTH_PER_STACK
-CustomAttributes.SEINARU_Q3_ARCANA1_AGI = 400
 CustomAttributes.SOLUNIA_R4_STATS = 200
 CustomAttributes.AXE_E1_STATS = 10
 CustomAttributes.SORCERESS_ARCANE_INT = 50
@@ -194,7 +194,7 @@ function CustomAttributes:SetAttributes(hero)
 		end
 	end
 	if hero:HasModifier("modifier_seinaru_arcana_agility_buff") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_seinaru_arcana_agility_buff", CustomAttributes.SEINARU_Q3_ARCANA1_AGI)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_seinaru_arcana_agility_buff", SEINARU_ARCANA_Q3_AGI)
 	end
 
 	--RUNES

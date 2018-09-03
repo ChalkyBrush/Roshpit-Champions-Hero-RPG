@@ -306,9 +306,6 @@ function AddAffixToItem(tooltip, itemProperty, queryUnit, requiredHero, rarityFa
 			if (rarityFactor == 6){
 				var RPCName = convertFullHeroNameToRPC(requiredHero)	
 				var arcanaSuffix = itemName.replace("item_rpc_"+RPCName+"_", "_");
-				if (RPCName == "monk"){
-					arcanaSuffix = itemName.replace("item_rpc_"+"seinaru"+"_", "_");
-				}
 				propertyName = $.Localize("DOTA_Tooltip_Ability_"+RPCName+"_"+OGpropertyName+arcanaSuffix)
 				$.Msg(propertyName)
 			}else{
