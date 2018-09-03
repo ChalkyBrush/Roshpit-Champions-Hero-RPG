@@ -46287,7 +46287,7 @@
 	
 	//SEINARU GLYPHS
 
-"item_rpc_monk_glyph_1_1"
+	"item_rpc_seinaru_glyph_1_1"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -46308,7 +46308,7 @@
 		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
 		"Modifiers"
 		{
-			"modifier_monk_glyph_1_1"
+			"modifier_seinaru_glyph_1_1"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
@@ -46318,7 +46318,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/juggernaut/glyphs.lua"
+						"ScriptFile"	"heroes/juggernaut/seinaru_glyphs.lua"
 						"Function"		"lifesteal_glyph"
 						"attack_damage"	"%attack_damage"
 					}
@@ -46335,7 +46335,7 @@
 		}
 	}
 
-	"item_rpc_monk_glyph_2_1"
+	"item_rpc_seinaru_glyph_2_1"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -46354,16 +46354,6 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
-		"Modifiers"
-		{
-			"modifier_monk_glyph_2_1"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
 		"AbilitySpecial"
 		{
 			"01"
@@ -46374,7 +46364,7 @@
 		}
 	}
 
-	"item_rpc_monk_glyph_3_1"
+	"item_rpc_seinaru_glyph_3_1"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -46395,7 +46385,7 @@
 		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
 		"Modifiers"
 		{
-			"modifier_monk_glyph_3_1"
+			"modifier_seinaru_glyph_3_1"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
@@ -46413,7 +46403,7 @@
 		}
 	}
 
-	"item_rpc_monk_glyph_4_1"
+	"item_rpc_seinaru_glyph_4_1"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -46434,7 +46424,7 @@
 		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
 		"Modifiers"
 		{
-			"modifier_monk_glyph_4_1"
+			"modifier_seinaru_glyph_4_1"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
@@ -46458,7 +46448,7 @@
 		}
 	}
 
-	"item_rpc_monk_glyph_5_1"
+	"item_rpc_seinaru_glyph_5_1"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -46479,7 +46469,7 @@
 		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
 		"Modifiers"
 		{
-			"modifier_monk_glyph_5_1"
+			"modifier_seinaru_glyph_5_1"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
@@ -46497,7 +46487,7 @@
 		}
 	}
 
-	"item_rpc_monk_glyph_6_1"
+	"item_rpc_seinaru_glyph_6_1"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -46518,7 +46508,7 @@
 		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
 		"Modifiers"
 		{
-			"modifier_monk_glyph_6_1"
+			"modifier_seinaru_glyph_6_1"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -46529,7 +46519,7 @@
 					"RunScript"
 					{
 						"ScriptFile"	"items/glyph_abilities.lua"
-						"Function"		"monk_glyph_6_1_activate"
+						"Function"		"seinaru_glyph_6_1_activate"
 						"target"        "TARGET"
 					}
 				}
@@ -46538,7 +46528,7 @@
 					"RunScript"
 					{
 						"ScriptFile"	"items/glyph_abilities.lua"
-						"Function"		"monk_glyph_6_1_deactivate"
+						"Function"		"seinaru_glyph_6_1_deactivate"
 						"target"        "TARGET"
 					}
 				}
@@ -46554,7 +46544,7 @@
 		}
 	}
 
-	"item_rpc_monk_glyph_7_1"
+	"item_rpc_seinaru_glyph_7_1"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -46575,7 +46565,7 @@
 		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
 		"Modifiers"
 		{
-			"modifier_monk_glyph_7_1"
+			"modifier_seinaru_glyph_7_1"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
@@ -46588,12 +46578,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"80"
+				"property_one"			"100"
 			}
 		}
 	}
 
-	"item_rpc_monk_glyph_5_a"
+	"item_rpc_seinaru_glyph_5_a"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -46614,7 +46604,7 @@
 		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
 		"Modifiers"
 		{
-			"modifier_monk_glyph_5_a"
+			"modifier_seinaru_glyph_5_a"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"

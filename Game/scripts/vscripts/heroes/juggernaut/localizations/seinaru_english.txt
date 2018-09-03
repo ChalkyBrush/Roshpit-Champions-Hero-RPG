@@ -1,0 +1,280 @@
+    	//--------------------
+
+    	"DOTA_Tooltip_ability_seinaru_konokaze"							"Konokaze"
+    	"DOTA_Tooltip_ability_seinaru_konokaze_Description"				"Element: <font color=\"#7AE2A7\">Wind</font><br>A swift burst of air blinds, slows, and pushes back enemies in its path."
+    	"DOTA_Tooltip_ability_seinaru_konokaze_stun_duration"			"STUN DURATION:"
+    	"DOTA_Tooltip_ability_seinaru_konokaze_range"					"RANGE:"
+    	"DOTA_Tooltip_ability_seinaru_konokaze_blind_chance"			"BLIND MISS CHANCE:"
+    	"DOTA_Tooltip_ability_seinaru_konokaze_blind_duration"			"BLIND DURATION:"
+		
+    	"DOTA_Tooltip_ability_seinaru_rune_q_1"							"[Q1] Cloudburst"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_1_Description"				"Each enemy hit by Konokaze increases Seinaru's attack damage for <% SEINARU_Q1_DUR_BASE %> seconds."
+    	"DOTA_Tooltip_ability_seinaru_rune_q_1_property_one"			"Attack Damage"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_1_suffix"					"%"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_1_property_two"			"Attack Speed"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_1_suffix_two"				""
+
+    	"DOTA_Tooltip_modifier_seinaru_rune_q_1"						"Cloudburst"
+    	"DOTA_Tooltip_modifier_seinaru_rune_q_1_Description"			"Increased attack damage and attack speed"
+		
+    	"DOTA_Tooltip_ability_seinaru_rune_q_2"							"[Q2] Gale Break"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_2_Description"				"Increases movespeed for <% SEINARU_Q2_DUR_BASE %> seconds after casting Konokaze. Enemies hit by the gust are slowed."
+    	"DOTA_Tooltip_ability_seinaru_rune_q_2_property_one"			"Movespeed Bonus"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_2_suffix"					""
+     	"DOTA_Tooltip_ability_seinaru_rune_q_2_property_two"			"Movespeed Slow"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_2_suffix_two"				""
+
+    	"DOTA_Tooltip_modifier_seinaru_q_2_speed"						"Gale Break"
+    	"DOTA_Tooltip_modifier_seinaru_q_2_speed_Description"			"Increased movespeed"	
+
+    	"DOTA_Tooltip_modifier_seinaru_rune_q_2_slow"					"Gale Break"
+    	"DOTA_Tooltip_modifier_seinaru_rune_q_2_slow_Description"		"Movespeed Slow"
+		
+    	"DOTA_Tooltip_ability_seinaru_rune_q_3"							"[Q3] Heavy Winds"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_3_Description"				"Casting Konakaze increases evasion by <% SEINARU_Q3_EVA_BASE %>% for a duration. A % of agility is added the gust damage."
+    	"DOTA_Tooltip_ability_seinaru_rune_q_3_property_one"			"Evasion Duration"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_3_suffix"					" seconds"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_3_property_two"			"Added Damage"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_3_suffix_two"				"% of agility"
+
+    	"DOTA_Tooltip_ability_seinaru_rune_q_3_evasion"					"Heavy Winds"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_3_evasion_Description"		"90%% evasion"
+		
+    	"DOTA_Tooltip_ability_seinaru_rune_q_4"							"[Q4] Precision Breeze"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_4_Description"				"A % of Seinaru's attack damage is added to Konokaze damage."
+    	"DOTA_Tooltip_ability_seinaru_rune_q_4_property_one"			"Additional Damage"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_4_suffix"					"% of attack damage"
+
+ 		"DOTA_Tooltip_ability_seinaru_hands_of_hikari"					"Hands of Hikari"
+		"DOTA_Tooltip_ability_seinaru_hands_of_hikari_Description"		"Seinaru heals himself and all nearby allies with a quick burst of green light."
+		"DOTA_Tooltip_ability_seinaru_hands_of_hikari_Lore"				""
+		"DOTA_Tooltip_ability_seinaru_hands_of_hikari_heal"				"HEAL:"
+		"DOTA_Tooltip_ability_seinaru_hands_of_hikari_radius"			"RADIUS:"  
+		
+		"DOTA_Tooltip_ability_seinaru_rune_w_1"							"[W1] Circle of Wind"
+		"DOTA_Tooltip_ability_seinaru_rune_w_1_Description"				"Hands of Hikari also unleashes a Circle of Wind that slows attack and movespeed of struck units by <% SEINARU_W1_MOV_SLOW_BASE %> for <% SEINARU_W1_DUR_BASE %> seconds. Additionally, enemies struck by this effect take increased post-mitigation damage from Seinaru. No stack limit."
+		"DOTA_Tooltip_ability_seinaru_rune_w_1_property_one"			"Post-mitigation damage bonus"
+		"DOTA_Tooltip_ability_seinaru_rune_w_1_suffix"					"%"
+		
+		"DOTA_Tooltip_ability_seinaru_rune_w_2"							"[W2] Typhoon"
+		"DOTA_Tooltip_ability_seinaru_rune_w_2_Description"				"Hands of Hikari has a <% SEINARU_W2_PROC_CHANCE %>% chance to release a quick Typhoon that damages and stuns surrounding enemies in a radius of <% SEINARU_W2_RADIUS_BASE %>. Base damage is multiplied by the level of Hands of Hikari."
+		"DOTA_Tooltip_ability_seinaru_rune_w_2_property_one"			"Damage"
+		"DOTA_Tooltip_ability_seinaru_rune_w_2_suffix"					""
+		"DOTA_Tooltip_ability_seinaru_rune_w_2_property_two"			"Stun Duration"
+		"DOTA_Tooltip_ability_seinaru_rune_w_2_suffix_two"				" seconds"
+
+		"DOTA_Tooltip_ability_seinaru_rune_w_3"						"[W3] Four Winds"
+		"DOTA_Tooltip_ability_seinaru_rune_w_3_Description"			"After casting Hikari, Seinaru and nearby allies are protected by a temporary shield lasting <% SEINARU_W3_DUR_BASE %> seconds. The shield absorbs damage based on Seinaru's agility."
+		"DOTA_Tooltip_ability_seinaru_rune_w_3_property_one"			"Shield capacity"
+		"DOTA_Tooltip_ability_seinaru_rune_w_3_suffix"					"x agility"
+
+		"DOTA_Tooltip_modifier_seinaru_rune_w_3_shield"				"Four Winds"
+		"DOTA_Tooltip_modifier_seinaru_rune_w_3_shield_Description"	"Shield absorbs damage"
+
+    	"DOTA_Tooltip_modifier_seinaru_rune_w_3"						"Blade of Light"
+    	"DOTA_Tooltip_modifier_seinaru_rune_w_3_Description"			"Restoring HP on basic attacks."
+		
+    	"DOTA_Tooltip_ability_seinaru_rune_w_4"							"[W4] Light of Wisdom"
+    	"DOTA_Tooltip_ability_seinaru_rune_w_4_Description"				"Seinaru's agility increases the healing of Hands of Hikari, and all <font color=\"#7AE2A7\">Wind</font> damage."
+    	"DOTA_Tooltip_ability_seinaru_rune_w_4_property_one"			"Wind bonus"
+    	"DOTA_Tooltip_ability_seinaru_rune_w_4_suffix"					"% for each 10 points of Agility"
+    	"DOTA_Tooltip_ability_seinaru_rune_w_4_property_two"			"Heal bonus"
+    	"DOTA_Tooltip_ability_seinaru_rune_w_4_suffix_two"				"% for each 10 points of Agility"
+
+		"DOTA_Tooltip_ability_seinaru_odachi_leap"						"Odachi Leap"  
+		"DOTA_Tooltip_ability_seinaru_odachi_leap_Description"			"Element: <font color=\"#DDDDDD\">Normal</font><br>Quickly leaps forward while slicing all enemies in Seinaru's path. 100% evasion while jumping."
+		"DOTA_Tooltip_ability_seinaru_odachi_leap_Lore"					""
+		"DOTA_Tooltip_ability_seinaru_odachi_leap_damage"				"DAMAGE/SLICE:"  
+
+		"DOTA_Tooltip_ability_seinaru_gorudo"						"Gorudo"
+		"DOTA_Tooltip_ability_seinaru_gorudo_Description"			"Seinaru transmutes solid gold, rendering him immune to magic and increasing attack damage."
+		"DOTA_Tooltip_ability_seinaru_gorudo_duration"			"DURATION:"
+		"DOTA_Tooltip_ability_seinaru_gorudo_attack_damage_percent"			"ATTACK DAMAGE %:"
+
+		"DOTA_Tooltip_modifier_monk_ulti_gorudo"					"Gorudo"
+		"DOTA_Tooltip_modifier_monk_ulti_gorudo_Description"		"Magic Immunity"
+
+    	"DOTA_Tooltip_ability_seinaru_rune_e_1"						"[E1] Eagle Strike"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_1_Description"			"Enemies hit by Odachi Leap are marked for Eagle Strike. Upon landing, Seinaru storms on his targets with a flurry of rapid blade attacks."
+    	"DOTA_Tooltip_ability_seinaru_rune_e_1_property_one"			"Increased Attack Damage"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_1_suffix"					"%"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_1_property_two"			"Max Targets"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_1_suffix_two"				""
+
+    	"DOTA_Tooltip_ability_seinaru_rune_r_1"						"[R1] Armor Piercing"
+    	"DOTA_Tooltip_ability_seinaru_rune_r_1_Description"			"Seinaru's attacks reduce enemy armor greatly for 8 seconds. Effect can not put a target below 0 armor. Applies before the attack lands."
+    	"DOTA_Tooltip_ability_seinaru_rune_r_1_property_one"			"Max Armor Break"
+    	"DOTA_Tooltip_ability_seinaru_rune_r_1_suffix"					""
+
+    	"DOTA_Tooltip_modifier_seinaru_gorudo_rune_r_1"				"Armor Piercing"
+
+    	"DOTA_Tooltip_ability_seinaru_rune_e_2"						"[E2] Wakizashi"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_2_Description"			"After landing from Odachi Leap or Eagle Strike - enter a Blade Fury state for 2.5 seconds where Seinaru is immune to damage and heals himself with Hands of Hikari on a 0.5 second interval."
+    	"DOTA_Tooltip_ability_seinaru_rune_e_2_property_one"			"Amplified Hikari"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_2_suffix"					"x"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_2_property_two"			"Damage"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_2_suffix_two"				"% of attack damage"
+
+    	"DOTA_Tooltip_modifier_seinaru_b_c_wakizashi"				"Wakizashi"
+    	"DOTA_Tooltip_modifier_seinaru_b_c_wakizashi_Description"	"Immune to damage."
+
+    	"DOTA_Tooltip_modifier_seinaru_odachi_leap_cooldown"				"Odachi Slice Cooldown"
+    	"DOTA_Tooltip_modifier_seinaru_odachi_leap_cooldown_Description"	"While Odachi Slice is cooling down, you have Odachi Rush"
+
+    	"DOTA_Tooltip_ability_seinaru_rune_r_2"						"[R2] Duelist Ring"
+    	"DOTA_Tooltip_ability_seinaru_rune_r_2_Description"			"After casting Gorudo, a ring of light expands from the caster. Seinaru takes 80% reduced damage from enemies who are within the ring."
+    	"DOTA_Tooltip_ability_seinaru_rune_r_2_property_one"			"Ring Duration"
+    	"DOTA_Tooltip_ability_seinaru_rune_r_2_suffix"					" seconds"
+    	"DOTA_Tooltip_ability_seinaru_rune_r_2_property_two"			"Radius"
+    	"DOTA_Tooltip_ability_seinaru_rune_r_2_suffix_two"					""
+
+    	"DOTA_Tooltip_modifier_gorudo_b_d_inside_ring"				"Duelist Ring"
+    	"DOTA_Tooltip_modifier_gorudo_b_d_inside_ring_Description"	"Dealing reduced damage to Seinaru"	
+
+    	"DOTA_Tooltip_modifier_seinaru_rune_r_2_immunity"				"Gorudo"
+    	"DOTA_Tooltip_modifier_seinaru_rune_r_2_immunity_Description"	"Full Magic Immunity"
+
+    	"DOTA_Tooltip_ability_seinaru_rune_e_3"						"[E3] Spiral Leap"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_3_Description"			"After landing from an Odachi Leap, it is swapped with Spiral Leap. Spiral Leap allows Seinaru to jump to a target location with magic immunity. Also disjoints projectiles."
+    	"DOTA_Tooltip_ability_seinaru_rune_e_3_property_one"			"Max Jump Distance"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_3_suffix"					""
+
+    	"DOTA_Tooltip_ability_seinaru_spiral_leap"							"Spiral Leap"
+    	"DOTA_Tooltip_ability_seinaru_spiral_leap_Description"				"Element: <font color=\"#DDDDDD\">Normal</font><br>Jumps to the target location with magic immunity. Perpetually disjoints incoming projectiles."
+
+    	"DOTA_Tooltip_ability_seinaru_rune_r_3"						"[R3] Dexterity"
+    	"DOTA_Tooltip_ability_seinaru_rune_r_3_Description"			"A percentage of your agility is added to attack damage. Additionally have a <% SEINARU_R3_PROC_CHANCE %>% chance to deal pure damage on attack while under the Gorudo buff."
+    	"DOTA_Tooltip_ability_seinaru_rune_r_3_property_one"			"Agility added to attack"
+    	"DOTA_Tooltip_ability_seinaru_rune_r_3_suffix"					"%"
+    	"DOTA_Tooltip_ability_seinaru_rune_r_3_property_two"			"Pure damage on proc"
+    	"DOTA_Tooltip_ability_seinaru_rune_r_3_suffix_two"				"% of attack power"
+
+    	"DOTA_Tooltip_modifier_seinaru_rune_r_3_effect"				"Dexterity"
+    	"DOTA_Tooltip_modifier_seinaru_rune_r_3_effect_Description"	"Gaining attack damage from agility"
+
+    	"Tooltip_seinaru_w"											"Hands of Hikari & Circle of Wind"
+
+		"DOTA_Tooltip_ability_seinaru_rune_e_4"						"[E4] Wings of the Swift"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_Description"			"Armor Piercing is augmented, able to reduce a target's armor below 0 to a threshold. The threshold value is applied as additional armor shred to targets with sufficiently high armor. Additionally, Seinaru's pre-mitigation <font color=\"#F6FFB5\">Holy</font><br> damage is increased against targets with armor below 0."
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_property_one"			"Max Negative Armor"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_suffix"					""
+	 	"DOTA_Tooltip_ability_seinaru_rune_e_4_property_two"			"Holy amplify"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_suffix_two"				"% for every 10 armor below 0"
+
+    	"DOTA_Tooltip_ability_seinaru_rune_r_4"						"[R4] Trial of Valor"
+    	"DOTA_Tooltip_ability_seinaru_rune_r_4_Description"			"Enemies within Seinaru's Duelist Ring take increased damage from Seinaru."
+    	"DOTA_Tooltip_ability_seinaru_rune_r_4_property_one"			"Damage Bonus"
+    	"DOTA_Tooltip_ability_seinaru_rune_r_4_suffix"					"%"
+
+    	"DOTA_Tooltip_ability_seinaru_blade_dash"						"Blade Dash"
+    	"DOTA_Tooltip_ability_seinaru_blade_dash_Description"			"Element: <font color=\"#DDDDDD\">Normal</font><br>Seinaru charges towards the target and deals an additional physical attack with bonus damage."
+    	"DOTA_Tooltip_ability_seinaru_blade_dash_damage_percent_of_atk"			"ATTACK MULTIPLIER %:"
+
+    	"item_property_seinaru_arcana1"										"Blade Dash"
+    	"property_seinaru_arcana1_description"								"Replaces @Ability1 and all of its runes with Blade Dash."
+
+  		"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1"						"[Q1] Samurai Crit"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_Description"			"Adds a <% SEINARU_ARCANA_Q1_CRIT_CHANCE %>% chance on attack to deal a massive critical strike."
+    	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_property_one"			"Bonus Crit Damage"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_suffix"					"%"
+
+  		"DOTA_Tooltip_ability_seinaru_rune_q_2_arcana1"						"[Q2] Blade Dance"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_2_arcana1_Description"			"Gain additional attack damage upon striking an enemy with blade Dash. Stacks up to <% SEINARU_ARCANA_Q2_MAX_STACKS %> times, attacking 15 times removes a stack."
+    	"DOTA_Tooltip_ability_seinaru_rune_q_2_arcana1_property_one"			"Damage Increase Per Stack"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_2_arcana1_suffix"					"%"
+
+    	"DOTA_Tooltip_modifier_seinaru_flying_sword_buff_visible"					"Blade Dance"
+    	"DOTA_Tooltip_modifier_seinaru_flying_sword_buff_visible_Description"		"Increased attack damage."
+
+  		"DOTA_Tooltip_ability_seinaru_rune_q_3_arcana1"						"[Q3] Swiftblade"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_3_arcana1_Description"			"Gain bonus agility for 10 seconds after casting Blade Dash."
+    	"DOTA_Tooltip_ability_seinaru_rune_q_3_arcana1_property_one"			"Agility Bonus"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_3_arcana1_suffix"					""
+
+    	"DOTA_Tooltip_modifier_seinaru_arcana_agility_buff"						"Swiftblade"
+    	"DOTA_Tooltip_modifier_seinaru_arcana_agility_buff_Description"			"Increased Agility"	
+
+  		"DOTA_Tooltip_ability_seinaru_rune_q_4_arcana1"						"[Q4] Sidestep"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_4_arcana1_Description"			"Gain <% SEINARU_ARCANA_Q4_EVA_BASE %>% evasion after casting Blade Dash."
+    	"DOTA_Tooltip_ability_seinaru_rune_q_4_arcana1_property_one"			"Duration"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_4_arcana1_suffix"					" seconds"
+
+    	"DOTA_Tooltip_modifier_seinaru_arcana_evasion_buff"						"Sidestep"
+    	"DOTA_Tooltip_modifier_seinaru_arcana_evasion_buff_Description"			"100%% evasion"
+
+    	"DOTA_Tooltip_ability_seinaru_blade_dash"						"Blade Dash"
+    	"DOTA_Tooltip_ability_seinaru_blade_dash_Description"			"Element: <font color=\"#DDDDDD\">Normal</font><br>Seinaru charges towards the target and deals an additional physical attack with bonus damage."
+    	"DOTA_Tooltip_ability_seinaru_blade_dash_damage_percent_of_atk"			"ATTACK MULTIPLIER %:"
+
+    	"item_property_seinaru_arcana2"										"Sunstrider"
+    	"property_seinaru_arcana2_description"								"Replaces @Ability3 and all of its runes with Sunstrider."
+
+    	"DOTA_Tooltip_ability_seinaru_sunstrider"						"Sunstrider"
+    	"DOTA_Tooltip_ability_seinaru_sunstrider_Description"			"With the blessing of the sun, Seinaru blazes towards the target location."
+    	"DOTA_Tooltip_ability_seinaru_sunstrider_cast_range"			"CAST RANGE:"
+
+    	"DOTA_Tooltip_modifier_sunstrider_in_air"						"Sunstrider"
+
+  		"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2"						"[E1] Sunblade"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_Description"			"Enemies within the cast AOE of Sunstrider are attacked by Seinaru on 0.06 second delays with bonus attack power."
+    	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_property_one"			"Attack Power Bonus"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_suffix"					"%"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_property_two"			"Max Targets"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_suffix_two"				""
+
+  		"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2"						"[E2] Lightsworn"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_Description"			"Gain 80% resistance to pure damage upon landing from Sunstrider."
+    	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_property_one"			"Duration"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_suffix"					" seconds"
+
+    	"DOTA_Tooltip_modifier_sunstrider_lightsworn"						"Lightsworn"
+    	"DOTA_Tooltip_modifier_sunstrider_lightsworn_Description"						"80%% additional Pure resist"
+
+		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2"						"[E3] Sunwarrior's Vengeance"
+		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_Description"			"Each Sunblade attack echoes, dealing intense damage in a small area around the target. This effect has its own post-mitigation damage boost."
+		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_property_one"			"AOE Damage"
+		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_suffix"					"% of attack power"
+		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_property_two"			"Post-Mitigation Boost"
+		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_suffix_two"					"%"
+
+		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack"		"Sunwarrior's Vengeance"
+		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack_Description"	"Next attack does Pure damage in an area around the target"
+
+		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_post_mit"	"Sunwarrior's Vengeance"
+		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_post_mit_Description"	"Increased Post-Mitigation Damage"
+
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2"						"[E4] Luminary"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_Description"			"When Sunstrider goes on cooldown, have a chance to gain a buff that allows Sunstrider to be cast without cooldown. Greater than 100% means you can get multiple stacks. Additionally increases all Holy damage."
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_one"			"Chance for Free Cast"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix"					"%"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_two"			"Increased Holy damage:"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix_two"				"%"
+
+    	"DOTA_Tooltip_modifier_sunstrider_freecast"							"Sunstrider Freecast"
+
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_1_1"		"Glyph of Spirit Blade"
+		"item_rpc_seinaru_glyph_1_1_description" 				"Grants @glyph_property1% lifesteal"
+
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_2_1"		"Glyph of Solid Gold"
+		"item_rpc_seinaru_glyph_2_1_description" 				"Increase armor by @glyph_property1 while in Gorudo."
+
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_3_1"		"Glyph of the Diving Eagle"
+		"item_rpc_seinaru_glyph_3_1_description" 				"Enemies hit by Eagle Strike take an additonal @glyph_property1% of Seinaru's attack damage as magical damage."
+
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_4_1"		"Glyph of Yin"
+		"item_rpc_seinaru_glyph_4_1_description" 				"@glyph_property1 bonus movespeed"
+
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_5_1"		"Glyph of Bushido" //Red burst particle effect for damage
+		"item_rpc_seinaru_glyph_5_1_description" 				"Hands of Hikari also deals damage equal to the heal effect to all nearby enemies."
+
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_6_1"		"Glyph of Nine Tails"
+		"item_rpc_seinaru_glyph_6_1_description" 				"You can move while casting Hands of Hikari."
+
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_7_1"		"Glyph of The Vanishing Breeze"
+		"item_rpc_seinaru_glyph_7_1_description" 				"Gain @glyph_property1% evasion for 2 seconds after the end of Wakizashi."
+
+		"DOTA_Tooltip_modifier_seinaru_glyph_7_1_effect"				"Vanishing Breeze"
+		"DOTA_Tooltip_modifier_seinaru_glyph_7_1_effect_Description"	"<% SEINARU_GLYPH7_EVA %>% evasion"
+
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_5_a"		"Glyph of the Arena"
+		"item_rpc_seinaru_glyph_5_a_description" 				"Duelist Rings now move with Seinaru."

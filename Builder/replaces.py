@@ -2,16 +2,24 @@ import json
 import os
 import re
 
+def isfloat(value):
+  try:
+    float(value)
+    return True
+  except ValueError:
+    return False
 
 def get_operator_value(operator, file_path, constants, warnings):
     operator = operator.strip()
-    if not operator.isnumeric():
+    if not isfloat(operator):
         if operator in constants:
             operator = constants[operator]
         else:
             if warnings['replace_invalid_constant']:
                 print("Warning: constant " + operator + " in " + file_path + " don't parsed.")
             operator = "0"
+    if isfloat(operator):
+        operator = float(operator)
     return operator
 
 
@@ -44,12 +52,12 @@ def parse(file_path, constants, settings, warnings, encoding="utf-8"):
     file.close()
 
     for statement in re.findall('(?<=' + re.escape(settings['start']) + ')(.*?)(?=' + re.escape(settings['end']) + ')', content):
-        statement_parts = re.split('(' + ''.join(map(lambda x: re.escape(x), settings['expressions'].keys())) + ')', statement)
-        result = settings['convert'](get_operator_value(statement_parts[0], file_path, constants, warnings))
+        statement_parts = re.split('([' + ''.join(map(lambda x: re.escape(x), settings['expressions'].keys())) + '])', statement)
+        result = get_operator_value(statement_parts[0].strip(), file_path, constants, warnings)
         i = 1
         while i < len(statement_parts):
-            operation = statement_parts[i]
-            second_operator = settings['convert'](get_operator_value(statement_parts[i + 1], file_path, constants, warnings))
+            operation = statement_parts[i].strip()
+            second_operator = get_operator_value(statement_parts[i + 1], file_path, constants, warnings)
             result = settings['expressions'][operation](result, second_operator)
             i = i + 2
 

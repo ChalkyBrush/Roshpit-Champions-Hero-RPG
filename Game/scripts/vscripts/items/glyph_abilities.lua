@@ -250,9 +250,9 @@ function astral_glyph_6_1_attack_land(event)
 	print("EXTRAPURE"..extraPure)
 end
 
-function monk_glyph_6_1_activate(event)
+function seinaru_glyph_6_1_activate(event)
 	local target = event.target
-	local hikari = target:FindAbilityByName("monk_heal")
+	local hikari = target:FindAbilityByName("seinaru_hands_of_hikari")
 	if not hikari.originalCastpoint then
 		local originalCastpoint = hikari:GetCastPoint()
 		hikari.originalCastpoint = originalCastpoint
@@ -262,9 +262,9 @@ function monk_glyph_6_1_activate(event)
 	hikari:SetOverrideCastPoint(0)
 end
 
-function monk_glyph_6_1_deactivate(event)
+function seinaru_glyph_6_1_deactivate(event)
 	local target = event.target
-	local hikari = target:FindAbilityByName("monk_heal")
+	local hikari = target:FindAbilityByName("seinaru_hands_of_hikari")
 	print("DEACTIVATE")
 	hikari:SetOverrideCastPoint(hikari.originalCastpoint)
 end

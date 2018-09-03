@@ -4,6 +4,7 @@ end
 
 require('/heroes/huskar/constants_SPIRIT_WARRIOR')
 require('/heroes/obsidian_destroyer/constants_epoch')
+require('/heroes/juggernaut/seinaru_constants')
 
 local heroes = {
 	venomort = require('/heroes/hero_necrolyte/scales'),
@@ -964,7 +965,7 @@ function GameState:OrderFilter(orderTable)
 			if unit:GetUnitName() == "npc_dota_hero_juggernaut" then
 				local orderAbility = EntIndexToHScript(orderTable.entindex_ability)
 				if IsValidEntity(orderAbility) then
-					if orderAbility:GetAbilityName() == "seinaru_arcana_ability" then
+					if orderAbility:GetAbilityName() == "seinaru_blade_dash" then
 						print("IGNORE CAST ANGLE!!!")
 						orderAbility:ApplyDataDrivenModifier(unit, unit, "modifier_seinaru_ignore_cast_angle", {duration = 0.5})
 					end
@@ -2219,7 +2220,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if attacker:HasModifier("modifier_sunstrider_sunwarrior_vengeance_post_mit") then
 		local stacks = attacker:GetModifierStackCount("modifier_sunstrider_sunwarrior_vengeance_post_mit", attacker)
-		local multIncrease = stacks*0.12
+		local multIncrease = stacks * SEINARU_ARCANA_E3_POSTMIT
 		mult = mult + multIncrease
 	end
 	if victim:HasModifier("modifier_auriun_immortal_weapon_1") then
@@ -2579,7 +2580,7 @@ function GameState:FilterDamage(filterTable)
     	modifier = victim:FindModifierByName("modifier_gorudo_b_d_inside_ring")
     	if attacker:GetEntityIndex() == modifier:GetCaster():GetEntityIndex() then
     		local r_4_level = attacker:FindAbilityByName("seinaru_gorudo").r_4_level
-    		filterTable["damage"] = filterTable["damage"]*(1+r_4_level*0.2)
+    		filterTable["damage"] = filterTable["damage"] * (1 + r_4_level * SEINARU_R4_POSTMIT_MULT)
     	end
     end
 

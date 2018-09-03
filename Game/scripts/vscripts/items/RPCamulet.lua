@@ -642,7 +642,7 @@ function RPCItems:SkillTranslateMonk(heroEntity, itemEntity, slot)
     end
     local runeCheck = string.find(propertyName, "rune_")
     if runeCheck then
-        runeName = "#DOTA_Tooltip_ability_monk_"..propertyName
+        runeName = "#DOTA_Tooltip_ability_seinaru_"..propertyName
         RPCItems:SetPropertyValues(itemEntity, propertyValue, runeName, "#7DFF12",  slot)
     end 
 end

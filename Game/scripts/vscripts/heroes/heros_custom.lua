@@ -80,7 +80,7 @@ function HerosCustom:GetInternalHeroNameMain(heroName)
 	elseif heroName == "npc_dota_hero_invoker" then
 		return "conjuror"
 	elseif heroName == "npc_dota_hero_juggernaut" then
-		return "monk"
+		return "seinaru"
 	elseif heroName == "npc_dota_hero_beastmaster" then
 		return "warlord"
 	elseif heroName == "npc_dota_hero_leshrac" then
@@ -138,7 +138,7 @@ function HerosCustom:ConvertRPCNameToStringHeroName(RPCName)
 		name = "npc_dota_hero_crystal_maiden"
 	elseif RPCName == "conjuror" then
 		name = "npc_dota_hero_invoker"
-	elseif RPCName == "monk" then
+	elseif RPCName == "seinaru" then
 		name = "npc_dota_hero_juggernaut"
 	elseif RPCName == "warlord" then
 		name = "npc_dota_hero_beastmaster"
@@ -297,7 +297,7 @@ function HerosCustom:GetHeroIndex(heroName)
 end
 
 function HerosCustom:GetHeroNameTable()
-	return {"neutral", "flamewaker", "voltex", "venomort", "axe", "astral", "epoch", "paladin", "sorceress", "conjuror", "monk", "warlord", "bahamut", "duskbringer", "auriun", "trapper", "spirit_warrior", "mountain_protector", "chernobog", "solunia", "hydroxis", "ekkan", "zonik", "arkimus", "djanghor", "slipfinn", "sephyr", "dinath"}
+	return {"neutral", "flamewaker", "voltex", "venomort", "axe", "astral", "epoch", "paladin", "sorceress", "conjuror", "seinaru", "warlord", "bahamut", "duskbringer", "auriun", "trapper", "spirit_warrior", "mountain_protector", "chernobog", "solunia", "hydroxis", "ekkan", "zonik", "arkimus", "djanghor", "slipfinn", "sephyr", "dinath"}
 end
 
 function HerosCustom:GetInternalNameTable()

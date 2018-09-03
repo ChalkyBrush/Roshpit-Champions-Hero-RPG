@@ -1,9 +1,11 @@
+require('heroes/juggernaut/seinaru_constants')
+
 function begin_kaze_gust(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target_points[1]
 	local range = event.range
-	if caster:HasModifier("modifier_monk_glyph_1_1") then
+	if caster:HasModifier("modifier_seinaru_glyph_1_1") then
 		range = range + 200
 	end	
 	local speed = range + 200
@@ -21,26 +23,26 @@ function begin_kaze_gust(event)
 	local particle = "particles/roshpit/seinaru/kaze_gust_wave.vpcf"
 	local start_radius = 340
 	local end_radius = 340
-	ability.q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "monk")
-	local q_2_level = Runes:GetTotalRuneLevel(caster, 2, "q_2", "monk")
+	ability.q_1_level = caster:GetRuneValue("q", 1)
+	local q_2_level = caster:GetRuneValue("q", 2)
 	ability.q_2_level = q_2_level
 	if q_2_level > 0 then
-		local b_a_duration = Filters:GetAdjustedBuffDuration(caster, 10, false)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_b_a_speed", {duration = b_a_duration})
-		caster:SetModifierStackCount("modifier_seinaru_b_a_speed", caster, q_2_level)
+		local b_a_duration = Filters:GetAdjustedBuffDuration(caster, SEINARU_Q2_DUR_BASE, false)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_q_2_speed", {duration = b_a_duration})
+		caster:SetModifierStackCount("modifier_seinaru_q_2_speed", caster, q_2_level)
 	end
-	ability.q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "monk")
+	ability.q_3_level = caster:GetRuneValue("q", 3)
 	ability.damage = event.damage
 	if ability.q_3_level > 0 then
-		local c_a_duration = 0.5 + 0.15*ability.q_3_level
+		local c_a_duration = SEINARU_Q3_DUR_BASE + SEINARU_Q3_DUR * ability.q_3_level
 		c_a_duration = Filters:GetAdjustedBuffDuration(caster, c_a_duration, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "seinaru_rune_q_3_evasion", {duration = c_a_duration})
 
-		ability.damage = ability.damage + caster:GetAgility()*0.1*ability.q_3_level
+		ability.damage = ability.damage + caster:GetAgility() * SEINARU_Q3_ADD_DMG_PER_AGI * ability.q_3_level
 	end
-	local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "monk")
+	local q_4_level = caster:GetRuneValue("q", 4)
 	if q_4_level > 0 then
-		ability.damage = ability.damage + caster:GetAverageTrueAttackDamage(caster)*Q4_DAMAGE_PERCENT/100*q_4_level
+		ability.damage = ability.damage + caster:GetAverageTrueAttackDamage(caster) * SEINARU_Q4_ADD_DMG_PER_ATT * q_4_level
 	end
 
 
@@ -83,8 +85,8 @@ function gust_impact(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	local stun_duration = event.stun_duration
-	local blind_duration = event.blind_duration
+	local stun_duration = SEINARU_Q_STUN_DUR_BASE
+	local blind_duration = SEINARU_Q_BLIND_DUR_BASE
 	local damage = ability.damage
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_kaze_gust_flail", {duration = stun_duration})
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_kaze_gust_blind", {duration = blind_duration})
@@ -103,13 +105,13 @@ function gust_impact(event)
 	  ParticleManager:DestroyParticle( pfx, false )
 	end)
 	if ability.q_1_level > 0 then
-		local a_a_duration = Filters:GetAdjustedBuffDuration(caster, 10, false)
+		local a_a_duration = Filters:GetAdjustedBuffDuration(caster, SEINARU_Q1_DUR_BASE, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_rune_q_1", {duration = a_a_duration})
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_rune_q_1_invisible", {duration = a_a_duration})
 
 		local newStacks = caster:GetModifierStackCount("modifier_seinaru_rune_q_1", caster) + 1
 		caster:SetModifierStackCount("modifier_seinaru_rune_q_1", caster, newStacks)
-		caster:SetModifierStackCount("modifier_seinaru_rune_q_1_invisible", caster, newStacks*ability.q_1_level)
+		caster:SetModifierStackCount("modifier_seinaru_rune_q_1_invisible", caster, newStacks * ability.q_1_level)
 	end
 	if ability.q_2_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_seinaru_rune_q_2_slow", {duration = blind_duration})
