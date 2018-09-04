@@ -292,11 +292,11 @@ function getSkillSlot(heroName, slot){
 function getFlamewakerSkill(slot){
 	var skillName = ""
 	if (slot == 1){
-		skillName = "DOTA_Tooltip_Ability_fire_blast"
+        skillName = "DOTA_Tooltip_Ability_seismic_flare"
 	}else if(slot == 2){
 		skillName = "DOTA_Tooltip_Ability_second_heartbeat"
 	}else if(slot == 3){
-		skillName = "DOTA_Tooltip_Ability_flame_ray"
+        skillName = "DOTA_Tooltip_Ability_heat_wave"
 	}else if(slot == 4){
 		skillName = "DOTA_Tooltip_Ability_cataclysm"
 	}
@@ -306,7 +306,7 @@ function getFlamewakerSkill(slot){
 function getVoltexSkill(slot){
 	var skillName = ""
 	if (slot == 1){
-		skillName = "DOTA_Tooltip_Ability_lightning_attack"
+        skillName = "DOTA_Tooltip_Ability_overcharge"
 	}else if(slot == 2){
 		skillName = "DOTA_Tooltip_Ability_ability_zap"
 	}else if(slot == 3){
@@ -324,7 +324,7 @@ function getVenoSkill(slot){
 	}else if(slot == 2){
 		skillName = "DOTA_Tooltip_Ability_nether_blaster"
 	}else if(slot == 3){
-		skillName = "DOTA_Tooltip_Ability_phase_walk"
+        skillName = "DOTA_Tooltip_Ability_venomort_ghost_warp"
 	}else if(slot == 4){
 		skillName = "DOTA_Tooltip_Ability_snake_trap"
 	}
@@ -334,7 +334,7 @@ function getVenoSkill(slot){
 function getAxeSkill(slot){
 	var skillName = ""
 	if (slot == 1){
-		skillName = "DOTA_Tooltip_Ability_stun_attack"
+        skillName = "DOTA_Tooltip_Ability_red_general_skull_basher"
 	}else if(slot == 2){
 		skillName = "DOTA_Tooltip_Ability_backshock"
 	}else if(slot == 3){

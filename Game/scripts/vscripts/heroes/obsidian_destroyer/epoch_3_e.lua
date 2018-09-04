@@ -302,7 +302,7 @@ function epoch_e_2_projectile(caster, ability, position, fv)
     local info = 
     {
 		Ability = ability,
-		EffectName = "particles/units/heroes/hero_alchemist/epoch_rune_r_1_concoction_projectile.vpcf",
+		EffectName = "particles/units/heroes/hero_alchemist/epoch_rune_a_d_concoction_projectile.vpcf",
 		vSpawnOrigin = position+Vector(0,0,100),
 		fDistance = 1000,
 		fStartRadius = start_radius,
