@@ -9,6 +9,8 @@
 
 		<Panel class="invisible">
 <Image id="seq_bg" class="SeqBg" src="file://{images}/custom_game/loading_screen/tutorial_load.jpg"/>
+<Image id="seq_bg" class="SeqBg" src="file://{images}/custom_game/ui/tutorial/tutorial_header.jpg"/>
+
 <!-- <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/winterblight_glacier_stone.png"/>
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc_ruby_ring.png"/>
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/wraps_of_the_grand_arcanist.png"/>

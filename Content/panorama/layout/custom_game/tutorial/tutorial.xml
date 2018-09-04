@@ -8,7 +8,13 @@
 	<snippets>
 		<snippet name="tutorial_main">
 			<Panel class="tutorial_main" hittest="false">
-
+				<Panel id="tutorial_bg"/>
+				<Image id="tutorial_header">
+					<Panel id="tutorial_header_container">
+						<Panel id="tutorial_header_container_bg"></Panel>
+						<Label id="tutorial_header_title" text="tutorial_menu_title"/>
+					</Panel>
+				</Image>
 			</Panel>
 		</snippet>
 	</snippets>

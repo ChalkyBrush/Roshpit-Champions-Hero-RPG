@@ -47585,6 +47585,16 @@
 					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/tutorial/tutorial_ai.lua"
+						"Function"		"tutorial_master_think"
+						"target"        "TARGET"
+					}
+				}
 			}
 			"modifier_tutorial_assistant"
 			{

@@ -154,7 +154,7 @@ function Tutorial:PreIntro(hero)
 			EmitSoundOn("Tutorial.Assistant.Voice1", assistant)
 		end)
 		Tutorial:ApplyTutorialModifier("modifier_tutorial_assistant", assistant, 0)
-		hero.tutorial.assistant = assistant
+		hero.tutorial_assistant = assistant
 	end
 end
 
@@ -183,4 +183,20 @@ function Tutorial:GetTutorialFromServer(hero)
 			end )
 		end	
 	end)
+end
+
+function Tutorial:OpenTutorial(hero)
+	local sound = 0
+	if not hero.tutorial.firstopened then
+		hero.tutorial.firstopened = true
+		sound = 1
+		if hero.tutorial_assistant then
+			if hero.tutorial_assistant.state < 6 then
+				hero.tutorial_assistant.state = 6
+			end
+		end
+	end
+	local playerID = hero:GetPlayerOwnerID()
+	local player = PlayerResource:GetPlayer(playerID)
+	CustomGameEventManager:Send_ServerToPlayer(player, "open_tutorial", {hero=hero:GetEntityIndex(), tutorial=hero.tutorial, sound=sound} )
 end
