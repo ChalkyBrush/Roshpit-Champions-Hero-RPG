@@ -295,12 +295,12 @@ end
 function flamewaker_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	ability.w_1_level = Runes:GetTotalRuneLevel(caster, 1, "a_b", "flamewaker")
+	ability.w_1_level = caster:GetRuneValue("w", 1)
 	if ability.w_1_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_flamewaker_rune_a_b", {})
-		caster:SetModifierStackCount( "modifier_flamewaker_rune_a_b", ability, ability.w_1_level )
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_flamewaker_rune_w_1", {})
+		caster:SetModifierStackCount( "modifier_flamewaker_rune_w_1", ability, ability.w_1_level )
 	else
-		caster:RemoveModifierByName("modifier_flamewaker_rune_a_b")
+		caster:RemoveModifierByName("modifier_flamewaker_rune_w_1")
 	end
 end
 
