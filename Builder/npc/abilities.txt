@@ -30046,7 +30046,7 @@
 					"AttachEffect"
 					{
 						"Target"	"TARGET"
-						"EffectName"	"particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
+						"EffectName"	"particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
 						"EffectAttachType"	"start_at_customorigin"
 						"ControlPointEntities"
 						{
@@ -68419,7 +68419,7 @@
 					"AttachEffect"
 					{
 						"Target"	"TARGET"
-						"EffectName"	"particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
+						"EffectName"	"particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
 						"EffectAttachType"	"start_at_customorigin"
 						"ControlPointEntities"
 						{
@@ -68936,7 +68936,7 @@
 					"AttachEffect"
 					{
 						"Target"	"TARGET"
-						"EffectName"	"particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
+						"EffectName"	"particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
 						"EffectAttachType"	"start_at_customorigin"
 						"ControlPointEntities"
 						{
@@ -69623,7 +69623,7 @@
 					"AttachEffect"
 					{
 						"Target"	"TARGET"
-						"EffectName"	"particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
+						"EffectName"	"particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
 						"EffectAttachType"	"start_at_customorigin"
 						"ControlPointEntities"
 						{
@@ -70006,7 +70006,7 @@
 					"AttachEffect"
 					{
 						"Target"	"TARGET"
-						"EffectName"	"particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
+						"EffectName"	"particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
 						"EffectAttachType"	"start_at_customorigin"
 						"ControlPointEntities"
 						{
@@ -70406,7 +70406,7 @@
 					"AttachEffect"
 					{
 						"Target"	"TARGET"
-						"EffectName"	"particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
+						"EffectName"	"particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
 						"EffectAttachType"	"start_at_customorigin"
 						"ControlPointEntities"
 						{
