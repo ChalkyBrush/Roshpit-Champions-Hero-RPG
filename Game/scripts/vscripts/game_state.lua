@@ -1014,7 +1014,7 @@ function GameState:OrderFilter(orderTable)
 						DeepPrintTable(orderTable)
 						unit.corpseExplosionIndex = 0
 						if orderTable.entindex_target > 0 then
-							local a_c_level = Runes:GetTotalRuneLevel(unit, 1, "a_c", "ekkan")
+							local a_c_level = unit:GetRuneValue("e", 1)
 							if a_c_level < 1 then
 								unit:Stop()
 								Notifications:Top(unit:GetPlayerOwnerID(), {text="notification_river_no_explosion", duration=5, style={color="#FF1111"}, continue=true})
@@ -1048,14 +1048,14 @@ function GameState:OrderFilter(orderTable)
 								end
 							else
 								if ally:GetUnitName() == "ekkan_corpse" then
-									local c_d_level = Runes:GetTotalRuneLevel(unit, 3, "c_d", "ekkan")
+									local c_d_level = unit:GetRuneValue("r", 3)
 									if c_d_level < 1 then
 										unit:Stop()
 										Notifications:Top(unit:GetPlayerOwnerID(), {text="notification_supercharge_no_corpse_charge", duration=5, style={color="#FF1111"}, continue=true})
 										return false
 									end
 								else
-									local b_d_level = Runes:GetTotalRuneLevel(unit, 2, "b_d", "ekkan")
+									local b_d_level = unit:GetRuneValue("r", 2)
 									if b_d_level < 1 then
 										unit:Stop()
 										Notifications:Top(unit:GetPlayerOwnerID(), {text="notification_supercharge_no_swarm", duration=5, style={color="#FF1111"}, continue=true})
