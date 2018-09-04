@@ -11,6 +11,7 @@
         "precache"
         {
             "soundfile" "soundevents/game_sounds_tutorial.vsndevts"
+            "particle"  "particles/roshpit/tutorial/tutorial_sprout.vpcf"
         }
         "PathfindingSearchDepthScale" "0.2"
         "ArmorPhysical" "0"
@@ -90,4 +91,72 @@
             }
 
         }
+    }
+
+    "tutorial_assistant"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/items/furion/treant/eternalseasons_treant/eternalseasons_treant.vmdl"
+        "ModelScale"    "1.00"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+
+
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "40"
+        "AttackDamageMax"   "55.0"
+        "AttackRate"    "0.9"
+        "AttackAnimationPoint"  "1"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "90"
+        "BountyGoldMin" "13"
+        "BountyGoldMax" "15"
+        "BountyXP" "20"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "GoldCost"  "205"
+        "LumberCost"    "30"
+        "FoodCost"  "3"
+        "BuildTime" "26"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "310"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "900"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "PathfindingSearchDepthScale" "0.2"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+
+
     }

@@ -90,3 +90,97 @@ function Tutorial:SpawnTutorialMaster(position)
 	master:SetForwardVector(Vector(1,0))
 	Tutorial.Master = master
 end
+
+function Tutorial:ApplyTutorialModifier(modifierName, unit, duration)
+	local ability = Tutorial.Master:FindAbilityByName("tutorial_master_ability")
+	if duration > 0 then
+		ability:ApplyDataDrivenModifier(Tutorial.Master, unit, modifierName, {duration = duration})
+	else
+		ability:ApplyDataDrivenModifier(Tutorial.Master, unit, modifierName, {})
+	end
+end
+
+function Tutorial:GetTutorialDataArray(hero, code)
+	if code == "progress" then
+		return {hero.tutorial.section1.progress, hero.tutorial.section2.progress, hero.tutorial.section3.progress, hero.tutorial.section4.progress, hero.tutorial.section5.progress, hero.tutorial.section6.progress, hero.tutorial.section7.progress, hero.tutorial.section8.progress}
+	end
+end
+
+function Tutorial:LoadTutorialDataForHero(hero, resultTable)
+	hero.tutorial = {}
+	hero.tutorial.section1 = {}
+	hero.tutorial.section1.progress = resultTable.progress1
+	hero.tutorial.section1.state = 0
+	hero.tutorial.section2 = {}
+	hero.tutorial.section2.progress = resultTable.progress2
+	hero.tutorial.section2.state = 0
+	hero.tutorial.section3 = {}
+	hero.tutorial.section3.progress = resultTable.progress3
+	hero.tutorial.section3.state = 0
+	hero.tutorial.section4 = {}
+	hero.tutorial.section4.progress = resultTable.progress4
+	hero.tutorial.section4.state = 0
+	hero.tutorial.section5 = {}
+	hero.tutorial.section5.progress = resultTable.progress5
+	hero.tutorial.section5.state = 0
+	hero.tutorial.section6 = {}
+	hero.tutorial.section6.progress = resultTable.progress6
+	hero.tutorial.section6.state = 0
+	hero.tutorial.section7 = {}
+	hero.tutorial.section7.progress = resultTable.progress7
+	hero.tutorial.section7.state = 0
+	hero.tutorial.section8 = {}
+	hero.tutorial.section8.progress = resultTable.progress8
+	hero.tutorial.section8.state = 0
+
+	Tutorial:PreIntro(hero)
+end
+
+function Tutorial:PreIntro(hero)
+	local progressTable = Tutorial:GetTutorialDataArray(hero, "progress")
+	local totalProgress = 0
+	for i = 1, #progressTable, 1 do
+		totalProgress = totalProgress + progressTable[i]
+	end
+	if totalProgress == 0 then
+		local assistant = CreateUnitByName("tutorial_assistant", Vector(-1984, -2304)+RandomVector(RandomInt(0, 200)), false, nil, nil, DOTA_TEAM_GOODGUYS)
+		FindClearSpaceForUnit(assistant, assistant:GetAbsOrigin(), false)
+		CustomAbilities:QuickParticleAtPoint("particles/roshpit/tutorial/tutorial_sprout.vpcf", assistant:GetAbsOrigin(), 3)
+		EmitSoundOn("Tutorial.Assistant.Spawn", assistant)
+		assistant.state = 0
+		assistant.hero = hero
+		StartAnimation(assistant, {duration=2, activity=ACT_DOTA_SPAWN, rate=1.0})
+		Timers:CreateTimer(1, function()
+			EmitSoundOn("Tutorial.Assistant.Voice1", assistant)
+		end)
+		Tutorial:ApplyTutorialModifier("modifier_tutorial_assistant", assistant, 0)
+		hero.tutorial.assistant = assistant
+	end
+end
+
+function Tutorial:GetTutorialFromServer(hero)
+	Timers:CreateTimer(1, function()
+		if GameRules:State_Get() < DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+			return 1.5
+		else
+			local playerID = hero:GetPlayerOwnerID()
+			local steamID = PlayerResource:GetSteamAccountID(playerID)
+			local player = PlayerResource:GetPlayer(playerID)
+			local url = ROSHPIT_URL.."/champions/get_tutorial_status?"
+			url = url.."steam_id="..steamID
+			print(url)
+			CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+				if result.StatusCode == 200 then
+					local resultTable = {}
+					print( "GET response:\n" )
+					for k,v in pairs( result ) do
+						print( string.format( "%s : %s\n", k, v ) )
+					end
+					print( "Done." )
+					local resultTable = JSON:decode(result.Body)
+					Tutorial:LoadTutorialDataForHero(hero, resultTable)
+				end
+			end )
+		end	
+	end)
+end

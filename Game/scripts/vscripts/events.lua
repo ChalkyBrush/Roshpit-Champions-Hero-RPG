@@ -1155,6 +1155,9 @@ function Events:SetupHeroes(heroEntity)
   if GameState:IsRedfallRidge() then
     Redfall:InitializeHero(heroEntity)
   end
+  if GameState:IsTutorial() then
+    Tutorial:GetTutorialFromServer(heroEntity)
+  end
   if Events.GameMaster then
     Events:GetGameMasterAbility():ApplyDataDrivenModifier(Events.GameMaster, heroEntity, "modifier_hero_thinker", {})
   else

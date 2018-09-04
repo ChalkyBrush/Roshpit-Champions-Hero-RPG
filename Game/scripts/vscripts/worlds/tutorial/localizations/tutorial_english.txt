@@ -1,0 +1,6 @@
+	"tutorial_assistant"												"Cherebi"
+	"tutorial_master"													"Loremaster Challen"
+
+	"tutorial_assistant_1"												"You appear to be new brand new here! Follow me so we can show you how to play this game."
+	"tutorial_assistant_2"												"Loremaster Challen is waiting by the waterfall for you. Let's go!"
+	"tutorial_assistant_3"												"He's just over the bridge! Come On!"
