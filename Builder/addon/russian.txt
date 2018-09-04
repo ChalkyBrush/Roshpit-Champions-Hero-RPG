@@ -3972,12 +3972,12 @@
     	"DOTA_Tooltip_ability_modifier_emberstone_wave"					"Emberstone Wave"
     	"DOTA_Tooltip_ability_modifier_emberstone_wave_Description"		"Следующее прочтение (Q) Shockwave нанесёт увеличенный урон."	
 
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_4"				"[R3] Burning Ridge"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_Description"	"Область действия умения (R) Aeon Fracture наполняется обжигающим огнём, ежесекундно наносящим урон."
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_property_one"	"Урон в секунду"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_suffix"		""
-      	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_property_two"	"Доп. урон"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_suffix_two"	"x Силы"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_3"				"[R3] Burning Ridge"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_3_Description"	"Область действия умения (R) Aeon Fracture наполняется обжигающим огнём, ежесекундно наносящим урон."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_3_property_one"	"Урон в секунду"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_3_suffix"		""
+      	"DOTA_Tooltip_ability_mountain_protector_rune_r_3_property_two"	"Доп. урон"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_3_suffix_two"	"x Силы"
 
     	"DOTA_Tooltip_ability_mountain_protector_rune_q_4"				"[Q4] Mountain's Reach"
     	"DOTA_Tooltip_ability_mountain_protector_rune_q_4_Description"	"Увеличивает радиус способности (Q) Shockwave."
