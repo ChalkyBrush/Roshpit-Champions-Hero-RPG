@@ -504,7 +504,7 @@ CustomAttributes.HEALTH_PER_STR = 20
 CustomAttributes.HEALTH_REGEN_PER_STR = 0.1
 
 CustomAttributes.ATTACKSPEED_PER_AGI = 0.04
-CustomAttributes.ARMOR_PER_AGI = 0.1
+CustomAttributes.ARMOR_PER_AGI = 0.14
 
 CustomAttributes.MANA_PER_INT = 5
 CustomAttributes.MANA_REGEN_PER_INT = 0.1
