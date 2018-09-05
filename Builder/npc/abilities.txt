@@ -30119,7 +30119,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/axe_d_d"
+		"AbilityTextureName"	"rpc/axe_r_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -70665,7 +70665,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"rpc/bahamut_d_d"
+		"AbilityTextureName"	"rpc/bahamut_r_4"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -75308,7 +75308,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"conjuror/invoker_arcana_a_d"
+		"AbilityTextureName"	"conjuror/invoker_arcana_r_1"
 		"MaxLevel"	"3"
 
 		"Modifiers"
@@ -75345,7 +75345,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"conjuror/invoker_arcana_b_d"
+		"AbilityTextureName"			"conjuror/invoker_arcana_r_2"
 		"RequiredLevel"          		"0"
 		"LevelsBetweenUpgrades"  		"0"
 		"MaxLevel"				 		"3"
@@ -75390,7 +75390,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"conjuror/invoker_arcana_d_d"
+		"AbilityTextureName"			"conjuror/invoker_arcana_r_4"
 		"RequiredLevel"          		"0"
 		"LevelsBetweenUpgrades"  		"0"
 		"MaxLevel"				 		"3"
@@ -77454,7 +77454,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"hydroxis/hydroxis_a_a"
+		"AbilityTextureName"	"hydroxis/hydroxis_q_1"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -77536,7 +77536,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"hydroxis/hydroxis_b_a"
+		"AbilityTextureName"	"hydroxis/hydroxis_q_2"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -84874,7 +84874,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"hydroxis/hydroxis_c_c"
+		"AbilityTextureName"	"hydroxis/hydroxis_e_3"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -89801,7 +89801,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"rpc/seinaru_c_c"
+		"AbilityTextureName"			"rpc/seinaru_e_3"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
