@@ -281,8 +281,8 @@
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_shadowshaman.vsndevts"
 			"particle_folder"   "particles/units/heroes/hero_pugna"
 			"particle"			"particles/econ/courier/courier_faceless_rex/venomort_toxic_veil.vpcf"
-			"particle"			"particles/units/heroes/venomort/glyph_3_1_venomort_rune_w_2_wave.vpcf"
-			"particle"			"particles/units/heroes/hero_vengeful/venomort_rune_w_2_wave.vpcf"
+			"particle"			"particles/units/heroes/venomort/glyph_3_1_venomort_rune_b_b_wave.vpcf"
+			"particle"			"particles/units/heroes/hero_vengeful/venomort_rune_b_b_wave.vpcf"
 			"particle"			"particles/units/heroes/hero_skeletonking/wraith_king_ghosts_ambient.vpcf"
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_viper.vsndevts"
 		}
