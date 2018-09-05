@@ -33,7 +33,7 @@ function cast_necrofusion(event)
         local info =
         {
             Ability = ability,
-            EffectName = "particles/units/heroes/hero_vengeful/venomort_rune_w_2_wave.vpcf",
+            EffectName = "particles/units/heroes/hero_vengeful/venomort_rune_b_b_wave.vpcf",
             vSpawnOrigin = spellOrigin,
             fDistance = range,
             fStartRadius = 120,

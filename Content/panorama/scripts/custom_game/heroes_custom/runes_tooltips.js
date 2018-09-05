@@ -84,7 +84,7 @@ function initializeTooltip(func){
 	var amount_per_level = Abilities.GetLevelSpecialValueFor( rune, "property_one", 1)
 	amount_per_level = Math.round(amount_per_level * 100) / 100
 	var property_one_base = Abilities.GetLevelSpecialValueFor( rune, "property_one_base", 1)
-	property_one_base = Math.round(property_one_base * 100, 1) / 100
+	property_one_base = Math.round(property_one_base * 100) / 100
 	var property_one_max = Abilities.GetLevelSpecialValueFor( rune, "property_one_max", 1)
 
 	var propertyValue = amount_per_level*total_level+property_one_base
@@ -93,13 +93,14 @@ function initializeTooltip(func){
 			propertyValue = property_one_max
 		}
 	}
-	propertyValue = Math.round(propertyValue * 100, 1) / 100
+	propertyValue = Math.round(propertyValue * 100) / 100
 	var propertyValueNext = amount_per_level*(total_level+1)+property_one_base
 	if (property_one_max > 0){
 		if ((amount_per_level*(total_level+1)+property_one_base) > property_one_max){
 			propertyValueNext = property_one_max
 		}
-	}
+    }
+    propertyValueNext = Math.round(propertyValueNext * 100) / 100
 	$('#current_level_text_1').text ="<font color='#70ccea'>" + $.Localize( "#DOTA_Tooltip_Ability_"+abilityNameInternal+"_property_one") + ":</font> " + propertyValue + $.Localize( "#DOTA_Tooltip_Ability_"+abilityNameInternal+"_suffix")
 	$('#next_level_text_1').text ="<font color='#70ccea'>" + $.Localize( "#DOTA_Tooltip_Ability_"+abilityNameInternal+"_property_one") + ":</font> " + propertyValueNext + $.Localize( "#DOTA_Tooltip_Ability_"+abilityNameInternal+"_suffix")
 
@@ -107,7 +108,7 @@ function initializeTooltip(func){
 	if (!(amount_per_level2 == 0)){
 		amount_per_level2 = Math.round(amount_per_level2 * 100) / 100
 		var property_two_base = Abilities.GetLevelSpecialValueFor( rune, "property_two_base", 1)
-		property_two_base = Math.round(property_two_base * 100, 1) / 100
+		property_two_base = Math.round(property_two_base * 100) / 100
 		var property_two_max = Abilities.GetLevelSpecialValueFor( rune, "property_two_max", 1)
 
 		var propertyValue2 = amount_per_level2*total_level+property_two_base
@@ -116,13 +117,14 @@ function initializeTooltip(func){
 				propertyValue2 = property_two_max
 			}
 		}
-		propertyValue2 = Math.round(propertyValue2 * 100, 1) / 100
+		propertyValue2 = Math.round(propertyValue2 * 100) / 100
 		var propertyValueNext2 = amount_per_level2*(total_level+1)+property_two_base
 		if (property_two_max > 0){
 			if ((amount_per_level2*(total_level+1)+property_two_base) > property_two_max){
 				propertyValueNext2 = property_two_max
 			}
-		}
+        }
+        propertyValueNext2 = Math.round(propertyValueNext2 * 100) / 100
 		$('#current_level_text_2').text ="<font color='#70ccea'>" + $.Localize( "#DOTA_Tooltip_Ability_"+abilityNameInternal+"_property_two") + ":</font> " + propertyValue2 + $.Localize( "#DOTA_Tooltip_Ability_"+abilityNameInternal+"_suffix_two")
 		$('#next_level_text_2').text ="<font color='#70ccea'>" + $.Localize( "#DOTA_Tooltip_Ability_"+abilityNameInternal+"_property_two") + ":</font> " + propertyValueNext2 + $.Localize( "#DOTA_Tooltip_Ability_"+abilityNameInternal+"_suffix_two")
 		$('#current_level_text_2').RemoveClass('invisible')

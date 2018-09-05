@@ -2,7 +2,7 @@ HEALTH_PER_STR = 20
 HEALTH_REGEN_PER_STR = 0.1
 
 ATTACKSPEED_PER_AGI = 0.04
-ARMOR_PER_AGI = 0.1
+ARMOR_PER_AGI = 0.14
 
 MANA_PER_INT = 5
 MANA_REGEN_PER_INT = 0.1
@@ -142,7 +142,7 @@ function initializeTooltip(func){
 
 	$('#attack_defense_title_def').text = $.Localize("#ui_defense").toUpperCase()
 	$('#def_1_left').text = $.Localize("#item_armor")
-	var physArmor = parseInt(Entities.GetPhysicalArmorValue(queryUnit))
+    var physArmor = parseInt(Entities.GetPhysicalArmorValue(queryUnit)) - parseInt(Entities.GetBonusPhysicalArmor(queryUnit))
 	$('#def_1_right').text = numberWithCommas(physArmor)
 	var bonusArmor = parseInt(Entities.GetBonusPhysicalArmor(queryUnit))
 	$('#def_2_left').text = $.Localize("#ui_bonus_armor")
