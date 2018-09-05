@@ -196,7 +196,33 @@ function Tutorial:OpenTutorial(hero)
 			end
 		end
 	end
+	local categories = Tutorial:GetFixedTutorialData()
 	local playerID = hero:GetPlayerOwnerID()
 	local player = PlayerResource:GetPlayer(playerID)
-	CustomGameEventManager:Send_ServerToPlayer(player, "open_tutorial", {hero=hero:GetEntityIndex(), tutorial=hero.tutorial, sound=sound} )
+	CustomGameEventManager:Send_ServerToPlayer(player, "open_tutorial", {hero=hero:GetEntityIndex(), tutorial=hero.tutorial, sound=sound, categories=categories} )
+end
+
+function Tutorial:GetFixedTutorialData()
+	local categories = {}
+	--
+	local quest = {}
+	quest.index = 1
+	quest.header = "quest_1_interface"
+	quest.description = "quest_1_interface_description"
+	quest.challenges = {}
+	local challenge = {}
+	table.insert(quest.challenges, challenge)
+	table.insert(categories, quest)
+	--
+	--
+	local quest = {}
+	quest.index = 2
+	quest.header = "quest_2_interface"
+	quest.description = "quest_2_interface_description"
+	quest.challenges = {}
+	local challenge = {}
+	table.insert(quest.challenges, challenge)
+	table.insert(categories, quest)
+	--
+	return categories
 end

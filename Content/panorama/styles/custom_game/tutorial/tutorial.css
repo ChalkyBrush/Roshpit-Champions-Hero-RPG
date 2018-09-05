@@ -27,6 +27,12 @@
 	opacity:0.9;
 }
 
+.tutorial_mega_container{
+	height:100%;
+	width:100%;
+	flow-children:down;
+}
+
 #tutorial_header{
 	width:100%;
 	height:120px;
@@ -61,4 +67,43 @@
 	width:100%;
 	padding-left:10px;
 	padding-right:10px;
+}
+
+#tutorial_categories_container{
+	height:100%;
+	width:100%;
+	flow-children:down;
+}
+
+.tutorial_category{
+	height:150px;
+	margin-top:10px;
+	margin-left:15px;
+	margin-right:15px;
+	border-radius:4px;
+	background-color: #111111;
+	padding:15px;
+}
+
+.tutorial_category_container{
+	height:100%;
+	flow-children:down;
+}
+
+#tutorial_category_header_label{
+	horizontal-align:center;
+	vertical-align: center;
+	font-size:28px;
+	color:#FFFFFF;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+}
+
+#tutorial_category_description_label{
+	margin-top:10px;
+	vertical-align: center;
+	font-size:18px;
+	height:120px;
+	color:#FFFFFF;
+	white-space: normal;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;	
 }

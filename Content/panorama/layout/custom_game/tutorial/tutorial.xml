@@ -8,13 +8,31 @@
 	<snippets>
 		<snippet name="tutorial_main">
 			<Panel class="tutorial_main" hittest="false">
-				<Panel id="tutorial_bg"/>
-				<Image id="tutorial_header">
-					<Panel id="tutorial_header_container">
-						<Panel id="tutorial_header_container_bg"></Panel>
-						<Label id="tutorial_header_title" text="tutorial_menu_title"/>
+				<Panel id="tutorial_bg" hittest="false"/>
+				
+				<Panel class="tutorial_mega_container">	
+					<Image id="tutorial_header" hittest="false">
+						<Panel id="tutorial_header_container" hittest="false">
+							<Panel id="tutorial_header_container_bg" hittest="false"></Panel>
+							<Label id="tutorial_header_title" text="tutorial_menu_title" hittest="false"/>
+						</Panel>
+					</Image>
+					<Panel id="tutorial_categories_container">
 					</Panel>
-				</Image>
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="tutorial_category">
+			<Panel class="tutorial_category" hittest="false">
+				<Panel class="tutorial_category_bg" hittest="false"/>
+				<Panel class="tutorial_category_container">
+					<Panel class="tutorial_category_header">
+						<Label id="tutorial_category_header_label"/>
+					</Panel>
+					<Panel class="tutorial_category_description">
+						<Label id="tutorial_category_description_label"/>
+					</Panel>
+				</Panel>
 			</Panel>
 		</snippet>
 	</snippets>

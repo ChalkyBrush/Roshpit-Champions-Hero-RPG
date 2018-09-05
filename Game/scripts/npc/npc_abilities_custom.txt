@@ -13286,7 +13286,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/epoch_d_a"
+		"AbilityTextureName"	"rpc/epoch_q_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -13309,7 +13309,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/epoch_d_b"
+		"AbilityTextureName"	"rpc/epoch_w_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -13327,7 +13327,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/epoch_d_c"
+		"AbilityTextureName"	"rpc/epoch_e_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -77619,7 +77619,7 @@
 					"AttachEffect"
 					{
 						"Target"	"TARGET"
-						"EffectName"	"particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
+						"EffectName"	"particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
 						"EffectAttachType"	"start_at_customorigin"
 						"ControlPointEntities"
 						{
@@ -78931,7 +78931,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"bahamut/bahamut_a_d_arcana1"
+		"AbilityTextureName"	"bahamut/bahamut_r_1_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -78951,7 +78951,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"bahamut/bahamut_b_d_arcana1"
+		"AbilityTextureName"	"bahamut/bahamut_r_2_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -78971,7 +78971,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"bahamut/bahamut_c_d_arcana1"
+		"AbilityTextureName"	"bahamut/bahamut_r_3_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -78991,7 +78991,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"bahamut/bahamut_d_d_arcana1"
+		"AbilityTextureName"	"bahamut/bahamut_r_4_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -118099,7 +118099,7 @@
 					"AttachEffect"
 					{
 						"Target"	"TARGET"
-						"EffectName"	"particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
+						"EffectName"	"particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
 						"EffectAttachType"	"start_at_customorigin"
 						"ControlPointEntities"
 						{
@@ -118616,7 +118616,7 @@
 					"AttachEffect"
 					{
 						"Target"	"TARGET"
-						"EffectName"	"particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
+						"EffectName"	"particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
 						"EffectAttachType"	"start_at_customorigin"
 						"ControlPointEntities"
 						{
@@ -119303,7 +119303,7 @@
 					"AttachEffect"
 					{
 						"Target"	"TARGET"
-						"EffectName"	"particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
+						"EffectName"	"particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
 						"EffectAttachType"	"start_at_customorigin"
 						"ControlPointEntities"
 						{
@@ -119686,7 +119686,7 @@
 					"AttachEffect"
 					{
 						"Target"	"TARGET"
-						"EffectName"	"particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
+						"EffectName"	"particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
 						"EffectAttachType"	"start_at_customorigin"
 						"ControlPointEntities"
 						{
@@ -120086,7 +120086,7 @@
 					"AttachEffect"
 					{
 						"Target"	"TARGET"
-						"EffectName"	"particles/units/heroes/hero_wisp/epoch_rune_q_2.vpcf"
+						"EffectName"	"particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf"
 						"EffectAttachType"	"start_at_customorigin"
 						"ControlPointEntities"
 						{
