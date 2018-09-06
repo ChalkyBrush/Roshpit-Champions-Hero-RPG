@@ -53,7 +53,7 @@ function sunstrider_start(event)
 						end)
 
 						if caster:HasAbility("gorudo") then
-							apply_a_d(caster, enemy, caster:FindAbilityByName("gorudo"), ability.r_1_level, 0) 
+							Seinaru_Apply_E4(caster, enemy, caster:FindAbilityByName("gorudo")) 
 						end
 					end)
 				end

@@ -153,7 +153,7 @@ function gorudo_attack_start(event)
 	local ability = event.ability
 	local a_d_level = attacker:GetRuneValue("r", 1)
 	if a_d_level > 0 then
-		apply_a_d(attacker, target, ability, a_d_level, attacker.e_4_level)
+		Seinaru_Apply_E4(attacker, target, ability)
 	end
 end
 
@@ -179,14 +179,16 @@ function gorudo_attack_land(event)
 end
 
 
-function apply_a_d(attacker, target, ability, r_1_level, e_4_level)
+function Seinaru_Apply_E4(attacker, target, ability)
 		local currentStacks = target:GetModifierStackCount("modifier_gorudo_rune_r_1", attacker)
 		local currentArmor = target:GetPhysicalArmorValue() + currentStacks
 		local ArmorRed = 0
-		if attacker:HasAbility("seinaru_blade_dash") then
-			ArmorRed = math.min(currentArmor, r_1_level * SEINARU_R1_ARMOR_RED)
-		else
+		local r_1_level = attacker:GetRuneValue("r", 1)
+		local e_4_level = attacker:GetRuneValue("e", 4)
+		if attacker:HasAbility("seinaru_odachi_leap") then
 			ArmorRed = math.min(currentArmor + SEINARU_E4_MAX_NEG_ARMOR * e_4_level, r_1_level * SEINARU_R1_ARMOR_RED)
+		else
+			ArmorRed = math.min(currentArmor, r_1_level * SEINARU_R1_ARMOR_RED)
 		end
 		if ArmorRed > 0 then
 			ability:ApplyDataDrivenModifier(attacker, target, "modifier_gorudo_rune_r_1", {duration = 8})
