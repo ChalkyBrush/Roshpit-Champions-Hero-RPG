@@ -375,7 +375,7 @@ function odachi_a_c_think(event)
 			end)
 			if ability.r_1_level > 0 then
 				if caster:HasAbility("gorudo") then
-					apply_a_d(caster, target, caster:FindAbilityByName("gorudo"), ability.r_1_level, ability.e_4_level) 
+					Seinaru_Apply_E4(caster, target, caster:FindAbilityByName("gorudo")) 
 				end
 			end	
 			caster:PerformAttack(target, true, true, true, true, false, false, false)
