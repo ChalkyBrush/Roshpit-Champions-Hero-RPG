@@ -5,7 +5,7 @@
 
 
 		"DOTA_Tooltip_ability_knights_disciple"								"Knight's Disciple"
-		"DOTA_Tooltip_ability_knights_disciple_Description"					"Призывает Адепта Небес в бой. Адепт имеет исцеляющую способность, которую он будет применять на цель с наименьшим уровнем здоровья. Пока действует эффект исцеления, цель получает на 20% меньше урона из всех источников."
+		"DOTA_Tooltip_ability_knights_disciple_Description"					"Призывает Knight's Disciple в бой. Disciple имеет исцеляющую способность, которую он будет применять на цель с наименьшим уровнем здоровья. Пока действует эффект исцеления, цель получает на 20% меньше урона из всех источников."
 		"DOTA_Tooltip_ability_knights_disciple_Lore"							""
     	"DOTA_Tooltip_ability_knights_disciple_summon_duration"						"ДЛИТЕЛЬНОСТЬ ПРИЗЫВА:"
     	"DOTA_Tooltip_ability_knights_disciple_heal_per_tick_percent"					"ЛЕЧЕНИЕ/ТИК:"
@@ -17,7 +17,7 @@
 		"DOTA_Tooltip_modifier_knights_disciple_heal_Description"		"Регенерация здоровья каждые 0.2 секунды. Входящий урон снижен на 20%%"
 
 		"DOTA_Tooltip_ability_heroic_fury"								"Heroic Fury"
-		"DOTA_Tooltip_ability_heroic_fury_Description"					"Стихия: <font color=\"#F6FFB5\">Свет</font> / <font color=\"#DDDDDD\">Обычный</font><br>Наделяет оружие Paladin силой, способной наносить урон соседним целям, замедляя и отбрасывая их, и восполняя здоровье героя за каждый успешный удар."
+		"DOTA_Tooltip_ability_heroic_fury_Description"					"Стихия: <font color=\"#F6FFB5\">Свет</font> / <font color=\"#DDDDDD\">Нормальный</font><br>Наделяет оружие Paladin силой, способной наносить урон соседним целям, замедляя их, и восполняя здоровье героя за каждый успешный удар."
 		"DOTA_Tooltip_ability_heroic_fury_Lore"							""
 		"DOTA_Tooltip_ability_heroic_fury_duration"						"ДЛИТЕЛЬНОСТЬ:"
 		"DOTA_Tooltip_ability_heroic_fury_damage"						"УРОН СОСЕДНИМ ЦЕЛЯМ:"
@@ -109,7 +109,7 @@
 		"DOTA_Tooltip_modifier_paladin_rune_e_2_description" 			"Возвращает физический урон атакующим."
 
     	"DOTA_Tooltip_ability_paladin_rune_r_2"							"[R2] Empowering Light"
-    	"DOTA_Tooltip_ability_paladin_rune_r_2_Description"				"Союзники, ставшие целью исцеляющей способности (R) Небесного Адепта наделяются баффом, повышающим урон и броню за каждый тик исцеления. Усиление длится 16 секунд."
+    	"DOTA_Tooltip_ability_paladin_rune_r_2_Description"				"Союзники, ставшие целью исцеляющей способности (R) Knight's Disciple наделяются баффом, повышающим урон и броню за каждый тик исцеления. Усиление длится 16 секунд."
     	"DOTA_Tooltip_ability_paladin_rune_r_2_property_one"			"Доп. урон за тик"
     	"DOTA_Tooltip_ability_paladin_rune_r_2_suffix"					"%"
     	"DOTA_Tooltip_ability_paladin_rune_r_2_property_two"			"Доп. броня за тик"
@@ -135,7 +135,7 @@
 		"DOTA_Tooltip_modifier_paladin_rune_q_3_cooling_down_description"		"Когда этот параметр закончит своё действие, герой получит новый щит от [Q3] Divine Aegis."
 
     	"DOTA_Tooltip_ability_paladin_rune_w_3"							"[W3] Holy Nova"
-    	"DOTA_Tooltip_ability_paladin_rune_w_3_Description"				"При получении урона есть 15% шанс высвободить вспышку света, наносящую урон врагам и исцеляющую союзников в небольшом радиусе в зависимости от показателя Интеллекта Паладина. Враги, задетые вспышкой не могут атаковать 1 секунду."
+    	"DOTA_Tooltip_ability_paladin_rune_w_3_Description"				"При получении урона есть 15% шанс высвободить вспышку света, наносящую урон врагам и исцеляющую союзников в небольшом радиусе в зависимости от показателя Интеллекта Паладина. Враги, задетые вспышкой, обезоружены на 1 секунду."
     	"DOTA_Tooltip_ability_paladin_rune_w_3_property_one"			"Урон"
     	"DOTA_Tooltip_ability_paladin_rune_w_3_suffix"					"x Интеллекта"
     	"DOTA_Tooltip_ability_paladin_rune_w_3_property_two"			"Лечение"
@@ -150,7 +150,7 @@
     	"DOTA_Tooltip_ability_paladin_rune_e_3_suffix"					"% от урона героя"
 
     	"DOTA_Tooltip_ability_paladin_rune_r_3"							"[R3] Holy Bolt"
-    	"DOTA_Tooltip_ability_paladin_rune_r_3_Description"				"(R) Небесный Адепт наделяется способностью ударить врага, нанося чистый урон на основании общего урона Паладина и оглушая цель на 0.1 секунды. Перезаряжается 5 секунд."
+    	"DOTA_Tooltip_ability_paladin_rune_r_3_Description"				"(R) Knight's Disciple наделяется способностью ударить врага, нанося чистый урон на основании общего урона Паладина и оглушая цель на 0.1 секунды. Перезаряжается 5 секунд."
     	"DOTA_Tooltip_ability_paladin_rune_r_3_property_one"			"Урон"
     	"DOTA_Tooltip_ability_paladin_rune_r_3_suffix"					"% от урона героя"
  
@@ -172,7 +172,7 @@
     	"DOTA_Tooltip_ability_paladin_rune_e_4_suffix"					"%"
 
     	"DOTA_Tooltip_modifier_paladin_d_c"								"Flutter"
-    	"DOTA_Tooltip_modifier_paladin_d_c_Description"					"Получает увеличенный урон от Паладинна"	
+    	"DOTA_Tooltip_modifier_paladin_d_c_Description"					"Получает увеличенный урон от Паладина"	
 
     	"DOTA_Tooltip_ability_paladin_rune_r_4"							"[R4] Purifying Spark"
     	"DOTA_Tooltip_ability_paladin_rune_r_4_Description"				"(R) Небесный Адепт получает способность выпускать снаряд, способный замораживать цель, дополнительно замораживая всех ближайших к цели противников."	
@@ -191,7 +191,7 @@
     	"DOTA_Tooltip_ability_paladin_penance_heal_percentage"				"ЛЕЧЕНИЕ, %:"
 
     	"DOTA_Tooltip_modifier_penance_projectiles"							"Penance Lances"
-    	"DOTA_Tooltip_modifier_penance_projectiles_Description"				"Одновременно может существовать не более 10 копийPaladin can have up to 10 lances active at a time"	
+    	"DOTA_Tooltip_modifier_penance_projectiles_Description"				"Одновременно может существовать не более 10 копий"	
 
   		"DOTA_Tooltip_ability_paladin_rune_w_1_arcana1"						"[W1] Conviction"
     	"DOTA_Tooltip_ability_paladin_rune_w_1_arcana1_Description"			"Враги, задетые копьём от (W) Penance будут незамедлительно атакованы героем (Могут сработать любые возможные модификаторы атаки независимо от расстояния до цели). Пока копьё света находится в полёте, Paladin получает бонус к урону."
@@ -261,19 +261,19 @@
 		"item_rpc_paladin_glyph_1_1_description" 				"Снижает время перезарядки [E1] Second Coming до @glyph_property1 сек."
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_2_1"		"(T2) Символ святого гнева"
-		"item_rpc_paladin_glyph_2_1_description" 				"Враги, задетые (Q) Heroic Fury также получат эффект [W1] Holy Fire текущего уровня"
+		"item_rpc_paladin_glyph_2_1_description" 				"(Q) Heroic Fury становится переключаемой способностью."
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_3_1"		"(T3) Символ всевышнего"
-		"item_rpc_paladin_glyph_3_1_description" 				"Герой распространяет ауру, увеличивающую основной урон на @glyph_property1%."
+		"item_rpc_paladin_glyph_3_1_description" 				"Knight's Disciple становятся полностью контролируемыми юнитами, скорость их передвижения увеличена до 800. Правый щелчок по способности переключит тип AI юнита."
 
 		"DOTA_Tooltip_modifier_paladin_glyph_3_1_effect"		"Command Aura"
 		"DOTA_Tooltip_modifier_paladin_glyph_3_1_effect_Description"	"Урон увеличен"
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_1"		"(T4) Символ неизбежного рока"
-		"item_rpc_paladin_glyph_4_1_description" 				"(W) Justice Overwhelming не отталкивает героя. Х5 больше зарядов" //в английском варианте нет подсказок, зарядов чего добавляется... жду комментария
+		"item_rpc_paladin_glyph_4_1_description" 				"(W) Justice Overwhelming не отталкивает героя, и дополнительно применяет x5 зарядов Holy Fire." 
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_1"		"(T5) Символ святого величия"
-		"item_rpc_paladin_glyph_5_1_description" 				"Увеличивает урон от (W) Justice Overwhelming и [W1] Holy Fire на 200%. 9 дополнительных зарядов при каждом успешном ударе." //в английском варианте нет подсказок, зарядов чего добавляется... жду комментария
+		"item_rpc_paladin_glyph_5_1_description" 				"Увеличивает урон от (W) Justice Overwhelming и Holy Fire на 200%. 9 дополнительных зарядов Holy Fire при каждом успешном ударе." 
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_1"		"(T6) Символ величия"
 		"item_rpc_paladin_glyph_6_1_description" 				"Герой растространяет ауру повышения скорости передвижения на @glyph_property1."
