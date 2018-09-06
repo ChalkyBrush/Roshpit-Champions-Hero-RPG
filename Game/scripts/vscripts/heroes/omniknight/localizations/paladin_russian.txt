@@ -99,8 +99,8 @@
     	"DOTA_Tooltip_modifier_paladin_rune_q_4_shield_Description"		"Поглощает урон."
 
     	"DOTA_Tooltip_ability_paladin_rune_e_2"							"[E2] Retribution"
-    	"DOTA_Tooltip_ability_paladin_rune_e_2_Description"				"Наносит часть базового урона всем атакующим героя существам. Тип урона - Физический."
-    	"DOTA_Tooltip_ability_paladin_rune_e_2_property_one"			"Возвращает урона (процент)"
+    	"DOTA_Tooltip_ability_paladin_rune_e_2_Description"				"Наносит часть от значения атаки Паладина всем атакующим героя существам. Тип урона - Физический."
+    	"DOTA_Tooltip_ability_paladin_rune_e_2_property_one"			"Возвращает урона (от атаки)"
     	"DOTA_Tooltip_ability_paladin_rune_e_2_suffix"					"%"
     	"DOTA_Tooltip_ability_paladin_rune_e_2_property_two"			"Врзвращает урона (ед.)"
     	"DOTA_Tooltip_ability_paladin_rune_e_2_suffix_two"				""
@@ -258,7 +258,7 @@
 		//Glyphs
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_1_1"		"(T1) Символ воскрешения"
-		"item_rpc_paladin_glyph_1_1_description" 				"Снижает время перезарядки [E1] Second Coming до @glyph_property1 сек."
+		"item_rpc_paladin_glyph_1_1_description" 				"Снижает время перезарядки E1 Second Coming до @glyph_property1 сек."
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_2_1"		"(T2) Символ святого гнева"
 		"item_rpc_paladin_glyph_2_1_description" 				"(Q) Heroic Fury становится переключаемой способностью."
