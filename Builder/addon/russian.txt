@@ -4643,11 +4643,11 @@
     	"DOTA_Tooltip_ability_solunia_lunar_alpha_spark_cast_range"			"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
 	
   		"DOTA_Tooltip_ability_solunia_rune_r_1_arcana2"						"[R1] Vanguard"
-    	"DOTA_Tooltip_ability_solunia_rune_r_1_arcana2_Description"			"После прочтения основного умения получает бонус к максимальному уровню здоровья на 20 секунд, сила которого случайна."
-    	"DOTA_Tooltip_ability_solunia_rune_r_1_arcana2_property_one"			"Минимальный бонус к макс. здоровью"
+    	"DOTA_Tooltip_ability_solunia_rune_r_1_arcana2_Description"			"Прочтение Alpha Spark дает случайный бонус (из диапазона) к запасу здоровья на 20 секунд."
+    	"DOTA_Tooltip_ability_solunia_rune_r_1_arcana2_property_one"			"Минимальный бонус ХП"
     	"DOTA_Tooltip_ability_solunia_rune_r_1_arcana2_suffix"					""
-     	"DOTA_Tooltip_ability_solunia_rune_r_1_arcana2_property_one"			"Максимальный бонус к макс. здоровью"
-    	"DOTA_Tooltip_ability_solunia_rune_r_1_arcana2_suffix"					""
+     	"DOTA_Tooltip_ability_solunia_rune_r_1_arcana2_property_two"			"Максимальный бонус ХП"
+    	"DOTA_Tooltip_ability_solunia_rune_r_1_arcana2_suffix_two"					""
 
     	"DOTA_Tooltip_modifier_solunia_arcana_a_d_health_visible"			"Vanguard"
     	"DOTA_Tooltip_modifier_solunia_arcana_a_d_health_visible_Description"	"Максимальный запас здоровья увеличен"
