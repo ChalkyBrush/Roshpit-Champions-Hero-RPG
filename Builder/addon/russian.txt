@@ -910,6 +910,8 @@
     	"DOTA_Tooltip_ability_venomort_rune_q_4_arcana2_suffix"					"%"
     	"DOTA_Tooltip_ability_venomort_rune_q_4_arcana2_property_two"			"Базовый Урон Способностей"
     	"DOTA_Tooltip_ability_venomort_rune_q_4_arcana2_suffix_two"				"% за стак"
+		
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_book"                     "Книга символов Venomort"
 
 
     	//--------------------The Red General/Axe
@@ -3058,7 +3060,7 @@
     	"DOTA_Tooltip_modifier_duskbringer_rune_e_2_effect_Description"	"Физ. блок: %property_one; Маг. блок: %property_two"
 
 		"DOTA_Tooltip_ability_duskbringer_rune_r_2"						"[R2] Doom"
-		"DOTA_Tooltip_ability_duskbringer_rune_r_2_Description"			"Все враги, получившие урон от (R) Seven Visions проклинаются, что позволяет наносить по ним увеличеный пост-резистный урон. Эффект складывается при неоднократном попадании. Длительность эффекта: 5 секунд."
+		"DOTA_Tooltip_ability_duskbringer_rune_r_2_Description"			"Все враги, получившие урон от (R) Seven Visions проклинаются, что увеличивает пост-резистный урон по ним. Эффект складывается при многократных попаданиях. Длительность эффекта 5 секунд. Максимально 20 стаков."
 		"DOTA_Tooltip_ability_duskbringer_rune_r_2_property_one"		"Доп. пост-резистный урон"
 		"DOTA_Tooltip_ability_duskbringer_rune_r_2_suffix"				"%"
 
@@ -13925,6 +13927,21 @@
 
 		"star_serengaard_infinite_title"								"Бесконечная оборона"
 		"star_serengaard_infinite_description"							"Пережить волну @wave_number в битве за Серенгард (Бесконечный режим)."
+		
+		"star_valdun_title"											"Sea Fortress"
+		"star_valdun_title_solo"									"Sea Fortress"
+		"star_valdun_description"									"Победить @bossname на карте @mapname героем @heroname."
+		"star_valdun_description2"									"Победить @bossname на карте @mapname героем @heroname играя в одиночку."
+		"star_valdun_description3"									"Победить @bossname на карте @mapname героем @heroname играя в одиночку за 60 минут."
+		"star_valdun_description1solo"									"Победить @bossname на карте @mapname играя в одиночку."
+		"star_valdun_description2solo"									"Победить @bossname на карте @mapname играя в одиночку за 45 минут."
+		"star_valdun_description3solo"									"Победить @bossname на карте @mapname играя в одиночку за 30 минут."
+
+		"star_azalea_title"											"Shrine of Azalea"
+		"star_azalea_title_solo"									"Shrine of Azalea"
+		"star_azalea_description"									"Победить @bossname на карте @mapname героем @heroname на Нормальной сложности."
+		"star_azalea_description2"									"Победить @bossname на карте @mapname героем @heroname на Легендарной сложности."
+		"star_azalea_description3"									"Победить @bossname на карте @mapname героем @heroname на Легендарной сложности с тремя активными Glacier Stones."
 
 
 		//SERENGAARD
@@ -14975,7 +14992,7 @@
 		"shrine_of_azalea"												"Святилище Азалии"
 		"winterblight_mountain"											"Гора Winterblight"
 		
-		"DOTA_Tooltip_ability_item_rpc_winterblight_glacier_stone"		"Ледниковый камень Winterblight"
+		"DOTA_Tooltip_ability_item_rpc_winterblight_glacier_stone"		"Winterblight Glacier Stone"
 		"item_rpc_winterblight_glacier_stone_desc"						"Разместите в Алтаре Льда на горе Winterblight, чтобы увеличить силу монстров."
 
 		"altar_of_ice"												"Алтарь Льда"
@@ -15366,13 +15383,13 @@
 		"DOTA_Tooltip_ability_winterblight_syphon_regen_per_stack"	"КРАЖА % РЕГЕН. ЗДОРОВЬЯ ЗА АТАКУ:"
 		"DOTA_Tooltip_ability_winterblight_syphon_lost_regen"		"ПОТЕРЯ % РЕГЕН. ЗДОРОВЬЯ:"
 
-		"DOTA_Tooltip_modifier_syphist_regen"				"Sypon Stream (Syphist)"
+		"DOTA_Tooltip_modifier_syphist_regen"				"Syphon Stream (Syphist)"
 		"DOTA_Tooltip_modifier_syphist_regen_Description"	"Украдена регенерация здоровья"
 
 		"DOTA_Tooltip_modifier_syphist_negative"				"Syphon Stream (Negative)"
 		"DOTA_Tooltip_modifier_syphist_negative_Description"	"Регенерация здоровья потеряна"
 
-		"DOTA_Tooltip_modifier_modifier_syphist_regen_opponent"				"Sypon Stream (Opponent)"
+		"DOTA_Tooltip_modifier_modifier_syphist_regen_opponent"				"Syphon Stream (Дебафф)"
 		"DOTA_Tooltip_modifier_modifier_syphist_regen_opponent_Description"	"Потеряна регенерация здоровья"
 
 		"DOTA_Tooltip_ability_source_revenant_passive"			"Energy Source"
@@ -15778,5 +15795,15 @@
 		"winterblight_orthok_the_damned"						"Orthok the Damned"
 		"winterblight_captain_reynar_ghost"						"Captain Reynar"
 		"winterblight_grand_stalacorr"							"Great Winter Stalacorr"
+		
+		
+	"tutorial_assistant"												"Cherebi"
+	"tutorial_master"													"Хранитель Знаний Challen"
+
+	"tutorial_assistant_1"												"Похоже, ты тут впервые! Следуй за мной, и я научу тебя основам этой игры."
+	"tutorial_assistant_2"												"Хранитель Знаний Challen ждет тебя у водопада. Идем же!"
+	"tutorial_assistant_3"												"Он прямо над мостом. Вперед!"
+
+	"tutorial_menu_title"												"Обучение Roshpit"
 	}
 }

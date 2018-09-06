@@ -31,7 +31,7 @@
 		"DOTA_Tooltip_modifier_heroic_fury_slow_Description"			"Скорость передвижения и атаки снижена"				
 		
 		"DOTA_Tooltip_modifier_heroic_fury" 								"Heroic Fury"
-		"DOTA_Tooltip_modifier_heroic_fury_description" 					"Отбрасывет врагов в зоне действия. Атаки дополнительно исцеляют Paladin"
+		"DOTA_Tooltip_modifier_heroic_fury_description" 					"Замедляет врагов в зоне поражения. Атаки дополнительно исцеляют Paladin"
 
 
 		"DOTA_Tooltip_ability_holy_blink"								"Empyrean Wings"
