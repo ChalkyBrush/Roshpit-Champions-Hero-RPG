@@ -29,14 +29,6 @@ function Tutorial:InitTutorialMap()
   Tutorial:BlacksmithSounds()
 
   Tutorial:SpawnTutorialMaster(Vector(-64, 2176))
-  -- Winterblight:CalculateHeroZones()
-  -- Winterblight:StarterMusic()
-  -- Winterblight:HowlingWind()
-
-    -- Winterblight.Master = CreateUnitByName("rune_unit", RPCItems.DROP_LOCATION, true, nil, nil, DOTA_TEAM_GOODGUYS)
-    -- Winterblight.Master:AddAbility("winterblight_master_ability"):SetLevel(GameState:GetDifficultyFactor())
-    -- Winterblight.MasterAbility = Winterblight.Master:FindAbilityByName("winterblight_master_ability")
-    -- Winterblight.Master:AddAbility("dummy_unit"):SetLevel(1)
 end
 
 function Tutorial:SpawnTrainingDummies()
@@ -186,20 +178,61 @@ function Tutorial:GetTutorialFromServer(hero)
 end
 
 function Tutorial:OpenTutorial(hero)
-	local sound = 0
-	if not hero.tutorial.firstopened then
-		hero.tutorial.firstopened = true
-		sound = 1
-		if hero.tutorial_assistant then
-			if hero.tutorial_assistant.state < 6 then
-				hero.tutorial_assistant.state = 6
+	if not hero:HasModifier("modifier_tutorial_open") then
+		if not hero.tutorial.firstopened then
+			Tutorial:ApplyTutorialModifier("modifier_tutorial_open", hero, 0)
+			hero.tutorial.firstopened = true
+			if hero.tutorial_assistant then
+				if hero.tutorial_assistant.state < 6 then
+					hero.tutorial_assistant.state = 6
+				end
+				local distance = WallPhysics:GetDistance2d(Tutorial.Master:GetAbsOrigin(), hero.tutorial_assistant:GetAbsOrigin())
+				if distance < 500 then
+					Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_1", 5, false)
+				else
+					Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_2", 5, false)
+				end
+				Tutorial:SoundAndAnimationForMaster("Tutorial.Master.GreetingWellWell", ACT_DOTA_CAST_ABILITY_3, 0.8, 4.2)
+				Timers:CreateTimer(4.5, function()
+					Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_3", 6, false)
+					Tutorial:TutorialUIActiveForPlayer(hero, 1)
+					Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting1", ACT_DOTA_CAST_ABILITY_1, 1.2, 2.5)
+					Timers:CreateTimer(7, function()
+						Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_4", 5, false)
+						Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting2", ACT_DOTA_ATTACK, 1.1, 3.1)
+					end)
+				end)
+			else
+				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_4", 5, false)
+				Tutorial:TutorialUIActiveForPlayer(hero, 1)
+				Tutorial:SoundAndAnimationForMaster("Tutorial.Master.GreetingBasic", ACT_DOTA_ATTACK, 0.7, 4.1)
 			end
+		else
+			Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_hello", 5, false)
+			Tutorial:TutorialUIActiveForPlayer(hero, 0)
+			Tutorial:SoundAndAnimationForMaster("Tutorial.Master.GreetingBasic", ACT_DOTA_ATTACK, 0.7, 4.1)
 		end
 	end
+
+end
+
+
+
+function Tutorial:SoundAndAnimationForMaster(sound, animationName, playRate, duration)
+	if not Tutorial.Master:HasModifier("modifier_tutorial_master_making_noises") then
+		EmitSoundOn(sound, Tutorial.Master)
+		StartAnimation(Tutorial.Master, {duration=duration, activity=animationName, rate=playRate})
+		Tutorial:ApplyTutorialModifier("modifier_tutorial_master_making_noises", Tutorial.Master, duration)
+	end
+end
+
+function Tutorial:TutorialUIActiveForPlayer(hero, sound)
 	local categories = Tutorial:GetFixedTutorialData()
 	local playerID = hero:GetPlayerOwnerID()
 	local player = PlayerResource:GetPlayer(playerID)
 	CustomGameEventManager:Send_ServerToPlayer(player, "open_tutorial", {hero=hero:GetEntityIndex(), tutorial=hero.tutorial, sound=sound, categories=categories} )
+	Tutorial:ApplyTutorialModifier("modifier_tutorial_open", hero, 0)
+	--uncomment this in before release
 end
 
 function Tutorial:GetFixedTutorialData()
@@ -225,4 +258,14 @@ function Tutorial:GetFixedTutorialData()
 	table.insert(categories, quest)
 	--
 	return categories
+end
+
+function Tutorial:TutorialEvent(msg)
+	local code = msg.code
+	local hero = EntIndexToHScript(msg.hero)
+	if code == "close_tutorial" then
+		Timers:CreateTimer(2, function()
+			hero:RemoveModifierByName("modifier_tutorial_open")
+		end)
+	end
 end

@@ -70,7 +70,7 @@
 }
 
 #tutorial_categories_container{
-	height:100%;
+	height:70%;
 	width:100%;
 	flow-children:down;
 }
@@ -106,4 +106,52 @@
 	color:#FFFFFF;
 	white-space: normal;
 	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;	
+}
+
+#close_button{
+	width:50%;
+	horizontal-align:center;
+	height:50px;
+	background-color: #121212;
+	border:1px solid white;
+}
+
+#close_button:hover{
+	background-color: #333333;
+}
+
+#close_button_label{
+	width:100%;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;	
+	color:white;
+	text-align: center;
+	font-size:18px;
+	line-height: 35px;
+}
+
+.invisible{
+	transition-delay: .5s;
+	visibility: collapse;
+}
+
+.animateEaseClass{
+    animation-name: easeIn;
+    animation-duration: .5s;
+    animation-timing-function: linear;	
+}
+
+.animateEaseOutClass{
+    animation-name: easeOut;
+    animation-duration: .5s;
+    animation-timing-function: linear;	
+}
+
+@keyframes 'easeIn'{
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes 'easeOut'{
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
 }

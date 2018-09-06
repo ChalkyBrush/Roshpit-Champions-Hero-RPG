@@ -177,6 +177,8 @@ function GameMode:_InitGameMode()
   CustomGameEventManager:RegisterListener( "delete_quest", Dynamic_Wrap(Quests, "DeleteQuest"))
 
   CustomGameEventManager:RegisterListener( "flash_heal", Dynamic_Wrap(CustomAbilities, "UpdateAuriunCursorPosition"))
+  CustomGameEventManager:RegisterListener( "tutorial", Dynamic_Wrap(Events, "TutorialEvent"))
+
 
   -- CustomGameEventManager:RegisterListener( "tradeRequest", Dynamic_Wrap(RPCItems, "InitiateTrade"))
   -- CustomGameEventManager:RegisterListener( "cancel_trade", Dynamic_Wrap(RPCItems, "CancelTrade"))

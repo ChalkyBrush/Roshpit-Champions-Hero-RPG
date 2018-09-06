@@ -57,5 +57,13 @@
 				"StatusEffectName" 		"particles/status_fx/status_effect_wraithking_ghosts.vpcf"
 				"StatusEffectPriority"  "14"
 			}
+			"modifier_tutorial_open"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_tutorial_master_making_noises"
+			{
+				"IsHidden"	"1"
+			}
 		}
 	}

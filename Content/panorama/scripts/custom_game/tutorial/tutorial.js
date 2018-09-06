@@ -2,6 +2,9 @@ TUTORIAL_CATEGORIES = 2
 
 function OpenTutorial(msg){
 	var parent = $('#tutorial_container')
+	parent.RemoveClass('invisible')
+	parent.AddClass('animateEaseClass')
+	parent.RemoveClass('animateEaseOutClass')
 	if (msg.sound == 1){
 		Game.EmitSound( "Tutorial.FirstOpen" )
 	}
@@ -17,7 +20,18 @@ function OpenTutorial(msg){
 	    setupCategory(category, i, tutorial_main.FindChildTraverse('tutorial_categories_container'))
 	}
    
+	tutorial_main.FindChildTraverse('close_button').SetPanelEvent('onactivate', function Close() {
+		CloseTutorial();
+	})
+}
 
+function CloseTutorial(msg){
+	var parent = $('#tutorial_container')
+	parent.AddClass('invisible')
+	var hero = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())
+	GameEvents.SendCustomGameEventToServer( "tutorial", {hero: hero, code: "close_tutorial"} );
+	parent.AddClass('animateEaseClass')
+	parent.RemoveClass('animateEaseOutClass')
 }
 
 function setupCategory(category, index, parent)

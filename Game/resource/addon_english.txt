@@ -16069,7 +16069,7 @@
 	"tutorial_menu_title"												"Roshpit Tutorial"
 
 	"tutorial_master_1"													"I see that my assistant has brought you here. Thank you Cherebi."
-	"tutorial_master_2"													"You ran ahead of Cherebi, but let's get started anyway."
+	"tutorial_master_2"													"Hm? It seems you ran ahead of Cherebi, but let's get started anyway."
 	"tutorial_master_3"													"Welcome to Roshpit, Champion."
 	"tutorial_master_4"													"Choose a topic from the list provided to begin your education."
 	"tutorial_master_hello"												"Greetings, Champion."

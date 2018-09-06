@@ -3570,7 +3570,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/conjuror_d_c"
+		"AbilityTextureName"	"rpc/conjuror_e_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
@@ -3607,7 +3607,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/conjuror_d_d"
+		"AbilityTextureName"	"rpc/conjuror_r_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -3628,7 +3628,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"conjuror/invoker_arcana_a_d"
+		"AbilityTextureName"	"conjuror/invoker_arcana_r_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -3659,7 +3659,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"conjuror/invoker_arcana_b_d"
+		"AbilityTextureName"	"conjuror/invoker_arcana_r_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -3715,7 +3715,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"conjuror/invoker_arcana_d_d"
+		"AbilityTextureName"	"conjuror/invoker_arcana_r_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -15817,7 +15817,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"flamewaker/flamewaker_a_a_arcana1"
+		"AbilityTextureName"	"flamewaker/flamewaker_q_1_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -15842,7 +15842,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"flamewaker/flamewaker_b_a_arcana1"
+		"AbilityTextureName"	"flamewaker/flamewaker_q_2_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -15867,7 +15867,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"flamewaker/flamewaker_c_a_arcana1"
+		"AbilityTextureName"	"flamewaker/flamewaker_q_3_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -15887,7 +15887,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"flamewaker/flamewaker_d_a_arcana1"
+		"AbilityTextureName"	"flamewaker/flamewaker_q_4_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -18270,7 +18270,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"rpc/paladin_d_d"
+		"AbilityTextureName"			"rpc/paladin_r_4"
 		"MaxLevel"						"7"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 
@@ -31260,7 +31260,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_b_c"
+		"AbilityTextureName"	"spirit_warrior/spirit_warrior_e_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -31961,7 +31961,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spirit_warrior/spirit_warrior_b_c_arcana3"
+		"AbilityTextureName"	"spirit_warrior/spirit_warrior_e_2_arcana3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -34842,8 +34842,8 @@
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_shadowshaman.vsndevts"
 			"particle_folder"   "particles/units/heroes/hero_pugna"
 			"particle"			"particles/econ/courier/courier_faceless_rex/venomort_toxic_veil.vpcf"
-			"particle"			"particles/units/heroes/venomort/glyph_3_1_venomort_rune_w_2_wave.vpcf"
-			"particle"			"particles/units/heroes/hero_vengeful/venomort_rune_w_2_wave.vpcf"
+			"particle"			"particles/units/heroes/venomort/glyph_3_1_venomort_rune_b_b_wave.vpcf"
+			"particle"			"particles/units/heroes/hero_vengeful/venomort_rune_b_b_wave.vpcf"
 			"particle"			"particles/units/heroes/hero_skeletonking/wraith_king_ghosts_ambient.vpcf"
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_viper.vsndevts"
 		}
@@ -47618,6 +47618,14 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"StatusEffectName" 		"particles/status_fx/status_effect_wraithking_ghosts.vpcf"
 				"StatusEffectPriority"  "14"
+			}
+			"modifier_tutorial_open"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_tutorial_master_making_noises"
+			{
+				"IsHidden"	"1"
 			}
 		}
 	}
@@ -77692,7 +77700,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"rpc/axe_d_d"
+		"AbilityTextureName"	"rpc/axe_r_4"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -120345,7 +120353,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"rpc/bahamut_d_d"
+		"AbilityTextureName"	"rpc/bahamut_r_4"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -124988,7 +124996,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"conjuror/invoker_arcana_a_d"
+		"AbilityTextureName"	"conjuror/invoker_arcana_r_1"
 		"MaxLevel"	"3"
 
 		"Modifiers"
@@ -125025,7 +125033,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"conjuror/invoker_arcana_b_d"
+		"AbilityTextureName"			"conjuror/invoker_arcana_r_2"
 		"RequiredLevel"          		"0"
 		"LevelsBetweenUpgrades"  		"0"
 		"MaxLevel"				 		"3"
@@ -125070,7 +125078,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"conjuror/invoker_arcana_d_d"
+		"AbilityTextureName"			"conjuror/invoker_arcana_r_4"
 		"RequiredLevel"          		"0"
 		"LevelsBetweenUpgrades"  		"0"
 		"MaxLevel"				 		"3"
@@ -127134,7 +127142,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"hydroxis/hydroxis_a_a"
+		"AbilityTextureName"	"hydroxis/hydroxis_q_1"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -127216,7 +127224,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"hydroxis/hydroxis_b_a"
+		"AbilityTextureName"	"hydroxis/hydroxis_q_2"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -134554,7 +134562,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"hydroxis/hydroxis_c_c"
+		"AbilityTextureName"	"hydroxis/hydroxis_e_3"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -139481,7 +139489,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"rpc/seinaru_c_c"
+		"AbilityTextureName"			"rpc/seinaru_e_3"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"

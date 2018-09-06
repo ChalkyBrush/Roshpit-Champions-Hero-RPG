@@ -3805,3 +3805,7 @@ function Events:objectShake(object, ticks, strength, bX, bY, bZ, sound, soundInt
     end)
   end
 end
+
+function Events:TutorialEvent(msg)
+  Tutorial:TutorialEvent(msg)
+end
