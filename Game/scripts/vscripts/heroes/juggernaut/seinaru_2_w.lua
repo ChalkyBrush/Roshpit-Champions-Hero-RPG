@@ -43,7 +43,7 @@ function new_b_b(caster, ability, w_2_level)
 		EndAnimation(caster)
 		StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_SPAWN, rate=1.2, translate="odachi"})
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, SEINARU_W2_RADIUS_BASE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-		local damage = w_2_level * SEINARU_W2_DAMAGE * ability:GetLevel()
+		local damage = w_2_level * SEINARU_W2_DMG * ability:GetLevel()
 		local stunDuration = w_2_level * SEINARU_W2_STUN_DUR
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
