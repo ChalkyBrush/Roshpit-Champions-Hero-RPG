@@ -2100,7 +2100,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 local stacks = attacker:GetModifierStackCount("modifier_sephyr_holy_amp", caster)
                 mult = mult + stacks*1
             end
-		elseif unitName == "npc_dota_hero_seinaru" then
+		elseif unitName == "npc_dota_hero_juggernaut" and attacker:HasAbility("seinaru_odachi_leap") then
             if victim:GetPhysicalArmorValue() < 0 then
                 if attacker.e_4_level and attacker.e_4_level > 0 then
                     local multIncrease = attacker.e_4_level * SEINARU_E4_HOLY_PCT_PER_NEG_ARMOR * math.abs(victim:GetPhysicalArmorValue())
