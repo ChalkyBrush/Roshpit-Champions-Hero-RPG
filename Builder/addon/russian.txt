@@ -2328,17 +2328,10 @@
 
     	"Tooltip_seinaru_w"											"Hands of Hikari и Circle of Wind"
 
-<<<<<<< HEAD
     	"DOTA_Tooltip_ability_seinaru_rune_q_4"						"[Q4] Precision Breeze"
     	"DOTA_Tooltip_ability_seinaru_rune_q_4_Description"			"Определенный процент от урона Seinaruбудет добавлен к урону умения (Q) Konokaze."
     	"DOTA_Tooltip_ability_seinaru_rune_q_4_property_one"			"Доп. урон умения"
     	"DOTA_Tooltip_ability_seinaru_rune_q_4_suffix"					"% от урона героя"
-=======
-    	"DOTA_Tooltip_ability_monk_rune_q_4"						"[Q4] Precision Breeze"
-    	"DOTA_Tooltip_ability_monk_rune_q_4_Description"			"Определенный процент от урона Seinaru будет добавлен к урону умения (Q) Konokaze."
-    	"DOTA_Tooltip_ability_monk_rune_q_4_property_one"			"Доп. урон умения"
-    	"DOTA_Tooltip_ability_monk_rune_q_4_suffix"					"% от урона героя"
->>>>>>> origin/redledcat
 
     	"DOTA_Tooltip_ability_seinaru_rune_w_4"						"[W4] Light of Wisdom"
     	"DOTA_Tooltip_ability_seinaru_rune_w_4_Description"			"Показатель Ловкости Seinaru увеличивает эффект исцеления от (W) Hands of Hikari и урон стихии <font color=\"#7AE2A7\">Ветра</font>."
@@ -2357,15 +2350,9 @@
     	"DOTA_Tooltip_ability_seinaru_rune_r_4_property_one"			"Доп. урон"
     	"DOTA_Tooltip_ability_seinaru_rune_r_4_suffix"					"%"
 
-<<<<<<< HEAD
     	"DOTA_Tooltip_ability_seinaru_blade_dash"						"Blade Dash"
     	"DOTA_Tooltip_ability_seinaru_blade_dash_Description"			"Стихия: <font color=\"#DDDDDD\">Обычный</font><br>Seinaru прыгает к цели и совершает дополнительную физическую атаку с увеличенным уроном."
     	"DOTA_Tooltip_ability_seinaru_blade_dash_damage_percent_of_atk"			"МНОЖИТЕЛЬ АТАКИ %:"
-=======
-    	"DOTA_Tooltip_ability_seinaru_arcana_ability"						"Blade Dash"
-    	"DOTA_Tooltip_ability_seinaru_arcana_ability_Description"			"Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Seinaru прыгает к цели и совершает дополнительную физическую атаку с увеличенным уроном."
-    	"DOTA_Tooltip_ability_seinaru_arcana_ability_damage_percent_of_atk"			"МНОЖИТЕЛЬ АТАКИ %:"
->>>>>>> origin/redledcat
 
     	"item_property_seinaru_arcana1"										"Blade Dash"
     	"property_seinaru_arcana1_description"								"Заменяет (Q) @Ability1 и все соответствующие руны на Blade Dash."
@@ -2399,15 +2386,10 @@
     	"DOTA_Tooltip_modifier_seinaru_arcana_evasion_buff"						"Sidestep"
     	"DOTA_Tooltip_modifier_seinaru_arcana_evasion_buff_Description"			"100%% уклонение"
 
-<<<<<<< HEAD
+
     	"DOTA_Tooltip_ability_seinaru_blade_dash"						"Blade Dash"
     	"DOTA_Tooltip_ability_seinaru_blade_dash_Description"			"Стихия: <font color=\"#DDDDDD\">Обычная</font><br>Seinaru прорывается вперёд к выбранной точке, совершая дополнительную атаку с увеличенным уроном всем задетым на пути целям."
     	"DOTA_Tooltip_ability_seinaru_blade_dash_damage_percent_of_atk"			"МНОЖИТЕЛЬ АТАКИ, %:"
-=======
-    	"DOTA_Tooltip_ability_seinaru_arcana_ability"						"Blade Dash"
-    	"DOTA_Tooltip_ability_seinaru_arcana_ability_Description"			"Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Seinaru прорывается вперёд к выбранной точке, совершая дополнительную атаку с увеличенным уроном всем задетым на пути целям."
-    	"DOTA_Tooltip_ability_seinaru_arcana_ability_damage_percent_of_atk"			"МНОЖИТЕЛЬ АТАКИ, %:"
->>>>>>> origin/redledcat
 
     	"item_property_seinaru_arcana2"										"Sunstrider"
     	"property_seinaru_arcana2_description"								"Заменяет (E) @Ability3 и все соответствующие руны на (E) Sunstrider."
