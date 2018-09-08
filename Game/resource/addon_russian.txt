@@ -3163,7 +3163,7 @@
     	"DOTA_Tooltip_modifier_bahamut_rune_q_4_Description"			"Доп. Интеллект"	
 
        	"DOTA_Tooltip_ability_bahamut_rune_w_4"							"[W4] Potency"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_Description"				"Базовый урон способностей и урон от предметов, наносимый по врагам, находящимся под эффектом руны [W2] Manifold Judgment усиливается за счет текущего значения маны героя. Любой усиленный урон тратит немного маны. Урон умения (W) Judgment усиливается в 10 раз."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_Description"				"К урону предметов и способностей добавляется значение на основе текущей маны Bahamut, если противник имеет эффект Judged от руны [W2]. Такое усиленный урон дополнительно тратит немного маны. Урон умения (W) Judgment усиливается в 10 раз."
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_property_one"			"Доп. урон способностей"
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_suffix"					"% от текущей маны"		
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_property_two"			"Затраты маны на усиление"
@@ -3248,7 +3248,7 @@
     	"DOTA_Tooltip_modifier_arcana2_purity_freeze_Description"			"заморожен"
 
   		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2"						"[W4] Potency Inverse"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"Базовый урон всех умений и урон, наносимый предметами увеличивается за счёт отсутствующей у героя маны."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"К урону всех умений и урону предметов добавляется значение на основе отсутствующей маны Bahamut."
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"			"Доп. урон"
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"					"% от отсутствующей маны"			
      	//--------------------Duskbringer/Spirit Breaker
@@ -4795,7 +4795,7 @@
     	"DOTA_Tooltip_ability_solunia_rune_e_2_suffix_two"					" сек."	
 
     	"DOTA_Tooltip_ability_solunia_rune_r_2"								"[R2] Cluster Fire"
-    	"DOTA_Tooltip_ability_solunia_rune_r_2_Description"					"Враги, задетые умением (R) Supernova или (R) Eclipse получат ожоги, наносящие урон в зависимости от полученного урона. Если в одно время враги будут гореть от Лунной и Солнечной форм, то пламя будет наносить увеличенный урон. Длится 8 секунд."
+    	"DOTA_Tooltip_ability_solunia_rune_r_2_Description"					"На врагов, задетых умением (R) Supernova/Eclipse накладывается эффект горения, ежесекундный урон рассчитывается от нанесенного способностью. Если враги будут гореть от Лунной и Солнечной форм одновременно, урон усилится. Горение может накладываться многократно от каждой формы, но длительность каждого из наложенных эффектов независимо, и длится 8 секунд."
     	"DOTA_Tooltip_ability_solunia_rune_r_2_property_one"				"Урон"
     	"DOTA_Tooltip_ability_solunia_rune_r_2_suffix"						"% от урона умения в тик"	
     	"DOTA_Tooltip_ability_solunia_rune_r_2_property_two"				"Усиление урона от двойного пламени"
@@ -4856,11 +4856,11 @@
     	"DOTA_Tooltip_ability_solunia_rune_e_4_suffix"						""
 
     	"DOTA_Tooltip_ability_solunia_rune_r_4"								"[R4] Equinox"
-    	"DOTA_Tooltip_ability_solunia_rune_r_4_Description"					"Снижает время перезарядки (R) Super Nova и (R) Eclipse, увеличивает длительность оглушения от этих умений."
+    	"DOTA_Tooltip_ability_solunia_rune_r_4_Description"					"Снижает время перезарядки (R) Super Nova и (R) Eclipse, добавляет к урону способности урон на основе атрибутов Solunia."
     	"DOTA_Tooltip_ability_solunia_rune_r_4_property_one"				"Снижение перезарядки"
     	"DOTA_Tooltip_ability_solunia_rune_r_4_suffix"						" сек."
-    	"DOTA_Tooltip_ability_solunia_rune_r_4_property_two"				"Доп. время оглушения"
-    	"DOTA_Tooltip_ability_solunia_rune_r_4_suffix_two"					" сек."
+    	"DOTA_Tooltip_ability_solunia_rune_r_4_property_two"				"Добавленный урон"
+    	"DOTA_Tooltip_ability_solunia_rune_r_4_suffix_two"					" х от всех атрибутов"
 
     	"item_property_solunia_arcana1"										"Solar & Lunar Comet"
     	"property_solunia_arcana1_description"								"Заменяет (Q) @Ability1 и все соответствующие руны на (Q) Solar & Lunar Comet."
@@ -5014,7 +5014,7 @@
     	"DOTA_Tooltip_ability_hydroxis_rune_e_1_suffix"						"% от урона (W) Water Bomb"
 
     	"DOTA_Tooltip_ability_hydroxis_rune_r_1"							"[R1] Wave Drench"
-    	"DOTA_Tooltip_ability_hydroxis_rune_r_1_Description"				"Враги, задетые умением (R) Ocean Quake теряют значительную часть брони. Урон от (R) Ocean Quake и всех [R] рун увеличивается за счёт брони героя. Руны [R2] Tsunami и [R3] Poseidon's Fury получают лишь 30% от всего бонуса."
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_1_Description"				"Враги, задетые умением (R) Ocean Quake теряют значительную часть брони. Урон от (R) Ocean Quake и всех [R] рун увеличивается за счёт брони героя. Руны [R2] Tsunami и [R3] Poseidon's Fury получают лишь 60% от всего бонуса."
     	"DOTA_Tooltip_ability_hydroxis_rune_r_1_property_one"				"Снижение брони"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_1_suffix"						""
         "DOTA_Tooltip_ability_hydroxis_rune_r_1_property_two"               "Усиление урона (R) Ocean Quake"
@@ -5087,7 +5087,7 @@
     	//SET RENDER COLOR (130, 130, 255)
 
     	"DOTA_Tooltip_ability_hydroxis_rune_q_4"							"[Q4] Hydrotide"
-    	"DOTA_Tooltip_ability_hydroxis_rune_q_4_Description"				"Даёт шанс на повторное прочтение (Q) Hydro Pump с задержкой в 0.9 секунды. Значение выше 100% гарантирует многократное прочтение."
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_4_Description"				"Добавляет урон к @Ability1 на основе атрибутов героя. Даёт шанс на повторное прочтение @Ability1 с задержкой в 0.9 секунды. Значение выше 100% гарантирует многократное прочтение."
     	"DOTA_Tooltip_ability_hydroxis_rune_q_4_property_one"				"Шанс повторного прочтения (Q) Hydro Pump"
     	"DOTA_Tooltip_ability_hydroxis_rune_q_4_suffix"						"%"
 
@@ -6170,7 +6170,7 @@
     	"DOTA_Tooltip_modifier_year_beast_b_d_health_Description"								"Здоровье увеличено"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1"									"[R3] Jade Voice"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_Description"						"% от всех атрибутов добавляется к базовому урону способностей (простой бонус)." //flat bonus
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_Description"						"Часть всех атрибутов героя добавляется к урону всех способностей." 
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_property_one"						"Доп. базовый урон умений"
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_suffix"								"% от атрибутов"
 
@@ -9868,7 +9868,12 @@
 		"item_rpc_solunia_glyph_4_1_description" 				"Увеличивает время полёта от (E) Warp Flare на @glyph_property1 сек."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_1"		"(T5) Символ нейтрино"
-		"item_rpc_solunia_glyph_5_1_description" 				"Увеличивает радиус действия [E3] Warp Cores на @glyph_property1, но сокращает время их действия на 50%."
+		"item_rpc_solunia_glyph_5_1_description" 				"После прочтения @Ability4 дает щит, блокирующий 3 порций урона."
+		"DOTA_Tooltip_modifier_solunia_glyph_5_1_shield"		"Neutrino"
+		"DOTA_Tooltip_modifier_solunia_glyph_5_1_shield_Description"		"Поглощает 1 порцию урона за щит."
+		
+		"DOTA_Tooltip_modifier_solunia_glyph_5_1_shield_arcana"		"Neutrino"
+		"DOTA_Tooltip_modifier_solunia_glyph_5_1_shield_arcana_Description"		"Поглощает 1 порцию урона за щит."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_6_1"		"(T6) Символ сингулярности"
 		"item_rpc_solunia_glyph_6_1_description" 				"После прочтения (R) Supernova или (R) Eclipse, позволяет произнести (Q) @Ability1 без перезарядки и поглощения зарядов."

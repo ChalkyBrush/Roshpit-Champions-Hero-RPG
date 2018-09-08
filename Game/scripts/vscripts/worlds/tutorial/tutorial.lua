@@ -231,7 +231,8 @@ function Tutorial:TutorialUIActiveForPlayer(hero, sound)
 	local playerID = hero:GetPlayerOwnerID()
 	local player = PlayerResource:GetPlayer(playerID)
 	CustomGameEventManager:Send_ServerToPlayer(player, "open_tutorial", {hero=hero:GetEntityIndex(), tutorial=hero.tutorial, sound=sound, categories=categories} )
-	Tutorial:ApplyTutorialModifier("modifier_tutorial_open", hero, 0)
+	Tutorial:ApplyTutorialModifier("modifier_tutorial_open", hero, 15)
+	-- Tutorial:ApplyTutorialModifier("modifier_tutorial_open", hero, 0)
 	--uncomment this in before release
 end
 

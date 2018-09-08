@@ -23,6 +23,7 @@ function OpenTutorial(msg){
 	tutorial_main.FindChildTraverse('close_button').SetPanelEvent('onactivate', function Close() {
 		CloseTutorial();
 	})
+
 }
 
 function CloseTutorial(msg){
@@ -40,6 +41,14 @@ function setupCategory(category, index, parent)
 	categoryPanel.BLoadLayoutSnippet("tutorial_category")
 	categoryPanel.FindChildTraverse('tutorial_category_header_label').text = $.Localize(category["header"])
 	categoryPanel.FindChildTraverse('tutorial_category_description_label').text = $.Localize(category["description"])
+	categoryPanel.SetPanelEvent('onmouseover', function Close() {
+		categoryPanel.FindChildTraverse('tutorial_category_header').AddClass('tutorial_category_header_active')
+		categoryPanel.AddClass('tutorial_category_description_active')
+	});
+	categoryPanel.SetPanelEvent('onmouseout', function Close() {
+		categoryPanel.FindChildTraverse('tutorial_category_header').RemoveClass('tutorial_category_header_active')
+		categoryPanel.RemoveClass('tutorial_category_description_active')
+	});
 }
 
 (function()
