@@ -33303,12 +33303,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-100"
+				"property_one"			"-<% HYDROXIS_R1_ARMOR_RED %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.05"
+				"property_two"			"<% HYDROXIS_R1_BAD_PCT_PER_ARMOR * 100 * 10 %>"
 			}
 		}
 	}
@@ -33510,7 +33510,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"<% HYDROXIS_Q4_MULTI_CAST_PCT %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% HYDROXIS_Q4_ADD_DMG_PER_ATTR %>"
 			}
 		}
 	}

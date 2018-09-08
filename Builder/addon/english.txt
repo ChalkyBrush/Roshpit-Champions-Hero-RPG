@@ -4205,7 +4205,7 @@
     	"DOTA_Tooltip_ability_hydroxis_rune_e_1_suffix"						"% of Water Bomb"
 
     	"DOTA_Tooltip_ability_hydroxis_rune_r_1"							"[R1] Wave Drench"
-    	"DOTA_Tooltip_ability_hydroxis_rune_r_1_Description"				"Enemies hit by Ocean Quake have their armor greatly reduced. Additionally, the damage of the ability and its runes are increased based on your armor, but with Tsunami and Poseidon's Fury receiving only 30% of the total bonus"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_1_Description"				"Enemies hit by @Ability4 have their armor greatly reduced. Additionally, the damage of the ability and its runes are increased based on your armor, but with Tsunami and Poseidon's Fury receiving only <% HYDROXIS_R1_RUNE_MULT * 100 %>% of the total bonus"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_1_property_one"				"Armor Loss"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_1_suffix"						""
         "DOTA_Tooltip_ability_hydroxis_rune_r_1_property_two"               "Ocean Quake Damage increase"
@@ -4278,9 +4278,11 @@
     	//SET RENDER COLOR (130, 130, 255)
 
     	"DOTA_Tooltip_ability_hydroxis_rune_q_4"							"[Q4] Hydrotide"
-    	"DOTA_Tooltip_ability_hydroxis_rune_q_4_Description"				"Grants a chance to cast Hydro Pump again after a 0.9 second delay. Greater than 100% chance means it will be cast multiple times."
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_4_Description"				"Increases the base damage of @Ability1 based on all attributes and grants a chance to cast @Ability1 again after a 0.9 second delay. Greater than 100% chance means it will be cast multiple times."
     	"DOTA_Tooltip_ability_hydroxis_rune_q_4_property_one"				"Chance for Multi-Cast"
     	"DOTA_Tooltip_ability_hydroxis_rune_q_4_suffix"						"%"
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_4_property_two"				"@Ability1 Damage Bonus"
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_4_suffix_two"					"x all attributes"
 
     	"DOTA_Tooltip_ability_hydroxis_rune_w_4"							"[W4] Overflow"
     	"DOTA_Tooltip_ability_hydroxis_rune_w_4_Description"				"Water Bomb drains an additional 3% of your max mana on cast, increasing its damage based on mana drained."
