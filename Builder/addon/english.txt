@@ -4047,11 +4047,11 @@
     	"DOTA_Tooltip_ability_solunia_rune_e_4_suffix"						""
 
     	"DOTA_Tooltip_ability_solunia_rune_r_4"								"[R4] Equinox"
-    	"DOTA_Tooltip_ability_solunia_rune_r_4_Description"					"Reduces the cooldowns of Super Nova and Eclipse and increases their stun durations."
+    	"DOTA_Tooltip_ability_solunia_rune_r_4_Description"					"Reduces the cooldowns of Super Nova and Eclipse and increases their damage based on all attributes."
     	"DOTA_Tooltip_ability_solunia_rune_r_4_property_one"				"Cooldown Reduction"
     	"DOTA_Tooltip_ability_solunia_rune_r_4_suffix"						" seconds"
-    	"DOTA_Tooltip_ability_solunia_rune_r_4_property_two"				"Stun Duration Increase"
-    	"DOTA_Tooltip_ability_solunia_rune_r_4_suffix_two"					" seconds"
+    	"DOTA_Tooltip_ability_solunia_rune_r_4_property_two"				"Damage Increase"
+    	"DOTA_Tooltip_ability_solunia_rune_r_4_suffix_two"					"x all attributes"
 
     	"item_property_solunia_arcana1"										"Solar & Lunar Comet"
     	"property_solunia_arcana1_description"								"Replaces @Ability1 and all of its runes with Solar & Lunar Comet."
@@ -9030,7 +9030,13 @@
 		"item_rpc_solunia_glyph_4_1_description" 				"Increases the floating duration between Warp Flares by @glyph_property1 seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_1"		"Glyph of Neutrino"
-		"item_rpc_solunia_glyph_5_1_description" 				"Increases the radius of Warp Cores by @glyph_property1 but reduces duration by 50%."
+		"item_rpc_solunia_glyph_5_1_description" 				"After casting @Ability4 gain a shield which blocks <% SOLUNIA_GLYPH_5_1_STACKS_BASE %> instances of damage."
+		
+		"DOTA_Tooltip_modifier_solunia_glyph_5_1_shield"		"Neutrino"
+		"DOTA_Tooltip_modifier_solunia_glyph_5_1_shield_Description"		"Absorbs 1 instance of damage per stack."
+		
+		"DOTA_Tooltip_modifier_solunia_glyph_5_1_shield_arcana"		"Neutrino"
+		"DOTA_Tooltip_modifier_solunia_glyph_5_1_shield_arcana_Description"		"Absorbs 1 instance of damage per stack."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_6_1"		"Glyph of Singularity"
 		"item_rpc_solunia_glyph_6_1_description" 				"After using Supernova or Eclipse, gain a buff that allows a cast of @Ability1 with no cooldown or charge consumption."

@@ -2090,9 +2090,10 @@ function GameState:FilterDamage(filterTable)
 		victim:RemoveModifierByName("modifier_vitali_shield")
 	end
 	if victim:HasModifier("modifier_secret_temple_refraction") then
-		print("DAMAGE BEFORE: "..filterTable["damage"])
 		filterTable["damage"] = Filters:SecretTempleTakeDamage(victim, filterTable["damage"])
-		print("DAMAGE AFTER: "..filterTable["damage"])
+	end
+	if victim:HasModifier("modifier_solunia_glyph_5_1_shield") then
+		filterTable["damage"] = Filters:SoluniaGlyph51TakeDamage(victim, filterTable["damage"])
 	end
 	if victim:HasModifier("modifier_heavens_shield") then
 		filterTable["damage"] = Filters:HeavensShieldTakeDamage(victim, filterTable["damage"])

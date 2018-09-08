@@ -293,10 +293,6 @@ function c_c_pit(caster, ability, targetPoint)
 	if c_c_level > 0 then
 		local duration = 1 + 0.3*c_c_level
 		local modifierName = "modifier_solunia_warp_core_thinker"
-		if caster:HasModifier("modifier_solunia_glyph_5_1") then
-			modifierName = modifierName.."_glyphed"
-			duration = duration/2
-		end
 		duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 		ability:ApplyDataDrivenThinker(caster, GetGroundPosition(targetPoint, caster), modifierName, {duration = duration})
 	end
