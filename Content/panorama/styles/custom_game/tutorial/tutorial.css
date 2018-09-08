@@ -183,19 +183,22 @@
 
 .tutorial_challenge_list{
 	width:100%;
-	background-color: red;
 	flow-children:down;
-	padding-top:10px;
-	padding-bottom:10px;
 	margin-left:15px;
 	margin-right:15px;
-	background-color: #111111;
-	border-radius: 4px;
 	margin-top:20px;
 }
 
 .tutorial_challenge{
 	width:100%;
+	background-color: #111111;
+	border-radius: 4px;
+
+}
+
+.tutorial_challenge:hover{
+	background-color: #222222;
+	box-shadow: 1px 1px 2px #000000;
 }
 
 #tutorial_category_clickable{
@@ -208,6 +211,8 @@
 	color:white;
 	font-size:16px;
 	margin-left:15px;
+	padding-top:10px;
+	padding-bottom:10px;
 }
 
 #back_button{
@@ -230,4 +235,9 @@
 	text-align: center;
 	font-size:18px;
 	line-height: 35px;
+}
+
+#challenge_button{
+	height:40px;
+	width:100%;
 }

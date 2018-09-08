@@ -3577,7 +3577,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -3590,6 +3590,7 @@
 		"MaxLevel"				 		"7"
 		"AbilityCastRange"				"%star_range"
 		"AbilityCastPoint"				"0.3"
+		"AbilityCastAnimation"			"ACT_DOTA_GENERIC_CHANNEL_1"
 		"AOERadius"						"%star_aoe"
 
 		// Precache
@@ -3651,7 +3652,14 @@
 				"star_range"					"1500 1600 1700 1800 1900 2000 2100"
 			}
 		}
-
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/moon_ranger/abilities/e/e_astral_lift.lua"
+				"Function"		"precast"
+			}
+		}
 		"OnSpellStart"
 		{
 			"FireSound"
@@ -3679,18 +3687,6 @@
 
 				"Action"
 				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/moon_ranger/abilities/e/e_astral_lift.lua"
-						"Function"		"cast"
-						"Target"		"POINT"
-						"Radius"		"%star_aoe"
-					}
-					"FireSound"
-					{
-						"EffectName"	"Hero_Invoker.SunStrike.Ignite"
-						"Target"		"CASTER"
-					}
 
 					"FireEffect"
 					{

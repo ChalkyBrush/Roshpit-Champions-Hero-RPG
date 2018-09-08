@@ -5,6 +5,11 @@ local pegasus = require('heroes/moon_ranger/abilities/e/e1_pegasus')
 local astralEmpowerment = require('heroes/moon_ranger/abilities/e/e2_astral_empowerment')
 local astralShroud = require('heroes/moon_ranger/abilities/e/e3_astral_shroud')
 
+function precast(event)
+    local caster = event.caster
+    StartAnimation(caster, {duration=0.35, activity=ACT_DOTA_GENERIC_CHANNEL_1, rate=1.3})
+end
+
 function cast(event)
     local caster = event.caster
     Helper.initializeAbilityRunes(event.caster, 'astral', 'w')
@@ -25,6 +30,9 @@ function cast(event)
     local particleLocation = target
     local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
     ParticleManager:SetParticleControl( particle1, 0, particleLocation )
+    Timers:CreateTimer(0.45, function()
+        EmitSoundOnLocationWithCaster(target, "Hero_Invoker.SunStrike.Ignite", caster)
+    end)
     Timers:CreateTimer(delay, -- Start this timer 10 game-time seconds later
         function()
             -- ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_e_lift_moving", {duration = 0.3})

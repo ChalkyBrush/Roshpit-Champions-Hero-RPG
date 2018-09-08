@@ -47,7 +47,9 @@
 		</snippet>
 		<snippet name="tutorial_challenge">
 			<Panel class="tutorial_challenge" hittest="false">
-				<Label id="tutorial_challenge_text"/>
+				<Button id="challenge_button">
+					<Label id="tutorial_challenge_text"/>
+				</Button>
 			</Panel>
 		</snippet>
 	</snippets>
