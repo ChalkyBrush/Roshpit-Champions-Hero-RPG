@@ -1,4 +1,5 @@
 require('heroes/slardar/arcana/flood_basin')
+require('heroes/slardar/hydroxis_constants')
 
 function begin_hydro_pump(event)
 	local caster = event.caster
@@ -7,11 +8,13 @@ function begin_hydro_pump(event)
 	caster:RemoveModifierByName("modifier_hydroxis_b_a_shield_visible")
 	caster:RemoveModifierByName("modifier_hydroxis_b_a_shield_visible_glyphed")
 	caster:RemoveModifierByName("modifier_hydroxis_b_a_shield_invisible")
-	ability.q_2_level = Runes:GetTotalRuneLevel(caster, 2, "q_2", "hydroxis")
-	ability.q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "hydroxis")
-	caster.e_4_Level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "hydroxis")
-	local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "hydroxis")
-	local procs = Runes:Procs(q_4_level, 10, 1)
+	ability.q_2_level = caster:GetRuneValue("q", 2)
+	ability.q_3_level = caster:GetRuneValue("q", 3)
+	caster.e_4_Level = caster:GetRuneValue("e", 4)
+	local q_4_level = caster:GetRuneValue("q", 4)
+	local procs = Runes:Procs(q_4_level, HYDROXIS_Q4_MULTI_CAST_PCT, 1)
+	local damage = event.damage
+	damage = damage + (caster:GetStrength()+caster:GetAgility()+caster:GetIntellect()) * HYDROXIS_Q4_ADD_DMG_PER_ATTR * q_4_level
 	local targetPoint = event.target_points[1]
 	local pumpDelay = 0.9
 	if caster:HasModifier("modifier_hydroxis_immortal_weapon_3") then
@@ -34,7 +37,6 @@ function begin_hydro_pump(event)
 			local fv = caster:GetForwardVector()
 			EmitSoundOn("Hydroxis.HydroPump.Start", caster)
 			local loops = event.torrents
-			local damage = event.damage
 			for i = 0, loops-1, 1 do
 				Timers:CreateTimer(i*pumpDelay, function()
 					local hydroPosition = spellStartPoint + fv*240*(i+1) - Vector(0,0,0)

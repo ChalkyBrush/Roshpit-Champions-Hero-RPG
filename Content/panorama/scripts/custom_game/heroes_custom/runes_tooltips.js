@@ -29,8 +29,8 @@ function initializeTooltip(func){
 		blockCount = blockCount + 1
 		$.Msg("IN BLOCK!")
 		var baseAbility = Entities.GetAbility( queryUnit, baseAbilityIndex-1 )
-		$('#base_ability_title').text = $.Localize("#tooltip_rune_base_ability")
-		$('#base_ability_value').text = $.Localize("#DOTA_Tooltip_Ability_"+Abilities.GetAbilityName( baseAbility ))
+        $('#base_ability_title').text = $.Localize("#tooltip_rune_base_ability")
+        $('#base_ability_value').text = $.Localize("#DOTA_Tooltip_Ability_"+Abilities.GetAbilityName( baseAbility ))
 		$('#base_ability_container').RemoveClass("invisible")
 	}else{
 		$('#base_ability_container').AddClass("invisible")
@@ -77,7 +77,8 @@ function initializeTooltip(func){
 		$('#element_container').AddClass("invisible")
 	}
 	var raw_description = $.Localize( "#DOTA_Tooltip_Ability_"+abilityNameInternal+"_Description")
-	raw_description = replaceConstantsInTooltip(rune, raw_description)
+    raw_description = replaceConstantsInTooltip(rune, raw_description)
+    raw_description = updateSkillInTooltip(raw_description, queryUnit)
 	$('#rune_description').text = raw_description
 
 

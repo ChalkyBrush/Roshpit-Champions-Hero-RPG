@@ -1,4 +1,5 @@
 require('heroes/vengeful_spirit/arcana_comet')
+require('/heroes/vengeful_spirit/solunia_constants')
 
 function start_channel(event)
 	local caster = event.caster
@@ -113,6 +114,7 @@ function begin_supernova(event)
   	supernova_a_d(caster, ability)
   	novaExplosion(event)
   	swap_sun_moon("sun", caster)
+	Solunia_Glyph51(event)
 end
 
 function begin_eclipse(event)
@@ -134,6 +136,21 @@ function begin_eclipse(event)
   	supernova_a_d(caster, ability)
   	novaExplosion(event)
   	swap_sun_moon("moon", caster)
+	Solunia_Glyph51(event)
+end
+
+function Solunia_Glyph51(event)
+	local caster = event.caster
+	if caster:HasModifier("modifier_solunia_glyph_5_1") then
+		local ability = caster:FindModifierByName("modifier_solunia_glyph_5_1"):GetAbility()
+		if caster:HasAbility("solunia_eclipse") or caster:HasAbility("solunia_supernova") then
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_solunia_glyph_5_1_shield", {})
+			caster:SetModifierStackCount("modifier_solunia_glyph_5_1_shield", ability, SOLUNIA_GLYPH_5_1_STACKS_BASE)
+		elseif caster:HasAbility("solunia_lunar_alpha_spark") or caster:HasAbility("solunia_supernova") then
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_solunia_glyph_5_1_shield_arcana", {})
+			caster:SetModifierStackCount("modifier_solunia_glyph_5_1_shield_arcana", ability, SOLUNIA_GLYPH_5_1_STACKS_BASE)
+		end
+	end
 end
 
 function novaExplosion(event)
@@ -142,35 +159,25 @@ function novaExplosion(event)
 	local radius = event.radius
 	local damage = event.damage
 	local stun_duration = event.stun_duration
-	
-	local damageType = DAMAGE_TYPE_MAGICAL
-	local element = "solar"
+	local r_4_level = caster:GetRuneValue("r", 4)
+	if r_4_level > 0 then
+		damage = damage + (caster:GetStrength()+caster:GetAgility()+caster:GetIntellect()) * SOLUNIA_R4_ADD_DMG_PER_ATTR * r_4_level
+	end
 	if ability:GetAbilityName() == "solunia_eclipse" then
 		damageType = DAMAGE_TYPE_PURE
-		element = "lunar"
+		event.element = "lunar"
+	else
+		damageType = DAMAGE_TYPE_MAGICAL
+		event.element = "solar"
 	end
-	local b_d_level =  Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
-	ability.r_2_level = b_d_level
-	if not caster:HasModifier("modifier_solunia_arcana2") then
-		local d_d_level =  Runes:GetTotalRuneLevel(caster, 4, "r_4", "solunia")
-		if d_d_level > 0 then
-			stun_duration = stun_duration + 0.1*d_d_level
-		end
-	end
+	ability.r_2_level = caster:GetRuneValue("r", 2)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 580, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, damageType, 4, RPC_ELEMENT_COSMOS, RPC_ELEMENT_FIRE)
 			Filters:ApplyStun(caster, stun_duration, enemy)
-			if b_d_level > 0 then
-				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_solunia_"..element.."_burn", {duration = 8})
-				if not caster:HasModifier("modifier_solunia_arcana2") then
-					if element == "solar" then
-						enemy.SoluniaBurnSolar = damage*0.016*b_d_level
-					else
-						enemy.SoluniaBurnLunar = damage*0.016*b_d_level
-					end
-				end
+			if ability.r_2_level > 0 then
+				Solunia_Apply_R2_Stack(event, enemy)
 			end
 		end
 	end 
@@ -188,29 +195,42 @@ function supernova_burn_think(event)
 	local ability = event.ability
 	local target = event.target
 	if not ability.r_2_level then
-		ability.r_2_level = 0
+		return
 	end
-	if ability:GetAbilityName() == "solunia_eclipse" then
-		local damage = target.SoluniaBurnLunar
-		if target:HasModifier("modifier_solunia_solar_burn") then
-			damage = damage + 0.24*ability.r_2_level*damage
+	local dualBurn = false
+	if target:HasModifier("modifier_solunia_lunar_burn") and target:HasModifier("modifier_solunia_solar_burn") then
+		dualBurn = true
+	end
+	local totalDamage = 0
+	if ability:GetAbilityName() == "solunia_eclipse" and target.SoluniaLunarBurns then
+		Solunia_Recalculate_R2_Stacks(event, target, "lunar")
+		for i = 1, #target.SoluniaLunarBurns, 1 do
+			local damage = target.SoluniaLunarBurns[i].damage
+			if dualBurn then
+				damage = damage + SOLUNIA_R2_DUAL_BURN_AMP * ability.r_2_level * damage
+			end
+			totalDamage = totalDamage + damage
 		end
-		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_COSMOS, RPC_ELEMENT_FIRE)
-	elseif ability:GetAbilityName() == "solunia_supernova" then
-		local damage = target.SoluniaBurnSolar
-		if target:HasModifier("modifier_solunia_lunar_burn") then
-			damage = damage + 0.24*ability.r_2_level*damage
+		Filters:ApplyDotDamage(caster, ability, target, totalDamage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_COSMOS, RPC_ELEMENT_FIRE)
+	elseif ability:GetAbilityName() == "solunia_supernova" and target.SoluniaSolarBurns then
+		Solunia_Recalculate_R2_Stacks(event, target, "solar")
+		for i = 1, #target.SoluniaSolarBurns, 1 do
+			local damage = target.SoluniaSolarBurns[i].damage
+			if dualBurn then
+				damage = damage + SOLUNIA_R2_DUAL_BURN_AMP * ability.r_2_level * damage
+			end
+			totalDamage = totalDamage + damage
 		end
-		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_COSMOS, RPC_ELEMENT_FIRE)
+		Filters:ApplyDotDamage(caster, ability, target, totalDamage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_COSMOS, RPC_ELEMENT_FIRE)
 	elseif ability:GetAbilityName() == "solunia_lunar_alpha_spark" then
 		local damage = target.SoluniaBurnLunar
-		if target:HasModifier("modifier_solunia_solar_burn") then
+		if dualBurn then
 			damage = damage + 0.05*ability.r_2_level*damage
 		end
 		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, -2, RPC_ELEMENT_FIRE, RPC_ELEMENT_ICE)
 	elseif ability:GetAbilityName() == "solunia_solar_alpha_spark" then	
 		local damage = target.SoluniaBurnSolar
-		if target:HasModifier("modifier_solunia_lunar_burn") then
+		if dualBurn then
 			damage = damage + 0.05*ability.r_2_level*damage
 		end
 		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, -2, RPC_ELEMENT_FIRE, RPC_ELEMENT_ICE)
@@ -228,6 +248,59 @@ function supernova_burn_end(event)
 		target.SoluniaBurnLunar = nil
 	elseif ability:GetAbilityName() == "solunia_solar_alpha_spark" then	
 		target.SoluniaBurnSolar = nil
+	end
+end
+
+function Solunia_Apply_R2_Stack(event, target)
+	local caster = event.caster
+	local ability = event.ability
+	local radius = event.radius
+	local damage = event.damage
+	local element = event.element	
+	if caster:HasModifier("modifier_solunia_arcana2") then
+		return
+	end
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_solunia_"..element.."_burn", {duration = 8})
+	local thisBurn = {}
+	thisBurn.damage = damage * SOLUNIA_R2_DMG_PER_DMG * ability.r_2_level
+	thisBurn.createdAt = GameRules:GetGameTime()
+	if element == "solar" then
+		if not target.SoluniaSolarBurns then
+			target.SoluniaSolarBurns = {}
+		end
+		table.insert(target.SoluniaSolarBurns, thisBurn)
+    elseif element == "lunar" then
+		if not target.SoluniaLunarBurns then
+			target.SoluniaLunarBurns = {}
+		end
+		table.insert(target.SoluniaLunarBurns, thisBurn)
+	end
+    Solunia_Recalculate_R2_Stacks(event, target, element)
+end
+
+function Solunia_Recalculate_R2_Stacks(event, target, element)
+    local newBurnsData = {}
+    local stacks = 0
+	if element == "solar" then
+		for i = 1, #target.SoluniaSolarBurns, 1 do
+			if GameRules:GetGameTime() - target.SoluniaSolarBurns[i].createdAt >= SOLUNIA_R2_DUR_BASE then
+			else
+				table.insert(newBurnsData, target.SoluniaSolarBurns[i])
+				stacks = stacks + 1
+			end
+		end
+		target.SoluniaSolarBurns = newBurnsData
+		target:SetModifierStackCount("modifier_solunia_solar_burn", event.caster, stacks)
+    elseif element == "lunar" then
+		for i = 1, #target.SoluniaLunarBurns, 1 do
+			if GameRules:GetGameTime() - target.SoluniaLunarBurns[i].createdAt >= SOLUNIA_R2_DUR_BASE then
+			else
+				table.insert(newBurnsData, target.SoluniaLunarBurns[i])
+				stacks = stacks + 1
+			end
+		end
+		target.SoluniaLunarBurns = newBurnsData
+		target:SetModifierStackCount("modifier_solunia_lunar_burn", event.caster, stacks)
 	end
 end
 

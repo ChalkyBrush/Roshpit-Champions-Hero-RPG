@@ -3615,6 +3615,17 @@ function Filters:SecretTempleTakeDamage(target, damage)
     return 0
 end
 
+function Filters:SoluniaGlyph51TakeDamage(target, damage)
+	local stackCount = target:GetModifierStackCount("modifier_solunia_glyph_5_1_shield", target)
+	local ability = target:FindModifierByName("modifier_solunia_glyph_5_1"):GetAbility()
+	if stackCount > 1 then
+		target:SetModifierStackCount("modifier_solunia_glyph_5_1_shield", ability, stackCount - 1)
+    else
+        target:RemoveModifierByName("modifier_solunia_glyph_5_1_shield")
+    end
+    return 0
+end
+
 function Filters:HeavensShieldTakeDamage(target, damage)
     local stackCount = target:GetModifierStackCount( "modifier_heavens_shield", target.heavensShieldSource )
     if stackCount > 1 then
