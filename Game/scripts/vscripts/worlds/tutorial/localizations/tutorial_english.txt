@@ -15,6 +15,11 @@
 
 	"quest_1_interface"													"1. Interface"
 	"quest_1_interface_description"										"In this series, we will cover the essential information found on the user interface."
+
+	"quest_1_challenge_1"												"A. Bottom-Right Buttons"
+	"quest_1_challenge_2"												"B. Custom Attributes"
+	"quest_1_challenge_3"												"C. Stars"
 	
 	"quest_2_interface"													"2. Hero"
-	"quest_2_interface_description"										"This lecture will guide you towards mastering your hero's abilities."
+	"quest_2_interface_description"										"This lecture will help with mastering your hero's abilities."
+

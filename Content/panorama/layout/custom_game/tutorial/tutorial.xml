@@ -27,15 +27,27 @@
 		</snippet>
 		<snippet name="tutorial_category">
 			<Panel class="tutorial_category" hittest="false">
-				<Panel class="tutorial_category_bg" hittest="false"/>
-				<Panel class="tutorial_category_container">
-					<Panel class="tutorial_category_header" id="tutorial_category_header">
-						<Label id="tutorial_category_header_label"/>
+				<Button id="tutorial_category_clickable">
+					<Panel class="tutorial_category_bg" hittest="false"/>
+					<Panel class="tutorial_category_container">
+						<Panel class="tutorial_category_header" id="tutorial_category_header">
+							<Label id="tutorial_category_header_label"/>
+						</Panel>
+						<Panel class="tutorial_category_description" id="tutorial_category_description">
+							<Label id="tutorial_category_description_label"/>
+						</Panel>
 					</Panel>
-					<Panel class="tutorial_category_description" id="tutorial_category_description">
-						<Label id="tutorial_category_description_label"/>
-					</Panel>
-				</Panel>
+				</Button>
+			</Panel>
+		</snippet>
+		<snippet name="tutorial_challenge_list">
+			<Panel class="tutorial_challenge_list" hittest="false">
+
+			</Panel>
+		</snippet>
+		<snippet name="tutorial_challenge">
+			<Panel class="tutorial_challenge" hittest="false">
+				<Label id="tutorial_challenge_text"/>
 			</Panel>
 		</snippet>
 	</snippets>

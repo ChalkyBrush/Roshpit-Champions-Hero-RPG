@@ -55,6 +55,8 @@
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/save_load/the_oracle.xml" />
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/quests/the_crusader.xml" />
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/quests/witch_doctor.xml" />
+    <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/tutorial/tutorial.xml" />
+    
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/npc_dialogue2.xml" />
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/glyphs/glyph_main.xml" />
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/resources/blacksmith.xml" />
@@ -85,6 +87,6 @@
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/hero_selection.xml" /> 
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/difficulty_overlay.xml" />
 
-    <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/tutorial/tutorial.xml" />
+    
   </Panel>
 </root>
