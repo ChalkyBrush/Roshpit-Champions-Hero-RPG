@@ -3986,7 +3986,7 @@
     	"DOTA_Tooltip_ability_solunia_rune_e_2_suffix_two"					" seconds"	
 
     	"DOTA_Tooltip_ability_solunia_rune_r_2"								"[R2] Cluster Fire"
-    	"DOTA_Tooltip_ability_solunia_rune_r_2_Description"					"Enemies hit by Supernova and Eclipse take burn damage every second based on the damage taken. If both the Lunar and Solar burns are active at the same time, the fire does increased damage. Lasts 8 seconds."
+    	"DOTA_Tooltip_ability_solunia_rune_r_2_Description"					"Enemies hit by Supernova and Eclipse take burn damage every second based on the damage taken. If both the Lunar and Solar burns are active at the same time, the fire does increased damage. Enemies can have multiple stacks of the same burn, but each stack has its own duration. Each burn will deal the damage of all stacks in 1 instance. Lasts 8 seconds."
     	"DOTA_Tooltip_ability_solunia_rune_r_2_property_one"				"Burn Damage"
     	"DOTA_Tooltip_ability_solunia_rune_r_2_suffix"						"% of original damage per tick"	
     	"DOTA_Tooltip_ability_solunia_rune_r_2_property_two"				"Dual Burn Amplification"
