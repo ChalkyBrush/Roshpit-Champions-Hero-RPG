@@ -899,7 +899,7 @@ function dark_arts_think(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local stacks = math.floor(target:GetBaseIntellect()*0.5)
+	local stacks = math.floor(target:GetBaseIntellect()*0.8)
 	if not target:HasModifier("modifier_dark_arts_effect") then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_dark_arts_effect", {})
 	end
@@ -910,7 +910,7 @@ function blazing_fury_think(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local stacks = math.floor(target:GetAgility()*0.3, 0)
+	local stacks = math.floor(target:GetAgility()*0.45, 0)
 	if not target:HasModifier("modifier_blazing_fury_effect") then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_blazing_fury_effect", {})
 	end
@@ -5526,7 +5526,7 @@ function energy_whip_glove_attack_land(event)
 			print("IN HERE")
 		elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) == DOTA_ABILITY_BEHAVIOR_UNIT_TARGET then
 			local order = {
-		 		UnitIndex = attacker:entindex(), 
+		 		UnitIndex = attacker:entindex(),
 		 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
 		 		TargetIndex = target:entindex(),
 		 		AbilityIndex = ability:entindex(),
@@ -5534,7 +5534,7 @@ function energy_whip_glove_attack_land(event)
 		 	}
 		 	attacker:Stop()
 		 	print("HERE?")
-			ExecuteOrderFromTable(order)	
+			ExecuteOrderFromTable(order)
 		elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) == DOTA_ABILITY_BEHAVIOR_POINT then
 			local order =
 			{
@@ -5545,7 +5545,7 @@ function energy_whip_glove_attack_land(event)
 				Queue = true
 			}
 			attacker:Stop()
-			ExecuteOrderFromTable(order)	
+			ExecuteOrderFromTable(order)
 		end
 		-- ability:StartCooldown(0)
 	end
@@ -5780,4 +5780,10 @@ function orthok_think(event)
 	local hero = event.target
 	local chains = event.ability
 	Filters:RecalculateOrthokStacks(hero, chains)
+end
+
+function mugato_attack(event)
+	local attacker = event.attacker
+
+	attacker:AddNewModifier(caster, nil, "modifier_silence", {duration = 0.6})
 end

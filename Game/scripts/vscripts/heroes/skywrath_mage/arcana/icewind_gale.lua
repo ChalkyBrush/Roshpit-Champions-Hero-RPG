@@ -93,7 +93,7 @@ function begin_icewind_gale(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_gale_speed_burst", {duration = 0.8})
 	local w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
 	if w_3_level > 0 then
-		local shieldStacks = Runes:Procs(w_3_level, 6, 1)
+		local shieldStacks = Runes:Procs(w_3_level, SEPHYR_ARCANA1_W3_SHIELD_CHANCE, 1)
 		if shieldStacks > 0 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_icewind_shield", {duration = 7})
 			caster:SetModifierStackCount("modifier_icewind_shield", caster, shieldStacks)

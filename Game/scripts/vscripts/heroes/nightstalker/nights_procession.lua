@@ -1,6 +1,7 @@
 -- LinkLuaModifier("modifier_chernobog_ult_aura", "modifiers/chernobog_shadow_walk/modifier_chernobog_ult_aura", LUA_MODIFIER_MOTION_NONE)
 -- LinkLuaModifier("modifier_chernobog_ult_freeze_special", "modifiers/chernobog_shadow_walk/modifier_chernobog_ult_aura", LUA_MODIFIER_MOTION_NONE)  
 
+require('heroes/nightstalker/chernobog_constants')
 require('heroes/nightstalker/charons_claw')
 
 function start_channel(event)
@@ -147,18 +148,31 @@ function freeze_end(event)
 end
 
 function rune_r_2_illusion(event)
+	local caster = event.caster
+	local target = event.target
+	local ability = event.ability
 	local timerRand = RandomInt(1,48)
-	Timers:CreateTimer(timerRand/100, function()
-		local caster = event.caster
-		local target = event.target
-		local ability = event.ability
-		local damage = caster:GetAverageTrueAttackDamage(caster)*ability.r_2_level*0.03
-		CustomAbilities:QuickAttachParticle("particles/roshpit/chernobog/nights_procession_illusion.vpcf", target, 1.4)
-		Timers:CreateTimer(0.5, function()
-			EmitSoundOn("Chernobog.BC.Hit", target)
-			Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
-		end)	
-	end)
+	if not ability.r2_strike_current then
+		ability.r2_strike_current = -1
+		ability.r2_base_strikes = -1;
+	end
+	ability.r2_base_strikes = ability.r2_base_strikes + 1
+	local intervalsForAtt = CHERNOBOG_SHADOWS_INTERVALS_FOR_ATT
+	if caster:HasModifier('modifier_chernobog_glyph_1_1') then
+		intervalsForAtt = CHERNOBOG_GLYPH11_SHADOWS_INTERVALS_FOR_ATT
+	end
+	local strike_current = math.floor(ability.r2_base_strikes/intervalsForAtt)
+	if strike_current > ability.r2_strike_current then
+		Timers:CreateTimer(timerRand/100, function()
+			local damage = caster:GetAverageTrueAttackDamage(caster)*ability.r_2_level*CHERNOBOG_R2_DMG_PER_ATT
+			CustomAbilities:QuickAttachParticle("particles/roshpit/chernobog/nights_procession_illusion.vpcf", target, CHERNOBOG_SHADOWS_ATT_INTERVAL_BASE * intervalsForAtt)
+			Timers:CreateTimer(0.5, function()
+				EmitSoundOn("Chernobog.BC.Hit", target)
+				Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
+			end)
+		end)
+		ability.r2_strike_current = strike_current
+	end
 end
 
 function locked_unit_attack(event)
@@ -185,7 +199,7 @@ function locked_unit_attack(event)
 			function()
 			ParticleManager:DestroyParticle( particle2, false )
 			end)
-			local damage = event.attack_damage*0.05*ability.r_3_level
+			local damage = event.attack_damage*CHERNOBOG_R3_DMG_PER_ATT*ability.r_3_level
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do

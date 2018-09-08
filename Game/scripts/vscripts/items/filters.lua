@@ -2,7 +2,7 @@ if Filters == nil then
   Filters = class({})
 end
 
-
+require('/heroes/antimage/arkimus_constants')
 local heroes = {
     venomort = require('/heroes/hero_necrolyte/scales'),
     mountain_protector = require('/heroes/legion_commander/constants')
@@ -752,6 +752,9 @@ function Filters:CastSkillArguments(slot, caster)
             Filters:OrthokStack(caster,12)
         end
     end
+    if caster:HasModifier("modifier_mugato") then
+        caster:AddNewModifier(caster, nil, "modifier_silence", {duration = 4})
+    end
 end
 
 function Filters:BeginRChannel(caster)
@@ -1290,9 +1293,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_watcher_two") then
             damageMult = damageMult + 0.15
         end
-        if attacker:HasModifier("modifier_mugato") then
-            damageMult = damageMult + 5
-        end
         if attacker:HasModifier("modifier_eye_of_avernus") then
             damageMult = damageMult + 0.5
         end
@@ -1466,6 +1466,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + 0.2*current_stack
         end
         damage = damage*(1+damageMult)
+        if attacker:HasModifier('modifier_chernobog_glyph_5_1') then
+            damage = damage*CHERNOBOG_GLYPH51_BAD_MULT_EXCEPT_E
+        end
         if not ignore_effects then
             local indirectProcQ = false
             if attacker:HasModifier("modifier_luma_guard") and Filters:LumaGuardStrike(attacker, victim, damage) then
@@ -1542,6 +1545,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             Filters:DefilerHit(attacker, victim)
         end
         damage = damage*(1+damageMult)
+        if attacker:HasModifier('modifier_chernobog_glyph_5_1') then
+            damage = damage*CHERNOBOG_GLYPH51_BAD_MULT_EXCEPT_E
+        end
         if not ignore_effects then            
             local indirectProcW = false
             if attacker:HasModifier("modifier_fire_deity_crown") and Filters:FireDeity(attacker, victim, damage) then
@@ -1558,6 +1564,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     elseif slot == 3 then
         if attacker:HasModifier("modifier_admiral_boots") then
             damageMult = damageMult + 1
+        end
+        if attacker:HasModifier("modifier_boots_of_ashara") and attacker:GetHealth()/attacker:GetMaxHealth() <= 0.5 then
+            damageMult = damageMult + 20
         end
 
         if attacker:HasModifier("modifier_wind_deity_crown") then
@@ -1613,6 +1622,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
 
         damage = damage*(1+damageMult)
+        if attacker:HasModifier('modifier_chernobog_glyph_5_1') then
+            damage = damage*CHERNOBOG_GLYPH51_BAD_MULT_EXCEPT_E
+        end
         if not ignore_effects then
             local indirectProcR = false            
             if attacker:HasModifier("modifier_water_deity_crown") then
@@ -1775,7 +1787,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if attacker:HasAbility("arkimus_archon_form") then
             local c_d_level = Runes:GetTotalRuneLevelGeneric(attacker, 3, 3)
             if c_d_level > 0 then
-                mult = mult + 0.25*c_d_level
+                mult = mult + ARKIMUS_ARCANA2_R3_ELEMENTS_PCT*c_d_level
             end
         end
     end
@@ -1993,7 +2005,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 if bIsRealDamage then
                     local q_2_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 0)
                     if q_2_level > 0 then
-                        damage = damage + attacker:GetAgility()*0.02*q_2_level
+                        damage = damage + attacker:GetAgility()*VOLTEX_Q2_BAD_FLAT_PER_AGI*q_2_level
                     end 
                 end
             end

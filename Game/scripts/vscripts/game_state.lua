@@ -5,6 +5,10 @@ end
 require('/heroes/huskar/constants_SPIRIT_WARRIOR')
 require('/heroes/obsidian_destroyer/constants_epoch')
 require('/heroes/juggernaut/seinaru_constants')
+require('/heroes/nightstalker/chernobog_constants')
+require('/heroes/antimage/arkimus_constants')
+require('/heroes/monkey_king/constants')
+require('/heroes/skywrath_mage/constants')
 
 local heroes = {
 	venomort = require('/heroes/hero_necrolyte/scales'),
@@ -1233,7 +1237,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 	if victim:HasModifier("modifier_arkimus_arcana1_q3") then
 		local stacks = victim:GetModifierStackCount("modifier_arkimus_arcana1_q3", victim)
-		local reduction = 0.99^stacks
+		local reduction = (1-ARKIMUS_ARCANA1_Q3_DMG_RED_PER_STACK_EXP_BASE)^stacks
 		damage = damage*reduction
 	end
 	if victim:HasModifier("modifier_arkimus_d_b_shield") then
@@ -1269,7 +1273,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage*0.15
 	end
 	if victim:HasModifier("modifier_energy_field_c_d_shield") then
-		damage = damage*0.05
+		damage = damage * (1 - ARKIMUS_R3_DMG_RED)
 	end
 	if victim:HasModifier("modifier_possession_enemy_lock") then
 		damage = 0
@@ -1548,7 +1552,6 @@ function GameState:FilterDamage(filterTable)
 		-- end
 	end
 	local StartingDamage = filterTable["damage"]
-	print("START DAMAGE: "..StartingDamage)
 	local applyEffects = true
 	local applySturdyHornEffect = true
 
@@ -1883,8 +1886,16 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + 0.1*demonForm.r_4_level
 		end
 	end
+	modifier = victim:FindModifierByName("modifier_chernobog_rune_e_3_postmit")
+	if modifier and attacker:GetUnitName() == "npc_dota_hero_night_stalker" then
+		mult = mult + CHERNOBOG_E3_POSTMIT * modifier:GetStackCount()
+	end
 	if attacker:HasModifier("modifier_mordiggus_gauntlet") then
-		mult = mult+1
+		mult = mult + (1 - attacker:GetHealth()/attacker:GetMaxHealth()) * 4
+	end
+
+	if attacker:HasModifier("modifier_mugato") and attacker:IsSilenced() then
+		mult = mult + 6
 	end
 	if victim:HasModifier("modifier_epoch_rune_w_2_visible") then
 		if victim:GetPhysicalArmorValue() < 0 then
@@ -2239,7 +2250,7 @@ function GameState:FilterDamage(filterTable)
 		modifier = victim:FindModifierByName("modifier_lightbomb_postmit")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetStackCount()
-			mult = mult + 0.12*stacks
+			mult = mult + SEPHYR_Q2_POSTMIT*stacks
 		end
 	end
 	if victim:HasModifier("modifier_hyperbeam_postmit") then
@@ -2446,15 +2457,6 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = filterTable["damage"] - filterTable["damage"]*reductionPercent
 	end
 
-
-	if attacker:HasModifier("modifier_seinaru_immortal_weapon_1") then
-		if damagetype == DAMAGE_TYPE_PHYSICAL then
-			if not victim.dummy then
-				ApplyDamage({ victim = victim, attacker = attacker, damage = filterTable["damage"]*0.35, damage_type = DAMAGE_TYPE_PURE })
-				CustomAbilities:QuickAttachParticle("particles/econ/items/antimage/antimage_weapon_basher_ti5_gold/am_manaburn_basher_ti_5_gold.vpcf", victim, 1)
-			end
-		end
-	end
 	if victim:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
 		if GameState:GetDifficultyFactor() == 2 then
 			if victim.mainBoss then
@@ -2683,12 +2685,6 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = CustomAbilities:ChernobogDemonHunter(victim, filterTable["damage"])
 	end
 
-    if victim:HasModifier("modifier_boots_of_ashara") then
-    	if filterTable["damage"] <= victim:GetMaxHealth()*0.1 then
-    		filterTable["damage"] = filterTable["damage"]*0.1
-    		CustomAbilities:QuickAttachParticle("particles/roshpit/redfall/tree_healed_explosion_glow_fb_mid.vpcf", victim, 3)
-    	end
-    end
     if victim:HasModifier("modifier_hydroxis_mist_debuff") or victim:HasModifier("modifier_hydroxis_mist_debuff_timered") then
     	modifier = victim:FindModifierByName("modifier_hydroxis_mist_debuff")
     	if not modifier then
@@ -2839,7 +2835,7 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_zonis_stun_arcana1") then
 		if attacker:HasAbility("arkimus_zap_ring") then
 			local zapRing = attacker:FindAbilityByName("arkimus_zap_ring")
-			mult = mult + zapRing.q_2_level*0.015
+			mult = mult + zapRing.q_2_level*ARKIMUS_ARCANA1_Q2_POSTMIT
 		end
 	end
 	if attacker:HasModifier("modifier_world_tree_effect") then
@@ -3109,7 +3105,7 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_djanghor_immortal_weapon_2") then
 		if victim:HasModifier("modifier_shapeshift_bear") or victim:HasModifier("modifier_shapeshift_year_beast") then
 			if filterTable["damage"] < victim:GetMaxHealth()*100 then
-				filterTable["damage"] = math.min(victim:GetMaxHealth()*0.1, filterTable["damage"])
+				filterTable["damage"] = math.min(victim:GetMaxHealth()*DJANGHOR_WEAP_2_HP_THRESHOLD_PCT, filterTable["damage"])
 			end
 		end
 	end
@@ -3263,7 +3259,7 @@ function GameState:FilterDamage(filterTable)
 			if not victim:HasModifier("modifier_ankh_of_ancients_cooldown") then
 				filterTable["damage"] = victim:GetHealth() - 2
 				victim.amulet.ankh_apply_time = GameRules:GetGameTime()
-				victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_ankh_of_ancients_shield", {duration = 3})
+				victim.amulet:ApplyDataDrivenModifier(victim, victim, "modifier_ankh_of_ancients_shield", {duration = 4})
 				for i = 0, 3, 1 do
 					local abilityIndex = i
 					if i == 3 then

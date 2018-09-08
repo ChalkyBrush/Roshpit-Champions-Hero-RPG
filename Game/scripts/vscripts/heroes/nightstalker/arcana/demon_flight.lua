@@ -1,3 +1,5 @@
+require('heroes/nightstalker/chernobog_constants')
+
 LinkLuaModifier("modifier_chernobog_demon_flight_attack", "modifiers/chernobog_shadow_walk/modifier_chernobog_demon_flight_attack", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_chernobog_d_c_arcana2", "modifiers/chernobog_shadow_walk/modifier_chernobog_d_c_arcana2", LUA_MODIFIER_MOTION_NONE)
 
@@ -64,10 +66,6 @@ function flying_portion_think(event)
 
 	if blockUnit then
 		caster:SetAbsOrigin(caster:GetAbsOrigin()-caster:GetForwardVector()*50)
-		caster:RemoveModifierByName("modifier_chernobog_demon_flight")
-	end
-	if caster:IsStunned() then
-		caster:RemoveModifierByName("modifier_chernobog_demon_flight")
 	end
 end
 
@@ -235,7 +233,7 @@ function passive_thinker(event)
 		local damageDEMON = Filters:ElementalDamage(Events.GameMaster, caster, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE, false)
 		local demonAmp =  math.floor(damageDEMON/damageDealt)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_demonflight_c_c_attack", {})
-		local attack_dmg = (demonAmp)*c_c_level
+		local attack_dmg = (demonAmp)*c_c_level*CHERNOBOG_ARCANA2_E3_ATT_PER_DEMON_PCT
 		caster:SetModifierStackCount("modifier_demonflight_c_c_attack", caster, attack_dmg)
 	else
 		caster:RemoveModifierByName("modifier_demonflight_c_c_attack")

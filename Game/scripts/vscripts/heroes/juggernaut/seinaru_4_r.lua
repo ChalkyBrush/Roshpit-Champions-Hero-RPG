@@ -171,7 +171,7 @@ function gorudo_attack_land(event)
 			local damage = attacker:GetAverageTrueAttackDamage(attacker)*c_d_level*SEINARU_R3_DMG_PER_ATT
 			if critModifier then
 				local arcanaAbility = critModifier:GetAbility()
-				damage = damage * 1.5 * arcanaAbility.q_1_level
+				damage = damage * SEINARU_ARCANA_Q1_CRIT_DMG * arcanaAbility.q_1_level
 			end
 			Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_HOLY, RPC_ELEMENT_NORMAL)
 		end

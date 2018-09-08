@@ -943,7 +943,7 @@
     				"Passive"	"1"
     				"IsHidden"	"1"
 
-    				"OnAttackStart"
+    				"OnAttack"
     				{
     					"RunScript"
     					{

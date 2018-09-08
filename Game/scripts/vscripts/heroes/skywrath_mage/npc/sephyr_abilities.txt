@@ -622,7 +622,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"int_damage"			"40 50 60 70 80 90 100"
+				"int_damage"			"120 150 180 210 240 270 300"
 			}
 			"04"
 			{
@@ -953,7 +953,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"<% SEPHYR_Q2_POSTMIT * 100 %>"
 			}
 		}
 
@@ -1458,7 +1458,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6"
+				"property_one"			"<% SEPHYR_ARCANA1_W3_SHIELD_CHANCE %>"
 			}
 		}
 

@@ -57,7 +57,7 @@
 		"DOTA_Tooltip_ability_seinaru_rune_w_1_suffix"					"%"
 		
 		"DOTA_Tooltip_ability_seinaru_rune_w_2"							"[W2] Typhoon"
-		"DOTA_Tooltip_ability_seinaru_rune_w_2_Description"				"Hands of Hikari has a <% SEINARU_W2_PROC_CHANCE %>% chance to release a quick Typhoon that damages and stuns surrounding enemies in a radius of <% SEINARU_W2_RADIUS_BASE %>. Base damage is multiplied by the level of Hands of Hikari."
+		"DOTA_Tooltip_ability_seinaru_rune_w_2_Description"				"Hands of Hikari release a quick Typhoon that damages enemies in a radius of <% SEINARU_W2_RADIUS_BASE %>. Base damage is multiplied by the level of Hands of Hikari."
 		"DOTA_Tooltip_ability_seinaru_rune_w_2_property_one"			"Damage"
 		"DOTA_Tooltip_ability_seinaru_rune_w_2_suffix"					""
 		"DOTA_Tooltip_ability_seinaru_rune_w_2_property_two"			"Stun Duration"

@@ -5029,7 +5029,7 @@ function RPCItems:RollHarvesterBoots(deathLocation)
     if luck == 3 then
         local letter = RPCItems:GetRandomRuneLetter(1, 4)
         runeName = "rune_"..letter.."_1"
-        runeValue = math.floor(RPCItems:GetLogarithmicVarianceValue(maxFactor/6, 0, 0, 0, 0))
+        runeValue = math.floor(RPCItems:GetLogarithmicVarianceValue(maxFactor/5, 0, 0, 0, 0))
 
         item.property1name = runeName
         item.property1 = runeValue
@@ -5051,7 +5051,7 @@ function RPCItems:RollHarvesterBoots(deathLocation)
     if luck == 3 then
         local letter = RPCItems:GetRandomRuneLetter(1, 4)
         runeName = "rune_"..letter.."_2"
-        runeValue = math.floor(RPCItems:GetLogarithmicVarianceValue(maxFactor/6, 0, 0, 0, 0))
+        runeValue = math.floor(RPCItems:GetLogarithmicVarianceValue(maxFactor/5, 0, 0, 0, 0))
 
         item.property2name = runeName
         item.property2 = math.floor(runeValue)
@@ -5073,7 +5073,7 @@ function RPCItems:RollHarvesterBoots(deathLocation)
     if luck == 3 and maxFactor >= 150 then
         local letter = RPCItems:GetRandomRuneLetter(1, 4)
         runeName = "rune_"..letter.."_3"
-        runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor/12, 0, 0, 0, 0)
+        runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor/10, 0, 0, 0, 0)
 
         item.property3name = runeName
         item.property3 = math.floor(runeValue)
@@ -5095,7 +5095,8 @@ function RPCItems:RollHarvesterBoots(deathLocation)
     if luck == 4 and maxFactor >= 270 then
         local letter = RPCItems:GetRandomRuneLetter(1, 4)
         runeName = "rune_"..letter.."_4"
-        runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor/35, 0, 0, 0, 0)
+        runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor/30, 0, 0, 0, 0)
+
         item.property4name = runeName
         item.property4 = math.floor(runeValue)
         RPCItems:SetPropertyValues(item, item.property4, "rune", "#7DFF12",  4)
@@ -7865,7 +7866,7 @@ function RPCItems:RollHoodOfLords(deathLocation, spiritRealm)
     end
     local bonus = 0
     if spiritRealm then
-        bonus = 5
+        bonus = 9
     end
     local runeValue = RPCItems:GetLogarithmicVarianceValue(15+bonus, 0, 0, 0, 0)
     item.property2name = runeName
@@ -8067,29 +8068,27 @@ function RPCItems:RollHeroicConquerorVestments(deathLocation, pitLevel)
     local maxFactor = RPCItems:GetMaxFactor()
 
     item.hasRunePoints = true
-
+    
     local runeName = "rune_q_4"
-    local runeValue = RPCItems:GetLogarithmicVarianceValue(8+pitLevel, 0, 0, 0, 0)
+    local runeValue = RPCItems:GetLogarithmicVarianceValue(11+pitLevel, 0, 0, 0, 0)
     item.property1name = runeName
     item.property1 = runeValue
     RPCItems:SetPropertyValues(item, item.property1, "rune", "#7DFF12",  1)
 
     local runeName = "rune_w_4"
-    local runeValue = RPCItems:GetLogarithmicVarianceValue(8+pitLevel, 0, 0, 0, 0)
-
+    local runeValue = RPCItems:GetLogarithmicVarianceValue(11+pitLevel, 0, 0, 0, 0)
     item.property2name = runeName
     item.property2 = runeValue
     RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
 
     local runeName = "rune_e_4"
-    local runeValue = RPCItems:GetLogarithmicVarianceValue(8+pitLevel, 0, 0, 0, 0)
+    local runeValue = RPCItems:GetLogarithmicVarianceValue(11+pitLevel, 0, 0, 0, 0)
     item.property3name = runeName
     item.property3 = runeValue
     RPCItems:SetPropertyValues(item, item.property3, "rune", "#7DFF12",  3)
 
     local runeName = "rune_r_4"
-    local runeValue = RPCItems:GetLogarithmicVarianceValue(8+pitLevel, 0, 0, 0, 0)
-
+    local runeValue = RPCItems:GetLogarithmicVarianceValue(11+pitLevel, 0, 0, 0, 0)
     item.property4name = runeName
     item.property4 = runeValue
     RPCItems:SetPropertyValues(item, item.property4, "rune", "#7DFF12",  4)

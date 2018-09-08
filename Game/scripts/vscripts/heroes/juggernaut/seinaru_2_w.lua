@@ -32,25 +32,23 @@ function hikari_start(event)
 end
 
 function new_b_b(caster, ability, w_2_level)
-	local luck = RandomInt(1,4)
-	if luck == 1 then
-		local pfx = ParticleManager:CreateParticle("particles/econ/items/monkey_king/arcana/death/monkey_king_spring_arcana_death.vpcf", PATTACH_CUSTOMORIGIN, caster)
-		ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
-		ParticleManager:SetParticleControl(pfx, 1, Vector(500, 2, 2))
+	local pfx = ParticleManager:CreateParticle("particles/econ/items/monkey_king/arcana/death/monkey_king_spring_arcana_death.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(pfx, 1, Vector(500, 2, 2))
 
+	local luck = RandomInt(1, 100)
+	if luck < SEINARU_W2_SOUND_PROC_CHANCE then
 		EmitSoundOn("Hydroxis.Ultimate.Start", caster)
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Seinaru.BBExplosion", Events.GameMaster)
-		EndAnimation(caster)
-		StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_SPAWN, rate=1.2, translate="odachi"})
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, SEINARU_W2_RADIUS_BASE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-		local damage = w_2_level * SEINARU_W2_DMG * ability:GetLevel()
-		local stunDuration = w_2_level * SEINARU_W2_STUN_DUR
-		if #enemies > 0 then
-			for _,enemy in pairs(enemies) do
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
-				Filters:ApplyStun(caster, stunDuration, enemy)
-			end
-		end 
+	end
+	EndAnimation(caster)
+	StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_SPAWN, rate=1.2, translate="odachi"})
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, SEINARU_W2_RADIUS_BASE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	local damage = w_2_level * SEINARU_W2_DMG * ability:GetLevel()
+	if #enemies > 0 then
+		for _,enemy in pairs(enemies) do
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
+		end
 	end
 end
 
@@ -182,8 +180,7 @@ function hikari_heal(caster, position, ability, ampFactor)
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
 				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/monk_glyph_5_1_bushido_heal.vpcf", enemy, 0.65)
-				ApplyDamage({ victim = enemy, attacker = caster, damage = ability.heal*ampFactor, damage_type = DAMAGE_TYPE_MAGICAL })	
-				PopupDamage(enemy, ability.heal*ampFactor)
+				ApplyDamage({ victim = enemy, attacker = caster, damage = ability.heal*ampFactor, damage_type = DAMAGE_TYPE_MAGICAL })
 			end
 		end  
 	end

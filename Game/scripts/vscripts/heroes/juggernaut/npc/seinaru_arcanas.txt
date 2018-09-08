@@ -107,7 +107,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 
-				"OnAttackStart"
+				"OnAttack"
 				{
 					"RunScript"
 					{

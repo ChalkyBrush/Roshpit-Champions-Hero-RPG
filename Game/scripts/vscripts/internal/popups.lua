@@ -151,6 +151,10 @@ function PopupNumbers(target, pfx, color, lifetime, number, presymbol, postsymbo
     ParticleManager:SetParticleControl(pidx, 1, Vector(tonumber(presymbol), tonumber(number), tonumber(postsymbol)))
     ParticleManager:SetParticleControl(pidx, 2, Vector(lifetime, digits, 0))
     ParticleManager:SetParticleControl(pidx, 3, color)
+    Timers:CreateTimer(lifetime, function()
+        ParticleManager:DestroyParticle(pidx, false)
+        ParticleManager:ReleaseParticleIndex(pidx)
+    end)
 end
 
 function PopupFirstAid(target)

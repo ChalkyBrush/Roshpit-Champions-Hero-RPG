@@ -354,6 +354,12 @@ function CustomAttributes:SetAttributes(hero)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", CustomAttributes.VENOMORT_W3_STATS)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", CustomAttributes.VENOMORT_W3_STATS)
 	end
+	if heroName == "npc_dota_hero_antimage" then
+		if hero:HasAbility('arkimus_zap_ring') then
+			local q1_level = hero:GetRuneValue('q', 1)
+			int_bonus = int_bonus + q1_level * ARKIMUS_ARCANA1_Q1_INT
+		end
+	end
 
 	-- ENEMIES --
 
