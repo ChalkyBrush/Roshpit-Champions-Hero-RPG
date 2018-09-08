@@ -494,6 +494,12 @@ function ChatDropItems(keys)
     CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
   end
 
+  if string.match(text, "-potions") then
+    for i=1,30 do
+      RPCItems:RollBasicPotion(5000, vector, "mythical", 100)
+    end
+  end
+  
   local wepClass
 
   wepClass = "conjuror" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector) end
