@@ -58140,7 +58140,7 @@
 			"modifier_solunia_warp_core_thinker"
 			{
 				"Aura"					"modifier_solunia_warp_core_aura_solar"
-				"Aura_Radius"			"200"
+				"Aura_Radius"			"300"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -58155,33 +58155,7 @@
 						"ControlPoints"
 						{
 							"00" "0 0 0"
-							"01" "200 1 240"
-							"02" "6 6 6"
-							"15" "25 150 25"
-							"16" "1 0 0"
-						}
-					}
-				}
-			}
-			"modifier_solunia_warp_core_thinker_glyphed"
-			{
-				"Aura"					"modifier_solunia_warp_core_aura_solar"
-				"Aura_Radius"			"400"
-				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"		"particles/roshpit/solunia/warp_core_solar.vpcf"
-						"EffectAttachType"	"follow_origin"
-						"Target"			"TARGET"
-						"ControlPoints"
-						{
-							"00" "0 0 0"
-							"01" "400 1 240"
+							"01" "300 1 240"
 							"02" "6 6 6"
 							"15" "25 150 25"
 							"16" "1 0 0"
@@ -58356,7 +58330,7 @@
 			"modifier_solunia_warp_core_thinker"
 			{
 				"Aura"					"modifier_solunia_warp_core_aura_lunar"
-				"Aura_Radius"			"200"
+				"Aura_Radius"			"300"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -58371,33 +58345,7 @@
 						"ControlPoints"
 						{
 							"00" "0 0 0"
-							"01" "200 1 240"
-							"02" "6 6 6"
-							"15" "25 150 25"
-							"16" "1 0 0"
-						}
-					}
-				}
-			}
-			"modifier_solunia_warp_core_thinker_glyphed"
-			{
-				"Aura"					"modifier_solunia_warp_core_aura_lunar"
-				"Aura_Radius"			"400"
-				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"		"particles/roshpit/solunia/warp_core_lunar.vpcf"
-						"EffectAttachType"	"follow_origin"
-						"Target"			"TARGET"
-						"ControlPoints"
-						{
-							"00" "0 0 0"
-							"01" "400 1 240"
+							"01" "300 1 240"
 							"02" "6 6 6"
 							"15" "25 150 25"
 							"16" "1 0 0"
@@ -58434,7 +58382,7 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"solunia/solunia_supernova"
 		"AbilityCastPoint"	"0.0"
-		"AbilityCooldown"	"15"
+		"AbilityCooldown"	"14"
 		"AbilityChannelTime"	"3.0"
 		"AbilityCastRange"				"450"
 		"AOERadius"						"450"
@@ -58675,7 +58623,7 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"solunia/solunia_eclipse"
 		"AbilityCastPoint"	"0.0"
-		"AbilityCooldown"	"15"
+		"AbilityCooldown"	"14"
 		"AbilityChannelTime"	"3.0"
 		"AbilityCastRange"				"450"
 		"AOERadius"						"450"
@@ -82500,7 +82448,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"90"
 			}
 			"02"
 			{
@@ -82687,12 +82635,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"2.4"
+				"property_one"			"1.6"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"12"
+				"property_two"			"24"
 			}
 			"03"
 			{
@@ -82931,7 +82879,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.1"
+				"property_two"			"20"
 			}
 		}
 	}
@@ -83048,7 +82996,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.05"
+				"property_two"			"0.02"
 			}
 		}
 	}
@@ -83251,6 +83199,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"30"
 			}
 		}
 	}

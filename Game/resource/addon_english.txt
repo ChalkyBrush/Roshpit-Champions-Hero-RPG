@@ -4798,7 +4798,7 @@
     	"DOTA_Tooltip_ability_solunia_rune_e_2_suffix_two"					" seconds"	
 
     	"DOTA_Tooltip_ability_solunia_rune_r_2"								"[R2] Cluster Fire"
-    	"DOTA_Tooltip_ability_solunia_rune_r_2_Description"					"Enemies hit by Supernova and Eclipse take burn damage every second based on the damage taken. If both the Lunar and Solar burns are active at the same time, the fire does increased damage. Lasts 8 seconds."
+    	"DOTA_Tooltip_ability_solunia_rune_r_2_Description"					"Enemies hit by Supernova and Eclipse take burn damage every second based on the damage taken. If both the Lunar and Solar burns are active at the same time, the fire does increased damage. Enemies can have multiple stacks of the same burn, but each stack has its own duration. Each burn will deal the damage of all stacks in 1 instance. Lasts 8 seconds."
     	"DOTA_Tooltip_ability_solunia_rune_r_2_property_one"				"Burn Damage"
     	"DOTA_Tooltip_ability_solunia_rune_r_2_suffix"						"% of original damage per tick"	
     	"DOTA_Tooltip_ability_solunia_rune_r_2_property_two"				"Dual Burn Amplification"
@@ -4859,11 +4859,11 @@
     	"DOTA_Tooltip_ability_solunia_rune_e_4_suffix"						""
 
     	"DOTA_Tooltip_ability_solunia_rune_r_4"								"[R4] Equinox"
-    	"DOTA_Tooltip_ability_solunia_rune_r_4_Description"					"Reduces the cooldowns of Super Nova and Eclipse and increases their stun durations."
+    	"DOTA_Tooltip_ability_solunia_rune_r_4_Description"					"Reduces the cooldowns of Super Nova and Eclipse and increases their damage based on all attributes."
     	"DOTA_Tooltip_ability_solunia_rune_r_4_property_one"				"Cooldown Reduction"
     	"DOTA_Tooltip_ability_solunia_rune_r_4_suffix"						" seconds"
-    	"DOTA_Tooltip_ability_solunia_rune_r_4_property_two"				"Stun Duration Increase"
-    	"DOTA_Tooltip_ability_solunia_rune_r_4_suffix_two"					" seconds"
+    	"DOTA_Tooltip_ability_solunia_rune_r_4_property_two"				"Damage Increase"
+    	"DOTA_Tooltip_ability_solunia_rune_r_4_suffix_two"					"x all attributes"
 
     	"item_property_solunia_arcana1"										"Solar & Lunar Comet"
     	"property_solunia_arcana1_description"								"Replaces @Ability1 and all of its runes with Solar & Lunar Comet."
@@ -5017,7 +5017,7 @@
     	"DOTA_Tooltip_ability_hydroxis_rune_e_1_suffix"						"% of Water Bomb"
 
     	"DOTA_Tooltip_ability_hydroxis_rune_r_1"							"[R1] Wave Drench"
-    	"DOTA_Tooltip_ability_hydroxis_rune_r_1_Description"				"Enemies hit by Ocean Quake have their armor greatly reduced. Additionally, the damage of the ability and its runes are increased based on your armor, but with Tsunami and Poseidon's Fury receiving only 30% of the total bonus"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_1_Description"				"Enemies hit by @Ability4 have their armor greatly reduced. Additionally, the damage of the ability and its runes are increased based on your armor, but with Tsunami and Poseidon's Fury receiving only 60% of the total bonus"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_1_property_one"				"Armor Loss"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_1_suffix"						""
         "DOTA_Tooltip_ability_hydroxis_rune_r_1_property_two"               "Ocean Quake Damage increase"
@@ -5090,9 +5090,11 @@
     	//SET RENDER COLOR (130, 130, 255)
 
     	"DOTA_Tooltip_ability_hydroxis_rune_q_4"							"[Q4] Hydrotide"
-    	"DOTA_Tooltip_ability_hydroxis_rune_q_4_Description"				"Grants a chance to cast Hydro Pump again after a 0.9 second delay. Greater than 100% chance means it will be cast multiple times."
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_4_Description"				"Increases the base damage of @Ability1 based on all attributes and grants a chance to cast @Ability1 again after a 0.9 second delay. Greater than 100% chance means it will be cast multiple times."
     	"DOTA_Tooltip_ability_hydroxis_rune_q_4_property_one"				"Chance for Multi-Cast"
     	"DOTA_Tooltip_ability_hydroxis_rune_q_4_suffix"						"%"
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_4_property_two"				"@Ability1 Damage Bonus"
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_4_suffix_two"					"x all attributes"
 
     	"DOTA_Tooltip_ability_hydroxis_rune_w_4"							"[W4] Overflow"
     	"DOTA_Tooltip_ability_hydroxis_rune_w_4_Description"				"Water Bomb drains an additional 3% of your max mana on cast, increasing its damage based on mana drained."
@@ -9842,7 +9844,13 @@
 		"item_rpc_solunia_glyph_4_1_description" 				"Increases the floating duration between Warp Flares by @glyph_property1 seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_1"		"Glyph of Neutrino"
-		"item_rpc_solunia_glyph_5_1_description" 				"Increases the radius of Warp Cores by @glyph_property1 but reduces duration by 50%."
+		"item_rpc_solunia_glyph_5_1_description" 				"After casting @Ability4 gain a shield which blocks 3 instances of damage."
+		
+		"DOTA_Tooltip_modifier_solunia_glyph_5_1_shield"		"Neutrino"
+		"DOTA_Tooltip_modifier_solunia_glyph_5_1_shield_Description"		"Absorbs 1 instance of damage per stack."
+		
+		"DOTA_Tooltip_modifier_solunia_glyph_5_1_shield_arcana"		"Neutrino"
+		"DOTA_Tooltip_modifier_solunia_glyph_5_1_shield_arcana_Description"		"Absorbs 1 instance of damage per stack."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_6_1"		"Glyph of Singularity"
 		"item_rpc_solunia_glyph_6_1_description" 				"After using Supernova or Eclipse, gain a buff that allows a cast of @Ability1 with no cooldown or charge consumption."

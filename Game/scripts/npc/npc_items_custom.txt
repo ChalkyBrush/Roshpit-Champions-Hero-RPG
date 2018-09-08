@@ -49992,13 +49992,19 @@
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
+			"modifier_solunia_glyph_5_1_shield"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"TextureName"		"solunia/modifier_solunia_glyph_5_1_shield"
+			}
+			"modifier_solunia_glyph_5_1_shield_arcana"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"TextureName"		"solunia/modifier_solunia_glyph_5_1_shield_arcana"
 			}
 		}
 	}
