@@ -60,6 +60,7 @@
 			"modifier_tutorial_open"
 			{
 				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 			"modifier_tutorial_master_making_noises"
 			{

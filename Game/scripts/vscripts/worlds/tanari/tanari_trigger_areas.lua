@@ -948,4 +948,5 @@ function respawn_flag_succeed(event)
 	caster.respawnFlag = flag
 	CustomAbilities:QuickAttachParticle("particles/econ/items/meepo/meepo_colossal_crystal_chorus/meepo_divining_rod_poof_end.vpcf", flag, 3)
 	CustomAbilities:QuickAttachParticle("particles/econ/items/monkey_king/arcana/water/mk_spring_arcana_water_channel_powertrails.vpcf", flag, 4)
+	Events:TutorialServerEvent(caster, "1_2", 0)
 end

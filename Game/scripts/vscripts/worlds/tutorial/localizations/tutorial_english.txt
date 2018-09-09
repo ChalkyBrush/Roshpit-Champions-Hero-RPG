@@ -25,12 +25,25 @@
 
 	"quest_1_challenge_1_desc"											"At the bottom right of your screen is a blue scroll icon. Clicking on it will begin a channel that is interrupted when damage is taken. Finishing the channel teleports your hero back to the map's town."
 
+	"quest_1_challenge_1_sub_0_summary"									"Use the Town Portal ability located at the bottom right of your screen."
+
 	"tutorial_master_dialogue_1_1a"										"Look at the bottom right of your screen."
 	"tutorial_master_dialogue_1_1b"										"The blue scroll icon is your town portal ability."
 	"tutorial_master_dialogue_1_1c"										"It will take you back to the map's town if the channel is not interrupted."
 	"tutorial_master_dialogue_1_1d"										"Go ahead and try using the Town Portal!"
 	"tutorial_master_dialogue_1_1e"										"Nice TP, but now you have to walk all the way over here again! Haha!"
 	
+	"quest_1_challenge_2_desc"											"Next to the town portal scroll button is the Respawn Flag. Finishing its channel without being interrupted will place a flag at your location. After dying, you will respawn at the flag's location, and the flag is consumed."
+	"quest_1_challenge_2_sub_0_summary"									"Use the Respawn Flag ability located at the bottom right of your screen."
+	"quest_1_challenge_2_sub_1_summary"									"Respawn at your flag."
+
+	"tutorial_master_dialogue_1_2a"										"Look at the bottom right of your screen again."
+	"tutorial_master_dialogue_1_2b"										"Next to the town portal scroll is the Respawn Flag."
+	"tutorial_master_dialogue_1_2c"										"When you finish the channel without being interrupted, you place the flag at your current position."
+	"tutorial_master_dialogue_1_2d"										"Next time you die, your respawn location will be relocated to the flag's position."
+	"tutorial_master_dialogue_1_2e"										"If you think you won't need this because you plan not to die, then you really don't understand how brutal Roshpit's monsters can get."
+	"tutorial_master_dialogue_1_2f"										"You can experience it for yourself later. For now, go ahead and use the respawn flag!"
+
 	"quest_2_interface"													"2. Hero"
 	"quest_2_interface_description"										"This lecture will help with mastering your hero's abilities."
 

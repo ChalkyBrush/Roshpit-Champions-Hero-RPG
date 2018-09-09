@@ -69,12 +69,13 @@
 		</snippet>
 		<snippet name="challenge_summary">
 			<Panel class="challenge_summary" hittest="false">
-
 			</Panel>
 		</snippet>
 		<snippet name="challenge_summary_item">
 			<Panel class="challenge_summary_item" hittest="false">
-
+				<Panel class="challenge_summary_bg">
+				</Panel>
+				<Label id="challenge_summary_item_label" hittest="false"/>
 			</Panel>
 		</snippet>
 	</snippets>
@@ -82,6 +83,8 @@
 	<Panel class="tutorial_content" hittest="false">
 		<Panel id="tutorial_container" hittest="false">
 
+		</Panel>
+		<Panel id="tutorial_challenge_summary_container" hittest="false">
 		</Panel>
 	</Panel>
 </root>

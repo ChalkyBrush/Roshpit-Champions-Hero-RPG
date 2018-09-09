@@ -71,9 +71,16 @@ function category_panel_click_setup(categoryPanel, index, category, msg){
 	setupCategory(category, index, category_container, true)
 	var challengeListPanel = $.CreatePanel("Panel", category_container, "challenge-list")
 	challengeListPanel.BLoadLayoutSnippet('tutorial_challenge_list')
-	var challengeCount = Object.keys(category.challenges).length
+	var challengeCount = category["challenges"]
+	$.Msg(msg.tutorial)
+	var challenge_section = index+1
+	var key = ("section"+challenge_section).toString()
+	$.Msg(key)
+	var progress = msg.tutorial[key]["progress"]
 	for (var i = 0; i < challengeCount; i++) {
-		setupChallenge(category, category.challenges[i+1], index, challengeListPanel)
+		if (progress >= i){
+			setupChallenge(category, category.challenges[i+1], i, challengeListPanel)
+		}
 	}
 	Game.EmitSound("Tutorial.UI.CategoryClick")
 	mCloseButton.FindChildTraverse('close_button_label').text = $.Localize("ui_back")
@@ -92,6 +99,7 @@ function setupChallenge(category, challenge, index, challengeListPanel){
 		challengePanel.BLoadLayoutSnippet("tutorial_challenge")	
 		var quest_number = category["index"]
 		var challenge_number = index + 1
+		$.Msg("---CHALLENGE NUMBER:"+challenge_number)
 		challengePanel.FindChildTraverse('tutorial_challenge_text').text = $.Localize('quest_'+quest_number+"_challenge_"+challenge_number) 
 		challengePanel.FindChildTraverse('challenge_button').SetPanelEvent('onactivate', function Activate() {
 			challenge_activate(category, challenge_number, challengeListPanel)
@@ -119,7 +127,34 @@ function challenge_go_final(category, challenge_index)
 	CloseTutorial();	
 }
 
+function ChallengeSummary(msg)
+{
+	var parent = $('#tutorial_challenge_summary_container')
+	parent.RemoveAndDeleteChildren(0)
+    var tutorial_challenge_panel = $.CreatePanel("Panel", parent, "tutorial-challenges")
+    tutorial_challenge_panel.BLoadLayoutSnippet("challenge_summary");
+    var listItemCount = msg.sub_index
+    if (msg.bCapped){
+    	listItemCount = listItemCount - 1
+    }
+	for (var i = 0; i <= listItemCount; i++) {
+		var challenge_progress_panel = $.CreatePanel("Panel", tutorial_challenge_panel, "tutorial-challenge-progress-"+i)
+		challenge_progress_panel.BLoadLayoutSnippet('challenge_summary_item')
+		challenge_progress_panel.FindChildTraverse('challenge_summary_item_label').text = $.Localize('quest_'+msg.category_index+'_challenge_'+msg.challenge_index+'_sub_'+i+'_summary')
+		if (msg.sub_index > i){
+			challenge_progress_panel.FindChildTraverse('challenge_summary_item_label').AddClass('challenge_summary_item_completed')
+		}
+	}    
+}
+
+function CloseChallengeSummary(msg){
+	var parent = $('#tutorial_challenge_summary_container')
+	parent.RemoveAndDeleteChildren(0)	
+}
+
 (function()
 {
 	GameEvents.Subscribe( "open_tutorial", OpenTutorial );
+	GameEvents.Subscribe("challenge_summary", ChallengeSummary);
+	GameEvents.Subscribe("close_challenge_summary", CloseChallengeSummary);
 })();
