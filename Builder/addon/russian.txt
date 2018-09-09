@@ -2339,7 +2339,7 @@
     	"DOTA_Tooltip_ability_seinaru_rune_w_4_suffix"					"% за каждые 10 очков Ловкости"
 
     	"DOTA_Tooltip_ability_seinaru_rune_e_4"						"[E4] Wings of the Swift"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_4_Description"			"Снижение брони усиливается, позволяя опускать ее значение ниже нуля до определенной границы. У целей с очень высоким показателем брони также срезается броня в количестве текущей максимальной границы (этой руны). Дополнительно увеличивается наносимый пост-резистный урон стихии <font color=\"#F6FFB5\">Света</font><br> против врагов со значением брони ниже 0."
+    	"DOTA_Tooltip_ability_seinaru_rune_e_4_Description"			"Снижение брони усиливается, позволяя руне [R1] опускать ее значение ниже нуля до определенной границы. Дополнительно увеличивается наносимый пост-резистный урон стихии <font color=\"#F6FFB5\">Света</font><br> против врагов со значением брони ниже 0."
     	"DOTA_Tooltip_ability_seinaru_rune_e_4_property_one"			"Макс. отрицательное значение брони"
     	"DOTA_Tooltip_ability_seinaru_rune_e_4_suffix"					""
      	"DOTA_Tooltip_ability_seinaru_rune_e_4_property_two"			"Доп. урон Света"
