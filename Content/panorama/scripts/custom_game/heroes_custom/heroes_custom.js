@@ -37,7 +37,8 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 		}else if (!(requiredHero == "")){
 			tooltip = tooltip.replace("[Q1]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_q_1")+"</font>");
 		}
-	}else if (tooltip.indexOf("[Q2]") > -1){
+    }
+    if (tooltip.indexOf("[Q2]") > -1) {
 		if (queryUnit > 0){
 			var skill_tree_data = CustomNetTables.GetTableValue( "skill_tree", playerIndex.toString()+"rune_unit2" ).runeUnit;
 			var ability = Entities.GetAbility( skill_tree_data, 0 );
@@ -45,7 +46,8 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 		}else if (!(requiredHero == "")){
 			tooltip = tooltip.replace("[Q2]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_q_2")+"</font>");
 		}
-	}else if (tooltip.indexOf("[Q3]") > -1){
+    }
+    if (tooltip.indexOf("[Q3]") > -1) {
 		if (queryUnit > 0){
 			var skill_tree_data = CustomNetTables.GetTableValue( "skill_tree", playerIndex.toString()+"rune_unit3" ).runeUnit;
 			var ability = Entities.GetAbility( skill_tree_data, 0 );
@@ -53,7 +55,8 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 		}else if (!(requiredHero == "")){
 			tooltip = tooltip.replace("[Q3]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_q_3")+"</font>");
 		}
-	}else if (tooltip.indexOf("[Q4]") > -1){
+    }
+    if (tooltip.indexOf("[Q4]") > -1) {
 		if (queryUnit > 0){
 			var skill_tree_data = CustomNetTables.GetTableValue( "skill_tree", playerIndex.toString()+"rune_unit4" ).runeUnit;
 			var ability = Entities.GetAbility( skill_tree_data, 0 );
@@ -61,7 +64,8 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 		}else if (!(requiredHero == "")){
 			tooltip = tooltip.replace("[Q4]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_q_4")+"</font>");
 		}
-	}else if (tooltip.indexOf("[W1]") > -1){
+    }
+    if (tooltip.indexOf("[W1]") > -1) {
 		if (queryUnit > 0){
 			var skill_tree_data = CustomNetTables.GetTableValue( "skill_tree", playerIndex.toString()+"rune_unit1" ).runeUnit;
 			var ability = Entities.GetAbility( skill_tree_data, 1 );
@@ -69,7 +73,8 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 		}else if (!(requiredHero == "")){
 			tooltip = tooltip.replace("[W1]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_w_1")+"</font>");
 		}
-	}else if (tooltip.indexOf("[W2]") > -1){
+    }
+    if (tooltip.indexOf("[W2]") > -1) {
 		if (queryUnit > 0){
 			var skill_tree_data = CustomNetTables.GetTableValue( "skill_tree", playerIndex.toString()+"rune_unit2" ).runeUnit;
 			var ability = Entities.GetAbility( skill_tree_data, 1 );
@@ -77,7 +82,8 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 		}else if (!(requiredHero == "")){
 			tooltip = tooltip.replace("[W2]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_w_2")+"</font>");
 		}
-	}else if (tooltip.indexOf("[W3]") > -1){
+    }
+    if (tooltip.indexOf("[W3]") > -1) {
 		if (queryUnit > 0){
 			var skill_tree_data = CustomNetTables.GetTableValue( "skill_tree", playerIndex.toString()+"rune_unit3" ).runeUnit;
 			var ability = Entities.GetAbility( skill_tree_data, 1 );
@@ -85,7 +91,8 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 		}else if (!(requiredHero == "")){
 			tooltip = tooltip.replace("[W3]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_w_3")+"</font>");
 		}
-	}else if (tooltip.indexOf("[W4]") > -1){
+    }
+    if (tooltip.indexOf("[W4]") > -1) {
 		if (queryUnit > 0){
 			var skill_tree_data = CustomNetTables.GetTableValue( "skill_tree", playerIndex.toString()+"rune_unit4" ).runeUnit;
 			var ability = Entities.GetAbility( skill_tree_data, 1 );
@@ -93,7 +100,8 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 		}else if (!(requiredHero == "")){
 			tooltip = tooltip.replace("[W4]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_w_4")+"</font>");
 		}
-	}else if (tooltip.indexOf("[E1]") > -1){
+    }
+    if (tooltip.indexOf("[E1]") > -1) {
 		if (queryUnit > 0){
 			var skill_tree_data = CustomNetTables.GetTableValue( "skill_tree", playerIndex.toString()+"rune_unit1" ).runeUnit;
 			var ability = Entities.GetAbility( skill_tree_data, 2 );
@@ -101,7 +109,8 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 		}else if (!(requiredHero == "")){
 			tooltip = tooltip.replace("[E1]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_e_1")+"</font>");
 		}
-	}else if (tooltip.indexOf("[E2]") > -1){
+    }
+    if (tooltip.indexOf("[E2]") > -1) {
 		if (queryUnit > 0){
 			var skill_tree_data = CustomNetTables.GetTableValue( "skill_tree", playerIndex.toString()+"rune_unit2" ).runeUnit;
 			var ability = Entities.GetAbility( skill_tree_data, 2 );
@@ -109,7 +118,8 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 		}else if (!(requiredHero == "")){
 			tooltip = tooltip.replace("[E2]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_e_2")+"</font>");
 		}
-	}else if (tooltip.indexOf("[E3]") > -1){
+    }
+    if (tooltip.indexOf("[E3]") > -1) {
 		if (queryUnit > 0){
 			var skill_tree_data = CustomNetTables.GetTableValue( "skill_tree", playerIndex.toString()+"rune_unit3" ).runeUnit;
 			var ability = Entities.GetAbility( skill_tree_data, 2 );
@@ -117,7 +127,8 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 		}else if (!(requiredHero == "")){
 			tooltip = tooltip.replace("[E3]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_e_3")+"</font>");
 		}
-	}else if (tooltip.indexOf("[E4]") > -1){
+    }
+    if (tooltip.indexOf("[E4]") > -1) {
 		if (queryUnit > 0){
 			var skill_tree_data = CustomNetTables.GetTableValue( "skill_tree", playerIndex.toString()+"rune_unit4" ).runeUnit;
 			var ability = Entities.GetAbility( skill_tree_data, 2 );
@@ -125,7 +136,8 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 		}else if (!(requiredHero == "")){
 			tooltip = tooltip.replace("[E4]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_e_4")+"</font>");
 		}
-	}else if (tooltip.indexOf("[R1]") > -1){
+    }
+    if (tooltip.indexOf("[R1]") > -1) {
 		if (queryUnit > 0){
 			var skill_tree_data = CustomNetTables.GetTableValue( "skill_tree", playerIndex.toString()+"rune_unit1" ).runeUnit;
 			var ability = Entities.GetAbility( skill_tree_data, 3 );
@@ -133,7 +145,8 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 		}else if (!(requiredHero == "")){
 			tooltip = tooltip.replace("[R1]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_r_1")+"</font>");
 		}
-	}else if (tooltip.indexOf("[R2]") > -1){
+    }
+    if (tooltip.indexOf("[R2]") > -1) {
 		if (queryUnit > 0){
 			var skill_tree_data = CustomNetTables.GetTableValue( "skill_tree", playerIndex.toString()+"rune_unit2" ).runeUnit;
 			var ability = Entities.GetAbility( skill_tree_data, 3 );
@@ -141,7 +154,8 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 		}else if (!(requiredHero == "")){
 			tooltip = tooltip.replace("[R2]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_r_2")+"</font>");
 		}
-	}else if (tooltip.indexOf("[R3]") > -1){
+    }
+    if (tooltip.indexOf("[R3]") > -1) {
 		if (queryUnit > 0){
 			var skill_tree_data = CustomNetTables.GetTableValue( "skill_tree", playerIndex.toString()+"rune_unit3" ).runeUnit;
 			var ability = Entities.GetAbility( skill_tree_data, 3 );
@@ -149,7 +163,8 @@ function replaceRuneTooltip(tooltip, queryUnit, requiredHero)
 		}else if (!(requiredHero == "")){
 			tooltip = tooltip.replace("[R3]", "<font color='#7DFF12'>"+$.Localize("DOTA_Tooltip_Ability_"+heroName+"_rune_r_3")+"</font>");
 		}
-	}else if (tooltip.indexOf("[R4]") > -1){
+    }
+    if (tooltip.indexOf("[R4]") > -1) {
 		if (queryUnit > 0){
 			var skill_tree_data = CustomNetTables.GetTableValue( "skill_tree", playerIndex.toString()+"rune_unit4" ).runeUnit;
 			var ability = Entities.GetAbility( skill_tree_data, 3 );
