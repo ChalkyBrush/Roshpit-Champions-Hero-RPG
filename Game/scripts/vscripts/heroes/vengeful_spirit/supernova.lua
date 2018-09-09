@@ -187,9 +187,12 @@ function supernova_burn_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	if not ability.r_2_level then
-		ability.r_2_level = 0
-	end
+    if not ability.r_2_level then
+        ability.r_2_level = caster:GetRuneValue("r", 2)
+        if ability.r_2_level == 0 then
+            return
+        end
+    end
 	if ability:GetAbilityName() == "solunia_eclipse" then
 		local damage = target.SoluniaBurnLunar
 		if target:HasModifier("modifier_solunia_solar_burn") then
