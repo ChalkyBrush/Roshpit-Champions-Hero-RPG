@@ -16082,6 +16082,8 @@
 	"tutorial_master_4"													"Choose a topic from the list provided to begin your education."
 	"tutorial_master_hello"												"Greetings, Champion."
 
+	"tutorial_challenge_go"												"Begin Lesson"
+	
 	"quest_1_interface"													"1. Interface"
 	"quest_1_interface_description"										"In this series, we will cover the essential information found on the user interface."
 

@@ -3812,6 +3812,6 @@ end
 
 function Events:TutorialServerEvent(hero, code1, code2)
   if GameState:IsTutorial() then
-    Tutorials:TutorialServerEvent(hero, code1, code2)
+    Tutorial:TutorialServerEvent(hero, code1, code2)
   end
 end

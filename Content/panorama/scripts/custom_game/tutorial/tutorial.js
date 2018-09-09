@@ -83,23 +83,35 @@ function category_panel_click_setup(categoryPanel, index, category, msg){
 function setupChallenge(category, challenge, index, challengeListPanel){
 	$.Msg(category)
 	$.Msg(category["progress"])
+	challenge_list_adder_panel = challengeListPanel.FindChildTraverse('challenge_list_items')
 	if (category["progress"] >= index){
-		var challengePanel = $.CreatePanel("Panel", challengeListPanel, "challenge"+index)
+		var challengePanel = $.CreatePanel("Panel", challenge_list_adder_panel, "challenge"+index)
 		challengePanel.BLoadLayoutSnippet("tutorial_challenge")	
 		var quest_number = category["index"]
 		var challenge_number = index + 1
 		challengePanel.FindChildTraverse('tutorial_challenge_text').text = $.Localize('quest_'+quest_number+"_challenge_"+challenge_number) 
 		challengePanel.FindChildTraverse('challenge_button').SetPanelEvent('onactivate', function Activate() {
-			challenge_activate(category, index)
+			challenge_activate(category, challenge_number, challengeListPanel)
 		});
 	}
 }
 
-function challenge_activate(category, challenge_index){
-	
+function challenge_activate(category, challenge_index, challengeListPanel){
+	var descrip_and_go_container = challengeListPanel.FindChildTraverse('total_challenge_list')
+	var descripAndGoPanel = $.CreatePanel("Panel", descrip_and_go_container, "descrip_and_go")
+	descripAndGoPanel.BLoadLayoutSnippet('challenge_description_and_go')
+	descripAndGoPanel.FindChildTraverse('descrip_and_go_description_text').text = $.Localize("quest_"+category["index"]+"_challenge_"+challenge_index+"_desc")
+	descripAndGoPanel.FindChildTraverse('challenge_go_button').SetPanelEvent('onactivate', function Activate() {
+			challenge_go_final(category, challenge_index)
+	});
+	descripAndGoPanel.FindChildTraverse('challenge_go_button_text').text = $.Localize("tutorial_challenge_go")
+}
+
+function challenge_go_final(category, challenge_index)
+{
 	var hero = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())
 	GameEvents.SendCustomGameEventToServer( "tutorial", {hero: hero, code: "close_tutorial", category_index: category["index"], challenge_index: challenge_index} );
-	CloseTutorial();
+	CloseTutorial();	
 }
 
 (function()

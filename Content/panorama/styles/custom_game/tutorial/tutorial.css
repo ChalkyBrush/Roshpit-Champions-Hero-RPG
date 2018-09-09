@@ -70,7 +70,7 @@
 }
 
 #tutorial_categories_container{
-	height:70%;
+	height:78%;
 	width:100%;
 	flow-children:down;
 }
@@ -161,13 +161,13 @@
 
 .animateEaseClass{
     animation-name: easeIn;
-    animation-duration: .5s;
+    animation-duration: .2s;
     animation-timing-function: linear;	
 }
 
 .animateEaseOutClass{
     animation-name: easeOut;
-    animation-duration: .5s;
+    animation-duration: .2s;
     animation-timing-function: linear;	
 }
 
@@ -183,10 +183,20 @@
 
 .tutorial_challenge_list{
 	width:100%;
-	flow-children:down;
 	margin-left:15px;
 	margin-right:15px;
 	margin-top:20px;
+	height:100%;
+}
+
+#challenge_list_items{
+	width:100%;
+	flow-children:down;	
+}
+
+#total_challenge_list{
+	width:100%;
+	height:100%;
 }
 
 .tutorial_challenge{
@@ -240,4 +250,71 @@
 #challenge_button{
 	height:40px;
 	width:100%;
+}
+
+#challenge_description_and_go_container{
+	vertical-align: bottom;
+	width:100%;
+	height:120px;
+}
+
+.challenge_description_and_go{
+	width:100%;
+	height:140px;
+	vertical-align: bottom;
+}
+
+#descrip_and_go_content{
+	width:100%;
+	height:100%;
+	background-color:#1b2d21;
+	border-radius:8px;
+	flow-children:down;
+	box-shadow: 1px 1px 2px #000000;
+	border:1px solid #000000;
+}
+
+#descrip_and_go_description_text{
+	width:100%;
+	padding-left:8px;
+	padding-right:8px;
+	font-family: TH Sarabun New, Radiance, FZLanTingHei-R-GBK, Gulim,MingLiU;
+	color:white;
+	font-size:18px;
+	line-height: 20px;	
+	white-space: normal;
+	font-weight:light;
+	height:80px;
+}
+
+#challenge-list{
+	height:100%;
+}
+
+#challenge_go_button{
+	width:50%;
+	horizontal-align:center;
+	height:40px;
+	border-radius:4px;
+	border:1px solid #000303;
+	vertical-align: bottom;
+	margin-bottom:10px;
+	background-color: gradient( linear, 0px 0%, 300px 0%, from( #1A1A1A ), to( #111111 ) );
+	box-shadow: 1px 1px 2px #000000;
+
+}
+
+#challenge_go_button:hover{
+	background-color: gradient( linear, 0px 0%, 300px 0%, from( #1F1F1F ), to( #161616 ) );
+	box-shadow: 0px 0px 0px #000000;
+}
+
+#challenge_go_button_text{
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;	
+	color:#fdb53f;
+	text-align: center;
+	font-size:18px;
+	line-height: 30px;		
+	horizontal-align:center;
+	text-transform: uppercase;
 }

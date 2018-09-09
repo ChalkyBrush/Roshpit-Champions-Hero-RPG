@@ -311,10 +311,10 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 	end
 end
 
-function Tutorials:TutorialServerEvent(hero, code1, code2)
+function Tutorial:TutorialServerEvent(hero, code1, code2)
 	if hero.tutorial.active_challenge == code1 then
 		if code2 == 0 then
-			
+
 		end
 	end
 end
