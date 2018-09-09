@@ -584,7 +584,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"ThinkInterval"  "1.0"
+				"ThinkInterval"  "0.5"
 				"EffectName"		"particles/roshpit/solunia/lunarang_ambient.vpcf"
 				"EffectAttachType" 	"attach_origin"
 				"TextureName"	"solunia/solunia_rune_r_2_arcana2"
