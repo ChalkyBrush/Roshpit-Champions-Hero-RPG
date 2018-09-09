@@ -30,8 +30,9 @@ function cast(event)
     local particleLocation = target
     local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
     ParticleManager:SetParticleControl( particle1, 0, particleLocation )
-    Timers:CreateTimer(0.45, function()
-        EmitSoundOnLocationWithCaster(target, "Hero_Invoker.SunStrike.Ignite", caster)
+    EmitSoundOn("Hero_Invoker.SunStrike.Ignite", caster)
+    Timers:CreateTimer(0.35, function()
+        EmitSoundOnLocationWithCaster(target, "Ability.StarfallImpact", caster)
     end)
     Timers:CreateTimer(delay, -- Start this timer 10 game-time seconds later
         function()
