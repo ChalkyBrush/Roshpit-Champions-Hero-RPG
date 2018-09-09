@@ -14,7 +14,7 @@
 	"tutorial_master_hello"												"Greetings, Champion."
 
 	"tutorial_challenge_go"												"Begin Lesson"
-	
+
 	"quest_1_interface"													"1. Interface"
 	"quest_1_interface_description"										"In this series, we will cover the essential information found on the user interface."
 
@@ -29,6 +29,7 @@
 	"tutorial_master_dialogue_1_1b"										"The blue scroll icon is your town portal ability."
 	"tutorial_master_dialogue_1_1c"										"It will take you back to the map's town if the channel is not interrupted."
 	"tutorial_master_dialogue_1_1d"										"Go ahead and try using the Town Portal!"
+	"tutorial_master_dialogue_1_1e"										"Nice TP, but now you have to walk all the way over here again! Haha!"
 	
 	"quest_2_interface"													"2. Hero"
 	"quest_2_interface_description"										"This lecture will help with mastering your hero's abilities."

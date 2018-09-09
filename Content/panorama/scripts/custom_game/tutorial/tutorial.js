@@ -27,6 +27,7 @@ function OpenTutorial(msg){
 	}
    
 	tutorial_main.FindChildTraverse('close_button').SetPanelEvent('onactivate', function Close() {
+		Game.EmitSound("Tutorial.UI.Close")
 		CloseTutorial();
 	})
 
@@ -74,8 +75,10 @@ function category_panel_click_setup(categoryPanel, index, category, msg){
 	for (var i = 0; i < challengeCount; i++) {
 		setupChallenge(category, category.challenges[i+1], index, challengeListPanel)
 	}
+	Game.EmitSound("Tutorial.UI.CategoryClick")
 	mCloseButton.FindChildTraverse('close_button_label').text = $.Localize("ui_back")
 	mCloseButton.SetPanelEvent('onactivate', function Back() {
+		Game.EmitSound("Tutorial.UI.Back")
 		OpenTutorial(msg)
 	})
 }
@@ -99,9 +102,11 @@ function setupChallenge(category, challenge, index, challengeListPanel){
 function challenge_activate(category, challenge_index, challengeListPanel){
 	var descrip_and_go_container = challengeListPanel.FindChildTraverse('total_challenge_list')
 	var descripAndGoPanel = $.CreatePanel("Panel", descrip_and_go_container, "descrip_and_go")
+	Game.EmitSound("Tutorial.UI.ChallengeClick")
 	descripAndGoPanel.BLoadLayoutSnippet('challenge_description_and_go')
 	descripAndGoPanel.FindChildTraverse('descrip_and_go_description_text').text = $.Localize("quest_"+category["index"]+"_challenge_"+challenge_index+"_desc")
 	descripAndGoPanel.FindChildTraverse('challenge_go_button').SetPanelEvent('onactivate', function Activate() {
+			Game.EmitSound("Tutorial.UI.ChallengeSelect")
 			challenge_go_final(category, challenge_index)
 	});
 	descripAndGoPanel.FindChildTraverse('challenge_go_button_text').text = $.Localize("tutorial_challenge_go")
@@ -110,7 +115,7 @@ function challenge_activate(category, challenge_index, challengeListPanel){
 function challenge_go_final(category, challenge_index)
 {
 	var hero = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())
-	GameEvents.SendCustomGameEventToServer( "tutorial", {hero: hero, code: "close_tutorial", category_index: category["index"], challenge_index: challenge_index} );
+	GameEvents.SendCustomGameEventToServer( "tutorial", {hero: hero, code: "challenge_select", category_index: category["index"], challenge_index: challenge_index} );
 	CloseTutorial();	
 }
 

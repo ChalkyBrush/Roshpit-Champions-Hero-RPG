@@ -3815,3 +3815,5 @@ function Events:TutorialServerEvent(hero, code1, code2)
     Tutorial:TutorialServerEvent(hero, code1, code2)
   end
 end
+
+require('worlds/tutorial/tutorial')

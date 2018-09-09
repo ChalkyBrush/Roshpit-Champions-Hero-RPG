@@ -213,8 +213,29 @@ function Tutorial:OpenTutorial(hero)
 			Tutorial:TutorialUIActiveForPlayer(hero, 0)
 			Tutorial:SoundAndAnimationForMaster("Tutorial.Master.GreetingBasic", ACT_DOTA_ATTACK, 0.7, 4.1)
 		end
-	else
+	elseif not hero.tutorial.master_is_talking then
 		if hero.tutorial.active_challenge == "1_1" then
+			hero.master_is_talking = true
+			Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_1_1a", 4, false)
+			Timers:CreateTimer(4, function()
+				if speech_phase == hero.tutorial_speech_phase then
+					Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_1_1b", 4, false)
+					Timers:CreateTimer(4, function()
+						if speech_phase == hero.tutorial_speech_phase then
+							Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_1_1c", 4, false)
+							Timers:CreateTimer(4, function()
+								if speech_phase == hero.tutorial_speech_phase then
+									Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_3, 1.0, 4.0)
+									Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_1_1d", 4, false)
+								end
+							end)
+						end
+					end)
+				end
+			end)
+			Timers:CreateTimer(16, function()
+				hero.master_is_talking = false
+			end)
 		end
 	end
 
@@ -278,6 +299,7 @@ function Tutorial:TutorialEvent(msg)
 		end)
 	elseif code == "challenge_select" then
 		hero.tutorial.active_challenge = msg.category_index.."_"..msg.challenge_index
+		hero.active_challenge_progress = 0
 		if hero.tutorial.active_challenge == "1_1" then
 			Tutorial:MasterSequenceWithLocks(hero, hero.tutorial.active_challenge)
 		end
@@ -291,7 +313,9 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 	end
 	hero.tutorial_speech_phase = hero.tutorial_speech_phase + 1
 	local speech_phase = hero.tutorial_speech_phase
+	print(code)
 	if code == "1_1" then
+		hero.master_is_talking = true
 		Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_1_1a", 4, false)
 		Timers:CreateTimer(4, function()
 			if speech_phase == hero.tutorial_speech_phase then
@@ -301,6 +325,7 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 						Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_1_1c", 4, false)
 						Timers:CreateTimer(4, function()
 							if speech_phase == hero.tutorial_speech_phase then
+								Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_3, 1.0, 4.0)
 								Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_1_1d", 4, false)
 							end
 						end)
@@ -308,13 +333,71 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 				end)
 			end
 		end)
+		Timers:CreateTimer(16, function()
+			hero.master_is_talking = false
+		end)
 	end
 end
 
 function Tutorial:TutorialServerEvent(hero, code1, code2)
 	if hero.tutorial.active_challenge == code1 then
-		if code2 == 0 then
-
+		if code2 == 0 and hero.active_challenge_progress == code2 then
+			Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_1_1e", 5, false)
+			hero.master_is_talking = false
+			hero:RemoveModifierByName("modifier_tutorial_open")
+			Tutorial:ProgressUpdateOrNot(hero, 1, 1)
+			Timers:CreateTimer(3, function()
+				EmitSoundOn("Tutorial.Master.Giggle", hero)
+			end)
+			hero.active_challenge_progress = hero.active_challenge_progress + 1
 		end
 	end
+end
+
+function Tutorial:ProgressUpdateOrNot(hero, section_index, newProgress)
+	local section = nil
+	if section_index == 1 then
+		if newProgress > hero.tutorial.section1.progress then
+			hero.tutorial.section1.progress = newProgress
+			Tutorial:SaveTutorialProgressOnWeb(hero, section_index, newProgress)
+		end
+	elseif section_index == 2 then
+		if newProgress > hero.tutorial.section2.progress then
+			hero.tutorial.section2.progress = newProgress
+			Tutorial:SaveTutorialProgressOnWeb(hero, section_index, newProgress)
+		end
+	elseif section_index == 3 then
+		if newProgress > hero.tutorial.section3.progress then
+			hero.tutorial.section3.progress = newProgress
+			Tutorial:SaveTutorialProgressOnWeb(hero, section_index, newProgress)
+		end
+	elseif section_index == 4 then
+		if newProgress > hero.tutorial.section4.progress then
+			hero.tutorial.section4.progress = newProgress
+			Tutorial:SaveTutorialProgressOnWeb(hero, section_index, newProgress)
+		end
+	elseif section_index == 5 then
+		if newProgress > hero.tutorial.section5.progress then
+			hero.tutorial.section5.progress = newProgress
+			Tutorial:SaveTutorialProgressOnWeb(hero, section_index, newProgress)
+		end
+	elseif section_index == 6 then
+		if newProgress > hero.tutorial.section6.progress then
+			hero.tutorial.section6.progress = newProgress
+			Tutorial:SaveTutorialProgressOnWeb(hero, section_index, newProgress)
+		end
+	elseif section_index == 7 then
+		if newProgress > hero.tutorial.section7.progress then
+			hero.tutorial.section7.progress = newProgress
+			Tutorial:SaveTutorialProgressOnWeb(hero, section_index, newProgress)
+		end
+	elseif section_index == 8 then
+		if newProgress > hero.tutorial.section8.progress then
+			hero.tutorial.section8.progress = newProgress
+			Tutorial:SaveTutorialProgressOnWeb(hero, section_index, newProgress)
+		end
+	end
+end
+
+function Tutorial:SaveTutorialProgressOnWeb(hero, section_index, newProgress)
 end
