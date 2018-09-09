@@ -3687,7 +3687,13 @@
 
 				"Action"
 				{
-
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/moon_ranger/abilities/e/e_astral_lift.lua"
+						"Function"		"cast"
+						"Target"		"POINT"
+						"Radius"		"%star_aoe"
+					}
 					"FireEffect"
 					{
 						"EffectName"		"particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_area_beams.vpcf"
