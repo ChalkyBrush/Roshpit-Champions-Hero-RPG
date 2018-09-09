@@ -8,6 +8,7 @@ function OpenTutorial(msg){
 	parent.RemoveClass('animateEaseOutClass')
 	if (msg.sound == 1){
 		Game.EmitSound( "Tutorial.FirstOpen" )
+		msg.sound = 0;
 	}
 	parent.RemoveAndDeleteChildren(0)
     var tutorial_main = $.CreatePanel("Panel", parent, "tutorial-main")
@@ -31,7 +32,7 @@ function OpenTutorial(msg){
 
 }
 
-function CloseTutorial(msg){
+function CloseTutorial(){
 	var parent = $('#tutorial_container')
 	parent.AddClass('invisible')
 	var hero = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())
@@ -88,7 +89,17 @@ function setupChallenge(category, challenge, index, challengeListPanel){
 		var quest_number = category["index"]
 		var challenge_number = index + 1
 		challengePanel.FindChildTraverse('tutorial_challenge_text').text = $.Localize('quest_'+quest_number+"_challenge_"+challenge_number) 
+		challengePanel.FindChildTraverse('challenge_button').SetPanelEvent('onactivate', function Activate() {
+			challenge_activate(category, index)
+		});
 	}
+}
+
+function challenge_activate(category, challenge_index){
+	
+	var hero = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())
+	GameEvents.SendCustomGameEventToServer( "tutorial", {hero: hero, code: "close_tutorial", category_index: category["index"], challenge_index: challenge_index} );
+	CloseTutorial();
 }
 
 (function()

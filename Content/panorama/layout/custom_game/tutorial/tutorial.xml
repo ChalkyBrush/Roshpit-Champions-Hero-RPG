@@ -52,6 +52,21 @@
 				</Button>
 			</Panel>
 		</snippet>
+		<snippet name="challenge_description_and_go">
+			<Panel class="challenge_description_and_go" hittest="false">
+
+			</Panel>
+		</snippet>
+		<snippet name="challenge_summary">
+			<Panel class="challenge_summary" hittest="false">
+
+			</Panel>
+		</snippet>
+		<snippet name="challenge_summary_item">
+			<Panel class="challenge_summary_item" hittest="false">
+
+			</Panel>
+		</snippet>
 	</snippets>
 
 	<Panel class="tutorial_content" hittest="false">

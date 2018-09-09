@@ -3809,3 +3809,9 @@ end
 function Events:TutorialEvent(msg)
   Tutorial:TutorialEvent(msg)
 end
+
+function Events:TutorialServerEvent(hero, code1, code2)
+  if GameState:IsTutorial() then
+    Tutorials:TutorialServerEvent(hero, code1, code2)
+  end
+end

@@ -193,12 +193,12 @@
 	width:100%;
 	background-color: #111111;
 	border-radius: 4px;
-
+	border: 1px solid #555555;
 }
 
 .tutorial_challenge:hover{
 	background-color: #222222;
-	box-shadow: 1px 1px 2px #000000;
+	border: 1px solid #999999;
 }
 
 #tutorial_category_clickable{

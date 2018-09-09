@@ -20,6 +20,13 @@
 	"quest_1_challenge_2"												"B. Respawn Flag"
 	"quest_1_challenge_3"												"C. Custom Attributes"
 	"quest_1_challenge_4"												"D. Stars"
+
+	"quest_1_challenge_1_desc"											"At the bottom right of your screen is a blue scroll icon. Clicking on it will begin a channel that is interrupted when damage is taken. Finishing the channel teleports your hero back to the map's town."
+
+	"tutorial_master_dialogue_1_1a"										"Look at the bottom right of your screen."
+	"tutorial_master_dialogue_1_1b"										"The blue scroll icon is your town portal ability."
+	"tutorial_master_dialogue_1_1c"										"It will take you back to the map's town if the channel is not interrupted."
+	"tutorial_master_dialogue_1_1d"										"Go ahead and try using the Town Portal!"
 	
 	"quest_2_interface"													"2. Hero"
 	"quest_2_interface_description"										"This lecture will help with mastering your hero's abilities."

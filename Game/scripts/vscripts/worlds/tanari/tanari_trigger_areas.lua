@@ -863,6 +863,7 @@ function town_portal_succeed(event)
 
 			CustomAbilities:QuickAttachParticle("particles/econ/items/meepo/meepo_colossal_crystal_chorus/meepo_divining_rod_poof_end.vpcf", caster, 3)
 			ScreenShake(caster:GetAbsOrigin(), 280, 1, 1, 9000, 0, true)
+			Events:TutorialServerEvent(caster, "1_1", 0)
 		end)
 		Events:LockCamera(caster)
 	end)

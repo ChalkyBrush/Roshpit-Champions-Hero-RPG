@@ -80,6 +80,7 @@ function Tutorial:SpawnTutorialMaster(position)
 	local master = CreateUnitByName("tutorial_master", position, false, nil, nil, DOTA_TEAM_GOODGUYS)
 	master:AddAbility("tutorial_master_ability"):SetLevel(1)
 	master:SetForwardVector(Vector(1,0))
+	master.speech_phase = {}
 	Tutorial.Master = master
 end
 
@@ -212,6 +213,9 @@ function Tutorial:OpenTutorial(hero)
 			Tutorial:TutorialUIActiveForPlayer(hero, 0)
 			Tutorial:SoundAndAnimationForMaster("Tutorial.Master.GreetingBasic", ACT_DOTA_ATTACK, 0.7, 4.1)
 		end
+	else
+		if hero.tutorial.active_challenge == "1_1" then
+		end
 	end
 
 end
@@ -272,5 +276,45 @@ function Tutorial:TutorialEvent(msg)
 		Timers:CreateTimer(2, function()
 			hero:RemoveModifierByName("modifier_tutorial_open")
 		end)
+	elseif code == "challenge_select" then
+		hero.tutorial.active_challenge = msg.category_index.."_"..msg.challenge_index
+		if hero.tutorial.active_challenge == "1_1" then
+			Tutorial:MasterSequenceWithLocks(hero, hero.tutorial.active_challenge)
+		end
+	end
+end
+
+function Tutorial:MasterSequenceWithLocks(hero, code)
+	local heroIndex = hero:GetEntityIndex()
+	if not hero.tutorial_speech_phase then
+		hero.tutorial_speech_phase = 0
+	end
+	hero.tutorial_speech_phase = hero.tutorial_speech_phase + 1
+	local speech_phase = hero.tutorial_speech_phase
+	if code == "1_1" then
+		Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_1_1a", 4, false)
+		Timers:CreateTimer(4, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_1_1b", 4, false)
+				Timers:CreateTimer(4, function()
+					if speech_phase == hero.tutorial_speech_phase then
+						Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_1_1c", 4, false)
+						Timers:CreateTimer(4, function()
+							if speech_phase == hero.tutorial_speech_phase then
+								Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_1_1d", 4, false)
+							end
+						end)
+					end
+				end)
+			end
+		end)
+	end
+end
+
+function Tutorials:TutorialServerEvent(hero, code1, code2)
+	if hero.tutorial.active_challenge == code1 then
+		if code2 == 0 then
+			
+		end
 	end
 end
