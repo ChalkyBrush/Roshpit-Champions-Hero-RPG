@@ -227,7 +227,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
+				"property_one"			"200"
 			}
 			"02"
 			{

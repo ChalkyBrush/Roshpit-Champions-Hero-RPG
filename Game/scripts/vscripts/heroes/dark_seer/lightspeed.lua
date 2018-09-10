@@ -86,7 +86,7 @@ function lightspeed_think(event)
 	if ability.lastPos then
 		local distance = WallPhysics:GetDistance2d(ability.lastPos, caster:GetAbsOrigin())
 		ability.distanceMoved = ability.distanceMoved + distance
-		print(ability.distanceMoved)
+		--print(ability.distanceMoved)
 		ability.lastPos = caster:GetAbsOrigin()
 		if ability.distanceMoved >= 60 then
 			local DistanceMult = (ability.distanceMoved-ability.distanceMoved%60)/60

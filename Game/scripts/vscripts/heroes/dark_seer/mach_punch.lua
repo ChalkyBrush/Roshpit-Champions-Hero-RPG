@@ -88,7 +88,7 @@ function mach_punch_cast(event)
 	Filters:CastSkillArguments(2, caster)
 	if not event.cancelAnim then
 		if caster:HasModifier("modifier_zonik_glyph_3_1") then
-			local procs = Runes:Procs(ZHONIK_GLYPH_3_1_CHANCE_TO_PUNCH_TWICE, 100, 1)
+			local procs = Runes:Procs(ZHONIK_GLYPH_3_1_CHANCE_TO_PUNCH_TWICE/10, 10, 1)
 			if procs == 1 then
 				Timers:CreateTimer(0.15, function()
 					if IsValidEntity(target) then
@@ -127,7 +127,7 @@ function mach_punch_think(event)
 		if ability.lastPos then
 			local distance = WallPhysics:GetDistance2d(ability.lastPos, caster:GetAbsOrigin())
 			ability.distanceMoved = ability.distanceMoved + distance
-			print(ability.distanceMoved)
+			--print(ability.distanceMoved)
 			ability.lastPos = caster:GetAbsOrigin()
 			if ability.distanceMoved >= 240 then
 				ability.distanceMoved = ability.distanceMoved%240
