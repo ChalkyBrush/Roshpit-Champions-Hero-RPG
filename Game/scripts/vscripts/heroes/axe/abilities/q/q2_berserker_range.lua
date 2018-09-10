@@ -1,6 +1,6 @@
 require('heroes/axe/init')
 local SkullBasher = require('heroes/axe/abilities/q/q_skull_basher')
-function attackLand(event)
+function attackLand(event, q2_think)
     local caster = event.caster
     local ability = event.ability
     local target = event.target
@@ -21,17 +21,42 @@ function attackLand(event)
 
     local maxStacksCount = Q2_MAX_STACKS_COUNT
 
-    if caster:HasModifier("modifier_axe_glyph_7_2") and SkullBasher.isActive(caster) then
-        stacksGain = stacksGain * T72_AMP_STACKS_PER_ATTACK
+    if caster:HasModifier("modifier_axe_glyph_7_2") then
+        if SkullBasher.isActive(caster) then
+            stacksGain = stacksGain * T72_AMP_STACKS_PER_ATTACK
+        end
         maxStacksCount = T72_MAX_STACKS_COUNT
     end
 
     local visibleModifier = "modifier_axe_rune_q_2_visible"
-    local newStacks = math.min(caster:GetModifierStackCount(visibleModifier, caster) + stacksGain, maxStacksCount)
+    local currentStacks = caster:GetModifierStackCount(visibleModifier, caster)
+    local newStacks = math.min(currentStacks + stacksGain, maxStacksCount)
 
+    local halfOfStacks = math.floor(maxStacksCount/2)
+    if q2_think then
+        local modifier = caster:FindModifierByName("modifier_axe_rune_q_2_visible")
+        local modifierDuration = 0
+        if modifier then
+            modifierDuration = modifier:GetRemainingTime()
+        end
+
+        if currentStacks > halfOfStacks and modifierDuration >= 1 then
+            return
+        end
+        if currentStacks <= newStacks or modifierDuration < 1 then
+            newStacks = halfOfStacks
+        end
+    end
+    q2_apply_stacks(ability, caster, newStacks, duration, visibleModifier, runesCount)
+end
+
+function q2_think(event)
+    attackLand(event, true)
+end
+
+function q2_apply_stacks(ability, caster, newStacks, duration, visibleModifier, runesCount)
     ability:ApplyDataDrivenModifier(caster, caster, visibleModifier, {duration = duration})
     caster:SetModifierStackCount(visibleModifier, caster, newStacks)
-
     local invisibleModifier =  "modifier_axe_rune_q_2_invisible"
     ability:ApplyDataDrivenModifier(caster, caster, invisibleModifier, {duration = duration})
     caster:SetModifierStackCount(invisibleModifier, caster, newStacks * runesCount)

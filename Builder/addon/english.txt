@@ -8574,7 +8574,7 @@
         "item_rpc_axe_glyph_6_2_description"                "Increases the damage reduction from stacks of Cyclone Shield to @glyph_property1%, but decreases the chance of generating a stack to just @glyph_property2% per rune level instead of 150%."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_2"       "Glyph of Rage"
-        "item_rpc_axe_glyph_7_2_description"                "While @Ability1 is active, the maximum stack count of Berserker Rage is increased to @glyph_property1, and the number of stacks gained per attack is multiplied by @glyph_property2."
+        "item_rpc_axe_glyph_7_2_description"                "Maximum stack count of Berserker Rage is increased to @glyph_property1, you always have half stacks. While @Ability1 is active, number of stacks gained per attack is multiplied by @glyph_property2."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_a"       "Glyph of the Marshall"
         "item_rpc_axe_glyph_5_a_description"                "Increases all damage dealt by @Ability4, and all of its runes, by @glyph_property1%."
