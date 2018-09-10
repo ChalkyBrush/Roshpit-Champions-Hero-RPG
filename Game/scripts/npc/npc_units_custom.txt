@@ -91473,6 +91473,7 @@
         {
             "soundfile" "soundevents/game_sounds_tutorial.vsndevts"
             "particle"  "particles/roshpit/tutorial/tutorial_sprout.vpcf"
+            "particle"  "particles/roshpit/redfall/ashara_moonbeam_lucent_beam_impact_shared_ti_5_gold.vpcf"
         }
         "PathfindingSearchDepthScale" "0.2"
         "ArmorPhysical" "0"

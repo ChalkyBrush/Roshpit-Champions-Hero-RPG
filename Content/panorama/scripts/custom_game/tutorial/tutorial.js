@@ -112,6 +112,7 @@ function challenge_activate(category, challenge_index, challengeListPanel){
 	var descripAndGoPanel = $.CreatePanel("Panel", descrip_and_go_container, "descrip_and_go")
 	Game.EmitSound("Tutorial.UI.ChallengeClick")
 	descripAndGoPanel.BLoadLayoutSnippet('challenge_description_and_go')
+
 	descripAndGoPanel.FindChildTraverse('descrip_and_go_description_text').text = $.Localize("quest_"+category["index"]+"_challenge_"+challenge_index+"_desc")
 	descripAndGoPanel.FindChildTraverse('challenge_go_button').SetPanelEvent('onactivate', function Activate() {
 			Game.EmitSound("Tutorial.UI.ChallengeSelect")
@@ -123,6 +124,8 @@ function challenge_activate(category, challenge_index, challengeListPanel){
 function challenge_go_final(category, challenge_index)
 {
 	var hero = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())
+	$.Msg("CATGEGORY INDEX.."+category["index"])
+	$.Msg("CHALLENGE INDEX.."+challenge_index)
 	GameEvents.SendCustomGameEventToServer( "tutorial", {hero: hero, code: "challenge_select", category_index: category["index"], challenge_index: challenge_index} );
 	CloseTutorial();	
 }
@@ -136,6 +139,9 @@ function ChallengeSummary(msg)
     var listItemCount = msg.sub_index
     if (msg.bCapped){
     	listItemCount = listItemCount - 1
+    	Game.EmitSound("Tutorial.Win")
+    }else{
+    	Game.EmitSound("Tutorial.WinSub")
     }
 	for (var i = 0; i <= listItemCount; i++) {
 		var challenge_progress_panel = $.CreatePanel("Panel", tutorial_challenge_panel, "tutorial-challenge-progress-"+i)

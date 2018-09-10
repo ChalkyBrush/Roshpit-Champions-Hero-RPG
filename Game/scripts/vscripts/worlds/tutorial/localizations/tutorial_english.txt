@@ -44,6 +44,14 @@
 	"tutorial_master_dialogue_1_2e"										"If you think you won't need this because you plan not to die, then you really don't understand how brutal Roshpit's monsters can get."
 	"tutorial_master_dialogue_1_2f"										"You can experience it for yourself later. For now, go ahead and use the respawn flag!"
 
+	"tutorial_master_dialogue_1_2g"										"In order to fully understand the respawn flag, I'm going to need to zap you."
+	"tutorial_master_dialogue_1_2h"										"You might feel a slight pinch. Just close your eyes!"
+
+	"tutorial_master_dialogue_1_2j"										"Ouch! Don't worry, this is not the last time you will experience death."
+	"tutorial_master_dialogue_1_2k"										"When you respawn, you will appear back where you placed the flag."
+	"tutorial_master_dialogue_1_2l"										"The flag is consumed, so don't forget to place it again after reviving."
+	"tutorial_master_dialogue_1_2m"										"Welcome back. This completes the lesson on Respawn Flag."
+
 	"quest_2_interface"													"2. Hero"
 	"quest_2_interface_description"										"This lecture will help with mastering your hero's abilities."
 

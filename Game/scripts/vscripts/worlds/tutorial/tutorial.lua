@@ -279,6 +279,10 @@ function Tutorial:TutorialEvent(msg)
 		if hero.tutorial.active_challenge == "1_1" then
 			Tutorial:UpdateChallengeSummaryProgress(hero, 1, 1, 0, false)
 			Tutorial:MasterSequenceWithLocks(hero, hero.tutorial.active_challenge)
+		elseif hero.tutorial.active_challenge == "1_2" then
+			hero.tutorialhasBeenSlain = false
+			Tutorial:UpdateChallengeSummaryProgress(hero, 1, 2, 0, false)
+			Tutorial:MasterSequenceWithLocks(hero, hero.tutorial.active_challenge)
 		end
 	end
 end
@@ -326,7 +330,7 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 		Timers:CreateTimer(16, function()
 			hero.master_is_talking = false
 		end)
-	elseif code == "2_1" then
+	elseif code == "1_2" then
 		hero.master_is_talking = true
 		Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_1_2a", 4, false)
 		Timers:CreateTimer(4, function()
@@ -342,7 +346,7 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 									if speech_phase == hero.tutorial_speech_phase then
 										Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting2", ACT_DOTA_CAST_ABILITY_4, 1.0, 4.0)
 										Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_1_2e", 4, false)
-										Timers:CreateTimer(4, function()
+										Timers:CreateTimer(4.2, function()
 											if speech_phase == hero.tutorial_speech_phase then
 												Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_3, 1.0, 4.0)
 												Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_1_2f", 4, false)
@@ -380,12 +384,48 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 			end
 		elseif code1 == "1_2" then
 			if code2 == 0 and hero.active_challenge_progress == code2 then
-				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_1_2f", 5, false)
+				hero.tutorial_speech_phase = hero.tutorial_speech_phase + 1
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_1_2g", 5, false)
 				hero.master_is_talking = false
 				hero.active_challenge_progress = hero.active_challenge_progress + 1
 				Timers:CreateTimer(3, function()
 					Tutorial:UpdateChallengeSummaryProgress(hero, 1, 2, 1, false)
+					Timers:CreateTimer(1, function()
+						Events:TutorialServerEvent(hero, "1_2", 1)
+					end)
 				end)
+			elseif code2 == 1 and hero.active_challenge_progress == code2 then
+				hero.master_is_talking = true
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_1_2h", 5, false)
+				Timers:CreateTimer(4, function()
+					Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting2", ACT_DOTA_ATTACK, 1.5, 2.0)
+					local particleName = "particles/roshpit/redfall/ashara_moonbeam_lucent_beam_impact_shared_ti_5_gold.vpcf"
+					local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, hero )
+					for i = 1, 8, 1 do
+						ParticleManager:SetParticleControl(pfx, i, hero:GetAbsOrigin()+Vector(0,0,60))
+					end
+					ParticleManager:SetParticleControl(pfx, 2, Vector(0,0,1000))
+					for i = 3, 12, 1 do
+						ParticleManager:SetParticleControl(pfx, i, hero:GetAbsOrigin()+Vector(0,0,300))
+					end
+					EmitSoundOnLocationWithCaster(hero:GetAbsOrigin(), "Tutorial.SpiritAshara.BeamImpact", Events.GameMaster)
+					Timers:CreateTimer(4, function()
+						ParticleManager:DestroyParticle(pfx, false)
+					end)
+					Tutorial:ApplyTutorialModifier("modifier_tutorial_super_kill", hero, 0)
+				end)
+				Timers:CreateTimer(6, function()
+					Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_1_2j", 3, false)
+					EmitSoundOn("Tutorial.Master.Giggle", hero)
+				end)
+				Timers:CreateTimer(9, function()
+					Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_1_2k", 3, false)
+				end)	
+				Timers:CreateTimer(12, function()
+					Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_ATTACK, 1.5, 4.0)
+					Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_1_2l", 4, false)
+					hero.master_is_talking = false
+				end)			
 			end
 		end
 	end

@@ -74,3 +74,24 @@ function tutorial_assistant_think(event)
 		end
 	end
 end
+
+function tutorial_super_kill_think(event)
+	local caster = event.caster
+	local target = event.target
+	local ability = event.ability
+	if target.tutorialhasBeenSlain then
+		if target:IsAlive() then
+			target:RemoveModifierByName("modifier_tutorial_super_kill")
+			Timers:CreateTimer(3, function()
+				Tutorial:UpdateChallengeSummaryProgress(target, 1, 2, 2, true)
+				Quests:ShowDialogueText({target}, Tutorial.Master,"tutorial_master_dialogue_1_2m", 4, false)
+				Tutorial:ProgressUpdateOrNot(target, 1, 2)
+			end)
+		end
+	else
+		ApplyDamage({ victim = target, attacker = caster, damage = 10000000, damage_type = DAMAGE_TYPE_PURE, ability = ability })	
+		if not target:IsAlive() then
+			target.tutorialhasBeenSlain = true
+		end
+	end
+end

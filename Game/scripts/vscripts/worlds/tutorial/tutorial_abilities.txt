@@ -66,5 +66,21 @@
 			{
 				"IsHidden"	"1"
 			}
+			"modifier_tutorial_super_kill"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/tutorial/tutorial_ai.lua"
+						"Function"		"tutorial_super_kill_think"
+						"target"        "TARGET"
+					}
+				}
+			}
 		}
 	}

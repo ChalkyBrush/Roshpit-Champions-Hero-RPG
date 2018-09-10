@@ -191,7 +191,7 @@ function GameMode:CorrectRespawn(npc)
         if Dungeons.entryPoint and not Beacons.expireVote then
           npc:SetOrigin(Dungeons.entryPoint)
         end
-      elseif GameState:IsTanariJungle() or GameState:IsRedfallRidge() or GameState:IsSeaFortress() or GameState:IsWinterblight() then
+      elseif GameState:IsTanariJungle() or GameState:IsRedfallRidge() or GameState:IsSeaFortress() or GameState:IsWinterblight() or GameState:IsTutorial() then
         if npc:HasModifier("modifier_neutral_glyph_4_1") and (not npc.prelastDeathTime or (npc.lastDeathTime - npc.prelastDeathTime > 30)) then
           npc:SetOrigin(npc.deathPosition)
         elseif npc.respawnFlag then
