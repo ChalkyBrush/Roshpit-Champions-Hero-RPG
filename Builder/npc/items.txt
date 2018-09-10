@@ -5051,7 +5051,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"			"96"
+				"property_two"			"92"
 			}
 		}
 	}
@@ -5150,6 +5150,12 @@
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
+			"modifier_dark_emissary_invise_delay"
+			{
+				"Passive"	"0"
+				"IsHidden"	"0"
+				"IsDebuff"  "1"
+			}
 			"modifier_dark_emissary_invis"
 			{
 				"IsHidden"	"0"
@@ -5178,12 +5184,22 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"8000"
+				"property_one"			"24000"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"element_one"			"13"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_two"			"2"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_three"		"8"
 			}
 		}
 	}
@@ -5401,7 +5417,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"180"
+				"property_one"			"160"
 			}
 		}
 	}
@@ -5788,7 +5804,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_one"			"0.3"
+				"property_one"			"0.25"
 			}
 		}
 	}
@@ -8506,7 +8522,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1"
-				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "20" 
+				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "20"
 				}
 			}
 		}
@@ -8853,10 +8869,14 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "-5000"
-				}
+				"OnAttack"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"	"heroes/items/special_item_effects.lua"
+                        "Function"		"mugato_attack"
+                    }
+                }
 			}
 		}
 		"AbilitySpecial"
@@ -8864,7 +8884,17 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"500"
+				"property_one"			"4"
+			}
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"property_two"			"0.6"
+			}
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_three"			"600"
 			}
 		}
 	}
@@ -9066,7 +9096,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"35"
 			}
 		}
 	}
@@ -9948,6 +9978,14 @@
 				"IsDebuff"			"0"
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"			"80"
+			}
+		}
 	}
 
 	"item_rpc_blazing_fury_armor"
@@ -9982,7 +10020,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"45"
 			}
 		}
 		"Modifiers"
@@ -10870,6 +10908,14 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"			"50"
 			}
 		}
 	}
@@ -13183,6 +13229,14 @@
 				}
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"			"4"
+			}
+		}
 	}
 
 	"item_rpc_ironbound_gloves"
@@ -15306,6 +15360,19 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"		"20"
+			}
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_two"		"50"
 			}
 		}
 	}
@@ -18140,7 +18207,7 @@
 					"DelayedAction"
 					{
 						"Delay"     "0.5"
-						"Action"    
+						"Action"
 						{
 							"RemoveModifier"
 							{
@@ -20547,7 +20614,7 @@
 		{
 			"01"
 			{
-				"var_type"			"FIELD_INTEGER"
+				"var_type"			"FIELD_FLOAT"
 				"property_one"			"1"
 			}
 			"02"
@@ -21585,6 +21652,7 @@
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"ankh_of_ancients_think"
 						"target"		"TARGET"
+						"max_duration"  "%property_three"
 					}
 				}
 				"OnCreated"
@@ -21593,6 +21661,16 @@
 					{
 						"EffectName"	"RPCItem.AnkhOfAncients"
 						"Target" 		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"ankh_of_ancients_end"
+						"cd_multiplier"  "%property_two"
+						"target"		"TARGET"
 					}
 				}
 			}
@@ -21610,12 +21688,17 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"6"
+				"property_one"			"4"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"			"24"
+				"property_two"			"6"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_three"		"20"
 			}
 		}
 	}
@@ -22323,7 +22406,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"		"40"
+				"property_one"		"25"
 			}
 		}
 	}
@@ -24352,7 +24435,7 @@
 			"particle"	"particles/units/heroes/hero_elder_titan/ring_of_fire.vpcf"
 			"particle"	"particles/roshpit/sorceress/sun_lance_hit_bullet_endcap.vpcf"
 			"particle"	"particles/roshpit/sorceress/fire_avatar.vpcf"
-			"particle"	"particles/status_fx/status_effect_burn.vpcf" 
+			"particle"	"particles/status_fx/status_effect_burn.vpcf"
 			"particle"	"particles/roshpit/sorceress/firestorm_cast.vpcf"
 			"particle"	"particles/items_fx/dagon.vpcf"
 		}
@@ -36856,45 +36939,6 @@
 		}
 	}
 
-	"item_rpc_seinaru_immortal_weapon_1"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"weapons/legends/seinaru_immortal_weapon_1"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/red_box.vmdl"
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_seinaru_immortal_weapon_1"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
-	}
-
 	"item_rpc_warlord_immortal_weapon_1"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -37504,56 +37548,6 @@
 		}
 	}
 
-	"item_rpc_djanghor_immortal_weapon_1"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"weapons/legends/djanghor_immortal_weapon_1"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/red_box.vmdl"
-		"precache"
-		{
-			"model"  "models/items/lycan/ultimate/hunter_kings_trueform/hunter_kings_trueform.vmdl"
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"5"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_djanghor_immortal_weapon_1"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
-	}
 	//TIER 2 - 3
 
 	"item_rpc_flamewaker_immortal_weapon_2"
@@ -37914,84 +37908,6 @@
 			{
 				"var_type"			"FIELD_FLOAT"
 				"property_three"		"0.03"
-			}
-		}
-	}
-
-	"item_rpc_seinaru_immortal_weapon_2"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"weapons/legends/seinaru_immortal_weapon_2"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/red_box.vmdl"
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_seinaru_immortal_weapon_2"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/weapon_effects"
-						"Function"		"seinaru_immortal_2_start"
-						"target"        "TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_movespeed_cap_sonic"
-						"Target" 		"TARGET"
-					}
-				}
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "80"
-				}
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"80"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"			"200"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"			"60"
 			}
 		}
 	}
@@ -39026,85 +38942,7 @@
 			}
 		}
 	}
-
-	"item_rpc_seinaru_immortal_weapon_3"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"weapons/legends/seinaru_immortal_weapon_3"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/red_box.vmdl"
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_seinaru_immortal_weapon_3"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%property_two"
-				}
-				"ThinkInterval"  "0.2"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/weapon_effects"
-						"Function"		"seinaru_immo_3_think"
-						"target"        "TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_seinaru_immo_weapon_3_strength"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_seinaru_immo_weapon_3_strength"
-			{
-				"IsHidden"	"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"60"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"-150"
-			}
-		}
-	}
+    ##SEINARU_WEAPONS##
 
 	"item_rpc_warlord_immortal_weapon_3"
 	{
@@ -39816,107 +39654,7 @@
 		}
 	}
 
-	"item_rpc_djanghor_immortal_weapon_2"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"weapons/legends/djanghor_immortal_weapon_2"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/red_box.vmdl"
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"precache"
-		{
-			"model"  "models/items/lone_druid/bear/iron_claw_spirit_bear/iron_claw_spirit_bear.vmdl"
-		}
-		"Modifiers"
-		{
-			"modifier_djanghor_immortal_weapon_2"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"10"
-			}
-		}
-	}
-
-	"item_rpc_djanghor_immortal_weapon_3"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"weapons/legends/djanghor_immortal_weapon_3"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/red_box.vmdl"
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"precache"
-		{
-			"model"     "models/items/beastmaster/hawk/beast_heart_marauder_beast_heart_marauder_raven/beast_heart_marauder_beast_heart_marauder_raven.vmdl"
-		}
-		"Modifiers"
-		{
-			"modifier_djanghor_immortal_weapon_3"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"100"
-			}
-		}
-	}
+    ##DJANGHOR_WEAPONS##
 
 	"item_rpc_slipfinn_immortal_weapon_1"
 	{
@@ -41138,7 +40876,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
+				"property_one"			"20"
 			}
 		}
 	}
@@ -41644,8 +41382,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.8"
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"2"
 			}
 			"02"
 			{

@@ -27,10 +27,6 @@ function shadow_walk_start(event)
 	ability.e_2_level = Runes:GetTotalRuneLevel(caster, 2, "e_2", "chernobog")
 	ability.e_3_level = Runes:GetTotalRuneLevel(caster, 3, "e_3", "chernobog")
 	if rune_e_1_level > 0 then
-		local a_c_duration = 3.5
-		if caster:HasModifier("modifier_chernobog_glyph_1_1") then
-			a_c_duration = a_c_duration + 1
-		end
 		a_c_duration = Filters:GetAdjustedBuffDuration(caster, a_c_duration, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_rune_e_1", {})
 		caster:SetModifierStackCount("modifier_chernobog_rune_e_1", caster, rune_e_1_level)
@@ -42,6 +38,10 @@ function shadow_walk_start(event)
     if caster:HasModifier("modifier_chernobog_glyph_2_1") then
     	ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_night_vision", {})
     end
+	local rune_e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "chernobog")
+	if rune_e_4_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_rune_e_4", {})
+	end
     Filters:CastSkillArguments(3, caster)
 end
 
@@ -65,7 +65,6 @@ function shadow_walk_end(event)
 	caster:RemoveModifierByName("modifier_chernobog_rune_e_1")
 	caster:RemoveModifierByName("modifier_chernobog_rune_e_2")
 	caster:RemoveModifierByName("modifier_chernobog_night_vision")
-	caster:RemoveModifierByName("modifier_chernobog_rune_e_1")
 	local rune_e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "chernobog")
 	if rune_e_4_level > 0 then
 		local d_c_duration = 0.7 + 0.2*rune_e_4_level
@@ -81,13 +80,12 @@ function shadow_walk_think(event)
 	local target = event.target
 	if not caster:HasModifier("modifier_disable_player") and not caster:HasModifier("modifier_nights_procession_caster_lifting") and not caster:HasModifier("modifier_command_restric_player") then
 		local drain_per_second = event.drain_per_second
-		if caster:HasModifier("modifier_chernobog_glyph_5_1") then
-			drain_per_second = drain_per_second - 2
-		end
 		drain_per_second = drain_per_second/100
-		local healthDrain = caster:GetMaxHealth()*drain_per_second
-		local newHealth = math.max(caster:GetHealth()-healthDrain, 1)
-		caster:SetHealth(newHealth)
+		if not caster:HasModifier("modifier_chernobog_glyph_5_1") or caster:GetHealth()/caster:GetMaxHealth() > CHERNOBOG_GLYPH51_DRAIN_HP_CAP_PCT then
+			local healthDrain = caster:GetMaxHealth()*drain_per_second
+			local newHealth = math.max(caster:GetHealth()-healthDrain, 1)
+			caster:SetHealth(newHealth)
+		end
 		local manaDrain = caster:GetMaxMana()*drain_per_second
 		caster:ReduceMana(manaDrain)
 	end
@@ -97,13 +95,25 @@ function rune_e_2_illusion(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	print(b_c_illusion)
 	local damage = caster:GetAverageTrueAttackDamage(caster)*ability.e_2_level*0.5
-	CustomAbilities:QuickAttachParticle("particles/roshpit/chernobog/nights_procession_illusion.vpcf", target, 1.4)
-	Timers:CreateTimer(0.5, function()
-		EmitSoundOn("Chernobog.BC.Hit", target)
-		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
-	end)
+	if not ability.e2_strike_current then
+		ability.e2_strike_current = -1
+		ability.e2_base_strikes = -1;
+	end
+	ability.e2_base_strikes = ability.e2_base_strikes + 1
+	local intervalsForAtt = CHERNOBOG_SHADOWS_INTERVALS_FOR_ATT
+	if caster:HasModifier('modifier_chernobog_glyph_1_1') then
+		intervalsForAtt = CHERNOBOG_GLYPH11_SHADOWS_INTERVALS_FOR_ATT
+	end
+	local strike_current = math.floor(ability.e2_base_strikes/intervalsForAtt)
+	if strike_current > ability.e2_strike_current then
+		CustomAbilities:QuickAttachParticle("particles/roshpit/chernobog/nights_procession_illusion.vpcf", target, CHERNOBOG_SHADOWS_ATT_INTERVAL_BASE * intervalsForAtt)
+		Timers:CreateTimer(0.5, function()
+			EmitSoundOn("Chernobog.BC.Hit", target)
+			Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
+		end)
+		ability.e2_strike_current = strike_current
+	end
 end
 
 function nightvision(event)

@@ -1,3 +1,5 @@
+require('heroes/antimage/arkimus_constants')
+
 function storm_weapon_cast(event)
 	local ability = event.ability
 	local caster = event.caster
@@ -77,7 +79,7 @@ function storm_weapon_strike(event)
         end
     end 
 	local w_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 1)
-	local procs = Runes:Procs(w_4_level, 10, 1)
+	local procs = Runes:Procs(w_4_level, ARKIMUS_W4_SHIELD_CHANCE, 1)
 	if procs > 0 then
 		local duration = Filters:GetAdjustedBuffDuration(caster, 7, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_d_b_shield", {duration = duration})

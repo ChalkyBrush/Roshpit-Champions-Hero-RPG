@@ -95,27 +95,14 @@ end
 function damage_taken(event)
 	local caster = event.caster
 	local ability = event.ability
-	local damage = event.damage
 	if not ability.pfxCount then
 		ability.pfxCount = 0
 	end
-	local q_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 0)
-	if q_1_level > 0 then
-		local manaRestore = math.ceil(damage*0.01*q_1_level/100)
-    	caster:GiveMana(manaRestore)
-		PopupMana(caster, manaRestore)
-		if ability.pfxCount < 3 then
-			ability.pfxCount = ability.pfxCount + 1
-			CustomAbilities:QuickAttachParticle("particles/items3_fx/mango_active.vpcf", caster, 1)		
-			Timers:CreateTimer(0.7, function()
-				ability.pfxCount = ability.pfxCount - 1
-			end)
-		end
-	end
+
 	local q_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
 	if q_3_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_arcana1_q3", {duration = 3})
-		local newStacks = math.min(caster:GetModifierStackCount("modifier_arkimus_arcana1_q3", caster) + 1, q_3_level * 3)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_arcana1_q3", {duration = ARKIMUS_ARCANA1_Q3_DUR_BASE})
+		local newStacks = math.min(caster:GetModifierStackCount("modifier_arkimus_arcana1_q3", caster) + 1, q_3_level * ARKIMUS_ARCANA1_Q3_STACKS)
 		caster:SetModifierStackCount("modifier_arkimus_arcana1_q3", caster, newStacks)
 		ability.q_3_stacks = newStacks
 	end

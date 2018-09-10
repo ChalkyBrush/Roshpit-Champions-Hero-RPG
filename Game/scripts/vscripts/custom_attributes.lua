@@ -79,6 +79,102 @@ function CDOTA_BaseNPC_Hero:GetIntellect()
 	return tonumber(intelligence)
 end
 
+function CDOTA_BaseNPC_Hero:GetBaseStrength()
+	local strength = self:GetStrength()
+	local modifier = nil
+
+	modifier = self:FindModifierByName('modifier_gold_plate_of_leon_str')
+	if modifier then
+		strength = strength - modifier:GetStackCount()
+	end
+
+	modifier = self:FindModifierByName('modifier_empyreal_str')
+	if modifier then
+		strength = strength - modifier:GetStackCount()
+	end
+
+	modifier = self:FindModifierByName('modifier_legion_vestments_effect_str')
+	if modifier then
+		strength = strength - modifier:GetStackCount()
+	end
+
+	modifier = self:FindModifierByName('modifier_eye_of_seasons_stats')
+	if modifier then
+		strength = strength - modifier:GetStackCount()
+	end
+
+	modifier = self:FindModifierByName('modifier_blazing_fury_effect')
+	if modifier then
+		strength = strength - modifier:GetStackCount()
+	end
+
+	return strength
+end
+
+function CDOTA_BaseNPC_Hero:GetBaseAgility()
+	local agility = self:GetAgility()
+	local modifier = nil
+
+	modifier = self:FindModifierByName('modifier_gold_plate_of_leon_agi')
+	if modifier then
+		agility = agility - modifier:GetStackCount()
+	end
+
+	modifier = self:FindModifierByName('modifier_empyreal_agi')
+	if modifier then
+		agility = agility - modifier:GetStackCount()
+	end
+
+	modifier = self:FindModifierByName('modifier_legion_vestments_effect_agi')
+	if modifier then
+		agility = agility - modifier:GetStackCount()
+	end
+
+	modifier = self:FindModifierByName('modifier_voltex_glyph_2_1_effect_invisible')
+	if modifier then
+		agility = agility - modifier:GetStackCount()
+	end
+
+	modifier = self:FindModifierByName('modifier_eye_of_seasons_stats')
+	if modifier then
+		agility = agility - modifier:GetStackCount()
+	end
+
+	modifier = self:FindModifierByName('modifier_dark_arts_effect')
+	if modifier then
+		agility = agility - modifier:GetStackCount()
+	end
+
+	return agility
+end
+
+function CDOTA_BaseNPC_Hero:GetBaseIntellect()
+	local intellect = self:GetIntellect()
+	local modifier = nil
+
+	modifier = self:FindModifierByName('modifier_gold_plate_of_leon_int')
+	if modifier then
+		intellect = intellect - modifier:GetStackCount()
+	end
+
+	modifier = self:FindModifierByName('modifier_empyreal_int')
+	if modifier then
+		intellect = intellect - modifier:GetStackCount()
+	end
+
+	modifier = self:FindModifierByName('modifier_legion_vestments_effect_str')
+	if modifier then
+		intellect = intellect - modifier:GetStackCount()
+	end
+
+	modifier = self:FindModifierByName('modifier_blazing_fury_effect')
+	if modifier then
+		intellect = intellect - modifier:GetStackCount()
+	end
+
+	return intellect
+end
+
 function CDOTA_BaseNPC_Hero:GetRuneValue(letter, index)
 	local coversion = 1
 	if letter == "q" then
@@ -268,6 +364,12 @@ function CustomAttributes:SetAttributes(hero)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", CustomAttributes.VENOMORT_W3_STATS)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", CustomAttributes.VENOMORT_W3_STATS)
 	end
+	if heroName == "npc_dota_hero_antimage" then
+		if hero:HasAbility('arkimus_zap_ring') then
+			local q1_level = hero:GetRuneValue('q', 1)
+			int_bonus = int_bonus + q1_level * ARKIMUS_ARCANA1_Q1_INT
+		end
+	end
 
 	-- ENEMIES --
 
@@ -446,15 +548,15 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_mountain_protector_glyph_5_a", CustomAttributes.MOUNTAIN_PROTECTOR_GLYPH_5_A)
 	end
 	if hero:HasModifier("modifier_red_divinex_amulet") then
-		str_bonus = (str_bonus)*2 - hero:GetModifierStackCount("modifier_legion_vestments_effect_str", hero.InventoryUnit) - hero:GetModifierStackCount("modifier_gold_plate_of_leon_str", hero.InventoryUnit)
+		str_bonus = (str_bonus)*2 - hero:GetStrength() + hero:GetBaseStrength()
 		agi_bonus = 0
 		int_bonus = 0
 	elseif hero:HasModifier("modifier_green_divinex_amulet") then
-		agi_bonus = (agi_bonus)*2 - hero:GetModifierStackCount("modifier_legion_vestments_effect_agi", hero.InventoryUnit) - hero:GetModifierStackCount("modifier_gold_plate_of_leon_agi", hero.InventoryUnit)
+		agi_bonus = (agi_bonus)*2  - hero:GetAgility() + hero:GetBaseAgility()
 		str_bonus = 0
 		int_bonus = 0
 	elseif hero:HasModifier("modifier_blue_divinex_amulet") then
-		int_bonus = (int_bonus)*2 - hero:GetModifierStackCount("modifier_legion_vestments_effect_int", hero.InventoryUnit) - hero:GetModifierStackCount("modifier_gold_plate_of_leon_int", hero.InventoryUnit)
+		int_bonus = (int_bonus)*2  - hero:GetIntellect() + hero:GetBaseIntellect()
 		str_bonus = 0
 		agi_bonus = 0
 	end

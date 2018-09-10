@@ -8,9 +8,11 @@ function lightning_attack_start(event)
         buffDuration = buffDuration + 3
     end
     buffDuration = Filters:GetAdjustedBuffDuration(caster, buffDuration, false)
+    caster:RemoveModifierByName("modifier_gods_strength_datadriven")
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_gods_strength_datadriven", {duration = buffDuration})
     if caster:HasModifier("modifier_voltex_glyph_1_1") then
         local ability = event.ability
+        caster:RemoveModifierByName("modifier_voltex_glyph_1_1_effect")
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_glyph_1_1_effect", {duration = buffDuration})
     end
     if caster:HasModifier("modifier_voltex_glyph_2_1") then
@@ -20,8 +22,8 @@ function lightning_attack_start(event)
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_glyph_2_1_effect_visible", {duration = buffDuration})
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_glyph_2_1_effect_invisible", {duration = buffDuration})
         Timers:CreateTimer(0.03, function()
-            local agility = Filters:GetNonPercentageAttribute(caster, "agility")
-            caster:SetModifierStackCount( "modifier_voltex_glyph_2_1_effect_invisible", ability, agility * 0.8)
+            local agility = caster:GetBaseAgility()
+            caster:SetModifierStackCount( "modifier_voltex_glyph_2_1_effect_invisible", ability, agility)
         end)
     end
 end

@@ -19,7 +19,7 @@ function attackLand(event)
         else
             procChance = ARCANA1_Q2_PROC_CHANCE
         end
-        damageMultiply = ARCANA1_Q2_ATTACK_DAMAGE_PERCENT
+        damageMultiply = ASTRAL_ARCANA1_Q2_DMG_PER_ATT
         baseAbilityFor = 1
     else
         q_2_level = caster:GetRuneValue("q", 2)
@@ -28,7 +28,7 @@ function attackLand(event)
         else
             procChance = Q2_PROC_CHANCE
         end
-        damageMultiply = Q2_ATTACK_DAMAGE_PERCENT
+        damageMultiply = ASTRAL_Q2_DMG_PER_ATT
     end
 
     if q_2_level == nil or q_2_level <= 0 then

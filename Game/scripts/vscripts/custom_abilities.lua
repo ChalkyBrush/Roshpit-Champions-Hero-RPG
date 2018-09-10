@@ -1,3 +1,4 @@
+require('heroes/nightstalker/chernobog_constants')
 if CustomAbilities == nil then
   CustomAbilities = class({})
 end
@@ -400,13 +401,20 @@ function CustomAbilities:ChernobogDemonHunterManaReduced(victim)
 end
 
 function CustomAbilities:ChernobogSuddenStrike(unit, enemy, ability)
-	local shadowStrikeCD = 1
-	if unit:HasModifier("modifier_chernobog_glyph_6_1") then
-		shadowStrikeCD = 0.5
-	end
+	local shadowStrikeCD = CHERNOBOG_E3_CD_BASE
 	ability:ApplyDataDrivenModifier(unit, unit, "modifier_chernobog_c_c_cooldown", {duration = shadowStrikeCD})
-	ability:ApplyDataDrivenModifier(unit, unit, "modifier_chernobog_rune_e_3_damage", {duration = 0.3})
-	unit:SetModifierStackCount("modifier_chernobog_rune_e_3_damage", unit, ability.e_3_level)
+	if unit:HasModifier('modifier_chernobog_glyph_6_1') then
+		local targets = FindUnitsInRadius( unit:GetTeamNumber(), enemy:GetAbsOrigin(), nil, CHERNOBOG_GLYPH61_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+		if #targets > 0 then
+			for _,target in pairs(targets) do
+				ability:ApplyDataDrivenModifier(unit, target, "modifier_chernobog_rune_e_3_postmit", {duration = CHERNOBOG_E3_POSTMIT_DUR_BASE})
+				target:SetModifierStackCount("modifier_chernobog_rune_e_3_postmit", unit, ability.e_3_level)
+			end
+		end
+	else
+		ability:ApplyDataDrivenModifier(unit, enemy, "modifier_chernobog_rune_e_3_postmit", {duration = CHERNOBOG_E3_POSTMIT_DUR_BASE})
+		enemy:SetModifierStackCount("modifier_chernobog_rune_e_3_postmit", unit, ability.e_3_level)
+	end
 
 	local particleName = "particles/roshpit/chernobog/chernobog_rune_e_3.vpcf"
    	local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )

@@ -8,10 +8,9 @@ function start_channel(event)
 
 	local c_d_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
 	if c_d_level > 0 then
-		local duration = Filters:GetAdjustedBuffDuration(caster, 0.05*c_d_level, false)
+		local duration = Filters:GetAdjustedBuffDuration(caster, ARKIMUS_R3_DURATION * c_d_level, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_energy_field_c_d_shield", {duration = duration})
 	end
-	
 end
 
 function channel_interrupt(event)

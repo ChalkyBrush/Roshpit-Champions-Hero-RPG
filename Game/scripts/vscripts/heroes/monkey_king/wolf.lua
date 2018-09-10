@@ -24,15 +24,13 @@ function wolf_howl(event)
 		EmitSoundOn("Draghor.WolfHowl.Activate", caster)
 		for _,ally in pairs(allies) do
 			local modifierName = "modifier_wolf_howl_ally"
-			local b_a_multiple = 1
 			if ally:GetEntityIndex() == caster:GetEntityIndex() or ally:GetOwner() == caster:GetOwner() then
 				modifierName = "modifier_wolf_howl"
-				b_a_multiple = DJANGHOR_Q2_SELF_MULTIPLE
 			end
 			ability:ApplyDataDrivenModifier(caster, ally, modifierName, {duration = duration})
 			if q_2_level > 0 then
 				ability:ApplyDataDrivenModifier(caster, ally, "modifier_wolf_howl_flat_b_b", {duration = duration})
-				ally:SetModifierStackCount("modifier_wolf_howl_flat_b_b", caster, q_2_level*b_a_multiple)
+				ally:SetModifierStackCount("modifier_wolf_howl_flat_b_b", caster, q_2_level)
 			end
 		end
 	end

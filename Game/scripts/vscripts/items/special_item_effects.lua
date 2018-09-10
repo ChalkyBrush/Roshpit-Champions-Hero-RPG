@@ -543,9 +543,21 @@ end
 function ankh_of_ancients_think(event)
 	local caster = event.target
 	local ability = event.ability
+	local max_duration = event.max_duration
+	if  GameRules:GetGameTime() - caster.amulet.ankh_apply_time > max_duration then
+		caster:RemoveModifierByName('modifier_ankh_of_the_ancients')
+	end
+
 	if caster:IsStunned() then
 		Filters:CleanseStuns(caster)
 	end
+end
+function ankh_of_ancients_end(event)
+	local caster = event.target
+	local ability = event.ability
+	local cd_multiplier = event.cd_multiplier
+	local ankh_duration = GameRules:GetGameTime() - caster.amulet.ankh_apply_time
+	caster.amulet:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_ankh_of_ancients_cooldown", {duration = ankh_duration * cd_multiplier})
 end
 
 function chernobog_glyph_7_1_think(event)
@@ -887,7 +899,7 @@ function dark_arts_think(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local stacks = math.floor(target:GetIntellect()*0.5)
+	local stacks = math.floor(target:GetBaseIntellect()*0.8)
 	if not target:HasModifier("modifier_dark_arts_effect") then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_dark_arts_effect", {})
 	end
@@ -898,7 +910,7 @@ function blazing_fury_think(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local stacks = math.floor(target:GetAgility()*0.3, 0)
+	local stacks = math.floor(target:GetBaseAgility()*0.45, 0)
 	if not target:HasModifier("modifier_blazing_fury_effect") then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_blazing_fury_effect", {})
 	end
@@ -920,9 +932,9 @@ function legion_think(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local intStacks = math.floor((target:GetIntellect()-target:GetModifierStackCount( "modifier_legion_vestments_effect_int", ability))*0.3)
-	local agiStacks = math.floor((target:GetAgility()-target:GetModifierStackCount( "modifier_legion_vestments_effect_agi", ability))*0.3)
-	local strStacks = math.floor((target:GetStrength()-target:GetModifierStackCount( "modifier_legion_vestments_effect_str", ability))*0.3) 
+	local intStacks = math.floor(target:GetBaseIntellect()*0.3)
+	local agiStacks = math.floor(target:GetBaseAgility()*0.3)
+	local strStacks = math.floor(target:GetBaseStrength()*0.3)
 	if not target:HasModifier("modifier_legion_vestments_effect_str") then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_legion_vestments_effect_str", {})
 	end
@@ -3549,19 +3561,19 @@ function leon_think(event)
 
 	local primeAttribute = target:GetPrimaryAttribute()
 	if primeAttribute == 0 then
-		local strStacks = math.floor((target:GetStrength()-target:GetModifierStackCount( "modifier_gold_plate_of_leon_str", ability))*0.6, 0) 
+		local strStacks = math.floor(target:GetBaseStrength()*0.5, 0)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_gold_plate_of_leon_str", {})
 		target:SetModifierStackCount( "modifier_gold_plate_of_leon_str", ability, strStacks)
 		target:RemoveModifierByName("modifier_gold_plate_of_leon_agi")
 		target:RemoveModifierByName("modifier_gold_plate_of_leon_int")
 	elseif primeAttribute == 1 then
-		local agiStacks = math.floor((target:GetAgility()-target:GetModifierStackCount( "modifier_gold_plate_of_leon_agi", ability))*0.6, 0) 
+		local agiStacks = math.floor(target:GetBaseAgility()*0.5, 0)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_gold_plate_of_leon_agi", {})
 		target:SetModifierStackCount( "modifier_gold_plate_of_leon_agi", ability, agiStacks)
 		target:RemoveModifierByName("modifier_gold_plate_of_leon_str")
 		target:RemoveModifierByName("modifier_gold_plate_of_leon_int")
 	elseif primeAttribute == 2 then
-		local intStacks = math.floor((target:GetIntellect()-target:GetModifierStackCount( "modifier_gold_plate_of_leon_int", ability))*0.6, 0) 
+		local intStacks = math.floor(target:GetBaseIntellect()*0.5, 0)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_gold_plate_of_leon_int", {})
 		target:SetModifierStackCount( "modifier_gold_plate_of_leon_int", ability, intStacks)
 		target:RemoveModifierByName("modifier_gold_plate_of_leon_agi")
@@ -3735,7 +3747,7 @@ function eye_of_seasons_think(event)
 	local caster = event.caster
 	local ability = event.ability
 
-	local stats = math.floor(target:GetMana()/20)
+	local stats = math.floor(target:GetBaseIntellect()*0.35)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_eye_of_seasons_stats", {})
 	target:SetModifierStackCount("modifier_eye_of_seasons_stats", caster, stats)
 end
@@ -5003,23 +5015,23 @@ function sunrise_robe_think(event)
 	local target = event.target
 	local ability = event.ability
 
-	local heroStr = target:GetStrength() - target:GetModifierStackCount("modifier_empyreal_str", caster)
-	local heroAgi = target:GetAgility() - target:GetModifierStackCount("modifier_empyreal_agi", caster)
-	local heroInt = target:GetIntellect() - target:GetModifierStackCount("modifier_empyreal_int", caster)
+	local heroStr = target:GetBaseStrength()
+	local heroAgi = target:GetBaseAgility()
+	local heroInt = target:GetBaseIntellect()
 
 	if heroStr <= heroAgi and heroStr <= heroInt then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_empyreal_str", {})
-		target:SetModifierStackCount("modifier_empyreal_str", caster, heroStr*1.8)
+		target:SetModifierStackCount("modifier_empyreal_str", caster, heroStr*1.6)
 		target:RemoveModifierByName("modifier_empyreal_agi")
 		target:RemoveModifierByName("modifier_empyreal_int")
 	elseif heroAgi <= heroStr and heroAgi <= heroInt then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_empyreal_agi", {})
-		target:SetModifierStackCount("modifier_empyreal_agi", caster, heroAgi*1.8)
+		target:SetModifierStackCount("modifier_empyreal_agi", caster, heroAgi*1.6)
 		target:RemoveModifierByName("modifier_empyreal_str")
 		target:RemoveModifierByName("modifier_empyreal_int")
 	elseif heroInt <= heroStr and heroInt <= heroAgi then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_empyreal_int", {})
-		target:SetModifierStackCount("modifier_empyreal_int", caster, heroInt*1.8)
+		target:SetModifierStackCount("modifier_empyreal_int", caster, heroInt*1.6)
 		target:RemoveModifierByName("modifier_empyreal_str")
 		target:RemoveModifierByName("modifier_empyreal_agi")		
 	end
@@ -5514,7 +5526,7 @@ function energy_whip_glove_attack_land(event)
 			print("IN HERE")
 		elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) == DOTA_ABILITY_BEHAVIOR_UNIT_TARGET then
 			local order = {
-		 		UnitIndex = attacker:entindex(), 
+		 		UnitIndex = attacker:entindex(),
 		 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
 		 		TargetIndex = target:entindex(),
 		 		AbilityIndex = ability:entindex(),
@@ -5522,7 +5534,7 @@ function energy_whip_glove_attack_land(event)
 		 	}
 		 	attacker:Stop()
 		 	print("HERE?")
-			ExecuteOrderFromTable(order)	
+			ExecuteOrderFromTable(order)
 		elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) == DOTA_ABILITY_BEHAVIOR_POINT then
 			local order =
 			{
@@ -5533,7 +5545,7 @@ function energy_whip_glove_attack_land(event)
 				Queue = true
 			}
 			attacker:Stop()
-			ExecuteOrderFromTable(order)	
+			ExecuteOrderFromTable(order)
 		end
 		-- ability:StartCooldown(0)
 	end
@@ -5768,4 +5780,10 @@ function orthok_think(event)
 	local hero = event.target
 	local chains = event.ability
 	Filters:RecalculateOrthokStacks(hero, chains)
+end
+
+function mugato_attack(event)
+	local attacker = event.attacker
+
+	attacker:AddNewModifier(caster, nil, "modifier_silence", {duration = 0.6})
 end

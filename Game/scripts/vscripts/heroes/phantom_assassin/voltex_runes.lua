@@ -1,3 +1,5 @@
+require('heroes/phantom_assassin/constants_voltex')
+
 function voltex_q_1(event)
 	local caster = event.caster
     local runeUnit = caster.runeUnit
@@ -471,12 +473,12 @@ function rune_unit_2_think(event)
 end
 
 function b_d_attack(event)
-    local luck = RandomInt(1,10)
-    if luck <= 3 then
+    local luck = RandomInt(1,100)
+    if luck <= VOLTEX_R2_CHANCE then
         local attacker = event.attacker
         local target = event.target
         local ability = event.ability
-        local damage = attacker:GetAverageTrueAttackDamage(attacker)*(1+0.1*ability.r_2_level)
+        local damage = attacker:GetAverageTrueAttackDamage(attacker)*(VOLTEX_R2_DMG_PER_ATT_BASE+VOLTEX_R2_DMG_PER_ATT*ability.r_2_level)
         Filters:ApplyStun(attacker, 0.2, target)
         Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
         -- Renders the particle on the target

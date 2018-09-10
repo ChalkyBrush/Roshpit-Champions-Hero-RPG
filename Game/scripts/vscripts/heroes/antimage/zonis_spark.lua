@@ -1,3 +1,5 @@
+require('heroes/antimage/arkimus_constants')
+
 function zonis_precast(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -75,7 +77,7 @@ function spark_start(event)
 end
 
 function zonis_damage(enemy, caster, damage, ability)
-	damage = damage + damage*0.15*ability.q_4_level
+	damage = damage + damage*ARKIMUS_Q4_ADD_DMG_PCT*ability.q_4_level
 	ability:ApplyDataDrivenModifier(caster, enemy, "modifier_zonis_stun", {duration = 0.2})
 	Filters:ApplyStun(caster, 0.2, enemy)
 	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_ARCANE, RPC_ELEMENT_LIGHTNING)
@@ -95,8 +97,8 @@ end
 function zonis_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local radius = 600 + ability.q_2_level*2
-	local damage = ability.q_2_level*30000
+	local radius = ARKIMUS_Q2_RADIUS_BASE + ability.q_2_level*ARKIMUS_Q2_RADIUS
+	local damage = ability.q_2_level*ARKIMUS_Q2_DAMAGE
 	local edges = 2 + math.ceil((ability.q_2_level+1)*0.05)
 	casterOrigin = caster:GetAbsOrigin()
 	local endPointTable = {}

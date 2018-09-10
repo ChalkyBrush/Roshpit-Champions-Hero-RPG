@@ -16,7 +16,7 @@ function begin_crusader_comet(event)
 	local c_c_level = caster:GetRuneValue("e", 3)
 	caster:RemoveModifierByName("modifier_comet_storming")
 	if c_c_level > 0 then
-		local c_c_duration = 1.0 + 0.1*c_c_level
+		local c_c_duration = PALADIN_ARCANA2_E3_BKB_DUR_BASE + PALADIN_ARCANA2_E3_BKB_DUR*c_c_level
 		c_c_duration = Filters:GetAdjustedBuffDuration(caster, c_c_duration, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_black_King_bar_immunity", {duration = c_c_duration})
 	end
