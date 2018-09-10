@@ -1,7 +1,8 @@
 local function cast(caster, abilityLevel)
     if caster.w_3_level > 0 then
-        local healAmount = caster.w_3_level* W3_HEAL * abilityLevel
-        Filters:ApplyHeal(caster, caster, healAmount, true)
+        local healAmountFlat = caster.w_3_level * W3_HEAL_FLAT * abilityLevel
+        local healAmountPct = caster.w_3_level * W3_HEAL_PCT / 100 * caster:GetMaxHealth() * abilityLevel 
+        Filters:ApplyHeal(caster, caster, healAmountFlat+healAmountPct, true)
         -- PopupHealing(caster, healAmount)
     end
 end
