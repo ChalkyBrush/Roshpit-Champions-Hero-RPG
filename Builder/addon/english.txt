@@ -6375,7 +6375,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_vitality_potion_1"	"Lesser Vitality Potion"
 		"DOTA_Tooltip_ability_item_rpc_vitality_potion_1_Description"	"Increases Health Regen by 0.25% of max health for 15 minutes."
-		"DOTA_Tooltip_ability_item_rspc_vitality_potion_2"	"Vitality Potion"
+		"DOTA_Tooltip_ability_item_rpc_vitality_potion_2"	"Vitality Potion"
 		"DOTA_Tooltip_ability_item_rpc_vitality_potion_2_Description"	"Increases Health Regen by 0.5% of max health for 15 minutes."
 		"DOTA_Tooltip_ability_item_rpc_vitality_potion_3"	"Greater Vitality Potion"
 		"DOTA_Tooltip_ability_item_rpc_vitality_potion_3_Description"	"Increases Health Regen by 0.75% of max health for 15 minutes."

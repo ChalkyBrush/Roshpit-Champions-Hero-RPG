@@ -103,6 +103,11 @@ function CDOTA_BaseNPC_Hero:GetBaseStrength()
 		strength = strength - modifier:GetStackCount()
 	end
 
+	modifier = self:FindModifierByName('modifier_blazing_fury_effect')
+	if modifier then
+		strength = strength - modifier:GetStackCount()
+	end
+
 	return strength
 end
 
@@ -158,6 +163,11 @@ function CDOTA_BaseNPC_Hero:GetBaseIntellect()
 	end
 
 	modifier = self:FindModifierByName('modifier_legion_vestments_effect_str')
+	if modifier then
+		intellect = intellect - modifier:GetStackCount()
+	end
+
+	modifier = self:FindModifierByName('modifier_blazing_fury_effect')
 	if modifier then
 		intellect = intellect - modifier:GetStackCount()
 	end

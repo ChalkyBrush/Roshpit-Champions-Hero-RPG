@@ -8889,12 +8889,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_one"			"0.6"
+				"property_two"			"0.6"
 			}
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"600"
+				"property_three"			"600"
 			}
 		}
 	}
