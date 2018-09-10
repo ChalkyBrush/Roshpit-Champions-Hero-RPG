@@ -47,17 +47,14 @@ function attackLand(event, q2_think)
             newStacks = halfOfStacks
         end
     end
-    q2_apply_stacks(ability, caster, newStacks, duration, visibleModifier, runesCount)
-end
 
-function q2_think(event)
-    attackLand(event, true)
-end
-
-function q2_apply_stacks(ability, caster, newStacks, duration, visibleModifier, runesCount)
     ability:ApplyDataDrivenModifier(caster, caster, visibleModifier, {duration = duration})
     caster:SetModifierStackCount(visibleModifier, caster, newStacks)
     local invisibleModifier =  "modifier_axe_rune_q_2_invisible"
     ability:ApplyDataDrivenModifier(caster, caster, invisibleModifier, {duration = duration})
     caster:SetModifierStackCount(invisibleModifier, caster, newStacks * runesCount)
+end
+
+function q2_think(event)
+    attackLand(event, true)
 end
