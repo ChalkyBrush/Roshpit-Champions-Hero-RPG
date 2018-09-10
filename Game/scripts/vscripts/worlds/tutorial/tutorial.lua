@@ -210,9 +210,11 @@ function Tutorial:OpenTutorial(hero)
 					Tutorial:SoundAndAnimationForMaster("Tutorial.Master.GreetingBasic", ACT_DOTA_ATTACK, 0.7, 4.1)
 				end
 			else
-				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_hello", 5, false)
+				if not hero.master_is_talking then
+					Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_hello", 5, false)
+					Tutorial:SoundAndAnimationForMaster("Tutorial.Master.GreetingBasic", ACT_DOTA_ATTACK, 0.7, 4.1)
+				end
 				Tutorial:TutorialUIActiveForPlayer(hero, 0)
-				Tutorial:SoundAndAnimationForMaster("Tutorial.Master.GreetingBasic", ACT_DOTA_ATTACK, 0.7, 4.1)
 			end
 		end
 	end
