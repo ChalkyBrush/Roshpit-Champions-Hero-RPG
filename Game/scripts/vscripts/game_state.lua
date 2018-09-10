@@ -2,6 +2,7 @@ if GameState == nil then
   GameState = class({})
 end
 
+require('/heroes/dark_seer/zhonik_constants')
 require('/heroes/huskar/constants_SPIRIT_WARRIOR')
 require('/heroes/obsidian_destroyer/constants_epoch')
 require('/heroes/juggernaut/seinaru_constants')
@@ -1387,11 +1388,11 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_tachyon_shell") then
         local modifier = victim:FindModifierByName("modifier_tachyon_shell")
         if modifier:GetCaster():GetTeamNumber() == victim:GetTeamNumber() then
-            local reduction = math.max(modifier:GetAbility().q_4_level*0.005, 0.01)
+            local reduction = math.max(modifier:GetAbility().q_4_level*ZHONIK_Q4_DMG_TAKEN_REDUCTION_PCT/100, 0.01)
             if victim:GetEntityIndex() == modifier:GetCaster():GetEntityIndex() then
                 reduction = reduction*2
             end
-            reduction = math.min(reduction, 0.9)
+            reduction = math.min(reduction, ZHONIK_Q4_DMG_TAKEN_REDUCTION_MAX_PCT/100)
             -- print("zhonic q4 "..reduction)
             damage = damage*(1-reduction)
         end
@@ -1830,7 +1831,7 @@ function GameState:FilterDamage(filterTable)
     if damagetype == DAMAGE_TYPE_PHYSICAL or damagetype == DAMAGE_TYPE_MAGICAL then
 		if victim:HasModifier("modifier_zonik_lightspeed") then
 			local c_c_level = victim:FindAbilityByName("zonik_lightspeed").e_3_level
-			filterTable["damage"] = math.max(filterTable["damage"] - Filters:GetHeroAttribute(victim, "agility")*c_c_level, 0)
+			filterTable["damage"] = math.max(filterTable["damage"] - Filters:GetHeroAttribute(victim, "agility")*c_c_level*ZHONIK_E3_PHYS_BLOCK_FLAT, 0)
 		end
 	end
 	if victim:HasModifier("modifier_voltex_arcana1_passive") then
@@ -2204,7 +2205,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if attacker:HasModifier("modifier_zhonic_arcana_c_c_invisible") then
 		local stacks = attacker:GetModifierStackCount("modifier_zhonic_arcana_c_c_invisible", attacker)
-		local multIncrease = stacks*0.0002
+		local multIncrease = stacks*ZHONIK_E3_ARCANA_POST_MITI_AMP_PCT/100
 		mult = mult + multIncrease
 	end
 	if attacker:HasModifier("modifier_general_postmitigation") then
@@ -2263,7 +2264,7 @@ function GameState:FilterDamage(filterTable)
 		modifier = victim:FindModifierByName("modifier_tachyon_amp")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetStackCount()
-			mult = mult + 0.04*stacks
+			mult = mult + stacks*ZHONIK_Q3_POST_MITI_AMP_PCT/100
 		end
 	end
 	if victim:HasModifier("modifier_hailstorm_enemy_amp") then

@@ -1,3 +1,4 @@
+require('/heroes/dark_seer/zhonik_constants')
 require('heroes/dark_seer/mach_punch')
 require('heroes/dark_seer/tachyon_shell')
 
@@ -17,8 +18,8 @@ end
 function zonik_passive_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local b_d_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
-	if b_d_level > 0 then
+	local r_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
+	if r_2_level > 0 then
 		if caster:IsRooted() or caster:IsStunned() then
 			caster:RemoveModifierByName("modifier_speedball_b_d_regen")
 			caster:RemoveModifierByName("modifier_speedball_b_d_mana_regen")
@@ -27,20 +28,20 @@ function zonik_passive_think(event)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_speedball_b_d_mana_regen", {})
 			local movespeedBase = caster:GetBaseMoveSpeed()
 			local movespeed = caster:GetMoveSpeedModifier(movespeedBase)
-			local regenBonus = 0.5*movespeed*b_d_level
-			caster:SetModifierStackCount("modifier_speedball_b_d_regen", caster, regenBonus)
-			caster:SetModifierStackCount("modifier_speedball_b_d_mana_regen", caster, regenBonus/10)
+			local regenBonus = movespeed*r_2_level
+			caster:SetModifierStackCount("modifier_speedball_b_d_regen", caster, regenBonus*ZHONIK_R2_HEALTH_REGEN_PCT/100)
+			caster:SetModifierStackCount("modifier_speedball_b_d_mana_regen", caster, regenBonus*ZHONIK_R2_MANA_REGEN_PCT/100)
 		end
 	else
 		caster:RemoveModifierByName("modifier_speedball_b_d_regen")
 		caster:RemoveModifierByName("modifier_speedball_b_d_mana_regen")
 	end
-	local d_d_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
-	if d_d_level > 0 then
+	local r_4_level = Runes:GetTotalRuneLevelGeneric(caster, 4, 3)
+	if r_4_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_speedball_d_d_strength", {})
-		caster:SetModifierStackCount("modifier_speedball_d_d_strength", caster, d_d_level)
+		caster:SetModifierStackCount("modifier_speedball_d_d_strength", caster, r_4_level)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_speedball_d_d_attack_power", {})
-		caster:SetModifierStackCount("modifier_speedball_d_d_attack_power", caster, d_d_level*0.3*caster:GetStrength())
+		caster:SetModifierStackCount("modifier_speedball_d_d_attack_power", caster, r_4_level*ZHONIK_R4_ATTC_DMG_PER_STR*caster:GetStrength())
 	else
 		caster:RemoveModifierByName("modifier_speedball_d_d_strength")
 		caster:RemoveModifierByName("modifier_speedball_d_d_attack_power")
@@ -62,8 +63,7 @@ function speedball_start(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_zonik_speedball", {duration = duration})
 	caster:AddNewModifier( caster, ability, "modifier_zonik_speedball_cap", {duration = duration} )
 
-	local a_d_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
-	ability.r_1_level = a_d_level
+	ability.r_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
 
 	caster:RemoveModifierByName("modifier_speedball_a_d_visible")
 	caster:RemoveModifierByName("modifier_speedball_a_d_invisible")
@@ -104,7 +104,7 @@ function speedball_thinking(event)
 			if ability.r_1_level > 0 then
 				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 180, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 				if #enemies > 0 then
-					local stun_duration = 0.5 + ability.r_1_level*0.01
+					local stun_duration = ZHONIK_R1_BASE_STUN_DURATION + ability.r_1_level*ZHONIK_R1_EXTRA_STUN_DURATION
 					local bSound = false
 					for _,enemy in pairs(enemies) do
 						if not enemy:HasModifier("modifier_speedball_stun") then
@@ -185,8 +185,8 @@ function speedball_explode(caster, ability, damage, stun_duration)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_speedball_a_d_visible", {duration = 8})
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_speedball_a_d_invisible", {duration = 8})
 	end
-	local c_d_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
-	if c_d_level > 0 then
+	local r_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
+	if r_3_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_speedball_c_d_mach_ready", {duration = 4})
 	end
 end
@@ -197,8 +197,8 @@ function mach_ready_thinking(event)
 	if caster:IsStunned() or caster:IsRooted() then
 	else
 		caster:RemoveModifierByName("modifier_speedball_c_d_mach_ready")
-		local c_d_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
-		local procs = Runes:Procs(c_d_level, 10, 1)
+		local r_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
+		local procs = Runes:Procs(r_3_level, ZHONIK_R3_MACH_PUNCH_CHANCE, 1)
 		if procs > 0 then
 			for i = 0, procs-1, 1 do
 				Timers:CreateTimer(i*0.2, function()

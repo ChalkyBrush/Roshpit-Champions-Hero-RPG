@@ -1,5 +1,7 @@
 modifier_zonik_temporal_field_cap = class({})
 
+require('/heroes/dark_seer/zhonik_constants')
+
 function modifier_zonik_temporal_field_cap:DeclareFunctions()
     local funcs = {
         MODIFIER_PROPERTY_MOVESPEED_MAX,

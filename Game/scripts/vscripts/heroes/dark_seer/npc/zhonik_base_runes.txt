@@ -11,7 +11,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"<% ZHONIK_Q1_DMG_PCT %>"
 			}
 		}
 	}
@@ -29,22 +29,22 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"			"6"
+				"property_one_base"			"<% ZHONIK_Q2_BASE_DURATION %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"<% ZHONIK_Q2_DURATION %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two_base"			"200"
+				"property_two_base"			"<% ZHONIK_Q2_BASE_SEARCH_RADIUS %>"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"5"
+				"property_two"			"<% ZHONIK_Q2_SEARCH_RADIUS %>"
 			}
 		}
 	}
@@ -62,7 +62,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"<% ZHONIK_Q3_POST_MITI_AMP_PCT %>"
 			}
 		}
 	}
@@ -80,12 +80,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"<% ZHONIK_Q4_DMG_TAKEN_REDUCTION_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one_max"		"90.0"
+				"property_one_max"		"<% ZHONIK_Q4_DMG_TAKEN_REDUCTION_MAX_PCT %>"
 			}
 		}
 	}
@@ -104,7 +104,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"<% ZHONIK_W1_MUCH_PUNCH_SHOCKWAVE_PCT %>"
 			}
 			"02"
 			{
@@ -137,7 +137,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.0"
+				"property_one"			"<% ZHONIK_W2_MUCH_PUNCH_AMP_PCT %>"
 			}
 		}
 	}
@@ -156,7 +156,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1000"
+				"property_one"			"<% ZHONIK_W3_DMG_PER_WHIPLASH %>"
 			}
 			"02"
 			{
@@ -190,7 +190,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.2"
+				"property_one"			"<% ZHONIK_W4_ECHO_DMG_PCT %>"
 			}
 			"02"
 			{
@@ -213,7 +213,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6"
+				"property_one"			"<% ZHONIK_E1_MS %>"
 			}
 		}
 	}
@@ -232,7 +232,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"<% ZHONIK_E2_DMG_PER_MANA %>"
 			}
 			"02"
 			{
@@ -260,7 +260,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"<% ZHONIK_E3_PHYS_BLOCK_FLAT %>"
 			}
 		}
 	}
@@ -278,7 +278,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"<% ZHONIK_E4_MS_CAP_INCREASE %>"
 			}
 		}
 	}
@@ -296,17 +296,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"<% ZHONIK_R1_ATTC_DMG_INCR_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.01"
+				"property_two"			"<% ZHONIK_R1_EXTRA_STUN_DURATION %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two_base"		"0.5"
+				"property_two_base"		"<% ZHONIK_R1_BASE_STUN_DURATION %>"
 			}
 		}
 	}
@@ -324,12 +324,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
+				"property_one"			"<% ZHONIK_R2_HEALTH_REGEN_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"5"
+				"property_two"			"<% ZHONIK_R2_MANA_REGEN_PCT %>"
 			}
 		}
 	}
@@ -347,7 +347,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"<% ZHONIK_R3_MACH_PUNCH_CHANCE %>"
 			}
 		}
 	}
@@ -365,12 +365,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"350"
+				"property_one"			"<% ZHONIK_R4_BONUS_STR %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.3"
+				"property_two"			"<% ZHONIK_R4_ATTC_DMG_PER_STR %>"
 			}
 		}
 	}

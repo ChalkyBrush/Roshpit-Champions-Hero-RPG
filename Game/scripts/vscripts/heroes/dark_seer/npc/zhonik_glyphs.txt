@@ -32,7 +32,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
+				"property_one"			"<% ZHONIK_GLYPH_1_1_TACHYON_SHELL_RADIUS %>"
 			}
 		}
 	}
@@ -71,7 +71,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
+				"property_one"			"<% ZHONIK_GLYPH_2_1_DAMAGE %>"
 			}
 		}
 	}
@@ -110,7 +110,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
+				"property_one"			"<% ZHONIK_GLYPH_3_1_CHANCE_TO_PUNCH_TWICE %>"
 			}
 		}
 	}
@@ -149,7 +149,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
+				"property_one"			"<% ZHONIK_GLYPH_4_1_SONIC_RADIUS %>"
 			}
 		}
 	}
@@ -188,7 +188,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
+				"property_one"			"<% ZHONIK_GLYPH_5_1_LIGHTSPEED_ADDITIONAL_MS %>"
 			}
 		}
 	}
@@ -227,12 +227,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
+				"property_one"			"50"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"200"
+				"property_two"			"<% ZHONIK_GLYPH_6_1_MULTI %>"
 			}
 		}
 	}
@@ -271,7 +271,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"75"
+				"property_one"			"<% ZHONIK_GLYPH_7_1_ELEMENT_TEMPORAL %>"
 			}
 		}
 	}
@@ -310,7 +310,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
+				"property_one"			"<% ZHONIK_GLYPH_5_a_AOE %>"
 			}
 		}
 	}

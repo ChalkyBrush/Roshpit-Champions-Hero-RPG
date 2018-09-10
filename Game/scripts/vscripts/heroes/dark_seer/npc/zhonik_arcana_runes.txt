@@ -11,7 +11,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
+				"property_one"			"<% ZHONIK_E1_ARCANA_ELEMENT_TEMPORAL %>"
 			}
 		}
 	}
@@ -30,7 +30,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"<% ZHONIK_E2_ARCANA_DMG_PCT %>"
 			}
 			"02"
 			{
@@ -58,7 +58,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.02"
+				"property_one"			"<% ZHONIK_E3_ARCANA_POST_MITI_AMP_PCT %>"
 			}
 		}
 	}
@@ -76,12 +76,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.06"
+				"property_one"			"<% ZHONIK_E4_ARCANA_ELEMENT_TEMPORAL_PER_ATRI %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.1"
+				"property_two"			"<% ZHONIK_E4_ARCANA_MS_STICKY_DURATION %>"
 			}
 		}
 	}
@@ -100,7 +100,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"<% ZHONIK_R1_ARCANA_AOE_DMG_PCT %>"
 			}
 			"02"
 			{
@@ -129,7 +129,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"<% ZHONIK_R2_ARCANA_MUCH_PUNCH_AMP_PCT %>"
 			}
 			"02"
 			{
@@ -157,7 +157,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"<% ZHONIK_R3_ARCANA_ELEMENT_TEMPORAL %>"
 			}
 		}
 	}
@@ -175,12 +175,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"500"
+				"property_one"			"<% ZHONIK_R4_ARCANA_BONUS_AGI %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.5"
+				"property_two"			"<% ZHONIK_R4_ATTC_DMG_PER_AGI %>"
 			}
 		}
 	}

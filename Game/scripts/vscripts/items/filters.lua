@@ -8,6 +8,7 @@ local heroes = {
     mountain_protector = require('/heroes/legion_commander/constants')
 }
 
+require('/heroes/dark_seer/zhonik_constants')
 require('/heroes/huskar/constants_SPIRIT_WARRIOR')
 require('items/special_item_effects')
 require('/heroes/omniknight/paladin_constants')
@@ -1983,12 +1984,12 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             mult = mult + 10
         end
         if unitName == "npc_dota_hero_phantom_assassin" then
-            local d_c_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 2)
+            local e_4_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 2)
             local lightningRuneRate = 0.001
             if attacker:HasModifier("modifier_voltex_arcana1_passive") then
                 lightningRuneRate = 0.0015
             end
-            mult = mult + lightningRuneRate*attacker:GetAgility()/10*d_c_level
+            mult = mult + lightningRuneRate*attacker:GetAgility()/10*e_4_level
             if attacker:HasAbility("overcharge") then
                 if bIsRealDamage then
                     local q_2_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 0)
@@ -2048,7 +2049,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if unitName == "npc_dota_hero_dark_seer" then
             if attacker:HasModifier("modifier_zonik_glyph_7_1") and attacker:HasModifier("modifier_temporal_discharge") then
                 local stacks = attacker:GetModifierStackCount("modifier_temporal_discharge", attacker)
-                mult = mult + stacks*0.75
+                mult = mult + stacks*ZHONIK_GLYPH_7_1_ELEMENT_TEMPORAL/100
                 if stacks - 1 > 0 then
                     attacker:SetModifierStackCount("modifier_temporal_discharge", attacker, math.ceil(stacks - 1))
                 else
@@ -2057,11 +2058,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
             if victim:HasModifier("modifier_dummy_aura_effect_enemy_a_c_invisible") then
                 local stacks = victim:GetModifierStackCount("modifier_dummy_aura_effect_enemy_a_c_invisible", attacker)
-                mult = mult + stacks*0.03
+                mult = mult + stacks*ZHONIK_E1_ARCANA_ELEMENT_TEMPORAL/100
             end
             if attacker:HasAbility("zhonik_temporal_field") then
-                local d_c_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 2)
-                mult = mult + 0.0006*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*d_c_level
+                local e_4_level = Runes:GetTotalRuneLevelGeneric(attacker, 4, 2)
+                mult = mult + ZHONIK_E4_ARCANA_ELEMENT_TEMPORAL_PER_ATRI/100*(attacker:GetStrength()+attacker:GetAgility()+attacker:GetIntellect())/10*e_4_level
             end
         elseif unitName == "npc_dota_hero_obsidian_destroyer" then
             -- print("OD HERE")
@@ -2074,7 +2075,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if victim:HasModifier("modifier_tempo_flux_invisible") then
             if unitName == "npc_dota_hero_dark_seer" then
                 local stacks = victim:GetModifierStackCount("modifier_tempo_flux_invisible", attacker)
-                mult = mult + stacks*0.005
+                mult = mult + stacks*ZHONIK_R3_ARCANA_ELEMENT_TEMPORAL/100
             end
         end
     end

@@ -9,7 +9,7 @@ local hero_values = {
 require('/heroes/obsidian_destroyer/epoch_constants')
 require('/heroes/antimage/arkimus_constants')
 require('/heroes/juggernaut/seinaru_constants')
-
+require('/heroes/dark_seer/zhonik_constants')
 
 CustomAttributes.FLAMEWAKER_R3_STRENGTH = 260
 CustomAttributes.CONJUROR_E1_AGI = 25
@@ -17,8 +17,10 @@ CustomAttributes.WARLORD_W2_STATS = 60
 CustomAttributes.MOUNTAIN_PROTECTOR_R1_ARCANA1_STRENGTH = 250
 CustomAttributes.CHERNOBOG_W4_STR_OR_AGI = 300
 CustomAttributes.HYDROXIS_E4_AGI_INT = 350
-CustomAttributes.ZHONIK_R4_STR = 350
-CustomAttributes.ZHONIK_ARCANA_R4_AGI = 500
+
+CustomAttributes.ZHONIK_R4_STR = ZHONIK_R4_BONUS_STR
+CustomAttributes.ZHONIK_ARCANA_R4_AGI = ZHONIK_R4_ARCANA_BONUS_AGI
+
 CustomAttributes.DJANGHOR_R4_STATS = 500
 CustomAttributes.DJANGHOR_R4_ARCANA_STATS = 300
 CustomAttributes.AXE_Q3_STATS = 14

@@ -853,7 +853,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.5"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% ZHONIK_R1_ATTC_DMG_INCR_PCT %>"
 				}
 			}
 			"modifier_speedball_b_d_regen"
