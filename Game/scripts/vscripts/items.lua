@@ -140,7 +140,7 @@ function RPCItems:RollItemtype(xpBounty, deathLocation, rarityValue, unitLevel)
 		end
 	end
 	if GameMode.VoteSystem.junk_loot_disabled and (rarity == "common" or rarity =="uncommon" or rarity == "rare" or rarity == "mythical") and luck >= 200 then
-		print("junk_loot_disabled other rarity: "..rarity)
+		-- print("junk_loot_disabled other rarity: "..rarity)
 		return
 	end
 	if luck > 0 and luck < 200 then
