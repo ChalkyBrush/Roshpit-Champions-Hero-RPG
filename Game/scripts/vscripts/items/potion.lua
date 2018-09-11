@@ -2,7 +2,7 @@ function usePotion(event)
 	local caster = event.caster
 	local ability = event.ability
 
-	getPotionMultipler(caster)
+	local mult = getPotionMultipler(caster)
 
 	action(ability.property1name, ability.property1 * mult, caster)
 	if ability.property2name then
