@@ -7872,7 +7872,7 @@
 		 "DOTA_Tooltip_modifier_fenrir_fang_buff_Description"	"Урон увеличен"
 
 		 "item_property_boots_of_ashara"						"Autumnwood Charm"
-		 "property_boots_of_ashara_description"					"Урон, наносящий герою менее 10% от макс. здоровья снижается на 90%."
+		 "property_boots_of_ashara_description"					"@Ability3 наносит @special_property1x увеличенный Базовый Урон Способности, если здоровье ниже или равно @special_property2%."
 
 		 "item_property_autumnrock_bracer"						"Fissure"
 		 "property_autumnrock_bracer_description"				"При получении урона есть 10% шанс, что в сторону атакующего будет направлен мощный разлом.<br>Разлом оглушает все задетые цели на 2 секунды<br>и наносит им магический урон в размере @special_property1x от показателя Силы героя.<br>Весь напрямую наносимый предметами урон увеличивается на @special_property2% за каждые 100 очков текущего здоровья."
