@@ -2508,14 +2508,14 @@
 		"DOTA_Tooltip_ability_seinaru_rune_w_1_suffix"					"%"
 		
 		"DOTA_Tooltip_ability_seinaru_rune_w_2"							"[W2] Typhoon"
-		"DOTA_Tooltip_ability_seinaru_rune_w_2_Description"				"Hands of Hikari has a 25% chance to release a quick Typhoon that damages and stuns surrounding enemies in a radius of 420. Base damage is multiplied by the level of Hands of Hikari."
+		"DOTA_Tooltip_ability_seinaru_rune_w_2_Description"				"Hands of Hikari release a quick Typhoon that damages enemies in a radius of 420. Base damage is multiplied by the level of Hands of Hikari."
 		"DOTA_Tooltip_ability_seinaru_rune_w_2_property_one"			"Damage"
 		"DOTA_Tooltip_ability_seinaru_rune_w_2_suffix"					""
 		"DOTA_Tooltip_ability_seinaru_rune_w_2_property_two"			"Stun Duration"
 		"DOTA_Tooltip_ability_seinaru_rune_w_2_suffix_two"				" seconds"
 
 		"DOTA_Tooltip_ability_seinaru_rune_w_3"						"[W3] Four Winds"
-		"DOTA_Tooltip_ability_seinaru_rune_w_3_Description"			"After casting Hikari, Seinaru and nearby allies are protected by a temporary shield lasting 0.65 seconds. The shield absorbs damage based on Seinaru's agility."
+		"DOTA_Tooltip_ability_seinaru_rune_w_3_Description"			"After casting Hikari, Seinaru and nearby allies are protected by a temporary shield lasting 3 seconds. The shield absorbs damage based on Seinaru's agility."
 		"DOTA_Tooltip_ability_seinaru_rune_w_3_property_one"			"Shield capacity"
 		"DOTA_Tooltip_ability_seinaru_rune_w_3_suffix"					"x agility"
 
@@ -4553,10 +4553,10 @@
     	"DOTA_Tooltip_ability_chernobog_rune_e_2_suffix_two"					""
 
      	"DOTA_Tooltip_ability_chernobog_rune_e_3"								"[E3] Sudden Strike"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_3_Description"					"When issuing an attack order on an enemy in Shadow Hunt, Chernobog teleports behind them and attacks with extra power - if within the distance constraint. 1 second cooldown."
+    	"DOTA_Tooltip_ability_chernobog_rune_e_3_Description"					"When issuing an attack order on an enemy in Shadow Hunt, Chernobog teleports behind them and attacks. The enemy takes increased postmitigation for 1s. 0.4 second cooldown."
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_property_one"					"Max Range"
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_suffix"						""
-    	"DOTA_Tooltip_ability_chernobog_rune_e_3_property_two"					"Attack Damage Strike"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_3_property_two"					"Post-Mitigation Amp"
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_suffix_two"					"%"
 
     	"DOTA_Tooltip_modifier_chernobog_c_c_cooldown"							"Sudden Strike Cooldown"
@@ -4564,8 +4564,8 @@
     	"DOTA_Tooltip_modifier_chernobog_c_c_cooldown"							"Sudden Strike Cooldown"
 
     	"DOTA_Tooltip_ability_chernobog_rune_e_4"								"[E4] Eclipse"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_4_Description"					"Gain 100% evasion and 30% magic resistance after disabling Shadow Hunt."
-    	"DOTA_Tooltip_ability_chernobog_rune_e_4_property_one"					"Duration"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_4_Description"					"Gain 100% evasion and 30% magic resistance while Shadow Hunt is active. The buff persists for some time after disabling Shadow Hunt."
+    	"DOTA_Tooltip_ability_chernobog_rune_e_4_property_one"					"Duration after disabling Shadow Hunt"
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_suffix"						" seconds"
 
     	"DOTA_Tooltip_modifier_chernobog_rune_e_4"								"Eclipse"
@@ -5803,7 +5803,7 @@
     	"DOTA_Tooltip_ability_arkimus_rune_r_2_suffix"							"% of attack Power"
 
     	"DOTA_Tooltip_ability_arkimus_rune_r_3"									"[R3] Forcefield"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_3_Description"						"When Energy Field begins channeling, Arkimus gains a temporary shield that reduces all damage taken by 95%."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3_Description"						"When Energy Field begins channeling, Arkimus gains a temporary shield that reduces all damage taken by 90%."
     	"DOTA_Tooltip_ability_arkimus_rune_r_3_property_one"					"Duration"
     	"DOTA_Tooltip_ability_arkimus_rune_r_3_suffix"							" seconds"
 
@@ -5826,10 +5826,10 @@
 
     	"DOTA_Tooltip_modifier_zonis_stun_arcana1"								"Magnetic Shock"
 
-    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1"									"[Q1] Reverse Polarity"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_Description"						"Taking damage restores Arkimus' mana."
-    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_property_one"					"Mana Restore"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_suffix"							"% of every 100 damage taken"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1"									"[Q1] Synapse"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_Description"						"Passively increase intelligence."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_property_one"					"Bonus Intelligence"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_suffix"							""
 
      	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1"									"[Q2] Power Surge"
     	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1_Description"						"Enemies in Magnetic Flux take increased post-mitigation damage from Arkimus."
@@ -5837,7 +5837,7 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1_suffix"							"%"
 
      	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1"									"[Q3] Induction"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_Description"						"Taking damage adds an Induction stack. Each stack reduces damage taken by 1% independently (there is diminishing returns)"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_Description"						"Taking damage adds an Induction stack. Each stack reduces damage taken by 3% independently (meaning there is diminishing returns). Lasts 60 seconds and persists through death"
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_property_one"					"Max Stacks"
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_suffix"							""
 
@@ -6036,12 +6036,12 @@
     	"DOTA_Tooltip_modifier_bear_regen_Description"								"Restoring health every 0.1 seconds"
 
     	"DOTA_Tooltip_ability_djanghor_rune_q_2"									"[Q2] Wolf Pack"
-    	"DOTA_Tooltip_ability_djanghor_rune_q_2_Description"						"Howl has an additional base attack damage component. Allies receive 10% of the buff value."
+    	"DOTA_Tooltip_ability_djanghor_rune_q_2_Description"						"Howl has an additional base attack damage component. Allies receive 100% of the buff value."
     	"DOTA_Tooltip_ability_djanghor_rune_q_2_property_one"						"Howl Attack Damage Bonus"
     	"DOTA_Tooltip_ability_djanghor_rune_q_2_suffix"								""
 
     	"DOTA_Tooltip_ability_djanghor_rune_q_3"									"[Q3] Oscillation"
-    	"DOTA_Tooltip_ability_djanghor_rune_q_3_Description"						"Casting Screech adds time to ALL remaining buffs applied by Djanghor and his items."
+    	"DOTA_Tooltip_ability_djanghor_rune_q_3_Description"						"Casting Screech adds time to ALL remaining buffs applied by Djanghor and his items. Buff durations can be increased only 3 times until they are reapplied once again."
     	"DOTA_Tooltip_ability_djanghor_rune_q_3_property_one"						"Duration Increase"
     	"DOTA_Tooltip_ability_djanghor_rune_q_3_suffix"								" seconds"
 
@@ -7520,7 +7520,7 @@
 		"DOTA_Tooltip_modifier_iron_colossus_description"		"Attacks deal 50x physical damage, stun enemies for 0.5s and size increased. Attack speed locked at 100. Gain bonus damage and armor from strength."
 
 		"item_property_mugato"						"Curse of Mugato"	
-		"property_mugato_description"				"Increases base ability damage by @special_property1%. -5000 mana regen."
+		"property_mugato_description"				"Any cast silence you for @special_property1s, attack by @special_property2. While silenced increase postmitigation by @special_property3%"
 
 		"item_property_swamp_witch"					"Murky Wave"
 		"property_swamp_witch_description"			"Each cast of @Ability2 also unleashes a swarm of bats in front of you - dealing @special_property1x your intelligence as damage. Enemies hit by the wave take @special_property2% increased post-mitigation damage for 8 seconds, stacking up to 10 times."
@@ -7565,7 +7565,7 @@
 		"property_varmpiric_breastplate_description" "30% lifesteal on @Ability1"
 
 		"item_property_dark_arts"					"Dark Mastery"
-		"property_dark_arts_description"			"Increases your Agility by 50% of your Intelligence."
+		"property_dark_arts_description"			"Increases your Agility by @special_property1% of your Intelligence."
 
 		"item_property_legion_vestments"			"Legion Command"
 		"property_legion_vestments_description"		"Increases Strength - Agility - and Intelligence by 30%"
@@ -7994,7 +7994,7 @@
 		"property_nobility_augmented_description"			"Increases all attributes by @special_property1x your level."
 
 		"item_property_mordiggus"							"Blood Bane"
-		"property_mordiggus_description"					"Increases ALL damage output by 100%. Each spell cast drains 20% of max life, and each attack drains 7% of max life. Drained Health cannot be lethal."
+		"property_mordiggus_description"					"Increases ALL damage output by @special_property1% for each missing percent of hp. Each spell cast drains 20% of max life, and each attack drains 7% of max life. Drained Health cannot be lethal."
 
 		"item_property_ironbound_gloves"					"Ironfist"
 		"property_ironbound_gloves_description"				"Your base attack damage is increased by @special_property1x your armor."
@@ -8069,7 +8069,7 @@
 		 "DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect_Description"	"Increased attack damage and attack range."
 
 		 "item_property_gold_plate_of_leon"						"Gallant Hero"
-		 "property_gold_plate_of_leon_description"				"Increases your Primary Attribute by 60%"
+		 "property_gold_plate_of_leon_description"				"Increases your Primary Attribute by @special_property1%"
 
 		 "item_property_knight_crusher"						"Overpower"
 		 "property_knight_crusher_description"				"Increases the duration of all your basic stuns by 50%, and stun durations are considered 50% shorter when added to creature stun immunity counter."
@@ -8149,7 +8149,7 @@
 		 "DOTA_Tooltip_modifier_autumn_sleeper_root_Description"	"Rooted"
 
 		 "item_property_eye_of_seasons"						"Crimson Solstice"
-		 "property_eye_of_seasons_description"				"Every @special_property1 points of mana increases agility and strength by 1."
+		 "property_eye_of_seasons_description"				"Increases Strength and Agility by @special_property1% of Intelligence."
 
 		 "item_property_redfall_runners"					"Crackling Leaves"
 		 "property_redfall_runners_description"				"Casting @Ability3 applies a buff that increases the damage of @Ability2 by 20x. Lasts 7 seconds and is removed on cast."
@@ -8164,7 +8164,7 @@
 		 "DOTA_Tooltip_modifier_fenrir_fang_buff_Description"	"Increased attack damage"
 
 		 "item_property_boots_of_ashara"						"Autumnwood Charm"
-		 "property_boots_of_ashara_description"					"Instances of damage that deal less than 10% of your max health are reduced by 90%."
+		 "property_boots_of_ashara_description"					"@Ability3 deals @special_property1x increased base ability damage while health is less than or equal to @special_property2%"
 
 		 "item_property_autumnrock_bracer"						"Fissure"
 		 "property_autumnrock_bracer_description"				"10% chance when taking damage to create an explosive fissure towards the damage source. The fissure stuns for 2 seconds and deals @special_property1x your strength as magic damage.<br>All damage dealt directly by items is enhanced by @special_property2% for each 100 points of current health."
@@ -8309,7 +8309,7 @@
 		 "property_wind_orchid_description"						"Every point in E4 rune increases Agility by @special_property1."
 
 		 "item_property_ankh_of_ancients"						"Immortal Spirit"
-		 "property_ankh_of_ancients_description"				"On taking a fatal blow, gain a shield for @special_property1 seconds that reduces all damage taken by 100% and grants stun immunity and refreshes all cooldowns. @special_property2 second cooldown."
+		 "property_ankh_of_ancients_description"				"On taking a fatal blow, gain a shield for @special_property1 seconds that reduces all damage taken by 100% and grants stun immunity and refreshes all cooldowns. @special_property2x of duration cooldown. Max duration cannot be more than @special_property3 seconds."
 		
 		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield"		"Immortal Spirit"
 		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield_Description"	"Immune to damage and stuns"
@@ -8447,7 +8447,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_dark_emissary_glove"						"Dark Emissary Glove"	
 		"property_dark_emissary"												"Spectral Mist"
-		"property_dark_emissary_Description"									"Casting @Ability1 creates a ghost cloud that deals @special_property1% of attack power in a 400 radius roots for 5 seconds. Applies invisibility for 2 seconds."
+		"property_dark_emissary_Description"									"Casting @Ability1 creates a ghost cloud that deals @special_property1% of attack power in a 400 radius roots for 5 seconds. Applies invisibility for @special_property2 seconds. Invisibility has a @special_property3 second cooldown."
 		
 		"DOTA_Tooltip_modifier_dark_emissary_invis"								"Spectral Mist"
 		"DOTA_Tooltip_modifier_dark_emissary_invis_Description"					"Invisible"
@@ -9806,7 +9806,7 @@
 		//Chernobog
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_1_1"		"Glyph of Whispers"
-		"item_rpc_chernobog_glyph_1_1_description" 				"Increases the duration of Dark Whisper by @glyph_property1 second."
+		"item_rpc_chernobog_glyph_1_1_description" 				"All shadow images deal damage 3x faster."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_2_1"		"Glyph of Nightvision"
 		"item_rpc_chernobog_glyph_2_1_description" 				"Gain vision of all enemies within @glyph_property1 radius while @Ability3 is active."
@@ -9818,10 +9818,10 @@
 		"item_rpc_chernobog_glyph_4_1_description" 				"At Your Heels is in effect even while enemies are moving, and reduces their armor by @glyph_property1x the rune level."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_1"		"Glyph of the Shadow Hunter"
-		"item_rpc_chernobog_glyph_5_1_description" 				"Reduces the health and mana drain percent of Shadow Hunt by @glyph_property1."
+		"item_rpc_chernobog_glyph_5_1_description" 				"Shadow Hunt doesn't drain health while health is less than or equal to 50% of max. Reduce all base ability damage except @Ability3 by 2x."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"		"Glyph of Black Rifts"
-		"item_rpc_chernobog_glyph_6_1_description" 				"Reduces the cooldown of Sudden Strike to 0.5 seconds."
+		"item_rpc_chernobog_glyph_6_1_description" 				"Sudden Strike applies its debuff to all enemies in 500 radius near the target."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_1"		"Glyph of Indomitability"
 		"item_rpc_chernobog_glyph_7_1_description" 				"Stuns are cleansed every 0.2 seconds."
@@ -10749,7 +10749,7 @@
 		"DOTA_Tooltip_modifier_wind_temple_keyholder_slow_Description"	"Move and Attackspeed Slow"
 
 		"DOTA_Tooltip_ability_creature_pure_strike"			"Pure Strike"
-		"DOTA_Tooltip_ability_creature_pure_strike_Description"	"Attacks cannot miss and deal an additional 15% pure damage."
+		"DOTA_Tooltip_ability_creature_pure_strike_Description"	"Attacks cannot miss and deal an additional 3% pure damage."
 
 		"DOTA_Tooltip_ability_tanari_ritual_healing"		"Healing Ritual"
 		"DOTA_Tooltip_ability_tanari_ritual_healing_Description"	"Restores a smal amount of Health to a nearby ally on a short cooldown."		
@@ -12631,7 +12631,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_1"		"Onimaru"
 		"item_property_seinaru_immortal_weapon"								"Piercing Attacks"
-		"property_seinaru_immortal_weapon_description"						"ALL Physical damage dealt deals an additional 35% pure damage."
+		"property_seinaru_immortal_weapon_description"						"Attacks deal additional 100% physical <font color=\"#7AE2A7\">wind</font> damage in a 250 radius."
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_immortal_weapon_1"		"Ascentius"
 		"item_property_warlord_immortal_weapon"								"Elemental Blitz"
@@ -13007,7 +13007,7 @@
 
 
 		"DOTA_Tooltip_ability_creature_pure_strike_2"			"Pure Strike"
-		"DOTA_Tooltip_ability_creature_pure_strike_2_Description"	"Attacks cannot miss and deal an additional 25% pure damage."
+		"DOTA_Tooltip_ability_creature_pure_strike_2_Description"	"Attacks cannot miss and deal an additional 3% pure damage."
 
 		"arena_pit_of_trials_final_boss"						"Pit Lord"
 

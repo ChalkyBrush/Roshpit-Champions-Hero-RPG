@@ -3798,7 +3798,7 @@
 
 			"FireEffect"
 			{
-				"EffectName"		"particles/units/heroes/hero_leshrac/astral_rune_r_2.vpcf"
+				"EffectName"		"particles/units/heroes/hero_leshrac/astral_rune_b_d.vpcf"
 				"EffectAttachType"	"start_at_customorigin"
 				"TargetPoint"		"POINT"
 

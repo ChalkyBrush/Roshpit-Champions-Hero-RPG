@@ -102,13 +102,18 @@ function rune_e_2_illusion(event)
 	end
 	ability.e2_base_strikes = ability.e2_base_strikes + 1
 	local intervalsForAtt = CHERNOBOG_SHADOWS_INTERVALS_FOR_ATT
+	local particle_animation_rate = 1
+	local damage_delay = 0.5
 	if caster:HasModifier('modifier_chernobog_glyph_1_1') then
 		intervalsForAtt = CHERNOBOG_GLYPH11_SHADOWS_INTERVALS_FOR_ATT
+		particle_animation_rate = 1.7
+		damage_delay = 0.3
 	end
 	local strike_current = math.floor(ability.e2_base_strikes/intervalsForAtt)
 	if strike_current > ability.e2_strike_current then
-		CustomAbilities:QuickAttachParticle("particles/roshpit/chernobog/nights_procession_illusion.vpcf", target, CHERNOBOG_SHADOWS_ATT_INTERVAL_BASE * intervalsForAtt)
-		Timers:CreateTimer(0.5, function()
+		local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/chernobog/nights_procession_illusion.vpcf", target, CHERNOBOG_SHADOWS_ATT_INTERVAL_BASE * intervalsForAtt)
+		ParticleManager:SetParticleControl(pfx, 1, Vector(particle_animation_rate, 0, 0))
+		Timers:CreateTimer(damage_delay, function()
 			EmitSoundOn("Chernobog.BC.Hit", target)
 			Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
 		end)

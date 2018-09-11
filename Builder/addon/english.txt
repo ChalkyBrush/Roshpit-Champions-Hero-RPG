@@ -8994,7 +8994,7 @@
 		//Chernobog
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_1_1"		"Glyph of Whispers"
-		"item_rpc_chernobog_glyph_1_1_description" 				"All shadow images deal damage <% CHERNOBOG_SHADOWS_INTERVALS_FOR_ATT/CHERNOBOG_GLYPH11_SHADOWS_INTERVALS_FOR_ATT %> seconds faster."
+		"item_rpc_chernobog_glyph_1_1_description" 				"All shadow images deal damage <% CHERNOBOG_SHADOWS_INTERVALS_FOR_ATT/CHERNOBOG_GLYPH11_SHADOWS_INTERVALS_FOR_ATT %>x faster."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_2_1"		"Glyph of Nightvision"
 		"item_rpc_chernobog_glyph_2_1_description" 				"Gain vision of all enemies within @glyph_property1 radius while @Ability3 is active."

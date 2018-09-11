@@ -290,7 +290,7 @@
     				"IsDebuff"			"0"
     		        "TextureName"	"luna/zodiac_sigils_skills/luna_lunar_blessing"
 
-    				"EffectName"		"particles/econ/courier/courier_faceless_rex/astral_rune_e_3_effect.vpcf"
+    				"EffectName"		"particles/econ/courier/courier_faceless_rex/astral_rune_c_c_effect.vpcf"
     				"EffectAttachType"	"attach_origin"
 
     				"ThinkInterval"  "0.5"
@@ -1066,7 +1066,7 @@
     			"particle"	"particles/econ/items/leshrac/leshrac_tormented_staff/leshrac_split_b_tormented.vpcf"
     			"particle"	"particles/econ/items/leshrac/leshrac_tormented_staff/leshrac_split_sparkles_tormented.vpcf"
     			"particle"	"particles/units/heroes/hero_dark_seer/dark_seer_surge.vpcf"
-    			"particle"	"particles/units/heroes/hero_leshrac/astral_rune_r_2.vpcf"
+    			"particle"	"particles/units/heroes/hero_leshrac/astral_rune_b_d.vpcf"
     			"particle"	"particles/status_fx/status_effect_huskar_lifebreak.vpcf"
     			"particle"	"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_l2_radiant.vpcf"
     			"model"		"models/heroes/phoenix/phoenix_bird.vmdl"

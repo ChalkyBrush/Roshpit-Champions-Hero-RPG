@@ -544,10 +544,10 @@
 			"particle"	"particles/econ/items/nightstalker/nightstalker_black_nihility/nightstalker_black_nihility_void_hit.vpcf"
 			"particle"	"particles/econ/items/nightstalker/nightstalker_black_nihility/nightstalker_black_nihility_ambient.vpcf"
 			"particle"	"particles/roshpit/chernobog/demon_hunter_end_loadout.vpcf"
-			"particle"	"particles/roshpit/chernobog/chernobog_rune_e_1_ghosts_ambient.vpcf"
+			"particle"	"particles/roshpit/chernobog/chernobog_rune_a_c_ghosts_ambient.vpcf"
 			"particle"	"particles/roshpit/chernobog/nights_procession_illusion.vpcf"
-			"particle"	"particles/roshpit/chernobog/chernobog_rune_e_3.vpcf"
-			"particle"	"particles/roshpit/chernobog/chernobog_rune_e_4.vpcf"
+			"particle"	"particles/roshpit/chernobog/chernobog_rune_c_c.vpcf"
+			"particle"	"particles/roshpit/chernobog/chernobog_rune_d_c.vpcf"
 		}
 
 		// Casting
@@ -649,7 +649,7 @@
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
 
-				"EffectName"		"particles/roshpit/chernobog/chernobog_rune_e_1_ghosts_ambient.vpcf"
+				"EffectName"		"particles/roshpit/chernobog/chernobog_rune_a_c_ghosts_ambient.vpcf"
 				"EffectAttachType"	"attach_hitloc"
 
 				"Properties"
@@ -715,7 +715,7 @@
 				"IsHidden"	"0"
 				"IsBuff"	"1"
 				"TextureName"	"chernobog/chernobog_rune_e_4"
-				"EffectName"	"particles/roshpit/chernobog/chernobog_rune_e_4.vpcf"
+				"EffectName"	"particles/roshpit/chernobog/chernobog_rune_d_c.vpcf"
 				"EffectAttachType"	"attach_hitloc"
 				"Properties"
 				{

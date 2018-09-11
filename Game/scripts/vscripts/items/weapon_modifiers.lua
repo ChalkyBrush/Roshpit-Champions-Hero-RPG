@@ -151,6 +151,7 @@ function Weaponmodifiers:action(propertyName, propertyValue, hero, inventory_uni
 			Weaponmodifiers:runeProperty(runeTable[i], 7, hero)
 		end		
 	end
+	RPCItems:PreacheArcanaResources(item)
 end
 
 function Weaponmodifiers:addItemModifier(propertyValue, hero, inventory_unit, modifier_name, weapon_ability)

@@ -416,7 +416,7 @@ function CustomAbilities:ChernobogSuddenStrike(unit, enemy, ability)
 		enemy:SetModifierStackCount("modifier_chernobog_rune_e_3_postmit", unit, ability.e_3_level)
 	end
 
-	local particleName = "particles/roshpit/chernobog/chernobog_rune_e_3.vpcf"
+	local particleName = "particles/roshpit/chernobog/chernobog_rune_c_c.vpcf"
    	local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
 	ParticleManager:SetParticleControl( particle1, 0, unit:GetAbsOrigin()+Vector(0,0,40) )
 

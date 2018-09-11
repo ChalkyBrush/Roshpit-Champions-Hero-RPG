@@ -3,6 +3,7 @@ require('heroes/juggernaut/seinaru_4_r')
 function seinaru_weap_1_attack(event)
     local attacker = event.attacker
     local target = event.target
+    local sword = event.ability
     local damage = attacker:GetAverageTrueAttackDamage(attacker) * SEINARU_WEAP_1_DMG_PER_ATT
     local q_arcana_ability = attacker:FindAbilityByName("seinaru_blade_dash")
     if q_arcana_ability then
@@ -16,9 +17,18 @@ function seinaru_weap_1_attack(event)
 
     local enemies = FindUnitsInRadius( attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
     for _,enemy in pairs(enemies) do
-        if r_ability then
-            Seinaru_Apply_E4(attacker, enemy, r_ability)
+        if not enemy.dummy then
+            if r_ability then
+                Seinaru_Apply_E4(attacker, enemy, r_ability)
+            end
+            Filters:TakeArgumentsAndApplyDamage(enemy, attacker, damage, DAMAGE_TYPE_PHYSICAL, 0, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
         end
-        Filters:TakeArgumentsAndApplyDamage(enemy, attacker, damage, DAMAGE_TYPE_PHYSICAL, 0, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
+    end
+    if not sword.particles then
+        sword.particles = true
+        CustomAbilities:QuickAttachParticle("particles/roshpit/seinaru/onimaru_start_lvl2.vpcf", target, 3)
+        Timers:CreateTimer(1.25, function()
+            sword.particles = false
+        end)
     end
 end

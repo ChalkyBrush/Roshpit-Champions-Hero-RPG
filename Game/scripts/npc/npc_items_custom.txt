@@ -39116,6 +39116,10 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/red_box.vmdl"
+		"precache"
+		{
+			"particle"  "particles/roshpit/seinaru/onimaru_start_lvl2.vpcf"
+		}
 		"OnSpellStart"
 		{
 			"RunScript"

@@ -185,11 +185,10 @@ function Tanari:Debug()
     -- RPCItems:RollSpiritWarriorArcana3(Vector(-4928, 2048))
     -- RPCItems:RollSeinaruArcana1(Vector(-4928, 2048))
     -- RPCItems:RollOutlandStoneCuirass(Vector(-4928, 2048))
-    -- Arena = {}
-    -- Arena.PitLevel = 7
-    -- RPCItems:RollMageplate(Vector(-4928, 2048))
-    -- Dungeons.itemLevel = 300
-    -- Weapons:RollLegendWeapon1(Vector(-4928, 2048), "zonik")
+    Arena = {}
+    Arena.PitLevel = 7
+    Dungeons.itemLevel = 300
+    Weapons:RollLegendWeapon1(Vector(-4928, 2048), "seinaru")
     -- RPCItems:RollMountainProtectorArcana1(Vector(-4928, 2048))
     -- RPCItems:RollMountainProtectorArcana2(Vector(-4928, 2048))
     -- Dungeons.itemLevel = 300
