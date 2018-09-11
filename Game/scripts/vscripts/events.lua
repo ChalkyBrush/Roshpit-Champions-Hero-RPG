@@ -575,11 +575,11 @@ function GameMode:OnPlayerChat(keys)
   elseif GameState:GetDifficultyFactor() == 3 then
     local playerid = keys.playerid
     if (string.match(text, "-crystal") or string.match(text, "-crystals")) and not GameMode.VoteSystem.crystal_loot_disabled then
-      LootDisableCrystal(playerid)
+      Events:LootDisableCrystal(playerid)
     end
 
     if (string.match(text, "-disable_junk_loot") or string.match(text, "-junk")) and not GameMode.VoteSystem.junk_loot_disabled then
-      LootDisableJunk(playerid)
+      Events:LootDisableJunk(playerid)
     end
   end
 end
