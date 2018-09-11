@@ -7,7 +7,7 @@ Glyphs.ArcaneCrystalTable = {}
 
 function Glyphs:DropArcaneCrystals(position, quantityScale)
 	if GameMode.VoteSystem.crystal_loot_disabled then	
-		print("crystal_loot_disabled")
+		-- print("crystal_loot_disabled")
 		return
 	end
 

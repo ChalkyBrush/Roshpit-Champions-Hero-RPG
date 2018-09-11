@@ -588,16 +588,16 @@ function Events:LootDisableCrystal(playerid)
   if not GameMode.VoteSystem.disable_crystal_loot then
     GameMode.VoteSystem.disable_crystal_loot = {}
   end      
-
+  local connectedPlayerCount = RPCItems:GetConnectedPlayerCount()
   if not Events:TableContainsValue(GameMode.VoteSystem.disable_crystal_loot, PlayerResource:GetSteamAccountID(playerid)) then
     table.insert(GameMode.VoteSystem.disable_crystal_loot, PlayerResource:GetSteamAccountID(playerid))
     print("added player vote..")
-    local stringToShow = "Disable crystal loot votes: "..#GameMode.VoteSystem.disable_crystal_loot.." / "..#MAIN_HERO_TABLE
+    local stringToShow = "Disable crystal loot votes: "..#GameMode.VoteSystem.disable_crystal_loot.." / "..connectedPlayerCount
     -- Notifications:TopToAll({text=stringToShow, duration=5.0})
     Notifications:BottomToAll({text=stringToShow, duration=5.0})
   end
 
-  if #GameMode.VoteSystem.disable_crystal_loot >= #MAIN_HERO_TABLE then
+  if #GameMode.VoteSystem.disable_crystal_loot >= connectedPlayerCount then
     GameMode.VoteSystem.crystal_loot_disabled = true
     print("crystal_loot_disabled")
     Timers:CreateTimer(5.1, function()
@@ -610,16 +610,16 @@ function Events:LootDisableJunk(playerid)
   if not GameMode.VoteSystem.disable_junk_loot then
     GameMode.VoteSystem.disable_junk_loot = {}
   end      
-
+  local connectedPlayerCount = RPCItems:GetConnectedPlayerCount()
   if not Events:TableContainsValue(GameMode.VoteSystem.disable_junk_loot, PlayerResource:GetSteamAccountID(playerid)) then
     table.insert(GameMode.VoteSystem.disable_junk_loot, PlayerResource:GetSteamAccountID(playerid))
     print("added player vote..")
-    local stringToShow = "Disable junk loot votes: "..#GameMode.VoteSystem.disable_junk_loot.." / "..#MAIN_HERO_TABLE
+    local stringToShow = "Disable junk loot votes: "..#GameMode.VoteSystem.disable_junk_loot.." / "..connectedPlayerCount
     -- Notifications:TopToAll({text=stringToShow, duration=5.0})
     Notifications:BottomToAll({text=stringToShow, duration=5.0})
   end
 
-  if #GameMode.VoteSystem.disable_junk_loot >= #MAIN_HERO_TABLE then
+  if #GameMode.VoteSystem.disable_junk_loot >= connectedPlayerCount then
     GameMode.VoteSystem.junk_loot_disabled = true
     print("junk_loot_disabled")
     Timers:CreateTimer(5.1, function()
