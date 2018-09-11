@@ -194,9 +194,12 @@ function supernova_burn_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	if not ability.r_2_level then
-		return
-	end
+    if not ability.r_2_level then
+        ability.r_2_level = caster:GetRuneValue("r", 2)
+        if ability.r_2_level == 0 then
+            return
+        end
+    end
 	local dualBurn = false
 	if target:HasModifier("modifier_solunia_lunar_burn") and target:HasModifier("modifier_solunia_solar_burn") then
 		dualBurn = true
@@ -455,17 +458,3 @@ function protostar_lift_think(event)
 		end
 	end
 end
---RUNE C_A - enemies hit by lunar balls while travelling are frozzen
---RUNE C_C ROOT UNDERNEATH WARP POINTS, Pit of Malice particle modded
-
---GLYPH IDEAS
-
---AFTER TRANSFORMING, GAIN FREE CAST OF Q
---increase the duration of warpflare float time
---recollection a solarang that has hit at least 1 enemy removes 2s cooldown from Q
---5 Warp flares
---Nitro stun duration doubled
---INCREASE RADIUS of WARP CORE
---max number oustanding boomerangs
-
---mmortal weapon - shield ( check BKB overhead) immune to magic and phys during hyper warp
