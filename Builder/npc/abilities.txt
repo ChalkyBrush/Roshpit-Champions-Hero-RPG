@@ -79995,10 +79995,9 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"Properties"
+				"States"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-65"
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-100"
+				    "MODIFIER_STATE_ROOTED" "MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 		}
@@ -80082,12 +80081,12 @@
 		"OnProjectileHitUnit"
 		{
 			"DeleteOnHit"	"0"
-			"Damage"
-			{
-				"Target"		"TARGET"
-				"Type"			"DAMAGE_TYPE_PURE"
-				"Damage"		"%damage"
-			}
+			"RunScript"
+            {
+                "ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+                "Function"		"water_torrent_hit"
+                "damage"		"%damage"
+            }
 		}
 		"Modifiers"
 		{

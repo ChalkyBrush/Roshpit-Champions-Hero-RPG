@@ -4518,7 +4518,7 @@ function naga_summoner_think(event)
 					local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 530, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 					if #enemies > 0 then
 						for _,enemy in pairs(enemies) do
-							ApplyDamage({ victim = enemy, attacker = caster, damage = caster:GetAverageTrueAttackDamage(caster)*100, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability })
+							ApplyDamage({ victim = enemy, attacker = caster, damage = caster:GetAverageTrueAttackDamage(caster)*5, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability })
 							if enemy:HasModifier("modifier_stun_immune") or enemy:HasModifier("modifier_recently_respawned") then
 							else
 								enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = 1})
@@ -4806,6 +4806,13 @@ function channeling_water_torrent(event)
 			projectile = ProjectileManager:CreateLinearProjectile(info)
 		end
 	end
+end
+
+function water_torrent_hit(event)
+	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+	caster:Kill(ability, target)
 end
 
 function centaur_slam_start(event)

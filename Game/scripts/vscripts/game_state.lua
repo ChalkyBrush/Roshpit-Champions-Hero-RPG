@@ -2887,6 +2887,7 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_sea_fortress_ai") then
 		filterTable["damage"] = filterTable["damage"]*3
 	end
+
 	if attacker:HasModifier("modifier_chernobog_immortal_weapon_2") then
 		local missingHealthPercent = math.floor((1-(attacker:GetHealth()/attacker:GetMaxHealth()))*100)
 		mult = mult + missingHealthPercent*1.5/100
@@ -2899,6 +2900,10 @@ function GameState:FilterDamage(filterTable)
 	if modifier then
 		local stacks = modifier:GetStackCount()
 		mult = mult + stacks*0.01
+	end
+
+	if victim:HasModifier("modifier_channeling_water_torrent") then
+		filterTable["damage"] =	filterTable["damage"] * 0.01
 	end
 
     if victim:HasModifier('modifier_duskbringer_ghost_form_active') then
