@@ -65,7 +65,7 @@ function neutral_glyph_4_3_think(event)
                     	item.expiryTime = Time() + 1
                     end
 
-                    local glyphMult = 2--glyph effect
+                    local glyphMult = getPotionMultipler(caster)
 					local hp_heal = statTable["heal"]*glyphMult
 					local mana_heal = statTable["mana_heal"]*glyphMult
 					local str = statTable["strength"]*glyphMult
