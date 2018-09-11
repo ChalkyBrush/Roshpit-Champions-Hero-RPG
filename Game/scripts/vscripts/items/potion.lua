@@ -24,7 +24,7 @@ function getPotionMultipler(caster)
 	if caster:HasModifier("modifier_neutral_glyph_4_3") then
 		mult = mult + 0.2
 	end
-	print("getPotionMultipler "..mult)
+	-- print("getPotionMultipler "..mult)
 	return mult
 end
 
