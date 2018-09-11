@@ -8800,7 +8800,7 @@
 		"saveload_load"				"Загрузка"
 
 		"saveload_stash"			"Поток Вечности"
-		"saveload_stash_description"	"Предметы, сохранённые в Потоке Вечности \n можно перемещать между играми.\nВсе предметы и персонажи привязаны к Steam аккаунту."
+		"saveload_stash_description"	"Предметы в Потоке Вечности сохраняются между играми и привязаны к аккаунту Steam."
 
 		"saveload_save_again"		"Вы сможете сохранить персонажа через"
 		//EG You may save again in 120...
@@ -9909,10 +9909,10 @@
 		// Blacksmith
 		//------------------------
 
-		"ui_mithril_shards"											"Мифрильные осколки"
+		"ui_mithril_shards"											"Мифрильные Осколки"
 		"ui_blacksmith_title"										"Кузнец"
 		"tooltip_daily_income"										"Бонус"
-		"tooltip_current_shards"									"Мифрильные осколки"
+		"tooltip_current_shards"									"Мифрильные Осколки"
 		"tooltip_collect_income"									"Забрать бонус"
 		"collect_income_info"										"Ваш бонус обновляется в 00:00 по EST (8:00 MSK) ежедневно."
 
@@ -10403,9 +10403,9 @@
 		"DOTA_Tooltip_ability_item_tanari_spirit_stones_elite"				"Камни Духа Танари"
 		"DOTA_Tooltip_ability_item_tanari_spirit_stones_legend"			"Камни Духа Танари"
 
-		"item_tanari_spirit_stones_normal_desc"		"Использование: Позволяет войти в Царство духов в Джунглях Танари. \n\nПрохождение в этом режиме увеличивает шанс появления Парагон-Монстров в 3 раза, \nувеличивает урон и сопротивление монстров в 2 раза и \nувеличивает шанс выпадения предмета редкости Immortal. \nПолучаемые Темные Кристаллы увеличены в 2 раза, а Мифрильные осколки в 3 раза."
-		"item_tanari_spirit_stones_elite_desc"		"Использование: Позволяет войти в Царство духов в Джунглях Танари. \n\nПрохождение в этом режиме увеличивает шанс появления Парагон-Монстров в 3 раза, \nувеличивает урон и сопротивление монстров в 2 раза и \nувеличивает шанс выпадения предмета редкости Immortal. \nПолучаемые Темные Кристаллы увеличены в 2 раза, а Мифрильные осколки в 3 раза."
-		"item_tanari_spirit_stones_legend_desc"		"Использование: Позволяет войти в Царство духов в Джунглях Танари. \n\nПрохождение в этом режиме увеличивает шанс появления Парагон-Монстров в 3 раза, \nувеличивает урон и сопротивление монстров в 2 раза и \nувеличивает шанс выпадения предмета редкости Immortal. \nПолучаемые Темные Кристаллы увеличены в 2 раза, а Мифрильные осколки в 3 раза."
+		"item_tanari_spirit_stones_normal_desc"		"Использование: Позволяет войти в Царство духов в Джунглях Танари. \n\nПрохождение в этом режиме увеличивает шанс появления Парагон-Монстров в 3 раза, \nувеличивает урон и сопротивление монстров в 2 раза и \nувеличивает шанс выпадения предмета редкости Immortal. \nПолучаемые Темные Кристаллы увеличены в 2 раза, а Мифрильные Осколки в 3 раза."
+		"item_tanari_spirit_stones_elite_desc"		"Использование: Позволяет войти в Царство духов в Джунглях Танари. \n\nПрохождение в этом режиме увеличивает шанс появления Парагон-Монстров в 3 раза, \nувеличивает урон и сопротивление монстров в 2 раза и \nувеличивает шанс выпадения предмета редкости Immortal. \nПолучаемые Темные Кристаллы увеличены в 2 раза, а Мифрильные Осколки в 3 раза."
+		"item_tanari_spirit_stones_legend_desc"		"Использование: Позволяет войти в Царство духов в Джунглях Танари. \n\nПрохождение в этом режиме увеличивает шанс появления Парагон-Монстров в 3 раза, \nувеличивает урон и сопротивление монстров в 2 раза и \nувеличивает шанс выпадения предмета редкости Immortal. \nПолучаемые Темные Кристаллы увеличены в 2 раза, а Мифрильные Осколки в 3 раза."
 
 		
 		"dialogue_witch_doctor"						"Духи Джунглей окружают меня."
@@ -11631,7 +11631,7 @@
 		"DOTA_Tooltip_modifier_kolthun_shield"						"Щит Огненного Лорда"
 		"DOTA_Tooltip_modifier_kolthun_shield_Description"			"Каждый заряд полностью поглощает любой входящий урон."
 
-		"fire_temple_neverlord_reborn"								"Перерождённый лорд Neverlord"
+		"fire_temple_neverlord_reborn"								"Лорд Neverlord"
 
 		"DOTA_Tooltip_ability_firelord_ability_ai"					"Первый огонь"
 
@@ -13905,10 +13905,10 @@
 		"stars_menu"													"Звёзды"
 		"stars_hero_level_title"										"На новую высоту"		
 		"stars_hero_level_description"									"Прокачайте героя @heroname до @level-го уровня."
-		"star_description_basic"										"@heroname - убейте @boss_name на карте @map_name на любой сложности."
-		"star_description_basic2"										"@heroname - убейте @boss_name на карте @map_name на сложности Legend."
-		"star_description_basic3_tanari"								"@heroname - убейте @boss_name на карте @map_name на сложности Legend в Мире Духов."
-		"star_description_basic3_redfall"								"@heroname - убейте @boss_name на карте @map_name на сложности Legend с Равноденствием."
+		"star_description_basic"										"@heroname - убейте @boss_name (@mapname) на любой сложности."
+		"star_description_basic2"										"@heroname - убейте @boss_name (@mapname), сложность Legend."
+		"star_description_basic3_tanari"								"@heroname - убейте @boss_name (@mapname), сложность Legend в Мире Духов."
+		"star_description_basic3_redfall"								"@heroname - убейте @boss_name (@mapname), сложность Legend с Равноденствием."
 
 
 		"star_description_champions_league"								"@heroname - достигните @rank звания на Арене."
@@ -13920,7 +13920,7 @@
 		"immortal_weapon_star_description2"								"@heroname - прокачайте Immortal оружие до @level-го уровня."
 
 		"star_ancient_god_description1"									"@heroname - за одну игровую сессию убейте всех трёх боссов на карте @map_name на сложности Legend."
-		"star_ancient_god_description2"									"@heroname - убейте @boss_name на карте @map_nam."
+		"star_ancient_god_description2"									"@heroname - убейте @boss_name на карте @map_name."
 		"star_ancient_god_description3"									"@heroname - убейте @boss_name на карте @map_name с Spirit Realm"
 
 		"solo_stars"													"Одиночная игра"
@@ -13936,18 +13936,18 @@
 		
 		"star_valdun_title"											"Sea Fortress"
 		"star_valdun_title_solo"									"Sea Fortress"
-		"star_valdun_description"									"Победить @bossname на карте @mapname героем @heroname."
-		"star_valdun_description2"									"Победить @bossname на карте @mapname героем @heroname играя в одиночку."
-		"star_valdun_description3"									"Победить @bossname на карте @mapname героем @heroname играя в одиночку за 60 минут."
-		"star_valdun_description1solo"									"Победить @bossname на карте @mapname играя в одиночку."
-		"star_valdun_description2solo"									"Победить @bossname на карте @mapname играя в одиночку за 45 минут."
-		"star_valdun_description3solo"									"Победить @bossname на карте @mapname играя в одиночку за 30 минут."
+		"star_valdun_description"									"Победить @bossname (@mapname) героем @heroname."
+		"star_valdun_description2"									"Победить @bossname (@mapname) героем @heroname играя в одиночку."
+		"star_valdun_description3"									"Победить @bossname (@mapname) героем @heroname играя в одиночку за 60 минут."
+		"star_valdun_description1solo"									"Победить @bossname (@mapname) играя в одиночку."
+		"star_valdun_description2solo"									"Победить @bossname (@mapname) играя в одиночку за 45 минут."
+		"star_valdun_description3solo"									"Победить @bossname (@mapname) играя в одиночку за 30 минут."
 
 		"star_azalea_title"											"Shrine of Azalea"
 		"star_azalea_title_solo"									"Shrine of Azalea"
-		"star_azalea_description"									"Победить @bossname на карте @mapname героем @heroname на Нормальной сложности."
-		"star_azalea_description2"									"Победить @bossname на карте @mapname героем @heroname на Легендарной сложности."
-		"star_azalea_description3"									"Победить @bossname на карте @mapname героем @heroname на Легендарной сложности с тремя активными Glacier Stones."
+		"star_azalea_description"									"Победить @bossname (@mapname) героем @heroname на Нормальной сложности."
+		"star_azalea_description2"									"Победить @bossname (@mapname) героем @heroname на Легендарной сложности."
+		"star_azalea_description3"									"Победить @bossname (@mapname) героем @heroname на Легендарной сложности с тремя активными Glacier Stones."
 
 
 		//SERENGAARD
@@ -15302,6 +15302,7 @@
 		"DOTA_Tooltip_ability_winterblight_curse_of_azalea"			"Curse of Azalea"
 		"DOTA_Tooltip_ability_winterblight_curse_of_azalea_Description"	"Проклинает врага на 4 секунды. Если противник произнесет любое заклинание, то он будет обезмолвлен."
 		"DOTA_Tooltip_ability_winterblight_curse_of_azalea_duration"	"ДЛИТЕЛЬНОСТЬ БЕЗМОЛВИЯ:"
+		"DOTA_Tooltip_ability_winterblight_curse_of_azalea_damage"		"УРОН:"
 
 		"DOTA_Tooltip_modifier_curse_of_azalea"						"Curse of Azalea"
 		"DOTA_Tooltip_modifier_curse_of_azalea_Description"			"С прочтением любого заклинания, проклятый получит эффект безмолвия."	

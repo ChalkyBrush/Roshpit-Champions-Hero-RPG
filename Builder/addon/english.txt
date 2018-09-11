@@ -14754,6 +14754,7 @@
 		"DOTA_Tooltip_ability_winterblight_curse_of_azalea"			"Curse of Azalea"
 		"DOTA_Tooltip_ability_winterblight_curse_of_azalea_Description"	"Apply a curse to an enemy for 4 seconds. If that enemy casts a spell, they are affected by a silence."
 		"DOTA_Tooltip_ability_winterblight_curse_of_azalea_duration"	"SILENCE DURATION:"
+		"DOTA_Tooltip_ability_winterblight_curse_of_azalea_damage"		"DAMAGE:"
 
 		"DOTA_Tooltip_modifier_curse_of_azalea"						"Curse of Azalea"
 		"DOTA_Tooltip_modifier_curse_of_azalea_Description"			"Casting a spell will cause a silence effect."	
