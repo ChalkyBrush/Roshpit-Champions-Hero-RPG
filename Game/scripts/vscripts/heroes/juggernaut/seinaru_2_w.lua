@@ -36,11 +36,6 @@ function new_b_b(caster, ability, w_2_level)
 	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControl(pfx, 1, Vector(500, 2, 2))
 
-	local luck = RandomInt(1, 100)
-	if luck < SEINARU_W2_SOUND_PROC_CHANCE then
-		EmitSoundOn("Hydroxis.Ultimate.Start", caster)
-		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Seinaru.BBExplosion", Events.GameMaster)
-	end
 	EndAnimation(caster)
 	StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_SPAWN, rate=1.2, translate="odachi"})
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, SEINARU_W2_RADIUS_BASE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
