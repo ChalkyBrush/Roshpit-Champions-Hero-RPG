@@ -80,6 +80,7 @@ function GameMode:OnGameRulesStateChange(keys)
 
   GameMode.VoteSystem = {}
   GameMode.VoteSystem.junk_loot_disabled = false  
+  GameMode.VoteSystem.crystal_loot_disabled = false  
   -- This internal handling is used to set up main barebones functions
   GameMode:_OnGameRulesStateChange(keys)
 
@@ -573,29 +574,57 @@ function GameMode:OnPlayerChat(keys)
   end
   elseif GameState:GetDifficultyFactor() == 3 then
     local playerid = keys.playerid
-    --if GameState:IsSerengaard() then
-      if (string.match(text, "-disable_junk_loot") or string.match(text, "-junk")) and not GameMode.VoteSystem.junk_loot_disabled then
-        if not GameMode.VoteSystem.disable_junk_loot then
-          GameMode.VoteSystem.disable_junk_loot = {}
-        end      
+    if (string.match(text, "-crystal") or string.match(text, "-crystals")) and not GameMode.VoteSystem.crystal_loot_disabled then
+      LootDisableCrystal(playerid)
+    end
 
-        if not Events:TableContainsValue(GameMode.VoteSystem.disable_junk_loot, PlayerResource:GetSteamAccountID(playerid)) then
-          table.insert(GameMode.VoteSystem.disable_junk_loot, PlayerResource:GetSteamAccountID(playerid))
-          print("added player vote..")
-          local stringToShow = "Disable junk loot votes: "..#GameMode.VoteSystem.disable_junk_loot.." / "..#MAIN_HERO_TABLE
-          -- Notifications:TopToAll({text=stringToShow, duration=5.0})
-          Notifications:BottomToAll({text=stringToShow, duration=5.0})
-        end
+    if (string.match(text, "-disable_junk_loot") or string.match(text, "-junk")) and not GameMode.VoteSystem.junk_loot_disabled then
+      LootDisableJunk(playerid)
+    end
+  end
+end
 
-        if #GameMode.VoteSystem.disable_junk_loot >= #MAIN_HERO_TABLE then
-          GameMode.VoteSystem.junk_loot_disabled = true
-          print("junk_loot_disabled")
-          Timers:CreateTimer(5.1, function()
-            Notifications:BottomToAll({text="Junk loot disabled", duration=5.0})
-          end )
-        end
-      end
-    --end
+function Events:LootDisableCrystal(playerid)
+  if not GameMode.VoteSystem.disable_crystal_loot then
+    GameMode.VoteSystem.disable_crystal_loot = {}
+  end      
+
+  if not Events:TableContainsValue(GameMode.VoteSystem.disable_crystal_loot, PlayerResource:GetSteamAccountID(playerid)) then
+    table.insert(GameMode.VoteSystem.disable_crystal_loot, PlayerResource:GetSteamAccountID(playerid))
+    print("added player vote..")
+    local stringToShow = "Disable crystal loot votes: "..#GameMode.VoteSystem.disable_crystal_loot.." / "..#MAIN_HERO_TABLE
+    -- Notifications:TopToAll({text=stringToShow, duration=5.0})
+    Notifications:BottomToAll({text=stringToShow, duration=5.0})
+  end
+
+  if #GameMode.VoteSystem.disable_crystal_loot >= #MAIN_HERO_TABLE then
+    GameMode.VoteSystem.crystal_loot_disabled = true
+    print("crystal_loot_disabled")
+    Timers:CreateTimer(5.1, function()
+      Notifications:BottomToAll({text="Crystal loot disabled", duration=5.0})
+    end )
+  end
+end
+
+function Events:LootDisableJunk(playerid)
+  if not GameMode.VoteSystem.disable_junk_loot then
+    GameMode.VoteSystem.disable_junk_loot = {}
+  end      
+
+  if not Events:TableContainsValue(GameMode.VoteSystem.disable_junk_loot, PlayerResource:GetSteamAccountID(playerid)) then
+    table.insert(GameMode.VoteSystem.disable_junk_loot, PlayerResource:GetSteamAccountID(playerid))
+    print("added player vote..")
+    local stringToShow = "Disable junk loot votes: "..#GameMode.VoteSystem.disable_junk_loot.." / "..#MAIN_HERO_TABLE
+    -- Notifications:TopToAll({text=stringToShow, duration=5.0})
+    Notifications:BottomToAll({text=stringToShow, duration=5.0})
+  end
+
+  if #GameMode.VoteSystem.disable_junk_loot >= #MAIN_HERO_TABLE then
+    GameMode.VoteSystem.junk_loot_disabled = true
+    print("junk_loot_disabled")
+    Timers:CreateTimer(5.1, function()
+      Notifications:BottomToAll({text="Junk loot disabled", duration=5.0})
+    end )
   end
 end
 
