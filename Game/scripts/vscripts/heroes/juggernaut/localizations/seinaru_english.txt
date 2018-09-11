@@ -155,7 +155,7 @@
     	"Tooltip_seinaru_w"											"Hands of Hikari & Circle of Wind"
 
 		"DOTA_Tooltip_ability_seinaru_rune_e_4"						"[E4] Wings of the Swift"
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_Description"			"Armor Piercing is augmented, able to reduce a target's armor below 0 to a threshold. The threshold value is applied as additional armor shred to targets with sufficiently high armor. Additionally, Seinaru's pre-mitigation <font color=\"#F6FFB5\">Holy</font><br> damage is increased against targets with armor below 0."
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_Description"			"Armor Piercing is augmented, able to reduce a target's armor below 0 to a threshold. Additionally, Seinaru's pre-mitigation <font color=\"#F6FFB5\">Holy</font><br> damage is increased against targets with armor below 0."
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_property_one"			"Max Negative Armor"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_suffix"					""
 	 	"DOTA_Tooltip_ability_seinaru_rune_e_4_property_two"			"Holy amplify"

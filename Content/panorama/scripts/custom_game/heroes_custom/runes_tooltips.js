@@ -79,6 +79,7 @@ function initializeTooltip(func){
 	var raw_description = $.Localize( "#DOTA_Tooltip_Ability_"+abilityNameInternal+"_Description")
     raw_description = replaceConstantsInTooltip(rune, raw_description)
     raw_description = updateSkillInTooltip(raw_description, queryUnit)
+    raw_description = replaceRuneTooltip(raw_description, queryUnit, queryUnit)
 	$('#rune_description').text = raw_description
 
 
