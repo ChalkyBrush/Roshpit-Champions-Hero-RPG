@@ -15,9 +15,9 @@
 		//Stats
 		//--------------------
 
-		"DOTA_StatTooltip_StrengthBonus" "- Каждое очко увеличивает запас здоровья на 20<br>- Каждое очко увеличивает регенерацию здоровья на 0.03<br>"
-		"DOTA_StatTooltip_AgilityBonus" "- Каждые 7 очков увеличивают броню на 1<br>- Каждые 20 очков увеличивают скорость атаки на 1<br>"
-		"DOTA_StatTooltip_IntelligenceBonus" "- Каждое очко увеличивает запас маны на 5<br>- Каждое очко увеличивает регенерацию маны на 0.03<br>"
+		"DOTA_StatTooltip_StrengthBonus" "- Каждое очко увеличивает запас здоровья на 20\n- Каждое очко увеличивает регенерацию здоровья на 0.03\n"
+		"DOTA_StatTooltip_AgilityBonus" "- Каждые 7 очков увеличивают броню на 1\n- Каждые 20 очков увеличивают скорость атаки на 1\n"
+		"DOTA_StatTooltip_IntelligenceBonus" "- Каждое очко увеличивает запас маны на 5\n- Каждое очко увеличивает регенерацию маны на 0.03\n"
 
 		//--------------------
 		//Heroes
@@ -1028,8 +1028,6 @@
         "DOTA_Tooltip_ability_axe_rune_w_3_Description"                 "С каждым прочтением @Ability2 герой исцеляет себя. Сила лечения умножается на уровень умения @Ability2."
         "DOTA_Tooltip_ability_axe_rune_w_3_property_one"                "Лечение"
         "DOTA_Tooltip_ability_axe_rune_w_3_suffix"                      "x от уровня Spur Shock"
-		"DOTA_Tooltip_ability_axe_rune_w_3_property_one"                "Лечение"
-        "DOTA_Tooltip_ability_axe_rune_w_3_suffix"                      "% от Макс. ХП"
  
         "DOTA_Tooltip_ability_axe_rune_e_3"                             "[E3] Whirlwind"
         "DOTA_Tooltip_ability_axe_rune_e_3_Description"                 "Враги, переносимые с помощью умения @Ability3 получают чистый урон, зависящий от урона героя. Нанесение урона происходит за каждый тик от умения @Ability3."
@@ -1408,7 +1406,7 @@
 
 
 		"DOTA_Tooltip_ability_time_warp"								"Distortion Orb"
-		"DOTA_Tooltip_ability_time_warp_Description"					"Стихия: <font color=\"#B5FFB7\">Время</font><br>Герой выпускает перед собой Distortion Orb, искажающий пространство. Повторное использование умения до исчезновения шара переместит Epoch Guardian в точку, где был шар. <br><font color='#6cbfe2'>(W) Genesis Orb</font> нанесёт двойной урон соединенным <font color='#6cbfe2'>(Q) Time Binder</font> врагам. <br>Первое прочтение <font color='#6cbfe2'>(W) Genesis Orb</font> сразу после прыжка нанесёт двойной урон."
+		"DOTA_Tooltip_ability_time_warp_Description"					"Стихия: <font color=\"#B5FFB7\">Время</font><br>Герой выпускает перед собой Distortion Orb, искажающий пространство. Повторное использование умения до исчезновения шара переместит Epoch Guardian в точку, где был шар. \n<font color='#6cbfe2'>(W) Genesis Orb</font> нанесёт двойной урон соединенным <font color='#6cbfe2'>(Q) Time Binder</font> врагам. \nПервое прочтение <font color='#6cbfe2'>(W) Genesis Orb</font> сразу после прыжка нанесёт двойной урон."
 		"DOTA_Tooltip_ability_time_warp_Lore"							""
     	"DOTA_Tooltip_ability_time_warp_range"							"ДАЛЬНОСТЬ:"
     	"DOTA_Tooltip_ability_time_warp_damage"							"УРОН:"
@@ -1457,7 +1455,7 @@
     	"DOTA_Tooltip_modifier_eon_channel_enemy_Description"			"Урон украден и передан Epoch Guardian на 7 сек."
 
     	"DOTA_Tooltip_ability_time_genesis_orb"							"Genesis Orb"
-    	"DOTA_Tooltip_ability_time_genesis_orb_Description"				"Стихия: <font color=\"#B5FFB7\">Время</font><br>Epoch Guardian выпускает перед собой сферу, содержащую в себе зарождающуюся вселенную. <br>Первое прочтение <font color='#6cbfe2'>(W) Genesis Orb</font> сразу после прыжка к <font color='#6cbfe2'>(E) Distortion Orb</font> нанесёт двойной урон."
+    	"DOTA_Tooltip_ability_time_genesis_orb_Description"				"Стихия: <font color=\"#B5FFB7\">Время</font><br>Epoch Guardian выпускает перед собой сферу, содержащую в себе зарождающуюся вселенную. \nПервое прочтение <font color='#6cbfe2'>(W) Genesis Orb</font> сразу после прыжка к <font color='#6cbfe2'>(E) Distortion Orb</font> нанесёт двойной урон."
     	"DOTA_Tooltip_ability_time_genesis_orb_damage"					"УРОН:"
     	"DOTA_Tooltip_ability_time_genesis_orb_range"					"РАССТОЯНИЕ:"
 
@@ -1916,7 +1914,7 @@
     	"DOTA_Tooltip_ability_aspect_abilities_Description"					"Переключает искусственный интеллект выбранного элементаля."	
 
 		"DOTA_Tooltip_ability_summon_earth_aspect"							"Earth Aspect"
-		"DOTA_Tooltip_ability_summon_earth_aspect_Description"				"Призывает элементаля Земли. Он поглощает 50% любого урона, полученного героем. Элементаль земли не может атаковать.<br><font color='#70EA72'>Пока элементаль земли жив, вы можете использовать способность </font><font color='#6cbfe2'>(Q) Earthquake</font><font color='#70EA72'>.</font>"
+		"DOTA_Tooltip_ability_summon_earth_aspect_Description"				"Призывает элементаля Земли. Он поглощает 50% любого урона, полученного героем. Элементаль земли не может атаковать.\n<font color='#70EA72'>Пока элементаль земли жив, вы можете использовать способность </font><font color='#6cbfe2'>(Q) Earthquake</font><font color='#70EA72'>.</font>"
 		"DOTA_Tooltip_ability_summon_earth_aspect_Lore"						""
 		"DOTA_Tooltip_ability_summon_earth_aspect_aspect_health"			"ЗДОРОВЬЕ ЭЛЕМЕНТАЛЯ ЗЕМЛИ:"
 
@@ -1946,7 +1944,7 @@
 		"DOTA_Tooltip_modifier_earth_guardian_Description"					"50%% полученного урона получит элементаль земли"
 
 		"DOTA_Tooltip_ability_summon_fire_aspect"							"Fire Aspect"
-		"DOTA_Tooltip_ability_summon_fire_aspect_Description"				"Призывает элементаля Огня. Он является существом ближнего боя. Он не может получить урон больше, чем 20% от его макс. здоровья за один удар.<br><font color='#70EA72'>Пока элементаль огня жив, вы можете использовать способность </font><font color='#6cbfe2'>(W) Immolation</font><font color='#70EA72'>.</font>"
+		"DOTA_Tooltip_ability_summon_fire_aspect_Description"				"Призывает элементаля Огня. Он является существом ближнего боя. Он не может получить урон больше, чем 20% от его макс. здоровья за один удар.\n<font color='#70EA72'>Пока элементаль огня жив, вы можете использовать способность </font><font color='#6cbfe2'>(W) Immolation</font><font color='#70EA72'>.</font>"
 		"DOTA_Tooltip_ability_summon_fire_aspect_Lore"						""
 		"DOTA_Tooltip_ability_summon_fire_aspect_aspect_health"				"ЗДОРОВЬЕ ЭЛЕМЕНТАЛЯ ОГНЯ:"
 		"DOTA_Tooltip_ability_summon_fire_aspect_aspect_damage"				"УРОН ЭЛЕМЕНТАЛЯ:"
@@ -1958,7 +1956,7 @@
 		"DOTA_Tooltip_ability_immolation_radius"							"РАДИУС ВЗРЫВА:"
 
 		"DOTA_Tooltip_ability_summon_shadow_aspect"							"Shadow Aspect"
-		"DOTA_Tooltip_ability_summon_shadow_aspect_Description"				"Призывает элементаля Пустоты. Он является существом дальнего боя, а его атаки разделяются при попадании. <br><font color='#70EA72'>Пока элементаль тени жив, вы можете использовать способность </font><font color='#6cbfe2'>(E) Shadow Gate</font><font color='#70EA72'>.</font>"
+		"DOTA_Tooltip_ability_summon_shadow_aspect_Description"				"Призывает элементаля Пустоты. Он является существом дальнего боя, а его атаки разделяются при попадании. \n<font color='#70EA72'>Пока элементаль тени жив, вы можете использовать способность </font><font color='#6cbfe2'>(E) Shadow Gate</font><font color='#70EA72'>.</font>"
 		"DOTA_Tooltip_ability_summon_shadow_aspect_Lore"					""
 		"DOTA_Tooltip_ability_summon_shadow_aspect_aspect_health"			"ЗДОРОВЬЕ ЭЛЕМЕНТАЛЯ ТЕНИ:"
 		"DOTA_Tooltip_ability_summon_shadow_aspect_aspect_damage"			"УРОН ЭЛЕМЕНТАЛЯ ТЕНИ:"
@@ -1966,7 +1964,7 @@
 		
 
 		"DOTA_Tooltip_ability_shadow_gate"									"Shadow Gate"
-		"DOTA_Tooltip_ability_shadow_gate_Description"						"Стихия: <font color=\"#7F4F84\">Тень</font><br>Телепортирует Conjuror и всех его элементалей в указанную точку и оставляет в месте появления тёмный след, наносящий урон. <br> <font color='#70EA72'>Полностью восстанавливает здоровье живых элементалей.</font>"
+		"DOTA_Tooltip_ability_shadow_gate_Description"						"Стихия: <font color=\"#7F4F84\">Тень</font><br>Телепортирует Conjuror и всех его элементалей в указанную точку и оставляет в месте появления тёмный след, наносящий урон. \n <font color='#70EA72'>Полностью восстанавливает здоровье живых элементалей.</font>"
 		"DOTA_Tooltip_ability_shadow_gate_Lore"								""
 		"DOTA_Tooltip_ability_shadow_gate_range"							"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
 		"DOTA_Tooltip_ability_shadow_gate_damage"							"УРОН/СЕК:"
@@ -1974,7 +1972,7 @@
 		"DOTA_Tooltip_ability_shadow_gate_radius"							"РАДИУС:"
 
 		"DOTA_Tooltip_ability_call_of_elements"								"Call of the Elements"
-		"DOTA_Tooltip_ability_call_of_elements_Description"					"Герой усиливает себя и всех живых элементалей. Каждый элементаль даёт уникальное усиление. <br><font color='#70EA72'>Если по окончании прочтения этой способности какой-то элементаль не был призван или погиб, то Conjuror и оставшиеся элементали не получат усиление.</font>"
+		"DOTA_Tooltip_ability_call_of_elements_Description"					"Герой усиливает себя и всех живых элементалей. Каждый элементаль даёт уникальное усиление. \n<font color='#70EA72'>Если по окончании прочтения этой способности какой-то элементаль не был призван или погиб, то Conjuror и оставшиеся элементали не получат усиление.</font>"
 		"DOTA_Tooltip_ability_call_of_elements_Lore"						""
 		"DOTA_Tooltip_ability_call_of_elements_health_regen"				"РЕГЕН. ЗДОРОВЬЯ (Земля):"
 		"DOTA_Tooltip_ability_call_of_elements_magic_resist"				"СОПРОТИВЛЕНИЕ МАГИИ (Земля):"
@@ -2228,7 +2226,7 @@
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_suffix_two"				""
 
     	"DOTA_Tooltip_ability_seinaru_rune_r_1"						"[R1] Armor Piercing"
-    	"DOTA_Tooltip_ability_seinaru_rune_r_1_Description"			"Обычные атаки Seinaru значительно снижают броню врагов на 8 секунд.<br>Эффект не будет снижать броню ниже 0.<br>Эффект применяется перед атакой."
+    	"DOTA_Tooltip_ability_seinaru_rune_r_1_Description"			"Обычные атаки Seinaru значительно снижают броню врагов на 8 секунд.\nЭффект не будет снижать броню ниже 0.\nЭффект применяется перед атакой."
     	"DOTA_Tooltip_ability_seinaru_rune_r_1_property_one"			"Макс. снижение брони"
     	"DOTA_Tooltip_ability_seinaru_rune_r_1_suffix"					""
 
@@ -2360,7 +2358,7 @@
     	"property_seinaru_arcana1_description"								"Заменяет (Q) @Ability1 и все соответствующие руны на Blade Dash."
 
   		"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1"						"[Q1] Samurai Crit"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_Description"			"С 40% шансом при атаке герой нанесёт критический урон."
+    	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_Description"			"С 20% шансом при атаке герой нанесёт критический урон."
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_property_one"			"Доп. урон крита"
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_suffix"					"%"
 
@@ -2758,7 +2756,7 @@
     	"DOTA_Tooltip_ability_leshrac_blink_range"						"МАКС.РАССТОЯНИЕ"		
 
     	"DOTA_Tooltip_ability_charge_of_light"							"Megaflare"
-    	"DOTA_Tooltip_ability_charge_of_light_Description"				"Стихия: <font color=\"#F6FFB5\">Свет</font><br>После 2 секундной подготовки Bahamut устремляется вперед, высвобождая взрывную энергию, способную стереть низших существ. Во время разбега, Bahamut неуязвим к физическому и магическому урону. <br><font color='#70EA72'>Если приказать герою через Shift сразу при прочтении поставить стену немного впереди, то он может успеть это сделать, пока бежит.</font><br>Наносимый урон игнорирует свойство монстров 'Стойкость'."
+    	"DOTA_Tooltip_ability_charge_of_light_Description"				"Стихия: <font color=\"#F6FFB5\">Свет</font><br>После 2 секундной подготовки Bahamut устремляется вперед, высвобождая взрывную энергию, способную стереть низших существ. Во время разбега, Bahamut неуязвим к физическому и магическому урону. \n<font color='#70EA72'>Если приказать герою через Shift сразу при прочтении поставить стену немного впереди, то он может успеть это сделать, пока бежит.</font><br>Наносимый урон игнорирует свойство монстров 'Стойкость'."
     	"DOTA_Tooltip_ability_charge_of_light_Lore"						""
     	"DOTA_Tooltip_ability_charge_of_light_damage"					"УРОН"	
     	"DOTA_Tooltip_ability_charge_of_light_range"					"РАДИУС ВЗРЫВА"		
@@ -3011,7 +3009,7 @@
     	"DOTA_Tooltip_modifier_charging_Description"					"Бежит вперёд, игнорируя препятствия"
 
     	"DOTA_Tooltip_ability_seven_visions"							"Seven Visions"
-    	"DOTA_Tooltip_ability_seven_visions_Description"				"Стихия: <font color=\"#9ACCD1\">Призрак</font> / <font color=\"#DDDDDD\">Нормальный</font><br>Duskbringer телепортируется к врагам, атакуя со всех сторон, нанося дополнительный урон и оглушая их.<br><font color='#70EA72'>Герой невосприимчив к магии во время действия.</font>"
+    	"DOTA_Tooltip_ability_seven_visions_Description"				"Стихия: <font color=\"#9ACCD1\">Призрак</font> / <font color=\"#DDDDDD\">Нормальный</font><br>Duskbringer телепортируется к врагам, атакуя со всех сторон, нанося дополнительный урон и оглушая их.\n<font color='#70EA72'>Герой невосприимчив к магии во время действия.</font>"
     	"DOTA_Tooltip_ability_seven_visions_Lore"						""
     	"DOTA_Tooltip_ability_seven_visions_attacks"					"АТАК"
     	"DOTA_Tooltip_ability_seven_visions_bonus_damage"				"ДОП. УРОН"
@@ -3397,7 +3395,7 @@
     	//--------------------Trapper/Templar Assasin
 
     	"DOTA_Tooltip_ability_fulminating_trap"						"Fulminating Trap"
-    	"DOTA_Tooltip_ability_fulminating_trap_Description"			"Стихия: <font color=\"#EF4126\">Огонь</font><br>Оставляет обжигающую ловушку, которая наносит ступившим в нее врагам урон.<br><font color='#70EA72'>В обычном режиме сразу после прочтения это умение заменяется на </font><font color='#6cbfe2'>[Q1] Poison Trap</font><font color='#70EA72'> (Если эта руна была прокачана).<br>В режиме невидимости от способности </font><font color='#6cbfe2'>(R) Stealth</font><font color='#70EA72'> это умение заменяется на </font><font color='#6cbfe2'>(Q) Net Trap</font><font color='#70EA72'> и </font><font color='#6cbfe2'>[Q2] Torrent Trap</font><font color='#70EA72'> (Если эта руна была прокачана).</font>"
+    	"DOTA_Tooltip_ability_fulminating_trap_Description"			"Стихия: <font color=\"#EF4126\">Огонь</font><br>Оставляет обжигающую ловушку, которая наносит ступившим в нее врагам урон.\n<font color='#70EA72'>В обычном режиме сразу после прочтения это умение заменяется на </font><font color='#6cbfe2'>[Q1] Poison Trap</font><font color='#70EA72'> (Если эта руна была прокачана).\nВ режиме невидимости от способности </font><font color='#6cbfe2'>(R) Stealth</font><font color='#70EA72'> это умение заменяется на </font><font color='#6cbfe2'>(Q) Net Trap</font><font color='#70EA72'> и </font><font color='#6cbfe2'>[Q2] Torrent Trap</font><font color='#70EA72'> (Если эта руна была прокачана).</font>"
     	"DOTA_Tooltip_ability_fulminating_trap_Lore"				""
     	"DOTA_Tooltip_ability_fulminating_trap_damage"				"УРОН:"
 
@@ -3413,14 +3411,14 @@
     	"DOTA_Tooltip_ability_trapper_vanish_duration"				"ДЛИТЕЛЬНОСТЬ:"
 
     	"DOTA_Tooltip_ability_trapper_stealth"						"Stealth"
-    	"DOTA_Tooltip_ability_trapper_stealth_Description"			"Затратив на прочтение заклинания 1 секунду, Trapper становится невидимой. Во время невидимости скорость передвижения героя снижена, а все умения заменяются на новые. Действие невидимости заканчивается, если Trapper будет находиться близко к врагу и в поле его зрения.<br><font color='#70EA72'>Открывает доступ к дополнительной ветке умений.</font>"
+    	"DOTA_Tooltip_ability_trapper_stealth_Description"			"Затратив на прочтение заклинания 1 секунду, Trapper становится невидимой. Во время невидимости скорость передвижения героя снижена, а все умения заменяются на новые. Действие невидимости заканчивается, если Trapper будет находиться близко к врагу и в поле его зрения.\n<font color='#70EA72'>Открывает доступ к дополнительной ветке умений.</font>"
     	"DOTA_Tooltip_ability_trapper_stealth_Lore"					""
     	"DOTA_Tooltip_ability_trapper_stealth_movespeed_loss_percentage"	"ЗАМЕДЛЕНИЕ В %:"
 
     	"DOTA_Tooltip_modifier_trapper_stealth"						"Stealth"
 
      	"DOTA_Tooltip_ability_net_trap"								"Net Trap"
-    	"DOTA_Tooltip_ability_net_trap_Description"					"Оставляет в указанной точке сетчатую ловушку. Враги, попавшие в сеть лишаются возможности передвигаться и теряют значительную часть своей дальности атаки на 1.5 секунды.<br><font color='#70EA72'>Сразу после прочтения это умение будет заменено на </font><font color='#6cbfe2'>[Q2] Torrent Trap</font><font color='#70EA72'>, либо по окончании невидимости - на </font><font color='#6cbfe2'>(Q) Fulminating Trap</font><font color='#70EA72'>.</font>"
+    	"DOTA_Tooltip_ability_net_trap_Description"					"Оставляет в указанной точке сетчатую ловушку. Враги, попавшие в сеть лишаются возможности передвигаться и теряют значительную часть своей дальности атаки на 1.5 секунды.\n<font color='#70EA72'>Сразу после прочтения это умение будет заменено на </font><font color='#6cbfe2'>[Q2] Torrent Trap</font><font color='#70EA72'>, либо по окончании невидимости - на </font><font color='#6cbfe2'>(Q) Fulminating Trap</font><font color='#70EA72'>.</font>"
     	"DOTA_Tooltip_ability_net_trap_Lore"						""
     	"DOTA_Tooltip_ability_net_trap_root_duration"				"ДЛИТЕЛЬНОСТЬ NET TRAP:"   	
     	"DOTA_Tooltip_ability_net_trap_attack_range_loss"			"СНИЖЕНИЕ ДАЛЬНОСТИ АТАКИ:"	
@@ -3436,7 +3434,7 @@
     	"DOTA_Tooltip_ability_trapper_action_leap_max_distance"			"Макс. радиус:"
 
     	"DOTA_Tooltip_ability_trapper_backstab"						"Backstab"
-    	"DOTA_Tooltip_ability_trapper_backstab_Description"			"Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>После 2 секундной подготовки, атакуя выбранную цель со спины наносит огромный урон, основанный на базовом уроне героя. Если враг обнаружит героя во время подготовки, прочтение будет отменено.<br><font color='#70EA72'>Прочтение этой способности на себя снимет невидимость.</font>"
+    	"DOTA_Tooltip_ability_trapper_backstab_Description"			"Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>После 2 секундной подготовки, атакуя выбранную цель со спины наносит огромный урон, основанный на базовом уроне героя. Если враг обнаружит героя во время подготовки, прочтение будет отменено.\n<font color='#70EA72'>Прочтение этой способности на себя снимет невидимость.</font>"
     	"DOTA_Tooltip_ability_trapper_backstab_Lore"				""
     	"DOTA_Tooltip_ability_trapper_backstab_damage_mult"			"МНОЖИТЕЛЬ УРОНА:"
 
@@ -3446,7 +3444,7 @@
     	"DOTA_Tooltip_ability_trapper_rune_q_1_suffix"				" за каждый стак"	
 
     	"DOTA_Tooltip_ability_poison_trap"						"Poison Trap"
-    	"DOTA_Tooltip_ability_poison_trap_Description"			"Стихия: <font color=\"#37DD3D\">Яд</font><br>Ставится ядовитая ловушка, наносящая урон за каждый стак яда. Максимум 10 зарядов.<br><font color='#70EA72'>Сразу после прочтения это умение будет заменено на </font><font color='#6cbfe2'>(Q) Fulminating Trap</font><font color='#70EA72'>.</font>"
+    	"DOTA_Tooltip_ability_poison_trap_Description"			"Стихия: <font color=\"#37DD3D\">Яд</font><br>Ставится ядовитая ловушка, наносящая урон за каждый стак яда. Максимум 10 зарядов.\n<font color='#70EA72'>Сразу после прочтения это умение будет заменено на </font><font color='#6cbfe2'>(Q) Fulminating Trap</font><font color='#70EA72'>.</font>"
     	"DOTA_Tooltip_ability_poison_trap_Lore"					""
 
     	"DOTA_Tooltip_modifier_poison_trap_effect"					"Poison Trap"
@@ -3478,7 +3476,7 @@
     	"DOTA_Tooltip_ability_trapper_rune_q_2_suffix_two"			""	
 
     	"DOTA_Tooltip_ability_torrent_trap"							"Torrent Trap"
-    	"DOTA_Tooltip_ability_torrent_trap_Description"				"Стихия: <font color=\"#3894FF\">Вода</font><br>Спустя 2.5 секунды после того, как враг зашел в область действия ловушки, он будет подброшен потоком воды, из-за чего будет оглушен на 2 секунды и у него будет снижена скорость атаки на 9 секунд.<br>Действует лишь раз в 7 секунд для каждого противника.<br><font color='#70EA72'>Сразу после прочтения это умение будет заменено на </font><font color='#6cbfe2'>(Q) Net Trap</font><font color='#70EA72'>, либо по окончании невидимости - на </font><font color='#6cbfe2'>(Q) Fulminating Trap</font><font color='#70EA72'>.</font>"
+    	"DOTA_Tooltip_ability_torrent_trap_Description"				"Стихия: <font color=\"#3894FF\">Вода</font><br>Спустя 2.5 секунды после того, как враг зашел в область действия ловушки, он будет подброшен потоком воды, из-за чего будет оглушен на 2 секунды и у него будет снижена скорость атаки на 9 секунд.\nДействует лишь раз в 7 секунд для каждого противника.\n<font color='#70EA72'>Сразу после прочтения это умение будет заменено на </font><font color='#6cbfe2'>(Q) Net Trap</font><font color='#70EA72'>, либо по окончании невидимости - на </font><font color='#6cbfe2'>(Q) Fulminating Trap</font><font color='#70EA72'>.</font>"
     	"DOTA_Tooltip_ability_torrent_trap_Lore"					""
 
     	"DOTA_Tooltip_modifier_torrent_trap_effect"					"Torrent Trap"
@@ -3881,7 +3879,7 @@
     	"DOTA_Tooltip_ability_mountain_protector_shockwave_range"			"ДАЛЬНОСТЬ:"
 
     	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian"					"Mountain Guardian"
-    	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_Description"		"Взывает к мощи гор, наделяя себя силой непробиваемых скал, чтобы держать оборону от агрессоров.<br><font color='#70EA72'>Пока активно это умение, герой не может двигаться, но может читать другие умения и телепортироваться с помощью </font><font color='#6cbfe2'>(E) Emberstone</font><font color='#70EA72'>.</font><br><font color='#70EA72'>Пока активно это умение, каждое прочтение </font><font color='#6cbfe2'>(Q) Shockwave</font><font color='#70EA72'> тратит ману, равную 1% умноженному на уровень способности.</font>"
+    	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_Description"		"Взывает к мощи гор, наделяя себя силой непробиваемых скал, чтобы держать оборону от агрессоров.\n<font color='#70EA72'>Пока активно это умение, герой не может двигаться, но может читать другие умения и телепортироваться с помощью </font><font color='#6cbfe2'>(E) Emberstone</font><font color='#70EA72'>.</font>\n<font color='#70EA72'>Пока активно это умение, каждое прочтение </font><font color='#6cbfe2'>(Q) Shockwave</font><font color='#70EA72'> тратит ману, равную 1% умноженному на уровень способности.</font>"
     	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_armor"			"ДОП. БРОНЯ:"
     	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_magic_resist"	"ДОП. СОПРОТИВЛЕНИЕ МАГИИ:"
     	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_mana_drain_per_second"	"МАНЫ/СЕК. :"
@@ -4149,7 +4147,7 @@
     	"DOTA_Tooltip_modifier_charons_claw_enemy_Description"					"Урон и скорость передвижения снижены."
 
     	"DOTA_Tooltip_ability_chernobog_demon_hunter"							"Demon Hunter"
-    	"DOTA_Tooltip_ability_chernobog_demon_hunter_Description"				"Стихия: <font color=\"#5B648C\">Демон</font><br>Позволяет раскрыть навыки охотника - демона, обретая дополнительные возможности и свойства. Добавляет к обычным атакам магический урон, основанный на нанесенном атакой уроном, а любой входящий урон не нанесёт герою больше определённого % от макс. здоровья.<br><font color='#f14b4b'>Пока это умение активно, герой не может восстанавливать своё здоровье</font>.<br><font color='#70EA72'>Если срабатывает свойство уменьшения урона, герой затратит некоторое количество маны</font>."
+    	"DOTA_Tooltip_ability_chernobog_demon_hunter_Description"				"Стихия: <font color=\"#5B648C\">Демон</font><br>Позволяет раскрыть навыки охотника - демона, обретая дополнительные возможности и свойства. Добавляет к обычным атакам магический урон, основанный на нанесенном атакой уроном, а любой входящий урон не нанесёт герою больше определённого % от макс. здоровья.\n<font color='#f14b4b'>Пока это умение активно, герой не может восстанавливать своё здоровье</font>.\n<font color='#70EA72'>Если срабатывает свойство уменьшения урона, герой затратит некоторое количество маны</font>."
     	"DOTA_Tooltip_ability_chernobog_demon_hunter_mana_drain_per_attack"						"ЗАТРАТЫ МАНЫ НА АТАКУ (НА СЕБЯ):"
     	"DOTA_Tooltip_ability_chernobog_demon_hunter_health_cost_percent"						"ЗАТРАТЫ ЗДОРОВЬЯ НА АТАКУ (НА СЕБЯ), %:"
     	"DOTA_Tooltip_ability_chernobog_demon_hunter_max_damage_taken_percent_of_health"		"МАКС. ВХОДЯЩИЙ УРОН, % ОТ МАКС. ЗДОРОВЬЯ:"
@@ -4428,22 +4426,22 @@
     	"DOTA_Tooltip_ability_solunia_lunarang_damage"						"УРОН:"
 
     	"DOTA_Tooltip_ability_solunia_warp_flare"							"Solar Warp Flare"
-    	"DOTA_Tooltip_ability_solunia_warp_flare_Description"				"Быстро перемещается в указанную точку. Может пересекать некоторые препятствия. <br><font color='#70EA72'>Это умение может быть активировано до трёх раз, пока не начнётся перезарядка</font>."
+    	"DOTA_Tooltip_ability_solunia_warp_flare_Description"				"Быстро перемещается в указанную точку. Может пересекать некоторые препятствия. \n<font color='#70EA72'>Это умение может быть активировано до трёх раз, пока не начнётся перезарядка</font>."
     	"DOTA_Tooltip_ability_solunia_warp_flare_cast_range"				"МАКС. ДАЛЬНОСТЬ ПРЫЖКА:"
 
     	"DOTA_Tooltip_ability_solunia_lunar_warp_flare"						"Lunar Warp Flare"
-    	"DOTA_Tooltip_ability_solunia_lunar_warp_flare_Description"				"Быстро перемещается в указанную точку. Может пересекать некоторые препятствия. <br><font color='#70EA72'>Это умение может быть активировано до трёх раз, пока не начнётся перезарядка</font>."
+    	"DOTA_Tooltip_ability_solunia_lunar_warp_flare_Description"				"Быстро перемещается в указанную точку. Может пересекать некоторые препятствия. \n<font color='#70EA72'>Это умение может быть активировано до трёх раз, пока не начнётся перезарядка</font>."
     	"DOTA_Tooltip_ability_solunia_lunar_warp_flare_cast_range"				"МАКС. ДАЛЬНОСТЬ ПРЫЖКА:"
 
     	"DOTA_Tooltip_modifier_solunia_in_between_flare"					"Warp Flare"
 
     	"DOTA_Tooltip_ability_solunia_supernova"							"Supernova"
-    	"DOTA_Tooltip_ability_solunia_supernova_Description"				"Стихия: <font color=\"#C25DFC\">Космос</font> / <font color=\"#EF4126\">Огонь</font><br>Solunia разогревается до сверхвысоких температур, после чего взрывается и меняет свою форму на Лунную. <br><font color='#70EA72'>Если умение произносится в воздухе на высоте от 180, то герой получает полный иммунитет на время прочтения</font>."
+    	"DOTA_Tooltip_ability_solunia_supernova_Description"				"Стихия: <font color=\"#C25DFC\">Космос</font> / <font color=\"#EF4126\">Огонь</font><br>Solunia разогревается до сверхвысоких температур, после чего взрывается и меняет свою форму на Лунную. \n<font color='#70EA72'>Если умение произносится в воздухе на высоте от 180, то герой получает полный иммунитет на время прочтения</font>."
     	"DOTA_Tooltip_ability_solunia_supernova_damage"						"УРОН:"
     	"DOTA_Tooltip_ability_solunia_supernova_stun_duration"				"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
 
     	"DOTA_Tooltip_ability_solunia_eclipse"								"Eclipse"
-    	"DOTA_Tooltip_ability_solunia_eclipse_Description"					"Стихия: <font color=\"#C25DFC\">Космос</font> / <font color=\"#EF4126\">Огонь</font><br>Solunia остывает до сверхнизких температур, после чего взрывается и меняет свою форму на Солнечную. <br><font color='#70EA72'>Если умение произносится в воздухе на высоте от 180, то герой получает полный иммунитет на время прочтения</font>."
+    	"DOTA_Tooltip_ability_solunia_eclipse_Description"					"Стихия: <font color=\"#C25DFC\">Космос</font> / <font color=\"#EF4126\">Огонь</font><br>Solunia остывает до сверхнизких температур, после чего взрывается и меняет свою форму на Солнечную. \n<font color='#70EA72'>Если умение произносится в воздухе на высоте от 180, то герой получает полный иммунитет на время прочтения</font>."
     	"DOTA_Tooltip_ability_solunia_eclipse_damage"						"УРОН:"
     	"DOTA_Tooltip_ability_solunia_eclipse_stun_duration"				"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
 
@@ -4698,11 +4696,11 @@
     	"DOTA_Tooltip_modifier_water_bomb_slow_Description"							"Снижение скорости атаки и передвижения"
 
     	"DOTA_Tooltip_ability_hydroxis_slippery_tail"								"Slipstream"
-    	"DOTA_Tooltip_ability_hydroxis_slippery_tail_Description"					"Hydroxis вырывается вперёд в указанную точку с большой скоростью и игнорируя препятствия.<br><font color='#70EA72'>На время рывка уворачивается от 100% атак</font>."
+    	"DOTA_Tooltip_ability_hydroxis_slippery_tail_Description"					"Hydroxis вырывается вперёд в указанную точку с большой скоростью и игнорируя препятствия.\n<font color='#70EA72'>На время рывка уворачивается от 100% атак</font>."
     	"DOTA_Tooltip_ability_hydroxis_slippery_tail_cast_range"					"CAST RANGE:"
 
     	"DOTA_Tooltip_ability_hydroxis_tsunami"										"Ocean Quake"		
-    	"DOTA_Tooltip_ability_hydroxis_tsunami_Description"							"Стихия: <font color=\"#3894FF\">Вода</font> / <font color=\"#AF843D\">Земля</font><br>Hydroxis пробивает землю, выпуская мощный поток подземных вод, который оглушает и замедляет всех задетых противников.<br><font color='#70EA72'>Урон способности зависит от значения Силы героя</font>."	
+    	"DOTA_Tooltip_ability_hydroxis_tsunami_Description"							"Стихия: <font color=\"#3894FF\">Вода</font> / <font color=\"#AF843D\">Земля</font><br>Hydroxis пробивает землю, выпуская мощный поток подземных вод, который оглушает и замедляет всех задетых противников.\n<font color='#70EA72'>Урон способности зависит от значения Силы героя</font>."	
     	"DOTA_Tooltip_ability_hydroxis_tsunami_strength_damage"						"МНОЖИТЕЛЬ УРОНА ОТ СИЛЫ:"			
     	"DOTA_Tooltip_ability_hydroxis_tsunami_stun_duration"				"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
     	"DOTA_Tooltip_ability_hydroxis_tsunami_slow_duration"				"ДЛИТЕЛЬНОСТЬ ЗАМЕДЛЕНИЯ:"
@@ -4925,7 +4923,7 @@
     	"notification_supercharge_no_corpse_charge"							"Руна R3 не изучена"
 
     	"DOTA_Tooltip_ability_ekkan_dominion"								"Dark Dominion"
-    	"DOTA_Tooltip_ability_ekkan_dominion_Description"					"Стихия: <font color=\"#5C776E\">Нежить</font> / <font color=\"#5B648C\">Демон</font><br>Проклинает вражескую душу. Каждые 0.5 секунды противник получает урон , зависящий от значения своего урона. Если враг умирает, пока действует эффект, юнит навсегда присоединяется к армии Ekkan, пока не умрёт.<br><font color='#70EA72'>Применение этого умения на подчинённого юнита убьёт его.</font>"
+    	"DOTA_Tooltip_ability_ekkan_dominion_Description"					"Стихия: <font color=\"#5C776E\">Нежить</font> / <font color=\"#5B648C\">Демон</font><br>Проклинает вражескую душу. Каждые 0.5 секунды противник получает урон , зависящий от значения своего урона. Если враг умирает, пока действует эффект, юнит навсегда присоединяется к армии Ekkan, пока не умрёт.\n<font color='#70EA72'>Применение этого умения на подчинённого юнита убьёт его.</font>"
     	"DOTA_Tooltip_ability_ekkan_dominion_max_summons"					"МАКСИМУМ ПОДЧИНЁННЫХ ЮНИТОВ:"
     	"DOTA_Tooltip_ability_ekkan_dominion_move_slow"						"ЗАМЕДЛЕНИЕ, ПОКА АКТИВНО, %:"
     	"DOTA_Tooltip_ability_ekkan_dominion_debuff_duration"				"ДЛИТЕЛЬНОСТЬ ЭФФЕКТА:"
@@ -4968,7 +4966,7 @@
 		"DOTA_Tooltip_modifier_skeleton_summon_unit"						"Призванный скелет"
 
 		"DOTA_Tooltip_ability_ekkan_river_of_souls"							"Acheron's Portal"
-		"DOTA_Tooltip_ability_ekkan_river_of_souls_Description"				"Создаёт портал в указанной точке. Попадая в портал, вы и вся ваша армия перемещается к другому такому же порталу с <font color='#70EA72'>1.5</font> секундной задержкой.<br><font color='#70EA72'>Любой герой может воспользоваться порталом</font>."	
+		"DOTA_Tooltip_ability_ekkan_river_of_souls_Description"				"Создаёт портал в указанной точке. Попадая в портал, вы и вся ваша армия перемещается к другому такому же порталу с <font color='#70EA72'>1.5</font> секундной задержкой.\n<font color='#70EA72'>Любой герой может воспользоваться порталом</font>."	
 		"DOTA_Tooltip_ability_ekkan_river_of_souls_cast_range"				"CAST RANGE:"
 
 		"DOTA_Tooltip_modifier_river_of_souls_teleporting"					"Acheron's Portal - телепортация"
@@ -7071,7 +7069,7 @@
 		"item_mana_restore"			"Восстанавливает маны"
 		"item_bonus_exp"			"Доп. ОПЫТ"
 		"item_perm_strength"		"Доп. Сила (на текущую сессию)"
-		"item_perm_agility"			"Доп. Ловкость  (на текущую сессию)"
+		"item_perm_agility"			"Доп. Ловкость (на текущую сессию)"
 		"item_perm_intelligence"	"Доп. Интеллект (на текущую сессию)"
 
 		"item_critical_strike"		"Критический удар"
@@ -7338,7 +7336,7 @@
 		"property_fire_walkers_description"			"Оставляет под ногами героя пламенный след. Все враги, задевшие след каждые 0.5 секунды будут получать урон, равный равный сумме всех атрибутов героя. Враги, находящиеся в области действия получают увеличенный на 600% урон стихии <font color=\"#EF4126\">Огня</font> из всех источников."
 
 		"item_property_moon_techs"					"Moon Dust"
-		"property_moon_techs_description"			"При прочтении (E) @Ability3 появится облако лунной пыли, сокращающее скорость передвижения врагов на 50% и длящееся 8 секунд.<br>Враги, находящиеся в облаке получают увеличенный урон из всех источников.<br>Увеличение урона происходит, если скорость передвижения врага становится меньше скорости передвижения героя, на 1% за каждую единицу в разнице значений."
+		"property_moon_techs_description"			"При прочтении (E) @Ability3 появится облако лунной пыли, сокращающее скорость передвижения врагов на 50% и длящееся 8 секунд.\nВраги, находящиеся в облаке получают увеличенный урон из всех источников.\nУвеличение урона происходит, если скорость передвижения врага становится меньше скорости передвижения героя, на 1% за каждую единицу в разнице значений."
 
 		"item_property_sonic_boots"					"Sonic Speed"
 		"property_sonic_boots_description"			"Прочтение (E) @Ability3 увеличит скорость атаки на 200, скорость передвижения на 25%, а максимальную скорость передвижения до @special_property1 на 8 секунд. Когда надет этот предмет, герой может проходить сквозь существ."
@@ -8769,7 +8767,7 @@
 		"reanimation_stone_desc"	"Сбрасывает все уровни Рун и Умений в изначальное состояние, возвращая все очки для повторного распределения."
 
 		"DOTA_Tooltip_ability_item_rpc_synthesis_vessel"	"Синтезирующий сосуд"
-		"synthesis_vessel_desc"								"Использование: Соедините 2 предмета, чтобы получить новый. В случае неудачного синтеза сосуд не будет потрачен."
+		"synthesis_vessel_desc"								"Использование: Соедините 2 предмета, чтобы получить новый. В случае провала при объединении, сосуд не будет потрачен."
 		"synthesize_button"									"Синтезировать"
 
 		"DOTA_Tooltip_ability_item_rpc_galactic_arcana_cache_piece_1"	"Галактический кейс с арканами часть 1"
@@ -8796,7 +8794,7 @@
 		"saveload_load_menu"		"Загрузить Героя"
 		"saveload_one_load"			"Разрешена только 1 загрузка"
 
-		"saveload_cant_save_level_1"	"Невозможно перезаписать в эту ячейку героя 1-го уровня. Нужен минимум ур. 2."
+		"saveload_cant_save_level_1"	"Невозможно перезаписать в эту ячейку героя 1-го уровня. Нужно минимум 2."
 
 		"saveload_save"				"Сохранение"
 		"saveload_load"				"Загрузка"
@@ -8812,7 +8810,7 @@
 		"premium_stash_slots"		"Премиум Поток"
 		"premium_slots_info_tooltip" "Премиум ячейки сохранения героев доступны владельцам билетов Roshpit Champions, покупаемым через клиент Dota2. Когда время действия билета истечёт, загрузка героев будет по прежнему доступна, но сохранение невозможно."
 		"premium_stash_info_tooltip" "Премиум ячейки потока вечности доступны владельцам билетов Roshpit Champions, покупаемым через клиент Dota2. Когда время действия билета истечёт, доступ к загрузке предметов останется, но сохранить новые будет невозможно."
-		"saveload_confirm"			"Уровень вашего героя НИЖЕ, чем сохранённый.<br> Кликните на слот снова, чтобы продолжить."
+		"saveload_confirm"			"Уровень вашего героя НИЖЕ, чем сохранённый.\n Кликните на слот снова, чтобы продолжить."
 
 		"item_possibly_duped"      "<font color='#f14b4b'>ВНИМАНИЕ!</font>Этот предмет был возвращен в инвентарь из-за того, что оракул не смог сохранить его по причине плохого соединения. Вполне <i>возможно</i>, что была попытка скопировать предмет, в таком случае, его сохранение будет невозможным (при наличии уже сохраненной копии)."
 
@@ -8841,7 +8839,7 @@
 		"quests_quest_capacity"		"Доступны задания"
 
 		"quests_no_quests"			"Нет доступных заданий!<br>Проверьте завтра."
-		"quests_questtip"			"Новые задания даются каждые 24 часа.<br>Обновление списка происходит в 00:00 EST (8:00 MSK)."
+		"quests_questtip"			"Новые задания даются каждые 24 часа.\nОбновление списка происходит в 00:00 EST (8:00 MSK)."
 
 		"quest_description"			"@difficulty_name: Убейте @boss_name в @dungeon_name."	//		"quest_description"			"Посетите @dungeon_name и убейте @boss_name на сложности @difficulty_name."
 		
@@ -9097,7 +9095,7 @@
         "item_rpc_axe_glyph_6_2_description"                "Увеличивает сопротивление щитов от руны [E4] Cyclone Shield до @glyph_property1%, но снижает шанс получения щита до @glyph_property2% за каждое очко руны, вместо 150%."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_2"       "(T7) Символ ярости"
-        "item_rpc_axe_glyph_7_2_description"                "Пока активно умение (Q) @Ability1, максимальное количество зарядов руны [Q2] Berserker Rage увеличено до @glyph_property1, а количество получаемых зарядов увеличено на @glyph_property2. Половина зарядов активна постоянно."
+        "item_rpc_axe_glyph_7_2_description"                "Пока активно умение (Q) @Ability1, максимальное количество зарядов руны [Q2] Berserker Rage увеличено до @glyph_property1, а количество получаемых зарядов увеличено на @glyph_property2."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_a"       "(Immortal) Glyph of the Marshall"
         "item_rpc_axe_glyph_5_a_description"                "Увеличивает урон, наносимый умением (R) @Ability4 и всеми соответствующими умению рунами на @glyph_property1%."
@@ -10405,9 +10403,9 @@
 		"DOTA_Tooltip_ability_item_tanari_spirit_stones_elite"				"Камни Духа Танари"
 		"DOTA_Tooltip_ability_item_tanari_spirit_stones_legend"			"Камни Духа Танари"
 
-		"item_tanari_spirit_stones_normal_desc"		"Использование: Позволяет войти в Царство духов в Джунглях Танари. <br><br>Прохождение в этом режиме увеличивает шанс появления Парагон-Монстров в 3 раза, <br>увеличивает урон и сопротивление монстров в 2 раза и <br>увеличивает шанс выпадения предмета редкости Immortal. <br>Получаемые Темные Кристаллы увеличены в 2 раза, а Мифрильные Осколки в 3 раза."
-		"item_tanari_spirit_stones_elite_desc"		"Использование: Позволяет войти в Царство духов в Джунглях Танари. <br><br>Прохождение в этом режиме увеличивает шанс появления Парагон-Монстров в 3 раза, <br>увеличивает урон и сопротивление монстров в 2 раза и <br>увеличивает шанс выпадения предмета редкости Immortal. <br>Получаемые Темные Кристаллы увеличены в 2 раза, а Мифрильные Осколки в 3 раза."
-		"item_tanari_spirit_stones_legend_desc"		"Использование: Позволяет войти в Царство духов в Джунглях Танари. <br><br>Прохождение в этом режиме увеличивает шанс появления Парагон-Монстров в 3 раза, <br>увеличивает урон и сопротивление монстров в 2 раза и <br>увеличивает шанс выпадения предмета редкости Immortal. <br>Получаемые Темные Кристаллы увеличены в 2 раза, а Мифрильные Осколки в 3 раза."
+		"item_tanari_spirit_stones_normal_desc"		"Использование: Позволяет войти в Царство духов в Джунглях Танари. \n\nПрохождение в этом режиме увеличивает шанс появления Парагон-Монстров в 3 раза, \nувеличивает урон и сопротивление монстров в 2 раза и \nувеличивает шанс выпадения предмета редкости Immortal. \nПолучаемые Темные Кристаллы увеличены в 2 раза, а Мифрильные Осколки в 3 раза."
+		"item_tanari_spirit_stones_elite_desc"		"Использование: Позволяет войти в Царство духов в Джунглях Танари. \n\nПрохождение в этом режиме увеличивает шанс появления Парагон-Монстров в 3 раза, \nувеличивает урон и сопротивление монстров в 2 раза и \nувеличивает шанс выпадения предмета редкости Immortal. \nПолучаемые Темные Кристаллы увеличены в 2 раза, а Мифрильные Осколки в 3 раза."
+		"item_tanari_spirit_stones_legend_desc"		"Использование: Позволяет войти в Царство духов в Джунглях Танари. \n\nПрохождение в этом режиме увеличивает шанс появления Парагон-Монстров в 3 раза, \nувеличивает урон и сопротивление монстров в 2 раза и \nувеличивает шанс выпадения предмета редкости Immortal. \nПолучаемые Темные Кристаллы увеличены в 2 раза, а Мифрильные Осколки в 3 раза."
 
 		
 		"dialogue_witch_doctor"						"Духи Джунглей окружают меня."
@@ -11740,6 +11738,8 @@
 		"DOTA_Tooltip_ability_ancient_water_god_passive_Description"			"Выпускает мощные потоки воды."
 
 
+		
+
 		//ARENA
 
 		"roshpit_arena"												"Арена Roshpit"
@@ -12326,90 +12326,6 @@
 
 		"DOTA_Tooltip_modifier_descent_beetle_effect"					"Slime"
 		"DOTA_Tooltip_modifier_descent_beetle_effect_Description"		"Скорости атаки и передвижения снижены."
-		
-		//ARENA TOOLTIPS
-
-		"DOTA_Tooltip_ability_arena_descent_nemesis_passive"					"Great Cleave"
-		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_Description"				"Атаки задевают всех врагов в небольшой области"
-		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_cleave_percent"				"УРОН %:"
-		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_cleave_radius"				"РАДИУС:"
-
-		"arena_descent_nightmare"												"Павший Кошмар"
-
-		"DOTA_Tooltip_ability_arena_descent_guard_passive"						"Desolation"
-		"DOTA_Tooltip_ability_arena_descent_guard_passive_Description"			"С каждой атакой увеличивает урон существа."
-		"DOTA_Tooltip_ability_arena_descent_guard_passive_damage_per_instance"	"ДОП. УРОН ЗА ЗАРЯД %:"
-
-		"DOTA_Tooltip_modifier_descent_guard_passive_effect"					"Desolation"
-		"DOTA_Tooltip_modifier_descent_guard_passive_effect_Description"		"Урон увеличен"
-
-		"DOTA_Tooltip_ability_arena_descent_crippling"							"Crippling Aura"
-		"DOTA_Tooltip_ability_arena_descent_crippling_Description"				"Снижает силу ближайших героев."
-		"DOTA_Tooltip_ability_arena_descent_crippling_health_regen_percent"		"РЕГЕН. ЗДОРОВЬЯ %:"
-		"DOTA_Tooltip_ability_arena_descent_crippling_attack_damage"			"УРОН %:"
-		"DOTA_Tooltip_ability_arena_descent_crippling_attack_speed"				"СКОРОСТЬ АТАКИ:"
-		"DOTA_Tooltip_ability_arena_descent_crippling_movespeed"				"СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
-
-		"DOTA_Tooltip_modifier_advanced_creature_crippling_aura_debuff"			"Crippling Aura"
-		"DOTA_Tooltip_modifier_advanced_creature_crippling_aura_debuff_Description"	"Снижает регенерацию здоровья, урон, скорости атаки и передвижения."
-
-		"arena_descent_boss"													"Мерзкий зомби" //
-
-		"DOTA_Tooltip_modifier_steadfast"													"Steadfast"
-		"DOTA_Tooltip_modifier_steadfast_Description"										"Входящий урон не может быть больше, чем %% от макс. здоровья существа."
-
-		"DOTA_Tooltip_ability_descent_boss_ai"								"Abomination"
-		"DOTA_Tooltip_ability_descent_boss_ai_Description"					"Призывает Забытых монстров из глубин"
-
-
-		"DOTA_Tooltip_ability_creature_pure_strike_2"			"Pure Strike"
-		"DOTA_Tooltip_ability_creature_pure_strike_2_Description"	"Атаки никогда не промахиваются и дополнительно наносят 3% чистого урона."
-
-		"arena_pit_of_trials_final_boss"						"Pit Lord"
-
-		"DOTA_Tooltip_ability_arena_pit_boss_haste"					"Bloodlust"
-		"DOTA_Tooltip_ability_arena_pit_boss_haste_Description"		"Увеличивает скорости атаки и передвижения, сбрасывает время перезарядки Firestorm."
-
-		"DOTA_Tooltip_ability_arena_radiance"								"Shadow Radiance"
-		"DOTA_Tooltip_ability_arena_radiance_Description"					"Сжигает врагов, заставляя их промахиваться при атаках."
-		"DOTA_Tooltip_ability_arena_radiance_aura_damage"					"УРОН:"
-		"DOTA_Tooltip_ability_arena_radiance_blind_pct"						"ШАНС ПРОМАХА %:"
-
-		"DOTA_Tooltip_modifier_modifier_pit_boss_haste"					"Bloodlust"
-		"DOTA_Tooltip_modifier_modifier_pit_boss_haste_Description"		"Скорости атаки и передвижения увеличены."
-
-
-		"arena_pit_conquest_spirit_of_rakash"					"Рак'еш" //Rak'eth
-
-		"DOTA_Tooltip_ability_arena_pit_rakash_ai"				"Spirit of Rak'eth"
-		"DOTA_Tooltip_ability_arena_pit_rakash_ai_Description"	"Увеличено сопротивление магии"	
-		"DOTA_Tooltip_ability_arena_pit_rakash_ai_magic_resist"	"ДОП. СОПРОТИВЛЕНИЕ МАГИИ:"
-
-		"DOTA_Tooltip_ability_arena_descent_tombstone_ability"	"Tombstone"
-		"DOTA_Tooltip_ability_arena_descent_tombstone_ability_Description"	"Восстание павших"
-
-		"arena_pit_shadow_sniper"								"Тёмный Снайпер"
-		"arena_pit_quizmaster"									"Мастер Викторины" //Quizmaster
-
-		"DOTA_Tooltip_ability_arena_quizmaster_blast"				"Inquiry Burst"
-
-		"arena_descent_terror_striker_ultra"					"Gravestriker Ultra"
-
-		"DOTA_Tooltip_ability_arena_pit_grave_chill"			"Descent Grave Chill"
-		"DOTA_Tooltip_ability_arena_pit_grave_chill_Description"	"Крадёт скорость передвижения, броню и сопротивление магии цели."
-		"DOTA_Tooltip_ability_arena_pit_grave_chill_duration"	"ДЛИТЕЛЬНОСТЬ:"
-		"DOTA_Tooltip_ability_arena_pit_grave_chill_movespeed_steal"	"КРАЖА СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
-		"DOTA_Tooltip_ability_arena_pit_grave_chill_armor_steal"	"КРАЖА БРОНИ:"
-		"DOTA_Tooltip_ability_arena_pit_grave_chill_magic_resist_steal"	"КРАЖА СОПРОТИВЛЕНИЯ МАГИИ:"
-
-		"DOTA_Tooltip_modifier_arena_grave_chill_target"		"Descent Grave Chill"
-		"DOTA_Tooltip_modifier_arena_grave_chill_target_Description"	"Снижение скорости передвижения, брони и сопротивления магии."
-
-		"DOTA_Tooltip_ability_golden_skullbone_ai"				"Невосприимчивость магии"
-
-		"lies_golden_skullbone"									"Golden Skullbone"
-
-		"arena_descent_tombstone"								"Tombstone"
 
 		//IMMORTAL WEAPONS
 
@@ -12549,7 +12465,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_3"            "Ragnar's Thunderax"
         "item_property_axe_immortal_weapon3"                            "Overpower"
-        "property_axe_immortal_weapon3_description"                        "При прочтении способности (R) @Ability4, количество имеющихся зарядов [E4] увеличивается на @special_property1%" 	
+        "property_axe_immortal_weapon3_description"                        "При прочтении способности (R) @Ability4, количество имеющихся зарядов [E4] Cyclonic Shield увеличивается на @special_property1%" 	
 
     	//ASTRAL RANGER
     	"DOTA_Tooltip_ability_item_rpc_astral_immortal_weapon_2"			"Astral Daedalus"
@@ -12790,6 +12706,91 @@
         "DOTA_Tooltip_ability_item_rpc_dinath_immortal_weapon_3"            "Chaos Orchid"
         "item_property_dinath_immortal_weapon3"                             "Cosmic Origin"
         "property_dinath_immortal_weapon3_description"                      "Весь нанесенный урон элементом <font color=\"#3289C7\">Дракон</font> наносит еще одну порцию урона с элементом <font color=\"#C25DFC\">Космос</font>"
+
+
+    	//ARENA TOOLTIPS
+
+		"DOTA_Tooltip_ability_arena_descent_nemesis_passive"					"Great Cleave"
+		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_Description"				"Атаки задевают всех врагов в небольшой области"
+		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_cleave_percent"				"УРОН %:"
+		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_cleave_radius"				"РАДИУС:"
+
+		"arena_descent_nightmare"												"Павший Кошмар"
+
+		"DOTA_Tooltip_ability_arena_descent_guard_passive"						"Desolation"
+		"DOTA_Tooltip_ability_arena_descent_guard_passive_Description"			"С каждой атакой увеличивает урон существа."
+		"DOTA_Tooltip_ability_arena_descent_guard_passive_damage_per_instance"	"ДОП. УРОН ЗА ЗАРЯД %:"
+
+		"DOTA_Tooltip_modifier_descent_guard_passive_effect"					"Desolation"
+		"DOTA_Tooltip_modifier_descent_guard_passive_effect_Description"		"Урон увеличен"
+
+		"DOTA_Tooltip_ability_arena_descent_crippling"							"Crippling Aura"
+		"DOTA_Tooltip_ability_arena_descent_crippling_Description"				"Снижает силу ближайших героев."
+		"DOTA_Tooltip_ability_arena_descent_crippling_health_regen_percent"		"РЕГЕН. ЗДОРОВЬЯ %:"
+		"DOTA_Tooltip_ability_arena_descent_crippling_attack_damage"			"УРОН %:"
+		"DOTA_Tooltip_ability_arena_descent_crippling_attack_speed"				"СКОРОСТЬ АТАКИ:"
+		"DOTA_Tooltip_ability_arena_descent_crippling_movespeed"				"СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
+
+		"DOTA_Tooltip_modifier_advanced_creature_crippling_aura_debuff"			"Crippling Aura"
+		"DOTA_Tooltip_modifier_advanced_creature_crippling_aura_debuff_Description"	"Снижает регенерацию здоровья, урон, скорости атаки и передвижения."
+
+		"arena_descent_boss"													"Мерзкий зомби" //
+
+		"DOTA_Tooltip_modifier_steadfast"													"Steadfast"
+		"DOTA_Tooltip_modifier_steadfast_Description"										"Входящий урон не может быть больше, чем %% от макс. здоровья существа."
+
+		"DOTA_Tooltip_ability_descent_boss_ai"								"Abomination"
+		"DOTA_Tooltip_ability_descent_boss_ai_Description"					"Призывает Забытых монстров из глубин"
+
+
+		"DOTA_Tooltip_ability_creature_pure_strike_2"			"Pure Strike"
+		"DOTA_Tooltip_ability_creature_pure_strike_2_Description"	"Атаки никогда не промахиваются и дополнительно наносят 3% чистого урона."
+
+		"arena_pit_of_trials_final_boss"						"Pit Lord"
+
+		"DOTA_Tooltip_ability_arena_pit_boss_haste"					"Bloodlust"
+		"DOTA_Tooltip_ability_arena_pit_boss_haste_Description"		"Увеличивает скорости атаки и передвижения, сбрасывает время перезарядки Firestorm."
+
+		"DOTA_Tooltip_ability_arena_radiance"								"Shadow Radiance"
+		"DOTA_Tooltip_ability_arena_radiance_Description"					"Сжигает врагов, заставляя их промахиваться при атаках."
+		"DOTA_Tooltip_ability_arena_radiance_aura_damage"					"УРОН:"
+		"DOTA_Tooltip_ability_arena_radiance_blind_pct"						"ШАНС ПРОМАХА %:"
+
+		"DOTA_Tooltip_modifier_modifier_pit_boss_haste"					"Bloodlust"
+		"DOTA_Tooltip_modifier_modifier_pit_boss_haste_Description"		"Скорости атаки и передвижения увеличены."
+
+
+		"arena_pit_conquest_spirit_of_rakash"					"Рак'еш" //Rak'eth
+
+		"DOTA_Tooltip_ability_arena_pit_rakash_ai"				"Spirit of Rak'eth"
+		"DOTA_Tooltip_ability_arena_pit_rakash_ai_Description"	"Увеличено сопротивление магии"	
+		"DOTA_Tooltip_ability_arena_pit_rakash_ai_magic_resist"	"ДОП. СОПРОТИВЛЕНИЕ МАГИИ:"
+
+		"DOTA_Tooltip_ability_arena_descent_tombstone_ability"	"Tombstone"
+		"DOTA_Tooltip_ability_arena_descent_tombstone_ability_Description"	"Восстание павших"
+
+		"arena_pit_shadow_sniper"								"Тёмный Снайпер"
+		"arena_pit_quizmaster"									"Мастер Викторины" //Quizmaster
+
+		"DOTA_Tooltip_ability_arena_quizmaster_blast"				"Inquiry Burst"
+
+		"arena_descent_terror_striker_ultra"					"Gravestriker Ultra"
+
+		"DOTA_Tooltip_ability_arena_pit_grave_chill"			"Descent Grave Chill"
+		"DOTA_Tooltip_ability_arena_pit_grave_chill_Description"	"Крадёт скорость передвижения, броню и сопротивление магии цели."
+		"DOTA_Tooltip_ability_arena_pit_grave_chill_duration"	"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_arena_pit_grave_chill_movespeed_steal"	"КРАЖА СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_arena_pit_grave_chill_armor_steal"	"КРАЖА БРОНИ:"
+		"DOTA_Tooltip_ability_arena_pit_grave_chill_magic_resist_steal"	"КРАЖА СОПРОТИВЛЕНИЯ МАГИИ:"
+
+		"DOTA_Tooltip_modifier_arena_grave_chill_target"		"Descent Grave Chill"
+		"DOTA_Tooltip_modifier_arena_grave_chill_target_Description"	"Снижение скорости передвижения, брони и сопротивления магии."
+
+		"DOTA_Tooltip_ability_golden_skullbone_ai"				"Невосприимчивость магии"
+
+		"lies_golden_skullbone"									"Golden Skullbone"
+
+		"arena_descent_tombstone"								"Tombstone"
 
 		//REDFALL / Осенний Хребет
 
