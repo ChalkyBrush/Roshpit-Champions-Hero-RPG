@@ -110,6 +110,11 @@ function CDOTA_BaseNPC_Hero:GetBaseStrength()
 		strength = strength - modifier:GetStackCount()
 	end
 
+	modifier = self:FindModifierByName('modifier_red_divinex_amulet')
+	if modifier and modifier.stat_bonus then
+		strength = strength - modifier.stat_bonus
+	end
+
 	return strength
 end
 
@@ -147,6 +152,11 @@ function CDOTA_BaseNPC_Hero:GetBaseAgility()
 		agility = agility - modifier:GetStackCount()
 	end
 
+	modifier = self:FindModifierByName('modifier_green_divinex_amulet')
+	if modifier and modifier.stat_bonus then
+		agility = agility - modifier.stat_bonus
+	end
+
 	return agility
 end
 
@@ -172,6 +182,11 @@ function CDOTA_BaseNPC_Hero:GetBaseIntellect()
 	modifier = self:FindModifierByName('modifier_blazing_fury_effect')
 	if modifier then
 		intellect = intellect - modifier:GetStackCount()
+	end
+
+	modifier = self:FindModifierByName('modifier_blue_divinex_amulet')
+	if modifier and modifier.stat_bonus then
+		intellect = intellect - modifier.stat_bonus
 	end
 
 	return intellect
@@ -550,15 +565,24 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_mountain_protector_glyph_5_a", CustomAttributes.MOUNTAIN_PROTECTOR_GLYPH_5_A)
 	end
 	if hero:HasModifier("modifier_red_divinex_amulet") then
-		str_bonus = (str_bonus)*2 - hero:GetStrength() + hero:GetBaseStrength()
+		local stat_bonus =  hero:GetBaseStrength()
+		local modifier = hero:FindModifierByName('modifier_red_divinex_amulet')
+		modifier.stat_bonus = stat_bonus
+		str_bonus = str_bonus + stat_bonus
 		agi_bonus = 0
 		int_bonus = 0
 	elseif hero:HasModifier("modifier_green_divinex_amulet") then
-		agi_bonus = (agi_bonus)*2  - hero:GetAgility() + hero:GetBaseAgility()
+		local stat_bonus =  hero:GetBaseAgility()
+		local modifier = hero:FindModifierByName('modifier_green_divinex_amulet')
+		modifier.stat_bonus = stat_bonus
+		agi_bonus = agi_bonus + stat_bonus
 		str_bonus = 0
 		int_bonus = 0
 	elseif hero:HasModifier("modifier_blue_divinex_amulet") then
-		int_bonus = (int_bonus)*2  - hero:GetIntellect() + hero:GetBaseIntellect()
+		local stat_bonus =  hero:GetBaseIntellect()
+		local modifier = hero:FindModifierByName('modifier_blue_divinex_amulet')
+		modifier.stat_bonus = stat_bonus
+		int_bonus = int_bonus + stat_bonus
 		str_bonus = 0
 		agi_bonus = 0
 	end
