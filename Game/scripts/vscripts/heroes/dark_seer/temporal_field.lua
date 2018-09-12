@@ -1,3 +1,5 @@
+require('/heroes/dark_seer/zhonik_constants')
+
 LinkLuaModifier("modifier_zonik_temporal_field_cap", "modifiers/zonik/modifier_zonik_temporal_field_cap", LUA_MODIFIER_MOTION_NONE)
 
 function field_phase_start(event)
@@ -153,7 +155,7 @@ function temporal_field_leave(event)
 	target:RemoveModifierByName("modifier_dummy_aura_effect_enemy_a_c_visible")
 	target:RemoveModifierByName("modifier_dummy_aura_effect_enemy_a_c_invisible")
 	if ability.e_4_level > 0 then
-		local duration = Filters:GetAdjustedBuffDuration(caster, 0.1*ability.e_4_level, false)
+		local duration = Filters:GetAdjustedBuffDuration(caster, ZHONIK_E4_ARCANA_MS_STICKY_DURATION*ability.e_4_level, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_zonik_temporal_field_cap", {duration = duration})	
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_dummy_aura1_effect_zhonik", {duration = duration})	
 	end
@@ -191,7 +193,7 @@ function enemy_in_field_think(event)
 		target:SetModifierStackCount("modifier_dummy_aura_effect_enemy_a_c_invisible", caster, newStacks*ability.e_1_level)
 	end
 	if ability.e_2_level > 0 then
-		local damage = caster:GetAverageTrueAttackDamage(caster)*0.1*ability.e_2_level
+		local damage = caster:GetAverageTrueAttackDamage(caster)*ability.e_2_level*ZHONIK_E2_ARCANA_DMG_PCT/100
 		CustomAbilities:QuickParticleAtPoint("particles/econ/items/dazzle/dazzle_darkclaw/dazzle_darkclaw_poison_touch_launch_flash.vpcf", target:GetAbsOrigin()+Vector(0,0,80), 1)
 		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 	end

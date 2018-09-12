@@ -1,6 +1,6 @@
 require('heroes/dark_seer/mach_punch')
 require('heroes/dark_seer/tachyon_shell')
-
+require('/heroes/dark_seer/zhonik_constants')
 
 function start_channel(event)
 	local caster = event.caster
@@ -142,19 +142,19 @@ function passive_think(event)
 							
 							Filters:TakeArgumentsAndApplyDamage(missle.lockEnemy, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 							Filters:ApplyStun(caster, 0.1, missle.lockEnemy)
-							local a_d_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
-							if a_d_level > 0 then
+							local r_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
+							if r_1_level > 0 then
 								CustomAbilities:QuickAttachParticle("particles/econ/items/rubick/rubick_force_ambient/rubick_telekinesis_land_force.vpcf", missle.lockEnemy, 3)
 								local enemies = FindUnitsInRadius( caster:GetTeamNumber(), missle.lockEnemy:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 							    if #enemies > 0 then
-							    	local aoeDamage = damage*a_d_level*0.1
+							    	local aoeDamage = damage*r_1_level*ZHONIK_R1_ARCANA_AOE_DMG_PCT/100
 							        for _,enemy in pairs(enemies) do
 							        	Filters:TakeArgumentsAndApplyDamage(enemy, caster, aoeDamage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 							        end
 							    end
 							end
-							local b_d_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
-							if b_d_level > 0 then
+							local r_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 3)
+							if r_2_level > 0 then
 								local eventTable = {}
 								eventTable.caster = caster
 								eventTable.target = missle.lockEnemy
@@ -164,19 +164,19 @@ function passive_think(event)
 									eventTable.ability = caster:FindAbilityByName("zonik_comet_punch")
 								end
 								eventTable.damage_mult = eventTable.ability:GetLevelSpecialValueFor("damage_mult", eventTable.ability:GetLevel())
-								eventTable.arcana_missle_amp = b_d_level * 0.05
+								eventTable.arcana_missle_amp = r_2_level * ZHONIK_R2_ARCANA_MUCH_PUNCH_AMP_PCT / 100
 
 								eventTable.stun_duration = eventTable.ability:GetLevelSpecialValueFor("stun_duration", eventTable.ability:GetLevel())
 								mach_punch_cast(eventTable)
 							end
-							local c_d_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
-							if c_d_level > 0 then
+							local r_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 3)
+							if r_3_level > 0 then
 								ability:ApplyDataDrivenModifier(caster, missle.lockEnemy, "modifier_tempo_flux_visible", {duration = 14})
 								local newStacks = missle.lockEnemy:GetModifierStackCount("modifier_tempo_flux_visible", caster) + 1
 								missle.lockEnemy:SetModifierStackCount("modifier_tempo_flux_visible", caster, newStacks)
 
 								ability:ApplyDataDrivenModifier(caster, missle.lockEnemy, "modifier_tempo_flux_invisible", {duration = 14})
-								missle.lockEnemy:SetModifierStackCount("modifier_tempo_flux_invisible", caster, newStacks*c_d_level)								
+								missle.lockEnemy:SetModifierStackCount("modifier_tempo_flux_invisible", caster, newStacks*r_3_level)								
 							end
 							if caster:HasModifier("modifier_zonik_immortal_weapon_3") then
 								if caster:HasAbility("tachyon_shell") then

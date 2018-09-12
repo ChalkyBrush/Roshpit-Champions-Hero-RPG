@@ -1,3 +1,5 @@
+require('/heroes/dark_seer/zhonik_constants')
+
 LinkLuaModifier("modifier_zonik_lightspeed_cap", "modifiers/zonik/modifier_zonik_lightspeed_cap", LUA_MODIFIER_MOTION_NONE)
 
 function lightspeed_precast(event)
@@ -19,20 +21,20 @@ function lightspeed_cast(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_zonik_lightspeed_flying_portion", {duration = duration})
 	caster:AddNewModifier( caster, ability, "modifier_zonik_lightspeed_cap", {duration = duration} )
 
-	local a_c_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
+	local e_1_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 2)
 	local zonik_glyph_5_1_speed = 0
 	if caster:HasModifier("modifier_zonik_glyph_5_1") then
-		zonik_glyph_5_1_speed = 200 
+		zonik_glyph_5_1_speed = ZHONIK_GLYPH_5_1_LIGHTSPEED_ADDITIONAL_MS 
 	end
-	if a_c_level > 0 then
+	if e_1_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_lightspeed_a_c", {duration = duration})
-		caster:SetModifierStackCount("modifier_lightspeed_a_c", caster, a_c_level*6+zonik_glyph_5_1_speed)
+		caster:SetModifierStackCount("modifier_lightspeed_a_c", caster, e_1_level*ZHONIK_E1_MS + zonik_glyph_5_1_speed)
 	end
 	ability.e_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 2)
 	Filters:CastSkillArguments(3, caster)
 
 	if caster:HasModifier("modifier_zonik_glyph_5_a") then
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 8000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ZHONIK_GLYPH_5_a_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
 				AddFOWViewer(caster:GetTeamNumber(), enemy:GetAbsOrigin(), 300, 5, false)
@@ -84,7 +86,7 @@ function lightspeed_think(event)
 	if ability.lastPos then
 		local distance = WallPhysics:GetDistance2d(ability.lastPos, caster:GetAbsOrigin())
 		ability.distanceMoved = ability.distanceMoved + distance
-		print(ability.distanceMoved)
+		--print(ability.distanceMoved)
 		ability.lastPos = caster:GetAbsOrigin()
 		if ability.distanceMoved >= 60 then
 			local DistanceMult = (ability.distanceMoved-ability.distanceMoved%60)/60
@@ -104,8 +106,8 @@ function lightspeed_think(event)
 			end
 			if ability.remnantPrep >= remnantReady then
 				ability.remnantPrep = ability.remnantPrep - remnantReady
-				local b_c_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
-				if b_c_level > 0 then
+				local e_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
+				if e_2_level > 0 then
 					if not ability.remnantTable then
 						ability.remnantTable = {}
 					end
@@ -154,10 +156,10 @@ function remnant_explode(event)
 	local ability = event.ability
 	local remnant = event.caster
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), remnant:GetAbsOrigin(), nil, 320, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-	local b_c_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
-	local damage = caster:GetMana()*b_c_level*20
+	local e_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
+	local damage = caster:GetMana()*e_2_level*ZHONIK_E2_DMG_PER_MANA
 	if caster:HasModifier("modifier_zonik_glyph_6_1") and caster:HasModifier("modifier_zonik_speedball") then
-		damage = damage*3
+		damage = damage + damage*ZHONIK_GLYPH_6_1_MULTI/100
 	end
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do

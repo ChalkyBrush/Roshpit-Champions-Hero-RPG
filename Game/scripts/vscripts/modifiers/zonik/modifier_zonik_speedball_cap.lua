@@ -1,5 +1,7 @@
 modifier_zonik_speedball_cap = class({})
 
+require('/heroes/dark_seer/zhonik_constants')
+
 function modifier_zonik_speedball_cap:DeclareFunctions()
     local funcs = {
         MODIFIER_PROPERTY_MOVESPEED_MAX,
@@ -14,8 +16,8 @@ function modifier_zonik_speedball_cap:GetModifierMoveSpeed_Max( params )
     if self:GetCaster():HasModifier("modifier_zonik_lightspeed") then
         cap = cap + self:GetCaster():FindAbilityByName("zonik_lightspeed"):GetSpecialValueFor("movespeed_cap")-550
     end
-    if self:GetCaster():FindAbilityByName("zonik_lightspeed").e_4_level and self:GetCaster():HasModifier("modifier_zonik_lightspeed") then
-        cap = cap + 10*self:GetCaster():FindAbilityByName("zonik_lightspeed").e_4_level
+    if self:GetCaster():FindAbilityByName("zonik_lightspeed") and self:GetCaster():FindAbilityByName("zonik_lightspeed").e_4_level and self:GetCaster():HasModifier("modifier_zonik_lightspeed") then
+        cap = cap + ZHONIK_E4_MS_CAP_INCREASE*self:GetCaster():FindAbilityByName("zonik_lightspeed").e_4_level
     end
     if self:GetCaster():HasModifier("modifier_zonik_lightspeed") and self:GetCaster():HasModifier("modifier_zonik_glyph_5_1") then
         cap = cap + 200
@@ -28,8 +30,8 @@ function modifier_zonik_speedball_cap:GetModifierMoveSpeed_Limit( params )
     if self:GetCaster():HasModifier("modifier_zonik_lightspeed") then
         cap = cap + self:GetCaster():FindAbilityByName("zonik_lightspeed"):GetSpecialValueFor("movespeed_cap")-550
     end
-    if self:GetCaster():FindAbilityByName("zonik_lightspeed").e_4_level and self:GetCaster():HasModifier("modifier_zonik_lightspeed") then
-        cap = cap + 10*self:GetCaster():FindAbilityByName("zonik_lightspeed").e_4_level
+    if self:GetCaster():FindAbilityByName("zonik_lightspeed") and self:GetCaster():FindAbilityByName("zonik_lightspeed").e_4_level and self:GetCaster():HasModifier("modifier_zonik_lightspeed") then
+        cap = cap + ZHONIK_E4_MS_CAP_INCREASE*self:GetCaster():FindAbilityByName("zonik_lightspeed").e_4_level
     end
     if self:GetCaster():HasModifier("modifier_zonik_lightspeed") and self:GetCaster():HasModifier("modifier_zonik_glyph_5_1") then
         cap = cap + 200

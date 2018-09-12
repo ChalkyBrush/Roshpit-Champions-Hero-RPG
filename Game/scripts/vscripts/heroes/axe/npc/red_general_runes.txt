@@ -340,7 +340,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% W3_HEAL %>"
+				"property_one"			"<% W3_HEAL_FLAT %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% W3_HEAL_PCT %>"
 			}
 		}
 		"Modifiers"

@@ -1163,7 +1163,7 @@
 					"RunScript"
 					{
 						"ScriptFile"	"heroes/axe/abilities/q/q2_berserker_range.lua"
-                            "Function"		"attackLand"
+                        "Function"		"attackLand"
 					}
 				}
 				"OnTakeDamage"
@@ -1173,6 +1173,15 @@
 					{
 						"ScriptFile"	"heroes/axe/skull_basher.lua"
 						"Function"		"general_take_damage"
+					}
+				}
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/axe/abilities/q/q2_berserker_range.lua"
+						"Function"		"q2_think"
 					}
 				}
 			}

@@ -1,3 +1,5 @@
+require('/heroes/dark_seer/zhonik_constants')
+
 function mach_punch_wind_up(event)
 	local caster = event.caster
 	local ability = event.ability	
@@ -47,7 +49,7 @@ function mach_punch_cast(event)
 	if caster:HasModifier("modifier_temporal_discharge") then
 		local stacks = caster:GetModifierStackCount("modifier_temporal_discharge", caster)
 		local w_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
-		damage = damage + damage*0.01*stacks*w_2_level
+		damage = damage + damage*stacks*w_2_level*ZHONIK_W2_MUCH_PUNCH_AMP_PCT/100
 		caster:RemoveModifierByName("modifier_temporal_discharge")
 	end
 	if event.arcana_missle_amp then
@@ -63,9 +65,9 @@ function mach_punch_cast(event)
 		local searchRadius = 300
 		if caster:HasModifier("modifier_zonik_glyph_4_1") then
 			print('glyphed')
-			particleRadius = particleRadius*2
-			searchRadius = searchRadius*2
-			particleRadius2 = particleRadius2*2
+			particleRadius = particleRadius*(1+ZHONIK_GLYPH_4_1_SONIC_RADIUS/100)
+			searchRadius = searchRadius*(1+ZHONIK_GLYPH_4_1_SONIC_RADIUS/100)
+			particleRadius2 = particleRadius2*(1+ZHONIK_GLYPH_4_1_SONIC_RADIUS/100)
 		end
 		ParticleManager:SetParticleControl(pfx, 1, Vector(3, 3, 3))
 		ParticleManager:SetParticleControl(pfx, 4, Vector(particleRadius, particleRadius, particleRadius))
@@ -74,7 +76,7 @@ function mach_punch_cast(event)
 			ParticleManager:DestroyParticle(pfx, false)
 			ParticleManager:ReleaseParticleIndex(pfx)
 		end)
-		local a_b_damage = damage*0.04*w_1_level
+		local a_b_damage = damage*w_1_level*ZHONIK_W1_MUCH_PUNCH_SHOCKWAVE_PCT/100
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, searchRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
@@ -86,7 +88,7 @@ function mach_punch_cast(event)
 	Filters:CastSkillArguments(2, caster)
 	if not event.cancelAnim then
 		if caster:HasModifier("modifier_zonik_glyph_3_1") then
-			local procs = Runes:Procs(5, 10, 1)
+			local procs = Runes:Procs(ZHONIK_GLYPH_3_1_CHANCE_TO_PUNCH_TWICE/10, 10, 1)
 			if procs == 1 then
 				Timers:CreateTimer(0.15, function()
 					if IsValidEntity(target) then
@@ -125,7 +127,7 @@ function mach_punch_think(event)
 		if ability.lastPos then
 			local distance = WallPhysics:GetDistance2d(ability.lastPos, caster:GetAbsOrigin())
 			ability.distanceMoved = ability.distanceMoved + distance
-			print(ability.distanceMoved)
+			--print(ability.distanceMoved)
 			ability.lastPos = caster:GetAbsOrigin()
 			if ability.distanceMoved >= 240 then
 				ability.distanceMoved = ability.distanceMoved%240
@@ -155,7 +157,7 @@ function mach_punch_think(event)
 				ParticleManager:DestroyParticle(pfx, false)
 				ParticleManager:ReleaseParticleIndex(pfx)
 			end)
-			local c_b_damage = caster:GetModifierStackCount("modifier_mach_punch_whiplash", caster)*1000*w_3_level
+			local c_b_damage = caster:GetModifierStackCount("modifier_mach_punch_whiplash", caster)*w_3_level*ZHONIK_W3_DMG_PER_WHIPLASH
 			if caster:HasModifier("modifier_zonik_immortal_weapon_1") then
 				c_b_damage = c_b_damage*4
 			end
@@ -186,7 +188,7 @@ function mach_punch_attack_land(event)
 			if not target.zonikEcho then
 				target.zonikEcho = 0
 			end
-			target.zonikEcho = target.zonikEcho + attack_damage*w_4_level*0.012
+			target.zonikEcho = target.zonikEcho + attack_damage*w_4_level*ZHONIK_W4_ECHO_DMG_PCT/100
 			print(target.zonikEcho)
 			print(target:GetEntityIndex())
 		end

@@ -1,3 +1,5 @@
+require('/heroes/dark_seer/zhonik_constants')
+
 function tachyon_shield_cast(event)
 	local caster = event.caster
 	local target = event.target
@@ -28,7 +30,7 @@ function tachyon_create(event)
 	local radius = 55
 	if caster:HasModifier("modifier_zonik_glyph_1_1") then
 		if caster:GetEntityIndex() == target:GetEntityIndex() then
-			radius = math.floor(radius*1.6)
+			radius = math.floor(radius + radius*ZHONIK_GLYPH_1_1_TACHYON_SHELL_RADIUS/100)
 		end
 	end
 	print(radius)
@@ -56,13 +58,13 @@ function tachyon_shield_think(event)
 	local damage = event.damage
 	if ability.q_1_level > 0 then
 		if caster:GetEntityIndex() == target:GetEntityIndex() then
-			damage = damage + damage*0.15*ability.q_1_level
+			damage = damage + damage*ability.q_1_level*ZHONIK_Q1_DMG_PCT/100
 		end
 	end
 	local radius = 220
 	if caster:HasModifier("modifier_zonik_glyph_1_1") then
 		if caster:GetEntityIndex() == target:GetEntityIndex() then
-			radius = math.floor(radius*1.6)
+			radius = math.floor(radius + radius*ZHONIK_GLYPH_1_1_TACHYON_SHELL_RADIUS/100)
 		end
 	end
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
@@ -70,7 +72,7 @@ function tachyon_shield_think(event)
 		for _,enemy in pairs(enemies) do
 			if enemy:GetEntityIndex() == target:GetEntityIndex() then
 				if caster:HasModifier("modifier_zonik_glyph_2_1") then
-					local glyphDamage = damage*3
+					local glyphDamage = damage + damage*ZHONIK_GLYPH_2_1_DAMAGE/100
 					Filters:TakeArgumentsAndApplyDamage(enemy, caster, glyphDamage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 					if ability.q_3_level > 0 then
 						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_tachyon_amp", {duration = 0.4})
@@ -105,8 +107,8 @@ function die_under_tachyon(event)
 
 	local q_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 0)
 	if q_2_level > 0 then
-		local radius = 200 + q_2_level*5
-		local duration = 6 + q_2_level*0.1
+		local radius = ZHONIK_Q2_BASE_SEARCH_RADIUS + q_2_level*ZHONIK_Q2_SEARCH_RADIUS
+		local duration = ZHONIK_Q2_BASE_DURATION + q_2_level*ZHONIK_Q2_DURATION
 		local units = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY+DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #units > 0 then
 			local modifierDuration = Filters:GetAdjustedBuffDuration(caster, duration, false)
