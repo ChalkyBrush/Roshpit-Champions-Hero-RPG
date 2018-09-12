@@ -241,7 +241,7 @@
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_obsidian_destroyer"
-		"Ability1"	"time_binder"
+		"Ability1"	"epoch_time_binder"
 		"Ability2"	"time_genesis_orb"
 		"Ability3"	"time_warp"
 		"Ability4"	"generic_hidden"

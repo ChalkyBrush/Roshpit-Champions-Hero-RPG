@@ -1393,12 +1393,12 @@
 
     	//--------------------Epoch Guardian/Obsidian Destroyer
 
-		"DOTA_Tooltip_ability_time_binder"								"Time Binder"
-		"DOTA_Tooltip_ability_time_binder_Description"					"Стихия: <font color=\"#B5FFB7\">Время</font><br>Выпускает в указанную точку Time Binder. При контакте с врагом она соединяет всех ближайших противников, замедляя и нанося урон. Первое столкновение вызовет взрыв в небольшом радиусе."
-		"DOTA_Tooltip_ability_time_binder_Lore"							""
-		"DOTA_Tooltip_ability_time_binder_damage_per_tick"				"УРОН/СЕК:"
-		"DOTA_Tooltip_ability_time_binder_impact_damage"				"УРОН ОТ ВЗРЫВА"
-		"DOTA_Tooltip_ability_time_binder_movespeed_reduction"			"ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_epoch_time_binder"								"Time Binder"
+		"DOTA_Tooltip_ability_epoch_time_binder_Description"					"Стихия: <font color=\"#B5FFB7\">Время</font><br>Выпускает в указанную точку Time Binder. При контакте с врагом она соединяет всех ближайших противников, замедляя и нанося урон. Первое столкновение вызовет взрыв в небольшом радиусе."
+		"DOTA_Tooltip_ability_epoch_time_binder_Lore"							""
+		"DOTA_Tooltip_ability_epoch_time_binder_damage_per_tick"				"УРОН/СЕК:"
+		"DOTA_Tooltip_ability_epoch_time_binder_impact_damage"				"УРОН ОТ ВЗРЫВА"
+		"DOTA_Tooltip_ability_epoch_time_binder_movespeed_reduction"			"ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
 
 		"DOTA_Tooltip_modifier_time_bind" 						"Time Bind"
 		"DOTA_Tooltip_modifier_time_bind_description" 			"Замедление и получение двойного урона от Distortion Orb."
@@ -1414,8 +1414,8 @@
     	"DOTA_Tooltip_ability_time_warp_damage"							"УРОН:"
     	"DOTA_Tooltip_ability_time_warp_duration"						"ДЛИТЕЛЬНОСТЬ:"
 
-		"DOTA_Tooltip_modifier_time_blast_buff" 						"Unstable Distortion"
-		"DOTA_Tooltip_modifier_time_blast_buff_description" 			"Следующее прочтение Generation Crack нанесёт двойной урон."
+		"DOTA_Tooltip_modifier_time_warp_buff" 						"Unstable Distortion"
+		"DOTA_Tooltip_modifier_time_warp_buff_description" 			"Следующее прочтение Generation Crack нанесёт двойной урон."
 
 		"DOTA_Tooltip_modifier_time_warp" 								"Active Distortion"
 		"DOTA_Tooltip_modifier_time_warp_description" 					"Телепортация к шару."
@@ -1498,8 +1498,8 @@
     	"DOTA_Tooltip_ability_epoch_rune_r_1_property_two"				"Доп. время эффекта"
     	"DOTA_Tooltip_ability_epoch_rune_r_1_suffix_two"				" сек."
 
-    	"DOTA_Tooltip_modifier_eternity_flood_a_d_visible"					"Eternal Rise"
-    	"DOTA_Tooltip_modifier_eternity_flood_a_d_visible_Description"		"Урон увеличен в зависимости от общего количества маны."
+    	"DOTA_Tooltip_modifier_eternity_flood_r_1_visible"					"Eternal Rise"
+    	"DOTA_Tooltip_modifier_eternity_flood_r_1_visible_Description"		"Урон увеличен в зависимости от общего количества маны."
 
     	"DOTA_Tooltip_ability_epoch_rune_r_2"							"[R2] Guardian of Ages"
     	"DOTA_Tooltip_ability_epoch_rune_r_2_Description"				"Пассивно увеличивает скорость атаки и дальность атаки героя."
@@ -1517,8 +1517,8 @@
     	"DOTA_Tooltip_ability_epoch_rune_q_3_property_one"				"Урон"
     	"DOTA_Tooltip_ability_epoch_rune_q_3_suffix"					"x от затраченной маны"
 
-    	"DOTA_Tooltip_modifier_epoch_c_a"								"Aeon Strike"
-    	"DOTA_Tooltip_modifier_epoch_c_a_Description"					"С каждой атакой тратится 1%% маны, увеличивающий урон"
+    	"DOTA_Tooltip_modifier_epoch_q_3"								"Aeon Strike"
+    	"DOTA_Tooltip_modifier_epoch_q_3_Description"					"С каждой атакой тратится 1%% маны, увеличивающий урон"
 
     	"DOTA_Tooltip_ability_epoch_rune_w_3"							"[W3] Ages of Wisdom"
     	"DOTA_Tooltip_ability_epoch_rune_w_3_Description"				"С каждым прочтением @Ability2, Epoch Guardian получает заряд. Каждый заряд даёт дополнительные очки Интеллекта. Максимум 10 зарядов. Каждая базовая атака тратит 1 заряд и восстанавливает герою здоровье."

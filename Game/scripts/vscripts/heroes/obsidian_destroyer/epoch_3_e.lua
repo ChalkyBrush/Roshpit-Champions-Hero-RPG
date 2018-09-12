@@ -122,7 +122,7 @@ function jaunt(ability, caster)
 		FindClearSpaceForUnit(caster, newPosition, true)
 		EmitSoundOn("Hero_ElderTitan.AncestralSpirit.Cast", caster)
 		caster:RemoveModifierByName("modifier_time_warp")
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_time_blast_buff", nil)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_time_warp_buff", nil)
 		epoch_e_1(caster)
 		epoch_e_3(caster)
 	end
@@ -184,15 +184,13 @@ end
 function epoch_e_3(caster)
   local runeUnit = caster.runeUnit3
   local ability = runeUnit:FindAbilityByName("epoch_rune_e_3")
-  local abilityLevel = ability:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "e_3")
-  local totalLevel = abilityLevel + bonusLevel
-  if totalLevel > 0 then
+  local e_3_level = caster:GetRuneValue("e", 3)
+  if e_3_level > 0 then
   	local c_c_duration = Filters:GetAdjustedBuffDuration(caster, 6, false)
     ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_epoch_rune_e_3", {duration = c_c_duration})
     ability.origCaster = caster
     ability.damage = caster:GetAverageTrueAttackDamage(caster)
-    ability.totalLevel = totalLevel
+    ability.e_3_level = e_3_level
   end
 end
 
@@ -256,7 +254,7 @@ function epoch_e_3_projectile_land(event)
 		eventTable.caster = caster
 		epoch_glyph_5_1_attack_land(eventTable)
 	end
-	if caster:HasAbility("time_binder") and q_3_damage then
+	if caster:HasAbility("epoch_time_binder") and q_3_damage then
 		local eventTable = {}
 		eventTable.ability = caster.runeUnit3:FindAbilityByName("epoch_rune_q_3")
 		eventTable.attacker = caster
@@ -278,11 +276,11 @@ end
 
 function epoch_e_2(caster, ability)
 	local runeUnit = caster.runeUnit2
-	local totalLevel = caster:GetRuneValue("e", 2)
-	if totalLevel > 0 then
+	local e_2_level = caster:GetRuneValue("e", 2)
+	if e_2_level > 0 then
 		local forwardVector = caster:GetForwardVector()
-		local numOrbs = totalLevel
-		ability.e_2_damage = totalLevel*100 + 130
+		local numOrbs = e_2_level * EPOCH_E2_ORBS
+		ability.e_2_damage = e_2_level * EPOCH_E2_DMG + EPOCH_E2_DMG_BASE
 		if numOrbs > 36 then
 			numOrbs = 36
 		end
