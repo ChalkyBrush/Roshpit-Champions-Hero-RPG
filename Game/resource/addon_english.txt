@@ -1043,6 +1043,8 @@
         "DOTA_Tooltip_ability_axe_rune_w_3_Description"                 "Casting Spur Shock heals the General. The healing value is multiplied by Spur Shock's spell level."
         "DOTA_Tooltip_ability_axe_rune_w_3_property_one"                "Heal"
         "DOTA_Tooltip_ability_axe_rune_w_3_suffix"                      "x Spur Shock level"
+        "DOTA_Tooltip_ability_axe_rune_w_3_property_two"                "Heal"
+        "DOTA_Tooltip_ability_axe_rune_w_3_suffix_two"                  "% Max health"
  
         "DOTA_Tooltip_ability_axe_rune_e_3"                             "[E3] Whirlwind"
         "DOTA_Tooltip_ability_axe_rune_e_3_Description"                 "Enemies dragged by Redmist Cyclone are slashed for an instance of Pure damage based on the General's total attack damage."
