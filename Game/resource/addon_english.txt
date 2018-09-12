@@ -2625,7 +2625,7 @@
     	"property_seinaru_arcana1_description"								"Replaces @Ability1 and all of its runes with Blade Dash."
 
   		"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1"						"[Q1] Samurai Crit"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_Description"			"Adds a 20% chance on attack to deal a massive critical strike."
+    	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_Description"			"Adds a 40% chance on attack to deal a massive critical strike."
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_property_one"			"Bonus Crit Damage"
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_suffix"					"%"
 
@@ -9388,7 +9388,7 @@
         "item_rpc_axe_glyph_6_2_description"                "Increases the damage reduction from stacks of Cyclone Shield to @glyph_property1%, but decreases the chance of generating a stack to just @glyph_property2% per rune level instead of 150%."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_2"       "Glyph of Rage"
-        "item_rpc_axe_glyph_7_2_description"                "While @Ability1 is active, the maximum stack count of Berserker Rage is increased to @glyph_property1, and the number of stacks gained per attack is multiplied by @glyph_property2."
+        "item_rpc_axe_glyph_7_2_description"                "Maximum stack count of Berserker Rage is increased to @glyph_property1, you always have half stacks. While @Ability1 is active, number of stacks gained per attack is multiplied by @glyph_property2."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_a"       "Glyph of the Marshall"
         "item_rpc_axe_glyph_5_a_description"                "Increases all damage dealt by @Ability4, and all of its runes, by @glyph_property1%."
@@ -12631,7 +12631,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_1"		"Onimaru"
 		"item_property_seinaru_immortal_weapon"								"Piercing Attacks"
-		"property_seinaru_immortal_weapon_description"						"Attacks deal additional 100% physical <font color=\"#7AE2A7\">wind</font> damage in a 250 radius."
+		"property_seinaru_immortal_weapon_description"						"Attacks deal additional 50% physical <font color=\"#7AE2A7\">wind</font> damage in a 250 radius."
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_immortal_weapon_1"		"Ascentius"
 		"item_property_warlord_immortal_weapon"								"Elemental Blitz"
@@ -15114,16 +15114,13 @@
 		"DOTA_Tooltip_ability_siltbreaker_amplify_damage_duration"			"DURATION:"
 
 		"DOTA_Tooltip_ability_siltbreaker_whirlpool"			"Blue Whirlpool"
-		"DOTA_Tooltip_ability_siltbreaker_whirlpool_Description"	"Summons whirlpools at the target location that greatly slow enemies standing within."
-		"DOTA_Tooltip_ability_siltbreaker_whirlpool_movespeed"		"MOVESPEED LOSS %:"
-		"DOTA_Tooltip_ability_siltbreaker_whirlpool_magic_resist"	"MAGIC RESIST REDUCTION:"
+		"DOTA_Tooltip_ability_siltbreaker_whirlpool_Description"	"Summons whirlpools at the target location that root enemies standing within."
 
 		"DOTA_Tooltip_modifier_whirlpool_within"				"Blue Whirlpool"
-		"DOTA_Tooltip_modifier_whirlpool_within_Description"	"Reduced movespeed and magic resist."
+		"DOTA_Tooltip_modifier_whirlpool_within_Description"	"Root."
 
 		"DOTA_Tooltip_ability_siltbreaker_channel"				"Virulent Striker"
-		"DOTA_Tooltip_ability_siltbreaker_channel_Description"	"Charge up and breathe damaging waves."	
-		"DOTA_Tooltip_ability_siltbreaker_channel_damage"		"DAMAGE:"
+		"DOTA_Tooltip_ability_siltbreaker_channel_Description"	"Charge up and breathe damaging waves. 99% resistance while cast. Waves has 100% chance to kill enemies"
 
 		"DOTA_Tooltip_ability_seafortress_centaur_slam"			"Centaur Slam"
 		"DOTA_Tooltip_ability_seafortress_centaur_slam_Description"	"Target a single enemy dealing damage and a small stun."
@@ -15566,6 +15563,7 @@
 		"DOTA_Tooltip_ability_winterblight_curse_of_azalea"			"Curse of Azalea"
 		"DOTA_Tooltip_ability_winterblight_curse_of_azalea_Description"	"Apply a curse to an enemy for 4 seconds. If that enemy casts a spell, they are affected by a silence."
 		"DOTA_Tooltip_ability_winterblight_curse_of_azalea_duration"	"SILENCE DURATION:"
+		"DOTA_Tooltip_ability_winterblight_curse_of_azalea_damage"		"DAMAGE:"
 
 		"DOTA_Tooltip_modifier_curse_of_azalea"						"Curse of Azalea"
 		"DOTA_Tooltip_modifier_curse_of_azalea_Description"			"Casting a spell will cause a silence effect."	
