@@ -80,8 +80,10 @@ function energy_shield_think(event)
 	if caster:GetMana() < mana_drain then
 		ability:ToggleAbility()
 	end
-
-	local bonus_damage = caster:GetStrength() * constants.ARCANA1_W4_ATTACK_PER_STR * ability.w4_level
+	if not ability.w_4_level then
+		ability.w_4_level = caster:GetRuneValue("w", 4)
+	end
+	local bonus_damage = caster:GetStrength() * constants.ARCANA1_W4_ATTACK_PER_STR * ability.w_4_level
 	if bonus_damage then
 		caster:SetModifierStackCount("modifier_protector_rune_w4_bonus_damage", caster, bonus_damage)
 	end
