@@ -347,6 +347,10 @@ function Weapons:RollWeapon(deathLocation)
 	else
 		rarity = "mythical"
 	end
+	if GameMode.VoteSystem.junk_loot_disabled and (rarity == "uncommon" or rarity == "rare" or rarity == "mythical") then
+		-- print("junk_loot_disabled weapon rarity: "..rarity)
+		return
+	end
 	local itemName = ""
 	local whichHero = MAIN_HERO_TABLE[RandomInt(1, #MAIN_HERO_TABLE)]:GetUnitName()
 	local internalName = HerosCustom:GetInternalHeroName(whichHero)

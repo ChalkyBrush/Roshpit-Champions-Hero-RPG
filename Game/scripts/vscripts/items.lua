@@ -139,6 +139,10 @@ function RPCItems:RollItemtype(xpBounty, deathLocation, rarityValue, unitLevel)
 			end
 		end
 	end
+	if GameMode.VoteSystem.junk_loot_disabled and (rarity == "common" or rarity =="uncommon" or rarity == "rare" or rarity == "mythical") and luck >= 200 then
+		-- print("junk_loot_disabled other rarity: "..rarity)
+		return
+	end
 	if luck > 0 and luck < 200 then
 		RPCItems:RollBasicPotion(xpBounty+50, deathLocation, rarity, unitLevel)
 	elseif luck >= 200 and luck < 265 then
@@ -610,7 +614,7 @@ function RPCItems:DropItem(item, position)
     position =  WallPhysics:WallSearch(basePosition, position, Events.SafeItemEntity)
 	FindClearSpaceForUnit(Events.SafeItemEntity, position, false)
 	position = Events.SafeItemEntity:GetAbsOrigin()
-	if determineIfOKdrop(item) and ShouldDropItem(item) then
+	if determineIfOKdrop(item) then
 		local rarityFactor = RPCItems:GetRarityFactor(item.rarity)
 		item.expiryTime = Time() + 140
 		if rarityFactor > 2 then
@@ -659,13 +663,13 @@ function RPCItems:DropItem(item, position)
 
 end
 
-function ShouldDropItem(item)
-	if GameMode.VoteSystem.junk_loot_disabled and RPCItems:GetRarityFactor(item.rarity) < 5 and item.slot 
-		and (item.slot == "weapon" or item.slot == "feet" or item.slot == "head" or item.slot == "hands" or item.slot == "body" or item.slot == "amulet") then
-		return false
-	end
-	return true
-end
+-- function ShouldDropItem(item)
+-- 	if GameMode.VoteSystem.junk_loot_disabled and RPCItems:GetRarityFactor(item.rarity) < 5 and item.slot 
+-- 		and (item.slot == "weapon" or item.slot == "feet" or item.slot == "head" or item.slot == "hands" or item.slot == "body" or item.slot == "amulet") then
+-- 		return false
+-- 	end
+-- 	return true
+-- end
 
 function determineIfOKdrop(item)
 		local affixCount = RPCItems:GetRarityFactor(item.rarity)

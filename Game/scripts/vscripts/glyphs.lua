@@ -6,7 +6,11 @@ Glyphs.glyphDropIndex = 0
 Glyphs.ArcaneCrystalTable = {}
 
 function Glyphs:DropArcaneCrystals(position, quantityScale)
-	
+	if GameMode.VoteSystem.crystal_loot_disabled then	
+		-- print("crystal_loot_disabled")
+		return
+	end
+
 	local maxFactor = RPCItems:GetMaxFactor()
 	--DEBUG
 	--

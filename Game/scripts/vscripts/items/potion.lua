@@ -1,10 +1,8 @@
 function usePotion(event)
 	local caster = event.caster
 	local ability = event.ability
-	local mult = 1
-	if caster:HasModifier("modifier_neutral_glyph_4_3") then
-		mult = mult + 0.2
-	end
+
+	local mult = getPotionMultipler(caster)
 
 	action(ability.property1name, ability.property1 * mult, caster)
 	if ability.property2name then
@@ -19,6 +17,15 @@ function usePotion(event)
 	if ability.property5name then
 		action(ability.property5name, ability.property5 * mult, caster)
 	end
+end
+
+function getPotionMultipler(caster)
+	local mult = 1
+	if caster:HasModifier("modifier_neutral_glyph_4_3") then
+		mult = mult + 0.2
+	end
+	-- print("getPotionMultipler "..mult)
+	return mult
 end
 
 function action(propertyName, propertyValue, caster)
