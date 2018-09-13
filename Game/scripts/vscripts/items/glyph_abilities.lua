@@ -1,5 +1,29 @@
 require('/items/potion')
 
+function modifier_neutral_glyph_7_3_think(event)
+	local target = event.target
+	local ability = event.ability
+	if not target:IsHero() then return end
+	local attr = math.max(target:GetBaseIntellect()*ability:GetSpecialValueFor("property_two")/100, ability:GetSpecialValueFor("property_one"))
+	target:FindModifierByName("modifier_neutral_glyph_7_3"):SetStackCount(attr)
+end
+
+function modifier_neutral_glyph_7_2_think(event)
+	local target = event.target
+	local ability = event.ability
+	if not target:IsHero() then return end
+	local attr = math.max(target:GetBaseAgility()*ability:GetSpecialValueFor("property_two")/100, ability:GetSpecialValueFor("property_one"))
+	target:FindModifierByName("modifier_neutral_glyph_7_2"):SetStackCount(attr)
+end
+
+function modifier_neutral_glyph_7_1_think(event)
+	local target = event.target
+	local ability = event.ability
+	if not target:IsHero() then return end
+	local attr = math.max(target:GetBaseStrength()*ability:GetSpecialValueFor("property_two")/100, ability:GetSpecialValueFor("property_one"))
+	target:FindModifierByName("modifier_neutral_glyph_7_1"):SetStackCount(attr)
+end
+
 function neutral_glyph_4_3_think(event)	
 	for k,item in pairs(GLOBAL_ITEM_TABLE) do        
 		if item

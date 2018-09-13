@@ -1199,7 +1199,10 @@ function RPCItems:AcceptNewItem(keys)
 	local playerID = keys.PlayerID
 	local oldItem = EntIndexToHScript(keys.oldItem)
 	local newItem = EntIndexToHScript(keys.newItem)
-	print("item accepted")
+	hero.cant_use_items = true
+	Timers:CreateTimer(0.75, function()
+		hero.cant_use_items = false
+	end)
 	DeepPrintTable(keys)
 	local slot = RPCItems:getGearSlot(newItem.slot)
 	CustomNetTables:SetTableValue("equipment", tostring(playerID).."-"..tostring(slot), {itemIndex = newItem:GetEntityIndex()} )

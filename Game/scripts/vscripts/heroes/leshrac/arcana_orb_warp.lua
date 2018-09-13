@@ -1,11 +1,15 @@
 require('heroes/leshrac/bahamut_arcana_ult')
+require("heroes/leshrac/bahamut_constants")
 
 function begin_lightning_dash(event)
 	local caster = event.caster
 	local ability = event.ability
 	caster:AddNoDraw()
 
-	ability.point = event.target_points[1]
+	if ability.lockPoint then
+	else
+		ability.point = event.target_points[1]
+	end
 	ability.moveDirection = (ability.point-caster:GetAbsOrigin()):Normalized()
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_sphere_of_divinity", {duration = 7})
 	StartSoundEvent("Bahamut.ArcanaOrb.LP", caster)
@@ -44,6 +48,8 @@ end
 function dash_think(event)
 	local caster = event.caster
 	local ability = event.ability
+	local w_4_level = 0
+	if caster:IsHero() then w_4_level = caster:GetRuneValue("w",4) end
 	
 	ability.moveDirection = (ability.point-caster:GetAbsOrigin()):Normalized()
 
@@ -51,13 +57,29 @@ function dash_think(event)
     local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
     local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch+ability.moveDirection*35), caster)
     local distance_for_slowing = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), ability.point)
-    local forwardSpeed = 36
-    if distance_for_slowing < 200 then
-    	forwardSpeed = 24
-    elseif distance_for_slowing < 400 then
-    	forwardSpeed = 28
-    elseif distance_for_slowing < 600 then
-    	forwardSpeed = 32
+    local forwardSpeed = ability:GetSpecialValueFor("speed")/33
+    if caster:HasModifier("modifier_channel_start") then
+    	forwardSpeed = 0
+    else
+	    if caster:HasModifier("modifier_light_charging") then
+	    	forwardSpeed = forwardSpeed*BAHAMUT_ARCANA_W4_R_SPEED_MULT
+	    else
+		    if distance_for_slowing < 200 then
+		    	forwardSpeed = 24
+		    elseif distance_for_slowing < 400 then
+		    	forwardSpeed = 28
+		    elseif distance_for_slowing < 600 then
+		    	forwardSpeed = 32
+		    end
+		end
+	end
+    if w_4_level > 0 then
+    	local stacks = forwardSpeed*33*BAHAMUT_ARCANA_W4_AMP_BASE_PCT*w_4_level*ability:GetLevel()
+    	ability:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_arcana_w4_amp", {})
+    	caster:FindModifierByName("modifier_bahamut_arcana_w4_amp"):SetStackCount(stacks)
+    else
+    	caster:RemoveModifierByName("modifier_bahamut_arcana_w4_amp")
+    	caster:RemoveModifierByName("modifier_bahamut_arcana_w4_amp_linger")
     end
 	if blockUnit then
 		forwardSpeed = 0
@@ -128,6 +150,12 @@ end
 function dash_end(event)
 	local caster = event.caster
 	local ability = event.ability
+	if caster:HasModifier("modifier_bahamut_arcana_w4_amp") and caster:HasModifier("modifier_light_charging") then
+		local stacks = caster:GetModifierStackCount("modifier_bahamut_arcana_w4_amp", caster)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_arcana_w4_amp_linger", {duration = BAHAMUT_ARCANA_W4_AMP_LINGER_DURATION})
+		caster:SetModifierStackCount("modifier_bahamut_arcana_w4_amp_linger", ability, stacks)
+	end
+	caster:RemoveModifierByName("modifier_bahamut_arcana_w4_amp")
 	Timers:CreateTimer(0.03, function()
 		StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_CAST_ABILITY_4, rate=2.4}) 
 		WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())

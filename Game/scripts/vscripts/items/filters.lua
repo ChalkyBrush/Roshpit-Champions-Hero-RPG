@@ -1274,7 +1274,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         -- end
     end
 
-    damage, element1, element2 = Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, element1, element2, true)
+    damage, element1, element2 = Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, element1, element2, not ignore_effects)
     attacker.element1 = element1
     attacker.element2 = element2
     local damageMult = 0
@@ -1573,14 +1573,15 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_wind_deity_crown") then
             if not ignore_effects then
                 if attacker:IsAlive() then
-                    if attacker.headItem.targetsHit < 7 then
+                    local ability = attacker.headItem
+                    if ability.targetsHit < ability:GetSpecialValueFor("property_two") then
+                        ability.targetsHit = ability.targetsHit + 1
                         CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_ogre_magi/windstrike_weapon_buff_circle_flash.vpcf", victim, 1)
                         Filters:PerformAttackSpecial(attacker, victim, true, true, true, false, true, false, false)
                     end
-                    attacker.headItem:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_wind_deity_damage_buff", {duration = 30})
+                    ability:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_wind_deity_damage_buff", {duration = 30})
                     local currentStacks = attacker:GetModifierStackCount("modifier_wind_deity_damage_buff", attacker.InventoryUnit)
                     attacker:SetModifierStackCount("modifier_wind_deity_damage_buff", attacker.InventoryUnit, currentStacks + 1)
-                    attacker.headItem.targetsHit = attacker.headItem.targetsHit + 1
                 end
             end
         end

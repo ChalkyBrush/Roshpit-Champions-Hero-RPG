@@ -178,13 +178,17 @@ function initializeTooltip(func){
 	$('#resist_value_pure').text = pure_resist+"%"
 
 	if (Entities.IsHero(queryUnit)){
-		var parent = $('#element_row1')
-		for ( var i = 1; i <= 18; ++i ){
-			var board = $('#element'+i)
-			board.FindChildTraverse('element_title'+i).SetImage("file://{images}/custom_game/ui/elements/element"+i+".png")
-			board.FindChildTraverse('element_value'+i).text = GameUI.StatQueryData.elements[i]+"%"
-		}
+		$("#elements_main_title").text = $.Localize("#ui_elements_damage")
+	}else{
+		$("#elements_main_title").text = $.Localize("#ui_elements_resist")
 	}
+	var parent = $('#element_row1')
+	for ( var i = 1; i <= 18; ++i ){
+		var board = $('#element'+i)
+		board.FindChildTraverse('element_title'+i).SetImage("file://{images}/custom_game/ui/elements/element"+i+".png")
+		board.FindChildTraverse('element_value'+i).text = GameUI.StatQueryData.elements[i]+"%"
+	}
+	
 	// HANDLE NON HERO
 	if (Entities.IsHero( queryUnit )){
 		$('#attributes_main_container').RemoveClass('invisible')
@@ -195,7 +199,7 @@ function initializeTooltip(func){
 		$('#attributes_main_container').AddClass('invisible')
 		$('#base_ability_container').AddClass('invisible')
 		$('#attack_defense_subtitle_base_ability').AddClass('invisible')
-		$('#elements_container').AddClass('invisible')
+		// $('#elements_container').AddClass('invisible')
 	}
 }
 

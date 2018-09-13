@@ -40,6 +40,11 @@
 				"var_type"				"FIELD_FLOAT"
 				"mana_drain_per_second"	"75.0 60.0 50.0 40.0 25.0 15.0 5.0"
 			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"1188"
+			}
 
 		}
 
@@ -145,6 +150,14 @@
 					}
 				}
 			}
+			"modifier_bahamut_arcana_w4_amp"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_bahamut_arcana_w4_amp_linger"
+			{
+				"IsHidden"	"1"
+			}
 		}
 
 	}
@@ -234,7 +247,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"500"
+				"property_one"			"0.21"
 			}
 		}
 	}

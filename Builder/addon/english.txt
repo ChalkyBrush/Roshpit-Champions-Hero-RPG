@@ -2293,7 +2293,8 @@
     	"DOTA_Tooltip_modifier_leshrac_nuke_judged_Description"			"Facing the Judgement of Bahamut"
 
       	"DOTA_Tooltip_ability_bahamut_rune_e_2"							"[E2] Purity"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"At the beginning of an Ascension - create a swarm of Avian Aspects that strike enemies in an area in front of you. Enemies who are hit are paralyzed for short a duration."
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"At the beginning of an Ascension - create a swarm of Avian Aspects that strike enemies in an area in front of you. Enemies who are hit are paralyzed for short a duration. Also increase damage of [E3], this bonus is multiplied by your lowest attribute and divided by greatest attribute."
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_one"			"Max Damage Increase"
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_one"			"Damage"
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix"					""	
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_two"			"Paralyze Duration"
@@ -2323,7 +2324,7 @@
     	"DOTA_Tooltip_ability_bahamut_rune_w_3_suffix"					""
 
       	"DOTA_Tooltip_ability_bahamut_rune_e_3"							"[E3] Bahamut Pulse"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_3_Description"				"While Ascension is on cooldown it is replaced with Bahamut Pulse. Pulse deals damage to all nearby enemies at the cost of temporary movespeed."
+    	"DOTA_Tooltip_ability_bahamut_rune_e_3_Description"				"While Ascension is on cooldown it is replaced with Bahamut Pulse. Pulse deals damage to all nearby enemies at the cost of temporary movespeed. The stated damage is multiplied by total level of equipped glyphs(1, if no glyphs equipped)."
     	"DOTA_Tooltip_ability_bahamut_rune_e_3_property_one"			"Damage"
     	"DOTA_Tooltip_ability_bahamut_rune_e_3_suffix"					""		
 
@@ -2442,7 +2443,7 @@
     	"DOTA_Tooltip_modifier_arcana2_purity_freeze_Description"			"Frozen"
 
   		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2"						"[W4] Potency Inverse"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"All Base Ability and Item damage is enhanced by Bahamut's missing mana."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"Deal increased damage while in sphere based on its speed. Casting @Ability4 while in sphere multiplies speed of @Ability2 by 2 and allows damage increase from this rune to linger for 5 seconds once. The stated bonus is multiplied by @Ability2's level."
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"			"Extra Base Ability Damage"
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"					"% of missing mana"			
     	//--------------------
@@ -7387,7 +7388,7 @@
 		 "property_malachite_shade_description"					"Mana and Health Regen is increased by 15% of your Agility. Base attack damage is increased by 100% of your health regen and mana regen."
 
 		 "item_property_wind_deity"							"Wrath of Wind"
-		 "property_wind_deity_description"						"Immediately perform an attack with all of its procs on enemies hit by @Ability3. Max 10 attacks per second. Each enemy hit increases attack damage by 2% for 30 seconds, but resets on cast of @Ability3."
+		 "property_wind_deity_description"						"Immediately perform an attack with all of its procs on enemies hit by @Ability3. Max @special_property2 attacks per @special_property1s. Each enemy hit increases attack damage by 2% for 30 seconds, but resets on cast of @Ability3."
 
 		 "DOTA_Tooltip_modifier_wind_deity_damage_buff"					"Wind Deity"
 		 "DOTA_Tooltip_modifier_wind_deity_damage_buff_Description"		"Increased attack damage"
@@ -8375,7 +8376,7 @@
 		"item_rpc_neutral_glyph_6_1_description" 			"Increase attack damage by @glyph_property1%"
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_1"	"Glyph of Grand Strength"
-		"item_rpc_neutral_glyph_7_1_description" 			"Increases Strength by @glyph_property1"
+		"item_rpc_neutral_glyph_7_1_description" 			"Increases Strength by either @glyph_property2% or @glyph_property1, the greatest amount of Strength is granted."
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_2"	"Glyph of Lesser Agility"
 		"item_rpc_neutral_glyph_1_2_description" 			"Increases Agility by @glyph_property1"
@@ -8397,7 +8398,7 @@
 		"item_rpc_neutral_glyph_6_2_description" 			"Increase Normal damage by @glyph_property1%"
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_2"	"Glyph of Grand Agility"
-		"item_rpc_neutral_glyph_7_2_description" 			"Increases Agility by @glyph_property1"
+		"item_rpc_neutral_glyph_7_2_description" 			"Increases Agility by either @glyph_property2% or @glyph_property1, the greatest amount of Agility is granted."
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_3"	"Glyph of Lesser Intelligence"
 		"item_rpc_neutral_glyph_1_3_description" 			"Increases Intelligence by @glyph_property1"
@@ -8418,7 +8419,7 @@
 		"item_rpc_neutral_glyph_6_3_description" 			"Increase ALL magic damage output by @glyph_property1%"
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_3"	"Glyph of Grand Intelligence"
-		"item_rpc_neutral_glyph_7_3_description" 			"Increases Intelligence by @glyph_property1"
+		"item_rpc_neutral_glyph_7_3_description" 			"Increases Intelligence by either @glyph_property2% or @glyph_property1, the greatest amount of Intelligence is granted."
 
 		//FLAMEWAKER
 

@@ -1,3 +1,4 @@
+require("heroes/leshrac/bahamut_constants")
 
 function HideCaster( event )
     event.caster:AddNoDraw()
@@ -65,7 +66,6 @@ function HideCaster( event )
 	-- StartAnimation(caster, {duration=2, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.9})
 	ability.e_2_level = Runes:GetTotalRuneLevel(caster, 2, "e_2", "bahamut")
 	if ability.e_2_level > 0 then
-		ability.e_2_damage = ability.e_2_level*4200 + 6000
 		ability.e_2_duration = ability.e_2_level*0.05
 		b_c_sequence(caster, position, fv, ability)
 	end
@@ -109,9 +109,7 @@ function b_c_strike(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local damage = ability.e_2_damage
 	EmitSoundOn("Bahamut.Purity.Hit", target)
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 	if not target:HasModifier("modifier_purity_freeze") then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_purity_freeze", {duration = ability.e_2_duration})
 	end
@@ -163,22 +161,30 @@ function leshrac_take_damage(event)
 end
 
 function rune_e_3(caster, ability)
-  local runeUnit = caster.runeUnit3
-  local runeAbility = runeUnit:FindAbilityByName("bahamut_rune_e_3")
-  local abilityLevel = runeAbility:GetLevel()
-  local bonusLevel = Runes:GetTotalBonus(runeUnit, "e_3")
-  local totalLevel = abilityLevel + bonusLevel
-  if totalLevel > 0 then
+  local e_3_level = caster:GetRuneValue("e",3)
+  if e_3_level > 0 then
+  	local e_2_level = caster:GetRuneValue("e",2)
   	local bahamut_pulse = caster:FindAbilityByName("bahamut_pulse")
   	if not bahamut_pulse then
   		bahamut_pulse = caster:AddAbility("bahamut_pulse")
   	end
+  	local modifiers = caster:FindAllModifiers()
+  	local glyphs_level = 0
+  	for _,modifier in pairs(modifiers) do
+  		local name = modifier:GetName()
+  		if name:find("glyph") then
+  			local tier, row = name:match("(%d)_(.)")
+  			glyphs_level = glyphs_level + 15*tier
+  		end
+  	end
+  	local e_2_mult = 1 + (e_2_level*BAHAMUT_E2_MAX_DAMAGE_INCREASE_PCT/100*(math.min(caster:GetStrength(), caster:GetAgility(), caster:GetIntellect())/math.max(caster:GetStrength(), caster:GetAgility(), caster:GetIntellect())))
+  	print("e2", e_2_mult)
   	bahamut_pulse.active = true
   	ability:ApplyDataDrivenModifier(caster, caster, "modifier_ascencion_cooldown", {duration = ability:GetCooldownTimeRemaining()})
   	bahamut_pulse:SetLevel(ability:GetLevel())
   	bahamut_pulse:SetAbilityIndex(2)
   	bahamut_pulse.strikes = 0
-  	bahamut_pulse.e_3_damage = totalLevel*2440 + 3000
+  	bahamut_pulse.e_3_damage = (e_3_level*BAHAMUT_E3_DAMAGE + BAHAMUT_E3_BASE_DAMAGE)*math.max(1,glyphs_level)*e_2_mult
   	caster:SwapAbilities("leshrac_blink", "bahamut_pulse", false, true)
   	caster.pulse = true
   end

@@ -26219,7 +26219,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "1.2"
+				"ThinkInterval"  "%property_one"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -26249,6 +26249,19 @@
 				{
 					"MODIFIER_STATE_CANNOT_MISS"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"property_one"		"1.0"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_two"		"10"
 			}
 		}
 	}
@@ -40399,6 +40412,16 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/glyph_abilities.lua"
+						"Function"		"modifier_neutral_glyph_7_1_think"
+						"target"		"TARGET"
+					}
+				}
 			}
 		}
 		"AbilitySpecial"
@@ -40407,6 +40430,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"3500"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"30"
 			}
 		}
 	}
@@ -40703,6 +40731,16 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/glyph_abilities.lua"
+						"Function"		"modifier_neutral_glyph_7_2_think"
+						"target"		"TARGET"
+					}
+				}
 			}
 		}
 		"AbilitySpecial"
@@ -40711,6 +40749,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"3500"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"30"
 			}
 		}
 	}
@@ -40991,6 +41034,16 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/glyph_abilities.lua"
+						"Function"		"modifier_neutral_glyph_7_3_think"
+						"target"		"TARGET"
+					}
+				}
 			}
 		}
 		"AbilitySpecial"
@@ -40999,6 +41052,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"3500"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"30"
 			}
 		}
 	}

@@ -1,4 +1,5 @@
 require('heroes/leshrac/leshrac_runes')
+require("heroes/leshrac/bahamut_constants")
 
 function startChannel(event)
 	local caster = event.caster
@@ -28,6 +29,7 @@ function beginCharge(event)
 	ability.fv = caster:GetForwardVector()
 	ability.slideSpeed = 25
 	ability.interval = 0
+	ability.point = caster:GetAbsOrigin()+caster:GetForwardVector()*900
 	Timers:CreateTimer(0.05, function()
 		StartAnimation(caster, {duration=0.9, activity=ACT_DOTA_RUN, rate=1.5})
 	end)
@@ -47,11 +49,19 @@ function charge_think(event)
   local caster = event.caster
   local ability = event.ability
   local position = caster:GetAbsOrigin()
+  local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), ability.point)
+  local orb = caster:FindAbilityByName("bahamut_arcana_orb")
   
   ability.interval = ability.interval+1
   position = GetGroundPosition( position, caster )
 
-  local newPosition = position+ability.fv*30
+  local speed = 30
+  if caster:HasModifier("modifier_bahamut_sphere_of_divinity") then 
+  	speed = 0 
+  	orb.lockPoint = true
+  	ability.point = orb.point
+  end
+  local newPosition = caster:GetAbsOrigin()+(ability.point-caster:GetAbsOrigin()):Normalized()*speed
 
   local obstruction = WallPhysics:FindNearestObstruction(newPosition)
   local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPosition, caster)
@@ -61,6 +71,7 @@ function charge_think(event)
   if not blockUnit then
     caster:SetOrigin(newPosition)
   end
+  if distance < 50 then caster:RemoveModifierByName("modifier_light_charging") end
   if caster:HasModifier("modifier_bahamut_glyph_2_1") then
   	ability.wallPoint = caster:GetAbsOrigin()+ability.fv*40
   	createWallParticle(caster, 500, false, ability)
@@ -98,9 +109,18 @@ function charge_end(event)
 	local caster = event.caster
 	local ability = event.ability
 	local position = caster:GetAbsOrigin()
+	local orb = caster:FindAbilityByName("bahamut_arcana_orb")
+	orb.lockPoint = false
 	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "bahamut")
 	local fv = caster:GetForwardVector()
-	--
+	
+	if caster:HasModifier("modifier_bahamut_arcana_w4_amp") and caster:HasModifier("modifier_bahamut_sphere_of_divinity") then
+		local orb = caster:FindAbilityByName("bahamut_arcana_orb")
+		local stacks = caster:GetModifierStackCount("modifier_bahamut_arcana_w4_amp", caster)
+		orb:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_arcana_w4_amp_linger", {duration = BAHAMUT_ARCANA_W4_AMP_LINGER_DURATION})
+		caster:SetModifierStackCount("modifier_bahamut_arcana_w4_amp_linger", orb, stacks)
+	end
+	caster:RemoveModifierByName("modifier_bahamut_arcana_w4_amp")
 	local particle = "particles/units/heroes/hero_warlock/charge_of_light.vpcf"
 	local pfx = ParticleManager:CreateParticle( particle, PATTACH_CUSTOMORIGIN, caster )
 	WallPhysics:ClearSpaceForUnit(caster, position)
