@@ -3255,9 +3255,9 @@
     	"DOTA_Tooltip_modifier_arcana2_purity_freeze_Description"			"Frozen"
 
   		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2"						"[W4] Potency Inverse"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"Deal increased damage while in sphere based on its speed. Casting @Ability4 while in sphere multiplies speed of @Ability2 by 2 and allows damage increase from this rune to linger for 5 seconds once. The stated bonus is multiplied by @Ability2's level."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"Deal increased damage while in sphere based on its speed. Casting Megaflare while in sphere multiplies speed of @Ability2 by 2 and allows damage increase from this rune to linger for 5 seconds once. The stated bonus is multiplied by @Ability2's level."
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"			"Damage Increase"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"					"%			
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"					"%"			
     	//--------------------
 
 		"tooltip_duskbringer_Q"											"Whirling Flail and Duskfire"
