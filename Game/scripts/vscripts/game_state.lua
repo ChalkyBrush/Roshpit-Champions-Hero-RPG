@@ -4,7 +4,7 @@ end
 
 require('/heroes/dark_seer/zhonik_constants')
 require('/heroes/huskar/constants_SPIRIT_WARRIOR')
-require('/heroes/obsidian_destroyer/constants_epoch')
+require('/heroes/obsidian_destroyer/epoch_constants')
 require('/heroes/juggernaut/seinaru_constants')
 require('/heroes/nightstalker/chernobog_constants')
 require('/heroes/antimage/arkimus_constants')
@@ -1903,7 +1903,7 @@ function GameState:FilterDamage(filterTable)
 			if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 				modifier = victim:FindModifierByName("modifier_epoch_rune_w_2_visible")
 				if Runes:GetTotalRuneLevelGeneric(attacker, 2, 1) > 0 then
-					local multIncrease = Runes:GetTotalRuneLevelGeneric(attacker, 2, 1)*epoch_w2_post_miti_pct*math.abs(victim:GetPhysicalArmorValue())/10
+					local multIncrease = Runes:GetTotalRuneLevelGeneric(attacker, 2, 1)*EPOCH_W2_POST_MITI_PCT*math.abs(victim:GetPhysicalArmorValue())/10
 					-- print("test runes b_b: "..Runes:GetTotalRuneLevelGeneric(attacker, 2, 1))
 					-- print("test multIncrease: "..multIncrease)
 					mult = mult + multIncrease/100
@@ -2208,7 +2208,7 @@ function GameState:FilterDamage(filterTable)
 		-- if victim:HasModifier("modifier_epoch_arcana_root") then
 			local b_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 0)
 			if b_a_level > 0 then
-				local multIncrease = victim:GetPhysicalArmorBaseValue()*b_a_level*epoch_arcana_q2_post_miti_pct
+				local multIncrease = victim:GetPhysicalArmorBaseValue()*b_a_level*EPOCH_ARCANA_Q2_POST_MITI_PCT
 				-- print("od b_a arcana "..mult)
 				mult = mult + multIncrease/100000--per 1000 armor, %
 				-- print("od b_a arcana "..mult)

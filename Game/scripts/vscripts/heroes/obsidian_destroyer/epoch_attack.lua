@@ -1,13 +1,14 @@
 require('heroes/obsidian_destroyer/epoch_1_q')
 require('heroes/obsidian_destroyer/epoch_1_q_arcana')
 require('heroes/obsidian_destroyer/epoch_glyphs')
+require('heroes/obsidian_destroyer/epoch_constants')
 
 function epoch_attack_start(event)
 	local ability = event.ability
 	local caster = event.attacker
 	local q_3_level = caster:GetRuneValue("q", 3)
 	local projectileEffect = "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_base_attack.vpcf"
-	if caster:HasAbility("time_binder") then
+	if caster:HasAbility("epoch_time_binder") then
 		ability.q_3_damage = epoch_q_3_get_damage(caster, caster.runeUnit3, false)
 	elseif caster:HasAbility("epoch_arcana_ability") then
 		ability.q_3_damage = epoch_arcana_q_3_get_damage(caster, caster.runeUnit3, false)
@@ -25,7 +26,7 @@ function epoch_attack(event)
 	local target = event.target
 	ability.attacker = caster
 	local projectileEffect = "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_base_attack.vpcf"
-	if caster:HasAbility("time_binder") then
+	if caster:HasAbility("epoch_time_binder") then
 		ability.q_3_damage = epoch_q_3_get_damage(caster, caster.runeUnit3, true)
 	elseif caster:HasAbility("epoch_arcana_ability") then
 		ability.q_3_damage = epoch_arcana_q_3_get_damage(caster, caster.runeUnit3, true)
@@ -63,7 +64,7 @@ function epoch_attack(event)
 					}
 					projectile = ProjectileManager:CreateTrackingProjectile(info)
 					projectileCount = projectileCount + 1
-					if projectileCount == e_3_level + 2 then
+					if projectileCount == e_3_level * EPOCH_E3_TARGETS + EPOCH_E3_TARGETS_BASE then
 						break
 					end
 				end
@@ -73,7 +74,6 @@ function epoch_attack(event)
 end
 
 function epoch_attack_land(event)
-	print("epoch_attack_land!!!!!!!!!!!!!!!!")
 	local target = event.target
 	local ability = event.ability
 	local caster = ability.attacker
@@ -86,7 +86,7 @@ function epoch_attack_land(event)
 		eventTable.caster = caster
 		epoch_glyph_5_1_attack_land(eventTable)
 	end
-	if caster:HasAbility("time_binder") and ability.q_3_damage then
+	if caster:HasAbility("epoch_time_binder") and ability.q_3_damage then
 		local eventTable = {}
 		eventTable.ability = ability
 		eventTable.attacker = caster

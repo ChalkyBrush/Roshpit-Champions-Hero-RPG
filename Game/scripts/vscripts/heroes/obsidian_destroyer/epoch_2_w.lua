@@ -68,7 +68,7 @@ function genesis_orb_impact(event)
 	local ability = event.ability
 	print("GENESIS IMPACT??")
 	local damage = event.damage
-	if caster:HasModifier("modifier_time_blast_buff") then
+	if caster:HasModifier("modifier_time_warp_buff") then
 		damage = damage * 2
 	end
 	damage = damage*ability.damageAmp

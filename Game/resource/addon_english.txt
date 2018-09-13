@@ -1411,68 +1411,51 @@
 
     	//--------------------
 
-		"DOTA_Tooltip_ability_time_binder"								"Time Binder"
-		"DOTA_Tooltip_ability_time_binder_Description"					"Element: <font color=\"#B5FFB7\">Temporal</font><br>Fires a Time Binder in the target direction. Upon contact with an enemy, it links all nearby enemies, slowing their movement speed and dealing damage per second. The initial impact deals AOE damage in a small radius."
-		"DOTA_Tooltip_ability_time_binder_Lore"							""
-		"DOTA_Tooltip_ability_time_binder_damage_per_tick"				"DAMAGE/SEC:"
-		"DOTA_Tooltip_ability_time_binder_impact_damage"				"IMPACT DAMAGE"
-		"DOTA_Tooltip_ability_time_binder_movespeed_reduction"			"MOVESPEED REDUCTION:"
+		"DOTA_Tooltip_ability_epoch_time_binder"								"Time Binder"
+		"DOTA_Tooltip_ability_epoch_time_binder_Description"					"Element: <font color=\"#B5FFB7\">Temporal</font><br>Fires a Time Binder in the target direction. Upon contact with an enemy, it links all nearby enemies, slowing their movement speed and dealing damage per second. The initial impact deals AOE damage in a small radius."
+		"DOTA_Tooltip_ability_epoch_time_binder_Lore"							""
+		"DOTA_Tooltip_ability_epoch_time_binder_damage_per_tick"				"DAMAGE/SEC:"
+		"DOTA_Tooltip_ability_epoch_time_binder_impact_damage"					"IMPACT DAMAGE"
+		"DOTA_Tooltip_ability_epoch_time_binder_movespeed_reduction"			"MOVESPEED REDUCTION:"
 
-		"DOTA_Tooltip_modifier_time_bind" 						"Time Bind"
-		"DOTA_Tooltip_modifier_time_bind_description" 			"Decreased movement speed and taking double damage from Distortion Orb."
+		"DOTA_Tooltip_modifier_time_bind" 										"Time Bind"
+		"DOTA_Tooltip_modifier_time_bind_description" 							"Decreased movement speed and taking double damage from Distortion Orb and [E2] Distortion Rift."
 
-		"DOTA_Tooltip_modifier_time_bound" 						"Time Bind"
-		"DOTA_Tooltip_modifier_time_bound_description" 			"Decreased movement speed and taking double damage from Distortion Orb."
+		"DOTA_Tooltip_modifier_time_bound" 										"Time Bind"
+		"DOTA_Tooltip_modifier_time_bound_description" 							"Decreased movement speed and taking double damage from Distortion Orb and [E2] Distortion Rift."
+		
+    	"DOTA_Tooltip_ability_epoch_rune_q_1"									"[Q1] Space Link"
+    	"DOTA_Tooltip_ability_epoch_rune_q_1_Description"						"@Ability1 also entangles up to 15 nearby enemy units in a [Q1], which functions as a duplicate of @Ability1 itself. @Ability3 and [E2] deal double damage to enemies affected by [Q1]."
+    	"DOTA_Tooltip_ability_epoch_rune_q_1_property_one"						"Base Damage"
+    	"DOTA_Tooltip_ability_epoch_rune_q_1_suffix"							"% of Time Binder"
 
+    	"DOTA_Tooltip_modifier_space_link"										"Time Bind"
+    	"DOTA_Tooltip_modifier_space_link_description"							"Time Binder damage over time effect."
 
-		"DOTA_Tooltip_ability_time_warp"								"Distortion Orb"
-		"DOTA_Tooltip_ability_time_warp_Description"					"Element: <font color=\"#B5FFB7\">Temporal</font><br>Creates a distortion of space that travels directly in front of the Epoch Guardian. Activating the ability again before the orb expires moves the Guardian to the Orb's location. Distortion orb deals double damage to Time Bound targets. Your first Genesis Orb after jaunting deals double damage."
-		"DOTA_Tooltip_ability_time_warp_Lore"							""
-    	"DOTA_Tooltip_ability_time_warp_range"							"RANGE:"
-    	"DOTA_Tooltip_ability_time_warp_damage"							"DAMAGE:"
-    	"DOTA_Tooltip_ability_time_warp_duration"						"DURATION:"
+    	"DOTA_Tooltip_ability_epoch_rune_q_2"									"[Q2] Eon Channel"
+    	"DOTA_Tooltip_ability_epoch_rune_q_2_Description"						"The initial target struck by @Ability1 has their attack damage stolen and added to Epoch Guardian for 7 seconds."
+    	"DOTA_Tooltip_ability_epoch_rune_q_2_property_one"						"Damage Stolen"
+    	"DOTA_Tooltip_ability_epoch_rune_q_2_suffix"							""
 
-		"DOTA_Tooltip_modifier_time_blast_buff" 				"Unstable Distortion"
-		"DOTA_Tooltip_modifier_time_blast_buff_description" 	"Your next Generation Crack deals double damage."
+    	"DOTA_Tooltip_modifier_eon_channel_friendly"							"Eon Channel"
+    	"DOTA_Tooltip_modifier_eon_channel_friendly_Description"				"Stealing attack damage"
+    	"DOTA_Tooltip_modifier_eon_channel_enemy"								"Eon Channel"
+    	"DOTA_Tooltip_modifier_eon_channel_enemy_Description"					"Attack damage stolen"
+		
+    	"DOTA_Tooltip_ability_epoch_rune_q_3"									"[Q3] Aeon Strike"
+    	"DOTA_Tooltip_ability_epoch_rune_q_3_Description"						"Attacking drains 1% of Epoch Guardian's maximum mana to deal an additional instance of damage on impact based on the amount of mana drained."
+    	"DOTA_Tooltip_ability_epoch_rune_q_3_property_one"						"Damage"
+    	"DOTA_Tooltip_ability_epoch_rune_q_3_suffix"							"x Mana Drained"
 
-		"DOTA_Tooltip_modifier_time_warp" 						"Active Distortion"
-		"DOTA_Tooltip_modifier_time_warp_description" 			"Activating your distortion orb ability will teleport you to your current orb."
-
-		"DOTA_Tooltip_ability_time_blast"								"Generation Crack"
-		"DOTA_Tooltip_ability_time_blast_Description"					"Element: <font color=\"#B5FFB7\">Temporal</font><br>Creates a sequence of time bursts in front of the caster that deal AOE damage. Deals double damage after jaunting with Distortion Orb."
-		"DOTA_Tooltip_ability_time_blast_Lore"							""
-		"DOTA_Tooltip_ability_time_blast_radius"						"RADIUS:"
-		"DOTA_Tooltip_ability_time_blast_damage"						"DAMAGE:"
-
-
-		"DOTA_Tooltip_ability_eternity_flood"								"Eternity Flood"
-		"DOTA_Tooltip_ability_eternity_flood_Description"					"Element: <font color=\"#B5FFB7\">Temporal</font><br>Creates a Universe at the target location, vacuuming nearby matter and freezing it in time. Upon collapse, it explodes dealing damage and launching all matter backwards and freezing them in time."
-		"DOTA_Tooltip_ability_eternity_flood_Lore"							""
-		"DOTA_Tooltip_ability_eternity_flood_damage"							"DAMAGE:"
-    	"DOTA_Tooltip_ability_eternity_flood_duration"						"LOCK DURATION:"
-    	"DOTA_Tooltip_ability_eternity_flood_stun_duration"					"STUN DURATION:"
-    	"DOTA_Tooltip_ability_eternity_flood_radius"							"RADIUS:"
-
-		"DOTA_Tooltip_modifier_eternity_flood_locked"						"Time Lock"
-		"DOTA_Tooltip_modifier_eternity_flood_locked_description" 			"Frozen in time."
-
-    	"DOTA_Tooltip_ability_epoch_rune_q_1"							"[Q1] Space Link"
-    	"DOTA_Tooltip_ability_epoch_rune_q_1_Description"				"Time Binder also entangles up to 15 nearby enemy units in a Space Link, which functions as a duplicate of Time Binder itself. Distortion Orbs and Time Orbs deal double damage to enemies affected by Space Link."
-    	"DOTA_Tooltip_ability_epoch_rune_q_1_property_one"				"Base Damage"
-    	"DOTA_Tooltip_ability_epoch_rune_q_1_suffix"					"% of Time Binder"
-
-    	"DOTA_Tooltip_modifier_space_link"								"Time Bind"
-    	"DOTA_Tooltip_modifier_space_link_description"					"Time Binder damage over time effect."
-
-    	"DOTA_Tooltip_ability_epoch_rune_q_2"							"[Q2] Eon Channel"
-    	"DOTA_Tooltip_ability_epoch_rune_q_2_Description"				"The initial target struck by Time Binder has their attack damage stolen and added to Epoch Guardian for 7 seconds."
-    	"DOTA_Tooltip_ability_epoch_rune_q_2_property_one"				"Damage Stolen"
-    	"DOTA_Tooltip_ability_epoch_rune_q_2_suffix"					""
-
-    	"DOTA_Tooltip_modifier_eon_channel_friendly"					"Eon Channel"
-    	"DOTA_Tooltip_modifier_eon_channel_friendly_Description"		"Stealing attack damage"
-    	"DOTA_Tooltip_modifier_eon_channel_enemy"						"Eon Channel"
-    	"DOTA_Tooltip_modifier_eon_channel_enemy_Description"			"Attack damage stolen"
+    	"DOTA_Tooltip_modifier_epoch_q_3"										"Aeon Strike"
+    	"DOTA_Tooltip_modifier_epoch_q_3_Description"							"Attacks drain mana and deal extra damage"
+		
+    	"DOTA_Tooltip_ability_epoch_rune_q_4"									"[Q4] Overtime"
+    	"DOTA_Tooltip_ability_epoch_rune_q_4_Description"						"Casting @Ability1 drains 50% of Epoch Guardian's maximum mana to increase the spell's impact damage, and damage over time, based on the amount of mana drained. Additionally, increases the amount of mana [Q3] drains per attack."
+    	"DOTA_Tooltip_ability_epoch_rune_q_4_property_one"						"Damage Bonus"
+    	"DOTA_Tooltip_ability_epoch_rune_q_4_suffix"							"% for each 100 Mana Drained"
+    	"DOTA_Tooltip_ability_epoch_rune_q_4_property_two"						"Additional Aeon Strike mana drain"
+    	"DOTA_Tooltip_ability_epoch_rune_q_4_suffix_two"						"% of Max Mana"
 
     	"DOTA_Tooltip_ability_time_genesis_orb"							"Genesis Orb"
     	"DOTA_Tooltip_ability_time_genesis_orb_Description"				"Element: <font color=\"#B5FFB7\">Temporal</font><br>A sphere containing the inception of the Universe is tossed directly ahead of Epoch Guardian. The first Genesis Orb deals double damage after using Distortion Orb."
@@ -1480,22 +1463,47 @@
     	"DOTA_Tooltip_ability_time_genesis_orb_range"					"RANGE:"
 
     	"DOTA_Tooltip_ability_epoch_rune_w_1"							"[W1] Time Lapse"
-    	"DOTA_Tooltip_ability_epoch_rune_w_1_Description"				"Damaging an enemy unit with Genesis Orb restores mana."
+    	"DOTA_Tooltip_ability_epoch_rune_w_1_Description"				"Damaging an enemy unit with @Ability2 restores mana."
     	"DOTA_Tooltip_ability_epoch_rune_w_1_property_one"				"Mana restored"
     	"DOTA_Tooltip_ability_epoch_rune_w_1_suffix"					"% of maximum mana"
 
     	"DOTA_Tooltip_ability_epoch_rune_w_2"							"[W2] Origination"
-    	"DOTA_Tooltip_ability_epoch_rune_w_2_Description"				"Enemies hit by Genesis Orb have their Armor reduced for 6 seconds, to a minimum of -1000 Armor. For each point of Armor below 0, the target takes increased post-mitigation Magical and Pure damage from Epoch Guardian."
+    	"DOTA_Tooltip_ability_epoch_rune_w_2_Description"				"Enemies hit by @Ability2 have their Armor reduced for 6 seconds, to a minimum of -1000 Armor. For each point of Armor below 0, the target takes increased post-mitigation Magical and Pure damage from Epoch Guardian."
     	"DOTA_Tooltip_ability_epoch_rune_w_2_property_one"				"Armor Reduction"
     	"DOTA_Tooltip_ability_epoch_rune_w_2_suffix"					""
      	"DOTA_Tooltip_ability_epoch_rune_w_2_property_two"				"Additional Magic and Pure Damage"
     	"DOTA_Tooltip_ability_epoch_rune_w_2_suffix_two"				"% for every 10 armor below 0"
 
     	"DOTA_Tooltip_modifier_epoch_rune_w_2_visible"					"Origination"
-    	"DOTA_Tooltip_modifier_epoch_rune_w_2_visible_Description"		"Reduced Armor. For each point of armor below 0, take increased damage from Epoch Guardian."
+    	"DOTA_Tooltip_modifier_epoch_rune_w_2_visible_Description"		"Reduced Armor. For each point of armor below 0, take increased magic and pure damage from Epoch Guardian."
+		
+    	"DOTA_Tooltip_ability_epoch_rune_w_3"							"[W3] Ages of Wisdom"
+    	"DOTA_Tooltip_ability_epoch_rune_w_3_Description"				"Each cast of @Ability2 increases Intelligence, to a maximum of 10 stacks. Attacking consumes a stack and restores health."
+    	"DOTA_Tooltip_ability_epoch_rune_w_3_property_one"				"Intelligence per stack"
+    	"DOTA_Tooltip_ability_epoch_rune_w_3_suffix"					""
+    	"DOTA_Tooltip_ability_epoch_rune_w_3_property_two"				"Health Restore on Attack"
+    	"DOTA_Tooltip_ability_epoch_rune_w_3_suffix_two"				""
+
+    	"DOTA_Tooltip_modifier_epoch_rune_w_3_visible"					"Ages of Wisdom"
+    	"DOTA_Tooltip_modifier_epoch_rune_w_3_visible_Description"		"Increased Intelligence. Attacking consumes a stack and heals Epoch Guardian."	
+		
+    	"DOTA_Tooltip_ability_epoch_rune_w_4"							"[W4] Genesis"
+    	"DOTA_Tooltip_ability_epoch_rune_w_4_Description"				"@Ability2 drains an additional 5% maximum mana on cast, increasing its damage based on mana drained."
+    	"DOTA_Tooltip_ability_epoch_rune_w_4_property_one"				"Damage Bonus"
+    	"DOTA_Tooltip_ability_epoch_rune_w_4_suffix"					"% for each 100 Mana Drained"
+		
+		"DOTA_Tooltip_ability_time_warp"										"Distortion Orb"
+		"DOTA_Tooltip_ability_time_warp_Description"							"Element: <font color=\"#B5FFB7\">Temporal</font><br>Creates a distortion of space that travels directly in front of the Epoch Guardian. Activating the ability again before the orb expires moves the Guardian to the Orb's location. Distortion orb deals double damage to Time Bound targets. Your first Genesis Orb after jaunting deals double damage."
+		"DOTA_Tooltip_ability_time_warp_Lore"									""
+    	"DOTA_Tooltip_ability_time_warp_range"									"RANGE:"
+    	"DOTA_Tooltip_ability_time_warp_damage"									"DAMAGE:"
+    	"DOTA_Tooltip_ability_time_warp_duration"								"DURATION:"
+
+		"DOTA_Tooltip_modifier_time_warp" 										"Active Distortion"
+		"DOTA_Tooltip_modifier_time_warp_description" 							"Activating your distortion orb ability will teleport you to your current orb."
 
     	"DOTA_Tooltip_ability_epoch_rune_e_1"							"[E1] Time Bend"
-    	"DOTA_Tooltip_ability_epoch_rune_e_1_Description"				"After teleporting to a Distortion Orb, enter a phased state with removed unit collision, maximum movement speed, and 100% Evasion."
+    	"DOTA_Tooltip_ability_epoch_rune_e_1_Description"				"After teleporting to @Ability3, enter a phased state with removed unit collision, maximum movement speed, and 100% Evasion."
     	"DOTA_Tooltip_ability_epoch_rune_e_1_property_one"				"Duration"
     	"DOTA_Tooltip_ability_epoch_rune_e_1_suffix"					""
 
@@ -1503,21 +1511,45 @@
 		"DOTA_Tooltip_modifier_epoch_rune_e_1_description" 				"Unit walking - max movement speed - 100% physical evasion."
 
     	"DOTA_Tooltip_ability_epoch_rune_e_2"							"[E2] Distortion Rift"
-    	"DOTA_Tooltip_ability_epoch_rune_e_2_Description"				"Casting Distortion Orb also fires damaging Time Orbs in a cone in front of Epoch Guardian. Time Orbs deal double damage to units affected by Time Bound."
+    	"DOTA_Tooltip_ability_epoch_rune_e_2_Description"				"Casting @Ability3 also fires damaging Time Orbs in a cone in front of Epoch Guardian. Time Orbs deal double damage to units affected by @Ability1 or [Q1]."
     	"DOTA_Tooltip_ability_epoch_rune_e_2_property_one"				"Orbs Fired"
     	"DOTA_Tooltip_ability_epoch_rune_e_2_suffix"					""
     	"DOTA_Tooltip_ability_epoch_rune_e_2_property_two"				"Damage per Orb"
     	"DOTA_Tooltip_ability_epoch_rune_e_2_suffix_two"				""
+		
+    	"DOTA_Tooltip_ability_epoch_rune_e_3"							"[E3] Time's Eye"
+    	"DOTA_Tooltip_ability_epoch_rune_e_3_Description"				"After teleporting to @Ability3, gain multiple attack projectiles and 100% bonus attack damage for 6 seconds."
+    	"DOTA_Tooltip_ability_epoch_rune_e_3_property_one"				"Max Targets"
+    	"DOTA_Tooltip_ability_epoch_rune_e_3_suffix"					""
+
+		"DOTA_Tooltip_modifier_epoch_rune_e_3"							"Time's Eye"
+		"DOTA_Tooltip_modifier_epoch_rune_e_3_description" 				"Multiple attack projectiles and double damage."
+		
+    	"DOTA_Tooltip_ability_epoch_rune_e_4"							"[E4] Divergence"
+    	"DOTA_Tooltip_ability_epoch_rune_e_4_Description"				"Epoch Guardian's attack damage gets added to @Ability3 and [E2]."
+    	"DOTA_Tooltip_ability_epoch_rune_e_4_property_one"				"Damage Bonus"
+    	"DOTA_Tooltip_ability_epoch_rune_e_4_suffix"					"% of attack damage"
+		
+		"DOTA_Tooltip_ability_eternity_flood"									"Eternity Flood"
+		"DOTA_Tooltip_ability_eternity_flood_Description"						"Element: <font color=\"#B5FFB7\">Temporal</font><br>Creates a Universe at the target location, vacuuming nearby matter and freezing it in time. Upon collapse, it explodes dealing damage and launching all matter backwards and freezing them in time."
+		"DOTA_Tooltip_ability_eternity_flood_Lore"								""
+		"DOTA_Tooltip_ability_eternity_flood_damage"							"DAMAGE:"
+    	"DOTA_Tooltip_ability_eternity_flood_duration"							"LOCK DURATION:"
+    	"DOTA_Tooltip_ability_eternity_flood_stun_duration"						"STUN DURATION:"
+    	"DOTA_Tooltip_ability_eternity_flood_radius"							"RADIUS:"
+
+		"DOTA_Tooltip_modifier_eternity_flood_locked"							"Time Lock"
+		"DOTA_Tooltip_modifier_eternity_flood_locked_description" 				"Frozen in time."
 
     	"DOTA_Tooltip_ability_epoch_rune_r_1"							"[R1] Tempo"
-    	"DOTA_Tooltip_ability_epoch_rune_r_1_Description"				"Casting Eternity Flood increases attack damage based on your current mana. This buff's base duration is 10 seconds."
+    	"DOTA_Tooltip_ability_epoch_rune_r_1_Description"				"Casting @Ability4 increases attack damage based on your current mana. This buff's base duration is 10 seconds."
     	"DOTA_Tooltip_ability_epoch_rune_r_1_property_one"				"Damage Increase %"
     	"DOTA_Tooltip_ability_epoch_rune_r_1_suffix"					" for every 1000 mana"
     	"DOTA_Tooltip_ability_epoch_rune_r_1_property_two"				"Additional buff duration"
     	"DOTA_Tooltip_ability_epoch_rune_r_1_suffix_two"				" seconds"
 
-    	"DOTA_Tooltip_modifier_eternity_flood_a_d_visible"					"Eternal Rise"
-    	"DOTA_Tooltip_modifier_eternity_flood_a_d_visible_Description"		"Increased attack power based on Mana."
+    	"DOTA_Tooltip_modifier_eternity_flood_r_1_visible"					"Eternal Rise"
+    	"DOTA_Tooltip_modifier_eternity_flood_r_1_visible_Description"		"Increased attack power based on Mana."
 
     	"DOTA_Tooltip_ability_epoch_rune_r_2"							"[R2] Guardian of Ages"
     	"DOTA_Tooltip_ability_epoch_rune_r_2_Description"				"Passively increases Epoch Guardian's attack speed and attack range."
@@ -1530,56 +1562,13 @@
     	"DOTA_Tooltip_modifier_epoch_r_2_buff_Description"			"Increased attack range and speed."
 
 
-    	"DOTA_Tooltip_ability_epoch_rune_q_3"							"[Q3] Aeon Strike"
-    	"DOTA_Tooltip_ability_epoch_rune_q_3_Description"				"Attacking drains 1% of Epoch Guardian's maximum mana to deal an additional instance of damage on impact based on the amount of mana drained."
-    	"DOTA_Tooltip_ability_epoch_rune_q_3_property_one"				"Damage"
-    	"DOTA_Tooltip_ability_epoch_rune_q_3_suffix"					"x Mana Drained"
-
-    	"DOTA_Tooltip_modifier_epoch_c_a"								"Aeon Strike"
-    	"DOTA_Tooltip_modifier_epoch_c_a_Description"					"Attacks drain mana and deal extra damage"
-
-    	"DOTA_Tooltip_ability_epoch_rune_w_3"							"[W3] Ages of Wisdom"
-    	"DOTA_Tooltip_ability_epoch_rune_w_3_Description"				"Each cast of Genesis Orb increases Intelligence, to a maximum of 10 stacks. Attacking consumes a stack and restores health."
-    	"DOTA_Tooltip_ability_epoch_rune_w_3_property_one"				"Intelligence per stack"
-    	"DOTA_Tooltip_ability_epoch_rune_w_3_suffix"					""
-    	"DOTA_Tooltip_ability_epoch_rune_w_3_property_two"				"Health Restore on Attack"
-    	"DOTA_Tooltip_ability_epoch_rune_w_3_suffix_two"				""
-
-    	"DOTA_Tooltip_modifier_epoch_rune_w_3_visible"					"Ages of Wisdom"
-    	"DOTA_Tooltip_modifier_epoch_rune_w_3_visible_Description"		"Increased Intelligence. Attacking consumes a stack and heals Epoch Guardian."	
-
-    	"DOTA_Tooltip_ability_epoch_rune_e_3"							"[E3] Time’s Eye"
-    	"DOTA_Tooltip_ability_epoch_rune_e_3_Description"				"After teleporting to a Distortion Orb, gain multiple attack projectiles and 100% bonus attack damage for 6 seconds."
-    	"DOTA_Tooltip_ability_epoch_rune_e_3_property_one"				"Max Targets"
-    	"DOTA_Tooltip_ability_epoch_rune_e_3_suffix"					""
-
-		"DOTA_Tooltip_modifier_epoch_rune_e_3"							"Time's Eye"
-		"DOTA_Tooltip_modifier_epoch_rune_e_3_description" 				"Multiple attack projectiles and double damage."
-
     	"DOTA_Tooltip_ability_epoch_rune_r_3"							"[R3] Time Crackle"
-    	"DOTA_Tooltip_ability_epoch_rune_r_3_Description"				"Enemies frozen in time by Eternity Flood are eroded away every 0.32 seconds."
+    	"DOTA_Tooltip_ability_epoch_rune_r_3_Description"				"Enemies frozen in time by @Ability4 are eroded away every 0.32 seconds."
     	"DOTA_Tooltip_ability_epoch_rune_r_3_property_one"				"Damage Per Tick"
     	"DOTA_Tooltip_ability_epoch_rune_r_3_suffix"					"% of attack damage"
 
     	"DOTA_Tooltip_modifier_eternity_flood_locked_rune_r_3_exploding"		"Time Crackle"
     	"DOTA_Tooltip_modifier_eternity_flood_locked_rune_r_3_exploding_Description" "Exploding for a percentage of Epoch Guardian's attack damage"	
-
-    	"DOTA_Tooltip_ability_epoch_rune_q_4"							"[Q4] Overtime"
-    	"DOTA_Tooltip_ability_epoch_rune_q_4_Description"				"Casting Time Binder drains 50% of Epoch Guardian's maximum mana to increase the spell's impact damage, and damage over time, based on the amount of mana drained. Additionally, increases the amount of mana Aeon Strike drains per attack."
-    	"DOTA_Tooltip_ability_epoch_rune_q_4_property_one"				"Damage Bonus"
-    	"DOTA_Tooltip_ability_epoch_rune_q_4_suffix"					"% for each 100 Mana Drained"
-    	"DOTA_Tooltip_ability_epoch_rune_q_4_property_two"				"Additional Aeon Strike mana drain"
-    	"DOTA_Tooltip_ability_epoch_rune_q_4_suffix_two"				"% of Max Mana"
-
-    	"DOTA_Tooltip_ability_epoch_rune_w_4"							"[W4] Genesis"
-    	"DOTA_Tooltip_ability_epoch_rune_w_4_Description"				"Genesis Orb drains an additional 5% maximum mana on cast, increasing its damage based on mana drained."
-    	"DOTA_Tooltip_ability_epoch_rune_w_4_property_one"				"Damage Bonus"
-    	"DOTA_Tooltip_ability_epoch_rune_w_4_suffix"					"% for each 100 Mana Drained"
-
-    	"DOTA_Tooltip_ability_epoch_rune_e_4"							"[E4] Divergence"
-    	"DOTA_Tooltip_ability_epoch_rune_e_4_Description"				"Epoch Guardian's attack damage gets added to Distortion Orb and Distortion Rift."
-    	"DOTA_Tooltip_ability_epoch_rune_e_4_property_one"				"Damage Bonus"
-    	"DOTA_Tooltip_ability_epoch_rune_e_4_suffix"					"% of attack damage"
 
     	"DOTA_Tooltip_ability_epoch_rune_r_4"							"[R4] Tides of Time"
     	"DOTA_Tooltip_ability_epoch_rune_r_4_Description"				"Epoch Guardian's current mana regen stat increases all <font color=\"#B5FFB7\">Temporal</font> damage dealt."
@@ -1600,7 +1589,7 @@
     	"DOTA_Tooltip_modifier_epoch_arcana_root_Description"				"Rooted"	
 
     	"DOTA_Tooltip_ability_epoch_rune_q_1_arcana1"						"[Q1] Eternal Void"
-    	"DOTA_Tooltip_ability_epoch_rune_q_1_arcana1_Description"			"Enemies damaged by Epoch Guardian while affected by Temporal Grip will experience part of the damage again when the effect ends. This instance of damage ignores Steadfast, and is based on the total pre-mitigation damage Epoch Guardian dealt to the target while the debuff was active. Subsequent casts of Temporal Grip will not refresh Eternal Void's duration."
+    	"DOTA_Tooltip_ability_epoch_rune_q_1_arcana1_Description"			"Enemies damaged by Epoch Guardian while affected by @Ability1 will experience part of the damage again when the effect ends. This instance of damage ignores Steadfast, and is based on the total pre-mitigation damage Epoch Guardian dealt to the target while the debuff was active. Subsequent casts of @Ability1 will not refresh Eternal Void's duration."
     	"DOTA_Tooltip_ability_epoch_rune_q_1_arcana1_property_one"			"Damage Multiplier"
     	"DOTA_Tooltip_ability_epoch_rune_q_1_arcana1_suffix"				"%"  	
 
@@ -1620,11 +1609,47 @@
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_suffix_two"				"% of Max Mana"
 
     	"DOTA_Tooltip_ability_epoch_rune_q_4_arcana1"							"[Q4] Dimensional Replication"
-    	"DOTA_Tooltip_ability_epoch_rune_q_4_arcana1_Description"				"Adds a chance for an additional Temporal Grip to be cast at the original location after a 1 second delay. Greater than 100% chance means it can proc multiple times. Also increases the radius."
+    	"DOTA_Tooltip_ability_epoch_rune_q_4_arcana1_Description"				"Adds a chance for an additional @Ability1 to be cast at the original location after a 1 second delay. Greater than 100% chance means it can proc multiple times. Also increases the radius."
     	"DOTA_Tooltip_ability_epoch_rune_q_4_arcana1_property_one"				"Multi-Cast Chance"
     	"DOTA_Tooltip_ability_epoch_rune_q_4_arcana1_suffix"					"%"
     	"DOTA_Tooltip_ability_epoch_rune_q_4_arcana1_property_two"				"Radius Increase"
     	"DOTA_Tooltip_ability_epoch_rune_q_4_arcana1_suffix_two"				""
+
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_1_1"		"Glyph of Crumbling Bonds"
+		"item_rpc_epoch_glyph_1_1_description" 				"Enemies affected by @Ability1 and [Q1] take @glyph_property1% increased damage from all sources."
+
+		"DOTA_Tooltip_modifier_epoch_glyph_1_1_effect"		"Crumbling Bonds"
+		"DOTA_Tooltip_modifier_epoch_glyph_1_1_effect_Description"	"Taking Additional Damage from All Sources"
+
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_2_1"		"Glyph of Distorted Time"
+		"item_rpc_epoch_glyph_2_1_description" 				"@Ability3 travels @glyph_property1% farther and @glyph_property2% faster. Additionally, the duration of @Ability1 is doubled."
+
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_3_1"		"Glyph of Cracking"
+		"item_rpc_epoch_glyph_3_1_description" 				"@Ability2 deals additional damage based on @glyph_property1% of current mana times the ability's level."
+
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_4_1"		"Glyph of Ages"
+		"item_rpc_epoch_glyph_4_1_description" 				"Attacking no longer consumes stacks of the [W3] buff (the Intelligence bonus is mantained while restoring health on every attack)."
+
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_1"		"Glyph of Substituted Time"
+		"item_rpc_epoch_glyph_5_1_description" 				"Attacking an enemy unit applies the [W2] debuff to it."
+
+		//"DOTA_Tooltip_modifier_epoch_glyph_5_1_effect"		"Substituted Time"
+		//"DOTA_Tooltip_modifier_epoch_glyph_5_1_effect_Description"	"Increasing attack damage while focusing the same target."
+
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_6_1"		"Glyph of Tangled Flow"
+		"item_rpc_epoch_glyph_6_1_description" 				"Enemies effected by @Ability1 and [Q1] have @glyph_property1% reduced attack damage. Additionally, the effects of [Q2] are multiplied by 10."
+
+		"DOTA_Tooltip_modifier_epoch_glyph_6_1_effect"		"Tangled Flow"
+		"DOTA_Tooltip_modifier_epoch_glyph_6_1_effect_Description"	"Reduced Attack Damage"
+
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_7_1"		"Glyph of Shifting Dimensions"
+		"item_rpc_epoch_glyph_7_1_description" 				"While @Ability3 is travelling Epoch Guardian is phased out of this dimension, disabling him and disjointing all oncoming projectiles."
+
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_a"		"Glyph of Time Travel"
+		"item_rpc_epoch_glyph_5_a_description" 				"Allow you to survive on lethal damage, refreshes health, mana, abilities. @glyph_property1 second cooldown."
+
+		"DOTA_Tooltip_modifier_epoch_glyph_5_a_cooldown"	"Time Travel Cooldown"
+		"DOTA_Tooltip_modifier_epoch_glyph_5_a_little_shield"	"Time Travel Damage immune"
 
     	//--------------------
 
@@ -9387,10 +9412,10 @@
         "item_rpc_axe_glyph_5_2_description"                "For @glyph_property1 seconds after successfully casting @Ability4, the damage of @Ability2 is increased by @glyph_property2%"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_2"       "Glyph of Reduction"
-        "item_rpc_axe_glyph_6_2_description"                "Increases the damage reduction from stacks of Cyclone Shield to @glyph_property1%, but decreases the chance of generating a stack to just @glyph_property2% per rune level instead of 150%."
+        "item_rpc_axe_glyph_6_2_description"                "Increases the damage reduction from stacks of [E3] to @glyph_property1%, but decreases the chance of generating a stack to just @glyph_property2% per rune level instead of 150%."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_2"       "Glyph of Rage"
-        "item_rpc_axe_glyph_7_2_description"                "Maximum stack count of Berserker Rage is increased to @glyph_property1, you always have half stacks. While @Ability1 is active, number of stacks gained per attack is multiplied by @glyph_property2."
+        "item_rpc_axe_glyph_7_2_description"                "Maximum stack count of [Q2] is increased to @glyph_property1, you always have half stacks. While @Ability1 is active, number of stacks gained per attack is multiplied by @glyph_property2."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_a"       "Glyph of the Marshall"
         "item_rpc_axe_glyph_5_a_description"                "Increases all damage dealt by @Ability4, and all of its runes, by @glyph_property1%."
@@ -9428,44 +9453,6 @@
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_a"		"Glyph of Parallax Arrows"
 		"item_rpc_astral_glyph_5_a_description" 				"Increases Base Attack Damage by @glyph_property1."
-
-		//Epoch Guardian
-
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_1_1"		"Glyph of Crumbling Bonds"
-		"item_rpc_epoch_glyph_1_1_description" 				"Enemies affected by Time Binds and Space Links take @glyph_property1% increased damage from all sources."
-
-		"DOTA_Tooltip_modifier_epoch_glyph_1_1_effect"		"Crumbling Bonds"
-		"DOTA_Tooltip_modifier_epoch_glyph_1_1_effect_Description"	"Taking Additional Damage from All Sources"
-
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_2_1"		"Glyph of Distorted Time"
-		"item_rpc_epoch_glyph_2_1_description" 				"Distortion Orb travels @glyph_property1% farther and @glyph_property2% faster. Additionally, the duration of Time Bend is doubled."
-
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_3_1"		"Glyph of Cracking"
-		"item_rpc_epoch_glyph_3_1_description" 				"Genesis Orb deals additional damage based on @glyph_property1% of current mana times the ability's level."
-
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_4_1"		"Glyph of Ages"
-		"item_rpc_epoch_glyph_4_1_description" 				"Attacking no longer consumes stacks of the Ages of Wisdom buff (the Intelligence bonus is mantained while restoring health on every attack)."
-
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_1"		"Glyph of Substituted Time"
-		"item_rpc_epoch_glyph_5_1_description" 				"Attacking an enemy unit applies the Origination debuff to it."
-
-		//"DOTA_Tooltip_modifier_epoch_glyph_5_1_effect"		"Substituted Time"
-		//"DOTA_Tooltip_modifier_epoch_glyph_5_1_effect_Description"	"Increasing attack damage while focusing the same target."
-
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_6_1"		"Glyph of Tangled Flow"
-		"item_rpc_epoch_glyph_6_1_description" 				"Enemies effected by Time Binds and Space Links have @glyph_property1% reduced attack damage. Additionally, the effects of Eon Channel are multiplied by 10."
-
-		"DOTA_Tooltip_modifier_epoch_glyph_6_1_effect"		"Tangled Flow"
-		"DOTA_Tooltip_modifier_epoch_glyph_6_1_effect_Description"	"Reduced Attack Damage"
-
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_7_1"		"Glyph of Shifting Dimensions"
-		"item_rpc_epoch_glyph_7_1_description" 				"While Distortion Orb is travelling Epoch Guardian is phased out of this dimension, disabling him and disjointing all oncoming projectiles."
-
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_a"		"Glyph of Time Travel"
-		"item_rpc_epoch_glyph_5_a_description" 				"Allow you to survive on lethal damage, refreshes health, mana, abilities. @glyph_property1 second cooldown."
-
-		"DOTA_Tooltip_modifier_epoch_glyph_5_a_cooldown"	"Time Travel Cooldown"
-		"DOTA_Tooltip_modifier_epoch_glyph_5_a_little_shield"	"Time Travel Damage immune"
 
 		//Sorceress
 
@@ -12003,9 +11990,6 @@
 		"DOTA_Tooltip_ability_ancient_water_god_passive"						"Waveburst"
 		"DOTA_Tooltip_ability_ancient_water_god_passive_Description"			"Streams of water spray from the Ancient God."
 
-
-		
-
 		//ARENA
 
 		"roshpit_arena"												"Roshpit Arena"
@@ -12058,6 +12042,12 @@
 		"challenger_league_attendant_greeting"						"Welcome to the Challenger's League."
 
 		"challenger_attendant"										"Challenger's League Attendant"
+		
+		"arena_crowd_fan"											"Fan"
+		
+		"arena_guard"												"Guard of Arena"
+		"DOTA_Tooltip_ability_arena_guard_ability"					"Guard of Arena"
+		"DOTA_Tooltip_ability_arena_guard_ability"					"No trespassing!"
 
 		"arena_league_attendant_player_restriction"					"You may only participate in the Champion's League as an individual. Come back when you're alone if you want to join."
 		"arena_league_attendant_player_state_0"						"Welcome to the Champion's League! This is a global tournament that tests the individual battle proficiency of its participants."
@@ -12232,7 +12222,18 @@
 		"champion_league_challenger_17"								"Ru Elderheart"
 		"arena_champions_17_1"										"To master the arena..."
 		"arena_champions_17_2"										"You must master the elements"
-
+		"DOTA_Tooltip_ability_arena_challenger_17_immolation"							"Immolation"
+		"DOTA_Tooltip_ability_arena_challenger_17_immolation"							"Deals periodical magic damage in AOE"
+		"DOTA_Tooltip_ability_arena_challenger_17_ability"								"Master of Elements"
+		"DOTA_Tooltip_ability_arena_challenger_17_summon_ability"						"Summoned Unit"
+		"DOTA_Tooltip_ability_arena_thunder_clap"										"Thunder Clap"
+		"DOTA_Tooltip_ability_arena_thunder_clap_Description"							"Elderheart slams the ground, dealing damage and slowing the movement speed and attack rate of nearby enemy land units."
+		"DOTA_Tooltip_ability_arena_thunder_clap_radius"								"RADIUS:"
+		"DOTA_Tooltip_ability_arena_thunder_clap_damage"								"DAMAGE:"
+		"DOTA_Tooltip_ability_arena_thunder_clap_movement_slow"							"MOVEMENT SLOW:"
+		"DOTA_Tooltip_ability_arena_thunder_clap_attack_speed_slow"						"ATTACK SPEED SLOW:"
+		
+		
 		"champion_league_challenger_16"								"Bryvarus Plainsrunner"
 		"champion_league_challenger_16_dialogue"					"Speed and Endurance are the primary traits of a successful Champion"	
 
@@ -12254,8 +12255,18 @@
 		"DOTA_Tooltip_modifier_drill_spike_self_Description"			"Taking 100%% increased damage per stack."
 
 		"champion_league_challenger_13"								"Ursa Major"
+		"DOTA_Tooltip_ability_arena_ursa_thunder_clap"					"Thunder Clap"
+		"DOTA_Tooltip_ability_arena_ursa_thunder_clap_Description"		"Ursa Major claps the ground, dealing damage and slows nearby enemies."
+		"DOTA_Tooltip_ability_arena_ursa_thunder_clap_shock_radius"		"RADIUS:"
+		"DOTA_Tooltip_ability_arena_ursa_thunder_clap_movement_slow"	"MOVEMENT SLOW:"
 
 		"champion_league_challenger_12"								"Rakash Axemelter"
+		"DOTA_Tooltip_ability_arena_challenger_12_axe_throw"					"Axe Throw"
+		"DOTA_Tooltip_ability_arena_challenger_12_axe_throw_Description"		"Rakash throws an axe at the target location, which deals damage and shortly stuns a target on hit."
+		"DOTA_Tooltip_ability_arena_challenger_12_axe_throw_damage"				"DAMAGE:"
+		"DOTA_Tooltip_ability_arena_challenger_12_axe_throw_stun_duration"		"STUN DURATION:"
+		"DOTA_Tooltip_ability_arena_challenger_12_passive"						"Burning blood"
+		"DOTA_Tooltip_ability_arena_challenger_12_passive_Description"			"Magic immunity for 8 seconds."
 
 		"champion_league_challenger_11"								"Red Mist Captain"
 
@@ -12271,15 +12282,32 @@
 
 		"DOTA_Tooltip_ability_arena_challenger_10_wraithfire"		"Wraithfire Missile"
 		"DOTA_Tooltip_ability_arena_challenger_10_wraithfire_Description"	"Launches a flaming skull that stuns and damages impacted targets."
+		"DOTA_Tooltip_ability_arena_challenger_10_passive"					"Gravelord"
+		"DOTA_Tooltip_ability_arena_challenger_10_passive_Description"		"Summons the undead army to the realm"
 
 		"champion_league_challenger_9"								"Arcanys Mindflay"
 		"champion_league_challenger_9_dialogue_lower"				"Inferior minds tremble beneath my glaives."	
 		"champion_league_challenger_9_dialogue_higher"				"Your intellect exceeds expectations."
+		"DOTA_Tooltip_ability_arena_challenger_9_mana_drain"				"Aura of Mana Drain"
+		"DOTA_Tooltip_ability_arena_challenger_9_mana_drain_Description"	"Arcanys Mindflay slows enemies in wide range and drains their mana."
+		"DOTA_Tooltip_modifier_arena_mana_drain_aura_effect"				"Aura of Mana Drain"
+		"DOTA_Tooltip_modifier_arena_mana_drain_aura_effect_Description"	"Movement speed reduced. 2 percent of mana drained each tick."
 
 		"champion_league_challenger_8"								"Grand Warlord"	
+		"DOTA_Tooltip_ability_arena_wild_axes"						"Wild Axes"
+		"DOTA_Tooltip_ability_arena_wild_axes_Description"			"Warlord throws axes at the enemy"
+		"DOTA_Tooltip_ability_arena_war_rally"						"Wild Rally"
+		"DOTA_Tooltip_ability_arena_war_rally_Description"			"Warlord gets 1 percent of magical resistance for each percent of lost HP."
+		"DOTA_Tooltip_modifier_war_rally_effect"					"War Rally"
+		"DOTA_Tooltip_modifier_war_rally_effect_Description"		"Magic Resist increased."
+		"DOTA_Tooltip_ability_arena_god_of_war"						"God of War"
+		"DOTA_Tooltip_ability_arena_god_of_war_Description"			"Warlord powers himself up, increasing movement and attack speed."
+		"DOTA_Tooltip_ability_arena_god_of_war_movespeed"			"BONUS ATTACK SPEED:"
+		"DOTA_Tooltip_ability_arena_god_of_war_attackspeed"			"BONUS MOVESPEED:"
 
 		"champion_league_challenger_7"								"Condorpaw Sunfreeze"
 		"champion_league_challenger_7_dialogue"						"The Sun and Stars dictate the outcomes of battle. I am the thread between them."
+		"DOTA_Tooltip_ability_arena_freezing_field"					"Freezing Field"
 
 		"champion_league_challenger_6"								"Atropos"			
 
@@ -12315,6 +12343,8 @@
 		"DOTA_Tooltip_ability_arena_challenger_3_a_passive_Description"	"Magic Damage Immunity"
 
 		"champion_league_challenger_2"								"Nemesis"
+		"DOTA_Tooltip_ability_arena_challenger_2_sword_dash"	"Savage Sprint"
+		"DOTA_Tooltip_ability_arena_challenger_2_sword_dash_Description"	"Warrior dashes forward, slaying enemies on his path."
 
 		"champion_league_challenger_1"								"King Jette"
 		"champion_league_challenger_1_dialogue"						"None can match my experience. My position goes unchallenged."
@@ -12329,6 +12359,40 @@
 		"DOTA_Tooltip_ability_item_rpc_boots_of_champions"			"Boots of Champions"
 
 		"arena_prizebox_champions"									"Champion's Gear"
+		
+		"arena_show_fighter_one"		"Ol'Brok the Fireproof"
+		"arena_show_fighter_two"		"Arena Kitchener"
+	
+		"pvp_attendant"					"Pvp League Attendant"
+	
+		"DOTA_Tooltip_ability_challenger_5_chaos_meteor"				"Chaos Meteor"
+		"DOTA_Tooltip_ability_challenger_5_chaos_meteor_Description"	"Flaming boulder falls from the sky, dealing damage on its path. Burn damage ticks every 0.5 seconds, damage burn from multiple meteors stacks."
+		"DOTA_Tooltip_ability_challenger_5_chaos_meteor_main_damage"	"DAMAGE ON IMPACT:"
+		"DOTA_Tooltip_ability_challenger_5_chaos_meteor_burn_dps"		"BURN DPS:"
+		"DOTA_Tooltip_ability_challenger_5_chaos_burn_duration"			"DURATION OF BURN:"
+	
+		"DOTA_Tooltip_ability_arena_challenger_5_passive"				"Dragon's Mind"
+		"DOTA_Tooltip_ability_arena_challenger_5_passive_Description"	"Champion Varaphlas controls all aspects of a fight by rain of meteors and crushing jumps."
+		"DOTA_Tooltip_modifier_arena_challenger_5_passive"				"Dragon's Mind"
+	
+		"DOTA_Tooltip_ability_arena_challenger_4_passive"				"Greatness of Oplexus"
+		"DOTA_Tooltip_ability_arena_challenger_4_passive"				"Oplexus pursues target with numerous jumps."
+		"DOTA_Tooltip_modifier_arena_challenger_4_passive"				"Greatness of Oplexus"
+		"DOTA_Tooltip_ability_arena_challenger_4_shield"				"Shine of Oplexus"
+		"DOTA_Tooltip_ability_arena_challenger_4_shield"				"Deals 5000 magical damage to nearby units per hit and bashes them."
+		"DOTA_Tooltip_modifier_challenger_4_shield_effect"				"Shine of Oplexus"
+	
+		"DOTA_Tooltip_ability_arena_challenger_1_illuminate"				"Holy Illumination"
+		"DOTA_Tooltip_ability_arena_challenger_1_illuminate_Description"	"Deals pure tamage to the enemies before King. Applies 30 movespeed slow on impact."
+	
+		"DOTA_Tooltip_modifier_challenger_1_slow"				"Slow"
+		"DOTA_Tooltip_modifier_challenger_1_slow_Description"	"Movespeed lowered by 30."
+	
+		"DOTA_Tooltip_ability_arena_challenger_1_passive"					"Eternal light"
+		"DOTA_Tooltip_ability_arena_challenger_1_passive_Description"		"Increases movement speed by 50% and attack speed by 110 for 5 seconds."
+		"DOTA_Tooltip_ability_arena_challenger_1_passive_2"					"Righteous Anger"				
+		"DOTA_Tooltip_ability_arena_challenger_1_passive_2_Description"		"Doubles damage and increases movement speed by 70."
+		"DOTA_Tooltip_modifier_arena_challenger_1_passive_2"				"Damage and movement speed increased."
 
 		//Pit of Trials
 
@@ -12485,6 +12549,7 @@
 		"DOTA_Tooltip_ability_item_rpc_truth_dust"					"Truth Dust"
 		"truth_dust_description"									"Reveals nearby hidden realities for 30 seconds in a 500 radius."
 
+		"arena_lies_spark_beetle"					"Spark Beetle"
 		"DOTA_Tooltip_ability_arena_lies_beetle_passive"				"Plasma Shell"
 		"DOTA_Tooltip_ability_arena_lies_beetle_passive_damage"			"DAMAGE"
 		"DOTA_Tooltip_ability_arena_lies_beetle_passive_Description"	"Zaps all nearby enemies and slows them temporarily."
@@ -12577,6 +12642,7 @@
 		"arena_descent_death_seeker"									"Death Seeker"
 
 		"DOTA_Tooltip_ability_arena_descent_grieving_widow_ability"		"Grave Siphon"		
+		"DOTA_Tooltip_ability_arena_descent_grieving_widow_ability"		"Widow drains life from her victims"
 		"DOTA_Tooltip_modifier_widow_soul_steal_effect"					"Grave Siphon"
 		"DOTA_Tooltip_modifier_widow_soul_steal_effect_Description"		"Taking damage and reduced movement speed."		
 
@@ -12592,6 +12658,194 @@
 
 		"DOTA_Tooltip_modifier_descent_beetle_effect"					"Slime"
 		"DOTA_Tooltip_modifier_descent_beetle_effect_Description"		"Attack and movespeed slowed."
+		
+		"pit_crawler"							"Pit Crawler"
+		"master_duelist"						"Master Duelist"
+		"arena_pit_soul_revenant"				"Soul Revenant"
+		"arena_descent_exiled_spirit"			"Exiled Spirit"
+		"arena_descent_passage_keeper"			"Keeper of Descent"
+		"arena_descent_boss_zombie"				"Zombie Warboss"
+		"arena_descent_terror_striker" 			"Terror Striker"
+		"arena_descent_gargoyle"				"Descent Gargoyle"
+		"arena_descent_goo_beetle"				"Goo Beetle"
+		"arena_descent_zombie_critter"			"Zombie Critter"
+		"arena_descent_razor_guard"				"Bonebreaker"
+		"arena_descent_doombringer"				"Depth Praetorian"
+		"arena_lies_lich"						"Imp of Lie"
+		"arena_lies_doombringer"				"Demon of Lie"
+		"arena_lies_true_ogre"					"True Ogre"
+		"arena_lies_arbiter_of_truth"			"Arbiter of Truth"
+		"arena_lies_samurai"					"Flaming Ronin"
+		"fire_temple_relic_seeker"				"Relic Seeker"
+		"arena_lies_castle_light_absorber"		"Light Absorber"
+		"arena_lies_razor_miniboss"				"Golden Current"
+		"arena_pit_conquest_mountain_behemoth"	"Mountain Behemoth"
+		"arena_pit_conquest_root_overgrowth"	"Root Overgrowth"
+		"arena_conquest_gift_of_kharzun"		 "Gift of Kar'zhun"
+		"arena_pit_conquest_temple_explorer"	"Temple Explorer"
+		"arena_pit_temple_guardian_snakes"		"Guardian's Snake"
+		"arena_conquest_temple_shifter"			"Temple Shifter"
+		"pit_conquest_woods_titan"				"Titan of Conquest"
+		"pit_conquest_forest_soldier"			"Conquest Ambusher"
+		"pit_conquest_forest_mage"				"Forest Mage"
+		"pit_conquest_lord_of_bovel"			"Lord of the Bowel"
+		"pit_conquest_dragon"					"Chrysolite Wyrm"
+		"DOTA_Tooltip_ability_pit_conquest_viper_strike" 				"Viper Strike"
+		"DOTA_Tooltip_ability_pit_conquest_viper_strike_Description" 	"Wyrm poisons the target, dealing damage and decreasing speed."
+		"DOTA_Tooltip_ability_pit_conquest_viper_strike_damage"			"DAMAGE:"
+		"DOTA_Tooltip_ability_pit_conquest_viper_strike_duration"		"DURATION:"
+		"DOTA_Tooltip_ability_pit_conquest_viper_strike_bonus_movement_speed"	"MOVEMENT SPEED LOSS:"
+		"DOTA_Tooltip_ability_pit_conquest_viper_strike_bonus_attack_speed"		"ATTACK SPEED LOSS:"
+		
+		//ARENA TOOLTIPS
+
+		"DOTA_Tooltip_ability_arena_descent_nemesis_passive"					"Great Cleave"
+		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_Description"				"Attacks damage all enemies in an area"
+		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_cleave_percent"				"CLEAVE DAMAGE %:"
+		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_cleave_radius"				"CLEAVE RADIUS:"
+
+		"arena_descent_nightmare"												"Descent Nightmare"
+
+		"DOTA_Tooltip_ability_arena_descent_guard_passive"						"Desolation"
+		"DOTA_Tooltip_ability_arena_descent_guard_passive_Description"			"Each attack landed increases attack damage."
+		"DOTA_Tooltip_ability_arena_descent_guard_passive_damage_per_instance"	"DAMAGE PER STACK %:"
+
+		"DOTA_Tooltip_modifier_descent_guard_passive_effect"					"Desolation"
+		"DOTA_Tooltip_modifier_descent_guard_passive_effect_Description"		"Increased attack damage"
+
+		"DOTA_Tooltip_ability_arena_descent_crippling"							"Crippling Aura"
+		"DOTA_Tooltip_ability_arena_descent_crippling_Description"				"Reduces the power of nearby enemies."
+		"DOTA_Tooltip_ability_arena_descent_crippling_health_regen_percent"		"HEALTH REGEN %:"
+		"DOTA_Tooltip_ability_arena_descent_crippling_attack_damage"			"ATTACK DAMAGE %:"
+		"DOTA_Tooltip_ability_arena_descent_crippling_attack_speed"				"ATTACK SPEED:"
+		"DOTA_Tooltip_ability_arena_descent_crippling_movespeed"				"MOVESPEED:"
+
+		"DOTA_Tooltip_modifier_advanced_creature_crippling_aura_debuff"			"Crippling Aura"
+		"DOTA_Tooltip_modifier_advanced_creature_crippling_aura_debuff_Description"	"Reduced health regen, attack damage, attack speed and movespeed."
+
+		"arena_descent_boss"													"Pit Abomination"
+
+		"DOTA_Tooltip_modifier_steadfast"													"Steadfast"
+		"DOTA_Tooltip_modifier_steadfast_Description"										"Incoming damage is capped at a %% of max health"
+
+		"DOTA_Tooltip_ability_descent_boss_ai"								"Abomination"
+		"DOTA_Tooltip_ability_descent_boss_ai_Description"					"Forsaken monster of the depths"
+
+
+		"DOTA_Tooltip_ability_creature_pure_strike_2"			"Pure Strike"
+		"DOTA_Tooltip_ability_creature_pure_strike_2_Description"	"Attacks cannot miss and deal an additional 25% pure damage."
+
+		"arena_pit_of_trials_final_boss"						"Pit Lord"
+
+		"DOTA_Tooltip_ability_arena_pit_boss_haste"					"Bloodlust"
+		"DOTA_Tooltip_ability_arena_pit_boss_haste_Description"		"Increases attack speed and movespeed, and refreshes Firestorm."
+
+		"DOTA_Tooltip_ability_arena_radiance"								"Shadow Radiance"
+		"DOTA_Tooltip_ability_arena_radiance_Description"					"Burns nearby enemies and gives them a chance to miss."
+		"DOTA_Tooltip_ability_arena_radiance_aura_damage"					"BURN DAMAGE:"
+		"DOTA_Tooltip_ability_arena_radiance_blind_pct"						"MISS CHANCE %:"
+
+		"DOTA_Tooltip_modifier_modifier_pit_boss_haste"					"Bloodlust"
+		"DOTA_Tooltip_modifier_modifier_pit_boss_haste_Description"		"Increased movespeed and attack speed."
+
+
+		"arena_pit_conquest_spirit_of_rakash"					"Rak'eth"
+
+		"DOTA_Tooltip_ability_arena_pit_rakash_ai"				"Spirit of Rak'eth"
+		"DOTA_Tooltip_ability_arena_pit_rakash_ai_Description"	"Increased magic resistance"	
+		"DOTA_Tooltip_ability_arena_pit_rakash_ai_magic_resist"	"MAGIC RESIST:"
+
+		"DOTA_Tooltip_ability_arena_descent_tombstone_ability"	"Tombstone"
+		"DOTA_Tooltip_ability_arena_descent_tombstone_ability_Description"	"Raising the Dead"
+
+		"arena_pit_shadow_sniper"								"Shadow Sniper"
+		"arena_pit_quizmaster"									"Quizmaster"
+
+		"DOTA_Tooltip_ability_arena_quizmaster_blast"				"Inquiry Burst"
+		"DOTA_Tooltip_ability_arena_quizmaster_blast_Description"	"Blast of sinister energy deals 450000 damage in 1300 radius around Quizmaster, stuns targets on hit."
+
+		"arena_descent_terror_striker_ultra"					"Gravestriker Ultra"
+
+		"DOTA_Tooltip_ability_arena_pit_grave_chill"			"Descent Grave Chill"
+		"DOTA_Tooltip_ability_arena_pit_grave_chill_Description"	"Steals movespeed, armor, and magic resist from the target."
+		"DOTA_Tooltip_ability_arena_pit_grave_chill_duration"	"DURATION:"
+		"DOTA_Tooltip_ability_arena_pit_grave_chill_movespeed_steal"	"MOVESPEED STEAL:"
+		"DOTA_Tooltip_ability_arena_pit_grave_chill_armor_steal"	"ARMOR STEAL:"
+		"DOTA_Tooltip_ability_arena_pit_grave_chill_magic_resist_steal"	"MAGIC RESIST STEAL:"
+
+		"DOTA_Tooltip_modifier_arena_grave_chill_target"		"Descent Grave Chill"
+		"DOTA_Tooltip_modifier_arena_grave_chill_target_Description"	"Reduced movespeed, armor, and magic resist."
+
+		"DOTA_Tooltip_ability_golden_skullbone_ai"				"Magic Immunity"
+
+		"lies_golden_skullbone"									"Golden Skullbone"
+		"DOTA_Tooltip_ability_golden_skullbone_ai"				"That unit has permanent immunity to magical damage."
+		
+		"arena_descent_tombstone"								"Tombstone"
+		
+		"arena_pit_conquest_mountain_spider"					"Mountain Spider"
+		"DOTA_Tooltip_ability_arena_pit_spider_gale"				"Spider Gale"
+		"DOTA_Tooltip_ability_arena_pit_spider_gale_Description" 	"Poisonous spittle released from spider's glands"
+		"DOTA_Tooltip_ability_arena_pit_spider_gale_duration"		"DURATION:"
+		"DOTA_Tooltip_ability_arena_pit_spider_gale_strike_damage"	"INITIAL DAMAGE:"
+		"DOTA_Tooltip_ability_arena_pit_spider_gale_tick_damage"	"DAMAGE PER TICK:"
+		"DOTA_Tooltip_ability_arena_pit_spider_gale_tick_interval"	"TICK INTERVAL:"
+		"DOTA_Tooltip_ability_arena_pit_spider_gale_movement_slow" "MOVEMENT SLOW:"
+		
+		"arena_pit_conquest_mire_boss"							"Mire Boss"
+		"DOTA_Tooltip_ability_arena_conquest_impale"				"Impale"
+		"DOTA_Tooltip_ability_arena_conquest_impale_Description" 	"Rock spikes burst from the earth along a straight path."
+		"DOTA_Tooltip_ability_arena_conquest_impale_duration"		"DURATION:"
+		
+		
+		"DOTA_Tooltip_ability_lies_smoke_cloud_ability"		"Smoke cloud"
+		"DOTA_Tooltip_ability_lies_smoke_cloud_ability_Description"		"Unit covered by smoke screen, protected from enemy spells."
+		
+		"DOTA_Tooltip_ability_arena_pit_temple_wave"					"Temple Wave"
+		"DOTA_Tooltip_ability_arena_pit_temple_wave_Description"		"Violent wave of dark power. Deals damage and stuns enemies."
+		"DOTA_Tooltip_ability_arena_pit_temple_wave_stun_duration"		"STUN DURATION:"
+		
+		"DOTA_Tooltip_ability_tomb_pudge"				"Slaughterous Temper"
+		"DOTA_Tooltip_ability_tomb_pudge_Description"	"Tracks down the victim"
+	
+		"DOTA_Tooltip_ability_creature_meat_hook"		"Meat Hook"
+		"DOTA_Tooltip_ability_creature_meat_hook_Description"		"Launches a bloody hook toward a unit or location. The hook will snag the first unit it encounters, dragging the unit back and dealing damage."
+		"DOTA_Tooltip_ability_creature_meat_hook_hook_distance"		"DISTANCE:"
+		
+		"arena_descent_exiled_spirit_big"							"Corrupted Commander"
+		"DOTA_Tooltip_ability_arena_descent_impervious"				"Impervious"
+		"DOTA_Tooltip_ability_arena_descent_impervious_Description"	"Exiled legion protects the Commander. Damage taken reduced by 98%."
+		
+		
+		"DOTA_Tooltip_ability_doom_custom"				"Doom"
+		"DOTA_Tooltip_ability_doom_custom_Description"	"Target burns in inpure flames, being silenced and disarmed. Damage ticks every 0.5 seconds."
+		"DOTA_Tooltip_ability_doom_custom_damage"		"DAMAGE:"
+		"DOTA_Tooltip_ability_doom_custom_duration"		"Duration"
+		
+		"DOTA_Tooltip_ability_arena_descent_boss_ravage"				"Ravage of Abyss"
+		"DOTA_Tooltip_ability_arena_descent_boss_ravage_Description"	"Abomination impales enemies in 2000 range, stunning them, throwing in the air and dealing magical damage."
+		"DOTA_Tooltip_ability_arena_descent_boss_ravage_duration"		"STUN DURATION:"
+		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam"				"Abomination slams the ground, stunning inflicted targets and dealing damage."
+		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam_damage"			"DAMAGE:"
+		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam_stun_duration"	"STUN DURATION:"
+		
+		"arena_pit_pit_guardian"		"Soul of Pit"
+		"DOTA_Tooltip_ability_arena_pit_pit_guardian_ai"				"Pit Protector"
+		"DOTA_Tooltip_ability_arena_pit_pit_guardian_ai_Description"	"Soul of Pit kills the unworthy challengers, guarding the chamber of his master. Dragons' blood flows in his veins."
+		
+		"DOTA_Tooltip_ability_pit_boss_firestorm"				"Firestorm"
+		"DOTA_Tooltip_ability_pit_boss_firestorm_Description" 	"Pit Lord calls down waves of fire that damage enemy units in the target area, burning for additional damage over time."
+		"DOTA_Tooltip_ability_pit_boss_firestorm_radius"		"RADIUS:"
+		"DOTA_Tooltip_ability_pit_boss_firestorm_wave_damage"	"DAMAGE:"
+		"DOTA_Tooltip_ability_pit_boss_firestorm_wave_interval"	"INTERVAL:"
+		"DOTA_Tooltip_ability_pit_boss_firestorm_burn_damage"	"BURN DAMAGE (HP%):"
+		"DOTA_Tooltip_ability_pit_boss_firestorm_burn_duration"	"BURN DURATION:"
+		"DOTA_Tooltip_ability_arena_pit_boss_summon_specters"				"Release"
+		"DOTA_Tooltip_ability_arena_pit_boss_summon_specters_Description"	"Pit Lord summons 6 captured souls of previous challengers to fight for him."	
+		"DOTA_Tooltip_ability_arena_pit_boss_dash"				"Furious Charge"
+		"DOTA_Tooltip_ability_arena_pit_boss_dash_Description"	"Pit Lord dashes forward, crushing foes before him. Deals 305000 magical damage."
+		"DOTA_Tooltip_ability_arena_pit_final_boss_ai"			"Lord of the Pit"
+		"DOTA_Tooltip_ability_arena_pit_final_boss_ai"			"In forsaken dungeons of Arena, the ancient evil awaits for challengers."
 
 		//IMMORTAL WEAPONS
 
@@ -12731,7 +12985,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_3"            "Ragnar's Thunderax"
         "item_property_axe_immortal_weapon3"                            "Overpower"
-        "property_axe_immortal_weapon3_description"                        "Increase Cyclonic Shield stacks by @special_property1% when beginning the channel of @Ability4" 	
+        "property_axe_immortal_weapon3_description"                        "Increase Cyclone Shield stacks by @special_property1% when beginning the channel of @Ability4" 	
 
     	//ASTRAL RANGER
     	"DOTA_Tooltip_ability_item_rpc_astral_immortal_weapon_2"			"Astral Daedalus"
@@ -12973,89 +13227,6 @@
         "item_property_dinath_immortal_weapon3"                             "Cosmic Origin"
         "property_dinath_immortal_weapon3_description"                      "All instances of <font color=\"#3289C7\">Dragon</font> damage deal an additional instance of <font color=\"#C25DFC\">Cosmic</font> damage."
 
-    	//ARENA TOOLTIPS
-
-		"DOTA_Tooltip_ability_arena_descent_nemesis_passive"					"Great Cleave"
-		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_Description"				"Attacks damage all enemies in an area"
-		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_cleave_percent"				"CLEAVE DAMAGE %:"
-		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_cleave_radius"				"CLEAVE RADIUS:"
-
-		"arena_descent_nightmare"												"Descent Nightmare"
-
-		"DOTA_Tooltip_ability_arena_descent_guard_passive"						"Desolation"
-		"DOTA_Tooltip_ability_arena_descent_guard_passive_Description"			"Each attack landed increases attack damage."
-		"DOTA_Tooltip_ability_arena_descent_guard_passive_damage_per_instance"	"DAMAGE PER STACK %:"
-
-		"DOTA_Tooltip_modifier_descent_guard_passive_effect"					"Desolation"
-		"DOTA_Tooltip_modifier_descent_guard_passive_effect_Description"		"Increased attack damage"
-
-		"DOTA_Tooltip_ability_arena_descent_crippling"							"Crippling Aura"
-		"DOTA_Tooltip_ability_arena_descent_crippling_Description"				"Reduces the power of nearby enemies."
-		"DOTA_Tooltip_ability_arena_descent_crippling_health_regen_percent"		"HEALTH REGEN %:"
-		"DOTA_Tooltip_ability_arena_descent_crippling_attack_damage"			"ATTACK DAMAGE %:"
-		"DOTA_Tooltip_ability_arena_descent_crippling_attack_speed"				"ATTACK SPEED:"
-		"DOTA_Tooltip_ability_arena_descent_crippling_movespeed"				"MOVESPEED:"
-
-		"DOTA_Tooltip_modifier_advanced_creature_crippling_aura_debuff"			"Crippling Aura"
-		"DOTA_Tooltip_modifier_advanced_creature_crippling_aura_debuff_Description"	"Reduced health regen, attack damage, attack speed and movespeed."
-
-		"arena_descent_boss"													"Pit Abomination"
-
-		"DOTA_Tooltip_modifier_steadfast"													"Steadfast"
-		"DOTA_Tooltip_modifier_steadfast_Description"										"Incoming damage is capped at a %% of max health"
-
-		"DOTA_Tooltip_ability_descent_boss_ai"								"Abomination"
-		"DOTA_Tooltip_ability_descent_boss_ai_Description"					"Forsaken monsters of the depths"
-
-
-		"DOTA_Tooltip_ability_creature_pure_strike_2"			"Pure Strike"
-		"DOTA_Tooltip_ability_creature_pure_strike_2_Description"	"Attacks cannot miss and deal an additional 3% pure damage."
-
-		"arena_pit_of_trials_final_boss"						"Pit Lord"
-
-		"DOTA_Tooltip_ability_arena_pit_boss_haste"					"Bloodlust"
-		"DOTA_Tooltip_ability_arena_pit_boss_haste_Description"		"Increases attack speed and movespeed, and refreshes Firestorm."
-
-		"DOTA_Tooltip_ability_arena_radiance"								"Shadow Radiance"
-		"DOTA_Tooltip_ability_arena_radiance_Description"					"Burns nearby enemies and gives them a chance to miss."
-		"DOTA_Tooltip_ability_arena_radiance_aura_damage"					"BURN DAMAGE:"
-		"DOTA_Tooltip_ability_arena_radiance_blind_pct"						"MISS CHANCE %:"
-
-		"DOTA_Tooltip_modifier_modifier_pit_boss_haste"					"Bloodlust"
-		"DOTA_Tooltip_modifier_modifier_pit_boss_haste_Description"		"Increased movespeed and attack speed."
-
-
-		"arena_pit_conquest_spirit_of_rakash"					"Rak'eth"
-
-		"DOTA_Tooltip_ability_arena_pit_rakash_ai"				"Spirit of Rak'eth"
-		"DOTA_Tooltip_ability_arena_pit_rakash_ai_Description"	"Increased magic resistance"	
-		"DOTA_Tooltip_ability_arena_pit_rakash_ai_magic_resist"	"MAGIC RESIST:"
-
-		"DOTA_Tooltip_ability_arena_descent_tombstone_ability"	"Tombstone"
-		"DOTA_Tooltip_ability_arena_descent_tombstone_ability_Description"	"Raising the Dead"
-
-		"arena_pit_shadow_sniper"								"Shadow Sniper"
-		"arena_pit_quizmaster"									"Quizmaster"
-
-		"DOTA_Tooltip_ability_arena_quizmaster_blast"				"Inquiry Burst"
-
-		"arena_descent_terror_striker_ultra"					"Gravestriker Ultra"
-
-		"DOTA_Tooltip_ability_arena_pit_grave_chill"			"Descent Grave Chill"
-		"DOTA_Tooltip_ability_arena_pit_grave_chill_Description"	"Steals movespeed, armor, and magic resist from the target."
-		"DOTA_Tooltip_ability_arena_pit_grave_chill_duration"	"DURATION:"
-		"DOTA_Tooltip_ability_arena_pit_grave_chill_movespeed_steal"	"MOVESPEED STEAL:"
-		"DOTA_Tooltip_ability_arena_pit_grave_chill_armor_steal"	"ARMOR STEAL:"
-		"DOTA_Tooltip_ability_arena_pit_grave_chill_magic_resist_steal"	"MAGIC RESIST STEAL:"
-
-		"DOTA_Tooltip_modifier_arena_grave_chill_target"		"Descent Grave Chill"
-		"DOTA_Tooltip_modifier_arena_grave_chill_target_Description"	"Reduced movespeed, armor, and magic resist."
-
-		"DOTA_Tooltip_ability_golden_skullbone_ai"				"Magic Immunity"
-
-		"lies_golden_skullbone"									"Golden Skullbone"
-
-		"arena_descent_tombstone"								"Tombstone"
 
 		//REDFALL
 
