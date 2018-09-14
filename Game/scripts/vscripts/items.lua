@@ -1425,7 +1425,7 @@ function RPCItems:EndRoll(rollSlot, itemIndex)
 				while not RPCItems:GetIsPlayerConnected(playerID) do
 					table.remove(newTable, index)
 					if #newTable<1 then
-						return
+						rolltype = "pass"
 					end
 					index = RandomInt(1, #newTable)
 					hero = newTable[index]
