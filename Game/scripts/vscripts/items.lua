@@ -1419,6 +1419,14 @@ function RPCItems:EndRoll(rollSlot, itemIndex)
 		if type(hero) == "number" then
 			if MAIN_HERO_TABLE and #MAIN_HERO_TABLE>0 then
 				hero = MAIN_HERO_TABLE[RandomInt(1, #MAIN_HERO_TABLE)]
+				playerID = hero:GetPlayerID()
+				while not RPCItems:GetIsPlayerConnected(playerID) do
+					hero = MAIN_HERO_TABLE[RandomInt(1, #MAIN_HERO_TABLE)]
+					playerID = hero:GetPlayerID()
+				end
+				heroId = hero:GetClassname()
+				playerID = hero:GetPlayerID()
+				Notifications:TopToAll({text="Winner not found, new random player is selected", duration=5.0})
 			else
 				rolltype = "pass"
 			end
