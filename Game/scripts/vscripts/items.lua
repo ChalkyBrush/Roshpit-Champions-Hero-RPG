@@ -1426,14 +1426,17 @@ function RPCItems:EndRoll(rollSlot, itemIndex)
 					table.remove(newTable, index)
 					if #newTable<1 then
 						rolltype = "pass"
+						break
 					end
 					index = RandomInt(1, #newTable)
 					hero = newTable[index]
 					playerID = hero:GetPlayerID()
 				end
-				heroId = hero:GetClassname()
-				playerID = hero:GetPlayerID()
-				Notifications:TopToAll({text="Winner not found, new random player is selected", duration=5.0})
+				if rolltype ~= "pass" then
+					heroId = hero:GetClassname()
+					playerID = hero:GetPlayerID()
+					Notifications:TopToAll({text="Winner not found, new random player is selected", duration=5.0})
+				end
 			else
 				rolltype = "pass"
 			end
