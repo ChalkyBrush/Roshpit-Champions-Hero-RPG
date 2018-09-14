@@ -1420,9 +1420,14 @@ function RPCItems:EndRoll(rollSlot, itemIndex)
 			if MAIN_HERO_TABLE and #MAIN_HERO_TABLE>0 then
 				hero = MAIN_HERO_TABLE[RandomInt(1, #MAIN_HERO_TABLE)]
 				playerID = hero:GetPlayerID()
+				local count = 0
 				while not RPCItems:GetIsPlayerConnected(playerID) do
 					hero = MAIN_HERO_TABLE[RandomInt(1, #MAIN_HERO_TABLE)]
 					playerID = hero:GetPlayerID()
+					count = count+1
+					if count == 100 then
+						return
+					end
 				end
 				heroId = hero:GetClassname()
 				playerID = hero:GetPlayerID()
