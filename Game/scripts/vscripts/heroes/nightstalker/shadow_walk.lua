@@ -27,7 +27,6 @@ function shadow_walk_start(event)
 	ability.e_2_level = Runes:GetTotalRuneLevel(caster, 2, "e_2", "chernobog")
 	ability.e_3_level = Runes:GetTotalRuneLevel(caster, 3, "e_3", "chernobog")
 	if rune_e_1_level > 0 then
-		a_c_duration = Filters:GetAdjustedBuffDuration(caster, a_c_duration, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_rune_e_1", {})
 		caster:SetModifierStackCount("modifier_chernobog_rune_e_1", caster, rune_e_1_level)
 	end
