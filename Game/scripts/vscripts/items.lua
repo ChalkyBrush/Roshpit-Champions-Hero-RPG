@@ -594,7 +594,7 @@ function RPCItems:GetExpiryTime(rarity)
 	elseif rarity == "immortal" then
 		return 140
 	elseif rarity == "arcana" then
-		return 6000
+		return 86400
 	else
 		return 140
 	end
@@ -616,37 +616,37 @@ function RPCItems:DropItem(item, position)
 	position = Events.SafeItemEntity:GetAbsOrigin()
 	if determineIfOKdrop(item) then
 		local rarityFactor = RPCItems:GetRarityFactor(item.rarity)
-		item.expiryTime = Time() + 140
+		item.expiryTime = Time() + RPCItems:GetExpiryTime(item.rarity)
 		if rarityFactor > 2 then
-				item.expiryTime = Time() + 260
-				Timers:CreateTimer(0.5, function()
-					if IsValidEntity(item) then
-						if IsValidEntity(item:GetContainer()) then
-							local particleName = RPCItems:GetRarityParticle(item.rarity)
-							item.particle = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, item )
-							ParticleManager:SetParticleControl( item.particle, 0, position )
-							if item.rarity == "arcana" then
-								item.particle2 = ParticleManager:CreateParticle( "particles/roshpit/items/arcana_beam.vpcf", PATTACH_CUSTOMORIGIN, item )
-								ParticleManager:SetParticleControl( item.particle2, 0, position-Vector(0,0,40) )
-								ParticleManager:SetParticleControl( item.particle2, 1, position-Vector(0,0,40) )
+			print("AAAAA ItemDrop, rarity: "..item.rarity.." expiryTime@: "..item.expiryTime-Time())
+			Timers:CreateTimer(0.5, function()
+				if IsValidEntity(item) then
+					if IsValidEntity(item:GetContainer()) then
+						local particleName = RPCItems:GetRarityParticle(item.rarity)
+						item.particle = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, item )
+						ParticleManager:SetParticleControl( item.particle, 0, position )
+						if item.rarity == "arcana" then
+							item.particle2 = ParticleManager:CreateParticle( "particles/roshpit/items/arcana_beam.vpcf", PATTACH_CUSTOMORIGIN, item )
+							ParticleManager:SetParticleControl( item.particle2, 0, position-Vector(0,0,40) )
+							ParticleManager:SetParticleControl( item.particle2, 1, position-Vector(0,0,40) )
 
-								EmitSoundOnLocationWithCaster(position, "RPC.Arcana.Drop", Events.GameMaster)
-								local arcana_dummy = CreateUnitByName("arcana_find_unit", position, false, nil, nil, 2)
-								item.arcanaDummy = arcana_dummy
-								arcana_dummy:FindAbilityByName("arcana_find_ability"):SetLevel(1)
+							EmitSoundOnLocationWithCaster(position, "RPC.Arcana.Drop", Events.GameMaster)
+							local arcana_dummy = CreateUnitByName("arcana_find_unit", position, false, nil, nil, 2)
+							item.arcanaDummy = arcana_dummy
+							arcana_dummy:FindAbilityByName("arcana_find_ability"):SetLevel(1)
 
-								Timers:CreateTimer(0.3, function()
-									local pfx = ParticleManager:CreateParticle("particles/econ/items/centaur/centaur_ti6_gold/centaur_ti6_warstomp_gold.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
-									ParticleManager:SetParticleControl(pfx, 0, position)
-									ParticleManager:SetParticleControl(pfx, 1, Vector(200, 2, 200))
-									Timers:CreateTimer(2, function()
-										ParticleManager:DestroyParticle(pfx, false)
-									end)
+							Timers:CreateTimer(0.3, function()
+								local pfx = ParticleManager:CreateParticle("particles/econ/items/centaur/centaur_ti6_gold/centaur_ti6_warstomp_gold.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+								ParticleManager:SetParticleControl(pfx, 0, position)
+								ParticleManager:SetParticleControl(pfx, 1, Vector(200, 2, 200))
+								Timers:CreateTimer(2, function()
+									ParticleManager:DestroyParticle(pfx, false)
 								end)
-							end
+							end)
 						end
 					end
-				end)
+				end
+			end)
 		end
 
 		 table.insert(GLOBAL_ITEM_TABLE, item)
