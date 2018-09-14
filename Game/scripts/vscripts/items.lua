@@ -1410,9 +1410,17 @@ function RPCItems:EndRoll(rollSlot, itemIndex)
 		local playerID = nil
 		if winningPlayer then
 			hero = GameState:GetHeroByPlayerID(winningPlayer)
-			if hero then
+			--GameState:GetHeroByPlayerID returns -1 if no hero found
+			if type(hero) ~= "number" then
 				heroId = hero:GetClassname()
 				playerID = winningPlayer
+			end
+		end
+		if type(hero) == "number" then
+			if MAIN_HERO_TABLE and #MAIN_HERO_TABLE>0 then
+				hero = MAIN_HERO_TABLE[RandomInt(1, #MAIN_HERO_TABLE)]
+			else
+				rolltype = "pass"
 			end
 		end
 		if rolltype == "pass" then
