@@ -39,6 +39,7 @@ function shadow_walk_start(event)
     end
 	local rune_e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "chernobog")
 	if rune_e_4_level > 0 then
+		caster:RemoveModifierByName("modifier_chernobog_rune_e_4")
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_chernobog_rune_e_4", {})
 	end
     Filters:CastSkillArguments(3, caster)
