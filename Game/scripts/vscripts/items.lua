@@ -1418,16 +1418,18 @@ function RPCItems:EndRoll(rollSlot, itemIndex)
 		end
 		if type(hero) == "number" then
 			if MAIN_HERO_TABLE and #MAIN_HERO_TABLE>0 then
-				hero = MAIN_HERO_TABLE[RandomInt(1, #MAIN_HERO_TABLE)]
+				local newTable = MAIN_HERO_TABLE
+				local index = RandomInt(1, #newTable)
+				hero = newTable[index]
 				playerID = hero:GetPlayerID()
-				local count = 0
 				while not RPCItems:GetIsPlayerConnected(playerID) do
-					hero = MAIN_HERO_TABLE[RandomInt(1, #MAIN_HERO_TABLE)]
-					playerID = hero:GetPlayerID()
-					count = count+1
-					if count == 100 then
+					table.remove(newTable, index)
+					if #newTable<1 then
 						return
 					end
+					index = RandomInt(1, #newTable)
+					hero = newTable[index]
+					playerID = hero:GetPlayerID()
 				end
 				heroId = hero:GetClassname()
 				playerID = hero:GetPlayerID()
