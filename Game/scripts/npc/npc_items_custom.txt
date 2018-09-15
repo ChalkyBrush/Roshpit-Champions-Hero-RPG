@@ -40948,7 +40948,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"30"
+				"property_two"			"20"
 			}
 		}
 	}
@@ -41267,7 +41267,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"30"
+				"property_two"			"20"
 			}
 		}
 	}
@@ -41570,7 +41570,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"30"
+				"property_two"			"20"
 			}
 		}
 	}
