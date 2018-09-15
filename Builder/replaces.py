@@ -64,7 +64,10 @@ def parse(file_path, constants, settings, warnings, encoding="utf-8"):
         result = settings['expression_result_convert'](result)
         if result == int(float(result)):
             result = int(result)
-        content = content.replace(settings['start'] + statement + settings['end'], str(result))
+        result =  str(result)
+        if 'localizations' in file_path or 'addon' in file_path:
+            result = "<font color='#ccff66'>" + result + "</font>"
+        content = content.replace(settings['start'] + statement + settings['end'], result)
     validate_content(content, file_path, warnings)
     return content
 

@@ -74,6 +74,9 @@ end
 
 function RPCItems:SynthCheckCombination(item1, item2, position)
 	if item1.gear and item2.gear then
+		if item1.slot == 'weapon' or  item2.slot == 'weapon' then
+			return false
+		end
 		if item1.rarity == "arcana" and item2.rarity == "arcana" then
 			local possibilityTable = {item1:GetAbilityName(), item2:GetAbilityName()}
 			local newArcanaName = possibilityTable[RandomInt(1, #possibilityTable)]
