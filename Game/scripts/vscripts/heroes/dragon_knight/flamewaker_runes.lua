@@ -1,3 +1,4 @@
+require('heroes/dragon_knight/flamewaker_constants')
 function a_a_think(event)
 	local caster = event.caster
 	local hero = caster.hero
@@ -308,12 +309,25 @@ function a_b_attack(event)
 	local caster = event.attacker
 	local target = event.target
 	local ability = event.ability
-	local damage = caster:GetAverageTrueAttackDamage(caster)*ability.w_1_level*0.04
+	local damage = caster:GetAverageTrueAttackDamage(caster)*ability.w_1_level*FLAMEWAKER_W1_DMG_PER_ATT
+
+	local w_3_level = caster:GetRuneValue("w", 3)
+	local w_ability = caster:FindAbilityByName("second_heartbeat")
+
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 420, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 	if #enemies > 0 then	
 		for _,enemy in pairs(enemies) do
 			if not enemy.dummy then
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+				if caster:HasModifier('modifier_flamewaker_glyph_3_1') and w_ability then
+					if w_3_level > 0 then
+						local additional_armorLoss = math.ceil(1.0*w_3_level)
+						w_ability:ApplyDataDrivenModifier(caster, target, "modifier_searing_heat", {duration = 6})
+						local current_stack = target:GetModifierStackCount( "modifier_searing_heat", w_ability )
+						local stacks = math.min(current_stack+additional_armorLoss, 10000)
+						target:SetModifierStackCount( "modifier_searing_heat", w_ability, stacks )
+					end
+				end
 				-- ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL })
 				local particleName =  "particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf"
 				local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, enemy )

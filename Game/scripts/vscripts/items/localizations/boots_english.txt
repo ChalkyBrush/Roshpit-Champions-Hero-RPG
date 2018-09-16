@@ -1,0 +1,9 @@
+
+    	"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
+		"item_property_slinger_boot"				"Bladeslinger"
+		"property_slinger_boots_description"		"Every <% BLADESLINGER_ATT_INTERVAL %> seconds, immediately perform an attack with all of its procs on enemies in a 180 degree arc behind you."
+
+
+    	"DOTA_Tooltip_ability_item_rpc_sange_boots"										"Sange Boots"
+		"item_property_sange"						"Combat Mastery S"
+		"property_sange_description"				"Each point of Agility additionally increases your Max Health by <% SANGE_HP_PER_AGI %>."

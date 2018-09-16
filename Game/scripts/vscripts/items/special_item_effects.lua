@@ -1,5 +1,11 @@
 LinkLuaModifier("modifier_super_ascendency_lua", "modifiers/modifier_super_ascendency", LUA_MODIFIER_MOTION_NONE)
 
+require('items/constants/boots')
+require('items/constants/chest')
+require('items/constants/gloves')
+require('items/constants/helm')
+require('items/constants/trinket')
+
 function paladin_2_1_destroy(event)
 	local caster = event.target
 	local ability = caster:FindAbilityByName("heroic_fury")
@@ -1191,7 +1197,7 @@ function sange_boots_think(event)
 	if not target:HasModifier("modifier_rpc_sange_buff") then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_rpc_sange_buff", {})
 	end
-	local sangeStacks = math.min(target:GetAgility(), math.floor(10000000/8))
+	local sangeStacks = math.min(target:GetAgility(), math.floor(10000000/SANGE_HP_PER_AGI))
 	target:SetModifierStackCount( "modifier_rpc_sange_buff", ability, sangeStacks )
 end
 
@@ -1385,7 +1391,7 @@ function saytaru_think(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	if target:GetHealth() <= target:GetMaxHealth()*0.2 then
+	if target:GetHealth() <= target:GetMaxHealth()*SAYTARU_HP_THRESHOLD_PCT then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_hope_of_saytaru_effect", {})
 	else
 		target:RemoveModifierByName("modifier_hope_of_saytaru_effect")
@@ -3411,8 +3417,7 @@ function lava_forge_take_damage(event)
 	if ability.fireballs >= 6 then
 		return false
 	end
-	local proc = Filters:GetProc(target, 40)	
-	if proc then
+	local proc = Filters:GetProc(target, 40)
 		local fv = (attacker:GetAbsOrigin()*Vector(1,1,0)-target:GetAbsOrigin()*Vector(1,1,0)):Normalized()
 
 		local projectileParticle = "particles/units/heroes/hero_jakiro/fireball.vpcf"
@@ -3446,7 +3451,6 @@ function lava_forge_take_damage(event)
 		Timers:CreateTimer(3, function()
 			ability.fireballs = ability.fireballs - 1
 		end)
-	end
 end
 
 function lava_forge_fireball_hit(event)
@@ -3455,9 +3459,9 @@ function lava_forge_fireball_hit(event)
 	local target = event.target
 	
 	print("IMPACT?")
-	local damage = caster:GetAverageTrueAttackDamage(caster)*2 + caster:GetAgility()*30
+	local damage = caster:GetAverageTrueAttackDamage(caster)*LAVA_FORGE_DMG_PER_ATT + caster:GetAgility()*LAVA_FORGE_DMG_PER_AGI
 
-	local radius = 200
+	local radius = LAVA_FORGE_RADIUS
 	local particleNameS = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
 	local particle2 = ParticleManager:CreateParticle( particleNameS, PATTACH_WORLDORIGIN, target )
 	ParticleManager:SetParticleControl( particle2, 0, target:GetAbsOrigin() )
@@ -3480,7 +3484,7 @@ function lava_forge_fireball_hit(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			Filters:ApplyItemDamage(enemy,caster,damage,DAMAGE_TYPE_MAGICAL,event.ability,RPC_ELEMENT_FIRE,RPC_ELEMENT_NONE)
+			Filters:ApplyItemDamage(enemy,caster,damage,DAMAGE_TYPE_MAGICAL,event.ability,RPC_ELEMENT_FIRE,RPC_ELEMENT_WIND)
 		end
 	end 
 end
@@ -4087,9 +4091,9 @@ function basilisk_plague_petrify(event)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_basilisk_petrify_stacks", {duration = 1})
 		local newStacks = target:GetModifierStackCount("modifier_basilisk_petrify_stacks", caster) + 1
 		target:SetModifierStackCount("modifier_basilisk_petrify_stacks", caster, newStacks)
-		if newStacks >= 6 then
+		if newStacks >= BASILISK_PLAGUE_TIME_BEFORE_STONE_FORM/BASILISK_PLAGUE_THINK_INTERVAL then
 			target:RemoveModifierByName("modifier_basilisk_petrify_stacks")
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_basilisk_plague_petrify", {duration = 3})
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_basilisk_plague_petrify", {duration = BASILISK_PLAGUE_STONE_FORM_DUR})
 		end
 	end
 end
@@ -4370,77 +4374,63 @@ function igneous_canine_damage(event)
 	Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,ability,RPC_ELEMENT_FIRE,RPC_ELEMENT_NONE)
 	ability.hero = target
 end
-
-function hurricane_think(event)
-	local target = event.target
-	local ability = event.ability
-	local fv = target:GetForwardVector()
-	ability.pushFV = fv
-	local perpFv = WallPhysics:rotateVector(fv,math.pi/2)
-	local hurricaneStartPosition = target:GetAbsOrigin() - fv*800 + perpFv*(RandomInt(-420, 420))
-	local range = 1500
-	local start_radius = 220
-	local end_radius = 220
-	local speed = 1300
-	local projectileParticle = "particles/items/hurricane_vest_projectile.vpcf"
-	local info = 
-	{
-			Ability = ability,
-        	EffectName = projectileParticle,
-        	vSpawnOrigin = hurricaneStartPosition,
-        	fDistance = range,
-        	fStartRadius = start_radius,
-        	fEndRadius = end_radius,
-        	Source = target,
-        	StartPosition = "attach_origin",
-        	bHasFrontalCone = false,
-        	bReplaceExisting = false,
-        	iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-        	iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-        	iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-        	fExpireTime = GameRules:GetGameTime() + 6.0,
-		bDeleteOnHit = false,
-		vVelocity = fv * speed,
-		bProvidesVision = false,
-	}
-	projectile = ProjectileManager:CreateLinearProjectile(info) 	
-end
-
 function hurricane_vest_create(event)
 
-end
+	local caster = event.caster.hero
+	local ability = event.ability
+	local fv = caster:GetForwardVector()
+	ability.pushFV = fv
+	local hurricaneStartPosition = caster:GetAbsOrigin()
+	local range = HURRICANE_VEST_MAX_DISTANCE
+	local start_radius = 220
+	local end_radius = 220
+	local speed = HURRICANE_VEST_HURRICANE_SPEED
+	local projectileParticle = "particles/units/heroes/hero_invoker/red_general_tornado.vpcf"
 
-function hurricane_vest_destroy(event)
+	if not ability.cast_number then
+		ability.cast_number = 0
+	end
+	ability.cast_number = ability.cast_number + 1
+
+	for i = 1, HURRICANE_VEST_HURRICANE_COUNT do
+		local shotVector = WallPhysics:rotateVector(fv, (2 * math.pi/HURRICANE_VEST_HURRICANE_COUNT) * i)
+		local info =
+		{
+			Ability = ability,
+			EffectName = projectileParticle,
+			vSpawnOrigin = hurricaneStartPosition,
+			fDistance = range,
+			fStartRadius = start_radius,
+			fEndRadius = end_radius,
+			Source = event.caster,
+			StartPosition = "attach_origin",
+			bHasFrontalCone = true,
+			bReplaceExisting = false,
+			iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+			iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+			iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+			fExpireTime = GameRules:GetGameTime() + 5.0,
+			bDeleteOnHit = false,
+			vVelocity = shotVector * speed,
+			bProvidesVision = false,
+		}
+		ProjectileManager:CreateLinearProjectile(info)
+	end
 end
 
 function hurricane_vest_hit(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	if target.jumpLock then
-		return false
+	if not target.hurricane_cast_number then
+		target.hurricane_cast_number = 0
 	end
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_hurricane_vest_pushing", {duration = 1.0})
-	target.hurricanePushFV = ability.pushFV
-end
+	if ability.cast_number ~= target.hurricane_cast_number then
+		target.hurricane_cast_number = ability.cast_number
+		local damage = HURRICANE_VEST_DMG_AMP * (HURRICANE_VEST_MAX_DISTANCE - WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target:GetAbsOrigin())) ^ HURRICANE_VEST_DMG_EXP_SCALE
+		Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,caster.handItem, RPC_ELEMENT_WIND, RPC_ELEMENT_ICE)
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_hurricane_vest_slow", {duration = HURRICANE_VEST_SLOW_DUR})
 
-function hurricane_pushing_end(event)
-	local target = event.target
-	target.hurricanePushFV = nil
-	FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
-end
-
-function hurricane_pushing_think(event)
-	local target = event.target
-	if target.jumpLock then
-		return false
-	end
-	local position = target:GetAbsOrigin()
-	local obstruction = WallPhysics:FindNearestObstruction(position*Vector(1,1,0))
-	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, position*Vector(1,1,0), target)
-	local newPosition = position+target.hurricanePushFV*7
-	if not blockUnit then
-		target:SetOrigin(newPosition)
 	end
 end
 
@@ -4636,77 +4626,46 @@ function doomplate_doom_end(event)
 end
 
 function baron_storm_take_damage(event)
-	local caster = event.caster
+	local caster = event.caster.hero
 	local ability = event.ability
 	local attacker = event.attacker
-	local unit = event.unit
-	ability:ApplyDataDrivenModifier(caster, attacker, "modifier_baron_storm_link", {duration = 6})
-end
-
-function baron_storm_start(event)
-	local target = event.target
-	local ability = event.ability
-	local caster = event.caster
-	local hero = caster.hero
-	EmitSoundOn("RPCItem.BaronStorm.Start", target)
-	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_stormspirit/stormspirit_electric_vortex.vpcf", PATTACH_CUSTOMORIGIN, hero)
-	ParticleManager:SetParticleControlEnt( pfx, 0, hero, PATTACH_POINT_FOLLOW, "attach_hitloc", hero:GetAbsOrigin(), true )
-	ParticleManager:SetParticleControlEnt( pfx, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true )
-	target.baronData = {hero:GetEntityIndex(), pfx, target}
-	if not ability.pfxTable then
-		ability.pfxTable = {}
-	end
-	if not ability.baronLinkTable then
-		ability.baronLinkTable = {}
-	end
-	table.insert(ability.baronLinkTable, target)
-	table.insert(ability.pfxTable, target.baronData)
-	print("BARON TABLE COUNT"..#ability.baronLinkTable)
-	if #ability.baronLinkTable > 3 then
-		ability.baronLinkTable[1]:RemoveModifierByName("modifier_baron_storm_link")
-		ability.baronLinkTable = {ability.baronLinkTable[2],ability.baronLinkTable[3],ability.baronLinkTable[4]}
+	local damage = caster:GetAverageTrueAttackDamage(caster) * BARON_STORM_DMG_PER_ATT
+	if not caster:HasModifier('modifier_baron_storm_cooldown') then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_baron_storm_cooldown", {duration = BARON_STORM_COOLDOWN})
+		baron_storm_arc(attacker, caster, ability, damage, 0, BARON_STORM_MAX_TARGETS)
 	end
 end
 
-function baron_storm_think(event)
-	local target = event.target
-	local ability = event.ability
-	if not ability.pfxTable then
-		return false
-	end
-	local caster = event.caster
-	local hero = caster.hero
-	local newpfxTable = {}
-	for i = 1, #ability.pfxTable, 1 do
-		if not IsValidEntity(ability.pfxTable[i][3]) then
-			ParticleManager:DestroyParticle(ability.pfxTable[i][2], false)
+function baron_storm_arc(target, caster, ability, damage, targetNumber, maxTargets)
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, BARON_STORM_SEARCH_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
+	if #enemies > 0 then
+		local newTarget = enemies[1]
+		if targetNumber ~= 0 then
+			if newTarget == target then
+				newTarget = enemies[2]
+			end
 		else
-			if ability.pfxTable[i][3]:HasModifier("modifier_baron_storm_link") then
-				table.insert(newpfxTable, ability.pfxTable[i])
-			else
-				ParticleManager:DestroyParticle(ability.pfxTable[i][2], false)
+			newTarget = target
+			target = caster
+		end
+		if newTarget then
+			ability:ApplyDataDrivenModifier(caster, newTarget, "modifier_baron_storm_link", {duration = BARON_STORM_DUR})
+			Filters:TakeArgumentsAndApplyDamage(newTarget, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_WIND)
+			EmitSoundOn("Hero_Zuus.ArcLightning.Target", target)
+			local particleName = "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
+			local targetPos = target:GetAbsOrigin()
+			local newTargetPos = newTarget:GetAbsOrigin()
+			local lightningBolt = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, target)
+			ParticleManager:SetParticleControl(lightningBolt,0,Vector(targetPos.x,targetPos.y,targetPos.z + target:GetBoundingMaxs().z ))
+			ParticleManager:SetParticleControl(lightningBolt,1,Vector(newTargetPos.x,newTargetPos.y,newTargetPos.z + newTarget:GetBoundingMaxs().z ))
+			targetNumber = targetNumber + 1
+			if targetNumber <= maxTargets then
+				Timers:CreateTimer(0.2, function()
+					baron_storm_arc(newTarget, caster,ability, damage, targetNumber, maxTargets)
+				end)
 			end
 		end
 	end
-	ability.pfxTable = newpfxTable
-end
-
-function baron_storm_end(event)
-	local target = event.target
-	local ability = event.ability
-	local caster = event.caster
-	local hero = caster.hero
-	-- EmitSoundOn("RPCItem.EtherealRevenant.End", target)
-
-	ParticleManager:DestroyParticle(target.baronData[2], false)
-	target.baronData = nil
-	local newLinkTable = {}
-	for i = 1, #ability.baronLinkTable, 1 do
-		if ability.baronLinkTable[i]:HasModifier("modifier_baron_storm_link") then
-			table.insert(newLinkTable, ability.baronLinkTable[i])
-		end
-	end
-	ability.baronLinkTable = newLinkTable
 end
 
 function samurai_helmet_think(event)
@@ -4788,16 +4747,16 @@ function blue_rain_attack_land(event)
 	local caster = attacker
 	local target = event.target
 
-	local proc = Filters:GetProc(caster, 15)
+	local proc = Filters:GetProc(caster, BLUE_RAIN_CHANCE)
 	if proc then
 		local position = target:GetAbsOrigin()
-		local damage = caster:GetAverageTrueAttackDamage(caster)*5
+		local damage = caster:GetAverageTrueAttackDamage(caster)*BLUE_RAIN_DMG_PER_ATT
 		local endFV = ((target:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 		local range = 1000
-		local enemies = FindUnitsInLine(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster:GetAbsOrigin()+endFV*range, nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0)
+		local enemies = FindUnitsInLine(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster:GetAbsOrigin()+endFV*range, nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0)
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
-				Filters:ApplyItemDamage(enemy,caster,damage,DAMAGE_TYPE_PURE,ability,RPC_ELEMENT_WATER,RPC_ELEMENT_NONE)
+				Filters:ApplyItemDamage(enemy,caster,damage,DAMAGE_TYPE_PURE,ability,RPC_ELEMENT_WATER,RPC_ELEMENT_ICE)
 			end
 		end 
 		local particleName = "particles/econ/items/monkey_king/ti7_weapon/mk_ti7_immortal_strike.vpcf"

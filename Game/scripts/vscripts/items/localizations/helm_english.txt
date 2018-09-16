@@ -1,0 +1,32 @@
+
+    	"DOTA_Tooltip_ability_item_rpc_basilisk_plague_helm"							"Basilisk Plague Helm"
+		"item_property_basilisk_plague"					"Depth Rot"
+		"property_basilisk_plague_description"				"A cloud of foul rot surrounds you, slowing the movement speed of nearby enemies by <% BASILISK_PLAGUE_MOVESPEED_REDUCE_PCT %>% and reducing their attack speed by <% BASILISK_PLAGUE_ATT_SPD_REDUCE %>. Enemies who are exposed to the rot for <% BASILISK_PLAGUE_TIME_BEFORE_STONE_FORM %> seconds are petrified for <% BASILISK_PLAGUE_STONE_FORM_DUR %> seconds, paralyzing them while granting Spell Immunity and a <% BASILISK_PLAGUE_PHYSICAL_POSTMIT * 100%> post-mitigation weakness to Physical damage."
+        "DOTA_Tooltip_modifier_basilisk_plague_petrify"	"Depth Rot Petrify"
+		"DOTA_Tooltip_modifier_basilisk_plague_petrify_Description"	"Turned to stone. Magic immune."
+
+    	"DOTA_Tooltip_ability_item_rpc_brazen_kabuto_of_the_desert_realm"				"Brazen Kabuto of the Desert Realm"
+		"item_property_brazen_kabuto"				"Warrior's Rampart"
+		"property_brazen_kabuto_description"		"100% damage immunity while channeling @Ability4. Gain shield that reduce incoming damage by <% KABUTO_SHIELD_RESISTANCE * 100 %>% for <% KABUTO_SHIELD_DUR %> seconds after finish cast @Ability4"
+		"DOTA_Tooltip_modifier_brazen_kabuto_shield"	"Warrior's Rampart"
+        "DOTA_Tooltip_modifier_brazen_kabuto_shield"	"Reduce incoming damage by <% KABUTO_SHIELD_RESISTANCE * 100 %>%."
+
+    	"DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil LV1"
+    	"DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv2"								"Shipyard Veil LV2"
+    	"DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv3"								"Shipyard Veil LV3"
+		 "item_property_shipyard_veil_1"					"Soul Shield I"
+		 "property_shipyard_veil_1_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (0.1 second cooldown). Max @special_property1 stacks. Each stack increases @Ability1 damage by @special_property2%. Whenever a damage instance is absorbed,<br>this property increases by 1. Upgrades at @special_property3."
+
+		 "item_property_shipyard_veil_2"					"Soul Shield II"
+		 "property_shipyard_veil_2_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (0.1 second cooldown). Max @special_property1 stacks. Each stack increases @Ability1 damage by @special_property2%. Whenever a damage instance is absorbed,<br>this property increases by 1. Upgrades at @special_property3."
+
+		 "item_property_shipyard_veil_3"					"Soul Shield III"
+		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (0.1 second cooldown). Max @special_property1 stacks. Each stack increases @Ability1 damage by @special_property2%. Enemies who damage the shield are targeted by a skull that deals<br>@special_property3x your primary attribute as magic damage."
+
+		 "DOTA_Tooltip_modifier_shipyard_veil_shield"			"Soul Shield"
+		 "DOTA_Tooltip_modifier_shipyard_veil_shield_Description"			"Absorbing damage instances."
+
+
+    	"DOTA_Tooltip_ability_item_rpc_crown_of_the_lava_forge"							"Crown of the Lava Forge"
+		 "item_property_lava_forge"							"Lava Blast"
+		 "property_lava_forge_description"					"When taking damage launch a fireball towards the damage source that deals <% LAVA_FORGE_DMG_PER_ATT %>x your attack damage + <% LAVA_FORGE_DMG_PER_AGI %>x your agility in a small radius on impact."

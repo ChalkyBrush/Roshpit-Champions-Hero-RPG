@@ -4737,7 +4737,6 @@ function channeling_water_torrent(event)
 	-- 	local lookVector = (enemies[1]:GetAbsOrigin() - caster:GetAbsOrigin())*Vector(1,1,0)
 	-- end	
 	if caster:HasModifier("modifier_channeling_active") then
-		local damage = event.damage
 		-- local endFV = caster:GetForwardVector()
 		-- local range = 1000
 		-- local enemies = FindUnitsInLine(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster:GetAbsOrigin()+endFV*(range+300), nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0)
@@ -4757,9 +4756,8 @@ function channeling_water_torrent(event)
 		-- 	end)
 		EmitSoundOn("RPCItem.BlueRain", caster)
 		local fv = caster:GetForwardVector()
-		if caster:GetHealth() < caster:GetMaxHealth()*0.6 then
 			for i = -1, 1, 1 do
-				local rotatedFV = WallPhysics:rotateVector(fv, 2*math.pi*i/20)
+				local rotatedFV = WallPhysics:rotateVector(fv, 2*math.pi*i/15)
 				local info = 
 				{
 						Ability = ability,
@@ -4782,29 +4780,6 @@ function channeling_water_torrent(event)
 				}
 				projectile = ProjectileManager:CreateLinearProjectile(info)
 			end
-		else
-			local info = 
-			{
-					Ability = ability,
-		        	EffectName = "particles/econ/items/morphling/morphling_crown_of_tears/morphling_crown_waveform.vpcf",
-		        	vSpawnOrigin = caster:GetAbsOrigin()+caster:GetForwardVector()*260,
-		        	fDistance = 2500,
-		        	fStartRadius = 240,
-		        	fEndRadius = 240,
-		        	Source = caster,
-		        	StartPosition = "attach_attack1",
-		        	bHasFrontalCone = true,
-		        	bReplaceExisting = false,
-		        	iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-		        	iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-		        	iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-		        	fExpireTime = GameRules:GetGameTime() + 5.0,
-				bDeleteOnHit = false,
-				vVelocity = fv * 2500,
-				bProvidesVision = false,
-			}
-			projectile = ProjectileManager:CreateLinearProjectile(info)
-		end
 	end
 end
 
@@ -4812,7 +4787,7 @@ function water_torrent_hit(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	caster:Kill(ability, target)
+	target:ForceKill(false)
 end
 
 function centaur_slam_start(event)
@@ -6031,8 +6006,7 @@ function shadow_of_bahamut_think(event)
 				Timers:CreateTimer(1.1, function()
 					local enemies = FindUnitsInRadius( caster:GetTeamNumber(), ability.blastTable[j], nil, 380, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 					for i = 1, #enemies, 1 do
-						ApplyDamage({ victim = enemies[i], attacker = caster, damage = 10000000, damage_type = DAMAGE_TYPE_PURE, ability = ability })
-						Filters:ApplyStun(caster, 3, enemies[i])	
+						enemies[i]:ForceKill(false)
 					end
 					ScreenShake(ability.blastTable[j], 200, 0.5, 1, 9000, 0, true)
 					EmitSoundOnLocationWithCaster(ability.blastTable[j], "Seafortress.ShadowOfBahamut.TrapPop", caster)

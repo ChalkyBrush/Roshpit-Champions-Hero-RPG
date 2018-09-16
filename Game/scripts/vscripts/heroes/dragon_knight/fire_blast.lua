@@ -63,11 +63,6 @@ function cast_fire_blast(event)
         ability:EndCooldown()
         ability:StartCooldown(5)
     end
-    if caster:HasModifier("modifier_flamewaker_glyph_3_1") then
-        Timers:CreateTimer(0.05, function()
-            glyph_3_1_start(caster, ability, target_location, radius)
-        end)
-    end
     rune_q_3_eruption(ability, caster, target_location, radius)
     rune_q_2(caster)
 end
@@ -122,75 +117,4 @@ function eruption_damage(event)
             caster:SetModifierStackCount("modifier_flamewaker_rune_q_4", seismicFlare.q_4_ability, current_stack+stackBonus )
         end
     end
-end
-
-function glyph_3_1_start(caster, ability, target_location, radius)
-        caster.jumpEnd = true
-        local casterOrigin = caster:GetAbsOrigin()
-        local targetOrigin = target_location
-        caster.flamewaker_d_b_target = false
-        caster.flamewaker_3_1 = true
-        local fv = (targetOrigin*Vector(1,1,0)-casterOrigin*Vector(1,1,0)):Normalized()
-        local distance = WallPhysics:GetDistance(casterOrigin*Vector(1,1,0), targetOrigin*Vector(1,1,0))
-        caster:SetForwardVector(fv)
-        glyph_3_1_jump(caster, fv, distance, 35, 40, 1, 1)
-        local animationTime = math.min(500/distance, 1)
-        EmitSoundOn("dragon_knight_drag_anger_05", caster)
-        StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_2, rate=animationTime, translate="iron"})
-end
-
-function glyph_3_1_jump(unit, forwardVector, distance, liftForce, propulsion, gravity, fallGravity)
-    local gameMaster = Events.GameMaster
-    local gameMasterAbil = gameMaster:FindAbilityByName("npc_abilities")
-    local jumpingModifier = "modifier_jumping"
-    gameMasterAbil:ApplyDataDrivenModifier(gameMaster, unit, "modifier_jumping", {duration = 5})
-    local liftDuration = distance/propulsion/2
-    local endLocation = unit:GetAbsOrigin()+forwardVector*distance
-    for i = 1, liftDuration, 1 do
-        Timers:CreateTimer(0.03*i, function()
-            local currentPosition = unit:GetAbsOrigin()
-
-            local newPosition = currentPosition+forwardVector*propulsion+Vector(0,0,liftForce-i*gravity)
-
-            local obstruction = WallPhysics:FindNearestObstruction(newPosition*Vector(1,1,0))
-            local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPosition*Vector(1,1,0), unit)
-            if not blockUnit then
-                unit:SetOrigin(newPosition)
-            else 
-                unit:SetOrigin(newPosition-forwardVector*propulsion)
-            end
-            
-        end)
-    end
-    local fallLoop = 0
-    Timers:CreateTimer(0.03*liftDuration+0.03, function()
-        Timers:CreateTimer(0.03*fallLoop, function()
-            fallLoop = fallLoop + 1
-            local currentPosition = unit:GetAbsOrigin()
-            local newPosition = currentPosition+forwardVector*propulsion-Vector(0,0,fallLoop*gravity*fallGravity)
-
-            local obstruction = WallPhysics:FindNearestObstruction(newPosition*Vector(1,1,0))
-            local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPosition*Vector(1,1,0), unit)
-            if unit:HasModifier("modifier_jumping") then
-                if not blockUnit then
-                    unit:SetOrigin(newPosition)
-                else 
-                    unit:SetOrigin(newPosition-forwardVector*propulsion)
-                end
-            end
-            if fallLoop > liftDuration then
-                unit:RemoveModifierByName("modifier_jumping")
-                FindClearSpaceForUnit(unit, newPosition, false)
-                WallPhysics:UnitLand(unit)
-            else
-                if newPosition.x <= endLocation.x + 20 and newPosition.x >= endLocation.x-20 and newPosition.y <= endLocation.y+20 and newPosition.y >= endLocation.y-20 then
-                    unit:RemoveModifierByName("modifier_jumping")
-                    FindClearSpaceForUnit(unit, newPosition, false)
-                    WallPhysics:UnitLand(unit)
-                else
-                    return 0.03
-                end
-            end
-        end)
-    end)
 end

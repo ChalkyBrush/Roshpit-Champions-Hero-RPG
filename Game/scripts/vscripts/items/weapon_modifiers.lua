@@ -1,3 +1,11 @@
+
+require('items/constants/boots')
+require('items/constants/chest')
+require('items/constants/gloves')
+require('items/constants/helm')
+require('items/constants/trinket')
+
+
 if Weaponmodifiers == nil then
   Weaponmodifiers = class({})
 end
@@ -40,7 +48,7 @@ end
 function Weaponmodifiers:action(propertyName, propertyValue, hero, inventory_unit, weapon_ability, item)
 	if hero:HasModifier("modifier_blacksmiths_tablet") then
 		if propertyValue > 1 then
-			propertyValue = propertyValue*1.4
+			propertyValue = propertyValue*(1 + BLACKSMITH_TABLE_ADD_STATS_PCT)
 		end
 	end
 	if propertyName == "strength" then
@@ -164,7 +172,7 @@ end
 function Weaponmodifiers:runeProperty(propertyName, propertyValue, hero)
 	if hero:HasModifier("modifier_blacksmiths_tablet") then
 		if propertyValue > 1 then
-			propertyValue = propertyValue*1.4
+			propertyValue = propertyValue * (1 + BLACKSMITH_TABLE_ADD_STATS_PCT)
 		end
 	end
 	if propertyName == "rune_q_1" then
