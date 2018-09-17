@@ -184,7 +184,7 @@
     	"DOTA_Tooltip_modifier_epoch_arcana_q_1_effect_Description"			"Building Damage"	
 
     	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1"							"[Q2] Tachyon Effect"
-    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_Description"				"All post-mitigation damage dealt to enemy units is increased by a factor of their own base Armor value, without modifiers from buffs or debuffs."
+    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_Description"				"All post-mitigation damage dealt to enemy units is increased by a factor of summ caster and target armor values."
     	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_property_one"				"Post-Mitigation Damage Enhance"
     	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_suffix"					"% for every 1000 base armor"
 
