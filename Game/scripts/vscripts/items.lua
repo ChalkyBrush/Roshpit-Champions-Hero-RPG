@@ -618,7 +618,6 @@ function RPCItems:DropItem(item, position)
 		local rarityFactor = RPCItems:GetRarityFactor(item.rarity)
 		item.expiryTime = Time() + RPCItems:GetExpiryTime(item.rarity)
 		if rarityFactor > 2 then
-			print("AAAAA ItemDrop, rarity: "..item.rarity.." expiryTime@: "..item.expiryTime-Time())
 			Timers:CreateTimer(0.5, function()
 				if IsValidEntity(item) then
 					if IsValidEntity(item:GetContainer()) then
