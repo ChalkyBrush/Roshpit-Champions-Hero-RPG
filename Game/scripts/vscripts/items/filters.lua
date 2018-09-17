@@ -95,6 +95,7 @@ function Filters:CleanseStuns(unit)
     unit:RemoveModifierByName("modifier_nyx_assassin_impale")
     unit:RemoveModifierByName("modifier_lina_light_strike_array")
     unit:RemoveModifierByName("modifier_lion_impale")
+    unit:RemoveModifierByName("modifier_earthshaker_fissure_stun")
 end
 
 function Filters:CleanseSilences(unit)

@@ -6495,7 +6495,7 @@
 		"DOTA_Tooltip_modifier_iron_colossus_description"		"Attacks deal 50x physical damage, stun enemies for 0.5s and size increased. Attack speed locked at 100. Gain bonus damage and armor from strength."
 
 		"item_property_mugato"						"Curse of Mugato"	
-		"property_mugato_description"				"Any cast silence you for @special_property1s, attack by @special_property2. While silenced increase postmitigation by @special_property3%"
+		"property_mugato_description" 				"Casting any spell silences you for @special_property1s seconds, and attacking silences you for @special_property2 seconds. While silenced from any source, your post-mitigation damage is increased by @special_property3%."
 
 		"item_property_swamp_witch"					"Murky Wave"
 		"property_swamp_witch_description"			"Each cast of @Ability2 also unleashes a swarm of bats in front of you - dealing @special_property1x your intelligence as damage. Enemies hit by the wave take @special_property2% increased post-mitigation damage for 8 seconds, stacking up to 10 times."
