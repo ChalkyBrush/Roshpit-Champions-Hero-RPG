@@ -2205,15 +2205,12 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if attacker:HasModifier("modifier_epoch_arcana_passive") then
-		-- if victim:HasModifier("modifier_epoch_arcana_root") then
-			local b_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 0)
-			if b_a_level > 0 then
-				local multIncrease = victim:GetPhysicalArmorBaseValue()*b_a_level*EPOCH_ARCANA_Q2_POST_MITI_PCT
-				-- print("od b_a arcana "..mult)
-				mult = mult + multIncrease/100000--per 1000 armor, %
-				-- print("od b_a arcana "..mult)
-			end
-		-- end
+		local b_a_level = Runes:GetTotalRuneLevelGeneric(attacker, 2, 0)
+		local championArmor = math.max(attacker:GetPhysicalArmorValue(),0)
+		if b_a_level > 0 then
+			local multIncrease = (victim:GetPhysicalArmorBaseValue()+championArmor)*b_a_level*EPOCH_ARCANA_Q2_POST_MITI_PCT
+			mult = mult + multIncrease/100000--per 1000 armor, %
+		end
 	end
 	if attacker:HasModifier("modifier_zhonic_arcana_c_c_invisible") then
 		local stacks = attacker:GetModifierStackCount("modifier_zhonic_arcana_c_c_invisible", attacker)
