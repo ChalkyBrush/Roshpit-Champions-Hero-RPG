@@ -3864,13 +3864,13 @@ function RPCItems:RollBrazenKabuto(deathLocation, isShop)
         local luck2 = RandomInt(1, 100)
         local runeValue = 0
         local runeName = ''
-        if luck <= 35 then
+        if luck2 <= 35 then
             runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor/5, 0, 0, 0, 0)
             runeName = 'rune_r_1'
-        elseif luck <= 70 then
+        elseif luck2 <= 70 then
             runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor/5, 0, 0, 0, 0)
             runeName = 'rune_r_2'
-        elseif luck <= 90 then
+        elseif luck2 <= 90 then
             runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor/10, 0, 0, 0, 0)
             runeName = 'rune_r_3'
         else
@@ -5307,10 +5307,10 @@ function RPCItems:RollSangeBoots(deathLocation)
         local runeValue = 0
         local runeLetter = RPCItems:GetRandomRuneLetter(1, 4)
         local runeName = ''
-        if luck <= 45 then
+        if luck2 <= 45 then
             runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor/7.5, 0, 0, 0, 0)
             runeName = 'rune_' .. runeLetter .. '_1'
-        elseif luck <= 90 then
+        elseif luck2 <= 90 then
             runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor/7.5, 0, 0, 0, 0)
             runeName = 'rune_' .. runeLetter .. '_2'
         else

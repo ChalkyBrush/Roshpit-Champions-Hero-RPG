@@ -1,5 +1,5 @@
 "DOTA_Tooltip_ability_item_rpc_blue_rain_gauntlet"								"Blue Rain Gauntlet"
-"item_property_blue_rain"								"Rain Wave"
+"item_property_blue_rain"								"Rain Lance"
 "property_blue_rain_description"						"Attacks cannot miss. <% BLUE_RAIN_CHANCE %>% chance on attack to create massive wave of water that damages enemies in a line in front of you for <% BLUE_RAIN_DMG_PER_ATT %>x your total attack power."
 
 
@@ -11,5 +11,5 @@
 
 "DOTA_Tooltip_ability_item_rpc_grasp_of_elder"									"Grasp of the Elders"
 "DOTA_Tooltip_ability_item_rpc_grasp_of_elder_Description"						"Slot: Hands"
-"item_property_elder_grasp"					"Elder Grasp"
-"property_elder_grasp_description"			"When you cast any ability heal you and allies in <% ELDER_GRASP_RADIUS %> radius by <% ELDER_GRASP_HEAL_PCT * 100%>% of maximum Health. Overheal converting to shield, the shield max durable is <% ELDER_GRASP_SHIELD_PER_HP %>x of maximum Health"
+"item_property_elder_grasp"					"Healing Prayer"
+"property_elder_grasp_description"			"When you cast any spell, heal yourself and all allies in a <% ELDER_GRASP_RADIUS %> radius for <% ELDER_GRASP_HEAL_PCT * 100%>% of their maximum Health. Any overheal is converted into a temporary shield, up to a limit of <% ELDER_GRASP_SHIELD_PER_HP %>x the ally's maximum Health"

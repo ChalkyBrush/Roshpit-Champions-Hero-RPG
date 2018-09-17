@@ -3,11 +3,11 @@
 		"item_property_basilisk_plague"					"Depth Rot"
 		"property_basilisk_plague_description"				"A cloud of foul rot surrounds you, slowing the movement speed of nearby enemies by <% BASILISK_PLAGUE_MOVESPEED_REDUCE_PCT %>% and reducing their attack speed by <% BASILISK_PLAGUE_ATT_SPD_REDUCE %>. Enemies who are exposed to the rot for <% BASILISK_PLAGUE_TIME_BEFORE_STONE_FORM %> seconds are petrified for <% BASILISK_PLAGUE_STONE_FORM_DUR %> seconds, paralyzing them while granting Spell Immunity and a <% BASILISK_PLAGUE_PHYSICAL_POSTMIT * 100%> post-mitigation weakness to Physical damage."
         "DOTA_Tooltip_modifier_basilisk_plague_petrify"	"Depth Rot Petrify"
-		"DOTA_Tooltip_modifier_basilisk_plague_petrify_Description"	"Turned to stone. Magic immune."
+		"DOTA_Tooltip_modifier_basilisk_plague_petrify_Description"	"Turned to stone. Spell Immune, vulnerable to Physical damage."
 
     	"DOTA_Tooltip_ability_item_rpc_brazen_kabuto_of_the_desert_realm"				"Brazen Kabuto of the Desert Realm"
 		"item_property_brazen_kabuto"				"Warrior's Rampart"
-		"property_brazen_kabuto_description"		"100% damage immunity while channeling @Ability4. Gain shield that reduce incoming damage by <% KABUTO_SHIELD_RESISTANCE * 100 %>% for <% KABUTO_SHIELD_DUR %> seconds after finish cast @Ability4"
+		"property_brazen_kabuto_description"		"100% damage immunity while channeling @Ability4. When the channel is finished, gain a shield that grants <% KABUTO_SHIELD_RESISTANCE * 100 %>% damage reduction for <% KABUTO_SHIELD_DUR %> seconds."
 		"DOTA_Tooltip_modifier_brazen_kabuto_shield"	"Warrior's Rampart"
         "DOTA_Tooltip_modifier_brazen_kabuto_shield"	"Reduce incoming damage by <% KABUTO_SHIELD_RESISTANCE * 100 %>%."
 
@@ -28,5 +28,5 @@
 
 
     	"DOTA_Tooltip_ability_item_rpc_crown_of_the_lava_forge"							"Crown of the Lava Forge"
-		 "item_property_lava_forge"							"Lava Blast"
-		 "property_lava_forge_description"					"When taking damage launch a fireball towards the damage source that deals <% LAVA_FORGE_DMG_PER_ATT %>x your attack damage + <% LAVA_FORGE_DMG_PER_AGI %>x your agility in a small radius on impact."
+		 "item_property_lava_forge"							"Eject Tephra"
+		 "property_lava_forge_description"					"When taking damage, launch a fireball towards the damage source that deals <% LAVA_FORGE_DMG_PER_ATT %>x your attack damage + <% LAVA_FORGE_DMG_PER_AGI %>x your Agility in a small radius on impact."

@@ -14163,14 +14163,14 @@
 		"DOTA_Tooltip_ability_siltbreaker_amplify_damage_armor_reduction"	"ARMOR REDUCTION:"
 		"DOTA_Tooltip_ability_siltbreaker_amplify_damage_duration"			"DURATION:"
 
-		"DOTA_Tooltip_ability_siltbreaker_whirlpool"			"Blue Whirlpool"
-		"DOTA_Tooltip_ability_siltbreaker_whirlpool_Description"	"Summons whirlpools at the target location that silence and decrease movespeed enemies standing within."
+		"DOTA_Tooltip_ability_siltbreaker_whirlpool"            "Blue Whirlpool"
+        "DOTA_Tooltip_ability_siltbreaker_whirlpool_Description"    "Summons whirlpools at the target location, slowing and silencing enemies standing within."
 
-		"DOTA_Tooltip_modifier_whirlpool_within"				"Blue Whirlpool"
-		"DOTA_Tooltip_modifier_whirlpool_within_Description"	"Silenced and decreased movespeed."
+        "DOTA_Tooltip_modifier_whirlpool_within"                "Blue Whirlpool"
+        "DOTA_Tooltip_modifier_whirlpool_within_Description"    "Silenced and slowed."
 
-		"DOTA_Tooltip_ability_siltbreaker_channel"				"Virulent Striker"
-		"DOTA_Tooltip_ability_siltbreaker_channel_Description"	"Charge up and breathe damaging waves. 99% resistance while cast. Waves has 100% chance to kill enemies"
+        "DOTA_Tooltip_ability_siltbreaker_channel"                "Disintegration Breath"
+        "DOTA_Tooltip_ability_siltbreaker_channel_Description"    "After inhaling briefly, Siltbreaker begins to breathe a matter disintegration blast. Grants 99% damage reduction while breathing. This breath weapon instantly kills any enemy unit struck by its waves."
 
 		"DOTA_Tooltip_ability_seafortress_centaur_slam"			"Centaur Slam"
 		"DOTA_Tooltip_ability_seafortress_centaur_slam_Description"	"Target a single enemy dealing damage and a small stun."
@@ -14234,8 +14234,8 @@
 
 		"seafortress_shadow_of_bahamut"									"Shadow of Bahamut"
 
-		"DOTA_Tooltip_ability_seafortress_shadow_of_bahamut_passive"	"Demon Wrath"
-		"DOTA_Tooltip_ability_seafortress_shadow_of_bahamut_passive_Description"	"Plants a tainted circle of judgement beneath all nearby enemies. After 1 second delay, everyone inside is killed."
+		"DOTA_Tooltip_ability_seafortress_shadow_of_bahamut_passive"    "Power Word: Kill"
+        "DOTA_Tooltip_ability_seafortress_shadow_of_bahamut_passive_Description"    "The Shadow of Bahamut speaks a terrible word of unmaking, uttered at the dawn of creation. Zones of death magic appear at the feet of all heroes, and after a 1 second delay, any hero still standing inside a zone is instantly killed."
 
 		"DOTA_Tooltip_ability_shadow_of_bahamut_orb"					"Tainted Sphere of Divinity"
 		"DOTA_Tooltip_ability_shadow_of_bahamut_orb_Description"		"Travels toward the target location within a tainted orb."
