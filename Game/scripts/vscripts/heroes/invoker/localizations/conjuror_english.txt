@@ -273,6 +273,18 @@
 		"item_rpc_conjuror_glyph_5_a_description" 				"ALL post-mitigation damage dealt by conjuror and his aspects is increased by 200%."
 		
 		//Weapons
+		"conjuror_weapon_01"			"Earth Orb"
+		"conjuror_weapon_02"			"Shadow Orb"
+		"conjuror_weapon_03"			"Mind Orb"
+		"conjuror_weapon_11"			"Fire Arcana"
+		"conjuror_weapon_12"			"Core Arcana"
+		"conjuror_weapon_13"			"Prime Arcana"
+		"conjuror_weapon_14"			"Shadow Arcana"
+		"conjuror_weapon_21"			"Trinity Essence"
+		"conjuror_weapon_22"			"Core of Fire"
+		"conjuror_weapon_23"			"Arcana of the Triumvirate"
+		"conjuror_weapon_24"			"Essence of Shadow"
+		"conjuror_weapon_25"			"Galaxy Essence"
 		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_00"   "Orb"
 		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_01"   "Earth Orb"
 		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_02"   "Shadow Orb"

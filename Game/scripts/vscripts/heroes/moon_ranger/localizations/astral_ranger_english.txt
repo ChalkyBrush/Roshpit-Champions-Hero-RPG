@@ -301,6 +301,18 @@
 		"item_rpc_astral_glyph_5_a_description" 				"Increases Base Attack Damage by @glyph_property1."
 		
 		//Weapons
+		"astral_weapon_01"			"Mithril String Bow"
+		"astral_weapon_02"			"Stormwind Bow"
+		"astral_weapon_03"			"Oaken Sage Bow"
+		"astral_weapon_11"			"Orion's Bow"
+		"astral_weapon_12"			"Starsprint Bow"
+		"astral_weapon_13"			"Pegasus Bow"
+		"astral_weapon_14"			"Galaxy Bow"
+		"astral_weapon_21"			"Bow of the Spiral Queen"
+		"astral_weapon_22"			"Lunar Eclipse Ballista"
+		"astral_weapon_23"			"Daedalus"
+		"astral_weapon_24"			"Phoenix Talon"
+		"astral_weapon_25"			"Heaventremble Bow"
 		"DOTA_Tooltip_ability_item_rpc_astral_weapon_00"   "Bow"
 		"DOTA_Tooltip_ability_item_rpc_astral_weapon_01"   "Mithril String Bow"
 		"DOTA_Tooltip_ability_item_rpc_astral_weapon_02"   "Stormwind Bow"

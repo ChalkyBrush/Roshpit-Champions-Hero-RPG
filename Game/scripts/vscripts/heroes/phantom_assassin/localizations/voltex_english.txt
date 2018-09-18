@@ -274,6 +274,18 @@
 		"DOTA_Tooltip_modifier_voltex_rune_e_2_slow_glyphed_Description"	"Slowed"
 		
 		//Weapons
+		"voltex_weapon_01"			"Brutal Blade"
+		"voltex_weapon_02"			"War Slicer"
+		"voltex_weapon_03"			"Mageblade"
+		"voltex_weapon_11"			"Iron Cleaver"
+		"voltex_weapon_12"			"Stormblade"
+		"voltex_weapon_13"			"Charged Fist"
+		"voltex_weapon_14"			"Dimension Blade"
+		"voltex_weapon_21"			"Fist of Turrasq"
+		"voltex_weapon_22"			"Angel Blade"
+		"voltex_weapon_23"			"Trinity"
+		"voltex_weapon_24"			"Powerfist"
+		"voltex_weapon_25"			"Celestial Talon"
 		"DOTA_Tooltip_ability_item_rpc_voltex_weapon_00"   "Hand Blade"
 		"DOTA_Tooltip_ability_item_rpc_voltex_weapon_01"   "Brutal Blade"
 		"DOTA_Tooltip_ability_item_rpc_voltex_weapon_02"   "War Slicer"

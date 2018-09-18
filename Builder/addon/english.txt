@@ -2984,73 +2984,15 @@
 
 		"weapon_usable"					"Weapon"
 
-		"flamewaker_weapon_00"			"Basic Sword"
-		"flamewaker_weapon_01"			"Earth Dragon Blade"
-		"flamewaker_weapon_02"			"Wind Dragon Blade"
-		"flamewaker_weapon_03"			"Fire Dragon Blade"
-		"flamewaker_weapon_11"			"Giant's Sword"
-		"flamewaker_weapon_12"			"Flametongue Blade"
-		"flamewaker_weapon_13"			"Dragonwake Blade"
-		"flamewaker_weapon_14"			"Dragonsage Blade"
-		"flamewaker_weapon_21"			"Blade of the Mountain Drake"
-		"flamewaker_weapon_22"			"Drakelord's Blade"
-		"flamewaker_weapon_23"			"Blade of the Dancing Drake"
-		"flamewaker_weapon_24"			"Black Wyrm's Singed Blade"
-		"flamewaker_weapon_25"			"Blade of the Elderwyrm"
+		
 
-		"venomort_weapon_00"			"Basic Scythe"
-		"venomort_weapon_01"			"Runic Scythe"
-		"venomort_weapon_02"			"Reaper's Scythe"
-		"venomort_weapon_03"			"Otherworld Scythe"
-		"venomort_weapon_11"			"Scythe of the Venomous Reaper"
-		"venomort_weapon_12"			"Scythe of the Specter"
-		"venomort_weapon_13"			"Lifebane Scythe"
-		"venomort_weapon_14"			"Soul Collector's Scythe"
-		"venomort_weapon_21"			"Viper's Poison Scythe"
-		"venomort_weapon_22"			"Light's End"
-		"venomort_weapon_23"			"Razor of the Grim Reaper"
-		"venomort_weapon_24"			"Reaper of the Black Necromancer"
-		"venomort_weapon_25"			"Manavoid Reaper"
+		
 
-		"axe_weapon_00"			"Basic Axe"
-		"axe_weapon_01"			"Mighty Cleaver"
-		"axe_weapon_02"			"Silver Axe"
-		"axe_weapon_03"			"Earthforge Axe"
-		"axe_weapon_11"			"Thorium Edge"
-		"axe_weapon_12"			"Axe of Desolation"
-		"axe_weapon_13"			"Heavy Skullsplitter"
-		"axe_weapon_14"			"Shockwave Sunderer"
-		"axe_weapon_21"			"Battlerage Axe"
-		"axe_weapon_22"			"Crimson Skullsplitter"
-		"axe_weapon_23"			"Mithril Forged Swiftaxe"
-		"axe_weapon_24"			"Hook of the Defiler"
-		"axe_weapon_25"			"Master Deathforge Axe"
+		
 
-		"astral_weapon_01"			"Mithril String Bow"
-		"astral_weapon_02"			"Stormwind Bow"
-		"astral_weapon_03"			"Oaken Sage Bow"
-		"astral_weapon_11"			"Orion's Bow"
-		"astral_weapon_12"			"Starsprint Bow"
-		"astral_weapon_13"			"Pegasus Bow"
-		"astral_weapon_14"			"Galaxy Bow"
-		"astral_weapon_21"			"Bow of the Spiral Queen"
-		"astral_weapon_22"			"Lunar Eclipse Ballista"
-		"astral_weapon_23"			"Daedalus"
-		"astral_weapon_24"			"Phoenix Talon"
-		"astral_weapon_25"			"Heaventremble Bow"
+		
 
-		"sorceress_weapon_01"			"Icecap Staff"
-		"sorceress_weapon_02"			"Iceblade Staff"
-		"sorceress_weapon_03"			"Mystic Lotus Staff"
-		"sorceress_weapon_11"			"Flamethrower Staff"
-		"sorceress_weapon_12"			"Infernal Staff"
-		"sorceress_weapon_13"			"Glacial Snowstaff"
-		"sorceress_weapon_14"			"Arcane Scepter"
-		"sorceress_weapon_21"			"Wild Inferno Staff"
-		"sorceress_weapon_22"			"Spellbinder's Sapphire Staff"
-		"sorceress_weapon_23"			"Ice Staff of the Northern Wind"
-		"sorceress_weapon_24"			"Teacher's Soulbind Scepter"
-		"sorceress_weapon_25"			"Hightide Staff of the Immortal"
+		
 
 		"epoch_weapon_01"			"Distortion Staff"
 		"epoch_weapon_02"			"Timehook Staff"
@@ -3091,44 +3033,11 @@
 		"seinaru_weapon_24"			"Hariken Blade"
 		"seinaru_weapon_25"			"Elder's Sageblade"
 
-		"conjuror_weapon_01"			"Earth Orb"
-		"conjuror_weapon_02"			"Shadow Orb"
-		"conjuror_weapon_03"			"Mind Orb"
-		"conjuror_weapon_11"			"Fire Arcana"
-		"conjuror_weapon_12"			"Core Arcana"
-		"conjuror_weapon_13"			"Prime Arcana"
-		"conjuror_weapon_14"			"Shadow Arcana"
-		"conjuror_weapon_21"			"Trinity Essence"
-		"conjuror_weapon_22"			"Core of Fire"
-		"conjuror_weapon_23"			"Arcana of the Triumvirate"
-		"conjuror_weapon_24"			"Essence of Shadow"
-		"conjuror_weapon_25"			"Galaxy Essence"
+		
 
-		"voltex_weapon_01"			"Brutal Blade"
-		"voltex_weapon_02"			"War Slicer"
-		"voltex_weapon_03"			"Mageblade"
-		"voltex_weapon_11"			"Iron Cleaver"
-		"voltex_weapon_12"			"Stormblade"
-		"voltex_weapon_13"			"Charged Fist"
-		"voltex_weapon_14"			"Dimension Blade"
-		"voltex_weapon_21"			"Fist of Turrasq"
-		"voltex_weapon_22"			"Angel Blade"
-		"voltex_weapon_23"			"Trinity"
-		"voltex_weapon_24"			"Powerfist"
-		"voltex_weapon_25"			"Celestial Talon"
+		
 
-		"warlord_weapon_01"			"Mighty Axes"
-		"warlord_weapon_02"			"Carved Slicer"
-		"warlord_weapon_03"			"Mystic Axe"
-		"warlord_weapon_11"			"Earthforged Blades"
-		"warlord_weapon_12"			"Cleaving Edge"
-		"warlord_weapon_13"			"Flamecharged Axes"
-		"warlord_weapon_14"			"Iceforged Axes"
-		"warlord_weapon_21"			"Axe of the Earthborne"
-		"warlord_weapon_22"			"Firestorm Axes"
-		"warlord_weapon_23"			"Thorium Forged Slicer"
-		"warlord_weapon_24"			"Nimble Silveraxes"
-		"warlord_weapon_25"			"Razorbounce Axes"
+		
 
 		"bahamut_weapon_00"			"Base Rune"
 		"bahamut_weapon_01"			"Power Rune"
@@ -3172,19 +3081,7 @@
 		
 
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_weapon_00"   "Scythe"
-		"DOTA_Tooltip_ability_item_rpc_venomort_weapon_01"   "Runic Scythe"
-		"DOTA_Tooltip_ability_item_rpc_venomort_weapon_02"   "Reaper's Scythe"
-		"DOTA_Tooltip_ability_item_rpc_venomort_weapon_03"   "Otherworld Scythe"
-		"DOTA_Tooltip_ability_item_rpc_venomort_weapon_11"   "Scythe of the Venomous Reaper"
-		"DOTA_Tooltip_ability_item_rpc_venomort_weapon_12"   "Scythe of the Specter"
-		"DOTA_Tooltip_ability_item_rpc_venomort_weapon_13"   "Lifebane Scythe"
-		"DOTA_Tooltip_ability_item_rpc_venomort_weapon_14"   "Soul Collector's Scythe"
-		"DOTA_Tooltip_ability_item_rpc_venomort_weapon_21"   "Viper's Poison Scythe"
-		"DOTA_Tooltip_ability_item_rpc_venomort_weapon_22"   "Light's End"
-		"DOTA_Tooltip_ability_item_rpc_venomort_weapon_23"   "Razor of the Grim Reaper"
-		"DOTA_Tooltip_ability_item_rpc_venomort_weapon_24"   "Reaper of the Black Necromancer"
-		"DOTA_Tooltip_ability_item_rpc_venomort_weapon_25"   "Manavoid Reaper"
+		
 
 		
 
@@ -3451,51 +3348,7 @@
 		
 		//VENOMORT
 
-
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_1_1"		"Glyph of Nimble Poison"
-		"item_rpc_venomort_glyph_1_1_description" 				"Reduces the cooldown of @Ability1 to @glyph_property1 seconds."
-
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_2_1"		"Glyph of Immunodeficiency"
-		"item_rpc_venomort_glyph_2_1_description" 				"For each of Venomort's effects that gains power based on the number of affected targets, Paragon enemies count as @glyph_property2 units, while bosses count as @glyph_property1."
-
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_3_1"		"Glyph of Ghost Shroud"
-		"item_rpc_venomort_glyph_3_1_description" 				"While invisible from @Ability3, Venomort's health regeneration is increased by @glyph_property1% of maximum health."
-
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_4_1"		"Glyph of Melancholy"
-		"item_rpc_venomort_glyph_4_1_description" 				"[E1] additionally increases <font color=\"#9ACCD1\">Ghost</font>, <font color=\"#5C776E\">Undead</font>, and <font color=\"#7F4F84\">Shadow</font> damage."
-
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_1"		"Glyph of Ghoul Frenzy"
-		"item_rpc_venomort_glyph_5_1_description" 				"Multiplies the effectiveness of [W3] by @glyph_property1."
-
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_6_1"		"Glyph of Enfeeblement"
-		"item_rpc_venomort_glyph_6_1_description" 				"Enemies suffering from any of Venomort's various poisons deal @glyph_property1% reduced Magical and Pure damage to Venomort."
-
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_7_1"		"Glyph of the Snake Charmer"
-		"item_rpc_venomort_glyph_7_1_description" 				"Increases the duration of all units summoned by any of Venomort's spells or runes (but not from other sources) by @glyph_property1 seconds, and increases their base attack speed by @glyph_property2."
-
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_a"		"Glyph of Insidious Toxins"
-		"item_rpc_venomort_glyph_5_a_description" 				"All instances of DoT damage dealt by Venomort's various poisons are divided by 3 and separated into equal instances of Physical, Magical, and Pure damage."
-
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_1_2"		"Glyph of Delirium"
-		"item_rpc_venomort_glyph_1_2_description" 				"Increases the duration of [W2] by @glyph_property2%. Additionally, enemies caught in the area of each @Ability1 cast have a @glyph_property1% chance to be afflicted with it."
-
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_2_2"		"Glyph of Acid Splash"
-		"item_rpc_venomort_glyph_2_2_description" 				"When activated, [E2] will soak additional enemy units within @glyph_property1 range of the primary target."
-
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_3_2"		"Glyph of Corrosive Blood"
-		"item_rpc_venomort_glyph_3_2_description" 				"Each time Venomort's current health dips below another @glyph_property1% threshold of his maximum, his next application of [E2] will deal @glyph_property2x damage."
-
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_4_2"		"Glyph of Malingering"
-		"item_rpc_venomort_glyph_4_2_description" 				"Increases the duration of [E4] stacks from 1.5 seconds to @glyph_property1 seconds."
-
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_2"		"Glyph of Necropotence"
-		"item_rpc_venomort_glyph_5_2_description" 				"Increases the maximum range of @Ability2 by @glyph_property1%."
-
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_6_2"		"Glyph of Antibiotics"
-		"item_rpc_venomort_glyph_6_2_description" 				"All units summoned by any of Venomort's spells or runes (but not from other sources) have the Steadfast property."
-
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_7_2"		"Glyph of Sudden Death"
-		"item_rpc_venomort_glyph_7_2_description" 				"Venomort deals @glyph_property2% increased post-mitigation damage to units whose current health is over @glyph_property1% of their maximum."
+		
 		//RED General
 
      	
@@ -6377,12 +6230,7 @@
 
 		
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_immortal_weapon_1"		"Venomblight"
-		"item_property_venomort_immortal_weapon"						"Venomblight"
-		"property_venomort_immortal_weapon_description"					"Damage dealt by [R1] splashes to other enemy units within @special_property1 range. Additionally, its damage will benefit from all properties which apply to Damage Over Time effects."
-
-		"DOTA_Tooltip_modifier_venomort_legendary_weapon"				"Venomblight"
-		"DOTA_Tooltip_modifier_venomort_legendary_weapon_Description"	"Attack damage increased by 400%%"
+		
 
 		
 		
@@ -6437,13 +6285,7 @@
     	//VOLTEX
     	
     	// VENOMORT
-    	"DOTA_Tooltip_ability_item_rpc_venomort_immortal_weapon_2"				"Scythe of Vyse"
-    	"item_property_venomort_immortal_weapon2"								"Contagion"
-    	"property_venomort_immortal_weapon2_description"						"@Ability2 has @special_property1 additional forks. Additionally, its damage will benefit from all properties which apply to Damage Over Time effects."
-
-    	"DOTA_Tooltip_ability_item_rpc_venomort_immortal_weapon_3"				"Hook of the Fetid Valley"
-    	"item_property_venomort_immortal_weapon3"								"Mantle of Juiblex"
-    	"property_venomort_immortal_weapon3_description"						"[E2] no longer has a duration or a tick rate but instead applies a single instance of damage. The damage is still considered as a Damage Over Time effect. Each point of [E2] increases its damage by @special_property1% of Venomort's maximum health."
+    	
 
     	//RED GENERAL
 

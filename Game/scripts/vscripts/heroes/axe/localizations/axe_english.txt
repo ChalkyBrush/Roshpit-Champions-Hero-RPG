@@ -258,6 +258,19 @@
 		"DOTA_Tooltip_ability_item_rpc_axe_glyph_book"		"Red General Glyph Book"
 
 		//Weapons
+		"axe_weapon_00"			"Basic Axe"
+		"axe_weapon_01"			"Mighty Cleaver"
+		"axe_weapon_02"			"Silver Axe"
+		"axe_weapon_03"			"Earthforge Axe"
+		"axe_weapon_11"			"Thorium Edge"
+		"axe_weapon_12"			"Axe of Desolation"
+		"axe_weapon_13"			"Heavy Skullsplitter"
+		"axe_weapon_14"			"Shockwave Sunderer"
+		"axe_weapon_21"			"Battlerage Axe"
+		"axe_weapon_22"			"Crimson Skullsplitter"
+		"axe_weapon_23"			"Mithril Forged Swiftaxe"
+		"axe_weapon_24"			"Hook of the Defiler"
+		"axe_weapon_25"			"Master Deathforge Axe"
 		
 		"DOTA_Tooltip_ability_item_rpc_basic_axe"   "Axe"
 		"DOTA_Tooltip_ability_item_rpc_axe_weapon_00"   "Axe"
