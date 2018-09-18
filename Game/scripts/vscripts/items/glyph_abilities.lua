@@ -1,109 +1,72 @@
 require('/items/potion')
 
 function neutral_glyph_4_3_think(event)	
-	for k,item in pairs(GLOBAL_ITEM_TABLE) do        
-		if item
-			and not item:IsNull()
-			and item.expiryTime
-			and item.slot
-			and item.property1name
-			and item.slot == "consumable"
-			and item.property1name == "heal"
-			and item.expiryTime - Time() > 1 then
-			
-            local caster = event.target
-            local potionApplyStats = false
-            local statTable = {}
-
+	local ent = Entities:FindAllByClassnameWithin("dota_item_drop", event.target:GetAbsOrigin(), 400)
+	-- print("Entities found: "..#ent)
+	for i,v in pairs(ent) do
+		abilityName = v:GetContainedItem():GetAbilityName()
+		if abilityName == "item_potion_green" or abilityName == "item_potion_blue" or abilityName == "item_potion_red" then
+			-- print("potionName "..abilityName)
+			local item = v:GetContainedItem()
+			local statTable = {}
 			statTable["heal"] = 0
 			statTable["mana_heal"] = 0
 			statTable["strength"] = 0
-            statTable["agility"] = 0
-            statTable["intelligence"] = 0
-            -- print("consumable potion "..k.." expiryTime "..item.expiryTime - Time())
-            -- print("CalcDistanceBetweenEntityOBB "..CalcDistanceBetweenEntityOBB(item:GetContainer(),caster))
-            local distanceToPotion = CalcDistanceBetweenEntityOBB(item:GetContainer(),caster)
-            if distanceToPotion < 400 then--only nearby potions
-                if item.property1name then--prop 1 always heal
-                    if statTable[item.property1name] ~= nil then
-                        -- print("consumable potion property1 ")
-                        statTable[item.property1name] = statTable[item.property1name] + item.property1
-                        potionApplyStats = true
-                    end
-                end
-                if item.property2name then
-                    if statTable[item.property2name] ~= nil then
-                        -- print("consumable potion property2 ")
-                        statTable[item.property2name] = statTable[item.property2name] + item.property2
-                        potionApplyStats = true
-                    end
-                end   
-                if item.property3name then
-                    if statTable[item.property3name] ~= nil then
-                        -- print("consumable potion property3 ")
-                        statTable[item.property3name] = statTable[item.property3name] + item.property3
-                        potionApplyStats = true
-                    end
-                end   
-                if item.property4name then
-                    if statTable[item.property4name] ~= nil then
-                        -- print("consumable potion property4 ")
-                        statTable[item.property4name] = statTable[item.property4name] + item.property4
-                        potionApplyStats = true
-                    end
-                end
-                if potionApplyStats then
-                	-- potionApplyStats = false
-                    local container = item:GetContainer()
-                    if container then
-                        UTIL_Remove(container)
-                    end
-                    if IsValidEntity(item) then
-                        UTIL_Remove(item)
-                    end
-                    if item.expiryTime then
-                    	item.expiryTime = Time() + 1
-                    end
-
-                    local glyphMult = getPotionMultipler(caster)
-					local hp_heal = statTable["heal"]*glyphMult
-					local mana_heal = statTable["mana_heal"]*glyphMult
-					local str = statTable["strength"]*glyphMult
-	                local agi = statTable["agility"]*glyphMult
-	                local int = statTable["intelligence"]*glyphMult
-
-                    if hp_heal > 0 then
-                        -- print("Applying potion stats: hp_heal "..hp_heal)
-                        heal(hp_heal,caster)                       	
-                    end
-                    if mana_heal > 0 then
-                        -- print("Applying potion stats: mana_heal "..mana_heal)
-                        restore_mana(mana_heal,caster)                       	
-                    end
-                    if str > 0 then
-                        -- print("Applying potion stats: str "..str)
-                        if caster.strength_custom then 
-                        	add_strength(str,caster)                       	
-                        end
-                    end
-                    if agi > 0 then
-                        -- print("Applying potion stats: agi "..agi)
-                        if caster.agility_custom then
-                        	add_agility(agi,caster)
-                        end
-                    end
-                    if int > 0 then
-                        -- print("Applying potion stats: int "..int)
-                        if caster.intellect_custom then
-                        	add_intelligence(int,caster)
-                        end                       
-                    end
-                    
-                    EmitSoundOn("DOTA_Item.Mango.Activate", caster)
-                end
-            end
-        end
-    end	
+			statTable["agility"] = 0
+			statTable["intelligence"] = 0
+			if item.property1name and statTable[item.property1name] ~= nil then
+				statTable[item.property1name] = statTable[item.property1name] + item.property1
+				potionApplyStats = true
+			end
+			if item.property2name and statTable[item.property2name] ~= nil then
+				statTable[item.property2name] = statTable[item.property2name] + item.property2
+				potionApplyStats = true
+			end
+			if item.property3name and statTable[item.property3name] ~= nil then
+				statTable[item.property3name] = statTable[item.property3name] + item.property3
+				potionApplyStats = true
+			end
+			if item.property4name and statTable[item.property4name] ~= nil then
+				statTable[item.property4name] = statTable[item.property4name] + item.property4
+				potionApplyStats = true
+			end
+			if potionApplyStats then
+				UTIL_Remove(v)
+				if IsValidEntity(item) then
+					UTIL_Remove(item)
+				end
+				local caster = event.target
+				local glyphMult = getPotionMultipler(caster)
+				local hp_heal = statTable["heal"]*glyphMult
+				local mana_heal = statTable["mana_heal"]*glyphMult
+				local str = statTable["strength"]*glyphMult
+				local agi = statTable["agility"]*glyphMult
+				local int = statTable["intelligence"]*glyphMult
+				if hp_heal > 0 then
+					heal(hp_heal,caster)
+				end
+				if mana_heal > 0 then
+					restore_mana(mana_heal,caster)
+				end
+				if str > 0 then
+					if caster.strength_custom then
+						add_strength(str,caster)
+					end
+				end
+				if agi > 0 then
+					if caster.agility_custom then
+						add_agility(agi,caster)
+					end
+				end
+				if int > 0 then
+					if caster.intellect_custom then
+						add_intelligence(int,caster)
+					end
+				end
+				EmitSoundOn("DOTA_Item.Mango.Activate", caster)
+			end
+		end
+	end
 end
 
 function glyph_3_1_activate(event)
