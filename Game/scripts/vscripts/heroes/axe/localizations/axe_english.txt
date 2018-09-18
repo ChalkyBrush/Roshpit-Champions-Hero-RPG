@@ -258,6 +258,22 @@
 		"DOTA_Tooltip_ability_item_rpc_axe_glyph_book"		"Red General Glyph Book"
 
 		//Weapons
+		
+		"DOTA_Tooltip_ability_item_rpc_basic_axe"   "Axe"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_00"   "Axe"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_01"   "Mighty Cleaver"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_02"   "Silver Axe"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_03"   "Earthforge Axe"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_11"   "Thorium Edge"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_12"   "Axe of Desolation"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_13"   "Heavy Skullsplitter"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_14"   "Shockwave Sunderer"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_21"   "Red Battlefury"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_22"   "Crimson Skullsplitter"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_23"   "Mithril Forged Swiftaxe"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_24"   "Hook of the Defiler"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_25"   "Master Deathforge Axe"
+		
 		"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_1"		"Rakash, Grandfather Axe"
 		"item_property_axe_immortal_weapon"								"Combat Veteran"
 		"property_axe_immortal_weapon_description"						"Reduces all damage taken by 50%"

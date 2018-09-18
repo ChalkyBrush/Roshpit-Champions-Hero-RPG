@@ -355,6 +355,21 @@
 		
 		
 		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_basic_staff"   "Staff"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_weapon_00"	  "Staff"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_weapon_01"   "Icecap Staff"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_weapon_02"   "Iceblade Staff"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_weapon_03"   "Mystic Lotus Staff"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_weapon_11"   "Flamethrower Staff"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_weapon_12"   "Infernal Staff"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_weapon_13"   "Glacial Snowstaff"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_weapon_14"   "Arcane Scepter"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_weapon_21"   "Wild Inferno Staff"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_weapon_22"   "Spellbinder's Sapphire Staff"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_weapon_23"   "Ice Staff of the Northern Wind"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_weapon_24"   "Teacher's Soulbind Scepter"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_weapon_25"   "Hightide Staff of the Immortal"
+		
 		"DOTA_Tooltip_ability_item_rpc_sorceress_immortal_weapon_1"		"Staff of Yulsaria"
 		
 		"DOTA_Tooltip_ability_item_rpc_sorceress_immortal_weapon_2"            "Ice Queen Staff"

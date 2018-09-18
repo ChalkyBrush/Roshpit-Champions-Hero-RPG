@@ -1,0 +1,282 @@
+"tooltip_duskbringer_Q"											"Whirling Flail and Duskfire"
+
+		"DOTA_Tooltip_ability_whirling_flail"							"Whirling Flail"
+		"DOTA_Tooltip_ability_whirling_flail_Description"				"Element: <font color=\"#DDDDDD\">Normal</font><br>Duskbringer rapidly swings his weapon in circles, knocking back all nearby enemies. Can be used immediately after using Specter Rush to attack while moving."
+		"DOTA_Tooltip_ability_whirling_flail_Lore"						""
+		"DOTA_Tooltip_ability_whirling_flail_damage"					"DAMAGE % OF ATTACK DAMAGE/SWING"
+		"DOTA_Tooltip_ability_whirling_flail_knockback"					"KNOCKBACK DISTANCE"		
+
+		"DOTA_Tooltip_modifier_whirling_flail"							"Whirling Flail"
+		"DOTA_Tooltip_modifier_whirling_flail_Description"  			"Swinging Rapidly"
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1"						"[Q1] Duskfire Flail"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_Description"			"Duskbringer's weapon has an additional energy that explodes on enemies and leaves a burning DPS debuff. The burn effect stacks with no limit."
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_property_one"		"DPS"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_suffix"				""		
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_property_two"		"Bonus Damage from Agility"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_suffix_two"			"x"
+		
+		"DOTA_Tooltip_modifier_modifier_dusk_fire_flail"				"Duskfire Flail"
+		"DOTA_Tooltip_modifier_modifier_dusk_fire_flail_Description"	"Taking ghastly burn damage"
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_q_2"						"[Q2] Polterbite"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_2_Description"			"Increases damage dealt directly by items"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_2_property_one"		"Item Damage Bonus"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_2_suffix"				"%"
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_q_3"						"[Q3] Juxtaposition"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_3_Description"			"Whirling Flail deals additional damage to enemies closer to Duskbringer. The damage bonus decreases linearly towards the edge of the radius."
+		"DOTA_Tooltip_ability_duskbringer_rune_q_3_property_one"		"Focus Max Damage Bonus"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_3_suffix"				"%"
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_q_4"						"[Q4] Ghastly Reach"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_4_Description"			"Increases the damage and radius of Whirling Flail."
+		"DOTA_Tooltip_ability_duskbringer_rune_q_4_property_one"		"Damage Bonus"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_4_suffix"				"%"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_4_property_two"		"Radius Increase"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_4_suffix_two"			""
+
+		"DOTA_Tooltip_modifier_duskbringer_rune_q_4"					"Blank Combustion"
+		"DOTA_Tooltip_modifier_duskbringer_rune_q_4_Description"		"Attacks are exploding with Duskfire"
+		
+		"DOTA_Tooltip_ability_ghost_hallow"								"Ghost Hallow"
+		"DOTA_Tooltip_ability_ghost_hallow_Description"				"Summons a haunted void that roots all enemies that are trapped inside."
+		"DOTA_Tooltip_ability_ghost_hallow_Lore"						""
+		"DOTA_Tooltip_ability_ghost_hallow_radius"						"RADIUS"
+		"DOTA_Tooltip_ability_ghost_hallow_duration"					"ROOT DURATION"
+
+		"DOTA_Tooltip_ghost_hallow_stun"								"Ghost Hallow"
+		"DOTA_Tooltip_ghost_hallow_stun_Description"					"Rooted"
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_w_1"						"[W1] Haunted Hallow"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_1_Description"			"Enemies standing in Ghost Hallow take magic damage every 0.3 seconds based on Duskbringer's attack power."
+		"DOTA_Tooltip_ability_duskbringer_rune_w_1_property_one"		"Damage"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_1_suffix"				"% of attack damage"
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_w_2"						"[W2] Astromagnetism"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_2_Description"			"Enemies locked by Ghost Hallow have reduced magic resistance."
+		"DOTA_Tooltip_ability_duskbringer_rune_w_2_property_one"		"Magic Resistance Reduction"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_2_suffix"				""
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_w_3"						"[W3] Void Plasma"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_3_Description"			"Duskbringer is healed each time he takes damage."
+		"DOTA_Tooltip_ability_duskbringer_rune_w_3_property_one"		"Heal"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_3_suffix"				""
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_w_4"						"[W4] Phantasm"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_4_Description"			"Duskbringer deals increased post-mitigation damage to enemies that are rooted by any means."
+		"DOTA_Tooltip_ability_duskbringer_rune_w_4_property_one"		"Post-mitigation damage bonus"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_4_suffix"				"%"
+
+		"DOTA_Tooltip_modifier_duskbringer_rune_w_4_visible"			"Material Diffusion"
+		"DOTA_Tooltip_modifier_duskbringer_rune_w_4_visible_Description"	"Losing Armor"
+		
+		"DOTA_Tooltip_ability_specter_rush"								"Specter Rush"
+		"DOTA_Tooltip_ability_specter_rush_Description"					"Duskbringer quickly sprints forward with no collision."
+		"DOTA_Tooltip_ability_specter_rush_Lore"						""
+		"DOTA_Tooltip_ability_specter_rush_charge_duration"				"DURATION"
+
+		"DOTA_Tooltip_ability_specter_rush_two"							"Specter Rush"
+		"DOTA_Tooltip_ability_specter_rush_two_Description"				"Duskbringer sprints towards the target location with no collision."	
+		"DOTA_Tooltip_ability_specter_rush_two_max_distance"			"MAX CHARGE DISTANCE:"
+
+		"DOTA_Tooltip_modifier_charging"								"Specter Rush"
+		"DOTA_Tooltip_modifier_charging_Description"					"Charging forward with no collision"
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_e_1"						"[E1] Phantom Pace"
+    	"DOTA_Tooltip_ability_duskbringer_rune_e_1_Description"			"Duskbringer gains stacks of attack damage and armor as long as he remains in motion. Stacks won't time out while you channel spells."
+    	"DOTA_Tooltip_ability_duskbringer_rune_e_1_property_one"		"Damage"
+    	"DOTA_Tooltip_ability_duskbringer_rune_e_1_suffix"				""		
+    	"DOTA_Tooltip_ability_duskbringer_rune_e_1_property_two"		"Armor"
+    	"DOTA_Tooltip_ability_duskbringer_rune_e_1_suffix_two"			"" 
+
+		"DOTA_Tooltip_modifier_duskbringer_rune_e_1_effect"							"Phantom Pace"
+		"DOTA_Tooltip_modifier_duskbringer_rune_e_1_effect_Description"				"Movement increases Duskbringer's damage and armor. Stacks are lost when movement ceases for 4 seconds."
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_e_2"						"[E2] Ghost Armor"
+		"DOTA_Tooltip_ability_duskbringer_rune_e_2_Description"			"Casting specter rush applies a shield that absorbs up to 6 instances of damage."
+		"DOTA_Tooltip_ability_duskbringer_rune_e_2_property_one"		"Duration"
+		"DOTA_Tooltip_ability_duskbringer_rune_e_2_suffix"				" seconds"		
+
+		"DOTA_Tooltip_modifier_duskbringer_rune_e_2_effect"				"Ghost Armor" 
+		"DOTA_Tooltip_modifier_duskbringer_rune_e_2_effect_Description"	"%property_one physical block and %property_two magic block."
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_e_3"						"[E3] Entity Clash"
+    	"DOTA_Tooltip_ability_duskbringer_rune_e_3_Description"			"Enemies who come into contact with Duskbringer during @Ability3 have a chance of receiving Duskfire stacks. A chance greater than 100% means multiple stacks may be applied"
+		"DOTA_Tooltip_ability_duskbringer_rune_e_3_property_one"		"Chance"
+		"DOTA_Tooltip_ability_duskbringer_rune_e_3_suffix"				"%"
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_e_4"						"[E4] Wraith Form"
+		"DOTA_Tooltip_ability_duskbringer_rune_e_4_Description"			"Allied heroes within 900 range who take lethal damage will instead cling to life, in wraithform, before dying."
+		"DOTA_Tooltip_ability_duskbringer_rune_e_4_property_one"		"Wraithform Duration"
+		"DOTA_Tooltip_ability_duskbringer_rune_e_4_suffix"				" seconds"
+
+		"DOTA_Tooltip_modifier_duskbringer_ghost_form_active"			"Wraith Form"
+		"DOTA_Tooltip_modifier_duskbringer_ghost_form_active_Description"	"Death has been delayed"
+
+		"DOTA_Tooltip_modifier_duskbringer_rune_e_4_visible"			"Synthesis"
+		"DOTA_Tooltip_modifier_duskbringer_rune_e_4_visible_Description"	"Increased Attack Damage"
+		
+		"DOTA_Tooltip_ability_seven_visions"							"Seven Visions"
+		"DOTA_Tooltip_ability_seven_visions_Description"				"Element: <font color=\"#9ACCD1\">Ghost</font> / <font color=\"#DDDDDD\">Normal</font><br>Duskbringer teleports to his enemies and attacks them from any angle, dealing bonus damage and stunning them. Caster has magic and physical immunity for the duration."
+		"DOTA_Tooltip_ability_seven_visions_Lore"						""
+		"DOTA_Tooltip_ability_seven_visions_attacks"					"ATTACKS"
+		"DOTA_Tooltip_ability_seven_visions_bonus_damage"				"BONUS ATTACK DAMAGE"
+		"DOTA_Tooltip_ability_seven_visions_stun_duration"				"STUN DURATION"
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_r_1"						"[R1] Permeating Assault"
+		"DOTA_Tooltip_ability_duskbringer_rune_r_1_Description"			"Each attack during Seven Visions also unleashes a 700-radius blast, based on the total pre-mitigation damage dealt by the Seven Visions strike."
+		"DOTA_Tooltip_ability_duskbringer_rune_r_1_property_one"		"Damage from Seven Visions"
+		"DOTA_Tooltip_ability_duskbringer_rune_r_1_suffix"				"%"
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_r_2"						"[R2] Doom"
+		"DOTA_Tooltip_ability_duskbringer_rune_r_2_Description"			"Enemies struck by Seven Visions receive a debuff that increases all post-mitigation damage taken. This debuff stacks if a target is hit multiple times, and lasts 5 seconds. Max 20 stacks."
+		"DOTA_Tooltip_ability_duskbringer_rune_r_2_property_one"		"Post-mitigation damage bonus"
+		"DOTA_Tooltip_ability_duskbringer_rune_r_2_suffix"				"%"
+
+		"DOTA_Tooltip_modifier_duskbringer_b_d_visible"					"Doom"
+		"DOTA_Tooltip_modifier_duskbringer_b_d_visible_Description"		"Taking increased post-mitigation damage from each stack."
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_r_3"						"[R3] Spirit Plunder"
+		"DOTA_Tooltip_ability_duskbringer_rune_r_3_Description"			"Each enemy struck by Seven Visions increases Duskbringer's attack damage for 6 seconds."
+		"DOTA_Tooltip_ability_duskbringer_rune_r_3_property_one"		"Damage increase per strike"
+		"DOTA_Tooltip_ability_duskbringer_rune_r_3_suffix"				"%"
+		
+		"DOTA_Tooltip_modifier_duskbringer_rune_r_3"					"Spirit Plunder"
+		"DOTA_Tooltip_modifier_duskbringer_rune_r_3_Description"		"Gaining attack damage"
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_r_4"						"[R4] Force of Night"
+		"DOTA_Tooltip_ability_duskbringer_rune_r_4_Description"			"Duskbringer's Strength increases <font color=\"#9ACCD1\">Ghost</font> Damage."
+		"DOTA_Tooltip_ability_duskbringer_rune_r_4_property_one"		"Ghost Damage Increase"
+		"DOTA_Tooltip_ability_duskbringer_rune_r_4_suffix"				"% for each 10 points of Strength"
+		
+		"DOTA_Tooltip_ability_revenant_strikes"								"Revenant Strikes"
+		"DOTA_Tooltip_ability_revenant_strikes_Description"					"A mighty swing of Duskbringer's weapon damages enemies in front of him. The force of the swing pulls him forward slightly."
+		"DOTA_Tooltip_ability_revenant_strikes_Lore"						""
+		"DOTA_Tooltip_ability_revenant_strikes_damage"						"DAMAGE"
+
+		"DOTA_Tooltip_modifier_revenant_strikes_state"					"Revenant Strikes Combo"
+		"DOTA_Tooltip_modifier_revenant_strikes_state_Description"		""
+		
+		//Arcanas
+		
+		"item_property_duskbringer_arcana1"										"Shadow Slam"
+		"property_duskbringer_arcana1_description"								"Replaces @Ability2 and all of its runes with Shadow Slam."
+
+		"DOTA_Tooltip_ability_duskbringer_arcana_ability"						"Shadow Slam"
+		"DOTA_Tooltip_ability_duskbringer_arcana_ability_Description"			"Element: <font color=\"#9ACCD1\">Ghost</font> / <font color=\"#7F4F84\">Shadow</font><br>Duskbringer leaps toward the target point and creates a massive flare of spectral energy at the landing point."
+		"DOTA_Tooltip_ability_duskbringer_arcana_ability_damage"				"DAMAGE:"
+		"DOTA_Tooltip_ability_duskbringer_arcana_ability_stun_duration"			"STUN DURATION:"
+
+		"DOTA_Tooltip_ability_duskbringer_rune_w_1_arcana1"						"[W1] Revenant Strike"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_1_arcana1_Description"			"Adds a % of attack damage to Shadow Slam damage. Stated bonus is multiplied by the level of Shadow Slam."
+		"DOTA_Tooltip_ability_duskbringer_rune_w_1_arcana1_property_one"			"Damage Bonus"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_1_arcana1_suffix"				"% of attack power"
+
+		"DOTA_Tooltip_ability_duskbringer_rune_w_2_arcana1"						"[W2] Ethereal Void"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_2_arcana1_Description"			"For 6 seconds after landing from a Shadow Slam, Duskbringer gains bonus armor, and a portion of his armor value will also grant resistance to Magical and Pure damage"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_2_arcana1_property_one"		"Armor Bonus"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_2_arcana1_suffix"				""
+		"DOTA_Tooltip_ability_duskbringer_rune_w_2_arcana1_property_two"		"Armor Considered for Magic and Pure damage"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_2_arcana1_suffix_two"			"%"
+
+		"DOTA_Tooltip_modifier_duskbringer_arcana_armor"						"Ethereal Void"
+		"DOTA_Tooltip_modifier_duskbringer_arcana_armor_Description"			"Increased armor, and armor is considered for magic and pure damage."
+
+		"DOTA_Tooltip_ability_duskbringer_rune_w_3_arcana1"						"[W3] Shadowflame"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_3_arcana1_Description"			"Enemies hit by Shadow Slam may gain stacks of Duskfire. A chance greater than 100% means multiple stacks can be applied."
+		"DOTA_Tooltip_ability_duskbringer_rune_w_3_arcana1_property_one"		"Chance"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_3_arcana1_suffix"				"%"
+
+		"DOTA_Tooltip_ability_duskbringer_rune_w_4_arcana1"						"[W4] Rise of the Phantom Lord"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_4_arcana1_Description"			"After landing from a Shadow Slam, Duskbringer works himself into a rage, charging up for 0.8 seconds to gain massive base and bonus attack damage for 18 seconds. This only occurs if the buff isn't already active."
+		"DOTA_Tooltip_ability_duskbringer_rune_w_4_arcana1_property_one"		"Base Attack Damage"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_4_arcana1_suffix"				""
+		"DOTA_Tooltip_ability_duskbringer_rune_w_4_arcana1_property_two"		"Attack Damage Increase"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_4_arcana1_suffix_two"			"%"
+
+		"DOTA_Tooltip_modifier_duskbringer_arcana_damage_buff"					"Rise of the Phantom Lord"
+		"DOTA_Tooltip_modifier_duskbringer_arcana_damage_buff_Description"		"Greatly increased attack power"
+		
+		//Glyphs
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_1_1"		"Glyph of Dying Breath"
+		"item_rpc_duskbringer_glyph_1_1_description" 				"When entering Wraith Form, the cooldowns of all abilities are refreshed. (This also affects allies.)"
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_2_1"		"Glyph of Scathing Phantoms"
+		"item_rpc_duskbringer_glyph_2_1_description" 				"Enemies trapped by Ghost Hallow gain 3 Duskfire stacks each second."
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_3_1"		"Glyph of Lingering"
+		"item_rpc_duskbringer_glyph_3_1_description" 				"Phantom Pace stacks time out in 2 seconds instead of 1 second."
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_4_1"		"Glyph of Nightfall"
+		"item_rpc_duskbringer_glyph_4_1_description" 				"Enemies trapped in Ghost Hallow are also disarmed."
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_1"		"Glyph of Death Prophecies"
+		"item_rpc_duskbringer_glyph_5_1_description" 				"Adds @glyph_property1 additional strikes to Seven Visions."
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_6_1"		"Glyph of Winding"
+		"item_rpc_duskbringer_glyph_6_1_description" 				"Reduces the cooldown of Whirling Flail to @glyph_property1 seconds."
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_7_1"		"Glyph of Manifestation"
+		"item_rpc_duskbringer_glyph_7_1_description" 				"Replaces Specter Rush with Manifestation, an ability that teleports Duskbringer to the target location and strikes all surrounding enemies with Entity Clash on arrival. Also increases the Duskfire stack chance of Entity Clash by @glyph_property1x."
+
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_1_2"		"Glyph of Eerie Silence"
+		"item_rpc_duskbringer_glyph_1_2_description" 				"Health regeneration is increased by @glyph_property1% of maximum health while silenced, and for @glyph_property2 seconds afterward."
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_2_2"		"Glyph of Blank Combustion"
+		"item_rpc_duskbringer_glyph_2_2_description" 				"Attacking applies @glyph_property1 stacks of Duskfire to enemies, instead of just 1."
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_3_2"		"Glyph of Churning"
+		"item_rpc_duskbringer_glyph_3_2_description" 				"Decreases the interval between @Ability1 damage instances by @glyph_property1, but also decreases its base damage by @glyph_property2%"
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_4_2"		"Glyph of the Journey"
+		"item_rpc_duskbringer_glyph_4_2_description" 				"While moving, gain stacks of @glyph_property1% damage reduction, to a maximum of @glyph_property2 stacks. These stacks last as long as your Phantom Pace stacks, but all stacks are lost at once instead of one at a time."
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_2"		"Glyph of Shared Fate"
+		"item_rpc_duskbringer_glyph_5_2_description" 				"Enemies within @glyph_property1 range of the primary target of your attacks will also gain stacks of Duskfire."
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_6_2"		"Glyph of the Wraith"
+		"item_rpc_duskbringer_glyph_6_2_description" 				"Cleanses all silences and stuns every 0.3 seconds."
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_7_2"		"Glyph of Haunted Spirits"
+		"item_rpc_duskbringer_glyph_7_2_description" 				"All damage dealt directly by items gains Ghost as an additional element."
+
+
+    	"DOTA_Tooltip_ability_manifestation"						"Manifestation"
+    	"DOTA_Tooltip_ability_manifestation_Description"			"Element: <font color=\"#9ACCD1\">Ghost</font><br>Duskbringer immediately appears at the target location, smashing each nearby enemy with Entity Clash."
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_a"		"Glyph of Second Chances"
+		"item_rpc_duskbringer_glyph_5_a_description" 				"Allies will not die when Final Vengeance wraithform ends. This effect has a cooldown of @glyph_property1 seconds."
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_book"	"Duskbringer Glyph Book"
+		
+		
+		
+		//Weapons
+		
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_00"   "Flail"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_01"   "Dusty Lantern"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_02"   "Soul Splicer"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_03"   "Demon Mace"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_11"   "Duskfire Flail"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_12"   "Spine Breaker"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_13"   "Revenant Cube"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_14"   "Spectral Lantern"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_21"   "Copperstone War Mace"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_22"   "Four Powers Flail"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_23"   "Haunter's Silver Flail"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_24"   "Ironsoul Shadow Flail"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_weapon_25"   "Phantom Soul Anchor"
+		
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_immortal_weapon_1"		"Nightfire"
+		"item_property_duskbringer_immortal_weapon"								"Nightfire"
+		"property_duskbringer_immortal_weapon_description"						"Duskfire stacks build 2x faster."
+		
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_immortal_weapon_2"            "Warden's Bone Mace"
+        "item_property_duskbringer_immortal_weapon2"                             "Fear"
+        "property_duskbringer_immortal_weapon2_description"                      "Enemies damaged in any way by @Ability2 are stunned for @special_property1 seconds."
+
+        "DOTA_Tooltip_ability_item_rpc_duskbringer_immortal_weapon_3"            "Cranium Basher"
+        "item_property_duskbringer_immortal_weapon3"                             "Skull Bash"
+        "property_duskbringer_immortal_weapon3_description"                      "Basic attacks have a @special_property1% chance to stun the enemy for @special_property2 seconds and apply a @special_property3 charge ghost armor."

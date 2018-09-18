@@ -325,6 +325,19 @@
 		"item_rpc_warlord_glyph_5_a_description" 				"Taking damage adds @glyph_property1 fire charges. Each active ice charge increases post mitigation magic damage by 5%"
 
 		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_warlord_weapon_01"   "Mighty Axes"
+		"DOTA_Tooltip_ability_item_rpc_warlord_weapon_02"   "Carved Slicer"
+		"DOTA_Tooltip_ability_item_rpc_warlord_weapon_03"   "Mystic Axe"
+		"DOTA_Tooltip_ability_item_rpc_warlord_weapon_11"   "Earthforged Blades"
+		"DOTA_Tooltip_ability_item_rpc_warlord_weapon_12"   "Cleaving Edge"
+		"DOTA_Tooltip_ability_item_rpc_warlord_weapon_13"   "Flamecharged Axes"
+		"DOTA_Tooltip_ability_item_rpc_warlord_weapon_14"   "Iceforged Axes"
+		"DOTA_Tooltip_ability_item_rpc_warlord_weapon_21"   "Axe of the Earthborne"
+		"DOTA_Tooltip_ability_item_rpc_warlord_weapon_22"   "Firestorm Axes"
+		"DOTA_Tooltip_ability_item_rpc_warlord_weapon_23"   "Thorium Forged Slicer"
+		"DOTA_Tooltip_ability_item_rpc_warlord_weapon_24"   "Nimble Silveraxes"
+		"DOTA_Tooltip_ability_item_rpc_warlord_weapon_25"   "Razorbounce Axes"
+		
 		"DOTA_Tooltip_ability_item_rpc_warlord_immortal_weapon_1"		"Ascentius"
 		"item_property_warlord_immortal_weapon"								"Elemental Blitz"
 		"property_warlord_immortal_weapon_description"						"Elemental Charges stack 2x faster."	

@@ -290,6 +290,20 @@
 		"DOTA_Tooltip_modifier_spirit_warrior_glyph_5_a_effect_Description"	"Increased attack damage and attack speed"
 		
 		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_00"   "Spear"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_01"   "Warrior Spear"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_02"   "Wind Spear"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_03"   "Ancient Spear"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_11"   "Blazing Spear"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_12"   "Spear of the Great Spirits"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_13"   "Ancestral Spear"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_14"   "Deep Soul Spear"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_21"   "Ancient Spear of the Lost Jungle"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_22"   "Ancient Ritual Spear"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_23"   "Spear of Great Power"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_24"   "Spear of the Old Gods"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_weapon_25"   "Wildstone Spear"
+		
 		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_immortal_weapon_1"		"Windpiercer"
 		"item_property_spirit_warrior_immortal_weapon"								"Windpiercer"
 		"property_spirit_warrior_immortal_weapon_description"						"Flameblood and Windstrike weapons last 10 seconds longer and deal 100% increased damage."

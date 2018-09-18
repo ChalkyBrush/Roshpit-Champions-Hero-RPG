@@ -274,6 +274,20 @@
 		"DOTA_Tooltip_modifier_voltex_rune_e_2_slow_glyphed_Description"	"Slowed"
 		
 		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_voltex_weapon_00"   "Hand Blade"
+		"DOTA_Tooltip_ability_item_rpc_voltex_weapon_01"   "Brutal Blade"
+		"DOTA_Tooltip_ability_item_rpc_voltex_weapon_02"   "War Slicer"
+		"DOTA_Tooltip_ability_item_rpc_voltex_weapon_03"   "Mageblade"
+		"DOTA_Tooltip_ability_item_rpc_voltex_weapon_11"   "Iron Cleaver"
+		"DOTA_Tooltip_ability_item_rpc_voltex_weapon_12"   "Stormblade"
+		"DOTA_Tooltip_ability_item_rpc_voltex_weapon_13"   "Charged Fist"
+		"DOTA_Tooltip_ability_item_rpc_voltex_weapon_14"   "Dimension Blade"
+		"DOTA_Tooltip_ability_item_rpc_voltex_weapon_21"   "Fist of Turrasq"
+		"DOTA_Tooltip_ability_item_rpc_voltex_weapon_22"   "Angel Blade"
+		"DOTA_Tooltip_ability_item_rpc_voltex_weapon_23"   "Trinity"
+		"DOTA_Tooltip_ability_item_rpc_voltex_weapon_24"   "Powerfist"
+		"DOTA_Tooltip_ability_item_rpc_voltex_weapon_25"   "Celestial Talon"
+		
 		"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_1"		"Gravity Volt"
 		"item_property_voltex_immortal_weapon"							"Gravity Volt"
 		"property_voltex_immortal_weapon_description"					"All post-mitigation damage is increased by 50%."

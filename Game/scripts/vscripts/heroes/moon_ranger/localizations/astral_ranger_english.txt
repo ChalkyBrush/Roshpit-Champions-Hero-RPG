@@ -301,6 +301,19 @@
 		"item_rpc_astral_glyph_5_a_description" 				"Increases Base Attack Damage by @glyph_property1."
 		
 		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_astral_weapon_00"   "Bow"
+		"DOTA_Tooltip_ability_item_rpc_astral_weapon_01"   "Mithril String Bow"
+		"DOTA_Tooltip_ability_item_rpc_astral_weapon_02"   "Stormwind Bow"
+		"DOTA_Tooltip_ability_item_rpc_astral_weapon_03"   "Oaken Sage Bow"
+		"DOTA_Tooltip_ability_item_rpc_astral_weapon_11"   "Orion's Bow"
+		"DOTA_Tooltip_ability_item_rpc_astral_weapon_12"   "Starsprint Bow"
+		"DOTA_Tooltip_ability_item_rpc_astral_weapon_13"   "Pegasus Bow"
+		"DOTA_Tooltip_ability_item_rpc_astral_weapon_14"   "Galaxy Bow"
+		"DOTA_Tooltip_ability_item_rpc_astral_weapon_21"   "Bow of the Spiral Queen"
+		"DOTA_Tooltip_ability_item_rpc_astral_weapon_22"   "Lunar Eclipse Ballista"
+		"DOTA_Tooltip_ability_item_rpc_astral_weapon_23"   "Daedalus"
+		"DOTA_Tooltip_ability_item_rpc_astral_weapon_24"   "Phoenix Talon"
+		"DOTA_Tooltip_ability_item_rpc_astral_weapon_25"   "Heaventremble Bow"
 		
 		"DOTA_Tooltip_ability_item_rpc_astral_immortal_weapon_1"		"Celestia"
 		"item_property_astral_immortal_weapon"								"Elysian Draw"

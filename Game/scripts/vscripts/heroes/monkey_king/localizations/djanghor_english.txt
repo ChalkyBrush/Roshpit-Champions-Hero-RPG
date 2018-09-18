@@ -329,6 +329,20 @@
 		
 	
 		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_00"		"Staff"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_01"		"Iron Staff"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_02"		"Forest Staff"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_03"		"Primitive Staff"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_11"		"Animal Daibo"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_12"		"Landscaper Daibo"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_13"		"Shapeshifter Daibo"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_14"		"Natural Daibo"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_21"		"Versatile Nature Daibo"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_22"		"Mountain Daibo"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_23"		"Gaia Staff"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_24"		"Pristine Summer Daibo"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_25"		"Uprooted Earth Daibo"
+		
 		"DOTA_Tooltip_ability_item_rpc_djanghor_immortal_weapon_1"            "Sabretooth Daibo"
         "item_property_djanghor_immortal_weapon"                             "Alpha Wolf"
         "property_djanghor_immortal_weapon_description"                      "Additional @special_property1 attack power for each point of Agility while in wolf form. @Ability2 has primary element nature and hits enemies in a line while in Wolf Form."

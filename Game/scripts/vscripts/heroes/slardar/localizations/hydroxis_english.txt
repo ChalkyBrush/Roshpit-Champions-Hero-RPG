@@ -263,6 +263,20 @@
 		"item_rpc_hydroxis_glyph_5_a_description" 				"Mystic Water Shield absorbs instances of magic or pure damage at the cost of 1 stack."
 		
 		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_00"		"Basher"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_01"		"Deep Basher"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_02"		"Kelp Basher"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_03"		"Aqua Mace"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_11"		"Sea Smasher"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_12"		"Aquatic Basher"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_13"		"Drift Mace"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_14"		"Tidal Smasher"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_21"		"Ocean Blue Mace"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_22"		"Undertow Water Mace"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_23"		"Blue Mace of the Depths"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_24"		"Mace of the Granite Crustacean"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_25"		"Deep Reef Smasher"
+		
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_1"		"Sapphire Trident"
 		"item_property_hydroxis_immortal_weapon"							"Poseidon's Wake"
 		"property_hydroxis_immortal_weapon_description"					"Increases the damage of Poseidon's Fury by 100% and increases its radius by 50%."

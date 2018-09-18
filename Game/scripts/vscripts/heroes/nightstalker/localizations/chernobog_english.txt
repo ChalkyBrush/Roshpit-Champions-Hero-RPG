@@ -282,6 +282,19 @@
 		"item_rpc_chernobog_glyph_5_a_description" 				"All of @Ability2's runes have both bonuses active in both states. Healing from Demon's Grip is still disabled while @Ability2 is active."
 		
 		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_00"		"Claws"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_01"		"Night's Claw"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_02"		"Hunter's Claw"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_03"		"Shadow Claw"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_11"		"Black Claw"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_12"		"Claws of Veles"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_13"		"Zorica's Bane"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_14"		"Pantheon Claw"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_21"		"Dark Claw of Chronicius"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_22"		"Cvarog Touch Claw"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_23"		"Black Claw of Veles"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_24"		"Perun's Thunder Claw"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_weapon_25"		"Night Stalker's Hunting Claw"
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_1"		"Svarog's Divine Claw"
 		"item_property_chernobog_immortal_weapon"						"Demon Crux"

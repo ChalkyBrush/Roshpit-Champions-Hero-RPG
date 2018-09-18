@@ -264,6 +264,20 @@
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_book"		"Trapper Glyph Book"
 		
 		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_00"   "Basic Psi"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_01"   "Combat Psi"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_02"   "Ninja Psi"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_03"   "Cunning Blades"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_11"   "Trapper's Psi Blades"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_12"   "Expert Psi Blades"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_13"   "Wicked Psi Blades"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_14"   "Wild Psi Blades"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_21"   "Master Ambusher's Psi Blades"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_22"   "Trapper's Gambit"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_23"   "Demolitionist's Brutal Psi Blades"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_24"   "Deceptive Psi Blades"
+		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_25"   "Hunter's Concealed Psi Blades"
+		
 		"DOTA_Tooltip_ability_item_rpc_trapper_immortal_weapon_1"		"Rising Sun"
 		
 		"DOTA_Tooltip_ability_item_rpc_trapper_immortal_weapon_2"            "Onyx Lotus"

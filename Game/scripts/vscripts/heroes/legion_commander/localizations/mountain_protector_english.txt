@@ -286,6 +286,20 @@
 		"item_rpc_mountain_protector_glyph_5_a_description" 				"@Ability4's center point follows Mountain Protector relative to the cast point. Additionally increases strength by @glyph_property1."
 		
 		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_00"	"Blade"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_01"	"Sturdy Blade"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_02"	"Quick Blade"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_03"	"Wisdom Blade"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_11"	"Blade of V'Noth"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_12"	"Blade of Trials"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_13"	"Mountain Blade"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_14"	"Gravelstone Blade"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_21"	"Copperforged Mountain Blade"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_22"	"Steelrock Mountain Blade"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_23"	"Runed Blade of the Mountain Peak"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_24"	"Ridgefire Blade"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_25"	"Ironrock Blade of the Black Mesa"
+		
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_immortal_weapon_1"	"Runeblade of V'noth"
 		"item_property_mountain_protector_immortal_weapon"						"Runeshock"
 		"property_mountain_protector_immortal_weapon_description"				"Shockwave's stun duration is increased by 0.35 seconds."

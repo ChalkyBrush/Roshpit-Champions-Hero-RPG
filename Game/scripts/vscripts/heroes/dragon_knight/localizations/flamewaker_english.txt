@@ -266,6 +266,20 @@
 		"item_rpc_flamewaker_glyph_5_a_description" 			"Damage instances are capped at @glyph_property1% of max health. If below 50% health, instances are capped at @glyph_property2%."
 
 		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_basic_sword"   "Sword"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_00"   "Basic Sword"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_01"   "Earth Dragon Blade"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_02"   "Wind Dragon Blade"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_03"   "Fire Dragon Blade"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_11"   "Giant's Sword"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_12"   "Flametongue Blade"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_13"   "Dragonwake Blade"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_14"   "Dragonsage Blade"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_21"   "Blade of the Mountain Drake"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_22"   "Drakelord's Blade"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_23"   "Blade of the Dancing Drake"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_24"   "Black Wyrm's Singed Blade"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_25"   "Blade of the Elderwyrm"
 		
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_1"	"Ragnarok"
 		"item_property_flamewaker_immortal_weapon"							"Volcano Shield"

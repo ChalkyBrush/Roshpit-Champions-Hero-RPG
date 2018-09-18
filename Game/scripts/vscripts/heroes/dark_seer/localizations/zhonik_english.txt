@@ -250,6 +250,20 @@
 		"DOTA_Tooltip_modifier_sages_eyes"					"Sage's Eyes"
 		
 		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_00"		"Punch Glove"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_01"		"Brawler Glove"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_02"		"Temporal Gauntlet"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_03"		"Echo Fist"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_11"		"Timewarp Glove"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_12"		"Sonic Gauntlet"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_13"		"Surge Puncher"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_14"		"Sonar Fist"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_21"		"Sonic Blaster"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_22"		"Temporal Echo Gauntlet"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_23"		"Dimension Fist"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_24"		"Space Shifter Gauntlet"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_25"		"Multiplex Gauntlet"
+		
 		
 		"DOTA_Tooltip_ability_item_rpc_zonik_immortal_weapon_1"			"Sonar Style"
 		"item_property_zonik_immortal_weapon"							"Comet Punch"

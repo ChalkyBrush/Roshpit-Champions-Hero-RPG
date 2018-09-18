@@ -1,0 +1,292 @@
+		//Abilities
+		"ekkan_corpse"														"Corpse"
+		
+		"notification_no_dominion"											"Can not be dominated"
+    	"notification_raise_skeleton_fail"									"Must target a corpse"
+    	"notification_supercharge_fail"										"Must target a summoned unit"
+    	"notification_river_no_explosion"									"E1 not leveled"
+    	"notification_supercharge_no_swarm"									"R2 not leveled"
+    	"notification_supercharge_no_corpse_charge"							"R3 not leveled"
+
+    	"DOTA_Tooltip_ability_ekkan_dominion"								"Dark Dominion"
+    	"DOTA_Tooltip_ability_ekkan_dominion_Description"					"Element: <font color=\"#5C776E\">Undead</font> / <font color=\"#5B648C\">Demon</font><br>Curses an enemy unit's soul to eternal servitude of Ekkan. The target takes damage every 0.5 seconds based on their attack power. If an enemy dies while the dark dominion debuff is active, the unit joins Ekkan's army permanently until death. Can be cast on a dominated unit to instantly kill it."
+    	"DOTA_Tooltip_ability_ekkan_dominion_max_summons"					"MAX ARMY SIZE:"
+    	"DOTA_Tooltip_ability_ekkan_dominion_move_slow"						"MOVE SLOW % WHILE ACTIVE:"
+    	"DOTA_Tooltip_ability_ekkan_dominion_debuff_duration"				"DEBUFF DURATION:"
+    	"DOTA_Tooltip_ability_ekkan_dominion_burn_damage"					"DAMAGE % OF VICTIM ATTACK POWER:"
+		
+		"DOTA_Tooltip_modifier_dominion_counter"							"Dark Dominion Army Size"
+    	"DOTA_Tooltip_modifier_dominion_counter_Description"				""
+		
+		"DOTA_Tooltip_ability_ekkan_creep_aggressive"						"Aggressive"
+    	"DOTA_Tooltip_ability_ekkan_creep_aggressive_Description"			"This unit is hunting enemies. Activate to switch to Follow."
+
+    	"DOTA_Tooltip_ability_ekkan_creep_follow"							"Follow"
+    	"DOTA_Tooltip_ability_ekkan_creep_follow_Description"				"This unit is following its leader. Activate to switch to Passive."
+
+    	"DOTA_Tooltip_ability_ekkan_creep_passive"							"Passive"
+    	"DOTA_Tooltip_ability_ekkan_creep_passive_Description"				"This unit is not performing any actions unless instructed. Activate to switch to Aggressive."
+
+    	"DOTA_Tooltip_modifier_ekkan_dominion_debuff"						"Dark Dominion"
+    	"DOTA_Tooltip_modifier_ekkan_dominion_debuff_Description"			"Slowed. If this unit dies while this effect is active, it joins Ekkan's army."
+
+    	"DOTA_Tooltip_modifier_ekkan_dominion_unit"							"Dominated"
+   		"DOTA_Tooltip_modifier_ekkan_dominion_unit_Description"				"Serving Ekkan"
+		
+		"DOTA_Tooltip_ability_ekkan_rune_q_1"								"[Q1] Zombie Strike"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_1_Description"					"Dominated units have a 50% chance on attack to deal bonus magic damage to enemies in a line."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_1_property_one"					"Crit Damage"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_1_suffix"						"% of dominated unit's attack damage"
+		
+		"DOTA_Tooltip_ability_ekkan_zombie_strike"							"Zombie Strike"
+    	"DOTA_Tooltip_ability_ekkan_zombie_strike_Description"				"Adds a 50% chance on attack to deal bonus magic damage in a line behind the target."
+		
+		"DOTA_Tooltip_ability_ekkan_rune_q_2"								"[Q2] Gloomy Awakening"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_2_Description"					"Dominated enemies have increased max health."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_2_property_one"					"Bonus Max Health"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_2_suffix"						"%"
+
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3"								"[Q3] Dark Journey"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_Description"					"When a dominated unit gets a killing blow on an enemy, it gains permanent attack damage and armor bonus."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_property_one"					"Attack Damage Bonus"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_suffix"						""
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_property_two"					"Armor Bonus"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_suffix_two"					""
+
+    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks"						"Dark Journey Stacks"
+    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_Description"			"Harvested the souls of enemies, increasing armor and attack power."
+
+    	"DOTA_Tooltip_ability_ekkan_rune_q_4"								"[Q4] Grim Alacrity"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_4_Description"					"Dominated enemies have increased movespeed and attack speed."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_4_property_one"					"Movespeed"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_4_suffix"						""
+    	"DOTA_Tooltip_ability_ekkan_rune_q_4_property_two"					"Attack Speed"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_4_suffix_two"					""
+
+    	"DOTA_Tooltip_modifier_ekkan_d_a_alacrity"							"Grim Alacrity"
+    	"DOTA_Tooltip_modifier_ekkan_d_a_alacrity_Description"				"Increased movespeed and attack speed."
+		
+		"DOTA_Tooltip_ability_ekkan_summon_skeleton"						"Summon Skeleton"
+   		"DOTA_Tooltip_ability_ekkan_summon_skeleton_Description"			"Enemies that die within 1500 of Ekkan leave a pile of their bones at their point of death. Ekkan can target an area containing corpses to summon skeleton warriors that will fight for him."
+		"DOTA_Tooltip_ability_ekkan_summon_skeleton_max_skeletons"			"MAX SKELETONS:"
+		"DOTA_Tooltip_ability_ekkan_summon_skeleton_skeleton_duration"		"SKELETON LIFE DURATION:"
+		"DOTA_Tooltip_ability_ekkan_summon_skeleton_armor_mult"				"SKELETON ARMOR MULTIPLE OF EKKAN'S:"
+		"DOTA_Tooltip_ability_ekkan_summon_skeleton_attack_mult"			"SKELETON ATTACK POWER MULTIPLE OF EKKAN'S:"
+		"DOTA_Tooltip_ability_ekkan_summon_skeleton_skeleton_health"		"SKELETON HEALTH:"
+
+		"castle_skeleton_warrior"											"Skeleton Warrior"
+
+		"DOTA_Tooltip_modifier_summon_skeleton_counter"						"Skeleton Army Size"
+		"DOTA_Tooltip_modifier_summon_skeleton_counter_Description"			""
+
+		"DOTA_Tooltip_modifier_skeleton_summon_unit"						"Summoned Skeleton"
+		
+		"DOTA_Tooltip_ability_ekkan_rune_w_1"								"[W1] Skeleton Archers"
+    	"DOTA_Tooltip_ability_ekkan_rune_w_1_Description"					"30% of summoned skeletons spawn as a skeleton archer that has ranged attacks and a scaling attack multiplier."
+    	"DOTA_Tooltip_ability_ekkan_rune_w_1_property_one"					"Attack power multiple of Ekkan's"
+    	"DOTA_Tooltip_ability_ekkan_rune_w_1_suffix"						"%"
+
+    	"DOTA_Tooltip_ability_ekkan_rune_w_2"								"[W2] Extended Reanimation"
+    	"DOTA_Tooltip_ability_ekkan_rune_w_2_Description"					"Increases the lifetime duration of summoned skeletons."
+    	"DOTA_Tooltip_ability_ekkan_rune_w_2_property_one"					"Life Duration Increase"
+    	"DOTA_Tooltip_ability_ekkan_rune_w_2_suffix"						" seconds"
+
+    	"DOTA_Tooltip_ability_ekkan_rune_w_3"								"[W3] Skeleton Mages"
+    	"DOTA_Tooltip_ability_ekkan_rune_w_3_Description"					"30% of summoned skeletons spawn as a skeleton mage that casts an AOE magic attack that also slows enemies."
+    	"DOTA_Tooltip_ability_ekkan_rune_w_3_property_one"					"Magic Damage AOE"
+    	"DOTA_Tooltip_ability_ekkan_rune_w_3_suffix"						"% of attack power"
+    	"DOTA_Tooltip_ability_ekkan_rune_w_3_property_two"					"Movement slow"
+    	"DOTA_Tooltip_ability_ekkan_rune_w_3_suffix_two"					""
+
+    	"DOTA_Tooltip_ability_ekkan_mage_blast"								"Grave Blast"
+    	"DOTA_Tooltip_ability_ekkan_mage_blast_Description"					"Damages enemies in an area after 1 second delay and slows their movement speed. Is considered base ability damage for Summon Skeletons."
+
+    	"DOTA_Tooltip_modifier_mage_blast_slow"								"Grave Blast"
+    	"DOTA_Tooltip_modifier_mage_blast_slow_Description"					"Movespeed slowed"
+
+    	"DOTA_Tooltip_ability_ekkan_rune_w_4"								"[W4] Cloak of Shadows"
+    	"DOTA_Tooltip_ability_ekkan_rune_w_4_Description"					"All skeleton summons and Ekkan gain permanent bonus magic resistance."
+    	"DOTA_Tooltip_ability_ekkan_rune_w_4_property_one"					"Magic Resistance"
+    	"DOTA_Tooltip_ability_ekkan_rune_w_4_suffix"						""
+		
+		"DOTA_Tooltip_ability_ekkan_river_of_souls"							"Acheron's Portal"
+		"DOTA_Tooltip_ability_ekkan_river_of_souls_Description"				"Creates a portal at the target location. Stepping in a portal teleports you and your entire army to the other portal after a 1.5 second delay. Any hero can use Ekkan's portal."	
+		"DOTA_Tooltip_ability_ekkan_river_of_souls_cast_range"				"CAST RANGE:"
+
+		"DOTA_Tooltip_modifier_river_of_souls_teleporting"					"Acheron's Portal Teleporting"
+		
+		"DOTA_Tooltip_ability_ekkan_rune_e_1"								"[E1] Detonate Corpse"
+    	"DOTA_Tooltip_ability_ekkan_rune_e_1_Description"					"Acheron's Portal can target a corpse, causing it to explode into multiple projectiles that deal damage based on the corpse's max health before it died."
+    	"DOTA_Tooltip_ability_ekkan_rune_e_1_property_one"					"Damage"
+    	"DOTA_Tooltip_ability_ekkan_rune_e_1_suffix"						"% of max health"
+    	"DOTA_Tooltip_ability_ekkan_rune_e_1_property_two"					"Explosion Range"
+    	"DOTA_Tooltip_ability_ekkan_rune_e_1_suffix_two"					""
+
+    	"DOTA_Tooltip_ability_ekkan_rune_e_2"								"[E2] Summon Familiars"
+    	"DOTA_Tooltip_ability_ekkan_rune_e_2_Description"					"A familiar is raised from the Acheron's Portal that has magic immunity. Has 50% of the max HP of Ekkan. Max 2 familiars."
+    	"DOTA_Tooltip_ability_ekkan_rune_e_2_property_one"					"Attack Damage"
+    	"DOTA_Tooltip_ability_ekkan_rune_e_2_suffix"						"% of Ekkan's Attack Damage"
+    	"DOTA_Tooltip_ability_ekkan_rune_e_2_property_two"					"Armor"
+    	"DOTA_Tooltip_ability_ekkan_rune_e_2_suffix_two"					"% of Ekkan's Armor"
+
+    	"DOTA_Tooltip_ability_ekkan_rune_e_3"								"[E3] Decomposition"
+    	"DOTA_Tooltip_ability_ekkan_rune_e_3_Description"					"Familiars' attacks reduce their target's armor."
+    	"DOTA_Tooltip_ability_ekkan_rune_e_3_property_one"					"Armor Reduction"
+    	"DOTA_Tooltip_ability_ekkan_rune_e_3_suffix"						""
+
+    	"DOTA_Tooltip_ability_ekkan_rune_e_4"								"[E4] Stoneform"
+    	"DOTA_Tooltip_ability_ekkan_rune_e_4_Description"					"Familiars have a stoneform ability. When the familiar lands it stuns for a long duration, gains attack immunity and health regen."
+    	"DOTA_Tooltip_ability_ekkan_rune_e_4_property_one"					"Stun Duration"
+    	"DOTA_Tooltip_ability_ekkan_rune_e_4_suffix"						" seconds"
+    	"DOTA_Tooltip_ability_ekkan_rune_e_4_property_two"					"Health Regen"
+    	"DOTA_Tooltip_ability_ekkan_rune_e_4_suffix_two"					"%"
+
+    	"DOTA_Tooltip_ability_ekkan_familiar_stoneform"						"Stoneform"
+    	"DOTA_Tooltip_ability_ekkan_familiar_stoneform_Description"			"Stuns enemies below and adds health regen for the duration. This ability is casted automatically when below 70% HP while in aggressive stance."
+
+    	"DOTA_Tooltip_modifier_familiar_stoneform"							"Stoneform"
+		
+		"DOTA_Tooltip_ability_ekkan_supercharge"							"Soul Charge"
+		"DOTA_Tooltip_ability_ekkan_supercharge_Description"				"Ekkan grants a brief power boost to any unit under his command."
+		"DOTA_Tooltip_ability_ekkan_supercharge_buff_duration"				"BUFF DURATION:"
+		"DOTA_Tooltip_ability_ekkan_supercharge_percent_attack_damage"		"ATTACK DAMAGE BONUS %:"
+		"DOTA_Tooltip_ability_ekkan_supercharge_attack_speed"				"ATTACK SPEED BONUS:"
+		"DOTA_Tooltip_ability_ekkan_supercharge_health_regen"				"HEALTH REGEN %:"
+
+		"DOTA_Tooltip_modifier_ekkan_supercharge"							"Soul Charge"
+		"DOTA_Tooltip_modifier_ekkan_supercharge_Description"				"Powered up by Ekkan"
+		
+		"DOTA_Tooltip_ability_ekkan_rune_r_1"								"[R1] Lifesteal"
+    	"DOTA_Tooltip_ability_ekkan_rune_r_1_Description"					"Soul Charged units have lifesteal on their attacks. The lifesteal also heals Ekkan."
+    	"DOTA_Tooltip_ability_ekkan_rune_r_1_property_one"					"Lifesteal"
+    	"DOTA_Tooltip_ability_ekkan_rune_r_1_suffix"						"%"
+
+    	"DOTA_Tooltip_ability_ekkan_rune_r_2"								"[R2] Scourge Swarm"
+    	"DOTA_Tooltip_ability_ekkan_rune_r_2_Description"					"Soul Charge can be targeted on a single enemy. The enemy takes pure damage based on the attack power of Ekkan's entire army combined."
+    	"DOTA_Tooltip_ability_ekkan_rune_r_2_property_one"					"Damage"
+    	"DOTA_Tooltip_ability_ekkan_rune_r_2_suffix"						"% of all summon's attack power."
+
+    	"DOTA_Tooltip_ability_ekkan_rune_r_3"								"[R3] Skeleton King"
+    	"DOTA_Tooltip_ability_ekkan_rune_r_3_Description"					"Soul Charging a corpse creates an immobile skeleton king for 8 seconds that zaps nearby enemies every 0.2 seconds. The damage dealt is based on the unit's attack damage that created the corpse."
+    	"DOTA_Tooltip_ability_ekkan_rune_r_3_property_one"					"Damage"
+    	"DOTA_Tooltip_ability_ekkan_rune_r_3_suffix"						"% of corpse's attack damage"
+
+    	//IDEA - TARGET ITEM WITH R AND CREATE GOLEM BASED ON ITEM STATS
+
+    	"DOTA_Tooltip_ability_ekkan_rune_r_4"								"[R4] Chain Charge"
+    	"DOTA_Tooltip_ability_ekkan_rune_r_4_Description"					"When targetting an allied unit, Soul charge has a chance to chain to a nearby friendly unit within 800 range. Greater than 100% chance means it can proc multiple times."
+    	"DOTA_Tooltip_ability_ekkan_rune_r_4_property_one"					"Multi charge chance"
+    	"DOTA_Tooltip_ability_ekkan_rune_r_4_suffix"						"%"
+		
+		//Arcanas
+		
+		"item_property_ekkan_arcana1"										"Aphotic Dominion"
+    	"property_ekkan_arcana1_description"								"Replaces @Ability1 and all of its runes with Aphotic Dominion."
+
+    	"DOTA_Tooltip_ability_ekkan_arcana_black_dominion"								"Aphotic Dominion"
+    	"DOTA_Tooltip_ability_ekkan_arcana_black_dominion_Description"					"Element: <font color=\"#5C776E\">Undead</font> / <font color=\"#5B648C\">Demon</font><br>Curses an enemy unit's soul to eternal servitude of Ekkan. The target takes damage every 0.5 seconds based on their attack power. If an enemy dies while the aphotic dominion debuff is active, the unit joins Ekkan's army permanently until death. The Aphotic Dominion unit always has the Steadfast ability."
+    	"DOTA_Tooltip_ability_ekkan_arcana_black_dominion_max_summons"					"MAX ARMY SIZE:"
+    	"DOTA_Tooltip_ability_ekkan_arcana_black_dominion_move_slow"						"MOVE SLOW % WHILE ACTIVE:"
+    	"DOTA_Tooltip_ability_ekkan_arcana_black_dominion_debuff_duration"				"DEBUFF DURATION:"
+    	"DOTA_Tooltip_ability_ekkan_arcana_black_dominion_burn_damage"					"DAMAGE % OF VICTIM ATTACK POWER:"
+
+    	"DOTA_Tooltip_ability_ekkan_rune_q_1_arcana1"						"[Q1] Soul Drain"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_1_arcana1_Description"			"The Aphotic Dominion unit drains life from all nearby enemies. The healing is equal to 10% of the damage dealt. Slows enemy movespeed by 30%"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_1_arcana1_property_one"			"Damage"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_1_arcana1_suffix"				"% of Aphotic Dominion unit's attack power" 
+
+    	"DOTA_Tooltip_ability_black_dominion_lifesteal" 					"Soul Drain"
+    	"DOTA_Tooltip_ability_black_dominion_lifesteal_Description"			"Steals life from nearby enemies based on attack power. The healing effect is equal to 10% of the damage dealt. Slows enemy movespeed by 30%." 
+
+    	"DOTA_Tooltip_modifier_black_dominion_lifesteal"					"Soul Drain"
+    	"DOTA_Tooltip_modifier_black_dominion_lifesteal_Description"		"Slowed and losing life"
+
+    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1"							"[Q2] Corpse Eater"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_Description"				"The Aphotic Dominion unit can consume corpses off the ground to gain a 12 second bonus to base attack power and movespeed. When the buff wears off, 2 swarms of bugs are released for each corpse that was held. Enemies hit by the bugs take damage over time based on the Aphotic Dominion unit's attack power and take increased post-mitigation damage from all sources. They also cannot heal while the poison is active. Enemies who die while the poison is active generate an additional corpse."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_property_one"				"Base Attack Damage Per Corpse"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_suffix"					""
+    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_property_two"				"Debuff Post-Mitigation Damage"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_suffix_two"				"%"
+
+    	"DOTA_Tooltip_modifier_corpse_picked_up_visible"						"Corpse Eater"
+    	"DOTA_Tooltip_modifier_corpse_picked_up_visible_Description"			"Gaining attack damage. When this ends, release swarms of poisonous bugs."
+
+    	"DOTA_Tooltip_modifier_swarm_effect"									"Corpse Eater Poison"
+    	"DOTA_Tooltip_modifier_swarm_effect_Description"						"Taking damage every 0.5 seconds and taking increased post-mitigation damage. On death, generate an additional corpse"
+
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1"							"[Q3] Aphotic Journey"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_Description"				"When an enemy unit dies within 1200 range of the Aphotic Dominion unit, it gains permanent attack damage and armor bonus."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_property_one"				"Attack Damage Bonus"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_suffix"					""
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_property_two"				"Armor Bonus"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_suffix_two"				""
+
+    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_black"						"Aphotic Journey"
+    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_black_Description"			"Permanently increased Attack Damage and Armor"	
+
+    	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1"							"[Q4] Gravekeeper Aura"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1_Description"				"The Aphotic Dominion unit has an aura that provides bonus attack damage % and armor to nearby summons and Ekkan. Every 5 seconds, the aura pulses, adding a 2 stack shield to all units in range that absorbs 1 instance of damage per stack."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1_property_one"				"Aura Attack Damage Bonus"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1_suffix"					"%"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1_property_two"				"Aura Armor Bonus"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1_suffix_two"				""
+
+    	"DOTA_Tooltip_modifier_black_dominion_d_a_aura_effect"					"Gravekeeper Aura"
+    	"DOTA_Tooltip_modifier_black_dominion_d_a_aura_effect_Description"		"Increased attack damage and armor"	
+
+    	"DOTA_Tooltip_modifier_black_dominion_shield"							"Gravekeeper Shield"
+    	"DOTA_Tooltip_modifier_black_dominion_shield_Description"				"Absorbing Damage."
+		
+		//Glyphs
+		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_1_1"		"Glyph of Undead Army"
+		"item_rpc_ekkan_glyph_1_1_description" 				"Increases the max number of concurrent skeleton summons by @glyph_property1."
+
+		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_2_1"		"Glyph of Corpses"
+		"item_rpc_ekkan_glyph_2_1_description" 				"Acheron's portal creates @glyph_property1 corpses around the cast point."
+
+		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_3_1"		"Glyph of Reanimation"
+		"item_rpc_ekkan_glyph_3_1_description" 				"Skeleton life duration is increased by @glyph_property1%."
+
+		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_4_1"		"Glyph of Supercharge"
+		"item_rpc_ekkan_glyph_4_1_description" 				"Soul charge increases attack speed by an additional @glyph_property1 and increases movespeed by @glyph_property2."
+
+		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_5_1"		"Glyph of Domination"
+		"item_rpc_ekkan_glyph_5_1_description" 				"Increases the max number of concurrent Dark Dominion units by @glyph_property1."
+
+		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_6_1"		"Glyph of Gargoyles"
+		"item_rpc_ekkan_glyph_6_1_description" 				"Increases max concurrent familiars by @glyph_property1."
+
+		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_7_1"		"Glyph of Super Skeleton"
+		"item_rpc_ekkan_glyph_7_1_description" 				"Reanimated Skeleton King zaps @glyph_property1 additional enemies at a time."
+
+		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_5_a"		"Glyph of Black Scourge"
+		"item_rpc_ekkan_glyph_5_a_description" 				"Increases leash range on minions by @glyph_property1."
+		
+		
+		//Weapons
+		
+		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_00"		"Trapped Souls"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_01"		"Empty Souls"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_02"		"Void Souls"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_03"		"Dark Souls"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_11"		"Trapped Souls of the Dominated"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_12"		"Souls of Cronus"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_13"		"Souls of Hades"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_14"		"Souls of Dominion"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_21"		"Eternal Souls of Dominion"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_22"		"Eternal Souls of Persephone"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_23"		"Eternal Souls of Macaria"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_24"		"Souls of Thanatos"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_weapon_25"		"Five Rivers Souls of the Underworld"
+		
+		"DOTA_Tooltip_ability_item_rpc_ekkan_immortal_weapon_1"			"Soul Reacher"
+		"item_property_ekkan_immortal_weapon"							"Soul Collector"
+		"property_ekkan_immortal_weapon_description"					"Walking over a corpse collects it and adds 100000 base attack damage. Max 6 corpses and corpses last 10 seconds."
+		
+		"DOTA_Tooltip_ability_item_rpc_ekkan_immortal_weapon_2"            "Encroaching Reach of Ymir"
+        "item_property_ekkan_immortal_weapon2"                             "Gargoyle Command"
+        "property_ekkan_immortal_weapon2_description"                      "Ekkan's familiars' attacks deal an extra @special_property1% pure damage based on their attack power."
+
+        "DOTA_Tooltip_ability_item_rpc_ekkan_immortal_weapon_3"            "Tormented Depth Spirits"
+        "item_property_ekkan_immortal_weapon3"                             "Zombility"
+        "property_ekkan_immortal_weapon3_description"                      "Magic and Pure damage dealt directly by Dominion units' base skills is increased by @special_property1x."

@@ -273,6 +273,20 @@
 		"item_rpc_conjuror_glyph_5_a_description" 				"ALL post-mitigation damage dealt by conjuror and his aspects is increased by 200%."
 		
 		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_00"   "Orb"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_01"   "Earth Orb"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_02"   "Shadow Orb"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_03"   "Mind Orb"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_11"   "Fire Arcana"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_12"   "Core Arcana"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_13"   "Prime Arcana"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_14"   "Shadow Arcana"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_21"   "Trinity Essence"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_22"   "Core of Fire"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_23"   "Arcana of the Triumvirate"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_24"   "Essence of Shadow"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_25"   "Galaxy Essence"
+		
 		"DOTA_Tooltip_ability_item_rpc_conjuror_immortal_weapon_1"		"Enlightened Orb of Azerath"
 		
 		"DOTA_Tooltip_ability_item_rpc_conjuror_immortal_weapon_2"            "Tricor Orb"

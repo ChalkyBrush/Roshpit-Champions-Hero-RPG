@@ -208,6 +208,19 @@
 		"item_rpc_sephyr_glyph_5_a_description" 				"Damage reduction within @Ability4 is increased to @glyph_property1%."
 		
 		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_00"		"Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_01"		"Sky Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_02"		"Cloud Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_03"		"Wind Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_11"		"Gale Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_12"		"Aero Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_13"		"Blessed Wind Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_14"		"Blessed Sky Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_21"		"Emerald Tide Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_22"		"Staff of the Prevailing Winds"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_23"		"Sky Mage Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_24"		"Heaven's Priest Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_25"		"Galestorm Staff"
 		
 		"DOTA_Tooltip_ability_item_rpc_sephyr_immortal_weapon_1"           "Jet Stream Staff"
         "item_property_sephyr_immortal_weapon"                             "Jet Gale"

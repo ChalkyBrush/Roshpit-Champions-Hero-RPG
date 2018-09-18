@@ -161,6 +161,20 @@
 		"item_rpc_slipfinn_glyph_5_a_description" 				"The radius for bouncing on an enemy's head is increased by @glyph_property1%."
 		
 		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_00"		"Dagger"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_01"		"Murkwood Dagger"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_02"		"Crooked Shank"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_03"		"Swamp Dagger"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_11"		"Umbral Dagger"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_12"		"Soggy Swamp Blade"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_13"		"Jumper's Shank"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_14"		"Purple Meadow Shank"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_21"		"Shank of Versatile Hunter"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_22"		"Deepwood Swamp Dagger"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_23"		"Liquid Mind Cutter"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_24"		"Pristine Bayou Blade"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_25"		"Fenway Marsh Cutter"
+		
 		 "DOTA_Tooltip_ability_item_rpc_slipfinn_immortal_weapon_1"           "Spring Wetlands Dagger"
         "item_property_slipfinn_immortal_weapon"                             "Spawning"
         "property_slipfinn_immortal_weapon_description"                      "Respawn time is reduced to @special_property1 seconds. Shady Smoke ability makes Slipfinn appear @special_property2 distance in the air."

@@ -247,6 +247,20 @@
 
 
 		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_00"		"Hand Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_01"		"Arcane Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_02"		"Energy Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_03"		"Plasma Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_11"		"Zonal Spark Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_12"		"Photon Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_13"		"Space Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_14"		"Plasma Warp Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_21"		"Arcane Energy Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_22"		"Flash Force Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_23"		"Orbital Combat Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_24"		"Photonic Warp Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_25"		"Archon Blades"
+		
 		"DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_1"			"Arcanys Wing-Blade"
 		"item_property_arkimus_immortal_weapon"								"Dual Source"
 		"property_arkimus_immortal_weapon_description"						"Flash Source deals 100% additional damage and doubles the stack rate of Arcane Splice."
