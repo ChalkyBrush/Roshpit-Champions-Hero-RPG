@@ -1,0 +1,285 @@
+		//Abilities
+		"DOTA_Tooltip_ability_overcharge"								"Overcharge"
+		"DOTA_Tooltip_ability_overcharge_Description"					"Element: <font color=\"#5CCDF9\">Lightning</font><br>Greatly increases attack speed and provides a forked lightning effect upon striking enemy units."
+		"DOTA_Tooltip_ability_overcharge_Lore"						""
+		"DOTA_Tooltip_ability_overcharge_attack_speed"				"ATTACK SPEED BONUS:"
+		"DOTA_Tooltip_ability_overcharge_proc_targets"				"MAX TARGETS:"
+    	"DOTA_Tooltip_ability_overcharge_proc_damage"					"ELECTRICITY DAMAGE:"
+    	"DOTA_Tooltip_ability_overcharge_duration"					"DURATION:"
+		
+		"DOTA_Tooltip_ability_voltex_rune_q_1"								"[Q1] Magnetic Block"
+    	"DOTA_Tooltip_ability_voltex_rune_q_1_Description"					"While Overcharged - Voltex has increased Armor."
+    	"DOTA_Tooltip_ability_voltex_rune_q_1_property_one"					"Armor Bonus"
+    	"DOTA_Tooltip_ability_voltex_rune_q_1_suffix"						""
+
+		"DOTA_Tooltip_modifier_voltex_rune_q_1_buff" 						"Magnetic Block"
+		"DOTA_Tooltip_modifier_voltex_rune_q_1_buff_description" 			"Increased Armor."
+
+    	"DOTA_Tooltip_ability_voltex_rune_q_2"								"[Q2] Thunder Surge"
+    	"DOTA_Tooltip_ability_voltex_rune_q_2_Description"					"A percentage of your agility is ADDED to all <font color=\"#5CCDF9\">Lightning</font> damage."
+    	"DOTA_Tooltip_ability_voltex_rune_q_2_property_one"					"Damage Bonus"
+    	"DOTA_Tooltip_ability_voltex_rune_q_2_suffix"						"% of agility"
+
+		"DOTA_Tooltip_modifier_voltex_rune_q_2" 							"Chain Lightning"
+		"DOTA_Tooltip_modifier_voltex_rune_q_2_description" 				"Your attacks have a 15%% chance to unleash a powerful Chain Lightning"
+		
+		"DOTA_Tooltip_ability_voltex_rune_q_3"								"[Q3] Power Break"
+    	"DOTA_Tooltip_ability_voltex_rune_q_3_Description"					"Enemies struck by Overcharge electricity are burdened with a stacking armor debuff for 6 seconds."
+    	"DOTA_Tooltip_ability_voltex_rune_q_3_property_one"					"Armor Loss per stack"
+    	"DOTA_Tooltip_ability_voltex_rune_q_3_suffix"						""
+
+    	"DOTA_Tooltip_modifier_voltex_rune_q_3"								"Power Break"
+    	"DOTA_Tooltip_modifier_voltex_rune_q_3_Description"					"Losing Armor"
+		
+		"DOTA_Tooltip_ability_voltex_rune_q_4"								"[Q4] Overflow"
+    	"DOTA_Tooltip_ability_voltex_rune_q_4_Description"					"Adds a % of your attack damage to Overcharge electricty damage."
+    	"DOTA_Tooltip_ability_voltex_rune_q_4_property_one"					"Bonus Damage"
+    	"DOTA_Tooltip_ability_voltex_rune_q_4_suffix"						"% of Attack Damage"
+		
+		"DOTA_Tooltip_ability_ability_zap"									"Static"
+		"DOTA_Tooltip_ability_ability_zap_Description"						"Element: <font color=\"#5CCDF9\">Lightning</font><br>Voltex rebalances her ions, releasing a static discharge that deals damage and knocks back all surrounding units."
+		"DOTA_Tooltip_ability_ability_zap_Lore"								""
+		"DOTA_Tooltip_ability_ability_zap_damage"							"DAMAGE:"
+    	"DOTA_Tooltip_ability_ability_zap_radius"							"RADIUS:"
+		
+		"DOTA_Tooltip_ability_voltex_rune_w_1"								"[W1] Silver Charge"
+    	"DOTA_Tooltip_ability_voltex_rune_w_1_Description"					"Enemies hit by Static take pure damage based on Voltex's attack power. The effect is multiplied by Static's level."
+    	"DOTA_Tooltip_ability_voltex_rune_w_1_property_one"					"Pure Damage"
+    	"DOTA_Tooltip_ability_voltex_rune_w_1_suffix"						"% of attack power"
+
+    	"DOTA_Tooltip_ability_voltex_rune_w_2"								"[W2] Proton Switch"
+    	"DOTA_Tooltip_ability_voltex_rune_w_2_Description"					"When you cast Static - gain attack speed and damage for 2.0 seconds. Allies within Static's range also gain the buff."
+    	"DOTA_Tooltip_ability_voltex_rune_w_2_property_one"					"Attack Speed"
+    	"DOTA_Tooltip_ability_voltex_rune_w_2_suffix"						""
+    	"DOTA_Tooltip_ability_voltex_rune_w_2_property_two"					"Attack Damage"
+    	"DOTA_Tooltip_ability_voltex_rune_w_2_suffix_two"					"%"
+
+		"DOTA_Tooltip_modifier_voltex_rune_w_2_self" 						"Proton Switch"
+		"DOTA_Tooltip_modifier_voltex_rune_w_2_self_description" 			"Bonus attack speed and damage."
+		"DOTA_Tooltip_modifier_voltex_rune_w_2_ally" 						"Proton Switch"
+		"DOTA_Tooltip_modifier_voltex_rune_w_2_ally_description" 			"Received bonus attack speed and damage from Voltex."
+		
+		"DOTA_Tooltip_ability_voltex_rune_w_3"								"[W3] Ion Shell"
+    	"DOTA_Tooltip_ability_voltex_rune_w_3_Description"					"Casting static applies a shield that absorbs 3 instances of damage. Enemies who break the shield take damage based on Voltex's agility."
+    	"DOTA_Tooltip_ability_voltex_rune_w_3_property_one"					"Duration"
+    	"DOTA_Tooltip_ability_voltex_rune_w_3_suffix"						" seconds"
+    	"DOTA_Tooltip_ability_voltex_rune_w_3_property_two"					"Damage"
+    	"DOTA_Tooltip_ability_voltex_rune_w_3_suffix_two"					"x Agility"
+
+    	"DOTA_Tooltip_modifier_voltex_rune_w_3_shield"						"Ion Shell"
+    	"DOTA_Tooltip_modifier_voltex_rune_w_3_shield_Description"			"Absorbs the next instance of damage and zaps the shield breaker."
+		
+		"DOTA_Tooltip_ability_voltex_rune_w_4"								"[W4] Fulminating Static"
+    	"DOTA_Tooltip_ability_voltex_rune_w_4_Description"					"Enemies hit by static take increased magic damage from Voltex for 12 seconds."
+    	"DOTA_Tooltip_ability_voltex_rune_w_4_property_one"					"Enhanced Magic Damage"
+    	"DOTA_Tooltip_ability_voltex_rune_w_4_suffix"						"%"
+
+    	"DOTA_Tooltip_modifier_voltex_d_b_debuff"							"Fulminating Static"
+    	"DOTA_Tooltip_modifier_voltex_d_b_debuff_Description"				"Taking extra magic damage from Voltex"
+		
+		"DOTA_Tooltip_ability_electric_jump"								"Azure Leap"
+		"DOTA_Tooltip_ability_electric_jump_Description"					"Element: <font color=\"#5CCDF9\">Lightning</font><br>Voltex leaps forward and slams the ground, stunning units on impact and dealing damage."
+		"DOTA_Tooltip_ability_electric_jump_Lore"							""
+		"DOTA_Tooltip_ability_electric_jump_land_stun_duration"				"IMPACT STUN:"
+    	"DOTA_Tooltip_ability_electric_jump_land_radius"					"IMPACT RADIUS:"
+    	"DOTA_Tooltip_ability_electric_jump_land_damage"					"IMPACT DAMAGE:"
+		
+		"DOTA_Tooltip_ability_heavens_charge"								"Heaven's Charge"
+		"DOTA_Tooltip_ability_heavens_charge_Description"					"Element: <font color=\"#5CCDF9\">Lightning</font><br>Teleport to the target location, dealing damage and stunning at the impact point. Switches back to Azure Leap after use."
+		"DOTA_Tooltip_ability_heavens_charge_Lore"							""
+		
+		"DOTA_Tooltip_ability_voltex_rune_e_1"								"[E1] Lightning Remnant"
+    	"DOTA_Tooltip_ability_voltex_rune_e_1_Description"					"When Voltex uses Azure Leap - create illusions at the jump and landing points to fight nearby enemies. The illusion has your level of basic Overcharge active - and has increased attack speed. Has 5x armor, health and attack damage of caster."
+    	"DOTA_Tooltip_ability_voltex_rune_e_1_property_one"					"Illusion Duration"
+    	"DOTA_Tooltip_ability_voltex_rune_e_1_suffix"						""
+    	"DOTA_Tooltip_ability_voltex_rune_e_1_property_two"					"Outgoing Damage"
+    	"DOTA_Tooltip_ability_voltex_rune_e_1_suffix_two"					"%"
+
+    	"zap_assassin_clone"												"Lightning Remnant"
+		
+		"DOTA_Tooltip_ability_voltex_rune_e_2"								"[E2] Electron Effect"
+    	"DOTA_Tooltip_ability_voltex_rune_e_2_Description"					"After landing from an Azure Leap - Voltex gains phased unit walking and deals damage to enemies she passes through."
+    	"DOTA_Tooltip_ability_voltex_rune_e_2_property_one"					"Duration"
+    	"DOTA_Tooltip_ability_voltex_rune_e_2_suffix"						""
+    	"DOTA_Tooltip_ability_voltex_rune_e_2_property_two"					"DPS"
+    	"DOTA_Tooltip_ability_voltex_rune_e_2_suffix_two"					""
+
+		"DOTA_Tooltip_modifier_voltex_rune_e_2" 							"Electron Effect"
+		"DOTA_Tooltip_modifier_voltex_rune_e_2_description" 				"Unit walking and dealing damage per second to enemies you pass through."
+		
+		"DOTA_Tooltip_ability_voltex_rune_e_3"								"[E3] Heaven's Charge"
+    	"DOTA_Tooltip_ability_voltex_rune_e_3_Description"					"After using Azure Leap - the ability is swapped with Heaven's Charge. Heaven's charge allows you to teleport to a target location and deal damage and stun at the landing point."
+    	"DOTA_Tooltip_ability_voltex_rune_e_3_property_one"					"Impact Damage"
+    	"DOTA_Tooltip_ability_voltex_rune_e_3_suffix"						""
+    	"DOTA_Tooltip_ability_voltex_rune_e_3_property_two"					"Max Distance"
+    	"DOTA_Tooltip_ability_voltex_rune_e_3_suffix_two"					""
+		
+		"DOTA_Tooltip_ability_voltex_rune_e_4"								"[E4] Winged Lightning"
+    	"DOTA_Tooltip_ability_voltex_rune_e_4_Description"					"All <font color=\"#5CCDF9\">Lightning</font> damage is increased by Voltex's Agility."
+    	"DOTA_Tooltip_ability_voltex_rune_e_4_property_one"					"Bonus Damage"
+    	"DOTA_Tooltip_ability_voltex_rune_e_4_suffix"						"% for every 10 Agility"
+		
+		"DOTA_Tooltip_ability_static_field"									"Static Field"
+		"DOTA_Tooltip_ability_static_field_Description"						"Element: <font color=\"#5CCDF9\">Lightning</font><br>Voltex charges up and then dispels her ions, launching damaging static orbs in a cone in front of her."
+		"DOTA_Tooltip_ability_static_field_Lore"							""
+		"DOTA_Tooltip_ability_static_field_damage"							"DAMAGE PER SHOCK:"
+    	"DOTA_Tooltip_ability_static_field_num_shocks"						"STATIC SHOCKS:"
+		
+		"DOTA_Tooltip_ability_voltex_rune_r_1"								"[R1] Thunder Storm"
+    	"DOTA_Tooltip_ability_voltex_rune_r_1_Description"					"When Voltex finishes the channel of Static Field - deadly lightning bolts drop from the sky around her."
+    	"DOTA_Tooltip_ability_voltex_rune_r_1_property_one"					"Lightning Bolts"
+    	"DOTA_Tooltip_ability_voltex_rune_r_1_suffix"						""
+    	"DOTA_Tooltip_ability_voltex_rune_r_1_property_two"					"Damage per Bolt"
+    	"DOTA_Tooltip_ability_voltex_rune_r_1_suffix_two"					""
+
+    	"DOTA_Tooltip_ability_voltex_rune_r_2"								"[R2] Lightning Bolt"
+    	"DOTA_Tooltip_ability_voltex_rune_r_2_Description"					"Voltex attacks have a 30% to deal bonus magical damage, stun for 0.2 seconds and reduce the target's armor."
+    	"DOTA_Tooltip_ability_voltex_rune_r_2_property_one"					"Damage"
+    	"DOTA_Tooltip_ability_voltex_rune_r_2_suffix"						"% of attack damage"
+    	"DOTA_Tooltip_ability_voltex_rune_r_2_property_two"					"Armor Reduction"
+    	"DOTA_Tooltip_ability_voltex_rune_r_2_suffix_two"					""
+
+    	"DOTA_Tooltip_modifier_voltex_rune_r_2_rune_effect"					"Lightning Bolt"
+    	"DOTA_Tooltip_modifier_voltex_rune_r_2_rune_effect_Description"		"30%% chance to deal increased damage, stun and decrease armor."
+
+    	"DOTA_Tooltip_modifier_voltex_rune_r_2_armor_loss"					"Lightning Bolt"
+    	"DOTA_Tooltip_modifier_voltex_rune_r_2_armor_loss_Description"		"Reduced Armor"
+		
+		"DOTA_Tooltip_ability_voltex_rune_r_3"								"[R3] Avatar"
+    	"DOTA_Tooltip_ability_voltex_rune_r_3_Description"					"After finishing a Static Field cast - gain 600 attack range, 120 attack speed, damage, and magic resistance for 12 seconds."
+    	"DOTA_Tooltip_ability_voltex_rune_r_3_property_one"					"Damage Increase"
+    	"DOTA_Tooltip_ability_voltex_rune_r_3_suffix"						""
+    	"DOTA_Tooltip_ability_voltex_rune_r_3_property_two"					"Magic Resistance Bonus"
+    	"DOTA_Tooltip_ability_voltex_rune_r_3_suffix_two"					"%"
+
+    	"DOTA_Tooltip_modifier_voltex_rune_r_3_avatar"						"Avatar"
+    	"DOTA_Tooltip_modifier_voltex_rune_r_3_avatar_Description"			"Increased attack speed, attack range, magic resistance and damage."
+		
+		"DOTA_Tooltip_ability_voltex_rune_r_4"								"[R4] Thundershock"
+    	"DOTA_Tooltip_ability_voltex_rune_r_4_Description"					"Each Unit struck by a Static Field or Thunder Storm shock increases Voltex's damage."
+    	"DOTA_Tooltip_ability_voltex_rune_r_4_property_one"					"Bonus Damage Per Strike"
+    	"DOTA_Tooltip_ability_voltex_rune_r_4_suffix"						"%"
+
+    	"DOTA_Tooltip_modifier_voltex_rune_r_4_visible"						"Thundershock"
+    	"DOTA_Tooltip_modifier_voltex_rune_r_4_visible_Description"			"Gaining %% increased attack damage."
+		
+		//Arcanas
+		
+		"item_property_voltex_arcana1"										"Storm Rush"
+    	"property_voltex_arcana1_description"								"Replaces @Ability3 and all of its runes with Storm Rush."
+
+    	"DOTA_Tooltip_ability_voltex_lightning_dash"						"Storm Rush"
+    	"DOTA_Tooltip_ability_voltex_lightning_dash_Description"			"Voltex dashes like a bolt of lightning towards the target location. During the dash she takes reduced magic and pure damage, and cannot be attacked. Every second gain 1 stack that allows the ability to be cast without activating the cooldown."
+    	"DOTA_Tooltip_ability_voltex_lightning_dash_cast_range"				"CAST RANGE:"
+    	"DOTA_Tooltip_ability_voltex_lightning_dash_damage_reduction_percent"	"DAMAGE REDUCTION DURING CHARGE:"
+
+    	"DOTA_Tooltip_modifier_lightning_dash_freecast"						"Storm Rush Free Cast"
+
+  		"DOTA_Tooltip_ability_voltex_rune_e_1_arcana1"						"[E1] Electron Break"
+    	"DOTA_Tooltip_ability_voltex_rune_e_1_arcana1_Description"			"Enemies who come into contact with Voltex during her Storm Rush are zapped for a % of attack power."
+    	"DOTA_Tooltip_ability_voltex_rune_e_1_arcana1_property_one"			"Damage"
+    	"DOTA_Tooltip_ability_voltex_rune_e_1_arcana1_suffix"				"% of attack power"
+
+  		"DOTA_Tooltip_ability_voltex_rune_e_2_arcana1"						"[E2] Thunderclap"
+    	"DOTA_Tooltip_ability_voltex_rune_e_2_arcana1_Description"			"Voltex unleashes her unstable ions at the end of a Storm Rush, briefly stunning enemies and dealing damage."
+    	"DOTA_Tooltip_ability_voltex_rune_e_2_arcana1_property_one"			"Damage"
+    	"DOTA_Tooltip_ability_voltex_rune_e_2_arcana1_suffix"				"% of attack power"
+    	"DOTA_Tooltip_ability_voltex_rune_e_2_arcana1_property_two"			"Stun Duration"
+    	"DOTA_Tooltip_ability_voltex_rune_e_2_arcana1_suffix_two"			" seconds"
+
+  		"DOTA_Tooltip_ability_voltex_rune_e_3_arcana1"						"[E3] Accelerator"
+    	"DOTA_Tooltip_ability_voltex_rune_e_3_arcana1_Description"  		"A portion of pre-mitigation damage taken is added to health regen for 3 seconds and decays over the duration."
+    	"DOTA_Tooltip_ability_voltex_rune_e_3_arcana1_property_one"			"Health Regen Bonus"	
+    	"DOTA_Tooltip_ability_voltex_rune_e_3_arcana1_suffix"				"% of damage taken"
+
+    	"DOTA_Tooltip_modifier_voltex_lightning_dash_regen"					"Accelerator"
+    	"DOTA_Tooltip_modifier_voltex_lightning_dash_regen_Description"		"Increased Health Regen"
+
+    	"DOTA_Tooltip_ability_voltex_rune_e_4_arcana1"								"[E4] Heaven's Lightning"
+    	"DOTA_Tooltip_ability_voltex_rune_e_4_arcana1_Description"					"All <font color=\"#5CCDF9\">Lightning</font> damage is increased by Voltex's Agility."
+    	"DOTA_Tooltip_ability_voltex_rune_e_4_arcana1_property_one"					"Bonus Damage"
+    	"DOTA_Tooltip_ability_voltex_rune_e_4_arcana1_suffix"						"% for every 10 Agility"
+
+       	"item_property_voltex_arcana2"										"Thermion Magnet"
+    	"property_voltex_arcana2_description"								"Replaces @Ability1 and all of its runes with Thermion Magnet."
+
+    	"DOTA_Tooltip_ability_voltex_magnet"						"Thermion Magnet"
+    	"DOTA_Tooltip_ability_voltex_magnet_Description"			"Voltex throws a heated ion toward the target location. Each enemy that is struck by it is magnetized, allowing Voltex to pull herself toward them immediately and perform an attack on them. Enemies who are hit by the ion are briefly paralyzed. Voltex is immune to damage while travelling to and attacking magnetized enemies."
+    	"DOTA_Tooltip_ability_voltex_magnet_cast_range"				"CAST RANGE:"
+    	"DOTA_Tooltip_ability_voltex_magnet_freeze_duration"		"PARALYZE DURATION:"
+
+    	"DOTA_Tooltip_modifier_magnet_freeze"							"Thermion Magnet"
+    	"DOTA_Tooltip_modifier_magnet_freeze_Description"				"Paralyzed"	
+
+  		"DOTA_Tooltip_ability_voltex_rune_q_1_arcana2"						"[Q1] Forked Lightning"
+    	"DOTA_Tooltip_ability_voltex_rune_q_1_arcana2_Description"			"Voltex's attacks unleash forked lightning while at least 1 Thermion Magnet is active."
+    	"DOTA_Tooltip_ability_voltex_rune_q_1_arcana2_property_one"			"Damage"
+    	"DOTA_Tooltip_ability_voltex_rune_q_1_arcana2_suffix"				"% of attack power"
+    	"DOTA_Tooltip_ability_voltex_rune_q_1_arcana2_property_two"			"Chance to Fork"
+    	"DOTA_Tooltip_ability_voltex_rune_q_1_arcana2_suffix_two"			"%"
+
+  		"DOTA_Tooltip_ability_voltex_rune_q_2_arcana2"						"[Q2] Diffusal"
+    	"DOTA_Tooltip_ability_voltex_rune_q_2_arcana2_Description"			"Each attack during Thermion magnet has a chance to cleanse stuns and silences."
+    	"DOTA_Tooltip_ability_voltex_rune_q_2_arcana2_property_one"			"Cleanse Chance"
+    	"DOTA_Tooltip_ability_voltex_rune_q_2_arcana2_suffix"				"% per attack"
+
+  		"DOTA_Tooltip_ability_voltex_rune_q_3_arcana2"						"[Q3] Electrovalency"
+    	"DOTA_Tooltip_ability_voltex_rune_q_3_arcana2_Description"  		"Thermion Magnets have a chance to bounce between its end point and the cast point. Each time it bounces back its travel speed is increased by 200."
+    	"DOTA_Tooltip_ability_voltex_rune_q_3_arcana2_property_one"			"Bounce Chance"	
+    	"DOTA_Tooltip_ability_voltex_rune_q_3_arcana2_suffix"				"%"
+
+    	"DOTA_Tooltip_ability_voltex_rune_q_4_arcana2"								"[Q4] Quantum Path"
+    	"DOTA_Tooltip_ability_voltex_rune_q_4_arcana2_Description"					"Gain a short buff when a Thermion Magnet ends. While the buff is active, @Ability2 pushes Voltex forward on cast and @Ability4 does not require a channel to cast."
+    	"DOTA_Tooltip_ability_voltex_rune_q_4_arcana2_property_one"					"Duration"
+    	"DOTA_Tooltip_ability_voltex_rune_q_4_arcana2_suffix"						" seconds"
+
+    	"DOTA_Tooltip_modifier_magnet_d_d"									"Quantum Path"
+		
+		//Glyphs
+		
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_1_1"		"Glyph of Magnetic Blur"
+		"item_rpc_voltex_glyph_1_1_description" 				"Gain @glyph_property1% Evasion while in Overcharge."
+
+		"DOTA_Tooltip_modifier_voltex_glyph_1_1_effect"			"Magnetic Blur"
+		"DOTA_Tooltip_modifier_voltex_glyph_1_1_effect_Description"	"Gaining Evasion"	
+
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_2_1"		"Glyph of Magnetic Haste"
+		"item_rpc_voltex_glyph_2_1_description" 				"Gain @glyph_property1x Agility and @glyph_property2 movespeed while in Overcharge."
+
+		"DOTA_Tooltip_modifier_voltex_glyph_2_1_effect_visible" "Magnetic Haste"
+		"DOTA_Tooltip_modifier_voltex_glyph_2_1_effect_visible_Description"	"Increased Agility and Movespeed"
+
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_3_1"		"Glyph of Atmospheric Electricity"
+		"item_rpc_voltex_glyph_3_1_description" 				"Heaven's Charge refreshes the cooldown of Overcharge."
+
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_4_1"		"Glyph of Unstable Voltage"
+		"item_rpc_voltex_glyph_4_1_description" 				"When Voltex casts an ability other than Static, she releases @glyph_property1 electric bolts that deal @glyph_property2x her attack damage as magic."
+
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_1"		"Glyph of Charged Combat"
+		"item_rpc_voltex_glyph_5_1_description" 				"Increases the duration of Avatar by @glyph_property1 seconds and increases attack damage while in Avatar by @glyph_property2%."
+
+		"DOTA_Tooltip_modifier_voltex_rune_r_3_buff_glyph_5_1"	"Charged Combat"
+		"DOTA_Tooltip_modifier_voltex_rune_r_3_buff_glyph_5_1_Description"	"Increased Attack Damage"
+
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_6_1"		"Glyph of Vengeful Skies"
+		"item_rpc_voltex_glyph_6_1_description" 				"Increases the damage of Static Field by @glyph_property1x and Thunder Storm by @glyph_property2x."
+
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_7_1"		"Glyph of Explosive Static"
+		"item_rpc_voltex_glyph_7_1_description" 				"Static drains 100% of your mana and has an 8 second cooldown, but deals @glyph_property1x damage and stuns for @glyph_property2 seconds."
+
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_a"	"Glyph of Conductivity"
+		"item_rpc_voltex_glyph_5_a_description" 			"@Ability1 duration is increased by @glyph_property1 seconds."
+
+		"DOTA_Tooltip_modifier_voltex_rune_e_2_slow_glyphed"	"Electron Effect"
+		"DOTA_Tooltip_modifier_voltex_rune_e_2_slow_glyphed_Description"	"Slowed"
+		
+		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_1"		"Gravity Volt"
+		"item_property_voltex_immortal_weapon"							"Gravity Volt"
+		"property_voltex_immortal_weapon_description"					"All post-mitigation damage is increased by 50%."
+		
+		"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_2"				"Blade of Arcadia"
+
+    	"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_3"			"Immortal Zetsabre"
+    	"item_property_voltex_immortal_weapon3"								"Paralyzing Static"
+    	"property_voltex_immortal_weapon3_description"						"Enemies hit by @Ability4 are paralyzed for @special_property1 seconds."

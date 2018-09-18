@@ -1,0 +1,223 @@
+		//Abilities
+		"DOTA_Tooltip_ability_sephyr_lightbomb"										"Lightbomb"
+    	"DOTA_Tooltip_ability_sephyr_lightbomb_Description"							"Element: <font color=\"#F6FFB5\">Holy</font> / <font color=\"#7AE2A7\">Wind</font><br> Flutter into the air while invoking the wrath of the heavens, after a 0.8 second cast Sephyr smashes the lightbomb toward the target location, stunning and damaging enemies caught in the area.<br>Casting Lightbomb with Strafe active causes Sephyr to turn towards the target location over the duration of the cast time."
+    	"DOTA_Tooltip_ability_sephyr_lightbomb_cast_range"							"CAST RANGE:"
+    	"DOTA_Tooltip_ability_sephyr_lightbomb_base_damage"							"DAMAGE:"
+    	"DOTA_Tooltip_ability_sephyr_lightbomb_int_damage"							"BONUS DAMAGE INTELLIGENCE MULTIPLE:"
+    	"DOTA_Tooltip_ability_sephyr_lightbomb_stun_duration"						"STUN DURATION:"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_q_1"									"[Q1] Illumination"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_1_Description"						"Gain bonus intelligence for 12 seconds after casting lightbomb."
+    	"DOTA_Tooltip_ability_sephyr_rune_q_1_property_one"						"Intelligence Bonus"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_1_suffix"							""
+
+    	"DOTA_Tooltip_modifier_lightbomb_q_1"									"Illumination"
+    	"DOTA_Tooltip_modifier_lightbomb_q_1_Description"						"Increased Intelligence"	
+
+    	"DOTA_Tooltip_ability_sephyr_rune_q_2"									"[Q2] Amplifier"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_2_Description"						"Enemies hit by lightbomb take increased post-mitigation damage from Sephyr."
+    	"DOTA_Tooltip_ability_sephyr_rune_q_2_property_one"						"Post-Mitigation Amp"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_2_suffix"							"%"
+
+    	"DOTA_Tooltip_modifier_lightbomb_postmit"								"Amplifier"
+    	"DOTA_Tooltip_modifier_lightbomb_postmit_Description"					"Taking increased post-mitigation damage from Sephyr"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_q_3"									"[Q3] Clearfire"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_3_Description"						"Casting lightbomb adds stacks of Clearfire. 10 stacks of Clearfire allow lightbomb to be cast without triggering its cooldown. Lightbombs that do not start cooldown do not add stacks."
+    	"DOTA_Tooltip_ability_sephyr_rune_q_3_property_one"						"Clearfire Stacks"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_3_suffix"							""
+
+    	"DOTA_Tooltip_modifier_lightbomb_freecast"								"Clearfire"
+    	"DOTA_Tooltip_modifier_lightbomb_freecast_Description"					"10 stacks remove the cooldown of Lightbomb"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_q_4"									"[Q4] Sunny Disposition"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_4_Description"						"Passively increases <font color=\"#F6FFB5\">Holy</font> damage. A portion of <font color=\"#F6FFB5\">Holy</font> Elemental Bonus also amplifies attack damage."
+    	"DOTA_Tooltip_ability_sephyr_rune_q_4_property_one"						"Holy Damage Amp"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_4_suffix"							"%"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_4_property_two"						"Portion of Holy Amp also increasing Attack Damage"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_4_suffix_two"						"%"
+		
+		"DOTA_Tooltip_ability_piercing_gale"										"Piercing Gale"
+    	"DOTA_Tooltip_ability_piercing_gale_Description"							"Element: <font color=\"#7AE2A7\">Wind</font><br>Sephyr conjures a razor-sharp stream of wind directly in front of him."
+    	"DOTA_Tooltip_ability_piercing_gale_damage"									"DAMAGE:"
+		
+		"DOTA_Tooltip_ability_sephyr_rune_w_1"									"[W1] Bright Eyes"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_1_Description"						"Intelligence further increases mana regen."
+    	"DOTA_Tooltip_ability_sephyr_rune_w_1_property_one"						"Mana Regen"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_1_suffix"								"% of Intelligence"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_w_2"									"[W2] Crosswind"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_2_Description"						"Piercing Gales have a 20% chance to do increased damage."
+    	"DOTA_Tooltip_ability_sephyr_rune_w_2_property_one"						"Critical Damage Bonus"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_2_suffix"								"%"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_w_3"									"[W3] Splinter Talon"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_3_Description"						"Attack damage is added to Piercing Gale's base damage."
+    	"DOTA_Tooltip_ability_sephyr_rune_w_3_property_one"						"Attack Power Added to Damage"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_3_suffix"								"%"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4"									"[W4] Aeromancer"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_Description"						"Sephyr's intelligence increases <font color=\"#7AE2A7\">Wind</font> damage."
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_property_one"						"Wind Damage Bonus"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_suffix"							"% for every 10 points of Intelligence"
+		
+		"DOTA_Tooltip_ability_sephyr_strafe"										"Strafe"
+    	"DOTA_Tooltip_ability_sephyr_strafe_Description"							"When toggled on, Sephyr's facing direction is locked. Issuing a move order while the toggle is active causes him to whirl in that direction on a stream of wind. Each strafe consumes a small amount of mana. Moving to pick up an item turns off the toggle."
+    	"DOTA_Tooltip_ability_sephyr_strafe_max_distance"							"MAX STRAFE DISTANCE:"							
+    	"DOTA_Tooltip_ability_sephyr_strafe_strafe_speed"							"STRAFE SPEED:"
+    	"DOTA_Tooltip_ability_sephyr_strafe_mana_percent_use"						"% MANA USED:"
+
+    	"DOTA_Tooltip_modifier_strafe_cooldown"										"Strafe Cooldown"
+		
+		"DOTA_Tooltip_ability_sephyr_rune_e_1"									"[E1] Flurry Puck"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_1_Description"						"Issuing an attack order while Strafe is active caushes Sephyr to strafe away from the target and throw a Flurry Puck towards them. Impact disarms target for 0.5 seconds. Only 1 puck can be active at a time."
+    	"DOTA_Tooltip_ability_sephyr_rune_e_1_property_one"						"Chance for additional Bounce"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_1_suffix"						    "%"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_1_property_two"						"Damage"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_1_suffix_two"						""
+
+    	"DOTA_Tooltip_modifier_boomerang_disarm"								"Flurry Puck"
+    	"DOTA_Tooltip_modifier_boomerang_disarm_Description"					"Disarmed"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_e_2"									"[E2] Windbreaker"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_2_Description"						"When a flurry puck returns to Sephyr, he gains stacks of bonus attack damage for 9 seconds. Stack count is dependent on how many targets the puck hit before returning. Each puck provides a seperate instance of the buff. Attack damage also gets added to puck damage."
+    	"DOTA_Tooltip_ability_sephyr_rune_e_2_property_one"						"Bonus Attack Damage Per Stack"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_2_suffix"							""
+    	"DOTA_Tooltip_ability_sephyr_rune_e_2_property_two"						"Attack Damage Added to Puck"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_2_suffix_two"						"%"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_e_3"									"[E3] Razor Leaf"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_3_Description"						"Agility increases base attack damage. A multiple of agility is added to Puck damage."
+    	"DOTA_Tooltip_ability_sephyr_rune_e_3_property_one"						"Attack Damage"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_3_suffix"								"x Agility"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_3_property_two"						"Bonus Puck Damage"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_3_suffix_two"							"x Agility"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_e_4"									"[E4] Gust Glider"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_4_Description"						"Increases max strafe distance and base strafing speed."
+    	"DOTA_Tooltip_ability_sephyr_rune_e_4_property_one"						"Strafe Speed Increase"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_4_suffix"							""
+    	"DOTA_Tooltip_ability_sephyr_rune_e_4_property_two"						"Max Strafe Distance"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_4_suffix_two"						""
+		
+		"DOTA_Tooltip_ability_blessing_of_nefali"									"Winds of Nefali"
+    	"DOTA_Tooltip_ability_blessing_of_nefali_Description"						"Sephyr grounds himself and channels the blessed winds of Nefali. All allies within the radius of the winds, including Sephyr, take drastically reduced damage. The winds begin 0.45 seconds after the channel begins. Buff lingers for 1 second after leaving."	
+    	"DOTA_Tooltip_ability_blessing_of_nefali_radius"							"RADIUS:"
+    	"DOTA_Tooltip_ability_blessing_of_nefali_damage_reduce"						"% DAMAGE REDUCTION:"
+
+    	"DOTA_Tooltip_modifier_nefali_aura_effect"									"Winds of Nefali"
+    	"DOTA_Tooltip_modifier_nefali_aura_effect_Description"						"Reduced damage taken and increased health regen"
+		
+		"DOTA_Tooltip_ability_sephyr_rune_r_1"									"[R1] Regenerating Wind"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_1_Description"						"Sephyr and allies gain bonus health regen while standing within the wind's area."
+    	"DOTA_Tooltip_ability_sephyr_rune_r_1_property_one"						"Health Regen"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_1_suffix"							"x Sephyr's Level"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_r_2"									"[R2] Mistral Haze"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_2_Description"						"Enemies standing in Winds of Nefali's area are slowed."
+    	"DOTA_Tooltip_ability_sephyr_rune_r_2_property_one"						"Attack Speed Slow"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_2_suffix"							""
+    	"DOTA_Tooltip_ability_sephyr_rune_r_2_property_two"						"Movespeed Slow"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_2_suffix_two"						""
+
+    	"DOTA_Tooltip_modifier_nefali_aura_effect_enemy"						"Mistral Haze"
+    	"DOTA_Tooltip_modifier_nefali_aura_effect_enemy_Description"			"Reduced movespeed and attack speed"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_r_3"									"[R3] Nefali's Blessing"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_3_Description"						"Standing in the Winds of Nefali's area for 2 consecutive seconds adds a movespeed buff for 10 seconds. The buff also increases strafe speed."
+    	"DOTA_Tooltip_ability_sephyr_rune_r_3_property_one"						"Movespeed"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_3_suffix"							""
+    	"DOTA_Tooltip_ability_sephyr_rune_r_3_property_two"						"Strafe Speed"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_3_suffix_two"						""
+
+    	"DOTA_Tooltip_modifier_nefali_c_d_speed"								"Nefali's Blessing"
+    	"DOTA_Tooltip_modifier_nefali_c_d_speed_Description"					"Increased Movespeed"	
+
+    	"DOTA_Tooltip_ability_sephyr_rune_r_4"									"[R4] Swift Mage"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_4_Description"						"Passively increases Agility and Intelligence."
+    	"DOTA_Tooltip_ability_sephyr_rune_r_4_property_one"						"Intelligence Bonus"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_4_suffix"							""
+    	"DOTA_Tooltip_ability_sephyr_rune_r_4_property_two"						"Agility Bonus"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_4_suffix_two"						""
+		
+		//Arcanas
+		
+		"item_property_sephyr_arcana1"										"Icewind Gale"
+    	"property_sephyr_arcana1_description"								"Replaces @Ability2 and all of its runes with Icewind Gale."
+
+    	"DOTA_Tooltip_ability_icewind_gale"						"Icewind Gale"
+    	"DOTA_Tooltip_ability_icewind_gale_Description"			"Element: <font color=\"#87D9FF\">Ice</font> / <font color=\"#7AE2A7\">Wind</font><br>Sephyr conjures a howling spiral of frigid wind directly in front of him. The cold wind slows enemies for 4 seconds and each stream has a 15% chance of being critical."
+    	"DOTA_Tooltip_ability_icewind_gale_damage"				"BASE DAMAGE:"
+    	"DOTA_Tooltip_ability_icewind_gale_as_loss"				"ATTACK SPEED SLOW:"
+    	"DOTA_Tooltip_ability_icewind_gale_ms_loss"				"MOVESPEED SLOW:"
+    	"DOTA_Tooltip_ability_icewind_gale_crit_mult"				"% CRIT MULTIPLIER:"
+    	"DOTA_Tooltip_ability_icewind_gale_crit_chance"				"CRIT CHANCE:"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_w_1_arcana1"						"[W1] Eyes of the North"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_1_arcana1_Description"			"Passively increases Mana Regen. Mana Regen increases base attack power."
+    	"DOTA_Tooltip_ability_sephyr_rune_w_1_arcana1_property_one"			"Mana Regen"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_1_arcana1_suffix"				""  	
+     	"DOTA_Tooltip_ability_sephyr_rune_w_1_arcana1_property_two"			"Attack Power"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_1_arcana1_suffix_two"			" per mana regen"  	
+
+    	"DOTA_Tooltip_ability_sephyr_rune_w_2_arcana1"							"[W2] Frozen Splinter"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_2_arcana1_Description"				"Attack power is added to Icewind Gale's damage."
+    	"DOTA_Tooltip_ability_sephyr_rune_w_2_arcana1_property_one"				"Bonus Damage"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_2_arcana1_suffix"					"% of attack power"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_w_3_arcana1"							"[W3] Icewind Shield"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_3_arcana1_Description"				"Casting Icewind Gale has a chance to add a shield stack that absorbs an instance of damage. Greater than 100% means it can add multiple stacks."
+    	"DOTA_Tooltip_ability_sephyr_rune_w_3_arcana1_property_one"				"Shield Stack Chance"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_3_arcana1_suffix"					"%"
+
+    	"DOTA_Tooltip_modifier_icewind_shield"									"Icewind Shield"
+    	"DOTA_Tooltip_modifier_icewind_shield_Description"						"Absorbing damage"		
+
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1"							"[W4] Grand Aeromancer"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_Description"				"Sephyr's attributes increases <font color=\"#7AE2A7\">Wind</font> damage."
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_property_one"				"Wind Damage Bonus"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_suffix"					"% for every 10 points of Attributes"
+		
+		//Glyphs
+		
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_1_1"		"Glyph of Flurry"
+		"item_rpc_sephyr_glyph_1_1_description" 				"Increases the maximum number of concurrent Flurry Pucks by @glyph_property1."
+
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_2_1"		"Glyph of Evasive Winds"
+		"item_rpc_sephyr_glyph_2_1_description" 				"Increases physical attack evasion by @glyph_property1%."
+
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_3_1"		"Glyph of Nefali"
+		"item_rpc_sephyr_glyph_3_1_description" 				"Increases the Radius of @Ability4 by @glyph_property1."
+
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_4_1"		"Glyph of Piercing Reach"
+		"item_rpc_sephyr_glyph_4_1_description" 				"Increases reach of @Ability2 by @glyph_property1."
+
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_5_1"		"Glyph of Blinding Light"
+		"item_rpc_sephyr_glyph_5_1_description" 				"@Ability1 freezes enemies for @glyph_property1 seconds. The base ability's stun is applied after the freeze."
+
+		"DOTA_Tooltip_modifier_lightbomb_freeze"				"Blinding Light"
+		"DOTA_Tooltip_modifier_lightbomb_freeze_Description"	"Frozen"
+
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_6_1"		"Glyph of the Wind Goddess"
+		"item_rpc_sephyr_glyph_6_1_description" 				"@glyph_property1% chance to negate damage taken."
+
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_7_1"		"Glyph of Aerial Immunity"
+		"item_rpc_sephyr_glyph_7_1_description" 				"Magic immune while @glyph_property1 distance or more from the ground."
+
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_5_a"		"Glyph of the Divine Winds"
+		"item_rpc_sephyr_glyph_5_a_description" 				"Damage reduction within @Ability4 is increased to @glyph_property1%."
+		
+		//Weapons
+		
+		"DOTA_Tooltip_ability_item_rpc_sephyr_immortal_weapon_1"           "Jet Stream Staff"
+        "item_property_sephyr_immortal_weapon"                             "Jet Gale"
+        "property_sephyr_immortal_weapon_description"                      "Increases the width of @Ability2 by @special_property1%, and increases critical chance by @special_property2%."
+
+        "DOTA_Tooltip_ability_item_rpc_sephyr_immortal_weapon_2"            "Emerald Skyblade"
+        "item_property_sephyr_immortal_weapon2"                             "Sky Fury"
+        "property_sephyr_immortal_weapon2_description"                      "Increases the maximum number of concurrent Flurry Pucks by @special_property1, and fires an additional puck at a random target after the first."
+
+        "DOTA_Tooltip_ability_item_rpc_sephyr_immortal_weapon_3"            "Divine Highwind Staff"
+        "item_property_sephyr_immortal_weapon3"                             "Highwind Grace"
+        "property_sephyr_immortal_weapon3_description"                      "Increases all T4 runes by @special_property1."
+		

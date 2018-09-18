@@ -1,0 +1,174 @@
+		//Abilities
+		
+		"DOTA_Tooltip_ability_slipfinn_prone"										"Prone"
+    	"DOTA_Tooltip_ability_slipfinn_prone_Description"							"Element: <font color=\"#3894FF\">Water</font> / <font color=\"#DDDDDD\">Normal</font><br>Slipfinn changes his stance, making him glide across the ground and take reduced magic and pure damage. If activated while Jumping, he performs a flip and crashes into the ground, dealing damage with a scaling radius based on how high he was when he initiated the move."
+    	"DOTA_Tooltip_ability_slipfinn_prone_damage"								"DAMAGE:"
+    	"DOTA_Tooltip_ability_slipfinn_prone_magic_pure_resist"						"MAGIC AND PURE RESISTANCE %:"
+
+    	"DOTA_Tooltip_modifier_slipfinn_prone"										"Prone"
+		
+		"DOTA_Tooltip_ability_slipfinn_rune_q_1"									"[Q1] Core Impact"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_1_Description"						"Ground Pound deals additional damage at the center of the AOE. The bonus decreases linearly toward the edge of the radius down to 0."
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_1_property_one"						"Additional Damage at Center"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_1_suffix"								"%"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_2"									"[Q2] Shimmer Cape"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_2_Description"						"Gain armor when entering prone position. Effect persists for 4 seconds after leaving prone and activates when doing a Ground Pound."
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_2_property_one"						"Armor"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_2_suffix"								""
+
+    	"DOTA_Tooltip_modifier_shimmer_cape"										"Shimmer Cape"
+    	"DOTA_Tooltip_modifier_shimmer_cape_Description"							"Increased Armor"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_3"									"[Q3] Crushing Heights"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_3_Description"						"Ground Pound deals additional damage based on the height from the ground when the pound starts."
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_3_property_one"						"Additional Damage"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_3_suffix"								"x height^2"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_4"									"[Q4] Murkwood Hunter"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_4_Description"						"Slipfinn's Agility increases <font color=\"#7F4F84\">Shadow</font> and <font color=\"#3894FF\">Water</font> damage."
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_4_property_one"						"Shadow and Water Damage Bonus"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_4_suffix"								"% for every 10 points of Agility"
+		
+		"DOTA_Tooltip_ability_slipfinn_jump"										"Puddle Jump"
+    	"DOTA_Tooltip_ability_slipfinn_jump_Description"							"Slipfinn jumps into the air. The jump maintains his movement velocity when executed. Can land on an enemy's head to bounce again. While above a certain height, enemies cannot attack Slipfinn. Issuing a move order while jumping or bouncing provides a slight buildup of momentum toward the target location.<br><b>Double Jump:</b> Execute a second jump after landing from a previous one.<br><b>Triple Jump:</b> Execute a third jump after landing from a double jump.<br><b>High Jump:</b> Use jump while prone and low velocity.<br><b>Long Jump:</b> Use jump while prone and high velocity."
+    	"DOTA_Tooltip_ability_slipfinn_jump_height_immune"							"CANNOT BE ATTACKED AT HEIGHT:"
+		
+		"DOTA_Tooltip_ability_slipfinn_rune_w_1"									"[W1] Dark Bog"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_1_Description"						"Jumping on an enemy's head deals damage in a small AOE around the target."
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_1_property_one"						"Base Damage"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_1_suffix"								""
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_1_property_two"						"Additional Damage"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_1_suffix_two"							"% of Attack Power"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_2"									"[W2] Gloomshade Bounce"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_Description"						"Jumping on an enemy's head adds 2 stacks of Gloomshade which increases post-mitigation damage dealt by Slipfinn towards that enemy. Lasts 10 seconds. Enemies hit by Dark Bog gain 1 stack."
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_property_one"						"Post-mitigation damage taken per stack"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_suffix"								"%"
+
+    	"DOTA_Tooltip_modifier_slipfinn_gloomshade_visible"							"Gloomshade"
+    	"DOTA_Tooltip_modifier_slipfinn_gloomshade_visible_Description"				"Taking increased post-mitigation damage from Slipfinn"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_3"									"[W3] Agitated Spring"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_3_Description"						"Jumping on an enemy's head adds a % attack power bonus. Lasts 12 seconds, and jumping resets the bonus."
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_3_property_one"						"Attack Power Bonus per Stack"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_3_suffix"								"%"
+
+    	"DOTA_Tooltip_modifier_slipfinn_agitated_visible"							"Agitated Spring"
+    	"DOTA_Tooltip_modifier_slipfinn_agitated_visible_Description"				"Increased attack damage"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_4"									"[W4] Great Leaps"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_4_Description"						"Increases the initial lift force of High Jump and Triple Jump."
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_4_property_one"						"High Jump and Triple Jump initial force increase"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_4_suffix"								""
+		
+		"DOTA_Tooltip_ability_slipfinn_shadow_rush"									"Slippery Sprint"
+    	"DOTA_Tooltip_ability_slipfinn_shadow_rush_Description"						"After a 1 second cast time, gain tremendous speed and max movement speed that decays linearly over its duration. If no movement orders are given to Slipfinn, he automatically rushes forward. During Slippery Sprint his movement is unhindered by small obstacles or enemy units, and friction that slows his slippery momentum is reduced by 50%."
+    	"DOTA_Tooltip_ability_slipfinn_shadow_rush_duration"						"DURATION:"
+    	"DOTA_Tooltip_ability_slipfinn_shadow_rush_ms_bonus_and_max"				"BONUS MOVESPEED AND MAX MOVESPEED:"
+
+    	"slipfinn_e"																"Slippery Sprint & Shady Smoke"
+
+    	"DOTA_Tooltip_modifier_slipfinn_shadow_rush"								"Slippery Sprint"
+
+    	"DOTA_Tooltip_ability_slipfinn_shadow_warp"									"Shady Smoke"
+    	"DOTA_Tooltip_ability_slipfinn_shadow_warp_Description"						"A quick flash of smoke teleports Slipfinn a short distance after a 0.1 second delay, disjointing projectiles. After teleporting he firmly grips the ground, removing any slippery velocity."
+    	"DOTA_Tooltip_ability_slipfinn_shadow_warp_cast_range"						"CAST RANGE:"
+		
+		"DOTA_Tooltip_ability_slipfinn_rune_e_1"									"[E1] Shadow Shank"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_1_Description"						"Attacks deal an additional instance of pure <font color=\"#7F4F84\">Shadow</font> damage."
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_1_property_one"						"Damage"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_1_suffix"								"% of Damage Dealt"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_2"									"[E2] Fen Sleeper"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_2_Description"						"Agility increases max health and health regen. While prone, the health regen bonus is 2x stronger."
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_2_property_one"						"Max Health"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_2_suffix"								" per Agility"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_2_property_two"						"Health Regen"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_2_suffix_two"							" per Agility"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_3"									"[E3] Shadow Cloak"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_3_Description"						"Casting Slippery Sprint or Shady Smoke applies a cloak that makes Slipfinn invisible."
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_3_property_one"						"Duration"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_3_suffix"								" seconds"
+
+    	"DOTA_Tooltip_modifier_slipfinn_shadow_cloak"								"Shadow Cloak"
+    	"DOTA_Tooltip_modifier_slipfinn_shadow_cloak_Description"					"Invisible"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_4"									"[E4] Bitter Assassin"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_4_Description"						"Adds a chance for all damage instances to ignore Steadfast."
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_4_property_one"						"Chance for damage to ignore Steadfast"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_4_suffix"								"%"
+		
+		"DOTA_Tooltip_ability_slipfinn_bubble_possession"							"Possession Bubble"
+    	"DOTA_Tooltip_ability_slipfinn_bubble_possession_Description"				"After a 1.5 second channel, Slipfinn springs towards the target and captures them in a Possession Bubble. Slipfinn gains a copy of all of their abilities, and damage dealt by copied abilities is considered Base Ability damage for his ultimate. The trapped enemy is disabled."	
+    	"DOTA_Tooltip_ability_slipfinn_bubble_possession_duration"					"POSSESSION DURATION:"	
+
+    	"DOTA_Tooltip_modifier_slipfinn_enemy_locked"								"Possession Bubble"
+    	"DOTA_Tooltip_modifier_slipfinn_enemy_locked_Description"					"In control of an enemy"
+
+    	"DOTA_Tooltip_ability_slipfinn_release_possess"								"Release"
+    	"DOTA_Tooltip_ability_slipfinn_release_possess_Description"					"Pops the Possession Bubble and lets the carried enemy free."
+		
+		"slipfinn_possession_warning"												"Cannot be Possessed"
+		
+		"DOTA_Tooltip_ability_slipfinn_rune_r_1"									"[R1] Amphibious Versatility"
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_1_Description"						"All stolen abilities deal increased damage."
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_1_property_one"						"Damage Increase"
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_1_suffix"								"%"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_2"									"[R2] Disorienting Pop"
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_2_Description"						"When an enemy is released from a Possession Bubble, they are stunned for a short duration. When an enemy is first possessed, all enemies in a 500 radius are stunned."
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_2_property_one"						"Stun Duration"
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_2_suffix"								" seconds"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_3"									"[R3] Expose Weaknesses"
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_3_Description"						"After possessing an enemy, gain increased post-mitigation damage towards that type of enemy for the rest of the game session. If an enemy cannot be possessed, the damage bonus against that type of enemy is acquired regardless."
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_3_property_one"						"Session Post-Mitigation Bonus"
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_3_suffix"								"%"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_4"									"[R4] Sticky Abduction"
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_4_Description"						"Gain Base Attack Damage based on the base attack power of a possessed enemy."
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_4_property_one"						"Base Attack Bonus"
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_4_suffix"								"% of enemy base attack power."
+		
+		//Arcanas
+		
+		//Glyphs
+		
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_1_1"		"Glyph of Sliding"
+		"item_rpc_slipfinn_glyph_1_1_description" 				"Reduces ground friction by @glyph_property1%."
+
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_2_1"		"Glyph of Long Jumps"
+		"item_rpc_slipfinn_glyph_2_1_description" 				"Increases lift force on Long Jumps by @glyph_property1."
+
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_3_1"		"Glyph of Bouncing"
+		"item_rpc_slipfinn_glyph_3_1_description" 				"Increases base bounce height when landing on an enemy's head by @glyph_property1."
+
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_4_1"		"Glyph of Freefall"
+		"item_rpc_slipfinn_glyph_4_1_description" 				"Reduces the time to flip and do a ground pound by @glyph_property1%."
+
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_5_1"		"Glyph of Crashing"
+		"item_rpc_slipfinn_glyph_5_1_description" 				"Increases the stun duration of Ground Pound to @glyph_property1 seconds."
+
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_6_1"		"Glyph of Binding Possession"
+		"item_rpc_slipfinn_glyph_6_1_description" 				"Enemies targeted by Possessive Bubble are paralyzed until the channel ends. The stun duration of disorienting pop when the enemy is released is increased by @glyph_property1%."
+
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_7_1"		"Glyph of Slipping"
+		"item_rpc_slipfinn_glyph_7_1_description" 				"Cannot be stunned while jumping or shadow rushing."
+
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_5_a"		"Glyph of the Puddle Jumper"
+		"item_rpc_slipfinn_glyph_5_a_description" 				"The radius for bouncing on an enemy's head is increased by @glyph_property1%."
+		
+		//Weapons
+		 "DOTA_Tooltip_ability_item_rpc_slipfinn_immortal_weapon_1"           "Spring Wetlands Dagger"
+        "item_property_slipfinn_immortal_weapon"                             "Spawning"
+        "property_slipfinn_immortal_weapon_description"                      "Respawn time is reduced to @special_property1 seconds. Shady Smoke ability makes Slipfinn appear @special_property2 distance in the air."
+
+        "DOTA_Tooltip_ability_item_rpc_slipfinn_immortal_weapon_2"            "Jagged Mire Knife"
+        "item_property_slipfinn_immortal_weapon2"                             "Opportunity Strike"
+        "property_slipfinn_immortal_weapon2_description"                      "Immediately perform an attack on an enemy when bouncing off their head."
+
+        "DOTA_Tooltip_ability_item_rpc_slipfinn_immortal_weapon_3"            "Blade of the Black Lagoon"
+        "item_property_slipfinn_immortal_weapon3"                             "Shadow of the Enemy"
+        "property_slipfinn_immortal_weapon3_description"                      "All copied abilities from @Ability4 have <font color=\"#7F4F84\">Shadow</font> element."
