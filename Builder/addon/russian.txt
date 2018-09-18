@@ -2206,7 +2206,7 @@
 		"DOTA_Tooltip_modifier_monk_ulti_gorudo_Description"		"Иммунитет к магии"
 
     	"DOTA_Tooltip_ability_seinaru_rune_q_1"						"[Q1] Cloudburst"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_1_Description"			"С каждым задетым умением @Ability1 врагом, урон героя и его скорость атаки увеличиваются на 10 секунд."
+    	"DOTA_Tooltip_ability_seinaru_rune_q_1_Description"			"С каждым задетым умением @Ability1 врагом, урон героя и его скорость атаки увеличиваются на <% SEINARU_Q1_DUR_BASE %> секунд."
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_property_one"			"Доп. урон"
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_suffix"					"%"
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_property_two"			"Доп. скорость атаки"
@@ -2235,7 +2235,7 @@
     	"DOTA_Tooltip_modifier_seinaru_gorudo_rune_r_1"				"Armor Piercing"
 
     	"DOTA_Tooltip_ability_seinaru_rune_q_2"						"[Q2] Gale Break"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_2_Description"			"Прочтение (Q) Konokaze увеличивает скорость передвижения на 10 секунд, дополнительно замедляет задетых врагов."
+    	"DOTA_Tooltip_ability_seinaru_rune_q_2_Description"			"Прочтение (Q) Konokaze увеличивает скорость передвижения на <% SEINARU_Q2_DUR_BASE %> секунд, дополнительно замедляет задетых врагов."
     	"DOTA_Tooltip_ability_seinaru_rune_q_2_property_one"			"Доп. скорость передвижения"
     	"DOTA_Tooltip_ability_seinaru_rune_q_2_suffix"					""
      	"DOTA_Tooltip_ability_seinaru_rune_q_2_property_two"			"Замедление"
@@ -2290,7 +2290,7 @@
     	"DOTA_Tooltip_modifier_seinaru_rune_r_2_immunity_Description"	"Полный иммунитет к магии"
 
     	"DOTA_Tooltip_ability_seinaru_rune_q_3"						"[Q3] Heavy Winds"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_3_Description"			"После прочтения @Ability1 герой получает 90% бонус к уклонению. Добавляет % от Ловкости к урону основного умения."
+    	"DOTA_Tooltip_ability_seinaru_rune_q_3_Description"			"После прочтения @Ability1 герой получает <% SEINARU_Q3_EVA_BASE %>% бонус к уклонению. Добавляет % от Ловкости к урону основного умения."
     	"DOTA_Tooltip_ability_seinaru_rune_q_3_property_one"			"Длительность уклонения"
     	"DOTA_Tooltip_ability_seinaru_rune_q_3_suffix"					" сек."
     	"DOTA_Tooltip_ability_seinaru_rune_q_3_property_two"			"Усиление урона"
@@ -2319,7 +2319,7 @@
     	"DOTA_Tooltip_ability_spiral_leap_Description"				"Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Прыгает в указанную точку. Во время прыжка герой наделён иммунитетом к магии. С помощью этого умения можно уклониться от направленных атак и умений."
 		
     	"DOTA_Tooltip_ability_seinaru_rune_r_3"						"[R3] Dexterity"
-    	"DOTA_Tooltip_ability_seinaru_rune_r_3_Description"			"Даёт бонусный урон, равный % от Ловкости героя. Пока действует эффект @Ability4, с 25% шансом вместе с обычными атаками будет нанесён чистый урон."
+    	"DOTA_Tooltip_ability_seinaru_rune_r_3_Description"			"Даёт бонусный урон, равный % от Ловкости героя. Пока действует эффект @Ability4, с <% SEINARU_R3_PROC_CHANCE %>% шансом вместе с обычными атаками будет нанесён чистый урон."
     	"DOTA_Tooltip_ability_seinaru_rune_r_3_property_one"			"Доп. урон от Ловкости"
     	"DOTA_Tooltip_ability_seinaru_rune_r_3_suffix"					"%"
     	"DOTA_Tooltip_ability_seinaru_rune_r_3_property_two"			"Доп. чистый урон"
@@ -2360,12 +2360,12 @@
     	"property_seinaru_arcana1_description"								"Заменяет (Q) @Ability1 и все соответствующие руны на Blade Dash."
 
   		"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1"						"[Q1] Samurai Crit"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_Description"			"С 40% шансом при атаке герой нанесёт критический урон."
+    	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_Description"			"С <% SEINARU_ARCANA_Q1_CRIT_CHANCE %>% шансом при атаке герой нанесёт критический урон."
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_property_one"			"Доп. урон крита"
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_suffix"					"%"
 
   		"DOTA_Tooltip_ability_seinaru_rune_q_2_arcana1"						"[Q2] Blade Dance"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_2_arcana1_Description"			"Атакуя врагов с помощью @Ability1 герой получает бонус к урону. Складывается до трёх раз. Когда герой совершит 15 атак, исчезнет 1 заряд бонуса."
+    	"DOTA_Tooltip_ability_seinaru_rune_q_2_arcana1_Description"			"Атакуя врагов с помощью @Ability1 герой получает бонус к урону. Складывается до <% SEINARU_ARCANA_Q2_MAX_STACKS %> раз. Когда герой совершит 15 атак, исчезнет 1 заряд бонуса."
     	"DOTA_Tooltip_ability_seinaru_rune_q_2_arcana1_property_one"			"Усиление урона за заряд"
     	"DOTA_Tooltip_ability_seinaru_rune_q_2_arcana1_suffix"					"%"
 
@@ -7230,7 +7230,7 @@
 		"DOTA_Tooltip_modifier_iron_colossus_description"		"К атакам добавляется 50х физического урона, атаки оглушают врагов на 0.5 секунды. Скорость атаки заблокирована на значении 100. Урон и броня увеличены в зависимости от Силы героя."
 
 		"item_property_mugato"						"Curse of Mugato"	
-		"property_mugato_description"				"Увеличивает базовый урон основных умений на @special_property1%.<br>-5000 реген. маны."
+		"property_mugato_description"				"Прочтение любого заклинания накладывает безмолвие на @special_property1 секунды, нанесение атаки - на @special_property2 секунды. Герой, находясь в безмолвии увеличивает свой пост-резистный урон на @special_property3%."
 
 		"item_property_swamp_witch"					"Murky Wave"
 		"property_swamp_witch_description"			"Каждое использование (W) @Ability2 выпустит перед собой рой летучих мышей, который нанесёт магичский урон в размере @special_property1x вашего Интеллекта. Враги, задетые волной также будут получать на @special_property2% больше пост-резистного урона на 8 секунд. Складывается до 10 раз."
@@ -9284,7 +9284,7 @@
 		"item_rpc_seinaru_glyph_7_1_description" 				"По окончании действия руны [E2], герой уворачивается от 100% атак в течении 2 секунд."
 
 		"DOTA_Tooltip_modifier_seinaru_glyph_7_1_effect"				"Vanishing Breeze"
-		"DOTA_Tooltip_modifier_seinaru_glyph_7_1_effect_Description"	"100%% уклонение"
+		"DOTA_Tooltip_modifier_seinaru_glyph_7_1_effect_Description"	"<% SEINARU_GLYPH7_EVA %>% уклонение"
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_5_a"		"(Immortal) Символ арены"
 		"item_rpc_seinaru_glyph_5_a_description" 				"Кольцо от (R) Duelist Ring следует за героем."
@@ -10486,8 +10486,8 @@
 		"DOTA_Tooltip_modifier_wind_temple_keyholder_slow"	"Сильный ветер"
 		"DOTA_Tooltip_modifier_wind_temple_keyholder_slow_Description"	"Снижение скорости атаки и передвижения"
 
-		"DOTA_Tooltip_ability_creature_pure_strike"			"Чистый удар"
-		"DOTA_Tooltip_ability_creature_pure_strike_Description"	"Атаки никогда не промахиваются и наносят дополнительно 15% чистого урона."
+		"DOTA_Tooltip_ability_creature_pure_strike"			"Pure Strike"
+		"DOTA_Tooltip_ability_creature_pure_strike_Description"	"Атаки никогда не промахиваются и наносят дополнительно 3% чистого урона."
 
 		"DOTA_Tooltip_ability_tanari_ritual_healing"		"Ритуал исцеления"
 		"DOTA_Tooltip_ability_tanari_ritual_healing_Description"	"Восстанавливает небольшое значение здоровья ближайшему союзнику."		
@@ -14095,10 +14095,10 @@
 		"stars_menu"													"Звёзды"
 		"stars_hero_level_title"										"На новую высоту"		
 		"stars_hero_level_description"									"Прокачайте героя @heroname до @level-го уровня."
-		"star_description_basic"										"@heroname - убейте @boss_name (@mapname) на любой сложности."
-		"star_description_basic2"										"@heroname - убейте @boss_name (@mapname), сложность Legend."
-		"star_description_basic3_tanari"								"@heroname - убейте @boss_name (@mapname), сложность Legend в Мире Духов."
-		"star_description_basic3_redfall"								"@heroname - убейте @boss_name (@mapname), сложность Legend с Равноденствием."
+		"star_description_basic"										"@heroname - убейте @boss_name, @mapname на любой сложности."
+		"star_description_basic2"										"@heroname - убейте @boss_name, @mapname, сложность Legend."
+		"star_description_basic3_tanari"								"@heroname - убейте @boss_name, @mapname, сложность Legend в Мире Духов."
+		"star_description_basic3_redfall"								"@heroname - убейте @boss_name, @mapname, сложность Legend с Равноденствием."
 
 
 		"star_description_champions_league"								"@heroname - достигните @rank звания на Арене."
@@ -14126,18 +14126,18 @@
 		
 		"star_valdun_title"											"Sea Fortress"
 		"star_valdun_title_solo"									"Sea Fortress"
-		"star_valdun_description"									"Победить @bossname (@mapname) героем @heroname."
-		"star_valdun_description2"									"Победить @bossname (@mapname) героем @heroname играя в одиночку."
-		"star_valdun_description3"									"Победить @bossname (@mapname) героем @heroname играя в одиночку за 60 минут."
-		"star_valdun_description1solo"									"Победить @bossname (@mapname) играя в одиночку."
-		"star_valdun_description2solo"									"Победить @bossname (@mapname) играя в одиночку за 45 минут."
-		"star_valdun_description3solo"									"Победить @bossname (@mapname) играя в одиночку за 30 минут."
+		"star_valdun_description"									"Победить @bossname, @mapname героем @heroname."
+		"star_valdun_description2"									"Победить @bossname, @mapname героем @heroname играя в одиночку."
+		"star_valdun_description3"									"Победить @bossname, @mapname героем @heroname играя в одиночку за 60 минут."
+		"star_valdun_description1solo"									"Победить @bossname, @mapname играя в одиночку."
+		"star_valdun_description2solo"									"Победить @bossname, @mapname играя в одиночку за 45 минут."
+		"star_valdun_description3solo"									"Победить @bossname, @mapname играя в одиночку за 30 минут."
 
 		"star_azalea_title"											"Shrine of Azalea"
 		"star_azalea_title_solo"									"Shrine of Azalea"
-		"star_azalea_description"									"Победить @bossname (@mapname) героем @heroname на Нормальной сложности."
-		"star_azalea_description2"									"Победить @bossname (@mapname) героем @heroname на Легендарной сложности."
-		"star_azalea_description3"									"Победить @bossname (@mapname) героем @heroname на Легендарной сложности с тремя активными Glacier Stones."
+		"star_azalea_description"									"Победить @bossname, @mapname героем @heroname на Нормальной сложности."
+		"star_azalea_description2"									"Победить @bossname, @mapname героем @heroname на Легендарной сложности."
+		"star_azalea_description3"									"Победить @bossname, @mapname героем @heroname на Легендарной сложности с тремя активными Glacier Stones."
 
 
 		//SERENGAARD
