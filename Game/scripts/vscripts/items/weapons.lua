@@ -4,6 +4,12 @@ end
 
 require('items/legend_weapons')
 
+require('items/constants/boots')
+require('items/constants/chest')
+require('items/constants/gloves')
+require('items/constants/helm')
+require('items/constants/trinket')
+
 Weapons.XP_PER_LEVEL_TABLE = {}
 Weapons.MAX_WEAPON_LEVEL = 50
 for i=1,Weapons.MAX_WEAPON_LEVEL, 1 do
@@ -244,7 +250,7 @@ function Weapons:UpdateWeaponXP(xpBounty)
 			end
 			local newBounty = xpBounty
 			if hero:HasModifier("modifier_blacksmiths_tablet") then
-				newBounty = math.floor(newBounty*1.2)
+				newBounty = math.floor(newBounty*(1+BLACKSMITH_TABLE_ADD_WEAPON_EXP))
 			end
 			if weapon.rarity == "immortal" then
 				newBounty = math.ceil(newBounty/500)

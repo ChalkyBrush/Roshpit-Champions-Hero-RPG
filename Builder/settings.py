@@ -5,11 +5,15 @@
 #
 data = {
     "constants": [
-        "heroes/.*/.*constants.*\.lua"
+        "heroes/.*/.*constants.*\.lua",
+        "items/constants/.*\.lua",
+        "elements.lua",
     ],
     "replaces": [
         "heroes/.*/npc/.*\.txt",
         "heroes/.*/localizations/.*\.txt",
+        "items/localizations/.*\.txt",
+        "items/npc/.*\.txt",
         "worlds/.*/.*\.txt",
         "worlds/.*/localizations/.*\.txt",
     ],

@@ -1,0 +1,13 @@
+
+		"DOTA_Tooltip_ability_item_rpc_blacksmiths_tablet"								"Blacksmith's Tablet"
+		"item_property_blacksmiths_tablet"			"Refined Weaponry"
+		"property_blacksmiths_tablet_description"	"Your equipped weapon's bonuses (including runes) are increased by <% BLACKSMITH_TABLE_ADD_STATS_PCT * 100%>%. Additionally increases XP gain on weapons by <% BLACKSMITH_TABLE_ADD_WEAPON_EXP * 100 %>%."
+
+		"DOTA_Tooltip_ability_item_rpc_hope_of_saytaru"									"Hope of Saytaru"
+		"item_property_saytaru"						"Last Hope"
+		"property_saytaru_description"				"Gain Spell Immunity while below <% SAYTARU_HP_THRESHOLD_PCT * 100 %>% health. While active, this increases your resistance to Pure damage by <% SAYTARU_PURE_DMG_RESISTANCE * 100 %>%, but decreases your outgoing Magic and Pure damage by <% SAYTARU_OUTPUT_PURE_AND_MAGIC_DMG_DECREASE * 100 %>%."
+
+		"DOTA_Tooltip_ability_item_rpc_sapphire_lotus"									"Sapphire Lotus"
+		"item_property_sapphire_lotus"				"Sapphire Soul"
+		"property_sapphire_lotus_description"		"Each point of Intelligence additionally increases max health by <% SAPPHIRE_LOTUS_HP_PER_INT %>."
+

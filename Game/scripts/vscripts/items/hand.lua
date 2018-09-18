@@ -101,7 +101,7 @@ function Hand:action(propertyName, propertyValue, hero, inventory_unit, hand_abi
 	elseif propertyName == "marauder" then
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_hand_marauder", item)
 	elseif propertyName == "elder_grasp" then
-		Hand:addBasicModifier(1, hero, inventory_unit, "modifier_hand_elder", hand_ability)
+		Hand:addItemModifier(0, hero, inventory_unit, "modifier_grasp_of_elder", item)
 	elseif propertyName == "midas" then
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_hand_of_midas", item)
 	elseif propertyName == "scarecrow" then
@@ -329,7 +329,7 @@ function Hand:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_divine_purity")
 	hero:RemoveModifierByName("modifier_hand_max_health")
 	hero:RemoveModifierByName("modifier_hand_base_ability_damage")
-	hero:RemoveModifierByName("modifier_hand_elder")
+	hero:RemoveModifierByName("modifier_grasp_of_elder")
 	hero:RemoveModifierByName("modifier_hand_of_midas")
 	hero:RemoveModifierByName("modifier_hand_of_midas_effect")
 	hero:RemoveModifierByName("modifier_scarecrow_gloves")

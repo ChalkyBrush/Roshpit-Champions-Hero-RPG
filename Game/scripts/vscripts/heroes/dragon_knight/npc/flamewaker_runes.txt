@@ -70,7 +70,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"4"
+				"property_one"			"<% FLAMEWAKER_W1_DMG_PER_ATT * 100 %>"
 			}
 			"02"
 			{

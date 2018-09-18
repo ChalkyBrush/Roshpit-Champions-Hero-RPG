@@ -11,6 +11,12 @@ require('/heroes/antimage/arkimus_constants')
 require('/heroes/juggernaut/seinaru_constants')
 require('/heroes/dark_seer/zhonik_constants')
 
+require('items/constants/boots')
+require('items/constants/chest')
+require('items/constants/gloves')
+require('items/constants/helm')
+require('items/constants/trinket')
+
 CustomAttributes.FLAMEWAKER_R3_STRENGTH = 260
 CustomAttributes.CONJUROR_E1_AGI = 25
 CustomAttributes.WARLORD_W2_STATS = 60
@@ -58,8 +64,8 @@ CustomAttributes.DJANGHOR_BEAR_MAX_HEALTH = 6000
 CustomAttributes.OGTHUN_HEALTH = 10
 CustomAttributes.TYRIUS_HEALTH_PER_STR = 10
 CustomAttributes.REDROCK_HEALTH = 10
-CustomAttributes.SANGE_HEALTH = 8
-CustomAttributes.SAPPHIRE_LOTUS_HEALTH = 10
+CustomAttributes.SANGE_HEALTH = SANGE_HP_PER_AGI
+CustomAttributes.SAPPHIRE_LOTUS_HEALTH = SAPPHIRE_LOTUS_HP_PER_INT
 CustomAttributes.PALADIN_IMMO_3_HEALTH = 12
 CustomAttributes.HYDROXIS_ARC2_R4_INT = 500
 

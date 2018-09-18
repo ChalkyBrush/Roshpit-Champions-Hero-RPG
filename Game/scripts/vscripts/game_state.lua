@@ -11,6 +11,12 @@ require('/heroes/antimage/arkimus_constants')
 require('/heroes/monkey_king/constants')
 require('/heroes/skywrath_mage/constants')
 
+require('/items/constants/boots')
+require('/items/constants/chest')
+require('/items/constants/gloves')
+require('/items/constants/helm')
+require('/items/constants/trinket')
+
 local heroes = {
 	venomort = require('/heroes/hero_necrolyte/scales'),
 	mountain_protector = require('/heroes/legion_commander/constants')
@@ -525,6 +531,60 @@ function GameState:OrderFilter(orderTable)
 		-- 		CustomAbilities:AuriunFlashHeal(unit, orderTable)
 		-- 	end
 		-- end
+		if unit:HasModifier("modifier_stormcloth_bracer") then
+			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_TARGET or orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION  then
+
+				local targetVector = Vector(0,0)
+				if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
+					targetVector = Vector(orderTable.position_x, orderTable.position_y)
+				elseif orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_TARGET then
+					local moreTarget = EntIndexToHScript(orderTable.entindex_target)
+					targetVector = moreTarget:GetAbsOrigin()
+				end
+				if not unit:HasModifier("modifier_stormcloth_bracer_cooldown") and unit:IsAlive() then
+					local allies = FindUnitsInRadius( unit:GetTeamNumber(), targetVector, nil, 150, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
+
+					if #allies > 0 then
+						local particleName =  "particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf"
+						local targetUnit
+						for _,ally in pairs(allies) do
+							if 	ally ~= unit then
+								targetUnit = ally
+								break
+							end
+						end
+						if targetUnit then
+							local itemAbility = unit:FindModifierByName('modifier_stormcloth_bracer'):GetAbility()
+							itemAbility:ApplyDataDrivenModifier(unit, unit, "modifier_stormcloth_bracer_cooldown", {duration = STORMCLOTH_COOLDOWN})
+							local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, unit )
+							local pfx2 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, targetUnit )
+							ParticleManager:SetParticleControl( pfx, 0, unit:GetAbsOrigin() )
+							ParticleManager:SetParticleControl( pfx, 1, Vector(200, 200, 200) )
+							ParticleManager:SetParticleControl( pfx2, 0, targetUnit:GetAbsOrigin() )
+							ParticleManager:SetParticleControl( pfx2, 1, Vector(200, 200, 200) )
+							StartSoundEvent("Paladin.HolyBolt", unit)
+							StartSoundEvent("Paladin.HolyBolt", targetUnit)
+							Timers:CreateTimer(0.3, function()
+								unit:SetAbsOrigin(targetUnit:GetAbsOrigin())
+								FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), false)
+								local enemies = FindUnitsInRadius( unit:GetTeamNumber(), unit:GetAbsOrigin(), nil, STORMCLOTH_STUN_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+								if #enemies > 0 then
+									for _,enemy in pairs(enemies) do
+										Filters:ApplyStun(unit, STORMCLOTH_STUN_DUR, enemy)
+									end
+								end
+								Timers:CreateTimer(0.3, function()
+									ParticleManager:DestroyParticle( pfx, false )
+									ParticleManager:DestroyParticle( pfx2, false )
+
+								end)
+							end)
+						end
+					end
+				end
+			end
+
+		end
 		if unit:HasModifier("modifier_stargazers_sphere") then
 			if orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_MOVE or orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
 				local targetVector = Vector(0,0)
@@ -1689,6 +1749,9 @@ function GameState:FilterDamage(filterTable)
 				filterTable["damage"] = filterTable["damage"]/damageMult
 			end
 		end
+		if victim:HasModifier('modifier_basilisk_plague_petrify') then
+			mult = mult + BASILISK_PLAGUE_PHYSICAL_POSTMIT
+		end
 	elseif damagetype == DAMAGE_TYPE_MAGICAL then
 		local inflictor = filterTable["entindex_inflictor_const"]
 		if attacker:HasModifier("modifier_volcano_orb") then
@@ -1788,10 +1851,16 @@ function GameState:FilterDamage(filterTable)
 			modifier = victim:FindModifierByName("modifier_solunia_warp_core_aura_lunar")
 			mult = mult + modifier:GetAbility().e_3_level*0.05
 		end
+		if victim:HasModifier("modifier_hope_of_saytaru_effect") then
+			filterTable["damage"] = (1 - SAYTARU_PURE_DMG_RESISTANCE) * filterTable["damage"]
+		end
 	end
 	if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 		if victim:HasModifier("modifier_emerald_nullification_ring") then
 			filterTable["damage"] = math.max(filterTable["damage"] - Filters:GetHeroAttribute(victim, "agility")*5, 0)
+		end
+		if attacker:HasModifier("modifier_hope_of_saytaru_effect") then
+			filterTable["damage"] = (1 - SAYTARU_OUTPUT_PURE_AND_MAGIC_DMG_DECREASE) * filterTable["damage"]
 		end
 		if victim:HasModifier("modifier_azure_empire_visible") then
 			if not Filters:HasDamageBlockShield(victim) then
@@ -2503,6 +2572,9 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_twig_of_the_enlightened_shield") then
 		filterTable["damage"] = Filters:TwigTakeDamage(filterTable["damage"], victim)
 	end
+	if victim:HasModifier("modifier_grasp_of_elder_shield") then
+		filterTable["damage"] = Filters:ElderGraspTakeDamage(filterTable["damage"], victim)
+	end
 	if victim:HasModifier("modifier_phoenix_boss_passive") then
 		if filterTable["damage"] > (victim:GetMaxHealth()*0.02) then
 			filterTable["damage"] = victim:GetMaxHealth()*0.02
@@ -2518,6 +2590,9 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_brazen_kabuto_channeling") then
 		filterTable["damage"] = 0
+	end
+	if victim:HasModifier("modifier_brazen_kabuto_shield") then
+		filterTable["damage"] = filterTable["damage"] * (1 - KABUTO_SHIELD_RESISTANCE)
 	end
 	if victim:HasModifier("modifier_ancient_hero_water_god") then
 		if damagetype == DAMAGE_TYPE_PURE then
@@ -2564,12 +2639,9 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
-	if attacker:HasModifier("modifier_baron_storm_link") then
-		if attacker.baronData then
-			if attacker.baronData[1] == victim:GetEntityIndex() then
-				filterTable["damage"] = filterTable["damage"]*0.35
-			end
-		end
+	modifier = attacker:FindModifierByName('modifier_baron_storm_link')
+	if modifier and modifier:GetCaster() == victim then
+		filterTable["damage"] = filterTable["damage"]*(1 - BARON_STORM_DMG_RESISTANCE)
 	end
     if attacker:HasModifier("modifier_gorudo_b_d_inside_ring") then
     	modifier = attacker:FindModifierByName("modifier_gorudo_b_d_inside_ring")
@@ -2678,6 +2750,9 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_arkimus_glyph_5_1") then
 		local damageReduction = Filters:SpellShieldHit(victim, filterTable["damage"])
 		filterTable["damage"] = filterTable["damage"] - damageReduction
+	end
+	if attacker:HasModifier("modifier_sea_fortress_ai") and (damageType == DAMAGE_TYPE_PURE or damageType == DAMAGE_TYPE_MAGICAL) then
+		filterTable["damage"] = filterTable["damage"]*3
 	end
 	if victim:HasModifier("modifier_demon_hunter") then
 		filterTable["damage"] = CustomAbilities:ChernobogDemonHunter(victim, filterTable["damage"])
@@ -2881,9 +2956,6 @@ function GameState:FilterDamage(filterTable)
 				end
 			end
 		end
-	end
-	if attacker:HasModifier("modifier_sea_fortress_ai") then
-		filterTable["damage"] = filterTable["damage"]*3
 	end
 
 	if attacker:HasModifier("modifier_chernobog_immortal_weapon_2") then

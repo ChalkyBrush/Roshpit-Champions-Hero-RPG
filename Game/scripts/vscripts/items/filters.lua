@@ -15,6 +15,12 @@ require('/heroes/omniknight/paladin_constants')
 require('/heroes/phantom_assassin/voltex_constants')
 require('/heroes/juggernaut/seinaru_constants')
 
+require('/items/constants/boots')
+require('/items/constants/chest')
+require('/items/constants/gloves')
+require('/items/constants/helm')
+require('/items/constants/trinket')
+
 LinkLuaModifier("modifier_buzuki_finger_lua", "modifiers/modifier_buzuki_finger_lua", LUA_MODIFIER_MOTION_NONE)
 
 function Filters:ApplyItemDamage(victim,attacker,damage,damage_type,item,element1,element2)
@@ -166,13 +172,13 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         mult = mult + 0.003*(caster:GetAgility()/10)
     end
     if caster:HasModifier("modifier_red_divinex_amulet") then
-        mult = mult + 0.003*(caster:GetStrength()/10)
+        mult = mult + 0.0007*(caster:GetStrength()/10)
     end
     if caster:HasModifier("modifier_green_divinex_amulet") then
-        mult = mult + 0.003*(caster:GetAgility()/10)
+        mult = mult + 0.0007*(caster:GetAgility()/10)
     end
     if caster:HasModifier("modifier_blue_divinex_amulet") then
-        mult = mult + 0.003*(caster:GetIntellect()/10)
+        mult = mult + 0.0007*(caster:GetIntellect()/10)
     end
 
     if caster:HasModifier("modifier_raven_idol2") then
@@ -585,15 +591,6 @@ function Filters:stormcrack_upgrade(caster, ability, target)
 end
 
 function Filters:ApplyHeal(caster, target, healAmount, bCap,doPopUp)
-    if caster:HasModifier("modifier_grasp_of_elder") then
-        healAmount = healAmount*2
-        if not target.elderShield then
-            target.elderShield = 0
-        end
-        local excessHeal = healAmount - (target:GetMaxHealth()-target:GetHealth())
-        target.elderShield = math.min(target.elderShield + excessHeal, target:GetMaxHealth())
-        -- caster.handItem:ApplyDataDrivenModifier(caster, target, string modifier_name, handle modifierArgs)
-    end
     if bCap then
         healAmount = math.min(healAmount, target:GetMaxHealth())
     end
@@ -743,6 +740,22 @@ function Filters:CastSkillArguments(slot, caster)
         caster:RemoveModifierByName("modifier_crimsyth_elite_greaves_armor")
         caster.foot:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_crimsyth_elite_greaves_magic_shield", {duration = 3})
     end
+    if caster:HasModifier("modifier_grasp_of_elder") then
+        local allies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ELDER_GRASP_RADIUS, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
+        for _,ally in pairs(allies) do
+            local healAmount = ally:GetMaxHealth() * ELDER_GRASP_HEAL_PCT
+            local shieldAmount = math.max(healAmount + ally:GetHealth() - ally:GetMaxHealth(), 0)
+
+            Filters:ApplyHeal(caster, ally, shieldAmount)
+            if shieldAmount > 0 then
+                caster.handItem:ApplyDataDrivenModifier(caster, ally, "modifier_grasp_of_elder_shield", {})
+                if not ally.elder_grasp_shield then
+                    ally.elder_grasp_shield = 0
+                end
+                ally.elder_grasp_shield = math.min(ally.elder_grasp_shield + shieldAmount, ELDER_GRASP_SHIELD_PER_HP * ally:GetMaxHealth())
+            end
+        end
+    end
     if caster:HasModifier("modifier_chains_of_orthok") then
         if slot == 1 then
             Filters:OrthokStack(caster,5)
@@ -787,16 +800,13 @@ function Filters:BeginRChannel(caster)
         caster.druid_spirit:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_druid_channel", {duration = 8.0})
     end
     if caster:HasModifier("modifier_brazen_kabuto") then
+        caster:RemoveModifierByName('modifier_brazen_kabuto_shield')
         caster.kabuto:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_brazen_kabuto_channeling", {duration = 8.0})
     end
     if caster:HasModifier("modifier_signus_charm") then
         ability:EndCooldown()
         baseCd = baseCd*0.6
         ability:StartCooldown(baseCd)
-    end
-    if caster:HasModifier("modifier_hurricane_vest") then
-        caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_hurricane_vest_hurricane", {duration = 12})
-        StartSoundEvent("RPCItem.HurricaneVest", caster)
     end
     if caster:HasModifier("modifier_burning_spirit_helmet") then
         StartSoundEvent("RPCItem.BurningSpiritHelm", caster)
@@ -949,9 +959,6 @@ function Filters:ApplyWskills(caster)
         baseCd = math.max(baseCd - 1, 0)
         ability:EndCooldown()
         ability:StartCooldown(baseCd)
-    end
-    if caster:HasModifier("modifier_hand_elder") then
-        Filters:ElderGrasp(caster)
     end
     if caster:HasModifier("modifier_buzukis_finger") then
         Filters:BuzukisFinger(caster)
@@ -1116,9 +1123,11 @@ end
 
 function Filters:ApplyRskills(caster)
 
-    if caster:HasModifier("modifier_body_hurricane") then
-        Filters:HurricaneVest(caster)   
-    elseif caster:HasModifier("modifier_body_flooding") then
+    if caster:HasModifier("modifier_hurricane_vest") then
+        caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_hurricane_vest_start", {duration = 0.3})
+        StartSoundEvent("RPCItem.HurricaneVest", caster)
+    end
+   if caster:HasModifier("modifier_body_flooding") then
         Filters:FloodRobe(caster)
     elseif caster:HasModifier("modifier_body_avalanche") then
         Filters:AvalanchePlate(caster)
@@ -1175,6 +1184,9 @@ function Filters:ApplyRskills(caster)
         EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "RPCItem.AlaranaIce", caster.InventoryUnit)
         caster.foot:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_alarana_ice_freeze", {duration = 8})
         caster.foot.alaranaIce = caster:GetMaxHealth()*1
+    end
+    if caster:HasModifier("modifier_brazen_kabuto") then
+        caster.kabuto:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_brazen_kabuto_shield", {duration = KABUTO_SHIELD_DUR})
     end
     if caster:HasModifier("modifier_sorceress_immortal_weapon_3") then
         if not caster.avatar then
@@ -1506,9 +1518,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_cerulean_high_guard") then
             damageMult = damageMult + 20
-        end
-        if attacker:HasModifier("modifier_stormcloth_bracer") then
-            Filters:StormclothBracer(attacker, victim)
         end
         if attacker:HasModifier("modifier_crest_of_the_umbral_sentinel") then
             Filters:UmbralSentinel(attacker, victim)
@@ -2552,17 +2561,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     return damage, element1, element2
 end
 
-function Filters:ElderGrasp(caster)
-    local healAmount = math.ceil(caster:GetMaxHealth()*0.04)
-    Filters:ApplyHeal(caster, caster, healAmount, true)
-    local particleName = "particles/generic_gameplay/generic_lifesteal.vpcf"
-    local particleVector = caster:GetAbsOrigin()
-    local pfx = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN_FOLLOW, caster )
-    ParticleManager:SetParticleControlEnt( pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", particleVector, true )
-    Timers:CreateTimer(0.5, function() 
-        ParticleManager:DestroyParticle( pfx, false )
-    end)
-end
 
 function Filters:MoonTechRunners(caster)
     local ability = caster.foot
@@ -2571,26 +2569,6 @@ function Filters:MoonTechRunners(caster)
 end
 
 
-function Filters:HurricaneVest(caster)
-    local ability = caster.body_ability
-    local particleName = "particles/units/heroes/hero_brewmaster/brewmaster_windwalk.vpcf"
-    local particleVector = caster:GetAbsOrigin()
-    local pfx = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN_FOLLOW, caster )
-    ParticleManager:SetParticleControlEnt( pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", particleVector, true )
-    Timers:CreateTimer(1.5, function() 
-        ParticleManager:DestroyParticle( pfx, false )
-    end)    
-    local damage = caster:GetModifierStackCount( "modifier_body_hurricane", ability )
-    print(damage)
-    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 350, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-    if #enemies > 0 then
-        for _,enemy in pairs(enemies) do
-            ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
-        end
-    end     
-    ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_body_hurricane_effect", {duration = 2.2})
-    EmitSoundOn("Hero_Clinkz.WindWalk", caster)
-end
 
 function Filters:FloodRobe(caster)
     local damageMult = 25
@@ -3426,10 +3404,6 @@ function Filters:ReanimateThorok(caster)
     end
 end
 
-function Filters:StormclothBracer(attacker, victim)
-    attacker.stormcloth:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_stormcloth_bracer_effect", {duration = 5})
-end
-
 function Filters:WraithCrown(caster)
     local ability = caster.wraith_crown
     if not caster:HasModifier("modifier_wraith_crown_cooldown") then
@@ -3728,6 +3702,18 @@ function Filters:TwigTakeDamage(damage, victim)
         damage = 0
     else
         damage = math.max(damage - victim.manaShellAbsorb, 0)
+    end
+    return damage
+end
+
+function Filters:ElderGraspTakeDamage(damage, victim)
+    if victim.elder_grasp_shield >= damage then
+        victim.elder_grasp_shield = victim.elder_grasp_shield - damage
+        damage = 0
+    else
+        victim.elder_grasp_shield = 0
+        victim:RemoveModifierByName('modifier_grasp_of_elder_shield')
+        damage = math.max(damage - victim.elder_grasp_shield, 0)
     end
     return damage
 end
@@ -4034,7 +4020,7 @@ function Filters:ShipyardVeilQHit(attacker, victim)
         ability:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_shipyard_veil_shield", {})
         local newStacks = math.min(maxStacks, attacker:GetModifierStackCount("modifier_shipyard_veil_shield", attacker.InventoryUnit) + 1)
         attacker:SetModifierStackCount("modifier_shipyard_veil_shield", attacker.InventoryUnit, newStacks)
-        Timers:CreateTimer(0.5, function()
+        Timers:CreateTimer(SHIPYARD_SHIELD_COOLDOWN, function()
             ability.lock = false
         end)
     end
