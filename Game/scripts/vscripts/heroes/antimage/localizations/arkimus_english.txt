@@ -1,0 +1,259 @@
+		"DOTA_Tooltip_ability_arkimus_zonis_spark"								"Dimension Coil"
+    	"DOTA_Tooltip_ability_arkimus_zonis_spark_Description"					"Element: <font color=\"#E1A2E8\">Arcane</font> / <font color=\"#5CCDF9\">Lightning</font><br>Arkimus twists through the dimensional fabric in front of him, immediately appearing in a new location. The dimensional tear creates a beam of focused arcane lightning between the two points that lasts for 7 seconds. Enemies who touch the lightning beam are perpetually stunned and damaged. Every 6 seconds, gain a stack of Dimension Coil that allows a free cast, up to 2 stacks."
+    	"DOTA_Tooltip_ability_arkimus_zonis_spark_damage"						"DAMAGE:"
+    	"DOTA_Tooltip_ability_arkimus_zonis_spark_cast_range"					"CAST RANGE:"
+
+    	"DOTA_Tooltip_modifier_zonis_stun"										"Dimension Coil Shock"
+
+    	"DOTA_Tooltip_modifier_zonis_freecast"									"Dimension Coil Free Cast"
+    	"DOTA_Tooltip_modifier_zonis_freecast_Description"						"Your next cast of Dimension Coil will not activate its cooldown."
+
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1"									"[Q1] Shell Shock"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_Description"						"Enemies who touch a Dimension Coil have their armor reduced for 8 seconds."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_property_one"					"Armor Reduction"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_suffix"							""
+
+    	"DOTA_Tooltip_modifier_zonis_q_1_armor_loss"							"Shell Shock"
+    	"DOTA_Tooltip_modifier_zonis_q_1_armor_loss_Description"				"Reduced Armor"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2"									"[Q2] Zonal Net"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_Description"						"After casting Dimension Coil, an electronic net of arcane energy damages and briefly stuns enemies every 0.2 seconds in an area around Arkimus. Lasts 1 second."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_property_one"					"Damage"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_suffix"							""
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_property_two"					"Radius"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_suffix_two"						""
+
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3"									"[Q3] Malleable Fabric"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_Description"						"Enemies who touch a Dimension Coil have their magic resist reduced for 8 seconds."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_property_one"					"Magic Resist Reduction"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_suffix"							""
+
+    	"DOTA_Tooltip_modifier_zonis_c_a_magic_resist"							"Malleable Fabric"
+    	"DOTA_Tooltip_modifier_zonis_c_a_magic_resist_Description"				"Reduced magic resist"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4"									"[Q4] Arcane Coil"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_Description"						"Increases the damage of Dimension Coil and Zonal Net, and increases the duration of the lightning beams."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_property_one"					"Damage Increase"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix"							"%"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_property_two"					"Coil Duration Increase"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix_two"						" seconds"
+
+    	"DOTA_Tooltip_ability_arkimus_storm_weapon"								"Flash Source"
+    	"DOTA_Tooltip_ability_arkimus_storm_weapon_Description"					"Element: <font color=\"#E1A2E8\">Arcane</font><br>Toggle on for a flood of arcane energy to enchant Arkimus' weapons, causing his attacks to deal extra arcane damage in an area around the target. Each attack drains mana. Ability is toggled off when mana is too low."
+    	"DOTA_Tooltip_ability_arkimus_storm_weapon_damage_mult"					"DAMAGE AS % OF ATTACK POWER:"
+
+    	"DOTA_Tooltip_modifier_arkimus_storm_weapon"							"Flash Source"
+    	"DOTA_Tooltip_modifier_arkimus_storm_weapon_Description"				"Next attack deals AOE arcane damage."
+
+    	"DOTA_Tooltip_ability_arkimus_rune_w_1"									"[W1] Archon Weapons"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_1_Description"						"A portion of any Arcane Damage dealt increases Base Attack Power for 15 seconds. Each instance's bonus overwrites the previous."
+    	"DOTA_Tooltip_ability_arkimus_rune_w_1_property_one"					"Arcane Damage to Attack Power"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_1_suffix"							"%"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_1_property_two"					"Maximum Bonus"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_1_suffix_two"						""
+
+    	"DOTA_Tooltip_modifier_damage_boost_q_1_visible"						"Archon Weapons"
+    	"DOTA_Tooltip_modifier_damage_boost_q_1_visible_Description"			"Increased attack damage based on last instance of Arcane damage dealt."
+
+    	"DOTA_Tooltip_ability_arkimus_rune_w_2"									"[W2] Arcane Splice"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_2_Description"						"Each time an enemy is damaged by Flash Source, they gain a stack of Arcane Splice which increases all arcane damage taken from all sources."
+    	"DOTA_Tooltip_ability_arkimus_rune_w_2_property_one"					"Arcane Resist Loss Per Stack"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_2_suffix"							"%"
+
+    	"DOTA_Tooltip_modifier_storm_weapon_w_2_visible"						"Arcane Splice"
+    	"DOTA_Tooltip_modifier_storm_weapon_w_2_visible_Description"			"Increased arcane damage from all sources"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_w_3"									"[W3] Photon Sprint"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_3_Description"						"Issuing an attack order with Flash Source active initiates Photon Sprint. During this phase, Arkimus has increased 1000 increased movespeed and movespeed cap, unit-walking, and increased attack power. Enemy must be greater than 400 distance away to trigger the sprint. Issuing an order while active cancels it."
+    	"DOTA_Tooltip_ability_arkimus_rune_w_3_property_one"					"Attack Power Increase"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_3_suffix"							"%"
+
+    	"DOTA_Tooltip_modifier_arkimus_c_b_sprinting"							"Photon Sprint"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_w_4"									"[W4] Source Relay"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_4_Description"						"Landing an attack with Flash Source active has a chance to apply a 7 second shield that absorbs an instance of damage. Greater than 100% chance means you can acquire multiple stacks of damage negation."
+    	"DOTA_Tooltip_ability_arkimus_rune_w_4_property_one"					"Shield Stack Chance"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_4_suffix"							"%"
+
+    	"DOTA_Tooltip_modifier_arkimus_d_b_shield"								"Source Relay"
+    	"DOTA_Tooltip_modifier_arkimus_d_b_shield_Description"					"Shield negates damage"	
+
+    	"DOTA_Tooltip_ability_ark_jump"											"Orbital Leap"
+    	"DOTA_Tooltip_ability_ark_jump_Description"								"Acrobatically jump to the target location. Every 6 seconds, gain a stack allowing Arkimus to cast this without activating the cooldown, up to a maximum of 2 stacks."
+    	"DOTA_Tooltip_ability_ark_jump_cast_range"								"CAST RANGE:"
+
+    	"DOTA_Tooltip_modifier_machinal_jump_freecast"							"Orbital Leap Free Cast"
+    	"DOTA_Tooltip_modifier_machinal_jump_freecast_Description"				"The next cast of Oribtal Leap will not trigger its cooldown."
+
+    	"DOTA_Tooltip_ability_arkimus_rune_e_1"									"[E1] Grounding Spark"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_1_Description"						"Enemies near the landing point of Orbital leap are electrocuted by arcane energy."
+    	"DOTA_Tooltip_ability_arkimus_rune_e_1_property_one"					"Damage"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_1_suffix"							"% of Attack Power"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_1_property_two"					"Shock Radius"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_1_suffix_two"						""	
+
+    	"DOTA_Tooltip_ability_arkimus_rune_e_2"									"[E2] Regeneration Cycle"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_2_Description"						"Whenever Arkimus gains mana, he is healed based on the mana gained."
+    	"DOTA_Tooltip_ability_arkimus_rune_e_2_property_one"					"Heal"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_2_suffix"							" for each Mana gained"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_e_3"									"[E3] Elevated System"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_3_Description"						"Gain increased post-mitigation damage amp for 3 seconds after landing from an Orbital Leap"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_3_property_one"					"Post-Mitigation Damage Amp"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_3_suffix"							"%"
+
+    	"DOTA_Tooltip_modifier_machinal_jump_c_c_amp"							"Elevated System"
+    	"DOTA_Tooltip_modifier_machinal_jump_c_c_amp_Description"				"Increased Post-Mitigation Damage"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_e_4"									"[E4] Boundless Edge"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_4_Description"						"Passively increases Agility and Evasion."
+    	"DOTA_Tooltip_ability_arkimus_rune_e_4_property_one"					"Agility"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_4_suffix"							""
+    	"DOTA_Tooltip_ability_arkimus_rune_e_4_property_two"					"Evasion"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_4_suffix_two"						"%"
+
+    	"DOTA_Tooltip_ability_arkimus_energy_field"								"Energy Field"
+    	"DOTA_Tooltip_ability_arkimus_energy_field_Description"					"Element: <font color=\"#E1A2E8\">Arcane</font><br>Charge up and release a vortex of Arcane Energy Cells that rotate around and follow Arkimus' position for 20 seconds. Enemies who come into contact with an energy cell take damage and have their attack power reduced for 5 seconds. Casting Orbital Leap while Energy Field is active will tighten the central focus point of the Energy Cells. Casting Dimension Coil widens the focal radius."
+    	"DOTA_Tooltip_ability_arkimus_energy_field_damage"						"DAMAGE:"
+    	"DOTA_Tooltip_ability_arkimus_energy_field_spirits"						"ENERGY CELLS:"
+    	"DOTA_Tooltip_ability_arkimus_energy_field_damage_reduce"				"ATTACK DAMAGE REDUCTION %:"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1"									"[R1] Vibrational Potency"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1_Description"						"Each active Energy Cell increases attack damage and mana regen."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1_property_one"					"Attack Damage per Cell"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1_suffix"							"%"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1_property_two"					"Mana Regen per Cell"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1_suffix_two"						""
+
+    	"DOTA_Tooltip_modifier_energy_shield_q_1_buff_visible"					"Vibrational Potency"
+    	"DOTA_Tooltip_modifier_energy_shield_q_1_buff_visible_Description"		"Increased attack power and mana regen"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_r_2"									"[R2] Adaptable Pressure"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_2_Description"						"A portion of Arkimus' attack damage is added to Energy Field's damage."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_2_property_one"					"Bonus Damage"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_2_suffix"							"% of attack Power"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3"									"[R3] Forcefield"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3_Description"						"When Energy Field begins channeling, Arkimus gains a temporary shield that reduces all damage taken by <% ARKIMUS_R3_DMG_RED * 100 %>%."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3_property_one"					"Duration"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3_suffix"							" seconds"
+
+    	"DOTA_Tooltip_modifier_energy_field_c_d_shield"							"Forcefield"
+    	"DOTA_Tooltip_modifier_energy_field_c_d_shield_Description"				"All damage taken reduced by 95%%"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4"									"[R4] Helical Magic"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_Description"						"All <font color=\"#E1A2E8\">Arcane</font> damage is increased by Arkimus' Agility."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_property_one"					"Bonus Arcane Damage"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_suffix"							"% for every 10 Agility"
+		
+		//Arcanas
+    	"item_property_arkimus_arcana1"										"Magnetic Flux"
+    	"property_arkimus_arcana1_description"								"Replaces @Ability1 and all of its runes with Magnetic Flux."
+
+    	"DOTA_Tooltip_ability_arkimus_zap_ring"									"Magnetic Flux"
+    	"DOTA_Tooltip_ability_arkimus_zap_ring_Description"						"Element: <font color=\"#E1A2E8\">Arcane</font> / <font color=\"#5CCDF9\">Lightning</font><br>Arkimus creates a field of magnetic energy that follows him. Enemies who get within the area are electrocuted, causing them to be stunned for 0.2 seconds."
+    	"DOTA_Tooltip_ability_arkimus_zap_ring_damage"							"DAMAGE:"
+    	"DOTA_Tooltip_ability_arkimus_zap_ring_duration"						"DURATION:"
+    	"DOTA_Tooltip_ability_arkimus_zap_ring_int_damage"						"EXTRA DAMAGE PER INTELLIGENCE:"
+
+    	"DOTA_Tooltip_modifier_zonis_stun_arcana1"								"Magnetic Shock"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1"									"[Q1] Synapse"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_Description"						"Passively increase intelligence."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_property_one"					"Bonus Intelligence"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_suffix"							""
+
+     	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1"									"[Q2] Power Surge"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1_Description"						"Enemies in Magnetic Flux take increased post-mitigation damage from Arkimus."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1_property_one"					"Post-Mitigation Damage"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1_suffix"							"%"
+
+     	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1"									"[Q3] Induction"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_Description"						"Taking damage adds an Induction stack. Each stack reduces damage taken by <% ARKIMUS_ARCANA1_Q3_DMG_RED_PER_STACK_EXP_BASE * 100 %>% independently (meaning there is diminishing returns). Lasts <% ARKIMUS_ARCANA1_Q3_DUR_BASE %> seconds and persists through death"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_property_one"					"Max Stacks"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_suffix"							""
+
+    	"DOTA_Tooltip_modifier_arkimus_arcana1_q3"										"Induction"
+    	"DOTA_Tooltip_modifier_arkimus_arcana1_q3_Description"							"Each stack independently reduces damage taken by 1%%"	
+
+     	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1"									"[Q4] Arcane Channel"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_Description"						"While Magnetic Flux is active, Arkimus gains bonus agility and additionally deals enhanced <font color=\"#5CCDF9\">Lightning</font> damage based on Agility."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_property_one"					"Bonus Agility"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_suffix"							""
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_property_two"					"Lighting Damage Increase"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_suffix_two"						"% for every 10 Agility"
+
+    	"DOTA_Tooltip_modifier_arkimus_arcana1_q4"										"Arcane Channel"
+    	"DOTA_Tooltip_modifier_arkimus_arcana1_q4_Description"							"Increased agility and lightning damage."
+
+    	"item_property_arkimus_arcana2"										"Archon Form"
+    	"property_arkimus_arcana2_description"								"Replaces @Ability4 and all of its runes with Archon Form."
+
+    	"DOTA_Tooltip_ability_arkimus_archon_form"									"Archon Form"
+    	"DOTA_Tooltip_ability_arkimus_archon_form_Description"						"After a 2 second channel Arkimus merges into Archon Form, where he has +400 attack speed, ranged attacks and takes reduced damage. All damage is converted to PURE damage while in Archon form. Enemies who are attacked within 1/2 of max attack range pushes Arkimus backwards."
+    	"DOTA_Tooltip_ability_arkimus_archon_form_attack_range"							"ATTACK RANGE:"
+    	"DOTA_Tooltip_ability_arkimus_archon_form_duration"								"DURATION:"
+    	"DOTA_Tooltip_ability_arkimus_archon_form_damage_resist"						"DAMAGE RESISTANCE %:"
+
+    	"DOTA_Tooltip_modifier_arkimus_archon_form"									"Archon Form"
+    	"DOTA_Tooltip_modifier_arkimus_archon_form_Description"									"Increased attack range and damage resistance"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2"									"[R1] Archon Tide"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2_Description"						"Landing an attack in Archon Form creates a persistent 240 radius area for 4 seconds. Enemies within the area take damage every 0.1 seconds based on attack power, and the damage is split amongst all enemies. Only 1 Archon Tide can be active at a time."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2_property_one"					"Damage Per 0.1s"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2_suffix"							"% of attack power"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_r_2_arcana2"									"[R2] Erebus Flow"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_2_arcana2_Description"						"All attributes grant extra mana regen while in Archon Form. Current mana pool increases base attack power."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_2_arcana2_property_one"					"Bonus Mana Regen"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_2_arcana2_suffix"							"% of all attributes"
+     	"DOTA_Tooltip_ability_arkimus_rune_r_2_arcana2_property_two"					"Base Attack Power"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_2_arcana2_suffix_two"						"% of current mana"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3_arcana2"									"[R3] Chaos Damage"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3_arcana2_Description"						"Passively increases ALL elemental damage."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3_arcana2_property_one"					"Elemental Damage Boost"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3_arcana2_suffix"							"%"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2"									"[R4] Cerebrum"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_Description"						"Reduces Base Attack Time while in Archon Form."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_property_one"					"Base Attack Time Reduction"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_suffix"							"s"
+		
+		//Glyphs
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_1_1"		"Glyph of Energy Focus"
+		"item_rpc_arkimus_glyph_1_1_description" 				"Energy Field's cells initiate at the smallest possible radius."
+
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_2_1"		"Glyph of Mana Tide"
+		"item_rpc_arkimus_glyph_2_1_description" 				"Increases mana regen by @glyph_property1."
+
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_3_1"		"Glyph of Energy Cells"
+		"item_rpc_arkimus_glyph_3_1_description" 				"Energy field has an extra @glyph_property1 cells."
+
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_4_1"		"Glyph of Acrobatics"
+		"item_rpc_arkimus_glyph_4_1_description" 				"Increases the maximum number of Orbital Leap Free Casts by @glyph_property1."
+
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_1"		"Glyph of Mana Shield"
+		"item_rpc_arkimus_glyph_5_1_description" 				"@glyph_property1% of damage taken drains from Mana instead of health, and the mana-damage is reduced by @glyph_property2%."
+
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_6_1"		"Glyph of Coil Warping"
+		"item_rpc_arkimus_glyph_6_1_description" 				"Increases the maximum number of Dimension Coil Free Casts by @glyph_property1."
+
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_7_1"		"Glyph of Arcane Electrocution"
+		"item_rpc_arkimus_glyph_7_1_description" 				"Increases all <font color=\"#5CCDF9\">Lightning</font> damage by @glyph_property1%."
+
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_a"		"Glyph of Zonal Separation"
+		"item_rpc_arkimus_glyph_5_a_description" 				"Active Energy Cells absorb 1 instance of Magic or Pure damage and are subsequently destroyed."
+
+
+		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_1"			"Arcanys Wing-Blade"
+		"item_property_arkimus_immortal_weapon"								"Dual Source"
+		"property_arkimus_immortal_weapon_description"						"Flash Source deals 100% additional damage and doubles the stack rate of Arcane Splice."
+		"DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_2"            "Arclight Blade"
+        "item_property_arkimus_immortal_weapon2"                             "Magnetize"
+        "property_arkimus_immortal_weapon2_description"                      "@special_property1% of all <font color=\"#E1A2E8\">Arcane</font> damage dealt heals Arkimus."
+
+        "DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_3"            "Arcane Circuitry Shiv"
+        "item_property_arkimus_immortal_weapon3"                             "Photon Shell"
+        "property_arkimus_immortal_weapon3_description"                      "Damage taken during Photon Sprint is reduced by @special_property1%."
