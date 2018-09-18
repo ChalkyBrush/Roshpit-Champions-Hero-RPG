@@ -11768,7 +11768,7 @@
 		"DOTA_Tooltip_ability_doom_custom"				"Doom"
 		"DOTA_Tooltip_ability_doom_custom_Description"	"Target burns in inpure flames, being silenced and disarmed. Damage ticks every 0.5 seconds."
 		"DOTA_Tooltip_ability_doom_custom_damage"		"DAMAGE:"
-		"DOTA_Tooltip_ability_doom_custom_duration"		"Duration"
+		"DOTA_Tooltip_ability_doom_custom_duration"		"DURATION:"
 		
 		"DOTA_Tooltip_ability_arena_descent_boss_ravage"				"Ravage of Abyss"
 		"DOTA_Tooltip_ability_arena_descent_boss_ravage_Description"	"Abomination impales enemies in 2000 range, stunning them, throwing in the air and dealing magical damage."
