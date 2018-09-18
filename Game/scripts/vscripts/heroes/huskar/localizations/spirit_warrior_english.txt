@@ -1,0 +1,301 @@
+    	"DOTA_Tooltip_ability_spirit_warrior_flametongue"			"Flameblood Weapon"
+    	"DOTA_Tooltip_ability_spirit_warrior_flametongue_Description"	"Element: <font color=\"#EF4126\">Fire</font><br>Applies a fire buff to a target ally that increases attack damage and adds a flat burst of magic damage on attack land."
+    	"DOTA_Tooltip_ability_spirit_warrior_flametongue_damage_increase"	"ATTACK DAMAGE BONUS %"
+    	"DOTA_Tooltip_ability_spirit_warrior_flametongue_duration"			"BUFF DURATION:"
+    	"DOTA_Tooltip_ability_spirit_warrior_flametongue_flat_pure_damage"	"EXTRA MAGIC DAMAGE ON ATTACK:"
+
+    	"DOTA_Tooltip_modifier_flametongue"							"Flameblood Weapon"
+    	"DOTA_Tooltip_modifier_flametongue_Description"				"Increased attack damage and a flat magic damage bonus on attack"
+
+    	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust"			"Soul Thrust"
+    	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust_Description"	"Element: <font color=\"#EF4126\">Fire</font> / <font color=\"#7AE2A7\">Wind</font><br>The Spirit Warrior slams his spear into the ground in front of him, creating a damaging soul explosion. Damage is enhanced by Flameblood Weapon. Enemies hit by Soul Thrust deal 50% reduced damage to Spirit Warrior for 7 seconds."	
+    	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust_damage"		"DAMAGE:"
+
+    	"DOTA_Tooltip_modifier_soul_thrust_effect"					"Soul Thrust"
+    	"DOTA_Tooltip_modifier_soul_thrust_effect_Description"		"Dealing 50%% reduced damage to Spirit Warrior."
+
+    	"DOTA_Tooltip_ability_spirit_warrior_ancient_spirit"		"Ancient Spirit"
+    	"DOTA_Tooltip_ability_spirit_warrior_ancient_spirit_Description"	"Creates an ancient spirit that runs to the target location. Casting this ability near an existing ancient spirit allows the caster to leap to the target location. Cooldown only applies to spirit summoning, not leaping."
+    	"DOTA_Tooltip_ability_spirit_warrior_ancient_spirit_cooldown"		"SPIRIT COOLDOWN:"
+    	"DOTA_Tooltip_ability_spirit_warrior_ancient_spirit_cast_range"		"CAST RANGE:"
+
+    	"DOTA_Tooltip_ability_spirit_warrior_ancient_vigor"			"Ancient Vigor"
+    	"DOTA_Tooltip_ability_spirit_warrior_ancient_vigor_Description" "Calls upon the Old Spirits to provide a potent combat buff to the Spirit Warrior."
+    	"DOTA_Tooltip_ability_spirit_warrior_ancient_vigor_duration"	"DURATION:"
+    	"DOTA_Tooltip_ability_spirit_warrior_ancient_vigor_flat_damage"	"BONUS ATTACK DAMAGE:"
+    	"DOTA_Tooltip_ability_spirit_warrior_ancient_vigor_attackspeed"	"ATTACK SPEED BONUS:"
+
+    	"DOTA_Tooltip_modifier_ancient_vigor"						"Ancient Vigor"
+    	"DOTA_Tooltip_modifier_ancient_vigor_Description"			"Increased attack speed and damage."
+
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1"				"[Q1] Burning Flameblood"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_Description"  "Flameblood attacks additionally apply a stacking burn debuff for 5 seconds. Max 50 burn stacks."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_one"	"Damage per second per stack"	
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_suffix"	""
+
+    	"DOTA_Tooltip_modifier_flametongue_q_1_rune"				"Burning Flameblood"
+    	"DOTA_Tooltip_modifier_flametongue_q_1_rune_Description"	"Taking burn damage with each stack"
+
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2"				"[Q2] Armor Melt"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_Description"	"Flameblood attacks apply a stacking armor reduction debuff for 5 seconds. Max 50 stacks."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_property_one"	"Armor Loss Per Stack"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_suffix"		""
+
+    	"DOTA_Tooltip_modifier_flametongue_b_a_rune_visible"		"Flameblood Armor Melt"
+    	"DOTA_Tooltip_modifier_flametongue_b_a_rune_visible_Description"	"Reduced physical armor"
+
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3"				"[Q3] Windstrike Weapon"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_Description"	"Adds the Windstrike Weapon ability after a flametongue cast. Windstrike attacks deal additional pure damage based on recipient's attack power. Windstrike and Flameblood cannot be active at the same time on the same target."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_property_one"	"Additional Pure Damage"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_suffix"		"% of attack damage"
+
+      	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon"			"Windstrike Weapon"
+    	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_Description"	"Element: <font color=\"#7AE2A7\">Wind</font><br>Applies a wind buff to a target ally that makes attacks deal additional pure damage based on the attacker's attack power. Windstrike and Flameblood cannot be active at the same time on the same target."
+    	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_attackspeed"	"ATTACKSPEED BONUS"
+    	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_duration"			"BUFF DURATION:"
+
+    	"DOTA_Tooltip_modifier_windstrike_weapon"						"Windstrike Weapon"
+    	"DOTA_Tooltip_modifier_windstrike_weapon_Description"			"Attacks deal additional pure damage based on attack power"	
+
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4"				"[Q4] Inner Flame"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_Description"	"<font color=\"#EF4126\">Fire</font> damage is increased by Strength and <font color=\"#7AE2A7\">Wind</font> damage is increased by Agility."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_property_one"	"Bonus Fire Damage"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_suffix"		"% for each 10 points of Strength"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_property_two"	"Bonus Wind Damage"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_suffix_two"	"% for each 10 points of Agility"
+
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1"				"[W1] Temperament"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1_Description"  "Gain attack damage for each point of missing mana"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1_property_one"	"Attack Damage"	
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1_suffix"		" per missing mana"
+
+    	"DOTA_Tooltip_modifier_spirit_warrior_rune_w_1"				"Temperament"
+    	"DOTA_Tooltip_modifier_spirit_warrior_rune_w_1_Description"	"Gaining attack damage for missing mana"	
+
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_2"				"[W2] Soul Render"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_2_Description"  "Casting Soul Thrust increases attack damage for 5 seconds. Stacks up to 3 times. The stated bonus is multiplied by Soul Thrust's level."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_2_property_one"	"Attack Damage"	
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_2_suffix"		""
+
+    	"DOTA_Tooltip_modifier_spirit_warrior_rune_w_2_visible"		"Soul Render"
+    	"DOTA_Tooltip_modifier_spirit_warrior_rune_w_2_visible_Description"	"Increased attack damage"
+
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3"				"[W3] Vital Impact"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_Description"  "A % of your attack damage gets added to Soul Thrust damage. The stated bonus is multiplied by the ability's level."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_property_one"	"Added Damage"	
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_suffix"		"% of attack damage"
+
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4"				"[W4] Spirit Fuse"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_Description"  "After leaping to an Ancient Spirit, gain a buff where the next Soul Thrust deals increased damage."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_property_one"	"Damage Increase"	
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_suffix"		"%"
+
+    	"DOTA_Tooltip_modifier_spirit_warrior_d_b"					"Spirit Fuse"
+    	"DOTA_Tooltip_modifier_spirit_warrior_d_b_Description"		"The next Soul Thrust deals increased damage."
+
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_1"				"[E1] Wind Edict"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_1_Description"  "Leaping to a spirit creates a gale explosion at the landing point."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_1_property_one"	"Damage"	
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_1_suffix"		""	
+
+    	"spirit_warrior_q_ability"									"Flameblood and Windstrike Weapon"
+    	"spirit_warrior_e_ability"									"Ancient Spirit and Wind Edict"
+
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_2"				"[E2] Ancient Protection"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_2_Description"  "Ancients Spirits apply an armor bonus to allies. Stacks with multiple spirits."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_2_property_one"	"Armor Aura"	
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_2_suffix"		""	
+
+    	"DOTA_Tooltip_modifier_spirit_rune_e_2_buff"				"Ancient Protection"
+    	"DOTA_Tooltip_modifier_spirit_rune_e_2_buff_Description"	"Increased armor from a nearby Ancient Spirit"
+
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3"				"[E3] Tempest Haze"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_Description"  "After leaping to an Ancient Spirit, create a tempest that slows and silences enemies within. Spirit Warrior takes 80% reduced Magical and Pure Damage while standing within the Tempest."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_property_one"	"DPS"	
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_suffix"		""
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_property_two"	"Duration"	
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_suffix_two"	" seconds"	
+
+    	"DOTA_Tooltip_modifier_tempest_haze_effect_enemy"			"Tempest Haze"
+    	"DOTA_Tooltip_modifier_tempest_haze_effect_enemy_Description"	"Slowed and Silenced by Spirit Warrior"
+
+    	"DOTA_Tooltip_modifier_tempest_haze_effect_friendly"		"Tempest Haze"
+
+    	"DOTA_Tooltip_modifier_spirit_rune_e_3_debuff"				"Earthgrip"
+    	"DOTA_Tooltip_modifier_spirit_rune_e_3_debuff_Description"	"Slowed by a nearby Ancient Spirit"
+
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4"				"[E4] Primal Revelations"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_Description"  "Spirit Warrior's Intelligence increases all <font color=\"#7AE2A7\">Wind</font> Damage."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_property_one"	"Damage Bonus"	
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_suffix"		"% for each 10 Intelligence"	
+
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_1"				"[R1] Troll Blood"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_1_Description"	"Passively adds a lifesteal effect from all damage dealt. A % of damage dealt is healed over 5 seconds."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_1_property_one"	"Life Steal"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_1_suffix"		"% over 5 seconds"
+
+    	"DOTA_Tooltip_modifier_ancient_vigor_troll_blood"			"Troll Blood"
+    	"DOTA_Tooltip_modifier_ancient_vigor_troll_blood_Description"	"Restoring Health"
+
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2"				"[R2] Sacred Warrior"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_Description"	"Adds a % attack damage increase during Ancient Vigor"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_property_one"	"Attack Damage"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_suffix"		"%"
+
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3"				"[R3] Rally of the Ancients"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_Description"	"Ancient Vigor allows all summoned Ancient Spirits to attack for the duration"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_property_one"	"Ancient Damage"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_suffix"		"% of Spirit Warrior's current attack damage"
+
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_4"				"[R4] Ancient Fury"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_Description"	"Ancient Spirits have increased Attack Speed"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_property_one"	"Ancient Attack Speed"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_suffix"		""
+
+       	"item_property_spirit_warrior_arcana1"										"Ancient Rain"
+    	"property_spirit_warrior_arcana1_description"								"Replaces @Ability4 and all of its runes with Ancient Rain."
+
+    	"DOTA_Tooltip_ability_spirit_warrior_ancient_rain"							"Ancient Rain"
+    	"DOTA_Tooltip_ability_spirit_warrior_ancient_rain_Description"				"Call upon the ancient water gods to create a blessed downpour that follows the Spirit Warrior. While the mystic rain drenches his skin, all damage taken is reduced by a percentage and attack speed is increased. Increases armor based on current health."
+    	"DOTA_Tooltip_ability_spirit_warrior_ancient_rain_duration"					"DURATION:"
+    	"DOTA_Tooltip_ability_spirit_warrior_ancient_rain_damage_reduction_percent"	"DAMAGE REDUCTION:"
+    	"DOTA_Tooltip_ability_spirit_warrior_ancient_rain_attackspeed"				"ATTACK SPEED:"
+    	"DOTA_Tooltip_ability_spirit_warrior_ancient_rain_armor_per_missing_health"	"ARMOR PER 200 HEALTH:"
+    	
+    	"DOTA_Tooltip_modifier_ancient_rain"										"Ancient Rain"
+    	"DOTA_Tooltip_modifier_ancient_rain_Description"							"All damage taken is reduced, and attack speed is increased."
+
+  		"DOTA_Tooltip_ability_spirit_warrior_rune_r_1_arcana1"						"[R1] Healing Waters"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_1_arcana1_Description"			"While Ancient Rain is active, heal every 0.1 seconds."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_1_arcana1_property_one"			"Heal Amount"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_1_arcana1_suffix"				"% of Max Health"
+
+  		"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_arcana1"						"[R2] Rain Storm"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_arcana1_Description"			"While Ancient Rain is active, the closest enemy within 1000 radius is zapped by lightning every 0.5 seconds."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_arcana1_property_one"			"Damage"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_arcana1_suffix"				"% of attack power"
+
+  		"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1"						"[R3] Waterheart Weapon"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_Description"			"While Ancient Rain is on cooldown, Spirit Warrior has a new spell Waterheart Weapon. Waterheart Weapon is a targetable buff makes attacks deal additional pure damage based on attacker's current health. Additionally all post-mitigation damage is enhanced while the buff is active."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_property_one"		"Impact Damage"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_suffix"				"% of current health"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_property_two"		"Post-mitigation Magic Damage Amp"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_suffix_two"			"%"
+
+    	"DOTA_Tooltip_ability_spirit_warrior_waterheart_weapon"					"Waterheart Weapon"
+    	"DOTA_Tooltip_ability_spirit_warrior_waterheart_weapon_Description"		"Cast a buff on an ally that increases post mitigation magic damage, and causes attacks to deal additional pure damage based on current health."
+
+    	"DOTA_Tooltip_modifier_waterheart_weapon"								"Waterheart Weapon"
+    	"DOTA_Tooltip_modifier_waterheart_weapon_Description"					"Dealing bonus pure damage based on current health, and increased post-mitigation magic damage."
+
+    	"spirit_warrior_arcana1_r"												"Ancient Rain & Waterheart Weapon"
+
+  		"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1"						"[R4] Water Gods"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1_Description"			"All <font color=\"#3894FF\">Water</font> damage is amplified by Spirit Warrior's attributes."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1_property_one"		"Water Damage Amp"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1_suffix"				"% for each 10 points of Attributes"
+
+       	"item_property_spirit_warrior_arcana2"										"Blazing Javelin"
+    	"property_spirit_warrior_arcana2_description"								"Replaces @Ability2 and all of its runes with Blazing Javelin."
+
+    	"DOTA_Tooltip_ability_spirit_warrior_blazing_javelin"						"Blazing Javelin"
+    	"DOTA_Tooltip_ability_spirit_warrior_blazing_javelin_Description"			"Element: <font color=\"#EF4126\">Fire</font> / <font color=\"#DDDDDD\">Normal</font><br>Throws a spear at the target location. It travels through enemies and deals explosive fire damage."
+    	"DOTA_Tooltip_ability_spirit_warrior_blazing_javelin_damage"				"DAMAGE:"
+    	"DOTA_Tooltip_ability_spirit_warrior_blazing_javelin_cast_range"			"CAST RANGE:"
+
+  		"DOTA_Tooltip_ability_spirit_warrior_rune_w_1_arcana2"						"[W1] Blood Fury"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1_arcana2_Description"			"Increase Max Health, and gain attack damage for each missing point of health."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1_arcana2_property_one"			"Base Attack Damage"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1_arcana2_suffix"				" for each missing point of health"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1_arcana2_property_two"			"Bonus Health"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1_arcana2_suffix_two"			""
+
+  		"DOTA_Tooltip_ability_spirit_warrior_rune_w_2_arcana2"						"[W2] Elemental Spear"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_2_arcana2_Description"			"Your Blazing Javelins deal a percentage of Flameblood, Windstrike, or Waterheart weapons if they are active."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_2_arcana2_property_one"			"Elemental Weapon Damage"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_2_arcana2_suffix"				"% of base ability"
+
+  		"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_arcana2"						"[W3] Javelin Spray"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_arcana2_Description"			"Gives a chance to throw multiple Javelins. Greater than 100% means it can proc multiple times."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_arcana2_property_one"		"Multiple Throw Chance"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_arcana2_suffix"				"%"
+
+  		"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2"						"[W4] Fire Gods"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2_Description"			"All <font color=\"#EF4126\">Fire</font> damage is amplified by Spirit Warrior's attributes."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2_property_one"		"Fire Damage Amp"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2_suffix"				"% for each 10 points of Attributes"
+
+       	"item_property_spirit_warrior_arcana3"										"Ancient Spirit Elite"
+    	"property_spirit_warrior_arcana3_description"								"Replaces @Ability3 and all of its runes with Ancient Spirit Elite."
+
+    	"DOTA_Tooltip_ability_spirit_warrior_ancient_spirit_elite"						"Ancient Spirit Elite"
+    	"DOTA_Tooltip_ability_spirit_warrior_ancient_spirit_elite_Description"			"Jump to the target location. At the landing point, create an Elite Ancient Spirit. Max 3 spirits."
+    	"DOTA_Tooltip_ability_spirit_warrior_ancient_spirit_elite_cast_range"			"CAST RANGE:"
+
+    	"spirit_warrior_arcana3_e"													"Ancient Spirit Elite & Ancient Wind Edict"
+
+  		"DOTA_Tooltip_ability_spirit_warrior_rune_e_1_arcana3"						"[E1] Ancient Wind Edict"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_1_arcana3_Description"			"When you reach your Ancient Spirit, create a Windy Explosion."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_1_arcana3_property_one"			"Damage"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_1_arcana3_suffix"				""
+
+  		"DOTA_Tooltip_ability_spirit_warrior_rune_e_2_arcana3"						"[E2] Spiritual Empowerment"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_2_arcana3_Description"			"Elite Ancient Spirits provide bonus max health and armor to all nearby allied heroes."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_2_arcana3_property_one"			"Max Health Aura"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_2_arcana3_suffix"				""
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_2_arcana3_property_two"			"Armor Aura"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_2_arcana3_suffix_two"			""
+
+  		"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_arcana3"						"[E3] Ancient Tempest Haze"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_arcana3_Description"  		"After leaping to an Ancient Spirit, create a tempest that slows and silences enemies within. Spirit Warrior takes 80% reduced Magical and Pure Damage while standing within the Tempest."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_arcana3_property_one"			"DPS"	
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_arcana3_suffix"				""
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_arcana3_property_two"			"Duration"	
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_arcana3_suffix_two"			" seconds"	
+
+  		"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3"						"[E4] Wind Gods"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3_Description"			"All <font color=\"#7AE2A7\">Wind</font> damage is amplified by Spirit Warrior's attributes."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3_property_one"		"Wind Damage Amp"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3_suffix"				"% for each 10 points of Attributes"
+
+		//Glyphs
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_1_1"		"Glyph of Spiritual Mobility"
+		"item_rpc_spirit_warrior_glyph_1_1_description" 				"Increases the jump speed towards an Ancient Spirit by @glyph_property1%."
+
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_2_1"		"Glyph of Soulfire"
+		"item_rpc_spirit_warrior_glyph_2_1_description" 				"While Flameblood Weapon is active, @Ability2 applies its burn effect to all damaged targets."
+
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_3_1"		"Glyph of Ancestors"
+		"item_rpc_spirit_warrior_glyph_3_1_description" 				"Increases the max number of active Ancient Spirits to 5."
+
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_4_1"		"Glyph of the Wind Prophecy"
+		"item_rpc_spirit_warrior_glyph_4_1_description" 				"After leaping to an @Ability3, Wind Edict triggers @glyph_property1 additional times on a @glyph_property2 second interval."
+
+		"DOTA_Tooltip_modifier_spirit_glyph_root"						"Earthbind"
+		"DOTA_Tooltip_modifier_spirit_glyph_root_Description"			"Rooted"
+
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_5_1"		"Glyph of Replenishing Soul"
+		"item_rpc_spirit_warrior_glyph_5_1_description" 				"Restore @glyph_property1% of @Ability2's mana cost for each enemy that it hits."
+
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_6_1"		"Glyph of Ancient Enhancement"
+		"item_rpc_spirit_warrior_glyph_6_1_description" 				"Flameblood and Windstrike Weapon can both be active on Spirit Warrior at the same time."
+
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_7_1"		"Glyph of the Soul Titan"
+		"item_rpc_spirit_warrior_glyph_7_1_description" 				"Increases the duration of @Ability4 by @glyph_property1 seconds."
+
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_5_a"		"Glyph of Storm Helix"
+		"item_rpc_spirit_warrior_glyph_5_a_description" 				"Standing within Tempest Haze adds a stack of Storm Helix every 0.5 seconds which increases attack speed by @glyph_property1, attack damage by @glyph_property2% and attack range by @glyph_property3."
+
+		"DOTA_Tooltip_modifier_spirit_warrior_glyph_5_a_effect"			"Storm Helix"
+		"DOTA_Tooltip_modifier_spirit_warrior_glyph_5_a_effect_Description"	"Increased attack damage and attack speed"
+		
+		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_immortal_weapon_1"		"Windpiercer"
+		"item_property_spirit_warrior_immortal_weapon"								"Windpiercer"
+		"property_spirit_warrior_immortal_weapon_description"						"Flameblood and Windstrike weapons last 10 seconds longer and deal 100% increased damage."
+		
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_immortal_weapon_2"            "Jade Halberd"
+
+        "DOTA_Tooltip_ability_item_rpc_spirit_warrior_immortal_weapon_3"            "Spear of Aeris"
+        "item_property_spirit_warrior_immortal_weapon3"                             "Hail of Spears"
+        "property_spirit_warrior_immortal_weapon3_description"                      "Regular attacks hit 2 additional enemies with all procs."
