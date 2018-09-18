@@ -98,9 +98,8 @@ function Body:action(propertyName, propertyValue, hero, inventory_unit, body_abi
 	elseif propertyName == "steelbark" then
 		Body:addBasicModifier(1, hero, inventory_unit, "modifier_body_steelbark", body_ability)
 	elseif propertyName == "hurricane" then
-		-- hero.body_ability = body_ability
-		-- Body:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_body_hurricane", body_ability)
 		Body:addItemModifier(0, hero, inventory_unit, "modifier_hurricane_vest", item)
+		RPCItems:PreacheArcanaResources(item)
 	elseif propertyName == "flooding" then
 		Body:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_body_flooding", body_ability)
 	elseif propertyName == "avalanche" then

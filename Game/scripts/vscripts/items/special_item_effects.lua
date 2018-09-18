@@ -4385,7 +4385,7 @@ function hurricane_vest_create(event)
 	local start_radius = 220
 	local end_radius = 220
 	local speed = HURRICANE_VEST_HURRICANE_SPEED
-	local projectileParticle = "particles/units/heroes/hero_invoker/red_general_tornado.vpcf"
+	local projectileParticle = "particles/roshpit/items/hurricane_vest.vpcf"
 
 	if not ability.cast_number then
 		ability.cast_number = 0

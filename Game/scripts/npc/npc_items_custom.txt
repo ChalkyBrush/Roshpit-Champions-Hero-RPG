@@ -35839,7 +35839,7 @@
 		}
 		"precache"
 		{
-			"particle"  "particles/items/hurricane_vest_projectile.vpcf"
+			"particle"  "particles/roshpit/items/hurricane_vest.vpcf"
 		}
 		"Modifiers"
 		{

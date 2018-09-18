@@ -3880,7 +3880,7 @@ function RPCItems:RollBrazenKabuto(deathLocation, isShop)
 
         item.property2name = runeName
         item.property2 = runeValue
-        RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  1)
+        RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
     end
     RPCItems:RollHoodProperty3(item, 0)
     RPCItems:RollHoodProperty4(item, 0)
