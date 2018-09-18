@@ -12100,7 +12100,7 @@
 
 		"champion_league_challenger_2"								"Немезис"
 		"DOTA_Tooltip_ability_arena_challenger_2_sword_dash"	"Savage Sprint"
-		"DOTA_Tooltip_ability_arena_challenger_2_sword_dash_Description"	"Бросается вперед, разрубая врагов на своем пути.".
+		"DOTA_Tooltip_ability_arena_challenger_2_sword_dash_Description"	"Бросается вперед, разрубая врагов на своем пути."
 
 
 		"champion_league_challenger_1"								"Король Джет"
@@ -12144,10 +12144,10 @@
 		"DOTA_Tooltip_modifier_challenger_1_slow"				"Slow"
 		"DOTA_Tooltip_modifier_challenger_1_slow_Description"	"Скорость передвижения снижена на 30."
 	
-		"DOTA_Tooltip_ability_arena_challenger_1_passive					"Eternal light"
-		"DOTA_Tooltip_ability_arena_challenger_1_passive_Description		"Скорость передвижения увеличена на 50%, скорость атаки на 110 на 5 секунд."
+		"DOTA_Tooltip_ability_arena_challenger_1_passive"					"Eternal light"
+		"DOTA_Tooltip_ability_arena_challenger_1_passive_Description"		"Скорость передвижения увеличена на 50%, скорость атаки на 110 на 5 секунд."
 		"DOTA_Tooltip_ability_arena_challenger_1_passive_2"					"Righteous Anger"				
-		"DOTA_Tooltip_ability_arena_challenger_1_passive_2_Description		"Удваивает урон и увеличивает передвижение на 70 единиц."
+		"DOTA_Tooltip_ability_arena_challenger_1_passive_2_Description"		"Удваивает урон и увеличивает передвижение на 70 единиц."
 		"DOTA_Tooltip_modifier_arena_challenger_1_passive_2"				"Урон и скорость бега увеличены."
 
 
@@ -12555,7 +12555,7 @@
 		"DOTA_Tooltip_ability_lies_smoke_cloud_ability"		"Smoke cloud"
 		"DOTA_Tooltip_ability_lies_smoke_cloud_ability_Description"		"Юнит надежно закрыт дымовой завесой, имеет магический иммунитет."
 		
-		"DOTA_Tooltip_ability_arena_pit_temple_wave"
+		"DOTA_Tooltip_ability_arena_pit_temple_wave"					"Fanta Wave"
 		"DOTA_Tooltip_ability_arena_pit_temple_wave_Description"		"Неистовая волна темной энергии. Наносит урон и оглушает врагов."
 		"DOTA_Tooltip_ability_arena_pit_temple_wave_stun_duration"		"ДЛИТЕЛЬНОСТЬ СТАНА:"
 		

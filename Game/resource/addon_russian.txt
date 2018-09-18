@@ -2494,7 +2494,7 @@
 		"DOTA_Tooltip_modifier_monk_ulti_gorudo_Description"		"Иммунитет к магии"
 
     	"DOTA_Tooltip_ability_seinaru_rune_q_1"						"[Q1] Cloudburst"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_1_Description"			"С каждым задетым умением @Ability1 врагом, урон героя и его скорость атаки увеличиваются на 10 секунд."
+    	"DOTA_Tooltip_ability_seinaru_rune_q_1_Description"			"С каждым задетым умением @Ability1 врагом, урон героя и его скорость атаки увеличиваются на <font color='#ccff66'>10</font> секунд."
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_property_one"			"Доп. урон"
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_suffix"					"%"
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_property_two"			"Доп. скорость атаки"
@@ -2504,7 +2504,7 @@
     	"DOTA_Tooltip_modifier_seinaru_rune_q_1_Description"		"Урон и скорость атаки увеличены"
 
     	"DOTA_Tooltip_ability_seinaru_rune_w_1"						"[W1] Circle of Wind"
-    	"DOTA_Tooltip_ability_seinaru_rune_w_1_Description"			"@Ability2 высвобождают поток светлой энергии замедляя скорость передвижения и атаки врагов на 60 на 1.5 секунды. Дополнительно увеличивает наносимый героем пост-резистный урон по задетым врагам. Эффект складывается неограниченное количество раз."
+    	"DOTA_Tooltip_ability_seinaru_rune_w_1_Description"			"@Ability2 высвобождают поток светлой энергии замедляя скорость передвижения и атаки врагов на <font color='#ccff66'>60</font> на <font color='#ccff66'>1.5</font> секунды. Дополнительно увеличивает наносимый героем пост-резистный урон по задетым врагам. Эффект складывается неограниченное количество раз."
     	"DOTA_Tooltip_ability_seinaru_rune_w_1_property_one"			"Доп. пост-резистный урон"
     	"DOTA_Tooltip_ability_seinaru_rune_w_1_suffix"					"%"
 
@@ -2523,7 +2523,7 @@
     	"DOTA_Tooltip_modifier_seinaru_gorudo_rune_r_1"				"Armor Piercing"
 
     	"DOTA_Tooltip_ability_seinaru_rune_q_2"						"[Q2] Gale Break"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_2_Description"			"Прочтение (Q) Konokaze увеличивает скорость передвижения на 10 секунд, дополнительно замедляет задетых врагов."
+    	"DOTA_Tooltip_ability_seinaru_rune_q_2_Description"			"Прочтение (Q) Konokaze увеличивает скорость передвижения на <font color='#ccff66'>10</font> секунд, дополнительно замедляет задетых врагов."
     	"DOTA_Tooltip_ability_seinaru_rune_q_2_property_one"			"Доп. скорость передвижения"
     	"DOTA_Tooltip_ability_seinaru_rune_q_2_suffix"					""
      	"DOTA_Tooltip_ability_seinaru_rune_q_2_property_two"			"Замедление"
@@ -2536,7 +2536,7 @@
     	"DOTA_Tooltip_modifier_seinaru_rune_q_2_slow_Description"	"Замедлен"
 
     	"DOTA_Tooltip_ability_seinaru_rune_w_2"						"[W2] Typhoon"
-    	"DOTA_Tooltip_ability_seinaru_rune_w_2_Description"			"При прочтении @Ability2 образуется стремительный тайфун, нанесет противникам магический урон в радиусе 420. Базовый урон руны умножается на текущий уровень прокачки @Ability2."
+    	"DOTA_Tooltip_ability_seinaru_rune_w_2_Description"			"При прочтении @Ability2 образуется стремительный тайфун, нанесет противникам магический урон в радиусе <font color='#ccff66'>420</font>. Базовый урон руны умножается на текущий уровень прокачки @Ability2."
     	"DOTA_Tooltip_ability_seinaru_rune_w_2_property_one"			"Урон"
     	"DOTA_Tooltip_ability_seinaru_rune_w_2_suffix"					""
     	"DOTA_Tooltip_ability_seinaru_rune_w_2_property_two"			"Длительность оглушения"
@@ -2578,7 +2578,7 @@
     	"DOTA_Tooltip_modifier_seinaru_rune_r_2_immunity_Description"	"Полный иммунитет к магии"
 
     	"DOTA_Tooltip_ability_seinaru_rune_q_3"						"[Q3] Heavy Winds"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_3_Description"			"После прочтения @Ability1 герой получает 90% бонус к уклонению. Добавляет % от Ловкости к урону основного умения."
+    	"DOTA_Tooltip_ability_seinaru_rune_q_3_Description"			"После прочтения @Ability1 герой получает <font color='#ccff66'>90</font>% бонус к уклонению. Добавляет % от Ловкости к урону основного умения."
     	"DOTA_Tooltip_ability_seinaru_rune_q_3_property_one"			"Длительность уклонения"
     	"DOTA_Tooltip_ability_seinaru_rune_q_3_suffix"					" сек."
     	"DOTA_Tooltip_ability_seinaru_rune_q_3_property_two"			"Усиление урона"
@@ -2607,7 +2607,7 @@
     	"DOTA_Tooltip_ability_spiral_leap_Description"				"Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Прыгает в указанную точку. Во время прыжка герой наделён иммунитетом к магии. С помощью этого умения можно уклониться от направленных атак и умений."
 		
     	"DOTA_Tooltip_ability_seinaru_rune_r_3"						"[R3] Dexterity"
-    	"DOTA_Tooltip_ability_seinaru_rune_r_3_Description"			"Даёт бонусный урон, равный % от Ловкости героя. Пока действует эффект @Ability4, с 25% шансом вместе с обычными атаками будет нанесён чистый урон."
+    	"DOTA_Tooltip_ability_seinaru_rune_r_3_Description"			"Даёт бонусный урон, равный % от Ловкости героя. Пока действует эффект @Ability4, с <font color='#ccff66'>25</font>% шансом вместе с обычными атаками будет нанесён чистый урон."
     	"DOTA_Tooltip_ability_seinaru_rune_r_3_property_one"			"Доп. урон от Ловкости"
     	"DOTA_Tooltip_ability_seinaru_rune_r_3_suffix"					"%"
     	"DOTA_Tooltip_ability_seinaru_rune_r_3_property_two"			"Доп. чистый урон"
@@ -2648,12 +2648,12 @@
     	"property_seinaru_arcana1_description"								"Заменяет (Q) @Ability1 и все соответствующие руны на Blade Dash."
 
   		"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1"						"[Q1] Samurai Crit"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_Description"			"С 40% шансом при атаке герой нанесёт критический урон."
+    	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_Description"			"С <font color='#ccff66'>40</font>% шансом при атаке герой нанесёт критический урон."
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_property_one"			"Доп. урон крита"
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_suffix"					"%"
 
   		"DOTA_Tooltip_ability_seinaru_rune_q_2_arcana1"						"[Q2] Blade Dance"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_2_arcana1_Description"			"Атакуя врагов с помощью @Ability1 герой получает бонус к урону. Складывается до трёх раз. Когда герой совершит 15 атак, исчезнет 1 заряд бонуса."
+    	"DOTA_Tooltip_ability_seinaru_rune_q_2_arcana1_Description"			"Атакуя врагов с помощью @Ability1 герой получает бонус к урону. Складывается до <font color='#ccff66'>3</font> раз. Когда герой совершит 15 атак, исчезнет 1 заряд бонуса."
     	"DOTA_Tooltip_ability_seinaru_rune_q_2_arcana1_property_one"			"Усиление урона за заряд"
     	"DOTA_Tooltip_ability_seinaru_rune_q_2_arcana1_suffix"					"%"
 
@@ -4551,7 +4551,7 @@
     	"DOTA_Tooltip_ability_chernobog_rune_e_2_suffix_two"					""
 
      	"DOTA_Tooltip_ability_chernobog_rune_e_3"								"[E3] Sudden Strike"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_3_Description"					"Пока активно умение @Ability3, приказ атаковать цель телепортирует героя к ней за спину и поставит метку, заставляя цель получать увеличенный пост-резистный урон на 1. Перезаряжается 0.4 секунды."
+    	"DOTA_Tooltip_ability_chernobog_rune_e_3_Description"					"Пока активно умение @Ability3, приказ атаковать цель телепортирует героя к ней за спину и поставит метку, заставляя цель получать увеличенный пост-резистный урон на <font color='#ccff66'>1</font>. Перезаряжается <font color='#ccff66'>0.4</font> секунды."
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_property_one"					"Макс. расстояние"
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_suffix"						""
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_property_two"					"Усиление пост-резистного урона"
@@ -5016,7 +5016,7 @@
     	"DOTA_Tooltip_ability_hydroxis_rune_e_1_suffix"						"% от урона (W) Water Bomb"
 
     	"DOTA_Tooltip_ability_hydroxis_rune_r_1"							"[R1] Wave Drench"
-    	"DOTA_Tooltip_ability_hydroxis_rune_r_1_Description"				"Враги, задетые умением @Ability4 теряют значительную часть брони. Урон от @Ability4 и всех [R] рун увеличивается за счёт брони героя. Руны [R2] и [R3] получают лишь 60% от всего бонуса."
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_1_Description"				"Враги, задетые умением @Ability4 теряют значительную часть брони. Урон от @Ability4 и всех [R] рун увеличивается за счёт брони героя. Руны [R2] и [R3] получают лишь <font color='#ccff66'>60</font>% от всего бонуса."
     	"DOTA_Tooltip_ability_hydroxis_rune_r_1_property_one"				"Снижение брони"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_1_suffix"						""
         "DOTA_Tooltip_ability_hydroxis_rune_r_1_property_two"               "Усиление урона (R) Ocean Quake"
@@ -5800,7 +5800,7 @@
     	"DOTA_Tooltip_ability_arkimus_rune_r_2_suffix"							"% от урона героя"
 
     	"DOTA_Tooltip_ability_arkimus_rune_r_3"									"[R3] Forcefield"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_3_Description"						"В начале прочтения @Ability4 герой ненадолго укрывается щитом, снижающим входящий урон на 90%."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3_Description"						"В начале прочтения @Ability4 герой ненадолго укрывается щитом, снижающим входящий урон на <font color='#ccff66'>90</font>%."
     	"DOTA_Tooltip_ability_arkimus_rune_r_3_property_one"					"Длительность"
     	"DOTA_Tooltip_ability_arkimus_rune_r_3_suffix"							" сек."
 
@@ -5834,7 +5834,7 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1_suffix"							"%"
 
      	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1"									"[Q3] Induction"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_Description"						"При получении урона герой получает заряд этой руны. Каждый заряд независимо друг от друга снижает входящий урон на 3% (работает по закону убывающей полезности). Сохраняется после смерти, длится 60 секунд."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_Description"						"При получении урона герой получает заряд этой руны. Каждый заряд независимо друг от друга снижает входящий урон на <font color='#ccff66'>3</font>% (работает по закону убывающей полезности). Сохраняется после смерти, длится <font color='#ccff66'>60</font> секунд."
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_property_one"					"Макс. зарядов"
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_suffix"							""
 
@@ -7518,7 +7518,7 @@
 		"DOTA_Tooltip_modifier_iron_colossus_description"		"К атакам добавляется 50х физического урона, атаки оглушают врагов на 0.5 секунды. Скорость атаки заблокирована на значении 100. Урон и броня увеличены в зависимости от Силы героя."
 
 		"item_property_mugato"						"Curse of Mugato"	
-		"property_mugato_description"				"Увеличивает базовый урон основных умений на @special_property1%.<br>-5000 реген. маны."
+		"property_mugato_description"				"Прочтение любого заклинания накладывает безмолвие на @special_property1 секунды, нанесение атаки - на @special_property2 секунды. Герой, находясь в безмолвии увеличивает свой пост-резистный урон на @special_property3%."
 
 		"item_property_swamp_witch"					"Murky Wave"
 		"property_swamp_witch_description"			"Каждое использование (W) @Ability2 выпустит перед собой рой летучих мышей, который нанесёт магичский урон в размере @special_property1x вашего Интеллекта. Враги, задетые волной также будут получать на @special_property2% больше пост-резистного урона на 8 секунд. Складывается до 10 раз."
@@ -9572,7 +9572,7 @@
 		"item_rpc_seinaru_glyph_7_1_description" 				"По окончании действия руны [E2], герой уворачивается от 100% атак в течении 2 секунд."
 
 		"DOTA_Tooltip_modifier_seinaru_glyph_7_1_effect"				"Vanishing Breeze"
-		"DOTA_Tooltip_modifier_seinaru_glyph_7_1_effect_Description"	"100%% уклонение"
+		"DOTA_Tooltip_modifier_seinaru_glyph_7_1_effect_Description"	"<font color='#ccff66'>100</font>% уклонение"
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_5_a"		"(Immortal) Символ арены"
 		"item_rpc_seinaru_glyph_5_a_description" 				"Кольцо от (R) Duelist Ring следует за героем."
@@ -9832,7 +9832,7 @@
 		//Chernobog
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_1_1"		"(T1) Символ шёпотов"
-		"item_rpc_chernobog_glyph_1_1_description" 				"Все тени атакуют 3x быстрее."
+		"item_rpc_chernobog_glyph_1_1_description" 				"Все тени атакуют <font color='#ccff66'>3</font>x быстрее."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_2_1"		"(T2) Символ ночного зрения"
 		"item_rpc_chernobog_glyph_2_1_description" 				"Позволяет видеть всех врагов в радиусе @glyph_property1, пока активно умение (E) @Ability3."
@@ -9844,10 +9844,10 @@
 		"item_rpc_chernobog_glyph_4_1_description" 				"Распространяет эффект руны [Q1] на движущихся врагов и снижает их броню на @glyph_property1x уровень руны."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_1"		"(T5) Символ ночного охотника"
-		"item_rpc_chernobog_glyph_5_1_description" 				"Shadow Hunt не снижает здоровье если показатель здоровья равен или меньше 50% от максимума. Уменьшает весь урон способностей, кроме @Ability3 на 2x."
+		"item_rpc_chernobog_glyph_5_1_description" 				"Shadow Hunt не снижает здоровье если показатель здоровья равен или меньше <font color='#ccff66'>50</font>% от максимума. Уменьшает весь урон способностей, кроме @Ability3 на <font color='#ccff66'>2</font>x."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"		"(T6) Символ тёмных преломлений"
-		"item_rpc_chernobog_glyph_6_1_description" 				"Sudden Strike накладывает метку на всех врагов в 500 радиусе от основной цели."
+		"item_rpc_chernobog_glyph_6_1_description" 				"Sudden Strike накладывает метку на всех врагов в <font color='#ccff66'>500</font> радиусе от основной цели."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_1"		"(T7) Символ неукротимости"
 		"item_rpc_chernobog_glyph_7_1_description" 				"Снимает эффекты оглушения каждые 0.2 секунды."
@@ -9870,7 +9870,7 @@
 		"item_rpc_solunia_glyph_4_1_description" 				"Увеличивает время полёта от (E) Warp Flare на @glyph_property1 сек."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_1"		"(T5) Символ нейтрино"
-		"item_rpc_solunia_glyph_5_1_description" 				"После прочтения @Ability4 дает щит, блокирующий 3 порций урона."
+		"item_rpc_solunia_glyph_5_1_description" 				"После прочтения @Ability4 дает щит, блокирующий <font color='#ccff66'>3</font> порций урона."
 		"DOTA_Tooltip_modifier_solunia_glyph_5_1_shield"		"Neutrino"
 		"DOTA_Tooltip_modifier_solunia_glyph_5_1_shield_Description"		"Поглощает 1 порцию урона за щит."
 		
@@ -10774,8 +10774,8 @@
 		"DOTA_Tooltip_modifier_wind_temple_keyholder_slow"	"Сильный ветер"
 		"DOTA_Tooltip_modifier_wind_temple_keyholder_slow_Description"	"Снижение скорости атаки и передвижения"
 
-		"DOTA_Tooltip_ability_creature_pure_strike"			"Чистый удар"
-		"DOTA_Tooltip_ability_creature_pure_strike_Description"	"Атаки никогда не промахиваются и наносят дополнительно 15% чистого урона."
+		"DOTA_Tooltip_ability_creature_pure_strike"			"Pure Strike"
+		"DOTA_Tooltip_ability_creature_pure_strike_Description"	"Атаки никогда не промахиваются и наносят дополнительно 3% чистого урона."
 
 		"DOTA_Tooltip_ability_tanari_ritual_healing"		"Ритуал исцеления"
 		"DOTA_Tooltip_ability_tanari_ritual_healing_Description"	"Восстанавливает небольшое значение здоровья ближайшему союзнику."		
@@ -12080,6 +12080,12 @@
 		"challenger_league_attendant_greeting"						"Добро пожаловать в совместную лигу."
 
 		"challenger_attendant"										"Сотрудник арены - Совместная лига"
+		
+		"arena_crowd_fan"											"Фанат"
+		
+		"arena_guard"												"Страж Арены"
+		"DOTA_Tooltip_ability_arena_guard_ability"					"Страж Арены"
+		"DOTA_Tooltip_ability_arena_guard_ability"					"Посторонним вход воспрещен!"
 
 		"arena_league_attendant_player_restriction"					"Ты можете принять участие в Лиге Чемпионов только в одиночку. Возвращайся, когда будешь один, если хочешь присоединиться."
 		"arena_league_attendant_player_state_0"						"Добро пожаловать в Лигу Чемпионов! Это глобальное соревнование, где проходят проверку все личные боевые качества участников."
@@ -12254,6 +12260,17 @@
 		"champion_league_challenger_17"								"Мастер Элементов Рю" //Ru Elderheart Мастер Элементов Рю
 		"arena_champions_17_1"										"Чтобы стать мастером Арены..."
 		"arena_champions_17_2"										"Нужно стать мастером Элементов"
+		"DOTA_Tooltip_ability_arena_challenger_17_immolation"							"Immolation"
+		"DOTA_Tooltip_ability_arena_challenger_17_immolation"							"Наносит периодический магический урон вокруг"
+		"DOTA_Tooltip_ability_arena_challenger_17_ability"								"Master of Elements"
+		"DOTA_Tooltip_ability_arena_challenger_17_summon_ability"						"Summoned Unit"
+		"DOTA_Tooltip_ability_arena_thunder_clap"										"Thunder Clap"
+		"DOTA_Tooltip_ability_arena_thunder_clap_Description"							"Мастер Элементов бьет по земле и замедляет поврежденных врагов."
+		"DOTA_Tooltip_ability_arena_thunder_clap_radius"								"РАДИУС:"
+		"DOTA_Tooltip_ability_arena_thunder_clap_damage"								"УРОН:"
+		"DOTA_Tooltip_ability_arena_thunder_clap_movement_slow"							"ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_arena_thunder_clap_attack_speed_slow"						"ЗАМЕДЛЕНИЕ АТАКИ:"		
+
 
 		"champion_league_challenger_16"								"Брайварус - равнинный бегун"
 		"champion_league_challenger_16_dialogue"					"Скорость и выносливость - вот основные черты лучшего чемпиона."	
@@ -12275,9 +12292,20 @@
 		"DOTA_Tooltip_modifier_drill_spike_self"						"Drill Spike"
 		"DOTA_Tooltip_modifier_drill_spike_self_Description"			"Получает на 100%% больше урона за каждый заряд."
 
-		"champion_league_challenger_13"								"Большой медведь"
+		"champion_league_challenger_13"								"Большая Медведица"
+		"DOTA_Tooltip_ability_arena_ursa_thunder_clap"					"Thunder Clap"
+		"DOTA_Tooltip_ability_arena_ursa_thunder_clap_Description"		"Медведица бьет по земле и земедляет противников."
+		"DOTA_Tooltip_ability_arena_ursa_thunder_clap_shock_radius"		"РАДИУС:"
+		"DOTA_Tooltip_ability_arena_ursa_thunder_clap_movement_slow"	"ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
 
 		"champion_league_challenger_12"								"Рекеш - плавящий топор" //Rakash Axemelter
+		"DOTA_Tooltip_ability_arena_challenger_12_axe_throw"					"Axe Throw"
+		"DOTA_Tooltip_ability_arena_challenger_12_axe_throw_Description"		"Рекеш бросает топор в цель, оглушая её и нанося урон."
+		"DOTA_Tooltip_ability_arena_challenger_12_axe_throw_damage"				"УРОН:"
+		"DOTA_Tooltip_ability_arena_challenger_12_axe_throw_stun_duration"		"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		"DOTA_Tooltip_ability_arena_challenger_12_passive"						"Burning blood"
+		"DOTA_Tooltip_ability_arena_challenger_12_passive_Description"			"Иммунитет к магии на 8 секунд."
+
 
 		"champion_league_challenger_11"								"Капитан армии Красного Тумана" //Red Mist Captain
 
@@ -12290,6 +12318,9 @@
 		"champion_league_challenger_10"								"Претендент Авернуса" //Avernus Conqueror
 		"champion_league_challenger_10_dialogue_lower"				"Я поднимаю павших в вечное служение в моей армии."	
 		"champion_league_challenger_10_dialogue_higher"				"Моя армия смерти уважает твою силу."
+		"DOTA_Tooltip_ability_arena_challenger_10_passive"					"Gravelord"
+		"DOTA_Tooltip_ability_arena_challenger_10_passive_Description"		"Призывает армию нежити."
+
 
 		"DOTA_Tooltip_ability_arena_challenger_10_wraithfire"		"Wraithfire Missile"
 		"DOTA_Tooltip_ability_arena_challenger_10_wraithfire_Description"	"Выпускает сжигающий плоть заряд, который оглушает и наносит уронпри попадании."
@@ -12297,11 +12328,29 @@
 		"champion_league_challenger_9"								"Арканис - разрушающий сознание" //Arcanys Mindflay (пытка разума)
 		"champion_league_challenger_9_dialogue_lower"				"Низшие умы дрожат от моих знаний."	
 		"champion_league_challenger_9_dialogue_higher"				"Твой интеллект превзошел все ожидания."
+		"DOTA_Tooltip_ability_arena_challenger_9_mana_drain"				"Aura of Mana Drain"
+		"DOTA_Tooltip_ability_arena_challenger_9_mana_drain_Description"	"Арканис замедляет противника на огромной дистанции и забирает ману."
+		"DOTA_Tooltip_modifier_arena_mana_drain_aura_effect"				"Aura of Mana Drain"
+		"DOTA_Tooltip_modifier_arena_mana_drain_aura_effect_Description"	"Скорость передвижения снижена, ежесекундо теряется 2 процента маны."
+
 
 		"champion_league_challenger_8"								"Великий Вождь"	
+		"DOTA_Tooltip_ability_arena_wild_axes"						"Wild Axes"
+		"DOTA_Tooltip_ability_arena_wild_axes_Description"			"Вождь бросает топор во врага."
+		"DOTA_Tooltip_ability_arena_war_rally"						"Wild Rally"
+		"DOTA_Tooltip_ability_arena_war_rally_Description"			"Каждый процент потерянного здоровья увеличивает магическое сопротивление на 1%."
+		"DOTA_Tooltip_modifier_war_rally_effect"					"War Rally"
+		"DOTA_Tooltip_modifier_war_rally_effect_Description"		"Сопротивление к магии увеличено."
+		"DOTA_Tooltip_ability_arena_god_of_war"						"God of War"
+		"DOTA_Tooltip_ability_arena_god_of_war_Description"			"Вождь ускоряет свою атаку и передвижение."
+		"DOTA_Tooltip_ability_arena_god_of_war_movespeed"			"БОНУС СКОРОСТИ АТАКИ:"
+		"DOTA_Tooltip_ability_arena_god_of_war_attackspeed"			"БОНУС ПЕРЕДВИЖЕНИЯ:"
+
 
 		"champion_league_challenger_7"								"Леденящий Солнце Коготь Кондора" // Condorpaw Sunfreeze (Sunfreeze - леденящее солнце ?) 
 		"champion_league_challenger_7_dialogue"						"Солнце и звезды диктуют результаты битвы. Я - бесконечная нить между ними."
+		"DOTA_Tooltip_ability_arena_freezing_field"					"Freezing Field"
+
 
 		"champion_league_challenger_6"								"Атропос"			
 
@@ -12314,6 +12363,7 @@
 
 		"champion_league_challenger_4"								"Оплексус"
 		"champion_league_challenger_4_dialogue"						"Болельщики любят меня, потому-что я идеальный!"
+		
 
 		"DOTA_Tooltip_ability_item_rpc_arena_prizebox"				"Наградная коробка Арены"
 		"arena_prizebox_level"										"Уровень"
@@ -12336,7 +12386,10 @@
 		"DOTA_Tooltip_ability_arena_challenger_3_a_passive"			"Синий Рубик"
 		"DOTA_Tooltip_ability_arena_challenger_3_a_passive_Description"	"Невосприимчив к Магическому урону"
 
-		"champion_league_challenger_2"								"Немезида"
+		"champion_league_challenger_2"								"Немезис"
+		"DOTA_Tooltip_ability_arena_challenger_2_sword_dash"	"Savage Sprint"
+		"DOTA_Tooltip_ability_arena_challenger_2_sword_dash_Description"	"Бросается вперед, разрубая врагов на своем пути."
+
 
 		"champion_league_challenger_1"								"Король Джет"
 		"champion_league_challenger_1_dialogue"						"Моему опыту никто не ровня. Занимаемое мной место неоспоримо."
@@ -12351,6 +12404,40 @@
 		"DOTA_Tooltip_ability_item_rpc_boots_of_champions"			"Boots of Champions"
 
 		"arena_prizebox_champions"									"Champion's Gear"
+		"arena_show_fighter_one"		"Ол'Брок огнестойкий"
+		"arena_show_fighter_two"		"Местный повар"
+	
+		"pvp_attendant"					"Pvp League Attendant"
+	
+		"DOTA_Tooltip_ability_challenger_5_chaos_meteor"				"Chaos Meteor"
+		"DOTA_Tooltip_ability_challenger_5_chaos_meteor_Description"	"Горящий метеорит падает с небес, нанося урон на своем пути. Каждый метеорит имеет свой дебафф горения, огонь наносит урон каждые 0.5 секунды."
+		"DOTA_Tooltip_ability_challenger_5_chaos_meteor_main_damage"	"УРОН ОТ СТОЛКНОВЕНИЯ:"
+		"DOTA_Tooltip_ability_challenger_5_chaos_meteor_burn_dps"		"УРОН ГОРЕНИЯ:"
+		"DOTA_Tooltip_ability_challenger_5_chaos_burn_duration"			"ДЛИТЕЛЬНОСТЬ ГОРЕНИЯ:"
+	
+		"DOTA_Tooltip_ability_arena_challenger_5_passive"				"Dragon's Mind"
+		"DOTA_Tooltip_ability_arena_challenger_5_passive_Description"	"Чемпион Варафлас контролирует все аспекты битвы, используя прыжки сокрушительной мощи и дождь из метеоритов."
+		"DOTA_Tooltip_modifier_arena_challenger_5_passive"				"Dragon's Mind"
+	
+		"DOTA_Tooltip_ability_arena_challenger_4_passive"				"Greatness of Oplexus"
+		"DOTA_Tooltip_ability_arena_challenger_4_passive"				"Оплексус преследует свою цель бесчисленными прыжками."
+		"DOTA_Tooltip_modifier_arena_challenger_4_passive"				"Greatness of Oplexus"
+		"DOTA_Tooltip_ability_arena_challenger_4_shield"				"Shine of Oplexus"
+		"DOTA_Tooltip_ability_arena_challenger_4_shield"				"Наносит 5000 магического урона ближайшей цели и оглушает её."
+		"DOTA_Tooltip_modifier_challenger_4_shield_effect"				"Shine of Oplexus"
+	
+		"DOTA_Tooltip_ability_arena_challenger_1_illuminate"				"Holy Illumination"
+		"DOTA_Tooltip_ability_arena_challenger_1_illuminate_Description"	"Наносит чистый урон врагам перед Королем. Замедляет передвижение на 30."
+	
+		"DOTA_Tooltip_modifier_challenger_1_slow"				"Slow"
+		"DOTA_Tooltip_modifier_challenger_1_slow_Description"	"Скорость передвижения снижена на 30."
+	
+		"DOTA_Tooltip_ability_arena_challenger_1_passive"					"Eternal light"
+		"DOTA_Tooltip_ability_arena_challenger_1_passive_Description"		"Скорость передвижения увеличена на 50%, скорость атаки на 110 на 5 секунд."
+		"DOTA_Tooltip_ability_arena_challenger_1_passive_2"					"Righteous Anger"				
+		"DOTA_Tooltip_ability_arena_challenger_1_passive_2_Description"		"Удваивает урон и увеличивает передвижение на 70 единиц."
+		"DOTA_Tooltip_modifier_arena_challenger_1_passive_2"				"Урон и скорость бега увеличены."
+
 
 		//Pit of Trials
 
@@ -12598,7 +12685,8 @@
 		"arena_descent_horror_construct"								"Создатель Страхов"
 		"arena_descent_death_seeker"									"Несущий смерть"
 
-		"DOTA_Tooltip_ability_arena_descent_grieving_widow_ability"		"Grave Siphon"		
+		"DOTA_Tooltip_ability_arena_descent_grieving_widow_ability"		"Grave Siphon"
+		"DOTA_Tooltip_ability_arena_descent_grieving_widow_ability"		"Вдова высасывает жизненные силы из своей жертвы"		
 		"DOTA_Tooltip_modifier_widow_soul_steal_effect"					"Grave Siphon"
 		"DOTA_Tooltip_modifier_widow_soul_steal_effect_Description"		"Наносит урон и снижает скорость передвижения."		
 
@@ -12614,6 +12702,44 @@
 
 		"DOTA_Tooltip_modifier_descent_beetle_effect"					"Slime"
 		"DOTA_Tooltip_modifier_descent_beetle_effect_Description"		"Скорости атаки и передвижения снижены."
+		
+		"pit_crawler"							"Pit Crawler"
+		"master_duelist"						"Master Duelist"
+		"arena_pit_soul_revenant"				"Soul Revenant"
+		"arena_descent_exiled_spirit"			"Exiled Spirit"
+		"arena_descent_passage_keeper"			"Keeper of Descent"
+		"arena_descent_boss_zombie"				"Zombie Warboss"
+		"arena_descent_terror_striker" 			"Terror Striker"
+		"arena_descent_gargoyle"				"Descent Gargoyle"
+		"arena_descent_goo_beetle"				"Goo Beetle"
+		"arena_descent_zombie_critter"			"Zombie Critter"
+		"arena_descent_razor_guard"				"Bonebreaker"
+		"arena_descent_doombringer"				"Depth Praetorian"
+		"arena_lies_lich"						"Imp of Lie"
+		"arena_lies_doombringer"				"Demon of Lie"
+		"arena_lies_true_ogre"					"True Ogre"
+		"arena_lies_arbiter_of_truth"			"Arbiter of Truth"
+		"arena_lies_samurai"					"Flaming Ronin"
+		"fire_temple_relic_seeker"				"Relic Seeker"
+		"arena_lies_castle_light_absorber"		"Light Absorber"
+		"arena_lies_razor_miniboss"				"Golden Current"
+		"arena_pit_conquest_mountain_behemoth"	"Mountain Behemoth"
+		"arena_pit_conquest_root_overgrowth"	"Root Overgrowth"
+		"arena_conquest_gift_of_kharzun"		 "Gift of Kar'zhun"
+		"arena_pit_conquest_temple_explorer"	"Temple Explorer"
+		"arena_pit_temple_guardian_snakes"		"Guardian's Snake"
+		"arena_conquest_temple_shifter"			"Temple Shifter"
+		"pit_conquest_woods_titan"				"Titan of Conquest"
+		"pit_conquest_forest_soldier"			"Conquest Ambusher"
+		"pit_conquest_forest_mage"				"Forest Mage"
+		"pit_conquest_lord_of_bovel"			"Lord of the Bowel"
+		"pit_conquest_dragon"					"Chrysolite Wyrm"
+		"DOTA_Tooltip_ability_pit_conquest_viper_strike" 				"Viper Strike"
+		"DOTA_Tooltip_ability_pit_conquest_viper_strike_Description" 	"Вирм отравляет цель и снижает её скорость."
+		"DOTA_Tooltip_ability_pit_conquest_viper_strike_damage"			"УРОН:"
+		"DOTA_Tooltip_ability_pit_conquest_viper_strike_duration"		"ДЛИТЕЛЬНОСТЬ ЯДА:"
+		"DOTA_Tooltip_ability_pit_conquest_viper_strike_bonus_movement_speed"	"СНИЖЕНИЕ СКОРОСТИ БЕГА:"
+		"DOTA_Tooltip_ability_pit_conquest_viper_strike_bonus_attack_speed"		"СНИЖЕНИЕ СКОРОСТИ АТАКИ:"
 		
 		//ARENA TOOLTIPS
 
@@ -12698,6 +12824,71 @@
 		"lies_golden_skullbone"									"Golden Skullbone"
 
 		"arena_descent_tombstone"								"Tombstone"
+		
+		"arena_pit_conquest_mountain_spider"					"Mountain Spider"
+		"DOTA_Tooltip_ability_arena_pit_spider_gale"				"Spider Gale"
+		"DOTA_Tooltip_ability_arena_pit_spider_gale_Description" 	"Ядовитый плевок из паучьих желез."
+		"DOTA_Tooltip_ability_arena_pit_spider_gale_duration"		"ДЛИТЕЛЬНОСТЬ ЯДА:"
+		"DOTA_Tooltip_ability_arena_pit_spider_gale_strike_damage"	"УРОН (НАЧАЛЬНЫЙ):"
+		"DOTA_Tooltip_ability_arena_pit_spider_gale_tick_damage"	"УРОН В СЕКУНДУ:"
+		"DOTA_Tooltip_ability_arena_pit_spider_gale_tick_interval"	"ИНТЕРВАЛ ЯДА:"
+		"DOTA_Tooltip_ability_arena_pit_spider_gale_movement_slow" "ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
+		
+		"arena_pit_conquest_mire_boss"							"Mire Boss"
+		"DOTA_Tooltip_ability_arena_conquest_impale"				"Impale"
+		"DOTA_Tooltip_ability_arena_conquest_impale_Description" 	"Каменные шипы вырываются из земли и оглушают цели по прямой."
+		"DOTA_Tooltip_ability_arena_conquest_impale_duration"		"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		
+		
+		"DOTA_Tooltip_ability_lies_smoke_cloud_ability"		"Smoke cloud"
+		"DOTA_Tooltip_ability_lies_smoke_cloud_ability_Description"		"Юнит надежно закрыт дымовой завесой, имеет магический иммунитет."
+		
+		"DOTA_Tooltip_ability_arena_pit_temple_wave"					"Fanta Wave"
+		"DOTA_Tooltip_ability_arena_pit_temple_wave_Description"		"Неистовая волна темной энергии. Наносит урон и оглушает врагов."
+		"DOTA_Tooltip_ability_arena_pit_temple_wave_stun_duration"		"ДЛИТЕЛЬНОСТЬ СТАНА:"
+		
+		"DOTA_Tooltip_ability_tomb_pudge"				"Slaughterous Temper"
+		"DOTA_Tooltip_ability_tomb_pudge_Description"	"Выслеживает добычу"
+	
+		"DOTA_Tooltip_ability_creature_meat_hook"		"Meat Hook"
+		"DOTA_Tooltip_ability_creature_meat_hook_Description"		"Запускает кровавый крюк в сторону цели. Крюк зацепит перого юнита на пути, притягивая его назад и нанося урон."
+		"DOTA_Tooltip_ability_creature_meat_hook_hook_distance"		"ДИСТАНЦИЯ:"
+		
+		"arena_descent_exiled_spirit_big"							"Corrupted Commander"
+		"DOTA_Tooltip_ability_arena_descent_impervious"				"Impervious"
+		"DOTA_Tooltip_ability_arena_descent_impervious_Description"	"Изгнанный легион защищает своего командира. Весь урон снижен на 98%."
+		
+		
+		"DOTA_Tooltip_ability_doom_custom"				"Doom"
+		"DOTA_Tooltip_ability_doom_custom_Description"	"Цель горит в нечистом огне, обезмолвлена и обезоружена. Урон наносится каждые 0.5 секунды."
+		"DOTA_Tooltip_ability_doom_custom_damage"		"УРОН:"
+		"DOTA_Tooltip_ability_doom_custom_duration"		"ДЛИТЕЛЬНОСТЬ:"
+		
+		"DOTA_Tooltip_ability_arena_descent_boss_ravage"				"Ravage of Abyss"
+		"DOTA_Tooltip_ability_arena_descent_boss_ravage_Description"	"Порождение Глубин протыкает жертв в 2000 радиусе, оглушая их, подкидывая в воздух и нанося магический урон."
+		"DOTA_Tooltip_ability_arena_descent_boss_ravage_duration"		"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam"				"Порождение Глубин бьет по земле, нанося урон целям и оглушая их."
+		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam_damage"			"УРОН:"
+		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam_stun_duration"	"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		
+		"arena_pit_pit_guardian"		"Soul of Pit"
+		"DOTA_Tooltip_ability_arena_pit_pit_guardian_ai"				"Pit Protector"
+		"DOTA_Tooltip_ability_arena_pit_pit_guardian_ai_Description"	"Душа Ямы убивает недостойных претендентов, защищая залу своего повелителя. Кровь дракона течет в его жилах."
+		
+		"DOTA_Tooltip_ability_pit_boss_firestorm"				"Firestorm"
+		"DOTA_Tooltip_ability_pit_boss_firestorm_Description" 	"Pit Lord обрушивает волны проклятого пламени на претендентов, нанося урон и поджигая их."
+		"DOTA_Tooltip_ability_pit_boss_firestorm_radius"		"РАДИУС:"
+		"DOTA_Tooltip_ability_pit_boss_firestorm_wave_damage"	"УРОН:"
+		"DOTA_Tooltip_ability_pit_boss_firestorm_wave_interval"	"ИНТЕРВАЛ ВОЛН:"
+		"DOTA_Tooltip_ability_pit_boss_firestorm_burn_damage"	"ГОРЕНИЕ (% ОТ ХП):"
+		"DOTA_Tooltip_ability_pit_boss_firestorm_burn_duration"	"ДЛИТЕЛЬНОСТЬ ГОРЕНИЯ:"
+		"DOTA_Tooltip_ability_arena_pit_boss_summon_specters"				"Release"
+		"DOTA_Tooltip_ability_arena_pit_boss_summon_specters_Description"	"Pit Lord призывает 6 душ неудачливых претендентов сражаться на его стороне."	
+		"DOTA_Tooltip_ability_arena_pit_boss_dash"				"Furious Charge"
+		"DOTA_Tooltip_ability_arena_pit_boss_dash_Description"	"Pit Lord совершает рывок вперед, сокрушая противников перед собой. Наносит 305000 магического урона."
+		"DOTA_Tooltip_ability_arena_pit_final_boss_ai"			"Lord of the Pit"
+		"DOTA_Tooltip_ability_arena_pit_final_boss_ai"			"В забытых подземельях Арены древнее зло ждет своего часа."
+
 
 		//IMMORTAL WEAPONS
 
@@ -12739,7 +12930,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_1"		"Onimaru"
 		"item_property_seinaru_immortal_weapon"								"Piercing Attacks"
-		"property_seinaru_immortal_weapon_description"						"Атаки наносят дополнительно 50% физического урона <font color=\"#7AE2A7\">Ветра</font> от показателя общей атаки в радиусе 250 и наложат на пораженных противников эффект [R1]."
+		"property_seinaru_immortal_weapon_description"						"Атаки наносят дополнительно <font color='#ccff66'>50</font>% физического урона <font color=\"#7AE2A7\">Ветра</font> от показателя общей атаки в радиусе <font color='#ccff66'>250</font> и наложат на пораженных противников эффект [R1]."
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_immortal_weapon_1"		"Ascentius"
 		"item_property_warlord_immortal_weapon"								"Elemental Blitz"
@@ -14192,10 +14383,10 @@
 		"stars_menu"													"Звёзды"
 		"stars_hero_level_title"										"На новую высоту"		
 		"stars_hero_level_description"									"Прокачайте героя @heroname до @level-го уровня."
-		"star_description_basic"										"@heroname - убейте @boss_name (@mapname) на любой сложности."
-		"star_description_basic2"										"@heroname - убейте @boss_name (@mapname), сложность Legend."
-		"star_description_basic3_tanari"								"@heroname - убейте @boss_name (@mapname), сложность Legend в Мире Духов."
-		"star_description_basic3_redfall"								"@heroname - убейте @boss_name (@mapname), сложность Legend с Равноденствием."
+		"star_description_basic"										"@heroname - убейте @boss_name, @mapname на любой сложности."
+		"star_description_basic2"										"@heroname - убейте @boss_name, @mapname, сложность Legend."
+		"star_description_basic3_tanari"								"@heroname - убейте @boss_name, @mapname, сложность Legend в Мире Духов."
+		"star_description_basic3_redfall"								"@heroname - убейте @boss_name, @mapname, сложность Legend с Равноденствием."
 
 
 		"star_description_champions_league"								"@heroname - достигните @rank звания на Арене."
@@ -14223,18 +14414,18 @@
 		
 		"star_valdun_title"											"Sea Fortress"
 		"star_valdun_title_solo"									"Sea Fortress"
-		"star_valdun_description"									"Победить @bossname (@mapname) героем @heroname."
-		"star_valdun_description2"									"Победить @bossname (@mapname) героем @heroname играя в одиночку."
-		"star_valdun_description3"									"Победить @bossname (@mapname) героем @heroname играя в одиночку за 60 минут."
-		"star_valdun_description1solo"									"Победить @bossname (@mapname) играя в одиночку."
-		"star_valdun_description2solo"									"Победить @bossname (@mapname) играя в одиночку за 45 минут."
-		"star_valdun_description3solo"									"Победить @bossname (@mapname) играя в одиночку за 30 минут."
+		"star_valdun_description"									"Победить @bossname, @mapname героем @heroname."
+		"star_valdun_description2"									"Победить @bossname, @mapname героем @heroname играя в одиночку."
+		"star_valdun_description3"									"Победить @bossname, @mapname героем @heroname играя в одиночку за 60 минут."
+		"star_valdun_description1solo"									"Победить @bossname, @mapname играя в одиночку."
+		"star_valdun_description2solo"									"Победить @bossname, @mapname играя в одиночку за 45 минут."
+		"star_valdun_description3solo"									"Победить @bossname, @mapname играя в одиночку за 30 минут."
 
 		"star_azalea_title"											"Shrine of Azalea"
 		"star_azalea_title_solo"									"Shrine of Azalea"
-		"star_azalea_description"									"Победить @bossname (@mapname) героем @heroname на Нормальной сложности."
-		"star_azalea_description2"									"Победить @bossname (@mapname) героем @heroname на Легендарной сложности."
-		"star_azalea_description3"									"Победить @bossname (@mapname) героем @heroname на Легендарной сложности с тремя активными Glacier Stones."
+		"star_azalea_description"									"Победить @bossname, @mapname героем @heroname на Нормальной сложности."
+		"star_azalea_description2"									"Победить @bossname, @mapname героем @heroname на Легендарной сложности."
+		"star_azalea_description3"									"Победить @bossname, @mapname героем @heroname на Легендарной сложности с тремя активными Glacier Stones."
 
 
 		//SERENGAARD

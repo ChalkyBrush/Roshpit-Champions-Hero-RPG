@@ -18397,7 +18397,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"1"
 			}
 		}
 	}
@@ -20232,7 +20232,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"4"
+				"property_one"			"10"
 			}
 			"02"
 			{
@@ -138062,12 +138062,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"movespeed"			"-65"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"magic_resist"			"-100"
+				"movespeed"			"-1000"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -138114,7 +138109,11 @@
 				"IsDebuff"	"1"
 				"States"
 				{
-				    "MODIFIER_STATE_ROOTED" "MODIFIER_STATE_VALUE_ENABLED"
+				    "MODIFIER_STATE_SILENCED" "MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-80"
 				}
 			}
 		}
@@ -138202,7 +138201,6 @@
             {
                 "ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
                 "Function"		"water_torrent_hit"
-                "damage"		"%damage"
             }
 		}
 		"Modifiers"
