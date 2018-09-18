@@ -3024,7 +3024,7 @@ function cascade_hat_think(event)
 	if manaDrain > caster:GetMana() then
 		manaDrain = caster:GetMana()
 	end
-	ability.damage = manaDrain*8000
+	ability.damage = manaDrain*8000 * (caster:GetLevel()/120) ^ 2
 	caster:ReduceMana(manaDrain)
 	-- local fv = caster:GetForwardVector()
 	-- if manaDrain < caster:GetMana() then
@@ -4427,7 +4427,7 @@ function hurricane_vest_hit(event)
 	end
 	if ability.cast_number ~= target.hurricane_cast_number then
 		target.hurricane_cast_number = ability.cast_number
-		local damage = HURRICANE_VEST_DMG_AMP * (HURRICANE_VEST_MAX_DISTANCE - WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target:GetAbsOrigin())) ^ HURRICANE_VEST_DMG_EXP_SCALE
+		local damage = HURRICANE_VEST_DMG_AMP * (caster:GetLevel()/120 * (HURRICANE_VEST_MAX_DISTANCE - WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target:GetAbsOrigin()))) ^ HURRICANE_VEST_DMG_EXP_SCALE
 		Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,caster.handItem, RPC_ELEMENT_WIND, RPC_ELEMENT_ICE)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_hurricane_vest_slow", {duration = HURRICANE_VEST_SLOW_DUR})
 
