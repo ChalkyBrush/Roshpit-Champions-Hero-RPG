@@ -1379,12 +1379,12 @@
 		//时光守卫
 		//--------------------
 
-		"DOTA_Tooltip_ability_time_binder"								"时空锁"
-		"DOTA_Tooltip_ability_time_binder_Description"					"元素： <font color=\"#B5FFB7\">时</font><br>向目标方向投掷时空锁，击中敌人后发生爆炸，造成范围伤害，并链接其周围所有敌人，减速并造成持续伤害。"
-		"DOTA_Tooltip_ability_time_binder_Lore"							""
-		"DOTA_Tooltip_ability_time_binder_damage_per_tick"				"每秒伤害："
-		"DOTA_Tooltip_ability_time_binder_impact_damage"				"爆炸伤害："
-		"DOTA_Tooltip_ability_time_binder_movespeed_reduction"			"移动速度降低："
+		"DOTA_Tooltip_ability_epoch_time_binder"								"时空锁"
+		"DOTA_Tooltip_ability_epoch_time_binder_Description"					"元素： <font color=\"#B5FFB7\">时</font><br>向目标方向投掷时空锁，击中敌人后发生爆炸，造成范围伤害，并链接其周围所有敌人，减速并造成持续伤害。"
+		"DOTA_Tooltip_ability_epoch_time_binder_Lore"							""
+		"DOTA_Tooltip_ability_epoch_time_binder_damage_per_tick"				"每秒伤害："
+		"DOTA_Tooltip_ability_epoch_time_binder_impact_damage"				"爆炸伤害："
+		"DOTA_Tooltip_ability_epoch_time_binder_movespeed_reduction"			"移动速度降低："
 
 		"DOTA_Tooltip_modifier_time_bind" 						"时空锁"
 		"DOTA_Tooltip_modifier_time_bind_description" 			"减速并受到时空球2倍伤害"
@@ -1400,8 +1400,8 @@
     	"DOTA_Tooltip_ability_time_warp_damage"							"伤害："
     	"DOTA_Tooltip_ability_time_warp_duration"						"持续时间："
 
-		"DOTA_Tooltip_modifier_time_blast_buff" 				"不稳定的时空球"
-		"DOTA_Tooltip_modifier_time_blast_buff_description" 	"你的下一个时空球造成2倍伤害"
+		"DOTA_Tooltip_modifier_time_warp_buff" 				"不稳定的时空球"
+		"DOTA_Tooltip_modifier_time_warp_buff_description" 	"你的下一个时空球造成2倍伤害"
 
 		"DOTA_Tooltip_modifier_time_warp" 						"激活的时空球"
 		"DOTA_Tooltip_modifier_time_warp_description" 			"再次使用时空球技能将把你传送至你的时空球处"
@@ -1481,8 +1481,8 @@
     	"DOTA_Tooltip_ability_epoch_rune_r_1_property_two"				"额外延长次 buff 时间"
     	"DOTA_Tooltip_ability_epoch_rune_r_1_suffix_two"				" 秒"
 
-    	"DOTA_Tooltip_modifier_eternity_flood_a_d_visible"					"永恒上升"
-    	"DOTA_Tooltip_modifier_eternity_flood_a_d_visible_Description"		"根据魔法值增加攻击力"
+    	"DOTA_Tooltip_modifier_eternity_flood_r_1_visible"					"永恒上升"
+    	"DOTA_Tooltip_modifier_eternity_flood_r_1_visible_Description"		"根据魔法值增加攻击力"
 
     	"DOTA_Tooltip_ability_epoch_rune_r_2"							"[R2] 世纪守护者"
     	"DOTA_Tooltip_ability_epoch_rune_r_2_Description"				"被动提高 时光守卫的 攻击速度 和 攻击距离。"
@@ -1496,8 +1496,8 @@
     	"DOTA_Tooltip_ability_epoch_rune_q_3_property_one"				"伤害"
     	"DOTA_Tooltip_ability_epoch_rune_q_3_suffix"					"% 所汲取魔法值"
 
-    	"DOTA_Tooltip_modifier_epoch_c_a"								"永世打击"
-    	"DOTA_Tooltip_modifier_epoch_c_a_Description"					"每次攻击汲取你的部分魔法值并造成额外伤害"
+    	"DOTA_Tooltip_modifier_epoch_q_3"								"永世打击"
+    	"DOTA_Tooltip_modifier_epoch_q_3_Description"					"每次攻击汲取你的部分魔法值并造成额外伤害"
 
     	"DOTA_Tooltip_ability_epoch_rune_w_3"							"[W3] 智慧穷尽"
     	"DOTA_Tooltip_ability_epoch_rune_w_3_Description"				"每次施放创世纪之球增加智力值，上限10层。每次攻击消耗一层并且回复生命值。"

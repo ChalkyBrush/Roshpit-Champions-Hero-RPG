@@ -16122,7 +16122,7 @@
 	}
 
 
-	"time_binder"
+	"epoch_time_binder"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -16254,7 +16254,7 @@
 			"RunScript"
 			{
 				"ScriptFile"	"heroes/obsidian_destroyer/epoch_1_q.lua"
-				"Function"		"time_binder_phase_start"
+				"Function"		"epoch_time_binder_phase_start"
 			}
 		}
 		"OnSpellStart"
@@ -16305,7 +16305,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_time_binder_passive"
+			"modifier_epoch_time_binder_passive"
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
@@ -16322,7 +16322,7 @@
 				{
 					"RemoveModifier"
 					{
-						"ModifierName"	"modifier_epoch_c_a"
+						"ModifierName"	"modifier_epoch_q_3"
 						"Target" 		"TARGET"
 					}
 				}
@@ -17004,7 +17004,7 @@
 				}
 
 			}
-			"modifier_time_blast_buff"
+			"modifier_time_warp_buff"
 			{
 				"Duration"		"2"
 				"IsBuff"		"1"
@@ -17151,186 +17151,6 @@
 	        	"damage"		"%damage"
 	        	"Target"		"TARGET"
 	        }
-		}
-	}
-
-	"time_blast"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"obsidian_destroyer_arcane_orb"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_oracle.vsndevts"
-			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_obsidian_destroyer.vsndevts"
-			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_leshrac.vsndevts"
-			"particle"				"particles/units/heroes/hero_oracle/time_blast2hit.vpcf"
-			"particle"				"particles/units/heroes/hero_oracle/oracle_purifyingflames_hit.vpcf"
-			"particle"				"particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_essence_effect.vpcf"
-			"particle"				"particles/radiant_fx/epoch_rune_w_3_ranged002_destroy.vpcf"
-		}
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0.32"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"120 200 480 960 2000 4200 7000"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"aoe"							"210 210 210 210 210 210"
-			}
-
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"damage"						"190 340 980 3200 7000 12000 18200"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"delay_time"					"0.25"
-			}
-		}
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/obsidian_destroyer/time_blast.lua"
-				"Function"		"beginBlast"
-				"radius"		"%aoe"
-				"damage"		"%damage"
-			}
-
-			"FireEffect"
-			{
-				"EffectName"	"particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_essence_effect.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"Target"		"CASTER"
-			}
-		}
-	}
-
-
-	"time_blast_dummy"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"luna_lucent_beam"
-
-		"AbilityCastRange"				"1000"
-		"AbilityCastPoint"				"0"
-		"AOERadius"						"%star_aoe"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"8 7 6 5"
-		"AbilityDuration"				"%light_strike_array_stun_duration"
-
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"110 160 260 400 600 1000"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"aoe"							"200 210 220 230 240 250"
-			}
-
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"damage"						"110 160 260 400 600 1000"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"delay_time"					"0.35"
-			}
-		}
-
-		"OnSpellStart"
-		{
-
-			"FireEffect"
-			{
-				"EffectName"	"particles/units/heroes/hero_oracle/time_blast2hit.vpcf"
-				"EffectAttachType"	"start_at_customorigin"
-				"TargetPoint"		"POINT"
-
-				"ControlPoints"
-	            {
-	            	"01"	"%aoe 0 0"
-	            	"03"	"0 0 0"
-	            }
-			}
-
-			"DelayedAction"
-			{
-				"Delay"		"%delay_time"
-
-				"Action"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/obsidian_destroyer/time_blast.lua"
-						"Function"		"applyBlastDamage"
-						"Target"		"POINT"
-						"Radius"		"%aoe"
-						"Damage"		"%damage"
-					}
-					"FireSound"
-					{
-						"EffectName"	"Hero_Oracle.FortunesEnd.Attack"
-						"Target"		"POINT"
-					}
-
-					"DestroyTrees"
-			        {
-			        	"Target"	"POINT"
-			        	"Radius"	"%aoe"
-			        }
-				}
-			}
 		}
 	}
 
@@ -17823,7 +17643,7 @@
 				"StatusEffectName" 		"particles\status_fx\status_effect_ghost.vpcf"
 				"StatusEffectPriority"  "10"
 			}
-			"modifier_eternity_flood_a_d_visible"
+			"modifier_eternity_flood_r_1_visible"
 			{
 				"TextureName"		"obsidian_destroyer_essence_aura"
 				"IsHidden"	"0"
@@ -17840,7 +17660,7 @@
 					}
 				}
 			}
-			"modifier_eternity_flood_a_d_invisible"
+			"modifier_eternity_flood_r_1_invisible"
 			{
 				"TextureName"		"rubick/harlequin_icons/rubick_telekinesis_land"
 				"IsHidden"	"1"
@@ -17850,7 +17670,7 @@
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
 				}
 			}
-			"modifier_eternity_flood_a_d_invisible_str_and_agi"
+			"modifier_eternity_flood_r_1_invisible_str_and_agi"
 			{
 				"TextureName"		"rubick/harlequin_icons/rubick_telekinesis_land"
 				"IsHidden"	"1"
@@ -18055,7 +17875,7 @@
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
 				}
 			}
-			"modifier_epoch_c_a_lock"
+			"modifier_epoch_q_3_lock"
 			{
 				"IsHidden"	"1"
 			}
@@ -18358,13 +18178,13 @@
 		}
 		"Modifiers"
 		{
-			"modifier_epoch_c_a"
+			"modifier_epoch_q_3"
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
-			"modifier_epoch_c_a_lock"
+			"modifier_epoch_q_3_lock"
 			{
 				"IsHidden"	"1"
 			}

@@ -56,5 +56,7 @@ function attackLand(event, q2_think)
 end
 
 function q2_think(event)
-    attackLand(event, true)
+    if event.caster:HasModifier("modifier_axe_glyph_7_2") then
+        attackLand(event, true)
+    end
 end

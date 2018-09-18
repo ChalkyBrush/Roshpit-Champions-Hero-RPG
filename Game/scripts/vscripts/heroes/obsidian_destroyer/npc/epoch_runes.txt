@@ -294,13 +294,13 @@
 		}
 		"Modifiers"
 		{
-			"modifier_epoch_c_a"
+			"modifier_epoch_q_3"
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
-			"modifier_epoch_c_a_lock"
+			"modifier_epoch_q_3_lock"
 			{
 				"IsHidden"	"1"
 			}
