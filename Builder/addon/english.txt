@@ -2994,33 +2994,11 @@
 
 		
 
-		"epoch_weapon_01"			"Distortion Staff"
-		"epoch_weapon_02"			"Timehook Staff"
-		"epoch_weapon_03"			"Twilight Staff"
-		"epoch_weapon_11"			"Spacelink Staff"
-		"epoch_weapon_12"			"Staff of the Eternal Guardian"
-		"epoch_weapon_13"			"Time Flooded Staff"
-		"epoch_weapon_14"			"Eternal Longstaff"
-		"epoch_weapon_21"			"Staff of the Eternal Rift"
-		"epoch_weapon_22"			"Staff of Ages"
-		"epoch_weapon_23"			"Staff of the Eon Champion"
-		"epoch_weapon_24"			"Staff of Boundless Intellect"
-		"epoch_weapon_25"			"Staff of Generational Destruction"
+		
 
 
 
-		"seinaru_weapon_01"			"Samurai Sword"
-		"seinaru_weapon_02"			"Katana"
-		"seinaru_weapon_03"			"Ninja Blade"
-		"seinaru_weapon_11"			"Storm Cleaver"
-		"seinaru_weapon_12"			"Runeblade"
-		"seinaru_weapon_13"			"Tornadofire Blade"
-		"seinaru_weapon_14"			"Sword of Faith"
-		"seinaru_weapon_21"			"Blade of Seven Trials"
-		"seinaru_weapon_22"			"Sword of Seikatsu"
-		"seinaru_weapon_23"			"Blade of Ryu"
-		"seinaru_weapon_24"			"Hariken Blade"
-		"seinaru_weapon_25"			"Elder's Sageblade"
+		
 
 		
 
@@ -3047,19 +3025,7 @@
 		"DOTA_Tooltip_ability_item_debug_blink"   "debug"
 		
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_weapon_00"   "Basic Staff"
-		"DOTA_Tooltip_ability_item_rpc_epoch_weapon_01"   "Distortion Staff"
-		"DOTA_Tooltip_ability_item_rpc_epoch_weapon_02"   "Timehook Staff"
-		"DOTA_Tooltip_ability_item_rpc_epoch_weapon_03"   "Twilight Staff"
-		"DOTA_Tooltip_ability_item_rpc_epoch_weapon_11"   "Spacelink Staff"
-		"DOTA_Tooltip_ability_item_rpc_epoch_weapon_12"   "Staff of the Eternal Guardian"
-		"DOTA_Tooltip_ability_item_rpc_epoch_weapon_13"   "Time Flooded Staff"
-		"DOTA_Tooltip_ability_item_rpc_epoch_weapon_14"   "Eternal Longstaff"
-		"DOTA_Tooltip_ability_item_rpc_epoch_weapon_21"   "Staff of the Eternal Rift"
-		"DOTA_Tooltip_ability_item_rpc_epoch_weapon_22"   "Staff of Ages"
-		"DOTA_Tooltip_ability_item_rpc_epoch_weapon_23"   "Staff of the Eon Champion"
-		"DOTA_Tooltip_ability_item_rpc_epoch_weapon_24"   "Staff of Boundless Intellect"
-		"DOTA_Tooltip_ability_item_rpc_epoch_weapon_25"   "Staff of Generational Destruction"
+		
 
 		
 
@@ -3076,19 +3042,7 @@
 
 		
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_00"	"Basic Sword"
-		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_01"   "Samurai Sword"
-		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_02"   "Katana"
-		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_03"   "Ninja Blade"
-		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_11"   "Storm Cleaver"
-		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_12"   "Runeblade"
-		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_13"   "Tornadofire Blade"
-		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_14"   "Sword of Faith"
-		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_21"   "Blade of Seven Trials"
-		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_22"   "Sword of Seikatsu"
-		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_23"   "Blade of Ryu"
-		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_24"   "Hariken Blade"
-		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_25"   "Elder's Sageblade"
+		
 
 		
 
@@ -6211,17 +6165,13 @@
 		
 		
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_1"			"Eye of Chronos"
-		"item_property_epoch_immortal_weapon"								"Eye of Chronos"
-		"property_epoch_immortal_weapon_description"						"Genesis orb fires an additional 2 orbs in parallel and deal 2x damage."		
+			
 
 		
 
 
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_1"		"Onimaru"
-		"item_property_seinaru_immortal_weapon"								"Piercing Attacks"
-		"property_seinaru_immortal_weapon_description"						"Attacks deal additional <% SEINARU_WEAP_1_DMG_PER_ATT * 100 %>% physical <font color=\"#7AE2A7\">wind</font> damage in a <% SEINARU_WEAP_1_RADIUS %> radius."
+		
 
 
 		
@@ -6269,13 +6219,7 @@
     	
 
     	//EPOCH
-    	"DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_2"				"Staff of the Eternal Guardian"
-    	"item_property_epoch_immortal_weapon2"								"Guardian of Eternity"
-    	"property_epoch_immortal_weapon2_description"						"If @Ability4 is off cooldown on death, immediately cast it at Epoch Guardian's position and respawn after @special_property1 seconds. Upon respawning, base ability cooldowns are refreshed, except for @Ability4 which goes on @special_property2x cooldown."
-
-    	"DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_3"				"Aion Eternus"
-    	"item_property_epoch_immortal_weapon3"								"Spatial Distortion"
-    	"property_epoch_immortal_weapon3_description"						"While @Ability3 is travelling, all damage taken is reduced by 100%. Enemies who are bound by @Ability1 are stunned for @special_property1 seconds when damaged by @Ability3."
+    	
 
 
     	//PALADIN
@@ -6290,14 +6234,7 @@
 
 
         //Seinaru
-        "DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_2"            "Musashi Swiftblade"
-        "item_property_seinaru_immortal_weapon2"                             "Five Rings Insight"
-        "property_seinaru_immortal_weapon2_description"                      "Increases movement speed by @special_property1 and movespeed cap by @special_property2. Reduces the cooldown of @Ability1 by @special_property3%."
-
-
-        "DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_3"            "Heavy Sangeblade"
-        "item_property_seinaru_immortal_weapon3"                             "Adamantia"
-        "property_seinaru_immortal_weapon3_description"                      "Each point of movespeed increases Strength by @special_property1. Reduces base move speed by @special_property2"
+        
 
         //WARLORD
 
