@@ -3007,18 +3007,7 @@
 		"epoch_weapon_24"			"Staff of Boundless Intellect"
 		"epoch_weapon_25"			"Staff of Generational Destruction"
 
-		"paladin_weapon_01"			"Hammer of Might"
-		"paladin_weapon_02"			"Silver Hammer"
-		"paladin_weapon_03"			"Runic Hammer"
-		"paladin_weapon_11"			"Cleansing Hammer"
-		"paladin_weapon_12"			"Heaven's Hammer"
-		"paladin_weapon_13"			"Hammer of Justice"
-		"paladin_weapon_14"			"Mace of Fiery Cleansing"
-		"paladin_weapon_21"			"Divine Protector's Hammer"
-		"paladin_weapon_22"			"Angelwing Hammer"
-		"paladin_weapon_23"			"Hammer of Retribution"
-		"paladin_weapon_24"			"Enlightened Mace of the Chosen"
-		"paladin_weapon_25"			"Staff of Holy Might"
+
 
 		"seinaru_weapon_01"			"Samurai Sword"
 		"seinaru_weapon_02"			"Katana"
@@ -3085,20 +3074,7 @@
 
 		
 
-		"DOTA_Tooltip_ability_item_rpc_basic_hammer"   "Hammer"
-		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_00"	"Hammer"
-		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_01"   "Hammer of Might"
-		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_02"   "Silver Hammer"
-		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_03"   "Runic Hammer"
-		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_11"   "Cleansing Hammer"
-		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_12"   "Heaven's Hammer"
-		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_13"   "Hammer of Justice"
-		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_14"   "Mace of Fiery Cleansing"
-		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_21"   "Divine Protector's Hammer"
-		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_22"   "Angelwing Hammer"
-		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_23"   "Hammer of Retribution"
-		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_24"   "Enlightened Mace of the Chosen"
-		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_25"   "Staff of Holy Might"
+		
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_00"	"Basic Sword"
 		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_01"   "Samurai Sword"
@@ -6239,9 +6215,7 @@
 		"item_property_epoch_immortal_weapon"								"Eye of Chronos"
 		"property_epoch_immortal_weapon_description"						"Genesis orb fires an additional 2 orbs in parallel and deal 2x damage."		
 
-		"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_1"		"Radiance"
-		"item_property_paladin_immortal_weapon"								"Radiant Aegis"
-		"property_paladin_immortal_weapon_description"						"Casting Heroic Fury applies a @special_property1 charge Divine Aegis for @special_property2 seconds. Max Divine Aegis stacks from attacks increased to @special_property3."
+		
 
 
 
@@ -6305,14 +6279,7 @@
 
 
     	//PALADIN
-    	"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_2"			"Light's Crusader"
-    	"item_property_paladin_immortal_weapon2"							"Spiritual Wrath"
-    	"property_paladin_immortal_weapon2_description"						"@Ability4 summons have @special_property1% cooldown reduction on all of their abilities."
-
-
-    	"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_3"			"Hammer of Auriel"
-    	"item_property_paladin_immortal_weapon3"								"Might of Auriel"
-    	"property_paladin_immortal_weapon3_description"						"Each point of strength additionally increases Max Health by @special_property1"
+    	
 
 
         //SORCERESS

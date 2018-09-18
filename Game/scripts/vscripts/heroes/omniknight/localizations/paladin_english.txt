@@ -1,21 +1,3 @@
-		"DOTA_Tooltip_ability_justice_overwhelming"								"Justice Overwhelming"
-		"DOTA_Tooltip_ability_justice_overwhelming_Description"					"Element: <font color=\"#F6FFB5\">Holy</font><br>A wave of pure Holy Justice blasts from the Paladin's hand. The force pushes him back and deals damage in a cone."
-		"DOTA_Tooltip_ability_justice_overwhelming_Lore"							""
-		"DOTA_Tooltip_ability_justice_overwhelming_damage"							"DAMAGE:"
-
-
-		"DOTA_Tooltip_ability_knights_disciple"								"Knight's Disciple"
-		"DOTA_Tooltip_ability_knights_disciple_Description"					"Summons a Disciple of Heaven to fight with you. The Disciple has a healing spell that will target the lowest HP nearby ally. The healing spell reduces damage taken by 20%."
-		"DOTA_Tooltip_ability_knights_disciple_Lore"							""
-    	"DOTA_Tooltip_ability_knights_disciple_summon_duration"						"SUMMON DURATION:"
-    	"DOTA_Tooltip_ability_knights_disciple_heal_per_tick_percent"					"HEAL/TICK:"
-
-		"DOTA_Tooltip_modifier_holy_ult_aura" 							"Holy Sanctuary"
-		"DOTA_Tooltip_modifier_holy_ult_aura_description" 				"Immune to physical damage, restoring HP and 200 bonus Moovespeed."
-
-		"DOTA_Tooltip_modifier_knights_disciple_heal"					"Knight's Disciple"
-		"DOTA_Tooltip_modifier_knights_disciple_heal_Description"		"Healing every 0.2 seconds. Damage taken reduced by 20%"
-
 		"DOTA_Tooltip_ability_heroic_fury"								"Heroic Fury"
 		"DOTA_Tooltip_ability_heroic_fury_Description"					"Element: <font color=\"#F6FFB5\">Holy</font> / <font color=\"#DDDDDD\">Normal</font><br>Empowers the Paladin's weapon to deal massive splash and slow effect, as well as heal him on successful strikes."
 		"DOTA_Tooltip_ability_heroic_fury_Lore"							""
@@ -32,7 +14,77 @@
 
 		"DOTA_Tooltip_modifier_heroic_fury" 								"Heroic Fury"
 		"DOTA_Tooltip_modifier_heroic_fury_description" 					"Enemies take damage and are slowed in an area on attack. Attacks also heal the Paladin."
+		
+		"DOTA_Tooltip_ability_paladin_rune_q_1"							"[Q1] Purification"
+    	"DOTA_Tooltip_ability_paladin_rune_q_1_Description"				"Your attack damage gets added to Heroic Fury damage."
+    	"DOTA_Tooltip_ability_paladin_rune_q_1_property_one"			"Attack Damage Bonus"
+    	"DOTA_Tooltip_ability_paladin_rune_q_1_suffix"					"%"
 
+		"DOTA_Tooltip_modifier_paladin_rune_q_1"						"Purifying Sparks"
+		"DOTA_Tooltip_modifier_paladin_rune_q_1_description" 			"Attacks emit holy sparks on nearby enemies."
+		
+		"DOTA_Tooltip_ability_paladin_rune_q_2"							"[Q2] Radiance"
+    	"DOTA_Tooltip_ability_paladin_rune_q_2_Description"				"While Heroic Fury is active, nearby enemies take damage based on Paladin's Attack Power."
+    	"DOTA_Tooltip_ability_paladin_rune_q_2_property_one"			"Damage Per Second"
+    	"DOTA_Tooltip_ability_paladin_rune_q_2_suffix"					"% of Attack Damage"
+
+    	"DOTA_Tooltip_modifier_paladin_q_2_radiance"					"Radiance"
+    	"DOTA_Tooltip_modifier_paladin_q_2_radiance_Description"		"Nearby enemies taking damage based on Attack Power"
+		
+		"DOTA_Tooltip_ability_paladin_rune_q_3"							"[Q3] Divine Aegis"
+    	"DOTA_Tooltip_ability_paladin_rune_q_3_Description"				"When landing an attack, gain a shield that absorbs 1 instance of damage. Enemies who break the shield take damage based on Paladin's strength."
+    	"DOTA_Tooltip_ability_paladin_rune_q_3_property_one"				"Duration"
+    	"DOTA_Tooltip_ability_paladin_rune_q_3_suffix"					" seconds"  
+    	"DOTA_Tooltip_ability_paladin_rune_q_3_property_two"				"Damage"
+    	"DOTA_Tooltip_ability_paladin_rune_q_3_suffix_two"				"x Strength"
+
+    	"DOTA_Tooltip_modifier_paladin_q3_shield"					"Divine Aegis"
+    	"DOTA_Tooltip_modifier_paladin_q3_shield_Description"		"Absorbs the next instance of damage and zaps the shield breaker."
+		
+		"DOTA_Tooltip_ability_paladin_rune_q_4"							"[Q4] Holy Crusader"
+    	"DOTA_Tooltip_ability_paladin_rune_q_4_Description"				"Any overhealing done by Paladin creates a shield that absorbs damage. Additionally all <font color=\"#F6FFB5\">Holy</font> damage is enhanced by attributes."
+    	"DOTA_Tooltip_ability_paladin_rune_q_4_property_one"			"Max Shield Absorb"
+    	"DOTA_Tooltip_ability_paladin_rune_q_4_suffix"					"% of target Max Health"
+    	"DOTA_Tooltip_ability_paladin_rune_q_4_property_two"			"Holy Damage Increase"
+    	"DOTA_Tooltip_ability_paladin_rune_q_4_suffix_two"				"% for each 10 points of Attributes"
+		
+		"DOTA_Tooltip_ability_justice_overwhelming"								"Justice Overwhelming"
+		"DOTA_Tooltip_ability_justice_overwhelming_Description"					"Element: <font color=\"#F6FFB5\">Holy</font><br>A wave of pure Holy Justice blasts from the Paladin's hand. The force pushes him back and deals damage in a cone."
+		"DOTA_Tooltip_ability_justice_overwhelming_Lore"							""
+		"DOTA_Tooltip_ability_justice_overwhelming_damage"							"DAMAGE:"
+		
+		"DOTA_Tooltip_ability_paladin_rune_w_1"							"[W1] Holy Fire"
+    	"DOTA_Tooltip_ability_paladin_rune_w_1_Description"				"Your Justice Overwhelming leaves a burning Holy Fire on struck targets."
+    	"DOTA_Tooltip_ability_paladin_rune_w_1_property_one"			"DPS"
+    	"DOTA_Tooltip_ability_paladin_rune_w_1_suffix"					""
+    	"DOTA_Tooltip_ability_paladin_rune_w_1_property_two"			"Burn Duration"
+    	"DOTA_Tooltip_ability_paladin_rune_w_1_suffix_two"				""
+
+		"DOTA_Tooltip_modifier_paladin_rune_w_1"						"Holy Fire"
+		"DOTA_Tooltip_modifier_paladin_rune_w_1_description" 			"Taking Holy Damage."
+		
+		"DOTA_Tooltip_ability_paladin_rune_w_2"							"[W2] Healing Command"
+    	"DOTA_Tooltip_ability_paladin_rune_w_2_Description"				"Justice Overwhelming also heals yourself and allies that it hits for a % of its base damage."
+    	"DOTA_Tooltip_ability_paladin_rune_w_2_property_one"			"Heal Amount"
+    	"DOTA_Tooltip_ability_paladin_rune_w_2_suffix"					"% of Ability Damage"
+		
+		"DOTA_Tooltip_ability_paladin_rune_w_3"							"[W3] Holy Nova"
+    	"DOTA_Tooltip_ability_paladin_rune_w_3_Description"				"Adds a 15% chance when attacked to emanate a Holy Nova - dealing damage to enemies and healing allies nearby. Enemies hit by Holy Nova are disarmed for 1 second."
+    	"DOTA_Tooltip_ability_paladin_rune_w_3_property_one"			"Damage"
+    	"DOTA_Tooltip_ability_paladin_rune_w_3_suffix"					"x Intelligence"
+    	"DOTA_Tooltip_ability_paladin_rune_w_3_property_two"			"Healing"
+    	"DOTA_Tooltip_ability_paladin_rune_w_3_suffix_two"				"x Intelligence"
+
+    	"DOTA_Tooltip_modifier_paladin_c_b_disarm"						"Holy Nova"
+    	"DOTA_Tooltip_modifier_paladin_c_b_disarm_Description"			"Disarmed"
+		
+		"DOTA_Tooltip_ability_paladin_rune_w_4"							"[W4] Intensifying Fire"
+    	"DOTA_Tooltip_ability_paladin_rune_w_4_Description"				"Holy Fire can stack with successive strikes from Justice Overwhelming. Each stack deals 20% more damage than the previous."
+    	"DOTA_Tooltip_ability_paladin_rune_w_4_property_one"			"Max Stacks"
+    	"DOTA_Tooltip_ability_paladin_rune_w_4_suffix"					""
+
+    	"DOTA_Tooltip_modifier_paladin_q4_shield"					"Holy Crusader"
+    	"DOTA_Tooltip_modifier_paladin_q4_shield_Description"		"Absorbs damage."	
 
 		"DOTA_Tooltip_ability_holy_blink"								"Empyrean Wings"
 		"DOTA_Tooltip_ability_holy_blink_Description"					"Launches the Paladin forward and lifts him in the air twice. Upon landing he deals damage and stuns nearby enemies."
@@ -45,32 +97,6 @@
 		"DOTA_Tooltip_ability_crusader_dash_Description"				"The Paladin is granted Angel Wings that launch him forward with a quick burst of power."
 		"DOTA_Tooltip_ability_crusader_dash_Lore"						""
 
-    	"DOTA_Tooltip_ability_paladin_rune_q_1"							"[Q1] Purification"
-    	"DOTA_Tooltip_ability_paladin_rune_q_1_Description"				"Your attack damage gets added to Heroic Fury damage."
-    	"DOTA_Tooltip_ability_paladin_rune_q_1_property_one"			"Attack Damage Bonus"
-    	"DOTA_Tooltip_ability_paladin_rune_q_1_suffix"					"%"
-
-		"DOTA_Tooltip_modifier_paladin_rune_q_1"						"Purifying Sparks"
-		"DOTA_Tooltip_modifier_paladin_rune_q_1_description" 			"Attacks emit holy sparks on nearby enemies."
-
-    	"DOTA_Tooltip_ability_paladin_rune_w_1"							"[W1] Holy Fire"
-    	"DOTA_Tooltip_ability_paladin_rune_w_1_Description"				"Your Justice Overwhelming leaves a burning Holy Fire on struck targets."
-    	"DOTA_Tooltip_ability_paladin_rune_w_1_property_one"			"DPS"
-    	"DOTA_Tooltip_ability_paladin_rune_w_1_suffix"					""
-    	"DOTA_Tooltip_ability_paladin_rune_w_1_property_two"			"Burn Duration"
-    	"DOTA_Tooltip_ability_paladin_rune_w_1_suffix_two"				""
-
-		"DOTA_Tooltip_modifier_paladin_rune_w_1"						"Holy Fire"
-		"DOTA_Tooltip_modifier_paladin_rune_w_1_description" 			"Taking Holy Damage."
-
-    	"DOTA_Tooltip_ability_paladin_rune_r_1"							"[R1] Guardian of Heaven"
-    	"DOTA_Tooltip_ability_paladin_rune_r_1_Description"				"Knight's Disciple has a 1000 AOE armor enhancing aura."
-    	"DOTA_Tooltip_ability_paladin_rune_r_1_property_one"			"Armor Aura"
-    	"DOTA_Tooltip_ability_paladin_rune_r_1_suffix"					""
-
-    	"DOTA_Tooltip_modifier_paladin_a_d_aura_armor_stacks"				"Guardian of Heaven"
-    	"DOTA_Tooltip_modifier_paladin_a_d_aura_armor_stacks_Description"	"Increased Armor"	
-
     	"DOTA_Tooltip_ability_paladin_rune_e_1"							"[E1] Second Coming"
     	"DOTA_Tooltip_ability_paladin_rune_e_1_Description"				"On death - the Paladin is brought back to life after 4 seconds. 120 second cooldown. Upon reviving, Paladin has extra immunity time."
     	"DOTA_Tooltip_ability_paladin_rune_e_1_property_one"			"Immunity Extension"
@@ -82,28 +108,48 @@
 		"DOTA_Tooltip_modifier_paladin_rune_e_1_revive_cooldown"				"Resurrected"
 		"DOTA_Tooltip_modifier_paladin_rune_e_1_revive_cooldown_description" 	"Second Coming is cooling down."
 
-    	"DOTA_Tooltip_ability_paladin_rune_q_2"							"[Q2] Radiance"
-    	"DOTA_Tooltip_ability_paladin_rune_q_2_Description"				"While Heroic Fury is active, nearby enemies take damage based on Paladin's Attack Power."
-    	"DOTA_Tooltip_ability_paladin_rune_q_2_property_one"			"Damage Per Second"
-    	"DOTA_Tooltip_ability_paladin_rune_q_2_suffix"					"% of Attack Damage"
-
-    	"DOTA_Tooltip_modifier_paladin_q_2_radiance"					"Radiance"
-    	"DOTA_Tooltip_modifier_paladin_q_2_radiance_Description"		"Nearby enemies taking damage based on Attack Power"
-
-    	"DOTA_Tooltip_ability_paladin_rune_w_2"							"[W2] Healing Command"
-    	"DOTA_Tooltip_ability_paladin_rune_w_2_Description"				"Justice Overwhelming also heals yourself and allies that it hits for a % of its base damage."
-    	"DOTA_Tooltip_ability_paladin_rune_w_2_property_one"			"Heal Amount"
-    	"DOTA_Tooltip_ability_paladin_rune_w_2_suffix"					"% of Ability Damage"
-
     	"DOTA_Tooltip_ability_paladin_rune_e_2"							"[E2] Retribution"
     	"DOTA_Tooltip_ability_paladin_rune_e_2_Description"				"Deals a percentage of your attack damage to all enemies who damage the Paladin. Returned damage is Physical."
     	"DOTA_Tooltip_ability_paladin_rune_e_2_property_one"			"Damage Return"
     	"DOTA_Tooltip_ability_paladin_rune_e_2_suffix"					"% of attack damage"
     	"DOTA_Tooltip_ability_paladin_rune_e_2_property_two"			"Flat Damage Return"
     	"DOTA_Tooltip_ability_paladin_rune_e_2_suffix_two"				""
-
+		
 		"DOTA_Tooltip_modifier_paladin_rune_e_2"						"Retribution"
 		"DOTA_Tooltip_modifier_paladin_rune_e_2_description" 			"Returning physical damage to attacking enemies."
+		
+		"DOTA_Tooltip_ability_paladin_rune_e_3"							"[E3] Light's Falcon"
+    	"DOTA_Tooltip_ability_paladin_rune_e_3_Description"				"Crusader Dash unleashes a powerful Falcon deals pure damage to enemies in a line based on attack power."
+    	"DOTA_Tooltip_ability_paladin_rune_e_3_property_one"			"Damage"
+    	"DOTA_Tooltip_ability_paladin_rune_e_3_suffix"					"% of attack damage"
+		
+		"DOTA_Tooltip_ability_paladin_rune_e_4"							"[E4] Flutter"
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_Description"				"Enemies hit by Light's Falcon receive a debuff that increases post-mitigation damage taken from the Paladin. Lasts 8 seconds."
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_property_one"			"Damage Amp"
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_suffix"					"%"
+
+    	"DOTA_Tooltip_modifier_paladin_d_c"								"Flutter"
+    	"DOTA_Tooltip_modifier_paladin_d_c_Description"					"Taking increased damage from Paladin"
+
+		"DOTA_Tooltip_ability_knights_disciple"								"Knight's Disciple"
+		"DOTA_Tooltip_ability_knights_disciple_Description"					"Summons a Disciple of Heaven to fight with you. The Disciple has a healing spell that will target the lowest HP nearby ally. The healing spell reduces damage taken by 20%."
+		"DOTA_Tooltip_ability_knights_disciple_Lore"							""
+    	"DOTA_Tooltip_ability_knights_disciple_summon_duration"						"SUMMON DURATION:"
+    	"DOTA_Tooltip_ability_knights_disciple_heal_per_tick_percent"					"HEAL/TICK:"
+
+		"DOTA_Tooltip_modifier_holy_ult_aura" 							"Holy Sanctuary"
+		"DOTA_Tooltip_modifier_holy_ult_aura_description" 				"Immune to physical damage, restoring HP and 200 bonus Moovespeed."
+
+		"DOTA_Tooltip_modifier_knights_disciple_heal"					"Knight's Disciple"
+		"DOTA_Tooltip_modifier_knights_disciple_heal_Description"		"Healing every 0.2 seconds. Damage taken reduced by 20%"
+		
+		"DOTA_Tooltip_ability_paladin_rune_r_1"							"[R1] Guardian of Heaven"
+    	"DOTA_Tooltip_ability_paladin_rune_r_1_Description"				"Knight's Disciple has a 1000 AOE armor enhancing aura."
+    	"DOTA_Tooltip_ability_paladin_rune_r_1_property_one"			"Armor Aura"
+    	"DOTA_Tooltip_ability_paladin_rune_r_1_suffix"					""
+
+    	"DOTA_Tooltip_modifier_paladin_a_d_aura_armor_stacks"				"Guardian of Heaven"
+    	"DOTA_Tooltip_modifier_paladin_a_d_aura_armor_stacks_Description"	"Increased Armor"	
 
     	"DOTA_Tooltip_ability_paladin_rune_r_2"							"[R2] Empowering Light"
     	"DOTA_Tooltip_ability_paladin_rune_r_2_Description"				"Allies who are healed by Knight's Disciple gain attack damage and armor with each heal tick. The buff lasts 16 seconds."
@@ -115,58 +161,10 @@
 		"DOTA_Tooltip_modifier_paladin_rune_r_2"						"Empowering Sanctuary"
 		"DOTA_Tooltip_modifier_paladin_rune_r_2_description" 			"Increased damage and armor."
 
-    	"DOTA_Tooltip_ability_paladin_rune_q_3"							"[Q3] Divine Aegis"
-    	"DOTA_Tooltip_ability_paladin_rune_q_3_Description"				"When landing an attack, gain a shield that absorbs 1 instance of damage. Enemies who break the shield take damage based on Paladin's strength."
-    	"DOTA_Tooltip_ability_paladin_rune_q_3_property_one"				"Duration"
-    	"DOTA_Tooltip_ability_paladin_rune_q_3_suffix"					" seconds"  
-    	"DOTA_Tooltip_ability_paladin_rune_q_3_property_two"				"Damage"
-    	"DOTA_Tooltip_ability_paladin_rune_q_3_suffix_two"				"x Strength"
-
-    	"DOTA_Tooltip_modifier_paladin_q3_shield"					"Divine Aegis"
-    	"DOTA_Tooltip_modifier_paladin_q3_shield_Description"		"Absorbs the next instance of damage and zaps the shield breaker."
-		
-    	"DOTA_Tooltip_ability_paladin_rune_w_3"							"[W3] Holy Nova"
-    	"DOTA_Tooltip_ability_paladin_rune_w_3_Description"				"Adds a 15% chance when attacked to emanate a Holy Nova - dealing damage to enemies and healing allies nearby. Enemies hit by Holy Nova are disarmed for 1 second."
-    	"DOTA_Tooltip_ability_paladin_rune_w_3_property_one"			"Damage"
-    	"DOTA_Tooltip_ability_paladin_rune_w_3_suffix"					"x Intelligence"
-    	"DOTA_Tooltip_ability_paladin_rune_w_3_property_two"			"Healing"
-    	"DOTA_Tooltip_ability_paladin_rune_w_3_suffix_two"				"x Intelligence"
-
-    	"DOTA_Tooltip_modifier_paladin_c_b_disarm"						"Holy Nova"
-    	"DOTA_Tooltip_modifier_paladin_c_b_disarm_Description"			"Disarmed"
-
-    	"DOTA_Tooltip_ability_paladin_rune_e_3"							"[E3] Light's Falcon"
-    	"DOTA_Tooltip_ability_paladin_rune_e_3_Description"				"Crusader Dash unleashes a powerful Falcon deals pure damage to enemies in a line based on attack power."
-    	"DOTA_Tooltip_ability_paladin_rune_e_3_property_one"			"Damage"
-    	"DOTA_Tooltip_ability_paladin_rune_e_3_suffix"					"% of attack damage"
-
     	"DOTA_Tooltip_ability_paladin_rune_r_3"							"[R3] Holy Bolt"
     	"DOTA_Tooltip_ability_paladin_rune_r_3_Description"				"Knight's Disciple gains the ability to smite a target dealing pure damage based on Paladin's attack power and applies a 0.1 second stun. 5 second cooldown."
     	"DOTA_Tooltip_ability_paladin_rune_r_3_property_one"			"Damage"
     	"DOTA_Tooltip_ability_paladin_rune_r_3_suffix"					"% of Paladin Attack Damage"
-
-    	"DOTA_Tooltip_ability_paladin_rune_q_4"							"[Q4] Holy Crusader"
-    	"DOTA_Tooltip_ability_paladin_rune_q_4_Description"				"Any overhealing done by Paladin creates a shield that absorbs damage. Additionally all <font color=\"#F6FFB5\">Holy</font> damage is enhanced by attributes."
-    	"DOTA_Tooltip_ability_paladin_rune_q_4_property_one"			"Max Shield Absorb"
-    	"DOTA_Tooltip_ability_paladin_rune_q_4_suffix"					"% of target Max Health"
-    	"DOTA_Tooltip_ability_paladin_rune_q_4_property_two"			"Holy Damage Increase"
-    	"DOTA_Tooltip_ability_paladin_rune_q_4_suffix_two"				"% for each 10 points of Attributes"
-
-    	"DOTA_Tooltip_modifier_paladin_q4_shield"					"Holy Crusader"
-    	"DOTA_Tooltip_modifier_paladin_q4_shield_Description"		"Absorbs damage."	
-
-    	"DOTA_Tooltip_ability_paladin_rune_w_4"							"[W4] Intensifying Fire"
-    	"DOTA_Tooltip_ability_paladin_rune_w_4_Description"				"Holy Fire can stack with successive strikes from Justice Overwhelming. Each stack deals 20% more damage than the previous."
-    	"DOTA_Tooltip_ability_paladin_rune_w_4_property_one"			"Max Stacks"
-    	"DOTA_Tooltip_ability_paladin_rune_w_4_suffix"					""
-
-    	"DOTA_Tooltip_ability_paladin_rune_e_4"							"[E4] Flutter"
-    	"DOTA_Tooltip_ability_paladin_rune_e_4_Description"				"Enemies hit by Light's Falcon receive a debuff that increases post-mitigation damage taken from the Paladin. Lasts 8 seconds."
-    	"DOTA_Tooltip_ability_paladin_rune_e_4_property_one"			"Damage Amp"
-    	"DOTA_Tooltip_ability_paladin_rune_e_4_suffix"					"%"
-
-    	"DOTA_Tooltip_modifier_paladin_d_c"								"Flutter"
-    	"DOTA_Tooltip_modifier_paladin_d_c_Description"					"Taking increased damage from Paladin"	
 
     	"DOTA_Tooltip_ability_paladin_rune_r_4"							"[R4] Purifying Spark"
     	"DOTA_Tooltip_ability_paladin_rune_r_4_Description"				"Knight's Disciple gains the ability to fire a projectile that freezes the target, and then splits and hits nearby enemies also freezing them."	
@@ -176,6 +174,8 @@
     	"DOTA_Tooltip_modifier_disciple_purifying_spark"					"Purifying Spark"
     	"DOTA_Tooltip_modifier_disciple_purifying_spark_Description"		"Frozen."	
 
+		//Arcanas
+		
     	"item_property_paladin_arcana1"										"Penance"
     	"property_paladin_arcana1_description"								"Replaces @Ability2 and all of its runes with Penance."
 
@@ -277,3 +277,44 @@
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_a"		"Glyph of Holy Wrath"
 		"item_rpc_paladin_glyph_5_a_description" 				"Knight's Disciple's Holy Bolt hits enemies in a @glyph_property1 AOE and hits the primary target twice."
+		
+		//Weapons
+		"paladin_weapon_01"			"Hammer of Might"
+		"paladin_weapon_02"			"Silver Hammer"
+		"paladin_weapon_03"			"Runic Hammer"
+		"paladin_weapon_11"			"Cleansing Hammer"
+		"paladin_weapon_12"			"Heaven's Hammer"
+		"paladin_weapon_13"			"Hammer of Justice"
+		"paladin_weapon_14"			"Mace of Fiery Cleansing"
+		"paladin_weapon_21"			"Divine Protector's Hammer"
+		"paladin_weapon_22"			"Angelwing Hammer"
+		"paladin_weapon_23"			"Hammer of Retribution"
+		"paladin_weapon_24"			"Enlightened Mace of the Chosen"
+		"paladin_weapon_25"			"Staff of Holy Might"
+		"DOTA_Tooltip_ability_item_rpc_basic_hammer"   "Hammer"
+		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_00"	"Hammer"
+		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_01"   "Hammer of Might"
+		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_02"   "Silver Hammer"
+		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_03"   "Runic Hammer"
+		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_11"   "Cleansing Hammer"
+		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_12"   "Heaven's Hammer"
+		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_13"   "Hammer of Justice"
+		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_14"   "Mace of Fiery Cleansing"
+		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_21"   "Divine Protector's Hammer"
+		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_22"   "Angelwing Hammer"
+		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_23"   "Hammer of Retribution"
+		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_24"   "Enlightened Mace of the Chosen"
+		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_25"   "Staff of Holy Might"
+		
+		"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_1"		"Radiance"
+		"item_property_paladin_immortal_weapon"								"Radiant Aegis"
+		"property_paladin_immortal_weapon_description"						"Casting Heroic Fury applies a @special_property1 charge Divine Aegis for @special_property2 seconds. Max Divine Aegis stacks from attacks increased to @special_property3."
+		
+		"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_2"			"Light's Crusader"
+    	"item_property_paladin_immortal_weapon2"							"Spiritual Wrath"
+    	"property_paladin_immortal_weapon2_description"						"@Ability4 summons have @special_property1% cooldown reduction on all of their abilities."
+
+
+    	"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_3"			"Hammer of Auriel"
+    	"item_property_paladin_immortal_weapon3"								"Might of Auriel"
+    	"property_paladin_immortal_weapon3_description"						"Each point of strength additionally increases Max Health by @special_property1"
