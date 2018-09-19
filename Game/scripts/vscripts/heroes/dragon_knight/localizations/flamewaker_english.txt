@@ -1,0 +1,310 @@
+		//Abilities
+		"DOTA_Tooltip_ability_seismic_flare"										"Seismic Flare"
+		"DOTA_Tooltip_ability_seismic_flare_Description"							"Element: <font color=\"#EF4126\">Fire</font> / <font color=\"#AF843D\">Earth</font><br>Summons a tremor from beneath the Earth, vacuuming all targets towards the cast point and stunning them."
+		"DOTA_Tooltip_ability_seismic_flare_Lore"									"Base Ability: Q"
+    	"DOTA_Tooltip_ability_seismic_flare_light_strike_array_aoe"				"AREA:"
+    	"DOTA_Tooltip_ability_seismic_flare_light_strike_array_stun_duration"		"STUN DURATION:"
+
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1"								"[Q1] Thick Skin"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_Description"					"Gain additional armor and health regen."
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_property_one"					"Armor Bonus"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_suffix"						""
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_property_two"					"Health Regen"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_suffix_two"					""
+
+		"DOTA_Tooltip_modifier_flamewaker_rune_q_1" 							"Thick Skin"
+		"DOTA_Tooltip_modifier_flamewaker_rune_q_1_description" 				"Gaining Armor and Health Regen."
+
+		"DOTA_Tooltip_ability_flamewaker_rune_q_2"								"[Q2] Restorative Earth"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_Description"					"Heal HP over 5 seconds for each unit struck by Seismic Flare"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_property_one"					"Heal/Second"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_suffix"						" per unit hit"
+
+    	"DOTA_Tooltip_flamewaker_rune_q_2_heal_effect"							"Restorative Earth"
+    	"DOTA_Tooltip_flamewaker_rune_q_2_heal_effect_Description"				"Healing HP every 0.5 seconds"	
+
+		"DOTA_Tooltip_ability_flamewaker_rune_q_3"								"[Q3] Eruption"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_3_Description"					"Seasmic flare also creates a burst of lava at the cast point for 7 seconds."
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_3_property_one"					"Lava DPS"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_3_suffix"						"x Strength"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_3_property_two"					"Flat Lava DPS"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_3_suffix_two"					""
+
+		"DOTA_Tooltip_modifier_flamewaker_rune_q_3_buff" 						"Warrior's Call"
+		"DOTA_Tooltip_modifier_flamewaker_rune_q_3_buff_description" 			"Increased damage and attack speed."
+		
+		"DOTA_Tooltip_ability_flamewaker_rune_q_4"								"[Q4] Molten Flux"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_Description"					"Health restored by Restorative Earth and damage caused by Eruption increase Flamewaker's attack damage for 4 seconds."
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_property_one"					"Attack Bonus From Restorative Earth"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_suffix"						"per health point restored"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_property_two"					"Attack Bonus From Eruption"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_suffix_two"					"per 10 damage dealt"
+
+		"DOTA_Tooltip_modifier_flamewaker_rune_q_4" 							"Molten Flux"
+		"DOTA_Tooltip_modifier_flamewaker_rune_q_4_description" 				"Increased Attack Damage."
+		
+		"DOTA_Tooltip_ability_second_heartbeat"										"Second Heartbeat"
+		"DOTA_Tooltip_ability_second_heartbeat_Description"							"Element: <font color=\"#EF4126\">Fire</font><br>Flamewaker's heart pulses with pure flame, dealing damage to all enemies in front of him."
+		"DOTA_Tooltip_ability_second_heartbeat_Lore"									""
+    	"DOTA_Tooltip_ability_second_heartbeat_damage"									"DAMAGE:"
+
+		"DOTA_Tooltip_ability_flamewaker_rune_w_1"								"[W1] Incendiary Blade"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_1_Description"					"Your basic attacks explode with fire, dealing physical damage in a 480 radius."
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_1_property_one"					"Damage"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_1_suffix"						"% of attack damage."
+
+		"DOTA_Tooltip_modifier_flamewaker_rune_w_1" 							"Incendiary Blade"
+		"DOTA_Tooltip_modifier_flamewaker_rune_w_1_description" 				"Your attacks explode with fire damage."
+
+		"DOTA_Tooltip_ability_flamewaker_rune_w_2"								"[W2] Volcanic Pulse"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_2_Description"					"Increases the range and base damage of Second Heartbeat base skill."
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_2_property_one"					"Range Increase"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_2_suffix"						""
+     	"DOTA_Tooltip_ability_flamewaker_rune_w_2_property_two"                 "Damage Increase"
+        "DOTA_Tooltip_ability_flamewaker_rune_w_2_suffix_two"                   "%"
+		
+		"DOTA_Tooltip_ability_flamewaker_rune_w_3"								"[W3] Searing Heat"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_3_Description"					"Second Heartbeat also burns through enemies armor, leaving a stacking armor reduction debuff on targets. Lasts 6 seconds."
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_3_property_one"					"Stacking Armor Reduction"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_3_suffix"						""
+		
+		"DOTA_Tooltip_modifier_flamewaker_rune_w_4_cooldown"					"Dragon's Wrath Cooldown"
+
+  		"DOTA_Tooltip_ability_flamewaker_rune_w_4"								"[W4] Dragon's Wrath"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_4_Description"					"When you cast Second Heartbeat, immediately leap to the last target that damaged you and deal a massive critical strike. 0.5 second cooldown. Damage taken is reduced by 100% while jumping."
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_4_property_one"					"Damage Bonus"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_4_suffix"						"%"
+		
+		"DOTA_Tooltip_ability_heat_wave"										"Heat Wave"
+		"DOTA_Tooltip_ability_heat_wave_Description"							"Element: <font color=\"#EF4126\">Fire</font><br>Flamewaker activates an intense heat energy, gaining movespeed, attack damage, cliff walking, and increased max movespeed."
+		"DOTA_Tooltip_ability_heat_wave_Lore"									""
+    	"DOTA_Tooltip_ability_heat_wave_max_ms"									"MOVESPEED CAP:"
+    	"DOTA_Tooltip_ability_heat_wave_base_dmg"								"ATTACK DAMAGE:"
+    	"DOTA_Tooltip_ability_heat_wave_movespeed"								"MOVESPEED:"
+    	"DOTA_Tooltip_ability_heat_wave_duration"								"DURATION:"
+
+    	"DOTA_Tooltip_modifier_heatwave_phase_one"								"Heat Wave"
+    	"DOTA_Tooltip_modifier_heatwave_phase_one_Description"					"Increased movespeed and max movespeed."
+		
+		"DOTA_Tooltip_ability_flamewaker_rune_e_1"								"[E1] Blazing Trail"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_1_Description"					"Flamewaker leaves a trail of smoldering embers on the ground while surging with Heat Wave"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_1_property_one"					"Damage/sec"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_1_suffix"						""
+
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_2"								"[E2] Dragon Rage"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_2_Description"					"Casting Heat Wave applies an immolation for 6 seconds that burns nearby enemies. Damage is enhanced by Agility."
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_2_property_one"					"Base Damage"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_2_suffix"						""
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_2_property_two"					"Extra Damage"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_2_suffix_two"					"x Agility"
+
+		"DOTA_Tooltip_flamewaker_rune_e_2_buff" 								"Dragon Rage"
+		"DOTA_Tooltip_flamewaker_rune_e_2_buff_description" 					"Burning nearby enemies."
+		
+		"DOTA_Tooltip_ability_flamewaker_rune_e_3"								"[E3] Dragon Aspect"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_3_Description"					"After landing from a Heat Wave, gain % increased attack damage and attack speed for 6 seconds."
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_3_property_one"					"Attack Damage Increase"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_3_suffix"						"%"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_3_property_two"					"Attack Speed"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_3_suffix_two"					""
+		
+		"DOTA_Tooltip_modifier_rune_e_3_damage_boost"							"Dragon Aspect"
+    	"DOTA_Tooltip_modifier_rune_e_3_damage_boost_Description"				"Gaining Attack Damage"
+		
+		"DOTA_Tooltip_modifier_searing_heat"									"Searing Heat"
+    	"DOTA_Tooltip_modifier_searing_heat_Description"						"Losing Armor"
+		
+		"DOTA_Tooltip_ability_flamewaker_rune_e_4"								"[E4] Splitting Flame"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_Description"					"Enemies struck by Blazing Trail ignite - losing armor and taking damage over time based on Blazing Trail's damage."
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_property_one"					"Damage Per Second"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_suffix"						"% of Blazing Trail Damage"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_property_two"					"Armor Reduction"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_suffix_two"					""
+
+		"DOTA_Tooltip_modifier_flamewaker_rune_e_4" 							"Splitting Flame"
+		"DOTA_Tooltip_modifier_flamewaker_rune_e_4_description" 				"Losing armor and taking damage each second."
+		
+		"DOTA_Tooltip_ability_cataclysm"									"Cataclysm"
+		"DOTA_Tooltip_ability_cataclysm_Description"						"Element: <font color=\"#EF4126\">Fire</font> / <font color=\"#AF843D\">Earth</font><br>Channels an overload of fire for 2 seconds, and then releases a massive explosion dealing damage, stunning, and slowing all targets surrounding the caster."
+		"DOTA_Tooltip_ability_cataclysm_Lore"								""
+		"DOTA_Tooltip_ability_cataclysm_damage"							"DAMAGE:"
+    	"DOTA_Tooltip_ability_cataclysm_radius"							"RADIUS:"
+    	"DOTA_Tooltip_ability_cataclysm_stun_duration"					"STUN DURATION:"
+		
+		"DOTA_Tooltip_ability_flamewaker_rune_r_1"								"[R1] Mountain Strike"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_1_Description"					"15% chance on attack to lift Flamewaker and his target into the air, stun them for 0.3 seconds and then deal a critical strike."
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_1_property_one"					"Bonus Attack Damage"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_1_suffix"						"%"
+		
+		"DOTA_Tooltip_ability_flamewaker_rune_r_2"								"[R2] Flaming Vortex"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_2_Description"					"Cataclysm also releases a spiral of flame."
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_2_property_one"					"Damage"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_2_suffix"						""
+		
+		"DOTA_Tooltip_ability_flamewaker_rune_r_3"								"[R3] Mountain's Energy"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_3_Description"					"After a successful cataclysm channel, gain strength for 12 seconds."
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_3_property_one"					"Strength Bonus"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_3_suffix"						""
+
+		"DOTA_Tooltip_modifier_flamewaker_rune_r_3" 							"Mountain's Energy"
+		"DOTA_Tooltip_modifier_flamewaker_rune_r_3_description" 				"Increased Strength."
+		
+		"DOTA_Tooltip_ability_flamewaker_rune_r_4"								"[R4] Volcano Blood"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_4_Description"					"Increases <font color=\"#EF4126\">Fire</font> and <font color=\"#AF843D\">Earth</font> damage based on Flamewaker's strength."
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_4_property_one"					"Fire and Earth Damage Bonus"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_4_suffix"						"% for every 10 points of Strength"
+		
+		//Arcanas
+		"DOTA_Tooltip_ability_flamewaker_arcana_ability"						"Dragon Fire"
+    	"DOTA_Tooltip_ability_flamewaker_arcana_ability_Description"			"Element: <font color=\"#EF4126\">Fire</font><br>A quick burst of fire stuns and damages enemies in the area. Damage is enhanced by strength."
+    	"DOTA_Tooltip_ability_flamewaker_arcana_ability_damage"					"DAMAGE:"
+    	"DOTA_Tooltip_ability_flamewaker_arcana_ability_strength_mult"			"ADDITIONAL DAMAGE STRENGTH MULTIPLIER:"
+    	"DOTA_Tooltip_ability_flamewaker_arcana_ability_stun_duration"			"STUN DURATION:"
+
+    	"item_property_flamewaker_arcana1"										"Dragon Fire"
+    	"property_flamewaker_arcana1_description"								"Replaces @Ability1 and all of its runes with Dragon Fire."
+
+  		"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1"						"[Q1] Dragon Knight"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_Description"			"Gain armor and mana regen based on how much health flamewaker is missing."
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_property_one"			"Bonus Armor"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_suffix"				" per 200 health missing"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_property_two"			"Mana Regen"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_suffix_two"			" per 200 health missing"
+
+  		"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1"						"[Q2] Flame Surge"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_Description"			"Gain movespeed and % damage amp after casting Dragon Fire. Enemies hit by Dragon Fire take increased damage from Flamewaker, this damage increase is 6 times weaker than self damage increase, but can stack. Only the strongest multiplier will take effect."
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_property_one"			"Movespeed"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_suffix"				""
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_property_two"			"Post-Mitigation Damage Amp"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_suffix_two"			"%"
+
+    	"DOTA_Tooltip_modifier_flamewaker_arcana_b_a_effect"					"Flame Surge"
+    	"DOTA_Tooltip_modifier_flamewaker_arcana_b_a_effect_Description"		"Increased movespeed and dealing additional damage."
+
+  		"DOTA_Tooltip_ability_flamewaker_rune_q_3_arcana1"						"[Q3] Firestorm"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_3_arcana1_Description"			"Adds a chance that an additional dragon fire bursts will ignite near the initial cast point. Dragon Fire is now vector target, choose 2 points to build a vector for additional fire bursts. Fire bursts are evenly distributed in a line that has length of 400. Greater than 100% means it can proc multiple times."
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_3_arcana1_property_one"			"Multi-Chance"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_3_arcana1_suffix"				""
+
+  		"DOTA_Tooltip_ability_flamewaker_rune_q_4_arcana1"						"[Q4] Inferno Ring"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_arcana1_Description"			"Passively grants Flamewaker an inferno ring that deals damage every 0.4 seconds to enemies within based on attack power. Enemies in the ring also deal reduced damage to Flamewaker."
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_arcana1_property_one"			"Burn Damage"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_arcana1_suffix"				"% of attack power"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_arcana1_property_two"			"Damage Reduction"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_arcana1_suffix_two"			"%"
+
+    	"DOTA_Tooltip_modifier_flamewaker_arcana_d_a_aura"						"Inferno Ring"
+    	"DOTA_Tooltip_modifier_flamewaker_arcana_d_a_aura_Description"			"Taking magic damage and dealing reduced damage to Flamewaker"
+
+    	"DOTA_Tooltip_ability_flamewaker_dragonflame"						"Fireborne"
+    	"DOTA_Tooltip_ability_flamewaker_dragonflame_Description"			"Element: <font color=\"#EF4126\">Fire</font><br>Flamewaker locks into position and billows a steady stream of hot dragon fire, dealing damage to enemies in the cone area every 0.1 seconds. After 1.5 seconds of being active, gain a shield that reduces all damage taken. Ability is not stopped by stuns or silences. Drains 10% of its mana cost every 0.1 seconds, and deactivates if mana reaches 0."
+    	"DOTA_Tooltip_ability_flamewaker_dragonflame_base_damage"			"DAMAGE:"
+    	"DOTA_Tooltip_ability_flamewaker_dragonflame_attack_dmg_bonus"			"% ATTACK DAMAGE ADDED TO FIRE:"
+    	"DOTA_Tooltip_ability_flamewaker_dragonflame_mana_drain"			"MANA DRAIN PER SECOND:"
+    	"DOTA_Tooltip_ability_flamewaker_dragonflame_damage_reduce"			"% SHIELD DAMAGE REDUCTION:"
+
+    	"DOTA_Tooltip_modifier_dragonflame_shield"								"Fireborne Shield"
+    	"DOTA_Tooltip_modifier_dragonflame_shield_Description"					"Taking Reduced Damage"
+
+    	"DOTA_Tooltip_modifier_flamewaker_dragonflame"							"Fireborne"
+    	"DOTA_Tooltip_modifier_flamewaker_dragonflame_Description"				"Spitting A steady stream of fire"	
+
+    	"item_property_flamewaker_arcana2"										"Fireborne"
+    	"property_flamewaker_arcana2_description"								"Replaces @Ability2 and all of its runes with Fireborne."
+
+  		"DOTA_Tooltip_ability_flamewaker_rune_w_1_arcana2"						"[W1] Brimstone"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_1_arcana2_Description"			"Flamewaker deals increased <font color=\"#EF4126\">Fire</font> damage against enemies who are stunned."
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_1_arcana2_property_one"			"Fire Damage Amp"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_1_arcana2_suffix"				"% against stunned enemies"
+
+  		"DOTA_Tooltip_ability_flamewaker_rune_w_2_arcana2"						"[W2] Shimmering Flame"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_2_arcana2_Description"			"Gain massive Health Regen and some armor while Fireborne Shield is active."
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_2_arcana2_property_one"			"Health Regen"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_2_arcana2_suffix"				""
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_2_arcana2_property_two"			"Armor"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_2_arcana2_suffix_two"			""
+
+  		"DOTA_Tooltip_ability_flamewaker_rune_w_3_arcana2"						"[W3] Spitfire"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_3_arcana2_Description"			"Attacks spit fire in a straight line. Damage dealt is equal to a regular Fireborne strike. Attack Damage Bonus that's added to Fireborne damage from this rune or the base ability is increased."
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_3_arcana2_property_one"			"Increased Fireborne damage from Attack Power"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_3_arcana2_suffix"				"%"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_3_arcana2_property_two"			"Flame Range"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_3_arcana2_suffix_two"			""
+
+  		"DOTA_Tooltip_ability_flamewaker_rune_w_4_arcana2"						"[W4] Blazing Drake"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_4_arcana2_Description"			"Agility is added to Base Attack Damage."
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_4_arcana2_property_one"			"Base Attack Power"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_4_arcana2_suffix"				"x Agility"
+
+		
+		//Glyphs
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_1_1"	"Glyph of Diamond Skin"
+		"item_rpc_flamewaker_glyph_1_1_description" 			"Enemies who attack you have a @glyph_property1% chance to be stunned for @glyph_property2 second."
+
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_2_1"	"Glyph of Cratering"
+		"item_rpc_flamewaker_glyph_2_1_description" 			"Reduces the cooldown of Seismic Flare to @glyph_property1 seconds."
+
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_3_1"	"Glyph of Upheaval"
+		"item_rpc_flamewaker_glyph_3_1_description" 			"Apply [W3] to enemies that take damage from [W1]."
+
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_4_1"	"Glyph of Blue Flame"
+		"item_rpc_flamewaker_glyph_4_1_description" 			"@Ability2 deals additional damage equal to @glyph_property2% of the sum of your attributes and @glyph_property3% of attack damage. This damage bonus is multiplied by @Ability2's level. Also slows targets' Movespeed and Attack Speed by @glyph_property1."
+
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_1"	"Glyph of Charred Hearts"
+		"item_rpc_flamewaker_glyph_5_1_description" 			"Increases the damage of Cataclysm and Flame Vortex by 2.5x."
+
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_6_1"	"Glyph of Mountain's Core"
+		"item_rpc_flamewaker_glyph_6_1_description" 			"Increases attack damage by @glyph_property1% for @glyph_property2 seconds after casting Cataclysm."
+
+		"DOTA_Tooltip_modifier_flamewaker_glyph_6_1_buff"		"Mountain's Core"
+		"DOTA_Tooltip_modifier_flamewaker_glyph_6_1_buff_Description"	"Gaining 100%% increased attack damage."
+
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_7_1"	"Glyph of Flaming Sea"
+		"item_rpc_flamewaker_glyph_7_1_description" 			"Blazing Trail has @glyph_property1x width and deals @glyph_property2x damage."
+
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_a"	"Glyph of Dragon Skin"
+		"item_rpc_flamewaker_glyph_5_a_description" 			"Damage instances are capped at @glyph_property1% of max health. If below 50% health, instances are capped at @glyph_property2%."
+
+		//Weapons
+		"flamewaker_weapon_00"			"Basic Sword"
+		"flamewaker_weapon_01"			"Earth Dragon Blade"
+		"flamewaker_weapon_02"			"Wind Dragon Blade"
+		"flamewaker_weapon_03"			"Fire Dragon Blade"
+		"flamewaker_weapon_11"			"Giant's Sword"
+		"flamewaker_weapon_12"			"Flametongue Blade"
+		"flamewaker_weapon_13"			"Dragonwake Blade"
+		"flamewaker_weapon_14"			"Dragonsage Blade"
+		"flamewaker_weapon_21"			"Blade of the Mountain Drake"
+		"flamewaker_weapon_22"			"Drakelord's Blade"
+		"flamewaker_weapon_23"			"Blade of the Dancing Drake"
+		"flamewaker_weapon_24"			"Black Wyrm's Singed Blade"
+		"flamewaker_weapon_25"			"Blade of the Elderwyrm"
+		"DOTA_Tooltip_ability_item_rpc_basic_sword"   "Sword"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_00"   "Basic Sword"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_01"   "Earth Dragon Blade"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_02"   "Wind Dragon Blade"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_03"   "Fire Dragon Blade"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_11"   "Giant's Sword"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_12"   "Flametongue Blade"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_13"   "Dragonwake Blade"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_14"   "Dragonsage Blade"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_21"   "Blade of the Mountain Drake"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_22"   "Drakelord's Blade"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_23"   "Blade of the Dancing Drake"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_24"   "Black Wyrm's Singed Blade"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_weapon_25"   "Blade of the Elderwyrm"
+		
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_1"	"Ragnarok"
+		"item_property_flamewaker_immortal_weapon"							"Volcano Shield"
+		"property_flamewaker_immortal_weapon_description"					"Casting @Ability4 applies a @special_property1 charge shield that reduces damage taken by 90%."
+
+		"DOTA_Tooltip_modifier_volcano_shield"							"Volcano Shield"
+		"DOTA_Tooltip_modifier_volcano_shield_Description"				"Damage taken reduced by 90%%"
+		
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_2"			"Ancient Flamerunner Blade"
+    	"item_property_flamewaker_immortal_weapon2"								"Inner Dragon"
+    	"property_flamewaker_immortal_weapon2_description"						"Each point of Agility increases base attack power by @special_property1. While @Ability3 is active, gain @special_property2 agility."
+
+    	"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_3"			"Gladius"
+    	"item_property_flamewaker_immortal_weapon3"								"Meteor Break"
+    	"property_flamewaker_immortal_weapon3_description"						"Increases the stun duration of @Ability1 and @Ability4 by @special_property1%"

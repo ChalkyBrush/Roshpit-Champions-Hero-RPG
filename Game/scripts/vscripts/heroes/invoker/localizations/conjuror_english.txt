@@ -1,0 +1,311 @@
+		//Abilities
+		"earth_aspect"														"Earth Aspect"
+    	"fire_aspect"														"Fire Aspect"
+    	"shadow_aspect"														"Shadow Aspect"
+		
+		"DOTA_Tooltip_ability_aspect_abilities"								"Minion AI"
+    	"DOTA_Tooltip_ability_aspect_abilities_Description"					"Toggle on to maintain default behavior."	
+		
+		"DOTA_Tooltip_ability_summon_earth_aspect"							"Earth Aspect"
+		"DOTA_Tooltip_ability_summon_earth_aspect_Description"				"Summons an Earth Aspect from beneath the ground. He absorbs 50% of all damage taken by the caster. Earth Aspect cannot attack. While the Earth Aspect is alive, you are able to cast Earthquake."
+		"DOTA_Tooltip_ability_summon_earth_aspect_Lore"						""
+		"DOTA_Tooltip_ability_summon_earth_aspect_aspect_health"			"EARTH ASPECT HEALTH:"
+		
+		"DOTA_Tooltip_ability_earthquake"									"Earthquake"
+		"DOTA_Tooltip_ability_earthquake_Description"						"Element: <font color=\"#AF843D\">Earth</font><br>Creates a powerful tremor at the target location and underneath your Earth Aspect, stunning and damaging targets. After Earthquake's first cast, you can keep casting it again freely for 1.5 seconds before it goes on cooldown."
+		"DOTA_Tooltip_ability_earthquake_Lore"								""
+		"DOTA_Tooltip_ability_earthquake_damage"							"DAMAGE:"
+		"DOTA_Tooltip_ability_earthquake_stun_duration"						"STUN DURATION:"
+		"DOTA_Tooltip_ability_earthquake_radius"							"RADIUS:"
+
+		"DOTA_Tooltip_modifier_free_quake"									"Quaking"
+		"DOTA_Tooltip_modifier_free_quake_description"						"Earthquake can be casted freely until this buff wears off."
+
+		"DOTA_Tooltip_modifier_earth_guardian"								"Earth Aspect"
+		"DOTA_Tooltip_modifier_earth_guardian_Description"					"Earth Aspect absorbing 50%% of damage taken"
+		
+		"DOTA_Tooltip_ability_conjuror_rune_q_1"							"[Q1] Earth Guardian"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_Description"				"Your Earth Aspect provides armor to itself and all nearby friendly units. Additionally this rune passively increases your Aspect's Max HP"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_property_one"				"Aspect Max Health"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_suffix"						"%"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_property_two"				"Armor"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_suffix_two"					""
+
+		"DOTA_Tooltip_modifier_conjuror_q_1_buff"								"Earth Guardian"
+		"DOTA_Tooltip_modifier_conjuror_q_1_buff_Description"					"Increased Armor."
+		
+		"DOTA_Tooltip_ability_earth_aspect_q_1_ability"						"Earth Guardian"
+		"DOTA_Tooltip_ability_earth_aspect_q_1_ability_Description"			"Providing bonus armor to nearby allies"
+		
+		"DOTA_Tooltip_ability_conjuror_rune_q_2"							"[Q2] Thunder Clap"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_Description"				"Your Earth Aspect has a 15% chance on taking damage to smash the ground - dealing damage based on the Aspect's current health and slowing nearby enemies. Casting Earthquake also triggers Thunder Clap."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_property_one"				"Damage"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_suffix"						"% of Earth Aspect's Current Health"
+		
+		"DOTA_Tooltip_ability_earth_aspect_rune_q_2_clap"					"Thunder Clap"		
+		"DOTA_Tooltip_ability_earth_aspect_rune_q_2_clap_Description"		"Element: <font color=\"#AF843D\">Earth</font><br>Chance on taking damage to drop a Thunder Clap that deals damage and slows in AOE."
+		
+		"DOTA_Tooltip_ability_conjuror_rune_q_3"							"[Q3] Earth Well"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_Description"				"Whenever your Earth Aspect takes damage, increase Conjuror's Health Regen for 1.5 seconds."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_property_one"				"Health Regen"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_suffix"						""
+		
+		"DOTA_Tooltip_ability_conjuror_rune_q_4"							"[Q4] Earth and Fire"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_Description"				"Conjuror's Strength increases <font color=\"#AF843D\">Earth</font> damage and <font color=\"#EF4126\">Fire</font> damage."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_property_one"				"Damage Increase"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_suffix"						"% for each 10 points of Strength"
+		
+		"DOTA_Tooltip_ability_summon_fire_aspect"							"Fire Aspect"
+		"DOTA_Tooltip_ability_summon_fire_aspect_Description"				"Summons a Fire Aspect from a conjured flame. The Fire Aspect deals great damage as a melee fighter, and can not take more than 20% of his max health in a single instance of damage. While the Fire Aspect is alive, you are able to cast Immolation."
+		"DOTA_Tooltip_ability_summon_fire_aspect_Lore"						""
+		"DOTA_Tooltip_ability_summon_fire_aspect_aspect_health"					"FIRE ASPECT HEALTH:"
+		"DOTA_Tooltip_ability_summon_fire_aspect_aspect_damage"					"ATTACK DAMAGE:"
+
+		"DOTA_Tooltip_ability_immolation"									"Immolation"
+		"DOTA_Tooltip_ability_immolation_Description"						"Element: <font color=\"#EF4126\">Fire</font><br>Launches an arc of flame in front of the Conjuror. Additionally, your fire elemental explodes in a column of fire dealing damage to nearby enemies."
+		"DOTA_Tooltip_ability_immolation_Lore"								""
+		"DOTA_Tooltip_ability_immolation_damage"							"DAMAGE:"
+		"DOTA_Tooltip_ability_immolation_radius"							"EXPLOSION RADIUS:"
+
+		"DOTA_Tooltip_ability_conjuror_rune_w_1"							"[W1] Permanent Immolation"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_Description"				"Your flame aspect deals constant damage to all nearby enemies."
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_property_one"				"DPS"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_suffix"						""
+		
+		"DOTA_Tooltip_ability_conjuror_fire_aspect_immolation"				"Permanent Immolation"
+		"DOTA_Tooltip_ability_conjuror_fire_aspect_immolation_Description"	"Element: <font color=\"#EF4126\">Fire</font><br>Burns and deals damage to nearby enemies"
+
+		"DOTA_Tooltip_ability_conjuror_rune_w_2"							"[W2] Soul Sear"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_Description"				"Each cast of immolation increases your attack damage for 12 seconds. Each target struck by immolation also loses armor. Both effects can stack up to 3 times per target."
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_property_one"				"Damage Increase per Stack"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_suffix"						"%"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_property_two"				"Armor Reduction per Stack"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_suffix_two"					""
+		
+		"DOTA_Tooltip_modifier_soul_sear_visible_friendly"					"Soul Sear"
+    	"DOTA_Tooltip_modifier_soul_sear_visible_friendly_Description"		"Gaining attack damage. Max 3 stacks."
+    	"DOTA_Tooltip_modifier_soul_sear_visible_enemy"						"Soul Sear"
+    	"DOTA_Tooltip_modifier_soul_sear_visible_enemy_Description"			"Losing armor. Max 3 stacks."
+		
+		"DOTA_Tooltip_ability_conjuror_rune_w_3"							"[W3] Critical Strike"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_3_Description"				"Gives you and your Fire Aspect a 30% chance to deal bonus damage on attack. The crit also releases an immolation that deals AOE damage equal to the attack's damage."
+    	"DOTA_Tooltip_ability_conjuror_rune_w_3_property_one"				"Bonus damage on crit"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_3_suffix"						"%"
+		
+		"DOTA_Tooltip_ability_conjuror_rune_w_4"							"[W4] Detonate"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_Description"				"The Fire Aspect creates a firey explosion on death that deals damage based on his max health and stuns for 1 second."
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_property_one"				"Explosion Damage"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_suffix"						"% of Fire Aspect's Max Health"
+		
+		"DOTA_Tooltip_ability_summon_shadow_aspect"							"Shadow Aspect"
+		"DOTA_Tooltip_ability_summon_shadow_aspect_Description"				"Summons a Shadow Aspect from the Deep Void. The Shadow Aspect is a ranged fighter whose attacks split on impact. While the Shadow Aspect is alive, you are able to cast Shadow Gate."
+		"DOTA_Tooltip_ability_summon_shadow_aspect_Lore"					""
+		"DOTA_Tooltip_ability_summon_shadow_aspect_aspect_health"					"SHADOW ASPECT HEALTH:"
+		"DOTA_Tooltip_ability_summon_shadow_aspect_aspect_damage"					"ATTACK DAMAGE:"
+		"DOTA_Tooltip_ability_summon_shadow_aspect_aspect_attack_splits"	"ATTACK SPLITS:"	
+		
+
+		"DOTA_Tooltip_ability_shadow_gate"									"Shadow Gate"
+		"DOTA_Tooltip_ability_shadow_gate_Description"						"Element: <font color=\"#7F4F84\">Shadow</font><br>Teleports the conjuror and all of his aspects to the target location and heals all aspects to full health. The left over shadow gate damages enemies who stand within it."
+		"DOTA_Tooltip_ability_shadow_gate_Lore"								""
+		"DOTA_Tooltip_ability_shadow_gate_range"							"CAST RANGE:"
+		"DOTA_Tooltip_ability_shadow_gate_damage"							"DPS:"
+		"DOTA_Tooltip_ability_shadow_gate_duration"							"DURATION:"
+		"DOTA_Tooltip_ability_shadow_gate_radius"							"RADIUS:"
+		
+		"DOTA_Tooltip_ability_conjuror_rune_e_1"							"[E1] Soul of Shadow"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_1_Description"				"When your Shadow Aspect lands an attack, Conjuror, Shadow Aspect and Fire aspect gain increased attack damage. Conjuror also gains additional agility. Max 20 stacks and lasts 16 seconds."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_1_property_one"				"Attack Damage Bonus Per Stack"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_1_suffix"						"%"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_1_property_two"				"Agility Bonus Per Stack"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_1_suffix_two"					""		
+
+    	"DOTA_Tooltip_modifier_conjuror_a_c_buff_visible"					"Soul of Shadow"
+    	"DOTA_Tooltip_modifier_conjuror_a_c_buff_visible_Description"		"Increased Attack Power and Agility"
+		
+		"DOTA_Tooltip_ability_conjuror_rune_e_2"							"[E2] Shadow Lance"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_2_Description"				"When you cast Shadow Gate - also release a dark projectile towards the targeted location."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_2_property_one"				"Base Damage"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_2_suffix"						""
+    	"DOTA_Tooltip_ability_conjuror_rune_e_2_property_two"				"Additional Damage"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_2_suffix_two"					"x Agility"
+		
+		"DOTA_Tooltip_ability_conjuror_rune_e_3"							"[E3] Dark Ranger"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_Description"				"Your Shadow Aspect's damage is increased by the total of your Strength, Agility, and Intelligence. Additionally increases shadow aspect attack range."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_property_one"				"Stats added to Shadow Aspect damage"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_suffix"						"%"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_property_two"				"Aspect Attack Range"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_suffix_two"					""
+		
+		"DOTA_Tooltip_ability_conjuror_rune_e_4"							"[E4] Piercing Darkness"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_4_Description"				"Adds a Pure Damage component to the Shadow Aspect's attacks as well as Shadow Lance."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_4_property_one"				"Shadow Aspect Bonus Pure Damage"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_4_suffix"						"% of attack damage"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_4_property_two"				"Shadow Lance Bonus Pure Damage"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_4_suffix_two"					"%"
+		
+		"DOTA_Tooltip_ability_call_of_elements"								"Call of the Elements"
+		"DOTA_Tooltip_ability_call_of_elements_Description"					"Creates an elemental buff for the Conjuror and each of his aspects. Each summoned aspect provides a different elemental power. If there are no aspects alive, this ability has no effect."
+		"DOTA_Tooltip_ability_call_of_elements_Lore"						""
+		"DOTA_Tooltip_ability_call_of_elements_health_regen"				"HEALTH REGEN (Earth):"
+		"DOTA_Tooltip_ability_call_of_elements_magic_resist"				"MAGIC RESIST (Earth):"
+		"DOTA_Tooltip_ability_call_of_elements_attack_speed"				"ATTACK SPEED (Shadow):"
+		"DOTA_Tooltip_ability_call_of_elements_movespeed"					"MOVESPEED (Shadow):"
+		"DOTA_Tooltip_ability_call_of_elements_bonus_damage"				"ATTACK DAMAGE (Fire):"
+		"DOTA_Tooltip_ability_call_of_elements_duration"					"DURATION:"
+
+		"DOTA_Tooltip_modifier_call_of_earth"								"Call of Earth"
+		"DOTA_Tooltip_modifier_call_of_earth_Description"					"Increased health regen and magic resist"
+
+		"DOTA_Tooltip_modifier_call_of_fire"								"Call of Fire"
+		"DOTA_Tooltip_modifier_call_of_fire_Description"					"Increased attack damage"
+
+		"DOTA_Tooltip_modifier_call_of_shadow"								"Call of Shadow"
+		"DOTA_Tooltip_modifier_call_of_shadow_Description"					"Increased movement and attack speed"
+		
+		"DOTA_Tooltip_ability_conjuror_rune_r_1"							"[R1] Avalanche"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_1_Description"				"When you cast Call of Elements, your Earth Aspect gains Avalanche. Avalanche allows the Earth Aspect to leap to a target position and deal and amplified [Q] Earthquake at the landing point."
+    	"DOTA_Tooltip_ability_conjuror_rune_r_1_property_one"				"Earthquake Amplify"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_1_suffix"						"%"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_1_property_two"				"Stun duration"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_1_suffix_two"					" seconds"
+		
+		"DOTA_Tooltip_ability_earth_aspect_quake_leap"						"Avalanche"
+		"DOTA_Tooltip_ability_earth_aspect_quake_leap_Description"			"Element: <font color=\"#AF843D\">Earth</font><br>Jumps to the target location and emits an amplified Earthquake."
+		
+		"DOTA_Tooltip_ability_conjuror_rune_r_2"							"[R2] Fire Spring"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_2_Description"				"When you cast Call of the Elements, your Fire Aspect gains range attacks with bonus damage with a massive armor shredding effect."
+    	"DOTA_Tooltip_ability_conjuror_rune_r_2_property_one"				"Bonus Damage"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_2_suffix"						"%"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_2_property_two"				"Armor Reduction"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_2_suffix_two"					""
+
+    	"DOTA_Tooltip_modifier_fire_aspect_b_d_effect"						"Fire Spring"
+    	"DOTA_Tooltip_modifier_fire_aspect_b_d_effect_Description"			"Increased damage and armor shredding ability"
+
+    	"DOTA_Tooltip_modifier_fire_aspect_b_d_armor_shred"					"Fire Spring Armor Shred"
+    	"DOTA_Tooltip_modifier_fire_aspect_b_d_armor_shred_Description"		"Greatly Reduced Armor"
+		
+		"DOTA_Tooltip_ability_conjuror_rune_r_3"							"[R3] Null Shadow"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_3_Description"				"When you cast Call of the Elements, Shadow Aspect gains a buff where all of his attacks and split attacks apply a slowing effect on impact."
+    	"DOTA_Tooltip_ability_conjuror_rune_r_3_property_one"				"Attack Speed Reduction"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_3_suffix"						""
+    	"DOTA_Tooltip_ability_conjuror_rune_r_3_property_two"				"Movespeed Reduction"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_3_suffix_two"					""
+
+    	"DOTA_Tooltip_modifier_conjuror_c_d_slow_effect"					"Null Shadow"			
+    	"DOTA_Tooltip_modifier_conjuror_c_d_slow_effect_Description"		"Attack speed and movespeed slowed."
+		
+		"DOTA_Tooltip_ability_conjuror_rune_r_4"							"[R4] Elemental Idol"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_4_Description"				"Increases the duration of Call of the Elements."
+    	"DOTA_Tooltip_ability_conjuror_rune_r_4_property_one"				"Duration Increase"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_4_suffix"						""
+		
+		//Arcanas
+		"DOTA_Tooltip_ability_conjuror_elemental_deity" 					"Elemental Deity"
+    	"DOTA_Tooltip_ability_conjuror_elemental_deity_Description"			"Conjuror reaches into the depths of elemental knowledge, summoning the grand Elemental Deity. The Deity has Steadfast and inherits health, armor and physical damage from Conjuror."
+    	"DOTA_Tooltip_ability_conjuror_elemental_deity_attack_damage_mult"	"ATTACK DAMAGE X:"
+    	"DOTA_Tooltip_ability_conjuror_elemental_deity_armor_mult"			"ARMOR X:"
+    	"DOTA_Tooltip_ability_conjuror_elemental_deity_health_mult"			"MAX HEALTH X:"
+
+    	"conjuror_elemental_deity_summon"									"Elemental Deity"
+
+       	"item_property_conjuror_arcana1"									"Elemental Deity"
+    	"property_conjuror_arcana1_description"								"Replaces @Ability4 and all of its runes with Elemental Deity."
+
+  		"DOTA_Tooltip_ability_conjuror_rune_r_1_arcana1"						"[R1] Inferno Fist"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_1_arcana1_Description"			"Elemental Deity's attacks deal damage to enemies in a semi-circle behind the target."
+    	"DOTA_Tooltip_ability_conjuror_rune_r_1_arcana1_property_one"			"Damage"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_1_arcana1_suffix"					"% of Attack Damage"
+
+    	"DOTA_Tooltip_ability_conjuror_deity_a_d"							"Inferno Fist"
+    	"DOTA_Tooltip_ability_conjuror_deity_a_d_Description"				"Element: <font color=\"#EF4126\">Fire</font><br>Attacks deal magic damage to enemies in a semi-circle behind the target."	
+
+  		"DOTA_Tooltip_ability_conjuror_rune_r_2_arcana1"						"[R2] Terra Blast"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_2_arcana1_Description"			"Elemental Deity gains the ability to create a line of Earthquakes that stun. 4.5 second cooldown."
+    	"DOTA_Tooltip_ability_conjuror_rune_r_2_arcana1_property_one"		"Damage"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_2_arcana1_suffix"				"% of Deity Attack Power"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_2_arcana1_property_two"		"Stun Duration"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_2_arcana1_suffix_two"			" seconds"
+
+    	"DOTA_Tooltip_ability_conjuror_deity_terra_blast"					"Terra Blast"
+    	"DOTA_Tooltip_ability_conjuror_deity_terra_blast_Description"		"Element: <font color=\"#AF843D\">Earth</font><br>Fires a series of quakes in a line that stun and damage targets based on the Deity's attack power."
+
+  		"DOTA_Tooltip_ability_conjuror_rune_r_3_arcana1"						"[R3] Call of the Elements"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_3_arcana1_Description"			"The Elemental Deity can buff Conjuror's army with Health Regen, Attack Speed, Attack Power, and Magic Resistance. Buffs apply based on whether or not Conjuror's aspects are summoned. Rune has a chance to add additional stacks of the buff."
+    	"DOTA_Tooltip_ability_conjuror_rune_r_3_arcana1_property_one"		"Additional Stack Chance"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_3_arcana1_suffix"				"%"
+
+  		"DOTA_Tooltip_ability_conjuror_rune_r_4_arcana1"						"[R4] Shadow Shield"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_4_arcana1_Description"			"Elemental Deity gains the ability to apply a shield to one of Conjuror's aspects that reduces incoming damage by 100%. 8 second cooldown. Elemental Deity prioritizes the Shadow Aspect first, and Fire Aspect second."
+    	"DOTA_Tooltip_ability_conjuror_rune_r_4_arcana1_property_one"		"Duration"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_4_arcana1_suffix"				" seconds"
+
+    	"DOTA_Tooltip_ability_conjuror_deity_shadow_shield"				"Shadow Shield"
+    	"DOTA_Tooltip_ability_conjuror_deity_shadow_shield_Description"	"Applies a shield to a target aspect that reduces damage taken by 100%"	
+
+    	"DOTA_Tooltip_modifier_deity_shadow_shield"						"Shadow Shield"
+    	"DOTA_Tooltip_modifier_deity_shadow_shield_Description"			"Damage Reduced by 100%%"
+
+		//Glyphs
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_1_1"		"Glyph of Blazing Fire"
+		"item_rpc_conjuror_glyph_1_1_description" 				"Your Fire Aspect has @glyph_property1 extra attack speed and @glyph_property2% increased attack damage."
+
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_2_1"		"Glyph of Conjuring"
+		"item_rpc_conjuror_glyph_2_1_description" 				"Increases the Max Health of all Aspects by @glyph_property1%"
+
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_3_1"		"Glyph of Encroaching Shadow"
+		"item_rpc_conjuror_glyph_3_1_description" 				"Shadow Gate has a @glyph_property1 second cooldown while Call of Shadow is active."
+
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_4_1"		"Glyph of Distant Shadows"
+		"item_rpc_conjuror_glyph_4_1_description" 				"Increases the Attack Range of your Shadow Aspect by @glyph_property1."
+
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_1"		"Glyph of Trembling Earth"
+		"item_rpc_conjuror_glyph_5_1_description" 				"Earthquake radius is increased by @glyph_property1, and the duration of free-casting is increased by @glyph_property2 seconds."
+
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_6_1"		"Glyph of Flamethrower"
+		"item_rpc_conjuror_glyph_6_1_description" 				"Your Fire Aspect spits a cone of fire every time he lands a critical hit, dealing @glyph_property1x the crit damage to all damaged targets."
+
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_7_1"		"Glyph of Immortal Earth"
+		"item_rpc_conjuror_glyph_7_1_description" 				"Your Earth Aspect is resummoned immediately upon death."
+
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_a"		"Glyph of Summoning"
+		"item_rpc_conjuror_glyph_5_a_description" 				"ALL post-mitigation damage dealt by conjuror and his aspects is increased by 200%."
+		
+		//Weapons
+		"conjuror_weapon_01"			"Earth Orb"
+		"conjuror_weapon_02"			"Shadow Orb"
+		"conjuror_weapon_03"			"Mind Orb"
+		"conjuror_weapon_11"			"Fire Arcana"
+		"conjuror_weapon_12"			"Core Arcana"
+		"conjuror_weapon_13"			"Prime Arcana"
+		"conjuror_weapon_14"			"Shadow Arcana"
+		"conjuror_weapon_21"			"Trinity Essence"
+		"conjuror_weapon_22"			"Core of Fire"
+		"conjuror_weapon_23"			"Arcana of the Triumvirate"
+		"conjuror_weapon_24"			"Essence of Shadow"
+		"conjuror_weapon_25"			"Galaxy Essence"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_00"   "Orb"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_01"   "Earth Orb"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_02"   "Shadow Orb"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_03"   "Mind Orb"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_11"   "Fire Arcana"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_12"   "Core Arcana"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_13"   "Prime Arcana"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_14"   "Shadow Arcana"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_21"   "Trinity Essence"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_22"   "Core of Fire"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_23"   "Arcana of the Triumvirate"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_24"   "Essence of Shadow"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_25"   "Galaxy Essence"
+		
+		"DOTA_Tooltip_ability_item_rpc_conjuror_immortal_weapon_1"		"Enlightened Orb of Azerath"
+		
+		"DOTA_Tooltip_ability_item_rpc_conjuror_immortal_weapon_2"            "Tricor Orb"
+        "item_property_conjuror_immortal_weapon2"                             "Universal Balance"
+        "property_conjuror_immortal_weapon2_description"                      "Each 10 points of Strength increases damage of @Ability1 by 0.3%, each 10 points of Intelligence increases damage of @Ability2 by 0.3%. Each 10 points of Agility increases damage of @Ability3 by 0.3%."  
+
+
+        "DOTA_Tooltip_ability_item_rpc_conjuror_immortal_weapon_3"            "Sphere of Avennia"
+        "item_property_conjuror_immortal_weapon3"                             "Elemental Core"
+        "property_conjuror_immortal_weapon3_description"                      "Summoned aspects have Steadfast ability."     

@@ -1,0 +1,301 @@
+		"DOTA_Tooltip_ability_stun_attack"                              "Skull Basher"
+        "DOTA_Tooltip_ability_stun_attack_Description"                  "Element: <font color=\"#DDDDDD\">Normal</font><br>Leap to the targeted point, and gain a buff offering massive stunning blows and increased attack speed for the duration.  Skull Basher and Berserker Rage durations are refreshed and paused while leaping. Max jump distance: 1200. "
+        "DOTA_Tooltip_ability_stun_attack_Lore"                         ""
+        "DOTA_Tooltip_ability_stun_attack_attack_speed"                 "ATTACK SPEED BONUS:"
+        "DOTA_Tooltip_ability_stun_attack_bolt_damage"                  "SPLASH DAMAGE:"
+        "DOTA_Tooltip_ability_stun_attack_buff_duration"                "BUFF DURATION:"
+        "DOTA_Tooltip_ability_stun_attack_duration"                     "STUN DURATION:"
+ 
+        "DOTA_Tooltip_modifier_stun_attack"                             "Skull Basher"
+        "DOTA_Tooltip_modifier_stun_attack_Description"                 "Attack stun enemies and deal damage in an area"
+ 
+        "DOTA_Tooltip_ability_red_general_skull_basher"                             "Skull Basher"
+        "DOTA_Tooltip_ability_red_general_skull_basher_Description"                 "Element: <font color=\"#DDDDDD\">Normal</font><br>Leap to the targeted point, and gain a buff offering massive stunning blows and increased attack speed for the duration.  Berserker Rage duration is paused while leaping."
+        "DOTA_Tooltip_ability_red_general_skull_basher_Lore"                            ""
+        "DOTA_Tooltip_ability_red_general_skull_basher_attack_speed"                    "ATTACK SPEED BONUS:"
+        "DOTA_Tooltip_ability_red_general_skull_basher_bolt_damage"                 "SPLASH DAMAGE:"
+        "DOTA_Tooltip_ability_red_general_skull_basher_buff_duration"               "BUFF DURATION:"
+        "DOTA_Tooltip_ability_red_general_skull_basher_duration"                    "STUN DURATION:"
+        "DOTA_Tooltip_ability_red_general_skull_basher_cast_range"                  "MAX JUMP RANGE:"
+		
+		"DOTA_Tooltip_ability_axe_rune_q_1"                             "[Q1] Massive Impact"
+        "DOTA_Tooltip_ability_axe_rune_q_1_Description"                 "Increases the base damage of Skull Basher by a % of attack damage."
+        "DOTA_Tooltip_ability_axe_rune_q_1_property_one"                "Damage Increase"
+        "DOTA_Tooltip_ability_axe_rune_q_1_suffix"                      "% of attack damage"
+		
+		"DOTA_Tooltip_ability_axe_rune_q_2"                             "[Q2] Berserker Rage"
+        "DOTA_Tooltip_ability_axe_rune_q_2_Description"                 "Whenever you land an attack - gain attack speed and base attack damage. If you don't attack for 10 seconds all charges are lost. Max 50 stacks."
+        "DOTA_Tooltip_ability_axe_rune_q_2_property_one"                "Attack Speed Per Charge"
+        "DOTA_Tooltip_ability_axe_rune_q_2_suffix"                      ""
+        "DOTA_Tooltip_ability_axe_rune_q_2_property_two"                "Attack Damage Per Charge"
+        "DOTA_Tooltip_ability_axe_rune_q_2_suffix_two"                  ""
+ 
+        //"DOTA_Tooltip_modifier_axe_rune_q_2_stacker"                  "Berserker Rage"
+        //"DOTA_Tooltip_modifier_axe_rune_q_2_stacker_description"      "Gaining Attack Speed."
+ 
+        "DOTA_Tooltip_modifier_axe_rune_q_2_visible"                    "Berserker Rage"
+        "DOTA_Tooltip_modifier_axe_rune_q_2_visible_Description"        "Gaining Attack Speed and Attack Damage."
+		
+		"DOTA_Tooltip_ability_axe_rune_q_3"                             "[Q3] Heroic Leap"
+        "DOTA_Tooltip_ability_axe_rune_q_3_Description"                 "Upon landing from a Skull Basher leap, The Red General dishes out an amplified Sunder."
+        "DOTA_Tooltip_ability_axe_rune_q_3_property_one"                "Damage"
+        "DOTA_Tooltip_ability_axe_rune_q_3_suffix"                      "% of Sunder damage"
+		
+		
+        "DOTA_Tooltip_ability_axe_rune_q_4"                             "[Q4] Brutal Expansion"
+        "DOTA_Tooltip_ability_axe_rune_q_4_Description"                 "Enemy units damaged by Skull Basher will receive increased Normal damage from The Red General. This effect stacks up to 20 times."
+        "DOTA_Tooltip_ability_axe_rune_q_4_property_one"                "Normal damage increase"
+        "DOTA_Tooltip_ability_axe_rune_q_4_suffix"                      "%"
+
+        "DOTA_Tooltip_modifier_axe_rune_q_4_visible"					"Brutal Expansion"
+        "DOTA_Tooltip_modifier_axe_rune_q_4_visible_Description"		"Increased Normal damage taken from The Red General"
+		
+		
+		"DOTA_Tooltip_ability_backshock"                                "Spur Shock"
+        "DOTA_Tooltip_ability_backshock_Description"                    "Element: <font color=\"#DDDDDD\">Normal</font><br>Emits 3 shockwaves behind the General."
+        "DOTA_Tooltip_ability_backshock_Lore"                           ""
+        "DOTA_Tooltip_ability_backshock_main_damage"                    "DAMAGE PER WAVE:"
+        "DOTA_Tooltip_ability_backshock_speed"                          "WAVE SPEED:"
+		
+		"DOTA_Tooltip_ability_axe_rune_w_1"                             "[W1] Aftershock"
+        "DOTA_Tooltip_ability_axe_rune_w_1_Description"                 "Enemies hit by Spur Shock are damaged every 0.3 seconds for 3 seconds."
+        "DOTA_Tooltip_ability_axe_rune_w_1_property_one"                "Tick Damage"
+        "DOTA_Tooltip_ability_axe_rune_w_1_suffix"                      "% of Spur Shock Damage"
+		"DOTA_Tooltip_modifier_axe_rune_w_1_visible"					"Aftershock"
+        "DOTA_Tooltip_modifier_axe_rune_w_1_visible_Description"		"Taking additional damage every 0.3 seconds."
+		
+		"DOTA_Tooltip_ability_axe_rune_w_2"                             "[W2] Nullifying Wavelength"
+        "DOTA_Tooltip_ability_axe_rune_w_2_Description"                 "Enemies damaged by Shockwave receive a stacking Magic Resist loss debuff. Max 3 stacks."
+        "DOTA_Tooltip_ability_axe_rune_w_2_property_one"                "Magic Resist Reduction"
+        "DOTA_Tooltip_ability_axe_rune_w_2_suffix"                      "%"
+
+        "DOTA_Tooltip_modifier_axe_rune_w_2_visible"					"Nullifying Wavelength"
+        "DOTA_Tooltip_modifier_axe_rune_w_2_visible_Description"		"Reduced Magic Armor"
+		
+		"DOTA_Tooltip_ability_axe_rune_w_3"                             "[W3] Fury"
+        "DOTA_Tooltip_ability_axe_rune_w_3_Description"                 "Casting Spur Shock heals the General. The healing value is multiplied by Spur Shock's spell level."
+        "DOTA_Tooltip_ability_axe_rune_w_3_property_one"                "Heal"
+        "DOTA_Tooltip_ability_axe_rune_w_3_suffix"                      "x Spur Shock level"
+        "DOTA_Tooltip_ability_axe_rune_w_3_property_two"                "Heal"
+        "DOTA_Tooltip_ability_axe_rune_w_3_suffix_two"                  "% Max health"
+		
+		"DOTA_Tooltip_ability_axe_rune_w_4"                             "[W4] Thunderfoot"
+        "DOTA_Tooltip_ability_axe_rune_w_4_Description"                 "The Red General's strength increases the damage of Spur Shock."
+        "DOTA_Tooltip_ability_axe_rune_w_4_property_one"                "Damage Increase"
+        "DOTA_Tooltip_ability_axe_rune_w_4_suffix"                      "% for each 10 points of Strength"
+ 
+		
+		
+		"DOTA_Tooltip_ability_whirlwind"                                "Redmist Cyclone"
+        "DOTA_Tooltip_ability_whirlwind_Description"                    "The Red General spins wildly, hooking all nearby units and dragging them along with him as he advances forward (except bosses). Enemies are dragged every 0.18 seconds, and at each of these intervals, the General is cleansed of stun effects and restores health for each affected enemy unit."
+        "DOTA_Tooltip_ability_whirlwind_Lore"                           ""
+        "DOTA_Tooltip_ability_whirlwind_heal"                           "HEAL PER ENEMY HIT PER TICK:"
+        "DOTA_Tooltip_ability_whirlwind_radius"                         "RADIUS:"
+		
+		"DOTA_Tooltip_ability_axe_rune_e_1"                             "[E1] Endurance"
+        "DOTA_Tooltip_ability_axe_rune_e_1_Description"                 "As the Red General loses Health, he gains a bonus to all attributes."
+        "DOTA_Tooltip_ability_axe_rune_e_1_property_one"                "Bonus to all Stats"
+        "DOTA_Tooltip_ability_axe_rune_e_1_suffix"                      " for each 5% missing health"
+ 
+        "DOTA_Tooltip_modifier_axe_rune_e_1_visible"                    "Endurance"
+        "DOTA_Tooltip_modifier_axe_rune_e_1_visible_Description"        "Gaining bonus to all attributes based on missing health"
+		
+		"DOTA_Tooltip_ability_axe_rune_e_2"                             "[E2] Cyclone Storm"
+        "DOTA_Tooltip_ability_axe_rune_e_2_Description"                 "The cyclical force of the General's Redmist Cyclone briefly adds speed to his attacks. This effect lasts 5 seconds, and is refreshed when casting Skull Basher."
+        "DOTA_Tooltip_ability_axe_rune_e_2_property_one"                "Attack Damage Bonus"
+        "DOTA_Tooltip_ability_axe_rune_e_2_suffix"                      "%"
+ 
+        "DOTA_Tooltip_modifier_axe_rune_e_2_tornado"                    "Cyclone Storm"
+        "DOTA_Tooltip_modifier_axe_rune_e_2_tornado_Description"        "Increased attack power %%"
+		
+		"DOTA_Tooltip_ability_axe_rune_e_3"                             "[E3] Whirlwind"
+        "DOTA_Tooltip_ability_axe_rune_e_3_Description"                 "Enemies dragged by Redmist Cyclone are slashed for an instance of Pure damage based on the General's total attack damage."
+        "DOTA_Tooltip_ability_axe_rune_e_3_property_one"                "Damage"
+        "DOTA_Tooltip_ability_axe_rune_e_3_suffix"                      "% of attack damage"
+		
+		"DOTA_Tooltip_modifier_axe_rune_e_3_shield"                     "Cyclonic Shield"
+        "DOTA_Tooltip_modifier_axe_rune_e_3_shield_Description"         "Damage taken reduced by 50%%."
+ 
+        "DOTA_Tooltip_modifier_axe_rune_e_3"                            "Cyclonic Parry"
+        "DOTA_Tooltip_modifier_axe_rune_e_3_description"                "Increased Magic Resistance and Armor."
+		
+		"DOTA_Tooltip_ability_axe_rune_e_4"                             "[E4] Cyclone Shield"
+        "DOTA_Tooltip_ability_axe_rune_e_4_Description"                 "Casting Redmist Cyclone has a chance of applying stacks of temporary shielding that last 7 seconds. While the shield is active all incoming damage is reduced by 80%, and 1 stack is lost every time damage is taken."
+        "DOTA_Tooltip_ability_axe_rune_e_4_property_one"                "Shield Chance"
+        "DOTA_Tooltip_ability_axe_rune_e_4_suffix"                      "%"
+		
+		"DOTA_Tooltip_modifier_axe_rune_e_4_furnace"                    "Deep Furnace"
+        "DOTA_Tooltip_modifier_axe_rune_e_4_furnace_Description"        "Casting Spur Shock unleashes charges."
+ 
+        "DOTA_Tooltip_ability_sunder"                                   "Sunder"
+        "DOTA_Tooltip_ability_sunder_Description"                       "Element: <font color=\"#DDDDDD\">Normal</font><br>The Red General winds up his weapon for 2 seconds and then smashes the ground in front of him. Damage dealt is based on a multiple of the General's Current Health."
+        "DOTA_Tooltip_ability_sunder_Lore"                              ""
+        "DOTA_Tooltip_ability_sunder_main_damage"                       "DAMAGE AS % OF CURRENT HP:"
+		
+		"DOTA_Tooltip_ability_axe_rune_r_1"                             "[R1] Berserker's Call"
+        "DOTA_Tooltip_ability_axe_rune_r_1_Description"                 "On cast of Sunder, release an 800-range Taunting pulse every second which makes enemies attack you. While active, all damage The Red General takes from enemies is reflected back at its source as Physical damage. Damage returned is capped at 20x maximum health."
+        "DOTA_Tooltip_ability_axe_rune_r_1_property_one"                "Damage Return"
+        "DOTA_Tooltip_ability_axe_rune_r_1_suffix"                      "x Damage Taken"
+
+        "DOTA_Tooltip_modifier_axe_rune_r_1_taunt"						"Berserker's Call"
+        "DOTA_Tooltip_modifier_axe_rune_r_1_taunt_Description"			"Taunted."
+		
+		"DOTA_Tooltip_ability_axe_rune_r_2"                             "[R2] Tremor"
+        "DOTA_Tooltip_ability_axe_rune_r_2_Description"                 "The waves emitted by Berserker's Call deal damage to enemy units based on a multiple of Sunder's damage."
+        "DOTA_Tooltip_ability_axe_rune_r_2_property_one"                "Damage"
+        "DOTA_Tooltip_ability_axe_rune_r_2_suffix"                      "% of Sunder"
+		
+		"DOTA_Tooltip_ability_axe_rune_r_3"                             "[R3] Adrenaline"
+        "DOTA_Tooltip_ability_axe_rune_r_3_Description"                 "When The Red General starts to channel Sunder, he immediately gains increased armor and maximum health."
+        "DOTA_Tooltip_ability_axe_rune_r_3_property_one"                "Bonus Health"
+        "DOTA_Tooltip_ability_axe_rune_r_3_suffix"                      ""
+        "DOTA_Tooltip_ability_axe_rune_r_3_property_two"                "Bonus Armor"
+        "DOTA_Tooltip_ability_axe_rune_r_3_suffix_two"                      ""
+
+        "DOTA_Tooltip_modifier_axe_rune_r_3_visible"					"Adrenaline"
+        "DOTA_Tooltip_modifier_axe_rune_r_3_visible_Description"		"Increased health and armor."
+ 
+        "DOTA_Tooltip_modifier_axe_rune_r_3"                            "Visceral Force"
+        "DOTA_Tooltip_modifier_axe_rune_r_3_description"                "Spur Shocks deal increased damage."
+		
+		"DOTA_Tooltip_modifier_axe_rune_r_3_shield"						"Cyclone Shield"
+        "DOTA_Tooltip_modifier_axe_rune_r_3_shield_Description"			"Taking 80%% reduced damage."	
+ 
+		"DOTA_Tooltip_ability_axe_rune_r_4"                             "[R4] Enforcer"
+        "DOTA_Tooltip_ability_axe_rune_r_4_Description"                 "The Red General's current total percentile damage reduction (not Armor or Magic Resist) increases his post-mitigation damage output. The first stack is gained when percentile damage reduction is between 0% and 50%, and another stack is applied when the total reaches at least 50%, then 75%, 87.5%, 93.75%, 96.875%, and so on. Full damage block (100%) is not included."
+        "DOTA_Tooltip_ability_axe_rune_r_4_property_one"                "Post-mitigation damage increase"
+        "DOTA_Tooltip_ability_axe_rune_r_4_suffix"                      "%"
+ 
+        "DOTA_Tooltip_modifier_axe_rune_r_4_visible"                    "Enforcer"
+        "DOTA_Tooltip_modifier_axe_rune_r_4_visible_description"        "Increase post-mitigation damage."
+ 
+		//Arcanas
+		"item_property_axe_arcana1"                                     "Terraforming"
+        "property_axe_arcana1_description"                              "Replaces @Ability4 and all of its runes with Terraforming."
+ 
+        "DOTA_Tooltip_ability_axe_arcana_smash"                         "Terraforming"
+        "DOTA_Tooltip_ability_axe_arcana_smash_Description"             "Element: <font color=\"#DDDDDD\">Normal</font><br>The General threatens to shatter the surface of the planet. A rupture begins to form, and after 2 seconds it will explode, stunning and damaging all enemy units caught inside the faultline."
+        "DOTA_Tooltip_ability_axe_arcana_smash_attack_power_mult_percent"   "DAMAGE AS % OF ATTACK POWER:"
+        "DOTA_Tooltip_ability_axe_arcana_smash_stun_duration"           "STUN DURATION:"
+ 
+        "DOTA_Tooltip_ability_axe_rune_r_1_arcana1"                     "[R1] Tectonic Force"
+        "DOTA_Tooltip_ability_axe_rune_r_1_arcana1_Description"         "Terraforming deals increased post-mitigation damage."
+        "DOTA_Tooltip_ability_axe_rune_r_1_arcana1_property_one"        "Post-Mitigation Damage"
+        "DOTA_Tooltip_ability_axe_rune_r_1_arcana1_suffix"              "%"
+ 
+        "DOTA_Tooltip_ability_axe_rune_r_2_arcana1"                     "[R2] Aftermath"
+        "DOTA_Tooltip_ability_axe_rune_r_2_arcana1_Description"         "Every enemy unit damaged by Terraforming gives the General base attack damage for 12 seconds, to a maximum of 5 stacks. These stacks are gained before Terraforming deals its damage."
+        "DOTA_Tooltip_ability_axe_rune_r_2_arcana1_property_one"        "Base Damage Increase"
+        "DOTA_Tooltip_ability_axe_rune_r_2_arcana1_suffix"              ""
+ 
+        "DOTA_Tooltip_modifier_axe_arcana_b_d_attack_power"             "Blistering Rage"
+        "DOTA_Tooltip_modifier_axe_arcana_b_d_attack_power_Description" "Gaining Attack Power"
+ 
+        "DOTA_Tooltip_ability_axe_rune_r_3_arcana1"                     "[R3] Upheaval"
+        "DOTA_Tooltip_ability_axe_rune_r_3_arcana1_Description"         "Enemies caught within Terraforming receive increased Normal damage for 9 seconds. This debuff is applied before Terraforming deals its damage."
+        "DOTA_Tooltip_ability_axe_rune_r_3_arcana1_property_one"        "Normal damage taken increase"
+        "DOTA_Tooltip_ability_axe_rune_r_3_arcana1_suffix"              "%"
+ 
+        "DOTA_Tooltip_modifier_axe_rune_r_3_arcana1_visible"              "Upheaval"
+        "DOTA_Tooltip_modifier_axe_rune_r_3_arcana1_visible_Description" "Increase normal damage taken"
+
+        "DOTA_Tooltip_ability_axe_rune_r_4_arcana1"                     "[R4] Seismic Shock"
+        "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_Description"         "Adds a chance for additional ruptures, while increasing each rupture's radius. Heroic leap can only benefit from half of the bonus."
+        "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_property_one"        "Extra Rupture Chance"
+        "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_suffix"              "%"
+        "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_property_two"        "Extra Radius"
+        "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_suffix_two"          ""
+
+		//Glyphs
+		"DOTA_Tooltip_ability_item_rpc_axe_glyph_1_1"       "Glyph of Combat"
+        "item_rpc_axe_glyph_1_1_description"                "Reduces all damage taken by @glyph_property1%."
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_1"       "Glyph of Shock Expansion"
+        "item_rpc_axe_glyph_2_1_description"                "@Ability2 fires 9 shockwaves in all directions."
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_3_1"       "Glyph of the Dervish"
+        "item_rpc_axe_glyph_3_1_description"                "The interval between @Ability3's strikes is reduced by 50%, occurring every 0.09 seconds."
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_1"       "Glyph of the Helix"
+        "item_rpc_axe_glyph_4_1_description"                "The General also performs a Helix Attack when casting @Ability2, dealing 60% of his attack damage as Physical to all surrounding enemies. Damage is further multiplied by @Ability2's spell level."
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_1"       "Glyph of Impact" // lower pitch base sound high pitch strike sound
+        "item_rpc_axe_glyph_5_1_description"                "@Ability1's stun becomes a 0.03 second ministun but gains @glyph_property1x increased damage."
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_1"       "Glyph of Multi-Dunk"
+        "item_rpc_axe_glyph_6_1_description"                "@Ability4 now strikes @glyph_property1 times, instead of just once."
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_1"       "Glyph of Heroic Warfare"
+        "item_rpc_axe_glyph_7_1_description"                "Removes the attack buff from @Ability1, but the cooldown of @Ability1 is reduced to 1.5 seconds."
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_1_2"       "Glyph of Heel Stomp"
+        "item_rpc_axe_glyph_1_2_description"                "Enemy units struck by @Ability2 are ministunned for 0.08 seconds."
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_2"       "Glyph of Ruptured Steel"
+        "item_rpc_axe_glyph_2_2_description"                "@Ability1's [Q4] rune additionally reduces enemies' armor by -@glyph_property1 per stack."
+
+        "DOTA_Tooltip_modifier_axe_glyph_2_2_visible"		"Ruptured Steel"
+        "DOTA_Tooltip_modifier_axe_glyph_2_2_visible_Description"	"Reduced Armor"	
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_3_2"       "Glyph of Adamantium Rage"
+        "item_rpc_axe_glyph_3_2_description"                "Berserker Rage gains @glyph_property1 stacks instead of 1 whenever you attack a boss status enemy."
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_2"       "Glyph of the Red Cyclone"
+        "item_rpc_axe_glyph_4_2_description"                "During @Ability3, all incoming damage is reduced by @glyph_property1%."
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_2"       "Glyph of Stampede"
+        "item_rpc_axe_glyph_5_2_description"                "For @glyph_property1 seconds after successfully casting @Ability4, the damage of @Ability2 is increased by @glyph_property2%"
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_2"       "Glyph of Reduction"
+        "item_rpc_axe_glyph_6_2_description"                "Increases the damage reduction from stacks of [E3] to @glyph_property1%, but decreases the chance of generating a stack to just @glyph_property2% per rune level instead of 150%."
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_2"       "Glyph of Rage"
+        "item_rpc_axe_glyph_7_2_description"                "Maximum stack count of [Q2] is increased to @glyph_property1, you always have half stacks. While @Ability1 is active, number of stacks gained per attack is multiplied by @glyph_property2."
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_a"       "Glyph of the Marshall"
+        "item_rpc_axe_glyph_5_a_description"                "Increases all damage dealt by @Ability4, and all of its runes, by @glyph_property1%."
+
+		"DOTA_Tooltip_ability_item_rpc_axe_glyph_book"		"Red General Glyph Book"
+
+		//Weapons
+		"axe_weapon_00"			"Basic Axe"
+		"axe_weapon_01"			"Mighty Cleaver"
+		"axe_weapon_02"			"Silver Axe"
+		"axe_weapon_03"			"Earthforge Axe"
+		"axe_weapon_11"			"Thorium Edge"
+		"axe_weapon_12"			"Axe of Desolation"
+		"axe_weapon_13"			"Heavy Skullsplitter"
+		"axe_weapon_14"			"Shockwave Sunderer"
+		"axe_weapon_21"			"Battlerage Axe"
+		"axe_weapon_22"			"Crimson Skullsplitter"
+		"axe_weapon_23"			"Mithril Forged Swiftaxe"
+		"axe_weapon_24"			"Hook of the Defiler"
+		"axe_weapon_25"			"Master Deathforge Axe"
+		
+		"DOTA_Tooltip_ability_item_rpc_basic_axe"   "Axe"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_00"   "Axe"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_01"   "Mighty Cleaver"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_02"   "Silver Axe"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_03"   "Earthforge Axe"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_11"   "Thorium Edge"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_12"   "Axe of Desolation"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_13"   "Heavy Skullsplitter"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_14"   "Shockwave Sunderer"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_21"   "Red Battlefury"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_22"   "Crimson Skullsplitter"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_23"   "Mithril Forged Swiftaxe"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_24"   "Hook of the Defiler"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_25"   "Master Deathforge Axe"
+		
+		"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_1"		"Rakash, Grandfather Axe"
+		"item_property_axe_immortal_weapon"								"Combat Veteran"
+		"property_axe_immortal_weapon_description"						"Reduces all damage taken by 50%"
+
+		"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_2"            "Red Battlefury"
+        "item_property_axe_immortal_weapon2"                            "Frenzied Berserker"
+        "property_axe_immortal_weapon2_description"                        "While @Ability3 is active, the General's movespeed and movespeed cap are both increased by @special_property1. Additionally increases the damage of Whirlwind against Paragons and bosses by @special_property2%."
+
+        "DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_3"            "Ragnar's Thunderax"
+        "item_property_axe_immortal_weapon3"                            "Overpower"
+        "property_axe_immortal_weapon3_description"                        "Increase Cyclone Shield stacks by @special_property1% when beginning the channel of @Ability4" 	
+ 
