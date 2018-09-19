@@ -60,7 +60,7 @@ def edit_file(fPath):
 		wFile.writelines(readLines)
 		for key,value in resFuncDict.items():
 			if fPath == "Game\\scripts\\vscripts\\events.lua":
-				if "function ChatDropItems(keys)" in key or "function ChatDropWep(str, vector)"in key:
+				if "function StringSplit(inputstr, sep)" in key or "function LoadCharacterDev(playerID, slot, steamID)" in key or "function ChatDropItems(keys)" in key or "function ChatDropWep(str, vector)"in key:
 					wFile.write("\n")
 					wFile.write("\n")
 					wFile.writelines(value)
