@@ -1,0 +1,224 @@
+		//Abilities
+		"DOTA_Tooltip_ability_dinath_arctic_burn"								"Wyvern Fire"
+    	"DOTA_Tooltip_ability_dinath_arctic_burn_Description"					"Element: <font color=\"#3289C7\">Дракон</font> / <font color=\"#EF4126\">Огонь</font><br> В область применения выдыхается огонь, который поджигает землю. Противникам в огне наносится урон каждый 0.5 секунды. Радиус распространения огня зависит от вертикальной позиции Dinath относительно точки приземления пламени. Dinath накапливает заряды способности каждый 8 секунд и может иметь до 2 дополнительных зарядов. Каждый заряд позволяет сделать каст Wyvern Fire без перезарядки. Огонь остается на земле в течение 7 секунд. "
+    	"DOTA_Tooltip_ability_dinath_arctic_burn_damage_base"					"БАЗОВЫЙ УРОН:"
+    	"DOTA_Tooltip_ability_dinath_arctic_burn_damage_attack_power"			"% АТАКИ ДОБАВЛЕНО К УРОНУ:"
+		
+		"DOTA_Tooltip_modifier_arctic_burn_freecast"							"Заряд Wyvern Fire"
+    	"DOTA_Tooltip_modifier_arctic_burn_freecast_Description"				"Wyvern Fire не задействует кулдаун при применении"
+		
+		"DOTA_Tooltip_ability_dinath_scorch_charge"								"Updraft"
+    	"DOTA_Tooltip_ability_dinath_scorch_charge_Description"					"Летит напрямую к указанной позиции и набирает высоту. Позади виверны остается дорожка из пламени."
+		
+		"DOTA_Tooltip_ability_dinath_rune_q_1"									"[Q1] Crippling Fire"
+    	"DOTA_Tooltip_ability_dinath_rune_q_1_Description"						"Противники, проходящие через @Ability1 замедляются."
+    	"DOTA_Tooltip_ability_dinath_rune_q_1_property_one"						"Замедление скорости передвижения"
+    	"DOTA_Tooltip_ability_dinath_rune_q_1_suffix"							""
+
+    	"DOTA_Tooltip_modifier_arctic_burn_slow"									"Crippling Fire"
+    	"DOTA_Tooltip_modifier_arctic_burn_slow_Description"						"Замедлен"	
+
+    	"DOTA_Tooltip_ability_dinath_rune_q_2"									"[Q2] Smolder"
+    	"DOTA_Tooltip_ability_dinath_rune_q_2_Description"						"Земля, задетая @Ability1, горит длительнее."
+    	"DOTA_Tooltip_ability_dinath_rune_q_2_property_one"						"Дополнительная продолжительность"
+    	"DOTA_Tooltip_ability_dinath_rune_q_2_suffix"							" секунд(ы)"
+
+    	"DOTA_Tooltip_ability_dinath_rune_q_3"									"[Q3] Updraft"
+    	"DOTA_Tooltip_ability_dinath_rune_q_3_Description"						"Пока Wyvern Fire находится в кулдауне, способность заменяется на Updraft. Эта способность позволяет Dinath быстро перелетать напрямую к указанной точке, при этом набирая высоту. За Dinath остается дорожка огня во время перелета."
+    	"DOTA_Tooltip_ability_dinath_rune_q_3_property_one"						"Дальность применения"
+    	"DOTA_Tooltip_ability_dinath_rune_q_3_suffix"							""
+
+    	"DOTA_Tooltip_ability_dinath_rune_q_4"									"[Q4] Conflagration"
+    	"DOTA_Tooltip_ability_dinath_rune_q_4_Description"						"Противники, горящие в @Ability1 имеют пониженную скорость каста способностей."
+    	"DOTA_Tooltip_ability_dinath_rune_q_4_property_one"						"Замедление скорости каста"
+    	"DOTA_Tooltip_ability_dinath_rune_q_4_suffix"							"%"
+		
+		"DOTA_Tooltip_ability_dinath_drake_ring"								"Eye of the Drake"
+    	"DOTA_Tooltip_ability_dinath_drake_ring_Description"					"Element: <font color=\"#3289C7\">Дракон</font> / <font color=\"#87D9FF\">Лёд</font><br>Кристалльное дыхание создает помеченную на земле зону через 1 секунду после каста. Противники внутри зоны атакуются Dinath автоматически если находятся в радиусе атаки. Пассивно увеличивает радиус атаки Dinath и добавляет чистый урон к её атакам."
+    	"DOTA_Tooltip_ability_dinath_drake_ring_radius"							"РАДИУС:"
+    	"DOTA_Tooltip_ability_dinath_drake_ring_attack_range_bonus"				"ПАССИВНЫЙ БОНУС К РАДИУСУ АТАКИ:"
+    	"DOTA_Tooltip_ability_dinath_drake_ring_damage_mult"					"% ЧИСТОГО УРОНА ОТ АТАКИ:"
+		
+		"DOTA_Tooltip_ability_dinath_rune_w_1"									"[W1] Crystal Breeze"
+    	"DOTA_Tooltip_ability_dinath_rune_w_1_Description"						"Через 3 секунды после размещения @Ability2 Dinath получает процентный бонус к урону атаки. Повторное применение способности убирает бафф до тех пор, пока не пройдет следующие 3 секунды."
+    	"DOTA_Tooltip_ability_dinath_rune_w_1_property_one"						"Бонус урона"
+    	"DOTA_Tooltip_ability_dinath_rune_w_1_suffix"								"%"
+
+    	"DOTA_Tooltip_modifier_drake_ring_a_b"									"Crystal Breeze"
+    	"DOTA_Tooltip_modifier_drake_ring_a_b_Description"						"Урон атаки увеличен"
+
+    	"DOTA_Tooltip_ability_dinath_rune_w_2"									"[W2] Spell Sweeper"
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_Description"						"Противники, находящиеся в @Ability2 получают увеличенный магический пост-резистный урон из всех источников."
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_property_one"						"Увеличение магического урона"
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_suffix"								"%"
+
+    	"DOTA_Tooltip_ability_dinath_rune_w_3"									"[W3] Basilisk Band"
+    	"DOTA_Tooltip_ability_dinath_rune_w_3_Description"						"В момент создания @Ability2 противники внутри обездвиживаются."
+    	"DOTA_Tooltip_ability_dinath_rune_w_3_property_one"						"Длительность обездвиживания"
+    	"DOTA_Tooltip_ability_dinath_rune_w_3_suffix"							" секунд(ы)"
+
+    	"DOTA_Tooltip_modifier_drake_ring_root"									"Basilisk Band"
+    	"DOTA_Tooltip_modifier_drake_ring_root_Description"						"Обездвижен"
+
+    	"DOTA_Tooltip_ability_dinath_rune_w_4"									"[W4] Peripheral Vision"
+    	"DOTA_Tooltip_ability_dinath_rune_w_4_Description"						"Увеличивается радиус @Ability2."
+    	"DOTA_Tooltip_ability_dinath_rune_w_4_property_one"						"Увеличение радиуса"
+    	"DOTA_Tooltip_ability_dinath_rune_w_4_suffix"							""
+		
+		"DOTA_Tooltip_ability_dinath_dragon_dive"										"Dragon Sweep"
+    	"DOTA_Tooltip_ability_dinath_dragon_dive_Description"							"Dinath перелетает к точке с высокой скоростью и креном вправо. Во время полета, Dinath набирает высоту. Высота снижается со временем. Наибольшая достижимая высота - 480."
+    	"DOTA_Tooltip_ability_dinath_dragon_dive_cast_range"							"ДАЛЬНОСТЬ КАСТА:"
+
+    	"DOTA_Tooltip_modifier_dinath_postflight_actual_flying"						"Полёт"
+		
+		"DOTA_Tooltip_ability_dinath_rune_e_1"									"[E1] Wingbeat"
+    	"DOTA_Tooltip_ability_dinath_rune_e_1_Description"						"Скорость атаки повышается на 7 секунд после каста @Ability3."
+    	"DOTA_Tooltip_ability_dinath_rune_e_1_property_one"						"Скорость атаки "
+    	"DOTA_Tooltip_ability_dinath_rune_e_1_suffix"						    ""
+
+    	"DOTA_Tooltip_modifier_dinath_dive_attackspeed"							"Wingbeat"
+    	"DOTA_Tooltip_modifier_dinath_dive_attackspeed_Description"				"Увеличенная скорость атаки"	
+
+    	"DOTA_Tooltip_ability_dinath_rune_e_2"									"[E2] Scale Fusion"
+    	"DOTA_Tooltip_ability_dinath_rune_e_2_Description"						"Бонус урона с роллов на предметах увеличивается."
+    	"DOTA_Tooltip_ability_dinath_rune_e_2_property_one"						"Дополнительный урон от предметов"
+    	"DOTA_Tooltip_ability_dinath_rune_e_2_suffix"							"%"
+
+    	"DOTA_Tooltip_ability_dinath_rune_e_3"									"[E3] Blue Horizon"
+    	"DOTA_Tooltip_ability_dinath_rune_e_3_Description"						"Во время @Ability3 и на 1 секунду после завершения полета увеличивается дальность атаки."
+    	"DOTA_Tooltip_ability_dinath_rune_e_3_property_one"						"Дальность атаки"
+    	"DOTA_Tooltip_ability_dinath_rune_e_3_suffix"							""
+
+    	"DOTA_Tooltip_modifier_dinath_dive_attack_range"						"Blue Horizon"
+    	"DOTA_Tooltip_modifier_dinath_dive_attack_range_Description"			"Дальность атаки увеличена"
+
+    	"DOTA_Tooltip_ability_dinath_rune_e_4"									"[E4] World Elevation"
+    	"DOTA_Tooltip_ability_dinath_rune_e_4_Description"						"Если Dinath находится над определенным порогом высоты, то она не может быть атакована стандартными атаками. Заклинания все еще могут быть применены на Dinath на высоте."
+    	"DOTA_Tooltip_ability_dinath_rune_e_4_property_one"						"Порог высоты"
+    	"DOTA_Tooltip_ability_dinath_rune_e_4_suffix"							""
+		
+		"DOTA_Tooltip_modifier_dinath_dive_attack_immune"						"World Elevation"
+    	"DOTA_Tooltip_modifier_dinath_dive_attack_immune_Description"			"Не может быть атакована"
+		
+		"DOTA_Tooltip_ability_dinath_hyper_beam"								"Hyperbeam"
+    	"DOTA_Tooltip_ability_dinath_hyper_beam_Description"					"Заряжает луч Энергии Драконов. Во время заряда способности луч увеличивается в размере. В случае прерывания зарядки или её завершения, луч устремляется вперед к цели. Противники, попавшие напрямую под луч замораживаются."
+    	"DOTA_Tooltip_ability_dinath_hyper_beam_freeze_duration"				"ДЛИТЕЛЬНОСТЬ ЗАМОРОЗКИ:"
+
+    	"DOTA_Tooltip_modifier_hyperbeam_freeze"								"Заморозка от Hyperbeam"
+		
+		"DOTA_Tooltip_ability_dinath_rune_r_1"									"[R1] Hyperstorm"
+    	"DOTA_Tooltip_ability_dinath_rune_r_1_Description"						"@Ability4 бьют током противников, если они достаточно близко к летящему лучу. Дальность пробития зависит от размеров @Ability4. Урон разрядов также увеличивается при увеличении размеров и наносит урон каждые 0.2 секунды."
+    	"DOTA_Tooltip_ability_dinath_rune_r_1_property_one"						"Урон"
+    	"DOTA_Tooltip_ability_dinath_rune_r_1_suffix"							"% от урона атаки"
+
+    	"DOTA_Tooltip_ability_dinath_rune_r_2"									"[R2] Cellular Rust"
+    	"DOTA_Tooltip_ability_dinath_rune_r_2_Description"						"Противники задетые и замороженные основным лучом от @Ability4 получают увеличенный пост-резистный урон от Dinath в течение 7 секунд."
+    	"DOTA_Tooltip_ability_dinath_rune_r_2_property_one"						"Пост-резистный урон "
+    	"DOTA_Tooltip_ability_dinath_rune_r_2_suffix"							"%"
+
+    	"DOTA_Tooltip_modifier_hyperbeam_postmit"								"Cellular Rust"
+    	"DOTA_Tooltip_modifier_hyperbeam_postmit_Description"					"Получает увеличенный пост-резистный урон от Dinath "
+
+    	"DOTA_Tooltip_ability_dinath_rune_r_3"									"[R3] Energy Node"
+    	"DOTA_Tooltip_ability_dinath_rune_r_3_Description"						"Увеличивает скорость роста заряжаемого @Ability4, увеличивая его максимальный потенциал."
+    	"DOTA_Tooltip_ability_dinath_rune_r_3_property_one"						"Скорость зарядки"
+    	"DOTA_Tooltip_ability_dinath_rune_r_3_suffix"							"%"
+
+    	"DOTA_Tooltip_ability_dinath_rune_r_4"									"[R4] Blood of Tiamat"
+    	"DOTA_Tooltip_ability_dinath_rune_r_4_Description"				"Атрибуты Dinath увеличивают урон от элемента <font color=\"#3289C7\">Дракон</font>."
+    	"DOTA_Tooltip_ability_dinath_rune_r_4_property_one"				"Усиление урона"
+    	"DOTA_Tooltip_ability_dinath_rune_r_4_suffix"					"% за каждые 10 очков атрибутов."
+		
+		//Arcanas
+		"item_property_dinath_arcana1"										"Spire Breath"
+    	"property_dinath_arcana1_description"								"Заменяет @Ability2 и все соответствующие руны на Spire Breath."
+
+    	"DOTA_Tooltip_ability_dinath_dragon_fire"						"Spire Breath"
+    	"DOTA_Tooltip_ability_dinath_dragon_fire_Description"			"Element: <font color=\"#3289C7\">Дракон</font> / <font color=\"#87D9FF\">Лёд</font><br>Пассивно добавляет чистый урон к атакам Dinath. В аткивном режиме атаки имеют повышенную дальность и могут разделяться на несколько целей. Каждая атака забирает ману, и также мана забирается за каждую секунду активного режима."
+    	"DOTA_Tooltip_ability_dinath_dragon_fire_damage_mult"				"% УРОНА ОТ УРОНА АТАКИ:"
+    	"DOTA_Tooltip_ability_dinath_dragon_fire_mana_cost"				"МАНЫ ЗА АТАКУ:"
+    	"DOTA_Tooltip_ability_dinath_dragon_fire_extra_range"				"ДОП. ДАЛЬНОСТЬ:"
+    	"DOTA_Tooltip_ability_dinath_dragon_fire_max_targets"				"КОЛИЧЕСТВО ЦЕЛЕЙ:"
+
+
+    	"DOTA_Tooltip_ability_dinath_rune_w_1_arcana1"						"[W1] Glacial Wing"
+    	"DOTA_Tooltip_ability_dinath_rune_w_1_arcana1_Description"			"Пассивно увеличивает бонусную атаку (%)."
+    	"DOTA_Tooltip_ability_dinath_rune_w_1_arcana1_property_one"			"Бонус атаки"
+    	"DOTA_Tooltip_ability_dinath_rune_w_1_arcana1_suffix"				"%"
+
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1"							"[W2] Frost Flutter"
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_Description"				"<font color=\"#87D9FF\">Ледяной</font> урон увеличивается напрямую от скорости передвижения Dinath."
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_property_one"				"Бонус урона Льда"
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_suffix"					"% от скорости передвижения"
+
+    	"DOTA_Tooltip_ability_dinath_rune_w_3_arcana1"							"[W3] Wind Tunnel"
+    	"DOTA_Tooltip_ability_dinath_rune_w_3_arcana1_Description"				"Пассивно увеличивает верхний порог скорости передвижения. Включение или выключение @Ability2 накладывает увеличение скорости передвижения, уменьшающийся со временем."
+    	"DOTA_Tooltip_ability_dinath_rune_w_3_arcana1_property_one"				"Скорость передвижения"
+    	"DOTA_Tooltip_ability_dinath_rune_w_3_arcana1_suffix"					""
+    	"DOTA_Tooltip_ability_dinath_rune_w_3_arcana1_property_two"				"Верхний порог скорости"
+    	"DOTA_Tooltip_ability_dinath_rune_w_3_arcana1_suffix_two"				""
+
+    	"DOTA_Tooltip_modifier_spire_breath_speed_burst"						"Wind Tunnel"
+    	"DOTA_Tooltip_modifier_spire_breath_speed_burst_Description"			"Скорость передвижения увеличена"
+
+    	"DOTA_Tooltip_ability_dinath_rune_w_4_arcana1"							"[W4] Dragon Spire"
+    	"DOTA_Tooltip_ability_dinath_rune_w_4_arcana1_Description"				"Дает шанс поразить дополнительные цели с каждой атакой @Ability2. Дополнительно увеличивает радиус атаки."
+    	"DOTA_Tooltip_ability_dinath_rune_w_4_arcana1_property_one"				"Радиус атаки"
+    	"DOTA_Tooltip_ability_dinath_rune_w_4_arcana1_suffix"					""
+    	"DOTA_Tooltip_ability_dinath_rune_w_4_arcana1_property_two"				"Шанс на доп. цель"
+    	"DOTA_Tooltip_ability_dinath_rune_w_4_arcana1_suffix_two"					"%"
+		
+		//Glyphs
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_1_1"		"(T1) Символ Криогенной Заморозки"
+		"item_rpc_dinath_glyph_1_1_description" 				"Увеличивает длительность заморозки @Ability4 на @glyph_property1 секунды."
+
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_2_1"		"(T2) Символ Эфемерности "
+		"item_rpc_dinath_glyph_2_1_description" 				"Удерживает высоту во время зарядки @Ability4. Максимальная вертикаль полёта увеличена на @glyph_property1."
+
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_3_1"		"(T3) Символ Второй Глотки"
+		"item_rpc_dinath_glyph_3_1_description" 				"@Ability1 имеет дополнительно @glyph_property1 заряда."
+
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_4_1"		"(T4) Символ Стремительного Дрейка"
+		"item_rpc_dinath_glyph_4_1_description" 				"@Ability3 получает дополнительный каст каждые @glyph_property1 секунд."
+
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_5_1"		"(T5) Символ Полыни"
+		"item_rpc_dinath_glyph_5_1_description" 				"Нанесение атаки снижает перезарядку способностей на @glyph_property1 секунды."
+
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_6_1"		"(T6) Символ Бедствия"
+		"item_rpc_dinath_glyph_6_1_description" 				"Урон элементов <font color=\"#EF4126\">Огонь</font>, <font color=\"#87D9FF\">Лёд</font>, <font color=\"#5CCDF9\">Молния</font>, и <font color=\"#C25DFC\">Космос</font> увеличен на @glyph_property1%."
+
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_7_1"		"(T7) Символ Дракона Маны"
+		"item_rpc_dinath_glyph_7_1_description" 				"Урон @Ability2 увеличен на @glyph_property1x от текущей маны, и атаки восстанавливают @glyph_property2% от максимальной маны."
+
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_5_a"		"(Immortal) Символ Золотых Чешуек"
+		"item_rpc_dinath_glyph_5_a_description" 				"Полученный магический либо чистый урон дает иммунитет к заклинаниям на @glyph_property1 секунды. Перезарядка @glyph_property2 секунд."
+		
+		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_00"		"Spike"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_01"		"Dragon Spike"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_02"		"Winter Spike"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_03"		"Blue Spike"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_11"		"Glacial Shard"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_12"		"Winterblight Spike"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_13"		"Razor Spike"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_14"		"Blackened Spike"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_21"		"Breath of the North"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_22"		"Razortip Striker"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_23"		"Barb of the Northern Drake"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_24"		"Blue Dragon Spike"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_25"		"Basilisk Claw"
+		
+		"DOTA_Tooltip_ability_item_rpc_dinath_immortal_weapon_1"           "Innervation Claw"
+        "item_property_dinath_immortal_weapon"                             "Hypercharge"
+        "property_dinath_immortal_weapon_description"                      "@Ability4 начинает заряд с размера, большего на @special_property1 и летит на @special_property2 дальше."
+
+        "DOTA_Tooltip_ability_item_rpc_dinath_immortal_weapon_2"            "Breath of Vitali"
+        "item_property_dinath_immortal_weapon2"                             "Aurora Shield"
+        "property_dinath_immortal_weapon2_description"                      "Нанесенная атака даёт щит, поглощающий одну порцию урона."
+		
+		"DOTA_Tooltip_modifier_vitali_shield"							"Breath of Vitali"
+    	"DOTA_Tooltip_modifier_vitali_shield_Description"				"Поглощает одну порцию урона "
+
+        "DOTA_Tooltip_ability_item_rpc_dinath_immortal_weapon_3"            "Chaos Orchid"
+        "item_property_dinath_immortal_weapon3"                             "Cosmic Origin"
+        "property_dinath_immortal_weapon3_description"                      "Весь нанесенный урон элементом <font color=\"#3289C7\">Дракон</font> наносит еще одну порцию урона с элементом <font color=\"#C25DFC\">Космос</font>"

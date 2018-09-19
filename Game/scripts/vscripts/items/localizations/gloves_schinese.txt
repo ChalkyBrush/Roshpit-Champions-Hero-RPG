@@ -1,0 +1,13 @@
+"DOTA_Tooltip_ability_item_rpc_blue_rain_gauntlet"								"蓝雨手套"
+"item_property_blue_rain"								"雨浪"
+"property_blue_rain_description"						"攻击不会落空。同时攻击有 15% 的几率制造一道水浪，水浪对一条直线上的敌人造成 500% 攻击力的伤害。"
+
+
+"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"暴风护腕"
+"item_property_stormcloth"					"能量枯竭"
+"property_stormcloth_description"			"被 @Ability2 击中的敌人降低 50% 基础攻击力和 10% 移动速度，持续5秒。"
+
+"DOTA_Tooltip_ability_item_rpc_grasp_of_elder"									"长老护腕"
+"DOTA_Tooltip_ability_item_rpc_grasp_of_elder_Description"						"部位：手"
+"item_property_elder_grasp"					"长者智慧"
+"property_elder_grasp_description"			"当你施放 @Ability2 时，回复 4% 最大生命值的血量。"

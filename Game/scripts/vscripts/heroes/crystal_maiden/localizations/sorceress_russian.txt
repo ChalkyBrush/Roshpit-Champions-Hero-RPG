@@ -1,0 +1,394 @@
+		//Abilities
+		
+		"Tooltip_sorceress_q"											"Blizzard и Ice Lance"
+		
+		"DOTA_Tooltip_ability_blizzard"									"Blizzard"
+		"DOTA_Tooltip_ability_blizzard_Description"						"Стихия: <font color=\"#87D9FF\">Лёд</font><br>Посылает волны льда во врагов в указанной точке, нанося урон и замедляя их. С каждым успешным попаданием по врагам их сопротивление стихии <font color=\"#87D9FF\">Льда</font> снижается на 8 секунд. Складывается неограниченное количество раз."
+		"DOTA_Tooltip_ability_blizzard_Lore"							""
+		"DOTA_Tooltip_ability_blizzard_wave_damage"						"УРОН ЗА ВОЛНУ:"
+		"DOTA_Tooltip_ability_blizzard_movement_slow"					"ЗАМЕДЛЕНИЕ:"
+		"DOTA_Tooltip_ability_blizzard_ice_resist_loss"					"СНИЖЕНИЕ СОПРОТИВЛЕНИЯ ЛЬДУ ЗА ВОЛНУ:"
+
+		"DOTA_Tooltip_modifier_blizzard_ice_resist_loss"				"Blizzard Ice Resist Loss"
+		"DOTA_Tooltip_modifier_blizzard_ice_resist_loss_Description"	"Получает увеличенный урон стихии Льда"
+		
+		"DOTA_Tooltip_ability_ice_lance"								"Ice Lance"
+		"DOTA_Tooltip_ability_ice_lance_Description"					"Стихия: <font color=\"#87D9FF\">Лёд</font><br>Отправляет в указанную точку ледяное копьё. При попадании по врагу, копьё оставляет складывающийся эффект, который снижает скорость передвижения противника. При попадании, копьё разделяется и наносит 50% своего урона двум дополнительным целям."
+		"DOTA_Tooltip_ability_ice_lance_Lore"							""
+		
+		"DOTA_Tooltip_modifier_ice_lance_cold"							"Ice Lance Slow"
+		"DOTA_Tooltip_modifier_ice_lance_cold_Description"				"Скорость передвижения снижена."	
+		"DOTA_Tooltip_modifier_ice_lance_frozen"						"Заморожен"
+
+		"DOTA_Tooltip_modifier_blizzard_cooldown"						"Blizzard Cooldown"
+		"DOTA_Tooltip_modifier_blizzard_cooldown_description"			"Пока (Q) Blizzard перезаряжается, герой может использовать [Q1] Ice Lance."
+		
+		"DOTA_Tooltip_ability_sorceress_rune_q_1"							"[Q1] Ice Lance"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_1_Description"				"Пока способность Blizzard восстанавливается, оно заменяется на умение [Q1]. [Q1] выпускается прямо перед Sorceress. При попадании, копьё разделяется и наносит 50% своего урона двум дополнительным целям."
+    	"DOTA_Tooltip_ability_sorceress_rune_q_1_property_one"				"Урон"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_1_suffix"					""
+		
+		"DOTA_Tooltip_ability_sorceress_rune_q_2"							"[Q2] Frost Nova"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_Description"				"Прочтение способности @Ability2 два раза подряд выпускает леденящий кровь взрыв. Замороженные враги будут обездвижены. Перезаряжается 10 секунд. Элементаль воды произносит [Q2] вместе с героем. Замороженные любым способом враги получают увеличенный пост-резистный урон от Sorceress."
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_property_one"				"Усиление пост-резистного урона по замороженным врагам"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_suffix"					"%"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_property_two"				"Время заморозки"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_suffix_two"				" сек."
+		
+		"DOTA_Tooltip_modifier_frost_nova_up"							"Frost Nova"
+		"DOTA_Tooltip_modifier_frost_nova_up_description"				"Следующее применение Arcane Explosion заморозит врагов"
+		"DOTA_Tooltip_modifier_frost_nova_down"							"Frost Nova"
+		"DOTA_Tooltip_modifier_frost_nova_down_description"				"Перезаряжается."
+		
+		"DOTA_Tooltip_ability_sorceress_rune_q_3"							"[Q3] Shatter"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_3_Description"				"С 20% шансом попавшее во врага ледяное копьё взорвётся, нанося увеличенный урон и замораживая ближайших врагов. Спустя 5 секунд непрерывной заморозки, противники становятся невосприимчивы к заморозке на следующие 8 секунд."
+    	"DOTA_Tooltip_ability_sorceress_rune_q_3_property_one"				"Урон"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_3_suffix"					"% от урона [Q1] Ice Lance"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_3_property_two"				"Длительность заморозки"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_3_suffix_two"				" сек."
+		
+		"DOTA_Tooltip_ability_sorceress_rune_q_4"							"[Q4] Ice Mastery"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_4_Description"				"Увеличивает урон стихии <font color=\"#87D9FF\">Льда</font> счёт значения атрибутов."
+    	"DOTA_Tooltip_ability_sorceress_rune_q_4_property_one"				"Увеличение урона на "
+    	"DOTA_Tooltip_ability_sorceress_rune_q_4_suffix"					"% за каждые 10 очков атрибутов."
+
+
+		"DOTA_Tooltip_ability_arcane_explosion"							"Arcane Explosion"
+		"DOTA_Tooltip_ability_arcane_explosion_Description"				"Стихия: <font color=\"#E1A2E8\">Тайна</font><br>Мощный взрыв тайной энергии мгновенно наносящий урон ближайшим врагам, зависящий от текущего значения маны героя."
+		"DOTA_Tooltip_ability_arcane_explosion_Lore"					""
+		"DOTA_Tooltip_ability_arcane_explosion_damage"					"УРОН, % ОТ ТЕКУЩЕЙ МАНЫ:"
+		"DOTA_Tooltip_ability_arcane_explosion_radius"					"РАДИУС:"
+		
+		"DOTA_Tooltip_ability_sorceress_rune_w_1"							"[W1] Arcane Shell"
+    	"DOTA_Tooltip_ability_sorceress_rune_w_1_Description"				"Прочтение @Ability2 наделит героя щитом, имеющим 2 заряда. Каждый заряд тратится на полное поглощение урона. Противник, атакующий щит, получит урон, основанный на показателе Интеллекта Sorceress. Наносимый урон умножается на уровень способности (W) Arcane Explosion."
+    	"DOTA_Tooltip_ability_sorceress_rune_w_1_property_one"				"Длительность"
+    	"DOTA_Tooltip_ability_sorceress_rune_w_1_suffix"					" сек."  
+    	"DOTA_Tooltip_ability_sorceress_rune_w_1_property_two"				"Урон"
+    	"DOTA_Tooltip_ability_sorceress_rune_w_1_suffix_two"				"x Интеллекта"
+
+    	"DOTA_Tooltip_modifier_arcane_shell"								"Arcane Shell"
+    	"DOTA_Tooltip_modifier_arcane_shell_Description"					"Поглощает следующий входящий урон и наносит урон атаковавшему."	
+		
+		"DOTA_Tooltip_ability_sorceress_rune_w_2"							"[W2] Amplify Magic"
+    	"DOTA_Tooltip_ability_sorceress_rune_w_2_Description"				"Враги, задетые @Ability2 и [W1] будут получать дополнительный урон стихии <font color=\"#E1A2E8\">Тайны</font> из всех источников на 9 секунд. Эффект может быть сложен до 5 раз."
+    	"DOTA_Tooltip_ability_sorceress_rune_w_2_property_one"				"Доп. стихийный урон Тайны за заряд"
+    	"DOTA_Tooltip_ability_sorceress_rune_w_2_suffix"					"%"
+
+    	"DOTA_Tooltip_modifier_sorceress_rune_w_2"							"Amplify Magic"
+    	"DOTA_Tooltip_modifier_sorceress_rune_w_2_Description"				"Получает увеличенный стихийный урон Тайны."	
+
+		"DOTA_Tooltip_ability_sorceress_rune_w_3"							"[W3] Arcane Intellect"
+    	"DOTA_Tooltip_ability_sorceress_rune_w_3_Description"				"Sorceress и ближайшие союзники получают бонус к Интеллекту и регенерации маны."
+    	"DOTA_Tooltip_ability_sorceress_rune_w_3_property_one"				"Доп. очков Интеллекта"
+    	"DOTA_Tooltip_ability_sorceress_rune_w_3_suffix"					""
+    	"DOTA_Tooltip_ability_sorceress_rune_w_3_property_two"				"Доп. регенерация маны"
+    	"DOTA_Tooltip_ability_sorceress_rune_w_3_suffix_two"				""
+		
+		"DOTA_Tooltip_modifier_arcane_intellect_visible"					"Arcane Intellect"				
+		"DOTA_Tooltip_modifier_arcane_intellect_visible_description"		"Доп. интеллект и регенерация маны."
+				
+		"DOTA_Tooltip_modifier_ice_block"									"Ice Block"
+		"DOTA_Tooltip_modifier_ice_block_description"						"Броня и сопротивление магии увеличены."
+
+		"DOTA_Tooltip_ability_sorceress_rune_w_4"							"[W4] Arcane Burst"
+    	"DOTA_Tooltip_ability_sorceress_rune_w_4_Description"				"Увеличивает базовый урон умения @Ability2."
+    	"DOTA_Tooltip_ability_sorceress_rune_w_4_property_one"				"Усиление (W) Arcane Explosion"
+    	"DOTA_Tooltip_ability_sorceress_rune_w_4_suffix"					"%"
+
+    	"DOTA_Tooltip_modifier_arcane_enchantment"							"Arcane Enchantment"
+    	"DOTA_Tooltip_modifier_arcane_enchantment_Description"				"Урон от [Q1] Ice Lances и [R1] Fireballs увеличен."
+
+		"DOTA_Tooltip_ability_sorceress_blink"							"Blink"
+		"DOTA_Tooltip_ability_sorceress_blink_Description"				"Sorceress телепортируется в указанную точку. С 50% шансом будет сброшено время перезарядки умения (R), а герой ненадолго получит возможность мгновенно произносить свою ультимативную способность. Время перезарядки ульты при этом будет равно 1 секунде, а урон умения увеличивается в несколько раз. "
+		"DOTA_Tooltip_ability_sorceress_blink_Lore"						""
+		"DOTA_Tooltip_ability_sorceress_blink_range"					"МАКС. РАССТОЯНИЕ:"
+		"DOTA_Tooltip_ability_sorceress_blink_amp"						"УРОН СПОСОБНОСТЕЙ ПРИ АКТИВНОМ CLEAR CAST, x:"
+		
+		"DOTA_Tooltip_ability_sorceress_rune_e_1"							"[E1] Flicker"
+    	"DOTA_Tooltip_ability_sorceress_rune_e_1_Description"				"При использовании @Ability3 получает заряд. При накоплении 10 и более зарядов Flicker способность @Ability3 не потребует перезарядки. @Ability3 без кулдауна не будет пополнять заряды Flicker."
+    	"DOTA_Tooltip_ability_sorceress_rune_e_1_property_one"				"Зарядов получено при прочтении Blink"
+    	"DOTA_Tooltip_ability_sorceress_rune_e_1_suffix"					""
+			
+    	"DOTA_Tooltip_modifier_flicker_charges"								"Flicker"
+    	"DOTA_Tooltip_modifier_flicker_charges_Description"					"При накоплении 10 зарядов, восстановление способности Blink не будет активировано, позволяя прыгнуть еще раз."	
+		
+		"DOTA_Tooltip_ability_sorceress_rune_e_2"							"[E2] Summon Water Elemental"
+    	"DOTA_Tooltip_ability_sorceress_rune_e_2_Description"				"После использования @Ability3 призывает Водного элементаля, который будет иметь здоровье, равное здоровью Sorceress и 10х брони героя. Может существовать только один Водный элементаль."
+    	"DOTA_Tooltip_ability_sorceress_rune_e_2_property_one"				"Урон"
+    	"DOTA_Tooltip_ability_sorceress_rune_e_2_suffix"					""
+    	"DOTA_Tooltip_ability_sorceress_rune_e_2_property_two"				"Необходимо маны для призыва"
+    	"DOTA_Tooltip_ability_sorceress_rune_e_2_suffix_two"				""
+
+		"sorc_water_elemental"												"Элементаль Воды"
+		
+		"DOTA_Tooltip_ability_sorc_elemental_ability"						"Холодные атаки"
+    	"DOTA_Tooltip_ability_sorc_elemental_ability_Description"			"Атаки взрываются при попадании, замедляя все задетые цели и нанося им урон. Тип наносимого урона по области - магический."
+		
+		"DOTA_Tooltip_modifier_hero_summon_ai"								"ИИ - Агрессор"
+
+    	"DOTA_Tooltip_ability_hero_summon_ai"								"ИИ - Попутчик"
+    	"DOTA_Tooltip_ability_hero_summon_ai_Description"					"Меняет режим действия подконтрольных юнитов."
+		
+		"DOTA_Tooltip_ability_sorceress_rune_e_3"							"[E3] Frost Tide"
+    	"DOTA_Tooltip_ability_sorceress_rune_e_3_Description"				"Водный элементаль наносит увеличенный урон по замороженным врагам."
+    	"DOTA_Tooltip_ability_sorceress_rune_e_3_property_one"				"Усиление урона"
+    	"DOTA_Tooltip_ability_sorceress_rune_e_3_suffix"					"%"
+
+		"DOTA_Tooltip_modifier_modifier_clear_cast"							"Clear Cast"
+		"DOTA_Tooltip_modifier_modifier_clear_cast_description"				"Умение (R) произносится мгновенно и восстанавливается 1 секунду."
+		
+		"DOTA_Tooltip_ability_sorceress_rune_e_4"							"[E4] Grand Elemental"
+    	"DOTA_Tooltip_ability_sorceress_rune_e_4_Description"				"К обычным атакам элементаля воды добавляется магический урон, равный % от урона Sorceress. Также позволяет ему с некоторым шансом атаковать несколько раз."
+    	"DOTA_Tooltip_ability_sorceress_rune_e_4_property_one"				"Доп. магический урон элементаля"
+    	"DOTA_Tooltip_ability_sorceress_rune_e_4_suffix"					"% за каждые 100 ед. урона Sorceress"
+    	"DOTA_Tooltip_ability_sorceress_rune_e_4_property_two"				"Шанс повторной атаки"
+    	"DOTA_Tooltip_ability_sorceress_rune_e_4_suffix_two"				"%"
+
+		"Tooltip_sorceress_r"											"Pyroblast и Fireball"
+		
+		"DOTA_Tooltip_ability_pyroblast"								"Pyroblast"
+		"DOTA_Tooltip_ability_pyroblast_Description"					"Стихия: <font color=\"#EF4126\">Огонь</font><br>Sorceress в течение 2 секунд призывает мощное огненное ядро, которое начинает медленно лететь от героя в указанную точку. Попав во врага, огненное ядро взрывается, нанося урон и оглушая всех ближайших противников."
+		"DOTA_Tooltip_ability_pyroblast_Lore"							""
+		"DOTA_Tooltip_ability_pyroblast_damage"							"УРОН:"
+		"DOTA_Tooltip_ability_pyroblast_range"							"ДАЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_pyroblast_stun_duration"					"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		
+		"DOTA_Tooltip_ability_fireball"										"Fireball"
+		"DOTA_Tooltip_ability_fireball_Description"							"Стихия: <font color=\"#EF4126\">Огонь</font><br>Мгновенно стреляет огненным шаром впереди Sorceress. При попадании по врагу шар взрывается и наносит урон по площади. При попадании герой получает бонус к урону, скорости атаки и скорости передвижения. Бонус к урону равен базовому урону этого умения"
+		"DOTA_Tooltip_ability_fireball_Lore"								""
+
+		"DOTA_Tooltip_modifier_fireball_stacks"						"Fireball Surge"
+		"DOTA_Tooltip_modifier_fireball_stacks_Description"			"Увеличен урон и скорость передвижения."
+
+		"DOTA_Tooltip_modifier_pyro_cooldown"								"Pyroblast"
+		"DOTA_Tooltip_modifier_pyro_cooldown_description"					"Пока способность Pyroblast восстанавливается, она заменяется на умение Fireball."
+		
+		"DOTA_Tooltip_ability_sorceress_rune_r_1"							"[R1] Fireball"
+    	"DOTA_Tooltip_ability_sorceress_rune_r_1_Description"				"Пока способность Pyroblast восстанавливается, она заменяется на умение Fireball. Sorceress мгновенно выпускает Fireball впереди себя, который при столкновении с противником взрывается, нанося урон по площади. С успешным попаданием по врагу герой получает бонус к урону, скорости атаки и скорости передвижения. Бонус к урону складывается до 3 раз с каждым попаданием. Размер бонуса к урону приравнивается к базовому урону руны [R1]."
+    	"DOTA_Tooltip_ability_sorceress_rune_r_1_property_one"				"Урон и бонус к атаке"
+    	"DOTA_Tooltip_ability_sorceress_rune_r_1_suffix"					""
+    	"DOTA_Tooltip_ability_sorceress_rune_r_1_property_two"				"Бонус к скорости атаки и передвижения"
+    	"DOTA_Tooltip_ability_sorceress_rune_r_1_suffix_two"				""
+
+		"DOTA_Tooltip_ability_sorceress_rune_r_2"							"[R2] Ignite"
+    	"DOTA_Tooltip_ability_sorceress_rune_r_2_Description"				"Враги пораженные Pyroblast загорятся, от чего будут получать дополнительный урон каждые 0.15 секунды в течении 6 секунд. [R1] загорятся на 2 секунды."
+    	"DOTA_Tooltip_ability_sorceress_rune_r_2_property_one"				"Урон каждые 0.15 сек."
+    	"DOTA_Tooltip_ability_sorceress_rune_r_2_suffix"					"% от полученного урона"
+		
+		"DOTA_Tooltip_ability_sorceress_rune_r_3"							"[R3] Flamestrike"
+    	"DOTA_Tooltip_ability_sorceress_rune_r_3_Description"				"@Ability4 образуют столб огня в указанной точке с полсекундной задержкой, оглушая все задетые цели на 0.5 секунды. Все попавшие в область действия враги теряют сопротивление к стихии Огня на 6 секунд."
+    	"DOTA_Tooltip_ability_sorceress_rune_r_3_property_one"				"Снижение сопротивления к стихии Огня"
+    	"DOTA_Tooltip_ability_sorceress_rune_r_3_suffix"					"%"
+
+    	"DOTA_Tooltip_modifier_sorceress_rune_r_3"							"Flamstrike Scorch"
+    	"DOTA_Tooltip_modifier_sorceress_rune_r_3_Description"				"Снижено сопротивление к стихии Огня"
+
+
+		"DOTA_Tooltip_ability_sorceress_rune_r_4"							"[R4] Fire Mastery"
+    	"DOTA_Tooltip_ability_sorceress_rune_r_4_Description"				"Увеличивает урон стихии <font color=\"#EF4126\">Огня</font> за счёт значений атрибутов Sorceress."
+    	"DOTA_Tooltip_ability_sorceress_rune_r_4_property_one"				"Увеличение урона на "
+    	"DOTA_Tooltip_ability_sorceress_rune_r_4_suffix"					"% за каждые 10 очков атрибутов."
+		
+		//Arcanas
+		"item_property_sorceress_arcana1"									"Glacial Vortex"
+    	"property_sorceress_arcana1_description"								"Заменяет (R) @Ability4 и все соответствующие руны на (R) Glacial Vortex."
+
+    	"DOTA_Tooltip_ability_sorceress_arcana_ice_tornado"								"Glacial Vortex"
+    	"DOTA_Tooltip_ability_sorceress_arcana_ice_tornado_Description"					"Стихия: <font color=\"#87D9FF\">Лёд</font> / <font color=\"#7AE2A7\">Ветер</font><br>Призывает на поле боя мощный ледяной шторм, летящий от героя в указанную точку и кружит возле неё. Враги рядом с воронкой замораживаются, притягиваются к центру воронки и получают урон каждые 0.5 секунды."
+    	"DOTA_Tooltip_ability_sorceress_arcana_ice_tornado_damage"					"УРОН:"
+    	"DOTA_Tooltip_ability_sorceress_arcana_ice_tornado_move_slow"				"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+    	"DOTA_Tooltip_ability_sorceress_arcana_ice_tornado_max_tornados"			"МАКСИМУМ ВИХРЕЙ:"
+
+    	"DOTA_Tooltip_modifier_tornado_thinker"									"Glacial Vortex"
+    	"DOTA_Tooltip_modifier_tornado_thinker_Description"						"Замедлен и получает урон."
+
+  		"DOTA_Tooltip_ability_sorceress_rune_r_1_arcana1"						"[R1] Ice Shards"
+    	"DOTA_Tooltip_ability_sorceress_rune_r_1_arcana1_Description"			"От вихрей разлетаются ледяные осколки в случайных ближайших врагов каждые 0.45 секунды."
+    	"DOTA_Tooltip_ability_sorceress_rune_r_1_arcana1_property_one"			"Урон"
+    	"DOTA_Tooltip_ability_sorceress_rune_r_1_arcana1_suffix"					"x Интеллекта"
+    	"DOTA_Tooltip_ability_sorceress_rune_r_1_arcana1_property_two"			"Дальность выбора цели"
+    	"DOTA_Tooltip_ability_sorceress_rune_r_1_arcana1_suffix_two"					""
+
+  		"DOTA_Tooltip_ability_sorceress_rune_r_2_arcana1"						"[R2] Frostbite"
+    	"DOTA_Tooltip_ability_sorceress_rune_r_2_arcana1_Description"			"С 15% шансом, ледяные осколки заморозят врага на 1 секунду и нанесут увеличенный урон. После разморозки противник невосприимчив к заморозке от осколков на следующие 8 секунд."
+    	"DOTA_Tooltip_ability_sorceress_rune_r_2_arcana1_property_one"			"Время заморозки до иммунитета"
+    	"DOTA_Tooltip_ability_sorceress_rune_r_2_arcana1_suffix"					" сек"
+    	"DOTA_Tooltip_ability_sorceress_rune_r_2_arcana1_property_two"			"Критический урон"
+    	"DOTA_Tooltip_ability_sorceress_rune_r_2_arcana1_suffix_two"				"%"
+
+  		"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1"						"[R3] Glacial Chill"
+    	"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1_Description"			"Враги, попадающие в область действия @Ability4 получают заряды этой руны каждые 0.5 секунды. Каждый заряд [R3] увеличивает получаемый врагами стихийный урон <font color=\"#87D9FF\">Льда</font> из всех источников."
+    	"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1_property_one"			"Усиление стихийного урона Льда"
+    	"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1_suffix"					"%"
+
+    	"DOTA_Tooltip_modifier_tornado_ice_resist_loss_visible"					"Glacial Chill"
+    	"DOTA_Tooltip_modifier_tornado_ice_resist_loss_visible_Description"		"Получает увеличенный урон стихии Льда из всех источников"
+
+  		"DOTA_Tooltip_ability_sorceress_rune_r_4_arcana1"						"[R4] Avatar of Frost"
+    	"DOTA_Tooltip_ability_sorceress_rune_r_4_arcana1_Description"			"Прочтение @Ability4 активирует форму [R4], во время которой весь стихийный урон героя превращается в стихийный урон <font color=\"#87D9FF\">Льда</font>, а весь урон стихии <font color=\"#87D9FF\">Льда</font> усиливается."
+    	"DOTA_Tooltip_ability_sorceress_rune_r_4_arcana1_property_one"			"Длительность"
+    	"DOTA_Tooltip_ability_sorceress_rune_r_4_arcana1_suffix"					" сек."
+    	"DOTA_Tooltip_ability_sorceress_rune_r_4_arcana1_property_two"			"Увеличение стихийного урона Льда"
+    	"DOTA_Tooltip_ability_sorceress_rune_r_4_arcana1_suffix_two"					"%"
+
+    	"DOTA_Tooltip_modifier_ice_avatar"  									"Avatar of Frost"
+    	"DOTA_Tooltip_modifier_ice_avatar_Description"						"Весь стихийный урон превращается в урон стихии Льда. Урон от Льда увеличен."
+		
+		"item_property_sorceress_arcana2"										"Incineration"
+    	"property_sorceress_arcana2_description"								"Заменяет {Q} @Ability1 и все соответствующие руны на (Q) Incineration."
+
+    	"DOTA_Tooltip_ability_sorceress_fire_arcana_q"								"Inceration"
+    	"DOTA_Tooltip_ability_sorceress_fire_arcana_q_Description"					"Стихия: <font color=\"#EF4126\">Огонь</font><br>Окружает выбранную область кольцом пламени, заставляя всех попавших в него врагов с 17% шансом загораться каждые 0.2 секунды."
+    	"DOTA_Tooltip_ability_sorceress_fire_arcana_q_damage"					"УРОН:"
+    	"DOTA_Tooltip_ability_sorceress_fire_arcana_q_aoe_radius"				"РАДИУС:"
+    	"DOTA_Tooltip_ability_sorceress_fire_arcana_q_duration"					"ДЛИТЕЛЬНОСТЬ ЭФФЕКТА:"
+
+    	"DOTA_Tooltip_modifier_sorceress_firestorm"									"Incineration"
+    	"DOTA_Tooltip_modifier_sorceress_firestorm_Description"						"Каждые 0.2 секунды есть шанс загореться."
+
+    	"DOTA_Tooltip_ability_sorceress_rune_q_1_arcana2"							"[Q1] Sun Lance"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_1_arcana2_Description"				"Пока умение (Q) Incineration перезаряжается, оно заменяется на (Q) Sun Lance - огненное копьё, пролетающее сквозь врагов и наносящее им урон."
+    	"DOTA_Tooltip_ability_sorceress_rune_q_1_arcana2_property_one"				"Урон"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_1_arcana2_suffix"					""
+    	"DOTA_Tooltip_ability_sorceress_rune_q_1_arcana2_property_two"				"Доп. урон"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_1_arcana2_suffix_two"				"% от урона героя"
+		"DOTA_Tooltip_ability_sorceress_sun_lance"								"Sun Lance"
+		"DOTA_Tooltip_ability_sorceress_sun_lance_Description"					"Стихия: <font color=\"#EF4126\">Огонь</font><br>Выпускает в указанную точку копьё, состоящее из обжигающего пламени. Копьё может пролететь сквозь врага, нанося урон."
+		"DOTA_Tooltip_ability_sorceress_sun_lance_Lore"							""
+
+  		"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2"						"[Q2] Ring of Fire"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_Description"				"Применяя умение @Ability2 два раза подряд, вокруг героя вспыхнет кольцо пламени. Поражённые огнём враги получают урон и теряют 180 скорости атаки. Перезаряжается 10 секунд. Если на момент активации руны элементаль воды присутствует на поле боя, то огненное кольцо вспыхнет и вокруг него. Подожжённые любым способом враги получают увеличенный пост-резистный урон от Sorceress. Подожжённые враги каждые 0.5 секунды получают стихийный урон <font color=\"#E1A2E8\">Тайны</font> в размере 35% от полученного ими огненного урона с момента возгорания."
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_property_one"				"Доп. пост-рез. урон по горящим врагам"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_suffix"					"%"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_property_two"				"Длительность горения"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_suffix_two"				" сек."
+
+    	"DOTA_Tooltip_modifier_ring_of_fire_down"								"Руна [Q2] Ring of Fire перезаряжается"
+		
+	   	"DOTA_Tooltip_modifier_ring_of_fire_up"								"Ring of Fire"
+		"DOTA_Tooltip_modifier_ring_of_fire_up_description"					"Следующее применение Arcane Explosion вызовет кольцо огня."
+
+		"DOTA_Tooltip_modifier_ring_of_fire_down"							"Руна [Q2] Ring of Fire перезаряжается"
+		"DOTA_Tooltip_modifier_ring_of_fire_down_description"				"Восстанавливается."
+
+    	"DOTA_Tooltip_modifier_ring_of_fire_burn"								"Горит"
+
+    	"DOTA_Tooltip_modifier_ring_of_fire_ready"								"[Q2] Ring of Fire готово"
+
+  		"DOTA_Tooltip_ability_sorceress_rune_q_3_arcana2"						"[Q3] Cauterize"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_3_arcana2_Description"				"С 20% шансом, огненное копьё в пределах действия (Q) Incineration взрывается и поджигает врагов."
+    	"DOTA_Tooltip_ability_sorceress_rune_q_3_arcana2_property_one"				"Урон"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_3_arcana2_suffix"					"% от урона (Q) Incineration"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_3_arcana2_property_two"				"Длительность горения"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_3_arcana2_suffix_two"				" сек."
+
+    	"DOTA_Tooltip_modifier_sun_lance_burn"									"Горит"
+
+  		"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2"						"[Q4] Avatar of Fire"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2_Description"			"С прочтением (Q) Incineration, герой обретает форму аватара огня на 12 секунд. В это время, весь стихийный урон конвертируется в стихию <font color=\"#EF4126\">Огня</font>, а весь <font color=\"#EF4126\">Огненный</font> урон увеличен. Дополнительно увеличивает базовый урон (Q) Incineration за счет Интеллекта героя."
+    	"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2_property_one"			"Усиление осн. урона (Q) Incineration"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2_suffix"					"x Интеллекта"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2_property_two"			"Усиление стихии Огня"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2_suffix_two"					"%"
+
+    	"DOTA_Tooltip_modifier_fire_avatar"  									"Avatar of Fire"
+    	"DOTA_Tooltip_modifier_fire_avatar_Description"							"Весь стихийный урон становится Огненным. Огненный урон увеличен."
+
+		//Glyphs
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_1_1"		"(T1) Символ ледяных ветров"
+		"item_rpc_sorceress_glyph_1_1_description" 				"(Q) Blizzard наносит в @glyph_property1 раз(а) больше урона и дополнительно замедляет скорость передвижения и атаки целей на @glyph_property2."
+
+		"DOTA_Tooltip_modifier_sorceress_glyph_1_1_effect"				"Freezing Winds"
+		"DOTA_Tooltip_modifier_sorceress_glyph_1_1_effect_Description"	"Скорость атаки и передвижения снижена"	
+
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_2_1"		"(T2) Символ Ice Shards"
+		"item_rpc_sorceress_glyph_2_1_description" 				"Каждое прочтение [Q1] также выпускает еще 2 копья (конусом)."
+
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_3_1"		"(T3) Символ огненной волны"
+		"item_rpc_sorceress_glyph_3_1_description" 				"Мгновенно выпускает 3 Fireball вместо одного сразу после прочтения."
+
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_4_1"		"(T4) Символ тайного зачарования"
+		"item_rpc_sorceress_glyph_4_1_description" 				"Увеличивает скорость атаки героя и ее элементаля на @glyph_property1."
+
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_1"		"(T5) Символ потока мудрости"
+		"item_rpc_sorceress_glyph_5_1_description" 				"Заменяет (W) @Ability2 на (W) Arcane Torrent, который направляется в одного врага на большом расстоянии и наносит урон, равный 10х урона (W) @Ability2."
+
+		"DOTA_Tooltip_ability_arcane_torrent"					"Arcane Torrent"
+		"DOTA_Tooltip_ability_arcane_torrent_Description"		"Стихия: <font color=\"#E1A2E8\">Тайна</font><br>Активация этого умения позволяет выпускать поток тайной энергии в одного ближайшего врага каждые 0.2 секунды. Урон снарядов равен 5х урона (W) Arcane Explosion, умноженного на % текущей маны в сравнении с макс. маной."
+		"DOTA_Tooltip_ability_arcane_torrent_range"				"ДАЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_arcane_torrent_mana_drain_per_second" "ЗАТРАТЫ МАНЫ В СЕКУНДУ:"
+
+		"DOTA_Tooltip_modifier_arcane_torrent_enable"			"Arcane Torrent"
+
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_6_1"		"(T6) Символ белых бурь"
+		"item_rpc_sorceress_glyph_6_1_description" 				"На прочтение (Q) @Ability1 не тратится время."
+
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_7_1"		"(T7) Символ огненного хаоса"
+		"item_rpc_sorceress_glyph_7_1_description" 				"Усиливает мощь умения (R) @Ability4 в @glyph_property1 раз(а)."
+
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_a"		"(Immortal) Символ заморозки"
+		"item_rpc_sorceress_glyph_5_a_description" 				"Множитель урона, наносимого [Q1] по замороженным врагам увеличен до @glyph_property1x."
+
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_1_2"		"Символ кристаллизации"
+		"item_rpc_sorceress_glyph_1_2_description" 				"Элементаль воды с @glyph_property1% шансом заморозит атакуемую цель на @glyph_property2 сек."
+
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_2_2"		"Символ острого льда"
+		"item_rpc_sorceress_glyph_2_2_description" 				"Шанс взрыва ледяного копья увеличен до @glyph_property1%, базовый урон увеличен на @glyph_property2%."
+
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_3_2"		"Символ просвещенной магии"
+		"item_rpc_sorceress_glyph_3_2_description" 				"Бонус регенерации маны и интеллекта от руны [W3] увеличен в @glyph_property1 раз(а)."
+
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_4_2"		"Символ тайной вибрации"
+		"item_rpc_sorceress_glyph_4_2_description" 				"(E) @Ability3 тратит только @glyph_property1 зарядов Flicker."
+
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_2"		"Символ смягчения"
+		"item_rpc_sorceress_glyph_5_2_description" 				"Sorceress добавляет на @glyph_property1% меньше времени к иммунитету врагов к оглушению."
+
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_6_2"		"Символ выжигания"
+		"item_rpc_sorceress_glyph_6_2_description" 				"Снижение сопротивления к стихии Огня от руны [R3] сильнее на @glyph_property1%."
+
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_7_2"		"Символ тайного прочтения"
+		"item_rpc_sorceress_glyph_7_2_description" 				"Увеличивает урон от (W) @Ability2 на @glyph_property1%, а к его текущей стоимости добавляется @glyph_property2% от макс. маны."
+
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_book"	"Книга символов Sorceress"
+		"DOTA_Tooltip_ability_glyph_book_desc"					"Навсегда позволяет изучить рецепт создания @consumableProperty3 у Заклинателя."
+		
+		
+		//Weapons
+		"sorceress_weapon_01"			"Icecap Staff"
+		"sorceress_weapon_02"			"Iceblade Staff"
+		"sorceress_weapon_03"			"Mystic Lotus Staff"
+		"sorceress_weapon_11"			"Flamethrower Staff"
+		"sorceress_weapon_12"			"Infernal Staff"
+		"sorceress_weapon_13"			"Glacial Snowstaff"
+		"sorceress_weapon_14"			"Arcane Scepter"
+		"sorceress_weapon_21"			"Wild Inferno Staff"
+		"sorceress_weapon_22"			"Spellbinder's Sapphire Staff"
+		"sorceress_weapon_23"			"Ice Staff of the Northern Wind"
+		"sorceress_weapon_24"			"Teacher's Soulbind Scepter"
+		"sorceress_weapon_25"			"Hightide Staff of the Immortal"
+		"DOTA_Tooltip_ability_item_rpc_basic_staff"   "Staff"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_weapon_00"	  "Staff"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_weapon_01"   "Icecap Staff"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_weapon_02"   "Iceblade Staff"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_weapon_03"   "Mystic Lotus Staff"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_weapon_11"   "Flamethrower Staff"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_weapon_12"   "Infernal Staff"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_weapon_13"   "Glacial Snowstaff"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_weapon_14"   "Arcane Scepter"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_weapon_21"   "Wild Inferno Staff"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_weapon_22"   "Spellbinder's Sapphire Staff"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_weapon_23"   "Ice Staff of the Northern Wind"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_weapon_24"   "Teacher's Soulbind Scepter"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_weapon_25"   "Hightide Staff of the Immortal"
+		
+		"DOTA_Tooltip_ability_item_rpc_sorceress_immortal_weapon_1"		"Staff of Yulsaria"
+		
+		"DOTA_Tooltip_ability_item_rpc_sorceress_immortal_weapon_2"            "Ice Queen Staff"
+        "item_property_sorceress_immortal_weapon2"                             "Ice Avatar"
+        "property_sorceress_immortal_weapon2_description"                      "С прочтением (Q) @Ability1 призывается копия Sorceress с текущими значениями (Q) @Ability1 и (E) @Ability3. На призыв копии потратится 50% от макс. маны."
+
+        "DOTA_Tooltip_ability_item_rpc_sorceress_immortal_weapon_3"            "Fire Queen Staff"
+        "item_property_sorceress_immortal_weapon3"                             "Fire Avatar"
+        "property_sorceress_immortal_weapon3_description"                      "С прочтением (R) @Ability4 призывается копия Sorveress с текущими значениями (R) @Ability4 и (E) @Ability3. На призыв копии потратится 50% от макс. маны."
+		

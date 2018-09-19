@@ -1,0 +1,13 @@
+
+		"DOTA_Tooltip_ability_item_rpc_blacksmiths_tablet"								"铁匠牌匾"
+		"item_property_blacksmiths_tablet"			"精制武器"
+		"property_blacksmiths_tablet_description"	"武器属性和符文加成提高 40%。同时，玩家的武器升级速度提高20%。"
+
+		"DOTA_Tooltip_ability_item_rpc_hope_of_saytaru"									"赛塔侞的希望"
+		"item_property_saytaru"						"最后的希望"
+		"property_saytaru_description"				"当生命值低于20%时获得魔法免疫。"
+
+		"DOTA_Tooltip_ability_item_rpc_sapphire_lotus"									"蓝莲花"
+		"item_property_sapphire_lotus"				"蓝色魅力"
+		"property_sapphire_lotus_description"		"每点智力值额外增加10点最大生命值。"
+

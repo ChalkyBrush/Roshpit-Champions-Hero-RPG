@@ -1,0 +1,30 @@
+
+    	"DOTA_Tooltip_ability_item_rpc_basilisk_plague_helm"							"蜥蜴瘟疫之头"
+		"item_property_basilisk_plague"					"深度腐烂"
+		"property_basilisk_plague_description"				"附近敌人降低50%的移动速度和240的攻击速度，腐烂作用3秒后，敌人将变成石头，眩晕并且魔法免疫。"
+        "DOTA_Tooltip_modifier_basilisk_plague_petrify"	"深度腐烂"
+		"DOTA_Tooltip_modifier_basilisk_plague_petrify_Description"	"变成石头并且魔法免疫"
+
+    	"DOTA_Tooltip_ability_item_rpc_brazen_kabuto_of_the_desert_realm"				"沙漠头盔"
+		"item_property_brazen_kabuto"				"勇士壁垒"
+		"property_brazen_kabuto_description"		"施放 @Ability4 时，100% 伤害免疫。"
+
+    	"DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"船厂面纱 等级1"
+    	"DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv2"								"船厂面纱 等级2"
+    	"DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv3"								"船厂面纱 等级3"
+		 "item_property_shipyard_veil_1"					"灵魂支盾 I"
+		 "property_shipyard_veil_1_description"				"@Ability1 每击中一个敌人为玩家增加一层护盾，每层护盾可吸收一次伤害，最高 @special_property1 层。同时每层存在的护盾增加 @Ability1 伤害 @special_property2%。当护盾吸收伤害后，<br>此属性增加1. 当属性值达到 @special_property3 后升级。"
+
+		 "item_property_shipyard_veil_2"					"灵魂支盾 II"
+		 "property_shipyard_veil_2_description"				"@Ability1 每击中一个敌人为玩家增加一层护盾，每层护盾可吸收一次伤害，最高 @special_property1 层。同时每层存在的护盾增加 @Ability1 伤害 @special_property2%。当护盾吸收伤害后，<br>此属性增加1. 当属性值达到 @special_property3 后升级。"
+
+		 "item_property_shipyard_veil_3"					"灵魂支盾 III"
+		 "property_shipyard_veil_3_description"				"@Ability1 每击中一个敌人为玩家增加一层护盾，每层护盾可吸收一次伤害，最高 @special_property1 层。同时每层存在的护盾增加 @Ability1 伤害 @special_property2%。护盾被打破，玩家将会对攻击者施放骷颅攻击。<br>骷颅造成 @special_property3x 你的主属性的魔法伤害。"
+
+		 "DOTA_Tooltip_modifier_shipyard_veil_shield"			"灵魂之盾"
+		 "DOTA_Tooltip_modifier_shipyard_veil_shield_Description"			"吸收伤害"
+
+
+    	"DOTA_Tooltip_ability_item_rpc_crown_of_the_lava_forge"							"熔岩王冠"
+		 "item_property_lava_forge"							"熔岩爆裂"
+		 "property_lava_forge_description"					"受到伤害时有40% 几率向进攻者发射火球，在目标小范围内造成2x攻击力 + 30x敏捷值的伤害。"

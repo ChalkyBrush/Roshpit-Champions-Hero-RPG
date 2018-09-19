@@ -8449,7 +8449,7 @@
     	##GLOVES_ENGLISH##
     	##HELM_ENGLISH##
     	##TRINKET_ENGLISH##
-    	//--------------------
+
 		##TUTORIAL_ENGLISH##
 	}	
 }

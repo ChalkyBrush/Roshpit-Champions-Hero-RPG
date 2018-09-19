@@ -30,7 +30,7 @@ def test_files(new_file_path, old_file_path):
             new_json_content =  npc_to_json(new_content)["lang"]["Tokens"]
             for key, value  in old_json_content.items():
                 if not key in new_json_content:
-                    print('Warning: key ' + key + ' missing')
+                    print('Warning: key ' + key + ' missing in file ' + new_file_path)
                 elif new_json_content[key] != value:
                     print('Warning: key ' + key + ' has different values')
                     print('Old value: ' + value)

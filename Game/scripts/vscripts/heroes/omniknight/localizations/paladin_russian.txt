@@ -1,21 +1,3 @@
-		"DOTA_Tooltip_ability_justice_overwhelming"								"Justice Overwhelming"
-		"DOTA_Tooltip_ability_justice_overwhelming_Description"					"Стихия: <font color=\"#F6FFB5\">Свет</font><br>Чистая взрывная волна святого правосудия вырывается из рук Паладина, отбрасывает его назад и наносит урон врагам перед собой."
-		"DOTA_Tooltip_ability_justice_overwhelming_Lore"							""
-		"DOTA_Tooltip_ability_justice_overwhelming_damage"							"УРОН:"
-
-
-		"DOTA_Tooltip_ability_knights_disciple"								"Knight's Disciple"
-		"DOTA_Tooltip_ability_knights_disciple_Description"					"Призывает Knight's Disciple в бой. Disciple имеет исцеляющую способность, которую он будет применять на цель с наименьшим уровнем здоровья. Пока действует эффект исцеления, цель получает на 20% меньше урона из всех источников."
-		"DOTA_Tooltip_ability_knights_disciple_Lore"							""
-    	"DOTA_Tooltip_ability_knights_disciple_summon_duration"						"ДЛИТЕЛЬНОСТЬ ПРИЗЫВА:"
-    	"DOTA_Tooltip_ability_knights_disciple_heal_per_tick_percent"					"ЛЕЧЕНИЕ/ТИК:"
-
-		"DOTA_Tooltip_modifier_holy_ult_aura" 							"Holy Sanctuary"
-		"DOTA_Tooltip_modifier_holy_ult_aura_description" 				"Восстановление здоровья и дополнительно 200 скорость передвижения."
-
-		"DOTA_Tooltip_modifier_knights_disciple_heal"					"Knight's Disciple"
-		"DOTA_Tooltip_modifier_knights_disciple_heal_Description"		"Регенерация здоровья каждые 0.2 секунды. Входящий урон снижен на 20%%"
-
 		"DOTA_Tooltip_ability_heroic_fury"								"Heroic Fury"
 		"DOTA_Tooltip_ability_heroic_fury_Description"					"Стихия: <font color=\"#F6FFB5\">Свет</font> / <font color=\"#DDDDDD\">Нормальный</font><br>Наделяет оружие Paladin силой, способной наносить урон соседним целям, замедляя их, и восполняя здоровье героя за каждый успешный удар."
 		"DOTA_Tooltip_ability_heroic_fury_Lore"							""
@@ -29,10 +11,80 @@
 
 		"DOTA_Tooltip_modifier_heroic_fury_slow"						"Heroic Fury"	
 		"DOTA_Tooltip_modifier_heroic_fury_slow_Description"			"Скорость передвижения и атаки снижена"				
-		
+
 		"DOTA_Tooltip_modifier_heroic_fury" 								"Heroic Fury"
 		"DOTA_Tooltip_modifier_heroic_fury_description" 					"Замедляет врагов в зоне поражения. Атаки дополнительно исцеляют Paladin"
+		
+		"DOTA_Tooltip_ability_paladin_rune_q_1"							"[Q1] Purification"
+    	"DOTA_Tooltip_ability_paladin_rune_q_1_Description"				"Добавляет часть основного урона к умению Heroic Fury."
+    	"DOTA_Tooltip_ability_paladin_rune_q_1_property_one"			"Доп. урон"
+    	"DOTA_Tooltip_ability_paladin_rune_q_1_suffix"					"%"
 
+		"DOTA_Tooltip_modifier_paladin_rune_q_1"						"Purifying Sparks"
+		"DOTA_Tooltip_modifier_paladin_rune_q_1_description" 			"Ваши атаки выпускают святые искры, поражая врагов."
+		
+		"DOTA_Tooltip_ability_paladin_rune_q_2"							"[Q2] Radiance"
+    	"DOTA_Tooltip_ability_paladin_rune_q_2_Description"				"Пока активно умение (Q) Heroic Fury, все ближайшие противники получают урон, основанный на базовом уроне героя."
+    	"DOTA_Tooltip_ability_paladin_rune_q_2_property_one"			"Урон в сек."
+    	"DOTA_Tooltip_ability_paladin_rune_q_2_suffix"					" % от базового"
+
+    	"DOTA_Tooltip_modifier_paladin_q_2_radiance"					"Radiance"
+    	"DOTA_Tooltip_modifier_paladin_q_2_radiance_Description"		"Ближайшие враги получают урон"
+		
+		"DOTA_Tooltip_ability_paladin_rune_q_3"							"[Q3] Divine Aegis"
+    	"DOTA_Tooltip_ability_paladin_rune_q_3_Description"				"Каждый раз, атакуя цель, Паладин получает щит, полностью поглощающий любой урон один раз. Противник, разрушивший щит получит урон, основанный на значении Силы героя."
+    	"DOTA_Tooltip_ability_paladin_rune_q_3_property_one"				"Длительность"
+    	"DOTA_Tooltip_ability_paladin_rune_q_3_suffix"					" сек."  
+    	"DOTA_Tooltip_ability_paladin_rune_q_3_property_two"				"Урон"
+    	"DOTA_Tooltip_ability_paladin_rune_q_3_suffix_two"				"x Силы"
+
+    	"DOTA_Tooltip_modifier_paladin_q3_shield"					"Divine Aegis"
+    	"DOTA_Tooltip_modifier_paladin_q3_shield_Description"		"Поглощает следующий входящий урон и наносит урон врагам, разрушившим щит."
+		
+		"DOTA_Tooltip_ability_paladin_rune_q_4"							"[Q4] Holy Crusader"
+    	"DOTA_Tooltip_ability_paladin_rune_q_4_Description"				"Любое сверхлечение, совершенное героем создаёт щит, поглощающий входящий урон. Дополнительно увеличивает весь стихийный урон <font color=\"#F6FFB5\">Света</font> в зависимости от атрибутов героя."
+    	"DOTA_Tooltip_ability_paladin_rune_q_4_property_one"			"Максимальное поглощение урона у щита"
+    	"DOTA_Tooltip_ability_paladin_rune_q_4_suffix"					"% от макс. здоровья цели"
+    	"DOTA_Tooltip_ability_paladin_rune_q_4_property_two"			"Увеличение урона стихии Света"
+    	"DOTA_Tooltip_ability_paladin_rune_q_4_suffix_two"				"% за каждые 10 очков атрибутов"
+		
+		"DOTA_Tooltip_ability_justice_overwhelming"								"Justice Overwhelming"
+		"DOTA_Tooltip_ability_justice_overwhelming_Description"					"Стихия: <font color=\"#F6FFB5\">Свет</font><br>Чистая взрывная волна святого правосудия вырывается из рук Паладина, отбрасывает его назад и наносит урон врагам перед собой."
+		"DOTA_Tooltip_ability_justice_overwhelming_Lore"							""
+		"DOTA_Tooltip_ability_justice_overwhelming_damage"							"УРОН:"
+		
+		"DOTA_Tooltip_ability_paladin_rune_w_1"							"[W1] Holy Fire"
+    	"DOTA_Tooltip_ability_paladin_rune_w_1_Description"				"Justice Overwhelming будет поджигать врагов."
+    	"DOTA_Tooltip_ability_paladin_rune_w_1_property_one"			"Урон/Сек."
+    	"DOTA_Tooltip_ability_paladin_rune_w_1_suffix"					""
+    	"DOTA_Tooltip_ability_paladin_rune_w_1_property_two"			"Время горения"
+    	"DOTA_Tooltip_ability_paladin_rune_w_1_suffix_two"				""
+
+		"DOTA_Tooltip_modifier_paladin_rune_w_1"						"Holy Fire"
+		"DOTA_Tooltip_modifier_paladin_rune_w_1_description" 			"Получает урон от огня."
+		
+		"DOTA_Tooltip_ability_paladin_rune_w_2"							"[W2] Healing Command"
+    	"DOTA_Tooltip_ability_paladin_rune_w_2_Description"				"Прочтение способности (W) Justice Overwhelming также исцеляет Паладина и задетых умением союзников на % от значения базового урона основной способности."
+    	"DOTA_Tooltip_ability_paladin_rune_w_2_property_one"			"Исцеление"
+    	"DOTA_Tooltip_ability_paladin_rune_w_2_suffix"					"% от базового урона способности"
+		
+		"DOTA_Tooltip_ability_paladin_rune_w_3"							"[W3] Holy Nova"
+    	"DOTA_Tooltip_ability_paladin_rune_w_3_Description"				"При получении урона есть 15% шанс высвободить вспышку света, наносящую урон врагам и исцеляющую союзников в небольшом радиусе в зависимости от показателя Интеллекта Паладина. Враги, задетые вспышкой, обезоружены на 1 секунду."
+    	"DOTA_Tooltip_ability_paladin_rune_w_3_property_one"			"Урон"
+    	"DOTA_Tooltip_ability_paladin_rune_w_3_suffix"					"x Интеллекта"
+    	"DOTA_Tooltip_ability_paladin_rune_w_3_property_two"			"Лечение"
+    	"DOTA_Tooltip_ability_paladin_rune_w_3_suffix_two"				"x Интеллекта"
+
+    	"DOTA_Tooltip_modifier_paladin_c_b_disarm"						"Holy Nova"
+    	"DOTA_Tooltip_modifier_paladin_c_b_disarm_Description"			"Обезоружен"
+		
+		"DOTA_Tooltip_ability_paladin_rune_w_4"							"[W4] Intensifying Fire"
+    	"DOTA_Tooltip_ability_paladin_rune_w_4_Description"				"[W1] Holy Fire складывается с каждым следующим попаданием умением (W) Justice Overwhelming. С каждым зарядом наносимый урон увеличивается на 20% от предыдущего значения."
+    	"DOTA_Tooltip_ability_paladin_rune_w_4_property_one"			"Максимум зарядов [W1] Holy Fire"
+    	"DOTA_Tooltip_ability_paladin_rune_w_4_suffix"					""
+
+    	"DOTA_Tooltip_modifier_paladin_q4_shield"					"Holy Crusader"
+    	"DOTA_Tooltip_modifier_paladin_q4_shield_Description"		"Поглощает урон."	
 
 		"DOTA_Tooltip_ability_holy_blink"								"Empyrean Wings"
 		"DOTA_Tooltip_ability_holy_blink_Description"					"Paladin расправляет небесные крылья и дважды прыгает вперёд. После приземления он наносит урон и оглушает врагов."
@@ -45,32 +97,6 @@
 		"DOTA_Tooltip_ability_crusader_dash_Description"				"Paladin взмахивает своими ангельскими крыльями, с помощью чего толкает себя на небольшое расстояние вперёд."
 		"DOTA_Tooltip_ability_crusader_dash_Lore"						""
 
-    	"DOTA_Tooltip_ability_paladin_rune_q_1"							"[Q1] Purification"
-    	"DOTA_Tooltip_ability_paladin_rune_q_1_Description"				"Добавляет часть основного урона к умению Heroic Fury."
-    	"DOTA_Tooltip_ability_paladin_rune_q_1_property_one"			"Доп. урон"
-    	"DOTA_Tooltip_ability_paladin_rune_q_1_suffix"					"%"
-
-		"DOTA_Tooltip_modifier_paladin_rune_q_1"						"Purifying Sparks"
-		"DOTA_Tooltip_modifier_paladin_rune_q_1_description" 			"Ваши атаки выпускают святые искры, поражая врагов."
-
-    	"DOTA_Tooltip_ability_paladin_rune_w_1"							"[W1] Holy Fire"
-    	"DOTA_Tooltip_ability_paladin_rune_w_1_Description"				"Justice Overwhelming будет поджигать врагов."
-    	"DOTA_Tooltip_ability_paladin_rune_w_1_property_one"			"Урон/Сек."
-    	"DOTA_Tooltip_ability_paladin_rune_w_1_suffix"					""
-    	"DOTA_Tooltip_ability_paladin_rune_w_1_property_two"			"Время горения"
-    	"DOTA_Tooltip_ability_paladin_rune_w_1_suffix_two"				""
-
-		"DOTA_Tooltip_modifier_paladin_rune_w_1"						"Holy Fire"
-		"DOTA_Tooltip_modifier_paladin_rune_w_1_description" 			"Получает урон от огня."
-
-    	"DOTA_Tooltip_ability_paladin_rune_r_1"							"[R1] Guardian of Heaven"
-    	"DOTA_Tooltip_ability_paladin_rune_r_1_Description"				"Небесный Адепт дополнительно распространяет ауру повышения брони в радиусе 1000."
-    	"DOTA_Tooltip_ability_paladin_rune_r_1_property_one"			"Доп. броня"
-    	"DOTA_Tooltip_ability_paladin_rune_r_1_suffix"					""
-
-    	"DOTA_Tooltip_modifier_paladin_a_d_aura_armor_stacks"				"Guardian of Heaven"
-    	"DOTA_Tooltip_modifier_paladin_a_d_aura_armor_stacks_Description"	"Значение брони увеличено"	
-
     	"DOTA_Tooltip_ability_paladin_rune_e_1"							"[E1] Second Coming"
     	"DOTA_Tooltip_ability_paladin_rune_e_1_Description"				"После смерти, Paladin вернется к жизни через 4 секунды. Перезаряжается 120 секунд. При возрождении герою даётся больше времени на иммунитет к урону."
     	"DOTA_Tooltip_ability_paladin_rune_e_1_property_one"			"Длительность иммунитета"
@@ -82,31 +108,48 @@
 		"DOTA_Tooltip_modifier_paladin_rune_e_1_revive_cooldown"				"Resurrected"
 		"DOTA_Tooltip_modifier_paladin_rune_e_1_revive_cooldown_description" 	"Second Coming перезаряжается."
 
-    	"DOTA_Tooltip_ability_paladin_rune_q_2"							"[Q2] Radiance"
-    	"DOTA_Tooltip_ability_paladin_rune_q_2_Description"				"Пока активно умение (Q) Heroic Fury, все ближайшие противники получают урон, основанный на базовом уроне героя."
-    	"DOTA_Tooltip_ability_paladin_rune_q_2_property_one"			"Урон в сек."
-    	"DOTA_Tooltip_ability_paladin_rune_q_2_suffix"					" % от базового"
-
-    	"DOTA_Tooltip_modifier_paladin_q_2_radiance"					"Radiance"
-    	"DOTA_Tooltip_modifier_paladin_q_2_radiance_Description"		"Ближайшие враги получают урон"
-
-    	"DOTA_Tooltip_ability_paladin_rune_w_2"							"[W2] Healing Command"
-    	"DOTA_Tooltip_ability_paladin_rune_w_2_Description"				"Прочтение способности (W) Justice Overwhelming также исцеляет Паладина и задетых умением союзников на % от значения базового урона основной способности."
-    	"DOTA_Tooltip_ability_paladin_rune_w_2_property_one"			"Исцеление"
-    	"DOTA_Tooltip_ability_paladin_rune_w_2_suffix"					"% от базового урона способности"
-
-    	"DOTA_Tooltip_modifier_paladin_q4_shield"					"Holy Crusader"
-    	"DOTA_Tooltip_modifier_paladin_q4_shield_Description"		"Поглощает урон."
-
     	"DOTA_Tooltip_ability_paladin_rune_e_2"							"[E2] Retribution"
     	"DOTA_Tooltip_ability_paladin_rune_e_2_Description"				"Наносит часть от значения атаки Паладина всем атакующим героя существам. Тип урона - Физический."
     	"DOTA_Tooltip_ability_paladin_rune_e_2_property_one"			"Возвращает урона (от атаки)"
     	"DOTA_Tooltip_ability_paladin_rune_e_2_suffix"					"%"
     	"DOTA_Tooltip_ability_paladin_rune_e_2_property_two"			"Врзвращает урона (ед.)"
     	"DOTA_Tooltip_ability_paladin_rune_e_2_suffix_two"				""
-
+		
 		"DOTA_Tooltip_modifier_paladin_rune_e_2"						"Retribution"
 		"DOTA_Tooltip_modifier_paladin_rune_e_2_description" 			"Возвращает физический урон атакующим."
+		
+		"DOTA_Tooltip_ability_paladin_rune_e_3"							"[E3] Light's Falcon"
+    	"DOTA_Tooltip_ability_paladin_rune_e_3_Description"				"При прочтении (E) Crusader Dash появляется сильный сокол, наносящий чистый урон врагам на своём пути."
+    	"DOTA_Tooltip_ability_paladin_rune_e_3_property_one"			"Урон сокола"
+    	"DOTA_Tooltip_ability_paladin_rune_e_3_suffix"					"% от урона героя"
+		
+		"DOTA_Tooltip_ability_paladin_rune_e_4"							"[E4] Flutter"
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_Description"				"Враги, задетые [E3] Light's Falcon получают дебафф, который позволяет Паладину наносить по ним дополнительный пост-резистный урон. Длится 8 секунд."
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_property_one"			"Усиление пост-резистного урона"
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_suffix"					"%"
+
+    	"DOTA_Tooltip_modifier_paladin_d_c"								"Flutter"
+    	"DOTA_Tooltip_modifier_paladin_d_c_Description"					"Получает увеличенный урон от Паладина"
+
+		"DOTA_Tooltip_ability_knights_disciple"								"Knight's Disciple"
+		"DOTA_Tooltip_ability_knights_disciple_Description"					"Призывает Knight's Disciple в бой. Disciple имеет исцеляющую способность, которую он будет применять на цель с наименьшим уровнем здоровья. Пока действует эффект исцеления, цель получает на 20% меньше урона из всех источников."
+		"DOTA_Tooltip_ability_knights_disciple_Lore"							""
+    	"DOTA_Tooltip_ability_knights_disciple_summon_duration"						"ДЛИТЕЛЬНОСТЬ ПРИЗЫВА:"
+    	"DOTA_Tooltip_ability_knights_disciple_heal_per_tick_percent"					"ЛЕЧЕНИЕ/ТИК:"
+
+		"DOTA_Tooltip_modifier_holy_ult_aura" 							"Holy Sanctuary"
+		"DOTA_Tooltip_modifier_holy_ult_aura_description" 				"Восстановление здоровья и дополнительно 200 скорость передвижения."
+
+		"DOTA_Tooltip_modifier_knights_disciple_heal"					"Knight's Disciple"
+		"DOTA_Tooltip_modifier_knights_disciple_heal_Description"		"Регенерация здоровья каждые 0.2 секунды. Входящий урон снижен на 20%%"
+		
+		"DOTA_Tooltip_ability_paladin_rune_r_1"							"[R1] Guardian of Heaven"
+    	"DOTA_Tooltip_ability_paladin_rune_r_1_Description"				"Небесный Адепт дополнительно распространяет ауру повышения брони в радиусе 1000."
+    	"DOTA_Tooltip_ability_paladin_rune_r_1_property_one"			"Доп. броня"
+    	"DOTA_Tooltip_ability_paladin_rune_r_1_suffix"					""
+
+    	"DOTA_Tooltip_modifier_paladin_a_d_aura_armor_stacks"				"Guardian of Heaven"
+    	"DOTA_Tooltip_modifier_paladin_a_d_aura_armor_stacks_Description"	"Значение брони увеличено"	
 
     	"DOTA_Tooltip_ability_paladin_rune_r_2"							"[R2] Empowering Light"
     	"DOTA_Tooltip_ability_paladin_rune_r_2_Description"				"Союзники, ставшие целью исцеляющей способности (R) Knight's Disciple наделяются баффом, повышающим урон и броню за каждый тик исцеления. Усиление длится 16 секунд."
@@ -118,61 +161,10 @@
 		"DOTA_Tooltip_modifier_paladin_rune_r_2"						"Empowering Light"
 		"DOTA_Tooltip_modifier_paladin_rune_r_2_description" 			"Increased damage and armor."
 
-    	"DOTA_Tooltip_ability_paladin_rune_q_3"							"[Q3] Divine Aegis"
-    	"DOTA_Tooltip_ability_paladin_rune_q_3_Description"				"Каждый раз, атакуя цель, Паладин получает щит, полностью поглощающий любой урон один раз. Противник, разрушивший щит получит урон, основанный на значении Силы героя."
-    	"DOTA_Tooltip_ability_paladin_rune_q_3_property_one"				"Длительность"
-    	"DOTA_Tooltip_ability_paladin_rune_q_3_suffix"					" сек."  
-    	"DOTA_Tooltip_ability_paladin_rune_q_3_property_two"				"Урон"
-    	"DOTA_Tooltip_ability_paladin_rune_q_3_suffix_two"				"x Силы"
-
-    	"DOTA_Tooltip_modifier_paladin_q3_shield"					"Divine Aegis"
-    	"DOTA_Tooltip_modifier_paladin_q3_shield_Description"		"Поглощает следующий входящий урон и наносит урон врагам, разрушившим щит."
-
-		"DOTA_Tooltip_modifier_paladin_rune_q_3"						"Divine Aegis"
-		"DOTA_Tooltip_modifier_paladin_rune_q_3_description" 			"100% поглощение урона."
-
-		"DOTA_Tooltip_modifier_paladin_rune_q_3_cooling_down"					"Broken Aegis"
-		"DOTA_Tooltip_modifier_paladin_rune_q_3_cooling_down_description"		"Когда этот параметр закончит своё действие, герой получит новый щит от [Q3] Divine Aegis."
-
-    	"DOTA_Tooltip_ability_paladin_rune_w_3"							"[W3] Holy Nova"
-    	"DOTA_Tooltip_ability_paladin_rune_w_3_Description"				"При получении урона есть 15% шанс высвободить вспышку света, наносящую урон врагам и исцеляющую союзников в небольшом радиусе в зависимости от показателя Интеллекта Паладина. Враги, задетые вспышкой, обезоружены на 1 секунду."
-    	"DOTA_Tooltip_ability_paladin_rune_w_3_property_one"			"Урон"
-    	"DOTA_Tooltip_ability_paladin_rune_w_3_suffix"					"x Интеллекта"
-    	"DOTA_Tooltip_ability_paladin_rune_w_3_property_two"			"Лечение"
-    	"DOTA_Tooltip_ability_paladin_rune_w_3_suffix_two"				"x Интеллекта"
-
-    	"DOTA_Tooltip_modifier_paladin_c_b_disarm"						"Holy Nova"
-    	"DOTA_Tooltip_modifier_paladin_c_b_disarm_Description"			"Обезоружен"
-
-    	"DOTA_Tooltip_ability_paladin_rune_e_3"							"[E3] Light's Falcon"
-    	"DOTA_Tooltip_ability_paladin_rune_e_3_Description"				"При прочтении (E) Crusader Dash появляется сильный сокол, наносящий чистый урон врагам на своём пути."
-    	"DOTA_Tooltip_ability_paladin_rune_e_3_property_one"			"Урон сокола"
-    	"DOTA_Tooltip_ability_paladin_rune_e_3_suffix"					"% от урона героя"
-
     	"DOTA_Tooltip_ability_paladin_rune_r_3"							"[R3] Holy Bolt"
     	"DOTA_Tooltip_ability_paladin_rune_r_3_Description"				"(R) Knight's Disciple наделяется способностью ударить врага, нанося чистый урон на основании общего урона Паладина и оглушая цель на 0.1 секунды. Перезаряжается 5 секунд."
     	"DOTA_Tooltip_ability_paladin_rune_r_3_property_one"			"Урон"
     	"DOTA_Tooltip_ability_paladin_rune_r_3_suffix"					"% от урона героя"
- 
-    	"DOTA_Tooltip_ability_paladin_rune_q_4"							"[Q4] Holy Crusader"
-    	"DOTA_Tooltip_ability_paladin_rune_q_4_Description"				"Любое сверхлечение, совершенное героем создаёт щит, поглощающий входящий урон. Дополнительно увеличивает весь стихийный урон <font color=\"#F6FFB5\">Света</font> в зависимости от атрибутов героя."
-    	"DOTA_Tooltip_ability_paladin_rune_q_4_property_one"			"Максимальное поглощение урона у щита"
-    	"DOTA_Tooltip_ability_paladin_rune_q_4_suffix"					"% от макс. здоровья цели"
-    	"DOTA_Tooltip_ability_paladin_rune_q_4_property_two"			"Увеличение урона стихии Света"
-    	"DOTA_Tooltip_ability_paladin_rune_q_4_suffix_two"				"% за каждые 10 очков атрибутов"
-
-    	"DOTA_Tooltip_ability_paladin_rune_w_4"							"[W4] Intensifying Fire"
-    	"DOTA_Tooltip_ability_paladin_rune_w_4_Description"				"[W1] Holy Fire складывается с каждым следующим попаданием умением (W) Justice Overwhelming. С каждым зарядом наносимый урон увеличивается на 20% от предыдущего значения."
-    	"DOTA_Tooltip_ability_paladin_rune_w_4_property_one"			"Максимум зарядов [W1] Holy Fire"
-    	"DOTA_Tooltip_ability_paladin_rune_w_4_suffix"					""
-
-    	"DOTA_Tooltip_ability_paladin_rune_e_4"							"[E4] Flutter"
-    	"DOTA_Tooltip_ability_paladin_rune_e_4_Description"				"Враги, задетые [E3] Light's Falcon получают дебафф, который позволяет Паладину наносить по ним дополнительный пост-резистный урон. Длится 8 секунд."
-    	"DOTA_Tooltip_ability_paladin_rune_e_4_property_one"			"Усиление пост-резистного урона"
-    	"DOTA_Tooltip_ability_paladin_rune_e_4_suffix"					"%"
-
-    	"DOTA_Tooltip_modifier_paladin_d_c"								"Flutter"
-    	"DOTA_Tooltip_modifier_paladin_d_c_Description"					"Получает увеличенный урон от Паладина"	
 
     	"DOTA_Tooltip_ability_paladin_rune_r_4"							"[R4] Purifying Spark"
     	"DOTA_Tooltip_ability_paladin_rune_r_4_Description"				"(R) Небесный Адепт получает способность выпускать снаряд, способный замораживать цель, дополнительно замораживая всех ближайших к цели противников."	
@@ -182,6 +174,8 @@
     	"DOTA_Tooltip_modifier_disciple_purifying_spark"					"Purifying Spark"
     	"DOTA_Tooltip_modifier_disciple_purifying_spark_Description"		"Заморожен."	
 
+		//Arcanas
+		
     	"item_property_paladin_arcana1"										"Penance"
     	"property_paladin_arcana1_description"								"Заменяет (W) @Ability2 и все соответствующие руны на (W) Penance."
 
@@ -219,8 +213,8 @@
     	"DOTA_Tooltip_ability_paladin_rune_w_4_arcana1_Description"			"Дарует шанс на отскок копья в другую враждебную или союзную цель при попадании. Значение шанса выше 100% гарантирует многократное срабатывание эффекта. Дополнительно увеличивается урон героя в зависимости от значения брони. Максимум 10 отскоков."
     	"DOTA_Tooltip_ability_paladin_rune_w_4_arcana1_property_one"		"Шанс"
     	"DOTA_Tooltip_ability_paladin_rune_w_4_arcana1_suffix"				"%"
-		"DOTA_Tooltip_ability_paladin_rune_w_4_arcana1_property_two"		"Бонус к урону"
-    	"DOTA_Tooltip_ability_paladin_rune_w_4_arcana1_suffix_two"			" за каждую ед. брони"
+    	"DOTA_Tooltip_ability_paladin_rune_w_4_arcana1_property_two"		"Бонус к урону"
+    	"DOTA_Tooltip_ability_paladin_rune_w_4_arcana1_suffix_two"				" за каждую ед. брони"
 
     	"item_property_paladin_arcana2"										"Wings of Sanctity"
     	"property_paladin_arcana2_description"								"Заменяет (E) @Ability3 и все соответствующие руны на (E) Wings of Sanctity."
@@ -266,14 +260,11 @@
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_3_1"		"(T3) Символ всевышнего"
 		"item_rpc_paladin_glyph_3_1_description" 				"Knight's Disciple становятся полностью контролируемыми юнитами, скорость их передвижения увеличена до 800. Правый щелчок по способности переключит тип AI юнита."
 
-		"DOTA_Tooltip_modifier_paladin_glyph_3_1_effect"		"Command Aura"
-		"DOTA_Tooltip_modifier_paladin_glyph_3_1_effect_Description"	"Урон увеличен"
-
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_1"		"(T4) Символ неизбежного рока"
-		"item_rpc_paladin_glyph_4_1_description" 				"(W) Justice Overwhelming не отталкивает героя, и дополнительно применяет x5 зарядов Holy Fire." 
+		"item_rpc_paladin_glyph_4_1_description" 				"(W) Justice Overwhelming не отталкивает героя, и дополнительно применяет x5 зарядов Holy Fire."
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_1"		"(T5) Символ святого величия"
-		"item_rpc_paladin_glyph_5_1_description" 				"Увеличивает урон от (W) Justice Overwhelming и Holy Fire на 200%. 9 дополнительных зарядов Holy Fire при каждом успешном ударе." 
+		"item_rpc_paladin_glyph_5_1_description" 				"Увеличивает урон от (W) Justice Overwhelming и Holy Fire на 200%. 9 дополнительных зарядов Holy Fire при каждом успешном ударе."
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_1"		"(T6) Символ величия"
 		"item_rpc_paladin_glyph_6_1_description" 				"Герой растространяет ауру повышения скорости передвижения на @glyph_property1."
@@ -286,3 +277,44 @@
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_a"		"(Immortal) Символ святого гнева"
 		"item_rpc_paladin_glyph_5_a_description" 				"Удар молнии от [R4] Knight's Disciple's поражает врагов в радиусе @glyph_property1, а основная цель будет атакована дважды."
+		
+		//Weapons
+		"paladin_weapon_01"			"Hammer of Might"
+		"paladin_weapon_02"			"Silver Hammer"
+		"paladin_weapon_03"			"Runic Hammer"
+		"paladin_weapon_11"			"Cleansing Hammer"
+		"paladin_weapon_12"			"Heaven's Hammer"
+		"paladin_weapon_13"			"Hammer of Justice"
+		"paladin_weapon_14"			"Mace of Fiery Cleansing"
+		"paladin_weapon_21"			"Divine Protector's Hammer"
+		"paladin_weapon_22"			"Angelwing Hammer"
+		"paladin_weapon_23"			"Hammer of Retribution"
+		"paladin_weapon_24"			"Enlightened Mace of the Chosen"
+		"paladin_weapon_25"			"Staff of Holy Might"
+		"DOTA_Tooltip_ability_item_rpc_basic_hammer"   "Hammer"
+		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_00"	"Hammer"
+		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_01"   "Hammer of Might"
+		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_02"   "Silver Hammer"
+		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_03"   "Runic Hammer"
+		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_11"   "Cleansing Hammer"
+		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_12"   "Heaven's Hammer"
+		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_13"   "Hammer of Justice"
+		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_14"   "Mace of Fiery Cleansing"
+		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_21"   "Divine Protector's Hammer"
+		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_22"   "Angelwing Hammer"
+		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_23"   "Hammer of Retribution"
+		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_24"   "Enlightened Mace of the Chosen"
+		"DOTA_Tooltip_ability_item_rpc_paladin_weapon_25"   "Staff of Holy Might"
+		
+		"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_1"		"Radiance"
+		"item_property_paladin_immortal_weapon"								"Radiant Aegis"
+		"property_paladin_immortal_weapon_description"						"Прочтение (Q) Heroic Fury даст герою @special_property1 зарядов [Q3] Divine Aegis на 8 секунд. Максимальное количество зарядов [Q3] Divine Aegis увеличено до 4."
+		
+		"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_2"			"Light's Crusader"
+    	"item_property_paladin_immortal_weapon2"							"Spiritual Wrath"
+    	"property_paladin_immortal_weapon2_description"						"Время перезарядки умений Небесных Адептов от способности (R) @Ability4 снижено на @special_property1%."
+
+
+    	"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_3"			"Hammer of Auriel"
+    	"item_property_paladin_immortal_weapon3"								"Might of Auriel"
+    	"property_paladin_immortal_weapon3_description"						"Каждое очко Силы дополнительно увеличивает максимальное здоровье на @special_property1"

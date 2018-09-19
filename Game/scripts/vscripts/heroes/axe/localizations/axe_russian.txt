@@ -1,0 +1,296 @@
+		"DOTA_Tooltip_ability_stun_attack"                              "Skull Basher"
+        "DOTA_Tooltip_ability_stun_attack_Description"                  "Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Герой прыгает в указанную точку. С каждой атакой Red General оглушает врагов мощным взрывом. Также на время действия повышается скорость атаки."
+        "DOTA_Tooltip_ability_stun_attack_Lore"                         ""
+        "DOTA_Tooltip_ability_stun_attack_attack_speed"                 "ДОП. СКОРОСТЬ АТАКИ:"
+        "DOTA_Tooltip_ability_stun_attack_bolt_damage"                  "УРОН ОТ ВЗРЫВА:"
+        "DOTA_Tooltip_ability_stun_attack_buff_duration"                "ДЛИТЕЛЬНОСТЬ:"
+        "DOTA_Tooltip_ability_stun_attack_duration"                     "ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+ 
+        "DOTA_Tooltip_modifier_stun_attack"                             "Skull Basher"
+        "DOTA_Tooltip_modifier_stun_attack_Description"                 "Все базовые атаки наносят урон и оглушают врагов в области действия."
+ 
+        "DOTA_Tooltip_ability_red_general_skull_basher"                             "Skull Basher"
+        "DOTA_Tooltip_ability_red_general_skull_basher_Description"                 "Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Герой прыгает в указанную точку. С каждой атакой Red General оглушает врагов мощным взрывом. Также на время действия повышается скорость атаки. Во время прыжка время действия [Q2] Berserker Rage приостанавливается."
+        "DOTA_Tooltip_ability_red_general_skull_basher_Lore"                            ""
+        "DOTA_Tooltip_ability_red_general_skull_basher_attack_speed"                    "ДОП. СКОРОСТЬ АТАКИ:"
+        "DOTA_Tooltip_ability_red_general_skull_basher_bolt_damage"                 "УРОН ОТ ВЗРЫВА:"
+        "DOTA_Tooltip_ability_red_general_skull_basher_buff_duration"               "ДЛИТЕЛЬНОСТЬ:"
+        "DOTA_Tooltip_ability_red_general_skull_basher_duration"                    "ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+        "DOTA_Tooltip_ability_red_general_skull_basher_cast_range"                  "МАКС. ДАЛЬНОСТЬ ПРЫЖКА:"
+		
+		"DOTA_Tooltip_ability_axe_rune_q_1"                             "[Q1] Massive Impact"
+        "DOTA_Tooltip_ability_axe_rune_q_1_Description"                 "Увеличивает урон от умения @Ability1 на % от урона героя."
+        "DOTA_Tooltip_ability_axe_rune_q_1_property_one"                "Доп. урон"
+        "DOTA_Tooltip_ability_axe_rune_q_1_suffix"                      "% от урона героя"
+		
+		"DOTA_Tooltip_ability_axe_rune_q_2"                             "[Q2] Berserker Rage"
+        "DOTA_Tooltip_ability_axe_rune_q_2_Description"                 "Каждая успешная атака дает заряд, дающий бонус к скорости атаки и базовому урону. Если вы не будете атаковать противника в течение 10 секунд, все заряды будут потеряны. Максимум 50 зарядов."
+        "DOTA_Tooltip_ability_axe_rune_q_2_property_one"                "Доп. скорость атаки за заряд"
+        "DOTA_Tooltip_ability_axe_rune_q_2_suffix"                      ""
+        "DOTA_Tooltip_ability_axe_rune_q_2_property_two"                "Доп. урон за заряд"
+        "DOTA_Tooltip_ability_axe_rune_q_2_suffix_two"                  ""
+ 
+        //"DOTA_Tooltip_modifier_axe_rune_q_2_stacker"                  "Berserker Rage"
+        //"DOTA_Tooltip_modifier_axe_rune_q_2_stacker_description"      "Gaining Attack Speed."
+ 
+        "DOTA_Tooltip_modifier_axe_rune_q_2_visible"                    "Berserker Rage"
+        "DOTA_Tooltip_modifier_axe_rune_q_2_visible_Description"        "Увеличивает скорость атаки и урон героя."
+		
+		"DOTA_Tooltip_ability_axe_rune_q_3"                             "[Q3] Heroic Leap"
+        "DOTA_Tooltip_ability_axe_rune_q_3_Description"                 "Когда Red General произнесет заклинание @Ability1, он прыгнет к месту, где по приземлении активируется усиленная способность @Ability4."
+        "DOTA_Tooltip_ability_axe_rune_q_3_property_one"                "Урон"
+        "DOTA_Tooltip_ability_axe_rune_q_3_suffix"                      "% от умения Sunder"
+		
+		
+        "DOTA_Tooltip_ability_axe_rune_q_4"                             "[Q4] Brutal Expansion"
+        "DOTA_Tooltip_ability_axe_rune_q_4_Description"                 "Задетые умением @Ability1 враги будут получать увеличенный <font color=\"#DDDDDD\">Нормальный</font> урон. Эффект складывается до 20 раз."
+        "DOTA_Tooltip_ability_axe_rune_q_4_property_one"                "Усиление Нормального урона"
+        "DOTA_Tooltip_ability_axe_rune_q_4_suffix"                      "%"
+
+        "DOTA_Tooltip_modifier_axe_rune_q_4_visible"					"Brutal Expansion"
+        "DOTA_Tooltip_modifier_axe_rune_q_4_visible_Description"		"Получает увеличенный Нормальный урон от The Red General"
+		
+		
+		"DOTA_Tooltip_ability_backshock"                                "Spur Shock"
+        "DOTA_Tooltip_ability_backshock_Description"                    "Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Red General выпускает 3 борозды позади себя."
+        "DOTA_Tooltip_ability_backshock_Lore"                           ""
+        "DOTA_Tooltip_ability_backshock_main_damage"                    "УРОН ЗА ВОЛНУ:"
+        "DOTA_Tooltip_ability_backshock_speed"                          "СКОРОСТЬ ВОЛНЫ:"
+		
+		"DOTA_Tooltip_ability_axe_rune_w_1"                             "[W1] Aftershock"
+        "DOTA_Tooltip_ability_axe_rune_w_1_Description"                 "Враги, задетые бороздой от умения @Ability2 получают дополнительный урон каждые 0.3 секуны в течении 3 секунд."
+        "DOTA_Tooltip_ability_axe_rune_w_1_property_one"                "Урон за тик"
+        "DOTA_Tooltip_ability_axe_rune_w_1_suffix"                      "% от урона Spur Shock"
+		"DOTA_Tooltip_modifier_axe_rune_w_1_visible"					"Aftershock"
+        "DOTA_Tooltip_modifier_axe_rune_w_1_visible_Description"		"Получает дополнительный урон каждые 0.3 секунды."
+		
+		"DOTA_Tooltip_ability_axe_rune_w_2"                             "[W2] Nullifying Wavelength"
+        "DOTA_Tooltip_ability_axe_rune_w_2_Description"                 "Враги, задетые @Ability2 теряют магическое сопротивление. Эффект складывается до 3 раз."
+        "DOTA_Tooltip_ability_axe_rune_w_2_property_one"                "Снижение магического сопротивления"
+        "DOTA_Tooltip_ability_axe_rune_w_2_suffix"                      "%"
+
+        "DOTA_Tooltip_modifier_axe_rune_w_2_visible"					"Nullifying Wavelength"
+        "DOTA_Tooltip_modifier_axe_rune_w_2_visible_Description"		"Магическое сопротивление снижено"
+		
+		"DOTA_Tooltip_ability_axe_rune_w_3"                             "[W3] Fury"
+        "DOTA_Tooltip_ability_axe_rune_w_3_Description"                 "С каждым прочтением @Ability2 герой исцеляет себя. Сила лечения умножается на уровень умения @Ability2."
+        "DOTA_Tooltip_ability_axe_rune_w_3_property_one"                "Лечение"
+        "DOTA_Tooltip_ability_axe_rune_w_3_suffix"                      "% от Макс. ХП"
+		
+		"DOTA_Tooltip_ability_axe_rune_w_4"                             "[W4] Thunderfoot"
+        "DOTA_Tooltip_ability_axe_rune_w_4_Description"                 "Урон умения @Ability2  увеличивается за счёт показателя Силы героя."
+        "DOTA_Tooltip_ability_axe_rune_w_4_property_one"                "Доп. урон"
+        "DOTA_Tooltip_ability_axe_rune_w_4_suffix"                      "% за каждые 10 очков Силы"
+ 
+		
+		
+		"DOTA_Tooltip_ability_whirlwind"                                "Redmist Cyclone"
+        "DOTA_Tooltip_ability_whirlwind_Description"                    "The Red General начинает быстро вращаться, захватывая всех врагов поблизости (кроме боссов) и перемещаясь с ними вперёд. Каждые 0.18 секунды вращения The Red General снимает с себя эффект оглушения, а захваченные способностью враги исцеляют героя."
+        "DOTA_Tooltip_ability_whirlwind_Lore"                           ""
+        "DOTA_Tooltip_ability_whirlwind_heal"                           "ЛЕЧЕНИЕ ЗА ВРАГА ЗА ТИК:"
+        "DOTA_Tooltip_ability_whirlwind_radius"                         "РАДИУС:"
+		
+		"DOTA_Tooltip_ability_axe_rune_e_1"                             "[E1] Endurance"
+        "DOTA_Tooltip_ability_axe_rune_e_1_Description"                 "Когда Red General теряет здоровье, он получает бонус ко всем атрибутам."
+        "DOTA_Tooltip_ability_axe_rune_e_1_property_one"                "Доп. атрибуты"
+        "DOTA_Tooltip_ability_axe_rune_e_1_suffix"                      " за каждые 5% отсутствующего здоровья"
+ 
+        "DOTA_Tooltip_modifier_axe_rune_e_1_visible"                    "Endurance"
+        "DOTA_Tooltip_modifier_axe_rune_e_1_visible_Description"        "Получены доп. атрибуты за отсутствие здоровья"
+		
+		"DOTA_Tooltip_ability_axe_rune_e_2"                             "[E2] Cyclone Storm"
+        "DOTA_Tooltip_ability_axe_rune_e_2_Description"                 "Создаваемые мощные потоки от умения @Ability3 помогают герою наносить увеличенный урон. Эффект длится 5 секунд и обновляется с прочтением @Ability1."
+        "DOTA_Tooltip_ability_axe_rune_e_2_property_one"                "Бонус к атаке"
+        "DOTA_Tooltip_ability_axe_rune_e_2_suffix"                      "%"
+ 
+        "DOTA_Tooltip_modifier_axe_rune_e_2_tornado"                    "Cyclone Storm"
+        "DOTA_Tooltip_modifier_axe_rune_e_2_tornado_Description"        "Получен бонусный %% к атаке"
+		
+		"DOTA_Tooltip_ability_axe_rune_e_3"                             "[E3] Whirlwind"
+        "DOTA_Tooltip_ability_axe_rune_e_3_Description"                 "Враги, переносимые с помощью умения @Ability3 получают чистый урон, зависящий от урона героя. Нанесение урона происходит за каждый тик от умения @Ability3."
+        "DOTA_Tooltip_ability_axe_rune_e_3_property_one"                "Урон"
+        "DOTA_Tooltip_ability_axe_rune_e_3_suffix"                      "% от урона атаки героя"
+		
+		"DOTA_Tooltip_modifier_axe_rune_e_3_shield"                     "Cyclonic Shield"
+        "DOTA_Tooltip_modifier_axe_rune_e_3_shield_Description"         "Получаемый урон снижен на 50%%."
+ 
+        "DOTA_Tooltip_modifier_axe_rune_e_3"                            "Cyclonic Parry"
+        "DOTA_Tooltip_modifier_axe_rune_e_3_description"                "Увеличено магическое сопротивление и броня."
+		
+		"DOTA_Tooltip_ability_axe_rune_e_4"                             "[E4] Cyclone Shield"
+        "DOTA_Tooltip_ability_axe_rune_e_4_Description"                 "С прочтением @Ability3 есть шанс, что герой получит заряды щита. Пока активны заряды щита, герой получает на 80% меньше урона из всех источников. Длительность каждого заряда щита - 7 секунд. Значение шанса выше 100% гарантирует получение нескольких зарядов."
+        "DOTA_Tooltip_ability_axe_rune_e_4_property_one"                "Шанс получения щита"
+        "DOTA_Tooltip_ability_axe_rune_e_4_suffix"                      "%"
+		
+		"DOTA_Tooltip_modifier_axe_rune_e_4_furnace"                    "Deep Furnace"
+        "DOTA_Tooltip_modifier_axe_rune_e_4_furnace_Description"        "Casting Spur Shock unleashes charges."
+ 
+        "DOTA_Tooltip_ability_sunder"                                   "Sunder"
+        "DOTA_Tooltip_ability_sunder_Description"                       "Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Red General поднимает своё оружие вверх и через 2 секунды бьёт о землю перед собой, распространяя ударные волны, наносящие урон врагам в радиусе. Наносимый урон зависит от текущего здоровья героя."
+        "DOTA_Tooltip_ability_sunder_Lore"                              ""
+        "DOTA_Tooltip_ability_sunder_main_damage"                       "УРОН, % ОТ ТЕКУЩЕГО ЗДОРОВЬЯ:"
+		
+		"DOTA_Tooltip_ability_axe_rune_r_1"                             "[R1] Berserker's Call"
+        "DOTA_Tooltip_ability_axe_rune_r_1_Description"                 "При успешном прочтении @Ability4, Red General создаёт мощный импульс в радиусе 800, заставляющий всех врагов атаковать только его. Пока активно, весь получаемый героем урон возвращается обратно в атакующих. Тип возвращаемого урона: физический. Максимальный возвращаемый урон ограничен 20х макс. здоровья героя."
+        "DOTA_Tooltip_ability_axe_rune_r_1_property_one"                "Возвращение урона"
+        "DOTA_Tooltip_ability_axe_rune_r_1_suffix"                      "x от полученного урона"
+
+        "DOTA_Tooltip_modifier_axe_rune_r_1_taunt"						"Berserker's Call"
+        "DOTA_Tooltip_modifier_axe_rune_r_1_taunt_Description"			"Taunted."
+		
+		"DOTA_Tooltip_ability_axe_rune_r_2"                             "[R2] Tremor"
+        "DOTA_Tooltip_ability_axe_rune_r_2_Description"                 "Расходящиеся волны от руны [R1] наносят врагам урон, основанный на уроне умения @Ability4."
+        "DOTA_Tooltip_ability_axe_rune_r_2_property_one"                "Урон"
+        "DOTA_Tooltip_ability_axe_rune_r_2_suffix"                      "% от урона Sunder"
+		
+		"DOTA_Tooltip_ability_axe_rune_r_3"                             "[R3] Adrenaline"
+        "DOTA_Tooltip_ability_axe_rune_r_3_Description"                 "С началом прочтения @Ability4, герой получает бонус к макс. здоровью и броне."
+        "DOTA_Tooltip_ability_axe_rune_r_3_property_one"                "Доп. макс. здоровье"
+        "DOTA_Tooltip_ability_axe_rune_r_3_suffix"                      ""
+        "DOTA_Tooltip_ability_axe_rune_r_3_property_two"                "Доп. броня"
+        "DOTA_Tooltip_ability_axe_rune_r_3_suffix_two"                      ""
+
+        "DOTA_Tooltip_modifier_axe_rune_r_3_visible"					"Adrenaline"
+        "DOTA_Tooltip_modifier_axe_rune_r_3_visible_Description"		"Броня и максимальный уровень здоровья увеличены."
+ 
+        "DOTA_Tooltip_modifier_axe_rune_r_3"                            "Visceral Force"
+        "DOTA_Tooltip_modifier_axe_rune_r_3_description"                "Spur Shocks наносит увеличенный урон."
+		
+		"DOTA_Tooltip_modifier_axe_rune_r_3_shield"						"Cyclone Shield"
+        "DOTA_Tooltip_modifier_axe_rune_r_3_shield_Description"			"Получает на 80%% меньше урона."	
+ 
+		"DOTA_Tooltip_ability_axe_rune_r_4"                             "[R4] Enforcer"
+        "DOTA_Tooltip_ability_axe_rune_r_4_Description"                 "За каждые 50% резиста(рассчитываются логарифмически) действующего на все типы урона и не зависящего как-либо от врагов дается 1 заряд руны. Заряды увеличивают пост-резистный урон Red General. Не работает с щитами на 100% поглощения урона.<br>(Подсказка: получение зарядов происходит при достижении сопротивления от 0% до 50%, 75%, 87.5%, 93.75%, 96.875% и так далее)"
+        "DOTA_Tooltip_ability_axe_rune_r_4_property_one"                "Увеличени пост-резистного урона за заряд"
+        "DOTA_Tooltip_ability_axe_rune_r_4_suffix"                      "%"
+ 
+        "DOTA_Tooltip_modifier_axe_rune_r_4_visible"                    "Enforcer"
+        "DOTA_Tooltip_modifier_axe_rune_r_4_visible_description"        "Пост-резистный урон увеличен."
+ 
+		//Arcanas
+		"item_property_axe_arcana1"                                     "Terraforming"
+        "property_axe_arcana1_description"                              "Заменяет (R) @Ability4 и все соответствующие руны на (R) Terraforming."
+ 
+        "DOTA_Tooltip_ability_axe_arcana_smash"                         "Terraforming"
+        "DOTA_Tooltip_ability_axe_arcana_smash_Description"             "Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Мощным ударом топора о землю создаёт огромный разлом впереди себя, который взрывается спустя 2 секунды."
+        "DOTA_Tooltip_ability_axe_arcana_smash_attack_power_mult_percent"   "УРОН, % ОТ УРОНА ГЕРОЯ:"
+        "DOTA_Tooltip_ability_axe_arcana_smash_stun_duration"           "ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+ 
+        "DOTA_Tooltip_ability_axe_rune_r_1_arcana1"                     "[R1] Tectonic Force"
+        "DOTA_Tooltip_ability_axe_rune_r_1_arcana1_Description"         "Умение @Ability4 наносит увеличенный пост-резистный урон."
+        "DOTA_Tooltip_ability_axe_rune_r_1_arcana1_property_one"        "Усиление пост-резистного урона"
+        "DOTA_Tooltip_ability_axe_rune_r_1_arcana1_suffix"              "%"
+ 
+        "DOTA_Tooltip_ability_axe_rune_r_2_arcana1"                     "[R2] Aftermath"
+        "DOTA_Tooltip_ability_axe_rune_r_2_arcana1_Description"         "За каждого юнита, задетого умением @Ability4, герой получает бонус к основному урону атаки на 12 секунд. Максимум 5 зарядов. Получение зарядов происходит непосредственно перед нанесением умением урона."
+        "DOTA_Tooltip_ability_axe_rune_r_2_arcana1_property_one"        "Бонус к основному урону"
+        "DOTA_Tooltip_ability_axe_rune_r_2_arcana1_suffix"              ""
+ 
+        "DOTA_Tooltip_modifier_axe_arcana_b_d_attack_power"             "Blistering Rage"
+        "DOTA_Tooltip_modifier_axe_arcana_b_d_attack_power_Description" "Базовый урон увеличен"
+ 
+        "DOTA_Tooltip_ability_axe_rune_r_3_arcana1"                     "[R3] Upheaval"
+        "DOTA_Tooltip_ability_axe_rune_r_3_arcana1_Description"         "Враги, попавшие под действие умения @Ability4 будут получать увеличенный Нормальный стихийный урон в течении последующих 9 секунд. Этот эффект применяется до нанесения урона от умения @Ability4."
+        "DOTA_Tooltip_ability_axe_rune_r_3_arcana1_property_one"        "Увеличение Нормальный стихийного урона"
+        "DOTA_Tooltip_ability_axe_rune_r_3_arcana1_suffix"              "%"
+
+        "DOTA_Tooltip_ability_axe_rune_r_4_arcana1"                     "[R4] Seismic Shock"
+        "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_Description"         "Добавляет шанс на появление дополнительных разломов. Радиус распространения разлома увеличен. Значение шанса выше 100% гарантирует появление нескольких разломов. Для руны [Q3] работает только половина бонуса."
+        "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_property_one"        "Шанс на доп. разлом"
+        "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_suffix"              "%"
+        "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_property_two"        "Доп. радиус разлома"
+        "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_suffix_two"          ""
+
+		//Glyphs
+		"DOTA_Tooltip_ability_item_rpc_axe_glyph_1_1"       "(T1) Символ битвы"
+        "item_rpc_axe_glyph_1_1_description"                "Снижает весь получаемый урон на @glyph_property1%."
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_1"       "(T2) Символ шокового удара"
+        "item_rpc_axe_glyph_2_1_description"                "Умение (W) @Ability2 выпускает 9 волн во всех направлениях."
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_3_1"       "(T3) Символ порыва"
+        "item_rpc_axe_glyph_3_1_description"                "Время между тиками от умения (E) @Ability3 снижено на 50% и составляет 0.09 секунды."
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_1"       "(T4) Символ кругового удара"
+        "item_rpc_axe_glyph_4_1_description"                "С каждым прочтением (W) @Ability2, Red General совершает мощную круговую атаку, нанося физический урон в размере 60% от своего общего урона всем врагам поблизости. Урон умножается на уровень прокачки умения (W) @Ability2."
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_1"       "(T5) Символ импульса" // lower pitch base sound high pitch strike sound
+        "item_rpc_axe_glyph_5_1_description"                "Время оглушения от умения (Q) @Ability1 снижено до 0.03 сек., но урон от этой способности увеличен в @glyph_property1 раз(а)."
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_1"       "(T6) Символ мускульной силы"
+        "item_rpc_axe_glyph_6_1_description"                "Умение (R) @Ability4 применяется @glyph_property1 раз(а), вместо одного."
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_1"       "(T7) Символ героического сражения"
+        "item_rpc_axe_glyph_7_1_description"                "Убирает бонус к урону от (Q) @Ability1, но сокращает время перезарядки умения до 1.5 секунды."
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_1_2"       "(T1) Символ Heel Stomp"
+        "item_rpc_axe_glyph_1_2_description"                "Враги, задетые умением (W) @Ability2 будут кратковременно оглушены на 0.08 секунды."
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_2"       "(T2) Символ ржавой стали"
+        "item_rpc_axe_glyph_2_2_description"                "Руна [Q4] дополнительно снижает вражескую броню на -@glyph_property1 за заряд."
+
+        "DOTA_Tooltip_modifier_axe_glyph_2_2_visible"		"Ruptured Steel"
+        "DOTA_Tooltip_modifier_axe_glyph_2_2_visible_Description"	"Снижена броня"	
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_3_2"       "(T3) Символ неистового гнева"
+        "item_rpc_axe_glyph_3_2_description"                "Руна [Q2] даёт герою @glyph_property1 заряда(ов) вместо 1, если целью атаки является босс."
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_2"       "(T4) Символ красного циклона"
+        "item_rpc_axe_glyph_4_2_description"                "Во время действия умения (E) @Ability3, весь входящий урон снижается на @glyph_property1%."
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_2"       "(T5) Символ натиска"
+        "item_rpc_axe_glyph_5_2_description"                "После успешного прочтения (R) @Ability4, в последующие @glyph_property1 секунд урон умения (W) @Ability2 будет увеличен на @glyph_property2%"
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_2"       "(T6) Символ сокращения"
+        "item_rpc_axe_glyph_6_2_description"                "Увеличивает сопротивление щитов от руны [E4] до @glyph_property1%, но снижает шанс получения щита до @glyph_property2% за каждое очко руны, вместо 150%."
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_2"       "(T7) Символ ярости"
+        "item_rpc_axe_glyph_7_2_description"                "Пока активно умение (Q) @Ability1, максимальное количество зарядов руны [Q2] Berserker Rage увеличено до @glyph_property1, а количество получаемых зарядов увеличено на @glyph_property2. Половина зарядов активна постоянно."
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_a"       "(Immortal) Glyph of the Marshall"
+        "item_rpc_axe_glyph_5_a_description"                "Увеличивает урон, наносимый умением (R) @Ability4 и всеми соответствующими умению рунами на @glyph_property1%."
+
+		"DOTA_Tooltip_ability_item_rpc_axe_glyph_book"		"Книга символов Red General"
+
+		//Weapons
+		"axe_weapon_00"			"Basic Axe"
+		"axe_weapon_01"			"Mighty Cleaver"
+		"axe_weapon_02"			"Silver Axe"
+		"axe_weapon_03"			"Earthforge Axe"
+		"axe_weapon_11"			"Thorium Edge"
+		"axe_weapon_12"			"Axe of Desolation"
+		"axe_weapon_13"			"Heavy Skullsplitter"
+		"axe_weapon_14"			"Shockwave Sunderer"
+		"axe_weapon_21"			"Battlerage Axe"
+		"axe_weapon_22"			"Crimson Skullsplitter"
+		"axe_weapon_23"			"Mithril Forged Swiftaxe"
+		"axe_weapon_24"			"Hook of the Defiler"
+		"axe_weapon_25"			"Master Deathforge Axe"
+		
+		"DOTA_Tooltip_ability_item_rpc_basic_axe"   "Axe"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_00"   "Axe"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_01"   "Mighty Cleaver"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_02"   "Silver Axe"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_03"   "Earthforge Axe"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_11"   "Thorium Edge"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_12"   "Axe of Desolation"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_13"   "Heavy Skullsplitter"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_14"   "Shockwave Sunderer"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_21"   "Red Battlefury"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_22"   "Crimson Skullsplitter"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_23"   "Mithril Forged Swiftaxe"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_24"   "Hook of the Defiler"
+		"DOTA_Tooltip_ability_item_rpc_axe_weapon_25"   "Master Deathforge Axe"
+		
+		"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_1"		"Rakash, Grandfather Axe"
+		"item_property_axe_immortal_weapon"								"Combat Veteran"
+		"property_axe_immortal_weapon_description"						"Снижает весь получаемый урон на 50%"
+
+		"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_2"            "Red Battlefury"
+        "item_property_axe_immortal_weapon2"                            "Frenzied Berserker"
+        "property_axe_immortal_weapon2_description"                        "Пока активно умение (E) @Ability3, скорость передвижения и максимальная скорость передвижения героя увеличены на @special_property1. Дополнительно увеличивает урон от руны [E3] Whirlwind против монстров парагона и боссов на @special_property2%."
+
+        "DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_3"            "Ragnar's Thunderax"
+        "item_property_axe_immortal_weapon3"                            "Overpower"
+        "property_axe_immortal_weapon3_description"                        "При прочтении способности (R) @Ability4, количество имеющихся зарядов [E4] увеличивается на @special_property1%" 	
+ 

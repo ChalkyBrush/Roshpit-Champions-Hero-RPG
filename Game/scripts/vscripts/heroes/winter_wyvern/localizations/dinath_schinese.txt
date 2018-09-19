@@ -1,0 +1,224 @@
+		//Abilities
+		"DOTA_Tooltip_ability_dinath_arctic_burn"								"霜龙怒火"
+    	"DOTA_Tooltip_ability_dinath_arctic_burn_Description"					"元素: <font color=\"#3289C7\">龙</font> / <font color=\"#EF4126\">火</font><br>帝纳斯向目标区域喷吐霜龙之火，受影响的区域范围将会持续灼烧7秒。 在该区域的敌人每0.5秒承受一次火焰的伤害。当帝纳斯距离地面越高时，喷吐的火焰区域越大。"
+    	"DOTA_Tooltip_ability_dinath_arctic_burn_damage_base"					"基础伤害:"
+    	"DOTA_Tooltip_ability_dinath_arctic_burn_damage_attack_power"			"%攻击力加入到火焰伤害中:"
+		
+		"DOTA_Tooltip_modifier_arctic_burn_freecast"							"霜龙怒火充能"
+    	"DOTA_Tooltip_modifier_arctic_burn_freecast_Description"				"霜龙怒火将不会进入冷却"
+		
+		"DOTA_Tooltip_ability_dinath_scorch_charge"								"火焰切割"
+    	"DOTA_Tooltip_ability_dinath_scorch_charge_Description"					"在空中飞行时，直接向目标地点冲刺，身下留下一道霜龙怒火的轨迹。"
+		
+		"DOTA_Tooltip_ability_dinath_rune_q_1"									"[Q1] 致残霜火"
+    	"DOTA_Tooltip_ability_dinath_rune_q_1_Description"						"在霜龙怒火中的敌人将被减速。"
+    	"DOTA_Tooltip_ability_dinath_rune_q_1_property_one"						"移速降低"
+    	"DOTA_Tooltip_ability_dinath_rune_q_1_suffix"							""
+
+    	"DOTA_Tooltip_modifier_arctic_burn_slow"									"致残霜火"
+    	"DOTA_Tooltip_modifier_arctic_burn_slow_Description"						"减速"	
+
+    	"DOTA_Tooltip_ability_dinath_rune_q_2"									"[Q2] 闷烧"
+    	"DOTA_Tooltip_ability_dinath_rune_q_2_Description"						"帝纳斯的霜龙怒火将持续更久。"
+    	"DOTA_Tooltip_ability_dinath_rune_q_2_property_one"						"持续时间延长"
+    	"DOTA_Tooltip_ability_dinath_rune_q_2_suffix"							" 秒"
+
+    	"DOTA_Tooltip_ability_dinath_rune_q_3"									"[Q3] 火焰切割"
+    	"DOTA_Tooltip_ability_dinath_rune_q_3_Description"						"当霜龙怒火进入冷却时，改技能替换为火焰切割。在空中飞行时，直接向目标地点冲刺，身下留下一道霜龙怒火的轨迹。"
+    	"DOTA_Tooltip_ability_dinath_rune_q_3_property_one"						"最远施法距离"
+    	"DOTA_Tooltip_ability_dinath_rune_q_3_suffix"							""
+
+    	"DOTA_Tooltip_ability_dinath_rune_q_4"									"[Q4] 业火缠身"
+    	"DOTA_Tooltip_ability_dinath_rune_q_4_Description"						"被霜龙怒火灼烧的敌人降低施法速率。"
+    	"DOTA_Tooltip_ability_dinath_rune_q_4_property_one"						"施法速度降低"
+    	"DOTA_Tooltip_ability_dinath_rune_q_4_suffix"							"%"
+		
+		"DOTA_Tooltip_ability_dinath_drake_ring"								"德雷克之眼"
+    	"DOTA_Tooltip_ability_dinath_drake_ring_Description"					"元素: <font color=\"#3289C7\">龙</font> / <font color=\"#87D9FF\">冰</font><br>帝纳斯控制一缕晶莹的空气在目标地点产生一个环形区域，需要1秒的时间完成该过程。 站在该区域的所有敌人，只要他们在攻击范围内都会全部自动的被帝纳斯攻击。被动提升帝纳斯的攻击范围，被动为帝纳斯的普通攻击加入额外的纯粹伤害。"
+    	"DOTA_Tooltip_ability_dinath_drake_ring_radius"							"半径："
+    	"DOTA_Tooltip_ability_dinath_drake_ring_attack_range_bonus"				"被动提升攻击力范围:"
+    	"DOTA_Tooltip_ability_dinath_drake_ring_damage_mult"					"x%攻击力加入到纯粹伤害中:"
+		
+		"DOTA_Tooltip_ability_dinath_rune_w_1"									"[W1] 晶莹之风"
+    	"DOTA_Tooltip_ability_dinath_rune_w_1_Description"						"在放置德雷克之眼的三秒后，获得额外的攻击力加成。 当德雷克之眼存在的时候，再次释放，将会移除该buff，并在三秒后再次获得。"
+    	"DOTA_Tooltip_ability_dinath_rune_w_1_property_one"						"攻击力"
+    	"DOTA_Tooltip_ability_dinath_rune_w_1_suffix"								"%"
+
+    	"DOTA_Tooltip_modifier_drake_ring_a_b"									"晶莹之风"
+    	"DOTA_Tooltip_modifier_drake_ring_a_b_Description"						"增加攻击力"
+
+    	"DOTA_Tooltip_ability_dinath_rune_w_2"									"[W2] 清扫之禁咒"
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_Description"						"站在德雷克之眼中的敌人承受的税后魔法伤害增加。"
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_property_one"						"税后魔法伤害提高"
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_suffix"								"%"
+
+    	"DOTA_Tooltip_ability_dinath_rune_w_3"									"[W3] 石化蛇环"
+    	"DOTA_Tooltip_ability_dinath_rune_w_3_Description"						"站在德雷克之眼中的敌人将被石化缠绕。"
+    	"DOTA_Tooltip_ability_dinath_rune_w_3_property_one"						"缠绕持续时间："
+    	"DOTA_Tooltip_ability_dinath_rune_w_3_suffix"							" 秒"
+
+    	"DOTA_Tooltip_modifier_drake_ring_root"									"石化蛇环"
+    	"DOTA_Tooltip_modifier_drake_ring_root_Description"						"被缠绕"
+
+    	"DOTA_Tooltip_ability_dinath_rune_w_4"									"[W4] 巨龙之凝视"
+    	"DOTA_Tooltip_ability_dinath_rune_w_4_Description"						"增大德雷克之眼的半径"
+    	"DOTA_Tooltip_ability_dinath_rune_w_4_property_one"						"半径增加"
+    	"DOTA_Tooltip_ability_dinath_rune_w_4_suffix"							""
+		
+		"DOTA_Tooltip_ability_dinath_dragon_dive"										"龙腾"
+    	"DOTA_Tooltip_ability_dinath_dragon_dive_Description"							"帝纳斯飞腾而起，曲线划过天空，在飞行中逐渐爬升高度，最高可达到480码，随后会缓缓降下。"
+    	"DOTA_Tooltip_ability_dinath_dragon_dive_cast_range"							"飞行距离:"
+
+    	"DOTA_Tooltip_modifier_dinath_postflight_actual_flying"						"滑翔"
+		
+		"DOTA_Tooltip_ability_dinath_rune_e_1"									"[E1] 逆风"
+    	"DOTA_Tooltip_ability_dinath_rune_e_1_Description"						"释放龙腾后提高攻击速度7秒"
+    	"DOTA_Tooltip_ability_dinath_rune_e_1_property_one"						"攻速提高"
+    	"DOTA_Tooltip_ability_dinath_rune_e_1_suffix"						    ""
+
+    	"DOTA_Tooltip_modifier_dinath_dive_attackspeed"							"逆风"
+    	"DOTA_Tooltip_modifier_dinath_dive_attackspeed_Description"				"提高攻速"	
+
+    	"DOTA_Tooltip_ability_dinath_rune_e_2"									"[E2] 聚合"
+    	"DOTA_Tooltip_ability_dinath_rune_e_2_Description"						"从装备上直接获得的提高攻击力的数值获得额外的加成"
+    	"DOTA_Tooltip_ability_dinath_rune_e_2_property_one"						"从装备上获得的攻击力加成数值提高"
+    	"DOTA_Tooltip_ability_dinath_rune_e_2_suffix"							"%"
+
+    	"DOTA_Tooltip_ability_dinath_rune_e_3"									"[E3] 天空之视"
+    	"DOTA_Tooltip_ability_dinath_rune_e_3_Description"						"在龙腾的持续时间中以及随后的一秒内，大幅提高攻击距离。"
+    	"DOTA_Tooltip_ability_dinath_rune_e_3_property_one"						"攻击距离"
+    	"DOTA_Tooltip_ability_dinath_rune_e_3_suffix"							""
+
+    	"DOTA_Tooltip_modifier_dinath_dive_attack_range"						"天空之视"
+    	"DOTA_Tooltip_modifier_dinath_dive_attack_range_Description"			"提高攻击距离"
+
+    	"DOTA_Tooltip_ability_dinath_rune_e_4"									"[E4] 世界之巅"
+    	"DOTA_Tooltip_ability_dinath_rune_e_4_Description"						"当帝纳斯飞行超过一定的海拔高度阈值的时候，就无法再被敌人攻击到。"
+    	"DOTA_Tooltip_ability_dinath_rune_e_4_property_one"						"高度的阈值"
+    	"DOTA_Tooltip_ability_dinath_rune_e_4_suffix"							""
+		
+		"DOTA_Tooltip_modifier_dinath_dive_attack_immune"						"世界之巅"
+    	"DOTA_Tooltip_modifier_dinath_dive_attack_immune_Description"			"无法被攻击到"
+		
+		"DOTA_Tooltip_ability_dinath_hyper_beam"								"破坏死光"
+    	"DOTA_Tooltip_ability_dinath_hyper_beam_Description"					"巨龙的能量被帝纳斯持续地注入到光线中，光球随着引导逐渐长大，2.5秒后会彻底完成充能。当充能完全结束后，或者在充能期间中断，都会立刻向前发射光球，被光球击中的敌人会被冻结缠绕。"
+    	"DOTA_Tooltip_ability_dinath_hyper_beam_freeze_duration"				"冻结持续时间"
+
+    	"DOTA_Tooltip_modifier_hyperbeam_freeze"								"破坏死光冻结"
+		
+		"DOTA_Tooltip_ability_dinath_rune_r_1"									"[R1] 暴风雨"
+    	"DOTA_Tooltip_ability_dinath_rune_r_1_Description"						"破坏死光会高频的电击附近的敌人。电击的半径基于破坏死光光球的半径。同时闪电的伤害也会受到光球的半径加成。闪电打击间隔 0.2秒。"
+    	"DOTA_Tooltip_ability_dinath_rune_r_1_property_one"						"基础伤害"
+    	"DOTA_Tooltip_ability_dinath_rune_r_1_suffix"							"% 的攻击力"
+
+    	"DOTA_Tooltip_ability_dinath_rune_r_2"									"[R2] 细胞坏死"
+    	"DOTA_Tooltip_ability_dinath_rune_r_2_Description"						"被破坏死光的光球直接击中的敌人，受到的全部税后伤害提高。"
+    	"DOTA_Tooltip_ability_dinath_rune_r_2_property_one"						"税后伤害提高"
+    	"DOTA_Tooltip_ability_dinath_rune_r_2_suffix"							"%"
+
+    	"DOTA_Tooltip_modifier_hyperbeam_postmit"								"细胞坏死"
+    	"DOTA_Tooltip_modifier_hyperbeam_postmit_Description"					"受到来自帝纳斯的全部税后伤害提高"
+
+    	"DOTA_Tooltip_ability_dinath_rune_r_3"									"[R3] 能量节点"
+    	"DOTA_Tooltip_ability_dinath_rune_r_3_Description"						"提高破坏死光的光球充能速率。（充能时间并不减少，所以光球会更大）"
+    	"DOTA_Tooltip_ability_dinath_rune_r_3_property_one"						"充能速率"
+    	"DOTA_Tooltip_ability_dinath_rune_r_3_suffix"							"%"
+
+    	"DOTA_Tooltip_ability_dinath_rune_r_4"									"[R4] 海德拉的血脉"
+    	"DOTA_Tooltip_ability_dinath_rune_r_4_Description"				"帝纳斯的全属性提高 <font color=\"#3289C7\">龙</font> 元素伤害。"
+    	"DOTA_Tooltip_ability_dinath_rune_r_4_property_one"				"伤害提高"
+    	"DOTA_Tooltip_ability_dinath_rune_r_4_suffix"					"% 每10点全属性值。"
+		
+		//Arcanas
+		"item_property_dinath_arcana1"										"螺旋吐息"
+    	"property_dinath_arcana1_description"								"用螺旋吐息替换 @Ability2 及其所有符文。"
+
+    	"DOTA_Tooltip_ability_dinath_dragon_fire"						"螺旋吐息"
+    	"DOTA_Tooltip_ability_dinath_dragon_fire_Description"			"元素: <font color=\"#3289C7\">龙</font> / <font color=\"#87D9FF\">冰</font><br>被动地为帝纳斯的攻击加入纯粹伤害。技能开启后，获得额外的攻击距离加成和额外的分裂攻击目标。每次攻击汲取自身魔法值，而且技能开启后，也会每秒消耗魔法值。"
+    	"DOTA_Tooltip_ability_dinath_dragon_fire_damage_mult"				"x%攻击力加入到纯粹伤害中:"
+    	"DOTA_Tooltip_ability_dinath_dragon_fire_mana_cost"				"魔法消耗:"
+    	"DOTA_Tooltip_ability_dinath_dragon_fire_extra_range"				"额外攻击距离:"
+    	"DOTA_Tooltip_ability_dinath_dragon_fire_max_targets"				"最大攻击目标数:"
+
+
+    	"DOTA_Tooltip_ability_dinath_rune_w_1_arcana1"						"[W1] 冰川之翼"
+    	"DOTA_Tooltip_ability_dinath_rune_w_1_arcana1_Description"			"被动提高攻击力 x%."
+    	"DOTA_Tooltip_ability_dinath_rune_w_1_arcana1_property_one"			"攻击力加成"
+    	"DOTA_Tooltip_ability_dinath_rune_w_1_arcana1_suffix"				"%"
+
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1"							"[W2] 冰霜震颤"
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_Description"				"<font color=\"#87D9FF\">冰</font> 元素伤害受移速加成."
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_property_one"				"冰元素伤害提高"
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_suffix"					"% 移动速度"
+
+    	"DOTA_Tooltip_ability_dinath_rune_w_3_arcana1"							"[W3] 风洞"
+    	"DOTA_Tooltip_ability_dinath_rune_w_3_arcana1_Description"				"被动提高移速和移动速度上限。开启或者关闭螺旋吐息的时候都会提高移速，但会随着时间衰减。"
+    	"DOTA_Tooltip_ability_dinath_rune_w_3_arcana1_property_one"				"临时的移动速度"
+    	"DOTA_Tooltip_ability_dinath_rune_w_3_arcana1_suffix"					""
+    	"DOTA_Tooltip_ability_dinath_rune_w_3_arcana1_property_two"				"移速上限提高"
+    	"DOTA_Tooltip_ability_dinath_rune_w_3_arcana1_suffix_two"				""
+
+    	"DOTA_Tooltip_modifier_spire_breath_speed_burst"						"风洞"
+    	"DOTA_Tooltip_modifier_spire_breath_speed_burst_Description"			"提高移速"
+
+    	"DOTA_Tooltip_ability_dinath_rune_w_4_arcana1"							"[W4] 扶摇直上"
+    	"DOTA_Tooltip_ability_dinath_rune_w_4_arcana1_Description"				"螺旋吐息获得额外的攻击目标数，并且少量提升攻击距离。"
+    	"DOTA_Tooltip_ability_dinath_rune_w_4_arcana1_property_one"				"攻击距离提高"
+    	"DOTA_Tooltip_ability_dinath_rune_w_4_arcana1_suffix"					""
+    	"DOTA_Tooltip_ability_dinath_rune_w_4_arcana1_property_two"				"获得额外攻击目标的概率"
+    	"DOTA_Tooltip_ability_dinath_rune_w_4_arcana1_suffix_two"					"%"
+		
+		//Glyphs
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_1_1"		"低温雕文"
+		"item_rpc_dinath_glyph_1_1_description" 				"提高 @Ability4 的冻结持续时间 @glyph_property1 秒。"
+
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_2_1"		"无形雕文"
+		"item_rpc_dinath_glyph_2_1_description" 				"当引导 @Ability4 的时候，保持飞行高度，最大飞行高度 @glyph_property1 。"
+
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_3_1"		"狂火雕文"
+		"item_rpc_dinath_glyph_3_1_description" 				"@Ability1 拥有 @glyph_property1 层最大充能。"
+
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_4_1"		"德雷克清扫"
+		"item_rpc_dinath_glyph_4_1_description" 				"@Ability3 每 @glyph_property1 就可以免冷却释放一次。"
+
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_5_1"		"龙之怒"
+		"item_rpc_dinath_glyph_5_1_description" 				"每次造成一次普通攻击，就能降低全部技能的冷却时间 @glyph_property1 秒。"
+
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_6_1"		"灾难雕文"
+		"item_rpc_dinath_glyph_6_1_description" 				"提高 <font color=\"#EF4126\">火</font>, <font color=\"#87D9FF\">冰</font>, <font color=\"#5CCDF9\">电</font>, 和 <font color=\"#C25DFC\">宇宙</font> 元素伤害 @glyph_property1%."
+
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_7_1"		"龙族魔法"
+		"item_rpc_dinath_glyph_7_1_description" 				"@Ability2 的伤害中加入 @glyph_property1x 当前魔法值, 同时每次攻击可以回复 @glyph_property2% 的最大魔法值"
+
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_5_a"		"金色龙鳞"
+		"item_rpc_dinath_glyph_5_a_description" 				"每当受到一次纯粹或魔法伤害的时候，就立刻进入魔法免疫的状态 @glyph_property1 秒。 冷却时间 @glyph_property2 秒。"
+		
+		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_00"		"Spike"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_01"		"Dragon Spike"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_02"		"Winter Spike"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_03"		"Blue Spike"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_11"		"Glacial Shard"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_12"		"Winterblight Spike"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_13"		"Razor Spike"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_14"		"Blackened Spike"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_21"		"Breath of the North"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_22"		"Razortip Striker"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_23"		"Barb of the Northern Drake"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_24"		"Blue Dragon Spike"
+		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_25"		"Basilisk Claw"
+		
+		"DOTA_Tooltip_ability_item_rpc_dinath_immortal_weapon_1"           "统御者的龍爪"
+        "item_property_dinath_immortal_weapon"                             "超负荷"
+        "property_dinath_immortal_weapon_description"                      "@Ability4 的半径增大 @special_property1 ，飞行距离提高 @special_property2 。"
+
+        "DOTA_Tooltip_ability_item_rpc_dinath_immortal_weapon_2"            "维塔利的呼吸"
+        "item_property_dinath_immortal_weapon2"                             "极光之盾"
+        "property_dinath_immortal_weapon2_description"                      "每次普通攻击产生一层吸收伤害的护盾。"
+		
+		"DOTA_Tooltip_modifier_vitali_shield"							"活力吐息"
+    	"DOTA_Tooltip_modifier_vitali_shield_Description"				"吸收一次伤害"
+
+        "DOTA_Tooltip_ability_item_rpc_dinath_immortal_weapon_3"            "混沌初开之花"
+        "item_property_dinath_immortal_weapon3"                             "宇宙起源"
+        "property_dinath_immortal_weapon3_description"                      "所有<font color=\"#3289C7\">Dragon</font> 元素的伤害，将同时基于其技能的基础伤害造成一次额外的<font color=\"#C25DFC\">宇宙</font> 元素伤害（不与龙元素伤害叠乘）。"

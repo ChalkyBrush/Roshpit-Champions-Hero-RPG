@@ -1,0 +1,265 @@
+"tooltip_duskbringer_Q"											"螺旋枷和冥火枷"
+
+		"DOTA_Tooltip_ability_whirling_flail"							"螺旋枷"
+		"DOTA_Tooltip_ability_whirling_flail_Description"				"元素： <font color=\"#DDDDDD\">普通</font><br>夜幕使者快速挥动他的武器（每0.5秒挥动一次，持续3.5秒），击退附近所有敌人。施放幽灵冲刺之后可立即使用该技能，在冲刺的同时攻击敌人。"
+		"DOTA_Tooltip_ability_whirling_flail_Lore"						""
+		"DOTA_Tooltip_ability_whirling_flail_damage"					"每次挥动武器造成伤害"
+		"DOTA_Tooltip_ability_whirling_flail_knockback"					"击退距离"		
+
+		"DOTA_Tooltip_modifier_whirling_flail"							"螺旋枷"
+		"DOTA_Tooltip_modifier_whirling_flail_Description"  			"快速挥动武器"
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1"						"[Q1] 冥火枷"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_Description"			"施放螺旋枷的时候，夜幕使者的武器将附有冥火，每一次挥动武器（0.5秒）击中敌人并给敌人留下一层 debuff 持续造成灼烧伤害。debuff可以无上限的叠加。"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_property_one"		"每层debuff每秒灼烧伤害"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_suffix"				""		
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_property_two"		"额外伤害为敏捷值的倍数："
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_suffix_two"			"x"
+		
+		"DOTA_Tooltip_modifier_modifier_dusk_fire_flail"				"冥火枷"
+		"DOTA_Tooltip_modifier_modifier_dusk_fire_flail_Description"	"受到灼烧伤害"
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_q_2"						"[Q2] 阴风阵阵"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_2_Description"			"提高直接物品伤害。（基于基础技能的物品伤害将不会受到提高）"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_2_property_one"		"物品伤害提高"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_2_suffix"				"%"
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_q_3"						"[Q3] 黑暗能量"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_3_Description"			"根据敌人与夜幕使者之间的距离提高 螺旋枷 的伤害，距离越近伤害越高。伤害加成与中心距离成反比，并且线性递减，在最边缘处减少为 0。"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_3_property_one"		"中心最大伤害提高"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_3_suffix"				"%"
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_q_4"						"[Q4] 灵魂之触"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_4_Description"			"提高 螺旋枷 的伤害和作用范围。"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_4_property_one"		"伤害提高"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_4_suffix"				"%"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_4_property_two"		"范围提升"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_4_suffix_two"			""
+
+		"DOTA_Tooltip_modifier_duskbringer_rune_q_4"					"苍白燃烧"
+		"DOTA_Tooltip_modifier_duskbringer_rune_q_4_Description"		"攻击会附有冥火伽直接伤害并且造成爆炸"
+		
+		"DOTA_Tooltip_ability_ghost_hallow"								"幽冥之井"
+		"DOTA_Tooltip_ability_ghost_hallow_Description"				"召唤鬼井把所有附近的敌人困住"
+		"DOTA_Tooltip_ability_ghost_hallow_Lore"						""
+		"DOTA_Tooltip_ability_ghost_hallow_radius"						"范围"
+		"DOTA_Tooltip_ability_ghost_hallow_duration"					"囚禁时间"
+
+		"DOTA_Tooltip_ghost_hallow_stun"								"幽冥之井"
+		"DOTA_Tooltip_ghost_hallow_stun_Description"					"被囚禁"
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_w_1"						"[W1] 幽冥之井"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_1_Description"			"当目标被幽冥之井困住，他们每 0.3s 会受到一次基于夜幕使者攻击力的魔法伤害。"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_1_property_one"		"伤害"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_1_suffix"				"% 攻击力"
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_w_2"						"[W2] 天体磁学"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_2_Description"			"被幽冥之井困住的敌人减少魔抗。"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_2_property_one"		"魔法抗性减少"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_2_suffix"				""
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_w_3"						"[W3] 虚空等离子"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_3_Description"			"夜幕使者每次被攻击都会恢复血量"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_3_property_one"		"每次治疗"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_3_suffix"				""
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_w_4"						"[W4] 鬼火"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_4_Description"			"当敌人被缠绕时（任何方式被缠绕时），受到来自夜幕使者的伤害将被加深。（伤害加深计算在敌人减伤之后）"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_4_property_one"		"减伤后伤害加深"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_4_suffix"				"%"
+
+		"DOTA_Tooltip_modifier_duskbringer_rune_w_4_visible"			"物质扩散"
+		"DOTA_Tooltip_modifier_duskbringer_rune_w_4_visible_Description"	"护甲降低"
+		
+		"DOTA_Tooltip_ability_specter_rush"								"幽灵冲刺"
+		"DOTA_Tooltip_ability_specter_rush_Description"					"夜幕使者快速向前冲刺。冲刺时无碰撞体积。"
+		"DOTA_Tooltip_ability_specter_rush_Lore"						""
+		"DOTA_Tooltip_ability_specter_rush_charge_duration"				"持续时间"
+
+		"DOTA_Tooltip_ability_specter_rush_two"							"幽灵冲刺"
+		"DOTA_Tooltip_ability_specter_rush_two_Description"				"夜幕使者快速向前冲刺。冲刺时无碰撞体积。"	
+		"DOTA_Tooltip_ability_specter_rush_two_max_distance"			"最远冲刺距离："
+
+		"DOTA_Tooltip_modifier_charging"								"幽灵冲刺"
+		"DOTA_Tooltip_modifier_charging_Description"					"向前冲刺，无碰撞体积"
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_e_1"						"[E1] 幻影步伐"
+    	"DOTA_Tooltip_ability_duskbringer_rune_e_1_Description"			"夜幕使者保持移动（停留在原地不超过 1s）将会获得 buff，提高攻击力和护甲值。持续施法时将不会丢失 buff。"
+    	"DOTA_Tooltip_ability_duskbringer_rune_e_1_property_one"		"基础攻击力提高"
+    	"DOTA_Tooltip_ability_duskbringer_rune_e_1_suffix"				""		
+    	"DOTA_Tooltip_ability_duskbringer_rune_e_1_property_two"		"基础护甲值提高"
+    	"DOTA_Tooltip_ability_duskbringer_rune_e_1_suffix_two"			"" 
+
+		"DOTA_Tooltip_modifier_duskbringer_rune_e_1_effect"							"幻影步伐"
+		"DOTA_Tooltip_modifier_duskbringer_rune_e_1_effect_Description"				"移动时提高夜幕使者的攻击力和护甲。4秒后移除一层buff"
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_e_2"						"[E2] 鬼灵护甲"
+		"DOTA_Tooltip_ability_duskbringer_rune_e_2_Description"			"施放幽灵冲刺时，创造一个护盾吸收6次的伤害。"
+		"DOTA_Tooltip_ability_duskbringer_rune_e_2_property_one"		"护盾持续时间"
+		"DOTA_Tooltip_ability_duskbringer_rune_e_2_suffix"				" 秒"		
+
+		"DOTA_Tooltip_modifier_duskbringer_rune_e_2_effect"				"鬼灵护甲" 
+		"DOTA_Tooltip_modifier_duskbringer_rune_e_2_effect_Description"	"%property_one 点物理伤害抵挡和 %property_two 点魔法伤害抵挡。"
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_e_3"						"[E3] 虚实相生"
+    	"DOTA_Tooltip_ability_duskbringer_rune_e_3_Description"			"受到 @Ability3 接触并被伤害的敌人将有概率受到一层 冥火枷 的 debuff。概率超过 100% 则会叠加多层 debuff。"
+		"DOTA_Tooltip_ability_duskbringer_rune_e_3_property_one"		"概率"
+		"DOTA_Tooltip_ability_duskbringer_rune_e_3_suffix"				"%"
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_e_4"						"[E4] 英雄不朽"
+		"DOTA_Tooltip_ability_duskbringer_rune_e_4_Description"			"900 码范围内的友军及自己受到致命伤害时，将会进入到冥魂状态。冥魂状态结束时必定死亡，无法救回。"
+		"DOTA_Tooltip_ability_duskbringer_rune_e_4_property_one"		"冥魂状态持续时间"
+		"DOTA_Tooltip_ability_duskbringer_rune_e_4_suffix"				" 秒"
+
+		"DOTA_Tooltip_modifier_duskbringer_ghost_form_active"			"冥魂状态"
+		"DOTA_Tooltip_modifier_duskbringer_ghost_form_active_Description"	"死亡延迟"
+		
+		"DOTA_Tooltip_ability_seven_visions"							"七重梦境"
+		"DOTA_Tooltip_ability_seven_visions_Description"				"元素： <font color=\"#9ACCD1\">鬼</font> / <font color=\"#DDDDDD\">普通</font><br>夜幕使者从四面八方攻击敌军，造成眩晕和额外伤害。持续时间内物理和魔法免疫。"
+		"DOTA_Tooltip_ability_seven_visions_Lore"						""
+		"DOTA_Tooltip_ability_seven_visions_attacks"					"攻击次数"
+		"DOTA_Tooltip_ability_seven_visions_bonus_damage"				"额外伤害"
+		"DOTA_Tooltip_ability_seven_visions_stun_duration"				"眩晕持续时间"
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_r_1"						"[R1] 深度打击"
+		"DOTA_Tooltip_ability_duskbringer_rune_r_1_Description"			"七重梦境中的每次攻击将造成一次 700 范围的AOE魔法伤害。伤害基于 七重梦境 伤害加深前的伤害。（破坚定前伤害）"
+		"DOTA_Tooltip_ability_duskbringer_rune_r_1_property_one"		"伤害为 七重梦境 伤害的"
+		"DOTA_Tooltip_ability_duskbringer_rune_r_1_suffix"				"%"
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_r_2"						"[R2] 末日"
+		"DOTA_Tooltip_ability_duskbringer_rune_r_2_Description"			"被 七重梦境 击中的敌人，将受到一层 debuff，加深其所受到的伤害。（伤害加深计算在敌人减伤之后）如果敌人被击中多次，debuff 将叠加。 debuff 持续 5 秒。"
+		"DOTA_Tooltip_ability_duskbringer_rune_r_2_property_one"		"减伤后伤害加深"
+		"DOTA_Tooltip_ability_duskbringer_rune_r_2_suffix"				"%"
+
+		"DOTA_Tooltip_modifier_duskbringer_b_d_visible"					"末日"
+		"DOTA_Tooltip_modifier_duskbringer_b_d_visible_Description"		"减伤后伤害加深，层层叠加"
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_r_3"						"[R3] 灵魂掠夺"
+		"DOTA_Tooltip_ability_duskbringer_rune_r_3_Description"			"七重梦境每击中一个敌人，夜幕使者都会提高攻击力，持续6秒。"
+		"DOTA_Tooltip_ability_duskbringer_rune_r_3_property_one"		"每击增加攻击力"
+		"DOTA_Tooltip_ability_duskbringer_rune_r_3_suffix"				"%"
+		
+		"DOTA_Tooltip_modifier_duskbringer_rune_r_3"					"灵魂掠夺"
+		"DOTA_Tooltip_modifier_duskbringer_rune_r_3_Description"		"提高攻击力"
+		
+		"DOTA_Tooltip_ability_duskbringer_rune_r_4"						"[R4] 暗夜之力"
+		"DOTA_Tooltip_ability_duskbringer_rune_r_4_Description"			"夜幕使者的力量值将提高 <font color=\"#9ACCD1\">鬼</font> 元素伤害。"
+		"DOTA_Tooltip_ability_duskbringer_rune_r_4_property_one"		"鬼元素伤害提高"
+		"DOTA_Tooltip_ability_duskbringer_rune_r_4_suffix"				"% 每10点力量值"
+		
+		"DOTA_Tooltip_ability_revenant_strikes"								"回魂打击"
+		"DOTA_Tooltip_ability_revenant_strikes_Description"					"夜幕使者挥动他的武器，强大的挥力伤害他面前的敌人。挥动的力量同时也会使他稍微向移动。"
+		"DOTA_Tooltip_ability_revenant_strikes_Lore"						""
+		"DOTA_Tooltip_ability_revenant_strikes_damage"						"伤害"
+
+		"DOTA_Tooltip_modifier_revenant_strikes_state"					"幽冥一击"
+		"DOTA_Tooltip_modifier_revenant_strikes_state_Description"		""
+		
+		//Arcanas
+		
+		"item_property_duskbringer_arcana1"										"暗影突袭"
+		"property_duskbringer_arcana1_description"								"用暗影突袭替换 @Ability2 和它的全部符文。"
+
+		"DOTA_Tooltip_ability_duskbringer_arcana_ability"						"暗影突袭"
+		"DOTA_Tooltip_ability_duskbringer_arcana_ability_Description"			"元素： <font color=\"#9ACCD1\">鬼</font> / <font color=\"#7F4F84\">暗</font><br>夜幕使者向目标点飞跃，落地时制造一束耀眼的蕴含光谱能量的闪光。"
+		"DOTA_Tooltip_ability_duskbringer_arcana_ability_damage"				"伤害："
+		"DOTA_Tooltip_ability_duskbringer_arcana_ability_stun_duration"			"眩晕持续时间："
+
+		"DOTA_Tooltip_ability_duskbringer_rune_w_1_arcana1"						"[W1] 幽冥一击"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_1_arcana1_Description"			"攻击力的一部分将提高暗影突袭的伤害（加法）。所提高的伤害还要乘以暗影突袭的等级（乘法）。"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_1_arcana1_property_one"			"伤害提高"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_1_arcana1_suffix"				"% 攻击力"
+
+		"DOTA_Tooltip_ability_duskbringer_rune_w_2_arcana1"						"[W2] 虚无缥缈"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_2_arcana1_Description"			"暗影突袭落地后的6秒内，夜幕使者获得额外的护甲值。并且，夜幕使者的护甲会格挡部分的魔法和纯粹伤害。"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_2_arcana1_property_one"		"护甲值提高"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_2_arcana1_suffix"				""
+		"DOTA_Tooltip_ability_duskbringer_rune_w_2_arcana1_property_two"		"魔法和纯粹伤害格挡"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_2_arcana1_suffix_two"			"% 护甲值"
+
+		"DOTA_Tooltip_modifier_duskbringer_arcana_armor"						"虚无缥缈"
+		"DOTA_Tooltip_modifier_duskbringer_arcana_armor_Description"			"提高护甲并且护甲可以格挡魔法和纯粹伤害"
+
+		"DOTA_Tooltip_ability_duskbringer_rune_w_3_arcana1"						"[W3] 暗影烈焰"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_3_arcana1_Description"			"被暗影突袭击中的敌人会增加其受到的冥火枷debuff层数。"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_3_arcana1_property_one"		"冥火枷叠加层数"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_3_arcana1_suffix"				""
+
+		"DOTA_Tooltip_ability_duskbringer_rune_w_4_arcana1"						"[W4] 灵王之王"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_4_arcana1_Description"			"当施放暗影突袭之后，充能0.8秒钟并沉默自身，随后获得一个buff，大幅提高夜幕使者的攻击力，持续12秒。buff最多存在一个。"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_4_arcana1_property_one"		"基础攻击力提高"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_4_arcana1_suffix"				""
+		"DOTA_Tooltip_ability_duskbringer_rune_w_4_arcana1_property_two"		"总攻击力提升"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_4_arcana1_suffix_two"			"%"
+
+		"DOTA_Tooltip_modifier_duskbringer_arcana_damage_buff"					"灵王之王"
+		"DOTA_Tooltip_modifier_duskbringer_arcana_damage_buff_Description"		"大幅提高攻击力"
+		
+		//Glyphs
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_1_1"		"幽灵雕文"
+		"item_rpc_duskbringer_glyph_1_1_description" 				"当进入冥魂状态时，刷新一切技能冷却时间。（同样作用于友军）"
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_2_1"		"疼苦雕文"
+		"item_rpc_duskbringer_glyph_2_1_description" 				"被幽冥之井困住的敌人每秒增加3层的冥火伽 debuff。"
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_3_1"		"漫游雕文"
+		"item_rpc_duskbringer_glyph_3_1_description" 				"幻影步伐 buff 滞留时间延长，1秒提高至2秒。（最多可以停在原地两秒而buff不消失）"
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_4_1"		"黄昏雕文"
+		"item_rpc_duskbringer_glyph_4_1_description" 				"被幽冥之井困住的敌人会被缴械。"
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_1"		"梦境雕文"
+		"item_rpc_duskbringer_glyph_5_1_description" 				"七重梦境添加 @glyph_property1 次额外攻击"
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_6_1"		"上弦雕文"
+		"item_rpc_duskbringer_glyph_6_1_description" 				"降低 螺旋枷 的冷却时间至 @glyph_property1 秒。"
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_7_1"		"幻影雕文"
+		"item_rpc_duskbringer_glyph_7_1_description" 				"将幽灵冲刺替换为示威 - 将夜幕使者传送至目标点并对周围敌人施放虚实相生。同时提高虚实相生叠加 螺旋枷 的概率 @glyph_property1x。"
+
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_1_2"		"阴郁沉默雕文"
+		"item_rpc_duskbringer_glyph_1_2_description" 				"被沉默时提高生命回复速度 @glyph_property1% 最大生命值每秒，持续 @glyph_property2 秒。"
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_2_2"		"空白燃烧雕文"
+		"item_rpc_duskbringer_glyph_2_2_description" 				"攻击叠加 @glyph_property1 层 冥火枷的层数。（原来为 1 层）"
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_3_2"		"螺旋雕文"
+		"item_rpc_duskbringer_glyph_3_2_description" 				"降低 @Ability1 的伤害间隔 @glyph_property1，但是其基础技能伤害降低 @glyph_property2%"
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_4_2"		"畅游雕文"
+		"item_rpc_duskbringer_glyph_4_2_description" 				"移动时，获得一层 buff，每层buff伤害减免 @glyph_property1% ，最高叠加 @glyph_property2 层。每层buff持续时间与 E1 一样长，但是不移动将一次性丢失全部的 buff 层数。"
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_2"		"共享雕文"
+		"item_rpc_duskbringer_glyph_5_2_description" 				"攻击时，攻击目标 @glyph_property1 范围内的全部其他敌人也将叠加一层 冥火枷 的层数。"
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_6_2"		"盛怒雕文"
+		"item_rpc_duskbringer_glyph_6_2_description" 				"每 0.3秒 清除沉默和眩晕。"
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_7_2"		"魔鬼吞噬雕文"
+		"item_rpc_duskbringer_glyph_7_2_description" 				"直接装备伤害将获得 鬼元素 作为第二元素伤害。（不作用于基于 基础技能伤害 而造成伤害的装备）"
+
+
+    	"DOTA_Tooltip_ability_manifestation"						"示威"
+    	"DOTA_Tooltip_ability_manifestation_Description"			"元素： <font color=\"#9ACCD1\">鬼</font><br> 夜幕使者立即在目标点显现，对周围每个敌人施放虚实相生。"
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_a"		"甲骨文雕文"
+		"item_rpc_duskbringer_glyph_5_a_description" 				"友军在冥魂状态结束时将不会死亡。起死回生效果冷却时间 @glyph_property1 秒。"
+
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_book"	"夜幕使者雕文书"
+		
+		
+		
+		//Weapons
+		
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_immortal_weapon_1"		"鬼火"
+		"item_property_duskbringer_immortal_weapon"								"鬼火"
+		"property_duskbringer_immortal_weapon_description"						"冥火伽叠加速度增加2倍."
+		
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_immortal_weapon_2"            "狱长骨的权杖"
+        "item_property_duskbringer_immortal_weapon2"                             "颤栗"
+        "property_duskbringer_immortal_weapon2_description"                      "任何受到 @Ability2 伤害的敌人将被眩晕 @special_property1 秒。"
+
+        "DOTA_Tooltip_ability_item_rpc_duskbringer_immortal_weapon_3"            "碎颅锤"
+        "item_property_duskbringer_immortal_weapon3"                             "骷髅锤"
+        "property_duskbringer_immortal_weapon3_description"                      "攻击有 @special_property1% 的概率眩晕敌人 @special_property2 秒，并且获得 @special_property3 层鬼灵护甲。"

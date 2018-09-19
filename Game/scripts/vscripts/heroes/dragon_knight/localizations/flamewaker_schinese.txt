@@ -1,0 +1,283 @@
+		//Abilities
+		"DOTA_Tooltip_ability_seismic_flare"										"地震爆发"
+		"DOTA_Tooltip_ability_seismic_flare_Description"							"元素： <font color=\"#EF4126\">火</font> / <font color=\"#AF843D\">土</font><br>引发一次来自地底的震动，吸引目标点附近的所有单位并造成眩晕。"
+		"DOTA_Tooltip_ability_seismic_flare_Lore"									""
+    	"DOTA_Tooltip_ability_seismic_flare_light_strike_array_aoe"				"范围："
+    	"DOTA_Tooltip_ability_seismic_flare_light_strike_array_stun_duration"		"眩晕持续时间："
+
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1"								"[Q1] 龙族血统"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_Description"					"提高护甲和生命回复速度。"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_property_one"					"额外护甲值"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_suffix"						""
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_property_two"					"生命回复速度提高"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_suffix_two"					""
+
+		"DOTA_Tooltip_modifier_flamewaker_rune_q_1" 							"龙族血统"
+		"DOTA_Tooltip_modifier_flamewaker_rune_q_1_description" 				"护甲值和生命回复速度提高"
+
+		"DOTA_Tooltip_ability_flamewaker_rune_q_2"								"[Q2] 大地回春"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_Description"					"每当地震爆发击中一个敌人时回复一定生命值，持续5秒。"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_property_one"					"每秒生命值回复"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_suffix"						" 每击中一个单位"
+
+    	"DOTA_Tooltip_flamewaker_rune_q_2_heal_effect"							"大地回春"
+    	"DOTA_Tooltip_flamewaker_rune_q_2_heal_effect_Description"				"每0.5秒回复生命值"	
+
+		"DOTA_Tooltip_ability_flamewaker_rune_q_3"								"[Q3] 火山喷发"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_3_Description"					"施放地震爆发时将同时在目标点喷发岩浆，持续7秒。"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_3_property_one"					"岩浆每秒伤害"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_3_suffix"						"x 力量值"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_3_property_two"					"额外固定伤害"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_3_suffix_two"					""
+
+		"DOTA_Tooltip_modifier_flamewaker_rune_q_3_buff" 						"战争咆哮"
+		"DOTA_Tooltip_modifier_flamewaker_rune_q_3_buff_description" 			"攻击力和攻击速度提升"
+		
+		"DOTA_Tooltip_ability_flamewaker_rune_q_4"								"[Q4] 炽热岩浆"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_Description"					"每当大地回春为你回复生命值或者火山喷发造成伤害时，提高你的基础攻击力，持续4秒。"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_property_one"					"大地回春提高基础攻击力"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_suffix"						"每点生命值回复"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_property_two"					"火山喷发提高基础攻击力"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_suffix_two"					"每造成10点伤害"
+
+		"DOTA_Tooltip_modifier_flamewaker_rune_q_4" 							"炽热岩浆"
+		"DOTA_Tooltip_modifier_flamewaker_rune_q_4_description" 				"提高基础攻击力"
+		
+		"DOTA_Tooltip_ability_second_heartbeat"										"第二脉搏"
+		"DOTA_Tooltip_ability_second_heartbeat_Description"							"元素： <font color=\"#EF4126\">火</font><br>以纯净的火焰振动烈焰行者的心脏，对前方所有单位造成伤害。"
+		"DOTA_Tooltip_ability_second_heartbeat_Lore"									""
+    	"DOTA_Tooltip_ability_second_heartbeat_damage"									"伤害："
+
+		"DOTA_Tooltip_ability_flamewaker_rune_w_1"								"[W1] 灼热之刃"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_1_Description"					"你的普通攻击附有火焰，对480范围内的单位造成物理伤害。"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_1_property_one"					"伤害"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_1_suffix"						"% 总攻击力"
+
+		"DOTA_Tooltip_modifier_flamewaker_rune_w_1" 							"灼热之刃"
+		"DOTA_Tooltip_modifier_flamewaker_rune_w_1_description" 				"你的攻击附有火焰伤害。"
+
+		"DOTA_Tooltip_ability_flamewaker_rune_w_2"								"[W2] 火山脉冲"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_2_Description"					"增加第二脉搏的范围和基础技能伤害。（距离提升上限1000码）"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_2_property_one"					"范围增加"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_2_suffix"						""
+     	"DOTA_Tooltip_ability_flamewaker_rune_w_2_property_two"                 "伤害提高"
+        "DOTA_Tooltip_ability_flamewaker_rune_w_2_suffix_two"                   "%"
+		
+		"DOTA_Tooltip_ability_flamewaker_rune_w_3"								"[W3] 灼热"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_3_Description"					"第二脉搏同时烧焦敌人的护甲，持续6秒，可叠加。"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_3_property_one"					"每层护甲值降低"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_3_suffix"						""
+		
+		"DOTA_Tooltip_modifier_flamewaker_rune_w_4_cooldown"					"龙王之怒冷却中"
+
+  		"DOTA_Tooltip_ability_flamewaker_rune_w_4"								"[W4] 龙王之怒"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_4_Description"					"当你施放第二脉搏时，立即跳跃至最后对你造成伤害的目标身旁，对其造成暴击伤害。冷却时间0.5秒。跳跃过程中伤害减免100%。"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_4_property_one"					"暴击伤害"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_4_suffix"						"%"
+		
+		"DOTA_Tooltip_ability_heat_wave"										"炙热冲锋"
+		"DOTA_Tooltip_ability_heat_wave_Description"							"元素： <font color=\"#EF4126\">火</font><br>烈焰行者激活一股热能，提高移动速度和攻击力，移动无视地形，同时提高移动速度上限。"
+		"DOTA_Tooltip_ability_heat_wave_Lore"									""
+    	"DOTA_Tooltip_ability_heat_wave_max_ms"									"移动速度上限："
+    	"DOTA_Tooltip_ability_heat_wave_base_dmg"								"攻击力："
+    	"DOTA_Tooltip_ability_heat_wave_movespeed"								"移动速度："
+    	"DOTA_Tooltip_ability_heat_wave_duration"								"持续时间："
+
+    	"DOTA_Tooltip_modifier_heatwave_phase_one"								"炙热冲锋"
+    	"DOTA_Tooltip_modifier_heatwave_phase_one_Description"					"移动速度和移动速度上限提高"
+		
+		"DOTA_Tooltip_ability_flamewaker_rune_e_1"								"[E1] 余烬"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_1_Description"					"烈焰行者炙热冲锋后将在地上留下余烬，灼烧碰到余烬的敌人。"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_1_property_one"					"每秒伤害"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_1_suffix"						""
+
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_2"								"[E2] 龙之怒"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_2_Description"					"施放炙热冲锋后，开始自焚对附近敌人造成伤害，持续6秒。敏捷值可提高伤害。"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_2_property_one"					"基础伤害"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_2_suffix"						""
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_2_property_two"					"额外伤害"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_2_suffix_two"					"x 敏捷值"
+
+		"DOTA_Tooltip_flamewaker_rune_e_2_buff" 								"龙之怒"
+		"DOTA_Tooltip_flamewaker_rune_e_2_buff_description" 					"烧灼附近的敌人"
+		
+		"DOTA_Tooltip_ability_flamewaker_rune_e_3"								"[E3] 龙首"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_3_Description"					"炙热冲锋结束后，提高额外攻击力和攻击速度，持续6秒。"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_3_property_one"					"额外攻击力提高"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_3_suffix"						"%"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_3_property_two"					"攻击速度"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_3_suffix_two"					""
+		
+		"DOTA_Tooltip_modifier_rune_e_3_damage_boost"							"龙首"
+    	"DOTA_Tooltip_modifier_rune_e_3_damage_boost_Description"				"攻击力提高"
+		
+		"DOTA_Tooltip_modifier_searing_heat"									"灼热"
+    	"DOTA_Tooltip_modifier_searing_heat_Description"						"护甲值降低"
+		
+		"DOTA_Tooltip_ability_flamewaker_rune_e_4"								"[E4] 烈焰炙烤"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_Description"					"受到余烬影响的敌人将被点燃 - 丢失护甲并受到基于余烬伤害的持续伤害。"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_property_one"					"每秒伤害"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_suffix"						"% 余烬伤害"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_property_two"					"护甲值降低"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_suffix_two"					""
+
+		"DOTA_Tooltip_modifier_flamewaker_rune_e_4" 							"烈焰炙烤"
+		"DOTA_Tooltip_modifier_flamewaker_rune_e_4_description" 				"丢失护甲并受到持续伤害"
+		
+		"DOTA_Tooltip_ability_cataclysm"									"大灾变"
+		"DOTA_Tooltip_ability_cataclysm_Description"						"元素： <font color=\"#EF4126\">火</font> / <font color=\"#AF843D\">土</font><br>凝聚火焰之力2秒之后爆炸,造成伤害并眩晕、减速周围所有单位。"
+		"DOTA_Tooltip_ability_cataclysm_Lore"								""
+		"DOTA_Tooltip_ability_cataclysm_damage"							"伤害："
+    	"DOTA_Tooltip_ability_cataclysm_radius"							"范围："
+    	"DOTA_Tooltip_ability_cataclysm_stun_duration"					"眩晕时间："
+		
+		"DOTA_Tooltip_ability_flamewaker_rune_r_1"								"[R1] 山岳打击"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_1_Description"					"烈焰行者攻击时有15% 几率将自己和目标举至空中，眩晕目标0.3秒后大幅提高攻击力进行一次强力打击。"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_1_property_one"					"额外攻击力"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_1_suffix"						"%"
+		
+		"DOTA_Tooltip_ability_flamewaker_rune_r_2"								"[R2] 火焰漩涡"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_2_Description"					"施放大灾变时同时释放一股火焰漩涡。"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_2_property_one"					"伤害"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_2_suffix"						""
+		
+		"DOTA_Tooltip_ability_flamewaker_rune_r_3"								"[R3] 群山之力"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_3_Description"					"成功引导大灾变后，增加力量值，持续12秒。"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_3_property_one"					"额外的力量值"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_3_suffix"						""
+
+		"DOTA_Tooltip_modifier_flamewaker_rune_r_3" 							"群山之力"
+		"DOTA_Tooltip_modifier_flamewaker_rune_r_3_description" 				"增加力量值"
+		
+		"DOTA_Tooltip_ability_flamewaker_rune_r_4"								"[R4] 龙之魂"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_4_Description"					"根据烈焰行者的力量值提高 <font color=\"#EF4126\">火</font> 和 <font color=\"#AF843D\">土</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_4_property_one"					"火和土元素伤害提高"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_4_suffix"						"% 每10点力量值"
+		
+		//Arcanas
+		"DOTA_Tooltip_ability_flamewaker_arcana_ability"						"龙王吐息"
+    	"DOTA_Tooltip_ability_flamewaker_arcana_ability_Description"			"元素： <font color=\"#EF4126\">火</font><br>迅速喷发的火焰眩晕并伤害范围内的敌人。力量值会提高火焰的伤害。"
+    	"DOTA_Tooltip_ability_flamewaker_arcana_ability_damage"					"伤害："
+    	"DOTA_Tooltip_ability_flamewaker_arcana_ability_strength_mult"			"额外伤害为力量值的倍数："
+    	"DOTA_Tooltip_ability_flamewaker_arcana_ability_stun_duration"			"眩晕持续时间："
+
+    	"item_property_flamewaker_arcana1"										"龙王吐息"
+    	"property_flamewaker_arcana1_description"								"用龙王吐息替换 @Ability1 和它的全部符文。"
+
+  		"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1"						"[Q1] 龙骑士"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_Description"			"根据烈焰行者所失去的血量，提高护甲值和魔法回复速度。"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_property_one"			"额外护甲"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_suffix"				" 每损失200点生命"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_property_two"			"魔法恢复速度提高"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_suffix_two"			" 每损失200点生命"
+
+  		"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1"						"[Q2] 火焰浪涌"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_Description"			"施放龙王吐息后增加移动速度并且加深敌人所受到的伤害"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_property_one"			"移动速度提高"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_suffix"				""
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_property_two"			"敌人所受到的伤害提高（计算在敌人减伤之后）"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_suffix_two"			"%"
+
+    	"DOTA_Tooltip_modifier_flamewaker_arcana_b_a_effect"					"火焰浪涌"
+    	"DOTA_Tooltip_modifier_flamewaker_arcana_b_a_effect_Description"		"提高移动速度并且对敌人伤害加深"
+
+  		"DOTA_Tooltip_ability_flamewaker_rune_q_3_arcana1"						"[Q3] 火焰风暴"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_3_arcana1_Description"			"龙王吐息有几率在施法位置附近额外施放1次，概率超过100%，可能施放多次。"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_3_arcana1_property_one"			"多重施法概率"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_3_arcana1_suffix"				""
+
+  		"DOTA_Tooltip_ability_flamewaker_rune_q_4_arcana1"						"[Q4] 地狱之环"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_arcana1_Description"			"烈焰行者获得一个光环，每0.4秒灼烧光环范围内的敌人。并且光环范围内的敌人对烈焰行者的伤害降低。"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_arcana1_property_one"			"灼烧伤害"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_arcana1_suffix"				"% 攻击力"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_arcana1_property_two"			"伤害减免"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_arcana1_suffix_two"			"%"
+
+    	"DOTA_Tooltip_modifier_flamewaker_arcana_d_a_aura"						"地狱之环"
+    	"DOTA_Tooltip_modifier_flamewaker_arcana_d_a_aura_Description"			"受到魔法伤害并且对烈焰行者伤害降低"
+
+    	"DOTA_Tooltip_ability_flamewaker_dragonflame"						"焰之起源式"
+    	"DOTA_Tooltip_ability_flamewaker_dragonflame_Description"			"元素： <font color=\"#EF4126\">火</font><br>烈焰行者停止移动，向周围连续喷射出炽热的火焰，每 0.1s 对前方锥形区域内的敌人造成伤害。技能激活 1.5秒后，获得一层护盾，伤害减免。技能不被眩晕和沉默打断。每 0.1s 汲取 10% 的最大魔法值，当魔法值为 0 时，技能停止。"
+    	"DOTA_Tooltip_ability_flamewaker_dragonflame_base_damage"			"伤害："
+    	"DOTA_Tooltip_ability_flamewaker_dragonflame_attack_dmg_bonus"			"% 攻击力加入到火焰伤害中："
+    	"DOTA_Tooltip_ability_flamewaker_dragonflame_mana_drain"			"每秒魔法值汲取："
+    	"DOTA_Tooltip_ability_flamewaker_dragonflame_damage_reduce"			"% 护盾伤害减免："
+
+    	"DOTA_Tooltip_modifier_dragonflame_shield"								"焰之起源式护盾"
+    	"DOTA_Tooltip_modifier_dragonflame_shield_Description"					"伤害减免"
+
+    	"DOTA_Tooltip_modifier_flamewaker_dragonflame"							"焰之起源式"
+    	"DOTA_Tooltip_modifier_flamewaker_dragonflame_Description"				"连续喷射火焰中"	
+
+    	"item_property_flamewaker_arcana2"										"焰之起源式"
+    	"property_flamewaker_arcana2_description"								"用 焰之起源式 替换 @Ability2 及其全部符文。"
+
+  		"DOTA_Tooltip_ability_flamewaker_rune_w_1_arcana2"						"[W1] 引燃"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_1_arcana2_Description"			"烈焰行者 对眩晕中的敌人 所造成的 <font color=\"#EF4126\">火</font> 元素伤害都将提高。"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_1_arcana2_property_one"			"火元素伤害提高"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_1_arcana2_suffix"				"% 对眩晕中的敌人"
+
+  		"DOTA_Tooltip_ability_flamewaker_rune_w_2_arcana2"						"[W2] 星火"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_2_arcana2_Description"			"当 焰之起源式护盾 激活时，大幅度提高护甲值和生命回复速度。"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_2_arcana2_property_one"			"生命恢复提高"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_2_arcana2_suffix"				""
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_2_arcana2_property_two"			"护甲值提高"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_2_arcana2_suffix_two"			""
+
+  		"DOTA_Tooltip_ability_flamewaker_rune_w_3_arcana2"						"[W3] 焰火"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_3_arcana2_Description"			"攻击会向前方喷射火焰，伤害等同于 焰之起源式 的单次火焰伤害。攻击力的一部分加入到火焰伤害中。（与基础技能中的攻击力加成为加法）"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_3_arcana2_property_one"			"攻击力的一部分加入到火焰伤害中（加法）"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_3_arcana2_suffix"				"%"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_3_arcana2_property_two"			"火焰范围长度提高"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_3_arcana2_suffix_two"			""
+
+  		"DOTA_Tooltip_ability_flamewaker_rune_w_4_arcana2"						"[W4] 赤龙"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_4_arcana2_Description"			"敏捷值将提高基础攻击力。"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_4_arcana2_property_one"			"基础攻击力提高"
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_4_arcana2_suffix"				"x 敏捷值"
+
+		
+		//Glyphs
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_1_1"	"金刚肌肤雕文"
+		"item_rpc_flamewaker_glyph_1_1_description" 			"攻击你的敌人有 @glyph_property1% 几率被眩晕 @glyph_property2 秒。"
+
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_2_1"	"坍缩雕文"
+		"item_rpc_flamewaker_glyph_2_1_description" 			"降低地震爆发的冷却时间至 @glyph_property1 秒。"
+
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_3_1"	"剧变雕文"
+		"item_rpc_flamewaker_glyph_3_1_description" 			"烈焰行者跳跃至地震爆发的中心，引发一场大地震并造成 @glyph_property1x 力量值的伤害。"
+
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_4_1"	"蓝焰雕文"
+		"item_rpc_flamewaker_glyph_4_1_description" 			"第二脉搏造成额外伤害，额外伤害为 @glyph_property2% 的总属性值加 @glyph_property3% 的攻击力。所造成的额外伤害还将乘以第二脉搏的等级数。同时减少敌人攻击和移动速度 @glyph_property1。"
+
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_1"	"灼热之心雕文"
+		"item_rpc_flamewaker_glyph_5_1_description" 			"提高大灾变和火焰漩涡的伤害2.5x。"
+
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_6_1"	"山脉之核雕文"
+		"item_rpc_flamewaker_glyph_6_1_description" 			"施放大灾变后提高额外攻击力 @glyph_property1% ，持续时间 @glyph_property2 秒。"
+
+		"DOTA_Tooltip_modifier_flamewaker_glyph_6_1_buff"		"山脉之核"
+		"DOTA_Tooltip_modifier_flamewaker_glyph_6_1_buff_Description"	"提高 100%% 额外攻击力"
+
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_7_1"	"火海雕文"
+		"item_rpc_flamewaker_glyph_7_1_description" 			"余烬拥有 @glyph_property1x 宽度并造成 @glyph_property2x 伤害。"
+
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_a"	"龙族血统雕文"
+		"item_rpc_flamewaker_glyph_5_a_description" 			"受到的伤害上限不会超过 @glyph_property1% 的最大生命值. 如果低于50% 血量, 受到的伤害上限在 @glyph_property2%."
+
+		//Weapons
+		
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_1"	"诸神之黄昏"
+		"item_property_flamewaker_immortal_weapon"							"火山盾"
+		"property_flamewaker_immortal_weapon_description"					"施放 @Ability4 将获得 @special_property1 层护盾，抵挡伤害，伤害减免 90%"
+
+		"DOTA_Tooltip_modifier_volcano_shield"							"火山盾"
+		"DOTA_Tooltip_modifier_volcano_shield_Description"				"伤害减免 90%%"
+		
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_2"			"上古之刃"
+    	"item_property_flamewaker_immortal_weapon2"								"龙之心"
+    	"property_flamewaker_immortal_weapon2_description"						"每点敏捷值提高 @special_property1 点攻击力。在 @Ability3 技能开启时提高 @special_property2 点敏捷值。"
+
+    	"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_3"			"角斗士之剑"
+    	"item_property_flamewaker_immortal_weapon3"								"流星蝴蝶剑"
+    	"property_flamewaker_immortal_weapon3_description"						"提高 @Ability1 和 @Ability4 的眩晕持续时间 @special_property1%"

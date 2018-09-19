@@ -1,0 +1,300 @@
+		"DOTA_Tooltip_ability_heroic_fury"								"英雄之怒"
+		"DOTA_Tooltip_ability_heroic_fury_Description"					"元素： <font color=\"#F6FFB5\">圣</font> / <font color=\"#DDDDDD\">普通</font><br>大幅强化全能骑士的武器，获得溅射、减速效果，每次攻击都将回复一定生命值。"
+		"DOTA_Tooltip_ability_heroic_fury_Lore"							""
+		"DOTA_Tooltip_ability_heroic_fury_duration"						"持续时间："
+		"DOTA_Tooltip_ability_heroic_fury_damage"						"溅射伤害："
+		"DOTA_Tooltip_ability_heroic_fury_radius"						"溅射范围："
+		"DOTA_Tooltip_ability_heroic_fury_heal_percent"					"攻击回复 % 最大生命值："
+		"DOTA_Tooltip_ability_heroic_fury_slow"							"攻击速度和移动速度降低："
+		"DOTA_Tooltip_ability_heroic_fury_attack_damage_bonus"			"攻击力提高 %："
+		"DOTA_Tooltip_ability_heroic_fury_movespeed"						"移动速度提高："
+
+		"DOTA_Tooltip_modifier_heroic_fury_slow"						"英雄之怒"	
+		"DOTA_Tooltip_modifier_heroic_fury_slow_Description"			"攻击速度和移动速度降低"				
+
+		"DOTA_Tooltip_modifier_heroic_fury" 								"英雄之怒"
+		"DOTA_Tooltip_modifier_heroic_fury_description" 					"范围内敌人被攻击击退，且每次攻击都将回复一定生命值。"
+		
+		"DOTA_Tooltip_ability_paladin_rune_q_1"							"[Q1] 净化"
+    	"DOTA_Tooltip_ability_paladin_rune_q_1_Description"				"你的攻击力将提高英雄之怒的伤害。"
+    	"DOTA_Tooltip_ability_paladin_rune_q_1_property_one"			"额外伤害"
+    	"DOTA_Tooltip_ability_paladin_rune_q_1_suffix"					"% 攻击力"
+
+		"DOTA_Tooltip_modifier_paladin_rune_q_1"						"净化火花"
+		"DOTA_Tooltip_modifier_paladin_rune_q_1_description" 			"普通攻击对附近敌人造成伤害"
+		
+		"DOTA_Tooltip_ability_paladin_rune_q_2"							"[Q2] 辉耀"
+    	"DOTA_Tooltip_ability_paladin_rune_q_2_Description"				"当英雄之怒激活时，附近所有敌人受到基于全能骑士攻击力的持续伤害。"
+    	"DOTA_Tooltip_ability_paladin_rune_q_2_property_one"			"每秒伤害"
+    	"DOTA_Tooltip_ability_paladin_rune_q_2_suffix"					"% 攻击力"
+
+    	"DOTA_Tooltip_modifier_paladin_q_2_radiance"					"辉耀"
+    	"DOTA_Tooltip_modifier_paladin_q_2_radiance_Description"		"附近敌人受到基于全能骑士攻击力的持续伤害"
+		
+		"DOTA_Tooltip_ability_paladin_rune_q_3"							"[Q3] 神圣庇护"
+    	"DOTA_Tooltip_ability_paladin_rune_q_3_Description"				"每次攻击，全能骑士将获得护盾，护盾可以吸收一次伤害。打破此盾的敌人受到基于全能骑士力量值的伤害。"
+    	"DOTA_Tooltip_ability_paladin_rune_q_3_property_one"				"护盾持续时间"
+    	"DOTA_Tooltip_ability_paladin_rune_q_3_suffix"					" 秒"  
+    	"DOTA_Tooltip_ability_paladin_rune_q_3_property_two"				"破盾伤害"
+    	"DOTA_Tooltip_ability_paladin_rune_q_3_suffix_two"				"x 力量值"
+		
+		"DOTA_Tooltip_ability_paladin_rune_q_4"							"[Q4] 激化之火"
+    	"DOTA_Tooltip_ability_paladin_rune_q_4_Description"				"全能骑士所有的过度治疗（治疗量大于所损失的生命值）都会创造一个护盾，吸收伤害。并且全能骑士的属性将提高所有 <font color=\"#F6FFB5\">圣</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_paladin_rune_q_4_property_one"			"护盾吸收最大伤害"
+    	"DOTA_Tooltip_ability_paladin_rune_q_4_suffix"					"% 目标的最大生命值"
+    	"DOTA_Tooltip_ability_paladin_rune_q_4_property_two"			"圣元素伤害提高"
+    	"DOTA_Tooltip_ability_paladin_rune_q_4_suffix_two"				"% 每10点属性值"
+		
+		"DOTA_Tooltip_ability_justice_overwhelming"								"正义之手"
+		"DOTA_Tooltip_ability_justice_overwhelming_Description"					"元素： <font color=\"#F6FFB5\">圣</font><br>全能骑士从手中释放出一道纯粹的神圣风暴，自己退避并对前方锥形区域的敌人造成伤害。"
+		"DOTA_Tooltip_ability_justice_overwhelming_Lore"							""
+		"DOTA_Tooltip_ability_justice_overwhelming_damage"							"伤害："
+		
+		"DOTA_Tooltip_ability_paladin_rune_w_1"							"[W1] 神圣之火"
+    	"DOTA_Tooltip_ability_paladin_rune_w_1_Description"				"你的正义之手将给目标留下一团燃烧的神圣之火。"
+    	"DOTA_Tooltip_ability_paladin_rune_w_1_property_one"			"每秒伤害"
+    	"DOTA_Tooltip_ability_paladin_rune_w_1_suffix"					""
+    	"DOTA_Tooltip_ability_paladin_rune_w_1_property_two"			"燃烧持续时间"
+    	"DOTA_Tooltip_ability_paladin_rune_w_1_suffix_two"				""
+
+		"DOTA_Tooltip_modifier_paladin_rune_w_1"						"神圣之火"
+		"DOTA_Tooltip_modifier_paladin_rune_w_1_description" 			"受到神圣火焰的伤害"
+		
+		"DOTA_Tooltip_ability_paladin_rune_w_2"							"[W2] 治疗之手"
+    	"DOTA_Tooltip_ability_paladin_rune_w_2_Description"				"正义之手将按其基础技能伤害的 a % 来回复自己和所击中友军的生命值。"
+    	"DOTA_Tooltip_ability_paladin_rune_w_2_property_one"			"生命值回复"
+    	"DOTA_Tooltip_ability_paladin_rune_w_2_suffix"					"% 技能伤害"
+		
+		"DOTA_Tooltip_ability_paladin_rune_w_3"							"[W3] 神圣新星"
+    	"DOTA_Tooltip_ability_paladin_rune_w_3_Description"				"攻击有15%机率触发神圣新星 - 对附近敌人造成伤害并治疗附近友军。被神圣新星击中的敌人被缴械1秒。"
+    	"DOTA_Tooltip_ability_paladin_rune_w_3_property_one"			"神圣新星伤害"
+    	"DOTA_Tooltip_ability_paladin_rune_w_3_suffix"					"x 智力值"
+    	"DOTA_Tooltip_ability_paladin_rune_w_3_property_two"			"治疗量"
+    	"DOTA_Tooltip_ability_paladin_rune_w_3_suffix_two"				"x 智力值"
+
+    	"DOTA_Tooltip_modifier_paladin_c_b_disarm"						"神圣新星"
+    	"DOTA_Tooltip_modifier_paladin_c_b_disarm_Description"			"被缴械"
+		
+		"DOTA_Tooltip_ability_paladin_rune_w_4"							"[W4] 神圣十字军"
+    	"DOTA_Tooltip_ability_paladin_rune_w_4_Description"				"每次被正义之手击中，都可以叠加一层[W1]神圣之火。每层神圣之火都将比上一层多造成20%的伤害。（层数越高伤害越高）"
+    	"DOTA_Tooltip_ability_paladin_rune_w_4_property_one"			"最大叠加层数"
+    	"DOTA_Tooltip_ability_paladin_rune_w_4_suffix"					""
+
+		"DOTA_Tooltip_ability_holy_blink"								"天堂之羽"
+		"DOTA_Tooltip_ability_holy_blink_Description"					"全能骑士向前飞跃并可在空中跳跃两次，对落地点附近的敌人造成伤害和眩晕。"
+		"DOTA_Tooltip_ability_holy_blink_Lore"							""
+		"DOTA_Tooltip_ability_holy_blink_damage"						"落地伤害："
+    	"DOTA_Tooltip_ability_holy_blink_duration"						"眩晕时间："
+    	"DOTA_Tooltip_ability_holy_blink_radius"						"影响范围："
+
+		"DOTA_Tooltip_ability_crusader_dash"							"十字军冲锋"
+		"DOTA_Tooltip_ability_crusader_dash_Description"				"全能骑士获得天使之羽，向前方冲锋。"
+		"DOTA_Tooltip_ability_crusader_dash_Lore"						""
+
+    	"DOTA_Tooltip_ability_paladin_rune_e_1"							"[E1] 卷土重来"
+    	"DOTA_Tooltip_ability_paladin_rune_e_1_Description"				"全能骑士死亡时，4秒后立刻复活。冷却时间120秒。复活时全能骑士将伤害免疫一段时间。"
+    	"DOTA_Tooltip_ability_paladin_rune_e_1_property_one"			"伤害免疫时间延长"
+    	"DOTA_Tooltip_ability_paladin_rune_e_1_suffix"					" 秒"
+
+		"DOTA_Tooltip_modifier_paladin_rune_e_1_revivable"				"卷土重来"
+		"DOTA_Tooltip_modifier_paladin_rune_e_1_revivable_description" 	"死亡4秒后复活"
+
+		"DOTA_Tooltip_modifier_paladin_rune_e_1_revive_cooldown"				"复活"
+		"DOTA_Tooltip_modifier_paladin_rune_e_1_revive_cooldown_description" 	"卷土重来冷却中"
+
+    	"DOTA_Tooltip_ability_paladin_rune_e_2"							"[E2] 反击"
+    	"DOTA_Tooltip_ability_paladin_rune_e_2_Description"				"向任何伤害全能骑士的敌人反击。反击伤害为全能骑士攻击力的一定百分比，类型为物理伤害。"
+    	"DOTA_Tooltip_ability_paladin_rune_e_2_property_one"			"反击伤害"
+    	"DOTA_Tooltip_ability_paladin_rune_e_2_suffix"					"% 攻击力"
+    	"DOTA_Tooltip_ability_paladin_rune_e_2_property_two"			"额外固定反击伤害"
+    	"DOTA_Tooltip_ability_paladin_rune_e_2_suffix_two"				""
+		
+		"DOTA_Tooltip_modifier_paladin_rune_e_2"						"反击"
+		"DOTA_Tooltip_modifier_paladin_rune_e_2_description" 			"反击任何伤害全能骑士的敌人，反击伤害为物理"
+		
+		"DOTA_Tooltip_ability_paladin_rune_e_3"							"[E3] 众志成城"
+    	"DOTA_Tooltip_ability_paladin_rune_e_3_Description"				"十字军冲锋时释放众多飞鸟，对附近直线的敌人造成基于全能骑士攻击力的纯粹伤害。"
+    	"DOTA_Tooltip_ability_paladin_rune_e_3_property_one"			"飞鸟伤害"
+    	"DOTA_Tooltip_ability_paladin_rune_e_3_suffix"					"% 攻击力"
+		
+		"DOTA_Tooltip_ability_paladin_rune_e_4"							"[E4] 鼓翼"
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_Description"				"被[E3]众志成城飞鸟击中的敌人，获得一个debuff，加深其受到来自全能骑士的伤害。（计算在敌人减伤之后）持续8秒。"
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_property_one"			"敌人受到的伤害加深"
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_suffix"					"%"
+
+    	"DOTA_Tooltip_modifier_paladin_d_c"								"鼓翼"
+    	"DOTA_Tooltip_modifier_paladin_d_c_Description"					"来自全能骑士的伤害被加深"
+
+		"DOTA_Tooltip_ability_knights_disciple"								"骑士的门徒"
+		"DOTA_Tooltip_ability_knights_disciple_Description"					"召唤全能骑士的门徒，门徒拥有治疗技能治疗附近最低血量的单位，被治疗的单位伤害减免 20% 。"
+		"DOTA_Tooltip_ability_knights_disciple_Lore"							""
+    	"DOTA_Tooltip_ability_knights_disciple_summon_duration"						"门徒持续时间："
+    	"DOTA_Tooltip_ability_knights_disciple_heal_per_tick_percent"					"每次治疗血量:"
+
+		"DOTA_Tooltip_modifier_holy_ult_aura" 							"圣所"
+		"DOTA_Tooltip_modifier_holy_ult_aura_description" 				"无视物理攻击并且回复血量，额外获得200移动速度。"
+
+		"DOTA_Tooltip_modifier_knights_disciple_heal"					"骑士的门徒"
+		"DOTA_Tooltip_modifier_knights_disciple_heal_Description"		"每0.2秒治疗一次，伤害减免 20%"
+		
+		"DOTA_Tooltip_ability_paladin_rune_r_1"							"[R1] 天堂守护者"
+    	"DOTA_Tooltip_ability_paladin_rune_r_1_Description"				"全能骑士的门徒拥有1000 AOE的护甲提升光环."
+    	"DOTA_Tooltip_ability_paladin_rune_r_1_property_one"			"护甲提升光环"
+    	"DOTA_Tooltip_ability_paladin_rune_r_1_suffix"					""
+
+    	"DOTA_Tooltip_modifier_paladin_a_d_aura_armor_stacks"				"天堂守护者"
+    	"DOTA_Tooltip_modifier_paladin_a_d_aura_armor_stacks_Description"	"增加护甲"	
+
+    	"DOTA_Tooltip_ability_paladin_rune_r_2"							"[R2] 授权之光"
+    	"DOTA_Tooltip_ability_paladin_rune_r_2_Description"				"友军每一次被骑士的门徒治疗，都将提高一定的攻击力和护甲。持续时间16秒。"
+    	"DOTA_Tooltip_ability_paladin_rune_r_2_property_one"			"每次治疗攻击力提高"
+    	"DOTA_Tooltip_ability_paladin_rune_r_2_suffix"					"%"
+    	"DOTA_Tooltip_ability_paladin_rune_r_2_property_two"			"每次治疗护甲值提高"
+    	"DOTA_Tooltip_ability_paladin_rune_r_2_suffix_two"				""
+
+		"DOTA_Tooltip_modifier_paladin_rune_r_2"						"强化庇护所"
+		"DOTA_Tooltip_modifier_paladin_rune_r_2_description" 			"增加攻击力和护甲"
+
+    	"DOTA_Tooltip_ability_paladin_rune_r_3"							"[R3] 神圣之箭"
+    	"DOTA_Tooltip_ability_paladin_rune_r_3_Description"				"骑士的门徒拥有重击的能力，对目标施以重击造成基于全能骑士攻击力的纯粹伤害并且造成0.1秒的眩晕。5秒冷却时间。"
+    	"DOTA_Tooltip_ability_paladin_rune_r_3_property_one"			"重击伤害"
+    	"DOTA_Tooltip_ability_paladin_rune_r_3_suffix"					"% 全能骑士的攻击力"
+
+    	"DOTA_Tooltip_ability_paladin_rune_r_4"							"[R4] 净化火花"
+    	"DOTA_Tooltip_ability_paladin_rune_r_4_Description"				"骑士的门徒获得冻结敌人的能力, 冻结攻击击中目标，然后分裂击中目标周围的敌人，目标和被分裂攻击击中的敌人都将被冻结。"	
+    	"DOTA_Tooltip_ability_paladin_rune_r_4_property_one"			"冻结时间"
+    	"DOTA_Tooltip_ability_paladin_rune_r_4_suffix"					" 秒"
+
+    	"DOTA_Tooltip_modifier_disciple_purifying_spark"					"净化之火"
+    	"DOTA_Tooltip_modifier_disciple_purifying_spark_Description"		"冻结"	
+
+		//Arcanas
+		
+    	"item_property_paladin_arcana1"										"禅"
+    	"property_paladin_arcana1_description"								"用禅替换 @Ability2 及其所有符文。"
+
+    	"DOTA_Tooltip_ability_paladin_penance"								"禅"
+    	"DOTA_Tooltip_ability_paladin_penance_Description"					"元素： <font color=\"#F6FFB5\">圣</font> / <font color=\"#9ACCD1\">鬼</font><br>全能骑士可以对敌人或者友军发射一支圣灵之枪。在目标周围的敌方单位都会受到伤害。如果目标是友军的话，友军将被治疗，治疗量为 a% 的基础技能伤害。"
+    	"DOTA_Tooltip_ability_paladin_penance_damage"						"伤害："
+    	"DOTA_Tooltip_ability_paladin_penance_heal_percentage"				"治疗量百分比："
+
+    	"DOTA_Tooltip_modifier_penance_projectiles"							"圣灵之枪"
+    	"DOTA_Tooltip_modifier_penance_projectiles_Description"				"全能骑士最多可以同时在空中存在 10把 圣灵之枪。"	
+
+  		"DOTA_Tooltip_ability_paladin_rune_w_1_arcana1"						"[W1] 信仰"
+    	"DOTA_Tooltip_ability_paladin_rune_w_1_arcana1_Description"			"被发射的圣灵之枪击中的敌人会立即受到全能骑士的一次普通攻击，该次普通攻击继承全部攻击特效，并且该次普通攻击无视攻击距离（无论多远都可以攻击）。在圣灵之枪弹道还未到达目标时，全能骑士提高攻击力。"
+    	"DOTA_Tooltip_ability_paladin_rune_w_1_arcana1_property_one"		"攻击力提高"
+    	"DOTA_Tooltip_ability_paladin_rune_w_1_arcana1_suffix"				"%"
+
+    	"DOTA_Tooltip_modifier_paladin_a_b_damage_growth_visible"			"信仰"
+    	"DOTA_Tooltip_modifier_paladin_a_b_damage_growth_visible_Description"	"攻击力提高"
+
+  		"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1"						"[W2] 超级神圣新星"
+    	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_Description"			"当圣灵之枪击中目标时，全能骑士向周围施放超级神圣新星，伤害并缴械敌人1秒。敌人在解除缴械后将有0.5秒的缴械免疫时间。"
+    	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_property_one"		"伤害"
+    	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_suffix"				"x 智力值"
+    	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_property_two"		"额外伤害（加法）"
+    	"DOTA_Tooltip_ability_paladin_rune_w_2_arcana1_suffix_two"			"% 攻击力"
+
+  		"DOTA_Tooltip_ability_paladin_rune_w_3_arcana1"						"[W3] 钢铁意志"
+    	"DOTA_Tooltip_ability_paladin_rune_w_3_arcana1_Description"			"被动地提升护甲值，并且护甲值可以提高禅的技能伤害。"
+    	"DOTA_Tooltip_ability_paladin_rune_w_3_arcana1_property_one"		"护甲值提高"
+    	"DOTA_Tooltip_ability_paladin_rune_w_3_arcana1_suffix"				""
+    	"DOTA_Tooltip_ability_paladin_rune_w_3_arcana1_property_two"		"禅基础技能伤害增加"
+    	"DOTA_Tooltip_ability_paladin_rune_w_3_arcana1_suffix_two"			"x 护甲值"
+
+  		"DOTA_Tooltip_ability_paladin_rune_w_4_arcana1"						"[W4] 正义之怒"
+    	"DOTA_Tooltip_ability_paladin_rune_w_4_arcana1_Description"			"圣灵之枪有概率在友军或敌人间弹射。概率超过 100% 可以弹射多次。<br>同时护甲值将提高基础攻击力。"
+    	"DOTA_Tooltip_ability_paladin_rune_w_4_arcana1_property_one"		"弹射概率"
+    	"DOTA_Tooltip_ability_paladin_rune_w_4_arcana1_suffix"				"%"
+    	"DOTA_Tooltip_ability_paladin_rune_w_4_arcana1_property_two"		"基础攻击力提高"
+    	"DOTA_Tooltip_ability_paladin_rune_w_4_arcana1_suffix_two"				" 每点护甲值"
+
+    	"item_property_paladin_arcana2"										"神圣之翼"
+    	"property_paladin_arcana2_description"								"用神圣之翼替换 @Ability3 及其所有符文。"
+
+    	"DOTA_Tooltip_ability_paladin_crusader_comet"						"神圣之翼"
+    	"DOTA_Tooltip_ability_paladin_crusader_comet_Description"			"元素： <font color=\"#F6FFB5\">圣</font><br>全能骑士升入天堂随后向目标地点发起冲击，净化冲击范围内的所有敌人。"
+    	"DOTA_Tooltip_ability_paladin_crusader_comet_cast_range"			"施法距离："
+    	"DOTA_Tooltip_ability_paladin_crusader_comet_base_damage"			"伤害："
+    	"DOTA_Tooltip_ability_paladin_crusader_comet_damage_from_str"		"额外伤害（力量值的倍数）"
+
+  		"DOTA_Tooltip_ability_paladin_rune_e_1_arcana2"						"[E1] 忠贞"
+    	"DOTA_Tooltip_ability_paladin_rune_e_1_arcana2_Description"			"受到致命伤害时，无视该次致命伤害，并且回复一定量的生命值和魔法值。技能冷却时间 5 秒。"
+    	"DOTA_Tooltip_ability_paladin_rune_e_1_arcana2_property_one"		"生命值回复"
+    	"DOTA_Tooltip_ability_paladin_rune_e_1_arcana2_suffix"				""
+    	"DOTA_Tooltip_ability_paladin_rune_e_1_arcana2_property_two"		"魔法值回复"
+    	"DOTA_Tooltip_ability_paladin_rune_e_1_arcana2_suffix_two"			""
+
+    	"DOTA_Tooltip_modifier_paladin_heal_on_lethal_cooldown"				"忠贞技能冷却中"
+
+  		"DOTA_Tooltip_ability_paladin_rune_e_2_arcana2"						"[E2] 赐福"
+    	"DOTA_Tooltip_ability_paladin_rune_e_2_arcana2_Description"			"每 1% 点 <font color=\"#F6FFB5\">圣</font> 元素伤害加成，都将提高全能骑士一定的的基础攻击力。"
+    	"DOTA_Tooltip_ability_paladin_rune_e_2_arcana2_property_one"		"基础攻击力提高为%圣元素加成的倍数"
+    	"DOTA_Tooltip_ability_paladin_rune_e_2_arcana2_suffix"				"x"
+
+  		"DOTA_Tooltip_ability_paladin_rune_e_3_arcana2"						"[E3] 圣盾"
+    	"DOTA_Tooltip_ability_paladin_rune_e_3_arcana2_Description"			"施放神圣之翼后，全能骑士将会获得魔法免疫，持续一段时间。"
+    	"DOTA_Tooltip_ability_paladin_rune_e_3_arcana2_property_one"		"持续时间"
+    	"DOTA_Tooltip_ability_paladin_rune_e_3_arcana2_suffix"				" 秒"
+
+  		"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2"						"[E4] 审判者"
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_Description"			"全能骑士的 <font color=\"#F6FFB5\">圣</font> 元素伤害加成，将加深全能骑士对敌人的伤害。（伤害加深计算在敌人减伤之后）"
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_property_one"		"减伤后伤害加深"
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_suffix"				" % 的圣元素伤害加成倍数"
+
+		//Glyphs
+
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_1_1"		"复活雕文"
+		"item_rpc_paladin_glyph_1_1_description" 				"降低卷土重来的冷却时间至 @glyph_property1 秒。"
+
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_2_1"		"奉献雕文"
+		"item_rpc_paladin_glyph_2_1_description" 				"被英雄之怒击中的敌人将获得你当前等级的神圣之火debuff。"
+
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_3_1"		"命令雕文"
+		"item_rpc_paladin_glyph_3_1_description" 				"拥有命令光环 - 提高 @glyph_property1% 额外攻击力。"
+
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_1"		"坚定正义雕文"
+		"item_rpc_paladin_glyph_4_1_description" 				"正义之手不再将自己击退。"
+
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_1"		"庇护雕文"
+		"item_rpc_paladin_glyph_5_1_description" 				"增加正义之手和神圣之火200%的伤害。"
+
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_1"		"崇高雕文"
+		"item_rpc_paladin_glyph_6_1_description" 				"拥有崇高光环 - 提高 @glyph_property1 移动速度。"
+
+		"DOTA_Tooltip_modifier_paladin_glyph_6_1_effect"		"崇高光环"
+		"DOTA_Tooltip_modifier_paladin_glyph_6_1_effect_Description"	"移动速度提高"
+
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_7_1"		"热忱雕文"
+		"item_rpc_paladin_glyph_7_1_description" 				"每当某次攻击击中目标时,有 @glyph_property1% 几率立即对范围内另一目标进行一次攻击，无冷却时间。"
+
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_a"		"圣洁愤怒雕文"
+		"item_rpc_paladin_glyph_5_a_description" 				"骑士的门徒拥有 @glyph_property1 的AOE攻击效果并且攻击主要目标两次。"
+		
+		//Weapons
+		"paladin_weapon_01"			"威武巨锤"
+		"paladin_weapon_02"			"银锤"
+		"paladin_weapon_03"			"符文锤"
+		"paladin_weapon_11"			"净化之锤"
+		"paladin_weapon_12"			"天堂之锤"
+		"paladin_weapon_13"			"正义之锤"
+		"paladin_weapon_14"			"炽热净化之锤"
+		"paladin_weapon_21"			"守护神之锤"
+		"paladin_weapon_22"			"天使之翼"
+		"paladin_weapon_23"			"惩戒之锤"
+		"paladin_weapon_24"			"天选开明锤"
+		"paladin_weapon_25"			"神圣魔法锤"
+		
+		"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_1"		"辉煌"
+		"item_property_paladin_immortal_weapon"								"辉煌庇护"
+		"property_paladin_immortal_weapon_description"						"施放英雄之怒时拥有7层的神圣庇护充能持续8秒。并且神圣庇护最大层数增加至7层。"
+		
+		"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_2"			"圣光骑士"
+    	"item_property_paladin_immortal_weapon2"							"神之怒"
+    	"property_paladin_immortal_weapon2_description"						"@Ability4 所召唤门徒的所有技能冷却时间减少 @special_property1% 。"
+
+
+    	"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_3"			"圣锤"
+    	"item_property_paladin_immortal_weapon3"								"神圣之力"
+    	"property_paladin_immortal_weapon3_description"						"每点力量值额外提高最大生命值 @special_property1"

@@ -1,0 +1,282 @@
+		//Abilities
+		"DOTA_Tooltip_ability_hydroxis_hydro_pump"									"洪流"
+    	"DOTA_Tooltip_ability_hydroxis_hydro_pump_Description"						"元素： <font color=\"#3894FF\">水</font><br>重击地面，沿着一条线向目标方向泵出多股洪流。被洪流击中的敌人会飞到空中并且眩晕"
+    	"DOTA_Tooltip_ability_hydroxis_hydro_pump_damage"							"洪流伤害："
+    	"DOTA_Tooltip_ability_hydroxis_hydro_pump_torrents"							"洪流个数:"
+
+    	"DOTA_Tooltip_modifier_torrent_stun"										"洪流"
+    	"DOTA_Tooltip_modifier_torrent_stun_Description"							"眩晕"
+		
+		"DOTA_Tooltip_ability_hydroxis_rune_q_1"							"[Q1] 海洋颤抖"
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_1_Description"				"施放洪流，额外在施法点造成一次小型的海洋地震。"
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_1_property_one"				"伤害"
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_1_suffix"						"% 海洋地震伤害"
+		
+		"DOTA_Tooltip_ability_hydroxis_rune_q_2"							"[Q2] 神秘水盾"
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_2_Description"				"胖头鱼每站到一股洪流上时，会增加一层神秘水盾的叠加层数。神秘水盾持续12秒。再次施放洪流时重置神秘水盾的层数。"
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_2_property_one"				"每层神秘水盾提高护甲值"
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_2_suffix"						""
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_2_property_two"				"每层每次治疗量（每0.2秒治疗一次）"
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_2_suffix_two"					""
+		
+		"DOTA_Tooltip_modifier_hydroxis_b_a_shield_visible"					"神秘水盾"
+    	"DOTA_Tooltip_modifier_hydroxis_b_a_shield_visible_Description"		"护甲值提高并且快速治疗"	
+
+    	"DOTA_Tooltip_modifier_hydroxis_b_a_shield_visible_glyphed"					"神秘水盾"
+    	"DOTA_Tooltip_modifier_hydroxis_b_a_shield_visible_glyphed_Description"		"护甲值提高并且快速治疗"
+		
+		"DOTA_Tooltip_ability_hydroxis_rune_q_3"							"[Q3] 波纹"
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_3_Description"				"被洪流击中的敌人将降低魔法抗性，持续8秒。"
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_3_property_one"				"魔法抗性降低"
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_3_suffix"						""
+
+    	"DOTA_Tooltip_modifier_hydroxis_c_a_magic_resist_lost"				"波纹"
+    	"DOTA_Tooltip_modifier_hydroxis_c_a_magic_resist_lost_Description"	"魔法抗性降低"	
+		
+		"DOTA_Tooltip_ability_hydroxis_rune_q_4"							"[Q4] 水之浪潮"
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_4_Description"				"在0.9秒延迟后有几率再次施放洪流。大于100％的几率意味着洪流将被多次施放。"
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_4_property_one"				"多重施放机率"
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_4_suffix"						"%"
+		
+		"DOTA_Tooltip_ability_hydroxis_water_blade"									"惊涛骇浪"
+    	"DOTA_Tooltip_ability_hydroxis_water_blade_Description"						"元素： <font color=\"#3894FF\">水</font><br>胖头鱼的武器喷射出一股水流，冲击目标范围。范围内的敌人将被减速。"	
+    	"DOTA_Tooltip_ability_hydroxis_water_blade_damage"							"伤害："
+    	"DOTA_Tooltip_ability_hydroxis_water_blade_slow_movespeed"					"移动速度降低："
+    	"DOTA_Tooltip_ability_hydroxis_water_blade_slow_attackspeed"				"攻击速度降低："
+    	"DOTA_Tooltip_ability_hydroxis_water_blade_cast_range"						"施法距离："
+
+    	"DOTA_Tooltip_modifier_water_bomb_slow"										"惊涛骇浪"
+    	"DOTA_Tooltip_modifier_water_bomb_slow_Description"							"移动速度和攻击速度降低"
+		
+		"DOTA_Tooltip_ability_hydroxis_rune_w_1"							"[W1] 新月波"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_1_Description"				"攻击带有溅射效果。溅射范围为攻击目标身后的半圆。"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_1_property_one"				"溅射伤害"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_1_suffix"						"% 攻击力"
+		
+		"DOTA_Tooltip_ability_hydroxis_rune_w_2"							"[W2] 液体精华"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_2_Description"				"惊涛骇浪每击中一个敌人，胖头鱼获得一层buff，提高攻击力。buff持续15秒，最高叠加20层。当达到最高层数时，失去所有层数但是获得另一个buff，等量提高胖头鱼相当于20层buff的攻击力。新的buff也将持续15秒。"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_2_property_one"				"每个击中单位提高胖头鱼攻击力"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_2_suffix"						"%"
+		
+		"DOTA_Tooltip_ability_hydroxis_rune_w_3"							"[W3] 洪水"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_3_Description"				"胖头鱼的一部分攻击力增加到惊涛骇浪的基础伤害中。"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_3_property_one"				"惊涛骇浪伤害提高"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_3_suffix"						"% 攻击力"
+		
+		"DOTA_Tooltip_ability_hydroxis_rune_w_4"							"[W4] 溢出"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_4_Description"				"深水炸弹额外汲取你的最大魔法值的3％，并且根据所吸取的魔法值提高伤害。"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_4_property_one"				"深水炸弹伤害提高"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_4_suffix"						"% 每汲取100点魔法值"
+		
+		"DOTA_Tooltip_ability_hydroxis_slippery_tail"								"滑流"
+    	"DOTA_Tooltip_ability_hydroxis_slippery_tail_Description"					"胖头鱼以非常快的速度和不受阻碍的姿势朝向目标位置移动。另外在滑流期间获得100％的闪避。"
+    	"DOTA_Tooltip_ability_hydroxis_slippery_tail_cast_range"					"施法距离："
+		
+		"DOTA_Tooltip_ability_hydroxis_rune_e_1"							"[E1] 承诺"
+    	"DOTA_Tooltip_ability_hydroxis_rune_e_1_Description"				"当滑动时，不间断地向周围随机方向发射惊涛骇浪。"
+    	"DOTA_Tooltip_ability_hydroxis_rune_e_1_property_one"				"伤害"
+    	"DOTA_Tooltip_ability_hydroxis_rune_e_1_suffix"						"% 惊涛骇浪伤害"
+		
+		"DOTA_Tooltip_ability_hydroxis_rune_e_2"							"[E2] 洪水滑动"
+    	"DOTA_Tooltip_ability_hydroxis_rune_e_2_Description"				"当滑动时, 不间断地向周围随机的目标释放一股水流，造成基于胖头鱼攻击力的伤害。"
+    	"DOTA_Tooltip_ability_hydroxis_rune_e_2_property_one"				"伤害"
+    	"DOTA_Tooltip_ability_hydroxis_rune_e_2_suffix"						"% 攻击力"
+		
+		"DOTA_Tooltip_ability_hydroxis_rune_e_3"							"[E3] 尾滑"
+    	"DOTA_Tooltip_ability_hydroxis_rune_e_3_Description"				"施放滑动后提高攻击速度，持续8秒。"
+    	"DOTA_Tooltip_ability_hydroxis_rune_e_3_property_one"				"攻击速度提高"
+    	"DOTA_Tooltip_ability_hydroxis_rune_e_3_suffix"						""
+
+    	"DOTA_Tooltip_modifier_hydroxis_c_c"								"尾滑"
+    	"DOTA_Tooltip_modifier_hydroxis_c_c_Description"					"攻击速度提高"
+		
+		"DOTA_Tooltip_ability_hydroxis_rune_e_4"							"[E4] 闪亮的鳞片"
+    	"DOTA_Tooltip_ability_hydroxis_rune_e_4_Description"				"敏捷和智力值提高。并且敏捷和智力值将提高所有 <font color=\"#3894FF\">水</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_hydroxis_rune_e_4_property_one"				"敏捷和智力值提高"
+    	"DOTA_Tooltip_ability_hydroxis_rune_e_4_suffix"						""
+    	"DOTA_Tooltip_ability_hydroxis_rune_e_4_property_two"				"水元素伤害提高"
+    	"DOTA_Tooltip_ability_hydroxis_rune_e_4_suffix_two"					"% 每10点敏捷和智力值"
+		
+		"DOTA_Tooltip_ability_hydroxis_tsunami"										"海洋地震"		
+    	"DOTA_Tooltip_ability_hydroxis_tsunami_Description"							"元素： <font color=\"#3894FF\">水</font> / <font color=\"#AF843D\">土</font><br>胖头鱼击碎地面，向周围喷溅水花，造成眩晕和减速。伤害基于力量值。"	
+    	"DOTA_Tooltip_ability_hydroxis_tsunami_strength_damage"						"伤害为力量值的倍数："			
+    	"DOTA_Tooltip_ability_hydroxis_tsunami_stun_duration"						"眩晕持续时间："
+    	"DOTA_Tooltip_ability_hydroxis_tsunami_slow_duration"						"减速持续时间："
+    	"DOTA_Tooltip_ability_hydroxis_tsunami_move_slow"							"移动速度降低："
+    	"DOTA_Tooltip_ability_hydroxis_tsunami_attack_slow"							"攻速降低："
+
+    	"DOTA_Tooltip_modifier_ocean_quake_slowed"									"海洋地震"
+    	"DOTA_Tooltip_modifier_ocean_quake_slowed_Description"						"移动速度和攻击速度降低"	
+		
+		"DOTA_Tooltip_ability_hydroxis_rune_r_1"							"[R1] 波雨淋"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_1_Description"				"被海洋地震击中的敌人，护甲值将被大幅度减少。同时，大招及其符文所造成的伤害将被胖头鱼自己的护甲值所提高，[R2]海啸 和 [R3]波塞冬的憤怒 只享受总伤害加成的 30% 。"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_1_property_one"				"护甲值减少"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_1_suffix"						""
+        "DOTA_Tooltip_ability_hydroxis_rune_r_1_property_two"               "大招伤害提高"
+        "DOTA_Tooltip_ability_hydroxis_rune_r_1_suffix_two"                 "% 每 10 点护甲值"
+		
+		"DOTA_Tooltip_ability_hydroxis_rune_r_2"							"[R2] 海啸"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_2_Description"				"当你开始引导海洋地震时，获得一个持续12秒的buff，不断地从胖头鱼的身后产生向前推进的波浪，伤害并且减速击中的敌人。"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_2_property_one"				"波浪伤害"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_2_suffix"						""
+		
+		"DOTA_Tooltip_ability_hydroxis_rune_r_3"							"[R3] 波塞冬的憤怒"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_3_Description"				"施放海洋地震后, 获得波塞冬之怒的buff，持续10秒钟，此时普通攻击会向攻击目标身后的半圆内的敌人喷水。"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_3_property_one"				"喷水伤害"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_3_suffix"						"% 攻击力"
+
+    	"DOTA_Tooltip_modifier_hydroxis_c_d_poseidons_wrath"				"波塞冬的憤怒"
+    	"DOTA_Tooltip_modifier_hydroxis_c_d_poseidons_wrath_Description"	"攻击喷水并且对目标身后半圆内的敌人造成纯粹伤害。"
+
+    	//If attack target == gush target, source the tracking projectile from the hero, otherwise source it from the target
+    	//SET RENDER COLOR (130, 130, 255)
+		"DOTA_Tooltip_ability_hydroxis_rune_r_4"							"[R4] 斃命水池"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_Description"				"施放海洋地震创造一个水池持续9秒，当站在水中，胖头鱼拥有减伤效果并且对敌人的伤害提高"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_property_one"				"伤害输出提高"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_suffix"						"%"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_property_two"				"伤害减免"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_suffix_two"					"%"
+
+    	"DOTA_Tooltip_modifier_drowning_pool_actual_effect"					"斃命水池"
+    	"DOTA_Tooltip_modifier_drowning_pool_actual_effect_Description"		"当站在水中拥有减伤效果并且伤害输出提高"	
+		
+		//Arcanas
+		
+		"item_property_hydroxis_arcana1"									"水之迷雾"
+    	"property_hydroxis_arcana1_description"								"用水之迷雾替换 @Ability2 及其所有符文。"
+
+    	"DOTA_Tooltip_ability_hydroxis_arcana_ability_1"								"水之迷雾"
+    	"DOTA_Tooltip_ability_hydroxis_arcana_ability_1_Description"					"开启水之迷雾将提高自身的魔法抗性并且周围的敌人有 100% 的攻击丢失概率。离开水雾的敌人仍将持续攻击丢失debuff 3秒。"
+    	"DOTA_Tooltip_ability_hydroxis_arcana_ability_1_blind"						"敌人攻击丢之概率："
+    	"DOTA_Tooltip_ability_hydroxis_arcana_ability_1_magic_resist"				"魔法抗性提高："
+    	"DOTA_Tooltip_ability_hydroxis_arcana_ability_1_mana_drain"				"每秒汲取魔法值："
+
+    	"DOTA_Tooltip_modifier_hydroxis_mist"							"水之迷雾"
+    	"DOTA_Tooltip_modifier_hydroxis_mist_Description"				"魔法抗性提高，并且周围的敌人有 100% 的攻击丢失概率。"
+
+    	"DOTA_Tooltip_modifier_hydroxis_mist_debuff"					"水之迷雾"
+    	"DOTA_Tooltip_modifier_hydroxis_mist_debuff_Description"		"100% 攻击丢失概率"
+
+    	"DOTA_Tooltip_modifier_hydroxis_mist_debuff_timered"					"水之迷雾"
+    	"DOTA_Tooltip_modifier_hydroxis_mist_debuff_timered_Description"		"100% 攻击丢失概率"
+
+  		"DOTA_Tooltip_ability_hydroxis_rune_w_1_arcana1"						"[W1] 水波利刃"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_1_arcana1_Description"				"攻击造成溅射伤害将同时伤害目标背后的敌人。"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_1_arcana1_property_one"				"溅射伤害"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_1_arcana1_suffix"						"% 攻击力"
+
+  		"DOTA_Tooltip_ability_hydroxis_rune_w_2_arcana1"						"[W2] 海洋之怒"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_2_arcana1_Description"			"当开启水之迷雾时，螺旋攻击周围的敌人一次。"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_2_arcana1_property_one"		"伤害"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_2_arcana1_suffix"				"% 攻击力"
+
+  		"DOTA_Tooltip_ability_hydroxis_rune_w_3_arcana1"						"[W3] 深海之力"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_3_arcana1_Description"			"受到水之迷雾影响的敌人，所受到的来自于胖头鱼的伤害将加深。（伤害加深计算在敌人减伤之后）"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_3_arcana1_property_one"		"减伤后伤害加深："
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_3_arcana1_suffix"				"%"
+
+  		"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1"						"[W4] 狂风巨浪"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_Description"			"受到 <font color=\"#3894FF\">水</font> 元素伤害的敌人将同时受到水之迷雾的debuff。同时，每次普通攻击和海洋之怒攻击都将增加一层buff，提高基础攻击力，持续 10秒。最多30层。"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_property_one"		"水之迷雾debuff持续时间"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_suffix"				" 秒"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_property_two"		"每层提高攻击力"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_suffix_two"				""
+
+    	"DOTA_Tooltip_modifier_hydroxis_d_b_arcana_visible"					"狂风巨浪"
+    	"DOTA_Tooltip_modifier_hydroxis_d_b_arcana_visible_Description"					"基础攻击力提高"
+
+		"item_property_hydroxis_arcana2"									"洪水领域"
+    	"property_hydroxis_arcana2_description"								"用洪水领域替换 @Ability4 及其所有符文。"
+
+    	"DOTA_Tooltip_ability_hydroxis_spellbound_flood_basin"							"洪水领域"
+    	"DOTA_Tooltip_ability_hydroxis_spellbound_flood_basin_Description"					""
+    	"DOTA_Tooltip_ability_hydroxis_spellbound_flood_basin_cast_time"				"% 施法速度提高:"
+    	"DOTA_Tooltip_ability_hydroxis_spellbound_flood_basin_mana_regen"				"魔法回复速度:"
+    	"DOTA_Tooltip_ability_hydroxis_spellbound_flood_basin_radius"					"领域半径:"
+
+    	"DOTA_Tooltip_modifier_flood_basin_aura_effect"						"洪水领域"
+    	"DOTA_Tooltip_modifier_flood_basin_aura_effect_Description"			"提高施法速度和回蓝"	
+
+  		"DOTA_Tooltip_ability_hydroxis_rune_r_1_arcana2"						"[R1] Diviner's Waves"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_1_arcana2_Description"				"提高施法距离与基础技能伤害。"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_1_arcana2_property_one"				"施法距离提高"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_1_arcana2_suffix"						""
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_1_arcana2_property_two"				"基础技能伤害提高"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_1_arcana2_suffix_two"					"%"
+
+  		"DOTA_Tooltip_ability_hydroxis_rune_r_2_arcana2"						"[R2] 深水"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_2_arcana2_Description"			"提高洪水领域的持续时间。"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_2_arcana2_property_one"		"持续时间提高"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_2_arcana2_suffix"				" 秒"
+
+  		"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2"						"[R3] 暗流"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2_Description"			"陷入洪水领域的敌人会立刻被缠绕，并且被持续拖向中心。敌人站在洪水领域中还会承受额外的 <font color=\"#3894FF\">水</font> 伤害。"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2_property_one"		"缠绕持续时间"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2_suffix"				" 秒"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2_property_two"		"提高水伤害"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2_suffix_two"			"%"
+
+    	"DOTA_Tooltip_modifier_flood_basin_aura_effect_enemy"				"洪水领域"
+    	"DOTA_Tooltip_modifier_flood_basin_aura_effect_enemy_Description"	"承受额外的水伤害"
+
+    	"DOTA_Tooltip_modifier_flood_basin_enemy_root"						"暗流"
+    	"DOTA_Tooltip_modifier_flood_basin_enemy_root_Description"			"被缠绕"
+
+  		"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2"						"[R4] 水之奇术"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2_Description"			"被动提高智力值与税后伤害"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2_property_one"		"智力提高"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2_suffix"				""
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2_property_two"		"税后增伤"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2_suffix_two"				"%"
+		
+		//Glyphs
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_1_1"		"构造学雕文"
+		"item_rpc_hydroxis_glyph_1_1_description" 				"施放海洋地震后，将在2秒后再次自动施放。"
+
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_2_1"		"喷薄雕文"
+		"item_rpc_hydroxis_glyph_2_1_description" 				"在滑行时，深水炸弹速度提高 @glyph_property1% "
+
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_3_1"		"圣水雕文"
+		"item_rpc_hydroxis_glyph_3_1_description" 				"神秘水盾的治疗间隔缩短 2x。"
+
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_4_1"		"殘骸雕文"
+		"item_rpc_hydroxis_glyph_4_1_description" 				"洪水滑动伤害增加 3x。"
+
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_5_1"		"水汽雕文"
+		"item_rpc_hydroxis_glyph_5_1_description" 				"攻击拥有 @glyph_property1% 机率触发新月波造成 @glyph_property2% 攻击力的魔法伤害。"
+
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_6_1"		"淹沒雕文"
+		"item_rpc_hydroxis_glyph_6_1_description" 				"增加斃命水池的半径 @glyph_property1。"
+
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_7_1"		"海神雕文"
+		"item_rpc_hydroxis_glyph_7_1_description" 				"增加波塞冬的憤怒的持续时间 @glyph_property1 秒。"
+
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_5_a"		"海光雕文"
+		"item_rpc_hydroxis_glyph_5_a_description" 				"神秘水盾消耗1层叠加数量吸收一次魔法和纯碎伤害。"
+		
+		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_00"		"Basher"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_01"		"Deep Basher"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_02"		"Kelp Basher"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_03"		"Aqua Mace"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_11"		"Sea Smasher"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_12"		"Aquatic Basher"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_13"		"Drift Mace"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_14"		"Tidal Smasher"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_21"		"Ocean Blue Mace"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_22"		"Undertow Water Mace"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_23"		"Blue Mace of the Depths"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_24"		"Mace of the Granite Crustacean"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_weapon_25"		"Deep Reef Smasher"
+		
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_1"		"蓝宝石三叉戟"
+		"item_property_hydroxis_immortal_weapon"							"波塞冬的唤醒"
+		"property_hydroxis_immortal_weapon_description"					"增加波塞冬的愤怒的伤害100%和半径50%."
+		
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_2"            "黑暗之礁刺棍"
+        "item_property_hydroxis_immortal_weapon2"                             "滑动能量"
+        "property_hydroxis_immortal_weapon2_description"                      "胖头鱼施放 @Ability3 滑动过程中所接触到的敌人将被眩晕 @special_property1 秒并且被推开。"
+
+        "DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_3"            "破泞之主的三叉戟"
+        "item_property_hydroxis_immortal_weapon3"                             "潮汐使者"
+        "property_hydroxis_immortal_weapon3_description"                      "洪流向外扩散的延迟减少 @special_property1% "

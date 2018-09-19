@@ -1,0 +1,261 @@
+		"DOTA_Tooltip_ability_arkimus_zonis_spark"								"Dimension Coil"
+    	"DOTA_Tooltip_ability_arkimus_zonis_spark_Description"					"Стихия: <font color=\"#E1A2E8\">Тайна</font> / <font color=\"#5CCDF9\">Молния</font><br>Arkimus прорывается через пространственные барьеры перед собой, мгновенно появляясь в указанной точке. От места начала прыжка до конечной точки на 7 секунд появляется энергетический канал. Враги, задетые молнией будут постоянно оглушены на время действия и получат урон. Каждые 6 секунд герой получает заряд этого умения, который позволяет прочитать заклинание без перезарядки. Максимум 2 заряда."
+    	"DOTA_Tooltip_ability_arkimus_zonis_spark_damage"						"УРОН:"
+    	"DOTA_Tooltip_ability_arkimus_zonis_spark_cast_range"					"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
+
+    	"DOTA_Tooltip_modifier_zonis_stun"										"Оглушение от (Q) Dimension Coil"
+
+    	"DOTA_Tooltip_modifier_zonis_freecast"									"Свободное прочтение (Q) Dimension Coil"
+    	"DOTA_Tooltip_modifier_zonis_freecast_Description"						"Следующее прочтение (Q) Dimension Coil не потребует перезарядки этого умения."
+
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1"									"[Q1] Shell Shock"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_Description"						"Враги, задетые молнией от @Ability1 теряют часть своей брони на 8 секунд."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_property_one"					"Снижение брони"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_suffix"							""
+
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2"									"[Q2] Zonal Net"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_Description"						"После прочтения @Ability1, электрическая сеть тайной энергии на 1 секунду окружит героя. Все задетые враги оглушаются каждые 0.2 секунды и получают урон."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_property_one"					"Урон"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_suffix"							""
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_property_two"					"Радиус"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_suffix_two"						""
+
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3"									"[Q3] Malleable Fabric"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_Description"						"Враги, задетые молнией от @Ability1 теряют сопротивление к магии на 8 секунд."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_property_one"					"Снижение магического сопротивления"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_suffix"							""
+
+    	"DOTA_Tooltip_modifier_zonis_c_a_magic_resist"							"Malleable Fabric"
+    	"DOTA_Tooltip_modifier_zonis_c_a_magic_resist_Description"				"Сопротивление магии снижено"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4"									"[Q4] Arcane Coil"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_Description"						"Увеличивает урон @Ability1 и [Q2], дополнительно увеличивается длительность существования молний."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_property_one"					"Доп. урон (Q) Dimension Coil и [Q2] Zonal Net"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix"							"%"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_property_two"					"Доп. длительность молний"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix_two"						" сек."
+
+    	"DOTA_Tooltip_ability_arkimus_storm_weapon"								"Flash Source"
+    	"DOTA_Tooltip_ability_arkimus_storm_weapon_Description"					"Стихия: <font color=\"#E1A2E8\">Тайна</font><br>Arkimus зачаровывает свое оружие потоком тайной энергии, который высвобождается мощным взрывом при успешной атаке по цели. На каждый удар тратится мана. Когда заканчивается запас маны, умение отключается."
+    	"DOTA_Tooltip_ability_arkimus_storm_weapon_damage_mult"					"УРОН, % ОТ УРОНА ГЕРОЯ:"
+
+    	"DOTA_Tooltip_modifier_arkimus_storm_weapon"							"Flash Source"
+    	"DOTA_Tooltip_modifier_arkimus_storm_weapon_Description"				"Следующая атака высвободит взрывную волну тайной энергии."
+
+    	"DOTA_Tooltip_ability_arkimus_rune_w_1"									"[W1] Archon Weapons"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_1_Description"						"Часть любого нанесённого урона стихии Тайны увеличивает базовый урон героя на 15 секунд. Каждый последующий урон Тайны перезаписывает предыдущий бонус."
+    	"DOTA_Tooltip_ability_arkimus_rune_w_1_property_one"					"Бонус к базовому урон от нанесенного урона Тайны"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_1_suffix"							"%"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_1_property_two"					"Максимальный бонус"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_1_suffix_two"						""
+
+    	"DOTA_Tooltip_ability_arkimus_rune_w_2"									"[W2] Arcane Splice"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_2_Description"						"Каждый раз, когда враг получает урон от @Ability2, он получает заряд этой руны. Каждый заряд увеличивает весь получаемый врагом урон стихии Тайны из всех источников."
+    	"DOTA_Tooltip_ability_arkimus_rune_w_2_property_one"					"Увеличение урона Тайны за заряд"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_2_suffix"							"%"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_w_3"									"[W3] Photon Sprint"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_3_Description"						"Приказ атаковать цель во время активного заряда @Ability2 активирует состояние [W3]. В это время Arkimus получает бонус в 1000 к скорости передвижения, максимальной скорости передвижения, возможность проходить сквозь существ и увеличенный урон. Враг должен находиться на расстоянии более 400 юнитов для активации. Любой другой приказ герою во время бега отменяет его."
+    	"DOTA_Tooltip_ability_arkimus_rune_w_3_property_one"					"Бонус к урону"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_3_suffix"							"%"
+
+    	"DOTA_Tooltip_modifier_arkimus_c_b_sprinting"							"Photon Sprint"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_w_4"									"[W4] Source Relay"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_4_Description"						"Совершая успешную атаку во время активного умения @Ability2, герой с некоторым шансом может укрыть себя щитом, полностью поглощающим любой входящий урон. Значение шанса выше 100% даёт возможность получить больше зарядов щита."
+    	"DOTA_Tooltip_ability_arkimus_rune_w_4_property_one"					"Шанс на дополнительный заряд (W) Flash Soruce"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_4_suffix"							"%"
+
+    	"DOTA_Tooltip_modifier_arkimus_d_b_shield"								"[W4]Source Relay"
+    	"DOTA_Tooltip_modifier_arkimus_d_b_shield_Description"					"Щит, способный поглотить любой входящий урон"	
+
+    	"DOTA_Tooltip_ability_ark_jump"											"Orbital Leap"
+    	"DOTA_Tooltip_ability_ark_jump_Description"								"Arkimus совершает акробатический прыжок в указанную точку. Каждые 6 секунд герою даётся заряд этого умения, который позволяет использовать Orbital Leap без перезарядки. Максимум 2 заряда."
+    	"DOTA_Tooltip_ability_ark_jump_cast_range"								"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
+
+    	"DOTA_Tooltip_modifier_machinal_jump_freecast"							"Свободное применение (E) Orbital Leap"
+    	"DOTA_Tooltip_modifier_machinal_jump_freecast_Description"				"Следующее прочтение (E) Oribtal Leap не потребует перезарядки умения."
+
+    	"DOTA_Tooltip_ability_arkimus_rune_e_1"									"[E1] Grounding Spark"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_1_Description"						"Повергает врагов рядом с точкой приземления от @Ability3 электрошоком тайной энергии."
+    	"DOTA_Tooltip_ability_arkimus_rune_e_1_property_one"					"Урон"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_1_suffix"							"% от урона героя"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_1_property_two"					"Радиус шокирующего удара"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_1_suffix_two"						""	
+
+    	"DOTA_Tooltip_ability_arkimus_rune_e_2"									"[E2] Regeneration Cycle"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_2_Description"						"Каждый раз, когда Arkimus восполняет запас маны, он исцеляется на то же значение."
+    	"DOTA_Tooltip_ability_arkimus_rune_e_2_property_one"					"Лечение"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_2_suffix"							" За каждое полученное очко Маны"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_e_3"									"[E3] Elevated System"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_3_Description"						"После прыжка от @Ability3 герой на 3 секунды увеличивает свой пост-резистный урон."
+    	"DOTA_Tooltip_ability_arkimus_rune_e_3_property_one"					"Увеличение пост-резистного урона"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_3_suffix"							"%"
+
+    	"DOTA_Tooltip_modifier_machinal_jump_c_c_amp"							"Elevated System"
+    	"DOTA_Tooltip_modifier_machinal_jump_c_c_amp_Description"				"Пост-резистный урон увеличен"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_e_4"									"[E4] Boundless Edge"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_4_Description"						"Пассивно увеличивает Ловкость и уклонение героя."
+    	"DOTA_Tooltip_ability_arkimus_rune_e_4_property_one"					"Доп. очков Ловкости"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_4_suffix"							""
+    	"DOTA_Tooltip_ability_arkimus_rune_e_4_property_two"					"Доп. уклонение"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_4_suffix_two"						"%"
+
+    	"DOTA_Tooltip_ability_arkimus_energy_field"								"Energy Field"
+    	"DOTA_Tooltip_ability_arkimus_energy_field_Description"					"Стихия: <font color=\"#E1A2E8\">Тайна</font><br>После двухсекундной зарядки выпускает несколько энергосфер из тайной энергии на 20 секунд, которые начинают вращаться вокруг героя и следовать за ним. Враги, задетые энергосферами получают урон и теряют часть своего урона на 5 секунд. Прочтение (E) Orbital Leap уменьшит радиус полёта сфер, а (Q) Dimension Coil увеличит."
+    	"DOTA_Tooltip_ability_arkimus_energy_field_damage"						"УРОН:"
+    	"DOTA_Tooltip_ability_arkimus_energy_field_spirits"						"ЭНЕРГОСФЕР:"
+    	"DOTA_Tooltip_ability_arkimus_energy_field_damage_reduce"				"СНИЖЕНИЕ УРОНА, %:"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1"									"[R1] Vibrational Potency"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1_Description"						"Каждая активная энергосфера увеличивает урон и регенерацию маны героя."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1_property_one"					"Бонус к урону за энергосферу"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1_suffix"							"%"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1_property_two"					"Бонус к регенерации маны за энергосферу"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1_suffix_two"						""
+
+    	"DOTA_Tooltip_ability_arkimus_rune_r_2"									"[R2] Adaptable Pressure"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_2_Description"						"Увеличивает урон энергосфер от @Ability4 в зависимости от урона героя."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_2_property_one"					"Бонусный урон энергосфер"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_2_suffix"							"% от урона героя"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3"									"[R3] Forcefield"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3_Description"						"В начале прочтения @Ability4 герой ненадолго укрывается щитом, снижающим входящий урон на <% ARKIMUS_R3_DMG_RED * 100 %>%."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3_property_one"					"Длительность"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3_suffix"							" сек."
+
+    	"DOTA_Tooltip_modifier_energy_field_c_d_shield"							"Forcefield"
+    	"DOTA_Tooltip_modifier_energy_field_c_d_shield_Description"				"Весь входящий урон снижен на 90%%"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4"									"[R4] Helical Magic"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_Description"						"Весь стихийный урон <font color=\"#E1A2E8\">Тайны</font> увеличен за счёт Ловкости героя."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_property_one"					"Усиление стихийного урона Тайны"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_suffix"							"% за каждые 10 очков Ловкости"
+		
+		//Arcanas
+    	"item_property_arkimus_arcana1"										"Magnetic Flux"
+    	"property_arkimus_arcana1_description"								"Заменяет (Q) @Ability1 и все соответствующие руны на (Q) Magnetic Flux."
+
+    	"DOTA_Tooltip_ability_arkimus_zap_ring"									"Magnetic Flux"
+    	"DOTA_Tooltip_ability_arkimus_zap_ring_Description"						"Стихия: <font color=\"#E1A2E8\">Тайна</font> / <font color=\"#5CCDF9\">Молния</font><br>Arkimus создаёт мощное магнитное поле, которое следует за ним. Враги, задетые полем поражаются электрическим разрядом, из-за чего получают урон и оглушаются на 0.2 секунды."
+    	"DOTA_Tooltip_ability_arkimus_zap_ring_damage"							"УРОН:"
+    	"DOTA_Tooltip_ability_arkimus_zap_ring_duration"						"ДЛИТЕЛЬНОСТЬ:"
+    	"DOTA_Tooltip_ability_arkimus_zap_ring_int_damage"						"ДОП. УРОН ОТ ИНТЕЛЛЕКТА:"
+
+    	"DOTA_Tooltip_modifier_zonis_stun_arcana1"								"Magnetic Shock"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1"									"[Q1] Reverse Polarity"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_Description"						"Пассивно дарует интеллект Arkimus."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_property_one"					"бонусного Интеллекта"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_suffix"							""
+
+     	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1"									"[Q2] Power Surge"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1_Description"						"Враги, находящиеся в области действия @Ability1 получают увеличенный пост-резистный урон от Arkimus."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1_property_one"					"Усиление пост-резистного урона"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1_suffix"							"%"
+
+     	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1"									"[Q3] Induction"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_Description"						"При получении урона герой получает заряд этой руны. Каждый заряд независимо друг от друга снижает входящий урон на <% ARKIMUS_ARCANA1_Q3_DMG_RED_PER_STACK_EXP_BASE * 100 %>% (работает по закону убывающей полезности). Сохраняется после смерти, длится <% ARKIMUS_ARCANA1_Q3_DUR_BASE %> секунд."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_property_one"					"Макс. зарядов"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_suffix"							""
+
+    	"DOTA_Tooltip_modifier_arkimus_arcana1_q3"										"Induction"
+    	"DOTA_Tooltip_modifier_arkimus_arcana1_q3_Description"							"Каждый заряд независимо от других снижает входящий урон на 1%%"	
+
+     	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1"									"[Q4] Arcane Channel"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_Description"						"Пока действует @Ability1, Arkimus получает дополнительные очки Ловкости и наносит увеличенный стихийный урон <font color=\"#5CCDF9\">Молнии</font>. Усиление зависит от Ловкости героя."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_property_one"					"Доп. очков Ловкости"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_suffix"							""
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_property_two"					"Увеличение стихийного урона Молнии"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_suffix_two"						"% за каждые 10 Ловкости"
+
+    	"DOTA_Tooltip_modifier_arkimus_arcana1_q4"										"Arcane Channel"
+    	"DOTA_Tooltip_modifier_arkimus_arcana1_q4_Description"							"Бонусные очки Ловкости и увеличенный урон Молнии."
+
+    	"item_property_arkimus_arcana2"										"Archon Form"
+    	"property_arkimus_arcana2_description"								"Заменяет (R) @Ability4 и все соответствующие руны на (R) Archon Form."
+
+    	"DOTA_Tooltip_ability_arkimus_archon_form"									"Archon Form"
+    	"DOTA_Tooltip_ability_arkimus_archon_form_Description"						"Затратив на прочтение 2 секунды, Arkimus получает следующие бонусы: +400 к скорости атаки, все атаки становятся дальними, повышается сопротивление входящему урон. Тип всего наносимого урона меняется на чистый. Герой отталкивается назад, когда атакует врагов, находящихся на расстоянии в половину от максимальной дальности атаки или меньше."
+    	"DOTA_Tooltip_ability_arkimus_archon_form_attack_range"							"ДАЛЬНОСТЬ АТАКИ:"
+    	"DOTA_Tooltip_ability_arkimus_archon_form_duration"								"ДЛИТЕЛЬНОСТЬ:"
+    	"DOTA_Tooltip_ability_arkimus_archon_form_damage_resist"						"СОПРОТИВЛЕНИЕ УРОНУ, %:"
+
+    	"DOTA_Tooltip_modifier_arkimus_archon_form"									"Archon Form"
+    	"DOTA_Tooltip_modifier_arkimus_archon_form_Description"									"Скорость атаки, дальность атаки, урон и сопротивление урону увеличены"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2"									"[R1] Archon Tide"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2_Description"						"При успешной атаке по врагу, на его месте создаётся устойчивая электростатическая область радиусом в 240 на 4 секунды. Враги, попавшие в эту область полуают урон каждые 0.1 секунды, основанный на уроне героя. Получаемый урон разделяется между всеми врагами, находящимися в области. Одновременно может существовать только 1 область."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2_property_one"					"Урон за 0.1 сек."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2_suffix"							"% от урона героя"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_r_2_arcana2"									"[R2] Erebus Flow"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_2_arcana2_Description"						"Увеличивает регенерацию маны в зависимости от атрибутов героя. Увеличивает базовый урон в зависимости от текущего значения маны."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_2_arcana2_property_one"					"Доп. реген. маны"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_2_arcana2_suffix"							"% от всех атрибутов"
+     	"DOTA_Tooltip_ability_arkimus_rune_r_2_arcana2_property_two"					"Доп. базовый урон"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_2_arcana2_suffix_two"						"% от текущей маны"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3_arcana2"									"[R3] Chaos Damage"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3_arcana2_Description"						"Пассивно увеличивает весь стихийный урон."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3_arcana2_property_one"					"Усиление стихий"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3_arcana2_suffix"							"%"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2"									"[R4] Cerebrum"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_Description"						"Снижает базовое время атаки во время действия @Ability4."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_property_one"					"Снижение базового времени атаки"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_suffix"							"сек."
+		
+		//Glyphs
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_1_1"		"(T1) Символ концентрированной энергии"
+		"item_rpc_arkimus_glyph_1_1_description" 				"Энергосферы от (E) Energy Field появляются на минимально возможном радиусе."
+
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_2_1"		"(T2) Символ прилива маны"
+		"item_rpc_arkimus_glyph_2_1_description" 				"Увеличивает регенерацию маны на @glyph_property1."
+
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_3_1"		"(T3) Символ энергосфер"
+		"item_rpc_arkimus_glyph_3_1_description" 				"(R) Energy field дополнительно выпускает @glyph_property1 энергосфер(ы)."
+
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_4_1"		"(T4) Символ акробатики"
+		"item_rpc_arkimus_glyph_4_1_description" 				"Увеличивает максимальное количество зарядов на свободное прочтение (E) Orbital Leap на @glyph_property1."
+
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_1"		"(T5) Символ магического щита"
+		"item_rpc_arkimus_glyph_5_1_description" 				"@glyph_property1% от получаемого урона затратит ману, вместо здоровья. Получаемый магический урон снижен на @glyph_property2%."
+
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_6_1"		"(T6) Символ заряженного прыжка"
+		"item_rpc_arkimus_glyph_6_1_description" 				"Увеличивает максимальное количество зарядов на свободное прочтение (Q) Dimension Coil на @glyph_property1."
+
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_7_1"		"(T7) Символ тайного электрошока"
+		"item_rpc_arkimus_glyph_7_1_description" 				"Увеличивает весь стихийный урон <font color=\"#5CCDF9\">Молнии</font> на @glyph_property1%."
+
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_a"		"(Immortal) Символ энергетического разделения"
+		"item_rpc_arkimus_glyph_5_a_description" 				"Активные энергосферы могут поглотить входящий магический или чистый урон. В случае поглощения энергосфера разрушается."
+
+
+		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_00"		"Hand Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_01"		"Arcane Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_02"		"Energy Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_03"		"Plasma Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_11"		"Zonal Spark Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_12"		"Photon Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_13"		"Space Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_14"		"Plasma Warp Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_21"		"Arcane Energy Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_22"		"Flash Force Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_23"		"Orbital Combat Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_24"		"Photonic Warp Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_25"		"Archon Blades"
+		
+		"DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_1"			"Arcanys Wing-Blade"
+		"item_property_arkimus_immortal_weapon"								"Dual Source"
+		"property_arkimus_immortal_weapon_description"						"(W) Flash Source наносит на 100% больше урона. Количество зарядов [W2] Arcane Splice удвоено."
+		"DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_2"            "Arclight Blade"
+        "item_property_arkimus_immortal_weapon2"                             "Magnetize"
+        "property_arkimus_immortal_weapon2_description"                      "@special_property1% от всего урона <font color=\"#E1A2E8\">Тайны</font> исцеляет героя."
+
+        "DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_3"            "Arcane Circuitry Shiv"
+        "item_property_arkimus_immortal_weapon3"                             "Photon Shell"
+        "property_arkimus_immortal_weapon3_description"                      "Во время [W3] Photon Sprint весь входящий урон снижается на @special_property1%."

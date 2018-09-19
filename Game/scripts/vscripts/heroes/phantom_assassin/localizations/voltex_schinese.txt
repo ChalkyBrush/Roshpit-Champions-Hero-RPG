@@ -1,0 +1,298 @@
+		//Abilities
+		"DOTA_Tooltip_ability_overcharge"								"过载"
+		"DOTA_Tooltip_ability_overcharge_Description"					"元素： <font color=\"#5CCDF9\">电</font><br>极大提高攻击速度，并在击中敌方单位时施加叉状闪电效果。"
+		"DOTA_Tooltip_ability_overcharge_Lore"						""
+		"DOTA_Tooltip_ability_overcharge_attack_speed"				"攻击速度增加："
+		"DOTA_Tooltip_ability_overcharge_proc_targets"				"叉状最多目标："
+    	"DOTA_Tooltip_ability_overcharge_proc_damage"					"闪电伤害："
+    	"DOTA_Tooltip_ability_overcharge_duration"					"持续时间："
+		
+		"DOTA_Tooltip_ability_voltex_rune_q_1"								"[Q1] 磁场"
+    	"DOTA_Tooltip_ability_voltex_rune_q_1_Description"					"过载时，电光使者的护甲值提高。"
+    	"DOTA_Tooltip_ability_voltex_rune_q_1_property_one"					"额外护甲值"
+    	"DOTA_Tooltip_ability_voltex_rune_q_1_suffix"						""
+
+		"DOTA_Tooltip_modifier_voltex_rune_q_1_buff" 						"磁场"
+		"DOTA_Tooltip_modifier_voltex_rune_q_1_buff_description" 			"护甲值提高"
+
+    	"DOTA_Tooltip_ability_voltex_rune_q_2"								"[Q2] 闪电链"
+    	"DOTA_Tooltip_ability_voltex_rune_q_2_Description"					"电光使者所造成的一切 <font color=\"#5CCDF9\">电</font> 元素伤害都将附带额外伤害。额外的伤害为敏捷值的一部分。"
+    	"DOTA_Tooltip_ability_voltex_rune_q_2_property_one"					"额外伤害"
+    	"DOTA_Tooltip_ability_voltex_rune_q_2_suffix"						"% 敏捷值"
+
+		"DOTA_Tooltip_modifier_voltex_rune_q_2" 							"闪电链"
+		"DOTA_Tooltip_modifier_voltex_rune_q_2_description" 				"你的攻击有15%几率释放一道闪电链"
+		
+		"DOTA_Tooltip_ability_voltex_rune_q_3"								"[Q3] 电源中断"
+    	"DOTA_Tooltip_ability_voltex_rune_q_3_Description"					"每次被过载击中，敌人的护甲值降低，持续6秒，可叠加。"
+    	"DOTA_Tooltip_ability_voltex_rune_q_3_property_one"					"每层护甲降低"
+    	"DOTA_Tooltip_ability_voltex_rune_q_3_suffix"						""
+
+    	"DOTA_Tooltip_modifier_voltex_rune_q_3"								"电源中断"
+    	"DOTA_Tooltip_modifier_voltex_rune_q_3_Description"					"护甲值降低"
+		
+		"DOTA_Tooltip_ability_voltex_rune_q_4"								"[Q4] 溢出"
+    	"DOTA_Tooltip_ability_voltex_rune_q_4_Description"					"根据总攻击力提高过载伤害。"
+    	"DOTA_Tooltip_ability_voltex_rune_q_4_property_one"					"过载额外伤害"
+    	"DOTA_Tooltip_ability_voltex_rune_q_4_suffix"						"% 总攻击力"
+		
+		"DOTA_Tooltip_ability_ability_zap"									"静电"
+		"DOTA_Tooltip_ability_ability_zap_Description"						"元素： <font color=\"#5CCDF9\">电</font><br>电光使者平衡她的离子，释放静电造成伤害并击退周围所有单位。"
+		"DOTA_Tooltip_ability_ability_zap_Lore"								""
+		"DOTA_Tooltip_ability_ability_zap_damage"							"伤害："
+    	"DOTA_Tooltip_ability_ability_zap_radius"							"范围："
+		
+		"DOTA_Tooltip_ability_voltex_rune_w_1"								"[W1] 银色充能"
+    	"DOTA_Tooltip_ability_voltex_rune_w_1_Description"					"被静电击中的敌人受到基于电光使者攻击力的纯粹伤害。伤害随着静电等级提高而提高（乘法）。"
+    	"DOTA_Tooltip_ability_voltex_rune_w_1_property_one"					"纯粹伤害"
+    	"DOTA_Tooltip_ability_voltex_rune_w_1_suffix"						"% 的攻击力"
+
+    	"DOTA_Tooltip_ability_voltex_rune_w_2"								"[W2] 质子交换"
+    	"DOTA_Tooltip_ability_voltex_rune_w_2_Description"					"当施放静电时候 - 增加2秒的攻击速度和攻击力。附近的友军也能被此buff加成。"
+    	"DOTA_Tooltip_ability_voltex_rune_w_2_property_one"					"攻击速度提高"
+    	"DOTA_Tooltip_ability_voltex_rune_w_2_suffix"						""
+    	"DOTA_Tooltip_ability_voltex_rune_w_2_property_two"					"攻击力提高"
+    	"DOTA_Tooltip_ability_voltex_rune_w_2_suffix_two"					"%"
+
+		"DOTA_Tooltip_modifier_voltex_rune_w_2_self" 						"质子交换"
+		"DOTA_Tooltip_modifier_voltex_rune_w_2_self_description" 			"攻击速度和攻击力提高"
+		"DOTA_Tooltip_modifier_voltex_rune_w_2_ally" 						"质子交换"
+		"DOTA_Tooltip_modifier_voltex_rune_w_2_ally_description" 			"来自电光使者的额外攻击力和攻击速度"
+		
+		"DOTA_Tooltip_ability_voltex_rune_w_3"								"[W3] 离子盾"
+    	"DOTA_Tooltip_ability_voltex_rune_w_3_Description"					"施放静电会创造一个盾吸收两次伤害，破坏此盾的敌人会受到基于电光使者敏捷值的伤害。"
+    	"DOTA_Tooltip_ability_voltex_rune_w_3_property_one"					"护盾持续时间"
+    	"DOTA_Tooltip_ability_voltex_rune_w_3_suffix"						" 秒"
+    	"DOTA_Tooltip_ability_voltex_rune_w_3_property_two"					"伤害"
+    	"DOTA_Tooltip_ability_voltex_rune_w_3_suffix_two"					"x 敏捷"
+
+    	"DOTA_Tooltip_modifier_voltex_rune_w_3_shield"						"离子盾"
+    	"DOTA_Tooltip_modifier_voltex_rune_w_3_shield_Description"			"吸收伤害并且对破坏此盾的敌人造成反伤伤害"
+		
+		"DOTA_Tooltip_ability_voltex_rune_w_4"								"[W4] 静电爆发"
+    	"DOTA_Tooltip_ability_voltex_rune_w_4_Description"					"被静电击中的敌人受到额外的魔法伤害，持续时间12秒。"
+    	"DOTA_Tooltip_ability_voltex_rune_w_4_property_one"					"魔法伤害提高"
+    	"DOTA_Tooltip_ability_voltex_rune_w_4_suffix"						"%"
+
+    	"DOTA_Tooltip_modifier_voltex_d_b_debuff"							"静电爆发"
+    	"DOTA_Tooltip_modifier_voltex_d_b_debuff_Description"				"受到来自电光使者额外的魔法伤害"
+		
+		"DOTA_Tooltip_ability_electric_jump"								"飞跃"
+		"DOTA_Tooltip_ability_electric_jump_Description"					"元素： <font color=\"#5CCDF9\">电</font><br>电光使者飞跃后重击地面，眩晕周围单位并造成伤害。"
+		"DOTA_Tooltip_ability_electric_jump_Lore"							""
+		"DOTA_Tooltip_ability_electric_jump_land_stun_duration"				"眩晕持续时间"
+    	"DOTA_Tooltip_ability_electric_jump_land_radius"					"范围:"
+    	"DOTA_Tooltip_ability_electric_jump_land_damage"					"伤害:"
+		
+		"DOTA_Tooltip_ability_heavens_charge"								"雷电充能"
+		"DOTA_Tooltip_ability_heavens_charge_Description"					"元素： <font color=\"#5CCDF9\">电</font><br>传送至目标位置，对落地点附近敌人造成伤害和眩晕。使用后重新替换为飞跃技能。"
+		"DOTA_Tooltip_ability_heavens_charge_Lore"							""
+		
+		"DOTA_Tooltip_ability_voltex_rune_e_1"								"[E1] 电流印迹"
+    	"DOTA_Tooltip_ability_voltex_rune_e_1_Description"					"电光使者施放飞跃后，在起跳点和着陆点产生幻象攻击敌人。<br>幻象拥有当前等级的过载并已提高攻击速度，且拥有你5倍的护甲值、生命值和攻击力。"
+    	"DOTA_Tooltip_ability_voltex_rune_e_1_property_one"					"幻象持续时间："
+    	"DOTA_Tooltip_ability_voltex_rune_e_1_suffix"						""
+    	"DOTA_Tooltip_ability_voltex_rune_e_1_property_two"					"幻象攻击力"
+    	"DOTA_Tooltip_ability_voltex_rune_e_1_suffix_two"					"% 本体攻击力"
+
+    	"zap_assassin_clone"												"电流印迹"
+		
+		"DOTA_Tooltip_ability_voltex_rune_e_2"								"[E2] 电子效应"
+    	"DOTA_Tooltip_ability_voltex_rune_e_2_Description"					"电光使者落地后，获得相位移动能力并对她穿过的敌人造成持续伤害。"
+    	"DOTA_Tooltip_ability_voltex_rune_e_2_property_one"					"持续时间"
+    	"DOTA_Tooltip_ability_voltex_rune_e_2_suffix"						""
+    	"DOTA_Tooltip_ability_voltex_rune_e_2_property_two"					"每秒伤害"
+    	"DOTA_Tooltip_ability_voltex_rune_e_2_suffix_two"					""
+
+		"DOTA_Tooltip_modifier_voltex_rune_e_2" 							"电子效应"
+		"DOTA_Tooltip_modifier_voltex_rune_e_2_description" 				"相位移动并对穿过的敌人造成持续伤害"
+		
+		"DOTA_Tooltip_ability_voltex_rune_e_3"								"[E3] 雷电充能"
+    	"DOTA_Tooltip_ability_voltex_rune_e_3_Description"					"使用飞跃后 - 该技能被雷电充能替换。雷电充能可使你传送到目标位置并对落地点敌人造成伤害和眩晕。"
+    	"DOTA_Tooltip_ability_voltex_rune_e_3_property_one"					"伤害"
+    	"DOTA_Tooltip_ability_voltex_rune_e_3_suffix"						""
+    	"DOTA_Tooltip_ability_voltex_rune_e_3_property_two"					"最大距离"
+    	"DOTA_Tooltip_ability_voltex_rune_e_3_suffix_two"					""
+		
+		"DOTA_Tooltip_ability_voltex_rune_e_4"								"[E4] 飞舞闪电"
+    	"DOTA_Tooltip_ability_voltex_rune_e_4_Description"					"电光使者的敏捷值将提高所有 <font color=\"#5CCDF9\">电</font> 元素的伤害"
+    	"DOTA_Tooltip_ability_voltex_rune_e_4_property_one"					"伤害提高"
+    	"DOTA_Tooltip_ability_voltex_rune_e_4_suffix"						"% 每10点敏捷值"
+		
+		"DOTA_Tooltip_ability_static_field"									"静电场"
+		"DOTA_Tooltip_ability_static_field_Description"						"元素： <font color=\"#5CCDF9\">电</font><br>电光使者充电后驱散离子，向前方锥形区域发射电球造成伤害。"
+		"DOTA_Tooltip_ability_static_field_Lore"							""
+		"DOTA_Tooltip_ability_static_field_damage"							"每个电球伤害："
+    	"DOTA_Tooltip_ability_static_field_num_shocks"						"电球数："
+		
+		"DOTA_Tooltip_ability_voltex_rune_r_1"								"[R1] 雷霆风暴"
+    	"DOTA_Tooltip_ability_voltex_rune_r_1_Description"					"当电光使者引导完静电场时，致命闪电从天而降，对周围单位造成伤害。"
+    	"DOTA_Tooltip_ability_voltex_rune_r_1_property_one"					"闪电数量："
+    	"DOTA_Tooltip_ability_voltex_rune_r_1_suffix"						""
+    	"DOTA_Tooltip_ability_voltex_rune_r_1_property_two"					"每道伤害"
+    	"DOTA_Tooltip_ability_voltex_rune_r_1_suffix_two"					""
+
+    	"DOTA_Tooltip_ability_voltex_rune_r_2"								"[R2] 闪电"
+    	"DOTA_Tooltip_ability_voltex_rune_r_2_Description"					"攻击时有30% 几率造成额外魔法伤害，眩晕敌人0.2秒并降低敌人的护甲值。"
+    	"DOTA_Tooltip_ability_voltex_rune_r_2_property_one"					"伤害"
+    	"DOTA_Tooltip_ability_voltex_rune_r_2_suffix"						"% 总攻击力"
+    	"DOTA_Tooltip_ability_voltex_rune_r_2_property_two"					"护甲值降低"
+    	"DOTA_Tooltip_ability_voltex_rune_r_2_suffix_two"					""
+
+    	"DOTA_Tooltip_modifier_voltex_rune_r_2_rune_effect"					"闪电"
+    	"DOTA_Tooltip_modifier_voltex_rune_r_2_rune_effect_Description"		"30%% 几率造成额外魔法伤害，眩晕敌人并降低其护甲值。"
+
+    	"DOTA_Tooltip_modifier_voltex_rune_r_2_armor_loss"					"闪电"
+    	"DOTA_Tooltip_modifier_voltex_rune_r_2_armor_loss_Description"		"护甲值降低"
+		
+		"DOTA_Tooltip_ability_voltex_rune_r_3"								"[R3] 天神下凡"
+    	"DOTA_Tooltip_ability_voltex_rune_r_3_Description"					"施放静电场后 - 提高600点攻击距离和120点攻击速度，提高伤害和魔法抗性，持续12秒。"
+    	"DOTA_Tooltip_ability_voltex_rune_r_3_property_one"					"伤害提升"
+    	"DOTA_Tooltip_ability_voltex_rune_r_3_suffix"						""
+    	"DOTA_Tooltip_ability_voltex_rune_r_3_property_two"					"魔法抗性提高"
+    	"DOTA_Tooltip_ability_voltex_rune_r_3_suffix_two"					"%"
+
+    	"DOTA_Tooltip_modifier_voltex_rune_r_3_avatar"						"天神下凡"
+    	"DOTA_Tooltip_modifier_voltex_rune_r_3_avatar_Description"			"提高攻击速度、攻击距离、伤害和魔法抗性"
+		
+		"DOTA_Tooltip_ability_voltex_rune_r_4"								"[R4] 飞舞闪电"
+    	"DOTA_Tooltip_ability_voltex_rune_r_4_Description"					"每有一个单位被静电场或雷霆风暴击中，提高你的额外攻击力。"
+    	"DOTA_Tooltip_ability_voltex_rune_r_4_property_one"					"每个击中单位提高攻击力"
+    	"DOTA_Tooltip_ability_voltex_rune_r_4_suffix"						"%"
+
+    	"DOTA_Tooltip_modifier_voltex_rune_r_4_visible"						"电击"
+    	"DOTA_Tooltip_modifier_voltex_rune_r_4_visible_Description"			"提高 %% 攻击力"
+		
+		//Arcanas
+		
+		"item_property_voltex_arcana1"										"风暴突袭"
+    	"property_voltex_arcana1_description"								"用风暴突袭替换 @Ability3 及其所有符文。"
+
+    	"DOTA_Tooltip_ability_voltex_lightning_dash"						"风暴突袭"
+    	"DOTA_Tooltip_ability_voltex_lightning_dash_Description"			"电光使者施放球形闪电，向目标地点冲刺。在冲刺中，伤害减免一部分。每1秒都会获得一层buff，施放风暴突袭将会消耗一层buff，只有在没有buff的情况下施放风暴突袭才会使技能进入冷却时间。"
+    	"DOTA_Tooltip_ability_voltex_lightning_dash_cast_range"				"施法范围："
+    	"DOTA_Tooltip_ability_voltex_lightning_dash_damage_reduction_percent"	"冲刺中伤害减免："
+
+    	"DOTA_Tooltip_modifier_lightning_dash_freecast"						"风暴突袭自由施放"
+
+  		"DOTA_Tooltip_ability_voltex_rune_e_1_arcana1"						"[E1] 电流熔断"
+    	"DOTA_Tooltip_ability_voltex_rune_e_1_arcana1_Description"			"当电光使者冲刺过程中接触到的所有敌人都会受到 a% 电光使者攻击力的伤害。"
+    	"DOTA_Tooltip_ability_voltex_rune_e_1_arcana1_property_one"			"伤害"
+    	"DOTA_Tooltip_ability_voltex_rune_e_1_arcana1_suffix"				"% 攻击力"
+
+  		"DOTA_Tooltip_ability_voltex_rune_e_2_arcana1"						"[E2] 雷霆万钧"
+    	"DOTA_Tooltip_ability_voltex_rune_e_2_arcana1_Description"			"电光使者在冲刺结束时施放所有过量的电子，伤害并眩晕周围的敌人。"
+    	"DOTA_Tooltip_ability_voltex_rune_e_2_arcana1_property_one"			"伤害"
+    	"DOTA_Tooltip_ability_voltex_rune_e_2_arcana1_suffix"				"% 攻击力"
+    	"DOTA_Tooltip_ability_voltex_rune_e_2_arcana1_property_two"			"眩晕持续时间"
+    	"DOTA_Tooltip_ability_voltex_rune_e_2_arcana1_suffix_two"			" 秒"
+
+  		"DOTA_Tooltip_ability_voltex_rune_e_3_arcana1"						"[E3] 矢量操作"
+    	"DOTA_Tooltip_ability_voltex_rune_e_3_arcana1_Description"  		"当电光使者受到伤害时，伤害的一部分（减伤前）将会提高电光使者的生命回复速度，持续3秒。所增加的生命回复速度，将会在3秒内逐渐递减至0。"
+    	"DOTA_Tooltip_ability_voltex_rune_e_3_arcana1_property_one"			"生命恢复速度提高"	
+    	"DOTA_Tooltip_ability_voltex_rune_e_3_arcana1_suffix"				"% 受到的伤害"
+
+    	"DOTA_Tooltip_modifier_voltex_lightning_dash_regen"					"矢量操作"
+    	"DOTA_Tooltip_modifier_voltex_lightning_dash_regen_Description"		"生命回复速度提高"
+
+    	"DOTA_Tooltip_ability_voltex_rune_e_4_arcana1"								"[E4] 九霄雷霆"
+    	"DOTA_Tooltip_ability_voltex_rune_e_4_arcana1_Description"					"电光使者的敏捷值将提高所有 <font color=\"#5CCDF9\">电</font> 元素伤害。"
+    	"DOTA_Tooltip_ability_voltex_rune_e_4_arcana1_property_one"					"伤害提高"
+    	"DOTA_Tooltip_ability_voltex_rune_e_4_arcana1_suffix"						"% 每10点敏捷值"
+
+       	"item_property_voltex_arcana2"										"热磁电子"
+    	"property_voltex_arcana2_description"								"用热磁电子替换 @Ability1 及其所有符文。"
+
+    	"DOTA_Tooltip_ability_voltex_magnet"						"热磁电子"
+    	"DOTA_Tooltip_ability_voltex_magnet_Description"			"电光使者将一个热磁子抛向目标位置。每一个被它击中的敌人都会被磁化，Voltex也会立即向他们靠近并对他们进行攻击。被热磁子击中的敌人会短暂瘫痪。"
+    	"DOTA_Tooltip_ability_voltex_magnet_cast_range"				"施法距离:"
+    	"DOTA_Tooltip_ability_voltex_magnet_freeze_duration"		"瘫痪持续时间:"
+
+    	"DOTA_Tooltip_modifier_magnet_freeze"							"热磁电子"
+    	"DOTA_Tooltip_modifier_magnet_freeze_Description"				"瘫痪"	
+
+  		"DOTA_Tooltip_ability_voltex_rune_q_1_arcana2"						"[Q1] 叉状闪电"
+    	"DOTA_Tooltip_ability_voltex_rune_q_1_arcana2_Description"			"当至少有1个热磁子处于激活状态时，电光使者的攻击会释放叉状闪电。"
+    	"DOTA_Tooltip_ability_voltex_rune_q_1_arcana2_property_one"			"伤害"
+    	"DOTA_Tooltip_ability_voltex_rune_q_1_arcana2_suffix"				"%攻击力"
+    	"DOTA_Tooltip_ability_voltex_rune_q_1_arcana2_property_two"			"闪电分裂概率"
+    	"DOTA_Tooltip_ability_voltex_rune_q_1_arcana2_suffix_two"			"%"
+
+  		"DOTA_Tooltip_ability_voltex_rune_q_2_arcana2"						"[Q2] 净化"
+    	"DOTA_Tooltip_ability_voltex_rune_q_2_arcana2_Description"			"在热磁buff存在时，每次攻击都有机会清除晕眩和沉默。"
+    	"DOTA_Tooltip_ability_voltex_rune_q_2_arcana2_property_one"			"清除机会"
+    	"DOTA_Tooltip_ability_voltex_rune_q_2_arcana2_suffix"				"%的概率在每次攻击"
+
+  		"DOTA_Tooltip_ability_voltex_rune_q_3_arcana2"						"[Q3] 电价"
+    	"DOTA_Tooltip_ability_voltex_rune_q_3_arcana2_Description"  		"热磁子有机会在其终点和投射点之间反弹。每次反弹时，其飞行速度都会提高200。"
+    	"DOTA_Tooltip_ability_voltex_rune_q_3_arcana2_property_one"			"弹跳概率"	
+    	"DOTA_Tooltip_ability_voltex_rune_q_3_arcana2_suffix"				"%"
+
+    	"DOTA_Tooltip_ability_voltex_rune_q_4_arcana2"								"[Q4] 量子路径"
+    	"DOTA_Tooltip_ability_voltex_rune_q_4_arcana2_Description"					"当热磁子飞行结束时获得短暂的增益。当buff处于活动状态时，@Ability2 会在施法时向前推动电光使者并且释放 @Ability4 不需要持续施法。"
+    	"DOTA_Tooltip_ability_voltex_rune_q_4_arcana2_property_one"					"持续时间"
+    	"DOTA_Tooltip_ability_voltex_rune_q_4_arcana2_suffix"						" 秒"
+
+    	"DOTA_Tooltip_modifier_magnet_d_d"									"量子路径"
+		
+		//Glyphs
+		
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_1_1"		"磁力模糊雕文"
+		"item_rpc_voltex_glyph_1_1_description" 				"过载时提高 @glyph_property1% 闪避。"
+
+		"DOTA_Tooltip_modifier_voltex_glyph_1_1_effect"			"磁力模糊"
+		"DOTA_Tooltip_modifier_voltex_glyph_1_1_effect_Description"	"提高闪避"	
+
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_2_1"		"磁场加速雕文"
+		"item_rpc_voltex_glyph_2_1_description" 				"过载时提高 @glyph_property1x 敏捷和 @glyph_property2 移动速度。"
+
+		"DOTA_Tooltip_modifier_voltex_glyph_2_1_effect_visible" "磁场加速"
+		"DOTA_Tooltip_modifier_voltex_glyph_2_1_effect_visible_Description"	"提高敏捷和移动速度"
+
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_3_1"		"雷电雕文"
+		"item_rpc_voltex_glyph_3_1_description" 				"雷电充能将刷新过载的冷却时间。"
+
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_4_1"		"不稳定电压雕文"
+		"item_rpc_voltex_glyph_4_1_description" 				"当电光使者施放技能（非静电）时，释放 @glyph_property1 道闪电造成 @glyph_property2 倍总攻击力的魔法伤害。"
+
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_1"		"雷电战神雕文"
+		"item_rpc_voltex_glyph_5_1_description" 				"提高天神下凡的持续时间 @glyph_property1 秒并提高天神下凡时的攻击力 @glyph_property2%"
+
+		"DOTA_Tooltip_modifier_voltex_rune_r_3_buff_glyph_5_1"	"雷电战神"
+		"DOTA_Tooltip_modifier_voltex_rune_r_3_buff_glyph_5_1_Description"	"提高攻击力"
+
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_6_1"		"复仇雕文"
+		"item_rpc_voltex_glyph_6_1_description" 				"提高静电场的伤害 @glyph_property1x 和雷霆风暴的伤害 @glyph_property2x"
+
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_7_1"		"静电爆炸雕文"
+		"item_rpc_voltex_glyph_7_1_description" 				"静电汲取你100% 的魔法值且冷却时间变为8秒，造成 @glyph_property1x 伤害并眩晕敌人 @glyph_property2 秒。"
+
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_a"	"离子雕文"
+		"item_rpc_voltex_glyph_5_a_description" 			"延长 @Ability1 的持续时间 @glyph_property1 秒。"
+
+		"DOTA_Tooltip_modifier_voltex_rune_e_2_slow_glyphed"	"电子效应"
+		"DOTA_Tooltip_modifier_voltex_rune_e_2_slow_glyphed_Description"	"减速"
+		
+		//Weapons
+		"voltex_weapon_01"			"残忍之剑"
+		"voltex_weapon_02"			"战争利刃"
+		"voltex_weapon_03"			"魔法剑"
+		"voltex_weapon_11"			"铁剑"
+		"voltex_weapon_12"			"风暴之刃"
+		"voltex_weapon_13"			"闪电剑"
+		"voltex_weapon_14"			"尺剑"
+		"voltex_weapon_21"			"第一拳套"
+		"voltex_weapon_22"			"天使之剑"
+		"voltex_weapon_23"			"三位一体"
+		"voltex_weapon_24"			"巨型拳套"
+		"voltex_weapon_25"			"天空之爪"
+		
+		"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_1"		"重力伏特"
+		"item_property_voltex_immortal_weapon"							"重力伏特"
+		"property_voltex_immortal_weapon_description"					"加深敌人所有受到的伤害 50% （伤害加深计算在敌人减伤之后）"
+		
+		"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_2"				"阿卡狄亚之剑"
+
+    	"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_3"			"不朽之神"
+    	"item_property_voltex_immortal_weapon3"								"静电麻痹"
+    	"property_voltex_immortal_weapon3_description"						"被 @Ability4 击中的敌人将被麻痹，瘫痪持续 @special_property1 秒。"

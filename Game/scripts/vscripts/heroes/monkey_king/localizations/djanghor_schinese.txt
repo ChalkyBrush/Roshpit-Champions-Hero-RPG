@@ -1,0 +1,352 @@
+		"DOTA_Tooltip_ability_draghor_shapeshift_cat"									"七十二变：狼"
+    	"DOTA_Tooltip_ability_draghor_shapeshift_cat_Description"						"变身成为狼，狼形态拥有独立一套技能。1.75秒变身时间。"
+    	"DOTA_Tooltip_ability_draghor_shapeshift_cat_agility_bonus"						"狼形态敏捷加成："
+
+    	"DOTA_Tooltip_ability_draghor_shapeshift_bear"									"七十二变：熊"
+    	"DOTA_Tooltip_ability_draghor_shapeshift_bear_Description"						"变身成为熊，熊形态拥有独立一套技能。1.75秒变身时间。"
+    	"DOTA_Tooltip_ability_draghor_shapeshift_bear_strength_bonus"					"熊形态力量加成："
+
+    	"DOTA_Tooltip_ability_draghor_shapeshift_crow"									"七十二变：鹰"
+    	"DOTA_Tooltip_ability_draghor_shapeshift_crow_Description"						"变身成为鹰，鹰形态拥有独立一套技能。1.75秒变身时间。鹰形态下无法攻击，拥有飞行能力，并且每 0.03秒汲取 0.04% 的魔法值，如果魔法值用完或飞行中遇到障碍物，将立刻切换回本体。"
+    	"DOTA_Tooltip_ability_draghor_shapeshift_crow_int_bonus"						"鹰形态智力加成："
+
+    	"DOTA_Tooltip_ability_draghor_monkey_form"										"孙悟空"
+    	"DOTA_Tooltip_ability_draghor_monkey_form_Description"							"齐天大圣立即切换回本体形态。"	
+
+    	"DOTA_Tooltip_ability_draghor_mark_of_the_fang"									"獠牙"
+    	"DOTA_Tooltip_ability_draghor_mark_of_the_fang_Description"						"提高基础攻击力和攻击速度。释放后可以变身为狼形态。"
+		"DOTA_Tooltip_ability_draghor_mark_of_the_fang_attack_speed"					"攻击速度提高："
+		"DOTA_Tooltip_ability_draghor_mark_of_the_fang_attack_damage_base"				"基础攻击力提高："
+
+		"DOTA_Tooltip_modifier_mark_of_the_fang"										"獠牙"
+		"DOTA_Tooltip_modifier_mark_of_the_fang_Description"							"提高基础攻击力和攻击速度。释放后可以变身成为狼形态。"
+
+		"DOTA_Tooltip_ability_draghor_mark_of_the_claw"									"利爪"
+		"DOTA_Tooltip_ability_draghor_mark_of_the_claw_Description"						"提高护甲值和生命回复速度。释放后可以变身成为熊形态。"
+		"DOTA_Tooltip_ability_draghor_mark_of_the_claw_armor_bonus"						"护甲值提高："
+		"DOTA_Tooltip_ability_draghor_mark_of_the_claw_health_regen"					"生命回复速度提高："
+
+		"DOTA_Tooltip_modifier_mark_of_the_claw"										"利爪"
+		"DOTA_Tooltip_modifier_mark_of_the_claw_Description"							"提高护甲值和生命回复速度。释放后可以变身成为熊形态。"
+
+		"DOTA_Tooltip_ability_draghor_mark_of_the_talon"								"鹰隼"
+		"DOTA_Tooltip_ability_draghor_mark_of_the_talon_Description"					"提高魔法回复速度并且使敌人所受到的魔法伤害加深（计算在减伤之后）。释放后可以变身成为鹰形态。"
+		"DOTA_Tooltip_ability_draghor_mark_of_the_talon_mana_regen"						"魔法回复速度提高："
+		"DOTA_Tooltip_ability_draghor_mark_of_the_talon_post_mitigation_magic"			"敌人减伤后魔法伤害加深："
+
+		"DOTA_Tooltip_modifier_mark_of_the_talon"										"鹰隼"
+		"DOTA_Tooltip_modifier_mark_of_the_talon_Description"							"提高魔法回复速度并且使敌人所受到的魔法伤害加深（计算在减伤之后）。释放后可以变身成为鹰形态。"	
+
+		"DOTA_Tooltip_ability_draghor_jin_bo"											"金箍棒"
+		"DOTA_Tooltip_ability_draghor_jin_bo_Description"								"元素： <font color=\"#DDDDDD\">普通</font><br>孙悟空挥舞金箍棒，将敌人击退。连续第三次打击时，金箍棒将伸长，打击一条直线上的所有敌人，并造成眩晕。第三次打击时，伤害拥有 <font color=\"#69BC71\">自然</font> 元素属性。在施放筋斗云时施放金箍棒将自动造成第三次打击。"
+		"DOTA_Tooltip_ability_draghor_jin_bo_damage_mult"								"伤害为 % 的攻击力："
+		"DOTA_Tooltip_ability_draghor_jin_bo_stun_duration"								"第三次打击时眩晕持续时间："
+
+		"DOTA_Tooltip_modifier_jinbo_stack"												"金箍棒"
+		"DOTA_Tooltip_modifier_jinbo_stack_Description"									"累计到2层时，金箍棒将伸长打出更强有力的一击。"
+
+		"DOTA_Tooltip_ability_draghor_monkey_leap"										"筋斗云"
+		"DOTA_Tooltip_ability_draghor_monkey_leap_Description"							"孙悟空一个筋斗灵活地翻越至目标点。"				
+		"DOTA_Tooltip_ability_draghor_monkey_leap_cast_range"							"最远跳跃距离："
+
+		"DOTA_Tooltip_ability_djanghor_wolf_howl"										"狼嚎"
+		"DOTA_Tooltip_ability_djanghor_wolf_howl_Description"							"两秒钟后，孙悟空为自己和友军提高攻击力，友军获得较少的加成。变身后加成buff依然存在。"
+		"DOTA_Tooltip_ability_djanghor_wolf_howl_damage_increase_percent"				"% 攻击力提高："
+		"DOTA_Tooltip_ability_djanghor_wolf_howl_damage_increase_percent_ally"			"% 攻击力提高（友军）："
+		"DOTA_Tooltip_ability_djanghor_wolf_howl_duration"								"持续时间："
+
+		"DOTA_Tooltip_modifier_wolf_howl"												"狼嚎"
+		"DOTA_Tooltip_modifier_wolf_howl_Description"									"提高攻击力"
+
+		"DOTA_Tooltip_modifier_wolf_howl_ally"											"狼嚎"
+		"DOTA_Tooltip_modifier_wolf_howl_ally_Description"								"提高攻击力"
+
+		"DOTA_Tooltip_ability_djanghor_feral_sprint"									"野兽冲刺"
+		"DOTA_Tooltip_ability_djanghor_feral_sprint_Description"						"立即提高移动速度和移动速度上限，并且可以相位移动。在野兽冲刺开始的时候额外获得 200的移动速度，但是在2秒内逐渐消失。变身后加成buff依然存在。"
+		"DOTA_Tooltip_ability_djanghor_feral_sprint_movespeed_increase"					"移动速度提高："
+		"DOTA_Tooltip_ability_djanghor_feral_sprint_movespeed_cap"						"移动速度上限提高："
+		"DOTA_Tooltip_ability_djanghor_feral_sprint_duration"							"持续时间："
+
+		"DOTA_Tooltip_modifier_wolf_sprint"												"野兽冲刺"
+		"DOTA_Tooltip_modifier_wolf_sprint_Description"									"提高移动速度和移动速度上限"
+
+		"DOTA_Tooltip_ability_draghor_wolf_rend"										"撕裂"
+		"DOTA_Tooltip_ability_draghor_wolf_rend_Description"							"元素： <font color=\"#DDDDDD\">普通</font><br>攻击面前的敌人，根据攻击力造成伤害。每次撕裂减少敌人 50% 的护甲值，最多叠加 2 层。如果敌人被撕裂了两次（获得两层撕裂debuff），敌人将会流血，受到持续的流血伤害。"
+		"DOTA_Tooltip_ability_draghor_wolf_rend_damage_mult"							"伤害为 % 的攻击力："
+		"DOTA_Tooltip_ability_draghor_wolf_rend_bleed_damage"							"流血伤害为 % 的攻击力："	
+		"DOTA_Tooltip_ability_draghor_wolf_rend_bleed_duration"							"流血持续时间："
+
+		"DOTA_Tooltip_modifier_wolf_rend_stack"											"撕裂"
+		"DOTA_Tooltip_modifier_wolf_rend_stack_Description"								"护甲值降低。当 2 层时，下一次撕裂将造成流血。"
+
+		"DOTA_Tooltip_modifier_modifier_wolf_rend_bleed"								"撕裂流血"
+
+		"DOTA_Tooltip_ability_djanghor_bear_roar"										"怒吼"
+		"DOTA_Tooltip_ability_djanghor_bear_roar_Description"							"野性的怒吼，强制周围的敌人攻击齐天大圣，并且在持续时间内提供大量的护甲。"
+		"DOTA_Tooltip_ability_djanghor_bear_roar_duration"								"嘲讽持续时间："
+		"DOTA_Tooltip_ability_djanghor_bear_roar_armor_bonus"							"护甲值提高："
+
+		"DOTA_Tooltip_modifier_bear_roar_taunt"											"怒吼嘲讽"
+		"DOTA_Tooltip_modifier_bear_roar_taunt_Description"								"强制攻击齐天大圣"
+
+		"DOTA_Tooltip_modifier_bear_armor_buff"											"怒吼"
+		"DOTA_Tooltip_modifier_bear_armor_buff_Description"								"护甲值提高"	
+
+		"DOTA_Tooltip_ability_djanghor_bear_war_stomp"									"战争践踏"
+		"DOTA_Tooltip_ability_djanghor_bear_war_stomp_Description"						"元素： <font color=\"#69BC71\">自然</font> / <font color=\"#AF843D\">土</font><br>熊形态下重踏地面，造成地震并眩晕敌人，伤害周围的敌人。"
+		"DOTA_Tooltip_ability_djanghor_bear_war_stomp_damage"							"伤害："
+		"DOTA_Tooltip_ability_djanghor_bear_war_stomp_stun_duration"					"眩晕持续时间："
+
+		"DOTA_Tooltip_ability_djanghor_bear_charge"									"战争冲锋"
+		"DOTA_Tooltip_ability_djanghor_bear_charge_Description"						"向目标点冲锋。在冲锋路径上的敌人将被眩晕并且被顶走。"
+		"DOTA_Tooltip_ability_djanghor_bear_charge_max_distance"					"最大冲锋距离："
+		"DOTA_Tooltip_ability_djanghor_bear_charge_stun_duration"					"眩晕持续时间："
+
+		"DOTA_Tooltip_modifier_bear_charging"										"战争冲锋"
+
+		"DOTA_Tooltip_ability_draghor_hawk_screech"									"超声波"
+		"DOTA_Tooltip_ability_draghor_hawk_screech_Description"						"元素： <font color=\"#B5FFB7\">时</font> / <font color=\"#69BC71\">自然</font><br>向前方锥形区域施放超声波上海敌人，并且敌人将获得一个debuff，使敌人受到的所有来源的伤害加深（计算在减伤之后）。"
+		"DOTA_Tooltip_ability_draghor_hawk_screech_damage"							"伤害："
+		"DOTA_Tooltip_ability_draghor_hawk_screech_postmitigation"					"减伤后伤害加深 % ："
+		"DOTA_Tooltip_ability_draghor_hawk_screech_debuff_duration"					"DEBUFF持续时间："
+
+		"DOTA_Tooltip_modifier_draghor_hawk_screech"								"超声波"
+		"DOTA_Tooltip_modifier_draghor_hawk_screech_Description"					"受到全部来源的伤害加深（计算在减伤之后）"
+
+		"DOTA_Tooltip_ability_draghor_hawk_tornado"									"苍穹龙卷"
+		"DOTA_Tooltip_ability_draghor_hawk_tornado_Description"						"元素：<font color=\"#7AE2A7\">风</font> / <font color=\"#69BC71\">自然</font><br> 翅膀扇动召唤致命的龙卷风，席卷前方。被龙卷风击中的敌人将被减速。"
+		"DOTA_Tooltip_ability_draghor_hawk_tornado_bonus_movement_speed"			"移动速度减少："
+		"DOTA_Tooltip_ability_draghor_hawk_tornado_attack_speed"					"攻击速度减少 % ："
+		"DOTA_Tooltip_ability_draghor_hawk_tornado_damage"							"基础伤害："
+		"DOTA_Tooltip_ability_draghor_hawk_tornado_int_mult"						"额外伤害为智力值的倍数："
+
+		"DOTA_Tooltip_modifier_hawk_tornado_debuff"									"苍穹龙卷"
+		"DOTA_Tooltip_modifier_hawk_tornado_debuff_Description"						"被减速"
+
+		"DOTA_Tooltip_ability_djanghor_hawk_soar"									"翱翔"
+		"DOTA_Tooltip_ability_djanghor_hawk_soar_Description"						"飞向高空，使他脱离敌人的攻击范围（不可被攻击）。变身后加成buff将消失。"
+		"DOTA_Tooltip_ability_djanghor_hawk_soar_duration"							"持续时间："
+
+		"DOTA_Tooltip_modifier_hawk_soar"											"翱翔"
+		"DOTA_Tooltip_modifier_hawk_soar_Description"								"免疫攻击"
+
+		"djanghor_q_abilities"														"狼嚎，怒吼 和 超声波"
+		"djanghor_w_abilities"														"金箍棒，撕裂，战争践踏，和苍穹龙卷"
+		"djanghor_e_abilities"														"筋斗云，野兽冲刺，战争冲锋 和 翱翔"
+		"djanghor_r_abilities"														"七十二变"
+
+    	"DOTA_Tooltip_ability_djanghor_rune_q_1"									"[Q1] 野性回复"
+    	"DOTA_Tooltip_ability_djanghor_rune_q_1_Description"						"熊形态下施放怒吼将获得 12秒的回复buff，每 0.1秒都将恢复一定的生命值。变身后加成buff依然存在。"
+    	"DOTA_Tooltip_ability_djanghor_rune_q_1_property_one"						"生命回复"
+    	"DOTA_Tooltip_ability_djanghor_rune_q_1_suffix"								" 每 0.1秒"
+
+    	"DOTA_Tooltip_modifier_bear_regen"											"野性回复"
+    	"DOTA_Tooltip_modifier_bear_regen_Description"								"每 0.1秒回复生命值"
+
+    	"DOTA_Tooltip_ability_djanghor_rune_q_2"									"[Q2] 狼群"
+    	"DOTA_Tooltip_ability_djanghor_rune_q_2_Description"						"狼嚎将获得额外的基础攻击力。友军将获得 10% 的加成效果。"
+    	"DOTA_Tooltip_ability_djanghor_rune_q_2_property_one"						"狼嚎基础攻击力提高"
+    	"DOTA_Tooltip_ability_djanghor_rune_q_2_suffix"								""
+
+    	"DOTA_Tooltip_ability_djanghor_rune_q_3"									"[Q3] 震荡"
+    	"DOTA_Tooltip_ability_djanghor_rune_q_3_Description"						"释放超声波将提高齐天大圣身上所有存在的buff的持续时间和齐天大圣装备效果的持续时间。（来自于齐天大圣自己的）"
+    	"DOTA_Tooltip_ability_djanghor_rune_q_3_property_one"						"持续时间延长"
+    	"DOTA_Tooltip_ability_djanghor_rune_q_3_suffix"								" 秒"
+
+    	"DOTA_Tooltip_ability_djanghor_rune_q_4"									"[Q4] 原始本能"
+    	"DOTA_Tooltip_ability_djanghor_rune_q_4_Description"						"提高獠牙、利爪、鹰隼的所有加成效果。"
+    	"DOTA_Tooltip_ability_djanghor_rune_q_4_property_one"						"所有加成效果提高"
+    	"DOTA_Tooltip_ability_djanghor_rune_q_4_suffix"								"%"
+
+    	"DOTA_Tooltip_ability_djanghor_rune_w_1"									"[W1] 自然撕咬"
+    	"DOTA_Tooltip_ability_djanghor_rune_w_1_Description"						"在所有形态下攻击都将造成 <font color=\"#69BC71\">自然</font> 元素伤害。"
+    	"DOTA_Tooltip_ability_djanghor_rune_w_1_property_one"						"伤害"
+    	"DOTA_Tooltip_ability_djanghor_rune_w_1_suffix"								"% 所造成的伤害"
+
+    	"DOTA_Tooltip_ability_djanghor_rune_w_2"									"[W2] 碎裂"
+    	"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"受到撕裂流血debuff的敌人，所受到来自齐天大圣的伤害将被加深。（计算在敌人减伤之后）"
+    	"DOTA_Tooltip_ability_djanghor_rune_w_2_property_one"						"减伤后伤害加深："
+    	"DOTA_Tooltip_ability_djanghor_rune_w_2_suffix"								"%"
+
+    	"DOTA_Tooltip_ability_djanghor_rune_w_3"									"[W3] 自然之怒"
+    	"DOTA_Tooltip_ability_djanghor_rune_w_3_Description"						"齐天大圣的攻击力将加入到 苍穹龙卷和战争践踏 的伤害中。"
+    	"DOTA_Tooltip_ability_djanghor_rune_w_3_property_one"						"伤害提高："
+    	"DOTA_Tooltip_ability_djanghor_rune_w_3_suffix"								"% 攻击力"
+
+    	"DOTA_Tooltip_ability_djanghor_rune_w_4"									"[W4] 自然选择"
+    	"DOTA_Tooltip_ability_djanghor_rune_w_4_Description"						"齐天大圣的属性值将提高所有 <font color=\"#69BC71\">自然</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_djanghor_rune_w_4_property_one"						"自然元素伤害提高"
+    	"DOTA_Tooltip_ability_djanghor_rune_w_4_suffix"								"% 每10点属性值"
+
+    	"DOTA_Tooltip_ability_djanghor_rune_e_1"									"[E1] 沼泽"
+    	"DOTA_Tooltip_ability_djanghor_rune_e_1_Description"						"筋斗云着陆之后，将在落地点制造一片沼泽，处于沼泽地中的敌人所受到的所有 <font color=\"#69BC71\">自然</font> 元素伤害将提高。"
+    	"DOTA_Tooltip_ability_djanghor_rune_e_1_property_one"						"自然元素伤害提高"
+    	"DOTA_Tooltip_ability_djanghor_rune_e_1_suffix"								"%"
+
+    	"DOTA_Tooltip_modifier_monkey_a_c_effect"									"沼泽"
+    	"DOTA_Tooltip_modifier_monkey_a_c_effect_Description"						"自然元素伤害抗性减少"
+
+    	"DOTA_Tooltip_ability_djanghor_rune_e_2"									"[E2] 杜松藤"
+    	"DOTA_Tooltip_ability_djanghor_rune_e_2_Description"						"在施放筋斗云过程中，金箍棒的伤害将提高。"
+    	"DOTA_Tooltip_ability_djanghor_rune_e_2_property_one"						"金箍棒伤害提高"
+    	"DOTA_Tooltip_ability_djanghor_rune_e_2_suffix"								"%"
+
+    	"DOTA_Tooltip_ability_djanghor_rune_e_3"									"[E3] 灵丹妙药"
+    	"DOTA_Tooltip_ability_djanghor_rune_e_3_Description"						"施放筋斗云有概率清除齐天大圣身上的任意一个负面debuff。概率超过 100% 将清除多层负面debuff。"
+    	"DOTA_Tooltip_ability_djanghor_rune_e_3_property_one"						"负面debuff清除概率"
+    	"DOTA_Tooltip_ability_djanghor_rune_e_3_suffix"								"%"
+
+    	"DOTA_Tooltip_ability_djanghor_rune_e_4"									"[E4] 漫游"
+    	"DOTA_Tooltip_ability_djanghor_rune_e_4_Description"						"提高 野兽冲刺和翱翔 的持续时间。"
+    	"DOTA_Tooltip_ability_djanghor_rune_e_4_property_one"						"持续时间提高"
+    	"DOTA_Tooltip_ability_djanghor_rune_e_4_suffix"								" 秒"
+
+    	"DOTA_Tooltip_ability_djanghor_rune_r_1"									"[R1] 野蛮"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_1_Description"						"在所有动物形态下，属性值将提高攻击力。在狼形态下，敏捷值将提高攻击力。在熊形态下，力量值将提高攻击力。在鹰形态下，智力值将提高攻击力。"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_1_property_one"						"攻击力提高"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_1_suffix"								" 每点相应属性值"
+
+    	"DOTA_Tooltip_ability_djanghor_rune_r_2"									"[R2] 熊灵大师"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_2_Description"						"在熊形态下获得额外的生命值。当变换为其他的形态时，buff还将持续 7秒。"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_2_property_one"						"额外生命值"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_2_suffix"								""
+
+    	"DOTA_Tooltip_modifier_bear_b_d"											"熊灵大师"
+    	"DOTA_Tooltip_modifier_bear_b_d_Description"								"生命值提高"
+
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3"									"[R3] 捕食者"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_Description"						"在鹰形态下，基础技能伤害将提高。当变换为其他的形态时，buff还将持续 7秒。"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_property_one"						"基础技能伤害提高"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_suffix"								"%"
+
+    	"DOTA_Tooltip_modifier_hawk_c_d"											"捕食者"
+    	"DOTA_Tooltip_modifier_hawk_c_d_Description"								"基础技能伤害提高"
+
+    	"DOTA_Tooltip_ability_djanghor_rune_r_4"									"[R4] 进化"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_4_Description"						"狼形态下，额外获得敏捷值。熊形态下，额外获得力量值。鹰形态下，额外获得智力值。"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_4_property_one"						"相应属性值提高"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_4_suffix"								""
+
+    	"item_property_djanghor_arcana1"										"七十二变：年兽"
+    	"property_djanghor_arcana1_description"									"用 七十二变：年兽 替换 @Ability4 及其全部符文。"
+
+    	"DOTA_Tooltip_ability_draghor_shapeshift_year_beast"					"七十二变：年兽"
+    	"DOTA_Tooltip_ability_draghor_shapeshift_year_beast_Description"						"施法 1.75 秒后，变身至 年兽 形态。年兽的主属性取决于变身时 Q 技能的形态，獠牙、利爪、鹰隼 变身后主属性分别为 力量、敏捷、智力。变身后每 0.1 秒，汲取 0.03% 的最大魔法值。"
+    	"DOTA_Tooltip_ability_draghor_shapeshift_year_beast_all_attributes_bonus"						"年兽形态全属性提高："
+
+    	"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar"									"嗔怒"
+		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_Description"						"元素： <font color=\"#B5FFB7\">时</font> / <font color=\"#69BC71\">自然</font><br>向前方释放超声波，被击中的敌人获得 debuff，加深所受到的伤害。（伤害加深计算在减伤之后）同时，被击中的敌人受到嘲讽，强制攻击 齐天大圣 一段时间。嘲讽期间提高护甲值。"
+		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_damage"							"伤害："
+		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_postmitigation"					"减伤后伤害加深："
+		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_debuff_duration"					"伤害加深持续时间："
+		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_duration"							"嘲讽持续时间："
+		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_armor_bonus"						"护甲值提高："
+
+		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale"										"飓风"
+		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_Description"							"元素： <font color=\"#DDDDDD\">普通</font><br><font color=\"#7AE2A7\">风</font> / <font color=\"#69BC71\">自然</font><br>用利爪攻击前方，强有力的一击卷起旋风，伤害基于总攻击力。敌人每次被利爪将减少 50% 的护甲值，叠加 2 次。如果敌人两次或以上 被利爪或旋风 击中，将会流血，受到持续伤害，同时被减速。"
+		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_damage_mult"							"利爪伤害为 % 攻击力："
+		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_bleed_damage"							"流血伤害为 % 攻击力："	
+		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_bleed_duration"						"流血持续时间："
+		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_bonus_movement_speed"					"旋风造成移动速度减少："
+		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_attack_speed"							"旋风造成攻击速度减少："
+		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_damage"								"旋风基础伤害："
+		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_int_mult"								"旋风额外伤害为智力值的倍数："
+
+		"DOTA_Tooltip_ability_djanghor_year_beast_charge"									"神龙摆尾"
+		"DOTA_Tooltip_ability_djanghor_year_beast_charge_Description"						"向目标点冲刺，撞晕冲刺路径上的敌人。冲刺结束后，获得额外的 移动速度和移动速度上限。"
+		"DOTA_Tooltip_ability_djanghor_year_beast_charge_max_distance"						"最远冲锋距离："
+		"DOTA_Tooltip_ability_djanghor_year_beast_charge_stun_duration"						"眩晕持续时间："
+		"DOTA_Tooltip_ability_djanghor_year_beast_charge_movespeed_increase"				"移动速度提高："
+		"DOTA_Tooltip_ability_djanghor_year_beast_charge_movespeed_cap"						"移速上限提高："
+		"DOTA_Tooltip_ability_djanghor_year_beast_charge_duration"							"移速提高持续时间："
+
+		"DOTA_Tooltip_ability_draghor_year_beast_leap"									"龙腾"
+		"DOTA_Tooltip_ability_draghor_year_beast_leap_Description"						"元素： <font color=\"#69BC71\">自然</font> / <font color=\"#AF843D\">土</font><br>向目标点跳跃，重击地面，眩晕并伤害附近的敌人。"
+		"DOTA_Tooltip_ability_draghor_year_beast_leap_stun_duration"					"眩晕持续时间："
+		"DOTA_Tooltip_ability_draghor_year_beast_leap_cast_range"						"施法距离："
+
+    	"DOTA_Tooltip_ability_djanghor_rune_r_1_arcana1"									"[R1] 白银獠牙"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_1_arcana1_Description"						"年兽形态下，全属性提高攻击力。"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_1_arcana1_property_one"						"基础攻击力提高"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_1_arcana1_suffix"								" 每点属性值"
+
+    	"DOTA_Tooltip_ability_djanghor_rune_r_2_arcana1"									"[R2] 黄金鬃毛"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_2_arcana1_Description"						"年兽形态下，额外提高生命值。当变身为其他形态时，生命值提高状态仍持续 7 秒。"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_2_arcana1_property_one"						"生命值提高"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_2_arcana1_suffix"								" 每点属性值"
+
+    	"DOTA_Tooltip_modifier_year_beast_b_d_health"											"黄金鬃毛"
+    	"DOTA_Tooltip_modifier_year_beast_b_d_health_Description"								"生命值提高"
+
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1"									"[R3] 翡翠之声"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_Description"						"一部分的全属性值加入到所有基础技能伤害中。（加法）"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_property_one"						"基础技能伤害提高"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_suffix"								"% 全属性值"
+
+    	"DOTA_Tooltip_ability_djanghor_rune_r_4_arcana1"									"[R4] 钻石之力"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_4_arcana1_Description"						"年兽形态下，获得额外全属性值。"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_4_arcana1_property_one"						"额外全属性提高"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_4_arcana1_suffix"								""
+		
+		//Glyphs
+		
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_1_1"		"森林雕文"
+		"item_rpc_djanghor_glyph_1_1_description" 				"金箍棒的强力一击击中敌人将刷新筋斗云的冷却。"
+
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_2_1"		"狩猎雕文"
+		"item_rpc_djanghor_glyph_2_1_description" 				"在狼形态下，攻击有 @glyph_property1% 的概率获得 +@glyph_property2% 的攻击力。变换为其他形态之后效果仍持续 7秒。"
+
+		"DOTA_Tooltip_modifier_glyph_2_critical"				"狼之利爪"
+		"DOTA_Tooltip_modifier_glyph_2_critical_Description"	"攻击有概率造成额外伤害。"
+
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_3_1"		"模糊雕文"
+		"item_rpc_djanghor_glyph_3_1_description" 				"狼形态下有 @glyph_property1% 概率闪避，孙悟空本体形态下有 @glyph_property2% 概率闪避。"
+
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_4_1"		"七十二变雕文"
+		"item_rpc_djanghor_glyph_4_1_description" 				"变身结束后获得 @glyph_property1 层护盾，每层护盾吸收一次伤害。持续 12秒。"
+
+		"DOTA_Tooltip_modifier_djanghor_4_1_shield"				"七十二变护盾"
+		"DOTA_Tooltip_modifier_djanghor_4_1_shield_Description"	"每层护盾吸收一次伤害"
+
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_5_1"		"动物学雕文"
+		"item_rpc_djanghor_glyph_5_1_description" 				"减少 @Ability1 的冷却时间 @glyph_property1 秒。"
+
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_6_1"		"自然庇护雕文"
+		"item_rpc_djanghor_glyph_6_1_description" 				"每 @glyph_property1 秒，清除一次来自于敌人的负面debuff。"
+
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_7_1"		"抨击雕文"
+		"item_rpc_djanghor_glyph_7_1_description" 				"在熊形态下，有 @glyph_property1% 的概率攻击眩晕敌人，并且所造成的伤害提高 @glyph_property2% 。眩晕持续 @glyph_property3 秒。变换为其它形态后，buff仍持续 10 秒。"
+
+		"DOTA_Tooltip_modifier_glyph_7_bash"					"抨击"
+		"DOTA_Tooltip_modifier_glyph_7_bash_Description"		"攻击时有概率眩晕敌人并造成额外伤害"
+
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_5_a"		"自然灾害雕文"
+		"item_rpc_djanghor_glyph_5_a_description" 				"所有 <font color=\"#DDDDDD\">普通</font> 元素伤害都将拥有第二种元素类型，为 <font color=\"#69BC71\">自然</font>."
+		
+	
+		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_00"		"Staff"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_01"		"Iron Staff"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_02"		"Forest Staff"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_03"		"Primitive Staff"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_11"		"Animal Daibo"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_12"		"Landscaper Daibo"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_13"		"Shapeshifter Daibo"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_14"		"Natural Daibo"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_21"		"Versatile Nature Daibo"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_22"		"Mountain Daibo"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_23"		"Gaia Staff"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_24"		"Pristine Summer Daibo"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_weapon_25"		"Uprooted Earth Daibo"
+		
+		"DOTA_Tooltip_ability_item_rpc_djanghor_immortal_weapon_1"            "狼牙棒"
+        "item_property_djanghor_immortal_weapon"                             "金刚狼"
+        "property_djanghor_immortal_weapon_description"                      "在狼形态下，每点敏捷值额外提高 @special_property1 点攻击力。@Ability2 将打击一条直线上的所有敌人，并且在狼形态下，其主要元素属性变为 自然元素。"
+
+        "DOTA_Tooltip_ability_item_rpc_djanghor_immortal_weapon_2"            "熊爪棍"
+        "item_property_djanghor_immortal_weapon2"                             "钢铁熊"
+        "property_djanghor_immortal_weapon2_description"                      "在熊形态下，敌人伤害不超过 100x 最大生命值时，该次伤害将被限制到 @special_property1% 的最大生命值。"
+
+        "DOTA_Tooltip_ability_item_rpc_djanghor_immortal_weapon_3"            "鹰隼启示法杖"
+        "item_property_djanghor_immortal_weapon3"                             "暴风鸟"
+        "property_djanghor_immortal_weapon3_description"                      "在鹰形态下，将不再汲取魔法值。并且苍穹龙卷的减速效果翻倍。"

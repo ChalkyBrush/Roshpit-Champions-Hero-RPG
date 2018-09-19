@@ -1,0 +1,258 @@
+		"DOTA_Tooltip_ability_arkimus_zonis_spark"								"维度扭曲"
+    	"DOTA_Tooltip_ability_arkimus_zonis_spark_Description"					"元素： <font color=\"#E1A2E8\">奥术</font> / <font color=\"#5CCDF9\">电</font><br>阿基莫斯扭曲面前的空间，闪烁至新的地点。空间的碎片相互联结，在初始点与闪烁目标点之间创造一束聚集的奥术闪电。被奥术闪电击中的敌人将被一直眩晕并且受到伤害。每6秒获得一层维度扭曲的充能，每层充能可以自由施放一次维度扭曲（无冷却），最多两层充能。"
+    	"DOTA_Tooltip_ability_arkimus_zonis_spark_damage"						"伤害："
+    	"DOTA_Tooltip_ability_arkimus_zonis_spark_cast_range"					"施法距离："
+
+    	"DOTA_Tooltip_modifier_zonis_stun"										"被维度扭曲击晕"
+
+    	"DOTA_Tooltip_modifier_zonis_freecast"									"维度扭曲充能"
+    	"DOTA_Tooltip_modifier_zonis_freecast_Description"						"你的下一次维度扭曲将不会激活冷却时间"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1"									"[Q1] 攻壳震荡"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_Description"						"接触到维度扭曲的敌人将丢失护甲，持续8秒。"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_property_one"					"护甲值减少"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_suffix"							""
+
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2"									"[Q2] 带状网"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_Description"						"施放维度扭曲之后，制造一片奥术电磁网，每0.2秒伤害并短暂眩晕敌人。"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_property_one"					"伤害"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_suffix"							""
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_property_two"					"范围"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_suffix_two"						""
+
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3"									"[Q3] 可塑性结构"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_Description"						"接触到维度扭曲的敌人将降低魔法抗性，持续8秒。"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_property_one"					"魔法抗性降低"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_suffix"							""
+
+    	"DOTA_Tooltip_modifier_zonis_c_a_magic_resist"							"可塑性结构"
+    	"DOTA_Tooltip_modifier_zonis_c_a_magic_resist_Description"				"魔法抗性降低"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4"									"[Q4] 奥术扭曲"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_Description"						"提高维度扭曲和带状网的伤害，并且提高奥术闪电的持续时间。"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_property_one"					"伤害提高"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix"							"%"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_property_two"					"奥术闪电持续时间延长"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix_two"						" 秒"
+
+    	"DOTA_Tooltip_ability_arkimus_storm_weapon"								"闪光源"
+    	"DOTA_Tooltip_ability_arkimus_storm_weapon_Description"					"元素： <font color=\"#E1A2E8\">奥术</font><br>开启后一股奥术能量充盈阿基莫斯的武器，他的攻击将在目标周围的范围内造成额外的奥术伤害，每次攻击消耗一定的魔法值，当魔法值不足时将自动关闭。"
+    	"DOTA_Tooltip_ability_arkimus_storm_weapon_damage_mult"					"奥术伤害为 % 攻击力："
+
+    	"DOTA_Tooltip_modifier_arkimus_storm_weapon"							"闪光源"
+    	"DOTA_Tooltip_modifier_arkimus_storm_weapon_Description"				"下一次攻击造成AOE的奥术伤害"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_w_1"									"[W1] 奥法武器"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_1_Description"						"任意奥术伤害的一部分将强化阿基莫斯的武器，提高基础攻击力，持续15秒。每次强化将覆盖上一次的强化效果。"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_1_property_one"					"奥术伤害的 % 提高到攻击力"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_1_suffix"							"%"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_1_property_two"					"最大加成"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_1_suffix_two"						""
+
+    	"DOTA_Tooltip_ability_arkimus_rune_w_2"									"[W2] 奥术拼接"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_2_Description"						"敌人每一次受到闪光源的伤害，将获得一层奥术拼接的debuff，每层奥术拼接使敌人受到的所有奥术伤害提高。"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_2_property_one"					"每层奥术伤害抗性减少"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_2_suffix"							"%"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_w_3"									"[W3] 光子冲刺"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_3_Description"						"当武器有闪光源充能时，攻击敌人将触发光子冲刺。在冲刺中，阿基莫斯提高1000的移动速度和移动速度上限，相位移动，并且提高攻击力。必须攻击400码范围以外的敌人，才可以激活光子冲刺。冲刺途中任意操作都将中断冲刺。"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_3_property_one"					"攻击力提高"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_3_suffix"							"%"
+
+    	"DOTA_Tooltip_modifier_arkimus_c_b_sprinting"							"光子冲刺"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_w_4"									"[W4] 中继源"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_4_Description"						"当开启 闪光源 攻击时，有概率获得一层护盾，持续 7 秒。护盾吸收一次伤害。当概率超过 100% 时，一次攻击将获得多层护盾。"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_4_property_one"					"获得护盾的概率"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_4_suffix"							"%"
+
+    	"DOTA_Tooltip_ability_ark_jump"											"轨道跃进"
+    	"DOTA_Tooltip_ability_ark_jump_Description"								"杂技般地跳跃至目标地点。每6秒，获得一层充能使阿基莫斯可以自由地施放轨道跃进，而不激活冷却。"
+    	"DOTA_Tooltip_ability_ark_jump_cast_range"								"施法范围："
+
+    	"DOTA_Tooltip_modifier_machinal_jump_freecast"							"轨道跃进充能"
+    	"DOTA_Tooltip_modifier_machinal_jump_freecast_Description"				"下一次施放轨道跃进不会使该技能进入冷却时间"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_e_1"									"[E1] 接地火花"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_1_Description"						"轨道跃进着陆点附近的敌人将被奥术能量击中，触电。"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_1_property_one"					"伤害"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_1_suffix"							"% 攻击力"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_1_property_two"					"冲击半径"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_1_suffix_two"						""	
+
+    	"DOTA_Tooltip_ability_arkimus_rune_e_2"									"[E2] 再生周期"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_2_Description"						"当阿基莫斯获得魔法值时，将根据所获得的魔法值治疗生命值。"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_2_property_one"					"治疗量"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_2_suffix"							" 每获得一点魔法值"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_e_3"									"[E3] 高架系统"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_3_Description"						"轨道跃进落地后的3秒加深敌人所受到的伤害（计算在敌人减伤之后）。"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_3_property_one"					"敌人所受到的伤害加深"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_3_suffix"							"%"
+
+    	"DOTA_Tooltip_modifier_machinal_jump_c_c_amp"							"高架系统"
+    	"DOTA_Tooltip_modifier_machinal_jump_c_c_amp_Description"				"加深敌人所受到的伤害"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_e_4"									"[E4] 无尽之际"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_4_Description"						"被动地提升敏捷值和闪避。"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_4_property_one"					"敏捷值提高"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_4_suffix"							""
+    	"DOTA_Tooltip_ability_arkimus_rune_e_4_property_two"					"提高闪避"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_4_suffix_two"						"%"
+
+    	"DOTA_Tooltip_ability_arkimus_energy_field"								"能量场"
+    	"DOTA_Tooltip_ability_arkimus_energy_field_Description"					"元素： <font color=\"#E1A2E8\">奥术</font><br>充能后施放一系列的能量子，围绕并跟随阿基莫斯的位置旋转。被能量子击中的敌人受到伤害并且减少攻击力，持续5秒。能量场激活状态下，施放轨道跃进将缩紧能量子，施放维度扭曲将扩散能量子。"
+    	"DOTA_Tooltip_ability_arkimus_energy_field_damage"						"伤害："
+    	"DOTA_Tooltip_ability_arkimus_energy_field_spirits"						"能量子："
+    	"DOTA_Tooltip_ability_arkimus_energy_field_damage_reduce"				"攻击力削弱 %："
+
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1"									"[R1] 振动效应"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1_Description"						"每个激活的能量子提高攻击力并且提高魔法回复速度。"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1_property_one"					"每个能量子提高攻击力"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1_suffix"							"%"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1_property_two"					"每个能量子提高魔法回复速度"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1_suffix_two"						""
+
+    	"DOTA_Tooltip_ability_arkimus_rune_r_2"									"[R2] 压力"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_2_Description"						"阿基莫斯攻击力的一部分加入至能量场的伤害。"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_2_property_one"					"伤害提高"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_2_suffix"							"% 攻击力"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3"									"[R3] 力场"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3_Description"						"当开始吟唱能量场时，阿基莫斯获得一个临时的护盾，伤害减免 95% 。"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3_property_one"					"持续时间"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3_suffix"							" 秒"
+
+    	"DOTA_Tooltip_modifier_energy_field_c_d_shield"							"力场"
+    	"DOTA_Tooltip_modifier_energy_field_c_d_shield_Description"				"伤害减免 95%"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4"									"[R4] 螺旋魔术"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_Description"						"阿基莫斯的敏捷值将提高所有 <font color=\"#E1A2E8\">奥术</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_property_one"					"奥术元素伤害提高"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_suffix"							"% 每10点敏捷值"
+		
+		//Arcanas
+    	"item_property_arkimus_arcana1"										"电磁流"
+    	"property_arkimus_arcana1_description"								"用电磁流替换 @Ability1 及其所有符文。"
+
+    	"DOTA_Tooltip_ability_arkimus_zap_ring"									"电磁流"
+    	"DOTA_Tooltip_ability_arkimus_zap_ring_Description"						"元素： <font color=\"#E1A2E8\">奥术</font> / <font color=\"#5CCDF9\">电</font><br>阿基莫斯创造一片电磁场跟随他。进入该电磁场的敌人将被处以电刑，眩晕0.2秒。"
+    	"DOTA_Tooltip_ability_arkimus_zap_ring_damage"							"伤害："
+    	"DOTA_Tooltip_ability_arkimus_zap_ring_duration"						"持续时间："
+    	"DOTA_Tooltip_ability_arkimus_zap_ring_int_damage"						"每点智力值额外提高伤害："
+
+    	"DOTA_Tooltip_modifier_zonis_stun_arcana1"								"电磁冲击"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1"									"[Q1] 两极反转"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_Description"						"受到伤害时阿基莫斯将回复魔法值。"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_property_one"					"魔法值回复"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_suffix"							"% 每受到100点伤害"
+
+     	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1"									"[Q2] 能量立场"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1_Description"						"处于电磁流中的敌人受到来自阿基莫斯的伤害将加深。（伤害加深计算在敌人减伤之后）"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1_property_one"					"减伤后伤害加深"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1_suffix"							"%"
+
+     	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1"									"[Q3] 磁感"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_Description"						"受到伤害时将获得一层磁感buff。每层buff减免阿基莫斯的伤害 1%。每层伤害减免互为独立（收益递减）"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_property_one"					"buff 层数上限"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_suffix"							""
+
+    	"DOTA_Tooltip_modifier_arkimus_arcana1_q3"										"磁感"
+    	"DOTA_Tooltip_modifier_arkimus_arcana1_q3_Description"							"每层独立，每层伤害减免 1%%"	
+
+     	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1"									"[Q4] 奥法吟唱"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_Description"						"在电磁流激活状态下，阿基莫斯将获得额外的敏捷值。同时，阿基莫斯的敏捷值将提高所有 <font color=\"#5CCDF9\">电</font> 元素伤害。"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_property_one"					"敏捷值提高"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_suffix"							""
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_property_two"					"电元素伤害提高"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_suffix_two"						"% 每10点敏捷值"
+
+    	"DOTA_Tooltip_modifier_arkimus_arcana1_q4"										"奥法吟唱"
+    	"DOTA_Tooltip_modifier_arkimus_arcana1_q4_Description"							"提高敏捷值和电元素伤害"
+
+    	"item_property_arkimus_arcana2"										"奥法审判者"
+    	"property_arkimus_arcana2_description"								"用奥法审判者替换 @Ability4 及其所有符文"
+
+    	"DOTA_Tooltip_ability_arkimus_archon_form"									"奥法审判者"
+    	"DOTA_Tooltip_ability_arkimus_archon_form_Description"						"施法吟唱 2 秒后，变身成为奥法审判者形态，提高 +400 攻击速度，提高攻击距离，并且减伤。攻击 1/2 攻击半径内的敌人时，阿基莫斯将自动向后推进，远离敌人。"
+    	"DOTA_Tooltip_ability_arkimus_archon_form_attack_range"							"攻击力提高："
+    	"DOTA_Tooltip_ability_arkimus_archon_form_duration"								"变身持续时间："
+    	"DOTA_Tooltip_ability_arkimus_archon_form_damage_resist"						"伤害减免 %："
+
+    	"DOTA_Tooltip_modifier_arkimus_archon_form"									"奥法审判者形态"
+    	"DOTA_Tooltip_modifier_arkimus_archon_form_Description"									"提高攻击距离并减免部分伤害。"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2"									"[R1] 判决"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2_Description"						"在奥法审判者形态下攻击敌人将在敌人脚下制造一个半径为 240 码的审判区域，持续 4 秒。审判区域内的敌人每 0.1 秒都将受到基于阿基莫斯攻击力的伤害，并且伤害均摊至所有敌人（类似于天怒大）。审判区域只能同时存在一个。"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2_property_one"					"每 0.1 秒造成伤害"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2_suffix"							"% 攻击力"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_r_2_arcana2"									"[R2] 暗流"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_2_arcana2_Description"						"奥法审判者形态下，阿基莫斯的属性值将提高自身的魔法值回复速度。同时当前魔法值的一部分将提高基础攻击力。"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_2_arcana2_property_one"					"额外魔法恢复速度"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_2_arcana2_suffix"							"% 全属性"
+     	"DOTA_Tooltip_ability_arkimus_rune_r_2_arcana2_property_two"					"基础攻击力提高"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_2_arcana2_suffix_two"						"% 当前魔法值"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3_arcana2"									"[R3] 混元"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3_arcana2_Description"						"被动地提高所有元素伤害。"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3_arcana2_property_one"					"所有元素伤害提高"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3_arcana2_suffix"							"%"
+
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2"									"[R4] 中枢"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_Description"						"奥法审判者形态下，基础攻击间隔降低。"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_property_one"					"基础攻击间隔减少"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_suffix"							"秒"
+		
+		//Glyphs
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_1_1"		"能量场雕文"
+		"item_rpc_arkimus_glyph_1_1_description" 				"能量子将产生在最小的范围内。"
+
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_2_1"		"法力之潮雕文"
+		"item_rpc_arkimus_glyph_2_1_description" 				"魔法恢复速度提高 @glyph_property1。"
+
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_3_1"		"能量子雕文"
+		"item_rpc_arkimus_glyph_3_1_description" 				"能量场将额外产生 @glyph_property1 个能量子。"
+
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_4_1"		"杂技雕文"
+		"item_rpc_arkimus_glyph_4_1_description" 				"加多 @glyph_property1 个轨道飞跃自由施放的最大充能数。"
+
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_1"		"法力盾雕文"
+		"item_rpc_arkimus_glyph_5_1_description" 				"所受到伤害的 @glyph_property1% 将从魔法值中扣除而不是生命值。并且所扣除的魔法值将再减少 @glyph_property2%。"
+
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_6_1"		"扭曲折叠雕文"
+		"item_rpc_arkimus_glyph_6_1_description" 				"加多 @glyph_property1 个维度扭曲自由施放的最大充能数。"
+
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_7_1"		"杨永信雕文"
+		"item_rpc_arkimus_glyph_7_1_description" 				"所有 <font color=\"#5CCDF9\">电</font> 元素伤害提高 @glyph_property1%。"
+
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_a"		"带状分离雕文"
+		"item_rpc_arkimus_glyph_5_a_description" 				"每个激活的能量子吸收一次魔法或纯粹伤害，然后被毁坏。"
+
+
+		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_00"		"Hand Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_01"		"Arcane Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_02"		"Energy Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_03"		"Plasma Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_11"		"Zonal Spark Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_12"		"Photon Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_13"		"Space Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_14"		"Plasma Warp Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_21"		"Arcane Energy Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_22"		"Flash Force Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_23"		"Orbital Combat Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_24"		"Photonic Warp Blades"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_weapon_25"		"Archon Blades"
+		
+		"DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_1"			"奥法风刃"
+		"item_property_arkimus_immortal_weapon"								"双源"
+		"property_arkimus_immortal_weapon_description"						"闪光源伤害提高 100%，并且奥术拼接的叠加速度翻倍。"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_2"            "奥法光刃"
+        "item_property_arkimus_immortal_weapon2"                             "磁化"
+        "property_arkimus_immortal_weapon2_description"                      "所造成的所有 <font color=\"#E1A2E8\">奥术</font> 元素伤害的 @special_property1% 将治疗阿基莫斯。"
+
+        "DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_3"            "奥法回路刃"
+        "item_property_arkimus_immortal_weapon3"                             "粒子盾"
+        "property_arkimus_immortal_weapon3_description"                      "光子冲刺过程中伤害减免 @special_property1%"

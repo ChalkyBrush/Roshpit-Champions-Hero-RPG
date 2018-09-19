@@ -1,0 +1,14 @@
+
+		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
+		"item_property_hurricane"					"Hurricane"
+		"property_hurricane_description"			"При прочтении @Ability4, буря из <% HURRICANE_VEST_HURRICANE_COUNT %> ураганов распространяется во все стороны от героя, замедляя скорость атаки врагов на <% HURRICANE_VEST_ATT_SPD_REDUCE %> и скорость передвижения на <% HURRICANE_VEST_MSP_REDUCE %> в течение <% HURRICANE_VEST_SLOW_DUR %> секунд. Урон, наносимый каждым ураганом равен <% HURRICANE_VEST_DMG_AMP %> * (Уровень Героя / 120) * (<% HURRICANE_VEST_MAX_DISTANCE %> - расстояние между героем и целью))^<% HURRICANE_VEST_DMG_EXP_SCALE %>; сила ветра снижается по мере удаления от центра."
+		"DOTA_Tooltip_modifier_hurricane_vest_hurricane"	"Hurricane"
+		"DOTA_Tooltip_modifier_hurricane_vest_hurricane_Description"	"Преследуется сильными ветрами"
+
+
+		"DOTA_Tooltip_ability_item_rpc_barons_storm_armor"								"Baron's Storm Armor"
+		"item_property_baron_storm"								"Storm Link"
+		"property_baron_storm_description"						"Электрическая дуга связывает героя и атакующего противника, наносит <% BARON_STORM_DMG_PER_ATT %>x урона от общей атаки героя и передается по цепи между другими ближайшими целями до <% BARON_STORM_MAX_TARGETS %> раз. Пораженные током противники наносят на <% BARON_STORM_DMG_RESISTANCE * 100 %>% меньше урона по герою в течение <% BARON_STORM_DUR%> сек. Дуга перезаряжается <% BARON_STORM_COOLDOWN %> секунд."
+
+		"DOTA_Tooltip_modifier_baron_storm_link"				"Storm Link"
+		"DOTA_Tooltip_modifier_baron_storm_link_Description"	"Связан с героем. Наносит меньше урона владельцу предмета. Получает урон."

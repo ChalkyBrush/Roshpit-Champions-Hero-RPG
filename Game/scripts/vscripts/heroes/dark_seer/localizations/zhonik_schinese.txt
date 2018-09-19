@@ -1,0 +1,282 @@
+		//Abilities
+		"DOTA_Tooltip_ability_tachyon_shell"								"超光速粒子盾"
+    	"DOTA_Tooltip_ability_tachyon_shell_Description"					"元素： <font color=\"#B5FFB7\">时</font><br>用不稳定的粒子包裹一个单位，伤害并减速目标单位周围的敌人。"
+    	"DOTA_Tooltip_ability_tachyon_shell_damage"							"伤害："
+    	"DOTA_Tooltip_ability_tachyon_shell_duration"						"持续时间："
+    	"DOTA_Tooltip_ability_tachyon_shell_move_slow"						"移动速度降低："
+
+    	"DOTA_Tooltip_modifier_tachyon_shell"								"超光速粒子盾"
+    	"DOTA_Tooltip_modifier_tachyon_shell_Description"					"伤害目标单位周围钟尼克的敌人"
+		
+		"DOTA_Tooltip_ability_zonik_rune_q_1"								"[Q1] 超强粒子能"
+    	"DOTA_Tooltip_ability_zonik_rune_q_1_Description"					"钟尼克自己所携带的超光速粒子盾将提高伤害。"
+    	"DOTA_Tooltip_ability_zonik_rune_q_1_property_one"					"伤害提高"
+    	"DOTA_Tooltip_ability_zonik_rune_q_1_suffix"						"%"
+
+    	"DOTA_Tooltip_ability_zonik_rune_q_2"								"[Q2] +1秒"
+    	"DOTA_Tooltip_ability_zonik_rune_q_2_Description"					"当一个携带超光速粒子盾的单位死亡后，超光速粒子盾将转移到附近敌人或友军身上，再续几秒。"
+    	"DOTA_Tooltip_ability_zonik_rune_q_2_property_one"					"新的超光速粒子盾持续时间"
+    	"DOTA_Tooltip_ability_zonik_rune_q_2_suffix"						" 秒"
+    	"DOTA_Tooltip_ability_zonik_rune_q_2_property_two"					"新目标搜索范围"
+    	"DOTA_Tooltip_ability_zonik_rune_q_2_suffix_two"					""
+
+    	"DOTA_Tooltip_ability_zonik_rune_q_3"								"[Q3] 混沌撞击"
+    	"DOTA_Tooltip_ability_zonik_rune_q_3_Description"					"处于超光速粒子盾附近的敌人将加深受到来自于钟尼克的伤害（计算在减伤之后）。"
+    	"DOTA_Tooltip_ability_zonik_rune_q_3_property_one"					"减伤后伤害加深"
+    	"DOTA_Tooltip_ability_zonik_rune_q_3_suffix"						"%"
+
+    	"DOTA_Tooltip_ability_zonik_rune_q_4"								"[Q4] -1秒"
+    	"DOTA_Tooltip_ability_zonik_rune_q_4_Description"					"时间就是生命，拥有超光速粒子盾的友方单位将减免一定的伤害。"
+    	"DOTA_Tooltip_ability_zonik_rune_q_4_property_one"					"伤害减免"
+    	"DOTA_Tooltip_ability_zonik_rune_q_4_suffix"						"%"
+
+
+    	"DOTA_Tooltip_ability_zonik_mach_punch"								"马赫速度之拳"
+    	"DOTA_Tooltip_ability_zonik_mach_punch_Description"					"元素： <font color=\"#DDDDDD\">普通</font> / <font color=\"#B5FFB7\">时</font><br>钟尼克举起拳头全力一击，击晕目标单位并造成基于攻击力的物理伤害。钟尼克每点高于目标单位的移动速度将提高该伤害值 1%。"
+    	"DOTA_Tooltip_ability_zonik_mach_punch_stun_duration"				"眩晕持续时间："
+    	"DOTA_Tooltip_ability_zonik_mach_punch_damage_mult"					"马赫拳伤害为攻击力的倍数 %："
+		
+		"DOTA_Tooltip_ability_zonik_rune_w_1"								"[W1] 音爆"
+    	"DOTA_Tooltip_ability_zonik_rune_w_1_Description"					"被马赫速度之拳击中的敌人将施放冲击波，伤害周围敌人和主目标敌人 a% 的基础技能伤害。"
+    	"DOTA_Tooltip_ability_zonik_rune_w_1_property_one"					"伤害"
+    	"DOTA_Tooltip_ability_zonik_rune_w_1_suffix"						"% 马赫速度之拳基础技能伤害"
+
+    	"DOTA_Tooltip_ability_zonik_rune_w_2"								"[W2] 时间能量"
+    	"DOTA_Tooltip_ability_zonik_rune_w_2_Description"					"每移动240码，都会增加一层时间能量。施放马赫速度之拳将消耗所有的充能。每层充能都将提高马赫速度之拳的伤害，最高20层。"
+    	"DOTA_Tooltip_ability_zonik_rune_w_2_property_one"					"每层充能提高马赫速度之拳伤害"
+    	"DOTA_Tooltip_ability_zonik_rune_w_2_suffix"						"%"
+
+    	"DOTA_Tooltip_modifier_temporal_discharge"							"时间能量"
+    	"DOTA_Tooltip_modifier_temporal_discharge_Description"				"每层充能将提高下一次马赫速度之拳的伤害"
+
+    	"DOTA_Tooltip_ability_zonik_rune_w_3"								"[W3] 时之鞭"
+    	"DOTA_Tooltip_ability_zonik_rune_w_3_Description"					"当钟尼克被眩晕，缠绕，或者击退时，每0.1秒都会增加一层时之鞭的充能。一旦钟尼克不再被控制，时之鞭所有充能能量将会被释放，伤害并眩晕600码范围内的敌人。眩晕时间取决于当前等级的马赫速度之拳的眩晕时间。"
+    	"DOTA_Tooltip_ability_zonik_rune_w_3_property_one"					"每层时之鞭伤害"
+    	"DOTA_Tooltip_ability_zonik_rune_w_3_suffix"						""
+    	"DOTA_Tooltip_ability_zonik_rune_w_3_property_two"					"眩晕持续时间"
+    	"DOTA_Tooltip_ability_zonik_rune_w_3_suffix_two"					" 秒"
+
+    	"DOTA_Tooltip_modifier_mach_punch_whiplash"							"时之鞭"
+    	"DOTA_Tooltip_modifier_mach_punch_whiplash_Description"				"一旦不再受到控制，释放爆炸，伤害并眩晕周围的敌人"
+
+    	"DOTA_Tooltip_ability_zonik_rune_w_4"								"[W4] 回声"
+    	"DOTA_Tooltip_ability_zonik_rune_w_4_Description"					"基础技能或普通攻击伤害敌人目标一次将对敌人目标增加一层回声充能，如果4秒不再增加新的回声充能，将释放所有回声充能，对目标敌人造成伤害，伤害基于敌人目标拥有回声充能时间内所受到的所有伤害的总和，并且伤害无视坚定技能。（类似于巫医的诅咒）"
+    	"DOTA_Tooltip_ability_zonik_rune_w_4_property_one"					"回声伤害"
+    	"DOTA_Tooltip_ability_zonik_rune_w_4_suffix"						"% 所受到的所有伤害的总和"
+		
+		"DOTA_Tooltip_modifier_zonik_echo"									"回声"
+    	"DOTA_Tooltip_modifier_zonik_echo_Description"						"累计伤害，一旦回声充能释放，将对敌人造成伤害"
+
+
+    	"DOTA_Tooltip_ability_zonik_lightspeed"								"光速移动"
+    	"DOTA_Tooltip_ability_zonik_lightspeed_Description"					"施放技能给予一个buff。光速移动buff提高移动速度上限并且使钟尼克穿越地形。每移动60码消耗 0.75% 最大魔法值。如果魔法值为0，则失去光速移动buff。"	
+    	"DOTA_Tooltip_ability_zonik_lightspeed_movespeed_cap"				"移动速度上限："
+    	"DOTA_Tooltip_ability_zonik_lightspeed_duration"					"持续时间："
+
+    	"DOTA_Tooltip_modifier_zonik_lightspeed"							"光速移动"
+    	"DOTA_Tooltip_modifier_zonik_lightspeed_Description"				"提高移动速度并且穿越地形"
+		
+		"DOTA_Tooltip_ability_zonik_rune_e_1"								"[E1] 浪涌"
+    	"DOTA_Tooltip_ability_zonik_rune_e_1_Description"					"在光速移动buff持续时间内增加移动速度，跑得快。（不玩梗了，怕被禁）"
+    	"DOTA_Tooltip_ability_zonik_rune_e_1_property_one"					"移动速度增加"
+    	"DOTA_Tooltip_ability_zonik_rune_e_1_suffix"						""
+
+    	"DOTA_Tooltip_ability_zonik_rune_e_2"								"[E2] 残影"
+    	"DOTA_Tooltip_ability_zonik_rune_e_2_Description"					"在光速移动buff下，每移动360码距离，留下一个残影。如果有敌人靠近残影，1秒后残影将爆炸，爆炸伤害基于钟尼克当前的魔法值。没有敌人靠近残影将在5秒后爆炸。"
+    	"DOTA_Tooltip_ability_zonik_rune_e_2_property_one"					"伤害"
+    	"DOTA_Tooltip_ability_zonik_rune_e_2_suffix"						" 每一点缺失的魔法值"
+
+    	"DOTA_Tooltip_ability_zonik_rune_e_3"								"[E3] 模糊"
+    	"DOTA_Tooltip_ability_zonik_rune_e_3_Description"					"在光速移动buff下，钟尼克所受到的所有物理伤害都将被格挡一部分。格挡量取决于敏捷值。"
+    	"DOTA_Tooltip_ability_zonik_rune_e_3_property_one"					"物理伤害格挡"
+    	"DOTA_Tooltip_ability_zonik_rune_e_3_suffix"						" 每点敏捷值"
+
+    	"DOTA_Tooltip_ability_zonik_rune_e_4"								"[E4] 音速冲击"
+    	"DOTA_Tooltip_ability_zonik_rune_e_4_Description"					"在光速移动buff下，再次提高钟尼克的移动速度上限。"
+    	"DOTA_Tooltip_ability_zonik_rune_e_4_property_one"					"移动速度上限提高"
+    	"DOTA_Tooltip_ability_zonik_rune_e_4_suffix"						""
+
+
+    	"DOTA_Tooltip_ability_zonik_speedball"								"光速冲撞"
+    	"DOTA_Tooltip_ability_zonik_speedball_Description"					"元素： <font color=\"#B5FFB7\">时</font> / <font color=\"#C25DFC\">宇宙</font><br>蓄力并冲向目标单位，冲刺时提高移动速度和移动速度上限。冲撞到目标单位时，发生爆炸伤害并眩晕周围敌人，钟尼克自己也会被眩晕1秒。蓄力时任何指令都将终断持续施法。"	
+    	"DOTA_Tooltip_ability_zonik_speedball_movespeed"				"基础移动速度和移动速度上限提高："
+    	"DOTA_Tooltip_ability_zonik_speedball_damage"					"伤害："
+    	"DOTA_Tooltip_ability_zonik_speedball_stun_duration"			"敌人眩晕持续时间："
+
+    	"DOTA_Tooltip_modifier_zonik_speedball"							"光速冲撞"
+    	"DOTA_Tooltip_modifier_zonik_speedball_Description"				"蓄力并高速冲撞目标敌人"	
+
+		"DOTA_Tooltip_ability_zonik_rune_r_1"								"[R1] 冲撞之路"
+    	"DOTA_Tooltip_ability_zonik_rune_r_1_Description"					"光速冲撞路径上的敌人，与钟尼克发生碰撞时将会被钟尼克攻击一次（所有攻击特效都将触发），并且被眩晕一段时间。每击中一个敌人钟尼克的基础攻击力都将被提高 a%。基础攻击力提高的buff将会在光速冲撞结束后继续持续8秒。"
+    	"DOTA_Tooltip_ability_zonik_rune_r_1_property_one"					"每击中一个敌人攻击力提高"
+    	"DOTA_Tooltip_ability_zonik_rune_r_1_suffix"						"%"
+    	"DOTA_Tooltip_ability_zonik_rune_r_1_property_two"					"眩晕持续时间："
+    	"DOTA_Tooltip_ability_zonik_rune_r_1_suffix_two"					" 秒"
+
+    	"DOTA_Tooltip_modifier_speedball_a_d_visible"						"冲撞之路"
+    	"DOTA_Tooltip_modifier_speedball_a_d_visible_Description"			"攻击力提高"
+
+    	"DOTA_Tooltip_ability_zonik_rune_r_2"								"[R2] 动能回复"
+    	"DOTA_Tooltip_ability_zonik_rune_r_2_Description"					"提高生命回复速度和魔法回复速度。提高值为 a% 的移动速度。当被缠绕或眩晕时失去回复效果。"
+    	"DOTA_Tooltip_ability_zonik_rune_r_2_property_one"					"生命恢复速度提高"
+    	"DOTA_Tooltip_ability_zonik_rune_r_2_suffix"						"% 移动速度"
+    	"DOTA_Tooltip_ability_zonik_rune_r_2_property_two"					"魔法恢复速度提高"
+    	"DOTA_Tooltip_ability_zonik_rune_r_2_suffix_two"					"% 移动速度"
+
+    	"DOTA_Tooltip_ability_zonik_rune_r_3"								"[R3] 一拳"
+    	"DOTA_Tooltip_ability_zonik_rune_r_3_Description"					"当光速冲撞对自身的眩晕结束后，有几率对初始目标施放一次无限制的马赫速度之拳（如果主目标还存活）。概率超过100%将会施放多次马赫速度之拳。"
+    	"DOTA_Tooltip_ability_zonik_rune_r_3_property_one"					"马赫速度之拳施放概率"
+    	"DOTA_Tooltip_ability_zonik_rune_r_3_suffix"						"%"
+
+    	"DOTA_Tooltip_ability_zonik_rune_r_4"								"[R4] 竞争"
+    	"DOTA_Tooltip_ability_zonik_rune_r_4_Description"					"提高钟尼克的力量值。并且每点力量值提高基础攻击力。"
+    	"DOTA_Tooltip_ability_zonik_rune_r_4_property_one"					"力量值提高"
+    	"DOTA_Tooltip_ability_zonik_rune_r_4_suffix"						""
+    	"DOTA_Tooltip_ability_zonik_rune_r_4_property_two"					"基础攻击力提高"
+    	"DOTA_Tooltip_ability_zonik_rune_r_4_suffix_two"					" 每点力量值"
+		
+		//Arcanas
+		
+		"item_property_zonik_arcana1"										"次元护盾"
+    	"property_zonik_arcana1_description"								"用次元护盾替换 @Ability3 及其所有符文。"
+
+    	"DOTA_Tooltip_ability_zhonik_temporal_field"						"次元护盾"
+    	"DOTA_Tooltip_ability_zhonik_temporal_field_Description"			"钟尼克冲向目标点，并创造一个800码范围的次元护盾，减速敌人。在次元护盾中，钟尼克伤害减免 80% 并且提高移动速度和移动速度上限。同时，在次元护盾中，钟尼克将清除部分眩晕和沉默的负面效果。"
+    	"DOTA_Tooltip_ability_zhonik_temporal_field_movespeed_cap"				"移动速度上限提高："
+    	"DOTA_Tooltip_ability_zhonik_temporal_field_movespeed_bonus"	"移动速度提高："
+    	"DOTA_Tooltip_ability_zhonik_temporal_field_duration"	"次元护盾持续时间："
+    	"DOTA_Tooltip_ability_zhonik_temporal_field_cast_range"	"施法距离："
+    	"DOTA_Tooltip_ability_zhonik_temporal_field_enemy_move_slow"	"敌人移动速度减缓："
+    	"DOTA_Tooltip_ability_zhonik_temporal_field_damage_resistance"	"伤害减免 %："
+
+    	"DOTA_Tooltip_modifier_dummy_aura1_effect_zhonik"				"次元护盾"
+    	"DOTA_Tooltip_modifier_dummy_aura1_effect_zhonik_Description"	"移动速度和移动速度上限提高。伤害减免80%%，并且清除部分眩晕和沉默的负面效果。"
+
+    	"DOTA_Tooltip_modifier_dummy_aura_effect_enemy"					"次元护盾"
+    	"DOTA_Tooltip_modifier_dummy_aura_effect_enemy_Description"		"移动速度减缓"		
+
+  		"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1"						"[E1] 时间破碎"
+    	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_Description"			"敌人每秒在次元护盾中，都将会获得一层时间破碎debuff。每层时间破碎debuff都将提高敌人所受到的来自钟尼克的 <font color=\"#B5FFB7\">时</font> 元素伤害。最大层数 20层。"
+    	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_property_one"			"受到额外的时元素伤害"
+    	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_suffix"				"% 每层"
+
+    	"DOTA_Tooltip_modifier_dummy_aura_effect_enemy_a_c_visible"			"时间破碎"
+    	"DOTA_Tooltip_modifier_dummy_aura_effect_enemy_a_c_visible_Description"	"受到的时元素伤害提高"
+
+  		"DOTA_Tooltip_ability_zonik_rune_e_2_arcana1"						"[E2] 时间冲击"
+    	"DOTA_Tooltip_ability_zonik_rune_e_2_arcana1_Description"			"敌人在次元护盾中，每一秒都会受到伤害。伤害基于钟尼克的攻击力。"
+    	"DOTA_Tooltip_ability_zonik_rune_e_2_arcana1_property_one"			"伤害"
+    	"DOTA_Tooltip_ability_zonik_rune_e_2_arcana1_suffix"				"% 攻击力"
+
+  		"DOTA_Tooltip_ability_zonik_rune_e_3_arcana1"						"[E3] 时间膨胀"
+    	"DOTA_Tooltip_ability_zonik_rune_e_3_arcana1_Description"  		"当钟尼克处于次元护盾中时，每0.03秒都会获得一层时间膨胀buff。每层时间膨胀buff都将加深敌人所受到的全部伤害（计算在敌人减伤之后）。最大层数 1000层。"
+    	"DOTA_Tooltip_ability_zonik_rune_e_3_arcana1_property_one"			"敌人减伤后伤害加深"	
+    	"DOTA_Tooltip_ability_zonik_rune_e_3_arcana1_suffix"				"% 每层"
+
+    	"DOTA_Tooltip_modifier_zhonic_arcana_c_c_visible"					"时间膨胀"
+    	"DOTA_Tooltip_modifier_zhonic_arcana_c_c_visible_Description"		"每层都加深敌人所受到的全部伤害"
+
+    	"DOTA_Tooltip_ability_zonik_rune_e_4_arcana1"								"[E4] 超级索尼克"
+    	"DOTA_Tooltip_ability_zonik_rune_e_4_arcana1_Description"					"钟尼克的属性值将提高所有 <font color=\"#B5FFB7\">时</font> 元素的伤害。同时，钟尼克在离开次元护盾后也将保留移动速度buff一段时间。"
+    	"DOTA_Tooltip_ability_zonik_rune_e_4_arcana1_property_one"					"时元素伤害提高"
+    	"DOTA_Tooltip_ability_zonik_rune_e_4_arcana1_suffix"						"% 每10点属性值"
+    	"DOTA_Tooltip_ability_zonik_rune_e_4_arcana1_property_two"					"移动速度buff保留时间"
+    	"DOTA_Tooltip_ability_zonik_rune_e_4_arcana1_suffix_two"					" 秒"
+
+       	"item_property_zonik_arcana2"										"时光震荡弹"
+    	"property_zonik_arcana2_description"								"用时光震荡弹替换 @Ability4 及其全部符文。"
+
+    	"DOTA_Tooltip_ability_timewarp_missles"								"时光震荡弹"
+    	"DOTA_Tooltip_ability_timewarp_missles_Description"			"元素： <font color=\"#B5FFB7\">时</font><br>蓄力 4 秒，钟尼克 持续创造出时光震荡弹。每个时光震荡弹被创造 3.5 秒后，将锁定一个敌人，对其进行毁灭性的打击，短暂眩晕击中的敌人。每个时光震荡弹的伤害都将 乘以 钟尼克当前的移动速度（击中的一瞬间的移动速度）。蓄力 2 秒后，钟尼克将 物理、魔法 免疫，蓄力结束后，免疫效果还将额外延续 2 秒。"
+    	"DOTA_Tooltip_ability_timewarp_missles_damage"				"基础伤害："
+    	"DOTA_Tooltip_ability_timewarp_missles_ms_mult"				"伤害 X 移动速度系数："
+    	"DOTA_Tooltip_ability_timewarp_missles_create_interval"		"生成时光震荡弹间隔时间："
+
+    	"DOTA_Tooltip_modifier_immunity_shield"						"时光屏障"
+    	"DOTA_Tooltip_modifier_immunity_shield_Description"			"攻击、魔法免疫"
+
+  		"DOTA_Tooltip_ability_zonik_rune_r_1_arcana2"						"[R1] 莫比乌斯环"
+    	"DOTA_Tooltip_ability_zonik_rune_r_1_arcana2_Description"			"时光震荡弹击中敌人，将在击中目标周围造成一次 AOE 伤害。"
+    	"DOTA_Tooltip_ability_zonik_rune_r_1_arcana2_property_one"			"AOE范围伤害"
+    	"DOTA_Tooltip_ability_zonik_rune_r_1_arcana2_suffix"				"% 基础伤害"
+
+  		"DOTA_Tooltip_ability_zonik_rune_r_2_arcana2"						"[R2] 流星拳"
+    	"DOTA_Tooltip_ability_zonik_rune_r_2_arcana2_Description"			"被时光震荡弹击中的敌人，有概率再次受到 钟尼克 马赫速度之拳[W] 的攻击。"
+    	"DOTA_Tooltip_ability_zonik_rune_r_2_arcana2_property_one"			"马赫速度之拳[W] 伤害提高"
+    	"DOTA_Tooltip_ability_zonik_rune_r_2_arcana2_suffix"				"%"
+
+  		"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2"						"[R3] 时之沙"
+    	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_Description"  		"单位敌人每次被时光震荡弹击中，都将获得一层 时之沙 debuff。每层 debuff 都将提高所受到的 来自于钟尼克的 <font color=\"#B5FFB7\">时</font> 元素伤害。"
+    	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_property_one"			"时元素伤害提高"	
+    	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_suffix"				"% 每层"
+
+    	"DOTA_Tooltip_modifier_tempo_flux_visible"							"时之沙"
+    	"DOTA_Tooltip_modifier_tempo_flux_visible_Description"				"受到自于 钟尼克的 时元素伤害提高"
+
+    	"DOTA_Tooltip_ability_zonik_rune_r_4_arcana2"								"[R4] 时光长者"
+    	"DOTA_Tooltip_ability_zonik_rune_r_4_arcana2_Description"					"提高 钟尼克 的敏捷值。每点敏捷值都将提高钟尼克的基础攻击力。"
+    	"DOTA_Tooltip_ability_zonik_rune_r_4_arcana2_property_one"					"敏捷值提高"
+    	"DOTA_Tooltip_ability_zonik_rune_r_4_arcana2_suffix"						""
+    	"DOTA_Tooltip_ability_zonik_rune_r_4_arcana2_property_two"					"基础攻击力提高"
+    	"DOTA_Tooltip_ability_zonik_rune_r_4_arcana2_suffix_two"					" 每点敏捷值"
+
+		//Glyphs
+		
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_1_1"		"折射率雕文"
+		"item_rpc_zonik_glyph_1_1_description" 				"当钟尼克自己携带超光速粒子盾时，粒子盾的伤害范围提高 @glyph_property1%。"
+
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_2_1"		"晶体管雕文"
+		"item_rpc_zonik_glyph_2_1_description" 				"敌人如果携带超光速粒子盾，将提高所受到的伤害 @glyph_property1%。"
+
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_3_1"		"北极星雕文"
+		"item_rpc_zonik_glyph_3_1_description" 				"有 @glyph_property1% 的几率在施放马赫速度之拳后再次施放一次马赫速度之拳。"
+
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_4_1"		"极地冲击雕文"
+		"item_rpc_zonik_glyph_4_1_description" 				"提高音爆的范围 @glyph_property1%。"
+
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_1"		"加速度雕文"
+		"item_rpc_zonik_glyph_5_1_description" 				"当拥有光速移动buff时，提高 @glyph_property1 移动速度和移动速度上限。"
+
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_6_1"		"钻石粉尘雕文"
+		"item_rpc_zonik_glyph_6_1_description" 				"在光速冲撞中，残影制造速速提高 @glyph_property1%，立刻爆炸并且伤害提高 @glyph_property2% 。"
+
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_7_1"		"声呐雕文"
+		"item_rpc_zonik_glyph_7_1_description" 				"每层时间能量充能都将提高所有 <font color=\"#B5FFB7\">时</font> 元素伤害 @glyph_property1%。每制造一次 <font color=\"#B5FFB7\">时</font> 元素伤害，消耗一层充能。"
+
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_a"		"圣人之瞳雕文"
+		"item_rpc_zonik_glyph_5_a_description" 				"施放光速移动时，获得8000码内全部敌人的视野，持续5秒。"
+
+		"DOTA_Tooltip_modifier_sages_eyes"					"圣人之瞳"
+		
+		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_00"		"Punch Glove"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_01"		"Brawler Glove"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_02"		"Temporal Gauntlet"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_03"		"Echo Fist"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_11"		"Timewarp Glove"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_12"		"Sonic Gauntlet"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_13"		"Surge Puncher"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_14"		"Sonar Fist"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_21"		"Sonic Blaster"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_22"		"Temporal Echo Gauntlet"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_23"		"Dimension Fist"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_24"		"Space Shifter Gauntlet"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_25"		"Multiplex Gauntlet"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_zonik_immortal_weapon_1"			"声呐作风"
+		"item_property_zonik_immortal_weapon"							"彗星拳"
+		"property_zonik_immortal_weapon_description"					"马赫速度之拳提高500码的攻击距离，并且造成4倍的伤害。"
+
+		
+
+    	"DOTA_Tooltip_ability_zonik_comet_punch"								"彗星拳"
+    	"DOTA_Tooltip_ability_zonik_comet_punch_Description"					"元素：<font color=\"#DDDDDD\">普通</font> / <font color=\"#B5FFB7\">时</font><br>钟尼克做好准备用尽全力攻击敌人一拳。眩晕目标并且造成伤害，伤害基于钟尼克的攻击力。每点钟尼克与目标敌人的移动速度差值，还将加深此伤害 1%。（伤害加深计算在减伤之后）"
+    	"DOTA_Tooltip_ability_zonik_comet_punch_stun_duration"					"眩晕持续时间："
+    	"DOTA_Tooltip_ability_zonik_comet_punch_damage_mult"					"伤害为攻击力的倍数 %："
+		
+		"DOTA_Tooltip_ability_item_rpc_zonik_immortal_weapon_2"            "无限手套"
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_immortal_weapon_3"            "特斯拉护袖"
+        "item_property_zonik_immortal_weapon3"                             "潜力"
+        "property_zonik_immortal_weapon3_description"                      "被 @Ability4 所击中的敌人，将被同时施加 @Ability1。"

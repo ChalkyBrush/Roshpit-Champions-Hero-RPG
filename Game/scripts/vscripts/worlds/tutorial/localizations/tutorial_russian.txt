@@ -1,0 +1,9 @@
+	"tutorial_assistant"												"Cherebi"
+	"tutorial_master"													"Хранитель Знаний Challen"
+
+	"tutorial_assistant_1"												"Похоже, ты тут впервые! Следуй за мной, и я научу тебя основам этой игры."
+	"tutorial_assistant_2"												"Хранитель Знаний Challen ждет тебя у водопада. Идем же!"
+	"tutorial_assistant_3"												"Он прямо над мостом. Вперед!"
+
+	"tutorial_menu_title"												"Обучение Roshpit"
+
