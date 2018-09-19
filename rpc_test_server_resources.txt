@@ -592,7 +592,7 @@ function GameMode:OnPlayerChat(keys)
   local text = string.lower(keys.text)
   if string.match(text, "-load") then--example "-load 1@111481062"
     str = string.gsub(text, "-load ", "")
-    strn = stringSplit(str, "@")
+    strn = StringSplit(str, "@")
     local playerid = keys.playerid
     local steamID = PlayerResource:GetSteamAccountID(playerid)
     LoadCharacterDev(playerid, strn[1], strn[2])
