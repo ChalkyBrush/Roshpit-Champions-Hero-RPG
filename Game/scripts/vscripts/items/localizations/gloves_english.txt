@@ -15,3 +15,6 @@
 "DOTA_Tooltip_ability_item_rpc_grasp_of_elder_Description"						"Slot: Hands"
 "item_property_elder_grasp"					"Healing Prayer"
 "property_elder_grasp_description"			"When you cast any spell, heal yourself and all allies in a <% ELDER_GRASP_RADIUS %> radius for <% ELDER_GRASP_HEAL_PCT * 100%>% of their maximum Health. Any overheal is converted into a temporary shield, up to a limit of <% ELDER_GRASP_SHIELD_PER_HP %>x the ally's maximum Health"
+
+"DOTA_Tooltip_modifier_grasp_of_elder_shield"		"Healing Prayer"
+"DOTA_Tooltip_modifier_grasp_of_elder_shield_Description"	"Absorbing incoming damage"

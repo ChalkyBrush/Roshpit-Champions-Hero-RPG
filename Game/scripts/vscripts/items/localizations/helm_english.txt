@@ -8,6 +8,8 @@
     	"DOTA_Tooltip_ability_item_rpc_brazen_kabuto_of_the_desert_realm"				"Brazen Kabuto of the Desert Realm"
 		"item_property_brazen_kabuto"				"Warrior's Rampart"
 		"property_brazen_kabuto_description"		"100% damage immunity while channeling @Ability4. When the channel is finished, gain a shield that grants <% KABUTO_SHIELD_RESISTANCE * 100 %>% damage reduction for <% KABUTO_SHIELD_DUR %> seconds."
+		"DOTA_Tooltip_modifier_brazen_kabuto_channeling"	"Warrior's Rampart"
+		"DOTA_Tooltip_modifier_brazen_kabuto_description"	"Magic and damage immunity"
 		"DOTA_Tooltip_modifier_brazen_kabuto_shield"	"Warrior's Rampart"
         "DOTA_Tooltip_modifier_brazen_kabuto_shield"	"Reduce incoming damage by <% KABUTO_SHIELD_RESISTANCE * 100 %>%."
 

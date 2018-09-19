@@ -77746,7 +77746,7 @@
         "AttackDamageMin"   "12"
         "AttackDamageMax"   "16"
         "AttackRate"    "1"
-        "AttackAnimationPoint"  "0.25"
+        "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "0"
         "AttackRate"    "0.9"
         "AttackRange"   "90"

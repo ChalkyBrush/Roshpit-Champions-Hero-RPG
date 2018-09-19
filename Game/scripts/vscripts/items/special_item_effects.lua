@@ -4386,7 +4386,7 @@ function hurricane_vest_create(event)
 	local end_radius = 220
 	local speed = HURRICANE_VEST_HURRICANE_SPEED
 	local projectileParticle = "particles/roshpit/items/hurricane_vest.vpcf"
-
+	EmitSoundOn("RPCItem.HurricaneVestNew", caster)
 	if not ability.cast_number then
 		ability.cast_number = 0
 	end
@@ -5786,7 +5786,17 @@ function stormcloth_think(event)
 					Filters:ApplyStun(hero, STORMCLOTH_STUN_DUR, enemy)
 				end
 			end
-			
 		end)
+	end
+end
+
+function elder_shield_particle_init(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	if not target.elderShieldParticle then
+		target.elderShieldParticle = ParticleManager:CreateParticle("particles/roshpit/items/elders_shield.vpcf", PATTACH_CUSTOMORIGIN, target)
+		ParticleManager:SetParticleControlEnt(target.elderShieldParticle, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControl(target.elderShieldParticle, 1, Vector(255,255,255))
 	end
 end

@@ -381,6 +381,7 @@
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
 		"precache"
 		{
+			"particle"	"particles/roshpit/items/kabuto_after_shield.vpcf"
 			"particle"	"particles/items3_fx/lbrazen_kabuto_shield.vpcf"
 		}
 		"OnSpellStart"
@@ -432,7 +433,7 @@
 				{
 					"AttachEffect"
 					{
-						"EffectName"        "particles/items3_fx/lbrazen_kabuto_shield.vpcf"
+						"EffectName"        "particles/roshpit/items/kabuto_after_shield.vpcf"
 						"EffectAttachType"  "follow_origin"
 						"Target"            "TARGET"
 					}

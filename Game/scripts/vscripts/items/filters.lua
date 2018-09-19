@@ -745,7 +745,7 @@ function Filters:CastSkillArguments(slot, caster)
         for _,ally in pairs(allies) do
             local healAmount = ally:GetMaxHealth() * ELDER_GRASP_HEAL_PCT
             local shieldAmount = math.max(healAmount + ally:GetHealth() - ally:GetMaxHealth(), 0)
-
+            CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/white_mage_healheal.vpcf", ally, 3)
             Filters:ApplyHeal(caster, ally, shieldAmount)
             if shieldAmount > 0 then
                 caster.handItem:ApplyDataDrivenModifier(caster, ally, "modifier_grasp_of_elder_shield", {})
@@ -753,6 +753,7 @@ function Filters:CastSkillArguments(slot, caster)
                     ally.elder_grasp_shield = 0
                 end
                 ally.elder_grasp_shield = math.min(ally.elder_grasp_shield + shieldAmount, ELDER_GRASP_SHIELD_PER_HP * ally:GetMaxHealth())
+                ally.elder_grasp_max_shield = ally.elder_grasp_shield
             end
         end
     end
@@ -1125,7 +1126,6 @@ function Filters:ApplyRskills(caster)
 
     if caster:HasModifier("modifier_hurricane_vest") then
         caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_hurricane_vest_start", {duration = 0.3})
-        StartSoundEvent("RPCItem.HurricaneVest", caster)
     end
    if caster:HasModifier("modifier_body_flooding") then
         Filters:FloodRobe(caster)
@@ -3709,10 +3709,14 @@ end
 function Filters:ElderGraspTakeDamage(damage, victim)
     if victim.elder_grasp_shield >= damage then
         victim.elder_grasp_shield = victim.elder_grasp_shield - damage
+        local alpha = (victim.elder_grasp_shield/victim.elder_grasp_max_shield)*255
+        ParticleManager:SetParticleControl(victim.elderShieldParticle, 1, Vector(alpha, alpha, alpha))
         damage = 0
     else
         victim.elder_grasp_shield = 0
         victim:RemoveModifierByName('modifier_grasp_of_elder_shield')
+        ParticleManager:DestroyParticle(victim.elderShieldParticle, false)
+        victim.elderShieldParticle = nil
         damage = math.max(damage - victim.elder_grasp_shield, 0)
     end
     return damage

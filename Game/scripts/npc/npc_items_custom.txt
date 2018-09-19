@@ -36068,6 +36068,10 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"precache"
+		{
+			"particle"  "particles/roshpit/items/elders_shield.vpcf"
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -36091,11 +36095,11 @@
 
 				"OnCreated"
 				{
-					"AttachEffect"
+					"RunScript"
 					{
-						"EffectName"        "particles/items3_fx/lbrazen_kabuto_shield.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "TARGET"
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"elder_shield_particle_init"
+						"target"		"TARGET"
 					}
 				}
 			}
@@ -36560,6 +36564,7 @@
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
 		"precache"
 		{
+			"particle"	"particles/roshpit/items/kabuto_after_shield.vpcf"
 			"particle"	"particles/items3_fx/lbrazen_kabuto_shield.vpcf"
 		}
 		"OnSpellStart"
@@ -36611,7 +36616,7 @@
 				{
 					"AttachEffect"
 					{
-						"EffectName"        "particles/items3_fx/lbrazen_kabuto_shield.vpcf"
+						"EffectName"        "particles/roshpit/items/kabuto_after_shield.vpcf"
 						"EffectAttachType"  "follow_origin"
 						"Target"            "TARGET"
 					}

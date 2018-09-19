@@ -1967,7 +1967,7 @@
 
 "DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 "item_property_stormcloth"					"Stormbolt"
-"property_stormcloth_description"			"When you click on or near a friendly combat unit anywhere on the map, you will teleport to it, arriving with a thunderclap that stuns all enemies in a <font color='#ccff66'>900</font> radius for <font color='#ccff66'>1.5</font> seconds. This effect has a <font color='#ccff66'>8</font> second cooldown."
+"property_stormcloth_description"			"When you click on or near a friendly combat unit anywhere on the map, you will teleport to it, arriving with a thunderclap that stuns all enemies in a <font color='#ccff66'>900</font> radius for <font color='#ccff66'>1.5</font> seconds. This effect has a <font color='#ccff66'>6</font> second cooldown."
 "DOTA_Tooltip_modifier_stormcloth_bracer_cooldown"			"Bolt of the Storm cooldown"
 "DOTA_Tooltip_modifier_stormcloth_bracer_cooldown_Description"	"Bolt of the Storm recharging"
 
@@ -1978,6 +1978,8 @@
 "item_property_elder_grasp"					"Healing Prayer"
 "property_elder_grasp_description"			"When you cast any spell, heal yourself and all allies in a <font color='#ccff66'>500</font> radius for <font color='#ccff66'>10</font>% of their maximum Health. Any overheal is converted into a temporary shield, up to a limit of <font color='#ccff66'>3</font>x the ally's maximum Health"
 
+"DOTA_Tooltip_modifier_grasp_of_elder_shield"		"Healing Prayer"
+"DOTA_Tooltip_modifier_grasp_of_elder_shield_Description"	"Absorbing incoming damage"
 
 
     	"DOTA_Tooltip_ability_item_rpc_basilisk_plague_helm"							"Basilisk Plague Helm"
@@ -1989,6 +1991,8 @@
     	"DOTA_Tooltip_ability_item_rpc_brazen_kabuto_of_the_desert_realm"				"Brazen Kabuto of the Desert Realm"
 		"item_property_brazen_kabuto"				"Warrior's Rampart"
 		"property_brazen_kabuto_description"		"100% damage immunity while channeling @Ability4. When the channel is finished, gain a shield that grants <font color='#ccff66'>95</font>% damage reduction for <font color='#ccff66'>4</font> seconds."
+		"DOTA_Tooltip_modifier_brazen_kabuto_channeling"	"Warrior's Rampart"
+		"DOTA_Tooltip_modifier_brazen_kabuto_description"	"Magic and damage immunity"
 		"DOTA_Tooltip_modifier_brazen_kabuto_shield"	"Warrior's Rampart"
         "DOTA_Tooltip_modifier_brazen_kabuto_shield"	"Reduce incoming damage by <font color='#ccff66'>95</font>%."
 

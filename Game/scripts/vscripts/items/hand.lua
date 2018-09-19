@@ -101,6 +101,7 @@ function Hand:action(propertyName, propertyValue, hero, inventory_unit, hand_abi
 	elseif propertyName == "marauder" then
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_hand_marauder", item)
 	elseif propertyName == "elder_grasp" then
+		RPCItems:PreacheArcanaResources(item)
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_grasp_of_elder", item)
 	elseif propertyName == "midas" then
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_hand_of_midas", item)
