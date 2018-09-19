@@ -4637,32 +4637,34 @@ function baron_storm_take_damage(event)
 end
 
 function baron_storm_arc(target, caster, ability, damage, targetNumber, maxTargets)
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, BARON_STORM_SEARCH_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
-	if #enemies > 0 then
-		local newTarget = enemies[1]
-		if targetNumber ~= 0 then
-			if newTarget == target then
-				newTarget = enemies[2]
+	if IsValidEntity(target) then
+		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, BARON_STORM_SEARCH_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
+		if #enemies > 0 then
+			local newTarget = enemies[1]
+			if targetNumber ~= 0 then
+				if newTarget == target then
+					newTarget = enemies[2]
+				end
+			else
+				newTarget = target
+				target = caster
 			end
-		else
-			newTarget = target
-			target = caster
-		end
-		if newTarget then
-			ability:ApplyDataDrivenModifier(caster, newTarget, "modifier_baron_storm_link", {duration = BARON_STORM_DUR})
-			Filters:TakeArgumentsAndApplyDamage(newTarget, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_WIND)
-			EmitSoundOn("Hero_Zuus.ArcLightning.Target", target)
-			local particleName = "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
-			local targetPos = target:GetAbsOrigin()
-			local newTargetPos = newTarget:GetAbsOrigin()
-			local lightningBolt = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, target)
-			ParticleManager:SetParticleControl(lightningBolt,0,Vector(targetPos.x,targetPos.y,targetPos.z + target:GetBoundingMaxs().z ))
-			ParticleManager:SetParticleControl(lightningBolt,1,Vector(newTargetPos.x,newTargetPos.y,newTargetPos.z + newTarget:GetBoundingMaxs().z ))
-			targetNumber = targetNumber + 1
-			if targetNumber <= maxTargets then
-				Timers:CreateTimer(0.2, function()
-					baron_storm_arc(newTarget, caster,ability, damage, targetNumber, maxTargets)
-				end)
+			if newTarget then
+				ability:ApplyDataDrivenModifier(caster, newTarget, "modifier_baron_storm_link", {duration = BARON_STORM_DUR})
+				Filters:TakeArgumentsAndApplyDamage(newTarget, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_WIND)
+				EmitSoundOn("Hero_Zuus.ArcLightning.Target", target)
+				local particleName = "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
+				local targetPos = target:GetAbsOrigin()
+				local newTargetPos = newTarget:GetAbsOrigin()
+				local lightningBolt = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, target)
+				ParticleManager:SetParticleControl(lightningBolt,0,Vector(targetPos.x,targetPos.y,targetPos.z + target:GetBoundingMaxs().z ))
+				ParticleManager:SetParticleControl(lightningBolt,1,Vector(newTargetPos.x,newTargetPos.y,newTargetPos.z + newTarget:GetBoundingMaxs().z ))
+				targetNumber = targetNumber + 1
+				if targetNumber <= maxTargets then
+					Timers:CreateTimer(0.2, function()
+						baron_storm_arc(newTarget, caster,ability, damage, targetNumber, maxTargets)
+					end)
+				end
 			end
 		end
 	end
