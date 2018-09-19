@@ -3861,21 +3861,22 @@ function RPCItems:RollBrazenKabuto(deathLocation, isShop)
         item.property2name = "armor"
         RPCItems:SetPropertyValues(item, item.property2, "#item_armor", "#D1D1D1",  2)
     else
+		item.hasRunePoints = true
         local luck2 = RandomInt(1, 100)
         local runeValue = 0
-        local runeName = ''
+        local runeName = ""
         if luck2 <= 35 then
             runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor/5, 0, 0, 0, 0)
-            runeName = 'rune_r_1'
+            runeName = "rune_r_1"
         elseif luck2 <= 70 then
             runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor/5, 0, 0, 0, 0)
-            runeName = 'rune_r_2'
+            runeName = "rune_r_2"
         elseif luck2 <= 90 then
             runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor/10, 0, 0, 0, 0)
-            runeName = 'rune_r_3'
+            runeName = "rune_r_3"
         else
             runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor/25, 0, 0, 0, 0)
-            runeName = 'rune_r_4'
+            runeName = "rune_r_4"
         end
 
         item.property2name = runeName
