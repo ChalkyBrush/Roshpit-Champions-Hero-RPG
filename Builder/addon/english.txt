@@ -200,23 +200,7 @@
 		//--------------------
 		//Abilities
 		//--------------------
-       	
-    	//--------------------
-        ##VENOMORT_ENGLISH##
-    	//--------------------
 
-    	//--------------------
-		##EPOCH_ENGLISH##
-    	//--------------------
-    	##PALADIN_ENGLISH##
-
-    	##BOOTS_ENGLISH##
-    	##CHEST_ENGLISH##
-    	##GLOVES_ENGLISH##
-    	##HELM_ENGLISH##
-    	##TRINKET_ENGLISH##
-    	//--------------------
-		##SEINARU_ENGLISH##
     	//--------------------
 
     	"DOTA_Tooltip_ability_leshrac_wall"								"Wall of Impunity"
@@ -8433,6 +8417,39 @@
 		"winterblight_captain_reynar_ghost"						"Captain Reynar"
 		"winterblight_grand_stalacorr"							"Great Winter Stalacorr"
 
+        ##ARKIMUS_ENGLISH##
+        ##ASTRAL_RANGER_ENGLISH##
+        ##AURIUN_ENGLISH##
+        ##AXE_ENGLISH##
+        ##CHERNOBOG_ENGLISH##
+        ##CONJUROR_ENGLISH##
+        ##DINATH_ENGLISH##
+        ##DJANGHOR_ENGLISH##
+        ##DUSKBRINGER_ENGLISH##
+        ##EKKAN_ENGLISH##
+        ##ELEMENTAL_WARLORD_ENGLISH##
+        ##EPOCH_ENGLISH##
+        ##FLAMEWAKER_ENGLISH##
+        ##HYDROXIS_ENGLISH##
+        ##MOUNTAIN_PROTECTOR_ENGLISH##
+    	##PALADIN_ENGLISH##
+		##SEINARU_ENGLISH##
+        ##SEPHYR_ENGLISH##
+        ##SLIPFINN_ENGLISH##
+        ##SOLUNIA_ENGLISH##
+        ##SORCERESS_ENGLISH##
+        ##SPIRIT_WARRIOR_ENGLISH##
+        ##TRAPPER_ENGLISH##
+        ##VENOMORT_ENGLISH##
+        ##VOLTEX_ENGLISH##
+        ##ZHONIK_ENGLISH##
+
+    	##BOOTS_ENGLISH##
+    	##CHEST_ENGLISH##
+    	##GLOVES_ENGLISH##
+    	##HELM_ENGLISH##
+    	##TRINKET_ENGLISH##
+    	//--------------------
 		##TUTORIAL_ENGLISH##
 	}	
 }

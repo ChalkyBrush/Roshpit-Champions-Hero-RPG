@@ -210,7 +210,7 @@
   		"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1"						"[W4] Elemental Trickery"
     	"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_Description"			"The sum of Trappers's Attributes increase<br><font color=\"#EF4126\">Fire</font>, <font color=\"#3894FF\">Water</font> and <font color=\"#37DD3D\">Poison</font> damage."
     	"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_property_one"		"Damage Increase"
-    	"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_suffix"				"% for each 10 attributes.
+    	"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_suffix"				"% for each 10 attributes."
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_1"       "Glyph of Sneaking"
