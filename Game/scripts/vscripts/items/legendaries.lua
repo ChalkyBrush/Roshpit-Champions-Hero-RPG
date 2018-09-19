@@ -5292,6 +5292,9 @@ end
 function RPCItems:RollSangeBoots(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_sange_boots", "immortal", "Sange Boots", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
+
+    item.hasRunePoints = true
+
     item.property1 = 1
     item.property1name = "sange"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_sange", "#CC1104",  1, "#property_sange_description")
@@ -5319,7 +5322,7 @@ function RPCItems:RollSangeBoots(deathLocation)
         end
         item.property2name = runeName
         item.property2 = runeValue
-        RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  1)
+        RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
     end
 
     RPCItems:RollFootProperty3(item, 0)
@@ -7027,7 +7030,7 @@ function RPCItems:RollHopeOfSaytaru(deathLocation)
             value = math.ceil(0.7 * value)
             item.property2 = value
             item.property2name = propertyName
-            RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  3)
+            RPCItems:SetPropertyValues(item, item.property2, "rune", "#7DFF12",  2)
         end
     end
     local tier, value, propertyName = RPCItems:RollSkillProperty()
