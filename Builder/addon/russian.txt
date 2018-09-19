@@ -6498,7 +6498,7 @@
     	"DOTA_Tooltip_ability_item_rpc_grand_arcanist_wraps"							"Wraps of the Grand Arcanist"
     	"DOTA_Tooltip_ability_item_rpc_eternal_essence_gauntlet"						"Eternal Essence Gauntlet"
     	"DOTA_Tooltip_ability_item_rpc_bladeforge_gauntlet"								"Bladeforge Gauntlet"
-    	"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormcloth Bracer"
+    	"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"DOTA_Tooltip_ability_item_rpc_silverspring_gloves"								"Silverspring Gloves"
     	"DOTA_Tooltip_ability_item_rpc_far_seers_enchanted_gloves"						"Far Seer's Enchanted Gloves"
     	"DOTA_Tooltip_ability_item_rpc_royal_wristguards"								"Royal Wristguards"
@@ -7123,11 +7123,14 @@
 		"DOTA_Tooltip_modifier_hand_marauder_effect" "Marauder"
 		"DOTA_Tooltip_modifier_hand_marauder_effect_description" "Макс. здоровье и реген. здоровья увеличены."
 
-		"item_property_elder_grasp"					"Elder Grasp"
-		"property_elder_grasp_description"			"С каждым прочтением (W) @Ability2, герой восстановит 4% здоровья от макс. значения."
+		"item_property_elder_grasp"					"Healing Prayer"
+		"property_elder_grasp_description"			"Любое заклинание исцелит героя и всех союзников в радиусе <% ELDER_GRASP_RADIUS %> на <% ELDER_GRASP_HEAL_PCT * 100%>% от их показателя здоровья. Исцеление при полном показателе здоровья конвертируется в щит <% ELDER_GRASP_SHIELD_PER_HP %>x от показателя здоровья, поглощающий урон."
+		
+		"DOTA_Tooltip_modifier_grasp_of_elder_shield"		"Healing Prayer"
+		"DOTA_Tooltip_modifier_grasp_of_elder_shield_Description"	"Absorbing incoming damage"
 
 		"item_property_hurricane"					"Hurricane"
-		"property_hurricane_description"			"Во время прочтения (R) @Ability4 образуется мощный ураган, который следует за героем и расталкивает врагов в стороны. Длится @special_property1 сек."
+		"property_hurricane_description"			"При прочтении @Ability4, буря из <% HURRICANE_VEST_HURRICANE_COUNT %> ураганов распространяется во все стороны от героя, замедляя скорость атаки врагов на <% HURRICANE_VEST_ATT_SPD_REDUCE %> и скорость передвижения на <% HURRICANE_VEST_MSP_REDUCE %> в течение <% HURRICANE_VEST_SLOW_DUR %> секунд. Урон, наносимый каждым ураганом равен <% HURRICANE_VEST_DMG_AMP %> * (Уровень Героя / 120) * (<% HURRICANE_VEST_MAX_DISTANCE %> - расстояние между героем и целью))^<% HURRICANE_VEST_DMG_EXP_SCALE %>; сила ветра снижается по мере удаления от центра."
 
 		"DOTA_Tooltip_modifier_hurricane_vest_hurricane"	"Hurricane"
 		"DOTA_Tooltip_modifier_hurricane_vest_hurricane_Description"	"Преследуется сильными ветрами"
@@ -7314,7 +7317,7 @@
 		"property_violet_boot_description"			"При использовании способности (E) @Ability3, выпускает 3 фиолетовых снаряда позади, наносящих урон, равный 20x вашей Ловкости каждому задетому врагу. Наносит 60 кратный урон монстрам Парагона. Эффект срабатывает лишь раз в секунду."
 
 		"item_property_slinger_boot"				"Bladeslinger"
-		"property_slinger_boots_description"		"Каждые 0.5 секунды происходит атака на всех врагов позади героя. Учитываются все модификаторы атаки."
+		"property_slinger_boots_description"		"Каждые <% BLADESLINGER_ATT_INTERVAL %> секунды происходит атака на всех врагов позади героя. Учитываются все модификаторы атаки."
 
 		"item_property_guardian_greaves"			"Guardian's Stride"
 		"property_guardien_greaves_description"		"Каждые пройденные 2500 юнитов накладывает бафф на вас и ближайших союзных героев. Восстановит здоровье, равное 5x вашей Силы, восстановит ману, равную 5x вашего Интеллекта, каждые 10 очков Ловкости увеличат Броню на 1 на 4 секунд."
@@ -7326,7 +7329,7 @@
 		"property_tranquil_boots_description"		"Восстанавливает вам @special_property1% от макс. здоровья за каждые пройденные 200 юнитов."
 
 		"item_property_sange"						"Combat Mastery S"	
-		"property_sange_description"				"Каждое очко Ловкости увеличивает макс. здоровье на 8."
+		"property_sange_description"				"Каждое очко Ловкости увеличивает показатель здоровья на <% SANGE_HP_PER_AGI %>."
 
 		"item_property_mana_striders"				"Mana Stride"
 		"property_mana_striders_description"		"Восстанавливает @special_property1% от вашей макс. маны за каждые пройденные 240 юнитов."
@@ -7364,13 +7367,13 @@
 		"property_monkey_paw_description"			"Если в радиусе 600 от героя умирает монстр парагона, то после его смерти выпадут дополнительные Immortal предметы, отнимая @special_property1% от имеющегося золота. Уровень сложности на карте определяет качество выпадающих предметов, также влияя на количество отнимаемого золота (@special_property2/@special_property3/@special_property4 для сложностей Normal/Elite/Legend). Пока надет этот предмет, герой постоянно получает 1 чистого урона каждые 0.03 секунды."
 
 		"item_property_blacksmiths_tablet"			"Refined Weaponry"
-		"property_blacksmiths_tablet_description"	"Бонусы оружия (включая руны) увеличиваются на 40%. Дополнительно увеличивает получаемый оружием опыт на 20%."
+		"property_blacksmiths_tablet_description"	"Бонусы оружия (включая руны) увеличиваются на <% BLACKSMITH_TABLE_ADD_STATS_PCT * 100%>%. Дополнительно увеличивает получаемый оружием опыт на <% BLACKSMITH_TABLE_ADD_WEAPON_EXP * 100 %>%."
 
 		"item_all_runes"							"+ ВСЕ T1-T3 РУНЫ"
 		"item_all_attributes"						"+ ВСЕ АТРИБУТЫ"
 
-		"item_property_sapphire_lotus"				"Sapphiric Enchantment"
-		"property_sapphire_lotus_description"		"Каждое очко интеллекта увеличивает запас здоровья на 10"
+		"item_property_sapphire_lotus"				"Sapphire Soul"
+		"property_sapphire_lotus_description"		"Каждое очко интеллекта увеличивает запас здоровья на <% SAPPHIRE_LOTUS_HP_PER_INT %>."
 
 		"item_property_arbor_dragonfly"				"Misty Wood's Blessing"
 		"property_arbor_dragonfly_description"		"Увеличивает длительность всех получаемых положительных усилений от умений, рун и символов на @special_property1%."
@@ -7382,7 +7385,7 @@
 		"property_lifesource_vessel_description"	"Каждое очко силы увеличивает реген. здоровья на 0.3"
 
 		"item_property_saytaru"						"Last Hope"
-		"property_saytaru_description"				"Когда здоровье опускается ниже 20% дарует сопротивление магии"
+		"property_saytaru_description"				"Когда здоровье опускается ниже <% SAYTARU_HP_THRESHOLD_PCT * 100 %>% дарует иммунитет к магии, увеличивает сопротивление Чистому урону на <% SAYTARU_PURE_DMG_RESISTANCE * 100 %>%, но уменьшает Магический и Чистый исходящий урон на <% SAYTARU_OUTPUT_PURE_AND_MAGIC_DMG_DECREASE * 100 %>%."
 
 		"item_property_galaxy_orb"					"Black Hole"
 		"property_galaxy_orb_description"			"Во время произнесения способности (R) @Ability4 - все окружающие враги будут медленно стянуты к вам."
@@ -7574,17 +7577,23 @@
 		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect"	"Dragon Dance"
 		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect_Description" "85%% уклонение 350%% доп. урон"
 
-		"item_property_stormcloth"					"Energy Drain"
-		"property_stormcloth_description"			"Все враги, задетые способностью (W) @Ability2 теряют 50% урона, 10% скорости передвижения на 5 секунд."
+		"item_property_stormcloth"					"Stormbolt"
+		"property_stormcloth_description"			"При щелчке по дружественному юниту телепортирует к нему и оглушает всех противников в радиусе <% STORMCLOTH_STUN_AOE %> на <% STORMCLOTH_STUN_DUR %> секунд. Эффект имеет <% STORMCLOTH_COOLDOWN %> сек. перезарядку."
 
-		"DOTA_Tooltip_modifier_stormcloth_bracer_effect"			"Energy Drain"
-		"DOTA_Tooltip_modifier_stormcloth_bracer_effect_Description"	"Скорость передвижения снижена на 10%% , урон снижен на 50%"
+		"DOTA_Tooltip_modifier_stormcloth_bracer_cooldown"			"Bolt of the Storm cooldown"
+		"DOTA_Tooltip_modifier_stormcloth_bracer_cooldown_Description"	"Bolt of the Storm recharging"
+
+		"DOTA_Tooltip_modifier_stormcloth_bracer_cooldown"				"Stormbolt Cooldown"	
 
 		"item_property_ocean_tempest"				"Tidal Windstorm"
 		"property_ocean_tempest_description"		"Пока произносится способность (R) @Ability4, ежесекундно тратится 40% маны. Каждые 100 затраченной маны увеличит урон способности (R) @Ability4 на 1.5%."
 
 		"item_property_brazen_kabuto"				"Warrior's Rampart"
-		"property_brazen_kabuto_description"		"Пока произносится способность (R) @Ability4, герой полностью неуязвим."
+		"property_brazen_kabuto_description"		"Пока произносится способность (R) @Ability4, герой полностью неуязвим. После прочтения накладывается <% KABUTO_SHIELD_RESISTANCE * 100 %>% снижение входящего урона на <% KABUTO_SHIELD_DUR %> сек."
+		"DOTA_Tooltip_modifier_brazen_kabuto_channeling"	"Warrior's Rampart"
+		"DOTA_Tooltip_modifier_brazen_kabuto_description"	"Иммунитет к магии и урону."
+		"DOTA_Tooltip_modifier_brazen_kabuto_shield"	"Warrior's Rampart"
+        "DOTA_Tooltip_modifier_brazen_kabuto_shield"	"Входящий урон снижен на <% KABUTO_SHIELD_RESISTANCE * 100 %>%."
 
 		"item_property_raven_idol"					"Black Soul"		
 		"property_raven_idol_description"			"Весь получаемый урон снижен на 40%. Уровень здоровья не поднимется выше 50% от максимума.<br>Каждый раз, когда герой получает урон, к свойству предмета добавляется 1 очко.<br>Предмет улучшится, когда значение достигнет 12000.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
@@ -7734,7 +7743,7 @@
 		 "property_terrasic_stone_description"				"Весь наносимый пост-резистный урон по оглушенным целям увеличен на 200%."
 
 		 "item_property_lava_forge"							"Lava Blast"
-		 "property_lava_forge_description"					"При получении урона c 40% шансом в сторону атакующего будет выпущен огненный шар, наносящий урон в небольшом радиусе в размере 2х базового урона + 30х Ловкости."
+		 "property_lava_forge_description"					"При получении урона в сторону атакующего будет выпущен огненный шар, наносящий урон самой цели при попадании и соседним целям в небольшом радиусе в размере <% LAVA_FORGE_DMG_PER_ATT %>x базового урона + <% LAVA_FORGE_DMG_PER_AGI %>x Ловкости."
 
 		 "item_property_ancient_waterstone"					"Water Goddess' Blessing"
 		 "property_ancient_waterstone_description"			"Урон, напрямую наносимый надетыми предметами увеличен на @special_property1%"
@@ -7806,15 +7815,15 @@
 		 "property_topaz_dragon_description"				"Каждое очко Ловкости увеличивает урон на @special_property1 и броню на @special_property2"
 
 		 "item_property_sapphire_dragon"					"Blue Scale"
+
 		 "property_sapphire_dragon_description"				"Каждое очко Интеллекта увеличивает урон на @special_property1 и броню на @special_property2"
-
 		 "item_property_ruby_dragon_armor"					"Red Scale"
+
 		 "property_ruby_dragon_armor_description"			"Каждое очко Силы увеличивает урон на @special_property1 и броню на @special_property2"
-
-		 "item_property_basilisk_plague"					"Depth Rot"
-		 "property_basilisk_plague_description"				"Все ближайшие противники отравлены и теряют 50% скорости передвижения и 240 скорости атаки. Враги, на которых эффект действует 3 секунды подряд превращаются в камень, благодаря чему оглушаются и получают иммунитет к магии."
-
 		 "DOTA_Tooltip_modifier_basilisk_plague_petrify"	"Depth Rot Petrify"
+		 "item_property_basilisk_plague"					"Depth Rot"
+
+		 "property_basilisk_plague_description"				"Облако губительного газа окружает героя, попавшие в которое противники замедляются на <% BASILISK_PLAGUE_MOVESPEED_REDUCE_PCT %>% и снижают скорость атаки на <% BASILISK_PLAGUE_ATT_SPD_REDUCE %>. Противники, находящиесся в газе более <% BASILISK_PLAGUE_TIME_BEFORE_STONE_FORM %> секунд превращаются в камень на <% BASILISK_PLAGUE_STONE_FORM_DUR %> сек., будучи парализованными, но имунными к любой магии, они получают <% BASILISK_PLAGUE_PHYSICAL_POSTMIT * 100%>% больше Физического пост-резистного урона."
 		 "DOTA_Tooltip_modifier_basilisk_plague_petrify_Description"	"Превращён в камень. Иммунитет к магии."
 
 		 "item_property_giant_hunter_boot"					"Giant Hunter"
@@ -7999,10 +8008,10 @@
 		 "property_igneous_canine_description"					"Прочтение (W) @Ability2 оглушает всех ближайших врагов на (@special_property4* уровень умения) сек. и оставляет лавовый след, который замедляет врагов на @special_property2 и снижает скорость атаки на @special_property1. Все находящиеся в лаве враги каждые 0.5 секунды получают @special_property3x урон героя."
 
 		 "item_property_baron_storm"								"Storm Link"
-		 "property_baron_storm_description"						"Когда враг атакует вас, появляется энергетическая связь. Связанные враги наносят герою на @special_property1% меньше урона. Одновременно может существовать 3 связи."
+		 "property_baron_storm_description"						"Электрическая дуга связывает героя и атакующего противника, наносит <% BARON_STORM_DMG_PER_ATT %>x урона от общей атаки героя и передается по цепи между другими ближайшими целями до <% BARON_STORM_MAX_TARGETS %> раз. Пораженные током противники наносят на <% BARON_STORM_DMG_RESISTANCE * 100 %>% меньше урона по герою в течение <% BARON_STORM_DUR%> сек. Дуга перезаряжается <% BARON_STORM_COOLDOWN %> секунд."
 
 		 "DOTA_Tooltip_modifier_baron_storm_link"				"Storm Link"
-		 "DOTA_Tooltip_modifier_baron_storm_link_Description"	"Связан с героем. Наносит меньше урона владельцу предмета."
+		 "DOTA_Tooltip_modifier_baron_storm_link_Description"	"Связан с героем. Наносит меньше урона владельцу предмета. Получает урон."
 
 		 "item_property_temporal_warp"						"Time Warp"
 		 "property_temporal_warp_description"				"Прочтение (E) @Ability3 восстановит значение маны, здоровья, позицию героя и время перезарядки всех умений (кроме (E) @Ability3) на те значения, что были 4 секунды назад."
@@ -8019,7 +8028,7 @@
 		 "property_wind_orchid_description"						"Каждое очко руны [E4] увеличивает Ловкость на @special_property1."
 
 		 "item_property_ankh_of_ancients"						"Immortal Spirit"
-		 "property_ankh_of_ancients_description"				"При получении смертельного урона, герой получает щит на @special_property1 сек., который сокращает весь входящий урон на 100%, тем самым даёт иммунитет к оглушению. Дополнительно сбрасывает время перезарядки для всех умений. Перезаряжается @special_property2 сек. Максимальная длительность щита @special_property3."
+		 "property_ankh_of_ancients_description"				"При получении смертельного урона, герой получает щит на @special_property1 сек., который сокращает весь входящий урон на 100%, тем самым даёт иммунитет к оглушению. Дополнительно сбрасывает время перезарядки для всех умений. Перезаряжается в @special_property2 раз больше длительности щита. Максимальная длительность щита @special_property3."
 		
 		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield"		"Immortal Spirit"
 		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield_Description"	"Иммунитет к урону и оглушению"
@@ -8037,8 +8046,8 @@
 		 "item_property_tanari_wind_armor"						"Zephyr"
 		 "property_tanari_wind_armor_description"				"Скорость передвижения врагов в радиусе 500 снижается на 80%, скорость атаки снижается на 100, а атаки могут промахнуться с 30% шансом."
 		
-		  "item_property_blue_rain"								"Rain Wave"
-		  "property_blue_rain_description"						"Атаки никогда не промахиваются. С 15% шансом при атаке появится волна воды, которая нанесёт урон по линии в размере 500% от урона героя."
+		  "item_property_blue_rain"								"Rain Lance"
+		  "property_blue_rain_description"						"Атаки никогда не промахиваются. С <% BLUE_RAIN_CHANCE %>% шансом при атаке появится волна воды, которая нанесёт урон по линии в размере <% BLUE_RAIN_DMG_PER_ATT %>x от урона героя."
 		
 		"item_property_shadowflame_fist"						"Vacant Shade"
 		"property_shadowflame_fist_description"					"Значение маны не может быть выше @special_property1% от максимума. Базовый урон умения (W) @Ability2 увеличен на @special_property2%."
