@@ -5746,3 +5746,47 @@ function mugato_attack(event)
 
 	attacker:AddNewModifier(caster, nil, "modifier_silence", {duration = 0.6})
 end
+
+function stormcloth_think(event)
+	local hero = event.target
+	local ability = event.ability
+	if not ability.fall_speed then
+		ability.sound = false
+		ability.fall_speed = 50
+		Timers:CreateTimer(0.1, function()
+			local pfx = ParticleManager:CreateParticle( "particles/roshpit/items/stormcloth_bolt.vpcf", PATTACH_CUSTOMORIGIN, hero )
+			ParticleManager:SetParticleControl( pfx, 0, GetGroundPosition(hero:GetAbsOrigin(), hero) )
+			ParticleManager:SetParticleControl( pfx, 1, Vector(200, 200, 200) )
+			Timers:CreateTimer(2, function()
+				ParticleManager:DestroyParticle( pfx, false )
+			end)
+		end)
+	end
+	ability.fall_speed = math.min(ability.fall_speed + 0.5, 60)
+	hero:SetAbsOrigin(hero:GetAbsOrigin()-Vector(0,0,ability.fall_speed))
+	if not ability.sound then
+		if hero:GetAbsOrigin().z < GetGroundHeight(hero:GetAbsOrigin(), hero) + 330 then
+			EmitSoundOn("RPCItems.Stormcloth.Impact", hero)
+			ability.sound = true
+		end
+	end
+	if hero:GetAbsOrigin().z < GetGroundHeight(hero:GetAbsOrigin(), hero) + ability.fall_speed then
+		hero:RemoveModifierByName("modifier_stormcloth_falling")
+		StartAnimation(hero, {duration=1, activity=ACT_DOTA_TELEPORT_END, rate=1.2})
+		Timers:CreateTimer(0.06, function()
+			ability.fall_speed = nil
+			for i = 1, 6, 1 do
+				CustomAbilities:QuickAttachParticle("particles/roshpit/stormbolt_aoe.vpcf", hero, 4)
+			end
+			FindClearSpaceForUnit(hero, hero:GetAbsOrigin(), false)
+			CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/stormcloth_start.vpcf", hero:GetAbsOrigin(), 3)
+			local enemies = FindUnitsInRadius( hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, STORMCLOTH_STUN_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+			if #enemies > 0 then
+				for _,enemy in pairs(enemies) do
+					Filters:ApplyStun(hero, STORMCLOTH_STUN_DUR, enemy)
+				end
+			end
+			
+		end)
+	end
+end

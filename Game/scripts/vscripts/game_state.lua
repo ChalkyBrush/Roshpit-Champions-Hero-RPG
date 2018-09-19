@@ -532,7 +532,8 @@ function GameState:OrderFilter(orderTable)
 		-- 	end
 		-- end
 		if unit:HasModifier("modifier_stormcloth_bracer") then
-			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_TARGET or orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION  then
+			print(orderTable.order_type)
+			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_TARGET or orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION or orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
 
 				local targetVector = Vector(0,0)
 				if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
@@ -542,10 +543,13 @@ function GameState:OrderFilter(orderTable)
 					targetVector = moreTarget:GetAbsOrigin()
 				end
 				if not unit:HasModifier("modifier_stormcloth_bracer_cooldown") and unit:IsAlive() then
+					if orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
+						targetVector = Vector(EntIndexToHScript(orderTable.entindex_target):GetAbsOrigin().x, EntIndexToHScript(orderTable.entindex_target):GetAbsOrigin().y)
+					end
 					local allies = FindUnitsInRadius( unit:GetTeamNumber(), targetVector, nil, 150, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
 
 					if #allies > 0 then
-						local particleName =  "particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf"
+						local particleName =  "particles/roshpit/items/stormcloth_bolt.vpcf"
 						local targetUnit
 						for _,ally in pairs(allies) do
 							if 	ally ~= unit then
@@ -554,30 +558,20 @@ function GameState:OrderFilter(orderTable)
 							end
 						end
 						if targetUnit then
+							StartAnimation(unit, {duration=0.6, activity=ACT_DOTA_VERSUS, rate=5.0})
 							local itemAbility = unit:FindModifierByName('modifier_stormcloth_bracer'):GetAbility()
-							itemAbility:ApplyDataDrivenModifier(unit, unit, "modifier_stormcloth_bracer_cooldown", {duration = STORMCLOTH_COOLDOWN})
+							CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/stormcloth_start.vpcf", unit:GetAbsOrigin(), 3)
+
+							-- itemAbility:ApplyDataDrivenModifier(unit, unit, "modifier_stormcloth_bracer_cooldown", {duration = STORMCLOTH_COOLDOWN})
+							itemAbility:ApplyDataDrivenModifier(unit, unit, "modifier_stormcloth_falling", {duration = 1})
 							local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, unit )
-							local pfx2 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, targetUnit )
 							ParticleManager:SetParticleControl( pfx, 0, unit:GetAbsOrigin() )
 							ParticleManager:SetParticleControl( pfx, 1, Vector(200, 200, 200) )
-							ParticleManager:SetParticleControl( pfx2, 0, targetUnit:GetAbsOrigin() )
-							ParticleManager:SetParticleControl( pfx2, 1, Vector(200, 200, 200) )
-							StartSoundEvent("Paladin.HolyBolt", unit)
-							StartSoundEvent("Paladin.HolyBolt", targetUnit)
-							Timers:CreateTimer(0.3, function()
-								unit:SetAbsOrigin(targetUnit:GetAbsOrigin())
-								FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), false)
-								local enemies = FindUnitsInRadius( unit:GetTeamNumber(), unit:GetAbsOrigin(), nil, STORMCLOTH_STUN_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
-								if #enemies > 0 then
-									for _,enemy in pairs(enemies) do
-										Filters:ApplyStun(unit, STORMCLOTH_STUN_DUR, enemy)
-									end
-								end
-								Timers:CreateTimer(0.3, function()
-									ParticleManager:DestroyParticle( pfx, false )
-									ParticleManager:DestroyParticle( pfx2, false )
-
-								end)
+							
+							StartSoundEvent("RPCItems.Stormcloth.Start", unit)
+							unit:SetAbsOrigin(targetUnit:GetAbsOrigin()+Vector(0,0,1000))
+							Timers:CreateTimer(0.8, function()
+								ParticleManager:DestroyParticle( pfx, false )
 							end)
 						end
 					end

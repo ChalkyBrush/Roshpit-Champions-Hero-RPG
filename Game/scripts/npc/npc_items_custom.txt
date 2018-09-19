@@ -35846,7 +35846,7 @@
 			"modifier_hurricane_vest"
 			{
 				"Passive"			"0"
-				"IsHidden"			"0"
+				"IsHidden"			"1"
 				"IsDebuff"			"0"
 			}
 			"modifier_hurricane_vest_slow"
@@ -36061,7 +36061,6 @@
 		"AbilityCooldown"	"0"
 		"AbilityManaCost"	"0"
 		"ItemPermanent"			"0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"ItemQuality"			"common"
 		"ItemDroppable"	"1"
 		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
@@ -36125,7 +36124,9 @@
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
 		"precache"
 		{
-			"particle"	"particles/units/heroes/hero_invoker/stormblocth_bracer.vpcf"
+			"particle"	"particles/roshpit/items/stormcloth_start.vpcf"
+			"particle"	"particles/roshpit/items/stormcloth_bolt.vpcf"
+			"particle"	"particles/roshpit/stormbolt_aoe.vpcf"
 		}
 		"OnSpellStart"
 		{
@@ -36148,7 +36149,29 @@
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
-				"IsDebuff"			"0"
+				"IsDebuff"			"1"
+				"TextureName"		"rpc/stormcloth_bracer"
+			}
+			"modifier_stormcloth_falling"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"stormcloth_think"
+						"target"		"TARGET"
+					}
+				}
 			}
 		}
 	}

@@ -134,7 +134,7 @@ function Hand:action(propertyName, propertyValue, hero, inventory_unit, hand_abi
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_bladeforge_gauntlet", item)
 	elseif propertyName == "stormcloth" then
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_stormcloth_bracer", item)
-		hero.stormcloth = item
+		RPCItems:PreacheArcanaResources(item)
 	elseif propertyName == "silverspring" then
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_silverspring_gloves", item)
 	elseif propertyName == "far_seer" then

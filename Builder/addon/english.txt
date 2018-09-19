@@ -6650,7 +6650,7 @@
 		"property_phantom_sorcerer_description"		"@Ability2 deals @special_property1x increased base ability damage and has an extra 4 seconds added to cooldown."
 
 		"item_property_arcane_cascade"				"Arcane Cascade"
-		"property_arcane_cascade_description"		"Drains @special_property1% of your max mana every @special_property2 seconds. All surrounding enemies take @special_property3x the mana drained as Magic Damage and also receive a -@special_property4 magic resistance debuff."
+		"property_arcane_cascade_description"		"Drains @special_property1% of your max mana every @special_property2 seconds. All surrounding enemies take up to @special_property3x the mana drained as Magic Damage and also receive a -@special_property4 magic resistance debuff. Damage is reduced when hero is below max level."
 
 		"item_property_samurai_helmet"				"Critical Strike"
 		"property_samurai_helmet_description"		"Your base attacks have a @special_property1% chance to deal @special_property2% increased damage. Additionally increases base attack damage by @special_property3x your level."
