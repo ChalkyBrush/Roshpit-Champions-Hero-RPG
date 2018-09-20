@@ -5,6 +5,7 @@
         "DOTA_Tooltip_modifier_basilisk_plague_petrify"	"Depth Rot Petrify"
 		"DOTA_Tooltip_modifier_basilisk_plague_petrify_Description"	"Turned to stone. Spell Immune, vulnerable to Physical damage."
 
+		
     	"DOTA_Tooltip_ability_item_rpc_brazen_kabuto_of_the_desert_realm"				"Brazen Kabuto of the Desert Realm"
 		"item_property_brazen_kabuto"				"Warrior's Rampart"
 		"property_brazen_kabuto_description"		"100% damage immunity while channeling @Ability4. When the channel is finished, gain a shield that grants <% KABUTO_SHIELD_RESISTANCE * 100 %>% damage reduction for <% KABUTO_SHIELD_DUR %> seconds."
@@ -13,18 +14,22 @@
 		"DOTA_Tooltip_modifier_brazen_kabuto_shield"	"Warrior's Rampart"
         "DOTA_Tooltip_modifier_brazen_kabuto_shield"	"Reduce incoming damage by <% KABUTO_SHIELD_RESISTANCE * 100 %>%."
 
+		
     	"DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil LV1"
     	"DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv2"								"Shipyard Veil LV2"
     	"DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv3"								"Shipyard Veil LV3"
 		 "item_property_shipyard_veil_1"					"Soul Shield I"
 		 "property_shipyard_veil_1_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (0.1 second cooldown). Max @special_property1 stacks. Each stack increases @Ability1 damage by @special_property2%. Whenever a damage instance is absorbed,<br>this property increases by 1. Upgrades at @special_property3."
 
+		 
 		 "item_property_shipyard_veil_2"					"Soul Shield II"
 		 "property_shipyard_veil_2_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (0.1 second cooldown). Max @special_property1 stacks. Each stack increases @Ability1 damage by @special_property2%. Whenever a damage instance is absorbed,<br>this property increases by 1. Upgrades at @special_property3."
 
+		 
 		 "item_property_shipyard_veil_3"					"Soul Shield III"
 		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (0.1 second cooldown). Max @special_property1 stacks. Each stack increases @Ability1 damage by @special_property2%. Enemies who damage the shield are targeted by a skull that deals<br>@special_property3x your primary attribute as magic damage."
 
+		 
 		 "DOTA_Tooltip_modifier_shipyard_veil_shield"			"Soul Shield"
 		 "DOTA_Tooltip_modifier_shipyard_veil_shield_Description"			"Absorbing damage instances."
 
@@ -32,3 +37,276 @@
     	"DOTA_Tooltip_ability_item_rpc_crown_of_the_lava_forge"							"Crown of the Lava Forge"
 		 "item_property_lava_forge"							"Eject Tephra"
 		 "property_lava_forge_description"					"When taking damage, launch a fireball towards the damage source that deals <% LAVA_FORGE_DMG_PER_ATT %>x your attack damage + <% LAVA_FORGE_DMG_PER_AGI %>x your Agility in a small radius on impact."
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_white_mage_hat"									"White Mage Hat LV1"
+		"item_property_white_mage_hat"				"Cura"
+		"property_white_mage_hat_description"		"@Ability2 also restores HP for you and nearby allies, based on @special_property1x your intelligence. Whenever you heal yourself or an ally, this property increases by 1. Upgrades at 5000."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_white_mage_hat_2"								"White Mage Hat LV2"
+		"item_property_white_mage_hat_2"			"Curaga"
+		"property_white_mage_hat_2_description"		"@Ability2 also restores HP for you and nearby allies, based on @special_property1x your intelligence. Any over heal applies a shield that absorbs equivalent damage, up to 100% of target's max health. Base Ability damage is increased by @special_property2% for each 10 points of intelligence."
+		"DOTA_Tooltip_modifier_white_mage_shield"	"White Mage Shield"
+		"DOTA_Tooltip_modifier_white_mage_shield_Description"	"Absorbing Damage"
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_hyper_visor"										"Hyper Visor LV1"
+		"item_property_hyper_visor"					"Hyper Lightning"
+		"property_hyper_visor_description"			"@special_property1% chance on attack to drop a lightning bolt on your target - dealing damage in a small AOE based on @special_property2x your attack power. Property counts up by 1 each time lightning strikes. Upgrades at @special_property3."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_hyper_visor2"									"Hyper Visor LV2"
+		"item_property_hyper_visor2"					"Hyper Lightning II"
+		"property_hyper_visor2_description"			"@special_property1% chance on attack to drop a lightning bolt on your target - dealing damage in a small AOE based on @special_property2x your attack power. Reduces your attack animation point by @special_property3 seconds.<br>All damage dealt directly by items is enhanced by @special_property4% for each 10 points of Agility."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_crown_of_ruby_dragon"							"Crown of the Ruby Dragon"	
+		"item_property_ruby_dragon"					"Ruby Dragon"
+		"property_ruby_dragon_description"			"When you finish casting @Ability4 - summon a ruby dragon that breathes fire on enemies that deals @special_property1x your strength on impact and @special_property2x your strength every 0.5 seconds for 3 seconds as burn damage.<br>All damage dealt directly by items is enhanced by @special_property3% for each 10 points of strength."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_centaur_horns"									"Sturdy Centaur Horns"	
+		"item_property_centaur_horns"				"Rigidity"
+		"property_centaur_horns_description"		"Knockback and Stuns received are capped at 0.03 seconds. Damage instances taken are capped at @special_property1% of max health. Taking damage from any source other than Centaur Horns disables all healing for @special_property2 seconds. Take 1 pure damage every 0.03 seconds."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_hood_of_chosen"									"Hood of the Chosen"	
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_death_whisper_helm"								"Death Whisper Helm"
+		"item_property_death_whisper"				"Death Whisper"
+		"property_death_whisper_description"		"All enemies struck by @Ability1 take 30% increased damage from all sources and are slowed by 100 for 5 seconds."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_cap_of_wild_nature"								"Cap of Wild Nature"
+		"item_property_wild_nature"					"Entangling Roots"
+		"property_wild_nature_description"			"When attacked by an enemy - @special_property1% chance to root for @special_property2 seconds and deal @special_property3x your primary attribute in damage per second."
+		"item_property_wild_nature_two"				"Ensnaring Roots"
+		"property_wild_nature_two_description"		"Enemies struck by @Ability2 have a @special_property1% chance to be rooted for @special_property2 seconds and take @special_property3x your primary attribute in damage per second."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_guard_of_luma"									"Guard of Luma"
+		"item_property_luma"						"Moon Beams"
+		"property_luma_description"					 "<font color=\"#E4AE33\">ABILITY AUGMENT:</font> @Ability1 damage instances have a @special_property1% chance to be converted into lucent beams instead, dealing @special_property2% of the ability's damage and providing flying vision over the target for 4 seconds. This item caps your <font color=\"#C25DFC\">Cosmic</font> elemental damage bonus at 5000%."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_odin_helmet"										"Odin Helmet"
+		"item_property_odin"						"Zantetsuken"
+		"property_odin_description"					"All instances of damage dealt have a @special_property1% chance of dealing @special_property2x damage post-mitigation."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_iron_colussus"									"Helm of the Iron Colossus"
+		"item_property_iron_colossus"				"Iron Colossus"	
+		"property_iron_colossus_description"		"Each point of strength increases your damage by @special_property1 and armor by @special_property2 and you grow by 15%. Your attack speed is forced at 100 and ranged attacks become melee. Attacks stun for 0.5 seconds, and deal an additional 50x physical damage. @Ability2 costs 1000 extra mana."
+		"DOTA_Tooltip_modifier_iron_colossus"					"Iron Colossus"
+		"DOTA_Tooltip_modifier_iron_colossus_description"		"Attacks deal 50x physical damage, stun enemies for 0.5s and size increased. Attack speed locked at 100. Gain bonus damage and armor from strength."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_mask_of_mugato"									"Mask of Mugato"
+		"item_property_mugato"						"Curse of Mugato"	
+		"property_mugato_description" 				"Casting any spell silences you for @special_property1s seconds, and attacking silences you for @special_property2 seconds. While silenced from any source, your post-mitigation damage is increased by @special_property3%."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_swamp_witch_hat"									"Swamp Witch's Hat"
+		"item_property_swamp_witch"					"Murky Wave"
+		"property_swamp_witch_description"			"Each cast of @Ability2 also unleashes a swarm of bats in front of you - dealing @special_property1x your intelligence as damage. Enemies hit by the wave take @special_property2% increased post-mitigation damage for 8 seconds, stacking up to 10 times."
+		"DOTA_Tooltip_modifier_witch_hat_damage_amp"	"Murky Wave"
+		"DOTA_Tooltip_modifier_witch_hat_damage_amp_Description"	"Taking 15% increased post-mitigation damage per stack."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_tricksters_mask"									"Trickster's Mask"
+		"item_property_trickster"					"Laughing Gas"
+		"property_trickster_description"			"Each cast of @Ability2 instantly moves you 380 units in a random direction. All damage instances are multiplied by a random factor of 0.5-2.5. Base Damage of @Ability2 is multiplied by a random factor of 0.1-6."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_emerald_douli"									"Emerald Douli"
+		"item_property_emerald_douli"				"Mana Shield"
+		"property_emerald_douli_description"		"50% of damage taken is removed from Mana instead of Health. The damage taken from mana is reduced by 66%."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"Mask of Tyrius"
+		"item_property_tyrius"						"Might of Tyrius"
+		"property_tyrius_description"				"Each point of strength additionally increases your Health by 10 and your Max Mana by 4"
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_veil_of_the_cerulean_high_guard"					"Veil of the Cerulean Highguard"
+		"item_property_cerulean_highguard"			"Concentrated Mana"
+		"property_cerulean_highguard_description"	"@Ability2 costs @special_property1% more mana and deals @special_property2% increased damage."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_super_ascendency_mask"							"Super Ascendency Mask"
+		"item_property_super_ascendency"			"Super Ascension"
+		"property_super_ascendency_description"		"After casting @Ability4 - attacks gain 500 attack range - 100% attack damage - 240 attack speed and gain 100 movespeed. Attacks can hit 3 targets at once and each attack that hits reduces cooldown of @Ability4 by 0.05 seconds. Lasts 12 seconds."
+		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"Super Ascension"
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_mask_of_the_phantom_sorcerer"					"Mask of the Phantom Sorcerer"
+		"item_property_phantom_sorcerer"			"Phantom Gaze"
+		"property_phantom_sorcerer_description"		"@Ability2 deals @special_property1x increased base ability damage and has an extra 4 seconds added to cooldown."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_arcane_cascade_hat"								"Arcane Cascade Hat"
+		"item_property_arcane_cascade"				"Arcane Cascade"
+		"property_arcane_cascade_description"		"Drains @special_property1% of your max mana every @special_property2 seconds. All surrounding enemies take up to @special_property3x the mana drained as Magic Damage and also receive a -@special_property4 magic resistance debuff. Damage is reduced when hero is below max level."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"Adamantine Samurai Helmet"
+		"item_property_samurai_helmet"				"Critical Strike"
+		"property_samurai_helmet_description"		"Your base attacks have a @special_property1% chance to deal @special_property2% increased damage. Additionally increases base attack damage by @special_property3x your level."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"Scourge Knight's Helm"
+		"item_property_scourge_knight"				"Undead Command"
+		"property_scourge_knight_description"		"After casting @Ability4, summon 5 immobile skeleton archers who have 15% of your max health and 100% of your attack damage."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_undertakers_hood"								"Undertaker's Hood"
+		"item_property_undertaker"					"Death Strike"
+		"property_undertaker_description"			"Your basic attacks also unleash a slow moving hand that deals magic damage equal to 30x your intelligence"
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_shroud_of_eternal_night"							"Shroud of Eternal Night"
+		"item_property_eternal_night"				"Tranquilizer"
+		"property_eternal_night_description"		"Enemies who attack you have a 60% chance to be put to sleep for 6 seconds. Any source of damage wakes up a sleeping unit. For the first 1 second of sleep, the unit cannot be awoken."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_wolfir_druids_spirit_helm"						"Wolfir Druid's Spirit Helm"
+		"item_property_druids_spirt"				"Feral Spirits"
+		"property_druids_spirit_description"		"While channeling @Ability4 - summon a Feral Spirit Wolf every 0.5 seconds which has 2x your attack damage, 25% of your health and 1x your armor. Feral Spirits last 16 seconds. Each wolf provides a stacking 15% attack damage buff."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_blinded_glint_of_onu"							"Blinded Glint of Onu"
+		"item_property_glint_of_onu"				"Flicker Strike"
+		"property_glint_of_onu_description"			"35% chance on attack to teleport behind your target and gain max attack speed for 0.8 seconds. Additionally perform 2 immediate bonus attacks on proc."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_crown_of_the_roknar_emperor"						"Crown of the Rok'nar Emperor"
+		"item_property_roknar_emperor"				"Enduring Protection"
+		"property_roknar_emperor_description"		"While stunned or getting knocked back, heal 12% of your max health every 0.25 seconds."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_mask_of_the_desert_necromancer"					"Mask of the Desert Necromancer"
+		"item_property_desert_necromancer"			"Reanimate Thorok"
+		"property_desert_necromancer_description"	"When you cast @Ability4 - summon Thorok for 10 seconds. He has 8x your attack damage, 4x your health and 1x your armor. If you summon him while below 40% health -<br>he will be enraged gaining 160 attack speed and 100 movement speed."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_blackfeather_crown"								"Blackfeather Crown"
+		"item_property_blackfeather"				"Vesper of Crows"	
+		"property_blackfeather_description"			"Every 4 seconds, summon a Crow Aspect that deals 5x your attack damage and lowers its target's armor by 40. Each crow lasts 10 seconds."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_wraith_crown"									"Wraith Crown"
+		"item_property_wraith"						"Wraithtide"					
+		"property_wraith_description"				"Casting @Ability2 makes you disappear for 0.75seconds - unable to attack, cast spells, move or take damage. 2 second cooldown. Disjoints oncoming tracking projectiles."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"Demon Mask"
+		"item_property_demon"						"Underworld Tear"
+		"property_demon_description"				"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> @Ability1 damage instances have a @special_property1% chance to be converted into an infernal spark instead, dealing @special_property2x the ability's damage in a large area around the target."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_crest_of_the_umbral_sentinel"					"Crest of the Umbral Sentinel"
+		"item_property_umbral"						"Illusory Fog"
+		"property_umbral_description"				"Enemies damaged by @Ability2 lose armor equal to 70x the ability level, and take increased magic damage equal to 3% x ability level. Stacks up to 5 times. Lasts 10 seconds."
+		"DOTA_Tooltip_modifier_crest_of_the_umbral_sentinel_effect_visible" "Illusory Fog"
+		"DOTA_Tooltip_modifier_crest_of_the_umbral_sentinel_effect_visible_Description"	"Losing a %% of base physical armor and taking increased magic damage."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_carbuncles_helm_of_reflection"					"Carbuncle's Helm of Reflection"
+		"item_property_carbuncle"								"Ruby Shell"
+		"property_carbuncle_description"						"When you cast @Ability3, gain a Magic Reflecting Shell that reduces magic damage taken to 0 and damages the enemy instead for @special_property1x the damage and stuns for @special_property2 seconds. Lasts for a duration equal to @special_property3% of the cooldown of the ability, or a Minimum of 1 second. Enemies who are affected are immune to Carbuncle again for @special_property4 seconds."
+		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect"	"Ruby Shell"
+		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect_Description"	"Magic Damage taken reduced to 0 and reflected back at the caster dealing increased damage and stunning."
+
+		
+    	"DOTA_Tooltip_ability_item_rpc_guard_of_grithault"								"Guard of Grithault"
+		"item_property_grithault"								"Pain Reversal"
+		"property_grithault_description"						"24% chance on taking damage to heal for the amount of the damage instance instead of taking damage."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_wraith_hunters_steel_helm"						"Wraith Hunter's Steel Helm"
+		"item_property_wraith_hunter"						"Wraith Hunter"
+		"property_wraith_hunter_description"				"Your mana is empty by default and can only be restored by taking damage. 3% of damage taken restores mana. Each mana increases base damage by 5. Attacking drains 2% of your max mana. Additionally increases damage of @Ability2 by 350%."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_hood_of_defiler"									"Hood of the Defiler"
+		"item_property_hood_of_defiler"					"Corruption"
+		"property_hood_of_defiler_description"				"Enemies hit by @Ability2 receive a debuff that reduces CURRENT armor by 15%, and additionally take 25% increased physical damage from all sources. Stacks up to 5 times and lasts 9 seconds. Increases attack damage by 0.5% for each target hit, up to 100 stacks."
+		"DOTA_Tooltip_modifier_hood_of_defiler_effect_visible"	"Corruption"
+		"DOTA_Tooltip_modifier_hood_of_defiler_effect_visible_Description"	"Reduced Armor, and taking increased physical damage."
+		"DOTA_Tooltip_modifier_hood_of_defiler_buff"			"Corruption"
+		"DOTA_Tooltip_modifier_hood_of_defiler_buff_Description"	"Increased attack damage."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_excavators_focus_cap"							"Excavator's Focus Cap"
+		"item_property_excavator"							"Enhance Gear"
+		"property_excavator_description"					"Damage dealt directly by equipped items is increased by 0.5% for each 10 Intelligence."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm"									"Stormcrack Helm LV1"
+		"item_property_stormcrack"							"Stormcrack"
+		"property_stormcrack_description"					"When you stun an enemy, deal 1x your attack power plus 10x the sum of your attributes as magic damage. Each time it deals damage, this property counts up by 1.<br>Upgrades at 4000."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm2"								"Stormcrack Helm LV2"
+		 "item_property_stormcrack2"						"Stormcrack II"
+		 "property_stormcrack2_description"					"When you stun an enemy, deal @special_property1x your attack power plus @special_property2x the sum of your attributes as magic damage. Increases the duration of all stuns by 35%."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_hood_of_the_black_mage"							"Hood of the Black Mage"
+		 "item_property_black_mage"							"Black Magic"
+		 "property_black_mage_description"					"All magic damage is increased by 280%. Damage dealt directly from items is reduced by 80%"
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_autumn_sleeper_mask"								"Autumn Sleeper Mask"
+		"item_property_autumn_sleeper"						"Wild Overgrowth"
+		 "property_autumn_sleeper_description"				"Enemies that come within 900 range of you are immediately rooted for 3 seconds. Casting @Ability4 roots all enemies in a 1200 radius for 4 seconds."
+		 
+		
+    	"DOTA_Tooltip_ability_item_rpc_eye_of_seasons"									"Eye of Seasons"
+		 "item_property_eye_of_seasons"						"Crimson Solstice"
+		 "property_eye_of_seasons_description"				"Increases Strength and Agility by @special_property1% of Intelligence."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_helm_of_the_silent_templar"						"Helm of the Silent Templar"
+		"item_property_helm_of_silent_templar"					"Silent Watch"
+		 "property_helm_of_silent_templar_description"			"Casting @Ability4 silences you for @special_property1 seconds. During this time attack speed is increased by @special_property2 and attacks deal an additional @special_property3% magic damage."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_wind_deity_crown"								"Wind Deity Crown"
+		"item_property_wind_deity"							"Wrath of Wind"
+		 "property_wind_deity_description"						"Immediately perform an attack with all of its procs on enemies hit by @Ability3. Max @special_property2 attacks per @special_property1 seconds. Each enemy hit increases attack damage by 2% for 30 seconds, but resets on cast of @Ability3."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_water_deity_crown"								"Water Deity Crown"
+		 "item_property_water_deity"							"Wrath of Water"
+		 "property_water_deity_description"						"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> All @Ability4 damage instances are now converted into divine cascades instead, dealing 100% of the ability's damage and slowing the enemy's movement speed by 60% for 6 seconds. This item caps your <font color=\"#3894FF\">Water</font> elemental damage bonus at 5000%."
+		 "DOTA_Tooltip_modifier_water_deity_crown_slow"					"Wrath of Water"
+		 "DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"Movement slowed"
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_fire_deity_crown"								"Fire Deity Crown"
+		"item_property_fire_deity"							"Wrath of Fire"
+		 "property_fire_deity_description"					"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> @Ability2 damage instances have a @special_property1% chance to be converted into pyroclastic blasts instead, dealing @special_property2% of the ability's damage and stunning enemies for 0.6 seconds in a small area around the target. This item caps your <font color=\"#EF4126\">Fire</font> elemental damage bonus at 5000%."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_crimson_skull_cap"								"Crimson Skull Cap"
+		"item_property_crimson_skull_cap"						"Corpse Explosion"
+		 "property_crimson_skull_cap_description"				"Slain enemies explode and deal @special_property1% of their max health to surrounding enemies as magic damage."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_hood_of_lords"									"Hood of Lords"
+		"item_property_lords"									"Commanding Sight"
+		 "property_lords_description"							"Ability cooldowns are reduced by @special_property1 seconds and have @special_property2 extra cast range. Abilities begin their cast before fully turning towards the target."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_igneous_canine_helm"								"Igneous Canine Helm"
+		"item_property_igneous_canine"							"Lava Splash"
+		 "property_igneous_canine_description"					"Casting @Ability2 stuns all nearby enemies for @special_property4 seconds times ability level, and leaves a pool of lava that slows movespeed by @special_property2 and attack speed by @special_property1. Enemies in the lava take @special_property3x your attack damage each 0.5 seconds."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_burning_spirit_helmet"							"Burning Spirit Helmet"
+		"item_property_burning_spirit"							"Flamethrower"
+		"property_burning_spirit_description"					"While channeling @Ability4, a steady stream of flames fires forward dealing @special_property1% of attack damage with each damage tick. Each enemy hit reduces the current cooldown of @Ability4 by @special_property2 seconds."
+		
