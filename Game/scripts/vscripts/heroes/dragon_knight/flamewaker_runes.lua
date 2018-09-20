@@ -72,32 +72,105 @@ function b_a_modifier_think(event)
 	end
 end
 
+function getCasterItemsTotalLevel(caster, lvl_100_as_lvl)
+	if not lvl_100_as_lvl then
+		lvl_100_as_lvl = 100
+	end
+	local total_level = 0
+
+	local level = 0
+	if caster.headItem and caster.headItem.minLevel then
+		level = caster.headItem.minLevel
+	end
+	if level == 100 then
+		level = lvl_100_as_lvl
+	end
+	total_level = total_level + level
+	level = 0
+	if caster.handItem and caster.handItem.minLevel then
+		level = caster.handItem.minLevel
+	end
+	if level == 100 then
+		level = lvl_100_as_lvl
+	end
+	total_level = total_level + level
+	level = 0
+	if caster.foot and caster.foot.minLevel then
+		level = caster.foot.minLevel
+	end
+	if level == 100 then
+		level = lvl_100_as_lvl
+	end
+	total_level = total_level + level
+	level = 0
+	if caster.weapon and caster.weapon.minLevel then
+		level = caster.weapon.minLevel
+	end
+	if level == 100 then
+		level = lvl_100_as_lvl
+	end
+	total_level = total_level + level
+	level = 0
+	if caster.amulet and caster.amulet.minLevel then
+		level = caster.amulet.minLevel
+	end
+	if level == 100 then
+		level = lvl_100_as_lvl
+	end
+	total_level = total_level + level
+	level = 0
+	if caster.body and caster.body.minLevel then
+		level = caster.body.minLevel
+	end
+	if level == 100 then
+		level = lvl_100_as_lvl
+	end
+	total_level = total_level + level
+	level = 0
+	return total_level
+end
+
 function flamewaker_r_2(event)
 
 	local caster = event.caster
 	local ability = event.ability
 	local heroName = caster:GetName()
+
+	if not ability.cast_number then
+		ability.cast_number = 0
+	end
+
+	ability.cast_number = ability.cast_number + 1
+
 	if heroName == "npc_dota_hero_dragon_knight" then
 		local r_2_level = caster:GetRuneValue("r",2)
 		local fv = caster:GetForwardVector()
 		ability.r_2_level = r_2_level
-		ability.r_2_damage = ability.r_2_level*2000 + 2000
+		ability.r_2_damage = ability.r_2_level * FLAMEWAKER_R2_SCALE * (FLAMEWAKER_R2_INNER_SCALE_BASE * getCasterItemsTotalLevel(caster, 110)) ^ FLAMEWAKER_R2_DMG_EXP_SCALE_BASE
 		if r_2_level > 0 then
 			EmitSoundOn("Flamewaker.SecondHeartbeat", caster)
-			for i = -24, 24, 1 do
-				Timers:CreateTimer(0.05*(i+24), function()
-					if (i+24)%6 == 0 then
-						EmitSoundOn("Hero_Batrider.Firefly.Cast", caster)
+			local count = 500
+
+			if caster:HasModifier("modifier_flamewaker_glyph_5_1") then
+				count = count*FLAMEWAKER_T51_R2_DUR_MULTIPLY
+			end
+			local cast_number = ability.cast_number
+			for i = 0, count, 1 do
+				Timers:CreateTimer(0.02*i, function()
+					if caster:IsAlive() and ability.cast_number == cast_number then
+						if (i+24)%6 == 0 then
+							EmitSoundOn("Hero_Batrider.Firefly.Cast", caster)
+						end
+						local rotatedVector = WallPhysics:rotateVector(fv, math.pi/12*i)
+						flamewaker_r_2_create_flame(caster:GetAbsOrigin(), caster, rotatedVector, ability)
 					end
-					local rotatedVector = WallPhysics:rotateVector(fv, math.pi/6*i)
-					flamewaker_r_2_create_flame(caster:GetAbsOrigin(), caster, rotatedVector, r_2_level, ability)
 				end)
 			end
 		end
 	end
 end
 
-function flamewaker_r_2_create_flame(origin, caster, fv, totalLevel, ability)
+function flamewaker_r_2_create_flame(origin, caster, fv, ability)
 	local start_radius = 120
 	local end_radius = 200
 	local range = 540
@@ -130,9 +203,6 @@ function flamewaker_r_2_impact(event)
 	local ability = event.ability
 	local caster = event.caster
 	local damage = ability.r_2_damage
-    if caster:HasModifier("modifier_flamewaker_glyph_5_1") then
-    	damage = damage*2.5
-    end
     Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 

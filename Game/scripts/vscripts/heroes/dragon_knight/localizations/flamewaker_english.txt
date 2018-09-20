@@ -137,10 +137,10 @@
     	"DOTA_Tooltip_ability_flamewaker_rune_r_1_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_r_2"								"[R2] Flaming Vortex"
-    	"DOTA_Tooltip_ability_flamewaker_rune_r_2_Description"					"Cataclysm also releases a spiral of flame."
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_2_Description"					"Cataclysm also releases a spiral of flame around Flamewaker. Each ray of the flame spiral deals damage based on the sum of all equipped items' Required Levels ^ 4. (Level 100 items count as 110 instead.)"
     	"DOTA_Tooltip_ability_flamewaker_rune_r_2_property_one"					"Damage"
-    	"DOTA_Tooltip_ability_flamewaker_rune_r_2_suffix"						""
-		
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_2_suffix"						"* (<% FLAMEWAKER_R2_INNER_SCALE_BASE %> * (Total Gear Levels)) ^ <% FLAMEWAKER_R2_DMG_EXP_SCALE_BASE %>"
+
 		"DOTA_Tooltip_ability_flamewaker_rune_r_3"								"[R3] Mountain's Energy"
     	"DOTA_Tooltip_ability_flamewaker_rune_r_3_Description"					"After a successful cataclysm channel, gain strength for 12 seconds."
     	"DOTA_Tooltip_ability_flamewaker_rune_r_3_property_one"					"Strength Bonus"
@@ -156,7 +156,7 @@
 		
 		//Arcanas
 		"DOTA_Tooltip_ability_flamewaker_arcana_ability"						"Dragon Fire"
-    	"DOTA_Tooltip_ability_flamewaker_arcana_ability_Description"			"Element: <font color=\"#EF4126\">Fire</font><br>A quick burst of fire stuns and damages enemies in the area. Damage is enhanced by strength."
+    	"DOTA_Tooltip_ability_flamewaker_arcana_ability_Description"			"Element: <font color=\"#EF4126\">Fire</font><br>Sudden blasts of flame erupt from the target point, stunning and damaging enemies caught within them. The spell can be re-cast one additional time within <% FLAMEWAKER_ARCANA_Q_FREE_CAST_DURATION %> seconds before going on cooldown.<br>Only a single eruption occurs by default, but by targeting a new point at least <% FLAMEWAKER_ARCANA_Q_MIN_DISTANCE %> units away from the most recent point (but no farther than <% FLAMEWAKER_ARCANA_Q_MAX_DISTANCE %> units), several additional blasts will appear and trace a line pattern between the two destinations.<br>The spell's base damage is further increased by Strength"
     	"DOTA_Tooltip_ability_flamewaker_arcana_ability_damage"					"DAMAGE:"
     	"DOTA_Tooltip_ability_flamewaker_arcana_ability_strength_mult"			"ADDITIONAL DAMAGE STRENGTH MULTIPLIER:"
     	"DOTA_Tooltip_ability_flamewaker_arcana_ability_stun_duration"			"STUN DURATION:"
@@ -165,14 +165,14 @@
     	"property_flamewaker_arcana1_description"								"Replaces @Ability1 and all of its runes with Dragon Fire."
 
   		"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1"						"[Q1] Dragon Knight"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_Description"			"Gain armor and mana regen based on how much health flamewaker is missing."
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_Description"			"Gain Armor and mana regen based on how much health Flamewaker is missing. The maximum bonus is reached when missing at least <% FLAMEWAKER_ARCANA_Q1_MISSED_HP_FOR_GET_STACK_BASE * FLAMEWAKER_ARCANA_Q1_MAX_STACKS_BASE%> HP."
     	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_property_one"			"Bonus Armor"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_suffix"				" per 200 health missing"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_suffix"				" per <% FLAMEWAKER_ARCANA_Q1_MISSED_HP_FOR_GET_STACK_BASE %> health missing"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_property_two"			"Mana Regen"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_suffix_two"			" per 200 health missing"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_suffix_two"			" per <% FLAMEWAKER_ARCANA_Q1_MISSED_HP_FOR_GET_STACK_BASE %> health missing"
 
   		"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1"						"[Q2] Flame Surge"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_Description"			"Gain movespeed and % damage amp after casting Dragon Fire. Enemies hit by Dragon Fire take increased damage from Flamewaker, this damage increase is 6 times weaker than self damage increase, but can stack. Only the strongest multiplier will take effect."
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_Description"			"After casting @Ability1, gain bonus movement speed and post-mitigation damage output. Enemies hit by the spell will receive a stacking debuff that causes them to take increased post-mitigation damage from Flamewaker, but each stack of the debuff increases damage taken by only 1/6th of the indicated percentile value. These independent effects do not stack - only the higher of the two percentile bonuses will take effect. Lasts 6 seconds."
     	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_property_one"			"Movespeed"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_suffix"				""
     	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_property_two"			"Post-Mitigation Damage Amp"
@@ -182,9 +182,9 @@
     	"DOTA_Tooltip_modifier_flamewaker_arcana_b_a_effect_Description"		"Increased movespeed and dealing additional damage."
 
   		"DOTA_Tooltip_ability_flamewaker_rune_q_3_arcana1"						"[Q3] Firestorm"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_3_arcana1_Description"			"Adds a chance that an additional dragon fire bursts will ignite near the initial cast point. Dragon Fire is now vector target, choose 2 points to build a vector for additional fire bursts. Fire bursts are evenly distributed in a line that has length of 400. Greater than 100% means it can proc multiple times."
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_3_arcana1_Description"			"Each cast of @Ability1 has a chance to create secondary eruptions, either directly at the targeted point or after the line pattern arrives at its destination. A chance greater than 100% means that multiple additional explosions may occur. Eruptions from this rune spiral outward from the target location."
     	"DOTA_Tooltip_ability_flamewaker_rune_q_3_arcana1_property_one"			"Multi-Chance"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_3_arcana1_suffix"				""
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_3_arcana1_suffix"				"%"
 
   		"DOTA_Tooltip_ability_flamewaker_rune_q_4_arcana1"						"[Q4] Inferno Ring"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_4_arcana1_Description"			"Passively grants Flamewaker an inferno ring that deals damage every 0.4 seconds to enemies within based on attack power. Enemies in the ring also deal reduced damage to Flamewaker."
@@ -251,7 +251,7 @@
 		"item_rpc_flamewaker_glyph_4_1_description" 			"@Ability2 deals additional damage equal to @glyph_property2% of the sum of your attributes and @glyph_property3% of attack damage. This damage bonus is multiplied by @Ability2's level. Also slows targets' Movespeed and Attack Speed by @glyph_property1."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_1"	"Glyph of Charred Hearts"
-		"item_rpc_flamewaker_glyph_5_1_description" 			"Increases the damage of Cataclysm and Flame Vortex by 2.5x."
+		"item_rpc_flamewaker_glyph_5_1_description" 			"Increases the duration of [R2] by <% FLAMEWAKER_T51_R2_DUR_MULTIPLY%>x."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_6_1"	"Glyph of Mountain's Core"
 		"item_rpc_flamewaker_glyph_6_1_description" 			"Increases attack damage by @glyph_property1% for @glyph_property2 seconds after casting Cataclysm."
