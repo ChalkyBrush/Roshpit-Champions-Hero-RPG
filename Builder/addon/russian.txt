@@ -7608,10 +7608,10 @@
 		"DOTA_Tooltip_ability_siltbreaker_amplify_damage_duration"			"ДЛИТЕЛЬНОСТЬ:"
 
 		"DOTA_Tooltip_ability_siltbreaker_whirlpool"			"Blue Whirlpool"
-		"DOTA_Tooltip_ability_siltbreaker_whirlpool_Description"	"Создаёт в указанной точке водоворот обездвиживающий врагов, находящихся в нём."
+		"DOTA_Tooltip_ability_siltbreaker_whirlpool_Description"	"Создаёт в указанной точке водоворот, накладывающий замедление и безмолвие."
 
 		"DOTA_Tooltip_modifier_whirlpool_within"				"Blue Whirlpool"
-		"DOTA_Tooltip_modifier_whirlpool_within_Description"	"Обездвижен"
+		"DOTA_Tooltip_modifier_whirlpool_within_Description"	"Обезмолвлен и замедлен"
 
 		"DOTA_Tooltip_ability_siltbreaker_channel"				"Virulent Striker"
 		"DOTA_Tooltip_ability_siltbreaker_channel_Description"	"Выдыхает волны яда. Во время заряда волн 99% сопротивление к урону. Волны гарантированно убивают попавших внутрь противников."	
@@ -7678,10 +7678,8 @@
 
 		"seafortress_shadow_of_bahamut"									"Shadow of Bahamut"
 
-		"DOTA_Tooltip_ability_seafortress_shadow_of_bahamut_passive"	"Demon Wrath"
-		"DOTA_Tooltip_ability_seafortress_shadow_of_bahamut_passive_Description"	"Очерчивает круг осуждения под ногами врагов. С задержкой в 1 секунду, все находящиеся в круге враги будут поражены шокирующим ударом."
-		"DOTA_Tooltip_ability_seafortress_shadow_of_bahamut_passive_damage"			"УРОН:"
-		"DOTA_Tooltip_ability_seafortress_shadow_of_bahamut_passive_stun_duration"	"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		"DOTA_Tooltip_ability_seafortress_shadow_of_bahamut_passive"	"Power Word: Kill"
+		"DOTA_Tooltip_ability_seafortress_shadow_of_bahamut_passive_Description"	"Произносит слово разрушения мироздания и образует брешь в реальности, разрушаюшее любую материю. Все находящееся внутри будет уничтожено. Никакая защита не позволит избежать смерти."
 
 		"DOTA_Tooltip_ability_shadow_of_bahamut_orb"					"Tainted Sphere of Divinity"
 		"DOTA_Tooltip_ability_shadow_of_bahamut_orb_Description"		"Перемещается в указанную точку внутри испорченного шара."
