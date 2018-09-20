@@ -389,7 +389,7 @@
     	"DOTA_Tooltip_modifier_leshrac_nuke_judged_Description"			"Приговорен героем Bahamut"
 
       	"DOTA_Tooltip_ability_bahamut_rune_e_2"							"[E2] Purity"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"В начале Ascension создаёт рой крылатых сущностей, которые будут атаковать врагов впереди. Задетые враги ненадолго парализуются."
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"В начале Ascension создаёт рой крылатых сущностей, которые будут атаковать врагов впереди. Задетые враги ненадолго парализуются. Дополнительно увеличивает урон [E3], умножая на соотношение (наимешьший атрибут/наибольший атрибут)."
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_one"			"Урон"
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix"					""	
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_two"			"Длительность паралича"
@@ -419,7 +419,7 @@
     	"DOTA_Tooltip_ability_bahamut_rune_w_3_suffix"					""
 
       	"DOTA_Tooltip_ability_bahamut_rune_e_3"							"[E3] Bahamut Pulse"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_3_Description"				"Пока Ascension перезаряжается, она заменяется на [E3]. Это умение наносит урон всем ближайшим врагам ценой временного замедления героя. Прочтение Ascension возвратит потерянную скорость."
+    	"DOTA_Tooltip_ability_bahamut_rune_e_3_Description"				"Пока Ascension перезаряжается, она заменяется на [E3]. Это умение наносит урон всем ближайшим врагам ценой временного замедления героя. Прочтение Ascension возвратит потерянную скорость. Урон дополнительно умножается на сумму требований к уровню всех надетых символов."
     	"DOTA_Tooltip_ability_bahamut_rune_e_3_property_one"			"Урон"
     	"DOTA_Tooltip_ability_bahamut_rune_e_3_suffix"					""		
 
@@ -537,10 +537,10 @@
     	"DOTA_Tooltip_modifier_arcana2_purity_freeze"						"Absolution"
     	"DOTA_Tooltip_modifier_arcana2_purity_freeze_Description"			"заморожен"
 
-  		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2"						"[W4] Potency Inverse"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"К урону всех умений и урону предметов добавляется значение на основе отсутствующей маны Bahamut."
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"			"Доп. урон"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"					"% от отсутствующей маны"			
+  		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2"						"[W4] Ether Breach"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"Увеличивает урон в зависимости от скорости Сферы. Прочтение Megaflare во время полета в Сфере умножает скорость @Ability2 на 2. Бонус длится 5 секунд. Указанный урон умножается на уровень способности @Ability2."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"			"Увеличение урона"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"					"% от скорости"			
      	//--------------------Duskbringer/Spirit Breaker
 
     	//--------------------Auriun/Zuus
@@ -2571,8 +2571,9 @@
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_1"	"(T6) Символ войны"
 		"item_rpc_neutral_glyph_6_1_description" 			"Увеличивает основной урон на @glyph_property1%"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_1"	"(T7) Символ великой мощи"
-		"item_rpc_neutral_glyph_7_1_description" 			"Увеличивает Силу на @glyph_property1"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_1"	"(T7) Символ Высшей Силы"
+		"item_rpc_neutral_glyph_7_1_description" 			"Увеличивает Cилу на @glyph_property2% или на @glyph_property1, в зависимости от того, какое число выше."
+"
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_2"	"(T1) Символ малого проворства"
 		"item_rpc_neutral_glyph_1_2_description" 			"Увеличивает Ловкость на @glyph_property1"
@@ -2593,8 +2594,8 @@
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_2"	"(T6) Символ выдающегося навыка"
 		"item_rpc_neutral_glyph_6_2_description" 			"Увеличивает основной урон Нормальной стихии на @glyph_property1%"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_2"	"(T7) Символ потрясающего проворства"
-		"item_rpc_neutral_glyph_7_2_description" 			"Увеличивает Ловкость на @glyph_property1"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_2"	"(T7) Символ Высшей Ловкости"
+		"item_rpc_neutral_glyph_7_2_description" 			"Увеличивает Ловкость на @glyph_property2% или на @glyph_property1, в зависимости от того, какое число выше."
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_3"	"(T1) Символ малой мудрости"
 		"item_rpc_neutral_glyph_1_3_description" 			"Увеличивает Интеллект на @glyph_property1"
@@ -2614,8 +2615,8 @@
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_3"	"(T6) Символ волшебства"
 		"item_rpc_neutral_glyph_6_3_description" 			"Увеличивает весь наносимый магический урон на @glyph_property1%"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_3"	"(T7) Символ потрясающей мудрости"
-		"item_rpc_neutral_glyph_7_3_description" 			"Увеличивает Интеллект на @glyph_property1"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_3"	"(T7) Символ Высшего Интеллекта"
+		"item_rpc_neutral_glyph_7_3_description" 			"Увеличивает Интеллект на @glyph_property2% или на @glyph_property1, в зависимости от того, какое число выше."
 
 		//FLAMEWAKER
 
@@ -7608,10 +7609,10 @@
 		"DOTA_Tooltip_ability_siltbreaker_amplify_damage_duration"			"ДЛИТЕЛЬНОСТЬ:"
 
 		"DOTA_Tooltip_ability_siltbreaker_whirlpool"			"Blue Whirlpool"
-		"DOTA_Tooltip_ability_siltbreaker_whirlpool_Description"	"Создаёт в указанной точке водоворот обездвиживающий врагов, находящихся в нём."
+		"DOTA_Tooltip_ability_siltbreaker_whirlpool_Description"	"Создаёт в указанной точке водоворот, накладывающий замедление и безмолвие."
 
 		"DOTA_Tooltip_modifier_whirlpool_within"				"Blue Whirlpool"
-		"DOTA_Tooltip_modifier_whirlpool_within_Description"	"Обездвижен"
+		"DOTA_Tooltip_modifier_whirlpool_within_Description"	"Обезмолвлен и замедлен"
 
 		"DOTA_Tooltip_ability_siltbreaker_channel"				"Virulent Striker"
 		"DOTA_Tooltip_ability_siltbreaker_channel_Description"	"Выдыхает волны яда. Во время заряда волн 99% сопротивление к урону. Волны гарантированно убивают попавших внутрь противников."	
@@ -7678,10 +7679,8 @@
 
 		"seafortress_shadow_of_bahamut"									"Shadow of Bahamut"
 
-		"DOTA_Tooltip_ability_seafortress_shadow_of_bahamut_passive"	"Demon Wrath"
-		"DOTA_Tooltip_ability_seafortress_shadow_of_bahamut_passive_Description"	"Очерчивает круг осуждения под ногами врагов. С задержкой в 1 секунду, все находящиеся в круге враги будут поражены шокирующим ударом."
-		"DOTA_Tooltip_ability_seafortress_shadow_of_bahamut_passive_damage"			"УРОН:"
-		"DOTA_Tooltip_ability_seafortress_shadow_of_bahamut_passive_stun_duration"	"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		"DOTA_Tooltip_ability_seafortress_shadow_of_bahamut_passive"	"Power Word: Kill"
+		"DOTA_Tooltip_ability_seafortress_shadow_of_bahamut_passive_Description"	"Произносит слово разрушения мироздания и образует брешь в реальности, разрушаюшее любую материю. Все находящееся внутри будет уничтожено. Никакая защита не позволит избежать смерти."
 
 		"DOTA_Tooltip_ability_shadow_of_bahamut_orb"					"Tainted Sphere of Divinity"
 		"DOTA_Tooltip_ability_shadow_of_bahamut_orb_Description"		"Перемещается в указанную точку внутри испорченного шара."
