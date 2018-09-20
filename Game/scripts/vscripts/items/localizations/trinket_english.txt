@@ -102,6 +102,8 @@
 		"DOTA_Tooltip_ability_item_rpc_ruinfall_skull_token"							"Ruinfall Skull Token"
 		"item_property_ruinfall"					"Sandstorm"
 		"property_ruinfall"							"When you fall below 25% health, go invisibile within a sandstorm and restore 20% of your max health for 5 seconds. While in sandstorm you are silenced, disarmed and rooted. 40 second cooldown."
+		"DOTA_Tooltip_modifier_ruinfall_skull_token_cooldown" "Sandstorm Cooldown"
+		"DOTA_Tooltip_modifier_ruinfall_skull_token_cooldown_Description"	""
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_omega_ruby"										"Omega Ruby"
@@ -195,6 +197,9 @@
 		"DOTA_Tooltip_ability_item_rpc_fuchsia_ring"									"Fuchsia Ring"
 		"item_property_fuchsia_ring"							"Solidarity"
 		"property_fuchsia_ring_description"					"While silenced or stunned all damage taken is reduced by @special_property1% and health regen is increased by @special_property2% of max health."
+		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"Solidarity"
+		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"Damage taken reduced by %property_one%% and health regen increased by %property_two%% of max health."
+		 
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_fortunes_talisman_of_truth"						"Fortune's Talisman of Truth"
@@ -260,3 +265,14 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_winterblight_skull_ring"							"Winterblight Skull Ring"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_sparkling_sea_crystal"					"Sparkling Sea Crystal"	
+		"property_sea_crystal"												"Giga Ocean Elemental"
+		"property_sea_crystal_Description"									"Casting @Ability4 summons a Giga Ocean elemental with huge knockback and attacks that deal @special_property1% of its summoner's attack power. Casting @Ability4 will replace your existing elemental."
+
+
+		"DOTA_Tooltip_ability_item_rpc_sparkling_token_of_oceanis"					"Sparkling Token of Oceanis"	
+		"property_sparkling_token"												"Tropical Haze"
+		"property_sparkling_token_Description"									"Reduces all pure damage taken by @special_property1%"
+		

@@ -480,58 +480,7 @@
     	"DOTA_Tooltip_ability_item_cap_Description"										"Slot: Head"
     	"DOTA_Tooltip_ability_item_helm"												"Helm"
     	"DOTA_Tooltip_ability_item_helm_Description"									"Slot: Head"
-    	"DOTA_Tooltip_ability_item_rpc_white_mage_hat"									"White Mage Hat LV1"
-    	"DOTA_Tooltip_ability_item_rpc_white_mage_hat_2"								"White Mage Hat LV2"
-    	"DOTA_Tooltip_ability_item_rpc_hyper_visor"										"Hyper Visor LV1"
-    	"DOTA_Tooltip_ability_item_rpc_hyper_visor2"									"Hyper Visor LV2"
-    	"DOTA_Tooltip_ability_item_rpc_crown_of_ruby_dragon"							"Crown of the Ruby Dragon"	
-    	"DOTA_Tooltip_ability_item_rpc_centaur_horns"									"Sturdy Centaur Horns"	
-    	"DOTA_Tooltip_ability_item_rpc_hood_of_chosen"									"Hood of the Chosen"	
-    	"DOTA_Tooltip_ability_item_rpc_death_whisper_helm"								"Death Whisper Helm"
-    	"DOTA_Tooltip_ability_item_rpc_cap_of_wild_nature"								"Cap of Wild Nature"
-    	"DOTA_Tooltip_ability_item_rpc_guard_of_luma"									"Guard of Luma"
-    	"DOTA_Tooltip_ability_item_rpc_odin_helmet"										"Odin Helmet"
-    	"DOTA_Tooltip_ability_item_rpc_iron_colussus"									"Helm of the Iron Colossus"
-    	"DOTA_Tooltip_ability_item_rpc_mask_of_mugato"									"Mask of Mugato"
-    	"DOTA_Tooltip_ability_item_rpc_swamp_witch_hat"									"Swamp Witch's Hat"
-    	"DOTA_Tooltip_ability_item_rpc_tricksters_mask"									"Trickster's Mask"
-    	"DOTA_Tooltip_ability_item_rpc_emerald_douli"									"Emerald Douli"
-    	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"Mask of Tyrius"
-    	"DOTA_Tooltip_ability_item_rpc_veil_of_the_cerulean_high_guard"					"Veil of the Cerulean Highguard"
-    	"DOTA_Tooltip_ability_item_rpc_super_ascendency_mask"							"Super Ascendency Mask"
-    	"DOTA_Tooltip_ability_item_rpc_mask_of_the_phantom_sorcerer"					"Mask of the Phantom Sorcerer"
-    	"DOTA_Tooltip_ability_item_rpc_arcane_cascade_hat"								"Arcane Cascade Hat"
-    	"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"Adamantine Samurai Helmet"
-    	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"Scourge Knight's Helm"
-    	"DOTA_Tooltip_ability_item_rpc_undertakers_hood"								"Undertaker's Hood"
-    	"DOTA_Tooltip_ability_item_rpc_shroud_of_eternal_night"							"Shroud of Eternal Night"
-    	"DOTA_Tooltip_ability_item_rpc_wolfir_druids_spirit_helm"						"Wolfir Druid's Spirit Helm"
-    	"DOTA_Tooltip_ability_item_rpc_blinded_glint_of_onu"							"Blinded Glint of Onu"
-    	"DOTA_Tooltip_ability_item_rpc_crown_of_the_roknar_emperor"						"Crown of the Rok'nar Emperor"
-    	"DOTA_Tooltip_ability_item_rpc_mask_of_the_desert_necromancer"					"Mask of the Desert Necromancer"
-    	"DOTA_Tooltip_ability_item_rpc_blackfeather_crown"								"Blackfeather Crown"
-    	"DOTA_Tooltip_ability_item_rpc_wraith_crown"									"Wraith Crown"
-    	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"Demon Mask"
-    	"DOTA_Tooltip_ability_item_rpc_crest_of_the_umbral_sentinel"					"Crest of the Umbral Sentinel"
-    	"DOTA_Tooltip_ability_item_rpc_carbuncles_helm_of_reflection"					"Carbuncle's Helm of Reflection"
-    	"DOTA_Tooltip_ability_item_rpc_guard_of_grithault"								"Guard of Grithault"
-    	"DOTA_Tooltip_ability_item_rpc_wraith_hunters_steel_helm"						"Wraith Hunter's Steel Helm"
-    	"DOTA_Tooltip_ability_item_rpc_hood_of_defiler"									"Hood of the Defiler"
-    	"DOTA_Tooltip_ability_item_rpc_excavators_focus_cap"							"Excavator's Focus Cap"
-    	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm"									"Stormcrack Helm LV1"
-    	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm2"								"Stormcrack Helm LV2"
-    	"DOTA_Tooltip_ability_item_rpc_hood_of_the_black_mage"							"Hood of the Black Mage"
-    	"DOTA_Tooltip_ability_item_rpc_conquest_stone_falcon" 							"Conquest Stone Falcon"
-    	"DOTA_Tooltip_ability_item_rpc_autumn_sleeper_mask"								"Autumn Sleeper Mask"
-    	"DOTA_Tooltip_ability_item_rpc_eye_of_seasons"									"Eye of Seasons"
-    	"DOTA_Tooltip_ability_item_rpc_helm_of_the_silent_templar"						"Helm of the Silent Templar"
-    	"DOTA_Tooltip_ability_item_rpc_wind_deity_crown"								"Wind Deity Crown"
-    	"DOTA_Tooltip_ability_item_rpc_water_deity_crown"								"Water Deity Crown"
-    	"DOTA_Tooltip_ability_item_rpc_fire_deity_crown"								"Fire Deity Crown"
-    	"DOTA_Tooltip_ability_item_rpc_crimson_skull_cap"								"Crimson Skull Cap"
-    	"DOTA_Tooltip_ability_item_rpc_hood_of_lords"									"Hood of Lords"
-    	"DOTA_Tooltip_ability_item_rpc_igneous_canine_helm"								"Igneous Canine Helm"
-    	"DOTA_Tooltip_ability_item_rpc_burning_spirit_helmet"							"Burning Spirit Helmet"
+    	    	
 
     	"DOTA_Tooltip_ability_item_rpc_gloves"											"Gloves"
     	"DOTA_Tooltip_ability_item_rpc_gloves_Description"								"Slot: Hands"
@@ -539,102 +488,8 @@
     	"DOTA_Tooltip_ability_item_rpc_gauntlets_Description"							"Slot: Hands"
     	"DOTA_Tooltip_ability_item_wraps"												"Wraps"
     	"DOTA_Tooltip_ability_item_wraps_Description"									"Slot: Hands"
-    	"DOTA_Tooltip_ability_item_rpc_magebane_gloves"									"Magebane Gloves"
-    	"DOTA_Tooltip_ability_item_rpc_magebane_gloves_Description"						"Slot: Hands"
-    	"DOTA_Tooltip_ability_item_rpc_berserker_gloves"								"Berserker Gloves"
-    	"DOTA_Tooltip_ability_item_rpc_berserker_gloves_Description"					"Slot: Hands"
-    	"DOTA_Tooltip_ability_item_rpc_shadow_armlet"									"Shadow Armlet"
-    	"DOTA_Tooltip_ability_item_rpc_shadow_armlet_Description"						"Slot: Hands"
-    	"DOTA_Tooltip_ability_item_rpc_boneguard_gauntlets"								"Boneguard Gauntlets"
-    	"DOTA_Tooltip_ability_item_rpc_boneguard_gauntlets_Description"					"Slot: Hands"
-    	"DOTA_Tooltip_ability_item_rpc_scorched_gauntlets"								"Gauntlet of Flame"
-    	"DOTA_Tooltip_ability_item_rpc_scorched_gauntlets_2"							"Gauntlet of the High Flame"
-    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"								"Proud Gloves"
-    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves_Description"					"Slot: Hands"
-    	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth"									"Claw of Azinoth"
-    	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth_Description"						"Slot: Hands"	
-    	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity"						"Gauntlet of Divine Purity"
-    	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity_Description"			"Slot: Hands"
-    	"DOTA_Tooltip_ability_item_rpc_marauder_gloves"									"Marauder Gloves"
-    	"DOTA_Tooltip_ability_item_rpc_marauder_gloves_Description"						"Slot: Hands"
-    	"DOTA_Tooltip_ability_item_rpc_hand_of_midas"									"Hand of Midas"
-    	"DOTA_Tooltip_ability_item_rpc_scarecrow_gloves"								"Scarecrow Gloves"
-    	"DOTA_Tooltip_ability_item_rpc_living_gauntlet"									"Living Gauntlet"
-    	"DOTA_Tooltip_ability_item_rpc_master_gloves"									"Master Gloves"
-    	"DOTA_Tooltip_ability_item_rpc_phoenix_gloves"									"Phoenix Gloves"
-    	"DOTA_Tooltip_ability_item_rpc_spirit_glove"									"Spirit Glove"
-    	"DOTA_Tooltip_ability_item_rpc_frostburn_gauntlets"								"Frostburn Gauntlets"
-    	"DOTA_Tooltip_ability_item_rpc_mountain_vambraces"								"Mountain Vambraces"
-    	"DOTA_Tooltip_ability_item_rpc_cytopian_laser_glove"							"Cytopian Laser Glove"
-    	"DOTA_Tooltip_ability_item_rpc_power_ranger_gloves"								"Power Ranger Glove"
-    	"DOTA_Tooltip_ability_item_rpc_grand_arcanist_wraps"							"Wraps of the Grand Arcanist"
-    	"DOTA_Tooltip_ability_item_rpc_eternal_essence_gauntlet"						"Eternal Essence Gauntlet"
-    	"DOTA_Tooltip_ability_item_rpc_bladeforge_gauntlet"								"Bladeforge Gauntlet"
-    	"DOTA_Tooltip_ability_item_rpc_silverspring_gloves"								"Silverspring Gloves"
-    	"DOTA_Tooltip_ability_item_rpc_far_seers_enchanted_gloves"						"Far Seer's Enchanted Gloves"
-    	"DOTA_Tooltip_ability_item_rpc_royal_wristguards"								"Royal Wristguards"
-    	"DOTA_Tooltip_ability_item_rpc_mordiggus_gauntlet"								"Mordiggus Gauntlet"
-    	"DOTA_Tooltip_ability_item_rpc_ironbound_gloves"								"Ironbound Gloves"
-    	"DOTA_Tooltip_ability_item_rpc_gloves_of_sweeping_wind"							"Gloves of Sweeping Winds"
-    	"DOTA_Tooltip_ability_item_rpc_halcyon_soul_glove"								"Halcyon Soul Glove"
-    	"DOTA_Tooltip_ability_item_rpc_greensand_copper_gauntlets"						"Greensand Copper Gauntlets"
-    	"DOTA_Tooltip_ability_item_rpc_glove_of_the_forgotten_ghost"					"Glove of the Forgotten Ghost"
-    	"DOTA_Tooltip_ability_item_rpc_spiritual_empowerment_glove"						"Spiritual Empowerment Glove"
-    	"DOTA_Tooltip_ability_item_rpc_gravekeepers_gauntlet"							"Gravekeeper's Gauntlet"
-    	"DOTA_Tooltip_ability_item_rpc_autumnrock_bracer"								"Autumnrock Bracer"
-    	"DOTA_Tooltip_ability_item_rpc_malachite_shade_bracer"							"Malachite Shade Bracer"
-    	"DOTA_Tooltip_ability_item_rpc_skulldigger_gauntlet"							"Skulldigger Gauntlet"
-    	"DOTA_Tooltip_ability_item_rpc_skulldigger_gauntlet_lv1"						"Skulldigger Gauntlet LV1"
-    	"DOTA_Tooltip_ability_item_rpc_skulldigger_gauntlet_lv2"						"Skulldigger Gauntlet LV2"
-    	"DOTA_Tooltip_ability_item_rpc_skulldigger_gauntlet_lv3"						"Skulldigger Gauntlet LV3"
-    	"DOTA_Tooltip_ability_item_rpc_claws_of_the_ethereal_revenant"					"Claw of the Ethereal Revenant"
-    	"DOTA_Tooltip_ability_item_rpc_spellfire_gloves"								"Spellfire Gloves"
-    	"DOTA_Tooltip_ability_item_rpc_shadowflame_fist"								"Shadowflame Fist"
-    	"DOTA_Tooltip_ability_item_rpc_aquasteel_bracers"								"Aquasteel Bracers"
-    	"DOTA_Tooltip_ability_item_rpc_demonfire_gauntlet"								"Demonfire Gauntlet"
-    	"DOTA_Tooltip_ability_item_rpc_heavy_echo_gauntlet"								"Heavy Echo Gauntlet"
-
-    	"DOTA_Tooltip_ability_item_rpc_dunetread_boots"									"Dunetreads"
-    	"DOTA_Tooltip_ability_item_rpc_boots_of_the_violet_guard"						"Boots of the Violet Guard"
-    	"DOTA_Tooltip_ability_item_rpc_guardian_greaves"								"Guardian Greaves"
-    	"DOTA_Tooltip_ability_item_rpc_tranquil_boots"									"Tranquil Boots"
-    	"DOTA_Tooltip_ability_item_rpc_yasha_boots"										"Yasha Boots"
-    	"DOTA_Tooltip_ability_item_rpc_mana_striders"									"Mana Striders"
-    	"DOTA_Tooltip_ability_item_rpc_fire_walkers"									"Fire Walkers"
-    	"DOTA_Tooltip_ability_item_rpc_moon_tech_runners"								"Moon Tech Runners"
-    	"DOTA_Tooltip_ability_item_rpc_sonic_boots"										"Sonic Boots"
-    	"DOTA_Tooltip_ability_item_rpc_falcon_boots"									"Falcon Boots"
-    	"DOTA_Tooltip_ability_item_rpc_admiral_boots"									"Admiral's Boots"
-    	"DOTA_Tooltip_ability_item_rpc_rooted_feet"										"Rooted Feet"
-    	"DOTA_Tooltip_ability_item_rpc_crusader_boots"									"Crusader Boots"
-    	"DOTA_Tooltip_ability_item_rpc_arcanys_slipper"									"Arcanys Slippers"
-    	"DOTA_Tooltip_ability_item_rpc_swamp_waders"									"Swamp Waders"
-    	"DOTA_Tooltip_ability_item_rpc_swamp_doctors_tribal_mask"						"Swamp Doctor's Tribal Mask"
-    	"DOTA_Tooltip_ability_item_rpc_voyager_boots"									"Voyager Boots"
-    	"DOTA_Tooltip_ability_item_rpc_redrock_footwear"								"Redrock Footwear"
-    	"DOTA_Tooltip_ability_item_rpc_pathfinders_resonant_boots"						"Pathfinder's Resonant Boots"
-    	"DOTA_Tooltip_ability_item_rpc_neptunes_water_gliders"							"Neptune's Water Gliders"
-    	"DOTA_Tooltip_ability_item_rpc_blue_dragon_greaves"								"Blue Dragon Greaves"
-    	"DOTA_Tooltip_ability_item_rpc_resplendent_rubber_boots"						"Resplendent Rubber Boots"
-    	"DOTA_Tooltip_ability_item_rpc_boots_of_old_wisdom"								"Boots of Old Wisdom"
-    	"DOTA_Tooltip_ability_item_rpc_boots_of_pure_waters"							"Boots of Pure Waters"
-    	"DOTA_Tooltip_ability_item_rpc_terrasic_lava_boots"								"Terrasic Lava Boots"
-    	"DOTA_Tooltip_ability_item_rpc_ablecore_greaves"								"Ablecore Greaves"
-    	"DOTA_Tooltip_ability_item_rpc_giant_hunters_boots_of_resilience"				"Giant Hunter's Boots of Resilience"
-    	"DOTA_Tooltip_ability_item_rpc_redfall_runners"									"Redfall Runners"
-    	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Boots of Ashara"
-    	"DOTA_Tooltip_ability_item_rpc_sandstream_slippers"								"Sandstream Slippers"
-    	"DOTA_Tooltip_ability_item_rpc_crimsyth_elite_greaves_lv1"						"Crimsyth Elite Greaves LV1"
-    	"DOTA_Tooltip_ability_item_rpc_crimsyth_elite_greaves_lv2"						"Crimsyth Elite Greaves LV2"
-    	"DOTA_Tooltip_ability_item_rpc_crimsyth_elite_greaves_lv3"						"Crimsyth Elite Greaves LV3"
-    	"DOTA_Tooltip_ability_item_rpc_harvester_boots"									"Harvester Boots"
-    	"DOTA_Tooltip_ability_item_rpc_boots_of_great_fortune"							"Boots of Great Fortune"
-    	"DOTA_Tooltip_ability_item_rpc_bloodstone_boots"								"Bloodstone Boots"
-    	"DOTA_Tooltip_ability_item_rpc_temporal_warp_boots"								"Temporal Warp Boots"
-    	"DOTA_Tooltip_ability_item_rpc_alaranas_ice_boot"								"Alarana's Ice Boots"
-    	"DOTA_Tooltip_ability_item_rpc_emerald_speed_runners"							"Emerald Speed Runners"
-    	"DOTA_Tooltip_ability_item_rpc_red_october_boots"								"Red October Boots"
-    	"DOTA_Tooltip_ability_item_rpc_steamboots"										"Steamboots"
+    	
+    	
 
     	"DOTA_Tooltip_ability_item_rpc_slippers"										"Slippers"
     	"DOTA_Tooltip_ability_item_rpc_slippers_Description"							"Slot: Feet"
@@ -652,62 +507,8 @@
     	"DOTA_Tooltip_ability_item_rpc_mantle_Description"								"Slot: Body"
     	"DOTA_Tooltip_ability_item_rpc_mail"											"Mail"
     	"DOTA_Tooltip_ability_item_rpc_mail_Description"								"Slot: Body"
-		"DOTA_Tooltip_ability_item_rpc_steelbark_guard"									"Steelbark Guard"
-		"DOTA_Tooltip_ability_item_rpc_steelbark_guard_Description"						"Slot: Body"
-		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding"								"Robe of Flooding LV1"
-		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding_2"								"Robe of Flooding LV2"
-		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding_3"								"Robe of Flooding LV3"
-		"DOTA_Tooltip_ability_item_rpc_avalanche_plate"									"Avalanche Plate LV1"
-		"DOTA_Tooltip_ability_item_rpc_avalanche_plate_2"								"Avalanche Plate LV2"
-		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard"							"Armor of the Violet Guard LV1"
-		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard2"							"Armor of the Violet Guard LV2"
-		"DOTA_Tooltip_ability_item_rpc_seraphic_soulvest"								"Seraphic Soulvest"
-		"DOTA_Tooltip_ability_item_rpc_plate_of_the_watcher"							"Plate of the Watcher"
-		"DOTA_Tooltip_ability_item_rpc_sorcerers_regalia"								"Sorcerer's Regalia"		
-		"DOTA_Tooltip_ability_item_rpc_spellslinger_coat"								"Spellslinger's Coat"
-		"DOTA_Tooltip_ability_item_rpc_doomplate"										"Doomplate"
-		"DOTA_Tooltip_ability_item_rpc_ice_quill_carapace"								"Ice Quill Carapace"
-		"DOTA_Tooltip_ability_item_rpc_featherwhite_armor"								"Featherwhite Armor"
-		"DOTA_Tooltip_ability_item_rpc_dragon_ceremony_vestments"						"Vestments of the Dragon Ceremony"
-		"DOTA_Tooltip_ability_item_rpc_armor_of_secret_temple"							"Armor of the Secret Temple"
-		"DOTA_Tooltip_ability_item_rpc_vampiric_breastplate"							"Vampiric Breastplate"
-		"DOTA_Tooltip_ability_item_rpc_dark_arts_vestments"								"Vestments of the Dark Arts"
-		"DOTA_Tooltip_ability_item_rpc_legion_vestments"								"Legion Vestments"
-		"DOTA_Tooltip_ability_item_rpc_nightmare_rider_mantle"							"Nightmare Rider Mantle"
-		"DOTA_Tooltip_ability_item_rpc_space_tech_vest"									"Space Tech Vest"
-		"DOTA_Tooltip_ability_item_rpc_stormshield_cloak"								"Stormshield Cloak"
-		"DOTA_Tooltip_ability_item_rpc_gilded_soul_cage"								"Gilded Soul Cage"
-		"DOTA_Tooltip_ability_item_rpc_bluestar_armor"									"Bluestar Armor"
-		"DOTA_Tooltip_ability_item_rpc_hermits_spike_shell"								"Hermit's Spike Shell"
-		"DOTA_Tooltip_ability_item_rpc_the_infernal_prison"								"The Infernal Prison"
-		"DOTA_Tooltip_ability_item_rpc_enchanted_solar_cape"							"Enchanted Solar Cape"
-		"DOTA_Tooltip_ability_item_rpc_ocean_tempest_pallium"							"Ocean Tempest Pallium"
-		"DOTA_Tooltip_ability_item_rpc_radiant_ruins_leather"							"Radiant Ruins Leather"
-		"DOTA_Tooltip_ability_item_rpc_twilight_vestments"								"Twilight Vestments"
-		"DOTA_Tooltip_ability_item_rpc_energizing_quest_gear"							"Energizing Quest Gear"
-		"DOTA_Tooltip_ability_item_rpc_windsteel_armor"									"Windsteel Armor"
-		"DOTA_Tooltip_ability_item_rpc_savage_plate_of_ogthun"							"Savage Plate of Og'Thun"
-		"DOTA_Tooltip_ability_item_rpc_skyforge_flurry_plate"							"Skyforge Flurry Plate"
-		"DOTA_Tooltip_ability_item_rpc_bladestorm_vest"									"Bladestorm Vest"
-		"DOTA_Tooltip_ability_item_rpc_infused_mageplate"								"Infused Mageplate"
-		"DOTA_Tooltip_ability_item_rpc_depth_crest_armor"								"Depth Crest Armor"
-		"DOTA_Tooltip_ability_item_rpc_terrasic_stone_plate"							"Terrasic Stone Plate"
-		"DOTA_Tooltip_ability_item_rpc_water_mage_robes"								"Water Mage Robes"
-		"DOTA_Tooltip_ability_item_rpc_golden_war_plate"								"Golden War Plate"
-		"DOTA_Tooltip_ability_item_rpc_gold_plate_of_leon"								"Gold Plate of Leon"
-		"DOTA_Tooltip_ability_item_rpc_staggering_knight_crusher_armor"					"Staggering Knight Crusher Armor"
-		"DOTA_Tooltip_ability_item_rpc_sapphire_dragon_scale_armor"						"Sapphire Dragon Scale Armor"
-		"DOTA_Tooltip_ability_item_rpc_ruby_dragon_scale_armor"							"Ruby Dragon Scale Armor"
-		"DOTA_Tooltip_ability_item_rpc_topaz_dragon_scale_armor"						"Topaz Dragon Scale Armor"
-		"DOTA_Tooltip_ability_item_rpc_sacred_trials_armor"								"Sacred Trials Armor"
-		"DOTA_Tooltip_ability_item_rpc_heroic_conqueror_vestments"						"Heroic Conqueror Vestments"
-		"DOTA_Tooltip_ability_item_rpc_guard_of_feronia"								"Guard of Feronia"
-		"DOTA_Tooltip_ability_item_rpc_mystic_mana_wall"								"Mystic Mana Wall"
-		"DOTA_Tooltip_ability_item_rpc_vermillion_dream_robes"							"Vermillion Dream Robes"
-		"DOTA_Tooltip_ability_item_rpc_ancient_tanari_wind_armor"						"Ancient Tanari Wind Armor"
-		"DOTA_Tooltip_ability_item_rpc_blazing_fury_armor"								"Blazing Fury Armor"
-		"DOTA_Tooltip_ability_item_rpc_outland_stone_cuirass"							"Outland Stone Cuirass"
-		"DOTA_Tooltip_ability_item_rpc_direwolf_bulwark"								"Direwolf Bulwark"
+		
+		
 
     	"DOTA_Tooltip_ability_item_rpc_ruby_ring"										"Loop"
     	"DOTA_Tooltip_ability_item_rpc_ruby_ring_Description"							"Slot: Trinket"
@@ -715,53 +516,7 @@
     	"DOTA_Tooltip_ability_item_rpc_steel_ring_Description"							"Slot: Trinket"
     	"DOTA_Tooltip_ability_item_rpc_talisman"										"Talisman"
     	"DOTA_Tooltip_ability_item_rpc_talisman_Description"							"Slot: Trinket"
-    	"DOTA_Tooltip_ability_item_rpc_never_ring"										"Soul Ring"
-    	"DOTA_Tooltip_ability_item_rpc_never_ring_Description"							"Slot: Trinket"
-		"DOTA_Tooltip_ability_item_rpc_sand_tomb_orb"									"Fangs of Silithicus"
-		"DOTA_Tooltip_ability_item_rpc_sand_tomb_orb_Description"						"Slot: Trinket"
-		"DOTA_Tooltip_ability_item_rpc_badge_of_honor"									"Badge of Honor"
-		"DOTA_Tooltip_ability_item_rpc_monkey_paw"										"Monkey Paw"
-		"DOTA_Tooltip_ability_item_rpc_stone_of_gordon"									"Stone of Gordon"
-		"DOTA_Tooltip_ability_item_rpc_arbor_dragonfly"									"Arbor Dragonfly"
-		"DOTA_Tooltip_ability_item_rpc_gem_of_eternal_frost"							"Gem of Eternal Frost"
-		"DOTA_Tooltip_ability_item_rpc_lifesource_vessel"								"Lifesource Vessel"
-		"DOTA_Tooltip_ability_item_rpc_galaxy_orb"										"Galaxy Orb"
-		"DOTA_Tooltip_ability_item_rpc_azure_empire"									"Pendant of the Azure Empire"
-		"DOTA_Tooltip_ability_item_rpc_signus_charm"									"Signus Charm"
-		"DOTA_Tooltip_ability_item_rpc_eye_of_avernus"									"Eye of Avernus"
-		"DOTA_Tooltip_ability_item_rpc_tome_of_chaos"									"Tome of Chaos"
-		"DOTA_Tooltip_ability_item_rpc_torch_of_gengar"									"Torch of Gengar"
-		"DOTA_Tooltip_ability_item_rpc_ruinfall_skull_token"							"Ruinfall Skull Token"
-		"DOTA_Tooltip_ability_item_rpc_omega_ruby"										"Omega Ruby"
-		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"Raven Idol LV1"
-		"DOTA_Tooltip_ability_item_rpc_raven_idol2"										"Raven Idol LV2"
-		"DOTA_Tooltip_ability_item_rpc_phoenix_emblem"									"Phoenix Emblem"
-		"DOTA_Tooltip_ability_item_rpc_volcano_orb"										"Volcano Orb"
-		"DOTA_Tooltip_ability_item_rpc_aeriths_tear"									"Aerith's Tear"
-		"DOTA_Tooltip_ability_item_rpc_fractional_enhancement_geode"					"Fractional Enhancement Geode"
-		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility"								"Ring of Nobility"
-		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility_augmented"						"Augmented Ring of Nobility"
-		"DOTA_Tooltip_ability_item_rpc_twig_of_the_enlightened"							"Twig of the Enlightened"
-		"DOTA_Tooltip_ability_item_rpc_ancient_tanari_waterstone"						"Ancient Tanari Waterstone"
-		"DOTA_Tooltip_ability_item_rpc_tempest_falcon_ring"								"Tempest Falcon Ring"
-		"DOTA_Tooltip_ability_item_rpc_firelock_pendant"								"Firelock Pendant"
-		"DOTA_Tooltip_ability_item_rpc_antique_mana_relic"								"Antique Mana Relic"
-		"DOTA_Tooltip_ability_item_rpc_epsilons_eyeglass"								"Epsilon's Eyeglass"
-		"DOTA_Tooltip_ability_item_rpc_fenrirs_fang"									"Fenrir's Fang"
-		"DOTA_Tooltip_ability_item_rpc_fuchsia_ring"									"Fuchsia Ring"
-		"DOTA_Tooltip_ability_item_rpc_fortunes_talisman_of_truth"						"Fortune's Talisman of Truth"
-		"DOTA_Tooltip_ability_item_rpc_cobalt_serenity_ring"							"Cobalt Serenity Ring"
-		"DOTA_Tooltip_ability_item_rpc_emerald_nullification_ring"						"Emerald Nullification Ring"
-		"DOTA_Tooltip_ability_item_rpc_garnet_warfare_ring"								"Garnet Warfare Ring"
-		"DOTA_Tooltip_ability_item_rpc_serengaard_sun_crystal"							"Serengaard Sun Crystal"
-		"DOTA_Tooltip_ability_item_rpc_wind_orchid"										"Wind Orchid"
-		"DOTA_Tooltip_ability_item_rpc_aqua_lily"										"Aqua Lily"
-		"DOTA_Tooltip_ability_item_rpc_fire_blossom"									"Fire Blossom"
-		"DOTA_Tooltip_ability_item_rpc_ankh_of_the_ancients"							"Ankh of the Ancients"	
-		"DOTA_Tooltip_ability_item_rpc_aquastone_ring"									"Aquastone Ring"	
-		"DOTA_Tooltip_ability_item_rpc_world_trees_flower_cache"						"World Tree's Flower Cache"
-		"DOTA_Tooltip_ability_item_rpc_arcane_charm"									"Arcane Charm"
-		"DOTA_Tooltip_ability_item_rpc_winterblight_skull_ring"							"Winterblight Skull Ring"
+    	
 
     	"DOTA_Tooltip_ability_item_potion_green"										"Green Potion"
     	"DOTA_Tooltip_ability_item_potion_green_Description"							"Can be consumed for bonuses."
@@ -1119,7 +874,8 @@
 		"item_respawn_reduction"	"Respawn Reduction"
 
 
-		"item_unit_walking"			"Unit Walking"
+		"item_unit_walking"			"Unit Walking".
+		"property_unit_walking_description"			"Unit walking removes collision with other units"
 		"item_movespeed"			"Movespeed"
 		"item_max_movespeed"		"Max Movespeed"
 		"item_movespeed_slow"		"Movespeed Slow"
@@ -1150,89 +906,8 @@
 
 		"item_base_ability"			"Base Ability Damage %"
 
-		"item_property_steelbark"			"Steelbark Protection"
-		"property_steelbark_description"	"While below 40% Health gain 100HP regen and +40 armor."
+		
 
-		"item_property_berserker"				"Berserker Rage"
-		"property_berserker_rage_description"	"Landing an attack increases your attack damage by @special_property1x your level and increases attack speed by @special_property2 for @special_property3 seconds. Each stack makes you take @special_property4% extra damage from all sources.<br>Switching targets removes 25% of your stacks."
-
-		"DOTA_Tooltip_modifier_berserker_gloves_buff_visible"				"Berserker Rage"
-		"DOTA_Tooltip_modifier_berserker_gloves_buff_visible_Description"	"Increased attack damage and attack speed, and taking additional damage."
-
-		"item_property_shadow_armlet"			"Shadow Step"
-		"property_shadow_armlet_description"	"15% chance on taking damage to heal for the amount of the damage instance."
-
-		"item_property_boneguard"				"Raise Dead"
-		"property_boneguard_description"		"15% chance on attack to summon a skeleton warrior to fight by your side for 20 seconds. Max 5 skeletons."
-
-		"item_property_scorched_gauntlet"			"Scorched Ground"
-		"property_scorched_gauntlet_description"	"20% chance on attack to leave a burning patch that deals damage per second to all units in its radius equal to @special_property1% of attack power + @special_property2x armor. Upgrades at 4000."
-
-		"item_property_scorched_gauntlet_2"			"Scorched Earth"
-		"property_scorched_gauntlet_description_2"	"20% chance on attack to leave a burning patch that deals damage per second to all units in its radius equal to @special_property1% of attack power + @special_property2x armor. A stray flame jumps in a random direction from the target and deal @special_property3% of attack power in an area and stun for @special_property4 seconds and leave another pool of fire."
-
-		"item_property_pride"						"Rainbow Strike"
-		"property_pride_description"				"3% chance on attack to make you and your allies fabulous - Gain 50 armor - 20% magic resist - 100HP regen - 100 Mana Regen for 5 seconds."
-
-		"item_property_azinoth"						"Scourge of Azinoth"
-		"property_azinoth_description"				"Take 50% increased damage from all sources"
-
-		"item_property_divine_purity"				"Divine Purity"
-		"property_divine_purity_description"		"Attacks deal an additional 100% pure damage"	
-
-		"item_property_marauder"					"Hand of Marauder"
-		"property_marauder_description"				"Your physical damage ignores enemy armor."
-
-		"DOTA_Tooltip_modifier_hand_marauder_effect" "Marauder"
-		"DOTA_Tooltip_modifier_hand_marauder_effect_description" "Gaining Max Life and Health Regen"
-
-		"item_property_flooding"					"Water Elemental 1"
-		"property_flooding_description"				"When you finish casting @Ability4 - summon a Water Elemental that restores 5% of your max mana on attack for 12 seconds. Attacks deal AOE magic damage equal to 25x your intelligence.<br>When the elemental gets 5000 kills, the robe upgrades."
-
-		"item_property_flooding_2"					"Water Elemental 2"
-		"property_flooding_description_2"			"When you finish casting @Ability4 - summon a Water Elemental that restores 5% of your max mana on attack for 12 seconds. Attacks deal AOE magic damage equal to 30x your intelligence.<br>Also has a wave projectile that deals your attack power as magic damage."
-
-		"item_property_flooding_3"					"Water Elemental 3"
-		"property_flooding_description_3"			"When you finish casting @Ability4 - summon a Water Elemental that restores 5% of your max mana on attack for 12 seconds. Attacks deal AOE magic damage equal to 35x your intelligence.<br>Also has a wave projectile that deals your attack power as magic damage.<br>All damage dealt is considered Base Ability damage for @Ability4."
-
-		"item_property_avalanche"					"Avalanche"
-		"property_avalanche_description"			"When you finish casting @Ability4 - summon an avalanche that deals @special_property1x your strength every 0.2 seconds and stuns for 0.1 seconds in a 400 radius. All damage dealt directly by items is enhanced by @special_property3%<br>for each 10 points of strength. Each avalanche tick that hits an enemy increases this property by one.<br>Upgrades at 1500."
-
-		"item_property_avalanche_2"					"Mountain Quake"
-		"property_avalanche_description_2"			"When you finish casting @Ability4 - summon an avalanche that deals @special_property1x your strength every 0.2 seconds and stuns for 0.1 seconds in a 400 radius. Each enemy hit counts up to 20, at which point you create a massive earthquake that deals<br>@special_property2x strength to enemies in a 600 radius and stuns for 1.6 seconds.<br>All damage dealt directly by items is enhanced by @special_property3% for each 10 points of strength."
-
-		"item_property_violet_guard_armor"			"Violet Crusader"
-		"property_violet_guard_armor_description"	"Increases the damage of @Ability1 by 300%. Each time an enemy is hit by @Ability1, this property increases by 1. Upgrades at 20000."
-
-		"item_property_violet_guard_armor2"			"Violet Conqueror"
-		"property_violet_guard_armor_description2"	"Increases the damage of @Ability1 by 350%. 0.1% of The base ability damage of @Ability1 reduces the target's armor by 1 for 6 seconds. Cannot reduce a target's armor below 0."
-
-		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible"	"Violet Subjugation"
-		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible_Description"	"Reduced armor."
-
-		"item_property_seraphic_soulvest"			"Seraphic Lance"
-		"property_seraphic_soulvest_description"	"Every cast of @Ability2 also launches a Seraphic Lance from your chest armor at a random target in a large radius, dealing 50% of your attack damage times @Ability2 level as pure damage."
-
-		"item_property_watcher_one"					"Watcher I"
-		"property_watcher_one_description"			"Every cast of @Ability1 gives you a 25% chance to refresh the cooldown of @Ability4."
-
-		"item_property_watcher_two"					"Watcher II"
-		"property_watcher_two_description"			"Increases the damage of all base abilities by 15%."
-
-		"item_property_watcher_three"				"Watcher III"
-		"property_watcher_three_description"		"Increases the damage of @Ability2 by 35%."
-
-		"item_property_watcher_four"				"Watcher IV"
-		"property_watcher_four_description"			"Increases the damage of @Ability4 by 35%."
-
-		"item_property_sorcerers_regalia"			"Spellbinder"
-		"property_sorcerers_regalia_description"	"All Magic Damage output increased by 40%"
-
-		"item_property_spellslinger_coat"			"Spellslinger"
-		"property_spellslinger_coat_description"	"@Ability2 restores @special_property1% of its mana cost on use and deals 100% increased damage."
-
-		"item_property_doomplate"					"Summon Doom"
-		"property_doomplate_description"			"Casting @Ability4 summons Doombringer. He immediately dooms you on summon, silencing and disarming you, and then proceeds to combat enemies with pyroblasts that deal 1x Doombringer's attack damage, which is @special_property1x the caster's.<br> Lasts 30 seconds and has a 30 second cooldown. Armor and health increases with caster's."
 
 		"doomplate_doom"							"Doom"
 
@@ -1241,954 +916,443 @@
 		"DOTA_Tooltip_modifier_doomplate_doom_debuff"	"Doom"
 		"DOTA_Tooltip_modifier_doomplate_doom_debuff_Description"	"Can't attack and silenced."
 
-		"item_property_white_mage_hat"				"Cura"
-		"property_white_mage_hat_description"		"@Ability2 also restores HP for you and nearby allies, based on @special_property1x your intelligence. Whenever you heal yourself or an ally, this property increases by 1. Upgrades at 5000."
+		
 
-		"item_property_white_mage_hat_2"			"Curaga"
-		"property_white_mage_hat_2_description"		"@Ability2 also restores HP for you and nearby allies, based on @special_property1x your intelligence. Any over heal applies a shield that absorbs equivalent damage, up to 100% of target's max health. Base Ability damage is increased by @special_property2% for each 10 points of intelligence."
+		
 
-		"DOTA_Tooltip_modifier_white_mage_shield"	"White Mage Shield"
-		"DOTA_Tooltip_modifier_white_mage_shield_Description"	"Absorbing Damage"
+		
 
-		"item_property_hyper_visor"					"Hyper Lightning"
-		"property_hyper_visor_description"			"@special_property1% chance on attack to drop a lightning bolt on your target - dealing damage in a small AOE based on @special_property2x your attack power. Property counts up by 1 each time lightning strikes. Upgrades at @special_property3."
+		
 
-		"item_property_hyper_visor2"					"Hyper Lightning II"
-		"property_hyper_visor2_description"			"@special_property1% chance on attack to drop a lightning bolt on your target - dealing damage in a small AOE based on @special_property2x your attack power. Reduces your attack animation point by @special_property3 seconds.<br>All damage dealt directly by items is enhanced by @special_property4% for each 10 points of Agility."
+		
 
-		"item_property_ruby_dragon"					"Ruby Dragon"
-		"property_ruby_dragon_description"			"When you finish casting @Ability4 - summon a ruby dragon that breathes fire on enemies that deals @special_property1x your strength on impact and @special_property2x your strength every 0.5 seconds for 3 seconds as burn damage.<br>All damage dealt directly by items is enhanced by @special_property3% for each 10 points of strength."
+		
 
-		"item_property_centaur_horns"				"Rigidity"
-		"property_centaur_horns_description"		"Knockback and Stuns received are capped at 0.03 seconds. Damage instances taken are capped at @special_property1% of max health. Taking damage from any source other than Centaur Horns disables all healing for @special_property2 seconds. Take 1 pure damage every 0.03 seconds."
+		
 
-		"item_property_death_whisper"				"Death Whisper"
-		"property_death_whisper_description"		"All enemies struck by @Ability1 take 30% increased damage from all sources and are slowed by 100 for 5 seconds."
+		
 
-		"item_property_wild_nature"					"Entangling Roots"
-		"property_wild_nature_description"			"When attacked by an enemy - @special_property1% chance to root for @special_property2 seconds and deal @special_property3x your primary attribute in damage per second."
+		
 
-		"item_property_wild_nature_two"				"Ensnaring Roots"
-		"property_wild_nature_two_description"		"Enemies struck by @Ability2 have a @special_property1% chance to be rooted for @special_property2 seconds and take @special_property3x your primary attribute in damage per second."
+		
 
-		"item_property_luma"						"Moon Beams"
-		"property_luma_description"					 "<font color=\"#E4AE33\">ABILITY AUGMENT:</font> @Ability1 damage instances have a @special_property1% chance to be converted into lucent beams instead, dealing @special_property2% of the ability's damage and providing flying vision over the target for 4 seconds. This item caps your <font color=\"#C25DFC\">Cosmic</font> elemental damage bonus at 5000%."
+		
 
-		"item_property_odin"						"Zantetsuken"
-		"property_odin_description"					"All instances of damage dealt have a @special_property1% chance of dealing @special_property2x damage post-mitigation."
+		
 
-		"item_property_iron_colossus"				"Iron Colossus"	
-		"property_iron_colossus_description"		"Each point of strength increases your damage by @special_property1 and armor by @special_property2 and you grow by 15%. Your attack speed is forced at 100 and ranged attacks become melee. Attacks stun for 0.5 seconds, and deal an additional 50x physical damage. @Ability2 costs 1000 extra mana."
+		
 
-		"DOTA_Tooltip_modifier_iron_colossus"					"Iron Colossus"
-		"DOTA_Tooltip_modifier_iron_colossus_description"		"Attacks deal 50x physical damage, stun enemies for 0.5s and size increased. Attack speed locked at 100. Gain bonus damage and armor from strength."
+		
 
-		"item_property_mugato"						"Curse of Mugato"	
-		"property_mugato_description" 				"Casting any spell silences you for @special_property1s seconds, and attacking silences you for @special_property2 seconds. While silenced from any source, your post-mitigation damage is increased by @special_property3%."
+		
 
-		"item_property_swamp_witch"					"Murky Wave"
-		"property_swamp_witch_description"			"Each cast of @Ability2 also unleashes a swarm of bats in front of you - dealing @special_property1x your intelligence as damage. Enemies hit by the wave take @special_property2% increased post-mitigation damage for 8 seconds, stacking up to 10 times."
+		
 
-		"DOTA_Tooltip_modifier_witch_hat_damage_amp"	"Murky Wave"
-		"DOTA_Tooltip_modifier_witch_hat_damage_amp_Description"	"Taking 15% increased post-mitigation damage per stack."
+		
 
-		"item_property_trickster"					"Laughing Gas"
-		"property_trickster_description"			"Each cast of @Ability2 instantly moves you 380 units in a random direction. All damage instances are multiplied by a random factor of 0.5-2.5. Base Damage of @Ability2 is multiplied by a random factor of 0.1-6."
-
-		"item_property_emerald_douli"				"Mana Shield"
-		"property_emerald_douli_description"		"50% of damage taken is removed from Mana instead of Health. The damage taken from mana is reduced by 66%."
-
-		"item_property_tyrius"						"Might of Tyrius"
-		"property_tyrius_description"				"Each point of strength additionally increases your Health by 10 and your Max Mana by 4"
-
-		"item_property_ice_quill"					"Ice Quills"
-		"property_ice_quill_description"			"When you spend 600 mana, gain an ice quill stack. When you cast any ability or use an item, the stacks are released on a 0.1 second interval, restoring 1% of max mana and dealing 4x attack power in a 460 AOE with each strike. Will not trigger if a previous explosion of icicles is still resolving."
-
-		"DOTA_Tooltip_modifier_ice_quill_carapace_stack"	"Ice Quill Stack"
-		"DOTA_Tooltip_modifier_ice_quill_carapace_stack_Description"	"Cast an ability to release."
-
-		"item_property_featherwhite_armor"			"Ivory Gryffon"
-		"property_featherwhite_armor_description"	"A gryphon follows you always - healing you and all surrounding units for @special_property1% of their max health per second and reducing magic and pure damage taken by @special_property2%. The gryphon also has flying vision."
-
-		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect"	"Featherwhite Aura"
-		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect_Description"	"Magic and Pure damage reduced by %property_two%%%"
-
-		"item_property_dragon_ceremony"				"Beast of Ceremony"
-		"property_dragon_ceremony_description"		"A ceremonial beast follows you always - launching an attack every 0.8 seconds on up to 12 nearby enemies that deals damage equal to 12x your primary attribute"
-
-		"item_property_secret_temple"				"Refraction"
-		"property_secret_temple_description"		"After casting @Ability4 - gain a 7 charge refraction which blocks 7 instances of damage. While refraction is active - your attacks deal 2x damage."
-
-		"DOTA_Tooltip_modifier_secret_temple_refraction"				"Refraction"
-		"DOTA_Tooltip_modifier_secret_temple_refraction_description"	"Blocking damage instances. Attack damage doubled."
-
-		"item_property_hand_of_midas"				"Midas Touch"
-		"property_hand_of_midas_description"		"5% chance on atack to deal @special_property1x your attack damage as PURE in an area around the target and turn all enemies to solid gold - freezing them for 2 seconds. Max 1 freeze every 5 seconds."
-
-		"item_property_vampiric_breastplate"		"Vampiric Core"
-		"property_varmpiric_breastplate_description" "30% lifesteal on @Ability1"
-
-		"item_property_dark_arts"					"Dark Mastery"
-		"property_dark_arts_description"			"Increases your Agility by @special_property1% of your Intelligence."
-
-		"item_property_legion_vestments"			"Legion Command"
-		"property_legion_vestments_description"		"Increases Strength - Agility - and Intelligence by 30%"
-
-		"item_property_scarecrow"					"Replenishing Mind"
-		"property_scarecrow_description"			"Increases Mana Regen by 50% of your Intelligence"
-
-		"item_property_living_gauntlet"				"Nourishment"
-		"property_living_gauntlet_description"		"While below 25% mana - all damage taken is reduced by @special_property2% and health regen is increased by @special_property1% of max health."
-
-		"DOTA_Tooltip_modifier_living_gauntlet_effect"	"Nourishment"
-		"DOTA_Tooltip_modifier_living_gauntlet_effect_Description"	"All damage taken reduced by %property_two%%% and health regen increased by %property_one%%% of max health."
-
-		"item_property_master_gloves"				"Master's Teachings"
-		"property_master_gloves_description"		"Increases the damage of @Ability4 by 200%"
-
-		"item_property_phoenix_gloves"				"Perpetual Rebirth" 
-		"property_phoenix_gloves_description"		"Gain @special_property1 Health Regen for each missing point of health. Gain @special_property2 base attack damage for each current point of health."
-
-		"item_property_spirit_glove"				"Spirit Touch" 
-		"property_spirit_glove_description"			"A successful cast of @Ability4 restores health to yourself and all nearby allies equal to 6x your intelligence per second for 12 seconds."
-
-		"DOTA_Tooltip_modifier_spirit_glove_effect"	"Spirit Touch"
-		"DOTA_Tooltip_modifier_spirit_glove_effect_Description"	"Restoring health each second."
-
-		"item_property_frostburn_gauntlets"			"Frostburn"
-		"property_frostburn_gauntlets_description"	"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> Enemies hit by @Ability2 have their movement speed slowed by 100 for 4 seconds. Additionally, @Ability2's damage instances have a 20% chance to be converted into a frigid gust instead, dealing the ability's damage in a small area around the target."
-
-		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow"	"Frostburn"
-		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow_Description"	"Slowed"
-
-		"item_property_dunetread"					"Dunewalker"
-		"property_dunetread_description"			"Reduces the cooldown of @Ability3 by 2 seconds."
-
-		"item_property_violet_boot"					"Violet Light"
-		"property_violet_boot_description"			"When you cast @Ability3, fire 3 Violet Projectiles behind you that deal 20x your Agility to each affected target. Deals 60x damage to paragon enemies. Can only trigger once every 1 second."
-
-		"item_property_guardian_greaves"			"Guardian's Stride"
-		"property_guardien_greaves_description"		"Every 2500 units of distance moved buffs you and nearby allied heroes. 5x your Strength is restored as health, 5x your Intelligence is restored as mana, and every 10 Agility adds 1 armor for 4 seconds."
-
-		"DOTA_Tooltip_modifier_guardian_greaves_armor"					"Guardian Greaves"
-		"DOTA_Tooltip_modifier_guardian_greaves_armor_Description"		"Increased armor"
-
-		"item_property_tranquil_boots"				"Grove Roamer"	
-		"property_tranquil_boots_description"		"Heal @special_property1% of your max Health for every 200 units moved."
-
-		"item_property_mana_striders"				"Mana Stride"
-		"property_mana_striders_description"		"Restore @special_property1% of your max Mana for every 240 units moved."
-
-		"item_property_yasha"						"Combat Mastery Y"	
-		"property_yasha_description"				"Increase attack speed by 1 for every @special_property1 strength. Sets Base Attack Time to @special_property2s"
-
-		"item_property_fire_walkers"				"Blazing Trail"
-		"property_fire_walkers_description"			"Leaves puddles of burning fire as you move. The fire deals the sum of all of your attributes every 0.5 seconds to all enemies who come into contact. Enemies standing in the blazing puddles take<br>600% increased <font color=\"#EF4126\">Fire</font> damage from all sources."
-
-		"item_property_moon_techs"					"Moon Dust"
-		"property_moon_techs_description"			"When casting @Ability3, create a cloud of moon-dust that reduces enemies movespeed within by 50%. Enemies within the cloud take 1% increased damage for each point of movespeed below the caster's. Lasts 8 seconds."
-
-		"item_property_sonic_boots"					"Sonic Speed"
-		"property_sonic_boots_description"			"Casting @Ability3 increases attack speed by 200, movespeed by 25% and maximum movespeed to @special_property1 for 8 seconds. Additionally removes unit collision."
-
-		"DOTA_Tooltip_modifier_sonic_boots_effect"			"Sonic Speed"
-		"DOTA_Tooltip_modifier_sonic_boots_effect_Description"	"Increased attack speed, movespeed and max movespeed"	
-
-		"item_property_falcon_boot"					"Falcon Swoop"
-		"property_falcon_boot_description"			"5 falcons move with your @Ability3 and collect enemies in its path. At the end of their flight, the falcons drop all enemies in a small space and freeze them for 4 seconds."
-
-		"DOTA_Tooltip_modifier_falcon_freeze"		"Falcon Swoop"
-		"DOTA_Tooltip_modifier_falcon_freeze_Description"	"Frozen"
-
-		"property_unit_walking_description"			"Unit walking removes collision with other units"
-
-		"item_property_admiral_boots"				"Sea Commander"
-		"property_admiral_boots_description"		"Increases the damage of @Ability3 by 100%"
-
-		"item_property_rooted_feet"					"Deep Earthen Grip"
-		"property_rooted_feet_description"			"While standing still you have 2x armor, 3x health regen and take 50% reduced damage."
-
-		"item_property_monkey_paw"					"Wishful Curse"
-		"property_monkey_paw_description"			"Paragon monsters who die within 600 range drop additional Immortal rarity items, at the cost of @special_property1% of your gold. The difficulty level of the map increases the quality of the items dropped, but also increases the amount of gold needed to generate them (@special_property2/@special_property3/@special_property4 in Normal/Elite/Legend). Equipping this item causes you to take 1 point of Pure damage every 0.03 seconds."
+		
 
 		"item_all_runes"							"+ All T1-T3 Runes"
 		"item_all_attributes"						"+ All Attributes"
 
-		"item_property_arbor_dragonfly"				"Misty Wood's Blessing"
-		"property_arbor_dragonfly_description"		"Increases the duration of all friendly buffs that you apply from abilities, runes and glyphs by @special_property1%."
+		
 
-		"item_property_eternal_frost"				"Frost Nova"
-		"property_eternal_frost_description"		"Nearby enemies are slowed by 12 movespeed every 0.1 seconds. When their movespeed drops below 150 they are rooted for 4.5 seconds. When you cast @Ability3 - root all enemies in a 500 radius<br>in a case of ice for 2.5 seconds and deal damage equal to @special_property1x your intelligence.<br>All damage dealt directly by items is enhanced by @special_property2% for each 10 points of intelligence."
+		
 
-		"item_property_lifesource_vessel"			"Lifesource"
-		"property_lifesource_vessel_description"	"Each point of strength increases your health regen by 0.3"
+		
 
-		"item_property_galaxy_orb"					"Black Hole"
-		"property_galaxy_orb_description"			"While channeling @Ability4 - all surrounding enemies are slowly vacuumed towards you."
+		
 
-		"item_property_azure_empire"				"Sky Magistrate"
-		"property_azure_empire_description"			"3 azure hawks accompany you, absorbing 1 instance of magic or pure damage each. Hawks regenerate @special_property1 seconds after taking a hit."
+		
 
-		"item_property_azure_empire_silver"				"Silver Skies"
-		"property_azure_empire_silver_description"	"Each active hawk increases base ability damage by @special_property2%"
+		
 
-		"item_property_azure_empire_green"				"Jade Skies"
-		"property_azure_empire_green_description"	"Each active hawk increases agility by @special_property3x your hero's level."
+		
 
-		"item_property_azure_empire_red"				"Crimson Skies"
-		"property_azure_empire_red_description"	"Each active hawk increases strength by @special_property3x your hero's level."
+		
 
-		"item_property_azure_empire_blue"				"Cerulean Skies"
-		"property_azure_empire_blue_description"	"Each active hawk increases intelligence by @special_property3x your hero's level."
+		
 
-		"DOTA_Tooltip_modifier_azure_empire_visible"	"Azure Empire"
-		"DOTA_Tooltip_modifier_azure_empire_visible_Description"	"Hawks absorbing magic and pure damage."
+		
 
-		"item_property_signus"						"Signus"
-		"property_signus_description"				"Decreases cooldown of @Ability4 by 40%. Doubles the cooldown of @Ability3."
+		
 
-		"item_property_cerulean_highguard"			"Concentrated Mana"
-		"property_cerulean_highguard_description"	"@Ability2 costs @special_property1% more mana and deals @special_property2% increased damage."
+		
 
-		"item_property_super_ascendency"			"Super Ascension"
-		"property_super_ascendency_description"		"After casting @Ability4 - attacks gain 500 attack range - 100% attack damage - 240 attack speed and gain 100 movespeed. Attacks can hit 3 targets at once and each attack that hits reduces cooldown of @Ability4 by 0.05 seconds. Lasts 12 seconds."
+		
 
-		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"Super Ascension"
+		
 
-		"item_property_phantom_sorcerer"			"Phantom Gaze"
-		"property_phantom_sorcerer_description"		"@Ability2 deals @special_property1x increased base ability damage and has an extra 4 seconds added to cooldown."
+		
 
-		"item_property_arcane_cascade"				"Arcane Cascade"
-		"property_arcane_cascade_description"		"Drains @special_property1% of your max mana every @special_property2 seconds. All surrounding enemies take up to @special_property3x the mana drained as Magic Damage and also receive a -@special_property4 magic resistance debuff. Damage is reduced when hero is below max level."
+		
 
-		"item_property_samurai_helmet"				"Critical Strike"
-		"property_samurai_helmet_description"		"Your base attacks have a @special_property1% chance to deal @special_property2% increased damage. Additionally increases base attack damage by @special_property3x your level."
+		
 
-		"item_property_scourge_knight"				"Undead Command"
-		"property_scourge_knight_description"		"After casting @Ability4, summon 5 immobile skeleton archers who have 15% of your max health and 100% of your attack damage."
+		
 
-		"item_property_nightmare_rider"				"Shadow Melt"
-		"property_nightmare_rider_description"		"Casting @Ability1 releases a burst of shadow that slows all nearby enemies by 40% and reduces their current armor by 80% for 10 seconds. Also increases their post-mitigation damage taken by 200%. Attacking builds stacks that increase the radius by 50. Active stacks also increase <font color=\"#7F4F84\">Shadow</font> damage by 30%. Max 20 stacks."
+		
 
-		"DOTA_Tooltip_modifier_nightmare_rider_stacks"	"Nightmare Stacks"
-		"DOTA_Tooltip_modifier_nightmare_rider_stacks_Description"	"Each stack increases the radius of Shadow Melt and increases <font color=\"#7F4F84\">Shadow</font> damage by 30%%."
+		
 
-		"DOTA_Tooltip_modifier_nightmare_rider_effect_visible"	"Shadow Melt"
-		"DOTA_Tooltip_modifier_nightmare_rider_effect_visible_Description"	"Losing Movespeed and Armor, and taking increased post-mitigation damage"
+		
 
-		"item_property_space_tech"					"Gravity Bend"
-		"property_space_tech_description"			"While channeling @Ability4 - all surrounding enemies have their attack speed slowed by 160 and movespeed slowed by 50%. Slow effect sticks for 7 seconds. Additionally gain 35% attack damage each 0.3 seconds."
+		
 
-		"DOTA_Tooltip_modifier_space_tech_buff"					"Gravity Bend"
-		"DOTA_Tooltip_modifier_space_tech_buff_Description"		"Increased attack damage."
+		
 
-		"item_property_stormshield"					"Storm Shield"
-		"property_stormshield_description"			"Reduces ALL physical damage taken by 50%."
+		
 
-		"item_property_undertaker"					"Death Strike"
-		"property_undertaker_description"			"Your basic attacks also unleash a slow moving hand that deals magic damage equal to 30x your intelligence"
+		
 
-		"item_property_avernus"						"Commanding Vision"								
-		"property_avernus_description"				"Increases the damage of all base abilities by 50%"
+		
 
-		"item_property_mountain_vambraces"			"Craggy Shock"
-		"property_mountain_vambraces_description"	"Your attacks have a 15% chance (10% range) to stun units in a small area for 2 seconds and take @special_property1x your strength as magic damage. Enemies can not be stunned more than once every 4 seconds.<br>All damage dealt directly by items is enhanced by @special_property2% for each 10 points of strength."
+		
 
-		"item_property_eternal_night"				"Tranquilizer"
-		"property_eternal_night_description"		"Enemies who attack you have a 60% chance to be put to sleep for 6 seconds. Any source of damage wakes up a sleeping unit. For the first 1 second of sleep, the unit cannot be awoken."
+		
 
-		"item_property_cytopian_laser"				"Cytopian Laser"
-		"property_cytopian_laser_description"		"Casting @Ability2 also fires lasers at all surrounding enemies, dealing @special_property1x your intelligence times @Ability2 level as magic damage. Each successive hit deals 100% increased damage. Max @special_property2 stacks."
 
-		"DOTA_Tooltip_modifier_cytopian_stacks"		"Cytopian Laser"
-		"DOTA_Tooltip_modifier_cytopian_stacks_Description"	"Taking increased damage from lasers"	
+		
 
-		"item_property_power_ranger"				"Megaforce"
-		"property_power_ranger_description"			"Increases attack damage by 150%. All post-mitigation physical damage is enhanced by 200%"
+		
 
-		"item_property_druids_spirt"				"Feral Spirits"
-		"property_druids_spirit_description"		"While channeling @Ability4 - summon a Feral Spirit Wolf every 0.5 seconds which has 2x your attack damage, 25% of your health and 1x your armor. Feral Spirits last 16 seconds. Each wolf provides a stacking 15% attack damage buff."
+		
 
-		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect"	"Feral Spirit"
-		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect_Description"	"Increased attack damage from Spirit Wolves"
+		
 
-		"item_property_grand_arcanist"				"Master of Magic"
-		"property_grand_arcanist_description"		"Increases base ability damage by 0.3% for every 10 points of intelligence."
+		
 
-		"item_property_crusader_boots"				"Devotion Aura"
-		"property_crusader_boots_description"		"Gives armor to you and nearby allied heroes equal to 10% of your strength."
+		
 
-		"DOTA_Tooltip_modifier_devotion_aura_buff"  "Devotion Aura Effect"
-		"DOTA_Tooltip_modifier_devotion_aura_buff_Description"	"Gaining Armor"
+		
 
-		"item_property_gilded_soul"					"Siphon Soul"
-		"property_gilded_soul_description"			"Slain enemies' souls explode with light and heal you and nearby allies for 15% of their max health. They also increase your attack damage by @special_property1% and <font color=\"#F6FFB5\">Holy</font> damage by @special_property3% for 8 seconds, stacking up to 100 times. Stacks only lower by 1 at a time.<br>When an enemy's soul is collected, gain @special_property2 seconds of magic immunity."
+		
 
-		"DOTA_Tooltip_modifier_gilded_soul_buff"				"Gilded Soul Cage"
-		"DOTA_Tooltip_modifier_gilded_soul_buff_Description"	"Gaining attack damage and holy damage."
+		
 
-		"DOTA_Tooltip_modifier_gilded_soul_immunity" "Gilded Soul Magic Immunity"
+		
 
-		"item_property_arcanys_slipper"				"Arcane Rush"
-		"property_arcanys_slipper_description"		"After casting @Ability3 - release 3 poofs of arcane energy over 1.2 seconds. Each explosion drains @special_property1% of your max mana and adds base attack damage equal to @special_property2x the mana drained."
+		
 
-		"DOTA_Tooltip_modifier_arcanys_slipper_buff"	"Arcane Rush"
-		"DOTA_Tooltip_modifier_arcanys_slipper_buff_Description"	"Increased Attack Damage"
+		
 
-		"item_property_glint_of_onu"				"Flicker Strike"
-		"property_glint_of_onu_description"			"35% chance on attack to teleport behind your target and gain max attack speed for 0.8 seconds. Additionally perform 2 immediate bonus attacks on proc."
+		
 
-		"item_property_roknar_emperor"				"Enduring Protection"
-		"property_roknar_emperor_description"		"While stunned or getting knocked back, heal 12% of your max health every 0.25 seconds."
+		
 
-		"item_property_bluestar_armor"				"Mana Burst"
-		"property_bluestar_armor_description"		"Whenever you spend mana, heal health equal to the mana spent and quickly dash forward."
+		
 
-		"item_property_eternal_essence"				"Absorption"
-		"property_eternal_essence_description"		"Slain enemies heal you for 4% of their max health"
+		
 
-		"item_property_swamp_doctor"				"Voodoo Restoration"
-		"property_swamp_doctor_description"			"Heals you and nearby allies for 40% of the sum of your attributes every 0.5 seconds."
+		
 
-		"item_property_bladeforge"					"Rupture"
-		"property_bladeforge_description"			"Your basic attacks leave a stacking @special_property1 armor debuff on struck units for 6 seconds. Attacks have a 20% chance to make the enemy bleed for 3 seconds, taking @special_property2% of attack damage as magic damage every 0.5 seconds."
+		
 
-		"DOTA_Tooltip_modifier_bladeforge_debuff"	"Rupture"
-		"DOTA_Tooltip_modifier_bladeforge_debuff_Description"	"Losing 100 armor per stack."
+		
 
-		"DOTA_Tooltip_modifier_bladeforge_bleed"	"Rupture"
-		"DOTA_Tooltip_modifier_bladeforge_bleed_Description"	"Taking magic damage every 0.5s"
+		
 
-		"item_property_hermit_spike_shell"			"Quill Spray"
-		"property_hermit_spike_shell_description"	"When you take a total of 15% of your max health as damage, release quills that deal 30x the damage taken as physical to all surrounding enemies."
+		
 
-		"item_property_voyager"						"Voyager"
-		"property_voyager_description"				"When you cast @Ability3 - reduce the cooldowns of all other base abilities by 30% of their base cooldown."
+		
 
-		"item_property_tome_of_chaos"				"Infernal Reign"
-		"property_tome_of_chaos"					"When you cast @Ability2 - summon a mighty infernal in front of you and stun enemies for 2 seconds. The infernal has 2x your health, 0.5x your armor, and damage equal to 5x the sum of your attributes with cleave.<br> Lasts 20 seconds and has a 30 second cooldown."
+		
 
-		"DOTA_Tooltip_modifier_tome_of_chaos_cooldown"	"Infernal Reign Cooldown"
-		"DOTA_Tooltip_modifier_tome_of_chaos_cooldown_Description"	""
+		
 
-		"item_property_gengar"						"Shadow Walk"
-		"property_gengar"							"15% chance on taking damage to gain 75% evasion, unit walking and 300% increased ability damage for 6 seconds."
+		
 
-		"DOTA_Tooltip_modifier_torch_of_gengar_effect"	"Shadow Walk"
-		"DOTA_Tooltip_modifier_torch_of_gengar_effect_Description"	"75%% evasion, unit walking and 300%% increased ability damage."
+		
 
-		"item_property_infernal_prison"				"Immolation"
-		"property_infernal_prison_description"		"Enemies who attack you are engulfed in flames, losing 110 attack speed and taking 50x your armor as magic damage every 0.5 seconds. Nearby enemies lose 260 attack speed and take<br>100% attack power as magic damage every 0.5 seconds."
+		
 
-		"item_property_redrock"						"Fevering Footwork"
-		"property_redrock_description"				"When you cast @Ability3 - release 3 pulses of psychoactive heat over 1.5 seconds that force all nearby enemies to attack you for 5 seconds. Additionally gain 3x health and 50% damage resistance for the duration."
+		
 
-		"item_property_pathfinder"					"Purifying Resonance"
-		"property_pathfinder_description"			"After not taking damage for 7 seconds, restore 8% of your max health and 4% of your max mana every second."
+		
 
-		"item_property_neptune"						"Puddle Drifter"
-		"property_neptune_description"				"Issuing a move order adds a slippery effect that makes you run faster and slide."
+		
 
-		"item_property_enchanted_solar"				"Solar Flare"
-		"property_enchanted_solar_description"		"Taking any magic or pure damage increases Base Ability damage and Elemental Damage by 400% for 15 seconds."
+		
 
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect"				"Solar Flare"
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect_Description"	"All base ability damage and elemental damage increased 5x"
+		
 
-		"item_property_desert_necromancer"			"Reanimate Thorok"
-		"property_desert_necromancer_description"	"When you cast @Ability4 - summon Thorok for 10 seconds. He has 8x your attack damage, 4x your health and 1x your armor. If you summon him while below 40% health -<br>he will be enraged gaining 160 attack speed and 100 movement speed."
+		
 
-		"item_property_ruinfall"					"Sandstorm"
-		"property_ruinfall"							"When you fall below 25% health, go invisibile within a sandstorm and restore 20% of your max health for 5 seconds. While in sandstorm you are silenced, disarmed and rooted. 40 second cooldown."
+		
 
-		"DOTA_Tooltip_modifier_ruinfall_skull_token_cooldown" "Sandstorm Cooldown"
-		"DOTA_Tooltip_modifier_ruinfall_skull_token_cooldown_Description"	""
+		
 
-		"item_property_omega_ruby"					"Omega Flare"
-		"property_omega_ruby"						"Your basic attacks have an explosive @special_property1% magic damage AOE. Stacks with other forms of cleave."
+		
 
-		"item_property_dragon_greaves"				"Dragon Dance"
-		"property_dragon_greaves_description"		"For every 1200 units of distance moved, gain 85% evasion and 350% attack damage for 6 seconds."
+		
 
-		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect"	"Dragon Dance"
-		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect_Description" "85%% evasion and 350%% increased attack damage"
+		
 
+		
 
-		"item_property_ocean_tempest"				"Tidal Windstorm"
-		"property_ocean_tempest_description"		"Drain 40% of your max mana per second while channeling @Ability4. For every 100 mana drained, increase @Ability4 damage by 1.5%."
+		
 
-		"item_property_raven_idol"					"Black Soul"		
-		"property_raven_idol_description"			"Reduce damage taken from all sources by 40%. Your health can not go above 50% of your max. Each time you take damage, this property increases by 1. Upgrades at 12000."
+		
 
-		"item_property_raven_idol2"					"Black Soul II"		
-		"property_raven_idol_description2"			"Reduce damage taken from all sources by 50%. Your health can not go above 50% of your max. Each 100 points of missing health increases damage dealt directly by items by 0.01%."
+		 
 
-		"item_property_radiant_ruins"				"Endurance Aura"
-		"property_radiant_ruins_description"		"Increases the attack speed of you and all nearby allied units by 220 and movespeed by 120"
+		 
 
-		"DOTA_Tooltip_modifier_radiant_leather_aura_buff" "Endurance Aura"
-		"DOTA_Tooltip_modifier_radiant_leather_aura_buff_Description"	"Gaining Attack Speed"
+		 
 
-		"item_property_twilight_vestments"			"Shimmering Scales"
-		"property_twilight_vestments_description"	"When a single damage instance deals more than 20% of your max health, you are healed for 75% of the damage instance after 0.05 seconds."
+		 
 
-		"item_property_blackfeather"				"Vesper of Crows"	
-		"property_blackfeather_description"			"Every 4 seconds, summon a Crow Aspect that deals 5x your attack damage and lowers its target's armor by 40. Each crow lasts 10 seconds."
+		 
 
-		"item_property_wraith"						"Wraithtide"					
-		"property_wraith_description"				"Casting @Ability2 makes you disappear for 0.75seconds - unable to attack, cast spells, move or take damage. 2 second cooldown. Disjoints oncoming tracking projectiles."
+		
 
-		"DOTA_Tooltip_modifier_wraith_crown_cooldown"	"Wraithtide Cooldown"
+		 
 
-		"item_property_windsteel_armor"				"Fluttering Guard"
-		"property_windsteel_armor_description"		"Casting @Ability2 applies a shield that absorbs a number of damage instances equal to the Ability's level, increases evasion by 50% and increases movespeed by 100. Lasts @special_property1 seconds. @special_property2 second cooldown."
+		 
 
-		"DOTA_Tooltip_modifier_windsteel_effect"	"Fluttering Guard"
-		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"Absorbing 1 damage instance for each stack. Also gaining 35% evasion and 100 movespeed."
+		 	
 
-		"DOTA_Tooltip_modifier_windsteel_cooldown"	"Fluttering Guard Cooldown"
+		 
 
-		"item_property_phoenix_emblem"				"Rebirth"
-		"property_phoenix_emblem"					"On death, revive after 5 seconds and stun all surrounding enemies for 5 seconds. 60 second cooldown."
+		 
 
-		"DOTA_Tooltip_modifier_phoenix_emblem_cooldown"	"Rebirth Cooldown"
+		 	
 
-		"item_property_demon"						"Underworld Tear"
-		"property_demon_description"				"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> @Ability1 damage instances have a @special_property1% chance to be converted into an infernal spark instead, dealing @special_property2x the ability's damage in a large area around the target."
+		 
 
-		"item_property_umbral"						"Illusory Fog"
-		"property_umbral_description"				"Enemies damaged by @Ability2 lose armor equal to 70x the ability level, and take increased magic damage equal to 3% x ability level. Stacks up to 5 times. Lasts 10 seconds."
+		 
 
-		"DOTA_Tooltip_modifier_crest_of_the_umbral_sentinel_effect_visible" "Illusory Fog"
-		"DOTA_Tooltip_modifier_crest_of_the_umbral_sentinel_effect_visible_Description"	"Losing a %% of base physical armor and taking increased magic damage."
+		 
 
-		"item_property_ogthun"						"Savagery"
-		"property_ogthun_description"				"Slaying an enemy increases your max health by 40% of your strength and base ability damage by 2%. Stacks up to 100 times. Each stack lasts 9 seconds."
+		 
 
-		"DOTA_Tooltip_modifier_ogthun_visible" 				"Savagery"
-		"DOTA_Tooltip_modifier_ogthun_visible_Description"	"Increased Max Health and Base Ability Damage"
+		 
 
-		"item_property_silverspring_glove"			"Silverspring"
-		"property_silverspring_description"			"Your Attack Power is increased by @special_property1% of your Health Regen stat."
+		
 
-		"item_property_volcano_orb"					"Fiery Core"
-		"property_volcano_orb_description"			"Increases ALL magic damage output by @special_property1%"
+		
 
-		"item_property_farseer_glove"				"Spell Strike"
-		"property_farseer_description"				"Increases your base attack damage by 1% of the last instance of pre-mitigation Magic Damage that you dealt. Lasts 15 seconds and does not stack. Damage bonus is capped at 50x primary attribute."
+		 
 
-		"DOTA_Tooltip_modifier_far_seer_effect"				"Spell Strike"
-		"DOTA_Tooltip_modifier_far_seer_effect_Description"	"Attack Damage was Increased by last instance of Magic Damage"
+		 
 
-		"item_property_resplendent_rubber"					"Grounding"
-		"property_resplendent_rubber_description"			"Reduces ALL post-reduction magic damage taken by 35%"
+		
 
-		"item_property_skyforge"							"Flurry Aura"
-		"property_skyforge_description"						"Reduces all nearby enemies' damage output by 30%"
+		 
 
-		"DOTA_Tooltip_modifier_flurry_aura_debuff"				"Flurry Aura"
-		"DOTA_Tooltip_modifier_flurry_aura_debuff_Description"	"25%% reduced damage output"
+		 
 
-		"item_property_royal_wrist"								"Commanding Steel"
-		"property_royal_wrist_description"						"On taking damage, gain a stack of @special_property1% bonus attack damage. @Ability1 deals @special_property2% increased damage per stack, but removes all stacks on cast. Stacks up to 80 times."
+		 
 
-		"DOTA_Tooltip_modifier_royal_wristguards_stack_effect"	"Commanding Steel"
-		"DOTA_Tooltip_modifier_royal_wristguards_stack_effect_Description" "Increased attack and Q ability damage."
+		 
 
-		"item_property_bladestorm_vest"							"Bladestorm"
-		"property_bladestorm_vest_description"					"Attacking an enemy 10 times adds a Bladestorm stack. Each Bladestorm stack increases Attack Damage by @special_property1% and post-mitigation damage amp by @special_property2%. Casting any spell consumes a stack. Maximum 3 stacks."
+		 
 
-		"DOTA_Tooltip_modifier_bladestorm_vest_buff"			"Bladestorm"
-		"DOTA_Tooltip_modifier_bladestorm_vest_buff_Description"	"Gaining Post-Mitigation Damage and Base Ability damage."
+		 
 
-		"item_property_aeriths_tear"							"Last Wish"
-		"property_aeriths_tear"									"Reduces damage taken from enemies within 240 distance by @special_property1%"
+		
 
-		"item_property_carbuncle"								"Ruby Shell"
-		"property_carbuncle_description"						"When you cast @Ability3, gain a Magic Reflecting Shell that reduces magic damage taken to 0 and damages the enemy instead for @special_property1x the damage and stuns for @special_property2 seconds. Lasts for a duration equal to @special_property3% of the cooldown of the ability, or a Minimum of 1 second. Enemies who are affected are immune to Carbuncle again for @special_property4 seconds."
+		
 
-		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect"	"Ruby Shell"
-		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect_Description"	"Magic Damage taken reduced to 0 and reflected back at the caster dealing increased damage and stunning."
+		
 
-		"item_property_old_wisdom"								"Spell Variance"
-		"property_old_wisdom_description"						"Increases base ability damage by @special_property1%. Using the same ability twice in a row removes this effect for 12 seconds."
+		 
 
-		"DOTA_Tooltip_modifier_boots_of_old_wisdom_cooldown"				"Spell Variance Cooldown"
-		"DOTA_Tooltip_modifier_boots_of_old_wisdom_cooldown_Description"	"Used same spell twice in a row."
+		 
 
-		"item_property_grithault"								"Pain Reversal"
-		"property_grithault_description"						"24% chance on taking damage to heal for the amount of the damage instance instead of taking damage."
+		
 
-		"item_property_mageplate"								"Armored Magus"
-		"property_mageplate_description"						"Each 10 points of Intelligence increases Armor by 1. 5% of damage taken restores mana. Taking damage adds a stack of 5% base ability damage and @special_property1x your hero level of Intelligence for 15 seconds, up to a maximum of 100 stacks."
+		 
 
-		"DOTA_Tooltip_modifier_infused_mageplate_stack"			"Armored Magus"
-		"DOTA_Tooltip_modifier_infused_mageplate_stack_Description"	"Gaining ability damage and intelligence when taking damage."
+		 
 
-		"item_property_geode"								"Logarathmic Amplification"
-		"property_geode_description"						"If you deal damage less than 0.2% of the target's max health, multiply that damage instance by 20."
+		 
 
-		"item_property_nobility"							"Path of Nobility"
-		"property_nobility_description"						"Increases all attributes by @special_property1x your level. When an enemy is slain, this property counts up, and when it reaches 10,000 this ring upgrades."
 
-		"item_property_nobility_augmented"					"Strides of Nobility"
-		"property_nobility_augmented_description"			"Increases all attributes by @special_property1x your level."
+		 
 
-		"item_property_mordiggus"							"Blood Bane"
-		"property_mordiggus_description"					"Increases ALL damage output by @special_property1% for each missing percent of hp. Each spell cast drains 20% of max life, and each attack drains 7% of max life. Drained Health cannot be lethal."
+		
 
-		"item_property_ironbound_gloves"					"Ironfist"
-		"property_ironbound_gloves_description"				"Your base attack damage is increased by @special_property1x your armor."
+		
 
-		"item_property_wraith_hunter"						"Wraith Hunter"
-		"property_wraith_hunter_description"				"Your mana is empty by default and can only be restored by taking damage. 3% of damage taken restores mana. Each mana increases base damage by 5. Attacking drains 2% of your max mana. Additionally increases damage of @Ability2 by 350%."
+		 
 
-		"item_property_twig_of_enlightened"					"Mana Shell"
-		"property_twig_of_enlightened_description"			"Whenever you gain mana, create a shield that absorbs damage equal to 5x the mana gained. Shield damage absorbed is capped at 5x your maximum mana."
+		 
 
-		"DOTA_Tooltip_modifier_twig_of_the_enlightened_shield"	"Mana Shell"
-		"DOTA_Tooltip_modifier_twig_of_the_enlightened_shield_Description"	"Absorbing Damage"
+		 
 
-		"item_property_pure_waters"							"Clear Waves"
-		"property_pure_waters_description"					"When you cast @Ability3, restore 4% of your max mana and launch a trail of water that deals the greater of 10x your attack damage or 80x your intelligence as pure damage. Also slows movespeed by 30% for 4 seconds.<br>Can only trigger once every 1 second."
+		
 
-		 "item_property_sweeping_wind"						"Sweeping Winds"
-		 "property_sweeping_wind_description"				"When you cast @Ability3, gain a stack. Each stack grants +100% attack damage, and all nearby enemies take 50% of your attack damage as magic each second. Attacking consumes a stack. Max 5 stacks. Lasts 10 seconds."
+		 
 
-		 "DOTA_Tooltip_modifier_sweeping_wind_stackable"	"Sweeping Winds"
-		 "DOTA_Tooltip_modifier_sweeping_wind_stackable_Description"	"Each stack provides bonus attack damage and damages nearby enemies."
+		 
 
-		 "item_property_depth_crest"						"Crush"
-		 "property_depth_crest_description"					"@special_property1% chance when attacked to stun all nearby enemies for @special_property5 seconds and deal @special_property2x your strength + @special_property3x your armor. All damage dealt directly by items is enhanced by @special_property4% for each 10 points of strength while enemies are stunned."
+		 
 
-		 "item_property_terrasic_stone"						"Magma Break"
-		 "property_terrasic_stone_description"				"Post-mitigation damage is increased by 200% against stunned targets."
+		 
 
-		 "item_property_ancient_waterstone"					"Water Goddess' Blessing"
-		 "property_ancient_waterstone_description"			"Damage dealt directly by equipped items is increased by @special_property1%"
+		 
 
-		 "item_property_tempest_falcon"						"Storm Switch"
-		 "property_tempest_falcon_description"				"Dealing an instance of physical damage applies a buff that enhances your next instance of magic damage by 300%"
+		
 
-		 "DOTA_Tooltip_modifier_tempest_falcon_ring_effect"	"Storm Switch"
-		 "DOTA_Tooltip_modifier_tempest_falcon_ring_effect_Description"	"Next instance of magic damage deals 300%% more."
+		
 
-		 "item_property_firelock"							"Steady Flame"		
-		 "property_firelock_description"					"Increases ALL physical damage by @special_property1% for every 10 points of strength."
+		 
 
-		 "item_property_watermage"							"Wave Burst"
-		 "property_watermage_description"					"While channeling @Ability4, fire massive waves in all directions, dealing the sum of 7x your attack damage and 30x your intelligence as magic damage per wave. Additionally slows movespeed by 50%. Enemies who are slowed take 100% increased post-mitigation damage from the caster."
+		 
 
-		 "DOTA_Tooltip_modifier_water_mage_slow"			"Wave Burst Slow"
-		 "DOTA_Tooltip_modifier_water_mage_slow_Description"	"Reduced Movementspeed"	
+		 
 
-		 "item_property_halcyon_soul"						"Tempered Balance"
-		 "property_halcyon_soul_description"				"All attributes further increase base attack damage by @special_property1. Additionally, all basic stat bonuses are amplified by @special_property2%."
-
-		 "item_property_gold_war_plate"						"Heroic Valor"
-		 "property_gold_war_plate_description"				"Increases ALL physical damage output by @special_property1%. -65% magic damage output."
-
-		 "item_property_hood_of_defiler"					"Corruption"
-		 "property_hood_of_defiler_description"				"Enemies hit by @Ability2 receive a debuff that reduces CURRENT armor by 15%, and additionally take 25% increased physical damage from all sources. Stacks up to 5 times and lasts 9 seconds. Increases attack damage by 0.5% for each target hit, up to 100 stacks."
-
-		 "DOTA_Tooltip_modifier_hood_of_defiler_effect_visible"	"Corruption"
-		 "DOTA_Tooltip_modifier_hood_of_defiler_effect_visible_Description"	"Reduced Armor, and taking increased physical damage."
-
-		 "DOTA_Tooltip_modifier_hood_of_defiler_buff"			"Corruption"
-		 "DOTA_Tooltip_modifier_hood_of_defiler_buff_Description"	"Increased attack damage."	
-
-		 "item_property_excavator"							"Enhance Gear"
-		 "property_excavator_description"					"Damage dealt directly by equipped items is increased by 0.5% for each 10 Intelligence."
-
-		 "item_property_terrasic_lava"						"Magma Tread"
-		 "property_terrasic_lava_description"				"Allows you to freely walk on lava in Tanari Jungle. Touching lava increases attack damage by 100% and attack range by 150 for 7 seconds."
-
-		 "DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect"	"Magma Tread"
-		 "DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect_Description"	"Increased attack damage and attack range."
-
-		 "item_property_gold_plate_of_leon"						"Gallant Hero"
-		 "property_gold_plate_of_leon_description"				"Increases your Primary Attribute by @special_property1%"
-
-		 "item_property_knight_crusher"						"Overpower"
-		 "property_knight_crusher_description"				"Increases the duration of all your basic stuns by 50%, and stun durations are considered 50% shorter when added to creature stun immunity counter."
-
-		 "item_property_stormcrack"							"Stormcrack"
-		 "property_stormcrack_description"					"When you stun an enemy, deal 1x your attack power plus 10x the sum of your attributes as magic damage. Each time it deals damage, this property counts up by 1.<br>Upgrades at 4000."
-
-		 "item_property_stormcrack2"						"Stormcrack II"
-		 "property_stormcrack2_description"					"When you stun an enemy, deal @special_property1x your attack power plus @special_property2x the sum of your attributes as magic damage. Increases the duration of all stuns by 35%."
-
-		 "item_property_antique_mana_relic"					"Mana Storm"
-		 "property_antique_mana_relic_description"			"@Ability1 drains 50% of your max mana and deals 400% increased damage. Attacks restore 2.5% of max mana. Each point of current mana adds 1 base attack damage."
-
-		 "item_property_ablecore_greaves"					"Slugfoot"
-		 "property_ablecore_greaves_description"			"While movespeed is equal to or less than 300, incoming damage is reduced by 80% and outgoing damage is increased by 150%. The buff sticks for 6 seconds if your movespeed moves back above 300."
-
-		 "DOTA_Tooltip_modifier_ablecore_greaves_effect"	"Slugfoot"
-		 "DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"Incoming damage reduced by 80%% and outgoing damage increased by 150%%"
-
-		 "item_property_forgotten_ghost"					"Afterburn"
-		 "property_forgotten_ghost_description"				"All damage over time debuffs deal 240% increased damage."
-
-		 "item_property_topaz_dragon"						"Yellow Scale"
-		 "property_topaz_dragon_description"				"Each point of Agility increases attack damage by @special_property1 and armor by @special_property2"
-
-		 "item_property_sapphire_dragon"					"Blue Scale"
-		 "property_sapphire_dragon_description"				"Each point of Intelligence increases attack damage by @special_property1 and armor by @special_property2"
-
-		 "item_property_ruby_dragon_armor"					"Red Scale"
-		 "property_ruby_dragon_armor_description"			"Each point of Strength increases attack damage by @special_property1 and armor by @special_property2"
-
-		 "item_property_giant_hunter_boot"					"Giant Hunter"
-		 "property_giant_hunter_boot_description"			"When stunned or rooted, gain magic immunity for @special_property1 seconds."
-
-		 "DOTA_Tooltip_modifier_giant_hunters_immunity"		"Giant Hunter Magic Immunity"
-
-		 "item_property_spiritual_empowerment"				"Spiritual Empowerment"
-		 "property_spiritual_empowerment_description"		"Every 6 seconds gain a stack of Spiritual Empowerment. Each stack adds @special_property1% base ability damage. Casting a spell consumes a stack. Max 10 stacks."
-
-		 "DOTA_Tooltip_modifier_spiritual_empowerment_stack"	"Spiritual Empowerment"
-		 "DOTA_Tooltip_modifier_spiritual_empowerment_stack_Description"	"Each stack providing %property_one%%% base ability damage."
-
-		 "item_property_black_mage"							"Black Magic"
-		 "property_black_mage_description"					"All magic damage is increased by 280%. Damage dealt directly from items is reduced by 80%"
-
-		 "item_property_sacred_trials"						"Combat Trial"
-		 "property_sacred_trials_description"				"Casting @Ability2 applies a buff that makes your next attack deal @special_property1% damage as magic in an area."
-
-		 "DOTA_Tooltip_modifier_sacred_trials_attack_bonus"	"Combat Trial"
-		 "DOTA_Tooltip_modifier_sacred_trials_attack_bonus_Description"	"Next attack deals %property_one%%% magic damage in a small AOE."
-
-		 "item_property_gravekeeper_gauntlet"				"Gravekeeper"
-		 "property_gravekeeper_gauntlet_description"		"Successive attacks on the same target deal an additional stacking 10% damage, and drain 3 movespeed. Changing attack targets restarts the effect."
-
-		 "DOTA_Tooltip_modifier_gravekeeper_gauntlet_target"	"Grave Target"
-		 "DOTA_Tooltip_modifier_gravekeeper_gauntlet_target_Description"	"Losing movespeed and taking additional damage with each stack."	
-
-		 "DOTA_Tooltip_modifier_gravekeeper_gauntlet_buff"	"Gravekeeper"
-		 "DOTA_Tooltip_modifier_gravekeeper_gauntlet_buff_Description"	"Increased movespeed and dealing additional damage with each attack."
-
-		 "item_property_stone_falcon"						"Gift of the Reliquary"
-		 "property_stone_falcon_description"				"Instances of Magic or Pure damage taken can not exceed 35% of max health."
-
-		 "item_property_epsilon_eyeglass"					"Extended Scope"
-		 "property_epsilon_eyeglass_description"			"Increases attack range by @special_property1 (RANGE ONLY) and increases vision radius by @special_property2, and adds @special_property3 to your attack projectile's speed. Additionally, each of your attacks deals an instance of physical damage based on the distance between you and your target.<br>(Formula: 0.00@special_property4 * hero level * distance ^ 3)<br>The maximum distance allowed for the bonus damage is @special_property5."
-
-		 "item_property_autumn_sleeper"						"Wild Overgrowth"
-		 "property_autumn_sleeper_description"				"Enemies that come within 900 range of you are immediately rooted for 3 seconds. Casting @Ability4 roots all enemies in a 1200 radius for 4 seconds."
-
-		 "DOTA_Tooltip_modifier_autumn_sleeper_root"		"Wild Overgrowth"
-		 "DOTA_Tooltip_modifier_autumn_sleeper_root_Description"	"Rooted"
-
-		 "item_property_eye_of_seasons"						"Crimson Solstice"
-		 "property_eye_of_seasons_description"				"Increases Strength and Agility by @special_property1% of Intelligence."
-
-		 "item_property_redfall_runners"					"Crackling Leaves"
-		 "property_redfall_runners_description"				"Casting @Ability3 applies a buff that increases the damage of @Ability2 by 20x. Lasts 7 seconds and is removed on cast."
-
-		 "DOTA_Tooltip_modifier_redfall_runners_buff"		"Crackling Leaves"
-		 "DOTA_Tooltip_modifier_redfall_runners_buff_Description"	"W Ability damage increased by 20x"
-
-		 "item_property_fenrir_fang"							"Alpha Wolf Aura"
-		 "property_fenrir_fang"									"Increases attack damage of yourself and nearby allies by 60%"
-
-		 "DOTA_Tooltip_modifier_fenrir_fang_buff"				"Alpha Wolf Aura"
-		 "DOTA_Tooltip_modifier_fenrir_fang_buff_Description"	"Increased attack damage"
-
-		 "item_property_boots_of_ashara"						"Autumnwood Charm"
-		 "property_boots_of_ashara_description"					"@Ability3 deals @special_property1x increased base ability damage while health is less than or equal to @special_property2%"
-
-		 "item_property_autumnrock_bracer"						"Fissure"
-		 "property_autumnrock_bracer_description"				"10% chance when taking damage to create an explosive fissure towards the damage source. The fissure stuns for 2 seconds and deals @special_property1x your strength as magic damage.<br>All damage dealt directly by items is enhanced by @special_property2% for each 100 points of current health."
-
-		 "item_property_guard_of_feronia"						"Shield of Dawn"
-		 "property_guard_of_feronia_description"				"Applies a Shield for 1.5 seconds when casting @Ability3 and 3.5 seconds when casting @Ability4 that reduces all damage taken by 95%"
-
-		 "item_property_fuchsia_ring"							"Solidarity"
-		 "property_fuchsia_ring_description"					"While silenced or stunned all damage taken is reduced by @special_property1% and health regen is increased by @special_property2% of max health."
-
-		 "DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"Solidarity"
-		 "DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"Damage taken reduced by %property_one%% and health regen increased by %property_two%% of max health."
-
-		 "item_property_helm_of_silent_templar"					"Silent Watch"
-		 "property_helm_of_silent_templar_description"			"Casting @Ability4 silences you for @special_property1 seconds. During this time attack speed is increased by @special_property2 and attacks deal an additional @special_property3% magic damage."
-
-		 "DOTA_Tooltip_modifier_helm_of_silent_templar_effect"	"Silent Watch"
-		 "DOTA_Tooltip_modifier_helm_of_silent_templar_effect_Description"	"Silenced. +240 attack speed and attacks deal an additional 600% magic damage."
-
-		 "item_property_mystic_mana_wall"						"Magic Block"
-		 "property_mystic_mana_wall_description"				"All magic or pure damage taken is reduced by 75% and taken from mana instead of health, if there is enough mana. Every 30 current mana points adds 1 armor."
-
-		 "item_property_sandstream_slippers"					"Sandstream"
-		 "property_sandstream_slippers_description"				"Every 12 seconds gain a Sandstream stack. Each stack removes the cooldown on @Ability3. Max 2 stacks."
-
-		 "DOTA_Tooltip_modifier_sandstream_slippers_stack"		"Sandstream Stacks"
-		 "DOTA_Tooltip_modifier_sandstream_slippers_stack_Description"	"Removes the cooldown on E ability. Using E ability consumes a stack."
-
-		 "item_property_malachite_shade"						"Verdant Flow"
-		 "property_malachite_shade_description"					"Mana and Health Regen is increased by 15% of your Agility. Base attack damage is increased by 100% of your health regen and mana regen."
-
-		 "item_property_wind_deity"							"Wrath of Wind"
-		 "property_wind_deity_description"						"Immediately perform an attack with all of its procs on enemies hit by @Ability3. Max @special_property2 attacks per @special_property1 seconds. Each enemy hit increases attack damage by 2% for 30 seconds, but resets on cast of @Ability3."
-
-		 "DOTA_Tooltip_modifier_wind_deity_damage_buff"					"Wind Deity"
-		 "DOTA_Tooltip_modifier_wind_deity_damage_buff_Description"		"Increased attack damage"
-
-		 "item_property_water_deity"							"Wrath of Water"
-		 "property_water_deity_description"						"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> All @Ability4 damage instances are now converted into divine cascades instead, dealing 100% of the ability's damage and slowing the enemy's movement speed by 60% for 6 seconds. This item caps your <font color=\"#3894FF\">Water</font> elemental damage bonus at 5000%."
-		 "DOTA_Tooltip_modifier_water_deity_crown_slow"					"Wrath of Water"
-		 "DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"Movement slowed"
-
-		 "item_property_fire_deity"							"Wrath of Fire"
-		 "property_fire_deity_description"					"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> @Ability2 damage instances have a @special_property1% chance to be converted into pyroclastic blasts instead, dealing @special_property2% of the ability's damage and stunning enemies for 0.6 seconds in a small area around the target. This item caps your <font color=\"#EF4126\">Fire</font> elemental damage bonus at 5000%."
-
-		 "item_property_skulldigger1"						"Wraithfire I"
-		 "property_skulldigger1_description"				"Gain wraithfire stacks each @special_property1 seconds. When attacked, launch a wraithfire blast at the target that deals @special_property3x your attack damage on impact and stuns for @special_property4 seconds. Max @special_property2 stacks.<br>Enemies who are hit by wraithfire increase this property by 1 and upgrades at 4000."
-
-		 "item_property_skulldigger2"						"Wraithfire II"
+		  "item_property_skulldigger2"						"Wraithfire II"
 		 "property_skulldigger2_description"				"Gain wraithfire stacks each @special_property1 seconds. When attacked, launch a wraithfire blast at the target that deals @special_property3x your attack damage on impact and stuns for @special_property4 seconds. Max @special_property2 stacks.<br>Enemies who are hit by wraithfire increase this property by 1 and upgrades at 8000."
+
+		 
 
 		 "item_property_skulldigger3"						"Wraithfire III"
 		 "property_skulldigger3_description"				"Gain wraithfire stacks each @special_property1 seconds. When attacked, launch a wraithfire blast at the target that deals @special_property3x your attack damage on impact and stuns in a small AOE for @special_property4 seconds. Max @special_property2 stacks."
 
-		 "item_property_skulldigger"						"Wraithfire"
-		 "property_skulldigger_description"					"Gain wraithfire stacks each @special_property1 seconds. When attacked, launch a wraithfire blast at the target that deals @special_property3x your attack damage on impact and stuns in a small AOE for @special_property4 seconds. Max @special_property2 stacks."
-
-		 "DOTA_Tooltip_modifier_skulldigger_hellfire_stacks"	"Wraithfire"
-		 "DOTA_Tooltip_modifier_skulldigger_hellfire_stacks_Description"	"When taking damage, launch a wraithfire blast at the attacker."
-
-
-		 "item_property_crimsyth_elite_1"						"Crimsyth Elite I"
-		 "property_crimsyth_elite_1_description"				"Increases armor by @special_property1x your hero level. Upon casting an ability, lose the armor and gain a @special_property2 magic resist shield for @special_property3 seconds. Whenever you take a non-lethal instance of damage<br>that is greater than 50% of your max health, this attribute counts up.<br>Upgrades at @special_property4."
-
-		 "item_property_crimsyth_elite_2"						"Crimsyth Elite II"
-		 "property_crimsyth_elite_2_description"				"Increases armor by @special_property1x your hero level. Upon casting an ability, lose the armor and gain a @special_property2 magic resist shield for @special_property3 seconds. Whenever you take a non-lethal instance of damage<br>that is greater than 75% of your max health, this attribute counts up.<br>Upgrades at @special_property4."
-
-		 "item_property_crimsyth_elite_3"						"Crimsyth Elite III"
-		 "property_crimsyth_elite_3_description"				"Increases armor by @special_property1x your hero level. Upon casting an ability, lose the armor and gain a @special_property2 magic resist shield for @special_property3 seconds."
-
-		 "DOTA_Tooltip_modifier_crimsyth_elite_greaves_armor"	"Crimsyth Elite Armor"
-		 "DOTA_Tooltip_modifier_crimsyth_elite_greaves_magic_shield"	"Crimsyth Elite Magic Shield"
-
-		 "item_property_fortune_talisman"						"Luck Booster"
-		 "property_fortune_talisman_description"				"Increases the proc chance of all equipped items by @special_property1%"
-
-		 "item_property_vermillion_dream_robes"					"Luminous Expanse"
-		 "property_vermillion_dream_robes_description"			"Increases the cast range of your base abilities by @special_property1"
-
-		 "item_property_boots_of_great_fortune"					"Additional Luck"
-		 "property_boots_of_great_fortune_description"			"Adds a flat @special_property1% chance on your items to proc their special effect."
-
-		 "item_property_emerald_null"							"Emerald Nullification"
-		 "property_emerald_null_description"					"Instances of Pure or Magic damage taken are reduced by @special_property1x your agility after magic resist and before other reductions."
-
-	     "item_property_garnet_warfare"							"Garnet Warfare"
-		 "property_garnet_warfare_description"					"Increases base ability damage by @special_property1% for every 10 points of Strength."
-
-		 "item_property_cobalt_serenity"						"Cobalt Serenity"
-		 "property_cobalt_serenity_description"					"Health Regen is increased by @special_property1% of Intelligence."
-
-		 "item_property_ethereal_revenant"						"Revenant Link"
-		 "property_ethereal_revenant_description"				"Enemies hit by @Ability2 have a @special_property1% chance to be linked by a beam of electricity. Linked enemies deal @special_property2% reduced damage to you and you deal @special_property3x increased damage to them. Lasts @special_property4 seconds."
-
-		 "DOTA_Tooltip_modifier_ethereal_revenant_link"			"Revenant Link"
-		 "DOTA_Tooltip_modifier_ethereal_revenant_link_Description"	"Taking increased damage and dealing reduced damage to the link creator."
-
-		 "item_property_crimson_skull_cap"						"Corpse Explosion"
-		 "property_crimson_skull_cap_description"				"Slain enemies explode and deal @special_property1% of their max health to surrounding enemies as magic damage."
-
-		 "item_property_lords"									"Commanding Sight"
-		 "property_lords_description"							"Ability cooldowns are reduced by @special_property1 seconds and have @special_property2 extra cast range. Abilities begin their cast before fully turning towards the target."
-
-		 "item_property_spellfire"								"Spellfire"
-		 "property_spellfire_description"						"Cast rate is increased by @special_property1%."
-
-		 "item_property_bloodstone_boots"						"Vital Mobility"
-		 "property_bloodstone_boots_description"				"While below @special_property1% health, @Ability3 has a 1 second cooldown."
-
-		 "item_property_igneous_canine"							"Lava Splash"
-		 "property_igneous_canine_description"					"Casting @Ability2 stuns all nearby enemies for @special_property4 seconds times ability level, and leaves a pool of lava that slows movespeed by @special_property2 and attack speed by @special_property1. Enemies in the lava take @special_property3x your attack damage each 0.5 seconds."
-
-		 "item_property_temporal_warp"						"Time Warp"
-		 "property_temporal_warp_description"				"Casting @Ability3 resets mana, health, position, and cooldowns (except @Ability3) to what they were at 4 seconds ago."
-
-		 "DOTA_Tooltip_modifier_temporal_warp_cooldown"		"Time Warp Cooldown"
-
-		 "item_property_aqua_lily"							"Water Bloom"
-		 "property_aqua_lily_description"					"Every point in R4 rune increases Intelligence by @special_property1."
-
-		 "item_property_fire_blossom"							"Fire Bloom"
-		 "property_fire_blossom_description"					"Every point in W4 rune increases Strength by @special_property1."
-
-		 "item_property_wind_orchid"							"Wind Bloom"
-		 "property_wind_orchid_description"						"Every point in E4 rune increases Agility by @special_property1."
-
-		 "item_property_ankh_of_ancients"						"Immortal Spirit"
-		 "property_ankh_of_ancients_description"				"On taking a fatal blow, gain a shield for @special_property1 seconds that reduces all damage taken by 100% and grants stun immunity and refreshes all cooldowns. @special_property2x of duration cooldown. Max duration cannot be more than @special_property3 seconds."
-		
-		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield"		"Immortal Spirit"
-		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield_Description"	"Immune to damage and stuns"
-
-		 "DOTA_Tooltip_modifier_ankh_of_ancients_cooldown"		"Ankh Cooldown"
-
-		 "item_property_alarana"								"Ice Block"
-		 "property_alarana_description"							"Casting @Ability4 encases you in ice, rooting you and reducing all damage taken by 100% and increasing magic damage by @special_property4% for @special_property1 seconds. If total damage blocked exceeds @special_property2x your Max Health, the shield shatters. On shattering, root all nearby enemies and deal damage equal to @special_property3x your Max Health."
-		
-		 "DOTA_Tooltip_modifier_alarana_ice_freeze"				"Ice Block"
-
-		 "DOTA_Tooltip_modifier_alarana_frost_nova"				"Frost Nova"
-		 "DOTA_Tooltip_modifier_alarana_frost_nova_Description"	"Rooted"	
-
-		 "item_property_tanari_wind_armor"						"Zephyr"
-		 "property_tanari_wind_armor_description"				"Enemies within 500 radius have their movespeed reduced by 80%, have their attack slowed by 100 and have 30% miss chance."
 		
 
-		"item_property_shadowflame_fist"						"Vacant Shade"
-		"property_shadowflame_fist_description"					"Mana is capped at @special_property1% of max. Base Damage of @Ability2 is increased by @special_property2%."
+		 
 
-		"item_property_blazing_fury_armor"						"Blazing Fury"
-		"property_blazing_fury_description"						"Increases Strength and Intelligence by @special_property1% of Agility."
+		
+
+		 
+
+		 
+
+
+		 
+
+		
+
+		 
+
+		
+
+		
+
+		 
+
+		 
+
+		 
+
+	     
+
+		 
+
+		 
+
+		 
+
+		 
+
+
+		 
+
+		 
+
+		 
+		 
+
+		 
+
+		 
+
+		 
+
+		 
+
+		 	
+
+		 
+		
+
+		
+
+		
 
 		"item_t1_runes"											"All T1 Runes"
 		"item_t2_runes"											"All T2 Runes"
 		"item_t3_runes"											"All T3 Runes"
 		"item_t4_runes"											"All T4 Runes"
 
-		"item_property_emerald_speed"							"Stable Pace"
-		"property_emerald_speed_description"					"Movespeed can not fall below 550"
-
-		"item_property_burning_spirit"							"Flamethrower"
-		"property_burning_spirit_description"					"While channeling @Ability4, a steady stream of flames fires forward dealing @special_property1% of attack damage with each damage tick. Each enemy hit reduces the current cooldown of @Ability4 by @special_property2 seconds."
 		
-		"item_property_aquasteel"								"Waterburst"
-		"property_aquasteel_description"						"@special_property1% on taking damage to release a jet of water towards the attacking unit, dealing damage equal to @special_property2x attack power + @special_property3x armor, and stunning for @special_property4 seconds."
+
 		
-		"item_property_demonfire"								"Demon Flame"
-		"property_demonfire_description"						"Landing an attack adds a stack of Demon Flame which increases all elemental damage by @special_property1%. When the buff ends, the 4 closest enemies within a 1000 radius are damaged by @special_property2% of attack damage times the number of stacks. Max @special_property3 stacks."
 		
-		"DOTA_Tooltip_modifier_demonfire_stack"					"Demon Flame"
-		"DOTA_Tooltip_modifier_demonfire_stack_Description"		"Each stack increases elemental damage by 30%%"
+		
+		
+		
+		
+		
 
-		"item_property_outland_stone"							"Blast Fusion"
-		"property_outland_stone_description"					"Increases the damage of @Ability1 by @special_property2%, but stuns self for @special_property1 seconds on cast."
+		
 
-		"item_property_world_trees_flower_cache"				"Blood Orchid"
-		"property_world_trees_flower_cache_description"			"On taking lethal damage, you are reborn from a flower after 3 seconds with full health. Upon emerging, you receive a buff that increases post-mitigation damage by 200% but increases all damage taken by 200% for 12 seconds. 12 second cooldown."
+		
 
-		"DOTA_Tooltip_modifier_world_tree_cache_cooldown"		"Blood Orchid Cooldown"
-
-		"DOTA_Tooltip_modifier_world_tree_effect"				"Blood Orchid"
-		"DOTA_Tooltip_modifier_world_tree_effect_Description"	"Post-mitgation damage dealt and damage taken increased by 200%%"
-
-		"item_property_red_october"								"Mobilus Shield"
-		"property_red_october_description"						"While @Ability3 is on cooldown, all damage taken is reduced by @special_property1%."
+		
 
 		//Seafortress Items:
 		//NOTE: From now on, item name will appear directly above its special property, as seen below:
 
-		"DOTA_Tooltip_ability_item_rpc_depth_demon_claw"			"Depth Demon Claw"	
-		"property_depth_demon_claw"												"Metamorphose"
-		"property_depth_demon_claw_Description"									"All Elemental damage has its secondary element converted into <font color=\"#5B648C\">Demon</font> damage. Damage dealt by <font color=\"#E4AE33\">ABILITY AUGMENT</font> effects is reduced by 70%."
+		
 
-		"DOTA_Tooltip_ability_item_rpc_twisted_purple_mask_of_ahnqhir"					"Twisted Purple Mask of Ahn'Qhir"	
-		"property_twisted_mask_of_ahnqhir_a"												"Hypercast A"
-		"property_twisted_mask_of_ahnqhir_a_Description"									"@Ability1 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability1 by 40%."
+		
 
-		"DOTA_Tooltip_ability_item_rpc_twisted_yellow_mask_of_ahnqhir"					"Twisted Yellow Mask of Ahn'Qhir"	
-		"property_twisted_mask_of_ahnqhir_b"												"Hypercast B"
-		"property_twisted_mask_of_ahnqhir_b_Description"									"@Ability2 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability2 by 1 second."
+		
 
-		"DOTA_Tooltip_ability_item_rpc_twisted_blue_mask_of_ahnqhir"					"Twisted Blue Mask of Ahn'Qhir"	
-		"property_twisted_mask_of_ahnqhir_c"												"Hypercast C"
-		"property_twisted_mask_of_ahnqhir_c_Description"									"@Ability3 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability3 by 40%."
+		
 
-		"DOTA_Tooltip_ability_item_rpc_armor_of_atlantis"						"Armor of Atlantis"	
-		"property_armor_of_atlantis"												"Chasm Forge"
-		"property_armor_of_atlantis_Description"									"Damage instances that deal more than 100% of max health after all reductions is reduced by @special_property1%."
+		
 
-		"DOTA_Tooltip_ability_item_rpc_oceanrunner_boots"					"Oceanrunner Boots"	
-		"property_oceanrunner"												"Alacrity"
-		"property_oceanrunner_Description"									"Increases base ability damage by @special_property1% for every 10 points of Agility."
+		
 		//0.02%
 
-		"DOTA_Tooltip_ability_item_rpc_ocean_helm_of_valdun"					"Ocean Helm of Val'Dun"	
-		"property_all_elements"												"All Elemental Damage %"
+		
 
-		"DOTA_Tooltip_ability_item_rpc_sparkling_sea_crystal"					"Sparkling Sea Crystal"	
-		"property_sea_crystal"												"Giga Ocean Elemental"
-		"property_sea_crystal_Description"									"Casting @Ability4 summons a Giga Ocean elemental with huge knockback and attacks that deal @special_property1% of its summoner's attack power. Casting @Ability4 will replace your existing elemental."	
 		//1 -> 1000
 
-		"DOTA_Tooltip_ability_item_rpc_hood_of_the_sea_oracle"					"Hood of the Sea Oracle"	
-		"property_sea_oracle"												"Progenetic Srike"
-		"property_sea_oracle_Description"									"Attacks reduce the current base attack damage and armor of the target by @special_property1%. Stacks up to @special_property2 times. You deal @special_property3% increased post-mitigation damage to targets with max stacks."
-
-		"DOTA_Tooltip_modifier_sea_oracle_stacker"							"Progenetic Strike Stacks"
-		"DOTA_Tooltip_modifier_sea_oracle_stacker_Description"				"Each stack reduces base attack damage and armor. If at 15 stacks, take extra damage from the inflictor."
-
-		"DOTA_Tooltip_ability_item_rpc_crystalline_slippers"				"Crystalline Slippers"	
-		"property_crystalline"												"Crystal Root"
-		"property_crystalline_Description"									"Enemies who are rooted deal @special_property1% reduced damage to you and take @special_property2x amplified damage."
-
-		"DOTA_Tooltip_ability_item_rpc_templar_light_seers_robe"			"Templar Light Seer's Robe"	
-		"property_light_seer"												"Light of Delphi"
-		"property_light_seer_Description"									"Heal @special_property1% of max health every 0.15 seconds while channeling @Ability4. Each tick additionally gain a stack of shield that absorbs an instance of damage. After channeling, a stack fades every second."
-
-		"DOTA_Tooltip_modifier_light_seer_shield"							"Delphi Shield"
-		"DOTA_Tooltip_modifier_light_seer_shield_Description"				"Each stack absorbs an instance of damage"	
-
-		"DOTA_Tooltip_ability_item_rpc_dark_reef_shark_helmet"					"Dark Reef Shark Helmet"	
-		"property_shark_helmet"												"Shark Bite"
-		"property_shark_helmet_Description"									"After performing 5 attacks, gain @special_property1% attack power for 2.5 seconds or until next attack."
 		
-		"DOTA_Tooltip_modifier_dark_reef_shark_stacks"						"Shark Stacks"
-		"DOTA_Tooltip_modifier_dark_reef_shark_stacks_Description"			"At 5 stacks, activate Shark Bite"
 
-		"DOTA_Tooltip_modifier_dark_reef_shark_effect"						"Shark Bite"
-		"DOTA_Tooltip_modifier_dark_reef_shark_effect_Description"			"Attack damage greatly increased"	
-
-		"DOTA_Tooltip_ability_item_rpc_chitinous_lobster_claw"					"Chitinous Lobster Claw"	
-		"property_lobster_claw"												"Chitinous Skin"
-		"property_lobster_claw_Description"									"Every 0.5 seconds, gain a stack of Chitinous Skin. Each stack reduces incoming damage taken by @special_property1%. Max @special_property2 stacks."
 		
-		"DOTA_Tooltip_modifier_chitinous_skin_stack"						"Chitinous Skin"
-		"DOTA_Tooltip_modifier_chitinous_skin_stack_Description"			"Each stack reduces damage taken by 3%%"
 
-		"DOTA_Tooltip_ability_item_rpc_empyreal_sunrise_robe"					"Empyreal Sunrise Robe"	
-		"property_tropical_sunrise"												"Diffusal Wake"
-		"property_tropical_sunrise_Description"									"Your lowest attribute is increased by @special_property1%"
-
-		"DOTA_Tooltip_ability_item_rpc_dark_emissary_glove"						"Dark Emissary Glove"	
-		"property_dark_emissary"												"Spectral Mist"
-		"property_dark_emissary_Description"									"Casting @Ability1 creates a ghost cloud that deals @special_property1% of attack power in a 400 radius roots for 5 seconds. Applies invisibility for @special_property2 seconds. Invisibility has a @special_property3 second cooldown."
 		
-		"DOTA_Tooltip_modifier_dark_emissary_invis"								"Spectral Mist"
-		"DOTA_Tooltip_modifier_dark_emissary_invis_Description"					"Invisible"
 
-		"DOTA_Tooltip_modifier_dark_emissary_root"								"Spectral Mist"
-		"DOTA_Tooltip_modifier_dark_emissary_root_Description"					"Rooted"
+		
 
-		"DOTA_Tooltip_ability_item_rpc_sparkling_token_of_oceanis"					"Sparkling Token of Oceanis"	
-		"property_sparkling_token"												"Tropical Haze"
-		"property_sparkling_token_Description"									"Reduces all pure damage taken by @special_property1%"
+		
+
+		
+		
+		
+
+			
+
+		
+
+		
+
+		
+		
+		
+
+		
+
+		
 		//1: 80%
 
-		"DOTA_Tooltip_ability_item_rpc_sea_giants_plate"					"Sea Giant's Plate"	
-		"property_sea_giant_plate"												"Titanic Fortitude"
-		"property_sea_giant_plate_Description"									"All damage taken is reduced by @special_property1% while stunned."
+		
 		//96
 
-		"item_property_steamboots"						"Steamboots"
-		"property_steamboots_description"				"Each 10 points of Agility increases item damage by @special_property1%."
+		
 
-		"item_property_direwolf"						"Cerberus Core"
-		"property_direwolf_description"					"Each 10 points of your primary attribute increases base attack damage by @special_property1, armor by @special_property2, and base ability damage by @special_property3%"
+		
 
-		"item_property_arcane_charm"					"Magic Magnet"
-		"property_arcane_charm_description"				"Increases Arcane Crystal pickup radius by @special_property1%, and collecting an arcane crystal restores 10/20/50/100% of max health and mana depending on crystal size."
+		
 
-		"item_property_heavy_echo"						"Reactive Grip"
-		"property_heavy_echo_description"				"All instances of Item Damage and Base Ability Damage strike the target an additional 2 times."
+		
 		//------------------------
 		//WEAPONS
 		//------------------------

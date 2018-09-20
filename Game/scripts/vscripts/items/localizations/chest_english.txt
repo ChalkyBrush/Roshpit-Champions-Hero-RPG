@@ -202,6 +202,10 @@
 		"DOTA_Tooltip_ability_item_rpc_windsteel_armor"									"Windsteel Armor"
 		"item_property_windsteel_armor"				"Fluttering Guard"
 		"property_windsteel_armor_description"		"Casting @Ability2 applies a shield that absorbs a number of damage instances equal to the Ability's level, increases evasion by 50% and increases movespeed by 100. Lasts @special_property1 seconds. @special_property2 second cooldown."
+		"DOTA_Tooltip_modifier_windsteel_effect"	"Fluttering Guard"
+		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"Absorbing 1 damage instance for each stack. Also gaining 35% evasion and 100 movespeed."
+		"DOTA_Tooltip_modifier_windsteel_cooldown"	"Fluttering Guard Cooldown"
+		
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_savage_plate_of_ogthun"							"Savage Plate of Og'Thun"
@@ -214,11 +218,15 @@
 		"DOTA_Tooltip_ability_item_rpc_skyforge_flurry_plate"							"Skyforge Flurry Plate"
 		"item_property_skyforge"							"Flurry Aura"
 		"property_skyforge_description"						"Reduces all nearby enemies' damage output by 30%"
+		"DOTA_Tooltip_modifier_flurry_aura_debuff"				"Flurry Aura"
+		"DOTA_Tooltip_modifier_flurry_aura_debuff_Description"	"25%% reduced damage output"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_bladestorm_vest"									"Bladestorm Vest"
 		"item_property_bladestorm_vest"							"Bladestorm"
 		"property_bladestorm_vest_description"					"Attacking an enemy 10 times adds a Bladestorm stack. Each Bladestorm stack increases Attack Damage by @special_property1% and post-mitigation damage amp by @special_property2%. Casting any spell consumes a stack. Maximum 3 stacks."
+		"DOTA_Tooltip_modifier_bladestorm_vest_buff"			"Bladestorm"
+		"DOTA_Tooltip_modifier_bladestorm_vest_buff_Description"	"Gaining Post-Mitigation Damage and Base Ability damage."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_infused_mageplate"								"Infused Mageplate"
@@ -318,3 +326,25 @@
 		"DOTA_Tooltip_ability_item_rpc_direwolf_bulwark"								"Direwolf Bulwark"
 		"item_property_direwolf"						"Cerberus Core"
 		"property_direwolf_description"					"Each 10 points of your primary attribute increases base attack damage by @special_property1, armor by @special_property2, and base ability damage by @special_property3%"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_armor_of_atlantis"						"Armor of Atlantis"	
+		"property_armor_of_atlantis"												"Chasm Forge"
+		"property_armor_of_atlantis_Description"									"Damage instances that deal more than 100% of max health after all reductions is reduced by @special_property1%."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_templar_light_seers_robe"			"Templar Light Seer's Robe"	
+		"property_light_seer"												"Light of Delphi"
+		"property_light_seer_Description"									"Heal @special_property1% of max health every 0.15 seconds while channeling @Ability4. Each tick additionally gain a stack of shield that absorbs an instance of damage. After channeling, a stack fades every second."
+		"DOTA_Tooltip_modifier_light_seer_shield"							"Delphi Shield"
+		"DOTA_Tooltip_modifier_light_seer_shield_Description"				"Each stack absorbs an instance of damage"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_empyreal_sunrise_robe"					"Empyreal Sunrise Robe"	
+		"property_tropical_sunrise"												"Diffusal Wake"
+		"property_tropical_sunrise_Description"									"Your lowest attribute is increased by @special_property1%"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_sea_giants_plate"					"Sea Giant's Plate"	
+		"property_sea_giant_plate"												"Titanic Fortitude"
+		"property_sea_giant_plate_Description"									"All damage taken is reduced by @special_property1% while stunned."

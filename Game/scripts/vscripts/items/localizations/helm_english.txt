@@ -174,6 +174,8 @@
     	"DOTA_Tooltip_ability_item_rpc_wolfir_druids_spirit_helm"						"Wolfir Druid's Spirit Helm"
 		"item_property_druids_spirt"				"Feral Spirits"
 		"property_druids_spirit_description"		"While channeling @Ability4 - summon a Feral Spirit Wolf every 0.5 seconds which has 2x your attack damage, 25% of your health and 1x your armor. Feral Spirits last 16 seconds. Each wolf provides a stacking 15% attack damage buff."
+		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect"	"Feral Spirit"
+		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect_Description"	"Increased attack damage from Spirit Wolves"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_blinded_glint_of_onu"							"Blinded Glint of Onu"
@@ -199,6 +201,7 @@
     	"DOTA_Tooltip_ability_item_rpc_wraith_crown"									"Wraith Crown"
 		"item_property_wraith"						"Wraithtide"					
 		"property_wraith_description"				"Casting @Ability2 makes you disappear for 0.75seconds - unable to attack, cast spells, move or take damage. 2 second cooldown. Disjoints oncoming tracking projectiles."
+		"DOTA_Tooltip_modifier_wraith_crown_cooldown"	"Wraithtide Cooldown"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"Demon Mask"
@@ -262,6 +265,8 @@
 		"DOTA_Tooltip_ability_item_rpc_autumn_sleeper_mask"								"Autumn Sleeper Mask"
 		"item_property_autumn_sleeper"						"Wild Overgrowth"
 		 "property_autumn_sleeper_description"				"Enemies that come within 900 range of you are immediately rooted for 3 seconds. Casting @Ability4 roots all enemies in a 1200 radius for 4 seconds."
+		"DOTA_Tooltip_modifier_autumn_sleeper_root"		"Wild Overgrowth"
+		"DOTA_Tooltip_modifier_autumn_sleeper_root_Description"	"Rooted"
 		 
 		
     	"DOTA_Tooltip_ability_item_rpc_eye_of_seasons"									"Eye of Seasons"
@@ -272,11 +277,16 @@
     	"DOTA_Tooltip_ability_item_rpc_helm_of_the_silent_templar"						"Helm of the Silent Templar"
 		"item_property_helm_of_silent_templar"					"Silent Watch"
 		 "property_helm_of_silent_templar_description"			"Casting @Ability4 silences you for @special_property1 seconds. During this time attack speed is increased by @special_property2 and attacks deal an additional @special_property3% magic damage."
+		  "DOTA_Tooltip_modifier_helm_of_silent_templar_effect"	"Silent Watch"
+		 "DOTA_Tooltip_modifier_helm_of_silent_templar_effect_Description"	"Silenced. +240 attack speed and attacks deal an additional 600% magic damage."
+		 
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_wind_deity_crown"								"Wind Deity Crown"
 		"item_property_wind_deity"							"Wrath of Wind"
 		 "property_wind_deity_description"						"Immediately perform an attack with all of its procs on enemies hit by @Ability3. Max @special_property2 attacks per @special_property1 seconds. Each enemy hit increases attack damage by 2% for 30 seconds, but resets on cast of @Ability3."
+		 "DOTA_Tooltip_modifier_wind_deity_damage_buff"					"Wind Deity"
+		 "DOTA_Tooltip_modifier_wind_deity_damage_buff_Description"		"Increased attack damage"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_water_deity_crown"								"Water Deity Crown"
@@ -309,4 +319,45 @@
     	"DOTA_Tooltip_ability_item_rpc_burning_spirit_helmet"							"Burning Spirit Helmet"
 		"item_property_burning_spirit"							"Flamethrower"
 		"property_burning_spirit_description"					"While channeling @Ability4, a steady stream of flames fires forward dealing @special_property1% of attack damage with each damage tick. Each enemy hit reduces the current cooldown of @Ability4 by @special_property2 seconds."
+		
+
+		"DOTA_Tooltip_ability_item_rpc_swamp_doctors_tribal_mask"						"Swamp Doctor's Tribal Mask"
+		"item_property_swamp_doctor"				"Voodoo Restoration"
+		"property_swamp_doctor_description"			"Heals you and nearby allies for 40% of the sum of your attributes every 0.5 seconds."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_twisted_purple_mask_of_ahnqhir"					"Twisted Purple Mask of Ahn'Qhir"	
+		"property_twisted_mask_of_ahnqhir_a"												"Hypercast A"
+		"property_twisted_mask_of_ahnqhir_a_Description"									"@Ability1 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability1 by 40%."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_twisted_yellow_mask_of_ahnqhir"					"Twisted Yellow Mask of Ahn'Qhir"	
+		"property_twisted_mask_of_ahnqhir_b"												"Hypercast B"
+		"property_twisted_mask_of_ahnqhir_b_Description"									"@Ability2 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability2 by 1 second."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_twisted_blue_mask_of_ahnqhir"					"Twisted Blue Mask of Ahn'Qhir"	
+		"property_twisted_mask_of_ahnqhir_c"												"Hypercast C"
+		"property_twisted_mask_of_ahnqhir_c_Description"									"@Ability3 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability3 by 40%."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_ocean_helm_of_valdun"					"Ocean Helm of Val'Dun"	
+		"property_all_elements"												"All Elemental Damage %"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_hood_of_the_sea_oracle"					"Hood of the Sea Oracle"	
+		"property_sea_oracle"												"Progenetic Srike"
+		"property_sea_oracle_Description"									"Attacks reduce the current base attack damage and armor of the target by @special_property1%. Stacks up to @special_property2 times. You deal @special_property3% increased post-mitigation damage to targets with max stacks."
+		"DOTA_Tooltip_modifier_sea_oracle_stacker"							"Progenetic Strike Stacks"
+		"DOTA_Tooltip_modifier_sea_oracle_stacker_Description"				"Each stack reduces base attack damage and armor. If at 15 stacks, take extra damage from the inflictor."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_dark_reef_shark_helmet"					"Dark Reef Shark Helmet"	
+		"property_shark_helmet"												"Shark Bite"
+		"property_shark_helmet_Description"									"After performing 5 attacks, gain @special_property1% attack power for 2.5 seconds or until next attack."
+		"DOTA_Tooltip_modifier_dark_reef_shark_stacks"						"Shark Stacks"
+		"DOTA_Tooltip_modifier_dark_reef_shark_stacks_Description"			"At 5 stacks, activate Shark Bite"
+		"DOTA_Tooltip_modifier_dark_reef_shark_effect"						"Shark Bite"
+		"DOTA_Tooltip_modifier_dark_reef_shark_effect_Description"			"Attack damage greatly increased"
+		
 		
