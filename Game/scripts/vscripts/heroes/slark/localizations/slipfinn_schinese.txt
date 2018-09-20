@@ -1,0 +1,188 @@
+		//Abilities
+		
+		"DOTA_Tooltip_ability_slipfinn_prone"										"质化"
+    	"DOTA_Tooltip_ability_slipfinn_prone_Description"							"元素： <font color=\"#3894FF\">水</font> / <font color=\"#DDDDDD\">普通</font><br>黑礁守卫转硬化全身，僵硬的身体可以在地面滑行，硬化的驱壳免疫将部分魔法和纯粹的伤害。如果在空中激活硬化，黑礁守卫的硬壳将重重砸向地面。激活硬化时，离地面高度越高，重击地面的范围将越大。"
+    	"DOTA_Tooltip_ability_slipfinn_prone_damage"								"伤害："
+    	"DOTA_Tooltip_ability_slipfinn_prone_magic_pure_resist"						"魔法与纯粹伤害减免 % ："
+
+    	"DOTA_Tooltip_modifier_slipfinn_prone"										"质化"
+		
+		"DOTA_Tooltip_ability_slipfinn_rune_q_1"									"[Q1] 集核"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_1_Description"						"重击地面的 AOE 伤害，越靠近中心点伤害越高。提高的伤害，随着与中心点距离的提高而线性减少。在边缘处减少为 0 。"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_1_property_one"						"中心处伤害提高"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_1_suffix"								"%"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_2"									"[Q2] 冷光岬"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_2_Description"						"质化状态下将提高护甲值。失去硬化效果后，护甲提升效果仍然持续 4 秒。"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_2_property_one"						"护甲提高"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_2_suffix"								""
+
+    	"DOTA_Tooltip_modifier_shimmer_cape"										"冷光岬"
+    	"DOTA_Tooltip_modifier_shimmer_cape_Description"							"护甲值提高"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_3"									"[Q3] 重力势能"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_3_Description"						"重击地面 将根据 质化后 所坠下的高度造成额外的伤害。"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_3_property_one"						"额外伤害"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_3_suffix"								"x 高度的平方"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_4"									"[Q4] 黑礁杀手"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_4_Description"						"黑礁守卫的敏捷值将提高所有 <font color=\"#7F4F84\">暗</font> and <font color=\"#3894FF\">水</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_4_property_one"						"暗元素、水元素伤害提高"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_4_suffix"								"% 每 10 点敏捷值。"
+		
+		"DOTA_Tooltip_ability_slipfinn_jump"										"鱼跃"
+    	"DOTA_Tooltip_ability_slipfinn_jump_Description"							"黑礁守卫高高跃起，升空后仍保持移动速度向前移动。可以借助敌人的头顶弹起进行二段跳。当黑礁守卫上升到一定高度时，敌人将无法攻击他。起跳时或者从头顶弹起时移动，会略微改变黑礁守卫的跳跃轨迹，向目标地点倾斜。<br><b>二段跳：</b> 第一次跳跃着陆后，执行第二次跳跃。<br><b>三段跳：</b> 二段跳着陆后，再次起跳。<br><b>高跃：</b> 硬化后当滑动速度很低时起跳。<br><b>远跃：</b> 硬化后当滑动速度仍然很快时起跳。（多段跳也会越跳越高越跳越远）"
+    	"DOTA_Tooltip_ability_slipfinn_jump_height_immune"							"不可被攻击的最低高度："
+		
+		"DOTA_Tooltip_ability_slipfinn_rune_w_1"									"[W1] 暗黑沼泽"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_1_Description"						"跳跃至敌人头顶时，在敌人的周围造成小范围的 AOE。"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_1_property_one"						"基础伤害"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_1_suffix"								""
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_1_property_two"						"额外伤害"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_1_suffix_two"							"% 攻击力"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_2"									"[W2] 阴郁之影"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_Description"						"跳跃至某敌人头顶时，敌人获得一层阴郁之影 buff，加深黑礁守卫对那个 被踩的敌人 的伤害。（伤害加深计算在敌人减伤之后）buff 持续 10秒。"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_property_one"						"每层 buff 伤害加深"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_suffix"								"%"
+
+    	"DOTA_Tooltip_modifier_slipfinn_gloomshade_visible"							"阴郁之影"
+    	"DOTA_Tooltip_modifier_slipfinn_gloomshade_visible_Description"				"受到来自黑礁守卫的伤害被加深"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_3"									"[W3] 汹涌之潮"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_3_Description"						"跳跃至敌人头顶时，将提高 % 攻击力。持续 12 秒，再次跳跃至敌人头顶时刷新攻击力加成和持续时间。"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_3_property_one"						"每层攻击力提高"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_3_suffix"								"%"
+
+    	"DOTA_Tooltip_modifier_slipfinn_agitated_visible"							"汹涌之潮"
+    	"DOTA_Tooltip_modifier_slipfinn_agitated_visible_Description"				"攻击力提高"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_4"									"[W4] 信仰之跃"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_4_Description"						"高跃和三连跳的初始弹跳力大幅度提高。蹦的更高。"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_4_property_one"						"弹跳力提升"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_4_suffix"								""
+		
+		"DOTA_Tooltip_ability_slipfinn_shadow_rush"									"滑步疾驰"
+    	"DOTA_Tooltip_ability_slipfinn_shadow_rush_Description"						"施法 1 秒后，移动速度达到上限并高速向前移动。所提高的移动速度根据技能持续时间线性降低。如果手动控制方向的话，黑礁守卫将持续向前方冲刺。滑步疾驰中，黑礁守卫的移动速度将不收任何单位碰撞的影响，并且与墙壁间的摩擦所造成的动量损失减半。"
+    	"DOTA_Tooltip_ability_slipfinn_shadow_rush_duration"						"持续时间："
+    	"DOTA_Tooltip_ability_slipfinn_shadow_rush_ms_bonus_and_max"				"移动速度和移动速度上限提高："
+
+    	"slipfinn_e"																"滑步疾驰 & 鬼雾"
+
+    	"DOTA_Tooltip_modifier_slipfinn_shadow_rush"								"滑步疾驰"
+
+    	"DOTA_Tooltip_ability_slipfinn_shadow_warp"									"鬼雾"
+    	"DOTA_Tooltip_ability_slipfinn_shadow_warp_Description"						"一阵烟雾 在 0.1秒 的延迟后，将黑礁守卫传送一小段距离，并且躲避所有弹道。 传送后，黑礁守卫将牢牢抓住地面，防止滑动。"
+    	"DOTA_Tooltip_ability_slipfinn_shadow_warp_cast_range"						"施法范围："
+		
+		"DOTA_Tooltip_ability_slipfinn_rune_e_1"									"[E1] 暗影刀"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_1_Description"						"攻击将额外造成一次 <font color=\"#7F4F84\">暗</font> 元素伤害。伤害类型为纯粹。"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_1_property_one"						"伤害"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_1_suffix"								"% 攻击所造成的伤害"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_2"									"[E2] 深渊眠者"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_2_Description"						"敏捷值将提高最大生命值和生命值回复速度。质化状态下，生命值恢复效果增强 2X。"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_2_property_one"						"最大生命值提高"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_2_suffix"								" 每点敏捷值"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_2_property_two"						"生命值回复速度提高"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_2_suffix_two"							" 每点敏捷值"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_3"									"[E3] 暗影披风"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_3_Description"						"释放 滑步疾驰 或 鬼雾 后，黑礁守卫将进入隐身状态。"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_3_property_one"						"持续时间"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_3_suffix"								" 秒"
+
+    	"DOTA_Tooltip_modifier_slipfinn_shadow_cloak"								"暗影披风"
+    	"DOTA_Tooltip_modifier_slipfinn_shadow_cloak_Description"					"隐身"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_4"									"[E4] 年轻的刺客"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_4_Description"						"每次伤害都有一定的概率忽略敌人的坚定技能。"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_4_property_one"						"忽略坚定概率"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_4_suffix"								"%"
+		
+		"DOTA_Tooltip_ability_slipfinn_bubble_possession"							"主权气泡"
+    	"DOTA_Tooltip_ability_slipfinn_bubble_possession_Description"				"1.5 秒持续施法后，黑礁守卫 冲锋至目标敌人处，将敌人用主权气泡包裹住，捕获并控制该敌人。黑礁守卫将获得被捕获敌人的所有技能，并且所窃取的技能被视为 黑礁守卫大招的 基础技能。"	
+    	"DOTA_Tooltip_ability_slipfinn_bubble_possession_duration"					"主权气泡控制持续时间："	
+
+    	"DOTA_Tooltip_modifier_slipfinn_enemy_locked"								"主权气泡"
+    	"DOTA_Tooltip_modifier_slipfinn_enemy_locked_Description"					"控制一个敌人"
+
+    	"DOTA_Tooltip_ability_slipfinn_release_possess"								"释放"
+    	"DOTA_Tooltip_ability_slipfinn_release_possess_Description"					"退出主权气泡，给予被控制的敌人自由。"
+		
+		"slipfinn_possession_warning"												"不可控制该目标"
+		
+		"DOTA_Tooltip_ability_slipfinn_rune_r_1"									"[R1] 盗为己用"
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_1_Description"						"所有窃取的技能的伤害都将提高。"
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_1_property_one"						"伤害提高"
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_1_suffix"								"%"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_2"									"[R2] 震慑"
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_2_Description"						"当敌人从主权气泡中被释放时，敌人将被眩晕一段时间。当某个敌人第一次被控制时，500 码范围内的敌人都将被眩晕。"
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_2_property_one"						"眩晕持续时间"
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_2_suffix"								" 秒"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_3"									"[R3] 逐个击破"
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_3_Description"						"当控制某个敌人后，对同一种类型的敌人（相同模型和技能）所造成的伤害都将被加深。（伤害加深计算在敌人减伤之后）同源敌人破坚定效果持续直至本局游戏结束。如果某个敌人不可被控制，对该种敌人的伤害提高效果仍然生效。（只是伤害提高，但是不破坚定）"
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_3_property_one"						"本局对该种敌人减伤后伤害加深"
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_3_suffix"								"%"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_4"									"[R4] 寄生"
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_4_Description"						"基于所控制的敌人 的攻击力，黑礁守卫自己提升基础攻击力。"
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_4_property_one"						"基础攻击力提高"
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_4_suffix"								"% 敌人的攻击力"
+		
+		//Arcanas
+		
+		//Glyphs
+		
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_1_1"		"滑行雕文"
+		"item_rpc_slipfinn_glyph_1_1_description" 				"减少地面的摩擦系数 @glyph_property1%。"
+
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_2_1"		"跳远雕文"
+		"item_rpc_slipfinn_glyph_2_1_description" 				"提高 远跃 时的弹跳力 @glyph_property1。"
+
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_3_1"		"弹弹雕文"
+		"item_rpc_slipfinn_glyph_3_1_description" 				"提高跳跃至敌人头顶时的弹起高度 @glyph_property1。"
+
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_4_1"		"自由落体雕文"
+		"item_rpc_slipfinn_glyph_4_1_description" 				"减少 重击地面 时，在空中翻转的时间 @glyph_property1%。"
+
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_5_1"		"粉碎雕文"
+		"item_rpc_slipfinn_glyph_5_1_description" 				"提高 重击地面 时的眩晕时间，提高至 @glyph_property1 秒。"
+
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_6_1"		"主权融合雕文"
+		"item_rpc_slipfinn_glyph_6_1_description" 				"主权气泡的施法目标，在施法吟唱过程中将被麻痹。同时，在释放该敌人时，[R2] 震慑 的眩晕时间提高 @glyph_property1%。"
+
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_7_1"		"飞跃雕文"
+		"item_rpc_slipfinn_glyph_7_1_description" 				"跳跃时或滑步疾驰过程中，将不会被眩晕。"
+
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_5_a"		"跃龙门雕文"
+		"item_rpc_slipfinn_glyph_5_a_description" 				"跳跃至敌人头顶的判定范围提高 @glyph_property1%。"
+		
+		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_00"		"Dagger"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_01"		"Murkwood Dagger"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_02"		"Crooked Shank"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_03"		"Swamp Dagger"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_11"		"Umbral Dagger"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_12"		"Soggy Swamp Blade"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_13"		"Jumper's Shank"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_14"		"Purple Meadow Shank"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_21"		"Shank of Versatile Hunter"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_22"		"Deepwood Swamp Dagger"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_23"		"Liquid Mind Cutter"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_24"		"Pristine Bayou Blade"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_25"		"Fenway Marsh Cutter"
+		
+		 "DOTA_Tooltip_ability_item_rpc_slipfinn_immortal_weapon_1"           "春潮湿雨刀"
+        "item_property_slipfinn_immortal_weapon"                             "涅槃"
+        "property_slipfinn_immortal_weapon_description"                      "复活时间减少至 @special_property1 秒。黑礁守卫释放鬼雾将会传送至目标地点的上空，离地面高度 @special_property2 。"
+
+        "DOTA_Tooltip_ability_item_rpc_slipfinn_immortal_weapon_2"            "锯齿泥沼刃"
+        "item_property_slipfinn_immortal_weapon2"                             "精准一击"
+        "property_slipfinn_immortal_weapon2_description"                      "从敌人头顶弹起时，立即攻击敌人一次。"
+
+        "DOTA_Tooltip_ability_item_rpc_slipfinn_immortal_weapon_3"            "黑礁手里剑"
+        "item_property_slipfinn_immortal_weapon3"                             "暗黑之心"
+        "property_slipfinn_immortal_weapon3_description"                      "所有 @Ability4 复制的技能都将拥有<font color=\"#7F4F84\">暗</font> 元素。"

@@ -1,4 +1,4 @@
-    	//--------------------
+    	//Abilities
 
     	"DOTA_Tooltip_ability_seinaru_konokaze"							"Konokaze"
     	"DOTA_Tooltip_ability_seinaru_konokaze_Description"				"Element: <font color=\"#7AE2A7\">Wind</font><br>A swift burst of air blinds, slows, and pushes back enemies in its path."
@@ -86,27 +86,12 @@
 		"DOTA_Tooltip_ability_seinaru_odachi_leap_Lore"					""
 		"DOTA_Tooltip_ability_seinaru_odachi_leap_damage"				"DAMAGE/SLICE:"  
 
-		"DOTA_Tooltip_ability_seinaru_gorudo"						"Gorudo"
-		"DOTA_Tooltip_ability_seinaru_gorudo_Description"			"Seinaru transmutes solid gold, rendering him immune to magic and increasing attack damage."
-		"DOTA_Tooltip_ability_seinaru_gorudo_duration"			"DURATION:"
-		"DOTA_Tooltip_ability_seinaru_gorudo_attack_damage_percent"			"ATTACK DAMAGE %:"
-
-		"DOTA_Tooltip_modifier_monk_ulti_gorudo"					"Gorudo"
-		"DOTA_Tooltip_modifier_monk_ulti_gorudo_Description"		"Magic Immunity"
-
     	"DOTA_Tooltip_ability_seinaru_rune_e_1"						"[E1] Eagle Strike"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_Description"			"Enemies hit by Odachi Leap are marked for Eagle Strike. Upon landing, Seinaru storms on his targets with a flurry of rapid blade attacks."
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_property_one"			"Increased Attack Damage"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_suffix"					"%"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_property_two"			"Max Targets"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_suffix_two"				""
-
-    	"DOTA_Tooltip_ability_seinaru_rune_r_1"						"[R1] Armor Piercing"
-    	"DOTA_Tooltip_ability_seinaru_rune_r_1_Description"			"Seinaru's attacks reduce enemy armor greatly for 8 seconds. Effect can not put a target below 0 armor. Applies before the attack lands."
-    	"DOTA_Tooltip_ability_seinaru_rune_r_1_property_one"			"Max Armor Break"
-    	"DOTA_Tooltip_ability_seinaru_rune_r_1_suffix"					""
-
-    	"DOTA_Tooltip_modifier_seinaru_gorudo_rune_r_1"				"Armor Piercing"
 
     	"DOTA_Tooltip_ability_seinaru_rune_e_2"						"[E2] Wakizashi"
     	"DOTA_Tooltip_ability_seinaru_rune_e_2_Description"			"After landing from Odachi Leap or Eagle Strike - enter a Blade Fury state for 2.5 seconds where Seinaru is immune to damage and heals himself with Hands of Hikari on a 0.5 second interval."
@@ -120,7 +105,37 @@
 
     	"DOTA_Tooltip_modifier_seinaru_odachi_leap_cooldown"				"Odachi Slice Cooldown"
     	"DOTA_Tooltip_modifier_seinaru_odachi_leap_cooldown_Description"	"While Odachi Slice is cooling down, you have Odachi Rush"
+		
+		"DOTA_Tooltip_ability_seinaru_rune_e_3"						"[E3] Spiral Leap"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_3_Description"			"After landing from an Odachi Leap, it is swapped with Spiral Leap. Spiral Leap allows Seinaru to jump to a target location with magic immunity. Also disjoints projectiles."
+    	"DOTA_Tooltip_ability_seinaru_rune_e_3_property_one"			"Max Jump Distance"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_3_suffix"					""
 
+    	"DOTA_Tooltip_ability_seinaru_spiral_leap"							"Spiral Leap"
+    	"DOTA_Tooltip_ability_seinaru_spiral_leap_Description"				"Element: <font color=\"#DDDDDD\">Normal</font><br>Jumps to the target location with magic immunity. Perpetually disjoints incoming projectiles."
+		
+		"DOTA_Tooltip_ability_seinaru_rune_e_4"						"[E4] Wings of the Swift"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_Description"			"Armor Piercing is augmented, able to reduce a target's armor below 0 to a threshold. Additionally, Seinaru's pre-mitigation <font color=\"#F6FFB5\">Holy</font><br> damage is increased against targets with armor below 0."
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_property_one"			"Max Negative Armor"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_suffix"					""
+	 	"DOTA_Tooltip_ability_seinaru_rune_e_4_property_two"			"Holy amplify"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_suffix_two"				"% for every 10 armor below 0"
+
+		"DOTA_Tooltip_ability_seinaru_gorudo"						"Gorudo"
+		"DOTA_Tooltip_ability_seinaru_gorudo_Description"			"Seinaru transmutes solid gold, rendering him immune to magic and increasing attack damage."
+		"DOTA_Tooltip_ability_seinaru_gorudo_duration"			"DURATION:"
+		"DOTA_Tooltip_ability_seinaru_gorudo_attack_damage_percent"			"ATTACK DAMAGE %:"
+
+		"DOTA_Tooltip_modifier_monk_ulti_gorudo"					"Gorudo"
+		"DOTA_Tooltip_modifier_monk_ulti_gorudo_Description"		"Magic Immunity"
+		
+		"DOTA_Tooltip_ability_seinaru_rune_r_1"						"[R1] Armor Piercing"
+    	"DOTA_Tooltip_ability_seinaru_rune_r_1_Description"			"Seinaru's attacks reduce enemy armor greatly for 8 seconds. Effect can not put a target below 0 armor. Applies before the attack lands."
+    	"DOTA_Tooltip_ability_seinaru_rune_r_1_property_one"			"Max Armor Break"
+    	"DOTA_Tooltip_ability_seinaru_rune_r_1_suffix"					""
+
+    	"DOTA_Tooltip_modifier_seinaru_gorudo_rune_r_1"				"Armor Piercing"
+		
     	"DOTA_Tooltip_ability_seinaru_rune_r_2"						"[R2] Duelist Ring"
     	"DOTA_Tooltip_ability_seinaru_rune_r_2_Description"			"After casting Gorudo, a ring of light expands from the caster. Seinaru takes 80% reduced damage from enemies who are within the ring."
     	"DOTA_Tooltip_ability_seinaru_rune_r_2_property_one"			"Ring Duration"
@@ -134,14 +149,6 @@
     	"DOTA_Tooltip_modifier_seinaru_rune_r_2_immunity"				"Gorudo"
     	"DOTA_Tooltip_modifier_seinaru_rune_r_2_immunity_Description"	"Full Magic Immunity"
 
-    	"DOTA_Tooltip_ability_seinaru_rune_e_3"						"[E3] Spiral Leap"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_3_Description"			"After landing from an Odachi Leap, it is swapped with Spiral Leap. Spiral Leap allows Seinaru to jump to a target location with magic immunity. Also disjoints projectiles."
-    	"DOTA_Tooltip_ability_seinaru_rune_e_3_property_one"			"Max Jump Distance"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_3_suffix"					""
-
-    	"DOTA_Tooltip_ability_seinaru_spiral_leap"							"Spiral Leap"
-    	"DOTA_Tooltip_ability_seinaru_spiral_leap_Description"				"Element: <font color=\"#DDDDDD\">Normal</font><br>Jumps to the target location with magic immunity. Perpetually disjoints incoming projectiles."
-
     	"DOTA_Tooltip_ability_seinaru_rune_r_3"						"[R3] Dexterity"
     	"DOTA_Tooltip_ability_seinaru_rune_r_3_Description"			"A percentage of your agility is added to attack damage. Additionally have a <% SEINARU_R3_PROC_CHANCE %>% chance to deal pure damage on attack while under the Gorudo buff."
     	"DOTA_Tooltip_ability_seinaru_rune_r_3_property_one"			"Agility added to attack"
@@ -154,13 +161,6 @@
 
     	"Tooltip_seinaru_w"											"Hands of Hikari & Circle of Wind"
 
-		"DOTA_Tooltip_ability_seinaru_rune_e_4"						"[E4] Wings of the Swift"
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_Description"			"Armor Piercing is augmented, able to reduce a target's armor below 0 to a threshold. Additionally, Seinaru's pre-mitigation <font color=\"#F6FFB5\">Holy</font><br> damage is increased against targets with armor below 0."
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_property_one"			"Max Negative Armor"
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_suffix"					""
-	 	"DOTA_Tooltip_ability_seinaru_rune_e_4_property_two"			"Holy amplify"
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_suffix_two"				"% for every 10 armor below 0"
-
     	"DOTA_Tooltip_ability_seinaru_rune_r_4"						"[R4] Trial of Valor"
     	"DOTA_Tooltip_ability_seinaru_rune_r_4_Description"			"Enemies within Seinaru's Duelist Ring take increased damage from Seinaru."
     	"DOTA_Tooltip_ability_seinaru_rune_r_4_property_one"			"Damage Bonus"
@@ -170,6 +170,8 @@
     	"DOTA_Tooltip_ability_seinaru_blade_dash_Description"			"Element: <font color=\"#DDDDDD\">Normal</font><br>Seinaru charges towards the target and deals an additional physical attack with bonus damage."
     	"DOTA_Tooltip_ability_seinaru_blade_dash_damage_percent_of_atk"			"ATTACK MULTIPLIER %:"
 
+		//Arcanas
+		
     	"item_property_seinaru_arcana1"										"Blade Dash"
     	"property_seinaru_arcana1_description"								"Replaces @Ability1 and all of its runes with Blade Dash."
 
@@ -278,3 +280,43 @@
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_5_a"		"Glyph of the Arena"
 		"item_rpc_seinaru_glyph_5_a_description" 				"Duelist Rings now move with Seinaru."
+		
+		//Weapons
+		"seinaru_weapon_01"			"Samurai Sword"
+		"seinaru_weapon_02"			"Katana"
+		"seinaru_weapon_03"			"Ninja Blade"
+		"seinaru_weapon_11"			"Storm Cleaver"
+		"seinaru_weapon_12"			"Runeblade"
+		"seinaru_weapon_13"			"Tornadofire Blade"
+		"seinaru_weapon_14"			"Sword of Faith"
+		"seinaru_weapon_21"			"Blade of Seven Trials"
+		"seinaru_weapon_22"			"Sword of Seikatsu"
+		"seinaru_weapon_23"			"Blade of Ryu"
+		"seinaru_weapon_24"			"Hariken Blade"
+		"seinaru_weapon_25"			"Elder's Sageblade"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_00"	"Basic Sword"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_01"   "Samurai Sword"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_02"   "Katana"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_03"   "Ninja Blade"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_11"   "Storm Cleaver"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_12"   "Runeblade"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_13"   "Tornadofire Blade"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_14"   "Sword of Faith"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_21"   "Blade of Seven Trials"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_22"   "Sword of Seikatsu"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_23"   "Blade of Ryu"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_24"   "Hariken Blade"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_25"   "Elder's Sageblade"
+		
+		"DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_1"		"Onimaru"
+		"item_property_seinaru_immortal_weapon"								"Piercing Attacks"
+		"property_seinaru_immortal_weapon_description"						"Attacks deal additional <% SEINARU_WEAP_1_DMG_PER_ATT * 100 %>% physical <font color=\"#7AE2A7\">wind</font> damage in a <% SEINARU_WEAP_1_RADIUS %> radius."
+		
+		"DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_2"            "Musashi Swiftblade"
+        "item_property_seinaru_immortal_weapon2"                             "Five Rings Insight"
+        "property_seinaru_immortal_weapon2_description"                      "Increases movement speed by @special_property1 and movespeed cap by @special_property2. Reduces the cooldown of @Ability1 by @special_property3%."
+
+
+        "DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_3"            "Heavy Sangeblade"
+        "item_property_seinaru_immortal_weapon3"                             "Adamantia"
+        "property_seinaru_immortal_weapon3_description"                      "Each point of movespeed increases Strength by @special_property1. Reduces base move speed by @special_property2"

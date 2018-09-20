@@ -1,0 +1,20 @@
+"DOTA_Tooltip_ability_item_rpc_blue_rain_gauntlet"								"Blue Rain Gauntlet"
+"item_property_blue_rain"								"Rain Lance"
+"property_blue_rain_description"						"Атаки никогда не промахиваются. С <% BLUE_RAIN_CHANCE %>% шансом при атаке появится волна воды, которая нанесёт урон по линии в размере <% BLUE_RAIN_DMG_PER_ATT %>x от урона героя."
+
+
+"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
+"item_property_stormcloth"					"Stormbolt"
+"property_stormcloth_description"			"При щелчке по дружественному юниту телепортирует к нему и оглушает всех противников в радиусе <% STORMCLOTH_STUN_AOE %> на <% STORMCLOTH_STUN_DUR %> секунд. Эффект имеет <% STORMCLOTH_COOLDOWN %> сек. перезарядку."
+"DOTA_Tooltip_modifier_stormcloth_bracer_cooldown"			"Stormbolt Cooldown"
+"DOTA_Tooltip_modifier_stormcloth_bracer_cooldown_Description"	"Bolt of the Storm recharging"
+
+"DOTA_Tooltip_modifier_stormcloth_bracer_cooldown"				"Stormbolt Cooldown"
+
+"DOTA_Tooltip_ability_item_rpc_grasp_of_elder"									"Grasp of the Elders"
+"DOTA_Tooltip_ability_item_rpc_grasp_of_elder_Description"						"Слот: Наручи"
+"item_property_elder_grasp"					"Healing Prayer"
+"property_elder_grasp_description"			"Любое заклинание исцелит героя и всех союзников в радиусе <% ELDER_GRASP_RADIUS %> на <% ELDER_GRASP_HEAL_PCT * 100%>% от их показателя здоровья. Исцеление при полном показателе здоровья конвертируется в щит <% ELDER_GRASP_SHIELD_PER_HP %>x от показателя здоровья, поглощающий урон."
+
+"DOTA_Tooltip_modifier_grasp_of_elder_shield"		"Healing Prayer"
+"DOTA_Tooltip_modifier_grasp_of_elder_shield_Description"	"Absorbing incoming damage"

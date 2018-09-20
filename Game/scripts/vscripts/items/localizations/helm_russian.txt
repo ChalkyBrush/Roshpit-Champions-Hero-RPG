@@ -1,0 +1,34 @@
+
+    	"DOTA_Tooltip_ability_item_rpc_basilisk_plague_helm"							"Basilisk Plague Helm"
+		"item_property_basilisk_plague"					"Depth Rot"
+		"property_basilisk_plague_description"				"Облако губительного газа окружает героя, попавшие в которое противники замедляются на <% BASILISK_PLAGUE_MOVESPEED_REDUCE_PCT %>% и снижают скорость атаки на <% BASILISK_PLAGUE_ATT_SPD_REDUCE %>. Противники, находящиесся в газе более <% BASILISK_PLAGUE_TIME_BEFORE_STONE_FORM %> секунд превращаются в камень на <% BASILISK_PLAGUE_STONE_FORM_DUR %> сек., будучи парализованными, но имунными к любой магии, они получают <% BASILISK_PLAGUE_PHYSICAL_POSTMIT * 100%>% больше Физического пост-резистного урона."
+        "DOTA_Tooltip_modifier_basilisk_plague_petrify"	"Depth Rot Petrify"
+		"DOTA_Tooltip_modifier_basilisk_plague_petrify_Description"	"Превращён в камень. Иммунитет к магии."
+
+    	"DOTA_Tooltip_ability_item_rpc_brazen_kabuto_of_the_desert_realm"				"Brazen Kabuto of the Desert Realm"
+		"item_property_brazen_kabuto"				"Warrior's Rampart"
+		"property_brazen_kabuto_description"		"Пока произносится способность (R) @Ability4, герой полностью неуязвим. После прочтения накладывается <% KABUTO_SHIELD_RESISTANCE * 100 %>% снижение входящего урона на <% KABUTO_SHIELD_DUR %> сек."
+		"DOTA_Tooltip_modifier_brazen_kabuto_channeling"	"Warrior's Rampart"
+		"DOTA_Tooltip_modifier_brazen_kabuto_description"	"Иммунитет к магии и урону."
+		"DOTA_Tooltip_modifier_brazen_kabuto_shield"	"Входящий урон снижен на <% KABUTO_SHIELD_RESISTANCE * 100 %>%."
+        "DOTA_Tooltip_modifier_brazen_kabuto_shield"	"Входящий урон снижен на <% KABUTO_SHIELD_RESISTANCE * 100 %>%."
+
+    	"DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil LV1"
+    	"DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv2"								"Shipyard Veil LV2"
+    	"DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv3"								"Shipyard Veil LV3"
+		 "item_property_shipyard_veil_1"					"Soul Shield I"
+		 "property_shipyard_veil_1_description"				"Каждый враг, задетый (Q) @Ability1 даст герою заряд щита, способного полностью поглощать урон. Максимум зарядов - @special_property1. Каждый заряд дополнительно увеличивает урон (Q) @Ability1 на @special_property2%. Когда щит поглотит урон, счётчик свойства этого предмета увеличится на 1. Предмет обновится, когда счётчик достигнет значения @special_property3.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
+
+		 "item_property_shipyard_veil_2"					"Soul Shield II"
+		 "property_shipyard_veil_2_description"				"Каждый враг, задетый (Q) @Ability1 даст герою заряд щита, способного полностью поглощать урон. Максимум зарядов - @special_property1. Каждый заряд дополнительно увеличивает урон (Q) @Ability1 на @special_property2%. Когда щит поглотит урон, счётчик свойства этого предмета увеличится на 1. Предмет обновится, когда счётчик достигнет значения @special_property3.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
+
+		 "item_property_shipyard_veil_3"					"Soul Shield III"
+		 "property_shipyard_veil_3_description"				"Каждый враг, задетый (Q) @Ability1 даст герою заряд щита, способного полностью поглощать урон. Максимум зарядов - @special_property1. Каждый заряд дополнительно увеличивает урон (Q) @Ability1 на @special_property2%. Враг, атаковавший героя во время активного щита будет ответно атакован черепом, который нанесёт магический урон в размере @special_property3x от основного атрибута героя.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
+
+		 "DOTA_Tooltip_modifier_shipyard_veil_shield"			"Soul Shield"
+		 "DOTA_Tooltip_modifier_shipyard_veil_shield_Description"			"Absorbing damage instances."
+
+
+    	"DOTA_Tooltip_ability_item_rpc_crown_of_the_lava_forge"							"Crown of the Lava Forge"
+		 "item_property_lava_forge"							"Lava Blast"
+		 "property_lava_forge_description"					"При получении урона в сторону атакующего будет выпущен огненный шар, наносящий урон самой цели при попадании и соседним целям в небольшом радиусе в размере <% LAVA_FORGE_DMG_PER_ATT %>x базового урона + <% LAVA_FORGE_DMG_PER_AGI %>x Ловкости."

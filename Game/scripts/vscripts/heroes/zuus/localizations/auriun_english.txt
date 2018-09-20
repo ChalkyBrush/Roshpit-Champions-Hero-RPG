@@ -1,0 +1,289 @@
+		//Abilities
+		"DOTA_Tooltip_ability_heavens_shield"							"Heaven's Shield"
+    	"DOTA_Tooltip_ability_heavens_shield_Description"				"Auriun applies a divine barrier to his target, allowing them to absorb incoming damage instances."
+    	"DOTA_Tooltip_ability_heavens_shield_Lore"						""
+    	"DOTA_Tooltip_ability_heavens_shield_stacks"					"ATTACKS ABSORBED"
+
+    	"DOTA_Tooltip_modifier_heavens_shield"							"Heaven's Shield"
+    	"DOTA_Tooltip_modifier_heavens_shield_Description"  			"100%% damage absorption"
+		
+		"DOTA_Tooltip_ability_auriun_rune_q_1"						"[Q1] Retaliation"
+    	"DOTA_Tooltip_ability_auriun_rune_q_1_Description"			"Enemies who deal damage to your Heaven's Shield target take a % of the shielded unit's attack damage."
+    	"DOTA_Tooltip_ability_auriun_rune_q_1_property_one"		"Attack Damage Reflect"
+    	"DOTA_Tooltip_ability_auriun_rune_q_1_suffix"				"%"
+		
+		"DOTA_Tooltip_ability_auriun_rune_q_2"						"[Q2] Heightened Protection"
+    	"DOTA_Tooltip_ability_auriun_rune_q_2_Description"			"Adds a chance on a receiving Heaven's Shield buff to gain extra stacks of damage block. Greater than 100% means you get multiple stacks."
+    	"DOTA_Tooltip_ability_auriun_rune_q_2_property_one"			"Stack Chance"
+    	"DOTA_Tooltip_ability_auriun_rune_q_2_suffix"				"%"
+		
+		"DOTA_Tooltip_ability_auriun_rune_q_3"						"[Q3] Second Wind"
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_Description"			"When Heaven's Shield wears out or is destroyed, gain a massive armor bonus for 10 seconds. Each point of armor under the Second Wind buff adds bonus base attack damage."
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_property_one"			"Armor Bonus"
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_suffix"				""
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_property_two"			"Base Attack Bonus"
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_suffix_two"			" per armor"
+
+    	"DOTA_Tooltip_modifier_auriun_rune_q_3_effect"		"Second Wind"
+    	"DOTA_Tooltip_modifier_auriun_rune_q_3_effect_Description"	"Increased Armor and base attack damage."
+		
+		"DOTA_Tooltip_ability_auriun_rune_q_4"						"[Q4] Spiritual Guidance"
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_Description"			"Allies with Heaven's Shield active have increased Base Ability Damage."
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_property_one"			"Base Ability Damage Bonus"
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_suffix"				"%"
+		
+		"DOTA_Tooltip_modifier_auriun_rune_q_4_effect"				"Spiritual Guidance"
+    	"DOTA_Tooltip_modifier_auriun_rune_q_4_effect_Description"	"Increased Base Ability Damage"
+		
+		"tooltip_auriun_w"												"Flash Heal and Shadowflare"
+		"DOTA_Tooltip_ability_flash_heal"								"Flash Heal"
+    	"DOTA_Tooltip_ability_flash_heal_Description"					"Quickly heal a target with a blessing of light. Flash heal targets a friendly unit that is underneath your cursor."
+    	"DOTA_Tooltip_ability_flash_heal_Lore"							""
+    	"DOTA_Tooltip_ability_flash_heal_heal"							"HEAL"
+    	"DOTA_Tooltip_ability_flash_heal_max_distance"					"MAX RANGE"
+		
+		"DOTA_Tooltip_ability_auriun_rune_w_1"						"[W1] Shadow Flare"
+    	"DOTA_Tooltip_ability_auriun_rune_w_1_Description"			"If your cursor isn't over an ally or Auriun, Flash Heal creates a blaze of aphotic energy that deals damage at your cursor's location."
+    	"DOTA_Tooltip_ability_auriun_rune_w_1_property_one"			"Damage"
+    	"DOTA_Tooltip_ability_auriun_rune_w_1_suffix"				""
+		
+		"DOTA_Tooltip_ability_auriun_rune_w_2"						"[W2] Discipline"
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_Description"			"Every 10 points of Intelligence increases the heal of Flash Heal and the damage of Shadow Flare."
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_property_one"			"Damage/Heal added per 10 intelligence"
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix"				"%"
+		
+		"DOTA_Tooltip_ability_auriun_rune_w_3"						"[W3] Energizing Light"
+    	"DOTA_Tooltip_ability_auriun_rune_w_3_Description"			"Gain a buff after being touched by flash heal that heals a % of the original heal every 0.2 seconds for 3 seconds."
+    	"DOTA_Tooltip_ability_auriun_rune_w_3_property_one"			"Heal Per 0.2 Seconds"
+    	"DOTA_Tooltip_ability_auriun_rune_w_3_suffix"				"% of original heal"	
+
+    	"DOTA_Tooltip_modifier_auriun_c_b_heal"						"Energizing Light"		
+    	"DOTA_Tooltip_modifier_auriun_c_b_heal_Description"			"Healing every 0.2 seconds"
+
+    	//"DOTA_Tooltip_modifier_auriun_rune_w_3_visible"				"Energizing Light"
+    	//"DOTA_Tooltip_modifier_auriun_rune_w_3_visible_Description"	"Gaining attack damage. Max 5 stacks."
+		
+		"DOTA_Tooltip_ability_auriun_rune_w_4"						"[W4] Blinding Shadows"
+    	"DOTA_Tooltip_ability_auriun_rune_w_4_Description"			"Enemies struck by Shadow Flare have an increased Miss Chance and decreased Movespeed. Stacks up to 5 times and lasts 7 seconds."
+    	"DOTA_Tooltip_ability_auriun_rune_w_4_property_one"			"Miss Chance per Stack"
+    	"DOTA_Tooltip_ability_auriun_rune_w_4_suffix"				"%"		
+    	"DOTA_Tooltip_ability_auriun_rune_w_4_property_two"			"Movespeed Loss per Stack"
+    	"DOTA_Tooltip_ability_auriun_rune_w_4_suffix_two"			""		
+
+    	"DOTA_Tooltip_modifier_auriun_rune_w_4_effect_visible"		"Blinding Shadows"
+    	"DOTA_Tooltip_modifier_auriun_rune_w_4_effect_visible_Description"	"Decreased Movespeed and Increased Miss Chance"
+		
+		"DOTA_Tooltip_ability_seraph_surge"								"Seraph Surge"
+    	"DOTA_Tooltip_ability_seraph_surge_Description"					"Instantly enter an angelic state with cliff and unit walking. Enemies can not see Auriun under his holy guise, and Auriun cannot use regular attacks."
+    	"DOTA_Tooltip_ability_flash_heal_Lore"							""
+    	"DOTA_Tooltip_ability_seraph_surge_duration"					"DURATION"
+
+    	"DOTA_Tooltip_modifier_seraph_surge"							"Seraph Surge"
+    	"DOTA_Tooltip_modifier_seraph_surge_Description"				"No collision and invisible to enemies."
+
+    	"DOTA_Tooltip_modifier_seraph_surge_glyphed"					"Seraph Surge"
+    	"DOTA_Tooltip_modifier_seraph_surge_glyphed_Description"		"No collision and invisible to enemies."
+		
+		"DOTA_Tooltip_ability_auriun_rune_e_1"						"[E1] Wings of Angels"
+    	"DOTA_Tooltip_ability_auriun_rune_e_1_Description"			"Gain passive increased post-mitigation magic damage output."
+    	"DOTA_Tooltip_ability_auriun_rune_e_1_property_one"			"Magic Damage Increase"
+    	"DOTA_Tooltip_ability_auriun_rune_e_1_suffix"				"%"		
+
+    	//"DOTA_Tooltip_modifier_auriun_rune_e_1"						"Vitalize"
+    	//"DOTA_Tooltip_modifier_auriun_rune_e_1_Description"			"Gaining mana each second."
+		
+		"DOTA_Tooltip_ability_auriun_rune_e_2"						"[E2] Brilliance"
+    	"DOTA_Tooltip_ability_auriun_rune_e_2_Description"			"Seraph Surge increases Auriun's intelligence for 8 seconds."
+    	"DOTA_Tooltip_ability_auriun_rune_e_2_property_one"			"Bonus Intelligence"
+    	"DOTA_Tooltip_ability_auriun_rune_e_2_suffix"				""		
+
+    	"DOTA_Tooltip_modifier_auriun_rune_e_2"						"Brilliance"
+    	"DOTA_Tooltip_modifier_auriun_rune_e_2_Description"			"Gaining bonus intelligence"
+		
+		"DOTA_Tooltip_ability_auriun_rune_e_3"						"[E3] Balanced Spirit"
+    	"DOTA_Tooltip_ability_auriun_rune_e_3_Description"			"Increases Auriun's Strength, Intelligence and Agility."
+    	"DOTA_Tooltip_ability_auriun_rune_e_3_property_one"			"All Attributes Bonus"
+    	"DOTA_Tooltip_ability_auriun_rune_e_3_suffix"				""
+		
+		"DOTA_Tooltip_modifier_auriun_rune_e_3_effect"				"Balanced Spirit"
+    	"DOTA_Tooltip_modifier_auriun_rune_e_3_effect_Description"	"Increased Attributes"
+		
+		"DOTA_Tooltip_ability_auriun_rune_e_4"						"[E4] Overwhelming Light"
+    	"DOTA_Tooltip_ability_auriun_rune_e_4_Description"			"Enemies near Auriun when he casts Seraph Surge are stunned and frozen and take damage based on his Intelligence."
+    	"DOTA_Tooltip_ability_auriun_rune_e_4_property_one"			"Stun Duration"
+    	"DOTA_Tooltip_ability_auriun_rune_e_4_suffix"				" seconds"	
+    	"DOTA_Tooltip_ability_auriun_rune_e_4_property_two"			"Damage"
+    	"DOTA_Tooltip_ability_auriun_rune_e_4_suffix_two"			"% of Intelligence"	
+		
+		"DOTA_Tooltip_ability_auriun_ult"								"Blessing of Life"
+    	"DOTA_Tooltip_ability_auriun_ult_Description"					"Auriun infuses nearby allies with the light of heavens, giving them increased movement speed and HP regen. Additionally revives all fallen allies."
+    	"DOTA_Tooltip_ability_auriun_ult_Lore"							""
+    	"DOTA_Tooltip_ability_auriun_ult_regen_percent"					"HP REGEN % "
+    	"DOTA_Tooltip_ability_auriun_ult_radius"						"RADIUS"
+
+    	"DOTA_Tooltip_modifier_auriun_ult_effect"						"Blessing of Life"
+    	"DOTA_Tooltip_modifier_auriun_ult_effect_Description"			"Massive HP regen and increased movement speed."
+		
+		"DOTA_Tooltip_ability_auriun_rune_r_1"						"[R1] Sage Strikes"
+    	"DOTA_Tooltip_ability_auriun_rune_r_1_Description"			"Auriun's attack damage is increased further by his intelligence."
+    	"DOTA_Tooltip_ability_auriun_rune_r_1_property_one"			"Intelligence added to Damage"
+    	"DOTA_Tooltip_ability_auriun_rune_r_1_suffix"				"%"
+		
+		"DOTA_Tooltip_ability_auriun_rune_r_2"						"[R2] Infusion of Light"
+    	"DOTA_Tooltip_ability_auriun_rune_r_2_Description"			"Values from gear other than rune bonuses are enhanced. Bonus is only calculated on gear equip and on respawn."
+    	"DOTA_Tooltip_ability_auriun_rune_r_2_property_one"			"Gear Value Enhance"
+    	"DOTA_Tooltip_ability_auriun_rune_r_2_suffix"				"%"		
+
+    	//"DOTA_Tooltip_modifier_auriun_rune_r_2_visible"				"Beacon of Life"
+    	//"DOTA_Tooltip_modifier_auriun_rune_r_2_visible_Description"	"Increased Armor Based on Max Life"	
+		
+		"DOTA_Tooltip_ability_auriun_rune_r_3"						"[R3] Eternal Soul"
+    	"DOTA_Tooltip_ability_auriun_rune_r_3_Description"			"Increases the duration of ALL friendly buffs that Auriun creates from runes or abilities."
+    	"DOTA_Tooltip_ability_auriun_rune_r_3_property_one"			"Duration increase"
+    	"DOTA_Tooltip_ability_auriun_rune_r_3_suffix"				" seconds"	
+    	//"DOTA_Tooltip_ability_auriun_rune_r_3_property_two"			"Agility Bonus"
+    	//"DOTA_Tooltip_ability_auriun_rune_r_3_suffix_two"			"%"			
+
+    	//"DOTA_Tooltip_modifier_auriun_rune_r_3_visible"				"Binding Souls"
+    	//"DOTA_Tooltip_modifier_auriun_rune_r_3_visible_Description"	"Increased Agility and Strength from Auriun"
+		
+		"DOTA_Tooltip_ability_auriun_rune_r_4"						"[R4] Eternal Guardian"
+    	"DOTA_Tooltip_ability_auriun_rune_r_4_Description"			"Allies affected by Blessing of Life have a chance to gain a Heaven's Shield buff. Greater than 100% means each ally gets multiple stacks of damage protection."
+    	"DOTA_Tooltip_ability_auriun_rune_r_4_property_one"			"Chance for Heaven's Shield Stack"
+    	"DOTA_Tooltip_ability_auriun_rune_r_4_suffix"				"%"
+		
+		//Arcanas
+		
+		"DOTA_Tooltip_ability_auriun_aoe_shield"						"Heaven's Coalescence"
+    	"DOTA_Tooltip_ability_auriun_aoe_shield_Description"			"Target an area and apply Heaven's Shield buff to all allied heroes within. The divine barrier absorbs incoming damage instances."
+    	"DOTA_Tooltip_ability_auriun_aoe_shield_stacks"					"SHIELD STACKS:"
+    	"DOTA_Tooltip_ability_auriun_aoe_shield_aoe_radius"				"TARGET RADIUS:"
+
+    	"item_property_auriun_arcana1"										"Heaven's Coalescence"
+    	"property_auriun_arcana1_description"								"Replaces @Ability1 and all of its runes with Heaven's Coalescence."
+
+    	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana1"						"[Q1] Heaven Sparks"
+    	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana1_Description"			"Whenever a Heaven's Shield stack is removed, launch 3 sparks in random directions."
+    	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana1_property_one"			"Spark Damage"
+    	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana1_suffix"				""  	
+
+    	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana1"							"[Q2] Enhanced Protection"
+    	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana1_Description"				"Adds a chance on a receiving Heaven's Shield buff to gain extra stacks of damage block. Greater than 100% means you get multiple stacks."
+    	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana1_property_one"				"Stack Chance"
+    	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana1_suffix"					"%"
+
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1"							"[Q3] Holy Vengeance"
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_Description"				"The sum of Auriun's Attributes increase all <font color=\"#F6FFB5\">Holy</font> damage."
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_property_one"				"Damage Increase"
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_suffix"					"% for each 10 attributes."
+
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1"							"[Q4] Holy Ghost"
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_Description"				"On casting Heaven's Coalescence, gain a buff for 5 seconds that increases mana regen and allows you to teleport when issuing a move order. 1 second cooldown on the teleport."
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_property_one"				"Max Teleport Distance"
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_suffix"					""  	
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_property_two"				"Mana Regen"
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_suffix_two"				""  	
+
+    	"DOTA_Tooltip_modifier_holy_wrath_d_a_buff"								"Holy Ghost"
+    	"DOTA_Tooltip_modifier_holy_wrath_d_a_buff_Description"					"Increased Mana Regen and can teleport with movement orders."	
+
+    	"DOTA_Tooltip_modifier_holy_wrath_d_a_cooldown"							"Holy Ghost Teleport Cooldown"
+
+    	"DOTA_Tooltip_ability_auriun_shadow_trap"						"Shadow Bind"
+    	"DOTA_Tooltip_ability_auriun_shadow_trap_Description"			"Target an area to summon a pit of shade that roots enemies who touch it."
+    	"DOTA_Tooltip_ability_auriun_shadow_trap_radius"					"BIND RADIUS:"
+
+    	"DOTA_Tooltip_shadow_trap_aura"									"Shadow Bind"
+    	"DOTA_Tooltip_shadow_trap_aura_Description"						"Rooted"
+
+    	"item_property_auriun_arcana2"										"Shadow Bind"
+    	"property_auriun_arcana2_description"								"Replaces @Ability1 and all of its runes with Shadow Bind."
+
+    	"DOTA_Tooltip_shadow_trap_aura"											"Shadow Bind"
+    	"DOTA_Tooltip_shadow_trap_aura_Description"								"Rooted"
+
+    	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2"						"[Q1] Umbral Waves"
+    	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_Description"			"Enemies trapped in Shadow Bind are struck by shadow waves every 0.6 seconds."
+    	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_property_one"			"Damage"
+    	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_suffix"				""  	
+
+    	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana2"							"[Q2] Enhanced Protection"
+    	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana2_Description"				"Casting Shadow Bind has a chance to apply stacks of Heaven's Shield. Heaven's Shield stacks block instances of damage. Greater than 100% means you get multiple stacks."
+    	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana2_property_one"				"Stack Chance"
+    	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana2_suffix"					"%"
+
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2"							"[Q3] Dark Sympathy"
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_Description"				"The sum of Auriun's Attributes increase all <font color=\"#7F4F84\">Shadow</font> damage."
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_property_one"				"Damage Increase"
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_suffix"					"% for each 10 attributes."
+
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2"							"[Q4] Shadow Form"
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_Description"				"Auriun enters Shadow Form for 18 seconds upon casting his Ultimate ability. In Shadow Form, all post-mitigation magic damage is enhanced and mana regen is increased."
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_property_one"				"Magic Damage Enhance"
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_suffix"					"%"  	
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_property_two"				"Mana Regen"
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_suffix_two"				""
+
+    	"DOTA_Tooltip_modifier_shadow_trap_d_a_buff"							"Shadow Form"
+    	"DOTA_Tooltip_modifier_shadow_trap_d_a_buff_Description"				"Post-mitigation magic damage and mana regen increased."
+		
+		//Glyphs
+		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_1_1"		"Glyph of Nimbus"
+		"item_rpc_auriun_glyph_1_1_description" 				"All allies affected by @Ability4 gain @glyph_property1 movespeed for @glyph_property2 seconds."
+
+		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_2_1"		"Glyph of Radiance"
+		"item_rpc_auriun_glyph_2_1_description" 				"All damage dealt directly by items is increased by @glyph_property1%"
+
+		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_3_1"		"Glyph of Cleanse"
+		"item_rpc_auriun_glyph_3_1_description" 				"Casting Heaven's Shield on an ally removes 1 enemy debuff."
+
+		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_4_1"		"Glyph of Stratus"
+		"item_rpc_auriun_glyph_4_1_description" 				"Increases attack range by @glyph_property1."
+
+		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_5_1"		"Glyph of Angels"
+		"item_rpc_auriun_glyph_5_1_description" 				"You can attack during @Ability3 and gain @glyph_property1% magic resistance, but it removes the invisibility."
+
+		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_6_1"		"Glyph of Luminescence"
+		"item_rpc_auriun_glyph_6_1_description" 				"Adds @glyph_property1 seconds of invulnerability when @Ability1 is applied."
+
+		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect"			"Luminescence"
+		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect_description"	"Magic and Physical Immunity"
+
+		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_7_1"		"Glyph of Balance"
+		"item_rpc_auriun_glyph_7_1_description" 				"Each point of Strength and Agility grants Auriun an additional @glyph_property1 attack damage."
+
+		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_5_a"		"Glyph of Shadow Flay"
+		"item_rpc_auriun_glyph_5_a_description" 				"All nearby enemies are grasped by Shadow Flay, dealing @glyph_property1x Auriun's intelligence per second and slowing them by @glyph_property2%. 1% of damage dealt heals Auriun."
+		
+		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_00"   "Tome"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_01"   "Cursed Tome"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_02"   "Tome of Wrath"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_03"   "Tome of Knowledge"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_11"   "Tome of Darkness"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_12"   "Tome of Light and Shadow"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_13"   "Tome of Holy Script"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_14"   "Book of Deep Knowledge"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_21"   "Cursed Book of the Underlord"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_22"   "Tome of Holy Knowledge"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_23"   "Grand Spellcaster's Spirit Tome"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_24"   "Savior's Holy Scripture"
+		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_25"   "Book of the Illuminated Ghost"
+		
+		"DOTA_Tooltip_ability_item_rpc_auriun_immortal_weapon_1"		"Prophecy"
+		"item_property_auriun_immortal_weapon"								"Heaven's Guidance"
+		"property_auriun_immortal_weapon_description"						"When taking damage, ignore the damage instance and fade from enemy view for 1.5 seconds. 4 second cooldown."
+		
+		 "DOTA_Tooltip_ability_item_rpc_auriun_immortal_weapon_2"            "Vita's Spirit Scroll"
+        "item_property_auriun_immortal_weapon2"                             "Patient Insight"
+        "property_auriun_immortal_weapon2_description"                      "Every 8 seconds gain a stack of Insight, up to a maximum of 2 stacks. With stacks of insight, @Ability1 does not go on cooldown and consumes a stack instead."
+        
+        "DOTA_Tooltip_modifier_auriun_immortal_weapon_2_insight"			"Insight"
+        "DOTA_Tooltip_modifier_auriun_immortal_weapon_2_insight_Description"	"Heaven's Shield will not trigger its cooldown."
+
+        "DOTA_Tooltip_ability_item_rpc_auriun_immortal_weapon_3"            "Umbral Tome of Herod"
+        "item_property_auriun_immortal_weapon3"                             "Artifice"
+        "property_auriun_immortal_weapon3_description"                      "Casting @Ability2 applies magic immunity, @special_property3% increased base ability damage, and @special_property1% health regen for @special_property2 seconds."
+
+        "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect"				"Artifice"
+        "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect_Description"	"Magic Immunity and reduced health regen."

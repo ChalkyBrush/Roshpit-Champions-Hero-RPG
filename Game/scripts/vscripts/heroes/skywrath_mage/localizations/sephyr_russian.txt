@@ -1,0 +1,233 @@
+		//Abilities
+		"DOTA_Tooltip_ability_sephyr_lightbomb"										"Lightbomb"
+    	"DOTA_Tooltip_ability_sephyr_lightbomb_Description"							"Стихия: <font color=\"#F6FFB5\">Свет</font> / <font color=\"#7AE2A7\">Ветер</font><br> Sephyr взлетает высоко к небесам, возвращаясь в указанной точке спустя 0.8 секунды в виде мощного пучка света, оглушая и нанося урон всем задетым врагам в момент приземления.<br> Применение Lightbomb во время активного умения Strafe позволяет герою повернуться в нужную сторону за время прочтения."
+    	"DOTA_Tooltip_ability_sephyr_lightbomb_cast_range"							"РАДИУС ПРИМЕНЕНИЯ:"
+    	"DOTA_Tooltip_ability_sephyr_lightbomb_base_damage"							"УРОН:"
+    	"DOTA_Tooltip_ability_sephyr_lightbomb_int_damage"							"ДОП. УРОН, Х ИНТЕЛЛЕКТА:"
+    	"DOTA_Tooltip_ability_sephyr_lightbomb_stun_duration"						"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_q_1"									"[Q1] Illumination"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_1_Description"						"После прочтения @Ability1, герой получает дополнительные очки Интеллекта на 12 секунд."
+    	"DOTA_Tooltip_ability_sephyr_rune_q_1_property_one"						"Доп. Интеллекта"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_1_suffix"							""
+
+    	"DOTA_Tooltip_ability_sephyr_rune_q_2"									"[Q2] Amplifier"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_2_Description"						"Враги, задетые @Ability1 получают увеличенный пост-резистный урон от Sephyr."
+    	"DOTA_Tooltip_ability_sephyr_rune_q_2_property_one"						"Доп. пост-рез. урон"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_2_suffix"							"%"
+
+    	"DOTA_Tooltip_modifier_lightbomb_postmit"								"Amplifier"
+    	"DOTA_Tooltip_modifier_lightbomb_postmit_Description"					"Получает увеличенный пост-резистный урон от Sephyr"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_q_3"									"[Q3] Clearfire"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_3_Description"						"С прочтением @Ability1, герой получит заряды этой руны. Когда количество зарядов больше или равно 10, прочтение @Ability1 не будет перезаряжаться. Заряды не будут добавляться, пока последнее прочтение не задействует перезарядку умения."
+    	"DOTA_Tooltip_ability_sephyr_rune_q_3_property_one"						"Получение зарядов Clearfire"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_3_suffix"							""
+
+    	"DOTA_Tooltip_modifier_lightbomb_freecast"								"Clearfire"
+    	"DOTA_Tooltip_modifier_lightbomb_freecast_Description"					"10 зарядов снимает время перезарядки у следующего прочтения (Q) Lightbomb"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_q_4"									"[Q4] Sunny Disposition"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_4_Description"						"Пассивно увеличивает урон стихии <font color=\"#F6FFB5\">Света</font>. Чась от стихийного усиления <font color=\"#F6FFB5\">Света</font> дополнительно увеличивает бонусный урон атаки героя."
+    	"DOTA_Tooltip_ability_sephyr_rune_q_4_property_one"						"Доп. урон Света"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_4_suffix"							"%"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_4_property_two"						"Доп. урон героя, % от усиления Света"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_4_suffix_two"						"%"
+		
+		"DOTA_Tooltip_ability_piercing_gale"										"Piercing Gale"
+    	"DOTA_Tooltip_ability_piercing_gale_Description"							"Стихия: <font color=\"#7AE2A7\">Ветер</font><br>Sephyr создаёт перед собой рассекающий порыв ветра."
+    	"DOTA_Tooltip_ability_piercing_gale_damage"									"УРОН:"
+		
+		"DOTA_Tooltip_ability_sephyr_rune_w_1"									"[W1] Bright Eyes"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_1_Description"						"Дополнительно увеличивает регенерацию маны в зависимости от значения Интеллекта."
+    	"DOTA_Tooltip_ability_sephyr_rune_w_1_property_one"						"Доп. регенерация маны"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_1_suffix"								"% от Интеллекта"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_w_2"									"[W2] Crosswind"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_2_Description"						"С 20% шансом, умение @Ability2 нанесет увеличенный урон."
+    	"DOTA_Tooltip_ability_sephyr_rune_w_2_property_one"						"Увеличение урона"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_2_suffix"								"%"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_w_3"									"[W3] Splinter Talon"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_3_Description"						"Часть от урона героя добавляется к базовому урону @Ability2."
+    	"DOTA_Tooltip_ability_sephyr_rune_w_3_property_one"						"Доп. урон (W), % от урона героя"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_3_suffix"								"%"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4"									"[W4] Aeromancer"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_Description"						"Sephyr увеличивает стихийный урон <font color=\"#7AE2A7\">Ветра</font> за счет своего Интеллекта."
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_property_one"						"Доп. урон Ветра"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_suffix"							"% за каждые 10 очков Интеллекта"
+		
+		"DOTA_Tooltip_ability_sephyr_strafe"										"Strafe"
+    	"DOTA_Tooltip_ability_sephyr_strafe_Description"							"Пока включена эта способность, Sephyr не может менять направление движения. При получении приказа на перемещение во время активного умения, герой совершит маневр в воздухе в направлении взгляда, подхватываемый ветром. Каждый маневр тратит небольшое количество маны. Приказ поднять предмет выключит эту способность."
+    	"DOTA_Tooltip_ability_sephyr_strafe_max_distance"							"МАКС. РАССТОЯНИЕ МАНЕВРА:"							
+    	"DOTA_Tooltip_ability_sephyr_strafe_strafe_speed"							"СКОРОСТЬ ПРИ МАНЕВРЕ:"
+    	"DOTA_Tooltip_ability_sephyr_strafe_mana_percent_use"						"ЗАТРАТЫ МАНЫ, %:"
+
+    	"DOTA_Tooltip_modifier_strafe_cooldown"										"Перезарядка (W) Strafe"
+		
+		"DOTA_Tooltip_ability_sephyr_rune_e_1"									"[E1] Flurry Puck"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_1_Description"						"Приказ атаковать во время активного @Ability3 заставляет героя уходить от врага, одновременно с этим отправляя в его сторону беспокойного духа. При попадании, дух обезоруживает врага на 0.5 секунды. Одновременно может существовать только 1 беспокойный дух."
+    	"DOTA_Tooltip_ability_sephyr_rune_e_1_property_one"						"Шанс на доп. отскок"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_1_suffix"						    "%"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_1_property_two"						"Урон"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_1_suffix_two"						""
+
+    	"DOTA_Tooltip_modifier_boomerang_disarm"								"Flurry Puck"
+    	"DOTA_Tooltip_modifier_boomerang_disarm_Description"					"Обезоружен"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_e_2"									"[E2] Windbreaker"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_2_Description"						"Герой получает бонус к урону, когда к нему возвращается беспокойный дух. Длительность эффекта составляет 9 секунд, а его сила определяется количеством задетых им врагов до возвращения. Каждый беспокойный дух добавляет отдельный бонус, не зависящий с другими подобными. Дополнительно увеличивает урон беспокойного духа от урона героя."
+    	"DOTA_Tooltip_ability_sephyr_rune_e_2_property_one"						"Доп. урон за заряд"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_2_suffix"							""
+    	"DOTA_Tooltip_ability_sephyr_rune_e_2_property_two"						"Урон духа, % от урона героя"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_2_suffix_two"						"%"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_e_3"									"[E3] Razor Leaf"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_3_Description"						"Увеличивает базовый урон в зависимости от Ловкости героя. Множитель от Ловкости добавляется к урону [E2]."
+    	"DOTA_Tooltip_ability_sephyr_rune_e_3_property_one"						"Доп. урон"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_3_suffix"								"x Ловкости"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_3_property_two"						"Доп. урон духа"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_3_suffix_two"							"x Ловкости"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_e_4"									"[E4] Gust Glider"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_4_Description"						"Увеличивает максимальное расстояние для @Ability3 и базовую скорость маневра."
+    	"DOTA_Tooltip_ability_sephyr_rune_e_4_property_one"						"Доп. скорость при маневре"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_4_suffix"							""
+    	"DOTA_Tooltip_ability_sephyr_rune_e_4_property_two"						"Макс. расстояние маневра"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_4_suffix_two"						""
+		
+		"DOTA_Tooltip_ability_blessing_of_nefali"									"Winds of Nefali"
+    	"DOTA_Tooltip_ability_blessing_of_nefali_Description"						"Sephyr приземляется и призывает благословенные ветры Нефали. Герой и все союзники в области действия ветра получают гораздо меньше урона. Ветер появляется через 0.45 секунды после начала прочтения. Эффект продолжит действовать еще 1 секунду после окончания прочтения."	
+    	"DOTA_Tooltip_ability_blessing_of_nefali_radius"							"РАДИУС:"
+    	"DOTA_Tooltip_ability_blessing_of_nefali_damage_reduce"						"СНИЖЕНИЕ ВХОДЯЩЕГО УРОНА, %:"
+
+    	"DOTA_Tooltip_modifier_nefali_aura_effect"									"Winds of Nefali"
+    	"DOTA_Tooltip_modifier_nefali_aura_effect_Description"						"Входящий урон снижен, регенерация здоровья увеличена"
+		
+		"DOTA_Tooltip_ability_sephyr_rune_r_1"									"[R1] Regenerating Wind"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_1_Description"						"Sephyr и все союзники получают бонус к регенерации здоровья, пока находятся в области действия благословенного ветра."
+    	"DOTA_Tooltip_ability_sephyr_rune_r_1_property_one"						"Доп. реген. здоровья"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_1_suffix"							"x уровень героя Sephyr"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_r_2"									"[R2] Mistral Haze"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_2_Description"						"Враги, попавшие в область действия благословенного ветра от умения @Ability4, замедляются."
+    	"DOTA_Tooltip_ability_sephyr_rune_r_2_property_one"						"Снижение скорости атаки"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_2_suffix"							""
+    	"DOTA_Tooltip_ability_sephyr_rune_r_2_property_two"						"Снижение скорости передвижения"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_2_suffix_two"						""
+
+    	"DOTA_Tooltip_modifier_nefali_aura_effect_enemy"						"Mistral Haze"
+    	"DOTA_Tooltip_modifier_nefali_aura_effect_enemy_Description"			"Скорость атаки и передвижения снижены"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_r_3"									"[R3] Nefali's Blessing"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_3_Description"						"Нахождение в области действия благословенного ветра в течении 2 секунд, даёт бонус к скорости передвижения на 10 секунд. Этот бонус также увеличивает скорость маневра при @Ability3."
+    	"DOTA_Tooltip_ability_sephyr_rune_r_3_property_one"						"Доп. скорость передвижения"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_3_suffix"							""
+    	"DOTA_Tooltip_ability_sephyr_rune_r_3_property_two"						"Доп. скорость маневра (E) Strafe"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_3_suffix_two"						""
+
+    	"DOTA_Tooltip_modifier_nefali_c_d_speed"								"Nefali's Blessing"
+    	"DOTA_Tooltip_modifier_nefali_c_d_speed_Description"					"Скорость передвижения увеличена"	
+
+    	"DOTA_Tooltip_ability_sephyr_rune_r_4"									"[R4] Swift Mage"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_4_Description"						"Пассивно увеличивает Ловкость и Интеллект."
+    	"DOTA_Tooltip_ability_sephyr_rune_r_4_property_one"						"Доп. очков Интеллекта"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_4_suffix"							""
+    	"DOTA_Tooltip_ability_sephyr_rune_r_4_property_two"						"Доп. очков Ловкости"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_4_suffix_two"						""
+		
+		//Arcanas
+		
+		"item_property_sephyr_arcana1"										"Icewind Gale"
+    	"property_sephyr_arcana1_description"								"Заменяет (W) @Ability2 и все соответствующие руны на (W) Icewind Gale."
+
+    	"DOTA_Tooltip_ability_icewind_gale"						"Icewind Gale"
+    	"DOTA_Tooltip_ability_icewind_gale_Description"			"Стихия: <font color=\"#87D9FF\">Лед</font> / <font color=\"#7AE2A7\">Ветер</font><br>Sephyr призывает ревущий поток ледяного ветра прямо перед собой. Холодный воздух замедляет врагов на 4 секунды, а каждый каст Icewind Gale с 15% шансом может быть критическим, усиливая все порции урона от потока."
+    	"DOTA_Tooltip_ability_icewind_gale_damage"				"БАЗОВЫЙ УРОН:"
+    	"DOTA_Tooltip_ability_icewind_gale_as_loss"				"СНИЖЕНИЕ СКОРОСТИ АТАКИ:"
+    	"DOTA_Tooltip_ability_icewind_gale_ms_loss"				"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+    	"DOTA_Tooltip_ability_icewind_gale_crit_mult"				"МНОЖИТЕЛЬ КРИТ. УДАРА, %:"
+    	"DOTA_Tooltip_ability_icewind_gale_crit_chance"				"ШАНС КРИТ. УДАРА:"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_w_1_arcana1"						"[W1] Eyes of the North"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_1_arcana1_Description"			"Пассивно увеличивает регенерацию маны. Дополнительно увеличивает базовый урон героя в зависимости от текущего значения регенерации маны."
+    	"DOTA_Tooltip_ability_sephyr_rune_w_1_arcana1_property_one"			"Доп. реген. маны"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_1_arcana1_suffix"				""  	
+     	"DOTA_Tooltip_ability_sephyr_rune_w_1_arcana1_property_two"			"Доп. урон"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_1_arcana1_suffix_two"			" за каждое очко регенерации маны"  	
+
+    	"DOTA_Tooltip_ability_sephyr_rune_w_2_arcana1"							"[W2] Frozen Splinter"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_2_arcana1_Description"				"Урон героя добавляется к урону основного умения @Ability2."
+    	"DOTA_Tooltip_ability_sephyr_rune_w_2_arcana1_property_one"				"Доп. урон"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_2_arcana1_suffix"					"% от урона героя"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_w_3_arcana1"							"[W3] Icewind Shield"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_3_arcana1_Description"				"С прочтением @Ability2, есть шанс, что героя укроет щит, полностью поглощающий входящий урон 1 раз. Метапроцент: значение шанса выше 100% может дать больше зарядов щита."
+    	"DOTA_Tooltip_ability_sephyr_rune_w_3_arcana1_property_one"				"Шанс на появление щита"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_3_arcana1_suffix"					"%"
+
+    	"DOTA_Tooltip_modifier_icewind_shield"									"Icewind Shield"
+    	"DOTA_Tooltip_modifier_icewind_shield_Description"						"Полностью поглощает входящий урон 1 раз за заряд"		
+
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1"							"[W4] Grand Aeromancer"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_Description"				"Значения атрибутов героя увеличивают стихийный урон <font color=\"#7AE2A7\">Ветра</font>."
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_property_one"				"Доп. урон Ветра"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_suffix"					"% за каждые 10 очков атрибутов"
+		
+		//Glyphs
+		
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_1_1"		"(T1) Символ беспокойства"
+		"item_rpc_sephyr_glyph_1_1_description" 				"Увеличивает максимальное количество одновременно существующих беспокойных духов на @glyph_property1."
+
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_2_1"		"(T2) Символ уклоняющихся ветров"
+		"item_rpc_sephyr_glyph_2_1_description" 				"Увеличивает уклонение от физических атак на @glyph_property1%."
+
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_3_1"		"(T3) Символ Нефали"
+		"item_rpc_sephyr_glyph_3_1_description" 				"Увеличивает радиус действия благословенного ветра (R) @Ability4 на @glyph_property1."
+
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_4_1"		"(T4) Символ пробивания"
+		"item_rpc_sephyr_glyph_4_1_description" 				"Увеличивает дальность (W) @Ability2 на @glyph_property1."
+
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_5_1"		"(T5) Символ ослепляющего света"
+		"item_rpc_sephyr_glyph_5_1_description" 				"Умение (Q) @Ability1 замораживает врагов на месте на @glyph_property1 сек., оглушение от умения происходит после заморозки."
+
+		"DOTA_Tooltip_modifier_lightbomb_freeze"				"Blinding Light"
+		"DOTA_Tooltip_modifier_lightbomb_freeze_Description"	"Заморожен"
+
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_6_1"		"(T6) Символ Богини Ветра"
+		"item_rpc_sephyr_glyph_6_1_description" 				"С @glyph_property1% шансом, герой игнорирует любой входящий урон."
+
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_7_1"		"(T7) Символ воздушного иммунитета"
+		"item_rpc_sephyr_glyph_7_1_description" 				"Наделяет героя иммунитетом к магии, пока он находится на отметке @glyph_property1 или выше от земли."
+
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_5_a"		"(Immortal) Символ Святых Ветров"
+		"item_rpc_sephyr_glyph_5_a_description" 				"Снижаемый урон от (R) @Ability4 увеличивается на @glyph_property1%."
+		
+		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_00"		"Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_01"		"Sky Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_02"		"Cloud Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_03"		"Wind Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_11"		"Gale Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_12"		"Aero Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_13"		"Blessed Wind Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_14"		"Blessed Sky Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_21"		"Emerald Tide Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_22"		"Staff of the Prevailing Winds"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_23"		"Sky Mage Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_24"		"Heaven's Priest Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_25"		"Galestorm Staff"
+		
+		"DOTA_Tooltip_ability_item_rpc_sephyr_immortal_weapon_1"           "Jet Stream Staff"
+        "item_property_sephyr_immortal_weapon"                             "Jet Gale"
+        "property_sephyr_immortal_weapon_description"                      "Увеличивает ширину применения (W) @Ability2 на @special_property1%, увеличивает шанс критического удара на @special_property2%."
+
+        "DOTA_Tooltip_ability_item_rpc_sephyr_immortal_weapon_2"            "Emerald Skyblade"
+        "item_property_sephyr_immortal_weapon2"                             "Sky Fury"
+        "property_sephyr_immortal_weapon2_description"                      "Увеличивает максимальное количество беспокойных духов на @special_property1. Выпускает дополнительного беспокойного духа в случайную цель после отправки первого."
+
+        "DOTA_Tooltip_ability_item_rpc_sephyr_immortal_weapon_3"            "Divine Highwind Staff"
+        "item_property_sephyr_immortal_weapon3"                             "Highwind Grace"
+        "property_sephyr_immortal_weapon3_description"                      "Увеличивает все Т4 руны на @special_property1."
+		

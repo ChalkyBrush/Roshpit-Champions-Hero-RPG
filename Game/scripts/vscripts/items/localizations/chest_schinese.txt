@@ -1,0 +1,14 @@
+
+		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"飓风背心"
+		"item_property_hurricane"					"飓风"
+		"property_hurricane_description"			"当你引导完 @Ability4 后，产生一个飓，跟随你并将敌人推开，持续 @special_property1 秒。"
+		"DOTA_Tooltip_modifier_hurricane_vest_hurricane"	"飓风"
+		"DOTA_Tooltip_modifier_hurricane_vest_hurricane_Description"	"被强风所牵引"
+
+
+		"DOTA_Tooltip_ability_item_rpc_barons_storm_armor"								"男爵风暴装甲"
+		"item_property_baron_storm"								"风暴链接"
+		"property_baron_storm_description"						"当一个敌人攻击你时，他将被风暴能量连接。被连接的敌人对玩家造成的伤害减少 @special_property1% 。最多可以同时连接3个敌人。"
+
+		"DOTA_Tooltip_modifier_baron_storm_link"				"风暴链接"
+		"DOTA_Tooltip_modifier_baron_storm_link_Description"	"对所连接的目标造成的伤害减少"

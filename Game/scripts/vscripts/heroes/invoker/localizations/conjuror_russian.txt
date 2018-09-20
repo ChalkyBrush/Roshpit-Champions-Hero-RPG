@@ -1,0 +1,305 @@
+		//Abilities
+		"earth_aspect"														"Элементаль Земли"
+    	"fire_aspect"														"Элементаль Огня"
+    	"shadow_aspect"														"Элементаль Тени"
+		
+		"DOTA_Tooltip_ability_aspect_abilities"								"ИИ элементалей"
+    	"DOTA_Tooltip_ability_aspect_abilities_Description"					"Переключает искусственный интеллект выбранного элементаля."	
+		
+		"DOTA_Tooltip_ability_summon_earth_aspect"							"Earth Aspect"
+		"DOTA_Tooltip_ability_summon_earth_aspect_Description"				"Призывает элементаля Земли. Он поглощает 50% любого урона, полученного героем. Элементаль земли не может атаковать.<br><font color='#70EA72'>Пока элементаль земли жив, вы можете использовать способность </font><font color='#6cbfe2'>(Q) Earthquake</font><font color='#70EA72'>.</font>"
+		"DOTA_Tooltip_ability_summon_earth_aspect_Lore"						""
+		"DOTA_Tooltip_ability_summon_earth_aspect_aspect_health"			"ЗДОРОВЬЕ ЭЛЕМЕНТАЛЯ ЗЕМЛИ:"
+		
+		"DOTA_Tooltip_ability_earthquake"									"Earthquake"
+		"DOTA_Tooltip_ability_earthquake_Description"						"Стихия: <font color=\"#AF843D\">Земля</font><br>Создаёт мощное землетрясение в указанной области и под элементалем земли, который раскалывает землю под ногами врагов. После первого удара, есть ещё 1,5 секунды для создания дополнительных толчков."
+		"DOTA_Tooltip_ability_earthquake_Lore"								""
+		"DOTA_Tooltip_ability_earthquake_damage"							"УРОН:"
+		"DOTA_Tooltip_ability_earthquake_stun_duration"						"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		"DOTA_Tooltip_ability_earthquake_radius"							"РАДИУС:"
+
+		"DOTA_Tooltip_modifier_free_quake"									"Quaking"
+		"DOTA_Tooltip_modifier_free_quake_description"						"Свободное создание Earthquake, пока этот эффект активен."
+
+		"DOTA_Tooltip_modifier_earth_guardian"								"Earth Aspect"
+		"DOTA_Tooltip_modifier_earth_guardian_Description"					"50%% полученного урона получит элементаль земли"
+		
+		"DOTA_Tooltip_ability_conjuror_rune_q_1"							"[Q1] Earth Guardian"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_Description"				"Элементаль Земли увеличивает здоровье и броню себе и всем ближайшим дружественным юнитам. Дополнительно увеличивает максимальный запас здоровья элементалей."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_property_one"				"Макс. здоровье элементалей"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_suffix"						"%"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_property_two"				"Броня"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_1_suffix_two"					""
+		
+		"DOTA_Tooltip_ability_conjuror_rune_q_2"							"[Q2] Thunder Clap"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_Description"				"При получении элементалем Земли урона, он с 15% шансом применяет умение [Q2] Thunder Clap, нанося большой урон по области, в зависимости от его текущего здоровья и замедляя всех задетых врагов. Прочтение (Q) Earthquake также провоцирует применение этой способности."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_property_one"				"Урон"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_2_suffix"						"% от текущего здоровья элементаля Земли"
+		
+		"DOTA_Tooltip_ability_earth_aspect_rune_q_2_clap"					"Thunder Clap"		
+		"DOTA_Tooltip_ability_earth_aspect_rune_q_2_clap_Description"		"Стихия: <font color=\"#AF843D\">Земля</font><br>С некоторым шансом при получении элементалем урона, он применит умение [Q2] Thunder Clap, наносящее урон в небольшой области и замедляющее задетых врагов."
+		
+		"DOTA_Tooltip_ability_conjuror_rune_q_3"							"[Q3] Earth Well"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_Description"				"Когда элементаль Земли получает урон, герой на 1.5 секунды увеличивает реген. здоровья."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_property_one"				"Доп. реген. здоровья"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_suffix"						""
+		
+		"DOTA_Tooltip_ability_conjuror_rune_q_4"							"[Q4] Earth and Fire"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_Description"				"Показатель Силы Conjuror увеличивает урон стихии <font color=\"#AF843D\">Земли</font> и <font color=\"#EF4126\">Огня</font>."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_property_one"				"Увеличение урона на "
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_suffix"						"% за каждые 10 очков Силы"
+		
+		"DOTA_Tooltip_ability_summon_fire_aspect"							"Fire Aspect"
+		"DOTA_Tooltip_ability_summon_fire_aspect_Description"				"Призывает элементаля Огня. Он является существом ближнего боя. Он не может получить урон больше, чем 20% от его макс. здоровья за один удар.<br><font color='#70EA72'>Пока элементаль огня жив, вы можете использовать способность </font><font color='#6cbfe2'>(W) Immolation</font><font color='#70EA72'>.</font>"
+		"DOTA_Tooltip_ability_summon_fire_aspect_Lore"						""
+		"DOTA_Tooltip_ability_summon_fire_aspect_aspect_health"					"ЗДОРОВЬЕ ЭЛЕМЕНТАЛЯ ОГНЯ:"
+		"DOTA_Tooltip_ability_summon_fire_aspect_aspect_damage"					"УРОН ЭЛЕМЕНТАЛЯ:"
+
+		"DOTA_Tooltip_ability_immolation"									"Immolation"
+		"DOTA_Tooltip_ability_immolation_Description"						"Стихия: <font color=\"#EF4126\">Огонь</font><br>Conjuror выпускает перед собой пламенные шары, а на элементаля огня посылает огненный столб, который взрывается нанося урон ближайшим врагам."
+		"DOTA_Tooltip_ability_immolation_Lore"								""
+		"DOTA_Tooltip_ability_immolation_damage"							"УРОН:"
+		"DOTA_Tooltip_ability_immolation_radius"							"РАДИУС ВЗРЫВА:"
+
+		"DOTA_Tooltip_ability_conjuror_rune_w_1"							"[W1] Permanent Immolation"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_Description"				"Ваш Элементаль Огня наносит периодический урон от огня по области всем ближайшим врагам."
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_property_one"				"Урон/Сек"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_suffix"						""
+		
+		"DOTA_Tooltip_ability_conjuror_fire_aspect_immolation"				"Permanent Immolation"
+		"DOTA_Tooltip_ability_conjuror_fire_aspect_immolation_Description"	"Стихия: <font color=\"#EF4126\">Огонь</font><br>Обжигает находящихся рядом врагов"
+
+		"DOTA_Tooltip_ability_conjuror_rune_w_2"							"[W2] Soul Sear"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_Description"				"Каждое произнесение Immolation увеличивает ваш урон на 12 секунд. Каждая задетая цель также теряет броню. Оба эффекта могут быть сложены до 3 раз."
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_property_one"				"Доп. урон за стак"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_suffix"						"%"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_property_two"				"Снижение брони за стак"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_suffix_two"					""
+		
+		"DOTA_Tooltip_modifier_soul_sear_visible_friendly"					"Soul Sear"
+    	"DOTA_Tooltip_modifier_soul_sear_visible_friendly_Description"		"Урон увеличен. Максимум 3 стака."
+    	"DOTA_Tooltip_modifier_soul_sear_visible_enemy"						"Soul Sear"
+    	"DOTA_Tooltip_modifier_soul_sear_visible_enemy_Description"			"Броня снижена. Максимум 3 стака."
+		
+		"DOTA_Tooltip_ability_conjuror_rune_w_3"							"[W3] Critical Strike"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_3_Description"				"Даёт 30% шанс вам и вашему элементалю Огня нанести дополнительный урон при атаке. При критическом попадании используется Immolation, наносящий урон равный базовому урону Conjuror по области вокруг."
+    	"DOTA_Tooltip_ability_conjuror_rune_w_3_property_one"				"Доп. урон при крите"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_3_suffix"						"%"
+		
+		"DOTA_Tooltip_ability_conjuror_rune_w_4"							"[W4] Detonate"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_Description"				"В момент гибели элементаля огня происходит мощный взрыв, который наносит урон в зависимости от его макс. здоровья и оглушает ближайших врагов на 1 секунду."
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_property_one"				"Урон взрыва"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_4_suffix"						"% от макс. здоровья элементаля"
+		
+		"DOTA_Tooltip_ability_summon_shadow_aspect"							"Shadow Aspect"
+		"DOTA_Tooltip_ability_summon_shadow_aspect_Description"				"Призывает элементаля Пустоты. Он является существом дальнего боя, а его атаки разделяются при попадании. <br><font color='#70EA72'>Пока элементаль тени жив, вы можете использовать способность </font><font color='#6cbfe2'>(E) Shadow Gate</font><font color='#70EA72'>.</font>"
+		"DOTA_Tooltip_ability_summon_shadow_aspect_Lore"					""
+		"DOTA_Tooltip_ability_summon_shadow_aspect_aspect_health"					"ЗДОРОВЬЕ ЭЛЕМЕНТАЛЯ ТЕНИ:"
+		"DOTA_Tooltip_ability_summon_shadow_aspect_aspect_damage"					"УРОН ЭЛЕМЕНТАЛЯ ТЕНИ:"
+		"DOTA_Tooltip_ability_summon_shadow_aspect_aspect_attack_splits"	"РАЗДЕЛЕНИЙ АТАКИ:"	
+		
+
+		"DOTA_Tooltip_ability_shadow_gate"									"Shadow Gate"
+		"DOTA_Tooltip_ability_shadow_gate_Description"						"Стихия: <font color=\"#7F4F84\">Тень</font><br>Телепортирует Conjuror и всех его элементалей в указанную точку и оставляет в месте появления тёмный след, наносящий урон. <br> <font color='#70EA72'>Полностью восстанавливает здоровье живых элементалей.</font>"
+		"DOTA_Tooltip_ability_shadow_gate_Lore"								""
+		"DOTA_Tooltip_ability_shadow_gate_range"							"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
+		"DOTA_Tooltip_ability_shadow_gate_damage"							"УРОН/СЕК:"
+		"DOTA_Tooltip_ability_shadow_gate_duration"							"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_shadow_gate_radius"							"РАДИУС:"
+		
+		"DOTA_Tooltip_ability_conjuror_rune_e_1"							"[E1] Soul of Shadow"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_1_Description"				"Когда элементаль Тени попадает атакой по цели, Conjuror и элементали Тени и Огня получают бонус к урону. Герою дополнительно даётся бонус к Ловкости. Максимум 20 зарядов. Длительность эффекта - 16 секунд."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_1_property_one"				"Бонус к урону за заряд"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_1_suffix"						"%"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_1_property_two"				"Герой получает"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_1_suffix_two"					" Ловкости за заряд"		
+
+    	"DOTA_Tooltip_modifier_conjuror_a_c_buff_visible"					"Soul of Shadow"
+    	"DOTA_Tooltip_modifier_conjuror_a_c_buff_visible_Description"		"Урон и Ловкость увеличены"
+		
+		"DOTA_Tooltip_ability_conjuror_rune_e_2"							"[E2] Shadow Lance"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_2_Description"				"При использовании Shadow Gate вперёд вылетят несколько стрел тьмы."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_2_property_one"				"Базовый урон"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_2_suffix"						""
+    	"DOTA_Tooltip_ability_conjuror_rune_e_2_property_two"				"Доп. урон"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_2_suffix_two"					"x Ловкости"
+		
+		"DOTA_Tooltip_ability_conjuror_rune_e_3"							"[E3] Dark Ranger"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_Description"				"Урон вашего элементаля Тени увеличен на сумму всех атрибутов. Дополнительно увеличивает дальность атаки элементаля Тени."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_property_one"				"Доп. урон элементаля Тени "
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_suffix"						"% от суммы всех атрибутов"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_property_two"				"Доп. дальность атаки для элементаля Тени"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_suffix_two"					""
+		
+		"DOTA_Tooltip_ability_conjuror_rune_e_4"							"[E4] Piercing Darkness"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_4_Description"				"Часть от урона атак элементаля тени и руны Shadow Lance наносится чистым типом урона."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_4_property_one"				"Чистый урон для элементаля тени составляет"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_4_suffix"						"% от основного урона"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_4_property_two"				"Чистый урон для руны Shadow Lance составляет"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_4_suffix_two"					"%"
+		
+		"DOTA_Tooltip_ability_call_of_elements"								"Call of the Elements"
+		"DOTA_Tooltip_ability_call_of_elements_Description"					"Герой усиливает себя и всех живых элементалей. Каждый элементаль даёт уникальное усиление. <br><font color='#70EA72'>Если по окончании прочтения этой способности какой-то элементаль не был призван или погиб, то Conjuror и оставшиеся элементали не получат усиление.</font>"
+		"DOTA_Tooltip_ability_call_of_elements_Lore"						""
+		"DOTA_Tooltip_ability_call_of_elements_health_regen"				"РЕГЕН. ЗДОРОВЬЯ (Земля):"
+		"DOTA_Tooltip_ability_call_of_elements_magic_resist"				"СОПРОТИВЛЕНИЕ МАГИИ (Земля):"
+		"DOTA_Tooltip_ability_call_of_elements_attack_speed"				"СКОРОСТЬ АТАКИ (Пустота):"
+		"DOTA_Tooltip_ability_call_of_elements_movespeed"					"СКОРОСТЬ ПЕРЕДВИЖЕНИЯ (Пустота):"
+		"DOTA_Tooltip_ability_call_of_elements_bonus_damage"				"УРОН (Огонь):"
+		"DOTA_Tooltip_ability_call_of_elements_duration"					"ДЛИТЕЛЬНОСТЬ:"
+
+		"DOTA_Tooltip_modifier_call_of_earth"								"Call of Earth"
+		"DOTA_Tooltip_modifier_call_of_earth_Description"					"Доп. регенерация здоровья, сопротивление магии."
+
+		"DOTA_Tooltip_modifier_call_of_fire"								"Call of Fire"
+		"DOTA_Tooltip_modifier_call_of_fire_Description"					"Доп. урон."
+
+		"DOTA_Tooltip_modifier_call_of_shadow"								"Call of Shadow"
+		"DOTA_Tooltip_modifier_call_of_shadow_Description"					"Доп. скорость передвижения и атаки."
+		
+		"DOTA_Tooltip_ability_conjuror_rune_r_1"							"[R1] Avalanche"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_1_Description"				"По окончании прочтения (R) Call of Elements, элементаль Земли получит дополнительную способность - Avalanche, которая позволяет элементалю Земли прыгнуть в указанную точку и по приземлении применить усиленную версию умения (Q) Earthquake."
+    	"DOTA_Tooltip_ability_conjuror_rune_r_1_property_one"				"Усиление Earthquake"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_1_suffix"						"%"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_1_property_two"				"Длительность оглушения"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_1_suffix_two"					" сек."
+		
+		"DOTA_Tooltip_ability_earth_aspect_quake_leap"						"Avalanche"
+		"DOTA_Tooltip_ability_earth_aspect_quake_leap_Description"			"Стихия: <font color=\"#AF843D\">Земля</font><br>Прыгает в указанную точку и применяет усиленное умение (Q) Earthquake."
+		
+		"DOTA_Tooltip_ability_conjuror_rune_r_2"							"[R2] Fire Spring"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_2_Description"				"По окончании прочтения (R) Call of the Elements, ваш элементаль Огня получает бонус к дальности атаки, дополнительный урон и может очень сильно снижать броню атакуемых целей."
+    	"DOTA_Tooltip_ability_conjuror_rune_r_2_property_one"				"Доп. урон"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_2_suffix"						"%"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_2_property_two"				"Снижение брони"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_2_suffix_two"					""
+
+    	"DOTA_Tooltip_modifier_fire_aspect_b_d_effect"						"Fire Spring"
+    	"DOTA_Tooltip_modifier_fire_aspect_b_d_effect_Description"			"Урон увеличен, атаки снижают броню цели"
+
+    	"DOTA_Tooltip_modifier_fire_aspect_b_d_armor_shred"					"Fire Spring - снижение брони"
+    	"DOTA_Tooltip_modifier_fire_aspect_b_d_armor_shred_Description"		"Значительно снижает броню целей"
+		
+		"DOTA_Tooltip_ability_conjuror_rune_r_3"							"[R3] Null Shadow"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_3_Description"				"По окончании прочтения (R) Call of the Elements атаки элементаля Тени, включая разделённые, будут замедлять задетых врагов."
+    	"DOTA_Tooltip_ability_conjuror_rune_r_3_property_one"				"Attack Speed Reduction"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_3_suffix"						""
+    	"DOTA_Tooltip_ability_conjuror_rune_r_3_property_two"				"Movespeed Reduction"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_3_suffix_two"					""
+
+    	"DOTA_Tooltip_modifier_conjuror_c_d_slow_effect"					"Null Shadow"			
+    	"DOTA_Tooltip_modifier_conjuror_c_d_slow_effect_Description"		"Скорости атаки и передвижения снижены."
+		
+		"DOTA_Tooltip_ability_conjuror_rune_r_4"							"[R4] Elemental Idol"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_4_Description"				"Увеличивает длительность эффекта (R) Call of the Elements."
+    	"DOTA_Tooltip_ability_conjuror_rune_r_4_property_one"				"Доп. длительность"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_4_suffix"						""
+		
+		//Arcanas
+		"DOTA_Tooltip_ability_conjuror_elemental_deity" 					"Elemental Deity"
+    	"DOTA_Tooltip_ability_conjuror_elemental_deity_Description"			"Conjuror познаёт великие тайны элементалей, что позволяет ему призвать Бога Элементалей. Божество обладает повышенной стойкостью к урону, а его здоровье, броня и урон наследуются от одноимённых значений героя."
+    	"DOTA_Tooltip_ability_conjuror_elemental_deity_attack_damage_mult"	"УРОН, Х:"
+    	"DOTA_Tooltip_ability_conjuror_elemental_deity_armor_mult"			"БРОНЯ, Х:"
+    	"DOTA_Tooltip_ability_conjuror_elemental_deity_health_mult"			"МАКС. ЗДОРОВЬЕ, Х:"
+
+    	"conjuror_elemental_deity_summon"									"Бог элементалей"
+
+       	"item_property_conjuror_arcana1"									"Elemental Deity"
+    	"property_conjuror_arcana1_description"								"Заменяет @Ability4 и все соответствующие руны на (R) Elemental Deity."
+
+  		"DOTA_Tooltip_ability_conjuror_rune_r_1_arcana1"						"[R1] Inferno Fist"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_1_arcana1_Description"			"С каждой атакой Бог Элементалей наносит дополнительный урон врагам находящимся в полукруге позади основной цели."
+    	"DOTA_Tooltip_ability_conjuror_rune_r_1_arcana1_property_one"			"Урон рассеянного удара"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_1_arcana1_suffix"					"% от урона Бога Элементалей"
+
+    	"DOTA_Tooltip_ability_conjuror_deity_a_d"							"Inferno Fist"
+    	"DOTA_Tooltip_ability_conjuror_deity_a_d_Description"				"Стихия: <font color=\"#EF4126\">Огонь</font><br>Атаки наносят магический урон врагам находящимся в полукруге позади основной атакуемой цели."	
+
+  		"DOTA_Tooltip_ability_conjuror_rune_r_2_arcana1"						"[R2] Terra Blast"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_2_arcana1_Description"			"Бог Элементалей получает способность создавать линии оглушительного разлома. Перезаряжается 4.5 секунды."
+    	"DOTA_Tooltip_ability_conjuror_rune_r_2_arcana1_property_one"		"Урон разлома"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_2_arcana1_suffix"				"% от урона Бога Элементалей"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_2_arcana1_property_two"		"Длительность оглушения"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_2_arcana1_suffix_two"			" сек."
+
+    	"DOTA_Tooltip_ability_conjuror_deity_terra_blast"					"Terra Blast"
+    	"DOTA_Tooltip_ability_conjuror_deity_terra_blast_Description"		"Стихия: <font color=\"#AF843D\">Земля</font><br>Создаёт серию оглушительных землетрясений по линии. Оглушает задетых врагов и наносит урон в зависимости от своего урона."
+
+  		"DOTA_Tooltip_ability_conjuror_rune_r_3_arcana1"						"[R3] Call of the Elements"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_3_arcana1_Description"			"Бог Элементалей может усилить героя и всех остальных элементалей, увеличивая регенерацию здоровья, скорость атаки, урон и сопротивление магии. Все бонусы применяются вне зависимости от того, призваны ли какие-либо конкретные элементали или нет. С некоторым шансом получаемый бонус от руны может быть сложен."
+    	"DOTA_Tooltip_ability_conjuror_rune_r_3_arcana1_property_one"		"Шанс на доп. заряд бонусов"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_3_arcana1_suffix"				"%"
+
+  		"DOTA_Tooltip_ability_conjuror_rune_r_4_arcana1"						"[R4] Shadow Shield"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_4_arcana1_Description"			"Бог элементалей получает способность, которая укрывает одного из элементалей щитом, поглощающим весь входящий урон на 100%. Перезаряжается 8 секунд. Приоритет на получение этог бонуса следующий: 1 - Элементаль Тени, 2 - Элементаль Огня."
+    	"DOTA_Tooltip_ability_conjuror_rune_r_4_arcana1_property_one"		"Длительность щита"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_4_arcana1_suffix"				" сек."
+
+    	"DOTA_Tooltip_ability_conjuror_deity_shadow_shield"				"Shadow Shield"
+    	"DOTA_Tooltip_ability_conjuror_deity_shadow_shield_Description"	"Накладывает на одного из элементалей щит, поглощающий 100% входящего урона."	
+
+    	"DOTA_Tooltip_modifier_deity_shadow_shield"						"Shadow Shield"
+    	"DOTA_Tooltip_modifier_deity_shadow_shield_Description"			"Весь входящий урон снижен на 100%%"
+
+		//Glyphs
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_1_1"		"(T1) Символ сжигающего пламени"
+		"item_rpc_conjuror_glyph_1_1_description" 				"Ваш огненный элементаль увеличивает свою скорость атаки на @glyph_property1 и урон на @glyph_property2%."
+
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_2_1"		"(T2) Символ призыва"
+		"item_rpc_conjuror_glyph_2_1_description" 				"Увеличивает показатель макс. здоровья всех элементалей на @glyph_property1%"
+
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_3_1"		"(T3) Символ настигающей тени"
+		"item_rpc_conjuror_glyph_3_1_description" 				"Находясь под действием (R) Call of the elements, умение (E) Shadow Gate перезаряжается @glyph_property1 сек. (Элементаль тьмы должен быть жив по окончании прочтения (R) Call of the elements)"
+
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_4_1"		"(T4) Символ длинной тени"
+		"item_rpc_conjuror_glyph_4_1_description" 				"Увеличивает дальность атаки вашего элементаля тени на @glyph_property1."
+
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_1"		"(T5) Символ дрожащей земли"
+		"item_rpc_conjuror_glyph_5_1_description" 				"Радиус умения (Q) Earthquake увеличен на @glyph_property1, а длительность свободного создания землетрясения увеличен на @glyph_property2 сек."
+
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_6_1"		"(T6) Символ огнемёта"
+		"item_rpc_conjuror_glyph_6_1_description" 				"С каждым критическим ударом ваш элементаль огня создаёт огненную воронку, наносящую в @glyph_property1 раз(а) больше урона (от крита)."
+
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_7_1"		"(T7) Символ бессмертной земли"
+		"item_rpc_conjuror_glyph_7_1_description" 				"Когда элементаль земли погибнет, он будет автоматически мгновенно перепризван."
+
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_a"		"(Immortal) Символ призывания"
+		"item_rpc_conjuror_glyph_5_a_description" 				"Весь пост-резистный урон, наносимый героем и его элементалями увеличен на 200%."
+		
+		//Weapons
+		"conjuror_weapon_01"			"Earth Orb"
+		"conjuror_weapon_02"			"Shadow Orb"
+		"conjuror_weapon_03"			"Mind Orb"
+		"conjuror_weapon_11"			"Fire Arcana"
+		"conjuror_weapon_12"			"Core Arcana"
+		"conjuror_weapon_13"			"Prime Arcana"
+		"conjuror_weapon_14"			"Shadow Arcana"
+		"conjuror_weapon_21"			"Trinity Essence"
+		"conjuror_weapon_22"			"Core of Fire"
+		"conjuror_weapon_23"			"Arcana of the Triumvirate"
+		"conjuror_weapon_24"			"Essence of Shadow"
+		"conjuror_weapon_25"			"Galaxy Essence"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_00"   "Orb"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_01"   "Earth Orb"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_02"   "Shadow Orb"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_03"   "Mind Orb"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_11"   "Fire Arcana"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_12"   "Core Arcana"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_13"   "Prime Arcana"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_14"   "Shadow Arcana"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_21"   "Trinity Essence"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_22"   "Core of Fire"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_23"   "Arcana of the Triumvirate"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_24"   "Essence of Shadow"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_weapon_25"   "Galaxy Essence"
+		
+		"DOTA_Tooltip_ability_item_rpc_conjuror_immortal_weapon_1"		"Enlightened Orb of Azerath"
+		
+		"DOTA_Tooltip_ability_item_rpc_conjuror_immortal_weapon_2"            "Tricor Orb"
+        "item_property_conjuror_immortal_weapon2"                             "Universal Balance"
+        "property_conjuror_immortal_weapon2_description"                      "Увеличивает урон (Q) @Ability1 на 0.3% за каждые 10 очков Силы, увеличивает урон (W) @Ability2 на 0.3% за каждые 10 очков Интеллекта. Каждые 10 очков Ловкости увеличивают урон (E) @Ability3 на 0.3%."  
+
+
+        "DOTA_Tooltip_ability_item_rpc_conjuror_immortal_weapon_3"            "Sphere of Avennia"
+        "item_property_conjuror_immortal_weapon3"                             "Elemental Core"
+        "property_conjuror_immortal_weapon3_description"                      "Призванные элементали облаают умением Стойкость."     

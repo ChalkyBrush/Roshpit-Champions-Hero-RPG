@@ -1,0 +1,233 @@
+		//Abilities
+		"DOTA_Tooltip_ability_sephyr_lightbomb"										"神圣之光"
+    	"DOTA_Tooltip_ability_sephyr_lightbomb_Description"							"元素： <font color=\"#F6FFB5\">圣</font> / <font color=\"#7AE2A7\">风</font><br> 鼓翼升入云霄，并随着苍穹之怒一并降下，0.8 秒后，希芙尔在目标点震碎神圣光弹，眩晕并伤害范围内的敌人。<br>在风舞状态下施放神圣之光将使希芙尔转向施法方向。"
+    	"DOTA_Tooltip_ability_sephyr_lightbomb_cast_range"							"施法范围："
+    	"DOTA_Tooltip_ability_sephyr_lightbomb_base_damage"							"伤害："
+    	"DOTA_Tooltip_ability_sephyr_lightbomb_int_damage"							"额外伤害为智力值的倍数："
+    	"DOTA_Tooltip_ability_sephyr_lightbomb_stun_duration"						"眩晕持续时间："
+
+    	"DOTA_Tooltip_ability_sephyr_rune_q_1"									"[Q1] 圣光"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_1_Description"						"施放神圣之光后将提高智力值，持续 12 秒。"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_1_property_one"						"提高智力值"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_1_suffix"							""
+
+    	"DOTA_Tooltip_ability_sephyr_rune_q_2"									"[Q2] 放大"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_2_Description"						"被神圣之光击中的敌人将受到debuff，加深其所受到的来自希芙尔的伤害。（伤害加深计算在敌人减伤之后）"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_2_property_one"						"减伤后伤害加深"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_2_suffix"							"%"
+
+    	"DOTA_Tooltip_modifier_lightbomb_postmit"								"放大"
+    	"DOTA_Tooltip_modifier_lightbomb_postmit_Description"					"加深所受到的来自希芙尔的伤害"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_q_3"									"[Q3] 明澈之火"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_3_Description"						"每次施放神圣之光后都将获得多层 明澈之火 的buff。拥有超过 10 层 明澈之火 buff后，神圣之光可以自由释放而不触发冷却，自由释放的神圣之光每次将消耗 10 层 明澈之火 buff，并且不增加新的明澈之火层数。"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_3_property_one"						"每次获得明澈之火层数"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_3_suffix"							""
+
+    	"DOTA_Tooltip_modifier_lightbomb_freecast"								"明澈之火"
+    	"DOTA_Tooltip_modifier_lightbomb_freecast_Description"					"10 层将免除神圣之火冷却"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_q_4"									"[Q4] 晴明烈性"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_4_Description"						"被动提高 <font color=\"#F6FFB5\">圣</font> 元素伤害。一部分 <font color=\"#F6FFB5\">圣</font> 元素伤害提高值将同时提高攻击力。"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_4_property_one"						"圣元素伤害提高"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_4_suffix"							"%"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_4_property_two"						"圣元素伤害提高值的一部分将同时提高攻击力"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_4_suffix_two"						"%"
+		
+		"DOTA_Tooltip_ability_piercing_gale"										"风之触"
+    	"DOTA_Tooltip_ability_piercing_gale_Description"							"元素： <font color=\"#7AE2A7\">风</font><br>希芙尔在面前召唤一束锋利的疾风。"
+    	"DOTA_Tooltip_ability_piercing_gale_damage"									"伤害："
+		
+		"DOTA_Tooltip_ability_sephyr_rune_w_1"									"[W1] 明眸"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_1_Description"						"智力值将提高魔法恢复速度。"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_1_property_one"						"魔法恢复速度提高"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_1_suffix"								"% 智力值"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_w_2"									"[W2] 侧风"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_2_Description"						"风之触有 20% 的概率造成一次暴击伤害。"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_2_property_one"						"暴击伤害提高"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_2_suffix"								"%"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_w_3"									"[W3] 达隆分裂"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_3_Description"						"攻击力的一部分将提高风之触的基础伤害。（加法）"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_3_property_one"						"攻击力加入基础技能伤害"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_3_suffix"								"%"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4"									"[W4] 宇宙风"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_Description"						"希芙尔的智力值将提高 <font color=\"#7AE2A7\">风</font> 元素伤害。"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_property_one"						"风元素伤害提高"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_suffix"							"% 每 10 点智力值"
+		
+		"DOTA_Tooltip_ability_sephyr_strafe"										"风舞"
+    	"DOTA_Tooltip_ability_sephyr_strafe_Description"							"当开启时，希芙尔的朝向将锁定，此时执行移动操作，希芙尔将乘着微风向移动方向滑翔，每次滑翔消耗一点点微小的魔法值。移动并拾起物品将自动关闭风舞技能。"
+    	"DOTA_Tooltip_ability_sephyr_strafe_max_distance"							"最远滑翔距离："							
+    	"DOTA_Tooltip_ability_sephyr_strafe_strafe_speed"							"滑翔速度："
+    	"DOTA_Tooltip_ability_sephyr_strafe_mana_percent_use"						"% 魔法值消耗："
+
+    	"DOTA_Tooltip_modifier_strafe_cooldown"										"风舞冷却中"
+		
+		"DOTA_Tooltip_ability_sephyr_rune_e_1"									"[E1] 慌张精灵"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_1_Description"						"风舞激活时，执行攻击操作，希芙尔将向攻击目标的反方向滑翔，同时向攻击目标掷出一只风精灵，在敌人间弹射造成伤害。被精灵击中的单位将被缴械 0.5 秒。每次最多只能存在一只风精灵。"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_1_property_one"						"精灵额外弹射概率"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_1_suffix"						    "%"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_1_property_two"						"伤害"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_1_suffix_two"						""
+
+    	"DOTA_Tooltip_modifier_boomerang_disarm"								"慌张精灵"
+    	"DOTA_Tooltip_modifier_boomerang_disarm_Description"					"缴械"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_e_2"									"[E2] 风之祝福"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_2_Description"						"当风精灵返回希芙尔时，希芙尔将获得风之祝福，提高攻击力，持续 9秒。攻击力提高层数 取决于 风精灵返回前希芙尔身边前 所弹射击中的敌人数量。新的精灵返回将刷新风之祝福buff。同时攻击力将提高风精灵的弹射伤害。（加法）"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_2_property_one"						"每层攻击力提高"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_2_suffix"							""
+    	"DOTA_Tooltip_ability_sephyr_rune_e_2_property_two"						"% 攻击力提高风精灵的伤害"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_2_suffix_two"						"%"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_e_3"									"[E3] 傅里叶"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_3_Description"						"敏捷提高基础攻击力。同时敏捷值的倍数将加入风精灵的伤害。（加法）"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_3_property_one"						"攻击力"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_3_suffix"								"x 敏捷值"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_3_property_two"						"风精灵额外伤害"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_3_suffix_two"							"x 敏捷值"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_e_4"									"[E4] 滑翔翼"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_4_Description"						"提高最远滑翔距离和基础滑翔速度。"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_4_property_one"						"风舞滑翔速度提高"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_4_suffix"							""
+    	"DOTA_Tooltip_ability_sephyr_rune_e_4_property_two"						"最远滑翔距离"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_4_suffix_two"						""
+		
+		"DOTA_Tooltip_ability_blessing_of_nefali"									"风神之守护"
+    	"DOTA_Tooltip_ability_blessing_of_nefali_Description"						"希芙尔从空中降下，吟唱风之守卫，守护范围内的所有友军，范围内所有友军及希芙尔都将获得大量伤害减免。释放技能后 0.45 秒后，风之屏障才能完全筑起。"	
+    	"DOTA_Tooltip_ability_blessing_of_nefali_radius"							"范围："
+    	"DOTA_Tooltip_ability_blessing_of_nefali_damage_reduce"						"% 伤害减免："
+
+    	"DOTA_Tooltip_modifier_nefali_aura_effect"									"风神之守护"
+    	"DOTA_Tooltip_modifier_nefali_aura_effect_Description"						"伤害减免并且生命回复速度提高"
+		
+		"DOTA_Tooltip_ability_sephyr_rune_r_1"									"[R1] 恢复之风"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_1_Description"						"希芙尔和在风神之守护内的友军生命回复速度提高。"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_1_property_one"						"生命回复速度提高"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_1_suffix"							"x 希芙尔等级"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_r_2"									"[R2] 阴冷雾霭"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_2_Description"						"风神之守护内的敌人将降低移动和攻击速度。"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_2_property_one"						"攻击速度降低"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_2_suffix"							""
+    	"DOTA_Tooltip_ability_sephyr_rune_r_2_property_two"						"移动速度降低"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_2_suffix_two"						""
+
+    	"DOTA_Tooltip_modifier_nefali_aura_effect_enemy"						"阴冷雾霭"
+    	"DOTA_Tooltip_modifier_nefali_aura_effect_enemy_Description"			"移动和攻击速度降低"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_r_3"									"[R3] 风神赐福"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_3_Description"						"在风神之守护内连续超过 2秒，将获得一个移动速度 buff，持续 10s，这个buff也将提高滑翔速度。"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_3_property_one"						"移动速度提高"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_3_suffix"							""
+    	"DOTA_Tooltip_ability_sephyr_rune_r_3_property_two"						"滑翔速度提高"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_3_suffix_two"						""
+
+    	"DOTA_Tooltip_modifier_nefali_c_d_speed"								"风神赐福"
+    	"DOTA_Tooltip_modifier_nefali_c_d_speed_Description"					"移动速度提高"	
+
+    	"DOTA_Tooltip_ability_sephyr_rune_r_4"									"[R4] 迅捷法师"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_4_Description"						"被动提高敏捷值和智力值。"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_4_property_one"						"智力值提高"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_4_suffix"							""
+    	"DOTA_Tooltip_ability_sephyr_rune_r_4_property_two"						"智力值提高"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_4_suffix_two"						""
+		
+		//Arcanas
+		
+		"item_property_sephyr_arcana1"										"冰霜飓风"
+    	"property_sephyr_arcana1_description"								"用冰霜飓风替换 @Ability2 及其全部符文。"
+
+    	"DOTA_Tooltip_ability_icewind_gale"						"冰霜飓风"
+    	"DOTA_Tooltip_ability_icewind_gale_Description"			"元素: <font color=\"#87D9FF\">冰</font> / <font color=\"#7AE2A7\">风</font><br>希芙尔在他面前制造一股凛冽的冰霜飓风。飓风使敌人减速4秒钟，每一股飓风都有15%的概率造成暴击伤害。"
+    	"DOTA_Tooltip_ability_icewind_gale_damage"				"基础伤害:"
+    	"DOTA_Tooltip_ability_icewind_gale_as_loss"				"攻速降低:"
+    	"DOTA_Tooltip_ability_icewind_gale_ms_loss"				"移速降低:"
+    	"DOTA_Tooltip_ability_icewind_gale_crit_mult"				"% 暴击倍率:"
+    	"DOTA_Tooltip_ability_icewind_gale_crit_chance"				"暴击概率:"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_w_1_arcana1"						"[W1] 北地之眼"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_1_arcana1_Description"			"被动提高魔法回复速度，魔法回复速度可以同时增加攻击力"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_1_arcana1_property_one"			"魔法回复"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_1_arcana1_suffix"				""  	
+     	"DOTA_Tooltip_ability_sephyr_rune_w_1_arcana1_property_two"			"攻击力增加"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_1_arcana1_suffix_two"			" 基于每点回蓝"  	
+
+    	"DOTA_Tooltip_ability_sephyr_rune_w_2_arcana1"							"[W2] 冰片"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_2_arcana1_Description"				"攻击力加入到冰霜飓风伤害中"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_2_arcana1_property_one"				"额外伤害"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_2_arcana1_suffix"					"% 攻击力"
+
+    	"DOTA_Tooltip_ability_sephyr_rune_w_3_arcana1"							"[W3] 寒风护盾"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_3_arcana1_Description"				"冰霜飓风有机会生成一层吸收全部伤害的的护盾。大于100％的几率意味着它会生成多层的护盾。"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_3_arcana1_property_one"				"护盾生成几率"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_3_arcana1_suffix"					"%"
+
+    	"DOTA_Tooltip_modifier_icewind_shield"									"寒风护盾"
+    	"DOTA_Tooltip_modifier_icewind_shield_Description"						"吸收伤害"		
+
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1"							"[W4] 冰风宗师"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_Description"				"希芙尔的全属性可以提高 <font color=\"#7AE2A7\">风</font> 元素伤害。"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_property_one"				"风元素伤害提高"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_suffix"					"% 每10点全属性值"
+		
+		//Glyphs
+		
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_1_1"		"慌张雕文"
+		"item_rpc_sephyr_glyph_1_1_description" 				"提高最大同时可存在的风精灵数量 @glyph_property1。"
+
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_2_1"		"模糊风雕文"
+		"item_rpc_sephyr_glyph_2_1_description" 				"提高闪避 @glyph_property1%。"
+
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_3_1"		"风神雕文"
+		"item_rpc_sephyr_glyph_3_1_description" 				"提高 @Ability4 范围 @glyph_property1。"
+
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_4_1"		"风触雕文"
+		"item_rpc_sephyr_glyph_4_1_description" 				"提高 @Ability2 伤害距离 @glyph_property1。"
+
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_5_1"		"盲风雕文"
+		"item_rpc_sephyr_glyph_5_1_description" 				"@Ability1 冻结敌人 @glyph_property1 秒。基础技能的眩晕效果在冻结结束后才生效。"
+
+		"DOTA_Tooltip_modifier_lightbomb_freeze"				"盲风雕文"
+		"DOTA_Tooltip_modifier_lightbomb_freeze_Description"	"被冻结"
+
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_6_1"		"风之圣"
+		"item_rpc_sephyr_glyph_6_1_description" 				"@glyph_property1% 概率闪避一次伤害。（所有伤害）"
+
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_7_1"		"苍穹之力雕文"
+		"item_rpc_sephyr_glyph_7_1_description" 				"当离地面高度超过 @glyph_property1 码时，获得魔法免疫。"
+
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_5_a"		"神圣之风雕文"
+		"item_rpc_sephyr_glyph_5_a_description" 				"@Ability4 中的伤害减免提高至 @glyph_property1%。"
+		
+		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_00"		"Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_01"		"Sky Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_02"		"Cloud Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_03"		"Wind Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_11"		"Gale Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_12"		"Aero Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_13"		"Blessed Wind Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_14"		"Blessed Sky Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_21"		"Emerald Tide Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_22"		"Staff of the Prevailing Winds"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_23"		"Sky Mage Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_24"		"Heaven's Priest Staff"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_weapon_25"		"Galestorm Staff"
+		
+		"DOTA_Tooltip_ability_item_rpc_sephyr_immortal_weapon_1"           "翠玉风法杖"
+        "item_property_sephyr_immortal_weapon"                             "玉之风"
+        "property_sephyr_immortal_weapon_description"                      "提高 @Ability2 宽度 @special_property1%，并且提高暴击概率 @special_property2%。"
+
+        "DOTA_Tooltip_ability_item_rpc_sephyr_immortal_weapon_2"            "绿宝石之刃"
+        "item_property_sephyr_immortal_weapon2"                             "天空之怒"
+        "property_sephyr_immortal_weapon2_description"                      "提高 可同时存在的 风精灵最大数量 @special_property1。"
+
+        "DOTA_Tooltip_ability_item_rpc_sephyr_immortal_weapon_3"            "风域神皇权杖"
+        "item_property_sephyr_immortal_weapon3"                             "崇高风域"
+        "property_sephyr_immortal_weapon3_description"                      "提高所有 T4 符文 @special_property1。"
+		

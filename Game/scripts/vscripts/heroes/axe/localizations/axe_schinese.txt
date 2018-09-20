@@ -1,0 +1,280 @@
+		"DOTA_Tooltip_ability_stun_attack"                              "骷髅锤"
+        "DOTA_Tooltip_ability_stun_attack_Description"                  "元素： <font color=\"#DDDDDD\">普通</font><br>跳跃至目标地点，获得骷髅锤buff。buff持续时间内每次攻击都可眩晕范围内敌人，造成溅射伤害，并提高攻击速度。<br>飞跃时骷髅锤、复原、狂暴之怒的持续时间将刷新并暂停。最远飞跃距离：1200。"
+        "DOTA_Tooltip_ability_stun_attack_Lore"                         ""
+        "DOTA_Tooltip_ability_stun_attack_attack_speed"                 "攻击速度增加："
+        "DOTA_Tooltip_ability_stun_attack_bolt_damage"                  "溅射伤害："
+        "DOTA_Tooltip_ability_stun_attack_buff_duration"                "骷髅锤buff持续时间："
+        "DOTA_Tooltip_ability_stun_attack_duration"                     "每次攻击眩晕持续时间："
+ 
+        "DOTA_Tooltip_modifier_stun_attack"                             "骷髅锤"
+        "DOTA_Tooltip_modifier_stun_attack_Description"                 "对一定范围内敌人造成眩晕和伤害。"
+ 
+        "DOTA_Tooltip_ability_red_general_skull_basher"                             "骷髅锤"
+        "DOTA_Tooltip_ability_red_general_skull_basher_Description"                 "元素： <font color=\"#DDDDDD\">普通</font><br>跳跃至目标地点，获得骷髅锤buff。buff持续时间内每次攻击都可眩晕范围内敌人，造成溅射伤害，并提高攻击速度。飞跃时狂暴之怒的持续时间将暂停。"
+        "DOTA_Tooltip_ability_red_general_skull_basher_Lore"                            ""
+        "DOTA_Tooltip_ability_red_general_skull_basher_attack_speed"                    "攻击速度增加："
+        "DOTA_Tooltip_ability_red_general_skull_basher_bolt_damage"                 "溅射伤害："
+        "DOTA_Tooltip_ability_red_general_skull_basher_buff_duration"               "骷髅锤buff持续时间："
+        "DOTA_Tooltip_ability_red_general_skull_basher_duration"                    "每次攻击眩晕持续时间："
+        "DOTA_Tooltip_ability_red_general_skull_basher_cast_range"                  "最远飞跃距离："
+		
+		"DOTA_Tooltip_ability_axe_rune_q_1"                             "[Q1] 实力扩张"
+        "DOTA_Tooltip_ability_axe_rune_q_1_Description"                 "赤色上将的攻击力将提高骷髅锤的伤害。"
+        "DOTA_Tooltip_ability_axe_rune_q_1_property_one"                "伤害提高"
+        "DOTA_Tooltip_ability_axe_rune_q_1_suffix"                      "% 攻击力"
+		
+		"DOTA_Tooltip_ability_axe_rune_q_2"                             "[Q2] 狂暴之怒"
+        "DOTA_Tooltip_ability_axe_rune_q_2_Description"                 "你的每次攻击将增加攻击速度和基础攻击力，当你超过10秒不攻击时失去所有加成。最高 50层。"
+        "DOTA_Tooltip_ability_axe_rune_q_2_property_one"                "每次充能攻击速度"
+        "DOTA_Tooltip_ability_axe_rune_q_2_suffix"                      ""
+        "DOTA_Tooltip_ability_axe_rune_q_2_property_two"                "每次充能基础攻击力"
+        "DOTA_Tooltip_ability_axe_rune_q_2_suffix_two"                  ""
+ 
+        //"DOTA_Tooltip_modifier_axe_rune_q_2_stacker"                  "Berserker Rage"
+        //"DOTA_Tooltip_modifier_axe_rune_q_2_stacker_description"      "Gaining Attack Speed."
+ 
+        "DOTA_Tooltip_modifier_axe_rune_q_2_visible"                    "狂暴之怒"
+        "DOTA_Tooltip_modifier_axe_rune_q_2_visible_Description"        "攻击速度和基础攻击力提高"
+		
+		"DOTA_Tooltip_ability_axe_rune_q_3"                             "[Q3] 英勇飞跃"
+        "DOTA_Tooltip_ability_axe_rune_q_3_Description"                 "当上将施放骷髅锤时，在落地点释放一次强化版的大招。"
+        "DOTA_Tooltip_ability_axe_rune_q_3_property_one"                "伤害"
+        "DOTA_Tooltip_ability_axe_rune_q_3_suffix"                      "% 大招伤害"
+		
+		
+        "DOTA_Tooltip_ability_axe_rune_q_4"                             "[Q4] 野蛮扩张"
+        "DOTA_Tooltip_ability_axe_rune_q_4_Description"                 "敌人受到骷髅锤伤害时，将获得一层debuff，提高所受到来自于赤色上将的普通元素伤害。最高叠加 20层。"
+        "DOTA_Tooltip_ability_axe_rune_q_4_property_one"                "每层普通元素伤害提高"
+        "DOTA_Tooltip_ability_axe_rune_q_4_suffix"                      "%"
+
+        "DOTA_Tooltip_modifier_axe_rune_q_4_visible"					"野蛮扩张"
+        "DOTA_Tooltip_modifier_axe_rune_q_4_visible_Description"		"受到来自赤色上将的普通元素伤害提高"
+		
+		
+		"DOTA_Tooltip_ability_backshock"                                "冲击波"
+        "DOTA_Tooltip_ability_backshock_Description"                    "元素： <font color=\"#DDDDDD\">普通</font><br>向上将身后释放3道冲击波。"
+        "DOTA_Tooltip_ability_backshock_Lore"                           ""
+        "DOTA_Tooltip_ability_backshock_main_damage"                    "每道伤害："
+        "DOTA_Tooltip_ability_backshock_speed"                          "冲击波速度："
+		
+		"DOTA_Tooltip_ability_axe_rune_w_1"                             "[W1] 余震"
+        "DOTA_Tooltip_ability_axe_rune_w_1_Description"                 "被冲击波击中的敌人将受到持续伤害，每 0.3秒伤害一次，持续 3秒。"
+        "DOTA_Tooltip_ability_axe_rune_w_1_property_one"                "每次伤害"
+        "DOTA_Tooltip_ability_axe_rune_w_1_suffix"                      "% 冲击波伤害"
+		"DOTA_Tooltip_modifier_axe_rune_w_1_visible"					"余震"
+        "DOTA_Tooltip_modifier_axe_rune_w_1_visible_Description"		"每 0.3秒受到一次额外伤害"
+		
+		"DOTA_Tooltip_ability_axe_rune_w_2"                             "[W2] 弱化能流"
+        "DOTA_Tooltip_ability_axe_rune_w_2_Description"                 "每次被冲击波伤害，敌人都将受到一层debuff，使魔法抗性降低。最高叠加3层。"
+        "DOTA_Tooltip_ability_axe_rune_w_2_property_one"                "魔法抗性降低"
+        "DOTA_Tooltip_ability_axe_rune_w_2_suffix"                      "%"
+
+        "DOTA_Tooltip_modifier_axe_rune_w_2_visible"					"弱化能流"
+        "DOTA_Tooltip_modifier_axe_rune_w_2_visible_Description"		"魔法抗性降低"
+		
+		"DOTA_Tooltip_ability_axe_rune_w_3"                             "[W3] 复原"
+        "DOTA_Tooltip_ability_axe_rune_w_3_Description"                 "施放冲击波时上将恢复生命值。"
+        "DOTA_Tooltip_ability_axe_rune_w_3_property_one"                "治疗"
+        "DOTA_Tooltip_ability_axe_rune_w_3_suffix"                      "x 冲击波技能等级"
+		
+		"DOTA_Tooltip_ability_axe_rune_w_4"                             "[W4] 雷霆一脚"
+        "DOTA_Tooltip_ability_axe_rune_w_4_Description"                 "你的力量值将提高冲击波和脚跟重踏的伤害。"
+        "DOTA_Tooltip_ability_axe_rune_w_4_property_one"                "伤害提高"
+        "DOTA_Tooltip_ability_axe_rune_w_4_suffix"                      "% 每10点力量值"
+ 
+		
+		
+		"DOTA_Tooltip_ability_whirlwind"                                "急速狂飙"
+        "DOTA_Tooltip_ability_whirlwind_Description"                    "赤色上将高速旋转，牵引周围的敌人并拖拽着敌人一起向前移动，敌人每 0.18秒被拖拽一次。每一次拖拽敌人，赤色上将都将清除眩晕状态，并且根据所拖拽的敌人数量回复一定的生命值。"
+        "DOTA_Tooltip_ability_whirlwind_Lore"                           ""
+        "DOTA_Tooltip_ability_whirlwind_heal"                           "每拖拽一个敌人每次（0.18s）治疗："
+        "DOTA_Tooltip_ability_whirlwind_radius"                         "范围："
+		
+		"DOTA_Tooltip_ability_axe_rune_e_1"                             "[E1] 耐力"
+        "DOTA_Tooltip_ability_axe_rune_e_1_Description"                 "当上将失去生命值时，获得额外的全属性值。"
+        "DOTA_Tooltip_ability_axe_rune_e_1_property_one"                "额外全属性值"
+        "DOTA_Tooltip_ability_axe_rune_e_1_suffix"                      " 每失去5%生命值"
+ 
+        "DOTA_Tooltip_modifier_axe_rune_e_1_visible"                    "耐力"
+        "DOTA_Tooltip_modifier_axe_rune_e_1_visible_Description"        "根据失去的生命值获得额外属性值"
+		
+		"DOTA_Tooltip_ability_axe_rune_e_2"                             "[E2] 气旋风暴"
+        "DOTA_Tooltip_ability_axe_rune_e_2_Description"                 "上将施放急速狂飙将获得一个buff。在5秒内增加额外攻击力，当施放骷髅锤时增益效果持续时间刷新。"
+        "DOTA_Tooltip_ability_axe_rune_e_2_property_one"                "获得额外的攻击力"
+        "DOTA_Tooltip_ability_axe_rune_e_2_suffix"                      "%"
+ 
+        "DOTA_Tooltip_modifier_axe_rune_e_2_tornado"                    "气旋风暴"
+        "DOTA_Tooltip_modifier_axe_rune_e_2_tornado_Description"        "增加攻击力 %%"
+		
+		"DOTA_Tooltip_ability_axe_rune_e_3"                             "[E3] 旋风"
+        "DOTA_Tooltip_ability_axe_rune_e_3_Description"                 "敌人每一次被拖拽都将被伤害，伤害基于赤色上将的攻击力，伤害为纯粹。"
+        "DOTA_Tooltip_ability_axe_rune_e_3_property_one"                "伤害"
+        "DOTA_Tooltip_ability_axe_rune_e_3_suffix"                      "% 攻击力"
+		
+		"DOTA_Tooltip_modifier_axe_rune_e_3_shield"                     "旋风守护"
+        "DOTA_Tooltip_modifier_axe_rune_e_3_shield_Description"         "减伤50%"
+ 
+        "DOTA_Tooltip_modifier_axe_rune_e_3"                            "旋风庇护"
+        "DOTA_Tooltip_modifier_axe_rune_e_3_description"                "提高魔法抗性和护甲"
+		
+		"DOTA_Tooltip_ability_axe_rune_e_4"                             "[E4] 旋风守护"
+        "DOTA_Tooltip_ability_axe_rune_e_4_Description"                 "施放急速狂飙之后有概率获得一层护盾，持续 7秒。护盾抵挡一次伤害后被消耗，减伤 80%。概率超过 100% 有几率获得多层护盾。"
+        "DOTA_Tooltip_ability_axe_rune_e_4_property_one"                "获得护盾概率"
+        "DOTA_Tooltip_ability_axe_rune_e_4_suffix"                      "%"
+		
+		"DOTA_Tooltip_modifier_axe_rune_e_4_furnace"                    "Deep Furnace"
+        "DOTA_Tooltip_modifier_axe_rune_e_4_furnace_Description"        "Casting Spur Shock unleashes charges."
+ 
+        "DOTA_Tooltip_ability_sunder"                                   "破甲"
+        "DOTA_Tooltip_ability_sunder_Description"                       "元素： <font color=\"#DDDDDD\">普通</font><br>上将高擎他的武器，持续2.5秒，重击地面，造成的伤害为当前生命值的倍数。"
+        "DOTA_Tooltip_ability_sunder_Lore"                              ""
+        "DOTA_Tooltip_ability_sunder_main_damage"                       "伤害为当前生命值的%："
+		
+		"DOTA_Tooltip_ability_axe_rune_r_1"                             "[R1] 狂战士怒吼"
+        "DOTA_Tooltip_ability_axe_rune_r_1_Description"                 "当施放破甲时，每秒怒吼一次，嘲讽800范围内的敌人，强制敌人攻击你。当狂战士怒吼激活时，赤色上将所受到的来自敌人的所有伤害都将被反弹回敌人。反弹伤害为物理。最大反弹伤害为 20X最大生命值的伤害。"
+        "DOTA_Tooltip_ability_axe_rune_r_1_property_one"                "反弹伤害"
+        "DOTA_Tooltip_ability_axe_rune_r_1_suffix"                      "x 所受到的伤害"
+
+        "DOTA_Tooltip_modifier_axe_rune_r_1_taunt"						"狂战士怒吼"
+        "DOTA_Tooltip_modifier_axe_rune_r_1_taunt_Description"			"被嘲讽了，怎么办？？干他"
+		
+		"DOTA_Tooltip_ability_axe_rune_r_2"                             "[R2] 震颤"
+        "DOTA_Tooltip_ability_axe_rune_r_2_Description"                 "赤色上将每一次怒吼都将造成伤害，伤害为破甲的倍数。"
+        "DOTA_Tooltip_ability_axe_rune_r_2_property_one"                "伤害"
+        "DOTA_Tooltip_ability_axe_rune_r_2_suffix"                      "% 破甲伤害"
+		
+		"DOTA_Tooltip_ability_axe_rune_r_3"                             "[R3] 肾上腺素"
+        "DOTA_Tooltip_ability_axe_rune_r_3_Description"                 "当赤色上将开始吟唱破甲时，上将立即提高大量护甲值和最大生命值。"
+        "DOTA_Tooltip_ability_axe_rune_r_3_property_one"                "额外生命值"
+        "DOTA_Tooltip_ability_axe_rune_r_3_suffix"                      ""
+        "DOTA_Tooltip_ability_axe_rune_r_3_property_two"                "额外护甲值"
+        "DOTA_Tooltip_ability_axe_rune_r_3_suffix_two"                      ""
+
+        "DOTA_Tooltip_modifier_axe_rune_r_3_visible"					"肾上腺素"
+        "DOTA_Tooltip_modifier_axe_rune_r_3_visible_Description"		"提高生命值和护甲值"
+ 
+        "DOTA_Tooltip_modifier_axe_rune_r_3"                            "心灵之力"
+        "DOTA_Tooltip_modifier_axe_rune_r_3_description"                "冲击波造成额外伤害"
+		
+		"DOTA_Tooltip_modifier_axe_rune_r_3_shield"						"旋风守护"
+        "DOTA_Tooltip_modifier_axe_rune_r_3_shield_Description"			"减伤 80%%"	
+ 
+		"DOTA_Tooltip_ability_axe_rune_r_4"                             "[R4] 钢铁破裂"
+        "DOTA_Tooltip_ability_axe_rune_r_4_Description"                 "赤色上将自身的减伤百分比（不包含护甲值和魔法抗性）也将提高赤色上将对敌人所造成的伤害。（伤害计算在减伤之后）当赤色上将的减伤在 0% 与 50% 之间时，赤色上将将获得第一层buff，当减伤值超过 50% 时，获得第二层buff，当超过 75% 时，获得第三层，当超过 87.5% 时，获得第四层，93.75%、96.875% 。。。以此类推。（规律为每额外减伤50%，获得一层buff）所有 100% 减伤的护盾都不计算在内。"
+        "DOTA_Tooltip_ability_axe_rune_r_4_property_one"                "每层 buff 减伤后伤害加深"
+        "DOTA_Tooltip_ability_axe_rune_r_4_suffix"                      "%"
+ 
+        "DOTA_Tooltip_modifier_axe_rune_r_4_visible"                    "钢铁破裂"
+        "DOTA_Tooltip_modifier_axe_rune_r_4_visible_description"        "减伤后伤害加深"
+ 
+		//Arcanas
+		"item_property_axe_arcana1"                                     "开天辟地"
+        "property_axe_arcana1_description"                              "用开天辟地替换 @Ability4 及其所有符文。"
+ 
+        "DOTA_Tooltip_ability_axe_arcana_smash"                         "开天辟地"
+        "DOTA_Tooltip_ability_axe_arcana_smash_Description"             "用巨斧撕裂大地，被撕裂的大地将在 4秒后发生爆炸。"
+        "DOTA_Tooltip_ability_axe_arcana_smash_attack_power_mult_percent"   "伤害为 % 的攻击力："
+        "DOTA_Tooltip_ability_axe_arcana_smash_stun_duration"           "眩晕持续时间："
+ 
+        "DOTA_Tooltip_ability_axe_rune_r_1_arcana1"                     "[R1] 天地崩裂"
+        "DOTA_Tooltip_ability_axe_rune_r_1_arcana1_Description"         "开天辟地对敌人造成的伤害将被加深。（计算在敌人减伤之后）"
+        "DOTA_Tooltip_ability_axe_rune_r_1_arcana1_property_one"        "减伤后伤害加深"
+        "DOTA_Tooltip_ability_axe_rune_r_1_arcana1_suffix"              "%"
+ 
+        "DOTA_Tooltip_ability_axe_rune_r_2_arcana1"                     "[R2] 酷热狂怒"
+        "DOTA_Tooltip_ability_axe_rune_r_2_arcana1_Description"         "大招每击中一个单位都将提高一定的基础攻击力，持续 12秒，最高获得 5层攻击力加成。 攻击力提高在大招造成伤害之前。"
+        "DOTA_Tooltip_ability_axe_rune_r_2_arcana1_property_one"        "每个单位提高基础攻击力"
+        "DOTA_Tooltip_ability_axe_rune_r_2_arcana1_suffix"              ""
+ 
+        "DOTA_Tooltip_modifier_axe_arcana_b_d_attack_power"             "酷热狂怒"
+        "DOTA_Tooltip_modifier_axe_arcana_b_d_attack_power_Description" "基础攻击力提高"
+ 
+        "DOTA_Tooltip_ability_axe_rune_r_3_arcana1"                     "[R3] 熊熊怒火"
+        "DOTA_Tooltip_ability_axe_rune_r_3_arcana1_Description"         "处于大招范围内的敌人将受到debuff，提高所受到的普通元素伤害，持续 6秒。debuff施加在大招造成伤害之前。"
+        "DOTA_Tooltip_ability_axe_rune_r_3_arcana1_property_one"        "所受到的普通元素伤害提高"
+        "DOTA_Tooltip_ability_axe_rune_r_3_arcana1_suffix"              "%"
+
+        "DOTA_Tooltip_ability_axe_rune_r_4_arcana1"                     "[R4] 地壳余震"
+        "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_Description"         "大招有几率额外造成一道地裂，几率超过 100% 可以撕裂多道。并且额外提高每条地裂的撕裂距离。"
+        "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_property_one"        "额外的地裂概率"
+        "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_suffix"              "%"
+        "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_property_two"        "额外距离"
+        "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_suffix_two"          ""
+
+		//Glyphs
+		"DOTA_Tooltip_ability_item_rpc_axe_glyph_1_1"       "格斗雕文"
+        "item_rpc_axe_glyph_1_1_description"                "降低受到的所有伤害 @glyph_property1%"
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_1"       "冲击扩张雕文"
+        "item_rpc_axe_glyph_2_1_description"                "技能冲击波将向四周释放9道冲击波。"
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_3_1"       "苦行雕文"
+        "item_rpc_axe_glyph_3_1_description"                " @Ability3 拖拽敌人的间隔降低 50%，每 0.09秒拖拽并伤害敌人一次。"
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_1"       "螺旋雕文"
+        "item_rpc_axe_glyph_4_1_description"                "施放冲击波时对周围敌人造成 60% 总攻击力的物理伤害。该伤害还将乘以冲击波技能的等级数。"
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_1"       "撞击雕文" // lower pitch base sound high pitch strike sound
+        "item_rpc_axe_glyph_5_1_description"                "骷髅锤的眩晕时间变为0.03秒，伤害提高 @glyph_property1x"
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_1"       "多重施法雕文"
+        "item_rpc_axe_glyph_6_1_description"                "@Ability4 将多重施法 @glyph_property1 次。"
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_1"       "英勇战斗雕文"
+        "item_rpc_axe_glyph_7_1_description"                "移除骷髅锤的buff，但冷却时间降低为1.5秒。"
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_1_2"       "脚跟重踏雕文"
+        "item_rpc_axe_glyph_1_2_description"                "被 @Ability2 击中的敌人将被眩晕 0.08 秒。"
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_2"       "裂甲雕文"
+        "item_rpc_axe_glyph_2_2_description"                "@Ability1 技能的 [Q4] 符文，每层同时降低敌人护甲 -@glyph_property1 。"
+
+        "DOTA_Tooltip_modifier_axe_glyph_2_2_visible"		"裂甲"
+        "DOTA_Tooltip_modifier_axe_glyph_2_2_visible_Description"	"护甲值降低"	
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_3_2"       "怒意雕文"
+        "item_rpc_axe_glyph_3_2_description"                "在与 BOSS 战斗时，狂暴之怒每次攻击将叠加 @glyph_property1 层。"
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_2"       "红色龙卷雕文"
+        "item_rpc_axe_glyph_4_2_description"                "释放 @Ability3 的旋转过程中，减伤 @glyph_property1%。"
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_2"       "牛仔雕文"
+        "item_rpc_axe_glyph_5_2_description"                "在成功施放 @Ability4 后的 @glyph_property1 秒内，@Ability2 的伤害将提高 @glyph_property2% 。"
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_2"       "减伤雕文"
+        "item_rpc_axe_glyph_6_2_description"                "[E4]旋风守护 的减伤护盾，提高减伤至 @glyph_property1%，但是获得层数的概率降低至每级符文 @glyph_property2% ，而不再是 150% 每级。"
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_2"       "发狂雕文"
+        "item_rpc_axe_glyph_7_2_description"                "当激活 @Ability1 时，狂暴之怒的最大层数提高至 @glyph_property1 层，并且每次攻击将叠加 @glyph_property2 层。"
+ 
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_a"       "终极雕文"
+        "item_rpc_axe_glyph_5_a_description"                "@Ability4 所造成的全部伤害，以及它的所有符文数，都将提高 @glyph_property1%。"
+
+		"DOTA_Tooltip_ability_item_rpc_axe_glyph_book"		"赤色上将雕文书"
+
+		//Weapons
+		"axe_weapon_01"			"威武利斧"
+		"axe_weapon_02"			"银斧"
+		"axe_weapon_03"			"泥土巨斧"
+		"axe_weapon_11"			"钍制巨斧"
+		"axe_weapon_12"			"荒芜大斧"
+		"axe_weapon_13"			"重劈颅"
+		"axe_weapon_14"			"冲击巨斧"
+		"axe_weapon_21"			"红色战斧"
+		"axe_weapon_22"			"深红劈颅"
+		"axe_weapon_23"			"秘银斧"
+		"axe_weapon_24"			"污染者之钩"
+		"axe_weapon_25"			"死亡战斧"
+		
+		"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_1"		"Rakash祖父之斧"
+		"item_property_axe_immortal_weapon"								"身经百战"
+		"property_axe_immortal_weapon_description"						"减少所有受到的伤害50%"
+
+		"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_2"            "狂战士之斧"
+        "item_property_axe_immortal_weapon2"                            "血之狂战士"
+        "property_axe_immortal_weapon2_description"                        "当 E 技能激活时，移动速度提高 @special_property1。E3 对BOSS和精英怪的伤害提高 @special_property2%。"
+
+        "DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_3"            "雷霆巨斧"
+        "item_property_axe_immortal_weapon3"                            "无限力量"
+        "property_axe_immortal_weapon3_description"                        "当开始吟唱大招时，身上所存在的旋风守护护盾数 X2 。" 	
+ 

@@ -1,0 +1,283 @@
+		//Abilities
+		"DOTA_Tooltip_ability_tachyon_shell"								"Tachyon Shell"
+    	"DOTA_Tooltip_ability_tachyon_shell_Description"					"Стихия: <font color=\"#B5FFB7\">Время</font><br>Окружает выбранную цель полем нестабильных частиц, разрывающих материю. Наносит урон и замедляет ближайших врагов."
+    	"DOTA_Tooltip_ability_tachyon_shell_damage"							"УРОН:"
+    	"DOTA_Tooltip_ability_tachyon_shell_duration"						"ДЛИТЕЛЬНОСТЬ:"
+    	"DOTA_Tooltip_ability_tachyon_shell_move_slow"						"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+
+    	"DOTA_Tooltip_modifier_tachyon_shell"								"Tachnyon Shell"
+    	"DOTA_Tooltip_modifier_tachyon_shell_Description"					"Наносит урон существам, враждебным для Zhonik"
+		
+		"DOTA_Tooltip_ability_zonik_rune_q_1"								"[Q1] Supercharge"
+    	"DOTA_Tooltip_ability_zonik_rune_q_1_Description"					"Щит от @Ability1, наложенный на Zhonik наносит увеличенный урон."
+    	"DOTA_Tooltip_ability_zonik_rune_q_1_property_one"					"Увеличение урона"
+    	"DOTA_Tooltip_ability_zonik_rune_q_1_suffix"						"%"
+
+    	"DOTA_Tooltip_ability_zonik_rune_q_2"								"[Q2] Flying Battery"
+    	"DOTA_Tooltip_ability_zonik_rune_q_2_Description"					"Когда носитель щита погибает, эффект переносится на ближайшего врага или союзника."
+    	"DOTA_Tooltip_ability_zonik_rune_q_2_property_one"					"Длительность нового щита"
+    	"DOTA_Tooltip_ability_zonik_rune_q_2_suffix"						" сек."
+    	"DOTA_Tooltip_ability_zonik_rune_q_2_property_two"					"Радиус распространения"
+    	"DOTA_Tooltip_ability_zonik_rune_q_2_suffix_two"					""
+
+    	"DOTA_Tooltip_ability_zonik_rune_q_3"								"[Q3] Collision Chaos"
+    	"DOTA_Tooltip_ability_zonik_rune_q_3_Description"					"Враги, попавшие под действие @Ability1 получают больше пост-резистного урона от Zhonik."
+    	"DOTA_Tooltip_ability_zonik_rune_q_3_property_one"					"Увеличение пост-резистного урона"
+    	"DOTA_Tooltip_ability_zonik_rune_q_3_suffix"						"%"
+
+    	"DOTA_Tooltip_ability_zonik_rune_q_4"								"[Q4] Temporal Dampening"
+    	"DOTA_Tooltip_ability_zonik_rune_q_4_Description"					"Союзные юниты, на которых работает щит @Ability1 получают меньше урона из всех источников. Эффект работает вдвое сильнее, когда щитом укрыт сам Zhonik."
+    	"DOTA_Tooltip_ability_zonik_rune_q_4_property_one"					"Снижение урона"
+    	"DOTA_Tooltip_ability_zonik_rune_q_4_suffix"						"%"
+
+
+    	"DOTA_Tooltip_ability_zonik_mach_punch"								"Mach Punch"
+    	"DOTA_Tooltip_ability_zonik_mach_punch_Description"					"Стихия: <font color=\"#DDDDDD\">Нормальный</font> / <font color=\"#B5FFB7\">Время</font><br>Zhonik замахивается и ударяет по выбранному врагу со всей силы. Цель оглушается и получает урон, зависящий от урона героя. Если скорость передвижения героя выше вражеской, то пост-резистный урон будет увеличен на 1% за каждую единицу скорости в разнице."
+    	"DOTA_Tooltip_ability_zonik_mach_punch_stun_duration"				"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+    	"DOTA_Tooltip_ability_zonik_mach_punch_damage_mult"					"МНОЖИТЕЛЬ УРОНА, %:"
+		
+		"DOTA_Tooltip_ability_zonik_rune_w_1"								"[W1] Sonic Boom"
+    	"DOTA_Tooltip_ability_zonik_rune_w_1_Description"					"Попадая по врагу умением @Ability2 распространяется волна, наносящая ближайшим противникам и основной цели урон в размере % от базового урона героя."
+    	"DOTA_Tooltip_ability_zonik_rune_w_1_property_one"					"Урон"
+    	"DOTA_Tooltip_ability_zonik_rune_w_1_suffix"						"% от (W) Mach Punch"
+
+    	"DOTA_Tooltip_ability_zonik_rune_w_2"								"[W2] Temporal Discharge"
+    	"DOTA_Tooltip_ability_zonik_rune_w_2_Description"					"Каждый раз, преодолевая расстояние в 240 юнитов, герой получает заряд [W2]. Прочтение @Ability2 тратит все заряды, от чего увеличивается урон удара. Максимум 20 зарядов."
+    	"DOTA_Tooltip_ability_zonik_rune_w_2_property_one"					"Усиление урона (W) Mach Punch за заряд"
+    	"DOTA_Tooltip_ability_zonik_rune_w_2_suffix"						"%"
+
+    	"DOTA_Tooltip_modifier_temporal_discharge"							"Temporal Discharge"
+    	"DOTA_Tooltip_modifier_temporal_discharge_Description"				"Каждый заряд увеличивает урон от следующего удара (W) Mach Punch."
+
+    	"DOTA_Tooltip_ability_zonik_rune_w_3"								"[W3] Whiplash"
+    	"DOTA_Tooltip_ability_zonik_rune_w_3_Description"					"Когда герой оглушен, обездвижен или отталкивается врагами, он получает заряд [W3] каждые 0.1 секунды. По окончании этих эффектов вся накопленная энергия высвобождается взрывом в радиусе 600. Оглушение от [W3] зависит от времени оглушения @Ability2."
+    	"DOTA_Tooltip_ability_zonik_rune_w_3_property_one"					"Урон за каждый заряд [W3] Whiplash"
+    	"DOTA_Tooltip_ability_zonik_rune_w_3_suffix"						""
+    	"DOTA_Tooltip_ability_zonik_rune_w_3_property_two"					"Длительность оглушения"
+    	"DOTA_Tooltip_ability_zonik_rune_w_3_suffix_two"					" сек."
+
+    	"DOTA_Tooltip_modifier_mach_punch_whiplash"							"Whiplash"
+    	"DOTA_Tooltip_modifier_mach_punch_whiplash_Description"				"Сразу после того, как герой освободится от оглушения и обездвиживания, произойдёт взрыв, оглушающий врагов и наносящий им урон."
+
+    	"DOTA_Tooltip_ability_zonik_rune_w_4"								"[W4] Echo"
+    	"DOTA_Tooltip_ability_zonik_rune_w_4_Description"					"Вместе с базовыми способностями и обычными атаками на врагах остаются заряды [W4]. Если за 4 секунды враг не получит дополнительных зарядов, весь нанесённый до этого урон высвободится мощным эхом, игнорирующим свойство монстров 'Стойкость'. Для расчета берется весь урон, при котором враг получает заряды [W4]."
+    	"DOTA_Tooltip_ability_zonik_rune_w_4_property_one"					"Урон"
+    	"DOTA_Tooltip_ability_zonik_rune_w_4_suffix"						"% от суммы всего полученного урона"
+		
+		"DOTA_Tooltip_modifier_zonik_echo"									"[W4] Echo"
+    	"DOTA_Tooltip_modifier_zonik_echo_Description"						"Урон, наносимый героем накапливает на врагах заряды. Когда время действия эффекта истечет, будет нанесен урон."
+
+
+    	"DOTA_Tooltip_ability_zonik_lightspeed"								"Lightspeed"
+    	"DOTA_Tooltip_ability_zonik_lightspeed_Description"					"Zhonik заряжает себя, увеличивая максимальную скорость передвижения и позволяя проходить через препятствия. Каждый раз, преодолевая расстояние в 60 юнитов потратится 0.75% макс. маны. Когда закончится мана, бафф исчезнет."	
+    	"DOTA_Tooltip_ability_zonik_lightspeed_movespeed_cap"				"ГРАНИЦА МАКСИМАЛЬНОЙ СКОРОСТИ:"
+    	"DOTA_Tooltip_ability_zonik_lightspeed_duration"					"ДЛИТЕЛЬНОСТЬ:"
+
+    	"DOTA_Tooltip_modifier_zonik_lightspeed"							"Lightspeed"
+    	"DOTA_Tooltip_modifier_zonik_lightspeed_Description"				"Увеличена максимальная скорость передвижения. Можно проходить через препятствия."
+		
+		"DOTA_Tooltip_ability_zonik_rune_e_1"								"[E1] Surge"
+    	"DOTA_Tooltip_ability_zonik_rune_e_1_Description"					"Увеличивает скорость передвижения на время действия (E) Lightspeed."
+    	"DOTA_Tooltip_ability_zonik_rune_e_1_property_one"					"Доп. скорость передвижения"
+    	"DOTA_Tooltip_ability_zonik_rune_e_1_suffix"						""
+
+    	"DOTA_Tooltip_ability_zonik_rune_e_2"								"[E2] Green Streak"
+    	"DOTA_Tooltip_ability_zonik_rune_e_2_Description"					"Каждый раз, проходя дистанцию в 360 юнитов во время действия @Ability3, герой оставляет свои энергетические копии, которые взрываются через 1 секунду, если рядом находится враг. Урон от взрыва энергетической копии основывается на количестве текущей у героя маны. Копия взрывается через 5 секунд, если не была активирована врагом."
+    	"DOTA_Tooltip_ability_zonik_rune_e_2_property_one"					"Урон"
+    	"DOTA_Tooltip_ability_zonik_rune_e_2_suffix"						" за каждое очко текущей маны"
+
+    	"DOTA_Tooltip_ability_zonik_rune_e_3"								"[E3] Blur"
+    	"DOTA_Tooltip_ability_zonik_rune_e_3_Description"					"Во время действия @Ability3, Zhonik блокирует получаемый физический и магический урон в зависимости от его Ловкости."
+    	"DOTA_Tooltip_ability_zonik_rune_e_3_property_one"					"Блокировка физического и магического урона"
+    	"DOTA_Tooltip_ability_zonik_rune_e_3_suffix"						" за каждое очко Ловкости"
+
+    	"DOTA_Tooltip_ability_zonik_rune_e_4"								"[E4] Sonic Rush"
+    	"DOTA_Tooltip_ability_zonik_rune_e_4_Description"					"Дополнительное увеличение максимальной скорости передвижения во время @Ability3."
+    	"DOTA_Tooltip_ability_zonik_rune_e_4_property_one"					"Доп. макс. скорость передвижения"
+    	"DOTA_Tooltip_ability_zonik_rune_e_4_suffix"						""
+
+
+    	"DOTA_Tooltip_ability_zonik_speedball"								"Speedball"
+    	"DOTA_Tooltip_ability_zonik_speedball_Description"					"Стихия: <font color=\"#B5FFB7\">Время</font> / <font color=\"#C25DFC\">Космос</font><br>Zhonik бросается в сторону выбранного врага с дополнительной скоростью и увеличенной максимальной скоростью. При столкновении Zhonik взрывается, оглушая себя на 1 секунду и нанося урон ближайшим врагам. Приказ герою на любое действие отменит рывок от этого умения. Во время рывка перезарядка способности постепенно снижается, и каждый задетый противник уменьшит текущую перезарядку на 0.1 сек. Урон способности умножается на текущую скорость передвижения."	
+    	"DOTA_Tooltip_ability_zonik_speedball_movespeed"				"УВЕЛИЧЕНИЕ БАЗОВОЙ И МАКСИМАЛЬНОЙ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+    	"DOTA_Tooltip_ability_zonik_speedball_damage"					"УРОН:"
+    	"DOTA_Tooltip_ability_zonik_speedball_stun_duration"			"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ ВРАГОВ:"
+    	"DOTA_Tooltip_ability_zonik_speedball_speed_mult"			"МНОЖИТЕЛЬ УРОНА НА СКОРОСТЬ:"
+
+    	"DOTA_Tooltip_modifier_zonik_speedball"							"Speedball"
+    	"DOTA_Tooltip_modifier_zonik_speedball_Description"				"Стремительно бежит в сторону врага."	
+
+		"DOTA_Tooltip_ability_zonik_rune_r_1"								"[R1] Road Rash"
+    	"DOTA_Tooltip_ability_zonik_rune_r_1_Description"					"Враги, задетые героем во время @Ability4 будут атакованы (срабатывают все возможные модификаторы атаки) и кратковременно оглушены. Каждый задетый враг увеличивает урон героя на %. Усиление урона длится еще 8 секунд после окончания действия @Ability4."
+    	"DOTA_Tooltip_ability_zonik_rune_r_1_property_one"					"Бонус к урону героя"
+    	"DOTA_Tooltip_ability_zonik_rune_r_1_suffix"						"%"
+    	"DOTA_Tooltip_ability_zonik_rune_r_1_property_two"					"Длительность оглушения"
+    	"DOTA_Tooltip_ability_zonik_rune_r_1_suffix_two"					" сек."
+
+    	"DOTA_Tooltip_modifier_speedball_a_d_visible"						"Road Rash"
+    	"DOTA_Tooltip_modifier_speedball_a_d_visible_Description"			"Бонус к урону."
+
+    	"DOTA_Tooltip_ability_zonik_rune_r_2"								"[R2] Regen Runner"
+    	"DOTA_Tooltip_ability_zonik_rune_r_2_Description"					"Увеличивает регенерацию здоровья и маны на % от скорости передвижения. Эффект блокируется оглушением и обездвиживанием."
+    	"DOTA_Tooltip_ability_zonik_rune_r_2_property_one"					"Доп. реген. здоровья"
+    	"DOTA_Tooltip_ability_zonik_rune_r_2_suffix"						"% от скорости передвижения"
+    	"DOTA_Tooltip_ability_zonik_rune_r_2_property_two"					"Доп. реген. маны"
+    	"DOTA_Tooltip_ability_zonik_rune_r_2_suffix_two"					"% от скорости передвижения"
+
+    	"DOTA_Tooltip_ability_zonik_rune_r_3"								"[R3] Pummel"
+    	"DOTA_Tooltip_ability_zonik_rune_r_3_Description"					"Когда заканчивается собственное оглушение героя после @Ability4, герой с некоторым шансом может свободно применить @Ability2 в исходную цель, если та еще жива. Значение шанса выше 100% гарантирует многократное срабатывание эффекта."
+    	"DOTA_Tooltip_ability_zonik_rune_r_3_property_one"					"Шанс на дополнительное применение (W) Mach Punch"
+    	"DOTA_Tooltip_ability_zonik_rune_r_3_suffix"						"%"
+
+    	"DOTA_Tooltip_ability_zonik_rune_r_4"								"[R4] Brawler"
+    	"DOTA_Tooltip_ability_zonik_rune_r_4_Description"					"Пассивно увеличивает Силу героя. Каждое очко Силы увеличивает базовый урон."
+    	"DOTA_Tooltip_ability_zonik_rune_r_4_property_one"					"Доп. очков Силы"
+    	"DOTA_Tooltip_ability_zonik_rune_r_4_suffix"						""
+    	"DOTA_Tooltip_ability_zonik_rune_r_4_property_two"					"Увеличение базового урона на"
+    	"DOTA_Tooltip_ability_zonik_rune_r_4_suffix_two"					" за каждое очко Силы"
+		
+		//Arcanas
+		
+		"item_property_zonik_arcana1"										"Warp Field"
+    	"property_zonik_arcana1_description"								"Заменяет (E) @Ability3 и все соответствующие руны на (E) Warp Field."
+
+    	"DOTA_Tooltip_ability_zhonik_temporal_field"						"Warp Field"
+    	"DOTA_Tooltip_ability_zhonik_temporal_field_Description"			"Zhonik бросается в указанную точку и создаёт поле искривлённого пространства в радиусе 800, которое замедляет попавших в область действия врагов. Находясь внутри поля, Zhonik получает на 80% меньше урона и приобретает бонус, увеличивающий скорость передвижения и максимально возможную скорость передвижения. Некоторые эффекты оглушения и безмолвия снимаются с героя, пока он находится в области действия поля."
+    	"DOTA_Tooltip_ability_zhonik_temporal_field_movespeed_cap"				"МАКС. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
+    	"DOTA_Tooltip_ability_zhonik_temporal_field_movespeed_bonus"	"ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
+    	"DOTA_Tooltip_ability_zhonik_temporal_field_duration"	"ДЛИТЕЛЬНОСТЬ ДЕЙСТВИЯ ПОЛЯ:"
+    	"DOTA_Tooltip_ability_zhonik_temporal_field_cast_range"	"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
+    	"DOTA_Tooltip_ability_zhonik_temporal_field_enemy_move_slow"	"ЗАМЕДЛЕНИЕ ВРАГОВ:"
+    	"DOTA_Tooltip_ability_zhonik_temporal_field_damage_resistance"	"СНИЖЕНИЕ ВХОДЯЩЕГО УРОНА ДЛЯ ГЕРОЯ ZHONIK, %:"
+
+    	"DOTA_Tooltip_modifier_dummy_aura1_effect_zhonik"				"Warp Field"
+    	"DOTA_Tooltip_modifier_dummy_aura1_effect_zhonik_Description"	"Скорость передвижения и максимальная скорость передвижения увеличены. Герой получает на 80%% меньше урона. Эффекты оглушения и безмолвия снимаются."
+
+    	"DOTA_Tooltip_modifier_dummy_aura_effect_enemy"					"Warp Field"
+    	"DOTA_Tooltip_modifier_dummy_aura_effect_enemy_Description"		"Скорость передвижения снижена"		
+
+  		"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1"						"[E1] Shattered Time"
+    	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_Description"			"Каждую секунду, пока враг находится в пределах поля, он получает заряды этой руны, которые увеличивают входящий урон стихии <font color=\"#B5FFB7\">Времени</font> от героя Zhonik. Максимум 20 зарядов."
+    	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_property_one"			"Доп. урон стихии Времени"
+    	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_suffix"				"% за заряд"
+
+    	"DOTA_Tooltip_modifier_dummy_aura_effect_enemy_a_c_visible"			"Shattered Time"
+    	"DOTA_Tooltip_modifier_dummy_aura_effect_enemy_a_c_visible_Description"	"Получает увеличенный урон стихии Времени"
+
+  		"DOTA_Tooltip_ability_zonik_rune_e_2_arcana1"						"[E2] Chronoshock"
+    	"DOTA_Tooltip_ability_zonik_rune_e_2_arcana1_Description"			"Каждую секунду, пока враг находится в пределах поля, он получает урон, зависящий от урона героя."
+    	"DOTA_Tooltip_ability_zonik_rune_e_2_arcana1_property_one"			"Урон"
+    	"DOTA_Tooltip_ability_zonik_rune_e_2_arcana1_suffix"				"% от урона героя"
+
+  		"DOTA_Tooltip_ability_zonik_rune_e_3_arcana1"						"[E3] Time Dilation"
+    	"DOTA_Tooltip_ability_zonik_rune_e_3_arcana1_Description"  		"Пока герой находится в области действия поля, он получает заряды этой руны каждые 0.03 секунды. Каждый заряд увеличивает весь наносимый пост-резистный урон. Максимум 1000 зарядов."
+    	"DOTA_Tooltip_ability_zonik_rune_e_3_arcana1_property_one"			"Увеличение пост-резистного урона"	
+    	"DOTA_Tooltip_ability_zonik_rune_e_3_arcana1_suffix"				"% за каждый заряд"
+
+    	"DOTA_Tooltip_modifier_zhonic_arcana_c_c_visible"					"Time Dilation"
+    	"DOTA_Tooltip_modifier_zhonic_arcana_c_c_visible_Description"		"Увеличивает исходящий пост-резистный урон за каждый заряд."
+
+    	"DOTA_Tooltip_ability_zonik_rune_e_4_arcana1"								"[E4] Supersonic"
+    	"DOTA_Tooltip_ability_zonik_rune_e_4_arcana1_Description"					"Увеличивает весь урон стихии <font color=\"#B5FFB7\">Времени</font> в зависимости от атрибутов героя. Дополнительно, Zhonik ненадолго сохраняет бонус к скорости передвижения после того, как покинет область действия @Ability3."
+    	"DOTA_Tooltip_ability_zonik_rune_e_4_arcana1_property_one"					"Увеличение урона стихии Времени"
+    	"DOTA_Tooltip_ability_zonik_rune_e_4_arcana1_suffix"						"% за каждые 10 очков атрибутов"
+    	"DOTA_Tooltip_ability_zonik_rune_e_4_arcana1_property_two"					"Доп. время действия бонусов скорости"
+    	"DOTA_Tooltip_ability_zonik_rune_e_4_arcana1_suffix_two"					" сек."
+
+       	"item_property_zonik_arcana2"										"Timewarp Missiles"
+    	"property_zonik_arcana2_description"								"Заменяет (R) @Ability4 и все соответствующие руны на (R) Timewarp Missiles."
+
+    	"DOTA_Tooltip_ability_timewarp_missles"								"Timewarp Missiles"
+    	"DOTA_Tooltip_ability_timewarp_missles_Description"			"Стихия: <font color=\"#B5FFB7\">Время</font><br>За 4 секунды прочтения заклинания, Zhonik генерирует несколько поглощающих время снарядов. Спустя годы после их создания (3.5 секунды для Zhonik), каждый снаряд нацеливается на случайную ближайшую цель, ненадолго оглушая ее при попадании. Наносимый урон умножается на скорость передвижения героя в момент попадания. Через 2 секунды после начала прочтения, Zhonik получает физический и магический иммунитет, который продлится на 2 секунды дольше после окончания прочтения."
+    	"DOTA_Tooltip_ability_timewarp_missles_damage"				"БАЗОВЫЙ УРОН:"
+    	"DOTA_Tooltip_ability_timewarp_missles_ms_mult"				"МНОЖИТЕЛЬ УРОНА ОТ СКОРОСТИ, Х:"
+    	"DOTA_Tooltip_ability_timewarp_missles_create_interval"		"ИНТЕРВАЛ СОЗДАНИЯ СНАРЯДОВ:"
+
+    	"DOTA_Tooltip_modifier_immunity_shield"						"Timewarp Shield"
+    	"DOTA_Tooltip_modifier_immunity_shield_Description"			"Иммунитет к атакам и заклинаниям"
+
+  		"DOTA_Tooltip_ability_zonik_rune_r_1_arcana2"						"[R1] Mobius Bomb"
+    	"DOTA_Tooltip_ability_zonik_rune_r_1_arcana2_Description"			"Попадающие по врагам снаряды наносят дополнительный урон по области."
+    	"DOTA_Tooltip_ability_zonik_rune_r_1_arcana2_property_one"			"АОЕ урон"
+    	"DOTA_Tooltip_ability_zonik_rune_r_1_arcana2_suffix"				"% от базового урона"
+
+  		"DOTA_Tooltip_ability_zonik_rune_r_2_arcana2"						"[R2] Rocket Punch"
+    	"DOTA_Tooltip_ability_zonik_rune_r_2_arcana2_Description"			"Враги, задетые снарядом от @Ability4, незамедлительно атакуются умением @Ability2."
+    	"DOTA_Tooltip_ability_zonik_rune_r_2_arcana2_property_one"			"Множитель урона (W) Mach Punch"
+    	"DOTA_Tooltip_ability_zonik_rune_r_2_arcana2_suffix"				"%"
+
+  		"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2"						"[R3] Tempo Flux"
+    	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_Description"  		"С каждым попаданием временного снаряда, оставляет на противнике заряды [R3], которые увеличивают стихийный урон <font color=\"#B5FFB7\">Времени</font>, получаемый от Zhonik."
+    	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_property_one"			"Доп. урон Времени"	
+    	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_suffix"				"% за заряд"
+
+    	"DOTA_Tooltip_modifier_tempo_flux_visible"							"Tempo Flux"
+    	"DOTA_Tooltip_modifier_tempo_flux_visible_Description"				"Получает увеличенный урон Времени от героя Zhonik"
+
+    	"DOTA_Tooltip_ability_zonik_rune_r_4_arcana2"								"[R4] Racer"
+    	"DOTA_Tooltip_ability_zonik_rune_r_4_arcana2_Description"					"Увеличивает Ловкость героя. Каждое очко Ловкости дополнительно увеличивает базовый урон Zhonik."
+    	"DOTA_Tooltip_ability_zonik_rune_r_4_arcana2_property_one"					"Доп. Ловкости"
+    	"DOTA_Tooltip_ability_zonik_rune_r_4_arcana2_suffix"						""
+    	"DOTA_Tooltip_ability_zonik_rune_r_4_arcana2_property_two"					"Доп. базовый урон"
+    	"DOTA_Tooltip_ability_zonik_rune_r_4_arcana2_suffix_two"					" за каждое очко Ловкости"
+
+		//Glyphs
+		
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_1_1"		"(T1) Символ Альбедо"
+		"item_rpc_zonik_glyph_1_1_description" 				"Если (Q) Tachyon Shell применён на Zhonik, то радиус его действия будет увеличен на @glyph_property1%."
+
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_2_1"		"(T2) Символ Транзистора"
+		"item_rpc_zonik_glyph_2_1_description" 				"Враги, на которых применён щит (Q) Tachyon Shell также получают от него усиленный на @glyph_property1% урон."
+
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_3_1"		"(T3) Символ Северной Звезды"
+		"item_rpc_zonik_glyph_3_1_description" 				"С @glyph_property1% шансом герой дважды применит (W) Mach Punch."
+
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_4_1"		"(T4) Символ Настоящего Взрыва"
+		"item_rpc_zonik_glyph_4_1_description" 				"Увеличивает радиус [W1] на @glyph_property1%."
+
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_1"		"(T5) Символ Ускорения"
+		"item_rpc_zonik_glyph_5_1_description" 				"На время действия (E) Lightspeed скорость передвижения и максимальная скорость передвижения дополнительно увеличиваются на @glyph_property1."
+
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_6_1"		"(T6) Символ Алмазной Пыли"
+		"item_rpc_zonik_glyph_6_1_description" 				"Во время рывка (R) Speedball, руна Green Streak создаёт энергетические копии на @glyph_property1% чаще, копии взрываются мгновенно и наносят на @glyph_property2% больше урона."
+
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_7_1"		"(T7) Символ Звукового Барьера"
+		"item_rpc_zonik_glyph_7_1_description" 				"Заряды [W2] увеличивают весь стихийный урон <font color=\"#B5FFB7\">Времени</font> на @glyph_property1%. Когда стихия <font color=\"#B5FFB7\">Времени</font> наносит урон, тратится 1 заряд."
+
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_a"		"(Immortal) Символ Мудрого Взгляда"
+		"item_rpc_zonik_glyph_5_a_description" 				"С прочтением (E) Lightspeed, раскрывает местоположение всех врагов в радиусе 8000 на 5 секунд."
+
+		"DOTA_Tooltip_modifier_sages_eyes"					"Мудрый Взгляд"
+		
+		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_00"		"Punch Glove"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_01"		"Brawler Glove"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_02"		"Temporal Gauntlet"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_03"		"Echo Fist"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_11"		"Timewarp Glove"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_12"		"Sonic Gauntlet"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_13"		"Surge Puncher"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_14"		"Sonar Fist"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_21"		"Sonic Blaster"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_22"		"Temporal Echo Gauntlet"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_23"		"Dimension Fist"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_24"		"Space Shifter Gauntlet"
+		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_25"		"Multiplex Gauntlet"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_zonik_immortal_weapon_1"			"Sonar Style"
+		"item_property_zonik_immortal_weapon"							"Comet Punch"
+		"property_zonik_immortal_weapon_description"					"Дальность удара для (W) Mach Punch увеличена на 500, урон увеличен в 3 раза."
+
+		
+
+    	"DOTA_Tooltip_ability_zonik_comet_punch"								"Comet Punch"
+    	"DOTA_Tooltip_ability_zonik_comet_punch_Description"					"Стихия: <font color=\"#DDDDDD\">Нормальный</font> / <font color=\"#B5FFB7\">Время</font><br>Zhonik замахивается и ударяет по выбранному врагу со всей силы. Цель оглушается и получает урон, зависящий от урона героя. Если скорость передвижения героя выше вражеской, то пост-резистный урон будет увеличен на 1% за каждую единицу скорости в разнице."
+    	"DOTA_Tooltip_ability_zonik_comet_punch_stun_duration"					"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+    	"DOTA_Tooltip_ability_zonik_comet_punch_damage_mult"					"МНОЖИТЕЛЬ УРОНА, %:"
+		
+		"DOTA_Tooltip_ability_item_rpc_zonik_immortal_weapon_2"            "Diamond Gloves of Disorder"
+
+        "DOTA_Tooltip_ability_item_rpc_zonik_immortal_weapon_3"            "Tesla Cuffs"
+        "item_property_zonik_immortal_weapon3"                             "Potential Energy"
+        "property_zonik_immortal_weapon3_description"                      "Все враги, задетые умением (R) @Ability4 получают эффект от (Q) @Ability1."

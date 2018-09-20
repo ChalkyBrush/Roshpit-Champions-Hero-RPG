@@ -1,0 +1,348 @@
+		"tooltip_warlord_q_abilities"									"石像形态，寒冰护盾和烈火奔腾"
+
+    	"DOTA_Tooltip_modifier_warlord_earth_charge"					"大地能量"
+    	"DOTA_Tooltip_modifier_warlord_earth_charge_Description"		"每层大地能量将提高土元素伤害百分之6。施放元素主宰（R技能）时将释放大地能量"
+
+    	"DOTA_Tooltip_modifier_warlord_ice_charge"						"寒冰能量"
+    	"DOTA_Tooltip_modifier_warlord_ice_charge_Description"			"每层寒冰能量将提高冰元素伤害百分之6。施放元素主宰（R技能）时将释放寒冰能量"
+
+    	"DOTA_Tooltip_modifier_warlord_fire_charge"						"火焰能量"
+    	"DOTA_Tooltip_modifier_warlord_fire_charge_Description"			"每层火焰能量将提高火元素伤害百分之6。施放元素主宰（R技能）时将释放火焰能量"
+
+    	"DOTA_Tooltip_ability_warlord_stone_form"						"石像形态"
+    	"DOTA_Tooltip_ability_warlord_stone_form_Description"			"将督军的皮肤石化,难以移动，但同时祛除所有负面魔法效果，魔法免疫。"
+    	"DOTA_Tooltip_ability_warlord_stone_form_duration"				"持续时间："
+    	"DOTA_Tooltip_ability_warlord_stone_form_move_slow_percentage"	"移动速度降低："
+
+    	"DOTA_Tooltip_modifier_warlord_stone_form"						"石像形态"
+    	"DOTA_Tooltip_modifier_warlord_stone_form_Description"			"魔法免疫且移动速度降低"	
+    	
+    	"DOTA_Tooltip_ability_warlord_ice_shell"						"寒冰护盾"
+    	"DOTA_Tooltip_ability_warlord_ice_shell_Description"			"督军获得一层寒冰护盾，可吸收魔法伤害。"
+    	"DOTA_Tooltip_ability_warlord_ice_shell_duration"				"持续时间："
+    	"DOTA_Tooltip_ability_warlord_ice_shell_magic_instances_absorbed"	"伤害吸收次数："
+
+    	"DOTA_Tooltip_modifier_warlord_ice_shell"						"寒冰护盾"
+    	"DOTA_Tooltip_modifier_warlord_ice_shell_Description"			"吸收魔法伤害"
+
+    	"DOTA_Tooltip_ability_warlord_flame_rush"						"烈火奔腾"
+    	"DOTA_Tooltip_ability_warlord_flame_rush_Description"			"内心的火焰激发了督军的斗志，提高其攻击力、移动速度和攻击速度。"
+    	"DOTA_Tooltip_ability_warlord_flame_rush_duration"				"持续时间："
+    	"DOTA_Tooltip_ability_warlord_flame_rush_basedamage_increase"	"基础攻击力提高："
+    	"DOTA_Tooltip_ability_warlord_flame_rush_attackspeed_increase"	"攻击速度提高："
+    	"DOTA_Tooltip_ability_warlord_flame_rush_movespeed_increase"	"移动速度提高："
+
+    	"DOTA_Tooltip_modifier_warlord_flame_rush"						"烈火奔腾"
+    	"DOTA_Tooltip_modifier_warlord_flame_rush_Description"			"攻击力、移动速度和攻击速度提高"
+		
+		"DOTA_Tooltip_modifier_ice_buff"						"寒冰屏障"
+    	"DOTA_Tooltip_modifier_ice_buff_Description"			"护甲值提高"
+
+    	"DOTA_Tooltip_modifier_fire_buff"						"火焰之怒"
+    	"DOTA_Tooltip_modifier_fire_buff_Description"			"攻击力提升"
+
+		
+		"DOTA_Tooltip_ability_warlord_rune_q_1"							"[Q1] 石之血"
+    	"DOTA_Tooltip_ability_warlord_rune_q_1_Description"				"在石像形态下，督军的生命值回复速度提高。"
+    	"DOTA_Tooltip_ability_warlord_rune_q_1_property_one"			"生命回复速度提高"
+    	"DOTA_Tooltip_ability_warlord_rune_q_1_suffix"					""
+
+    	"DOTA_Tooltip_ability_modifier_warlord_rune_q_1"				"石之血"
+    	"DOTA_Tooltip_ability_modifier_warlord_rune_q_1_Description"	"生命回复速度提高"
+
+    	"DOTA_Tooltip_modifier_earth_buff"						"大地之力"
+    	"DOTA_Tooltip_modifier_earth_buff_Description"			"提高生命回复速度"
+
+		"DOTA_Tooltip_ability_warlord_rune_q_2"							"[Q2] 魔力寒冰"
+    	"DOTA_Tooltip_ability_warlord_rune_q_2_Description"				"寒冰护盾激活时，元素督军提高护甲值。提高的护甲值按使用寒冰护盾时的护甲值计算。"
+    	"DOTA_Tooltip_ability_warlord_rune_q_2_property_one"			"护甲值提高"
+    	"DOTA_Tooltip_ability_warlord_rune_q_2_suffix"					"% 获得寒冰护盾时的护甲值"
+
+    	"DOTA_Tooltip_modifier_warlord_rune_q_2_visible"				"魔力寒冰"
+    	"DOTA_Tooltip_modifier_warlord_rune_q_2_visible_Description"	"护甲增加"
+		
+		"DOTA_Tooltip_ability_warlord_rune_q_3"							"[Q3] 火焰之怒"
+    	"DOTA_Tooltip_ability_warlord_rune_q_3_Description"				"在烈火奔腾状态下攻击敌人将降低敌人的护甲值，可叠加。"
+    	"DOTA_Tooltip_ability_warlord_rune_q_3_property_one"			"护甲值降低"
+    	"DOTA_Tooltip_ability_warlord_rune_q_3_suffix"					" 每层"
+
+    	"DOTA_Tooltip_ability_modifier_warlord_rune_q_3_hero"			"火焰之怒"
+    	"DOTA_Tooltip_ability_modifier_warlord_rune_q_3_hero_Description"	"攻击敌人将降低敌人的护甲值，可叠加。"	
+
+    	"DOTA_Tooltip_ability_modifier_warlord_rune_q_3_visible"		"火焰之怒"
+    	"DOTA_Tooltip_ability_modifier_warlord_rune_q_3_visible_Description"	"护甲值降低"
+		
+		"DOTA_Tooltip_ability_warlord_rune_q_4"							"[Q4] 元素活力"
+    	"DOTA_Tooltip_ability_warlord_rune_q_4_Description"				"施放石像形态，寒冰护盾和烈火奔腾将分别提高督军力量、智力、敏捷值，持续20秒。"
+    	"DOTA_Tooltip_ability_warlord_rune_q_4_property_one"			"属性值提高"
+    	"DOTA_Tooltip_ability_warlord_rune_q_4_suffix"					""
+
+    	"DOTA_Tooltip_modifier_warlord_rune_q_4_strength"				"元素活力 - 力量"
+    	"DOTA_Tooltip_modifier_warlord_rune_q_4_agility"				"元素活力 - 敏捷"
+    	"DOTA_Tooltip_modifier_warlord_rune_q_4_intelligence"			"元素活力 - 智力"
+	
+		"Tooltip_elemental_axes"										"元素巨斧"
+    	"Tooltip_throwing_axes"											"投掷巨斧"
+		
+		"DOTA_Tooltip_modifier_elemental_axe_earth"				"大地之斧"
+		"DOTA_Tooltip_modifier_elemental_axe_earth_Description"	"土系技能激活"
+
+		"DOTA_Tooltip_modifier_elemental_axe_ice"				"寒冰之斧"
+		"DOTA_Tooltip_modifier_elemental_axe_ice_Description"	"冰系技能激活"
+
+		"DOTA_Tooltip_modifier_elemental_axe_fire"				"火焰之斧"
+		"DOTA_Tooltip_modifier_elemental_axe_fire_Description"	"火系技能激活"
+		
+		"DOTA_Tooltip_ability_axe_throw_earth"							"投掷大地之斧"
+		"DOTA_Tooltip_ability_axe_throw_earth_Description"				"元素： <font color=\"#AF843D\">土</font> / <font color=\"#DDDDDD\">普通</font><br>向目标点投掷大地之斧，造成单体伤害并眩晕。"
+		"DOTA_Tooltip_ability_axe_throw_earth_Lore"						""
+		"DOTA_Tooltip_ability_axe_throw_earth_damage"					"伤害：" 
+		"DOTA_Tooltip_ability_axe_throw_earth_stun_duration"			"眩晕持续时间：" 	
+
+ 		"DOTA_Tooltip_ability_axe_throw_ice"							"投掷寒冰之斧"
+		"DOTA_Tooltip_ability_axe_throw_ice_Description"				"元素： <font color=\"#87D9FF\">冰</font> / <font color=\"#DDDDDD\">普通</font><br>向目标点投掷寒冰之斧，造成AOE伤害并减速。"
+		"DOTA_Tooltip_ability_axe_throw_ice_Lore"						""
+		"DOTA_Tooltip_ability_axe_throw_ice_damage"						"伤害：" 
+		"DOTA_Tooltip_ability_axe_throw_ice_slow_duration"				"减速持续时间：" 
+		"DOTA_Tooltip_ability_axe_throw_ice_radius"						"范围：" 
+
+ 		"DOTA_Tooltip_ability_axe_throw_fire"							"投掷火焰之斧"
+		"DOTA_Tooltip_ability_axe_throw_fire_Description"				"元素： <font color=\"#EF4126\">火</font> / <font color=\"#DDDDDD\">普通</font><br>向目标点投掷火焰之斧，造成AOE伤害并减甲。"
+		"DOTA_Tooltip_ability_axe_throw_fire_Lore"						""
+		"DOTA_Tooltip_ability_axe_throw_fire_damage"					"伤害：" 
+		"DOTA_Tooltip_ability_axe_throw_fire_armor_reduction"			"护甲值降低：" 
+		"DOTA_Tooltip_ability_axe_throw_fire_radius"					"范围：" 
+		"DOTA_Tooltip_ability_axe_throw_fire_duration"					"减甲持续时间："
+		
+		"DOTA_Tooltip_ability_warlord_rune_w_1"							"[W1] 砾石之心"
+    	"DOTA_Tooltip_ability_warlord_rune_w_1_Description"				"大地之斧将会爆炸，对范围内的敌人造成大地之斧的伤害并且眩晕范围敌人。"
+    	"DOTA_Tooltip_ability_warlord_rune_w_1_property_one"			"爆炸范围"
+    	"DOTA_Tooltip_ability_warlord_rune_w_1_suffix"					""
+    	"DOTA_Tooltip_ability_warlord_rune_w_1_property_two"			"眩晕持续时间"
+    	"DOTA_Tooltip_ability_warlord_rune_w_1_suffix_two"				" 秒"
+		
+		"DOTA_Tooltip_ability_warlord_rune_w_2"							"[W2] 冰霜加固"
+    	"DOTA_Tooltip_ability_warlord_rune_w_2_Description"				"当敌人仍受到第一个寒冰之斧减速效果时，被第二个寒冰之斧击中，敌人将被完全冻结并且眩晕。被冻结的敌人所受到的全部物理和魔法伤害增加。敌人在解冻后将获得4秒的抗冻能力。"
+    	"DOTA_Tooltip_ability_warlord_rune_w_2_property_one"			"冻结持续时间"
+    	"DOTA_Tooltip_ability_warlord_rune_w_2_suffix"					""
+    	"DOTA_Tooltip_ability_warlord_rune_w_2_property_two"			"冻结时所受到的物理和魔法伤害提高"
+    	"DOTA_Tooltip_ability_warlord_rune_w_2_suffix_two"				"%"
+
+		"DOTA_Tooltip_ability_warlord_rune_w_3"							"[W3] 战争热血"
+    	"DOTA_Tooltip_ability_warlord_rune_w_3_Description"				"增加火焰之斧爆炸范围，你的攻击力的一部分将加入到火焰之斧的伤害中。"
+    	"DOTA_Tooltip_ability_warlord_rune_w_3_property_one"			"范围增加"
+    	"DOTA_Tooltip_ability_warlord_rune_w_3_suffix"					""
+    	"DOTA_Tooltip_ability_warlord_rune_w_3_property_two"			"火焰之斧附加伤害"
+    	"DOTA_Tooltip_ability_warlord_rune_w_3_suffix_two"				"% 攻击力"
+		
+		"DOTA_Tooltip_ability_warlord_rune_w_4"							"[W4] 锐利之斧"
+    	"DOTA_Tooltip_ability_warlord_rune_w_4_Description"				"元素督军投掷飞斧将造成额外的纯粹伤害。同时，攻击力的一部分将加入到投掷飞斧的基础伤害中。"
+    	"DOTA_Tooltip_ability_warlord_rune_w_4_property_one"			"额外的纯粹伤害"
+    	"DOTA_Tooltip_ability_warlord_rune_w_4_suffix"					"% 基础伤害"
+    	"DOTA_Tooltip_ability_warlord_rune_w_4_property_two"			"攻击力的 % 将加入到基础伤害"
+    	"DOTA_Tooltip_ability_warlord_rune_w_4_suffix_two"				"%"
+
+		
+		"Tooltip_jump_abilities"										"火光降落-大地冲撞和北极冲刺"
+
+		"DOTA_Tooltip_ability_warlord_jump_earth"							"大地冲撞"
+		"DOTA_Tooltip_ability_warlord_jump_earth_Description"				"元素： <font color=\"#AF843D\">土</font><br>督军原地跳起，落向目标地点时引发地震。"
+		"DOTA_Tooltip_ability_warlord_jump_earth_Lore"						""
+		"DOTA_Tooltip_ability_warlord_jump_earth_damage"					"伤害："
+		"DOTA_Tooltip_ability_warlord_jump_earth_radius"					"范围："  
+		"DOTA_Tooltip_ability_warlord_jump_earth_stun_duration"				"眩晕持续时间：" 
+		"DOTA_Tooltip_ability_warlord_jump_earth_cast_range"				"最远跳跃距离："
+
+ 		"DOTA_Tooltip_ability_warlord_jump_fire"							"火光降落"
+		"DOTA_Tooltip_ability_warlord_jump_fire_Description"				"元素： <font color=\"#EF4126\">火</font><br>督军飞跃至空中并在火中向前冲击，造成AOE伤害。"
+		"DOTA_Tooltip_ability_warlord_jump_fire_Lore"						""
+		"DOTA_Tooltip_ability_warlord_jump_fire_damage"						"伤害："
+		"DOTA_Tooltip_ability_warlord_jump_fire_radius"						"范围："  
+		
+		"DOTA_Tooltip_ability_warlord_jump_ice"								"北极冲刺"
+		"DOTA_Tooltip_ability_warlord_jump_ice_Description"					"元素： <font color=\"#87D9FF\">冰</font><br>督军向前滑行，在身后留下一条冰道。扬起的冰屑使督军可以躲避敌人的攻击弹道。"
+		"DOTA_Tooltip_ability_warlord_jump_ice_Lore"						""
+		"DOTA_Tooltip_ability_warlord_jump_ice_damage"						"伤害："
+		"DOTA_Tooltip_ability_warlord_jump_ice_radius"						"范围："
+		"DOTA_Tooltip_ability_warlord_jump_ice_duration"					"持续时间："
+
+		"DOTA_Tooltip_ability_elemental_overload"							"元素主宰"
+		"DOTA_Tooltip_ability_elemental_overload_Description"				"元素： <font color=\"#EF4126\">火</font> / <font color=\"#87D9FF\">冰</font><br>向督军前方释放一道光，造成大量伤害。正在引导时再次使用技能可以结束引导。"
+		"DOTA_Tooltip_ability_elemental_overload_Lore"						""
+		"DOTA_Tooltip_ability_elemental_overload_damage"					"每秒伤害：" 
+
+		"DOTA_Tooltip_ability_warlord_rune_e_1"							"[E1] 轰隆大地"
+    	"DOTA_Tooltip_ability_warlord_rune_e_1_Description"				"增加元素督军大地能量的最大充能数。获得的每层大地能量充能都将提供额外的护甲值。"
+    	"DOTA_Tooltip_ability_warlord_rune_e_1_property_one"			"额外的大地能量充能数"
+    	"DOTA_Tooltip_ability_warlord_rune_e_1_suffix"					""
+    	"DOTA_Tooltip_ability_warlord_rune_e_1_property_two"			"每层大地能量增加护甲值"
+    	"DOTA_Tooltip_ability_warlord_rune_e_1_suffix_two"				""
+
+		"DOTA_Tooltip_ability_warlord_rune_e_2"							"[E2] 浮冰"
+    	"DOTA_Tooltip_ability_warlord_rune_e_2_Description"				"在北极冲刺过程中，元素督军每0.1秒都回复一定的魔法值。"
+    	"DOTA_Tooltip_ability_warlord_rune_e_2_property_one"			"魔法值回复"
+    	"DOTA_Tooltip_ability_warlord_rune_e_2_suffix"					" 每0.1秒"
+		
+		"DOTA_Tooltip_ability_warlord_rune_e_3"							"[E3] 不稳定火焰"
+    	"DOTA_Tooltip_ability_warlord_rune_e_3_Description"				"元素督军施放火光降落，当到达最高点时，向附近敌人发射火球。"
+    	"DOTA_Tooltip_ability_warlord_rune_e_3_property_one"			"伤害"
+    	"DOTA_Tooltip_ability_warlord_rune_e_3_suffix"					""
+    	"DOTA_Tooltip_ability_warlord_rune_e_3_property_two"			"最多火球攻击目标"
+    	"DOTA_Tooltip_ability_warlord_rune_e_3_suffix_two"				""
+		
+		"DOTA_Tooltip_ability_warlord_rune_e_4"							"[E4] 元素之怒"
+    	"DOTA_Tooltip_ability_warlord_rune_e_4_Description"				"元素督军的属性值将提高 <font color=\"#EF4126\">火</font>, <font color=\"#AF843D\">土</font> 和 <font color=\"#87D9FF\">冰</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_warlord_rune_e_4_property_one"			"元素伤害提高"
+    	"DOTA_Tooltip_ability_warlord_rune_e_4_suffix"					"% 每10点属性值"
+
+ 		"DOTA_Tooltip_ability_elemental_overload_2"							"元素主宰"
+		"DOTA_Tooltip_ability_elemental_overload_2_Description"				"元素： <font color=\"#EF4126\">火</font> / <font color=\"#87D9FF\">冰</font><br>攻击敌人或投掷斧头击中敌人可以提高相应的元素能量。施放元素主宰将释放所有的元素能量 - 寒冰能量提高冰爆术的范围，火焰能量发射火球，大地能量回复生命值并且提供 90% 伤害减免。<br>此外，相应的元素能量也将提高相应的元素伤害。该技能只消耗一半的元素充能。"
+		"DOTA_Tooltip_ability_elemental_overload_2_Lore"					""
+		"DOTA_Tooltip_ability_elemental_overload_2_heal_per_earth_charge"	"每层大地能量回复生命值：" 
+		"DOTA_Tooltip_ability_elemental_overload_2_protection_per_earth_charge"	"每层大地能量提高减伤护盾的持续时间：" 
+		"DOTA_Tooltip_ability_elemental_overload_2_radius_per_ice_charge"		"每层寒冰能量提高范围：" 
+		"DOTA_Tooltip_ability_elemental_overload_2_ice_damage"					"冰爆术伤害：" 
+		"DOTA_Tooltip_ability_elemental_overload_2_ice_freeze_duration"			"冰冻持续时间：" 
+		"DOTA_Tooltip_ability_elemental_overload_2_fireball_damage"				"火球伤害：" 
+
+		"DOTA_Tooltip_modifier_overload_damage_resistance"					"大地护盾"
+		"DOTA_Tooltip_modifier_overload_damage_resistance_Description"		"伤害减免 90%"
+
+      	"DOTA_Tooltip_ability_warlord_rune_r_1"							"[R1] 大地主宰"
+    	"DOTA_Tooltip_ability_warlord_rune_r_1_Description"				"释放元素能量后，根据大地能量所回复的生命值，继续在8秒内回复生命值，每1秒恢复 a% 的初始治疗值。另外在持续时间内, 1000码内的所有敌人将会受到元素督军 % 的攻击力伤害，每秒的伤害为魔法伤害。"
+    	"DOTA_Tooltip_ability_warlord_rune_r_1_property_one"			"% 初始治疗值"
+    	"DOTA_Tooltip_ability_warlord_rune_r_1_suffix"					""
+    	"DOTA_Tooltip_ability_warlord_rune_r_1_property_two"			"每秒的 AOE 伤害"
+    	"DOTA_Tooltip_ability_warlord_rune_r_1_suffix_two"				"% 攻击力，每层释放的大地充能"
+
+    	"DOTA_Tooltip_modifier_warlord_rune_r_1"						"大地主宰"
+    	"DOTA_Tooltip_modifier_warlord_rune_r_1_Description"			"每秒回复生命值并且伤害周围的敌人"
+
+		"DOTA_Tooltip_ability_warlord_rune_r_2"							"[R2] 衰弱之冰"
+    	"DOTA_Tooltip_ability_warlord_rune_r_2_Description"				"被元素主宰冻结的敌人魔法抗性降低，持续8秒。"
+    	"DOTA_Tooltip_ability_warlord_rune_r_2_property_one"			"魔法抗性降低"
+    	"DOTA_Tooltip_ability_warlord_rune_r_2_suffix"					""
+
+    	"DOTA_Tooltip_modifier_warlord_b_d_effect"						"衰弱之冰"
+    	"DOTA_Tooltip_modifier_warlord_b_d_effect_Description"			"魔法抗性降低"	
+		
+		"DOTA_Tooltip_ability_warlord_rune_r_3"							"[R3] 稳定的火焰"
+    	"DOTA_Tooltip_ability_warlord_rune_r_3_Description"				"每层火焰能量将提高督军的攻击力。"
+    	"DOTA_Tooltip_ability_warlord_rune_r_3_property_one"			"每层火焰能量提高攻击力"
+    	"DOTA_Tooltip_ability_warlord_rune_r_3_suffix"					"%"
+
+    	"DOTA_Tooltip_modifier_warlord_rune_r_3_effect"					"稳定的火焰"
+    	"DOTA_Tooltip_modifier_warlord_rune_r_3_effect_Description"		"攻击力提高"
+
+		"DOTA_Tooltip_ability_warlord_rune_r_4"							"[R4] 咆哮"
+    	"DOTA_Tooltip_ability_warlord_rune_r_4_Description"				"施放元素主宰后，根据所消耗的元素能量层数提高攻击力，持续16秒。"
+    	"DOTA_Tooltip_ability_warlord_rune_r_4_property_one"			"每层元素能量提高攻击力"
+    	"DOTA_Tooltip_ability_warlord_rune_r_4_suffix"					""
+
+    	"DOTA_Tooltip_modifier_warlord_rune_r_4_visible"				"咆哮"
+    	"DOTA_Tooltip_modifier_warlord_rune_r_4_visible_Description"	"攻击力提高"
+		
+		//Arcanas
+		
+		"item_property_warlord_arcana1"										"附魔战斧"
+    	"property_warlord_arcana1_description"								"用附魔战斧替换 @Ability4 及其所有符文。"
+
+    	"DOTA_Tooltip_ability_enhchant_tomahawk"						"附魔战斧"
+    	"DOTA_Tooltip_ability_enhchant_tomahawk_Description"				"消耗元素督军的全部元素充能，来强化他的战斧。每消耗一层元素充能将获得一层附魔战斧buff，持续18秒。在buff持续时间内，攻击变为远程，并且攻击消耗一层附魔战斧buff。"	
+    	"DOTA_Tooltip_ability_enhchant_tomahawk_attack_range"	"额外攻击距离："
+    	"DOTA_Tooltip_ability_enhchant_tomahawk_duration"		"持续时间："
+
+    	"DOTA_Tooltip_modifier_enchant_tomahawk_buff"			"附魔战斧"
+    	"DOTA_Tooltip_modifier_enchant_tomahawk_buff_Description"	"攻击距离提高"
+
+  		"DOTA_Tooltip_ability_warlord_rune_r_1_arcana1"						"[R1] 陨碎"
+    	"DOTA_Tooltip_ability_warlord_rune_r_1_arcana1_Description"			"在附魔战斧持续时间内，攻击将造成爆炸，伤害敌人并眩晕所有附近的敌人 0.2 秒。"
+    	"DOTA_Tooltip_ability_warlord_rune_r_1_arcana1_property_one"		"伤害"
+    	"DOTA_Tooltip_ability_warlord_rune_r_1_arcana1_suffix"				"% 攻击力"
+
+  		"DOTA_Tooltip_ability_warlord_rune_r_2_arcana1"						"[R2] 极寒之刃"
+    	"DOTA_Tooltip_ability_warlord_rune_r_2_arcana1_Description"			"在附魔战斧持续时间内，攻击将对目标敌人施加一个霜冻debuff，持续6秒。霜冻debuff每0.5秒伤害一次敌人，伤害基于元素督军的总属性值。霜冻debuff同时减速敌人 20%。如果目标敌人血量值低于 30% （BOSS低于15%），霜冻debuff每次造成的伤害都将乘以 10000，并且产生一次爆炸，所有被爆炸击中的敌人也都将受到霜冻debuff。"
+    	"DOTA_Tooltip_ability_warlord_rune_r_2_arcana1_property_one"		"每次伤害"
+    	"DOTA_Tooltip_ability_warlord_rune_r_2_arcana1_suffix"				"x 总属性值"
+
+    	"DOTA_Tooltip_modifier_tomahawk_ice_effect"							"极寒之刃"
+    	"DOTA_Tooltip_modifier_tomahawk_ice_effect_Description"				"持续受到冰元素伤害。血量值过低将会粉碎。"	
+
+  		"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1"						"[R3] 熔岩喷发"
+    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_Description"			"在附魔战斧持续时间内，攻击将会获得一层熔岩喷发。当元素督军受到一次伤害时，消耗一层熔岩喷发，并向攻击者发射一枚火球。火球将伤害路径上的所有敌人。同时提高火焰能量充能的上限数量。"
+    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_property_one"		"最大火焰能量充能数提高"
+    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_suffix"				""
+    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_property_two"		"伤害"
+    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_suffix_two"			"% 最大生命值"
+
+    	"DOTA_Tooltip_modifier_tomahawk_tectonic_pressure"					"熔岩喷发"
+    	"DOTA_Tooltip_modifier_tomahawk_tectonic_pressure_Description"		"受到伤害将发射火球"
+
+  		"DOTA_Tooltip_ability_warlord_rune_r_4_arcana1"						"[R4] 元素督军"
+    	"DOTA_Tooltip_ability_warlord_rune_r_4_arcana1_Description"			"提高所有元素充能的最大充能上限。每层火焰能量提高攻击力。"
+    	"DOTA_Tooltip_ability_warlord_rune_r_4_arcana1_property_one"		"最大充能数量提高"
+    	"DOTA_Tooltip_ability_warlord_rune_r_4_arcana1_suffix"				""
+     	"DOTA_Tooltip_ability_warlord_rune_r_4_arcana1_property_two"		"每层火焰能量提高攻击力"
+    	"DOTA_Tooltip_ability_warlord_rune_r_4_arcana1_suffix_two"			"%"
+
+    	"DOTA_Tooltip_modifier_warlord_rune_r_4_effect"						"元素督军"
+    	"DOTA_Tooltip_modifier_warlord_rune_r_4_effect_Description"			"每层火焰能量提高攻击力。"
+		
+
+
+		//Glyphs
+		
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_1_1"		"多样性雕文"
+		"item_rpc_warlord_glyph_1_1_description" 				"大地冲撞、北极冲刺和火光降落也可以切换督军的元素形态。"
+
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_2_1"		"冰冻之斧雕文"
+		"item_rpc_warlord_glyph_2_1_description" 				"攻击敌人将获得一层火焰、寒冰、大地能量。"
+
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_3_1"		"漫步之石雕文"
+		"item_rpc_warlord_glyph_3_1_description" 				"移除石像形态下的移动速度降低效果。"
+
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_4_1"		"伏击雕文"
+		"item_rpc_warlord_glyph_4_1_description" 				"向某个敌人投掷斧头将使督军移动至该目标，并造成 @glyph_property1x 暴击伤害。冷却时间 @glyph_property2 秒。"
+
+		"DOTA_Tooltip_modifier_beastmaster_glyph_4_1_cooldown"	"伏击冷却中"
+
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_1"		"野蛮战斗雕文"
+		"item_rpc_warlord_glyph_5_1_description" 				"每杀死一个敌人提高额外攻击力 @glyph_property1%，可叠加至50层。持续时间 @glyph_property2 秒，击杀后刷新持续时间。"
+
+		"DOTA_Tooltip_modifier_warlord_glyph_5_1_effect"		"野蛮战斗"
+		"DOTA_Tooltip_modifier_warlord_glyph_5_1_effect_Description"	"杀死敌人后提高额外攻击力。"
+
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_6_1"		"元素雕文"
+		"item_rpc_warlord_glyph_6_1_description" 				"提高大地、火焰和寒冰能量的层数上限至25。"
+
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_7_1"		"战斗雕文"
+		"item_rpc_warlord_glyph_7_1_description" 				"普通攻击将对目标周围所有敌人造成 @glyph_property1% 攻击伤害的魔法伤害。"
+
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_a"		"生态雕文"
+		"item_rpc_warlord_glyph_5_a_description" 				"受到伤害会增加 @glyph_property1 火焰能量。 每层寒冰能量加深敌人受到的魔法伤害 5%（计算在敌人减伤之后）"
+
+		//Weapons
+		"warlord_weapon_01"			"威武巨斧"
+		"warlord_weapon_02"			"镂刻大斧"
+		"warlord_weapon_03"			"神秘巨斧"
+		"warlord_weapon_11"			"地铸之剑"
+		"warlord_weapon_12"			"锐利之刃"
+		"warlord_weapon_13"			"火焰巨斧"
+		"warlord_weapon_14"			"冰铸之斧"
+		"warlord_weapon_21"			"大地之斧"
+		"warlord_weapon_22"			"烈焰风暴巨斧"
+		"warlord_weapon_23"			"钍铸之刃"
+		"warlord_weapon_24"			"灵巧银斧"
+		"warlord_weapon_25"			"剃刀巨斧"
+		
+		"DOTA_Tooltip_ability_item_rpc_warlord_immortal_weapon_1"		"开元天斧"
+		"item_property_warlord_immortal_weapon"								"元素闪电"
+		"property_warlord_immortal_weapon_description"						"元素充能拥有 2x 叠加速率"	
+
+		"DOTA_Tooltip_ability_item_rpc_warlord_immortal_weapon_2"            "蓝宝石遗物"
+		"item_property_warlord_immortal_weapon2"                             "三棱镜"
+        "property_warlord_immortal_weapon2_description"                      "施放 @Ability2 将同时一连串投掷其他两种元素斧。"
+
+        "DOTA_Tooltip_ability_item_rpc_warlord_immortal_weapon_3"            "红宝石遗物"
+        "item_property_warlord_immortal_weapon3"                             "原始起义"
+        "property_warlord_immortal_weapon3_description"                      "每 @special_property1 秒获得一层 大地、火焰、寒冰充能。"   

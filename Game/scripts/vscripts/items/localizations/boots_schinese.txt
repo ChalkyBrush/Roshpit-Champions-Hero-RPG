@@ -1,0 +1,9 @@
+
+    	"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"飞刀杂耍者之靴"
+		"item_property_slinger_boot"				"飞刀杂耍者"
+		"property_slinger_boots_description"		"每0.5秒攻击在你背后的敌人一次，攻击继承全部攻击特效。"
+
+
+    	"DOTA_Tooltip_ability_item_rpc_sange_boots"										"散华之鞋"
+		"item_property_sange"						"战斗大师S"
+		"property_sange_description"				"每点敏捷值额外提高8点最大生命值。"

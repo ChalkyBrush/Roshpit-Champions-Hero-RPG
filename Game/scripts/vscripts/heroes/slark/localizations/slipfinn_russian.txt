@@ -1,0 +1,188 @@
+		//Abilities
+		
+		"DOTA_Tooltip_ability_slipfinn_prone"										"Prone"
+    	"DOTA_Tooltip_ability_slipfinn_prone_Description"							"Стихия: <font color=\"#3894FF\">Вода</font> / <font color=\"#DDDDDD\">Нормальный</font><br>Slipfinn меняет свое поведение, перемещаясь пригнувшись, что позволяет ему скользить по земле и получать меньше магического и чистого урона. Применяя во время прыжка, герой перевернется и приземлится, сотрясая землю и нанося урон, зависящий от высоты, на которой была активирована эта способность."
+    	"DOTA_Tooltip_ability_slipfinn_prone_damage"								"УРОН:"
+    	"DOTA_Tooltip_ability_slipfinn_prone_magic_pure_resist"						"СОПРОТИВЛЕНИЕ МАГИЧЕСКОМУ И ЧИСТОМУ УРОНУ, %:"
+
+    	"DOTA_Tooltip_modifier_slipfinn_prone"										"Prone"
+		
+		"DOTA_Tooltip_ability_slipfinn_rune_q_1"									"[Q1] Core Impact"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_1_Description"						"По приземлении после прыжка наносится дополнительный урон у эпицентра. Этот бонус снижается линейно от центра к краю окружности до 0."
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_1_property_one"						"Доп. урон в эпицентре"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_1_suffix"								"%"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_2"									"[Q2] Shimmer Cape"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_2_Description"						"Получает дополнительные очки брони, когда пригибается. Эффект продолжит действовать еще 4 секунды после смены стойки и активируется при прыжке."
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_2_property_one"						"Доп. броня"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_2_suffix"								""
+
+    	"DOTA_Tooltip_modifier_shimmer_cape"										"Shimmer Cape"
+    	"DOTA_Tooltip_modifier_shimmer_cape_Description"							"Броня увеличена"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_3"									"[Q3] Crushing Heights"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_3_Description"						"По приземлении после прыжка наносится дополнительный урон, зависящий от высоты активации последнего прыжка.."
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_3_property_one"						"Доп. урон"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_3_suffix"								"x высоту^2"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_4"									"[Q4] Murkwood Hunter"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_4_Description"						"Slipfinn увеличивает урон стихии <font color=\"#7F4F84\">Тени</font> и <font color=\"#3894FF\">Воды</font> за счет своей Ловкости."
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_4_property_one"						"Доп. урон Воды и Тени"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_4_suffix"								"% за каждые 10 очков Ловкости"
+		
+		"DOTA_Tooltip_ability_slipfinn_jump"										"Puddle Jump"
+    	"DOTA_Tooltip_ability_slipfinn_jump_Description"							"Slipfinn совершает высокий прыжок. При прыжке сохраняется скорость передвижения на момент активации. Герой может приземлиться на голову врагу, чтобы совершить двойной прыжок. Когда герой находится достаточно высоко, враги не могут атаковать его. Приказ передвижения герою в момент прыжка позволяет незначительно изменить траекторию пеолета к указанной точке.<br><b>Двойной прыжок:</b> Позволяет совешить еще один прыжок сразу по приземлении после первого.<br><b>Тройной прыжок:</b> Позволяет герою совершить еще дин прыжок сразу после двойного.<br><b>Высокий прыжок:</b> Используйте прыжок, когда герой пригнулся и перемещается медленно.<br><b>Дальний прыжок:</b> Используйте прыжок, когда герой пригнулся и перемещается быстро."
+    	"DOTA_Tooltip_ability_slipfinn_jump_height_immune"							"ВЫСОТА, С КОТОРОЙ ГЕРОЯ НЕ СМОГУТ АТАКОВАТЬ:"
+		
+		"DOTA_Tooltip_ability_slipfinn_rune_w_1"									"[W1] Dark Bog"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_1_Description"						"Прыгая по вражеским головам, герой наносит дополнительный урон в небольшой области вокруг."
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_1_property_one"						"Базовый урон"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_1_suffix"								""
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_1_property_two"						"Дополнительный урон"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_1_suffix_two"							"% от урона героя"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_2"									"[W2] Gloomshade Bounce"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_Description"						"Прыгая по вражеским головам, герой оставляет на них 2 заряда этой руны, увеличивающий получаемый ими пост-резистный урон от Slipfinn. Эффект длится 10 секунд. Враги, получившие урон от [W1] получают по 1 заряду"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_property_one"						"Доп. пост-резистный урон за заряд"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_suffix"								"%"
+
+    	"DOTA_Tooltip_modifier_slipfinn_gloomshade_visible"							"Gloomshade"
+    	"DOTA_Tooltip_modifier_slipfinn_gloomshade_visible_Description"				"Получает дополнительный пост-резистный урон от Slipfinn"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_3"									"[W3] Agitated Spring"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_3_Description"						"Прыгая по вражеским головам, герой получает % бонус к урону. Длительность эффекта: 12 секунд. Последующие прыжки обновляют время действия."
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_3_property_one"						"Доп. урон за заряд"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_3_suffix"								"%"
+
+    	"DOTA_Tooltip_modifier_slipfinn_agitated_visible"							"Agitated Spring"
+    	"DOTA_Tooltip_modifier_slipfinn_agitated_visible_Description"				"Урон увеличен"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_4"									"[W4] Great Leaps"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_4_Description"						"Увеличивает силу Высокого и Тройного прыжков."
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_4_property_one"						"Доп. сила прыжков"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_4_suffix"								""
+		
+		"DOTA_Tooltip_ability_slipfinn_shadow_rush"									"Slippery Sprint"
+    	"DOTA_Tooltip_ability_slipfinn_shadow_rush_Description"						"Затратив на подготовку 1 секунду, герой получает огромный бонус к скорости передвижения и максимальной скорости передвижения, который постепенно ослабевает. Если герой не получал приказ на перемещение, то он самостоятельно устремится вперед. Во время спринта герой игнорирует мелкие препятствия и врагов, а  эффекты замедления действуют на 50% слабже."
+    	"DOTA_Tooltip_ability_slipfinn_shadow_rush_duration"						"ДЛИТЕЛЬНОСТЬ:"
+    	"DOTA_Tooltip_ability_slipfinn_shadow_rush_ms_bonus_and_max"				"ДОП. СКОРОСТЬ И МАКС. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
+
+    	"slipfinn_e"																"Slippery Sprint и Shady Smoke"
+
+    	"DOTA_Tooltip_modifier_slipfinn_shadow_rush"								"Slippery Sprint"
+
+    	"DOTA_Tooltip_ability_slipfinn_shadow_warp"									"Shady Smoke"
+    	"DOTA_Tooltip_ability_slipfinn_shadow_warp_Description"						"С помощью небольшой дымовой завесы, герой может переместиться на небольшое расстояние с задержкой в 0.1 секунды, уклоняясь от летящих снарядов. После перемешения он теряет бонусы к скорости."
+    	"DOTA_Tooltip_ability_slipfinn_shadow_warp_cast_range"						"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
+		
+		"DOTA_Tooltip_ability_slipfinn_rune_e_1"									"[E1] Shadow Shank"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_1_Description"						"Атаки наносят дополнительный чистый урон <font color=\"#7F4F84\">Тени</font>."
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_1_property_one"						"Урон"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_1_suffix"								"% от нанесенного урона"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_2"									"[E2] Fen Sleeper"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_2_Description"						"Увеличивает максимальное здоровье и регенерацию здоровья за счет Ловкости. Когда герой пригнулся, бонус к регенерации здоровья удваивается."
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_2_property_one"						"Макс. здоровье"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_2_suffix"								" за очко Ловкости"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_2_property_two"						"Доп. реген. здоровья"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_2_suffix_two"							" за очко Ловкости"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_3"									"[E3] Shadow Cloak"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_3_Description"						"Применение (E) Slippery Sprint или (E) Shady Smoke позволяет герою укрыться в дыму, становясь невидимым."
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_3_property_one"						"Длительность"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_3_suffix"								" сек."
+
+    	"DOTA_Tooltip_modifier_slipfinn_shadow_cloak"								"Shadow Cloak"
+    	"DOTA_Tooltip_modifier_slipfinn_shadow_cloak_Description"					"Невидим"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_4"									"[E4] Bitter Assassin"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_4_Description"						"Дает шанс на то, что наносимый урон проигнорирует свойство монстров Стойкость."
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_4_property_one"						"Шанс на игнорирование Стойкости"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_4_suffix"								"%"
+		
+		"DOTA_Tooltip_ability_slipfinn_bubble_possession"							"Possession Bubble"
+    	"DOTA_Tooltip_ability_slipfinn_bubble_possession_Description"				"Спустя 1.5 секунды, Slipfinn совершает рывок в сторону указанной цели и захватывает ее в пузырь одержимости. Slipfinn получает копию всех умений захваченной цели. Урон от умений захваченной цели увеличивается всеми усилениями, которые повышают урон от ульта. Захваченная цель отключается."	
+    	"DOTA_Tooltip_ability_slipfinn_bubble_possession_duration"					"ДЛИТЕЛЬНОСТЬ ЗАХВАТА:"	
+
+    	"DOTA_Tooltip_modifier_slipfinn_enemy_locked"								"Possession Bubble"
+    	"DOTA_Tooltip_modifier_slipfinn_enemy_locked_Description"					"Под контролем врага"
+
+    	"DOTA_Tooltip_ability_slipfinn_release_possess"								"Release"
+    	"DOTA_Tooltip_ability_slipfinn_release_possess_Description"					"Выпускает захваченного врага из пузыря на волю."
+		
+		"slipfinn_possession_warning"												"Не может быть захвачен"
+		
+		"DOTA_Tooltip_ability_slipfinn_rune_r_1"									"[R1] Amphibious Versatility"
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_1_Description"						"Все украденные способности наносят увеличенный урон."
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_1_property_one"						"Доп. урон"
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_1_suffix"								"%"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_2"									"[R2] Disorienting Pop"
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_2_Description"						"Отпущенный из пузыря враг ненадолго оглушается. Впервые захваченный враг оглушает всех других врагов в радиусе 500."
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_2_property_one"						"Длительность оглушения"
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_2_suffix"								" сек."
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_3"									"[R3] Expose Weaknesses"
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_3_Description"						"После захвата врага, получает увеличенный пост-резистный урон против такого же типа противников на всю игровую сессию. Если не удалось захватить врага, герой все равно получит бонус."
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_3_property_one"						"Доп. пост-резистный урон на сессию"
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_3_suffix"								"%"
+
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_4"									"[R4] Sticky Abduction"
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_4_Description"						"Дает герою дополнительный базовый урон, зависящий от базового урона захваченной цели."
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_4_property_one"						"Доп. базовый урон"
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_4_suffix"								"% от базового урона врага"
+		
+		//Arcanas
+		
+		//Glyphs
+		
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_1_1"		"(T1) Символ скольжения"
+		"item_rpc_slipfinn_glyph_1_1_description" 				"Снижает трение о землю на @glyph_property1%."
+
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_2_1"		"(T2) Символ далеких прыжков"
+		"item_rpc_slipfinn_glyph_2_1_description" 				"Увеличивает подъемную силу при Дальнем прыжке на @glyph_property1."
+
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_3_1"		"(T3) Символ отскока"
+		"item_rpc_slipfinn_glyph_3_1_description" 				"Увеличивает базовую высоту отскока по приземлении на голову врагу на @glyph_property1."
+
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_4_1"		"(T4) Символ свободного падения"
+		"item_rpc_slipfinn_glyph_4_1_description" 				"Сокращает время на переворот и удар о землю на @glyph_property1%."
+
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_5_1"		"(T5) Символ пролома"
+		"item_rpc_slipfinn_glyph_5_1_description" 				"Увеличивает длительность оглушения от Ground Pound на @glyph_property1 сек."
+
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_6_1"		"(T6) Символ одержимости"
+		"item_rpc_slipfinn_glyph_6_1_description" 				"Враги, которых пытается захватить герой с помощью (R) Possessive Bubble парализуются до конца прочтения. Время оглушения по высвобождению врага из пузыря увеличивается на @glyph_property1%."
+
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_7_1"		"(T7) Символ ускользающего беглеца"
+		"item_rpc_slipfinn_glyph_7_1_description" 				"Герой не может быть оглушен во время прыжков и бега в тени."
+
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_5_a"		"(Immortal) Символ прыгуна"
+		"item_rpc_slipfinn_glyph_5_a_description" 				"Радиус попадания по вражеским головам увеличен на @glyph_property1%."
+		
+		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_00"		"Dagger"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_01"		"Murkwood Dagger"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_02"		"Crooked Shank"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_03"		"Swamp Dagger"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_11"		"Umbral Dagger"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_12"		"Soggy Swamp Blade"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_13"		"Jumper's Shank"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_14"		"Purple Meadow Shank"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_21"		"Shank of Versatile Hunter"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_22"		"Deepwood Swamp Dagger"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_23"		"Liquid Mind Cutter"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_24"		"Pristine Bayou Blade"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_25"		"Fenway Marsh Cutter"
+		
+		 "DOTA_Tooltip_ability_item_rpc_slipfinn_immortal_weapon_1"           "Spring Wetlands Dagger"
+        "item_property_slipfinn_immortal_weapon"                             "Spawning"
+        "property_slipfinn_immortal_weapon_description"                      "Время возрождения снижено до @special_property1 сек. Применение (E) Shady Smoke позволяет герою телепортироваться в указанную точку на выосте @special_property2."
+
+        "DOTA_Tooltip_ability_item_rpc_slipfinn_immortal_weapon_2"            "Jagged Mire Knife"
+        "item_property_slipfinn_immortal_weapon2"                             "Opportunity Strike"
+        "property_slipfinn_immortal_weapon2_description"                      "Герой незамедлительно атакует врага, когда приземляется ему на голову."
+
+        "DOTA_Tooltip_ability_item_rpc_slipfinn_immortal_weapon_3"            "Blade of the Black Lagoon"
+        "item_property_slipfinn_immortal_weapon3"                             "Shadow of the Enemy"
+        "property_slipfinn_immortal_weapon3_description"                      "Вторая стихия всех украденных способностей заменяетс на стихию <font color=\"#7F4F84\">Тени</font>."

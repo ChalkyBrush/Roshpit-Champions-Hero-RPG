@@ -1,0 +1,350 @@
+		//Abilities
+		"solunia_q"															"Solar and Lunar Napalm"
+    	"solunia_w"															"Solarang and Lunarang"
+    	"solunia_e"															"Solar and Lunar Warp Flare"
+    	"solunia_r"															"Supernova and Eclipse"
+
+    	"DOTA_Tooltip_ability_solunia_solar_glow"							"Solar Napalm"
+    	"DOTA_Tooltip_ability_solunia_solar_glow_Description"				"Element: <font color=\"#C25DFC\">Cosmic</font> / <font color=\"#EF4126\">Fire</font><br>A barrage of firey Sun Stones launch from Solunia towards the target location."
+    	"DOTA_Tooltip_ability_solunia_solar_glow_damage"					"DAMAGE:"
+    	"DOTA_Tooltip_ability_solunia_solar_glow_projectiles"				"PROJECTILES:"
+    	"DOTA_Tooltip_ability_solunia_solar_glow_stun_duration"				"STUN DURATION:"
+
+    	"DOTA_Tooltip_ability_solunia_lunar_glow"							"Lunar Napalm"
+    	"DOTA_Tooltip_ability_solunia_lunar_glow_Description"				"Element: <font color=\"#C25DFC\">Cosmic</font> / <font color=\"#87D9FF\">Ice</font><br>A barrage of icy Moon Stones are emitted from Solunia towards the target location."
+    	"DOTA_Tooltip_ability_solunia_lunar_glow_damage"					"DAMAGE:"
+    	"DOTA_Tooltip_ability_solunia_lunar_glow_projectiles"				"PROJECTILES:"
+    	"DOTA_Tooltip_ability_solunia_lunar_glow_stun_duration"				"STUN DURATION:"
+		
+		"DOTA_Tooltip_ability_solunia_rune_q_1"								"[Q1] Gamma Ray"
+    	"DOTA_Tooltip_ability_solunia_rune_q_1_Description"					"An electromagnetic wave travels toward the Napalm cast point, pushing enemies toward the explosions and rooting them."
+    	"DOTA_Tooltip_ability_solunia_rune_q_1_property_one"				"Damage"
+    	"DOTA_Tooltip_ability_solunia_rune_q_1_suffix"						"% of attack Damage"	
+    	"DOTA_Tooltip_ability_solunia_rune_q_1_property_two"				"Push Force"
+    	"DOTA_Tooltip_ability_solunia_rune_q_1_suffix_two"					""
+		
+		"DOTA_Tooltip_modifier_solunia_q_1_root"							"Gamma Ray"
+    	"DOTA_Tooltip_modifier_solunia_q_1_root_Description"				"Rooted and being pushed"
+		
+		"DOTA_Tooltip_ability_solunia_rune_q_2"								"[Q2] Nitro Boost"
+    	"DOTA_Tooltip_ability_solunia_rune_q_2_Description"					"Each enemy hit by Napalm adds a stack of Nitro Boost. Lunar stacks adds attack bonus % and Solar stacks add base attack damage. Each stack lasts 3 seconds, max 50 stacks."
+    	"DOTA_Tooltip_ability_solunia_rune_q_2_property_one"				"Base Attack Damage (Solar)"
+    	"DOTA_Tooltip_ability_solunia_rune_q_2_suffix"						""	
+    	"DOTA_Tooltip_ability_solunia_rune_q_2_property_two"				"Attack Damage Bonus (Lunar)"
+    	"DOTA_Tooltip_ability_solunia_rune_q_2_suffix_two"					"%"
+		
+		"DOTA_Tooltip_modifier_solunia_b_a_solar_visible"					"Nitro Boost"
+    	"DOTA_Tooltip_modifier_solunia_b_a_solar_visible_Description"		"Increased base attack damage"
+    	"DOTA_Tooltip_modifier_solunia_b_a_lunar_visible"					"Nitro Boost"
+    	"DOTA_Tooltip_modifier_solunia_b_a_lunar_visible_Description"		"Increased damage by %%"
+		
+		"DOTA_Tooltip_ability_solunia_rune_q_3"								"[Q3] Natura"
+    	"DOTA_Tooltip_ability_solunia_rune_q_3_Description"					"Solar and Lunar Napalm deal increased damage based on the target's current or missing health."
+    	"DOTA_Tooltip_ability_solunia_rune_q_3_property_one"				"Solar Napalm Damage Bonus"
+    	"DOTA_Tooltip_ability_solunia_rune_q_3_suffix"						"% of enemy current health"	
+    	"DOTA_Tooltip_ability_solunia_rune_q_3_property_two"				"Lunar Napalm Damage Bonus"
+    	"DOTA_Tooltip_ability_solunia_rune_q_3_suffix_two"					"% of missing health"
+		
+		"DOTA_Tooltip_ability_solunia_rune_q_4"								"[Q4] Mercuria"
+    	"DOTA_Tooltip_ability_solunia_rune_q_4_Description"					"Solunias's Attributes increase all <font color=\"#C25DFC\">Cosmic</font> damage."
+    	"DOTA_Tooltip_ability_solunia_rune_q_4_property_one"				"Cosmic Damage Bonus"
+    	"DOTA_Tooltip_ability_solunia_rune_q_4_suffix"						"% for each 10 points of Attributes"
+		
+		"DOTA_Tooltip_ability_solunia_solarang"								"Solarang"
+    	"DOTA_Tooltip_ability_solunia_solarang_Description"					"Element: <font color=\"#C25DFC\">Cosmic</font> / <font color=\"#DDDDDD\">Normal</font><br>Solunia's weapon is tossed as a boomerang towards the target location. The blade deals damage every 0.2 seconds to all enemies it collides with."
+    	"DOTA_Tooltip_ability_solunia_solarang_max_boomerangs"				"MAX CONCURRENT SOLARANGS:"
+    	"DOTA_Tooltip_ability_solunia_solarang_damage"						"DAMAGE:"
+
+    	"DOTA_Tooltip_modifier_outgoing_solarang"							"Outbound Solarangs"
+    	"DOTA_Tooltip_modifier_outgoing_lunarang"							"Outbound Lunarangs"
+
+    	"DOTA_Tooltip_ability_solunia_lunarang"								"Lunarang"
+    	"DOTA_Tooltip_ability_solunia_lunarang_Description"					"Element: <font color=\"#C25DFC\">Cosmic</font> / <font color=\"#DDDDDD\">Normal</font><br>Solunia's weapon is tossed as a boomerang towards the target location. The blade deals damage every 0.2 seconds to all enemies it collides with."
+    	"DOTA_Tooltip_ability_solunia_lunarang_max_boomerangs"				"MAX CONCURRENT LUNARANGS:"
+    	"DOTA_Tooltip_ability_solunia_lunarang_damage"						"DAMAGE:"
+		
+		 "DOTA_Tooltip_ability_solunia_rune_w_1"                             "[W1] Razor Blades"
+        "DOTA_Tooltip_ability_solunia_rune_w_1_Description"                 "Boomerangs have a chance to do increased damage."
+        "DOTA_Tooltip_ability_solunia_rune_w_1_property_one"                "Critical Chance"
+        "DOTA_Tooltip_ability_solunia_rune_w_1_suffix"                      "%"
+        "DOTA_Tooltip_ability_solunia_rune_w_1_property_two"                "Additional Critical Damage"
+        "DOTA_Tooltip_ability_solunia_rune_w_1_suffix_two"                  "%"
+		
+		"DOTA_Tooltip_ability_solunia_rune_w_2"								"[W2] Magic Marker"
+    	"DOTA_Tooltip_ability_solunia_rune_w_2_Description"					"Enemies hit by a boomerang receive a mark. Any marked enemy receives a massive damage boost from Solar or Lunar Napalm."
+    	"DOTA_Tooltip_ability_solunia_rune_w_2_property_one"				"Damage Amp"
+    	"DOTA_Tooltip_ability_solunia_rune_w_2_suffix"						"%"	
+
+    	"DOTA_Tooltip_modifier_boomerang_magic_marker"						"Magic Marker"
+    	"DOTA_Tooltip_modifier_boomerang_magic_marker_Description"			"Taking increased damage from Solunia's Napalm"
+		
+		"DOTA_Tooltip_ability_solunia_rune_w_3"								"[W3] Fortuna"
+    	"DOTA_Tooltip_ability_solunia_rune_w_3_Description"					"Solarang and Lunarangs have increased damage based on Solunia's attack power."
+    	"DOTA_Tooltip_ability_solunia_rune_w_3_property_one"				"Boomerang Damage Bonus"
+    	"DOTA_Tooltip_ability_solunia_rune_w_3_suffix"						"% of attack damage"
+		
+		"DOTA_Tooltip_ability_solunia_rune_w_4"								"[W4] Black Widow"
+    	"DOTA_Tooltip_ability_solunia_rune_w_4_Description"					"Striking an enemy with a boomerang adds a Black Widow stack. Casting another boomerang at 50 stacks activates Black Widow form, where Solunia has magic immunity and attack damage. Also has melee attacks that make targets bleed for 240% of attack damage over 3 seconds."
+    	"DOTA_Tooltip_ability_solunia_rune_w_4_property_one"				"Attack Damage Bonus"
+    	"DOTA_Tooltip_ability_solunia_rune_w_4_suffix"						"%"
+    	"DOTA_Tooltip_ability_solunia_rune_w_4_property_two"				"Duration"
+    	"DOTA_Tooltip_ability_solunia_rune_w_4_suffix_two"					" seconds"
+		
+		"DOTA_Tooltip_modifier_black_widow_stacks"							"Black Widow Stacks"
+    	"DOTA_Tooltip_modifier_black_widow_stacks_Description"				"At 50, the next boomerang thrown will activate black widow form."
+		
+		"DOTA_Tooltip_modifier_black_widow"									"Black Widow"	
+    	"DOTA_Tooltip_modifier_black_widow_Description"						"Magic Immunity and Bleeding Attack"
+
+    	"DOTA_Tooltip_modifier_black_widow_bleed"							"Black Widow Bleed"
+		
+		"DOTA_Tooltip_ability_solunia_warp_flare"							"Solar Warp Flare"
+    	"DOTA_Tooltip_ability_solunia_warp_flare_Description"				"Hyperdash towards the target location while climbing space. Can be used 3 times in succession before the cooldown activates."
+    	"DOTA_Tooltip_ability_solunia_warp_flare_cast_range"				"MAX WARP DISTANCE:"
+
+    	"DOTA_Tooltip_ability_solunia_lunar_warp_flare"						"Lunar Warp Flare"
+    	"DOTA_Tooltip_ability_solunia_lunar_warp_flare_Description"				"Hyperdash towards the target location while climbing space. Can be used 3 times in succession before the cooldown activates."
+    	"DOTA_Tooltip_ability_solunia_lunar_warp_flare_cast_range"				"MAX WARP DISTANCE:"
+
+    	"DOTA_Tooltip_modifier_solunia_in_between_flare"					"Warp Flare"
+		
+		"DOTA_Tooltip_ability_solunia_rune_e_1"								"[E1] Nova Surge"
+    	"DOTA_Tooltip_ability_solunia_rune_e_1_Description"					"After using Warp Flare, your next 2 boomerangs thrown will explode at low velocity, dealing the boomerang's damage in a 500 radius and stunning."
+    	"DOTA_Tooltip_ability_solunia_rune_e_1_property_one"					"Explosion Damage"
+    	"DOTA_Tooltip_ability_solunia_rune_e_1_suffix"						"% of boomerang's damage"	
+    	"DOTA_Tooltip_ability_solunia_rune_e_1_property_two"					"Stun Duration"
+    	"DOTA_Tooltip_ability_solunia_rune_e_1_suffix_two"					" seconds"	
+
+    	"DOTA_Tooltip_modifier_solunia_rune_e_1_ready"							"Nova Surge"
+    	"DOTA_Tooltip_modifier_solunia_rune_e_1_ready_Description"				"Your boomerangs will explode at low velocity."
+		
+		"DOTA_Tooltip_ability_solunia_rune_e_2"								"[E2] Galaxy Nitro"
+    	"DOTA_Tooltip_ability_solunia_rune_e_2_Description"					"Each cast of Warp Flare makes all existing boomerangs explode, dealing the boomerang's damage in an AOE."
+    	"DOTA_Tooltip_ability_solunia_rune_e_2_property_one"				"Explosion Damage"
+    	"DOTA_Tooltip_ability_solunia_rune_e_2_suffix"						"% of boomerang's damage"	
+    	"DOTA_Tooltip_ability_solunia_rune_e_2_property_two"					"Stun Duration"
+    	"DOTA_Tooltip_ability_solunia_rune_e_2_suffix_two"					" seconds"
+		
+		"DOTA_Tooltip_ability_solunia_rune_e_3"								"[E3] Warp Core"
+    	"DOTA_Tooltip_ability_solunia_rune_e_3_Description"					"Warp Flare creates a Warp Core at the casting point. Enemies within are slowed by 1000 for the duration and take increased magical or pure damage from all sources depending on whether it's a Solar or Lunar core."
+    	"DOTA_Tooltip_ability_solunia_rune_e_3_property_one"				"Duration"
+    	"DOTA_Tooltip_ability_solunia_rune_e_3_suffix"						" seconds"	
+    	"DOTA_Tooltip_ability_solunia_rune_e_3_property_two"				"Pure (Lunar) or Magic (Solar) Damage Enhance"
+    	"DOTA_Tooltip_ability_solunia_rune_e_3_suffix_two"					"%"
+		
+		"DOTA_Tooltip_ability_solunia_rune_e_4"								"[E4] Hydrogen"
+    	"DOTA_Tooltip_ability_solunia_rune_e_4_Description"					"Increases your Max Health."
+    	"DOTA_Tooltip_ability_solunia_rune_e_4_property_one"				"Max Health"
+    	"DOTA_Tooltip_ability_solunia_rune_e_4_suffix"						""
+		
+		"DOTA_Tooltip_ability_solunia_supernova"							"Supernova"
+    	"DOTA_Tooltip_ability_solunia_supernova_Description"				"Element: <font color=\"#C25DFC\">Cosmic</font> / <font color=\"#EF4126\">Fire</font><br>Solunia heats up and explodes, transferring her energy into the Moon. If over 180 distance above the ground, Solunia is immune while channeling."
+    	"DOTA_Tooltip_ability_solunia_supernova_damage"						"DAMAGE:"
+    	"DOTA_Tooltip_ability_solunia_supernova_stun_duration"				"STUN DURATION:"
+
+    	"DOTA_Tooltip_ability_solunia_eclipse"								"Eclipse"
+    	"DOTA_Tooltip_ability_solunia_eclipse_Description"					"Element: <font color=\"#C25DFC\">Cosmic</font> / <font color=\"#EF4126\">Fire</font><br>Solunia cools down and explodes, transferring her energy into the Sun. If over 180 distance above the ground, Solunia is immune while channeling."
+    	"DOTA_Tooltip_ability_solunia_eclipse_damage"						"DAMAGE:"
+    	"DOTA_Tooltip_ability_solunia_eclipse_stun_duration"				"STUN DURATION:"
+		
+		"DOTA_Tooltip_ability_solunia_rune_r_1"								"[R1] Rebirth"
+    	"DOTA_Tooltip_ability_solunia_rune_r_1_Description"					"Supernova and Eclipse restore health and mana on successful cast."
+    	"DOTA_Tooltip_ability_solunia_rune_r_1_property_one"				"Health"
+    	"DOTA_Tooltip_ability_solunia_rune_r_1_suffix"						""	
+    	"DOTA_Tooltip_ability_solunia_rune_r_1_property_two"				"Mana"
+    	"DOTA_Tooltip_ability_solunia_rune_r_1_suffix_two"					""
+		
+		"DOTA_Tooltip_ability_solunia_rune_r_2"								"[R2] Cluster Fire"
+    	"DOTA_Tooltip_ability_solunia_rune_r_2_Description"					"Enemies hit by Supernova and Eclipse take burn damage every second based on the damage taken. If both the Lunar and Solar burns are active at the same time, the fire does increased damage. Enemies can have multiple stacks of the same burn, but each stack has its own duration. Each burn will deal the damage of all stacks in 1 instance. Lasts 8 seconds."
+    	"DOTA_Tooltip_ability_solunia_rune_r_2_property_one"				"Burn Damage"
+    	"DOTA_Tooltip_ability_solunia_rune_r_2_suffix"						"% of original damage per tick"	
+    	"DOTA_Tooltip_ability_solunia_rune_r_2_property_two"				"Dual Burn Amplification"
+    	"DOTA_Tooltip_ability_solunia_rune_r_2_suffix_two"					"%"	
+
+    	"DOTA_Tooltip_modifier_modifier_solunia_solar_burn"					"Cluster Fire - Solar"
+    	"DOTA_Tooltip_modifier_modifier_solunia_lunar_burn"					"Cluster Fire - Lunar"
+		
+		"DOTA_Tooltip_ability_solunia_rune_r_3"								"[R3] Gravitron"
+    	"DOTA_Tooltip_ability_solunia_rune_r_3_Description"					"Channelling Supernova and Eclipse emits waves that deal attack damage to surrounding enemy and push them. Solar waves push out and lunar waves pull in."
+    	"DOTA_Tooltip_ability_solunia_rune_r_3_property_one"				"Wave Damage"
+    	"DOTA_Tooltip_ability_solunia_rune_r_3_suffix"						"% of Attack Power"	
+    	"DOTA_Tooltip_ability_solunia_rune_r_3_property_two"				"Range"
+    	"DOTA_Tooltip_ability_solunia_rune_r_3_suffix_two"					""
+		
+		"DOTA_Tooltip_ability_solunia_rune_r_4"								"[R4] Equinox"
+    	"DOTA_Tooltip_ability_solunia_rune_r_4_Description"					"Reduces the cooldowns of Super Nova and Eclipse and increases their damage based on all attributes."
+    	"DOTA_Tooltip_ability_solunia_rune_r_4_property_one"				"Cooldown Reduction"
+    	"DOTA_Tooltip_ability_solunia_rune_r_4_suffix"						" seconds"
+    	"DOTA_Tooltip_ability_solunia_rune_r_4_property_two"				"Damage Increase"
+    	"DOTA_Tooltip_ability_solunia_rune_r_4_suffix_two"					"x all attributes"
+		
+		//Arcanas
+		"item_property_solunia_arcana1"										"Solar & Lunar Comet"
+    	"property_solunia_arcana1_description"								"Replaces @Ability1 and all of its runes with Solar & Lunar Comet."
+
+    	"DOTA_Tooltip_ability_solunia_arcana_solar_comet"								"Solar Comet"
+    	"DOTA_Tooltip_ability_solunia_arcana_solar_comet_Description"					"Element: <font color=\"#C25DFC\">Cosmic</font> / <font color=\"#EF4126\">Fire</font><br>Drops a firey comet at the target location that stuns and damages targets in an AOE when it comes into contact with earth. Has no cooldown but has a number of charges before needing to reload by switching to Lunar."
+    	"DOTA_Tooltip_ability_solunia_arcana_solar_comet_damage"						"DAMAGE:"
+    	"DOTA_Tooltip_ability_solunia_arcana_solar_comet_stun_duration"					"STUN DURATION:"
+    	"DOTA_Tooltip_ability_solunia_arcana_solar_comet_max_charges"					"CHARGES BEFORE RELOAD:"
+
+    	"DOTA_Tooltip_modifier_solar_comet_free_cast"									"Solar Comet Charge"
+
+    	"DOTA_Tooltip_ability_solunia_arcana_lunar_comet"								"Lunar Comet"
+    	"DOTA_Tooltip_ability_solunia_arcana_lunar_comet_Description"					"Element: <font color=\"#C25DFC\">Cosmic</font> / <font color=\"#87D9FF\">Ice</font><br>Drops an icy comet at the target location that stuns and damages targets in an AOE when it comes into contact with earth. Has no cooldown but has a number of charges before needing to reload by switching to Solar."
+    	"DOTA_Tooltip_ability_solunia_arcana_lunar_comet_damage"						"DAMAGE:"
+    	"DOTA_Tooltip_ability_solunia_arcana_lunar_comet_stun_duration"					"STUN DURATION:"
+    	"DOTA_Tooltip_ability_solunia_arcana_lunar_comet_max_charges"					"CHARGES BEFORE RELOAD:"
+
+    	"DOTA_Tooltip_modifier_lunar_comet_free_cast"									"Lunar Comet Charge"
+
+    	"DOTA_Tooltip_ability_solunia_rune_q_1_arcana1"						"[Q1] Ultraviolet"
+    	"DOTA_Tooltip_ability_solunia_rune_q_1_arcana1_Description"			"Dealing damage massively increases Health Regen for 0.5 seconds. Additionally this rune passively increases % attack damage."
+    	"DOTA_Tooltip_ability_solunia_rune_q_1_arcana1_property_one"			"Health Regen after dealing damage"
+    	"DOTA_Tooltip_ability_solunia_rune_q_1_arcana1_suffix"				"" 
+    	"DOTA_Tooltip_ability_solunia_rune_q_1_arcana1_property_two"			"Passive Attack Damage Bonus"
+    	"DOTA_Tooltip_ability_solunia_rune_q_1_arcana1_suffix_two"				"%" 
+
+    	"DOTA_Tooltip_modifier_solunia_ultraviolet"							"Ultraviolet"
+    	"DOTA_Tooltip_modifier_solunia_ultraviolet_Description"				"Gaining health regen and attack damage %%"	
+
+    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1"							"[Q2] Polythea"
+    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_Description"				"Passively adds base attack damage based on Solunia's current health. Additionally a percentage of current health is added to all Base Ability damage."
+    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_property_one"			"Base Attack Damage Per Current Health"
+    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_suffix"					""
+    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_property_two"			"Health added to Base Ability damage"
+    	"DOTA_Tooltip_ability_solunia_rune_q_2_arcana1_suffix_two"				"%"
+
+
+    	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1"							"[Q3] Compression"
+    	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_Description"				"Enemies hit by comets receive a stacking debuff that increases all post-mitigation damage taken from all sources for 60 seconds. Max 10 stacks and both the lunar and solar debuff can be active at the same time. Additionally a portion of attack damage is added to comet damage."
+    	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_property_one"			"Post-Mitigation damage taken per stack"
+    	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_suffix"					"%"
+    	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_property_two"			"Attack damage added to comet"
+    	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_suffix_two"				"%"
+
+    	"DOTA_Tooltip_modifier_lunar_compression_visible"						"Compression"
+    	"DOTA_Tooltip_modifier_lunar_compression_visible_Description"			"Taking increased post-mitigation damage from all sources."
+    	"DOTA_Tooltip_modifier_solar_compression_visible"						"Compression"
+    	"DOTA_Tooltip_modifier_solar_compression_visible_Description"			"Taking increased post-mitigation damage from all sources."
+
+    	"DOTA_Tooltip_ability_solunia_rune_q_4_arcana1"								"[Q4] Mercuria X"
+    	"DOTA_Tooltip_ability_solunia_rune_q_4_arcana1_Description"					"Solunias's Attributes increase all <font color=\"#C25DFC\">Cosmic</font> damage."
+    	"DOTA_Tooltip_ability_solunia_rune_q_4_arcana1_property_one"				"Cosmic Damage Bonus"
+    	"DOTA_Tooltip_ability_solunia_rune_q_4_arcana1_suffix"						"% for each 10 points of Attributes"
+
+       	"item_property_solunia_arcana2"										"Alpha Spark"
+    	"property_solunia_arcana2_description"								"Replaces @Ability4 and all of its runes with Solar and Lunar Alpha Spark."
+
+    	"DOTA_Tooltip_ability_solunia_solar_alpha_spark"					"Solar Alpha Spark"				
+    	"DOTA_Tooltip_ability_solunia_solar_alpha_spark_Description"		"Element: <font color=\"#C25DFC\">Cosmic</font> / <font color=\"#EF4126\">Fire</font><br>In a flash of cosmic heat, Solunia teleports to the target position and explodes - transferring her energy to Lunar."
+    	"DOTA_Tooltip_ability_solunia_solar_alpha_spark_damage"				"DAMAGE:"
+    	"DOTA_Tooltip_ability_solunia_solar_alpha_spark_stun_duration"		"STUN DURATION:"
+    	"DOTA_Tooltip_ability_solunia_solar_alpha_spark_cast_range"			"CAST RANGE:"
+
+    	"DOTA_Tooltip_ability_solunia_lunar_alpha_spark"					"Lunar Alpha Spark"				
+    	"DOTA_Tooltip_ability_solunia_lunar_alpha_spark_Description"		"Element: <font color=\"#C25DFC\">Cosmic</font> / <font color=\"#EF4126\">Fire</font><br>In a flash of cosmic heat, Solunia teleports to the target position and explodes - transferring her energy to Solar."
+    	"DOTA_Tooltip_ability_solunia_lunar_alpha_spark_damage"				"DAMAGE:"
+    	"DOTA_Tooltip_ability_solunia_lunar_alpha_spark_stun_duration"		"STUN DURATION:"
+    	"DOTA_Tooltip_ability_solunia_lunar_alpha_spark_cast_range"			"CAST RANGE:"
+	
+  		"DOTA_Tooltip_ability_solunia_rune_r_1_arcana2"						"[R1] Vanguard"
+    	"DOTA_Tooltip_ability_solunia_rune_r_1_arcana2_Description"			"Gain a random amount of Max Health for 20 seconds after casting Alpha Spark"
+    	"DOTA_Tooltip_ability_solunia_rune_r_1_arcana2_property_one"			"Minimum Health Bonus"
+    	"DOTA_Tooltip_ability_solunia_rune_r_1_arcana2_suffix"					""
+     	"DOTA_Tooltip_ability_solunia_rune_r_1_arcana2_property_two"			"Maximum Potential Health Bonus"
+    	"DOTA_Tooltip_ability_solunia_rune_r_1_arcana2_suffix_two"					""
+
+    	"DOTA_Tooltip_modifier_solunia_arcana_a_d_health_visible"			"Vanguard"
+    	"DOTA_Tooltip_modifier_solunia_arcana_a_d_health_visible_Description"	"Increased Max Health"
+
+  		"DOTA_Tooltip_ability_solunia_rune_r_2_arcana2"						"[R2] Heat Transfer"
+    	"DOTA_Tooltip_ability_solunia_rune_r_2_arcana2_Description"				"Enemies hit by direct or indirect Item Damage take burn damage every half second based on the damage taken. If both the Lunar and Solar burns are active at the same time, the fire does increased damage. Lasts 8 seconds."
+    	"DOTA_Tooltip_ability_solunia_rune_r_2_arcana2_property_one"			"Burn Damage"
+    	"DOTA_Tooltip_ability_solunia_rune_r_2_arcana2_suffix"					"% of item damage per tick"	
+    	"DOTA_Tooltip_ability_solunia_rune_r_2_arcana2_property_two"			"Dual Burn Amplification"
+    	"DOTA_Tooltip_ability_solunia_rune_r_2_arcana2_suffix_two"				"%"	
+
+  		"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2"						"[R3] Dimension Shell"
+    	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_Description"			"For a short duration after casting Alpha Spark, gain a shield that reduces damage taken by 95%, and allows unit walking and +100 movespeed."
+    	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_property_one"		"Duration"
+    	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_suffix"				" seconds"
+
+    	"DOTA_Tooltip_modifier_solunia_c_d_arcana_shell"					"Dimension Shell"
+    	"DOTA_Tooltip_modifier_solunia_c_d_arcana_shell_Description"		"Damage taken reduced by 95%, +100 movespeed and unit walking."
+
+  		"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2"						"[R4] Tellarias"
+    	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_Description"			"Increases all attributes. Strength increases <font color=\"#EF4126\">Fire</font> damage, Agility increases <font color=\"#87D9FF\">Ice</font> damage, Intelligence increases <font color=\"#C25DFC\">Cosmic</font> damage."
+    	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_property_one"		"Elemental Damage Increase"
+    	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_suffix"				"% per 10 attributes"
+    	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_property_two"		"Passive Stat Bonus"
+    	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_suffix_two"			""
+		
+		//Glyphs
+		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_1_1"		"Glyph of Crescents"
+		"item_rpc_solunia_glyph_1_1_description" 				"Increases the max number of concurrent boomerangs by @glyph_property1."
+
+		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_2_1"		"Glyph of Gravitation"
+		"item_rpc_solunia_glyph_2_1_description" 				"Recollecting a boomerang that has damaged at least 1 enemy removes @glyph_property1 seconds from the cooldown of Napalm."
+
+		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_3_1"		"Glyph of Hypernova"
+		"item_rpc_solunia_glyph_3_1_description" 				"Increases the stun duration of @Ability1 projectiles by @glyph_property1 second."
+
+		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_4_1"		"Glyph of Umbra"
+		"item_rpc_solunia_glyph_4_1_description" 				"Increases the floating duration between Warp Flares by @glyph_property1 seconds."
+
+		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_1"		"Glyph of Neutrino"
+		"item_rpc_solunia_glyph_5_1_description" 				"After casting @Ability4 gain a shield which blocks <% SOLUNIA_GLYPH_5_1_STACKS_BASE %> instances of damage."
+		
+		"DOTA_Tooltip_modifier_solunia_glyph_5_1_shield"		"Neutrino"
+		"DOTA_Tooltip_modifier_solunia_glyph_5_1_shield_Description"		"Absorbs 1 instance of damage per stack."
+		
+		"DOTA_Tooltip_modifier_solunia_glyph_5_1_shield_arcana"		"Neutrino"
+		"DOTA_Tooltip_modifier_solunia_glyph_5_1_shield_arcana_Description"		"Absorbs 1 instance of damage per stack."
+
+		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_6_1"		"Glyph of Singularity"
+		"item_rpc_solunia_glyph_6_1_description" 				"After using Supernova or Eclipse, gain a buff that allows a cast of @Ability1 with no cooldown or charge consumption."
+
+		"DOTA_Tooltip_modifier_solunia_glyph_6_1_ready"			"Singularity"
+		"DOTA_Tooltip_modifier_solunia_glyph_6_1_ready_Description"	"Casting Napalm will not trigger its cooldown."
+
+		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_7_1"		"Glyph of Light Years"
+		"item_rpc_solunia_glyph_7_1_description" 				"Increases the max number of successive Warp Flares by @glyph_property1."
+
+		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_a"		"Glyph of Protostar"
+		"item_rpc_solunia_glyph_5_a_description" 				"Taking lethal damage launches Solunia into the air refreshes her supernova or eclipse and casts it. @glyph_property1 cooldown."
+
+		"DOTA_Tooltip_modifier_solunia_glyph_5_a_cooldown"		"Protostar Cooldown"
+		
+		//Weapons
+		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_00"		"Razor"
+		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_01"		"Crescent Razor"
+		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_02"		"Moon Razor"
+		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_03"		"Sun Razor"
+		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_11"		"Mercury Razor"
+		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_12"		"Jupiter Razor"
+		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_13"		"Saturn Razor"
+		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_14"		"Neptune Razor"
+		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_21"		"Periheleon Razor"
+		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_22"		"Event Horizon Razor"
+		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_23"		"Ellipsis Razor"
+		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_24"		"Extragalactic Razor"
+		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_25"		"Earthbound Meteor Razor"
+		
+		"DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_1"		"Shooting Star"
+		"item_property_solunia_immortal_weapon"							"Nova Rift"
+		"property_solunia_immortal_weapon_description"					"While floating in between Warp Flares, gain a shield that has magic and attack immunity."
+
+		"DOTA_Tooltip_ability_modifier_solunia_warp_flare_immortal_weapon_effect"	"Nova Rift"
+		"DOTA_Tooltip_ability_modifier_solunia_warp_flare_immortal_weapon_effect_Description"	"Magic and Attack Immune"
+		
+		"DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_2"            "Alien Husk of Synesthesia"
+        "item_property_solunia_immortal_weapon2"                             "Cryoshock"
+        "property_solunia_immortal_weapon2_description"                      "When @Ability2 crits, enemies in a 200 radius around the boomerang are frozen for @special_property1 seconds."
+
+        "DOTA_Tooltip_modifier_solunia_cryoshock"							"Cryoshock"
+        "DOTA_Tooltip_modifier_solunia_cryoshock_Description"				"Frozen"
+
+        "DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_3"            "Galactic Blades of Orbit"
+        "item_property_solunia_immortal_weapon3"                             "Sun and Moon"
+        "property_solunia_immortal_weapon3_description"                      "Completing the final phase of @Ability3 immediately triggers @Ability4 if it is not on cooldown."
