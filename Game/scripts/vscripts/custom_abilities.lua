@@ -191,7 +191,7 @@ function CustomAbilities:IceQuill(event)
 						ParticleManager:DestroyParticle(pfx, false)
 					end)
 					local radius = 405
-					local damage = target:GetAverageTrueAttackDamage(target)*3
+					local damage = OverflowProtectedGetAverageTrueAttackDamage(target)*3
 					local enemies = FindUnitsInRadius( target:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 					if #enemies > 0 then
 						for _,enemy in pairs(enemies) do
@@ -284,7 +284,7 @@ function CustomAbilities:Warlord_Ambush(caster, warlord_ambush_target)
 			Timers:CreateTimer(0.06, function()
 				EmitSoundOn("Hero_Beastmaster.Attack", target)
 				Filters:PerformAttackSpecial(caster, target, true, true, false, true, false, false, false)
-				local damageApprox = math.ceil(caster:GetAverageTrueAttackDamage(caster))
+				local damageApprox = math.ceil(OverflowProtectedGetAverageTrueAttackDamage(caster))
 				PopupDamage(target, damageApprox)
 				Timers:CreateTimer(0.03, function()
 					caster:RemoveModifierByName("modifier_beastmaster_glyph_4_1_attack_up")

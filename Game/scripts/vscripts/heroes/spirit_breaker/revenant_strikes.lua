@@ -136,7 +136,7 @@ function revenant_strike(caster, radius, damage, delay)
 	    local w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "duskbringer")
 	    local c_b_damage = 0
 	    if w_3_level > 0 then
-	    	c_b_damage = caster:GetAverageTrueAttackDamage(caster)*0.1*w_3_level
+	    	c_b_damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*0.1*w_3_level
 	    end
 	    damage = damage+b_b_damage+c_b_damage
 		if #enemies > 0 then

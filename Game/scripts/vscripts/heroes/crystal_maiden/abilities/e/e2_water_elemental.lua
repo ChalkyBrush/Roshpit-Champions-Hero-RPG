@@ -81,9 +81,9 @@ function attack(event)
         ParticleManager:DestroyParticle(particle1, false)
     end)
     -- EmitSoundOn("Hero_Ancient_Apparition.IceBlast.Target", caster)
-    local damage = attacker:GetAverageTrueAttackDamage(attacker)
+    local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)
     if creator.e_4_level then
-        damage = damage * (1 + E4_AMPLIFY_PERCENT/100 * creator:GetAverageTrueAttackDamage(creator) * creator.e_4_level)
+        damage = damage * (1 + E4_AMPLIFY_PERCENT/100 * OverflowProtectedGetAverageTrueAttackDamage(creator) * creator.e_4_level)
     end
     local frozenDamage = damage
     if creator.e_3_level > 0 then

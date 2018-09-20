@@ -59,7 +59,7 @@ function river_of_souls_start(event)
 				corpse.jumpEnd = "basic_dust"
 				corpse:SetForwardVector(RandomVector(1))
 				corpse.hp = caster:GetMaxHealth()
-				corpse.attackpower = caster:GetAverageTrueAttackDamage(caster)
+				corpse.attackpower = OverflowProtectedGetAverageTrueAttackDamage(caster)
 				WallPhysics:Jump(corpse, RandomVector(1), RandomInt(8, 12), RandomInt(16,18), 32, 1)
 			end
 		end
@@ -106,7 +106,7 @@ function SummonFamiliar(caster, ability, portalPosition, b_c_level)
 
 		local familiarArmor = caster:GetPhysicalArmorValue()*0.1*b_c_level
 		familiar:SetPhysicalArmorBaseValue(familiarArmor)
-		local attackDamage =  math.min(caster:GetAverageTrueAttackDamage(caster)*0.2*b_c_level, (2^31)-10)
+		local attackDamage =  math.min(OverflowProtectedGetAverageTrueAttackDamage(caster)*0.2*b_c_level, (2^31)-10)
 		
 		familiar:SetBaseDamageMin(attackDamage)
 		familiar:SetBaseDamageMax(attackDamage)

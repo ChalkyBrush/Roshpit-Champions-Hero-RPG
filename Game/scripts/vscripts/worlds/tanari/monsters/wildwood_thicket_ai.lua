@@ -1,7 +1,7 @@
 function pure_strike_attack_land(event)
 	local attacker = event.attacker
 	local target = event.target
-	local damage = attacker:GetAverageTrueAttackDamage(attacker)*0.03
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*0.03
 	local ability = event.ability
 	ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
 	CustomAbilities:QuickAttachParticle("particles/econ/items/antimage/antimage_weapon_basher_ti5_gold/am_manaburn_basher_ti_5_gold.vpcf", target, 1)
@@ -168,7 +168,7 @@ function friend_bat_attack(event)
 	local attacker = event.attacker
 	local target = event.target
 	local hero = attacker.hero
-	local damage = hero:GetAverageTrueAttackDamage(hero)*20
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*20
 	ApplyDamage({ victim = target, attacker = hero, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL})
 end
 

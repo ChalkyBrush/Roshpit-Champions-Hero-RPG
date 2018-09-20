@@ -191,7 +191,7 @@ function magnet_bolt(attacker, bolt_origin, ability, target, q_1_level)
 		    	ability.particleCount = ability.particleCount - 1
 		    end)
 		end
-	    local damage = q_1_level*attacker:GetAverageTrueAttackDamage(attacker)*0.05
+	    local damage = q_1_level*OverflowProtectedGetAverageTrueAttackDamage(attacker)*0.05
 	    Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 	end
 end

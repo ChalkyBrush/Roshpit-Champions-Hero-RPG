@@ -16,7 +16,7 @@ function corpse_maker_die(event)
 			ability:ApplyDataDrivenModifier(caster, corpse, "modifier_ekkan_skeleton_corpse", {duration = 30})
 			corpse:SetForwardVector(RandomVector(1))
 			corpse.hp = unit:GetMaxHealth()
-			corpse.attackpower = unit:GetAverageTrueAttackDamage(unit)
+			corpse.attackpower = OverflowProtectedGetAverageTrueAttackDamage(unit)
 		end
 	end
 end
@@ -35,7 +35,7 @@ function cast_raise_skeleton(event)
 				Timers:CreateTimer(0.2, function()
 					UTIL_Remove(target)
 					local unitName = "castle_skeleton_warrior"
-					local attackDamage = caster:GetAverageTrueAttackDamage(caster)*event.attack_mult
+					local attackDamage = OverflowProtectedGetAverageTrueAttackDamage(caster)*event.attack_mult
 					local luck = RandomInt(1, 10)
 					local applyTexture = true
 					local w_3_level = 0
@@ -43,7 +43,7 @@ function cast_raise_skeleton(event)
 						local w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "ekkan")
 						if w_1_level > 0 then
 							unitName = "ekkan_skeleton_archer"
-							attackDamage = caster:GetAverageTrueAttackDamage(caster)*w_1_level*0.5
+							attackDamage = OverflowProtectedGetAverageTrueAttackDamage(caster)*w_1_level*0.5
 							applyTexture = true
 						end
 					elseif luck <= 6 then
@@ -191,7 +191,7 @@ function mage_blast_target_point(event)
 	local preParticle = ParticleManager:CreateParticle("particles/roshpit/ekkan/mage_preblast.vpcf", PATTACH_CUSTOMORIGIN, hero)
 	ParticleManager:SetParticleControl(preParticle, 0, point)
 	ParticleManager:SetParticleControl(preParticle, 1, Vector(radius, delay, radius))
-	local damage = caster.w_3_level*0.4*caster:GetAverageTrueAttackDamage(caster)
+	local damage = caster.w_3_level*0.4*OverflowProtectedGetAverageTrueAttackDamage(caster)
 	EmitSoundOnLocationWithCaster(point, "Ekkan.SkeletonMage.PreBlast", caster)
 	Timers:CreateTimer(delay, function()
 		EmitSoundOnLocationWithCaster(point, "Ekkan.SkeletonMage.Blast", caster)

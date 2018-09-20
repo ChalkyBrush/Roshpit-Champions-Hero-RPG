@@ -170,7 +170,7 @@ end
 function moon_shroud_attack_land(event)
   local caster = event.attacker
   local target = event.target
-  local damage = caster:GetAverageTrueAttackDamage(caster)
+  local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)
   local q_2_level = 0
   q_2_level = caster:GetRuneValue("q", 2)
   if target.dummy then

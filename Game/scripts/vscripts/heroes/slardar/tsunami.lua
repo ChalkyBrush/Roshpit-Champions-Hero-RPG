@@ -282,7 +282,7 @@ function poseidon_wrath_attack_hit(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	local damage = ability.r_3_level*0.35*caster:GetAverageTrueAttackDamage(caster) * (1 + HYDROXIS_R1_BAD_PCT_PER_ARMOR * ability.r_1_level * caster:GetPhysicalArmorValue()) * HYDROXIS_R1_RUNE_MULT
+	local damage = ability.r_3_level*0.35*OverflowProtectedGetAverageTrueAttackDamage(caster) * (1 + HYDROXIS_R1_BAD_PCT_PER_ARMOR * ability.r_1_level * caster:GetPhysicalArmorValue()) * HYDROXIS_R1_RUNE_MULT
 	if caster:HasModifier("modifier_hydroxis_immortal_weapon_1") then
 		damage = damage*2
 	end

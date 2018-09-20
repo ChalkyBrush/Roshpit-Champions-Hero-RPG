@@ -24,6 +24,14 @@ local heroes = {
 
 GameState.PVP_REDUCTION = 0.01
 
+function OverflowProtectedGetAverageTrueAttackDamage(caster)
+	local averageTrueAttackDamage = caster:GetAverageTrueAttackDamage(caster)
+	if averageTrueAttackDamage < -2000000000 then
+		return 2000000000
+	end
+	return averageTrueAttackDamage
+end
+
 function GameState:RecordPlayerID(hero)
 	if not GameState.PlayerTable then
 		GameState.PlayerTable = {}
@@ -619,7 +627,7 @@ function GameState:OrderFilter(orderTable)
 						local meteorPosition = sphere.sphereTable.dummy:GetAbsOrigin()
 						Timers:CreateTimer(0.5, function()
 							EmitSoundOnLocationWithCaster(meteorPosition, "RPCItems.Stargazer.MeteorImpact", unit)
-							local damage = unit:GetAverageTrueAttackDamage(unit)*5
+							local damage = OverflowProtectedGetAverageTrueAttackDamage(unit)*5
 							local enemies = FindUnitsInRadius( unit:GetTeamNumber(), meteorPosition, nil, 320, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 							if #enemies > 0 then
 								for _,enemy in pairs(enemies) do

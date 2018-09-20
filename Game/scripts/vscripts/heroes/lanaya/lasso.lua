@@ -135,7 +135,7 @@ function poison_whip_think(event)
 	local target = event.target
 	local attack_mult = event.attack_mult/100
 	local stacks = target:GetModifierStackCount("modifier_poison_whip", caster)
-	local damage = caster:GetAverageTrueAttackDamage(caster)*attack_mult*stacks
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*attack_mult*stacks
 	Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE)
 end
 

@@ -88,7 +88,7 @@ function dash_damage_and_knockback(ability,caster,position,damage_percent,distan
     knockback_distance = distance,
     knockback_height = 160,
   }
-    local damage = caster:GetAverageTrueAttackDamage(caster)*damage_percent/100
+    local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*damage_percent/100
     -- local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "axe")
     -- damage = damage + 0.001*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*d_c_level*damage
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
@@ -292,7 +292,7 @@ function d_c_projectile_hit(event)
     ability.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "axe")
   end
 
-  local damage = (1 + ability.e_4_level*0.3)*caster:GetAverageTrueAttackDamage(caster)
+  local damage = (1 + ability.e_4_level*0.3)*OverflowProtectedGetAverageTrueAttackDamage(caster)
   local radius = 190
   local position = target:GetAbsOrigin()
 

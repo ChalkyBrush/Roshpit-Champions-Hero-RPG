@@ -39,7 +39,7 @@ function class:OnAttackLanded( event )
 	local caster = self:GetCaster()
 	local ability = self:GetAbility()
 	if event.attacker ~= caster then return end
-	local damage = ability:GetSpecialValueFor("damage") + caster:GetAverageTrueAttackDamage(caster)*0.15*caster.q1_level
+	local damage = ability:GetSpecialValueFor("damage") + OverflowProtectedGetAverageTrueAttackDamage(caster)*0.15*caster.q1_level
 	local heal = caster:GetMaxHealth()*ability:GetSpecialValueFor("heal_percent")/100
 	EmitSoundOn("Paladin.HeroicAttackLand", target)
 	if not ability.zapParticleCount then

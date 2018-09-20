@@ -38,7 +38,7 @@ function blade_dash_start(event)
 	end
 	
 
-	ability.damage = event.damage_attack*caster:GetAverageTrueAttackDamage(caster)/100
+	ability.damage = event.damage_attack*OverflowProtectedGetAverageTrueAttackDamage(caster)/100
 	ability.pfx = pfx
 	caster.w_4_level = caster:GetRuneValue("w", 4)
 	local q_3_level = caster:GetRuneValue("q", 3)
@@ -179,7 +179,7 @@ function arcana_attack_start(event)
 				end
 			end
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_a_a_crit", {duration = 1.5})
-			-- local damageBonus = caster:GetAverageTrueAttackDamage(caster)*0.3*q_1_level
+			-- local damageBonus = OverflowProtectedGetAverageTrueAttackDamage(caster)*0.3*q_1_level
 			-- caster:SetModifierStackCount("modifier_seinaru_a_a_crit", caster, damageBonus)
 		end
 	end
@@ -190,7 +190,7 @@ function arcana_attack_land(event)
 	local ability = event.ability
 	local target = event.target
 	if caster:HasModifier("modifier_seinaru_a_a_crit") then
-		local critDamage = caster:GetAverageTrueAttackDamage(caster) * SEINARU_ARCANA_Q1_CRIT_DMG * ability.q_1_level
+		local critDamage = OverflowProtectedGetAverageTrueAttackDamage(caster) * SEINARU_ARCANA_Q1_CRIT_DMG * ability.q_1_level
 		ApplyDamage({ victim = target, attacker = caster, damage = critDamage, damage_type = DAMAGE_TYPE_PHYSICAL })
 		PopupDamage(target, critDamage)
 		Timers:CreateTimer(0.03, function()

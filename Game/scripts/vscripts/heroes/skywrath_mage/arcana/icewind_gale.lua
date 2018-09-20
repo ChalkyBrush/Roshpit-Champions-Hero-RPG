@@ -147,7 +147,7 @@ function ice_gale_hit(event)
 	end
 	local w_2_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 1)
 	if w_2_level > 0 then
-		damage = damage + caster:GetAverageTrueAttackDamage(caster)*ARCANA1_W2_AD_TO_W_DAMAGE_PERCENT/100*w_2_level
+		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*ARCANA1_W2_AD_TO_W_DAMAGE_PERCENT/100*w_2_level
 	end
 	if crit then
 		damage = damage + damage*(event.crit_mult/100)

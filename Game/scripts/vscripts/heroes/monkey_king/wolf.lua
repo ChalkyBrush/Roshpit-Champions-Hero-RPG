@@ -104,7 +104,7 @@ function rend_start(event)
 	local ability = event.ability
 
 	local position = caster:GetAbsOrigin()
-	local damage = caster:GetAverageTrueAttackDamage(caster)*(event.damage_mult/100)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*(event.damage_mult/100)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin()+caster:GetForwardVector()*180, nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 	local element1 = RPC_ELEMENT_NORMAL
 	local element2 = RPC_ELEMENT_NONE

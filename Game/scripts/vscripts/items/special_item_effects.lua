@@ -94,7 +94,7 @@ function midas_attack_land(event)
 	if proc then
 		local position = target:GetAbsOrigin()
 		local radius = 340
-		local damage = caster:GetAverageTrueAttackDamage(caster)*7
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*7
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
@@ -160,7 +160,7 @@ function scorched_earth_damage(event)
 	local target = event.target
 	local ability = event.ability
 	local attacker = ability.attacker
-	local damage = ability.attacker:GetAverageTrueAttackDamage(ability.attacker)*event.attack_mult/100 + ability.attacker:GetPhysicalArmorValue()*event.armor_mult
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(ability.attacker)*event.attack_mult/100 + ability.attacker:GetPhysicalArmorValue()*event.armor_mult
 	Filters:ApplyItemDamage(target,attacker,damage,DAMAGE_TYPE_MAGICAL,ability,RPC_ELEMENT_FIRE,RPC_ELEMENT_NONE)
 end
 
@@ -186,7 +186,7 @@ function HighFlameThrow(caster, ability, victim)
     flare.liftVelocity = 60 + zDifferential/20
     flare.forwardVelocity = forwardVelocity
     flare.interval = 0
-    flare.damage = caster:GetAverageTrueAttackDamage(caster)*2
+    flare.damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*2
     flare.origCaster = caster
     flare.origAbility = ability
 
@@ -312,7 +312,7 @@ function flood_water_elemental_attack(event)
 	  ParticleManager:DestroyParticle(particle1, false)
 	end)
 	
-	local damage = attacker:GetAverageTrueAttackDamage(attacker)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)
 	local enemies = FindUnitsInRadius( attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	local bElemental3 = false
 	if attacker:GetUnitName() == "water_elemental_flood_3" then
@@ -401,7 +401,7 @@ function flood_elemental_wave_hit(event)
 	local summoner = caster.summoner
 	if IsValidEntity(summoner) then
 		local ability = caster.summoner.body
-		local damage = Filters:AdjustItemDamage(summoner, summoner:GetAverageTrueAttackDamage(summoner), nil)
+		local damage = Filters:AdjustItemDamage(summoner, OverflowProtectedGetAverageTrueAttackDamage(summoner), nil)
 		if caster:GetUnitName() == "water_elemental_flood_2" then
 			ApplyDamage({ victim = target, attacker = summoner, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
 		elseif caster:GetUnitName() == "water_elemental_flood_3" then
@@ -448,7 +448,7 @@ function hyper_visor_attack_land(event)
 	local proc = Filters:GetProc(attacker, 20)
 	local agilityMult = ability:GetSpecialValueFor("property_two")
 	if proc then
-		local damage = attacker:GetAverageTrueAttackDamage(attacker)*agilityMult
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*agilityMult
 		local radius = 180
 		local enemies = FindUnitsInRadius( attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
@@ -676,7 +676,7 @@ end
 function iron_colossus_attack(event)
 	local attacker = event.attacker
 	local target = event.target
-	local damage = attacker:GetAverageTrueAttackDamage(attacker)*50
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*50
 	local ability = event.ability
 	Filters:ApplyItemDamage(target,attacker,damage,DAMAGE_TYPE_PHYSICAL,ability,RPC_ELEMENT_NORMAL,RPC_ELEMENT_NONE)
 	Filters:ApplyStun(attacker, 0.5, target)
@@ -766,7 +766,7 @@ function ice_quill_unloading_think(event)
 	CustomAbilities:QuickAttachParticle("particles/roshpit/items/ice_quill_explosion.vpcf", hero, 3)
 	EmitSoundOn("RPC.IceQuill", hero)	
 	local radius = 460
-	local damage = hero:GetAverageTrueAttackDamage(hero)*4
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*4
 	local enemies = FindUnitsInRadius( hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
@@ -875,7 +875,7 @@ function weapon_critical_attack(event)
 		local target = event.target
 		local damage = event.attack_damage
 		local stacks = attacker:GetModifierStackCount( "modifier_weapon_critical_strike", ability )
-		local critBonus = attacker:GetAverageTrueAttackDamage(attacker)*stacks/100
+		local critBonus = OverflowProtectedGetAverageTrueAttackDamage(attacker)*stacks/100
 		-- ApplyDamage({ victim = target, attacker = attacker, damage = critBonus, damage_type = DAMAGE_TYPE_PHYSICAL })
 		Filters:ApplyDamageBasic(target,attacker,critBonus,DAMAGE_TYPE_PHYSICAL)
 		PopupDamage(target, math.floor(damage+critBonus))
@@ -888,7 +888,7 @@ function weapon_cleave_attack(event)
 	local ability = event.ability
 	local attacker = event.attacker
 	local target = event.target
-	local damage = attacker:GetAverageTrueAttackDamage(attacker)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)
 	local stacks = attacker:GetModifierStackCount( "modifier_weapon_splash_damage", ability )
 	local radius = 240
 	damage = damage*stacks/100
@@ -1986,7 +1986,7 @@ function wolfir_druid_channel(event)
 	wolf:AddAbility("ability_die_after_time_generic"):SetLevel(1)
 	local summonAbil = wolf:AddAbility("ability_summoned_unit")
 	summonAbil:SetLevel(1)
-	local dmg = caster:GetAverageTrueAttackDamage(caster)*3.0
+	local dmg = OverflowProtectedGetAverageTrueAttackDamage(caster)*3.0
 	dmg = Filters:AdjustItemDamage(caster, dmg, nil)
 	dmg = Filters:ElementalDamage(wolf, caster, dmg, DAMAGE_TYPE_PHYSICAL, 0, RPC_ELEMENT_NATURE, RPC_ELEMENT_NONE)
 	Filters:SetAttackDamage(wolf, dmg)
@@ -2803,7 +2803,7 @@ end
 
 function blackfeather_think(event)
 	local target = event.target
-	local birdDamage = target:GetAverageTrueAttackDamage(target)*5
+	local birdDamage = OverflowProtectedGetAverageTrueAttackDamage(target)*5
 	local summonPos = target:GetAbsOrigin()+RandomVector(RandomInt(50, 600))
 	local crow = CreateUnitByName("twilight_crow_summon", summonPos, true, nil, nil, target:GetTeamNumber())
 	crow.owner = target:GetPlayerOwnerID()
@@ -3333,7 +3333,7 @@ end
 
 function pure_waters_impact(event)
 	local caster = event.ability.caster
-	local damage = math.max(caster:GetAverageTrueAttackDamage(caster)*10, caster:GetIntellect()*80)
+	local damage = math.max(OverflowProtectedGetAverageTrueAttackDamage(caster)*10, caster:GetIntellect()*80)
 	Filters:ApplyItemDamage(event.target,caster,damage,DAMAGE_TYPE_PURE,event.ability, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 end
 
@@ -3375,7 +3375,7 @@ function sweeping_winds_think(event)
 	local enemies = FindUnitsInRadius( target:GetTeamNumber(), target:GetAbsOrigin(), nil, 360, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		local currentStacks = target:GetModifierStackCount("modifier_sweeping_wind_stackable", caster)
-		local damage = target:GetAverageTrueAttackDamage(target)*0.5*currentStacks
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(target)*0.5*currentStacks
 		for _,enemy in pairs(enemies) do
 			CustomAbilities:QuickAttachParticle("particles/econ/items/elder_titan/elder_titan_fissured_soul/elder_titan_fissured_soul_spirit_buff_endcap.vpcf", enemy, 0.8)
 			Filters:ApplyItemDamage(enemy,target,damage,DAMAGE_TYPE_MAGICAL,event.ability,RPC_ELEMENT_WIND,RPC_ELEMENT_NONE)
@@ -3459,7 +3459,7 @@ function lava_forge_fireball_hit(event)
 	local target = event.target
 	
 	print("IMPACT?")
-	local damage = caster:GetAverageTrueAttackDamage(caster)*LAVA_FORGE_DMG_PER_ATT + caster:GetAgility()*LAVA_FORGE_DMG_PER_AGI
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*LAVA_FORGE_DMG_PER_ATT + caster:GetAgility()*LAVA_FORGE_DMG_PER_AGI
 
 	local radius = LAVA_FORGE_RADIUS
 	local particleNameS = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
@@ -3530,7 +3530,7 @@ function water_mage_robes_projectile_hit(event)
 	local hero = event.ability.hero
 	local target = event.target
 	local ability = event.ability
-	local damage = hero:GetAverageTrueAttackDamage(hero)*7 + hero:GetIntellect()*30
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*7 + hero:GetIntellect()*30
 	Filters:ApplyItemDamage(target,hero,damage,DAMAGE_TYPE_MAGICAL,event.ability, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 	ability:ApplyDataDrivenModifier(event.caster, target, "modifier_water_mage_slow", {duration = 4})
 end
@@ -3813,7 +3813,7 @@ function silent_templar_attack_land(event)
 	if not target.dummy then
 		local ability = event.ability
 		local attacker = event.attacker
-		local damage = attacker:GetAverageTrueAttackDamage(attacker)*60
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*60
 		Filters:ApplyItemDamage(target,attacker,damage,DAMAGE_TYPE_MAGICAL,ability, RPC_ELEMENT_ARCANE, RPC_ELEMENT_DEMON)
 		CustomAbilities:QuickAttachParticle("particles/econ/items/nightstalker/nightstalker_black_nihility/nightstalker_black_nihility_void_hit.vpcf", target, 2.5)
 		EmitSoundOn("Item.SilentWatch.Hit", target)
@@ -3882,7 +3882,7 @@ function infernal_prison_nearby_think(event)
 	local ability = event.ability
 	local target = event.target
 	local caster = event.caster.hero
-	local damage = caster:GetAverageTrueAttackDamage(caster)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)
 	Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,ability,RPC_ELEMENT_FIRE,RPC_ELEMENT_NONE)
 end
 
@@ -3944,7 +3944,7 @@ function skulldigger_hellfire_hit(event)
 	local caster = ability.caster
 	local stun_duration = event.stun_duration
 	local attack_mult = event.attack_mult
-	local damage = caster:GetAverageTrueAttackDamage(caster)*attack_mult
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*attack_mult
 
 	EmitSoundOn("RoshpitItem.SkulldiggerImpact", target)
 
@@ -4150,7 +4150,7 @@ function doom_summon_think(event)
 	end	
 
 	if doomAbility:GetCooldownTimeRemaining() > 0 then
-	    local dmg = caster.caster:GetAverageTrueAttackDamage(caster)*2
+	    local dmg = caster.OverflowProtectedGetAverageTrueAttackDamage(caster)*2
 	    dmg = Filters:AdjustItemDamage(caster.caster, dmg, nil)
 	    Filters:SetAttackDamage(caster, dmg)
 		caster:SetTeam(caster.caster:GetTeamNumber())
@@ -4228,7 +4228,7 @@ function doomplate_pyroblast_impact(event)
 	local ability = event.ability
 	local caster = event.caster
 	local target = event.target
-	local damage = caster:GetAverageTrueAttackDamage(caster)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)
 	Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_PURE,ability,RPC_ELEMENT_FIRE,RPC_ELEMENT_DEMON)
 end
 
@@ -4237,7 +4237,7 @@ function doomplate_pyroblast_impact_main(event)
 	local caster = event.caster.caster
 	local target = event.target
 	EmitSoundOn("RPCItem.Doomplate.PyroImpact", target)
-	local damage = caster:GetAverageTrueAttackDamage(caster)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 280, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
@@ -4370,7 +4370,7 @@ function igneous_canine_damage(event)
 	local target = event.target
 	local caster = event.ability.hero
 	local ability = event.ability
-	local damage = caster:GetAverageTrueAttackDamage(caster)*2
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*2
 	Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,ability,RPC_ELEMENT_FIRE,RPC_ELEMENT_NONE)
 	ability.hero = target
 end
@@ -4606,7 +4606,7 @@ function seraphic_soul_hit(event)
 	local abilityLevel = hero:GetAbilityByIndex(1):GetLevel()
 	if target:IsAlive() then
 		EmitSoundOn("RPCItem.SoulVestImpact", target)
-		local damage = hero:GetAverageTrueAttackDamage(hero)*0.5*abilityLevel
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*0.5*abilityLevel
 		Filters:ApplyItemDamage(target,hero,damage,DAMAGE_TYPE_PURE,ability,RPC_ELEMENT_HOLY,RPC_ELEMENT_NONE)
 	end
 end
@@ -4629,7 +4629,7 @@ function baron_storm_take_damage(event)
 	local caster = event.caster.hero
 	local ability = event.ability
 	local attacker = event.attacker
-	local damage = caster:GetAverageTrueAttackDamage(caster) * BARON_STORM_DMG_PER_ATT
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * BARON_STORM_DMG_PER_ATT
 	if not caster:HasModifier('modifier_baron_storm_cooldown') then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_baron_storm_cooldown", {duration = BARON_STORM_COOLDOWN})
 		baron_storm_arc(attacker, caster, ability, damage, 0, BARON_STORM_MAX_TARGETS)
@@ -4752,7 +4752,7 @@ function blue_rain_attack_land(event)
 	local proc = Filters:GetProc(caster, BLUE_RAIN_CHANCE)
 	if proc then
 		local position = target:GetAbsOrigin()
-		local damage = caster:GetAverageTrueAttackDamage(caster)*BLUE_RAIN_DMG_PER_ATT
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*BLUE_RAIN_DMG_PER_ATT
 		local endFV = ((target:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 		local range = 1000
 		local enemies = FindUnitsInLine(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster:GetAbsOrigin()+endFV*range, nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0)
@@ -4803,7 +4803,7 @@ function flamethrower_init(event)
 	ability.interval = -4
 	ability.rising = true
 	ability.baseFV = target:GetForwardVector()
-	ability.damage = target:GetAverageTrueAttackDamage(target)*2.00
+	ability.damage = OverflowProtectedGetAverageTrueAttackDamage(target)*2.00
 	ability.origCaster = target
 end
 
@@ -4889,7 +4889,7 @@ function aquasteel_take_damage(event)
 				ParticleManager:DestroyParticle(dagon_particle, false)
 				ParticleManager:ReleaseParticleIndex(dagon_particle)
 			end)
-			local damage = damage_mult*caster:GetAverageTrueAttackDamage(caster) + caster:GetPhysicalArmorValue()*armor_mult
+			local damage = damage_mult*OverflowProtectedGetAverageTrueAttackDamage(caster) + caster:GetPhysicalArmorValue()*armor_mult
 			EmitSoundOn("RPCItem.Aquasteel", attacker)
 			Timers:CreateTimer(0.1, function()
 				Filters:ApplyItemDamage(attacker,caster,damage,DAMAGE_TYPE_MAGICAL,ability,RPC_ELEMENT_WATER,RPC_ELEMENT_NONE)
@@ -4917,7 +4917,7 @@ function demonfire_end(event)
 	local enemies = FindUnitsInRadius( target:GetTeamNumber(), target:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false )
 	local maxTargets = 4
 	local currentTargets = 0
-	local damage = ability.stacks*target:GetAverageTrueAttackDamage(target)
+	local damage = ability.stacks*OverflowProtectedGetAverageTrueAttackDamage(target)
 	if #enemies > 0 then
 		EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "RPCItem.Demonfire", target)
 		for _,enemy in pairs(enemies) do
@@ -5709,7 +5709,7 @@ function buzuki_buff_attack_land(event)
 	local ability = event.ability
 	local hero = caster.hero
 	EmitSoundOn("RPCItems.BuzukiFinger.BeamHit", target)
-	local damage = event.attacker:GetAverageTrueAttackDamage(event.attacker)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(event.attacker)
 	Filters:ApplyItemDamage(target,hero,damage,DAMAGE_TYPE_PURE,ability,RPC_ELEMENT_ICE,RPC_ELEMENT_DEMON)
 
     local particle1 = ParticleManager:CreateParticle("particles/roshpit/winterblight/blue_finger.vpcf", PATTACH_CUSTOMORIGIN, target )

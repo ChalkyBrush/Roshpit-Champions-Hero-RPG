@@ -75,7 +75,7 @@ function gorudo_start(event)
 		EmitSoundOn("Hero_Juggernaut.Attack", caster)
 		for _,enemy in pairs(enemies) do
 			enemy:AddNewModifier( caster, nil, "modifier_knockback", modifierKnockback )	
-			local damage = caster:GetAverageTrueAttackDamage(caster)*3
+			local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*3
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 4, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 			-- ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL })	
 		end
@@ -168,7 +168,7 @@ function gorudo_attack_land(event)
 		if luck <= SEINARU_R3_PROC_CHANCE or critModifier then
 			local particleName = "particles/units/heroes/hero_monkey_king/monkey_king_spring_cast_rays.vpcf"
 			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_monkey_king/monkey_king_spring_cast_rays.vpcf", target, 3)
-			local damage = attacker:GetAverageTrueAttackDamage(attacker)*c_d_level*SEINARU_R3_DMG_PER_ATT
+			local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*c_d_level*SEINARU_R3_DMG_PER_ATT
 			if critModifier then
 				local arcanaAbility = critModifier:GetAbility()
 				damage = damage * SEINARU_ARCANA_Q1_CRIT_DMG * arcanaAbility.q_1_level

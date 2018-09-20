@@ -330,7 +330,7 @@ end
 function ekkan_immo2_gargoyle_attack_land(event)
 	local target = event.target
 	local attacker = event.attacker
-	local damage = attacker:GetAverageTrueAttackDamage(attacker)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)
 	local source = attacker.hero
 	CustomAbilities:QuickAttachParticle("particles/roshpit/ekkan/immo2_gargoyle_hit.vpcf", target, 1.2)
 	Filters:ApplyItemDamage(target,source,damage,DAMAGE_TYPE_PURE,event.ability, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)

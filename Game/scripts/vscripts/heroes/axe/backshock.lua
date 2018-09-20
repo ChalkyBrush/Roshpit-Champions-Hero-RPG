@@ -25,7 +25,7 @@ function begin_backshock(event)
 	if caster:HasModifier("modifier_axe_glyph_4_1") then
 		StartAnimation(caster, {duration=0.24, activity=ACT_DOTA_CAST_ABILITY_3, rate=1.3, translate="blood_chaser"})
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 350, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-		local damage = caster:GetAverageTrueAttackDamage(caster)*4
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*4
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do
 				Filters:ApplyDamageBasic(enemy,caster,damage,DAMAGE_TYPE_PHYSICAL)

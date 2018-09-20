@@ -438,7 +438,7 @@ function duelist_boosted_attack_land(event)
 	local attacker = event.attacker
 	local target = event.target
 	local damagePercent = event.damagePercent/100
-	local damage = attacker:GetAverageTrueAttackDamage(attacker)*damagePercent
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*damagePercent
 	local ability = event.ability
 	ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
 	CustomAbilities:QuickAttachParticle("particles/econ/items/antimage/antimage_weapon_basher_ti5_gold/am_manaburn_basher_ti_5_gold.vpcf", target, 1)

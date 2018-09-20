@@ -42,7 +42,7 @@ function begin_kaze_gust(event)
 	end
 	local q_4_level = caster:GetRuneValue("q", 4)
 	if q_4_level > 0 then
-		ability.damage = ability.damage + caster:GetAverageTrueAttackDamage(caster) * SEINARU_Q4_ADD_DMG_PER_ATT * q_4_level
+		ability.damage = ability.damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * SEINARU_Q4_ADD_DMG_PER_ATT * q_4_level
 	end
 
 

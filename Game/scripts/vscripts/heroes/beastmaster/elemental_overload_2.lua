@@ -225,7 +225,7 @@ function warlord_a_d_think(event)
 	Timers:CreateTimer(3, function() 
 	  ParticleManager:DestroyParticle(pfx, false)
 	end)
-	local aoeDamage = target:GetAverageTrueAttackDamage(target)*0.03*ability.earthCharges
+	local aoeDamage = OverflowProtectedGetAverageTrueAttackDamage(target)*0.03*ability.earthCharges
 	local enemies = FindUnitsInRadius( target:GetTeamNumber(), target:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 	print("WARLORD A_D")	
