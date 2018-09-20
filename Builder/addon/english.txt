@@ -280,7 +280,7 @@
     	"DOTA_Tooltip_modifier_leshrac_nuke_judged_Description"			"Facing the Judgement of Bahamut"
 
       	"DOTA_Tooltip_ability_bahamut_rune_e_2"							"[E2] Purity"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"At the beginning of an Ascension - create a swarm of Avian Aspects that strike enemies in an area in front of you. Enemies who are hit are paralyzed for short a duration. Additionally increasesa the damage of [E3] by multiplying lowest attribute and dividing by greatest attribute."
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"At the beginning of an Ascension - create a swarm of Avian Aspects that strike enemies in an area in front of you. Enemies who are hit are paralyzed for a short duration. Additionally increases the damage of [E3] by multiplying by lowest attribute and dividing by greatest attribute."
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_one"			"Max Damage Increase"
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix"					""	
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_two"			"Paralyze Duration"
