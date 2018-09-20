@@ -161,19 +161,21 @@ function gorudo_attack_land(event)
 	local attacker = event.attacker
 	local target = event.target
 	local ability = event.ability
-	local c_d_level = attacker:GetRuneValue("r", 3)
-	if c_d_level > 0 then
-		local luck = RandomInt(1, 100)
-		local critModifier = attacker:FindModifierByName("modifier_seinaru_a_a_crit")
-		if luck <= SEINARU_R3_PROC_CHANCE or critModifier then
-			local particleName = "particles/units/heroes/hero_monkey_king/monkey_king_spring_cast_rays.vpcf"
-			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_monkey_king/monkey_king_spring_cast_rays.vpcf", target, 3)
-			local damage = attacker:GetAverageTrueAttackDamage(attacker)*c_d_level*SEINARU_R3_DMG_PER_ATT
-			if critModifier then
-				local arcanaAbility = critModifier:GetAbility()
-				damage = damage * SEINARU_ARCANA_Q1_CRIT_DMG * arcanaAbility.q_1_level
+	if attacker:HasModifier("modifier_monk_ulti_gorudo") then
+		local c_d_level = attacker:GetRuneValue("r", 3)
+		if c_d_level > 0 then
+			local luck = RandomInt(1, 100)
+			local critModifier = attacker:FindModifierByName("modifier_seinaru_a_a_crit")
+			if luck <= SEINARU_R3_PROC_CHANCE or critModifier then
+				local particleName = "particles/units/heroes/hero_monkey_king/monkey_king_spring_cast_rays.vpcf"
+				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_monkey_king/monkey_king_spring_cast_rays.vpcf", target, 3)
+				local damage = attacker:GetAverageTrueAttackDamage(attacker)*c_d_level*SEINARU_R3_DMG_PER_ATT
+				if critModifier then
+					local arcanaAbility = critModifier:GetAbility()
+					damage = damage * SEINARU_ARCANA_Q1_CRIT_DMG * arcanaAbility.q_1_level
+				end
+				Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_HOLY, RPC_ELEMENT_NORMAL)
 			end
-			Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_HOLY, RPC_ELEMENT_NORMAL)
 		end
 	end
 end
