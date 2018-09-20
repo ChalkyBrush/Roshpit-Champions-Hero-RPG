@@ -605,7 +605,7 @@ function pirate_archer_attack_land(event)
 	local ability = event.ability
 	EmitSoundOn("Redfall.PirateArcher.SearingArrowImpact", target)
 	local damagePercent = event.magic_damage_on_hit/100
-	local damage = attacker:GetAverageTrueAttackDamage(attacker)*damagePercent
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*damagePercent
 	ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 end
 

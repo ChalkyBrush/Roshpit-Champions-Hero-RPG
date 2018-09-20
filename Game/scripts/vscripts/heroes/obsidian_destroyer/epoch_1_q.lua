@@ -90,7 +90,7 @@ function projectile_hit(event)
   	ParticleManager:SetParticleControl( pfx, 1, particleVector )	
   	local damage = event.impact_damage
   	-- if caster:HasModifier("modifier_epoch_glyph_5_a") then
-  	-- 	damage = damage + caster:GetAverageTrueAttackDamage(caster)*2
+  	-- 	damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*2
   	-- end
   	damage = damage*ability.damageAmp
   	EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "Hero_Abaddon.AphoticShield.Destroy", caster)

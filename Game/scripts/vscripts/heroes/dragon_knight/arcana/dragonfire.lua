@@ -154,9 +154,9 @@ function flame_proj_hit(event)
 	local base_damage = event.base_damage
 	local attack_dmg_bonus = event.attack_dmg_bonus
 	attack_dmg_bonus = attack_dmg_bonus + ability.w_3_level*5
-	local damage = base_damage + (attack_dmg_bonus/100)*caster:GetAverageTrueAttackDamage(caster)
+	local damage = base_damage + (attack_dmg_bonus/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)
 	if caster:HasModifier("modifier_flamewaker_glyph_4_1") then
-		damage = damage + ((caster:GetStrength() + caster:GetAgility() + caster:GetIntellect())*5 + caster:GetAverageTrueAttackDamage(caster)*0.2)*ability:GetLevel()
+		damage = damage + ((caster:GetStrength() + caster:GetAgility() + caster:GetIntellect())*5 + OverflowProtectedGetAverageTrueAttackDamage(caster)*0.2)*ability:GetLevel()
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_flamewaker_glyph_4_1_effect", {duration = 3})
 	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)

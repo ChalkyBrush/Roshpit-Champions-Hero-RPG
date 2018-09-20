@@ -52,7 +52,7 @@ function bear_warstomp(event)
 	local damage = event.damage
 	local w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
 	if w_3_level > 0 then
-		damage = damage + caster:GetAverageTrueAttackDamage(caster)*DJANGHOR_W3_ATTACK_PERCENT_ADDED_TO_TORNADO_AND_STOMP*w_3_level
+		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*DJANGHOR_W3_ATTACK_PERCENT_ADDED_TO_TORNADO_AND_STOMP*w_3_level
 	end
 	local position = caster:GetAbsOrigin()
 	local splitEarthParticle = "particles/roshpit/draghor/bear_warstomp.vpcf"

@@ -233,7 +233,7 @@ function arrow_explode(caster, ability, position, damage)
 	Timers:CreateTimer(3.5, function()
 		ParticleManager:DestroyParticle(pfx2, false)
 	end)
-	damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.05*ability.r_2_level
+	damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*0.05*ability.r_2_level
 	if caster:HasModifier("modifier_astral_glyph_7_1") then
 		damage = damage*10
 	end

@@ -11,7 +11,7 @@ function begin_arcana_comet(event)
 	ability.q_2_level = q_2_level
 	ability.q_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 0)
 	if ability.q_3_level > 0 then
-		damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.02*ability.q_3_level
+		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*0.02*ability.q_3_level
 	end
 	StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.8})
 	local starParticle = "particles/roshpit/solunia/comet_sun_attack.vpcf"

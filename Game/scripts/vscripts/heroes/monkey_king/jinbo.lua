@@ -32,7 +32,7 @@ function jinbo_start(event)
 	caster:SetModifierStackCount("modifier_jinbo_stack", caster, newStacks)
 	if newStacks < 3 and not caster:HasModifier("modifier_monkey_jump") then
 		local position = caster:GetAbsOrigin()
-		local damage = caster:GetAverageTrueAttackDamage(caster)*(event.damage_mult/100)
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*(event.damage_mult/100)
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin()+caster:GetForwardVector()*180, nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			EmitSoundOn("Draghor.JinboNormalImpact", enemies[1])	
@@ -55,7 +55,7 @@ function jinbo_start(event)
 
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin()+caster:GetForwardVector()*300, "Draghor.JinBo.HeavySwing.Impact", caster)
 		local position = caster:GetAbsOrigin()
-		local damage = caster:GetAverageTrueAttackDamage(caster)*2*(event.damage_mult/100)
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*2*(event.damage_mult/100)
 		if caster:HasModifier("modifier_monkey_jump") then
 			local b_c_level = Runes:GetTotalRuneLevelGeneric(caster, 2, 2)
 			if b_c_level > 0 then

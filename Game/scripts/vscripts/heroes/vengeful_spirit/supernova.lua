@@ -12,7 +12,7 @@ function start_channel(event)
 	print(ability.startRotation)
 	caster:RemoveModifierByName("modifier_solunia_in_between_flare")
 	ability.r_3_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "solunia")
-	ability.r_3_damage = caster:GetAverageTrueAttackDamage(caster)*0.05*ability.r_3_level
+	ability.r_3_damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*0.05*ability.r_3_level
 	caster:RemoveModifierByName("modifier_solunia_warp_flare_falling")
 	local d_d_level =  Runes:GetTotalRuneLevel(caster, 4, "r_4", "solunia")
 	if d_d_level > 0 then

@@ -14,7 +14,7 @@ function paladin_e_dash_start(event)
 	local dash_duration = Filters:GetAdjustedBuffDuration(caster, 0.8, false)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_crusader_dash", {duration = dash_duration})
 	ability.e_3_level = Runes:GetTotalRuneLevel(caster, 3, "e_3", "paladin")
-	ability.projectileDamage = caster:GetAverageTrueAttackDamage(caster)*(0.25*ability.e_3_level+0.1)
+	ability.projectileDamage = OverflowProtectedGetAverageTrueAttackDamage(caster)*(0.25*ability.e_3_level+0.1)
 	caster.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "paladin")
 	if ability.e_3_level > 0 then
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Paladin.FalconDash", caster)
@@ -72,7 +72,7 @@ function paladin_rune_e_3_falcon_hit(event)
 	local pfx = ParticleManager:CreateParticle( particleName, PATTACH_POINT, target )
 	ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_POINT, "attach_hitloc", target:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_POINT, "attach_hitloc", target:GetAbsOrigin(), true)
-	local damage = caster:GetAverageTrueAttackDamage(caster)*(ability.e_3_level*0.25+0.1)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*(ability.e_3_level*0.25+0.1)
 	-- damage = damage + 0.0004*(caster:GetIntellect()+caster:GetStrength()+caster:GetAgility())/10*ability.w_4_level*damage
 
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 3, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)

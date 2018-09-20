@@ -24,6 +24,14 @@ local heroes = {
 
 GameState.PVP_REDUCTION = 0.01
 
+function OverflowProtectedGetAverageTrueAttackDamage(caster)
+	local averageTrueAttackDamage = caster:GetAverageTrueAttackDamage(caster)
+	if averageTrueAttackDamage < -2000000000 then
+		return 2000000000
+	end
+	return averageTrueAttackDamage
+end
+
 function GameState:RecordPlayerID(hero)
 	if not GameState.PlayerTable then
 		GameState.PlayerTable = {}
@@ -619,7 +627,7 @@ function GameState:OrderFilter(orderTable)
 						local meteorPosition = sphere.sphereTable.dummy:GetAbsOrigin()
 						Timers:CreateTimer(0.5, function()
 							EmitSoundOnLocationWithCaster(meteorPosition, "RPCItems.Stargazer.MeteorImpact", unit)
-							local damage = unit:GetAverageTrueAttackDamage(unit)*5
+							local damage = OverflowProtectedGetAverageTrueAttackDamage(unit)*5
 							local enemies = FindUnitsInRadius( unit:GetTeamNumber(), meteorPosition, nil, 320, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 							if #enemies > 0 then
 								for _,enemy in pairs(enemies) do
@@ -2653,13 +2661,18 @@ function GameState:FilterDamage(filterTable)
     		filterTable["damage"] = filterTable["damage"] * (1 + r_4_level * SEINARU_R4_POSTMIT_MULT)
     	end
     end
-    if attacker:HasModifier("modifier_bahamut_arcana_w4_amp") and not attacker:HasModifier("modifier_bahamut_arcana_w4_amp_linger") then
-		local stacks = attacker:FindModifierByName("modifier_bahamut_arcana_w4_amp"):GetStackCount()
-		filterTable["damage"] = filterTable["damage"] * (1 + stacks/100)
-	end
-	if attacker:HasModifier("modifier_bahamut_arcana_w4_amp_linger") then
-		local stacks = attacker:FindModifierByName("modifier_bahamut_arcana_w4_amp_linger"):GetStackCount()
-		filterTable["damage"] = filterTable["damage"] * (1 + stacks/100)
+   	if filterTable.entindex_inflictor_const then
+    	local ability = attacker:FindAbilityByName(EntIndexToHScript(filterTable.entindex_inflictor_const):GetName())
+    	if ability then
+		    if attacker:HasModifier("modifier_bahamut_arcana_w4_amp") and not attacker:HasModifier("modifier_bahamut_arcana_w4_amp_linger") then
+				local stacks = attacker:FindModifierByName("modifier_bahamut_arcana_w4_amp"):GetStackCount()
+				filterTable["damage"] = filterTable["damage"] * (1 + stacks/100)
+			end
+			if attacker:HasModifier("modifier_bahamut_arcana_w4_amp_linger") then
+				local stacks = attacker:FindModifierByName("modifier_bahamut_arcana_w4_amp_linger"):GetStackCount()
+				filterTable["damage"] = filterTable["damage"] * (1 + stacks/100)
+			end
+		end
 	end
 
 

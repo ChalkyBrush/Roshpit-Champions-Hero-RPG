@@ -155,7 +155,7 @@ function onProjectileHit(event)
 	local target = event.target
 	local damage = event.damage
 	local ability = event.ability
-	damage = damage + caster:GetAverageTrueAttackDamage(caster)*ability.e_4_level*EPOCH_E4_DMG_MULTI_PCT/100
+	damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*ability.e_4_level*EPOCH_E4_DMG_MULTI_PCT/100
 	if target:HasModifier("modifier_time_bound") or target:HasModifier("modifier_time_bind") or target:HasModifier("modifier_space_link") or target:HasModifier("modifier_epoch_arcana_root") then
 		print("damage x2!!!")
 		damage = damage*2
@@ -189,7 +189,7 @@ function epoch_e_3(caster)
   	local c_c_duration = Filters:GetAdjustedBuffDuration(caster, 6, false)
     ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_epoch_rune_e_3", {duration = c_c_duration})
     ability.origCaster = caster
-    ability.damage = caster:GetAverageTrueAttackDamage(caster)
+    ability.damage = OverflowProtectedGetAverageTrueAttackDamage(caster)
     ability.e_3_level = e_3_level
   end
 end
@@ -326,7 +326,7 @@ function epoch_e_2_projectile_hit(event)
 	local target = event.target
 	local ability = event.ability
 	local damage = ability.e_2_damage
-	damage = damage + caster:GetAverageTrueAttackDamage(caster)*ability.e_4_level*EPOCH_E4_DMG_MULTI_PCT/100
+	damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*ability.e_4_level*EPOCH_E4_DMG_MULTI_PCT/100
 	if target:HasModifier("modifier_time_bound") or target:HasModifier("modifier_time_bind") or target:HasModifier("modifier_space_link") or target:HasModifier("modifier_epoch_arcana_root") then
 		damage = damage*2
 		if caster:HasModifier("modifier_epoch_immortal_weapon_3") then

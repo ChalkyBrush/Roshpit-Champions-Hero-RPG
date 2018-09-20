@@ -406,6 +406,7 @@
     	"DOTA_Tooltip_ability_bahamut_arcana_orb"								"Sphere of Divinity"
     	"DOTA_Tooltip_ability_bahamut_arcana_orb_Description"					"Bahamut transports himself through an ascended orb of light with magic immunity toward the target location. Drains mana while in flight."
     	"DOTA_Tooltip_ability_bahamut_arcana_orb_mana_drain_per_second"			"% MANA DRAIN / SECOND:"
+    	"DOTA_Tooltip_ability_bahamut_arcana_orb_speed"							"DISTANCE / SECOND:"
 
   		"DOTA_Tooltip_ability_bahamut_rune_w_1_arcana2"						"[W1] Spell Vamp"
     	"DOTA_Tooltip_ability_bahamut_rune_w_1_arcana2_Description"			"Adds lifesteal to Magic and Pure damage. 10% of all overheal heals nearby allies."
@@ -429,9 +430,11 @@
     	"DOTA_Tooltip_modifier_arcana2_purity_freeze_Description"			"Frozen"
 
   		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2"						"[W4] Ether Breach"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"Deal increased damage while inside the Sphere of Divinity based on its speed. Casting Megaflare while in the sphere multiplies the speed of @Ability2 by 2x. This damage increase lingers for 5 seconds. State damage bonus is multiplied by @Ability2's level."
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"			"Damage Increase"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"					"% of speed"			
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"All Base Ability and Item damage is enhanced by Bahamut's missing mana while outside of the @Ability2 (flat amount). Your abilities deal increased damage while inside the @Ability2 based on its speed. Casting Megaflare while in the @Ability2 multiplies the speed of the @Ability2 by 3x and makes this rune treat you as if you are inside the @Ability2 for next 5 seconds. Damage increase from speed is multiplied by @Ability2's level."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"			"Extra Damage"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"					"% of missing mana"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_two"			"Damage Increase"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix_two"					"% of speed"			
     	//--------------------
     	//-
     	//-----------------------MOUNTAIN PROTECTOR

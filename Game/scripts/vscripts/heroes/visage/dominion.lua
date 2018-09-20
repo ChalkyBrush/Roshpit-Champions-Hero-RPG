@@ -159,7 +159,7 @@ function dominion_debuff_think(event)
 	local ability = event.ability
 	local target = event.target
 	local burnPercent = event.burn_damage/100
-	local damage = target:GetAverageTrueAttackDamage(target)*burnPercent
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(target)*burnPercent
 	Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_DEMON)
 end
 

@@ -60,7 +60,7 @@ function spiral_think(event)
 			knockback_distance = 80,
 			knockback_height = 15,
 		}
-	    local damage = caster:GetAverageTrueAttackDamage(caster)
+	    local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)
 		if #enemies > 0 then
 			EmitSoundOn("Hero_Juggernaut.Attack", caster)
 			if #enemies > 6 then

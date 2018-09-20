@@ -76,7 +76,7 @@ function angry_fish_attack_land(event)
 			Timers:CreateTimer(0.18, function()
 				EmitSoundOn("Tanari.AngryFishCrit", target)
 				caster:PerformAttack(target, true, true, false, true, false, false, false)
-				local damageApprox = math.ceil(caster:GetAverageTrueAttackDamage(caster)*3.5)
+				local damageApprox = math.ceil(OverflowProtectedGetAverageTrueAttackDamage(caster)*3.5)
 				PopupDamage(target, damageApprox)
 			end)
 		end
@@ -245,7 +245,7 @@ function mountain_pass_guardian_attack_land(event)
 		local pfx = ParticleManager:CreateParticle( "particles/econ/events/ti5/teleport_end_dust_ti5.vpcf", PATTACH_CUSTOMORIGIN, target )
 		ParticleManager:SetParticleControl( pfx, 0, target:GetAbsOrigin() )
 		ParticleManager:SetParticleControl( pfx, 1, Vector(200, 200, 200) )
-		local bonusDamage = attacker:GetAverageTrueAttackDamage(attacker)
+		local bonusDamage = OverflowProtectedGetAverageTrueAttackDamage(attacker)
 		ApplyDamage({ victim = target, attacker = attacker, damage = bonusDamage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 		PopupDamage(target, bonusDamage)
 		Timers:CreateTimer(2, function()
@@ -656,7 +656,7 @@ function wind_temple_keyholder_projectile_strike(event)
 	if Events.SpiritRealm then
 		divisor = divisor/4
 	end
-	local damage = (caster:GetAverageTrueAttackDamage(caster)/divisor)
+	local damage = (OverflowProtectedGetAverageTrueAttackDamage(caster)/divisor)
 	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 end
 

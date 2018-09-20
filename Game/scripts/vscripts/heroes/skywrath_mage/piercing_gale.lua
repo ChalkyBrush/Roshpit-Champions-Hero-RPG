@@ -164,7 +164,7 @@ function gale_hit(event)
 	end
 	local w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
 	if w_3_level > 0 then
-		damage = damage + caster:GetAverageTrueAttackDamage(caster)*W3_AD_TO_W_DAMAGE_PERCENT/100*w_3_level
+		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*W3_AD_TO_W_DAMAGE_PERCENT/100*w_3_level
 	end
 	if crit then
 		damage = damage + damage*0.2*ability.w_2_level

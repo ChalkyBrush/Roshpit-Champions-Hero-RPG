@@ -126,7 +126,7 @@ function a_d_field_thinker_think(event)
 		local flarePos = ability.aoePosition + RandomVector(RandomInt(0, 160))
 		CustomAbilities:QuickParticleAtPoint("particles/roshpit/arkimus/archon_flare_ambient_hit.vpcf", flarePos, 1)
 	end
-	local damage = caster:GetAverageTrueAttackDamage(caster)*0.03*ability.r_1_level
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*0.03*ability.r_1_level
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), ability.aoePosition, nil, 220, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
     if #enemies > 0 then
     	local dividedDamage = damage/#enemies

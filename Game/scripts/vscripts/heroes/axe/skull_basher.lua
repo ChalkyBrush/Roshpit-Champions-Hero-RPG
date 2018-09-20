@@ -132,7 +132,7 @@ function StunAttack( keys )
     local aoe_damage = keys.aoe_damage
     local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "axe")
     if q_4_level > 0 then
-        aoe_damage = aoe_damage + caster:GetAverageTrueAttackDamage(caster)*0.06*q_4_level
+        aoe_damage = aoe_damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*0.06*q_4_level
     end
     if caster:HasModifier("modifier_axe_glyph_5_1") then
         aoe_damage = aoe_damage*3

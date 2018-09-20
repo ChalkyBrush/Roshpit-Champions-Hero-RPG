@@ -180,7 +180,7 @@ function supercharge_enemy(caster, target, ability)
 			ParticleManager:DestroyParticle(beamPFX, false)
 			ParticleManager:ReleaseParticleIndex(beamPFX)
 		end)
-		swarmDamage = swarmDamage + unitTable[i]:GetAverageTrueAttackDamage(unitTable[i])
+		swarmDamage = swarmDamage + OverflowProtectedGetAverageTrueAttackDamage(unitTable[i])
 	end
 	EmitSoundOn("Ekkan.SuperCharge.VO", caster)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Ekkan.Dominion.Launch", caster)

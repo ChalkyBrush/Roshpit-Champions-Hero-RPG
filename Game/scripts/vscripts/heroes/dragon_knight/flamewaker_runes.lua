@@ -309,7 +309,7 @@ function a_b_attack(event)
 	local caster = event.attacker
 	local target = event.target
 	local ability = event.ability
-	local damage = caster:GetAverageTrueAttackDamage(caster)*ability.w_1_level*FLAMEWAKER_W1_DMG_PER_ATT
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*ability.w_1_level*FLAMEWAKER_W1_DMG_PER_ATT
 
 	local w_3_level = caster:GetRuneValue("w", 3)
 	local w_ability = caster:FindAbilityByName("second_heartbeat")
@@ -375,7 +375,7 @@ function a_d_attack_land(event)
 				Timers:CreateTimer(0.18, function()
 					EmitSoundOn("Flamewaker.SpecialCrit", target)
 					caster:PerformAttack(target, true, true, false, true, false, false, false)
-					local damageApprox = math.ceil(caster:GetAverageTrueAttackDamage(caster))
+					local damageApprox = math.ceil(OverflowProtectedGetAverageTrueAttackDamage(caster))
 					PopupDamage(target, damageApprox)
 				end)
 			end

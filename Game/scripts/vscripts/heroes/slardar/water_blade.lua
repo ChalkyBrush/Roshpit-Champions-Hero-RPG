@@ -26,7 +26,7 @@ end
 function water_bomb_throw(caster, ability, target, damage, damageAmp)
 	local w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "hydroxis")
 	if w_3_level > 0 then
-		damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.08*w_3_level
+		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*0.08*w_3_level
 	end
 	local w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "hydroxis")
 	local manaAmp = 1
@@ -214,7 +214,7 @@ function hydroxis_attack_land(event)
 						  ParticleManager:ReleaseParticleIndex(pfx2)
 						end) 	
 						-- CustomAbilities:QuickAttachParticle("particles/econ/items/kunkka/kunkka_tidebringer_base/kunkka_spell_tidebringer.vpcf", enemy, 1)
-						local glyphDamage = attacker:GetAverageTrueAttackDamage(attacker)*4
+						local glyphDamage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*4
 						Filters:TakeArgumentsAndApplyDamage(enemy, attacker, glyphDamage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 					end
 					-- ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL})

@@ -116,7 +116,7 @@ function aeon_fracture_explosion(caster, position, damage, amp, explosionAOE, ab
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, damageType, 4, RPC_ELEMENT_EARTH, RPC_ELEMENT_FIRE)
 				Filters:ApplyStun(caster, stun_duration+a_c_stun_duration, enemy)
 				if ability.r_1_level > 0 then
-					local a_d_damage = caster:GetAverageTrueAttackDamage(caster)*0.3*ability.r_1_level
+					local a_d_damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*0.3*ability.r_1_level
 					Filters:TakeArgumentsAndApplyDamage(enemy, caster, a_d_damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 					local pfx = ParticleManager:CreateParticle( "particles/econ/events/ti5/dagon_lvl2_ti5.vpcf", PATTACH_POINT_FOLLOW, caster )
 					ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT, "attach_hitloc", caster:GetAbsOrigin()+Vector(0,0,80), true)

@@ -74,7 +74,7 @@ end
 function fire_breathing_strike(event)
 	local target = event.target
 	local caster = event.caster
-	local damage = caster:GetAverageTrueAttackDamage(caster)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)
 	if caster.solo then
 		damage = damage*2
 	end

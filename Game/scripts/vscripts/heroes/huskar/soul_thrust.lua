@@ -25,7 +25,7 @@ function cast_soul_thrust(event)
 	end
 	local w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "spirit_warrior")
 	if w_3_level > 0 then
-		damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.005*w_3_level*ability:GetLevel()
+		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*0.005*w_3_level*ability:GetLevel()
 	end
 
 	if caster:HasModifier("modifier_spirit_warrior_d_b") then
