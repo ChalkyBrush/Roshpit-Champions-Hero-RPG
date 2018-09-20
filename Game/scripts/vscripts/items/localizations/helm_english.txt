@@ -13,19 +13,19 @@
 		"DOTA_Tooltip_modifier_brazen_kabuto_description"	"Magic and damage immunity"
 		"DOTA_Tooltip_modifier_brazen_kabuto_shield"	"Warrior's Rampart"
         "DOTA_Tooltip_modifier_brazen_kabuto_shield"	"Reduce incoming damage by <% KABUTO_SHIELD_RESISTANCE * 100 %>%."
-
 		
+
     	"DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil LV1"
-    	"DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv2"								"Shipyard Veil LV2"
-    	"DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv3"								"Shipyard Veil LV3"
 		 "item_property_shipyard_veil_1"					"Soul Shield I"
 		 "property_shipyard_veil_1_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (0.1 second cooldown). Max @special_property1 stacks. Each stack increases @Ability1 damage by @special_property2%. Whenever a damage instance is absorbed,<br>this property increases by 1. Upgrades at @special_property3."
 
 		 
+		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv2"								"Shipyard Veil LV2"
 		 "item_property_shipyard_veil_2"					"Soul Shield II"
 		 "property_shipyard_veil_2_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (0.1 second cooldown). Max @special_property1 stacks. Each stack increases @Ability1 damage by @special_property2%. Whenever a damage instance is absorbed,<br>this property increases by 1. Upgrades at @special_property3."
 
 		 
+		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv3"								"Shipyard Veil LV3"
 		 "item_property_shipyard_veil_3"					"Soul Shield III"
 		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (0.1 second cooldown). Max @special_property1 stacks. Each stack increases @Ability1 damage by @special_property2%. Enemies who damage the shield are targeted by a skull that deals<br>@special_property3x your primary attribute as magic damage."
 
