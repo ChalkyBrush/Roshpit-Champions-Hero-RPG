@@ -110,7 +110,9 @@ function charge_end(event)
 	local ability = event.ability
 	local position = caster:GetAbsOrigin()
 	local orb = caster:FindAbilityByName("bahamut_arcana_orb")
-	orb.lockPoint = false
+	if orb then
+		orb.lockPoint = false
+	end
 	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "bahamut")
 	local fv = caster:GetForwardVector()
 	
