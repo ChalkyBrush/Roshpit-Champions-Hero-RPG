@@ -25,10 +25,10 @@ local heroes = {
 GameState.PVP_REDUCTION = 0.01
 
 function OverflowProtectedGetAverageTrueAttackDamage(caster)
-	if OverflowProtectedGetAverageTrueAttackDamage(caster) < -2000000000 then
+	if caster:GetAverageTrueAttackDamage(caster) < -2000000000 then
 		return 2000000000
 	end
-	return OverflowProtectedGetAverageTrueAttackDamage(caster)
+	return caster:GetAverageTrueAttackDamage(caster)
 end
 
 function GameState:RecordPlayerID(hero)
