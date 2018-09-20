@@ -1198,7 +1198,7 @@ function RPCItems:AcceptNewItem(keys)
 	local playerID = keys.PlayerID
 	local oldItem = EntIndexToHScript(keys.oldItem)
 	local newItem = EntIndexToHScript(keys.newItem)
-	local hero = GameState:GetHeroByPlayerID(playerID)
+	local hero, inventory_unit = RPCItems:GetHeroAndInventoryByID(keys.PlayerID)
 	hero.cant_use_items = true
 	Timers:CreateTimer(0.75, function()
 		hero.cant_use_items = false
@@ -1211,7 +1211,6 @@ function RPCItems:AcceptNewItem(keys)
 	if oldItem then
 		 UTIL_Remove( oldItem ) 
 	end
-	local hero, inventory_unit = RPCItems:GetHeroAndInventoryByID(keys.PlayerID)
 	hero:RemoveModifierByName("modifier_equip_ui_open")
       EmitGlobalSound("RPC.EquipItem")
       local player = hero:GetPlayerOwner()
