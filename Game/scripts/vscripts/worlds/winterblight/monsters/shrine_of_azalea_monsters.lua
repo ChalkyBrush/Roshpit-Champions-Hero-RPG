@@ -1804,7 +1804,7 @@ function regression_strike_hit(event)
 	local target = event.target
 	local ability = event.ability
 	local attack_power_mult = event.attack_power_mult
-	local damage = target:GetAverageTrueAttackDamage(target)*attack_power_mult/100
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(target)*attack_power_mult/100
 	ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })	
 	CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/regression_strike.vpcf", target, 5)
 	EmitSoundOn("Monster.RegressionStrike", target)
@@ -3263,7 +3263,7 @@ function azalea_boss_attack_land(event)
 	local caster = event.caster
 	local victim = event.target
 	local ability = event.ability
-	local damage = (event.damage/100)*caster:GetAverageTrueAttackDamage(caster)
+	local damage = (event.damage/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)
     local icePoint = victim:GetAbsOrigin()
     local radius = 500
     EmitSoundOn("Winterblight.AzaleaBoss.AttackLand", victim)

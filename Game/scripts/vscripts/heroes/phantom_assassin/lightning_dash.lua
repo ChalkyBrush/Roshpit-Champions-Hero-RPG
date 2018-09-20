@@ -74,7 +74,7 @@ function dash_think(event)
 	end
 	if ability.e_1_level > 0 then
 		if ability.interval%3 == 0 then
-			local damage = ability.e_1_level*VOLTEX_ARCANA1_E1_DMG_PER_ATT*caster:GetAverageTrueAttackDamage(caster)
+			local damage = ability.e_1_level*VOLTEX_ARCANA1_E1_DMG_PER_ATT*OverflowProtectedGetAverageTrueAttackDamage(caster)
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 			if #enemies > 0 then
 				for _,enemy in pairs(enemies) do
@@ -122,7 +122,7 @@ function dash_end(event)
 			ParticleManager:DestroyParticle(pfxB, false)
 		end)
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-		local damage = caster:GetAverageTrueAttackDamage(caster)*VOLTEX_ARCANA1_E2_DMG_PER_ATT*b_c_level
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*VOLTEX_ARCANA1_E2_DMG_PER_ATT*b_c_level
 		local stun_duration = b_c_level*0.01
 		if #enemies > 0 then
 			for _,enemy in pairs(enemies) do

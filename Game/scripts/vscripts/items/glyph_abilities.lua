@@ -155,7 +155,7 @@ end
 function voltex_glyph_4_1_strike(event)
 	local target = event.target
 	local caster = event.ability.hero
-	local damage = caster:GetAverageTrueAttackDamage(caster)*2
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*2
 	local sound = "Hero_Zuus.ArcLightning.Target" 
     EmitSoundOn(sound, target)
 	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
@@ -231,7 +231,7 @@ function astral_glyph_6_1_attack_land(event)
 	if target.dummy then
 		return
 	end
-	local extraPure = attacker:GetAverageTrueAttackDamage(attacker)*0.1
+	local extraPure = OverflowProtectedGetAverageTrueAttackDamage(attacker)*0.1
 	ApplyDamage({ victim = target, attacker = attacker, damage = extraPure, damage_type = DAMAGE_TYPE_PURE})
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_drow/drow_dust_hit.vpcf", target, 0.3)
 	print("EXTRAPURE"..extraPure)

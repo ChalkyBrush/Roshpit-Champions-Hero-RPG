@@ -226,7 +226,7 @@ function epoch_r_3_crackle_think(event)
   local target = event.target
   local caster = event.caster
   local ability = event.ability
-  local damage = caster:GetAverageTrueAttackDamage(caster)*ability.r_3_level*EPOCH_R3_DMG_MULTI_PCT/100
+  local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*ability.r_3_level*EPOCH_R3_DMG_MULTI_PCT/100
   Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
   CustomAbilities:QuickAttachParticle("particles/econ/items/morphling/morphling_crown_of_tears/morphling_crown_waveform_dmg_flash.vpcf", target, 1)
 end

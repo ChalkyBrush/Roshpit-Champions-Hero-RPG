@@ -191,7 +191,7 @@ function arctic_burn_thinker(event)
 	local ability = event.ability
 	local damage = event.damage
 	local fire_thinker = event.target
-	damage = damage + caster:GetAverageTrueAttackDamage(caster)*(event.damage_mult/100)
+	damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*(event.damage_mult/100)
 	local enemies = nil
 	if fire_thinker.line then
 		enemies = FindUnitsInLine(caster:GetTeamNumber(), fire_thinker:GetAbsOrigin(), fire_thinker:GetAbsOrigin()+fire_thinker.fv*fire_thinker.distance, nil, 180, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0)

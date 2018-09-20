@@ -1478,7 +1478,7 @@ end
 function revenant_attack_land(event)
 	local caster = event.caster
 	local target = event.target
-	local damage = caster:GetAverageTrueAttackDamage(caster)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)
 	local ability = event.ability
 	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_revenant_slow", {duration = 0.1})
@@ -4518,7 +4518,7 @@ function naga_summoner_think(event)
 					local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 530, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 					if #enemies > 0 then
 						for _,enemy in pairs(enemies) do
-							ApplyDamage({ victim = enemy, attacker = caster, damage = caster:GetAverageTrueAttackDamage(caster)*5, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability })
+							ApplyDamage({ victim = enemy, attacker = caster, damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*5, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability })
 							if enemy:HasModifier("modifier_stun_immune") or enemy:HasModifier("modifier_recently_respawned") then
 							else
 								enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = 1})
@@ -4933,7 +4933,7 @@ function sea_giant_ult(event)
 	local stun_duration = event.stun_duration
 	local amp = event.amp
 	local forks = event.forks
-	local damage = caster:GetAverageTrueAttackDamage(caster)*event.attack_power_mult_percent/100
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*event.attack_power_mult_percent/100
 	damage = damage*amp
 	local max = 2
 	local min = 1
@@ -5517,7 +5517,7 @@ function boss_attack_land(event)
 	local attacker = event.attacker
 
 		local fv = ((target:GetAbsOrigin()-attacker:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-		local damage = caster:GetAverageTrueAttackDamage(caster)
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)
 		-- CustomAbilities:QuickAttachParticle("particles/econ/items/kunkka/divine_anchor/hero_kunkka_dafx_weapon/kunkka_spell_tidebringer_fxset.vpcf", attacker, 2)
 		local particleName = "particles/econ/items/sven/sven_ti7_sword/sven_ti7_sword_spell_great_cleave_crit.vpcf"
 		if caster:HasModifier("modifier_final_boss_gods_strength") then

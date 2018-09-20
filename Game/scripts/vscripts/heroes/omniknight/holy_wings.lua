@@ -25,7 +25,7 @@ end
 function radiance_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local tickDamage = caster:GetAverageTrueAttackDamage(caster)*0.8*ability.b_a_level/2
+	local tickDamage = OverflowProtectedGetAverageTrueAttackDamage(caster)*0.8*ability.b_a_level/2
 	local radius = 900
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	
@@ -101,7 +101,7 @@ function wing_attack( keys )
     local damage = keys.damage
 
     local a_a_level = Runes:GetTotalRuneLevel(caster, 1, "a_a", "paladin")
-    damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.15*a_a_level
+    damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*0.15*a_a_level
 
     local knockback_duration = 1.6
     local heal_percent = keys.heal_percent/100

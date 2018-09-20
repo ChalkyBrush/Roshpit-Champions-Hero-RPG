@@ -100,7 +100,7 @@ function rend_start(event)
 	local ability = event.ability
 
 	local position = caster:GetAbsOrigin()
-	local damage = caster:GetAverageTrueAttackDamage(caster)*(event.damage_mult/100)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*(event.damage_mult/100)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin()+caster:GetForwardVector()*180, nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 	local element1 = RPC_ELEMENT_NORMAL
 	local element2 = RPC_ELEMENT_NONE
@@ -220,7 +220,7 @@ function tornado_hit(event)
 	local damage = event.damage
 	damage = damage + event.int_mult*caster:GetIntellect()
 	if ability.w_3_level > 0 then
-		damage = damage + caster:GetAverageTrueAttackDamage(caster)*DJANGHOR_W3_ATTACK_PERCENT_ADDED_TO_TORNADO_AND_STOMP*ability.w_3_level
+		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*DJANGHOR_W3_ATTACK_PERCENT_ADDED_TO_TORNADO_AND_STOMP*ability.w_3_level
 	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_WIND, RPC_ELEMENT_NATURE)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_hawk_tornado_debuff", {duration = 7})
@@ -523,7 +523,7 @@ function jump_end(event)
 	local damage = event.stomp_damage
 	local w_3_level = Runes:GetTotalRuneLevelGeneric(caster, 3, 1)
 	if w_3_level > 0 then
-		damage = damage + caster:GetAverageTrueAttackDamage(caster)*DJANGHOR_W3_ATTACK_PERCENT_ADDED_TO_TORNADO_AND_STOMP*w_3_level
+		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*DJANGHOR_W3_ATTACK_PERCENT_ADDED_TO_TORNADO_AND_STOMP*w_3_level
 	end
 	local position = caster:GetAbsOrigin()
 	local splitEarthParticle = "particles/roshpit/draghor/yearbeast_warstomp.vpcf"

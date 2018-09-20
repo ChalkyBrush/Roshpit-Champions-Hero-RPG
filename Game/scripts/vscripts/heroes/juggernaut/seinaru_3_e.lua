@@ -302,7 +302,7 @@ function odachi_rush(event)
 		StartAnimation(caster, {duration=0.2, activity=ACT_DOTA_ATTACK, rate=2, translate="odachi"})
 		EmitSoundOn("Hero_Juggernaut.Attack", caster)
 		ability:ApplyDataDrivenModifier(caster, enemy, "modifier_odachi_rush", {duration = 0.4})
-		local damage = ability.e_2_level*0.1*caster:GetAverageTrueAttackDamage()
+		local damage = ability.e_2_level*0.1*OverflowProtectedGetAverageTrueAttackDamage(caster)
 		Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 3, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 
 		local playerID = caster:GetPlayerOwnerID()
@@ -380,7 +380,7 @@ function odachi_a_c_think(event)
 			end	
 			caster:PerformAttack(target, true, true, true, true, false, false, false)
 			if caster:HasModifier("modifier_seinaru_glyph_3_1") then
-				local glyphDamage = caster:GetAverageTrueAttackDamage(caster) * SEINARU_GLYPH3_DMG_PER_ATT
+				local glyphDamage = OverflowProtectedGetAverageTrueAttackDamage(caster) * SEINARU_GLYPH3_DMG_PER_ATT
 				ApplyDamage({ victim = target, attacker = caster, damage = glyphDamage, damage_type = DAMAGE_TYPE_MAGICAL })	
 			end
 			EmitSoundOn("Seinaru.AChit", target)	
@@ -472,7 +472,7 @@ function wakizashi_think(event)
 	-- 	knockback_distance = 80,
 	-- 	knockback_height = 15,
 	-- }
-    local damage = caster:GetAverageTrueAttackDamage(caster) * (SEINARU_E2_DMG_PER_ATT_BASE + ability.e_2_level * SEINARU_E2_DMG_PER_ATT)
+    local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (SEINARU_E2_DMG_PER_ATT_BASE + ability.e_2_level * SEINARU_E2_DMG_PER_ATT)
 	if #enemies > 0 then
 		EmitSoundOn("Hero_Juggernaut.Attack", caster)
 		if #enemies > 6 then

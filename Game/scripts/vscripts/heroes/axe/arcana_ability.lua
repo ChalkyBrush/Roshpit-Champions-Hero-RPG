@@ -11,7 +11,7 @@ function begin_arcana_ult(event)
 	local stun_duration = event.stun_duration
 	local amp = event.amp
 	local forks = event.forks
-	local damage = caster:GetAverageTrueAttackDamage(caster)*event.attack_power_mult_percent/100
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*event.attack_power_mult_percent/100
 	damage = damage*amp
 	local max = 1
 	local min = -1

@@ -250,7 +250,7 @@ function backstab_channel_succeed(event)
 	local ability = event.ability
 	local target = event.target
 	local damageMult = event.damage_mult
-	local damage = math.floor(caster:GetAverageTrueAttackDamage(caster)*damageMult)
+	local damage = math.floor(OverflowProtectedGetAverageTrueAttackDamage(caster)*damageMult)
 	if caster:HasModifier("modifier_trapper_glyph_4_1") and target.paragon then
 		damage = damage*10
 	end

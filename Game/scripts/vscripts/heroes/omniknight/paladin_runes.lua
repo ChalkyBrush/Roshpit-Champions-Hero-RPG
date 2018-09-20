@@ -139,7 +139,7 @@ function rune_e_2_attacked(event)
 		local bonusLevels = Runes:GetTotalBonus(unit.runeUnit2, "e_2")
 		local totalLevel = level + bonusLevels
 		local attack_damage = event.attack_damage
-		local damage = unit:GetAverageTrueAttackDamage(unit)*2*totalLevel+100+50*totalLevel
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(unit)*2*totalLevel+100+50*totalLevel
 		local origin = attacker:GetAbsOrigin()
 		if not unit.retributions then
 			unit.retributions = 0

@@ -1838,7 +1838,7 @@ function castle_viking_attack_land(event)
 	local target = event.target
 	local ability = event.ability
 	local enemies = FindUnitsInRadius( attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-	local damage = attacker:GetAverageTrueAttackDamage(attacker)*0.005
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*0.005
 	flareParticle(target:GetAbsOrigin())
 	EmitSoundOn("Redfall.EnclaveViking.AttackExplosion", target)
 	if #enemies > 0 then
@@ -4655,7 +4655,7 @@ end
 function castle_boss_split_attack_hit(event)
 	local caster = event.caster
 	local target = event.target
-	local damage = caster:GetAverageTrueAttackDamage(caster)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)
 	local ability = event.ability
 	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability })
 end

@@ -53,7 +53,7 @@ function smashing_end(event)
 	local damage = event.damage
 	local w_1_level = caster:GetRuneValue("w", 1)
 	if w_1_level > 0 then
-		damage = damage + w_1_level*caster:GetAverageTrueAttackDamage(caster) * ability:GetLevel() * W1_ARCANA1_AMP_PERCENT / 100
+		damage = damage + w_1_level*OverflowProtectedGetAverageTrueAttackDamage(caster) * ability:GetLevel() * W1_ARCANA1_AMP_PERCENT / 100
 	end
 
 	local w_2_level = caster:GetRuneValue("w", 2)

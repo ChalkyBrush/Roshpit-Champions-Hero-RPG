@@ -234,7 +234,7 @@ illusion:AddNewModifier(caster, ability, "modifier_illusion", { duration = durat
 	illusion:Heal(newHealth, illusion)
 	local newArmor = caster:GetPhysicalArmorValue()*5
 	illusion:SetPhysicalArmorBaseValue(newArmor)
-	local newDamage = caster:GetAverageTrueAttackDamage(caster)*5
+	local newDamage = OverflowProtectedGetAverageTrueAttackDamage(caster)*5
     Filters:SetAttackDamage(illusion, newDamage)
 
     if caster:HasModifier("modifier_voltex_rune_r_3_avatar") then

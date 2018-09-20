@@ -478,7 +478,7 @@ function b_d_attack(event)
         local attacker = event.attacker
         local target = event.target
         local ability = event.ability
-        local damage = attacker:GetAverageTrueAttackDamage(attacker)*(VOLTEX_R2_DMG_PER_ATT_BASE+VOLTEX_R2_DMG_PER_ATT*ability.r_2_level)
+        local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*(VOLTEX_R2_DMG_PER_ATT_BASE+VOLTEX_R2_DMG_PER_ATT*ability.r_2_level)
         Filters:ApplyStun(attacker, 0.2, target)
         Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
         -- Renders the particle on the target

@@ -142,7 +142,7 @@ function summon_water_elemental(caster, origin, totalLevel, ability)
     local baseDamage = 300+totalLevel*500
 
     local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "sorceress")
-    baseDamage = baseDamage + 0.008*(caster:GetAverageTrueAttackDamage(caster))/100*d_c_level*baseDamage
+    baseDamage = baseDamage + 0.008*(OverflowProtectedGetAverageTrueAttackDamage(caster))/100*d_c_level*baseDamage
     baseDamage = math.min(baseDamage, 2^30)
     Timers:CreateTimer(0.05, function()
       
@@ -182,7 +182,7 @@ function water_elemental_attack(event)
     end)
     -- EmitSoundOn("Hero_Ancient_Apparition.IceBlast.Target", caster)
     local radius = 390
-    local damage = attacker:GetAverageTrueAttackDamage(attacker)
+    local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)
     local enemies = FindUnitsInRadius( attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
     local slowDuration = 1.2
     if #enemies > 0 then
@@ -236,7 +236,7 @@ function elemental_extra_attack_strike(event)
     end)
     -- EmitSoundOn("Hero_Ancient_Apparition.IceBlast.Target", caster)
     local radius = 390
-    local damage = attacker:GetAverageTrueAttackDamage(attacker)
+    local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)
     local enemies = FindUnitsInRadius( attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
     local slowDuration = 1.2
     if #enemies > 0 then

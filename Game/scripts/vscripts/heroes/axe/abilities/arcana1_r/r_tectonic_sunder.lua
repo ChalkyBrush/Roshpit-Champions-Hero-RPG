@@ -61,7 +61,7 @@ function startChannel(event)
                 for _,enemy in pairs(enemies) do
                     BurningFury.applyDebuff(caster, enemy, ability)
                     BlisteringRage.applyBuff(caster, ability)
-                    damage = caster:GetAverageTrueAttackDamage(caster)*event.attack_power_mult_percent/100
+                    damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*event.attack_power_mult_percent/100
                     damage = damage*amp
 
                     if caster:HasModifier("modifier_axe_glyph_5_a") then
@@ -189,7 +189,7 @@ function dealDamage(caster, ability, damage, stun_duration, startPoint, endPoint
     for _,enemy in pairs(enemies) do
         BlisteringRage.applyBuff(caster, ability)
         BurningFury.applyDebuff(caster, enemy, ability)
-        damage = caster:GetAverageTrueAttackDamage(caster)*ability.attack_power_mult_percent/100
+        damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*ability.attack_power_mult_percent/100
         damage = damage*ability.amp
 
         if caster:HasModifier("modifier_axe_glyph_5_a") then

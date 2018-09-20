@@ -174,7 +174,7 @@ end
 
 function hyperbeam_jolt(caster, hyperbeam, enemy)
 	if IsValidEntity(hyperbeam) then
-	  local damage = caster:GetAverageTrueAttackDamage(caster)*0.01*hyperbeam.r_1_level
+	  local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*0.01*hyperbeam.r_1_level
 	  damage = damage*(hyperbeam.size/100)
       local particleName = "particles/roshpit/dinath/hyper_zap_beam.vpcf"
       local attachPointA = hyperbeam:GetAbsOrigin()

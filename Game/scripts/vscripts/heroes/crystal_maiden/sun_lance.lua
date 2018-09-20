@@ -25,7 +25,7 @@ function begin_fireball(event)
 	    caster = caster.origCaster
 	end
     local q_1_level = caster:GetRuneValue("q", 1)
-	ability.damage = q_1_level*12000 + 5000 + caster:GetAverageTrueAttackDamage(caster)*1*q_1_level
+	ability.damage = q_1_level*12000 + 5000 + OverflowProtectedGetAverageTrueAttackDamage(caster)*1*q_1_level
 	Filters:CastSkillArguments(1, caster)
 	ability.projectileFV = fv
 end

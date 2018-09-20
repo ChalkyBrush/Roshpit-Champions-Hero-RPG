@@ -451,7 +451,7 @@ end
 function c_b_prep(caster, boomerang)
 	local w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "solunia")
 	if w_3_level > 0 then
-		boomerang.damage = boomerang.damage + caster:GetAverageTrueAttackDamage(caster)*0.06*w_3_level
+		boomerang.damage = boomerang.damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*0.06*w_3_level
 	end
 end
 
@@ -501,7 +501,7 @@ end
 function black_widow_bleed(event)
 	local caster = event.caster
 	local target = event.target
-	ApplyDamage({ victim = target, attacker = caster, damage = caster:GetAverageTrueAttackDamage(caster)*0.8, damage_type = DAMAGE_TYPE_MAGICAL })
+	ApplyDamage({ victim = target, attacker = caster, damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*0.8, damage_type = DAMAGE_TYPE_MAGICAL })
 end
 
 function black_widow_attack_land(event)

@@ -166,7 +166,7 @@ function dominion_debuff_think(event)
 	local ability = event.ability
 	local target = event.target
 	local burnPercent = event.burn_damage/100
-	local damage = target:GetAverageTrueAttackDamage(target)*burnPercent
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(target)*burnPercent
 	Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_DEMON)
 end
 
@@ -339,7 +339,7 @@ function black_dominion_lifesteal_think(event)
 	local ability = event.ability
 	local origCaster = caster.hero
 	local target = event.target
-	local damage = caster:GetAverageTrueAttackDamage(caster)*0.07*origCaster.q_1_level
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*0.07*origCaster.q_1_level
 	Filters:TakeArgumentsAndApplyDamage(target, origCaster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
 	local heal = math.min(damage*0.1, caster:GetMaxHealth()-caster:GetHealth())
 	if heal > 0 then
@@ -439,7 +439,7 @@ function swarm_poison_think(event)
 	local target = event.target
 	local ability = event.ability
 	if IsValidEntity(caster) then
-		local damage = caster:GetAverageTrueAttackDamage(caster)
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)
 		Filters:ApplyDotDamage(caster.hero, ability, target, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_POISON, RPC_ELEMENT_UNDEAD)
 	end
 end

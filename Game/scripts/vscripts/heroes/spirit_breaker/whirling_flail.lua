@@ -114,7 +114,7 @@ function whirling_flail_think(event)
 	EmitSoundOn("Hero_Spirit_Breaker.PreAttack", caster)
 	local searchArea = caster:GetAbsOrigin() + WallPhysics:rotateVector(caster:GetForwardVector(), -math.pi/2)*120
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), searchArea, nil, ability.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-	local damage = event.damage * caster:GetAverageTrueAttackDamage(caster) / 100
+	local damage = event.damage * OverflowProtectedGetAverageTrueAttackDamage(caster) / 100
 	damage = damage * (1 + Q4_AMPLIFY_PERCENT * ability.q_4_level / 100)
 
 	EndAnimation(caster)

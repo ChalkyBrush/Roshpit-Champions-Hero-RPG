@@ -188,7 +188,7 @@ function c_d_attack_hit(event)
 	local attacker = event.attacker
 	local target= event.target
 	local ability = event.ability
-	ability.r_3_damage = attacker:GetAverageTrueAttackDamage(attacker)
+	ability.r_3_damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)
 	ability.r_3_source = attacker
 	      local enemies = FindUnitsInRadius( attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, 650, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE+DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false )
 	      if #enemies > 0 then

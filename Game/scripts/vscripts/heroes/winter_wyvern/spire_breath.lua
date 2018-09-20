@@ -62,7 +62,7 @@ function spire_breath_attack_land(event)
 	if target.dummy then
 		return false
 	end
-	local damage = attacker:GetAverageTrueAttackDamage(attacker)*(event.damage_mult/100)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*(event.damage_mult/100)
 
 	if attacker:HasModifier("modifier_dinath_glyph_7_1") then
 		local mana_restore = attacker:GetMaxMana()*0.01

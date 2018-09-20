@@ -272,7 +272,7 @@ end
 function glow_rune_q_1(caster, ability, fv, range)
 	ability.rune_q_1_level = caster:GetRuneValue("q", 1)
 	if ability.rune_q_1_level > 0 then
-			ability.q_1_damage = caster:GetAverageTrueAttackDamage(caster) * SOLUNIA_Q1_DMG_PER_ATT * ability.rune_q_1_level
+			ability.q_1_damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * SOLUNIA_Q1_DMG_PER_ATT * ability.rune_q_1_level
 			local speed = math.max(range/2 + 200, 400)
 			local casterOrigin = caster:GetAbsOrigin()
 			local particleName = "particles/roshpit/solunia/a_a_wave_solar.vpcf"

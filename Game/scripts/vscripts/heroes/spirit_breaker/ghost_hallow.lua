@@ -60,7 +60,7 @@ end
 --			Timers:CreateTimer(1, function()
 --			  ParticleManager:DestroyParticle( pfx2, false )
 --			end)
---		local damage = caster:GetAverageTrueAttackDamage(caster)*ability.w_4_level*0.25
+--		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*ability.w_4_level*0.25
 --		local flailAbility = caster:FindAbilityByName("whirling_flail")
 --		for _,enemy in pairs(enemies) do
 --			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_GHOST, RPC_ELEMENT_FIRE)
@@ -136,7 +136,7 @@ function ghost_trap_a_b_thinker(event)
 	ability.w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "duskbringer")
 	if ability.w_1_level > 0 then
 		
-		local damage = caster:GetAverageTrueAttackDamage(caster)*ability.w_1_level*0.4
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*ability.w_1_level*0.4
 		Timers:CreateTimer(0.15, function()
 			if target:IsAlive() then
 				CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash_flash.vpcf", target:GetAbsOrigin()+Vector(0,0,40), 0.2)

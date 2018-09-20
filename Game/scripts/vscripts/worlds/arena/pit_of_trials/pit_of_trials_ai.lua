@@ -2947,7 +2947,7 @@ end
 function pure_strike_2_attack_land(event)
 	local attacker = event.attacker
 	local target = event.target
-	local damage = attacker:GetAverageTrueAttackDamage(attacker)*0.03
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*0.03
 	local ability = event.ability
 	ApplyDamage({ victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
 	EmitSoundOn("Arena.PureStrike2", target)

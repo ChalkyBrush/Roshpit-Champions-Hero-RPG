@@ -511,7 +511,7 @@ function Filters:ApplyStun(caster, duration, target)
 				end)
 			end
 			
-			local damage = caster:GetAverageTrueAttackDamage(caster)*10 + (caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())*100
+			local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*10 + (caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())*100
 			Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,caster.headItem, RPC_ELEMENT_NORMAL, RPC_ELEMENT_LIGHTNING)
 			Filters:stormcrack_upgrade(caster, caster.headItem, target)
 		end
@@ -530,7 +530,7 @@ function Filters:ApplyStun(caster, duration, target)
 				end)
 			end
 			
-			local damage = caster:GetAverageTrueAttackDamage(caster)*20 + (caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())*200
+			local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*20 + (caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())*200
 			Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,caster.headItem, RPC_ELEMENT_NORMAL, RPC_ELEMENT_LIGHTNING)
 			mult = mult+0.35      
 		end
@@ -3202,7 +3202,7 @@ function Filters:SetupSummonUnit(caster, position, damageMult, healthMult, lifeD
     unit:AddAbility("ability_die_after_time_generic"):SetLevel(1)
     local summonAbil = unit:AddAbility("ability_summoned_unit")
     summonAbil:SetLevel(1)
-    local dmg = caster:GetAverageTrueAttackDamage(caster)*damageMult
+    local dmg = OverflowProtectedGetAverageTrueAttackDamage(caster)*damageMult
     dmg = Filters:AdjustItemDamage(caster, dmg, nil)
     Filters:SetAttackDamage(unit, dmg)
     unit:SetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, caster:GetPhysicalArmorValue()*armorMult, nil))
@@ -3383,7 +3383,7 @@ function Filters:ReanimateThorok(caster)
     local summonAbil = thorok:AddAbility("ability_summoned_unit")
     summonAbil:SetLevel(1)
     thorok:SetModelScale(1.19)
-    local thorokDamage = caster:GetAverageTrueAttackDamage(caster)*8
+    local thorokDamage = OverflowProtectedGetAverageTrueAttackDamage(caster)*8
     thorokDamage = Filters:AdjustItemDamage(caster, thorokDamage, nil)
     thorok:SetBaseDamageMin(thorokDamage)
     thorok:SetBaseDamageMax(thorokDamage)   
@@ -4349,7 +4349,7 @@ function Filters:DarkEmissary(caster)
         caster.handItem:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_dark_emissary_invise_delay", {duration = 8})
     end
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-    local damage = caster:GetAverageTrueAttackDamage(caster)*240
+    local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*240
     if #enemies > 0 then
         for _,enemy in pairs(enemies) do
             Filters:ApplyItemDamage(enemy,caster,damage,DAMAGE_TYPE_MAGICAL,caster.handItem, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
