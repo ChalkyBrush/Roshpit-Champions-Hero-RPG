@@ -428,7 +428,7 @@
     	"DOTA_Tooltip_modifier_arcana2_purity_freeze"						"Absolution"
     	"DOTA_Tooltip_modifier_arcana2_purity_freeze_Description"			"Frozen"
 
-  		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2"						"[W4] Potency Inverse"
+  		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2"						"[W4] Ether Breach"
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"Deal increased damage while inside the Sphere of Divinity based on its speed. Casting Megaflare while in the sphere multiplies the speed of @Ability2 by 2x. This damage increase lingers for 5 seconds. State damage bonus is multiplied by @Ability2's level."
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"			"Damage Increase"
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"					"% of speed"			
