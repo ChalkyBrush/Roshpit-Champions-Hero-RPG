@@ -54,7 +54,7 @@ function energy_shield_create(event)
 		function()
 			ParticleManager:DestroyParticle( particle1, false )
 		end)	
-		local damage = w_1_level*caster:GetAverageTrueAttackDamage(caster)*0.50 + w_1_level*caster:GetStrength()*10
+		local damage = w_1_level*OverflowProtectedGetAverageTrueAttackDamage(caster)*0.50 + w_1_level*caster:GetStrength()*10
 		EmitSoundOnLocationWithCaster(position, "MysticAssasin.FissureExplosion", caster)
 		local explosionAOE = 800
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, explosionAOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
@@ -118,7 +118,7 @@ function steelforge_take_damage(event)
 				end
 				if ability.w_3_particles < 10 then
 					ability.w_3_particles = ability.w_3_particles + 1
-					local c_b_damage = caster:GetAverageTrueAttackDamage(caster)*constants.ARCANA1_W3_DAMAGE_PERCENT/100 * ability.w_3_level
+					local c_b_damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*constants.ARCANA1_W3_DAMAGE_PERCENT/100 * ability.w_3_level
 					Filters:TakeArgumentsAndApplyDamage(target, caster, c_b_damage, DAMAGE_TYPE_PURE, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_ICE)
 					local pfx = ParticleManager:CreateParticle( "particles/roshpit/mountain_protector/blue_steel_dagon_lvl2_ti5.vpcf", PATTACH_POINT_FOLLOW, caster )
 					ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT, "attach_hitloc", caster:GetAbsOrigin()+Vector(0,0,80), true)

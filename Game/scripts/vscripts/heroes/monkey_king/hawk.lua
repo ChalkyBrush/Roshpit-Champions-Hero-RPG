@@ -154,7 +154,7 @@ function tornado_hit(event)
 	local damage = event.damage
 	damage = damage + event.int_mult*caster:GetIntellect()
 	if ability.w_3_level > 0 then
-		damage = damage + caster:GetAverageTrueAttackDamage(caster)*DJANGHOR_W3_ATTACK_PERCENT_ADDED_TO_TORNADO_AND_STOMP*ability.w_3_level
+		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*DJANGHOR_W3_ATTACK_PERCENT_ADDED_TO_TORNADO_AND_STOMP*ability.w_3_level
 	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_WIND, RPC_ELEMENT_NATURE)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_hawk_tornado_debuff", {duration = 7})

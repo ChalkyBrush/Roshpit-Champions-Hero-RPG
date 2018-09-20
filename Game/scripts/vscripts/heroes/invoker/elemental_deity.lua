@@ -64,7 +64,7 @@ function begin_deity(event)
 	local armor_mult = event.armor_mult
 	local health_mult = event.health_mult
 
-	local dmg = caster:GetAverageTrueAttackDamage(caster)*attack_mult
+	local dmg = OverflowProtectedGetAverageTrueAttackDamage(caster)*attack_mult
 	Filters:SetAttackDamage(summon, dmg)
 
 	summon:SetPhysicalArmorBaseValue(caster:GetPhysicalArmorValue()*armor_mult)
@@ -122,7 +122,7 @@ function terra_blast_start(event)
 	local length = math.max(WallPhysics:GetDistance(caster:GetAbsOrigin()*Vector(1,1,0), point*Vector(1,1,0))/190, 1) + 2
 	local fv = (point*Vector(1,1,0) - caster:GetAbsOrigin()*Vector(1,1,0)):Normalized()
 	local startPosition = caster:GetAbsOrigin()
-	local damage = caster.r_2_level*caster:GetAverageTrueAttackDamage(caster)*0.1
+	local damage = caster.r_2_level*OverflowProtectedGetAverageTrueAttackDamage(caster)*0.1
 	local stun_duration = caster.r_2_level*0.05
 	for i = 1, math.floor(length), 1 do
 		Timers:CreateTimer(0.1*(i-1), function()

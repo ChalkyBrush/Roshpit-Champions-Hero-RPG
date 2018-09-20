@@ -164,7 +164,7 @@ function rune_r_2_illusion(event)
 	local strike_current = math.floor(ability.r2_base_strikes/intervalsForAtt)
 	if strike_current > ability.r2_strike_current then
 		Timers:CreateTimer(timerRand/100, function()
-			local damage = caster:GetAverageTrueAttackDamage(caster)*ability.r_2_level*CHERNOBOG_R2_DMG_PER_ATT
+			local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*ability.r_2_level*CHERNOBOG_R2_DMG_PER_ATT
 			CustomAbilities:QuickAttachParticle("particles/roshpit/chernobog/nights_procession_illusion.vpcf", target, CHERNOBOG_SHADOWS_ATT_INTERVAL_BASE * intervalsForAtt)
 			Timers:CreateTimer(0.5, function()
 				EmitSoundOn("Chernobog.BC.Hit", target)

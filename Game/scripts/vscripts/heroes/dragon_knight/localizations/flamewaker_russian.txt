@@ -244,8 +244,8 @@
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_2_1"	"(T2) Символ кратеров"
 		"item_rpc_flamewaker_glyph_2_1_description" 			"Уменьшает время перезарядки (Q) Seismic Flare до @glyph_property1 сек."
 
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_3_1"	"(T3) Символ сдвига"
-		"item_rpc_flamewaker_glyph_3_1_description" 			"Flamewaker прыгает к центру (Q) Seismic Flare и создаёт сильные подземные толчки, наносящие урон, равный @glyph_property1x силы."
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_3_1"	"(T3) Символ расплавления"
+		"item_rpc_flamewaker_glyph_3_1_description" 			"На все цели попавшие под [W1] применяется [W3]."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_4_1"	"(T4) Символ синего пламени"
 		"item_rpc_flamewaker_glyph_4_1_description" 			"(W) @Ability2 наносит дополнительный урон, равный (@glyph_property2% от суммы всех атрибутов плюс @glyph_property3% от общего урона героя)* текущий уровень (W) @Ability2. Дополнительно снижает скорость передвижения и атаки врагов на @glyph_property1."

@@ -109,7 +109,7 @@ function attack_land(event)
 
     local r1_level = Runes:GetTotalRuneLevelGeneric(creator, 1, 3)
     if r1_level > 0 then
-        local damage = caster:GetAverageTrueAttackDamage(caster) * r1_level * constants.R1_VIPER_DAMAGE_PERCENT/100
+        local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * r1_level * constants.R1_VIPER_DAMAGE_PERCENT/100
         local summonAbility = caster.summonAbility
         if creator:HasModifier('modifier_venomort_immortal_weapon_1') then
             if not summonAbility.particleCount then

@@ -47,7 +47,7 @@ function sunstrider_start(event)
 								arcana_attack_start(eventTable)
 							end
 							if caster:HasModifier("modifier_seinaru_glyph_3_1") then
-								local glyphDamage = caster:GetAverageTrueAttackDamage(caster) * SEINARU_GLYPH3_DMG_PER_ATT
+								local glyphDamage = OverflowProtectedGetAverageTrueAttackDamage(caster) * SEINARU_GLYPH3_DMG_PER_ATT
 								ApplyDamage({ victim = target, attacker = caster, damage = glyphDamage, damage_type = DAMAGE_TYPE_MAGICAL })	
 							end
 						end)
@@ -162,7 +162,7 @@ function vengeance_hit(event)
     Timers:CreateTimer(3, function()
         ParticleManager:DestroyParticle(particle1, false)
     end)
-    local damage = ability.e_3_level * SEINARU_ARCANA_E3_DMG_PER_ATT * caster:GetAverageTrueAttackDamage(caster)
+    local damage = ability.e_3_level * SEINARU_ARCANA_E3_DMG_PER_ATT * OverflowProtectedGetAverageTrueAttackDamage(caster)
     EmitSoundOn("Seinaru.Sunstrider.Vengeance", target)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then

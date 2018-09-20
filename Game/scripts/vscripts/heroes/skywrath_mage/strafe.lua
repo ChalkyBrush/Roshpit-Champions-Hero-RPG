@@ -107,7 +107,7 @@ function boomerang_think(event)
     		if IsValidEntity(boomerang.target) then
 	    		local damage = boomerang.e_1_level * 1500
 	    		if boomerang.e_2_level > 0 then
-	    			damage = damage + boomerang.e_2_level*0.15*boomerang.caster:GetAverageTrueAttackDamage(boomerang.caster)
+	    			damage = damage + boomerang.e_2_level*0.15*OverflowProtectedGetAverageTrueAttackDamage(boomerang.caster)
 	    		end
 	    		local c_c_level = Runes:GetTotalRuneLevelGeneric(boomerang.caster, 3, 2)
 	    		if c_c_level > 0 then

@@ -46,7 +46,7 @@ function slice_start(event)
 		return
 	end
 
-	local damage = caster:GetAverageTrueAttackDamage(caster)*damage_mult
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*damage_mult
 
 	if IsValidEntity(target) then
 		if target:IsAlive() then

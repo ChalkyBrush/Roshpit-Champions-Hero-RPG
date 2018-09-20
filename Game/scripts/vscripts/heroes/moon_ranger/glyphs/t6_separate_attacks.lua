@@ -5,7 +5,7 @@ local BitingStar = require('heroes/moon_ranger/abilities/q/q2_biting_star')
 
 function attackLand(event)
     local attacker = event.attacker
-    local damage = attacker:GetAverageTrueAttackDamage(attacker)
+    local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)
     local target = event.target
     local ability = event.ability
     local maxCount = T61_TARGETS;

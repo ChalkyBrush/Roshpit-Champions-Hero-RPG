@@ -515,7 +515,7 @@ end
 function shadow_aspect_attack(event)
 	local caster = event.caster
 	local attacker = event.attacker
-	local damage = caster:GetAverageTrueAttackDamage(caster)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)
 	local target = event.target
 	local ability = event.ability
 	ability.damage = damage

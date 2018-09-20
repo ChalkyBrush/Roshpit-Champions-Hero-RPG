@@ -32,7 +32,7 @@ function second_heartbeat_damage(event)
     local ability = event.ability
 	local damage = event.damage
 	if caster:HasModifier("modifier_flamewaker_glyph_4_1") then
-		damage = damage + ((caster:GetStrength() + caster:GetAgility() + caster:GetIntellect())*5 + caster:GetAverageTrueAttackDamage(caster)*0.2)*ability:GetLevel()
+		damage = damage + ((caster:GetStrength() + caster:GetAgility() + caster:GetIntellect())*5 + OverflowProtectedGetAverageTrueAttackDamage(caster)*0.2)*ability:GetLevel()
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_flamewaker_glyph_4_1_effect", {duration = 3})
 	end
 	damage = damage * (1 + 0.2 * ability.w_2_level)
@@ -295,7 +295,7 @@ function drop_end(keys)
 			Timers:CreateTimer(0.06, function()
 				EmitSoundOn("Flamewaker.SpecialCrit", target)
 				caster:PerformAttack(target, true, true, false, true, false, false, false)
-				local damageApprox = math.ceil(caster:GetAverageTrueAttackDamage(caster))
+				local damageApprox = math.ceil(OverflowProtectedGetAverageTrueAttackDamage(caster))
 				PopupDamage(target, damageApprox)
 				StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_ATTACK, rate=2.4})
 				Timers:CreateTimer(0.03, function()

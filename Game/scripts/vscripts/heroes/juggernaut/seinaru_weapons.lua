@@ -4,7 +4,7 @@ function seinaru_weap_1_attack(event)
     local attacker = event.attacker
     local target = event.target
     local sword = event.ability
-    local damage = attacker:GetAverageTrueAttackDamage(attacker) * SEINARU_WEAP_1_DMG_PER_ATT
+    local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * SEINARU_WEAP_1_DMG_PER_ATT
     local q_arcana_ability = attacker:FindAbilityByName("seinaru_blade_dash")
     if q_arcana_ability then
         local luck = RandomInt(1, 100)

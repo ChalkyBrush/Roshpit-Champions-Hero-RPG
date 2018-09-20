@@ -27,7 +27,7 @@ function slippery_tail_start(event)
 	end
 	ability.e_1_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "hydroxis")
 	ability.e_2_level = Runes:GetTotalRuneLevel(caster, 2, "e_2", "hydroxis")
-	ability.e_2_damage = ability.e_2_level * caster:GetAverageTrueAttackDamage(caster) * 0.1
+	ability.e_2_damage = ability.e_2_level * OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.1
 	if caster:HasModifier("modifier_hydroxis_glyph_4_1") then
 		ability.e_2_damage = ability.e_2_damage * 3
 	end

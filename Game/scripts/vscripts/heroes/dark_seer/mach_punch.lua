@@ -43,7 +43,7 @@ function mach_punch_cast(event)
 	ScreenShake(target:GetAbsOrigin(), 860, 0.2, 0.2, 2000, 0, true)
 	CustomAbilities:QuickAttachParticleWithPointFollow("particles/roshpit/zonik/mach_punch_tgt.vpcf", target, 2.6, "attach_hitloc")
 	local damageMult = event.damage_mult
-	local damage = caster:GetAverageTrueAttackDamage(caster)*damageMult/100
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*damageMult/100
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_mach_punch_amp", {duration = 0.2})	
 	print("MACH PUNCH GO!")
 	if caster:HasModifier("modifier_temporal_discharge") then

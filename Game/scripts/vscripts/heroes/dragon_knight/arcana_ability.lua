@@ -139,7 +139,7 @@ function d_a_stun(event)
 	local target = event.target
 	local ability = event.ability
 	if not target:HasModifier("modifier_flamewaker_arcana_d_a_immune") then
-		local damage = caster:GetAverageTrueAttackDamage(caster)*FLAMEWAKER_ARCANA_Q4_DMG_PER_ATT*ability.q_4_level
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*FLAMEWAKER_ARCANA_Q4_DMG_PER_ATT*ability.q_4_level
 		EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "Flamewaker.ArcanaDAStun", target)
 		CustomAbilities:QuickAttachParticle("particles/econ/items/techies/techies_arcana/techies_suicide_flame.vpcf", target, 3)
 		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)

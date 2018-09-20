@@ -95,7 +95,7 @@ function rune_e_2_illusion(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	local damage = caster:GetAverageTrueAttackDamage(caster)*ability.e_2_level*0.5
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*ability.e_2_level*0.5
 	if not ability.e2_strike_current then
 		ability.e2_strike_current = -1
 		ability.e2_base_strikes = -1;

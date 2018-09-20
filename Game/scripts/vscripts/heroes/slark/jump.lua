@@ -353,7 +353,7 @@ function slipfinn_jump_think(event)
 						ParticleManager:DestroyParticle(pfx, false)
 						ParticleManager:ReleaseParticleIndex(pfx)
 					end)
-					local a_b_damage = SLIPFINN_W1_BASE*ability.w_1_level + caster:GetAverageTrueAttackDamage(caster)*SLIPFINN_W1_ATK*ability.w_1_level
+					local a_b_damage = SLIPFINN_W1_BASE*ability.w_1_level + OverflowProtectedGetAverageTrueAttackDamage(caster)*SLIPFINN_W1_ATK*ability.w_1_level
 					local enemies = FindUnitsInRadius( caster:GetTeamNumber(), jumpEnemy:GetAbsOrigin(), nil, searchRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 					if #enemies > 0 then
 						for _,enemy in pairs(enemies) do

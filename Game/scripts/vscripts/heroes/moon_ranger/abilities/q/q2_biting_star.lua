@@ -2,7 +2,7 @@ require('heroes/moon_ranger/init')
 function attackLand(event)
     local caster = event.attacker
     local target = event.target
-    local damage = caster:GetAverageTrueAttackDamage(caster)
+    local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)
     local q_2_level = 0
     local procChance = 0
     local damageMultiply = 0

@@ -267,7 +267,7 @@ function jump_end(event)
 	end)
 	if ability.e_1_level > 0 then
 		local searchRadius = 300 + ability.e_1_level*2
-		local damage = caster:GetAverageTrueAttackDamage(caster)*0.3*ability.e_1_level
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*0.3*ability.e_1_level
 
 	    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, searchRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	    if #enemies > 0 then
@@ -2277,7 +2277,7 @@ function heartfreezer_projectile_hit(event)
     Timers:CreateTimer(2.5, function()
         ParticleManager:DestroyParticle(pfx, false)
     end)
-    local damage = caster:GetAverageTrueAttackDamage(caster)*(event.atk_power_dmg/100)
+    local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*(event.atk_power_dmg/100)
     local enemies = FindUnitsInRadius( caster:GetTeamNumber(), icePoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
     if #enemies > 0 then    
         for _,enemy in pairs(enemies) do

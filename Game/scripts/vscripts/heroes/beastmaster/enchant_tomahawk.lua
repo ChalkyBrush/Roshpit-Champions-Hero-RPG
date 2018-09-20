@@ -75,7 +75,7 @@ function tomahawk_attack_land(event)
 
 	local a_d_level = Runes:GetTotalRuneLevelGeneric(caster, 1, 3)
 	if a_d_level > 0 then
-		local damage = caster:GetAverageTrueAttackDamage(caster)*0.3*a_d_level
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*0.3*a_d_level
 	    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 220, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 	    if #enemies > 0 then
 	        for _,enemy in pairs(enemies) do

@@ -212,7 +212,7 @@ function penance_impact(event)
 		luck = 1
 		if luck == 1 then
 	  		local radius = 550
-	  		local damage = ability.w_2_level*30*caster:GetIntellect() + caster:GetAverageTrueAttackDamage(caster)*0.3*ability.w_2_level
+	  		local damage = ability.w_2_level*30*caster:GetIntellect() + OverflowProtectedGetAverageTrueAttackDamage(caster)*0.3*ability.w_2_level
 			damage = math.floor(damage)
 
 	  		EmitSoundOn("Paladin.HolyNova", caster)

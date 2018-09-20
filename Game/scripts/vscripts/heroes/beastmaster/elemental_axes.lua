@@ -4,7 +4,7 @@ function swingEarth(event)
 	local swingType = event.type
 	local radius = 240
 	local damage = event.damage
-	damage = damage+rune_w_2(caster)*0.025*caster:GetAverageTrueAttackDamage(caster)
+	damage = damage+rune_w_2(caster)*0.025*OverflowProtectedGetAverageTrueAttackDamage(caster)
 	local damageDelay = 0.12
 	local animationRate = 1.5
 	local animationDuration = 0.36

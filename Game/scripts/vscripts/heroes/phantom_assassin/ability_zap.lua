@@ -95,7 +95,7 @@ function zap_damage(event)
       Filters:ApplyStun(caster, 2.5, target)
     end
     if ability.w_1_level > 0 then
-      local pureDamage = caster:GetAverageTrueAttackDamage(caster)*ability.w_1_level*VOLTEX_W1_DMG_PER_ATT_PER_LVL*ability:GetLevel()
+      local pureDamage = OverflowProtectedGetAverageTrueAttackDamage(caster)*ability.w_1_level*VOLTEX_W1_DMG_PER_ATT_PER_LVL*ability:GetLevel()
       Filters:TakeArgumentsAndApplyDamage(target, caster, pureDamage, DAMAGE_TYPE_PURE, 2, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
     end
     if ability.w_4_level > 0 then

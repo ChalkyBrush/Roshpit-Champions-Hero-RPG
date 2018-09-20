@@ -73,7 +73,7 @@ function spark_hit(event)
 	local ability = event.ability
 	local damage = event.damage
 	if ability.r_4_level then
-		damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.1*ability.r_4_level
+		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*0.1*ability.r_4_level
 	end
 	increment_d_d(caster, ability)
 	if caster:HasModifier("modifier_voltex_glyph_6_1") then
@@ -151,7 +151,7 @@ function rune_r_1(caster, ability)
 	if totalLevel > 0 then
 		local damage = 1200 + 730*totalLevel
 		if ability.r_4_level then
-			damage = damage + caster:GetAverageTrueAttackDamage(caster)*0.1*ability.r_4_level
+			damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*0.1*ability.r_4_level
 		end
 		if caster:HasModifier("modifier_voltex_glyph_6_1") then
 			damage = damage*30

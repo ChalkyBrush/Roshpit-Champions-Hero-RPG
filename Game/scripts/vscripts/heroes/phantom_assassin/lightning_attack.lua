@@ -78,12 +78,12 @@ function LightningAttack( keys )
         end
         if not caster:IsIllusion() then    
             if caster.q_4_level then
-                damage = damage + attacker:GetAverageTrueAttackDamage(attacker)*0.15*caster.q_4_level
+                damage = damage + OverflowProtectedGetAverageTrueAttackDamage(attacker)*0.15*caster.q_4_level
             end
             Filters:TakeArgumentsAndApplyDamage(unit, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
         else
             if caster.hero.q_4_level then
-                damage = damage + attacker:GetAverageTrueAttackDamage(attacker)*0.15*caster.hero.q_4_level
+                damage = damage + OverflowProtectedGetAverageTrueAttackDamage(attacker)*0.15*caster.hero.q_4_level
             end
             Filters:TakeArgumentsAndApplyDamage(unit, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
         end
