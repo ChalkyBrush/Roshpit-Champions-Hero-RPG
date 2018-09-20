@@ -87,7 +87,7 @@ function b_c_sequence(caster, position, fv, ability)
 				Target = enemy,
 				Source = caster,
 				Ability = ability,	
-				EffectName = "particles/units/heroes/hero_skywrath_mage/leshrac_rune_e_2_arcane_bolt.vpcf",
+				EffectName = "particles/units/heroes/hero_skywrath_mage/leshrac_rune_b_c_arcane_bolt.vpcf",
 				StartPosition = "attach_attack1",
 				bDrawsOnMinimap = false, 
 			        bDodgeable = true,

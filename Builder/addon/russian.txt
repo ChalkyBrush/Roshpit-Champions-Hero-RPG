@@ -2573,7 +2573,6 @@
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_1"	"(T7) Символ Высшей Силы"
 		"item_rpc_neutral_glyph_7_1_description" 			"Увеличивает Cилу на @glyph_property2% или на @glyph_property1, в зависимости от того, какое число выше."
-"
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_2"	"(T1) Символ малого проворства"
 		"item_rpc_neutral_glyph_1_2_description" 			"Увеличивает Ловкость на @glyph_property1"
