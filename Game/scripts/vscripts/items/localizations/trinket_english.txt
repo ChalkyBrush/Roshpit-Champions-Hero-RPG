@@ -3,11 +3,260 @@
 		"item_property_blacksmiths_tablet"			"Refined Weaponry"
 		"property_blacksmiths_tablet_description"	"Your equipped weapon's bonuses (including runes) are increased by <% BLACKSMITH_TABLE_ADD_STATS_PCT * 100%>%. Additionally increases XP gain on weapons by <% BLACKSMITH_TABLE_ADD_WEAPON_EXP * 100 %>%."
 
+		
 		"DOTA_Tooltip_ability_item_rpc_hope_of_saytaru"									"Hope of Saytaru"
 		"item_property_saytaru"						"Last Hope"
 		"property_saytaru_description"				"Gain Spell Immunity while below <% SAYTARU_HP_THRESHOLD_PCT * 100 %>% health. While active, this increases your resistance to Pure damage by <% SAYTARU_PURE_DMG_RESISTANCE * 100 %>%, but decreases your outgoing Magic and Pure damage by <% SAYTARU_OUTPUT_PURE_AND_MAGIC_DMG_DECREASE * 100 %>%."
 
+		
 		"DOTA_Tooltip_ability_item_rpc_sapphire_lotus"									"Sapphire Lotus"
 		"item_property_sapphire_lotus"				"Sapphire Soul"
 		"property_sapphire_lotus_description"		"Each point of Intelligence additionally increases max health by <% SAPPHIRE_LOTUS_HP_PER_INT %>."
 
+		
+		"DOTA_Tooltip_ability_item_rpc_conquest_stone_falcon" 							"Conquest Stone Falcon"
+		"item_property_stone_falcon"						"Gift of the Reliquary"
+		"property_stone_falcon_description"				"Instances of Magic or Pure damage taken can not exceed 35% of max health."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_never_ring"										"Soul Ring"
+    	"DOTA_Tooltip_ability_item_rpc_never_ring_Description"							"Slot: Trinket"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_sand_tomb_orb"									"Fangs of Silithicus"
+		"DOTA_Tooltip_ability_item_rpc_sand_tomb_orb_Description"						"Slot: Trinket"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_badge_of_honor"									"Badge of Honor"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_monkey_paw"										"Monkey Paw"
+		"item_property_monkey_paw"					"Wishful Curse"
+		"property_monkey_paw_description"			"Paragon monsters who die within 600 range drop additional Immortal rarity items, at the cost of @special_property1% of your gold. The difficulty level of the map increases the quality of the items dropped, but also increases the amount of gold needed to generate them (@special_property2/@special_property3/@special_property4 in Normal/Elite/Legend). Equipping this item causes you to take 1 point of Pure damage every 0.03 seconds."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_stone_of_gordon"									"Stone of Gordon"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_arbor_dragonfly"									"Arbor Dragonfly"
+		"item_property_arbor_dragonfly"				"Misty Wood's Blessing"
+		"property_arbor_dragonfly_description"		"Increases the duration of all friendly buffs that you apply from abilities, runes and glyphs by @special_property1%."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_gem_of_eternal_frost"							"Gem of Eternal Frost"
+		"item_property_eternal_frost"				"Frost Nova"
+		"property_eternal_frost_description"		"Nearby enemies are slowed by 12 movespeed every 0.1 seconds. When their movespeed drops below 150 they are rooted for 4.5 seconds. When you cast @Ability3 - root all enemies in a 500 radius<br>in a case of ice for 2.5 seconds and deal damage equal to @special_property1x your intelligence.<br>All damage dealt directly by items is enhanced by @special_property2% for each 10 points of intelligence."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_lifesource_vessel"								"Lifesource Vessel"
+		"item_property_lifesource_vessel"			"Lifesource"
+		"property_lifesource_vessel_description"	"Each point of strength increases your health regen by 0.3"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_galaxy_orb"										"Galaxy Orb"
+		"item_property_galaxy_orb"					"Black Hole"
+		"property_galaxy_orb_description"			"While channeling @Ability4 - all surrounding enemies are slowly vacuumed towards you."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_azure_empire"									"Pendant of the Azure Empire"
+		"item_property_azure_empire"				"Sky Magistrate"
+		"property_azure_empire_description"			"3 azure hawks accompany you, absorbing 1 instance of magic or pure damage each. Hawks regenerate @special_property1 seconds after taking a hit."
+		"item_property_azure_empire_silver"				"Silver Skies"
+		"property_azure_empire_silver_description"	"Each active hawk increases base ability damage by @special_property2%"
+		"item_property_azure_empire_green"				"Jade Skies"
+		"property_azure_empire_green_description"	"Each active hawk increases agility by @special_property3x your hero's level."
+		"item_property_azure_empire_red"				"Crimson Skies"
+		"property_azure_empire_red_description"	"Each active hawk increases strength by @special_property3x your hero's level."
+		"item_property_azure_empire_blue"				"Cerulean Skies"
+		"property_azure_empire_blue_description"	"Each active hawk increases intelligence by @special_property3x your hero's level."
+		"DOTA_Tooltip_modifier_azure_empire_visible"	"Azure Empire"
+		"DOTA_Tooltip_modifier_azure_empire_visible_Description"	"Hawks absorbing magic and pure damage."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_signus_charm"									"Signus Charm"
+		"item_property_signus"						"Signus"
+		"property_signus_description"				"Decreases cooldown of @Ability4 by 40%. Doubles the cooldown of @Ability3."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_eye_of_avernus"									"Eye of Avernus"
+		"item_property_avernus"						"Commanding Vision"								
+		"property_avernus_description"				"Increases the damage of all base abilities by 50%"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_tome_of_chaos"									"Tome of Chaos"
+		"item_property_tome_of_chaos"				"Infernal Reign"
+		"property_tome_of_chaos"					"When you cast @Ability2 - summon a mighty infernal in front of you and stun enemies for 2 seconds. The infernal has 2x your health, 0.5x your armor, and damage equal to 5x the sum of your attributes with cleave.<br> Lasts 20 seconds and has a 30 second cooldown."
+		"DOTA_Tooltip_modifier_tome_of_chaos_cooldown"	"Infernal Reign Cooldown"
+		"DOTA_Tooltip_modifier_tome_of_chaos_cooldown_Description"	""
+		
+		
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_torch_of_gengar"									"Torch of Gengar"
+		"item_property_gengar"						"Shadow Walk"
+		"property_gengar"							"15% chance on taking damage to gain 75% evasion, unit walking and 300% increased ability damage for 6 seconds."
+		"DOTA_Tooltip_modifier_torch_of_gengar_effect"	"Shadow Walk"
+		"DOTA_Tooltip_modifier_torch_of_gengar_effect_Description"	"75%% evasion, unit walking and 300%% increased ability damage."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_ruinfall_skull_token"							"Ruinfall Skull Token"
+		"item_property_ruinfall"					"Sandstorm"
+		"property_ruinfall"							"When you fall below 25% health, go invisibile within a sandstorm and restore 20% of your max health for 5 seconds. While in sandstorm you are silenced, disarmed and rooted. 40 second cooldown."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_omega_ruby"										"Omega Ruby"
+		"item_property_omega_ruby"					"Omega Flare"
+		"property_omega_ruby"						"Your basic attacks have an explosive @special_property1% magic damage AOE. Stacks with other forms of cleave."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"Raven Idol LV1"
+		"item_property_raven_idol"					"Black Soul"		
+		"property_raven_idol_description"			"Reduce damage taken from all sources by 40%. Your health can not go above 50% of your max. Each time you take damage, this property increases by 1. Upgrades at 12000."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_raven_idol2"										"Raven Idol LV2"
+		"item_property_raven_idol2"					"Black Soul II"		
+		"property_raven_idol_description2"			"Reduce damage taken from all sources by 50%. Your health can not go above 50% of your max. Each 100 points of missing health increases damage dealt directly by items by 0.01%."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_phoenix_emblem"									"Phoenix Emblem"
+		"item_property_phoenix_emblem"				"Rebirth"
+		"property_phoenix_emblem"					"On death, revive after 5 seconds and stun all surrounding enemies for 5 seconds. 60 second cooldown."
+		"DOTA_Tooltip_modifier_phoenix_emblem_cooldown"	"Rebirth Cooldown"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_volcano_orb"										"Volcano Orb"
+		"item_property_volcano_orb"					"Fiery Core"
+		"property_volcano_orb_description"			"Increases ALL magic damage output by @special_property1%"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_aeriths_tear"									"Aerith's Tear"
+		"item_property_aeriths_tear"							"Last Wish"
+		"property_aeriths_tear"									"Reduces damage taken from enemies within 240 distance by @special_property1%"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_fractional_enhancement_geode"					"Fractional Enhancement Geode"
+		"item_property_geode"								"Logarathmic Amplification"
+		"property_geode_description"						"If you deal damage less than 0.2% of the target's max health, multiply that damage instance by 20."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility"								"Ring of Nobility"
+		"item_property_nobility"							"Path of Nobility"
+		"property_nobility_description"						"Increases all attributes by @special_property1x your level. When an enemy is slain, this property counts up, and when it reaches 10,000 this ring upgrades."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility_augmented"						"Augmented Ring of Nobility"
+		"item_property_nobility_augmented"					"Strides of Nobility"
+		"property_nobility_augmented_description"			"Increases all attributes by @special_property1x your level."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_twig_of_the_enlightened"							"Twig of the Enlightened"
+		"item_property_twig_of_enlightened"					"Mana Shell"
+		"property_twig_of_enlightened_description"			"Whenever you gain mana, create a shield that absorbs damage equal to 5x the mana gained. Shield damage absorbed is capped at 5x your maximum mana."
+		"DOTA_Tooltip_modifier_twig_of_the_enlightened_shield"	"Mana Shell"
+		"DOTA_Tooltip_modifier_twig_of_the_enlightened_shield_Description"	"Absorbing Damage"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_ancient_tanari_waterstone"						"Ancient Tanari Waterstone"
+		"item_property_ancient_waterstone"					"Water Goddess' Blessing"
+		"property_ancient_waterstone_description"			"Damage dealt directly by equipped items is increased by @special_property1%"
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_tempest_falcon_ring"								"Tempest Falcon Ring"
+		"item_property_tempest_falcon"						"Storm Switch"
+		"property_tempest_falcon_description"				"Dealing an instance of physical damage applies a buff that enhances your next instance of magic damage by 300%"
+		"DOTA_Tooltip_modifier_tempest_falcon_ring_effect"	"Storm Switch"
+		"DOTA_Tooltip_modifier_tempest_falcon_ring_effect_Description"	"Next instance of magic damage deals 300%% more."
+		 
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_firelock_pendant"								"Firelock Pendant"
+		"item_property_firelock"							"Steady Flame"		
+		"property_firelock_description"					"Increases ALL physical damage by @special_property1% for every 10 points of strength."
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_antique_mana_relic"								"Antique Mana Relic"
+		"item_property_antique_mana_relic"					"Mana Storm"
+		"property_antique_mana_relic_description"			"@Ability1 drains 50% of your max mana and deals 400% increased damage. Attacks restore 2.5% of max mana. Each point of current mana adds 1 base attack damage."
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_epsilons_eyeglass"								"Epsilon's Eyeglass"
+		"item_property_epsilon_eyeglass"					"Extended Scope"
+		"property_epsilon_eyeglass_description"			"Increases attack range by @special_property1 (RANGE ONLY) and increases vision radius by @special_property2, and adds @special_property3 to your attack projectile's speed. Additionally, each of your attacks deals an instance of physical damage based on the distance between you and your target.<br>(Formula: 0.00@special_property4 * hero level * distance ^ 3)<br>The maximum distance allowed for the bonus damage is @special_property5."
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_fenrirs_fang"									"Fenrir's Fang"
+		"item_property_fenrir_fang"							"Alpha Wolf Aura"
+		"property_fenrir_fang"									"Increases attack damage of yourself and nearby allies by 60%"
+		"DOTA_Tooltip_modifier_fenrir_fang_buff"				"Alpha Wolf Aura"
+		"DOTA_Tooltip_modifier_fenrir_fang_buff_Description"	"Increased attack damage"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_fuchsia_ring"									"Fuchsia Ring"
+		"item_property_fuchsia_ring"							"Solidarity"
+		"property_fuchsia_ring_description"					"While silenced or stunned all damage taken is reduced by @special_property1% and health regen is increased by @special_property2% of max health."
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_fortunes_talisman_of_truth"						"Fortune's Talisman of Truth"
+		"item_property_fortune_talisman"						"Luck Booster"
+		"property_fortune_talisman_description"				"Increases the proc chance of all equipped items by @special_property1%"
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_cobalt_serenity_ring"							"Cobalt Serenity Ring"
+		"item_property_cobalt_serenity"						"Cobalt Serenity"
+		 "property_cobalt_serenity_description"					"Health Regen is increased by @special_property1% of Intelligence."
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_emerald_nullification_ring"						"Emerald Nullification Ring"
+		"item_property_emerald_null"							"Emerald Nullification"
+		 "property_emerald_null_description"					"Instances of Pure or Magic damage taken are reduced by @special_property1x your agility after magic resist and before other reductions."
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_garnet_warfare_ring"								"Garnet Warfare Ring"
+		"item_property_garnet_warfare"							"Garnet Warfare"
+		 "property_garnet_warfare_description"					"Increases base ability damage by @special_property1% for every 10 points of Strength."
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_serengaard_sun_crystal"							"Serengaard Sun Crystal"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_wind_orchid"										"Wind Orchid"
+		"item_property_wind_orchid"							"Wind Bloom"
+		 "property_wind_orchid_description"						"Every point in E4 rune increases Agility by @special_property1."
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_aqua_lily"										"Aqua Lily"
+		"item_property_aqua_lily"							"Water Bloom"
+		 "property_aqua_lily_description"					"Every point in R4 rune increases Intelligence by @special_property1."
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_fire_blossom"									"Fire Blossom"
+		"item_property_fire_blossom"							"Fire Bloom"
+		 "property_fire_blossom_description"					"Every point in W4 rune increases Strength by @special_property1."
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_ankh_of_the_ancients"							"Ankh of the Ancients"
+		"item_property_ankh_of_ancients"						"Immortal Spirit"
+		 "property_ankh_of_ancients_description"				"On taking a fatal blow, gain a shield for @special_property1 seconds that reduces all damage taken by 100% and grants stun immunity and refreshes all cooldowns. @special_property2x of duration cooldown. Max duration cannot be more than @special_property3 seconds."
+		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield"		"Immortal Spirit"
+		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield_Description"	"Immune to damage and stuns"
+		 "DOTA_Tooltip_modifier_ankh_of_ancients_cooldown"		"Ankh Cooldown"
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_aquastone_ring"									"Aquastone Ring"	
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_world_trees_flower_cache"						"World Tree's Flower Cache"
+		"item_property_world_trees_flower_cache"				"Blood Orchid"
+		"property_world_trees_flower_cache_description"			"On taking lethal damage, you are reborn from a flower after 3 seconds with full health. Upon emerging, you receive a buff that increases post-mitigation damage by 200% but increases all damage taken by 200% for 12 seconds. 12 second cooldown."
+		"DOTA_Tooltip_modifier_world_tree_cache_cooldown"		"Blood Orchid Cooldown"
+		"DOTA_Tooltip_modifier_world_tree_effect"				"Blood Orchid"
+		"DOTA_Tooltip_modifier_world_tree_effect_Description"	"Post-mitgation damage dealt and damage taken increased by 200%%"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_arcane_charm"									"Arcane Charm"
+		"item_property_arcane_charm"					"Magic Magnet"
+		"property_arcane_charm_description"				"Increases Arcane Crystal pickup radius by @special_property1%, and collecting an arcane crystal restores 10/20/50/100% of max health and mana depending on crystal size."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_winterblight_skull_ring"							"Winterblight Skull Ring"
