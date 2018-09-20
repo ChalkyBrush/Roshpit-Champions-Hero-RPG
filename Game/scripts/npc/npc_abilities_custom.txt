@@ -2756,6 +2756,11 @@
 				"var_type"				"FIELD_FLOAT"
 				"mana_drain_per_second"	"75.0 60.0 50.0 40.0 25.0 15.0 5.0"
 			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"1188"
+			}
 
 		}
 
@@ -2861,6 +2866,14 @@
 					}
 				}
 			}
+			"modifier_bahamut_arcana_w4_amp"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_bahamut_arcana_w4_amp_linger"
+			{
+				"IsHidden"	"1"
+			}
 		}
 
 	}
@@ -2950,7 +2963,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"500"
+				"property_one"			"0.21"
 			}
 		}
 	}
@@ -58919,7 +58932,7 @@
 			{
 				"ModifierName"	"modifier_light_charging"
 				"Target" 		"CASTER"
-				"Duration"		"0.9"
+				"Duration"		"10"
 			}
 			"FireSound"
 			{
@@ -78895,24 +78908,19 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4200"
+				"property_one"			"30"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"6000"
+				"base_ability"			"3"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"element_one"			"7"
 			}
-			"05"
+			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_two"			"0.05"
@@ -79050,7 +79058,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2440"
+				"property_one"			"6100"
 			}
 			"02"
 			{
@@ -138557,6 +138565,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"mana_drain_per_second"	"75.0 60.0 50.0 40.0 25.0 15.0 5.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"1188"
 			}
 
 		}

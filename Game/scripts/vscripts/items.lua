@@ -1198,7 +1198,10 @@ function RPCItems:AcceptNewItem(keys)
 	local playerID = keys.PlayerID
 	local oldItem = EntIndexToHScript(keys.oldItem)
 	local newItem = EntIndexToHScript(keys.newItem)
-	print("item accepted")
+	hero.cant_use_items = true
+	Timers:CreateTimer(0.75, function()
+		hero.cant_use_items = false
+	end)
 	DeepPrintTable(keys)
 	local slot = RPCItems:getGearSlot(newItem.slot)
 	CustomNetTables:SetTableValue("equipment", tostring(playerID).."-"..tostring(slot), {itemIndex = newItem:GetEntityIndex()} )
@@ -1406,9 +1409,35 @@ function RPCItems:EndRoll(rollSlot, itemIndex)
 		local playerID = nil
 		if winningPlayer then
 			hero = GameState:GetHeroByPlayerID(winningPlayer)
-			if hero then
+			--GameState:GetHeroByPlayerID returns -1 if no hero found
+			if type(hero) ~= "number" then
 				heroId = hero:GetClassname()
 				playerID = winningPlayer
+			end
+		end
+		if type(hero) == "number" then
+			if MAIN_HERO_TABLE and #MAIN_HERO_TABLE>0 then
+				local newTable = MAIN_HERO_TABLE
+				local index = RandomInt(1, #newTable)
+				hero = newTable[index]
+				playerID = hero:GetPlayerID()
+				while not RPCItems:GetIsPlayerConnected(playerID) do
+					table.remove(newTable, index)
+					if #newTable<1 then
+						rolltype = "pass"
+						break
+					end
+					index = RandomInt(1, #newTable)
+					hero = newTable[index]
+					playerID = hero:GetPlayerID()
+				end
+				if rolltype ~= "pass" then
+					heroId = hero:GetClassname()
+					playerID = hero:GetPlayerID()
+					Notifications:TopToAll({text="Winner not found, new random player is selected", duration=5.0})
+				end
+			else
+				rolltype = "pass"
 			end
 		end
 		if rolltype == "pass" then

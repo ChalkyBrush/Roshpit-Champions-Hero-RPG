@@ -506,6 +506,9 @@ function GameState:OrderFilter(orderTable)
 	-- DeepPrintTable(orderTable)
 	local unit = EntIndexToHScript(unitNumber)
 	if IsValidEntity(unit) and not unit:IsChanneling() then
+		if orderTable.order_type == DOTA_UNIT_ORDER_CAST_NO_TARGET and orderTable.entindex_ability and EntIndexToHScript(orderTable.entindex_ability):IsItem() and unit.cant_use_items then
+			return false
+		end
 		if GameState:IsWinterblight() then
 			if orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET and EntIndexToHScript(orderTable.entindex_target).prop_id == 2 then
 				unit.Attacking_a_Cup = true
@@ -2650,6 +2653,14 @@ function GameState:FilterDamage(filterTable)
     		filterTable["damage"] = filterTable["damage"] * (1 + r_4_level * SEINARU_R4_POSTMIT_MULT)
     	end
     end
+    if attacker:HasModifier("modifier_bahamut_arcana_w4_amp") and not attacker:HasModifier("modifier_bahamut_arcana_w4_amp_linger") then
+		local stacks = attacker:FindModifierByName("modifier_bahamut_arcana_w4_amp"):GetStackCount()
+		filterTable["damage"] = filterTable["damage"] * (1 + stacks/100)
+	end
+	if attacker:HasModifier("modifier_bahamut_arcana_w4_amp_linger") then
+		local stacks = attacker:FindModifierByName("modifier_bahamut_arcana_w4_amp_linger"):GetStackCount()
+		filterTable["damage"] = filterTable["damage"] * (1 + stacks/100)
+	end
 
 
 	if victim:HasModifier("modifier_fire_mage_ai") then

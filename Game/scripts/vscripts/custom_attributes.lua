@@ -121,6 +121,11 @@ function CDOTA_BaseNPC_Hero:GetBaseStrength()
 		strength = strength - modifier.stat_bonus
 	end
 
+	modifier = self:FindModifierByName('modifier_neutral_glyph_7_1')
+	if modifier then
+		strength = strength - modifier:GetStackCount()
+	end
+
 	return strength
 end
 
@@ -163,6 +168,11 @@ function CDOTA_BaseNPC_Hero:GetBaseAgility()
 		agility = agility - modifier.stat_bonus
 	end
 
+	modifier = self:FindModifierByName('modifier_neutral_glyph_7_2')
+	if modifier then
+		agility = agility - modifier:GetStackCount()
+	end
+
 	return agility
 end
 
@@ -193,6 +203,11 @@ function CDOTA_BaseNPC_Hero:GetBaseIntellect()
 	modifier = self:FindModifierByName('modifier_blue_divinex_amulet')
 	if modifier and modifier.stat_bonus then
 		intellect = intellect - modifier.stat_bonus
+	end
+
+	modifier = self:FindModifierByName('modifier_neutral_glyph_7_3')
+	if modifier then
+		intellect = intellect - modifier:GetStackCount()
 	end
 
 	return intellect
@@ -553,19 +568,19 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_neutral_glyph_1_1", CustomAttributes.NEUTRAL_GLYPH_1)
 	end
 	if hero:HasModifier("modifier_neutral_glyph_7_1") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_neutral_glyph_7_1", CustomAttributes.NEUTRAL_GLYPH_7)
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_neutral_glyph_7_1", 1)
 	end
 	if hero:HasModifier("modifier_neutral_glyph_1_2") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_neutral_glyph_1_2", CustomAttributes.NEUTRAL_GLYPH_1)
 	end
 	if hero:HasModifier("modifier_neutral_glyph_7_2") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_neutral_glyph_7_2", CustomAttributes.NEUTRAL_GLYPH_7)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_neutral_glyph_7_2", 1)
 	end
 	if hero:HasModifier("modifier_neutral_glyph_1_3") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_neutral_glyph_1_3", CustomAttributes.NEUTRAL_GLYPH_1)
 	end
 	if hero:HasModifier("modifier_neutral_glyph_7_3") then
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_neutral_glyph_7_3", CustomAttributes.NEUTRAL_GLYPH_7)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_neutral_glyph_7_3", 1)
 	end
 	if hero:HasModifier("modifier_mountain_protector_glyph_5_a") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_mountain_protector_glyph_5_a", CustomAttributes.MOUNTAIN_PROTECTOR_GLYPH_5_A)
@@ -780,44 +795,6 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 		unit.w_4_level = Runes:GetTotalRuneLevelGeneric(unit, 4, 1)
 		unit.e_4_level = Runes:GetTotalRuneLevelGeneric(unit, 4, 2)
 		unit.r_4_level = Runes:GetTotalRuneLevelGeneric(unit, 4, 3)
-		tableData.elements = {}
-		local damageDealt = 1000
-		local damageNORMAL = Filters:ElementalDamage(Events.GameMaster, unit, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE, false)
-		table.insert(tableData.elements, math.floor(damageNORMAL/damageDealt))
-		local damageFIRE = Filters:ElementalDamage(Events.GameMaster, unit, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE, false)
-		table.insert(tableData.elements, math.floor(damageFIRE/damageDealt))
-		local damageEARTH = Filters:ElementalDamage(Events.GameMaster, unit, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE, false)
-		table.insert(tableData.elements, math.floor(damageEARTH/damageDealt))
-		local damageLIGHTNING = Filters:ElementalDamage(Events.GameMaster, unit, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE, false)
-		table.insert(tableData.elements, math.floor(damageLIGHTNING/damageDealt))
-		local damagePOISON = Filters:ElementalDamage(Events.GameMaster, unit, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE, false)
-		table.insert(tableData.elements, math.floor(damagePOISON/damageDealt))
-		local damageTIME = Filters:ElementalDamage(Events.GameMaster, unit, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE, false)
-		table.insert(tableData.elements, math.floor(damageTIME/damageDealt))
-		local damageHOLY = Filters:ElementalDamage(Events.GameMaster, unit, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE, false)
-		table.insert(tableData.elements, math.floor(damageHOLY/damageDealt))
-		local damageCOSMOS = Filters:ElementalDamage(Events.GameMaster, unit, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE, false)
-		table.insert(tableData.elements, math.floor(damageCOSMOS/damageDealt))
-		local damageICE = Filters:ElementalDamage(Events.GameMaster, unit, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE, false)
-		table.insert(tableData.elements, math.floor(damageICE/damageDealt))
-		local damageARCANE = Filters:ElementalDamage(Events.GameMaster, unit, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE, false)
-		table.insert(tableData.elements, math.floor(damageARCANE/damageDealt))
-		local damageSHADOW = Filters:ElementalDamage(Events.GameMaster, unit, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE, false)
-		table.insert(tableData.elements, math.floor(damageSHADOW/damageDealt))
-		local damageWIND = Filters:ElementalDamage(Events.GameMaster, unit, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE, false)
-		table.insert(tableData.elements, math.floor(damageWIND/damageDealt))
-		local damageGHOST = Filters:ElementalDamage(Events.GameMaster, unit, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE, false)
-		table.insert(tableData.elements, math.floor(damageGHOST/damageDealt))
-		local damageWATER = Filters:ElementalDamage(Events.GameMaster, unit, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE, false)
-		table.insert(tableData.elements, math.floor(damageWATER/damageDealt))
-		local damageDEMON = Filters:ElementalDamage(Events.GameMaster, unit, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE, false)
-		table.insert(tableData.elements, math.floor(damageDEMON/damageDealt))
-		local damageNATURE = Filters:ElementalDamage(Events.GameMaster, unit, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_NATURE, RPC_ELEMENT_NONE, false)
-		table.insert(tableData.elements, math.floor(damageNATURE/damageDealt))
-		local damageUNDEAD = Filters:ElementalDamage(Events.GameMaster, unit, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE, false)
-		table.insert(tableData.elements, math.floor(damageUNDEAD/damageDealt))
-		local damageDragon = Filters:ElementalDamage(Events.GameMaster, unit, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_DRAGON, RPC_ELEMENT_NONE, false)
-		table.insert(tableData.elements, math.floor(damageDragon/damageDealt))
 	else
 		if unit.itemLevel then
 			level = math.ceil(unit.itemLevel/4)
@@ -834,7 +811,58 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 			tableData.pure = unit.resist_pure*100000
 		end
 	end
+	local victim = unit
+	local attacker = player:GetAssignedHero()
+	local IsEnemy = true
+	if unit:IsHero() then
+		IsEnemy = false
+		victim = Events.GameMaster
+		attacker = unit
+	end
+	tableData.elements = {}
+	local damageDealt = 1000
+	local damageNORMAL = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageNORMAL/damageDealt))
+	local damageFIRE = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageFIRE/damageDealt))
+	local damageEARTH = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageEARTH/damageDealt))
+	local damageLIGHTNING = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageLIGHTNING/damageDealt))
+	local damagePOISON = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damagePOISON/damageDealt))
+	local damageTIME = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageTIME/damageDealt))
+	local damageHOLY = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageHOLY/damageDealt))
+	local damageCOSMOS = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageCOSMOS/damageDealt))
+	local damageICE = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageICE/damageDealt))
+	local damageARCANE = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageARCANE/damageDealt))
+	local damageSHADOW = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageSHADOW/damageDealt))
+	local damageWIND = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageWIND/damageDealt))
+	local damageGHOST = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageGHOST/damageDealt))
+	local damageWATER = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageWATER/damageDealt))
+	local damageDEMON = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageDEMON/damageDealt))
+	local damageNATURE = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_NATURE, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageNATURE/damageDealt))
+	local damageUNDEAD = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageUNDEAD/damageDealt))
+	local damageDragon = Filters:ElementalDamage(victim, attacker, damageDealt*100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_DRAGON, RPC_ELEMENT_NONE, false)
+	table.insert(tableData.elements, math.floor(damageDragon/damageDealt))
 	tableData.halcyon = 0
+	if IsEnemy then
+		for k,v in pairs(tableData.elements) do
+			tableData.elements[k] = -(v-100)
+		end
+	end
 	if unit:HasModifier("modifier_halcyon_soul_glove") then
 		tableData.halcyon = 1
 	end
@@ -851,7 +879,5 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 	tableData.eAmp = (eDamage/baseDamage)*100
 	local rDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
 	tableData.rAmp = (rDamage/baseDamage)*100
-	CustomGameEventManager:Send_ServerToPlayer(player, "attribute_tooltip", {unit = msg.queryunit, playerID = msg.playerID, extraData = tableData} )
+	CustomGameEventManager:Send_ServerToPlayer(player, "attribute_tooltip", {unit = msg.queryunit, playerID = msg.playerID, extraData = tableData, IsEnemy = IsEnemy} )
 end
-
-
