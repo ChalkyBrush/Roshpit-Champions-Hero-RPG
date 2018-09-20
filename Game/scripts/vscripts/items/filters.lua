@@ -32,7 +32,7 @@ function Filters:ApplyItemDamage(victim,attacker,damage,damage_type,item,element
     if attacker:HasModifier('modifier_duskbringer_glyph_7_2') then
         element2 = RPC_ELEMENT_GHOST
     end
-    if attacker:GetUnitName() == "npc_dota_hero_leshrac" then
+    if attacker:GetUnitName() == "npc_dota_hero_leshrac" and not attacker:HasModifier("modifier_bahamut_sphere_of_divinity") and not attacker:HasModifier("modifier_bahamut_arcana_w4_amp") and not attacker:HasModifier("modifier_bahamut_arcana_w4_amp_linger") then
         damage = Filters:Bahamut_DB_rune(attacker, damage, 0, victim)
     end
     if victim:HasModifier("modifier_item_resistance") then
@@ -1257,7 +1257,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     end
 
     if not ignore_effects then
-        if attackerName == "npc_dota_hero_leshrac" then
+        if attackerName == "npc_dota_hero_leshrac" and not attacker:HasModifier("modifier_bahamut_sphere_of_divinity") and not attacker:HasModifier("modifier_bahamut_arcana_w4_amp") and not attacker:HasModifier("modifier_bahamut_arcana_w4_amp_linger") then
             if slot > 0 then
                 damage = Filters:Bahamut_DB_rune(attacker, damage, slot, victim)
             end

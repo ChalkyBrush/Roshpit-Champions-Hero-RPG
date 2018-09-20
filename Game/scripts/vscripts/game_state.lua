@@ -2653,13 +2653,18 @@ function GameState:FilterDamage(filterTable)
     		filterTable["damage"] = filterTable["damage"] * (1 + r_4_level * SEINARU_R4_POSTMIT_MULT)
     	end
     end
-    if attacker:HasModifier("modifier_bahamut_arcana_w4_amp") and not attacker:HasModifier("modifier_bahamut_arcana_w4_amp_linger") then
-		local stacks = attacker:FindModifierByName("modifier_bahamut_arcana_w4_amp"):GetStackCount()
-		filterTable["damage"] = filterTable["damage"] * (1 + stacks/100)
-	end
-	if attacker:HasModifier("modifier_bahamut_arcana_w4_amp_linger") then
-		local stacks = attacker:FindModifierByName("modifier_bahamut_arcana_w4_amp_linger"):GetStackCount()
-		filterTable["damage"] = filterTable["damage"] * (1 + stacks/100)
+   	if filterTable.entindex_inflictor_const then
+    	local ability = attacker:FindAbilityByName(EntIndexToHScript(filterTable.entindex_inflictor_const):GetName())
+    	if ability then
+		    if attacker:HasModifier("modifier_bahamut_arcana_w4_amp") and not attacker:HasModifier("modifier_bahamut_arcana_w4_amp_linger") then
+				local stacks = attacker:FindModifierByName("modifier_bahamut_arcana_w4_amp"):GetStackCount()
+				filterTable["damage"] = filterTable["damage"] * (1 + stacks/100)
+			end
+			if attacker:HasModifier("modifier_bahamut_arcana_w4_amp_linger") then
+				local stacks = attacker:FindModifierByName("modifier_bahamut_arcana_w4_amp_linger"):GetStackCount()
+				filterTable["damage"] = filterTable["damage"] * (1 + stacks/100)
+			end
+		end
 	end
 
 

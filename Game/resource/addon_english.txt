@@ -430,7 +430,7 @@
     	"DOTA_Tooltip_modifier_arcana2_purity_freeze_Description"			"Frozen"
 
   		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2"						"[W4] Ether Breach"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"All Base Ability and Item damage is enhanced by Bahamut's missing mana (flat amount). Also deal increased damage while inside the Sphere of Divinity based on its speed. Casting Megaflare while in the sphere multiplies the speed of @Ability2 by 3x. This damage increase lingers for 5 seconds. Damage increase from speed is multiplied by @Ability2's level."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"All Base Ability and Item damage is enhanced by Bahamut's missing mana while outside of the @Ability2 (flat amount). Your abilities deal increased damage while inside the @Ability2 based on its speed. Casting Megaflare while in the @Ability2 multiplies the speed of the @Ability2 by 3x and makes this rune treat you as if you are inside the @Ability2 for next 5 seconds. Damage increase from speed is multiplied by @Ability2's level."
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"			"Extra Damage"
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"					"% of missing mana"
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_two"			"Damage Increase"
