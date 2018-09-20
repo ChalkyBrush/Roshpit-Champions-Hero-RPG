@@ -85,6 +85,10 @@
 		"DOTA_Tooltip_ability_item_rpc_doomplate"										"Doomplate"
 		"item_property_doomplate"					"Summon Doom"
 		"property_doomplate_description"			"Casting @Ability4 summons Doombringer. He immediately dooms you on summon, silencing and disarming you, and then proceeds to combat enemies with pyroblasts that deal 1x Doombringer's attack damage, which is @special_property1x the caster's.<br> Lasts 30 seconds and has a 30 second cooldown. Armor and health increases with caster's."
+		"doomplate_doom"							"Doom"
+		"DOTA_Tooltip_modifier_doomplate_cooldown"	"Doomplate Cooldown"
+		"DOTA_Tooltip_modifier_doomplate_doom_debuff"	"Doom"
+		"DOTA_Tooltip_modifier_doomplate_doom_debuff_Description"	"Can't attack and silenced."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ice_quill_carapace"								"Ice Quill Carapace"
