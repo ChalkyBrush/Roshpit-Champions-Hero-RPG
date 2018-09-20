@@ -16,9 +16,6 @@ function cataclysm_damage(event)
     local target = event.target
     local caster = event.caster
     local damage = event.damage
-    if caster:HasModifier("modifier_flamewaker_glyph_5_1") then
-    	damage = damage*2.5
-    end
     
     Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_FIRE, RPC_ELEMENT_EARTH)
     local stun_duration = event.stun_duration

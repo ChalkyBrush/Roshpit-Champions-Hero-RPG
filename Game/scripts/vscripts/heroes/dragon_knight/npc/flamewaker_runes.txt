@@ -297,13 +297,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"2000"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% FLAMEWAKER_R2_DMG_EXP_SCALE_BASE %>"
 			}
 			"03"
 			{
@@ -665,13 +660,13 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% FLAMEWAKER_ARCANA_Q1_ARMOR_PER_STACK %>"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"2"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% FLAMEWAKER_ARCANA_Q1_MANAREGEN_PER_STACK %>"
 			}
 		}
 	}
@@ -716,7 +711,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"<% FLAMEWAKER_ARCANA_Q3_PROC_CHANCE %>"
 			}
 		}
 	}
@@ -737,7 +732,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"65"
+				"property_one"			"<% FLAMEWAKER_ARCANA_Q4_DMG_PER_ATT * 100 %>"
 			}
 			"02"
 			{
