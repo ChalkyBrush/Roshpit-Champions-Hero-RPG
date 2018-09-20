@@ -1198,6 +1198,7 @@ function RPCItems:AcceptNewItem(keys)
 	local playerID = keys.PlayerID
 	local oldItem = EntIndexToHScript(keys.oldItem)
 	local newItem = EntIndexToHScript(keys.newItem)
+	local hero = GameState:GetHeroByPlayerID(playerID)
 	hero.cant_use_items = true
 	Timers:CreateTimer(0.75, function()
 		hero.cant_use_items = false
