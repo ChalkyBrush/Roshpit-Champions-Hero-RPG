@@ -395,10 +395,10 @@ function a_b_attack(event)
 				if caster:HasModifier('modifier_flamewaker_glyph_3_1') and w_ability then
 					if w_3_level > 0 then
 						local additional_armorLoss = math.ceil(1.0*w_3_level)
-						w_ability:ApplyDataDrivenModifier(caster, target, "modifier_searing_heat", {duration = 6})
-						local current_stack = target:GetModifierStackCount( "modifier_searing_heat", w_ability )
+						w_ability:ApplyDataDrivenModifier(caster, enemy, "modifier_searing_heat", {duration = 6})
+						local current_stack = enemy:GetModifierStackCount( "modifier_searing_heat", w_ability )
 						local stacks = math.min(current_stack+additional_armorLoss, 10000)
-						target:SetModifierStackCount( "modifier_searing_heat", w_ability, stacks )
+						enemy:SetModifierStackCount( "modifier_searing_heat", w_ability, stacks )
 					end
 				end
 				-- ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL })
