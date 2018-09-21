@@ -1928,6 +1928,7 @@
         ##ASTRAL_RANGER_ENGLISH##
         ##AURIUN_ENGLISH##
         ##AXE_ENGLISH##
+        ##BAHAMUT_ENGLISH##
         ##CHERNOBOG_ENGLISH##
         ##CONJUROR_ENGLISH##
         ##DINATH_ENGLISH##
@@ -1957,6 +1958,12 @@
     	##HELM_ENGLISH##
     	##TRINKET_ENGLISH##
 
+        ##ARENA_ENGLISH##
+        ##REDFALL_ENGLISH##
+        ##SEA_FORTRESS_ENGLISH##
+        ##SERENGAARD_ENGLISH##
+        ##TANARI_ENGLISH##
 		##TUTORIAL_ENGLISH##
+		##WINTERBLIGHT_ENGLISH##
 	}	
 }

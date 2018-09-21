@@ -1,0 +1,638 @@
+		
+		
+				//ARENA
+
+		"roshpit_arena"												"肉山谷竞技场"
+		"arena_dialogue_one"										"肉山竞技场将举行最高等级的比赛。来自全世界的人们将一起为我们最伟大的冠军欢呼。"
+		"arena_attendee_one"										"竞技场管理员"
+
+		"arena_fan_dialogue_one"									"我来这里看我最喜爱的战士，Champion Varaphlas!"
+		"arena_fan_dialogue_two"									"哇，你是我最喜爱的英雄！"
+		"arena_entrance_fan"										"竞技场爱好者"
+
+		"arena_fan2_dialogue_one"									"我来这儿观看挑战联赛！任何人都可以报名，但只有极少数能达到最高的等级。"
+
+		"arena_left_leaderboard_title"								"冠军联赛"
+
+		"champions_league_attendant"								"冠军联赛服务员"
+		"pvp_league_attendant"										"PVP联赛服务员"
+		"pvp_league_attendant_message"								"PVP联赛仍在开发中，敬请期待。"
+		"challenger_league_attendant_message"						"挑战联赛（团队挑战）仍在开发中，敬请期待。"
+
+		"hall_of_champions_dialogue"								"这些雕像用以纪念以往英雄们的英勇和胆魄。"
+
+		"arena_behind_counter_1"									"请在柜台的另一边和我说话。"
+		"arena_behind_counter_2"									"嘿，你不应该回到这里。"
+		"arena_behind_counter_3"									"仅限工作人员。请你离开这里。"
+
+		"arena_league_attendant_greeting"							"欢迎来到冠军联赛！"
+		"pvp_league_attendant_greeting"								"这里是PVP联赛。"
+		"challenger_league_attendant_greeting"						"欢迎来到挑战联赛！"
+
+		"challenger_attendant"										"挑战联赛服务员"
+
+		"arena_league_attendant_player_restriction"					"冠军联赛只接受单人模式报名。如果你想参与请你独身前来。"
+		"arena_league_attendant_player_state_0"						"欢迎来到冠军联赛！这是一项检验参赛者个人技艺的全球赛事。"
+		"arena_league_attendant_choice_0_option_1"					"报名"
+		"arena_league_attendant_choice_0_option_2"					"忽略"
+
+		"champions_league_assistant"								"朗月教练"
+
+		"arena_league_attendant_player_state_1"						"看起来你似乎没有教练。需要我为你安排一个吗？"
+		"arena_league_attendant_choice_1_option_1"					"是的"
+		"arena_league_attendant_choice_1_option_2"					"不用了"
+		"arena_league_attendant_calling_coach"						"好的，我现在就呼叫她。她很快就将赶来。"
+		"arena_league_attendant_waiting_for_coach"					"你的教练即将到来，请在此稍候。"
+
+		"champion_assistant_dialogue_1"								"能别烦我吗？我在思考问题！"
+		"champion_assistant_dialogue_2"								"我来了。这位就是新成员？"
+		"arena_league_attendant_coach_arrive"						"你好！"
+		"champion_assistant_dialogue_3"								"你看起来好弱……不过我在你的眼中看到了对胜利的渴望。"
+		"champion_assistant_dialogue_4"								"希望你别像我以前教导的选手那样脆弱。"	
+		"champion_assistant_dialogue_5"								"跟着我，我带你去新手休息室并准备你的第一场比赛。"
+		"champion_assistant_dialogue_6"								"这里是冠军大厅。我时常到这里来思考过去的战斗。"		
+		"arena_league_attendant_coach_arrive_end"					"祝你们两好运！"
+		"champion_assistant_dialogue_7"								"这里是新手休息室。尽管它不是最棒的，但它现在是你属于的地方。"
+		"champion_assistant_dialogue_8"								"由于你现在已经是正式参赛者，欢迎你在任何时候来这里。"
+		"champion_assistant_dialogue_9"								"那边就是竞技场后台。你可以在那里报名一场比赛。"
+		"champion_assistant_dialogue_9a"							"去试试吧！"
+		"champion_assistant_dialogue_10"							"哦？你的报名似乎出了点问题，我需要到前台去确认一下。"
+		"champion_assistant_dialogue_11"							"请在此稍候，你可以先了解一下你的对手。我马上回来。"
+		"champion_assistant_dialogue_12"							"好的，已经安排妥当了。去后台报名你的第一场比赛吧。"
+		"champion_assistant_dialogue_12a"							"你的比赛即将开始。正在为你安排竞技场！"
+		"champion_assistant_dialogue_13"							"这是你的第一场比赛。比赛是BO3，如果你赢了，就可以昂首继续前进。"
+		"champion_assistant_dialogue_14"							"如果你输了，最好先回家，等你变得更强时再回来。"
+		"champion_assistant_dialogue_15"							"很好，你赢得了第一场比赛的胜利。不要骄傲，后面的比赛会越来越难。"
+		"champion_assistant_dialogue_15a"							"胜利后将自动保存你的冠军联赛进度。"
+		"champion_assistant_dialogue_16"							"在后台开始你的下一场比赛。"
+		"champion_assistant_dialogue_17"							"暗语者是一个强大的对手，她拥有强大的物理攻击并能一直追上你。"
+		"champion_assistant_dialogue_19"							"很多人在这儿放弃了，现在看看你的韧性如何。"
+		"champion_assistant_dialogue_20"							"精彩的表现，观众们非常喜欢。"
+		"champion_assistant_dialogue_21"							"期待你的下一场比赛。"
+		"champion_assistant_dialogue_22"							"让你看看Gorewreck的表现。去后台报名把！"
+		"champion_assistant_dialogue_23"							"Gorewreck被攻击时将反弹伤害。受到的攻击越高反弹得越多。"
+		"champion_assistant_dialogue_24"							"保持稳定和可控的节奏！"
+		"champion_assistant_dialogue_25"							"Elderheart可以召唤三种能力各异的元素。"
+		"champion_assistant_dialogue_26"							"土元素拥有高魔法抗性，火元素拥有高护甲。"
+		"champion_assistant_dialogue_27"							"真是一场伟大的胜利！我相信你能走得更远。"
+		"champion_assistant_dialogue_28"							"Bryvarus拥有难以置信的速度和韧性。"
+		"champion_assistant_dialogue_29"							"使用各种方法保持距离并干掉他！"
+		"champion_assistant_dialogue_30"							"这个对手相当狡猾，别让他给骗了！"
+		"champion_assistant_dialogue_31"							"真是一场了不起的表演！再过5个等级就到主赛事了。"
+		"champion_assistant_dialogue_32"							"坚持下去！"
+		"champion_assistant_dialogue_33"							"唯一使Ironspike受伤的方法是让他攻击你！"
+		"champion_assistant_dialogue_34"							"治疗并承受伤害是赢得这场比赛的关键。"
+		"champion_assistant_dialogue_35"							"Ursa Major 将召唤一大群野熊。"
+		"champion_assistant_dialogue_36"							"使用AOE是最有效的获胜方法。"
+		"champion_assistant_dialogue_37"							"Rakash投掷眩晕斧头且相当灵活。"
+		"champion_assistant_dialogue_38"							"他拥有周期性的魔法免疫，因此物理攻击将是最可靠的。"
+		"champion_assistant_dialogue_39"							"红雾队长拥有光环，每秒对你造成3% 当前最大生命值的纯粹伤害。"
+		"champion_assistant_dialogue_40"							"如果你的生命值低于35%，他将斩杀你！"
+		"champion_assistant_dialogue_41"							"你的下一场比赛将带你通往主赛事。"
+		"champion_assistant_dialogue_42"							"我为你达到的成绩感到骄傲！"
+		"champion_assistant_dialogue_43"							"我不应该怀疑你的，来看看你如何通往主赛事吧！"
+		"champion_assistant_dialogue_44"							"地狱挑战者融合了地狱城堡各种强者的能力。"
+		"champion_assistant_dialogue_45"							"如果你是一个有经验的冒险者，你应该知道如何应对他！"
+		"champion_assistant_dialogue_45a"							"祝贺你取得了一场伟大的胜利！"
+		"champion_assistant_dialogue_45b"							"现在你进入了主赛事，随时欢迎你去主赛事休息室。"
+		"champion_assistant_dialogue_45c"							"我为你获得的成就感到骄傲！"
+		"champion_assistant_dialogue_46"							"Arcanys 拥有最大攻击距离并能在竞技场中四处传送。"
+		"champion_assistant_dialogue_47"							"机动性和闪避将有助于获胜。"	
+		"champion_assistant_dialogue_48"							"只有最强大的英雄才能参与主赛事。去后台开始你的下一场比赛！"
+		"champion_assistant_dialogue_49"							"Grand Warlord 每失去1% 生命值将获得1魔法抗性。"
+		"champion_assistant_dialogue_50"							"你最好使用物理伤害解决他。"
+		"champion_assistant_dialogue_51"							"Condorpaw 拥有短CD的闪烁技能。"
+		"champion_assistant_dialogue_52"							"他将使用火和冰攻击你。"
+		"champion_assistant_dialogue_53"							"我记不起你下一个对手的情况了。"
+		"champion_assistant_dialogue_54"							"6级的比赛总是显得有点模糊。"
+		"champion_assistant_dialogue_55"							"看到我你似乎松了一口气，为什么？"
+		"champion_assistant_dialogue_56"							"我们距离全明星赛只差1级了！多么了不起的英雄！"
+		"champion_assistant_dialogue_57"							"Varaphlas 攻击时带有地震效果。"
+		"champion_assistant_dialogue_58"							"他还将召唤一群混沌流星，注意你的头顶！"	
+		"champion_assistant_dialogue_59"							"你是一个著名的全明星英雄！"
+		"champion_assistant_dialogue_59a"							"全明星的战斗极富挑战性，不过我相信你能做到。"
+		"champion_assistant_dialogue_60"							"Oplexus 是观众的最爱，几乎无法从他那儿抢走观众。"
+		"champion_assistant_dialogue_61"							"别被他的光芒夺目！保持专注！"
+		"champion_assistant_dialogue_62"							"红色拉比克魔法免疫，蓝色拉比克物理免疫。"
+		"champion_assistant_dialogue_63"							"两兄弟共享生命值，所以攻击你更容易攻击的目标。"
+		"champion_assistant_dialogue_64"							"不可思议！现在你是冠军联赛的Top 3！"
+		"champion_assistant_dialogue_65"							"我从未料到你能走到这一步，你觉得我们可以达到最顶端吗？"	
+		"champion_assistant_dialogue_66"							"Nemesis 的特殊攻击能造成大量伤害，不过是可预测的。"
+		"champion_assistant_dialogue_67"							"快速习惯他的攻击模式，你就没问题了。"	
+		"champion_assistant_dialogue_68"							"再获得一场胜利你就是总冠军！"
+		"champion_assistant_dialogue_69"							"我们一路艰辛地走来，是时候去获得#1了！"
+
+		"sign_hall_of_champions"									"冠军大厅"
+		"sign_aquatarium"											"游乐厅"
+		"sign_minor_locker_room"									"新手休息室"
+		"sign_major_locker_room"									"主赛事休息室"
+		"sign_allstar"												"全明星休息室"
+
+		"arena_aquatarium_magician"									"水魔术"
+		"aquatarium_greeting"										"在周围的水里找到我，你将获得200秘银水晶！每位游客限玩一次。"
+		"aquatarium_greeting_alt"									"抱歉，每次来访只能玩一次。请你下次再来！"
+		"aquatarium_greeting_bubble"								"来，看看你能否找到我！"
+		"aquatarium_option_1"										"开始吧！"
+
+		"aquatarium_start"											"漂亮！给我1分钟，这个游戏需要点时间来准备。"
+		"aquatarium_working"										"快好了，再等等。"
+		"aquatarium_ready"											"好了，仔细看着我。准备好了吗？"	
+		"aquatarium_lose"											"不好意思，我跑掉了！下次再努力些吧。"	
+		"aquatarium_win_1"											"如果我的波形不这么保守的话就太简单了。"	
+		"aquatarium_win_2"											"你赢了，这是奖励你的秘银水晶。"	
+		"aquatarium_win_3"											"祝贺你，不过下次就不会那么简单啦。"	
+
+		"terminal_rank_display"										"等级："	
+		"arena_terminal_wins"										"胜利："	
+		"arena_terminal_fame"										"名气："		
+		"start_champions_league_battle"								"报名比赛"	
+		"terminal_registrant_not_found"								"未找到"
+		"terminal_cant_register"									"报名无效"
+		"terminal_cant_choose_opponent"								"对手锁定"
+		"terminal_choose_opponent"									"选择对手"
+		"terminal_opponent_unselected"								"未选择对手"
+		"terminal_high_score"										"最高得分："
+		"terminal_opponent_rank"									"对手等级："
+
+		"champion_league_challenger_20"								"Rekkin Stargrin"
+		"arena_champion_20_lower"									"我在天梯的最底层卡住了，不过我不会放弃的。"
+		"arena_champion_20_higher"									"你是一个强大的参赛者。总有一天我会达到你的等级。"
+
+		"DOTA_Tooltip_ability_arena_rekkin_wave"					"空间波"
+		"DOTA_Tooltip_ability_arena_rekkin_wave_Description"		"发射一道耀眼的光波，眩晕敌人并造成伤害。"
+
+		"DOTA_Tooltip_ability_arena_dodge_ability"					"竞技场闪避"
+		"DOTA_Tooltip_ability_arena_dodge_ability_Description"		"灵巧地战斗"
+
+		"arena_prebattle_text"										"比赛："
+		"arena_crowdsize_text"										"观众规模"
+		"arena_fan_support"											"粉丝支持"
+		"DOTA_Tooltip_modifier_arena_crowd_buff"					"粉丝支持"
+		"DOTA_Tooltip_modifier_arena_crowd_buff_Description"		"每有一个支持的粉丝提高所有伤害输出10%%"
+		"skip_button_label"											"跳过"
+
+		"arena_battle_lost"											"比赛失败"
+		"arena_battle_win"											"比赛获胜！"
+
+		"arena_time_bonus"											"时间分数"
+		"arena_style_bonus"											"观众分数"
+		"arena_total_bonus"											"总分"
+
+		"champion_league_challenger_19"								"暗语者"
+		"DOTA_Tooltip_ability_arena_stifling_dagger"				"窒息之刃"
+		"DOTA_Tooltip_ability_arena_stifling_dagger_Description"	"使用一把锐利的匕首造成大量伤害并降低目标速度。"	
+
+		"DOTA_Tooltip_ability_arena_phantom_strike"					"幻影突袭"
+		"DOTA_Tooltip_ability_arena_phantom_strike_Description"		"传送至目标身旁，同时提高攻击速度，持续4次攻击。"	
+
+		"champion_league_challenger_18"								"Gorewreck"
+		"arena_champion_18_taunt"									"你太弱小了，放弃吧！"
+		"arena_coach_18_defend_taunt"								"听起来你在害怕？别慌，很快就结束了。"
+		"arena_champion_18_ready"									"碾碎懦夫~碾碎懦夫~"
+		"arena_champion_18_lower"									"冠军联赛不适合像你这样的懦夫。"
+		"arena_champion_18_higher"									"我没时间陪你过家家，恩？"
+
+		"champion_league_challenger_17"								"Ru Elderheart"
+		"arena_champions_17_1"										"要征服竞技场..."
+		"arena_champions_17_2"										"就得先征服元素"
+		
+		
+		"champion_league_challenger_16"								"Bryvarus Plainsrunner"
+		"champion_league_challenger_16_dialogue"					"速度和耐久是一个成功冠军的主要特征。"	
+
+		"champion_league_challenger_15"								"Blind Sleeper"
+		"champion_league_challenger_15_dialogue"					"我从暗影中袭来。"	
+
+		"champion_league_challenger_14"								"Ironspike"
+
+		"DOTA_Tooltip_ability_arena_quill_spray"					"针刺扫射"
+		"DOTA_Tooltip_ability_arena_quill_spray_Description"		"对附近所有敌人造成物理伤害。"
+
+		"DOTA_Tooltip_ability_arena_drill_spike"					"钻钉"
+		"DOTA_Tooltip_ability_arena_drill_spike_Description"		"施放针刺扫射时同时发射钻钉，对目标造成其最大生命值20% 的纯粹伤害并降低护甲值。每施放一个钻钉，施法者受到的伤害提高。"
+
+		"DOTA_Tooltip_modifier_arena_drill_spike_enemy"					"钻钉"
+		"DOTA_Tooltip_modifier_arena_drill_spike_enemy_Description"		"护甲值降低"
+
+		"DOTA_Tooltip_modifier_drill_spike_self"						"钻钉"
+		"DOTA_Tooltip_modifier_drill_spike_self_Description"			"每层提高受到的伤害100%% "
+
+		"champion_league_challenger_13"								"Ursa Major"
+
+		"champion_league_challenger_12"								"Rakash Axemelter"
+
+		"champion_league_challenger_11"								"Red Mist Captain"
+
+		"DOTA_Tooltip_modifier_arena_radiance_aura_effect"			"竞技场辉耀"
+		"DOTA_Tooltip_modifier_arena_radiance_aura_effect_Description"	"每秒受到当前生命值3%% 的纯粹伤害。同时降低75点移动速度。"
+
+		"DOTA_Tooltip_ability_arena_challenger_11_radiance"				"竞技场辉耀"
+		"DOTA_Tooltip_ability_arena_challenger_11_radiance_Description"	"每秒对所有敌人造成其当前生命值3% 的纯粹伤害。同时降低敌人移动速度75点。"
+
+		"champion_league_challenger_10"								"竞技场征服者"
+		"champion_league_challenger_10_dialogue_lower"				"战败者的灵魂将被我丢进死亡大军里永久奴役。你会死在我前面吗？"	
+		"champion_league_challenger_10_dialogue_higher"				"我的死亡大军尊重你的力量。"
+
+		"DOTA_Tooltip_ability_arena_challenger_10_wraithfire"		"冥火轰击"
+		"DOTA_Tooltip_ability_arena_challenger_10_wraithfire_Description"	"向目标投掷一个燃烧的头骨，造成眩晕和伤害。"
+
+		"champion_league_challenger_9"								"Arcanys Mindflay"
+		"champion_league_challenger_9_dialogue_lower"				"低劣的灵魂在我的刀下颤抖。"	
+		"champion_league_challenger_9_dialogue_higher"				"你的理智超出我的预期。"
+
+		"champion_league_challenger_8"								"Grand Warlord"
+
+		"champion_league_challenger_7"								"Condorpaw Sunfreeze"
+		"champion_league_challenger_7_dialogue"						"太阳和群星预示了这场战斗的结果，我是最终的胜利者。"
+
+		"champion_league_challenger_6"								"Atropos"			
+
+		"DOTA_Tooltip_ability_arena_ghastly_air_warden_passive"		"枯翼"
+		"DOTA_Tooltip_ability_arena_ghastly_air_warden_passive_Description"	"受到的魔法伤害降低99%"
+
+		"champion_league_challenger_5"								"Champion Varaphlas"
+		"champion_league_challenger_5_dialogue"						"你需要一辈子时间的努力训练才能达到最伟大的高度。"
+		"champion_league_challenger_5_dialogue_higher"				"你的力量使我感到自惭形秽。"	
+
+		"champion_league_challenger_4"								"Oplexus"
+		"champion_league_challenger_4_dialogue"						"粉丝们爱我，因为我是完美的！"
+
+		"DOTA_Tooltip_ability_item_rpc_arena_prizebox"				"竞技场奖箱"
+		"arena_prizebox_level"										"等级"
+
+		"champion_league_challenger_3"								"拉比克兄弟"
+		"champion_league_challenger_3_a"							"蓝色"
+		"champion_league_challenger_3_b"							"红色"		
+
+		"DOTA_Tooltip_ability_arena_challenger_3_bolt"				"组合技"
+		"DOTA_Tooltip_ability_arena_challenger_3_bolt_Description"	"造成伤害，同时缴械或沉默敌人。"
+
+		"DOTA_Tooltip_modifier_challenger_bolt_blue_debuff"			"组合技"
+		"DOTA_Tooltip_modifier_challenger_bolt_blue_debuff_Description"	"被沉默"	
+
+		"DOTA_Tooltip_modifier_challenger_bolt_red_debuff"			"组合技"
+		"DOTA_Tooltip_modifier_challenger_bolt_red_debuff_Description"	"被缴械"	
+
+		"DOTA_Tooltip_ability_arena_challenger_3_b_passive"			"红色拉比克"
+		"DOTA_Tooltip_ability_arena_challenger_3_b_passive_Description"	"物理免疫"
+		"DOTA_Tooltip_ability_arena_challenger_3_a_passive"			"蓝色拉比克"
+		"DOTA_Tooltip_ability_arena_challenger_3_a_passive_Description"	"魔法免疫"
+
+		"champion_league_challenger_2"								"Nemesis"
+
+		"champion_league_challenger_1"								"King Jette"
+		"champion_league_challenger_1_dialogue"						"身经百战，唯我独尊。"
+		"champion_league_challenger_1_dialogue_alt"					"新王诞生。"	
+
+		"DOTA_Tooltip_modifier_arena_newb_fountain"					"基地回复"
+		"DOTA_Tooltip_modifier_arena_good_fountain"					"基地回复"
+
+		"DOTA_Tooltip_ability_item_rpc_helm_of_champions"			"冠军头盔"
+		"DOTA_Tooltip_ability_item_rpc_gauntlet_of_champions"		"冠军手套"
+		"DOTA_Tooltip_ability_item_rpc_champions_mail"				"冠军战甲"
+		"DOTA_Tooltip_ability_item_rpc_boots_of_champions"			"冠军鞋子"
+
+		"arena_prizebox_champions"									"冠军装备"
+
+		//Pit of Trials
+
+		"tooltip_pit_of_trials"												"深渊的考验"
+
+		"arena_trial_of_conquest"									"征服的考验"
+		"arena_trial_of_lies"										"征服的谎言"
+		"arena_trial_of_descent"									"征服的侵袭"
+
+		"tooltip_pit_highest_level"										"最高完成的级别"
+		"tooltip_no_lock_out"											"副本可用"
+		"tooltip_lock_out"												"副本锁定<br>直到明天"
+
+		"tooltip_select_pit_level"										"选择副本难度"
+		"tooltip_select_pit_level_title"								"等级选择"	
+		"tooltip_dungeon_lockout"										"副本解除"
+		"tooltip_open_pit"												"Open Pit"
+		"tooltip_pit_open"												"Pit Open"
+
+		"tooltip_pit_enemy_damage"										"敌人造成的伤害"
+		"tooltip_pit_enemy_resistance"									"敌人的抗性"
+		"tooltip_pit_enemy_paragon"										"精英怪的生成率"
+
+		"DOTA_Tooltip_ability_arena_master_duelist_passive"					"战斗加速"
+		"DOTA_Tooltip_ability_arena_master_duelist_passive_Description"		"当攻击敌人时候, 有30%机率增加1秒的最大攻击速度."
+
+		"DOTA_Tooltip_ability_arena_champion_gladiator_passive"				"坚固的铠甲"
+		"DOTA_Tooltip_ability_arena_champion_gladiator_passive_Description"	"每次受到攻击会增加50护甲."
+
+		"DOTA_Tooltip_modifier_champion_gladiator_passive_stacking"			"坚固的铠甲"
+		"DOTA_Tooltip_modifier_champion_gladiator_passive_stacking_Description"	"每次增加50护甲"	
+
+		"DOTA_Tooltip_ability_arena_soul_revenant_passive"					"灵魂火花"
+		"DOTA_Tooltip_ability_arena_soul_revenant_passive_Description"		"对附近敌人每0.2秒造成基于敌人1%最大血量的纯粹伤害."
+
+		"DOTA_Tooltip_ability_arena_shadow_sniper_passive"					"过载"
+		"DOTA_Tooltip_ability_arena_shadow_sniper_passive_Description"		"攻击降级敌人的移动速度和攻击力."
+		"DOTA_Tooltip_ability_arena_shadow_sniper_passive_move_slow"		"移动速度降低:"
+		"DOTA_Tooltip_ability_arena_shadow_sniper_passive_attack_loss"		"攻击力降低 %:"
+
+		"DOTA_Tooltip_modifier_arena_shadow_sniper_slow"					"过载"
+		"DOTA_Tooltip_modifier_arena_shadow_sniper_slow_Description"		"降低移动速度和攻击力."
+
+		"DOTA_Tooltip_ability_arena_mire_keeper_passive"					"涌动"
+		"DOTA_Tooltip_ability_arena_mire_keeper_passive_Description"		"受到伤害时候增加攻击力."
+		"DOTA_Tooltip_ability_arena_mire_keeper_passive_damage_per_instance"	"每次受到伤害增加的攻击力 %"
+
+		"DOTA_Tooltip_modifier_mire_keeper_passive_effect"					"涌动"
+		"DOTA_Tooltip_modifier_mire_keeper_passive_effect_Description"		"增加攻击力"
+
+		"DOTA_Tooltip_ability_arena_mountain_crush"							"山丘粉碎"
+		"DOTA_Tooltip_ability_arena_mountain_crush_Description"				"跳到敌人位置造成地震."	
+
+		"DOTA_Tooltip_ability_arena_cragnataur_shockwave"					"冲击波"
+		"DOTA_Tooltip_ability_arena_cragnataur_shockwave_Description"		"直线上的敌人被山丘之力造成伤害"
+
+		"arena_pit_conquest_cragnataur"									"Cragnataur"
+
+		"arena_pit_conquest_priest_of_karzhun"							"Kar'zhun的牧师"
+
+		"DOTA_Tooltip_ability_arena_priest_of_karzhun_shield"			"Kar'zhun 的护盾"
+		"DOTA_Tooltip_ability_arena_priest_of_karzhun_shield_Description"	"攻击护盾的敌人会被反伤, 拥有护盾不会受到魔法伤害."
+		"DOTA_Tooltip_ability_arena_priest_of_karzhun_shield_damage_return"	"反伤最大生命值伤害 % :"
+		"DOTA_Tooltip_ability_arena_priest_of_karzhun_shield_magic_resist"	"魔法抗性:"
+
+		"arena_pit_conquest_helob"												"Helob"
+
+		"DOTA_Tooltip_ability_arena_conquest_helob_venomous_bite"				"毒蛇攻击"
+		"DOTA_Tooltip_ability_arena_conquest_helob_venomous_bite_Description"	"攻击速度降低并且持续受到伤害"
+		"DOTA_Tooltip_ability_arena_conquest_helob_venomous_bite_moveslow"			"移动速度降低:"
+		"DOTA_Tooltip_ability_arena_conquest_helob_venomous_bite_damage_per_tick"	"每0.2秒受到的攻击:"
+		
+
+		"DOTA_Tooltip_modifier_helob_venomous_bite_effect"						"毒蛇攻击"
+		"DOTA_Tooltip_modifier_helob_venomous_bite_effect_Description"			"攻击速度降低并且持续受到伤害."
+
+		"arena_pit_conquest_shrine_of_karzhun"							"Kar'zhun的牧师"
+		"arena_pit_conquest_shrine_of_karzhun_Description"				"收到来自Kar'zhun的遗品"
+
+		"arena_pit_shrine_of_karzhun_option_1"							"给予所有金钱"
+		"arena_pit_shrine_of_karzhun_option_2"							"返回"	
+
+		"DOTA_Tooltip_modifier_kharzun_buff"							"Kar'zhun的力量"
+
+		"DOTA_Tooltip_ability_arena_conquest_karzhun_gift_passive"		"Kar'zhun的力量"
+		"DOTA_Tooltip_ability_arena_conquest_karzhun_gift_passive_Description"	"增强Karhzun的天赋和减弱附近的单位."
+
+		"DOTA_Tooltip_modifier_karzhun_aura_stackable"					"Kar'zhun的力量"
+
+		"DOTA_Tooltip_ability_arena_temple_explorer_passive"			"魔法护盾"
+		"DOTA_Tooltip_ability_arena_temple_explorer_passive_Description"	"提供魔抗的被动"
+		"DOTA_Tooltip_ability_arena_temple_explorer_passive_magic_resist"	"魔法抗性:"
+
+		"DOTA_Tooltip_ability_arena_conquest_feedback"				"反馈"
+		"DOTA_Tooltip_ability_arena_conquest_feedback_Description"	"当附近敌人的魔法值减伤, 敌人会被基于消耗的魔法值造成纯粹的伤害. 并且会增加被攻击目标的魔抗."
+
+		"DOTA_Tooltip_ability_arena_conquest_feedback_damage_per_mana"	   "每点魔法值造成的伤害:"
+		"DOTA_Tooltip_ability_arena_conquest_feedback_magic_resist" 		"魔抗:"
+
+		"DOTA_Tooltip_modifier_fairy_dragon_feedback"						"反馈"
+		"DOTA_Tooltip_modifier_fairy_dragon_feedback_Description"			"魔法值减伤时受到伤害."
+
+		"arena_conquest_skeletal_mage"										"回荡的笼骨架"
+		"arena_conquest_temple_hunter"										"征服的刺客"
+		"arena_conquest_temple_repeller"									"秘密的守护者"
+		"arena_conquest_temple_witch_doctor"								"无脸的Arachnomancer"
+
+		"DOTA_Tooltip_ability_arena_conquest_sapphire_flare"				"蓝宝石之火"
+		"DOTA_Tooltip_ability_arena_conquest_sapphire_flare_Description"	"一股蓝色火焰对附近敌人造成眩晕和伤害."
+		"DOTA_Tooltip_ability_arena_conquest_sapphire_flare_damage"		"伤害:"
+		"DOTA_Tooltip_ability_arena_conquest_sapphire_flare_stun_duration"	"眩晕时间:"
+
+		"DOTA_Tooltip_ability_conquest_bovel_ai"							"征服之王"
+		"DOTA_Tooltip_ability_conquest_bovel_ai_Description"				"所受到的伤害不会超过1%的最大生命值."
+
+		"DOTA_Tooltip_ability_arena_challenger_16_warcry"					"战吼"
+		"DOTA_Tooltip_ability_arena_challenger_16_warcry_Description"		"增加移动速度和攻击速度8秒"	
+		"DOTA_Tooltip_ability_arena_challenger_16_warcry_movespeed"			"移动速度:"
+		"DOTA_Tooltip_ability_arena_challenger_16_warcry_attackspeed"		"攻击速度:"
+
+		"DOTA_Tooltip_ability_arena_conquest_frost_bolt"					"冰箭"
+		"DOTA_Tooltip_ability_arena_conquest_frost_bolt_Description"		"降低目标的移动速度和攻击速度."
+		"DOTA_Tooltip_ability_arena_conquest_frost_bolt_slow_duration"		"冷冻持续时间:"	
+
+		"DOTA_Tooltip_modifier_conquest_frost_bolt"						"冰箭"
+		"DOTA_Tooltip_modifier_conquest_frost_bolt_Description"			"攻击速度和移动速度降低"
+
+		"pit_conquest_boss"												"黑魔法师的征服"
+
+		"DOTA_Tooltip_ability_conquest_black_mage_luminescence"			"发光"
+		"DOTA_Tooltip_ability_conquest_black_mage_luminescence_Description"	"使用法杖的魔法充能在前面释放出灵魂之马对面造成伤害"	
+
+		"DOTA_Tooltip_ability_conquest_boss_ai"							"暗影"
+		"DOTA_Tooltip_ability_conquest_boss_ai_Description"				"无视所有物理伤害和魔法伤害."
+
+		"DOTA_Tooltip_modifier_conquest_boss_slow_effect"	"黑池"
+		"DOTA_Tooltip_modifier_conquest_boss_slow_effect_Description"	"减速"
+
+		"DOTA_Tooltip_ability_conquest_boss_burn_ability"			"灵魂削弱"
+		"DOTA_Tooltip_ability_conquest_boss_burn_ability_Description"	"燃烧附近敌人2%的最大生命值并造成纯粹伤害."
+		
+		"DOTA_Tooltip_modifier_conquest_boss_burn_ability"			"灵魂削弱"
+
+		"DOTA_Tooltip_modifier_conquest_boss_burn_ability_effect"	"灵魂削弱"
+		"DOTA_Tooltip_modifier_conquest_boss_burn_ability_effect_Description"	"每秒受到2%的最大生命值的纯粹伤害."
+
+
+
+		"DOTA_Tooltip_ability_item_rpc_truth_dust"					"真视之粉"
+		"truth_dust_description"									"500码内的隐身单位显形30秒."
+		"DOTA_Tooltip_ability_arena_lies_beetle_passive"				"等离子外壳"
+		"DOTA_Tooltip_ability_arena_lies_beetle_passive_damage"			"伤害"
+		"DOTA_Tooltip_ability_arena_lies_beetle_passive_Description"	"附近敌人受到伤害并且短暂的降低移动速度."
+
+		"DOTA_Tooltip_modifier_lies_beetle_effect"						"等离子外壳"
+		"DOTA_Tooltip_modifier_lies_beetle_effect_Description"			"移动速度降低"
+
+		"DOTA_Tooltip_ability_grave_watcher_ai"							"灵魂吸取"
+		"DOTA_Tooltip_ability_grave_watcher_ai_Description"				"减速附近敌人的生命回复速度3%和降低移动速度40%"	
+
+		"DOTA_Tooltip_ability_lies_lich_ai"								"灵魂吸取"
+		"DOTA_Tooltip_ability_lies_lich_ai_Description"					"减速附近敌人的生命回复速度3%和降低移动速度40%"	
+	
+		"DOTA_Tooltip_ability_doombringer_searing_chains"				"灼热之链"
+		"DOTA_Tooltip_ability_doombringer_searing_chains_Description"	"困住附近敌人并且燃烧."
+
+
+		"arena_lies_supreme_ogre"										"食人魔战士"
+
+		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive"			"秘密注入"
+		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_Description"	"增加能力"
+		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_movespeed"	"移动速度:"
+		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_attack_speed"	"攻击速度:"
+		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_damage_percent"	"攻击力增加 %:"
+		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_armor_bonus"	"额外护甲"
+		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_health_regen_percent"	"血量回复 %:"
+
+		"DOTA_Tooltip_ability_arena_lies_mana_break"					"法力燃烧"
+		"DOTA_Tooltip_ability_arena_lies_mana_break_Description"		"燃烧魔法并且造成基于燃烧量的伤害."
+		"DOTA_Tooltip_ability_arena_lies_mana_break_mana_per_hit"		"MANA BURN PER HIT:"
+
+		"DOTA_Tooltip_ability_arena_lies_arbiter_passive"				"虚幻之光"
+		"DOTA_Tooltip_ability_arena_lies_arbiter_passive_Description"	"增加护甲和攻击伤害."	
+		"DOTA_Tooltip_ability_arena_lies_arbiter_passive_damage_percent"	"攻击伤害 %:"
+		"DOTA_Tooltip_ability_arena_lies_arbiter_passive_armor_bonus"		"额外护甲:"
+
+		"DOTA_Tooltip_ability_arena_lies_treasure_bird_passive"			"黄金翅膀"
+		"DOTA_Tooltip_ability_arena_lies_treasure_bird_passive_Description"	"增加魔法抗性. 当血量降到低于35%, 增加魔法抗性."
+		"DOTA_Tooltip_ability_arena_lies_treasure_bird_passive_magic_resist"	"魔法抗性 %:"
+		"DOTA_Tooltip_modifier_arena_lies_treasure_bird_passive_magic_resist"	"魔法免疫"
+
+		"lies_treasure_hoarder"											"黄金的鹰"
+
+		"arena_lies_shadow_beast"										"影兽"
+
+		"lies_trickster_mage"											"奥术师的狡诈"
+		"DOTA_Tooltip_ability_arena_lies_trickster_ability"				"旋转闪避"
+		"DOTA_Tooltip_ability_arena_lies_trickster_ability_Description"	"试图用快速的动作闪避附近敌人的攻击"	
+
+		"arena_lies_supreme_ogre_true"									"真正的食人魔战士"
+
+		"DOTA_Tooltip_ability_arena_lies_black_hole"					"黑洞"
+		"DOTA_Tooltip_ability_arena_lies_black_hole_Description"		"拉取附近物质4秒."
+
+		"arena_lies_castle_enigma"										"Light Eater"
+
+		"DOTA_Tooltip_ability_arena_magic_immune_breakable_ability"		"魔法守卫"
+		"DOTA_Tooltip_ability_arena_magic_immune_breakable_ability_Description"	"增加魔法抗性. 魔法盾在被15次攻击后破坏."
+
+		"DOTA_Tooltip_modifier_magic_immune_breakable_ability"			"魔法守卫"
+		"DOTA_Tooltip_modifier_magic_immune_breakable_ability_Description"	"魔法免疫. 攻击可以打破此盾."
+
+		"DOTA_Tooltip_ability_arena_lies_plasma_field"					"等离子场"
+		"DOTA_Tooltip_ability_arena_lies_plasma_field_Description"		"电力震荡在其路径上的敌人. 靠近的敌人造成更多的伤害."
+		"DOTA_Tooltip_ability_arena_lies_plasma_field_damage_max"		"最大伤害:"
+
+		"arena_lies_test_dummy"											"试验假人"
+
+		"arena_lies_boss"												"巨人猎人"
+
+		"DOTA_Tooltip_ability_arena_lies_boss_ai"						"闪避"
+		"DOTA_Tooltip_ability_arena_lies_boss_ai_Description"			"有几率闪避物理攻击"
+		"DOTA_Tooltip_ability_arena_lies_boss_ai_evasion"				"闪避几率 %:"		
+
+		"DOTA_Tooltip_ability_arena_lies_boss_magic_immune_ability"		"魔法守卫"
+		"DOTA_Tooltip_ability_arena_lies_boss_magic_immune_ability_Description"	"施加魔法免疫只能通过攻击将次盾打破"	
+
+		"DOTA_Tooltip_ability_arena_lies_boss_illusion_ability"			"诱骗"
+		"DOTA_Tooltip_ability_arena_lies_boss_illusion_ability_Description"	"创造一个可以使用所有技能的分身."
+		"DOTA_Tooltip_ability_arena_lies_boss_illusion_ability_outgoing_damage"	"分身造成的伤害DAMAGE:"
+
+		"DOTA_Tooltip_ability_arena_descent_impervious"					"坚定"
+		"DOTA_Tooltip_ability_arena_descent_Description"				"大量减少受到的伤害"
+		"DOTA_Tooltip_ability_arena_descent_damage_block"				"减伤 %:"
+
+		"arena_descent_grieving_widow"									"悲伤的寡妇"
+		"arena_descent_sorrow_wraith"									"悲伤的怨灵"
+		"arena_descent_horror_construct"								"恐怖的建筑"
+		"arena_descent_death_seeker"									"死亡探索者"
+
+		"DOTA_Tooltip_ability_arena_descent_grieving_widow_ability"		"墓碑吸取"		
+		"DOTA_Tooltip_ability_arena_descent_grieving_widow_ability"		"墓碑吸取"
+		"DOTA_Tooltip_modifier_widow_soul_steal_effect"					"墓碑吸取"
+		"DOTA_Tooltip_modifier_widow_soul_steal_effect_Description"		"吸取伤害并降低移动速度"		
+
+		"arena_descent_zombie"											"丧尸来袭"
+
+		"DOTA_Tooltip_ability_arena_summon_gargoyles"					"召唤石像"
+		"DOTA_Tooltip_ability_arena_summon_gargoyles_Description"		"在墓碑召唤3个怪物."
+
+		"DOTA_Tooltip_ability_arena_descent_beetle_passive"				"粘液"
+		"DOTA_Tooltip_ability_arena_descent_beetle_passive_Description"	"每次受到攻击, 使攻击者叠加减速buff."
+		"DOTA_Tooltip_ability_arena_descent_beetle_passive_move_slow_per_stack"	"每层减速:"		
+		"DOTA_Tooltip_ability_arena_descent_beetle_passive_attack_slow_per_stack"	"每层减少的攻击力A:"
+
+		"DOTA_Tooltip_modifier_descent_beetle_effect"					"粘液"
+		"DOTA_Tooltip_modifier_descent_beetle_effect_Description"		"攻击速度和移动速度降低."
+		
+		//ARENA TOOLTIPS
+
+		"DOTA_Tooltip_ability_arena_descent_nemesis_passive"					"Great Cleave"
+		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_Description"				"Attacks damage all enemies in an area"
+		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_cleave_percent"				"CLEAVE DAMAGE %:"
+		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_cleave_radius"				"CLEAVE RADIUS:"
+
+		"arena_descent_nightmare"												"黑暗来袭"
+
+		"DOTA_Tooltip_ability_arena_descent_guard_passive"						"荒芜"
+		"DOTA_Tooltip_ability_arena_descent_guard_passive_Description"			"每次攻击都会增加下一次攻击力"
+		"DOTA_Tooltip_ability_arena_descent_guard_passive_damage_per_instance"	"每次的攻击提高的 %:"
+
+		"DOTA_Tooltip_modifier_descent_guard_passive_effect"					"荒芜"
+		"DOTA_Tooltip_modifier_descent_guard_passive_effect_Description"		"增加攻击伤害"
+
+		"DOTA_Tooltip_ability_arena_descent_crippling"							"致残光环"
+		"DOTA_Tooltip_ability_arena_descent_crippling_Description"				"降低附近敌人的能量."
+		"DOTA_Tooltip_ability_arena_descent_crippling_health_regen_percent"		"血量回复 %:"
+		"DOTA_Tooltip_ability_arena_descent_crippling_attack_damage"			"攻击力 %:"
+		"DOTA_Tooltip_ability_arena_descent_crippling_attack_speed"				"攻击速度:"
+		"DOTA_Tooltip_ability_arena_descent_crippling_movespeed"				"移动速度:"
+
+		"DOTA_Tooltip_modifier_advanced_creature_crippling_aura_debuff"			"致残光环"
+		"DOTA_Tooltip_modifier_advanced_creature_crippling_aura_debuff_Description"	"降低生命回复速度,攻击力,攻击速度和移动速度."
+
+		"arena_descent_boss"													"深渊憎恨者"
+
+		"DOTA_Tooltip_modifier_steadfast"													"坚定"
+		"DOTA_Tooltip_modifier_steadfast_Description"										"受到的伤害不会超过 %% 最大生命值"
+
+		"DOTA_Tooltip_ability_descent_boss_ai"								"厌恶"
+		"DOTA_Tooltip_ability_descent_boss_ai_Description"					"深渊被遗忘的怪物"
+
+
+		"DOTA_Tooltip_ability_creature_pure_strike_2"			"纯粹攻击"
+		"DOTA_Tooltip_ability_creature_pure_strike_2_Description"	"攻击不会丢失和造成额外的25%纯粹伤害."
+
+		"arena_pit_of_trials_final_boss"						"深渊领主"
+
+		"DOTA_Tooltip_ability_arena_pit_boss_haste"					"嗜血"
+		"DOTA_Tooltip_ability_arena_pit_boss_haste_Description"		"增加攻击速度和移动速度, 并且刷新火焰风暴"
+
+		"DOTA_Tooltip_ability_arena_radiance"								"暗影光辉"
+		"DOTA_Tooltip_ability_arena_radiance_Description"					"燃烧附近的敌人并且附近的敌人攻击有几率有丢失"
+		"DOTA_Tooltip_ability_arena_radiance_aura_damage"					"燃烧伤害:"
+		"DOTA_Tooltip_ability_arena_radiance_blind_pct"						"丢失几率 %:"
+
+		"DOTA_Tooltip_modifier_modifier_pit_boss_haste"					"嗜血"
+		"DOTA_Tooltip_modifier_modifier_pit_boss_haste_Description"		"增加移动速度和攻击速度."
+
+
+		"arena_pit_conquest_spirit_of_rakash"					"Rak'eth"
+
+		"DOTA_Tooltip_ability_arena_pit_rakash_ai"				"Rak'eth的灵魂"
+		"DOTA_Tooltip_ability_arena_pit_rakash_ai_Description"	"增加魔法抗性"	
+		"DOTA_Tooltip_ability_arena_pit_rakash_ai_magic_resist"	"魔法抗性:"
+
+		"DOTA_Tooltip_ability_arena_descent_tombstone_ability"	"墓碑"
+		"DOTA_Tooltip_ability_arena_descent_tombstone_ability_Description"	"死灵复活"
+
+		"arena_pit_shadow_sniper"								"阴影暗杀者"
+		"arena_pit_quizmaster"									"测试大师"
+
+		"DOTA_Tooltip_ability_arena_quizmaster_blast"				"Inquiry Burst"
+
+		"arena_descent_terror_striker_ultra"					"墓碑前锋"
+
+		"DOTA_Tooltip_ability_arena_pit_grave_chill"			"寒冰之墓"
+		"DOTA_Tooltip_ability_arena_pit_grave_chill_Description"	"降低移动速度, 护甲, 和魔抗."
+		"DOTA_Tooltip_ability_arena_pit_grave_chill_duration"	"持续时间:"
+		"DOTA_Tooltip_ability_arena_pit_grave_chill_movespeed_steal"	"移动速度降低:"
+		"DOTA_Tooltip_ability_arena_pit_grave_chill_armor_steal"	"护甲降低:"
+		"DOTA_Tooltip_ability_arena_pit_grave_chill_magic_resist_steal"	"魔抗降低:"
+
+		"DOTA_Tooltip_modifier_arena_grave_chill_target"		"寒冰之墓"
+		"DOTA_Tooltip_modifier_arena_grave_chill_target_Description"	"降低移动速度, 护甲, 和魔抗."
+
+		"DOTA_Tooltip_ability_golden_skullbone_ai"				"魔法免疫"
+
+		"lies_golden_skullbone"									"黄金颅骨"
+		"DOTA_Tooltip_ability_golden_skullbone_ai"				"魔法免疫"
+		
+		"arena_descent_tombstone"								"墓碑"
+		"DOTA_Tooltip_ability_arena_descent_impervious"				"坚定"

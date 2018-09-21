@@ -1,0 +1,1001 @@
+		"zone_redfall"											"Осенний Хребет"
+
+		"redfall_first_quest_giver"								"Радостный зверь"
+
+		"redfall_village"										"Осенняя Деревня"
+		"redfall_forest"										"Осенний Лес"
+		"autumn_mist_canyon_entrance"							"Каньон Осеннего Тумана - Вход"
+		"autumn_mist_canyon"									"Каньон Осеннего Тумана"
+		"redfall_farmlands"										"Осенняя Ферма"
+		"abandoned_shipyard"									"Заброшенная Верфь"
+		"abandoned_shipyard_boss_room"							"Убежище Кримсита"
+		
+		//REDFALL QUESTS
+
+		"tooltip_quest_log"										"Список заданий"
+		"tooltip_quest_log_description"							"Открывает ваш список заданий"
+
+		"tooltip_new_quest"										"Получено новое задание"
+
+		"tooltip_progress"										"Прогресс"
+		"tooltip_reward"										"Награда"
+		"tooltip_quest_to_complete"								"Нажмите для завершения"
+
+		"tooltip_no_quests"										"У Вас нет активных заданий"
+		"tooltip_no_quests_completed"							"У Вас нет завершенных заданий"
+
+		"tooltip_active"										"Активно"	
+		"tooltip_completed"										"Завершено"
+
+		"redfall_quest_1_title"									"Сердце Леса"
+		"redfall_quest_1_objective"								"Восстановите 4 Дерева Вермиллиона в Осеннем Лесу."
+
+		"redfall_quest_1_objective_2"							"Одолейте мастера культа Кримсита"	
+
+		"redfall_autumnleaf_firefly"							"Бургундийский Светлячок"
+		"redfall_autumnleaf_firefly_Description"				"Открывает вход в Каньон Осеннего Тумана."
+
+		"redfall_quest_2_title"									"Храм Мари"
+		"redfall_quest_2_objective"								"Одолейте Духов Мари."
+
+		"redfall_blessing_of_maru"								"Благословение Мари"
+		"redfall_blessing_of_maru_Description"					"Дарует 50/300/1000 ко всем атрибутам на 60 минут."
+
+		"DOTA_Tooltip_modifier_blessing_of_maru"				"Благословение Мари"
+		"DOTA_Tooltip_modifier_blessing_of_maru_Description"	"Доп. атрибуты"
+
+		"redfall_quest_3_title"									"Очистка Побережья"
+		"redfall_quest_3_objective"								"Отару призвал морских гулей, убейте их."
+
+		"redfall_otaru"											"Отару"
+		"redfall_otaru_dialogue_one"							"Я посвятил свою жизнь защите этих лесов. Скоро я пройду ритуал очищения."	
+
+		"redfall_otaru_dialogue_option1"						"Я помогу тебе пройти его"
+		"redfall_otaru_dialogue_option2"						"В другой раз"
+
+		"redfall_otaru_dialogue_2"								"Пойдём. Ты узришь искусство очищения земли."
+
+		"redfall_preservers_mantra"								"Мантра Хранителя"
+		"redfall_preservers_mantra_Description"					"Увеличивает получаемый опыт на 20% на 60 минут."
+
+		"DOTA_Tooltip_modifier_preservers_mantra"				"Мантра Хранителя"
+		"DOTA_Tooltip_modifier_preservers_mantra_Description"	"20%% бонус опыта."
+
+		"redfall_otaru_dialogue_3"								"Очень хорошо. Это очистит нас на несколько ближайших дней."
+
+		"redfall_final_otaru_dialogue"							"Дары Леса не должны восприниматься как должное."
+
+		"redfall_quest_4_title"									"Осенний пепел"
+		"redfall_quest_4_objective"								"Пробудите сгоревшего трента в Осеннем Лесу."
+		"redfall_quest_4_objective_2"							"Одолейте сгоревшего трента."
+
+		"DOTA_Tooltip_ability_item_redfall_ashen_twig"			"Сгоревшая ветка"
+		"DOTA_Tooltip_ability_item_redfall_ashen_twig_Description"	"Использование: Позволяет разбудить сгоревшего трента. Необходимо стоять рядом с ним во время активации."
+
+		"quest_immortal_head_gear"								"Immortal Шлем"
+
+		"redfall_quest_5_title"									"Поиск Ашара"
+		"redfall_quest_5_objective"								"Используйте сияющие осенние листья в святилище Ашары в Каньоне Осеннего Тумана."		
+
+		"redfall_quest_mithril_reward"							"Мифрильные Осколки"
+		"redfall_quest_5_reward"								"Награда: 35/70/210 Мифрильных Осколков"
+
+		"DOTA_Tooltip_ability_item_redfall_glowing_redfall_leaf"			"Светящийся Осенний Лист"
+		"DOTA_Tooltip_ability_item_redfall_glowing_redfall_leaf_Description"	"Использование: Позволяет активировать портал в Святилище Ашары, что в Каньоне Осеннего Тумана."
+
+		"redfall_quest_5_objective_2"								"Одолейте Дух Ашары в Каньоне Осеннего Тумана."
+		"redfall_quest_5_objective_3"								"Встаньте перед статуей ворона в Осеннем Лесу"
+		"redfall_quest_5_objective_4"								"Встретьте Ашару"
+
+		"DOTA_Tooltip_modifier_blessing_of_ashara"			"Blessing of Ashara"
+		"DOTA_Tooltip_modifier_blessing_of_ashara_Description"	"Позволяет активировать статую ворона в Осеннем Лесу."	
+
+		"redfall_quest_6_title"									"Тень Фенрира"
+		"redfall_quest_6_objective"								"Найдите и убейте волка Фенрира, разгуливающего в Осеннем Лесу."
+
+		"redfall_quest_6_reward"								"Клык Фенрира"
+		"redfall_quest_6_reward_Description"					"Immortal украшение"
+
+		//REDFALL DIALOGUE
+
+		"redfall_quest_1_dialogue"								"Деревья Вермиллиона хранят жизнь во всём лесу."
+		"redfall_quest_1_dialogue_2"							"Внешние силы ставят под угрозу их выживание."
+
+		//REDFALL MONSTERS
+
+		"DOTA_Tooltip_ability_redfall_autumn_slow"				"Mudsling"
+		"DOTA_Tooltip_ability_redfall_autumn_slow_Description"	"Атакуя цель липкой грязью, заставляет её замедляться."
+		"DOTA_Tooltip_ability_redfall_autumn_slow_movespeed_loss"	"ЗАМЕДЛЕНИЕ:"
+
+		"DOTA_Tooltip_modifier_autumn_slow"						"Mudsling"
+		"DOTA_Tooltip_modifier_autumn_slow_Description"			"Скорость передвижения снижена"
+
+		"DOTA_Tooltip_ability_redfall_autumn_spawner_ability"	"Leaf Fall"
+		"DOTA_Tooltip_ability_redfall_autumn_spawner_ability_Description"	"Время от времени появляются Осенние Цветы."
+
+		"redfall_autumn_flower"									"Осенний Цветок"
+
+		"redfall_autumn_spawner"								"Зачарованная Ветка"
+
+		"DOTA_Tooltip_ability_autumn_summoner_ability"					"Сила Сезонов"
+		"DOTA_Tooltip_ability_autumn_summoner_ability_Description"		"Призывает трентов-воинов, которые сражаютсян а стороне призвавшего."
+
+		"redfall_aqua_lily"										"Осенняя Водяная Лилия"
+
+		"DOTA_Tooltip_ability_wozxak_fury_swipes"				"Fury Swipes"
+		"DOTA_Tooltip_ability_wozxak_fury_swipes_Description"	"Каждая успешнаяатака увеличивает урон."
+		"DOTA_Tooltip_ability_wozxak_fury_swipes_damage_per_stack"	"ДОП. УРОН ЗА ЗАРЯД:"
+
+		"DOTA_Tooltip_ability_redfall_poison_sting"				"Poison Sting"
+		"DOTA_Tooltip_ability_redfall_poison_sting_Description"	"Отравляет цель складывающимся эффектом яда."
+		"DOTA_Tooltip_ability_redfall_poison_sting_damage_per_tick"	"УРОН КАЖДЫЕ 0.5 СЕК.:"
+
+		"DOTA_Tooltip_modifier_redfall_poison_sting"			"Poison Sting"
+		"DOTA_Tooltip_modifier_redfall_poison_sting_Description"	"Получает урон каждые 0.5 секунды"
+
+		"DOTA_Tooltip_ability_redfall_blade_fury"							"Blade Fury"
+		"DOTA_Tooltip_ability_redfall_blade_fury_Description"				"Быстро вращается, нанося урон всем оказавшимся рядом противникам. Невосприимчив к магии во время вращения."
+
+		"redfall_autumn_spirit"									"Дух Осени"
+
+		"DOTA_Tooltip_ability_redfall_misty_breeze"				"Crippling Breeze"
+		"DOTA_Tooltip_ability_redfall_misty_breeze_Description"	"Снижает урон, скорость атаки и передвижения всех ближайших врагов."
+		"DOTA_Tooltip_ability_redfall_misty_breeze_attack_damage" "СНИЖЕНИЕ УРОНА %:"
+		"DOTA_Tooltip_ability_redfall_misty_breeze_attack_speed" "СНИЖЕНИЕ СКОРОСТИ АТАКИ:"
+		"DOTA_Tooltip_ability_redfall_misty_breeze_movespeed"	"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+
+		"redfall_disciple_of_maru"								"Дух Мару"
+
+		"DOTA_Tooltip_ability_redfall_heavy_stone_toss"			"Heavy Stone Toss"
+		"DOTA_Tooltip_ability_redfall_heavy_stone_toss_Description"	"Бросает в выбранную цель булыжник, который оглушит её и оттолкнёт назад."
+
+		"DOTA_Tooltip_ability_redfall_spirit_of_ashara_passive"	"Red Heavens"
+		"DOTA_Tooltip_ability_redfall_spirit_of_ashara_passive_Description"	"Красные звёзды периодически падают на ближайших врагов, нанося урон."
+
+		"DOTA_Tooltip_ability_redfall_gust_wave"				"Autumn Wind"
+		"DOTA_Tooltip_ability_redfall_gust_wave_Description"	"Поток ветра наносит урон и замедляет врагов."
+		"DOTA_Tooltip_ability_redfall_gust_wave_move_slow"		"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_redfall_gust_wave_attack_slow"    "СНИЖЕНИЕ СКОРОСТИ АТАКИ:"
+
+		"DOTA_Tooltip_modifier_gust_wave_slow"					"Autumn Wind"
+		"DOTA_Tooltip_modifier_gust_wave_slow_Description"		"Замедлен"
+
+		"redfall_cliff_invader"									"Морской Гуль"
+		"redfall_cliff_invader_range"							"Морской Гуль"
+
+		"DOTA_Tooltip_ability_redfall_dodge_ability"			"Combat Dodge"
+		"DOTA_Tooltip_ability_redfall_dodge_ability_Description"	"Особая манёвренность."
+
+		"DOTA_Tooltip_ability_redfall_forest_ranger_ai"					"Fall Marksmen"
+		"DOTA_Tooltip_ability_redfall_forest_ranger_ai_Description"		"С 25% шансом при атаке оставляет глубокие кровоточащие раны и снижет броню цели."
+		"DOTA_Tooltip_ability_redfall_forest_ranger_ai_damage_per_tick"	"УРОН КРОВОТЕЧЕНИЯ КАЖДЫЕ 0.5 СЕКУНДЫ:"
+		"DOTA_Tooltip_ability_redfall_forest_ranger_ai_armor_reduce"	"СНИЖЕНИЕ БРОНИ:"
+
+		"DOTA_Tooltip_modifier_forest_ranger_bleed"						"Fall Marksmen"
+		"DOTA_Tooltip_modifier_forest_ranger_bleed_Description"			"Снижение брони и кровотечение."
+
+		"DOTA_Tooltip_ability_creature_heart_spike"						"Heart Spike"
+		"DOTA_Tooltip_ability_creature_heart_spike_Description"			"Атаки наносят дополнительный ЧИСТЫЙ урон, основанный на максимальном здоровье цели."
+		"DOTA_Tooltip_ability_creature_heart_spike_health_percent"		"ДОП. ЧИСТЫЙ УРОН ОТ МАКС. ЗДОРОВЬЯ ЦЕЛИ, %:"
+		
+		"DOTA_Tooltip_ability_redfall_ash_snake_ai"						"Autumn Ash"
+		"DOTA_Tooltip_ability_redfall_ash_snake_ai_Description"			"С каждой атакой проклинает цель, снижая её урон и скорость атаки."
+		"DOTA_Tooltip_ability_redfall_ash_snake_ai_attack_speed_loss"			"СНИЖЕНИЕ СКОРОСТИ АТАКИ:"
+		"DOTA_Tooltip_ability_redfall_ash_snake_ai_damage_loss_percent"			"СНИЖЕНИЕ ИСХОДЯЩЕГО УРОНА %:"
+
+		"DOTA_Tooltip_modifier_ash_snake_debuff"						"Autumn Ash"
+		"DOTA_Tooltip_modifier_ash_snake_debuff_Description"			"Снижение скорости атаки и урона"	
+
+		"redfall_ash_snake"										"Пепельный змей"
+
+		"DOTA_Tooltip_ability_redfall_forest_roar"				"Enrage"
+		"DOTA_Tooltip_ability_redfall_forest_roar_Description"	"Увеличивается в размерах и получает дополнительную силу."
+
+		"DOTA_Tooltip_ability_redfall_ash_knight_shield"				"Equinox Shield"
+		"DOTA_Tooltip_ability_redfall_ash_knight_shield_Description"	"Блокирует любой урон. Враги, атакующие щит будут обезоружены и ослаблены на 6 секунд."
+		"DOTA_Tooltip_ability_redfall_ash_knight_shield_regen_in_shield" "ВОССТ. ЗДОРОВЬЯ В ЩИТЕ, %:"
+		"DOTA_Tooltip_ability_redfall_ash_knight_shield_damage_loss"	 "СНИЖЕНИЕ УРОНА:"
+		"DOTA_Tooltip_ability_redfall_ash_knight_shield_movespeed_slow"	"ЗАМЕДЛЕНИЕ:"
+
+		"DOTA_Tooltip_ability_redfall_autumn_satyr_slap"		"Heavy Slap"
+		"DOTA_Tooltip_ability_redfall_autumn_satyr_slap_Description"	"Оглушает цель на 1 секунду, подбрасывая её в воздух."
+
+		"DOTA_Tooltip_ability_redfall_autumn_tornado"			"Fall Tornado"
+		"DOTA_Tooltip_ability_redfall_autumn_tornado_Description"	"Поднимается в воздух и выпускает вихрь во врага."
+
+		"DOTA_Tooltip_modifier_tornado_slow"					"Fall Tornado"
+		"DOTA_Tooltip_modifier_tornado_slow_Description"		"Снижение скорости атаки и передвижения"
+
+		"DOTA_Tooltip_ability_item_redfall_burgundy_firefly_normal" "Бургундийский Светлячок"
+		"DOTA_Tooltip_ability_item_redfall_burgundy_firefly_elite" "Бургундийский Светлячок"
+		"DOTA_Tooltip_ability_item_redfall_burgundy_firefly_legend" "Бургундийский Светлячок"
+
+		"item_redfall_burgundy_firefly_normal_desc"				"Открывает вход в Каньон Осеннего Тумана на карте Осенний Хребет."
+		"item_redfall_burgundy_firefly_elite_desc"				"Открывает вход в Каньон Осеннего Тумана на карте Осенний Хребет."
+		"item_redfall_burgundy_firefly_legend_desc"				"Открывает вход в Каньон Осеннего Тумана на карте Осенний Хребет."
+
+		"redfall_canyon_predator"								"Хищник Каньона"
+
+		"DOTA_Tooltip_ability_redfall_canyon_predator_ability"	"Enrage"
+		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_Description"	"Каждый раз, получая урон, хищник становится сильнее и выносливее. "
+		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_damage_per_instance"	"ДОП. УРОН ЗА СТАК, %:"
+		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_armor_per_instance"	"ДОП. БРОНЯ ЗА СТАК:"
+
+		"DOTA_Tooltip_ability_redfall_bigwave"					"Canyon Crush"
+		"DOTA_Tooltip_ability_redfall_bigwave_Description"		"Оглушает и наносит урон врагам мощным потоком энергии."
+
+		"DOTA_Tooltip_ability_redfall_ghost_mace"				"Ghost Mace"
+		"DOTA_Tooltip_ability_redfall_ghost_mace_Description"	"При каждом попадании по цели проклинает её, лишая возможности восстанавливать здоровье и снижая значение регенерации здоровья на определённый % на 3.5 секунды."
+		"DOTA_Tooltip_ability_redfall_ghost_mace_health_regen_percent"	"СНИЖЕНИЕ РЕГЕНЕРАЦИИ ЗДОРОВЬЯ, %:"
+
+		"DOTA_Tooltip_modifier_ghost_mace_debuff"				"Ghost Mace"
+		"DOTA_Tooltip_modifier_ghost_mace_debuff_Description"	"Исцеление заблокировано, реген. здоровья сокращён."
+
+		"DOTA_Tooltip_ability_redfall_barbarian_passive"				"Tenacity"
+		"DOTA_Tooltip_ability_redfall_barbarian_passive_Description"	"Невосприимчив к оглушению."
+
+		"DOTA_Tooltip_ability_redfall_mist_assassin_passive"			"Evasion"
+		"DOTA_Tooltip_ability_redfall_mist_assassin_passive_Description"	"Может уклониться от базовых атак."
+		"DOTA_Tooltip_ability_redfall_mist_assassin_passive_evasion"	"ШАНС УКЛОНЕНИЯ, %:"
+
+		"redfall_canyon_boss"										"Осквернитель Кримсит"
+
+		"DOTA_Tooltip_ability_redfall_ash_tree_aura"				"Ash Aura"
+		"DOTA_Tooltip_ability_redfall_ash_tree_aura_Description"	"Снижает скорость передвижения и дальность видимости ближайших противников."
+		"DOTA_Tooltip_ability_redfall_ash_tree_aura_movespeed"		"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_redfall_ash_tree_aura_vision_reduce"	"СНИЖЕНИЕ ДАЛЬНОСТИ ВИДИМОСТИ:"
+
+		"modifier_ash_tree_aura_debuff"								"Ash Aura"
+		"modifier_ash_tree_aura_debuff_Description"					"Скорость передвижения и дальность видимости снижены."
+
+		"DOTA_Tooltip_ability_ash_tree_overgrowth"					"Overgrowth"
+		"DOTA_Tooltip_ability_ash_tree_overgrowth_Description"		"Обездвиживает всех врагов на большом расстоянии."
+
+		"DOTA_Tooltip_ability_canyon_boss_time_walk"				"Ability X"
+		"DOTA_Tooltip_ability_canyon_boss_time_walk_Description"	"Способен быстро перемещаться."
+
+		"DOTA_Tooltip_ability_canyon_boss_ai"						"Inner Corruption"
+		"DOTA_Tooltip_ability_canyon_boss_ai_Description"			"Что-то кроется внутри"
+
+		"DOTA_Tooltip_ability_crimsith_cult_master_pull"				"Soul Grab"
+		"DOTA_Tooltip_ability_crimsith_cult_master_pull_Description"	"Толкает цель к вам."
+
+		"DOTA_Tooltip_ability_redfall_autumn_mage_boss_passive"					"Singeing Wake"
+		"DOTA_Tooltip_ability_redfall_autumn_mage_boss_passive_Description"		"Огненные взрывы окружают мага."
+
+		"DOTA_Tooltip_ability_redfall_autumn_mage_blink"				"Autumn Smoke"
+		"DOTA_Tooltip_ability_redfall_autumn_mage_blink_Description"	"С 2 секундной задержкой перемещается в случайную точку."
+
+		"DOTA_Tooltip_ability_redfall_fenrir_ability"					"Alpha Wolf Aura"
+		"DOTA_Tooltip_ability_redfall_fenrir_ability_Description"		"Увеличивает урон себе и ближайшим союзникам."
+		"DOTA_Tooltip_ability_redfall_fenrir_ability_attacK_damage_increase"	"АУРА ДОП. УРОНА, %:"
+
+		"DOTA_Tooltip_ability_redfall_feronia_passive"					"Guard of Feronia"
+		"DOTA_Tooltip_ability_redfall_feronia_passive_Description"		"После прочтения любого умения наделяется щитом, поглощающим 100% входящего урона на 1.5 секунды."
+
+		"DOTA_Tooltip_ability_redfall_mirana_starfall"					"Sacred Arrow"
+		"DOTA_Tooltip_ability_redfall_mirana_starfall_Description"		"Бросает священную стрелу, которая оглушает и наносит урон всем задетым врагам."	
+
+		"DOTA_Tooltip_ability_redfall_mirana_starfall"					"Sacred Arrow"
+		"DOTA_Tooltip_ability_redfall_mirana_starfall_Description"		"Бросает священную стрелу, которая оглушает и наносит урон всем задетым врагам."
+
+		"DOTA_Tooltip_ability_redfall_student_of_ashara_leap"			"Forest Leap"	
+		"DOTA_Tooltip_ability_redfall_student_of_ashara_leap_Description"	"Прыгает в сторону выбранного юнита."
+
+		"redfall_fenrir"												"Фенрир"
+
+		"DOTA_Tooltip_ability_redfall_alpha_beast_charge"				"Alpha Charge"
+		"DOTA_Tooltip_ability_redfall_alpha_beast_charge_Description"	"Совершает рывок в случайном направлении. Если Зверь задевает противников, то на них обрушивается взрывная волна."
+
+		"DOTA_Tooltip_ability_crimsyth_cultist_ai"						"Corrupted Heart"
+		"DOTA_Tooltip_ability_crimsyth_cultist_ai_Description"			"Увеличивает регенерацию здоровья на % от максимума"
+		"DOTA_Tooltip_ability_crimsyth_cultist_ai_health_percent"		"ДОП. РЕГЕН ЗДОРОВЬЯ %:"
+
+		"DOTA_Tooltip_ability_redfall_bandit_blink_strike"				"Blink Strike"
+		"DOTA_Tooltip_ability_redfall_bandit_blink_strike_Description"	"Телепортируется за спину к выбранному юниту и атакует цель, нанося дополнительный урон."
+		"DOTA_Tooltip_ability_redfall_bandit_blink_strike_bonus_damage"	"ДОП. УРОН:"
+
+		"redfall_shroomling"											"Redfall Shroomling"
+		"redfall_autumn_gazer"											"Autumn Gazer"
+		"redfall_forest_summoner"										"Forest Summoner"
+		"redfall_autumn_treant"											"Autumn Treant"
+		"redfall_forest_minion"											"Forest Minion"
+		"redfall_forest_wood_dweller"									"Forest Wood Dweller"
+		"redfall_wozxak"												"Wozxak"
+		"redfall_forest_overgrowth"										"Forest Overgrowth"
+		"redfall_big_autumn_flower"										"Big Autumn Flower"
+		"redfall_forest_gnome"											"Forest Gnome"
+		"redfall_cliff_weed"											"Cliff Weed"
+		"redfall_forest_ranger"											"Crimson Ranger"
+		"redfall_red_raven"												"Red Raven"
+		"redfall_stone_watcher"											"Stone Watcher"
+		"redfall_hooded_soul_reacher"									"Forest Nomad"
+		"redfall_ashfall_knight"										"Ashfall Knight"
+		"redfall_autumn_satyr"											"Autumn Satyr"
+		"redfall_redfall_vulture"										"Redfall Vulture"
+		"redfall_autumn_cragnataur"										"Autumn Cragnataur"
+		"redfall_crimsyth_cultist"										"Crimsyth Cultist"
+		"redfall_crimsyth_cultist_master"								"Crimsyth Cultist Master"
+		"redfall_autumn_enforcer"										"Crimson Enforcer"
+		"redfall_autumn_tyrant"											"Crimson Eliminator"
+		"redfall_pan_knight"											"Pan Knight"
+		"redfall_canyon_alpha_beast"									"Alpha Beast"
+		"redfall_canyon_breaker"										"Canyon Breaker"
+		"redfall_canyon_bruiser"										"Canyon Bruiser"
+		"redfall_armored_crab_beast"									"Redfall Armored Crab Beast"
+		"redfall_canyon_bull"											"Canyon Bull"
+		"redfall_canyon_dinosaur"										"Cragosaurus"
+		"redfall_lzard_guide"											"Little Lizard"
+		"redfall_canyon_grizzly_patriarch"								"Grizzly Patriarch"	
+		"redfall_canyon_barbarian"										"Canyon Barbarian"		
+		"redfall_mist_knight"											"Mist Knight"	
+		"redfall_autumn_mage"											"Autumn Mage"
+		"redfall_troll_warlord"											"Troll Warlord"
+		"redfall_mist_assassin"											"Mist Assassin"
+		"redfall_autumn_mage_boss"										"Autumn Grand Magus"
+		"redfall_ashen_treant"											"Ash Treant"
+		"redfall_spirit_of_ashara"										"Spirit of Ashara"
+		"redfall_student_of_ashara"										"Student of Ashara"
+		"redfall_ashara"												"Ashara"
+
+		//Redfall Farmlands
+
+
+		"DOTA_Tooltip_ability_item_redfall_purified_vermillion_bundle_normal" "Очищенная связка Вермиллиона"
+		"DOTA_Tooltip_ability_item_redfall_purified_vermillion_bundle_elite" "Очищенная связка Вермиллиона"
+		"DOTA_Tooltip_ability_item_redfall_purified_vermillion_bundle_legend" "Очищенная связка Вермиллиона"
+
+		"item_redfall_purified_vermillion_bundle_normal_desc"				"Позволяет открыть портал в Осеннюю Ферму, расположенный сразу за Осенней Деревней."
+		"item_redfall_purified_vermillion_bundle_elite_desc"				"Позволяет открыть портал в Осеннюю Ферму, расположенный сразу за Осенней Деревней."
+		"item_redfall_purified_vermillion_bundle_legend_desc"				"Позволяет открыть портал в Осеннюю Ферму, расположенный сразу за Осенней Деревней."
+
+		"DOTA_Tooltip_ability_redfall_harvest_wraith_ability"							"Enfeebling Wraith"
+		"DOTA_Tooltip_ability_redfall_harvest_wraith_ability_Description"				"Атаки снижают урон целей. Атаки никогда не промахиваются."
+		"DOTA_Tooltip_ability_redfall_harvest_wraith_ability_attacK_damage_reduction"	"СНИЖЕНИЕ УРОНА %:"
+
+		"DOTA_Tooltip_modifier_harvest_wraith_effect"								"Enfeeble"
+		"DOTA_Tooltip_modifier_harvest_wraith_effect_Description"					"Урон снижен"
+
+		"DOTA_Tooltip_ability_redfall_farm_panda_immolation"						"Immolation"
+		"DOTA_Tooltip_ability_redfall_farm_panda_immolation_Description"			"Поджигает ближайших врагов."
+
+		"redfall_farmlands_corn_harvester"										"Сборщик зерна"
+		"redfall_farmlands_flame_panda"											"Огненная панда"
+		"redfall_harvest_wraith"												"Дух сборщик"
+
+		"redfall_farmlands_thief"												"Вор Кримсит"
+
+		"redfall_pumpkin_flower"												"Тыквенный цветок"
+
+		"redfall_farmland_spawner"												"Пугало - рассадник"
+
+		"redfall_farmlands_bandit"												"Бандит Кримсит"
+		"redfall_twisted_pumpkin"												"Скрученная Тыква"
+		"redfall_chibi_bear"													"Медведь Чиби"
+		"redfall_crymsith_duelist"												"Дуэлист Кримсит"
+		"redfall_crimsyth_bandit"												"Бандит Кримсит"
+		"redfall_farmlands_crymsith_taskmaster"									"Страж Кримсит"
+		"redfall_crimsyth_recruiter"											"Наниматель Кримсит"
+
+		"DOTA_Tooltip_ability_redfall_bloodlust"								"Redfall Bloodlust"
+		"DOTA_Tooltip_ability_redfall_bloodlust_Description"					"Даёт выбранной цели бонус к урону, скорости атаки и передвижения."
+		"DOTA_Tooltip_ability_redfall_bloodlust_duration"						"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_redfall_bloodlust_bonus_movement_speed"			"ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_redfall_bloodlust_bonus_attack_speed"				"ДОП. СКОРОСТЬ АТАКИ:"
+		"DOTA_Tooltip_ability_redfall_bloodlust_bonus_attack_damage"			"ДОП. УРОН, %:"
+
+		"DOTA_Tooltip_ability_ancient_ruby_giant_ai"							"Seismic Shift"
+		"DOTA_Tooltip_ability_ancient_ruby_giant_ai_Description"				"Сотрясает землю рядом с юнитом."
+		"DOTA_Tooltip_ability_ancient_ruby_giant_ai_damage"						"УРОН:"
+
+
+		"redfall_meepo_farmer"													"Фермер"
+		"redfall_old_farmer"													"Фермер"
+
+		"redfall_dialogue_farmer_1_a"											"Войска Кримсит скоро появятся, чтобы собрать дань."
+		"redfall_dialogue_farmer_1_b"											"У меня нет ничего, чем бы я мог от них откупиться. Они отправят меня в тюрьму."	
+		"redfall_dialogue_farmer_1_c"											"Спрячься за теми бочками! Я позову тебя когда понадобится твоя помощь!"	
+
+		"redfall_dialogue_bandit_1_a"											"Время сборов. Где твоё золото?"				
+		"redfall_dialogue_farmer_1_d"											"Я потратил его чтобы прокормить себя. Отправляйся-ка обратно, откуда пришёл."	
+		"redfall_dialogue_bandit_1_b"											"Откуда такая уверенность, старик?"
+		"redfall_dialogue_bandit_1_b2"											"К стенке его! Я осмотрю дом."
+		"redfall_dialogue_farmer_1_e"											"Сейчас! Скорее!!"
+		"redfall_dialogue_bandit_1_c"											"Что за...?"
+
+		"redfall_dialogue_farmer_1_f"											"Потрясающе! Однако они очень скоро поймут что к чему."
+		"redfall_dialogue_farmer_1_g"											"Поторопись и спаси ферму от Кримсита! Жизнь под их постоянным давлением совсем не в радость."
+		"redfall_dialogue_farmer_1_h"											"Каменные плиты с выгравированными изображениями животных разбросаны по полям. Будет очень разумным шагом, если запомнишь животное и его цвет."
+		"redfall_dialogue_farmer_1_i"											""
+
+		"DOTA_Tooltip_ability_redfall_riki_bandit_ai"							"Prism Strike"
+		"DOTA_Tooltip_ability_redfall_riki_bandit_ai_Description"				"К атакам добавляются 3 дополнительных удара, наносящих чистый урон, основанный на каждом атрибуте цели."	
+		"DOTA_Tooltip_ability_redfall_riki_bandit_ai_prism_strike"				"МНОЖИТЕЛЬ АТРИБУТА:"
+
+		"redfall_quest_7_title"									"Кошелёк или Смерть"
+		"redfall_quest_7_objective"								"Одолейте сборщиков дани армии Кримсита в Осенней Ферме."
+		"redfall_quest_7_objective_2"							"Исследуйте северный дом фермера."
+
+		"redfall_quest_7_reward"								"Ключ заброшенной верфи"
+		"redfall_quest_7_reward_Description"					"Позволяет открыть проход в Заброшенную Верфь"
+
+		"DOTA_Tooltip_ability_redfall_taskmaster_ai"									"Task Armor"
+		"DOTA_Tooltip_ability_redfall_taskmaster_ai_Description"						"Щит поглощает 99.9% входящего урона. Щит теряет заряды с каждым полученным уроном."
+		"DOTA_Tooltip_ability_redfall_taskmaster_ai_charges"							"ЗАРЯДОВ ЩИТА:"
+
+		"DOTA_Tooltip_modifier_task_armor"												"Task Armor"
+		"DOTA_Tooltip_modifier_task_armor_Description"									"Входящий урон снижен на 99.9%%"
+
+		"redfall_dialogue_farmer_2_a"											"Армия Кримсита - это не просто шайка воров. Они проводят демонические ритуалы."
+		"redfall_dialogue_farmer_2_b"											"Они объединены в губительный культ, оставляющий после себя лишь разруху."
+		"redfall_dialogue_farmer_2_c"											"Сегодня проходит сбор дани. Скоро они придут и ко мне."
+
+		"redfall_dialogue_farmer_2_d"											"Потрясающе."
+
+		"redfall_dialogue_farmer_3_a"											"На помощь!"
+		"redfall_dialogue_farmer_3_b"											"ПОМОГИТЕ!"
+		"redfall_dialogue_farmer_3_c"											"Извини..."
+
+		"redfall_dialogue_farmer_3_d"											"Твоя награда за помощь здесь. Следуй за мной."
+
+		"redfall_demon_farmer"												"Демон - Солдат"
+
+		"DOTA_Tooltip_ability_redfall_demon_farmer_passive"							"Corruption Aura"
+		"DOTA_Tooltip_ability_redfall_demon_farmer_passive_Description"				"Враги теряют часть своих атрибутов."
+		"DOTA_Tooltip_ability_redfall_demon_farmer_passive_stat_loss_percent"		"ПОТЕРЯ АТРИБУТОВ, %:"
+
+		"DOTA_Tooltip_modifier_demon_farmer_aura_effect"					"Corruption Aura"
+		"DOTA_Tooltip_modifier_demon_farmer_aura_effect_Description"		"Теряет %stat_loss_percent% %% от всех атрибутов."
+
+		"DOTA_Tooltip_ability_redfall_demon_farmer_mark"					"Demon Link"
+		"DOTA_Tooltip_ability_redfall_demon_farmer_mark_Description"		"Демон - солдат получает 0 урона. Когда демон попадает атакой по цели, то цель получает возможность наносить по демону урон на ограниченное время."
+		"DOTA_Tooltip_ability_redfall_demon_farmer_mark_duration"			"ДЛИТЕЛЬНОСТЬ:"
+
+		"DOTA_Tooltip_modifier_demon_farmer_mark_effect"					"Demon Link"
+		"DOTA_Tooltip_modifier_demon_farmer_mark_effect_Description"		"Можно наносить урон Демону"
+
+		"DOTA_Tooltip_ability_item_redfall_hidden_shipyard_key_normal" "Ключ заброшенной верфи"
+		"DOTA_Tooltip_ability_item_redfall_hidden_shipyard_key_elite" "Ключ заброшенной верфи"
+		"DOTA_Tooltip_ability_item_redfall_hidden_shipyard_key_legend" "Ключ заброшенной верфи"
+
+		"item_redfall_hidden_shipyard_key_normal_desc"				"Открывает проход в заброшенную верфь на карте Осенний Хребет."
+		"item_redfall_hidden_shipyard_key_elite_desc"				"Открывает проход в заброшенную верфь на карте Осенний Хребет."
+		"item_redfall_hidden_shipyard_key_legend_desc"				"Открывает проход в заброшенную верфь на карте Осенний Хребет."
+
+		"DOTA_Tooltip_ability_redfall_skeleton_archer_ai"				"Death Pact"
+		"DOTA_Tooltip_ability_redfall_skeleton_archer_ai_Description"	"Увеличивает урон."
+		"DOTA_Tooltip_ability_redfall_skeleton_archer_ai_attack_damage_bonus"	"ДОП. УРОН %:"
+
+		"DOTA_Tooltip_ability_redfall_wild_leap"						"Wild Leap"
+		"DOTA_Tooltip_ability_redfall_wild_leap_Description"			"Выбирает цель и прыгает к ней, оглушая всех в небольшой области в точке приземления."
+
+		"DOTA_Tooltip_ability_redfall_void_task_shield"					"Task Armor"
+		"DOTA_Tooltip_ability_redfall_void_task_shield_Description"		"Любой входящий урон снижен на 99.9%, пока все заряды щита не будут израсходованы."	
+
+		"redfall_shipyard_conductor"									"Проводник Верфи"
+		"redfall_shipyard_demon_brute"									"Демон - Громила"
+		"redfall_shipyard_void"											"Демон пустоты"
+		"redfall_demon_rat"												"Дворовая крыса"
+
+		"shipyard_skeleton_archer_boss"									"Элитный Каменный Скорпион"
+		"shipyard_skeleton_archer"										"Костяной Скорпион"
+		"redfall_shipyard_demon_wolf"									"Волк - Демон"
+		"redfall_shipyard_blood_wolf"									"Волк - Кровавый демон"
+		"redfall_shipyard_crimsyth_blood_hunter"						"Охотник за кровью"
+
+		"DOTA_Tooltip_ability_redfall_massive_arrow"					"Crimson Power Shot"
+		"DOTA_Tooltip_ability_redfall_massive_arrow_Description"		"Выпускает мощную красную стрелу."
+
+		"DOTA_Tooltip_ability_redfall_tyrant_quake"						"Split Earth"
+		"DOTA_Tooltip_ability_redfall_tyrant_quake_Description"			"Оглушает и наносит урон юнитам в области."
+
+		"DOTA_Tooltip_ability_redfall_enforcer_puff"					"Combat Ready"
+		"DOTA_Tooltip_ability_redfall_enforcer_puff_Description"		"Увеличивает скорость атаки на 4 секунды."
+		"DOTA_Tooltip_ability_redfall_enforcer_puff_attackspeed"		"ДОП. СКОРОСТЬ АТАКИ:"
+
+		"DOTA_Tooltip_ability_redfall_farmlands_bandit_ai"				"Quickfoot"
+		"DOTA_Tooltip_ability_redfall_farmlands_bandit_ai_Description"	"С 25% шансом при атаке наделит цель 100% уклонением и доп. скоростью передвижения."
+
+		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai"				"Bane Blood"
+		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_Description"	"С каждой атакой снижает броню цели, одновременно увеличивая свои урон и скорость атаки."
+		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_armor_reduce_per_hit"	"СНИЖЕНИЕ БРОНИ ЗА УДАР:"
+		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_attack_speed_per_hit"	"ДОП. СКОРОСТЬ АТАКИ ЗА УДАР:"
+		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_attack_damage_per_hit"	"ДОП. УРОН ЗА УДАР:"
+
+		"DOTA_Tooltip_ability_shipyard_plasma_field"					"Energy Conductor"
+		"DOTA_Tooltip_ability_shipyard_plasma_field_Description"		"Наносит урон расширяющимся кругом. Круг наносит меньше урона в центре."
+		"DOTA_Tooltip_ability_shipyard_plasma_field_damage_min"			"УРОН В ЦЕНТРЕ:"
+		"DOTA_Tooltip_ability_shipyard_plasma_field_damage_max"			"УРОН НА ГРАНИЦЕ:"
+
+		"shipyard_pirate_archer"										"Пират - Лучник"
+
+		"DOTA_Tooltip_ability_redfall_shipyard_gatekeeper_skulldigger" "Skulldigger"
+		"DOTA_Tooltip_ability_redfall_shipyard_gatekeeper_skulldigger_Description" "Каждые 2.2 секунды получает заряд. Пока есть заряды, выпускает поток энергии в атакующих, теряя заряд."
+		"DOTA_Tooltip_ability_redfall_shipyard_gatekeeper_skulldigger_property_two"	"МАКС. ЗАРЯДОВ:"
+		"DOTA_Tooltip_ability_redfall_shipyard_gatekeeper_skulldigger_property_four"	"ВРЕМЯ ОГЛУШЕНИЯ:"
+
+		"redfall_shipyard_soul_collector"								"Собиратель Душ"
+
+		"shipyard_ghost_fish"											"Рыба - Призрак"
+
+		"redfall_shipyard_haunt_knight"									"Призрачный рыцарь верфи"
+
+		"DOTA_Tooltip_ability_redfall_shipyard_soul_collector_passive"	"Soul Spiller"
+		"DOTA_Tooltip_ability_redfall_shipyard_soul_collector_passive_Description"	"Постоянно испускает черепа, наносящие урон. Когда череп попадает по цели, Сборщик Душ получает щит, полностью поглощающий урон."
+		"DOTA_Tooltip_ability_redfall_shipyard_soul_collector_passive_max_stacks"	"МАКС. ЗАРЯДОВ ЩИТА:"
+
+		"shipyard_boss_dialogue_1"										"Что-ж, очень странно."
+		"shipyard_boss_dialogue_1a"										"Очень странно."
+		"shipyard_boss_dialogue_2"										"Сперва мои громилы сильно задерживаются."
+		"shipyard_boss_dialogue_3"										"Они никогда не опаздывали."
+		"shipyard_boss_dialogue_4_1"									"А теперь еще какая-то вонючая свинья стоит перед входом в мою комнату."
+		"shipyard_boss_dialogue_4_2"									"А теперь еще какая-то пара мерзких обезьян стоит перед входом в мою комнату."
+		"shipyard_boss_dialogue_4_3"									"А теперь еще три мартышки стоят перед входом в мою комнату."
+		"shipyard_boss_dialogue_4_4"									"А теперь еще группа гнилых крыс стоит перед входом в мою комнату."
+
+		"shipyard_boss_dialogue_5"										"Ну что, друзья, давайте узнаем, сколько наши гости продержатся в игре ЖИЗНИ и СМЕРТИ!"
+		"shipyard_boss_dialogue_6"										"Поехали!"
+
+		"shipyard_boss_dialogue_7"										"Еще! Давай еще раз!"
+		"shipyard_boss_dialogue_8"										"Повышаем ставки, братья!"
+
+		"shipyard_boss_dialogue_9"										"Покончим с этим!"
+
+		"redfall_shipyard_boss"											"Тиран Таделус"
+
+		"DOTA_Tooltip_ability_shipyard_boss_ai"							"Пожиратель плоти"
+		"DOTA_Tooltip_ability_shipyard_boss_ai_Description"				"Любой входящий урон не нанесёт более 1% от макс. здоровья."
+
+		"redfall_dialogue_farmer_2_shredder_1"							"Мой комбайн вернулся!"
+		"redfall_dialogue_farmer_2_shredder_1a"							"У меня есть секретная лаборатория, где я прячусь от армии Кримсита. Здесь я исследую новые технологии по добыче."
+		"redfall_dialogue_farmer_2_shredder_2"							"Встань на пьедестал, чтобы очутиться внутри одной из моих машин по сборке. Ты можешь получить обновление, срубив 100 деревьев и встав на белый пьедестал!"
+
+		"redfall_dialogue_farmer_2_shredder_upgrade_1"					"Это обновление 'Whirling Death'. Оно позволяет тебе добывать древесину быстрее, к тому же можно срубать несколько деревьев разом."
+		"redfall_dialogue_farmer_2_shredder_upgrade_2"					"Это обновление 'Ускорение'. Увеличивает скорость передвижения комбайна!"
+		"redfall_dialogue_farmer_2_shredder_upgrade_3"					"Это специальные ботинки сборщика. Для тебя, а не комбайна!"
+
+		"DOTA_Tooltip_ability_redfall_dismount_shredder_ability"		"Выбраться (Самоуничтожение)"
+		"DOTA_Tooltip_ability_redfall_dismount_shredder_ability_Description"	"Покинуть комбайн"
+
+		"DOTA_Tooltip_modifier_shredder_lumber"							"Древесина"	
+
+		"DOTA_Tooltip_ability_redfall_harvester_harvest"				"Срубить дерево"
+		"DOTA_Tooltip_ability_redfall_harvester_harvest_Description"	"Сруби одно дерево."
+
+		"DOTA_Tooltip_ability_redfall_whirling_death_shredder_ability"	"Whirling Death"
+		"DOTA_Tooltip_ability_redfall_whirling_death_shredder_ability_Description"	"Срубает несколько деревьев в небольшом радиусе."
+
+		"redfall_quest_8_title"											"Сборка урожая"
+		"redfall_quest_8_objective_1"									"Ознакомься с комбайном."
+		"redfall_quest_8_objective_2"									"Добывай древесину, чтобы получить бонусы для комбайна."
+		"redfall_quest_8_reward"										"Специальные ботинки"
+		"redfall_quest_8_reward_Description"							"Immortal ботинки"
+
+		"redfall_farmlands_friendly_harvester"							"Сборщик"
+
+		"DOTA_Tooltip_ability_redfall_farmland_spawner_ability"			"Периодически сеет злобные семена тыквы"
+		"DOTA_Tooltip_ability_redfall_farmland_spawner_ability"			"Периодически сеет злобные семена тыквы"
+
+		"DOTA_Tooltip_ability_farmland_shredder_blade"					""
+		"DOTA_Tooltip_ability_farmland_shredder_blade"					""
+
+		"DOTA_Tooltip_ability_redfall_armored_crab_beast_ability"				"Canyon Burrow"
+		"DOTA_Tooltip_ability_redfall_armored_crab_beast_ability_Description"	"Подкапывается за спину выбранному юниту."
+
+		"DOTA_Tooltip_ability_redfall_shredder_whirling_death"			"Whirling Death"
+		"DOTA_Tooltip_ability_redfall_shredder_whirling_death_Description"	"Быстро вращающиеся лезвоя срубают несколько деревьев поблизости. Дополнительно наносят урон ближайшим врагам."
+		"DOTA_Tooltip_ability_redfall_shredder_whirling_death_whirling_damage"	"УРОН:"
+		"DOTA_Tooltip_ability_redfall_shredder_whirling_death_stat_loss_pct"	"УМЕНЬШЕНИЕ ОСНОВНОГО АТРИБУТА, %:"
+		"DOTA_Tooltip_ability_redfall_shredder_whirling_death_duration"			"ДЛИТЕЛЬНОСТЬ УМЕНЬШЕНИЯ ОСНОВНОГО АТРИБУТА:"
+
+		"DOTA_Tooltip_ability_crimsyth_mage_ability"					"Ruby Pulse"
+		"DOTA_Tooltip_ability_crimsyth_mage_ability_Description"		"Периодически выпускает красные волны, которые наносят урон и замедляют скорости поворота и передвижения."
+		"DOTA_Tooltip_ability_crimsyth_mage_ability_damage"				"УРОН:"
+
+		"DOTA_Tooltip_modifier_crimsyth_mage_slow"						"Ruby Pulse"
+		"DOTA_Tooltip_modifier_crimsyth_mage_slow_Description"			"Скорости поворота и передвижения снижены."
+
+		"DOTA_Tooltip_ability_creature_black_king_bar"					"Magic Shield"
+		"DOTA_Tooltip_ability_creature_black_king_bar_Description"		"Наделяется щитом, дающим 100% иммунитет к магии."
+		"DOTA_Tooltip_ability_creature_black_king_bar_duration"			"Длительность:"
+
+		"DOTA_Tooltip_modifier_black_King_bar_immunity"					"Magic Shield"
+		"DOTA_Tooltip_modifier_black_King_bar_immunity_Description"		"Иммунитет к магии"
+
+		"redfall_shipyard_crimsyth_knight"								"Рыцарь Кримсит"
+		
+		//Crimsyth Castle
+
+		"redfall_crimsyth_castle_intro"									"Мрачный променад"
+		"redfall_crimsyth_castle"										"Замок Кримсит"
+
+		"DOTA_Tooltip_ability_redfall_dragonkin_enflame"				"Enflame"
+		"DOTA_Tooltip_ability_redfall_dragonkin_enflame_Description"	"Воин загорается пламенем ярости, увеличивая свой урон и скорость атаки на 10 секунд."
+		"DOTA_Tooltip_ability_redfall_dragonkin_enflame_attack_power_bonus"	"ДОП. УРОН %:"
+		"DOTA_Tooltip_ability_redfall_dragonkin_enflame_attack_speed_bonus"	"ДОП. СКОРОСТЬ АТАКИ:"
+
+		"DOTA_Tooltip_ability_redfall_hell_bandit_ability"				"Mana Burn"
+		"DOTA_Tooltip_ability_redfall_hell_bandit_ability_Description"	"с каждой атакой отнимает ману цели и наносит магический урон в зависимости от количества отнятой маны"
+		"DOTA_Tooltip_ability_redfall_hell_bandit_ability_mana_drain_percent"	"СЖИГАЕТ МАНЫ, %:"
+
+		"DOTA_Tooltip_ability_redfall_autumn_monster_ability"			"Fire Lash"
+		"DOTA_Tooltip_ability_redfall_autumn_monster_ability_Description"	"Выпускает три огненных шара в сторону цели"
+		"DOTA_Tooltip_ability_redfall_autumn_monster_ability_impact_damage"	"УРОН ПРИ ПОПАДАНИИ:"
+		"DOTA_Tooltip_ability_redfall_autumn_monster_ability_burn_damage"	"УРОН ОТ ОЖОГА:"
+
+		"crimsyth_sorceress_dialogue_1"									"Оххххх хахахаХА!"
+		"crimsyth_castle_boss_dialogue_1"								"Зачем ты отвлекаешь меня?"
+		"crimsyth_sorceress_dialogue_2"									"У нас гости, радость моя."	
+
+		"crimsyth_castle_boss_dialogue_2"								"Прогони их прочь. У нас нет времени на гостей!"
+		"crimsyth_sorceress_dialogue_3"									"Охх хехеХЕ"
+		"crimsyth_sorceress_dialogue_4"									"Активирую систему защиты!"
+
+		"DOTA_Tooltip_ability_castle_sorceress_light_strike_array"		"Light Strike Array"
+		"DOTA_Tooltip_ability_castle_sorceress_light_strike_array_Description"	"Создаёт в указанной точке столб огня, который с некоторой задержкой оглушает задетых юнитов."	
+
+		"DOTA_Tooltip_ability_redfall_sorceress_fire_spray"				"Fire Spray"
+		"DOTA_Tooltip_ability_redfall_sorceress_fire_spray_Description"	"Выпускает огненные шары в ближайших врагов."
+		"DOTA_Tooltip_ability_redfall_sorceress_fire_spray_burn_dps"	"ЕЖЕСЕКУНДНЫЙ УРОН ОТ ОГНЯ:"
+		
+		"DOTA_Tooltip_ability_redfall_bloodhunter_summon_wolves"		"Summon Wolf Companions"
+		"DOTA_Tooltip_ability_redfall_bloodhunter_summon_wolves_Description"	"Призывает 2 ужасных волка."
+
+		"DOTA_Tooltip_ability_redfall_skeleton_boss_arrow"				"Fireball Arrow"
+		"DOTA_Tooltip_ability_redfall_skeleton_boss_arrow_Description"	"Выпускает в сторону врага огненный шар, который при попадании нанесёт огромный урон."
+
+		"crimsyth_bombadier"											"Бомбардир Кримсит"
+		"crimsyth_bombadier_rooted"										"Элитный бомбардир Кримсит"
+
+		"DOTA_Tooltip_ability_redfall_bombadier_ability"				"Bomb Toss"
+		"DOTA_Tooltip_ability_redfall_bombadier_ability_damage"			"УРОН:"
+		"DOTA_Tooltip_ability_redfall_bombadier_ability_num_bombs"		"КОЛИЧЕСТВО БОМБ:"	
+
+		"DOTA_Tooltip_ability_redfall_bombadier_rooted_ability"				"Bomb Toss"
+		"DOTA_Tooltip_ability_redfall_bombadier_rooted_ability_damage"			"УРОН:"
+		"DOTA_Tooltip_ability_redfall_bombadier_rooted_ability_num_bombs"		"КОЛИЧЕСТВО БОМБ:"	
+
+		"redfall_crimsyth_hawk_soldier"									"Жестокий солдат Кримсит"
+
+		"redfall_autumn_monster"										"Осенний Монстр"
+
+		"redfall_snarlroot_treant"										"Трент Гнарлрут"
+		"redfall_castle_archer"											"Стрелок замка"
+
+		"DOTA_Tooltip_ability_redfall_autumn_mage_passive"				"Autumn Starfall"
+		"DOTA_Tooltip_ability_redfall_autumn_mage_passive_Description"	"С каждой атакой на врага падает звезда, которая наносит магический урон и на 3 секунды снижает магическое сопротивление цели."
+		"DOTA_Tooltip_ability_redfall_autumn_mage_passive_damage"		"УРОН:"
+		"DOTA_Tooltip_ability_redfall_autumn_mage_passive_magic_resist_loss"	"СНИЖЕНИЕ СОПРОТИВЛЕНИЯ МАГИИ:"
+
+		"DOTA_Tooltip_ability_armor_break_ultra"									"Armor Break Ultra"
+		"DOTA_Tooltip_ability_armor_break_ultra_Description"						"С каждой успешной атакой снижается броня цели."	
+		"DOTA_Tooltip_ability_armor_break_ultra_armor_break"						"СНИЖЕНИЕ БРОНИ:"
+
+		"redfall_crimsyth_hawk_soldier_elite"							"Элитный жестокий солдат Кримсит"
+
+		"DOTA_Tooltip_ability_redfall_hawk_knight_lock_on"				"Shield Lock"
+		"DOTA_Tooltip_ability_redfall_hawk_knight_lock_on_Description"	"Связывает себя с целью на 2 секунды. Если цель не разрывает связь, убегая как можно дальше, то рыцарь совершает рывок к цели, нанося магический урон и оглушая её."
+		"DOTA_Tooltip_ability_redfall_hawk_knight_lock_on_damage"		"УРОН:"
+		"DOTA_Tooltip_ability_redfall_hawk_knight_lock_on_stun_duration"	"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+
+		"DOTA_Tooltip_modifier_autumn_mage_debuff"						"Autumn Starfall"
+		"DOTA_Tooltip_modifier_autumn_mage_debuff_Description"			"Сопротивление магии снижено."	
+
+		"redfall_crimsyth_shadow"										"Тень Кримсит"
+
+		"DOTA_Tooltip_ability_redfall_castle_warflayer_passive"			"Magic Immunity Break"
+		"DOTA_Tooltip_ability_redfall_castle_warflayer_passive_Description"	"Атаки снимают иммунитет к магии."	
+
+		"DOTA_Tooltip_ability_crimsyth_khan_knight_passive"				"Black Smoke"
+		"DOTA_Tooltip_ability_crimsyth_khan_knight_passive_Description"	"При получении урона выпускается облако черного дыма, которое ослепляет врагов в радиусе действия."
+		"DOTA_Tooltip_ability_crimsyth_khan_knight_passive_blind_duration"	"ДЛИТЕЛЬНОСТЬ ОСЛЕПЛЕНИЯ:"
+
+		"DOTA_Tooltip_modifier_khan_knight_blind"						"Black Smoke"
+		"DOTA_Tooltip_modifier_khan_knight_blind_Description"			"Ослеплён"
+
+		"DOTA_Tooltip_ability_redfall_enclave_viking_passive"			"Explosive Axe"
+		"DOTA_Tooltip_ability_redfall_enclave_viking_passive_Description"	"С обычными атаками происходит взрыв, который наносит 0.5% от общего урона в небольшой области и оглушит задетых врагов на 0.1 секунды"
+
+		"DOTA_Tooltip_modifier_jailer_bleeding"							"Bleeding"
+		"DOTA_Tooltip_modifier_jailer_bleeding_Description"				"Получает урон каждые 0.5s"	
+
+		"DOTA_Tooltip_redfall_goo_skin"									"Slime Skin"
+		"DOTA_Tooltip_redfall_goo_skin_Description"						"Замедляет атакующих этого юнита врагов."	
+		"DOTA_Tooltip_redfall_goo_skin_slow_percentage"					"ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ, %:"
+
+		"DOTA_Tooltip_modifier_goo_skin_effect"							"Slime Skin"
+		"DOTA_Tooltip_modifier_goo_skin_effect_Description"				"Замедлен"
+
+		"redfall_erakor_the_sadist"										"Садист Эракор"
+
+		"DOTA_Tooltip_modifier_sadist_shield"							"Sadist Shield"
+		"DOTA_Tooltip_modifier_sadist_shield_Description"				"Поглощение магического и чистого урона"
+
+		"DOTA_Tooltip_modifier_erakor_burning"							"Burning"
+
+		"DOTA_Tooltip_ability_redfall_erakor_the_sadist_passive"		"Domination"
+		"DOTA_Tooltip_ability_redfall_erakor_the_sadist_passive_Description"	"Связывает себя с целью, снижая её скорость атаки и радиус обзора. Дополнительно позволяет Садисту Эракору быстро сократить дистанцию. Связь разорвётся на расстоянии более 2000."
+		
+		"DOTA_Tooltip_ability_sadist_blood_bath"						"Blood Bath"
+		"DOTA_Tooltip_ability_sadist_blood_bath_Description"			"Создаёт ритуальный круг крови, который через две секунды взорвётся. Все враги, оказавшиеся в круге в момент взрыва будут обезмолвлены и получат магический урон."
+		"DOTA_Tooltip_ability_sadist_blood_bath_silence_duration"		"ДЛИТЕЛЬНОСТЬ ЭФФЕКТА:"
+		"DOTA_Tooltip_ability_sadist_blood_bath_damage"					"УРОН:"
+
+		"redfall_the_archivist"											"Архивист"
+		"archivist_demon_moloth"										"Демон Молот"
+
+		"redfall_castle_garden_overlord"								"Владыка сада"
+
+		"redfall_crimson_samurai"										"Малиновый самурай"
+		"redfall_crimson_warrior"										"Малиновый воин"
+
+		"DOTA_Tooltip_ability_custom_meteor2"							"Meteor"
+		"DOTA_Tooltip_ability_custom_meteor2_Description"				"Бросает большой камень в указанную точку, который поджигает врагов."
+
+		"redfall_crimson_shadow_dancer"									"Малиновый танцор тени"
+
+		"redfall_crimsyth_khan_knight"									"Рыцарь Хан"
+
+		"redfall_crimsyth_crystal_hoarder"								"Кристалл - накопитель Кримсит"
+		"redfall_castle_warflayer"										"Живодёр"
+
+		"redfall_castle_loki_the_mad"									"Бешеный Локи"
+
+		"DOTA_Tooltip_ability_loki_the_mad_passive"						"Maddening Strife"
+		"DOTA_Tooltip_ability_loki_the_mad_passive_Description"			"С успешной атакой увеличивает свою скорость передвижения и скорость атаки, дополнительно исцеляется 2% от максимального запаса здоровья."
+
+		"DOTA_Tooltip_ability_redfall_moloth_passive"					"Essence Shell"
+		"DOTA_Tooltip_ability_redfall_moloth_passive_Description"		"Молот невосприимчив к любому урону, пока три кружащие рядом сферы не будут одного цвета. Если все сферы синего цвета - демон может получать только чистый урон, зелёного - физический, а красный цвет позволит наносить по Молоту магический урон."
+		"DOTA_Tooltip_ability_redfall_moloth_passive_damage_reduce_of_alt_types"	"СОПРОТИВЛЕНИЕ ДРУГИМ ТИПАМ УРОНА:"
+
+		"DOTA_Tooltip_ability_redfall_gnarl_tree_aura"					"Gnarl Grip"
+		"DOTA_Tooltip_ability_redfall_gnarl_tree_aura_Description"		"Ближайшие вражеские герои замедлены, а их радиус обзора снижен."
+		"DOTA_Tooltip_ability_redfall_gnarl_tree_aura_vision_reduce"	"СНИЖЕНИЕ ОБЗОРА:"
+		"DOTA_Tooltip_ability_redfall_gnarl_tree_aura_movespeed"		"СНИЖЕНИЕ СКОРОСТИ:"
+
+		"redfall_crimsyth_guard"										"Crimsyth Guard"
+
+		"DOTA_Tooltip_ability_redfall_crimsyth_guardian_passive"		"Weapon Break"
+		"DOTA_Tooltip_ability_redfall_crimsyth_guardian_passive_Description"	"Успешная атака обезоруживает цель."
+		"DOTA_Tooltip_ability_redfall_crimsyth_guardian_passive_duration"	"ДЛИТЕЛЬНОСТЬ ОБЕЗОРУЖИВАНИЯ:"
+
+		"DOTA_Tooltip_ability_crimsyth_guardian_sven_warcry"			"Warcry"
+		"DOTA_Tooltip_ability_crimsyth_guardian_sven_warcry_Description"	"Увеличивает броню и скорость передвижения ближайших союзников."
+		"DOTA_Tooltip_ability_crimsyth_guardian_sven_warcry_warcry_armor"	"ДОП. БРОНЯ:"
+
+		"DOTA_Tooltip_ability_redfall_crimsyth_demon_knight_passive"		"Demon Armor"
+		"DOTA_Tooltip_ability_redfall_crimsyth_demon_knight_passive_Description"	"Пассивно увеличивает значение брони"
+		"DOTA_Tooltip_ability_redfall_crimsyth_demon_knight_passive_armor"	"ДОП. БРОНЯ:"
+
+		"DOTA_Tooltip_ability_redfall_wild_leap_demon_knight"				"Crushing Leap"
+		"DOTA_Tooltip_ability_redfall_wild_leap_demon_knight_Description"	"Прыгает в сторону цели и наносит магический урон в небольшой области."
+
+		"DOTA_Tooltip_ability_redfall_crimsyth_cannibal_ai"					"Flesh Heap"
+		"DOTA_Tooltip_ability_redfall_crimsyth_cannibal_ai_Description"		"Увеличивает сопротивление магии"
+		"DOTA_Tooltip_ability_redfall_crimsyth_cannibal_ai_magic_resist"	"ДОП. СОПРОТИВЛЕНИЕ МАГИИ:"
+
+		"DOTA_Tooltip_ability_castle_sorceress_blink_ability"				"Sparkle Dash"
+		"DOTA_Tooltip_ability_castle_sorceress_blink_ability_Description"	"Мгновенно перемещается в случайном направлении."
+
+		"DOTA_Tooltip_ability_redfall_demon_firestorm"						"Firestorm"
+		"DOTA_Tooltip_ability_redfall_demon_firestorm_Description"			"Создаёт волны демонического адского пламени в желаемой области."
+		"DOTA_Tooltip_ability_redfall_demon_firestorm_wave_damage"			"УРОН ВОЛНЫ:"	
+		"DOTA_Tooltip_ability_redfall_demon_firestorm_burn_damage"			"УРОН СО ВРЕМЕНЕМ (% ОТ МАКС. ЗДОРОВЬЯ):"
+
+		"DOTA_Tooltip_ability_redfall_demon_follower_finger"				"Finger of Pain"
+		"DOTA_Tooltip_ability_redfall_demon_follower_finger_Description"	"Быстрый магический удар."
+		"DOTA_Tooltip_ability_redfall_demon_follower_finger_damage"			"УРОН:"
+
+		"DOTA_Tooltip_ability_redfall_crimsyth_castle_boss_ai"				"Corruptor"
+
+		"DOTA_Tooltip_ability_crimsyth_final_boss_fire_blast"				"Chaos Meteor"
+		"DOTA_Tooltip_ability_crimsyth_final_boss_fire_blast_damage"		"УРОН:"
+
+		"DOTA_Tooltip_ability_crimsyth_boss_illusion_ability"				"Demonic Reflection"
+
+		"DOTA_Tooltip_ability_redfall_crimsyth_boss_passive"				"Tormented Fervor"
+		"DOTA_Tooltip_ability_redfall_crimsyth_boss_passive_Description"	"С каждой успешной атакой снижает броню цели, увеличивает свою скорость атаки."
+
+		"redfall_crimsyth_mage"											"Маг Кримсит"
+		"redfall_crimsyth_mage_elite"									"Элитный маг Кримсит"	
+
+		"redfall_crystal_shifter"										"Кристальный призрак"
+
+		"redfall_crimsyth_grunt"										"Брюзга Кримсит"
+
+		"redfall_lava_lizard"											"Лавовая ящерица"
+
+		"redfall_castle_tongey_kong"									"Тонги Конг"
+
+		"redfall_castle_demented_shaman"								"Безумный шаман Кримсит"
+
+		"redfall_crimsyth_gunman"										"Стрелок Кримсит"
+
+		"redfall_crimsyth_gunman_elite"								"Элитный стрелок Кримсит"
+
+		"redfall_enclave_viking"										"Боевой Викинг"
+
+		"DOTA_Tooltip_ability_redfall_goo_skin"						"Goo Skin"
+		"DOTA_Tooltip_ability_redfall_goo_skin_Description"			"Замедляет атакующего."
+
+		"redfall_tortured_soul"											"Измученная Осенняя Душа"	
+
+		"redfall_crimsyth_berserker"								"Берсеркер Кримсит"
+
+		"redfall_castle_garden_watcher"								"Дворцовый садовник"
+
+		"redfall_crimsyth_cultist_elite"							"Элитный культист Кримсит"
+
+		"DOTA_Tooltip_ability_redfall_the_archivist_passive"			"Boundless Knowledge"
+
+		"DOTA_Tooltip_ability_redfall_archivist_orb_changer"				"Aspect Depth"
+		"DOTA_Tooltip_ability_redfall_archivist_orb_changer_Description"	"Меняет цвет парящих сфер"
+
+		"DOTA_Tooltip_ability_redfall_moloth_bombs"						"Moloth Bombs"
+		"DOTA_Tooltip_ability_redfall_moloth_bombs_damage"						"УРОН:"
+
+		"DOTA_Tooltip_ability_redfall_torture_puppet_ai"				"Rend"
+		"DOTA_Tooltip_ability_redfall_torture_puppet_ai_Description"	"Атаки оставляют кровоточащие раны."
+		"DOTA_Tooltip_ability_redfall_torture_puppet_ai_bleed_damage"	"УРОН КРОВОТЕЧЕНИЯ:"
+
+		"crimsyth_fortune_seeker"										"Охотник за удачей"
+
+		"redfall_crimsyth_torture_puppet"								"Пыточная марионетка Кримсит"
+
+		"redfall_crimsyth_corrupted_corpse"								"Сгнивший труп"
+
+		"DOTA_Tooltip_ability_crimsyth_gunman_shrapnel"					"Shrapnel"
+		"DOTA_Tooltip_ability_crimsyth_gunman_shrapnel_Description"		"Каскад пуль, падающих с неба в выбранной области. Наносят урон и замедляют врагов, попавших под ливень."
+		"DOTA_Tooltip_ability_crimsyth_gunman_shrapnel_shrapnel_damage"	"УРОН:"
+
+		"DOTA_Tooltip_ability_redfall_barrel_toss"						"Barrel Toss"
+		"DOTA_Tooltip_ability_redfall_barrel_toss_Description"			"Кидает впереди себя бочку, которая взрывается на низкой скорости или когда попадает по врагу."
+		"DOTA_Tooltip_ability_redfall_barrel_toss_damage"				"УРОН:"
+
+		"DOTA_Tooltip_modifier_ash_tree_aura_debuff"					"Gnarl Grip"
+		"DOTA_Tooltip_modifier_ash_tree_aura_debuff_Description"		"Замедлен"
+
+		"DOTA_Tooltip_ability_redfall_crimson_samurai_passive"			"Silver Shield"
+		"DOTA_Tooltip_ability_redfall_crimson_samurai_passive_Description"	"Снижает получаемый ЧИСТЫЙ урон."
+		"DOTA_Tooltip_ability_redfall_crimson_samurai_passive_pure_damage_reduce"	"СНИЖЕНИЕ ВХОДЯЩЕГО ЧИСТОГО УРОНА:"
+
+		"DOTA_Tooltip_modifier_silver_shield"							"Silver Shield"
+		"DOTA_Tooltip_modifier_silver_shield_Description"				"Снижение получаемого чистого урона."
+
+		"redfall_castle_crimson_flood"									"Crimson Flood"
+
+		"DOTA_Tooltip_raging_shaman_passive"							"Дикий воин"
+
+		"crimsyth_ghost_of_perdition"									"Призрак проклятий"
+
+		"DOTA_Tooltip_ability_shipyard_pirate_archer_ability"			"Searing Arrows"
+		"DOTA_Tooltip_ability_shipyard_pirate_archer_ability_Description"	"Атаки наносят дополнительный магический урон и поджигают цель."
+		"DOTA_Tooltip_ability_shipyard_pirate_archer_ability_magic_damage_on_hit"	"ДОП. МАГИЧЕСКИЙ УРОН, % ОТ ВСЕГО УРОНА:"
+		"DOTA_Tooltip_ability_shipyard_pirate_archer_ability_burn_damage_per_tick"	"УРОН ОЖОГА:"
+
+		"redfall_castle_effigy_of_fortunis"								"Статуя Фортуниса"
+
+		"DOTA_Tooltip_ability_redfall_fortunis_passive"					"Fortune's Blessing"
+		"DOTA_Tooltip_ability_redfall_fortunis_passive_Description"		"Уклоняется от 50% атак, имеет 50% сопротивление магии."
+
+		"DOTA_Tooltip_ability_fortunis_effigy_static_remnant"			"Static Remnant"
+		"DOTA_Tooltip_ability_fortunis_effigy_static_remnant_Description"	"Оставляет грозовой след, который взрывается при контакте с врагом."
+		"DOTA_Tooltip_ability_fortunis_effigy_static_remnant_static_remnant_damage"	"УРОН:"
+
+		"redfall_maze_ghost"											"Призрак сокровищ"
+		"maze_ghost_dialogue"											"Можно открыть только одну дверь! Выбирай мудро!"
+
+		"redfall_ethereal_revenant"										"Потусторонний призрак"
+
+		"redfall_lava_behemoth"											"Лавовый гигант"
+
+		"DOTA_Tooltip_ability_redfall_ethereal_revenant_passive"				"Revenant Link"
+		"DOTA_Tooltip_ability_redfall_ethereal_revenant_passive_Description"	"Связывает ближайших врагов, замедляя их и снижая их урон."
+
+		"DOTA_Tooltip_modifier_ethereal_revenant_link_boss"					"Revenant Link"
+
+		"DOTA_Tooltip_ability_magic_immune_breakable_ability_mega"		"Magic Ward"
+		"DOTA_Tooltip_ability_magic_immune_breakable_ability_mega_Description"	"Наделяется щитом, дающим иммунитет к магии. Несколько успешных атак ломают щит."	
+		"DOTA_Tooltip_ability_magic_immune_breakable_ability_mega_stacks"		"ЗАРЯДОВ:"
+
+		"DOTA_Tooltip_ability_redfall_mega_steadfast"							"Mega Steadfast"
+		"DOTA_Tooltip_ability_redfall_mega_steadfast_Description"				"Любой входящий урон не отнимет более определённого процента от максимального запаса здоровья."
+		"DOTA_Tooltip_ability_redfall_mega_steadfast_max_damage"				"МАКС. УРОН, % ОТ МАКС. ЗДОРОВЬЯ:"
+
+		"redfall_crimsyth_castle_grounds_guardian"						"Страж сада замка"
+
+		"DOTA_Tooltip_ability_redfall_garden_watcher_nuke"				"Equinox Rift"
+		"DOTA_Tooltip_ability_redfall_garden_watcher_nuke_Description"	"Меняется местами с выбранной целью."
+
+		"DOTA_Tooltip_ability_redfall_garden_watcher_passive"			"Pure Resist"
+		"DOTA_Tooltip_ability_redfall_garden_watcher_passive_Description"	"Отвергает значительную часть магического и чистого урона из всех источников. Получаемый физический урон значительно увеличен."
+		"DOTA_Tooltip_ability_redfall_garden_watcher_passive_pure_resist"	"СОПРОТИВЛЕНИЕ %:"
+		"DOTA_Tooltip_ability_redfall_garden_watcher_passive_physical_amp"	"ДОП. ФИЗ. УРОН ПО СУЩЕСТВУ %:"
+
+		"DOTA_Tooltip_ability_redfall_prince_elthezun_ability"			"Arcane Sparkle"
+		"DOTA_Tooltip_ability_redfall_prince_elthezun_ability_Description"	"Постоянно выпускает поток искр в случайном направлении, который наносяит урон и сжигает ману."
+		"DOTA_Tooltip_ability_redfall_prince_elthezun_ability_damage"		"УРОН:"
+		"DOTA_Tooltip_ability_redfall_prince_elthezun_ability_mana_drain"	"СЖИГАЕТ МАНЫ:"
+
+		"DOTA_Tooltip_ability_majinaq_mana_break"						"Mana Break"
+		"DOTA_Tooltip_ability_majinaq_mana_break_Description"			"С каждой атакой сжигает часть маны врага, наносит дополнительный магический урон в зависимости от выжженной маны."
+		"DOTA_Tooltip_ability_majinaq_mana_break_mana_per_hit"			"СЖИГАЕТ МАНЫ:"
+
+		"redfall_crimsyth_demon_knight"									"Рыцарь - Демон Кримсит"
+
+		"DOTA_Tooltip_ability_redfall_lava_behemoth_passive"			"Magma Waves"
+		"DOTA_Tooltip_ability_redfall_lava_behemoth_passive_Description"	"Когда получает урон, отражает снаряд в сторону атакующего. Дополнительно пассивно увеличивает скорость атаки."
+		"DOTA_Tooltip_ability_redfall_lava_behemoth_passive_cast_speed"	"СКОРОСТЬ ПРИМЕНЕНИЯ:"
+		"DOTA_Tooltip_ability_redfall_lava_behemoth_passive_damage"		"УРОН:"
+
+		"DOTA_Tooltip_ability_lava_behemoth_fissure"					"Behemoth Fissure"
+		"DOTA_Tooltip_ability_lava_behemoth_fissure_Description"		"Создаёт непроходимую стену из застывшей магмы."
+		
+
+		"redfall_the_cannibal"											"Каннибал"
+
+		"DOTA_Tooltip_ability_redfall_crimsyth_demonic_follower_ai"		"Demon Shell"
+		"DOTA_Tooltip_ability_redfall_crimsyth_demonic_follower_ai_Description"		"Увеличено сопротивление магии."
+		"DOTA_Tooltip_ability_redfall_crimsyth_demonic_follower_ai_magic_resist"	"ДОП. СОПРОТИВЛЕНИЕ МАГИИ:"
+
+		"redfall_demonic_follower"										"Демонический последователь"
+
+		"redfall_crimsyth_castle_boss"									"Лорд Скарлот"
+		"crimsyth_sorceress"											"Леди Дахлия"
+
+		"redfall_castle_boss_dialogue_1"											"Тебе было ясно сказано пойти прочь."
+		"redfall_castle_boss_dialogue_2"											"Багровые волны осени несут кровь невинных жертв. Это земля страданий и упадка."
+		"redfall_castle_boss_dialogue_3"											"Доминион наш! Жизнь больше не может сопротивляться скверне."
+		"redfall_castle_boss_dialogue_4"											"Идём! Почувствуешь всю ужасающую мощь силы!"
+		"redfall_castle_boss_dialogue_5"											"Пленительно!"
+
+		"DOTA_Tooltip_modifier_crimsyth_recruiter_armor_loss"						"Armor Sap"
+		"DOTA_Tooltip_modifier_crimsyth_recruiter_armor_loss_Description"			"Снижение брони"
+
+		"DOTA_Tooltip_ability_item_redfall_crimsyth_demon_relic_normal"		"Демоническая реликвия Кримсит"
+		"item_redfall_crimsyth_demon_relic_normal_desc"						"Открывает портал в замок Кримсит, расположенный рядом со входом в фермы."
+
+		"DOTA_Tooltip_ability_item_redfall_crimsyth_demon_relic_elite"		"Демоническая реликвия Кримсит"
+		"item_redfall_crimsyth_demon_relic_elite_desc"						"Открывает портал в замок Кримсит, расположенный рядом со входом в фермы."
+
+		"DOTA_Tooltip_ability_item_redfall_crimsyth_demon_relic_legend"		"Демоническая реликвия Кримсит"
+		"item_redfall_crimsyth_demon_relic_legend_desc"						"Открывает портал в замок Кримсит, расположенный рядом со входом в фермы."
+
+		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_normal"			"Рубин Осеннего Духа"
+		"item_redfall_spirit_ruby_normal_desc"							"Использование: Активирует Равноденствие на карте Осенний Хребет. В этом режиме монстры Парагона появляются в 3 раза чаще, сопротивление и урон всех существ удвоены, увеличен шанс выпадения предметов редкости Immortal. Получаемые Мифрильные Осколки утроены, получаемые Темные Кристаллы удвоены."
+
+		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_elite"			"Рубин Осеннего Духа"
+		"item_redfall_spirit_ruby_elite_desc"							"Использование: Активирует Равноденствие на карте Осенний Хребет. В этом режиме монстры Парагона появляются в 3 раза чаще, сопротивление и урон всех существ удвоены, увеличен шанс выпадения предметов редкости Immortal. Получаемые Мифрильные Осколки утроены, получаемые Темные Кристаллы удвоены."
+		
+		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_legend"			"Рубин Осеннего Духа"
+		"item_redfall_spirit_ruby_legend_desc"							"Использование: Активирует Равноденствие на карте Осенний Хребет. В этом режиме монстры Парагона появляются в 3 раза чаще, сопротивление и урон всех существ удвоены, увеличен шанс выпадения предметов редкости Immortal. Получаемые Мифрильные Осколки утроены, получаемые Темные Кристаллы удвоены."
+		
+		"redfall_equinox"												"Равноденствие"
+
+		"redfall_ancient_tree"											"Осквернённое Мировое Древо"
+		"redfall_ancient_tree_summon"									"Павший саженец"
+		
+		"DOTA_Tooltip_ability_ancient_tree_passive"						"Seed Rupture"
+		"DOTA_Tooltip_ability_ancient_tree_passive_Description"			"Поток листвы, задевающий ближайших врагов оставляет складывающийся дебафф, который снижает дальность обзора, броню и скорость передвижения."	
+		"DOTA_Tooltip_ability_ancient_tree_passive_vision_loss"			"СНИЖЕНИЕ ДАЛЬНОСТИ ОБЗОРА:"
+		"DOTA_Tooltip_ability_ancient_tree_passive_armor_loss"			"СНИЖЕНИЕ БРОНИ:"
+		"DOTA_Tooltip_ability_ancient_tree_passive_movespeed_loss"		"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ, %:"
+
+		"DOTA_Tooltip_modifier_ancient_tree_vision"						"Seed Rupture"
+		"DOTA_Tooltip_modifier_ancient_tree_vision_Description"			"Снижен обзор, броня и скорость передвижения"
+
+		"DOTA_Tooltip_ability_ancient_tree_summon"						"Soul of the Forest"
+		"DOTA_Tooltip_ability_ancient_tree_summon_Description"			"Призывает на свою сторону армию саженцев Мирового Древа. Каждый живой саженец снижает входящий урон Осквернённого Мирового Древа на 5%."
+
+		"DOTA_Tooltip_ability_ancient_tree_ground_slam"					"Forest Quake"	
+		"DOTA_Tooltip_ability_ancient_tree_ground_slam_Description"		"Со всей силы бьёт по земле, оглушая и нанося урон всем задетым врагам в области действия."
+		"DOTA_Tooltip_ability_ancient_tree_ground_slam_damage"			"УРОН:"	
+
+		"DOTA_Tooltip_ability_ancient_tree_summon_leech_seed"			"Redfall Leech Seed"
+		"DOTA_Tooltip_ability_ancient_tree_summon_leech_seed_Description"	"Сажает в выбранную цель отравляющее семя, которое с каждым пульсом исцеляет Осквернённое Мировое Древо и всю его армию на % от макс. здоровья."	
+		"DOTA_Tooltip_ability_ancient_tree_summon_leech_seed_heal_percent"	"ЛЕЧЕНИЕ %:"
+		"DOTA_Tooltip_ability_ancient_tree_summon_leech_seed_heal_percent_boss"	"ЛЕЧЕНИЕ МИРОВОГО ДРЕВА %:"
+		"DOTA_Tooltip_ability_ancient_tree_summon_leech_seed_damage_per_tick"	"УРОН В СЕКУНДУ:"
+
+		"DOTA_Tooltip_modifier_summon_leech_seed_debuff"				"Redfall Leech Seed"
+		"DOTA_Tooltip_modifier_summon_leech_seed_debuff_Description"	"Получает урон и исцеляет Мировое Древо и всю его армию."

@@ -1,0 +1,168 @@
+		"serengaard_vote_skip_wave"										"Пропустить ожидание"
+		
+		"serengaard_leaderboard_title"									"Лидеры выживания в битве за Серенгард"
+
+		"serengaard_leaderboard_7days"									"7 дней"
+		"serengaard_leaderboard_month"									"Месяц"
+		"serengaard_leaderboard_all_time"								"Всё время"			
+
+		"DOTA_Tooltip_ability_item_serengaard_sunstone"					"Солнечный Камень Серенгарда"
+		"item_serengaard_sunstone_desc"									"Использование: Активируйте этот камень перед самой первой волной в Битве за Серенгард, чтобы пропустить волны до бесконечной стадии на сложности Legend."
+
+		"battle_of_serengaard"											"Битва за Серенгард"
+		"wave_starting_timer"											"Начало"
+		"wave_name"														"Волна"
+		"enemies_slain"													"Врагов убито"
+		"wave_spawning"													"Появление волны"
+
+		"rpc_serengaard_tower"											"Драконья Башня"
+		"serengaard_ancient_guardian"									"Солнечный Страж"
+
+		"rpc_serengaard_barracks"										"Солнечные бараки"
+
+		"serengaard_ranger"												"Солнечный стрелок"
+
+		"rpc_serengaard_teleporter"										"Телепорт Серенгарда"
+
+		"serengaard_knight"												"Рыцарь Серенгарда"
+
+		"rpc_serengaard_ancient"										"Крепость Серенгарда"
+
+		"DOTA_Tooltip_ability_serengaard_sun_guardian_ability"			"Солнечный Страж"
+		"DOTA_Tooltip_ability_serengaard_sun_guardian_ability_Description"		"Пассивно восстанавливает здоровье."
+		"DOTA_Tooltip_ability_serengaard_sun_guardian_ability_health_regen_pct"	"ДОП. РЕГЕН. ЗДОРОВЬЯ, %:"
+
+		"DOTA_Tooltip_modifier_teleporter_aura"							"Телепорт"
+		"DOTA_Tooltip_modifier_teleporter_aura_Description"				"Приказ герою двигаться на расстояние больше, чем 800 юнитов, но в пределах крепости Серенгарда позволит телепортироваться с задержкой в 0.5 секунды."
+	
+		"DOTA_Tooltip_ability_serengaard_teleporter_ability"			"Телепорт"
+		"DOTA_Tooltip_ability_serengaard_teleporter_ability_Description"	"Пока герой стоит рядом с телепортом, любой приказ двигаться на расстояние большее, чем 800 юнитов, но в пределах Крепости Серенгарда, позволит телепортироваться с задержкой в 0.5 секунды."
+	
+		"dark_fighter_serengaard"										"Тёмный Боец"
+		"DOTA_Tooltip_ability_ursa_overpower_no_head_attachment"		"Overpower"
+		"DOTA_Tooltip_ability_ursa_overpower_no_head_attachment_Description"	"Значительно увеличивает скорость атаки"
+
+		"serengaard_freeze_fiend"										"Ледяной демон"
+
+		"DOTA_Tooltip_ability_freeze_fiend_crystal_nova" 				"Crystal Nova"
+		"DOTA_Tooltip_ability_freeze_fiend_crystal_nova_Description"	"Проклинает выбранную область ледяными ветрами, наносит урон и замедляет задетых противников."
+		"DOTA_Tooltip_ability_freeze_fiend_crystal_nova_movespeed_slow"	"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ %:"
+		"DOTA_Tooltip_ability_freeze_fiend_crystal_nova_attackspeed_slow"	"СНИЖЕНИЕ СКОРОСТИ АТАКИ:"
+		"DOTA_Tooltip_ability_freeze_fiend_crystal_nova_duration"			"ДЛИТЕЛЬНОСТЬ ЗАМЕДЛЕНИЯ:"
+
+		"serengaard_icy_venge"											"Ледяной Дух"
+
+		"DOTA_Tooltip_ability_serengaard_wave_of_terror"				"Wave of Terror"
+		"DOTA_Tooltip_ability_serengaard_wave_of_terror_Description"		"Быстро перемещающаяся волна страха, наносит урон и снижает броню задетых противников."
+		"DOTA_Tooltip_ability_serengaard_wave_of_terror_armor_reduction"	"СНИЖЕНИЕ БРОНИ:"
+		"DOTA_Tooltip_ability_serengaard_wave_of_terror_tooltip_duration"	"ДЛИТЕЛЬНОСТЬ СНИЖЕНИЯ БРОНИ:"
+
+		"DOTA_Tooltip_ability_serengaard_ice_vortex"					"Ice Vortex"
+		"DOTA_Tooltip_ability_serengaard_ice_vortex_Description"		"Замораживает выбранную область мистическим льдом. Попадающие под действие льда противники замедляются и теряют сопротивление к магии."
+		"DOTA_Tooltip_ability_serengaard_ice_vortex_movement_speed_pct"	"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_serengaard_ice_vortex_spell_resist_pct"	"СНИЖЕНИЕ СОПРОТИВЛЕНИЯ К МАГИИ:"
+
+		"DOTA_Tooltip_ability_creature_acid_spray"						"Fulminating Poison"
+		"DOTA_Tooltip_ability_creature_acid_spray_Description"			"При смерти взрывается, оставляя на месте гибели лужу сильного яда."
+		"DOTA_Tooltip_ability_creature_acid_spray_damage"				"ЕЖЕСЕКУНДНЫЙ УРОН:"
+		"DOTA_Tooltip_ability_creature_acid_spray_armor_reduction"		"СНИЖЕНИЕ БРОНИ:"
+
+		"DOTA_Tooltip_ability_creature_acid_spray"						"Fulminating Poison"
+		"DOTA_Tooltip_ability_creature_acid_spray_Description"			"При смерти взрывается, оставляя на месте гибели лужу сильного яда."
+		"DOTA_Tooltip_ability_creature_acid_spray_damage"				"ЕЖЕСЕКУНДНЫЙ УРОН:"
+		"DOTA_Tooltip_ability_creature_acid_spray_armor_reduction"		"СНИЖЕНИЕ БРОНИ:"
+
+		"DOTA_Tooltip_ability_creature_acid_spray_yellow"				"Fulminating Poison"
+		"DOTA_Tooltip_ability_creature_acid_spray_Description"			"При смерти взрывается, оставляя на месте гибели лужу сильного яда."
+		"DOTA_Tooltip_ability_creature_acid_spray_damage"				"ЕЖЕСЕКУНДНЫЙ УРОН:"
+		"DOTA_Tooltip_ability_creature_acid_spray_armor_reduction"		"СНИЖЕНИЕ БРОНИ:"
+
+		"serengaard_hook_flinger"										"Метатель крюка"
+
+		"DOTA_Tooltip_ability_custom_meat_hook"							"Meat Hook"
+		"DOTA_Tooltip_ability_custom_meat_hook_Description"				"Бросает окровавленный крюк в выбранную точку и в случае, если на его пути будет вражеский герой, притягивает его к себе."
+		"DOTA_Tooltip_ability_custom_meat_hook_damage"					"УРОН:"
+
+		"serengaard_antimage"											"Временной странник"
+
+		"DOTA_Tooltip_ability_serengaard_antimage_blink_custom"				"Blink"
+		"DOTA_Tooltip_ability_serengaard_antimage_blink_custom_Description"	"Телепортируется в выбранную точку."
+
+		"serengaard_sand_king"											"Песочный скорпион"
+
+		"DOTA_Tooltip_ability_serengaard_burrowstrike"					"Burrowstrike"
+		"DOTA_Tooltip_ability_serengaard_burrowstrike_Description"		"Закапывается в землю и быстро перемещается в указанную точку, оглушая всех врагов на своём пути."
+		"DOTA_Tooltip_ability_serengaard_burrowstrike_tooltip_range"	"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
+
+		"DOTA_Tooltip_ability_serengaard_sandking_ai"					"Sandstorm"
+		"DOTA_Tooltip_ability_serengaard_sandking_ai_Description"		"Когда здоровье опускается ниже 50%, создаёт небольшую песчаную бурю, во время которой получает иммунитет к магии, уклоняется от 100% атак и восстанавливает здоровье."
+
+		"serengaard_wandering_mage"										"Странствующий маг"
+
+		"DOTA_Tooltip_ability_wandering_mage_blast"						"Illumination Blast"
+		"DOTA_Tooltip_ability_wandering_mage_blast_Description"			"Заряжает свой посох окружающим светом после чего выпускает волну ослепительного света в указанную точку. Чем дольше идёт накопление, тем больше урона будет нанесено."
+		"DOTA_Tooltip_ability_wandering_mage_blast_damage_per_second"	"УРОН ЗА КАЖДУЮ СЕКУНДУ ЗАРЯДКИ:"
+	
+		"experimental_minion"											"Experimental Minion"
+
+		"DOTA_Tooltip_ability_experimental_chronosphere"				"Arcane Sphere"
+		"DOTA_Tooltip_ability_experimental_chronosphere_Description"	"Замораживает время в небольшой области."
+
+		"DOTA_Tooltip_ability_serengaard_experimental_minion_ai"		"Arcane Step"
+		"DOTA_Tooltip_ability_serengaard_experimental_minion_ai_Description"	"Пассивно увеличивает уклонение"
+		"DOTA_Tooltip_ability_serengaard_experimental_minion_ai_evasion"	"ДОП. УКЛОНЕНИЕ:"		
+
+		"serengaard_neverlord"											"Neverlord Raider"
+
+		"DOTA_Tooltip_ability_serengaard_boss_mega_raze"				"Megaraze"
+		"DOTA_Tooltip_ability_serengaard_boss_mega_raze_Description"	"Создаёт вокруг себя огромное количество теневых взрывов"
+		"DOTA_Tooltip_ability_serengaard_boss_mega_raze_damage"			"УРОН:"
+
+		"DOTA_Tooltip_ability_forest_boss_dive"							"Shadow Dive"
+		"DOTA_Tooltip_ability_forest_boss_dive_Description"				"Быстро перемещается."
+
+		"DOTA_Tooltip_ability_goremaw_electricity"						"Thunder Charge"
+		"DOTA_Tooltip_ability_goremaw_electricity_Description"			"Испускает множество искр, поражающих врагов"
+		"DOTA_Tooltip_ability_goremaw_electricity_damage"				"УРОН:"
+
+		"DOTA_Tooltip_ability_goremaw_battle_hunger"					"Combat Rage"
+		"DOTA_Tooltip_ability_goremaw_battle_hunger_Description"		"На 5 секунд усиливает свои характеристики."
+		"DOTA_Tooltip_ability_goremaw_battle_hunger_armor_bonus"		"ДОП. БРОНЯ:"
+		"DOTA_Tooltip_ability_goremaw_battle_hunger_movespeed"			"ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_goremaw_battle_hunger_attackspeed"		"ДОП. СКОРОСТЬ АТАКИ:"
+
+		"serengaard_siege_archer"										"Стрелок пустоши"
+
+		"DOTA_Tooltip_ability_zombie_colors"							"Rainbow Corpse"
+		"DOTA_Tooltip_ability_zombie_colors_damage"						"УРОН:"
+
+		"amber_spider_queen"											"Amber Spider Queen"
+
+		"DOTA_Tooltip_ability_amber_spider_ai"							"Amber Venom Bite"
+		"DOTA_Tooltip_ability_amber_spider_ai_Description"				"Атаки замедляют противников на 3 секунды."
+
+		"DOTA_Tooltip_ability_betrayer_of_time_ability"					"Assault of Chronicius"
+		"DOTA_Tooltip_ability_betrayer_of_time_ability_Description"		"Вместе с атаками дополнительно выпускается 3 снаряда, которые при попадании замедляют противников."
+
+		"DOTA_Tooltip_ability_conjured_tide_ability"					"Tidal Assault"
+		"DOTA_Tooltip_ability_conjured_tide_ability_Description"		"Атаки проклинают врагов, снижая их урон."
+		"DOTA_Tooltip_ability_conjured_tide_ability_damage_loss"		"БАЗОВОЕ СНИЖЕНИЕ УРОНА:"
+		"DOTA_Tooltip_ability_conjured_tide_ability_damage_loss_pct"	"СНИЖЕНИЕ УРОНА, %:"
+
+		"DOTA_Tooltip_ability_mines_boss_thunder_storm"					"Thunder Storm"
+		"DOTA_Tooltip_ability_mines_boss_thunder_storm_Description"		"Призывает ужасную бурю, которая поражает всё вокруг молниями."
+		"DOTA_Tooltip_ability_mines_boss_thunder_storm_damage"			"УРОН:"
+
+		"DOTA_Tooltip_ability_mines_boss_dive"							"Baron Dive"
+
+		"DOTA_Tooltip_ability_mines_boss_passive"						"Thunderstrike"
+		"DOTA_Tooltip_ability_mines_boss_passive_Description"			"Атаки замедляют цель на 0.4 секунды."
+
+		"DOTA_Tooltip_ability_mines_boss_illusions"						"Lightning Replicate"
+
+		"serengaard_normal_complete"									"Осада на сложности Normal завершена! Можно подойти к Оракулу, чтобы сохранить героя и предметы."
+		"serengaard_elite_complete"										"Осада на сложности Elite завершена! Можно подойти к Оракулу, чтобы сохранить героя и предметы"
+
+		"DOTA_Tooltip_ability_serengaard_midnight_pulse"				"Midnight Pulse"
+		"DOTA_Tooltip_ability_serengaard_midnight_pulse_Description"	"Проклинает выбранную область проникающей тьмой, которая ежесекундно наносит урон в размере % от максимального здоровья цели."
+		"DOTA_Tooltip_ability_serengaard_midnight_pulse_damage_percent"			"ЕЖЕСЕКУНДНЫЙ УРОН, % ОТ МАКС. ЗДОРОВЬЯ:"

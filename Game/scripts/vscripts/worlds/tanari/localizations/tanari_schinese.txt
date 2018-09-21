@@ -1,0 +1,1028 @@
+		//---------------------------
+		// Tanari Jungle
+		//---------------------------
+
+		"DOTA_Tooltip_ability_item_tanari_wind_temple_key_normal"			"风之神殿钥匙 (普通)"
+		"DOTA_Tooltip_ability_item_tanari_wind_temple_key_elite"				"风之神殿钥匙 (精英)"
+		"DOTA_Tooltip_ability_item_tanari_wind_temple_key_legend"			"风之神殿钥匙 (传说)"
+
+		"item_tanari_wind_temple_key_normal_desc"		"使用：允许你进入塔纳利丛林的风之神殿（普通难度）. 可以储存到永恒幻境中，以便于在新的一局游戏中使用."
+		"item_tanari_wind_temple_key_elite_desc"		"使用：允许你进入塔纳利丛林的风之神殿（精英难度）. 可以储存到永恒幻境中，以便于在新的一局游戏中使用."
+		"item_tanari_wind_temple_key_legend_desc"		"使用：允许你进入塔纳利丛林的风之神殿（传说难度）. 可以储存到永恒幻境中，以便于在新的一局游戏中使用."
+
+		"DOTA_Tooltip_ability_item_tanari_water_temple_key_normal"			"水之神殿钥匙 (普通)"
+		"DOTA_Tooltip_ability_item_tanari_water_temple_key_elite"				"水之神殿钥匙 (精英)"
+		"DOTA_Tooltip_ability_item_tanari_water_temple_key_legend"			"水之神殿钥匙 (传说)"
+
+		"item_tanari_water_temple_key_normal_desc"		"使用：允许你进入塔纳利丛林的水之神殿（普通难度）. 可以储存到永恒幻境中，以便于在新的一局游戏中使用."
+		"item_tanari_water_temple_key_elite_desc"		"使用：允许你进入塔纳利丛林的水之神殿（精英难度）. 可以储存到永恒幻境中，以便于在新的一局游戏中使用."
+		"item_tanari_water_temple_key_legend_desc"		"使用：允许你进入塔纳利丛林的水之神殿（传说难度）. 可以储存到永恒幻境中，以便于在新的一局游戏中使用."
+
+		"DOTA_Tooltip_ability_item_tanari_fire_temple_key_normal"			"火之神殿钥匙 (普通)"
+		"DOTA_Tooltip_ability_item_tanari_fire_temple_key_elite"				"火之神殿钥匙 (精英)"
+		"DOTA_Tooltip_ability_item_tanari_fire_temple_key_legend"			"火之神殿钥匙 (传说)"
+
+		"item_tanari_fire_temple_key_normal_desc"		"使用：允许你进入塔纳利丛林的火之神殿（普通难度）. 可以储存到永恒幻境中，以便于在新的一局游戏中使用."
+		"item_tanari_fire_temple_key_elite_desc"		"使用：允许你进入塔纳利丛林的火之神殿（精英难度）. 可以储存到永恒幻境中，以便于在新的一局游戏中使用."
+		"item_tanari_fire_temple_key_legend_desc"		"使用：允许你进入塔纳利丛林的火之神殿（传说难度）. 可以储存到永恒幻境中，以便于在新的一局游戏中使用."
+
+		"DOTA_Tooltip_ability_item_tanari_essence_of_wind_normal"			"风之精 (普通)"
+		"DOTA_Tooltip_ability_item_tanari_essence_of_wind_elite"				"风之精 (精英)"
+		"DOTA_Tooltip_ability_item_tanari_essence_of_wind_legend"			"风之精 (传说)"
+
+		"item_tanari_essence_of_wind_normal_desc"		"与其他两个塔纳利丛林的元素精华合成塔纳利灵魂之石."
+		"item_tanari_essence_of_wind_elite_desc"		"与其他两个塔纳利丛林的元素精华合成塔纳利灵魂之石."
+		"item_tanari_essence_of_wind_legend_desc"		"与其他两个塔纳利丛林的元素精华合成塔纳利灵魂之石."
+
+		"DOTA_Tooltip_ability_item_tanari_heart_of_water_normal"			"水之心 (普通)"
+		"DOTA_Tooltip_ability_item_tanari_heart_of_water_elite"				"水之心 (精英)"
+		"DOTA_Tooltip_ability_item_tanari_heart_of_water_legend"			"水之心 (传说)"
+
+		"item_tanari_heart_of_water_normal_desc"		"与其他两个塔纳利丛林的元素精华合成塔纳利灵魂之石."
+		"item_tanari_heart_of_water_elite_desc"		"与其他两个塔纳利丛林的元素精华合成塔纳利灵魂之石."
+		"item_tanari_heart_of_water_legend_desc"		"与其他两个塔纳利丛林的元素精华合成塔纳利灵魂之石."
+
+		"DOTA_Tooltip_ability_item_tanari_core_of_fire_normal"			"火之核 (普通)"
+		"DOTA_Tooltip_ability_item_tanari_core_of_fire_elite"				"火之核 (精英)"
+		"DOTA_Tooltip_ability_item_tanari_core_of_fire_legend"			"火之核 (传说)"
+
+		"item_tanari_core_of_fire_normal_desc"		"与其他两个塔纳利丛林的元素精华合成塔纳利灵魂之石."
+		"item_tanari_core_of_fire_elite_desc"		"与其他两个塔纳利丛林的元素精华合成塔纳利灵魂之石."
+		"item_tanari_core_of_fire_legend_desc"		"与其他两个塔纳利丛林的元素精华合成塔纳利灵魂之石."
+
+		"DOTA_Tooltip_ability_item_tanari_spirit_stones_normal"			"塔纳利灵魂之石 (普通)"
+		"DOTA_Tooltip_ability_item_tanari_spirit_stones_elite"				"塔纳利灵魂之石 (精英)"
+		"DOTA_Tooltip_ability_item_tanari_spirit_stones_legend"			"塔纳利灵魂之石 (传说)"
+
+		"item_tanari_spirit_stones_normal_desc"		"使用：进入普通难度的塔纳利丛林-灵魂之境. 灵魂之境相对于现界，拥有3倍精英怪刷新率, 2倍的怪物伤害和抗性, 额外的不朽物品掉率, 3倍的秘银和奥术水晶获取率."
+		"item_tanari_spirit_stones_elite_desc"		"使用：进入精英难度的塔纳利丛林-灵魂之境. 灵魂之境相对于现界，拥有3倍精英怪刷新率, 2倍的怪物伤害和抗性, 额外的不朽物品掉率, 3倍的秘银和奥术水晶获取率."
+		"item_tanari_spirit_stones_legend_desc"		"使用：进入传说难度的塔纳利丛林-灵魂之境. 灵魂之境相对于现界，拥有3倍精英怪刷新率, 2倍的怪物伤害和抗性, 额外的不朽物品掉率, 3倍的秘银和奥术水晶获取率."
+
+		
+		"dialogue_witch_doctor"						"丛林之魂围绕着我."
+		"dialogue_witch_doctor_two"					"这个世界散逸着能量."
+		"tanari_witch_doctor"						"塔纳利巫医"
+
+		"witch_doctor_tooltip"						"为我带来构成这个世界的基本元素，我会为你打开通往灵魂之境的通路."
+
+		"combine_tanari_elements_button_label"		"合成钥匙"
+
+		"tooltip_town_portal"						"城镇传送门"
+		"tooltip_town_portal_desc"					"在7秒引导后传送回城镇."
+
+		"DOTA_Tooltip_modifier_tanari_fountain"		"塔纳利之泉"
+		"DOTA_Tooltip_modifier_tanari_fountain_Description"	"回复生命值和魔法值，受到任何伤害都会取消这个效果."
+		
+		"DOTA_Tooltip_modifier_flame_orchid_burn"		"燃烧"
+		"DOTA_Tooltip_modifier_flame_orchid_burn_Description"	""
+		
+		"grizzled_woodsman"		"白发术士"
+
+		"tanari_island_hydra"							"海蛇"
+
+		"tanari_poison_flower"							"剧毒之花"
+
+		"DOTA_Tooltip_ability_gazbin_berserker_rage"	"狂暴之怒"
+		"DOTA_Tooltip_ability_gazbin_berserker_rage_Description"	"增加 40%的攻击移动速度"
+
+		"tanari_mountain_pass_guardian"					"山隘守卫者"
+
+		"DOTA_Tooltip_ability_tanari_kraken_ravage"		"蹂躏"
+		"DOTA_Tooltip_ability_tanari_kraken_ravage_Description"	"以克拉肯为中心伸出大量的触手，眩晕并伤害击中的任何目标."	
+
+		"DOTA_Tooltip_ability_tanari_kraken_anchor_smash"	"巨锚碎击"
+		"DOTA_Tooltip_ability_tanari_kraken_anchor_smash_Description"	"克拉肯挥舞他的武器，对周围单位造成强有力的一击并击退击中的目标."
+
+		"tanari_reclusive_mountain_nomad"				"遗物追寻者"
+		"DOTA_Tooltip_ability_tanari_mountain_nomad_ai"						"致死打击"
+		"DOTA_Tooltip_ability_tanari_mountain_nomad_ai_Description"			"撕裂血肉的攻击，减缓被攻击者的移动速度，并且他们会因此持续失血."
+		"DOTA_Tooltip_ability_tanari_mountain_nomad_ai_damage"			"受到流血伤害:"
+
+		"tanari_mountain_specter"						"被遗忘的英雄"
+		"DOTA_Tooltip_ability_tanari_mountain_specter_ai"				"雪恨"
+		"DOTA_Tooltip_ability_tanari_mountain_specter_ai_Description"	"为被他人遗忘而复仇."
+
+		"DOTA_Tooltip_ability_tanari_mountain_pass_guardian_ai" "远古守卫者"
+		"DOTA_Tooltip_ability_tanari_mountain_pass_guardian_ai_Description"	"裂筋碎骨地攻击，造成额外 100% 魔法伤害"
+
+		"DOTA_Tooltip_modifier_mountain_nomad_bleeding"	"流血"
+		"DOTA_Tooltip_modifier_mountain_nomad_bleeding_Description"	""
+
+		"tanari_kraken_king"							"克拉肯大王"
+		"DOTA_Tooltip_ability_tanari_kraken_king_ai"	"鱼！我要吃<・)))><<！"
+		"DOTA_Tooltip_ability_tanari_kraken_king_ai_Description"	"猛力挥舞武器！"
+
+		"DOTA_Tooltip_ability_tanari_hydra_ai"				"巅峰掠食者"
+
+		"tanari_wind_temple_keyholder"						"风之神殿钥匙保管人"
+
+		"tanari_primitive_hunter"							"原初猎手"
+
+		"DOTA_Tooltip_ability_tanari_wind_temple_keyholder_ai"	"狂风"
+		"DOTA_Tooltip_ability_tanari_wind_temple_keyholder_ai_Description"	"攻击附带强风.0.3%的攻击伤害会变成魔法伤害并减缓目标速度."
+
+		"DOTA_Tooltip_modifier_bongo_frog_effect"			"邦戈能量光环"
+		"DOTA_Tooltip_modifier_bongo_frog_effect_Description"	"增加生命回复速度和移动速度"
+
+		"DOTA_Tooltip_ability_tanari_bongo_frog_ai"			"邦戈吟游诗人"
+		"DOTA_Tooltip_ability_tanari_bongo_frog_ai_Description"	"用邦戈丛林的乐曲增加附近盟友的生命回复速度和移动速度."
+
+		"DOTA_Tooltip_modifier_wind_temple_keyholder_slow"	"卷风"
+		"DOTA_Tooltip_modifier_wind_temple_keyholder_slow_Description"	"移动和攻击速度降低"
+
+		"DOTA_Tooltip_ability_creature_pure_strike"			"纯粹打击"
+		"DOTA_Tooltip_ability_creature_pure_strike_Description"	"攻击必定命中，并且15%的伤害为纯粹伤害."
+
+		"DOTA_Tooltip_ability_tanari_ritual_healing"		"治愈祭礼"
+		"DOTA_Tooltip_ability_tanari_ritual_healing_Description"	"为附近的盟友回复少量生命值，这个技能拥有很短的冷却时间."		
+
+		"world_tanari_jungle"							"塔纳利丛林"
+		"zone_tanari_town"								"塔纳利营地"
+		"zone_tanari_lake"								"塔纳利海滩"
+		"zone_tanari_mountain_side"						"勇者之路"
+		"zone_tanari_wind_temple"						"风之神殿"
+		"zone_tanari_thicket"							"野木林地"
+		"zone_tanari_cavern"							"脊岩洞窟"
+		"zone_tanari_water_temple"						"水之神殿"
+		"zone_tanari_terrasic_crater"					"地裂陨坑"
+		"zone_tanari_fire_temple"						"火之神殿"
+
+		"tanari_spirit_realm"							"灵魂之境"
+
+		"tanari_headhunter"								"猎头者"
+		"tanari_thicket_priest"							"古代巫医"
+		"tanari_thicket_pain_absorber"					"部族苦痛看守"
+		"tanari_thicket_high_priest"					"托拉尔高阶祭司"
+
+
+		"DOTA_Tooltip_ability_tanari_high_priest_buff"	"远古祭礼"
+		"DOTA_Tooltip_ability_tanari_high_priest_buff_Description"	"增加盟友的攻击移动速度和伤害抗性，持续5秒."
+
+		"DOTA_Tooltip_modifier_high_priest_buff"		"远古祭礼"
+		"DOTA_Tooltip_modifier_high_priest_buff_Description"	"增加攻击移动速度. 减少受到的所有伤害30%"
+
+		"zone_tanari_thicket"							"野木林地"
+		"zone_tanari_wind_temple"							"风之神殿"
+
+		"wind_temple_avian_warder"						"鸟人守望者"
+
+		"DOTA_Tooltip_modifier_wind_temple_guardian_evasion"	"热诚之风"
+		"DOTA_Tooltip_modifier_wind_temple_guardian_evasion_Description"	"90%% 几率闪避攻击."
+
+		"DOTA_Tooltip_ability_wind_temple_wind_guardian_ai"		"风之守护者"
+		"DOTA_Tooltip_ability_wind_temple_wind_guardian_ai_Description"	"守卫风之神殿的秘密."
+
+		"DOTA_Tooltip_ability_wind_temple_wind_mage_ai"					"风暴法术大师"
+		"DOTA_Tooltip_ability_wind_temple_wind_mage_ai_Description"		"靠近风暴法师会被强风推开."
+
+		"DOTA_Tooltip_ability_wind_temple_wind_haste"					"疾风之力"
+		"DOTA_Tooltip_ability_wind_temple_wind_haste_Description"		"增加一个盟友的攻击移动速度和闪避"	
+
+		"DOTA_Tooltip_modifier_wind_haste"								"疾风之力"
+		"DOTA_Tooltip_modifier_wind_haste_Description"					"攻击速度，移动速度和闪避都增加了"
+
+		"wind_temple_keeper_of_green_wind"								"风之守护者-翡翠"
+		"wind_temple_keeper_of_blue_wind"								"风之守护者-苍蓝"
+		"wind_temple_keeper_of_red_wind"								"风之守护者-赤红"
+
+		"DOTA_Tooltip_modifier_modifier_windspell"						"风之缚"
+		"DOTA_Tooltip_modifier_modifier_windspell_Description"			"降低攻击移动速度"	
+
+		"DOTA_Tooltip_ability_wind_temple_wind_drake_ai"				"本源之风"
+		"DOTA_Tooltip_ability_wind_temple_wind_drake_ai_Description"	"增加25%闪避，攻击必定命中."
+
+		"DOTA_Tooltip_ability_wind_temple_gardiner_ai"					"繁盛"
+		"DOTA_Tooltip_ability_wind_temple_gardiner_ai_Description"		"增加50%魔法抗性"
+
+		"wind_temple_gardener"											"神殿守卫者"
+		"wind_temple_wind_maiden"										"风之侍女"
+
+		"DOTA_Tooltip_ability_wind_temple_zeus_descendant_ai"			"迅捷之风"
+		"DOTA_Tooltip_ability_wind_temple_zeus_descendant_ai_Description"	"每4秒增加200移动速度，被动获得20%闪避."	
+
+		"DOTA_Tooltip_ability_zuus_descendant_bolt" 					"天堂之箭"
+		"DOTA_Tooltip_ability_zuus_descendant_bolt_Description"			"用魔法惩戒敌人并短暂眩晕." 
+
+		"wind_temple_staff"												"风之权杖"
+
+		"DOTA_Tooltip_wind_temple_staff_dummy_buff"						"飓风之缚"
+		"DOTA_Tooltip_wind_temple_staff_dummy_buff_Description"			"同样颜色的权杖极大强化了这个单位."
+
+		"DOTA_Tooltip_ability_wind_temple_staff_guardian_skill_green"	"迟缓之风"
+		"DOTA_Tooltip_ability_wind_temple_staff_guardian_skill_green_Descirpion"	"降低附近敌人的攻击移动速度."
+
+		"DOTA_Tooltip_modifier_temple_staff_guardian_ai_green_effect"	"迟缓之风"
+		"DOTA_Tooltip_modifier_temple_staff_guardian_ai_green_effect_Description"	"降低了攻击移动速度."
+
+		"DOTA_Tooltip_ability_wind_temple_staff_guardian_skill_red"	"枯萎之风"
+		"DOTA_Tooltip_ability_wind_temple_staff_guardian_skill_red_Descirpion"	"附近敌人每秒流失2.5%生命值."
+
+		"DOTA_Tooltip_modifier_temple_staff_guardian_ai_red_effect"	"枯萎之风"
+		"DOTA_Tooltip_modifier_temple_staff_guardian_ai_red_effect_Description"	"每秒流失2.5%生命值."
+
+		"DOTA_Tooltip_ability_wind_temple_staff_guardian_skill_blue"	"衰败之风"
+		"DOTA_Tooltip_ability_wind_temple_staff_guardian_skill_blue_Descirpion"	"降低敌人魔法回复和攻击力."
+
+		"DOTA_Tooltip_modifier_temple_staff_guardian_ai_blue_effect"	"衰败之风"
+		"DOTA_Tooltip_modifier_temple_staff_guardian_ai_blue_effect_Description"	"降低了魔法回复和攻击力."
+
+		"DOTA_Tooltip_ability_master_of_storms_flare"					"风暴火花"
+		"DOTA_Tooltip_ability_master_of_storms_flare_Description"		""		
+
+		"wind_temple_wind_drake"										"风之神殿风龙"
+
+		"DOTA_Tooltip_ability_wind_temple_master_of_storms_ai"			"风暴波动"
+		"DOTA_Tooltip_ability_wind_temple_master_of_storms_ai_Description"	"增加20%闪避和80攻击速度."	
+
+		"wind_temple_master_of_storms"									"风暴大师"
+		"wind_temple_wind_high_priest"									"高阶风之祭司"
+
+		"DOTA_Tooltip_ability_wind_temple_revitalizing_winds"			"复苏之风"
+		"DOTA_Tooltip_ability_wind_temple_revitalizing_winds_Description"	"The Priest continues the cycle of rebirth with ancient winds."	
+
+		"wind_temple_boss"												"被腐化的风之女神"
+
+
+
+		"DOTA_Tooltip_modifier_wind_boss_slow"							"迟缓之风"		
+		"DOTA_Tooltip_modifier_wind_boss_slow_Description"				"被风之女神的狂风减速了. 靠近她可以清除这个效果."
+
+		"DOTA_Tooltip_modifier_wind_temple_boss_wind_blessing"			"风之祝福"
+		"DOTA_Tooltip_modifier_wind_temple_boss_wind_blessing_Description"	"增加攻击距离"
+
+		"DOTA_Tooltip_ability_wind_temple_boss_ai"						"坍缩"
+		"DOTA_Tooltip_ability_wind_temple_boss_ai_Description"			"制造一个气旋，减缓进入敌人的速度并造成伤害."
+
+		"DOTA_Tooltip_modifier_wind_boss_trap"							"坍缩"
+		"DOTA_Tooltip_modifier_wind_boss_trap_Description"				"受到伤害，降低攻击移动速度."
+
+		"gazbin_explosives_expert_friendly"								"塔纳利爆破小队"
+		"DOTA_Tooltip_ability_techies_friend_ai"						"爆破专家"
+		"DOTA_Tooltip_ability_techies_friend_ai_Description"			"炸开一条通路！"
+
+		"tanari_thicket_bat"											"林地蝙蝠"
+		"DOTA_Tooltip_ability_tanari_thicket_bat_ai"					"噬魔者"
+		"DOTA_Tooltip_ability_tanari_thicket_bat_ai_Description"		"攻击吸取目标50%最大魔法值，并且造成与吸取量相同的纯粹伤害."
+
+		"tanari_thicket_matriarch"										"林地女族长"
+		"DOTA_Tooltip_ability_tanari_thicket_matriarch_ai"				"部族保卫者"
+		"DOTA_Tooltip_ability_tanari_thicket_matriarch_ai_Description"	"增加75%魔法抗性. 攻击吸取目标10% 最大法力值,并造成与吸取量相同的纯粹伤害."
+
+		"DOTA_Tooltip_ability_item_rpc_thicket_bat_egg"					"林地蝙蝠卵"
+		"thicket_bat_egg_description"									"从核心中发出微小的颤动."
+
+		"DOTA_Tooltip_ability_tanari_cave_monster_ai"					"荆棘皮肤"
+		"DOTA_Tooltip_ability_tanari_cave_monster_ai_Description"		"100% 受到的伤害会反射给攻击者，造成物理伤害."	
+		"boulderspine_cavern_monster"									"洞窟捕食者"
+
+		"DOTA_Tooltip_ability_item_rpc_pedestal_item"					"秘法信标"
+
+		"DOTA_Tooltip_ability_boulderspine_terror_ai"					"冰冷触摸"
+		"DOTA_Tooltip_ability_boulderspine_terror_ai_Description"		"普通攻击会施加攻击移动速度减缓效果."
+		"DOTA_Tooltip_ability_boulderspine_terror_ai_attack_speed_loss"	"攻击速度降低:"
+		"DOTA_Tooltip_ability_boulderspine_terror_ai_move_slow"			"移动速度降低:"	
+
+		"DOTA_Tooltip_modifier_terror_touch"							"冰冷触摸"
+		"DOTA_Tooltip_modifier_terror_touch_Description"				"攻击移动速度降低了"	
+
+		"DOTA_Tooltip_ability_electron_ai"								"不稳定充能"
+		"DOTA_Tooltip_ability_electron_ai_Description"					"受到伤害时， 0.1%攻击者的伤害会以闪电箭的形式反馈出来，造成魔法伤害."	
+
+		"DOTA_Tooltip_modifier_regen_aura_buff"							"恢复光环"
+		"DOTA_Tooltip_modifier_regen_aura_buff_Description"				"生命恢复增加"		
+
+		"boulderspine_armored_cave_rat"									"披甲洞穴老鼠"
+
+		"DOTA_Tooltip_ability_boulderspine_cave_lizard_gush"			"胆汁喷涌"
+		"DOTA_Tooltip_ability_boulderspine_cave_lizard_gush_Description"	"对最远处的敌人发射胆汁降低护甲和移动速度."	
+
+		"DOTA_Tooltip_ability_boulderspine_cave_lizard_ravage"			"巨型卷须"
+		"DOTA_Tooltip_ability_boulderspine_cave_lizard_ravage_Description"	"伤害和眩晕附近敌人"	
+
+		"boulderspine_cave_lizard"										"洞穴蜥蜴"
+		"boulderspine_cave_lizard_brute"								"残虐洞穴蜥蜴"
+
+		"boulderspine_viper_blue"										"苍蓝蝮蛇"
+
+		"DOTA_Tooltip_ability_boulderspine_blue_viper_ai"				"魔力毒素"
+		"DOTA_Tooltip_ability_boulderspine_blue_viper_ai_Description"	"普通攻击施加魔力毒素，降低 5%最大魔法值的魔法回复速度."	
+
+		"DOTA_Tooltip_modifier_blue_viper_poison"						"魔力毒素"
+		"DOTA_Tooltip_modifier_blue_viper_poison_Description"			"降低了 5%% 最大魔法值的魔法回复速度."
+
+		"boulderspine_viper_red"										"赤红蝮蛇"
+
+		"DOTA_Tooltip_ability_boulderspine_red_viper_ai"				"生命毒素"
+		"DOTA_Tooltip_ability_boulderspine_red_viper_ai_Description"	"普通攻击施加生命毒素，降低2.5%最大生命值的生命回复速度."	
+
+		"DOTA_Tooltip_modifier_red_viper_poison"						"生命毒素"
+		"DOTA_Tooltip_modifier_red_viper_poison_Description"			"降低2.5%%最大生命值的生命回复速度."
+
+		"boulderspine_viper_green"										"翡翠蝮蛇"
+
+		"DOTA_Tooltip_ability_boulderspine_green_viper_ai"				"迟缓毒素"
+		"DOTA_Tooltip_ability_boulderspine_green_viper_ai_Description"	"普通攻击施加迟缓毒素降低15点移动速度，持续受到伤害."	
+		"DOTA_Tooltip_ability_boulderspine_green_viper_ai_damage_per_tick"	"每秒毒素伤害: "	
+
+		"DOTA_Tooltip_modifier_green_viper_poison"						"迟缓毒素"
+		"DOTA_Tooltip_modifier_green_viper_poison_Description"			"降低15点移动速度，持续受到伤害."
+
+		"boulderspine_viper_egg"										"蝮蛇卵"
+
+		"DOTA_Tooltip_ability_boulderspine_fire_bomb"					"火焰炸弹"
+		"DOTA_Tooltip_ability_boulderspine_fire_bomb_Description"		"炸弹的爆炸击退爆炸范围内的目标."
+		"boulderspine_pyro"												"洞窟火人"
+
+		"DOTA_Tooltip_ability_boulderspine_fire_bat_ai"					"燃烧攻击"
+		"DOTA_Tooltip_ability_boulderspine_fire_bat_ai_Description"		"攻击点燃目标."
+		"DOTA_Tooltip_modifier_firebat_on_fire"							"着火啦！"
+		"DOTA_Tooltip_modifier_firebat_on_fire_Description"				"受到持续伤害"
+
+		"DOTA_Tooltip_ability_boulderspine_princess_ability_ai"				"还礼"
+		"DOTA_Tooltip_ability_boulderspine_princess_ability_ai_Description"	"尝试夺回她的王国"
+
+		"DOTA_Tooltip_modifier_boulderspine_princess_frozen"				"冻结"
+		"DOTA_Tooltip_modifier_boulderspine_princess_frozen_Description"	"在数个世纪里被困在时间长河中."
+
+		"boulderspine_princess"												"阿奎琳公主"
+
+		"boulderspine_living_ice"											"活体冰晶"
+
+		"DOTA_Tooltip_ability_boulderspine_living_ice_ai"					"冰结之触"
+		"DOTA_Tooltip_ability_boulderspine_living_ice_ai_Description"		"攻击造成缓速效果，可叠加."
+
+		"DOTA_Tooltip_modifier_boulderspine_living_ice_slowed"				"冰冷"
+		"DOTA_Tooltip_modifier_boulderspine_living_ice_slowed_Description"	"攻击移动速度减缓"
+
+		"DOTA_Tooltip_ability_boulderspine_lindworm_frost_ai"				"深冬"
+		"DOTA_Tooltip_ability_boulderspine_lindworm_frost_ai_Description"	"攻击有10%几率冻结目标. 冻结期间目标不会死亡."
+
+		"DOTA_Tooltip_modifier_lindworm_frost_effect"						"冻结"
+		"DOTA_Tooltip_modifier_lindworm_frost_effect_Description"			"不会死亡."
+
+		 "boulderspine_lindworm_frost"										"霜翼龙"
+
+		 "DOTA_Tooltip_modifier_lindworm_encased_in_ice"					"永冻之冰"
+		 "DOTA_Tooltip_modifier_lindworm_encased_in_ice_Description"		"免疫伤害，持续回血"
+
+		 "DOTA_Tooltip_ability_lindworm_splinter_blast"						"碎片冲击"
+
+		 "boulderspine_slithereen_guard"									"塞壬卫士"
+		 "boulderspine_slithereen_featherguard"								"塞壬羽卫"
+
+		 "DOTA_Tooltip_ability_antimage_blink_custom"						"闪现"
+		 "DOTA_Tooltip_ability_antimage_blink_custom_Description"			"将施法者传送一小段距离"
+
+		 "DOTA_Tooltip_modifier_slithereen_featherguard_ai_super_slice"		"翩若惊鸿"
+		 "DOTA_Tooltip_modifier_slithereen_featherguard_ai_super_slice_Description"	"闪现后增加攻击速度."
+
+		 "DOTA_Tooltip_slithereen_royal_guard_ai"							"魔法外壳"
+		 "DOTA_Tooltip_slithereen_royal_guard_ai_Description"				"4秒内增加魔法抗性95%"	
+
+		 "DOTA_Tooltip_modifier_royal_guard_magic_shell"					"魔法外壳"
+		 "DOTA_Tooltip_modifier_royal_guard_magic_shell_Description"		"95%% 魔法抗性"
+
+		 "DOTA_Tooltip_ability_slithereen_royal_guard_gush"					"高压水炮"
+		 "DOTA_Tooltip_ability_slithereen_royal_guard_gush_Description"		"用水炮冲击目标，缓速并造成伤害"
+
+		 "DOTA_Tooltip_ability_water_keyholder_torrent"						"洪流"
+		 "DOTA_Tooltip_ability_water_keyholder_torrent_Description"			"在敌人脚下以极快地速度召唤洪流攻击."
+
+		 "DOTA_Tooltip_ability_water_keyholder_ensnare"						"诱捕"
+		 "DOTA_Tooltip_ability_water_keyholder_ensnare_Description"			"用一个牢固的网兜困住目标."
+
+		 "tanari_water_bug"													"水虫"
+
+		 "DOTA_Tooltip_ability_tanari_ancient_ai"							"核眼震动"
+		 "DOTA_Tooltip_ability_tanari_ancient_ai_Description"				"制造一连串的地震，伤害会随着距离提升而增高."	
+		 "DOTA_Tooltip_ability_tanari_ancient_ai_damage"					"基础伤害:"	
+
+		 "DOTA_Tooltip_modifier_ancient_quaking"							"核眼震动"
+
+		 "tanari_ancient"													"塔纳利远古造物"
+
+		 "water_temple_vault_lord"												"水殿领主"
+
+		 "DOTA_Tooltip_ability_vault_lord_polarity"									"涡流"
+		 "DOTA_Tooltip_ability_vault_lord_polarity_Description"						"制造一个漩涡，将敌人牵引过去并造成伤害."	
+
+		 "water_temple_shark"												"安斐鲨鱼"
+
+		 "DOTA_Tooltip_ability_water_temple_shadow_creep"					"暗影爬行"
+		 "DOTA_Tooltip_ability_water_temple_shadow_creep_Description"		"潜入阴影中, 物理免疫，生命恢复速度提升."
+
+		 "DOTA_Tooltip_ability_water_temple_summon_water_elemental"			"召唤水元素"
+		 "DOTA_Tooltip_ability_water_temple_summon_water_elemental_Description"	"召唤一个活体潮汐元素，元素生物造成溅射伤害但是拥有很慢的攻击速度."	
+
+		 "DOTA_Tooltip_ability_water_temple_elemental_ability"				"溅射攻击"
+		  "DOTA_Tooltip_ability_water_temple_elemental_ability_Description"	"攻击对特定范围内造成伤害并减速."	
+
+		 "DOTA_Tooltip_modifier_water_temple_elemental_slow"				"溅射攻击"
+		 "DOTA_Tooltip_modifier_water_temple_elemental_slow_Description"	"攻击移动速度降低"
+
+		 "aqua_mage_water_elemental"										"水元素"
+		 "water_temple_aqua_mage"											"水流法师"
+
+		 "DOTA_Tooltip_ability_armor_break"									"破甲"
+		 "DOTA_Tooltip_ability_armor_break_Description"						"成功的攻击降低目标的护甲"
+
+		 "DOTA_Tooltip_ability_water_temple_boss_jellyfish_ai"				"高压电"
+		 "DOTA_Tooltip_ability_water_temple_boss_jellyfish_ai_Description"	"在水之神殿内充满电流"
+
+		 "DOTA_Tooltip_modifier_lightning_stun"								"雷霆震击"
+		 "DOTA_Tooltip_modifier_lightning_stun_Description"					"高压电"		
+
+		 "DOTA_Tooltip_ability_water_temple_jellyfish_ai"					"霹雳震击"
+		 "DOTA_Tooltip_ability_water_temple_jellyfish_ai_Description"		"震击附近敌人"
+
+		 "DOTA_Tooltip_ability_water_temple_dark_pact"						"黑暗契约"
+		 "DOTA_Tooltip_ability_water_temple_dark_pact_Description"			"驱散有害魔法效果，1.5秒后造成伤害."
+
+		 "DOTA_Tooltip_ability_water_temple_prison_shank"					"摧心蚀骨"
+		 "DOTA_Tooltip_ability_water_temple_prison_shank_Description"		"攻击基于目标敏捷造成额外魔法伤害, 降低目标力量"
+		 "DOTA_Tooltip_ability_water_temple_prison_shank_agility_mult"		"基于敏捷的伤害倍数:"
+		 "DOTA_Tooltip_ability_water_temple_prison_shank_strength_loss"		"力量降低:"
+
+		 "DOTA_Tooltip_modifier_prison_shank_effect"						"Sea Shank"
+		 "DOTA_Tooltip_modifier_prison_shank_effect_Description"			"Losing Attributes"	
+
+		 "DOTA_Tooltip_ability_executioner_culling_blade"					"斩杀"
+		 "DOTA_Tooltip_ability_executioner_culling_blade_Description"		"瞬间击杀目标生命值百分比过低的英雄."	
+		 "DOTA_Tooltip_ability_executioner_culling_blade_health_threshold_percent"		"斩杀临界生命百分比%:"	
+
+		 "DOTA_Tooltip_ability_water_temple_executioner_ai"					"韧性"
+		 "DOTA_Tooltip_ability_water_temple_executioner_ai_Description"		"低于30% 生命值时, 获得护甲加成."
+		 "DOTA_Tooltip_ability_water_temple_executioner_ai_armor_gain"		"护甲加成:"
+
+		"DOTA_Tooltip_modifier_executioner_buff"							"韧性"
+		"DOTA_Tooltip_modifier_executioner_buff_Description"				"获得护甲"
+
+		"DOTA_Tooltip_ability_chef_meat_hook"								"肉钩"
+		"DOTA_Tooltip_ability_chef_meat_hook_Description"					"掷出一个血腥的钩子，将任何碰到的单位拖拽到面前."	
+
+		"water_temple_jailer"												"水之神殿狱卒"
+
+		"DOTA_Tooltip_ability_water_temple_jailer_ai"						"肉食者"
+		"DOTA_Tooltip_ability_water_temple_jailer_ai_Description"			"受到的伤害不会超过 1% 最大生命值. 攻击对目标造成流血效果."
+		"DOTA_Tooltip_ability_water_temple_jailer_ai_bleed_damage"			"每秒流血伤害:"
+
+		"water_temple_fish_prisoner"										"阿奎琳恶徒"
+
+		"DOTA_Tooltip_ability_faceless_waveform"							"波浪形态"
+		"DOTA_Tooltip_ability_faceless_waveform_Description"				"向目标发射水流，造成伤害."
+
+		"water_temple_vault_lord_two"										"水殿领主"
+		"DOTA_Tooltip_ability_vault_lord_mana_spill"						"法力流失"
+		"DOTA_Tooltip_ability_vault_lord_mana_spill_Description"			"攻击吸取目标一定百分比的魔法值. 如果目标的法力值小于最大法力值的 5%, 攻击造成0.35秒眩晕."	
+		"DOTA_Tooltip_ability_vault_lord_mana_spill_mana_drain_percent"		"魔法值吸取 %:"
+
+		"DOTA_Tooltip_ability_water_temple_rascal_ai"						"水殿寻踪"
+		"DOTA_Tooltip_ability_water_temple_rascal_ai_Description"			"非常了解水之神殿."
+
+		"DOTA_Tooltip_ability_water_temple_warlock_mana_drain"				"法力吸取"
+		"DOTA_Tooltip_ability_water_temple_warlock_mana_drain_Description"	"持续引导，吸取目标英雄魔法值."
+		"DOTA_Tooltip_ability_water_temple_warlock_mana_drain_mana_per_second"	"每秒魔法值吸取:"
+
+		"DOTA_Tooltip_ability_water_temple_blue_warlock_ai"					"法力激荡"
+		"DOTA_Tooltip_ability_water_temple_blue_warlock_ai_Description"		"攻击吸取自身20%当前魔法值，对目标造成基于法力消耗的伤害."	
+
+		"DOTA_Tooltip_ability_water_temple_blue_warlock_ai_damage_per_mana"	"每点魔法值造成额外魔法伤害:"
+
+		"water_temple_blue_warlock"											"苍蓝术士"	
+
+		"DOTA_Tooltip_ability_water_temple_aqua_emperor_ai"					"浸透"
+		"DOTA_Tooltip_ability_water_temple_aqua_emperor_ai_Description"		"浸湿攻击者，减缓他们的攻击速度"	
+		"DOTA_Tooltip_ability_water_temple_aqua_emperor_ai_attack_speed_loss"	"攻击速度降低:"	
+
+		"DOTA_Tooltip_modifier_water_temple_drenched"						"浸透"
+		"DOTA_Tooltip_modifier_water_temple_drenched_Description"			"攻击速度降低了"
+
+		"DOTA_Tooltip_ability_water_temple_water_emperor_jet"				"水流喷射"
+		"DOTA_Tooltip_ability_water_temple_water_emperor_jet_Description"	"喷射大量水波，缓速击中的目标并造成伤害."
+		"DOTA_Tooltip_ability_water_temple_water_emperor_jet_attack_speed_loss"	"攻击速度降低:"
+		"DOTA_Tooltip_ability_water_temple_water_emperor_jet_movespeed_loss"	"移动速度降低:"
+
+		"DOTA_Tooltip_ability_water_temple_water_emperor_jet_2"				"水流新星"
+		"DOTA_Tooltip_ability_water_temple_water_emperor_jet_2_Description"	"向四周喷射出水流."
+		"DOTA_Tooltip_ability_water_temple_water_emperor_jet_2_attack_speed_loss"	"攻击速度降低:"
+		"DOTA_Tooltip_ability_water_temple_water_emperor_jet_2_movespeed_loss"	"移动速度降低:"
+
+		"DOTA_Tooltip_modifier_modifier_jet_soaked"				"浸湿"
+		"DOTA_Tooltip_modifier_modifier_jet_soaked_Description"	"降低攻击移动速度"
+
+		"DOTA_Tooltip_ability_water_temple_vault_master_storm_bolt"	"风暴箭"
+		"DOTA_Tooltip_ability_water_temple_vault_master_storm_bolt_Description"	"掷出风暴之锤，眩晕并伤害目标及其周围单位."
+
+		"water_temple_faceless_water_elemental"								"无面水元素"
+		"water_temple_vault_master"											"水殿大师"
+
+		"DOTA_Tooltip_ability_water_temple_vault_master_ai"					"英勇之怒"
+		"DOTA_Tooltip_ability_water_temple_vault_master_ai_Description"		"如果攻击者位于650 码之外, 水殿大师会冲向目标，刷新风暴箭的冷却时间，并立刻攻击3次."
+
+		 "water_temple_serpent_sleeper"										"眠蛟"
+		 "water_temple_armored_water_beetle"								"披甲水甲虫"
+
+		 "water_temple_blinded_serpent_warrior"								"盲眼蛇人战士"
+
+		 "DOTA_Tooltip_ability_water_temple_mark_for_death"					"死亡标记"
+		 "DOTA_Tooltip_ability_water_temple_mark_for_death_Description"		"攻击对目标施加死亡标记. 被标记的目标受到攻击时，会额外受到基于最大生命值百分比的魔法伤害."
+		 "DOTA_Tooltip_ability_water_temple_mark_for_death_health_damage_multiplier"	"最大生命值伤害 %:"
+
+		 "DOTA_Tooltip_modifier_marked_for_death"							"死亡标记"
+		 "DOTA_Tooltip_modifier_marked_for_death_Description"				"每当你受到攻击时, 受到基于最大生命值 % 的魔法伤害."
+
+		 "DOTA_Tooltip_ability_water_temple_fairy_dragon_ai"				"反馈"
+		 "DOTA_Tooltip_ability_water_temple_fairy_dragon_ai_Description"	"当任何附近敌人魔法值减少时, 基于损失的魔法值造成纯粹伤害.获得额外魔法抗性."
+
+		 "DOTA_Tooltip_ability_water_temple_fairy_dragon_ai_damage_per_mana"	"每点魔法值的反馈伤害:"
+		 "DOTA_Tooltip_ability_water_temple_fairy_dragon_ai_magic_resist" 		"魔法抗性:"
+
+		 "water_temple_fairy_dragon"										"火龙"
+		 "DOTA_Tooltip_modifier_fairy_dragon_feedback"						"反馈"
+		 "DOTA_Tooltip_modifier_fairy_dragon_feedback_Description"			"魔法值减伤时受到伤害."
+
+		 "DOTA_Tooltip_modifier_endurance_aura"								"耐久光环"
+		 "DOTA_Tooltip_modifier_endurance_aura_Description"					"增加攻击移动速度."		
+
+		 "DOTA_Tooltip_modifier_endurance_aura_buff"								"耐久光环"
+		 "DOTA_Tooltip_modifier_endurance_aura_buff_Description"					"增加攻击移动速度."	
+
+		 "DOTA_Tooltip_ability_water_temple_boulder_toss"				"砾岩投掷"
+		 "DOTA_Tooltip_ability_water_temple_boulder_toss_Description"	"向目标丢出岩石，砸晕目标并造成伤害."	
+		 "DOTA_Tooltip_ability_water_temple_boulder_toss_damage"		"伤害:"
+		 "DOTA_Tooltip_ability_water_temple_boulder_toss_stun_duration"		"眩晕时间:"
+		 
+		 "water_temple_amphi_lizard_rider"								"安斐蜥蜴骑手"
+
+		 "water_temple_boss"											"克莱萨斯大王"
+
+		 "DOTA_Tooltip_ability_water_temple_boss_bubble"				"气泡"
+		 "DOTA_Tooltip_ability_water_temple_boss_bubble_Description"	"被大王困在气泡中的目标， 伤害上限不会超过他们最大生命值的某个百分比."	
+		 "DOTA_Tooltip_ability_water_temple_boss_bubble_max_damage_percent"	"最大生命值% 上限:"
+
+		 "DOTA_Tooltip_modifier_water_temple_bubble_effect"				"气泡"
+		 "DOTA_Tooltip_modifier_water_temple_bubble_effect_Description"	"伤害上限为 %% 最大生命值."	
+
+		 "DOTA_Tooltip_ability_water_temple_boss_world_crush"			"碎界之击"
+		 "DOTA_Tooltip_ability_water_temple_boss_world_crush_Description"	"以破碎世界的力量，造成一记猛击."
+
+		 "DOTA_Tooltip_ability_water_temple_boss_rising_tides"			"涨潮"
+		 "DOTA_Tooltip_ability_water_temple_boss_rising_tides_Description"	"攻击大王叠加涨潮效果. 如果叠加到8层, 目标会受到冲击，受到伤害并眩晕."
+		 "DOTA_Tooltip_ability_water_temple_boss_rising_tides_damage"	"伤害:"
+
+		 "DOTA_Tooltip_amodifier_rising_tides_stacking_effect"					"涨潮"	
+		 "DOTA_Tooltip_amodifier_rising_tides_stacking_effect_Description"		"每当攻击克莱萨斯大王时, 获得一层. 叠加到8层时, 受到伤害并眩晕."
+
+		 "DOTA_Tooltip_modifier_whirlpool_effect"					"涡流"
+		 "DOTA_Tooltip_modifier_whirlpool_effect_Description"		"来到王的身边！"
+
+		 "DOTA_Tooltip_ability_water_temple_boss_whirlpool"			"歼灭水流"
+		 "DOTA_Tooltip_ability_water_temple_boss_whirlpool_Description"	"大王释放一个水流风暴，牵引附近的敌人. 牵引后大王会释放碎界之击."	
+
+		//WIND SPIRIT
+
+		"DOTA_Tooltip_modifier_gust_wave_slow"							"秋风"
+		"DOTA_Tooltip_modifier_gust_wave_slow_Description"				"减速"
+
+		 //WIND SPIRIT
+
+		 //SPIRIT WATER
+
+		 "water_shadow_hunter"										"Sea Beetle"
+
+		 //SPIRIT WATER
+		 //SPIRIT FIRE
+		 //SPIRIT FIRE
+		 "DOTA_Tooltip_ability_red_mist_berserkers_call"			"狂战士之吼"			
+		 "DOTA_Tooltip_ability_red_mist_berserkers_call_Description"	"嘲讽附近敌人强制他们攻击你. 持续时间内获得额外护甲."	
+		 "DOTA_Tooltip_ability_red_mist_berserkers_call_bonus_armor"	"护甲提升:"
+
+		 "DOTA_Tooltip_ability_red_mist_counter_helix"				"反击螺旋"
+		 "DOTA_Tooltip_ability_red_mist_counter_helix_Description"	"20% 几率在受到攻击时用斧头旋转反击，对附近的敌人造成伤害."	
+
+		 "DOTA_Tooltip_ability_terrasic_guard_ability"				"烈焰之拳"
+		 "DOTA_Tooltip_ability_terrasic_guard_ability_Description"	"对被攻击的目标施加燃烧效果."	
+		 "DOTA_Tooltip_ability_terrasic_guard_ability_burn_dps"		"每秒燃烧伤害:"
+
+		 "DOTA_Tooltip_modifier_terrasic_guard_on_fire"				"烈焰之拳"
+		 "DOTA_Tooltip_modifier_terrasic_guard_on_fire_Description"	"受到燃烧伤害."
+
+		 "terrasic_flame_orchid"									"烈焰芽孢"	
+
+		 "DOTA_Tooltip_ability_terrasic_flame_orchid_ai"				"烈焰吐息"
+		 "DOTA_Tooltip_ability_terrasic_flame_orchid_ai_Description"	"周期性地对芽孢前方喷射3个火球，对被击中者造成伤害和燃烧效果"
+		 "DOTA_Tooltip_ability_terrasic_flame_orchid_ai_burn_damage"		"每秒燃烧伤害:"
+		 "DOTA_Tooltip_ability_terrasic_flame_orchid_ai_impact_damage"		"爆炸伤害:"
+
+		 "terrasic_boulderspine"								"脊岩"
+
+		 "terrasic_lava_beast"									"熔岩兽"
+
+		 "terrasic_awakened_stone"								"熔岩巨人"
+
+		 "DOTA_Tooltip_ability_terrasic_flame_spit"				"烈焰放射"
+		 "DOTA_Tooltip_ability_terrasic_flame_spit_Description"	"引导烈焰放射时, 血喉会对周围敌人喷射火球并附带燃烧效果. 引导期间魔法抗性提升."	
+		 "DOTA_Tooltip_ability_terrasic_flame_spit_magic_resist" "魔法抗性:"
+		 "DOTA_Tooltip_ability_terrasic_flame_spit_burn_dps"	"每秒燃烧伤害:"
+
+		"DOTA_Tooltip_modifier_flamespit_burning"				"烈焰放射：燃烧"
+		"DOTA_Tooltip_modifier_flamespit_burning_Description"	"每秒受到燃烧伤害."
+
+		"terrasic_goremaw_flame_splitter"						"血喉喷火者"
+
+		"terrasic_volcano_beetle"								"火山甲虫"
+
+		"DOTA_Tooltip_ability_terrasic_steam_shell"				"火焰外壳"
+		"DOTA_Tooltip_ability_terrasic_steam_shell_Description"	"对攻击者反弹一个灼烧的火球."	
+		"DOTA_Tooltip_ability_terrasic_steam_shell_burn_dps"	"每秒燃烧伤害:"
+
+		"DOTA_Tooltip_modifier_steam_shell_on_fire"				"火焰外壳：燃烧"
+		"DOTA_Tooltip_modifier_steam_shell_on_fire_Description"	"持续受到燃烧伤害."	
+
+		"DOTA_Tooltip_ability_terrasic_black_drake_ai"			"真实打击"
+		"DOTA_Tooltip_ability_terrasic_black_drake_ai_Description"	"攻击必定命中"
+
+		"DOTA_Tooltip_ability_terrasic_black_dragon_ai"			"真实打击"
+		"DOTA_Tooltip_ability_terrasic_black_dragon_ai_Description"			"攻击必定命中"
+
+		"DOTA_Tooltip_ability_terrasic_volcano_pharoah_ai"		"熔心之火"
+		"DOTA_Tooltip_ability_terrasic_volcano_pharoah_ai_Description"	"持续向附近的敌人释放追踪火球."
+
+		"volcanic_pharoah"										"克里斯姆男爵"
+
+		"DOTA_Tooltip_ability_terrasic_pharaoh_living_bomb"	"活体炸弹"
+		"DOTA_Tooltip_ability_terrasic_pharaoh_living_bomb_Description"	"扭曲目标的灵魂，将他变为一个不稳定的炸弹，在5 秒后爆炸. 爆炸时, 炸弹目标受到伤害并眩晕, 并对附近单位造成成吨的伤害."
+		"DOTA_Tooltip_ability_terrasic_pharaoh_living_bomb_damage"		"主目标伤害:"
+		"DOTA_Tooltip_ability_terrasic_pharaoh_living_bomb_ally_damage"	"附近单位伤害:"
+
+		"DOTA_Tooltip_modifier_living_bomb"					"活体炸弹"
+		"DOTA_Tooltip_modifier_living_bomb_Description"		"你要爆炸了！快离开你的队友."	
+
+		"DOTA_Tooltip_ability_terrasic_red_guard_ability"				"巨力顺劈"
+		"DOTA_Tooltip_ability_terrasic_red_guard_ability_Description"	"攻击对目标周围造成伤害."
+		"DOTA_Tooltip_ability_terrasic_red_guard_ability_cleave"				"百分比顺劈伤害:"
+		"DOTA_Tooltip_ability_terrasic_red_guard_ability_cleave_radius"			"顺劈范围:"
+
+		"terrasic_red_guard"								"赤红守卫"
+
+		"DOTA_Tooltip_ability_terrasic_captain_reimus_ability"		"重甲"
+		"DOTA_Tooltip_ability_terrasic_captain_reimus_ability_Description"	"减免500范围外造成的伤害."
+		"DOTA_Tooltip_ability_terrasic_captain_reimus_ability_reduction"	"伤害减免 %:"
+
+		"terrasic_captain_reimus"							"雷姆斯队长"
+
+		"molten_entity"										"熔火构造体"
+		"DOTA_Tooltip_modifier_armor_melt_custom"					"熔甲"
+		"DOTA_Tooltip_modifier_armor_melt_custom_Description"		"护甲降低"
+
+		"DOTA_Tooltip_ability_terrasic_armor_melt"			"熔甲"
+		"DOTA_Tooltip_ability_terrasic_armor_melt_Description"	"攻击降低了目标大量的护甲."	
+		"DOTA_Tooltip_ability_terrasic_armor_melt_armor_reduction"	"护甲降低:"
+
+		"terrasic_red_mist_soldier"							"红雾士兵"
+
+		"DOTA_Tooltip_ability_terrasic_red_warlock_ai"				""
+		"DOTA_Tooltip_ability_terrasic_red_warlock_ai_Description"	"受到伤害时回复魔法值. 被动魔法恢复速度-30."
+
+		"DOTA_Tooltip_ability_red_warlock_finger_of_death"			"死亡之指"
+		"DOTA_Tooltip_ability_red_warlock_finger_of_death_Description"			"抹除目标单位."
+		"DOTA_Tooltip_ability_red_warlock_finger_of_death_damage"	"伤害:"
+
+		"water_temple_red_warlock"							"赤红术士"
+
+		"DOTA_Tooltip_ability_terrasic_conqueror_ability"		"征服者之跃"
+		"DOTA_Tooltip_ability_terrasic_conqueror_ability_Description"	"任何超过600范围的攻击会引起注意，跃向目标以便于攻击."	
+
+		"DOTA_Tooltip_ability_terrasic_red_mist_brute_ai"	"凶暴打击"
+		"DOTA_Tooltip_ability_terrasic_red_mist_brute_ai_Description"	"普通攻击击退目标."
+
+		"terrasic_red_mist_brute"						"红雾残虐者"
+
+		"terrasic_captain_clayborne"					"泥巴队长"
+
+		"DOTA_Tooltip_ability_terrasic_mega_helix"					"百万螺旋"
+		"DOTA_Tooltip_ability_terrasic_mega_helix_Description"		"受到任何伤害时, 100% 几率释放反击螺旋. 向在物理攻击范围外的敌人发射灼烧的火球."
+		"DOTA_Tooltip_ability_terrasic_mega_helix_helix_damage"		"反击螺旋(物理):"
+		"DOTA_Tooltip_ability_terrasic_mega_helix_fireball_damage"	"火球伤害 (魔法):"
+		"DOTA_Tooltip_ability_terrasic_mega_helix_burn_dps"			"每秒燃烧伤害:"
+
+		"DOTA_Tooltip_modifier_mega_helix_burn"			"燃烧"
+		"DOTA_Tooltip_modifier_mega_helix_burn_Description"	"每秒受到伤害."	
+
+
+		"DOTA_Tooltip_ability_terrasic_warlock_ai"	"烈焰戏法"
+		"DOTA_Tooltip_ability_terrasic_warlock_ai_Description"	"每隔一段时间向锥形范围内投掷3个火球. 火球击中时附加燃烧效果."
+		"DOTA_Tooltip_ability_terrasic_warlock_ai_burn_dps"		"每秒燃烧伤害:"
+
+		"DOTA_Tooltip_modifier_terrasic_warlock_burning"	"燃烧"
+
+		"DOTA_Tooltip_ability_terrasic_fire_key_holder_steam"	"蒸汽护体"
+		"DOTA_Tooltip_ability_terrasic_fire_key_holder_steam_Description"	"受到伤害时叠加一层蒸汽，根据伤害类型叠加魔法或物理蒸汽，10秒内未受到伤害移除蒸汽效果."
+		"DOTA_Tooltip_ability_terrasic_fire_key_holder_steam_armor_per_stack"	"每层护甲:"
+		"DOTA_Tooltip_ability_terrasic_fire_key_holder_steam_mr_per_stack"		"每层魔法抗性:"
+
+		"DOTA_Tooltip_modifier_terrasic_fire_key_holder_steam_physical"		"蒸汽护体(物理)"
+		"DOTA_Tooltip_modifier_terrasic_fire_key_holder_steam_magical"		"蒸汽护体(魔法)"
+
+		"DOTA_Tooltip_ability_terrasic_fire_key_holder_ai"		"爆发打击"
+		"DOTA_Tooltip_ability_terrasic_fire_key_holder_ai_Description"	"攻击对280范围内造成群体伤害."
+
+		"fire_temple_blackguard"								"火之神殿黑卫士"
+
+		"DOTA_Tooltip_ability_terrasic_blackguard_ai"			"致残打击"
+		"DOTA_Tooltip_ability_terrasic_blackguard_ai_Description"	"攻击致残目标，降低护甲，造成沉默并叠加流血伤害."
+		"DOTA_Tooltip_ability_terrasic_blackguard_ai_armor_reduction"	"护甲降低:"
+		"DOTA_Tooltip_ability_terrasic_blackguard_ai_bleed_damage"		"流血伤害:"
+
+		"DOTA_Tooltip_modifier_blackguard_cripple"				"致残"
+		"DOTA_Tooltip_modifier_blackguard_cripple_Description"	"沉默, 护甲降低, 流血."
+
+		"DOTA_Tooltip_ability_blackguard_brain_sap"				"脑部衰竭"
+		"DOTA_Tooltip_ability_blackguard_brain_sap_Description"	"偷取目标生命值治疗自身."	
+
+		"DOTA_Tooltip_ability_blackguard_shackles"				"灼热镣铐"
+		"DOTA_Tooltip_ability_blackguard_shackles_Description"	"困住一个目标，造成持续伤害."
+		"DOTA_Tooltip_ability_blackguard_shackles_channel_time"	"镣铐持续时间:"
+
+		"DOTA_Tooltip_ability_blackguard_cultist_ai"			"你的魔法也救不了你"
+		"DOTA_Tooltip_ability_blackguard_cultist_ai_Description"	"增加魔法抗性"
+		"DOTA_Tooltip_ability_blackguard_cultist_ai_magic_resistance"	"魔法抗性提升:"
+
+		"DOTA_Tooltip_ability_fire_temple_volcano_drake_ai"		"真实打击"
+		"DOTA_Tooltip_ability_fire_temple_volcano_drake_ai_Description"	"攻击必定命中."	
+
+		"fire_temple_blackguard_doombringer"					"黑卫末日使者"
+
+		"DOTA_Tooltip_ability_fire_temple_blackguard_doombringer_ai"		"力量虚空"
+		"DOTA_Tooltip_ability_fire_temple_blackguard_doombringer_ai_Description"	"抽走附近敌人的力量，降低攻击伤害和移动速度."
+		"DOTA_Tooltip_ability_fire_temple_blackguard_doombringer_ai_movespeed_slow"	"移动速度降低:"
+		"DOTA_Tooltip_ability_fire_temple_blackguard_doombringer_ai_attack_damage_reduction"	"攻击伤害降低百分比:"
+
+		"DOTA_Tooltip_modifier_blackguard_doombringer_debuff"				"力量虚空"
+		"DOTA_Tooltip_modifier_blackguard_doombringer_debuff_Description"	"移动速度和攻击伤害降低了."
+
+		"fire_temple_burning_prisoner"							"远古锻炉精灵"
+
+		"DOTA_Tooltip_ability_fire_temple_molten_knight_stun_burst"				"反冲核心"
+		"DOTA_Tooltip_ability_fire_temple_molten_knight_stun_burst_Description"	"眩晕时，持续向周边释放致命的爆炸，眩晕并造成伤害."
+		"DOTA_Tooltip_ability_fire_temple_molten_knight_stun_burst_stun_duration" "眩晕时间:"
+
+		"DOTA_Tooltip_ability_fire_temple_armor_gain_on_attack"				"持久护甲"
+		"DOTA_Tooltip_ability_fire_temple_armor_gain_on_attack_Description"	"受到攻击叠加护甲."
+		"DOTA_Tooltip_ability_fire_temple_armor_gain_on_attack_armor_per_stack"	"每层护甲提升:"
+
+		"DOTA_Tooltip_modifier_fire_temple_armor_gain_stacks"					"持久护甲"		
+		"DOTA_Tooltip_modifier_fire_temple_armor_gain_stacks_Description"		"获得护甲."
+
+		"DOTA_Tooltip_ability_fire_temple_chaos_knight_bolt"					"混乱箭"
+		"DOTA_Tooltip_ability_fire_temple_chaos_knight_bolt_Description"		"从远处对敌人造成伤害并眩晕. 总是选择射程能最远的目标."
+		"DOTA_Tooltip_modifier_stun_duration"									"眩晕时间:"
+
+		"DOTA_Tooltip_ability_fire_temple_red_dragon_blood"					"红龙之血"
+		"DOTA_Tooltip_ability_fire_temple_red_dragon_blood_Description"		"当550范围内没有地方英雄时, 获得生命值回复和额外护甲."
+		"DOTA_Tooltip_ability_fire_temple_red_dragon_blood_armor"				"护甲:"				
+		"DOTA_Tooltip_ability_fire_temple_red_dragon_blood_health_regen"		"生命值回复:"
+
+		"DOTA_Tooltip_modifier_fire_temple_red_dragon_blood_effect" 			"红龙之血"
+		"DOTA_Tooltip_modifier_fire_temple_red_dragon_blood_effect_Description"	"获得护甲和生命值回复."
+
+		"fire_temple_lost_shadow_of_davion"									"达维安的失落之影"
+
+		"DOTA_Tooltip_ability_fire_temple_flame_ring"							"烈焰爆发"
+		"DOTA_Tooltip_ability_fire_temple_flame_ring_Description"				"喷吐烈焰，对附近敌人造成伤害."
+
+		"DOTA_Tooltip_ability_fire_temple_relic_seeker_ai"						"闪避"
+		"DOTA_Tooltip_ability_fire_temple_relic_seeker_ai_Description"			"有一定几率闪避攻击."	
+		"DOTA_Tooltip_ability_fire_temple_relic_seeker_ai_evasion"				"闪避几率%:"	
+
+		"DOTA_Tooltip_ability_fire_temple_shadow_strike"						"影袭"
+		"DOTA_Tooltip_ability_fire_temple_shadow_strike_Description"			"闪现到敌人背后发动突袭，附加额外魔法伤害."
+		"DOTA_Tooltip_ability_fire_temple_shadow_strike_damage"				"魔法伤害附加:"
+
+		"DOTA_Tooltip_ability_fire_temple_steadfast"							"坚定"
+		"DOTA_Tooltip_ability_fire_temple_steadfast_Description"				"受到的单次攻击不会超过最大生命值的某个百分比."
+		"DOTA_Tooltip_ability_fire_temple_steadfast_max_damage"				"最大生命值百分比:"
+
+		"DOTA_Tooltip_ability_fire_temple_frenzy"								"狂热"
+		"DOTA_Tooltip_ability_fire_temple_frenzy_Description"					"每一次成功的攻击都会增加攻击移动速度."	
+		"DOTA_Tooltip_ability_fire_temple_frenzy_attack_speed_per_stack"		"每层攻击速度增加:"
+		"DOTA_Tooltip_ability_fire_temple_frenzy_movespeed_per_stack"			"每层移动速度增加:"
+
+		"DOTA_Tooltip_modifier_frenzy_buff_effect"								"狂热"
+		"DOTA_Tooltip_modifier_frenzy_buff_effect_Description"					"增加攻击移动速度"	
+
+		"DOTA_Tooltip_ability_yojimbo_flame_guard"								"烈焰守护"
+		"DOTA_Tooltip_ability_yojimbo_flame_guard_Description"					"制造一个火焰披风，吸收魔法伤害并对周围造成持续的燃烧伤害."
+		"DOTA_Tooltip_ability_yojimbo_flame_guard_absorb_amount"				"魔法伤害吸收:"
+		"DOTA_Tooltip_ability_yojimbo_flame_guard_damage_per_second"			"每秒燃烧伤害:"
+
+		"DOTA_Tooltip_ability_yojimbo_searing_chains"							"灼热之链"
+		"DOTA_Tooltip_ability_yojimbo_searing_chains_Description"				"缠绕, 缴械, 并伤害附近2个随机单位."
+		"DOTA_Tooltip_ability_yojimbo_searing_chains_chains_damage"			"每秒燃烧伤害:"
+
+		"disciple_of_yojimbo"													"近侍学徒"
+		"yojimbo_boss"															"近侍"
+
+		"fire_temple_tempered_warrior"											"百炼战士"
+
+		"DOTA_Tooltip_ability_fire_temple_agility_aura"						"敏捷破坏"
+		"DOTA_Tooltip_ability_fire_temple_agility_aura_Description"			"降低附近敌人的敏捷和移动速度. 自身移动速度增加."
+		"DOTA_Tooltip_ability_fire_temple_agility_aura_movespeed_slow"			"移动速度降低:"
+		"DOTA_Tooltip_ability_fire_temple_agility_aura_agilty_loss"			"敏捷降低:"
+		"DOTA_Tooltip_ability_fire_temple_agility_aura_movespeed_bonus"		"自身移动速度提升:"		
+
+		"DOTA_Tooltip_ability_fire_temple_omni_slash"							"刃舞突袭"
+		"DOTA_Tooltip_ability_fire_temple_omni_slash_Description"				"闪烁到至多2个目标附近并从空中发动突袭."
+		"DOTA_Tooltip_ability_fire_temple_omni_slash_omni_slash_damage"		"额外伤害:"
+
+		"DOTA_Tooltip_ability_fire_temple_blade_fury"							"剑刃乱舞"
+		"DOTA_Tooltip_ability_fire_temple_blade_fury_Description"				"疯狂挥舞刀刃，对附近的敌人造成伤害. 释放此技能时魔法免疫."
+		"fire_temple_mad_rito"													"狂野火舞者"
+
+		"DOTA_Tooltip_modifier_agility_aura_effect"							"敏捷破坏"
+		"DOTA_Tooltip_modifier_agility_aura_effect_Description"				"降低敏捷和移动速度."
+
+		"DOTA_Tooltip_ability_fire_temple_evasion"								"闪避"
+		"DOTA_Tooltip_ability_fire_temple_evasion_Description"					"很小的几率躲避攻击"	
+		"DOTA_Tooltip_ability_fire_temple_evasion_evasion"						"躲避几率:"	
+
+		"DOTA_Tooltip_ability_fire_core_bite"									"火核之咬"
+		"DOTA_Tooltip_ability_fire_core_bite_Description"						"火焰减缓了攻击移动速度. 与其他火核之咬效果叠加."
+		"DOTA_Tooltip_ability_fire_core_bite_move_slow"						"每层移动速度减缓:"	
+
+		"DOTA_Tooltip_modifier_core_bite_effect"								"火核之咬"
+		"DOTA_Tooltip_modifier_core_bite_effect_Description"					"略微降低攻击移动速度"
+
+		"DOTA_Tooltip_ability_fire_temple_fireling_ability"					"燃烧攻击"
+		"DOTA_Tooltip_ability_fire_temple_fireling_ability_Description"		"攻击会造成持续的燃烧效果"	
+		"DOTA_Tooltip_ability_fire_temple_fireling_ability_burn_dps"			"每秒燃烧伤害:"
+
+		"DOTA_Tooltip_ability_fire_temple_hulk_swipe_ability"					"熔火巨体打击"
+		"DOTA_Tooltip_ability_fire_temple_hulk_swipe_ability_Description"		"攻击会眩晕0.3秒并造成额外魔法伤害"
+		"DOTA_Tooltip_ability_fire_temple_hulk_swipe_ability_damage"			"魔法伤害:"
+
+		"DOTA_Tooltip_ability_fire_temple_lucent_beam"							"明光澈辉"
+		"DOTA_Tooltip_ability_fire_temple_lucent_beam_Description"				"一道充满月能的光线造成伤害和眩晕."
+
+		"DOTA_Tooltip_ability_fire_temple_darkness_aura"						"黑幕光环"
+		"DOTA_Tooltip_ability_fire_temple_darkness_aura_Description"			"降低附近敌人的视野范围."
+		"DOTA_Tooltip_ability_fire_temple_darkness_aura_vision_decrease"		"视野降低:"
+
+		"DOTA_Tooltip_modifier_darkness_aura_effect"							"黑幕光环"
+		"DOTA_Tooltip_modifier_darkness_aura_effect_Description"				"降低视野范围"
+
+		"fire_temple_final_wave_mob"											"火核构造体"
+
+		"fire_temple_seer_of_solos"											"烈阳先兆者"
+
+		"DOTA_Tooltip_ability_fire_temple_strength_aura"						"烈阳风采"
+		"DOTA_Tooltip_ability_fire_temple_strength_aura_Description"			"降低附近敌人的力量"	
+		"DOTA_Tooltip_ability_fire_temple_strength_aura_strength_loss"			"力量值降低:"	
+
+		"DOTA_Tooltip_ability_fire_temple_nuclear_solos"						"耀斑爆发"
+		"DOTA_Tooltip_ability_fire_temple_nuclear_solos_Description"			"释放出阳光烈焰，造成伤害并且眩晕."
+		"DOTA_Tooltip_ability_fire_temple_nuclear_solos_duration"				"持续时间"
+
+		"DOTA_Tooltip_modifier_nuclear_solos"									"耀斑爆发"
+		"DOTA_Tooltip_modifier_nuclear_solos_Description"						"释放阳光烈焰"	
+
+		"DOTA_Tooltip_ability_fire_temple_solos_ai"							"热能屏障"
+		"DOTA_Tooltip_ability_fire_temple_solos_ai_Description"				"被动增加魔法抗性"
+		"DOTA_Tooltip_ability_fire_temple_solos_ai_magic_resist"				"魔法抗性:"	
+
+		"DOTA_Tooltip_ability_solos_burning_spear"								"燃火之矛"
+		"DOTA_Tooltip_ability_solos_burning_spear_Description"					"攻击会对目标施加持续的火焰伤害."
+
+		"fire_temple_fire_mage"												"火焰法师"
+
+		"DOTA_Tooltip_ability_fire_temple_dragon_slave"						"龙破斩"
+		"DOTA_Tooltip_ability_fire_temple_dragon_slave_Description"			"对锥形范围内的敌人释放火焰法术."
+
+		"DOTA_Tooltip_ability_fire_temple_curse_of_combustion"					"燃焰诅咒"
+		"DOTA_Tooltip_ability_fire_temple_curse_of_combustion_Description"		"对目标施加一个诅咒. 如果目标在诅咒持续时间内释放任何法术, 则会爆炸，对自身和周围盟友造成伤害和1.5秒 眩晕."
+		"DOTA_Tooltip_ability_fire_temple_curse_of_combustion_curse_duration"	"诅咒持续时间:"
+
+		"DOTA_Tooltip_modifier_curse_of_combustion"							"燃焰诅咒"
+		"DOTA_Tooltip_modifier_curse_of_combustion_Description"				"释放技能或使用物品将使你爆炸！"
+
+		"DOTA_Tooltip_ability_fire_temple_fire_mage_ai"						"熔化武器"
+		"DOTA_Tooltip_ability_fire_temple_fire_mage_ai_Description"			"降低受到的物理伤害."
+		"DOTA_Tooltip_ability_fire_temple_fire_mage_ai_damage_reduction_percent"	"受到的物理伤害降低 %:"
+
+		"fire_temple_lumos_ascender"											"闪耀升腾者"
+
+		"DOTA_Tooltip_ability_fire_temple_lava_burst"							"熔岩爆裂"
+		"DOTA_Tooltip_ability_fire_temple_lava_burst_Description"				"对目标造成伤害并眩晕一段时间，降低目标造成的攻击伤害3.5秒."
+		"DOTA_Tooltip_ability_fire_temple_lava_burst_stun_duration"			"眩晕时间:"
+		"DOTA_Tooltip_ability_fire_temple_lava_burst_damage_reduction_percent"	"攻击伤害降低:"
+
+		"DOTA_Tooltip_modifier_lava_burst_debuff"								"熔岩爆裂"
+		"DOTA_Tooltip_modifier_lava_burst_debuff_Description"					"攻击力降低"	
+
+		"fire_temple_protective_spirit"										"守护之灵"
+
+		"DOTA_Tooltip_ability_fire_temple_protector_death_ability"							"不懈防御"
+		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_Description"					"死亡时，附近的所有守护之灵都会受到治疗和强化效果."
+		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_armor_bonus"					"每层护甲增加:"
+		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_attack_power_bonus_percent"		"每层攻击增加:"
+		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_movespeed_bonus"				"每层移动速度增加:"
+		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_heal_percent"					"治疗 %:"
+
+
+		"DOTA_Tooltip_modifier_death_ability_buff"							"不懈防御"
+		"DOTA_Tooltip_modifier_death_ability_buff_Description"				"被阵亡的守护之灵强化了."
+
+		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability"				"喂食烈焰"
+		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_Description"	"每一层效果都会增加烈焰幽灵造成的伤害"
+		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_damage_percentage"	"每层伤害增加百分比:"
+		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_movespeed_bonus"	"每层移动速度增加:"
+		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_attackspeed_bonus"	"每层攻击速度增加:"
+
+		"DOTA_Tooltip_modifier_flame_wraith_buff"							"喂食烈焰"
+		"DOTA_Tooltip_modifier_flame_wraith_buff_Description"				"增加攻击速度，移动速度和伤害."	
+
+		"fire_temple_flame_wraith"										"烈焰幽灵"
+
+		"fire_temple_lava_caller"											"熔岩呼唤者"
+
+		"fire_temple_flame_wraith_lord"									"烈焰幽灵领主"
+
+		"DOTA_Tooltip_ability_fire_temple_kolthun_ai"										"赤红契约"
+		"DOTA_Tooltip_ability_fire_temple_kolthun_ai_Description"							"与火焰领主签订了契约"
+
+		"DOTA_Tooltip_ability_fire_temple_fire_ring"					"火焰光晕"
+		"DOTA_Tooltip_ability_fire_temple_fire_ring_Description"		"在施法者周围产生一个火焰之环，灼烧触碰到的目标."	
+
+		"DOTA_Tooltip_modifier_fire_ring_impact"					"火焰光晕"
+		"DOTA_Tooltip_modifier_fire_ring_impact_Description"		"燃烧"
+
+		"DOTA_Tooltip_modifier_modifier_fire_ring"					"火焰光晕"
+
+		"DOTA_Tooltip_ability_kolthun_dragon_slave"					"烈焰洪流"
+		"DOTA_Tooltip_ability_kolthun_dragon_slave_Description"		"向目标地点发射一条火龙."
+
+		"flame_worshipper_kolthun"									"烈焰崇拜者 寇尔苏恩"
+
+		"DOTA_Tooltip_modifier_kolthun_shield"						"火焰领主之盾"
+		"DOTA_Tooltip_modifier_kolthun_shield_Description"			"每层盾吸收部分伤害."
+
+		"fire_temple_neverlord_reborn"								"魔王再临"
+
+		"DOTA_Tooltip_ability_firelord_ability_ai"					"烈焰本源"
+
+		"DOTA_Tooltip_modifier_firelord_shield"						"火焰领主之盾"
+		"DOTA_Tooltip_modifier_firelord_shield_Description"			"每层盾吸收部分伤害."
+
+		"DOTA_Tooltip_ability_neverlord_raze"						"火焰射线"
+		"DOTA_Tooltip_ability_neverlord_raze_Description"			"对目标地点释放一团爆裂的火焰冲击造成巨量魔法伤害."
+
+		"DOTA_Tooltip_ability_wind_temple_wind_prophet_ai"					"启示之盾"
+		"DOTA_Tooltip_ability_wind_temple_wind_prophet_ai_Description"		"受到伤害时, 消耗魔法值并对攻击者造成伤害. 同时被动地减少受到来自所有来源的伤害."
+		"DOTA_Tooltip_ability_wind_temple_wind_prophet_ai_damage_reduction"	"伤害减免 %:"
+		"DOTA_Tooltip_ability_wind_temple_wind_prophet_ai_mana_drain"		"魔法值消耗 %:"
+
+		"wind_temple_rare_wind_prophet"								"风之先知"
+
+		"fire_temple_rare_blackguard_centaur"						"半人马黑卫士"
+
+		"DOTA_Tooltip_ability_fire_temple_hoof_stomp"				"马蹄践踏"
+		"DOTA_Tooltip_ability_fire_temple_hoof_stomp_Description"	"在短暂的延迟后造成伤害和眩晕."
+		"DOTA_Tooltip_ability_fire_temple_hoof_stomp_stun_duration"	"眩晕时间:"
+		"DOTA_Tooltip_ability_fire_temple_hoof_stomp_stomp_damage"	"践踏伤害:"
+
+		"DOTA_Tooltip_ability_fire_temple_centaur_warcry"			"人马战吼"
+		"DOTA_Tooltip_ability_fire_temple_centaur_warcry_Description"	"增加施法者和其盟友的攻击速度和移动速度."
+		"DOTA_Tooltip_ability_fire_temple_centaur_warcry_movespeed"	"移动速度:"
+		"DOTA_Tooltip_ability_fire_temple_centaur_warcry_attackspeed"	"攻击速度:"
+
+		"DOTA_Tooltip_modifier_centaur_war_cry"					"人马战吼"
+		"DOTA_Tooltip_modifier_centaur_war_cry_Description"		"增加攻击移动速度."
+
+		"water_temple_rare_wrath_of_the_water_king"				"水之王的愤怒"
+
+		"DOTA_Tooltip_ability_water_temple_rare_wrath_ai"		"潮汐波动"
+		"DOTA_Tooltip_ability_water_temple_rare_wrath_ai_Description"	"被动地释放出大量的潮汐波浪，造成伤害和减速效果."
+		"DOTA_Tooltip_ability_water_temple_rare_wrath_ai_moveslow"		"移动速度降低 %:"
+		"DOTA_Tooltip_ability_water_temple_rare_wrath_ai_attack_slow"	"攻击速度降低 %:"
+
+		"DOTA_Tooltip_modifier_water_temple_rare_wrath_soak"	"潮汐波动"
+		"DOTA_Tooltip_modifier_water_temple_rare_wrath_soak_Description"	"降低攻击移动速度."
+
+
+		"wind_temple_rare_falcon_warden"							"猎鹰者"
+
+		"DOTA_Tooltip_ability_fire_temple_rare_falcon_warder_ai"	"猎鹰者"
+		"DOTA_Tooltip_ability_fire_temple_rare_falcon_warder_ai_Description"	"被动提高魔法抗性，并向附近敌人放出一大群银隼。"
+		"DOTA_Tooltip_ability_fire_temple_rare_falcon_warder_ai_magic_resistance"	"魔法抗性："
+
+
+		"DOTA_Tooltip_ability_water_temple_rare_water_construct_ai"		"潮汐波动"
+		"DOTA_Tooltip_ability_water_temple_rare_water_construct_ai_Description"	"被动地释放出大量的潮汐波浪，造成伤害和减速效果."
+		"DOTA_Tooltip_ability_water_temple_rare_water_construct_ai_moveslow"		"移动速度降低 %:"
+		"DOTA_Tooltip_ability_water_temple_rare_water_construct_ai_attack_slow"	"攻击速度降低 %:"
+
+		"water_temple_rare_water_construct"								"远古水之神殿建造者"
+
+		"wind_temple_descendant_of_zeus"								"宙斯后裔"
+
+		"tanari_thicket_ursa"											"塔纳利棕熊"
