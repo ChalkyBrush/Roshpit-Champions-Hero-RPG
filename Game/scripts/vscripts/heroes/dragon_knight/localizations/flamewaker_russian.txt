@@ -251,7 +251,7 @@
 		"item_rpc_flamewaker_glyph_4_1_description" 			"(W) @Ability2 наносит дополнительный урон, равный (@glyph_property2% от суммы всех атрибутов плюс @glyph_property3% от общего урона героя)* текущий уровень (W) @Ability2. Дополнительно снижает скорость передвижения и атаки врагов на @glyph_property1."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_1"	"(T5) Символ горячих сердец"
-		"item_rpc_flamewaker_glyph_5_1_description" 			"Увеличивает урон (R) Cataclysm и [R2] в 2.5 раза."
+		"item_rpc_flamewaker_glyph_5_1_description" 			"Увеличивает длительность [R2] в <% FLAMEWAKER_T51_R2_DUR_MULTIPLY%> раза."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_6_1"	"(T6) Символ горного массива"
 		"item_rpc_flamewaker_glyph_6_1_description" 			"В течении @glyph_property2 сек. после прочтения (R) Cataclysm, основной урон будет увеличен на @glyph_property1%."
