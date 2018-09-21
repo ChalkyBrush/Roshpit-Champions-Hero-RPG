@@ -1,0 +1,856 @@
+		
+		
+				//ARENA
+
+		"roshpit_arena"												"Арена Roshpit"
+		"arena_dialogue_one"										"Приветствую вас в залах Арены Roshpit, где проходят величайшие бои! Люди со всего мира приходят сюда, чтобы вновь поприветствовать величайших Чемпионов!"
+		"arena_attendee_one"										"Участник Арены"
+
+		"arena_training_dummy"										"Тренировочное чучело"
+		"arena_training_dummy_sentence_1"							"нанёс"
+		"arena_training_dummy_sentence_2"							"урон:"
+		"arena_training_dummy_sentence_3"							""
+
+		"arena_training_button_1"									"Очистить запись"
+		"arena_training_button_2"									"Запустить 7 секундный таймер"
+		"arena_training_button_3"									"Выход"
+
+		"arena_log_capacity"										"Вместимость лога"
+		"arena_log_dps"												"DPS"
+		"arena_armor_title"											"Физ. броня"
+		"arena_update_dummy"										"Обновить настройки"
+
+		"arena_fan_dialogue_one"									"Я пришел сюда, чтобы увидеть моего любимого бойца! Его зовут Чемпион Варафлас!"
+		"arena_fan_dialogue_two"									"Вау! Ты мой самый любимый Чемпион!"
+		"arena_entrance_fan"										"Фанат Арены"
+
+		"arena_fan2_dialogue_one"									"Я здесь, чтобы посмотреть битвы новичков! Любой может зарегистрироваться, но лишь малая часть доходит до вершины славы."
+
+		"arena_left_leaderboard_title"								"Лига Чемпионов"
+
+		"donations_board_title"										"Roshpit Donations"
+		"donation_tip"												"roshpit.ca/donate"
+		"donations_name"											"Имя"
+		"donations_amount"											"Сумма"
+		"donations_message"											"Сообщение"	
+
+		"arena_hall_of_heroes_npc"									"Историк"
+
+		"champions_league_attendant"								"Участник Лиги Чемпионов"
+		"pvp_league_attendant"										"Участник PVP Лиги"
+		"pvp_league_attendant_message"								"Лига PVP находится в процессе разработки. Будет добавлена позже."
+		"challenger_league_attendant_message"						"Совместная лига в процессе разработки. Сражения будут содержать элементы совместной игры. Будет добавлена позже."
+
+		"hall_of_champions_dialogue"								"Эти статуи возведены в память о мужестве и доблести героев прошлого."
+
+		"arena_behind_counter_1"									"Поговорим, когда перейдешь за стойку..."
+		"arena_behind_counter_2"									"Эй! Вам нельзя здесь находиться!"
+		"arena_behind_counter_3"									"Здесь разрешено находиться только персоналу Арены. Немедленно уходи отсюда."
+
+		"arena_league_attendant_greeting"							"Приветствую! Добро пожаловать в Лигу Чемпионов!"
+		"pvp_league_attendant_greeting"								"Это PVP Лига."
+		"challenger_league_attendant_greeting"						"Добро пожаловать в совместную лигу."
+
+		"challenger_attendant"										"Сотрудник арены - Совместная лига"
+		
+		"arena_crowd_fan"											"Фанат"
+		
+		"arena_guard"												"Страж Арены"
+		"DOTA_Tooltip_ability_arena_guard_ability"					"Посторонним вход воспрещен!"
+		"DOTA_Tooltip_ability_arena_guard_ability"					"Посторонним вход воспрещен!"
+
+		"arena_league_attendant_player_restriction"					"Ты можете принять участие в Лиге Чемпионов только в одиночку. Возвращайся, когда будешь один, если хочешь присоединиться."
+		"arena_league_attendant_player_state_0"						"Добро пожаловать в Лигу Чемпионов! Это глобальное соревнование, где проходят проверку все личные боевые качества участников."
+		"arena_league_attendant_choice_0_option_1"					"Регистрация"
+		"arena_league_attendant_choice_0_option_2"					"Забудь"
+
+		"champions_league_assistant"								"Тренер Чистая Луна"
+
+		"arena_league_attendant_player_state_1"						"О. Судя по всему у тебя нет тренера. Я могу помочь тебе, ты хочешь нанять себе тренера?"
+		"arena_league_attendant_choice_1_option_1"					"Да"
+		"arena_league_attendant_choice_1_option_2"					"Нет, спасибо"
+		"arena_league_attendant_calling_coach"						"Хорошо, я сейчас её позову. Она уже в пути."
+		"arena_league_attendant_waiting_for_coach"					"Твой тренер уже идёт. Пожалуйста, подожди её здесь."
+
+		"champion_assistant_dialogue_1"								"Можешь не отвлекать меня? Я пытаюсь думать."
+		"champion_assistant_dialogue_2"								"Я здесь. Это ты новоприбывший?"
+		"arena_league_attendant_coach_arrive"						"Привет!"
+		"champion_assistant_dialogue_3"								"Ты выглядишь таким слабым... но я вижу огонь в твоих глазах."
+		"champion_assistant_dialogue_4"								"Надеюсь, ты не такой слабак, как те, что приходили немногим ранее."	
+		"champion_assistant_dialogue_5"								"Следуй за мной, я покажу зал для новичков и подготовлю тебя к первой битве."
+		"champion_assistant_dialogue_6"								"Это зал Чемпионов. Часто прихожу сюда, чтобы расслабиться и подумать о прошедших битвах."		
+		"arena_league_attendant_coach_arrive_end"					"Удачи вам обоим!"
+		"champion_assistant_dialogue_7"								"Это зал для новичков. Не самое лучшее место, но большего ты еще не заслужил."
+		"champion_assistant_dialogue_8"								"С тех пор, как ты зарегистрировался участником, ты можете приходить сюда в любое время."
+		"champion_assistant_dialogue_9"								"А здесь у нас терминал Арены. Тут можно зарегистрироваться на битву."
+		"champion_assistant_dialogue_9a"							"Иди и попробуй!"
+		"champion_assistant_dialogue_10"							"Что такое? Похоже, что возникли проблемы с регистрацией. Мне нужно вернуться к стойке регистрации и исправить это."
+		"champion_assistant_dialogue_11"							"Просто жди здесь, возможно ты найдешь тут своих будущих врагов. Скоро вернусь."
+		"champion_assistant_dialogue_12"							"Так, теперь ты готов. Подойди к терминалу для регистрации и запишись на твою первую битву."
+		"champion_assistant_dialogue_12a"							"Скоро твой бой. Арена уже готова для твоего появления!"
+		"champion_assistant_dialogue_13"							"Это твой первый бой. Сражения проходят в рамках 'Лучший из трёх', так-что не расслабляться после первой победы!"
+		"champion_assistant_dialogue_14"							"Если ты проиграешь, то это будет значить, что тебе пора домой. Вернешься как станешь сильнее."
+		"champion_assistant_dialogue_15"							"Здорово! Тебе удалось одержать победу в своём первом сражении! Только слищком не зазнавайся, дальше будет всё сложнее и сложнее."
+		"champion_assistant_dialogue_15a"							"В случае победы, обновленный прогресс в Чемпионской лиге будет сохранён автоматически."
+		"champion_assistant_dialogue_16"							"Воспользуйся терминалом, чтобы записаться на твоё следующее сражение."
+		"champion_assistant_dialogue_17"							"Черная песнь - серьёзный противник. Она славится своими физическими атаками и будет всегда держать короткую дистанцию."
+		"champion_assistant_dialogue_19"							"Очень много людей отказывались от этого сражения. Посмотрим, стоило ли этого твоё упорство."
+		"champion_assistant_dialogue_20"							"Это было потрясающе! Фанаты были в восторге от этой бойни."
+		"champion_assistant_dialogue_21"							"С нетерпением жду твоей следующей битвы."
+		"champion_assistant_dialogue_22"							"Вперёд на регистрацию! Далее нас ждёт сражение с ... Горвиком"
+		"champion_assistant_dialogue_23"							"Горвик способен возвращать любой получаемый им урон. Тяжёлые удары выйдут боком тебе же."
+		"champion_assistant_dialogue_24"							"Контролируй темп и поддерживай его!"
+		"champion_assistant_dialogue_25"							"Мастер элементов может создавать трех элементалей, у каждого свои сильные стороны."
+		"champion_assistant_dialogue_26"							"Элементаль земли обладает повышенным сопротивлением магии, а огненный имеет больше всех брони."
+		"champion_assistant_dialogue_27"							"Это была оглушительная победа! Уверена, ты добьёшься больших высот на арене!"
+		"champion_assistant_dialogue_28"							"Брайварус невероятно силён и быстр."
+		"champion_assistant_dialogue_29"							"Пользуйся любыми возможными способами, чтобы держаться от него на расстоянии и сбить его с ног!"
+		"champion_assistant_dialogue_30"							"Это очень скрытный противник. Не дай ему тебя обмануть!"
+		"champion_assistant_dialogue_31"							"Какой потрясающий успех! Еще пять побед и ты окажешься в высшей лиге."
+		"champion_assistant_dialogue_32"							"Так держать!"
+		"champion_assistant_dialogue_33"							"Единственный способ нанести удар по Железному Шипу - это дать ему возможность атаковать тебя!"
+		"champion_assistant_dialogue_34"							"Лечение и способность держать урон - вот ключ к победе в этом сражении."
+		"champion_assistant_dialogue_35"							"Большой медведь может призвать к себе орду медведей поменьше."
+		"champion_assistant_dialogue_36"							"Классическая атака по области будет наиболее эффективной в этом сражении"
+		"champion_assistant_dialogue_37"							"Рекеш знаменит бросками оглушающих топоров и своим проворством."
+		"champion_assistant_dialogue_38"							"Время от времени он накладывает на себя сильный магический щит, так-что лучше бей его физическими атаками."
+		"champion_assistant_dialogue_39"							"Капитан армии Красного Тумана обладает аурой, которая ежесекундно отнимает у тебя 3% твоего максимального здоровья чистым уроном."
+		"champion_assistant_dialogue_40"							"Если твоё здоровье опустится ниже 35%, он с легкостью казнит тебя!"
+		"champion_assistant_dialogue_41"							"Победа в следующем сражении будет означать, что ты поднимешься в Высшую лигу"
+		"champion_assistant_dialogue_42"							"Должна сказать, что я испытываю настоящую гордость за то, как стремительно ты продвигаешься в таблице чемпионата!"
+		"champion_assistant_dialogue_43"							"Я не должна подвергать тебя сомнениям. Давай посмотрим, на что ты способен в Высшей Лиге!"
+		"champion_assistant_dialogue_44"							"Претендент Авернус сочетает в себе мощь самых сильных врагов крепости Авернуса"
+		"champion_assistant_dialogue_45"							"Если тебе доводилось побывать там, что тебе лучше знать, как биться с ним!"
+		"champion_assistant_dialogue_45a"							"Поздравляю тебя с большой победой!"
+		"champion_assistant_dialogue_45b"							"Теперь ты действительно достоин вступить в Высшую Лигу! Теперь тебе открыты двери в Зал Высшей Лиги в любое время."
+		"champion_assistant_dialogue_45c"							"Я так горжусь твоими успехами!"
+		"champion_assistant_dialogue_46"							"Арканис способен атаковать на любое расстояние и мгновенно перемещаться в любую точку арены."
+		"champion_assistant_dialogue_47"							"Для победы тебе стоит полагаться на твою скорость и возможность уклоняться от атак и заклинаний!"	
+		"champion_assistant_dialogue_48"							"Только истинные Чеспионы могут конкурировать в Высшей Лиге. Воспользуйся терминалом, чтобы записаться на следующую битву!"
+		"champion_assistant_dialogue_49"							"Великий Вождь увеличивает своё сопротивление магии на 1% за каждый % отсутствующего у него здоровья."
+		"champion_assistant_dialogue_50"							"Тебе придётся добить его физической атакой."
+		"champion_assistant_dialogue_51"							"У Когтя Кондора есть способность мгновенного перемещения с короткой перезарядкой."
+		"champion_assistant_dialogue_52"							"Его излюбленная тактика - атаковать врагов льдом и пламенем!"
+		"champion_assistant_dialogue_53"							"Если честно, я не могу вспомнить, на что способен твой следующий противник."
+		"champion_assistant_dialogue_54"							"Битва за шестой ранг всегда самая скучная."
+		"champion_assistant_dialogue_55"							"А ты оживился, едва завидев меня. В чем дело?"
+		"champion_assistant_dialogue_56"							"Тебе осталось подняться еще на 1 ступень выше, чтобы войти в Лигу Всех Звезд! Впечатляющий результат!"
+		"champion_assistant_dialogue_57"							"Варафлас может вызывать локальное землетрясение, с помощью которого также может быстро перемещаться"
+		"champion_assistant_dialogue_58"							"Он также может обрушить поток метеоров, так-что следи за головой!"	
+		"champion_assistant_dialogue_59"							"Ты обретаешь оглушительный успех! Теперь ты обожаемая всеми звезда Арены!"
+		"champion_assistant_dialogue_59a"							"Сражения Звезд самые сложные, но я уверена, что ты утрёшь им всем нос."
+		"champion_assistant_dialogue_60"							"Оплексус любимчик публики. Крайне сложно обратить на себя внимаие болельщиков, когда он на поле боя."
+		"champion_assistant_dialogue_61"							"Не дай ему ослепить тебя, сконцентрируйся!"
+		"champion_assistant_dialogue_62"							"Красный Рубик неуязвим к магическому урону, тогда как синий невосприимчив к магии."
+		"champion_assistant_dialogue_63"							"Братья разделяют между собой одно здоровье, так-что выбери себе одну цель и уничтожь их обоих!"
+		"champion_assistant_dialogue_64"							"Потрясающе! Теперь ты вошел в тройку величайших Чмпионов!"
+		"champion_assistant_dialogue_65"							"Никогда себе не представляла, что ты сможешь пробиться так далеко. Как думаешь, займём ли мы когда-нибудь самую верхнюю строчку?"	
+		"champion_assistant_dialogue_66"							"Особые атаки Немезиды наносят огромнейший урон, но они слишком предсказуемы."
+		"champion_assistant_dialogue_67"							"Постарайся как можно скорее запомнить все его возможные атаки и бой будет проще простого!"	
+		"champion_assistant_dialogue_68"							"Всего 1 победа и ты прославишься как Великий Чемпион!"
+		"champion_assistant_dialogue_69"							"Мы прошли через столько препятствий, столько сражений, так давай же займём, наконец, первое место!"
+
+		"sign_hall_of_champions"									"Зал Чемпионов"
+		"sign_aquatarium"											"Акватариум"
+		"sign_minor_locker_room"									"Зал новичков"
+		"sign_major_locker_room"									"Зал Высшей Лиги"
+		"sign_allstar"												"Зал Всех Звезд"
+
+		"arena_aquatarium_magician"									"Маг воды"
+		"aquatarium_greeting"										"Найди меня среди потоков воды, чтобы заработать 200 Мифрильных Осколков. На одного посетителя одна игра."
+		"aquatarium_greeting_alt"									"Прости, только 1 игра на посещение. Возвращайся в другой раз!"
+		"aquatarium_greeting_bubble"								"Ну давай, посмотрим, сможешь ли ты найти меня!"
+		"aquatarium_option_1"										"Начали!"
+
+		"aquatarium_start"											"Превосходно! Дай мне минуту. Нужно немного времени на подготовку."
+		"aquatarium_working"										"Почти готово, еще немного."
+		"aquatarium_ready"											"Так. Следи за мной. Готов?"	
+		"aquatarium_lose"											"Ох, слишком плохо. Я почти уснул! Следи внимательней в следующий раз!"	
+		"aquatarium_win_1"											"Эх. Вот если бы я использовал водную форму вместо уклонения в конце... ты бы никогда не нашел меня."	
+		"aquatarium_win_2"											"Я уверен, что ты выиграл. Забирай свою награду."	
+		"aquatarium_win_3"											"Поздравляю! В следующий раз я так легко не дамся."	
+
+		"terminal_rank_display"										"Ранг:"	
+		"arena_terminal_wins"										"Побед:"	
+		"arena_terminal_fame"										"Слава:"		
+		"start_champions_league_battle"								"Регистрация на битву"	
+		"terminal_registrant_not_found"								"Не найдено"
+		"terminal_cant_register"									"Регистрация невозможна"
+		"terminal_cant_choose_opponent"								"Соперник выбран"
+		"terminal_choose_opponent"									"Выбрать соперника"
+		"terminal_opponent_unselected"								"Соперник не выбран"
+		"terminal_high_score"										"Наивысшие очки:"
+		"terminal_opponent_rank"									"Ранг соперника:"
+
+		"champion_league_challenger_20"								"Реккин Старгрин"
+		"arena_champion_20_lower"									"Я застрял в нижней части таблицы чемпионата, но я не сдамся!"
+		"arena_champion_20_higher"									"А ты серьёзный противник. Когда-нибудь я займу твоё место."
+
+		"DOTA_Tooltip_ability_arena_rekkin_wave"					"Spacewave"
+		"DOTA_Tooltip_ability_arena_rekkin_wave_Description"		"Яркая как звезды волна оглушает и наносит урон всем задетым противникам и ослепляет толпу."
+
+		"DOTA_Tooltip_ability_arena_dodge_ability"					"Arena Dodge"
+		"DOTA_Tooltip_ability_arena_dodge_ability_Description"		"Боевая манёвренность"
+
+		"arena_prebattle_text"										"Битва:"
+		"arena_crowdsize_text"										"Болельщиков на арене"
+		"arena_fan_support"											"Болельщиков"
+		"DOTA_Tooltip_modifier_arena_crowd_buff"					"Поддержка болельщиков"
+		"DOTA_Tooltip_modifier_arena_crowd_buff_Description"		"Каждый болельщик, поддерживающий вас увеличивает ваш исходящий урон на 10%%"
+		"skip_button_label"											"Пропустить"
+
+		"arena_battle_lost"											"Сражение проиграно"
+		"arena_battle_win"											"Сражение выиграно!"
+
+		"arena_time_bonus"											"Доп. время"
+		"arena_style_bonus"											"Бонус толпы"
+		"arena_total_bonus"											"Всего очков"
+
+		"champion_league_challenger_19"								"Черная песнь"
+		"DOTA_Tooltip_ability_arena_stifling_dagger"				"Stifling Dagger"
+		"DOTA_Tooltip_ability_arena_stifling_dagger_Description"	"Наносит серьёзный урон и замедляет цель."	
+
+		"DOTA_Tooltip_ability_arena_phantom_strike"					"Phantom Strike"
+		"DOTA_Tooltip_ability_arena_phantom_strike_Description"		"Мгновенно перемещается к цели, получая бонус к скорости атаки на 4 атаки."	
+
+		"champion_league_challenger_18"								"Горвик"
+		"arena_champion_18_taunt"									"У тебя кишка тонка, тебе ни за что не пробить мою броню. Лучше сразу сдавайся!"
+		"arena_coach_18_defend_taunt"								"Что такое? Страшно?. Похоже, что кто-то хочет забиться в угол."
+		"arena_champion_18_ready"									"Раздавлю червей. РАЗДАВЛЮ ЧЕРВЕЙ."
+		"arena_champion_18_lower"									"Чемпионская Лига не для таких червей как вы."
+		"arena_champion_18_higher"									"У меня нет времени на вас, усекли?"
+
+		"DOTA_Tooltip_ability_arena_gorewreck_passive"				"Ogre Strength"
+		"DOTA_Tooltip_ability_arena_gorewreck_passive_Description"	"Атаки наносят дополнительный магический урон, увеличивая сопротивление магии, а при получении урона цели будет нанесён чистый урон"
+		"DOTA_Tooltip_ability_arena_gorewreck_passive_magic_damage_attack"	"УРОН МАГИЕЙ:"
+		"DOTA_Tooltip_ability_arena_gorewreck_passive_magic_resist"	"СОПРОТИВЛЕНИЕ МАГИИ:"
+		"DOTA_Tooltip_ability_arena_gorewreck_passive_damage_return"	"ВОЗВРАЩЕНИЕ УРОНА (% ОТ МАКС. ЗДОРОВЬЯ ЦЕЛИ):"
+		
+		"DOTA_Tooltip_ability_arena_riki_ult"            "Cloak & Dagger"
+		"DOTA_Tooltip_ability_arena_riki_ult_Description"    "Прыгает в туманную дымку, где становится невидимым и атакует всех противников в радиусе с очень коротким интервалом."
+
+		"champion_league_challenger_17"								"Мастер Элементов Рю"
+		"arena_champions_17_1"										"Чтобы стать мастером Арены..."
+		"arena_champions_17_2"										"Нужно стать мастером Элементов"
+		"DOTA_Tooltip_ability_arena_challenger_17_immolation"							"Наносит периодический магический урон вокруг"
+		"DOTA_Tooltip_ability_arena_challenger_17_immolation"							"Наносит периодический магический урон вокруг"
+		"DOTA_Tooltip_ability_arena_challenger_17_ability"								"Master of Elements"
+		"DOTA_Tooltip_ability_arena_challenger_17_summon_ability"						"Summoned Unit"
+		"DOTA_Tooltip_ability_arena_thunder_clap"										"Thunder Clap"
+		"DOTA_Tooltip_ability_arena_thunder_clap_Description"							"Мастер Элементов бьет по земле и замедляет поврежденных врагов."
+		"DOTA_Tooltip_ability_arena_thunder_clap_radius"								"РАДИУС:"
+		"DOTA_Tooltip_ability_arena_thunder_clap_damage"								"УРОН:"
+		"DOTA_Tooltip_ability_arena_thunder_clap_movement_slow"							"ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_arena_thunder_clap_attack_speed_slow"						"ЗАМЕДЛЕНИЕ АТАКИ:"
+		
+		
+		"champion_league_challenger_16"								"Брайварус - равнинный бегун"
+		"champion_league_challenger_16_dialogue"					"Скорость и выносливость - вот основные черты лучшего чемпиона."	
+
+		"champion_league_challenger_15"								"Слепой Соня"
+		"champion_league_challenger_15_dialogue"					"Я атакую из тени..."	
+
+		"champion_league_challenger_14"								"Железный шип"
+
+		"DOTA_Tooltip_ability_arena_quill_spray"					"Quill Spray"
+		"DOTA_Tooltip_ability_arena_quill_spray_Description"		"Наносит физический урон ближайшим противникам."
+
+		"DOTA_Tooltip_ability_arena_drill_spike"					"Drill Spike"
+		"DOTA_Tooltip_ability_arena_drill_spike_Description"		"Каждое прочтение Quill Spray дополнительно выбрасывает Drill spikes. Этот шип наносит 20%  макс. здоровья цели чистым уроном и снижает броню. Каждый раз, когда Drill Spike попадает по противнику, Айронспайк становится уязвимее."
+
+		"DOTA_Tooltip_modifier_arena_drill_spike_enemy"					"Drill Spike Impact"
+		"DOTA_Tooltip_modifier_arena_drill_spike_enemy_Description"		"Броня снижена"
+
+		"DOTA_Tooltip_modifier_drill_spike_self"						"Drill Spike"
+		"DOTA_Tooltip_modifier_drill_spike_self_Description"			"Получает на 100%% больше урона за каждый заряд."
+
+		"champion_league_challenger_13"								"Большая Медведица"
+		"DOTA_Tooltip_ability_arena_ursa_thunder_clap"					"Thunder Clap"
+		"DOTA_Tooltip_ability_arena_ursa_thunder_clap_Description"		"Медведица бьет по земле и земедляет противников."
+		"DOTA_Tooltip_ability_arena_ursa_thunder_clap_shock_radius"		"РАДИУС:"
+		"DOTA_Tooltip_ability_arena_ursa_thunder_clap_movement_slow"	"ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
+
+		"champion_league_challenger_12"								"Рекеш - плавящий топор"
+		"DOTA_Tooltip_ability_arena_challenger_12_axe_throw"					"Axe Throw"
+		"DOTA_Tooltip_ability_arena_challenger_12_axe_throw_Description"		"Рекеш бросает топор в цель, оглушая её и нанося урон."
+		"DOTA_Tooltip_ability_arena_challenger_12_axe_throw_damage"				"УРОН:"
+		"DOTA_Tooltip_ability_arena_challenger_12_axe_throw_stun_duration"		"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		"DOTA_Tooltip_ability_arena_challenger_12_passive"						"Burning blood"
+		"DOTA_Tooltip_ability_arena_challenger_12_passive_Description"			"Иммунитет к магии на 8 секунд."
+
+		"champion_league_challenger_11"								"Капитан армии Красного Тумана"
+
+		"DOTA_Tooltip_modifier_arena_radiance_aura_effect"			"Излучение Арены"
+		"DOTA_Tooltip_modifier_arena_radiance_aura_effect_Description"	"Ежесекундно герой получает чистый урон в размере 3%% от своего показателя макс. здоровья. Дополнительно снижает скорость передвижения на 75."
+
+		"DOTA_Tooltip_ability_arena_challenger_11_radiance"				"Излучение Арены"
+		"DOTA_Tooltip_ability_arena_challenger_11_radiance_Description"	"Ежесекундно наносит всем врагам чистый урон в размере 3% от их показателей макс. здоровья. Дополнительно снижает скорость передвижения на 75."
+
+		"champion_league_challenger_10"								"Претендент Авернуса"
+		"champion_league_challenger_10_dialogue_lower"				"Я поднимаю павших в вечное служение в моей армии."	
+		"champion_league_challenger_10_dialogue_higher"				"Моя армия смерти уважает твою силу."
+
+		"DOTA_Tooltip_ability_arena_challenger_10_wraithfire"		"Wraithfire Missile"
+		"DOTA_Tooltip_ability_arena_challenger_10_wraithfire_Description"	"Выпускает сжигающий плоть заряд, который оглушает и наносит уронпри попадании."
+		"DOTA_Tooltip_ability_arena_challenger_10_passive"					"Gravelord"
+		"DOTA_Tooltip_ability_arena_challenger_10_passive_Description"		"Призывает армию нежити."
+
+		"champion_league_challenger_9"								"Арканис - разрушающий сознание"
+		"champion_league_challenger_9_dialogue_lower"				"Низшие умы дрожат от моих знаний."	
+		"champion_league_challenger_9_dialogue_higher"				"Твой интеллект превзошел все ожидания."
+		"DOTA_Tooltip_ability_arena_challenger_9_mana_drain"				"Aura of Mana Drain"
+		"DOTA_Tooltip_ability_arena_challenger_9_mana_drain_Description"	"Арканис замедляет противника на огромной дистанции и забирает ману."
+		"DOTA_Tooltip_modifier_arena_mana_drain_aura_effect"				"Aura of Mana Drain"
+		"DOTA_Tooltip_modifier_arena_mana_drain_aura_effect_Description"	"Скорость передвижения снижена, ежесекундо теряется 2 процента маны."
+
+		"champion_league_challenger_8"								"Великий Вождь"	
+		"DOTA_Tooltip_ability_arena_wild_axes"						"Wild Axes"
+		"DOTA_Tooltip_ability_arena_wild_axes_Description"			"Вождь бросает топор во врага."
+		"DOTA_Tooltip_ability_arena_war_rally"						"Wild Rally"
+		"DOTA_Tooltip_ability_arena_war_rally_Description"			"Каждый процент потерянного здоровья увеличивает магическое сопротивление на 1%."
+		"DOTA_Tooltip_modifier_war_rally_effect"					"War Rally"
+		"DOTA_Tooltip_modifier_war_rally_effect_Description"		"Сопротивление к магии увеличено."
+		"DOTA_Tooltip_ability_arena_god_of_war"						"God of War"
+		"DOTA_Tooltip_ability_arena_god_of_war_Description"			"Вождь ускоряет свою атаку и передвижение."
+		"DOTA_Tooltip_ability_arena_god_of_war_movespeed"			"БОНУС СКОРОСТИ АТАКИ:"
+		"DOTA_Tooltip_ability_arena_god_of_war_attackspeed"			"БОНУС ПЕРЕДВИЖЕНИЯ:"
+
+		"champion_league_challenger_7"								"Леденящий Солнце Коготь Кондора"
+		"champion_league_challenger_7_dialogue"						"Солнце и звезды диктуют результаты битвы. Я - бесконечная нить между ними."
+		"DOTA_Tooltip_ability_arena_freezing_field"					"Freezing Field"
+
+		"champion_league_challenger_6"								"Атропос"			
+
+		"DOTA_Tooltip_ability_arena_ghastly_air_warden_passive"		"Blightwing"
+		"DOTA_Tooltip_ability_arena_ghastly_air_warden_passive_Description"	"Получаемый магический урон сокращён на 99%"
+
+		"champion_league_challenger_5"								"Чемпион Варафлас"
+		"champion_league_challenger_5_dialogue"						"Нужны годы тяжелых тренировок и жесткая дисциплина, чтобы добраться до высоких позиций и удержаться там."
+		"champion_league_challenger_5_dialogue_higher"				"Я унижен вашей силой."	
+
+		"champion_league_challenger_4"								"Оплексус"
+		"champion_league_challenger_4_dialogue"						"Болельщики любят меня, потому-что я идеальный!"
+
+		"DOTA_Tooltip_ability_item_rpc_arena_prizebox"				"Наградная коробка Арены"
+		"arena_prizebox_level"										"Уровень"
+
+		"champion_league_challenger_3"								"Братья Рубик"
+		"champion_league_challenger_3_a"							"Синий"
+		"champion_league_challenger_3_b"							"Красный"		
+
+		"DOTA_Tooltip_ability_arena_challenger_3_bolt"				"Composition Bolt"
+		"DOTA_Tooltip_ability_arena_challenger_3_bolt_Description"	"Наносит урон и обезоруживает или накладывает безмолвие."
+
+		"DOTA_Tooltip_modifier_challenger_bolt_blue_debuff"			"Composition Bolt"
+		"DOTA_Tooltip_modifier_challenger_bolt_blue_debuff_Description"	"Обезмолвлен"	
+
+		"DOTA_Tooltip_modifier_challenger_bolt_red_debuff"			"Composition Bolt"
+		"DOTA_Tooltip_modifier_challenger_bolt_red_debuff_Description"	"Обезоружен"	
+
+		"DOTA_Tooltip_ability_arena_challenger_3_b_passive"			"Красный Рубик"
+		"DOTA_Tooltip_ability_arena_challenger_3_b_passive_Description"	"Невосприимчив к Физическому урону"
+		"DOTA_Tooltip_ability_arena_challenger_3_a_passive"			"Синий Рубик"
+		"DOTA_Tooltip_ability_arena_challenger_3_a_passive_Description"	"Невосприимчив к Магическому урону"
+
+		"champion_league_challenger_2"								"Немезис"
+		"DOTA_Tooltip_ability_arena_challenger_2_sword_dash"	"Savage Sprint"
+		"DOTA_Tooltip_ability_arena_challenger_2_sword_dash_Description"	"Бросается вперед, разрубая врагов на своем пути."
+
+		"champion_league_challenger_1"								"Король Джет"
+		"champion_league_challenger_1_dialogue"						"Моему опыту никто не ровня. Занимаемое мной место неоспоримо."
+		"champion_league_challenger_1_dialogue_alt"					"Новый король явился"	
+
+		"DOTA_Tooltip_modifier_arena_newb_fountain"					"Регенерация фонтана"
+		"DOTA_Tooltip_modifier_arena_good_fountain"					"Регенерация фонтана"
+
+		"DOTA_Tooltip_ability_item_rpc_helm_of_champions"			"Helm of Champions"
+		"DOTA_Tooltip_ability_item_rpc_gauntlet_of_champions"		"Gauntlet of Champions"
+		"DOTA_Tooltip_ability_item_rpc_champions_mail"				"Champion's Mail"
+		"DOTA_Tooltip_ability_item_rpc_boots_of_champions"			"Boots of Champions"
+
+		"arena_prizebox_champions"									"Champion's Gear"
+		
+		"arena_show_fighter_one"		"Ол'Брок огнестойкий"
+		"arena_show_fighter_two"		"Местный повар"
+	
+		"pvp_attendant"					"Pvp League Attendant"
+	
+		"DOTA_Tooltip_ability_challenger_5_chaos_meteor"				"Chaos Meteor"
+		"DOTA_Tooltip_ability_challenger_5_chaos_meteor_Description"	"Горящий метеорит падает с небес, нанося урон на своем пути. Каждый метеорит имеет свой дебафф горения, огонь наносит урон каждые 0.5 секунды."
+		"DOTA_Tooltip_ability_challenger_5_chaos_meteor_main_damage"	"УРОН ОТ СТОЛКНОВЕНИЯ:"
+		"DOTA_Tooltip_ability_challenger_5_chaos_meteor_burn_dps"		"УРОН ГОРЕНИЯ:"
+		"DOTA_Tooltip_ability_challenger_5_chaos_burn_duration"			"ДЛИТЕЛЬНОСТЬ ГОРЕНИЯ:"
+	
+		"DOTA_Tooltip_ability_arena_challenger_5_passive"				"Dragon's Mind"
+		"DOTA_Tooltip_ability_arena_challenger_5_passive_Description"	"Чемпион Варафлас контролирует все аспекты битвы, используя прыжки сокрушительной мощи и дождь из метеоритов."
+		"DOTA_Tooltip_modifier_arena_challenger_5_passive"				"Dragon's Mind"
+	
+		"DOTA_Tooltip_ability_arena_challenger_4_passive"				"Оплексус преследует свою цель бесчисленными прыжками."
+		"DOTA_Tooltip_ability_arena_challenger_4_passive"				"Оплексус преследует свою цель бесчисленными прыжками."
+		"DOTA_Tooltip_modifier_arena_challenger_4_passive"				"Greatness of Oplexus"
+		"DOTA_Tooltip_ability_arena_challenger_4_shield"				"Наносит 5000 магического урона ближайшей цели и оглушает её."
+		"DOTA_Tooltip_ability_arena_challenger_4_shield"				"Наносит 5000 магического урона ближайшей цели и оглушает её."
+		"DOTA_Tooltip_modifier_challenger_4_shield_effect"				"Shine of Oplexus"
+	
+		"DOTA_Tooltip_ability_arena_challenger_1_illuminate"				"Holy Illumination"
+		"DOTA_Tooltip_ability_arena_challenger_1_illuminate_Description"	"Наносит чистый урон врагам перед Королем. Замедляет передвижение на 30."
+	
+		"DOTA_Tooltip_modifier_challenger_1_slow"				"Slow"
+		"DOTA_Tooltip_modifier_challenger_1_slow_Description"	"Скорость передвижения снижена на 30."
+	
+		"DOTA_Tooltip_ability_arena_challenger_1_passive"					"Eternal light"
+		"DOTA_Tooltip_ability_arena_challenger_1_passive_Description"		"Скорость передвижения увеличена на 50%, скорость атаки на 110 на 5 секунд."
+		"DOTA_Tooltip_ability_arena_challenger_1_passive_2"					"Righteous Anger"				
+		"DOTA_Tooltip_ability_arena_challenger_1_passive_2_Description"		"Удваивает урон и увеличивает передвижение на 70 единиц."
+		"DOTA_Tooltip_modifier_arena_challenger_1_passive_2"				"Урон и скорость бега увеличены."
+
+		//Pit of Trials
+
+		"tooltip_pit_of_trials"												"Яма Испытаний"
+
+		"arena_trial_of_conquest"									"Испытание Победы"
+		"arena_trial_of_lies"										"Испытание Лжи"
+		"arena_trial_of_descent"									"Испытание Поколений"
+
+		"tooltip_pit_highest_level"										"Highest Level Cleared"
+		"tooltip_no_lock_out"											"Подземелье открыто"
+		"tooltip_lock_out"												"Подземелье уже было открыто сегодня.<br>Проверьте завтра"
+
+		"tooltip_select_pit_level"										"Выберите сложность"
+		"tooltip_select_pit_level_title"								"Выбор сложности"	
+		"tooltip_dungeon_lockout"										"Подземелье закрыто"
+		"tooltip_open_pit"												"Открыть Яму"
+		"tooltip_pit_open"												"Яма открыта"
+
+		"tooltip_pit_enemy_damage"										"Урон врагов"
+		"tooltip_pit_enemy_resistance"									"Сопротивление врагов"
+		"tooltip_pit_enemy_paragon"										"Частота появления Парагонов"
+
+		"DOTA_Tooltip_ability_arena_master_duelist_passive"					"Battle Haste"
+		"DOTA_Tooltip_ability_arena_master_duelist_passive_Description"		"С 30% шансом при атаке, существо получит усиление, дающее максимальную скорость атаки на 1 секунду."
+
+		"DOTA_Tooltip_ability_arena_champion_gladiator_passive"				"Sturdy Armor"
+		"DOTA_Tooltip_ability_arena_champion_gladiator_passive_Description"	"С каждым полученным уроном существо увеличивает свою броню на 50."
+
+		"DOTA_Tooltip_ability_arena_gladiator_strike_array"					"Light Strike Array"
+		"DOTA_Tooltip_ability_arena_gladiator_strike_array_Description"		"Создаёт в указанной точке столб пламени, который оглушает задетых врагов."
+
+		"DOTA_Tooltip_modifier_champion_gladiator_passive_stacking"			"Sturdy Armor"
+		"DOTA_Tooltip_modifier_champion_gladiator_passive_stacking_Description"	"50 брони за заряд"	
+
+		"DOTA_Tooltip_ability_arena_soul_revenant_passive"					"Soul Sparks"
+		"DOTA_Tooltip_ability_arena_soul_revenant_passive_Description"		"Наносит урон всем ближайшим противникам в размере 1% их макс. здоровья каждые 0.2 секунды."
+
+		"DOTA_Tooltip_ability_arena_shadow_sniper_passive"					"Overload"
+		"DOTA_Tooltip_ability_arena_shadow_sniper_passive_Description"		"Атаки пассивно снижают скорость передвижения и урон цели."
+		"DOTA_Tooltip_ability_arena_shadow_sniper_passive_move_slow"		"ЗАМЕДЛЕНИЕ:"
+		"DOTA_Tooltip_ability_arena_shadow_sniper_passive_attack_loss"		"СНИЖЕНИЕ УРОНА %:"
+
+		"arena_pit_conquest_mire_keeper"									"Mire Keeper"
+		
+		"arena_conquest_ruins_guardian"									"Страж руин"
+
+		"DOTA_Tooltip_modifier_arena_shadow_sniper_slow"					"Overload"
+		"DOTA_Tooltip_modifier_arena_shadow_sniper_slow_Description"		"Скорость передвижения и урон снижены."
+
+		"DOTA_Tooltip_ability_arena_mire_keeper_passive"					"Inner Surge"
+		"DOTA_Tooltip_ability_arena_mire_keeper_passive_Description"		"При получении урона, существо увеличивает свой урон."
+		"DOTA_Tooltip_ability_arena_mire_keeper_passive_damage_per_instance"	"УРОН ЗА КАЖДЫЙ ЗАРЯД %"
+
+		"DOTA_Tooltip_modifier_mire_keeper_passive_effect"					"Inner Surge"
+		"DOTA_Tooltip_modifier_mire_keeper_passive_effect_Description"		"Увеличивает урон за кжадый заряд"
+
+		"DOTA_Tooltip_ability_arena_mountain_crush"							"Mountain Crush"
+		"DOTA_Tooltip_ability_arena_mountain_crush_Description"				"Позволяет прыгнуть к цели, создавая мощное землетрясение по приземлении."	
+
+		"DOTA_Tooltip_ability_arena_cragnataur_shockwave"					"Shockwave"
+		"DOTA_Tooltip_ability_arena_cragnataur_shockwave_Description"		"Выпускает шоковую волну, наносящую большой урон."
+
+		"arena_pit_conquest_cragnataur"									"Крагнатавр"
+
+		"arena_pit_conquest_priest_of_karzhun"							"Жрец культа Кар'Зун"
+
+		"DOTA_Tooltip_ability_arena_priest_of_karzhun_shield"			"Shield of Kar'zhun"
+		"DOTA_Tooltip_ability_arena_priest_of_karzhun_shield_Description"	"Наделяет цель магическим щитом, который поглощает магический урон и наносит урон атакующим."
+		"DOTA_Tooltip_ability_arena_priest_of_karzhun_shield_damage_return"	"ВОЗВРАЩАЕТ УРОНА, % ОТ МАКС.ЗДОРОВЬЯ:"
+		"DOTA_Tooltip_ability_arena_priest_of_karzhun_shield_magic_resist"	"СОПРОТИВЛЕНИЕ МАГИИ:"
+
+		"arena_pit_conquest_helob"												"Хелоб"
+
+		"DOTA_Tooltip_ability_arena_conquest_helob_venomous_bite"				"Venomous Bite"
+		"DOTA_Tooltip_ability_arena_conquest_helob_venomous_bite_Description"	"Атаки отравляют цель, замедляя скорость атаки, дополнительно некоторое время наносит урон."
+		"DOTA_Tooltip_ability_arena_conquest_helob_venomous_bite_moveslow"			"ЗАМЕДЛЕНИЕ:"
+		"DOTA_Tooltip_ability_arena_conquest_helob_venomous_bite_damage_per_tick"	"УРОН ЗА КАЖДЫЕ 0.2 СЕКУНДЫ:"
+		
+
+		"DOTA_Tooltip_modifier_helob_venomous_bite_effect"						"Venomous Bite"
+		"DOTA_Tooltip_modifier_helob_venomous_bite_effect_Description"			"Скорость передвижения снижена, цель получает урон ядом."
+
+		"arena_pit_conquest_shrine_of_karzhun"							"Shrine of Kar'zhun"
+		"arena_pit_conquest_shrine_of_karzhun_Description"				"Пустая чаша готова наполниться пожертвованиями во имя Кар'Зуна"
+
+		"arena_pit_shrine_of_karzhun_option_1"							"Отдать всё золото"
+		"arena_pit_shrine_of_karzhun_option_2"							"Уйти"	
+
+		"DOTA_Tooltip_modifier_kharzun_buff"							"Сила Кар'Зуна"
+
+		"DOTA_Tooltip_ability_arena_conquest_karzhun_gift_passive"		"Force Of Kar'zhun"
+		"DOTA_Tooltip_ability_arena_conquest_karzhun_gift_passive_Description"	"Усиливает призрака Кар'Зуна и ослабляет ближайших врагов."
+
+		"DOTA_Tooltip_modifier_karzhun_aura_stackable"					"Force Of Kar'zhun"
+
+		"DOTA_Tooltip_ability_arena_temple_explorer_passive"			"Magic Shield"
+		"DOTA_Tooltip_ability_arena_temple_explorer_passive_Description"	"Дарует существу пассивное сопротивление магии"
+		"DOTA_Tooltip_ability_arena_temple_explorer_passive_magic_resist"	"СОПРОТИВЛЕНИЕ МАГИИ:"
+
+		"DOTA_Tooltip_ability_arena_conquest_feedback"				"Feedback"
+		"DOTA_Tooltip_ability_arena_conquest_feedback_Description"	"Когда ближайшие враги тратят ману, в них ударяет статический разряд, наносящий ЧИСТЫЙ урон в зависимости от потраченной маны. Дополнительно наделяет существо сопротивлением магии."
+
+		"DOTA_Tooltip_ability_arena_conquest_feedback_damage_per_mana"	   "УРОН ЗА КАЖДУЮ ЕД. МАНЫ:"
+		"DOTA_Tooltip_ability_arena_conquest_feedback_magic_resist" 		"СОПРОТИВЛЕНИЕ МАГИИ:"
+
+		"DOTA_Tooltip_modifier_fairy_dragon_feedback"						"Feedback"
+		"DOTA_Tooltip_modifier_fairy_dragon_feedback_Description"			"Каждый раз, затрачивая ману, герою будет нанесён чистый урон в зависимости от затраченной маны."
+
+		"arena_conquest_skeletal_mage"										"Остатки скелета"
+		"arena_conquest_temple_hunter"										"Убийца Испытаний"
+		"arena_conquest_temple_repeller"									"Хранитель Тайн"
+		"arena_conquest_temple_witch_doctor"								"Безликий Арахнид"
+
+		"DOTA_Tooltip_ability_arena_conquest_sapphire_flare"				"Sapphire Flare"
+		"DOTA_Tooltip_ability_arena_conquest_sapphire_flare_Description"	"Всполох синего пламени оглушает ближайших врагов и наносит им урон."
+		"DOTA_Tooltip_ability_arena_conquest_sapphire_flare_damage"		"УРОН:"
+		"DOTA_Tooltip_ability_arena_conquest_sapphire_flare_stun_duration"	"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+
+		"DOTA_Tooltip_ability_conquest_bovel_ai"							"Lord of Conquest"
+		"DOTA_Tooltip_ability_conquest_bovel_ai_Description"				"Любой урон не может нанести больше 1% макс. здоровья цели."
+
+		"DOTA_Tooltip_ability_arena_challenger_16_warcry"					"Warcry"
+		"DOTA_Tooltip_ability_arena_challenger_16_warcry_Description"		"Увеличивает скорость атаки и передвижения на 8 секунд"	
+		"DOTA_Tooltip_ability_arena_challenger_16_warcry_movespeed"			"ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_arena_challenger_16_warcry_attackspeed"		"ДОП. СКОРОСТЬ АТАКИ:"
+
+		"DOTA_Tooltip_ability_arena_conquest_frost_bolt"					"Frost Bolt"
+		"DOTA_Tooltip_ability_arena_conquest_frost_bolt_Description"		"Выпускает в сторону цели поток ледяных игл, замедляющих цели."
+		"DOTA_Tooltip_ability_arena_conquest_frost_bolt_slow_duration"		"ДЛИТЕЛЬНОСТЬ ОБМОРОЖЕНИЯ:"	
+
+		"DOTA_Tooltip_modifier_conquest_frost_bolt"						"Frost Bolt"
+		"DOTA_Tooltip_modifier_conquest_frost_bolt_Description"			"Скорость атаки и передвижения снижены"
+
+		"pit_conquest_boss"												"Чёрный маг испытаний"
+
+		"DOTA_Tooltip_ability_conquest_black_mage_luminescence"			"Luminescence"
+		"DOTA_Tooltip_ability_conquest_black_mage_luminescence_Description"	"Черный маг произносит заклинание, накапливающее свою силу, после чего выпускает волну темной магии в сторону цели."	
+
+		"DOTA_Tooltip_ability_conquest_boss_ai"							"Shadowcaster"
+		"DOTA_Tooltip_ability_conquest_boss_ai_Description"				"Невосприимчив к любому физическому и магическому урону."
+
+		"DOTA_Tooltip_modifier_conquest_boss_slow_effect"	"Black Pool"
+		"DOTA_Tooltip_modifier_conquest_boss_slow_effect_Description"	"Замедлен"
+
+		"DOTA_Tooltip_ability_conquest_boss_burn_ability"			"Soul Decay"
+		"DOTA_Tooltip_ability_conquest_boss_burn_ability_Description"	"Сжигает врагов, ежесекундно нанося 2% макс. здоровья целей чистым уроном."
+		
+		"DOTA_Tooltip_modifier_conquest_boss_burn_ability"			"Soul Decay"
+
+		"DOTA_Tooltip_modifier_conquest_boss_burn_ability_effect"	"Soul Decay"
+		"DOTA_Tooltip_modifier_conquest_boss_burn_ability_effect_Description"	"Герой получает чистый урон в размере 2%% своего макс. здоровья."
+
+
+
+		"DOTA_Tooltip_ability_item_rpc_truth_dust"					"Пыль правды"
+		"truth_dust_description"									"На 30 секунд позволяет увидеть скрытые объекты или врагов в радиусе 500."
+		"DOTA_Tooltip_ability_arena_lies_beetle_passive"				"Plasma Shell"
+		"DOTA_Tooltip_ability_arena_lies_beetle_passive_damage"			"УРОН"
+		"DOTA_Tooltip_ability_arena_lies_beetle_passive_Description"	"Наносит урон ближайшим врагам, одновременно замедляя их."
+
+		"DOTA_Tooltip_modifier_lies_beetle_effect"						"Plasma Shell"
+		"DOTA_Tooltip_modifier_lies_beetle_effect_Description"			"Снижение скорости передвижения"
+
+		"DOTA_Tooltip_ability_grave_watcher_ai"							"Soul Siphon"
+		"DOTA_Tooltip_ability_grave_watcher_ai_Description"				"Крадёт душу ближайших врагов, снижая их регенерацию здоровья на 3%, а скорость передвижения на 40%"	
+
+		"DOTA_Tooltip_ability_lies_lich_ai"								"Soul Siphon"
+		"DOTA_Tooltip_ability_lies_lich_ai_Description"					"Крадёт душу ближайших врагов, снижая их регенерацию здоровья на 3%, а скорость передвижения на 20%"	
+	
+		"DOTA_Tooltip_ability_doombringer_searing_chains"				"Searing Chains"
+		"DOTA_Tooltip_ability_doombringer_searing_chains_Description"	"Обездвиживает ближайших врагов и наносит им урон."
+
+
+		"arena_lies_supreme_ogre"										"Верховный Огр"
+
+		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive"			"Mystery Infusion"
+		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_Description"	"Наделяет существо повышенной силой."
+		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_movespeed"	"ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_attack_speed"	"ДОП. СКОРОСТЬ АТАКИ:"
+		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_damage_percent"	"ДОП. УРОН %:"
+		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_armor_bonus"	"ДОП. БРОНЯ"
+		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_health_regen_percent"	"ДОП. РЕГЕН. ЗДОРОВЬЯ %:"
+
+		"DOTA_Tooltip_ability_arena_lies_mana_break"					"Mana Break"
+		"DOTA_Tooltip_ability_arena_lies_mana_break_Description"		"Сжигает ману цели и наносит дополнительный урон в зависимости от выжженой маны."
+		"DOTA_Tooltip_ability_arena_lies_mana_break_mana_per_hit"		"СЖИГАЕТ МАНЫ:"
+
+		"DOTA_Tooltip_ability_arena_lies_arbiter_passive"				"Deceptive Light"
+		"DOTA_Tooltip_ability_arena_lies_arbiter_passive_Description"	"Увеличивает броню и урон существа."	
+		"DOTA_Tooltip_ability_arena_lies_arbiter_passive_damage_percent"	"ДОП. УРОН, %:"
+		"DOTA_Tooltip_ability_arena_lies_arbiter_passive_armor_bonus"		"ДРП. БРОНЯ:"
+
+		"DOTA_Tooltip_ability_arena_lies_treasure_bird_passive"			"Golden Wings"
+		"DOTA_Tooltip_ability_arena_lies_treasure_bird_passive_Description"	"Увеличивает сопротивление магии. Когда здоровье существа опустится ниже 35%, оно будет наделено иммунитетом к магии."
+		"DOTA_Tooltip_ability_arena_lies_treasure_bird_passive_magic_resist"	"ДОП. СОПРОТИВЛЕНИЕ МАГИИ %:"
+		"DOTA_Tooltip_modifier_arena_lies_treasure_bird_passive_magic_resist"	"Иммунитет к магии"
+
+		"lies_treasure_hoarder"											"Золотой Ястреб"
+
+		"arena_lies_shadow_beast"										"Зверь Теней"
+
+		"lies_trickster_mage"											"Чародей Трикстер"
+		"DOTA_Tooltip_ability_arena_lies_trickster_ability"				"Whirling Dodge"
+		"DOTA_Tooltip_ability_arena_lies_trickster_ability_Description"	"Позволяет быстро удаляться от ближайших врагов."	
+
+		"arena_lies_supreme_ogre_true"									"Настоящий Верховный Огр"
+
+		"DOTA_Tooltip_ability_arena_lies_black_hole"					"Black Hole"
+		"DOTA_Tooltip_ability_arena_lies_black_hole_Description"		"Поглощает свет и материю в небольшой области на 4 секунды."
+
+		"arena_lies_castle_enigma"										"Пожиратель Света"
+
+		"DOTA_Tooltip_ability_arena_magic_immune_breakable_ability"		"Magic Ward"
+		"DOTA_Tooltip_ability_arena_magic_immune_breakable_ability_Description"	"Наделяет существо иммунитетом к магии. Существо потеряет иммунитет, если будет ударено несколько раз."	
+		"DOTA_Tooltip_ability_arena_magic_immune_breakable_ability_stacks"		"ЗАРЯДОВ:"
+
+		"DOTA_Tooltip_modifier_magic_immune_breakable_ability"			"Magic Ward"
+		"DOTA_Tooltip_modifier_magic_immune_breakable_ability_Description"	"Невосприимчив к магии."
+
+		"DOTA_Tooltip_ability_arena_lies_plasma_field"					"Plasma Field"
+		"DOTA_Tooltip_ability_arena_lies_plasma_field_Description"		"Выпускает кольцо плазмы, поражающее врагов. Чем дальше кольцо распространилось от существа, тем больше оно нанесёт урона."
+		"DOTA_Tooltip_ability_arena_lies_plasma_field_damage_max"		"МАКС. УРОН:"
+
+		"arena_lies_test_dummy"											"Experiment Dummy"
+
+		"arena_lies_boss"												"Гигантский охотник"
+
+		"DOTA_Tooltip_ability_arena_lies_boss_ai"						"Evasion"
+		"DOTA_Tooltip_ability_arena_lies_boss_ai_Description"			"Позволяет гиганту уклоняться от физических атак"
+		"DOTA_Tooltip_ability_arena_lies_boss_ai_evasion"				"ШАНС УКЛОНЕНИЯ %:"		
+
+		"DOTA_Tooltip_ability_arena_lies_boss_magic_immune_ability"		"Magic Ward"
+		"DOTA_Tooltip_ability_arena_lies_boss_magic_immune_ability_Description"	"Наделяет себя иммунитетом к магии, который может быть разрушен при получении урона от обычных атак."	
+
+		"DOTA_Tooltip_ability_arena_lies_boss_illusion_ability"			"Deception"
+		"DOTA_Tooltip_ability_arena_lies_boss_illusion_ability_Description"	"Создаёт свою иллюзорную копию, которая может использовать свои способности."
+		"DOTA_Tooltip_ability_arena_lies_boss_illusion_ability_outgoing_damage"	"ИСХОДЯЩИЙ УРОН ИЛЛЮЗИЙ:"
+
+		"DOTA_Tooltip_ability_arena_descent_impervious"					"Impervious"
+		"DOTA_Tooltip_ability_arena_descent_Description"				"Значительно снижает входящий урон"
+		"DOTA_Tooltip_ability_arena_descent_damage_block"				"СНИЖЕНИЕ ВХОДЯЩЕГО УРОНА %:"
+
+		"arena_descent_grieving_widow"									"Скорбящая Вдова"
+		"arena_descent_sorrow_wraith"									"Скорбящий Призрак"
+		"arena_descent_horror_construct"								"Создатель Страхов"
+		"arena_descent_death_seeker"									"Несущий смерть"
+
+		"DOTA_Tooltip_ability_arena_descent_grieving_widow_ability"		"Вдова высасывает жизненные силы из своей жертвы"		
+		"DOTA_Tooltip_ability_arena_descent_grieving_widow_ability"		"Вдова высасывает жизненные силы из своей жертвы"
+		"DOTA_Tooltip_modifier_widow_soul_steal_effect"					"Grave Siphon"
+		"DOTA_Tooltip_modifier_widow_soul_steal_effect_Description"		"Наносит урон и снижает скорость передвижения."		
+
+		"arena_descent_zombie"											"Павший Зомби"
+
+		"DOTA_Tooltip_ability_arena_summon_gargoyles"					"Summon Gargoyles"
+		"DOTA_Tooltip_ability_arena_summon_gargoyles_Description"		"Призывает 3 гаргульи."
+
+		"DOTA_Tooltip_ability_arena_descent_beetle_passive"				"Slime"
+		"DOTA_Tooltip_ability_arena_descent_beetle_passive_Description"	"С каждой атакой покрывает врагов липкой слизью, которая снижает скорости атаки и передвижения."
+		"DOTA_Tooltip_ability_arena_descent_beetle_passive_move_slow_per_stack"	"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ ЗА ЗАРЯД:"		
+		"DOTA_Tooltip_ability_arena_descent_beetle_passive_attack_slow_per_stack"	"СНИЖЕНИЕ СКОРОСТИ АТАКИ ЗА ЗАРЯД:"
+
+		"DOTA_Tooltip_modifier_descent_beetle_effect"					"Slime"
+		"DOTA_Tooltip_modifier_descent_beetle_effect_Description"		"Скорости атаки и передвижения снижены."
+		
+		"pit_crawler"							"Pit Crawler"
+		"master_duelist"						"Master Duelist"
+		"arena_pit_soul_revenant"				"Soul Revenant"
+		"arena_descent_exiled_spirit"			"Exiled Spirit"
+		"arena_descent_passage_keeper"			"Keeper of Descent"
+		"arena_descent_boss_zombie"				"Zombie Warboss"
+		"arena_descent_terror_striker" 			"Terror Striker"
+		"arena_descent_gargoyle"				"Descent Gargoyle"
+		"arena_descent_goo_beetle"				"Goo Beetle"
+		"arena_descent_zombie_critter"			"Zombie Critter"
+		"arena_descent_razor_guard"				"Bonebreaker"
+		"arena_descent_doombringer"				"Depth Praetorian"
+		"arena_lies_lich"						"Imp of Lie"
+		"arena_lies_doombringer"				"Demon of Lie"
+		"arena_lies_true_ogre"					"True Ogre"
+		"arena_lies_arbiter_of_truth"			"Arbiter of Truth"
+		"arena_lies_samurai"					"Flaming Ronin"
+		"fire_temple_relic_seeker"				"Relic Seeker"
+		"arena_lies_castle_light_absorber"		"Light Absorber"
+		"arena_lies_razor_miniboss"				"Golden Current"
+		"arena_pit_conquest_mountain_behemoth"	"Mountain Behemoth"
+		"arena_pit_conquest_root_overgrowth"	"Root Overgrowth"
+		"arena_conquest_gift_of_kharzun"		 "Gift of Kar'zhun"
+		"arena_pit_conquest_temple_explorer"	"Temple Explorer"
+		"arena_pit_temple_guardian_snakes"		"Guardian's Snake"
+		"arena_conquest_temple_shifter"			"Temple Shifter"
+		"pit_conquest_woods_titan"				"Titan of Conquest"
+		"pit_conquest_forest_soldier"			"Conquest Ambusher"
+		"pit_conquest_forest_mage"				"Forest Mage"
+		"pit_conquest_lord_of_bovel"			"Lord of the Bowel"
+		"pit_conquest_dragon"					"Chrysolite Wyrm"
+		"DOTA_Tooltip_ability_pit_conquest_viper_strike" 				"Viper Strike"
+		"DOTA_Tooltip_ability_pit_conquest_viper_strike_Description" 	"Вирм отравляет цель и снижает её скорость."
+		"DOTA_Tooltip_ability_pit_conquest_viper_strike_damage"			"УРОН:"
+		"DOTA_Tooltip_ability_pit_conquest_viper_strike_duration"		"ДЛИТЕЛЬНОСТЬ ЯДА:"
+		"DOTA_Tooltip_ability_pit_conquest_viper_strike_bonus_movement_speed"	"СНИЖЕНИЕ СКОРОСТИ БЕГА:"
+		"DOTA_Tooltip_ability_pit_conquest_viper_strike_bonus_attack_speed"		"СНИЖЕНИЕ СКОРОСТИ АТАКИ:"
+		
+		//ARENA TOOLTIPS
+
+		"DOTA_Tooltip_ability_arena_descent_nemesis_passive"					"Great Cleave"
+		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_Description"				"Атаки задевают всех врагов в небольшой области"
+		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_cleave_percent"				"УРОН %:"
+		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_cleave_radius"				"РАДИУС:"
+
+		"arena_descent_nightmare"												"Павший Кошмар"
+
+		"DOTA_Tooltip_ability_arena_descent_guard_passive"						"Desolation"
+		"DOTA_Tooltip_ability_arena_descent_guard_passive_Description"			"С каждой атакой увеличивает урон существа."
+		"DOTA_Tooltip_ability_arena_descent_guard_passive_damage_per_instance"	"ДОП. УРОН ЗА ЗАРЯД %:"
+
+		"DOTA_Tooltip_modifier_descent_guard_passive_effect"					"Desolation"
+		"DOTA_Tooltip_modifier_descent_guard_passive_effect_Description"		"Урон увеличен"
+
+		"DOTA_Tooltip_ability_arena_descent_crippling"							"Crippling Aura"
+		"DOTA_Tooltip_ability_arena_descent_crippling_Description"				"Снижает силу ближайших героев."
+		"DOTA_Tooltip_ability_arena_descent_crippling_health_regen_percent"		"РЕГЕН. ЗДОРОВЬЯ %:"
+		"DOTA_Tooltip_ability_arena_descent_crippling_attack_damage"			"УРОН %:"
+		"DOTA_Tooltip_ability_arena_descent_crippling_attack_speed"				"СКОРОСТЬ АТАКИ:"
+		"DOTA_Tooltip_ability_arena_descent_crippling_movespeed"				"СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
+
+		"DOTA_Tooltip_modifier_advanced_creature_crippling_aura_debuff"			"Crippling Aura"
+		"DOTA_Tooltip_modifier_advanced_creature_crippling_aura_debuff_Description"	"Снижает регенерацию здоровья, урон, скорости атаки и передвижения."
+
+		"arena_descent_boss"													"Мерзкий зомби"
+
+		"DOTA_Tooltip_modifier_steadfast"													"Steadfast"
+		"DOTA_Tooltip_modifier_steadfast_Description"										"Входящий урон не может быть больше, чем %% от макс. здоровья существа."
+
+		"DOTA_Tooltip_ability_descent_boss_ai"								"Abomination"
+		"DOTA_Tooltip_ability_descent_boss_ai_Description"					"Призывает Забытых монстров из глубин"
+
+
+		"DOTA_Tooltip_ability_creature_pure_strike_2"			"Pure Strike"
+		"DOTA_Tooltip_ability_creature_pure_strike_2_Description"	"Атаки никогда не промахиваются и дополнительно наносят 3% чистого урона."
+
+		"arena_pit_of_trials_final_boss"						"Pit Lord"
+
+		"DOTA_Tooltip_ability_arena_pit_boss_haste"					"Bloodlust"
+		"DOTA_Tooltip_ability_arena_pit_boss_haste_Description"		"Увеличивает скорости атаки и передвижения, сбрасывает время перезарядки Firestorm."
+
+		"DOTA_Tooltip_ability_arena_radiance"								"Shadow Radiance"
+		"DOTA_Tooltip_ability_arena_radiance_Description"					"Сжигает врагов, заставляя их промахиваться при атаках."
+		"DOTA_Tooltip_ability_arena_radiance_aura_damage"					"УРОН:"
+		"DOTA_Tooltip_ability_arena_radiance_blind_pct"						"ШАНС ПРОМАХА %:"
+
+		"DOTA_Tooltip_modifier_modifier_pit_boss_haste"					"Bloodlust"
+		"DOTA_Tooltip_modifier_modifier_pit_boss_haste_Description"		"Скорости атаки и передвижения увеличены."
+
+
+		"arena_pit_conquest_spirit_of_rakash"					"Рак'еш"
+
+		"DOTA_Tooltip_ability_arena_pit_rakash_ai"				"Spirit of Rak'eth"
+		"DOTA_Tooltip_ability_arena_pit_rakash_ai_Description"	"Увеличено сопротивление магии"	
+		"DOTA_Tooltip_ability_arena_pit_rakash_ai_magic_resist"	"ДОП. СОПРОТИВЛЕНИЕ МАГИИ:"
+
+		"DOTA_Tooltip_ability_arena_descent_tombstone_ability"	"Tombstone"
+		"DOTA_Tooltip_ability_arena_descent_tombstone_ability_Description"	"Восстание павших"
+
+		"arena_pit_shadow_sniper"								"Тёмный Снайпер"
+		"arena_pit_quizmaster"									"Мастер Викторины"
+
+		"DOTA_Tooltip_ability_arena_quizmaster_blast"				"Inquiry Burst"
+
+		"arena_descent_terror_striker_ultra"					"Gravestriker Ultra"
+
+		"DOTA_Tooltip_ability_arena_pit_grave_chill"			"Descent Grave Chill"
+		"DOTA_Tooltip_ability_arena_pit_grave_chill_Description"	"Крадёт скорость передвижения, броню и сопротивление магии цели."
+		"DOTA_Tooltip_ability_arena_pit_grave_chill_duration"	"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_arena_pit_grave_chill_movespeed_steal"	"КРАЖА СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_arena_pit_grave_chill_armor_steal"	"КРАЖА БРОНИ:"
+		"DOTA_Tooltip_ability_arena_pit_grave_chill_magic_resist_steal"	"КРАЖА СОПРОТИВЛЕНИЯ МАГИИ:"
+
+		"DOTA_Tooltip_modifier_arena_grave_chill_target"		"Descent Grave Chill"
+		"DOTA_Tooltip_modifier_arena_grave_chill_target_Description"	"Снижение скорости передвижения, брони и сопротивления магии."
+
+		"DOTA_Tooltip_ability_golden_skullbone_ai"				"Невосприимчивость магии"
+
+		"lies_golden_skullbone"									"Golden Skullbone"
+		"DOTA_Tooltip_ability_golden_skullbone_ai"				"Невосприимчивость магии"
+		
+		"arena_descent_tombstone"								"Tombstone"
+		
+		"arena_pit_conquest_mountain_spider"					"Mountain Spider"
+		"DOTA_Tooltip_ability_arena_pit_spider_gale"				"Spider Gale"
+		"DOTA_Tooltip_ability_arena_pit_spider_gale_Description" 	"Ядовитый плевок из паучьих желез."
+		"DOTA_Tooltip_ability_arena_pit_spider_gale_duration"		"ДЛИТЕЛЬНОСТЬ ЯДА:"
+		"DOTA_Tooltip_ability_arena_pit_spider_gale_strike_damage"	"УРОН (НАЧАЛЬНЫЙ):"
+		"DOTA_Tooltip_ability_arena_pit_spider_gale_tick_damage"	"УРОН В СЕКУНДУ:"
+		"DOTA_Tooltip_ability_arena_pit_spider_gale_tick_interval"	"ИНТЕРВАЛ ЯДА:"
+		"DOTA_Tooltip_ability_arena_pit_spider_gale_movement_slow" "ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
+		
+		"arena_pit_conquest_mire_boss"							"Mire Boss"
+		"DOTA_Tooltip_ability_arena_conquest_impale"				"Impale"
+		"DOTA_Tooltip_ability_arena_conquest_impale_Description" 	"Каменные шипы вырываются из земли и оглушают цели по прямой."
+		"DOTA_Tooltip_ability_arena_conquest_impale_duration"		"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		
+		
+		"DOTA_Tooltip_ability_lies_smoke_cloud_ability"		"Smoke cloud"
+		"DOTA_Tooltip_ability_lies_smoke_cloud_ability_Description"		"Юнит надежно закрыт дымовой завесой, имеет магический иммунитет."
+		
+		"DOTA_Tooltip_ability_arena_pit_temple_wave"					"Fanta Wave"
+		"DOTA_Tooltip_ability_arena_pit_temple_wave_Description"		"Неистовая волна темной энергии. Наносит урон и оглушает врагов."
+		"DOTA_Tooltip_ability_arena_pit_temple_wave_stun_duration"		"ДЛИТЕЛЬНОСТЬ СТАНА:"
+		
+		"DOTA_Tooltip_ability_tomb_pudge"				"Slaughterous Temper"
+		"DOTA_Tooltip_ability_tomb_pudge_Description"	"Выслеживает добычу"
+	
+		"DOTA_Tooltip_ability_creature_meat_hook"		"Meat Hook"
+		"DOTA_Tooltip_ability_creature_meat_hook_Description"		"Запускает кровавый крюк в сторону цели. Крюк зацепит перого юнита на пути, притягивая его назад и нанося урон."
+		"DOTA_Tooltip_ability_creature_meat_hook_hook_distance"		"ДИСТАНЦИЯ:"
+		
+		"arena_descent_exiled_spirit_big"							"Corrupted Commander"
+		"DOTA_Tooltip_ability_arena_descent_impervious"				"Impervious"
+		"DOTA_Tooltip_ability_arena_descent_impervious_Description"	"Изгнанный легион защищает своего командира. Весь урон снижен на 98%."
+		
+		
+		"DOTA_Tooltip_ability_doom_custom"				"Doom"
+		"DOTA_Tooltip_ability_doom_custom_Description"	"Цель горит в нечистом огне, обезмолвлена и обезоружена. Урон наносится каждые 0.5 секунды."
+		"DOTA_Tooltip_ability_doom_custom_damage"		"УРОН:"
+		"DOTA_Tooltip_ability_doom_custom_duration"		"ДЛИТЕЛЬНОСТЬ:"
+		
+		"DOTA_Tooltip_ability_arena_descent_boss_ravage"				"Ravage of Abyss"
+		"DOTA_Tooltip_ability_arena_descent_boss_ravage_Description"	"Порождение Глубин протыкает жертв в 2000 радиусе, оглушая их, подкидывая в воздух и нанося магический урон."
+		"DOTA_Tooltip_ability_arena_descent_boss_ravage_duration"		"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam"				"Порождение Глубин бьет по земле, нанося урон целям и оглушая их."
+		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam_damage"			"УРОН:"
+		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam_stun_duration"	"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		
+		"arena_pit_pit_guardian"		"Soul of Pit"
+		"DOTA_Tooltip_ability_arena_pit_pit_guardian_ai"				"Pit Protector"
+		"DOTA_Tooltip_ability_arena_pit_pit_guardian_ai_Description"	"Душа Ямы убивает недостойных претендентов, защищая залу своего повелителя. Кровь дракона течет в его жилах."
+		
+		"DOTA_Tooltip_ability_pit_boss_firestorm"				"Firestorm"
+		"DOTA_Tooltip_ability_pit_boss_firestorm_Description" 	"Pit Lord обрушивает волны проклятого пламени на претендентов, нанося урон и поджигая их."
+		"DOTA_Tooltip_ability_pit_boss_firestorm_radius"		"РАДИУС:"
+		"DOTA_Tooltip_ability_pit_boss_firestorm_wave_damage"	"УРОН:"
+		"DOTA_Tooltip_ability_pit_boss_firestorm_wave_interval"	"ИНТЕРВАЛ ВОЛН:"
+		"DOTA_Tooltip_ability_pit_boss_firestorm_burn_damage"	"ГОРЕНИЕ (% ОТ ХП):"
+		"DOTA_Tooltip_ability_pit_boss_firestorm_burn_duration"	"ДЛИТЕЛЬНОСТЬ ГОРЕНИЯ:"
+		"DOTA_Tooltip_ability_arena_pit_boss_summon_specters"				"Release"
+		"DOTA_Tooltip_ability_arena_pit_boss_summon_specters_Description"	"Pit Lord призывает 6 душ неудачливых претендентов сражаться на его стороне."	
+		"DOTA_Tooltip_ability_arena_pit_boss_dash"				"Furious Charge"
+		"DOTA_Tooltip_ability_arena_pit_boss_dash_Description"	"Pit Lord совершает рывок вперед, сокрушая противников перед собой. Наносит 305000 магического урона."
+		"DOTA_Tooltip_ability_arena_pit_final_boss_ai"			"В забытых подземельях Арены древнее зло ждет своего часа."

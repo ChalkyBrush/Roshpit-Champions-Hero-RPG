@@ -1,0 +1,1389 @@
+		//---------------------------
+		// Tanari Jungle
+		//---------------------------
+
+		"DOTA_Tooltip_ability_item_tanari_wind_temple_key_normal"			"Ключ Дворца ветров"
+		"DOTA_Tooltip_ability_item_tanari_wind_temple_key_elite"				"Ключ Дворца ветров"
+		"DOTA_Tooltip_ability_item_tanari_wind_temple_key_legend"			"Ключ Дворца ветров"
+
+		"item_tanari_wind_temple_key_normal_desc"		"Использование: Позволяет войти во Дворец Ветра в джунглях Танари. Может быть помещён в поток вечности или хранилище ключей для использования в другой игровой сессии."
+		"item_tanari_wind_temple_key_elite_desc"		"Использование: Позволяет войти во Дворец Ветра в джунглях Танари. Может быть помещён в поток вечности или хранилище ключей для использования в другой игровой сессии."
+		"item_tanari_wind_temple_key_legend_desc"		"Использование: Позволяет войти во Дворец Ветра в джунглях Танари. Может быть помещён в поток вечности или хранилище ключей для использования в другой игровой сессии."
+
+		"DOTA_Tooltip_ability_item_tanari_water_temple_key_normal"			"Ключ Храма Воды"
+		"DOTA_Tooltip_ability_item_tanari_water_temple_key_elite"				"Ключ Храма Воды"
+		"DOTA_Tooltip_ability_item_tanari_water_temple_key_legend"			"Ключ Храма Воды"
+
+		"item_tanari_water_temple_key_normal_desc"		"Использование: Позволяет войти в Храм Воды в джунглях Танари. Может быть помещён в поток вечности или хранилище ключей для использования в другой игровой сессии."
+		"item_tanari_water_temple_key_elite_desc"		"Использование: Позволяет войти в Храм Воды в джунглях Танари. Может быть помещён в поток вечности или хранилище ключей для использования в другой игровой сессии."
+		"item_tanari_water_temple_key_legend_desc"		"Использование: Позволяет войти в Храм Воды в джунглях Танари. Может быть помещён в поток вечности или хранилище ключей для использования в другой игровой сессии."
+
+		"DOTA_Tooltip_ability_item_tanari_fire_temple_key_normal"			"Ключ Дворца Огня"
+		"DOTA_Tooltip_ability_item_tanari_fire_temple_key_elite"				"Ключ Дворца Огня"
+		"DOTA_Tooltip_ability_item_tanari_fire_temple_key_legend"			"Ключ Дворца Огня"
+
+		"item_tanari_fire_temple_key_normal_desc"		"Использование: Позволяет войти во Дворец Огня в джунглях Танари. Может быть помещён в поток вечности или хранилище ключей для использования в другой игровой сессии."
+		"item_tanari_fire_temple_key_elite_desc"		"Использование: Позволяет войти во Дворец Огня в джунглях Танари. Может быть помещён в поток вечности или хранилище ключей для использования в другой игровой сессии."
+		"item_tanari_fire_temple_key_legend_desc"		"Использование: Позволяет войти во Дворец Огня в джунглях Танари. Может быть помещён в поток вечности или хранилище ключей для использования в другой игровой сессии."
+
+		"DOTA_Tooltip_ability_item_tanari_essence_of_wind_normal"			"Эссенция Ветра"
+		"DOTA_Tooltip_ability_item_tanari_essence_of_wind_elite"				"Эссенция Ветра"
+		"DOTA_Tooltip_ability_item_tanari_essence_of_wind_legend"			"Эссенция Ветра"
+
+		"item_tanari_essence_of_wind_normal_desc"		"Соедините с двумя другими элементами, чтобы создать Камни Духа Танари."
+		"item_tanari_essence_of_wind_elite_desc"		"Соедините с двумя другими элементами, чтобы создать Камни Духа Танари."
+		"item_tanari_essence_of_wind_legend_desc"		"Соедините с двумя другими элементами, чтобы создать Камни Духа Танари."
+
+		"DOTA_Tooltip_ability_item_tanari_heart_of_water_normal"			"Эссенция Воды"
+		"DOTA_Tooltip_ability_item_tanari_heart_of_water_elite"				"Эссенция Воды"
+		"DOTA_Tooltip_ability_item_tanari_heart_of_water_legend"			"Эссенция Воды"
+
+		"item_tanari_heart_of_water_normal_desc"		"Соедините с двумя другими элементами, чтобы создать Камни Духа Танари."
+		"item_tanari_heart_of_water_elite_desc"		"Соедините с двумя другими элементами, чтобы создать Камни Духа Танари."
+		"item_tanari_heart_of_water_legend_desc"		"Соедините с двумя другими элементами, чтобы создать Камни Духа Танари."
+
+		"DOTA_Tooltip_ability_item_tanari_core_of_fire_normal"			"Эссенция Огня"
+		"DOTA_Tooltip_ability_item_tanari_core_of_fire_elite"				"Эссенция Огня"
+		"DOTA_Tooltip_ability_item_tanari_core_of_fire_legend"			"Эссенция Огня"
+
+		"item_tanari_core_of_fire_normal_desc"		"Соедините с двумя другими элементами, чтобы создать Камни Духа Танари."
+		"item_tanari_core_of_fire_elite_desc"		"Соедините с двумя другими элементами, чтобы создать Камни Духа Танари."
+		"item_tanari_core_of_fire_legend_desc"		"Соедините с двумя другими элементами, чтобы создать Камни Духа Танари."
+
+		"DOTA_Tooltip_ability_item_tanari_spirit_stones_normal"			"Камни Духа Танари"
+		"DOTA_Tooltip_ability_item_tanari_spirit_stones_elite"				"Камни Духа Танари"
+		"DOTA_Tooltip_ability_item_tanari_spirit_stones_legend"			"Камни Духа Танари"
+
+		"item_tanari_spirit_stones_normal_desc"		"Использование: Позволяет войти в Царство духов в Джунглях Танари. <br><br>Прохождение в этом режиме увеличивает шанс появления Парагон-Монстров в 3 раза, <br>увеличивает урон и сопротивление монстров в 2 раза и <br>увеличивает шанс выпадения предмета редкости Immortal. <br>Получаемые Темные Кристаллы увеличены в 2 раза, а Мифрильные Осколки в 3 раза."
+		"item_tanari_spirit_stones_elite_desc"		"Использование: Позволяет войти в Царство духов в Джунглях Танари. <br><br>Прохождение в этом режиме увеличивает шанс появления Парагон-Монстров в 3 раза, <br>увеличивает урон и сопротивление монстров в 2 раза и <br>увеличивает шанс выпадения предмета редкости Immortal. <br>Получаемые Темные Кристаллы увеличены в 2 раза, а Мифрильные Осколки в 3 раза."
+		"item_tanari_spirit_stones_legend_desc"		"Использование: Позволяет войти в Царство духов в Джунглях Танари. <br><br>Прохождение в этом режиме увеличивает шанс появления Парагон-Монстров в 3 раза, <br>увеличивает урон и сопротивление монстров в 2 раза и <br>увеличивает шанс выпадения предмета редкости Immortal. <br>Получаемые Темные Кристаллы увеличены в 2 раза, а Мифрильные Осколки в 3 раза."
+
+		
+		"dialogue_witch_doctor"						"Духи Джунглей окружают меня."
+		"dialogue_witch_doctor_two"					"Весь мир излучает энергию"
+		"tanari_witch_doctor"						"Tanari Witch Doctor"
+
+		"witch_doctor_tooltip"						"Принеси мне три базовых эссенции, из которых сплетён этот мир и я позволю тебе увидеть мир духов."
+
+		"combine_tanari_elements_button_label"		"Объединить эссенции"
+
+		"tooltip_town_portal"						"Телепорт"
+		"tooltip_town_portal_desc"					"Позволяет вернуться в изначальную точку через 7 секунд прочтения."
+
+		"DOTA_Tooltip_ability_rpc_hero_town_portal"	"Town Portal"
+		"DOTA_Tooltip_ability_rpc_hero_town_portal_Description"	"Позволяет вернуться в изначальную точку через 7 секунд прочтения."
+
+		"DOTA_Tooltip_modifier_tanari_fountain"		"Источники Танари"
+		"DOTA_Tooltip_modifier_tanari_fountain_Description"	"Восстанавливают здоровье и ману. Любой полученный урон снимает эффект."
+		
+		"DOTA_Tooltip_modifier_flame_orchid_burn"		"Ожог"
+		"DOTA_Tooltip_modifier_flame_orchid_burn_Description"	""
+		
+		"grizzled_woodsman"		"Седой Оккультист"
+
+		"tanari_island_hydra"							"Морская Гидра"
+
+		"tanari_poison_flower"							"Ядовитый цветок"
+
+		"DOTA_Tooltip_ability_gazbin_berserker_rage"	"Ярость Берсерка"
+		"DOTA_Tooltip_ability_gazbin_berserker_rage_Description"	"Скорость атаки и передвижения увеличены на 40%"
+
+		"tanari_mountain_bully"							"Горный задира"
+
+		"tanari_mountain_pass_guardian"					"Страж горной тропы"
+
+		"DOTA_Tooltip_ability_tanari_kraken_ravage"		"Ravage"
+		"DOTA_Tooltip_ability_tanari_kraken_ravage_Description"	"Мощная волна из щупалец распространяется от Кракена, оглушая и нанося урон всему, что попадёт в область действия."	
+
+		"DOTA_Tooltip_ability_tanari_kraken_anchor_smash"	"Anchor Smash"
+		"DOTA_Tooltip_ability_tanari_kraken_anchor_smash_Description"	"Кракен делает мощный взмах своим оружием, отталкивая от себя всех ближайших врагов."
+
+		"tanari_reclusive_mountain_nomad"				"Искатель реликвий"
+		"DOTA_Tooltip_ability_tanari_mountain_nomad_ai_damage"			"УРОН ОТ КРОВОТЕЧЕНИЯ:"
+
+		"tanari_mountain_specter"						"Забытый герой"
+		"DOTA_Tooltip_ability_tanari_mountain_specter_ai"				"Пустынный"
+		"DOTA_Tooltip_ability_tanari_mountain_specter_ai_Description"	"Жаждет мести за свои давние забытые поступки"
+
+		"DOTA_Tooltip_ability_tanari_mountain_pass_guardian_ai" "Древний страж"
+		"DOTA_Tooltip_ability_tanari_mountain_pass_guardian_ai_Description"	"Атаки, дробящие кости, наносят дополнительно 100% магического урона"
+
+		"DOTA_Tooltip_modifier_mountain_nomad_bleeding"	"Кровотечение"
+		"DOTA_Tooltip_modifier_mountain_nomad_bleeding_Description"	""
+
+		"tanari_kraken_king"							"Король K. Raken"
+		"DOTA_Tooltip_ability_tanari_kraken_king_ai"	"Голодная рыбёшка"
+		"DOTA_Tooltip_ability_tanari_kraken_king_ai_Description"	"Сильный опустошающий взмах."
+
+		"DOTA_Tooltip_ability_tanari_hydra_ai"				"Величественный хищник"
+
+		"tanari_wind_temple_keyholder"						"Страж Дворца Ветра"
+
+		"tanari_primitive_hunter"							"Primitive Hunter"
+
+		"DOTA_Tooltip_ability_tanari_wind_temple_keyholder_ai"	"Gust"
+		"DOTA_Tooltip_ability_tanari_wind_temple_keyholder_ai_Description"	"Атаки порождают всполох ветра, наносящий магический урон, равный 0.3% от основного урона, дополнительно замедляя цель."
+
+		"DOTA_Tooltip_modifier_bongo_frog_effect"			"Энергичная аура Бонго"
+		"DOTA_Tooltip_modifier_bongo_frog_effect_Description"	"Дополнительная скорость передвижения и восстановление здоровья"
+
+		"DOTA_Tooltip_ability_tanari_bongo_frog_ai"			"Бард Бонго"
+		"DOTA_Tooltip_ability_tanari_bongo_frog_ai_Description"	"Ритм джунглей в исполнении барабанов бонго увеличивает реген. здоровья и скорость передвижения ближайших союзников."
+
+		"tanari_tribal_ambusher"							"Защитник Племени"	
+
+		"DOTA_Tooltip_modifier_wind_temple_keyholder_slow"	"Сильный ветер"
+		"DOTA_Tooltip_modifier_wind_temple_keyholder_slow_Description"	"Снижение скорости атаки и передвижения"
+
+		"DOTA_Tooltip_ability_creature_pure_strike"			"Pure Strike"
+		"DOTA_Tooltip_ability_creature_pure_strike_Description"	"Атаки никогда не промахиваются и наносят дополнительно 3% чистого урона."
+
+		"DOTA_Tooltip_ability_tanari_ritual_healing"		"Ритуал исцеления"
+		"DOTA_Tooltip_ability_tanari_ritual_healing_Description"	"Восстанавливает небольшое значение здоровья ближайшему союзнику."		
+
+		"world_tanari_jungle"							"Джунгли Танари"
+		"zone_tanari_town"								"Лагерь Танари"
+		"zone_tanari_lake"								"Берег Танари"
+		"zone_tanari_mountain_side"						"Путь Чемпионов"
+		"zone_tanari_wind_temple"						"Храм Ветра"
+		"zone_tanari_thicket"							"Заросли Вайлвуд"
+		"zone_tanari_cavern"							"Пещера каменного хребта"
+		"zone_tanari_water_temple"						"Храм Воды"
+		"zone_tanari_terrasic_crater"					"Плоский Кратер"
+		"zone_tanari_fire_temple"						"Дворец Огня"
+
+		"tanari_spirit_realm"							"Царство Духов"
+
+		"tanari_headhunter"								"Охотник за головами"
+		"tanari_thicket_priest"							"Древний знахарь"
+		"tanari_thicket_pain_absorber"					"Племенной привратник боли"
+		"tanari_thicket_high_priest"					"Высший жрец To'rall"
+
+
+		"DOTA_Tooltip_ability_tanari_high_priest_buff"	"Древний ритуал"
+		"DOTA_Tooltip_ability_tanari_high_priest_buff_Description"	"Увеличивает скорость атаки, передвижения и 30% сопротивление любому урону на 5 секунд."
+
+		"DOTA_Tooltip_modifier_high_priest_buff"		"Древний ритуал"
+		"DOTA_Tooltip_modifier_high_priest_buff_Description"	"Увеличивает скорость атаки, передвижения. Дополнительно дарует 30% сопротивление любому урону"
+
+		"zone_tanari_thicket"							"Заросли Вайлвуд"
+		"zone_tanari_wind_temple"							"Храм Ветра"
+
+		"wind_temple_avian_warder"						"Воздушный Страж"
+
+		"DOTA_Tooltip_modifier_wind_temple_guardian_evasion"	"Горячие ветра"
+		"DOTA_Tooltip_modifier_wind_temple_guardian_evasion_Description"	"90%% шанс уклониться от атак."
+
+		"DOTA_Tooltip_ability_wind_temple_wind_guardian_ai"		"Страж Ветра"
+		"DOTA_Tooltip_ability_wind_temple_wind_guardian_ai_Description"	"Protecting the secrets of the Wind Temple."
+
+		"DOTA_Tooltip_ability_wind_temple_wind_mage_ai"					"Мастер ураганов"
+		"DOTA_Tooltip_ability_wind_temple_wind_mage_ai_Description"		"Враги, приблизившиеся к магу Ветра будут отброшены назад порывом."
+
+		"DOTA_Tooltip_ability_wind_temple_wind_haste"					"Ускорение ветра"
+		"DOTA_Tooltip_ability_wind_temple_wind_haste_Description"		"Увеличивает скорость атаки и передвижения союзников, дополнительно позволяя уклониться от атак."	
+
+		"DOTA_Tooltip_modifier_wind_haste"								"Ускорение ветра"
+		"DOTA_Tooltip_modifier_wind_haste_Description"					"Увеличивает скорость атаки и передвижения, дополнительно позволяя улониться от атак"
+
+		"wind_temple_keeper_of_green_wind"								"Зелёный Хранитель Ветра"
+		"wind_temple_keeper_of_blue_wind"								"Синий Хранитель Ветра"
+		"wind_temple_keeper_of_red_wind"								"Красный Хранитель Ветра"
+
+		"DOTA_Tooltip_modifier_modifier_windspell"						"Проклятье ветра"
+		"DOTA_Tooltip_modifier_modifier_windspell_Description"			"Скорость атаки и передвижения снижены а 25%"	
+
+		"DOTA_Tooltip_ability_wind_temple_wind_drake_ai"				"Источник ветра"
+		"DOTA_Tooltip_ability_wind_temple_wind_drake_ai_Description"	"Увеличивает уклонение на 25%, все атаки никогда не промахиваются."
+
+		"DOTA_Tooltip_ability_wind_temple_gardiner_ai"					"Щит леса"
+		"DOTA_Tooltip_ability_wind_temple_gardiner_ai_Description"		"50% сопротивление магическому урону."
+
+		"wind_temple_gardener"											"Храмовый садовник"
+		"wind_temple_wind_maiden"										"Дева ветра"
+
+		"DOTA_Tooltip_ability_wind_temple_zeus_descendant_ai"			"Быстрые ветра"
+		"DOTA_Tooltip_ability_wind_temple_zeus_descendant_ai_Description"	"Увеличивает скорость передвижения на 200 каждые 4 секунды, дополнительно даруя 20% шанс уклониться от атак."	
+
+		"DOTA_Tooltip_ability_zuus_descendant_bolt" 					"Небесный удар"
+		"DOTA_Tooltip_ability_zuus_descendant_bolt_Description"			"Наносит целям магический урон, кратковременно оглушая их." 
+
+		"wind_temple_staff"												"Скипетр сильных ветров"
+
+		"DOTA_Tooltip_wind_temple_staff_dummy_buff"						"Связанные ураганы"
+		"DOTA_Tooltip_wind_temple_staff_dummy_buff_Description"			"Скипетры одного с мобом цвета сильно его усиляют"
+
+		"DOTA_Tooltip_ability_wind_temple_staff_guardian_skill_green"	"Аура могучих ветров"
+		"DOTA_Tooltip_ability_wind_temple_staff_guardian_skill_green_Descirpion"	"Все ближайшие противники будут замедлены."
+
+		"DOTA_Tooltip_modifier_temple_staff_guardian_ai_green_effect"	"Аура могучих ветров"
+		"DOTA_Tooltip_modifier_temple_staff_guardian_ai_green_effect_Description"	"Скорости передвижения и атаки снижены."
+
+		"DOTA_Tooltip_ability_wind_temple_staff_guardian_skill_red"	"Аура временного вихря"
+		"DOTA_Tooltip_ability_wind_temple_staff_guardian_skill_red_Descirpion"	"ежесекундно снижает здоровье ближайших противников в размере 2.5% от их макс. показателя здоровья."
+
+		"DOTA_Tooltip_modifier_temple_staff_guardian_ai_red_effect"	"Вихрь времени"
+		"DOTA_Tooltip_modifier_temple_staff_guardian_ai_red_effect_Description"	"ежесекундно теряется здоровье в размере 2.5%% от максимума."
+
+		"DOTA_Tooltip_ability_wind_temple_staff_guardian_skill_blue"	"Аура опустошающих ветров"
+		"DOTA_Tooltip_ability_wind_temple_staff_guardian_skill_blue_Descirpion"	"Уменьшает показатель восстановления маны и урон всем ближайшим противникам."
+
+		"DOTA_Tooltip_modifier_temple_staff_guardian_ai_blue_effect"	"Опустошающий ветер"
+		"DOTA_Tooltip_modifier_temple_staff_guardian_ai_blue_effect_Description"	"Показатель восстановления маны и урон уменьшены."
+
+		"DOTA_Tooltip_ability_master_of_storms_flare"					"Шквал"
+		"DOTA_Tooltip_ability_master_of_storms_flare_Description"		""		
+
+		"wind_temple_wind_drake"										"Дракон Дворца Ветров"
+
+		"DOTA_Tooltip_ability_wind_temple_master_of_storms_ai"			"Ураганный порыв"
+		"DOTA_Tooltip_ability_wind_temple_master_of_storms_ai_Description"	"20% уклонение и +80 скорость атаки."	
+
+		"wind_temple_master_of_storms"									"Мастер бурь"
+		"wind_temple_wind_high_priest"									"Высший жрец ветра"
+
+		"DOTA_Tooltip_ability_wind_temple_revitalizing_winds"			"Восстанавливающий ветер"
+		"DOTA_Tooltip_ability_wind_temple_revitalizing_winds_Description"	"Жрец продолжает перерождение с помощью древних ветров."	
+
+		"wind_temple_boss"												"Осквернённая Богиня Ветра"
+
+
+
+		"DOTA_Tooltip_modifier_wind_boss_slow"							"Сметающие ветра"		
+		"DOTA_Tooltip_modifier_wind_boss_slow_Description"				"Герой находится слишком далеко от Осквернённой Богини Ветров. Значение брони и скорости передвижения постоянно снижаются. Сокращайте дистанцию до босса, чтобы снять этот эффект."
+
+		"DOTA_Tooltip_modifier_wind_temple_boss_wind_blessing"			"Благословение Ветра"
+		"DOTA_Tooltip_modifier_wind_temple_boss_wind_blessing_Description"	"Увеличивает дальность атаки"
+
+		"DOTA_Tooltip_ability_wind_temple_boss_ai"						"Уплотнение"
+		"DOTA_Tooltip_ability_wind_temple_boss_ai_Description"			"Создаёт облака пара, снижающие скорость передвижения и атаки, а также наносящие урон всем задетым врагам."
+
+		"DOTA_Tooltip_modifier_wind_boss_trap"							"Уплотнение"
+		"DOTA_Tooltip_modifier_wind_boss_trap_Description"				"Скорость атаки и передвижения снижены, дополнительно герой получает урон."
+
+		"gazbin_explosives_expert_friendly"								"Команда взрывотехников Танари"
+		"DOTA_Tooltip_ability_techies_friend_ai"						"Эксперт взрывотехники"
+		"DOTA_Tooltip_ability_techies_friend_ai_Description"			"Могут взорвать путь в скалах."
+
+		"tanari_thicket_bat"											"Гарпия Рощи"
+		"DOTA_Tooltip_ability_tanari_thicket_bat_ai"					"Пожиратель маны"
+		"DOTA_Tooltip_ability_tanari_thicket_bat_ai_Description"		"Каждая атака сжигает 50% от макс. маны цели и наносит чистый урон, равный количеству выжженой маны."
+
+		"tanari_thicket_matriarch"										"Королева гарпий Рощи"
+		"DOTA_Tooltip_ability_tanari_thicket_matriarch_ai"				"Защитник поселения"
+		"DOTA_Tooltip_ability_tanari_thicket_matriarch_ai_Description"	"Наделяется +75%-м сопротивлением магии. Атаки сжигают 10% маны цели и наносят чистый урон, равный количеству выжженой маны."
+
+		"DOTA_Tooltip_ability_item_rpc_thicket_bat_egg"					"Яйцо Летяги Рощи"
+		"thicket_bat_egg_description"									"От него исходит небольшая вибрация"
+
+		"DOTA_Tooltip_ability_tanari_cave_monster_ai"					"Колючая кожа"
+		"DOTA_Tooltip_ability_tanari_cave_monster_ai_Description"		"Возвращает 100% любого полученного урона атакующему. Тип урона - Физический."	
+		"boulderspine_cavern_monster"									"Cavern Predator"
+
+		"DOTA_Tooltip_ability_item_rpc_pedestal_item"					"Тайный Маяк"
+
+		"DOTA_Tooltip_ability_boulderspine_terror_ai"					"Леденящее прикосновение"
+		"DOTA_Tooltip_ability_boulderspine_terror_ai_Description"		"С каждой атакой снижает скорость атаки и передвижеиния противника."
+		"DOTA_Tooltip_ability_boulderspine_terror_ai_attack_speed_loss"	"СНИЖЕНИЕ СКОРОСТИ АТАКИ:"
+		"DOTA_Tooltip_ability_boulderspine_terror_ai_move_slow"			"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"	
+
+		"DOTA_Tooltip_modifier_terror_touch"							"Леденящее прикосновение"
+		"DOTA_Tooltip_modifier_terror_touch_Description"				"Скорость атаки и передвижения снижены"	
+
+		"DOTA_Tooltip_ability_electron_ai"								"Нестабильный заряд"
+		"DOTA_Tooltip_ability_electron_ai_Description"					"При получении урона из любого источника высвобождает электрический разряд, наносящий магический урон, равный 0.1% от полученного."	
+
+		"DOTA_Tooltip_modifier_regen_aura_buff"							"Аура восстановления"
+		"DOTA_Tooltip_modifier_regen_aura_buff_Description"				"Восстанавливает здоровье"		
+
+		"boulderspine_armored_cave_rat"									"Бронированная пещерная крыса"
+
+		"DOTA_Tooltip_ability_boulderspine_cave_lizard_gush"			"Рыгающее брюхо"
+		"DOTA_Tooltip_ability_boulderspine_cave_lizard_gush_Description"	"Атакует самого дальнего героя потоком полупереваренной желчи, снижая его броню и скорость передвижения."	
+
+		"DOTA_Tooltip_ability_boulderspine_cave_lizard_ravage"			"Большие щупальца"
+		"DOTA_Tooltip_ability_boulderspine_cave_lizard_ravage_Description"	"Оглушает и наносит урон всем ближайшим врагам"	
+
+		"boulderspine_cave_lizard"										"Пещерная ящерица"
+		"boulderspine_cave_lizard_brute"								"Большая пещерная ящерица"
+
+		"boulderspine_viper_blue"										"Синяя гадюка"
+
+		"DOTA_Tooltip_ability_boulderspine_blue_viper_ai"				"Мана-токсин"
+		"DOTA_Tooltip_ability_boulderspine_blue_viper_ai_Description"	"Каждая атака накладывает на цель дебаф, снижающий регенерацию маны на 5% от макс. маны."	
+
+		"DOTA_Tooltip_modifier_blue_viper_poison"						"Мана-токсин"
+		"DOTA_Tooltip_modifier_blue_viper_poison_Description"			"Показатель восстановления маны снижен на 5%% от макс. маны"
+
+		"boulderspine_viper_red"										"Красная гадюка"
+
+		"DOTA_Tooltip_ability_boulderspine_red_viper_ai"				"Смертельный яд"
+		"DOTA_Tooltip_ability_boulderspine_red_viper_ai_Description"	"Каждая атака накладывает на цель дебаф, снижающий показатель восстановления здоровья на 2.5% от макс. здоровья."	
+
+		"DOTA_Tooltip_modifier_red_viper_poison"						"Смертельный яд"
+		"DOTA_Tooltip_modifier_red_viper_poison_Description"			"Показатель восстановления здоровья снижен на 2.5%% от макс. здоровья."
+
+		"boulderspine_viper_green"										"Зелёный детёныш гадюки"
+
+		"DOTA_Tooltip_ability_boulderspine_green_viper_ai"				"Яд"
+		"DOTA_Tooltip_ability_boulderspine_green_viper_ai_Description"	"Каждая атака накладывает на цель дебаф, снижающий скорость передвижения на 15 и наносящий урон."	
+		"DOTA_Tooltip_ability_boulderspine_green_viper_ai_damage_per_tick"	"УРОН В СЕК.: "	
+
+		"DOTA_Tooltip_modifier_green_viper_poison"						"Яд"
+		"DOTA_Tooltip_modifier_green_viper_poison_Description"			"Скорость передвижения снижена на 15, цель получает ежесекундный урон."
+
+		"boulderspine_viper_egg"										"Яйцо гадюки"
+
+		"DOTA_Tooltip_ability_boulderspine_fire_bomb"					"Огненная бомба"
+		"DOTA_Tooltip_ability_boulderspine_fire_bomb_Description"		"Взрывающиеся бомбы отталкивают цели в радиусе действия."
+		"boulderspine_pyro"												"Пещерный поджигатель"
+
+		"DOTA_Tooltip_ability_boulderspine_fire_bat_ai"					"Жгучие атаки"
+		"DOTA_Tooltip_ability_boulderspine_fire_bat_ai_Description"		"Каждая атака поджигает цель."
+		"DOTA_Tooltip_modifier_firebat_on_fire"							"Вы горите!"
+		"DOTA_Tooltip_modifier_firebat_on_fire_Description"				"Цель получает ежесекундный огненный урон"
+
+		"DOTA_Tooltip_ability_boulderspine_princess_ability_ai"				"Возмездие"
+		"DOTA_Tooltip_ability_boulderspine_princess_ability_ai_Description"	"В стремлении вернуть себе Королевство"
+
+		"DOTA_Tooltip_modifier_boulderspine_princess_frozen"				"Заморожен"
+		"DOTA_Tooltip_modifier_boulderspine_princess_frozen_Description"	"Заморожен навечно."
+
+		"boulderspine_princess"												"Принцесса Аквалин"
+
+		"boulderspine_living_ice"											"Оживший лёд"
+
+		"DOTA_Tooltip_ability_boulderspine_living_ice_ai"					"Ледяное касание"
+		"DOTA_Tooltip_ability_boulderspine_living_ice_ai_Description"		"Каждая атака накладывает на цель замедляющий эффект, который может складываться с другими подобными."
+
+		"DOTA_Tooltip_modifier_boulderspine_living_ice_slowed"				"Остужен"
+		"DOTA_Tooltip_modifier_boulderspine_living_ice_slowed_Description"	"Скорость атаки и передвижения снижены"
+
+		"DOTA_Tooltip_ability_boulderspine_lindworm_frost_ai"				"Глубокая заморозка"
+		"DOTA_Tooltip_ability_boulderspine_lindworm_frost_ai_Description"	"С каждой атакой есть 10% шанс заморозить цель на 4 секунды. Цель не может умереть, пока действует этот эффект."
+
+		"DOTA_Tooltip_modifier_lindworm_frost_effect"						"Заморожен"
+		"DOTA_Tooltip_modifier_lindworm_frost_effect_Description"			"Не может быть убит."
+
+		 "boulderspine_lindworm_frost"										"Ледяной змей"
+
+		 "DOTA_Tooltip_modifier_lindworm_encased_in_ice"					"Весный лёд"
+		 "DOTA_Tooltip_modifier_lindworm_encased_in_ice_Description"		"Иммунитет к урон. Восстанавливает здоровье"
+
+		 "DOTA_Tooltip_ability_lindworm_splinter_blast"						"Взрыв осколков"
+
+		 "boulderspine_slithereen_guard"									"Страж - слизеринец"
+		 "boulderspine_slithereen_featherguard"								"Охранник - слизеринец"
+
+		 "boulderspine_slithereen_royal_guard"								"Королевский страж - слизеринец"
+
+		 "DOTA_Tooltip_ability_antimage_blink_custom"						"Блинк"
+		 "DOTA_Tooltip_ability_antimage_blink_custom_Description"			"Перемещается на небольшое расстояние."
+
+		 "DOTA_Tooltip_modifier_slithereen_featherguard_ai_super_slice"		"Удар перьев"
+		 "DOTA_Tooltip_modifier_slithereen_featherguard_ai_super_slice_Description"	"Увеличивает скорость атаки после прыжка."
+
+		 "DOTA_Tooltip_slithereen_royal_guard_ai"							"Магический щит"
+		 "DOTA_Tooltip_slithereen_royal_guard_ai_Description"				"Наделяется 4 секундным щитом, увеличивающим сопротивление магии на 95%"	
+
+		 "DOTA_Tooltip_modifier_royal_guard_magic_shell"					"Магический щит"
+		 "DOTA_Tooltip_modifier_royal_guard_magic_shell_Description"		"95%% сопротивление магии"
+
+		 "DOTA_Tooltip_ability_slithereen_royal_guard_gush"					"Гидроудар"
+		 "DOTA_Tooltip_ability_slithereen_royal_guard_gush_Description"		"Замедляет и наносит целям урон потоком воды в радиусе действия"
+
+		 "DOTA_Tooltip_ability_water_keyholder_torrent"						"Потоки"
+		 "DOTA_Tooltip_ability_water_keyholder_torrent_Description"			"Создаёт сбивающие потоки воды под ногами врагов."
+
+		 "DOTA_Tooltip_ability_water_keyholder_ensnare"						"Сеть"
+		 "DOTA_Tooltip_ability_water_keyholder_ensnare_Description"			"Связывает врагов неразрушимой сетью."
+
+		 "tanari_water_bug"													"Водяной жук"
+
+		 "DOTA_Tooltip_ability_tanari_ancient_ai"							"Серия землетрясений"
+		 "DOTA_Tooltip_ability_tanari_ancient_ai_Description"				"Создаёт серию землетрясений, наносящих урон в зависимости от того, как далеко находятся цели от читающего заклинание."	
+		 "DOTA_Tooltip_ability_tanari_ancient_ai_damage"					"БАЗОВЫЙ УРОН:"	
+
+		 "DOTA_Tooltip_modifier_ancient_quaking"							"Серия землетрясений"
+
+		 "tanari_ancient"													"Древний Танари"
+
+		 "water_temple_vault_lord"												"Водяной Лорд"
+
+		 "DOTA_Tooltip_ability_vault_lord_polarity"									"Водоворот"
+		 "DOTA_Tooltip_ability_vault_lord_polarity_Description"						"Призывает мощный поток воды, стягивающий и оглушающий врагов в радиусе действия."	
+
+		 "water_temple_shark"												"Земноводная акула"
+
+		 "DOTA_Tooltip_ability_water_temple_shadow_creep"					"Побег в тень"
+		 "DOTA_Tooltip_ability_water_temple_shadow_creep_Description"		"Укрывается в тенях, наделяется иммунитетом к физическому урону и восстанавливая здоровье."
+
+		 "DOTA_Tooltip_ability_water_temple_summon_water_elemental"			"Призыв элементаля Воды"
+		 "DOTA_Tooltip_ability_water_temple_summon_water_elemental_Description"	"Призывает элементаля воды, который замедляет цели в области действия каждой своей атакой."	
+
+		 "DOTA_Tooltip_ability_water_temple_elemental_ability"				"Массовая атака"
+		  "DOTA_Tooltip_ability_water_temple_elemental_ability_Description"	"Атаки бьют по области, дополнительно замедляя врагов."	
+
+		 "DOTA_Tooltip_modifier_water_temple_elemental_slow"				"Массовая атака"
+		 "DOTA_Tooltip_modifier_water_temple_elemental_slow_Description"	"Скорость передвижения и атаки снижены"
+
+		 "aqua_mage_water_elemental"										"Элементаль Воды"
+		 "water_temple_aqua_mage"											"Маг Воды"
+
+		 "DOTA_Tooltip_ability_armor_break"									"Поломка брони"
+		 "DOTA_Tooltip_ability_armor_break_Description"						"При успешной атаке, снижает броню цели."	
+		 "DOTA_Tooltip_ability_armor_break_armor_break"						"СНИЖЕНИЕ БРОНИ:"	
+
+		 "DOTA_Tooltip_ability_water_temple_boss_jellyfish_ai"				"Мощный разряд"
+		 "DOTA_Tooltip_ability_water_temple_boss_jellyfish_ai_Description"	""
+
+		 "DOTA_Tooltip_modifier_lightning_stun"								"Грозовой удар"
+		 "DOTA_Tooltip_modifier_lightning_stun_Description"					"Мощный разряд"		
+
+		 "DOTA_Tooltip_ability_water_temple_jellyfish_ai"					"Электрический импульс"
+		 "DOTA_Tooltip_ability_water_temple_jellyfish_ai_Description"		"Оглушает ближайших врагов"
+
+		 "DOTA_Tooltip_ability_water_temple_dark_pact"						"Тёмный договор"
+		 "DOTA_Tooltip_ability_water_temple_dark_pact_Description"			"Снимает все отрицательные эффекты и наносит уронс задержкой в 1.5 секунды."
+
+		 "DOTA_Tooltip_ability_water_temple_prison_shank"					"Тюремный хлыст"
+		 "DOTA_Tooltip_ability_water_temple_prison_shank_Description"		"Атаки наносят дополнительный магический урон, зависящий от показателя Ловкости цели, заодно снижая показатель Силы цели"
+		 "DOTA_Tooltip_ability_water_temple_prison_shank_agility_mult"		"МНОЖИТЕЛЬ ЛОВКОСТИ:"
+		 "DOTA_Tooltip_ability_water_temple_prison_shank_strength_loss"		"СНИЖЕНИЕ СИЛЫ:"
+
+		 "DOTA_Tooltip_modifier_prison_shank_effect"						"Sea Shank"
+		 "DOTA_Tooltip_modifier_prison_shank_effect_Description"			"Потеряны атрибуты"	
+
+		 "DOTA_Tooltip_ability_executioner_culling_blade"					"Казнь"
+		 "DOTA_Tooltip_ability_executioner_culling_blade_Description"		"Мгновенно убивает героев с низким показателем здоровья."	
+		 "DOTA_Tooltip_ability_executioner_culling_blade_health_threshold_percent"		"ГРАНИЦА ЗДОРОВЬЯ %:"	
+
+		 "DOTA_Tooltip_ability_water_temple_executioner_ai"					"Стойкость"
+		 "DOTA_Tooltip_ability_water_temple_executioner_ai_Description"		"Когда значение здоровья становится равным 30% и ниже, носитель получает дополнительную броню."
+		 "DOTA_Tooltip_ability_water_temple_executioner_ai_armor_gain"		"ДОП. БРОНЯ:"
+
+		"DOTA_Tooltip_modifier_executioner_buff"							"Стойкость"
+		"DOTA_Tooltip_modifier_executioner_buff_Description"				"Доп. броня"
+
+		"DOTA_Tooltip_ability_chef_meat_hook"								"Мясной крюк"
+		"DOTA_Tooltip_ability_chef_meat_hook_Description"					"Бросает окровавленный крюк, притягивающий первую попавшуюся цель."	
+
+		"water_temple_jailer"												"Узник Водного Храма"
+
+		"DOTA_Tooltip_ability_water_temple_jailer_ai"						"Пожиратель Плоти"
+		"DOTA_Tooltip_ability_water_temple_jailer_ai_Description"			"Любой входящий урон не может нанести больше, чем 1% от макс. здоровья. Атаки оставляют эффект кровотечения."
+		"DOTA_Tooltip_ability_water_temple_jailer_ai_bleed_damage"			"УРОН КРОВОТЕЧЕНИЯ В СЕКУНДУ:"
+
+		"water_temple_fish_prisoner"										"Мошенник Аквалин"
+
+		"DOTA_Tooltip_ability_faceless_waveform"							"Водяная форма"
+		"DOTA_Tooltip_ability_faceless_waveform_Description"				"Элементаль бросается вперёд к цели в виде потока воды, нанося урон при попадании."
+
+		"water_temple_vault_lord_two"										"Лорд склепа"
+		"DOTA_Tooltip_ability_vault_lord_mana_spill"						"Разлив Маны"
+		"DOTA_Tooltip_ability_vault_lord_mana_spill_Description"			"С каждой атакой накладывает эффект, сжигающий ману цели. Если цель имеет менее 5% маны, оглушает на 0.35 секунды."	
+		"DOTA_Tooltip_ability_vault_lord_mana_spill_mana_drain_percent"		"СЖИГАЕТ МАНЫ %:"
+
+		"DOTA_Tooltip_ability_water_temple_rascal_ai"						"Водяной разведчик"
+		"DOTA_Tooltip_ability_water_temple_rascal_ai_Description"			"Обладает обширными знаниями об устройстве Храма Воды."
+
+		"DOTA_Tooltip_ability_water_temple_warlock_mana_drain"				"Утечка маны"
+		"DOTA_Tooltip_ability_water_temple_warlock_mana_drain_Description"	"Сжигает ману выбранной цели."
+		"DOTA_Tooltip_ability_water_temple_warlock_mana_drain_mana_per_second"	"СЖИГАЕТ МАНЫ В СЕКУНДУ:"
+
+		"DOTA_Tooltip_ability_water_temple_blue_warlock_ai"					"Магический шок"
+		"DOTA_Tooltip_ability_water_temple_blue_warlock_ai_Description"		"Атаки сжигают 20% маны атакующего, нанося дополнительный урон целям в зависимости от выжженой маны."	
+
+		"DOTA_Tooltip_ability_water_temple_blue_warlock_ai_damage_per_mana"	"УРОН ОТ МАНЫ:"
+
+		"water_temple_blue_warlock"											"Синий Чернокнижник"	
+
+		"DOTA_Tooltip_ability_water_temple_aqua_emperor_ai"					"Промокание"
+		"DOTA_Tooltip_ability_water_temple_aqua_emperor_ai_Description"		"Все, кто атакует носителя замедляются."	
+		"DOTA_Tooltip_ability_water_temple_aqua_emperor_ai_attack_speed_loss"	"СНИЖЕНИЕ СКОРОСТИ АТАКИ:"	
+
+		"DOTA_Tooltip_modifier_water_temple_drenched"						"Промокший"
+		"DOTA_Tooltip_modifier_water_temple_drenched_Description"			"Скорость атаки снижена"
+
+		"DOTA_Tooltip_ability_water_temple_water_emperor_jet"				"Поток воды"
+		"DOTA_Tooltip_ability_water_temple_water_emperor_jet_Description"	"Выпускает мощную волну, замедляющую всех задетых врагов."
+		"DOTA_Tooltip_ability_water_temple_water_emperor_jet_attack_speed_loss"	"СНИЖЕНИЕ СКОРОСТИ АТАКИ:"
+		"DOTA_Tooltip_ability_water_temple_water_emperor_jet_movespeed_loss"	"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+
+		"DOTA_Tooltip_ability_water_temple_water_emperor_jet_2"				"Всплеск воды"
+		"DOTA_Tooltip_ability_water_temple_water_emperor_jet_2_Description"	"Выпускает серию волн во всех направлениях."
+		"DOTA_Tooltip_ability_water_temple_water_emperor_jet_2_attack_speed_loss"	"СНИЖЕНИЕ СКОРОСТИ АТАКИ:"
+		"DOTA_Tooltip_ability_water_temple_water_emperor_jet_2_movespeed_loss"	"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+
+		"DOTA_Tooltip_modifier_modifier_jet_soaked"				"Промокший"
+		"DOTA_Tooltip_modifier_modifier_jet_soaked_Description"	"Скорость атаки и передвижения снижены"
+
+		"DOTA_Tooltip_ability_water_temple_vault_master_storm_bolt"	"Грозовой разряд"
+		"DOTA_Tooltip_ability_water_temple_vault_master_storm_bolt_Description"	"Бросает тяжелый молот, оглушающий цели и наносящий им урон, а также ближайших к ним врагам."
+
+		"water_temple_faceless_water_elemental"								"Безликий элементаль воды"
+		"water_temple_vault_master"											"Мастер водного храма"
+
+		"DOTA_Tooltip_ability_water_temple_vault_master_ai"					"Неистовый гнев"
+		"DOTA_Tooltip_ability_water_temple_vault_master_ai_Description"		"В случае если был получен урон с расстояния более, чем 650 единиц, Мастер бросается в сторону врага на огромной скорости, сбрасывая время перезарядки Грозового Разряда и нанося тройной урон."
+
+		 "water_temple_serpent_sleeper"										"Спящий змей"
+		 "water_temple_armored_water_beetle"								"Бронированный водяной жук"
+
+		 "water_temple_blinded_serpent_warrior"								"Слепой змеиный воин"
+
+		 "DOTA_Tooltip_ability_water_temple_mark_for_death"					"Метка смерти"
+		 "DOTA_Tooltip_ability_water_temple_mark_for_death_Description"		"С каждой атакой накладывает на цель устрашающий эффект. Враги, отмеченные Меткой смерти получают дополнительный магический урон, основанный на уровне их макс. здоровья каждый раз, когда получают урон из любого источника."
+		 "DOTA_Tooltip_ability_water_temple_mark_for_death_health_damage_multiplier"	"ДОП. УРОН ОТ МАКС. ЗДОРОВЬЯ %:"
+
+		 "DOTA_Tooltip_modifier_marked_for_death"							"Метка смерти"
+		 "DOTA_Tooltip_modifier_marked_for_death_Description"				"Каждый раз, получая урон, будет нанесён дополнительный магический урон, равный % от макс. здоровья."
+
+		 "DOTA_Tooltip_ability_water_temple_fairy_dragon_ai"				"Обратная связь"
+		 "DOTA_Tooltip_ability_water_temple_fairy_dragon_ai_Description"	"В случае, когда значение маны ближайших противников будет уменьшаться, они будут поражены разрядом, наносящим чистый урон, равный значению выжженой маны. Носитель получает сопротивление магии."
+
+		 "DOTA_Tooltip_ability_water_temple_fairy_dragon_ai_damage_per_mana"	"УРОНА ЗА ЕД. МАНЫ:"
+		 "DOTA_Tooltip_ability_water_temple_fairy_dragon_ai_magic_resist" 		"СОПРОТИВЛЕНИЕ МАГИИ:"
+
+		 "water_temple_fairy_dragon"										"Сказочный дракон"
+		 "DOTA_Tooltip_modifier_fairy_dragon_feedback"						"Feedback"
+		 "DOTA_Tooltip_modifier_fairy_dragon_feedback_Description"			"Каждый раз, затрачивая ману, герою будет нанесён чистый урон в зависимости от затраченной маны."
+
+		 "DOTA_Tooltip_modifier_endurance_aura"								"Аура выносливости"
+		 "DOTA_Tooltip_modifier_endurance_aura_Description"					"Увеличивает скорость передвижения и атаки."		
+
+		 "DOTA_Tooltip_modifier_endurance_aura_buff"								"Аура выносливости"
+		 "DOTA_Tooltip_modifier_endurance_aura_buff_Description"					"Увеличивает скорость передвижения и атаки."	
+
+		 "DOTA_Tooltip_ability_water_temple_boulder_toss"				"Бросок булыжника"
+		 "DOTA_Tooltip_ability_water_temple_boulder_toss_Description"	"Бросает камень, наносящий урон и оглушающий цель."	
+		 "DOTA_Tooltip_ability_water_temple_boulder_toss_damage"		"УРОН:"
+		 "DOTA_Tooltip_ability_water_temple_boulder_toss_stun_duration"		"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		 
+		 "water_temple_amphi_lizard_rider"								"Наездник земноводных ящериц"
+
+		 "water_temple_boss"											"Король Кэл'тас"
+
+		 "DOTA_Tooltip_ability_water_temple_boss_bubble"				"Пузырь"
+		 "DOTA_Tooltip_ability_water_temple_boss_bubble_Description"	"Враги в присутствии Короля теряют урон, фиксируя его на % от макс. здоровья"	
+		 "DOTA_Tooltip_ability_water_temple_boss_bubble_max_damage_percent"	"ГРАНИЦА УРОНА В % ОТ МАКС. ЗДОРОВЬЯ:"
+
+		 "DOTA_Tooltip_modifier_water_temple_bubble_effect"				"Пузырь"
+		 "DOTA_Tooltip_modifier_water_temple_bubble_effect_Description"	"Значение урона зафиксировано и равно % от макс. здоровья врагов"	
+
+		 "DOTA_Tooltip_ability_water_temple_boss_world_crush"			"Разрушение мира"
+		 "DOTA_Tooltip_ability_water_temple_boss_world_crush_Description"	"Со всей мощи бьет о землю, оглушая задетых врагов."
+
+		 "DOTA_Tooltip_ability_water_temple_boss_rising_tides"			"Вздымающиеся волны"
+		 "DOTA_Tooltip_ability_water_temple_boss_rising_tides_Description"	"Каждый раз, получая урон, Королю даруется заряд умения. Когда количество зарядов достигнет 8, цель будет оглушена мощным потоком."
+		 "DOTA_Tooltip_ability_water_temple_boss_rising_tides_damage"	"УРОН:"
+
+		 "DOTA_Tooltip_amodifier_rising_tides_stacking_effect"					"Вздымающаяся волна"	
+		 "DOTA_Tooltip_amodifier_rising_tides_stacking_effect_Description"		"Каждый раз, атакуя Короля Кэл'тас, будет добавлен заряд умения. Когда накопится 8 зарядов, цель будет оглушена и получит урон."
+
+		 "DOTA_Tooltip_modifier_whirlpool_effect"					"Водоворот"
+		 "DOTA_Tooltip_modifier_whirlpool_effect_Description"		"В пределах водоворота Короля"
+
+		 "DOTA_Tooltip_ability_water_temple_boss_whirlpool"			"Разрывное течение"
+		 "DOTA_Tooltip_ability_water_temple_boss_whirlpool_Description"	"Король призывает водяной шторм, стягивая к себе всех врагов. В конце действия всегда будет применено заклинание Разрушение мира."	
+
+		//WIND SPIRIT
+		"tanari_clam_spawner"											"Моллюск Танари"
+		"DOTA_Tooltip_ability_tanari_clam_spawner_ability"				"Spawner"
+		"DOTA_Tooltip_ability_tanari_clam_spawner_ability_Description"	"Каждые 10 секунд появляется маленькая рыбка."
+		"DOTA_Tooltip_ability_tanari_clam_spawner_ability_armor"		"ДОП. БРОНЯ:"
+
+		"tanari_clam_fish"												"Маленькая рыбка"
+
+		"tanari_voodoo_shaman"											"Шаман Вуду"
+
+		"DOTA_Tooltip_ability_tanari_maledict"							"Maledict"
+		"DOTA_Tooltip_ability_tanari_maledict_Description"				"Проклинает вражеского героя, заставляя получать урон, зависящий от урона, полученного героем во время действия проклятья."
+
+		"tanari_alchemist"												"Алхимик Танари"
+
+		"DOTA_Tooltip_ability_tanari_paralyzing_cask"					"Paralyzing Cask"
+		"DOTA_Tooltip_ability_tanari_paralyzing_cask_Description"		"Бросает череп, отскакивающий между врагами и оглушающий их при каждом попадании."
+		"DOTA_Tooltip_ability_tanari_paralyzing_cask_hero_duration"		"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		"DOTA_Tooltip_ability_tanari_paralyzing_cask_hero_damage"		"УРОН:"
+		"DOTA_Tooltip_ability_tanari_paralyzing_cask_bounces"			"ОТСКОКОВ:"
+
+		"thicket_watcher"												"Наблюдающий Страж"
+
+		"DOTA_Tooltip_ability_thicket_growth_ability"					"Thicket Growth"
+		"DOTA_Tooltip_ability_thicket_growth_ability_Description"		"Прячясь в деревьях Страж получает бонус к урону и оглушает при атаках."
+		"DOTA_Tooltip_ability_thicket_growth_ability_damage"			"УРОН:"
+		"DOTA_Tooltip_ability_thicket_growth_ability_stun_duration"		"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+
+		"DOTA_Tooltip_ability_tanari_wind_spirit_passive"				"Hurricane"
+		"DOTA_Tooltip_ability_tanari_wind_spirit_passive_Description"	"Бесконечные ветры"
+
+		"wind_temple_avian_warder_elite"								"Элитный страх воздуха"
+
+		"tanari_wind_bear"												"Медведь Ветра"
+
+		"DOTA_Tooltip_ability_tanari_wind_bear_passive"					"Gust"
+		"DOTA_Tooltip_ability_tanari_wind_bear_passive_Description"		"Сильный ветер следует за Медведем."	
+
+		"tanari_jade_water_elemental"									"Нефритовый элементаль воды"
+		"DOTA_Tooltip_ability_tanari_jade_elemental_hydrosis"			"Hydrosis"
+		"DOTA_Tooltip_ability_tanari_jade_elemental_hydrosis_Description"	"Мистические нефритовые воды обладают странными свойствами."
+
+		"tanari_wind_crusher"											"Крушитель воли"
+
+		"DOTA_Tooltip_ability_wind_crusher_gust"						"Wind Lash"
+		"DOTA_Tooltip_ability_wind_crusher_gust_Description"			"Быстрый поток ветра наносит урон и замедляет врагов на линии."
+		"DOTA_Tooltip_ability_wind_crusher_gust_damage"					"УРОН:"
+		"DOTA_Tooltip_ability_wind_crusher_gust_move_slow"				"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_wind_crusher_gust_attack_slow"			"СНИЖЕНИЕ СКОРОСТИ АТАКИ:"
+
+		"DOTA_Tooltip_ability_wind_crusher_defense"						"Harden"
+		"DOTA_Tooltip_ability_wind_crusher_defense_Description"			"При получении урона превращается в камень, снижая весь входящий урон до 0."	
+		"DOTA_Tooltip_ability_wind_crusher_defense_duration"			"ДЛИТЕЛЬНОСТЬ ОКАМЕНЕНИЯ:"
+
+		"DOTA_Tooltip_modifier_wind_temple_key_stone_form"				"Harden"
+
+		"DOTA_Tooltip_modifier_gust_wave_slow"							"Autumn Wind"
+		"DOTA_Tooltip_modifier_gust_wave_slow_Description"				"Замедлен"
+
+		"tanari_wind_temple_viper"										"Гадюка Ветряного Храма"
+
+		"tanari_wind_temple_lizard"										"Ящерица Ветряного Храма"
+
+		"tanari_wind_sprite"											"Дух Воздуха"	
+		"DOTA_Tooltip_ability_wind_sprite_passive"						"Tornado Attack"
+		"DOTA_Tooltip_ability_wind_sprite_passive_Description"			"Атаки сбивают врагов с ног, отталкивая их"
+
+		"tanari_wind_spark"												"Всполох ветра"
+
+		"DOTA_Tooltip_ability_tanari_wind_spark_ai"						"Tempest Haze"
+		"DOTA_Tooltip_ability_tanari_wind_spark_ai_Description"			"Сильно замедляет ближайших врагов"
+		"DOTA_Tooltip_ability_tanari_wind_spark_ai_movespeed_slow"		"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_tanari_wind_spark_ai_attack_speed_reduction"	"СНИЖЕНИЕ СКОРОСТИ АТАКИ:"
+
+		"DOTA_Tooltip_modifier_tanari_wind_spark_debuff"				"Tempest Haze"
+		"DOTA_Tooltip_modifier_tanari_wind_spark_debuff_Description"	"Замедлен"
+
+		"tanari_wind_crystal_tree"										"Wind Crystal Tree"
+		"DOTA_Tooltip_ability_wind_temple_leech_seed"					"Leech Seed"
+		"DOTA_Tooltip_ability_wind_temple_leech_seed_Description"		"Сажает во врага истощающее семя, которое наносит противнику урон и исцеляет владельца этого умения."
+		"DOTA_Tooltip_ability_wind_temple_leech_seed_damage"			"УРОН:"
+		"DOTA_Tooltip_ability_wind_temple_leech_seed_movement_slow"		"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+
+		"DOTA_Tooltip_ability_wind_crystal_tree_passive"				"Diamond Bark"
+		"DOTA_Tooltip_ability_wind_crystal_tree_passive_Description"	"При получении урона возвращает урон атакующему."
+		"DOTA_Tooltip_ability_wind_crystal_tree_passive_damage"			"УРОН:"
+
+		"DOTA_Tooltip_modifier_wind_crystal_tree_passive"				"Diamond Bark"
+
+		"tanari_wind_apparation"										"Призрак Ветра"
+
+		"DOTA_Tooltip_ability_tanari_wind_apparition_passive"			"Hurricane"
+		"DOTA_Tooltip_ability_tanari_wind_apparition_passive_Description"	"Ураганный ветер толкает врагов вокруг."
+
+		"tanari_wind_demon"												"Wind Demon"
+		"DOTA_Tooltip_ability_wind_demon_static_storm"					"Static Storm"
+		"DOTA_Tooltip_ability_wind_demon_static_storm_Description"		"Наносит урон и запрещает произносить заклинания всем попавшим в область действия врагам."
+		"DOTA_Tooltip_ability_wind_demon_static_storm_damage_max"		"МАКСИМАЛЬНЫЙ УРОН:"
+
+		"DOTA_Tooltip_ability_tanari_wind_demon_passive"				"Hurricane"
+
+		"wind_temple_spirit_ninja"										"Wind Spirit Ninja"
+
+		"DOTA_Tooltip_ability_spirit_ninja_passive"						"Reflex"
+		"DOTA_Tooltip_ability_spirit_ninja_passive_Description"			"Значительно увеличивает уклонение"
+		"DOTA_Tooltip_ability_spirit_ninja_passive_evasion"				"ШАНС УВОРОТА:"		
+
+		"wind_valley_guardian"											"Wind Valley Guardian"
+
+		"DOTA_Tooltip_ability_wind_valley_guardian"						"Valley Guardian"
+		"DOTA_Tooltip_ability_wind_valley_guardian_Description"			"Потусторонний наблюдатель следит за духами Ветра"	
+
+		"DOTA_Tooltip_ability_wind_valley_protector_quake"				"Quake"
+		"DOTA_Tooltip_ability_wind_valley_protector_quake_Description"	"Оглушает врагов и наносит им урон в области действия."
+
+		"DOTA_Tooltip_ability_wind_spirit_main_boss_ability"			"Sparrowhawk Rush"
+		"DOTA_Tooltip_ability_wind_spirit_main_boss_ability_Description"	"Духи соколов разлетаются от мага."
+
+		"DOTA_Tooltip_ability_wind_spirit_tornado"						"Tornado"
+		"DOTA_Tooltip_ability_wind_spirit_tornado_Description"			"Мощный торнадо поднимает врагов в воздух и наносит урон по приземлении."
+		"DOTA_Tooltip_ability_wind_spirit_tornado_base_damage"			"УРОН:"
+
+		"wind_temple_spirit_boss"										"Дух Ветра Танари"
+
+		 //WIND SPIRIT
+
+		 //SPIRIT WATER
+
+		 "tanari_water_spirit_boss"								"Дух Воды Танари"
+
+		 "DOTA_Tooltip_ability_tanari_water_spirit_passive"		"Wave Weapon"
+		 "DOTA_Tooltip_ability_tanari_water_spirit_passive_Description"	"Вместе с атаками в цель отправляется поток воды."	
+		 "DOTA_Tooltip_ability_tanari_water_spirit_passive_damage"	"УРОН:"
+
+		 "tanari_ancient_wind_spirit"								"Wind Spirit Guide"
+		 "tanari_ancient_water_spirit"								"Water Spirit Guide"
+		 "tanari_ancient_fire_spirit"								"Fire Spirit Guide"
+
+		 "water_temple_spirit_jailer"								"Тюремщик духов"
+
+		 "DOTA_Tooltip_ability_tanari_water_jailer_passive"			"Spirit Block"
+		 "DOTA_Tooltip_ability_tanari_water_jailer_passive_Description"	"Снижает весь входящий урон."	
+		 "DOTA_Tooltip_ability_tanari_water_jailer_passive_damage_block"	"СНИЖЕНИЕ УРОНА %:"	
+
+		 "DOTA_Tooltip_tanari_water_bomb_hero"				"Depth Bomb"
+		 "DOTA_Tooltip_tanari_water_bomb_hero_Description"	"Используйте (W) чтобы бросить бомбу."
+
+		 "water_temple_vault_king"									"Король подземелья"
+
+		 "DOTA_Tooltip_ability_vault_king_hydro_mark"				"Hydro Mark"
+		 "DOTA_Tooltip_ability_vault_king_hydro_mark_Description"	"УРОН:"
+		 "DOTA_Tooltip_ability_vault_king_hydro_mark_Description"	"УРОН:"
+
+		 "caged_water_wraith"										"Скованный дух воды"
+
+		 "water_shadow_hunter"										"Sea Beetle"
+
+		 "slithereen_prison_guard"									"Слизеринский страж"
+
+		 "DOTA_Tooltip_ability_prison_guard_water_chanel"			"Aqua Dance"
+		 "DOTA_Tooltip_ability_prison_guard_water_chanel_Description"	"Во время прочтения замедляет врагов бурным потоком воды."
+		 "DOTA_Tooltip_ability_prison_guard_water_chanel_damage_per_hit"	"УРОН ЗА УДАР:"
+		 "DOTA_Tooltip_ability_prison_guard_water_chanel_bonus_attack_speed"	"СНИЖЕНИЕ СКОРОСТИ АТАКИ:"
+		 "DOTA_Tooltip_ability_prison_guard_water_chanel_bonus_movement_speed"	"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+
+		 "DOTA_Tooltip_modifier_water_channel_in_area"				"Aqua Dance"
+		 "DOTA_Tooltip_modifier_water_channel_in_area_Description"	"Замедлен"
+
+		 "water_temple_meta_prisoner"								"Псевдозаключенный"
+
+		 "DOTA_Tooltip_ability_tanari_meta_slark_passive"			"Mega Prison Shank"
+		 "DOTA_Tooltip_ability_tanari_meta_slark_passive_Description"	"С успешной атакой снижает атрибуты цели"
+		 "DOTA_Tooltip_ability_tanari_meta_slark_passive_attribute_loss"	"ПОТЕРЯ АТРИБУТОВ:"
+
+		 "water_temple_serpent_huntress"							"Змеи охотники"
+
+		 "DOTA_Tooltip_ability_tanari_soul_arrows"					"Spirit Strike"
+		 "DOTA_Tooltip_ability_tanari_soul_arrows_Description"		"Атаки наносят дополнительный чистый урон, зависящий от недостающего количества здоровья врага."
+		 "DOTA_Tooltip_ability_tanari_soul_arrows_damage_per_miss_health_hero"	"УРОН ЗА ОТСУТСТВУЮЩУЮ ЕДИНИЦУ ЗДОРОВЬЯ (ГЕРОИ):"
+		 "DOTA_Tooltip_ability_tanari_soul_arrows_damage_per_miss_health_creep"	"УРОН ЗА ОТСУТСТВУЮЩУЮ ЕДИНИЦУ ЗДОРОВЬЯ (КРИП):"
+
+		 "water_manifestation"										"Проявление воды"
+
+		 "DOTA_Tooltip_ability_water_manifestation_passive"			"Osmosis"
+		 "DOTA_Tooltip_ability_water_manifestation_passive_Description"	"Если владелец умения не получает урон в течении 1.5 секунд, он начнет восстанавливать здоровье."
+		 "DOTA_Tooltip_ability_water_manifestation_passive_health_regen"	"РЕГЕНЕРАЦИЯ ЗДОРОВЬЯ, %:"
+
+		 "water_temple_stone_fish"									"Каменная рыба"
+
+		 "DOTA_Tooltip_ability_rock_fish_rip_tide"					"Разрывающая волна"
+
+		 "water_temple_stone_priestess"								"Слизеринский жрец"
+
+		 "water_temple_duke_korlazeen"								"Дюк Корлазин"
+
+		 "DOTA_Tooltip_ability_tanari_korlazeen_shield"				"Koral Shield"
+		 "DOTA_Tooltip_ability_tanari_korlazeen_shield_Description"	"При получении урона в атаковавшего врага попадает молния, наносящая чистый урон в размере 1% здоровья от максимума."	
+
+		 "caged_underworld_tear"									"Скованный дух водыCaged Water Wraith"	
+
+		 "DOTA_Tooltip_ability_water_temple_drowned_sorrrow_ability"	"Submergence"
+
+		 "tanari_drowned_sorrow"									"Drowned Sorrow"
+		 "DOTA_Tooltip_ability_water_temple_water_nuke"				"Waveburst"
+		 "DOTA_Tooltip_ability_water_temple_water_nuke_Description"	"Выпускает в выбранную область поток воды, наносящий урон."	
+		 "DOTA_Tooltip_ability_water_temple_water_nuke_damage"		"УРОН:"
+
+		 "water_archer_spirit"										"Water Archer Spirit"
+		 "DOTA_Tooltip_ability_big_water_archer_passive"			"Frost Arrows"
+		 "DOTA_Tooltip_ability_big_water_archer_passive_Description"	"Зачарованные льдом стрелы наносят дополнительный чистый урон и замедляют цель"
+		 "DOTA_Tooltip_ability_big_water_archer_passive_pure_damage"	"ЧИСТЫЙ УРОН:"
+		 "DOTA_Tooltip_ability_big_water_archer_passive_attackspeed_loss"	"СНИЖЕНИЕ СКОРОСТИ АТАКИ:"
+		 "DOTA_Tooltip_ability_big_water_archer_passive_movespeed_loss"	"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+
+		 "DOTA_Tooltip_modifier_water_archer_slow"					"Frost Arrows"
+		 "DOTA_Tooltip_modifier_water_archer_slow_Description"		"Замедлен"
+
+		 "water_temple_aqualeen_defector"							"Защитник Аквалин"
+
+		 "ice_queen_alarana"										"Ледяная Королева Аларана"
+
+		 "DOTA_Tooltip_ability_tanari_ice_queen_passive"			"Eternal Frost Aura"
+		 "DOTA_Tooltip_ability_tanari_ice_queen_passive_Description"	"Все сильнее и сильнее замедляет ближайших врагов. Если их скорость передвижения станет слишком низкой, они будут обездвижены."
+
+		 "slithereen_elite_warrior"									"Slithereen Elite"
+
+		 "DOTA_Tooltip_ability_tanari_slithereen_elite_ability"		"Heavy Scales"
+		 "DOTA_Tooltip_ability_tanari_slithereen_elite_ability_Description"	"С некоторым шансом оглушает атаковавшего врага."
+		 "DOTA_Tooltip_ability_tanari_slithereen_elite_ability_stun_chance"	"ШАНС НА ОГЛУШЕНИЕ:"
+
+		 "DOTA_Tooltip_ability_water_spirit_main_boss_ability"		"Water God Apocalypse"
+		 "DOTA_Tooltip_ability_water_spirit_main_boss_ability_Description"	"Гнев морей, вызванный Духом Воды"
+
+		 //SPIRIT WATER
+		 //SPIRIT FIRE
+		 "fire_temple_flame_shaman"									"Пламенный шаман"
+		 "DOTA_Tooltip_ability_fire_temple_fire_shaman_ai"			"Flameburst"
+		 "DOTA_Tooltip_ability_fire_temple_fire_shaman_ai_Description"	"Периодически выпускает несколько огненных шаров во всех направлениях."
+		 "DOTA_Tooltip_ability_fire_temple_fire_shaman_ai_burn_damage"	"УРОН ОТ ОЖОГОВ:"
+		 "DOTA_Tooltip_ability_fire_temple_fire_shaman_ai_impact_damage"	"УРОН ОТ ПОПАДАНИЯ:"
+
+		 "tanari_fire_temple_spawner"								"Обсидиановая конструкция"
+		 
+		 "DOTA_Tooltip_ability_fire_temple_spawner_ability"			"Obsidian Spawner"
+		 "DOTA_Tooltip_ability_fire_temple_spawner_ability_Description"	"Каждые 10 секунд появляются небольшие огненные существа."
+		 "DOTA_Tooltip_ability_fire_temple_spawner_ability_armor"	"БРОНЯ:"	
+
+		 "tanari_lava_spectre"										"Лавовый дух"
+		 "DOTA_Tooltip_ability_lava_specter_ability"				"Melting Spirit"
+		 "DOTA_Tooltip_ability_lava_specter_ability_Description"	"Периодически оставляет огненный след. Дополнительно получает 50% шанс полностью проигнорировать урон."
+		 "DOTA_Tooltip_ability_lava_specter_ability_burn_damage"	"УРОН ОТ ОЖОГОВ:"
+
+		 "flamerider_gorthos"										"Наездник Гротос"
+
+		 "DOTA_Tooltip_ability_gorthos_passive"						"Flame Source"
+		 "DOTA_Tooltip_ability_gorthos_passive_Description"			"Постоянно испускает огненные шары во всех ближайших врагов."
+		 "DOTA_Tooltip_ability_gorthos_passive_impact_damage"		"УРОН ОТ ПОПАДАНИЯ:"
+		 "DOTA_Tooltip_ability_gorthos_passive_burn_damage"			"УРОН ОТ ОЖОГОВ:"
+
+		 "tanari_flame_beast"										"Огненный зверь"
+		 "DOTA_Tooltip_ability_tanari_flame_charge"					"Flame Charge"
+		 "DOTA_Tooltip_ability_tanari_flame_charge_Description"		"Бросается во врага, нанося урон при столкновении и оставляет горящий след."
+		 "DOTA_Tooltip_ability_tanari_flame_charge_damage"			"УРОН ОТ ПОПАДАНИЯ:"
+		 "DOTA_Tooltip_ability_tanari_flame_charge_burn_damage"		"УРОН ОТ ОЖОГОВ:"
+
+		 "fire_temple_ogre"											"Вулканический огр"
+
+		 "DOTA_Tooltip_ability_fire_temple_ogre_magi_ignite"		"Ignite"
+		 "DOTA_Tooltip_ability_fire_temple_ogre_magi_ignite_Description"	"Бросает огненный шар в выбранную цель, замедляя ее и рядом стоящих юнитов."
+		 "DOTA_Tooltip_ability_fire_temple_ogre_magi_ignite_burn_damage"	"УРОН ОТ ОЖОГОВ:"
+		 "DOTA_Tooltip_ability_fire_temple_ogre_magi_ignite_slow_movement_speed_pct"	"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ, %:"
+
+		 "tanari_lava_bully"										"Лавовый задира"
+		 "tanari_lava_bully_big"									"Большой лавовый задира"
+
+		 "DOTA_Tooltip_ability_tanari_lava_bully_ai"				"Lava Challenger"
+
+		 "tanari_inferno_demon"										"Горящий демон"
+
+		 "DOTA_Tooltip_ability_fire_temple_inferno"					"Inferno"
+		 "DOTA_Tooltip_ability_fire_temple_inferno_Description"		"Создаёт огромный огненный след, сжигающий врагов, попавших в него."
+		 "DOTA_Tooltip_ability_fire_temple_inferno_damage"			"УРОН:"
+
+		 "DOTA_Tooltip_ability_fire_temple_inferno2"					"Inferno"
+		 "DOTA_Tooltip_ability_fire_temple_inferno2_Description"		"Создаёт огромный огненный след, сжигающий врагов, попавших в него."
+		 "DOTA_Tooltip_ability_fire_temple_inferno2_damage"			"УРОН:"
+
+		 "tanari_fire_crab_beast"									"Пламенный зверь - краб"
+
+		 "DOTA_Tooltip_ability_fire_temple_lava_skin"				"Lava Skin"
+		 "DOTA_Tooltip_ability_fire_temple_lava_skin_Description"	"При получении урона, в атакующего отправится огненный шар."
+		 "DOTA_Tooltip_ability_fire_temple_lava_skin_impact_damage"	"УРОН ОТ ПОПАДАНИЯ:"
+		 "DOTA_Tooltip_ability_fire_temple_lava_skin_burn_damage"	"УРОН ОТ ОЖОГОВ:"
+
+		 "fire_temple_siege_hulker"									"Siege Hulker"
+		 "DOTA_Tooltip_ability_fire_temple_siege_hulker_passive"	"Siege Hulker"
+		 "DOTA_Tooltip_ability_fire_temple_siege_hulker_passive_Description"	"Атаки поджигают врага"
+		 "DOTA_Tooltip_ability_fire_temple_siege_hulker_passive_burn_damage"	"УРОН ОТ ОЖОГОВ:"
+
+		 "fire_temple_demon_watcher"								"Демон - страж огненного дворца"
+
+		 "DOTA_Tooltip_ability_fire_temple_demon_watcher_passive"	"Infernal Burst"
+		 "DOTA_Tooltip_ability_fire_temple_demon_watcher_passive_Description"	"Постоянно поддерживает кольцо пламени вокруг себя."
+		 "DOTA_Tooltip_ability_fire_temple_demon_watcher_passive_burn_damage"	"УРОН ОТ ОЖОГОВ:"
+		 "DOTA_Tooltip_ability_fire_temple_demon_watcher_passive_impact_damage"	"УРОН ОТ ПОПАДАНИЯ:"
+
+		 "DOTA_Tooltip_ability_fire_spirit_main_boss_ability"		"Molten Scales"
+		 "DOTA_Tooltip_ability_fire_spirit_main_boss_ability_Description"	"При получении урона накладывает на атакующего складывающийся огненный урон."
+		 "DOTA_Tooltip_ability_fire_spirit_main_boss_ability_burn_damage" "УРОН ОТ ОЖОГОВ ЗА ЗАРЯД:"
+
+		 "DOTA_Tooltip_ability_modifier_spirit_boss_burn"			"Вы горите!"
+
+		 "DOTA_Tooltip_ability_fire_spirit_breath"					"Fire Breath"
+		 "DOTA_Tooltip_ability_fire_spirit_breath_Description"		"Вдыхает воздух и выдыхает поток огня."
+		 "DOTA_Tooltip_ability_fire_spirit_breath_damage"			"УРОН:"
+
+		 "tanari_fire_spirit_boss"									"Дух Огня Танари"
+		 //SPIRIT FIRE
+		 "DOTA_Tooltip_ability_red_mist_berserkers_call"			"Зов Берсерка"			
+		 "DOTA_Tooltip_ability_red_mist_berserkers_call_Description"	"Заставляет всех ближайших врагов атаковать только вас. На время действия даруется броня."	
+		 "DOTA_Tooltip_ability_red_mist_berserkers_call_bonus_armor"	"ДОП.БРОНЯ:"
+
+		 "DOTA_Tooltip_ability_red_mist_counter_helix"				"Контрудар"
+		 "DOTA_Tooltip_ability_red_mist_counter_helix_Description"	"С 20% шансом при получении урона, будет произведен круговой контрудар, наносящий урон ближайшим врагам."	
+
+		 "DOTA_Tooltip_ability_terrasic_guard_ability"				"Огненный кулак"
+		 "DOTA_Tooltip_ability_terrasic_guard_ability_Description"	"Накладывает огненное проклятье."	
+		 "DOTA_Tooltip_ability_terrasic_guard_ability_burn_dps"		"ОГНЕННЫЙ УРОН В СЕКУНДУ:"
+
+		 "DOTA_Tooltip_modifier_terrasic_guard_on_fire"				"Огненный кулак"
+		 "DOTA_Tooltip_modifier_terrasic_guard_on_fire_Description"	"Вы горите!"
+
+		 "terrasic_flame_orchid"									"Пылающая орхидея"	
+
+		 "DOTA_Tooltip_ability_terrasic_flame_orchid_ai"				"Огненный плевок"
+		 "DOTA_Tooltip_ability_terrasic_flame_orchid_ai_Description"	"Время от времени выпускает 3 огненных шара"
+		 "DOTA_Tooltip_ability_terrasic_flame_orchid_ai_burn_damage"		"ОГНЕННЫЙ УРОН В СЕКУНДУ:"
+		 "DOTA_Tooltip_ability_terrasic_flame_orchid_ai_impact_damage"		"УРОН ОТ ПОПАДАНИЯ:"
+
+		 "terrasic_boulderspine"								"Каменный Хребет"
+
+		 "terrasic_lava_beast"									"Лавовый Зверь"
+
+		 "terrasic_awakened_stone"								"Лавовый Гигант"
+
+		 "DOTA_Tooltip_ability_terrasic_flame_spit"				"Огненный кров"
+		 "DOTA_Tooltip_ability_terrasic_flame_spit_Description"	"Во время прочтения Огненного Крова, бросает огненные шары во всех ближайших врагов, нанося урон от попадания и догорания. Во время прочтения наделяется доп. сопротивлением магии."	
+		 "DOTA_Tooltip_ability_terrasic_flame_spit_magic_resist" "СОПРОТИВЛЕНИЕ МАГИИ:"
+		 "DOTA_Tooltip_ability_terrasic_flame_spit_burn_dps"	"УРОН ОТ ДОГОРАНИЯ:"
+
+		"DOTA_Tooltip_modifier_flamespit_burning"				"Ожог от Огненного крова"
+		"DOTA_Tooltip_modifier_flamespit_burning_Description"	"Ежесекундно наносится огненный урон."
+
+		"terrasic_goremaw_flame_splitter"						"Огненный плевака"
+
+		"terrasic_volcano_beetle"								"Вулканический жук"
+
+		"DOTA_Tooltip_ability_terrasic_steam_shell"				"Огненный панцирь"
+		"DOTA_Tooltip_ability_terrasic_steam_shell_Description"	"Каждый раз, получая урон, во врагов будет брошен обжигающий огненный шар."	
+		"DOTA_Tooltip_ability_terrasic_steam_shell_burn_dps"	"ОГНЕННЫЙ УРОН В СЕКУНДУ:"
+
+		"DOTA_Tooltip_modifier_steam_shell_on_fire"				"Огненный панцирь"
+		"DOTA_Tooltip_modifier_steam_shell_on_fire_Description"	"Ежесекундно наносится огненный урон."	
+
+		"DOTA_Tooltip_ability_terrasic_black_drake_ai"			"Truestrike"
+		"DOTA_Tooltip_ability_terrasic_black_drake_ai_Description"	"Атаки никогда не промахиваются"
+
+		"DOTA_Tooltip_ability_terrasic_black_dragon_ai"			"Truestrike"
+		"DOTA_Tooltip_ability_terrasic_black_dragon_ai_Description"			"Атаки никогда не промахиваются"
+
+		"DOTA_Tooltip_ability_terrasic_volcano_pharoah_ai"		"Очаг"
+		"DOTA_Tooltip_ability_terrasic_volcano_pharoah_ai_Description"	"Постоянно выпускаются огненные шары во всех видимых врагов."
+
+		"volcanic_pharoah"										"Барон Clysm"
+
+		"DOTA_Tooltip_ability_terrasic_pharaoh_living_bomb"	"Живая бомба"
+		"DOTA_Tooltip_ability_terrasic_pharaoh_living_bomb_Description"	"Превращает выбранную цель в живую бомбу, которая взрывается через 5 секунд. После взрыва, владелец получает урон и оглушение, и все близкие враги получают огромный урон."
+		"DOTA_Tooltip_ability_terrasic_pharaoh_living_bomb_damage"		"ОСНОВНОЙ УРОН:"
+		"DOTA_Tooltip_ability_terrasic_pharaoh_living_bomb_ally_damage"	"УРОН СОСЕДНИМ ЦЕЛЯМ:"
+
+		"DOTA_Tooltip_modifier_living_bomb"					"Живая бомба"
+		"DOTA_Tooltip_modifier_living_bomb_Description"		"Вы скоро взорвётесь! Уходите от союзников!"	
+
+		"DOTA_Tooltip_ability_terrasic_red_guard_ability"				"Тяжелый взмах"
+		"DOTA_Tooltip_ability_terrasic_red_guard_ability_Description"	"Атаки могут задеть цели позади основной."
+		"DOTA_Tooltip_ability_terrasic_red_guard_ability_cleave"				"УРОН СОСЕДНИМ ЦЕЛЯМ %:"
+		"DOTA_Tooltip_ability_terrasic_red_guard_ability_cleave_radius"			"РАДИУС:"
+
+		"terrasic_red_guard"								"Красный страж"
+
+		"DOTA_Tooltip_ability_terrasic_captain_reimus_ability"		"Тяжелая броня"
+		"DOTA_Tooltip_ability_terrasic_captain_reimus_ability_Description"	"Получаемый урон из источников далее, чем 500 юнитов будет уменьшен."
+		"DOTA_Tooltip_ability_terrasic_captain_reimus_ability_reduction"	"СНИЖЕНИЕ УРОНА %:"
+
+		"terrasic_captain_reimus"							"Капитан Reimus"
+
+		"molten_entity"										"Расплавленная сущность"
+		"DOTA_Tooltip_modifier_armor_melt_custom"					"Снижение брони"
+		"DOTA_Tooltip_modifier_armor_melt_custom_Description"		"Потеря брони"
+
+		"DOTA_Tooltip_ability_terrasic_armor_melt"			"Снижение брони"
+		"DOTA_Tooltip_ability_terrasic_armor_melt_Description"	"Атаки значительно снижают броню цели."	
+		"DOTA_Tooltip_ability_terrasic_armor_melt_armor_reduction"	"СНИЖЕНИЕ БРОНИ:"
+
+		"terrasic_red_mist_soldier"							"Солдат Красного Тумана"
+
+		"DOTA_Tooltip_ability_terrasic_red_warlock_ai"				"Гнев"
+		"DOTA_Tooltip_ability_terrasic_red_warlock_ai_Description"	"Получаемый урон восстанавливает ману. Пассивно теряет 30 маны в секунду."
+
+		"DOTA_Tooltip_ability_red_warlock_finger_of_death"			"Палец смерти"
+		"DOTA_Tooltip_ability_red_warlock_finger_of_death_Description"			"Уничтожает выбранную цель"
+		"DOTA_Tooltip_ability_red_warlock_finger_of_death_damage"	"УРОН:"
+
+		"water_temple_red_warlock"							"Красный чернокнижник"
+
+		"DOTA_Tooltip_ability_terrasic_conqueror_ability"		"Прыжок призывателя"
+		"DOTA_Tooltip_ability_terrasic_conqueror_ability_Description"	"Любой враг, наносящий урон носителю с расстояния более 600 юнитов становится целью для прыжка"	
+
+		"DOTA_Tooltip_ability_terrasic_red_mist_brute_ai"	"Жестокие луки"
+		"DOTA_Tooltip_ability_terrasic_red_mist_brute_ai_Description"	"Обычные атаки толкают цель."
+
+		"terrasic_red_mist_brute"						"Громила Красного Тумана"
+
+		"terrasic_captain_clayborne"					"Капитан Clayborne"
+
+		"DOTA_Tooltip_ability_terrasic_mega_helix"					"Мощный контрудар"
+		"DOTA_Tooltip_ability_terrasic_mega_helix_Description"		"В любом случае, получая урон, будет совершен мощный контрудар. Все враги, находящиеся вне зоны действия становятся целями для огненных шаров."
+		"DOTA_Tooltip_ability_terrasic_mega_helix_helix_damage"		"УРОН КОНТРУДАРА (ФИЗ.):"
+		"DOTA_Tooltip_ability_terrasic_mega_helix_fireball_damage"	"УРОН ОГНЕННОГО ШАРА (МАГ.):"
+		"DOTA_Tooltip_ability_terrasic_mega_helix_burn_dps"			"ОГНЕННЫЙ УРОН В СЕКУНДУ:"
+
+		"DOTA_Tooltip_modifier_mega_helix_burn"			"Ожог"
+		"DOTA_Tooltip_modifier_mega_helix_burn_Description"	"Ежесекундно наносится урон."	
+
+
+		"DOTA_Tooltip_ability_terrasic_warlock_ai"	"Призыв огня"
+		"DOTA_Tooltip_ability_terrasic_warlock_ai_Description"	"Бросает 3 огненных шара."
+		"DOTA_Tooltip_ability_terrasic_warlock_ai_burn_dps"		"ОГНЕННЫЙ УРОН В СЕКУНДУ:"
+
+		"DOTA_Tooltip_modifier_terrasic_warlock_burning"	"Ожог"
+
+		"DOTA_Tooltip_ability_terrasic_fire_key_holder_steam"	"Пар"
+		"DOTA_Tooltip_ability_terrasic_fire_key_holder_steam_Description"	"Каждый раз, получая урон, на атакующего будет наложен заряд способности. Тип урона способности равен типу полученного урона. Все заряды сбрасываются через 10 секунд простоя."
+		"DOTA_Tooltip_ability_terrasic_fire_key_holder_steam_armor_per_stack"	"БРОНИ ЗА ЗАРЯД:"
+		"DOTA_Tooltip_ability_terrasic_fire_key_holder_steam_mr_per_stack"		"СОПРОТИВЛЕНИЕ МАГИИ ЗА ЗАРЯД:"
+
+		"DOTA_Tooltip_modifier_terrasic_fire_key_holder_steam_physical"		"Пар (ФИЗ.)"
+		"DOTA_Tooltip_modifier_terrasic_fire_key_holder_steam_magical"		"Пар (МАГ.)"
+
+		"DOTA_Tooltip_ability_terrasic_fire_key_holder_ai"		"Взрывающиеся удары"
+		"DOTA_Tooltip_ability_terrasic_fire_key_holder_ai_Description"	"Атаки наносят урон по области в радиусе 280 юнитов."
+
+		"fire_temple_blackguard"								"Черный страж огненного дворца"
+
+		"DOTA_Tooltip_ability_terrasic_blackguard_ai"			"Калечащие взмахи"
+		"DOTA_Tooltip_ability_terrasic_blackguard_ai_Description"	"Каждый удар снижает броню цели и оставляет кровотечение."
+		"DOTA_Tooltip_ability_terrasic_blackguard_ai_armor_reduction"	"СНИЖЕНИЕ БРОНИ:"
+		"DOTA_Tooltip_ability_terrasic_blackguard_ai_bleed_damage"		"УРОН КРОВОТЕЧЕНИЯ:"
+
+		"DOTA_Tooltip_modifier_blackguard_cripple"				"Искалечен"
+		"DOTA_Tooltip_modifier_blackguard_cripple_Description"	"Обезмолвлен, снижена броня, кровотечение."
+
+		"DOTA_Tooltip_ability_blackguard_brain_sap"				"Brain Sap"
+		"DOTA_Tooltip_ability_blackguard_brain_sap_Description"	"Крадёт здоровье цели, передавая его заклинателю."	
+
+		"DOTA_Tooltip_ability_blackguard_shackles"				"Горячие оковы"
+		"DOTA_Tooltip_ability_blackguard_shackles_Description"	"Цепляет цель на время действия, нанося магический урон."
+		"DOTA_Tooltip_ability_blackguard_shackles_channel_time"	"ДЛИТЕЛЬНОСТЬ СВЯЗИ:"
+
+		"DOTA_Tooltip_ability_blackguard_cultist_ai"			"Магический щит"
+		"DOTA_Tooltip_ability_blackguard_cultist_ai_Description"	"Увеличивает сопротивление магии"
+		"DOTA_Tooltip_ability_blackguard_cultist_ai_magic_resistance"	"ДОП.СОПРОТИВЛЕНИЕ МАГИИ:"
+
+		"DOTA_Tooltip_ability_fire_temple_volcano_drake_ai"		"True Strike"
+		"DOTA_Tooltip_ability_fire_temple_volcano_drake_ai_Description"	"Атаки никогда не промахиваются."	
+
+		"fire_temple_blackguard_doombringer"					"Черный страж - Каратель"
+
+		"fire_temple_molten_war_knight"							"Огненный рыцарь"
+
+		"fire_temple_secret_fanatic"							"Тайный фанатик"
+
+		"DOTA_Tooltip_ability_fire_temple_blackguard_doombringer_ai"		"Материальная пустота"
+		"DOTA_Tooltip_ability_fire_temple_blackguard_doombringer_ai_Description"	"Опустошает души ближайших целей, снижая их скорость передвижения и урон."
+		"DOTA_Tooltip_ability_fire_temple_blackguard_doombringer_ai_movespeed_slow"	"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_fire_temple_blackguard_doombringer_ai_attack_damage_reduction"	"СНИЖЕНИЕ УРОНА, %:"
+
+		"DOTA_Tooltip_modifier_blackguard_doombringer_debuff"				"Материальная пустота"
+		"DOTA_Tooltip_modifier_blackguard_doombringer_debuff_Description"	"Снижение скорости передвижения и урона."
+
+		"fire_temple_burning_prisoner"							"Древний дух огня"
+
+		"DOTA_Tooltip_ability_fire_temple_molten_knight_stun_burst"				"Рокочущее ядро"
+		"DOTA_Tooltip_ability_fire_temple_molten_knight_stun_burst_Description"	"Будучи оглушенным, постоянно выпускает огромные смертельные взрывы, оглушающие цели и наносящие им урон."
+		"DOTA_Tooltip_ability_fire_temple_molten_knight_stun_burst_stun_duration" "ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+
+		"DOTA_Tooltip_ability_fire_temple_armor_gain_on_attack"				"Несокрушимая броня"
+		"DOTA_Tooltip_ability_fire_temple_armor_gain_on_attack_Description"	"Каждый раз, получая урон, появляется заряд способности. Каждый заряд увеличивает показатель брони."
+		"DOTA_Tooltip_ability_fire_temple_armor_gain_on_attack_armor_per_stack"	"БРОНИ ЗА ЗАРЯД:"
+
+		"DOTA_Tooltip_modifier_fire_temple_armor_gain_stacks"					"Несокрушимая броня"		
+		"DOTA_Tooltip_modifier_fire_temple_armor_gain_stacks_Description"		"Показатель брони увеличен."
+
+		"DOTA_Tooltip_ability_fire_temple_chaos_knight_bolt"					"Удар хаоса"
+		"DOTA_Tooltip_ability_fire_temple_chaos_knight_bolt_Description"		"Оглушает и наносит урон самой дальней цели. Выбирает наиболее дальнюю возможную цель для атаки."
+		"DOTA_Tooltip_modifier_stun_duration"									"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+
+		"DOTA_Tooltip_ability_fire_temple_red_dragon_blood"					"Кровь красного дракона"
+		"DOTA_Tooltip_ability_fire_temple_red_dragon_blood_Description"		"Если в радиусе 550 юнитов нет вражеских героев, восстанавливает здоровье и получает доп. броню."
+		"DOTA_Tooltip_ability_fire_temple_red_dragon_blood_armor"				"ДОП.БРОНЯ:"				
+		"DOTA_Tooltip_ability_fire_temple_red_dragon_blood_health_regen"		"РЕГЕН. ЗДОРОВЬЯ:"
+
+		"DOTA_Tooltip_modifier_fire_temple_red_dragon_blood_effect" 			"Кровь красного дракона"
+		"DOTA_Tooltip_modifier_fire_temple_red_dragon_blood_effect_Description"	"Восстанавливается здоровье и увеличена броня."
+
+		"fire_temple_lost_shadow_of_davion"									"Потерянная тень Дэвиона"
+
+		"DOTA_Tooltip_ability_fire_temple_flame_ring"							"Пламенный взрыв"
+		"DOTA_Tooltip_ability_fire_temple_flame_ring_Description"				"Покрывает ближайших врагов потоком яркого пламени."
+
+		"DOTA_Tooltip_ability_fire_temple_relic_seeker_ai"						"Уклонение"
+		"DOTA_Tooltip_ability_fire_temple_relic_seeker_ai_Description"			"Шанс уклониться от атак."	
+		"DOTA_Tooltip_ability_fire_temple_relic_seeker_ai_evasion"				"ШАНС УКЛОНЕНИЯ %:"	
+
+		"DOTA_Tooltip_ability_fire_temple_shadow_strike"						"Удар тени"
+		"DOTA_Tooltip_ability_fire_temple_shadow_strike_Description"			"Мгновенно перемещается за спину цели и наносит дополнительный магический урон."
+		"DOTA_Tooltip_ability_fire_temple_shadow_strike_damage"				"ДОП.МАГ.УРОН:"
+
+		"DOTA_Tooltip_ability_fire_temple_steadfast"							"Стойкость"
+		"DOTA_Tooltip_ability_fire_temple_steadfast_Description"				"Любой полученный урон не может нанести больше, чем определенный % от макс. здоровья."
+		"DOTA_Tooltip_ability_fire_temple_steadfast_max_damage"				"МАКСИМАЛЬНЫЙ УРОН НЕ БОЛЕЕ % ОТ МАКС ЗДОРОВЬЯ:"
+
+		"DOTA_Tooltip_ability_fire_temple_frenzy"								"Безумие"
+		"DOTA_Tooltip_ability_fire_temple_frenzy_Description"					"Каждая успешная атака по цели добавляет заряд способности. Каждый заряд увеличивает скорость атаки и передвижения."	
+		"DOTA_Tooltip_ability_fire_temple_frenzy_attack_speed_per_stack"		"СКОРОСТЬ АТАКИ ЗА ЗАРЯД:"
+		"DOTA_Tooltip_ability_fire_temple_frenzy_movespeed_per_stack"			"СКОРОСТЬ ПЕРЕДВИЖЕНИЯ ЗА ЗАРЯД:"
+
+		"DOTA_Tooltip_modifier_frenzy_buff_effect"								"Безумие"
+		"DOTA_Tooltip_modifier_frenzy_buff_effect_Description"					"Скорость атаки и передвижения увеличены"	
+
+		"DOTA_Tooltip_ability_yojimbo_flame_guard"								"Пылающий страж"
+		"DOTA_Tooltip_ability_yojimbo_flame_guard_Description"					"Создаёт защитный покров из огня, поглощяющий магический урон и наносящий ближайшим врагам огненный урон."
+		"DOTA_Tooltip_ability_yojimbo_flame_guard_absorb_amount"				"ПОГЛОЩЕНИЕ МАГ. УРОНА:"
+		"DOTA_Tooltip_ability_yojimbo_flame_guard_damage_per_second"			"ОГНЕННЫЙ УРОН В СЕКУНДУ:"
+
+		"DOTA_Tooltip_ability_yojimbo_searing_chains"							"Жгучие цепи"
+		"DOTA_Tooltip_ability_yojimbo_searing_chains_Description"				"Связывает, обезоруживает и наносит урон 2-м ближайшим врагам."
+		"DOTA_Tooltip_ability_yojimbo_searing_chains_chains_damage"			"ОГНЕННЫЙ УРОН В СЕКУНДУ:"
+
+		"disciple_of_yojimbo"													"Ученик Йоджимбо"
+		"yojimbo_boss"															"Йоджимбо"
+
+		"fire_temple_tempered_warrior"											"Закалённый воин"
+
+		"DOTA_Tooltip_ability_fire_temple_agility_aura"						"Снижение Ловкости"
+		"DOTA_Tooltip_ability_fire_temple_agility_aura_Description"			"Уменьшает показатель Ловкости и скорости передвижения всех ближайших врагов. Дополнительно дарует хозяину скорость передвижения."
+		"DOTA_Tooltip_ability_fire_temple_agility_aura_movespeed_slow"			"АУРА СНИЖЕНИЯ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_fire_temple_agility_aura_agilty_loss"			"АУРА СНИЖЕНИЯ ЛОВКОСТИ:"
+		"DOTA_Tooltip_ability_fire_temple_agility_aura_movespeed_bonus"		"ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ ХОЗЯИНУ:"		
+
+		"DOTA_Tooltip_ability_fire_temple_omni_slash"							"Танец клинков"
+		"DOTA_Tooltip_ability_fire_temple_omni_slash_Description"				"Мгновенно перемещается к 2 целям и наносит рассекающий удар с воздуха."
+		"DOTA_Tooltip_ability_fire_temple_omni_slash_omni_slash_damage"		"ДОП. УРОН:"
+
+		"DOTA_Tooltip_ability_fire_temple_blade_fury"							"Гнев клинка"
+		"DOTA_Tooltip_ability_fire_temple_blade_fury_Description"				"Быстро вращается, нанося урон близкостоящим вранам. Во время действия невосприимчив к магии."
+		"fire_temple_mad_rito"													"Дикий огненный танцор"
+
+		"DOTA_Tooltip_modifier_agility_aura_effect"							"Снижение Ловкости"
+		"DOTA_Tooltip_modifier_agility_aura_effect_Description"				"Показатель Ловкости снижен, скорость передвижения снижена."
+
+		"DOTA_Tooltip_ability_fire_temple_evasion"								"Уклонение"
+		"DOTA_Tooltip_ability_fire_temple_evasion_Description"					"Имеет небольшой шанс уклониться от обычных атак."	
+		"DOTA_Tooltip_ability_fire_temple_evasion_evasion"						"ШАНС УКЛОНЕНИЯ:"	
+
+		"DOTA_Tooltip_ability_fire_core_bite"									"Пламенный укус"
+		"DOTA_Tooltip_ability_fire_core_bite_Description"						"Небольшой огненный удар, снижающий скорость передвижения. Складывается с другими подобными эффектами."
+		"DOTA_Tooltip_ability_fire_core_bite_move_slow"						"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ ЗА ЗАРЯД:"	
+
+		"DOTA_Tooltip_modifier_core_bite_effect"								"Пламенный укус"
+		"DOTA_Tooltip_modifier_core_bite_effect_Description"					"Незначительное снижение скорости передвижения."
+
+		"DOTA_Tooltip_ability_fire_temple_fireling_ability"					"Обжигающие атаки"
+		"DOTA_Tooltip_ability_fire_temple_fireling_ability_Description"		"Каждая атака наделяет цель дебафом, наносящим огненный урон"	
+		"DOTA_Tooltip_ability_fire_temple_fireling_ability_burn_dps"			"ОГНЕНнЫЙ УРОН В СЕКУНДУ:"
+
+		"DOTA_Tooltip_ability_fire_temple_hulk_swipe_ability"					"Удар лавового гиганта"
+		"DOTA_Tooltip_ability_fire_temple_hulk_swipe_ability_Description"		"Атаки оглушают цели на 0.3 секунды и наносят доп. магический урон."
+		"DOTA_Tooltip_ability_fire_temple_hulk_swipe_ability_damage"			"УРОН:"
+
+		"DOTA_Tooltip_ability_fire_temple_lucent_beam"							"Лунный луч"
+		"DOTA_Tooltip_ability_fire_temple_lucent_beam_Description"				"Луч лунной энергии наносит урон целям и оглушает их."
+
+		"DOTA_Tooltip_ability_fire_temple_darkness_aura"						"Аура тьмы"
+		"DOTA_Tooltip_ability_fire_temple_darkness_aura_Description"			"Снижает дальность обзора всех ближайших врагов."
+		"DOTA_Tooltip_ability_fire_temple_darkness_aura_vision_decrease"		"СНИЖЕНИЕ ДАЛЬНОСТИ ОБЗОРА:"
+
+		"DOTA_Tooltip_modifier_darkness_aura_effect"							"Аура тьмы"
+		"DOTA_Tooltip_modifier_darkness_aura_effect_Description"				"Дальность обзора снижена"
+
+		"fire_temple_final_wave_mob"											"Огненное ядро"
+
+		"fire_temple_seer_of_solos"											"Провидец Солос"
+
+		"DOTA_Tooltip_ability_fire_temple_strength_aura"						"Присутствие Солнца"
+		"DOTA_Tooltip_ability_fire_temple_strength_aura_Description"			"Снижает показатель Силы ближайших врагов"	
+		"DOTA_Tooltip_ability_fire_temple_strength_aura_strength_loss"			"СНИЖЕНИЕ СИЛЫ:"	
+
+		"DOTA_Tooltip_ability_fire_temple_nuclear_solos"						""
+		"DOTA_Tooltip_ability_fire_temple_nuclear_solos_Description"			"Creates solar flares that stun and damage for the duration of the Spell."
+		"DOTA_Tooltip_ability_fire_temple_nuclear_solos_duration"				"DURATION:"
+
+		"DOTA_Tooltip_modifier_nuclear_solos"									"Ядерный Солос"
+		"DOTA_Tooltip_modifier_nuclear_solos_Description"						"Создаёт солнечные вспышки"	
+
+		"DOTA_Tooltip_ability_fire_temple_solos_ai"							"Огненный барьер"
+		"DOTA_Tooltip_ability_fire_temple_solos_ai_Description"				"Наделяется доп. сопротивлением магии"
+		"DOTA_Tooltip_ability_fire_temple_solos_ai_magic_resist"				"ДОП. СОПРОТИВЛЕНИЕ МАГИИ:"	
+
+		"DOTA_Tooltip_ability_solos_burning_spear"								"Горящие копья"
+		"DOTA_Tooltip_ability_solos_burning_spear_Description"					"Атаки добавляют цели заряд огненного урона."
+
+		"fire_temple_fire_mage"												"Маг Огня"
+
+		"DOTA_Tooltip_ability_fire_temple_dragon_slave"						"Обжигающий дракон"
+		"DOTA_Tooltip_ability_fire_temple_dragon_slave_Description"			"Выпускает волну огня."
+
+		"DOTA_Tooltip_ability_fire_temple_curse_of_combustion"					"Проклятье ожогов"
+		"DOTA_Tooltip_ability_fire_temple_curse_of_combustion_Description"		"Проклинает цель, срабатывая каждый раз, когда во время действия эффекта ею будет произнесено заклинание. Во время срабатывания цель и стоящие рядом враги получат урон и будут оглушены на 1.5 секунды."
+		"DOTA_Tooltip_ability_fire_temple_curse_of_combustion_curse_duration"	"ДЛИТЕЛЬНОСТЬ ПРОКЛЯТЬЯ:"
+
+		"DOTA_Tooltip_modifier_curse_of_combustion"							"Проклятье ожогов"
+		"DOTA_Tooltip_modifier_curse_of_combustion_Description"				"Использование любой способности во время действия этого эффекта вызовет взрыв, наносящий урон по области вокруг и оглушая задетых на 1.5 секунды."
+
+		"DOTA_Tooltip_ability_fire_temple_fire_mage_ai"						"Расплавление оружия"
+		"DOTA_Tooltip_ability_fire_temple_fire_mage_ai_Description"			"Снижает получаемый физический урон."
+		"DOTA_Tooltip_ability_fire_temple_fire_mage_ai_damage_reduction_percent"	"СНИЖЕНИЕ ФИЗ.УРОНА, %:"
+
+		"fire_temple_lumos_ascender"											"Сияющий Восход"
+
+		"DOTA_Tooltip_ability_fire_temple_lava_burst"							"Поток лавы"
+		"DOTA_Tooltip_ability_fire_temple_lava_burst_Description"				"Наносит урон цели и оглушает на короткий промежуток времени. Снижает урон цели на 3.5 секунды."
+		"DOTA_Tooltip_ability_fire_temple_lava_burst_stun_duration"			"ВРЕМЯ ОГЛУШЕНИЯ:"
+		"DOTA_Tooltip_ability_fire_temple_lava_burst_damage_reduction_percent"	"СНИЖЕНИЕ УРОНА:"
+
+		"DOTA_Tooltip_modifier_lava_burst_debuff"								"Поток лавы"
+		"DOTA_Tooltip_modifier_lava_burst_debuff_Description"					"Урон снижен"	
+
+		"fire_temple_protective_spirit"										"Дух - страж"
+
+		"DOTA_Tooltip_ability_fire_temple_protector_death_ability"							"Бесконечная оборона"
+		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_Description"					"При смерти, исцеляет любого случайного Духа - Стража, дополнительно усиляя урон, броню и скорость передвижения."
+		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_armor_bonus"					"ДОП.БРОНЯ ЗА ЗАРЯД:"
+		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_attack_power_bonus_percent"		"УРОН ЗА ЗАРЯД:"
+		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_movespeed_bonus"				"ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ ЗА ЗАРЯД:"
+		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_heal_percent"					"ИСЦЕЛЕНИЕ СОЮЗНИКОВ, %:"
+
+
+		"DOTA_Tooltip_modifier_death_ability_buff"							"Бесконечная оборона"
+		"DOTA_Tooltip_modifier_death_ability_buff_Description"				"Усиляет ближайших союзников при смерти."
+
+		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability"				"Пожирающее пламя"
+		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_Description"	"Каждый раз, получая урон, сила существа увеличивается."
+		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_damage_percentage"	"ДОП.УРОН ЗА ЗАРЯД, %:"
+		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_movespeed_bonus"	"ДОП.СКОРОСТЬ ПЕРЕДВИЖЕНИЯ ЗА ЗАРЯД:"
+		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_attackspeed_bonus"	"ДОП. СКОРОСТЬ АТАКИ ЗА ЗАРЯД:"
+
+		"DOTA_Tooltip_modifier_flame_wraith_buff"							"Пожирающее пламя"
+		"DOTA_Tooltip_modifier_flame_wraith_buff_Description"				"Урон, скорость атаки и передвижения увеличены."	
+
+		"fire_temple_flame_wraith"										"Огненный дух"
+
+		"fire_temple_lava_caller"											"Лавовый дух"
+
+		"fire_temple_flame_wraith_lord"									"Лорд огненных духов"
+
+		"DOTA_Tooltip_ability_fire_temple_kolthun_ai"										"Красный контракт"
+		"DOTA_Tooltip_ability_fire_temple_kolthun_ai_Description"							"Нерушимый долг перед Лордом огненных духов"
+
+		"DOTA_Tooltip_ability_fire_temple_fire_ring"					"Огненное Гало"
+		"DOTA_Tooltip_ability_fire_temple_fire_ring_Description"		"Создаёт кольцо пламени вокруг себя, сжигая всех задетых врагов."	
+
+		"DOTA_Tooltip_modifier_fire_ring_impact"					"Огненное Гало"
+		"DOTA_Tooltip_modifier_fire_ring_impact_Description"		"Вы горите!"
+
+		"DOTA_Tooltip_modifier_modifier_fire_ring"					"Огненное Гало"
+
+		"DOTA_Tooltip_ability_kolthun_dragon_slave"					"Огненный поток"
+		"DOTA_Tooltip_ability_kolthun_dragon_slave_Description"		"Выпускает огненных драконов в указанную область."
+
+		"flame_worshipper_kolthun"									"Заговорщик огня Кол'Тан"
+
+		"DOTA_Tooltip_modifier_kolthun_shield"						"Щит Огненного Лорда"
+		"DOTA_Tooltip_modifier_kolthun_shield_Description"			"Каждый заряд полностью поглощает любой входящий урон."
+
+		"fire_temple_neverlord_reborn"								"Лорд Neverlord"
+
+		"DOTA_Tooltip_ability_firelord_ability_ai"					"Первый огонь"
+
+		"DOTA_Tooltip_modifier_firelord_shield"						"Щит Огненного Лорда"
+		"DOTA_Tooltip_modifier_firelord_shield_Description"			"Каждый заряд полностью поглощает любой входящий урон."
+
+		"DOTA_Tooltip_ability_neverlord_raze"						"Разрушающее пламя"
+		"DOTA_Tooltip_ability_neverlord_raze_Description"			"Создаёт мощную огненную вспышку в указанной точке, которая наносит огромный магический урон при попадании."
+
+		"DOTA_Tooltip_ability_wind_temple_wind_prophet_ai"					"Щит просвящения"
+		"DOTA_Tooltip_ability_wind_temple_wind_prophet_ai_Description"		"При получении урона, сжигает часть маны и наносит урон атакующему. Пассивно наделяет сопротивлением к урону из любых источников."
+		"DOTA_Tooltip_ability_wind_temple_wind_prophet_ai_damage_reduction"	"СНИЖЕНИЕ УРОНА, %:"
+		"DOTA_Tooltip_ability_wind_temple_wind_prophet_ai_mana_drain"		"СЖИГАЕТ МАНЫ, %:"
+
+		"wind_temple_rare_wind_prophet"								"Пророк Ветра"
+
+		"fire_temple_rare_blackguard_centaur"						"Черный Страж - Кентавр"
+
+		"DOTA_Tooltip_ability_fire_temple_hoof_stomp"				"Топот копыт"
+		"DOTA_Tooltip_ability_fire_temple_hoof_stomp_Description"	"Наносит урон и через небольшой промежуток времени оглушает."
+		"DOTA_Tooltip_ability_fire_temple_hoof_stomp_stun_duration"	"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		"DOTA_Tooltip_ability_fire_temple_hoof_stomp_stomp_damage"	"УРОН:"
+
+		"DOTA_Tooltip_ability_fire_temple_centaur_warcry"			"Боевой клич Кентавра"
+		"DOTA_Tooltip_ability_fire_temple_centaur_warcry_Description"	"Увеличивает скорость атаки и передвижения себе и всем союзникам неподалёку."
+		"DOTA_Tooltip_ability_fire_temple_centaur_warcry_movespeed"	"ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_fire_temple_centaur_warcry_attackspeed"	"ДОП. СКОРОСТЬ АТАКИ:"
+
+		"DOTA_Tooltip_modifier_centaur_war_cry"					"Боевой клич Кентавра"
+		"DOTA_Tooltip_modifier_centaur_war_cry_Description"		"Скорость атаки и передвижения увеличены."
+
+		"water_temple_rare_wrath_of_the_water_king"				"Гнев Водного Короля"
+
+		"DOTA_Tooltip_ability_water_temple_rare_wrath_ai"		"Приливная волна"
+		"DOTA_Tooltip_ability_water_temple_rare_wrath_ai_Description"	"Пассивно выпускает огромные потоки воды, наносящие урон и замедляющие врагов."
+		"DOTA_Tooltip_ability_water_temple_rare_wrath_ai_moveslow"		"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ %:"
+		"DOTA_Tooltip_ability_water_temple_rare_wrath_ai_attack_slow"	"СНИЖЕНИЕ СКОРОСТИ АТАКИ %:"
+
+		"DOTA_Tooltip_modifier_water_temple_rare_wrath_soak"	"Приливная волна"
+		"DOTA_Tooltip_modifier_water_temple_rare_wrath_soak_Description"	"Снижение скорости атаки и передвижения."
+
+
+		"wind_temple_rare_falcon_warden"							"Соколиный страж"
+
+		"DOTA_Tooltip_ability_fire_temple_rare_falcon_warder_ai"	"Соколиный страж"
+		"DOTA_Tooltip_ability_fire_temple_rare_falcon_warder_ai_Description"	"Наделяется сильным сопротивлением магии, дополнительно выпускает поток серебряных соколов в ближайшего врага."
+		"DOTA_Tooltip_ability_fire_temple_rare_falcon_warder_ai_magic_resistance"	"СОПРОТИВЛЕНИЕ МАГИИ:"
+
+
+		"DOTA_Tooltip_ability_water_temple_rare_water_construct_ai"		"Приливная волна"
+		"DOTA_Tooltip_ability_water_temple_rare_water_construct_ai_Description"	"Пассивно выпускает огромные потоки воды, наносящие урон и замедляющие врагов."
+		"DOTA_Tooltip_ability_water_temple_rare_water_construct_ai_moveslow"		"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ %:"
+		"DOTA_Tooltip_ability_water_temple_rare_water_construct_ai_attack_slow"	"СНИЖЕНИЕ СКОРОСТИ АТАКИ %:"
+
+		"water_temple_rare_water_construct"								"Древний водяной страж"
+
+		"wind_temple_descendant_of_zeus"								"Потомок Зевса"
+
+		"tanari_thicket_ursa"											"Медведь Джунглей Танари"
+
+		"tanari_ancient_hero"											"Древний Бог"
+
+		"DOTA_Tooltip_ability_ancient_god_wind_blink_ability"				"Wind Blink"
+		"DOTA_Tooltip_ability_ancient_god_wind_blink_ability_Description"	"Позволяет мгновенно перемещаться на неограниченное расстояние."
+
+		"DOTA_Tooltip_ability_ancient_god_wind_dodge_ability"				"Gale Haste"
+		"DOTA_Tooltip_ability_ancient_god_wind_dodge_ability_Description"	"Позволяет быстро перемещаться."
+
+		"DOTA_Tooltip_ability_ancient_god_water_vortex"						"Water Vortex"
+		"DOTA_Tooltip_ability_ancient_god_water_vortex_Description"			"Стягивает всех врагов в большом радиусе к себе."
+
+		"DOTA_Tooltip_ability_tanari_ancient_hero_wind_god"					"Wind God"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_wind_god_Description"		"Сила Ветра наделяет Древнего Бога иммунитетом к магическому и чистому урону."
+		"DOTA_Tooltip_ability_tanari_ancient_hero_wind_god_attack_speed"	"ДОП. СКОРОСТЬ АТАКИ:"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_wind_god_movespeed"		"ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_wind_god_evasion"			"ДОП. УКЛОНЕНИЕ:"
+
+		"DOTA_Tooltip_ability_ancient_god_steadfast"							"Ancient Steadfast"
+		"DOTA_Tooltip_ability_ancient_god_steadfast_Description"				"Любой входящий урон не превышает определённый % от макс. здоровья."
+		"DOTA_Tooltip_ability_ancient_god_steadfast_max_damage"				"МАКС. УРОН, % ОТ МАКС. ЗДОРОВЬЯ:"
+
+		"DOTA_Tooltip_ability_ancient_god_dragon_slave"					"Fire Wave"
+		"DOTA_Tooltip_ability_ancient_god_dragon_slave_Description"		"Обжигающий дракон летит вперёд, нанося урон всем задетым врагам."
+
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_vortex"					"Fire Vortex"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_vortex_Description"		"Пылающее пламя постоянно исходит от Древнего Бога по спирали."
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_vortex_impact_damage"	"ОГНЕННЫЙ УРОН (ПРИ ПОПАДАНИИ):"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_vortex_burn_damage"		"ОГНЕННЫЙ УРОН (ГОРЕНИЕ) / 0.5s:"
+
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_god"					"Fire God"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_god_Description"		"Сила Огня наделяет Древнего Бога иммунитетом к физическому и чистому урону. Атаки сильно снижают броню врагов."
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_god_attack_damage_percent"	"ДОП. УРОН %:"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_god_attack_range"		"ДОП. РАДИУС АТАКИ:"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_god_armor_break"		"СНИЖЕНИЕ БРОНИ:"
+
+		"DOTA_Tooltip_modifier_fire_god_armor_break"					"Fire God Armor Break"
+		"DOTA_Tooltip_modifier_fire_god_armor_break_Description"		"Снижено значение брони"
+
+		"DOTA_Tooltip_ability_tanari_ancient_hero_water_god"					"Water God"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_water_god_Description"		"Сила Воды наделяет Древнего Бога иммунитетом к физическому и магическому урону."
+		"DOTA_Tooltip_ability_tanari_ancient_hero_water_god_hp_regen_percent"	"HEALTH REGEN %:"
+
+		"DOTA_Tooltip_ability_ancient_water_god_passive"						"Waveburst"
+		"DOTA_Tooltip_ability_ancient_water_god_passive_Description"			"Выпускает мощные потоки воды."

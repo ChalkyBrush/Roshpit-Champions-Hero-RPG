@@ -38,6 +38,8 @@
     	"DOTA_Tooltip_ability_seinaru_rune_q_4_property_one"			"Доп. урон умения"
     	"DOTA_Tooltip_ability_seinaru_rune_q_4_suffix"					"% от урона героя"
 		
+    	"Tooltip_seinaru_w"											"Hands of Hikari"
+
 		"DOTA_Tooltip_ability_seinaru_rune_w_1"							"[W1] Circle of Wind"
 		"DOTA_Tooltip_ability_seinaru_rune_w_1_Description"				"@Ability2 высвобождают поток светлой энергии замедляя скорость передвижения и атаки врагов на <% SEINARU_W1_MOV_SLOW_BASE %> на <% SEINARU_W1_DUR_BASE %> секунды. Дополнительно увеличивает наносимый героем пост-резистный урон по задетым врагам. Эффект складывается неограниченное количество раз."
 		"DOTA_Tooltip_ability_seinaru_rune_w_1_property_one"			"Доп. пост-резистный урон"
@@ -58,9 +60,6 @@
 		"DOTA_Tooltip_modifier_seinaru_rune_w_3_shield"				"Four Winds"
 		"DOTA_Tooltip_modifier_seinaru_rune_w_3_shield_Description"	"Укрыт щитом, поглощающим урон"
 
-    	"DOTA_Tooltip_modifier_seinaru_rune_w_3"						"Blade of Light"
-    	"DOTA_Tooltip_modifier_seinaru_rune_w_3_Description"			"Вампиризм от основных атак."
-		
     	"DOTA_Tooltip_ability_seinaru_rune_w_4"							"[W4] Light of Wisdom"
     	"DOTA_Tooltip_ability_seinaru_rune_w_4_Description"				"Показатель Ловкости Seinaru увеличивает эффект исцеления от @Ability2 и урон стихии <font color=\"#7AE2A7\">Ветра</font>."
     	"DOTA_Tooltip_ability_seinaru_rune_w_4_property_one"			"Усиление урона и исцеления на "
@@ -72,7 +71,7 @@
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_suffix"					"%"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_property_two"			"Макс. целей"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_suffix_two"				""
-
+		
     	"DOTA_Tooltip_ability_seinaru_rune_e_2"						"[E2] Wakizashi"
     	"DOTA_Tooltip_ability_seinaru_rune_e_2_Description"			"По приземлении после @Ability3 герой начинает быстро вращаться в течение 2.5 секунд. В это время Seinaru невосприимчив к любому урону и исцеляет себя усиленным умением @Ability2 каждые 0.5 секунды."
     	"DOTA_Tooltip_ability_seinaru_rune_e_2_property_one"			"Усиление исцеления"
@@ -82,8 +81,8 @@
 
     	"DOTA_Tooltip_modifier_seinaru_b_c_wakizashi"				"Wakizashi"
     	"DOTA_Tooltip_modifier_seinaru_b_c_wakizashi_Description"	"Невосприимчив к урону."
-		
-		"DOTA_Tooltip_ability_seinaru_rune_e_3"						"[E3] Spiral Leap"
+
+    	"DOTA_Tooltip_ability_seinaru_rune_e_3"						"[E3] Spiral Leap"
     	"DOTA_Tooltip_ability_seinaru_rune_e_3_Description"			"После прочтения (E) Odachi Leap, умение будет заменено на (E) Spiral Leap, которое позволяет герою прыгнуть в указанную точку. Во время прыжка невосприимчив к магии и может уклониться от атак и заклинаний."
     	"DOTA_Tooltip_ability_seinaru_rune_e_3_property_one"			"Макс. дальность прыжка"
     	"DOTA_Tooltip_ability_seinaru_rune_e_3_suffix"					""
@@ -94,7 +93,7 @@
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_suffix"					""
 	 	"DOTA_Tooltip_ability_seinaru_rune_e_4_property_two"			"Доп. урон Света"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_suffix_two"				"% за каждые 10 очков брони ниже нуля"
-
+		
 		"DOTA_Tooltip_ability_seinaru_gorudo"						"Gorudo"
 		"DOTA_Tooltip_ability_seinaru_gorudo_Description"			"Seinaru превращается в золото, обретая иммунитет к магии и увеличивая свой урон."
 		"DOTA_Tooltip_ability_seinaru_gorudo_duration"			"ДЛИТЕЛЬНОСТЬ:"
@@ -102,14 +101,14 @@
 
 		"DOTA_Tooltip_modifier_monk_ulti_gorudo"					"Gorudo"
 		"DOTA_Tooltip_modifier_monk_ulti_gorudo_Description"		"Иммунитет к магии"
-		
-		"DOTA_Tooltip_ability_seinaru_rune_r_1"						"[R1] Armor Piercing"
+
+    	"DOTA_Tooltip_ability_seinaru_rune_r_1"						"[R1] Armor Piercing"
     	"DOTA_Tooltip_ability_seinaru_rune_r_1_Description"			"Обычные атаки Seinaru значительно снижают броню врагов на 8 секунд.<br>Эффект не будет снижать броню ниже 0.<br>Эффект применяется перед атакой."
     	"DOTA_Tooltip_ability_seinaru_rune_r_1_property_one"			"Макс. снижение брони"
     	"DOTA_Tooltip_ability_seinaru_rune_r_1_suffix"					""
 
     	"DOTA_Tooltip_modifier_seinaru_gorudo_rune_r_1"				"Armor Piercing"
-		
+
     	"DOTA_Tooltip_ability_seinaru_rune_r_2"						"[R2] Duelist Ring"
     	"DOTA_Tooltip_ability_seinaru_rune_r_2_Description"			"После прочтения @Ability4, от героя исходит кольцо света, которое постепенно расширяется. Seinaru получает на 80% меньше урона от врагов, находящихся в кольце."
     	"DOTA_Tooltip_ability_seinaru_rune_r_2_property_one"			"Длительность кольца"
@@ -132,8 +131,6 @@
 
     	"DOTA_Tooltip_modifier_seinaru_rune_r_3_effect"				"Dexterity"
     	"DOTA_Tooltip_modifier_seinaru_rune_r_3_effect_Description"	"Увеличен урон от ловкости"
-
-    	"Tooltip_seinaru_w"											"Hands of Hikari"
 
     	"DOTA_Tooltip_ability_seinaru_rune_r_4"						"[R4] Trial of Valor"
     	"DOTA_Tooltip_ability_seinaru_rune_r_4_Description"			"Враги, находящиеся внутри кольца от руны [R2] получают дополнительный урон от Seinaru."

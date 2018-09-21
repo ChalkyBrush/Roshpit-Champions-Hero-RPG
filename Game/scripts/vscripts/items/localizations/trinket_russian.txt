@@ -3,11 +3,305 @@
 		"item_property_blacksmiths_tablet"			"Refined Weaponry"
 		"property_blacksmiths_tablet_description"	"Бонусы оружия (включая руны) увеличиваются на <% BLACKSMITH_TABLE_ADD_STATS_PCT * 100%>%. Дополнительно увеличивает получаемый оружием опыт на <% BLACKSMITH_TABLE_ADD_WEAPON_EXP * 100 %>%."
 
+		
 		"DOTA_Tooltip_ability_item_rpc_hope_of_saytaru"									"Hope of Saytaru"
 		"item_property_saytaru"						"Last Hope"
 		"property_saytaru_description"				"Когда здоровье опускается ниже <% SAYTARU_HP_THRESHOLD_PCT * 100 %>% дарует иммунитет к магии, увеличивает сопротивление Чистому урону на <% SAYTARU_PURE_DMG_RESISTANCE * 100 %>%, но уменьшает Магический и Чистый исходящий урон на <% SAYTARU_OUTPUT_PURE_AND_MAGIC_DMG_DECREASE * 100 %>%."
 
+		
 		"DOTA_Tooltip_ability_item_rpc_sapphire_lotus"									"Sapphire Lotus"
 		"item_property_sapphire_lotus"				"Sapphire Soul"
 		"property_sapphire_lotus_description"		"Каждое очко интеллекта увеличивает запас здоровья на <% SAPPHIRE_LOTUS_HP_PER_INT %>."
 
+		
+		"DOTA_Tooltip_ability_item_rpc_conquest_stone_falcon" 							"Conquest Stone Falcon"
+		"item_property_stone_falcon"						"Gift of the Reliquary"
+		"property_stone_falcon_description"				"Любой входящий Магический или Чистый урон не может отнять больше 35% от Макс. здоровья героя."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_never_ring"										"Soul Ring"
+    	"DOTA_Tooltip_ability_item_rpc_never_ring_Description"							"Слот: Украшение"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_sand_tomb_orb"									"Fangs of Silithicus"
+		"DOTA_Tooltip_ability_item_rpc_sand_tomb_orb_Description"						"Слот: Украшение"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_badge_of_honor"									"Badge of Honor"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_monkey_paw"										"Monkey Paw"
+		"item_property_monkey_paw"					"Wishful Curse"
+		"property_monkey_paw_description"			"Если в радиусе 600 от героя умирает монстр парагона, то после его смерти выпадут дополнительные Immortal предметы, отнимая @special_property1% от имеющегося золота. Уровень сложности на карте определяет качество выпадающих предметов, также влияя на количество отнимаемого золота (@special_property2/@special_property3/@special_property4 для сложностей Normal/Elite/Legend). Пока надет этот предмет, герой постоянно получает 1 чистого урона каждые 0.03 секунды."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_stone_of_gordon"									"Stone of Gordon"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_arbor_dragonfly"									"Arbor Dragonfly"
+		"item_property_arbor_dragonfly"				"Misty Wood's Blessing"
+		"property_arbor_dragonfly_description"		"Увеличивает длительность всех получаемых положительных усилений от умений, рун и символов на @special_property1%."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_gem_of_eternal_frost"							"Gem of Eternal Frost"
+		"item_property_eternal_frost"				"Frost Nova"
+		"property_eternal_frost_description"		"Скорость передвижения ближайших врагов снижается на 12 каждые 0.1 секунды. Когда значение их скорости станет ниже 150, они будут обездвижены на 4.5 секунды. С прочтением (E) @Ability3 все ближайшие враги в радиусе 500 будут обездвижены<br> на 2.5 секунды и получат урон, равный @special_property1x Интеллекта.<br>Весь урон, напрямую наносимый предметами увеличивается на @special_property2% за каждые 10 очков Интеллекта."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_lifesource_vessel"								"Lifesource Vessel"
+		"item_property_lifesource_vessel"			"Lifesource"
+		"property_lifesource_vessel_description"	"Каждое очко силы увеличивает реген. здоровья на 0.3"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_galaxy_orb"										"Galaxy Orb"
+		"item_property_galaxy_orb"					"Black Hole"
+		"property_galaxy_orb_description"			"Во время произнесения способности (R) @Ability4 - все окружающие враги будут медленно стянуты к вам."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_azure_empire"									"Pendant of the Azure Empire"
+		"item_property_azure_empire"				"Sky Magistrate"
+		"property_azure_empire_description"			"3 лазурных сокола следуют за героем. Каждый сокол может поглотить любой входящий магический или чистый урон. Время восстановления соколов - @special_property1 сек после получения урона."
+		"item_property_azure_empire_silver"				"Silver Skies"
+		"property_azure_empire_silver_description"	"Каждый живой сокол увеличивает базовый урон умений на @special_property2%"
+		"item_property_azure_empire_green"				"Jade Skies"
+		"property_azure_empire_green_description"	"Каждый живой сокол увеличивает Ловкость на значение, равное @special_property3x уровня героя."
+		"item_property_azure_empire_red"				"Crimson Skies"
+		"property_azure_empire_red_description"	"Каждый живой сокол увеличивает Силу на значение, равное @special_property3x уровня героя."
+		"item_property_azure_empire_blue"				"Cerulean Skies"
+		"property_azure_empire_blue_description"	"Каждый живой сокол увеличивает Интеллект на значение, равное @special_property3x уровня героя."
+		"DOTA_Tooltip_modifier_azure_empire_visible"	"Azure Empire"
+		"DOTA_Tooltip_modifier_azure_empire_visible_Description"	"Соколы поглощают магический или чистый урон."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_signus_charm"									"Signus Charm"
+		"item_property_signus"						"Signus"
+		"property_signus_description"				"Уменьшает время восстановления способности (R) @Ability4 на 40%. Удваивает время восстановления способности (E) @Ability3."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_eye_of_avernus"									"Eye of Avernus"
+		"item_property_avernus"						"Commanding Vision"								
+		"property_avernus_description"				"Увеличивает урон от всех способностей на 50%"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_tome_of_chaos"									"Tome of Chaos"
+		"item_property_tome_of_chaos"				"Infernal Reign"
+		"property_tome_of_chaos"					"После применения способности (W) @Ability2 на поле боя появится могущественный демон, оглушая врагов на 2 секунды в месте появления. Свойства демона основаны на характеристиках призвавшего его героя. Он имеет вдвое больше здоровья, вполовину меньше брони, а атаки бьют по площади с уроном, равным пятикратной сумме всех атрибутов.<br>Демон живёт 20 секунд, после чего покидает поле битвы. Время восстановления 30 секунд."
+		"DOTA_Tooltip_modifier_tome_of_chaos_cooldown"	"Infernal Reign Cooldown"
+		"DOTA_Tooltip_modifier_tome_of_chaos_cooldown_Description"	""
+		
+		
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_torch_of_gengar"									"Torch of Gengar"
+		"item_property_gengar"						"Shadow Walk"
+		"property_gengar"							"При получении урона есть шанс 15%, что герой получит возможность уклоняться от 75% атак, ходить сквозь юнитов и увеличит базовый урон всех способностей на 300% на 6 секунд."
+		"DOTA_Tooltip_modifier_torch_of_gengar_effect"	"Shadow Walk"
+		"DOTA_Tooltip_modifier_torch_of_gengar_effect_Description"	"75%% уклонение, хождение сквозь юнитов, базовый урон способностей увеличен на 300%%."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_ruinfall_skull_token"							"Ruinfall Skull Token"
+		"item_property_ruinfall"					"Sandstorm"
+		"property_ruinfall"							"Когда здоровье опустится ниже 25%, герой будет окутан песчаной бурей, становясь невидимым и восстанавливая 20% макс. здоровья в течение 5 секунд. Во время песчаной бури герой не сможет произносить заклинания, будет обезоружен и обездвижен. Перезаряжается 40 секунд."
+		"DOTA_Tooltip_modifier_ruinfall_skull_token_cooldown" "Sandstorm Cooldown"
+		"DOTA_Tooltip_modifier_ruinfall_skull_token_cooldown_Description"	""
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_omega_ruby"										"Omega Ruby"
+		"item_property_omega_ruby"					"Omega Flare"
+		"property_omega_ruby"						"Вместе с обычными атаками происходит взрыв, наносящий магический урон в небольшой области в размере @special_property1% от нанесённого урона. Сочетается со всеми любыми видами урона по области."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"Raven Idol LV1"
+		"item_property_raven_idol"					"Black Soul"		
+		"property_raven_idol_description"			"Весь получаемый урон снижен на 40%. Уровень здоровья не поднимется выше 50% от максимума.<br>Каждый раз, когда герой получает урон, к свойству предмета добавляется 1 очко.<br>Предмет улучшится, когда значение достигнет 12000.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_raven_idol2"										"Raven Idol LV2"
+		"item_property_raven_idol2"					"Black Soul II"		
+		"property_raven_idol_description2"			"Весь получаемый урон снижен на 50%. Уровень здоровья не поднимется выше 50% от максимума. Каждые 100 очков недостающего здоровья увеличивают урон, напрямую наносимый предметами на 0.01%.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_phoenix_emblem"									"Phoenix Emblem"
+		"item_property_phoenix_emblem"				"Rebirth"
+		"property_phoenix_emblem"					"При смерти герой начинает перерождение. Через 5 секунд он возрождается, оглушая всех врагов вокруг на 5 секунд. Перезаряжается 60 секунд."
+		"DOTA_Tooltip_modifier_phoenix_emblem_cooldown"	"Перезарядка Rebirth"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_volcano_orb"										"Volcano Orb"
+		"item_property_volcano_orb"					"Fiery Core"
+		"property_volcano_orb_description"			"Увеличивает ВЕСЬ исходящий магический урон на @special_property1%"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_aeriths_tear"									"Aerith's Tear"
+		"item_property_aeriths_tear"							"Last Wish"
+		"property_aeriths_tear"									"Снижает весь получаемый урон от врагов, находящихся на расстоянии до 240 на @special_property1%"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_fractional_enhancement_geode"					"Fractional Enhancement Geode"
+		"item_property_geode"								"Logarathmic Amplification"
+		"property_geode_description"						"В случае, если ваши атаки нанесут меньше 0.2% урона от максимального показателя здоровья цели, то этот урон будет увеличен в 20 раз."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility"								"Ring of Nobility"
+		"item_property_nobility"							"Path of Nobility"
+		"property_nobility_description"						"Добавляет бонусные атрибуты в количестве, равном @special_property1x значению текущего уровня героя. Каждое убийство противника добавляет к свойству предмета 1 очко. Предмет улучшится, когда значение достигнет 10000.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility_augmented"						"Augmented Ring of Nobility"
+		"item_property_nobility_augmented"					"Strides of Nobility"
+		"property_nobility_augmented_description"			"Добавляет бонусные атрибуты в количестве, равном @special_property1x значению текущего уровня героя.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_twig_of_the_enlightened"							"Twig of the Enlightened"
+		"item_property_twig_of_enlightened"					"Mana Shell"
+		"property_twig_of_enlightened_description"			"Когда вы пополняете запас маны, создаётся щит, поглощающий урон, равный 5x значению восстановленной маны. Максимальное число поглощаемого урона не превышает 5x максимального значения маны героя."
+		"DOTA_Tooltip_modifier_twig_of_the_enlightened_shield"	"Mana Shell"
+		"DOTA_Tooltip_modifier_twig_of_the_enlightened_shield_Description"	"Поглощает урон"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_ancient_tanari_waterstone"						"Ancient Tanari Waterstone"
+		"item_property_ancient_waterstone"					"Water Goddess' Blessing"
+		"property_ancient_waterstone_description"			"Урон, напрямую наносимый надетыми предметами увеличен на @special_property1%"
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_tempest_falcon_ring"								"Tempest Falcon Ring"
+		"item_property_tempest_falcon"						"Storm Switch"
+		"property_tempest_falcon_description"				"После нанесения физического урона герой получит бафф, усиливающий следующий магический урон на 300%"
+		"DOTA_Tooltip_modifier_tempest_falcon_ring_effect"	"Storm Switch"
+		"DOTA_Tooltip_modifier_tempest_falcon_ring_effect_Description"	"Следующий магический урон будет сильнее на 300%."
+		 
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_firelock_pendant"								"Firelock Pendant"
+		"item_property_firelock"							"Steady Flame"		
+		"property_firelock_description"					"Увеличивает ВЕСЬ физический урон на @special_property1% за каждые 10 очков Силы."
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_antique_mana_relic"								"Antique Mana Relic"
+		"item_property_antique_mana_relic"					"Mana Storm"
+		"property_antique_mana_relic_description"			"Способность (Q) @Ability1 выжжет 50% вашей маны и нанесёт на 400% больше урона. Каждая базовая атака восстанавливает 2.5% маны. Каждое очко текущей маны увеличивает базовый урон героя на 1."
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_epsilons_eyeglass"								"Epsilon's Eyeglass"
+		"item_property_epsilon_eyeglass"					"Extended Scope"
+		"property_epsilon_eyeglass_description"			"Увеличивает дальность атаки на @special_property1 (ТОЛЬКО ДЛЯ ГЕРОЕВ С ДАЛЬНЕЙ АТАКОЙ), увеличивает дальность обзора на @special_property2 и увеличивает скорость полёта снаряда от атаки на @special_property3. Каждая атака наносит дополнительный физический урон, зависящий от расстояния между героем и целью.<br>(Формула: 0.00@special_property4 * уровень героя * расстояние ^ 3)<br>Максимально допустимое расстояние для получения наивысшего бонуса: @special_property5."
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_fenrirs_fang"									"Fenrir's Fang"
+		"item_property_fenrir_fang"							"Alpha Wolf Aura"
+		"property_fenrir_fang"									"Герой распространяет ауру на себя и союзников поблизости, которая повышает урон на 60%."
+		"DOTA_Tooltip_modifier_fenrir_fang_buff"				"Alpha Wolf Aura"
+		"DOTA_Tooltip_modifier_fenrir_fang_buff_Description"	"Урон увеличен"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_fuchsia_ring"									"Fuchsia Ring"
+		"item_property_fuchsia_ring"							"Solidarity"
+		"property_fuchsia_ring_description"					"В то время, пока герой подвержен эффекту оглушения или обезмолвлен, весь входящий урон снижается на @special_property1%, а регенерация здоровья увеличивается на @special_property2% от значения максимального здоровья."
+		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"Получаемый урон снижен на %property_one%%, а регенерация здоровья увеличена на %property_two%% от макс. здоровья."
+		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"Получаемый урон снижен на %property_one%%, а регенерация здоровья увеличена на %property_two%% от макс. здоровья."
+		 
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_fortunes_talisman_of_truth"						"Fortune's Talisman of Truth"
+		"item_property_fortune_talisman"						"Luck Booster"
+		"property_fortune_talisman_description"				"Увеличивает шанс срабатывания всех надетых предметов на @special_property1%"
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_cobalt_serenity_ring"							"Cobalt Serenity Ring"
+		"item_property_cobalt_serenity"						"Cobalt Serenity"
+		 "property_cobalt_serenity_description"					"Значение регенерации здоровья увеличено на @special_property1% от показателя Интеллекта."
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_emerald_nullification_ring"						"Emerald Nullification Ring"
+		"item_property_emerald_null"							"Emerald Nullification"
+		 "property_emerald_null_description"					"Получаемый чистый и магический урон снижен на @special_property1x Ловкости героя. Вычитание происходит после расчёта магического сопротивления и до всех прочих вычислений."
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_garnet_warfare_ring"								"Garnet Warfare Ring"
+		"item_property_garnet_warfare"							"Garnet Warfare"
+		 "property_garnet_warfare_description"					"Увеличивает базовый урон способностей на @special_property1% за каждые 10 очков Силы."
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_serengaard_sun_crystal"							"Serengaard Sun Crystal"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_wind_orchid"										"Wind Orchid"
+		"item_property_wind_orchid"							"Wind Bloom"
+		 "property_wind_orchid_description"						"Каждое очко руны [E4] увеличивает Ловкость на @special_property1."
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_aqua_lily"										"Aqua Lily"
+		"item_property_aqua_lily"							"Water Bloom"
+		 "property_aqua_lily_description"					"Каждое очко руны [R4] увеличивает Интеллект на @special_property1."
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_fire_blossom"									"Fire Blossom"
+		"item_property_fire_blossom"							"Fire Bloom"
+		 "property_fire_blossom_description"					"Каждое очко руны [W4] увеличивает Силу на @special_property1."
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_ankh_of_the_ancients"							"Ankh of the Ancients"
+		"item_property_ankh_of_ancients"						"Immortal Spirit"
+		 "property_ankh_of_ancients_description"				"При получении смертельного урона, герой получает щит на @special_property1 сек., который сокращает весь входящий урон на 100%, тем самым даёт иммунитет к оглушению. Дополнительно сбрасывает время перезарядки для всех умений. Перезаряжается в @special_property2 раз больше длительности щита. Максимальная длительность щита @special_property3."
+		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield"		"Immortal Spirit"
+		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield_Description"	"Иммунитет к урону и оглушению"
+		 "DOTA_Tooltip_modifier_ankh_of_ancients_cooldown"		"Ankh перезаряжается"
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_aquastone_ring"									"Aquastone Ring"	
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_world_trees_flower_cache"						"World Tree's Flower Cache"
+		"item_property_world_trees_flower_cache"				"Blood Orchid"
+		"property_world_trees_flower_cache_description"			"При получении смертельного урона, герой перерождается в цветке, возвращаясь в бой через 3 секунды с полным здоровьем. После возрождения весь исходящий пост-резистный урон увеличивается на 200%, но увеличивает весь входящий урон на 200% на 12 секунд. Перезаряжается 12 секунд."
+		"DOTA_Tooltip_modifier_world_tree_cache_cooldown"		"Перезарядка Blood Orchid"
+		"DOTA_Tooltip_modifier_world_tree_effect"				"Blood Orchid"
+		"DOTA_Tooltip_modifier_world_tree_effect_Description"	"Наносимый пост-резистный урон увеличен на 200%%, получаемый урон увеличен на 200%%"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_arcane_charm"									"Arcane Charm"
+		"item_property_arcane_charm"					"Magic Magnet"
+		"property_arcane_charm_description"				"Увеличивает радиус подбора темных кристаллов на @special_property1%, а подбор кристалла исцеляет героя на 10/20/50/100% от максимального здоровья в зависимости от размера кристалла."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_winterblight_skull_ring"							"Winterblight Skull Ring"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_sparkling_sea_crystal"					"Sparkling Sea Crystal"	
+		"property_sea_crystal"												"Giga Ocean Elemental"
+		"property_sea_crystal_Description"									"Casting @Ability4 summons a Giga Ocean elemental with huge knockback and attacks that deal @special_property1% of its summoner's attack power. Casting @Ability4 will replace your existing elemental."
+
+
+		"DOTA_Tooltip_ability_item_rpc_sparkling_token_of_oceanis"					"Sparkling Token of Oceanis"	
+		"property_sparkling_token"												"Tropical Haze"
+		"property_sparkling_token_Description"									"Сокращает весь входящий чистый урон на @special_property1%"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_frozen_heart"				"Frozen Heart of Az'heran"
+		"item_property_frozen_heart"								"Iceblood Marrow"	
+		"property_frozen_heart_description"					"Устанавливает максимальное значение здоровья героя на 100. Входящий Физический / Магический / Чистый урон отнимает по 2 / 5 / 8 здоровья, пробивая любые щиты. Здоровье восстанавливается каждые 0.1 секунды, когда герой не получал урона в течении 2.5 секунд."
+		"DOTA_Tooltip_modifier_frozen_heart_regen_prep"		"Iceblood Перезаряжается"
+		"DOTA_Tooltip_modifier_frozen_heart_regen"			"Iceblood Регенерация"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_stargazers_sphere"			"Stargazer's Sphere"
+		"item_property_stargazer"									"Eye of the Stargazer"
+		"property_stargazer_description"							"Отдавая приказ на атаку на любом расстоянии позволяет раскрыть туман войны в области, радиусом @special_property1. Находящиеся в этой области враги при получении урона будут поражены падающей звездой, которая нанесет чистый урон, равный @special_property3% от изначального урона. Враги могут быть поражены звездой не чаще, чем раз в 0.5 секунды. Если отдать приказ на атаку в уже существующую область, то в это место упадёт метеор, который нанесет урон, равный @special_property4% от урона героя и оглушит находящихся там врагов на 1 секунду. Новое кольцо может быть установлено не раньше, чем через @special_property2 сек."
+		"DOTA_Tooltip_modifier_in_stargazer_area"					"Stargazer's Sphere"
+		"DOTA_Tooltip_modifier_in_stargazer_area_Description"		"Поражает врагов падающими звездами при нанесении урона"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_red_divinex_amulet"			"Red Divinex Amulet"
+		"item_property_red_divinex"									"X-Strength"
+		"property_red_divinex_description"							"Значение Ловкости и Интеллекта не может быть выше 20. Значение Силы удвоено. Каждые 10 очков Силы увеличивают урон предметов на @special_property1%."
+
+		
+		"DOTA_Tooltip_ability_item_rpc_green_divinex_amulet"			"Green Divinex Amulet"
+		"item_property_green_divinex"									"X-Agility"
+		"property_green_divinex_description"							"Значение Силы и Интеллекта не может быть выше 20. Значение Ловкости удвоено. Каждые 10 очков Ловкости увеличивают урон предметов на @special_property1%."
+
+		
+		"DOTA_Tooltip_ability_item_rpc_blue_divinex_amulet"			"Blue Divinex Amulet"
+		"item_property_blue_divinex"									"X-Intelligence"
+		"property_blue_divinex_description"							"Значение Силы и Ловкости не может быть выше 20. Значение Интеллекта удвоено. Кажыде 10 очков Интеллекта увеличивают урон предметов на @special_property1%."
+		

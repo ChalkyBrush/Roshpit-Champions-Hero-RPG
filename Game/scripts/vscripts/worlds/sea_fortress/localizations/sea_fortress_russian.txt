@@ -1,0 +1,723 @@
+		"rpc_sea_fortress"									"Морская крепость"
+		"sea_fortress_sea_queen"							"Saltwater Demoness"
+		"sea_fortress_barnacle_behemoth"					"Barnacle Behemoth"
+		"seafortress_ocean_watcher"							"Ocean Watcher"
+		"seafortress_cheep"									"Sea Fortress Cheep"
+		"sea_fortress_sea_lord_arghul"						"Sea Lord Ar'ghul"
+		"sea_fortress_sea_portal"							"Oceanic Portal Keeper"
+		"sea_leaflet_master"								"Great Tree of Atlantis"
+		"sea_fortress_leaflet"								"Saltwater Leaflet"
+		"sea_fortress_leaflet_ranged"						"Saltwater Leaflet"
+		"sea_fortress_goddess_of_the_hunt"					"Great Pacific Marksman"
+		"sea_fortress_lunar_archer"							"Tidal Archer"
+		"seafortress_ahn_qhir"								"Ahn'Qhir"
+		"sea_fortress_venomous_dragonfly"					"Venomous Dragonfly"
+		"sea_fortress_aqua_scorcher"						"Aquatic Zenon"
+		"sea_fortress_dryad"								"Spring Dryad"
+		"sea_fortress_mountain_beast"						"Grand Mountain Beast"
+		"sea_fortress_grove_blossom"						"Grove Blossom"
+		"seafortress_dimensional_construct"					"Dimensional Construct"
+		"sea_fortress_deep_earthen_warrior"					"Deep Earthen Aqua Titan"
+		"seafortress_torment_staff"							"Staff of Torment"
+		"carnivorous_swamp_dweller"							"Carnivorous Swamp Dweller"
+		"seafortress_swamp_dragon"							"Saline Drake"
+		"seafortress_bear"									"Savage Swamp Beast"
+		"seafortress_viper"									"Poisonous Viper"
+		"seafortress_swamp_snake"							"Swamp Snake"
+		"seafortress_swamp_lady"							"Swamp Lady Adnollia"
+		"swamp_shadow"										"Sticky Shadow"
+		"water_temple_sea_lady_summoner"					"Sea Witch"
+		"sea_fortress_revenant"								"Grand Revenant Tropicus"
+		"seafortress_hydra"									"Sea Fortress Hydra"
+		"seafortress_manta_rider"							"Manta Rider"
+		"seafortress_canyon_lizard"							"Canyon Gator"
+		"seafortress_temple_exiler"							"Unknown Exiler"
+		"water_temple_naga_samurai"							"Naga Samurai"
+		"water_temple_naga_frost_mage"						"Naga Frost Mage"
+		"water_temple_naga_protector"						"Naga Protector"
+		"seafortress_primeval_ursan"						"Primeval Ursan"
+		"seafortress_water_huntress"						"Ocean Huntress"
+		"elite_ocean_warrior"								"Elite Ocean Warrior"
+		"seafortress_ocean_lord_zarkhaz"					"Ocean Lord Zhar'khaz"
+		"seafortress_ghost_pirate"							"Ghost Pirate"
+		"seafortress_deep_sea_construct"					"Deep Sea Construct"
+		"seafortress_deep_shadow_weaver"					"Hurricane Assassin"
+		"deep_ocean_death_archer"							"Deep Ocean Death Archer"
+		"seafortress_cavern_summoner"						"Zimblot Summoner"
+		"deep_sea_rider"									"Deep Sea Rider"
+		"water_shadow_hunter"								"Sea Beetle"
+		"seafortress_jailer"								"Sea Fortress Jailer"	
+		"seafortress_infernal_jail_guard"					"Infernal Jail Guard"				
+		"seafortress_fish_prisoner"							"Fish Prisoner"
+		"seafortress_mekanoid_disruptor"					"Mekanoid Disruptor"
+		"spikey_beetle"										"Spikey Beetle"
+		"cavern_spearback"									"Cavern Spearback"
+		"seafortress_duelist"								"Grand Duelist Vallias"
+		"seafortress_rock_breaker"							"Rock Breaker"
+		"big_beach_ogre"									"Big Beach Ogre"
+		"seafortress_deep_diver"							"Deep Diver"
+		"seafortress_depth_warper"							"Mekanoid Depth Warper"
+		"seafortress_thunder_zot"							"Thunder ZOT"
+		"seafortress_dark_sunderer"							"Dark Sunderer"
+		"seafortress_cephalopus"							"Cephalopus"
+		"seafortress_sea_maiden"							"Ethereal Sea Maiden"
+		"seafortress_centaur"								"Sea Fortress Centaur"
+		"seafortress_soul_splicer"							"Soul Splicer"
+		"sea_fortress_fairy_dragon"							"Sea Fortress Fairy Dragon"
+		"seabinder_olaf"									"Seabinder Olaf"
+		"seafortress_temple_assassin"						"Naga Heart Hunter"
+		"seafortress_giga_ocean_elemental"					"Giga Ocean Elemental"
+		"seafortress_blazing_assassin"						"Sea Fortress Assassin"
+		"seafortress_kray_beast"							"Sea Fortress Kray Beast"
+		"seafortress_disciple_of_poseidon"					"Disciple of Poseidon"
+		"seafortress_poseidon_zealot"						"Poseidon Zealot"
+		"seafortress_sea_prophet"							"Great Sea Prophet"
+		"seafortress_aqua_dragoon"							"Aqua Dragoon"
+		"seafortress_blood_drinker"							"Blood Drinker"
+		"seafortress_water_bug"								"Belostomatic Water Bug"
+		"seafortress_saltwater_demon"						"Saltwater Demon Zhegras"
+		"seafortress_sea_passage_titan"						"Sea Passage Titan"
+		"seafortress_raging_bladewarrior"					"Raging Bladewarrior"
+		"seafortress_troll_axemaster"						"Troll Axemaster"
+		"seafortress_water_summoner"						"Sea Fortress Water Summoner"
+		"seafortress_slicer"								"Puddle Slicer"
+		"sapphire_dragon"									"Sapphire Dragon"
+		"seafortress_sea_dragon_warrior"					"Warrior of the Sea Dragon"
+		"seafortress_wandering_pirate"						"Dark Wandering Pirate"
+		"seafortress_dark_spirit"							"Dimension Demon"
+		"sea_fortress_barnacle_colossus"					"Barnacle Colossus"
+		"seafortress_deckhand"								"Sea Fortress Deckhand"
+		"seafortress_zombied_seafarer"						"Zombied Seafarer"
+		"seafortress_drowned_wraith"						"Drowned Wraith"
+		"seafortress_stalacorr"								"Stalacorr"
+		"seafortress_rain_gargoyle"							"Rain Gargoyle"
+		"seafortress_ghost_seal"							"Ghost Seal"
+		"sea_fortress_featherguard"							"Sea Fortress Featherguard"
+		"seafortress_dark_reef_guard"						"Dark Reef Guard"
+		"dark_reef_elite"									"Dark Reef Elite"
+		"seafortress_big_blue_furbolg"						"Barbed Ocean Beast"
+		"dark_reef_skhultoth"								"Skhultoth the Blue"
+		"seafortress_boss_siltbreaker"						"Siltbreaker"
+		"seafortress_ocean_centaur"							"Centaur"
+		"seafortress_oceanrunner_arkguil"					"Oceanrunner Arkguil"
+		"seafortress_boss_silver_sea_giant"					"The Silver Sea Giant"
+		"seafortress_oracle_of_the_sea"						"Oracle of the Sea"
+		"seafortress_ocean_diviner"							"Ocean Diviner"
+		"seafortress_squidcicle"							"Riparian Squid"
+		"seafortress_final_boss"							"Владыка моря Val'dun"
+
+		"DOTA_Tooltip_modifier_sea_fortress_ai"				"Монстр Морской крепости"
+		"DOTA_Tooltip_modifier_sea_fortress_ai_Description"	"Исходящий магический и чистый урон увеличены на 300%. Весь входящий урон снижен на 99.5%%"
+
+		"DOTA_Tooltip_ability_sea_queen_blink"				"Blink"
+		"DOTA_Tooltip_ability_sea_queen_blink_Description"	"Телепортируется в указанную точку."	
+		"DOTA_Tooltip_ability_sea_queen_blink_blink_range"	"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
+
+		"DOTA_Tooltip_ability_seaqueen_shadow_strike"		"Shadow Strike"
+		"DOTA_Tooltip_ability_seaqueen_shadow_strike_Description"	"Бросает в выбранную цель отравленный клинок, замедляя её и нанося постоянный урон от яда некоторое время."
+		"DOTA_Tooltip_ability_seaqueen_shadow_strike_strike_damage"	"УРОН ОТ ПОПАДАНИЯ:"
+		"DOTA_Tooltip_ability_seaqueen_shadow_strike_duration_damage"	"УРОН ОТ ЯДА:"
+		"DOTA_Tooltip_ability_seaqueen_shadow_strike_movement_slow"	"ЗАМЕДЛЕНИЕ:"
+		"DOTA_Tooltip_ability_seaqueen_shadow_strike_duration_tooltip"	"ДЛИТЕЛЬНОСТЬ:"
+
+		"DOTA_Tooltip_ability_sea_queen_scream_of_pain"	"Scream of Pain"
+		"DOTA_Tooltip_ability_sea_queen_scream_of_pain_Description"	"Проникающий крик наносит урон всем врагам неподалёку."
+
+		"DOTA_Tooltip_ability_barnacle_ground_slam"		"Barnacle Smash"
+		"DOTA_Tooltip_ability_barnacle_ground_slam_Description"	"Бьёт по земле возле выбранной цели, наносит огромный урон и оглушает противников в области действия."
+		"DOTA_Tooltip_ability_barnacle_ground_slam_radius"		"РАДИУС:"
+		"DOTA_Tooltip_ability_barnacle_ground_slam_stun_duration"	"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"	
+
+		"DOTA_Tooltip_ability_sea_shank"				"Sea Shank"
+		"DOTA_Tooltip_ability_sea_shank_Description"	"Наносит чистый урон, зависящий от суммы атрибутов цели. Цель теряет часть атрибутов"
+		"DOTA_Tooltip_ability_sea_shank_status_mult"	"МНОЖИТЕЛЬ УРОНА ОТ АТРИБУТОВ: "
+		"DOTA_Tooltip_ability_sea_shank_stats_loss"		"ПОТЕРЯ АТРИБУТОВ:"
+		"DOTA_Tooltip_ability_sea_shank_duration"		"ДЛИТЕЛЬНОСТЬ ПОТЕРИ АТРИБУТОВ:"
+
+		"DOTA_Tooltip_modifier_prison_shank_effect"		"Sea Shank"
+		"DOTA_Tooltip_modifier_prison_shank_effect_Description"	"Потеряны атрибуты"	
+
+		"DOTA_Tooltip_ability_sea_temple_sea_god_attack"	"Geyser"
+		"DOTA_Tooltip_ability_sea_temple_sea_god_attack_Description"	"При атаке цели совершает дополнительные атаки во всех врагов, оказавшихся в радиусе поражения."
+		"DOTA_Tooltip_ability_sea_temple_sea_god_attack_radius"	"РАДИУС:"
+
+		"DOTA_Tooltip_ability_sea_fortress_hydrogren_field"	"Hydrogen Field"
+		"DOTA_Tooltip_ability_sea_fortress_hydrogren_field_Description"	"Создаёт лужу водорода. Враги, наодящиеся в луже лишаются % от максимума здоровья.(Не сработает ни один эффект снижения урона)"
+		"DOTA_Tooltip_ability_sea_fortress_hydrogren_field_percent_health_damage"	"УДАЛЕНИЕ ЗДОРОВЬЯ, %:"
+
+		"DOTA_Tooltip_ability_sea_fortress_tree_ability"	"Fungal Overlord"
+		"DOTA_Tooltip_ability_sea_fortress_tree_ability_Description"	"Может призвать облака ядовитого газа, замедляющего врагов и наносящего им урон."
+		"DOTA_Tooltip_ability_sea_fortress_tree_ability_poison_damage"  "УРОН ОТ ЯДА:"
+
+		"DOTA_Tooltip_ability_sea_fortress_leaflet_passive"	"Shiny Roots"
+		"DOTA_Tooltip_ability_sea_fortress_leaflet_passive_Description"	"После получения урона 5 раз подряд, наделяется иммунитетом к магии на 3 секунды."
+
+		"DOTA_Tooltip_ability_sea_fortress_venomous_dragonfly_passive"	"Poison Spit"
+		"DOTA_Tooltip_ability_sea_fortress_venomous_dragonfly_passive_Description"	"Враги, получившие урон от яда получают дополнительный урон яда каждые 0.03 секунды."
+		"DOTA_Tooltip_ability_sea_fortress_venomous_dragonfly_passive_poison_damage"	"УРОН ЯДА В ТИК:"
+
+		"DOTA_Tooltip_modifier_dragonfly_poison"				"Poison Spit"
+		"DOTA_Tooltip_modifier_dragonfly_poison_Description"	"Получает урон каждые 0.03 секунды."
+
+		"DOTA_Tooltip_ability_sea_fortress_gust"			"Spirit Gust"
+		"DOTA_Tooltip_ability_sea_fortress_gust_Description"	"Выпускает поток потусторонней пыли, которая отталкивает врагов с огромной силой, дополнительно накладывая безмолвие."
+		"DOTA_Tooltip_ability_sea_fortress_gust_blind_duration"	"ДЛИТЕЛЬНОСТЬ БЕЗМОЛВИЯ:"
+
+		"DOTA_Tooltip_ability_sea_fortress_scorcher_passive"	"Rain Burst"
+		"DOTA_Tooltip_ability_sea_fortress_scorcher_passive_Description"	"Постоянно испускает мощные струи воды, наносящие врагам урон."
+		"DOTA_Tooltip_ability_sea_fortress_scorcher_passive_damage"	"УРОН:"
+
+		"DOTA_Tooltip_ability_ability_mega_haste"					"Mega Haste"
+		"DOTA_Tooltip_ability_ability_mega_haste_Description"		"Скорость передвижения и максимальная скорость передвижения значительно увеличены."	
+		"DOTA_Tooltip_ability_ability_mega_haste_movespeed_bonus"	"БОНУС К СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_ability_mega_haste_movespeed_cap"		"БОНУС К МАКСИМАЛЬНОЙ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+
+		"DOTA_Tooltip_ability_sea_fortress_mountain_beast_ability"	"Warden"
+		"DOTA_Tooltip_ability_sea_fortress_mountain_beast_ability_Description"	"Тихо наблюдает с горы."
+
+		"DOTA_Tooltip_ability_sea_fortress_exploder_passive"	"Sparkling Bloom"
+		"DOTA_Tooltip_ability_sea_fortress_exploder_passive_Description"	"После смерти взрывается и замораживает всех ближайших врагов."
+		"DOTA_Tooltip_ability_sea_fortress_exploder_passive_freeze_duration"			"ДЛИТЕЛЬНОСТЬ ЗАМОРОЗКИ:"
+		"DOTA_Tooltip_ability_sea_fortress_exploder_passive_damage"			"УРОН:"
+
+		"DOTA_Tooltip_modifier_exploder_freeze"					"Заморожен"
+
+		"DOTA_Tooltip_ability_ability_elemental_resistance"				"Elemental Resistance"
+		"DOTA_Tooltip_ability_ability_elemental_resistance_Description"	"ВЕСЬ получаемый стихийный урон значительно снижается."	
+		"DOTA_Tooltip_ability_ability_elemental_resistance_elemental_resistance" "СНИЖЕНИЕ ВХОДЯЩЕГО СТИХИЙНОГО УРОНА, %:"
+
+		"DOTA_Tooltip_ability_seafortress_dark_bomb"			"Dark Bomb"
+		"DOTA_Tooltip_ability_seafortress_dark_bomb_Description"	"Бросает темную бомбу, медленно двигающуюся в сторону выбранной цели. Когда время действия специального эффекта закончится, произойдёт мощный взрыв, наносящий огромный чистый урон."
+		"DOTA_Tooltip_ability_seafortress_dark_bomb_damage"		"УРОН:"
+		"DOTA_Tooltip_ability_seafortress_dark_bomb_countdown"	"ВРЕМЯ ОТСЧЁТА:"
+
+		"DOTA_Tooltip_modifier_seafortress_dark_bomb"			"Dark Bomb"
+		"DOTA_Tooltip_modifier_seafortress_dark_bomb_Description"	"Скорость передвижения снижена на 10%%. Когда время действия этого эффекта закончится, цель получит огромный чистый урон."
+
+		"DOTA_Tooltip_ability_ability_avalanche_skin"					"Avalanche Skin"
+		"DOTA_Tooltip_ability_ability_avalanche_skin_Description"		"При получении урона, в сторону атакующего падает кусок камня."
+		"DOTA_Tooltip_ability_ability_avalanche_skin_damage"			"УРОН:"
+		"DOTA_Tooltip_ability_ability_avalanche_skin_stun_duration"		"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+
+		"DOTA_Tooltip_ability_ability_quake_path"				"Quake Path"
+		"DOTA_Tooltip_ability_ability_quake_path_Description"	"Создаёт серию землетрясений, идущую от владельца способности."	
+		"DOTA_Tooltip_ability_ability_quake_path_damage"		"УРОН:"
+		"DOTA_Tooltip_ability_ability_quake_path_stun_duration"	"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+
+		"DOTA_Tooltip_ability_tormented_staff_ability"			"Stream of Torment"
+		"DOTA_Tooltip_ability_tormented_staff_ability_Description"	"Все находящиеся рядом враги замедлены и получают урон."
+		"DOTA_Tooltip_ability_tormented_staff_ability_damage"		"УРОН:"
+
+		"DOTA_Tooltip_modifier_tormented_slow"					"Stream of Torment"
+
+		"DOTA_Tooltip_ability_slaughtering_dagger"				"Vicious Dagger"
+		"DOTA_Tooltip_ability_slaughtering_dagger_Description"	"Атаки наносят дополнительный чистый урон, зависящий от максимального здоровья цели."
+		"DOTA_Tooltip_ability_slaughtering_dagger_health_mult"	"УРОН, % ОТ МАКСИМУМА ЗДОРОВЬЯ ЦЕЛИ:"
+
+		"DOTA_Tooltip_ability_dragon_regen"						"Emerald Skin"
+		"DOTA_Tooltip_ability_dragon_regen_Description"			"Кажыде 0.5 секунды восстанавливает % от своего максимального здоровья."
+		"DOTA_Tooltip_ability_dragon_regen_heal_percent"		"ИСЦЕЛЕНИЕ, %:"
+
+		"DOTA_Tooltip_ability_swamp_lady_passive"				"Poison Spray"
+		"DOTA_Tooltip_ability_swamp_lady_passive_Description"	"Враги, попавшие под действие яда получают урон каждые 0.03 секунды."
+		"DOTA_Tooltip_ability_swamp_lady_passive_poison_damage"	"УРОН ЯДА:"
+
+		"DOTA_Tooltip_modifier_swamp_lady_poison"				"Poison Spray"
+		"DOTA_Tooltip_modifier_swamp_lady_poison_Description"	"Получает урон каждые 0.03 секунды."
+
+		"DOTA_Tooltip_ability_swamp_lady_shield"				"Bronze Blood"
+		"DOTA_Tooltip_ability_swamp_lady_shield_Description"	"Металлическая кожа болотной леди позволяет ей исцеляться при получении урона."
+		"DOTA_Tooltip_ability_swamp_lady_shield_duration"		"ДЛИТЕЛЬНОСТЬ:"
+
+		"DOTA_Tooltip_modifier_swamp_lady_shield"				"Bronze Blood"
+		"DOTA_Tooltip_modifier_swamp_lady_shield_Description"	"Исцеляется при получении урона."
+
+		"DOTA_Tooltip_ability_swamp_snake_passive"				"Acidic Ooze"
+		"DOTA_Tooltip_ability_swamp_snake_passive_Description"	"С 15% шансом при успешной атаке обездвижит цель и наложит эффект безмолвия."	
+		"DOTA_Tooltip_ability_swamp_snake_passive_duration"		"ДЛИТЕЛЬНОСТЬ:"
+
+		"DOTA_Tooltip_modifier_seafortress_snake_root"			"Acidic Ooze"
+		"DOTA_Tooltip_modifier_seafortress_snake_root_Description"	"Обезмолвлен и обездвижен"
+
+		"DOTA_Tooltip_ability_swamp_shadow_ability"				"Swamp Shadow"
+		"DOTA_Tooltip_ability_swamp_shadow_ability_Description"	"Ждёт, пока жертва ступит в болото."
+
+		"DOTA_Tooltip_ability_seafortress_shadow_cloud"			"Shadow Cloud"
+		"DOTA_Tooltip_ability_seafortress_shadow_cloud_Description"	"Враги, вдыхающие этот ужасный воздух замедляются и получают на 100% больше урона."
+
+		"DOTA_Tooltip_modifier_shadow_cloud_aura"				"Shadow Cloud"
+		"DOTA_Tooltip_modifier_shadow_cloud_aura_Description"	"Замедлен и получает увеличенный урон."
+
+		"DOTA_Tooltip_ability_swamp_lady_summoner_passive"		"Summoner's Walk"
+
+		"DOTA_Tooltip_ability_sea_fortress_revenant_passive"				"Item Resistance"
+		"DOTA_Tooltip_ability_sea_fortress_revenant_passive_Description"	"Получаемый урон, напрямую наносимый предметами значительно снижается."
+		"DOTA_Tooltip_ability_sea_fortress_revenant_passive_item_resist"	"СОПРОТИВЛЕНИЕ К УРОНУ ОТ ПРЕДМЕТОВ, %:"
+
+		"DOTA_Tooltip_ability_sea_fortress_hydra_ability"		"Acid Breath"
+		"DOTA_Tooltip_ability_sea_fortress_hydra_ability_Description"	"С каждой атакой отравляет цель, нанося дополнительный урон, наносимый каждые 0.5 секунды."
+		"DOTA_Tooltip_ability_sea_fortress_hydra_ability_damage"		"УРОН:"
+		"DOTA_Tooltip_ability_sea_fortress_hydra_ability_duration"		"ДЛИТЕЛЬНОСТЬ:"
+
+		"DOTA_Tooltip_modifier_hydra_poison"				"Acid Breath"
+		"DOTA_Tooltip_modifier_hydra_poison_Description"	"Получает урон каждые 0.5 секунды."
+
+		"DOTA_Tooltip_ability_sea_fortress_manta_rider_ability"	"Bomb Toss"
+		"DOTA_Tooltip_ability_sea_fortress_manta_rider_ability_Description"	"Бросает в указанного врага бомбу."
+		"DOTA_Tooltip_ability_sea_fortress_manta_rider_ability_damage"		"УРОН:"
+
+		"DOTA_Tooltip_ability_seafortress_golden_shell"					"Golden Shell"
+		"DOTA_Tooltip_ability_seafortress_golden_shell_Description"		"Наделяется иммунитетом к магии при получении урона."
+		"DOTA_Tooltip_ability_seafortress_golden_shell_duration"		"ДЛИТЕЛЬНОСТЬ:"
+
+		"DOTA_Tooltip_ability_seafortress_exiler_ability"				"Glint of Exiler"
+		"DOTA_Tooltip_ability_seafortress_exiler_ability_Description"	"С некоторым шансом при успешной атаке прыгнет за спину цели и получит бонус, дающий максимальную скорость атаки на 0.6 секунды. Молот изгнанника вибрирует при ударе, позволяя наносить дополнительный урон в области и оглушить врагов на 0.1 секунды."
+		"DOTA_Tooltip_ability_seafortress_exiler_ability_damage"		"УРОН:"
+
+		"DOTA_Tooltip_ability_seafortress_ice_mage_passive"				"Frost Mage"
+		"DOTA_Tooltip_ability_seafortress_ice_mage_passive_Description"	"Атаки остужают цель, замедляя скорость атаки и передвижения."
+		"DOTA_Tooltip_ability_seafortress_ice_mage_passive_bonus_attack_speed"	"СНИЖЕНИЕ СКОРОСТИ АТАКИ:"
+		"DOTA_Tooltip_ability_seafortress_ice_mage_passive_Dbonus_movement_speed" "СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+
+		"DOTA_Tooltip_modifier_chilled"									"Остужен"
+
+		"DOTA_Tooltip_ability_creature_roknar"							"Blessing of Rok'nar"
+		"DOTA_Tooltip_ability_creature_roknar_Description"				"При оглушении ежесекундно восстанавливает 24% от максимума здоровья."
+
+		"DOTA_Tooltip_ability_creature_stormshield"						"Stormshield"
+		"DOTA_Tooltip_ability_creature_stormshield_Description"			"Большой бонус к броне. Весь входящий физический урон снижается на 50%."	
+		"DOTA_Tooltip_ability_creature_stormshield_armor"				"ДОП. БРОНЯ:"
+
+		"DOTA_Tooltip_ability_seafortress_ancient_ursan_passive"		"Billion Swipe"
+		"DOTA_Tooltip_ability_seafortress_ancient_ursan_passive_Description"	"С каждой атакой наносится дополнительно 1 миллиард физического урона."
+
+		"DOTA_Tooltip_ability_water_medusa_passive"					"Sea Witch Arrows"
+		"DOTA_Tooltip_ability_water_medusa_passive_Description"		"С каждой атакой крадёт у цели все атрибуты."
+		"DOTA_Tooltip_ability_water_medusa_passive_stat_loss"		"ПОТЕРЯ АТРИБУТОВ:"
+		"DOTA_Tooltip_ability_water_medusa_passive_duration"		"ДЛИТЕЛЬНОСТЬ ЭФФЕКТА:"
+
+		"DOTA_Tooltip_modifier_water_medusa_stat_loss"				"Sea Witch's Curse"
+		"DOTA_Tooltip_modifier_water_medusa_stat_loss_Description"	"Все атрибуты снижены."
+
+		"DOTA_Tooltip_ability_zharkaz_passive"					"Blight of Zhar'khaz"
+		"DOTA_Tooltip_ability_zharkaz_passive_Description"		"Атаки наносят дополнительный магический урон и обездвиживают цель."
+		"DOTA_Tooltip_ability_zharkaz_passive_damage"			"ДОП. МАГИЧЕСКИЙ УРОН:"
+		"DOTA_Tooltip_ability_zharkaz_passive_root_duration"	"ДЛИТЕЛЬНОСТЬ ОБЕЗДВИЖИВАНИЯ:"
+
+		"DOTA_Tooltip_modifier_zharkaz_root"					"Blight of Zhar'khaz"
+		"DOTA_Tooltip_modifier_zharkaz_root_Description"		"Обездвижен"
+
+		"DOTA_Tooltip_modifier_zharkaz_jump_crush"				"Demon Crush"
+		"DOTA_Tooltip_modifier_zharkaz_jump_crush_Description"	"Прыгает к выбранной цели, создавая оглушающее землетрясение."	
+
+		"DOTA_Tooltip_ability_seafortress_gush"					"Gush"
+		"DOTA_Tooltip_ability_seafortress_gush_Description"		"Выпускает поток воды, замедляющий врагов и наносящий им урон."
+		"DOTA_Tooltip_ability_seafortress_gush_movement_speed"	"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+
+		"DOTA_Tooltip_ability_ghost_pirate_ai"					"Spectral Warp"
+		"DOTA_Tooltip_ability_ghost_pirate_ai_Description"		"Периодически телепортируется к ближайшим врагам. Атаки накладывают на врагов эффект замедления."
+		"DOTA_Tooltip_ability_ghost_pirate_ai_move_slow"		"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+
+		"DOTA_Tooltip_modifier_animated_arms_slow"				"Spectral Warp"
+		"DOTA_Tooltip_modifier_animated_arms_slow_Description"	"Скорость передвижения снижена."
+
+		"DOTA_Tooltip_ability_seafortress_death_archer_ability"	"Electro Thread"
+		"DOTA_Tooltip_ability_seafortress_death_archer_ability_Description"	"С каждой успешной атакой поражает цель электричеством, наносящим магический урон."
+		"DOTA_Tooltip_ability_seafortress_death_archer_ability_damage" "УРОН:"
+
+		"DOTA_Tooltip_ability_seafortress_generic_summon"		"Summon"
+		"DOTA_Tooltip_ability_seafortress_generic_summon_Description"	"Призывает на свою сторону монстров."
+
+		"DOTA_Tooltip_ability_seafortress_enemy_summon"			"Призванный монстр"
+
+		"DOTA_Tooltip_ability_seafortress_borrowed_time_passive"	"Borrowed Time"
+		"DOTA_Tooltip_ability_seafortress_borrowed_time_passive_Description"	"Активация способности позволяет перевести любой полученный урон в лечение."
+		"DOTA_Tooltip_ability_seafortress_borrowed_time_passive_duration"	"ДЛИТЕЛЬНОСТЬ:"
+
+		"DOTA_Tooltip_modifier_creature_borrowed_time"				"Borrowed Time"
+		"DOTA_Tooltip_modifier_creature_borrowed_time_Description"	"Получаемый урон превращается в лечение."
+
+		"DOTA_Tooltip_ability_seafortress_sea_rider_passive"		"Ocean Blade"
+		"DOTA_Tooltip_ability_seafortress_sea_rider_passive_Description"	"С каждой атакой выпускает мощный поток воды в линию. Этот эффект срабатывает и при получении урона. Враги, задетые потоком замедляются и получают урон."
+		"DOTA_Tooltip_ability_seafortress_sea_rider_passive_damage"		"УРОН:"
+		"DOTA_Tooltip_ability_seafortress_sea_rider_passive_attack_slow"	"СНИЖЕНИЕ СКОРОСТИ АТАКИ:"
+		"DOTA_Tooltip_ability_seafortress_sea_rider_passive_move_slow"	"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+
+		"DOTA_Tooltip_modifier_sea_rider_slow"						"Ocean Blade"
+		"DOTA_Tooltip_modifier_sea_rider_slow_Description"			"Скорость атаки и передвижения снижены"	
+
+		"DOTA_Tooltip_ability_seafortress_jailer_passive"			"Sea Fortress Jailer"
+		"DOTA_Tooltip_ability_seafortress_jailer_passive_Description"	"Наблюдает за заключёнными, чтобы все оставались в пределах тюрьмы."
+		"DOTA_Tooltip_ability_seafortress_jailer_passive_bleed_damage"	"УРОН КРОВОТЕЧЕНИЯ:"
+
+		"DOTA_Tooltip_ability_ability_magic_immune_break"			"Magic Immune Break"
+		"DOTA_Tooltip_ability_ability_magic_immune_break_Description"	"Успешная атака позволяет снять иммунитет к магии с цели."
+
+		"DOTA_Tooltip_ability_seafortress_infernal_jailer_passive"	"Flame Spreader"
+		"DOTA_Tooltip_ability_seafortress_infernal_jailer_passive_Description"	"С небольшим интервалом выпускает потоки пламени во всех направлениях."
+		"DOTA_Tooltip_ability_seafortress_infernal_jailer_passive_damage"	"УРОН:"
+
+		"DOTA_Tooltip_ability_seafortress_fish_prisoner_ability"	"Freedom Seeker"
+
+		"DOTA_Tooltip_ability_mekanoid_battery_assault"				"Battery Assault"
+		"DOTA_Tooltip_ability_mekanoid_battery_assault_Description"	"Позволяет с небольшими интервалами наносить урон и кратковременно оглушать находящихся неподалёку врагов."
+
+		"DOTA_Tooltip_ability_mekanoid_power_cogs"					"Mekanoid Power Cogs"
+		"DOTA_Tooltip_ability_mekanoid_power_cogs_Description"		"Создаёт несколько энергетических катушек, при контакте отталкивающих врагов и сжигающих им ману."
+		"DOTA_Tooltip_ability_mekanoid_power_cogs_drain_amount"		"ВЫЖИГАЕТ МАНЫ:"
+
+		"DOTA_Tooltip_ability_spikey_beetle_carapace"				"Spike Carapace"
+		"DOTA_Tooltip_ability_spikey_beetle_carapace_Description"	"При получении урона во время действия этой способности вернёт атакующему весь урон. Для каждого противника срабатывает лишь раз за прочтение."
+		"DOTA_Tooltip_ability_spikey_beetle_carapace_reflect_duration"	"ДЛИТЕЛЬНОСТЬ ОТРАЖЕНИЯ:"
+		"DOTA_Tooltip_ability_spikey_beetle_carapace_stun_duration"		"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ ПРИ ОТРАЖЕНИИ:"
+	
+		"DOTA_Tooltip_ability_seafortress_quill_spray"				"Quill Spray"
+		"DOTA_Tooltip_ability_seafortress_quill_spray_Description"	"Выпускает острые иглы во всех врагов вокруг себя. С каждым попаданием противники получают заряд Quill Spray. Каждый заряд увеличивает урон, получаемый от следующего залпа игл."
+		"DOTA_Tooltip_ability_seafortress_quill_spray_quill_base_damage"	"БАЗОВЫЙ УРОН ИГЛ:"
+		"DOTA_Tooltip_ability_seafortress_quill_spray_quill_stack_damage"	"БОНУСНЫЙ УРОН ИГЛ:"
+
+		"DOTA_Tooltip_ability_sea_fortress_overwhelming_odds"		"Overwhelming Odds"
+		"DOTA_Tooltip_ability_sea_fortress_overwhelming_odds_Description"	"На врагов в небольшой области действия обрушивается дождь из стрел. Каждый враг, задетый умением даёт владельцу способности бонус к скорости передвижения и урону."
+		"DOTA_Tooltip_ability_sea_fortress_overwhelming_odds_damage"	"УРОН:"
+
+		"DOTA_Tooltip_ability_seafortress_duel"						"Duel"
+
+		"DOTA_Tooltip_ability_seafortress_rock_breaker_passive"					"Hammer Punch"
+		"DOTA_Tooltip_ability_seafortress_rock_breaker_passive_Description"		"Атаки подбрасывают цель в воздух, оглушая на время действия эффекта."
+		"DOTA_Tooltip_ability_seafortress_rock_breaker_passive_duration"	"ДЛИТЕЛЬНОСТЬ ПОДБРАСЫВАНИЯ:"
+
+		"DOTA_Tooltip_ability_seafortress_explosive_skin_passive"				"Frozen Granite"
+		"DOTA_Tooltip_ability_seafortress_explosive_skin_passive_Description"	"При получении достаточного количества урона превращается в камень, игнорируя весь урон. По окончании действия каменной формы выпускает поток ледяной воды, наносящей задетым врагам урон и оглушающий их в большой области."
+		"DOTA_Tooltip_ability_seafortress_explosive_skin_passive_threshold"		"ГРАНИЦА ЗДОРОВЬЯ, %:"
+		"DOTA_Tooltip_ability_seafortress_explosive_skin_passive_stun_duration"	"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		"DOTA_Tooltip_ability_seafortress_explosive_skin_passive_damage"		"УРОН:"
+
+		"DOTA_Tooltip_ability_creature_depth_warp"				"Depth Warp"
+		"DOTA_Tooltip_ability_creature_depth_warp_Description"	"Совершает стремительный рывок в сторону цели. Может применяться трижды до начала перезарядки."	
+
+		"DOTA_Tooltip_ability_depth_laser"						"Depth Laser"
+		"DOTA_Tooltip_ability_depth_laser_Description"			"Ослепляет цель и наносит урон."
+		"DOTA_Tooltip_ability_depth_laser_duration"				"ДЛИТЕЛЬНОСТЬ ОСЛЕПЛЕНИЯ:"	
+		"DOTA_Tooltip_ability_depth_laser_laser_damage"			"УРОН ЛАЗЕРА:"
+
+		"DOTA_Tooltip_ability_seafortress_plasma_field"			"Plasma Field"
+		"DOTA_Tooltip_ability_seafortress_plasma_field_Description" "Кольцо статического электричества расширяется от владельца способности. Враги получат больше урона, если были задеты кольцом как можно дальше от центра."
+		"DOTA_Tooltip_ability_seafortress_plasma_field_damage_min"				"МИНИМАЛЬНЫЙ УРОН:"
+		"DOTA_Tooltip_ability_seafortress_plasma_field_damage_max"				"МАКСИМАЛЬНЫЙ УРОН:"
+
+		"DOTA_Tooltip_ability_seafortress_zot_passive"			"Forked Lightning"
+		"DOTA_Tooltip_ability_seafortress_zot_passive_Description"	"Разделяющиеся атаки наносят урон врагам в конусе от основной цели."
+		"DOTA_Tooltip_ability_seafortress_zot_passive_damage"	"УРОН:"
+
+		"DOTA_Tooltip_ability_seafortress_dark_sunder"			"Dark Sunder"
+		"DOTA_Tooltip_ability_seafortress_dark_sunder_Description"	"С каждой успешной атакой накладывает на цель заряды Dark Sunder. Когда количество зарядов достигнет 5, цель получит огромный чистый урон."
+		"DOTA_Tooltip_ability_seafortress_dark_sunder_damage"	"УРОН:"
+
+		"DOTA_Tooltip_modifier_dark_sunder_charges"				"Dark Sunder"
+		"DOTA_Tooltip_modifier_dark_sunder_charges_Description"	"Когда количество зарядов достигнет 5, будет получен огромный чистый урон"
+
+		"DOTA_Tooltip_ability_seafortress_fragmenter_aura"		"Fragmentor Aura"
+		"DOTA_Tooltip_ability_seafortress_fragmenter_aura_Description"	"Находящиеся рядом враги теряют скорость передвижения и регенерацию здоровья. Этот эффект складывается с другими подобными эффектами."
+		"DOTA_Tooltip_ability_seafortress_fragmenter_aura_health_regen_percent"	"ПОТЕРЯ РЕГЕНЕРАЦИИ ЗДОРОВЬЯ, %:"
+		"DOTA_Tooltip_ability_seafortress_fragmenter_aura_movespeed_percent"	"ПОТЕРЯ СКОРОСТИ ПЕРЕДВИЖЕНИЯ, %:"
+
+		"DOTA_Tooltip_modifier_creature_fragmentor_aura_debuff"		"Fragmentor Aura"
+		"DOTA_Tooltip_modifier_creature_fragmentor_aura_debuff_Description"	"Скорость передвижения и регенерация здоровья снижены"
+
+		"DOTA_Tooltip_ability_seafortress_ink_blast"				"Ink Blast"
+		"DOTA_Tooltip_ability_seafortress_ink_blast_Description"	"Бросает каплю чернил в цель, замедляя ее скорость атаки и передвижения с каждым следующим попаданием. Эффект складывается неограниченное количество раз."
+		"DOTA_Tooltip_ability_seafortress_ink_blast_attack_slow"	"СНИЖЕНИЕ СКОРОСТИ АТАКИ ЗА ЗАРЯД:"
+		"DOTA_Tooltip_ability_seafortress_ink_blast_move_slow"		"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ ЗА ЗАРЯД, %:"
+
+		"DOTA_Tooltip_ability_sea_maiden_terror"					"Terror Split"
+		"DOTA_Tooltip_ability_sea_maiden_terror_Description"		"Разветвлённые волны ужаса наносят урон и снижают броню задетых врагов."
+		"DOTA_Tooltip_ability_sea_maiden_terror_damage"				"УРОН:"
+		"DOTA_Tooltip_ability_sea_maiden_terror_armor_loss"			"СНИЖЕНИЕ БРОНИ:"
+		"DOTA_Tooltip_ability_sea_maiden_terror_armor_loss_duration"	"ДЛИТЕЛЬНОСТЬ СНИЖЕНИЯ БРОНИ:"
+
+		"DOTA_Tooltip_modifier_sea_terror_armor_loss"				"Terror Split"
+		"DOTA_Tooltip_modifier_sea_terror_armor_loss_Description"	"Броня снижена"
+
+		"DOTA_Tooltip_ability_sea_maiden_ai"						"Aquatension"	
+		"DOTA_Tooltip_ability_sea_maiden_ai_Description"			"При получении урона, выпускает волну в случайном направлении, которая наносит урон и замедляет задетых врагов."
+		"DOTA_Tooltip_ability_sea_maiden_ai_moveslow"				"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_sea_maiden_ai_attack_slow"			"СНИЖЕНИЕ СКОРОСТИАТАКИ:"
+
+		"DOTA_Tooltip_ability_seafortress_hoof_stomp"				"Hoof Stomp"
+		"DOTA_Tooltip_ability_seafortress_hoof_stomp_Description"	"Совершает мощный удар о землю, оглушая врагов вокруг себя и нанося им урон."
+		"DOTA_Tooltip_ability_seafortress_hoof_stomp_stun_duration"	"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		"DOTA_Tooltip_ability_seafortress_hoof_stomp_stomp_damage"	"УРОН:"
+
+		"DOTA_Tooltip_ability_seafortress_stun_regen"				"Endurance"
+		"DOTA_Tooltip_ability_seafortress_stun_regen_Description"	"Восстанавливает здоровье при получении урона."
+		"DOTA_Tooltip_ability_seafortress_stun_regen_regen_percent"	"РЕГЕНЕРАЦИЯ ЗДОРОВЬЯ, %:"
+
+		"DOTA_Tooltip_modifier_stun_regen_applied"					"Endurance"
+		"DOTA_Tooltip_modifier_stun_regen_applied_Description"		"Сильная регенерация здоровья."
+
+		"DOTA_Tooltip_ability_seafortress_heart_spike"					"Heart Piercer"
+		"DOTA_Tooltip_ability_seafortress_heart_spike_Description"		"Атаки наносят пост-резистный урон, зависящий от максимального здоровья цели."
+		"DOTA_Tooltip_ability_seafortress_heart_spike_damage_percent"	"ДОП. ПОСТ-РЕЗИСТНЫЙ УРОН ОТ МАКС. ЗДОРОВЬЯ, %:"
+
+		"DOTA_Tooltip_ability_seafortress_illusory_orb"					"Illusory Orb"
+		"DOTA_Tooltip_ability_seafortress_illusory_orb_Description"		"Волшебная сфера медленно движется вперед, нанося урон всем задетым на своём пути врагам. Сказочный дракончик может телепортироваться к сфере, пока она не исчезла."
+
+		"DOTA_Tooltip_ability_seafortress_waning_rift"					"Waning Rift"
+		"DOTA_Tooltip_ability_seafortress_waning_rift_Description"		"Распыляет блестящую пыль, которая наносит ближайшим врагам урон и накладывает эффект безмолвия."
+		"DOTA_Tooltip_ability_seafortress_waning_rift_silence_duration"	"ДЛИТЕЛЬНОСТЬ БЕЗМОЛВИЯ:"
+
+		"DOTA_Tooltip_ability_seafortress_waveform"						"Olaf Surf"
+		"DOTA_Tooltip_ability_seafortress_waveform_Description"			"Позволяет быстро перемещаться по созданным потокам воды."	
+
+		"DOTA_Tooltip_ability_seafortress_temple_assassin_ai"			"Temporal Blink"
+		"DOTA_Tooltip_ability_seafortress_temple_assassin_ai_Description"	"Время от времени телепортируется к врагам."
+
+		"DOTA_Tooltip_ability_seafortress_giga_ocean_elemental_ability"	"Giga Ocean Elemental Passive"
+		"DOTA_Tooltip_ability_seafortress_giga_ocean_elemental_ability_Description"	"РЕГЕНЕРАЦИЯ ЗДОРОВЬЯ:"
+		"DOTA_Tooltip_ability_seafortress_giga_ocean_elemental_ability_damage"		"ДОП. МАГИЧЕСКИЙ УРОН:"
+		"DOTA_Tooltip_ability_seafortress_giga_ocean_elemental_ability_Description"	"РЕГЕНЕРАЦИЯ ЗДОРОВЬЯ:"
+
+		"DOTA_Tooltip_ability_seafortress_temple_desolator_ai"			"Desolate Refraction"
+		"DOTA_Tooltip_ability_seafortress_temple_desolator_ai_Description"	"Каждый заряд преломления тратится на полное поглощение урона. Пассивно имеет уклонение."
+		"DOTA_Tooltip_ability_seafortress_temple_desolator_ai_stacks"		"ЗАРЯДОВ ПРЕЛОМЛЕНИЯ:"
+		"DOTA_Tooltip_ability_seafortress_temple_desolator_ai_evasion"		"УКЛОНЕНИЕ %:"
+
+		"DOTA_Tooltip_ability_seafortress_meld"					"Meld"
+		"DOTA_Tooltip_ability_seafortress_meld_Description"		"Становится невидимым, затем наносит огромный урон врагам, подошедшим достаточно близко. Задетые враги теряют броню."
+		"DOTA_Tooltip_ability_seafortress_meld_bonus_damage"	"БОНУСНЫЙ УРОН ПРИ ВЫХОДЕ ИЗ НЕВИДИМОСТИ:"
+		"DOTA_Tooltip_ability_seafortress_meld_bonus_armor"		"СНИЖЕНИЕ БРОНИ:"
+
+		"DOTA_Tooltip_ability_seafortress_kray_wave"			"Wave of Upheaval"
+		"DOTA_Tooltip_ability_seafortress_kray_wave_Description"	"Поднимает волны силы, способной оглушить врагов на линии."
+		"DOTA_Tooltip_ability_seafortress_kray_wave_stun_duration"	"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+
+		"DOTA_Tooltip_ability_seafortress_chitinous_skin"		"Chitinous Skin"
+		"DOTA_Tooltip_ability_seafortress_chitinous_skin_Description"	"Каждую секунду получает заряд этой способности, который увеличивает броню и сопротивление магии. При получении урона теряется заряд."
+		"DOTA_Tooltip_ability_seafortress_chitinous_skin_armor"			"БРОНИ ЗА ЗАРЯД:"
+		"DOTA_Tooltip_ability_seafortress_chitinous_skin_magic_resistance"	"СОПРОТИВЛЕНИЕ МАГИИ ЗА ЗАРЯД:"
+
+		"DOTA_Tooltip_ability_seafortress_poseidon_dash"		"Poseidon Dash"
+		"DOTA_Tooltip_ability_seafortress_poseidon_dash_Description"	"Быстро перемещается."
+
+		"DOTA_Tooltip_ability_seafortress_starfall_aura"		"Starfall Aura"
+		"DOTA_Tooltip_ability_seafortress_starfall_aura_Description"	"На врагов, находящихся достаточно близко периодически падают звёзды. Эффект от нескольких подобных аур складываются."
+		"DOTA_Tooltip_ability_seafortress_starfall_aura_damage"	"УРОН ЗА ЗВЕЗДУ:"
+
+		"DOTA_Tooltip_modifier_starfall_aura_debuff"			"Starfall Aura"
+		"DOTA_Tooltip_modifier_starfall_aura_debuff_Description"	"Получает чистый урон от падающих звёзд каждые 0.5 секунды."
+
+		"DOTA_Tooltip_ability_seafortress_sea_prophet_whirlpool"	"Conjure Whirlpool"
+		"DOTA_Tooltip_ability_seafortress_sea_prophet_whirlpool_Description"	"Создаёт в указанной точке водоворот. Враги, попавшие внутрь стягиваются к центру ворогки, теряют броню и магическое сопротивление."
+		"DOTA_Tooltip_ability_seafortress_sea_prophet_whirlpool_movespeed_percent"	"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ %:"
+		"DOTA_Tooltip_ability_seafortress_sea_prophet_whirlpool_armor_loss"			"СНИЖЕНИЕ БРОНИ:"
+		"DOTA_Tooltip_ability_seafortress_sea_prophet_whirlpool_magic_resist_loss"	"СНИЖЕНИЕ СОПРОТИВЛЕНИЯ МАГИИ:"
+
+		"DOTA_Tooltip_modifier_sea_prophet_whirlpool_within"		"Whirlpool"
+		"DOTA_Tooltip_modifier_sea_prophet_whirlpool_within_Description"	"Скорость передвижения, броня и сопротивление магии снижены."
+
+		"DOTA_Tooltip_ability_seafortress_dragoon_poison_nova"		"Poison Nova"
+		"DOTA_Tooltip_ability_seafortress_dragoon_poison_nova_Description"	"Распыляет вокруг себя смертоносное токсичное облако, наносящее урон каждые 0.2 секунды."
+		"DOTA_Tooltip_ability_seafortress_dragoon_poison_nova_damage_per_tick" "УРОН ЗА КАЖДЫЙ ТИК:"
+		"DOTA_Tooltip_ability_seafortress_dragoon_poison_nova_duration"			"ДЛИТЕЛЬНОСТЬ:"
+
+		"DOTA_Tooltip_modifier_dragoon_poison_nova"					"Poison Nova"
+		"DOTA_Tooltip_modifier_dragoon_poison_nova_Description"		"Получает урон каждые 0.2 секунды."	
+
+		"DOTA_Tooltip_ability_seafortress_guillotine_slice"			"Guillotine Slice"
+		"DOTA_Tooltip_ability_seafortress_guillotine_slice_Description"	"Разрезает горло цели, нанося огромный чистый урон, зависящий от текущего здоровья цели."
+		"DOTA_Tooltip_ability_seafortress_guillotine_slice_percent_health"	"УРОН, % ОТ ТЕКУЩЕГО ЗДОРОВЬЯ:"
+
+		"DOTA_Tooltip_ability_seafortress_blood_drinker_passive"	"Blood Drinker"
+		"DOTA_Tooltip_ability_seafortress_blood_drinker_passive_Description"	"Получает бонус к скорости передвижения и урону, зависящий от недостающего здоровья ближайших героев."
+		"DOTA_Tooltip_ability_seafortress_blood_drinker_passive_ms_per_health_percent"	"ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ ЗА % НЕДОСТАЮЩЕГО ЗДОРОВЬЯ:"
+		"DOTA_Tooltip_ability_seafortress_blood_drinker_passive_attack_power_per_health_percent" "БОНУС К УРОНУ ЗА % НЕДОСТАЮЩЕГО ЗДОРОВЬЯ, %:"
+
+		"DOTA_Tooltip_modifier_blood_drinker_effect"				"Blood Drinker"
+
+		"DOTA_Tooltip_ability_seafortress_saltwater_demon_aura"		"Salty Veins Aura"
+		"DOTA_Tooltip_ability_seafortress_saltwater_demon_aura_Description"	"Снижает регенерацию маны ближайших врагов."	
+		"DOTA_Tooltip_ability_seafortress_saltwater_demon_aura_maga_regen"	"СНИЖЕНИЕ РЕГЕНЕРАЦИИ МАНЫ:"
+
+		"DOTA_Tooltip_modifier_saltwater_demon_debuff"				"Salty Veins Aura"
+		"DOTA_Tooltip_modifier_saltwater_demon_debuff_Description"	"Регенерация маны снижена"
+
+		"DOTA_Tooltip_ability_seafortress_thunder_quake"			"Thunder Quake"
+		"DOTA_Tooltip_ability_seafortress_thunder_quake_Description"	"В выбранную цель ударяет молния. Спустя 1 секунду в том же месте создаётся землетрясение, которое наносит урон и оглушает врагов в области действия."
+		"DOTA_Tooltip_ability_seafortress_thunder_quake_damage"		"УРОН:"
+		"DOTA_Tooltip_ability_seafortress_thunder_quake_stun_duration"	"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+
+		"DOTA_Tooltip_ability_shield_block"							"Shield Block"
+		"DOTA_Tooltip_ability_shield_block_Description"				"С 50% шансом игнорирует любой входящий урон."
+
+		"DOTA_Tooltip_ability_seafortress_sapphire_dragon_passive"	"Sapphire Breath"
+		"DOTA_Tooltip_ability_seafortress_sapphire_dragon_passive_Description"	"Атаки накладывают сильный замедляющий эффект на врагов."
+		"DOTA_Tooltip_ability_seafortress_sapphire_dragon_passive_attack_slow"	"СНИЖЕНИЕ СКОРОСТИ АТАКИ:"
+		"DOTA_Tooltip_ability_seafortress_sapphire_dragon_passive_move_slow"	"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+
+		"DOTA_Tooltip_modifier_sapphire_dragon_slow"				"Sapphire Breath"
+		"DOTA_Tooltip_modifier_sapphire_dragon_slow_Description"	"Замедлен"
+
+		"DOTA_Tooltip_ability_slicer_ice_shell"					"Ice Shell"
+		"DOTA_Tooltip_ability_slicer_ice_shell_Description"		"Поглощает входящий магический урон"	
+		"DOTA_Tooltip_ability_slicer_ice_shell_duration"			"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_slicer_ice_shell_magic_instances_absorbed"	"КОЛИЧЕСТВО ПОГЛОЩЕНИЙ МАГИЧЕСКОГО УРОНА:"
+
+		"DOTA_Tooltip_ability_dragon_warrior_passive"			"Flame Spiral"
+		"DOTA_Tooltip_ability_dragon_warrior_passive_Description"	"Постоянно выпускает поток огня вокруг себя."
+		"DOTA_Tooltip_ability_dragon_warrior_passive_damage"	"УРОН:"
+
+		"DOTA_Tooltip_ability_seafortress_undead_pirate_aura"	"Decay Aura"
+		"DOTA_Tooltip_ability_seafortress_undead_pirate_aura_Description"	"Враги, попавшие в область действия этой ауры не могут восстанавливать своё здоровье. Любые попытки лечения исцеляют владельца ауры. Дополнительно снижается регенерация здоровья."
+		"DOTA_Tooltip_ability_seafortress_undead_pirate_aura_heal_mult"		"МНОЖИТЕЛЬ ОБРАТНОГО ЛЕЧЕНИЯ:"
+		"DOTA_Tooltip_ability_seafortress_undead_pirate_aura_health_regen_loss"	"СНИЖЕНИЕ РЕГЕНЕРАЦИИ ЗДОРОВЬЯ, %:"
+
+		"DOTA_Tooltip_modifier_pirate_aura_debuff"				"Decay Aura"
+		"DOTA_Tooltip_modifier_pirate_aura_debuff_Description"	"Не может лечиться, регенерация здоровья снижена."
+
+		"DOTA_Tooltip_ability_seafortress_dark_spirit_passive"	"Dark Spirit"
+		"DOTA_Tooltip_ability_seafortress_dark_spirit_passive_Description"	"Наделяется уклонением и сопротивлением магии."
+		"DOTA_Tooltip_ability_seafortress_dark_spirit_passive_evasion"		"УКЛОНЕНИЕ:"
+		"DOTA_Tooltip_ability_seafortress_dark_spirit_passive_magic_resist"	"СОПРОТИВЛЕНИЕ МАГИИ:"
+
+		"DOTA_Tooltip_modifier_dark_spirit_passive"				"Dark Spirit"
+
+		"DOTA_Tooltip_ability_seafortress_colossus_ability"		"Raging Colossus"
+		"DOTA_Tooltip_ability_seafortress_colossus_ability_Description"	"Получает заряды Colossus Rage за каждый % отсутствующего здоровья."
+		"DOTA_Tooltip_ability_seafortress_colossus_ability_attackspeed"	"ДОП. СКОРОСТЬ АТАКИ ЗА ЗАРЯД:"
+		"DOTA_Tooltip_ability_seafortress_colossus_ability_movespeed"	"ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ ЗА ЗАРЯД:"
+		"DOTA_Tooltip_ability_seafortress_colossus_ability_damage"		"БОНУС К УРОНУ ЗА ЗАРЯД, %:"
+		"DOTA_Tooltip_ability_seafortress_colossus_ability_magic_resist"	"ДОП. СОПРОТИВЛЕНИЕ МАГИИ ЗА ЗАРЯД:"
+
+		"DOTA_Tooltip_modifier_colossus_rage"					"Colossus Rage"
+		"DOTA_Tooltip_modifier_colossus_rage_Description"		"Увеличены скорость атаки, передвижения, урон и сопротивление магии."
+
+		"DOTA_Tooltip_ability_seafortress_fatal_bonds"			"Fatal Bonds"
+		"DOTA_Tooltip_ability_seafortress_fatal_bonds_Description"	"Связывает группу врагов, разделяя входящий урон одной цели между всеми связанными юнитами."
+		"DOTA_Tooltip_ability_seafortress_fatal_bonds_damage_share_percentage"	"ПРОЦЕНТ РАЗДЕЛЕНИЯ УРОНА:"
+
+		"DOTA_Tooltip_ability_seafortress_curse_of_the_deep"	"Curse of the Deep"
+		"DOTA_Tooltip_ability_seafortress_curse_of_the_deep_Description"	"Проклинает врагов в области, заставляя получать дополнительный чистый урон каждый раз, когда они получают урон из любых источников."
+		"DOTA_Tooltip_ability_seafortress_curse_of_the_deep_damage"			"ДОП. УРОН, % ОТ МАКС. ЗДОРОВЬЯ:"
+		"DOTA_Tooltip_ability_seafortress_curse_of_the_deep_duration"		"ДЛИТЕЛЬНОСТЬ ЭФФЕКТА:"
+
+		"DOTA_Tooltip_modifier_curse_of_the_deep"				"Curse of the Deep"
+		"DOTA_Tooltip_modifier_curse_of_the_deep_Description"	"При получении любого урона наносится дополнительный чистый урон."
+
+		"DOTA_Tooltip_ability_stalacorr_passive"				"Might of Stalacorr"
+		"DOTA_Tooltip_ability_stalacorr_passive_Description"	"Атаки наносят дополнительный магический урон и отталкивают цель."
+		"DOTA_Tooltip_ability_stalacorr_passive_damage"			"УРОН:"
+
+		"DOTA_Tooltip_ability_stalacor_stone_toss_ability"		"Boulder Toss"
+		"DOTA_Tooltip_ability_stalacor_stone_toss_ability_Description"	"Выбирает врага и бросает в него булыжник, нанося урон всем вокруг основной цели."
+		"DOTA_Tooltip_ability_stalacor_stone_toss_ability_damage"		"УРОН:"
+
+		"DOTA_Tooltip_ability_seafortress_ghost_seal_ability"	"Fin Slap"
+		"DOTA_Tooltip_ability_seafortress_ghost_seal_ability_Description"	"Атаки отталкивают врагов."
+
+		"DOTA_Tooltip_ability_furbolg_blade_mail"				"Blade Mail"
+		"DOTA_Tooltip_ability_furbolg_blade_mail_Description"	"Позволяет ненадолго активировать возможность возвращать атакующим весь получаемый урон."
+		"DOTA_Tooltip_ability_furbolg_blade_mail_percent_return_hero"	"ВОЗВРАЩЕНИЕ УРОНА ОТ ГЕРОЕВ, %"
+		"DOTA_Tooltip_ability_furbolg_blade_mail_percent_return_creep"	"ВОЗВРАЩЕНИЕ УРОНА ОТ СУЩЕСТВ, %"
+		"DOTA_Tooltip_ability_furbolg_blade_mail_duration"				"ДЛИТЕЛЬНОСТЬ:"
+
+		"DOTA_Tooltip_ability_dark_reef_guard_channel"			"Dark Reef Empowerment"
+		"DOTA_Tooltip_ability_dark_reef_guard_channel_Description"	"После успешного 2 секундного прочтения, получает бонус к скорости передвижения и урону. Следующая атака гарантированно нанесёт чистый урон."	
+		"DOTA_Tooltip_ability_dark_reef_guard_channel_movespeed"		"ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ, %:"
+		"DOTA_Tooltip_ability_dark_reef_guard_channel_attack_damage"	"БОНУС К УРОНУ, %:"
+	
+		"DOTA_Tooltip_modifier_dark_reef_massive_buff"	"Dark Reef Empowerment"
+		"DOTA_Tooltip_modifier_dark_reef_massive_buff_Description"	"Следующая атака нанесёт бонусный чистый урон."
+
+		"DOTA_Tooltip_ability_naga_summoner_ability"	"Rage of the Naga"
+
+		"DOTA_Tooltip_ability_seafortress_siltbreaker_passive"	"King Naga"
+
+		"DOTA_Tooltip_ability_siltbreaker_amplify_damage"		"Amplify Damage"
+		"DOTA_Tooltip_ability_siltbreaker_amplify_damage_Description"	"Снижает броню цели."
+		"DOTA_Tooltip_ability_siltbreaker_amplify_damage_armor_reduction"	"СНИЖЕНИЕ БРОНИ:"
+		"DOTA_Tooltip_ability_siltbreaker_amplify_damage_duration"			"ДЛИТЕЛЬНОСТЬ:"
+
+		"DOTA_Tooltip_ability_siltbreaker_whirlpool"            "Blue Whirlpool"
+        "DOTA_Tooltip_ability_siltbreaker_whirlpool_Description"    "Создаёт в указанной точке водоворот, накладывающий замедление и безмолвие."
+
+        "DOTA_Tooltip_modifier_whirlpool_within"                "Blue Whirlpool"
+        "DOTA_Tooltip_modifier_whirlpool_within_Description"    "Обезмолвлен и замедлен"
+
+        "DOTA_Tooltip_ability_siltbreaker_channel"                "Virulent Striker"
+        "DOTA_Tooltip_ability_siltbreaker_channel_Description"    "Выдыхает волны яда. Во время заряда волн 99% сопротивление к урону. Волны гарантированно убивают попавших внутрь противников."
+
+		"DOTA_Tooltip_ability_seafortress_centaur_slam"			"Centaur Slam"
+		"DOTA_Tooltip_ability_seafortress_centaur_slam_Description"	"Наносит выбранной цели урон и ненадолго оглушает её."
+		"DOTA_Tooltip_ability_seafortress_centaur_slam_damage"			"УРОН:"
+		"DOTA_Tooltip_ability_seafortress_centaur_slam_stun_duration"	"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+
+		"DOTA_Tooltip_ability_sea_giant_boss_passive"			"Great Sea Giant"
+		"DOTA_Tooltip_ability_sea_giant_boss_passive_Description"	"Атаки создают сильное землетрясение, которое наносит урон и кратковременно оглушает врагов в области действия."
+		"DOTA_Tooltip_ability_sea_giant_boss_passive_damage"	"УРОН:"
+
+		"DOTA_Tooltip_ability_sea_giant_split_earth"					"Grand Earth Splitter"
+		"DOTA_Tooltip_ability_sea_giant_split_earth_Description"					"Бьёт по земле, раскалывая её. Трещина взрывается с задержкой в 3.5 секунды."
+		"DOTA_Tooltip_ability_sea_giant_split_earth_attack_power_mult_percent"	"УРОН ВЗРЫВА, % ОТ УРОНА:"
+		"DOTA_Tooltip_ability_sea_giant_split_earth_stun_duration"				"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+
+		"DOTA_Tooltip_ability_seafortress_oracle_of_the_sea_passive"	"Oracle of the Sea"
+		"DOTA_Tooltip_ability_seafortress_oracle_of_the_sea_passive_Description"	"Атаки наносят дополнительный чистый урон и снижают атрибуты цели. Снижение атрибутов зависит от их текущих значений."
+		"DOTA_Tooltip_ability_seafortress_oracle_of_the_sea_passive_damage"			"УРОН:"
+		"DOTA_Tooltip_ability_seafortress_oracle_of_the_sea_passive_attribute_loss_percent"	"СНИЖЕНИЕ АТРИБУТОВ ЗА ЗАРЯД, %:"
+
+		"DOTA_Tooltip_modifier_sea_oracle_stats_debuff"					"Oracle of the Sea"
+		"DOTA_Tooltip_modifier_sea_oracle_stats_debuff_Description"		"Атрибуты снижены"
+
+		"DOTA_Tooltip_ability_sea_oracle_attack_buff"					"Supercharge"
+		"DOTA_Tooltip_ability_sea_oracle_attack_buff_Description"		"После 0.9 секундной зарядки ненадолго получает огромный бонус к скорости атаки и скорости передвижения."
+		"DOTA_Tooltip_ability_sea_oracle_attack_buff_attackspeed"		"ДОП. СКОРОСТЬ АТАКИ:"
+		"DOTA_Tooltip_ability_sea_oracle_attack_buff_movespeed"			"ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ, %:"
+		"DOTA_Tooltip_ability_sea_oracle_attack_buff_duration"			"ДЛИТЕЛЬНОСТь:"
+
+		"DOTA_Tooltip_ability_sea_oracle_wave_push"						"Wave Blast"
+		"DOTA_Tooltip_ability_sea_oracle_wave_push_Description"			"Стремительный поток воды отталкивает врагов."	
+		"DOTA_Tooltip_ability_sea_oracle_wave_push_damage"				"УРОН:"
+
+		"DOTA_Tooltip_ability_seafortress_diviner_jump"					"Tricky Wave Jump"
+		"DOTA_Tooltip_ability_seafortress_diviner_jump_Description"		"Прыгает к выбранной цели и наносит урон, по приземлении замедляя всех врагов вокруг."	
+		"DOTA_Tooltip_ability_seafortress_diviner_jump_movespeed_slow"	"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ, %:"
+		"DOTA_Tooltip_ability_seafortress_diviner_jump_attackspeed_slow"	"СНИЖЕНИЕ СКОРОСТИ АТАКИ, %:"
+
+		"DOTA_Tooltip_modifier_blast_jump_slow"							"Wave Jump Slow"
+		"DOTA_Tooltip_modifier_blast_jump_slow_Description"				"Скорость атаки и передвижения снижены"	
+
+		"DOTA_Tooltip_ability_seafortress_final_boss_passive"			"Great Cleave"
+		"DOTA_Tooltip_ability_seafortress_final_boss_passive_Description"	"Атаки наносят дополнительный магический урон в полукруге возле основной цели."
+
+		"DOTA_Tooltip_ability_seafortress_final_boss_jump"				"Mighty Leap"
+		"DOTA_Tooltip_ability_seafortress_final_boss_jump_Description"	"Прыгает к врагу, создавая землетрясение, оглушая и нанося урон в области действия."
+
+		"DOTA_Tooltip_ability_seafortress_ahn_qhir_passive"				"Counter Spin"
+		"DOTA_Tooltip_ability_seafortress_ahn_qhir_passive_Description"	"С шансом в 20% при получении урона начнёт быстро вращаться в течении 1 секунды, дополнительно получит иммунитет к магии и будет наносить урон всем находящимся рядом врагам каждые 0.3 секунды."	
+		"DOTA_Tooltip_ability_seafortress_ahn_qhir_passive_damage"		"УРОН:"
+
+		"DOTA_Tooltip_modifier_ahn_qhir_spinning"						"Counter Spin"
+		"DOTA_Tooltip_modifier_ahn_qhir_spinning_Description"			"Иммунитет к магии."
+
+		"DOTA_Tooltip_ability_seafortress_ahn_khir_dash"				"Wild Spiral"
+		"DOTA_Tooltip_ability_seafortress_ahn_khir_dash_Description"	"Быстро вращаясь перемещается в указанную точку, нанося урон всем задетым врагам и имея иммунитет к магии."
+		"DOTA_Tooltip_ability_seafortress_ahn_khir_dash_damage"			"УРОН:"
+
+		"DOTA_Tooltip_ability_ability_stun_immunity"					"Иммунитет к оглушению"
+		"DOTA_Tooltip_ability_ability_stun_immunity_Description"		""
+
+		"seafortress_shadow_of_bahamut"									"Shadow of Bahamut"
+
+		"DOTA_Tooltip_ability_seafortress_shadow_of_bahamut_passive"    "Power Word: Kill"
+        "DOTA_Tooltip_ability_seafortress_shadow_of_bahamut_passive_Description"    "Произносит слово разрушения мироздания и образует брешь в реальности, разрушаюшее любую материю. Все находящееся внутри будет уничтожено. Никакая защита не позволит избежать смерти."
+
+		"DOTA_Tooltip_ability_shadow_of_bahamut_orb"					"Tainted Sphere of Divinity"
+		"DOTA_Tooltip_ability_shadow_of_bahamut_orb_Description"		"Перемещается в указанную точку внутри испорченного шара."
+
+		"DOTA_Tooltip_ability_archon_golem_ground_slam"					"Archon Blaze"
+		"DOTA_Tooltip_ability_archon_golem_ground_slam_Description"		"Бьёт по земле, нанося урон всем врагам в облати действия и оглушая их."
+
+		"DOTA_Tooltip_ability_seafortress_archon_form"					"Archon Form"
+
+		"sea_fortress_paladin_golem"									"Пустотелый"
+		"seafortress_archon_wizard"										"Верховный маг"

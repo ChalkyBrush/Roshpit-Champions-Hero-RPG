@@ -140,7 +140,7 @@
     	"DOTA_Tooltip_ability_flamewaker_rune_r_2_Description"					"При успешном прочтении @Ability4 выпускает волны огня по спирали. Каждая волная наносит <% FLAMEWAKER_R2_INSTANCE_OF_DAMAGE_COUNT %> порций урона, а урон базируется на уровне надетых предметов в 4 степени. (Предметы 100 уровня считаются за 110). "
     	"DOTA_Tooltip_ability_flamewaker_rune_r_2_property_one"					"Урон"
     	"DOTA_Tooltip_ability_flamewaker_rune_r_2_suffix"						"* (<% FLAMEWAKER_R2_INNER_SCALE_BASE %> * (Total Gear Levels)) ^ <% FLAMEWAKER_R2_DMG_EXP_SCALE_BASE %>"
-		
+
 		"DOTA_Tooltip_ability_flamewaker_rune_r_3"								"[R3] Mountain's Energy"
     	"DOTA_Tooltip_ability_flamewaker_rune_r_3_Description"					"По завершении прочтения @Ability4, Flamewaker получает дополнительные очки Силы на 12 секунд."
     	"DOTA_Tooltip_ability_flamewaker_rune_r_3_property_one"					"Доп. Силы"

@@ -1,0 +1,1391 @@
+		//---------------------------
+		// Tanari Jungle
+		//---------------------------
+
+		"DOTA_Tooltip_ability_item_tanari_wind_temple_key_normal"			"Wind Temple Key"
+		"DOTA_Tooltip_ability_item_tanari_wind_temple_key_elite"				"Wind Temple Key"
+		"DOTA_Tooltip_ability_item_tanari_wind_temple_key_legend"			"Wind Temple Key"
+
+		"item_tanari_wind_temple_key_normal_desc"		"Use: Grants access to the Wind Temple in Tanari Jungle. Can be stored in your Pool of Eternity or Key Bank for use in another game session."
+		"item_tanari_wind_temple_key_elite_desc"		"Use: Grants access to the Wind Temple in Tanari Jungle. Can be stored in your Pool of Eternity or Key Bank for use in another game session."
+		"item_tanari_wind_temple_key_legend_desc"		"Use: Grants access to the Wind Temple in Tanari Jungle. Can be stored in your Pool of Eternity or Key Bank for use in another game session."
+
+		"DOTA_Tooltip_ability_item_tanari_water_temple_key_normal"			"Water Temple Key"
+		"DOTA_Tooltip_ability_item_tanari_water_temple_key_elite"				"Water Temple Key"
+		"DOTA_Tooltip_ability_item_tanari_water_temple_key_legend"			"Water Temple Key"
+
+		"item_tanari_water_temple_key_normal_desc"		"Use: Grants access to the Water Temple in Tanari Jungle. Can be stored in your Pool of Eternity or Key Bank for use in another game session."
+		"item_tanari_water_temple_key_elite_desc"		"Use: Grants access to the Water Temple in Tanari Jungle. Can be stored in your Pool of Eternity or Key Bank for use in another game session."
+		"item_tanari_water_temple_key_legend_desc"		"Use: Grants access to the Water Temple in Tanari Jungle. Can be stored in your Pool of Eternity or Key Bank for use in another game session."
+
+		"DOTA_Tooltip_ability_item_tanari_fire_temple_key_normal"			"Fire Temple Key"
+		"DOTA_Tooltip_ability_item_tanari_fire_temple_key_elite"				"Fire Temple Key"
+		"DOTA_Tooltip_ability_item_tanari_fire_temple_key_legend"			"Fire Temple Key"
+
+		"item_tanari_fire_temple_key_normal_desc"		"Use: Grants access to the Fire Temple in Tanari Jungle on normal difficulty. Can be stored in your Pool of Eternity or Key Bank for use in another game session."
+		"item_tanari_fire_temple_key_elite_desc"		"Use: Grants access to the Fire Temple in Tanari Jungle on elite difficulty. Can be stored in your Pool of Eternity or Key Bank for use in another game session."
+		"item_tanari_fire_temple_key_legend_desc"		"Use: Grants access to the Fire Temple in Tanari Jungle on legend difficulty. Can be stored in your Pool of Eternity or Key Bank for use in another game session."
+
+		"DOTA_Tooltip_ability_item_tanari_essence_of_wind_normal"			"Essence of Wind"
+		"DOTA_Tooltip_ability_item_tanari_essence_of_wind_elite"				"Essence of Wind"
+		"DOTA_Tooltip_ability_item_tanari_essence_of_wind_legend"			"Essence of Wind"
+
+		"item_tanari_essence_of_wind_normal_desc"		"Combines with 2 other key elements of Tanari Jungle to create the Tanari Spirit Stones."
+		"item_tanari_essence_of_wind_elite_desc"		"Combines with 2 other key elements of Tanari Jungle to create the Tanari Spirit Stones."
+		"item_tanari_essence_of_wind_legend_desc"		"Combines with 2 other key elements of Tanari Jungle to create the Tanari Spirit Stones."
+
+		"DOTA_Tooltip_ability_item_tanari_heart_of_water_normal"			"Heart of Water"
+		"DOTA_Tooltip_ability_item_tanari_heart_of_water_elite"				"Heart of Water"
+		"DOTA_Tooltip_ability_item_tanari_heart_of_water_legend"			"Heart of Water"
+
+		"item_tanari_heart_of_water_normal_desc"		"Combines with 2 other key elements of Tanari Jungle to create the Tanari Spirit Stones."
+		"item_tanari_heart_of_water_elite_desc"		"Combines with 2 other key elements of Tanari Jungle to create the Tanari Spirit Stones."
+		"item_tanari_heart_of_water_legend_desc"		"Combines with 2 other key elements of Tanari Jungle to create the Tanari Spirit Stones."
+
+		"DOTA_Tooltip_ability_item_tanari_core_of_fire_normal"			"Core of Fire"
+		"DOTA_Tooltip_ability_item_tanari_core_of_fire_elite"				"Core of Fire"
+		"DOTA_Tooltip_ability_item_tanari_core_of_fire_legend"			"Core of Fire"
+
+		"item_tanari_core_of_fire_normal_desc"		"Combines with 2 other key elements of Tanari Jungle to create the Tanari Spirit Stones."
+		"item_tanari_core_of_fire_elite_desc"		"Combines with 2 other key elements of Tanari Jungle to create the Tanari Spirit Stones."
+		"item_tanari_core_of_fire_legend_desc"		"Combines with 2 other key elements of Tanari Jungle to create the Tanari Spirit Stones."
+
+		"DOTA_Tooltip_ability_item_tanari_spirit_stones_normal"			"Tanari Spirit Stones"
+		"DOTA_Tooltip_ability_item_tanari_spirit_stones_elite"				"Tanari Spirit Stone"
+		"DOTA_Tooltip_ability_item_tanari_spirit_stones_legend"			"Tanari Spirit Stones"
+
+		"item_tanari_spirit_stones_normal_desc"		"Use: Enter the Spirit Realm in Tanari Jungle. Spirit realm has 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, 3x mithril and 2x arcane crystal gain."
+		"item_tanari_spirit_stones_elite_desc"		"Use: Enter the Spirit Realm in Tanari Jungle. Spirit realm has 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, 3x mithril and 2x arcane crystal gain."
+		"item_tanari_spirit_stones_legend_desc"		"Use: Enter the Spirit Realm in Tanari Jungle. Spirit realm has 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, 3x mithril and 2x arcane crystal gain."
+
+		
+		"dialogue_witch_doctor"						"The Spirits of the Jungle surround me."
+		"dialogue_witch_doctor_two"					"The World radiates its energy."
+		"tanari_witch_doctor"						"Tanari Witch Doctor"
+
+		"witch_doctor_tooltip"						"Bring me the base elements that constitute this world, and I will grant you access to the spirit realm."
+
+		"combine_tanari_elements_button_label"		"Combine Artifacts"
+
+		"tooltip_town_portal"						"Town Portal"
+		"tooltip_town_portal_desc"					"Return home after a 7 second channel."
+
+		"DOTA_Tooltip_ability_rpc_hero_town_portal"	"Town Portal"
+		"DOTA_Tooltip_ability_rpc_hero_town_portal_Description"	"Return home after a 7 second channel."
+
+		"DOTA_Tooltip_modifier_tanari_fountain"		"Tanari Springs"
+		"DOTA_Tooltip_modifier_tanari_fountain_Description"	"Restoring HP and Mana. Any damage taken removes this effect."
+		
+		"DOTA_Tooltip_modifier_flame_orchid_burn"		"Burning"
+		"DOTA_Tooltip_modifier_flame_orchid_burn_Description"	""
+		
+		"grizzled_woodsman"		"Grizzled Occultist"
+
+		"tanari_island_hydra"							"Sea Hydra"
+
+		"tanari_poison_flower"							"Poison Flower"
+
+		"DOTA_Tooltip_ability_gazbin_berserker_rage"	"Berserker Rage"
+		"DOTA_Tooltip_ability_gazbin_berserker_rage_Description"	"Increases attack and move speed by 40%"
+
+		"tanari_mountain_bully"							"Tanari Mountain Bully"
+
+		"tanari_mountain_pass_guardian"					"Mountain Pass Guardian"
+
+		"DOTA_Tooltip_ability_tanari_kraken_ravage"		"Ravage"
+		"DOTA_Tooltip_ability_tanari_kraken_ravage_Description"	"A wave of tentacles radiates from the Kraken, damaging and stunning anything it hits."	
+
+		"DOTA_Tooltip_ability_tanari_kraken_anchor_smash"	"Anchor Smash"
+		"DOTA_Tooltip_ability_tanari_kraken_anchor_smash_Description"	"A mighty swing of the Kraken's weapon damages and knocks back anyone nearby."
+
+		"tanari_reclusive_mountain_nomad"				"Relicseeker"
+		"DOTA_Tooltip_ability_tanari_mountain_nomad_ai"						"Mortal Strike"
+		"DOTA_Tooltip_ability_tanari_mountain_nomad_ai_Description"			"Flesh-Rending attacks slow movement speed and deal damage over time."
+		"DOTA_Tooltip_ability_tanari_mountain_nomad_ai_damage"			"BLEED DAMAGE:"
+
+		"tanari_mountain_specter"						"Forgotten Hero"
+		"DOTA_Tooltip_ability_tanari_mountain_specter_ai"				"Deserted"
+		"DOTA_Tooltip_ability_tanari_mountain_specter_ai_Description"	"Seeking vengeance for his forgotten deeds."
+
+		"DOTA_Tooltip_ability_tanari_mountain_pass_guardian_ai" "Ancient Guardian"
+		"DOTA_Tooltip_ability_tanari_mountain_pass_guardian_ai_Description"	"Bone crushing attacks deal an additional 100% magic damage"
+
+		"DOTA_Tooltip_modifier_mountain_nomad_bleeding"	"Bleeding"
+		"DOTA_Tooltip_modifier_mountain_nomad_bleeding_Description"	""
+
+		"tanari_kraken_king"							"King K. Raken"
+		"DOTA_Tooltip_ability_tanari_kraken_king_ai"	"Hungry for Fish"
+		"DOTA_Tooltip_ability_tanari_kraken_king_ai_Description"	"Reckless arm swinging and ravaging."
+
+		"DOTA_Tooltip_ability_tanari_hydra_ai"				"Apex Predator"
+
+		"tanari_wind_temple_keyholder"						"Wind Temple Keyholder"
+
+		"tanari_primitive_hunter"							"Primitive Hunter"
+
+		"DOTA_Tooltip_ability_tanari_wind_temple_keyholder_ai"	"Gust"
+		"DOTA_Tooltip_ability_tanari_wind_temple_keyholder_ai_Description"	"Attacks release a wind gale that damages for 0.3% of attack damage as Magic and slows targets."
+
+		"DOTA_Tooltip_modifier_bongo_frog_effect"			"Bongo Energy Aura"
+		"DOTA_Tooltip_modifier_bongo_frog_effect_Description"	"Gaining Health Regen and Movespeed"
+
+		"DOTA_Tooltip_ability_tanari_bongo_frog_ai"			"Bongo Bard"
+		"DOTA_Tooltip_ability_tanari_bongo_frog_ai_Description"	"Increases nearby allies' Health Regen and Movespeed with Bongo Jungle Beats."
+
+		"tanari_tribal_ambusher"							"Tribal Defender"	
+
+		"DOTA_Tooltip_modifier_wind_temple_keyholder_slow"	"Thick Wind"
+		"DOTA_Tooltip_modifier_wind_temple_keyholder_slow_Description"	"Move and Attackspeed Slow"
+
+		"DOTA_Tooltip_ability_creature_pure_strike"			"Pure Strike"
+		"DOTA_Tooltip_ability_creature_pure_strike_Description"	"Attacks cannot miss and deal an additional 3% pure damage."
+
+		"DOTA_Tooltip_ability_tanari_ritual_healing"		"Healing Ritual"
+		"DOTA_Tooltip_ability_tanari_ritual_healing_Description"	"Restores a smal amount of Health to a nearby ally on a short cooldown."		
+
+		"world_tanari_jungle"							"Tanari Jungle"
+		"zone_tanari_town"								"Tanari Encampment"
+		"zone_tanari_lake"								"Tanari Beaches"
+		"zone_tanari_mountain_side"						"Path of Champions"
+		"zone_tanari_wind_temple"						"Wind Temple"
+		"zone_tanari_thicket"							"Wildwood Thicket"
+		"zone_tanari_cavern"							"Boulderspine Cavern"
+		"zone_tanari_water_temple"						"Water Temple"
+		"zone_tanari_terrasic_crater"					"Terrasic Crater"
+		"zone_tanari_fire_temple"						"Fire Temple"
+
+		"tanari_spirit_realm"							"Spirit Realm"
+
+		"tanari_headhunter"								"Headhunter"
+		"tanari_thicket_priest"							"Archaic Witch Doctor"
+		"tanari_thicket_pain_absorber"					"Tribal Pain Warder"
+		"tanari_thicket_high_priest"					"High Priest To'rall"
+
+
+		"DOTA_Tooltip_ability_tanari_high_priest_buff"	"Ancient Ritual"
+		"DOTA_Tooltip_ability_tanari_high_priest_buff_Description"	"Buffs an ally with attackspeed, movespeed and damage resistance for 5 seconds."
+
+		"DOTA_Tooltip_modifier_high_priest_buff"		"Ancient Ritual"
+		"DOTA_Tooltip_modifier_high_priest_buff_Description"	"Increased attackspeed and movespeed. Additionally reduces all damage taken by 30%"
+
+		"zone_tanari_thicket"							"Wildwood Thicket"
+		"zone_tanari_wind_temple"							"Wind Temple"
+
+		"wind_temple_avian_warder"						"Avian Warden"
+
+		"DOTA_Tooltip_modifier_wind_temple_guardian_evasion"	"Ardent Winds"
+		"DOTA_Tooltip_modifier_wind_temple_guardian_evasion_Description"	"90%% chance to dodge attacks."
+
+		"DOTA_Tooltip_ability_wind_temple_wind_guardian_ai"		"Wind Guardian"
+		"DOTA_Tooltip_ability_wind_temple_wind_guardian_ai_Description"	"Protecting the secrets of the Wind Temple."
+
+		"DOTA_Tooltip_ability_wind_temple_wind_mage_ai"					"Tempest Spellmaster"
+		"DOTA_Tooltip_ability_wind_temple_wind_mage_ai_Description"		"Enemies who approach the Wind Mage are pushed back by a gust of wind."
+
+		"DOTA_Tooltip_ability_wind_temple_wind_haste"					"Wind Haste"
+		"DOTA_Tooltip_ability_wind_temple_wind_haste_Description"		"Buffs an ally with attackspeed, movespeed and evasion."	
+
+		"DOTA_Tooltip_modifier_wind_haste"								"Wind Haste"
+		"DOTA_Tooltip_modifier_wind_haste_Description"					"Increased attackspeed, movespeed and evasion"
+
+		"wind_temple_keeper_of_green_wind"								"Green Wind Keeper"
+		"wind_temple_keeper_of_blue_wind"								"Blue Wind Keeper"
+		"wind_temple_keeper_of_red_wind"								"Red Wind Keeper"
+
+		"DOTA_Tooltip_modifier_modifier_windspell"						"Windspell"
+		"DOTA_Tooltip_modifier_modifier_windspell_Description"			"Reduced Movespeed and Attack Speed"	
+
+		"DOTA_Tooltip_ability_wind_temple_wind_drake_ai"				"Origin Winds"
+		"DOTA_Tooltip_ability_wind_temple_wind_drake_ai_Description"	"Increases Evasion by 25% and attacks can't miss."
+
+		"DOTA_Tooltip_ability_wind_temple_gardiner_ai"					"Grove Tender"
+		"DOTA_Tooltip_ability_wind_temple_gardiner_ai_Description"		"50% resistance to magical elements."
+
+		"wind_temple_gardener"											"Temple Gardener"
+		"wind_temple_wind_maiden"										"Wind Maiden"
+
+		"DOTA_Tooltip_ability_wind_temple_zeus_descendant_ai"			"Swift Winds"
+		"DOTA_Tooltip_ability_wind_temple_zeus_descendant_ai_Description"	"Increases movespeed by 200 every 4 seconds, and adds a passive 20% evasion."	
+
+		"DOTA_Tooltip_ability_zuus_descendant_bolt" 					"Heaven Bolt"
+		"DOTA_Tooltip_ability_zuus_descendant_bolt_Description"			"Smites targets with a magical nuke and ministun." 
+
+		"wind_temple_staff"												"Scepter of High Winds"
+
+		"DOTA_Tooltip_wind_temple_staff_dummy_buff"						"Binding of Hurricanes"
+		"DOTA_Tooltip_wind_temple_staff_dummy_buff_Description"			"Scepters of matching color have buffed this unit greatly."
+
+		"DOTA_Tooltip_ability_wind_temple_staff_guardian_skill_green"	"Sweeping Winds Aura"
+		"DOTA_Tooltip_ability_wind_temple_staff_guardian_skill_green_Descirpion"	"Decreases the attack speed and movespeed of all nearby enemies."
+
+		"DOTA_Tooltip_modifier_temple_staff_guardian_ai_green_effect"	"Sweeping Winds Aura"
+		"DOTA_Tooltip_modifier_temple_staff_guardian_ai_green_effect_Description"	"Decreased movespeed and attack speed."
+
+		"DOTA_Tooltip_ability_wind_temple_staff_guardian_skill_red"	"Winds of Time Aura"
+		"DOTA_Tooltip_ability_wind_temple_staff_guardian_skill_red_Descirpion"	"Removes 2.5% of all nearby enemies HP per second."
+
+		"DOTA_Tooltip_modifier_temple_staff_guardian_ai_red_effect"	"Winds of Time Aura"
+		"DOTA_Tooltip_modifier_temple_staff_guardian_ai_red_effect_Description"	"Losing 2.5%% of max HP per second."
+
+		"DOTA_Tooltip_ability_wind_temple_staff_guardian_skill_blue"	"Draining Winds Aura"
+		"DOTA_Tooltip_ability_wind_temple_staff_guardian_skill_blue_Descirpion"	"Decreases mana regen and attack damage of all nearby enemies."
+
+		"DOTA_Tooltip_modifier_temple_staff_guardian_ai_blue_effect"	"Draining Winds Aura"
+		"DOTA_Tooltip_modifier_temple_staff_guardian_ai_blue_effect_Description"	"Decreased mana regen and attack damage."
+
+		"DOTA_Tooltip_ability_master_of_storms_flare"					"Storm Flare"
+		"DOTA_Tooltip_ability_master_of_storms_flare_Description"		""		
+
+		"wind_temple_wind_drake"										"Wind Temple Wind Drake"
+
+		"DOTA_Tooltip_ability_wind_temple_master_of_storms_ai"			"Tempest Wave"
+		"DOTA_Tooltip_ability_wind_temple_master_of_storms_ai_Description"	"20% evasion and +80 attack speed."	
+
+		"wind_temple_master_of_storms"									"Master of Storms"
+		"wind_temple_wind_high_priest"									"Wind High Priest"
+
+		"DOTA_Tooltip_ability_wind_temple_revitalizing_winds"			"Revitalizing Winds"
+		"DOTA_Tooltip_ability_wind_temple_revitalizing_winds_Description"	"The Priest continues the cycle of rebirth with ancient winds."	
+
+		"wind_temple_boss"												"Corrupted Wind Goddess"
+
+
+
+		"DOTA_Tooltip_modifier_wind_boss_slow"							"Sweeping Winds"		
+		"DOTA_Tooltip_modifier_wind_boss_slow_Description"				"Weakened by the distant gales of the Wind Goddess. Get closer to her to clear yourself of this effect."
+
+		"DOTA_Tooltip_modifier_wind_temple_boss_wind_blessing"			"Blessing of Wind"
+		"DOTA_Tooltip_modifier_wind_temple_boss_wind_blessing_Description"	"Increased Attack Range"
+
+		"DOTA_Tooltip_ability_wind_temple_boss_ai"						"Condensation"
+		"DOTA_Tooltip_ability_wind_temple_boss_ai_Description"			"Creates clouds of vapor that slow and damage enemies who step inside."
+
+		"DOTA_Tooltip_modifier_wind_boss_trap"							"Condensation"
+		"DOTA_Tooltip_modifier_wind_boss_trap_Description"				"Taking damage and losing movespeed and attack speed."
+
+		"gazbin_explosives_expert_friendly"								"Tanari Demolitions Squad"
+		"DOTA_Tooltip_ability_techies_friend_ai"						"Demolitions Expert"
+		"DOTA_Tooltip_ability_techies_friend_ai_Description"			"Can blast their way into obstructed points of interest."
+
+		"tanari_thicket_bat"											"Thicket Bat"
+		"DOTA_Tooltip_ability_tanari_thicket_bat_ai"					"Mana Eater"
+		"DOTA_Tooltip_ability_tanari_thicket_bat_ai_Description"		"Attacks drain 50% of the target's max mana, and deal pure damage equal to the mana drained."
+
+		"tanari_thicket_matriarch"										"Thicket Matriarch"
+		"DOTA_Tooltip_ability_tanari_thicket_matriarch_ai"				"Colony Protector"
+		"DOTA_Tooltip_ability_tanari_thicket_matriarch_ai_Description"	"Grants +75% Magical Resistance. Attacks drain 10% of the target's max mana, and deal pure damage equal to the mana drained."
+
+		"DOTA_Tooltip_ability_item_rpc_thicket_bat_egg"					"Thicket Bat Egg"
+		"thicket_bat_egg_description"									"Small vibrations emanate from its core."
+
+		"DOTA_Tooltip_ability_tanari_cave_monster_ai"					"Spiny Skin"
+		"DOTA_Tooltip_ability_tanari_cave_monster_ai_Description"		"100% of damage taken is returned to the attacker as Physical Damage."	
+		"boulderspine_cavern_monster"									"Cavern Predator"
+
+		"DOTA_Tooltip_ability_item_rpc_pedestal_item"					"Mystery Beacon"
+
+		"DOTA_Tooltip_ability_boulderspine_terror_ai"					"Chilling Touch"
+		"DOTA_Tooltip_ability_boulderspine_terror_ai_Description"		"Applies a Movespeed and Attackspeed slow on regular attacks."
+		"DOTA_Tooltip_ability_boulderspine_terror_ai_attack_speed_loss"	"ATTACK SPEED LOSS:"
+		"DOTA_Tooltip_ability_boulderspine_terror_ai_move_slow"			"MOVE SLOW:"	
+
+		"DOTA_Tooltip_modifier_terror_touch"							"Chilling Touch"
+		"DOTA_Tooltip_modifier_terror_touch_Description"				"Reduced Movement and Attack Speed"	
+
+		"DOTA_Tooltip_ability_electron_ai"								"Unstable Charge"
+		"DOTA_Tooltip_ability_electron_ai_Description"					"Any damage taken releases an electric projectile that deals 0.1% of the caster's attack damage as magic damage."	
+
+		"DOTA_Tooltip_modifier_regen_aura_buff"							"Regen Aura Effect"
+		"DOTA_Tooltip_modifier_regen_aura_buff_Description"				"Gaining Life Regen"		
+
+		"boulderspine_armored_cave_rat"									"Armored Cave Rat"
+
+		"DOTA_Tooltip_ability_boulderspine_cave_lizard_gush"			"Belly Spew"
+		"DOTA_Tooltip_ability_boulderspine_cave_lizard_gush_Description"	"Targets the farthest enemy with a shot of semi-digested bile that reduces armor and movespeed."	
+
+		"DOTA_Tooltip_ability_boulderspine_cave_lizard_ravage"			"Big Tendrils"
+		"DOTA_Tooltip_ability_boulderspine_cave_lizard_ravage_Description"	"Damages and Stuns all nearby enemies"	
+
+		"boulderspine_cave_lizard"										"Cave Lizard"
+		"boulderspine_cave_lizard_brute"								"Cave Lizard Brute"
+
+		"boulderspine_viper_blue"										"Blue Viper"
+
+		"DOTA_Tooltip_ability_boulderspine_blue_viper_ai"				"Mana Toxin"
+		"DOTA_Tooltip_ability_boulderspine_blue_viper_ai_Description"	"Basic attacks apply a Mana Toxin debuff which reduces mana regen by 5% of max mana."	
+
+		"DOTA_Tooltip_modifier_blue_viper_poison"						"Mana Toxin"
+		"DOTA_Tooltip_modifier_blue_viper_poison_Description"			"Mana regen reduced by 5%% of max mana."
+
+		"boulderspine_viper_red"										"Red Viper"
+
+		"DOTA_Tooltip_ability_boulderspine_red_viper_ai"				"Life Toxin"
+		"DOTA_Tooltip_ability_boulderspine_red_viper_ai_Description"	"Basic attacks apply a Life Toxin debuff which reduces health regen by 2.5% of max health."	
+
+		"DOTA_Tooltip_modifier_red_viper_poison"						"Life Toxin"
+		"DOTA_Tooltip_modifier_red_viper_poison_Description"			"Health Regen reduced by 2.5%% of max health."
+
+		"boulderspine_viper_green"										"Green Viperling"
+
+		"DOTA_Tooltip_ability_boulderspine_green_viper_ai"				"Base Toxin"
+		"DOTA_Tooltip_ability_boulderspine_green_viper_ai_Description"	"Basic attacks apply a Base Toxin debuff which reduces movespeed by 15 and deals damage per second."	
+		"DOTA_Tooltip_ability_boulderspine_green_viper_ai_damage_per_tick"	"DPS: "	
+
+		"DOTA_Tooltip_modifier_green_viper_poison"						"Base Toxin"
+		"DOTA_Tooltip_modifier_green_viper_poison_Description"			"Movespeed reduced by 15 and taking damage each second."
+
+		"boulderspine_viper_egg"										"Viper Egg"
+
+		"DOTA_Tooltip_ability_boulderspine_fire_bomb"					"Fire Bomb"
+		"DOTA_Tooltip_ability_boulderspine_fire_bomb_Description"		"Explosive Bombs knock back targets within its impact radius."
+		"boulderspine_pyro"												"Cavern Pyro"
+
+		"DOTA_Tooltip_ability_boulderspine_fire_bat_ai"					"Burning Attacks"
+		"DOTA_Tooltip_ability_boulderspine_fire_bat_ai_Description"		"Attacks ignite the target."
+		"DOTA_Tooltip_modifier_firebat_on_fire"							"On Fire"
+		"DOTA_Tooltip_modifier_firebat_on_fire_Description"				"Taking Damage Over Time"
+
+		"DOTA_Tooltip_ability_boulderspine_princess_ability_ai"				"Requital"
+		"DOTA_Tooltip_ability_boulderspine_princess_ability_ai_Description"	"On a quest to Reclaim her Kingdom"
+
+		"DOTA_Tooltip_modifier_boulderspine_princess_frozen"				"Frozen"
+		"DOTA_Tooltip_modifier_boulderspine_princess_frozen_Description"	"Locked in time for centuries."
+
+		"boulderspine_princess"												"Aqualeen Princess"
+
+		"boulderspine_living_ice"											"Living Ice"
+
+		"DOTA_Tooltip_ability_boulderspine_living_ice_ai"					"Icy Touch"
+		"DOTA_Tooltip_ability_boulderspine_living_ice_ai_Description"		"Attacks apply a slowing effect that can stack with others."
+
+		"DOTA_Tooltip_modifier_boulderspine_living_ice_slowed"				"Chilled"
+		"DOTA_Tooltip_modifier_boulderspine_living_ice_slowed_Description"	"Attack and Movespeed Slow"
+
+		"DOTA_Tooltip_ability_boulderspine_lindworm_frost_ai"				"Deep Winter"
+		"DOTA_Tooltip_ability_boulderspine_lindworm_frost_ai_Description"	"Attacks have a 10% chance to freeze their target for 4 seconds. Targets cannot die while frozen."
+
+		"DOTA_Tooltip_modifier_lindworm_frost_effect"						"Frozen"
+		"DOTA_Tooltip_modifier_lindworm_frost_effect_Description"			"Can't be killed."
+
+		 "boulderspine_lindworm_frost"										"Frost Wyrm"
+
+		 "DOTA_Tooltip_modifier_lindworm_encased_in_ice"					"Eternal Ice"
+		 "DOTA_Tooltip_modifier_lindworm_encased_in_ice_Description"		"Immune to Damage and Restoring Health"
+
+		 "DOTA_Tooltip_ability_lindworm_splinter_blast"						"Splinter Blast"
+
+		 "boulderspine_slithereen_guard"									"Slithereen Guard"
+		 "boulderspine_slithereen_featherguard"								"Slithereen Featherguard"
+
+		 "boulderspine_slithereen_royal_guard"								"Slithereen Royal Guard"
+
+		 "DOTA_Tooltip_ability_antimage_blink_custom"						"Blink"
+		 "DOTA_Tooltip_ability_antimage_blink_custom_Description"			"Teleports the caster a short distance"
+
+		 "DOTA_Tooltip_modifier_slithereen_featherguard_ai_super_slice"		"Featherstrikes"
+		 "DOTA_Tooltip_modifier_slithereen_featherguard_ai_super_slice_Description"	"Increased attack speed after blinking."
+
+		 "DOTA_Tooltip_slithereen_royal_guard_ai"							"Magic Shell"
+		 "DOTA_Tooltip_slithereen_royal_guard_ai_Description"				"Applies a 4 second shield that increases magic resistance by 95%"	
+
+		 "DOTA_Tooltip_modifier_royal_guard_magic_shell"					"Magic Shell"
+		 "DOTA_Tooltip_modifier_royal_guard_magic_shell_Description"		"95%% Magic Resistance"
+
+		 "DOTA_Tooltip_ability_slithereen_royal_guard_gush"					"Hydro Pump"
+		 "DOTA_Tooltip_ability_slithereen_royal_guard_gush_Description"		"Damages and slows the target with a blast of water"
+
+		 "DOTA_Tooltip_ability_water_keyholder_torrent"						"Torrents"
+		 "DOTA_Tooltip_ability_water_keyholder_torrent_Description"			"Rapidly creates torrents under nearby enemies' feet."
+
+		 "DOTA_Tooltip_ability_water_keyholder_ensnare"						"Ensnare"
+		 "DOTA_Tooltip_ability_water_keyholder_ensnare_Description"			"Traps an enemy in an unbreakable net."
+
+		 "tanari_water_bug"													"Water Bug"
+
+		 "DOTA_Tooltip_ability_tanari_ancient_ai"							"Core Rattle"
+		 "DOTA_Tooltip_ability_tanari_ancient_ai_Description"				"Creates a series of quakes that deal more damage based on how far away the target is from the caster."	
+		 "DOTA_Tooltip_ability_tanari_ancient_ai_damage"					"BASE DAMAGE:"	
+
+		 "DOTA_Tooltip_modifier_ancient_quaking"							"Core Rattle"
+
+		 "tanari_ancient"													"Tanari Ancient"
+
+		 "water_temple_vault_lord"												"Aqua Vault Lord"
+
+		 "DOTA_Tooltip_ability_vault_lord_polarity"									"Whirlpool"
+		 "DOTA_Tooltip_ability_vault_lord_polarity_Description"						"A conjured spiral of water Damages, Vacuums and Stuns enemies in its radius."	
+
+		 "water_temple_shark"												"Amphi Shark"
+
+		 "DOTA_Tooltip_ability_water_temple_shadow_creep"					"Shadow Creep"
+		 "DOTA_Tooltip_ability_water_temple_shadow_creep_Description"		"Melts into the shadows, granting physical attack immunity and health regen."
+
+		 "DOTA_Tooltip_ability_water_temple_summon_water_elemental"			"Summon Water Elemental"
+		 "DOTA_Tooltip_ability_water_temple_summon_water_elemental_Description"	"Conjures a living tide that has a slowing AOE attack."	
+
+		 "DOTA_Tooltip_ability_water_temple_elemental_ability"				"Splash Attack"
+		  "DOTA_Tooltip_ability_water_temple_elemental_ability_Description"	"Attacks damage in a radius and apply a slow effect."	
+
+		 "DOTA_Tooltip_modifier_water_temple_elemental_slow"				"Splash Attack"
+		 "DOTA_Tooltip_modifier_water_temple_elemental_slow_Description"	"Reduced Movespeed and Attack Speed"
+
+		 "aqua_mage_water_elemental"										"Water Elemental"
+		 "water_temple_aqua_mage"											"Aqua Mage"
+
+		 "DOTA_Tooltip_ability_armor_break"									"Armor Break"
+		 "DOTA_Tooltip_ability_armor_break_Description"						"Successful attacks decrease the target's armor."	
+		 "DOTA_Tooltip_ability_armor_break_armor_break"						"ARMOR BREAK:"	
+
+		 "DOTA_Tooltip_ability_water_temple_boss_jellyfish_ai"				"High Voltage"
+		 "DOTA_Tooltip_ability_water_temple_boss_jellyfish_ai_Description"	"Running an electrical current throughout the Water Temple"
+
+		 "DOTA_Tooltip_modifier_lightning_stun"								"Thundershock"
+		 "DOTA_Tooltip_modifier_lightning_stun_Description"					"High Voltage"		
+
+		 "DOTA_Tooltip_ability_water_temple_jellyfish_ai"					"Electric Impulse"
+		 "DOTA_Tooltip_ability_water_temple_jellyfish_ai_Description"		"Shocks nearby enemies"
+
+		 "DOTA_Tooltip_ability_water_temple_dark_pact"						"Dark Pact"
+		 "DOTA_Tooltip_ability_water_temple_dark_pact_Description"			"Dispels debuffs and deals damage after a 1.5 second delay."
+
+		 "DOTA_Tooltip_ability_water_temple_prison_shank"					"Prison Shank"
+		 "DOTA_Tooltip_ability_water_temple_prison_shank_Description"		"Attacks deal bonus magic damage based on the target's agility, and reduce the target's strength"
+		 "DOTA_Tooltip_ability_water_temple_prison_shank_agility_mult"		"AGILITY DAMAGE MULTIPLIER:"
+		 "DOTA_Tooltip_ability_water_temple_prison_shank_strength_loss"		"STRENGTH REDUCTION:"
+
+		 "DOTA_Tooltip_modifier_prison_shank_effect"						"Prison Shank"
+		 "DOTA_Tooltip_modifier_prison_shank_effect_Description"			"Reduced Strength"	
+
+		 "DOTA_Tooltip_ability_executioner_culling_blade"					"Execute"
+		 "DOTA_Tooltip_ability_executioner_culling_blade_Description"		"Decapitates and instantly kills a target hero below the HP threshold."	
+		 "DOTA_Tooltip_ability_executioner_culling_blade_health_threshold_percent"		"THRESHOLD HEALTH %:"	
+
+		 "DOTA_Tooltip_ability_water_temple_executioner_ai"					"Tenacity"
+		 "DOTA_Tooltip_ability_water_temple_executioner_ai_Description"		"While below 30% health, gain bonus armor."
+		 "DOTA_Tooltip_ability_water_temple_executioner_ai_armor_gain"		"ARMOR BONUS:"
+
+		"DOTA_Tooltip_modifier_executioner_buff"							"Tenacity"
+		"DOTA_Tooltip_modifier_executioner_buff_Description"				"Gaining Armor"
+
+		"DOTA_Tooltip_ability_chef_meat_hook"								"Meat Hook"
+		"DOTA_Tooltip_ability_chef_meat_hook_Description"					"Throws a a bloody hook that pulls anything it catches back toward the caster."	
+
+		"water_temple_jailer"												"Water Temple Jailer"
+
+		"DOTA_Tooltip_ability_water_temple_jailer_ai"						"Meat Eater"
+		"DOTA_Tooltip_ability_water_temple_jailer_ai_Description"			"Incoming damage can not deal more than 1% of max health. Attacks leave a bleeding effect on their targets."
+		"DOTA_Tooltip_ability_water_temple_jailer_ai_bleed_damage"			"BLEED DAMAGE PER SECOND:"
+
+		"water_temple_fish_prisoner"										"Aqualeen Rascal"
+
+		"DOTA_Tooltip_ability_faceless_waveform"							"Waveform"
+		"DOTA_Tooltip_ability_faceless_waveform_Description"				"Launches the elemental towards the target position as a crest of water, damaging impacted enemy units."
+
+		"water_temple_vault_lord_two"										"Vault Lord"
+		"DOTA_Tooltip_ability_vault_lord_mana_spill"						"Mana Spill"
+		"DOTA_Tooltip_ability_vault_lord_mana_spill_Description"			"Attacks drain a percentage of the target's max mana. If the target has less than 5% mana, attacks stun for 0.35 seconds."	
+		"DOTA_Tooltip_ability_vault_lord_mana_spill_mana_drain_percent"		"MANA DRAIN %:"
+
+		"DOTA_Tooltip_ability_water_temple_rascal_ai"						"Water Scouting"
+		"DOTA_Tooltip_ability_water_temple_rascal_ai_Description"			"Has detailed knowledge of the Water Temple."
+
+		"DOTA_Tooltip_ability_water_temple_warlock_mana_drain"				"Mana Drain"
+		"DOTA_Tooltip_ability_water_temple_warlock_mana_drain_Description"	"Channels a mana drain on a target hero."
+		"DOTA_Tooltip_ability_water_temple_warlock_mana_drain_mana_per_second"	"MANA DRAIN PER SECOND:"
+
+		"DOTA_Tooltip_ability_water_temple_blue_warlock_ai"					"Mana Shock"
+		"DOTA_Tooltip_ability_water_temple_blue_warlock_ai_Description"		"Attacks drain 20% of the caster's current mana and deal damage based on the mana used."	
+
+		"DOTA_Tooltip_ability_water_temple_blue_warlock_ai_damage_per_mana"	"MAGIC DAMAGE PER MANA CONSUMED:"
+
+		"water_temple_blue_warlock"											"Blue Warlock"	
+
+		"DOTA_Tooltip_ability_water_temple_aqua_emperor_ai"					"Drench"
+		"DOTA_Tooltip_ability_water_temple_aqua_emperor_ai_Description"		"Attackers get soaked and lose attack speed."	
+		"DOTA_Tooltip_ability_water_temple_aqua_emperor_ai_attack_speed_loss"	"ATTACK SPEED SLOW:"	
+
+		"DOTA_Tooltip_modifier_water_temple_drenched"						"Drenched"
+		"DOTA_Tooltip_modifier_water_temple_drenched_Description"			"Reduced Attack Speed"
+
+		"DOTA_Tooltip_ability_water_temple_water_emperor_jet"				"Aqua Jet"
+		"DOTA_Tooltip_ability_water_temple_water_emperor_jet_Description"	"Launches a massive wave that damage and slows impacted targets."
+		"DOTA_Tooltip_ability_water_temple_water_emperor_jet_attack_speed_loss"	"ATTACK SPEED DECREASE:"
+		"DOTA_Tooltip_ability_water_temple_water_emperor_jet_movespeed_loss"	"MOVESPEED DECREASE:"
+
+		"DOTA_Tooltip_ability_water_temple_water_emperor_jet_2"				"Aqua Nova"
+		"DOTA_Tooltip_ability_water_temple_water_emperor_jet_2_Description"	"Sends Aqua Jets in all directions."
+		"DOTA_Tooltip_ability_water_temple_water_emperor_jet_2_attack_speed_loss"	"ATTACK SPEED DECREASE:"
+		"DOTA_Tooltip_ability_water_temple_water_emperor_jet_2_movespeed_loss"	"MOVESPEED DECREASE:"
+
+		"DOTA_Tooltip_modifier_modifier_jet_soaked"				"Soaked"
+		"DOTA_Tooltip_modifier_modifier_jet_soaked_Description"	"Reduced Attackspeed and Movespeed"
+
+		"DOTA_Tooltip_ability_water_temple_vault_master_storm_bolt"	"Storm Bolt"
+		"DOTA_Tooltip_ability_water_temple_vault_master_storm_bolt_Description"	"Throws a mighty hammer that stuns and damages the target and all nearby enemies."
+
+		"water_temple_faceless_water_elemental"								"Faceless Water Elemental"
+		"water_temple_vault_master"											"Water Temple Vault Master"
+
+		"DOTA_Tooltip_ability_water_temple_vault_master_ai"					"Bravery Rage"
+		"DOTA_Tooltip_ability_water_temple_vault_master_ai_Description"		"If damage is taken from a source that is greater than 650 distance away, the Vault Master charges at that enemy at blazing speed, gets a refreshed Storm Bolt, and a triple attack."
+
+		 "water_temple_serpent_sleeper"										"Sleeper Serpent"
+		 "water_temple_armored_water_beetle"								"Armored Water Beetle"
+
+		 "water_temple_blinded_serpent_warrior"								"Blinded Serpent Warrior"
+
+		 "DOTA_Tooltip_ability_water_temple_mark_for_death"					"Mark For Death"
+		 "DOTA_Tooltip_ability_water_temple_mark_for_death_Description"		"Attacks leave a threatening Mark for Death on their target. Enemies affected take extra magic damage based on their max health each time they are hit by an attack."
+		 "DOTA_Tooltip_ability_water_temple_mark_for_death_health_damage_multiplier"	"MAX HEALTH BONUS DAMAGE %:"
+
+		 "DOTA_Tooltip_modifier_marked_for_death"							"Marked For Death"
+		 "DOTA_Tooltip_modifier_marked_for_death_Description"				"Every time you are attacked, take magic damage based on a % of your max health."
+
+		 "DOTA_Tooltip_ability_water_temple_fairy_dragon_ai"				"Feedback"
+		 "DOTA_Tooltip_ability_water_temple_fairy_dragon_ai_Description"	"Whenever nearby enemies' mana are reduced, shock them with pure damage based on the mana lost. Also provides passive magic resistance to the owner."
+
+		 "DOTA_Tooltip_ability_water_temple_fairy_dragon_ai_damage_per_mana"	"DAMAGE PER MANA:"
+		 "DOTA_Tooltip_ability_water_temple_fairy_dragon_ai_magic_resist" 		"MAGIC RESIST:"
+
+		 "water_temple_fairy_dragon"										"Fairy Dragon"
+		 "DOTA_Tooltip_modifier_fairy_dragon_feedback"						"Feedback"
+		 "DOTA_Tooltip_modifier_fairy_dragon_feedback_Description"			"Whenever your mana is reduced you will get shocked by mana reverb."
+
+		 "DOTA_Tooltip_modifier_endurance_aura"								"Endurance Aura"
+		 "DOTA_Tooltip_modifier_endurance_aura_Description"					"Increased movement and attack speed."		
+
+		 "DOTA_Tooltip_modifier_endurance_aura_buff"								"Endurance Aura"
+		 "DOTA_Tooltip_modifier_endurance_aura_buff_Description"					"Increased movement and attack speed."	
+
+		 "DOTA_Tooltip_ability_water_temple_boulder_toss"				"Boulder Toss"
+		 "DOTA_Tooltip_ability_water_temple_boulder_toss_Description"	"Throws a rock that damages and stuns the target."	
+		 "DOTA_Tooltip_ability_water_temple_boulder_toss_damage"		"DAMAGE:"
+		 "DOTA_Tooltip_ability_water_temple_boulder_toss_stun_duration"		"STUN DURATION:"
+		 
+		 "water_temple_amphi_lizard_rider"								"Amphi Lizard Rider"
+
+		 "water_temple_boss"											"King Kraethas"
+
+		 "DOTA_Tooltip_ability_water_temple_boss_bubble"				"Bubble"
+		 "DOTA_Tooltip_ability_water_temple_boss_bubble_Description"	"Enemies in the presence of the King have their damage instances capped at a % of their target's max HP."	
+		 "DOTA_Tooltip_ability_water_temple_boss_bubble_max_damage_percent"	"MAX HEALTH % CAP:"
+
+		 "DOTA_Tooltip_modifier_water_temple_bubble_effect"				"Bubble"
+		 "DOTA_Tooltip_modifier_water_temple_bubble_effect_Description"	"Damage instances are capped at a %% of enemies' max health."	
+
+		 "DOTA_Tooltip_ability_water_temple_boss_world_crush"			"World Crush"
+		 "DOTA_Tooltip_ability_water_temple_boss_world_crush_Description"	"With the weight of the Earth, the King casts a huge Slithereen Crush."
+
+		 "DOTA_Tooltip_ability_water_temple_boss_rising_tides"			"Rising Tides"
+		 "DOTA_Tooltip_ability_water_temple_boss_rising_tides_Description"	"Each successive damage instance on the King adds a stack of Rising Tide. If the stack counter hits 8, the target is blasted with deep waters and disabled."
+		 "DOTA_Tooltip_ability_water_temple_boss_rising_tides_damage"	"DAMAGE:"
+
+		 "DOTA_Tooltip_amodifier_rising_tides_stacking_effect"					"Rising Tide"	
+		 "DOTA_Tooltip_amodifier_rising_tides_stacking_effect_Description"		"Each time you damage King Kraethas, gain a stack. At 8 stacks, take damage and stun."
+
+		 "DOTA_Tooltip_modifier_whirlpool_effect"					"Whirlpool"
+		 "DOTA_Tooltip_modifier_whirlpool_effect_Description"		"Within the King's Reach"
+
+		 "DOTA_Tooltip_ability_water_temple_boss_whirlpool"			"Rip Current"
+		 "DOTA_Tooltip_ability_water_temple_boss_whirlpool_Description"	"The King channels a aqeuous storm that pulls in all nearby enemies. It is always followed up with a World Crush."	
+
+		//WIND SPIRIT
+		"tanari_clam_spawner"											"Tanari Clam"
+		"DOTA_Tooltip_ability_tanari_clam_spawner_ability"				"Spawner"
+		"DOTA_Tooltip_ability_tanari_clam_spawner_ability_Description"	"Spawn young fishlings on a 10 second interval."
+		"DOTA_Tooltip_ability_tanari_clam_spawner_ability_armor"		"BONUS ARMOR:"
+
+		"tanari_clam_fish"												"Fishling"
+
+		"tanari_voodoo_shaman"											"Voodoo Shaman"
+
+		"DOTA_Tooltip_ability_tanari_maledict"							"Maledict"
+		"DOTA_Tooltip_ability_tanari_maledict_Description"				"Curses an enemy hero, causing them to take damage based on damage taken during the curse."
+
+		"tanari_alchemist"												"Tanari Alchemist"
+
+		"DOTA_Tooltip_ability_tanari_paralyzing_cask"					"Paralyzing Cask"
+		"DOTA_Tooltip_ability_tanari_paralyzing_cask_Description"		"A bouncing cask jumps between enemies and stuns them with each hit."
+		"DOTA_Tooltip_ability_tanari_paralyzing_cask_hero_duration"		"STUN DURATION:"
+		"DOTA_Tooltip_ability_tanari_paralyzing_cask_hero_damage"		"DAMAGE:"
+		"DOTA_Tooltip_ability_tanari_paralyzing_cask_bounces"			"BOUNCES:"
+
+		"thicket_watcher"												"Thicket Watcher"
+
+		"DOTA_Tooltip_ability_thicket_growth_ability"					"Thicket Growth"
+		"DOTA_Tooltip_ability_thicket_growth_ability_Description"		"Hiding amongst the trees, the thicket watcher will deal bonus damage and stun with his attacks."
+		"DOTA_Tooltip_ability_thicket_growth_ability_damage"			"DAMAGE:"
+		"DOTA_Tooltip_ability_thicket_growth_ability_stun_duration"		"STUN DURATION:"
+
+		"DOTA_Tooltip_ability_tanari_wind_spirit_passive"				"Hurricane"
+		"DOTA_Tooltip_ability_tanari_wind_spirit_passive_Description"	"Endless Winds"
+
+		"wind_temple_avian_warder_elite"								"Avian Warder Elite"
+
+		"tanari_wind_bear"												"Wind Bear"
+
+		"DOTA_Tooltip_ability_tanari_wind_bear_passive"					"Gust"
+		"DOTA_Tooltip_ability_tanari_wind_bear_passive_Description"		"Forceful winds follow the Wind Bear."	
+
+		"tanari_jade_water_elemental"									"Jade Water Elemental"
+		"DOTA_Tooltip_ability_tanari_jade_elemental_hydrosis"			"Hydrosis"
+		"DOTA_Tooltip_ability_tanari_jade_elemental_hydrosis_Description"	"Mystic jade waters have nutritional properties."
+
+		"tanari_wind_crusher"											"Wind Crusher"
+
+		"DOTA_Tooltip_ability_wind_crusher_gust"						"Wind Lash"
+		"DOTA_Tooltip_ability_wind_crusher_gust_Description"			"A quick gust of wind damages and slows enemies in a line."
+		"DOTA_Tooltip_ability_wind_crusher_gust_damage"					"DAMAGE:"
+		"DOTA_Tooltip_ability_wind_crusher_gust_move_slow"				"MOVE SLOW:"
+		"DOTA_Tooltip_ability_wind_crusher_gust_attack_slow"			"ATTACK SLOW:"
+
+		"DOTA_Tooltip_ability_wind_crusher_defense"						"Harden"
+		"DOTA_Tooltip_ability_wind_crusher_defense_Description"			"When taking damage, convert to stone and reduce all damage to 0."	
+		"DOTA_Tooltip_ability_wind_crusher_defense_duration"			"HARDEN DURATION:"
+
+		"DOTA_Tooltip_modifier_wind_temple_key_stone_form"				"Harden"
+
+		"DOTA_Tooltip_modifier_gust_wave_slow"							"Wind Lash"
+		"DOTA_Tooltip_modifier_gust_wave_slow_Description"				"Slowed"
+
+		"tanari_wind_temple_viper"										"Wind Temple Viper"
+
+		"tanari_wind_temple_lizard"										"Wind Temple Lizard"
+
+		"tanari_wind_sprite"											"Wind Sprite"	
+		"DOTA_Tooltip_ability_wind_sprite_passive"						"Tornado Attack"
+		"DOTA_Tooltip_ability_wind_sprite_passive_Description"			"Attacks launch the enemy backwards in a windy haze"
+
+		"tanari_wind_spark"												"Wind Spark"
+
+		"DOTA_Tooltip_ability_tanari_wind_spark_ai"						"Tempest Haze"
+		"DOTA_Tooltip_ability_tanari_wind_spark_ai_Description"			"Greatly slows nearby enemies"
+		"DOTA_Tooltip_ability_tanari_wind_spark_ai_movespeed_slow"		"MOVE SLOW:"
+		"DOTA_Tooltip_ability_tanari_wind_spark_ai_attack_speed_reduction"	"ATTACK SPEED REDUCTION:"
+
+		"DOTA_Tooltip_modifier_tanari_wind_spark_debuff"				"Tempest Haze"
+		"DOTA_Tooltip_modifier_tanari_wind_spark_debuff_Description"	"Slowed"
+
+		"tanari_wind_crystal_tree"										"Wind Crystal Tree"
+		"DOTA_Tooltip_ability_wind_temple_leech_seed"					"Leech Seed"
+		"DOTA_Tooltip_ability_wind_temple_leech_seed_Description"		"Implant a parasitic seed into the enemy that deals damage and heals the caster."
+		"DOTA_Tooltip_ability_wind_temple_leech_seed_damage"			"DAMAGE:"
+		"DOTA_Tooltip_ability_wind_temple_leech_seed_movement_slow"		"MOVE SLOW:"
+
+		"DOTA_Tooltip_ability_wind_crystal_tree_passive"				"Diamond Bark"
+		"DOTA_Tooltip_ability_wind_crystal_tree_passive_Description"	"Deals damage whenever damage is taken."
+		"DOTA_Tooltip_ability_wind_crystal_tree_passive_damage"			"DAMAGE:"
+
+		"DOTA_Tooltip_modifier_wind_crystal_tree_passive"				"Diamond Bark"
+
+		"tanari_wind_apparation"										"Wind Apparition"
+
+		"DOTA_Tooltip_ability_tanari_wind_apparition_passive"			"Hurricane"
+		"DOTA_Tooltip_ability_tanari_wind_apparition_passive_Description"	"Massive winds push enemies around."
+
+		"tanari_wind_demon"												"Wind Demon"
+		"DOTA_Tooltip_ability_wind_demon_static_storm"					"Static Storm"
+		"DOTA_Tooltip_ability_wind_demon_static_storm_Description"		"Silences and damages enemies within the aggressive storm."
+		"DOTA_Tooltip_ability_wind_demon_static_storm_damage_max"		"MAX DAMAGE:"
+
+		"DOTA_Tooltip_ability_tanari_wind_demon_passive"				"Hurricane"
+
+		"wind_temple_spirit_ninja"										"Wind Spirit Ninja"
+
+		"DOTA_Tooltip_ability_spirit_ninja_passive"						"Reflex"
+		"DOTA_Tooltip_ability_spirit_ninja_passive_Description"			"Greatly enhances Evasion"
+		"DOTA_Tooltip_ability_spirit_ninja_passive_evasion"				"DODGE CHANCE:"		
+
+		"wind_valley_guardian"											"Wind Valley Guardian"
+
+		"DOTA_Tooltip_ability_wind_valley_guardian"						"Valley Guardian"
+		"DOTA_Tooltip_ability_wind_valley_guardian_Description"			"Eternally watching over the Wind Valley Spirits"	
+
+		"DOTA_Tooltip_ability_wind_valley_protector_quake"				"Quake"
+		"DOTA_Tooltip_ability_wind_valley_protector_quake_Description"	"Damage and stun enemies in an area."
+
+		"DOTA_Tooltip_ability_wind_spirit_main_boss_ability"			"Sparrowhawk Rush"
+		"DOTA_Tooltip_ability_wind_spirit_main_boss_ability_Description"	"Spirit Hawks emenate from the caster."
+
+		"DOTA_Tooltip_ability_wind_spirit_tornado"						"Tornado"
+		"DOTA_Tooltip_ability_wind_spirit_tornado_Description"			"A wild tornado lifts enemies into the air and damages them upon landing."
+		"DOTA_Tooltip_ability_wind_spirit_tornado_base_damage"			"DAMAGE:"
+
+		"wind_temple_spirit_boss"										"Tanari Wind Spirit"
+
+		 //WIND SPIRIT
+
+		 //SPIRIT WATER
+
+		 "tanari_water_spirit_boss"								"Tanari Water Spirit"
+
+		 "DOTA_Tooltip_ability_tanari_water_spirit_passive"		"Wave Weapon"
+		 "DOTA_Tooltip_ability_tanari_water_spirit_passive_Description"	"Attacks launch damaging waves toward the target."	
+		 "DOTA_Tooltip_ability_tanari_water_spirit_passive_damage"	"DAMAGE:"
+
+		 "tanari_ancient_wind_spirit"								"Wind Spirit Guide"
+		 "tanari_ancient_water_spirit"								"Water Spirit Guide"
+		 "tanari_ancient_fire_spirit"								"Fire Spirit Guide"
+
+		 "water_temple_spirit_jailer"								"Spirit Jailer"
+
+		 "DOTA_Tooltip_ability_tanari_water_jailer_passive"			"Spirit Block"
+		 "DOTA_Tooltip_ability_tanari_water_jailer_passive_Description"	"Reduces ALL damage taken."	
+		 "DOTA_Tooltip_ability_tanari_water_jailer_passive_damage_block"	"DAMAGE REDUCTION %:"	
+
+		 "DOTA_Tooltip_tanari_water_bomb_hero"				"Depth Bomb"
+		 "DOTA_Tooltip_tanari_water_bomb_hero_Description"	"Use W (Ability 2) to toss the bomb."
+
+		 "water_temple_vault_king"									"Vault King"
+
+		 "DOTA_Tooltip_ability_vault_king_hydro_mark"				"Hydro Mark"
+		 "DOTA_Tooltip_ability_vault_king_hydro_mark_Description"	"Mark the target location. After a delay, a hydro pump damages and disables enemies in the radius."
+		 "DOTA_Tooltip_ability_vault_king_hydro_mark_Description"	"DAMAGE:"
+
+		 "caged_water_wraith"										"Caged Water Wraith"
+
+		 "water_shadow_hunter"										"Water Hunter Beetle"
+
+		 "slithereen_prison_guard"									"Slithereen Prison Guard"
+
+		 "DOTA_Tooltip_ability_prison_guard_water_chanel"			"Aqua Dance"
+		 "DOTA_Tooltip_ability_prison_guard_water_chanel_Description"	"During the channel, nearby enemies are blasted by gushes of water. Enemies within the radius are slowed immediately."
+		 "DOTA_Tooltip_ability_prison_guard_water_chanel_damage_per_hit"	"DAMAGE PER HIT:"
+		 "DOTA_Tooltip_ability_prison_guard_water_chanel_bonus_attack_speed"	"ATTACK SPEED LOSS:"
+		 "DOTA_Tooltip_ability_prison_guard_water_chanel_bonus_movement_speed"	"MOVEMENT SPEED LOSS:"
+
+		 "DOTA_Tooltip_modifier_water_channel_in_area"				"Aqua Dance"
+		 "DOTA_Tooltip_modifier_water_channel_in_area_Description"	"Slowed"
+
+		 "water_temple_meta_prisoner"								"Meta Prisoner"
+
+		 "DOTA_Tooltip_ability_tanari_meta_slark_passive"			"Mega Prison Shank"
+		 "DOTA_Tooltip_ability_tanari_meta_slark_passive_Description"	"Attacks reduce all attributes of the target"
+		 "DOTA_Tooltip_ability_tanari_meta_slark_passive_attribute_loss"	"ATTRIBUTE LOSS:"
+
+		 "water_temple_serpent_huntress"							"Serpent Huntress"
+
+		 "DOTA_Tooltip_ability_tanari_soul_arrows"					"Spirit Strike"
+		 "DOTA_Tooltip_ability_tanari_soul_arrows_Description"		"Attacks deal additional pure damage based on the target's missing HP."
+		 "DOTA_Tooltip_ability_tanari_soul_arrows_damage_per_miss_health_hero"	"DAMAGE PER HEALTH MISSING (HERO):"
+		 "DOTA_Tooltip_ability_tanari_soul_arrows_damage_per_miss_health_creep"	"DAMAGE PER HEALTH MISSING (CREEP):"
+
+		 "water_manifestation"										"Water Manifestation"
+
+		 "DOTA_Tooltip_ability_water_manifestation_passive"			"Osmosis"
+		 "DOTA_Tooltip_ability_water_manifestation_passive_Description"	"After not taking damage for 1.5 seconds, gain health regen."
+		 "DOTA_Tooltip_ability_water_manifestation_passive_health_regen"	"HEALTH REGEN %:"
+
+		 "water_temple_stone_fish"									"Stone Fish"
+
+		 "DOTA_Tooltip_ability_rock_fish_rip_tide"					"Rip Tide"
+
+		 "water_temple_stone_priestess"								"Slithereen Priestess"
+
+		 "water_temple_duke_korlazeen"								"Duke Korlazeen"
+
+		 "DOTA_Tooltip_ability_tanari_korlazeen_shield"				"Koral Shield"
+		 "DOTA_Tooltip_ability_tanari_korlazeen_shield_Description"	"When taking damage, zap the enemy and deal 1% of their max health as pure damage."	
+
+		 "caged_underworld_tear"									"Caged Water Wraith"	
+
+		 "DOTA_Tooltip_ability_water_temple_drowned_sorrrow_ability"	"Submergence"
+
+		 "tanari_drowned_sorrow"									"Drowned Sorrow"
+		 "DOTA_Tooltip_ability_water_temple_water_nuke"				"Waveburst"
+		 "DOTA_Tooltip_ability_water_temple_water_nuke_Description"	"Launch water towards the target location that deals damage."	
+		 "DOTA_Tooltip_ability_water_temple_water_nuke_damage"		"DAMAGE:"
+
+		 "water_archer_spirit"										"Water Archer Spirit"
+		 "DOTA_Tooltip_ability_big_water_archer_passive"			"Frost Arrows"
+		 "DOTA_Tooltip_ability_big_water_archer_passive_Description"	"Ice tipped arrows deal additional pure damage and slow"
+		 "DOTA_Tooltip_ability_big_water_archer_passive_pure_damage"	"PURE DAMAGE:"
+		 "DOTA_Tooltip_ability_big_water_archer_passive_attackspeed_loss"	"ATTACKSPEED LOSS:"
+		 "DOTA_Tooltip_ability_big_water_archer_passive_movespeed_loss"	"MOVESPEED LOSS:"
+
+		 "DOTA_Tooltip_modifier_water_archer_slow"					"Frost Arrows"
+		 "DOTA_Tooltip_modifier_water_archer_slow_Description"		"Slowed"
+
+		 "water_temple_aqualeen_defector"							"Aqualeen Defector"
+
+		 "ice_queen_alarana"										"Ice Queen Alarana"
+
+		 "DOTA_Tooltip_ability_tanari_ice_queen_passive"			"Eternal Frost Aura"
+		 "DOTA_Tooltip_ability_tanari_ice_queen_passive_Description"	"Increasingly slows nearby enemies. If their movement speed drops below the threshold, they are rooted."
+
+		 "slithereen_elite_warrior"									"Slithereen Elite"
+
+		 "DOTA_Tooltip_ability_tanari_slithereen_elite_ability"		"Heavy Scales"
+		 "DOTA_Tooltip_ability_tanari_slithereen_elite_ability_Description"	"Chance to stun the enemy when taking damage."
+		 "DOTA_Tooltip_ability_tanari_slithereen_elite_ability_stun_chance"	"STUN CHANCE:"
+
+		 "DOTA_Tooltip_ability_water_spirit_main_boss_ability"		"Water God Apocalypse"
+		 "DOTA_Tooltip_ability_water_spirit_main_boss_ability_Description"	"Raging Sea Storms caused by the Water Spirit"
+
+		 //SPIRIT WATER
+		 //SPIRIT FIRE
+		 "fire_temple_flame_shaman"									"Flame Shaman"
+		 "DOTA_Tooltip_ability_fire_temple_fire_shaman_ai"			"Flameburst"
+		 "DOTA_Tooltip_ability_fire_temple_fire_shaman_ai_Description"	"Periodically launches a set of fireballs in every direction."
+		 "DOTA_Tooltip_ability_fire_temple_fire_shaman_ai_burn_damage"	"BURN DAMAGE:"
+		 "DOTA_Tooltip_ability_fire_temple_fire_shaman_ai_impact_damage"	"IMPACT DAMAGE:"
+
+		 "tanari_fire_temple_spawner"								"Obsidian Construct"
+		 
+		 "DOTA_Tooltip_ability_fire_temple_spawner_ability"			"Obsidian Spawner"
+		 "DOTA_Tooltip_ability_fire_temple_spawner_ability_Description"	"Spawns firelings on a 10 second interval."
+		 "DOTA_Tooltip_ability_fire_temple_spawner_ability_armor"	"ARMOR:"	
+
+		 "tanari_lava_spectre"										"Lava Spectre"
+		 "DOTA_Tooltip_ability_lava_specter_ability"				"Melting Spirit"
+		 "DOTA_Tooltip_ability_lava_specter_ability_Description"	"Periodically leaves a trail of molten flames at the spectre's feet. Additionally grants a 50% chance to completely avoid damage instances."
+		 "DOTA_Tooltip_ability_lava_specter_ability_burn_damage"	"BURN DAMAGE:"
+
+		 "flamerider_gorthos"										"Flamerider Gorthos"
+
+		 "DOTA_Tooltip_ability_gorthos_passive"						"Flame Source"
+		 "DOTA_Tooltip_ability_gorthos_passive_Description"			"Continuously emit fireballs at all nearby enemies."
+		 "DOTA_Tooltip_ability_gorthos_passive_impact_damage"		"IMPACT DAMAGE:"
+		 "DOTA_Tooltip_ability_gorthos_passive_burn_damage"			"BURN DAMAGE:"
+
+		 "tanari_flame_beast"										"Fire Beast"
+		 "DOTA_Tooltip_ability_tanari_flame_charge"					"Flame Charge"
+		 "DOTA_Tooltip_ability_tanari_flame_charge_Description"		"Charges towards an enemy, dealing damage on impact and leaving puddles of fire in its wake."
+		 "DOTA_Tooltip_ability_tanari_flame_charge_damage"			"IMPACT DAMAGE:"
+		 "DOTA_Tooltip_ability_tanari_flame_charge_burn_damage"		"BURN DAMAGE:"
+
+		 "fire_temple_ogre"											"Volcano Ogre"
+
+		 "DOTA_Tooltip_ability_fire_temple_ogre_magi_ignite"		"Ignite"
+		 "DOTA_Tooltip_ability_fire_temple_ogre_magi_ignite_Description"	"Toss a fireball at the target enemy, slowing the target and enemies close to the impact point."
+		 "DOTA_Tooltip_ability_fire_temple_ogre_magi_ignite_burn_damage"	"BURN DAMAGE:"
+		 "DOTA_Tooltip_ability_fire_temple_ogre_magi_ignite_slow_movement_speed_pct"	"MOVEMENT SLOW%:"
+
+		 "tanari_lava_bully"										"Lava Bully"
+		 "tanari_lava_bully_big"									"Grand Lava Bully"
+
+		 "DOTA_Tooltip_ability_tanari_lava_bully_ai"				"Lava Challenger"
+
+		 "tanari_inferno_demon"										"Inferno Demon"
+
+		 "DOTA_Tooltip_ability_fire_temple_inferno"					"Inferno"
+		 "DOTA_Tooltip_ability_fire_temple_inferno_Description"		"Creates a massive trail of fire that burns enemies standing within"
+		 "DOTA_Tooltip_ability_fire_temple_inferno_damage"			"DAMAGE:"
+
+		 "DOTA_Tooltip_ability_fire_temple_inferno2"					"Inferno"
+		 "DOTA_Tooltip_ability_fire_temple_inferno2_Description"		"Creates a massive trail of fire that burns enemies standing within"
+		 "DOTA_Tooltip_ability_fire_temple_inferno2_damage"			"DAMAGE:"
+
+		 "tanari_fire_crab_beast"									"Flaming Crab Beast"
+
+		 "DOTA_Tooltip_ability_fire_temple_lava_skin"				"Lava Skin"
+		 "DOTA_Tooltip_ability_fire_temple_lava_skin_Description"	"When attacked, launch a fireball at the attacker."
+		 "DOTA_Tooltip_ability_fire_temple_lava_skin_impact_damage"	"IMPACT DAMAGE:"
+		 "DOTA_Tooltip_ability_fire_temple_lava_skin_burn_damage"	"BURN DAMAGE:"
+
+		 "fire_temple_siege_hulker"									"Siege Hulker"
+		 "DOTA_Tooltip_ability_fire_temple_siege_hulker_passive"	"Siege Hulker"
+		 "DOTA_Tooltip_ability_fire_temple_siege_hulker_passive_Description"	"Attacks light the enemy on fire"
+		 "DOTA_Tooltip_ability_fire_temple_siege_hulker_passive_burn_damage"	"BURN DAMAGE:"
+
+		 "fire_temple_demon_watcher"								"Fire Temple Demon Watcher"
+
+		 "DOTA_Tooltip_ability_fire_temple_demon_watcher_passive"	"Infernal Burst"
+		 "DOTA_Tooltip_ability_fire_temple_demon_watcher_passive_Description"	"Constantly unleashing a ring of flame"
+		 "DOTA_Tooltip_ability_fire_temple_demon_watcher_passive_burn_damage"	"BURN DAMAGE:"
+		 "DOTA_Tooltip_ability_fire_temple_demon_watcher_passive_impact_damage"	"IMPACT DAMAGE:"
+
+		 "DOTA_Tooltip_ability_fire_spirit_main_boss_ability"		"Molten Scales"
+		 "DOTA_Tooltip_ability_fire_spirit_main_boss_ability_Description"	"When taking damage, add a stacking debuff that burns the enemy."
+		 "DOTA_Tooltip_ability_fire_spirit_main_boss_ability_burn_damage" "BURN DAMAGE PER STACK:"
+
+		 "DOTA_Tooltip_ability_modifier_spirit_boss_burn"			"BURNING!"
+
+		 "DOTA_Tooltip_ability_fire_spirit_breath"					"Fire Breath"
+		 "DOTA_Tooltip_ability_fire_spirit_breath_Description"		"Wind up and unleash a stream of flames."
+		 "DOTA_Tooltip_ability_fire_spirit_breath_damage"			"DAMAGE:"
+
+		 "tanari_fire_spirit_boss"									"Tanari Fire Spirit"
+		 //SPIRIT FIRE
+		 "DOTA_Tooltip_ability_red_mist_berserkers_call"			"Berserker's Call"			
+		 "DOTA_Tooltip_ability_red_mist_berserkers_call_Description"	"Taunts all nearby enemies, forcing them to attack you. Provides bonus armor for the duration."	
+		 "DOTA_Tooltip_ability_red_mist_berserkers_call_bonus_armor"	"ARMOR INCREASE:"
+
+		 "DOTA_Tooltip_ability_red_mist_counter_helix"				"Counter Helix"
+		 "DOTA_Tooltip_ability_red_mist_counter_helix_Description"	"20% chance when attacked to wildly spin with your axe and damage all nearby enemies."	
+
+		 "DOTA_Tooltip_ability_terrasic_guard_ability"				"Flame Fist"
+		 "DOTA_Tooltip_ability_terrasic_guard_ability_Description"	"Applies a burning debuff to attacked targets."	
+		 "DOTA_Tooltip_ability_terrasic_guard_ability_burn_dps"		"BURN DPS:"
+
+		 "DOTA_Tooltip_modifier_terrasic_guard_on_fire"				"Flame Fist"
+		 "DOTA_Tooltip_modifier_terrasic_guard_on_fire_Description"	"Taking burn damage."
+
+		 "terrasic_flame_orchid"									"Flame Orchid"	
+
+		 "DOTA_Tooltip_ability_terrasic_flame_orchid_ai"				"Flame Spit"
+		 "DOTA_Tooltip_ability_terrasic_flame_orchid_ai_Description"	"Periodically launches 3 fireballs ahead of the Orchid"
+		 "DOTA_Tooltip_ability_terrasic_flame_orchid_ai_burn_damage"		"BURN DPS:"
+		 "DOTA_Tooltip_ability_terrasic_flame_orchid_ai_impact_damage"		"IMPACT DAMAGE:"
+
+		 "terrasic_boulderspine"								"Boulderspine"
+
+		 "terrasic_lava_beast"									"Lava Beast"
+
+		 "terrasic_awakened_stone"								"Lava Giant"
+
+		 "DOTA_Tooltip_ability_terrasic_flame_spit"				"Flame Shed"
+		 "DOTA_Tooltip_ability_terrasic_flame_spit_Description"	"While channeling Flame Shed, the goremaw shoots fireballs at all nearby enemies that damage and leave a burning effect. Additionally grants magic resist while channeling."	
+		 "DOTA_Tooltip_ability_terrasic_flame_spit_magic_resist" "MAGIC RESIST:"
+		 "DOTA_Tooltip_ability_terrasic_flame_spit_burn_dps"	"BURN DPS:"
+
+		"DOTA_Tooltip_modifier_flamespit_burning"				"Flame Shed Burn"
+		"DOTA_Tooltip_modifier_flamespit_burning_Description"	"Taking Burn Damage each second."
+
+		"terrasic_goremaw_flame_splitter"						"Goremaw Flame Splitter"
+
+		"terrasic_volcano_beetle"								"Volcano Beetle"
+
+		"DOTA_Tooltip_ability_terrasic_steam_shell"				"Fire Shell"
+		"DOTA_Tooltip_ability_terrasic_steam_shell_Description"	"Return attacks with a scorching fireball."	
+		"DOTA_Tooltip_ability_terrasic_steam_shell_burn_dps"	"BURN DPS:"
+
+		"DOTA_Tooltip_modifier_steam_shell_on_fire"				"Fire Shell Burn"
+		"DOTA_Tooltip_modifier_steam_shell_on_fire_Description"	"Taking Burn Damage each second."	
+
+		"DOTA_Tooltip_ability_terrasic_black_drake_ai"			"Truestrike"
+		"DOTA_Tooltip_ability_terrasic_black_drake_ai_Description"	"Attacks cannot miss"
+
+		"DOTA_Tooltip_ability_terrasic_black_dragon_ai"			"Truestrike"
+		"DOTA_Tooltip_ability_terrasic_black_dragon_ai_Description"			"Attacks cannot miss"
+
+		"DOTA_Tooltip_ability_terrasic_volcano_pharoah_ai"		"Central Flame"
+		"DOTA_Tooltip_ability_terrasic_volcano_pharoah_ai_Description"	"Constantly releasing seeking fireballs to all known enemies."
+
+		"volcanic_pharoah"										"Baron Clysm"
+
+		"DOTA_Tooltip_ability_terrasic_pharaoh_living_bomb"	"Living Bomb"
+		"DOTA_Tooltip_ability_terrasic_pharaoh_living_bomb_Description"	"Twists the target's soul into a volatile bomb that detonates after 5 seconds. Upon explosion, the owner takes damage and is stunned, and all nearby enemies take MASSIVE damage."
+		"DOTA_Tooltip_ability_terrasic_pharaoh_living_bomb_damage"		"MAIN DAMAGE:"
+		"DOTA_Tooltip_ability_terrasic_pharaoh_living_bomb_ally_damage"	"NEARBY ALLY DAMAGE:"
+
+		"DOTA_Tooltip_modifier_living_bomb"					"Living Bomb"
+		"DOTA_Tooltip_modifier_living_bomb_Description"		"You're going to explode. Get away from your allies."	
+
+		"DOTA_Tooltip_ability_terrasic_red_guard_ability"				"Mighty Cleave"
+		"DOTA_Tooltip_ability_terrasic_red_guard_ability_Description"	"Attacks also hit enemies around the target."
+		"DOTA_Tooltip_ability_terrasic_red_guard_ability_cleave"				"CLEAVE DAMAGE %:"
+		"DOTA_Tooltip_ability_terrasic_red_guard_ability_cleave_radius"			"CLEAVE RADIUS:"
+
+		"terrasic_red_guard"								"Red Guard"
+
+		"DOTA_Tooltip_ability_terrasic_captain_reimus_ability"		"Heavy Armor"
+		"DOTA_Tooltip_ability_terrasic_captain_reimus_ability_Description"	"Damage from sources that are greater than 500 units away have their damage reduced."
+		"DOTA_Tooltip_ability_terrasic_captain_reimus_ability_reduction"	"DAMAGE REDUCTION %:"
+
+		"terrasic_captain_reimus"							"Captain Reimus"
+
+		"molten_entity"										"Molten Entity"
+		"DOTA_Tooltip_modifier_armor_melt_custom"					"Armor Melt"
+		"DOTA_Tooltip_modifier_armor_melt_custom_Description"		"Losing Armor"
+
+		"DOTA_Tooltip_ability_terrasic_armor_melt"			"Armor Melt"
+		"DOTA_Tooltip_ability_terrasic_armor_melt_Description"	"Attacks greatly reduce the target's armor."	
+		"DOTA_Tooltip_ability_terrasic_armor_melt_armor_reduction"	"ARMOR REDUCTION:"
+
+		"terrasic_red_mist_soldier"							"Red Mist Soldier"
+
+		"DOTA_Tooltip_ability_terrasic_red_warlock_ai"				"Rage"
+		"DOTA_Tooltip_ability_terrasic_red_warlock_ai_Description"	"Taking damage restores mana. Passive -30 Mana regen."
+
+		"DOTA_Tooltip_ability_red_warlock_finger_of_death"			"Finger of Death"
+		"DOTA_Tooltip_ability_red_warlock_finger_of_death_Description"			"Eliminates a target enemy."
+		"DOTA_Tooltip_ability_red_warlock_finger_of_death_damage"	"DAMAGE:"
+
+		"water_temple_red_warlock"							"Red Warlock"
+
+		"DOTA_Tooltip_ability_terrasic_conqueror_ability"		"Conqueror's Leap"
+		"DOTA_Tooltip_ability_terrasic_conqueror_ability_Description"	"Any enemy that damages this unit from more than 600 distance away gets targeted by a leap to close the gap."	
+
+		"DOTA_Tooltip_ability_terrasic_red_mist_brute_ai"	"Fierce Blows"
+		"DOTA_Tooltip_ability_terrasic_red_mist_brute_ai_Description"	"Regular attacks knockback their targets."
+
+		"terrasic_red_mist_brute"						"Red Mist Brute"
+
+		"terrasic_captain_clayborne"					"Captain Clayborne"
+
+		"DOTA_Tooltip_ability_terrasic_mega_helix"					"Mega Helix"
+		"DOTA_Tooltip_ability_terrasic_mega_helix_Description"		"When taking damage from any source, 100% chance to perform a counter helix. Any enemies outside the range of the physical swing have fireballs thrown at them."
+		"DOTA_Tooltip_ability_terrasic_mega_helix_helix_damage"		"HELIX DAMAGE (PHYSICAL):"
+		"DOTA_Tooltip_ability_terrasic_mega_helix_fireball_damage"	"FIREBALL DAMAGE (MAGICAL):"
+		"DOTA_Tooltip_ability_terrasic_mega_helix_burn_dps"			"BURN DPS:"
+
+		"DOTA_Tooltip_modifier_mega_helix_burn"			"Burning"
+		"DOTA_Tooltip_modifier_mega_helix_burn_Description"	"Taking Damage each second."	
+
+
+		"DOTA_Tooltip_ability_terrasic_warlock_ai"	"Conjure Flame"
+		"DOTA_Tooltip_ability_terrasic_warlock_ai_Description"	"Throws 3 fireballs in a cone on a set interval. Fireballs apply a burn effect on impact."
+		"DOTA_Tooltip_ability_terrasic_warlock_ai_burn_dps"		"BURN DPS:"
+
+		"DOTA_Tooltip_modifier_terrasic_warlock_burning"	"Burning"
+
+		"DOTA_Tooltip_ability_terrasic_fire_key_holder_steam"	"Steam"
+		"DOTA_Tooltip_ability_terrasic_fire_key_holder_steam_Description"	"When taking damage, gain a stack of physical or magical steam based on the type of damage taken. Stacks are removed after 10 seconds pass without taking that damage type."
+		"DOTA_Tooltip_ability_terrasic_fire_key_holder_steam_armor_per_stack"	"ARMOR PER STACK:"
+		"DOTA_Tooltip_ability_terrasic_fire_key_holder_steam_mr_per_stack"		"MAGIC RESIST PER STACK:"
+
+		"DOTA_Tooltip_modifier_terrasic_fire_key_holder_steam_physical"		"Steam (PHYSICAL)"
+		"DOTA_Tooltip_modifier_terrasic_fire_key_holder_steam_magical"		"Steam (MAGICAL)"
+
+		"DOTA_Tooltip_ability_terrasic_fire_key_holder_ai"		"Fulminating Strikes"
+		"DOTA_Tooltip_ability_terrasic_fire_key_holder_ai_Description"	"Attacks have an explosive AOE in 280 unit radius."
+
+		"fire_temple_blackguard"								"Fire Temple Blackguard"
+
+		"DOTA_Tooltip_ability_terrasic_blackguard_ai"			"Crippling Swipes"
+		"DOTA_Tooltip_ability_terrasic_blackguard_ai_Description"	"Base Attacks tear into their target, reducing armor, silencing and adding a bleed damage over time."
+		"DOTA_Tooltip_ability_terrasic_blackguard_ai_armor_reduction"	"ARMOR REDUCTION:"
+		"DOTA_Tooltip_ability_terrasic_blackguard_ai_bleed_damage"		"BLEED DAMAGE:"
+
+		"DOTA_Tooltip_modifier_blackguard_cripple"				"Crippled"
+		"DOTA_Tooltip_modifier_blackguard_cripple_Description"	"Silenced, reduced armor, and bleeding."
+
+		"DOTA_Tooltip_ability_blackguard_brain_sap"				"Brain Sap"
+		"DOTA_Tooltip_ability_blackguard_brain_sap_Description"	"Steals Life from a target and heals the caster."	
+
+		"DOTA_Tooltip_ability_blackguard_shackles"				"Heat Shackle"
+		"DOTA_Tooltip_ability_blackguard_shackles_Description"	"Traps a target for the duration and deals magic damage."
+		"DOTA_Tooltip_ability_blackguard_shackles_channel_time"	"LOCK DURATION:"
+
+		"DOTA_Tooltip_ability_blackguard_cultist_ai"			"Magic Repel"
+		"DOTA_Tooltip_ability_blackguard_cultist_ai_Description"	"Increases Magical Resistance"
+		"DOTA_Tooltip_ability_blackguard_cultist_ai_magic_resistance"	"MAGIC RESIST:"
+
+		"DOTA_Tooltip_ability_fire_temple_volcano_drake_ai"		"True Strike"
+		"DOTA_Tooltip_ability_fire_temple_volcano_drake_ai_Description"	"Attacks cannot miss."	
+
+		"fire_temple_blackguard_doombringer"					"Blackguard Doombringer"
+
+		"fire_temple_molten_war_knight"							"Molten War Knight"
+
+		"fire_temple_secret_fanatic"							"Secret Fanatic"
+
+		"DOTA_Tooltip_ability_fire_temple_blackguard_doombringer_ai"		"Material Void"
+		"DOTA_Tooltip_ability_fire_temple_blackguard_doombringer_ai_Description"	"Empties the spirits of nearby enemies, decreasing their movespeed and attack damage."
+		"DOTA_Tooltip_ability_fire_temple_blackguard_doombringer_ai_movespeed_slow"	"MOVESPEED LOSS:"
+		"DOTA_Tooltip_ability_fire_temple_blackguard_doombringer_ai_attack_damage_reduction"	"ATTACK DAMAGE % REDUCTION:"
+
+		"DOTA_Tooltip_modifier_blackguard_doombringer_debuff"				"Material Void"
+		"DOTA_Tooltip_modifier_blackguard_doombringer_debuff_Description"	"Reduced movespeed and attack damage."
+
+		"fire_temple_burning_prisoner"							"Ancient Forge Spirit"
+
+		"DOTA_Tooltip_ability_fire_temple_molten_knight_stun_burst"				"Reverberating Core"
+		"DOTA_Tooltip_ability_fire_temple_molten_knight_stun_burst_Description"	"While stunned, continuously release large deadly explosions that stun and deal damage."
+		"DOTA_Tooltip_ability_fire_temple_molten_knight_stun_burst_stun_duration" "STUN DURATION:"
+
+		"DOTA_Tooltip_ability_fire_temple_armor_gain_on_attack"				"Enduring Armor"
+		"DOTA_Tooltip_ability_fire_temple_armor_gain_on_attack_Description"	"Getting attacked applies an armor stacking buff."
+		"DOTA_Tooltip_ability_fire_temple_armor_gain_on_attack_armor_per_stack"	"ARMOR PER STACK:"
+
+		"DOTA_Tooltip_modifier_fire_temple_armor_gain_stacks"					"Enduring Armor"		
+		"DOTA_Tooltip_modifier_fire_temple_armor_gain_stacks_Description"		"Gaining Armor."
+
+		"DOTA_Tooltip_ability_fire_temple_chaos_knight_bolt"					"Chaos Bolt"
+		"DOTA_Tooltip_ability_fire_temple_chaos_knight_bolt_Description"		"Damages and stuns the target from long range. Attempts to target the furthest possible enemy within range."
+		"DOTA_Tooltip_modifier_stun_duration"									"STUN DURATION:"
+
+		"DOTA_Tooltip_ability_fire_temple_red_dragon_blood"					"Red Dragon Blood"
+		"DOTA_Tooltip_ability_fire_temple_red_dragon_blood_Description"		"While there are no enemy heroes within 550 radius, gain HP regen and armor."
+		"DOTA_Tooltip_ability_fire_temple_red_dragon_blood_armor"				"ARMOR:"				
+		"DOTA_Tooltip_ability_fire_temple_red_dragon_blood_health_regen"		"HEALTH REGEN:"
+
+		"DOTA_Tooltip_modifier_fire_temple_red_dragon_blood_effect" 			"Red Dragon Blood"
+		"DOTA_Tooltip_modifier_fire_temple_red_dragon_blood_effect_Description"	"Gaining Armor and Health Regen."
+
+		"fire_temple_lost_shadow_of_davion"									"Lost Shadow of Davion"
+
+		"DOTA_Tooltip_ability_fire_temple_flame_ring"							"Flameburst"
+		"DOTA_Tooltip_ability_fire_temple_flame_ring_Description"				"Sprays flames that damage all nearby enemies."
+
+		"DOTA_Tooltip_ability_fire_temple_relic_seeker_ai"						"Evasion"
+		"DOTA_Tooltip_ability_fire_temple_relic_seeker_ai_Description"			"Adds a chance to dodge incoming attacks."	
+		"DOTA_Tooltip_ability_fire_temple_relic_seeker_ai_evasion"				"DODGE CHANCE %:"	
+
+		"DOTA_Tooltip_ability_fire_temple_shadow_strike"						"Shadow Strike"
+		"DOTA_Tooltip_ability_fire_temple_shadow_strike_Description"			"Teleports behind an enemy unit and slices them with bonus magic damage."
+		"DOTA_Tooltip_ability_fire_temple_shadow_strike_damage"				"BONUS MAGIC DAMAGE:"
+
+		"DOTA_Tooltip_ability_fire_temple_steadfast"							"Steadfast"
+		"DOTA_Tooltip_ability_fire_temple_steadfast_Description"				"Each instance of damage can not deal more than a % of max health."
+		"DOTA_Tooltip_ability_fire_temple_steadfast_max_damage"				"HEALTH % MAX:"
+
+		"DOTA_Tooltip_ability_fire_temple_frenzy"								"Frenzy"
+		"DOTA_Tooltip_ability_fire_temple_frenzy_Description"					"Each successive outgoing attack adds a stack that increases movespeed and attack speed."	
+		"DOTA_Tooltip_ability_fire_temple_frenzy_attack_speed_per_stack"		"ATTACK SPEED PER STACK:"
+		"DOTA_Tooltip_ability_fire_temple_frenzy_movespeed_per_stack"			"MOVESPEED PER STACK:"
+
+		"DOTA_Tooltip_modifier_frenzy_buff_effect"								"Frenzy"
+		"DOTA_Tooltip_modifier_frenzy_buff_effect_Description"					"Increased Attack Speed and Movespeed"	
+
+		"DOTA_Tooltip_ability_yojimbo_flame_guard"								"Flame Guard"
+		"DOTA_Tooltip_ability_yojimbo_flame_guard_Description"					"Creates a cloak of flame that absorbs magic damage and burns nearby enemies."
+		"DOTA_Tooltip_ability_yojimbo_flame_guard_absorb_amount"				"DAMAGE ABSORB:"
+		"DOTA_Tooltip_ability_yojimbo_flame_guard_damage_per_second"			"BURN DPS:"
+
+		"DOTA_Tooltip_ability_yojimbo_searing_chains"							"Searing Chains"
+		"DOTA_Tooltip_ability_yojimbo_searing_chains_Description"				"Roots, disarms, and damages 2 random nearby enemies."
+		"DOTA_Tooltip_ability_yojimbo_searing_chains_chains_damage"			"BURN DPS:"
+
+		"disciple_of_yojimbo"													"Disciple of Yojimbo"
+		"yojimbo_boss"															"Yojimbo"
+
+		"fire_temple_tempered_warrior"											"Tempered Warrior"
+
+		"DOTA_Tooltip_ability_fire_temple_agility_aura"						"Agility Break"
+		"DOTA_Tooltip_ability_fire_temple_agility_aura_Description"			"Decreases the agility and movespeed of all nearby enemies. Additionally provides a movespeed bonus to the owner."
+		"DOTA_Tooltip_ability_fire_temple_agility_aura_movespeed_slow"			"AURA MOVESPEED SLOW:"
+		"DOTA_Tooltip_ability_fire_temple_agility_aura_agilty_loss"			"AURA AGILITY LOSS:"
+		"DOTA_Tooltip_ability_fire_temple_agility_aura_movespeed_bonus"		"OWNER MOVESPEED BONUS:"		
+
+		"DOTA_Tooltip_ability_fire_temple_omni_slash"							"Blade Dance"
+		"DOTA_Tooltip_ability_fire_temple_omni_slash_Description"				"Teleports to up to 2 targets and cuts them from the air."
+		"DOTA_Tooltip_ability_fire_temple_omni_slash_omni_slash_damage"		"EXTRA SLICE DAMAGE:"
+
+		"DOTA_Tooltip_ability_fire_temple_blade_fury"							"Blade Fury"
+		"DOTA_Tooltip_ability_fire_temple_blade_fury_Description"				"Spins wildly with their blade, damaging enemies who get close. Magic Immune while spinning."
+		"fire_temple_mad_rito"													"Wild Fire Dancer"
+
+		"DOTA_Tooltip_modifier_agility_aura_effect"							"Agility Break"
+		"DOTA_Tooltip_modifier_agility_aura_effect_Description"				"Reduced Agility and Movespeed."
+
+		"DOTA_Tooltip_ability_fire_temple_evasion"								"Evasion"
+		"DOTA_Tooltip_ability_fire_temple_evasion_Description"					"Adds a small chance to dodge incoming attacks."	
+		"DOTA_Tooltip_ability_fire_temple_evasion_evasion"						"DODGE CHANCE:"	
+
+		"DOTA_Tooltip_ability_fire_core_bite"									"Core Bite"
+		"DOTA_Tooltip_ability_fire_core_bite_Description"						"A small imprint of flame slows your movespeed. Stacks with allies core bites."
+		"DOTA_Tooltip_ability_fire_core_bite_move_slow"						"MOVE SLOW PER STACK:"	
+
+		"DOTA_Tooltip_modifier_core_bite_effect"								"Core Bite"
+		"DOTA_Tooltip_modifier_core_bite_effect_Description"					"Slightly decreased movement speed."
+
+		"DOTA_Tooltip_ability_fire_temple_fireling_ability"					"Burning Attacks"
+		"DOTA_Tooltip_ability_fire_temple_fireling_ability_Description"		"Attacks leave a burning DoT effect"	
+		"DOTA_Tooltip_ability_fire_temple_fireling_ability_burn_dps"			"BURN DPS:"
+
+		"DOTA_Tooltip_ability_fire_temple_hulk_swipe_ability"					"Lava Hulk Strike"
+		"DOTA_Tooltip_ability_fire_temple_hulk_swipe_ability_Description"		"Attacks stun for 0.3 seconds and deal additional magic damage."
+		"DOTA_Tooltip_ability_fire_temple_hulk_swipe_ability_damage"			"DAMAGE:"
+
+		"DOTA_Tooltip_ability_fire_temple_lucent_beam"							"Lucent Beam"
+		"DOTA_Tooltip_ability_fire_temple_lucent_beam_Description"				"A beam of lunar energy damages and stuns its target."
+
+		"DOTA_Tooltip_ability_fire_temple_darkness_aura"						"Darkness Aura"
+		"DOTA_Tooltip_ability_fire_temple_darkness_aura_Description"			"Reduces the vision range of all nearby enemies."
+		"DOTA_Tooltip_ability_fire_temple_darkness_aura_vision_decrease"		"VISION REDUCTION:"
+
+		"DOTA_Tooltip_modifier_darkness_aura_effect"							"Darkness Aura"
+		"DOTA_Tooltip_modifier_darkness_aura_effect_Description"				"Reduced Vision Range"
+
+		"fire_temple_final_wave_mob"											"Fiery Core Construct"
+
+		"fire_temple_seer_of_solos"											"Seer of Solos"
+
+		"DOTA_Tooltip_ability_fire_temple_strength_aura"						"Presence of the Sun"
+		"DOTA_Tooltip_ability_fire_temple_strength_aura_Description"			"Reduces the strength of nearby enemies"	
+		"DOTA_Tooltip_ability_fire_temple_strength_aura_strength_loss"			"STRENGTH REDUCTION:"	
+
+		"DOTA_Tooltip_ability_fire_temple_nuclear_solos"						"Nuclear Solos"
+		"DOTA_Tooltip_ability_fire_temple_nuclear_solos_Description"			"Creates solar flares that stun and damage for the duration of the Spell."
+		"DOTA_Tooltip_ability_fire_temple_nuclear_solos_duration"				"DURATION:"
+
+		"DOTA_Tooltip_modifier_nuclear_solos"									"Nuclear Solos"
+		"DOTA_Tooltip_modifier_nuclear_solos_Description"						"Creating Solar Flares"	
+
+		"DOTA_Tooltip_ability_fire_temple_solos_ai"							"Heat Barrier"
+		"DOTA_Tooltip_ability_fire_temple_solos_ai_Description"				"Provides passive Magic Resist"
+		"DOTA_Tooltip_ability_fire_temple_solos_ai_magic_resist"				"MAGIC RESIST:"	
+
+		"DOTA_Tooltip_ability_solos_burning_spear"								"Burning Spears"
+		"DOTA_Tooltip_ability_solos_burning_spear_Description"					"Attacks add a stacking fire damage over time effect."
+
+		"fire_temple_fire_mage"												"Fire Mage"
+
+		"DOTA_Tooltip_ability_fire_temple_dragon_slave"						"Dragon Slave"
+		"DOTA_Tooltip_ability_fire_temple_dragon_slave_Description"			"Shoots of a wave of fire that damages enemies in a cone."
+
+		"DOTA_Tooltip_ability_fire_temple_curse_of_combustion"					"Curse of Combustion"
+		"DOTA_Tooltip_ability_fire_temple_curse_of_combustion_Description"		"Applies a curse to the target unit. If that unit casts a spell before the duration is over, they explode dealing damage to themselves and nearby allies as well as stunning for 1.5 seconds."
+		"DOTA_Tooltip_ability_fire_temple_curse_of_combustion_curse_duration"	"CURSE DURATION:"
+
+		"DOTA_Tooltip_modifier_curse_of_combustion"							"Curse of Combustion"
+		"DOTA_Tooltip_modifier_curse_of_combustion_Description"				"Using an ability or item will cause you to explode."
+
+		"DOTA_Tooltip_ability_fire_temple_fire_mage_ai"						"Weapon Melt"
+		"DOTA_Tooltip_ability_fire_temple_fire_mage_ai_Description"			"Reduces all physical damage taken."
+		"DOTA_Tooltip_ability_fire_temple_fire_mage_ai_damage_reduction_percent"	"PHYSICAL DAMAGE REDUCTION %:"
+
+		"fire_temple_lumos_ascender"											"Lumos Ascender"
+
+		"DOTA_Tooltip_ability_fire_temple_lava_burst"							"Lava Burst"
+		"DOTA_Tooltip_ability_fire_temple_lava_burst_Description"				"Damages the target and stuns for a short duration. Reduces target's attack damage for 3.5 seconds."
+		"DOTA_Tooltip_ability_fire_temple_lava_burst_stun_duration"			"STUN DURATION:"
+		"DOTA_Tooltip_ability_fire_temple_lava_burst_damage_reduction_percent"	"ATTACK DAMAGE REDUCTION:"
+
+		"DOTA_Tooltip_modifier_lava_burst_debuff"								"Lava Burst"
+		"DOTA_Tooltip_modifier_lava_burst_debuff_Description"					"Reduced attack damage"	
+
+		"fire_temple_protective_spirit"										"Protective Spirit"
+
+		"DOTA_Tooltip_ability_fire_temple_protector_death_ability"							"Undending Defense"
+		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_Description"					"On death, any other nearby Protective Spirits are buffed and healed."
+		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_armor_bonus"					"ARMOR PER STACK:"
+		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_attack_power_bonus_percent"		"ATTACK POWER PER STACK:"
+		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_movespeed_bonus"				"MOVESPEED PER STACK:"
+		"DOTA_Tooltip_ability_fire_temple_protector_death_ability_heal_percent"					"ALLY HEAL %:"
+
+
+		"DOTA_Tooltip_modifier_death_ability_buff"							"Undending Defense"
+		"DOTA_Tooltip_modifier_death_ability_buff_Description"				"Buffed by nearby allies who were slain nearby."
+
+		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability"				"Feeding Flame"
+		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_Description"	"Each instance of damage buffs the Flame Wraith"
+		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_damage_percentage"	"DAMAGE % PER STACK:"
+		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_movespeed_bonus"	"MOVESPEED PER STACK:"
+		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_attackspeed_bonus"	"ATTACKSPEED PER STACK:"
+
+		"DOTA_Tooltip_modifier_flame_wraith_buff"							"Feeding Flame"
+		"DOTA_Tooltip_modifier_flame_wraith_buff_Description"				"Increased movespeed, attackspeed and damage."	
+
+		"fire_temple_flame_wraith"										"Flame Wraith"
+
+		"fire_temple_lava_caller"											"Lava Caller"
+
+		"fire_temple_flame_wraith_lord"									"Flame Wraith Lord"
+
+		"DOTA_Tooltip_ability_fire_temple_kolthun_ai"										"Red Contract"
+		"DOTA_Tooltip_ability_fire_temple_kolthun_ai_Description"							"An unbreakable debt to the Fire Lord"
+
+		"DOTA_Tooltip_ability_fire_temple_fire_ring"					"Halo of Fire"
+		"DOTA_Tooltip_ability_fire_temple_fire_ring_Description"		"Creates a ring around the caster that burns enemies who come into contact."	
+
+		"DOTA_Tooltip_modifier_fire_ring_impact"					"Halo of Fire"
+		"DOTA_Tooltip_modifier_fire_ring_impact_Description"		"Burning"
+
+		"DOTA_Tooltip_modifier_modifier_fire_ring"					"Halo of Fire"
+
+		"DOTA_Tooltip_ability_kolthun_dragon_slave"					"Flame Torrent"
+		"DOTA_Tooltip_ability_kolthun_dragon_slave_Description"		"Launches a firey dragon at the target location."
+
+		"flame_worshipper_kolthun"									"Flame Worshipper Kol'Thun"
+
+		"DOTA_Tooltip_modifier_kolthun_shield"						"Shield of the Fire Lord"
+		"DOTA_Tooltip_modifier_kolthun_shield_Description"			"Each stack absorbs an instance of damage."
+
+		"fire_temple_neverlord_reborn"								"Neverlord Reborn"
+
+		"DOTA_Tooltip_ability_firelord_ability_ai"					"Origin Flame"
+
+		"DOTA_Tooltip_modifier_firelord_shield"						"Shield of the Fire Lord"
+		"DOTA_Tooltip_modifier_firelord_shield_Description"			"Each stack absorbs an instance of damage."
+
+		"DOTA_Tooltip_ability_neverlord_raze"						"Flame Raze"
+		"DOTA_Tooltip_ability_neverlord_raze_Description"			"Creates a burst of fire at the target location that deals massive magic impact damage."
+
+		"DOTA_Tooltip_ability_wind_temple_wind_prophet_ai"					"Shield of Enlightenment"
+		"DOTA_Tooltip_ability_wind_temple_wind_prophet_ai_Description"		"When taking damage, burn mana and deal damage to the attacker. Also passively reduces damage taken from all sources."
+		"DOTA_Tooltip_ability_wind_temple_wind_prophet_ai_damage_reduction"	"DAMAGE REDUCTION %:"
+		"DOTA_Tooltip_ability_wind_temple_wind_prophet_ai_mana_drain"		"MANA DRAIN %:"
+
+		"wind_temple_rare_wind_prophet"								"Wind Prophet"
+
+		"fire_temple_rare_blackguard_centaur"						"Blackguard Centaur"
+
+		"DOTA_Tooltip_ability_fire_temple_hoof_stomp"				"Hoof Stomp"
+		"DOTA_Tooltip_ability_fire_temple_hoof_stomp_Description"	"Damage and stun after a short delay."
+		"DOTA_Tooltip_ability_fire_temple_hoof_stomp_stun_duration"	"STUN DURATION:"
+		"DOTA_Tooltip_ability_fire_temple_hoof_stomp_stomp_damage"	"STOMP DAMAGE:"
+
+		"DOTA_Tooltip_ability_fire_temple_centaur_warcry"			"Centaur Warcry"
+		"DOTA_Tooltip_ability_fire_temple_centaur_warcry_Description"	"Increases the attackspeed and movespeed of the caster and all nearby allies."
+		"DOTA_Tooltip_ability_fire_temple_centaur_warcry_movespeed"	"MOVESPEED:"
+		"DOTA_Tooltip_ability_fire_temple_centaur_warcry_attackspeed"	"ATTACK SPEED:"
+
+		"DOTA_Tooltip_modifier_centaur_war_cry"					"Centaur Warcry"
+		"DOTA_Tooltip_modifier_centaur_war_cry_Description"		"Increased attack speed and movespeed."
+
+		"water_temple_rare_wrath_of_the_water_king"				"Wrath of the Water King"
+
+		"DOTA_Tooltip_ability_water_temple_rare_wrath_ai"		"Tidal Wave"
+		"DOTA_Tooltip_ability_water_temple_rare_wrath_ai_Description"	"Passively emits a massive violent wave projectile that damages and slows."
+		"DOTA_Tooltip_ability_water_temple_rare_wrath_ai_moveslow"		"MOVESPEED LOSS %:"
+		"DOTA_Tooltip_ability_water_temple_rare_wrath_ai_attack_slow"	"ATTACK SPEED LOSS %:"
+
+		"DOTA_Tooltip_modifier_water_temple_rare_wrath_soak"	"Tidal Wave"
+		"DOTA_Tooltip_modifier_water_temple_rare_wrath_soak_Description"	"Reduced attackspeed and movespeed."
+
+
+		"wind_temple_rare_falcon_warden"							"Falcon Warden"
+
+		"DOTA_Tooltip_ability_fire_temple_rare_falcon_warder_ai"	"Falcon Warden"
+		"DOTA_Tooltip_ability_fire_temple_rare_falcon_warder_ai_Description"	"Provides passive magic resistance, and emits a stream of silver falcons on nearby enemies."
+		"DOTA_Tooltip_ability_fire_temple_rare_falcon_warder_ai_magic_resistance"	"MAGIC RESIST:"
+
+
+		"DOTA_Tooltip_ability_water_temple_rare_water_construct_ai"		"Tidal Wave"
+		"DOTA_Tooltip_ability_water_temple_rare_water_construct_ai_Description"	"Passively emits a massive violent wave projectile that damages and slows."
+		"DOTA_Tooltip_ability_water_temple_rare_water_construct_ai_moveslow"		"MOVESPEED LOSS %:"
+		"DOTA_Tooltip_ability_water_temple_rare_water_construct_ai_attack_slow"	"ATTACK SPEED LOSS %:"
+
+		"water_temple_rare_water_construct"								"Ancient Water Construct"
+
+		"wind_temple_descendant_of_zeus"								"Descendant of Zeus"
+
+		"tanari_thicket_ursa"											"Thicket Ursa"
+
+		"tanari_ancient_hero"											"Ancient God"
+
+		"DOTA_Tooltip_ability_ancient_god_wind_blink_ability"				"Wind Blink"
+		"DOTA_Tooltip_ability_ancient_god_wind_blink_ability_Description"	"Unrestricted teleportation ability."
+
+		"DOTA_Tooltip_ability_ancient_god_wind_dodge_ability"				"Gale Haste"
+		"DOTA_Tooltip_ability_ancient_god_wind_dodge_ability_Description"	"Quick tempest Maneuverability."
+
+		"DOTA_Tooltip_ability_ancient_god_water_vortex"						"Water Vortex"
+		"DOTA_Tooltip_ability_ancient_god_water_vortex_Description"			"Pulls all enemies in a massive radius towards the caster."
+
+		"DOTA_Tooltip_ability_tanari_ancient_hero_wind_god"					"Wind God"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_wind_god_Description"		"The Power of Wind makes the Ancient God immune to Magical and Pure damage."
+		"DOTA_Tooltip_ability_tanari_ancient_hero_wind_god_attack_speed"	"ATTACK SPEED:"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_wind_god_movespeed"		"MOVESPEED:"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_wind_god_evasion"			"EVASION:"
+
+		"DOTA_Tooltip_ability_ancient_god_steadfast"							"Ancient Steadfast"
+		"DOTA_Tooltip_ability_ancient_god_steadfast_Description"				"Each instance of damage can not deal more than a % of max health."
+		"DOTA_Tooltip_ability_ancient_god_steadfast_max_damage"				"HEALTH % MAX:"
+
+		"DOTA_Tooltip_ability_ancient_god_dragon_slave"					"Fire Wave"
+		"DOTA_Tooltip_ability_ancient_god_dragon_slave_Description"		"A burning dragon deals damage to enemies in a line."
+
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_vortex"					"Fire Vortex"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_vortex_Description"		"Burning flames are continuously emitted in a spiral around the Ancient God."
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_vortex_impact_damage"	"FLAME IMPACT DAMAGE:"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_vortex_burn_damage"		"BURN DAMAGE / 0.5s:"
+
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_god"					"Fire God"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_god_Description"		"The Power of Fire makes the Ancient God immune to Physical and Pure damage. Attacks greatly reduce armor."
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_god_attack_damage_percent"	"ATTACK DAMAGE %:"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_god_attack_range"		"ATTACK RANGE:"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_god_armor_break"		"ARMOR BREAK:"
+
+		"DOTA_Tooltip_modifier_fire_god_armor_break"					"Fire God Armor Break"
+		"DOTA_Tooltip_modifier_fire_god_armor_break_Description"		"Armor Greatly Reduced"
+
+		"DOTA_Tooltip_ability_tanari_ancient_hero_water_god"					"Water God"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_water_god_Description"		"The Power of Water makes the Ancient God immune to Physical and Magical damage."
+		"DOTA_Tooltip_ability_tanari_ancient_hero_water_god_hp_regen_percent"	"HEALTH REGEN %:"
+
+		"DOTA_Tooltip_ability_ancient_water_god_passive"						"Waveburst"
+		"DOTA_Tooltip_ability_ancient_water_god_passive_Description"			"Streams of water spray from the Ancient God."

@@ -1,0 +1,827 @@
+		"zone_redfall"											"落红流火之岭"
+
+		"redfall_village"										"落红流火村"
+		"redfall_forest"										"落红流火树林"
+		"autumn_mist_canyon_entrance"							"秋之薄雾峡谷 - 入口"
+		"autumn_mist_canyon"									"秋之薄雾峡谷"
+		
+		//REDFALL QUESTS
+
+		"tooltip_quest_log"										"任务日志"
+		"tooltip_quest_log_description"							"开启你的任务日志"
+
+		"tooltip_new_quest"										"新的任务已经添加"
+
+		"tooltip_progress"										"进展"
+		"tooltip_reward"										"奖励"
+		"tooltip_quest_to_complete"								"点击完成"
+
+		"tooltip_no_quests"										"你没有任何可用的任务"
+		"tooltip_no_quests_completed"							"你没有任何完成的任务"
+
+		"tooltip_active"										"启动"	
+		"tooltip_completed"										"完成"
+
+		"redfall_quest_1_title"									"森林之心"
+		"redfall_quest_1_objective"								"在落红流火树林恢复四棵朱紅色的树."
+
+		"redfall_quest_1_objective_2"							"打败Crimsyth巫师"	
+
+		"redfall_autumnleaf_firefly"							"酒红色的的萤火虫"
+		"redfall_autumnleaf_firefly_Description"				"打开秋之薄雾峡谷的入口"
+
+		"redfall_quest_2_title"									"马里神社"
+		"redfall_quest_2_objective"								"打败马里的精灵们."
+
+		"redfall_blessing_of_maru"								"马里的祝福"
+		"redfall_blessing_of_maru_Description"					"获得 50/300/1000 的全属性持续时间60分钟"
+
+		"DOTA_Tooltip_modifier_blessing_of_maru"				"马里的祝福"
+		"DOTA_Tooltip_modifier_blessing_of_maru_Description"	"增加属性"
+
+		"redfall_quest_3_title"									"清理海岸"
+		"redfall_quest_3_objective"								"防守Otaru的海洋食尸鬼."
+
+		"redfall_otaru"											"Otaru"
+		"redfall_otaru_dialogue_one"							"我承诺过保护森林的边界. 我将很快进行净化的仪式."	
+
+		"redfall_otaru_dialogue_option1"						"我可以加入你吗?"
+		"redfall_otaru_dialogue_option2"						"谢谢你的<br>服务"
+
+		"redfall_otaru_dialogue_2"								"来. 你将会见证这座岛所保存的艺术."
+
+		"redfall_preservers_mantra"								"保护者的曼陀罗"
+		"redfall_preservers_mantra_Description"					"增加20%的经验获取速度持续时间60分钟."
+
+		"DOTA_Tooltip_modifier_preservers_mantra"				"保护者的曼陀罗"
+		"DOTA_Tooltip_modifier_preservers_mantra_Description"	"增加20%的经验获取速度"
+
+		"redfall_otaru_dialogue_3"								"非常棒. 这应该能让我们在几天安静下来"
+
+		"redfall_final_otaru_dialogue"							"森林的瑰宝永远不会被认为是理所当然的."
+
+		"redfall_quest_4_title"									"秋天的梣木"
+		"redfall_quest_4_objective"								"唤醒落红流火树林的灰烬."
+		"redfall_quest_4_objective_2"							"打败银朱树."
+
+		"DOTA_Tooltip_ability_item_redfall_ashen_twig"			"Ashen的树枝"
+		"DOTA_Tooltip_ability_item_redfall_ashen_twig_Description"	"使用: 唤醒落红流火树林的灰烬."
+
+		"quest_immortal_head_gear"								"不朽头盔"
+
+		"redfall_quest_5_title"									"寻找Ashara"
+		"redfall_quest_5_objective"								"在秋之薄雾峡谷中的Ashara的神社使用落红流火树叶."		
+
+		"redfall_quest_mithril_reward"							"秘銀水晶"
+		"redfall_quest_5_reward"								"奖励 35/70/210 秘銀水晶"
+
+		"DOTA_Tooltip_ability_item_redfall_glowing_redfall_leaf"			"生长的落红流火树叶"
+		"DOTA_Tooltip_ability_item_redfall_glowing_redfall_leaf_Description"	"使用: 启动在秋之薄雾峡谷中的Ashara的神社的传送门."
+
+		"redfall_quest_5_objective_2"								"在秋之薄雾峡谷中打败Ashara的灵魂"
+		"redfall_quest_5_objective_3"								"在落红流火森林里面站在乌鸦雕像前."
+		"redfall_quest_5_objective_4"								"碰见Ashara."
+
+		"DOTA_Tooltip_modifier_blessing_of_ashara"			"Ashara的祝福"
+		"DOTA_Tooltip_modifier_blessing_of_ashara_Description"	"允许允许激活乌鸦雕像"	
+
+		"redfall_quest_6_title"									"芬里尔的影子"
+		"redfall_quest_6_objective"								"找到并且打败芬里尔."
+
+		"redfall_quest_6_reward"								"芬里尔的犬牙"
+		"redfall_quest_6_reward_Description"					"不朽饰品"
+
+		//REDFALL DIALOGUE
+
+		"redfall_quest_1_dialogue"								"银朱树提供了我们的森林的命脉."
+		"redfall_quest_1_dialogue_2"							"一股外力威胁着他们的生命."
+
+		//REDFALL MONSTERS
+
+		"DOTA_Tooltip_ability_redfall_autumn_slow"				"抹黑"
+		"DOTA_Tooltip_ability_redfall_autumn_slow_Description"	"攻击让目标拥有减速."
+		"DOTA_Tooltip_ability_redfall_autumn_slow_movespeed_loss"	"移动速度丢失:"
+
+		"DOTA_Tooltip_modifier_autumn_slow"						"抹黑"
+		"DOTA_Tooltip_modifier_autumn_slow_Description"			"移动速度丢失"
+
+		"DOTA_Tooltip_ability_redfall_autumn_spawner_ability"	"落叶"
+		"DOTA_Tooltip_ability_redfall_autumn_spawner_ability_Description"	"定期产生秋天的花."
+
+		"redfall_autumn_flower"									"秋花"
+
+		"redfall_autumn_spawner"								"魔法分支"
+
+		"DOTA_Tooltip_ability_autumn_summoner_ability"					"季节的力量"
+		"DOTA_Tooltip_ability_autumn_summoner_ability_Description"		"复活树精战士与施法者战斗"
+
+		"redfall_aqua_lily"										"落红流火之水色百合"
+
+		"DOTA_Tooltip_ability_wozxak_fury_swipes"				"疯狂乱抓"
+		"DOTA_Tooltip_ability_wozxak_fury_swipes_Description"	"成功攻击会叠加伤害."
+		"DOTA_Tooltip_ability_wozxak_fury_swipes_damage_per_stack"	"每层叠加伤害:"
+
+		"DOTA_Tooltip_ability_redfall_poison_sting"				"毒药"
+		"DOTA_Tooltip_ability_redfall_poison_sting_Description"	"对被攻击者造成叠加持续性的毒性效果."
+		"DOTA_Tooltip_ability_redfall_poison_sting_damage_per_tick"	"每0.5秒的伤害:"
+
+		"DOTA_Tooltip_modifier_redfall_poison_sting"			"毒药"
+		"DOTA_Tooltip_modifier_redfall_poison_sting_Description"	"每0.5秒造成伤害"
+
+		"DOTA_Tooltip_ability_redfall_blade_fury"							"刃之怒"
+		"DOTA_Tooltip_ability_redfall_blade_fury_Description"				"狂怒的旋转刀刃, 对靠近的敌人造成伤害. 在旋转时候魔免."
+
+		"redfall_autumn_spirit"									"秋天的灵魂"
+
+		"DOTA_Tooltip_ability_redfall_misty_breeze"				"微风"
+		"DOTA_Tooltip_ability_redfall_misty_breeze_Description"	"降低附近敌人的攻击伤害, 攻击速度和移动速度."
+		"DOTA_Tooltip_ability_redfall_misty_breeze_attack_damage" "ATTACK DAMAGE %:"
+		"DOTA_Tooltip_ability_redfall_misty_breeze_attack_speed" "攻击速度:"
+		"DOTA_Tooltip_ability_redfall_misty_breeze_movespeed"	"MOVESPEED:"
+
+		"redfall_disciple_of_maru"								"Maru小妖怪"
+
+		"DOTA_Tooltip_ability_redfall_gust_wave"				"秋风"
+		"DOTA_Tooltip_ability_redfall_gust_wave_Description"	"一股风对敌人造成伤害和降低攻击速度."
+		"DOTA_Tooltip_ability_redfall_gust_wave_move_slow"		"移动速度降低:"
+		"DOTA_Tooltip_ability_redfall_gust_wave_attack_slow"    "攻击速度降低:"
+
+		"DOTA_Tooltip_modifier_gust_wave_slow"					"秋风"
+		"DOTA_Tooltip_modifier_gust_wave_slow_Description"		"减速"
+
+		"redfall_cliff_invader"									"海洋食尸鬼"
+		"redfall_cliff_invader_range"							"海洋食尸鬼"
+
+		"DOTA_Tooltip_ability_redfall_dodge_ability"			"组合闪避"
+		"DOTA_Tooltip_ability_redfall_dodge_ability_Description"	"特殊操作性."
+
+		"DOTA_Tooltip_ability_redfall_forest_ranger_ai"					"散落射击"
+		"DOTA_Tooltip_ability_redfall_forest_ranger_ai_Description"		"攻击有25%让敌人流血, 目标每0.5秒流血并且减少护甲."
+		"DOTA_Tooltip_ability_redfall_forest_ranger_ai_damage_per_tick"	"每0.5秒的伤害:"
+		"DOTA_Tooltip_ability_redfall_forest_ranger_ai_armor_reduce"	"护甲减少:"
+
+		"DOTA_Tooltip_modifier_forest_ranger_bleed"						"散落射击"
+		"DOTA_Tooltip_modifier_forest_ranger_bleed_Description"			"流血和降低护甲."
+
+		"DOTA_Tooltip_ability_creature_heart_spike"						"穿心"
+		"DOTA_Tooltip_ability_creature_heart_spike_Description"			"攻击造成基于目标最大生命值的伤害."
+		"DOTA_Tooltip_ability_creature_heart_spike_health_percent"		"最大生命值转换伤害 %:"
+		
+		"DOTA_Tooltip_ability_redfall_ash_snake_ai"						"秋灰"
+		"DOTA_Tooltip_ability_redfall_ash_snake_ai_Description"			"攻击让敌人减少攻击力和攻击速度."
+		"DOTA_Tooltip_ability_redfall_ash_snake_ai_attack_speed_loss"			"攻击速度降低:"
+		"DOTA_Tooltip_ability_redfall_ash_snake_ai_damage_loss_percent"			"攻击力降低 %:"
+
+		"DOTA_Tooltip_modifier_ash_snake_debuff"						"秋灰"
+		"DOTA_Tooltip_modifier_ash_snake_debuff_Description"			"减少攻击速度和攻击力"	
+
+		"redfall_ash_snake"										"灰蛇"
+
+		"DOTA_Tooltip_ability_redfall_forest_roar"				"激怒"
+		"DOTA_Tooltip_ability_redfall_forest_roar_Description"	"长大并增加力量."
+
+		"DOTA_Tooltip_ability_redfall_ash_knight_shield"				"Equinox的盾"
+		"DOTA_Tooltip_ability_redfall_ash_knight_shield_Description"	"抵挡所有伤害.攻击此盾的敌人遭到缴械和削弱6秒."
+		"DOTA_Tooltip_ability_redfall_ash_knight_shield_regen_in_shield" "在拿盾的状态血量恢复%:"
+		"DOTA_Tooltip_ability_redfall_ash_knight_shield_damage_loss"	 "盾反击造成的伤害丢失:"
+		"DOTA_Tooltip_ability_redfall_ash_knight_shield_movespeed_slow"	"盾反击造成的移动速度丢失:"
+
+		"DOTA_Tooltip_ability_redfall_autumn_satyr_slap"		"重击"
+		"DOTA_Tooltip_ability_redfall_autumn_satyr_slap_Description"	"眩晕目标1秒并踢到空中."
+
+		"DOTA_Tooltip_ability_redfall_autumn_tornado"			"秋天龙卷风"
+		"DOTA_Tooltip_ability_redfall_autumn_tornado_Description"	"举起空气，向目标敌人发射龙卷风."
+
+		"DOTA_Tooltip_modifier_tornado_slow"					"秋天龙卷风"
+		"DOTA_Tooltip_modifier_tornado_slow_Description"		"攻击速度和移动速度降低"
+
+		"DOTA_Tooltip_ability_item_redfall_burgundy_firefly_normal" "勃艮第萤火虫 (普通)"
+		"DOTA_Tooltip_ability_item_redfall_burgundy_firefly_elite" "勃艮第萤火虫 (精英)"
+		"DOTA_Tooltip_ability_item_redfall_burgundy_firefly_legend" "勃艮第萤火虫 (传说)"
+
+		"item_redfall_burgundy_firefly_normal_desc"				"在普通难度开启在落红流火的入口进入秋之薄雾峡谷."
+		"item_redfall_burgundy_firefly_elite_desc"				"在精英难度开启在落红流火的入口进入秋之薄雾峡谷."
+		"item_redfall_burgundy_firefly_legend_desc"				"在传说难度开启在落红流火的入口进入秋之薄雾峡谷."
+
+		"redfall_canyon_predator"								"峡谷捕食者"
+
+		"DOTA_Tooltip_ability_redfall_canyon_predator_ability"	"Enrage"
+		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_Description"	"受到伤害时, 捕食者增加护甲和伤害."
+		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_damage_per_instance"	"每层伤害增加 %:"
+		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_armor_per_instance"	"每层护甲增加:"
+
+		"DOTA_Tooltip_ability_redfall_bigwave"					"峡谷粉碎"
+		"DOTA_Tooltip_ability_redfall_bigwave_Description"		"一股力量波浪破坏和击晕敌人."
+
+		"DOTA_Tooltip_ability_redfall_ghost_mace"				"鬼钉头锤"
+		"DOTA_Tooltip_ability_redfall_ghost_mace_Description"	"攻击造成debuff让目标不能治疗并减少生命值恢复的%持续时间3.5秒"
+		"DOTA_Tooltip_ability_redfall_ghost_mace_health_regen_percent"	"HEALTH REGEN PERCENT LOSS:"
+
+		"DOTA_Tooltip_ability_redfall_barbarian_passive"				"韧性"
+		"DOTA_Tooltip_ability_redfall_barbarian_passive_Description"	"无视眩晕"
+
+		"DOTA_Tooltip_ability_redfall_mist_assassin_passive"			"闪避"
+		"DOTA_Tooltip_ability_redfall_mist_assassin_passive_Description"	"有机率闪避攻击."
+		"DOTA_Tooltip_ability_redfall_mist_assassin_passive_evasion"	"闪避机率%:"
+
+		"redfall_canyon_boss"										"魔鬼英豪"
+
+		"DOTA_Tooltip_ability_redfall_ash_tree_aura"				"灰灵气"
+		"DOTA_Tooltip_ability_redfall_ash_tree_aura_Description"	"降低附近敌人的移动速度和视野."
+		"DOTA_Tooltip_ability_redfall_ash_tree_aura_movespeed"		"移动速度降低:"
+		"DOTA_Tooltip_ability_redfall_ash_tree_aura_vision_reduce"	"视野减少:"
+
+		"modifier_ash_tree_aura_debuff"								"灰灵气"
+		"modifier_ash_tree_aura_debuff_Description"					"降低附近敌人的移动速度和视野."
+
+		"DOTA_Tooltip_ability_ash_tree_overgrowth"					"过度生长"
+		"DOTA_Tooltip_ability_ash_tree_overgrowth_Description"		"困住附近所有敌人."
+
+		"DOTA_Tooltip_ability_canyon_boss_time_walk"				"X能力"
+		"DOTA_Tooltip_ability_canyon_boss_time_walk_Description"	"提供一些特殊的移动性."
+
+		"DOTA_Tooltip_ability_canyon_boss_ai"						"内部腐败"
+		"DOTA_Tooltip_ability_canyon_boss_ai_Description"			"里面有东西."
+
+		"DOTA_Tooltip_ability_crimsith_cult_master_pull"				"灵魂之抓"
+		"DOTA_Tooltip_ability_crimsith_cult_master_pull_Description"	"拉取目标单位到你的面前."
+
+		"DOTA_Tooltip_ability_redfall_autumn_mage_boss_passive"					"Singeing的唤醒"
+		"DOTA_Tooltip_ability_redfall_autumn_mage_boss_passive_Description"		"火焰爆炸包围了施法者."
+
+		"DOTA_Tooltip_ability_redfall_autumn_mage_blink"				"秋天烟雾"
+		"DOTA_Tooltip_ability_redfall_autumn_mage_blink_Description"	"2秒后传送到随机的方向."
+
+		"DOTA_Tooltip_ability_redfall_fenrir_ability"					"阿尔法狼灵气"
+		"DOTA_Tooltip_ability_redfall_fenrir_ability_Description"		"增加附近友军的攻击力和自己的攻击力."
+		"DOTA_Tooltip_ability_redfall_fenrir_ability_attacK_damage_increase"	"额外的攻击力 %:"
+
+		"DOTA_Tooltip_ability_redfall_feronia_passive"					"费奥南的守卫"
+		"DOTA_Tooltip_ability_redfall_feronia_passive_Description"		"施放法术后，获得一个盾牌，减少100%的伤害1.5秒."
+
+		"DOTA_Tooltip_ability_redfall_mirana_starfall"					"神圣的箭头"
+		"DOTA_Tooltip_ability_redfall_mirana_starfall_Description"		"发射一个箭头，伤害和击晕敌人."	
+
+		"DOTA_Tooltip_ability_redfall_mirana_starfall"					"神圣的箭头"
+		"DOTA_Tooltip_ability_redfall_mirana_starfall_Description"		"发射一个箭头，伤害和击晕敌人."
+
+		"redfall_fenrir"												"芬里尔"
+
+		"DOTA_Tooltip_ability_redfall_alpha_beast_charge"				"阿尔法充能"
+		"DOTA_Tooltip_ability_redfall_alpha_beast_charge_Description"	"向前冲刺. 如果阿尔法野兽和敌人接触, 他们将会被重击."
+
+		//Redfall Farmlands
+
+
+		"DOTA_Tooltip_ability_item_redfall_purified_vermillion_bundle_normal" "纯化银朱束 (普通)"
+		"DOTA_Tooltip_ability_item_redfall_purified_vermillion_bundle_elite" "纯化银朱束 (精英)"
+		"DOTA_Tooltip_ability_item_redfall_purified_vermillion_bundle_legend" "纯化银朱束 (传说)"
+
+		"item_redfall_purified_vermillion_bundle_normal_desc"				"启动传送门开启落红流火农田, 在出生点附近可以找到传送门."
+		"item_redfall_purified_vermillion_bundle_elite_desc"				"启动传送门开启落红流火农田, 在出生点附近可以找到传送门.."
+		"item_redfall_purified_vermillion_bundle_legend_desc"				"启动传送门开启落红流火农田, 在出生点附近可以找到传送门.."
+
+		"DOTA_Tooltip_ability_redfall_harvest_wraith_ability"							"虚弱冥火"
+		"DOTA_Tooltip_ability_redfall_harvest_wraith_ability_Description"				"攻击会令目标攻击力降低. 此攻击不会丢失."
+		"DOTA_Tooltip_ability_redfall_harvest_wraith_ability_attacK_damage_reduction"	"伤害减少%:"
+
+		"DOTA_Tooltip_modifier_harvest_wraith_effect"								"虚弱"
+		"DOTA_Tooltip_modifier_harvest_wraith_effect_Description"					"攻击力降低"
+
+		"DOTA_Tooltip_ability_redfall_farm_panda_immolation"						"焚身"
+		"DOTA_Tooltip_ability_redfall_farm_panda_immolation_Description"			"燃烧附近的敌人."
+
+		"redfall_farmlands_corn_harvester"										"玉米收割機"
+		"redfall_farmlands_flame_panda"											"火焰熊猫"
+		"redfall_harvest_wraith"												"幽灵收割"
+
+		"redfall_farmlands_thief"												"Crimsyth盗贼"
+
+		"redfall_pumpkin_flower"												"南瓜花"
+
+		"redfall_farmland_spawner"												"稻草人的生长者"
+
+		"redfall_farmlands_bandit"												"Crimsyth強盜"
+		"redfall_twisted_pumpkin"												"扭轉的南瓜"
+		"redfall_chibi_bear"													"赤壁熊"
+		"redfall_crymsith_duelist"												"Crimsyth决斗者"
+		"redfall_crimsyth_bandit"												"Crimsyth土匪"
+		"redfall_farmlands_crymsith_taskmaster"									"Crimsyth 任务主任"
+		"redfall_crimsyth_recruiter"											"Crimsyth 招聘者"
+
+
+		"redfall_meepo_farmer"													"农民"
+
+		"redfall_dialogue_farmer_1_a"											"Crimsyth执法者很快就来收税了."
+		"redfall_dialogue_farmer_1_b"											"我没有任何东西给他们.他们会把我关进监狱."	
+		"redfall_dialogue_farmer_1_c"											"赶快躲去后面桶子的! 我会在需要你的时候呼叫你!"	
+
+		"redfall_dialogue_bandit_1_a"											"是时候收税了. 你的钱在哪?"				
+		"redfall_dialogue_farmer_1_d"											"我都用完了. 你可以回家了"	
+		"redfall_dialogue_bandit_1_b"											"为什么突然那么自信了老头? "
+		"redfall_dialogue_bandit_1_b2"											"把他面对墙壁. 我会搜索这房子."
+		"redfall_dialogue_farmer_1_e"											"现在! 出来!!"
+		"redfall_dialogue_bandit_1_c"											"Huh?"
+
+		"redfall_dialogue_farmer_1_f"											"不可思议! 相信他们暂时不会再来了."
+		"redfall_dialogue_farmer_1_g"											"你必须马上由Crimsyth手中拯救树林! 我们无法生活在他们的体制下."
+		"redfall_dialogue_farmer_1_h"											"描绘动物的石板材隐藏在玉米田里. 写下动物和它的颜色可能是明智的."
+		"redfall_dialogue_farmer_1_i"											""
+
+		"DOTA_Tooltip_ability_redfall_riki_bandit_ai"							"棱镜打击"
+		"DOTA_Tooltip_ability_redfall_riki_bandit_ai_Description"				"攻击根据目标的每个属性造成3次额外的纯粹伤害"	
+		"DOTA_Tooltip_ability_redfall_riki_bandit_ai_prism_strike"				"属性倍数:"
+
+		"redfall_quest_7_title"									"死亡和税收"
+		"redfall_quest_7_objective"								"击败落红流火农田的Crimsyth税收者."
+		"redfall_quest_7_objective_2"							"调查北方农舍."
+
+		"redfall_quest_7_reward"								"被遗弃的造船厂钥匙"
+		"redfall_quest_7_reward_Description"					"打开被遗弃的船坞地牢的入口"
+
+		"DOTA_Tooltip_ability_redfall_taskmaster_ai"									"任务护甲"
+		"DOTA_Tooltip_ability_redfall_taskmaster_ai_Description"						"盾牌将伤害降低99.9％。每次受到伤害失去一层."
+		"DOTA_Tooltip_ability_redfall_taskmaster_ai_charges"							"护盾充能:"
+
+		"DOTA_Tooltip_modifier_task_armor"												"任务护甲"
+		"DOTA_Tooltip_modifier_task_armor_Description"									"伤害降低99.9％"
+
+		"redfall_dialogue_farmer_2_a"											"Crimsyth不只是盗贼。他们也参与诽谤仪式."
+		"redfall_dialogue_farmer_2_b"											"他们是邪教，滋生腐败."
+		"redfall_dialogue_farmer_2_c"											"这是税收日。我想我很快就会去拜访."
+
+		"redfall_dialogue_farmer_2_d"											"难以置信."
+
+		"redfall_dialogue_farmer_3_a"											"Help!"
+		"redfall_dialogue_farmer_3_b"											"HELP!"
+		"redfall_dialogue_farmer_3_c"											"I'm sorry..."
+
+		"redfall_dialogue_farmer_3_d"											"你的回报就在这里。跟我来."
+
+		"redfall_demon_farmer"												"恶魔执行者"
+
+		"DOTA_Tooltip_ability_redfall_demon_farmer_passive"							"腐蚀光环"
+		"DOTA_Tooltip_ability_redfall_demon_farmer_passive_Description"				"半径内的敌人失去其属性的％."
+		"DOTA_Tooltip_ability_redfall_demon_farmer_passive_stat_loss_percent"		"属性丢失 %:"
+
+		"DOTA_Tooltip_modifier_demon_farmer_aura_effect"					"腐蚀光环"
+		"DOTA_Tooltip_modifier_demon_farmer_aura_effect_Description"		"失去 %stat_loss_percent % 所有属性."
+
+		"DOTA_Tooltip_ability_redfall_demon_farmer_mark"					"恶魔链接"
+		"DOTA_Tooltip_ability_redfall_demon_farmer_mark_Description"		"恶魔执行者需要0点伤害。当他进行攻击时，目标会获得伤害他一段时间的能力."
+		"DOTA_Tooltip_ability_redfall_demon_farmer_mark_duration"			"DURATION:"
+
+		"DOTA_Tooltip_modifier_demon_farmer_mark_effect"					"恶魔链接"
+		"DOTA_Tooltip_modifier_demon_farmer_mark_effect_Description"		"能够伤害恶魔执行者"
+
+		"DOTA_Tooltip_ability_item_redfall_hidden_shipyard_key_normal" "被遗弃的造船厂钥匙 (普通)"
+		"DOTA_Tooltip_ability_item_redfall_hidden_shipyard_key_elite" "被遗弃的造船厂钥匙 (精英)"
+		"DOTA_Tooltip_ability_item_redfall_hidden_shipyard_key_legend" "被遗弃的造船厂钥匙 (传说"
+
+		"item_redfall_hidden_shipyard_key_normal_desc"				"打开正常难度的落红流火之岭的被遗弃的造船厂的入口."
+		"item_redfall_hidden_shipyard_key_elite_desc"				"打开精英难度的落红流火之岭的被遗弃的造船厂的入口"
+		"item_redfall_hidden_shipyard_key_legend_desc"				"打开传说难度的落红流火之岭的被遗弃的造船厂的入口."
+
+		"DOTA_Tooltip_ability_redfall_skeleton_archer_ai"				"死亡契约"
+		"DOTA_Tooltip_ability_redfall_skeleton_archer_ai_Description"	"增加攻击伤害."
+		"DOTA_Tooltip_ability_redfall_skeleton_archer_ai_attack_damage_bonus"	"额外攻击力 %:"
+
+		"DOTA_Tooltip_ability_redfall_void_task_shield"					"任务护甲"
+		"DOTA_Tooltip_ability_redfall_void_task_shield_Description"		"伤害减少99.9％，直到充能过期."	
+
+		"redfall_shipyard_conductor"									"造船厂导体"
+		"redfall_shipyard_demon_brute"									"恶魔暴力"
+		"redfall_shipyard_void"											"恶魔无效"
+		"redfall_demon_rat"												"Yard Rat"
+
+		"shipyard_skeleton_archer_boss"									"精英骨蝎"
+		"shipyard_skeleton_archer"										"骨蝎"
+		"redfall_shipyard_demon_wolf"									"恶魔狼"
+		"redfall_shipyard_blood_wolf"									"血狼"
+		"redfall_shipyard_crimsyth_blood_hunter"						"嗜血猎人"
+
+		"DOTA_Tooltip_ability_redfall_massive_arrow"					"绯红色力量射击"
+		"DOTA_Tooltip_ability_redfall_massive_arrow_Description"		"发射强大的红色箭头."
+
+		"DOTA_Tooltip_ability_redfall_farmlands_bandit_ai"				"Quickfoot"
+		"DOTA_Tooltip_ability_redfall_farmlands_bandit_ai_Description"	"攻击有25％的机会获得buff，授予100％的闪避和移动速度."
+
+		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai"				"Bane Blood"
+		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_Description"	"攻击在目标上留下堆叠护甲debuff，同时增加攻击速度和攻击所有者的伤害."
+		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_armor_reduce_per_hit"	"每次击中降低护甲:"
+		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_attack_speed_per_hit"	"每次攻击速度降低:"
+		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_attack_damage_per_hit"	"每次攻击力:"
+
+		"DOTA_Tooltip_ability_shipyard_plasma_field"					"能量导体"
+		"DOTA_Tooltip_ability_shipyard_plasma_field_Description"		"在扩大的圈子中造成伤害。在中心附近造成更少的伤害."
+		"DOTA_Tooltip_ability_shipyard_plasma_field_damage_min"			"中间伤害:"
+		"DOTA_Tooltip_ability_shipyard_plasma_field_damage_max"			"边缘损伤:"
+
+		"DOTA_Tooltip_ability_redfall_shipyard_gatekeeper_skulldigger" "盗颅者"
+		"DOTA_Tooltip_ability_redfall_shipyard_gatekeeper_skulldigger_Description" "每2.2秒获得充能。每次受到伤害时都会有一个充能，对攻击者发动一股冥火."
+		"DOTA_Tooltip_ability_redfall_shipyard_gatekeeper_skulldigger_property_two"	"最大叠加:"
+		"DOTA_Tooltip_ability_redfall_shipyard_gatekeeper_skulldigger_property_four"	"眩晕持续时间:"
+
+		"DOTA_Tooltip_ability_redfall_shipyard_soul_collector_passive"	"Soul Spiller"
+		"DOTA_Tooltip_ability_redfall_shipyard_soul_collector_passive_Description"	"连续发出造成伤害的头骨。每次头骨击中目标时，灵魂收集者获得一个盾牌，每个堆栈吸收1次伤害."
+		"DOTA_Tooltip_ability_redfall_shipyard_soul_collector_passive_max_stacks"	"最高护盾叠加:"
+
+		"shipyard_boss_dialogue_1"										"这很奇怪."
+		"shipyard_boss_dialogue_1a"										"这很奇怪."
+		"shipyard_boss_dialogue_2"										"首先，我的税收人迟到了。"
+		"shipyard_boss_dialogue_3"										"他们从来不迟到."
+		"shipyard_boss_dialogue_4_1"									"现在有一个弱者站在我的房间的入口."
+		"shipyard_boss_dialogue_4_2"									"现在有一对肮脏的猿站在我的房间的入口."
+		"shipyard_boss_dialogue_4_3"									"现在有三只试验猴子站在我的房间的入口."
+		"shipyard_boss_dialogue_4_4"									"现在有一组老鼠站在我的房间的入口."
+
+		"shipyard_boss_dialogue_5"										"所以我们将玩一个高风险的游戏！"
+		"shipyard_boss_dialogue_6"										"让我们开始，朋友!"
+
+		"shipyard_boss_dialogue_7"										"Round and round it goes"
+		"shipyard_boss_dialogue_8"										"让我们提高赌注!"
+
+		"shipyard_boss_dialogue_9"										"完成它!"
+
+		"redfall_shipyard_boss"											"暴君Thadelus"
+
+		"DOTA_Tooltip_ability_shipyard_boss_ai"							"肉食者"
+		"DOTA_Tooltip_ability_shipyard_boss_ai_Description"				"伤害受到不会超过最大生命值的1％."
+
+		"redfall_dialogue_farmer_2_shredder_1"							"我的收割机回到了我身边!"
+		"redfall_dialogue_farmer_2_shredder_1a"							"我有一个秘密的实验室在我背后隐藏的Crimsyth。这是我研究新的收获技术的地方."
+		"redfall_dialogue_farmer_2_shredder_2"							"踏进基座进入我的一台收割机。你可以通过站在白色的基座升级100木材！"
+
+		"redfall_dialogue_farmer_2_shredder_upgrade_1"					"这是旋转死亡升级。它让你通过给你一个AOE斩波技术更快地收获木材."
+		"redfall_dialogue_farmer_2_shredder_upgrade_2"					"这是加速器升级工具。它增加粉碎机基座移动速度！."
+		"redfall_dialogue_farmer_2_shredder_upgrade_3"					"这些是特殊的收割机靴。他们你的 - 而不是收割机的!"
+
+		"DOTA_Tooltip_ability_redfall_dismount_shredder_ability"		"拆卸（自毁）"
+		"DOTA_Tooltip_ability_redfall_dismount_shredder_ability_Description"	"离开收割机"
+
+		"DOTA_Tooltip_modifier_shredder_lumber"							"木材"	
+
+		"DOTA_Tooltip_ability_redfall_harvester_harvest"				"收获树"
+		"DOTA_Tooltip_ability_redfall_harvester_harvest_Description"	"收集单个树."
+
+		"DOTA_Tooltip_ability_redfall_whirling_death_shredder_ability"	"死亡旋风"
+		"DOTA_Tooltip_ability_redfall_whirling_death_shredder_ability_Description"	"在AOE半径内收获树木."
+
+		"redfall_quest_8_title"											"收获税"
+		"redfall_quest_8_objective_1"									"重新启动伐木机."
+		"redfall_quest_8_objective_2"									"收获木材，赚取所有的伐木机升级原件."
+		"redfall_quest_8_reward"										"收割机靴"
+		"redfall_quest_8_reward_Description"							"不朽的脚齿轮"
+
+		"redfall_farmlands_friendly_harvester"							"收割机"
+
+		"DOTA_Tooltip_ability_redfall_farmland_spawner_ability"			"生产南瓜奴才"
+		"DOTA_Tooltip_ability_redfall_farmland_spawner_ability"			"生产南瓜奴才"
+
+		"DOTA_Tooltip_ability_farmland_shredder_blade"					""
+		"DOTA_Tooltip_ability_farmland_shredder_blade"					""
+
+		"DOTA_Tooltip_ability_redfall_shredder_whirling_death"			"死亡旋风"
+		"DOTA_Tooltip_ability_redfall_shredder_whirling_death_Description"	"快速旋转的刀片剁所有树木和附近的敌人."
+		"DOTA_Tooltip_ability_redfall_shredder_whirling_death_whirling_damage"	"伤害:"
+		
+		//Crimsyth Castle
+
+		"redfall_crimsyth_castle_intro"									"荒芜长廊"
+		"redfall_crimsyth_castle"										"Crimsyth城堡"
+
+		"DOTA_Tooltip_ability_redfall_dragonkin_enflame"				"激怒"
+		"DOTA_Tooltip_ability_redfall_dragonkin_enflame_Description"	"在火焰中施法者增加攻击力和攻击速度10秒."
+		"DOTA_Tooltip_ability_redfall_dragonkin_enflame_attack_power_bonus"	"攻击力 %:"
+		"DOTA_Tooltip_ability_redfall_dragonkin_enflame_attack_speed_bonus"	"攻击速度:"
+
+		"DOTA_Tooltip_ability_redfall_hell_bandit_ability"				"法力燃烧"
+		"DOTA_Tooltip_ability_redfall_hell_bandit_ability_Description"	"根据燃烧的魔法造成额外的魔法伤害"
+		"DOTA_Tooltip_ability_redfall_hell_bandit_ability_mana_drain_percent"	"% 最大魔法值吸取:"
+
+		"DOTA_Tooltip_ability_redfall_autumn_monster_ability"			"火焰鞭"
+		"DOTA_Tooltip_ability_redfall_autumn_monster_ability_Description"	"向前发射3个火球"
+		"DOTA_Tooltip_ability_redfall_autumn_monster_ability_impact_damage"	"撞击伤害:"
+		"DOTA_Tooltip_ability_redfall_autumn_monster_ability_burn_damage"	"燃烧伤害:"
+
+		"crimsyth_sorceress_dialogue_1"									"Ohhhhhh hahahaHA!"
+		"crimsyth_castle_boss_dialogue_1"								"为什么我会被召唤出来?"
+		"crimsyth_sorceress_dialogue_2"									"你有一个游客, honey."	
+
+		"crimsyth_castle_boss_dialogue_2"								"让他们出去. 我们没有时间拜访!"
+		"crimsyth_sorceress_dialogue_3"									"Ohh heheHE"
+		"crimsyth_sorceress_dialogue_4"									"激活防守流的重生系统!"
+
+		"crimsyth_bombadier"											"Crimsyth 庞巴迪"
+		"crimsyth_bombadier_rooted"										"Crimsyth 庞巴迪精英"
+
+		"DOTA_Tooltip_ability_redfall_bombadier_ability"				"扔炸弹"
+		"DOTA_Tooltip_ability_redfall_bombadier_ability_damage"			"伤害:"
+		"DOTA_Tooltip_ability_redfall_bombadier_ability_num_bombs"		"炸弹数量:"	
+
+		"DOTA_Tooltip_ability_redfall_bombadier_rooted_ability"				"扔炸弹"
+		"DOTA_Tooltip_ability_redfall_bombadier_rooted_ability_damage"			"伤害:"
+		"DOTA_Tooltip_ability_redfall_bombadier_rooted_ability_num_bombs"		"炸弹数量:"	
+
+		"redfall_crimsyth_hawk_soldier"									"Crimsyth鹰战士"
+
+		"redfall_autumn_monster"										"秋天妖怪"
+
+		"redfall_snarlroot_treant"										"树精"
+		"redfall_castle_archer"											"城堡弓箭手"
+
+		"DOTA_Tooltip_ability_redfall_autumn_mage_passive"				"秋天之星落"
+		"DOTA_Tooltip_ability_redfall_autumn_mage_passive_Description"	"攻击放出流星使目标造成3秒debuff减少魔抗并且造成魔法伤害."
+		"DOTA_Tooltip_ability_redfall_autumn_mage_passive_damage"		"伤害:"
+		"DOTA_Tooltip_ability_redfall_autumn_mage_passive_magic_resist_loss"	"魔抗减少量:"
+
+		"DOTA_Tooltip_ability_armor_break_ultra"									"破甲"
+		"DOTA_Tooltip_ability_armor_break_ultra_Description"						"攻击降低目标护甲."	
+		"DOTA_Tooltip_ability_armor_break_ultra_armor_break"						"护甲降低数量:"
+
+		"redfall_crimsyth_hawk_soldier_elite"							"鹰怪"
+
+		"DOTA_Tooltip_ability_redfall_hawk_knight_lock_on"				"护盾锁击"
+		"DOTA_Tooltip_ability_redfall_hawk_knight_lock_on_Description"	"锁住目标2秒钟. 如果目标不移动, 鹰骑士会向前冲击造成魔法伤害并且造成眩晕."
+		"DOTA_Tooltip_ability_redfall_hawk_knight_lock_on_damage"		"伤害:"
+		"DOTA_Tooltip_ability_redfall_hawk_knight_lock_on_stun_duration"	"眩晕持续时间:"
+
+		"DOTA_Tooltip_modifier_autumn_mage_debuff"						"秋天之星落"
+		"DOTA_Tooltip_modifier_autumn_mage_debuff_Description"			"减少魔抗."	
+
+		"redfall_crimsyth_shadow"										"Crimsyth暗影"
+
+		"DOTA_Tooltip_ability_redfall_castle_warflayer_passive"			"魔法免疫击破"
+		"DOTA_Tooltip_ability_redfall_castle_warflayer_passive_Description"	"攻击会使你的魔免效果失效."	
+
+		"DOTA_Tooltip_ability_crimsyth_khan_knight_passive"				"黑雾"
+		"DOTA_Tooltip_ability_crimsyth_khan_knight_passive_Description"	"受到伤害会产生烟雾对敌人造成致盲."
+		"DOTA_Tooltip_ability_crimsyth_khan_knight_passive_blind_duration"	"致盲持续时间:"
+
+		"DOTA_Tooltip_modifier_khan_knight_blind"						"黑雾"
+		"DOTA_Tooltip_modifier_khan_knight_blind_Description"			"致盲"
+
+		"DOTA_Tooltip_ability_redfall_enclave_viking_passive"			"爆炸斧头"
+		"DOTA_Tooltip_ability_redfall_enclave_viking_passive_Description"	"常规攻击会造成爆炸, 造成0.5% 的攻击力伤害并且眩晕目标0.1秒"
+
+		"DOTA_Tooltip_modifier_jailer_bleeding"							"流血"
+		"DOTA_Tooltip_modifier_jailer_bleeding_Description"				"每0.5秒受到魔法伤害"	
+
+		"DOTA_Tooltip_redfall_goo_skin"									"粘液皮膚"
+		"DOTA_Tooltip_redfall_goo_skin_Description"						"攻击的敌人受到减速."	
+		"DOTA_Tooltip_redfall_goo_skin_slow_percentage"					"移动速度降低百分比:"
+
+		"DOTA_Tooltip_modifier_goo_skin_effect"							"粘液皮膚"
+		"DOTA_Tooltip_modifier_goo_skin_effect_Description"				"减速"
+
+		"redfall_erakor_the_sadist"										"Erakor悲傷者"
+
+		"DOTA_Tooltip_modifier_sadist_shield"							"伤心之盾"
+		"DOTA_Tooltip_modifier_sadist_shield_Description"				"吸收魔法和纯粹伤害"
+
+		"DOTA_Tooltip_modifier_erakor_burning"							"燃烧"
+
+		"DOTA_Tooltip_ability_redfall_erakor_the_sadist_passive"		"統治"
+		"DOTA_Tooltip_ability_redfall_erakor_the_sadist_passive_Description"	"链接目标, 减少目标的移动速度和视野范围并且允许施法者将目标拉近. 系绳2000码失效."
+		
+		"DOTA_Tooltip_ability_sadist_blood_bath"						"血污"
+		"DOTA_Tooltip_ability_sadist_blood_bath_Description"			"创建一个仪式循环的血液，在2秒的延迟后放出. 任何在半径范围内爆炸的人都会沉默，并受到魔法伤害."
+		"DOTA_Tooltip_ability_sadist_blood_bath_silence_duration"		"沉默持续时间:"
+		"DOTA_Tooltip_ability_sadist_blood_bath_damage"					"伤害:"
+
+		"redfall_the_archivist"											"档案工作者"
+		"archivist_demon_moloth"										"恶魔莫洛"
+
+		"redfall_castle_garden_overlord"								"花园霸王"
+
+		"redfall_crimson_samurai"										"Crimson 武士"
+		"redfall_crimson_warrior"										"Crimson 战士"
+
+		"DOTA_Tooltip_ability_custom_meteor2"							"流星"
+		"DOTA_Tooltip_ability_custom_meteor2_Description"				"在目标位置丢弃一块巨石，烧毁敌人."
+
+		"redfall_crimson_shadow_dancer"									"Crimson 影舞者"
+
+		"redfall_crimsyth_khan_knight"									"汗骑士"
+
+		"redfall_crimsyth_crystal_hoarder"								"Crimsyth 水晶堆"
+		"redfall_castle_warflayer"										"Warflayer"
+
+		"redfall_castle_loki_the_mad"									"Loki the Mad"
+
+		"DOTA_Tooltip_ability_loki_the_mad_passive"						"疯狂冲击"
+		"DOTA_Tooltip_ability_loki_the_mad_passive_Description"			"攻击增加移动速度和攻击速度并治疗2%的最大生命值."
+
+		"DOTA_Tooltip_ability_redfall_moloth_passive"					"精华之壳"
+		"DOTA_Tooltip_ability_redfall_moloth_passive_Description"		"莫洛斯免疫所有的伤害，除非他的3个轨道球匹配颜色. 如果所有是藍色，莫洛斯可以採取純粹的傷害。綠色则是物理和紅色则是魔法."
+		"DOTA_Tooltip_ability_redfall_moloth_passive_damage_reduce_of_alt_types"	"減少替代損傷類型:"
+
+		"DOTA_Tooltip_ability_redfall_gnarl_tree_aura"					"咬牙"
+		"DOTA_Tooltip_ability_redfall_gnarl_tree_aura_Description"		"附近单位减慢，视力半径减小."
+		"DOTA_Tooltip_ability_redfall_gnarl_tree_aura_vision_reduce"	"视野减少:"
+		"DOTA_Tooltip_ability_redfall_gnarl_tree_aura_movespeed"		"移动速度:"
+
+		"redfall_crimsyth_guard"										"Crimsyth守卫"
+
+		"DOTA_Tooltip_ability_redfall_crimsyth_guardian_passive"		"缴械"
+		"DOTA_Tooltip_ability_redfall_crimsyth_guardian_passive_Description"	"攻击会使目标缴械"
+		"DOTA_Tooltip_ability_redfall_crimsyth_guardian_passive_duration"	"持续时间:"
+
+		"DOTA_Tooltip_ability_crimsyth_guardian_sven_warcry"			"战争的呐喊"
+		"DOTA_Tooltip_ability_crimsyth_guardian_sven_warcry_Description"	"增加附近单位的装甲和移动速度"
+		"DOTA_Tooltip_ability_crimsyth_guardian_sven_warcry_warcry_armor"	"护甲:"
+
+		"DOTA_Tooltip_ability_redfall_crimsyth_demon_knight_passive"		"恶魔护甲"
+		"DOTA_Tooltip_ability_redfall_crimsyth_demon_knight_passive_Description"	"永久增加护甲"
+		"DOTA_Tooltip_ability_redfall_crimsyth_demon_knight_passive_armor"	"护甲:"
+
+		"DOTA_Tooltip_ability_redfall_wild_leap_demon_knight"				"破碎飞跃"
+		"DOTA_Tooltip_ability_redfall_wild_leap_demon_knight_Description"	"跳到目标位置，并在着陆点的AOE中造成魔法伤害."
+
+		"DOTA_Tooltip_ability_redfall_crimsyth_cannibal_ai"					"肉堆"
+		"DOTA_Tooltip_ability_redfall_crimsyth_cannibal_ai_Description"		"增加魔法抗性"
+		"DOTA_Tooltip_ability_redfall_crimsyth_cannibal_ai_magic_resist"	"魔抗:"
+
+		"DOTA_Tooltip_ability_redfall_demon_firestorm"						"火焰风暴"
+		"DOTA_Tooltip_ability_redfall_demon_firestorm_Description"			"在目标位置创建恶魔般的绿色地狱之火."
+		"DOTA_Tooltip_ability_redfall_demon_firestorm_wave_damage"			"每波伤害:"	
+		"DOTA_Tooltip_ability_redfall_demon_firestorm_burn_damage"			"每波 (% 最大的生命值):"
+
+		"DOTA_Tooltip_ability_redfall_demon_follower_finger"				"若风之指"
+		"DOTA_Tooltip_ability_redfall_demon_follower_finger_Description"	"迅速的闪电造成魔法伤害."
+		"DOTA_Tooltip_ability_redfall_demon_follower_finger_damage"			"伤害:"
+
+		"DOTA_Tooltip_ability_redfall_crimsyth_castle_boss_ai"				"再战"
+
+		"DOTA_Tooltip_ability_crimsyth_final_boss_fire_blast"				"混沌流星"
+		"DOTA_Tooltip_ability_crimsyth_final_boss_fire_blast_damage"		"伤害:"
+
+		"DOTA_Tooltip_ability_crimsyth_boss_illusion_ability"				"恶魔反射"
+
+		"DOTA_Tooltip_ability_redfall_crimsyth_boss_passive"				"折磨的Fervor"
+		"DOTA_Tooltip_ability_redfall_crimsyth_boss_passive_Description"	"攻击留下堆叠护甲debuff, 并且增加攻击速度."
+
+		"redfall_crimsyth_mage"											"Crimsyth 法师"
+		"redfall_crimsyth_mage_elite"									"Crimsyth 精英法师"	
+
+		"redfall_crystal_shifter"										"Crystal移位者"
+
+		"redfall_crimsyth_grunt"										"Crimsyth地面"
+
+		"redfall_lava_lizard"											"熔岩蜥蜴"
+
+		"redfall_castle_tongey_kong"									"Tongey Kong"
+
+		"redfall_castle_demented_shaman"								"Crimsyth 痴呆的萨满"
+
+		"redfall_crimsyth_gunman"										"Crimsyth 枪手"
+
+		"redfall_crimsyth_gunman_elite"								"Crimsyth精英枪手"
+
+		"redfall_enclave_viking"										"英克海盗"
+
+		"DOTA_Tooltip_ability_redfall_goo_skin"						"感伤之肤"
+		"DOTA_Tooltip_ability_redfall_goo_skin_Description"			"受到伤害会减慢攻击者的速度."
+
+		"redfall_tortured_soul"											"落红流火的酷刑灵魂"	
+
+		"redfall_crimsyth_berserker"								"Crimsyth 狂战士"
+
+		"redfall_castle_garden_watcher"								"城堡花园看守者"
+
+		"redfall_crimsyth_cultist_elite"							"Crimsyth 邪教精英"
+
+		"DOTA_Tooltip_ability_redfall_the_archivist_passive"			"无限知识"
+
+		"DOTA_Tooltip_ability_redfall_archivist_orb_changer"				"深度看點"
+		"DOTA_Tooltip_ability_redfall_archivist_orb_changer_Description"	"改变轨道球的颜色"
+
+		"DOTA_Tooltip_ability_redfall_moloth_bombs"						"莫洛斯炸弹"
+		"DOTA_Tooltip_ability_redfall_moloth_bombs_damage"						"伤害:"
+
+		"DOTA_Tooltip_ability_redfall_torture_puppet_ai"				"品牌"
+		"DOTA_Tooltip_ability_redfall_torture_puppet_ai_Description"	"攻击造成流血."
+		"DOTA_Tooltip_ability_redfall_torture_puppet_ai_bleed_damage"	"流血伤害:"
+
+		"crimsyth_fortune_seeker"										"财富追求者"
+
+		"redfall_crimsyth_torture_puppet"								"Crimsyth 酷刑木偶"
+
+		"redfall_crimsyth_corrupted_corpse"								"Corrupted尸体"
+
+		"DOTA_Tooltip_ability_crimsyth_gunman_shrapnel"					"弹片"
+		"DOTA_Tooltip_ability_crimsyth_gunman_shrapnel_Description"		"一连串子弹在目标位置下降，造成伤害和减缓该地区的敌人."
+		"DOTA_Tooltip_ability_crimsyth_gunman_shrapnel_shrapnel_damage"	"伤害:"
+
+		"DOTA_Tooltip_ability_redfall_barrel_toss"						"桶抛"
+		"DOTA_Tooltip_ability_redfall_barrel_toss_Description"			"在施法者前面滚动一个巴雷尔，与敌人接触时爆炸."
+		"DOTA_Tooltip_ability_redfall_barrel_toss_damage"				"伤害:"
+
+		"DOTA_Tooltip_modifier_ash_tree_aura_debuff"					"咬牙"
+		"DOTA_Tooltip_modifier_ash_tree_aura_debuff_Description"		"减速"
+
+		"DOTA_Tooltip_ability_redfall_crimson_samurai_passive"			"银盾"
+		"DOTA_Tooltip_ability_redfall_crimson_samurai_passive_Description"	"减少纯粹伤害受到量."
+		"DOTA_Tooltip_ability_redfall_crimson_samurai_passive_pure_damage_reduce"	"减少纯粹伤害受到量:"
+
+		"DOTA_Tooltip_modifier_silver_shield"							"银盾"
+		"DOTA_Tooltip_modifier_silver_shield_Description"				"减少纯粹伤害受到量."
+
+		"redfall_castle_crimson_flood"									"Crimson 洪水"
+
+		"DOTA_Tooltip_raging_shaman_passive"							"野生狂战士"
+
+		"crimsyth_ghost_of_perdition"									"鬼魂的鬼"
+
+		"DOTA_Tooltip_ability_shipyard_pirate_archer_ability"			"灼伤的箭头"
+		"DOTA_Tooltip_ability_shipyard_pirate_archer_ability_Description"	"攻击造成额外的魔法伤害，并在目标上留下燃烧的debuff."
+		"DOTA_Tooltip_ability_shipyard_pirate_archer_ability_magic_damage_on_hit"	"额外的魔法损伤占攻击损伤的百分比:"
+		"DOTA_Tooltip_ability_shipyard_pirate_archer_ability_burn_damage_per_tick"	"第二次烧伤:"
+
+		"redfall_castle_effigy_of_fortunis"								"Fortunis的肖像"
+
+		"DOTA_Tooltip_ability_redfall_fortunis_passive"					"财富的祝福"
+		"DOTA_Tooltip_ability_redfall_fortunis_passive_Description"		"50％的机会躲避攻击，50％的魔法抗性增加."
+
+		"DOTA_Tooltip_ability_fortunis_effigy_static_remnant"			"静态残余"
+		"DOTA_Tooltip_ability_fortunis_effigy_static_remnant_Description"	"留下与敌人接触时爆炸的雷声残余物."
+		"DOTA_Tooltip_ability_fortunis_effigy_static_remnant_static_remnant_damage"	"伤害:"
+
+		"redfall_maze_ghost"											"宝藏鬼"
+		"maze_ghost_dialogue"											"只有一扇门可能打开。做出明智的选择!"
+
+		"redfall_ethereal_revenant"										"飘渺的圣约"
+
+		"DOTA_Tooltip_ability_redfall_ethereal_revenant_passive"				"返回链接"
+		"DOTA_Tooltip_ability_redfall_ethereal_revenant_passive_Description"	"绑定附近的敌人，减缓他们，减少攻击伤害。"
+
+		"DOTA_Tooltip_modifier_ethereal_revenant_link_boss"					"返回链接"
+
+		"DOTA_Tooltip_ability_magic_immune_breakable_ability_mega"		"魔术区"
+		"DOTA_Tooltip_ability_magic_immune_breakable_ability_mega_Description"	"授予免疫魔法。魔法免疫盾可以在攻击后破坏."	
+		"DOTA_Tooltip_ability_magic_immune_breakable_ability_mega_stacks"		"充能:"
+
+		"DOTA_Tooltip_ability_redfall_mega_steadfast"							"高级坚定"
+		"DOTA_Tooltip_ability_redfall_mega_steadfast_Description"				"每个伤害的实例不能超过最大生命值的百分之一."
+		"DOTA_Tooltip_ability_redfall_mega_steadfast_max_damage"				"血量 % 最大:"
+
+		"redfall_crimsyth_castle_grounds_guardian"						"城堡地面监护人"
+
+		"DOTA_Tooltip_ability_redfall_garden_watcher_nuke"				"春分裂口"
+		"DOTA_Tooltip_ability_redfall_garden_watcher_nuke_Description"	"与目标交换位置。"
+
+		"DOTA_Tooltip_ability_redfall_garden_watcher_passive"			"纯粹抗性"
+		"DOTA_Tooltip_ability_redfall_garden_watcher_passive_Description"	"排斥魔法或纯净来源的伤害."
+		"DOTA_Tooltip_ability_redfall_garden_watcher_passive_pure_resist"	"抗性 %:"
+
+		"DOTA_Tooltip_ability_redfall_prince_elthezun_ability"			"奥术闪耀"
+		"DOTA_Tooltip_ability_redfall_prince_elthezun_ability_Description"	"在随机方向上发出火花，造成伤害和法术吸取."
+		"DOTA_Tooltip_ability_redfall_prince_elthezun_ability_damage"		"伤害:"
+		"DOTA_Tooltip_ability_redfall_prince_elthezun_ability_mana_drain"	"魔法吸取:"
+
+		"DOTA_Tooltip_ability_majinaq_mana_break"						"法力断裂"
+		"DOTA_Tooltip_ability_majinaq_mana_break_Description"			"攻击会燃烧法力值，并基于法术力流失造成魔法伤害."
+		"DOTA_Tooltip_ability_majinaq_mana_break_mana_per_hit"			"法力燃烧:"
+
+		"redfall_crimsyth_demon_knight"									"Crimsth 恶魔骑士"
+		
+
+		"redfall_the_cannibal"											"食人族"
+
+		"DOTA_Tooltip_ability_redfall_crimsyth_demonic_follower_ai"		"恶魔之壳"
+		"DOTA_Tooltip_ability_redfall_crimsyth_demonic_follower_ai_Description"		"增加魔法抗性."
+		"DOTA_Tooltip_ability_redfall_crimsyth_demonic_follower_ai_magic_resist"	"魔法抗性:"
+
+		"redfall_demonic_follower"										"恶魔追随者"
+
+		"redfall_crimsyth_castle_boss"									"城堡主人Scarloth"
+		"crimsyth_sorceress"											"Lady Dahlia"
+
+		"redfall_castle_boss_dialogue_1"											"你已经被告知要离开."
+		"redfall_castle_boss_dialogue_2"											"赤字的绯红潮携带着无辜的血. 这是一片苦难和腐烂的土地."
+		"redfall_castle_boss_dialogue_3"											"主權是我们的。生活不能再抵抗腐败."
+		"redfall_castle_boss_dialogue_4"											"来！体验真正力量的快感!"
+		"redfall_castle_boss_dialogue_5"											"迷惑!"
+
+		"DOTA_Tooltip_modifier_crimsyth_recruiter_armor_loss"						"护甲树"
+		"DOTA_Tooltip_modifier_crimsyth_recruiter_armor_loss_Description"			"叠加的护甲丢失"
+
+		"DOTA_Tooltip_ability_item_redfall_crimsyth_demon_relic_normal"		"Crimsyth恶魔遗物 (普通)"
+		"item_redfall_crimsyth_demon_relic_normal_desc"						"激活Crimsyth城堡的门户, 位于在农田的入口附近."
+
+		"DOTA_Tooltip_ability_item_redfall_crimsyth_demon_relic_elite"		"Crimsyth恶魔遗物(精英)"
+		"item_redfall_crimsyth_demon_relic_elite_desc"						"激活Crimsyth城堡的门户, 位于在农田的入口附近.."
+
+		"DOTA_Tooltip_ability_item_redfall_crimsyth_demon_relic_legend"		"Crimsyth恶魔遗物 (传说)"
+		"item_redfall_crimsyth_demon_relic_legend_desc"						"激活Crimsyth城堡的门户, 位于在农田的入口附近.."
+
+		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_normal"			"落红流火灵魂红宝石 (普通)"
+		"item_redfall_spirit_ruby_normal_desc"							"使用: 在普通难度激活落红流火的缺口. 在此缺口有 3x 怪物生成量, 2x的怪物伤害和抗性, 增加不朽物品的掉率, 3x 秘銀水晶和 2x 奥术晶体增加量."
+
+		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_elite"			"落红流火灵魂红宝石 (精英)"
+		"item_redfall_spirit_ruby_elite_desc"							"使用: 在精英难度激活落红流火的缺口. 在此缺口有 3x 怪物生成量, 2x的怪物伤害和抗性, 增加不朽物品的掉率, 3x 秘銀水晶和 2x 奥术晶体增加量."
+		
+		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_legend"			"落红流火灵魂红宝石 (传说)"
+		"item_redfall_spirit_ruby_legend_desc"							"使用: 在传说难度激活落红流火的缺口. 在此缺口有 3x 怪物生成量, 2x的怪物伤害和抗性, 增加不朽物品的掉率, 3x 秘銀水晶和 2x 奥术晶体增加量."
+		
+		"redfall_equinox"												"疯狂生长"

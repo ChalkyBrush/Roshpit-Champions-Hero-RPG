@@ -1,0 +1,300 @@
+		//Abilities
+		"DOTA_Tooltip_ability_leshrac_wall"								"宽恕之墙"
+    	"DOTA_Tooltip_ability_leshrac_wall_Description"					"元素： <font color=\"#F6FFB5\">圣</font><br>巴哈姆特在前方召唤一面宽恕之墙，揭露穿过之人的不足。<br>宽恕之墙附近的敌人将被判定罪行并受到惩罚。敌人靠近墙受到持续伤害并且降低攻击力。"
+    	"DOTA_Tooltip_ability_leshrac_wall_Lore"						""
+    	"DOTA_Tooltip_ability_leshrac_wall_damage"						"每次伤害"
+    	"DOTA_Tooltip_ability_leshrac_wall_wall_length"					"长度"
+    	"DOTA_Tooltip_ability_leshrac_wall_attack_loss"					"攻击力降低 %"
+
+    	"DOTA_Tooltip_modifier_leshrac_wall_attack_loss"				"宽恕之墙"
+    	"DOTA_Tooltip_modifier_leshrac_wall_attack_loss_Description"	"攻击力降低"
+		
+		"DOTA_Tooltip_ability_bahamut_rune_q_1"							"[Q1] 荣耀的证明"
+    	"DOTA_Tooltip_ability_bahamut_rune_q_1_Description"				"站在宽恕之墙附近可以回复魔法值并且以相同的速度提高魔法值上限。"
+    	"DOTA_Tooltip_ability_bahamut_rune_q_1_property_one"			"魔法回复速度提高"
+    	"DOTA_Tooltip_ability_bahamut_rune_q_1_suffix"					""	
+    	"DOTA_Tooltip_ability_bahamut_rune_q_1_property_two"			"最大魔法值上限提高"
+    	"DOTA_Tooltip_ability_bahamut_rune_q_1_suffix_two"				""
+
+    	"DOTA_Tooltip_modifier_bahamut_wall_max_mana"					"荣耀的证明"
+    	"DOTA_Tooltip_modifier_bahamut_wall_max_mana_Description"		"魔法值上限提高"
+		
+		
+		"DOTA_Tooltip_ability_bahamut_rune_q_2"							"[Q2] 回避"
+    	"DOTA_Tooltip_ability_bahamut_rune_q_2_Description"				"提高巴哈姆特的攻击距离以同卑劣之物保持距离。"
+    	"DOTA_Tooltip_ability_bahamut_rune_q_2_property_one"			"攻击距离提高"
+    	"DOTA_Tooltip_ability_bahamut_rune_q_2_suffix"					""	
+
+    	"DOTA_Tooltip_modifier_bahamut_b_a_buff"						"回避"
+    	"DOTA_Tooltip_modifier_bahamut_b_a_buff_Description"			"攻击距离增加"
+		
+		"DOTA_Tooltip_ability_bahamut_rune_q_3"							"[Q3] 卑劣之祸"
+    	"DOTA_Tooltip_ability_bahamut_rune_q_3_Description"				"宽恕之墙附近的敌人将被减速。"
+    	"DOTA_Tooltip_ability_bahamut_rune_q_3_property_one"			"移动速度降低"
+    	"DOTA_Tooltip_ability_bahamut_rune_q_3_suffix"					""
+		
+		"DOTA_Tooltip_ability_bahamut_rune_q_4"							"[Q4] 仁慈"
+    	"DOTA_Tooltip_ability_bahamut_rune_q_4_Description"				"巴哈姆特的智力值提高。"
+    	"DOTA_Tooltip_ability_bahamut_rune_q_4_property_one"			"额外智力值"
+    	"DOTA_Tooltip_ability_bahamut_rune_q_4_suffix"					""		
+    	
+    	"DOTA_Tooltip_modifier_bahamut_rune_q_4"						"仁慈"
+    	"DOTA_Tooltip_modifier_bahamut_rune_q_4_Description"			"智力值提高"	
+		
+		
+		"DOTA_Tooltip_ability_leshrac_nuke"								"审判"
+    	"DOTA_Tooltip_ability_leshrac_nuke_Description"					"元素： <font color=\"#F6FFB5\">圣</font><br>巴哈姆特审判前方小范围内敌人的罪行。"
+    	"DOTA_Tooltip_ability_leshrac_nuke_Lore"						""
+    	"DOTA_Tooltip_ability_leshrac_nuke_damage"						"伤害："
+    	"DOTA_Tooltip_ability_leshrac_nuke_radius"						"范围："
+		
+		"DOTA_Tooltip_ability_bahamut_rune_w_1"							"[W1] 伟大"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_1_Description"				"提高攻击力和基础技能伤害。"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_1_property_one"			"攻击力和伤害提升"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_1_suffix"					"%"	
+
+    	"DOTA_Tooltip_modifier_bahamut_a_b_buff"						"伟大"
+    	"DOTA_Tooltip_modifier_bahamut_a_b_buff_Description"			"攻击力提高"
+		
+		
+		"DOTA_Tooltip_ability_bahamut_rune_w_2"							"[W2] 多重审判"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_2_Description"				"被审判击中的敌人将带上审判之印，当巴哈姆特攻击一个拥有审判之印的敌人时，其他所有拥有审判之印的敌人也将受到攻击（受到 a % 攻击力伤害）。"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_2_property_one"			"其他单位伤害"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_2_suffix"					"% 攻击力"	
+
+    	"DOTA_Tooltip_modifier_leshrac_nuke_judged"						"被审判"
+    	"DOTA_Tooltip_modifier_leshrac_nuke_judged_Description"			"面对巴哈姆特特审判"
+		
+		
+		"DOTA_Tooltip_ability_bahamut_rune_w_3"							"[W3] 审判之球"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_3_Description"				"施放审判时将同时向前方发射一个审判之球。普通攻击时也将向目标发射一个审判之球。被审判之球击中的敌人也将带上审判之印。"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_3_property_one"			"审判之球伤害"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_3_suffix"					""
+		
+		
+		"DOTA_Tooltip_ability_bahamut_rune_w_4"							"[W4] 潜能"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_Description"				"当敌人受到审判 debuff 时，巴哈姆特对所有拥有 debuff 的敌人所造成的伤害将附带一部分的当前魔法值，当前魔法值提高到巴哈姆特的所有基础技能伤害中。每一次伤害强化都将汲取巴哈姆特一小部分的魔法值。如果是 [W]审判 的基础技能，伤害加成为 10X 。"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_property_one"			"额外基础技能伤害提高（加法）"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_suffix"					"% 当前魔法值"		
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_property_two"			"每次提高汲取魔法值"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_suffix_two"				"% 最大魔法值"
+		
+		
+		"DOTA_Tooltip_ability_leshrac_blink"							"升华"
+    	"DOTA_Tooltip_ability_leshrac_blink_Description"				"巴哈姆特进入能感知所有真理的状态，暂时离开现实世界，之后传送至目标位置。"
+    	"DOTA_Tooltip_ability_leshrac_blink_Lore"						""
+    	"DOTA_Tooltip_ability_leshrac_blink_range"						"距离："
+		
+		"DOTA_Tooltip_ability_bahamut_rune_e_1"							"[E1] 复苏"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_1_Description"				"受到伤害时有 90% 的几率回复该伤害的一部分血量。"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_1_property_one"			"血量回复"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_1_suffix"					"% 所受到的伤害"
+		
+		
+		"DOTA_Tooltip_ability_bahamut_rune_e_2"							"[E2] 清洁"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"当巴哈姆特开始施放升华时，召唤一群神鸟攻击前方的敌人。被击中的敌人将被冻结一段时间。"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_one"			"伤害"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix"					""	
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_two"			"冻结持续时间"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix_two"				" 秒"	
+
+    	"DOTA_Tooltip_modifier_purity_freeze"							"清洁"
+    	"DOTA_Tooltip_modifier_purity_freeze_Description"				"被冻结"
+		
+		
+		"DOTA_Tooltip_ability_bahamut_rune_e_3"							"[E3] 巴哈姆特的脉搏"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_3_Description"				"当升华冷却时，将被替换为巴哈姆特的脉搏。脉搏将消耗移动速度对附近所有敌人造成伤害。"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_3_property_one"			"每次消耗移动速度造成伤害"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_3_suffix"					""		
+
+    	"DOTA_Tooltip_ability_bahamut_pulse"							"巴哈姆特的脉搏"
+    	"DOTA_Tooltip_ability_bahamut_pulse_Description"				"消耗移动速度对附近所有敌人造成伤害。使用升华后可回复移动速度。"
+    	"DOTA_Tooltip_ability_bahamut_pulse_Lore"						""
+    	"DOTA_Tooltip_ability_bahamut_pulse_movespeed"					"每次消耗移动速度"
+
+    	"DOTA_Tooltip_modifier_pulse_slow"								"超载"
+    	"DOTA_Tooltip_modifier_pulse_slow_Description"					"丢失移动速度"
+
+    	"DOTA_Tooltip_modifier_ascencion_cooldown"						"升华冷却"
+    	"DOTA_Tooltip_modifier_ascencion_cooldown_Description"			"升华正在冷却中"
+		
+		
+		"DOTA_Tooltip_ability_bahamut_rune_e_4"							"[E4] 和谐"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_4_Description"				"巴哈姆特的属性值将提高所有 <font color=\"#F6FFB5\">圣</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_4_property_one"			"圣元素伤害提高"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_4_suffix"					"% 每10点属性值"
+		
+		
+		"DOTA_Tooltip_ability_charge_of_light"							"神圣之耀"
+    	"DOTA_Tooltip_ability_charge_of_light_Description"				"元素： <font color=\"#F6FFB5\">圣</font><br>巴哈姆特向前冲锋，释放一股强大的爆炸力量以清除卑劣之物。冲锋时免疫物理和魔法伤害。"
+    	"DOTA_Tooltip_ability_charge_of_light_Lore"						""
+    	"DOTA_Tooltip_ability_charge_of_light_damage"					"伤害："	
+    	"DOTA_Tooltip_ability_charge_of_light_range"					"爆炸范围："
+		
+		"DOTA_Tooltip_ability_bahamut_rune_r_1"							"[R1] 亢奋状态"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_1_Description"				"施放神圣之耀时穿过宽恕之墙可激活亢奋状态，提高攻击速度和移动速度，持续12秒。"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_1_property_one"			"攻击速度提高"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_1_suffix"					""		
+    	"DOTA_Tooltip_ability_bahamut_rune_r_1_property_two"			"移动速度提高"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_1_suffix_two"				""
+
+    	"DOTA_Tooltip_modifier_charge_of_light_hyper_state"				"亢奋状态"
+    	"DOTA_Tooltip_modifier_charge_of_light_hyper_state_Description"	"提高攻击速度和移动速度"
+		
+		"DOTA_Tooltip_ability_bahamut_rune_r_2"							"[R2] 破碎之愿"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_Description"				"施放神圣之耀时穿过宽恕之墙将对附近敌人造成大量伤害并将其眩晕1秒。穿过墙壁后同时也将加深对敌人的伤害，持续 3秒。（伤害加深计算在敌人减伤之后）"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_property_one"			"伤害"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_suffix"					"% 神圣之耀"		
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_property_two"			"减伤后伤害提高"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_suffix_two"				"%"	
+
+    	"DOTA_Tooltip_modifier_bahamut_charge_of_light_postmitigation"	"破碎之愿"
+    	"DOTA_Tooltip_modifier_bahamut_charge_of_light_postmitigation_Description"	"大幅加深对敌人的伤害（伤害加深计算在敌人减伤之后）"
+		
+		"DOTA_Tooltip_ability_bahamut_rune_r_3"							"[R3] 亥伯龙"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_3_Description"				"引导神圣之耀时，降低周围敌人的攻击速度和移动速度。"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_3_property_one"			"移动速度降低"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_3_suffix"					""		
+    	"DOTA_Tooltip_ability_bahamut_rune_r_3_property_two"			"攻击速度降低"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_3_suffix_two"				""		
+
+    	"DOTA_Tooltip_modifier_bahamut_rune_r_3_effect"					"亥伯龙"
+    	"DOTA_Tooltip_modifier_bahamut_rune_r_3_effect_Description"		"被减速"
+		
+		"DOTA_Tooltip_ability_bahamut_rune_r_4"							"[R4] 孤独之盾"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_4_Description"				"成功施放神圣之耀后，巴哈姆特获得可免疫所有伤害的护盾，持续3秒。在护盾内巴哈姆特将每0.1秒获得额外属性值，buff持续9秒。"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_4_property_one"			"额外属性值"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_4_suffix"					" 每0.1秒"	
+
+      	"DOTA_Tooltip_modifier_bahamut_rune_r_4_shell"						"孤独之盾"
+    	"DOTA_Tooltip_modifier_bahamut_rune_r_4_shell_Description"			"冰冻并免疫所有伤害"	  		
+
+      	"DOTA_Tooltip_modifier_bahamut_rune_r_4_buff_visible"						"孤独之盾"
+    	"DOTA_Tooltip_modifier_bahamut_rune_r_4_buff_visible_Description"			"获得额外属性值"
+		
+		
+		//Arcanas
+		
+		"DOTA_Tooltip_ability_bahamut_arcana_ulti" 						"天罚"
+    	"DOTA_Tooltip_ability_bahamut_arcana_ulti_Description"			"元素： <font color=\"#F6FFB5\">圣</font><br>巴哈姆特充满了强大的能量，获得一个buff，每0.1秒降下闪电随机打击巴哈姆特周围的一个敌人，并且将他们减速65%，持续0.2秒。"
+    	"DOTA_Tooltip_ability_bahamut_arcana_ulti_duration"				"持续时间："
+    	"DOTA_Tooltip_ability_bahamut_arcana_ulti_damage"				"闪电伤害："
+
+    	"DOTA_Tooltip_modifier_leshrac_arcana_effect"					"天罚"
+    	"DOTA_Tooltip_modifier_leshrac_arcana_effect_Description"		"对附近的敌人降下闪电"
+
+    	"DOTA_Tooltip_modifier_leshrac_arcana_slow"						"天罚"
+    	"DOTA_Tooltip_modifier_leshrac_arcana_slow_Description"			"被减速"
+
+       	"item_property_bahamut_arcana1"										"天罚"
+    	"property_bahamut_arcana1_description"								"用天罚替换 @Ability4 和它的全部符文。"
+
+  		"DOTA_Tooltip_ability_bahamut_rune_r_1_arcana1"						"[R1] 雷霆"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_1_arcana1_Description"			"当天罚buff存在时，巴哈姆特的[W]审判技能也会对所有击中的敌人降下闪电。"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_1_arcana1_property_one"		"伤害"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_1_arcana1_suffix"				"% 天罚伤害"
+
+  		"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1"						"[R2] 神力"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1_Description"			"当天罚buff存在时，敌人受到的所有来自巴哈姆特的魔法和纯粹伤害将被加深。（计算在敌人减伤之后）"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1_property_one"		"敌人受到的伤害提高"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1_suffix"				"%"
+
+  		"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1"						"[R3] 觉醒"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_Description"			"巴哈姆特攻击力的一部分将加入到天罚的闪电伤害中。"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_property_one"		"闪电伤害提高"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_suffix"				"% 攻击力"
+
+  		"DOTA_Tooltip_ability_bahamut_rune_r_4_arcana1"						"[R4] 全知"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_4_arcana1_Description"			"天罚每0.1秒的闪电打击有几率打击两个敌方单位，概率超过 100% 有几率打击多个单位。"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_4_arcana1_property_one"		"多重打击概率"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_4_arcana1_suffix"				"%"
+
+    	"item_property_bahamut_arcana2"										"神之领域"
+    	"property_bahamut_arcana2_description"								"用神之领域替换 @Ability2 及其所有符文。"
+
+    	"DOTA_Tooltip_ability_bahamut_arcana_orb"								"神之领域"
+    	"DOTA_Tooltip_ability_bahamut_arcana_orb_Description"					"巴哈姆特幻化成一团光球，魔法免疫并且无法被攻击，穿梭向目标点。飞行的过程中汲取魔法值。"
+    	"DOTA_Tooltip_ability_bahamut_arcana_orb_mana_drain_per_second"			"汲取 % 最大魔法值 / 秒："
+
+  		"DOTA_Tooltip_ability_bahamut_rune_w_1_arcana2"						"[W1] 法术吸血"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_1_arcana2_Description"			"巴哈姆特所造成的魔法和纯粹伤害将吸血。10% 的过度治疗量将治疗 所有友军。"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_1_arcana2_property_one"		"生命汲取"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_1_arcana2_suffix"				"% 每造成 100 点伤害"
+
+  		"DOTA_Tooltip_ability_bahamut_rune_w_2_arcana2"						"[W2] 联结"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_2_arcana2_Description"			"被光球击中的友军将被大幅强化，获得减伤后伤害加深的能力，持续 8秒。（友军造成的所有伤害都将被加深，伤害加深计算在敌人减伤之后）"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_2_arcana2_property_one"		"减伤后伤害加深"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_2_arcana2_suffix"				"%"
+
+    	"DOTA_Tooltip_modifier_bahamut_arcana_post_mit"						"联结"
+    	"DOTA_Tooltip_modifier_bahamut_arcana_post_mit_Description"			"提高减伤后伤害加深"
+
+  		"DOTA_Tooltip_ability_bahamut_rune_w_3_arcana2"						"[W3] 赦免"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_3_arcana2_Description"			"被光球击中的敌人将被冻结一段时间。"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_3_arcana2_property_one"		"冻结持续时间"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_3_arcana2_suffix"				" 秒"
+
+    	"DOTA_Tooltip_modifier_arcana2_purity_freeze"						"赦免"
+    	"DOTA_Tooltip_modifier_arcana2_purity_freeze_Description"			"被冻结"
+
+  		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2"						"[W4] 逆效力"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"所有基础技能伤害和装备伤害都将被巴哈姆特所损失的魔法量提高。"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"			"伤害提高为"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"					"% 所丢失的魔法值"
+		
+		//Glyphs
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_1_1"		"英勇雕文"
+		"item_rpc_bahamut_glyph_1_1_description" 				"降低受到的所有物理伤害 @glyph_property1%"
+
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_2_1"		"亿万之墙雕文"
+		"item_rpc_bahamut_glyph_2_1_description" 				"神圣之耀结束后创建一面宽恕之墙，巴哈姆特将自动穿过该墙。"
+
+		//New Rune c_d: while channeling megaflare, all nearby enemies have slowed movespeed and attack speed
+
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_3_1"		"隔离雕文"
+		"item_rpc_bahamut_glyph_3_1_description" 				"审判将落在巴哈姆特的周围而不是在其前方，同时提高 @glyph_property1% 范围。"
+
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_4_1"		"冲击雕文"
+		"item_rpc_bahamut_glyph_4_1_description" 				"提高巴哈姆特的脉搏的范围 @glyph_property1%"
+
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_1"		"孤立雕文"
+		"item_rpc_bahamut_glyph_5_1_description" 				"提高孤独之盾的持续时间 @glyph_property1 秒。"
+
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_6_1"		"傲慢雕文"
+		"item_rpc_bahamut_glyph_6_1_description" 				"升华的冷却时间变为2倍，巴哈姆特的脉搏每5次造成1次 @glyph_property1 秒眩晕。"
+
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_7_1"		"围墙雕文"
+		"item_rpc_bahamut_glyph_7_1_description" 				"提高宽恕之墙的持续时间 @glyph_property1 秒。"
+
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_a"		"多重之墙雕文"
+		"item_rpc_bahamut_glyph_5_a_description" 				"每 @glyph_property1 秒增加免费的墙."
+
+		"DOTA_Tooltip_ability_modifier_bahamut_5_a_cooldown"	"多重之墙冷却"
+	
+		//Weapons
+		"bahamut_weapon_00"			"基础符文"
+		"bahamut_weapon_01"			"力量符文"
+		"bahamut_weapon_02"			"勇气符文"
+		"bahamut_weapon_03"			"智慧符文"
+		"bahamut_weapon_11"			"完美力量符文"
+		"bahamut_weapon_12"			"高等力量符文"
+		"bahamut_weapon_13"			"真理勇气符文"
+		"bahamut_weapon_14"			"完美智慧符文"
+		"bahamut_weapon_21"			"无瑕力量符文"
+		"bahamut_weapon_22"			"无尽力量符文"
+		"bahamut_weapon_23"			"最终审判"
+		"bahamut_weapon_24"			"勇往直前"
+		"bahamut_weapon_25"			"启蒙之路"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_1"		"宇宙符文"
+		"item_property_bahamut_immortal_weapon"								"世界之渊"
+		"property_bahamut_immortal_weapon_description"						"技能和多重审判所造成的伤害有20%暴击造成4x所造成的伤害，暴击伤害为纯粹伤害。"
+		
+		"DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_2"            "核子符文"
+        "item_property_bahamut_immortal_weapon2"                             "顿悟"
+        "property_bahamut_immortal_weapon2_description"                      "提高移动速度 @special_property1% 并且减少 @Ability3 的基础冷却时间至 @special_property2 秒。"
+
+        "DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_3"            "原子符文"
+        "item_property_bahamut_immortal_weapon3"                             "终极壁垒"
+        "property_bahamut_immortal_weapon3_description"                      "提高 @Ability1 的长度 @special_property1% 并且伤害提高 @special_property2%"
