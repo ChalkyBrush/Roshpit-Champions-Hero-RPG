@@ -178,9 +178,9 @@ function initializeTooltip(func){
 	$('#resist_value_pure').text = pure_resist+"%"
 
 	if (Entities.IsHero(queryUnit)){
-		$("#elements_main_title").text = $.Localize("#ui_elements_damage")
+		$("#elements_title").text = $.Localize("#ui_elements").toUpperCase()
 	}else{
-		$("#elements_main_title").text = $.Localize("#ui_elements_resist")
+		$("#elements_title").text = $.Localize("#ui_elements_resist").toUpperCase()
 	}
 	var parent = $('#element_row1')
 	for ( var i = 1; i <= 18; ++i ){

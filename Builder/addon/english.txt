@@ -1050,6 +1050,7 @@
 		"ui_bonus_attack_damage"	"Attack Bonus"
 		"ui_bonus_armor"			"Armor Bonus"
 		"ui_elements"				"Elemental Damage"
+		"ui_elements_resist"				"Elemental Resistance Against Your Hero"
 
 		"ui_recalculate_stats_button"	"Recalculate Stats"
 		"ui_recalculate_stats_waiting"	"Recalculating"

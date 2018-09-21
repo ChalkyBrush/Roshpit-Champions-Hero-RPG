@@ -174,7 +174,7 @@
 				</Panel>
 			</Panel>
 			<Panel class="elements_container" id='elements_container'>
-				<Label class="elements_title" id="attack_defense_title_def" text="ui_elements"/>
+				<Label class="elements_title" id="elements_title" text="ui_elements"/>
 				<Panel class="elements_row" id="element_row1">
 					<Panel id="element1" class="element-box">
 						<Image class="element_title" id="element_title1" html="true" src="file://{images}/custom_game/ui/elements/element1.png"/>
