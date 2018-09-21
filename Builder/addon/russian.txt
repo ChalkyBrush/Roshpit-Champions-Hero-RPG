@@ -538,9 +538,15 @@
     	"DOTA_Tooltip_modifier_arcana2_purity_freeze_Description"			"заморожен"
 
   		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2"						"[W4] Ether Breach"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"Увеличивает урон в зависимости от скорости Сферы. Прочтение Megaflare во время полета в Сфере умножает скорость @Ability2 на 2. Бонус длится 5 секунд. Указанный урон умножается на уровень способности @Ability2."
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"			"Увеличение урона"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"					"% от скорости"			
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"К урону Способностей и Предметов добавляется показатель зависящий от отсутствующей маны героя. Увеличивает урон Способностей в зависимости от скорости Сферы. Прочтение @Ability4 во время полета в Сфере умножает скорость @Ability2 на <% BAHAMUT_ARCANA_W4_R_SPEED_MULT %> и сохраняет бонус вне Сферы в течение 5 секунд. Указанный урон от скорости умножается на уровень способности @Ability2."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"			"Добавленный урон"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"					"% от недостающей маны"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_two"			"Увеличене урона"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix_two"					"% от скорости Сферы"
+		"DOTA_Tooltip_modifier_bahamut_arcana_w4_amp"						"Ether Breach"
+    	"DOTA_Tooltip_modifier_bahamut_arcana_w4_amp_Description"			"Увеличен урон в зависимости от скорости Сферы"
+
+    	"DOTA_Tooltip_modifier_bahamut_arcana_w4_amp_linger"				"Ether Breach"
      	//--------------------Duskbringer/Spirit Breaker
 
     	//--------------------Auriun/Zuus
