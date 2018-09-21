@@ -7,3 +7,242 @@
     	"DOTA_Tooltip_ability_item_rpc_sange_boots"										"Sange Boots"
 		"item_property_sange"						"Combat Mastery S"
 		"property_sange_description"				"Каждое очко Ловкости увеличивает показатель здоровья на <% SANGE_HP_PER_AGI %>."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_dunetread_boots"									"Dunetreads"
+		"item_property_dunetread"					"Dunewalker"
+		"property_dunetread_description"			"Сокращает время перезарядки способности (E) @Ability3 на 2 секунды."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_boots_of_the_violet_guard"						"Boots of the Violet Guard"
+		"item_property_violet_boot"					"Violet Light"
+		"property_violet_boot_description"			"При использовании способности (E) @Ability3, выпускает 3 фиолетовых снаряда позади, наносящих урон, равный 20x вашей Ловкости каждому задетому врагу. Наносит 60 кратный урон монстрам Парагона. Эффект срабатывает лишь раз в секунду."
+		
+    	"DOTA_Tooltip_ability_item_rpc_guardian_greaves"								"Guardian Greaves"
+		"item_property_guardian_greaves"			"Guardian's Stride"
+		"property_guardien_greaves_description"		"Каждые пройденные 2500 юнитов накладывает бафф на вас и ближайших союзных героев. Восстановит здоровье, равное 5x вашей Силы, восстановит ману, равную 5x вашего Интеллекта, каждые 10 очков Ловкости увеличат Броню на 1 на 4 секунд."
+		"DOTA_Tooltip_modifier_guardian_greaves_armor"					"Guardian Greaves"
+		"DOTA_Tooltip_modifier_guardian_greaves_armor_Description"		"Броня увеличена"
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_tranquil_boots"									"Tranquil Boots"
+		"item_property_tranquil_boots"				"Grove Roamer"	
+		"property_tranquil_boots_description"		"Восстанавливает вам @special_property1% от макс. здоровья за каждые пройденные 200 юнитов."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_yasha_boots"										"Yasha Boots"
+		"item_property_yasha"						"Combat Mastery Y"	
+		"property_yasha_description"				"Увеличивает скорость атаки на 1 за каждые @special_property1 очков Силы. Устанавивает базовое время атаки на @special_property2 сек."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_mana_striders"									"Mana Striders"
+		"item_property_mana_striders"				"Mana Stride"
+		"property_mana_striders_description"		"Восстанавливает @special_property1% от вашей макс. маны за каждые пройденные 240 юнитов."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_fire_walkers"									"Fire Walkers"
+		"item_property_fire_walkers"				"Blazing Trail"
+		"property_fire_walkers_description"			"Оставляет под ногами героя пламенный след. Все враги, задевшие след каждые 0.5 секунды будут получать урон, равный равный сумме всех атрибутов героя. Враги, находящиеся в области действия получают увеличенный на 600% урон стихии <font color=\"#EF4126\">Огня</font> из всех источников."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_moon_tech_runners"								"Moon Tech Runners"
+		"item_property_moon_techs"					"Moon Dust"
+		"property_moon_techs_description"			"При прочтении (E) @Ability3 появится облако лунной пыли, сокращающее скорость передвижения врагов на 50% и длящееся 8 секунд.<br>Враги, находящиеся в облаке получают увеличенный урон из всех источников.<br>Увеличение урона происходит, если скорость передвижения врага становится меньше скорости передвижения героя, на 1% за каждую единицу в разнице значений."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_sonic_boots"										"Sonic Boots"
+		"item_property_sonic_boots"					"Sonic Speed"
+		"property_sonic_boots_description"			"Прочтение (E) @Ability3 увеличит скорость атаки на 200, скорость передвижения на 25%, а максимальную скорость передвижения до @special_property1 на 8 секунд. Когда надет этот предмет, герой может проходить сквозь существ."
+		"DOTA_Tooltip_modifier_sonic_boots_effect"			"Sonic Speed"
+		"DOTA_Tooltip_modifier_sonic_boots_effect_Description"	"Скорость атаки, передвижения и макс. скорость передвижения увеличены."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_falcon_boots"									"Falcon Boots"
+		"item_property_falcon_boot"					"Falcon Swoop"
+		"property_falcon_boot_description"			"5 соколов следуют за героем во время действия его (E) @Ability3 и подбирают всех врагов на пути. В конечной точке своего полёта, они бросают всех противников на землю и замораживают их на 4 секунды."
+		"DOTA_Tooltip_modifier_falcon_freeze"		"Falcon Swoop"
+		"DOTA_Tooltip_modifier_falcon_freeze_Description"	"Заморожен"
+		
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_admiral_boots"									"Admiral's Boots"
+		"item_property_admiral_boots"				"Sea Commander"
+		"property_admiral_boots_description"		"Увеличивает урон от способности (E) @Ability3 на 100%"
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_rooted_feet"										"Rooted Feet"
+		"item_property_rooted_feet"					"Deep Earthen Grip"
+		"property_rooted_feet_description"			"Пока персонаж стоит на месте, его броня увеличена вдвое, регенерация здоровья втрое, а весь входящий урон сокращён на 50%."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_crusader_boots"									"Crusader Boots"
+		"item_property_crusader_boots"				"Devotion Aura"
+		"property_crusader_boots_description"		"Даёт вам и вашим ближайшим союзным героям ауру повышения брони на 10% от вашей силы."
+
+		"DOTA_Tooltip_modifier_devotion_aura_buff"  "Devotion Aura Effect"
+		"DOTA_Tooltip_modifier_devotion_aura_buff_Description"	"Броня увеличена"
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_arcanys_slipper"									"Arcanys Slippers"
+		"item_property_arcanys_slipper"				"Arcane Rush"
+		"property_arcanys_slipper_description"		"После прочтения способности (E) @Ability3 за 1.2 секунды происходят три энергетических взрыва. Каждый взрыв выжигает @special_property1% от макс. запаса маны и добавляет герою базовый урон в размере @special_property2х выжженой маны."
+		"DOTA_Tooltip_modifier_arcanys_slipper_buff"	"Arcane Rush"
+		"DOTA_Tooltip_modifier_arcanys_slipper_buff_Description"	"Базовый урон увеличен"
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_swamp_waders"									"Swamp Waders"
+		
+    	
+    	"DOTA_Tooltip_ability_item_rpc_voyager_boots"									"Voyager Boots"
+		"item_property_voyager"						"Voyager"
+		"property_voyager_description"				"После применения (E) @Ability3 - Сокращает время перезарядки всех способностей на 30%."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_redrock_footwear"								"Redrock Footwear"
+		"item_property_redrock"						"Fevering Footwork"
+		"property_redrock_description"				"При активации способности (E) @Ability3 - происходят три пульса с интервалом в 1.5 секунды, заставляющие всех задетых врагов атаковать только вас в течении 5 секунд. Во время действия даёт 3x здоровья и 50% сопротивление любому урону."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_pathfinders_resonant_boots"						"Pathfinder's Resonant Boots"
+		"item_property_pathfinder"					"Purifying Resonance"
+		"property_pathfinder_description"			"Если герой не получает урон 7 секунд, предмет начинает восстанавливать 8% здоровья и 4% маны каждую секунду."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_neptunes_water_gliders"							"Neptune's Water Gliders"
+		"item_property_neptune"						"Puddle Drifter"
+		"property_neptune_description"				"Движение имеет эффект скольжения, позволяющий двигаться быстрее и перемещаться дальше после остановки."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_blue_dragon_greaves"								"Blue Dragon Greaves"
+		"item_property_dragon_greaves"				"Dragon Dance"
+		"property_dragon_greaves_description"		"Каждые пройденные 1200 юнитов, герой получает 85% бонус к уклонению и увеличивает урон на 350% на 6 секунд."
+		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect"	"Dragon Dance"
+		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect_Description" "85%% уклонение 350%% доп. урон"
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_resplendent_rubber_boots"						"Resplendent Rubber Boots"
+		"item_property_resplendent_rubber"					"Grounding"
+		"property_resplendent_rubber_description"			"Снижает весь получаемый пост-резистный магический урон 35%"
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_boots_of_old_wisdom"								"Boots of Old Wisdom"
+		"item_property_old_wisdom"								"Spell Variance"
+		"property_old_wisdom_description"						"Увеличивает базовый урон способностей на @special_property1%. При прочтении одной и той же способности два раза подряд эффект пропадает на 12 секунд."
+		"DOTA_Tooltip_modifier_boots_of_old_wisdom_cooldown"				"Spell Variance Cooldown"
+		"DOTA_Tooltip_modifier_boots_of_old_wisdom_cooldown_Description"	"Вы использовали одно умение дважды, эффект усиления убран."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_boots_of_pure_waters"							"Boots of Pure Waters"
+		"item_property_pure_waters"							"Clear Waves"
+		"property_pure_waters_description"					"При прочтении способности (E) @Ability3, герой восполнит 4% маны и оставит водяной след, который нанесёт чистый урон в размере наибольшего значения из 10х базового урона или 80х Интеллекта. Водяной след дополнительно замедляет врагов на 30% на 4 секунды.<br>Эффект срабатывает лишь раз в секунду."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_terrasic_lava_boots"								"Terrasic Lava Boots"
+		"item_property_terrasic_lava"						"Magma Tread"
+		"property_terrasic_lava_description"				"Позволяет спободно перемещаться по лавовым озёрам в Джунглях Танари. Когда герой ступает на лаву, он получает бафф, усиливающий урон на 100%, а дальность атаки на 150 на 7 секунд."
+		"DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect"	"Magma Tread"
+		"DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect_Description"	"Дальность атаки и урон увеличены."
+		 
+		 
+    	"DOTA_Tooltip_ability_item_rpc_ablecore_greaves"								"Ablecore Greaves"
+		"item_property_ablecore_greaves"					"Slugfoot"
+		"property_ablecore_greaves_description"			"Когда скорость героя ниже 300, весь входящий урон снижен на 80%, а исходящий урон увеличен на 150%. Эффект будет действовать еще 6 секунд после того, как скорость героя станет выше необходимого уровня."
+		"DOTA_Tooltip_modifier_ablecore_greaves_effect"	"Slugfoot"
+		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"Входящий урон снижен на 80%%, исходящий повышен на 150%%"
+		 
+		 
+    	"DOTA_Tooltip_ability_item_rpc_giant_hunters_boots_of_resilience"				"Giant Hunter's Boots of Resilience"
+		"item_property_giant_hunter_boot"					"Giant Hunter"
+		"property_giant_hunter_boot_description"			"Во время оглушения или обездвиживания герой становится невосприимчив к магии на @special_property1 сек."
+		"DOTA_Tooltip_modifier_giant_hunters_immunity"		"Сапоги Giant Hunter - невосприимчив к магии"
+		
+		 
+    	"DOTA_Tooltip_ability_item_rpc_redfall_runners"									"Redfall Runners"
+		"item_property_redfall_runners"					"Crackling Leaves"
+		"property_redfall_runners_description"				"После прочтения (E) @Ability3 следующее произнесение (W) @Ability2 будет усилено в 20 раз. Эффект длится 7 секунд и снимается при активации умения (W) @Ability2."
+		"DOTA_Tooltip_modifier_redfall_runners_buff"		"Crackling Leaves"
+		 "DOTA_Tooltip_modifier_redfall_runners_buff_Description"	"Умение (W) усилено в 20 раз"
+		 
+		 	 
+    	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Boots of Ashara"
+		 "item_property_boots_of_ashara"						"Autumnwood Charm"
+		 "property_boots_of_ashara_description"					"@Ability3 наносит @special_property1x увеличенный Базовый Урон Способности, если здоровье ниже или равно @special_property2%."
+		 
+		 
+    	"DOTA_Tooltip_ability_item_rpc_sandstream_slippers"								"Sandstream Slippers"
+		"item_property_sandstream_slippers"					"Sandstream"
+		 "property_sandstream_slippers_description"				"Каждые 12 секунд даёт герою заряд этого предмета. Каждый заряд убирает время перезарядки для (E) @Ability3. Максимум 2 заряда."
+		 "DOTA_Tooltip_modifier_sandstream_slippers_stack"		"Sandstream Stacks"
+		 "DOTA_Tooltip_modifier_sandstream_slippers_stack_Description"	"Убирает время перезарядки для умения (E). Прочтение способности (E) потратит заряд."
+		 
+		 
+    	"DOTA_Tooltip_ability_item_rpc_crimsyth_elite_greaves_lv1"						"Crimsyth Elite Greaves LV1"
+		"item_property_crimsyth_elite_1"						"Crimsyth Elite I"
+		 "property_crimsyth_elite_1_description"				"Увеличивает броню на @special_property1x от уровня героя. При прочтении любой способности, на @special_property3 сек. герой потеряет бонус брони, вместо этого получит @special_property2 % сопротивление магии. При получении не смертельного урона, который отнимет более 50% от макс. запаса здоровья, счётчик свойства этого предмета будет повышен на 1. Предмет обновится, когда счётчик достигнет значения @special_property4.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
+		  "DOTA_Tooltip_modifier_crimsyth_elite_greaves_armor"	"Crimsyth Elite Armor"
+		 "DOTA_Tooltip_modifier_crimsyth_elite_greaves_magic_shield"	"Crimsyth Elite Magic Shield"
+		 
+		 
+    	"DOTA_Tooltip_ability_item_rpc_crimsyth_elite_greaves_lv2"						"Crimsyth Elite Greaves LV2"
+		 "item_property_crimsyth_elite_2"						"Crimsyth Elite II"
+		 "property_crimsyth_elite_2_description"				"Увеличивает броню на @special_property1x от уровня героя. При прочтении любой способности, на @special_property3 сек. герой потеряет бонус брони, вместо этого получит @special_property2 % сопротивление магии. При получении не смертельного урона, который отнимет более 75% от макс. запаса здоровья, счётчик свойства этого предмета будет повышен на 1. Предмет обновится, когда счётчик достигнет значения @special_property4.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
+		 
+		 
+    	"DOTA_Tooltip_ability_item_rpc_crimsyth_elite_greaves_lv3"						"Crimsyth Elite Greaves LV3"
+		"item_property_crimsyth_elite_3"						"Crimsyth Elite III"
+		 "property_crimsyth_elite_3_description"				"Увеличивает броню на @special_property1x от уровня героя. При прочтении любой способности, на @special_property3 сек. герой потеряет бонус брони, вместо этого получит @special_property2 % сопротивление магии.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
+		 
+		 
+    	"DOTA_Tooltip_ability_item_rpc_harvester_boots"									"Harvester Boots"
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_boots_of_great_fortune"							"Boots of Great Fortune"
+		"item_property_boots_of_great_fortune"					"Additional Luck"
+		 "property_boots_of_great_fortune_description"			"Добавляет к шансу срабатывания всех надетых предметов дополнительно @special_property1%."
+		 
+		 
+    	"DOTA_Tooltip_ability_item_rpc_bloodstone_boots"								"Bloodstone Boots"
+		"item_property_bloodstone_boots"						"Vital Mobility"
+		 "property_bloodstone_boots_description"				"Сокращает время перезарядки (E) @Ability3 до 1 секунды, когда уровень здоровья становится ниже @special_property1%."
+		 
+		 
+    	"DOTA_Tooltip_ability_item_rpc_temporal_warp_boots"								"Temporal Warp Boots"
+		"item_property_temporal_warp"						"Time Warp"
+		"property_temporal_warp_description"				"Прочтение (E) @Ability3 восстановит значение маны, здоровья, позицию героя и время перезарядки всех умений (кроме (E) @Ability3) на те значения, что были 4 секунды назад."
+		"DOTA_Tooltip_modifier_temporal_warp_cooldown"		"Time Warp перезаряжается"
+		 
+		 
+    	"DOTA_Tooltip_ability_item_rpc_alaranas_ice_boot"								"Alarana's Ice Boots"
+		"item_property_alarana"								"Ice Block"
+		 "property_alarana_description"							"После прочтения (R) @Ability4 герой будет скован обездвиживающим льдом. Весь получаемый урон снижается на 100%, а весь магический урон увеличивается на @special_property4% на @special_property1 сек. Если входящий урон превысит @special_property2-кратный запас максимального здоровья, лед расколется. Если это произойдёт, все ближайшие враги будут обездвижены и получат урон, равный @special_property3x вашего макс. здоровья."
+		 "DOTA_Tooltip_modifier_alarana_ice_freeze"				"Ice Block"
+		 "DOTA_Tooltip_modifier_alarana_frost_nova"				"Frost Nova"
+		 "DOTA_Tooltip_modifier_alarana_frost_nova_Description"	"Обездвижен"
+		 
+		 
+    	"DOTA_Tooltip_ability_item_rpc_emerald_speed_runners"							"Emerald Speed Runners"
+		"item_property_emerald_speed"							"Stable Pace"
+		"property_emerald_speed_description"					"Скорость передвижения не может опуститься ниже 550"
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_red_october_boots"								"Red October Boots"
+		"item_property_red_october"								"Mobilus Shield"
+		"property_red_october_description"						"Пока умение (E) @Ability3 перезаряжается, весь входящий урон снижается на @special_property1%."
+		
+		
+    	"DOTA_Tooltip_ability_item_rpc_steamboots"										"Steamboots"
+		"item_property_steamboots"						"Steamboots"
+		"property_steamboots_description"				"Увеличивает урон, наносимый предметами на @special_property1% за каждые 10 очков Ловкости."
+		
+	
+		"DOTA_Tooltip_ability_item_rpc_oceanrunner_boots"					"Oceanrunner Boots"	
+		"property_oceanrunner"												"Alacrity"
+		"property_oceanrunner_Description"									"Увеличивает базовый урон способностей на @special_property1% за каждые 10 очков Ловкости."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_crystalline_slippers"				"Crystalline Slippers"	
+		"property_crystalline"												"Crystal Root"
+		"property_crystalline_Description"									"Обездвиженные враги наносят на @special_property1% меньше урона владельцу предмета и получают от него увеличенный в @special_property2 раз(а) урон."
+		
+		
+		

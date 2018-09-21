@@ -38,6 +38,8 @@
     	"DOTA_Tooltip_ability_seinaru_rune_q_4_property_one"			"额外伤害"
     	"DOTA_Tooltip_ability_seinaru_rune_q_4_suffix"					"% 攻击力"
 		
+    	"Tooltip_seinaru_w"											"圣光之手和卷风"
+
 		"DOTA_Tooltip_ability_seinaru_rune_w_1"							"[W1] 卷风"
 		"DOTA_Tooltip_ability_seinaru_rune_w_1_Description"				"圣光之手将同时释放一股卷风，降低被击中敌人60点攻击速度和移动速度，持续1.5秒。同时，被击中的敌人将获得一层卷风 debuff，每层 debuff 都将加深敌人所受到的伤害（计算在敌人减伤之后）。可以无限叠加。"
 		"DOTA_Tooltip_ability_seinaru_rune_w_1_property_one"			"每层减伤后伤害加深"
@@ -55,9 +57,6 @@
 		"DOTA_Tooltip_ability_seinaru_rune_w_3_property_one"			"伤害吸收"
 		"DOTA_Tooltip_ability_seinaru_rune_w_3_suffix"					"X 敏捷值"
 
-    	"DOTA_Tooltip_modifier_seinaru_rune_w_3"						"光之盾"
-    	"DOTA_Tooltip_modifier_seinaru_rune_w_3_Description"			"护盾吸收伤害"
-		
     	"DOTA_Tooltip_ability_seinaru_rune_w_4"							"[W4] 智慧之光"
     	"DOTA_Tooltip_ability_seinaru_rune_w_4_Description"				"神圣剑客的敏捷值将提高圣光之手的治疗量，并且提高所有 <font color=\"#7AE2A7\">风</font> 元素伤害。"
     	"DOTA_Tooltip_ability_seinaru_rune_w_4_property_one"			"治疗量和伤害提高"
@@ -69,7 +68,7 @@
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_suffix"					"%"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_property_two"			"无敌斩最多单位"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_suffix_two"				""
-
+		
     	"DOTA_Tooltip_ability_seinaru_rune_e_2"						"[E2] 胁差剑"
     	"DOTA_Tooltip_ability_seinaru_rune_e_2_Description"			"太刀飞跃结束后，进入2.5秒钟的剑刃风暴状态，在此状态下神圣剑客无视伤害并且每0.5秒施放一次加强版圣光之手治疗。"
     	"DOTA_Tooltip_ability_seinaru_rune_e_2_property_one"			"每次圣光之手伤害"
@@ -79,8 +78,8 @@
 
     	"DOTA_Tooltip_modifier_seinaru_b_c_wakizashi"				"胁差剑"
     	"DOTA_Tooltip_modifier_seinaru_b_c_wakizashi_Description"	"无视伤害"
-		
-		"DOTA_Tooltip_ability_seinaru_rune_e_3"						"[E3] 螺旋飞跃"
+
+    	"DOTA_Tooltip_ability_seinaru_rune_e_3"						"[E3] 螺旋飞跃"
     	"DOTA_Tooltip_ability_seinaru_rune_e_3_Description"			"施放太刀飞跃后，转换成螺旋飞跃，以魔法免疫的状态跳跃到敌人的位置。并且躲避弹道。"
     	"DOTA_Tooltip_ability_seinaru_rune_e_3_property_one"			"最远飞跃距离："
     	"DOTA_Tooltip_ability_seinaru_rune_e_3_suffix"					""
@@ -91,7 +90,7 @@
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_suffix"					""
 	 	"DOTA_Tooltip_ability_seinaru_rune_e_4_property_two"			"圣元素伤害提高"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_suffix_two"				"% 每10点低于0的护甲值"
-
+		
 		"DOTA_Tooltip_ability_seinaru_gorudo"						"戈尔德"
 		"DOTA_Tooltip_ability_seinaru_gorudo_Description"			"神圣剑客变成魔免的状态并且增加他的攻击力。"
 		"DOTA_Tooltip_ability_seinaru_gorudo_duration"			"持续时间:"
@@ -99,14 +98,14 @@
 
 		"DOTA_Tooltip_modifier_monk_ulti_gorudo"					"戈尔德"
 		"DOTA_Tooltip_modifier_monk_ulti_gorudo_Description"		"魔法免疫"
-		
-		"DOTA_Tooltip_ability_seinaru_rune_r_1"						"[R1] 穿甲"
+
+    	"DOTA_Tooltip_ability_seinaru_rune_r_1"						"[R1] 穿甲"
     	"DOTA_Tooltip_ability_seinaru_rune_r_1_Description"			"神圣剑客的攻击在8秒内大量减少敌人的护甲。效果无法适用于护甲低于0的目标。抬手前就能造成该效果。"
     	"DOTA_Tooltip_ability_seinaru_rune_r_1_property_one"			"最大减甲值"
     	"DOTA_Tooltip_ability_seinaru_rune_r_1_suffix"					""
 
     	"DOTA_Tooltip_modifier_seinaru_gorudo_rune_r_1"				"穿甲"
-		
+
     	"DOTA_Tooltip_ability_seinaru_rune_r_2"						"[R2] 决斗之环"
     	"DOTA_Tooltip_ability_seinaru_rune_r_2_Description"			"施放格尔德后，一个光圈延伸，神圣剑客在此圆环内获得80%减伤。"
     	"DOTA_Tooltip_ability_seinaru_rune_r_2_property_one"			"圆环持续时间"
@@ -129,8 +128,6 @@
 
     	"DOTA_Tooltip_modifier_seinaru_rune_r_3_effect"				"灵巧"
     	"DOTA_Tooltip_modifier_seinaru_rune_r_3_effect_Description"	"敏捷值提高攻击力"
-
-    	"Tooltip_seinaru_w"											"圣光之手和卷风"
 
     	"DOTA_Tooltip_ability_seinaru_rune_r_4"						"[R4] 勇气的考验"
     	"DOTA_Tooltip_ability_seinaru_rune_r_4_Description"			"在决斗之环内的敌人，受到来自神圣剑客的伤害将提高。"

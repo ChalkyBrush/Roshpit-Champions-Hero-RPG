@@ -9,6 +9,346 @@
 		"DOTA_Tooltip_ability_item_rpc_barons_storm_armor"								"Baron's Storm Armor"
 		"item_property_baron_storm"								"Storm Link"
 		"property_baron_storm_description"						"Электрическая дуга связывает героя и атакующего противника, наносит <% BARON_STORM_DMG_PER_ATT %>x урона от общей атаки героя и передается по цепи между другими ближайшими целями до <% BARON_STORM_MAX_TARGETS %> раз. Пораженные током противники наносят на <% BARON_STORM_DMG_RESISTANCE * 100 %>% меньше урона по герою в течение <% BARON_STORM_DUR%> сек. Дуга перезаряжается <% BARON_STORM_COOLDOWN %> секунд."
-
 		"DOTA_Tooltip_modifier_baron_storm_link"				"Storm Link"
 		"DOTA_Tooltip_modifier_baron_storm_link_Description"	"Связан с героем. Наносит меньше урона владельцу предмета. Получает урон."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_steelbark_guard"									"Steelbark Guard"
+		"DOTA_Tooltip_ability_item_rpc_steelbark_guard_Description"						"Слот: Тело"
+		"item_property_steelbark"			"Steelbark Protection"
+		"property_steelbark_description"	"Когда здоровье опускается ниже 40% дает 100 доп. реген здоровья и +40 брони."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding"								"Robe of Flooding LV1"
+		"item_property_flooding"					"Water Elemental 1"
+		"property_flooding_description"				"По завершении прочтения (R) @Ability4 - на сторону героя призывается водный элементаль, который живёт 12 секунд и восстанавливает владельцу 5% от макс. маны с каждой своей атакой. Атаки наносят урон в небольшой области в размере 25х Интеллекта героя.<br>Когда элементаль убьет суммарно 5000 врагов, предмет обновится.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding_2"								"Robe of Flooding LV2"
+		"item_property_flooding_2"					"Water Elemental 2"
+		"property_flooding_description_2"			"По завершении прочтения (R) @Ability4 - на сторону героя призывается водный элементаль, который живёт 12 секунд и восстанавливает владельцу 5% от макс. маны с каждой своей атакой. Атаки наносят урон в небольшой области в размере 30x Интеллекта героя.<br>Дополнительно с каждой атакой выпускает волну, которая наносит магический урон, равный общему урону героя.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding_3"								"Robe of Flooding LV3"
+		"item_property_flooding_3"					"Water Elemental 3"
+		"property_flooding_description_3"			"По завершении прочтения (R) @Ability4 - на сторону героя призывается водный элементаль, который живёт 12 секунд и восстанавливает владельцу 5% от макс. маны с каждой своей атакой. Атаки наносят урон в небольшой области в размере 35x Интеллекта героя.<br>Дополнительно с каждой атакой выпускает волну, которая наносит магический урон, равный общему урону героя.<br>Весь наносимый урон может быть увеличен за счёт всех усилений, действующих на базовую способность (R) @Ability4.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_avalanche_plate"									"Avalanche Plate LV1"
+		"item_property_avalanche"					"Avalanche"
+		"property_avalanche_description"			"По завершении прочтения (R) @Ability4 вокруг героя в радиусе 400 происходит сильный камнепад, который нанесёт урон, равный @special_property1x Силы каждые 0.2 секунды и оглушает врагов на 0.1 секунды.<br>Весь урон, напрямую наносимый предметами увеличивается на @special_property3%<br>за каждые 10 очков Силы.<br>Каждый тик камнепада, задевший врага добавляет к свойству предмета 1 очко.<br>Предмет улучшится, погда счётчик свойства достигнет значения 1500.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_avalanche_plate_2"								"Avalanche Plate LV2"
+		"item_property_avalanche_2"					"Mountain Quake"
+		"property_avalanche_description_2"			"По завершении прочтения (R) @Ability4 вокруг героя в радиусе 400 происходит сильный камнепад, который нанесёт урон, равный @special_property1x Силы каждые 0.2 секунды и оглушает врагов на 0.1 секунды.<br>Каждое успешное попадание камнепадом по противнику накапливает заряды. Когда будет накоплено 20 зарядов, произойдёт сильное землетрясение в радиусе 600,<br>которое нанесёт урон, равный @special_property2x Силы и оглушит задетых врагов на 1.6 секунды.<br>Весь урон, напрямую наносимый предметами увеличивается на @special_property3% за каждые 10 очков Силы.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard"							"Armor of the Violet Guard LV1"
+		"item_property_violet_guard_armor"			"Violet Crusader"
+		"property_violet_guard_armor_description"	"Увеличивает урон от (Q) @Ability1 на 300%. Каждый раз, когда (Q) @Ability1 попадает по противнику, к свойству предмета добавляется 1 очко. Предмет улучшится, когда значение достигнет 20000."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard2"							"Armor of the Violet Guard LV2"
+		"item_property_violet_guard_armor2"			"Violet Conqueror"
+		"property_violet_guard_armor_description2"	"Увеличивает урон от (Q) @Ability1 на 350%.<br>Когда (Q) @Ability1 попадает по противнику, его броня снижается на 1 за каждые 0.1% от базового урона умения на 6 секунд.<br>Значение брони цели не может опуститься ниже 0."
+		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible"	"Violet Subjugation"
+		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible_Description"	"Броня снижена."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_seraphic_soulvest"								"Seraphic Soulvest"
+		"item_property_seraphic_soulvest"			"Seraphic Lance"
+		"property_seraphic_soulvest_description"	"С каждым прочтением (W) @Ability2 в случайного противника в большом радиусе будет отправлено небесное копьё, которое нанесёт ЧИСТЫЙ урон в размере 50% от общего урона героя, умноженного на уровень умения (W) @Ability2."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_plate_of_the_watcher"							"Plate of the Watcher"
+		"item_property_watcher_one"					"Watcher I"
+		"property_watcher_one_description"			"Каждое прочтение (Q) @Ability1 даёт вам 25% шанс сбросить время перезарядки (R) @Ability4."
+		"item_property_watcher_two"					"Watcher II"
+		"property_watcher_two_description"			"Увеличивает урон от всех способностей на 15%."
+		"item_property_watcher_three"				"Watcher III"
+		"property_watcher_three_description"		"Увеличивает урон от (W) @Ability2 на 35%."
+		"item_property_watcher_four"				"Watcher IV"
+		"property_watcher_four_description"			"Увеличивает урон от (R) @Ability4 на 35%."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_sorcerers_regalia"								"Sorcerer's Regalia"
+		"item_property_sorcerers_regalia"			"Spellbinder"
+		"property_sorcerers_regalia_description"	"Весь наносимый магический урон увеличен на 40%."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_spellslinger_coat"								"Spellslinger's Coat"
+		"item_property_spellslinger_coat"			"Spellslinger"
+		"property_spellslinger_coat_description"	"(W) @Ability2 восстановит @special_property1% от затраченной маны и будет наносить на 100% больше урона."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_doomplate"										"Doomplate"
+		"item_property_doomplate"					"Summon Doom"
+		"property_doomplate_description"			"После успешного прочтения (R) @Ability4 на сторону игрока призывается Doombringer. При появлении он незамедлительно накладывает на героя безмолвие и обезоруживает, после чего начинает атаковать врагов огненными залпами, урон которых равен урону демона. Урон демона равняется @special_property1x урона призвавшего его героя.<br>Демон живёт 30 секунд, свойство перезаряжается 30 секунд."
+		"doomplate_doom"							"Doom"
+		"DOTA_Tooltip_modifier_doomplate_cooldown"	"Doomplate - перезарядка"
+		"DOTA_Tooltip_modifier_doomplate_doom_debuff"	"Doom"
+		"DOTA_Tooltip_modifier_doomplate_doom_debuff_Description"	"Невозможно атаковать и читать заклинания."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_ice_quill_carapace"								"Ice Quill Carapace"
+		"item_property_ice_quill"					"Ice Quills"
+		"property_ice_quill_description"			"Каждый раз, когда герой тратит 600 маны, он получает заряд этого предмета. Когда герой задействует любой предмет или применяет способность, заряды высвобождаются, восстанавливая 1% макс. маны каждые 0.1 секунды и нанося всем врагам в радиусе 460 вокруг урон в размере 4х от урона героя с каждой волной. Свойство не срабатывает, если оно еще действует."
+		"DOTA_Tooltip_modifier_ice_quill_carapace_stack"	"Заряды Ice Quill"
+		"DOTA_Tooltip_modifier_ice_quill_carapace_stack_Description"	"Прочтение любой способности или использование предмета высвобождает накопленные заряды."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_featherwhite_armor"								"Featherwhite Armor"
+		"item_property_featherwhite_armor"			"Ivory Gryffon"
+		"property_featherwhite_armor_description"	"Светлый грифон следует за героем, ежесекундно исцеляя его и ближайших союзных юнитов на @special_property1% от макс. здоровья и сокращая входящий чистый и магический урон на @special_property2%. Грифон также даёт беспрепятственный обзор местности вокруг себя."
+		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect"	"Featherwhite Aura"
+		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect_Description"	"Получаемый магический и чистый урон снижен на %property_two%%%"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_dragon_ceremony_vestments"						"Vestments of the Dragon Ceremony"
+		"item_property_dragon_ceremony"				"Beast of Ceremony"
+		"property_dragon_ceremony_description"		"Церемониальный зверь постоянно следует за вами - атакует до 12 противников каждые 0.8 секунды, при этом нанося урон равный 12х основного атрибута."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_armor_of_secret_temple"							"Armor of the Secret Temple"
+		"item_property_secret_temple"				"Refraction"
+		"property_secret_temple_description"		"После прочтения (R) @Ability4 - герой получает 7 зарядов преломления. Каждый заряд полностью блокирует любой урон. Пока Преломление активно ваши атаки наносят двойной урон."
+		"DOTA_Tooltip_modifier_secret_temple_refraction"				"Refraction"
+		"DOTA_Tooltip_modifier_secret_temple_refraction_description"	"Блокирует любой входящий урон. Базовый урон увеличен вдвое."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_vampiric_breastplate"							"Vampiric Breastplate"
+		"item_property_vampiric_breastplate"		"Vampiric Core"
+		"property_varmpiric_breastplate_description" "30% вампиризм от (Q) @Ability1"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_dark_arts_vestments"								"Vestments of the Dark Arts"
+		"item_property_dark_arts"					"Dark Mastery"
+		"property_dark_arts_description"			"Увеличивает показатель Ловкости на 50% от вашего интеллекта."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_legion_vestments"								"Legion Vestments"
+		"item_property_legion_vestments"			"Legion Command"
+		"property_legion_vestments_description"		"Увеличивает Силу, Ловкость и Интеллект на 30%"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_nightmare_rider_mantle"							"Nightmare Rider Mantle"
+		"item_property_nightmare_rider"				"Shadow Melt"
+		"property_nightmare_rider_description"		"Прочтение (Q) @Ability1 дополнительно выпустит поток теней в ближайших врагов, замедляя их на 40% и снижая значение их текущей брони на 80% на 10 секунд, а так же получаемый ими пост-резистный урон увеличивается на 200%. С каждой успешной атакой радиус действия этой способности увеличивается на 50. Каждый активный заряд дополнительно увеличивает стихийный урон <font color=\"#7F4F84\">Тени</font> на 30%. Максимум зарядов: 20."
+		"DOTA_Tooltip_modifier_nightmare_rider_stacks"	"Nightmare Stacks"
+		"DOTA_Tooltip_modifier_nightmare_rider_stacks_Description"	"Каждый заряд увеличивает радиус действия Shadow Melt и увеличивает стихийный урон <font color=\"#7F4F84\">Тени</font> на 30%%."
+		"DOTA_Tooltip_modifier_nightmare_rider_effect_visible"	"Shadow Melt"
+		"DOTA_Tooltip_modifier_nightmare_rider_effect_visible_Description"	"Скорость передвижения и броня снижены, получаемый пост-резистный урон увеличен на 200%"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_space_tech_vest"									"Space Tech Vest"
+		"item_property_space_tech"					"Gravity Bend"
+		"property_space_tech_description"			"Во время прочтения (R) @Ability4 все ближайшие противники теряют 160 скорости атаки и 50% скорости передвижения. Эффект замедления длится 7 секунд. Дополнительно увеличивает урон героя на 35% каждые 0.3 секунды."
+		"DOTA_Tooltip_modifier_space_tech_buff"					"Gravity Bend"
+		"DOTA_Tooltip_modifier_space_tech_buff_Description"		"Доп. урон."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_stormshield_cloak"								"Stormshield Cloak"
+		"item_property_stormshield"					"Storm Shield"
+		"property_stormshield_description"			"Уменьшает весь получаемый физический урон на 50%"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_gilded_soul_cage"								"Gilded Soul Cage"
+		"item_property_gilded_soul"					"Siphon Soul"
+		"property_gilded_soul_description"			"При убийстве врага происходит яркая вспышка света, которая исцеляет вас и ближайших союзников на 15% от макс. здоровья поверженных противников.<br>Каждое успешное убийство даёт 1 заряд предмета.<br>Каждый заряд увеличивает ваш урон на @special_property1% и урон стихии <font color=\"#F6FFB5\">Света</font> на @special_property3%.<br>Заряды длятся 8 секунд и исчезают по одному, максимум 100 зарядов.<br>Когда вражеская душа будет поглощена, герой получит иммунитет к магии на @special_property2 сек."
+		"DOTA_Tooltip_modifier_gilded_soul_buff"				"Gilded Soul Cage"
+		"DOTA_Tooltip_modifier_gilded_soul_buff_Description"	"Увеличивает урон и урон стихии Света."
+		"DOTA_Tooltip_modifier_gilded_soul_immunity" "Gilded Soul Иммунитет к магии"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_bluestar_armor"									"Bluestar Armor"
+		"item_property_bluestar_armor"				"Mana Burst"
+		"property_bluestar_armor_description"		"Каждый раз когда тратится мана, герой исцеляется на то же значение и немного прыгает вперёд."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_hermits_spike_shell"								"Hermit's Spike Shell"
+		"item_property_hermit_spike_shell"			"Quill Spray"
+		"property_hermit_spike_shell_description"	"При получении урона, отнимающего от 15% от макс. здоровья, вокруг героя происходит выброс шипов. Каждый залп шипов наносит физический урон, равный 30x от полученного урона."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_the_infernal_prison"								"The Infernal Prison"
+		"item_property_infernal_prison"				"Immolation"
+		"property_infernal_prison_description"		"Враги, атакующие вас загорятся, из-за чего потеряют 110 скорости атаки и будут получать магический урон в размере 50х вашей брони каждые 0.5 секунды.<br>Все находящиеся неподалёку враги теряют 260 скорости атаки и получают магический урон в размере 100% от общего урона героя каждые 0.5 секунды."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_enchanted_solar_cape"							"Enchanted Solar Cape"
+		"item_property_enchanted_solar"				"Solar Flare"
+		"property_enchanted_solar_description"		"При получении магического или чистого урона, усиливает урон базовых умений и урон всех стихий на 400% на 15 секунд."
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect"				"Solar Flare"
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect_Description"	"Урон всех базовых умений и всех стихий увеличен на 400%%"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_ocean_tempest_pallium"							"Ocean Tempest Pallium"
+		"item_property_ocean_tempest"				"Tidal Windstorm"
+		"property_ocean_tempest_description"		"Пока произносится способность (R) @Ability4, ежесекундно тратится 40% маны. Каждые 100 затраченной маны увеличит урон способности (R) @Ability4 на 1.5%."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_radiant_ruins_leather"							"Radiant Ruins Leather"
+		"item_property_radiant_ruins"				"Endurance Aura"
+		"property_radiant_ruins_description"		"Герой распространяет ауру на себя и всех дружественных юнитов, которая увеличивает скорость атаки на 220 и скорость передвижения на 120."
+		"DOTA_Tooltip_modifier_radiant_leather_aura_buff" "Endurance Aura"
+		"DOTA_Tooltip_modifier_radiant_leather_aura_buff_Description"	"Скорость атаки увеличена на 120, скорость передвижения увеличена на 70."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_twilight_vestments"								"Twilight Vestments"
+		"item_property_twilight_vestments"			"Shimmering Scales"
+		"property_twilight_vestments_description"	"Если единичный урон наносит вам больше 20% здоровья, через 0.05 секунды вы будете исцелены на 75% от полученного урона."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_energizing_quest_gear"							"Energizing Quest Gear"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_windsteel_armor"									"Windsteel Armor"
+		"item_property_windsteel_armor"				"Fluttering Guard"
+		"property_windsteel_armor_description"		"Прочтение способности (W) @Ability2 наделит героя щитом, поглощающим любой получаемый урон. Количество зарядов щита равно уровню способности героя. Пока щит активен, уклонение выше на 50%, скорость передвижения увеличена на 100. Длится @special_property1 сек. Перезаряжается @special_property2 сек."
+		"DOTA_Tooltip_modifier_windsteel_effect"	"Fluttering Guard"
+		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"Поглощает любой полученный урон за каждый заряд щита. Уклонение повышено на 35%. Скорость передвижения увеличена на 100."
+		"DOTA_Tooltip_modifier_windsteel_cooldown"	"Перезарядка Fluttering Guard"
+		
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_savage_plate_of_ogthun"							"Savage Plate of Og'Thun"
+		"item_property_ogthun"						"Savagery"
+		"property_ogthun_description"				"Убивая врагов, герой увеличивает своё здоровье на 40% от Силы, а урон способностей на 2%. Складывается до 100 раз. Каждый заряд эффекта длится 9 секунд."
+		"DOTA_Tooltip_modifier_ogthun_visible" 				"Savagery"
+		"DOTA_Tooltip_modifier_ogthun_visible_Description"	"Макс. здоровье и урон способностей увеличены"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_skyforge_flurry_plate"							"Skyforge Flurry Plate"
+		"item_property_skyforge"							"Flurry Aura"
+		"property_skyforge_description"						"Снижает основной урон всех ближайших врагов на 30%"
+		"DOTA_Tooltip_modifier_flurry_aura_debuff"				"Flurry Aura"
+		"DOTA_Tooltip_modifier_flurry_aura_debuff_Description"	"Урон снижен на 30%%"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_bladestorm_vest"									"Bladestorm Vest"
+		"item_property_bladestorm_vest"							"Bladestorm"
+		"property_bladestorm_vest_description"					"Атакуя противника 10 раз подряд, герой получит заряд Bladestorm. Каждый заряд увеличивает урон героя на @special_property1% и пост-резистный урон @special_property2%. Прочтение любого заклинания потратит один заряд. Максимум 3 заряда."
+		"DOTA_Tooltip_modifier_bladestorm_vest_buff"			"Bladestorm"
+		"DOTA_Tooltip_modifier_bladestorm_vest_buff_Description"	"Базовый урон и урон умений увеличен"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_infused_mageplate"								"Infused Mageplate"
+		"item_property_mageplate"								"Armored Magus"
+		"property_mageplate_description"						"Каждые 10 очков Интеллекта увеличивают показатель брони на 1. 5% от полученного урона восстанавливают ману. Когда герой получает урон, ему добавляется заряд способности этого предмета. Каждый заряд увеличивает базовый урон способностей на 5% и добавляет очки Интеллекта, равные @special_property1х уровня героя на 15 секунд. Максимум 100 зарядов."
+		"DOTA_Tooltip_modifier_infused_mageplate_stack"			"Armored Magus"
+		"DOTA_Tooltip_modifier_infused_mageplate_stack_Description"	"Базовый урон способностей и интеллект увеличены."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_depth_crest_armor"								"Depth Crest Armor"
+		"item_property_depth_crest"						"Crush"
+		 "property_depth_crest_description"					"При получении урона, с @special_property1% шансом все ближайшие враги будут оглушены на @special_property5 сек. и получат урон, равный сумме @special_property2х Силы и @special_property3х брони героя.<br>Пока враги оглушены, весь урон, который они получат от предметов увеличен на @special_property4% за каждые 10 чков Силы.<br>(Это усиление применяется в конце всех вычислений)"
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_terrasic_stone_plate"							"Terrasic Stone Plate"
+		"item_property_terrasic_stone"						"Magma Break"
+		 "property_terrasic_stone_description"				"Весь наносимый пост-резистный урон по оглушенным целям увеличен на 200%."
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_water_mage_robes"								"Water Mage Robes"
+		"item_property_watermage"							"Wave Burst"
+		"property_watermage_description"					"Во время прочтения (R) @Ability4, во все стороны от героя будет выпущен мощный поток воды, наносящий магический урон за каждую волну, который равен сумме 7х урона героя и 30х Интеллекта. Дополнительно замедляет врагов на 50%."
+		"DOTA_Tooltip_modifier_water_mage_slow"			"Wave Burst Slow"
+		"DOTA_Tooltip_modifier_water_mage_slow_Description"	"Скорость передвижения снижена"
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_golden_war_plate"								"Golden War Plate"
+		"item_property_gold_war_plate"						"Heroic Valor"
+		"property_gold_war_plate_description"				"Увеличивает ВЕСЬ исходящий физический урон на @special_property1%. Уменьшает исходящий магический урон на 65%."
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_gold_plate_of_leon"								"Gold Plate of Leon"
+		"item_property_gold_plate_of_leon"						"Gallant Hero"
+		"property_gold_plate_of_leon_description"				"Увеличивает основной атрибут героя на @special_property1%."
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_staggering_knight_crusher_armor"					"Staggering Knight Crusher Armor"
+		"item_property_knight_crusher"						"Overpower"
+		"property_knight_crusher_description"				"Время оглушений от способностей и предметов увеличено на 50%. Добавляет на 50% меньше времени к иммунитету врагов к оглушению."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_sapphire_dragon_scale_armor"						"Sapphire Dragon Scale Armor"
+		"item_property_sapphire_dragon"					"Blue Scale"
+		"property_sapphire_dragon_description"				"Каждое очко Интеллекта увеличивает урон на @special_property1 и броню на @special_property2"
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_ruby_dragon_scale_armor"							"Ruby Dragon Scale Armor"
+		"item_property_ruby_dragon_armor"					"Red Scale"
+		"property_ruby_dragon_armor_description"			"Каждое очко Силы увеличивает урон на @special_property1 и броню на @special_property2"
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_topaz_dragon_scale_armor"						"Topaz Dragon Scale Armor"
+		"item_property_topaz_dragon"						"Yellow Scale"
+		"property_topaz_dragon_description"				"Каждое очко Ловкости увеличивает урон на @special_property1 и броню на @special_property2"
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_sacred_trials_armor"								"Sacred Trials Armor"
+		"item_property_sacred_trials"						"Combat Trial"
+		"property_sacred_trials_description"				"После прочтения (W) @Ability2 следующая базовая атака героя нанесёт @special_property1% магического урона по области."
+		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus"	"Combat Trial"
+		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus_Description"	"Следующая базовая атака героя нанесёт %property_one%%% магического урона по области."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_heroic_conqueror_vestments"						"Heroic Conqueror Vestments"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_guard_of_feronia"								"Guard of Feronia"
+		"item_property_guard_of_feronia"						"Shield of Dawn"
+		"property_guard_of_feronia_description"				"Прочтение (E) @Ability3 или (R) @Ability4 наделяет героя особым щитом на 1.5 или 3.5 секунды соответственно, который поглощает весь входящий урон на 95%"
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_mystic_mana_wall"								"Mystic Mana Wall"
+		"item_property_mystic_mana_wall"						"Magic Block"
+		"property_mystic_mana_wall_description"				"Весь получаемый чистый или магический урон сокращается на 75%, а вместо здоровья тратится мана, если таковая имеется в достаточном количестве. Каждые 30 очков маны увеличивают значение брони на 1."
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_vermillion_dream_robes"							"Vermillion Dream Robes"
+		"item_property_vermillion_dream_robes"					"Luminous Expanse"
+		"property_vermillion_dream_robes_description"			"Увеличивает дальность применения базовых умений на @special_property1"
+		 
+		 
+		"DOTA_Tooltip_ability_item_rpc_ancient_tanari_wind_armor"						"Ancient Tanari Wind Armor"
+		"item_property_tanari_wind_armor"						"Zephyr"
+		"property_tanari_wind_armor_description"				"Скорость передвижения врагов в радиусе 500 снижается на 80%, скорость атаки снижается на 100, а атаки могут промахнуться с 30% шансом."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_blazing_fury_armor"								"Blazing Fury Armor"
+		"item_property_blazing_fury_armor"						"Blazing Fury"
+		"property_blazing_fury_description"						"Увеличивает Силу и Интеллект на @special_property1% от Ловкости."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_outland_stone_cuirass"							"Outland Stone Cuirass"
+		"item_property_outland_stone"							"Blast Fusion"
+		"property_outland_stone_description"					"Увеличивает урон от (Q) @Ability1 на @special_property2%, но оглушает владельца предмета на @special_property1 сек. при прочтении."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_direwolf_bulwark"								"Direwolf Bulwark"
+		"item_property_direwolf"						"Cerberus Core"
+		"property_direwolf_description"					"Каждые 10 очков основного атрибута увеличивают базовый урон на @special_property1, броню на @special_property2, а базовый урон способностей на @special_property3%"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_armor_of_atlantis"						"Armor of Atlantis"	
+		"property_armor_of_atlantis"												"Chasm Forge"
+		"property_armor_of_atlantis_Description"									"Если входящий пост-резистный урон отнимает более 100% здоровья героя, то он снижается на @special_property1%."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_templar_light_seers_robe"			"Templar Light Seer's Robe"	
+		"property_light_seer"												"Light of Delphi"
+		"property_light_seer_Description"									"Во время прочтения (R) @Ability4 герой исцеляется на @special_property1% от макс. здоровья каждые 0.15 секунды. С каждым тиком герой получает заряды щита, способного полностью поглотить любой урон. Накопленные заряды исчезают по одному каждую секунду."
+		"DOTA_Tooltip_modifier_light_seer_shield"							"Delphi Shield"
+		"DOTA_Tooltip_modifier_light_seer_shield_Description"				"Каждый заряд полностью поглощает любой входящий урон"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_empyreal_sunrise_robe"					"Empyreal Sunrise Robe"	
+		"property_tropical_sunrise"												"Diffusal Wake"
+		"property_tropical_sunrise_Description"									"Увеличивает значение самого слабого атрибута на @special_property1%"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_sea_giants_plate"					"Sea Giant's Plate"	
+		"property_sea_giant_plate"												"Titanic Fortitude"
+		"property_sea_giant_plate_Description"									"Пока герой оглушен, весь входящий по нему урон сокращается на @special_property1%."
