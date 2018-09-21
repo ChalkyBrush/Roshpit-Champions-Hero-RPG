@@ -250,7 +250,7 @@ function dominion_unit_kill(event)
 				if caster:HasModifier("modifier_ekkan_glyph_5_a") then
 					damageGainMult = 2400
 				end
-				attacker.attackDamage = math.min(attacker.attackDamage + q_3_level*damageGainMult, 2^26.5)
+				attacker.attackDamage = attacker.attackDamage + q_3_level*damageGainMult
 				attacker:SetPhysicalArmorBaseValue(attacker.armor)
 			    attacker:SetBaseDamageMin(attacker.attackDamage)
 			    attacker:SetBaseDamageMax(attacker.attackDamage) 

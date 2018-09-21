@@ -259,7 +259,7 @@ function dominion_unit_kill(event)
 			if q_3_level > 0 then
 				attacker.armor = attacker.armor + q_3_level*10
 				local damageGainMult = 5000
-				attacker.attackDamage = math.min(attacker.attackDamage + q_3_level*damageGainMult, 2^26.5)
+				attacker.attackDamage = attacker.attackDamage + q_3_level*damageGainMult
 				attacker:SetPhysicalArmorBaseValue(attacker.armor)
 			    attacker:SetBaseDamageMin(attacker.attackDamage)
 			    attacker:SetBaseDamageMax(attacker.attackDamage) 
