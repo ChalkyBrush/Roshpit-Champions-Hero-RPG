@@ -597,6 +597,26 @@ function GameMode:OnPlayerChat(keys)
     local steamID = PlayerResource:GetSteamAccountID(playerid)
     LoadCharacterDev(playerid, strn[1], strn[2])
   end
+  if string.match(text, "-sea") and GetMapName() == "rpc_sea_fortress" then
+    print("Sea test2")
+
+    Seafortress:SpawnFinalBoss()
+    AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-14272, 13696), 8000, 30000, false)
+
+    Seafortress:InitArchon()
+    AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(4416, 15744), 8000, 30000, false)
+
+    Seafortress:SpawnPaladinArcanaGolems()    
+    AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(12032, 9920), 8000, 30000, false)
+
+    Seafortress:SpawnShadowOfBahamut()
+    AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-1280, 11392), 8000, 30000, false)
+
+    local Units = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, Vector(0, 0, 0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+    local vector = Units[1]:GetAbsOrigin()
+    local item = CreateItem("item_debug_blink", nil, nil)
+    local drop = CreateItemOnPositionSync( vector, item )
+  end 
   ChatDropItems(keys)
   -- if string.match(text, "-gold") or string.match(text, "-lvlup") or string.match(text, "-respawn") or string.match(text, "-createhero") or string.match(text, "-refresh") or string.match(text, "-item") or string.match(text, "-allvision") or string.match(text, "-wtf") or string.match(text, "-respawn") or string.match(text, "-teleport") then
   --   print("CHEATS ENABLED")
