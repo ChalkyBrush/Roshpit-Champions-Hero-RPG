@@ -350,3 +350,21 @@
 		"DOTA_Tooltip_ability_item_rpc_sea_giants_plate"					"海巨人之甲"	
 		"property_sea_giant_plate"												"刚毅泰坦"
 		"property_sea_giant_plate_Description"									"被眩晕时，伤害减免 @special_property1%。"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_boreal_granite_vest"	"北地花岗岩胸甲"
+		"item_property_boreal_granite"						"合抱之力"
+		"property_boreal_granite_description"				"受到一个敌人攻击时，有 @special_property1% 的几率立刻释放 @Ability1 （需要敌人在施法距离之内）。 @Ability1的冷却时间会立刻重置。 技能的施法目标为攻击的目标或者位置。"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_captains_vest"		"船长背心"
+		"item_property_captains_vest"						"坚定的决心"
+		"property_captains_vest_description"				"Q1/2/3/4符文提高力量15/30/75/150。 W1/2/3/4符文提高智力15/30/75/150。 E1/2/3/4符文提高敏捷15/30/75/150。 R1/2/3/4符文提高全属性5/10/25/50。"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_tattered_novice_armor"		"残破学徒装甲"
+		"item_property_tattered_novice_armor"						"初心者的决意"
+		"property_tattered_novice_armor_description"				"每 @special_property1 秒获得一层决意. 每层决意可以移除一次 @Ability1 的冷却时间. 最高可叠加 @special_property2 层。"
+	
+		"DOTA_Tooltip_modifier_tattered_novice_stack"				"初心者的决意"
+		"DOTA_Tooltip_modifier_tattered_novice_stack_Description"	"Q技能不进入冷却"

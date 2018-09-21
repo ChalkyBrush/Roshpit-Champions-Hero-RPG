@@ -290,3 +290,20 @@
 		"DOTA_Tooltip_modifier_dark_emissary_root"								"Spectral Mist"
 		"DOTA_Tooltip_modifier_dark_emissary_root_Description"					"Обездвижен"
 		
+		
+		"DOTA_Tooltip_ability_item_rpc_energy_whip_glove"	"Energy Whip Glove"
+		"item_property_energy_whip"							"Spell Lash"
+		"property_energy_whip_description"					"Успешно атакуя врага, герой автоматически применяет (W) @Ability2 в место, где находимся атакуемый противник и если умение не перезаряжается."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_buzukis_finger"				"Buzuki's Finger"
+		"item_property_buzuki_finger"								"Power Up"
+		"property_buzuki_finger_description"						"С прочтением (W) @Ability2, герой усиляет всех юнитов, не являющихся героями. Усиленные юниты наносят на @special_property1% увеличенный пост-резистный урон, а их атаки производят энергетический луч, наносящий урон в размере @special_property2% от урона героя. Бонус к урону заимствуется от героя, активировавшего его. Эффект длится 30 секунд."
+		"DOTA_Tooltip_modifier_buzukis_finger_buff"					"Power Up!"
+		"DOTA_Tooltip_modifier_buzukis_finger_buff_Description"		"Увеличивает пост-резистный урон и наносит дополнительный чистый урон при атаках"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_swiftspike_bracer"			"Swiftspike Bracer"
+		"item_property_swiftspike_bracer"							"Sonic Overflow"
+		"property_swiftspike_bracer_description"					"Каждое очки текущей скорости передвижения увеличивает Базовый Урон Способностей на @special_property1%"
+		

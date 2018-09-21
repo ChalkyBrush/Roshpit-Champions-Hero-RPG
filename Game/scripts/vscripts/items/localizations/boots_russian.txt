@@ -245,4 +245,18 @@
 		"property_crystalline_Description"									"Обездвиженные враги наносят на @special_property1% меньше урона владельцу предмета и получают от него увеличенный в @special_property2 раз(а) урон."
 		
 		
+		"DOTA_Tooltip_ability_item_rpc_gravelfoot_treads"	"Gravelfoot Treads"
+		"item_property_gravelfoot"							"Gravelfoot"
+		"property_gravelfoot_description"					"Очищает один негативный эффект с героя каждые @special_property1 сек. В этот момент, герой на @special_property2 сек. покроется каменной коркой, которая снизит скорость передвижения на @special_property3 и сократит получаемый урон на @special_property4%."
+		"DOTA_Tooltip_modifier_gravelfoot_buff"				"Gravelfoot"
+		"DOTA_Tooltip_modifier_gravelfoot_buff_Description"	"Скорость передвижения снижена. Получаемый урон сокращен"
 		
+		
+		"DOTA_Tooltip_ability_item_rpc_ice_floe_slippers"	"Ice Floe Slippers"
+		"item_property_ice_floe_slippers"					"Ice Floe"
+		"property_ice_floe_slippers_description"			"Прикажите герою следовать в указанную точку дважды, чтобы тот начал скользить по ледяному следу. Во время скольжения герой не может двигаться и снижает весь получаемый физический урон до 0. Максимальное расстояние для скольжения - 1500. Нельзя скользить, будучи обездвиженным или оглушенным."
+	
+	
+		"DOTA_Tooltip_ability_item_rpc_iron_treads_of_destruction"	"Iron Treads of Destruction"
+		"item_property_iron_treads_of_destruction"					"Dissolution"
+		"property_iron_treads_of_destruction_description"			"(R) @Ability4 не требует время на прочтение."

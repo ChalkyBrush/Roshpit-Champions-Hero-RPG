@@ -245,4 +245,18 @@
 		"property_crystalline_Description"									"被缠绕的敌人，对玩家造成的伤害减少 @special_property1%，并且受到 @special_property2x 来自玩家的伤害。"
 		
 		
+		"DOTA_Tooltip_ability_item_rpc_gravelfoot_treads"	"砾石足踏"
+		"item_property_gravelfoot"							"砾石之足"
+		"property_gravelfoot_description"					"每@special_property1秒净化一次敌人debuff效果。当debuff被净化时，自身变成霜冻石块形态@special_property2秒，移动速度减少@special_property3，受到的伤害减少@special_property4%。"
+		"DOTA_Tooltip_modifier_gravelfoot_buff"				"砾石之足"
+		"DOTA_Tooltip_modifier_gravelfoot_buff_Description"	"移速和受到的伤害降低"
 		
+		
+		"DOTA_Tooltip_ability_item_rpc_ice_floe_slippers"	"浮冰滑靴"
+		"item_property_ice_floe_slippers"					"浮冰"
+		"property_ice_floe_slippers_description"			"在同一目标地点连续发出两个移动指令，即可在冰上滑行。滑行的时候，你被缠绕且石化不受物理伤害。最大滑行距离为1500码。当被晕眩或缠绕的时候不能激活滑行效果。"
+	
+	
+		"DOTA_Tooltip_ability_item_rpc_iron_treads_of_destruction"	"钢铁毁灭足踏"
+		"item_property_iron_treads_of_destruction"					"快速释放"
+		"property_iron_treads_of_destruction_description"			"@Ability4 不需要持续施法就可以释放。"

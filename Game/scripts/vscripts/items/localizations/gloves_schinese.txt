@@ -282,3 +282,20 @@
 		"DOTA_Tooltip_modifier_dark_emissary_root"								"彩虹迷雾"
 		"DOTA_Tooltip_modifier_dark_emissary_root_Description"					"被缠绕"
 		
+		
+		"DOTA_Tooltip_ability_item_rpc_energy_whip_glove"	"能量鞭笞手套"
+		"item_property_energy_whip"							"咒语鞭笞"
+		"property_energy_whip_description"					"攻击敌人的同时会立刻释放 @Ability2 （需要技能不在冷却时间）。技能的施法目标为攻击的目标或者位置。"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_buzukis_finger"				"布祖克的手指"
+		"item_property_buzuki_finger"								"赐予你力量！"
+		"property_buzuki_finger_description"						"释放 @Ability2 可以给周围的非英雄单位提供增益效果，提高它们@special_property1%的税后伤害，同时它们的普攻可以附加一道@special_property2%攻击力伤害的能量光束。伤害来源为英雄。Buff持续30s。"
+		"DOTA_Tooltip_modifier_buzukis_finger_buff"					"赐予你力量!"
+		"DOTA_Tooltip_modifier_buzukis_finger_buff_Description"		"提高税后伤害并造成额外的纯粹打击伤害"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_swiftspike_bracer"			"迅捷钉刺护腕"
+		"item_property_swiftspike_bracer"							"音爆"
+		"property_swiftspike_bracer_description"					"每点当前的移动速度提高基础技能伤害 @special_property1%"
+		

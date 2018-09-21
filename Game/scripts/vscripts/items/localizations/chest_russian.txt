@@ -352,3 +352,21 @@
 		"DOTA_Tooltip_ability_item_rpc_sea_giants_plate"					"Sea Giant's Plate"	
 		"property_sea_giant_plate"												"Titanic Fortitude"
 		"property_sea_giant_plate_Description"									"Пока герой оглушен, весь входящий по нему урон сокращается на @special_property1%."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_boreal_granite_vest"	"Boreal Granite Vest"
+		"item_property_boreal_granite"						"Diametric Force"
+		"property_boreal_granite_description"				"При получени урона от врага, с @special_property1% шансом герой незамедлительно применит (Q) @Ability1 на противника, если тот находится в пределах действия способности. Время перезарядки (Q) @Ability1 сбрасывается при срабатывании. Направленные умения целятся в место, где находится атаковавший героя враг и если он находится в пределах действия способности."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_captains_vest"		"Captain's Vest"
+		"item_property_captains_vest"						"Stalwart Champion"
+		"property_captains_vest_description"				"Руны Q1/2/3/4 увеличивают Силу героя на 15/30/75/150. Руны W1/2/3/4 увеличивают Интеллект героя на 15/30/75/150. Руны E1/2/3/4 увеличивают Ловкость героя на 15/30/75/150. Руны R1/2/3/4 увеличивают все атрибуты героя на 5/10/25/50."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_tattered_novice_armor"		"Tattered Novice Armor"
+		"item_property_tattered_novice_armor"						"Resolution"
+		"property_tattered_novice_armor_description"				"Каждые @special_property1 сек, герой получает заряд этого предмета. Каждый заряд позволяет применять (Q) @Ability1 без перезарядки. Максимум @special_property2 заряда(ов)."
+	
+		"DOTA_Tooltip_modifier_tattered_novice_stack"				"Resolution"
+		"DOTA_Tooltip_modifier_tattered_novice_stack_Description"	"Умение (Q) применяется без перезарядки"

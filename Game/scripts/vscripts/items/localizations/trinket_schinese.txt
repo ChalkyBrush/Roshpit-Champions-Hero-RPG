@@ -276,3 +276,32 @@
 		"property_sparkling_token"												"炽热雾霭"
 		"property_sparkling_token_Description"									"所受到的所有纯粹伤害减少 @special_property1%。"
 		
+		
+		"DOTA_Tooltip_ability_item_rpc_frozen_heart"				"阿祖赫仑的冰霜之心"
+		"item_property_frozen_heart"								"冰血寒髓"	
+		"property_frozen_heart_description"					"最大生命值被设定为100，无法被治疗。每次受到的物理/魔法/纯粹伤害对英雄造成2/5/8点伤害。在没有受到伤害的2.5秒后，每0.1秒恢复1点生命值。"
+		"DOTA_Tooltip_modifier_frozen_heart_regen_prep"		"冰血冷却"
+		"DOTA_Tooltip_modifier_frozen_heart_regen"			"冰血回复"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_stargazers_sphere"			"观星者的法球"
+		"item_property_stargazer"									"观星者之眼"
+		"property_stargazer_description"							"在任意地点发出攻击移动命令创建一个半径为 @special_property1 有视野的观星者领域。在区域内受到伤害的敌人会被流星击中，造成所受伤害额外 @special_property3% 的纯粹伤害。敌人每0.5秒只能被一颗流星击中一次。在该区域内发出一次攻击移动命令将会摧毁它，并砸下一颗陨石在该区域内造成 @special_property4% 攻击力的伤害并且眩晕1秒。观星者领域的最小生成间隔为 @special_property2 秒。"
+		"DOTA_Tooltip_modifier_in_stargazer_area"					"观星者的法球"
+		"DOTA_Tooltip_modifier_in_stargazer_area_Description"		"受到伤害时将被流星打击"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_red_divinex_amulet"			"红色占卜神符"
+		"item_property_red_divinex"									"我渴望力量！"
+		"property_red_divinex_description"							"敏捷和智力上限被限定为20。力量翻倍。每10点力量提高装备伤害 @special_property1%."
+
+		
+		"DOTA_Tooltip_ability_item_rpc_green_divinex_amulet"			"绿色占卜神符"
+		"item_property_green_divinex"									"超强敏捷"
+		"property_green_divinex_description"							"力量和智力上限被限定为20。敏捷翻倍。每10点敏捷提高装备伤害 @special_property1%."
+
+		
+		"DOTA_Tooltip_ability_item_rpc_blue_divinex_amulet"			"蓝色占卜神符"
+		"item_property_blue_divinex"									"超强智力"
+		"property_blue_divinex_description"							"力量和敏捷上限被限定为20。智力翻倍。每10点智力提高装备伤害 @special_property1%."
+		

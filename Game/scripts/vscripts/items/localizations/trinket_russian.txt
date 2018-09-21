@@ -276,3 +276,32 @@
 		"property_sparkling_token"												"Tropical Haze"
 		"property_sparkling_token_Description"									"Сокращает весь входящий чистый урон на @special_property1%"
 		
+		
+		"DOTA_Tooltip_ability_item_rpc_frozen_heart"				"Frozen Heart of Az'heran"
+		"item_property_frozen_heart"								"Iceblood Marrow"	
+		"property_frozen_heart_description"					"Устанавливает максимальное значение здоровья героя на 100. Входящий Физический / Магический / Чистый урон отнимает по 2 / 5 / 8 здоровья, пробивая любые щиты. Здоровье восстанавливается каждые 0.1 секунды, когда герой не получал урона в течении 2.5 секунд."
+		"DOTA_Tooltip_modifier_frozen_heart_regen_prep"		"Iceblood Перезаряжается"
+		"DOTA_Tooltip_modifier_frozen_heart_regen"			"Iceblood Регенерация"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_stargazers_sphere"			"Stargazer's Sphere"
+		"item_property_stargazer"									"Eye of the Stargazer"
+		"property_stargazer_description"							"Отдавая приказ на атаку на любом расстоянии позволяет раскрыть туман войны в области, радиусом @special_property1. Находящиеся в этой области враги при получении урона будут поражены падающей звездой, которая нанесет чистый урон, равный @special_property3% от изначального урона. Враги могут быть поражены звездой не чаще, чем раз в 0.5 секунды. Если отдать приказ на атаку в уже существующую область, то в это место упадёт метеор, который нанесет урон, равный @special_property4% от урона героя и оглушит находящихся там врагов на 1 секунду. Новое кольцо может быть установлено не раньше, чем через @special_property2 сек."
+		"DOTA_Tooltip_modifier_in_stargazer_area"					"Stargazer's Sphere"
+		"DOTA_Tooltip_modifier_in_stargazer_area_Description"		"Поражает врагов падающими звездами при нанесении урона"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_red_divinex_amulet"			"Red Divinex Amulet"
+		"item_property_red_divinex"									"X-Strength"
+		"property_red_divinex_description"							"Значение Ловкости и Интеллекта не может быть выше 20. Значение Силы удвоено. Каждые 10 очков Силы увеличивают урон предметов на @special_property1%."
+
+		
+		"DOTA_Tooltip_ability_item_rpc_green_divinex_amulet"			"Green Divinex Amulet"
+		"item_property_green_divinex"									"X-Agility"
+		"property_green_divinex_description"							"Значение Силы и Интеллекта не может быть выше 20. Значение Ловкости удвоено. Каждые 10 очков Ловкости увеличивают урон предметов на @special_property1%."
+
+		
+		"DOTA_Tooltip_ability_item_rpc_blue_divinex_amulet"			"Blue Divinex Amulet"
+		"item_property_blue_divinex"									"X-Intelligence"
+		"property_blue_divinex_description"							"Значение Силы и Ловкости не может быть выше 20. Значение Интеллекта удвоено. Кажыде 10 очков Интеллекта увеличивают урон предметов на @special_property1%."
+		

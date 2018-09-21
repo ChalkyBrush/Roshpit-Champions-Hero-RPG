@@ -361,3 +361,18 @@
 		"DOTA_Tooltip_modifier_dark_reef_shark_effect_Description"			"Получен огромный бонус к урону"
 		
 		
+		"DOTA_Tooltip_ability_item_rpc_frostmaw_hunters_hood"		"Frostmaw Hunter's Hood"
+		"property_frostmaw"											"Dominator"
+		"property_frostmaw_description"								"Убийство подчиняемого юнита заставляет его встать на вашу сторону. Одновременно можно контролировать только 1 юнита. Приказ атаковать, примененный на юнита убивает его."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_helm_of_the_mountain_giant"	"Helm of the Mountain Giant"
+		"item_property_mountain_giant" 								"Hulking"
+		"property_mountain_giant_description"						"Увеличивает максимальный запас здоровья в @special_property1 раз(а). Когда уровень здоровья выше 80%, герой получает на @special_property2% меньше урона."
+	
+	
+		"DOTA_Tooltip_ability_item_rpc_chains_of_orthok"			"Chains of Orthok"
+		"item_property_chains_of_orthok"							"Binding Zeal"
+		"property_chains_of_orthok_description"						"Атаки и активация умения (W) @Ability2 добавляют по 1 заряду этого предмета. Прочтение (Q) @Ability1 и (E) @Ability3 добавляет 5 зарядов. Прочтение (R) @Ability4 добавляет 12 зарядов. Каждый заряд увеличивает Базовый Урон Способностей на @special_property1%. Каждый заряд длится 10 секунд и имеет свой собственный таймер отсчета."
+		"DOTA_Tooltip_modifier_orthok_zeal"							"Zeal"
+		"DOTA_Tooltip_modifier_orthok_zeal_Description"				"Базовый Урон Способностей увеличен"
