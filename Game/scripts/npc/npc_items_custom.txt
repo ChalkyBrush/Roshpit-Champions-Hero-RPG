@@ -21906,7 +21906,7 @@
 		"ItemKillable" "0"
 		"precache"
 		{
-			"particle"	"particles/econ/items/monkey_king/arcana/fire/monkey_king_spring_arcana_fire.vpcf"
+			"particle"	"particles/roshpit/flamewaker/flamewaker_q_arcana1.vpcf"
 			"particle"	"particles/econ/items/monkey_king/arcana/fire/monkey_king_spring_arcana_fire_channel.vpcf"
 			"particle"	"particles/roshpit/flamewaker/flamewaker_arcana_d_arope_arcana.vpcf"
 			"particle"	"particles/econ/items/techies/techies_arcana/techies_suicide_flame.vpcf"

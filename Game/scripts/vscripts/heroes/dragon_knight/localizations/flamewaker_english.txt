@@ -137,7 +137,7 @@
     	"DOTA_Tooltip_ability_flamewaker_rune_r_1_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_r_2"								"[R2] Flaming Vortex"
-    	"DOTA_Tooltip_ability_flamewaker_rune_r_2_Description"					"Cataclysm also releases a spiral of flame around Flamewaker. Each ray of the flame spiral deals damage based on the sum of all equipped items' Required Levels ^ 4. (Level 100 items count as 110 instead.)"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_2_Description"					"Cataclysm also releases a spiral of flame around Flamewaker. Each ray of the flame spiral deals <% FLAMEWAKER_R2_INSTANCE_OF_DAMAGE_COUNT %> instances of damage based on the sum of all equipped items' Required Levels ^ 4. (Level 100 items count as 110 instead.)"
     	"DOTA_Tooltip_ability_flamewaker_rune_r_2_property_one"					"Damage"
     	"DOTA_Tooltip_ability_flamewaker_rune_r_2_suffix"						"* (<% FLAMEWAKER_R2_INNER_SCALE_BASE %> * (Total Gear Levels)) ^ <% FLAMEWAKER_R2_DMG_EXP_SCALE_BASE %>"
 

@@ -149,19 +149,19 @@ function flamewaker_r_2(event)
 		ability.r_2_damage = ability.r_2_level * FLAMEWAKER_R2_SCALE * (FLAMEWAKER_R2_INNER_SCALE_BASE * getCasterItemsTotalLevel(caster, 110)) ^ FLAMEWAKER_R2_DMG_EXP_SCALE_BASE
 		if r_2_level > 0 then
 			EmitSoundOn("Flamewaker.SecondHeartbeat", caster)
-			local count = 500
+			local count = 50
 
 			if caster:HasModifier("modifier_flamewaker_glyph_5_1") then
 				count = count*FLAMEWAKER_T51_R2_DUR_MULTIPLY
 			end
 			local cast_number = ability.cast_number
 			for i = 0, count, 1 do
-				Timers:CreateTimer(0.02*i, function()
+				Timers:CreateTimer(0.08*i, function()
 					if caster:IsAlive() and ability.cast_number == cast_number then
-						if (i+24)%6 == 0 then
-							EmitSoundOn("Hero_Batrider.Firefly.Cast", caster)
+						if i%2 == 0 then
+							EmitSoundOn("Flamewaker.R2FlameSpiral", caster)
 						end
-						local rotatedVector = WallPhysics:rotateVector(fv, math.pi/12*i)
+						local rotatedVector = WallPhysics:rotateVector(fv, math.pi/5*i)
 						flamewaker_r_2_create_flame(caster:GetAbsOrigin(), caster, rotatedVector, ability)
 					end
 				end)
@@ -202,8 +202,11 @@ function flamewaker_r_2_impact(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local damage = ability.r_2_damage
-    Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+	local damage = math.max(ability.r_2_damage, 10)
+	for i = 1, FLAMEWAKER_R2_INSTANCE_OF_DAMAGE_COUNT, 1 do
+		print(damage)
+    	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+    end
 end
 
 function a_d(event)

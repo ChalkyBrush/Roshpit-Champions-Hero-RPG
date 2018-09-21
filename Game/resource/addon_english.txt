@@ -430,11 +430,16 @@
     	"DOTA_Tooltip_modifier_arcana2_purity_freeze_Description"			"Frozen"
 
   		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2"						"[W4] Ether Breach"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"All Base Ability and Item damage is enhanced by Bahamut's missing mana while outside of the @Ability2 (flat amount). Your abilities deal increased damage while inside the @Ability2 based on its speed. Casting Megaflare while in the @Ability2 multiplies the speed of the @Ability2 by 3x and makes this rune treat you as if you are inside the @Ability2 for next 5 seconds. Damage increase from speed is multiplied by @Ability2's level."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"All Base Ability and Item damage is enhanced by Bahamut's missing mana while outside of the @Ability2 (flat amount). Your abilities deal increased damage while inside the @Ability2 based on its speed. Casting Megaflare while in the @Ability2 multiplies the speed of the @Ability2 by <font color='#ccff66'>2.2</font>x and makes this rune treat you as if you are inside the @Ability2 for next 5 seconds. Damage increase from speed is multiplied by @Ability2's level."
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"			"Extra Damage"
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"					"% of missing mana"
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_two"			"Damage Increase"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix_two"					"% of speed"			
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix_two"					"% of speed"		
+
+    	"DOTA_Tooltip_modifier_bahamut_arcana_w4_amp"						"Ether Breach"
+    	"DOTA_Tooltip_modifier_bahamut_arcana_w4_amp_Description"			"Increased damage based on Sphere of Divinity's Speed"
+
+    	"DOTA_Tooltip_modifier_bahamut_arcana_w4_amp_linger"				"Ether Breach"
     	//--------------------
     	//-
     	//-----------------------MOUNTAIN PROTECTOR
@@ -12192,7 +12197,7 @@
     	"DOTA_Tooltip_ability_flamewaker_rune_r_1_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_r_2"								"[R2] Flaming Vortex"
-    	"DOTA_Tooltip_ability_flamewaker_rune_r_2_Description"					"Cataclysm also releases a spiral of flame around Flamewaker. Each ray of the flame spiral deals damage based on the sum of all equipped items' Required Levels ^ 4. (Level 100 items count as 110 instead.)"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_2_Description"					"Cataclysm also releases a spiral of flame around Flamewaker. Each ray of the flame spiral deals <font color='#ccff66'>7</font> instances of damage based on the sum of all equipped items' Required Levels ^ 4. (Level 100 items count as 110 instead.)"
     	"DOTA_Tooltip_ability_flamewaker_rune_r_2_property_one"					"Damage"
     	"DOTA_Tooltip_ability_flamewaker_rune_r_2_suffix"						"* (<font color='#ccff66'>0.1</font> * (Total Gear Levels)) ^ <font color='#ccff66'>4</font>"
 

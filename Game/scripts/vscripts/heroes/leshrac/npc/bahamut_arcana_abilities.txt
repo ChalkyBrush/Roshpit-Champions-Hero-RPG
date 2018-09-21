@@ -152,11 +152,15 @@
 			}
 			"modifier_bahamut_arcana_w4_amp"
 			{
-				"IsHidden"	"1"
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"bahamut/bahamut_w_4_arcana2"
 			}
 			"modifier_bahamut_arcana_w4_amp_linger"
 			{
-				"IsHidden"	"1"
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"bahamut/bahamut_w_4_arcana2"
 			}
 		}
 

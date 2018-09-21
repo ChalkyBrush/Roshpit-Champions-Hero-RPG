@@ -4755,17 +4755,22 @@ function blue_rain_attack_land(event)
 		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*BLUE_RAIN_DMG_PER_ATT
 		local endFV = ((target:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 		local range = 1000
-		local enemies = FindUnitsInLine(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster:GetAbsOrigin()+endFV*range, nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0)
+		print(caster:GetAbsOrigin())
+		print(caster:GetAbsOrigin()+endFV*range)
+		local enemies = FindUnitsInLine(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster:GetAbsOrigin()+endFV*range, caster, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC+DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)
 		if #enemies > 0 then
+			print("ENEMIES??")
 			for _,enemy in pairs(enemies) do
-				Filters:ApplyItemDamage(enemy,caster,damage,DAMAGE_TYPE_PURE,ability,RPC_ELEMENT_WATER,RPC_ELEMENT_ICE)
+				if not enemy.dummy then
+					Filters:ApplyItemDamage(enemy,caster,damage,DAMAGE_TYPE_PURE,ability,RPC_ELEMENT_WATER,RPC_ELEMENT_ICE)
+				end
 			end
 		end 
 		local particleName = "particles/econ/items/monkey_king/ti7_weapon/mk_ti7_immortal_strike.vpcf"
         local pfx = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN, caster )
         ParticleManager:SetParticleControl(0, pfx, caster:GetAbsOrigin())
         ParticleManager:SetParticleControl(1, pfx, caster:GetAbsOrigin()+endFV*range)
-
+        ParticleManager:SetParticleControl(2, pfx, caster:GetAbsOrigin()+endFV*range)
 			Timers:CreateTimer(4, function() 
 			  ParticleManager:DestroyParticle( pfx, false )
 			end)

@@ -172,11 +172,11 @@
                               "value0"        "flamewaker/arcana_ability.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "2.62000"  }
+                    "volume"            {   "value"     "1.62000"  }
                     "pitch_rand_min"    {   "value"     "-0.03000"  }
                     "pitch_rand_max"    {   "value"     "0.030000"  }
                     "pitch"             {   "value"     "0.900000"  }
-                    "soundlevel"        {   "value"     "91.00000" }
+                    "soundlevel"        {   "value"     "85.00000" }
                     "distance_max"      {   "value"     "2400.000"  }
                     "event_type"        {   "value"     "1.000000"  }
                 }
@@ -369,6 +369,38 @@
                     "pitch_rand_max"    {   "value"     "0.030000"  }
                     "pitch"             {   "value"     "1.00000"  }
                     "soundlevel"        {   "value"     "92.00000" }
+                    "distance_max"      {   "value"     "3200.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Flamewaker.R2FlameSpiral"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/batrider/batrider_firefly_beginning.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.37000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.00000"  }
+                    "soundlevel"        {   "value"     "82.00000" }
                     "distance_max"      {   "value"     "3200.000"  }
                     "event_type"        {   "value"     "1.000000"  }
                 }

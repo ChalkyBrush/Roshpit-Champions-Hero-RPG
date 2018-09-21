@@ -83,7 +83,7 @@ end
 
 function cast_dragon_fire_burst(caster, ability, target_point, damage, q_2_level)
 	local radius = FLAMEWAKER_ARCANA_Q_RADIUS
-	local pfx = ParticleManager:CreateParticle("particles/econ/items/monkey_king/arcana/fire/monkey_king_spring_arcana_fire.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	local pfx = ParticleManager:CreateParticle("particles/roshpit/flamewaker/flamewaker_q_arcana1.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(pfx, 0, target_point+Vector(0,0,120))
 	Timers:CreateTimer(6, function()
 		ParticleManager:DestroyParticle(pfx, false)
