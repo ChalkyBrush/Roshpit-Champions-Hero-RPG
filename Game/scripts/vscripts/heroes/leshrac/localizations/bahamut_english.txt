@@ -1,0 +1,321 @@
+		//Abilities
+		"DOTA_Tooltip_ability_leshrac_wall"								"Wall of Impunity"
+    	"DOTA_Tooltip_ability_leshrac_wall_Description"					"Element: <font color=\"#F6FFB5\">Holy</font><br>Bahamut conjures a wall that reveals the inadequacy of beings that pass through. Enemies near the wall are judged for being unworthy and take damage."
+    	"DOTA_Tooltip_ability_leshrac_wall_Lore"						""
+    	"DOTA_Tooltip_ability_leshrac_wall_damage"						"DAMAGE/TICK"
+    	"DOTA_Tooltip_ability_leshrac_wall_wall_length"					"LENGTH"
+    	"DOTA_Tooltip_ability_leshrac_wall_attack_loss"					"ATTACK DECREASE %"
+
+    	"DOTA_Tooltip_modifier_leshrac_wall_attack_loss"				"Wall of Impunity"
+    	"DOTA_Tooltip_modifier_leshrac_wall_attack_loss_Description"	"Losing Attack Damage"
+		
+		"DOTA_Tooltip_ability_bahamut_rune_q_1"							"[Q1] Remnants of Honor"
+    	"DOTA_Tooltip_ability_bahamut_rune_q_1_Description"				"Standing near a summoned wall restores mana to Bahamut, and increases max mana by the same amount."
+    	"DOTA_Tooltip_ability_bahamut_rune_q_1_property_one"			"Mana/Sec"
+    	"DOTA_Tooltip_ability_bahamut_rune_q_1_suffix"					""	
+    	"DOTA_Tooltip_ability_bahamut_rune_q_1_property_two"			"Maximum Mana Pool Increase"
+    	"DOTA_Tooltip_ability_bahamut_rune_q_1_suffix_two"				""
+
+    	"DOTA_Tooltip_modifier_bahamut_wall_max_mana"					"Remnants of Honor"
+    	"DOTA_Tooltip_modifier_bahamut_wall_max_mana_Description"		"Increased Mana Pool"
+		
+		
+		"DOTA_Tooltip_ability_bahamut_rune_q_2"							"[Q2] Shunning Reach"
+    	"DOTA_Tooltip_ability_bahamut_rune_q_2_Description"				"Increases the range of Bahamut's basic attacks to keep distance between himself and the unworthy."
+    	"DOTA_Tooltip_ability_bahamut_rune_q_2_property_one"			"Attack Range"
+    	"DOTA_Tooltip_ability_bahamut_rune_q_2_suffix"					""	
+
+    	"DOTA_Tooltip_modifier_bahamut_b_a_buff"						"Shunning Reach"
+    	"DOTA_Tooltip_modifier_bahamut_b_a_buff_Description"			"Increased attack range."
+		
+		"DOTA_Tooltip_ability_bahamut_rune_q_3"							"[Q3] Bane of the Unworthy"
+    	"DOTA_Tooltip_ability_bahamut_rune_q_3_Description"				"Enemies who stand close to a summoned wall have reduced movement speed."
+    	"DOTA_Tooltip_ability_bahamut_rune_q_3_property_one"			"Slow"
+    	"DOTA_Tooltip_ability_bahamut_rune_q_3_suffix"					""
+		
+		"DOTA_Tooltip_ability_bahamut_rune_q_4"							"[Q4] Superior Mind"
+    	"DOTA_Tooltip_ability_bahamut_rune_q_4_Description"				"Bahamut gains a passive Intelligence bonus."
+    	"DOTA_Tooltip_ability_bahamut_rune_q_4_property_one"			"Bonus Intelligence"
+    	"DOTA_Tooltip_ability_bahamut_rune_q_4_suffix"					""		
+    	
+    	"DOTA_Tooltip_modifier_bahamut_rune_q_4"						"Superior Mind"
+    	"DOTA_Tooltip_modifier_bahamut_rune_q_4_Description"			"Passive Intelligence Gain"	
+		
+		
+		"DOTA_Tooltip_ability_leshrac_nuke"								"Judgement"
+    	"DOTA_Tooltip_ability_leshrac_nuke_Description"					"Element: <font color=\"#F6FFB5\">Holy</font><br>Bahamut measures the worth of enemies in a small radius in front of him."
+    	"DOTA_Tooltip_ability_leshrac_nuke_Lore"						""
+    	"DOTA_Tooltip_ability_leshrac_nuke_damage"						"DAMAGE"
+    	"DOTA_Tooltip_ability_leshrac_nuke_radius"						"RADIUS"
+		
+		"DOTA_Tooltip_ability_bahamut_rune_w_1"							"[W1] Greatness"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_1_Description"				"Increases base attack damage and base ability damage."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_1_property_one"			"Damage Bonus"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_1_suffix"					"%"	
+
+    	"DOTA_Tooltip_modifier_bahamut_a_b_buff"						"Greatness"
+    	"DOTA_Tooltip_modifier_bahamut_a_b_buff_Description"			"Increased attack damage"
+		
+		
+		"DOTA_Tooltip_ability_bahamut_rune_w_2"							"[W2] Manifold Judgement"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_2_Description"				"Enemies struck by Judgement are affected by Judged. When a Judged unit is attacked by Bahamut - his attacks multiply and also strike all other Judged enemies which deal a % of his base damage."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_2_property_one"			"Attack Damage"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_2_suffix"					"%"	
+
+    	"DOTA_Tooltip_modifier_leshrac_nuke_judged"						"Judged"
+    	"DOTA_Tooltip_modifier_leshrac_nuke_judged_Description"			"Facing the Judgement of Bahamut"
+		
+		
+		"DOTA_Tooltip_ability_bahamut_rune_w_3"							"[W3] Orb of Judgement"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_3_Description"				"Judgement throws an orb in front of Bahamut. Hitting an enemy with a basic attack also throws an orb towards the enemy. Enemies struck by the Orb receive the Judged debuff."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_3_property_one"			"Damage"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_3_suffix"					""
+		
+		
+		"DOTA_Tooltip_ability_bahamut_rune_w_4"							"[W4] Potency"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_Description"				"All Base Ability and Item damage is enhanced by Bahamut's current mana pool against enemies with the Judged debuff. Each instance of amped damage drains a small percentage of Bahamut's current mana. Damage boost is 10x greater for Judgement base skill."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_property_one"			"Extra Base Ability Damage"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_suffix"					"% of current mana"		
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_property_two"			"Mana Drained per Amplification"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_suffix_two"				"% of max mana"
+		
+		
+		"DOTA_Tooltip_ability_leshrac_blink"							"Ascension"
+    	"DOTA_Tooltip_ability_leshrac_blink_Description"				"Bahamut ascends into a state where he can perceive all truths, allowing him to step out of our standard world."
+    	"DOTA_Tooltip_ability_leshrac_blink_Lore"						""
+    	"DOTA_Tooltip_ability_leshrac_blink_range"						"DISTANCE"
+		
+		"DOTA_Tooltip_ability_bahamut_rune_e_1"							"[E1] Chronos Mend"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_1_Description"				"Gives a 90% on taking damage heal for a portion of the damage."
+    	"DOTA_Tooltip_ability_bahamut_rune_e_1_property_one"			"Health Restore"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_1_suffix"					"% of the damage taken."
+		
+		
+		"DOTA_Tooltip_ability_bahamut_rune_e_2"							"[E2] Purity"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"At the beginning of an Ascension - create a swarm of Avian Aspects that strike enemies in an area in front of you. Enemies who are hit are paralyzed for a short duration. Additionally increases the damage of [E3] by multiplying by lowest attribute and dividing by greatest attribute."
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_one"			"Max Damage Increase"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix"					""	
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_two"			"Paralyze Duration"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix_two"				" seconds"	
+
+    	"DOTA_Tooltip_modifier_purity_freeze"							"Purity"
+    	"DOTA_Tooltip_modifier_purity_freeze_Description"				"Frozen"
+		
+		
+		"DOTA_Tooltip_ability_bahamut_rune_e_3"							"[E3] Bahamut Pulse"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_3_Description"				"While Ascension is on cooldown it is replaced with Bahamut Pulse. Pulse deals damage to all nearby enemies at the cost of temporary movespeed. The stated damage is multiplied by total required level of equipped glyphs."
+    	"DOTA_Tooltip_ability_bahamut_rune_e_3_property_one"			"Damage"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_3_suffix"					"x Level of Equipped Glyphs"		
+
+    	"DOTA_Tooltip_ability_bahamut_pulse"							"Bahamut Pulse"
+    	"DOTA_Tooltip_ability_bahamut_pulse_Description"				"Deals damage to all nearby enemies at the cost of Movespeed. Using Aberrant Ascension will restore your lost movement speed."
+    	"DOTA_Tooltip_ability_bahamut_pulse_Lore"						""
+    	"DOTA_Tooltip_ability_bahamut_pulse_movespeed"					"MOVESPEED LOSS PER CAST"
+
+    	"DOTA_Tooltip_modifier_pulse_slow"								"Overloaded"
+    	"DOTA_Tooltip_modifier_pulse_slow_Description"					"Losing movespeed"
+
+    	"DOTA_Tooltip_modifier_ascencion_cooldown"						"Ascension Cooldown"
+    	"DOTA_Tooltip_modifier_ascencion_cooldown_Description"			"Ascension is on Cooldown"
+		
+		
+		"DOTA_Tooltip_ability_bahamut_rune_e_4"							"[E4] Harmony"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_4_Description"				"Bahamut's attributes increase all <font color=\"#F6FFB5\">Holy</font> damage."
+    	"DOTA_Tooltip_ability_bahamut_rune_e_4_property_one"			"Damage Increase"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_4_suffix"					"% for each 10 Attributes"
+		
+		
+		"DOTA_Tooltip_ability_charge_of_light"							"Megaflare"
+    	"DOTA_Tooltip_ability_charge_of_light_Description"				"Element: <font color=\"#F6FFB5\">Holy</font><br>Bahamut charges forward and unleashes an explosion of power to cleanse the inferior. While charging Bamamut is immune to physical and magic damage. Damage dealt ignores Steadfast."
+    	"DOTA_Tooltip_ability_charge_of_light_Lore"						""
+    	"DOTA_Tooltip_ability_charge_of_light_damage"					"DAMAGE"	
+    	"DOTA_Tooltip_ability_charge_of_light_range"					"EXPLOSION RADIUS"
+		
+		"DOTA_Tooltip_ability_bahamut_rune_r_1"							"[R1] Hyper State"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_1_Description"				"Charging through a Wall of Impunity with Megaflare activates Hyper State which increases Bahamut's Attack and Movespeed for 12 seconds."
+    	"DOTA_Tooltip_ability_bahamut_rune_r_1_property_one"			"Attack Speed"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_1_suffix"					""		
+    	"DOTA_Tooltip_ability_bahamut_rune_r_1_property_two"			"Movespeed"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_1_suffix_two"				""
+
+    	"DOTA_Tooltip_modifier_charge_of_light_hyper_state"				"Hyper State"
+    	"DOTA_Tooltip_modifier_charge_of_light_hyper_state_Description"	"Gaining attack speed and movespeed."
+		
+		"DOTA_Tooltip_ability_bahamut_rune_r_2"							"[R2] Crushing Will"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_Description"				"Charging through a Wall of Impunity with Megaflare deals massive damage to all nearby enemies and stuns them for 1 second. Massively increases post-mitigation damage for 3 seconds after crashing through."
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_property_one"			"Damage"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_suffix"					"% of Megaflare"		
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_property_two"			"Post-Mitigation Amp"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_suffix_two"				"%"	
+
+    	"DOTA_Tooltip_modifier_bahamut_charge_of_light_postmitigation"	"Crushing Will"
+    	"DOTA_Tooltip_modifier_bahamut_charge_of_light_postmitigation_Description"	"Post-mitigation damage greatly increased"
+		
+		"DOTA_Tooltip_ability_bahamut_rune_r_3"							"[R3] Hyperion"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_3_Description"				"Bahamut slows the attack and movespeed of all nearby enemies while channeling Megaflare."
+    	"DOTA_Tooltip_ability_bahamut_rune_r_3_property_one"			"Move Slow"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_3_suffix"					""		
+    	"DOTA_Tooltip_ability_bahamut_rune_r_3_property_two"			"Attack Slow"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_3_suffix_two"				""		
+
+    	"DOTA_Tooltip_modifier_bahamut_rune_r_3_effect"					"Hyperion"
+    	"DOTA_Tooltip_modifier_bahamut_rune_r_3_effect_Description"		"Slowed"
+		
+		"DOTA_Tooltip_ability_bahamut_rune_r_4"							"[R4] Solitary Shell"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_4_Description"				"Upon completion of Megaflare's charge, Bahamut enters an impenetrable shield for 3 seconds that makes him immune to all damage and preserves buff durations. While in the shell Bahamut gains bonus attributes that last for 9 seconds."
+    	"DOTA_Tooltip_ability_bahamut_rune_r_4_property_one"			"Bonus Attributes"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_4_suffix"					" every 0.1 seconds"	
+
+      	"DOTA_Tooltip_modifier_bahamut_rune_r_4_shell"						"Solitary Shell"
+    	"DOTA_Tooltip_modifier_bahamut_rune_r_4_shell_Description"			"Frozen and Damage Immune"	  		
+
+      	"DOTA_Tooltip_modifier_bahamut_rune_r_4_buff_visible"						"Solitary Shell Buff"
+    	"DOTA_Tooltip_modifier_bahamut_rune_r_4_buff_visible_Description"			"Gaining Bonus to All Attributes"
+		
+		
+		//Arcanas
+		
+		"DOTA_Tooltip_ability_bahamut_arcana_ulti" 						"Demigod's Vengeance"
+    	"DOTA_Tooltip_ability_bahamut_arcana_ulti_Description"			"Element: <font color=\"#F6FFB5\">Holy</font><br>Bahamut infuses himself with the energy of greatness - adding a powerful buff that drops bolts of light on a random nearby enemy every 0.1 seconds and slows them by 65% for 0.2 seconds."
+    	"DOTA_Tooltip_ability_bahamut_arcana_ulti_duration"				"DURATION:"
+    	"DOTA_Tooltip_ability_bahamut_arcana_ulti_damage"				"DAMAGE:"
+
+    	"DOTA_Tooltip_modifier_leshrac_arcana_effect"					"Demigod's Vengeance"
+    	"DOTA_Tooltip_modifier_leshrac_arcana_effect_Description"		"Dropping luminous bolts on nearby enemies."
+
+    	"DOTA_Tooltip_modifier_leshrac_arcana_slow"						"Demigod's Vengeance"
+    	"DOTA_Tooltip_modifier_leshrac_arcana_slow_Description"			"Slowed"
+
+       	"item_property_bahamut_arcana1"										"Demigod's Vengeance"
+    	"property_bahamut_arcana1_description"								"Replaces @Ability4 and all of its runes with Demigod's Vengeance."
+
+  		"DOTA_Tooltip_ability_bahamut_rune_r_1_arcana1"						"[R1] Judgement Bolts"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_1_arcana1_Description"			"While Demigod's Vengeance is active, Bahamut's Judgement ability drops bolts on any enemy hit by it."
+    	"DOTA_Tooltip_ability_bahamut_rune_r_1_arcana1_property_one"		"Damage"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_1_arcana1_suffix"				"% of Demigod's Vengeance"
+
+  		"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1"						"[R2] Power of the Gods"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1_Description"			"While Demigod's Vengeance is active, all post-mitigation magic and pure damage is enhanced."
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1_property_one"		"Damage Enhance"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1_suffix"				"%"
+
+  		"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1"						"[R3] Rise of Champions"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_Description"			"A portion of Bahamut's attack power is added to Demigod's Vengeance bolts."
+    	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_property_one"		"Additional Damage"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_suffix"				"% of attack power"
+
+  		"DOTA_Tooltip_ability_bahamut_rune_r_4_arcana1"						"[R4] Omnipresence"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_4_arcana1_Description"			"Demigod's Vengeance has a chance each tick to strike an additional target. Greater than 100% chance means it can strike multiple targets."
+    	"DOTA_Tooltip_ability_bahamut_rune_r_4_arcana1_property_one"		"Multi-Bolt Chance"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_4_arcana1_suffix"				"%"
+
+    	"item_property_bahamut_arcana2"										"Sphere of Divinity"
+    	"property_bahamut_arcana2_description"								"Replaces @Ability2 and all of its runes with Sphere of Divinity."
+
+    	"DOTA_Tooltip_ability_bahamut_arcana_orb"								"Sphere of Divinity"
+    	"DOTA_Tooltip_ability_bahamut_arcana_orb_Description"					"Bahamut transports himself through an ascended orb of light with magic immunity toward the target location. Drains mana while in flight."
+    	"DOTA_Tooltip_ability_bahamut_arcana_orb_mana_drain_per_second"			"% MANA DRAIN / SECOND:"
+    	"DOTA_Tooltip_ability_bahamut_arcana_orb_speed"							"DISTANCE / SECOND:"
+
+  		"DOTA_Tooltip_ability_bahamut_rune_w_1_arcana2"						"[W1] Spell Vamp"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_1_arcana2_Description"			"Adds lifesteal to Magic and Pure damage. 10% of all overheal heals nearby allies."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_1_arcana2_property_one"		"Lifesteal"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_1_arcana2_suffix"				"% of every 100 damage dealt"
+
+  		"DOTA_Tooltip_ability_bahamut_rune_w_2_arcana2"						"[W2] Unification"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_2_arcana2_Description"			"Allies touched by Sphere of Divinity gain post-mitigation damage amp for 8 seconds."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_2_arcana2_property_one"		"Post-Mitigation Damage Bonus"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_2_arcana2_suffix"				"%"
+
+    	"DOTA_Tooltip_modifier_bahamut_arcana_post_mit"						"Unification"
+    	"DOTA_Tooltip_modifier_bahamut_arcana_post_mit_Description"			"Increased post-mitigation damage."
+
+  		"DOTA_Tooltip_ability_bahamut_rune_w_3_arcana2"						"[W3] Absolution"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_3_arcana2_Description"			"A brief moment of purity freezes enemies in place when touched by Sphere of Divinity."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_3_arcana2_property_one"		"Freeze Duration"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_3_arcana2_suffix"				" seconds"
+
+    	"DOTA_Tooltip_modifier_arcana2_purity_freeze"						"Absolution"
+    	"DOTA_Tooltip_modifier_arcana2_purity_freeze_Description"			"Frozen"
+
+  		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2"						"[W4] Ether Breach"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"All Base Ability and Item damage is enhanced by Bahamut's missing mana while outside of the @Ability2 (flat amount). Your abilities deal increased damage while inside the @Ability2 based on its speed. Casting Megaflare while in the @Ability2 multiplies the speed of the @Ability2 by <% BAHAMUT_ARCANA_W4_R_SPEED_MULT %>x and makes this rune treat you as if you are inside the @Ability2 for next 5 seconds. Damage increase from speed is multiplied by @Ability2's level."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"			"Extra Damage"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"					"% of missing mana"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_two"			"Damage Increase"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix_two"					"% of speed"		
+
+    	"DOTA_Tooltip_modifier_bahamut_arcana_w4_amp"						"Ether Breach"
+    	"DOTA_Tooltip_modifier_bahamut_arcana_w4_amp_Description"			"Increased damage based on Sphere of Divinity's Speed"
+
+    	"DOTA_Tooltip_modifier_bahamut_arcana_w4_amp_linger"				"Ether Breach"
+		
+		//Glyphs
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_1_1"		"Glyph of Valor"
+		"item_rpc_bahamut_glyph_1_1_description" 				"Reduces all physical damage taken by @glyph_property1%"
+
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_2_1"		"Glyph of Gigawall"
+		"item_rpc_bahamut_glyph_2_1_description" 				"Creates a Wall of Impunity at the end of a Megaflare charge that Bahamut automatically passes through."
+
+		//New Rune c_d: while channeling megaflare, all nearby enemies have slowed movespeed and attack speed
+
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_3_1"		"Glyph of Separation"
+		"item_rpc_bahamut_glyph_3_1_description" 				"Judgement falls around Bahamut instead of in front and has @glyph_property1% larger radius."
+
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_4_1"		"Glyph of Surging"
+		"item_rpc_bahamut_glyph_4_1_description" 				"Increases the radius of Bahamut Pulse by @glyph_property1%"
+
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_1"		"Glyph of Isolation"
+		"item_rpc_bahamut_glyph_5_1_description" 				"Increases the duration of Solitary Shell by @glyph_property1 seconds."
+
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_6_1"		"Glyph of Pride"
+		"item_rpc_bahamut_glyph_6_1_description" 				"Doubles the cooldown of Ascension, and Bahamut Pulse applies a @glyph_property1 second stun every 5th pulse."
+
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_7_1"		"Glyph of Barriers"
+		"item_rpc_bahamut_glyph_7_1_description" 				"Increases the duration of Wall of Impunity by @glyph_property1 seconds."
+
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_a"		"Glyph of Multiwall"
+		"item_rpc_bahamut_glyph_5_a_description" 				"Every @glyph_property1 seconds gain a free Wall of Impunity cast."
+
+		"DOTA_Tooltip_ability_modifier_bahamut_5_a_cooldown"	"Multiwall cooldown"
+	
+		//Weapons
+		"bahamut_weapon_00"			"Base Rune"
+		"bahamut_weapon_01"			"Power Rune"
+		"bahamut_weapon_02"			"Courage Rune"
+		"bahamut_weapon_03"			"Wisdom Rune"
+		"bahamut_weapon_11"			"Restorative Power Rune"
+		"bahamut_weapon_12"			"Superior Power Rune"
+		"bahamut_weapon_13"			"Truthful Courage Rune"
+		"bahamut_weapon_14"			"Replenishing Wisdom Rune"
+		"bahamut_weapon_21"			"Flawless Power Rune"
+		"bahamut_weapon_22"			"Unending Power Rune"
+		"bahamut_weapon_23"			"Courage Rune of Final Judgement"
+		"bahamut_weapon_24"			"Rune of Unbreakable Courage"
+		"bahamut_weapon_25"			"Rune of Enlightenment"
+		"DOTA_Tooltip_ability_item_rpc_bahamut_weapon_00"   "Base Rune"
+		"DOTA_Tooltip_ability_item_rpc_bahamut_weapon_01"   "Power Rune"
+		"DOTA_Tooltip_ability_item_rpc_bahamut_weapon_02"   "Courage Rune"
+		"DOTA_Tooltip_ability_item_rpc_bahamut_weapon_03"   "Wisdom Rune"
+		"DOTA_Tooltip_ability_item_rpc_bahamut_weapon_11"   "Chronos Rune"
+		"DOTA_Tooltip_ability_item_rpc_bahamut_weapon_12"   "Superiority Rune"
+		"DOTA_Tooltip_ability_item_rpc_bahamut_weapon_13"   "Rune of Truth"
+		"DOTA_Tooltip_ability_item_rpc_bahamut_weapon_14"   "Rune of Replenishment"
+		"DOTA_Tooltip_ability_item_rpc_bahamut_weapon_21"   "Flawless Power Rune"
+		"DOTA_Tooltip_ability_item_rpc_bahamut_weapon_22"   "Unending Power Rune"
+		"DOTA_Tooltip_ability_item_rpc_bahamut_weapon_23"   "Rune of Final Judgement"
+		"DOTA_Tooltip_ability_item_rpc_bahamut_weapon_24"   "Rune of Unbreakable Courage"
+		"DOTA_Tooltip_ability_item_rpc_bahamut_weapon_25"   "Rune of Enlightenment"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_1"		"Universe Rune"
+		"item_property_bahamut_immortal_weapon"								"World Reach"
+		"property_bahamut_immortal_weapon_description"						"Damage from Abilities and Manifold Judgement have a 20% chance to be nuked for 4x the damage dealt as pure damage."
+		
+		"DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_2"            "Nucleus Rune"
+        "item_property_bahamut_immortal_weapon2"                             "Rising Consciousness"
+        "property_bahamut_immortal_weapon2_description"                      "Increases movespeed by @special_property1% and reduces the base cooldown for @Ability3 to @special_property2 seconds."
+
+        "DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_3"            "Origin Rune"
+        "item_property_bahamut_immortal_weapon3"                             "Omega Waller"
+        "property_bahamut_immortal_weapon3_description"                      "Increases the length of @Ability1 by @special_property1% and its damage by @special_property2%"
