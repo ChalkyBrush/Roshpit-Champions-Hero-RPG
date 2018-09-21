@@ -495,7 +495,12 @@ function ChatDropItems(keys)
   end
 
   if string.match(text, "-potions") then
-    for i=1,30 do
+    local max = 30
+    if string.match(text, "-potions ") then
+      str1 = string.gsub(text, "-potions ", "")
+      max = tonumber(str1)
+    end
+    for i=1,max do
       RPCItems:RollBasicPotion(5000, vector, "mythical", 100)
     end
   end
