@@ -501,7 +501,9 @@ function ChatDropItems(keys)
       max = tonumber(str1)
     end
     for i=1,max do
-      RPCItems:RollBasicPotion(5000, vector, "mythical", 100)
+      Timers:CreateTimer((max-i)/50, function()
+        RPCItems:RollBasicPotion(5000, vector, "mythical", 100)
+      end)
     end
   end
   
