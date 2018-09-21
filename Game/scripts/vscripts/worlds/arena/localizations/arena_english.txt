@@ -1,0 +1,862 @@
+		
+		
+				//ARENA
+
+		"roshpit_arena"												"Roshpit Arena"
+		"arena_dialogue_one"										"The Roshpit Arena hosts the highest level of combat! People come from all over the World to celebrate our greatest Champions."
+		"arena_attendee_one"										"Arena Attendee"
+
+		"arena_training_dummy"										"Training Dummy"
+		"arena_training_dummy_sentence_1"							"hit"
+		"arena_training_dummy_sentence_2"							"for"
+		"arena_training_dummy_sentence_3"							"damage"
+
+		"arena_training_button_1"									"Clear Log"
+		"arena_training_button_2"									"Start 7s Timer"
+		"arena_training_button_3"									"Exit"
+
+		"arena_log_capacity"										"Log Capacity"
+		"arena_log_dps"												"DPS"
+		"arena_armor_title"											"Physical Armor"
+		"arena_update_dummy"										"Update Dummy"
+
+		"arena_fan_dialogue_one"									"I'm here to see my favorite fighter, Champion Varaphlas!"
+		"arena_fan_dialogue_two"									"Wow, you're my favorite Champion!"
+		"arena_entrance_fan"										"Arena Fan"
+
+		"arena_fan2_dialogue_one"									"I'm here to watch the Challenger's League! Anyone can register, but only a small few actually reach the highest level."
+
+		"arena_left_leaderboard_title"								"Champion's League"
+
+		"donations_board_title"										"Roshpit Donations"
+		"donation_tip"												"roshpit.ca/donate"
+		"donations_name"											"Name"
+		"donations_amount"											"Amount"
+		"donations_message"											"Message"	
+
+		"arena_hall_of_heroes_npc"									"Historian"
+
+		"champions_league_attendant"								"Champion's League Attendant"
+		"pvp_league_attendant"										"PVP League Attendant"
+		"pvp_league_attendant_message"								"The PVP League is still under development. Check back later."
+		"challenger_league_attendant_message"						"The Challenger League is still under development. Battles will consist of co-op group chellenges. Check back later."
+
+		"hall_of_champions_dialogue"								"These statues are built to commemorate the Valor and Courage of past heroes."
+
+		"arena_behind_counter_1"									"Please speak to me on the other side of the counter."
+		"arena_behind_counter_2"									"Hey. You're not supposed to be back here."
+		"arena_behind_counter_3"									"Staff Only. Please get out of here."
+
+		"arena_league_attendant_greeting"							"Hi! Welcome to the Champion's League."
+		"pvp_league_attendant_greeting"								"This is the PVP League."
+		"challenger_league_attendant_greeting"						"Welcome to the Challenger's League."
+
+		"challenger_attendant"										"Challenger's League Attendant"
+		
+		"arena_crowd_fan"											"Fan"
+		
+		"arena_guard"												"Guard of Arena"
+		"DOTA_Tooltip_ability_arena_guard_ability"					"Guard of Arena"
+		"DOTA_Tooltip_ability_arena_guard_ability"					"No trespassing!"
+
+		"arena_league_attendant_player_restriction"					"You may only participate in the Champion's League as an individual. Come back when you're alone if you want to join."
+		"arena_league_attendant_player_state_0"						"Welcome to the Champion's League! This is a global tournament that tests the individual battle proficiency of its participants."
+		"arena_league_attendant_choice_0_option_1"					"Sign Up"
+		"arena_league_attendant_choice_0_option_2"					"Nevermind"
+
+		"champions_league_assistant"								"Coach Clearmoon"
+
+		"arena_league_attendant_player_state_1"						"Oh. It looks like you don't have a coach. I might be able to assign you one, would you want that?"
+		"arena_league_attendant_choice_1_option_1"					"Yes"
+		"arena_league_attendant_choice_1_option_2"					"No Thanks"
+		"arena_league_attendant_calling_coach"						"OK, I'm buzzing her now. She should be on her way."
+		"arena_league_attendant_waiting_for_coach"					"Your coach is on her way. Please wait here for her."
+
+		"champion_assistant_dialogue_1"								"Can you not bother me? I'm trying to think."
+		"champion_assistant_dialogue_2"								"I'm here. Is this the new registrant?"
+		"arena_league_attendant_coach_arrive"						"Hi!"
+		"champion_assistant_dialogue_3"								"You look weak... but I can see some fire in your eyes."
+		"champion_assistant_dialogue_4"								"I hope you're not as fragile as some of the other pick-up registrants that I've been assigned to."	
+		"champion_assistant_dialogue_5"								"Follow me, I'll show you to the newbie lounge and prepare you for your first fight."
+		"champion_assistant_dialogue_6"								"This is the Hall of Champions. I often come here to meditate and reflect on past battles."		
+		"arena_league_attendant_coach_arrive_end"					"Good luck to both of you!"
+		"champion_assistant_dialogue_7"								"This is the newbie lounge. It's not the nicest place, but it's where you belong."
+		"champion_assistant_dialogue_8"								"Since you are now an official competitor, you are welcome here at any time."
+		"champion_assistant_dialogue_9"								"Over there is an Arena Terminal. You can register for a battle from there."
+		"champion_assistant_dialogue_9a"							"Go and try it out!"
+		"champion_assistant_dialogue_10"							"Oh? There seems to be a problem with your registration. I need to go back to front desk to fix it."
+		"champion_assistant_dialogue_11"							"Just wait here, and maybe get to know some of your rivals. I'll be right back."
+		"champion_assistant_dialogue_12"							"OK, you're all set up now. Go use the terminal to register for your first battle."
+		"champion_assistant_dialogue_12a"							"Your battle is about to begin. The arena is just setting up for you!"
+		"champion_assistant_dialogue_13"							"This is your first fight. Battles are decided in a Bo3, so keep your head up after your first win."
+		"champion_assistant_dialogue_14"							"If you lose this, you should probably go home and come back only when you're stronger."
+		"champion_assistant_dialogue_15"							"Great, you won your first fight. Don't get too confident, it only gets harder from here."
+		"champion_assistant_dialogue_15a"							"Your Champions League progress is automatically saved after winning."
+		"champion_assistant_dialogue_16"							"Use the terminal to start your next ranked battle."
+		"champion_assistant_dialogue_17"							"Blacksong is a tough opponent. She has massive physical damage and will always keep up with you."
+		"champion_assistant_dialogue_19"							"A lot of people give up around here, so let's see you persevere."
+		"champion_assistant_dialogue_20"							"That was an impressive show, the crowd was loving it."
+		"champion_assistant_dialogue_21"							"I'm looking forward to your next battle."
+		"champion_assistant_dialogue_22"							"Let's show Gorewreck. Register at the Terminal!"
+		"champion_assistant_dialogue_23"							"Gorewreck returns damage when attacked. Heavy hits will be returned harder."
+		"champion_assistant_dialogue_24"							"Keep a steady and controlled pace!"
+		"champion_assistant_dialogue_25"							"Elderheart creates 3 elementals each with their own strengths."
+		"champion_assistant_dialogue_26"							"The Earth Spirit has high magic resist, and fire has high armor."
+		"champion_assistant_dialogue_27"							"That was a huge win! I have confidence that you'll go far."
+		"champion_assistant_dialogue_28"							"Bryvarus is incredibly fast and resilient."
+		"champion_assistant_dialogue_29"							"Use any tools you have to keep your distance, and chip him down!"
+		"champion_assistant_dialogue_30"							"This opponent is sneaky. Don't let him trick you!"
+		"champion_assistant_dialogue_31"							"What an incredible performance! Only 5 more rank ups until you're in the Major League."
+		"champion_assistant_dialogue_32"							"Keep it up!"
+		"champion_assistant_dialogue_33"							"The only way to hurt Ironspike is to let him damage you!"
+		"champion_assistant_dialogue_34"							"Healing and Tanking are the keys to winning this matchup"
+		"champion_assistant_dialogue_35"							"Ursa Major summons a horde of savage bears."
+		"champion_assistant_dialogue_36"							"Classic wave-clearing AOE will be the most efficient way to win"
+		"champion_assistant_dialogue_37"							"Rakash throws stunning axes and has nimble Maneuverability."
+		"champion_assistant_dialogue_38"							"He has periodic magic immunity, so physical attacks will be most reliable."
+		"champion_assistant_dialogue_39"							"The Red Mist Captain has an aura that deals 3% of your current health as pure damage each second."
+		"champion_assistant_dialogue_40"							"If your health falls below 35%, he will execute you!"
+		"champion_assistant_dialogue_41"							"Your next match will place you in the Major Champion's League"
+		"champion_assistant_dialogue_42"							"I must say I am proud of how far you've made it!"
+		"champion_assistant_dialogue_43"							"I shouldn't have doubted you. Let's see you make it to the Major League!"
+		"champion_assistant_dialogue_44"							"The Avernus challenger combines the power of the strongest enemies of Avernus Castle"
+		"champion_assistant_dialogue_45"							"If you're an experienced adventurer, you should know how to handle him!"
+		"champion_assistant_dialogue_45a"							"Congratulations on your big win!"
+		"champion_assistant_dialogue_45b"							"You are now in the Major League, and you are welcome in the Major League Lounge at any time."
+		"champion_assistant_dialogue_45c"							"I am so proud of your accomplishment!"
+		"champion_assistant_dialogue_46"							"Arcanys has maximum attack range and can teleport around the arena."
+		"champion_assistant_dialogue_47"							"Mobility and disjoints will be necessary to win!"	
+		"champion_assistant_dialogue_48"							"Only the strongest Champions can compete in the Major League. Use the terminal to start your next battle!"
+		"champion_assistant_dialogue_49"							"Grand Warlord gains 1 magic resist for each % of Health that he's missing."
+		"champion_assistant_dialogue_50"							"You'll have to finish him off with physical damage."
+		"champion_assistant_dialogue_51"							"Condorpaw has blink teleport on a short cooldown."
+		"champion_assistant_dialogue_52"							"He will strike you with fire and ice!"
+		"champion_assistant_dialogue_53"							"I can't actually remember anything about your next opponent."
+		"champion_assistant_dialogue_54"							"Rank 6 battles always seem hazy."
+		"champion_assistant_dialogue_55"							"You seem relieved to see me. Why is that?"
+		"champion_assistant_dialogue_56"							"We're just 1 rank away from the All-Star league! What an impressive Champion!"
+		"champion_assistant_dialogue_57"							"Varaphlas has an earthquake leap attack"
+		"champion_assistant_dialogue_58"							"He also summons a cascade of chaos meteors. Watch your head!"	
+		"champion_assistant_dialogue_59"							"You're a famous All-Star champion!"
+		"champion_assistant_dialogue_59a"							"All-Star battles are extremely challenging, but I think you can do it."
+		"champion_assistant_dialogue_60"							"Oplexus is a fan favorite. It is nearly impossible to pull crowd favor from him."
+		"champion_assistant_dialogue_61"							"Don't let him dazzle you too! Stay focused."
+		"champion_assistant_dialogue_62"							"The red rubick is immune to magical damage, and the blue rubick is immune to physical damage."
+		"champion_assistant_dialogue_63"							"The brothers share health, so go for the one that you can hit the hardest!"
+		"champion_assistant_dialogue_64"							"Amazing! You are now Top 3 in the Champion's League!"
+		"champion_assistant_dialogue_65"							"I never imagined you could make it this far. Do you think we can make it all the way to the top?"	
+		"champion_assistant_dialogue_66"							"Nemesis' special attacks deal massive damage, but are predictable."
+		"champion_assistant_dialogue_67"							"Learn his pattern quickly, and you'll be fine."	
+		"champion_assistant_dialogue_68"							"Just 1 more Victory and you'll be crowned Grand Champion"
+		"champion_assistant_dialogue_69"							"We've come this far, let's go for #1!"
+
+		"sign_hall_of_champions"									"Hall of Champions"
+		"sign_aquatarium"											"The Aquatarium"
+		"sign_minor_locker_room"									"Newbie Lounge"
+		"sign_major_locker_room"									"Major League Lounge"
+		"sign_allstar"												"All-Star Lounge"
+
+		"arena_aquatarium_magician"									"Water Magician"
+		"aquatarium_greeting"										"Find me among the crowd of water and earn 200 mithril! Limit 1 play per visitor."
+		"aquatarium_greeting_alt"									"Sorry, only 1 play per visit. Come back next time!"
+		"aquatarium_greeting_bubble"								"Come on, let's see if you can find me!"
+		"aquatarium_option_1"										"Let's Go"
+
+		"aquatarium_start"											"Excellent! Just give me a minute. This game takes some time to set up."
+		"aquatarium_working"										"Almost done, hang on."
+		"aquatarium_ready"											"OK, keep your eye on me. Ready?"	
+		"aquatarium_lose"											"Oh too bad, but you let me slip! Better try harder next time."	
+		"aquatarium_win_1"											"Ergh. It would have been so easy if I were less conservative with my Wave Forms."	
+		"aquatarium_win_2"											"I guess you won. Enjoy your mithril."	
+		"aquatarium_win_3"											"Congratulations. Next time I won't make it so easy for you."	
+
+		"terminal_rank_display"										"Rank:"	
+		"arena_terminal_wins"										"Wins:"	
+		"arena_terminal_fame"										"Fame:"		
+		"start_champions_league_battle"								"Register For Battle"	
+		"terminal_registrant_not_found"								"Not Found"
+		"terminal_cant_register"									"Registration Inactive"
+		"terminal_cant_choose_opponent"								"Opponent Locked"
+		"terminal_choose_opponent"									"Select Opponent"
+		"terminal_opponent_unselected"								"No Opponent Selected"
+		"terminal_high_score"										"High Score:"
+		"terminal_opponent_rank"									"Opponent Rank:"
+
+		"champion_league_challenger_20"								"Rekkin Stargrin"
+		"arena_champion_20_lower"									"I've been stuck at the bottom of the ladder, but I never give up."
+		"arena_champion_20_higher"									"You are a formidable competitor. I will stand at your rank some day."
+
+		"DOTA_Tooltip_ability_arena_rekkin_wave"					"Spacewave"
+		"DOTA_Tooltip_ability_arena_rekkin_wave_Description"		"A starbright wave stuns and damages those it strikes, dazzling the crowd."
+
+		"DOTA_Tooltip_ability_arena_dodge_ability"					"Arena Dodge"
+		"DOTA_Tooltip_ability_arena_dodge_ability_Description"		"Combat Maneuverability"
+
+		"arena_prebattle_text"										"Battle:"
+		"arena_crowdsize_text"										"Crowd Size"
+		"arena_fan_support"											"Fan Support"
+		"DOTA_Tooltip_modifier_arena_crowd_buff"					"Fan Support"
+		"DOTA_Tooltip_modifier_arena_crowd_buff_Description"		"Each supporting fan increases all damage output by 10%%"
+		"skip_button_label"											"Skip Intro"
+
+		"arena_battle_lost"											"Battle Lost"
+		"arena_battle_win"											"Battle Victory!"
+
+		"arena_time_bonus"											"Time Bonus"
+		"arena_style_bonus"											"Crowd Bonus"
+		"arena_total_bonus"											"Total Score"
+
+		"champion_league_challenger_19"								"Blacksong"
+		"DOTA_Tooltip_ability_arena_stifling_dagger"				"Stifling Dagger"
+		"DOTA_Tooltip_ability_arena_stifling_dagger_Description"	"Heavily damages and slows the target with a piercing dagger."	
+
+		"DOTA_Tooltip_ability_arena_phantom_strike"					"Phantom Strike"
+		"DOTA_Tooltip_ability_arena_phantom_strike_Description"		"Teleports to the target and increases attack speed for 4 strikes."	
+
+		"champion_league_challenger_18"								"Gorewreck"
+		"arena_champion_18_taunt"									"You're too small for this. Just give up!"
+		"arena_coach_18_defend_taunt"								"Sounds like you're scared. I think this will get settled pretty soon in the Arena."
+		"arena_champion_18_ready"									"Crushing worms. CRUSHING WORMS."
+		"arena_champion_18_lower"									"The Champion's League is no place for worms like you."
+		"arena_champion_18_higher"									"I don't have time for you OK?"
+
+		"DOTA_Tooltip_ability_arena_gorewreck_passive"				"Ogre Strength"
+		"DOTA_Tooltip_ability_arena_gorewreck_passive_Description"	"Attacks deal additional magic damage, adds magic resist, and taking damage deals pure damage to the attacker."
+		"DOTA_Tooltip_ability_arena_gorewreck_passive_magic_damage_attack"	"MAGIC DAMAGE ATTACK:"
+		"DOTA_Tooltip_ability_arena_gorewreck_passive_magic_resist"	"MAGIC RESIST:"
+		"DOTA_Tooltip_ability_arena_gorewreck_passive_damage_return"	"RETURN DAMAGE (% OF TARGET MAX HEALTH):"
+		
+		"DOTA_Tooltip_ability_arena_riki_ult"            "Cloak & Dagger"
+		"DOTA_Tooltip_ability_arena_riki_ult_Description"    "Slip into a befuddling haze where you become undetectable and automatically attack all enemies within the area on a short interval."
+
+		"champion_league_challenger_17"								"Ru Elderheart"
+		"arena_champions_17_1"										"To master the arena..."
+		"arena_champions_17_2"										"You must master the elements"
+		"DOTA_Tooltip_ability_arena_challenger_17_immolation"							"Immolation"
+		"DOTA_Tooltip_ability_arena_challenger_17_immolation"							"Deals periodical magic damage in AOE"
+		"DOTA_Tooltip_ability_arena_challenger_17_ability"								"Master of Elements"
+		"DOTA_Tooltip_ability_arena_challenger_17_summon_ability"						"Summoned Unit"
+		"DOTA_Tooltip_ability_arena_thunder_clap"										"Thunder Clap"
+		"DOTA_Tooltip_ability_arena_thunder_clap_Description"							"Elderheart slams the ground, dealing damage and slowing the movement speed and attack rate of nearby enemy land units."
+		"DOTA_Tooltip_ability_arena_thunder_clap_radius"								"RADIUS:"
+		"DOTA_Tooltip_ability_arena_thunder_clap_damage"								"DAMAGE:"
+		"DOTA_Tooltip_ability_arena_thunder_clap_movement_slow"							"MOVEMENT SLOW:"
+		"DOTA_Tooltip_ability_arena_thunder_clap_attack_speed_slow"						"ATTACK SPEED SLOW:"
+		
+		
+		"champion_league_challenger_16"								"Bryvarus Plainsrunner"
+		"champion_league_challenger_16_dialogue"					"Speed and Endurance are the primary traits of a successful Champion"	
+
+		"champion_league_challenger_15"								"Blind Sleeper"
+		"champion_league_challenger_15_dialogue"					"I strike from the shadows"	
+
+		"champion_league_challenger_14"								"Ironspike"
+
+		"DOTA_Tooltip_ability_arena_quill_spray"					"Quill Spray"
+		"DOTA_Tooltip_ability_arena_quill_spray_Description"		"Deals physical damage to all nearby enemies."
+
+		"DOTA_Tooltip_ability_arena_drill_spike"					"Drill Spike"
+		"DOTA_Tooltip_ability_arena_drill_spike_Description"		"Each cast of Quill Spray additionally launches drill spikes. Spikes deal 20% of the target's max HP as pure damage and reduce armor. Each time a Drill Spike hits, the caster's defenses are weakened."
+
+		"DOTA_Tooltip_modifier_arena_drill_spike_enemy"					"Drill Spike Impact"
+		"DOTA_Tooltip_modifier_arena_drill_spike_enemy_Description"		"Reduced Armor"
+
+		"DOTA_Tooltip_modifier_drill_spike_self"						"Drill Spike"
+		"DOTA_Tooltip_modifier_drill_spike_self_Description"			"Taking 100%% increased damage per stack."
+
+		"champion_league_challenger_13"								"Ursa Major"
+		"DOTA_Tooltip_ability_arena_ursa_thunder_clap"					"Thunder Clap"
+		"DOTA_Tooltip_ability_arena_ursa_thunder_clap_Description"		"Ursa Major claps the ground, dealing damage and slows nearby enemies."
+		"DOTA_Tooltip_ability_arena_ursa_thunder_clap_shock_radius"		"RADIUS:"
+		"DOTA_Tooltip_ability_arena_ursa_thunder_clap_movement_slow"	"MOVEMENT SLOW:"
+
+		"champion_league_challenger_12"								"Rakash Axemelter"
+		"DOTA_Tooltip_ability_arena_challenger_12_axe_throw"					"Axe Throw"
+		"DOTA_Tooltip_ability_arena_challenger_12_axe_throw_Description"		"Rakash throws an axe at the target location, which deals damage and shortly stuns a target on hit."
+		"DOTA_Tooltip_ability_arena_challenger_12_axe_throw_damage"				"DAMAGE:"
+		"DOTA_Tooltip_ability_arena_challenger_12_axe_throw_stun_duration"		"STUN DURATION:"
+		"DOTA_Tooltip_ability_arena_challenger_12_passive"						"Burning blood"
+		"DOTA_Tooltip_ability_arena_challenger_12_passive_Description"			"Magic immunity for 8 seconds."
+
+		"champion_league_challenger_11"								"Red Mist Captain"
+
+		"DOTA_Tooltip_modifier_arena_radiance_aura_effect"			"Arena Radiance"
+		"DOTA_Tooltip_modifier_arena_radiance_aura_effect_Description"	"Taking 3%% of current health as pure damage each second. Additionally losing 75 movespeed."
+
+		"DOTA_Tooltip_ability_arena_challenger_11_radiance"				"Arena Radiance"
+		"DOTA_Tooltip_ability_arena_challenger_11_radiance_Description"	"Deals 3% of all enemies' current health as pure damage. Additionally reduces movespeed by 75."
+
+		"champion_league_challenger_10"								"Avernus Conqueror"
+		"champion_league_challenger_10_dialogue_lower"				"I raise the defeated into eternal servitude for my Army. Will you die before me?"	
+		"champion_league_challenger_10_dialogue_higher"				"My army of death respects your power."
+
+		"DOTA_Tooltip_ability_arena_challenger_10_wraithfire"		"Wraithfire Missile"
+		"DOTA_Tooltip_ability_arena_challenger_10_wraithfire_Description"	"Launches a flaming skull that stuns and damages impacted targets."
+		"DOTA_Tooltip_ability_arena_challenger_10_passive"					"Gravelord"
+		"DOTA_Tooltip_ability_arena_challenger_10_passive_Description"		"Summons the undead army to the realm"
+
+		"champion_league_challenger_9"								"Arcanys Mindflay"
+		"champion_league_challenger_9_dialogue_lower"				"Inferior minds tremble beneath my glaives."	
+		"champion_league_challenger_9_dialogue_higher"				"Your intellect exceeds expectations."
+		"DOTA_Tooltip_ability_arena_challenger_9_mana_drain"				"Aura of Mana Drain"
+		"DOTA_Tooltip_ability_arena_challenger_9_mana_drain_Description"	"Arcanys Mindflay slows enemies in wide range and drains their mana."
+		"DOTA_Tooltip_modifier_arena_mana_drain_aura_effect"				"Aura of Mana Drain"
+		"DOTA_Tooltip_modifier_arena_mana_drain_aura_effect_Description"	"Movement speed reduced. 2 percent of mana drained each tick."
+
+		"champion_league_challenger_8"								"Grand Warlord"	
+		"DOTA_Tooltip_ability_arena_wild_axes"						"Wild Axes"
+		"DOTA_Tooltip_ability_arena_wild_axes_Description"			"Warlord throws axes at the enemy"
+		"DOTA_Tooltip_ability_arena_war_rally"						"Wild Rally"
+		"DOTA_Tooltip_ability_arena_war_rally_Description"			"Warlord gets 1 percent of magical resistance for each percent of lost HP."
+		"DOTA_Tooltip_modifier_war_rally_effect"					"War Rally"
+		"DOTA_Tooltip_modifier_war_rally_effect_Description"		"Magic Resist increased."
+		"DOTA_Tooltip_ability_arena_god_of_war"						"God of War"
+		"DOTA_Tooltip_ability_arena_god_of_war_Description"			"Warlord powers himself up, increasing movement and attack speed."
+		"DOTA_Tooltip_ability_arena_god_of_war_movespeed"			"BONUS ATTACK SPEED:"
+		"DOTA_Tooltip_ability_arena_god_of_war_attackspeed"			"BONUS MOVESPEED:"
+
+		"champion_league_challenger_7"								"Condorpaw Sunfreeze"
+		"champion_league_challenger_7_dialogue"						"The Sun and Stars dictate the outcomes of battle. I am the thread between them."
+		"DOTA_Tooltip_ability_arena_freezing_field"					"Freezing Field"
+
+		"champion_league_challenger_6"								"Atropos"			
+
+		"DOTA_Tooltip_ability_arena_ghastly_air_warden_passive"		"Blightwing"
+		"DOTA_Tooltip_ability_arena_ghastly_air_warden_passive_Description"	"Magic damage taken is reduced by 99%"
+
+		"champion_league_challenger_5"								"Champion Varaphlas"
+		"champion_league_challenger_5_dialogue"						"It takes a lifetime of hard work and discipline in order to ascend to your greatest heights."
+		"champion_league_challenger_5_dialogue_higher"				"I am humbled by your strength."	
+
+		"champion_league_challenger_4"								"Oplexus"
+		"champion_league_challenger_4_dialogue"						"The fans love me because I am perfect!"
+
+		"DOTA_Tooltip_ability_item_rpc_arena_prizebox"				"Arena Prizebox"
+		"arena_prizebox_level"										"Level"
+
+		"champion_league_challenger_3"								"Rubick Bros"
+		"champion_league_challenger_3_a"							"Blue"
+		"champion_league_challenger_3_b"							"Red"		
+
+		"DOTA_Tooltip_ability_arena_challenger_3_bolt"				"Composition Bolt"
+		"DOTA_Tooltip_ability_arena_challenger_3_bolt_Description"	"Deals damage and disarms or silences."
+
+		"DOTA_Tooltip_modifier_challenger_bolt_blue_debuff"			"Composition Bolt"
+		"DOTA_Tooltip_modifier_challenger_bolt_blue_debuff_Description"	"Silenced"	
+
+		"DOTA_Tooltip_modifier_challenger_bolt_red_debuff"			"Composition Bolt"
+		"DOTA_Tooltip_modifier_challenger_bolt_red_debuff_Description"	"Disarmed"	
+
+		"DOTA_Tooltip_ability_arena_challenger_3_b_passive"			"Rubick Red"
+		"DOTA_Tooltip_ability_arena_challenger_3_b_passive_Description"	"Physical Damage Immunity"
+		"DOTA_Tooltip_ability_arena_challenger_3_a_passive"			"Rubick Blue"
+		"DOTA_Tooltip_ability_arena_challenger_3_a_passive_Description"	"Magic Damage Immunity"
+
+		"champion_league_challenger_2"								"Nemesis"
+		"DOTA_Tooltip_ability_arena_challenger_2_sword_dash"	"Savage Sprint"
+		"DOTA_Tooltip_ability_arena_challenger_2_sword_dash_Description"	"Warrior dashes forward, slaying enemies on his path."
+
+		"champion_league_challenger_1"								"King Jette"
+		"champion_league_challenger_1_dialogue"						"None can match my experience. My position goes unchallenged."
+		"champion_league_challenger_1_dialogue_alt"					"A new King has emerged"	
+
+		"DOTA_Tooltip_modifier_arena_newb_fountain"					"Fountain Regen"
+		"DOTA_Tooltip_modifier_arena_good_fountain"					"Fountain Regen"
+
+		"DOTA_Tooltip_ability_item_rpc_helm_of_champions"			"Helm of Champions"
+		"DOTA_Tooltip_ability_item_rpc_gauntlet_of_champions"		"Gauntlet of Champions"
+		"DOTA_Tooltip_ability_item_rpc_champions_mail"				"Champion's Mail"
+		"DOTA_Tooltip_ability_item_rpc_boots_of_champions"			"Boots of Champions"
+
+		"arena_prizebox_champions"									"Champion's Gear"
+		
+		"arena_show_fighter_one"		"Ol'Brok the Fireproof"
+		"arena_show_fighter_two"		"Arena Kitchener"
+	
+		"pvp_attendant"					"Pvp League Attendant"
+	
+		"DOTA_Tooltip_ability_challenger_5_chaos_meteor"				"Chaos Meteor"
+		"DOTA_Tooltip_ability_challenger_5_chaos_meteor_Description"	"Flaming boulder falls from the sky, dealing damage on its path. Burn damage ticks every 0.5 seconds, damage burn from multiple meteors stacks."
+		"DOTA_Tooltip_ability_challenger_5_chaos_meteor_main_damage"	"DAMAGE ON IMPACT:"
+		"DOTA_Tooltip_ability_challenger_5_chaos_meteor_burn_dps"		"BURN DPS:"
+		"DOTA_Tooltip_ability_challenger_5_chaos_burn_duration"			"DURATION OF BURN:"
+	
+		"DOTA_Tooltip_ability_arena_challenger_5_passive"				"Dragon's Mind"
+		"DOTA_Tooltip_ability_arena_challenger_5_passive_Description"	"Champion Varaphlas controls all aspects of a fight by rain of meteors and crushing jumps."
+		"DOTA_Tooltip_modifier_arena_challenger_5_passive"				"Dragon's Mind"
+	
+		"DOTA_Tooltip_ability_arena_challenger_4_passive"				"Greatness of Oplexus"
+		"DOTA_Tooltip_ability_arena_challenger_4_passive"				"Oplexus pursues target with numerous jumps."
+		"DOTA_Tooltip_modifier_arena_challenger_4_passive"				"Greatness of Oplexus"
+		"DOTA_Tooltip_ability_arena_challenger_4_shield"				"Shine of Oplexus"
+		"DOTA_Tooltip_ability_arena_challenger_4_shield"				"Deals 5000 magical damage to nearby units per hit and bashes them."
+		"DOTA_Tooltip_modifier_challenger_4_shield_effect"				"Shine of Oplexus"
+	
+		"DOTA_Tooltip_ability_arena_challenger_1_illuminate"				"Holy Illumination"
+		"DOTA_Tooltip_ability_arena_challenger_1_illuminate_Description"	"Deals pure tamage to the enemies before King. Applies 30 movespeed slow on impact."
+	
+		"DOTA_Tooltip_modifier_challenger_1_slow"				"Slow"
+		"DOTA_Tooltip_modifier_challenger_1_slow_Description"	"Movespeed lowered by 30."
+	
+		"DOTA_Tooltip_ability_arena_challenger_1_passive"					"Eternal light"
+		"DOTA_Tooltip_ability_arena_challenger_1_passive_Description"		"Increases movement speed by 50% and attack speed by 110 for 5 seconds."
+		"DOTA_Tooltip_ability_arena_challenger_1_passive_2"					"Righteous Anger"				
+		"DOTA_Tooltip_ability_arena_challenger_1_passive_2_Description"		"Doubles damage and increases movement speed by 70."
+		"DOTA_Tooltip_modifier_arena_challenger_1_passive_2"				"Damage and movement speed increased."
+
+		//Pit of Trials
+
+		"tooltip_pit_of_trials"												"Pit of Trials"
+
+		"arena_trial_of_conquest"									"Trial of Conquest"
+		"arena_trial_of_lies"										"Trial of Lies"
+		"arena_trial_of_descent"									"Trial of Descent"
+
+		"tooltip_pit_highest_level"										"Highest Level Cleared"
+		"tooltip_no_lock_out"											"Dungeon Available"
+		"tooltip_lock_out"												"Dungeon locked<br>until tomorrow"
+
+		"tooltip_select_pit_level"										"Select Pit Level"
+		"tooltip_select_pit_level_title"								"Level Select"	
+		"tooltip_dungeon_lockout"										"Dungeon Lockout"
+		"tooltip_open_pit"												"Open Pit"
+		"tooltip_pit_open"												"Pit Open"
+
+		"tooltip_pit_enemy_damage"										"Enemy Damage"
+		"tooltip_pit_enemy_resistance"									"Enemy Resistance"
+		"tooltip_pit_enemy_paragon"										"Paragon Spawn Rate"
+
+		"DOTA_Tooltip_ability_arena_master_duelist_passive"					"Battle Haste"
+		"DOTA_Tooltip_ability_arena_master_duelist_passive_Description"		"When landing an attack, 30% chance to gain max attack speed for 1 second."
+
+		"DOTA_Tooltip_ability_arena_champion_gladiator_passive"				"Sturdy Armor"
+		"DOTA_Tooltip_ability_arena_champion_gladiator_passive_Description"	"Gain 50 armor each time damage is taken."
+
+		"DOTA_Tooltip_ability_arena_gladiator_strike_array"					"Light Strike Array"
+		"DOTA_Tooltip_ability_arena_gladiator_strike_array_Description"		"Create a column of fire that stuns at the target location"
+
+		"DOTA_Tooltip_modifier_champion_gladiator_passive_stacking"			"Sturdy Armor"
+		"DOTA_Tooltip_modifier_champion_gladiator_passive_stacking_Description"	"50 armor per stack"	
+
+		"DOTA_Tooltip_ability_arena_soul_revenant_passive"					"Soul Sparks"
+		"DOTA_Tooltip_ability_arena_soul_revenant_passive_Description"		"Damages all nearby enemies for 1% of their max health as pure every 0.2 seconds."
+
+		"DOTA_Tooltip_ability_arena_shadow_sniper_passive"					"Overload"
+		"DOTA_Tooltip_ability_arena_shadow_sniper_passive_Description"		"Attacks slow the target's movespeed and reduce attack damage."
+		"DOTA_Tooltip_ability_arena_shadow_sniper_passive_move_slow"		"MOVE SLOW:"
+		"DOTA_Tooltip_ability_arena_shadow_sniper_passive_attack_loss"		"ATTACK LOSS %:"
+
+		"arena_pit_conquest_mire_keeper"									"Mire Keeper"
+		
+		"arena_conquest_ruins_guardian"									"Ruins Guardian"
+
+		"DOTA_Tooltip_modifier_arena_shadow_sniper_slow"					"Overload"
+		"DOTA_Tooltip_modifier_arena_shadow_sniper_slow_Description"		"Reduce movespeed and attack damage."
+
+		"DOTA_Tooltip_ability_arena_mire_keeper_passive"					"Inner Surge"
+		"DOTA_Tooltip_ability_arena_mire_keeper_passive_Description"		"Whenever damage is taken, increase attack damage."
+		"DOTA_Tooltip_ability_arena_mire_keeper_passive_damage_per_instance"	"DAMAGE PER STACK %"
+
+		"DOTA_Tooltip_modifier_mire_keeper_passive_effect"					"Inner Surge"
+		"DOTA_Tooltip_modifier_mire_keeper_passive_effect_Description"		"Increased attack damage"
+
+		"DOTA_Tooltip_ability_arena_mountain_crush"							"Mountain Crush"
+		"DOTA_Tooltip_ability_arena_mountain_crush_Description"				"Jumps towards the target unit. Upon landing, create a stunning earthquake."	
+
+		"DOTA_Tooltip_ability_arena_cragnataur_shockwave"					"Shockwave"
+		"DOTA_Tooltip_ability_arena_cragnataur_shockwave_Description"		"Damage enemies in a line with a streak of moutain force."
+
+		"arena_pit_conquest_cragnataur"									"Cragnataur"
+
+		"arena_pit_conquest_priest_of_karzhun"							"Priest of Kar'zhun"
+
+		"DOTA_Tooltip_ability_arena_priest_of_karzhun_shield"			"Shield of Kar'zhun"
+		"DOTA_Tooltip_ability_arena_priest_of_karzhun_shield_Description"	"Zaps enemies who damage the shield-bearer, and protect against magical attacks."
+		"DOTA_Tooltip_ability_arena_priest_of_karzhun_shield_damage_return"	"DAMAGE RETURN % OF MAX HEALTH:"
+		"DOTA_Tooltip_ability_arena_priest_of_karzhun_shield_magic_resist"	"MAGIC RESIST:"
+
+		"arena_pit_conquest_helob"												"Helob"
+
+		"DOTA_Tooltip_ability_arena_conquest_helob_venomous_bite"				"Venomous Bite"
+		"DOTA_Tooltip_ability_arena_conquest_helob_venomous_bite_Description"	"Attacks slow and deal damage over time"
+		"DOTA_Tooltip_ability_arena_conquest_helob_venomous_bite_moveslow"			"MOVE SLOW:"
+		"DOTA_Tooltip_ability_arena_conquest_helob_venomous_bite_damage_per_tick"	"DAMAGE PER 0.2 SECONDS:"
+		
+
+		"DOTA_Tooltip_modifier_helob_venomous_bite_effect"						"Venomous Bite"
+		"DOTA_Tooltip_modifier_helob_venomous_bite_effect_Description"			"Movespeed slowed and taking damage over time."
+
+		"arena_pit_conquest_shrine_of_karzhun"							"Shrine of Kar'zhun"
+		"arena_pit_conquest_shrine_of_karzhun_Description"				"An empty tray accepts gifts for the legacy of Kar'zhun"
+
+		"arena_pit_shrine_of_karzhun_option_1"							"Give All Gold"
+		"arena_pit_shrine_of_karzhun_option_2"							"Back Away"	
+
+		"DOTA_Tooltip_modifier_kharzun_buff"							"Force Of Kar'zhun"
+
+		"DOTA_Tooltip_ability_arena_conquest_karzhun_gift_passive"		"Force Of Kar'zhun"
+		"DOTA_Tooltip_ability_arena_conquest_karzhun_gift_passive_Description"	"Powers up the Gift of Karhzun and weakens subjects nearby."
+
+		"DOTA_Tooltip_modifier_karzhun_aura_stackable"					"Force Of Kar'zhun"
+
+		"DOTA_Tooltip_ability_arena_temple_explorer_passive"			"Magic Shield"
+		"DOTA_Tooltip_ability_arena_temple_explorer_passive_Description"	"Provides passive Magic Resistance"
+		"DOTA_Tooltip_ability_arena_temple_explorer_passive_magic_resist"	"MAGIC RESIST:"
+
+		"DOTA_Tooltip_ability_arena_conquest_feedback"				"Feedback"
+		"DOTA_Tooltip_ability_arena_conquest_feedback_Description"	"Whenever nearby enemies' mana are reduced, shock them with pure damage based on the mana lost. Also provides passive magic resistance to the owner."
+
+		"DOTA_Tooltip_ability_arena_conquest_feedback_damage_per_mana"	   "DAMAGE PER MANA:"
+		"DOTA_Tooltip_ability_arena_conquest_feedback_magic_resist" 		"MAGIC RESIST:"
+
+		"DOTA_Tooltip_modifier_fairy_dragon_feedback"						"Feedback"
+		"DOTA_Tooltip_modifier_fairy_dragon_feedback_Description"			"Whenever your mana is reduced you will get shocked by mana reverb."
+
+		"arena_conquest_skeletal_mage"										"Reverberating Skeleton Cage"
+		"arena_conquest_temple_hunter"										"Assassin of Conquest"
+		"arena_conquest_temple_repeller"									"Keeper of Mysteries"
+		"arena_conquest_temple_witch_doctor"								"Faceless Arachnomancer"
+
+		"DOTA_Tooltip_ability_arena_conquest_sapphire_flare"				"Sapphire Flare"
+		"DOTA_Tooltip_ability_arena_conquest_sapphire_flare_Description"	"An explosion of blue fire stuns and damages enemies in the area."
+		"DOTA_Tooltip_ability_arena_conquest_sapphire_flare_damage"		"DAMAGE:"
+		"DOTA_Tooltip_ability_arena_conquest_sapphire_flare_stun_duration"	"STUN DURATION:"
+
+		"DOTA_Tooltip_ability_conquest_bovel_ai"							"Lord of Conquest"
+		"DOTA_Tooltip_ability_conquest_bovel_ai_Description"				"Damage instances can not exceed 1% of max health."
+
+		"DOTA_Tooltip_ability_arena_challenger_16_warcry"					"Warcry"
+		"DOTA_Tooltip_ability_arena_challenger_16_warcry_Description"		"Increases movespeed and attack speed for 8 seconds"	
+		"DOTA_Tooltip_ability_arena_challenger_16_warcry_movespeed"			"MOVESPEED:"
+		"DOTA_Tooltip_ability_arena_challenger_16_warcry_attackspeed"		"ATTACK SPEED:"
+
+		"DOTA_Tooltip_ability_arena_conquest_frost_bolt"					"Frost Bolt"
+		"DOTA_Tooltip_ability_arena_conquest_frost_bolt_Description"		"Launches a frozen ice shard at the target enemy that slows movespeed and attack speed."
+		"DOTA_Tooltip_ability_arena_conquest_frost_bolt_slow_duration"		"COLD DURATION:"	
+
+		"DOTA_Tooltip_modifier_conquest_frost_bolt"						"Frost Bolt"
+		"DOTA_Tooltip_modifier_conquest_frost_bolt_Description"			"Attack and Movespeed slowed"
+
+		"pit_conquest_boss"												"Black Mage of Conquest"
+
+		"DOTA_Tooltip_ability_conquest_black_mage_luminescence"			"Luminescence"
+		"DOTA_Tooltip_ability_conquest_black_mage_luminescence_Description"	"A magic charge from the Mage's staff unleashes a stampede of spirit horses towards the target"	
+
+		"DOTA_Tooltip_ability_conquest_boss_ai"							"Shadowcaster"
+		"DOTA_Tooltip_ability_conquest_boss_ai_Description"				"Immune to ALL Physical and Magical damage."
+
+		"DOTA_Tooltip_modifier_conquest_boss_slow_effect"	"Black Pool"
+		"DOTA_Tooltip_modifier_conquest_boss_slow_effect_Description"	"Slowed"
+
+		"DOTA_Tooltip_ability_conquest_boss_burn_ability"			"Soul Decay"
+		"DOTA_Tooltip_ability_conquest_boss_burn_ability_Description"	"Burns all nearby enemies for 2% of their max health as pure damage."
+		
+		"DOTA_Tooltip_modifier_conquest_boss_burn_ability"			"Soul Decay"
+
+		"DOTA_Tooltip_modifier_conquest_boss_burn_ability_effect"	"Soul Decay"
+		"DOTA_Tooltip_modifier_conquest_boss_burn_ability_effect_Description"	"Taking 2%% of max health as pure damage each second."
+
+
+
+		"DOTA_Tooltip_ability_item_rpc_truth_dust"					"Truth Dust"
+		"truth_dust_description"									"Reveals nearby hidden realities for 30 seconds in a 500 radius."
+
+		"arena_lies_spark_beetle"					"Spark Beetle"
+		"DOTA_Tooltip_ability_arena_lies_beetle_passive"				"Plasma Shell"
+		"DOTA_Tooltip_ability_arena_lies_beetle_passive_damage"			"DAMAGE"
+		"DOTA_Tooltip_ability_arena_lies_beetle_passive_Description"	"Zaps all nearby enemies and slows them temporarily."
+
+		"DOTA_Tooltip_modifier_lies_beetle_effect"						"Plasma Shell"
+		"DOTA_Tooltip_modifier_lies_beetle_effect_Description"			"Movespeed Reduced"
+
+		"DOTA_Tooltip_ability_grave_watcher_ai"							"Soul Siphon"
+		"DOTA_Tooltip_ability_grave_watcher_ai_Description"				"Latches on to nearby enemies and reduces their health regen by 3% and slows their movement speed by 40%"	
+
+		"DOTA_Tooltip_ability_lies_lich_ai"								"Soul Siphon"
+		"DOTA_Tooltip_ability_lies_lich_ai_Description"					"Latches on to nearby enemies and reduces their health regen by 3% and slows their movement speed by 20%"	
+	
+		"DOTA_Tooltip_ability_doombringer_searing_chains"				"Searing Chains"
+		"DOTA_Tooltip_ability_doombringer_searing_chains_Description"	"Roots and burns nearby enemies."
+
+
+		"arena_lies_supreme_ogre"										"Supreme Ogre"
+
+		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive"			"Mystery Infusion"
+		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_Description"	"Increases the power level of the ability owner."
+		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_movespeed"	"MOVESPEED:"
+		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_attack_speed"	"ATTACK SPEED:"
+		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_damage_percent"	"DAMAGE INCREASE %:"
+		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_armor_bonus"	"ARMOR BONUS"
+		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_health_regen_percent"	"HEALTH REGEN %:"
+
+		"DOTA_Tooltip_ability_arena_lies_mana_break"					"Mana Break"
+		"DOTA_Tooltip_ability_arena_lies_mana_break_Description"		"Burns mana and deals damage for each mana burned."
+		"DOTA_Tooltip_ability_arena_lies_mana_break_mana_per_hit"		"MANA BURN PER HIT:"
+
+		"DOTA_Tooltip_ability_arena_lies_arbiter_passive"				"Deceptive Light"
+		"DOTA_Tooltip_ability_arena_lies_arbiter_passive_Description"	"Increases armor and attack damage."	
+		"DOTA_Tooltip_ability_arena_lies_arbiter_passive_damage_percent"	"ATTACK DAMAGE %:"
+		"DOTA_Tooltip_ability_arena_lies_arbiter_passive_armor_bonus"		"ARMOR BONUS:"
+
+		"DOTA_Tooltip_ability_arena_lies_treasure_bird_passive"			"Golden Wings"
+		"DOTA_Tooltip_ability_arena_lies_treasure_bird_passive_Description"	"Increases magic resistance. When health falls below 35%, gain magic immunity."
+		"DOTA_Tooltip_ability_arena_lies_treasure_bird_passive_magic_resist"	"MAGIC RESIST %:"
+		"DOTA_Tooltip_modifier_arena_lies_treasure_bird_passive_magic_resist"	"Magic Immune"
+
+		"lies_treasure_hoarder"											"The Golden Hawk"
+
+		"arena_lies_shadow_beast"										"Shadow Beast"
+
+		"lies_trickster_mage"											"Arcanist Trickster"
+		"DOTA_Tooltip_ability_arena_lies_trickster_ability"				"Whirling Dodge"
+		"DOTA_Tooltip_ability_arena_lies_trickster_ability_Description"	"Attempts to dodge nearby enemies with quick movements."	
+
+		"arena_lies_supreme_ogre_true"									"True Supreme Ogre Soldier"
+
+		"DOTA_Tooltip_ability_arena_lies_black_hole"					"Black Hole"
+		"DOTA_Tooltip_ability_arena_lies_black_hole_Description"		"Consumes light and matter in a small area for 4 seconds."
+
+		"arena_lies_castle_enigma"										"Light Eater"
+
+		"DOTA_Tooltip_ability_arena_magic_immune_breakable_ability"		"Magic Ward"
+		"DOTA_Tooltip_ability_arena_magic_immune_breakable_ability_Description"	"Grants magic immunity. Magic immune shield can be broken after attacks."	
+		"DOTA_Tooltip_ability_arena_magic_immune_breakable_ability_stacks"		"CHARGES:"
+
+		"DOTA_Tooltip_modifier_magic_immune_breakable_ability"			"Magic Ward"
+		"DOTA_Tooltip_modifier_magic_immune_breakable_ability_Description"	"Magic Immunity. Attacks wear down the shield."
+
+		"DOTA_Tooltip_ability_arena_lies_plasma_field"					"Plasma Field"
+		"DOTA_Tooltip_ability_arena_lies_plasma_field_Description"		"A ring of electrity shocks enemies in its path. Closer to the edge of the ring deals more damage."
+		"DOTA_Tooltip_ability_arena_lies_plasma_field_damage_max"		"MAX DAMAGE:"
+
+		"arena_lies_test_dummy"											"Experiment Dummy"
+
+		"arena_lies_boss"												"Giant Hunter"
+
+		"DOTA_Tooltip_ability_arena_lies_boss_ai"						"Evasion"
+		"DOTA_Tooltip_ability_arena_lies_boss_ai_Description"			"Adds a chance to dodge physical attacks"
+		"DOTA_Tooltip_ability_arena_lies_boss_ai_evasion"				"EVASION CHANCE %:"		
+
+		"DOTA_Tooltip_ability_arena_lies_boss_magic_immune_ability"		"Magic Ward"
+		"DOTA_Tooltip_ability_arena_lies_boss_magic_immune_ability_Description"	"Applies a magic immunity shield that can only be broken by attacking."	
+
+		"DOTA_Tooltip_ability_arena_lies_boss_illusion_ability"			"Deception"
+		"DOTA_Tooltip_ability_arena_lies_boss_illusion_ability_Description"	"Creates an illusion of the caster with all abilities available."
+		"DOTA_Tooltip_ability_arena_lies_boss_illusion_ability_outgoing_damage"	"ILLUSION OUTGOING DAMAGE:"
+
+		"DOTA_Tooltip_ability_arena_descent_impervious"					"Impervious"
+		"DOTA_Tooltip_ability_arena_descent_Description"				"Greatly reduces incoming damage"
+		"DOTA_Tooltip_ability_arena_descent_damage_block"				"DAMAGE REDUCTION %:"
+
+		"arena_descent_grieving_widow"									"Grieving Widow"
+		"arena_descent_sorrow_wraith"									"Sorrow Wraith"
+		"arena_descent_horror_construct"								"Horror Construct"
+		"arena_descent_death_seeker"									"Death Seeker"
+
+		"DOTA_Tooltip_ability_arena_descent_grieving_widow_ability"		"Grave Siphon"		
+		"DOTA_Tooltip_ability_arena_descent_grieving_widow_ability"		"Widow drains life from her victims"
+		"DOTA_Tooltip_modifier_widow_soul_steal_effect"					"Grave Siphon"
+		"DOTA_Tooltip_modifier_widow_soul_steal_effect_Description"		"Taking damage and reduced movement speed."		
+
+		"arena_descent_zombie"											"Descent Zombie"
+
+		"DOTA_Tooltip_ability_arena_summon_gargoyles"					"Summon Gargoyles"
+		"DOTA_Tooltip_ability_arena_summon_gargoyles_Description"		"Creates 3 gargoyles with stone form."
+
+		"DOTA_Tooltip_ability_arena_descent_beetle_passive"				"Slime"
+		"DOTA_Tooltip_ability_arena_descent_beetle_passive_Description"	"Each time this unit takes damage, the attacker is inflicted with a stacking slow debuff."
+		"DOTA_Tooltip_ability_arena_descent_beetle_passive_move_slow_per_stack"	"MOVE SLOW PER STACK:"		
+		"DOTA_Tooltip_ability_arena_descent_beetle_passive_attack_slow_per_stack"	"ATTACK SLOW PER STACK:"
+
+		"DOTA_Tooltip_modifier_descent_beetle_effect"					"Slime"
+		"DOTA_Tooltip_modifier_descent_beetle_effect_Description"		"Attack and movespeed slowed."
+		
+		"pit_crawler"							"Pit Crawler"
+		"master_duelist"						"Master Duelist"
+		"arena_pit_soul_revenant"				"Soul Revenant"
+		"arena_descent_exiled_spirit"			"Exiled Spirit"
+		"arena_descent_passage_keeper"			"Keeper of Descent"
+		"arena_descent_boss_zombie"				"Zombie Warboss"
+		"arena_descent_terror_striker" 			"Terror Striker"
+		"arena_descent_gargoyle"				"Descent Gargoyle"
+		"arena_descent_goo_beetle"				"Goo Beetle"
+		"arena_descent_zombie_critter"			"Zombie Critter"
+		"arena_descent_razor_guard"				"Bonebreaker"
+		"arena_descent_doombringer"				"Depth Praetorian"
+		"arena_lies_lich"						"Imp of Lie"
+		"arena_lies_doombringer"				"Demon of Lie"
+		"arena_lies_true_ogre"					"True Ogre"
+		"arena_lies_arbiter_of_truth"			"Arbiter of Truth"
+		"arena_lies_samurai"					"Flaming Ronin"
+		"fire_temple_relic_seeker"				"Relic Seeker"
+		"arena_lies_castle_light_absorber"		"Light Absorber"
+		"arena_lies_razor_miniboss"				"Golden Current"
+		"arena_pit_conquest_mountain_behemoth"	"Mountain Behemoth"
+		"arena_pit_conquest_root_overgrowth"	"Root Overgrowth"
+		"arena_conquest_gift_of_kharzun"		 "Gift of Kar'zhun"
+		"arena_pit_conquest_temple_explorer"	"Temple Explorer"
+		"arena_pit_temple_guardian_snakes"		"Guardian's Snake"
+		"arena_conquest_temple_shifter"			"Temple Shifter"
+		"pit_conquest_woods_titan"				"Titan of Conquest"
+		"pit_conquest_forest_soldier"			"Conquest Ambusher"
+		"pit_conquest_forest_mage"				"Forest Mage"
+		"pit_conquest_lord_of_bovel"			"Lord of the Bowel"
+		"pit_conquest_dragon"					"Chrysolite Wyrm"
+		"DOTA_Tooltip_ability_pit_conquest_viper_strike" 				"Viper Strike"
+		"DOTA_Tooltip_ability_pit_conquest_viper_strike_Description" 	"Wyrm poisons the target, dealing damage and decreasing speed."
+		"DOTA_Tooltip_ability_pit_conquest_viper_strike_damage"			"DAMAGE:"
+		"DOTA_Tooltip_ability_pit_conquest_viper_strike_duration"		"DURATION:"
+		"DOTA_Tooltip_ability_pit_conquest_viper_strike_bonus_movement_speed"	"MOVEMENT SPEED LOSS:"
+		"DOTA_Tooltip_ability_pit_conquest_viper_strike_bonus_attack_speed"		"ATTACK SPEED LOSS:"
+		
+		//ARENA TOOLTIPS
+
+		"DOTA_Tooltip_ability_arena_descent_nemesis_passive"					"Great Cleave"
+		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_Description"				"Attacks damage all enemies in an area"
+		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_cleave_percent"				"CLEAVE DAMAGE %:"
+		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_cleave_radius"				"CLEAVE RADIUS:"
+
+		"arena_descent_nightmare"												"Descent Nightmare"
+
+		"DOTA_Tooltip_ability_arena_descent_guard_passive"						"Desolation"
+		"DOTA_Tooltip_ability_arena_descent_guard_passive_Description"			"Each attack landed increases attack damage."
+		"DOTA_Tooltip_ability_arena_descent_guard_passive_damage_per_instance"	"DAMAGE PER STACK %:"
+
+		"DOTA_Tooltip_modifier_descent_guard_passive_effect"					"Desolation"
+		"DOTA_Tooltip_modifier_descent_guard_passive_effect_Description"		"Increased attack damage"
+
+		"DOTA_Tooltip_ability_arena_descent_crippling"							"Crippling Aura"
+		"DOTA_Tooltip_ability_arena_descent_crippling_Description"				"Reduces the power of nearby enemies."
+		"DOTA_Tooltip_ability_arena_descent_crippling_health_regen_percent"		"HEALTH REGEN %:"
+		"DOTA_Tooltip_ability_arena_descent_crippling_attack_damage"			"ATTACK DAMAGE %:"
+		"DOTA_Tooltip_ability_arena_descent_crippling_attack_speed"				"ATTACK SPEED:"
+		"DOTA_Tooltip_ability_arena_descent_crippling_movespeed"				"MOVESPEED:"
+
+		"DOTA_Tooltip_modifier_advanced_creature_crippling_aura_debuff"			"Crippling Aura"
+		"DOTA_Tooltip_modifier_advanced_creature_crippling_aura_debuff_Description"	"Reduced health regen, attack damage, attack speed and movespeed."
+
+		"arena_descent_boss"													"Pit Abomination"
+
+		"DOTA_Tooltip_modifier_steadfast"													"Steadfast"
+		"DOTA_Tooltip_modifier_steadfast_Description"										"Incoming damage is capped at a %% of max health"
+
+		"DOTA_Tooltip_ability_descent_boss_ai"								"Abomination"
+		"DOTA_Tooltip_ability_descent_boss_ai_Description"					"Forsaken monster of the depths"
+
+
+		"DOTA_Tooltip_ability_creature_pure_strike_2"			"Pure Strike"
+		"DOTA_Tooltip_ability_creature_pure_strike_2_Description"	"Attacks cannot miss and deal an additional 25% pure damage."
+
+		"arena_pit_of_trials_final_boss"						"Pit Lord"
+
+		"DOTA_Tooltip_ability_arena_pit_boss_haste"					"Bloodlust"
+		"DOTA_Tooltip_ability_arena_pit_boss_haste_Description"		"Increases attack speed and movespeed, and refreshes Firestorm."
+
+		"DOTA_Tooltip_ability_arena_radiance"								"Shadow Radiance"
+		"DOTA_Tooltip_ability_arena_radiance_Description"					"Burns nearby enemies and gives them a chance to miss."
+		"DOTA_Tooltip_ability_arena_radiance_aura_damage"					"BURN DAMAGE:"
+		"DOTA_Tooltip_ability_arena_radiance_blind_pct"						"MISS CHANCE %:"
+
+		"DOTA_Tooltip_modifier_modifier_pit_boss_haste"					"Bloodlust"
+		"DOTA_Tooltip_modifier_modifier_pit_boss_haste_Description"		"Increased movespeed and attack speed."
+
+
+		"arena_pit_conquest_spirit_of_rakash"					"Rak'eth"
+
+		"DOTA_Tooltip_ability_arena_pit_rakash_ai"				"Spirit of Rak'eth"
+		"DOTA_Tooltip_ability_arena_pit_rakash_ai_Description"	"Increased magic resistance"	
+		"DOTA_Tooltip_ability_arena_pit_rakash_ai_magic_resist"	"MAGIC RESIST:"
+
+		"DOTA_Tooltip_ability_arena_descent_tombstone_ability"	"Tombstone"
+		"DOTA_Tooltip_ability_arena_descent_tombstone_ability_Description"	"Raising the Dead"
+
+		"arena_pit_shadow_sniper"								"Shadow Sniper"
+		"arena_pit_quizmaster"									"Quizmaster"
+
+		"DOTA_Tooltip_ability_arena_quizmaster_blast"				"Inquiry Burst"
+		"DOTA_Tooltip_ability_arena_quizmaster_blast_Description"	"Blast of sinister energy deals 450000 damage in 1300 radius around Quizmaster, stuns targets on hit."
+
+		"arena_descent_terror_striker_ultra"					"Gravestriker Ultra"
+
+		"DOTA_Tooltip_ability_arena_pit_grave_chill"			"Descent Grave Chill"
+		"DOTA_Tooltip_ability_arena_pit_grave_chill_Description"	"Steals movespeed, armor, and magic resist from the target."
+		"DOTA_Tooltip_ability_arena_pit_grave_chill_duration"	"DURATION:"
+		"DOTA_Tooltip_ability_arena_pit_grave_chill_movespeed_steal"	"MOVESPEED STEAL:"
+		"DOTA_Tooltip_ability_arena_pit_grave_chill_armor_steal"	"ARMOR STEAL:"
+		"DOTA_Tooltip_ability_arena_pit_grave_chill_magic_resist_steal"	"MAGIC RESIST STEAL:"
+
+		"DOTA_Tooltip_modifier_arena_grave_chill_target"		"Descent Grave Chill"
+		"DOTA_Tooltip_modifier_arena_grave_chill_target_Description"	"Reduced movespeed, armor, and magic resist."
+
+		"DOTA_Tooltip_ability_golden_skullbone_ai"				"Magic Immunity"
+
+		"lies_golden_skullbone"									"Golden Skullbone"
+		"DOTA_Tooltip_ability_golden_skullbone_ai"				"That unit has permanent immunity to magical damage."
+		
+		"arena_descent_tombstone"								"Tombstone"
+		
+		"arena_pit_conquest_spider"								"Mountain Spider"
+		
+		"arena_pit_conquest_mountain_spider"					"Greater Mountain Spider"
+		"DOTA_Tooltip_ability_arena_pit_spider_gale"				"Spider Gale"
+		"DOTA_Tooltip_ability_arena_pit_spider_gale_Description" 	"Poisonous spittle released from spider's glands"
+		"DOTA_Tooltip_ability_arena_pit_spider_gale_duration"		"DURATION:"
+		"DOTA_Tooltip_ability_arena_pit_spider_gale_strike_damage"	"INITIAL DAMAGE:"
+		"DOTA_Tooltip_ability_arena_pit_spider_gale_tick_damage"	"DAMAGE PER TICK:"
+		"DOTA_Tooltip_ability_arena_pit_spider_gale_tick_interval"	"TICK INTERVAL:"
+		"DOTA_Tooltip_ability_arena_pit_spider_gale_movement_slow" "MOVEMENT SLOW:"
+		
+		"arena_pit_conquest_mire_boss"							"Mire Boss"
+		"DOTA_Tooltip_ability_arena_conquest_impale"				"Impale"
+		"DOTA_Tooltip_ability_arena_conquest_impale_Description" 	"Rock spikes burst from the earth along a straight path."
+		"DOTA_Tooltip_ability_arena_conquest_impale_duration"		"DURATION:"
+		
+		
+		"DOTA_Tooltip_ability_lies_smoke_cloud_ability"		"Smoke cloud"
+		"DOTA_Tooltip_ability_lies_smoke_cloud_ability_Description"		"Unit covered by smoke screen, protected from enemy spells."
+		
+		"DOTA_Tooltip_ability_arena_pit_temple_wave"					"Temple Wave"
+		"DOTA_Tooltip_ability_arena_pit_temple_wave_Description"		"Violent wave of dark power. Deals damage and stuns enemies."
+		"DOTA_Tooltip_ability_arena_pit_temple_wave_stun_duration"		"STUN DURATION:"
+		
+		"DOTA_Tooltip_ability_tomb_pudge"				"Slaughterous Temper"
+		"DOTA_Tooltip_ability_tomb_pudge_Description"	"Tracks down the victim"
+	
+		"DOTA_Tooltip_ability_creature_meat_hook"		"Meat Hook"
+		"DOTA_Tooltip_ability_creature_meat_hook_Description"		"Launches a bloody hook toward a unit or location. The hook will snag the first unit it encounters, dragging the unit back and dealing damage."
+		"DOTA_Tooltip_ability_creature_meat_hook_hook_distance"		"DISTANCE:"
+		
+		"arena_descent_exiled_spirit_big"							"Corrupted Commander"
+		"DOTA_Tooltip_ability_arena_descent_impervious"				"Impervious"
+		"DOTA_Tooltip_ability_arena_descent_impervious_Description"	"Exiled legion protects the Commander. Damage taken reduced by 98%."
+		
+		
+		"DOTA_Tooltip_ability_doom_custom"				"Doom"
+		"DOTA_Tooltip_ability_doom_custom_Description"	"Target burns in inpure flames, being silenced and disarmed. Damage ticks every 0.5 seconds."
+		"DOTA_Tooltip_ability_doom_custom_damage"		"DAMAGE:"
+		"DOTA_Tooltip_ability_doom_custom_duration"		"DURATION:"
+		
+		"DOTA_Tooltip_ability_arena_descent_boss_ravage"				"Ravage of Abyss"
+		"DOTA_Tooltip_ability_arena_descent_boss_ravage_Description"	"Abomination impales enemies in 2000 range, stunning them, throwing in the air and dealing magical damage."
+		"DOTA_Tooltip_ability_arena_descent_boss_ravage_duration"		"STUN DURATION:"
+		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam"				"Abomination slams the ground, stunning inflicted targets and dealing damage."
+		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam_damage"			"DAMAGE:"
+		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam_stun_duration"	"STUN DURATION:"
+		
+		"arena_pit_pit_guardian"		"Soul of Pit"
+		"DOTA_Tooltip_ability_arena_pit_pit_guardian_ai"				"Pit Protector"
+		"DOTA_Tooltip_ability_arena_pit_pit_guardian_ai_Description"	"Soul of Pit kills the unworthy challengers, guarding the chamber of his master. Dragons' blood flows in his veins."
+		
+		"DOTA_Tooltip_ability_pit_boss_firestorm"				"Firestorm"
+		"DOTA_Tooltip_ability_pit_boss_firestorm_Description" 	"Pit Lord calls down waves of fire that damage enemy units in the target area, burning for additional damage over time."
+		"DOTA_Tooltip_ability_pit_boss_firestorm_radius"		"RADIUS:"
+		"DOTA_Tooltip_ability_pit_boss_firestorm_wave_damage"	"DAMAGE:"
+		"DOTA_Tooltip_ability_pit_boss_firestorm_wave_interval"	"INTERVAL:"
+		"DOTA_Tooltip_ability_pit_boss_firestorm_burn_damage"	"BURN DAMAGE (HP%):"
+		"DOTA_Tooltip_ability_pit_boss_firestorm_burn_duration"	"BURN DURATION:"
+		"DOTA_Tooltip_ability_arena_pit_boss_summon_specters"				"Release"
+		"DOTA_Tooltip_ability_arena_pit_boss_summon_specters_Description"	"Pit Lord summons 6 captured souls of previous challengers to fight for him."	
+		"DOTA_Tooltip_ability_arena_pit_boss_dash"				"Furious Charge"
+		"DOTA_Tooltip_ability_arena_pit_boss_dash_Description"	"Pit Lord dashes forward, crushing foes before him. Deals 305000 magical damage."
+		"DOTA_Tooltip_ability_arena_pit_final_boss_ai"			"Lord of the Pit"
+		"DOTA_Tooltip_ability_arena_pit_final_boss_ai_Description"			"In forsaken dungeons of Arena, the ancient evil awaits for challengers."

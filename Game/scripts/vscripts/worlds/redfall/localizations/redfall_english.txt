@@ -1,0 +1,1005 @@
+		"zone_redfall"											"Redfall Ridge"
+
+		"redfall_first_quest_giver"								"Redfall Shagbark"
+
+		"redfall_village"										"Redfall Village"
+		"redfall_forest"										"Redfall Forest"
+		"autumn_mist_canyon_entrance"							"Autumn Mist Canyon - Entrance"
+		"autumn_mist_canyon"									"Autumn Mist Canyon"
+		"redfall_farmlands"										"Redfall Farmlands"
+		"abandoned_shipyard"									"Abandoned Shipyard"
+		"abandoned_shipyard_boss_room"							"Crimsyth Hideout"
+		
+		//REDFALL QUESTS
+
+		"tooltip_quest_log"										"Quest Log"
+		"tooltip_quest_log_description"							"Opens up your Quest Log"
+
+		"tooltip_new_quest"										"New Quest Added"
+
+		"tooltip_progress"										"Progress"
+		"tooltip_reward"										"Reward"
+		"tooltip_quest_to_complete"								"Click to Complete"
+
+		"tooltip_no_quests"										"You don't have any active quests"
+		"tooltip_no_quests_completed"							"You don't have any completed quests"
+
+		"tooltip_active"										"Active"	
+		"tooltip_completed"										"Completed"
+
+		"redfall_quest_1_title"									"Heart of the Forest"
+		"redfall_quest_1_objective"								"Restore 4 Vermillion Trees located within Redfall Forest."
+
+		"redfall_quest_1_objective_2"							"Defeat the Crimsyth Occult Wizard"	
+
+		"redfall_autumnleaf_firefly"							"Burgundy Firefly"
+		"redfall_autumnleaf_firefly_Description"				"Opens the entrance to Autumn Mist Canyon"
+
+		"redfall_quest_2_title"									"Shrine of Mari"
+		"redfall_quest_2_objective"								"Defeat the Mari Sprites."
+
+		"redfall_blessing_of_maru"								"Blessing of Mari"
+		"redfall_blessing_of_maru_Description"					"Grants 50/300/1000 to all stats for 60 minutes"
+
+		"DOTA_Tooltip_modifier_blessing_of_maru"				"Blessing of Mari"
+		"DOTA_Tooltip_modifier_blessing_of_maru_Description"	"Increased Attributes"
+
+		"redfall_quest_3_title"									"Cleansing the Coast"
+		"redfall_quest_3_objective"								"Defeat the waves of Ocean Ghouls summoned by Otaru."
+
+		"redfall_otaru"											"Otaru"
+		"redfall_otaru_dialogue_one"							"I have committed my life to protecting the forest borders. I will soon be performing a ritual of purification."	
+
+		"redfall_otaru_dialogue_option1"						"May I join you?"
+		"redfall_otaru_dialogue_option2"						"Thank you<br>for your service"
+
+		"redfall_otaru_dialogue_2"								"Come. You will witness the artistry of preserving the land."
+
+		"redfall_preservers_mantra"								"Preserver's Mantra"
+		"redfall_preservers_mantra_Description"					"Increases XP gain by 20% for 60 minutes"
+
+		"DOTA_Tooltip_modifier_preservers_mantra"				"Preserver's Mantra"
+		"DOTA_Tooltip_modifier_preservers_mantra_Description"	"20%% increased XP gain."
+
+		"redfall_otaru_dialogue_3"								"Very good. That should keep us pure for a few more days."
+
+		"redfall_final_otaru_dialogue"							"The bounties of the Forest must never be taken for granted."
+
+		"redfall_quest_4_title"									"Autumn Ash"
+		"redfall_quest_4_objective"								"Awaken the Ash Treant in Redfall Forest."
+		"redfall_quest_4_objective_2"							"Defeat the Ash Treant."
+
+		"DOTA_Tooltip_ability_item_redfall_ashen_twig"			"Ashen Twig"
+		"DOTA_Tooltip_ability_item_redfall_ashen_twig_Description"	"Use: Awakens the Ash Treant when standing near him."
+
+		"quest_immortal_head_gear"								"Immortal Helm"
+
+		"redfall_quest_5_title"									"Seeking Ashara"
+		"redfall_quest_5_objective"								"Use the Glowing Redfall Leaf at the Shrine of Ashara in Autumn Mist Canyon."		
+
+		"redfall_quest_mithril_reward"							"Mithril Shards"
+		"redfall_quest_5_reward"								"Rewards 35/70/210 Mithril Shards"
+
+		"DOTA_Tooltip_ability_item_redfall_glowing_redfall_leaf"			"Glowing Redfall Leaf"
+		"DOTA_Tooltip_ability_item_redfall_glowing_redfall_leaf_Description"	"Use: Activates the portal at the Shrine of Ashara in Autumn Mist Canyon."
+
+		"redfall_quest_5_objective_2"								"Defeat the Spirit of Ashara in Autumn Mist Canyon."
+		"redfall_quest_5_objective_3"								"Stand before the Raven Statue in Redfall Forest."
+		"redfall_quest_5_objective_4"								"Encounter Ashara."
+
+		"DOTA_Tooltip_modifier_blessing_of_ashara"			"Blessing of Ashara"
+		"DOTA_Tooltip_modifier_blessing_of_ashara_Description"	"Allows the activation of the Raven Statue in Redfall Forest."	
+
+		"redfall_quest_6_title"									"Shadow of Fenrir"
+		"redfall_quest_6_objective"								"Find and defeat Fenrir, who roams Redfall Forest."
+
+		"redfall_quest_6_reward"								"Fenrir's Fang"
+		"redfall_quest_6_reward_Description"					"Immortal Trinket"
+
+		//REDFALL DIALOGUE
+
+		"redfall_quest_1_dialogue"								"Vermillion trees provide the lifeblood of our forest."
+		"redfall_quest_1_dialogue_2"							"An external force threatens their survival."
+
+		//REDFALL MONSTERS
+
+		"DOTA_Tooltip_ability_redfall_autumn_slow"				"Mudsling"
+		"DOTA_Tooltip_ability_redfall_autumn_slow_Description"	"Attacks leave their target with a slowing sticky mud."
+		"DOTA_Tooltip_ability_redfall_autumn_slow_movespeed_loss"	"MOVESPEED LOSS:"
+
+		"DOTA_Tooltip_modifier_autumn_slow"						"Mudsling"
+		"DOTA_Tooltip_modifier_autumn_slow_Description"			"Movespeed Reduced"
+
+		"DOTA_Tooltip_ability_redfall_autumn_spawner_ability"	"Leaf Fall"
+		"DOTA_Tooltip_ability_redfall_autumn_spawner_ability_Description"	"Periodcally spawns Autumn Flowers."
+
+		"redfall_autumn_flower"									"Autumn Flower"
+
+		"redfall_autumn_spawner"								"Enchanted Branch"
+
+		"DOTA_Tooltip_ability_autumn_summoner_ability"					"Force of Seasons"
+		"DOTA_Tooltip_ability_autumn_summoner_ability_Description"		"Spawns treant warriors to fight for the caster"
+
+		"redfall_aqua_lily"										"Redfall Aqua Lily"
+
+		"DOTA_Tooltip_ability_wozxak_fury_swipes"				"Fury Swipes"
+		"DOTA_Tooltip_ability_wozxak_fury_swipes_Description"	"Successive attacks deal increased damage."
+		"DOTA_Tooltip_ability_wozxak_fury_swipes_damage_per_stack"	"DAMAGE PER STACK:"
+
+		"DOTA_Tooltip_modifier_fury_swipes_target_datadriven"				"Fury Swipes"
+		"DOTA_Tooltip_modifier_fury_swipes_target_datadriven_Description"	"Taking increased physical damage with each stack"
+
+		"DOTA_Tooltip_ability_redfall_poison_sting"				"Poison Sting"
+		"DOTA_Tooltip_ability_redfall_poison_sting_Description"	"Applies a stacking damage over time poison effect to attacked targets."
+		"DOTA_Tooltip_ability_redfall_poison_sting_damage_per_tick"	"DAMAGE PER 0.5 SEC:"
+
+		"DOTA_Tooltip_modifier_redfall_poison_sting"			"Poison Sting"
+		"DOTA_Tooltip_modifier_redfall_poison_sting_Description"	"Taking damage every 0.5 seconds"
+
+		"DOTA_Tooltip_ability_redfall_blade_fury"							"Blade Fury"
+		"DOTA_Tooltip_ability_redfall_blade_fury_Description"				"Spins wildly with their blade, damaging enemies who get close. Magic Immune while spinning."
+
+		"redfall_autumn_spirit"									"Autumn Spirit"
+
+		"DOTA_Tooltip_ability_redfall_misty_breeze"				"Crippling Breeze"
+		"DOTA_Tooltip_ability_redfall_misty_breeze_Description"	"Reduces attack damage, attack speed and movespeed of nearby enemies."
+		"DOTA_Tooltip_ability_redfall_misty_breeze_attack_damage" "ATTACK DAMAGE %:"
+		"DOTA_Tooltip_ability_redfall_misty_breeze_attack_speed" "ATTACK SPEED:"
+		"DOTA_Tooltip_ability_redfall_misty_breeze_movespeed"	"MOVESPEED:"
+
+		"redfall_disciple_of_maru"								"Maru Sprite"
+
+		"DOTA_Tooltip_ability_redfall_heavy_stone_toss"			"Heavy Stone Toss"
+		"DOTA_Tooltip_ability_redfall_heavy_stone_toss_Description"	"Throws a boulder at the target unit that stuns and pushes them away from the caster."
+
+		"DOTA_Tooltip_ability_redfall_spirit_of_ashara_passive"	"Red Heavens"
+		"DOTA_Tooltip_ability_redfall_spirit_of_ashara_passive_Description"	"Red stars damage all nearby enemies on an interval."
+
+		"DOTA_Tooltip_ability_redfall_gust_wave"				"Autumn Wind"
+		"DOTA_Tooltip_ability_redfall_gust_wave_Description"	"A burst of wind damages and slows enemies in a cone."
+		"DOTA_Tooltip_ability_redfall_gust_wave_move_slow"		"MOVE SLOW:"
+		"DOTA_Tooltip_ability_redfall_gust_wave_attack_slow"    "ATTACK SPEED SLOW:"
+
+		"DOTA_Tooltip_modifier_gust_wave_slow"					"Autumn Wind"
+		"DOTA_Tooltip_modifier_gust_wave_slow_Description"		"Slowed"
+
+		"redfall_cliff_invader"									"Ocean Ghoul"
+		"redfall_cliff_invader_range"							"Ocean Ghoul"
+
+		"DOTA_Tooltip_ability_redfall_dodge_ability"			"Combat Dodge"
+		"DOTA_Tooltip_ability_redfall_dodge_ability_Description"	"Special Maneuverability."
+
+		"DOTA_Tooltip_ability_redfall_forest_ranger_ai"					"Fall Marksmen"
+		"DOTA_Tooltip_ability_redfall_forest_ranger_ai_Description"		"Attacks have a 25% chance to leave a gaping wound, making the target bleed for damage each 0.5 seconds and reducing armor."
+		"DOTA_Tooltip_ability_redfall_forest_ranger_ai_damage_per_tick"	"DAMAGE PER 0.5 SECONDS:"
+		"DOTA_Tooltip_ability_redfall_forest_ranger_ai_armor_reduce"	"ARMOR REDUCTION:"
+
+		"DOTA_Tooltip_modifier_forest_ranger_bleed"						"Fall Marksmen"
+		"DOTA_Tooltip_modifier_forest_ranger_bleed_Description"			"Bleeding and reduced armor."
+
+		"DOTA_Tooltip_ability_creature_heart_spike"						"Heart Spike"
+		"DOTA_Tooltip_ability_creature_heart_spike_Description"			"Attacks deal additional pure damage based on the target's max health."
+		"DOTA_Tooltip_ability_creature_heart_spike_health_percent"		"MAX HEALTH AS PURE DAMAGE %:"
+		
+		"DOTA_Tooltip_ability_redfall_ash_snake_ai"						"Autumn Ash"
+		"DOTA_Tooltip_ability_redfall_ash_snake_ai_Description"			"Attacks reduce attack damage and attack speed of the target."
+		"DOTA_Tooltip_ability_redfall_ash_snake_ai_attack_speed_loss"			"ATTACK SPEED REDUCTION:"
+		"DOTA_Tooltip_ability_redfall_ash_snake_ai_damage_loss_percent"			"OUTGOING DAMAGE REDUCTION %:"
+
+		"DOTA_Tooltip_modifier_ash_snake_debuff"						"Autumn Ash"
+		"DOTA_Tooltip_modifier_ash_snake_debuff_Description"			"Reduced Attack Speed and Attack Damage"	
+
+		"redfall_ash_snake"										"Ash Snake"
+
+		"DOTA_Tooltip_ability_redfall_forest_roar"				"Enrage"
+		"DOTA_Tooltip_ability_redfall_forest_roar_Description"	"Grow in size and gain power."
+
+		"DOTA_Tooltip_ability_redfall_ash_knight_shield"				"Equinox Shield"
+		"DOTA_Tooltip_ability_redfall_ash_knight_shield_Description"	"Blocks all damage. Enemies who damage the shield are disarmed and weakened for 6 seconds."
+		"DOTA_Tooltip_ability_redfall_ash_knight_shield_regen_in_shield" "HP REGEN % IN SHIELD:"
+		"DOTA_Tooltip_ability_redfall_ash_knight_shield_damage_loss"	 "SHIELD REVERB DAMAGE LOSS:"
+		"DOTA_Tooltip_ability_redfall_ash_knight_shield_movespeed_slow"	"SHIELD REVERB MOVE SLOW:"
+
+		"DOTA_Tooltip_ability_redfall_autumn_satyr_slap"		"Heavy Slap"
+		"DOTA_Tooltip_ability_redfall_autumn_satyr_slap_Description"	"Stuns the target for 1 second and knocks them into the air."
+
+		"DOTA_Tooltip_ability_redfall_autumn_tornado"			"Fall Tornado"
+		"DOTA_Tooltip_ability_redfall_autumn_tornado_Description"	"Lift into the air and fire a tornado at the target enemy."
+
+		"DOTA_Tooltip_modifier_tornado_slow"					"Fall Tornado"
+		"DOTA_Tooltip_modifier_tornado_slow_Description"		"Attackspeed and Movespeed slowed"
+
+		"DOTA_Tooltip_ability_item_redfall_burgundy_firefly_normal" "Burgundy Firefly"
+		"DOTA_Tooltip_ability_item_redfall_burgundy_firefly_elite" "Burgundy Firefly"
+		"DOTA_Tooltip_ability_item_redfall_burgundy_firefly_legend" "Burgundy Firefly"
+
+		"item_redfall_burgundy_firefly_normal_desc"				"Opens the entrance to Autumn Mist Canyon in Redfall Ridge."
+		"item_redfall_burgundy_firefly_elite_desc"				"Opens the entrance to Autumn Mist Canyon in Redfall Ridge."
+		"item_redfall_burgundy_firefly_legend_desc"				"Opens the entrance to Autumn Mist Canyon in Redfall Ridge."
+
+		"redfall_canyon_predator"								"Canyon Predator"
+
+		"DOTA_Tooltip_ability_redfall_canyon_predator_ability"	"Enrage"
+		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_Description"	"With each instance of damage taken, the predator gains attack damage and armor."
+		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_damage_per_instance"	"DAMAGE % PER STACK:"
+		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_armor_per_instance"	"ARMOR PER STACK:"
+
+		"DOTA_Tooltip_ability_redfall_bigwave"					"Canyon Crush"
+		"DOTA_Tooltip_ability_redfall_bigwave_Description"		"A massive wave of force damages and stuns enemies."
+
+		"DOTA_Tooltip_ability_redfall_ghost_mace"				"Ghost Mace"
+		"DOTA_Tooltip_ability_redfall_ghost_mace_Description"	"Attacks leave a debuff that makes the target unable to heal and reduces HP regen by a % of max health, for 3.5 seconds."
+		"DOTA_Tooltip_ability_redfall_ghost_mace_health_regen_percent"	"HEALTH REGEN PERCENT LOSS:"
+
+		"DOTA_Tooltip_modifier_ghost_mace_debuff"				"Ghost Mace"
+		"DOTA_Tooltip_modifier_ghost_mace_debuff_Description"	"Cannot heal, and health regen is reduced."
+
+		"DOTA_Tooltip_ability_redfall_barbarian_passive"				"Tenacity"
+		"DOTA_Tooltip_ability_redfall_barbarian_passive_Description"	"Immune to Stuns"
+
+		"DOTA_Tooltip_ability_redfall_mist_assassin_passive"			"Evasion"
+		"DOTA_Tooltip_ability_redfall_mist_assassin_passive_Description"	"Gives a chance to dodge incoming attacks."
+		"DOTA_Tooltip_ability_redfall_mist_assassin_passive_evasion"	"DODGE CHANCE %:"
+
+		"redfall_canyon_boss"										"Crimsyth Corruptor"
+
+		"DOTA_Tooltip_ability_redfall_ash_tree_aura"				"Ash Aura"
+		"DOTA_Tooltip_ability_redfall_ash_tree_aura_Description"	"Reduces movespeed and vision range of nearby enemies."
+		"DOTA_Tooltip_ability_redfall_ash_tree_aura_movespeed"		"MOVESPEED REDUCTION:"
+		"DOTA_Tooltip_ability_redfall_ash_tree_aura_vision_reduce"	"VISION REDUCTION:"
+
+		"modifier_ash_tree_aura_debuff"								"Ash Aura"
+		"modifier_ash_tree_aura_debuff_Description"					"Reduced movespeed and vision."
+
+		"DOTA_Tooltip_ability_ash_tree_overgrowth"					"Overgrowth"
+		"DOTA_Tooltip_ability_ash_tree_overgrowth_Description"		"Roots all enemies in a large radius."
+
+		"DOTA_Tooltip_ability_canyon_boss_time_walk"				"Ability X"
+		"DOTA_Tooltip_ability_canyon_boss_time_walk_Description"	"Provides some peculiar mobility."
+
+		"DOTA_Tooltip_ability_canyon_boss_ai"						"Inner Corruption"
+		"DOTA_Tooltip_ability_canyon_boss_ai_Description"			"Something presides within."
+
+		"DOTA_Tooltip_ability_crimsith_cult_master_pull"				"Soul Grab"
+		"DOTA_Tooltip_ability_crimsith_cult_master_pull_Description"	"Pulls a target unit towards you."
+
+		"DOTA_Tooltip_ability_redfall_autumn_mage_boss_passive"					"Singeing Wake"
+		"DOTA_Tooltip_ability_redfall_autumn_mage_boss_passive_Description"		"Firey explosions encircle the caster."
+
+		"DOTA_Tooltip_ability_redfall_autumn_mage_blink"				"Autumn Smoke"
+		"DOTA_Tooltip_ability_redfall_autumn_mage_blink_Description"	"Teleport in a random direction after 2 second delay."
+
+		"DOTA_Tooltip_ability_redfall_fenrir_ability"					"Alpha Wolf Aura"
+		"DOTA_Tooltip_ability_redfall_fenrir_ability_Description"		"Incrases attack damage of self and nearby allies."
+		"DOTA_Tooltip_ability_redfall_fenrir_ability_attacK_damage_increase"	"ATTACK DAMAGE BONUS %:"
+
+		"DOTA_Tooltip_ability_redfall_feronia_passive"					"Guard of Feronia"
+		"DOTA_Tooltip_ability_redfall_feronia_passive_Description"		"After casting a spell, gain a shield that reduces damage taken by 100% for 1.5 seconds."
+
+		"DOTA_Tooltip_ability_redfall_mirana_starfall"					"Starfall"
+		"DOTA_Tooltip_ability_redfall_mirana_starfall_Description"		"Drops stars on nearby enemies"	
+
+		"DOTA_Tooltip_ability_redfall_mirana_starfall"					"Sacred Arrow"
+		"DOTA_Tooltip_ability_redfall_mirana_starfall_Description"		"Fires an arrow that damages and stuns enemies that it strikes."
+
+		"DOTA_Tooltip_ability_redfall_student_of_ashara_leap"			"Forest Leap"	
+		"DOTA_Tooltip_ability_redfall_student_of_ashara_leap_Description"	"Target a unit and leap towards them."
+
+		"redfall_fenrir"												"Fenrir"
+		"redfall_canyon_feronia"										"Feronia"
+
+		"DOTA_Tooltip_ability_redfall_alpha_beast_charge"				"Alpha Charge"
+		"DOTA_Tooltip_ability_redfall_alpha_beast_charge_Description"	"Charges towards a position. If the Alpha Beast comes into contact with an enemy, they are struck by a massive blow."
+
+		"DOTA_Tooltip_ability_crimsyth_cultist_ai"						"Corrupted Heart"
+		"DOTA_Tooltip_ability_crimsyth_cultist_ai_Description"			"Increases health regen by a % of max health"
+		"DOTA_Tooltip_ability_crimsyth_cultist_ai_health_percent"		"HEALTH REGEN %:"
+
+		"DOTA_Tooltip_ability_redfall_bandit_blink_strike"				"Blink Strike"
+		"DOTA_Tooltip_ability_redfall_bandit_blink_strike_Description"	"Teleports behind a unit and deals bonus magic damage."
+		"DOTA_Tooltip_ability_redfall_bandit_blink_strike_bonus_damage"	"BONUS DAMAGE:"
+
+		"redfall_shroomling"											"Redfall Shroomling"
+		"redfall_autumn_gazer"											"Autumn Gazer"
+		"redfall_forest_summoner"										"Forest Summoner"
+		"redfall_autumn_treant"											"Autumn Treant"
+		"redfall_forest_minion"											"Forest Minion"
+		"redfall_forest_wood_dweller"									"Forest Wood Dweller"
+		"redfall_wozxak"												"Wozxak"
+		"redfall_forest_overgrowth"										"Forest Overgrowth"
+		"redfall_big_autumn_flower"										"Big Autumn Flower"
+		"redfall_forest_gnome"											"Forest Gnome"
+		"redfall_cliff_weed"											"Cliff Weed"
+		"redfall_forest_ranger"											"Crimson Ranger"
+		"redfall_red_raven"												"Red Raven"
+		"redfall_stone_watcher"											"Stone Watcher"
+		"redfall_hooded_soul_reacher"									"Forest Nomad"
+		"redfall_ashfall_knight"										"Ashfall Knight"
+		"redfall_autumn_satyr"											"Autumn Satyr"
+		"redfall_redfall_vulture"										"Redfall Vulture"
+		"redfall_autumn_cragnataur"										"Autumn Cragnataur"
+		"redfall_crimsyth_cultist"										"Crimsyth Cultist"
+		"redfall_crimsyth_cultist_master"								"Crimsyth Cultist Master"
+		"redfall_autumn_enforcer"										"Crimson Enforcer"
+		"redfall_autumn_tyrant"											"Crimson Eliminator"
+		"redfall_pan_knight"											"Pan Knight"
+		"redfall_canyon_alpha_beast"									"Alpha Beast"
+		"redfall_canyon_breaker"										"Canyon Breaker"
+		"redfall_canyon_bruiser"										"Canyon Bruiser"
+		"redfall_armored_crab_beast"									"Redfall Armored Crab Beast"
+		"redfall_canyon_bull"											"Canyon Bull"
+		"redfall_canyon_dinosaur"										"Cragosaurus"
+		"redfall_lzard_guide"											"Little Lizard"
+		"redfall_canyon_grizzly_patriarch"								"Grizzly Patriarch"	
+		"redfall_canyon_barbarian"										"Canyon Barbarian"		
+		"redfall_mist_knight"											"Mist Knight"	
+		"redfall_autumn_mage"											"Autumn Mage"
+		"redfall_troll_warlord"											"Troll Warlord"
+		"redfall_mist_assassin"											"Mist Assassin"
+		"redfall_autumn_mage_boss"										"Autumn Grand Magus"
+		"redfall_ashen_treant"											"Ash Treant"
+		"redfall_spirit_of_ashara"										"Spirit of Ashara"
+		"redfall_student_of_ashara"										"Student of Ashara"
+		"redfall_ashara"												"Ashara"
+
+		//Redfall Farmlands
+
+
+		"DOTA_Tooltip_ability_item_redfall_purified_vermillion_bundle_normal" "Purified Vermillion Bundle"
+		"DOTA_Tooltip_ability_item_redfall_purified_vermillion_bundle_elite" "Purified Vermillion Bundle"
+		"DOTA_Tooltip_ability_item_redfall_purified_vermillion_bundle_legend" "Purified Vermillion Bundle"
+
+		"item_redfall_purified_vermillion_bundle_normal_desc"				"Activates the portal to the Redfall Farmlands, located just outside Redfall Village."
+		"item_redfall_purified_vermillion_bundle_elite_desc"				"Activates the portal to the Redfall Farmlands, located just outside Redfall Village."
+		"item_redfall_purified_vermillion_bundle_legend_desc"				"Activates the portal to the Redfall Farmlands, located just outside Redfall Village."
+
+		"DOTA_Tooltip_ability_redfall_harvest_wraith_ability"							"Enfeebling Wraith"
+		"DOTA_Tooltip_ability_redfall_harvest_wraith_ability_Description"				"Attacks reduce the target's attack damage. Attacks cannot miss."
+		"DOTA_Tooltip_ability_redfall_harvest_wraith_ability_attacK_damage_reduction"	"DAMAGE REDUCTION %:"
+
+		"DOTA_Tooltip_modifier_harvest_wraith_effect"								"Enfeeble"
+		"DOTA_Tooltip_modifier_harvest_wraith_effect_Description"					"Attack damage reduced"
+
+		"DOTA_Tooltip_ability_redfall_farm_panda_immolation"						"Immolation"
+		"DOTA_Tooltip_ability_redfall_farm_panda_immolation_Description"			"Burns nearby enemies."
+
+		"redfall_farmlands_corn_harvester"										"Corn Harvester"
+		"redfall_farmlands_flame_panda"											"Flame Panda"
+		"redfall_harvest_wraith"												"Harvest Wraith"
+
+		"redfall_farmlands_thief"												"Crimsyth Thief"
+
+		"redfall_pumpkin_flower"												"Pumpkin Flower"
+
+		"redfall_farmland_spawner"												"Scarecrow Spawner"
+
+		"redfall_farmlands_bandit"												"Crimsyth Bandit"
+		"redfall_twisted_pumpkin"												"Twisted Pumpkin"
+		"redfall_chibi_bear"													"Chibi Bear"
+		"redfall_crymsith_duelist"												"Crimsyth Duelist"
+		"redfall_crimsyth_bandit"												"Crimsyth Bandit"
+		"redfall_farmlands_crymsith_taskmaster"									"Crimsyth Taskmaster"
+		"redfall_crimsyth_recruiter"											"Crimsyth Recruiter"
+
+		"DOTA_Tooltip_ability_redfall_bloodlust"								"Redfall Bloodlust"
+		"DOTA_Tooltip_ability_redfall_bloodlust_Description"					"Increases attack damage, movespeed and attack speed of a single target."
+		"DOTA_Tooltip_ability_redfall_bloodlust_duration"						"DURATION:"
+		"DOTA_Tooltip_ability_redfall_bloodlust_bonus_movement_speed"			"MOVESPEED:"
+		"DOTA_Tooltip_ability_redfall_bloodlust_bonus_attack_speed"				"ATTACK SPEED:"
+		"DOTA_Tooltip_ability_redfall_bloodlust_bonus_attack_damage"			"ATTACK DAMAGE %:"
+
+		"DOTA_Tooltip_ability_ancient_ruby_giant_ai"							"Seismic Shift"
+		"DOTA_Tooltip_ability_ancient_ruby_giant_ai_Description"				"Earth-shattering quakes appear around this unit."
+		"DOTA_Tooltip_ability_ancient_ruby_giant_ai_damage"						"DAMAGE:"
+
+
+		"redfall_meepo_farmer"													"Farmer"
+		"redfall_old_farmer"													"Farmer"
+
+		"redfall_dialogue_farmer_1_a"											"Crimsyth Enforcers will be coming soon to collect their taxes."
+		"redfall_dialogue_farmer_1_b"											"I don't have anything to give them. They will take me to prison."	
+		"redfall_dialogue_farmer_1_c"											"Go hide behind the barrels outside! I'll call for you when it's needed!"	
+
+		"redfall_dialogue_bandit_1_a"											"It's collections time. Where's your gold?"				
+		"redfall_dialogue_farmer_1_d"											"I used it all to feed myself. You can go home now."	
+		"redfall_dialogue_bandit_1_b"											"Why the sudden confidence old man?"
+		"redfall_dialogue_bandit_1_b2"											"Put him up against the wall. I'll search the house."
+		"redfall_dialogue_farmer_1_e"											"Now! GO!!"
+		"redfall_dialogue_bandit_1_c"											"Huh?"
+
+		"redfall_dialogue_farmer_1_f"											"Amazing! They will surely catch wind of this event in short time."
+		"redfall_dialogue_farmer_1_g"											"You must hurry and save Redfall from the Crimsyth! Living under their boot is no life at all."
+		"redfall_dialogue_farmer_1_h"											"Stone plates depicting animals lie hidden within the corn fields. It may be wise to write down the animal and its color."
+		"redfall_dialogue_farmer_1_i"											""
+
+		"DOTA_Tooltip_ability_redfall_riki_bandit_ai"							"Prism Strike"
+		"DOTA_Tooltip_ability_redfall_riki_bandit_ai_Description"				"Attacks deal 3 extra instances of pure damage based on each attribute of the target"	
+		"DOTA_Tooltip_ability_redfall_riki_bandit_ai_prism_strike"				"ATTRIBUTE MULTIPLE:"
+
+		"redfall_quest_7_title"									"Death and Taxes"
+		"redfall_quest_7_objective"								"Defeat the Crimsyth tax collectors in Redfall Farmlands."
+		"redfall_quest_7_objective_2"							"Investigate the northern Farmhouse."
+
+		"redfall_quest_7_reward"								"Abandonded Shipyard Key"
+		"redfall_quest_7_reward_Description"					"Opens the entrance to the Abandoned Shipyard Dungeon"
+
+		"DOTA_Tooltip_ability_redfall_taskmaster_ai"									"Task Armor"
+		"DOTA_Tooltip_ability_redfall_taskmaster_ai_Description"						"The shield reduces damage by 99.9%. Each instance of damage taken removes a stack."
+		"DOTA_Tooltip_ability_redfall_taskmaster_ai_charges"							"SHIELD CHARGES:"
+
+		"DOTA_Tooltip_modifier_task_armor"												"Task Armor"
+		"DOTA_Tooltip_modifier_task_armor_Description"									"Reducing damage by 99.9%%"
+
+		"redfall_dialogue_farmer_2_a"											"The Crimsyth aren't just thieves. They also engage in diabolic rituals."
+		"redfall_dialogue_farmer_2_b"											"They are a destructive cult that breeds corruption."
+		"redfall_dialogue_farmer_2_c"											"It's taxation day. I suppose I'll be getting a visit soon."
+
+		"redfall_dialogue_farmer_2_d"											"Incredible."
+
+		"redfall_dialogue_farmer_3_a"											"Help!"
+		"redfall_dialogue_farmer_3_b"											"HELP!"
+		"redfall_dialogue_farmer_3_c"											"I'm sorry..."
+
+		"redfall_dialogue_farmer_3_d"											"Your reward for helping is back here. Just come with me."
+
+		"redfall_demon_farmer"												"Demon Enforcer"
+
+		"DOTA_Tooltip_ability_redfall_demon_farmer_passive"							"Corruption Aura"
+		"DOTA_Tooltip_ability_redfall_demon_farmer_passive_Description"				"Enemies in a huge radius lose a % of their attributes."
+		"DOTA_Tooltip_ability_redfall_demon_farmer_passive_stat_loss_percent"		"STAT LOSS %:"
+
+		"DOTA_Tooltip_modifier_demon_farmer_aura_effect"					"Corruption Aura"
+		"DOTA_Tooltip_modifier_demon_farmer_aura_effect_Description"		"Losing %stat_loss_percent % of all attributes."
+
+		"DOTA_Tooltip_ability_redfall_demon_farmer_mark"					"Demon Link"
+		"DOTA_Tooltip_ability_redfall_demon_farmer_mark_Description"		"The Demon Enforcer takes 0 damage. When he lands an attack, the target gains the ability to damage him for a duration."
+		"DOTA_Tooltip_ability_redfall_demon_farmer_mark_duration"			"DURATION:"
+
+		"DOTA_Tooltip_modifier_demon_farmer_mark_effect"					"Demon Link"
+		"DOTA_Tooltip_modifier_demon_farmer_mark_effect_Description"		"Able to damage the Demon Enforcer"
+
+		"DOTA_Tooltip_ability_item_redfall_hidden_shipyard_key_normal" "Abandoned Shipyard Key"
+		"DOTA_Tooltip_ability_item_redfall_hidden_shipyard_key_elite" "Abandoned Shipyard Key"
+		"DOTA_Tooltip_ability_item_redfall_hidden_shipyard_key_legend" "Abandoned Shipyard Key"
+
+		"item_redfall_hidden_shipyard_key_normal_desc"				"Opens the entrance to the Abandoned Shipyard in Redfall Ridge."
+		"item_redfall_hidden_shipyard_key_elite_desc"				"Opens the entrance to the Abandoned Shipyard in Redfall Ridge."
+		"item_redfall_hidden_shipyard_key_legend_desc"				"Opens the entrance to the Abandoned Shipyard in Redfall Ridge."
+
+		"DOTA_Tooltip_ability_redfall_skeleton_archer_ai"				"Death Pact"
+		"DOTA_Tooltip_ability_redfall_skeleton_archer_ai_Description"	"Increases attack damage."
+		"DOTA_Tooltip_ability_redfall_skeleton_archer_ai_attack_damage_bonus"	"ATTACK DAMAGE BONUS %:"
+
+		"DOTA_Tooltip_ability_redfall_wild_leap"						"Wild Leap"
+		"DOTA_Tooltip_ability_redfall_wild_leap_Description"			"Target a unit and jump toward them, creating a stunning quake at the landing point."
+
+		"DOTA_Tooltip_ability_redfall_void_task_shield"					"Task Armor"
+		"DOTA_Tooltip_ability_redfall_void_task_shield_Description"		"Damage taken is reduced by 99.9% until charges are expired."	
+
+		"redfall_shipyard_conductor"									"Shipyard Conductor"
+		"redfall_shipyard_demon_brute"									"Demon Brute"
+		"redfall_shipyard_void"											"Demon Void"
+		"redfall_demon_rat"												"Yard Rat"
+
+		"shipyard_skeleton_archer_boss"									"Elite Bone Scorpion"
+		"shipyard_skeleton_archer"										"Bone Scorpion"
+		"redfall_shipyard_demon_wolf"									"Demon Wolf"
+		"redfall_shipyard_blood_wolf"									"Blood Wolf"
+		"redfall_shipyard_crimsyth_blood_hunter"						"Blood Hunter"
+
+		"DOTA_Tooltip_ability_redfall_massive_arrow"					"Crimson Power Shot"
+		"DOTA_Tooltip_ability_redfall_massive_arrow_Description"		"Fires a powerful red arrow after winding up the bow."
+
+		"DOTA_Tooltip_ability_redfall_tyrant_quake"						"Split Earth"
+		"DOTA_Tooltip_ability_redfall_tyrant_quake_Description"			"Stun and damage units in an area."
+
+		"DOTA_Tooltip_ability_redfall_enforcer_puff"					"Combat Ready"
+		"DOTA_Tooltip_ability_redfall_enforcer_puff_Description"		"Increases cast speed for 4 seconds."
+		"DOTA_Tooltip_ability_redfall_enforcer_puff_attackspeed"		"ATTACK SPEED:"
+
+		"DOTA_Tooltip_ability_redfall_farmlands_bandit_ai"				"Quickfoot"
+		"DOTA_Tooltip_ability_redfall_farmlands_bandit_ai_Description"	"Attacks have a 25% chance to apply a buff that grants 100% evasion and bonus movespeed."
+
+		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai"				"Bane Blood"
+		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_Description"	"Attacks leave a stacking armor debuff on the target, while increasing the attack speed and attack damage of the owner."
+		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_armor_reduce_per_hit"	"ARMOR REDUCTION PER HIT:"
+		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_attack_speed_per_hit"	"ATTACK SPEED PER HIT:"
+		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_attack_damage_per_hit"	"ATTACK DAMAGE PER HIT:"
+
+		"DOTA_Tooltip_ability_shipyard_plasma_field"					"Energy Conductor"
+		"DOTA_Tooltip_ability_shipyard_plasma_field_Description"		"Deals damage in an expanding circle. Deals much less damage closer to the center."
+		"DOTA_Tooltip_ability_shipyard_plasma_field_damage_min"			"DAMAGE AT CENTER:"
+		"DOTA_Tooltip_ability_shipyard_plasma_field_damage_max"			"DAMAGE AT EDGE:"
+
+		"shipyard_pirate_archer"										"Shipyard Pirate Archer"
+
+		"DOTA_Tooltip_ability_redfall_shipyard_gatekeeper_skulldigger" "Skulldigger"
+		"DOTA_Tooltip_ability_redfall_shipyard_gatekeeper_skulldigger_Description" "Builds charges every 2.2 seconds. Each time damage is taken with a charge active, launch a wraithfire blast at the attacker."
+		"DOTA_Tooltip_ability_redfall_shipyard_gatekeeper_skulldigger_property_two"	"MAX STACKS:"
+		"DOTA_Tooltip_ability_redfall_shipyard_gatekeeper_skulldigger_property_four"	"STUN DURATION:"
+
+		"redfall_shipyard_soul_collector"								"Soul Collector"
+
+		"shipyard_ghost_fish"											"Ghost Fish"
+
+		"redfall_shipyard_haunt_knight"									"Shipyard Haunt Knight"
+
+		"DOTA_Tooltip_ability_redfall_shipyard_soul_collector_passive"	"Soul Spiller"
+		"DOTA_Tooltip_ability_redfall_shipyard_soul_collector_passive_Description"	"Continuously emits skulls that deal damage. Each time a skull hits a target, the Soul Collector gains a shield that absorbs 1 instance of damage per stack."
+		"DOTA_Tooltip_ability_redfall_shipyard_soul_collector_passive_max_stacks"	"MAX SHIELD STACKS:"
+
+		"shipyard_boss_dialogue_1"										"Well this is strange."
+		"shipyard_boss_dialogue_1a"										"Well this is odd."
+		"shipyard_boss_dialogue_2"										"First, my tax collectors are late."
+		"shipyard_boss_dialogue_3"										"They're never late."
+		"shipyard_boss_dialogue_4_1"									"And now I've got a stinkin' pig standing at the entrance to my chamber."
+		"shipyard_boss_dialogue_4_2"									"And now I've got a pair of filthy apes standing at the entrance to my chamber."
+		"shipyard_boss_dialogue_4_3"									"And now I've got a trio of try-hard monkeys standing at the entrance to my chamber."
+		"shipyard_boss_dialogue_4_4"									"And now I've got a group of deadbeat rats standing at the entrance to my chamber."
+
+		"shipyard_boss_dialogue_5"										"And so we will play a high stakes game of LIFE and DEATH!"
+		"shipyard_boss_dialogue_6"										"Let's begin, friends!"
+
+		"shipyard_boss_dialogue_7"										"Round and round it goes"
+		"shipyard_boss_dialogue_8"										"Let's raise the stakes folks!"
+
+		"shipyard_boss_dialogue_9"										"Finish it!"
+
+		"redfall_shipyard_boss"											"Tyrant Thadelus"
+
+		"DOTA_Tooltip_ability_shipyard_boss_ai"							"Meat Eater"
+		"DOTA_Tooltip_ability_shipyard_boss_ai_Description"				"Instances of damage cannot exceed 1% of max health."
+
+		"redfall_dialogue_farmer_2_shredder_1"							"My harvester has returned to me!"
+		"redfall_dialogue_farmer_2_shredder_1a"							"I have a secret lab in the back that I hide from the Crimsyth. It's where I research new harvesting technologies."
+		"redfall_dialogue_farmer_2_shredder_2"							"Step on the pedestal to enter one of my harvesting machines. You can gain upgrades for 100 lumber by standing on the white pedestals!"
+
+		"redfall_dialogue_farmer_2_shredder_upgrade_1"					"That's the Whirling Death upgrade. It lets you harvest lumber faster by giving you an AOE chopping technique."
+		"redfall_dialogue_farmer_2_shredder_upgrade_2"					"That's the Turbo Boost upgrade. It increases your shredders base movement speed!."
+		"redfall_dialogue_farmer_2_shredder_upgrade_3"					"Those are special harvester boots. They are for you - not the harvester!"
+
+		"DOTA_Tooltip_ability_redfall_dismount_shredder_ability"		"Dismount (Self Destruct)"
+		"DOTA_Tooltip_ability_redfall_dismount_shredder_ability_Description"	"Leaves the Harvester"
+
+		"DOTA_Tooltip_modifier_shredder_lumber"							"Lumber"	
+
+		"DOTA_Tooltip_ability_redfall_harvester_harvest"				"Harvest Tree"
+		"DOTA_Tooltip_ability_redfall_harvester_harvest_Description"	"Collects a single tree."
+
+		"DOTA_Tooltip_ability_redfall_whirling_death_shredder_ability"	"Whirling Death"
+		"DOTA_Tooltip_ability_redfall_whirling_death_shredder_ability_Description"	"Harvests trees in an AOE radius."
+
+		"redfall_quest_8_title"											"Harvesting Duty"
+		"redfall_quest_8_objective_1"									"Meet up with the reactivated shredder."
+		"redfall_quest_8_objective_2"									"Harvest lumber and earn all of the shredder upgrades."
+		"redfall_quest_8_reward"										"Harvester Boots"
+		"redfall_quest_8_reward_Description"							"Immortal Foot Gear"
+
+		"redfall_farmlands_friendly_harvester"							"Harvester"
+
+		"DOTA_Tooltip_ability_redfall_farmland_spawner_ability"			"Pumpkin Seeds"
+		"DOTA_Tooltip_ability_redfall_farmland_spawner_ability"			"Spawning Pumpkin minions"
+
+		"DOTA_Tooltip_ability_farmland_shredder_blade"					"Harvester"
+		"DOTA_Tooltip_ability_farmland_shredder_blade"					""
+
+		"DOTA_Tooltip_ability_redfall_armored_crab_beast_ability"				"Canyon Burrow"
+		"DOTA_Tooltip_ability_redfall_armored_crab_beast_ability_Description"	"Target a unit and burrow behind them."
+
+		"DOTA_Tooltip_ability_redfall_shredder_whirling_death"			"Whirling Death"
+		"DOTA_Tooltip_ability_redfall_shredder_whirling_death_Description"	"A quick spiralling blade chops all trees and enemies nearby."
+		"DOTA_Tooltip_ability_redfall_shredder_whirling_death_whirling_damage"	"DAMAGE:"
+		"DOTA_Tooltip_ability_redfall_shredder_whirling_death_stat_loss_pct"	"PRIMARY ATTRIBUTE LOSS %:"
+		"DOTA_Tooltip_ability_redfall_shredder_whirling_death_duration"			"ATTRIBUTE LOSS DURATION:"
+
+		"DOTA_Tooltip_ability_crimsyth_mage_ability"					"Ruby Pulse"
+		"DOTA_Tooltip_ability_crimsyth_mage_ability_Description"		"Periodically emits waves of crimson magic that deal damage and slow turn rate and movespeed."
+		"DOTA_Tooltip_ability_crimsyth_mage_ability_damage"				"DAMAGE:"
+
+		"DOTA_Tooltip_modifier_crimsyth_mage_slow"						"Ruby Pulse"
+		"DOTA_Tooltip_modifier_crimsyth_mage_slow_Description"			"Movespeed and turn rate reduced."
+
+		"DOTA_Tooltip_ability_creature_black_king_bar"					"Magic Shield"
+		"DOTA_Tooltip_ability_creature_black_king_bar_Description"		"Applies a 100% magic immunity shield."
+		"DOTA_Tooltip_ability_creature_black_king_bar_duration"			"Duration:"
+
+		"DOTA_Tooltip_modifier_black_King_bar_immunity"					"Magic Shield"
+		"DOTA_Tooltip_modifier_black_King_bar_immunity_Description"		"Magic Immunity"
+
+		"redfall_shipyard_crimsyth_knight"								"Crimsyth Knight"
+		
+		//Crimsyth Castle
+
+		"redfall_crimsyth_castle_intro"									"The Blighted Promenade"
+		"redfall_crimsyth_castle"										"Crimsyth Castle"
+
+		"DOTA_Tooltip_ability_redfall_dragonkin_enflame"				"Enflame"
+		"DOTA_Tooltip_ability_redfall_dragonkin_enflame_Description"	"The caster ignites in flame increasing attack damage and attack speed for 10 seconds."
+		"DOTA_Tooltip_ability_redfall_dragonkin_enflame_attack_power_bonus"	"ATTACK POWER %:"
+		"DOTA_Tooltip_ability_redfall_dragonkin_enflame_attack_speed_bonus"	"ATTACK SPEED:"
+
+		"DOTA_Tooltip_ability_redfall_hell_bandit_ability"				"Mana Burn"
+		"DOTA_Tooltip_ability_redfall_hell_bandit_ability_Description"	"Attacks drain mana and deal magic damage based on mana drained"
+		"DOTA_Tooltip_ability_redfall_hell_bandit_ability_mana_drain_percent"	"% OF MAX MANA DRAINED:"
+
+		"DOTA_Tooltip_ability_redfall_autumn_monster_ability"			"Fire Lash"
+		"DOTA_Tooltip_ability_redfall_autumn_monster_ability_Description"	"Launches 3 fireballs towards the target location"
+		"DOTA_Tooltip_ability_redfall_autumn_monster_ability_impact_damage"	"IMPACT DAMAGE:"
+		"DOTA_Tooltip_ability_redfall_autumn_monster_ability_burn_damage"	"BURN DAMAGE:"
+
+		"crimsyth_sorceress_dialogue_1"									"Ohhhhhh hahahaHA!"
+		"crimsyth_castle_boss_dialogue_1"								"Why have I been summoned?"
+		"crimsyth_sorceress_dialogue_2"									"You have guests, honey."	
+
+		"crimsyth_castle_boss_dialogue_2"								"Keep them out. We have no time for visitors!"
+		"crimsyth_sorceress_dialogue_3"									"Ohh heheHE"
+		"crimsyth_sorceress_dialogue_4"									"Activating the defensive wave spawning systems!"
+
+		"DOTA_Tooltip_ability_castle_sorceress_light_strike_array"		"Light Strike Array"
+		"DOTA_Tooltip_ability_castle_sorceress_light_strike_array_Description"	"A column of fire damages and stuns in an area after a short delay."	
+
+		"DOTA_Tooltip_ability_redfall_sorceress_fire_spray"				"Fire Spray"
+		"DOTA_Tooltip_ability_redfall_sorceress_fire_spray_Description"	"Shoots fireballs at nearby enemies."
+		"DOTA_Tooltip_ability_redfall_sorceress_fire_spray_burn_dps"	"BURN DPS:"
+		
+		"DOTA_Tooltip_ability_redfall_bloodhunter_summon_wolves"		"Summon Wolf Companions"
+		"DOTA_Tooltip_ability_redfall_bloodhunter_summon_wolves_Description"	"Summons 2 vicious wolves."
+
+		"DOTA_Tooltip_ability_redfall_skeleton_boss_arrow"				"Fireball Arrow"
+		"DOTA_Tooltip_ability_redfall_skeleton_boss_arrow_Description"	"Launches a fireball from the Skeleton's bow that deals massive impact damage."
+
+		"crimsyth_bombadier"											"Crimsyth Bombardier"
+		"crimsyth_bombadier_rooted"										"Crimsyth Bombardier Elite"
+
+		"DOTA_Tooltip_ability_redfall_bombadier_ability"				"Bomb Toss"
+		"DOTA_Tooltip_ability_redfall_bombadier_ability_damage"			"DAMAGE:"
+		"DOTA_Tooltip_ability_redfall_bombadier_ability_num_bombs"		"BOMB COUNT:"	
+
+		"DOTA_Tooltip_ability_redfall_bombadier_rooted_ability"				"Bomb Toss"
+		"DOTA_Tooltip_ability_redfall_bombadier_rooted_ability_damage"			"DAMAGE:"
+		"DOTA_Tooltip_ability_redfall_bombadier_rooted_ability_num_bombs"		"BOMB COUNT:"	
+
+		"redfall_crimsyth_hawk_soldier"									"Crimsyth Hawk Soldier"
+
+		"redfall_autumn_monster"										"Autumn Monster"
+
+		"redfall_snarlroot_treant"										"Gnarlroot Treant"
+		"redfall_castle_archer"											"Castle Archer"
+
+		"DOTA_Tooltip_ability_redfall_autumn_mage_passive"				"Autumn Starfall"
+		"DOTA_Tooltip_ability_redfall_autumn_mage_passive_Description"	"Attacks drop a star on the target that deals magic damage and applies a 3 second debuff that reduces magic resistance."
+		"DOTA_Tooltip_ability_redfall_autumn_mage_passive_damage"		"DAMAGE:"
+		"DOTA_Tooltip_ability_redfall_autumn_mage_passive_magic_resist_loss"	"MAGIC RESIST REDUCTION:"
+
+		"DOTA_Tooltip_ability_armor_break_ultra"									"Armor Break Ultra"
+		"DOTA_Tooltip_ability_armor_break_ultra_Description"						"Successful attacks decrease the target's armor."	
+		"DOTA_Tooltip_ability_armor_break_ultra_armor_break"						"ARMOR REDUCTION:"
+
+		"redfall_crimsyth_hawk_soldier_elite"							"Hawk Soldier Elite"
+
+		"DOTA_Tooltip_ability_redfall_hawk_knight_lock_on"				"Shield Lock"
+		"DOTA_Tooltip_ability_redfall_hawk_knight_lock_on_Description"	"Locks onto the target for 2 seconds. If the target does not break the bind by running away, the Hawk Knight charges towards the target and deals magic damage and stuns."
+		"DOTA_Tooltip_ability_redfall_hawk_knight_lock_on_damage"		"DAMAGE:"
+		"DOTA_Tooltip_ability_redfall_hawk_knight_lock_on_stun_duration"	"STUN DURATION:"
+
+		"DOTA_Tooltip_modifier_autumn_mage_debuff"						"Autumn Starfall"
+		"DOTA_Tooltip_modifier_autumn_mage_debuff_Description"			"Reduced magic resist."	
+
+		"redfall_crimsyth_shadow"										"Crimsyth Shadow"
+
+		"DOTA_Tooltip_ability_redfall_castle_warflayer_passive"			"Magic Immunity Break"
+		"DOTA_Tooltip_ability_redfall_castle_warflayer_passive_Description"	"Attacks break magic immune effects."	
+
+		"DOTA_Tooltip_ability_crimsyth_khan_knight_passive"				"Black Smoke"
+		"DOTA_Tooltip_ability_crimsyth_khan_knight_passive_Description"	"Taking damage emits a cloud of smoke that blinds enemies in the radius."
+		"DOTA_Tooltip_ability_crimsyth_khan_knight_passive_blind_duration"	"BLIND DURATION:"
+
+		"DOTA_Tooltip_modifier_khan_knight_blind"						"Black Smoke"
+		"DOTA_Tooltip_modifier_khan_knight_blind_Description"			"Blinded"
+
+		"DOTA_Tooltip_ability_redfall_enclave_viking_passive"			"Explosive Axe"
+		"DOTA_Tooltip_ability_redfall_enclave_viking_passive_Description"	"Regular attacks explode, dealing 0.5% of attack damage and stunning for 0.1 seconds in an AOE"
+
+		"DOTA_Tooltip_modifier_jailer_bleeding"							"Bleeding"
+		"DOTA_Tooltip_modifier_jailer_bleeding_Description"				"Taking magic damage every 0.5s"	
+
+		"DOTA_Tooltip_redfall_goo_skin"									"Slime Skin"
+		"DOTA_Tooltip_redfall_goo_skin_Description"						"Slows enemies who damage this unit."	
+		"DOTA_Tooltip_redfall_goo_skin_slow_percentage"					"MOVE SLOW PERCENTAGE:"
+
+		"DOTA_Tooltip_modifier_goo_skin_effect"							"Slime Skin"
+		"DOTA_Tooltip_modifier_goo_skin_effect_Description"				"Slowed"
+
+		"redfall_erakor_the_sadist"										"Erakor the Sadist"
+
+		"DOTA_Tooltip_modifier_sadist_shield"							"Sadist Shield"
+		"DOTA_Tooltip_modifier_sadist_shield_Description"				"Absorbing Magic and Pure damage"
+
+		"DOTA_Tooltip_modifier_erakor_burning"							"Burning"
+
+		"DOTA_Tooltip_ability_redfall_erakor_the_sadist_passive"		"Domination"
+		"DOTA_Tooltip_ability_redfall_erakor_the_sadist_passive_Description"	"Links up with the target, reducing their movespeed and vision radius and allowing the Sadist to pull himself closer. Tether breaks at 2000 distance."
+		
+		"DOTA_Tooltip_ability_sadist_blood_bath"						"Blood Bath"
+		"DOTA_Tooltip_ability_sadist_blood_bath_Description"			"Creates a ritualistic circle of blood that pops after a 2 second delay. Anyone within the radius as it explodes is silenced and takes magic damage."
+		"DOTA_Tooltip_ability_sadist_blood_bath_silence_duration"		"SILENCE DURATION:"
+		"DOTA_Tooltip_ability_sadist_blood_bath_damage"					"DAMAGE:"
+
+		"redfall_the_archivist"											"The Archivist"
+		"archivist_demon_moloth"										"Demon Moloth"
+
+		"redfall_castle_garden_overlord"								"Garden Overlord"
+
+		"redfall_crimson_samurai"										"Crimson Samurai"
+		"redfall_crimson_warrior"										"Crimson Warrior"
+
+		"DOTA_Tooltip_ability_custom_meteor2"							"Meteor"
+		"DOTA_Tooltip_ability_custom_meteor2_Description"				"Drops a massive boulder at the target location that burns enemies."
+
+		"redfall_crimson_shadow_dancer"									"Crimson Shadow Dancer"
+
+		"redfall_crimsyth_khan_knight"									"Khan Knight"
+
+		"redfall_crimsyth_crystal_hoarder"								"Crimsyth Crystal Hoarder"
+		"redfall_castle_warflayer"										"Warflayer"
+
+		"redfall_castle_loki_the_mad"									"Loki the Mad"
+
+		"DOTA_Tooltip_ability_loki_the_mad_passive"						"Maddening Strife"
+		"DOTA_Tooltip_ability_loki_the_mad_passive_Description"			"Attacking increases movespeed and attack speed and heals for 2% of max HP."
+
+		"DOTA_Tooltip_ability_redfall_moloth_passive"					"Essence Shell"
+		"DOTA_Tooltip_ability_redfall_moloth_passive_Description"		"Moloth is immune to all damage unless his 3 orbiting spheres match color. If all blue, Moloth can take pure damage. Green, physical and red magical."
+		"DOTA_Tooltip_ability_redfall_moloth_passive_damage_reduce_of_alt_types"	"REDUCTION OF ALTERNATE DAMAGE TYPES:"
+
+		"DOTA_Tooltip_ability_redfall_gnarl_tree_aura"					"Gnarl Grip"
+		"DOTA_Tooltip_ability_redfall_gnarl_tree_aura_Description"		"Nearby heroes are slowed and have their vision radius reduced."
+		"DOTA_Tooltip_ability_redfall_gnarl_tree_aura_vision_reduce"	"VISION REDUCE:"
+		"DOTA_Tooltip_ability_redfall_gnarl_tree_aura_movespeed"		"MOVESPEED:"
+
+		"redfall_crimsyth_guard"										"Crimsyth Guard"
+
+		"DOTA_Tooltip_ability_redfall_crimsyth_guardian_passive"		"Weapon Break"
+		"DOTA_Tooltip_ability_redfall_crimsyth_guardian_passive_Description"	"Attacks disarm the target"
+		"DOTA_Tooltip_ability_redfall_crimsyth_guardian_passive_duration"	"DISARM DURATION:"
+
+		"DOTA_Tooltip_ability_crimsyth_guardian_sven_warcry"			"Warcry"
+		"DOTA_Tooltip_ability_crimsyth_guardian_sven_warcry_Description"	"Increases the armor and movespeed of nearby units"
+		"DOTA_Tooltip_ability_crimsyth_guardian_sven_warcry_warcry_armor"	"ARMOR:"
+
+		"DOTA_Tooltip_ability_redfall_crimsyth_demon_knight_passive"		"Demon Armor"
+		"DOTA_Tooltip_ability_redfall_crimsyth_demon_knight_passive_Description"	"Passively increases armor"
+		"DOTA_Tooltip_ability_redfall_crimsyth_demon_knight_passive_armor"	"ARMOR:"
+
+		"DOTA_Tooltip_ability_redfall_wild_leap_demon_knight"				"Crushing Leap"
+		"DOTA_Tooltip_ability_redfall_wild_leap_demon_knight_Description"	"Jumps toward the target location and deal magic damage in an AOE at the landing point."
+
+		"DOTA_Tooltip_ability_redfall_crimsyth_cannibal_ai"					"Flesh Heap"
+		"DOTA_Tooltip_ability_redfall_crimsyth_cannibal_ai_Description"		"Increases magic resistance"
+		"DOTA_Tooltip_ability_redfall_crimsyth_cannibal_ai_magic_resist"	"MAGIC RESIST:"
+
+		"DOTA_Tooltip_ability_castle_sorceress_blink_ability"				"Sparkle Dash"
+		"DOTA_Tooltip_ability_castle_sorceress_blink_ability_Description"	"Quickly dodge in a random direction."
+
+		"DOTA_Tooltip_ability_redfall_demon_firestorm"						"Firestorm"
+		"DOTA_Tooltip_ability_redfall_demon_firestorm_Description"			"Creates waves of demonic green hellfire at the target location."
+		"DOTA_Tooltip_ability_redfall_demon_firestorm_wave_damage"			"WAVE DAMAGE:"	
+		"DOTA_Tooltip_ability_redfall_demon_firestorm_burn_damage"			"DOT DAMAGE (% OF MAX HEALTH):"
+
+		"DOTA_Tooltip_ability_redfall_demon_follower_finger"				"Finger of Pain"
+		"DOTA_Tooltip_ability_redfall_demon_follower_finger_Description"	"A quick nuke that deals magic damage."
+		"DOTA_Tooltip_ability_redfall_demon_follower_finger_damage"			"DAMAGE:"
+
+		"DOTA_Tooltip_ability_redfall_crimsyth_castle_boss_ai"				"Corruptor"
+
+		"DOTA_Tooltip_ability_crimsyth_final_boss_fire_blast"				"Chaos Meteor"
+		"DOTA_Tooltip_ability_crimsyth_final_boss_fire_blast_damage"		"DAMAGE:"
+
+		"DOTA_Tooltip_ability_crimsyth_boss_illusion_ability"				"Demonic Reflection"
+
+		"DOTA_Tooltip_ability_redfall_crimsyth_boss_passive"				"Tormented Fervor"
+		"DOTA_Tooltip_ability_redfall_crimsyth_boss_passive_Description"	"Attacks leave a stacking armor debuff, and the attacker increases his attack speed with each successive strike."
+
+		"redfall_crimsyth_mage"											"Crimsyth Mage"
+		"redfall_crimsyth_mage_elite"									"Crimsyth Mage Elite"	
+
+		"redfall_crystal_shifter"										"Crystal Shifter"
+
+		"redfall_crimsyth_grunt"										"Crimsyth Grunt"
+
+		"redfall_lava_lizard"											"Lava Lizard"
+
+		"redfall_castle_tongey_kong"									"Tongey Kong"
+
+		"redfall_castle_demented_shaman"								"Crimsyth Demented Shaman"
+
+		"redfall_crimsyth_gunman"										"Crimsyth Gunman"
+
+		"redfall_crimsyth_gunman_elite"								"Crimsyth Gunman Elite"
+
+		"redfall_enclave_viking"										"Enclave Viking"
+
+		"DOTA_Tooltip_ability_redfall_goo_skin"						"Goo Skin"
+		"DOTA_Tooltip_ability_redfall_goo_skin_Description"			"Damaging this unit slows the attacker."
+
+		"redfall_tortured_soul"											"Redfall Tortured Soul"	
+
+		"redfall_crimsyth_berserker"								"Crimsyth Berserker"
+
+		"redfall_castle_garden_watcher"								"Castle Garden Watcher"
+
+		"redfall_crimsyth_cultist_elite"							"Crimsyth Cultist Elite"
+
+		"DOTA_Tooltip_ability_redfall_the_archivist_passive"			"Boundless Knowledge"
+
+		"DOTA_Tooltip_ability_redfall_archivist_orb_changer"				"Aspect Depth"
+		"DOTA_Tooltip_ability_redfall_archivist_orb_changer_Description"	"Changes the color of an Orbiting Sphere"
+
+		"DOTA_Tooltip_ability_redfall_moloth_bombs"						"Moloth Bombs"
+		"DOTA_Tooltip_ability_redfall_moloth_bombs_damage"						"DAMAGE:"
+
+		"DOTA_Tooltip_ability_redfall_torture_puppet_ai"				"Rend"
+		"DOTA_Tooltip_ability_redfall_torture_puppet_ai_Description"	"Attacks leave a bleeding DoT on the target."
+		"DOTA_Tooltip_ability_redfall_torture_puppet_ai_bleed_damage"	"BLEED DAMAGE:"
+
+		"crimsyth_fortune_seeker"										"Fortune Seeker"
+
+		"redfall_crimsyth_torture_puppet"								"Crimsyth Torture Puppet"
+
+		"redfall_crimsyth_corrupted_corpse"								"Corrupted Corpse"
+
+		"DOTA_Tooltip_ability_crimsyth_gunman_shrapnel"					"Shrapnel"
+		"DOTA_Tooltip_ability_crimsyth_gunman_shrapnel_Description"		"A cascade of bullets rains at the target location, damaging and slowing enemies within the area."
+		"DOTA_Tooltip_ability_crimsyth_gunman_shrapnel_shrapnel_damage"	"DAMAGE:"
+
+		"DOTA_Tooltip_ability_redfall_barrel_toss"						"Barrel Toss"
+		"DOTA_Tooltip_ability_redfall_barrel_toss_Description"			"Rolls a barrell ahead of the caster that explodes at low velocity or when it comes into contact with an enemy."
+		"DOTA_Tooltip_ability_redfall_barrel_toss_damage"				"DAMAGE:"
+
+		"DOTA_Tooltip_modifier_ash_tree_aura_debuff"					"Gnarl Grip"
+		"DOTA_Tooltip_modifier_ash_tree_aura_debuff_Description"		"Slowed"
+
+		"DOTA_Tooltip_ability_redfall_crimson_samurai_passive"			"Silver Shield"
+		"DOTA_Tooltip_ability_redfall_crimson_samurai_passive_Description"	"Reduces PURE damage taken."
+		"DOTA_Tooltip_ability_redfall_crimson_samurai_passive_pure_damage_reduce"	"PURE DAMAGE REDUCTION:"
+
+		"DOTA_Tooltip_modifier_silver_shield"							"Silver Shield"
+		"DOTA_Tooltip_modifier_silver_shield_Description"				"Reducing pure damage taken."
+
+		"redfall_castle_crimson_flood"									"Crimson Flood"
+
+		"DOTA_Tooltip_raging_shaman_passive"							"Wild Berskerker"
+
+		"crimsyth_ghost_of_perdition"									"Ghost of Perdition"
+
+		"DOTA_Tooltip_ability_shipyard_pirate_archer_ability"			"Searing Arrows"
+		"DOTA_Tooltip_ability_shipyard_pirate_archer_ability_Description"	"Attacks deal additional magic damage and leave a burning debuff on the target."
+		"DOTA_Tooltip_ability_shipyard_pirate_archer_ability_magic_damage_on_hit"	"ADDITIONAL MAGIC DAMAGE AS % OF ATTACK DAMAGE:"
+		"DOTA_Tooltip_ability_shipyard_pirate_archer_ability_burn_damage_per_tick"	"BURN DAMAGE PER SECOND:"
+
+		"redfall_castle_effigy_of_fortunis"								"Effigy of Fortunis"
+
+		"DOTA_Tooltip_ability_redfall_fortunis_passive"					"Fortune's Blessing"
+		"DOTA_Tooltip_ability_redfall_fortunis_passive_Description"		"50% chance to dodge attacks, and 50% increased magic resistance."
+
+		"DOTA_Tooltip_ability_fortunis_effigy_static_remnant"			"Static Remnant"
+		"DOTA_Tooltip_ability_fortunis_effigy_static_remnant_Description"	"Leaves a thunder remnant that explodes on contact with an enemy."
+		"DOTA_Tooltip_ability_fortunis_effigy_static_remnant_static_remnant_damage"	"DAMAGE:"
+
+		"redfall_maze_ghost"											"Treasure Ghost"
+		"maze_ghost_dialogue"											"Only a single door may open. Choose wisely!"
+
+		"redfall_ethereal_revenant"										"Ethereal Revenant"
+
+		"redfall_lava_behemoth"											"Lava Behemoth"
+
+		"DOTA_Tooltip_ability_redfall_ethereal_revenant_passive"				"Revenant Link"
+		"DOTA_Tooltip_ability_redfall_ethereal_revenant_passive_Description"	"Binds Nearby enemies, slowing them and reducing attack damage."
+
+		"DOTA_Tooltip_modifier_ethereal_revenant_link_boss"					"Revenant Link"
+
+		"DOTA_Tooltip_ability_magic_immune_breakable_ability_mega"		"Magic Ward"
+		"DOTA_Tooltip_ability_magic_immune_breakable_ability_mega_Description"	"Grants magic immunity. Magic immune shield can be broken after attacks."	
+		"DOTA_Tooltip_ability_magic_immune_breakable_ability_mega_stacks"		"CHARGES:"
+
+		"DOTA_Tooltip_ability_redfall_mega_steadfast"							"Mega Steadfast"
+		"DOTA_Tooltip_ability_redfall_mega_steadfast_Description"				"Each instance of damage can not deal more than a % of max health."
+		"DOTA_Tooltip_ability_redfall_mega_steadfast_max_damage"				"HEALTH % MAX:"
+
+		"redfall_crimsyth_castle_grounds_guardian"						"Castle Grounds Guardian"
+
+		"DOTA_Tooltip_ability_redfall_garden_watcher_nuke"				"Equinox Rift"
+		"DOTA_Tooltip_ability_redfall_garden_watcher_nuke_Description"	"Swaps positions with the target."
+
+		"DOTA_Tooltip_ability_redfall_garden_watcher_passive"			"Pure Resist"
+		"DOTA_Tooltip_ability_redfall_garden_watcher_passive_Description"	"Repels damage from magic or pure sources. Takes increased damage from physical."
+		"DOTA_Tooltip_ability_redfall_garden_watcher_passive_pure_resist"	"RESIST %:"
+		"DOTA_Tooltip_ability_redfall_garden_watcher_passive_physical_amp"	"EXTRA PHYSICAL %:"
+
+		"DOTA_Tooltip_ability_redfall_prince_elthezun_ability"			"Arcane Sparkle"
+		"DOTA_Tooltip_ability_redfall_prince_elthezun_ability_Description"	"Emits sparks in random directions that deal damage and drain mana."
+		"DOTA_Tooltip_ability_redfall_prince_elthezun_ability_damage"		"DAMAGE:"
+		"DOTA_Tooltip_ability_redfall_prince_elthezun_ability_mana_drain"	"MANA DRAIN:"
+
+		"DOTA_Tooltip_ability_majinaq_mana_break"						"Mana Break"
+		"DOTA_Tooltip_ability_majinaq_mana_break_Description"			"Attacks burn mana and deal magic damage based on the mana drained."
+		"DOTA_Tooltip_ability_majinaq_mana_break_mana_per_hit"			"MANA BURN:"
+
+		"redfall_crimsyth_demon_knight"									"Crimsth Demon Knight"
+
+		"DOTA_Tooltip_ability_redfall_lava_behemoth_passive"			"Magma Waves"
+		"DOTA_Tooltip_ability_redfall_lava_behemoth_passive_Description"	"When taking damage, reverberate a projectile towards the attacker. Also passively increases attack speed."
+		"DOTA_Tooltip_ability_redfall_lava_behemoth_passive_cast_speed"	"CAST SPEED:"
+		"DOTA_Tooltip_ability_redfall_lava_behemoth_passive_damage"		"DAMAGE:"
+
+		"DOTA_Tooltip_ability_lava_behemoth_fissure"					"Behemoth Fissure"
+		"DOTA_Tooltip_ability_lava_behemoth_fissure_Description"		"Creates a wall of solid magma that cannot be walked over."
+		
+
+		"redfall_the_cannibal"											"The Cannibal"
+
+		"DOTA_Tooltip_ability_redfall_crimsyth_demonic_follower_ai"		"Demon Shell"
+		"DOTA_Tooltip_ability_redfall_crimsyth_demonic_follower_ai_Description"		"Increases magic resistance."
+		"DOTA_Tooltip_ability_redfall_crimsyth_demonic_follower_ai_magic_resist"	"MAGIC RESIST:"
+
+		"redfall_demonic_follower"										"Demonic Follower"
+
+		"redfall_crimsyth_castle_boss"									"Lord Scarloth"
+		"crimsyth_sorceress"											"Lady Dahlia"
+
+		"redfall_castle_boss_dialogue_1"											"You were told to leave."
+		"redfall_castle_boss_dialogue_2"											"The crimson tides of Redfall carry the blood of innocents. This is a land of suffering and decay."
+		"redfall_castle_boss_dialogue_3"											"Dominion is ours. Life cannot resist the Corruption any longer."
+		"redfall_castle_boss_dialogue_4"											"Come! Experience the thrill of true power!"
+		"redfall_castle_boss_dialogue_5"											"Captivating!"
+
+		"DOTA_Tooltip_modifier_crimsyth_recruiter_armor_loss"						"Armor Sap"
+		"DOTA_Tooltip_modifier_crimsyth_recruiter_armor_loss_Description"			"Stacking armor loss"
+
+		"DOTA_Tooltip_ability_item_redfall_crimsyth_demon_relic_normal"		"Crimsyth Demon Relic"
+		"item_redfall_crimsyth_demon_relic_normal_desc"						"Activates the portal to Crimsyth Castle, located near the entrance to the Farmlands."
+
+		"DOTA_Tooltip_ability_item_redfall_crimsyth_demon_relic_elite"		"Crimsyth Demon Relic"
+		"item_redfall_crimsyth_demon_relic_elite_desc"						"Activates the portal to Crimsyth Castle, located near the entrance to the Farmlands."
+
+		"DOTA_Tooltip_ability_item_redfall_crimsyth_demon_relic_legend"		"Crimsyth Demon Relic"
+		"item_redfall_crimsyth_demon_relic_legend_desc"						"Activates the portal to Crimsyth Castle, located near the entrance to the Farmlands."
+
+		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_normal"			"Redfall Spirit Ruby"
+		"item_redfall_spirit_ruby_normal_desc"							"Use: Activates the Equinox in Redfall Ridge. During the Equinox there is 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, 3x mithril and 2x arcane crystal gain."
+
+		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_elite"			"Redfall Spirit Ruby"
+		"item_redfall_spirit_ruby_elite_desc"							"Use: Activates the Equinox in Redfall Ridge. During the Equinox there is 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, 3x mithril and 2x arcane crystal gain."
+		
+		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_legend"			"Redfall Spirit Ruby"
+		"item_redfall_spirit_ruby_legend_desc"							"Use: Activates the Equinox in Redfall Ridge. During the Equinox there is 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, 3x mithril and 2x arcane crystal gain."
+		
+		"redfall_equinox"												"Equinox"
+
+		"redfall_ancient_tree"											"Defiler's World Tree"
+		"redfall_ancient_tree_summon"									"Fall Sapling"
+		
+		"DOTA_Tooltip_ability_ancient_tree_passive"						"Seed Rupture"
+		"DOTA_Tooltip_ability_ancient_tree_passive_Description"			"A leafy projectile hits all nearby enemies, leaving a stacking debuff that reduces vision radius, armor, and movespeed."	
+		"DOTA_Tooltip_ability_ancient_tree_passive_vision_loss"			"VISION LOSS:"
+		"DOTA_Tooltip_ability_ancient_tree_passive_armor_loss"			"ARMOR LOSS:"
+		"DOTA_Tooltip_ability_ancient_tree_passive_movespeed_loss"		"MOVESPEED LOSS %:"
+
+		"DOTA_Tooltip_modifier_ancient_tree_vision"						"Seed Rupture"
+		"DOTA_Tooltip_modifier_ancient_tree_vision_Description"			"Reduced vision, armor, and movespeed"
+
+		"DOTA_Tooltip_ability_ancient_tree_summon"						"Soul of the Forest"
+		"DOTA_Tooltip_ability_ancient_tree_summon_Description"			"Summons an army of saplings that fight for the World Tree. Each sapling that is alive reduces damage taken by the World Tree by 5%."
+
+		"DOTA_Tooltip_ability_ancient_tree_ground_slam"					"Forest Quake"	
+		"DOTA_Tooltip_ability_ancient_tree_ground_slam_Description"		"Smashes the ground, stunning and damaging enemies in the area."
+		"DOTA_Tooltip_ability_ancient_tree_ground_slam_damage"			"DAMAGE:"	
+
+		"DOTA_Tooltip_ability_ancient_tree_summon_leech_seed"			"Redfall Leech Seed"
+		"DOTA_Tooltip_ability_ancient_tree_summon_leech_seed_Description"	"Plants a debuff on the target that periodically heals the World Tree and his entire army based on a % of their max health."	
+		"DOTA_Tooltip_ability_ancient_tree_summon_leech_seed_heal_percent"	"HEAL %:"
+		"DOTA_Tooltip_ability_ancient_tree_summon_leech_seed_heal_percent_boss"	"WORLD TREE HEAL %:"
+		"DOTA_Tooltip_ability_ancient_tree_summon_leech_seed_damage_per_tick"	"DAMAGE PER SECOND:"
+
+		"DOTA_Tooltip_modifier_summon_leech_seed_debuff"				"Redfall Leech Seed"
+		"DOTA_Tooltip_modifier_summon_leech_seed_debuff_Description"	"Taking damage and healing the World Tree."
