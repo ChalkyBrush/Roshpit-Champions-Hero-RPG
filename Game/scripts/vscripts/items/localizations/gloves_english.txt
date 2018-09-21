@@ -290,3 +290,20 @@
 		"DOTA_Tooltip_modifier_dark_emissary_root"								"Spectral Mist"
 		"DOTA_Tooltip_modifier_dark_emissary_root_Description"					"Rooted"
 		
+		
+		"DOTA_Tooltip_ability_item_rpc_energy_whip_glove"	"Energy Whip Glove"
+		"item_property_energy_whip"							"Spell Lash"
+		"property_energy_whip_description"					"Landing an attack on an enemy also immediately casts @Ability2 if it is not on cooldown. Targetted abilities are targetted at the position of the attacked target."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_buzukis_finger"				"Buzuki's Finger"
+		"item_property_buzuki_finger"								"Power Up"
+		"property_buzuki_finger_description"						"Casting @Ability2 buffs all nearby non-hero units. Buffed units deal @special_property1% increased post-mitigation damage and their attacks create an energy beam that deals @special_property2% of attack damage. The damage is attributed to the original caster. Buff lasts 30 seconds."
+		"DOTA_Tooltip_modifier_buzukis_finger_buff"					"Power Up!"
+		"DOTA_Tooltip_modifier_buzukis_finger_buff_Description"		"Increased post-mitigation damage and dealing additional pure damage on attacks"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_swiftspike_bracer"			"Swiftspike Bracer"
+		"item_property_swiftspike_bracer"							"Sonic Overflow"
+		"property_swiftspike_bracer_description"					"Each point of current movespeed increases Base Ability Damage by @special_property1%"
+		

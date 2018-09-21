@@ -352,3 +352,21 @@
 		"DOTA_Tooltip_ability_item_rpc_sea_giants_plate"					"Sea Giant's Plate"	
 		"property_sea_giant_plate"												"Titanic Fortitude"
 		"property_sea_giant_plate_Description"									"All damage taken is reduced by @special_property1% while stunned."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_boreal_granite_vest"	"Boreal Granite Vest"
+		"item_property_boreal_granite"						"Diametric Force"
+		"property_boreal_granite_description"				"When taking damage from an enemy, have a @special_property1% chance to cast @Ability1 immediately if they are within the ability's cast range. @Ability1's cooldown is refreshed on proc. Targetted abilities are targetted at the location of the attacker, if they are within cast range."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_captains_vest"		"Captain's Vest"
+		"item_property_captains_vest"						"Stalwart Champion"
+		"property_captains_vest_description"				"Q1/2/3/4 Runes increase Strength by 15/30/75/150. W1/2/3/4 Runes increase Int by 15/30/75/150. E1/2/3/4 Runes increase Agility by 15/30/75/150. R1/2/3/4 Runes increase all stats by 5/10/25/50."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_tattered_novice_armor"		"Tattered Novice Armor"
+		"item_property_tattered_novice_armor"						"Resolution"
+		"property_tattered_novice_armor_description"				"Every @special_property1 seconds gain a Resolution stack. Each stack removes the cooldown on @Ability1. Max @special_property2 stacks."
+	
+		"DOTA_Tooltip_modifier_tattered_novice_stack"				"Resolution"
+		"DOTA_Tooltip_modifier_tattered_novice_stack_Description"	"Q Ability has no cooldown"

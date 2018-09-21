@@ -276,3 +276,32 @@
 		"property_sparkling_token"												"Tropical Haze"
 		"property_sparkling_token_Description"									"Reduces all pure damage taken by @special_property1%"
 		
+		
+		"DOTA_Tooltip_ability_item_rpc_frozen_heart"				"Frozen Heart of Az'heran"
+		"item_property_frozen_heart"								"Iceblood Marrow"	
+		"property_frozen_heart_description"					"Sets your max HP to 100 and cannot be healed. Instances of Physical / Magical / Pure damage deal 2 / 5 / 8 final damage, even penetrating shields. Regen 1HP every 0.1 seconds after not taking damage for 2.5 seconds."
+		"DOTA_Tooltip_modifier_frozen_heart_regen_prep"		"Iceblood Cooldown"
+		"DOTA_Tooltip_modifier_frozen_heart_regen"			"Iceblood Regen"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_stargazers_sphere"			"Stargazer's Sphere"
+		"item_property_stargazer"									"Eye of the Stargazer"
+		"property_stargazer_description"							"Issuing an attack move order at any range creates an area with @special_property1 vision radius. Enemies inside the radius that take damage are hit by a star that deals pure damage equal to @special_property3% of the damage instance. Enemies can only be hit by a star once every 0.5 seconds. Issuing an attack move order within a circle destroys it and drops a meteor that does @special_property4% of attack damage in the area and stuns for 1 second. Stargazer Ring creation has a @special_property2 second internal cooldown."
+		"DOTA_Tooltip_modifier_in_stargazer_area"					"Stargazer's Sphere"
+		"DOTA_Tooltip_modifier_in_stargazer_area_Description"		"Hit by stars when taking damage"
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_red_divinex_amulet"			"Red Divinex Amulet"
+		"item_property_red_divinex"									"X-Strength"
+		"property_red_divinex_description"							"Agility and Intelligence are capped at 20. Strength is doubled. Each 10 points of Strength increases item damage by @special_property1%."
+
+		
+		"DOTA_Tooltip_ability_item_rpc_green_divinex_amulet"			"Green Divinex Amulet"
+		"item_property_green_divinex"									"X-Agility"
+		"property_green_divinex_description"							"Strength and Intelligence are capped at 20. Agility is doubled. Each 10 points of Agility increases item damage by @special_property1%."
+
+		
+		"DOTA_Tooltip_ability_item_rpc_blue_divinex_amulet"			"Blue Divinex Amulet"
+		"item_property_blue_divinex"									"X-Intelligence"
+		"property_blue_divinex_description"							"Strength and Agility are capped at 20. Intelligence is doubled. Each 10 points of Intelligence increases item damage by @special_property1%."
+		

@@ -361,3 +361,18 @@
 		"DOTA_Tooltip_modifier_dark_reef_shark_effect_Description"			"Attack damage greatly increased"
 		
 		
+		"DOTA_Tooltip_ability_item_rpc_frostmaw_hunters_hood"		"Frostmaw Hunter's Hood"
+		"property_frostmaw"											"Dominator"
+		"property_frostmaw_description"								"Slaying a dominatable unit recruits them to your side. Only 1 minion can be active at a time. Issue an attack order on your own minion to dispose of it."
+		
+		
+		"DOTA_Tooltip_ability_item_rpc_helm_of_the_mountain_giant"	"Helm of the Mountain Giant"
+		"item_property_mountain_giant" 								"Hulking"
+		"property_mountain_giant_description"						"Increases max health by @special_property1x. While above 80% of max health, reduce all incoming damage by @special_property2%."
+	
+	
+		"DOTA_Tooltip_ability_item_rpc_chains_of_orthok"			"Chains of Orthok"
+		"item_property_chains_of_orthok"							"Binding Zeal"
+		"property_chains_of_orthok_description"						"Attacking and casting @Ability2 add 1 zeal stack. Casting @Ability1 and @Ability3 add 5 zeal stacks. Casting @Ability4 adds 12 zeal stacks. Each stack increases base ability damage by @special_property1%. Each stacks lasts 10 seconds and has its own individual duration."
+		"DOTA_Tooltip_modifier_orthok_zeal"							"Zeal"
+		"DOTA_Tooltip_modifier_orthok_zeal_Description"				"Increased Base Ability Damage"

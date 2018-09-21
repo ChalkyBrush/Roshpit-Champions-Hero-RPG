@@ -245,4 +245,18 @@
 		"property_crystalline_Description"									"Enemies who are rooted deal @special_property1% reduced damage to you and take @special_property2x amplified damage."
 		
 		
+		"DOTA_Tooltip_ability_item_rpc_gravelfoot_treads"	"Gravelfoot Treads"
+		"item_property_gravelfoot"							"Gravelfoot"
+		"property_gravelfoot_description"					"Cleanse an enemy debuff every @special_property1 seconds. When a debuff is cleansed, turn to frosty stone for @special_property2 seconds which reduces movespeed by @special_property3 and damage taken by @special_property4%."
+		"DOTA_Tooltip_modifier_gravelfoot_buff"				"Gravelfoot"
+		"DOTA_Tooltip_modifier_gravelfoot_buff_Description"	"Movespeed and damage taken are reduced"
 		
+		
+		"DOTA_Tooltip_ability_item_rpc_ice_floe_slippers"	"Ice Floe Slippers"
+		"item_property_ice_floe_slippers"					"Ice Floe"
+		"property_ice_floe_slippers_description"			"Issue two move orders consecutively on the same location to glide on a trail of ice. While gliding you are rooted and all physical damage is reduced to 0. Max distance travelled is 1500 and cannot be activated while stunned or rooted."
+	
+	
+		"DOTA_Tooltip_ability_item_rpc_iron_treads_of_destruction"	"Iron Treads of Destruction"
+		"item_property_iron_treads_of_destruction"					"Dissolution"
+		"property_iron_treads_of_destruction_description"			"@Ability4 does not require channeling to complete."
