@@ -883,7 +883,7 @@
 		"item_respawn_reduction"	"Respawn Reduction"
 
 
-		"item_unit_walking"			"Unit Walking".
+		"item_unit_walking"			"Unit Walking"
 		"property_unit_walking_description"			"Unit walking removes collision with other units"
 		"item_movespeed"			"Movespeed"
 		"item_max_movespeed"		"Max Movespeed"
@@ -1062,7 +1062,6 @@
 
 		
 		//96
-a
 		
 
 		
