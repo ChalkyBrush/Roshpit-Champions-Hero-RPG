@@ -495,8 +495,15 @@ function ChatDropItems(keys)
   end
 
   if string.match(text, "-potions") then
-    for i=1,30 do
-      RPCItems:RollBasicPotion(5000, vector, "mythical", 100)
+    local max = 30
+    if string.match(text, "-potions ") then
+      str1 = string.gsub(text, "-potions ", "")
+      max = tonumber(str1)
+    end
+    for i=1,max do
+      Timers:CreateTimer((max-i)/50, function()
+        RPCItems:RollBasicPotion(5000, vector, "mythical", 100)
+      end)
     end
   end
   
@@ -596,6 +603,47 @@ function GameMode:OnPlayerChat(keys)
     local playerid = keys.playerid
     local steamID = PlayerResource:GetSteamAccountID(playerid)
     LoadCharacterDev(playerid, strn[1], strn[2])
+  end
+  if GetMapName() == "rpc_sea_fortress" then
+    if string.match(text, "-sea swen") then
+      Seafortress:SpawnFinalBoss()
+    end
+    if string.match(text, "-sea archon") then
+      Seafortress:InitArchon()
+    end
+    if string.match(text, "-sea paladin") then
+      Seafortress.PaladinGolems = 0
+      Seafortress.PaladinArcana = true
+      Seafortress:SpawnPaladinArcanaGolems()   
+    end
+    if string.match(text, "-sea bahamut") then
+      Seafortress:SpawnShadowOfBahamut()
+    end       
+
+    AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-14272, 13696), 8000, 30000, false)
+    AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(4416, 15744), 8000, 30000, false) 
+    AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(12032, 9920), 8000, 30000, false)
+    AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-1280, 11392), 8000, 30000, false)
+    AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-1124, 9315), 8000, 30000, false)
+
+    if string.match(text, "-sea1") then
+      local boss1 = Seafortress:SpawnOceanGiantBoss(Vector(-3456, 9344, -418+Seafortress.ZFLOAT), Vector(0,-1))
+      boss1:RemoveModifierByName("modifier_disable_player")
+    end
+    if string.match(text, "-sea2") then
+      local boss2 = Seafortress:SpawnSiltbreakerBoss(Vector(-1124, 9315, -418+Seafortress.ZFLOAT), Vector(0,-1))
+      boss2:RemoveModifierByName("modifier_disable_player")
+    end
+    if string.match(text, "-sea3") then
+      local boss3 = Seafortress:SpawnOracleOfSea(Vector(1181, 9312, -418+Seafortress.ZFLOAT), Vector(0,-1))
+      boss3:RemoveModifierByName("modifier_disable_player")
+    end
+    if string.match(text, "-sea") then
+      local Units = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, Vector(0, 0, 0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+      local vector = Units[1]:GetAbsOrigin()
+      local item = CreateItem("item_debug_blink", nil, nil)
+      local drop = CreateItemOnPositionSync( vector, item )
+    end
   end
   ChatDropItems(keys)
   -- if string.match(text, "-gold") or string.match(text, "-lvlup") or string.match(text, "-respawn") or string.match(text, "-createhero") or string.match(text, "-refresh") or string.match(text, "-item") or string.match(text, "-allvision") or string.match(text, "-wtf") or string.match(text, "-respawn") or string.match(text, "-teleport") then
