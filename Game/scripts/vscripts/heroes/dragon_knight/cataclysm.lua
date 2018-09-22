@@ -10,6 +10,7 @@ function cataclysm_start(event)
         caster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_volcano_shield", {duration = 15})
         caster:SetModifierStackCount("modifier_volcano_shield", caster.InventoryUnit, 50)
     end
+    GridNav:DestroyTreesAroundPoint(caster:GetAbsOrigin(), 380, false)
 end
 
 function cataclysm_damage(event)

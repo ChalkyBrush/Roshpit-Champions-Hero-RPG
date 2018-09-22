@@ -14,7 +14,7 @@
 	horizontal-align:center;
 	margin-bottom:140px;	
 	vertical-align: bottom;
-	width: 400px;
+	width: 500px;
 	height:100px;
 
 }
@@ -110,7 +110,7 @@
 #name_and_dialogue_container{
 	flow-children:down;
 	height:100%;
-	width:320px;
+	width:420px;
 }
 
 #dialoge_name_label{

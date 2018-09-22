@@ -9,7 +9,7 @@ mActiveCategoryButton = false
 mButtonRows = 3
 mButtonsPerRow = 10
 TOTAL_HERO_CATEGORIES = 12
-MAX_STARS = 1164
+MAX_STARS = 1167
 
 function openStarsFromServer(msg){
 	$('#stars_container').RemoveClass('invisible')
@@ -179,7 +179,7 @@ function setCategoryButtonFunction(starsContainer, heroName, buttonParent, categ
 	}
 	var categoryStarMax = 42
 	if (heroName == "solo_stars"){
-		categoryStarMax = 30
+		categoryStarMax = 33
 	}
 	$.GetContextPanel().FindChildTraverse('stars_category_text').text = $.Localize(heroName)+" "+$.Localize("stars_menu")+": <font color='#F4DC42'>★"+categoryStars+"/"+categoryStarMax+"</font>"
 }
@@ -391,6 +391,18 @@ function getStarDescription(categoryData, star_title, heroName, starOverride)
 		}else if (starAmount >= 2){
 			starDescription = $.Localize("star_valdun_description3solo").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("seafortress_final_boss")).replace("@mapname", $.Localize("rpc_sea_fortress"))
 		}
+	}else if (star_title == "rpc_tutorial"){
+		starAmount = categoryData.weapon
+		if (starOverride > 0){
+			starAmount = starOverride - 1
+		}
+		if (starAmount == 0){
+			starDescription = $.Localize("tutorial_star_1")
+		}else if (starAmount == 1){
+			starDescription = $.Localize("tutorial_star_2")
+		}else if (starAmount >= 2){
+			starDescription = $.Localize("tutorial_star_3")
+		}
 	}									
 	return [starDescription, starAmount]
 }
@@ -458,7 +470,7 @@ function getHeroStarsArray(heroName){
 }
 
 function getSoloStarsArray(heroName){
-	var newTable = ["autumn_mist_canyon", "abandoned_shipyard", "redfall_crimsyth_castle", "zone_tanari_wind_temple", "zone_tanari_water_temple", "zone_tanari_fire_temple", "tooltip_pit_of_trials", "tanari_ancient_hero", "star_valdun_title_solo", "star_azalea_title"]
+	var newTable = ["autumn_mist_canyon", "abandoned_shipyard", "redfall_crimsyth_castle", "zone_tanari_wind_temple", "zone_tanari_water_temple", "zone_tanari_fire_temple", "tooltip_pit_of_trials", "tanari_ancient_hero", "star_valdun_title_solo", "star_azalea_title", "rpc_tutorial"]
 	return newTable
 }
 
@@ -521,6 +533,8 @@ function starPopout(msg)
 		starIcon.FindChildTraverse('image_icon').SetImage("file://{images}/custom_game/ui/sword_icon_star.png")
 		if (starTitle == "immortal_weapon_title"){
 			starTitle = "tanari_ancient_hero"
+		}else if(starTitle == "champleague"){
+			starTitle = "rpc_tutorial"
 		}
 	}else{
 		var starIcon = board.FindChildTraverse('star_item_icon')

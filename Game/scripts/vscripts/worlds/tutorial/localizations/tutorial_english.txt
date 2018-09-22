@@ -1,3 +1,9 @@
+	"rpc_tutorial"														"Roshpit Tutorial"
+
+	"tutorial_star_1"													"Complete the 'Stars' section of the Roshpit Tutorial."
+	"tutorial_star_2"													"Earn your first reward for finishing a lesson category of the Tutorial."
+	"tutorial_star_3"													"Finish the entire tutorial."
+
 	"tutorial_assistant"												"Cherebi"
 	"tutorial_master"													"Loremaster Challen"
 
@@ -52,6 +58,27 @@
 	"tutorial_master_dialogue_1_2l"										"The flag is consumed, so don't forget to place it again after reviving."
 	"tutorial_master_dialogue_1_2m"										"Welcome back. This completes the lesson on Respawn Flag."
 
+
+	"quest_1_challenge_3_desc"											"Hovering over your attributes opens up a detailed breakdown of your hero's capabilities."
+	"quest_1_challenge_3_sub_0_summary"									"Hover over your hero's attributes at the bottom for a detailed stat breakdown."
+
+	"tutorial_master_dialogue_1_3a"										"Next to your hero portrait is a list showing your hero's Attack Power, Armor and Movement Speed. Below that is your hero's attributes: Strength, Agility and Intelligence."
+	"tutorial_master_dialogue_1_3b"										"Hover your mouse over the attributes to view a detailed breakdown of your hero's combat capabilities."
+
+	"tutorial_master_dialogue_1_3c"										"Nice, well I'm not going to explain every piece to you at this time because it will be too much information without any gameplay."
+	"tutorial_master_dialogue_1_3d"										"Just quickly, notice you can see how much value your attributes are adding, for example how much HP and Health Regen you are getting from Strength."
+	"tutorial_master_dialogue_1_3e"										"Feel free to take a look at the other data. But for now, this lesson is complete."
+
+	"quest_1_challenge_4_desc"											"Stars are Roshpit Champion's achievement system. Click the stars menu at the bottom right or press (K) to view your Stars."
+	"quest_1_challenge_4_sub_0_summary"									"Open your stars menu by pressing (K)."
+
+	"tutorial_master_dialogue_1_4a"										"Open your stars menu by pressing the blue button at the button right, or by pressing (K) on your keyboard."
+	"tutorial_master_dialogue_1_4b"										"The stars menu has opened up at the top left. Each portrait opens up a category of stars."
+	"tutorial_master_dialogue_1_4c"										"Stars act as Roshpit's achievement system, tracking your total completion of this game."
+	"tutorial_master_dialogue_1_4d"										"There are over 1000 stars, so don't expect to get them all!"
+
+	"tutorial_master_dialogue_1_4e"										"That wraps up this lesson."
+
 	"quest_2_interface"													"2. Hero"
 	"quest_2_interface_description"										"This lecture will help with mastering your hero's abilities."
-
+                         

@@ -4110,7 +4110,9 @@ function blade_slinger_think(event)
 		for i = 1, #enemies_initial, 1 do
 			local check_enemy = enemies_initial[i]
 			if not check_enemy:HasModifier("modifier_possession_enemy_lock") then
-				table.insert(enemies, check_enemy)
+				if not check_enemy.dummy then
+					table.insert(enemies, check_enemy)
+				end
 			end
 		end
 		if #enemies > 0 then

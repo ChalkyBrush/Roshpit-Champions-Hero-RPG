@@ -880,4 +880,5 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 	local rDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
 	tableData.rAmp = (rDamage/baseDamage)*100
 	CustomGameEventManager:Send_ServerToPlayer(player, "attribute_tooltip", {unit = msg.queryunit, playerID = msg.playerID, extraData = tableData, IsEnemy = IsEnemy} )
+	Events:TutorialServerEvent(unit, "1_3", 0)
 end

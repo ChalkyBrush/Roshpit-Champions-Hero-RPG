@@ -15,10 +15,9 @@ function Stars:ActivateStarsMenu(msg)
 	-- end
 	local starsData = Stars:GetOrganizedStarData(playerID)
 	DeepPrintTable(starsData)
-	print("STARS SERVER")
 	local openingPlayer = PlayerResource:GetPlayer(msg.openingPlayerID)
 	CustomGameEventManager:Send_ServerToPlayer(openingPlayer, "open_stars", {playerID = playerID, starsData = starsData, grandTotalStars = hero.grandTotalStars})
-	print("SEND STARS GO!")
+	Events:TutorialServerEvent(unit, "1_4", 0)
 end
 
 function Stars:StarEventAll(starEventName)
@@ -143,6 +142,8 @@ function Stars:StarEventSolo(starEventName, hero)
 				CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "star_popout", {playerID = playerID, starAmount = starAmount, starTitle = starEventName, heroName = "solo_stars"})
 				Stars:UpdateStarsOnServer("solo_stars", starEventName, starAmount, hero:GetPlayerOwnerID())
 			end 
+		elseif starEventName == "champleague" then
+			starAmount = 1
 		end
 	end
 end
