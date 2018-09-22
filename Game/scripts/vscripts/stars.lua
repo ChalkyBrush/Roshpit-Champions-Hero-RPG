@@ -17,7 +17,7 @@ function Stars:ActivateStarsMenu(msg)
 	DeepPrintTable(starsData)
 	local openingPlayer = PlayerResource:GetPlayer(msg.openingPlayerID)
 	CustomGameEventManager:Send_ServerToPlayer(openingPlayer, "open_stars", {playerID = playerID, starsData = starsData, grandTotalStars = hero.grandTotalStars})
-	Events:TutorialServerEvent(unit, "1_4", 0)
+	Events:TutorialServerEvent(hero, "1_4", 0)
 end
 
 function Stars:StarEventAll(starEventName)
@@ -142,8 +142,26 @@ function Stars:StarEventSolo(starEventName, hero)
 				CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "star_popout", {playerID = playerID, starAmount = starAmount, starTitle = starEventName, heroName = "solo_stars"})
 				Stars:UpdateStarsOnServer("solo_stars", starEventName, starAmount, hero:GetPlayerOwnerID())
 			end 
-		elseif starEventName == "champleague" then
-			starAmount = 1
+		end
+	end
+	if starEventName == "champleague" then
+		local heroTable = HerosCustom:GetAvailableHerosTable()
+		local heroCount = #heroTable
+		local starData = Stars:GetOrganizedStarData(hero:GetPlayerOwnerID())
+		if not starData then
+			return false
+		end
+		local categoryData = starData[heroCount + 1]
+		local starAmount = 0
+		starAmount = 1
+		print("HELLO1")
+		if categoryData.champleague < starAmount then
+			print("HELL02")
+			CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "star_popout", {playerID = playerID, starAmount = starAmount, starTitle = starEventName, heroName = "solo_stars"})
+			Stars:UpdateStarsOnServer("solo_stars", starEventName, starAmount, hero:GetPlayerOwnerID())
+			return true
+		else
+			return false
 		end
 	end
 end

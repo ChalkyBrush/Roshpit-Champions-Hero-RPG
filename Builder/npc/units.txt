@@ -27086,7 +27086,7 @@
         "precache"
         {
             "particle"  "particles/units/heroes/hero_pugna/epoch_life_give.vpcf"
-            "particle"  "particles/units/heroes/hero_alchemist/epoch_rune_r_1_concoction_projectile.vpcf"
+            "particle"  "particles/units/heroes/hero_alchemist/epoch_rune_a_d_concoction_projectile.vpcf"
             "particle"  "particles/units/heroes/hero_pugna/pugna_netherblast.vpcf"
             "model"     "models/items/wards/ocula/ocula.vmdl"
             "model"     "models/props_stone/colosseum_wall/colosseum_wall001.vmdl"
@@ -29486,7 +29486,7 @@
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "100"
         "ProjectileSpeed"           "1400"
-        "ProjectileModel"           "particles/units/heroes/hero_skywrath_mage/leshrac_rune_e_2_arcane_bolt.vpcf"
+        "ProjectileModel"           "particles/units/heroes/hero_skywrath_mage/leshrac_rune_b_c_arcane_bolt.vpcf"
         "AttackRange"   "700"
         "BountyGoldMin" "150"
         "BountyGoldMax" "200"

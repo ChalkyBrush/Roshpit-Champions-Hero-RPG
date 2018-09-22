@@ -482,20 +482,25 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 						Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_1_4c", 5, false)
 					end
 				end)	
-				Timers:CreateTimer(5, function()
+				Timers:CreateTimer(10, function()
 					if speech_phase == hero.tutorial_speech_phase then
 						Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Giggle", ACT_DOTA_ATTACK, 1.5, 4.0)
-						Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_1_4d" 4, false)
+						Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_1_4d", 4, false)
 						hero.master_is_talking = false
 					end
 					Tutorial:ProgressUpdateOrNot(hero, 1, 4)
 					Tutorial:UpdateChallengeSummaryProgress(hero, 1, 4, 1, true)
 					Timers:CreateTimer(5, function()
-						if speech_phase == hero.tutorial_speech_phase then
-							Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_1_4e", 5, false)
+						local bStarEvent = Stars:StarEventSolo("champleague", hero)
+						if bStarEvent then
+							Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_1_4f", 5, false)
+						else
+							if speech_phase == hero.tutorial_speech_phase then
+								Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_1_4e", 5, false)
+							end
 						end
 					end)	
-				end)					
+				end)
 			end
 		end
 	end

@@ -533,7 +533,7 @@ function starPopout(msg)
 		starIcon.FindChildTraverse('image_icon').SetImage("file://{images}/custom_game/ui/sword_icon_star.png")
 		if (starTitle == "immortal_weapon_title"){
 			starTitle = "tanari_ancient_hero"
-		}else if(starTitle == "champleague"){
+		}else if(starTitle == "arena_left_leaderboard_title"){
 			starTitle = "rpc_tutorial"
 		}
 	}else{

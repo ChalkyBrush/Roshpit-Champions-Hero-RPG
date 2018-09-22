@@ -15954,7 +15954,7 @@
 		"DOTA_Tooltip_ability_ancient_water_god_passive"						"Waveburst"
 		"DOTA_Tooltip_ability_ancient_water_god_passive_Description"			"Streams of water spray from the Ancient God."
 
-	"rpc_tutorial"														"Roshpit Tutorial"
+	"rpc_tutorial"														"Roshpit Tutorial (Coming Soon)"
 
 	"tutorial_star_1"													"Complete the 'Stars' section of the Roshpit Tutorial."
 	"tutorial_star_2"													"Earn your first reward for finishing a lesson category of the Tutorial."
@@ -16034,6 +16034,7 @@
 	"tutorial_master_dialogue_1_4d"										"There are over 1000 stars, so don't expect to get them all!"
 
 	"tutorial_master_dialogue_1_4e"										"That wraps up this lesson."
+	"tutorial_master_dialogue_1_4f"										"Well look at that, looks like you got a star! That wraps up this lesson."
 
 	"quest_2_interface"													"2. Hero"
 	"quest_2_interface_description"										"This lecture will help with mastering your hero's abilities."
