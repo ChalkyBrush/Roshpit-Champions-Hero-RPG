@@ -1,4 +1,4 @@
-	"rpc_tutorial"														"Обучение Roshpit"
+	"rpc_tutorial"														"Roshpit Tutorial (Coming Soon)"
 
 	"tutorial_star_1"													"Завершите секцию 'Звёзды' в Обучении."
 	"tutorial_star_2"													"Получите свою первую награду за завершение урока в Обучении."
