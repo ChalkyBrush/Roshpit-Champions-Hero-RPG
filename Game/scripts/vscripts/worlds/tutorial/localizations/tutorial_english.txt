@@ -87,8 +87,10 @@
 	"quest_reward_claim"												"Claim Reward"
 	"quest_reward_claimed"												"Already Claimed"
 
+	"tutorial_section_completed"										"Complete"
+
 	"quest_reward_label"												"REWARD:"
 
 	"quest_2_interface"													"2. Hero"
-	"quest_2_interface_description"										"This lecture will help with understanding your hero."
+	"quest_2_interface_description"										"This lecture will help with understanding the components that make up your hero."
                          

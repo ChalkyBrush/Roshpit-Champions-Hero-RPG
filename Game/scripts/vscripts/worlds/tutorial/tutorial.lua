@@ -102,13 +102,15 @@ function Tutorial:GetTutorialDataArray(hero, code)
 end
 
 function Tutorial:LoadTutorialDataForHero(hero, resultTable)
-	hero.tutorial = {}
+	if not hero.tutorial then
+		hero.tutorial = {}
+	end
 	hero.tutorial.section1 = {}
 	hero.tutorial.section1.progress = resultTable.progress1
 	hero.tutorial.section1.state = 0
 	hero.tutorial.section1.reward = resultTable.reward1
 	if hero.tutorial.section1.reward == 1 then
-		Tutorial:ActivatePortal()
+		Tutorial:ActivatePortal(false)
 	end
 	hero.tutorial.section2 = {}
 	hero.tutorial.section2.progress = resultTable.progress2
@@ -307,6 +309,8 @@ function Tutorial:TutorialEvent(msg)
 			Tutorial:UpdateChallengeSummaryProgress(hero, 1, 4 , 0, false)
 			Tutorial:MasterSequenceWithLocks(hero, hero.tutorial.active_challenge)
 		end
+	elseif code == "reward_select" then
+		Tutorial:ClaimReward(msg)
 	end
 end
 
@@ -567,32 +571,80 @@ function Tutorial:ProgressUpdateOrNot(hero, section_index, newProgress)
 end
 
 function Tutorial:SaveTutorialProgressOnWeb(hero, section_index, newProgress)
+	local playerID = hero:GetPlayerOwnerID()
+	local steamID = PlayerResource:GetSteamAccountID(playerID)
+	local player = PlayerResource:GetPlayer(playerID)
+	local url = ROSHPIT_URL.."/champions/update_tutorial?"
+	print(section_index)
+	url = url.."steam_id="..steamID
+	url = url.."&type=".."progress"
+	url = url.."&section="..section_index
+	url = url.."&progress="..newProgress
+	url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
+	print(url)
+	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
+		if result.StatusCode == 200 then
+			local resultTable = {}
+			print( "GET response:\n" )
+			for k,v in pairs( result ) do
+				print( string.format( "%s : %s\n", k, v ) )
+			end
+			print( "Done." )
+			local resultTable = JSON:decode(result.Body)
+			Tutorial:LoadTutorialDataForHero(hero, resultTable)
+		end
+	end )
 end
 
-function Tutorial:ActivatePortal()
-	if not Tutuorial.PortalActive then
-		Tutuorial.PortalActive = true
-		local positionTable = {Vector(-3720, -2535), Vector(620, -1588)}
+function Tutorial:ActivatePortal(bFirst)
+	local sound = "Tutorial.PortalActivate"
+	if bFirst then
+		sound = "Tutorial.PortalActivateFirst"
+		Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_3, 1.0, 4.0)
+	end
+	if not Tutorial.PortalActive then
+		Tutorial.PortalActive = true
+		local positionTable = {Vector(-3720, -2535), Vector(606, 1588)}
 		for i = 1, #positionTable, 1 do
 			local position = positionTable[i]
-			EmitSoundOnLocationWithCaster(position, "Tutorial.PortalActivate", Tutorial.Master)
-			Beacons:CreateActiveParticle("particles/portals/green_portal.vpcf", GetGroundPosition(position, Tutorial.Master) - Vector(0,0,40), Tutorial.Master, 0, Vector(0.45, 0.45, 0.45))
+			EmitSoundOnLocationWithCaster(position, sound, Tutorial.Master)
+			Beacons:CreateActiveParticle("particles/portals/green_portal.vpcf", GetGroundPosition(position, Tutorial.Master) - Vector(0,0,40), Events.GameMaster, 0, Vector(0.45, 0.45, 0.45))
 			AddFOWViewer(DOTA_TEAM_GOODGUYS, position, 300, 99999, false)
 		end
 	end
 end
 
-function Tutorial:CollectReward(msg)
+function Tutorial:ClaimReward(msg)
 	local hero = EntIndexToHScript(msg.hero)
 	local rewards = Tutorial:GetTutorialDataArray(hero, "reward")
-	if rewards[msg.index] == 0 then
-		Tutorial:UpdateRewardProgressOnWeb(hero, msg.index)
+	if rewards[msg.category_index] == 0 then
+		Tutorial:UpdateRewardProgressOnWeb(hero, msg.category_index)
 	end
 end
 
 function Tutorial:UpdateRewardProgressOnWeb(hero, section_index)
-	--DO THIS AFTER CONFIRMING UPDATE WITH WEB
-	if section_index == 1 then
-		Tutorial:ActivatePortal()
-	end
+	local playerID = hero:GetPlayerOwnerID()
+	local steamID = PlayerResource:GetSteamAccountID(playerID)
+	local player = PlayerResource:GetPlayer(playerID)
+	local url = ROSHPIT_URL.."/champions/update_tutorial?"
+	url = url.."steam_id="..steamID
+	url = url.."&type=".."reward"
+	url = url.."&section="..section_index
+	url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
+	print(url)
+	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
+		if result.StatusCode == 200 then
+			local resultTable = {}
+			print( "GET response:\n" )
+			for k,v in pairs( result ) do
+				print( string.format( "%s : %s\n", k, v ) )
+			end
+			print( "Done." )
+			local resultTable = JSON:decode(result.Body)
+			Tutorial:LoadTutorialDataForHero(hero, resultTable)
+			if section_index == 1 then
+				Tutorial:ActivatePortal(true)
+			end
+		end
+	end )
 end

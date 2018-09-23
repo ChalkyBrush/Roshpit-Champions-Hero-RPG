@@ -55,6 +55,9 @@ function setupCategory(category, index, parent, bStatic, msg)
 			categoryPanel.FindChildTraverse('tutorial_category_header').AddClass('reward_active')
 			categoryPanel.FindChildTraverse('tutorial_category_header_label').text = $.Localize(category["header"]) + " - <font color='#e6ff59'>"+$.Localize('quest_reward_available')+"</font>"
 		}
+		if (isCategoryRewardClaimed(category, index, msg)){
+			categoryPanel.FindChildTraverse('tutorial_category_header_label').text = $.Localize(category["header"]) + " - <font color='#e6ff59'>"+$.Localize("tutorial_section_completed")+"</font>"
+		}
 		categoryPanel.SetPanelEvent('onmouseover', function HoverIn() {
 			if (categoryPanel.rewardActive){
 				categoryPanel.FindChildTraverse('tutorial_category_header').AddClass('reward_active_hover')
@@ -83,6 +86,15 @@ function isCategoryRewardActive(category, index, msg)
 	var progress = msg.tutorial[key]["progress"]
 	var reward = msg.tutorial[key]["reward"]
 	return ((progress == challengeCount) && (reward==0))
+}
+
+function isCategoryRewardClaimed(category, index, msg){
+	var challenge_section = index+1
+	var key = ("section"+challenge_section).toString()
+	var challengeCount = category["challenges"]
+	var progress = msg.tutorial[key]["progress"]
+	var reward = msg.tutorial[key]["reward"]
+	return (reward == 1)	
 }
 
 function category_panel_click_setup(categoryPanel, index, category, msg){
@@ -131,6 +143,9 @@ function setupChallenge(category, challenge, index, challengeListPanel, challeng
 				challengePanel.FindChildTraverse('tutorial_challenge_text').text = $.Localize("quest_reward_label") + " " + $.Localize("quest_"+quest_number+"_reward_title")
 				challengePanel.FindChildTraverse('tutorial_challenge_text').AddClass('challenge_reward_button')
 				challengePanel.FindChildTraverse('tutorial_challenge_text').style.color = '#f0f940'
+				if (category["reward"] == 1){
+					challengePanel.FindChildTraverse('green_check').RemoveClass('invisible')
+				}
 				challengePanel.FindChildTraverse('challenge_button').SetPanelEvent('onactivate', function Activate() {
 					reward_activate(category, challengeListPanel, category["reward"])
 				});
@@ -154,7 +169,7 @@ function reward_activate(category, challengeListPanel, reward){
 		});
 	}else{
 		descripAndGoPanel.FindChildTraverse('challenge_go_button_text').text = $.Localize("quest_reward_claimed")
-		descripAndGoPanel.FindChildTraverse('reward_go_button').AddClass('reward_unclaimed')
+		descripAndGoPanel.FindChildTraverse('reward_go_button').AddClass('reward_claimed')
 		descripAndGoPanel.FindChildTraverse('reward_go_button').RemoveClass('reward_unclaimed')
 		descripAndGoPanel.FindChildTraverse('challenge_go_button_text').style.color = '#777777'
 	}

@@ -236,7 +236,7 @@ function Tanari:Debug()
             ---------MAX CURATION----------
     -- Curator:FullCurateHero(MAIN_HERO_TABLE[1])
     -- Curator:CurateAllGlyphsForHero("neutral")
-    Curator:CurateALLHeroes()
+    -- Curator:CurateALLHeroes()
     -- Curator:CurateHero(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
 
     -- Timers:CreateTimer(10, function()
