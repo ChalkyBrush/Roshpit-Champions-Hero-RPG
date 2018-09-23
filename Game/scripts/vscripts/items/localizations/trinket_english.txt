@@ -87,7 +87,7 @@
 		"item_property_tome_of_chaos"				"Infernal Reign"
 		"property_tome_of_chaos"					"When you cast @Ability2 - summon a mighty infernal in front of you and stun enemies for 2 seconds. The infernal has 2x your health, 0.5x your armor, and damage equal to 5x the sum of your attributes with cleave.<br> Lasts 20 seconds and has a 30 second cooldown."
 		"DOTA_Tooltip_modifier_tome_of_chaos_cooldown"	"Infernal Reign Cooldown"
-		"DOTA_Tooltip_modifier_tome_of_chaos_cooldown_Description"	""
+		"DOTA_Tooltip_modifier_tome_of_chaos_cooldown_Description"	"Recharging"
 		
 		
 		
@@ -103,7 +103,7 @@
 		"item_property_ruinfall"					"Sandstorm"
 		"property_ruinfall"							"When you fall below 25% health, go invisibile within a sandstorm and restore 20% of your max health for 5 seconds. While in sandstorm you are silenced, disarmed and rooted. 40 second cooldown."
 		"DOTA_Tooltip_modifier_ruinfall_skull_token_cooldown" "Sandstorm Cooldown"
-		"DOTA_Tooltip_modifier_ruinfall_skull_token_cooldown_Description"	""
+		"DOTA_Tooltip_modifier_ruinfall_skull_token_cooldown_Description"	"Recharging"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_omega_ruby"										"Omega Ruby"
@@ -198,7 +198,7 @@
 		"item_property_fuchsia_ring"							"Solidarity"
 		"property_fuchsia_ring_description"					"While silenced or stunned all damage taken is reduced by @special_property1% and health regen is increased by @special_property2% of max health."
 		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"Solidarity"
-		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"Damage taken reduced by %property_one%% and health regen increased by %property_two%% of max health."
+		"DOTA_Tooltip_modifier_fuchsia_damage_resistance_Description"		"Damage taken reduced by %property_one%% and health regen increased by %property_two%% of max health."
 		 
 		 
 		 
@@ -256,7 +256,7 @@
 		"property_world_trees_flower_cache_description"			"On taking lethal damage, you are reborn from a flower after 3 seconds with full health. Upon emerging, you receive a buff that increases post-mitigation damage by 200% but increases all damage taken by 200% for 12 seconds. 12 second cooldown."
 		"DOTA_Tooltip_modifier_world_tree_cache_cooldown"		"Blood Orchid Cooldown"
 		"DOTA_Tooltip_modifier_world_tree_effect"				"Blood Orchid"
-		"DOTA_Tooltip_modifier_world_tree_effect_Description"	"Post-mitgation damage dealt and damage taken increased by 200%%"
+		"DOTA_Tooltip_modifier_world_tree_effect_Description"	"Post-mitigation damage dealt and damage taken increased by 200%%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_arcane_charm"									"Arcane Charm"
