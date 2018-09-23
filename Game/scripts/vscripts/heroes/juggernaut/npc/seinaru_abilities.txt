@@ -26,7 +26,7 @@
 
     		// Time
     		//-------------------------------------------------------------------------------------------------------------
-    		"AbilityCooldown"				"5.0"
+    		"AbilityCooldown"				"4.0"
 
     		// Cost
     		//-------------------------------------------------------------------------------------------------------------
@@ -48,7 +48,7 @@
     			"03"
     			{
     				"var_type"	"FIELD_INTEGER"
-    				"blind_chance"		"48 50 52 54 56 58 60"
+    				"blind_chance"		"58 66 72 78 86 92 100"
     			}
     			"04"
     			{
@@ -173,19 +173,12 @@
             			"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% SEINARU_Q2_MOV_SLOW %>"
             		}
             	}
-    			"seinaru_rune_q_3_evasion"
-    			{
-    				"TextureName"		"seinaru/seinaru_c_a"
-    				"IsHidden"	"0"
-    				"IsBuff"	"1"
-    				"EffectName"	"particles/econ/items/monkey_king/arcana/monkey_king_arcana_death.vpcf"
-    				"EffectAttachType"	"attach_origin"
-    				"Properties"
-    				{
-    					"MODIFIER_PROPERTY_EVASION_CONSTANT" "<% SEINARU_Q3_EVA_BASE %>"
-    				}
-
-    			}
+            	"modifier_seinaru_rune_q_3_postmitigation_take"
+            	{
+            		"IsHidden"	"0"
+            		"IsBuff"	"1"
+            		"TextureName"	"seinaru/seinaru_c_a"
+            	}
             }
     	}
 
@@ -204,11 +197,11 @@
 
     		// Casting
     		//-------------------------------------------------------------------------------------------------------------
-    		"AbilityCastPoint"				"0.45"
+    		"AbilityCastPoint"				"0"
 
     		// Time
     		//-------------------------------------------------------------------------------------------------------------
-    		"AbilityCooldown"				"1.0 0.9 0.8 0.7 0.6 0.4 0.15"
+    		"AbilityCooldown"				"0.13"
 
     		// Cost
     		//-------------------------------------------------------------------------------------------------------------
@@ -376,7 +369,7 @@
 
     		// Time
     		//-------------------------------------------------------------------------------------------------------------
-    		"AbilityCooldown"				"8.6 8.4 8.2 8.0 7.8 7.6 7.4"
+    		"AbilityCooldown"				"6.6 6.2 5.8 5.4 5.0 4.6 4.4"
 
     		// Cost
     		//-------------------------------------------------------------------------------------------------------------
@@ -452,7 +445,7 @@
             		{
             			"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
             		}
-            		"ThinkInterval"  "0.27"
+            		"ThinkInterval"  "0.17"
             		"OnIntervalThink"
             		{
             			"RunScript"
@@ -716,103 +709,10 @@
                 		}
                 	}
                 }
-                "modifier_seinaru_glyph_7_1_effect"
-                {
-                	"IsHidden"	"0"
-    				"OnCreated"
-    				{
-    					"AttachEffect"
-    					{
-    						"Target"					"TARGET"
-    						"EffectName"				"particles/econ/generic/generic_buff_1/charge_of_light_effect_buff.vpcf"
-    						"EffectAttachType"			"attach_origin"
-    						"EffectLifeDurationScale"	"1"
-    						"EffectColorA"				"200 200 200"
-    						"EffectAlphaScale"			"1"
-    					}
-    				}
-                	"Properties"
-                	{
-                	    "MODIFIER_PROPERTY_EVASION_CONSTANT" "<% SEINARU_GLYPH7_EVA %>"
-                	}
-                }
             }
 
     	}
 
-    	"seinaru_spiral_leap"
-    	{
-    		// General
-    		//-------------------------------------------------------------------------------------------------------------
-    		"BaseClass"						"ability_datadriven"
-    		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    		"FightRecapLevel"				"1"
-    		"AbilityTextureName"			"juggernaut_blade_fury"
-    		"RequiredLevel"          		"-5"
-    		"LevelsBetweenUpgrades"  		"10"
-    		"MaxLevel"				 		"7"
-    		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_4"
-    		"AbilityCastRange"				"4000"
-
-    		// Precache
-    		//-------------------------------------------------------------------------------------------------------------
-    		// Casting
-    		//-------------------------------------------------------------------------------------------------------------
-    		"AbilityCastPoint"				"0.1"
-
-    		// Time
-    		//-------------------------------------------------------------------------------------------------------------
-    		"AbilityCooldown"				"1"
-
-    		// Cost
-    		//-------------------------------------------------------------------------------------------------------------
-    		"AbilityManaCost"				"300"
-
-    		// Special
-    		//-------------------------------------------------------------------------------------------------------------
-    		"OnSpellStart"
-    		{
-    			"RunScript"
-    			{
-            		"ScriptFile"	"heroes/juggernaut/seinaru_3_e_alt.lua"
-            		"Function"		"spiral_leap_start"
-            		"Target"		"POINT"
-    			}
-    		}
-    		"Modifiers"
-    		{
-    			"modifier_spiral_strike"
-    			{
-    				"Passive"			"0"
-    				"IsHidden"			"0"
-    				"IsDebuff"			"0"
-    				"ThinkInterval"  "0.03"
-    				"OnIntervalThink"
-    				{
-    					"RunScript"
-    					{
-    						"ScriptFile"	"heroes/juggernaut/seinaru_3_e_alt.lua"
-    						"Function"		"spiral_think"
-    					}
-    				}
-    				"States"
-    				{
-    					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-    					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
-    					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
-    				}
-    				"OnDestroy"
-    				{
-    					"RunScript"
-    					{
-    						"ScriptFile"	"heroes/juggernaut/seinaru_3_e_alt.lua"
-    						"Function"		"spiral_end"
-    					}
-    				}
-    			}
-    		}
-    	}
-		
 		"seinaru_gorudo"
     	{
     		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
@@ -872,6 +772,7 @@
     				"ScriptFile"	"heroes/juggernaut/seinaru_4_r.lua"
     				"Function"		"gorudo_start"
     				"duration"		"%duration"
+    				"att_per_agi"   "%att_per_agi"
     			}
     		}
 
@@ -969,6 +870,14 @@
     					}
     				}
     			}
+    			"modifier_seinaru_r_att_per_agi"
+    			{
+    			    "IsHidden"  "1"
+                    "Properties"
+                    {
+                        "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"1"
+                    }
+    			}
     			"modifier_monk_ulti_gorudo"
     			{
     				"IsHidden"	"0"
@@ -981,10 +890,6 @@
     				"States"
     				{
     					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
-    				}
-    				"Properties"
-    				{
-    					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attack_damage_percent"
     				}
     			}
     			"modifier_gorudo_thinker"
@@ -1006,19 +911,7 @@
     				"IsHidden"	"0"
     				"IsDebuff"	"1"
     				"TextureName"	"seinaru/seinaru_r_2"
-    			}			
-				"modifier_seinaru_glyph_2_1"
-				{
-					"Passive"			"0"
-					"IsHidden"			"1"
-					"IsDebuff"			"0"
-					"IsBuff"			"1"
-					"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-					"Properties"
-    				{
-    					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% SEINARU_GLYPH2_ARMOR %>"
-    				}
-				}
+    			}
     			"modifier_gorudo_rune_r_1"
     			{
     				"IsHidden"	"0"
@@ -1059,7 +952,7 @@
     			"02"
     			{
     				"var_type"				"FIELD_FLOAT"
-    				"attack_damage_percent"				"300 450 600 750 900 1050 1200"
+    				"att_per_agi"		"3 5 7 9 11 13 15"
     			}
     		}
 

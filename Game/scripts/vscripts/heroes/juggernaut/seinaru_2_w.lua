@@ -5,6 +5,11 @@ function hikari_start(event)
 	local ability = event.ability
 	ability.heal = event.heal
 
+	if not ability.cast_number then
+		ability.cast_number = 0
+	end
+	ability.cast_number = ability.cast_number + 1
+
     local w_4_level = caster:GetRuneValue("w", 4)
     ability.heal = ability.heal + SEINARU_W4_ADD_HEAL_PCT_PER_AGI * caster:GetAgility() * w_4_level * ability.heal
     caster.w_4_level = w_4_level
@@ -17,9 +22,6 @@ function hikari_start(event)
 	ability.w_3_level = w_3_level
 	if w_1_level > 0 then
 		a_b_effect(caster, ability, w_3_level)
-	end
-	if caster:HasModifier("modifier_seinaru_glyph_6_1") then
-		StartAnimation(caster, {duration=0.2, activity=ACT_DOTA_CAST_ABILITY_2, rate=2.5})
 	end
 	Filters:CastSkillArguments(2, caster)
 	hikari_heal(caster, caster:GetAbsOrigin(), ability, 1)
@@ -40,10 +42,14 @@ function new_b_b(caster, ability, w_2_level)
 	EndAnimation(caster)
 	StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_SPAWN, rate=1.2, translate="odachi"})
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-	local damage = w_2_level * SEINARU_W2_DMG * ability:GetLevel()
+	local damage = w_2_level * SEINARU_W2_DMG_PER_LVL_PER_HERO_LVL * ability:GetLevel() * caster:GetLevel()
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
+			local damage_vs_the_enemy = damage
+			if caster:HasModifier('modifier_seinaru_glyph_5_1') and enemy:HasModifier('modifier_kaze_gust_blind') then
+				damage_vs_the_enemy = damage_vs_the_enemy * SEINARU_GLYPH5_W_DMG_AMP_VS_BLINDED
+			end
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage_vs_the_enemy, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
 		end
 	end
 end
@@ -91,12 +97,16 @@ function smoke_hit(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	local newStacks = target:GetModifierStackCount("modifier_seinaru_rune_w_1", caster) + 1
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_seinaru_rune_w_1", {duration = 1.5})
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_seinaru_rune_w_1_invisible", {duration = 1.5})
-	target:SetModifierStackCount("modifier_seinaru_rune_w_1", caster, newStacks)
-	target:SetModifierStackCount("modifier_seinaru_rune_w_1_invisible", caster, newStacks*ability.w_1_level)
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_hikari_slow", {duration = 1.5})
+	if not target.seinaru_w_cast_number or ability.cast_number ~= target.seinaru_w_cast_number then
+		local newStacks = target:GetModifierStackCount("modifier_seinaru_rune_w_1", caster) + 1
+		newStacks = math.min(newStacks, SEINARU_W1_MAX_STACKS_BASE)
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_seinaru_rune_w_1", {duration = 1.5})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_seinaru_rune_w_1_invisible", {duration = 1.5})
+		target:SetModifierStackCount("modifier_seinaru_rune_w_1", caster, newStacks)
+		target:SetModifierStackCount("modifier_seinaru_rune_w_1_invisible", caster, newStacks*ability.w_1_level*ability:GetLevel())
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_hikari_slow", {duration = 1.5})
+		target.seinaru_w_cast_number = ability.cast_number
+	end
 end
 
 function begin_b_b(caster, radius, heal, ability, position)
@@ -167,15 +177,6 @@ function hikari_heal(caster, position, ability, ampFactor)
 				ability:ApplyDataDrivenModifier(caster, ally, "modifier_seinaru_rune_w_3_shield", {duration = SEINARU_W3_DUR_BASE})
 			end
 		end
-	end  
-	if caster:HasModifier("modifier_seinaru_glyph_5_1") then
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, ability.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-		if #enemies > 0 then
-			for _,enemy in pairs(enemies) do
-				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/monk_glyph_5_1_bushido_heal.vpcf", enemy, 0.65)
-				ApplyDamage({ victim = enemy, attacker = caster, damage = ability.heal*ampFactor, damage_type = DAMAGE_TYPE_MAGICAL })
-			end
-		end  
 	end
 	
 end

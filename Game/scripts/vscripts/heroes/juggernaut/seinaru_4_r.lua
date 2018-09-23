@@ -4,11 +4,17 @@ function gorudo_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local duration = event.duration
+	local att_per_agi = event.att_per_agi
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
+
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_monk_ulti_gorudo", {duration = duration})
-	if caster:HasModifier("modifier_seinaru_glyph_2_1") then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_glyph_2_1", {duration = duration})
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_r_att_per_agi", {duration = duration})
+	local bonus_att_damage = event.att_per_agi * caster:GetAgility()
+	if caster:HasModifier('modifier_seinaru_glyph_7_1') then
+		bonus_att_damage = event.att_per_agi * (SEINARU_GLYPH7_AGI_PART * caster:GetAgility() + SEINARU_GLYPH7_STR_PART * caster:GetStrength())
 	end
+	caster:SetModifierStackCount("modifier_seinaru_r_att_per_agi", caster, bonus_att_damage)
+
 	EmitSoundOn("Seinaru.Gorudo", caster)
 	Timers:CreateTimer(0.05, function()
 		StartAnimation(caster, {duration=0.6, activity=ACT_DOTA_ATTACK_EVENT, rate=0.8})
@@ -17,7 +23,6 @@ function gorudo_start(event)
 	Timers:CreateTimer(0.1, function()
 		EmitSoundOn("Seinaru.GorudoGrowl", caster)
 	end)
-  caster.w_4_level = caster:GetRuneValue("w", 4)
   local particleName = "particles/roshpit/seinaru/seinaru_d_b_ring.vpcf"
   local position = caster:GetAbsOrigin()
   local b_d_level = caster:GetRuneValue("r", 2)
@@ -164,16 +169,21 @@ function gorudo_attack_land(event)
 	if attacker:HasModifier("modifier_monk_ulti_gorudo") then
 		local c_d_level = attacker:GetRuneValue("r", 3)
 		if c_d_level > 0 then
-			local luck = RandomInt(1, 100)
 			local critModifier = attacker:FindModifierByName("modifier_seinaru_a_a_crit")
-			if luck <= SEINARU_R3_PROC_CHANCE or critModifier then
-				local particleName = "particles/units/heroes/hero_monkey_king/monkey_king_spring_cast_rays.vpcf"
-				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_monkey_king/monkey_king_spring_cast_rays.vpcf", target, 3)
-				local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*c_d_level*SEINARU_R3_DMG_PER_ATT
-				if critModifier then
-					local arcanaAbility = critModifier:GetAbility()
-					damage = damage * SEINARU_ARCANA_Q1_CRIT_DMG * arcanaAbility.q_1_level
+			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_monkey_king/monkey_king_spring_cast_rays.vpcf", target, 3)
+			local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*c_d_level*SEINARU_R3_DMG_PER_ATT
+			if critModifier then
+				local arcanaAbility = critModifier:GetAbility()
+				damage = damage * SEINARU_ARCANA_Q1_CRIT_DMG * arcanaAbility.q_1_level
+			end
+			if attacker:HasModifier("modifier_seinaru_glyph_3_1") then
+				local enemies = FindUnitsInRadius( attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, SEINARU_GLYPH3_R3_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+				for _,enemy in pairs(enemies) do
+					if not enemy.dummy then
+						Filters:TakeArgumentsAndApplyDamage(enemy, attacker, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_HOLY, RPC_ELEMENT_NORMAL)
+					end
 				end
+			else
 				Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_PURE, 4, RPC_ELEMENT_HOLY, RPC_ELEMENT_NORMAL)
 			end
 		end
@@ -202,16 +212,4 @@ end
 function gorudo_passive_think(event)
 	local caster = event.caster
 	caster.e_4_level = caster:GetRuneValue("e", 4)
-end
-
-function seinaru_r_3_think(event)
-	local caster = event.caster
-	local ability = event.ability
-	local hero = caster.hero
-	local totalLevel = hero:GetRuneValue("r", 3)
-	if totalLevel > 0 then
-		local stackCount = hero:GetAgility() * SEINARU_R3_ATT_PER_AGI * totalLevel
-		ability:ApplyDataDrivenModifier(caster, hero, "modifier_seinaru_rune_r_3_effect", {})
-		hero:SetModifierStackCount( "modifier_seinaru_rune_r_3_effect", ability, stackCount )
-	end
 end
