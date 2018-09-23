@@ -30,9 +30,9 @@ function Stars:GetOrganizedStarData(playerID)
 end
 
 function Stars:StarEventSolo(starEventName, hero)
-	if not SaveLoad:GetAllowSaving() then
-		return false
-	end
+	-- if not SaveLoad:GetAllowSaving() then
+	-- 	return false
+	-- end
 	if #MAIN_HERO_TABLE == 1 then
 		local heroTable = HerosCustom:GetAvailableHerosTable()
 		local heroCount = #heroTable

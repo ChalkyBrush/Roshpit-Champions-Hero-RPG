@@ -80,6 +80,12 @@
 	"tutorial_master_dialogue_1_4e"										"That wraps up this lesson."
 	"tutorial_master_dialogue_1_4f"										"Well look at that, looks like you got a star! That wraps up this lesson."
 
+	"quest_1_reward_title"												"Activate Teleporter"       
+	"quest_1_reward_description"										"The map's teleporter will always be active when you play the Tutorial Map."
+
+	"quest_reward_available"											"Reward Available"
+	"quest_reward_claim"												"Claim Reward"
+
 	"quest_2_interface"													"2. Hero"
 	"quest_2_interface_description"										"This lecture will help with mastering your hero's abilities."
                          

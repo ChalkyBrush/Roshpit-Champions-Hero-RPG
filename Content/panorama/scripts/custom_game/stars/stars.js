@@ -392,7 +392,7 @@ function getStarDescription(categoryData, star_title, heroName, starOverride)
 			starDescription = $.Localize("star_valdun_description3solo").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("seafortress_final_boss")).replace("@mapname", $.Localize("rpc_sea_fortress"))
 		}
 	}else if (star_title == "rpc_tutorial"){
-		starAmount = categoryData.weapon
+		starAmount = categoryData.champleague
 		if (starOverride > 0){
 			starAmount = starOverride - 1
 		}

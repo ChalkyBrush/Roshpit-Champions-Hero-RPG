@@ -102,6 +102,14 @@
 	border-bottom:0px;
 }
 
+.reward_active{
+	background-color: gradient( linear, 0px 0%, 460px 0%, from( #2a2c66 ), to(#323477 ) );
+}
+
+.reward_active_hover{
+	background-color: gradient( linear, 0px 0%, 460px 0%, from( #323477), to( #464899 ) );
+}
+
 #tutorial_category_header_label{
 	margin-left:10px;
 	vertical-align: center;

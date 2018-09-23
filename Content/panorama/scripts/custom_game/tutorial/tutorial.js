@@ -50,18 +50,39 @@ function setupCategory(category, index, parent, bStatic, msg)
 	categoryPanel.FindChildTraverse('tutorial_category_description_label').text = $.Localize(category["description"])
 	var categoryButton = categoryPanel.FindChildTraverse('tutorial_category_clickable')
 	if (!(bStatic)){
+		categoryPanel.rewardActive = isCategoryRewardActive(category, index, msg)
+		if (categoryPanel.rewardActive){
+			categoryPanel.FindChildTraverse('tutorial_category_header').AddClass('reward_active')
+			categoryPanel.FindChildTraverse('tutorial_category_header_label').text = $.Localize(category["header"]) + " - <font color='#e6ff59'>"+$.Localize('quest_reward_available')+"</font>"
+		}
 		categoryPanel.SetPanelEvent('onmouseover', function HoverIn() {
-			categoryPanel.FindChildTraverse('tutorial_category_header').AddClass('tutorial_category_header_active')
+			if (categoryPanel.rewardActive){
+				categoryPanel.FindChildTraverse('tutorial_category_header').AddClass('reward_active_hover')
+			}else{
+				categoryPanel.FindChildTraverse('tutorial_category_header').AddClass('tutorial_category_header_active')
+			}
 			categoryPanel.AddClass('tutorial_category_description_active')
 		});
 		categoryPanel.SetPanelEvent('onmouseout', function HoverOut() {
 			categoryPanel.FindChildTraverse('tutorial_category_header').RemoveClass('tutorial_category_header_active')
+			categoryPanel.FindChildTraverse('tutorial_category_header').RemoveClass('reward_active_hover')
 			categoryPanel.RemoveClass('tutorial_category_description_active')
 		});
 		categoryButton.SetPanelEvent('onactivate', function Activate() {
 			category_panel_click_setup(categoryPanel, index, category, msg)
 		});
+		// categoryPanel.AddClass('reward_active')
 	}
+}
+
+function isCategoryRewardActive(category, index, msg)
+{
+	var challenge_section = index+1
+	var key = ("section"+challenge_section).toString()
+	var challengeCount = category["challenges"]
+	var progress = msg.tutorial[key]["progress"]
+	var reward = msg.tutorial[key]["reward"]
+	return ((progress == challengeCount) && (reward==0))
 }
 
 function category_panel_click_setup(categoryPanel, index, category, msg){
@@ -124,8 +145,6 @@ function challenge_activate(category, challenge_index, challengeListPanel){
 function challenge_go_final(category, challenge_index)
 {
 	var hero = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())
-	$.Msg("CATGEGORY INDEX.."+category["index"])
-	$.Msg("CHALLENGE INDEX.."+challenge_index)
 	GameEvents.SendCustomGameEventToServer( "tutorial", {hero: hero, code: "challenge_select", category_index: category["index"], challenge_index: challenge_index} );
 	CloseTutorial();	
 }

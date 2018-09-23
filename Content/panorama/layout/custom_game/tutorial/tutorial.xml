@@ -31,7 +31,7 @@
 					<Panel class="tutorial_category_bg" hittest="false"/>
 					<Panel class="tutorial_category_container">
 						<Panel class="tutorial_category_header" id="tutorial_category_header">
-							<Label id="tutorial_category_header_label"/>
+							<Label id="tutorial_category_header_label" html="true"/>
 						</Panel>
 						<Panel class="tutorial_category_description" id="tutorial_category_description">
 							<Label id="tutorial_category_description_label"/>

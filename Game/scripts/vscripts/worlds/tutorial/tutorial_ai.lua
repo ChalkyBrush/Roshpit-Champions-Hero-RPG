@@ -95,3 +95,23 @@ function tutorial_super_kill_think(event)
 		end
 	end
 end
+
+function portal1enter(trigger)
+	local hero = trigger.activator
+	if hero:HasModifier("modifier_recently_teleported_portal") then
+		return false
+	end
+	if Tutuorial.PortalActive then
+		Events:TeleportUnit(hero, Vector(620, 1588), Events.GameMaster.portal, Events.GameMaster, 1.2)
+	end
+end
+
+function portal2enter(trigger)
+	local hero = trigger.activator
+	if hero:HasModifier("modifier_recently_teleported_portal") then
+		return false
+	end
+	if Tutuorial.PortalActive then
+		Events:TeleportUnit(hero, Vector(-3720, -2535), Events.GameMaster.portal, Events.GameMaster, 1.2)
+	end
+end

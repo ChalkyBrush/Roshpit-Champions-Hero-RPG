@@ -96,6 +96,8 @@ end
 function Tutorial:GetTutorialDataArray(hero, code)
 	if code == "progress" then
 		return {hero.tutorial.section1.progress, hero.tutorial.section2.progress, hero.tutorial.section3.progress, hero.tutorial.section4.progress, hero.tutorial.section5.progress, hero.tutorial.section6.progress, hero.tutorial.section7.progress, hero.tutorial.section8.progress}
+	elseif code == "reward" then
+		return {hero.tutorial.section1.reward, hero.tutorial.section2.reward, hero.tutorial.section3.reward, hero.tutorial.section4.reward, hero.tutorial.section5.reward, hero.tutorial.section6.reward, hero.tutorial.section7.reward, hero.tutorial.section8.reward}
 	end
 end
 
@@ -104,27 +106,38 @@ function Tutorial:LoadTutorialDataForHero(hero, resultTable)
 	hero.tutorial.section1 = {}
 	hero.tutorial.section1.progress = resultTable.progress1
 	hero.tutorial.section1.state = 0
+	hero.tutorial.section1.reward = resultTable.reward1
+	if hero.tutorial.section1.reward == 1 then
+		Tutorial:ActivatePortal()
+	end
 	hero.tutorial.section2 = {}
 	hero.tutorial.section2.progress = resultTable.progress2
 	hero.tutorial.section2.state = 0
+	hero.tutorial.section2.reward = resultTable.reward2
 	hero.tutorial.section3 = {}
 	hero.tutorial.section3.progress = resultTable.progress3
 	hero.tutorial.section3.state = 0
+	hero.tutorial.section3.reward = resultTable.reward3
 	hero.tutorial.section4 = {}
 	hero.tutorial.section4.progress = resultTable.progress4
 	hero.tutorial.section4.state = 0
+	hero.tutorial.section4.reward = resultTable.reward4
 	hero.tutorial.section5 = {}
 	hero.tutorial.section5.progress = resultTable.progress5
 	hero.tutorial.section5.state = 0
+	hero.tutorial.section5.reward = resultTable.reward5
 	hero.tutorial.section6 = {}
 	hero.tutorial.section6.progress = resultTable.progress6
 	hero.tutorial.section6.state = 0
+	hero.tutorial.section6.reward = resultTable.reward6
 	hero.tutorial.section7 = {}
 	hero.tutorial.section7.progress = resultTable.progress7
 	hero.tutorial.section7.state = 0
+	hero.tutorial.section7.reward = resultTable.reward7
 	hero.tutorial.section8 = {}
 	hero.tutorial.section8.progress = resultTable.progress8
 	hero.tutorial.section8.state = 0
+	hero.tutorial.section8.reward = resultTable.reward8
 
 	Tutorial:PreIntro(hero)
 end
@@ -250,15 +263,17 @@ function Tutorial:GetFixedTutorialData(hero)
 	quest.header = "quest_1_interface"
 	quest.description = "quest_1_interface_description"
 	quest.challenges = 4
+	quest.reward = hero.tutorial.section1.reward
 	table.insert(categories, quest)
 	--
 	--
-	if hero.tutorial.section1.progress >= 8 then
+	if hero.tutorial.section1.progress >= 4 then
 		local quest = {}
 		quest.index = 2
 		quest.progress = hero.tutorial.section2.progress
 		quest.header = "quest_2_interface"
 		quest.description = "quest_2_interface_description"
+		quest.reward = hero.tutorial.section2.reward
 		quest.challenges = {}
 		local challenge = {}
 		table.insert(quest.challenges, challenge)
@@ -552,4 +567,32 @@ function Tutorial:ProgressUpdateOrNot(hero, section_index, newProgress)
 end
 
 function Tutorial:SaveTutorialProgressOnWeb(hero, section_index, newProgress)
+end
+
+function Tutorial:ActivatePortal()
+	if not Tutuorial.PortalActive then
+		Tutuorial.PortalActive = true
+		local positionTable = {Vector(-3720, -2535), Vector(620, -1588)}
+		for i = 1, #positionTable, 1 do
+			local position = positionTable[i]
+			EmitSoundOnLocationWithCaster(position, "Tutorial.PortalActivate", Tutorial.Master)
+			Beacons:CreateActiveParticle("particles/portals/green_portal.vpcf", GetGroundPosition(position, Tutorial.Master) - Vector(0,0,40), Tutorial.Master, 0, Vector(0.45, 0.45, 0.45))
+			AddFOWViewer(DOTA_TEAM_GOODGUYS, position, 300, 99999, false)
+		end
+	end
+end
+
+function Tutorial:CollectReward(msg)
+	local hero = EntIndexToHScript(msg.hero)
+	local rewards = Tutorial:GetTutorialDataArray(hero, "reward")
+	if rewards[msg.index] == 0 then
+		Tutorial:UpdateRewardProgressOnWeb(hero, msg.index)
+	end
+end
+
+function Tutorial:UpdateRewardProgressOnWeb(hero, section_index)
+	--DO THIS AFTER CONFIRMING UPDATE WITH WEB
+	if section_index == 1 then
+		Tutorial:ActivatePortal()
+	end
 end
