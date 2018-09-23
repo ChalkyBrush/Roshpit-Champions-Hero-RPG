@@ -367,3 +367,80 @@
 .challenge_summary_item_completed{
 	color: #67c665;
 }
+
+#green_check{
+	horizontal-align:right;
+	width:24px;
+	height:24px;
+	vertical-align: center;
+	margin-right:5px;
+}
+
+.challenge_reward_button{
+	width:100%;
+	text-align: center;
+	letter-spacing: 2px;
+	color: #f0f940;
+}
+
+#reward_and_go_content{
+	width:100%;
+	height:100%;
+	background-color:#0f1830;
+	border-radius:8px;
+	flow-children:down;
+	box-shadow: 1px 1px 2px #000000;
+	border:1px solid #000000;
+}
+
+#reward_image{
+	width:40px;
+	height:40px;
+	margin-top:10px;
+	horizontal-align:center;
+	border-radius:100%;
+}
+
+#reward_and_go_description_text{
+	width:100%;
+	padding-left:8px;
+	padding-right:8px;
+	font-family: TH Sarabun New, Radiance, FZLanTingHei-R-GBK, Gulim,MingLiU;
+	color:white;
+	font-size:18px;
+	line-height: 20px;	
+	white-space: normal;
+	font-weight:light;
+	height:40px;
+	text-align:center;
+}
+
+.reward_unclaimed{
+	width:50%;
+	horizontal-align:center;
+	height:40px;
+	border-radius:4px;
+	border:1px solid #000303;
+	vertical-align: bottom;
+	margin-bottom:10px;
+	background-color: gradient( linear, 0px 0%, 300px 0%, from( #1A1A1A ), to( #111111 ) );
+	box-shadow: 1px 1px 2px #000000;
+
+}
+
+.reward_unclaimed:hover{
+	background-color: gradient( linear, 0px 0%, 300px 0%, from( #1F1F1F ), to( #161616 ) );
+	box-shadow: 0px 0px 0px #000000;
+}
+
+.reward_claimed{
+	width:50%;
+	horizontal-align:center;
+	height:40px;
+	border-radius:4px;
+	border:1px solid #000303;
+	vertical-align: bottom;
+	margin-bottom:10px;
+	background-color: #111111;
+
+}

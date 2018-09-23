@@ -100,7 +100,7 @@ function category_panel_click_setup(categoryPanel, index, category, msg){
 	var progress = msg.tutorial[key]["progress"]
 	for (var i = 0; i < challengeCount; i++) {
 		if (progress >= i){
-			setupChallenge(category, category.challenges[i+1], i, challengeListPanel)
+			setupChallenge(category, category.challenges[i+1], i, challengeListPanel, challengeCount)
 		}
 	}
 	Game.EmitSound("Tutorial.UI.CategoryClick")
@@ -111,9 +111,7 @@ function category_panel_click_setup(categoryPanel, index, category, msg){
 	})
 }
 
-function setupChallenge(category, challenge, index, challengeListPanel){
-	$.Msg(category)
-	$.Msg(category["progress"])
+function setupChallenge(category, challenge, index, challengeListPanel, challengeCount){
 	challenge_list_adder_panel = challengeListPanel.FindChildTraverse('challenge_list_items')
 	if (category["progress"] >= index){
 		var challengePanel = $.CreatePanel("Panel", challenge_list_adder_panel, "challenge"+index)
@@ -125,7 +123,47 @@ function setupChallenge(category, challenge, index, challengeListPanel){
 		challengePanel.FindChildTraverse('challenge_button').SetPanelEvent('onactivate', function Activate() {
 			challenge_activate(category, challenge_number, challengeListPanel)
 		});
+		if (category["progress"] > index){
+			challengePanel.FindChildTraverse('green_check').RemoveClass('invisible')
+			if ((category["progress"] == challengeCount) && (index+1 == challengeCount)){
+				var challengePanel = $.CreatePanel("Panel", challenge_list_adder_panel, "reward"+index)
+				challengePanel.BLoadLayoutSnippet("tutorial_challenge")	
+				challengePanel.FindChildTraverse('tutorial_challenge_text').text = $.Localize("quest_reward_label") + " " + $.Localize("quest_"+quest_number+"_reward_title")
+				challengePanel.FindChildTraverse('tutorial_challenge_text').AddClass('challenge_reward_button')
+				challengePanel.FindChildTraverse('tutorial_challenge_text').style.color = '#f0f940'
+				challengePanel.FindChildTraverse('challenge_button').SetPanelEvent('onactivate', function Activate() {
+					reward_activate(category, challengeListPanel, category["reward"])
+				});
+			}
+		}
 	}
+}
+
+function reward_activate(category, challengeListPanel, reward){
+	var descrip_and_go_container = challengeListPanel.FindChildTraverse('total_challenge_list')
+	var descripAndGoPanel = $.CreatePanel("Panel", descrip_and_go_container, "descrip_and_go")
+	Game.EmitSound("Tutorial.UI.ChallengeClick")
+	descripAndGoPanel.BLoadLayoutSnippet('reward_and_go')
+
+	descripAndGoPanel.FindChildTraverse('reward_and_go_description_text').text = $.Localize("quest_1_reward_description")
+	if (reward == 0){
+		descripAndGoPanel.FindChildTraverse('challenge_go_button_text').text = $.Localize("quest_reward_claim")
+		descripAndGoPanel.FindChildTraverse('reward_go_button').SetPanelEvent('onactivate', function Activate() {
+				Game.EmitSound("Tutorial.Win")
+				reward_claim_final(category)
+		});
+	}else{
+		descripAndGoPanel.FindChildTraverse('challenge_go_button_text').text = $.Localize("quest_reward_claimed")
+		descripAndGoPanel.FindChildTraverse('reward_go_button').AddClass('reward_unclaimed')
+		descripAndGoPanel.FindChildTraverse('reward_go_button').RemoveClass('reward_unclaimed')
+		descripAndGoPanel.FindChildTraverse('challenge_go_button_text').style.color = '#777777'
+	}
+}
+
+function reward_claim_final(category){
+	var hero = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())
+	GameEvents.SendCustomGameEventToServer( "tutorial", {hero: hero, code: "reward_select", category_index: category["index"]} );
+	CloseTutorial();
 }
 
 function challenge_activate(category, challenge_index, challengeListPanel){

@@ -3042,7 +3042,10 @@
 		"DOTA_Tooltip_ability_axe_rune_w_3"                             "[W3] Fury"
         "DOTA_Tooltip_ability_axe_rune_w_3_Description"                 "С каждым прочтением @Ability2 герой исцеляет себя. Сила лечения умножается на уровень умения @Ability2."
         "DOTA_Tooltip_ability_axe_rune_w_3_property_one"                "Лечение"
-        "DOTA_Tooltip_ability_axe_rune_w_3_suffix"                      "% от Макс. ХП"
+        "DOTA_Tooltip_ability_axe_rune_w_3_suffix"                      "x от уровня Spur Shock"
+		"DOTA_Tooltip_ability_axe_rune_w_3_property_two"                "Лечение"
+        "DOTA_Tooltip_ability_axe_rune_w_3_suffix_two"                  "% от Макс. ХП"
+		
 		
 		"DOTA_Tooltip_ability_axe_rune_w_4"                             "[W4] Thunderfoot"
         "DOTA_Tooltip_ability_axe_rune_w_4_Description"                 "Урон умения @Ability2  увеличивается за счёт показателя Силы героя."

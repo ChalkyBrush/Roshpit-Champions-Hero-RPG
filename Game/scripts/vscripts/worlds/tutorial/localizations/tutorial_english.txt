@@ -85,7 +85,10 @@
 
 	"quest_reward_available"											"Reward Available"
 	"quest_reward_claim"												"Claim Reward"
+	"quest_reward_claimed"												"Already Claimed"
+
+	"quest_reward_label"												"REWARD:"
 
 	"quest_2_interface"													"2. Hero"
-	"quest_2_interface_description"										"This lecture will help with mastering your hero's abilities."
+	"quest_2_interface_description"										"This lecture will help with understanding your hero."
                          

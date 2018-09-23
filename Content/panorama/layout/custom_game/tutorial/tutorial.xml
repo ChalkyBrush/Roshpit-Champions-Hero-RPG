@@ -54,7 +54,19 @@
 			<Panel class="tutorial_challenge" hittest="false">
 				<Button id="challenge_button">
 					<Label id="tutorial_challenge_text"/>
+					<Image id="green_check" class="invisible" src="file://{images}/custom_game/ui/green_check.png"/>
 				</Button>
+			</Panel>
+		</snippet>
+		<snippet name="reward_and_go">
+			<Panel class="challenge_description_and_go" hittest="false">
+				<Panel id="reward_and_go_content" class="animateEaseClass">
+					<Image id="reward_image" src="file://{images}/spellicons/tutorial/reward1.png"/>
+					<Label id="reward_and_go_description_text"/>
+					<Button id="reward_go_button" class="reward_unclaimed">
+						<Label id="challenge_go_button_text"/>
+					</Button>					
+				</Panel>
 			</Panel>
 		</snippet>
 		<snippet name="challenge_description_and_go">
