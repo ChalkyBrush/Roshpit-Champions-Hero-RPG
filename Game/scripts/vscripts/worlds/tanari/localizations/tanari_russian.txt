@@ -1438,7 +1438,7 @@
 		 "water_temple_tentacle_switch"				"Tentacular Puzzle Switch"
 		 "water_temple_regular_jellyfish"			"Jellyfish"
 		 "water_temple_boss_jellyfish"				"Cnidaria Rex"
-		 "water_temple_prison_guard"				"Lockup Lenny"
+		 "water_temple_prison_guard"				"Prison Gully"
 		 "water_temple_executioner"					"Temple Executioner"
 
 		 "water_temple_emperor_elemental"	"Greater Water Elemental"
