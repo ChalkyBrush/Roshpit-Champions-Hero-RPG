@@ -1016,6 +1016,7 @@ function Events:ChangeRuneState(msg)
     else
       ability:SetActivated(true)
     end
+    Events:TutorialServerEvent(unit, "2_1", 2)
   end
   CustomGameEventManager:Send_ServerToPlayer(player, "AbilityUp", {playerId=playerid})
   CustomGameEventManager:Send_ServerToPlayer(player, "ability_tree_upgrade", {playerId=playerid})

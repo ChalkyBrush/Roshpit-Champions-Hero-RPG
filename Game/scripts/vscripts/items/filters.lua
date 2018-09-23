@@ -705,8 +705,7 @@ function Filters:CastSkillArguments(slot, caster)
     elseif slot == 4 then
         Filters:ApplyRskills(caster)
     end
-
-
+    Events:TutorialServerEvent(caster, "2_1", 1)
     Challenges:AbilityUsed(slot)
     if caster:HasModifier("modifier_bladestorm_vest_buff") then
         local bladestormStacks = caster:GetModifierStackCount("modifier_bladestorm_vest_buff", caster.body)
