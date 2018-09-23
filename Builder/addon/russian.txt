@@ -247,28 +247,7 @@
 		
     	//--------------------Seinaru/Juggernaut
 
-    	"DOTA_Tooltip_ability_seinaru_kaze_gust"					"Konokaze"
-    	"DOTA_Tooltip_ability_seinaru_kaze_gust_Description"		"Стихия: <font color=\"#7AE2A7\">Ветер</font><br>Быстрым взмахом меча поднимает пыль с земли, нанося урон врагам, отталкивая и ослепляя их, заставляя промахиваться обычными атаками."
-    	"DOTA_Tooltip_ability_seinaru_kaze_gust_stun_duration"		"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
-    	"DOTA_Tooltip_ability_seinaru_kaze_gust_range"				"РАССТОЯНИЕ:"
-    	"DOTA_Tooltip_ability_seinaru_kaze_gust_blind_chance"		"ШАНС ПРОМАХА:"
-    	"DOTA_Tooltip_ability_seinaru_kaze_gust_blind_duration"		"ДЛИТЕЛЬНОСТЬ ОСЛЕПЛЕНИЯ:"
-
- 		"DOTA_Tooltip_ability_combo_strike"							"Combination Strike"
-		"DOTA_Tooltip_ability_combo_strike_Description"				"Seinaru мастерски размахивает клинком до 3 раз, нанося 3х кратный урон последним ударом."
-		"DOTA_Tooltip_ability_combo_strike_Lore"					""
-		"DOTA_Tooltip_ability_combo_strike_damage"					"УРОН ЗА ВЗМАХ:"   	
-
- 		"DOTA_Tooltip_ability_monk_heal"							"Hands of Hikari"
-		"DOTA_Tooltip_ability_monk_heal_Description"				"Seinaru лечит себя и ближайших союзников взрывами зеленого света."
-		"DOTA_Tooltip_ability_monk_heal_Lore"						""
-		"DOTA_Tooltip_ability_monk_heal_heal"						"ЛЕЧЕНИЕ:"
-		"DOTA_Tooltip_ability_monk_heal_radius"						"РАДИУС:"  
-
-		"DOTA_Tooltip_ability_odachi_slice"							"Odachi Leap"  
-		"DOTA_Tooltip_ability_odachi_slice_Description"				"Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Seinaru быстро прыгает вперёд, разрезая всех врагов на своём пути. Во время прыжка получает 100% уклонение."
-		"DOTA_Tooltip_ability_odachi_slice_Lore"					""
-		"DOTA_Tooltip_ability_odachi_slice_damage"					"УРОН ЗА ВЗМАХ:"  
+  
 
 		"DOTA_Tooltip_ability_odachi_rush"							"Odachi Rush"  
 		"DOTA_Tooltip_ability_odachi_rush_Description"				"Быстро передвигается к врагу, нанося урон." 	 	
