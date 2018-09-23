@@ -293,6 +293,8 @@ function Tutorial:TutorialEvent(msg)
 	elseif code == "challenge_select" then
 		hero.tutorial.active_challenge = msg.category_index.."_"..msg.challenge_index
 		hero.active_challenge_progress = 0
+		local player = hero:GetPlayerOwner()
+		CustomGameEventManager:Send_ServerToPlayer(player, "close_quiz", {} )
 		if hero.tutorial.active_challenge == "1_1" then
 			Tutorial:UpdateChallengeSummaryProgress(hero, 1, 1, 0, false)
 			Tutorial:MasterSequenceWithLocks(hero, hero.tutorial.active_challenge)
@@ -312,6 +314,8 @@ function Tutorial:TutorialEvent(msg)
 		end
 	elseif code == "reward_select" then
 		Tutorial:ClaimReward(msg)
+	elseif code == "submit_quiz" then
+		Tutorial:SubmitQuiz(msg)
 	end
 end
 
@@ -444,18 +448,30 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 		Timers:CreateTimer(40, function()
 			if speech_phase == hero.tutorial_speech_phase then
 				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_2_1h2", 5, false)
+				Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting2", ACT_DOTA_ATTACK, 1.1, 3.1)
 			end
 		end)
 		Timers:CreateTimer(45, function()
 			if speech_phase == hero.tutorial_speech_phase then
-				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_2_1i", 5, false)
-				Tutorial:TutorialServerEvent(hero, "2_1", 0)
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_2_1h3", 4, false)
+				local player = PlayerResource:GetPlayer(hero:GetPlayerOwnerID())
+				local question = "What is it?"
+				-- local random_rune = "DOTA_Tooltip_Ability_"..HerosCustom:GetInternalHeroName(hero:GetUnitName())
+				local rune_column = RandomInt(1,4)
+				local rune_row = RandomInt(1, 4)
+				local rune_letter = Runes:GetRuneLetterByIndex(rune_column)
+				rune_letter = string.upper(rune_letter)
+				local random_rune = rune_letter..rune_row
+				local rune_text = "["..random_rune.."]"
+				local question = "tutorial_quiz_question_1"
+				local runename = Runes:GetRuneAbility(hero, rune_row, rune_column-1):GetAbilityName()
+				local rune_name_tooltip = "DOTA_Tooltip_ability_"..runename
+				CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero=hero:GetEntityIndex(), identifier="2_1", quiz_question=question, sequence=0, gsub1 = rune_text, verifier = rune_name_tooltip, localize_verifier = 1, challenge_progress = 0} )
+				CustomGameEventManager:Send_ServerToPlayer(player, "quiz_sound", {sound = "Tutorial.Hint"} )
+				-- Tutorial:TutorialServerEvent(hero, "2_1", 0)
 			end
 		end)
 		Timers:CreateTimer(50, function()
-			if speech_phase == hero.tutorial_speech_phase then
-				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_2_1j", 4, false)
-			end
 			hero.master_is_talking = false
 		end)
 	end
@@ -582,6 +598,10 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 			if code2 == 0 and hero.active_challenge_progress == code2 then
 				hero.active_challenge_progress = hero.active_challenge_progress + 1
 				Tutorial:UpdateChallengeSummaryProgress(hero, 2, 1, 1, false)
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_2_1i", 5, false)
+				Timers:CreateTimer(5, function()
+					Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_2_1j", 5, false)
+				end)
 			elseif code2 == 1 and hero.active_challenge_progress == code2 then
 				hero.active_challenge_progress = hero.active_challenge_progress + 1
 				hero.tutorial_speech_phase = hero.tutorial_speech_phase + 1
@@ -743,4 +763,49 @@ function Tutorial:UpdateRewardProgressOnWeb(hero, section_index)
 			end
 		end
 	end )
+end
+
+function Tutorial:SubmitQuiz(msg)
+	local hero = EntIndexToHScript(msg.hero)
+	local playerID = hero:GetPlayerOwnerID()
+	local player = PlayerResource:GetPlayer(playerID)
+	print("---SUBMIT QUIZ---")
+	print(hero.tutorial.active_challenge)
+	if hero.tutorial.active_challenge == msg.challenge_index then
+		if hero.tutorial.active_challenge == "2_1" then
+			msg.verifier = Tutorial:RemoveRunePrefix(msg.verifier)
+		end
+		local correct_answer = msg.verifier == msg.answer
+		print(msg.challenge_index)
+		print(msg.verifier)
+		print(msg.answer)
+		if correct_answer then
+			CustomGameEventManager:Send_ServerToPlayer(player, "close_quiz", {} )
+			Tutorial:TutorialServerEvent(hero, hero.tutorial.active_challenge, msg.challenge_progress)
+		else
+			CustomGameEventManager:Send_ServerToPlayer(player, "quiz_sound", {sound = "Tutorial.Error"} )
+			local dialogue = "tutorial_quiz_wrong_"..hero.tutorial.active_challenge.."_"..RandomInt(1,2)
+			Quests:ShowDialogueText({hero}, Tutorial.Master, dialogue, 5, false)
+		end
+	end
+end
+
+function Tutorial:RemoveRunePrefix(full_rune_name)
+	full_rune_name = string.gsub(full_rune_name, "%[q1%] ", "")
+	full_rune_name = string.gsub(full_rune_name, "%[q2%] ", "")
+	full_rune_name = string.gsub(full_rune_name, "%[q3%] ", "")
+	full_rune_name = string.gsub(full_rune_name, "%[q4%] ", "")
+	full_rune_name = string.gsub(full_rune_name, "%[w1%] ", "")
+	full_rune_name = string.gsub(full_rune_name, "%[w2%] ", "")
+	full_rune_name = string.gsub(full_rune_name, "%[w3%] ", "")
+	full_rune_name = string.gsub(full_rune_name, "%[w4%] ", "")
+	full_rune_name = string.gsub(full_rune_name, "%[e1%] ", "")
+	full_rune_name = string.gsub(full_rune_name, "%[e2%] ", "")
+	full_rune_name = string.gsub(full_rune_name, "%[e3%] ", "")
+	full_rune_name = string.gsub(full_rune_name, "%[e4%] ", "")
+	full_rune_name = string.gsub(full_rune_name, "%[r1%] ", "")
+	full_rune_name = string.gsub(full_rune_name, "%[r2%] ", "")
+	full_rune_name = string.gsub(full_rune_name, "%[r3%] ", "")
+	full_rune_name = string.gsub(full_rune_name, "%[r4%] ", "")
+	return full_rune_name
 end

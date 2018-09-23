@@ -439,6 +439,20 @@ function Runes:GetRunePropertyValue(caster, tier, index, propertyName)
 	return runeAbility:GetSpecialValueFor(propertyName)
 end
 
+function Runes:GetRuneLetterByIndex(index)
+	local letter = ""
+	if index == 1 then
+		letter = "q"
+	elseif index == 2 then
+		letter = "w"
+	elseif index == 3 then
+		letter = "e"
+	elseif index == 4 then
+		letter = "r"
+	end
+	return letter
+end
+
 function Runes:ConvertTierAndIndexToRune(tier, index)
 	local runeID = ""
 	if tier == 1 and index == 0 then

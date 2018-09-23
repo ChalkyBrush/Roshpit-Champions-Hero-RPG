@@ -444,3 +444,84 @@
 	background-color: #111111;
 
 }
+
+#tutorial_quiz_container{
+	width:700px;
+	height:180px;
+	vertical-align: center;
+	horizontal-align:center;
+}
+
+.quiz_box{
+	width:100%;
+	height:100%;
+	border:1px solid white;
+}
+
+.quiz_box_bg{
+	width:100%;
+	height:100%;
+	background-color: #111111;
+	opacity:0.95;
+}
+
+.quiz_box_question{
+	width:100%;
+	padding-left:8px;
+	padding-right:8px;
+	font-family: TH Sarabun New, Radiance, FZLanTingHei-R-GBK, Gulim,MingLiU;
+	color:white;
+	font-size:28px;
+	line-height: 20px;	
+	white-space: normal;
+	font-weight:light;
+	height:40px;
+	text-align:center;	
+	margin-top:20px;
+}
+
+.quiz_box_content{
+	width:100%;
+	height:100%;
+}
+
+#quiz_submit_button{
+	width:50%;
+	horizontal-align:center;
+	height:40px;
+	border-radius:4px;
+	border:1px solid #000303;
+	vertical-align: bottom;
+	margin-bottom:10px;
+	background-color: gradient( linear, 0px 0%, 300px 0%, from( #1A1A1A ), to( #111111 ) );
+	box-shadow: 1px 1px 2px #000000;
+}
+
+#quiz_submit_button:hover{
+	background-color: gradient( linear, 0px 0%, 300px 0%, from( #1F1F1F ), to( #161616 ) );
+	box-shadow: 0px 0px 0px #000000;
+}
+
+.quiz_submit_label{
+	width:100%;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;	
+	color:white;
+	text-align: center;
+	font-size:18px;
+	line-height: 30px;
+}
+
+#quiz_box_input{
+	width:500px;
+	height:40px;
+	background-color: #111111;
+	vertical-align: bottom;
+	horizontal-align:center;
+	margin-bottom:70px;
+	border-radius:4px;
+	padding-left:20px;
+	padding-top:10px;
+	color:white;
+	font-size:20px;
+	border:1px solid black;
+}

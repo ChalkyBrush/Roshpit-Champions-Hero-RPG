@@ -230,9 +230,50 @@ function CloseChallengeSummary(msg){
 	parent.RemoveAndDeleteChildren(0)	
 }
 
+function CallQuizBox(msg){
+	var parent = $('#tutorial_quiz_container')
+	parent.RemoveClass('invisible')
+	parent.AddClass('animateEaseClass')
+	parent.RemoveClass('animateEaseOutClass')
+	parent.RemoveAndDeleteChildren(0)
+    var quiz_box = $.CreatePanel("Panel", parent, "quiz")
+    quiz_box.BLoadLayoutSnippet("quiz_box");	
+    quiz_box.FindChildTraverse('quiz_box_question').text = $.Localize(msg.quiz_question).replace('@sub1', "<font color='#7DFF12'>"+msg.gsub1+"</font>")
+   	submit_button = parent.FindChildTraverse('quiz_submit_button')
+	submit_button.SetPanelEvent('onactivate', function SubmitQuiz() {
+		setupQuizAnswerSubmit(parent, msg.identifier, msg.sequence, msg.verifier, msg.localize_verifier, msg.challenge_progress)
+	})
+	parent.FindChildTraverse('quiz_box_input').SetFocus();
+}
+
+function quiz_submit_sound(msg){
+	Game.EmitSound(msg.sound)
+}
+
+function setupQuizAnswerSubmit(parent, identifier, sequence, verifier, bLocalize, challenge_progress)
+{
+	$.Msg("SUBMIT QUIZ")
+	var input = parent.FindChildTraverse('quiz_box_input').text
+	var hero = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())
+	if (bLocalize == 1){
+		verifier = $.Localize(verifier).toLowerCase()
+		input = input.toLowerCase()
+	}
+	GameEvents.SendCustomGameEventToServer( "tutorial", {hero: hero, code: "submit_quiz", challenge_index: identifier, sequence: sequence, verifier: verifier, answer: input, challenge_progress: challenge_progress} );	
+}
+
+function close_quiz()
+{
+	var parent = $('#tutorial_quiz_container')
+	parent.AddClass('invisible')
+}
+
 (function()
 {
 	GameEvents.Subscribe( "open_tutorial", OpenTutorial );
 	GameEvents.Subscribe("challenge_summary", ChallengeSummary);
 	GameEvents.Subscribe("close_challenge_summary", CloseChallengeSummary);
+	GameEvents.Subscribe("call_quiz", CallQuizBox);
+	GameEvents.Subscribe("quiz_sound", quiz_submit_sound);
+	GameEvents.Subscribe("close_quiz", close_quiz);
 })();

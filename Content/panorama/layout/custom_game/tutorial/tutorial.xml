@@ -90,6 +90,22 @@
 				<Label id="challenge_summary_item_label" hittest="false"/>
 			</Panel>
 		</snippet>
+		<snippet name="quiz_box">
+			<Panel class="quiz_box" hittest="false">
+				<Panel class="quiz_box_bg"/>
+				<Panel class="quiz_box_header">
+					<Label id="quiz_box_header_label"/>
+				</Panel>
+				<Panel class="quiz_box_content">
+					<Label class="quiz_box_question" id="quiz_box_question" html="true"/>
+					<TextEntry id="quiz_box_input" maxchars="255"/>
+
+					<Button id="quiz_submit_button">
+					  <Label text="quiz_submit" class="quiz_submit_label"></Label>
+					</Button>					
+				</Panel>
+			</Panel>
+		</snippet>
 	</snippets>
 
 	<Panel class="tutorial_content" hittest="false">
@@ -97,6 +113,8 @@
 
 		</Panel>
 		<Panel id="tutorial_challenge_summary_container" hittest="false">
+		</Panel>
+		<Panel id="tutorial_quiz_container" hittest="false">
 		</Panel>
 	</Panel>
 </root>

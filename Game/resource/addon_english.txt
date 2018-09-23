@@ -16058,8 +16058,8 @@
 	"quest_2_reward_description"										"Tutorial Map will have its Town NPC's activated permanently; The Oracle, The Blacksmith, Glyph Enchanter, and Curator!"
 
 	"quest_2_challenge_1_desc"											"At the left of the screen is your hero's Ability and Rune summary. If it is closed, open it up with hotkey (L). Runes are passive buffs for your hero and abilties."
-	"quest_2_challenge_1_sub_0_summary"									"Listen to Challen's lecture regarding Runes & Abilities."
-	"quest_2_challenge_1_sub_1_summary"									"Cast an ability."
+	"quest_2_challenge_1_sub_0_summary"									"Listen to Challen's lecture regarding Runes & Abilities, and answer his question."
+	"quest_2_challenge_1_sub_1_summary"									"Cast a base ability."
 	"quest_2_challenge_1_sub_2_summary"									"Disable a Rune by alt+clicking it."
 
     "tutorial_master_dialogue_2_1a"										"Look at the left side of your screen."
@@ -16067,13 +16067,15 @@
     "tutorial_master_dialogue_2_1c"										"The top line shows your Base Abilities. If you have skill points, clicking one in this window will increase its level."
     "tutorial_master_dialogue_2_1d"										"In the bottom section you can view your Runes. Runes are passives that improve your base abilities and your hero."
     "tutorial_master_dialogue_2_1e"										"Runes can be leveled up to 20, but can reach values beyond that from gear bonuses!"
-    "tutorial_master_dialogue_2_1f"										"If you have Rune Points available, clicking on a rune will level it up."
-    "tutorial_master_dialogue_2_1g"										"Leveling up your base abilities make more of your runes available for upgrade."
-    "tutorial_master_dialogue_2_1h"										"Every level your hero receives 2 additional rune points to allocate. Every 5 levels your hero receives 1 ability point to allocate."
+    "tutorial_master_dialogue_2_1f"										"Every level your hero receives 2 additional rune points to allocate. Every 5 levels your hero receives 1 ability point to allocate."
+    "tutorial_master_dialogue_2_1g"										"If you have Rune Points available, clicking on a rune will level it up."
+    "tutorial_master_dialogue_2_1h"										"Leveling up your base abilities make more of your runes available for upgrade."
+    
     "tutorial_master_dialogue_2_1h2"									"Rune points can be re-allocated, so don't worry too much about perfecting your build right now."
+    "tutorial_master_dialogue_2_1h3"									"Now let's see if you've been listening."
 
-    "tutorial_master_dialogue_2_1i"										"I've gone on enough about abilities, why don't you try using an ability yourself?"
-    "tutorial_master_dialogue_2_1j"										"Go ahead and cast an ability!"
+    "tutorial_master_dialogue_2_1i"										"Correct! I knew you'd be able to read your rune list effectively."
+    "tutorial_master_dialogue_2_1j"										"Let's try out your abilities now. Go ahead and cast on of your Base Abilities!"
     "tutorial_master_dialogue_2_1k"										"Great! You will have to use your abilities well in order to defeat your enemies."
 
     "tutorial_master_dialogue_2_1l"										"There is another handy trick you need to know."
@@ -16082,6 +16084,15 @@
     
     "tutorial_master_dialogue_2_1o"										"Good Job. Don't forget to re-enable that rune now!"
     "tutorial_master_dialogue_2_1p"										"That completes the lesson on abilities and runes."
+
+    "tutorial_quiz_wrong_2_1_1"											"Sorry, that is not the correct rune name."
+    "tutorial_quiz_wrong_2_1_2"											"That is not the correct rune name, try again."
+
+    "tutorial_quiz_question_1"											"What is the name of your @sub1 rune?"
+
+    "quiz_submit"														"Submit Answer"
+
+    "quest_2_challenge_2_desc"											"Something about attributes."
 
 		"winterblight_village"											"Winterblight Village"
 		"shrine_of_azalea"												"Shrine of Azalea"
