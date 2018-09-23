@@ -1,5 +1,12 @@
     	//Abilities
 		
+    	"DOTA_Tooltip_ability_seinaru_konokaze"							"Konokaze"
+    	"DOTA_Tooltip_ability_seinaru_konokaze_Description"				"Элемент: <font color=\"#7AE2A7\">Ветер</font><br>Скоростной порыв ветра ослепляет, отталкивает и наносит урон противникам по прямой линии."
+    	"DOTA_Tooltip_ability_seinaru_konokaze_stun_duration"			"ДЛИТЕЛЬНОСТЬ ОТТАЛКИВАНИЯ:"
+    	"DOTA_Tooltip_ability_seinaru_konokaze_range"					"ДИСТАНЦИЯ:"
+    	"DOTA_Tooltip_ability_seinaru_konokaze_blind_chance"			"ОСЛЕПЛЕНИЕ:"
+    	"DOTA_Tooltip_ability_seinaru_konokaze_blind_duration"			"ДЛИТЕЛЬНОСТЬ ОСЛЕПЛЕНИЯ:"
+			
     	"DOTA_Tooltip_ability_seinaru_rune_q_1"							"[Q1] Cloudburst"
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_Description"				"С каждым задетым умением @Ability1 врагом, урон героя и его скорость атаки увеличиваются на <% SEINARU_Q1_DUR_BASE %> секунд."
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_property_one"			"Доп. урон"
@@ -23,34 +30,33 @@
     	"DOTA_Tooltip_modifier_seinaru_rune_q_2_slow"					"Gale Break"
     	"DOTA_Tooltip_modifier_seinaru_rune_q_2_slow_Description"		"Замедлен"
 		
-    	"DOTA_Tooltip_ability_seinaru_rune_q_3"							"[Q3] Heavy Winds"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_3_Description"				"После прочтения @Ability1 герой получает <% SEINARU_Q3_EVA_BASE %>% бонус к уклонению. Добавляет % от Ловкости к урону основного умения."
-    	"DOTA_Tooltip_ability_seinaru_rune_q_3_property_one"			"Длительность уклонения"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_3_suffix"					" сек."
-    	"DOTA_Tooltip_ability_seinaru_rune_q_3_property_two"			"Усиление урона"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_3_suffix_two"				"% от значения Ловкости"
-
-    	"DOTA_Tooltip_ability_seinaru_rune_q_3_evasion"					"Heavy Winds"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_3_evasion_Description"		"90%% уклонение"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_3"							"[Q3] Tailwind"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_3_Description"				"Ослеплённые @Ability1 противники получают увеличенный пост-резистный урон от Seinaru, базирующийся на разнице между скоростью передвижения."
+    	"DOTA_Tooltip_ability_seinaru_rune_q_3_property_one"			"Пост-резистное усиление"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_3_suffix"					"% за единицу в разнице скорости бега"
 		
     	"DOTA_Tooltip_ability_seinaru_rune_q_4"							"[Q4] Precision Breeze"
     	"DOTA_Tooltip_ability_seinaru_rune_q_4_Description"				"Определенный процент от урона Seinaru будет добавлен к урону умения @Ability1."
     	"DOTA_Tooltip_ability_seinaru_rune_q_4_property_one"			"Доп. урон умения"
     	"DOTA_Tooltip_ability_seinaru_rune_q_4_suffix"					"% от урона героя"
 		
-    	"Tooltip_seinaru_w"											"Hands of Hikari"
+		"DOTA_Tooltip_ability_seinaru_hands_of_hikari"					"Hands of Hikari"
+		"DOTA_Tooltip_ability_seinaru_hands_of_hikari_Description"		"Seinaru лечит себя и союзников вокруг. Не прерывает перемещение, не имеет точки каста.<br>Радиус умения влияет и на все соответствующие руны."
+		"DOTA_Tooltip_ability_seinaru_hands_of_hikari_Lore"				""
+		"DOTA_Tooltip_ability_seinaru_hands_of_hikari_heal"				"ЛЕЧЕНИЕ:"
+		"DOTA_Tooltip_ability_seinaru_hands_of_hikari_radius"			"РАДИУС:"
+		
+    	"Tooltip_seinaru_w"											"Hands of Hikari & Circle of Wind"
 
 		"DOTA_Tooltip_ability_seinaru_rune_w_1"							"[W1] Circle of Wind"
-		"DOTA_Tooltip_ability_seinaru_rune_w_1_Description"				"@Ability2 высвобождают поток светлой энергии замедляя скорость передвижения и атаки врагов на <% SEINARU_W1_MOV_SLOW_BASE %> на <% SEINARU_W1_DUR_BASE %> секунды. Дополнительно увеличивает наносимый героем пост-резистный урон по задетым врагам. Эффект складывается неограниченное количество раз."
+		"DOTA_Tooltip_ability_seinaru_rune_w_1_Description"				"@Ability2 высвобождают поток светлой энергии замедляя скорость передвижения и атаки врагов на <% SEINARU_W1_MOV_SLOW_BASE %> на <% SEINARU_W1_DUR_BASE %> секунды. Дополнительно увеличивает наносимый героем пост-резистный урон по задетым врагам. Эффект складывается <% SEINARU_W1_MAX_STACKS_BASE %> раз, сила эффекта умножается на уровень @Ability2."
 		"DOTA_Tooltip_ability_seinaru_rune_w_1_property_one"			"Доп. пост-резистный урон"
 		"DOTA_Tooltip_ability_seinaru_rune_w_1_suffix"					"%"
 		
 		"DOTA_Tooltip_ability_seinaru_rune_w_2"							"[W2] Typhoon"
-		"DOTA_Tooltip_ability_seinaru_rune_w_2_Description"				"При прочтении @Ability2 образуется стремительный тайфун, нанесет противникам магический урон в радиусе <% SEINARU_W2_RADIUS_BASE %>. Базовый урон руны умножается на текущий уровень прокачки @Ability2."
+		"DOTA_Tooltip_ability_seinaru_rune_w_2_Description"				"При прочтении @Ability2 образуется стремительный тайфун, нанесет противникам магический урон в радиусе <% SEINARU_W2_RADIUS_BASE %>. Базовый урон руны умножается на текущий уровень прокачки @Ability2 и уровень героя."
 		"DOTA_Tooltip_ability_seinaru_rune_w_2_property_one"			"Урон"
 		"DOTA_Tooltip_ability_seinaru_rune_w_2_suffix"					""
-		"DOTA_Tooltip_ability_seinaru_rune_w_2_property_two"			"Длительность оглушения"
-		"DOTA_Tooltip_ability_seinaru_rune_w_2_suffix_two"				" сек."
 
 		"DOTA_Tooltip_ability_seinaru_rune_w_3"						"[W3] Four Winds"
 		"DOTA_Tooltip_ability_seinaru_rune_w_3_Description"			"После прочтения @Ability2, Seinaru и все союзные герои укрываются временным щитом, действующим 3 секунды. Поглощаемое щитом количество урона основывается на значении Ловкости Seinaru."
@@ -64,28 +70,28 @@
     	"DOTA_Tooltip_ability_seinaru_rune_w_4_Description"				"Показатель Ловкости Seinaru увеличивает эффект исцеления от @Ability2 и урон стихии <font color=\"#7AE2A7\">Ветра</font>."
     	"DOTA_Tooltip_ability_seinaru_rune_w_4_property_one"			"Усиление урона и исцеления на "
     	"DOTA_Tooltip_ability_seinaru_rune_w_4_suffix"					"% за каждые 10 очков Ловкости"
+		
+		"DOTA_Tooltip_ability_seinaru_odachi_leap"						"Odachi Leap"
+		"DOTA_Tooltip_ability_seinaru_odachi_leap_Description"			"Элемент: <font color=\"#DDDDDD\">Нормальный</font><br>Прыгает вперед и рубит катаной всех противников на пути. 100% уклонение во время прыжка."
+		"DOTA_Tooltip_ability_seinaru_odachi_leap_Lore"					""
+		"DOTA_Tooltip_ability_seinaru_odachi_leap_damage"				"УРОН ЗА УДАР:"
 
     	"DOTA_Tooltip_ability_seinaru_rune_e_1"						"[E1] Eagle Strike"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_1_Description"			"Враги, задетые умением (E) Odachi Leap получат метку руны [E1]. По приземлении, герой обрушит на отмеченных врагов серию сокрушающих ударов."
+    	"DOTA_Tooltip_ability_seinaru_rune_e_1_Description"			"Враги, задетые умением @Ability3 получат метку. По приземлении, герой обрушит на отмеченных врагов серию сокрушающих ударов. Во время [E1] Seinaru неуязвим."
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_property_one"			"Доп. урон"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_suffix"					"%"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_property_two"			"Макс. целей"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_suffix_two"				""
 		
-    	"DOTA_Tooltip_ability_seinaru_rune_e_2"						"[E2] Wakizashi"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_2_Description"			"По приземлении после @Ability3 герой начинает быстро вращаться в течение 2.5 секунд. В это время Seinaru невосприимчив к любому урону и исцеляет себя усиленным умением @Ability2 каждые 0.5 секунды."
-    	"DOTA_Tooltip_ability_seinaru_rune_e_2_property_one"			"Усиление исцеления"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_2_suffix"					"x"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_2_property_two"			"Урон"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_2_suffix_two"				"% от общего урона"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_2"						"[E2] Blade Dance"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_2_Description"			"Каждая цель с меткой [E1] имеет шанс быть помеченой снова и получить еще одну атаку. Шанс больше 100% гарантирует несколько ударов."
+    	"DOTA_Tooltip_ability_seinaru_rune_e_2_property_one"			"Шанс на доп. удар"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_2_suffix"					"%"
 
-    	"DOTA_Tooltip_modifier_seinaru_b_c_wakizashi"				"Wakizashi"
-    	"DOTA_Tooltip_modifier_seinaru_b_c_wakizashi_Description"	"Невосприимчив к урону."
-
-    	"DOTA_Tooltip_ability_seinaru_rune_e_3"						"[E3] Spiral Leap"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_3_Description"			"После прочтения (E) Odachi Leap, умение будет заменено на (E) Spiral Leap, которое позволяет герою прыгнуть в указанную точку. Во время прыжка невосприимчив к магии и может уклониться от атак и заклинаний."
-    	"DOTA_Tooltip_ability_seinaru_rune_e_3_property_one"			"Макс. дальность прыжка"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_3_suffix"					""
+    	"DOTA_Tooltip_ability_seinaru_rune_e_3"						"[E3] Ansatsuken"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_3_Description"			"Seinaru прорубает защиту противников с пассивкой 'Стойкость', увеличивая порог урона по ним. Однако, усиление пост-резистного урона по таким целям аннулируется."
+    	"DOTA_Tooltip_ability_seinaru_rune_e_3_property_one"			"Увеличения порога 'Стойкости'"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_3_suffix"					"% от текущего значения"
 		
 		"DOTA_Tooltip_ability_seinaru_rune_e_4"						"[E4] Wings of the Swift"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_Description"			"Снижение брони усиливается, позволяя руне [R1] опускать ее значение ниже нуля до определенной границы. Дополнительно увеличивается наносимый пост-резистный урон стихии <font color=\"#F6FFB5\">Света</font><br> против врагов со значением брони ниже 0."
@@ -95,9 +101,9 @@
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_suffix_two"				"% за каждые 10 очков брони ниже нуля"
 		
 		"DOTA_Tooltip_ability_seinaru_gorudo"						"Gorudo"
-		"DOTA_Tooltip_ability_seinaru_gorudo_Description"			"Seinaru превращается в золото, обретая иммунитет к магии и увеличивая свой урон."
+		"DOTA_Tooltip_ability_seinaru_gorudo_Description"			"Seinaru превращает свое тело в чистое золото, обретая иммунитет к магии и увеличивая свой урон за счет Ловкости."
 		"DOTA_Tooltip_ability_seinaru_gorudo_duration"			"ДЛИТЕЛЬНОСТЬ:"
-		"DOTA_Tooltip_ability_seinaru_gorudo_attack_damage_percent"			"ДОП. УРОН %:"
+		"DOTA_Tooltip_ability_seinaru_gorudo_attack_damage_percent"			"ЛОВКОСТЬ В СИЛУ АТАКИ:"
 
 		"DOTA_Tooltip_modifier_monk_ulti_gorudo"					"Gorudo"
 		"DOTA_Tooltip_modifier_monk_ulti_gorudo_Description"		"Иммунитет к магии"
@@ -122,15 +128,13 @@
     	"DOTA_Tooltip_modifier_seinaru_rune_r_2_immunity"				"Gorudo"
     	"DOTA_Tooltip_modifier_seinaru_rune_r_2_immunity_Description"	"Полный иммунитет к магии"
 
-    	"DOTA_Tooltip_ability_seinaru_rune_r_3"						"[R3] Dexterity"
-    	"DOTA_Tooltip_ability_seinaru_rune_r_3_Description"			"Даёт бонусный урон, равный % от Ловкости героя. Пока действует эффект @Ability4, с <% SEINARU_R3_PROC_CHANCE %>% шансом вместе с обычными атаками будет нанесён чистый урон."
-    	"DOTA_Tooltip_ability_seinaru_rune_r_3_property_one"			"Доп. урон от Ловкости"
-    	"DOTA_Tooltip_ability_seinaru_rune_r_3_suffix"					"%"
-    	"DOTA_Tooltip_ability_seinaru_rune_r_3_property_two"			"Доп. чистый урон"
-    	"DOTA_Tooltip_ability_seinaru_rune_r_3_suffix_two"				"% от общего урона героя"
+    	"DOTA_Tooltip_ability_seinaru_rune_r_3"						"[R3] Chi Strike"
+    	"DOTA_Tooltip_ability_seinaru_rune_r_3_Description"			"Каждая атака во время @Ability4 наносит дополнительный Чистый урон."
+    	"DOTA_Tooltip_ability_seinaru_rune_r_3_property_one"			"Урон:"
+    	"DOTA_Tooltip_ability_seinaru_rune_r_3_suffix"				"% от атаки"
 
-    	"DOTA_Tooltip_modifier_seinaru_rune_r_3_effect"				"Dexterity"
-    	"DOTA_Tooltip_modifier_seinaru_rune_r_3_effect_Description"	"Увеличен урон от ловкости"
+    	"DOTA_Tooltip_modifier_seinaru_rune_r_3_effect"				"Chi Strike"
+    	"DOTA_Tooltip_modifier_seinaru_rune_r_3_effect_Description"	"Атаки наносят дополнительный Чистый урон."
 
     	"DOTA_Tooltip_ability_seinaru_rune_r_4"						"[R4] Trial of Valor"
     	"DOTA_Tooltip_ability_seinaru_rune_r_4_Description"			"Враги, находящиеся внутри кольца от руны [R2] получают дополнительный урон от Seinaru."
@@ -173,7 +177,7 @@
     	"DOTA_Tooltip_ability_seinaru_rune_q_4_arcana1_suffix"					" сек."
 
     	"DOTA_Tooltip_modifier_seinaru_arcana_evasion_buff"						"Sidestep"
-    	"DOTA_Tooltip_modifier_seinaru_arcana_evasion_buff_Description"			"100%% уклонение"
+    	"DOTA_Tooltip_modifier_seinaru_arcana_evasion_buff_Description"			"100%% Уклонение"
 
     	"DOTA_Tooltip_ability_seinaru_blade_dash"						"Blade Dash"
     	"DOTA_Tooltip_ability_seinaru_blade_dash_Description"			"Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Seinaru прорывается вперёд к выбранной точке, совершая дополнительную атаку с увеличенным уроном всем задетым на пути целям."
@@ -183,37 +187,38 @@
     	"property_seinaru_arcana2_description"								"Заменяет (E) @Ability3 и все соответствующие руны на (E) Sunstrider."
 
     	"DOTA_Tooltip_ability_seinaru_sunstrider"						"Sunstrider"
-    	"DOTA_Tooltip_ability_seinaru_sunstrider_Description"			"С благословления самого солнца, Seinaru совершает мощный рывок в выбранную точку."
+    	"DOTA_Tooltip_ability_seinaru_sunstrider_Description"			"С благословления самого солнца, Seinaru совершает мощный рывок в выбранную точку. Противники внутри зоны поражения атакуются Seinaru каждые 0.06 секунды с бонусом к атаке. Каждая удар расщепляется на пучок <font color='<% RPC_ELEMENT_HOLY_COLOR %>'>Света</font> в небольшой зоне вокруг цели."
     	"DOTA_Tooltip_ability_seinaru_sunstrider_cast_range"			"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
+		"DOTA_Tooltip_ability_seinaru_sunstrider_targets_count"			"КОЛИЧЕСТВО ЦЕЛЕЙ:"
+    	"DOTA_Tooltip_ability_seinaru_sunstrider_att_to_dmg"			"УРОНА ОТ АТАКИ:"
 
     	"DOTA_Tooltip_modifier_sunstrider_in_air"						"Sunstrider"
 
   		"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2"						"[E1] Sunblade"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_Description"			"Враги, находящиеся в пределах досягаемости умения будут атакованы героем с задержкой в 0.06 секунды. При каждой атаке будет нанесён бонусный урон."
+    	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_Description"			"Увеличивает бонус урона во время @Ability3 и позволяет атаковать больше целей за раз."
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_property_one"			"Доп. урон"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_suffix"					"%"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_property_two"			"Максимум целей"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_property_two"			"Дополнительные цели"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_suffix_two"				""
 
   		"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2"						"[E2] Lightsworn"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_Description"			"Сразу после прочтения (E) Sunstrider, получает 80% бонус к сопротивлению магическому и чистому урону."
+    	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_Description"			"Сразу после прочтения @Ability3, получает <% SEINARU_ARCANA_E2_PURE_DMG_REDUCE * 100%>% бонус к сопротивлению Чистому урону."
     	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_property_one"			"Длительность"
     	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_suffix"					" сек."
 
     	"DOTA_Tooltip_modifier_sunstrider_lightsworn"						"Lightsworn"
+		"DOTA_Tooltip_modifier_sunstrider_lightsworn_Description"						"<% SEINARU_ARCANA_E2_PURE_DMG_REDUCE * 100%>% дополнительного сопротивления Чистому урону."
 
 		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2"						"[E3] Sunwarrior's Vengeance"
-		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_Description"			"Каждая атака [E1] разносится эхом, наносящим урон в небольшой области. Этот эффект имеет свой собственный бонус к пост-резистному урону."
-		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_property_one"			"Урон по области"
-		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_suffix"					"% от урона героя"
-		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_property_two"			"Доп. пост-резистный урон"
-		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_suffix_two"					"%"
+		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_Description"			"Внутри @Ability3, Seinaru наносит больше пост-резистного урона."
+		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_property_one"			"Пост-Резистный урон"
+		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_suffix"					"%"
 
 		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack"		"Sunwarrior's Vengeance"
-		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack_Description"	"Следующая атака нанесёт чистый урон стихии Света в области вокруг атакуемой цели."
+		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack_Description"	"Пост-Резистный урон увеличен."
 
 		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_post_mit"	"Sunwarrior's Vengeance"
-		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_post_mit_Description"	"Пост-резистный урон увеличен"
+		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_post_mit_Description"	"Пост-Резистный урон увеличен"
 
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2"						"[E4] Luminary"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_Description"			"Добавляет шанс, что когда умение @Ability3 начнёт перезарядку, будет возможность снова произнести это умение без перезарядки. Значение выше 100% гарантирует получение нескольких зарядов для прыжка. Дополнительно увеличивает стихийный урон <font color=\"#F6FFB5\">Света</font>."
@@ -224,32 +229,29 @@
 
     	"DOTA_Tooltip_modifier_sunstrider_freecast"							"Герой может свободно произнести (E) Sunstrider"
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_1_1"		"(T1) Символ духа меча"
-		"item_rpc_seinaru_glyph_1_1_description" 				"Атаки восстанавливают здоровье в размере @glyph_property1% от нанесенного урона."
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_1_1"		"(T1) Glyph of Bladethirst"
+		"item_rpc_seinaru_glyph_1_1_description" 				"Атаки восстанавливают здоровье в размере @glyph_property1% от нанесенного урона. Сверхлечение от эффекта применяет щит от [W3], емкость щита основана на руне."
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_2_1"		"(T2) Символ Solid Gold"
-		"item_rpc_seinaru_glyph_2_1_description" 				"Увеличивает показатель брони на @glyph_property1 во время действия (R) Gorudo."
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_2_1"		"(T2) Glyph of the Windstrider"
+		"item_rpc_seinaru_glyph_2_1_description" 				"Каждое очко руны [Q2] увеличивает верхнюю границу скорости перемещения на <% SEINARU_GLYPH2_MOVESPEED_CAP_PER_Q2 %>."
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_3_1"		"(T3) Символ Diving Eagle"
-		"item_rpc_seinaru_glyph_3_1_description" 				"Враги, задетые руной [E1] дополнительно получат магический урон в размере @glyph_property1% от основного урона героя."
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_3_1"		"(T3) Glyph of Resonance"
+		"item_rpc_seinaru_glyph_3_1_description" 				"[R3] наносит урон противникам в радиусе <% SEINARU_GLYPH3_R3_RADIUS %> от первичной цели."
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_4_1"		"(T4) Символ Инь"
-		"item_rpc_seinaru_glyph_4_1_description" 				"Скорость передвижения героя увеличена на @glyph_property1"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_4_1"		"(T4) Glyph of Yang"
+		"item_rpc_seinaru_glyph_4_1_description" 				"Руны, увеличивающие порог Стойкости позволяют Пост-Резистным эффектам тоже усиливать урон, но только 1/<% SEINARU_GLYPH4_THRESHOLD_RUNE_REDUCE %>от своих значений."
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_5_1"		"(T5) Символ светлого воина" //Red burst particle effect for damage
-		"item_rpc_seinaru_glyph_5_1_description" 				"(W) Hands of Hikari наносит урон, равный эффекту исцеления."
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_5_1"		"(T5) Glyph of Bushido" //Red burst particle effect for damage
+		"item_rpc_seinaru_glyph_5_1_description" 				"[W2] наносит <% SEINARU_GLYPH5_W_DMG_AMP_VS_BLINDED %>x урона по целям, ослеплённых @Ability1."
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_6_1"		"(T6) Символ девяти хвостов"
-		"item_rpc_seinaru_glyph_6_1_description" 				"(W) Hands of Hikari произносится мгновенно, что позволяет перемещаться во время прочтения."
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_6_1"		"(T6) Glyph of Honor"
+		"item_rpc_seinaru_glyph_6_1_description" 				"[R2] снижает входящий урон на  <% SEINARU_GLYPH6_R2_DMG_RED * 100%>% вместо <% SEINARU_R2_DMG_RED * 100%>%"
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_7_1"		"(T7) Символ исчезающего бриза"
-		"item_rpc_seinaru_glyph_7_1_description" 				"По окончании действия руны [E2], герой уворачивается от 100% атак в течении 2 секунд."
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_7_1"		"(T7) Glyph of the Ogre"
+		"item_rpc_seinaru_glyph_7_1_description" 				"Изменяет основной атрибут Seinaru с Ловкости на Силу. Эффекты @Ability4 и [W4] используют <% SEINARU_GLYPH7_AGI_PART * 100%>% от Ловкости и <% SEINARU_GLYPH7_STR_PART * 100%>% от Силы для рассчета."
 
-		"DOTA_Tooltip_modifier_seinaru_glyph_7_1_effect"				"Vanishing Breeze"
-		"DOTA_Tooltip_modifier_seinaru_glyph_7_1_effect_Description"	"<% SEINARU_GLYPH7_EVA %>% уклонение"
-
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_5_a"		"(Immortal) Символ арены"
-		"item_rpc_seinaru_glyph_5_a_description" 				"Кольцо от (R) Duelist Ring следует за героем."
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_5_a"		"(Immortal) Glyph of the Arena"
+		"item_rpc_seinaru_glyph_5_a_description" 				"Кольцо от [R2] следует за героем."
 		
 		//Weapons
 		"seinaru_weapon_01"			"Samurai Sword"
