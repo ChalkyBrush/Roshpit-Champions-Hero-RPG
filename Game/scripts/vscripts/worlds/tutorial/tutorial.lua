@@ -443,11 +443,16 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 		end)
 		Timers:CreateTimer(40, function()
 			if speech_phase == hero.tutorial_speech_phase then
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_2_1h2", 5, false)
+			end
+		end)
+		Timers:CreateTimer(45, function()
+			if speech_phase == hero.tutorial_speech_phase then
 				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_2_1i", 5, false)
 				Tutorial:TutorialServerEvent(hero, "2_1", 0)
 			end
 		end)
-		Timers:CreateTimer(45, function()
+		Timers:CreateTimer(50, function()
 			if speech_phase == hero.tutorial_speech_phase then
 				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_2_1j", 4, false)
 			end
@@ -582,11 +587,11 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 				hero.tutorial_speech_phase = hero.tutorial_speech_phase + 1
 				local speech_phase = hero.tutorial_speech_phase
 				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_2_1k", 6, false)
+				Tutorial:UpdateChallengeSummaryProgress(hero, 2, 1, 2, false)
 				Timers:CreateTimer(5, function()
 					if speech_phase == hero.tutorial_speech_phase then
 						Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_2_1l", 5, false)
 					end
-					Tutorial:UpdateChallengeSummaryProgress(hero, 2, 1, 2, false)
 				end)	
 				Timers:CreateTimer(10, function()
 					if speech_phase == hero.tutorial_speech_phase then
