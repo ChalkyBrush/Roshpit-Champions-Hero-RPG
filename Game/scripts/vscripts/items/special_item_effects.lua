@@ -4393,12 +4393,12 @@ function hurricane_vest_create(event)
 		ability.cast_number = 0
 	end
 	ability.cast_number = ability.cast_number + 1
-
+	ability.caster = caster
 	for i = 1, HURRICANE_VEST_HURRICANE_COUNT do
 		local shotVector = WallPhysics:rotateVector(fv, (2 * math.pi/HURRICANE_VEST_HURRICANE_COUNT) * i)
 		local info =
 		{
-			Ability = ability,
+			Ability = caster.body,
 			EffectName = projectileParticle,
 			vSpawnOrigin = hurricaneStartPosition,
 			fDistance = range,
@@ -4423,14 +4423,16 @@ end
 function hurricane_vest_hit(event)
 	local target = event.target
 	local ability = event.ability
-	local caster = event.caster
+	local caster = ability.caster
+	if not caster then
+	end
 	if not target.hurricane_cast_number then
 		target.hurricane_cast_number = 0
 	end
 	if ability.cast_number ~= target.hurricane_cast_number then
 		target.hurricane_cast_number = ability.cast_number
 		local damage = HURRICANE_VEST_DMG_AMP * (caster:GetLevel()/120 * (HURRICANE_VEST_MAX_DISTANCE - WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target:GetAbsOrigin()))) ^ HURRICANE_VEST_DMG_EXP_SCALE
-		Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,caster.handItem, RPC_ELEMENT_WIND, RPC_ELEMENT_ICE)
+		Filters:ApplyItemDamage(target,caster,damage,DAMAGE_TYPE_MAGICAL,caster.body, RPC_ELEMENT_WIND, RPC_ELEMENT_ICE)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_hurricane_vest_slow", {duration = HURRICANE_VEST_SLOW_DUR})
 
 	end

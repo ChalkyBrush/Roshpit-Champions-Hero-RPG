@@ -1125,6 +1125,7 @@ end
 function Filters:ApplyRskills(caster)
 
     if caster:HasModifier("modifier_hurricane_vest") then
+        print(caster.InventoryUnit:GetUnitName())
         caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_hurricane_vest_start", {duration = 0.3})
     end
    if caster:HasModifier("modifier_body_flooding") then
