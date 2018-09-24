@@ -285,7 +285,6 @@ function Filters:MagicImmuneBreak(attacker, target)
     if immuneBreak then
         target:RemoveModifierByName("modifier_hope_of_saytaru_effect")
         target:RemoveModifierByName("modifier_monk_ulti_gorudo")
-        target:RemoveModifierByName("modifier_seinaru_glyph_2_1")
         target:RemoveModifierByName("modifier_black_widow_invisible_damage_buff")
         target:RemoveModifierByName("modifier_black_widow")
         target:RemoveModifierByName("modifier_black_widow_invis_range_debuff")
@@ -2372,7 +2371,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         elseif unitName == "npc_dota_hero_juggernaut" then
             if attacker.w_4_level then
-                mult = mult + SEINARU_W4_WIND_PCT_PER_AGI * attacker:GetAgility() * attacker.w_4_level
+                if attacker:HasModifier('modifier_seinaru_glyph_7_1') then
+                    mult = mult + SEINARU_W4_WIND_PCT_PER_AGI * (SEINARU_GLYPH7_AGI_PART * attacker:GetAgility() + SEINARU_GLYPH7_STR_PART * attacker:GetStrength()) * attacker.w_4_level
+                else
+                    mult = mult + SEINARU_W4_WIND_PCT_PER_AGI * attacker:GetAgility() * attacker.w_4_level
+                end
             end
         elseif unitName == "npc_dota_hero_skywrath_mage" then
             if attacker:HasModifier("modifier_sephyr_arcana1") then

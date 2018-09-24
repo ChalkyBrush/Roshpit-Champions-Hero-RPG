@@ -5,9 +5,6 @@ function begin_kaze_gust(event)
 	local ability = event.ability
 	local target = event.target_points[1]
 	local range = event.range
-	if caster:HasModifier("modifier_seinaru_glyph_1_1") then
-		range = range + 200
-	end	
 	local speed = range + 200
 
 	EmitSoundOn("Seinaru.KazeYell", caster)
@@ -33,13 +30,6 @@ function begin_kaze_gust(event)
 	end
 	ability.q_3_level = caster:GetRuneValue("q", 3)
 	ability.damage = event.damage
-	if ability.q_3_level > 0 then
-		local c_a_duration = SEINARU_Q3_DUR_BASE + SEINARU_Q3_DUR * ability.q_3_level
-		c_a_duration = Filters:GetAdjustedBuffDuration(caster, c_a_duration, false)
-		ability:ApplyDataDrivenModifier(caster, caster, "seinaru_rune_q_3_evasion", {duration = c_a_duration})
-
-		ability.damage = ability.damage + caster:GetAgility() * SEINARU_Q3_ADD_DMG_PER_AGI * ability.q_3_level
-	end
 	local q_4_level = caster:GetRuneValue("q", 4)
 	if q_4_level > 0 then
 		ability.damage = ability.damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * SEINARU_Q4_ADD_DMG_PER_ATT * q_4_level
@@ -91,7 +81,6 @@ function gust_impact(event)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_kaze_gust_flail", {duration = stun_duration})
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_kaze_gust_blind", {duration = blind_duration})
 
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
 
 	local particleName = "particles/econ/items/riki/riki_immortal_ti6/riki_immortal_ti6_blinkstrike_gold.vpcf"
 	local pfx = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN_FOLLOW, target )
@@ -117,6 +106,12 @@ function gust_impact(event)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_seinaru_rune_q_2_slow", {duration = blind_duration})
 		target:SetModifierStackCount("modifier_seinaru_rune_q_2_slow", caster, ability.q_2_level)
 	end
+	if ability.q_3_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_seinaru_rune_q_3_postmitigation_take", {duration = blind_duration})
+		target:SetModifierStackCount("modifier_seinaru_rune_q_3_postmitigation_take", caster, ability.q_3_level)
+	end
+
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
 end
 
 function kaze_pushback_think(event)

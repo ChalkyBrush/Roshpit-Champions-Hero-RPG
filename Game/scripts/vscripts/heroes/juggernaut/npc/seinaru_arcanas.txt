@@ -313,6 +313,16 @@
 				"var_type"			"FIELD_INTEGER"
 				"cast_range"			"1000 1100 1200 1300 1400 1500 1600"
 			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"targets_count"			"1 1 1 2 2 2 3"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"att_to_dmg"			"6 10 14 18 22 26 30"
+			}
 		}
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -349,6 +359,8 @@
 				"ScriptFile"	"heroes/juggernaut/seinaru_3_e_arcana.lua"
 				"Function"		"sunstrider_start"
 				"target"		"POINT"
+				"targets_count" "%targets_count"
+				"att_to_dmg"    "%att_to_dmg"
 			}
 
 		}
@@ -464,11 +476,6 @@
 				"var_type"				"FIELD_FLOAT"
 				"property_two"			"<% SEINARU_ARCANA_E1_TARGETS %>"
 			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"<% SEINARU_ARCANA_E1_TARGETS_BASE %>"
-			}
 		}
 	}
 
@@ -504,19 +511,14 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEINARU_ARCANA_E3_DMG_PER_ATT * 100 %>"
+				"property_one"			"<% SEINARU_ARCANA_E3_POSTMIT * 100 %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SEINARU_ARCANA_E3_POSTMIT * 100 %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"base_ability"			"3"
 			}
-			"04"
+			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"7"

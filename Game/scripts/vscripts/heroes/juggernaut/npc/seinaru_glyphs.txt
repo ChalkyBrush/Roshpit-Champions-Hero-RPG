@@ -65,12 +65,31 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
-		"AbilitySpecial"
+		"Modifiers"
 		{
-			"01"
+			"modifier_seinaru_glyph_2_1"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEINARU_GLYPH2_ARMOR %>"
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+
+				"OnCreated"
+				{
+                    "RunScript"
+                    {
+                        "ScriptFile"	"heroes/juggernaut/seinaru_glyphs.lua"
+                        "Function"		"t21_glyph_equip"
+                    }
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/juggernaut/seinaru_glyphs.lua"
+						"Function"		"t21_glyph_unequip"
+					}
+				}
 			}
 		}
 	}
@@ -109,7 +128,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEINARU_GLYPH3_DMG_PER_ATT * 100 %>"
+				"property_one"			"<% SEINARU_GLYPH3_R3_RADIUS %>"
 			}
 		}
 	}
@@ -143,18 +162,6 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"EffectName"		"particles/items_fx/monk_glyph_4_1_yin.vpcf"
 				"EffectAttachType" 	"follow_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "<% SEINARU_GLYPH4_MOV_SPD %>"
-				}
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"120"
 			}
 		}
 	}
@@ -188,14 +195,6 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"3"
-			}
-		}
 	}
 
 	"item_rpc_seinaru_glyph_6_1"
@@ -225,32 +224,6 @@
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/glyph_abilities.lua"
-						"Function"		"seinaru_glyph_6_1_activate"
-						"target"        "TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/glyph_abilities.lua"
-						"Function"		"seinaru_glyph_6_1_deactivate"
-						"target"        "TARGET"
-					}
-				}
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
 			}
 		}
 	}
@@ -282,14 +255,22 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEINARU_GLYPH7_EVA %>"
+				"OnCreated"
+				{
+                    "RunScript"
+                    {
+                        "ScriptFile"	"heroes/juggernaut/seinaru_glyphs.lua"
+                        "Function"		"t71_glyph_equip"
+                    }
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/juggernaut/seinaru_glyphs.lua"
+						"Function"		"t71_glyph_unequip"
+					}
+				}
 			}
 		}
 	}

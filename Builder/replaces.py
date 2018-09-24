@@ -62,11 +62,14 @@ def parse(file_path, constants, settings, warnings, encoding="utf-8"):
             i = i + 2
 
         result = settings['expression_result_convert'](result)
-        if result == int(float(result)):
-            result = int(result)
-        result =  str(result)
-        if 'localizations' in file_path or 'addon' in file_path:
-            result = "<font color='#ccff66'>" + result + "</font>"
+        try:
+            if result == int(float(result)):
+                result = int(result)
+            result =  str(result)
+            if 'localizations' in file_path or 'addon' in file_path:
+                result = "<font color='#ccff66'>" + result + "</font>"
+        except Exception as e:
+            result = str(result)
         content = content.replace(settings['start'] + statement + settings['end'], result)
     validate_content(content, file_path, warnings)
     return content

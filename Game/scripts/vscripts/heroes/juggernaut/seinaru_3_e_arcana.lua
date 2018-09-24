@@ -6,6 +6,8 @@ function sunstrider_start(event)
 	local caster = event.caster
 	local target = WallPhysics:WallSearch(caster:GetAbsOrigin(), event.target_points[1], caster)
 	local ability = event.ability
+	local targets_count = event.targets_count
+	local att_to_dmg = event.att_to_dmg
 	caster:AddNoDraw()
 	local travelTime = 0.5
 
@@ -19,46 +21,41 @@ function sunstrider_start(event)
 		caster:SetModifierStackCount("modifier_sunstrider_sunwarrior_vengeance_post_mit", caster, ability.e_3_level)
 	end
 
-	if a_c_level > 0 then
-		local maxTargets = SEINARU_ARCANA_E1_TARGETS_BASE + math.ceil(SEINARU_ARCANA_E1_TARGETS * a_c_level)
-		local targetsCounter = 0
-		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target, nil, 440, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
-		if #enemies > 0 then
-			for i = 1, #enemies, 1 do
-				if targetsCounter < maxTargets then
-					targetsCounter = targetsCounter + 1
-					Timers:CreateTimer(i*0.06, function()
-						local enemy = enemies[i]
-						CustomAbilities:QuickAttachParticle("particles/roshpit/seinaru/sunblade.vpcf", enemy, 0.6)
-						local eventTable = {
-							caster = caster,
-							target = enemy,
-							ability = ability,
-						}
-						vengeance_hit(eventTable)
-						Timers:CreateTimer(0.2, function()
-							CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_legion_commander/legion_commander_courage_hit.vpcf", enemy, 0.5)
-							Filters:PerformAttackSpecial(caster, enemy, true, true, true, false, true, false, false)
-							if caster:HasAbility("seinaru_blade_dash") then
-								local eventTable = {}
-								eventTable.caster = caster
-								eventTable.target = enemy
-								eventTable.ability = caster:FindAbilityByName("seinaru_blade_dash")
-								arcana_attack_start(eventTable)
-							end
-							if caster:HasModifier("modifier_seinaru_glyph_3_1") then
-								local glyphDamage = OverflowProtectedGetAverageTrueAttackDamage(caster) * SEINARU_GLYPH3_DMG_PER_ATT
-								ApplyDamage({ victim = target, attacker = caster, damage = glyphDamage, damage_type = DAMAGE_TYPE_MAGICAL })	
-							end
-						end)
-
-						if caster:HasAbility("gorudo") then
-							Seinaru_Apply_E4(caster, enemy, caster:FindAbilityByName("gorudo")) 
+	local maxTargets = targets_count + math.ceil(SEINARU_ARCANA_E1_TARGETS * a_c_level)
+	local targetsCounter = 0
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target, nil, 440, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+	if #enemies > 0 then
+		for i = 1, #enemies, 1 do
+			if targetsCounter < maxTargets then
+				targetsCounter = targetsCounter + 1
+				Timers:CreateTimer(i*0.06, function()
+					local enemy = enemies[i]
+					CustomAbilities:QuickAttachParticle("particles/roshpit/seinaru/sunblade.vpcf", enemy, 0.6)
+					local eventTable = {
+						caster = caster,
+						target = enemy,
+						ability = ability,
+						att_to_dmg = att_to_dmg
+					}
+					vengeance_hit(eventTable)
+					Timers:CreateTimer(0.2, function()
+						CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_legion_commander/legion_commander_courage_hit.vpcf", enemy, 0.5)
+						Filters:PerformAttackSpecial(caster, enemy, true, true, true, false, true, false, false)
+						if caster:HasAbility("seinaru_blade_dash") then
+							local eventTable = {}
+							eventTable.caster = caster
+							eventTable.target = enemy
+							eventTable.ability = caster:FindAbilityByName("seinaru_blade_dash")
+							arcana_attack_start(eventTable)
 						end
 					end)
-				end
+
+					if caster:HasAbility("gorudo") then
+						Seinaru_Apply_E4(caster, enemy, caster:FindAbilityByName("gorudo"))
+					end
+				end)
 			end
-		end 
+		end
 		local travelDurationIncrease = (#enemies - 8)*0.06
 		if travelDurationIncrease > 0 then
 			travelTime = travelTime + travelDurationIncrease
@@ -152,6 +149,7 @@ function vengeance_hit(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
+	local att_to_dmg = event.att_to_dmg
 
     local particleName = "particles/roshpit/seinaru/sunwarrior_vengeance_cowlofice.vpcf"
     local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
@@ -162,7 +160,7 @@ function vengeance_hit(event)
     Timers:CreateTimer(3, function()
         ParticleManager:DestroyParticle(particle1, false)
     end)
-    local damage = ability.e_3_level * SEINARU_ARCANA_E3_DMG_PER_ATT * OverflowProtectedGetAverageTrueAttackDamage(caster)
+    local damage = att_to_dmg * OverflowProtectedGetAverageTrueAttackDamage(caster)
     EmitSoundOn("Seinaru.Sunstrider.Vengeance", target)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
