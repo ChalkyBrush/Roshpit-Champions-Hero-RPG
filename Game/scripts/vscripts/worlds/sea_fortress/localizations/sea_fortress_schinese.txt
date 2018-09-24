@@ -434,7 +434,7 @@
 		"DOTA_Tooltip_ability_sea_maiden_terror"					"恐怖波动"
 		"DOTA_Tooltip_ability_sea_maiden_terror_Description"		"恐怖的波动将对敌人造成伤害并减少护甲."
 		"DOTA_Tooltip_ability_sea_maiden_terror_damage"				"伤害:"
-		"DOTA_Tooltip_ability_sea_maiden_terror_armor_loss"			护甲减少:"
+		"DOTA_Tooltip_ability_sea_maiden_terror_armor_loss"			"护甲减少:"
 		"DOTA_Tooltip_ability_sea_maiden_terror_armor_loss_duration"	"护甲减少时间:"
 
 		"DOTA_Tooltip_modifier_sea_terror_armor_loss"				"恐怖波动"
@@ -574,7 +574,7 @@
 		"DOTA_Tooltip_ability_seafortress_undead_pirate_aura_health_regen_loss"	"生命回复 % 减少:"
 
 		"DOTA_Tooltip_modifier_pirate_aura_debuff"				"衰退光环"
-		"DOTA_Tooltip_modifier_pirate_aura_debuff_Description"	无法治疗并减少生命回复 %%."
+		"DOTA_Tooltip_modifier_pirate_aura_debuff_Description"	"无法治疗并减少生命回复 %%."
 
 		"DOTA_Tooltip_ability_seafortress_dark_spirit_passive"	"黑暗灵魂"
 		"DOTA_Tooltip_ability_seafortress_dark_spirit_passive_Description"	"增加闪避和额外魔抗."

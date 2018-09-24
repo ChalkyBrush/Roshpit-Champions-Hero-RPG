@@ -512,7 +512,7 @@
 
 		"DOTA_Tooltip_ability_winterblight_regression_strike"	"回归重击"
 		"DOTA_Tooltip_ability_winterblight_regression_strike_Description"	"普通攻击造成基于目标攻击力百分比的纯粹伤害。"
-		"DOTA_Tooltip_ability_winterblight_regression_strike_attack_power_mult"			"伤害为敌人的攻击力%:
+		"DOTA_Tooltip_ability_winterblight_regression_strike_attack_power_mult"			"伤害为敌人的攻击力%:"
 
 		"DOTA_Tooltip_ability_winterblight_azalea_dragoon_passive"	"Combat Block"
 		"DOTA_Tooltip_ability_winterblight_azalea_dragoon_passive_Description"	"在一定范围之外的敌人造成的伤害将被大量减少。"
@@ -544,7 +544,7 @@
 		"DOTA_Tooltip_ability_torphet_cold_feet_cast_range_tooltip"	"施法距离:"
 
 		"DOTA_Tooltip_ability_winterblight_ice_orb"					"阿泽缇娅的霜冻法球"
-		"DOTA_Tooltip_ability_winterblight_ice_orb_Description"		投掷出一个霜冻法球，造成伤害，并且减速接触到该技能的敌人。同时也会向随机目标放出寒冰之枪，对接触到的敌人造成纯粹伤害并且减速。"
+		"DOTA_Tooltip_ability_winterblight_ice_orb_Description"		"投掷出一个霜冻法球，造成伤害，并且减速接触到该技能的敌人。同时也会向随机目标放出寒冰之枪，对接触到的敌人造成纯粹伤害并且减速。"
 		"DOTA_Tooltip_ability_winterblight_ice_orb_as_loss"			"攻击速度降低:"
 		"DOTA_Tooltip_ability_winterblight_ice_orb_ms_loss"			"移动速度降低:"
 		"DOTA_Tooltip_ability_winterblight_ice_orb_damage"			"伤害:"
@@ -618,7 +618,7 @@
 
 		"DOTA_Tooltip_ability_winterblight_giga_ice_revenant_passive"	"暴怒之雪"
 		"DOTA_Tooltip_ability_winterblight_giga_ice_revenant_passive_Description"	"向巨大寒冰元素周围敌人放出大量冰弹。"
-		"DOTA_Tooltip_ability_winterblight_giga_ice_revenant_passive_ice_damage"霜冻伤害:"
+		"DOTA_Tooltip_ability_winterblight_giga_ice_revenant_passive_ice_damage" "霜冻伤害:"
 		"DOTA_Tooltip_ability_winterblight_giga_ice_revenant_passive_root_duration"	"缠绕持续时间:"
 		"DOTA_Tooltip_ability_winterblight_giga_ice_revenant_passive_ms_loss"		"移动速度降低:"
 		"DOTA_Tooltip_ability_winterblight_giga_ice_revenant_passive_as_loss"		"攻击速度降低:"
