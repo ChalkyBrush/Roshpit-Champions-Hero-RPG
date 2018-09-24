@@ -51,7 +51,7 @@
     	"DOTA_Tooltip_ability_solunia_rune_q_4_suffix"						"% for each 10 points of Attributes"
 		
 		"DOTA_Tooltip_ability_solunia_solarang"								"Solarang"
-    	"DOTA_Tooltip_ability_solunia_solarang_Description"					"Element: <font color=\"#C25DFC\">Cosmic</font> / <font color=\"#DDDDDD\">Normal</font><br>Solunia's weapon is tossed as a boomerang towards the target location. The blade deals damage every 0.2 seconds to all enemies it collides with."
+    	"DOTA_Tooltip_ability_solunia_solarang_Description"					"Element: <font color=\"#C25DFC\">Cosmic</font> / <font color=\"#DDDDDD\">Normal</font><br>Solunia's weapon is tossed as a boomerang towards the target location. The blade deals damage every 0.2 seconds to all enemies it collides with. If it gets close enough to enemy, it latches on to them."
     	"DOTA_Tooltip_ability_solunia_solarang_max_boomerangs"				"MAX CONCURRENT SOLARANGS:"
     	"DOTA_Tooltip_ability_solunia_solarang_damage"						"DAMAGE:"
 
@@ -59,11 +59,11 @@
     	"DOTA_Tooltip_modifier_outgoing_lunarang"							"Outbound Lunarangs"
 
     	"DOTA_Tooltip_ability_solunia_lunarang"								"Lunarang"
-    	"DOTA_Tooltip_ability_solunia_lunarang_Description"					"Element: <font color=\"#C25DFC\">Cosmic</font> / <font color=\"#DDDDDD\">Normal</font><br>Solunia's weapon is tossed as a boomerang towards the target location. The blade deals damage every 0.2 seconds to all enemies it collides with."
+    	"DOTA_Tooltip_ability_solunia_lunarang_Description"					"Element: <font color=\"#C25DFC\">Cosmic</font> / <font color=\"#DDDDDD\">Normal</font><br>Solunia's weapon is tossed as a boomerang towards the target location. The blade deals damage every 0.2 seconds to all enemies in its razor-sharp spin. If it gets close enough to enemy, it latches on to them."
     	"DOTA_Tooltip_ability_solunia_lunarang_max_boomerangs"				"MAX CONCURRENT LUNARANGS:"
     	"DOTA_Tooltip_ability_solunia_lunarang_damage"						"DAMAGE:"
 		
-		 "DOTA_Tooltip_ability_solunia_rune_w_1"                             "[W1] Razor Blades"
+		"DOTA_Tooltip_ability_solunia_rune_w_1"                             "[W1] Razor Blades"
         "DOTA_Tooltip_ability_solunia_rune_w_1_Description"                 "Boomerangs have a chance to do increased damage."
         "DOTA_Tooltip_ability_solunia_rune_w_1_property_one"                "Critical Chance"
         "DOTA_Tooltip_ability_solunia_rune_w_1_suffix"                      "%"

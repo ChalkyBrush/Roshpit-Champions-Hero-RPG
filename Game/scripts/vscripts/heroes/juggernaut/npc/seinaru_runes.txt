@@ -282,7 +282,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"juggernaut_blade_fury"
+		"AbilityTextureName"	"seinaru/seinaru_rune_e_3"
 
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
