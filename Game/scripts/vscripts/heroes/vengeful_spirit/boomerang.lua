@@ -141,7 +141,25 @@ function boomerang_thinking(event)
 
 	caster.throwPower = math.max(caster.throwPower - 0.4, 18)
 	local finalMoveVector = (caster.fv*caster.throwPower + targetPointFV*0.2*(caster.interval^1.1))
-	caster:SetAbsOrigin(caster:GetAbsOrigin() + finalMoveVector)
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+
+	local stickToTarget = nil
+	if #enemies > 0 then
+		stickToTarget = enemies[1]
+	end
+
+	if stickToTarget then
+		local distance3 = CalcDistanceBetweenEntityOBB(caster, stickToTarget)
+		if distance3 > 125 or caster.interval > 100 then
+			caster:SetAbsOrigin(caster:GetAbsOrigin() + finalMoveVector)
+		else
+			caster:SetAbsOrigin(stickToTarget:GetAbsOrigin())
+		end
+	else
+		caster:SetAbsOrigin(caster:GetAbsOrigin() + finalMoveVector)
+	end
+
+	
 	if caster.interval%15 == 0 then
 		EmitSoundOn("Selethas.Boomerang.Spinning", caster)
 	end
@@ -351,7 +369,13 @@ end
 function boomerang_damager_thinker(event)
 	local caster = event.caster
 	local ability = event.ability
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 120, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	local enemies = nil
+	if caster:HasModifier("boomerang_passive_lunar") then
+		enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+	else
+		enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 120, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	end
+
 	if #enemies > 0 then
 		caster.damagedEnemy = true
 		for _,enemy in pairs(enemies) do
