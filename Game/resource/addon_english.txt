@@ -16169,7 +16169,7 @@
 
 	"tutorial_master_dialogue_2_2g"										"A very good observation. Your base attack bonus damage is 2x your primary attribute."
 
-	"tutorial_master_dialogue_2_2h"										"Let's try something a bit trickier. Look below at your attributes on the tooltip."
+	"tutorial_master_dialogue_2_2h"										"Let's try finding some additional information. Look below your attributes on the tooltip."
 	
 	"tutorial_quiz_question_4"											"What is your @sub1?"
 
