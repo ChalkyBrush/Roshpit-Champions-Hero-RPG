@@ -237,8 +237,15 @@ function CallQuizBox(msg){
 	parent.RemoveClass('animateEaseOutClass')
 	parent.RemoveAndDeleteChildren(0)
     var quiz_box = $.CreatePanel("Panel", parent, "quiz")
-    quiz_box.BLoadLayoutSnippet("quiz_box");	
-    quiz_box.FindChildTraverse('quiz_box_question').text = $.Localize(msg.quiz_question).replace('@sub1', "<font color='#7DFF12'>"+msg.gsub1+"</font>")
+    quiz_box.BLoadLayoutSnippet("quiz_box");
+    var quiz_text = $.Localize(msg.quiz_question)
+    if (!(msg.gsub1 === undefined)){
+    	quiz_text = quiz_text.replace('@sub1', "<font color='#7DFF12'>"+msg.gsub1+"</font>")
+    }
+    if (!(msg.gsub2 === undefined)){
+    	quiz_text = quiz_text.replace('@sub2', "<font color='#7DFF12'>"+msg.gsub2+"</font>")
+    }
+    quiz_box.FindChildTraverse('quiz_box_question').text = quiz_text
    	submit_button = parent.FindChildTraverse('quiz_submit_button')
 	submit_button.SetPanelEvent('onactivate', function SubmitQuiz() {
 		setupQuizAnswerSubmit(parent, msg.identifier, msg.sequence, msg.verifier, msg.localize_verifier, msg.challenge_progress)
