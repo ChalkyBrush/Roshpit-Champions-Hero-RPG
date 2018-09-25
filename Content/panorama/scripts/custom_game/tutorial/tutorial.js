@@ -240,10 +240,10 @@ function CallQuizBox(msg){
     quiz_box.BLoadLayoutSnippet("quiz_box");
     var quiz_text = $.Localize(msg.quiz_question)
     if (!(msg.gsub1 === undefined)){
-    	quiz_text = quiz_text.replace('@sub1', "<font color='#7DFF12'>"+msg.gsub1+"</font>")
+    	quiz_text = quiz_text.replace('@sub1', "<font color='#7DFF12'>"+ $.Localize(msg.gsub1)+"</font>")
     }
     if (!(msg.gsub2 === undefined)){
-    	quiz_text = quiz_text.replace('@sub2', "<font color='#7DFF12'>"+msg.gsub2+"</font>")
+    	quiz_text = quiz_text.replace('@sub2', "<font color='#7DFF12'>"+$.Localize(msg.gsub2)+"</font>")
     }
     quiz_box.FindChildTraverse('quiz_box_question').text = quiz_text
    	submit_button = parent.FindChildTraverse('quiz_submit_button')
@@ -266,7 +266,7 @@ function setupQuizAnswerSubmit(parent, identifier, sequence, verifier, bLocalize
 		verifier = $.Localize(verifier).toLowerCase()
 		input = input.toLowerCase()
 	}
-	GameEvents.SendCustomGameEventToServer( "tutorial", {hero: hero, code: "submit_quiz", challenge_index: identifier, sequence: sequence, verifier: verifier, answer: input, challenge_progress: challenge_progress} );	
+	GameEvents.SendCustomGameEventToServer( "tutorial", {hero: hero, code: "submit_quiz", challenge_index: identifier, sequence: sequence, verifier: verifier, answer: input, challenge_progress: parseInt(challenge_progress)} );	
 }
 
 function close_quiz()

@@ -16011,6 +16011,8 @@
 
 	"rpc_tutorial"														"Roshpit Tutorial (Coming Soon)"
 
+	"tutorial_base_armor"												"Base Armor"
+
 	"tutorial_star_1"													"Complete the 'Stars' section of the Roshpit Tutorial."
 	"tutorial_star_2"													"Earn your first reward for finishing a lesson category of the Tutorial."
 	"tutorial_star_3"													"Finish the entire tutorial."
@@ -16148,6 +16150,10 @@
     "quiz_submit"														"Submit Answer"
 
     "quest_2_challenge_2_desc"											"Every hero has a Primary Attribute which increases their attack damage. Each attribute provides bonuses whose totals are displayed on the detailed tooltip. The amplification of your Base Q, W, E and R abilities are also displayed on the tooltip."
+    "quest_2_challenge_2_sub_0_summary"									"Answer Challen's question on Attribute Bonuses."
+    "quest_2_challenge_2_sub_1_summary"									"Pass Challen's attack damage quiz."
+    "quest_2_challenge_2_sub_2_summary"									"Answer another one of Challen's questions."
+    "quest_2_challenge_2_sub_3_summary"									"Answer challen's base ability damage question."
 
 	"tutorial_master_dialogue_2_2a"										"As we discussed before, your attributes are shown on your hero portrait. Hover over your attributes to get a detailed tooltip of your hero."
 	"tutorial_master_dialogue_2_2b"										"In the first row, we can see how many stats your hero is gaining from your attributes."
@@ -16159,7 +16165,7 @@
 	"tutorial_quiz_wrong_2_2_2"											"Incorrect. Hover over your hero attributes and find the answer on the stats tooltip."
 
 	"tutorial_master_dialogue_2_2d"										"Correct! You are a model student, surely."
-	"tutorial_master_dialogue_2_2e"										"Each hero has a primary attribute. Each point in your primary attribute increases base attack damage."
+	"tutorial_master_dialogue_2_2e"										"Your hero has a primary attribute. Each point in that primary attribute increases base attack damage."
 	"tutorial_master_dialogue_2_2f"										"Use your math skills and tell me, how much base attack damage does each primary attribute give? Use your tooltip to figure it out!"
 
 	"tutorial_quiz_question_3"											"How much base attack damage does EACH point of your primary attribute add?"
@@ -16171,7 +16177,7 @@
 
 	"tutorial_master_dialogue_2_2h"										"Let's try finding some additional information. Look below your attributes on the tooltip."
 	
-	"tutorial_quiz_question_4"											"What is your @sub1?"
+	"tutorial_quiz_question_4"											"What is your base @sub1 value?"
 
 	"tutorial_quiz_wrong_2_2_5"											"No that is not right."
 	"tutorial_quiz_wrong_2_2_6"											"Wrong. Please look below your attributes to find the required information."
@@ -16181,9 +16187,12 @@
 	"tutorial_master_dialogue_2_2k"										"These percentages state the additional damage amplification of your Q, W, E, and R Base Abilities."
 	"tutorial_master_dialogue_2_2l"										"Now tell me the amplification of your Base Ability!"
 
-	"tutorial_master_dialogue_2_2h"										"What is the Base Ability Damage for @sub1?"
+	"tutorial_quiz_question_5"											"What is the Base Ability Damage for @sub1?"
 
-	"tutorial_master_dialogue_2_2i"										"Haha, very good. That concludes our lesson on hero attributes."
+	"tutorial_quiz_wrong_2_2_7"											"Try again."
+	"tutorial_quiz_wrong_2_2_8"											"Wrong. Base ability amplifier can be found on the left side of your attributes tooltip, below the Attack heading."
+
+	"tutorial_master_dialogue_2_2m"										"Haha, very good. That concludes our lesson on hero attributes."
 
 	"quest_2_challenge_3_desc"											"Something about saving."
 

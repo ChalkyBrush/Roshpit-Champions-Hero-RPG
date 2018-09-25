@@ -154,7 +154,7 @@
 	"tutorial_quiz_wrong_2_2_2"											"Incorrect. Hover over your hero attributes and find the answer on the stats tooltip."
 
 	"tutorial_master_dialogue_2_2d"										"Correct! You are a model student, surely."
-	"tutorial_master_dialogue_2_2e"										"Each hero has a primary attribute. Each point in your primary attribute increases base attack damage."
+	"tutorial_master_dialogue_2_2e"										"Your hero has a primary attribute. Each point in that primary attribute increases base attack damage."
 	"tutorial_master_dialogue_2_2f"										"Use your math skills and tell me, how much base attack damage does each primary attribute give? Use your tooltip to figure it out!"
 
 	"tutorial_quiz_question_3"											"How much base attack damage does EACH point of your primary attribute add?"
@@ -181,6 +181,6 @@
 	"tutorial_quiz_wrong_2_2_7"											"Try again."
 	"tutorial_quiz_wrong_2_2_8"											"Wrong. Base ability amplifier can be found on the left side of your attributes tooltip, below the Attack heading."
 
-	"tutorial_master_dialogue_2_2h"										"Haha, very good. That concludes our lesson on hero attributes."
+	"tutorial_master_dialogue_2_2m"										"Haha, very good. That concludes our lesson on hero attributes."
 
 	"quest_2_challenge_3_desc"											"Something about saving."

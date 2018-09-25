@@ -7523,28 +7523,25 @@
     	"DOTA_Tooltip_modifier_sunstrider_freecast"							"炎阳冲锋自由施放充能"
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_1_1"		"吸血雕文"
-		"item_rpc_seinaru_glyph_1_1_description" 				"@glyph_property1% 吸血"
+		"item_rpc_seinaru_glyph_1_1_description" 				"拥有3%的生命偷取，任何过量治疗都会被添加到W3护盾中(同样受到其上限限制)"
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_2_1"		"黄金雕文"
-		"item_rpc_seinaru_glyph_2_1_description" 				"在大招状态下增加护甲。"
+		"item_rpc_seinaru_glyph_2_1_description" 				"每一点Q2符文增加剑圣移动速度上限1.2（跟藏刀移速上限加成重叠，经测试同时存在只有雕文效果生效）。"
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_3_1"		"潜水鹰雕文"
-		"item_rpc_seinaru_glyph_3_1_description" 				"被鹰击击中的敌人额外受到基于神圣剑客的攻击的魔法伤害。"
+		"item_rpc_seinaru_glyph_3_1_description" 				"R3对主目标155码范围内的其他目标造成伤害!"
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_4_1"		"银边雕文"
-		"item_rpc_seinaru_glyph_4_1_description" 				"额外提高 @glyph_property1 移动速度。"
+		"item_rpc_seinaru_glyph_4_1_description" 				"新E3的增加敌人坚定阈值的效果，可以与税后增伤同时叠乘生效了，但是代价是E3符文的效果会降低到只有原先的1/10."
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_5_1"		"武士道雕文" //Red burst particle effect for damage
-		"item_rpc_seinaru_glyph_5_1_description" 				"圣光之手对周围所有敌人造成等同于治疗量的伤害。"
+		"item_rpc_seinaru_glyph_5_1_description" 				"被Q致盲的敌人受到W2的双倍伤害"
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_6_1"		"九尾雕文"
-		"item_rpc_seinaru_glyph_6_1_description" 				"施放圣光之手时可以移动。 "
+		"item_rpc_seinaru_glyph_6_1_description" 				"圆环内减伤效果增加至 90% "
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_7_1"		"扶风雕文"
-		"item_rpc_seinaru_glyph_7_1_description" 				"胁差剑效果结束后获得额外2秒持续时间的100%的闪避效果。"
-
-		"DOTA_Tooltip_modifier_seinaru_glyph_7_1_effect"				"扶风"
-		"DOTA_Tooltip_modifier_seinaru_glyph_7_1_effect_Description"	"100%% 闪避"
+		"item_rpc_seinaru_glyph_7_1_description" 				"剑圣主属性变成力量。W4和R的加成变为60%的力量值和60%敏捷值加成"
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_5_a"		"樱花雕文"
 		"item_rpc_seinaru_glyph_5_a_description" 				"[R2]决斗之环 跟随剑圣移动。"
@@ -7565,7 +7562,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_1"		"鬼丸"
 		"item_property_seinaru_immortal_weapon"								"穿刺攻击"
-		"property_seinaru_immortal_weapon_description"						"所有物理伤害造成额外的35%纯粹伤害。"
+		"property_seinaru_immortal_weapon_description"						"每次攻击造成 <font color='#ccff66'>250</font>-码范围的旋风, 伤害量为 <font color='#ccff66'>100</font>% 剑圣的总攻击力的物理 <font color=\"#7AE2A7\">风</font> 元素伤害并且施加 [R1]."
 		
 		"DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_2"            "武藏的藏刀"
         "item_property_seinaru_immortal_weapon2"                             "忍者之心"
@@ -7575,6 +7572,7 @@
         "DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_3"            "重剑"
         "item_property_seinaru_immortal_weapon3"                             "坚定不移"
         "property_seinaru_immortal_weapon3_description"                      "每点移动速度提高力量值 @special_property1。基础移动速度减少 @special_property2"
+
 
 		//Abilities
 		"DOTA_Tooltip_ability_sephyr_lightbomb"										"神圣之光"
@@ -15566,13 +15564,13 @@
 		"DOTA_Tooltip_ability_winterblight_mind_breaker_damage_mana_threshold"	"基于魔法值百分比的伤害 (非英雄单位):"
 		"DOTA_Tooltip_ability_winterblight_mind_breaker_damage_max_strikes"		"每次攻击最大冲击次数:"
 
-		"DOTA_Tooltip_ability_winterblight_ghost_striker_passive"	"Life Sap"
+		"DOTA_Tooltip_ability_winterblight_ghost_striker_passive"	"雪上加霜"
 		"DOTA_Tooltip_ability_winterblight_ghost_striker_passive_Description"	"普通攻击将造成额外的数值基于目标丢失生命值的纯粹伤害。"
 		"DOTA_Tooltip_ability_winterblight_ghost_striker_passive_damage_per_missing_hp"	"每点丢失的生命值提供的伤害:"
 
 		"DOTA_Tooltip_ability_winterblight_secret_keeper_passive"	"敏捷破碎"
-		"DOTA_Tooltip_ability_winterblight_secret_keeper_passive_Description"	"普通攻击减少目标 %敏捷"
-		"DOTA_Tooltip_ability_winterblight_secret_keeper_passive_agility_loss"	"% 敏捷减少"
+		"DOTA_Tooltip_ability_winterblight_secret_keeper_passive_Description"	"普通攻击减少目标一定百分比的敏捷"
+		"DOTA_Tooltip_ability_winterblight_secret_keeper_passive_agility_loss"	"敏捷减少%"
 
 		"DOTA_Tooltip_modifier_secret_keeper_agi_loss"				"敏捷破碎"
 		"DOTA_Tooltip_modifier_secret_keeper_agi_loss_Description"	"减少敏捷"

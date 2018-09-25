@@ -447,7 +447,7 @@
 
 #tutorial_quiz_container{
 	width:700px;
-	height:180px;
+	height:195px;
 	vertical-align: center;
 	horizontal-align:center;
 }
@@ -472,10 +472,10 @@
 	font-family: TH Sarabun New, Radiance, FZLanTingHei-R-GBK, Gulim,MingLiU;
 	color:white;
 	font-size:28px;
-	line-height: 20px;	
+	line-height: 24px;	
 	white-space: normal;
 	font-weight:light;
-	height:40px;
+	height:60px;
 	text-align:center;	
 	margin-top:20px;
 }
