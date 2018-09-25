@@ -241,9 +241,6 @@
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_7_1"		"扶风雕文"
 		"item_rpc_seinaru_glyph_7_1_description" 				"剑圣主属性变成力量。W4和R的加成变为60%的力量值和60%敏捷值加成"
 
-		"DOTA_Tooltip_modifier_seinaru_glyph_7_1_effect"				"扶风"
-		"DOTA_Tooltip_modifier_seinaru_glyph_7_1_effect_Description"	"100%% 闪避"
-
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_5_a"		"樱花雕文"
 		"item_rpc_seinaru_glyph_5_a_description" 				"[R2]决斗之环 跟随剑圣移动。"
 		
