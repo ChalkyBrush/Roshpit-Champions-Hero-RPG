@@ -397,13 +397,13 @@
 		"DOTA_Tooltip_ability_winterblight_mind_breaker_damage_mana_threshold"	"基于魔法值百分比的伤害 (非英雄单位):"
 		"DOTA_Tooltip_ability_winterblight_mind_breaker_damage_max_strikes"		"每次攻击最大冲击次数:"
 
-		"DOTA_Tooltip_ability_winterblight_ghost_striker_passive"	"Life Sap"
+		"DOTA_Tooltip_ability_winterblight_ghost_striker_passive"	"雪上加霜"
 		"DOTA_Tooltip_ability_winterblight_ghost_striker_passive_Description"	"普通攻击将造成额外的数值基于目标丢失生命值的纯粹伤害。"
 		"DOTA_Tooltip_ability_winterblight_ghost_striker_passive_damage_per_missing_hp"	"每点丢失的生命值提供的伤害:"
 
 		"DOTA_Tooltip_ability_winterblight_secret_keeper_passive"	"敏捷破碎"
-		"DOTA_Tooltip_ability_winterblight_secret_keeper_passive_Description"	"普通攻击减少目标 %敏捷"
-		"DOTA_Tooltip_ability_winterblight_secret_keeper_passive_agility_loss"	"% 敏捷减少"
+		"DOTA_Tooltip_ability_winterblight_secret_keeper_passive_Description"	"普通攻击减少目标一定百分比的敏捷"
+		"DOTA_Tooltip_ability_winterblight_secret_keeper_passive_agility_loss"	"敏捷减少%"
 
 		"DOTA_Tooltip_modifier_secret_keeper_agi_loss"				"敏捷破碎"
 		"DOTA_Tooltip_modifier_secret_keeper_agi_loss_Description"	"减少敏捷"
