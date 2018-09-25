@@ -16106,7 +16106,7 @@
 	"quest_2_interface_description"										"This lecture will help with understanding the components that make up your hero."
 
 	"quest_2_challenge_1"												"A. Abilities & Runes"
-	"quest_2_challenge_2"												"B. Attributes"
+	"quest_2_challenge_2"												"B. Hero Attributes"
 	"quest_2_challenge_3"												"C. Saving your Hero"
 
 	"quest_2_reward_title"												"Activate Town NPC's"       
@@ -16147,7 +16147,45 @@
 
     "quiz_submit"														"Submit Answer"
 
-    "quest_2_challenge_2_desc"											"Something about attributes."
+    "quest_2_challenge_2_desc"											"Every hero has a Primary Attribute which increases their attack damage. Each attribute provides bonuses whose totals are displayed on the detailed tooltip. The amplification of your Base Q, W, E and R abilities are also displayed on the tooltip."
+
+	"tutorial_master_dialogue_2_2a"										"As we discussed before, your attributes are shown on your hero portrait. Hover over your attributes to get a detailed tooltip of your hero."
+	"tutorial_master_dialogue_2_2b"										"In the first row, we can see how many stats your hero is gaining from your attributes."
+	"tutorial_master_dialogue_2_2c"										"Let's test your reading comprehension."
+
+	"tutorial_quiz_question_2"											"How much @sub1 are you gaining from @sub2?"
+
+	"tutorial_quiz_wrong_2_2_1"											"I'm sorry, please look at the top row of your attributes tooltip."
+	"tutorial_quiz_wrong_2_2_2"											"Incorrect. Hover over your hero attributes and find the answer on the stats tooltip."
+
+	"tutorial_master_dialogue_2_2d"										"Correct! You are a model student, surely."
+	"tutorial_master_dialogue_2_2e"										"Each hero has a primary attribute. Each point in your primary attribute increases base attack damage."
+	"tutorial_master_dialogue_2_2f"										"Use your math skills and tell me, how much base attack damage does each primary attribute give? Use your tooltip to figure it out!"
+
+	"tutorial_quiz_question_3"											"How much base attack damage does EACH point of your primary attribute add?"
+
+	"tutorial_quiz_wrong_2_2_3"											"Incorrect, please check your stats tooltip and determine how much attack damage you get for each primary attribute."
+	"tutorial_quiz_wrong_2_2_4"											"Wrong, use your division skills and tell me how much attack damage you get from each of your primary attributes."
+
+	"tutorial_master_dialogue_2_2g"										"A very good observation. Your base attack bonus damage is 2x your primary attribute."
+
+	"tutorial_master_dialogue_2_2h"										"Let's try something a bit trickier. Look below at your attributes on the tooltip."
+	
+	"tutorial_quiz_question_4"											"What is your @sub1?"
+
+	"tutorial_quiz_wrong_2_2_5"											"No that is not right."
+	"tutorial_quiz_wrong_2_2_6"											"Wrong. Please look below your attributes to find the required information."
+
+	"tutorial_master_dialogue_2_2i"										"Alright! Now let's go 1 step deeper into our stats panel."
+	"tutorial_master_dialogue_2_2j"										"As part of your hero's attack capabilities, located on the left side of the tooltip, we can see our hero's Base Ability Damage."
+	"tutorial_master_dialogue_2_2k"										"These percentages state the additional damage amplification of your Q, W, E, and R Base Abilities."
+	"tutorial_master_dialogue_2_2l"										"Now tell me the amplification of your Base Ability!"
+
+	"tutorial_master_dialogue_2_2h"										"What is the Base Ability Damage for @sub1?"
+
+	"tutorial_master_dialogue_2_2i"										"Haha, very good. That concludes our lesson on hero attributes."
+
+	"quest_2_challenge_3_desc"											"Something about saving."
 
 		"winterblight_village"											"Winterblight Village"
 		"shrine_of_azalea"												"Shrine of Azalea"
