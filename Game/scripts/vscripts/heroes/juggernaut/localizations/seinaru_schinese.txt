@@ -1,5 +1,12 @@
     	//Abilities
-		
+
+    	"DOTA_Tooltip_ability_seinaru_konokaze"							"Konokaze"
+    	"DOTA_Tooltip_ability_seinaru_konokaze_Description"				"Element: <font color=\"#7AE2A7\">Wind</font><br>A swift burst of air blinds, slows, and pushes back enemies in its path."
+    	"DOTA_Tooltip_ability_seinaru_konokaze_stun_duration"			"KNOCKBACK DURATION:"
+    	"DOTA_Tooltip_ability_seinaru_konokaze_range"					"RANGE:"
+    	"DOTA_Tooltip_ability_seinaru_konokaze_blind_chance"			"BLIND MISS CHANCE:"
+    	"DOTA_Tooltip_ability_seinaru_konokaze_blind_duration"			"BLIND DURATION:"
+	
     	"DOTA_Tooltip_ability_seinaru_rune_q_1"							"[Q1] 骤雨"
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_Description"				"微风每击中一个敌人，都将提高神圣剑客的攻击力和攻击速度，持续10秒。"
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_property_one"			"每击中一个单位攻击力提升"
@@ -11,7 +18,7 @@
     	"DOTA_Tooltip_modifier_seinaru_rune_q_1_Description"			"增加攻击伤害和攻击速度"
 		
     	"DOTA_Tooltip_ability_seinaru_rune_q_2"							"[Q2] 烈风"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_2_Description"				"施放微风后增加10秒的移动速度。被微风击中的敌人将被减速。"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_2_Description"				"释放 @Ability1 后提高移动速度 <% SEINARU_Q2_DUR_BASE %> 秒. 被微风击中的敌人将被减速。"
     	"DOTA_Tooltip_ability_seinaru_rune_q_2_property_one"			"移动速度提高"
     	"DOTA_Tooltip_ability_seinaru_rune_q_2_suffix"					""
      	"DOTA_Tooltip_ability_seinaru_rune_q_2_property_two"			"敌人移动速度减少"
@@ -24,33 +31,34 @@
     	"DOTA_Tooltip_modifier_seinaru_rune_q_2_slow_Description"		"移动速度减少"
 		
     	"DOTA_Tooltip_ability_seinaru_rune_q_3"							"[Q3] 强风"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_3_Description"				"施放微风后获得 90% 闪避，持续一段时间。敏捷值将提高微风的伤害。"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_3_property_one"			"闪避持续时间"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_3_suffix"					" 秒"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_3_property_two"			"微风造成额外伤害"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_3_suffix_two"				"% 敏捷值"
-
-    	"DOTA_Tooltip_ability_seinaru_rune_q_3_evasion"					"强风"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_3_evasion_Description"		"90%% 闪避"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_3_Description"				"被 @Ability1 击中的敌人，剑圣将根据移速差获得税后伤害加成"
+	"DOTA_Tooltip_ability_seinaru_rune_q_3_property_one"			"税后增伤"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_3_suffix"					"% 每一点移速差"
 		
     	"DOTA_Tooltip_ability_seinaru_rune_q_4"							"[Q4] 微风细雨"
     	"DOTA_Tooltip_ability_seinaru_rune_q_4_Description"				"神圣剑客攻击力的一部分会附加到微风伤害中"
     	"DOTA_Tooltip_ability_seinaru_rune_q_4_property_one"			"额外伤害"
     	"DOTA_Tooltip_ability_seinaru_rune_q_4_suffix"					"% 攻击力"
 		
-    	"Tooltip_seinaru_w"											"圣光之手和卷风"
 
+
+ 		"DOTA_Tooltip_ability_seinaru_hands_of_hikari"					"Hands of Hikari"
+		"DOTA_Tooltip_ability_seinaru_hands_of_hikari_Description"		"Seinaru heals himself and all nearby allies with a battle prayer. This has no cast time and does not interrupt Seinaru's previous orders.<br>This spell's radius also applies to the effects of each of its runes."
+		"DOTA_Tooltip_ability_seinaru_hands_of_hikari_Lore"				""
+		"DOTA_Tooltip_ability_seinaru_hands_of_hikari_heal"				"HEAL:"
+		"DOTA_Tooltip_ability_seinaru_hands_of_hikari_radius"			"RADIUS:"
+
+    	"Tooltip_seinaru_w"											"圣光之手和卷风"
+	
 		"DOTA_Tooltip_ability_seinaru_rune_w_1"							"[W1] 卷风"
-		"DOTA_Tooltip_ability_seinaru_rune_w_1_Description"				"圣光之手将同时释放一股卷风，降低被击中敌人60点攻击速度和移动速度，持续1.5秒。同时，被击中的敌人将获得一层卷风 debuff，每层 debuff 都将加深敌人所受到的伤害（计算在敌人减伤之后）。可以无限叠加。"
+		"DOTA_Tooltip_ability_seinaru_rune_w_1_Description"				"<font color='#CCFF66'>Hands of Hikari</font> also unleashes a Circle of Wind that slows attack and movespeed of struck units by <% SEINARU_W1_MOV_SLOW_BASE %> for <% SEINARU_W1_DUR_BASE %> seconds. Additionally, enemies struck by the Circle take increased post-mitigation damage from Seinaru. The rune's effect per stack is multiplied by @Ability2's level. Maximum <% SEINARU_W1_MAX_STACKS_BASE %> stacks."
 		"DOTA_Tooltip_ability_seinaru_rune_w_1_property_one"			"每层减伤后伤害加深"
 		"DOTA_Tooltip_ability_seinaru_rune_w_1_suffix"					"%"
 		
 		"DOTA_Tooltip_ability_seinaru_rune_w_2"							"[W2] 旋风"
-		"DOTA_Tooltip_ability_seinaru_rune_w_2_Description"				"圣光之手有25%机率施放出旋风造成伤害和眩晕。基础伤害还将乘以 W 圣光之手 的技能等级。"
+		"DOTA_Tooltip_ability_seinaru_rune_w_2_Description"				"Casting <font color='#CCFF66'>Hands of Hikari</font> also releases a rending Typhoon that damages enemies. Base damage is multiplied by the level of <font color='#CCFF66'>Hands of Hikari</font>, and by Seinaru's hero level."
 		"DOTA_Tooltip_ability_seinaru_rune_w_2_property_one"			"旋风伤害"
 		"DOTA_Tooltip_ability_seinaru_rune_w_2_suffix"					""
-		"DOTA_Tooltip_ability_seinaru_rune_w_2_property_two"			"眩晕持续时间"
-		"DOTA_Tooltip_ability_seinaru_rune_w_2_suffix_two"				" 秒"
 
 		"DOTA_Tooltip_ability_seinaru_rune_w_3"						"[W3] 光之盾"
 		"DOTA_Tooltip_ability_seinaru_rune_w_3_Description"			"释放 W圣光之手 后，获得一层护盾持续 0.65秒。护盾根据敏捷值吸收伤害。"
@@ -62,6 +70,14 @@
     	"DOTA_Tooltip_ability_seinaru_rune_w_4_property_one"			"治疗量和伤害提高"
     	"DOTA_Tooltip_ability_seinaru_rune_w_4_suffix"					"% 每10点敏捷值"
 
+
+		"DOTA_Tooltip_ability_seinaru_odachi_leap"						"Odachi Leap"
+		"DOTA_Tooltip_ability_seinaru_odachi_leap_Description"			"Element: <font color=\"#DDDDDD\">Normal</font><br>Quickly leaps forward while slicing all enemies in Seinaru's path. 100% evasion while jumping."
+		"DOTA_Tooltip_ability_seinaru_odachi_leap_Lore"					""
+		"DOTA_Tooltip_ability_seinaru_odachi_leap_damage"				"DAMAGE/SLICE:"
+
+
+
     	"DOTA_Tooltip_ability_seinaru_rune_e_1"						"[E1] 鹰击"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_Description"			"太刀飞跃击中的敌人会被标记，随后神圣剑客从天降落，提高攻击力，被标记的敌人将会被无敌斩。"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_property_one"			"攻击力提升"
@@ -69,20 +85,15 @@
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_property_two"			"无敌斩最多单位"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_suffix_two"				""
 		
-    	"DOTA_Tooltip_ability_seinaru_rune_e_2"						"[E2] 胁差剑"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_2_Description"			"太刀飞跃结束后，进入2.5秒钟的剑刃风暴状态，在此状态下神圣剑客无视伤害并且每0.5秒施放一次加强版圣光之手治疗。"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_2_property_one"			"每次圣光之手伤害"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_2_suffix"					"x 原圣光之手伤害"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_2_property_two"			"剑刃风暴伤害"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_2_suffix_two"				"% 攻击力"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_2"						"[E2] Blade Dance"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_2_Description"			"Each target marked for [E1] has a chance to be marked again, receiving another attack. A chance greater than 100% means multiple successive strikes."
+    	"DOTA_Tooltip_ability_seinaru_rune_e_2_property_one"			"Additional hit chance"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_2_suffix"					"%"
 
-    	"DOTA_Tooltip_modifier_seinaru_b_c_wakizashi"				"胁差剑"
-    	"DOTA_Tooltip_modifier_seinaru_b_c_wakizashi_Description"	"无视伤害"
-
-    	"DOTA_Tooltip_ability_seinaru_rune_e_3"						"[E3] 螺旋飞跃"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_3_Description"			"施放太刀飞跃后，转换成螺旋飞跃，以魔法免疫的状态跳跃到敌人的位置。并且躲避弹道。"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_3_property_one"			"最远飞跃距离："
-    	"DOTA_Tooltip_ability_seinaru_rune_e_3_suffix"					""
+    	"DOTA_Tooltip_ability_seinaru_rune_e_3"						"[E3] Ansatsuken"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_3_Description"			"Seinaru is able to cut through enemies with the Steadfast property, dealing much more damage before their defenses truncate it. However, this killing art requires that Seinaru's instances of damage against the target have NO post-mitigation amplification effects applied at any point during damage calculation."
+    	"DOTA_Tooltip_ability_seinaru_rune_e_3_property_one"			"Steadfast threshold increase"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_3_suffix"					"% of base value"
 		
 		"DOTA_Tooltip_ability_seinaru_rune_e_4"						"[E4] 迅捷之翼"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_Description"			"被鹰击击中过的敌人，穿甲允许将其护甲减少至低于0点。当敌人护甲为负时，每点低于0点的护甲值，都将提高其受到的圣元素伤害。"
@@ -91,10 +102,12 @@
 	 	"DOTA_Tooltip_ability_seinaru_rune_e_4_property_two"			"圣元素伤害提高"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_suffix_two"				"% 每10点低于0的护甲值"
 		
+	
+		
 		"DOTA_Tooltip_ability_seinaru_gorudo"						"戈尔德"
-		"DOTA_Tooltip_ability_seinaru_gorudo_Description"			"神圣剑客变成魔免的状态并且增加他的攻击力。"
+		"DOTA_Tooltip_ability_seinaru_gorudo_Description"			"Seinaru transmutes his body into living gold, rendering him immune to spells and increasing attack damage based on Agility."
 		"DOTA_Tooltip_ability_seinaru_gorudo_duration"			"持续时间:"
-		"DOTA_Tooltip_ability_seinaru_gorudo_attack_damage_percent"			"攻击伤害提高 %:"
+		"DOTA_Tooltip_ability_seinaru_gorudo_att_per_agi"			"AGILITY TO ATTACK DAMAGE:"
 
 		"DOTA_Tooltip_modifier_monk_ulti_gorudo"					"戈尔德"
 		"DOTA_Tooltip_modifier_monk_ulti_gorudo_Description"		"魔法免疫"
@@ -120,25 +133,25 @@
     	"DOTA_Tooltip_modifier_seinaru_rune_r_2_immunity_Description"	"100%魔法免疫"
 
     	"DOTA_Tooltip_ability_seinaru_rune_r_3"						"[R3] 灵巧"
-    	"DOTA_Tooltip_ability_seinaru_rune_r_3_Description"			"你的敏捷值将提高攻击力。同时，如果戈尔德buff存在时，你的攻击将有25%的几率额外造成纯粹伤害。"
-    	"DOTA_Tooltip_ability_seinaru_rune_r_3_property_one"			"敏捷值的 % 加入攻击力"
-    	"DOTA_Tooltip_ability_seinaru_rune_r_3_suffix"					"%"
-    	"DOTA_Tooltip_ability_seinaru_rune_r_3_property_two"			"纯粹伤害"
-    	"DOTA_Tooltip_ability_seinaru_rune_r_3_suffix_two"				"% 攻击力"
+    	"DOTA_Tooltip_ability_seinaru_rune_r_3_Description"			"Each of Seinaru's attacks during @Ability4 deal additional Pure damage."
+    	"DOTA_Tooltip_ability_seinaru_rune_r_3_property_one"			"Damage"
+    	"DOTA_Tooltip_ability_seinaru_rune_r_3_suffix"				"% of attack power"
 
-    	"DOTA_Tooltip_modifier_seinaru_rune_r_3_effect"				"灵巧"
-    	"DOTA_Tooltip_modifier_seinaru_rune_r_3_effect_Description"	"敏捷值提高攻击力"
+    	"DOTA_Tooltip_modifier_seinaru_rune_r_3_effect"				"Chi Strike"
+    	"DOTA_Tooltip_modifier_seinaru_rune_r_3_effect_Description"	"Attacks deal additional Pure damage"
 
     	"DOTA_Tooltip_ability_seinaru_rune_r_4"						"[R4] 勇气的考验"
     	"DOTA_Tooltip_ability_seinaru_rune_r_4_Description"			"在决斗之环内的敌人，受到来自神圣剑客的伤害将提高。"
     	"DOTA_Tooltip_ability_seinaru_rune_r_4_property_one"			"伤害提高"
     	"DOTA_Tooltip_ability_seinaru_rune_r_4_suffix"					"%"
 
+
+	//Arcanas
     	"DOTA_Tooltip_ability_seinaru_blade_dash"						"拔刀斩"
     	"DOTA_Tooltip_ability_seinaru_blade_dash_Description"			"元素： <font color=\"#DDDDDD\">普通</font><br>神圣剑客冲向敌人，对目标进行一次斩击，斩击时的攻击力为平时攻击力的倍数。"
     	"DOTA_Tooltip_ability_seinaru_blade_dash_damage_percent_of_atk"			"斩击攻击力倍数 %:"
 
-		//Arcanas
+		
 		
     	"item_property_seinaru_arcana1"										"拔刀斩"
     	"property_seinaru_arcana1_description"								"用拔刀斩替换 @Ability1 和它的全部符文。"
@@ -176,42 +189,43 @@
     	"DOTA_Tooltip_ability_seinaru_blade_dash_Description"			"元素： <font color=\"#DDDDDD\">普通</font><br>神圣剑客冲向敌人，对目标进行一次斩击，斩击时的攻击力为平时攻击力的倍数。"
     	"DOTA_Tooltip_ability_seinaru_blade_dash_damage_percent_of_atk"			"斩击攻击力倍数 %:"
 
+
     	"item_property_seinaru_arcana2"										"炎阳冲锋"
     	"property_seinaru_arcana2_description"								"用炎阳冲锋替换 @Ability3 及其全部符文。"
 
     	"DOTA_Tooltip_ability_seinaru_sunstrider"						"炎阳冲锋"
-    	"DOTA_Tooltip_ability_seinaru_sunstrider_Description"			"受到太阳的赐福，神圣剑客向目标点神圣冲锋。"
-    	"DOTA_Tooltip_ability_seinaru_sunstrider_cast_range"			"施法范围："
+    	"DOTA_Tooltip_ability_seinaru_sunstrider_Description"			"With the blessing of the sun, Seinaru blazes towards the target location. Enemies within the cast area of the ability are attacked by Seinaru in 0.06 second intervals with bonus attack power. Each attack echoes, dealing intense <font color='<% RPC_ELEMENT_HOLY_COLOR %>'>Holy</font> damage in a small area around the target."
+    	"DOTA_Tooltip_ability_seinaru_sunstrider_cast_range"			"CAST RANGE:"
+    	"DOTA_Tooltip_ability_seinaru_sunstrider_targets_count"			"MAXIMUM TARGETS:"
+    	"DOTA_Tooltip_ability_seinaru_sunstrider_att_to_dmg"			"DAMAGE FROM TOTAL ATTACK POWER:"
 
     	"DOTA_Tooltip_modifier_sunstrider_in_air"						"炎阳冲锋"
 
   		"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2"						"[E1] 炎阳剑"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_Description"			"在神圣冲锋AOE范围内的敌人将在 0.06秒后，受到神圣剑客的斩击，斩击过程中神圣剑客攻击力大幅提高。"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_Description"			"Increases attack damage during @Ability3, and allows the spell to strike more targets."
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_property_one"			"攻击力提高"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_suffix"					"%"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_property_two"			"最多目标"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_suffix_two"				""
 
   		"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2"						"[E2] 光之庇佑"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_Description"			"施放炎阳冲锋后，将获得 80% 纯粹伤害减免，持续一段时间。"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_Description"			"施放炎阳冲锋后，将获得 <% SEINARU_ARCANA_E2_PURE_DMG_REDUCE * 100%>%  纯粹伤害减免，持续一段时间。"
     	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_property_one"			"持续时间"
     	"DOTA_Tooltip_ability_seinaru_rune_e_2_arcana2_suffix"					" 秒"
 
     	"DOTA_Tooltip_modifier_sunstrider_lightsworn"						"光之庇佑"
-    	"DOTA_Tooltip_modifier_sunstrider_lightsworn_Description"						"提高 80%% 纯粹伤害减免"
+    	"DOTA_Tooltip_modifier_sunstrider_lightsworn_Description"						"提高 <% SEINARU_ARCANA_E2_PURE_DMG_REDUCE * 100%>%  纯粹伤害减免"
 
 		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2"						"[E3] 光之斩"
-		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_Description"			"每一次 [E1]炎阳剑 斩击都将造成 AOE 范围伤害。此 AOE 伤害自带对敌人伤害加深的效果。（伤害加深计算在敌人减伤之后）"
-		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_property_one"			"AOE 伤害"
-		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_suffix"					"% 攻击力"
-		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_property_two"			"减伤后伤害加深提高"
-		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_suffix_two"					"%"
+		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_Description"			"While in the @Ability3 state, Seinaru deals increased post-mitigation damage."
+		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_property_one"			"Post-Mitigation Boost"
+		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_suffix"					"%"
 
 		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack"		"光之斩"
-		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack_Description"	"下一次普通攻击将会在范围内造成纯粹伤害"
+		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack_Description"	"税后伤害提高"
 
 		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_post_mit"	"光之斩"
-		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_post_mit_Description"	"减伤后伤害提高"
+		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_post_mit_Description"	"税后伤害提高"
 
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2"						"[E4] 光能"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_Description"			"当炎阳冲锋进入冷却时间时，神圣剑客有概率额外地获得一格充能，使炎阳冲锋可以自由施放一次而不进入冷却时间。概率超过 100% 可以获得多格充能。"
@@ -257,6 +271,21 @@
 		"seinaru_weapon_23"			"Ryu之剑"
 		"seinaru_weapon_24"			"锐克之剑"
 		"seinaru_weapon_25"			"长者圣剑"
+		
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_00"	"Basic Sword"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_01"   "Samurai Sword"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_02"   "Katana"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_03"   "Ninja Blade"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_11"   "Storm Cleaver"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_12"   "Runeblade"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_13"   "Tornadofire Blade"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_14"   "Sword of Faith"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_21"   "Blade of Seven Trials"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_22"   "Sword of Seikatsu"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_23"   "Blade of Ryu"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_24"   "Hariken Blade"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_weapon_25"   "Daikatana"
+		
 		
 		"DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_1"		"鬼丸"
 		"item_property_seinaru_immortal_weapon"								"穿刺攻击"
