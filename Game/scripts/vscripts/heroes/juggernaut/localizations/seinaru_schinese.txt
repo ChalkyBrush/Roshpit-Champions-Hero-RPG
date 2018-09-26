@@ -133,7 +133,7 @@
     	"DOTA_Tooltip_modifier_seinaru_rune_r_2_immunity_Description"	"100%魔法免疫"
 
     	"DOTA_Tooltip_ability_seinaru_rune_r_3"						"[R3] 灵巧"
-    	"DOTA_Tooltip_ability_seinaru_rune_r_3_Description"			" @Ability4 buff存在时，每次攻击有100%几率造成额外纯粹伤害."
+    	"DOTA_Tooltip_ability_seinaru_rune_r_3_Description"			" 戈尔德buff存在时，每次攻击有100%几率造成额外纯粹伤害."
     	"DOTA_Tooltip_ability_seinaru_rune_r_3_property_one"			"额外纯粹伤害"
     	"DOTA_Tooltip_ability_seinaru_rune_r_3_suffix"				"% 攻击力"
 
@@ -194,15 +194,15 @@
     	"property_seinaru_arcana2_description"								"用炎阳冲锋替换 @Ability3 及其全部符文。"
 
     	"DOTA_Tooltip_ability_seinaru_sunstrider"						"炎阳冲锋"
-    	"DOTA_Tooltip_ability_seinaru_sunstrider_Description"			"With the blessing of the sun, Seinaru blazes towards the target location. Enemies within the cast area of the ability are attacked by Seinaru in 0.06 second intervals with bonus attack power. Each attack echoes, dealing intense <font color='<% RPC_ELEMENT_HOLY_COLOR %>'>Holy</font> damage in a small area around the target."
-    	"DOTA_Tooltip_ability_seinaru_sunstrider_cast_range"			"CAST RANGE:"
-    	"DOTA_Tooltip_ability_seinaru_sunstrider_targets_count"			"MAXIMUM TARGETS:"
-    	"DOTA_Tooltip_ability_seinaru_sunstrider_att_to_dmg"			"DAMAGE FROM TOTAL ATTACK POWER:"
+    	"DOTA_Tooltip_ability_seinaru_sunstrider_Description"			"在太阳的祝福下，神圣剑客朝着目标位置神圣冲锋. 神圣冲锋范围内的敌人在0.06秒内都将受到神圣剑客额外伤害加成的打击. 每次攻击都会产生AOE伤害，在目标周围造成<font color='<% RPC_ELEMENT_HOLY_COLOR %>'>神圣</font> 伤害."
+    	"DOTA_Tooltip_ability_seinaru_sunstrider_cast_range"			"施法距离:"
+    	"DOTA_Tooltip_ability_seinaru_sunstrider_targets_count"			"最大目标数:"
+    	"DOTA_Tooltip_ability_seinaru_sunstrider_att_to_dmg"			"伤害基于总攻击力:"
 
     	"DOTA_Tooltip_modifier_sunstrider_in_air"						"炎阳冲锋"
 
   		"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2"						"[E1] 炎阳剑"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_Description"			"Increases attack damage during @Ability3, and allows the spell to strike more targets."
+    	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_Description"			"增加E技能额外打击伤害, 同时使E技能可以打击多个目标."
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_property_one"			"攻击力提高"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_suffix"					"%"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_arcana2_property_two"			"最多目标"
@@ -217,8 +217,8 @@
     	"DOTA_Tooltip_modifier_sunstrider_lightsworn_Description"						"提高 <% SEINARU_ARCANA_E2_PURE_DMG_REDUCE * 100%>%  纯粹伤害减免"
 
 		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2"						"[E3] 光之斩"
-		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_Description"			"While in the @Ability3 state, Seinaru deals increased post-mitigation damage."
-		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_property_one"			"Post-Mitigation Boost"
+		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_Description"			"施放E技能时，提高E技能税后伤害."
+		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_property_one"			"税后伤害提高"
 		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_suffix"					"%"
 
 		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack"		"光之斩"
@@ -268,7 +268,7 @@
 		"seinaru_weapon_14"			"信仰之剑"
 		"seinaru_weapon_21"			"七试炼之剑"
 		"seinaru_weapon_22"			"生命之剑"
-		"seinaru_weapon_23"			"Ryu之剑"
+		"seinaru_weapon_23"			"龙之剑"
 		"seinaru_weapon_24"			"锐克之剑"
 		"seinaru_weapon_25"			"长者圣剑"
 		
