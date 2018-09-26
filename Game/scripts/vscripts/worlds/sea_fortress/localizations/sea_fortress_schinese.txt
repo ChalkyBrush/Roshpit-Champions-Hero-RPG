@@ -106,7 +106,7 @@
 		"seafortress_oracle_of_the_sea"						"海神域大祭司"
 		"seafortress_ocean_diviner"							"深海占卜者"
 		"seafortress_squidcicle"							"水滨鱿鱼"
-		"seafortress_final_boss"							"无尽之海霸主 瓦尔顿"
+		"seafortress_final_boss"							"你这剑圣还有p输出啊"
 
 		"DOTA_Tooltip_modifier_sea_fortress_ai"				"失落深海要塞"
 		"DOTA_Tooltip_modifier_sea_fortress_ai_Description"	"造成的魔法和纯粹伤害增加 300%%. 受到的伤害减少 99.5%%"
