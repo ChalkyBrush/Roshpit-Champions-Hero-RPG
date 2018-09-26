@@ -71,10 +71,10 @@
     	"DOTA_Tooltip_ability_seinaru_rune_w_4_suffix"					"% 每10点敏捷值"
 
 
-		"DOTA_Tooltip_ability_seinaru_odachi_leap"						"Odachi Leap"
-		"DOTA_Tooltip_ability_seinaru_odachi_leap_Description"			"Element: <font color=\"#DDDDDD\">Normal</font><br>Quickly leaps forward while slicing all enemies in Seinaru's path. 100% evasion while jumping."
+		"DOTA_Tooltip_ability_seinaru_odachi_leap"						"太刀飞跃"
+		"DOTA_Tooltip_ability_seinaru_odachi_leap_Description"			"元素: <font color=\"#DDDDDD\">普通</font><br>快速向前飞跃，斩击路径上的所有敌人. 飞跃期间拥有100%闪避."
 		"DOTA_Tooltip_ability_seinaru_odachi_leap_Lore"					""
-		"DOTA_Tooltip_ability_seinaru_odachi_leap_damage"				"DAMAGE/SLICE:"
+		"DOTA_Tooltip_ability_seinaru_odachi_leap_damage"				"伤害:"
 
 
 
@@ -85,15 +85,15 @@
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_property_two"			"无敌斩最多单位"
     	"DOTA_Tooltip_ability_seinaru_rune_e_1_suffix_two"				""
 		
-    	"DOTA_Tooltip_ability_seinaru_rune_e_2"						"[E2] Blade Dance"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_2_Description"			"Each target marked for [E1] has a chance to be marked again, receiving another attack. A chance greater than 100% means multiple successive strikes."
-    	"DOTA_Tooltip_ability_seinaru_rune_e_2_property_one"			"Additional hit chance"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_2"						"[E2] 狂风斩"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_2_Description"			"被 [E1] 标记的目标有几率受到额外的[E1]攻击. 大于100%的几率意味着多次连续打击."
+    	"DOTA_Tooltip_ability_seinaru_rune_e_2_property_one"			"额外攻击几率"
     	"DOTA_Tooltip_ability_seinaru_rune_e_2_suffix"					"%"
 
-    	"DOTA_Tooltip_ability_seinaru_rune_e_3"						"[E3] Ansatsuken"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_3_Description"			"Seinaru is able to cut through enemies with the Steadfast property, dealing much more damage before their defenses truncate it. However, this killing art requires that Seinaru's instances of damage against the target have NO post-mitigation amplification effects applied at any point during damage calculation."
-    	"DOTA_Tooltip_ability_seinaru_rune_e_3_property_one"			"Steadfast threshold increase"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_3_suffix"					"% of base value"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_3"						"[E3] 潜影龙渊"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_3_Description"			"神圣剑客能以高超的剑术穿透敌人, 提高怪物的坚定阈值. 然而，这种秘技要求神圣剑客没有其他破坚定效果存在."
+    	"DOTA_Tooltip_ability_seinaru_rune_e_3_property_one"			"坚定阈值提高"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_3_suffix"					"% 基础值"
 		
 		"DOTA_Tooltip_ability_seinaru_rune_e_4"						"[E4] 迅捷之翼"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_Description"			"被鹰击击中过的敌人，穿甲允许将其护甲减少至低于0点。当敌人护甲为负时，每点低于0点的护甲值，都将提高其受到的圣元素伤害。"
@@ -105,9 +105,9 @@
 	
 		
 		"DOTA_Tooltip_ability_seinaru_gorudo"						"戈尔德"
-		"DOTA_Tooltip_ability_seinaru_gorudo_Description"			"Seinaru transmutes his body into living gold, rendering him immune to spells and increasing attack damage based on Agility."
+		"DOTA_Tooltip_ability_seinaru_gorudo_Description"			"神圣剑客变成魔免状态并根据敏捷提高基础攻击力."
 		"DOTA_Tooltip_ability_seinaru_gorudo_duration"			"持续时间:"
-		"DOTA_Tooltip_ability_seinaru_gorudo_att_per_agi"			"AGILITY TO ATTACK DAMAGE:"
+		"DOTA_Tooltip_ability_seinaru_gorudo_att_per_agi"			"每点敏捷提高基础攻击:"
 
 		"DOTA_Tooltip_modifier_monk_ulti_gorudo"					"戈尔德"
 		"DOTA_Tooltip_modifier_monk_ulti_gorudo_Description"		"魔法免疫"
@@ -129,16 +129,16 @@
     	"DOTA_Tooltip_modifier_gorudo_b_d_inside_ring"				"决斗之环"
     	"DOTA_Tooltip_modifier_gorudo_b_d_inside_ring_Description"	"在决斗之环内对神圣剑客的伤害减少"	
 
-    	"DOTA_Tooltip_modifier_seinaru_rune_r_2_immunity"				"格尔德"
+    	"DOTA_Tooltip_modifier_seinaru_rune_r_2_immunity"				"戈尔德"
     	"DOTA_Tooltip_modifier_seinaru_rune_r_2_immunity_Description"	"100%魔法免疫"
 
     	"DOTA_Tooltip_ability_seinaru_rune_r_3"						"[R3] 灵巧"
-    	"DOTA_Tooltip_ability_seinaru_rune_r_3_Description"			"Each of Seinaru's attacks during @Ability4 deal additional Pure damage."
-    	"DOTA_Tooltip_ability_seinaru_rune_r_3_property_one"			"Damage"
-    	"DOTA_Tooltip_ability_seinaru_rune_r_3_suffix"				"% of attack power"
+    	"DOTA_Tooltip_ability_seinaru_rune_r_3_Description"			" @Ability4 buff存在时，每次攻击有100%几率造成额外纯粹伤害."
+    	"DOTA_Tooltip_ability_seinaru_rune_r_3_property_one"			"额外纯粹伤害"
+    	"DOTA_Tooltip_ability_seinaru_rune_r_3_suffix"				"% 攻击力"
 
-    	"DOTA_Tooltip_modifier_seinaru_rune_r_3_effect"				"Chi Strike"
-    	"DOTA_Tooltip_modifier_seinaru_rune_r_3_effect_Description"	"Attacks deal additional Pure damage"
+    	"DOTA_Tooltip_modifier_seinaru_rune_r_3_effect"				"灵巧"
+    	"DOTA_Tooltip_modifier_seinaru_rune_r_3_effect_Description"	"攻击造成额外纯粹伤害"
 
     	"DOTA_Tooltip_ability_seinaru_rune_r_4"						"[R4] 勇气的考验"
     	"DOTA_Tooltip_ability_seinaru_rune_r_4_Description"			"在决斗之环内的敌人，受到来自神圣剑客的伤害将提高。"
