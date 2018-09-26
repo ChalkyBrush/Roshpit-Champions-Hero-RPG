@@ -56,7 +56,7 @@
 		"DOTA_Tooltip_ability_seinaru_rune_w_1_suffix"					"%"
 		
 		"DOTA_Tooltip_ability_seinaru_rune_w_2"							"[W2] 旋风"
-		"DOTA_Tooltip_ability_seinaru_rune_w_2_Description"				"Casting <font color='#CCFF66'>Hands of Hikari</font> also releases a rending Typhoon that damages enemies. Base damage is multiplied by the level of <font color='#CCFF66'>Hands of Hikari</font>, and by Seinaru's hero level."
+		"DOTA_Tooltip_ability_seinaru_rune_w_2_Description"				" <font color='#CCFF66'>圣光之手</font> 还会释放一股旋风对敌人造成伤害. 技能伤害值由<font color='#CCFF66'>圣光之手</font>的等级乘以神圣剑客等级."
 		"DOTA_Tooltip_ability_seinaru_rune_w_2_property_one"			"旋风伤害"
 		"DOTA_Tooltip_ability_seinaru_rune_w_2_suffix"					""
 
