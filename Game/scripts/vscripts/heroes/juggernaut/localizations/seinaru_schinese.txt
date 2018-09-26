@@ -1,11 +1,11 @@
     	//Abilities
 
-    	"DOTA_Tooltip_ability_seinaru_konokaze"							"Konokaze"
-    	"DOTA_Tooltip_ability_seinaru_konokaze_Description"				"Element: <font color=\"#7AE2A7\">Wind</font><br>A swift burst of air blinds, slows, and pushes back enemies in its path."
-    	"DOTA_Tooltip_ability_seinaru_konokaze_stun_duration"			"KNOCKBACK DURATION:"
-    	"DOTA_Tooltip_ability_seinaru_konokaze_range"					"RANGE:"
-    	"DOTA_Tooltip_ability_seinaru_konokaze_blind_chance"			"BLIND MISS CHANCE:"
-    	"DOTA_Tooltip_ability_seinaru_konokaze_blind_duration"			"BLIND DURATION:"
+    	"DOTA_Tooltip_ability_seinaru_konokaze"							"狂风"
+    	"DOTA_Tooltip_ability_seinaru_konokaze_Description"				"元素: <font color=\"#7AE2A7\">风</font><br>，一阵狂风呼啸向前推开敌人，并且造成致盲和减速."
+    	"DOTA_Tooltip_ability_seinaru_konokaze_stun_duration"			"狂风 持续时间:"
+    	"DOTA_Tooltip_ability_seinaru_konokaze_range"					"范围:"
+    	"DOTA_Tooltip_ability_seinaru_konokaze_blind_chance"			"致盲几率:"
+    	"DOTA_Tooltip_ability_seinaru_konokaze_blind_duration"			"致盲持续时间:"
 	
     	"DOTA_Tooltip_ability_seinaru_rune_q_1"							"[Q1] 骤雨"
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_Description"				"微风每击中一个敌人，都将提高神圣剑客的攻击力和攻击速度，持续10秒。"
@@ -42,17 +42,17 @@
 		
 
 
- 		"DOTA_Tooltip_ability_seinaru_hands_of_hikari"					"Hands of Hikari"
-		"DOTA_Tooltip_ability_seinaru_hands_of_hikari_Description"		"Seinaru heals himself and all nearby allies with a battle prayer. This has no cast time and does not interrupt Seinaru's previous orders.<br>This spell's radius also applies to the effects of each of its runes."
+ 		"DOTA_Tooltip_ability_seinaru_hands_of_hikari"					"圣光之手"
+		"DOTA_Tooltip_ability_seinaru_hands_of_hikari_Description"		"神圣剑客通过祈祷治愈自己和周围所有的盟友。该技能没有施法时间，也不会打断之前的指令.<br>该技能每个符文的范围与技能本身的范围一致."
 		"DOTA_Tooltip_ability_seinaru_hands_of_hikari_Lore"				""
-		"DOTA_Tooltip_ability_seinaru_hands_of_hikari_heal"				"HEAL:"
-		"DOTA_Tooltip_ability_seinaru_hands_of_hikari_radius"			"RADIUS:"
+		"DOTA_Tooltip_ability_seinaru_hands_of_hikari_heal"				"治疗量:"
+		"DOTA_Tooltip_ability_seinaru_hands_of_hikari_radius"			"半径:"
 
     	"Tooltip_seinaru_w"											"圣光之手和卷风"
 	
 		"DOTA_Tooltip_ability_seinaru_rune_w_1"							"[W1] 卷风"
-		"DOTA_Tooltip_ability_seinaru_rune_w_1_Description"				"<font color='#CCFF66'>Hands of Hikari</font> also unleashes a Circle of Wind that slows attack and movespeed of struck units by <% SEINARU_W1_MOV_SLOW_BASE %> for <% SEINARU_W1_DUR_BASE %> seconds. Additionally, enemies struck by the Circle take increased post-mitigation damage from Seinaru. The rune's effect per stack is multiplied by @Ability2's level. Maximum <% SEINARU_W1_MAX_STACKS_BASE %> stacks."
-		"DOTA_Tooltip_ability_seinaru_rune_w_1_property_one"			"每层减伤后伤害加深"
+		"DOTA_Tooltip_ability_seinaru_rune_w_1_Description"				"<font color='#CCFF66'>圣光之手</font> 会同时在周身释放风环，受影响的敌人降低攻击速度和移动速度 <% SEINARU_W1_MOV_SLOW_BASE %> 持续 <% SEINARU_W1_DUR_BASE %> 秒. 此外，被W击中的敌人受到来自神圣剑客的税后伤害提高。提高效果为每层符文效果乘以W技能等级. 最大 <% SEINARU_W1_MAX_STACKS_BASE %> 层数."
+		"DOTA_Tooltip_ability_seinaru_rune_w_1_property_one"				"每层税后伤害提高"
 		"DOTA_Tooltip_ability_seinaru_rune_w_1_suffix"					"%"
 		
 		"DOTA_Tooltip_ability_seinaru_rune_w_2"							"[W2] 旋风"
