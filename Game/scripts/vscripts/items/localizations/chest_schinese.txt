@@ -1,7 +1,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"飓风背心"
 		"item_property_hurricane"					"飓风"
-		"property_hurricane_description"			"当你引导完 @Ability4 后，产生一个飓，跟随你并将敌人推开，持续 @special_property1 秒。"
+		"property_hurricane_description"			"当你引导完 @Ability4 后，向四面八方扩散一圈风暴伤害敌人并使他们减少攻击和移动速度150持续5秒。伤害公式为 10*(英雄等级/120)*(1800-施法者与敌人的距离)^3"
 		"DOTA_Tooltip_modifier_hurricane_vest_hurricane"	"飓风"
 		"DOTA_Tooltip_modifier_hurricane_vest_hurricane_Description"	"被强风所牵引"
 
