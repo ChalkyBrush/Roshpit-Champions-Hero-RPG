@@ -554,6 +554,9 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 end
 
 function Tutorial:TutorialServerEvent(hero, code1, code2)
+	if not hero.tutorial then
+		return false
+	end
 	if hero.tutorial.active_challenge == code1 then
 		if code1 == "1_1" then
 			if code2 == 0 and hero.active_challenge_progress == code2 then
@@ -798,12 +801,11 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 					Tutorial:UpdateChallengeSummaryProgress(hero, 2, 2, 4, true)
 				end)
 			end
-		elseif code2 == "2_3" then
+		elseif code1 == "2_3" then
 			if code2 == 0 and hero.active_challenge_progress == code2 then
 				hero.tutorial_speech_phase = hero.tutorial_speech_phase + 1
 				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_2_3e", 5, false)
 				hero.master_is_talking = false
-				Tutorial:ProgressUpdateOrNot(hero, 1, 1)
 				Timers:CreateTimer(2, function()
 					EmitSoundOn("Tutorial.Master.GreetingBasic", hero)
 				end)
@@ -817,6 +819,7 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 						if speech_phase == hero.tutorial_speech_phase then
 							Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_2_3g", 5, false)
 						end
+						Tutorial:ProgressUpdateOrNot(hero, 2, 3)
 						Timers:CreateTimer(3, function()
 							hero.tutorial.active_challenge = nil
 							Tutorial:UpdateChallengeSummaryProgress(hero, 2, 3, 1, true)
