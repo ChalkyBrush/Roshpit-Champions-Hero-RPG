@@ -183,4 +183,14 @@
 
 	"tutorial_master_dialogue_2_2m"										"Haha, very good. That concludes our lesson on hero attributes."
 
-	"quest_2_challenge_3_desc"											"Something about saving."
+	"quest_2_challenge_3_desc"											"Saving your character is an important step toward gaining power in Roshpit. Speak to the Oracle in town to register your character onto his eternal ledger."
+	"quest_2_challenge_3_sub_0_summary"									"Save your hero at the Oracle in town."
+	
+
+	"tutorial_master_dialogue_2_3a"										"Each map's town has an Oracle who can permanently record your hero's progress."
+	"tutorial_master_dialogue_2_3b"										"Your hero is not automatically saved at the end of a game session. It has to be registered with the Oracle."	
+	"tutorial_master_dialogue_2_3c"										"It is important that you save often so you don't accidentally lose your progress."
+	"tutorial_master_dialogue_2_3d"										"Go and save at the Oracle!"
+	"tutorial_master_dialogue_2_3e"										"Well done! Now you can load that character in a future game session."
+	"tutorial_master_dialogue_2_3f"										"When you load your hero, you can only save it to that same slot. You can overwrite an existing slot by creating a new hero and saving over an old one."
+	"tutorial_master_dialogue_2_3g"										"That completes the lesson on saving."

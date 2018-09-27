@@ -314,6 +314,9 @@ function Tutorial:TutorialEvent(msg)
 		elseif hero.tutorial.active_challenge == "2_2" then
 			Tutorial:UpdateChallengeSummaryProgress(hero, 2, 2, 0, false)
 			Tutorial:MasterSequenceWithLocks(hero, hero.tutorial.active_challenge)
+		elseif hero.tutorial.active_challenge == "2_3" then
+			Tutorial:UpdateChallengeSummaryProgress(hero, 2, 3, 0, false)
+			Tutorial:MasterSequenceWithLocks(hero, hero.tutorial.active_challenge)
 		end
 	elseif code == "reward_select" then
 		Tutorial:ClaimReward(msg)
@@ -520,6 +523,31 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 			end
 		end)
 		Timers:CreateTimer(15, function()
+			hero.master_is_talking = false
+		end)
+	elseif code == "2_3" then
+		hero.master_is_talking = true
+		Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_2_3a", 5, false)
+		if hero:GetLevel() < 2 then
+			hero:AddExperience(1000, 0, false, true)
+		end
+		Timers:CreateTimer(5, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_2_3b", 5, false)
+				Timers:CreateTimer(5, function()
+					if speech_phase == hero.tutorial_speech_phase then
+						Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_2_3c", 5, false)
+						Timers:CreateTimer(5, function()
+							if speech_phase == hero.tutorial_speech_phase then
+								Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_3, 1.0, 4.0)
+								Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_2_3d", 5, false)
+							end
+						end)
+					end
+				end)
+			end
+		end)
+		Timers:CreateTimer(20, function()
 			hero.master_is_talking = false
 		end)
 	end
@@ -768,6 +796,32 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 					hero.master_is_talking = false
 					Tutorial:ProgressUpdateOrNot(hero, 2, 2)
 					Tutorial:UpdateChallengeSummaryProgress(hero, 2, 2, 4, true)
+				end)
+			end
+		elseif code2 == "2_3" then
+			if code2 == 0 and hero.active_challenge_progress == code2 then
+				hero.tutorial_speech_phase = hero.tutorial_speech_phase + 1
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_2_3e", 5, false)
+				hero.master_is_talking = false
+				Tutorial:ProgressUpdateOrNot(hero, 1, 1)
+				Timers:CreateTimer(2, function()
+					EmitSoundOn("Tutorial.Master.GreetingBasic", hero)
+				end)
+				hero.active_challenge_progress = hero.active_challenge_progress + 1
+				local speech_phase = hero.tutorial_speech_phase
+				Timers:CreateTimer(5, function()
+					if speech_phase == hero.tutorial_speech_phase then
+						Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_2_3f", 5, false)
+					end
+					Timers:CreateTimer(5, function()
+						if speech_phase == hero.tutorial_speech_phase then
+							Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_2_3g", 5, false)
+						end
+						Timers:CreateTimer(3, function()
+							hero.tutorial.active_challenge = nil
+							Tutorial:UpdateChallengeSummaryProgress(hero, 2, 3, 1, true)
+						end)
+					end)
 				end)
 			end
 		end
