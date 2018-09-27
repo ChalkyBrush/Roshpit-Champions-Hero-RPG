@@ -237,7 +237,7 @@
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_1_1"		"吸血雕文"
 		"item_rpc_seinaru_glyph_1_1_description" 				"拥有3%的生命偷取，任何过量治疗都会被添加到W3护盾中(同样受到其上限限制)"
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_2_1"		"黄金雕文"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_2_1"		"疾风雕文"
 		"item_rpc_seinaru_glyph_2_1_description" 				"每一点Q2符文增加剑圣移动速度上限1.2（跟藏刀移速上限加成重叠，经测试同时存在只有雕文效果生效）。"
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_3_1"		"潜水鹰雕文"
@@ -252,7 +252,7 @@
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_6_1"		"九尾雕文"
 		"item_rpc_seinaru_glyph_6_1_description" 				"圆环内减伤效果增加至 90% "
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_7_1"		"扶风雕文"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_7_1"		"金刚雕文"
 		"item_rpc_seinaru_glyph_7_1_description" 				"剑圣主属性变成力量。W4和R的加成变为60%的力量值和60%敏捷值加成"
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_5_a"		"樱花雕文"
