@@ -237,12 +237,12 @@
 	
 		"DOTA_Tooltip_ability_item_rpc_oceanrunner_boots"					"深海靴"	
 		"property_oceanrunner"												"轻盈"
-		"property_oceanrunner_Description"									"每 10 点敏捷值提高基础技能伤害 0.3% 。"
+		"property_oceanrunner_Description"									"每 10 点敏捷值提高基础技能伤害 0.25% 。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_crystalline_slippers"				"水晶鞋"	
 		"property_crystalline"												"水晶缠绕"
-		"property_crystalline_Description"									"被缠绕的敌人，对玩家造成的伤害减少 @special_property1%，并且受到 @special_property2x 来自玩家的伤害。"
+		"property_crystalline_Description"									"被缠绕的敌人，对玩家造成的伤害减少 @special_property1%，并且受到 @special_property2x 来自玩家的伤害（税前）。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gravelfoot_treads"	"砾石足踏"
