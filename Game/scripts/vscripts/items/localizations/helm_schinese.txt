@@ -267,7 +267,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_eye_of_seasons"									"四季之眼"
 		 "item_property_eye_of_seasons"						"绯红"
-		 "property_eye_of_seasons_description"				"每 @special_property1 点魔法值增加1点敏捷值和力量值。"
+		 "property_eye_of_seasons_description"				"增加敏捷值和力量值，增加量为智力值的35%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_helm_of_the_silent_templar"						"沉寂圣殿骑士的头盔"
