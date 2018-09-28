@@ -73,10 +73,12 @@
         "DOTA_Tooltip_modifier_axe_rune_w_2_visible_Description"		"魔法抗性降低"
 		
 		"DOTA_Tooltip_ability_axe_rune_w_3"                             "[W3] 复原"
-        "DOTA_Tooltip_ability_axe_rune_w_3_Description"                 "施放冲击波时上将恢复生命值。"
+        "DOTA_Tooltip_ability_axe_rune_w_3_Description"                 "施放冲击波时上将恢复生命值。治疗量将被冲击波等级提高。"
         "DOTA_Tooltip_ability_axe_rune_w_3_property_one"                "治疗"
         "DOTA_Tooltip_ability_axe_rune_w_3_suffix"                      "x 冲击波技能等级"
-		
+	"DOTA_Tooltip_ability_axe_rune_w_3_property_two"                "治疗"
+	"DOTA_Tooltip_ability_axe_rune_w_3_suffix_two"                  "最大生命值%"
+	
 		"DOTA_Tooltip_ability_axe_rune_w_4"                             "[W4] 雷霆一脚"
         "DOTA_Tooltip_ability_axe_rune_w_4_Description"                 "你的力量值将提高冲击波和脚跟重踏的伤害。"
         "DOTA_Tooltip_ability_axe_rune_w_4_property_one"                "伤害提高"
