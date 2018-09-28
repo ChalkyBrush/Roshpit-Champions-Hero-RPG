@@ -698,7 +698,7 @@
 		"pit_conquest_woods_titan"				"Titan of Conquest"
 		"pit_conquest_forest_soldier"			"Conquest Ambusher"
 		"pit_conquest_forest_mage"				"Forest Mage"
-		"pit_conquest_lord_of_bovel"			"Lord of the Bowel"
+		"pit_conquest_lord_of_bovel"			"Lord of Bovel"
 		"pit_conquest_dragon"					"Chrysolite Wyrm"
 		"DOTA_Tooltip_ability_pit_conquest_viper_strike" 				"Viper Strike"
 		"DOTA_Tooltip_ability_pit_conquest_viper_strike_Description" 	"Вирм отравляет цель и снижает её скорость."
