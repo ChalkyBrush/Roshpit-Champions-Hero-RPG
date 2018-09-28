@@ -137,9 +137,9 @@
     	"DOTA_Tooltip_ability_flamewaker_rune_r_1_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_r_2"								"[R2] 火焰漩涡"
-    	"DOTA_Tooltip_ability_flamewaker_rune_r_2_Description"					"施放大灾变时同时释放一股火焰漩涡。"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_2_Description"					"施放大灾变时同时释放一股火焰漩涡。每道火焰造成7次伤害，该伤害基于装备最低等级要求总和的四次方。（100级装备看做110级）"
     	"DOTA_Tooltip_ability_flamewaker_rune_r_2_property_one"					"伤害"
-    	"DOTA_Tooltip_ability_flamewaker_rune_r_2_suffix"						""
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_2_suffix"						"*(<% FLAMEWAKER_R2_INNER_SCALE%>*(装备最低等级要求总和))^<% FLAMEWAKER_R2_DMG_EXP_SCALE_BASE %>"
 
 		"DOTA_Tooltip_ability_flamewaker_rune_r_3"								"[R3] 群山之力"
     	"DOTA_Tooltip_ability_flamewaker_rune_r_3_Description"					"成功引导大灾变后，增加力量值，持续12秒。"
