@@ -34,9 +34,11 @@
     	"DOTA_Tooltip_modifier_hydroxis_c_a_magic_resist_lost_Description"	"魔法抗性降低"	
 		
 		"DOTA_Tooltip_ability_hydroxis_rune_q_4"							"[Q4] 水之浪潮"
-    	"DOTA_Tooltip_ability_hydroxis_rune_q_4_Description"				"在0.9秒延迟后有几率再次施放洪流。大于100％的几率意味着洪流将被多次施放。"
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_4_Description"				"增加@Ability1的基础伤害，增加数值基于胖头鱼的全属性，并且在0.9秒延迟后有几率再次施放洪流。大于100％的几率意味着洪流将被多次施放。"
     	"DOTA_Tooltip_ability_hydroxis_rune_q_4_property_one"				"多重施放机率"
     	"DOTA_Tooltip_ability_hydroxis_rune_q_4_suffix"						"%"
+	"DOTA_Tooltip_ability_hydroxis_rune_q_4_property_two"                           "基础伤害提高"
+	"DOTA_Tooltip_ability_hydroxis_rune_q_4_suffix_two"                             "X 全属性"
 		
 		"DOTA_Tooltip_ability_hydroxis_water_blade"									"惊涛骇浪"
     	"DOTA_Tooltip_ability_hydroxis_water_blade_Description"						"元素： <font color=\"#3894FF\">水</font><br>胖头鱼的武器喷射出一股水流，冲击目标范围。范围内的敌人将被减速。"	
@@ -109,7 +111,7 @@
     	"DOTA_Tooltip_modifier_ocean_quake_slowed_Description"						"移动速度和攻击速度降低"	
 		
 		"DOTA_Tooltip_ability_hydroxis_rune_r_1"							"[R1] 波雨淋"
-    	"DOTA_Tooltip_ability_hydroxis_rune_r_1_Description"				"被海洋地震击中的敌人，护甲值将被大幅度减少。同时，大招及其符文所造成的伤害将被胖头鱼自己的护甲值所提高，[R2]海啸 和 [R3]波塞冬的憤怒 只享受总伤害加成的 30% 。"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_1_Description"				"被海洋地震击中的敌人，护甲值将被大幅度减少。同时，大招及其符文所造成的伤害将被胖头鱼自己的护甲值所提高，[R2]海啸 和 [R3]波塞冬的憤怒 只享受总伤害加成的 60% 。"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_1_property_one"				"护甲值减少"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_1_suffix"						""
         "DOTA_Tooltip_ability_hydroxis_rune_r_1_property_two"               "大招伤害提高"
