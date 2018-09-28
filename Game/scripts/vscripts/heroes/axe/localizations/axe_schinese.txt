@@ -245,7 +245,7 @@
         "item_rpc_axe_glyph_6_2_description"                "[E4]旋风守护 的减伤护盾，提高减伤至 @glyph_property1%，但是获得层数的概率降低至每级符文 @glyph_property2% ，而不再是 150% 每级。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_2"       "发狂雕文"
-        "item_rpc_axe_glyph_7_2_description"                "当激活 @Ability1 时，狂暴之怒的最大层数提高至 @glyph_property1 层，并且每次攻击将叠加 @glyph_property2 层。"
+        "item_rpc_axe_glyph_7_2_description"                "将狂暴之怒的最大层数提高至 @glyph_property1 层，并且你将一直拥有一半的层数。当骷髅锤开启时，每次攻击将叠加 @glyph_property2 层。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_a"       "终极雕文"
         "item_rpc_axe_glyph_5_a_description"                "@Ability4 所造成的全部伤害，以及它的所有符文数，都将提高 @glyph_property1%。"
