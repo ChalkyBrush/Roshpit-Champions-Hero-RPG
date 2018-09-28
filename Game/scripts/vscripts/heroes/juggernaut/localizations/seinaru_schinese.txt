@@ -61,7 +61,7 @@
 		"DOTA_Tooltip_ability_seinaru_rune_w_2_suffix"					""
 
 		"DOTA_Tooltip_ability_seinaru_rune_w_3"						"[W3] 光之盾"
-		"DOTA_Tooltip_ability_seinaru_rune_w_3_Description"			"释放 W圣光之手 后，获得一层护盾持续 0.65秒。护盾根据敏捷值吸收伤害。"
+		"DOTA_Tooltip_ability_seinaru_rune_w_3_Description"			"释放 W圣光之手 后，获得一层护盾持续 3秒。护盾根据敏捷值吸收伤害。"
 		"DOTA_Tooltip_ability_seinaru_rune_w_3_property_one"			"伤害吸收"
 		"DOTA_Tooltip_ability_seinaru_rune_w_3_suffix"					"X 敏捷值"
 
