@@ -271,12 +271,12 @@
 		"property_lobster_claw"												"壳质硬皮"
 		"property_lobster_claw_Description"									"每 0.5 秒，获得一层壳质硬皮buff，每层buff伤害减免 @special_property1%。最大 @special_property2 层。"
 		"DOTA_Tooltip_modifier_chitinous_skin_stack"						"壳质硬皮"
-		"DOTA_Tooltip_modifier_chitinous_skin_stack_Description"			"每层提供伤害减免 3%%"
+		"DOTA_Tooltip_modifier_chitinous_skin_stack_Description"			"每层提供伤害减免 1%%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_emissary_glove"						"暗黑使者手套"	
 		"property_dark_emissary"												"彩虹迷雾"
-		"property_dark_emissary_Description"									"施放 @Ability1 将制造一团毒雾，在400码范围内缠绕敌人并造成 @special_property1% 乘以玩家攻击力的伤害。将隐身2秒。"
+		"property_dark_emissary_Description"									"施放 @Ability1 将制造一团毒雾，在400码范围内缠绕敌人并造成 @special_property1% 乘以玩家攻击力的伤害。将隐身2秒。隐身效果具有8秒的冷却时间"
 		"DOTA_Tooltip_modifier_dark_emissary_invis"								"彩虹迷雾"
 		"DOTA_Tooltip_modifier_dark_emissary_invis_Description"					"隐形"
 		"DOTA_Tooltip_modifier_dark_emissary_root"								"彩虹迷雾"
