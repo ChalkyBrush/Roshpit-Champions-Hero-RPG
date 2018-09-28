@@ -41,9 +41,9 @@
     	"DOTA_Tooltip_modifier_energy_channel_Description"						""
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_1"				"[W1] 山丘回响"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_Description"	"开启山丘守护时恢复血量"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_property_one"	"每秒恢复血量"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_suffix"		""
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_Description"	"被动增加生命恢复，增加量为最大生命值百分比"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_property_one"	"生命恢复速率"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_suffix"		"最大生命值%"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_2"				"[W2] 守护者的愤怒"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_Description"	"当开启山丘守卫时，所有魔法伤害输出增加。"
@@ -111,7 +111,7 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_1_suffix"		"% 攻击力"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_r_2"				"[R2] 柴堆地震"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_2_Description"	"每个被永世断裂击中的敌人都会使你的基础攻击力和力量值提高20秒。再次施放永世断裂重置该效果。"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_2_Description"	"每个被永世断裂击中的敌人都会使你的基础攻击力和力量值提高20秒。再次施放永世断裂重置该效果。最多10层buff。"
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_2_property_one"	"每击中一个敌人基础攻击力提高"
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_2_suffix"		""
      	"DOTA_Tooltip_ability_mountain_protector_rune_r_2_property_two"	"每击中一个敌人力量值提高"
@@ -138,17 +138,18 @@
     	"property_mountain_protector_arcana1_description"								"用AT立场替换 @Ability2 及其所有符文。"
 
     	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance"					"AT立场"
-    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_Description"			"山丘守卫者化作钢铁之躯展开AT立场，提高护甲值并且屏蔽所有敌人打击伤害的一部分。余烬之石也转化为钢铁，提高投掷速度。"
+    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_Description"			"山丘守卫者化作钢铁之躯展开AT立场，提高护甲值和生命回复并且屏蔽所有敌人打击伤害的一部分。余烬之石也转化为钢铁，提高投掷速度。"
     	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_Lore"				""
     	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_armor"				"护甲值提高："
     	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_damage_resist"		"伤害屏蔽："
+	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_regen_percent"               "生命回复%"
     	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_mana_drain_per_second"		"每秒消耗魔法值："
 
     	"DOTA_Tooltip_modifier_steelforge_stance"									"AT立场"
     	"DOTA_Tooltip_modifier_steelforge_stance_Description"						"提高护甲值并且屏蔽部分伤害"
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_w_1_arcana1"						"[W1] 立场打击"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_arcana1_Description"			"展开AT立场的同时将打击800码内的全部敌人，造成基于攻击力和力量值的伤害并眩晕敌人0.5秒。"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_arcana1_Description"			"展开AT立场的同时将打击800码内的全部敌人，造成基于攻击力和力量值的伤害并眩晕敌人0.5秒。无视魔免。"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_arcana1_property_one"			"伤害"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_arcana1_suffix"				"% 攻击力"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_arcana1_property_two"			"额外伤害"
@@ -160,14 +161,14 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_suffix"				"%"
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_w_3_arcana1"						"[W3] 朗基努斯之槍"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_arcana1_Description"			"山丘守卫在AT立场保护下受到伤害时，将反击一道光束。光束造成基于攻击力的伤害。"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_arcana1_Description"			"山丘守卫在AT立场保护下受到伤害时，将反击一道光束。光束造成基于攻击力的伤害并且造成0.03秒的眩晕。"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_arcana1_property_one"			"伤害"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_arcana1_suffix"				"% 攻击力"
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_w_4_arcana1"						"[W4] 同步率超频"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_4_arcana1_Description"			"山丘守卫在AT立场的保护下受到伤害，有50%的几率眩晕攻击者。眩晕触发在朗基努斯之槍造成伤害之前。"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_4_arcana1_property_one"		"眩晕持续时间"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_4_arcana1_suffix"				" 秒。"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_4_arcana1_Description"			"山丘守卫在AT立场的保护下时，增加基础攻击力，增加数值为力量的倍数。"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_4_arcana1_property_one"		"基础攻击力"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_4_arcana1_suffix"				" x 力量值"
 
     	"item_property_mountain_protector_arcana2"										"霜雪风暴"
     	"property_mountain_protector_arcana2_description"								"用霜雪风暴替换 @Ability4 及其所有符文。"
@@ -193,11 +194,11 @@
     	"DOTA_Tooltip_modifier_hailstorm_strength_Description"							"在霜雪风暴中山丘守卫提高力量值"	
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_r_2_arcana2"						"[R2] 冰封"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_2_arcana2_Description"			"当受到致命伤害时，山丘守卫将被冰封，免疫全部伤害，持续6秒。在冰封状态下不能攻击，只能施放冲击波，并且生命与魔法回复速度提高。技能冷却时间35秒。"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_2_arcana2_property_one"			"生命回复速度提高"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_2_arcana2_suffix"				""
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_2_arcana2_property_two"			"魔法恢复速度提高"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_2_arcana2_suffix_two"			""
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_2_arcana2_Description"			"当受到致命伤害时，山丘守卫将被冰封，免疫全部伤害，持续6秒。在冰封状态下不能攻击，只能施放冲击波，并且生命与魔法回复速度提高100%。技能冷却时间15秒或者是4倍冻结持续时间。在冻结结束后，在@constant1范围内的敌人将被眩晕"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_2_arcana2_property_one"			"冻结持续时间"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_2_arcana2_suffix"				"秒"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_2_arcana2_property_two"			"眩晕持续时间"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_2_arcana2_suffix_two"			"秒"
 
     	"DOTA_Tooltip_modifier_hailstorm_ice_case_cooldown"								"冰封技能冷却中"
 
@@ -245,9 +246,9 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3_suffix"				"%"
 
       	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3"						"[E4] 炽峰"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3_Description"			"被动地提高 基础攻击力 和 基础技能伤害。"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3_property_one"			"基础攻击力提高"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3_suffix"				""
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3_Description"			"增加坚定技能的拦截伤害阈值。（类似日天）"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3_property_one"			"坚定拦截阈值增加"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3_suffix"				"%"
 		
 		//Glyphs
 		
