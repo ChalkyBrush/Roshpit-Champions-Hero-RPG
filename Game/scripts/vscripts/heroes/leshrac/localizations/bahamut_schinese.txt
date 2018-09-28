@@ -92,7 +92,7 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_e_2"							"[E2] 清洁"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"当巴哈姆特开始施放升华时，召唤一群神鸟攻击前方的敌人。被击中的敌人将被冻结一段时间。"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"当巴哈姆特开始施放升华时，召唤一群神鸟攻击前方的敌人。被击中的敌人将被冻结一段时间。此外，增加[E3]巴哈姆特的脉搏的伤害，系数为最低的属性除以最高的属性（乘法）"
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_one"			"伤害"
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix"					""	
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_two"			"冻结持续时间"
@@ -103,14 +103,14 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_e_3"							"[E3] 巴哈姆特的脉搏"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_3_Description"				"当升华冷却时，将被替换为巴哈姆特的脉搏。脉搏将消耗移动速度对附近所有敌人造成伤害。"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_3_property_one"			"每次消耗移动速度造成伤害"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_3_suffix"					""		
+    	"DOTA_Tooltip_ability_bahamut_rune_e_3_Description"				"当升华冷却时，将被替换为巴哈姆特的脉搏。脉搏会对周围的所有敌人造成伤害，但是会暂时降低你的移动速度，该伤害为雕文的最低要求等级的总合的倍数。"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_3_property_one"			"伤害"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_3_suffix"					"X 装备的雕文等级总合"		
 
     	"DOTA_Tooltip_ability_bahamut_pulse"							"巴哈姆特的脉搏"
-    	"DOTA_Tooltip_ability_bahamut_pulse_Description"				"消耗移动速度对附近所有敌人造成伤害。使用升华后可回复移动速度。"
+    	"DOTA_Tooltip_ability_bahamut_pulse_Description"				"对周围的敌人造成伤害并且自身移动速度降低。使用升华后可回复移动速度。"
     	"DOTA_Tooltip_ability_bahamut_pulse_Lore"						""
-    	"DOTA_Tooltip_ability_bahamut_pulse_movespeed"					"每次消耗移动速度"
+    	"DOTA_Tooltip_ability_bahamut_pulse_movespeed"					"每次施法降低的移动速度"
 
     	"DOTA_Tooltip_modifier_pulse_slow"								"超载"
     	"DOTA_Tooltip_modifier_pulse_slow_Description"					"丢失移动速度"
@@ -200,8 +200,7 @@
     	"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1_suffix"				"%"
 
   		"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1"						"[R3] 觉醒"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_Description"			"巴哈姆特攻击力的一部分将加入到天罚的闪电伤害中。"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_property_one"		"闪电伤害提高"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_Description"			"巴哈姆特攻击力的一部分将加入到天罚的闪电伤害中。"    	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_property_one"		"闪电伤害提高"
     	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_suffix"				"% 攻击力"
 
   		"DOTA_Tooltip_ability_bahamut_rune_r_4_arcana1"						"[R4] 全知"
@@ -238,10 +237,15 @@
     	"DOTA_Tooltip_modifier_arcana2_purity_freeze_Description"			"被冻结"
 
   		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2"						"[W4] 逆效力"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"所有基础技能伤害和装备伤害都将被巴哈姆特所损失的魔法量提高。"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"			"伤害提高为"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"					"% 所丢失的魔法值"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"当巴哈姆特在@Ability2之外时，所有基础技能伤害和装备伤害都将被巴哈姆特所损失的魔法量提高（加法）。当巴哈姆特在@Ability2中时，巴哈姆特造成的伤害将会提高，提高系数基于@Ability2的飞行速度。此外，在@Ability2中释放神圣之耀时，增加@Ability2的飞行速度2.2倍，并且在接下去的5秒中这个符文将会把你判定为在@Ability2之中。基于移动速度增加伤害的效果会被@Ability2等级提高。"
+		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"             "额外伤害"
+		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"                   "丢失魔法值%"		        			"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_two"             "增加伤害"	  						"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix_two"               "移动速度%" 		  
+		 
+                "DOTA_Tooltip_modifier_bahamut_arcana_w4_amp"                             "逆效力"
+		"DOTA_Tooltip_modifier_bahamut_arcana_w4_amp_Description"                 "基于神之领域的飞行速度增加伤害"
 		
+		"DOTA_Tooltip_modifier_bahamut_arcana_w4_amp_linger"                      "逆效力"
+				
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_1_1"		"英勇雕文"
 		"item_rpc_bahamut_glyph_1_1_description" 				"降低受到的所有物理伤害 @glyph_property1%"

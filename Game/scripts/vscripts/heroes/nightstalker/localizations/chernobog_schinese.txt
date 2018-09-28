@@ -107,18 +107,18 @@
     	"DOTA_Tooltip_ability_chernobog_rune_e_2_suffix_two"					""
 
      	"DOTA_Tooltip_ability_chernobog_rune_e_3"								"[E3] 突击"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_3_Description"					"在暗影追捕状态下，下达对一个敌人的攻击指令时，暗夜魔王将瞬移到敌人背后，造成额外的伤害。1秒冷却时间。"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_3_Description"					"在暗影追捕状态下，下达对一个敌人的攻击指令时，暗夜魔王将瞬移到敌人背后，对其施加一个持续1秒的税后伤害加深状态。0.4秒冷却时间。"
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_property_one"					"最大距离"
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_suffix"						""
-    	"DOTA_Tooltip_ability_chernobog_rune_e_3_property_two"					"额外伤害"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_3_suffix_two"					"% 攻击力"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_3_property_two"					"税后伤害加深"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_3_suffix_two"					"% "
 		
 		"DOTA_Tooltip_modifier_chernobog_c_c_cooldown"							"突击冷却中"
 
     	"DOTA_Tooltip_modifier_chernobog_c_c_cooldown"							"突击冷却中"
 
     	"DOTA_Tooltip_ability_chernobog_rune_e_4"								"[E4] 日食"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_4_Description"					"关闭时暗影追捕时增加100%的闪避和30%的魔抗。"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_4_Description"					"开启暗影追捕期间增加100%的闪避和30%的魔抗，关闭后这个效果会根据符文等级持续一段时间。"
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_property_one"					"持续时间"
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_suffix"						" 秒"
 
@@ -207,7 +207,7 @@
     	"property_chernobog_arcana2_description"								"用 恶魔之翼 替换 @Ability3 及其全部符文。"
 
     	"DOTA_Tooltip_ability_chernobog_demon_flight"								"恶魔之翼"
-    	"DOTA_Tooltip_ability_chernobog_demon_flight_Description"					"恶魔猎人张开恶魔之翼升入夜空，穿越地形。 在飞行中执行攻击指令，无论朝向，只要目标仍在 900 码范围内，恶魔猎人都会持续每 0.15 秒攻击一次该目标。被眩晕或被障碍物阻碍将立即结束恶魔飞行。"
+    	"DOTA_Tooltip_ability_chernobog_demon_flight_Description"					"恶魔猎人张开恶魔之翼升入夜空，穿越地形。 在飞行中执行攻击指令，无论朝向，只要目标仍在 900 码范围内，恶魔猎人都会持续每 0.15 秒攻击一次该目标。被眩晕或被障碍物阻碍将立即结束恶魔飞行。飞行期间拥有100%闪避"
     	"DOTA_Tooltip_ability_chernobog_demon_flight_duration"					"持续时间："
 
     	"DOTA_Tooltip_modifier_chernobog_demon_flight"							"恶魔之翼"
@@ -251,8 +251,8 @@
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_suffix_two"			""
 		
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_1_1"		"低语者雕文"
-		"item_rpc_chernobog_glyph_1_1_description" 				"增加黑暗耳语的持续时间 @glyph_property1 秒。"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_1_1"		"梦魇雕文"
+		"item_rpc_chernobog_glyph_1_1_description" 				"所有幻象的攻击速度增加至原来的三倍。"
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_2_1"		"夜间视力雕文"
 		"item_rpc_chernobog_glyph_2_1_description" 				"开启暗影猎手时在 @glyph_property1 半径内获得所有敌人的视野。"
@@ -264,10 +264,10 @@
 		"item_rpc_chernobog_glyph_4_1_description" 				"当心脚下也会影响移动的敌人, 并且减少他们的护甲 @glyph_property1x 符文等级。"
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_1"		"夜行者雕文"
-		"item_rpc_chernobog_glyph_5_1_description" 				"减少开启暗影猎手吸取血量和魔法值的百分比 @glyph_property1。"
+		"item_rpc_chernobog_glyph_5_1_description" 				"生命值低于50%时，暗影追捕不再扣除生命值，但是暗影追捕之外的其他基础技能伤害都降低50%"
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"		"黑色裂痕雕文"
-		"item_rpc_chernobog_glyph_6_1_description" 				"突击的冷却时间降低至0.5秒。"
+		"item_rpc_chernobog_glyph_6_1_description" 				"突击对目标500范围内的敌人都施加伤害加深buff。"
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_1"		"不屈不挠雕文"
 		"item_rpc_chernobog_glyph_7_1_description" 				"每0.2秒清除一次眩晕效果。"

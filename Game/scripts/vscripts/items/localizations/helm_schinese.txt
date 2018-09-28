@@ -1,14 +1,14 @@
 
     	"DOTA_Tooltip_ability_item_rpc_basilisk_plague_helm"							"蜥蜴瘟疫之头"
 		"item_property_basilisk_plague"					"深度腐烂"
-		"property_basilisk_plague_description"				"附近敌人降低50%的移动速度和240的攻击速度，腐烂作用3秒后，敌人将变成石头，眩晕并且魔法免疫。"
+		"property_basilisk_plague_description"				"附近敌人降低50%的移动速度和240的攻击速度，腐烂作用2秒后，敌人将变成石头2秒，眩晕并且魔法免疫，同时受到额外的15倍税后物理伤害。"
         "DOTA_Tooltip_modifier_basilisk_plague_petrify"	"深度腐烂"
 		"DOTA_Tooltip_modifier_basilisk_plague_petrify_Description"	"变成石头并且魔法免疫"
 
 		
     	"DOTA_Tooltip_ability_item_rpc_brazen_kabuto_of_the_desert_realm"				"沙漠头盔"
 		"item_property_brazen_kabuto"				"勇士壁垒"
-		"property_brazen_kabuto_description"		"施放 @Ability4 时，100% 伤害免疫。"
+		"property_brazen_kabuto_description"		"施放 @Ability4 时，100% 伤害免疫。施法完成后，获得95%减伤的护盾，持续4秒"
 		
 
     	"DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"船厂面纱 等级1"
@@ -32,7 +32,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_crown_of_the_lava_forge"							"熔岩王冠"
 		 "item_property_lava_forge"							"熔岩爆裂"
-		 "property_lava_forge_description"					"受到伤害时有40% 几率向进攻者发射火球，在目标小范围内造成2x攻击力 + 30x敏捷值的伤害。"
+		 "property_lava_forge_description"					"受到伤害时有100% 几率向进攻者发射火球，在目标小范围内造成2x攻击力 + 2000x敏捷值的伤害。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_white_mage_hat"									"白色魔法帽 等级1"
@@ -267,7 +267,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_eye_of_seasons"									"四季之眼"
 		 "item_property_eye_of_seasons"						"绯红"
-		 "property_eye_of_seasons_description"				"每 @special_property1 点魔法值增加1点敏捷值和力量值。"
+		 "property_eye_of_seasons_description"				"增加敏捷值和力量值，增加量为智力值的35%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_helm_of_the_silent_templar"						"沉寂圣殿骑士的头盔"

@@ -143,10 +143,10 @@
 
     	"DOTA_Tooltip_modifier_zonis_stun_arcana1"								"电磁冲击"
 
-    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1"									"[Q1] 两极反转"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_Description"						"受到伤害时阿基莫斯将回复魔法值。"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_property_one"					"魔法值回复"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_suffix"							"% 每受到100点伤害"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1"									"[Q1] 神经元"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_Description"						"被动增加智力"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_property_one"					"额外智力值"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_suffix"							""
 
      	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1"									"[Q2] 能量立场"
     	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1_Description"						"处于电磁流中的敌人受到来自阿基莫斯的伤害将加深。（伤害加深计算在敌人减伤之后）"

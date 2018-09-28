@@ -249,16 +249,16 @@
 		"item_rpc_paladin_glyph_1_1_description" 				"降低卷土重来的冷却时间至 @glyph_property1 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_2_1"		"奉献雕文"
-		"item_rpc_paladin_glyph_2_1_description" 				"被英雄之怒击中的敌人将获得你当前等级的神圣之火debuff。"
+		"item_rpc_paladin_glyph_2_1_description" 				"英雄之怒变为切换技能。"
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_3_1"		"命令雕文"
-		"item_rpc_paladin_glyph_3_1_description" 				"拥有命令光环 - 提高 @glyph_property1% 额外攻击力。"
+		"item_rpc_paladin_glyph_3_1_description" 				"使你能完全控制门徒并且门徒的移动速度增加至800，右键该技能可以让门徒变为ai控制。"
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_1"		"坚定正义雕文"
-		"item_rpc_paladin_glyph_4_1_description" 				"正义之手不再将自己击退。"
+		"item_rpc_paladin_glyph_4_1_description" 				"正义之手不再将自己击退，并且使正义之手每次释放施加的神圣之火的debuff层数X5（计算在庇护雕文之后）。"
 
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_1"		"庇护雕文"
-		"item_rpc_paladin_glyph_5_1_description" 				"增加正义之手和神圣之火200%的伤害。"
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_1"		"神圣威严雕文"
+		"item_rpc_paladin_glyph_5_1_description" 				"增加正义之手和神圣之火200%的伤害，并且当正义之手击中敌人时额外施加9层神圣之火的debuff。"
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_1"		"崇高雕文"
 		"item_rpc_paladin_glyph_6_1_description" 				"拥有崇高光环 - 提高 @glyph_property1 移动速度。"
@@ -288,7 +288,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_1"		"辉煌"
 		"item_property_paladin_immortal_weapon"								"辉煌庇护"
-		"property_paladin_immortal_weapon_description"						"施放英雄之怒时拥有7层的神圣庇护充能持续8秒。并且神圣庇护最大层数增加至7层。"
+		"property_paladin_immortal_weapon_description"						"施放英雄之怒时拥有4层的神圣庇护充能持续8秒。并且神圣庇护最大层数增加至4层。"
 		
 		"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_2"			"圣光骑士"
     	"item_property_paladin_immortal_weapon2"							"神之怒"
