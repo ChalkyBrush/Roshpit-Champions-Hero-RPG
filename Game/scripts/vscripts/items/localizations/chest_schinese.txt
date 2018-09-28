@@ -122,7 +122,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_arts_vestments"								"黑魔法外套"
 		"item_property_dark_arts"					"黑暗领域"
-		"property_dark_arts_description"			"提高敏捷值，提高值为玩家智力值的 50% 。"
+		"property_dark_arts_description"			"提高敏捷值，提高值为玩家智力值的 80% 。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_legion_vestments"								"军团大衣"
@@ -262,7 +262,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_gold_plate_of_leon"								"里昂的金色板甲"
 		"item_property_gold_plate_of_leon"						"无畏英雄"
-		"property_gold_plate_of_leon_description"				"提高你的主属性60%。"
+		"property_gold_plate_of_leon_description"				"提高你的主属性50%。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_staggering_knight_crusher_armor"					"骑士破坏之甲"
