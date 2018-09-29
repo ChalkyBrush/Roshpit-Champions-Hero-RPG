@@ -1372,7 +1372,7 @@
 		"item_rpc_neutral_glyph_6_1_description" 			"提高攻击力 @glyph_property1%"
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_1"	"大型力量雕文"
-		"item_rpc_neutral_glyph_7_1_description" 			"提高力量 @glyph_property1"
+		"item_rpc_neutral_glyph_7_1_description" 			"提高力量 @glyph_property1或者20%力量，取较大值"
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_2"	"小型敏捷雕文"
 		"item_rpc_neutral_glyph_1_2_description" 			"提高敏捷 @glyph_property1"
@@ -1384,7 +1384,7 @@
 		"item_rpc_neutral_glyph_3_2_description" 			"提高闪避 @glyph_property1%"
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_2"	"日天雕文"
-		"item_rpc_neutral_glyph_4_2_description" 			"对拥有坚定与超级坚定的敌人，将从原有的伤害限制 3% 与 0.5% 的最大生命值，提升至 @glyph_property1% 与 @glyph_property2% 的最大生命值，但同时所有的伤害加深效果（计算在减伤之后）都将降低 @glyph_property3%（普通坚定）与 @glyph_property4%（超级坚定）。此雕文不影响远古坚定（宙斯）。（注：原有的破坚定效果与日天雕文作用，仅保留伤部分害提高的效果，伤害上限以日天雕文阈值设定为准，不为加法。）同时，对没有坚定技能的敌人，造成的伤害将降低 @glyph_property5%。"
+		"item_rpc_neutral_glyph_4_2_description" 			"对拥有坚定与超级坚定的敌人，将从原有的伤害限制 3% 与 0.5% 的最大生命值，提升至 @glyph_property1% 与 @glyph_property2% 的最大生命值，但同时所有的伤害加深效果（计算在减伤之后）都将降低至原本效果的 @glyph_property3%（普通坚定）与 @glyph_property4%（超级坚定）。此雕文不影响远古坚定（宙斯）。（注：原有的破坚定效果与日天雕文作用，仅保留伤部分害提高的效果，伤害上限以日天雕文阈值设定为准，不为加法。）同时，对没有坚定技能的敌人，造成的伤害将降低 @glyph_property5%。"
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_2"	"狂暴雕文"
 		"item_rpc_neutral_glyph_5_2_description" 			"提高受到的所有伤害 @glyph_property1% 并提高造成的所有伤害 @glyph_property2%"
@@ -1393,7 +1393,7 @@
 		"item_rpc_neutral_glyph_6_2_description" 			"提高所有普通元素伤害 @glyph_property1%"
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_2"	"大型敏捷雕文"
-		"item_rpc_neutral_glyph_7_2_description" 			"提高敏捷 @glyph_property1"
+		"item_rpc_neutral_glyph_7_2_description" 			"提高敏捷 @glyph_property1或者20%敏捷，取较大值"
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_3"	"小型智力雕文"
 		"item_rpc_neutral_glyph_1_3_description" 			"提高智力 @glyph_property1"
@@ -1404,7 +1404,7 @@
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_3_3"	"惊鸿雕文"
 		"item_rpc_neutral_glyph_3_3_description" 			"降低 @Ability3 的冷却时间 @glyph_property1 秒"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_3"	"中型智力雕文"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_3"	"嗑药雕文"
 		"item_rpc_neutral_glyph_4_3_description" 			"所有药水的效果（回复效果、属性加成）都将被提高 @glyph_property1%"
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_3"	"野蛮雕文"
@@ -1414,7 +1414,7 @@
 		"item_rpc_neutral_glyph_6_3_description" 			"提高造成的所有魔法伤害 @glyph_property1%"
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_3"	"大型智力雕文"
-		"item_rpc_neutral_glyph_7_3_description" 			"提高智力 @glyph_property1"
+		"item_rpc_neutral_glyph_7_3_description" 			"提高智力 @glyph_property1或者20%的智力，取较大值"
 
 		//烈焰行者
 
