@@ -238,7 +238,7 @@
 		"wind_temple_wind_high_priest"									"高阶风之祭司"
 
 		"DOTA_Tooltip_ability_wind_temple_revitalizing_winds"			"复苏之风"
-		"DOTA_Tooltip_ability_wind_temple_revitalizing_winds_Description"	"The Priest continues the cycle of rebirth with ancient winds."	
+		"DOTA_Tooltip_ability_wind_temple_revitalizing_winds_Description"	"在远古之风中，祭祀持续着重生的循环。"	
 
 		"wind_temple_boss"												"被腐化的风之女神"
 
@@ -443,8 +443,8 @@
 		 "DOTA_Tooltip_ability_water_temple_prison_shank_agility_mult"		"基于敏捷的伤害倍数:"
 		 "DOTA_Tooltip_ability_water_temple_prison_shank_strength_loss"		"力量降低:"
 
-		 "DOTA_Tooltip_modifier_prison_shank_effect"						"Sea Shank"
-		 "DOTA_Tooltip_modifier_prison_shank_effect_Description"			"Losing Attributes"	
+		 "DOTA_Tooltip_modifier_prison_shank_effect"						"深海剃刀"
+		 "DOTA_Tooltip_modifier_prison_shank_effect_Description"			"降低属性。"	
 
 		 "DOTA_Tooltip_ability_executioner_culling_blade"					"斩杀"
 		 "DOTA_Tooltip_ability_executioner_culling_blade_Description"		"瞬间击杀目标生命值百分比过低的英雄."	
@@ -588,7 +588,7 @@
 
 		 //SPIRIT WATER
 
-		 "water_shadow_hunter"										"Sea Beetle"
+		 "water_shadow_hunter"										"深海甲虫"
 
 		 //SPIRIT WATER
 		 //SPIRIT FIRE
