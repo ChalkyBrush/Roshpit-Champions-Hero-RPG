@@ -1,3 +1,20 @@
+function Weapons:RollLegendWeaponVariantWithAbilityName(abilityName, strictMaxItemLevel, position, disableDrop)
+	if string.match(abilityName, "item_rpc_") then--item_rpc_hydroxis_immortal_weapon_3
+		abilityName = string.gsub(abilityName, "item_rpc_", "")
+		local class = nil
+		if string.match(abilityName, "_immortal_weapon_1") then
+			class = string.gsub(abilityName, "_immortal_weapon_1", "")
+			return Weapons:RollLegendWeapon1(position, class, strictMaxItemLevel, disableDrop)
+		elseif string.match(abilityName, "_immortal_weapon_2") then
+			class = string.gsub(abilityName, "_immortal_weapon_2", "")
+			return Weapons:RollLegendWeapon2(position, class, strictMaxItemLevel, disableDrop)
+		elseif string.match(abilityName, "_immortal_weapon_3") then
+			class = string.gsub(abilityName, "_immortal_weapon_3", "")
+			return Weapons:RollLegendWeapon3(position, class, strictMaxItemLevel, disableDrop)
+		end
+	end
+end
+
 function Weapons:RollRandomLegendWeapon1(deathLocation)
 	local classTable = HerosCustom:GetInternalNameTable()
 	local class = classTable[RandomInt(1, #classTable)]
@@ -34,7 +51,7 @@ function Weapons:RollLegendWeapon3WithDotaName(class, deathLocation)
 	Weapons:RollLegendWeapon3(deathLocation, class)
 end
 
-function Weapons:RollLegendWeapon1(deathLocation, class)
+function Weapons:RollLegendWeapon1(deathLocation, class, strictMaxItemLevel, disableDrop)
 	
 	local maxFactor = RPCItems:GetMaxFactor()
 	local rarityRoll = RandomInt(1, 100+RandomInt(1, maxFactor))
@@ -44,6 +61,12 @@ function Weapons:RollLegendWeapon1(deathLocation, class)
 	local internalName = class
 	local whichHero = HerosCustom:ConvertRPCNameToStringHeroNameSeinaru(class)
 	local rarityFactor = RPCItems:GetRarityFactor(rarity)
+	local disableArena = false
+	if not Beacons.cheats and Arena == nil then
+		Arena = {}
+		Arena.PitLevel = 1
+		disableArena = true
+	end	
 	if Beacons.cheats and Arena == nil then
 		Arena = {}
 		Arena.PitLevel = 7
@@ -80,6 +103,9 @@ function Weapons:RollLegendWeapon1(deathLocation, class)
 		maxLevel = math.max(maxLevel, 45)
 	elseif Arena.PitLevel == 7 then
 		maxLevel = math.max(maxLevel, 47)
+	end
+	if strictMaxItemLevel then
+		maxLevel = strictMaxItemLevel
 	end
 	local propertyTable, baseValueTable, propensityTable, tooltipTable, colorTable = HerosCustom:GetAvailableRunes(whichHero)
 	local specialProperty1 = RandomInt(1, #propensityTable)
@@ -377,9 +403,15 @@ function Weapons:RollLegendWeapon1(deathLocation, class)
 	weapon.property4name = propertyTable[specialProperty2]
 	RPCItems:SetPropertyValues(weapon, weapon.property4, tooltipTable[specialProperty2], colorTable[specialProperty2],  4)
 
-    local drop = CreateItemOnPositionSync( deathLocation, weapon )
-    local position = deathLocation
-    RPCItems:DropItem(weapon, position)
+	if not disableDrop then
+		local drop = CreateItemOnPositionSync( deathLocation, weapon )
+		local position = deathLocation
+		RPCItems:DropItem(weapon, position)
+	end
+	if disableArena then
+		Arena = nil
+	end
+	return weapon
 end
 
 function Weapons:RollInfernalStaff(deathLocation)
@@ -438,7 +470,7 @@ function Weapons:RollInfernalStaff(deathLocation)
     
 end
 
-function Weapons:RollLegendWeapon2(deathLocation, class)
+function Weapons:RollLegendWeapon2(deathLocation, class, strictMaxItemLevel, disableDrop)
 	
 	local maxFactor = RPCItems:GetMaxFactor()
 	local rarityRoll = RandomInt(1, 100+RandomInt(1, maxFactor))
@@ -450,6 +482,9 @@ function Weapons:RollLegendWeapon2(deathLocation, class)
 	local rarityFactor = RPCItems:GetRarityFactor(rarity)
 	local maxLevel = math.min(RPCItems:GetLogarithmicVarianceValue(48, 0, 0, 0, 0), 50)
 	maxLevel = math.max(maxLevel, 50)
+	if strictMaxItemLevel then
+		maxLevel = strictMaxItemLevel
+	end
 	local maxLuck = RandomInt(1,200)
 
 
@@ -756,13 +791,15 @@ function Weapons:RollLegendWeapon2(deathLocation, class)
 	weapon.property4name = propertyTable[specialProperty2]
 	RPCItems:SetPropertyValues(weapon, weapon.property4, tooltipTable[specialProperty2], colorTable[specialProperty2],  4)
 
-    local drop = CreateItemOnPositionSync( deathLocation, weapon )
-    local position = deathLocation
-    RPCItems:DropItem(weapon, position)
-    
+	if not disableDrop then
+		local drop = CreateItemOnPositionSync( deathLocation, weapon )
+		local position = deathLocation
+		RPCItems:DropItem(weapon, position)
+	end
+	return weapon
 end
 
-function Weapons:RollLegendWeapon3(deathLocation, class)
+function Weapons:RollLegendWeapon3(deathLocation, class, strictMaxItemLevel, disableDrop)
 	
 	local maxFactor = RPCItems:GetMaxFactor()
 	local rarityRoll = RandomInt(1, 100+RandomInt(1, maxFactor))
@@ -774,6 +811,9 @@ function Weapons:RollLegendWeapon3(deathLocation, class)
 	local rarityFactor = RPCItems:GetRarityFactor(rarity)
 	local maxLevel = math.min(RPCItems:GetLogarithmicVarianceValue(48, 0, 0, 0, 0), 50)
 	maxLevel = math.max(maxLevel, 50)
+	if strictMaxItemLevel then
+		maxLevel = strictMaxItemLevel
+	end
 	local maxLuck = RandomInt(1,200)
 
 
@@ -1058,8 +1098,10 @@ function Weapons:RollLegendWeapon3(deathLocation, class)
 	weapon.property4name = propertyTable[specialProperty2]
 	RPCItems:SetPropertyValues(weapon, weapon.property4, tooltipTable[specialProperty2], colorTable[specialProperty2],  4)
 
-    local drop = CreateItemOnPositionSync( deathLocation, weapon )
-    local position = deathLocation
-    RPCItems:DropItem(weapon, position)
-    
+	if not disableDrop then
+		local drop = CreateItemOnPositionSync( deathLocation, weapon )
+		local position = deathLocation
+		RPCItems:DropItem(weapon, position)
+	end
+	return weapon
 end

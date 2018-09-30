@@ -573,7 +573,7 @@ function RPCItems:DropGold(item, position)
 	else
 		position = GetGroundPosition(position+RandomVector(RandomInt(50, 160)), nil)
 	end
-	item.expiryTime = Time() + RPCItems:GetExpiryTime(item.rarity)
+	item.expiryTime = Time() + RPCItems:GetExpiryTime(item)
 	 table.insert(GLOBAL_ITEM_TABLE, item)
 	 
 	 if Dungeons.lootLaunch then
@@ -584,21 +584,29 @@ function RPCItems:DropGold(item, position)
 
 end
 
-function RPCItems:GetExpiryTime(rarity)
-	if rarity == "common" or rarity == "uncommon" then
-		return 0
-	elseif rarity == "rare" then
-		return 20
-	elseif rarity == "mythical" then
-		return 60
-	elseif rarity == "immortal" then
-		return 140
-	elseif rarity == "arcana" then
-		return 86400
-	else
-		return 140
+function RPCItems:GetExpiryTime(item)
+	local rarity = item.rarity
+	local baseExpiryTime = 60
+	local aLotExpiryTime = 999999
+	if item.slot and item.slot == "glyph_book" then
+		baseExpiryTime = aLotExpiryTime
 	end
-
+	if item:GetAbilityName() == "item_redfall_glowing_redfall_leaf" then
+		baseExpiryTime = aLotExpiryTime
+	end
+	if rarity == "common" or rarity == "uncommon" then
+		return baseExpiryTime + 0
+	elseif rarity == "rare" then
+		return baseExpiryTime + 20
+	elseif rarity == "mythical" then
+		return baseExpiryTime + 60
+	elseif rarity == "immortal" then
+		return baseExpiryTime + 140
+	elseif rarity == "arcana" then
+		return baseExpiryTime + aLotExpiryTime
+	else
+		return baseExpiryTime + 140
+	end
 end
 
 
@@ -616,7 +624,7 @@ function RPCItems:DropItem(item, position)
 	position = Events.SafeItemEntity:GetAbsOrigin()
 	if determineIfOKdrop(item) then
 		local rarityFactor = RPCItems:GetRarityFactor(item.rarity)
-		item.expiryTime = Time() + RPCItems:GetExpiryTime(item.rarity)
+		item.expiryTime = Time() + RPCItems:GetExpiryTime(item)
 		if rarityFactor > 2 then
 			Timers:CreateTimer(0.5, function()
 				if IsValidEntity(item) then

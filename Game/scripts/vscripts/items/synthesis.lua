@@ -20,6 +20,27 @@ function RPCItems:SynthesisItemPlaced(msg)
 	table.insert(vessel.itemTable, draggedItem)
 end
 
+function RPCItems:GetRealItemLevel(item)
+	local itemLevel = 0
+	if item.minLevel then
+		itemLevel = item.minLevel
+	end
+	if item.property1 and item.property1name and item.property1name == "level_reduce" then
+		itemLevel = itemLevel + item.property1
+	end
+	if item.property2 and item.property2name and item.property2name == "level_reduce" then
+		itemLevel = itemLevel + item.property2
+	end
+	if item.property3 and item.property3name and item.property3name == "level_reduce" then
+		itemLevel = itemLevel + item.property3
+	end
+	if item.property4 and item.property4name and item.property4name == "level_reduce" then
+		itemLevel = itemLevel + item.property4
+	end
+	-- print("GetRealItemLevel "..itemLevel)		
+	return math.max(itemLevel, 1)--min lvl can not be lower than 1
+end
+
 function RPCItems:CombineItems(msg)
 	local hero = EntIndexToHScript(msg.heroIndex)
 	local vessel = EntIndexToHScript(msg.vessel)
@@ -74,13 +95,10 @@ end
 
 function RPCItems:SynthCheckCombination(item1, item2, position)
 	if item1.gear and item2.gear then
-		if item1.slot == 'weapon' or  item2.slot == 'weapon' then
-			return false
-		end
 		if item1.rarity == "arcana" and item2.rarity == "arcana" then
 			local possibilityTable = {item1:GetAbilityName(), item2:GetAbilityName()}
 			local newArcanaName = possibilityTable[RandomInt(1, #possibilityTable)]
-			local minLevelAVG = math.floor((item1.minLevel + item2.minLevel)/2)
+			local minLevelAVG = math.floor((RPCItems:GetRealItemLevel(item1) + RPCItems:GetRealItemLevel(item2))/2)
 			local new_min_level = minLevelAVG
 			new_min_level = math.max(math.min(new_min_level, 100), 3)
 			RPCItems.LevelRoll = new_min_level
@@ -96,20 +114,43 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 				return false
 			end
 		elseif item1.rarity == "immortal" and item2.rarity == "immortal" then
-			local possibilityTable = {item1:GetAbilityName(), item2:GetAbilityName()}
-			local newItemName = possibilityTable[RandomInt(1, #possibilityTable)]
-			local minLevelAVG = math.floor((item1.minLevel + item2.minLevel)/2)
-			local new_min_level = RPCItems:GetImmortalLevelForSynth(minLevelAVG)
-			new_min_level = math.max(math.min(new_min_level, 100), 3)
-			RPCItems.LevelRoll = new_min_level
-			local newItem = RPCItems:RollImmortalByName(newItemName, position)
-			RPCItems.LevelRoll = nil
-			if newItem and IsValidEntity(newItem) then
-	            newItem.pickedUp = true
-	            newItem.minLevel = new_min_level
-	            local itemInfo = CustomNetTables:GetTableValue("item_basics", tostring(newItem:GetEntityIndex()))
-	            CustomNetTables:SetTableValue( "item_basics", tostring(newItem:GetEntityIndex()), {itemName = itemInfo.itemName, consumable = itemInfo.consumable, itemDescription = itemInfo.itemDescription, qualityColor = itemInfo.qualityColor, qualityName = itemInfo.qualityName, itemPrefix = itemInfo.itemPrefix, itemSuffix = itemInfo.itemSuffix, rarityFactor = itemInfo.rarityFactor, minLevel = newItem.minLevel } )
-				return newItem
+			if item1.slot ~= "weapon" and item2.slot ~= "weapon" then
+				local possibilityTable = {item1:GetAbilityName(), item2:GetAbilityName()}
+				local newItemName = possibilityTable[RandomInt(1, #possibilityTable)]
+				local minLevelAVG = math.floor((RPCItems:GetRealItemLevel(item1) + RPCItems:GetRealItemLevel(item2))/2)
+				local new_min_level = RPCItems:GetImmortalLevelForSynth(minLevelAVG)
+				new_min_level = math.max(math.min(new_min_level, 100), 3)
+				RPCItems.LevelRoll = new_min_level
+				local newItem = RPCItems:RollImmortalByName(newItemName, position)
+				RPCItems.LevelRoll = nil
+				if newItem and IsValidEntity(newItem) then
+					newItem.pickedUp = true
+					newItem.minLevel = new_min_level
+					local itemInfo = CustomNetTables:GetTableValue("item_basics", tostring(newItem:GetEntityIndex()))
+					CustomNetTables:SetTableValue( "item_basics", tostring(newItem:GetEntityIndex()), {itemName = itemInfo.itemName, consumable = itemInfo.consumable, itemDescription = itemInfo.itemDescription, qualityColor = itemInfo.qualityColor, qualityName = itemInfo.qualityName, itemPrefix = itemInfo.itemPrefix, itemSuffix = itemInfo.itemSuffix, rarityFactor = itemInfo.rarityFactor, minLevel = newItem.minLevel } )
+					return newItem
+				else
+					return false
+				end
+			elseif item1.slot == "weapon" and item2.slot == "weapon" then
+				local possibilityTable = {item1:GetAbilityName(), item2:GetAbilityName()}
+				local newItemName = possibilityTable[RandomInt(1, #possibilityTable)]
+				local minLevelAVG = math.floor((RPCItems:GetRealItemLevel(item1) + RPCItems:GetRealItemLevel(item2))/2)
+				local new_min_level = 100
+				local maxWeaponLevel = math.floor((item1.maxLevel + item2.maxLevel)/2)
+				maxWeaponLevel = math.min(maxWeaponLevel, 50)
+				RPCItems.LevelRoll = new_min_level				
+				local newItem = Weapons:RollLegendWeaponVariantWithAbilityName(newItemName, maxWeaponLevel, position, true)
+				RPCItems.LevelRoll = nil
+				if newItem and IsValidEntity(newItem) then
+					newItem.pickedUp = true
+					newItem.minLevel = new_min_level
+					-- local itemInfo = CustomNetTables:GetTableValue("item_basics", tostring(newItem:GetEntityIndex()))
+					-- CustomNetTables:SetTableValue( "item_basics", tostring(newItem:GetEntityIndex()), {itemName = itemInfo.itemName, consumable = itemInfo.consumable, itemDescription = itemInfo.itemDescription, qualityColor = itemInfo.qualityColor, qualityName = itemInfo.qualityName, itemPrefix = itemInfo.itemPrefix, itemSuffix = itemInfo.itemSuffix, rarityFactor = itemInfo.rarityFactor, minLevel = newItem.minLevel, maxLevel = newItem.maxLevel, requiredHero = newItem.requiredHero, slot = newItem.slot } )
+					return newItem
+				else
+					return false
+				end
 			else
 				return false
 			end

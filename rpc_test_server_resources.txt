@@ -157,8 +157,7 @@ end
 function ChatDropItems(keys)
   local text = string.lower(keys.text)
   Dungeons.itemLevel = 3000
-  local Units = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, Vector(0, 0, 0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-  local vector = Units[1]:GetAbsOrigin()
+  local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
 
   if string.match(text, "-arcanas") then    
     local timer = 1
@@ -639,8 +638,7 @@ function GameMode:OnPlayerChat(keys)
       boss3:RemoveModifierByName("modifier_disable_player")
     end
     if string.match(text, "-sea") then
-      local Units = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, Vector(0, 0, 0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-      local vector = Units[1]:GetAbsOrigin()
+      local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
       local item = CreateItem("item_debug_blink", nil, nil)
       local drop = CreateItemOnPositionSync( vector, item )
     end
