@@ -263,7 +263,7 @@ function RPCItems:DropGalacticArcanaCachePart(part_name, position)
 	item.property1tooltip = "cache_radiance"
 	RPCItems:SetPropertyValues(item, item.property1, "cache_radiance", item.property1color,  1)
     RPCItems:BasicDropItem(position, item)
-    local validator = WallPhysics:RandomString(15)
+    local validator = RPCItems:GetRandomKey(13)
     print(validator)
     CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()).."-key", {key = validator} )
 end

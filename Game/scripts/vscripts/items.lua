@@ -757,14 +757,14 @@ function RPCItems:SetTableValues(item, itemName, consumableBoolean, description,
 	else
 		CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemName, consumable = consumableBoolean, itemDescription = description, qualityColor = qualityColor, qualityName = qualityName, itemPrefix = prefix, itemSuffix = suffix, rarityFactor = rarityFactor, minLevel = item.minLevel } )
 	end
-	local key = RPCItems:GetRandomKey(10)
+	local key = RPCItems:GetRandomKey(13)
 	CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()).."-key", {key = key} )
 end
 
 function RPCItems:GetRandomKey(length)
 	str = string.gsub(GetSystemDate(), "/", "_").."_"..string.gsub(GetSystemTime(), ":", "_").."_";
 
-	for i = 0, length do
+	for i = 1, length do
 		str = str .. string.char( RandomInt(97,122) );
 	end
 	
