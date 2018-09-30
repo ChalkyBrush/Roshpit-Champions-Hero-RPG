@@ -991,7 +991,7 @@ function mountain_crush_end(event)
 	local caster = event.caster
 	local radius = 320
 	local position = caster:GetAbsOrigin()
-	local splitEarthParticle = "particles/units/heroes/hero_leshrac/astral_rune_r_2.vpcf"
+	local splitEarthParticle = "particles/units/heroes/hero_leshrac/astral_rune_b_d.vpcf"
 	local damage = event.damage
 	local ability = event.ability
 	local pfx = ParticleManager:CreateParticle( splitEarthParticle, PATTACH_CUSTOMORIGIN, caster )
