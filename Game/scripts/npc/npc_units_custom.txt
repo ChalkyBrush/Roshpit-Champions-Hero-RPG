@@ -52574,7 +52574,7 @@
         "HealthBarOffset"   "180"
         "precache"
         {
-            "particle"  "particles/units/heroes/hero_leshrac/astral_rune_r_2.vpcf"
+            "particle"  "particles/units/heroes/hero_leshrac/astral_rune_b_d.vpcf"
             "soundfile"      "soundevents/game_sounds_heroes/game_sounds_magnataur.vsndevts"
         }
         "HasInventory"  "0"
