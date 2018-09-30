@@ -98,7 +98,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_iron_colussus"									"Helm of the Iron Colossus"
 		"item_property_iron_colossus"				"Iron Colossus"	
-		"property_iron_colossus_description"		"Each point of strength increases your damage by @special_property1 and armor by @special_property2 and you grow by 15%. Your attack speed is forced at 100 and ranged attacks become melee. Attacks stun for 0.5 seconds, and deal an additional 50x physical damage. @Ability2 costs 1000 extra mana."
+		"property_iron_colossus_description"		"Each point of strength increases your damage by <% IRON_COLOSSUS_ATT_PER_STR %> and armor by <% IRON_COLOSSUS_AMR_PER_STR %> and you grow by 15%. Your attack speed is forced at <% IRON_COLOSSUS_ATT_SPD %> and your attack range is forced at <% IRON_COLOSSUS_ATT_RNG %>. Attacks stun for 0.5 seconds, and deal an additional <% IRON_COLOSSUS_DMG_PER_ATT %>x physical damage. @Ability2 costs 1000 extra mana."
 		"DOTA_Tooltip_modifier_iron_colossus"					"Iron Colossus"
 		"DOTA_Tooltip_modifier_iron_colossus_description"		"Attacks deal 50x physical damage, stun enemies for 0.5s and size increased. Attack speed locked at 100. Gain bonus damage and armor from strength."
 		
