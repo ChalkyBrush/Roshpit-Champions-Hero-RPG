@@ -157,7 +157,7 @@
     	"property_seinaru_arcana1_description"								"用拔刀斩替换 @Ability1 和它的全部符文。"
 
   		"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1"						"[Q1] 血刃"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_Description"			"普通攻击有20%几率暴击。"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_Description"			"普通攻击有40%几率暴击。"
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_property_one"			"暴击额外伤害"
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_suffix"					"%"
 
