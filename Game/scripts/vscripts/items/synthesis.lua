@@ -135,7 +135,6 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 			elseif item1.slot == "weapon" and item2.slot == "weapon" then
 				local possibilityTable = {item1:GetAbilityName(), item2:GetAbilityName()}
 				local newItemName = possibilityTable[RandomInt(1, #possibilityTable)]
-				local minLevelAVG = math.floor((RPCItems:GetRealItemLevel(item1) + RPCItems:GetRealItemLevel(item2))/2)
 				local new_min_level = 100
 				local maxWeaponLevel = math.floor((item1.maxLevel + item2.maxLevel)/2)
 				maxWeaponLevel = math.min(maxWeaponLevel, 50)
