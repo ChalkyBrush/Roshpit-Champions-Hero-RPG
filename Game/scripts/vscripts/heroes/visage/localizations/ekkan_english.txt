@@ -1,5 +1,6 @@
 		//Abilities
 		"ekkan_corpse"														"Corpse"
+		"ekkan_familiar"													"Gargoyle Sentry"
 		
 		"notification_no_dominion"											"Can not be dominated"
     	"notification_raise_skeleton_fail"									"Must target a corpse"
