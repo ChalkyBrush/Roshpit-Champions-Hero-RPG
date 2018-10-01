@@ -589,10 +589,10 @@ function RPCItems:GetExpiryTime(item)
 	local baseExpiryTime = 60
 	local aLotExpiryTime = 999999
 	if item.slot and item.slot == "glyph_book" then
-		baseExpiryTime = aLotExpiryTime
+		return aLotExpiryTime
 	end
 	if item:GetAbilityName() == "item_redfall_glowing_redfall_leaf" then
-		baseExpiryTime = aLotExpiryTime
+		return aLotExpiryTime
 	end
 	if rarity == "common" or rarity == "uncommon" then
 		return baseExpiryTime + 0
@@ -603,7 +603,7 @@ function RPCItems:GetExpiryTime(item)
 	elseif rarity == "immortal" then
 		return baseExpiryTime + 140
 	elseif rarity == "arcana" then
-		return baseExpiryTime + aLotExpiryTime
+		return aLotExpiryTime
 	else
 		return baseExpiryTime + 140
 	end
