@@ -369,7 +369,7 @@
 
 		"DOTA_Tooltip_ability_redfall_demon_farmer_mark"					"恶魔链接"
 		"DOTA_Tooltip_ability_redfall_demon_farmer_mark_Description"		"恶魔执行者需要0点伤害。当他进行攻击时，目标会获得伤害他一段时间的能力."
-		"DOTA_Tooltip_ability_redfall_demon_farmer_mark_duration"			"DURATION:"
+		"DOTA_Tooltip_ability_redfall_demon_farmer_mark_duration"			"持续时间:"
 
 		"DOTA_Tooltip_modifier_demon_farmer_mark_effect"					"恶魔链接"
 		"DOTA_Tooltip_modifier_demon_farmer_mark_effect_Description"		"能够伤害恶魔执行者"
@@ -403,10 +403,10 @@
 		"DOTA_Tooltip_ability_redfall_massive_arrow"					"绯红色力量射击"
 		"DOTA_Tooltip_ability_redfall_massive_arrow_Description"		"发射强大的红色箭头."
 
-		"DOTA_Tooltip_ability_redfall_farmlands_bandit_ai"				"Quickfoot"
+		"DOTA_Tooltip_ability_redfall_farmlands_bandit_ai"				"疾风步"
 		"DOTA_Tooltip_ability_redfall_farmlands_bandit_ai_Description"	"攻击有25％的机会获得buff，授予100％的闪避和移动速度."
 
-		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai"				"Bane Blood"
+		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai"				"污染之血"
 		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_Description"	"攻击在目标上留下堆叠护甲debuff，同时增加攻击速度和攻击所有者的伤害."
 		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_armor_reduce_per_hit"	"每次击中降低护甲:"
 		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_attack_speed_per_hit"	"每次攻击速度降低:"
