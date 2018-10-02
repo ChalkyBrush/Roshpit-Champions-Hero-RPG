@@ -553,10 +553,10 @@
 		
 		//ARENA TOOLTIPS
 
-		"DOTA_Tooltip_ability_arena_descent_nemesis_passive"					"Great Cleave"
-		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_Description"				"Attacks damage all enemies in an area"
-		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_cleave_percent"				"CLEAVE DAMAGE %:"
-		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_cleave_radius"				"CLEAVE RADIUS:"
+		"DOTA_Tooltip_ability_arena_descent_nemesis_passive"					"巨力挥舞"
+		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_Description"				"攻击对范围内敌人造成分裂伤害"
+		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_cleave_percent"				"分裂伤害 %:"
+		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_cleave_radius"				"分裂范围:"
 
 		"arena_descent_nightmare"												"黑暗来袭"
 
