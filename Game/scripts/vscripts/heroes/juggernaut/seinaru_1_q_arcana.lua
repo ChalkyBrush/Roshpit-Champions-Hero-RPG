@@ -102,7 +102,7 @@ function arcana_dashing_think(event)
 			distance = WallPhysics:GetDistance(ability.targetPoint*Vector(1,1,0), caster:GetAbsOrigin()*Vector(1,1,0))
 		end
 		if distance < 85 then
-			if not caster.bladeTableArcana then
+			if not caster.bladeTableArcana or caster:GetModifierStackCount("modifier_seinaru_flying_sword_buff_visible", caster) == 0 then
 				caster.bladeTableArcana = {}
 			end
 			if ability.targetPoint then

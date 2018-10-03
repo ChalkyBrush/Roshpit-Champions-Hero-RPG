@@ -159,8 +159,10 @@ function reward_activate(category, challengeListPanel, reward){
 	var descripAndGoPanel = $.CreatePanel("Panel", descrip_and_go_container, "descrip_and_go")
 	Game.EmitSound("Tutorial.UI.ChallengeClick")
 	descripAndGoPanel.BLoadLayoutSnippet('reward_and_go')
-
-	descripAndGoPanel.FindChildTraverse('reward_and_go_description_text').text = $.Localize("quest_1_reward_description")
+	$.Msg("OOOOO IMPORTANT OOOO")
+	$.Msg(category["index"])
+	descripAndGoPanel.FindChildTraverse('reward_and_go_description_text').text = $.Localize("quest_"+category["index"]+"_reward_description")
+	descripAndGoPanel.FindChildTraverse('reward_image').SetImage("file://{images}/spellicons/tutorial/reward"+category["index"]+".png")
 	if (reward == 0){
 		descripAndGoPanel.FindChildTraverse('challenge_go_button_text').text = $.Localize("quest_reward_claim")
 		descripAndGoPanel.FindChildTraverse('reward_go_button').SetPanelEvent('onactivate', function Activate() {
@@ -237,8 +239,15 @@ function CallQuizBox(msg){
 	parent.RemoveClass('animateEaseOutClass')
 	parent.RemoveAndDeleteChildren(0)
     var quiz_box = $.CreatePanel("Panel", parent, "quiz")
-    quiz_box.BLoadLayoutSnippet("quiz_box");	
-    quiz_box.FindChildTraverse('quiz_box_question').text = $.Localize(msg.quiz_question).replace('@sub1', "<font color='#7DFF12'>"+msg.gsub1+"</font>")
+    quiz_box.BLoadLayoutSnippet("quiz_box");
+    var quiz_text = $.Localize(msg.quiz_question)
+    if (!(msg.gsub1 === undefined)){
+    	quiz_text = quiz_text.replace('@sub1', "<font color='#7DFF12'>"+ $.Localize(msg.gsub1)+"</font>")
+    }
+    if (!(msg.gsub2 === undefined)){
+    	quiz_text = quiz_text.replace('@sub2', "<font color='#7DFF12'>"+$.Localize(msg.gsub2)+"</font>")
+    }
+    quiz_box.FindChildTraverse('quiz_box_question').text = quiz_text
    	submit_button = parent.FindChildTraverse('quiz_submit_button')
 	submit_button.SetPanelEvent('onactivate', function SubmitQuiz() {
 		setupQuizAnswerSubmit(parent, msg.identifier, msg.sequence, msg.verifier, msg.localize_verifier, msg.challenge_progress)
@@ -259,7 +268,7 @@ function setupQuizAnswerSubmit(parent, identifier, sequence, verifier, bLocalize
 		verifier = $.Localize(verifier).toLowerCase()
 		input = input.toLowerCase()
 	}
-	GameEvents.SendCustomGameEventToServer( "tutorial", {hero: hero, code: "submit_quiz", challenge_index: identifier, sequence: sequence, verifier: verifier, answer: input, challenge_progress: challenge_progress} );	
+	GameEvents.SendCustomGameEventToServer( "tutorial", {hero: hero, code: "submit_quiz", challenge_index: identifier, sequence: sequence, verifier: verifier, answer: input, challenge_progress: parseInt(challenge_progress)} );	
 }
 
 function close_quiz()

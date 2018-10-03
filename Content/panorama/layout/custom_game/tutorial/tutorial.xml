@@ -110,7 +110,6 @@
 
 	<Panel class="tutorial_content" hittest="false">
 		<Panel id="tutorial_container" hittest="false">
-
 		</Panel>
 		<Panel id="tutorial_challenge_summary_container" hittest="false">
 		</Panel>

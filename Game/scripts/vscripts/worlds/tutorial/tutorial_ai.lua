@@ -104,6 +104,7 @@ function portal1enter(trigger)
 	if Tutorial.PortalActive then
 		Events:TeleportUnit(hero, Vector(620, 1588), Events.GameMaster.portal, Events.GameMaster, 1.2)
 	end
+
 end
 
 function portal2enter(trigger)

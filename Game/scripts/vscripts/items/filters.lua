@@ -3787,38 +3787,40 @@ function Filters:ShatterArcaneShell(victim, attacker)
         victim:RemoveModifierByName("modifier_arcane_shell")
         CustomAbilities:QuickAttachParticle("particles/roshpit/sorceress/shield_shatter.vpcf", victim, 1.2)
     end
-    
-    EmitSoundOn("Sorceress.ArcaneShellZap", attacker)
-    local w_1_level =  Runes:GetTotalRuneLevel(victim, 1, "w_1", "sorceress")
-    local damage = 0.2*w_1_level*victim:GetIntellect()
-    Filters:TakeArgumentsAndApplyDamage(attacker, victim, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
+    if victim:GetTeamNumber() == attacker:GetTeamNumber() then
+	else
+		EmitSoundOn("Sorceress.ArcaneShellZap", attacker)
+		local w_1_level =  Runes:GetTotalRuneLevel(victim, 1, "w_1", "sorceress")
+		local damage = 0.2*w_1_level*victim:GetIntellect()
+		Filters:TakeArgumentsAndApplyDamage(attacker, victim, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
 
-    local particleName = "particles/roshpit/sorceress_arcane_shield_blast.vpcf"
-    local pfx = ParticleManager:CreateParticle( particleName, PATTACH_POINT, victim )
-    ParticleManager:SetParticleControlEnt(pfx, 0, victim, PATTACH_POINT, "attach_hitloc", victim:GetAbsOrigin(), true)
-    ParticleManager:SetParticleControlEnt(pfx, 1, attacker, PATTACH_POINT, "attach_hitloc", attacker:GetAbsOrigin(), true)
-    Timers:CreateTimer(0.5, function() 
-      ParticleManager:DestroyParticle( pfx, false )
-    end)  
+		local particleName = "particles/roshpit/sorceress_arcane_shield_blast.vpcf"
+		local pfx = ParticleManager:CreateParticle( particleName, PATTACH_POINT, victim )
+		ParticleManager:SetParticleControlEnt(pfx, 0, victim, PATTACH_POINT, "attach_hitloc", victim:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControlEnt(pfx, 1, attacker, PATTACH_POINT, "attach_hitloc", attacker:GetAbsOrigin(), true)
+		Timers:CreateTimer(0.5, function() 
+		  ParticleManager:DestroyParticle( pfx, false )
+		end)  
 
-    local arcaneExplosionAbility = victim:FindAbilityByName("arcane_explosion")
-    if not arcaneExplosionAbility then
-        arcaneExplosionAbility = victim:FindAbilityByName("arcane_torrent")
-    end
-    if arcaneExplosionAbility then
-        local ability = arcaneExplosionAbility
-        local caster = victim
-        local target = attacker
-        local w_2_level = Runes:GetTotalRuneLevel(victim, 2, "w_2", "sorceress")
-        if w_2_level > 0 then
-            -- local arcane_explosion = caster:FindAbilityByName("arcane_explosion")
-            ability:ApplyDataDrivenModifier(caster, target, "modifier_sorceress_rune_w_2_invisible", {duration = 9})
-            ability:ApplyDataDrivenModifier(caster, target, "modifier_sorceress_rune_w_2", {duration = 9})
-            local newStacks = math.min(target:GetModifierStackCount("modifier_sorceress_rune_w_2", caster) + 1, 10)
-            target:SetModifierStackCount("modifier_sorceress_rune_w_2", ability, newStacks )
-            target:SetModifierStackCount("modifier_sorceress_rune_w_2_invisible", ability, newStacks*w_2_level )
-        end
-    end      
+		local arcaneExplosionAbility = victim:FindAbilityByName("arcane_explosion")
+		if not arcaneExplosionAbility then
+			arcaneExplosionAbility = victim:FindAbilityByName("arcane_torrent")
+		end
+		if arcaneExplosionAbility then
+			local ability = arcaneExplosionAbility
+			local caster = victim
+			local target = attacker
+			local w_2_level = Runes:GetTotalRuneLevel(victim, 2, "w_2", "sorceress")
+			if w_2_level > 0 then
+				-- local arcane_explosion = caster:FindAbilityByName("arcane_explosion")
+				ability:ApplyDataDrivenModifier(caster, target, "modifier_sorceress_rune_w_2_invisible", {duration = 9})
+				ability:ApplyDataDrivenModifier(caster, target, "modifier_sorceress_rune_w_2", {duration = 9})
+				local newStacks = math.min(target:GetModifierStackCount("modifier_sorceress_rune_w_2", caster) + 1, 10)
+				target:SetModifierStackCount("modifier_sorceress_rune_w_2", ability, newStacks )
+				target:SetModifierStackCount("modifier_sorceress_rune_w_2_invisible", ability, newStacks*w_2_level )
+			end
+		end      
+	end
 end
 
 function Filters:MysticWaterShield(victim)
@@ -3865,20 +3867,22 @@ function Filters:ShatterPaladinShell(victim, attacker)
     else
         victim:RemoveModifierByName("modifier_paladin_q3_shield")
     end
+	if victim:GetTeamNumber() == attacker:GetTeamNumber() then
+	else
+		EmitSoundOn("Paladin.AegisZap", attacker)
+		local q_3_level =  victim:GetRuneValue("q", 3)
+		local damage = PALADIN_Q3_DMG_PER_STR * q_3_level * victim:GetStrength()
+		Filters:TakeArgumentsAndApplyDamage(attacker, victim, damage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 
-    EmitSoundOn("Paladin.AegisZap", attacker)
-    local q_3_level =  victim:GetRuneValue("q", 3)
-    local damage = PALADIN_Q3_DMG_PER_STR * q_3_level * victim:GetStrength()
-    Filters:TakeArgumentsAndApplyDamage(attacker, victim, damage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 
-
-    local particleName = "particles/roshpit/paladin_aegis_zap.vpcf"
-    local pfx = ParticleManager:CreateParticle( particleName, PATTACH_POINT, victim )
-    ParticleManager:SetParticleControlEnt(pfx, 0, victim, PATTACH_POINT, "attach_hitloc", victim:GetAbsOrigin(), true)
-    ParticleManager:SetParticleControlEnt(pfx, 1, attacker, PATTACH_POINT, "attach_hitloc", attacker:GetAbsOrigin(), true)
-    Timers:CreateTimer(0.5, function() 
-      ParticleManager:DestroyParticle( pfx, false )
-    end)        
+		local particleName = "particles/roshpit/paladin_aegis_zap.vpcf"
+		local pfx = ParticleManager:CreateParticle( particleName, PATTACH_POINT, victim )
+		ParticleManager:SetParticleControlEnt(pfx, 0, victim, PATTACH_POINT, "attach_hitloc", victim:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControlEnt(pfx, 1, attacker, PATTACH_POINT, "attach_hitloc", attacker:GetAbsOrigin(), true)
+		Timers:CreateTimer(0.5, function() 
+		  ParticleManager:DestroyParticle( pfx, false )
+		end)        
+	end
 end
 
 function Filters:ShatterVoltexShell(victim, attacker)
@@ -3888,19 +3892,21 @@ function Filters:ShatterVoltexShell(victim, attacker)
     else
         victim:RemoveModifierByName("modifier_voltex_rune_w_3_shield")
     end
+	if victim:GetTeamNumber() == attacker:GetTeamNumber() then
+	else
+		EmitSoundOn("Voltex.IonShellZap", attacker)
+		local w_3_level =  victim:GetRuneValue("w", 3)
+		local damage = VOLTEX_W3_DMG_PER_AGI * w_3_level*victim:GetAgility()
+		Filters:TakeArgumentsAndApplyDamage(attacker, victim, damage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 
-    EmitSoundOn("Voltex.IonShellZap", attacker)
-    local w_3_level =  victim:GetRuneValue("w", 3)
-    local damage = VOLTEX_W3_DMG_PER_AGI * w_3_level*victim:GetAgility()
-    Filters:TakeArgumentsAndApplyDamage(attacker, victim, damage, DAMAGE_TYPE_MAGICAL, 0, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
-
-    local particleName = "particles/roshpit/voltex_shell_zap.vpcf"
-    local pfx = ParticleManager:CreateParticle( particleName, PATTACH_POINT, victim )
-    ParticleManager:SetParticleControlEnt(pfx, 0, victim, PATTACH_POINT, "attach_hitloc", victim:GetAbsOrigin(), true)
-    ParticleManager:SetParticleControlEnt(pfx, 1, attacker, PATTACH_POINT, "attach_hitloc", attacker:GetAbsOrigin(), true)
-    Timers:CreateTimer(0.5, function() 
-      ParticleManager:DestroyParticle( pfx, false )
-    end)        
+		local particleName = "particles/roshpit/voltex_shell_zap.vpcf"
+		local pfx = ParticleManager:CreateParticle( particleName, PATTACH_POINT, victim )
+		ParticleManager:SetParticleControlEnt(pfx, 0, victim, PATTACH_POINT, "attach_hitloc", victim:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControlEnt(pfx, 1, attacker, PATTACH_POINT, "attach_hitloc", attacker:GetAbsOrigin(), true)
+		Timers:CreateTimer(0.5, function() 
+		  ParticleManager:DestroyParticle( pfx, false )
+		end)        
+	end
 end
 
 function Filters:WarlordTakeMagicDamage(warlord)

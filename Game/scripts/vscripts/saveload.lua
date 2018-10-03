@@ -225,6 +225,7 @@ function SaveLoad:SaveCharacter(msg)
 			end
 			Weapons:ValidateGear(hero)
 			CustomGameEventManager:Send_ServerToPlayer(player, "save_characters_loaded", {result=resultTable, message="save_success", heroSlot=hero.saveSlot, premium=premium} )
+			Events:TutorialServerEvent(hero, "2_3", 0)
 			Statistics.dispatch('hero:oracle:save')
 		end )
 	end	
