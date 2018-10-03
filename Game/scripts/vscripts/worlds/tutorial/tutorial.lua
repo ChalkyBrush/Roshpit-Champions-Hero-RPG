@@ -17,7 +17,6 @@ function Tutorial:InitTutorialMap()
       local blacksmith = Events:SpawnTownNPC(Vector(-1995, -3412), "red_fox", Vector(1, 0.8), "models/props_gameplay/shopkeeper_fountain/shopkeeper_fountain.vmdl", nil, nil, 1.1, false, "blacksmith")
       StartAnimation(blacksmith, {duration=99999, activity=ACT_DOTA_IDLE, rate=1.0})
       Tutorial.Blacksmith = blacksmith
-      local oracle = Events:SpawnOracle(Vector(-2842, -1943), Vector(-0.3, -1))
       Events.GlyphEnchanter = Events:SpawnGlyphEnchanter(Vector(-1537, -1547), Vector(-0.2, -1))
       Events:SpawnCurator(Vector(-320, -1472), Vector(0,-1))
   end)
@@ -29,6 +28,17 @@ function Tutorial:InitTutorialMap()
   Tutorial:BlacksmithSounds()
 
   Tutorial:SpawnTutorialMaster(Vector(-64, 2176))
+end
+
+function Tutorial:SpawnOracle()
+	Tutorial.OracleSpawned = true
+	local oracle = Events:SpawnOracle(Vector(-2842, -1943), Vector(-0.3, -1))
+end
+
+function Tutorial:SpawnAllTownNPCs()
+	if not Tutorial.OracleSpawned then
+		Tutorial:SpawnOracle()
+	end
 end
 
 function Tutorial:SpawnTrainingDummies()
@@ -116,6 +126,9 @@ function Tutorial:LoadTutorialDataForHero(hero, resultTable)
 	hero.tutorial.section2.progress = resultTable.progress2
 	hero.tutorial.section2.state = 0
 	hero.tutorial.section2.reward = resultTable.reward2
+	if hero.tutorial.section2.reward == 1 then
+		Tutorial:SpawnAllTownNPCs()
+	end
 	hero.tutorial.section3 = {}
 	hero.tutorial.section3.progress = resultTable.progress3
 	hero.tutorial.section3.state = 0
@@ -532,6 +545,7 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 			hero:AddExperience(1000, 0, false, true)
 		end
 		Timers:CreateTimer(5, function()
+			Tutorial:SpawnOracle()
 			if speech_phase == hero.tutorial_speech_phase then
 				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_2_3b", 5, false)
 				Timers:CreateTimer(5, function()
@@ -805,13 +819,13 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 			if code2 == 0 and hero.active_challenge_progress == code2 then
 				hero.tutorial_speech_phase = hero.tutorial_speech_phase + 1
 				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_2_3e", 5, false)
-				hero.master_is_talking = false
 				Timers:CreateTimer(2, function()
 					EmitSoundOn("Tutorial.Master.GreetingBasic", hero)
 				end)
 				hero.active_challenge_progress = hero.active_challenge_progress + 1
 				local speech_phase = hero.tutorial_speech_phase
 				Timers:CreateTimer(5, function()
+					hero.master_is_talking = false
 					if speech_phase == hero.tutorial_speech_phase then
 						Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_2_3f", 5, false)
 					end
@@ -950,6 +964,8 @@ function Tutorial:UpdateRewardProgressOnWeb(hero, section_index)
 			Tutorial:LoadTutorialDataForHero(hero, resultTable)
 			if section_index == 1 then
 				Tutorial:ActivatePortal(true)
+			elseif section_index == 2 then
+				Tutorial:SpawnAllTownNPCs()
 			end
 		end
 	end )
