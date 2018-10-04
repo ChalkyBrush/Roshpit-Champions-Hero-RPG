@@ -992,6 +992,9 @@ function Tutorial:SubmitQuiz(msg)
 			msg.verifier = Tutorial:RemoveRunePrefix(msg.verifier)
 		end
 		local correct_answer = tonumber(msg.verifier) == tonumber(msg.answer)
+		if hero.tutorial.active_challenge == "3_1" then
+			correct_answer = string.match(string.lower(msg.verifier), string.lower(msg.answer))
+		end
 		print(msg.challenge_index)
 		print(msg.verifier)
 		print(msg.answer)
