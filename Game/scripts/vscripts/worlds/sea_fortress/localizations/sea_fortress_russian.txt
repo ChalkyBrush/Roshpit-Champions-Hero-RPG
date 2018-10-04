@@ -721,3 +721,5 @@
 
 		"sea_fortress_paladin_golem"									"Пустотелый"
 		"seafortress_archon_wizard"										"Верховный маг"
+		
+		"seafortress_wandering_pirate"									"Wandering Pirate"

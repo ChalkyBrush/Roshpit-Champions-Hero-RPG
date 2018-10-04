@@ -11231,9 +11231,9 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_iron_colussus"									"Helm of the Iron Colossus"
 		"item_property_iron_colossus"				"Iron Colossus"	
-		"property_iron_colossus_description"		"Каждое очко силы увеличивает урон на @special_property1 и броню на @special_property2, герой вырастает на 15%. Скорость атаки заблокирована на значении 100, а все дальние атаки станут ближними. Атаки оглушают врагов на 0.5 секунды и дополнительно наносят 50х физического урона. (W) @Ability2 стоит на 1000 маны дороже."
+		"property_iron_colossus_description"		"Каждое очко Силы увеличивает базовую атаку на <font color='#ccff66'>10</font>, а броню на <font color='#ccff66'>0.5</font> и герой становится больше на 15%. Скорость атаки фиксируется на <font color='#ccff66'>120</font>, а радиус атаки на <font color='#ccff66'>180</font>. Стандартые атаки оглушают противников на 0.5 секунды, и наносят дополнительно <font color='#ccff66'>50</font>x физическим уроном. @Ability2 стоит на 1000 маны больше."
 		"DOTA_Tooltip_modifier_iron_colossus"					"Iron Colossus"
-		"DOTA_Tooltip_modifier_iron_colossus_description"		"К атакам добавляется 50х физического урона, атаки оглушают врагов на 0.5 секунды. Скорость атаки заблокирована на значении 100. Урон и броня увеличены в зависимости от Силы героя."
+		"DOTA_Tooltip_modifier_iron_colossus_description"		"К атакам добавляется 50х физического урона, атаки оглушают врагов на 0.5 секунды. Скорость атаки заблокирована на значении 120. Урон и броня увеличены в зависимости от Силы героя."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_mugato"									"Mask of Mugato"
@@ -11709,8 +11709,8 @@
 		"DOTA_Tooltip_ability_item_rpc_fuchsia_ring"									"Fuchsia Ring"
 		"item_property_fuchsia_ring"							"Solidarity"
 		"property_fuchsia_ring_description"					"В то время, пока герой подвержен эффекту оглушения или обезмолвлен, весь входящий урон снижается на @special_property1%, а регенерация здоровья увеличивается на @special_property2% от значения максимального здоровья."
-		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"Получаемый урон снижен на %property_one%%, а регенерация здоровья увеличена на %property_two%% от макс. здоровья."
-		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"Получаемый урон снижен на %property_one%%, а регенерация здоровья увеличена на %property_two%% от макс. здоровья."
+		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"Получаемый урон снижен на 85%, а регенерация здоровья увеличена на 45% от макс. здоровья."
+		
 		 
 		 
 		 
@@ -14402,6 +14402,8 @@
 
 		"sea_fortress_paladin_golem"									"Пустотелый"
 		"seafortress_archon_wizard"										"Верховный маг"
+		
+		"seafortress_wandering_pirate"									"Wandering Pirate"
 
 		"serengaard_vote_skip_wave"										"Пропустить ожидание"
 		
@@ -14571,6 +14573,25 @@
 		"DOTA_Tooltip_ability_serengaard_midnight_pulse"				"Midnight Pulse"
 		"DOTA_Tooltip_ability_serengaard_midnight_pulse_Description"	"Проклинает выбранную область проникающей тьмой, которая ежесекундно наносит урон в размере % от максимального здоровья цели."
 		"DOTA_Tooltip_ability_serengaard_midnight_pulse_damage_percent"			"ЕЖЕСЕКУНДНЫЙ УРОН, % ОТ МАКС. ЗДОРОВЬЯ:"
+		
+		"npc_dota_creature_desert_zombie"   	 "Parched Zombie"
+        "goremaw_brute"							 "Goremaw Brute"
+        "goremaw_shaman"  						 "Goremaw Shaman"
+        "mine_zombie"   						 "Mine Zombie"
+        "citre_spiderling"						"Citrine Spiderling"
+        "amber_spiderling"   					 "Amber Spiderling"
+        "serengaard_baron_razor"   				 "Baron von Blitz"
+        "mini_mines_boss"   					 "Lightning Illusion"
+        "serengaard_geosidic"  					  "Outerdark Construct"
+        "serengaard_mini_enigma"  				  "Creeping Shade"
+        "serengaard_engima_raider"  			  "Enigma Raider"
+        "serengaard_snowball_thrower"   		 "Snowball Thrower"
+        "serengaard_ice_shard_thrower"  		  "Hailstone Thrower"
+        "serengaard_gazbin_mercenary"  			 "Mongrelman"
+        "serengaard_shredder_max"   			 "Shredder"
+        "serengaard_nightmare_raider" 		   "Nightmare Raider"
+        "serengaard_night_invader"   			 "Nightscape Invader"
+        "phoenix_siege_dragon"  				  "Siege Drake"
 
 		//---------------------------
 		// Tanari Jungle

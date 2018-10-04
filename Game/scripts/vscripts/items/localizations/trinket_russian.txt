@@ -197,8 +197,8 @@
 		"DOTA_Tooltip_ability_item_rpc_fuchsia_ring"									"Fuchsia Ring"
 		"item_property_fuchsia_ring"							"Solidarity"
 		"property_fuchsia_ring_description"					"В то время, пока герой подвержен эффекту оглушения или обезмолвлен, весь входящий урон снижается на @special_property1%, а регенерация здоровья увеличивается на @special_property2% от значения максимального здоровья."
-		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"Получаемый урон снижен на %property_one%%, а регенерация здоровья увеличена на %property_two%% от макс. здоровья."
-		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"Получаемый урон снижен на %property_one%%, а регенерация здоровья увеличена на %property_two%% от макс. здоровья."
+		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"Получаемый урон снижен на 85%, а регенерация здоровья увеличена на 45% от макс. здоровья."
+		
 		 
 		 
 		 

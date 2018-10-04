@@ -159,8 +159,10 @@ function reward_activate(category, challengeListPanel, reward){
 	var descripAndGoPanel = $.CreatePanel("Panel", descrip_and_go_container, "descrip_and_go")
 	Game.EmitSound("Tutorial.UI.ChallengeClick")
 	descripAndGoPanel.BLoadLayoutSnippet('reward_and_go')
-
-	descripAndGoPanel.FindChildTraverse('reward_and_go_description_text').text = $.Localize("quest_1_reward_description")
+	$.Msg("OOOOO IMPORTANT OOOO")
+	$.Msg(category["index"])
+	descripAndGoPanel.FindChildTraverse('reward_and_go_description_text').text = $.Localize("quest_"+category["index"]+"_reward_description")
+	descripAndGoPanel.FindChildTraverse('reward_image').SetImage("file://{images}/spellicons/tutorial/reward"+category["index"]+".png")
 	if (reward == 0){
 		descripAndGoPanel.FindChildTraverse('challenge_go_button_text').text = $.Localize("quest_reward_claim")
 		descripAndGoPanel.FindChildTraverse('reward_go_button').SetPanelEvent('onactivate', function Activate() {

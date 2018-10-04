@@ -238,7 +238,7 @@
 		"wind_temple_wind_high_priest"									"高阶风之祭司"
 
 		"DOTA_Tooltip_ability_wind_temple_revitalizing_winds"			"复苏之风"
-		"DOTA_Tooltip_ability_wind_temple_revitalizing_winds_Description"	"The Priest continues the cycle of rebirth with ancient winds."	
+		"DOTA_Tooltip_ability_wind_temple_revitalizing_winds_Description"	"在远古之风中，祭祀持续着重生的循环。"	
 
 		"wind_temple_boss"												"被腐化的风之女神"
 
@@ -443,8 +443,8 @@
 		 "DOTA_Tooltip_ability_water_temple_prison_shank_agility_mult"		"基于敏捷的伤害倍数:"
 		 "DOTA_Tooltip_ability_water_temple_prison_shank_strength_loss"		"力量降低:"
 
-		 "DOTA_Tooltip_modifier_prison_shank_effect"						"Sea Shank"
-		 "DOTA_Tooltip_modifier_prison_shank_effect_Description"			"Losing Attributes"	
+		 "DOTA_Tooltip_modifier_prison_shank_effect"						"深海剃刀"
+		 "DOTA_Tooltip_modifier_prison_shank_effect_Description"			"降低属性。"	
 
 		 "DOTA_Tooltip_ability_executioner_culling_blade"					"斩杀"
 		 "DOTA_Tooltip_ability_executioner_culling_blade_Description"		"瞬间击杀目标生命值百分比过低的英雄."	
@@ -588,7 +588,7 @@
 
 		 //SPIRIT WATER
 
-		 "water_shadow_hunter"										"Sea Beetle"
+		 "water_shadow_hunter"										"深海甲虫"
 
 		 //SPIRIT WATER
 		 //SPIRIT FIRE
@@ -1026,3 +1026,126 @@
 		"wind_temple_descendant_of_zeus"								"宙斯后裔"
 
 		"tanari_thicket_ursa"											"塔纳利棕熊"
+		
+		"tanari_ancient_hero"                                                                           "上古之神"
+		"DOTA_Tooltip_ability_ancient_god_wind_blink_ability"                        "风之闪烁"
+		"DOTA_Tooltip_ability_ancient_god_wind_blink_ability_Description"            "没有限制的位移技能。"
+		
+		"DOTA_Tooltip_ability_ancient_god_wind_dodge_ability"                        "狂风急速"
+		"DOTA_Tooltip_ability_ancient_god_wind_dodge_ability"                        "强机动性。"
+		
+		"DOTA_Tooltip_ability_ancient_god_water_vortex"                              "漩涡"
+		"DOTA_Tooltip_ability_ancient_god_water_vortex_Description"                  "将范围内的所有敌人拉向上古之神。"
+		
+		"DOTA_Tooltip_ability_tanari_ancient_hero_wind_god"                                 "风神"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_wind_god_Description"                     "风之神力使上古之神免疫魔法和纯粹伤害。"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_wind_god_attack_speed"                    "攻击速度:"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_wind_god_movespeed"                       "移动速度:"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_wind_god_evasion"                         "闪避:"
+		
+		"DOTA_Tooltip_ability_ancient_god_steadfast"                                        "远古坚定"
+		"DOTA_Tooltip_ability_ancient_god_steadfast_Description"                            "每次伤害不能超过最大生命值的一定百分比"
+		"DOTA_Tooltip_ability_ancient_god_steadfast_max_damage"                             "最大生命值%:"
+		
+		"DOTA_Tooltip_ability_ancient_god_dragon_slave"                                     "火焰浪潮"
+		"DOTA_Tooltip_ability_ancient_god_dragon_slave_Description"                         "向前方释放出一条燃烧的火龙，对一直线上的敌人造成伤害。"
+		
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_vortex"                              "火焰漩涡"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_vortex_Description"                  "上古之神持续向四周放出火焰，对周围敌人造成伤害，并且对被火焰击中的敌人施加一个灼烧debuff，对其造成持续性伤害。"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_vortex_impact_damage"                "伤害:"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_vortex_burn_damage"                  "灼烧伤害/0.5秒"
+		
+	        "DOTA_Tooltip_ability_tanari_ancient_hero_fire_god"                                 "火神"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_god_Description"                     "火之神力使上古之神免疫物理和纯粹伤害。"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_god_attack_damage_percent"           "攻击力%:"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_god_attack_range"                    "攻击距离:"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_god_armor_break"                     "减甲:"
+		
+		"DOTA_Tooltip_modifier_fire_god_armor_break"                                        "火神减甲"
+		"DOTA_Tooltip_modifier_fire_god_armor_break_Description"                            "护甲被大量减少"
+		
+		"DOTA_Tooltip_ability_tanari_ancient_hero_water_god"                                "水神"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_water_god_Description"                    "水之神力使上古之神免疫物理和魔法伤害。"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_water_god_hp_regen_percent"               "生命回复%"
+		
+		"DOTA_Tooltip_ability_ancient_water_god_passive"                                    "波浪爆发"
+		"DOTA_Tooltip_ability_ancient_water_god_passive_Description"                        "上古之神向周围放出破坏性水波。"
+		
+		"easy_kobold"                          "哥布林考古学者"
+		"tanari_shrine_growth"                 "圣坛之花"
+		"tanari_ambusher"                      "伏击者"
+		"tanari_river_slug"                    "河道蛞蝓"
+		"tanari_mountain_giant"                "山岭巨人"
+		"tanari_mountain_trogg"                "山岭穴居者"
+		"tanari_wild_troll"                    "狂野巨魔"
+		"tanari_waiter_troll"                  "水之巨魔"
+		"tanari_water_troll_big"               "长者水之巨魔"
+		"tanari_crag_lizard"                   "悬崖监视者"
+		"tanari_bongo_frog"                    "混合大师鼓手青蛙"
+		"big_mud"                              "泥"
+		"med_mud"                              "泥"
+		"little_mud"                           "泥"
+		"tanari_hero_remnant"                  "瀑布鬼魂"
+		
+		"wind_temple_wind_mage"                "空中法师"
+		"wind_temple_emerald_spider"           "翡翠蜘蛛"
+		"wind_temple_venom_spidier"            "毒牙狼蛛"			
+		"wind_temple_boss_staff"               "冲击法杖"
+		
+		"DOTA_Tooltip_ability_wind_spirit_tornado_2"    "飓风"
+		"DOTA_Tooltip_ability_wind_spirit_tornado_2_Description"    "向敌人释放毁灭性的风之漩涡。"
+		
+		"cave_stalker"                          "洞穴追踪者"
+		"boulderspine_dimension_jumper"         "空中跳跃者"
+		"boulderspine_dimension_warper"         "空中折跃者"
+		"boulderspine_freeze_fiend"             "冻结恶魔"
+		"boulderspine_ancient_golem"            "上古傀儡"
+		"boulderspine_rock_golem"               "岩石傀儡"
+		"boulderspine_terror"                   "山脊的恐怖"
+		"boulderspine_baron_razor"              "空中追踪者"
+		"boulderspine_obsidian_cave_beast"      "山洞野兽"
+		"boulderspine_mud_golem"                "泥泞傀儡"
+		"boulderspine_firebat"                  "地狱蝙蝠"
+		
+                "DOTA_Tooltip_ability_knockback_immunity"        "击退免疫"
+		"DOTA_Tooltip_ability_knockback_immunity_Descrpition"       "不能被击退。"
+		
+		"DOTA_Tooltip_ability_tanari_slithereen_crush"          "鱼人碎击"
+		"DOTA_Tooltip_ability_tanari_slithereen_crush_Description"  "对施法者附近的敌人造成伤害并且眩晕敌人。"
+		
+		"water_temple_keyholder"                         "深海住民"
+	        "DOTA_Tooltip_ability_water_temple_keyholder_ai"  "深海住民"
+		"DOTA_Tooltip_ability_water_temple_keyholder_ai_description"  "水之贵妇"
+		
+		"water_temple_beach_hermit"                     "沙滩隐居者"
+		"water_temple_tentacle_switch"                  "触手拼图机关开关"
+		"water_temple_regulaer_jellyfish"               "水母"
+		"water_temple_prison_guard"                     "狱卒"
+		"water_temple_excutioner"                       "神殿处刑者"
+		
+		"water_temple_emperor_elemental"                "巨大水元素"
+		
+		"redfall_ancient_water_spirit"                  "远古水之精灵"
+		
+		"terrasic_volcanic_legion"                      "火山士兵"
+		"terrasic_black_drake"                          "灰烬之舌 黑蜉蝣"
+		"terrasic_black_dragon"                         "灰烬之舌 守望者"
+		"tanari_molten_walker"                          "熔岩行者"
+		"volcanic_ash"                                  "火山灰烬"
+		"terrasic_red_warlock"                          "红雾地狱住民"
+		"terrasic_red_mist_conqueror"                   "红雾征服者"
+		"terrasic_lava_summon"                          "熔岩召唤物"
+		"terrasic_warlock_summon"                       "地狱住民的奴隶"
+		"terrasic_fire_key_holder"                      "火山之魂"
+		"blackground_cultist"                           "灰暗之地崇拜者"
+		"fire_temple_volcano_dragon"                    "火焰蜉蝣"
+		"fire_temple_passage_skeleton"                  "地底之物"
+                "DOTA_Tooltip_ability_yojimbo_fire_remnant"     "守卫"
+		"DOTA_Tooltip_ability_yojimbo_fire_remenat_Description"        "灰烬之魂的信徒"
+		"fire_temple_rare_lava_forgemaster"             "熔岩之形"
+		"DOTA_Tooltip_ability_fire_temple_conflagrating_carapace"          "灼热外壳"
+		"DOTA_Tooltip_ability_fire_temple_conflagrating_carapace_Description" "在受到伤害后向对自己造成伤害的目标方向发射火球。"
+		"fire_temple_dimension_seeker"                                     "空中盗贼"
+		"fire_temple_sky_guardian"                                         "天空守卫"
+		"fire_temple_fireling"                                             "菲尔琳"
+		"fire_temple_skeleton_archer"                                      "骷髅弓箭手"

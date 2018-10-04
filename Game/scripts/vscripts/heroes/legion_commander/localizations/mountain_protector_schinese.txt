@@ -194,7 +194,7 @@
     	"DOTA_Tooltip_modifier_hailstorm_strength_Description"							"在霜雪风暴中山丘守卫提高力量值"	
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_r_2_arcana2"						"[R2] 冰封"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_2_arcana2_Description"			"当受到致命伤害时，山丘守卫将被冰封，免疫全部伤害，持续6秒。在冰封状态下不能攻击，只能施放冲击波，并且生命与魔法回复速度提高100%。技能冷却时间15秒或者是4倍冻结持续时间。在冻结结束后，在@constant1范围内的敌人将被眩晕"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_2_arcana2_Description"			"当受到致命伤害时，山丘守卫将被冰封，免疫全部伤害，持续6秒。在冰封状态下不能攻击，只能施放冲击波，并且生命与魔法回复速度提高100%。技能冷却时间15秒或者是4倍冻结持续时间,取较长的一个。在冻结结束后，在@constant1范围内的敌人将被眩晕"
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_2_arcana2_property_one"			"冻结持续时间"
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_2_arcana2_suffix"				"秒"
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_2_arcana2_property_two"			"眩晕持续时间"
