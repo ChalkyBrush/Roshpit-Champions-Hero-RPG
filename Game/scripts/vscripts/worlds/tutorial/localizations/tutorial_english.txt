@@ -231,7 +231,7 @@
 	"tutorial_quiz_question_7_sub_answer1"								"2nd most rare"
 	"tutorial_quiz_question_7_sub_answer2"								"rarest"
 
-	"tutorial_quiz_wrong_3_1_3"											"Oh no that is incorrect. Try again."
+	"tutorial_quiz_wrong_3_1_3"											"Oh no, that is incorrect. Try again."
 	"tutorial_quiz_wrong_3_1_4"											"If you listened to my lecture, this would not be difficult..."
 
 	"tutorial_master_dialogue_3_1m"										"That's right! I think you understand enough about equipment for now. We will end this lesson here."
