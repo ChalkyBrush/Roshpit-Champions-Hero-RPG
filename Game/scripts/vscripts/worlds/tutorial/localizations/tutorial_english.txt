@@ -202,6 +202,9 @@
 	"quest_3_challenge_3"												"C. Weapons"
 
 	"quest_3_challenge_1_desc"											"Equipment is the most important contributor to your hero's effectiveness. You can equip an item by activating it from your inventory. Powerful items have the <font color=\'#E4AE33\'>immortal</font> rarity. Beyond that are the ultra rare <font color=\'#ADE55C\'>arcana</font> items."
+	"quest_3_challenge_1_sub_0_summary"									"Equip any piece of gear."
+	"quest_3_challenge_1_sub_1_summary"									"Tell Challen which NPC will unequip your gear."
+	"quest_3_challenge_1_sub_2_summary"									"Answer Challen's question regarding item rarity."
 
 	"tutorial_master_dialogue_3_1a"										"Equipment will be the primary source of your power."
 	"tutorial_master_dialogue_3_1b"										"You can equip an item by activating it from your inventory."
@@ -230,3 +233,7 @@
 
 	"tutorial_quiz_wrong_3_1_3"											"Oh no that is incorrect. Try again."
 	"tutorial_quiz_wrong_3_1_4"											"If you listened to my lecture, this would not be difficult..."
+
+	"tutorial_master_dialogue_3_1m"										"That's right! I think you understand enough about equipment for now. We will end this lesson here."
+
+	"quest_3_challenge_2_desc"											"Something about blacksmith."
