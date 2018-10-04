@@ -55,10 +55,10 @@
 		//英雄故事
 		//--------------------		
 
-		"npc_dota_hero_dragon_knight_lore"			"诞生于原始火焰的核心，永恒之火的愤怒在其中燃烧。 他的熔岩盔甲和锋利的宝剑指引着他完成他应该执行的伟大审判。 他要杀死巨龙沃瑟姆并撬出它的心脏。 当巨龙把他引诱到猩红山脉之后，他的真正力量被唤醒了。 他爆发出一颗炽热的火球，使巨龙也为之眩目，然后用他的宝剑摧枯拉朽的杀死了巨龙。 他把巨龙的心脏握在手中，用目光的火焰将其焚尽。 当他重返诞生之地之时，惊奇的发现一把小剑正镶嵌在一颗巨石之上。 剑柄上的铭文上镌刻着一个名字：“烈焰行者”。"
-		"npc_dota_hero_phantom_assassin_lore"			"Composed of pure energy, some say that she was the spark that lit the universe. Although she appears to be the very essence of the Ancients, she is far from that. A naive girl with powers beyond her comprehension, she gleams with the powers of electric destruction sated within her blades. She is blessed with the ability to manipulate atomic charges at a flick of the wrist, and call down the natural electricity of the universe at any moment. And yet, none of that matters to her, because all that she desires is to find the love that she once lost many years ago."
-		"npc_dota_hero_necrolyte_lore"					"A once curious young boy who ventured too far, now an old recluse who was forsaken by his own curiosity. He received a bite from a venomous snake, and he struggled for breath in the deepest thicket of Tanari Jungle. After barely dragging himself to the village from whence he came, a shaman greeted him at his doorstep. Covered in tattoos which glowed bright green, the boy agreed to follow him. The shaman took him back to the toxin ridden lands, to a shrine of his god. There he was given a choice: Keep his venom and become one with the toxic current, or be healed and exiled forever from the jungle. He chose the venom and thus chose death. Struggling to keep concious, his body took on tattoos resembling the shamans, and a snake rose from the swamp. The snake stiffened and turning into a staff, a weapon called Venomblight. He grew old and alone, bordering on the edge of life and death. Now he is contagion itself, a living embodiment of plague."
-		"npc_dota_hero_axe_lore"							"As a child he was left by his parents in the middle of a village under control of the Red Mist army. He grew up with another abandoned boy who he called his brother. He would fend for them both and he had considered himself a leader and protector. He always felt that life was cruel and unfair, and so he applied that philosophy onto any rivals who stood in his way. As he grew older, he gained the respect of others through consistent bloodshed and victory in battle. He became an unstoppable machine and only knew reward through destruction. In that blinded sense of rage and glory of battle, he killed that which he held dearest. His only friend. His brother. At that moment his skin turned red. He was marked by his blood forever. When the the soldiers saw what he had done, they feared his power. He became their leader. He became the Red General."
+		"npc_dota_hero_dragon_knight_lore"			"他诞生于原始火焰的核心，伴随着永恒之火的愤怒。他的熔岩盔甲和宝剑指引着他，去完成他应该执行的伟大审判：杀死巨龙沃瑟姆，并撬出它的心脏。当他追寻巨龙到达猩红山脉之后，他的真正力量终于苏醒了。他浑身爆发出炽热的烈火，使巨龙也为之眩目，随后用他的宝剑摧枯拉朽的将巨龙斩杀。 他手中攥着巨龙的心脏，只用目光一瞥就将其彻底焚烧殆尽。 当他重返诞生之地时，惊奇的发现那儿有一把小刀。这把刀嵌在巨石之中，刀柄上用铭文镌刻着一个名字：“烈焰行者”。"
+		"npc_dota_hero_phantom_assassin_lore"			"她由纯粹的能量组成，甚至传说她就是最初点燃宇宙的火光。虽然听起来她是来自远古的本源，但她实在远非如此。她是一个拥有远超自身理解之能力的天真女孩，她的刀锋中蕴含着肆虐破坏的电流力量。她天生就有轻抖手腕就能操纵原子电荷、并随时调用宇宙中自然电力的能力。然而，这一切对她来说都不重要了，因为她一直渴望的只是找到她多年前失去的爱。"
+		"npc_dota_hero_necrolyte_lore"					"有这样一个曾经充满好奇心的小男孩进行了无数冒险，而现在他已是一个被自己的好奇心抛弃的老隐士。在被一条毒蛇咬过一口之后，他在塔纳魔森林最深的灌木丛中呼吸苦难的挣扎着。在他勉强拖着自己的身子回到村子时，一个萨满在他家门口迎接他。这个男孩决定跟随这个浑身覆盖着闪着绿光纹身的巫师。巫师把他带回了那个遍布毒素的地方，他信奉的神殿殿。在那里男孩要做出一个抉择：保留他身上的毒液然后成为毒物之一，或是在丛林中被治愈后将他流放。男孩选择了毒液这也意味着选择了死亡。他为了保持意识苦苦挣扎着，他的身体上出现了类似那个萨满的纹身，接着一条蛇从沼泽中升起。蛇变得坚硬了接着变成了一个叫做枯萎毒液的武器。男孩变老了且独自一人徘徊在生死边缘。现在他就是传染病本身，是瘟疫的活生生的体现。"
+		"npc_dota_hero_axe_lore"							"在他小的时候，他被父母遗留在红雾军团控制下的一个村庄里。他和另一个被遗弃的男孩一起长大，他把他称作兄弟。他照顾他们两个人，并且认为自己是领导者和保护者。他总觉得生活是残酷和不公平的，所以他把这种哲学应用到阻挡他的任何竞争对手身上。随着年龄的增长，他通过不断的浴血战斗并且获得胜利赢得了他人的尊重。他成了一个无人可挡的机器，只知道得到奖励的唯一途径就是破坏。在那种盲目的愤怒和战斗的荣耀中，他杀死了他最亲爱的人，他唯一的朋友，他的兄弟。那一刻，他的皮肤变成了红色，他兄弟的血永远的成为了他的标志。当士兵看到他所做的事情时，他们恐惧他的力量。他成了战士们的领袖，他成了赤色上将"
 		"npc_dota_hero_drow_ranger_lore"					 "Moreana was just a regular girl from a small forest village. Every day she and her brothers would go into the woods to practice their marksmanship. They would stay longer and deeper into the night, even when their mother warned them of the unyielding dangers of darkness. They would not listen, and one night the moon stood high and full, corrupted invaders controlled by the Crimsyth swarmed the forest. The influx of monsters caused Moreana and her brothers to get lost, and so they were left to survive at a young age with no way to find home. The light of day seemed to never come, and over the following weeks she watched as her brothers were mercilessly slain by the creatures of the night. After 60 days of darkness in the woods, Moreana, alone and afraid, dropped to her knees and looked up at the once again full and shining moon. She clasped her hands and helplessly apologized to her brothers, and to her mother who she had ignored. The light of the moon stained her tear-laden cheeks, and a lunar energy infused her body and bow. She now commands the blessings of the Moon and Stars and vows to use this to protect everything she holds dear."
 		"npc_dota_hero_obsidian_destroyer_lore"			"Even before our universe was created, there were those who existed as embodiments of the eternal flow of time. Astrius was one of those entities, known as the Epoch Guardian. Billions of years after the origin event, Astrius grew bored of the repetitive consistency of time. He wandered through dimensions seeking the Forbidden Star. Without knowing what would happen, he travelled inside the Star where it began to feed on his temporal energies. Eons later, Astrius found himself walking on land among other mortals. Although still maintaining his abilities to manipulate time, he finds himself severely limited compared to his ancient powers. He is however completely content, because the excitement of life and death has injected new meaning into his eternal existence."
 		"npc_dota_hero_omniknight_lore"					"Deep within the Sun, a mighty being calls out to the righteous. Solus, the demi-god of light wanted to bless one champion who would become the wielder of his luminescence, and who would cleanse evil with Holy Fire. His subject must be powerful enough to carry out his will, but also pure enough to be free of sin. Without informing his subjects, Solus allowed evil to flourish around his sacred temples. Those who were weak believed Solus had betrayed them, and people began to turn away from The Light. This period was coined the era of Darkness. One particular subject’s faith did not waiver, and instead of succumbing to the evil, he vowed with all his heart to destroy it. The spirits of Darkness were strong and unwilling to leave the temples, but through his shining grace and purity of heart he cleaved through the corruption. As his enemies lay waste beneath him, a sense of victorious light filled his heart. He retrieved the mighty gavel of Solus and he felt a power like never before. He became a shining beacon of righteousness and now destroys evil in Solus' holy name."  
@@ -72,7 +72,7 @@
 		"npc_dota_hero_templar_assassin_lore"			"She was born in the heart of Tanari jungle to a tribe of master hunters. Their traps were so proficient and deadly that nobody ever dared set foot on their territory. She was the youngest of the tribe, and so she gained the most experience by watching and learning from her elders. A terrible tragedy unfolded when her father died on the battlefield during the first awakening of Ancient God. For many years she studied techniques and the way of the assassin in order to become the ultimate predator. Stealth, traps, finesse, and cunning - all the tools a master killer needs. Now she seeks revenge on the spirit of Ancient God in memory of her once great father. She will one day fulfill her destiny to become the jungle's fiercest champion."
 		"npc_dota_hero_huskar_lore"						"When he first heard legends of the Wind, Water, and Fire spirits of Tanari, he became obsessed with their stories and fearful of their power. He was determined to devote himself in totality to the Tanari spirits, and so he prayed and meditated every day in their honour. He practiced the art of war in order to defend the jungle from invaders and gain favour with the Spirits. One day during prayer in the depths of Tanari, a mystical tree that sheds its bark every one thousand years stood nearby. It is on this day that the 3 Tanari Spirits emerge from their temples and survey the jungle. The young warrior’s efforts had been noticed, and together the 3 Spirits blessed him with the spiritual essences of the Jungle, and he became the Spirit Warrior"
 		"npc_dota_hero_legion_commander_lore"			"Born atop the highest peaks of Mt. Hyrath, she hails from an ancient civilization of mountain people. All members of this society are highly trained in combat from a young age in order to guarantee the continuation of their people. She became a champion when she stood atop the highest point of the mountain for 90 days without food or water and without moving. Her complete stillness began to turn her entire body into stone. After 90 days, she had become statue of solid rock. Most assumed she would stay that way forever, but 5 years later, she molted from the stone and upon her emergence she had the power to move mountains. She still defends her birthright to this day, and is known as the Mountain Protector."
-		"npc_dota_hero_night_stalker_lore"				"The black god of death. His origins are unknown and most stories about him are based on conjecture and baseless stories rooted in fear. He hunts for prey in the dark of night and kills without prejudice. Some say he can shapeshift but others claim he lost his ability of metamorphose eons ago. Legends state that if you see a silhouette with wings of a bat and the hooves of a horse, you must trick your mind and pretend you saw nothing. If you let the creeping fear set in, you may find that your heart ripped from your chest moments later."
+		"npc_dota_hero_night_stalker_lore"				"漆黑的死神，黑暗的化身。他的起源是未知的，大多数关于他的故事都是基于猜测，根植于恐惧。他在黑夜中猎食，毫无偏见地杀人。有人说他可以变形，但也有人说他已经失去了变形的能力。传说，如果你看到一个蝙蝠翅膀的轮廓，你必须欺骗你的大脑，假装你什么也没看见。如果你让恐惧蔓延，你会发现你的心脏从你的胸部被瞬间撕裂。而你眼中最后看到的，只有永夜君王的轻蔑一笑"
 		"npc_dota_hero_vengefulspirit_lore"				"One night over the village of Kul'el the skies were illuminated by black fire. Wherever it rained, crops would burn and houses were wrecked. As daylight finally dawned, a blazing comet descended from the sky. The sun itself was gone and the moonlight was no more. A child of the heavens was born. Named Solunia by the priest of the sun, she seemed no different than the average child. But on her 13th birthday she was brought into a fit of rage over a petty squabble. Her piercing screams seemingly splintered the sun and immediately brought on the night. After realizing what she had done, she began to cry, and to everyone’s amazement her tears shattered the moon and brought back the Sun. It became clear to the priests that Solunia was a special child of day and night and that her abilities should be brought under her control. Forced to balance the scales that tip over each day, Solunia has mastered her power and now wanders the planet imposing the force of the sun and the will of the moon wherever she feels it’s necessary."
 		"npc_dota_hero_slardar_lore"						"Once a respected guardian of the Sea Fortress, Hydroxis fell from Siltbreaker’s good graces when he abandoned his duties to court a beautiful Naga maiden. The maiden ended up betraying him and stole valuable treasure from Val’Dun which she then brought back to her Kingdom. Despite being wrong, he enjoys his life as an exile and has chosen to go rogue, as he feels more comfortable when he owes no allegiance to anybody. Hydroxis still maintains dominion over his powers to manipulate water and sea, so he uses his time as an exiled guard practicing his command of the tides."
 		"npc_dota_hero_visage_lore"						"Only the gloom of The Underworld could make creatures such as Ekkan thrive. Hell is a great place for the Soul Collector to dump the remains of the dead. Said to be an experimental puppet of Hades, Ekkan uses portals to travel between The Underworld and the mortal plane where he picks apart the bones of dead bodies. He breathes artificial life into useless corpses and takes control of the living and their souls to do his bidding. His motivations are unknown, seemingly Ekkan only has a drive to perpetuate the cycle of domination, killing, and reanimation."
@@ -1384,7 +1384,7 @@
 		"item_rpc_neutral_glyph_3_2_description" 			"提高闪避 @glyph_property1%"
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_2"	"日天雕文"
-		"item_rpc_neutral_glyph_4_2_description" 			"对拥有坚定与超级坚定的敌人，将从原有的伤害限制 3% 与 0.5% 的最大生命值，提升至 @glyph_property1% 与 @glyph_property2% 的最大生命值，但同时所有的伤害加深效果（计算在减伤之后）都将降低至原本效果的10% @glyph_property3%（普通坚定）与 @glyph_property4%（超级坚定）。此雕文不影响远古坚定（宙斯）。（注：原有的破坚定效果与日天雕文作用，仅保留伤部分害提高的效果，伤害上限以日天雕文阈值设定为准，不为加法。）同时，对没有坚定技能的敌人，造成的伤害将降低 @glyph_property5%。"
+		"item_rpc_neutral_glyph_4_2_description" 			"对拥有坚定与超级坚定的敌人，将从原有的伤害限制 3% 与 0.5% 的最大生命值，提升至 @glyph_property1% 与 @glyph_property2% 的最大生命值，但同时所有的伤害加深效果（计算在减伤之后）都将降低至原本效果的 @glyph_property3%（普通坚定）与 @glyph_property4%（超级坚定）。此雕文不影响远古坚定（宙斯）。（注：原有的破坚定效果与日天雕文作用，仅保留伤部分害提高的效果，伤害上限以日天雕文阈值设定为准，不为加法。）同时，对没有坚定技能的敌人，造成的伤害将降低 @glyph_property5%。"
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_2"	"狂暴雕文"
 		"item_rpc_neutral_glyph_5_2_description" 			"提高受到的所有伤害 @glyph_property1% 并提高造成的所有伤害 @glyph_property2%"
@@ -1414,7 +1414,7 @@
 		"item_rpc_neutral_glyph_6_3_description" 			"提高造成的所有魔法伤害 @glyph_property1%"
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_3"	"大型智力雕文"
-		"item_rpc_neutral_glyph_7_3_description" 			"提高智力 @glyph_property1或者20%智力，取较大值"
+		"item_rpc_neutral_glyph_7_3_description" 			"提高智力 @glyph_property1或者20%的智力，取较大值"
 
 		//烈焰行者
 
@@ -3454,7 +3454,7 @@
         "item_rpc_axe_glyph_7_2_description"                "将狂暴之怒的最大层数提高至 @glyph_property1 层，并且你将一直拥有一半的层数。当骷髅锤开启时，每次攻击将叠加 @glyph_property2 层。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_a"       "终极雕文"
-        "item_rpc_axe_glyph_5_a_description"                "@Ability4 所造成的全部伤害，以及它的所有符文数，都将提高 @glyph_property1%。"
+        "item_rpc_axe_glyph_5_a_description"                "@Ability4 所造成的全部伤害，以及它的所有符文造成的伤害，都将提高 @glyph_property1%。"
 
 		"DOTA_Tooltip_ability_item_rpc_axe_glyph_book"		"赤色上将雕文书"
 
@@ -6905,7 +6905,7 @@
     	"DOTA_Tooltip_modifier_hailstorm_strength_Description"							"在霜雪风暴中山丘守卫提高力量值"	
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_r_2_arcana2"						"[R2] 冰封"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_2_arcana2_Description"			"当受到致命伤害时，山丘守卫将被冰封，免疫全部伤害，持续6秒。在冰封状态下不能攻击，只能施放冲击波，并且生命与魔法回复速度提高100%。技能冷却时间15秒或者是4倍冻结持续时间。在冻结结束后，在@constant1范围内的敌人将被眩晕"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_2_arcana2_Description"			"当受到致命伤害时，山丘守卫将被冰封，免疫全部伤害，持续6秒。在冰封状态下不能攻击，只能施放冲击波，并且生命与魔法回复速度提高100%。技能冷却时间15秒或者是4倍冻结持续时间,取较长的一个。在冻结结束后，在@constant1范围内的敌人将被眩晕"
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_2_arcana2_property_one"			"冻结持续时间"
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_2_arcana2_suffix"				"秒"
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_2_arcana2_property_two"			"眩晕持续时间"
@@ -7478,7 +7478,7 @@
     	"property_seinaru_arcana1_description"								"用拔刀斩替换 @Ability1 和它的全部符文。"
 
   		"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1"						"[Q1] 血刃"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_Description"			"普通攻击有20%几率暴击。"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_Description"			"普通攻击有40%几率暴击。"
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_property_one"			"暴击额外伤害"
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_suffix"					"%"
 
@@ -8103,7 +8103,7 @@
     	"DOTA_Tooltip_modifier_outgoing_lunarang"							"月之回旋镖掷出"
 
     	"DOTA_Tooltip_ability_solunia_lunarang"								"月之回旋镖"
-    	"DOTA_Tooltip_ability_solunia_lunarang_Description"					"元素： <font color=\"#C25DFC\">宇宙</font> / <font color=\"#DDDDDD\">普通</font><br>向目标位置扔出回旋镖。回旋镖每0.2秒对其碰撞的所有敌人造成伤害。"
+    	"DOTA_Tooltip_ability_solunia_lunarang_Description"					"元素： <font color=\"#C25DFC\">宇宙</font> / <font color=\"#DDDDDD\">普通</font><br>向目标位置扔出回旋镖，自动锁定靠近旋镖的敌人一段时间。回旋镖每0.2秒对其碰撞的所有敌人造成伤害。"
     	"DOTA_Tooltip_ability_solunia_lunarang_max_boomerangs"				"同时可拥有月之回旋镖的数量："
     	"DOTA_Tooltip_ability_solunia_lunarang_damage"						"伤害："
 		
@@ -8216,11 +8216,11 @@
     	"DOTA_Tooltip_ability_solunia_rune_r_3_suffix_two"					""
 		
 		"DOTA_Tooltip_ability_solunia_rune_r_4"								"[R4] 昼夜平分"
-    	"DOTA_Tooltip_ability_solunia_rune_r_4_Description"					"降低超新星和月食的冷却时间并增加他们的眩晕持续时间。"
+    	"DOTA_Tooltip_ability_solunia_rune_r_4_Description"					"降低超新星和月食的冷却时间并基于全属性增加R技能的伤害。"
     	"DOTA_Tooltip_ability_solunia_rune_r_4_property_one"				"冷却时间降低"
     	"DOTA_Tooltip_ability_solunia_rune_r_4_suffix"						" 秒"
-    	"DOTA_Tooltip_ability_solunia_rune_r_4_property_two"				"眩晕持续时间"
-    	"DOTA_Tooltip_ability_solunia_rune_r_4_suffix_two"					" 秒"
+    	"DOTA_Tooltip_ability_solunia_rune_r_4_property_two"				"伤害增加"
+    	"DOTA_Tooltip_ability_solunia_rune_r_4_suffix_two"					" 乘以全属性"
 		
 		//Arcanas
 		"item_property_solunia_arcana1"										"日月之星"
@@ -8294,8 +8294,8 @@
 	
   		"DOTA_Tooltip_ability_solunia_rune_r_1_arcana2"						"[R1] 星际先锋"
     	"DOTA_Tooltip_ability_solunia_rune_r_1_arcana2_Description"			"在释放阿尔法星火之后随机获得一定量的最大生命值，持续 20秒。"
-    	"DOTA_Tooltip_ability_solunia_rune_r_1_arcana2_property_one"			"最大潜在生命值加成"
-    	"DOTA_Tooltip_ability_solunia_rune_r_1_arcana2_suffix"					""
+    	"DOTA_Tooltip_ability_solunia_rune_r_1_arcana2_property_one"			"最小生命值加成"
+    	"DOTA_Tooltip_ability_solunia_rune_r_1_arcana2_suffix"					"最大潜在生命值加成"
 
     	"DOTA_Tooltip_modifier_solunia_arcana_a_d_health_visible"			"星际先锋"
     	"DOTA_Tooltip_modifier_solunia_arcana_a_d_health_visible_Description"	"提高最大生命值"
@@ -8336,7 +8336,7 @@
 		"item_rpc_solunia_glyph_4_1_description" 				"增加弯曲火焰浮空时间 @glyph_property1 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_1"		"中微子雕文"
-		"item_rpc_solunia_glyph_5_1_description" 				"增加弯曲核心的范围 @glyph_property1。"
+		"item_rpc_solunia_glyph_5_1_description" 				"释放R技能，会获得三层护盾，直到护盾被破坏。"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_6_1"		"奇點雕文"
 		"item_rpc_solunia_glyph_6_1_description" 				"施放超新星或者日食后，获得buff使日月之石没有冷却时间。"
@@ -8384,6 +8384,7 @@
         "DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_3"            "银河轨道刃"
         "item_property_solunia_immortal_weapon3"                             "日与月"
         "property_solunia_immortal_weapon3_description"                      "施放 @Ability3 完成最后一步时，立即施放 @Ability4 。（如果不在冷却中）"
+
 
 		//Abilities
 		
@@ -11381,7 +11382,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm2"								"风暴裂痕之头 等级2"
 		 "item_property_stormcrack2"						"风暴裂痕 II"
-		 "property_stormcrack2_description"					"当你眩晕敌人时，造成2倍的攻击力+@special_property2x总属性的魔法伤害。<br>增加玩家对敌人的的所有眩晕持续时间 35%。"
+		 "property_stormcrack2_description"					"当你眩晕敌人时，造成20倍的攻击力+@special_property2x总属性的魔法伤害。<br>增加玩家对敌人的的所有眩晕持续时间 35%。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_the_black_mage"							"黑魔法兜帽"
@@ -12370,10 +12371,10 @@
 		
 		//ARENA TOOLTIPS
 
-		"DOTA_Tooltip_ability_arena_descent_nemesis_passive"					"Great Cleave"
-		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_Description"				"Attacks damage all enemies in an area"
-		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_cleave_percent"				"CLEAVE DAMAGE %:"
-		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_cleave_radius"				"CLEAVE RADIUS:"
+		"DOTA_Tooltip_ability_arena_descent_nemesis_passive"					"巨力挥舞"
+		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_Description"				"攻击对范围内敌人造成分裂伤害"
+		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_cleave_percent"				"分裂伤害 %:"
+		"DOTA_Tooltip_ability_arena_descent_nemesis_passive_cleave_radius"				"分裂范围:"
 
 		"arena_descent_nightmare"												"黑暗来袭"
 
@@ -12826,7 +12827,7 @@
 
 		"DOTA_Tooltip_ability_redfall_demon_farmer_mark"					"恶魔链接"
 		"DOTA_Tooltip_ability_redfall_demon_farmer_mark_Description"		"恶魔执行者需要0点伤害。当他进行攻击时，目标会获得伤害他一段时间的能力."
-		"DOTA_Tooltip_ability_redfall_demon_farmer_mark_duration"			"DURATION:"
+		"DOTA_Tooltip_ability_redfall_demon_farmer_mark_duration"			"持续时间:"
 
 		"DOTA_Tooltip_modifier_demon_farmer_mark_effect"					"恶魔链接"
 		"DOTA_Tooltip_modifier_demon_farmer_mark_effect_Description"		"能够伤害恶魔执行者"
@@ -12860,10 +12861,10 @@
 		"DOTA_Tooltip_ability_redfall_massive_arrow"					"绯红色力量射击"
 		"DOTA_Tooltip_ability_redfall_massive_arrow_Description"		"发射强大的红色箭头."
 
-		"DOTA_Tooltip_ability_redfall_farmlands_bandit_ai"				"Quickfoot"
+		"DOTA_Tooltip_ability_redfall_farmlands_bandit_ai"				"疾风步"
 		"DOTA_Tooltip_ability_redfall_farmlands_bandit_ai_Description"	"攻击有25％的机会获得buff，授予100％的闪避和移动速度."
 
-		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai"				"Bane Blood"
+		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai"				"污染之血"
 		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_Description"	"攻击在目标上留下堆叠护甲debuff，同时增加攻击速度和攻击所有者的伤害."
 		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_armor_reduce_per_hit"	"每次击中降低护甲:"
 		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_attack_speed_per_hit"	"每次攻击速度降低:"
@@ -13281,7 +13282,35 @@
 		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_legend"			"落红流火灵魂红宝石 (传说)"
 		"item_redfall_spirit_ruby_legend_desc"							"使用: 在传说难度激活落红流火的缺口. 在此缺口有 3x 怪物生成量, 2x的怪物伤害和抗性, 增加不朽物品的掉率, 3x 秘銀水晶和 2x 奥术晶体增加量."
 		
-		"redfall_equinox"												"疯狂生长"
+		"redfall_equinox"		"疯狂生长"
+		
+		"redfall_ancient_tree"          "亵渎者的世界树"
+		"redfall_ancient_tree_summon"   "落红幼树"
+		
+		"DOTA_Tooltip_ancient_tree_passive"                   "撕裂之种"
+		"DOTA_Tooltip_ancient_tree_passive_Description"       "世界树释放出一个叶状子弹，对被击中的敌人产生可以叠加的debuff，该debuff会降低敌人的护甲，移动速度和视野。"
+		"DOTA_Tooltip_ability_ancient_tree_passive_vision_loss"       "视野降低:"
+		"DOTA_Tooltip_ability_ancient_tree_passive_armor_loss"        "护甲降低:"
+		"DOTA_Tooltip_ability_ancient_tree_passive_movespeed_loss"    "移动速度降低:"
+		
+		"DOTA_Tooltip_modifier_ancient_tree_vision"                   "撕裂之种"
+		"DOTA_Tooltip_modifier_ancient_tree_vision_Description"       "降低视野，护甲和移动速度"
+		
+		"DOTA_Tooltip_ability_ancient_tree_summon"                         "树林之魂"
+		"DOTA_Tooltip_ability_ancient_tree_summon_Description"             "召唤落红幼树大军为世界树而战。每个落红幼树的存在将减少世界树受到伤害5%。"
+		"DOTA_Tooltip_ability_ancient_tree_groud_slam"                     "丛林震荡"
+		"DOTA_Tooltip_ability_ancient_tree_ground_slam_Description"        "世界树重击地面，对范围内的敌人造成伤害和眩晕。"
+		"DOTA_Tooltip_ability_ancient_tree_ground_slam_damage"             "伤害:"
+		
+		"DOTA_Tooltip_ability_ancient_tree_summon_leech_seed"              "落红流火的吸血种子"
+		"DOTA_Tooltip_ability_ancient_tree_summon_leech_seed_Description"  "对敌人施加一个debuff，周期性的治疗世界树和他的精英军队，治疗量为他们最大生命值的百分比。"
+		"DOTA_Tooltip_ability_ancient_tree_summon_leech_seed_heal_percent" "治疗%:"
+		"DOTA_Tooltip_ability_ancient_tree_summon_leech_seed_heal_percent_boss" "世界树治疗%:"
+		"DOTA_Tooltip_ability_ancient_tree_summon_leech_seed_damage_per_tick"   "每秒伤害:"
+		
+		"DOTA_Tooltip_modifier_summon_leech_seed_debuff"                    "落红流火的吸血种子"
+		"DOTA_Tooltip_modifier_summon_leech_seed_debuff_Description"        "受到持续伤害并且治疗世界树。"		
+
 
 		// 海图
 
@@ -13391,7 +13420,7 @@
 		"seafortress_oracle_of_the_sea"						"海神域大祭司"
 		"seafortress_ocean_diviner"							"深海占卜者"
 		"seafortress_squidcicle"							"水滨鱿鱼"
-		"seafortress_final_boss"							"你这剑圣还有p输出啊"
+		"seafortress_final_boss"							"无尽之海霸主 瓦尔顿"
 
 		"DOTA_Tooltip_modifier_sea_fortress_ai"				"失落深海要塞"
 		"DOTA_Tooltip_modifier_sea_fortress_ai_Description"	"造成的魔法和纯粹伤害增加 300%%. 受到的伤害减少 99.5%%"
@@ -13637,7 +13666,7 @@
 		"DOTA_Tooltip_ability_seafortress_jailer_passive_Description"	"永恒地巡逻，保证这里的囚犯待在他们应该待着的地方."
 		"DOTA_Tooltip_ability_seafortress_jailer_passive_bleed_damage"	"流血伤害:"
 
-		"DOTA_Tooltip_ability_ability_magic_immune_break"			"魔免破坏"
+		"DOTA_Tooltip_ability_ability_magic_immune_break"			"破魔"
 		"DOTA_Tooltip_ability_ability_magic_immune_break_Description"	"成功的攻击移除目标的魔法免疫状态."
 
 		"DOTA_Tooltip_ability_seafortress_infernal_jailer_passive"	"火焱地狱"
@@ -14046,74 +14075,74 @@
 
 		"rpc_serengaard_ancient"										"守卫雅典娜"
 
-		"DOTA_Tooltip_ability_serengaard_sun_guardian_ability"			"Sun Guardian"
-		"DOTA_Tooltip_ability_serengaard_sun_guardian_ability_Description"		"Provides passive health regen."
-		"DOTA_Tooltip_ability_serengaard_sun_guardian_ability_health_regen_pct"	"HEALTH REGEN %:"
+		"DOTA_Tooltip_ability_serengaard_sun_guardian_ability"			"太阳守卫"
+		"DOTA_Tooltip_ability_serengaard_sun_guardian_ability_Description"		"被动增加生命回复."
+		"DOTA_Tooltip_ability_serengaard_sun_guardian_ability_health_regen_pct"	"每秒生命回复 %:"
 
-		"DOTA_Tooltip_modifier_teleporter_aura"							"Teleporter"
-		"DOTA_Tooltip_modifier_teleporter_aura_Description"				"Issuing a move order greater than 800 distance away and within Serengaard Castle will teleport you there after a 0.5 second delay."
+		"DOTA_Tooltip_modifier_teleporter_aura"							"传送"
+		"DOTA_Tooltip_modifier_teleporter_aura_Description"				"右键点击地图上任意处，在0.5秒的延迟后传送至目标区域."
 	
-		"DOTA_Tooltip_ability_serengaard_teleporter_ability"			"Teleporter"
-		"DOTA_Tooltip_ability_serengaard_teleporter_ability_Description"	"While standing near the teleporter, issuing a move order greater than 800 distance away and within Serengaard Castle will teleport you there after a 0.5 second delay."
+		"DOTA_Tooltip_ability_serengaard_teleporter_ability"			"传送"
+		"DOTA_Tooltip_ability_serengaard_teleporter_ability_Description"	"当站在传送点附近时, 右键点击800范围外的地图上任意处，能在0.5秒的延迟后传送至目标区域."
 	
-		"dark_fighter_serengaard"										"Dark Fighter"
-		"DOTA_Tooltip_ability_ursa_overpower_no_head_attachment"		"Overpower"
-		"DOTA_Tooltip_ability_ursa_overpower_no_head_attachment_Description"	"Massively increases attack speed"
+		"dark_fighter_serengaard"										"黑暗战士"
+		"DOTA_Tooltip_ability_ursa_overpower_no_head_attachment"		"too op"
+		"DOTA_Tooltip_ability_ursa_overpower_no_head_attachment_Description"	"大量增加攻击速度"
 
-		"serengaard_freeze_fiend"										"Freeze Fiend"
+		"serengaard_freeze_fiend"										"寒冰恶魔"
 
-		"DOTA_Tooltip_ability_freeze_fiend_crystal_nova" 				"Crystal Nova"
-		"DOTA_Tooltip_ability_freeze_fiend_crystal_nova_Description"	"Targets an area with a chilling wind, dealing damage and slowing affected enemies."
-		"DOTA_Tooltip_ability_freeze_fiend_crystal_nova_movespeed_slow"	"MOVESPEED SLOW %:"
-		"DOTA_Tooltip_ability_freeze_fiend_crystal_nova_attackspeed_slow"	"ATTACKSPEED SLOW:"
-		"DOTA_Tooltip_ability_freeze_fiend_crystal_nova_duration"			"SLOW DURATION:"
+		"DOTA_Tooltip_ability_freeze_fiend_crystal_nova" 				"冰霜新星"
+		"DOTA_Tooltip_ability_freeze_fiend_crystal_nova_Description"	"召唤寒风打击目标区域, 对范围内的敌人造成伤害并减速."
+		"DOTA_Tooltip_ability_freeze_fiend_crystal_nova_movespeed_slow"	"移动速度减少 %:"
+		"DOTA_Tooltip_ability_freeze_fiend_crystal_nova_attackspeed_slow"	"攻击速度减少:"
+		"DOTA_Tooltip_ability_freeze_fiend_crystal_nova_duration"			"减速时间:"
 
-		"serengaard_icy_venge"											"Icy Venge"
+		"serengaard_icy_venge"											"冰霜复仇女神"
 
-		"DOTA_Tooltip_ability_serengaard_wave_of_terror"				"Wave of Terror"
-		"DOTA_Tooltip_ability_serengaard_wave_of_terror_Description"		"A terrifying wave from a deep nightmare travels quickly towards the target point, dealing damage and lowering armor."
-		"DOTA_Tooltip_ability_serengaard_wave_of_terror_armor_reduction"	"ARMOR REDUCTION:"
-		"DOTA_Tooltip_ability_serengaard_wave_of_terror_tooltip_duration"	"ARMOR LOSS DURATION:"
+		"DOTA_Tooltip_ability_serengaard_wave_of_terror"				"恐怖波动"
+		"DOTA_Tooltip_ability_serengaard_wave_of_terror_Description"		"发出一阵邪恶的嚎叫，对路径上的敌人造成伤害并降低他们的护甲."
+		"DOTA_Tooltip_ability_serengaard_wave_of_terror_armor_reduction"	"护甲降低:"
+		"DOTA_Tooltip_ability_serengaard_wave_of_terror_tooltip_duration"	"护甲降低时间:"
 
-		"DOTA_Tooltip_ability_serengaard_ice_vortex"					"Ice Vortex"
-		"DOTA_Tooltip_ability_serengaard_ice_vortex_Description"		"Creates a patch of mystic ice at the target location. Standing in the ice slows enemies and lowers their magic resist."
-		"DOTA_Tooltip_ability_serengaard_ice_vortex_movement_speed_pct"	"MOVESPEED REDUCTION:"
-		"DOTA_Tooltip_ability_serengaard_ice_vortex_spell_resist_pct"	"MAGIC RESIST LOSS:"
+		"DOTA_Tooltip_ability_serengaard_ice_vortex"					"冰霜漩涡"
+		"DOTA_Tooltip_ability_serengaard_ice_vortex_Description"		"创造一个寒冰能量的漩涡，降低范围内敌人的移动速度和魔法抗性."
+		"DOTA_Tooltip_ability_serengaard_ice_vortex_movement_speed_pct"	"移动速度减少:"
+		"DOTA_Tooltip_ability_serengaard_ice_vortex_spell_resist_pct"	"魔法抗性减少:"
 
-		"DOTA_Tooltip_ability_creature_acid_spray"						"Fulminating Poison"
-		"DOTA_Tooltip_ability_creature_acid_spray_Description"			"On death, explode and leave a pile of toxic venom."
-		"DOTA_Tooltip_ability_creature_acid_spray_damage"				"DAMAGE PER SECOND:"
-		"DOTA_Tooltip_ability_creature_acid_spray_armor_reduction"		"ARMOR REDUCTION:"
+		"DOTA_Tooltip_ability_creature_acid_spray"						"残毒爆发"
+		"DOTA_Tooltip_ability_creature_acid_spray_Description"			"死亡时爆炸并留下一片剧毒区域.区域内的敌人护甲降低并受到持续伤害"
+		"DOTA_Tooltip_ability_creature_acid_spray_damage"				"每秒伤害:"
+		"DOTA_Tooltip_ability_creature_acid_spray_armor_reduction"		"护甲减少:"
 
-		"DOTA_Tooltip_ability_creature_acid_spray"						"Fulminating Poison"
-		"DOTA_Tooltip_ability_creature_acid_spray_Description"			"On death, explode and leave a pile of toxic venom."
-		"DOTA_Tooltip_ability_creature_acid_spray_damage"				"DAMAGE PER SECOND:"
-		"DOTA_Tooltip_ability_creature_acid_spray_armor_reduction"		"ARMOR REDUCTION:"
+		"DOTA_Tooltip_ability_creature_acid_spray"						"残毒爆发"
+		"DOTA_Tooltip_ability_creature_acid_spray_Description"			"死亡时爆炸并留下一片剧毒区域.区域内的敌人护甲降低并受到持续伤害."
+		"DOTA_Tooltip_ability_creature_acid_spray_damage"				"每秒伤害:"
+		"DOTA_Tooltip_ability_creature_acid_spray_armor_reduction"		"护甲减少:"
 
-		"DOTA_Tooltip_ability_creature_acid_spray_yellow"				"Fulminating Poison"
-		"DOTA_Tooltip_ability_creature_acid_spray_Description"			"On death, explode and leave a pile of toxic venom."
-		"DOTA_Tooltip_ability_creature_acid_spray_damage"				"DAMAGE PER SECOND:"
-		"DOTA_Tooltip_ability_creature_acid_spray_armor_reduction"		"ARMOR REDUCTION:"
+		"DOTA_Tooltip_ability_creature_acid_spray_yellow"				"残毒爆发"
+		"DOTA_Tooltip_ability_creature_acid_spray_Description"			"死亡时爆炸并留下一片剧毒区域.区域内的敌人护甲降低并受到持续伤害"
+		"DOTA_Tooltip_ability_creature_acid_spray_damage"				"每秒伤害:"
+		"DOTA_Tooltip_ability_creature_acid_spray_armor_reduction"		"护甲减少:"
 
-		"serengaard_hook_flinger"										"Hook Slinger"
+		"serengaard_hook_flinger"										"憎恶屠夫"
 
-		"DOTA_Tooltip_ability_custom_meat_hook"							"Meat Hook"
-		"DOTA_Tooltip_ability_custom_meat_hook_Description"				"Throws a bloody hook at the target location and grabs and pulls heroes that get in the way."
-		"DOTA_Tooltip_ability_custom_meat_hook_damage"					"HOOK IMPACT DAMAGE:"
+		"DOTA_Tooltip_ability_custom_meat_hook"							"肉钩"
+		"DOTA_Tooltip_ability_custom_meat_hook_Description"				"向目标地点投掷一个血腥的钩子，伤害并钩回接触到的第一个英雄."
+		"DOTA_Tooltip_ability_custom_meat_hook_damage"					"肉钩伤害:"
 
-		"serengaard_antimage"											"Time Slipper"
+		"serengaard_antimage"											"时间徜徉者"
 
-		"DOTA_Tooltip_ability_serengaard_antimage_blink_custom"				"Blink"
-		"DOTA_Tooltip_ability_serengaard_antimage_blink_custom_Description"	"Teleport to a target location."
+		"DOTA_Tooltip_ability_serengaard_antimage_blink_custom"				"闪烁"
+		"DOTA_Tooltip_ability_serengaard_antimage_blink_custom_Description"	"瞬间移动至目标地点."
 
-		"serengaard_sand_king"											"Sand Scorpion"
+		"serengaard_sand_king"											"沙漠之蝎"
 
-		"DOTA_Tooltip_ability_serengaard_burrowstrike"					"Burrowstrike"
-		"DOTA_Tooltip_ability_serengaard_burrowstrike_Description"		"Burrow beneath the ground and appear at the target location - stunning all units in the path."
-		"DOTA_Tooltip_ability_serengaard_burrowstrike_tooltip_range"	"CAST RANGE:"
+		"DOTA_Tooltip_ability_serengaard_burrowstrike"					"掘地穿刺"
+		"DOTA_Tooltip_ability_serengaard_burrowstrike_Description"		"向前穿刺，对路径上的敌人造成眩晕."
+		"DOTA_Tooltip_ability_serengaard_burrowstrike_tooltip_range"	"施法范围:"
 
-		"DOTA_Tooltip_ability_serengaard_sandking_ai"					"Sandstorm"
-		"DOTA_Tooltip_ability_serengaard_sandking_ai_Description"		"When falling below 50% health, enter a sandstorm and become magic immune and gain 100% evasion and restore health."
+		"DOTA_Tooltip_ability_serengaard_sandking_ai"					"沙尘暴"
+		"DOTA_Tooltip_ability_serengaard_sandking_ai_Description"		"当低于50%的生命值时，躲进沙尘暴，获得魔法免疫，100%的闪避并回复生命值."
 
 		"serengaard_wandering_mage"										"Wandering Mage"
 
@@ -14184,6 +14213,7 @@
 		"DOTA_Tooltip_ability_serengaard_midnight_pulse"				"Midnight Pulse"
 		"DOTA_Tooltip_ability_serengaard_midnight_pulse_Description"	"Creates a patch of darkness that deals a % of the target's max HP each second."
 		"DOTA_Tooltip_ability_serengaard_midnight_pulse_damage_percent"			"DAMAGE % OF MAX HEALTH:"
+
 
 		//---------------------------
 		// Tanari Jungle
@@ -14425,7 +14455,7 @@
 		"wind_temple_wind_high_priest"									"高阶风之祭司"
 
 		"DOTA_Tooltip_ability_wind_temple_revitalizing_winds"			"复苏之风"
-		"DOTA_Tooltip_ability_wind_temple_revitalizing_winds_Description"	"The Priest continues the cycle of rebirth with ancient winds."	
+		"DOTA_Tooltip_ability_wind_temple_revitalizing_winds_Description"	"在远古之风中，祭祀持续着重生的循环。"	
 
 		"wind_temple_boss"												"被腐化的风之女神"
 
@@ -14630,8 +14660,8 @@
 		 "DOTA_Tooltip_ability_water_temple_prison_shank_agility_mult"		"基于敏捷的伤害倍数:"
 		 "DOTA_Tooltip_ability_water_temple_prison_shank_strength_loss"		"力量降低:"
 
-		 "DOTA_Tooltip_modifier_prison_shank_effect"						"Sea Shank"
-		 "DOTA_Tooltip_modifier_prison_shank_effect_Description"			"Losing Attributes"	
+		 "DOTA_Tooltip_modifier_prison_shank_effect"						"深海剃刀"
+		 "DOTA_Tooltip_modifier_prison_shank_effect_Description"			"降低属性。"	
 
 		 "DOTA_Tooltip_ability_executioner_culling_blade"					"斩杀"
 		 "DOTA_Tooltip_ability_executioner_culling_blade_Description"		"瞬间击杀目标生命值百分比过低的英雄."	
@@ -14775,7 +14805,7 @@
 
 		 //SPIRIT WATER
 
-		 "water_shadow_hunter"										"Sea Beetle"
+		 "water_shadow_hunter"										"深海甲虫"
 
 		 //SPIRIT WATER
 		 //SPIRIT FIRE
@@ -15213,6 +15243,130 @@
 		"wind_temple_descendant_of_zeus"								"宙斯后裔"
 
 		"tanari_thicket_ursa"											"塔纳利棕熊"
+		
+		"tanari_ancient_hero"                                                                           "上古之神"
+		"DOTA_Tooltip_ability_ancient_god_wind_blink_ability"                        "风之闪烁"
+		"DOTA_Tooltip_ability_ancient_god_wind_blink_ability_Description"            "没有限制的位移技能。"
+		
+		"DOTA_Tooltip_ability_ancient_god_wind_dodge_ability"                        "狂风急速"
+		"DOTA_Tooltip_ability_ancient_god_wind_dodge_ability"                        "强机动性。"
+		
+		"DOTA_Tooltip_ability_ancient_god_water_vortex"                              "漩涡"
+		"DOTA_Tooltip_ability_ancient_god_water_vortex_Description"                  "将范围内的所有敌人拉向上古之神。"
+		
+		"DOTA_Tooltip_ability_tanari_ancient_hero_wind_god"                                 "风神"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_wind_god_Description"                     "风之神力使上古之神免疫魔法和纯粹伤害。"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_wind_god_attack_speed"                    "攻击速度:"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_wind_god_movespeed"                       "移动速度:"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_wind_god_evasion"                         "闪避:"
+		
+		"DOTA_Tooltip_ability_ancient_god_steadfast"                                        "远古坚定"
+		"DOTA_Tooltip_ability_ancient_god_steadfast_Description"                            "每次伤害不能超过最大生命值的一定百分比"
+		"DOTA_Tooltip_ability_ancient_god_steadfast_max_damage"                             "最大生命值%:"
+		
+		"DOTA_Tooltip_ability_ancient_god_dragon_slave"                                     "火焰浪潮"
+		"DOTA_Tooltip_ability_ancient_god_dragon_slave_Description"                         "向前方释放出一条燃烧的火龙，对一直线上的敌人造成伤害。"
+		
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_vortex"                              "火焰漩涡"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_vortex_Description"                  "上古之神持续向四周放出火焰，对周围敌人造成伤害，并且对被火焰击中的敌人施加一个灼烧debuff，对其造成持续性伤害。"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_vortex_impact_damage"                "伤害:"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_vortex_burn_damage"                  "灼烧伤害/0.5秒"
+		
+	        "DOTA_Tooltip_ability_tanari_ancient_hero_fire_god"                                 "火神"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_god_Description"                     "火之神力使上古之神免疫物理和纯粹伤害。"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_god_attack_damage_percent"           "攻击力%:"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_god_attack_range"                    "攻击距离:"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_fire_god_armor_break"                     "减甲:"
+		
+		"DOTA_Tooltip_modifier_fire_god_armor_break"                                        "火神减甲"
+		"DOTA_Tooltip_modifier_fire_god_armor_break_Description"                            "护甲被大量减少"
+		
+		"DOTA_Tooltip_ability_tanari_ancient_hero_water_god"                                "水神"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_water_god_Description"                    "水之神力使上古之神免疫物理和魔法伤害。"
+		"DOTA_Tooltip_ability_tanari_ancient_hero_water_god_hp_regen_percent"               "生命回复%"
+		
+		"DOTA_Tooltip_ability_ancient_water_god_passive"                                    "波浪爆发"
+		"DOTA_Tooltip_ability_ancient_water_god_passive_Description"                        "上古之神向周围放出破坏性水波。"
+		
+		"easy_kobold"                          "哥布林考古学者"
+		"tanari_shrine_growth"                 "圣坛之花"
+		"tanari_ambusher"                      "伏击者"
+		"tanari_river_slug"                    "河道蛞蝓"
+		"tanari_mountain_giant"                "山岭巨人"
+		"tanari_mountain_trogg"                "山岭穴居者"
+		"tanari_wild_troll"                    "狂野巨魔"
+		"tanari_waiter_troll"                  "水之巨魔"
+		"tanari_water_troll_big"               "长者水之巨魔"
+		"tanari_crag_lizard"                   "悬崖监视者"
+		"tanari_bongo_frog"                    "混合大师鼓手青蛙"
+		"big_mud"                              "泥"
+		"med_mud"                              "泥"
+		"little_mud"                           "泥"
+		"tanari_hero_remnant"                  "瀑布鬼魂"
+		
+		"wind_temple_wind_mage"                "空中法师"
+		"wind_temple_emerald_spider"           "翡翠蜘蛛"
+		"wind_temple_venom_spidier"            "毒牙狼蛛"			
+		"wind_temple_boss_staff"               "冲击法杖"
+		
+		"DOTA_Tooltip_ability_wind_spirit_tornado_2"    "飓风"
+		"DOTA_Tooltip_ability_wind_spirit_tornado_2_Description"    "向敌人释放毁灭性的风之漩涡。"
+		
+		"cave_stalker"                          "洞穴追踪者"
+		"boulderspine_dimension_jumper"         "空中跳跃者"
+		"boulderspine_dimension_warper"         "空中折跃者"
+		"boulderspine_freeze_fiend"             "冻结恶魔"
+		"boulderspine_ancient_golem"            "上古傀儡"
+		"boulderspine_rock_golem"               "岩石傀儡"
+		"boulderspine_terror"                   "山脊的恐怖"
+		"boulderspine_baron_razor"              "空中追踪者"
+		"boulderspine_obsidian_cave_beast"      "山洞野兽"
+		"boulderspine_mud_golem"                "泥泞傀儡"
+		"boulderspine_firebat"                  "地狱蝙蝠"
+		
+                "DOTA_Tooltip_ability_knockback_immunity"        "击退免疫"
+		"DOTA_Tooltip_ability_knockback_immunity_Descrpition"       "不能被击退。"
+		
+		"DOTA_Tooltip_ability_tanari_slithereen_crush"          "鱼人碎击"
+		"DOTA_Tooltip_ability_tanari_slithereen_crush_Description"  "对施法者附近的敌人造成伤害并且眩晕敌人。"
+		
+		"water_temple_keyholder"                         "深海住民"
+	        "DOTA_Tooltip_ability_water_temple_keyholder_ai"  "深海住民"
+		"DOTA_Tooltip_ability_water_temple_keyholder_ai_description"  "水之贵妇"
+		
+		"water_temple_beach_hermit"                     "沙滩隐居者"
+		"water_temple_tentacle_switch"                  "触手拼图机关开关"
+		"water_temple_regulaer_jellyfish"               "水母"
+		"water_temple_prison_guard"                     "狱卒"
+		"water_temple_excutioner"                       "神殿处刑者"
+		
+		"water_temple_emperor_elemental"                "巨大水元素"
+		
+		"redfall_ancient_water_spirit"                  "远古水之精灵"
+		
+		"terrasic_volcanic_legion"                      "火山士兵"
+		"terrasic_black_drake"                          "灰烬之舌 黑蜉蝣"
+		"terrasic_black_dragon"                         "灰烬之舌 守望者"
+		"tanari_molten_walker"                          "熔岩行者"
+		"volcanic_ash"                                  "火山灰烬"
+		"terrasic_red_warlock"                          "红雾地狱住民"
+		"terrasic_red_mist_conqueror"                   "红雾征服者"
+		"terrasic_lava_summon"                          "熔岩召唤物"
+		"terrasic_warlock_summon"                       "地狱住民的奴隶"
+		"terrasic_fire_key_holder"                      "火山之魂"
+		"blackground_cultist"                           "灰暗之地崇拜者"
+		"fire_temple_volcano_dragon"                    "火焰蜉蝣"
+		"fire_temple_passage_skeleton"                  "地底之物"
+                "DOTA_Tooltip_ability_yojimbo_fire_remnant"     "守卫"
+		"DOTA_Tooltip_ability_yojimbo_fire_remenat_Description"        "灰烬之魂的信徒"
+		"fire_temple_rare_lava_forgemaster"             "熔岩之形"
+		"DOTA_Tooltip_ability_fire_temple_conflagrating_carapace"          "灼热外壳"
+		"DOTA_Tooltip_ability_fire_temple_conflagrating_carapace_Description" "在受到伤害后向对自己造成伤害的目标方向发射火球。"
+		"fire_temple_dimension_seeker"                                     "空中盗贼"
+		"fire_temple_sky_guardian"                                         "天空守卫"
+		"fire_temple_fireling"                                             "菲尔琳"
+		"fire_temple_skeleton_archer"                                      "骷髅弓箭手"
+
 
 
 
@@ -15638,8 +15792,8 @@
 		"DOTA_Tooltip_modifier_crippling_return_effect"				"衰弱回归"
 		"DOTA_Tooltip_modifier_crippling_return_effect_Description"	"减少攻击"	
 
-		"DOTA_Tooltip_ability_winterblight_armor_softening"		"护甲软化"
-		"DOTA_Tooltip_ability_winterblight_armor_softening_Description"	"该单位在护甲大于一定临界值时受到的时候将被大量减少。"
+		"DOTA_Tooltip_ability_winterblight_armor_softening"		"柔韧之甲"
+		"DOTA_Tooltip_ability_winterblight_armor_softening_Description"	"该单位在护甲大于一定临界值时受到的伤害将被大量减少。"
 		"DOTA_Tooltip_ability_winterblight_armor_softening_armor_threshold"	"护甲临界值:"
 		"DOTA_Tooltip_ability_winterblight_armor_softening_damage_reduc"	"伤害减少:"		
 

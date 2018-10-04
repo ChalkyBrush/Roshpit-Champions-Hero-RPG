@@ -4943,6 +4943,7 @@
 
 		//Abilities
 		"ekkan_corpse"														"Corpse"
+		"ekkan_familiar"													"Gargoyle Sentry"
 		
 		"notification_no_dominion"											"Can not be dominated"
     	"notification_raise_skeleton_fail"									"Must target a corpse"
@@ -11186,7 +11187,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_iron_colussus"									"Helm of the Iron Colossus"
 		"item_property_iron_colossus"				"Iron Colossus"	
-		"property_iron_colossus_description"		"Each point of strength increases your damage by @special_property1 and armor by @special_property2 and you grow by 15%. Your attack speed is forced at 100 and ranged attacks become melee. Attacks stun for 0.5 seconds, and deal an additional 50x physical damage. @Ability2 costs 1000 extra mana."
+		"property_iron_colossus_description"		"Each point of strength increases your damage by <font color='#ccff66'>10</font> and armor by <font color='#ccff66'>0.5</font> and you grow by 15%. Your attack speed is forced at <font color='#ccff66'>120</font> and your attack range is forced at <font color='#ccff66'>180</font>. Attacks stun for 0.5 seconds, and deal an additional <font color='#ccff66'>50</font>x physical damage. @Ability2 costs 1000 extra mana."
 		"DOTA_Tooltip_modifier_iron_colossus"					"Iron Colossus"
 		"DOTA_Tooltip_modifier_iron_colossus_description"		"Attacks deal 50x physical damage, stun enemies for 0.5s and size increased. Attack speed locked at 100. Gain bonus damage and armor from strength."
 		
@@ -11665,7 +11666,7 @@
 		"item_property_fuchsia_ring"							"Solidarity"
 		"property_fuchsia_ring_description"					"While silenced or stunned all damage taken is reduced by @special_property1% and health regen is increased by @special_property2% of max health."
 		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"Solidarity"
-		"DOTA_Tooltip_modifier_fuchsia_damage_resistance_Description"		"Damage taken reduced by %property_one%% and health regen increased by %property_two%% of max health."
+		"DOTA_Tooltip_modifier_fuchsia_damage_resistance_Description"		"Damage taken reduced by 85% and health regen increased by 45% of max health."
 		 
 		 
 		 
@@ -14367,6 +14368,8 @@
 
 		"sea_fortress_paladin_golem"									"Hollow One"
 		"seafortress_archon_wizard"										"Archon Wizard"
+		
+		"seafortress_wandering_pirate"									"Wandering Pirate"
 
 		"serengaard_vote_skip_wave"										"Vote Skip"
 		
@@ -14536,6 +14539,25 @@
 		"DOTA_Tooltip_ability_serengaard_midnight_pulse"				"Midnight Pulse"
 		"DOTA_Tooltip_ability_serengaard_midnight_pulse_Description"	"Creates a patch of darkness that deals a % of the target's max HP each second."
 		"DOTA_Tooltip_ability_serengaard_midnight_pulse_damage_percent"			"DAMAGE % OF MAX HEALTH:"
+		
+		"npc_dota_creature_desert_zombie"   	 "Parched Zombie"
+        "goremaw_brute"							 "Goremaw Brute"
+        "goremaw_shaman"  						 "Goremaw Shaman"
+        "mine_zombie"   						 "Mine Zombie"
+        "citre_spiderling"						"Citrine Spiderling"
+        "amber_spiderling"   					 "Amber Spiderling"
+        "serengaard_baron_razor"   				 "Baron von Blitz"
+        "mini_mines_boss"   					 "Lightning Illusion"
+        "serengaard_geosidic"  					  "Outerdark Construct"
+        "serengaard_mini_enigma"  				  "Creeping Shade"
+        "serengaard_engima_raider"  			  "Enigma Raider"
+        "serengaard_snowball_thrower"   		 "Snowball Thrower"
+        "serengaard_ice_shard_thrower"  		  "Hailstone Thrower"
+        "serengaard_gazbin_mercenary"  			 "Mongrelman"
+        "serengaard_shredder_max"   			 "Shredder"
+        "serengaard_nightmare_raider" 		   "Nightmare Raider"
+        "serengaard_night_invader"   			 "Nightscape Invader"
+        "phoenix_siege_dragon"  				  "Siege Drake"
 
 		//---------------------------
 		// Tanari Jungle
@@ -16196,7 +16218,6 @@
 
 	"quest_2_challenge_3_desc"											"Saving your character is an important step toward gaining power in Roshpit. Speak to the Oracle in town to register your character onto his eternal ledger."
 	"quest_2_challenge_3_sub_0_summary"									"Save your hero at the Oracle in town."
-	
 
 	"tutorial_master_dialogue_2_3a"										"Each map's town has an Oracle who can permanently record your hero's progress."
 	"tutorial_master_dialogue_2_3b"										"Your hero is not automatically saved at the end of a game session. It has to be registered with the Oracle."	
@@ -16205,6 +16226,23 @@
 	"tutorial_master_dialogue_2_3e"										"Well done! Now you can load that character in a future game session."
 	"tutorial_master_dialogue_2_3f"										"When you load your hero, you can only save it to that same slot. You can overwrite an existing slot by creating a new hero and saving over an old one."
 	"tutorial_master_dialogue_2_3g"										"That completes the lesson on saving."
+
+	"quest_3_interface"													"3. Equipment"
+	"quest_3_interface_description"										"Here we will learn all about equipment and other items that strengthen your hero."
+
+	"quest_3_challenge_1"												"A. Equipment Basics"
+	"quest_3_challenge_2"												"B. The Blacksmith"
+	"quest_3_challenge_3"												"C. Weapons"
+
+	"quest_3_challenge_1_desc"											"Equipment is the most important contributor to your hero's effectiveness. You can equip an item by activating it from your inventory. Powerful items have the <font color=\'#E4AE33\'>immortal</font> rarity. Beyond that are the ultra rare <font color=\'#ADE55C\'>arcana</font> items."
+
+	"tutorial_master_dialogue_3_1a"										"Equipment will be the primary source of your power."
+	"tutorial_master_dialogue_3_1b"										"You can equip an item by activating it from your inventory."
+	"tutorial_master_dialogue_3_1c"										"You can only unequip an item at The Blacksmith."
+	"tutorial_master_dialogue_3_1d"										"Equipping an item while already wearing one will overwrite the existing gear."		
+	"tutorial_master_dialogue_3_1e"										"Were you listening? Can you tell me where you can unequip your gear?"
+
+	"tutorial_quiz_question_5"											"Where can you unequip your gear?"
 
 		"winterblight_village"											"Winterblight Village"
 		"shrine_of_azalea"												"Shrine of Azalea"

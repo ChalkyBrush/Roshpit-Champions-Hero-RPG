@@ -53,7 +53,7 @@
 		<snippet name="tutorial_challenge">
 			<Panel class="tutorial_challenge" hittest="false">
 				<Button id="challenge_button">
-					<Label id="tutorial_challenge_text"/>
+					<Label id="tutorial_challenge_text" html="true"/>
 					<Image id="green_check" class="invisible" src="file://{images}/custom_game/ui/green_check.png"/>
 				</Button>
 			</Panel>
@@ -72,7 +72,7 @@
 		<snippet name="challenge_description_and_go">
 			<Panel class="challenge_description_and_go" hittest="false">
 				<Panel id="descrip_and_go_content" class="animateEaseClass">
-					<Label id="descrip_and_go_description_text"/>
+					<Label id="descrip_and_go_description_text" html="true"/>
 					<Button id="challenge_go_button">
 						<Label id="challenge_go_button_text"/>
 					</Button>					

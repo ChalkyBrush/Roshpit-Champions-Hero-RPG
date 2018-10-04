@@ -292,6 +292,16 @@ function Tutorial:GetFixedTutorialData(hero)
 		quest.challenges = 3
 		table.insert(categories, quest)
 	end
+	if hero.tutorial.section2.progress >= 3 then
+		local quest = {}
+		quest.index = 3
+		quest.progress = hero.tutorial.section3.progress
+		quest.header = "quest_3_interface"
+		quest.description = "quest_3_interface_description"
+		quest.reward = hero.tutorial.section3.reward
+		quest.challenges = 3
+		table.insert(categories, quest)
+	end
 	--
 	return categories
 end

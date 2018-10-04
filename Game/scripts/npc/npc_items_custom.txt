@@ -8537,6 +8537,16 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BASE_OVERRIDE" "1.2"
 				}
 			}
+			"modifier_iron_colossus_attack_speed_gain"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
+				}
+			}
 			"modifier_iron_colossus_attack_speed_loss"
 			{
 				"Passive"	"0"
@@ -8574,24 +8584,14 @@
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%property_one"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%property_two"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "10"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"0.5"
 				}
 			}
 		}
 		"AbilitySpecial"
 		{
 			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"10"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_two"		"0.5"
-			}
-			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"element_one"			"1"

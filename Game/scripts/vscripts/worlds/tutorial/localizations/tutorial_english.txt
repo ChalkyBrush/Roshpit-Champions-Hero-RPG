@@ -193,3 +193,20 @@
 	"tutorial_master_dialogue_2_3e"										"Well done! Now you can load that character in a future game session."
 	"tutorial_master_dialogue_2_3f"										"When you load your hero, you can only save it to that same slot. You can overwrite an existing slot by creating a new hero and saving over an old one."
 	"tutorial_master_dialogue_2_3g"										"That completes the lesson on saving."
+
+	"quest_3_interface"													"3. Equipment"
+	"quest_3_interface_description"										"Here we will learn all about equipment and other items that strengthen your hero."
+
+	"quest_3_challenge_1"												"A. Equipment Basics"
+	"quest_3_challenge_2"												"B. The Blacksmith"
+	"quest_3_challenge_3"												"C. Weapons"
+
+	"quest_3_challenge_1_desc"											"Equipment is the most important contributor to your hero's effectiveness. You can equip an item by activating it from your inventory. Powerful items have the <font color=\'#E4AE33\'>immortal</font> rarity. Beyond that are the ultra rare <font color=\'#ADE55C\'>arcana</font> items."
+
+	"tutorial_master_dialogue_3_1a"										"Equipment will be the primary source of your power."
+	"tutorial_master_dialogue_3_1b"										"You can equip an item by activating it from your inventory."
+	"tutorial_master_dialogue_3_1c"										"You can only unequip an item at The Blacksmith."
+	"tutorial_master_dialogue_3_1d"										"Equipping an item while already wearing one will overwrite the existing gear."		
+	"tutorial_master_dialogue_3_1e"										"Were you listening? Can you tell me where you can unequip your gear?"
+
+	"tutorial_quiz_question_5"											"Where can you unequip your gear?"
