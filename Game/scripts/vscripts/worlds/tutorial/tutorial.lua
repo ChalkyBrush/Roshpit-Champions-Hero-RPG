@@ -555,7 +555,7 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 			hero.master_is_talking = false
 		end)
 	elseif code == "2_3" then
-		hero.tutorial_speech_phase = hero.tutorial_speech_phase = 1
+		hero.tutorial_speech_phase = hero.tutorial_speech_phase + 1
 		hero.master_is_talking = true
 		Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_2_3a", 5, false)
 		if hero:GetLevel() < 2 then
@@ -584,6 +584,7 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 	elseif code == "3_1" then
 		hero.tutorial_speech_phase = hero.tutorial_speech_phase + 1
 		hero.master_is_talking = true
+		speech_phase = hero.tutorial_speech_phase
 		Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_3_1a", 5, false)
 		Timers:CreateTimer(5, function()
 			if speech_phase == hero.tutorial_speech_phase then
@@ -591,17 +592,18 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 				Timers:CreateTimer(5, function()
 					if speech_phase == hero.tutorial_speech_phase then
 						Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_3_1b1", 5, false)
+						Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_3, 1.0, 4.0)
 						local luck = RandomInt(200,500)
 						if luck >= 200 and luck < 265 then
-							RPCItems:RollHood(xpBounty, deathLocation, "uncommon", false, 0, nil, 0)
+							RPCItems:RollHood(300, Tutorial.Master:GetAbsOrigin(), "uncommon", false, 0, nil, 0)
 						elseif luck >= 265 and luck < 330 then
-							RPCItems:RollHand(xpBounty, deathLocation, "uncommon", false, 0, nil, 0)
+							RPCItems:RollHand(300, Tutorial.Master:GetAbsOrigin(), "uncommon", false, 0, nil, 0)
 						elseif luck >= 330 and luck < 395 then
-							RPCItems:RollFoot(xpBounty, deathLocation, "uncommon", false, 0, nil, 0)
+							RPCItems:RollFoot(300, Tutorial.Master:GetAbsOrigin(), "uncommon", false, 0, nil, 0)
 						elseif luck >= 395 and luck < 460 then
-							RPCItems:RollBody(xpBounty, deathLocation, "uncommon", false, 0, nil, 0)
+							RPCItems:RollBody(300, Tutorial.Master:GetAbsOrigin(), "uncommon", false, 0, nil, 0)
 						elseif luck <= 500 then
-							RPCItems:RollAmulet(xpBounty, deathLocation, "uncommon", false, 0, nil, 0)
+							RPCItems:RollAmulet(300, Tutorial.Master:GetAbsOrigin(), "uncommon", false, 0, nil, 0)
 						end
 						if hero:GetLevel() < 10 then
 							hero:AddExperience(3000, 0, false, true)
@@ -621,6 +623,10 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 		return false
 	end
 	if hero.tutorial.active_challenge == code1 then
+		print("-----TUTORIAL SERVER EVENT------")
+		print(hero.active_challenge_progress)
+		print(code2)
+		print("------------")
 		if code1 == "1_1" then
 			if code2 == 0 and hero.active_challenge_progress == code2 then
 				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_1_1e", 5, false)
@@ -954,7 +960,7 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 							if sub_number == 2 then
 								verifier = "item_rarity_arcana"
 							end
-							CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero=hero:GetEntityIndex(), identifier="3_1", quiz_question=question, sequence=2, verifier = verifier, localize_verifier = 1, challenge_progress = 1, gsub1 = gsub1} )
+							CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero=hero:GetEntityIndex(), identifier="3_1", quiz_question=question, sequence=2, verifier = verifier, localize_verifier = 1, challenge_progress = 2, gsub1 = gsub1} )
 							CustomGameEventManager:Send_ServerToPlayer(player, "quiz_sound", {sound = "Tutorial.Hint"} )
 						end
 					end)
@@ -963,6 +969,7 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 					hero.master_is_talking = false
 				end)
 			elseif code2 == 2 and hero.active_challenge_progress == code2 then
+				print("in here?")
 				hero.active_challenge_progress = hero.active_challenge_progress + 1
 				hero.tutorial_speech_phase = hero.tutorial_speech_phase + 1
 				local speech_phase = hero.tutorial_speech_phase

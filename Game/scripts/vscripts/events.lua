@@ -1186,6 +1186,7 @@ function Events:SetupHeroes(heroEntity)
     Redfall:InitializeHero(heroEntity)
   end
   if GameState:IsTutorial() then
+    print("RG55342")
     Tutorial:GetTutorialFromServer(heroEntity)
   end
   if Events.GameMaster then

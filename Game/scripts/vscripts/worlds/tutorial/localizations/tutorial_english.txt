@@ -227,7 +227,7 @@
 	"tutorial_master_dialogue_3_1j"										"When they drop you will know! A neon green beam reaches out toward the sky and a loud noise is heard in the distance."
 	"tutorial_master_dialogue_3_1l"										"Ok, let's see if you were paying attention."	
 
-	"tutorial_quiz_question_7"											"What is the @sub1 gear rarity type called?
+	"tutorial_quiz_question_7"											"What is the @sub1 gear rarity type called?"
 	"tutorial_quiz_question_7_sub_answer1"								"2nd most rare"
 	"tutorial_quiz_question_7_sub_answer2"								"rarest"
 
