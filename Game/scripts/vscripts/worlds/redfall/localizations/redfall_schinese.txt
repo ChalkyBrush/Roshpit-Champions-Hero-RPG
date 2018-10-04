@@ -369,7 +369,7 @@
 
 		"DOTA_Tooltip_ability_redfall_demon_farmer_mark"					"恶魔链接"
 		"DOTA_Tooltip_ability_redfall_demon_farmer_mark_Description"		"恶魔执行者需要0点伤害。当他进行攻击时，目标会获得伤害他一段时间的能力."
-		"DOTA_Tooltip_ability_redfall_demon_farmer_mark_duration"			"DURATION:"
+		"DOTA_Tooltip_ability_redfall_demon_farmer_mark_duration"			"持续时间:"
 
 		"DOTA_Tooltip_modifier_demon_farmer_mark_effect"					"恶魔链接"
 		"DOTA_Tooltip_modifier_demon_farmer_mark_effect_Description"		"能够伤害恶魔执行者"
@@ -403,10 +403,10 @@
 		"DOTA_Tooltip_ability_redfall_massive_arrow"					"绯红色力量射击"
 		"DOTA_Tooltip_ability_redfall_massive_arrow_Description"		"发射强大的红色箭头."
 
-		"DOTA_Tooltip_ability_redfall_farmlands_bandit_ai"				"Quickfoot"
+		"DOTA_Tooltip_ability_redfall_farmlands_bandit_ai"				"疾风步"
 		"DOTA_Tooltip_ability_redfall_farmlands_bandit_ai_Description"	"攻击有25％的机会获得buff，授予100％的闪避和移动速度."
 
-		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai"				"Bane Blood"
+		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai"				"污染之血"
 		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_Description"	"攻击在目标上留下堆叠护甲debuff，同时增加攻击速度和攻击所有者的伤害."
 		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_armor_reduce_per_hit"	"每次击中降低护甲:"
 		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_attack_speed_per_hit"	"每次攻击速度降低:"
@@ -824,4 +824,31 @@
 		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_legend"			"落红流火灵魂红宝石 (传说)"
 		"item_redfall_spirit_ruby_legend_desc"							"使用: 在传说难度激活落红流火的缺口. 在此缺口有 3x 怪物生成量, 2x的怪物伤害和抗性, 增加不朽物品的掉率, 3x 秘銀水晶和 2x 奥术晶体增加量."
 		
-		"redfall_equinox"												"疯狂生长"
+		"redfall_equinox"		"疯狂生长"
+		
+		"redfall_ancient_tree"          "亵渎者的世界树"
+		"redfall_ancient_tree_summon"   "落红幼树"
+		
+		"DOTA_Tooltip_ancient_tree_passive"                   "撕裂之种"
+		"DOTA_Tooltip_ancient_tree_passive_Description"       "世界树释放出一个叶状子弹，对被击中的敌人产生可以叠加的debuff，该debuff会降低敌人的护甲，移动速度和视野。"
+		"DOTA_Tooltip_ability_ancient_tree_passive_vision_loss"       "视野降低:"
+		"DOTA_Tooltip_ability_ancient_tree_passive_armor_loss"        "护甲降低:"
+		"DOTA_Tooltip_ability_ancient_tree_passive_movespeed_loss"    "移动速度降低:"
+		
+		"DOTA_Tooltip_modifier_ancient_tree_vision"                   "撕裂之种"
+		"DOTA_Tooltip_modifier_ancient_tree_vision_Description"       "降低视野，护甲和移动速度"
+		
+		"DOTA_Tooltip_ability_ancient_tree_summon"                         "树林之魂"
+		"DOTA_Tooltip_ability_ancient_tree_summon_Description"             "召唤落红幼树大军为世界树而战。每个落红幼树的存在将减少世界树受到伤害5%。"
+		"DOTA_Tooltip_ability_ancient_tree_groud_slam"                     "丛林震荡"
+		"DOTA_Tooltip_ability_ancient_tree_ground_slam_Description"        "世界树重击地面，对范围内的敌人造成伤害和眩晕。"
+		"DOTA_Tooltip_ability_ancient_tree_ground_slam_damage"             "伤害:"
+		
+		"DOTA_Tooltip_ability_ancient_tree_summon_leech_seed"              "落红流火的吸血种子"
+		"DOTA_Tooltip_ability_ancient_tree_summon_leech_seed_Description"  "对敌人施加一个debuff，周期性的治疗世界树和他的精英军队，治疗量为他们最大生命值的百分比。"
+		"DOTA_Tooltip_ability_ancient_tree_summon_leech_seed_heal_percent" "治疗%:"
+		"DOTA_Tooltip_ability_ancient_tree_summon_leech_seed_heal_percent_boss" "世界树治疗%:"
+		"DOTA_Tooltip_ability_ancient_tree_summon_leech_seed_damage_per_tick"   "每秒伤害:"
+		
+		"DOTA_Tooltip_modifier_summon_leech_seed_debuff"                    "落红流火的吸血种子"
+		"DOTA_Tooltip_modifier_summon_leech_seed_debuff_Description"        "受到持续伤害并且治疗世界树。"		

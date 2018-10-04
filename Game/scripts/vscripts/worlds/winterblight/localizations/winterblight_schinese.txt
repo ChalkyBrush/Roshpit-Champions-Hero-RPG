@@ -418,8 +418,8 @@
 		"DOTA_Tooltip_modifier_crippling_return_effect"				"衰弱回归"
 		"DOTA_Tooltip_modifier_crippling_return_effect_Description"	"减少攻击"	
 
-		"DOTA_Tooltip_ability_winterblight_armor_softening"		"护甲软化"
-		"DOTA_Tooltip_ability_winterblight_armor_softening_Description"	"该单位在护甲大于一定临界值时受到的时候将被大量减少。"
+		"DOTA_Tooltip_ability_winterblight_armor_softening"		"柔韧之甲"
+		"DOTA_Tooltip_ability_winterblight_armor_softening_Description"	"该单位在护甲大于一定临界值时受到的伤害将被大量减少。"
 		"DOTA_Tooltip_ability_winterblight_armor_softening_armor_threshold"	"护甲临界值:"
 		"DOTA_Tooltip_ability_winterblight_armor_softening_damage_reduc"	"伤害减少:"		
 

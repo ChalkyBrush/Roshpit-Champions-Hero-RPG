@@ -250,7 +250,7 @@
         "item_rpc_axe_glyph_7_2_description"                "将狂暴之怒的最大层数提高至 @glyph_property1 层，并且你将一直拥有一半的层数。当骷髅锤开启时，每次攻击将叠加 @glyph_property2 层。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_a"       "终极雕文"
-        "item_rpc_axe_glyph_5_a_description"                "@Ability4 所造成的全部伤害，以及它的所有符文数，都将提高 @glyph_property1%。"
+        "item_rpc_axe_glyph_5_a_description"                "@Ability4 所造成的全部伤害，以及它的所有符文造成的伤害，都将提高 @glyph_property1%。"
 
 		"DOTA_Tooltip_ability_item_rpc_axe_glyph_book"		"赤色上将雕文书"
 
