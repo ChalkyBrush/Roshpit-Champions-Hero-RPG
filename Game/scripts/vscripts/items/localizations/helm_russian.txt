@@ -98,9 +98,9 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_iron_colussus"									"Helm of the Iron Colossus"
 		"item_property_iron_colossus"				"Iron Colossus"	
-		"property_iron_colossus_description"		"Каждое очко силы увеличивает урон на @special_property1 и броню на @special_property2, герой вырастает на 15%. Скорость атаки заблокирована на значении 100, а все дальние атаки станут ближними. Атаки оглушают врагов на 0.5 секунды и дополнительно наносят 50х физического урона. (W) @Ability2 стоит на 1000 маны дороже."
+		"property_iron_colossus_description"		"Каждое очко Силы увеличивает базовую атаку на <% IRON_COLOSSUS_ATT_PER_STR %>, а броню на <% IRON_COLOSSUS_AMR_PER_STR %> и герой становится больше на 15%. Скорость атаки фиксируется на <% IRON_COLOSSUS_ATT_SPD %>, а радиус атаки на <% IRON_COLOSSUS_ATT_RNG %>. Стандартые атаки оглушают противников на 0.5 секунды, и наносят дополнительно <% IRON_COLOSSUS_DMG_PER_ATT %>x физическим уроном. @Ability2 стоит на 1000 маны больше."
 		"DOTA_Tooltip_modifier_iron_colossus"					"Iron Colossus"
-		"DOTA_Tooltip_modifier_iron_colossus_description"		"К атакам добавляется 50х физического урона, атаки оглушают врагов на 0.5 секунды. Скорость атаки заблокирована на значении 100. Урон и броня увеличены в зависимости от Силы героя."
+		"DOTA_Tooltip_modifier_iron_colossus_description"		"К атакам добавляется 50х физического урона, атаки оглушают врагов на 0.5 секунды. Скорость атаки заблокирована на значении 120. Урон и броня увеличены в зависимости от Силы героя."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_mugato"									"Mask of Mugato"

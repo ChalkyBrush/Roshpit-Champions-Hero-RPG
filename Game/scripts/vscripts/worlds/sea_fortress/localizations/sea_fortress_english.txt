@@ -721,3 +721,5 @@
 
 		"sea_fortress_paladin_golem"									"Hollow One"
 		"seafortress_archon_wizard"										"Archon Wizard"
+		
+		"seafortress_wandering_pirate"									"Wandering Pirate"
