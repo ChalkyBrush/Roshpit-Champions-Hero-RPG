@@ -968,6 +968,7 @@ function RPCItems:GearPickup(heroEntity, itemEntity)
 end
 
 function RPCItems:EquipItem(slot, hero, inventory_unit, itemEntity)
+	Events:TutorialServerEvent(caster, "3_1", 0)
 	Weapons:ValidateGear(hero)
 	if slot == 0 then
 		Head:remove_modifiers(hero)
