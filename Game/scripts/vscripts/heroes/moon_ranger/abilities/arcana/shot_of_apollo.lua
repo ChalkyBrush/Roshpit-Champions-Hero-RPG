@@ -148,8 +148,15 @@ function apollo_target_die(event)
 	local ability = event.ability
 	local caster = event.caster
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
+	local newTarget = false
 	if #enemies > 0 then
-		local newTarget = enemies[1]
+		for i = 1, #enemies, 1 do
+			if not enemies[i].dummy then
+				newTarget = enemies[i]
+			end
+		end
+	end
+	if newTarget then
 		local stacks = ability.shots
 		target:RemoveModifierByName("modifier_apollo_strikes")
 		ability:ApplyDataDrivenModifier(caster, newTarget, "modifier_apollo_strikes", {})

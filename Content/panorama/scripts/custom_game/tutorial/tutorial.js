@@ -248,25 +248,59 @@ function CallQuizBox(msg){
     	quiz_text = quiz_text.replace('@sub2', "<font color='#7DFF12'>"+$.Localize(msg.gsub2)+"</font>")
     }
     quiz_box.FindChildTraverse('quiz_box_question').text = quiz_text
-   	submit_button = parent.FindChildTraverse('quiz_submit_button')
-	submit_button.SetPanelEvent('onactivate', function SubmitQuiz() {
-		setupQuizAnswerSubmit(parent, msg.identifier, msg.sequence, msg.verifier, msg.localize_verifier, msg.challenge_progress)
-	})
-	parent.FindChildTraverse('quiz_box_input').SetFocus();
+    if (msg.buttons === undefined){
+	   	submit_button = parent.FindChildTraverse('quiz_submit_button')
+		submit_button.SetPanelEvent('onactivate', function SubmitQuiz() {
+			setupQuizAnswerSubmit(parent, msg.identifier, msg.sequence, msg.verifier, msg.localize_verifier, msg.challenge_progress, false)
+		})
+		parent.FindChildTraverse('quiz_box_input').SetFocus();
+	}else{
+		parent.FindChildTraverse('quiz_box_input').AddClass('invisible');
+		parent.FindChildTraverse('quiz_submit_button').AddClass('invisible');
+		parent.FindChildTraverse('multiple-choice-container').AddClass('multiple-choice-container-open')
+		parent.FindChildTraverse('multiple-choice-container').RemoveClass('invisible');
+		var number_of_buttons = Object.keys(msg.buttons).length
+		var button_parent = $('#multiple-choice-container')
+		for (var i = 0; i < number_of_buttons; i++) {
+			var button_box = $.CreatePanel("Panel", button_parent, "quiz-multiple-button"+i)
+			button_box.BLoadLayoutSnippet("quiz_box_multiple_choice_button");
+			var answerButton = button_box.FindChildTraverse('multiple_choice_submit_button')
+			button_box.FindChildTraverse('multiple_choice_submit_label').text = $.Localize(msg.buttons[i+1])
+			var input = msg.buttons[i+1]
+			setup_quiz_answer_submit(answerButton, parent, msg, input)
+		}
+	}
+	
+}
+
+function setup_quiz_answer_submit(answerButton, parent, msg, input)
+{
+	$.Msg(input)
+	answerButton.SetPanelEvent('onactivate', function SubmitQuiz() {
+		setupQuizAnswerSubmit(parent, msg.identifier, msg.sequence, msg.verifier, msg.localize_verifier, msg.challenge_progress, input)
+	})	
 }
 
 function quiz_submit_sound(msg){
 	Game.EmitSound(msg.sound)
 }
 
-function setupQuizAnswerSubmit(parent, identifier, sequence, verifier, bLocalize, challenge_progress)
+function setupQuizAnswerSubmit(parent, identifier, sequence, verifier, bLocalize, challenge_progress, input)
 {
 	$.Msg("SUBMIT QUIZ")
-	var input = parent.FindChildTraverse('quiz_box_input').text
+	var localize_input = false
+	if (!(input)){
+		input = parent.FindChildTraverse('quiz_box_input').text
+	}else{
+		localize_input = true
+	}
 	var hero = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())
 	if (bLocalize == 1){
 		verifier = $.Localize(verifier).toLowerCase()
 		input = input.toLowerCase()
+	}
+	if (localize_input){
+		input = $.Localize(input).toLowerCase()
 	}
 	GameEvents.SendCustomGameEventToServer( "tutorial", {hero: hero, code: "submit_quiz", challenge_index: identifier, sequence: sequence, verifier: verifier, answer: input, challenge_progress: parseInt(challenge_progress)} );	
 }

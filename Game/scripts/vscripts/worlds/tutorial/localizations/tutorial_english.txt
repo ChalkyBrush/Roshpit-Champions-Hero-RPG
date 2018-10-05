@@ -200,6 +200,8 @@
 	"quest_3_challenge_1"												"A. Equipment Basics"
 	"quest_3_challenge_2"												"B. The Blacksmith"
 	"quest_3_challenge_3"												"C. Weapons"
+	"quest_3_challenge_4"												"D. Glyphs"
+	"quest_3_challenge_5"												"E. Pool of Eternity"
 
 	"quest_3_challenge_1_desc"											"Equipment is the most important contributor to your hero's effectiveness. You can equip an item by activating it from your inventory. Powerful items have the <font color=\'#E4AE33\'>immortal</font> rarity. Beyond that are the ultra rare <font color=\'#ADE55C\'>arcana</font> items."
 	"quest_3_challenge_1_sub_0_summary"									"Equip any piece of gear."
@@ -217,7 +219,7 @@
 	"tutorial_quiz_question_6_answer"									"blacksmith"
 
 	"tutorial_quiz_wrong_3_1_1"											"No that's not right, the answer is one of the NPC's in town."
-	"tutorial_quiz_wrong_3_1_2"											"You know what, maybe you should just restart this tutorial and read what I say this time!"
+	"tutorial_quiz_wrong_3_1_2"											"You know what, maybe you should just restart this tutorial and read what I say next time!"
 
 	"tutorial_master_dialogue_3_1f"										"That's right! Only the blacksmith can remove an item for future use. Equipping a new item to the same slot will overwrite that existing gear."
 
@@ -227,13 +229,32 @@
 	"tutorial_master_dialogue_3_1j"										"When they drop you will know! A neon green beam reaches out toward the sky and a loud noise is heard in the distance."
 	"tutorial_master_dialogue_3_1l"										"Ok, let's see if you were paying attention."	
 
-	"tutorial_quiz_question_7"											"What is the @sub1 gear rarity type called?
+	"tutorial_quiz_question_7"											"What is the @sub1 gear rarity type called?"
 	"tutorial_quiz_question_7_sub_answer1"								"2nd most rare"
 	"tutorial_quiz_question_7_sub_answer2"								"rarest"
 
-	"tutorial_quiz_wrong_3_1_3"											"Oh no, that is incorrect. Try again."
-	"tutorial_quiz_wrong_3_1_4"											"If you listened to my lecture, this would not be difficult..."
+	"tutorial_quiz_wrong_3_1_5"											"Oh no, that is incorrect. Try again."
+	"tutorial_quiz_wrong_3_1_6"											"If you listened to my lecture, this would not be difficult..."
 
 	"tutorial_master_dialogue_3_1m"										"That's right! I think you understand enough about equipment for now. We will end this lesson here."
 
 	"quest_3_challenge_2_desc"											"Something about blacksmith."
+
+	"tutorial_master_dialogue_3_2a"										"The Blacksmith can chisel your equipment off of you, giving you the item back. He charges Mithril Shards for his services."
+	"tutorial_master_dialogue_3_2a1"									"Since you are clearly broke, I will provide you with some mithril so that you can actually afford it."
+	"tutorial_master_dialogue_3_2b"										"I've dropped a piece of gear in case you need something to chisel. Now go to the blacksmith and chisel one of your items!"
+
+	"tutorial_master_dialogue_3_2c"										"Nice! Now don't forget to re-equip that if it's valuable."
+	"tutorial_master_dialogue_3_2d"										"The blacksmith provides another important service, called Rerolling."
+	"tutorial_master_dialogue_3_2e"										"If an item is has immortal rarity and is not a weapon, the blacksmith can reroll an item's properties at the cost of mithril."
+	"tutorial_master_dialogue_3_2f"										"For an additional fee, he will lock up to 2 property slots so that you may preserve your good rolls."
+	"tutorial_master_dialogue_3_2g"										"Since you might not have an immortal, I will not force you to reroll an item for this challenge."
+	"tutorial_master_dialogue_3_2h"										"Instead I want you to tell me, up to how many property slots will the blacksmith lock on a piece of gear?"
+
+	"tutorial_quiz_question_8"											"Up to how many property slots will the blacksmith lock when rerolling your gear?"
+	"tutorial_quiz_wrong_8_1_1"											"Incorrect. You must brush up on your basic reroll knowledge."
+	"tutorial_quiz_wrong_8_1_2"											"No, that is not right."
+
+	"tutorial_master_dialogue_3_2i"										"That's right! Rerolling is a crucial task for acquiring top-tier equipment."
+	"tutorial_master_dialogue_3_2j"										"I will note that not all immortals can be rerolled, but most of them can. Try to understand that there are always exceptions!"
+	"tutorial_master_dialogue_3_2k"										"You now understand the importance of the blacksmith. The lesson is complete."
