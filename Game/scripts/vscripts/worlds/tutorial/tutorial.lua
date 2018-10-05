@@ -27,6 +27,21 @@ function Tutorial:SpawnOracle()
 	local oracle = Events:SpawnOracle(Vector(-2842, -1943), Vector(-0.3, -1))
 end
 
+function Tutorial:Debug()
+	local hero = MAIN_HERO_TABLE[1]
+	local player = PlayerResource:GetPlayer(hero:GetPlayerOwnerID())
+	local question = "tutorial_quiz_question_7"
+	local sub_number = RandomInt(1,2)
+	local gsub1 = "tutorial_quiz_question_7_sub_answer"..sub_number
+	local verifier = "item_rarity_immortal"
+	if sub_number == 2 then
+		verifier = "item_rarity_arcana"
+	end
+	local buttons = {"item_rarity_uncommon", "item_rarity_rare", "item_rarity_mythical", "item_rarity_immortal", "item_rarity_arcana"}
+	CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero=hero:GetEntityIndex(), identifier="3_1", quiz_question=question, sequence=2, verifier = verifier, localize_verifier = 1, challenge_progress = 2, gsub1 = gsub1, buttons = buttons} )
+	CustomGameEventManager:Send_ServerToPlayer(player, "quiz_sound", {sound = "Tutorial.Hint"} )
+end
+
 function Tutorial:SpawnAllTownNPCs()
 	if not Tutorial.OracleSpawned then
 		Tutorial:SpawnOracle()
@@ -615,6 +630,9 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 		Timers:CreateTimer(12, function()
 			hero.master_is_talking = false
 		end)
+	elseif code == "3_2" then
+		hero.tutorial_speech_phase = hero.tutorial_speech_phase + 1
+		hero.master_is_talking = true
 	end
 end
 
@@ -960,7 +978,8 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 							if sub_number == 2 then
 								verifier = "item_rarity_arcana"
 							end
-							CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero=hero:GetEntityIndex(), identifier="3_1", quiz_question=question, sequence=2, verifier = verifier, localize_verifier = 1, challenge_progress = 2, gsub1 = gsub1} )
+							local buttons = {"item_rarity_uncommon", "item_rarity_rare", "item_rarity_mythical", "item_rarity_immortal", "item_rarity_arcana"}
+							CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero=hero:GetEntityIndex(), identifier="3_1", quiz_question=question, sequence=2, verifier = verifier, localize_verifier = 1, challenge_progress = 2, gsub1 = gsub1, buttons = buttons} )
 							CustomGameEventManager:Send_ServerToPlayer(player, "quiz_sound", {sound = "Tutorial.Hint"} )
 						end
 					end)
@@ -1158,4 +1177,31 @@ function Tutorial:RemoveRunePrefix(full_rune_name)
 	full_rune_name = string.gsub(full_rune_name, "%[r3%] ", "")
 	full_rune_name = string.gsub(full_rune_name, "%[r4%] ", "")
 	return full_rune_name
+end
+
+function Tutorial:GetMithrilPrize(position, hero, mithrilReward)
+  Timers:CreateTimer(5, function()
+
+        local crystal = CreateUnitByName("arcane_crystal", position+Vector(0,0,1000), false, nil, nil, DOTA_TEAM_GOODGUYS)
+        crystal:SetAbsOrigin(crystal:GetAbsOrigin()+Vector(0,0,1300))
+        local crystalAbility = crystal:AddAbility("mithril_shard_ability")
+        crystalAbility:SetLevel(1)
+        local fv = RandomVector(1)
+        crystal:SetOriginalModel("models/props_gameplay/rune_doubledamage01.vmdl")
+        crystal:SetModel("models/props_gameplay/rune_doubledamage01.vmdl")
+        crystal.reward = mithrilReward
+        crystal.reward = math.floor(crystal.reward*(1+GameState:GetPlayerPremiumStatusCount()*0.1))*Events.ResourceBonus
+        crystal.distributed = 0
+        local baseModelSize = math.min(2.9, 1.2 + crystal.reward/200)
+        crystal.modelScale = baseModelSize
+        crystal:SetModelScale(baseModelSize)
+        crystal.fallVelocity = 45
+        crystal.falling = true
+        crystal.winnerTable = {hero}
+        if #crystal.winnerTable > 0 then
+          Timers:CreateTimer(1.4, function()
+            EmitSoundOn("Resource.MithrilShardEnter", crystal)
+          end)
+        end
+  end)
 end

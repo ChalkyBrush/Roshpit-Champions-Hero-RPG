@@ -525,3 +525,48 @@
 	font-size:20px;
 	border:1px solid black;
 }
+
+#multiple-choice-container{
+	flow-children:right;
+}
+
+.multiple-choice-container-open{
+	height:120px;
+	width:95%;
+	vertical-align: bottom;
+	horizontal-align:center;
+}
+
+.quiz_box_multiple_choice_button{
+	width:20%;
+	height:45px;
+	margin-top:10px;
+}
+
+#multiple_choice_submit_button{
+	width:100%;
+	horizontal-align:center;
+	height:40px;
+	border-radius:4px;
+	border:1px solid #000303;
+	vertical-align: bottom;
+	margin-bottom:10px;
+	background-color: gradient( linear, 0px 0%, 300px 0%, from( #1A1A1A ), to( #111111 ) );
+	box-shadow: 1px 1px 2px #000000;
+}
+
+#multiple_choice_submit_button:hover{
+	background-color: gradient( linear, 0px 0%, 300px 0%, from( #1F1F1F ), to( #161616 ) );
+	box-shadow: 0px 0px 0px #000000;
+}
+
+.multiple_choice_button_label{
+	font-family: TH Sarabun New, Radiance, FZLanTingHei-R-GBK, Gulim,MingLiU;
+	width:100%;
+	color:white;
+	text-align: center;
+	font-size:18px;
+	line-height: 28px;
+	font-weight:lighter;
+	letter-spacing: 1px;
+}

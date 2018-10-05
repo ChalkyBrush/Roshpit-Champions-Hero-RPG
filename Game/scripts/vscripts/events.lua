@@ -480,6 +480,10 @@ function GameMode:OnPlayerChat(keys)
         if Beacons.cheats then
           Winterblight:Debug()
         end    
+  elseif string.match(text, "tutorial") then
+        -- if Beacons.cheats then
+          Tutorial:Debug()
+        -- end    
   elseif string.match(text, "ladder") then
     if GameState:IsRedfallRidge() then
         if Beacons.cheats then
@@ -1549,7 +1553,7 @@ end
 
 function Events:beginQuests()
   -- print("BEGINQUESTS IS HAPPENING")
-   -- Beacons:DEBUG()
+   Beacons:DEBUG()
 end
 
 function Events:InitGameEntities()
