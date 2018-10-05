@@ -4,6 +4,7 @@
 	"Tokens"
 	{		
 		"addon_game_name"			"Roshpit Champions"
+		"rpc_sea_fortress"			"Sea Fortress"
 		"rpc_tanari_jungle"			"Tanari Jungle"
 		"rpc_redfall_ridge"			"Redfall Ridge"
 		"rpc_battle_of_serengaard"	"Battle of Serengaard"
