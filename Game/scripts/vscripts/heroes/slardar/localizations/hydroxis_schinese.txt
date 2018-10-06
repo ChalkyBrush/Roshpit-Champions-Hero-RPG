@@ -199,7 +199,7 @@
     	"DOTA_Tooltip_modifier_flood_basin_aura_effect"						"洪水领域"
     	"DOTA_Tooltip_modifier_flood_basin_aura_effect_Description"			"提高施法速度和回蓝"	
 
-  		"DOTA_Tooltip_ability_hydroxis_rune_r_1_arcana2"						"[R1] Diviner's Waves"
+  		"DOTA_Tooltip_ability_hydroxis_rune_r_1_arcana2"						"[R1] 神机妙水"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_1_arcana2_Description"				"提高施法距离与基础技能伤害。"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_1_arcana2_property_one"				"施法距离提高"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_1_arcana2_suffix"						""
