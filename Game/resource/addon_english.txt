@@ -16335,6 +16335,9 @@
 
 	"tutorial_master_dialogue_3_5f"										"That's it! The Pool of Eternity will certainly be a helpful tool on your journey."
 
+	"quest_3_reward_title"												"3. Low Level Arcanas"       
+	"quest_3_reward_description"										"This Galactic Arcana cache will grant you 3 low level items of the highest rarity."
+
 		"winterblight_village"											"Winterblight Village"
 		"shrine_of_azalea"												"Shrine of Azalea"
 		"winterblight_mountain"											"Winterblight Mountain"

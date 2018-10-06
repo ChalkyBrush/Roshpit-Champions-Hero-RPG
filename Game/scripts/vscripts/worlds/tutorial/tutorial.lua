@@ -1387,6 +1387,12 @@ function Tutorial:UpdateRewardProgressOnWeb(hero, section_index)
 				Tutorial:ActivatePortal(true)
 			elseif section_index == 2 then
 				Tutorial:SpawnAllTownNPCs()
+			elseif section_index == 3 then
+				local validator = "roshpit"
+				local newItem = RPCItems:CreateArcanaCache(15, validator)
+				newItem.pickedUp = true
+				UTIL_Remove(newItem:GetContainer())
+				RPCItems:GiveItemToHeroWithSlotCheck(hero, newItem)
 			end
 		end
 	end )
