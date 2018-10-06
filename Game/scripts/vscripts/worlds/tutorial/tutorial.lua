@@ -364,6 +364,9 @@ function Tutorial:TutorialEvent(msg)
 		elseif hero.tutorial.active_challenge == "3_2" then
 			Tutorial:UpdateChallengeSummaryProgress(hero, 3, 2, 0, false)
 			Tutorial:MasterSequenceWithLocks(hero, hero.tutorial.active_challenge)
+		elseif hero.tutorial.active_challenge == "3_3" then
+			Tutorial:UpdateChallengeSummaryProgress(hero, 3, 3, 0, false)
+			Tutorial:MasterSequenceWithLocks(hero, hero.tutorial.active_challenge)
 		end
 	elseif code == "reward_select" then
 		Tutorial:ClaimReward(msg)
@@ -651,6 +654,7 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 					end)
 				end
 				Timers:CreateTimer(delayUntil_b, function()
+					hero.master_is_talking = false
 					Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_3_2b", 5, false)
 					Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_2, 1.0, 4.0)
 					local luck = RandomInt(200,500)
@@ -669,11 +673,47 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 						hero:AddExperience(3000, 0, false, true)
 					end
 				end)
-				
-
 			end
 		end)
-		Timers:CreateTimer(12, function()
+	elseif code == "3_3" then
+		hero.master_is_talking = true
+		hero.tutorial_speech_phase = hero.tutorial_speech_phase + 1
+		local speech_phase = hero.tutorial_speech_phase
+		Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_3_3a", 5, false)
+		Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting1", ACT_DOTA_CAST_ABILITY_1, 1.0, 4.0)
+		Timers:CreateTimer(5, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_3_3b", 5, false)
+			end
+		end)
+		Timers:CreateTimer(10, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_3_3c", 5, false)
+			end
+		end)
+		Timers:CreateTimer(15, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				local delayUntil_d = 0
+				local gear_data = CustomNetTables:GetTableValue("equipment", tostring(hero:GetPlayerOwnerID()).."-"..tostring(RPCItems.WEAPONS_SLOT))
+				CustomNetTables:SetTableValue("equipment", tostring(hero:GetPlayerOwnerID()).."-"..tostring(slot), {itemIndex = -1} )
+				if gear_data.itemIndex == -1 then
+					if not hero.free_weapon_given then
+						hero.free_weapon_given = true
+						delayUntil_d = 6
+						Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_3_3c1", 5, false)
+						Weapons:RollWeaponWithClass(Tutorial.Master:GetAbsOrigin(), hero:GetUnitName())
+					end
+				end
+				Timers:CreateTimer(delayUntil_d, function()
+					Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_3_3d", 5, false)
+					local player = PlayerResource:GetPlayer(hero:GetPlayerOwnerID())
+					local question = "tutorial_quiz_question_9"
+					CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero=hero:GetEntityIndex(), identifier="3_3", quiz_question=question, sequence=0, verifier = 0, localize_verifier = 0, challenge_progress = 0} )
+					CustomGameEventManager:Send_ServerToPlayer(player, "quiz_sound", {sound = "Tutorial.Hint"} )
+				end)
+			end
+		end)
+		Timers:CreateTimer(20, function()
 			hero.master_is_talking = false
 		end)
 	end
@@ -1100,6 +1140,20 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 					Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_3_2k", 6, false)
 				end)
 			end
+		elseif code1 == "3_3" then
+			if code2 == 0 and hero.active_challenge_progress == code2 then
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_3_3e", 5, false)
+				hero.master_is_talking = false
+				Tutorial:ProgressUpdateOrNot(hero, 3, 3)
+				Timers:CreateTimer(2, function()
+					EmitSoundOn("Tutorial.Master.Talk", hero)
+				end)
+				hero.active_challenge_progress = hero.active_challenge_progress + 1
+				hero.tutorial.active_challenge = nil
+				Timers:CreateTimer(3, function()
+					Tutorial:UpdateChallengeSummaryProgress(hero, 3, 3, 1, true)
+				end)
+			end
 		end
 	end
 end
@@ -1239,6 +1293,10 @@ function Tutorial:SubmitQuiz(msg)
 	if hero.tutorial.active_challenge == msg.challenge_index then
 		if hero.tutorial.active_challenge == "2_1" then
 			msg.verifier = Tutorial:RemoveRunePrefix(msg.verifier)
+		end
+		if hero.tutorial.active_challenge == "3_3" then
+			local weapons_data = CustomNetTables:GetTableValue("weapons", tostring(hero:GetEntityIndex()))
+			msg.verifier = weapons_data.maxLevel
 		end
 		local correct_answer = tonumber(msg.verifier) == tonumber(msg.answer)
 		if hero.tutorial.active_challenge == "3_1" then

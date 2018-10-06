@@ -270,7 +270,7 @@
 	"tutorial_master_dialogue_3_3c1"									"You don't have a weapon equipped? Here, take this one."	
 	"tutorial_master_dialogue_3_3d"										"Now take a look at your weapon tooltip and answer me."
 
-	"tutorial_quiz_question_8"											"What is the maximum level of your currently equipped weapon?"
+	"tutorial_quiz_question_9"											"What is the maximum level of your currently equipped weapon?"
 	"tutorial_quiz_wrong_3_3_1"											"Please take a closer look at your weapon's tooltip."
 	"tutorial_quiz_wrong_3_3_2"											"You must check your weapon's tooltip to find the answer."
 
