@@ -320,6 +320,16 @@ function Tutorial:GetFixedTutorialData(hero)
 		quest.challenges = 5
 		table.insert(categories, quest)
 	end
+	if hero.tutorial.section3.progress >= 5 then
+		local quest = {}
+		quest.index = 4
+		quest.progress = hero.tutorial.section4.progress
+		quest.header = "quest_4_interface"
+		quest.description = "quest_4_interface_description"
+		quest.reward = hero.tutorial.section4.reward
+		quest.challenges = 7
+		table.insert(categories, quest)
+	end
 	--
 	return categories
 end
@@ -373,6 +383,13 @@ function Tutorial:TutorialEvent(msg)
 		elseif hero.tutorial.active_challenge == "3_5" then
 			Tutorial:UpdateChallengeSummaryProgress(hero, 3, 5, 0, false)
 			Tutorial:MasterSequenceWithLocks(hero, hero.tutorial.active_challenge)
+		elseif hero.tutorial.active_challenge == "4_1" then
+			Tutorial:UpdateChallengeSummaryProgress(hero, 4, 1, 0, false)
+			Tutorial:MasterSequenceWithLocks(hero, hero.tutorial.active_challenge)
+			if hero.shroomling then
+				UTIL_Remove(hero.shroomling)
+				hero.shroomling = nil
+			end
 		end
 	elseif code == "reward_select" then
 		Tutorial:ClaimReward(msg)
@@ -787,6 +804,70 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 				end
 			end
 		end)
+	elseif code == "4_1" then
+		hero.master_is_talking = true
+		hero.tutorial_speech_phase = hero.tutorial_speech_phase + 1
+		local speech_phase = hero.tutorial_speech_phase
+		Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_1a", 5, false)
+		Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting2", ACT_DOTA_CAST_ABILITY_3, 1.0, 4.0)
+		Timers:CreateTimer(5, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_1b", 5, false)
+			end
+		end)
+		Timers:CreateTimer(10, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_1c", 5, false)
+			end
+		end)	
+		Timers:CreateTimer(15, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				-- spawn shroomling
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_1d", 7, false)
+				Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_1, 1.0, 4.0)
+				Timers:CreateTimer(0.3, function()
+					local shroomling = CreateUnitByName("tutorial_shroomling", Vector(-576, 1984), false, nil, nil, DOTA_TEAM_NEUTRALS)
+					EmitSoundOn("Tutorial.SpawnUnit", shroomling)
+					shroomling:SetForwardVector(Vector(1,0))
+					CustomAbilities:QuickParticleAtPoint("particles/roshpit/tutorial/tutorial_sprout.vpcf", shroomling:GetAbsOrigin(), 3)
+					shroomling.cantAggro = true
+					local particleName = "particles/roshpit/redfall/red_beam.vpcf"
+				    local pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
+				    ParticleManager:SetParticleControl(pfx,0,Tutorial.Master:GetAbsOrigin()+Vector(0,0,120))   
+				    ParticleManager:SetParticleControl(pfx,1,shroomling:GetAbsOrigin()+Vector(0,0,60))
+					Timers:CreateTimer(3.5, function()
+						ParticleManager:DestroyParticle(pfx, false)
+					end)
+					AddFOWViewer(DOTA_TEAM_GOODGUYS, shroomling:GetAbsOrigin(), 300, 180, false)
+					shroomling.hero = hero
+					shroomling.phase = 0
+					shroomling.damage_code = 0
+					hero.shroomling = shroomling
+					Tutorial:ApplyTutorialModifier("modifier_tutorial_unit", shroomling, 0)
+					local ability = shroomling:FindAbilityByName("dungeon_creep")
+					if ability then
+						ability:SetLevel(1)
+						ability:ApplyDataDrivenModifier(shroomling, shroomling, "modifier_dungeon_thinker_creep", {})
+					end
+					shroomling.aggroSound = "Tutorial.Shroomling.Aggro"
+				    shroomling:SetDeathXP(500)
+				    shroomling:SetMaximumGoldBounty(10)
+				    shroomling:SetMinimumGoldBounty(20)
+				end)
+			end
+		end)
+		Timers:CreateTimer(21, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_4_1e", 5, false)
+				Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting2", ACT_DOTA_CAST_ABILITY_4, 1.0, 4.0)
+				hero.master_is_talking = false
+				local player = PlayerResource:GetPlayer(hero:GetPlayerOwnerID())
+				local question = "tutorial_quiz_question_10"
+				local verifier = "DOTA_Tooltip_ability_tutorial_shroomling_ability"
+				CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero=hero:GetEntityIndex(), identifier="4_1", quiz_question=question, sequence=0, verifier = verifier, localize_verifier = 1, challenge_progress = 0} )
+				CustomGameEventManager:Send_ServerToPlayer(player, "quiz_sound", {sound = "Tutorial.Hint"} )
+			end
+		end)		
 	end
 end
 
@@ -1262,8 +1343,42 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 					Tutorial:UpdateChallengeSummaryProgress(hero, 3, 5, 2, true)
 				end)
 			end
+		elseif code1 == "4_1" then
+			if code2 == 0 and hero.active_challenge_progress == code2 then
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_1f", 5, false)
+				EmitSoundOn("Tutorial.Master.Greeting1", hero)
+				hero.master_is_talking = true
+				local speech_phase = Tutorial:GetSpeechPhaseAndUpdate(hero)
+				Tutorial:UpdateChallengeSummaryProgress(hero, 4, 1, 1, false)
+				hero.active_challenge_progress = hero.active_challenge_progress + 1
+				Timers:CreateTimer(5, function()
+					Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_1g", 5, false)
+				end)
+				Timers:CreateTimer(10, function()
+					hero.shroomling.cantAggro = false
+					hero.shroomling.phase = 1
+					EmitSoundOn("Tutorial.Master.Talk", hero)
+					Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_1h", 5, false)
+				end)
+			elseif code2 == 1 and hero.active_challenge_progress == code2 then
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_1i", 5, false)
+				EmitSoundOn("Tutorial.Master.Greeting1", hero)
+				hero.master_is_talking = false
+				Timers:CreateTimer(0, function()
+					Tutorial:ProgressUpdateOrNot(hero, 4, 1)
+					hero.active_challenge_progress = hero.active_challenge_progress + 1
+					hero.tutorial.active_challenge = nil
+					Tutorial:UpdateChallengeSummaryProgress(hero, 4, 1, 2, true)
+				end)
+			end
 		end
 	end
+end
+
+function Tutorial:GetSpeechPhaseAndUpdate(hero)
+	hero.tutorial_speech_phase = hero.tutorial_speech_phase + 1
+	local speech_phase = hero.tutorial_speech_phase
+	return speech_phase
 end
 
 function Tutorial:ProgressUpdateOrNot(hero, section_index, newProgress)
@@ -1416,6 +1531,11 @@ function Tutorial:SubmitQuiz(msg)
 		if hero.tutorial.active_challenge == "3_1" then
 			msg.answer = string.gsub(string.lower(msg.answer), "the ", "")
 			correct_answer = string.match(string.lower(msg.verifier), string.lower(msg.answer))
+		elseif hero.tutorial.active_challenge == "4_1" then
+			correct_answer = msg.verifier == msg.answer
+		end
+		if tonumber(msg.bLocalize) == 1 then
+			correct_answer = msg.verifier == msg.answer
 		end
 		print(msg.challenge_index)
 		print(msg.verifier)
@@ -1476,4 +1596,29 @@ function Tutorial:GetMithrilPrize(position, hero, mithrilReward)
           end)
         end
   end)
+end
+
+function Tutorial:UnitDamage(attacker, victim, damage, damagetype, inflictor_index)
+	local inflictor_ability = nil
+	if inflictor_index then
+		inflictor_ability = EntIndexToHScript(inflictor_index)
+	end
+	if victim.damage_code == 0 then
+		if victim.phase == 0 then
+			return 0
+		elseif victim.phase == 1 then
+			if not IsValidEntity(inflictor_ability) then
+				print("HERE1")
+				print(damagetype)
+				if damagetype == DAMAGE_TYPE_PHYSICAL then
+					print("HERE2")
+					return damage
+				else
+					return 0
+				end
+			else
+				return 0
+			end
+		end
+	end
 end

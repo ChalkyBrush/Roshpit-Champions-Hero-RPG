@@ -3468,6 +3468,9 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
+	if victim:HasModifier("modifier_tutorial_unit") then
+		filterTable["damage"] = Tutorial:UnitDamage(attacker, victim, filterTable["damage"], filterTable["damagetype_const"], filterTable["entindex_inflictor_const"])
+	end
 	if victim.dummy then
 		filterTable["damage"] = 0
 	end

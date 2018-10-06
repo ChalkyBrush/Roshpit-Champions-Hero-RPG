@@ -16339,15 +16339,41 @@
 	"quest_3_reward_description"										"This Galactic Arcana cache will grant you 3 low level items of the highest rarity."
 
 	"quest_4_interface"													"4. Combat"
-	"quest_4_interface_description"										"In this lesson we will learn the intricacies of Roshpit Champion's combat."
+	"quest_4_interface_description"										"In this lesson we will learn the intricacies of Roshpit Champions' combat."
 
-	"quest_4_challenge_1"												"A. Attacking"
+	"quest_4_challenge_1"												"A. Enemies & Attacking"
 	"quest_4_challenge_2"												"B. Damage Types"
 	"quest_4_challenge_3"												"C. Base Damage"
 	"quest_4_challenge_4"												"D. Elemental Damage"
 	"quest_4_challenge_5"												"E. Training Dummy"
 	"quest_4_challenge_6"												"F. Post-Mitigation Damage"
 	"quest_4_challenge_7"												"G. Buffs, Debuffs and Stuns"
+
+	"quest_4_challenge_1_desc"											"Left clicking on an enemy opens its stats panel allowing you to view its abilities. Right clicking on an enemy issues an attack order. Your hero will keep attacking automatically until the target dies or an alternative order is issued."
+	"quest_4_challenge_1_sub_0_summary"									"Inspect the shroomling to find the answer to Challen's question."
+	"quest_4_challenge_1_sub_1_summary"									"Slay the shroomling with auto-attacks"
+
+	"tutorial_master_dialogue_4_1a"										"The monsters of Roshpit Champions have unique abilities. Across all monsters there are hundreds of different passives and active abilities."
+	"tutorial_master_dialogue_4_1b"										"When approaching an enemy for the first time, it is wise to inspect their abilities and be aware of their capabilities." 
+	"tutorial_master_dialogue_4_1c"										"As you gain knowledge of your enemies you will become more cognizant of how to effectively route them."
+	"tutorial_master_dialogue_4_1d"										"Here's a vicious Shroomling. Don't get too close yet! We don't know what his powers are!"		
+	"tutorial_master_dialogue_4_1e"										"Inspect him first! Tell me, what is this Shroomling's ability?"
+
+	"tutorial_quiz_question_10"											"What is the name of the Shroomling's ability?"
+
+	"DOTA_Tooltip_ability_tutorial_shroomling_ability"					"Fermented"
+	"DOTA_Tooltip_ability_tutorial_shroomling_ability_Description"		"This unit can only take damage from regular attacks."
+
+	"tutorial_shroomling"												"Shroomling"
+
+	"tutorial_quiz_wrong_4_1_1"											"Nope, are we even reading from the same ability bar?"
+	"tutorial_quiz_wrong_4_1_2"											"That is not the ability name of your enemy."
+
+	"tutorial_master_dialogue_4_1f"										"Right! And the ability's description stated that this enemy can only take damage from regular attacks."
+	"tutorial_master_dialogue_4_1g"										"Getting close or dealing damage to an enemy will aggro them. Once aggro'd they never calm back down and will continue chase you!"	
+	"tutorial_master_dialogue_4_1h"										"OK, this enemy can only be damaged by regular attacks. Go get him!"
+
+	"tutorial_master_dialogue_4_1i"										"A technical slaying! That concludes the lesson on Enemies & Attacking."
 
 		"winterblight_village"											"Winterblight Village"
 		"shrine_of_azalea"												"Shrine of Azalea"

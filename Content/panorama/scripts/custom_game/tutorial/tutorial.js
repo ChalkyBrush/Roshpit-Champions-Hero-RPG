@@ -302,7 +302,7 @@ function setupQuizAnswerSubmit(parent, identifier, sequence, verifier, bLocalize
 	if (localize_input){
 		input = $.Localize(input).toLowerCase()
 	}
-	GameEvents.SendCustomGameEventToServer( "tutorial", {hero: hero, code: "submit_quiz", challenge_index: identifier, sequence: sequence, verifier: verifier, answer: input, challenge_progress: parseInt(challenge_progress)} );	
+	GameEvents.SendCustomGameEventToServer( "tutorial", {hero: hero, code: "submit_quiz", challenge_index: identifier, sequence: sequence, verifier: verifier, answer: input, challenge_progress: parseInt(challenge_progress), bLocalize: bLocalize} );	
 }
 
 function close_quiz()

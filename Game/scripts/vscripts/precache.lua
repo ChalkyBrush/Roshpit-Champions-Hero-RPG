@@ -426,7 +426,7 @@ function Precache:Winterblight()
 end
 
 function Precache:Tutorial()
-	local unitTable = {"tutorial_master", "tutorial_assistant"}
+	local unitTable = {"tutorial_master", "tutorial_assistant", "tutorial_shroomling"}
 	for i = 1, #unitTable, 1 do
 		Timers:CreateTimer(i*0.3, 
 		function()
