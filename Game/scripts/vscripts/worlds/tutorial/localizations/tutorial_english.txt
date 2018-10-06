@@ -277,7 +277,7 @@
 	"tutorial_master_dialogue_3_3e"										"Right! Weapons look different than other gears since they come in red loot boxes. Keep an eye out for them on your journey!"	
 
 	"quest_3_challenge_4_desc"											"Glyphs are magical inscriptions that alter/buff your abilities and runes. Your hero can equip up to 3 glyphs. Neutral glyphs can be equipped by any class. Glyphs can be crafted at the Glyph Enchanter."
-	"quest_3_challenge_4_sub_0_summary"									"Purchase any glyph."
+	"quest_3_challenge_4_sub_0_summary"									"Purchase any glyph"
 
 	"tutorial_master_dialogue_3_4a"										"Your hero can equip up to 3 glyphs, which are magical inscriptions that provide special passive effects."
 	"tutorial_master_dialogue_3_4b"										"Neutral glyphs can be equipped by any hero, and you can't equip 2 of the same glyph."
@@ -287,4 +287,17 @@
 	"tutorial_master_dialogue_3_4d2"									"Get close to the crystals to pick them up!"
 
 	"tutorial_master_dialogue_3_4e"										"Great purchase! You can equip the glyph by dragging it onto your glyph slot at the right side of your screen."	
-	"tutorial_master_dialogue_3_4f"										"That completes the lesson on glyphs."					
+	"tutorial_master_dialogue_3_4f"										"That completes the lesson on glyphs."	
+
+	"quest_3_challenge_5_desc"											"The pool of eternity is Roshpit's stash system. You can access your pool at The Oracle. You can deposit up to 12 items, or 60 items if you have a Game Pass."
+	"quest_3_challenge_5_sub_0_summary"									"Deposit any item into the Pool of Eternity"
+	"quest_3_challenge_5_sub_1_summary"									"Withdraw an item from the Pool of Eternity."
+
+	"tutorial_master_dialogue_3_5a"										"Items that you don't have equipped can be saved permanently at your Pool of Eternity."		
+	"tutorial_master_dialogue_3_5b"										"To access your pool, speak the Oracle NPC that you visited before to save your character."
+	"tutorial_master_dialogue_3_5c"										"Why don't you go ahead and try depositing something into your stash?"
+
+	"tutorial_master_dialogue_3_5d"										"Great, now that item is saved across game sessions!"
+	"tutorial_master_dialogue_3_5e"										"Try taking an item out now."
+
+	"tutorial_master_dialogue_3_5f"										"That's it! The Pool of Eternity will certainly be a helpful tool on your journey."

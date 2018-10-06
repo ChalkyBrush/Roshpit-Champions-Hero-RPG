@@ -370,6 +370,9 @@ function Tutorial:TutorialEvent(msg)
 		elseif hero.tutorial.active_challenge == "3_4" then
 			Tutorial:UpdateChallengeSummaryProgress(hero, 3, 4, 0, false)
 			Tutorial:MasterSequenceWithLocks(hero, hero.tutorial.active_challenge)
+		elseif hero.tutorial.active_challenge == "3_5" then
+			Tutorial:UpdateChallengeSummaryProgress(hero, 3, 5, 0, false)
+			Tutorial:MasterSequenceWithLocks(hero, hero.tutorial.active_challenge)
 		end
 	elseif code == "reward_select" then
 		Tutorial:ClaimReward(msg)
@@ -753,6 +756,36 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 		end)
 		Timers:CreateTimer(20, function()
 			hero.master_is_talking = false
+		end)
+	elseif code == "3_5" then
+		hero.master_is_talking = true
+		hero.tutorial_speech_phase = hero.tutorial_speech_phase + 1
+		local speech_phase = hero.tutorial_speech_phase
+		Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_3_5a", 5, false)
+		Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_1, 1.0, 4.0)
+		Timers:CreateTimer(5, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_3_5b", 5, false)
+			end
+		end)
+		Timers:CreateTimer(10, function()
+			hero.master_is_talking = false
+			if speech_phase == hero.tutorial_speech_phase then
+				Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_1, 1.0, 4.0)
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_3_5c", 5, false)
+				local luck = RandomInt(200,500)
+				if luck >= 200 and luck < 265 then
+					RPCItems:RollHood(300, Tutorial.Master:GetAbsOrigin(), "uncommon", false, 0, nil, 0)
+				elseif luck >= 265 and luck < 330 then
+					RPCItems:RollHand(300, Tutorial.Master:GetAbsOrigin(), "uncommon", false, 0, nil, 0)
+				elseif luck >= 330 and luck < 395 then
+					RPCItems:RollFoot(300, Tutorial.Master:GetAbsOrigin(), "uncommon", false, 0, nil, 0)
+				elseif luck >= 395 and luck < 460 then
+					RPCItems:RollBody(300, Tutorial.Master:GetAbsOrigin(), "uncommon", false, 0, nil, 0)
+				elseif luck <= 500 then
+					RPCItems:RollAmulet(300, Tutorial.Master:GetAbsOrigin(), "uncommon", false, 0, nil, 0)
+				end
+			end
 		end)
 	end
 end
@@ -1205,6 +1238,28 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 					Timers:CreateTimer(3, function()
 						Tutorial:UpdateChallengeSummaryProgress(hero, 3, 4, 1, true)
 					end)
+				end)
+			end
+		elseif code1 == "3_5" then
+			if code2 == 0 and hero.active_challenge_progress == code2 then
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_3_5d", 5, false)
+				EmitSoundOn("Tutorial.Master.Greeting1", hero)
+				hero.master_is_talking = false
+				Tutorial:UpdateChallengeSummaryProgress(hero, 3, 5, 1, false)
+				hero.active_challenge_progress = hero.active_challenge_progress + 1
+				Timers:CreateTimer(5, function()
+					EmitSoundOn("Tutorial.Master.Talk", hero)
+					Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_3_5e", 5, false)
+				end)
+			elseif code2 == 1 and hero.active_challenge_progress == code2 then
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_3_5f", 5, false)
+				EmitSoundOn("Tutorial.Master.Greeting1", hero)
+				hero.master_is_talking = false
+				Timers:CreateTimer(1.7, function()
+					Tutorial:ProgressUpdateOrNot(hero, 3, 5)
+					hero.active_challenge_progress = hero.active_challenge_progress + 1
+					hero.tutorial.active_challenge = nil
+					Tutorial:UpdateChallengeSummaryProgress(hero, 3, 5, 2, true)
 				end)
 			end
 		end
