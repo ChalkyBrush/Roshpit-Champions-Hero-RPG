@@ -239,6 +239,8 @@
 	"tutorial_master_dialogue_3_1m"										"That's right! I think you understand enough about equipment for now. We will end this lesson here."
 
 	"quest_3_challenge_2_desc"											"Something about blacksmith."
+	"quest_3_challenge_2_sub_0_summary"									"Chisel (remove) a piece of gear at the blacksmith."
+	"quest_3_challenge_2_sub_1_summary"									"Answer the question about rerolling."
 
 	"tutorial_master_dialogue_3_2a"										"The Blacksmith can chisel your equipment off of you, giving you the item back. He charges Mithril Shards for his services."
 	"tutorial_master_dialogue_3_2a1"									"Since you are clearly broke, I will provide you with some mithril so that you can actually afford it."
@@ -252,8 +254,8 @@
 	"tutorial_master_dialogue_3_2h"										"Instead I want you to tell me, up to how many property slots will the blacksmith lock on a piece of gear?"
 
 	"tutorial_quiz_question_8"											"Up to how many property slots will the blacksmith lock when rerolling your gear?"
-	"tutorial_quiz_wrong_8_1_1"											"Incorrect. You must brush up on your basic reroll knowledge."
-	"tutorial_quiz_wrong_8_1_2"											"No, that is not right."
+	"tutorial_quiz_wrong_3_2_3"											"Incorrect. You must brush up on your basic reroll knowledge."
+	"tutorial_quiz_wrong_3_2_4"											"No, that is not right."
 
 	"tutorial_master_dialogue_3_2i"										"That's right! Rerolling is a crucial task for acquiring top-tier equipment."
 	"tutorial_master_dialogue_3_2j"										"I will note that not all immortals can be rerolled, but most of them can. Try to understand that there are always exceptions!"

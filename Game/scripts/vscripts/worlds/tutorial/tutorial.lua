@@ -361,6 +361,9 @@ function Tutorial:TutorialEvent(msg)
 		elseif hero.tutorial.active_challenge == "3_1" then
 			Tutorial:UpdateChallengeSummaryProgress(hero, 3, 1, 0, false)
 			Tutorial:MasterSequenceWithLocks(hero, hero.tutorial.active_challenge)
+		elseif hero.tutorial.active_challenge == "3_2" then
+			Tutorial:UpdateChallengeSummaryProgress(hero, 3, 2, 0, false)
+			Tutorial:MasterSequenceWithLocks(hero, hero.tutorial.active_challenge)
 		end
 	elseif code == "reward_select" then
 		Tutorial:ClaimReward(msg)
@@ -633,6 +636,46 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 	elseif code == "3_2" then
 		hero.tutorial_speech_phase = hero.tutorial_speech_phase + 1
 		hero.master_is_talking = true
+		speech_phase = hero.tutorial_speech_phase
+		Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_3_2a", 5, false)
+		Timers:CreateTimer(5, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				local delayUntil_b = 0
+				local shards = CustomNetTables:GetTableValue("player_stats", tostring(hero:GetPlayerOwnerID()).."-mithril").mithril
+				if shards < 50 then
+					delayUntil_b = 10
+					Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_3_2a1", 5, false)
+					Tutorial:GetMithrilPrize(Tutorial.Master:GetAbsOrigin(), hero, 50)
+					Timers:CreateTimer(3, function()
+						Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_3, 1.0, 7.0)
+					end)
+				end
+				Timers:CreateTimer(delayUntil_b, function()
+					Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_3_2b", 5, false)
+					Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_2, 1.0, 4.0)
+					local luck = RandomInt(200,500)
+					if luck >= 200 and luck < 265 then
+						RPCItems:RollHood(300, Tutorial.Master:GetAbsOrigin(), "uncommon", false, 0, nil, 0)
+					elseif luck >= 265 and luck < 330 then
+						RPCItems:RollHand(300, Tutorial.Master:GetAbsOrigin(), "uncommon", false, 0, nil, 0)
+					elseif luck >= 330 and luck < 395 then
+						RPCItems:RollFoot(300, Tutorial.Master:GetAbsOrigin(), "uncommon", false, 0, nil, 0)
+					elseif luck >= 395 and luck < 460 then
+						RPCItems:RollBody(300, Tutorial.Master:GetAbsOrigin(), "uncommon", false, 0, nil, 0)
+					elseif luck <= 500 then
+						RPCItems:RollAmulet(300, Tutorial.Master:GetAbsOrigin(), "uncommon", false, 0, nil, 0)
+					end
+					if hero:GetLevel() < 10 then
+						hero:AddExperience(3000, 0, false, true)
+					end
+				end)
+				
+
+			end
+		end)
+		Timers:CreateTimer(12, function()
+			hero.master_is_talking = false
+		end)
 	end
 end
 
@@ -998,6 +1041,63 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 					hero.master_is_talking = false
 					Tutorial:ProgressUpdateOrNot(hero, 3, 1)
 					Tutorial:UpdateChallengeSummaryProgress(hero, 3, 1, 3, true)
+				end)
+			end
+		elseif code1 == "3_2" then
+			if code2 == 0 and hero.active_challenge_progress == code2 then
+				hero.tutorial_speech_phase = hero.tutorial_speech_phase + 1
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_3_2c", 5, false)
+				Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_1, 1.2, 2.5)
+				hero.active_challenge_progress = hero.active_challenge_progress + 1
+				local speech_phase = hero.tutorial_speech_phase
+				Timers:CreateTimer(2, function()
+					Tutorial:UpdateChallengeSummaryProgress(hero, 3, 2, 1, false)
+				end)
+				Timers:CreateTimer(5, function()
+					if speech_phase == hero.tutorial_speech_phase then
+						Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_3_2d", 5, false)
+					end
+					Timers:CreateTimer(5, function()
+						if speech_phase == hero.tutorial_speech_phase then
+							Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_3_2e", 5, false)
+						end
+					end)
+					Timers:CreateTimer(10, function()
+						if speech_phase == hero.tutorial_speech_phase then
+							Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_3_2f", 5, false)
+						end
+					end)
+					Timers:CreateTimer(15, function()
+						hero.master_is_talking = false
+						if speech_phase == hero.tutorial_speech_phase then
+							Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_3_2g", 5, false)
+						end
+					end)
+					Timers:CreateTimer(20, function()
+						if speech_phase == hero.tutorial_speech_phase then
+							Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_3_2h", 5, false)
+							local player = PlayerResource:GetPlayer(hero:GetPlayerOwnerID())
+							local question = "tutorial_quiz_question_8"
+							local verifier = 2
+							CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero=hero:GetEntityIndex(), identifier="3_2", quiz_question=question, sequence=1, verifier = verifier, localize_verifier = 0, challenge_progress = 1} )
+							CustomGameEventManager:Send_ServerToPlayer(player, "quiz_sound", {sound = "Tutorial.Hint"} )
+						end
+					end)
+				end)
+			elseif code2 == 1 and hero.active_challenge_progress == code2 then
+				hero.active_challenge_progress = hero.active_challenge_progress + 1
+				hero.tutorial_speech_phase = hero.tutorial_speech_phase + 1
+				local speech_phase = hero.tutorial_speech_phase
+				Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting1", ACT_DOTA_CAST_ABILITY_1, 1.2, 2.5)
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_3_2i", 5, false)
+				Timers:CreateTimer(5, function()
+					Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_3_2j", 6, false)
+				end)
+				Timers:CreateTimer(11, function()
+					hero.master_is_talking = false
+					Tutorial:ProgressUpdateOrNot(hero, 3, 2)
+					Tutorial:UpdateChallengeSummaryProgress(hero, 3, 2, 2, true)
+					Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_3_2k", 6, false)
 				end)
 			end
 		end

@@ -435,6 +435,7 @@
                         "value"
                         {
                               "value0"        "sounds/vo/furion/furi_ability_wrath_09.vsnd"
+                              "value1"        "sounds/vo/furion/furi_ability_wrath_08.vsnd"
                         }
                     }
                     "volume"            {   "value"     "0.85000"  }
