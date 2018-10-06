@@ -6014,7 +6014,7 @@
     	"DOTA_Tooltip_ability_cataclysm_stun_duration"					"STUN DURATION:"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_r_1"								"[R1] Mountain Strike"
-    	"DOTA_Tooltip_ability_flamewaker_rune_r_1_Description"					"15% chance on attack to lift Flamewaker and his target into the air, stun them for 0.3 seconds and then deal a critical strike."
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_1_Description"					"When starting an attack, 15% chance for Flamewaker to lift himself and his target into the air for 0.3 seconds, gaining bonus attack damage while airborne. The target is stunned for the duration."
     	"DOTA_Tooltip_ability_flamewaker_rune_r_1_property_one"					"Bonus Attack Damage"
     	"DOTA_Tooltip_ability_flamewaker_rune_r_1_suffix"						"%"
 		
@@ -16335,8 +16335,19 @@
 
 	"tutorial_master_dialogue_3_5f"										"That's it! The Pool of Eternity will certainly be a helpful tool on your journey."
 
-	"quest_3_reward_title"												"3. Low Level Arcanas"       
+	"quest_3_reward_title"												"3 Low Level Arcanas"       
 	"quest_3_reward_description"										"This Galactic Arcana cache will grant you 3 low level items of the highest rarity."
+
+	"quest_4_interface"													"4. Combat"
+	"quest_4_interface_description"										"In this lesson we will learn the intricacies of Roshpit Champion's combat."
+
+	"quest_4_challenge_1"												"A. Attacking"
+	"quest_4_challenge_2"												"B. Damage Types"
+	"quest_4_challenge_3"												"C. Base Damage"
+	"quest_4_challenge_4"												"D. Elemental Damage"
+	"quest_4_challenge_5"												"E. Training Dummy"
+	"quest_4_challenge_6"												"F. Post-Mitigation Damage"
+	"quest_4_challenge_7"												"G. Buffs, Debuffs and Stuns"
 
 		"winterblight_village"											"Winterblight Village"
 		"shrine_of_azalea"												"Shrine of Azalea"

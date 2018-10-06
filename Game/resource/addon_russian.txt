@@ -4,6 +4,7 @@
 	"Tokens"
 	{		
 		"addon_game_name"			"Roshpit Champions"
+		"rpc_sea_fortress"			"Sea Fortress"
 		"rpc_tanari_jungle"			"Tanari Jungle"
 		"rpc_redfall_ridge"			"Redfall Ridge"
 		"rpc_battle_of_serengaard"	"Battle of Serengaard"
@@ -6104,8 +6105,8 @@
     	"DOTA_Tooltip_ability_cataclysm_stun_duration"					"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_r_1"								"[R1] Mountain Strike"
-    	"DOTA_Tooltip_ability_flamewaker_rune_r_1_Description"					"С 15% шансом при атаке Flamewaker поднимет цель в воздух, оглушая её на 0.3 секунды и нанося критический урон."
-    	"DOTA_Tooltip_ability_flamewaker_rune_r_1_property_one"					"Доп. урон"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_1_Description"					"С 15% шансом при атаке Flamewaker подбросит свою цель в воздух, оглушая её на 0.3 секунды, и получая в этот короткий момент бонусный урон атаки."
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_1_property_one"					"Бонусный урон атаки"
     	"DOTA_Tooltip_ability_flamewaker_rune_r_1_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_r_2"								"[R2] Flaming Vortex"
@@ -13679,7 +13680,6 @@
 		"DOTA_Tooltip_modifier_summon_leech_seed_debuff"				"Redfall Leech Seed"
 		"DOTA_Tooltip_modifier_summon_leech_seed_debuff_Description"	"Получает урон и исцеляет Мировое Древо и всю его армию."
 
-		"rpc_sea_fortress"									"Морская крепость"
 		"sea_fortress_sea_queen"							"Saltwater Demoness"
 		"sea_fortress_barnacle_behemoth"					"Barnacle Behemoth"
 		"seafortress_ocean_watcher"							"Ocean Watcher"
