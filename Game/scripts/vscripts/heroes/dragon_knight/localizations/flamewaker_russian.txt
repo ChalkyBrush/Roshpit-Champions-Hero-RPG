@@ -132,8 +132,8 @@
     	"DOTA_Tooltip_ability_cataclysm_stun_duration"					"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_r_1"								"[R1] Mountain Strike"
-    	"DOTA_Tooltip_ability_flamewaker_rune_r_1_Description"					"С 15% шансом при атаке Flamewaker поднимет цель в воздух, оглушая её на 0.3 секунды и нанося критический урон."
-    	"DOTA_Tooltip_ability_flamewaker_rune_r_1_property_one"					"Доп. урон"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_1_Description"					"С 15% шансом при атаке Flamewaker подбросит свою цель в воздух, оглушая её на 0.3 секунды, и получая в этот короткий момент бонусный урон атаки."
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_1_property_one"					"Бонусный урон атаки"
     	"DOTA_Tooltip_ability_flamewaker_rune_r_1_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_r_2"								"[R2] Flaming Vortex"
