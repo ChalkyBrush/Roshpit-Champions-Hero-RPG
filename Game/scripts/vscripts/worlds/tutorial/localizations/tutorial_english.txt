@@ -238,7 +238,7 @@
 
 	"tutorial_master_dialogue_3_1m"										"That's right! I think you understand enough about equipment for now. We will end this lesson here."
 
-	"quest_3_challenge_2_desc"											"Something about blacksmith."
+	"quest_3_challenge_2_desc"											"The blacksmith is an NPC in town that can remove your gear (called chiselling) and can also reroll your immortal items at the cost of Mithril. The blacksmith will lock up to 2 property slots when rerolling at a higher cost of mithril."
 	"quest_3_challenge_2_sub_0_summary"									"Chisel (remove) a piece of gear at the blacksmith."
 	"quest_3_challenge_2_sub_1_summary"									"Answer the question about rerolling."
 
@@ -260,3 +260,18 @@
 	"tutorial_master_dialogue_3_2i"										"That's right! Rerolling is a crucial task for acquiring top-tier equipment."
 	"tutorial_master_dialogue_3_2j"										"I will note that not all immortals can be rerolled, but most of them can. Try to understand that there are always exceptions!"
 	"tutorial_master_dialogue_3_2k"										"You now understand the importance of the blacksmith. The lesson is complete."
+
+	"quest_3_challenge_3_desc"											"Weapons are class specific items that have their own power level and earn EXP. When a weapon levels up, the first two properties are increased by 10% (compounding), and the last 2 properties increase by 1 point. Immortal weapons can drop in the hardest dungeons."
+	"quest_3_challenge_3_sub_0_summary"									"Answer a question about your weapon"
+
+	"tutorial_master_dialogue_3_3a"										"Weapons have their own special properties compared to other gear types. For starters, weapons earn exp and have a level. The maximum level it can reach is available in the weapon's tooltip."
+	"tutorial_master_dialogue_3_3b"										"When a weapon levels up, its first two properties are increased by 10% of their current values. The last two properties increase by 1."
+	"tutorial_master_dialogue_3_3c"										"When you're ready to take on the most challenging dungeons, you will come across immortal weapons which provide class specific bonuses."
+	"tutorial_master_dialogue_3_3c1"									"You don't have a weapon equipped? Here, take this one."	
+	"tutorial_master_dialogue_3_3d"										"Now take a look at your weapon tooltip and answer me."
+
+	"tutorial_quiz_question_8"											"What is the maximum level of your currently equipped weapon?"
+	"tutorial_quiz_wrong_3_3_1"											"Please take a closer look at your weapon's tooltip."
+	"tutorial_quiz_wrong_3_3_2"											"You must check your weapon's tooltip to find the answer."
+
+	"tutorial_master_dialogue_3_3e"										"Right! Weapons look different than other gears since they come in red loot boxes. Keep an eye out for them on your journey!"	

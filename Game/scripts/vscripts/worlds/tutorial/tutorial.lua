@@ -643,7 +643,7 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 				local delayUntil_b = 0
 				local shards = CustomNetTables:GetTableValue("player_stats", tostring(hero:GetPlayerOwnerID()).."-mithril").mithril
 				if shards < 50 then
-					delayUntil_b = 10
+					delayUntil_b = 11
 					Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_3_2a1", 5, false)
 					Tutorial:GetMithrilPrize(Tutorial.Master:GetAbsOrigin(), hero, 50)
 					Timers:CreateTimer(3, function()
