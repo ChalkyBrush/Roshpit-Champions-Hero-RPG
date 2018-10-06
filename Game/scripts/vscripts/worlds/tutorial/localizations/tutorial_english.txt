@@ -275,3 +275,16 @@
 	"tutorial_quiz_wrong_3_3_2"											"You must check your weapon's tooltip to find the answer."
 
 	"tutorial_master_dialogue_3_3e"										"Right! Weapons look different than other gears since they come in red loot boxes. Keep an eye out for them on your journey!"	
+
+	"quest_3_challenge_4_desc"											"Glyphs are magical inscriptions that alter/buff your abilities and runes. Your hero can equip up to 3 glyphs. Neutral glyphs can be equipped by any class. Glyphs can be crafted at the Glyph Enchanter."
+	"quest_3_challenge_4_sub_0_summary"									"Purchase any glyph."
+
+	"tutorial_master_dialogue_3_4a"										"Your hero can equip up to 3 glyphs, which are magical inscriptions that provide special passive effects."
+	"tutorial_master_dialogue_3_4b"										"Neutral glyphs can be equipped by any hero, and you can't equip 2 of the same glyph."
+	"tutorial_master_dialogue_3_4c"										"Glyphs are crafted at the Glyph Enchanter NPC who looks like a Dark Seer."
+	"tutorial_master_dialogue_3_4d"										"Why don't you go to town and try purchasing a glyph?"
+	"tutorial_master_dialogue_3_4d1"									"Why don't you go to town and try purchasing a glyph? Here are some crystals since you can't quite afford it yet."	
+	"tutorial_master_dialogue_3_4d2"									"Get close to the crystals to pick them up!"
+
+	"tutorial_master_dialogue_3_4e"										"Great purchase! You can equip the glyph by dragging it onto your glyph slot at the right side of your screen."	
+	"tutorial_master_dialogue_3_4f"										"That completes the lesson on glyphs."					
