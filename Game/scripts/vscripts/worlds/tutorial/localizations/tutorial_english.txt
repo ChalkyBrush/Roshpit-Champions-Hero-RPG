@@ -401,3 +401,8 @@
 	"tutorial_master_dialogue_4_3g"										"These guys are immune to physical damage, so use your abilities to take them down!"
 
 	"tutorial_master_dialogue_4_3h"										"Good! That concludes the lesson on Base Damage."
+
+	"tutorial_shroomling2"												"Shroomling"
+
+	"DOTA_Tooltip_ability_tutorial_shroomling_ability2"					"Pulpy"
+	"DOTA_Tooltip_ability_tutorial_shroomling_ability2_Description"		"Immune to Physical damage."
