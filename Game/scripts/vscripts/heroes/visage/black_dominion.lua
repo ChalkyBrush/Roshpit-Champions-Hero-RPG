@@ -38,7 +38,11 @@ function dominion_bolt_impact(event)
 	local target = event.target
 	local ability = event.ability
 	local debuff_duration = event.duration
-	if target:GetTeamNumber() == caster:GetTeamNumber() then
+	if dominion_allowed_selfcasted_units(target:GetUnitName()) then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_ekkan_dominion_debuff", {duration = debuff_duration})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_ekkan_dominion_overhead_effect", {duration = debuff_duration})
+		target:ForceKill(false)
+	elseif target:GetTeamNumber() == caster:GetTeamNumber() then
 		target:ForceKill(false)
 	else
 		EmitSoundOn("Ekkan.Dominion.Impact", target)
