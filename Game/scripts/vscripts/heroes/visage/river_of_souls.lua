@@ -118,6 +118,8 @@ function SummonFamiliar(caster, ability, portalPosition, b_c_level)
 	    familiar:SetBaseMaxHealth(familiarHealth)
 	    familiar:SetHealth(familiarHealth)	
 	    familiar.ekkan_unit = true
+	    familiar.ekkan_dominion = true
+	    familiar.dominion = true
 	    familiar.hero = caster
 		table.insert(ability.familiarTable, familiar)
 	    if caster:HasModifier("modifier_ekkan_glyph_6_1") then
@@ -290,7 +292,7 @@ function familiar_attack_land(event)
 	local hero = attacker.hero
 	local ability = event.ability
 	local target = event.target
-	if attacker.e_3_level > 0 then
+	if attacker.e_3_level and attacker.e_3_level > 0 then
 		ability:ApplyDataDrivenModifier(attacker, target, "modifier_familiar_armor_break", {duration = 12})
 		target:SetModifierStackCount("modifier_familiar_armor_break", attacker, attacker.e_3_level)
 	end
