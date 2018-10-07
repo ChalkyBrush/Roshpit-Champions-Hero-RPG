@@ -1135,6 +1135,7 @@ function SaveLoad:DraggedToStash(keys)
 							-- CustomGameEventManager:Send_ServerToPlayer(player, "stash_item_upated", {stashSlot = stashSlot, item = itemIndex} )
 							SaveLoad:StashOpen(keys)
 							Statistics.dispatch('items:oracle:push')
+							Events:TutorialServerEvent(hero, "3_5", 0)
 						else
 							if not Challenges:CheckIfHeroHasItemByItemIndex(hero, itemEntity:GetEntityIndex()) then
 								RPCItems:GiveItemToHeroWithSlotCheck(hero, itemEntity)
@@ -1240,6 +1241,7 @@ function SaveLoad:DraggedFromStash(keys)
 								SaveLoad:StashOpen(keys)
 								UTIL_Remove(itemEntity)
 								Statistics.dispatch('items:oracle:get')
+								Events:TutorialServerEvent(hero, "3_5", 1)
 								-- Weapons:ValidateGear(hero)
 							else
 								if not Challenges:CheckIfHeroHasItemByItemIndex(hero, itemEntity:GetEntityIndex()) then
@@ -1286,6 +1288,7 @@ function SaveLoad:DraggedFromStash(keys)
 							-- CustomGameEventManager:Send_ServerToPlayer(player, "stash_item_upated", {stashSlot = stashSlot, item = itemIndex} )
 							SaveLoad:StashOpen(keys)
 							CustomNetTables:SetTableValue("stash", tostring(playerID).."-"..tostring(stashSlot), {itemIndex = 0} )
+							Events:TutorialServerEvent(hero, "3_5", 1)
 						end
 					end )	
 			end

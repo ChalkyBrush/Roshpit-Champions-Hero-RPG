@@ -5,6 +5,8 @@ end
 
 RPCItems.DROP_LOCATION = Vector(-8000,2000)
 
+RPCItems.WEAPONS_SLOT = 1
+
 require('items/RPCblaster')
 require('items/RPChood')
 require('items/head')

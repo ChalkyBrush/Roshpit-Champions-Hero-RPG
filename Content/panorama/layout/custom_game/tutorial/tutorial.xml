@@ -110,13 +110,14 @@
 		<snippet name="quiz_box_multiple_choice_button">
 			<Panel class="quiz_box_multiple_choice_button" hittest="false">
 				<Button id="multiple_choice_submit_button">
-				  <Label text="quiz_submit" class="multiple_choice_button_label" id="multiple_choice_submit_label"></Label>
+				  <Label text="quiz_submit" class="multiple_choice_button_label" id="multiple_choice_submit_label" html="true"></Label>
 				</Button>	
 			</Panel>
 		</snippet>
 	</snippets>
 
 	<Panel class="tutorial_content" hittest="false">
+<!-- 		<Image id="green_check" class="invisible" src="file://{images}/spellicons/tutorial/reward3.png"/> -->
 		<Panel id="tutorial_container" hittest="false">
 		</Panel>
 		<Panel id="tutorial_challenge_summary_container" hittest="false">

@@ -22,6 +22,7 @@
 				{
 					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"ThinkInterval"  "0.5"
 				"OnIntervalThink"
@@ -81,6 +82,34 @@
 						"target"        "TARGET"
 					}
 				}
+			}
+			"modifier_tutorial_unit"
+			{
+				"IsHidden"	"1"
+			}
+		}
+	}
+
+	"tutorial_shroomling_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"tusk_snowball"
+		"MaxLevel"	"3"
+		"Modifiers"
+		{
+			"modifier_tutorial_enemy_passive"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/tutorial/tutorial_ai.lua"
+				"Function"		"shroomling_die"
 			}
 		}
 	}

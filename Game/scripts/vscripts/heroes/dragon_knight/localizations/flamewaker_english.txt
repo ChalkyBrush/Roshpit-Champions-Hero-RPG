@@ -132,7 +132,7 @@
     	"DOTA_Tooltip_ability_cataclysm_stun_duration"					"STUN DURATION:"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_r_1"								"[R1] Mountain Strike"
-    	"DOTA_Tooltip_ability_flamewaker_rune_r_1_Description"					"15% chance on attack to lift Flamewaker and his target into the air, stun them for 0.3 seconds and then deal a critical strike."
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_1_Description"					"When starting an attack, 15% chance for Flamewaker to lift himself and his target into the air for 0.3 seconds, gaining bonus attack damage while airborne. The target is stunned for the duration."
     	"DOTA_Tooltip_ability_flamewaker_rune_r_1_property_one"					"Bonus Attack Damage"
     	"DOTA_Tooltip_ability_flamewaker_rune_r_1_suffix"						"%"
 		

@@ -116,3 +116,10 @@ function portal2enter(trigger)
 		Events:TeleportUnit(hero, Vector(-3720, -2535), Events.GameMaster.portal, Events.GameMaster, 1.2)
 	end
 end
+
+function shroomling_die(event)
+	local caster = event.caster
+	local hero = caster.hero
+	hero.shroomling = nil
+	Events:TutorialServerEvent(hero, "4_1", 1)
+end

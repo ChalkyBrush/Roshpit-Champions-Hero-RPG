@@ -432,6 +432,96 @@ function Weapons:RollWeapon(deathLocation)
     
 end
 
+function Weapons:RollWeaponWithClass(deathLocation, whichHero)
+	
+	local maxFactor = RPCItems:GetMaxFactor()
+	local rarityRoll = RandomInt(1, 100+RandomInt(1, maxFactor))
+	local rarity = ""
+	if rarityRoll <= 80 then
+		rarity = "uncommon"
+	elseif rarityRoll <= 160 then
+		rarity = "rare"
+	else
+		rarity = "mythical"
+	end
+	if GameMode.VoteSystem.junk_loot_disabled and (rarity == "uncommon" or rarity == "rare" or rarity == "mythical") then
+		-- print("junk_loot_disabled weapon rarity: "..rarity)
+		return
+	end
+	local itemName = ""
+	local internalName = HerosCustom:GetInternalHeroName(whichHero)
+
+	local rarityFactor = RPCItems:GetRarityFactor(rarity)
+	local propertyTable, baseValueTable, propensityTable, tooltipTable, colorTable = HerosCustom:GetAvailableRunes(whichHero)
+
+
+	local mainAttrRoll = RandomInt(1, 3)
+	local propensity = (mainAttrRoll-2)*2
+
+	local specialProperty1 = RandomInt(1, #propensityTable)
+	local specialProperty2 = RandomInt(1, #propensityTable)
+	if rarityFactor >= 3 then
+		propensity = propensity + propensityTable[specialProperty1]
+	end
+	if rarityFactor >= 4 then
+		while specialProperty1 == specialProperty2 do
+			specialProperty2 = RandomInt(1, #propensityTable)
+		end
+		propensity = propensity + propensityTable[specialProperty2]
+	end
+	local digit2 = Weapons:GetDigit2(propensity, rarityFactor)
+	local weaponIndexString = tostring(rarityFactor-2)
+
+	local weaponName = "item_rpc_"..internalName.."_weapon_"..tostring(weaponIndexString)..tostring(digit2)
+	print(weaponName)
+	local weapon = Weapons:CreateWeaponVariant(weaponName, rarity, "", "weapon", true, "Slot: Weapon", whichHero, Weapons:GetMaxWeaponLevel(), 0)
+
+	if internalName == "conjuror" then
+		local value = Weapons:GetDeviation(2000, 0)
+	    weapon.property1 = value
+	    weapon.property1name = "aspect_health"
+	    RPCItems:SetPropertyValues(weapon, weapon.property1, "#item_aspect_health", "#3D82CC",  1) 
+	else
+		local value = Weapons:GetDeviation(100, 0)
+	    weapon.property1 = value
+	    weapon.property1name = "attack_damage"
+	    RPCItems:SetPropertyValues(weapon, weapon.property1, "#item_bonus_attack_damage", "#343EC9",  1) 
+	end
+	if mainAttrRoll == 1 then
+		local value = Weapons:GetDeviation(15, rarityFactor)
+	    weapon.property2 = value
+	    weapon.property2name = "strength"
+	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_strength", "#CC0000",  2)
+	elseif mainAttrRoll == 2 then
+		local value = Weapons:GetDeviation(15, rarityFactor)
+	    weapon.property2 = value
+	    weapon.property2name = "agility"
+	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_agility", "#2EB82E",  2)
+	else
+		local value = Weapons:GetDeviation(15, rarityFactor)
+	    weapon.property2 = value
+	    weapon.property2name = "intelligence"
+	    RPCItems:SetPropertyValues(weapon, weapon.property2, "#item_intelligence", "#33CCFF",  2)
+	end
+	if rarityFactor >= 3 then
+		local value = Weapons:GetDeviation(baseValueTable[specialProperty1], rarityFactor)
+		weapon.property3 = value
+		weapon.property3name = propertyTable[specialProperty1]
+		RPCItems:SetPropertyValues(weapon, weapon.property3, tooltipTable[specialProperty1], colorTable[specialProperty1],  3)
+	end
+	if rarityFactor >= 4 then
+		local value = Weapons:GetDeviation(baseValueTable[specialProperty2], rarityFactor)
+		weapon.property4 = value
+		weapon.property4name = propertyTable[specialProperty2]
+		RPCItems:SetPropertyValues(weapon, weapon.property4, tooltipTable[specialProperty2], colorTable[specialProperty2],  4)
+	end
+
+    local drop = CreateItemOnPositionSync( deathLocation, weapon )
+    local position = deathLocation
+    RPCItems:DropItem(weapon, position)
+    
+end
+
 function Weapons:CreateWeaponVariant(variantName, rarityName, itemNameText, slot, gear, slotText, whichHero, maxLevel, minLevel)
     local itemVariant = variantName
     local item = CreateItem(itemVariant, nil, nil)
