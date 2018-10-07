@@ -339,7 +339,11 @@ function black_dominion_lifesteal_think(event)
 	local ability = event.ability
 	local origCaster = caster.hero
 	local target = event.target
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*0.07*origCaster.q_1_level
+	local q_1_level = Runes:GetTotalRuneLevelGeneric(origCaster, 1, 0)
+	if q_1_level == 0 then
+		return
+	end
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*0.07*q_1_level
 	Filters:TakeArgumentsAndApplyDamage(target, origCaster, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
 	local heal = math.min(damage*0.1, caster:GetMaxHealth()-caster:GetHealth())
 	if heal > 0 then
@@ -380,12 +384,19 @@ function dominion_corpse_pickup_end(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	-- caster.immortalSouls = caster.immortalSouls - 1
+	local origCaster = caster.hero
+	local q_2_level = Runes:GetTotalRuneLevelGeneric(origCaster, 2, 0)
+	print(q_2_level)
+	if q_2_level == 0 then
+		caster.immortalSouls = 0
+		dominion_corpse_remove_modifier(caster)
+		return
+	end
 	local startingSouls = caster.immortalSouls*2
 	caster.immortalSouls = 0
 	for i = 1, 6, 1 do
 		if caster.immortalSouls >= i then
-			ParticleManager:SetParticleControl(caster.immortalSoulsPFX, i, Vector(caster.immortalSouls, caster.immortalSouls, caster.immortalSouls))
+			ParticleManager:SetParticleControl(caster.immortalSoulsPFX, i, Vector(caster.immortalSouls, caster.immortalSouls, caster.immortalSouls))--?
 		else
 			ParticleManager:SetParticleControl(caster.immortalSoulsPFX, i, Vector(0, 0, 0))
 		end
@@ -418,11 +429,15 @@ function dominion_corpse_pickup_end(event)
 		projectile = ProjectileManager:CreateLinearProjectile(info)		
 	end
 	if caster.immortalSouls == 0 then
-		caster:RemoveModifierByName("modifier_corpse_picked_up_visible")
-		caster:RemoveModifierByName("modifier_corpse_picked_up_invisible")
-		ParticleManager:DestroyParticle(caster.immortalSoulsPFX, true)
-		caster.immortalSoulsPFX = false
+		dominion_corpse_remove_modifier(caster)
 	end
+end
+
+function dominion_corpse_remove_modifier(caster)
+	caster:RemoveModifierByName("modifier_corpse_picked_up_visible")
+	caster:RemoveModifierByName("modifier_corpse_picked_up_invisible")
+	ParticleManager:DestroyParticle(caster.immortalSoulsPFX, true)
+	caster.immortalSoulsPFX = false
 end
 
 function swarm_hit(event)
