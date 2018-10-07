@@ -390,6 +390,9 @@ function Tutorial:TutorialEvent(msg)
 				UTIL_Remove(hero.shroomling)
 				hero.shroomling = nil
 			end
+		elseif hero.tutorial.active_challenge == "4_2" then
+			Tutorial:UpdateChallengeSummaryProgress(hero, 4, 2, 0, false)
+			Tutorial:MasterSequenceWithLocks(hero, hero.tutorial.active_challenge)
 		end
 	elseif code == "reward_select" then
 		Tutorial:ClaimReward(msg)
@@ -867,7 +870,39 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 				CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero=hero:GetEntityIndex(), identifier="4_1", quiz_question=question, sequence=0, verifier = verifier, localize_verifier = 1, challenge_progress = 0} )
 				CustomGameEventManager:Send_ServerToPlayer(player, "quiz_sound", {sound = "Tutorial.Hint"} )
 			end
-		end)		
+		end)	
+	elseif code == "4_2" then
+		hero.master_is_talking = true
+		hero.tutorial_speech_phase = hero.tutorial_speech_phase + 1
+		local speech_phase = hero.tutorial_speech_phase
+		Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_4_2a", 5, false)
+		Timers:CreateTimer(5, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_1, 1.0, 4.0)
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_2b", 5, false)
+			end
+		end)
+		Timers:CreateTimer(10, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_4_2c", 5, false)
+			end
+		end)
+		Timers:CreateTimer(15, function()
+			hero.master_is_talking = false
+			if speech_phase == hero.tutorial_speech_phase then
+				Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_1, 1.0, 4.0)
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_2d", 5, false)
+				local player = PlayerResource:GetPlayer(hero:GetPlayerOwnerID())
+				local question = "tutorial_quiz_question_11"
+				local armor = math.floor(hero:GetPhysicalArmorValue())
+				local verifier = (1 - GameState:GetPostReductionPhysicalDamage(10000, armor)/10000)*100
+				-- local resist = (0.05*hero:GetPhysicalArmorValue()/(1 + (0.05 * math.abs(hero:GetPhysicalArmorValue()))))
+				-- resist = (resist*100000)/1000
+				-- verifier = resist
+				CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero=hero:GetEntityIndex(), identifier="4_2", quiz_question=question, sequence=0, verifier = verifier, localize_verifier = 0, challenge_progress = 0} )
+				CustomGameEventManager:Send_ServerToPlayer(player, "quiz_sound", {sound = "Tutorial.Hint"} )
+			end
+		end)	
 	end
 end
 
@@ -1371,6 +1406,100 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 					Tutorial:UpdateChallengeSummaryProgress(hero, 4, 1, 2, true)
 				end)
 			end
+		elseif code1 == "4_2" then
+			if code2 == 0 and hero.active_challenge_progress == code2 then
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_2e", 5, false)
+				EmitSoundOn("Tutorial.Master.Greeting1", hero)
+				hero.master_is_talking = true
+				local speech_phase = Tutorial:GetSpeechPhaseAndUpdate(hero)
+				Tutorial:UpdateChallengeSummaryProgress(hero, 4, 2, 1, false)
+				hero.active_challenge_progress = hero.active_challenge_progress + 1
+				Timers:CreateTimer(5, function()
+					Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_2f", 5, false)
+				end)
+				Timers:CreateTimer(10, function()
+					if speech_phase == hero.tutorial_speech_phase then
+						EmitSoundOn("Tutorial.Master.Talk", hero)
+						Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_2g", 5, false)
+					end
+				end)
+				Timers:CreateTimer(15, function()
+					if speech_phase == hero.tutorial_speech_phase then
+						EmitSoundOn("Tutorial.Master.Talk", hero)
+						Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_2h", 5, false)
+					end
+				end)
+				Timers:CreateTimer(20, function()
+					if speech_phase == hero.tutorial_speech_phase then
+						EmitSoundOn("Tutorial.Master.Talk", hero)
+						Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_2i", 5, false)
+						local player = PlayerResource:GetPlayer(hero:GetPlayerOwnerID())
+						local question = "tutorial_quiz_question_12"
+						local choice = RandomInt(1,3)
+						local verifier = nil
+						local sub = nil
+						if choice == 1 then
+							local reduc = (1 - GameState:IncomingDamageDecreaseWithType(hero, Events.GameMaster, false, DAMAGE_TYPE_PHYSICAL))*100000
+							reduc = reduc - (GameState:IncomingDamageIncrease(hero, Events.GameMaster, false, DAMAGE_TYPE_PHYSICAL) - 1)*100000
+							verifier = reduc
+							sub = "DOTA_ToolTip_Damage_Physical"
+						elseif choice == 2 then
+							local reduc = (1 - GameState:IncomingDamageDecreaseWithType(hero, Events.GameMaster, false, DAMAGE_TYPE_MAGICAL))*100000
+							reduc = reduc - (GameState:IncomingDamageIncrease(hero, Events.GameMaster, false, DAMAGE_TYPE_MAGICAL) - 1)*100000
+							verifier = reduc
+							sub = "DOTA_ToolTip_Damage_Magical"
+						elseif choice == 3 then
+							local reduc = (1 - GameState:IncomingDamageDecreaseWithType(hero, Events.GameMaster, false, DAMAGE_TYPE_PURE))*100000
+							reduc = reduc - (GameState:IncomingDamageIncrease(hero, Events.GameMaster, false, DAMAGE_TYPE_PURE) - 1)*100000
+							verifier = reduc
+							sub = "DOTA_ToolTip_Damage_Pure"
+						end
+						CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero=hero:GetEntityIndex(), identifier="4_2", quiz_question=question, sequence=1, verifier = verifier, gsub1 = sub, localize_verifier = 0, challenge_progress = 1} )
+						CustomGameEventManager:Send_ServerToPlayer(player, "quiz_sound", {sound = "Tutorial.Hint"} )
+					end
+				end)
+			elseif code2 == 1 and hero.active_challenge_progress == code2 then
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_2j", 5, false)
+				EmitSoundOn("Tutorial.Master.Greeting1", hero)
+				hero.master_is_talking = true
+				local speech_phase = Tutorial:GetSpeechPhaseAndUpdate(hero)
+				Tutorial:UpdateChallengeSummaryProgress(hero, 4, 2, 2, false)
+				hero.active_challenge_progress = hero.active_challenge_progress + 1
+				Timers:CreateTimer(5, function()
+					Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_2k", 5, false)
+					EmitSoundOn("Tutorial.Master.Talk", hero)
+					Timers:CreateTimer(2.4, function()
+						local player = PlayerResource:GetPlayer(hero:GetPlayerOwnerID())
+						local question = "tutorial_quiz_question_13"
+						local choice = RandomInt(1,3)
+						local verifier = nil
+						local sub = nil
+						if choice == 1 then
+							verifier = "DOTA_ToolTip_Damage_Physical"
+							sub = "tutorial_quiz_question_13_sub1"
+						elseif choice == 2 then
+							verifier = "DOTA_ToolTip_Damage_Magical"
+							sub = "tutorial_quiz_question_13_sub2"
+						elseif choice == 3 then
+							verifier = "DOTA_ToolTip_Damage_Pure"
+							sub = "tutorial_quiz_question_13_sub3"
+						end
+						local buttons = {"DOTA_ToolTip_Damage_Physical", "DOTA_ToolTip_Damage_Magical", "DOTA_ToolTip_Damage_Pure"}
+						CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero=hero:GetEntityIndex(), identifier="4_2", quiz_question=question, sequence=2, verifier = verifier, gsub1 = sub, localize_verifier = 1, challenge_progress = 2, buttons = buttons} )
+						CustomGameEventManager:Send_ServerToPlayer(player, "quiz_sound", {sound = "Tutorial.Hint"} )
+					end)
+				end)
+			elseif code2 == 2 and hero.active_challenge_progress == code2 then
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_2l", 5, false)
+				EmitSoundOn("Tutorial.Master.Greeting1", hero)
+				hero.master_is_talking = false
+				Timers:CreateTimer(2, function()
+					Tutorial:ProgressUpdateOrNot(hero, 4, 2)
+					hero.active_challenge_progress = hero.active_challenge_progress + 1
+					hero.tutorial.active_challenge = nil
+					Tutorial:UpdateChallengeSummaryProgress(hero, 4, 2, 3, true)
+				end)
+			end
 		end
 	end
 end
@@ -1533,6 +1662,12 @@ function Tutorial:SubmitQuiz(msg)
 			correct_answer = string.match(string.lower(msg.verifier), string.lower(msg.answer))
 		elseif hero.tutorial.active_challenge == "4_1" then
 			correct_answer = msg.verifier == msg.answer
+		elseif hero.tutorial.active_challenge == "4_2" then
+			if msg.challenge_progress == 0 then
+				if tonumber(msg.answer) - 1 < tonumber(msg.verifier) and tonumber(msg.answer) + 1 > tonumber(msg.verifier) then
+					correct_answer = true
+				end
+			end
 		end
 		if tonumber(msg.bLocalize) == 1 then
 			correct_answer = msg.verifier == msg.answer

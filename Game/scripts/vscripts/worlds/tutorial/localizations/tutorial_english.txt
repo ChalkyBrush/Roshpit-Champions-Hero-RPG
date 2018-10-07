@@ -341,3 +341,43 @@
 	"tutorial_master_dialogue_4_1h"										"OK, this enemy can only be damaged by regular attacks. Go get him!"
 
 	"tutorial_master_dialogue_4_1i"										"A technical slaying! That concludes the lesson on Enemies & Attacking."
+
+	"quest_4_challenge_2_desc"											"The 3 main damage types are Physical, Magical and Pure. Armor and magic resistance decrease physical and magical damage taken respectively with diminishing returns. Pure damage reduction pierces spell immunity and is more difficult to reduce. "
+	"quest_4_challenge_2_sub_0_summary"									"Answer the question about physical damage reduction."
+	"quest_4_challenge_2_sub_1_summary"									"Answer the question about damage type reduction"
+	"quest_4_challenge_2_sub_2_summary"									"Answer the general question regarding damage types"
+
+	"tutorial_master_dialogue_4_2a"										"There are 3 primary damage types: Physical, Magical and Pure."
+	"tutorial_master_dialogue_4_2b"										"Your regular attacks deal physical damage, as well as some abilities."
+	"tutorial_master_dialogue_4_2c"										"Physical damage taken is reduced by your armor."
+	"tutorial_master_dialogue_4_2d"										"Check your tooltip, how much physical damage is being reduced by your armor?"
+
+	"tutorial_quiz_question_11"											"What is the damage reduction % provided by your armor?"
+
+	"tutorial_quiz_wrong_4_2_1"											"No, check your hero tooltip under the Defense section."
+	"tutorial_quiz_wrong_4_2_2"											"I will accept an answer rounded up or down to the nearest whole number."
+
+	"tutorial_master_dialogue_4_2e"										"Yes that's right! Physical attacks can also be dodged by increasing your evasion stat."
+	"tutorial_master_dialogue_4_2f"										"Magic damage is reduced by the unit's Magical Armor. Each magic armor provides 1% magic damage reduction with diminishing returns."
+	"tutorial_master_dialogue_4_2g"										"Pure damage pierces magic immunity and is difficult to resist. Only some monsters and rare gears can offer pure resistance."	
+	"tutorial_master_dialogue_4_2h"										"Some special bonuses will reduce damage taken from a specific damage type."
+	"tutorial_master_dialogue_4_2i"										"Use your hero tooltip and tell me your damage type reduction."	
+
+	"tutorial_quiz_question_12"											"What is your % damage taken reduction for the @sub1 damage type?"
+
+	"tutorial_quiz_wrong_4_2_3"											"No, look under 'Additional Resistance' on your hero tooltip."
+	"tutorial_quiz_wrong_4_2_4"											"Give me the percentage resistance of this damage type!"
+
+	"tutorial_master_dialogue_4_2j"										"Yes. It is important to note that if two items offer you '50% damage reduction', both of them together equate to a total of 75% reduction."
+	"tutorial_master_dialogue_4_2k"										"Ok, I think you know enough about damage types. Except let's ask one more question."
+
+	"tutorial_quiz_question_13"											"Which damage type @sub1?"
+
+	"tutorial_quiz_wrong_4_2_5"											"Wrong."
+	"tutorial_quiz_wrong_4_2_6"											"You have a 1/3 chance of getting it right..."
+
+	"tutorial_quiz_question_13_sub1"									"is reduced by armor"
+	"tutorial_quiz_question_13_sub2"									"is reduced by 1% with diminishing returns for each resistance point"
+	"tutorial_quiz_question_13_sub3"									"pierces magic immunity and has no attribute that reduces it"
+
+	"tutorial_master_dialogue_4_2l"										"Right! Ok then. You know enough about damage types now."
