@@ -1,5 +1,8 @@
 LinkLuaModifier("modifier_ekkan_black_dominion_summon", "modifiers/ekkan/modifier_ekkan_black_dominion_summon", LUA_MODIFIER_MOTION_NONE)
 
+require("/heroes/visage/ekkan_helpers")
+require("/heroes/visage/ekkan_constants")
+
 function dominion_bolt_fire(event)
 	local caster = event.caster
 	local target = event.target
@@ -145,6 +148,16 @@ function dominion_debuff_death(event)
 	    end
 	    ability:ApplyDataDrivenModifier(caster, caster, "modifier_dominion_counter", {})
 	    caster:SetModifierStackCount("modifier_dominion_counter", caster, #ability.dominionTable)
+
+		if caster:HasModifier("modifier_ekkan_glyph_5_a") and dominion_allowed_selfcasted_units(summon:GetUnitName()) then
+			event.attacker = summon
+			for i=1,EKKAN_GLYPH_5_a_STACKS do
+				dominion_unit_kill(event)
+				if event.unit.dominionLock then
+					event.unit.dominionLock = false
+				end
+			end
+		end
 	end
 end
 
