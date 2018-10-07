@@ -272,39 +272,43 @@ function dominion_unit_kill(event)
 end
 
 function dominion_zombie_strike_attack(event)
-  local attacker = event.attacker
-  local target = event.target
-  local ability = event.ability
-  local luck = RandomInt(1,2)
-  if luck == 1 then
-  		ability.attack_damage = event.attack_damage
+	local attacker = event.attacker
+	local target = event.target
+	local ability = event.ability
+	local luck = RandomInt(1,2)
+	local origCaster = event.caster.hero
+	if Runes:GetTotalRuneLevelGeneric(origCaster, 1, 0) == 0 then
+		return
+	end
+	if luck == 1 then
+		ability.attack_damage = event.attack_damage
 		EmitSoundOn("Ekkan.ZombieStrike", attacker)
 		local fv = ((target:GetAbsOrigin()-attacker:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 		local distance = WallPhysics:GetDistance2d(target:GetAbsOrigin(), attacker:GetAbsOrigin())
 		local speed = distance*2
 		local info = 
 		{
-		Ability = ability,
-		  EffectName = "particles/units/heroes/hero_vengeful/vengeful_wave_of_terror.vpcf",
-		  vSpawnOrigin = attacker:GetAbsOrigin(),
-		  fDistance = distance + 120,
-		  fStartRadius = 210,
-		  fEndRadius = 210,
-		  Source = attacker,
-		  StartPosition = "attach_origin",
-		  bHasFrontalCone = false,
-		  bReplaceExisting = false,
-		  iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-		  iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-		  iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-		  iVisionRadius = 500,
-		  fExpireTime = GameRules:GetGameTime() + 5.0,
-		bDeleteOnHit = false,
-		vVelocity = fv * speed,
-		bProvidesVision = true,
+			Ability = ability,
+			EffectName = "particles/units/heroes/hero_vengeful/vengeful_wave_of_terror.vpcf",
+			vSpawnOrigin = attacker:GetAbsOrigin(),
+			fDistance = distance + 120,
+			fStartRadius = 210,
+			fEndRadius = 210,
+			Source = attacker,
+			StartPosition = "attach_origin",
+			bHasFrontalCone = false,
+			bReplaceExisting = false,
+			iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+			iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+			iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+			iVisionRadius = 500,
+			fExpireTime = GameRules:GetGameTime() + 5.0,
+			bDeleteOnHit = false,
+			vVelocity = fv * speed,
+			bProvidesVision = true,
 		}
 		projectile = ProjectileManager:CreateLinearProjectile(info)
-   end
+	end
 end
 
 function dominion_zombie_strike_hit(event)
