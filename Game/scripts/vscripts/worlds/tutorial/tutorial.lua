@@ -393,6 +393,18 @@ function Tutorial:TutorialEvent(msg)
 		elseif hero.tutorial.active_challenge == "4_2" then
 			Tutorial:UpdateChallengeSummaryProgress(hero, 4, 2, 0, false)
 			Tutorial:MasterSequenceWithLocks(hero, hero.tutorial.active_challenge)
+		elseif hero.tutorial.active_challenge == "4_3" then
+			Tutorial:UpdateChallengeSummaryProgress(hero, 4, 3, 0, false)
+			Tutorial:MasterSequenceWithLocks(hero, hero.tutorial.active_challenge)
+			if hero.shroomling_table then
+				for i = 1, #hero.shroomling_table, 1 do
+					local shroomling = hero.shroomling_table[i]
+					if IsValidEntity(shroomling) then
+						UTIL_Remove(shroomling)
+					end
+				end
+				hero.shroomling_table = nil
+			end
 		end
 	elseif code == "reward_select" then
 		Tutorial:ClaimReward(msg)
@@ -903,6 +915,28 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 				CustomGameEventManager:Send_ServerToPlayer(player, "quiz_sound", {sound = "Tutorial.Hint"} )
 			end
 		end)	
+	elseif code == "4_3" then
+		hero.master_is_talking = true
+		Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_3a", 5, false)
+		Timers:CreateTimer(5, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_3b", 5, false)
+			end
+		end)
+		Timers:CreateTimer(10, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_3c", 5, false)
+				local player = PlayerResource:GetPlayer(hero:GetPlayerOwnerID())
+				-- local random_rune = "DOTA_Tooltip_Ability_"..HerosCustom:GetInternalHeroName(hero:GetUnitName())
+				local question = "tutorial_quiz_question_14"
+				local verifier = 0
+				CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero=hero:GetEntityIndex(), identifier="4_3", quiz_question=question, sequence=0, verifier = verifier, localize_verifier = 0, challenge_progress = 0} )
+				CustomGameEventManager:Send_ServerToPlayer(player, "quiz_sound", {sound = "Tutorial.Hint"} )
+			end
+		end)
+		Timers:CreateTimer(15, function()
+			hero.master_is_talking = false
+		end)
 	end
 end
 
@@ -1500,6 +1534,84 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 					Tutorial:UpdateChallengeSummaryProgress(hero, 4, 2, 3, true)
 				end)
 			end
+		elseif code1 == "4_3" then
+			if code2 == 0 and hero.active_challenge_progress == code2 then
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_3d", 5, false)
+				EmitSoundOn("Tutorial.Master.Greeting1", hero)
+				hero.master_is_talking = true
+				local speech_phase = Tutorial:GetSpeechPhaseAndUpdate(hero)
+				Tutorial:UpdateChallengeSummaryProgress(hero, 4, 3, 1, false)
+				hero.active_challenge_progress = hero.active_challenge_progress + 1
+				Timers:CreateTimer(5, function()
+					Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_3e", 5, false)
+				end)
+				Timers:CreateTimer(10, function()
+					if speech_phase == hero.tutorial_speech_phase then
+						Timers:CreateTimer(2, function()
+							Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_1, 1.0, 4.0)
+							Timers:CreateTimer(0.3, function()
+								hero.shroomling_table = {}
+								hero.shrooms_slain = 0
+								EmitSoundOn("Tutorial.SpawnUnit", Tutorial.Master)
+								for i = 1, 10, 1 do
+									local rotatedVector = WallPhysics:rotateVector(Vector(1,0), 2*math.pi*i/10)
+									local shroomling = CreateUnitByName("tutorial_shroomling2", Vector(-576, 1984)+rotatedVector*300, false, nil, nil, DOTA_TEAM_NEUTRALS)
+									
+									shroomling:SetForwardVector(Vector(1,0))
+									CustomAbilities:QuickParticleAtPoint("particles/roshpit/tutorial/tutorial_sprout.vpcf", shroomling:GetAbsOrigin(), 3)
+									-- shroomling.cantAggro = true
+									local particleName = "particles/roshpit/redfall/red_beam.vpcf"
+								    local pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
+								    ParticleManager:SetParticleControl(pfx,0,Tutorial.Master:GetAbsOrigin()+Vector(0,0,120))   
+								    ParticleManager:SetParticleControl(pfx,1,shroomling:GetAbsOrigin()+Vector(0,0,60))
+									Timers:CreateTimer(3.5, function()
+										ParticleManager:DestroyParticle(pfx, false)
+									end)
+									AddFOWViewer(DOTA_TEAM_GOODGUYS, shroomling:GetAbsOrigin(), 300, 180, false)
+									shroomling.hero = hero
+									shroomling.damage_code = 1
+									hero.shroomling = shroomling
+									Tutorial:ApplyTutorialModifier("modifier_tutorial_unit", shroomling, 0)
+									local ability = shroomling:FindAbilityByName("dungeon_creep")
+									if ability then
+										ability:SetLevel(1)
+										ability:ApplyDataDrivenModifier(shroomling, shroomling, "modifier_dungeon_thinker_creep", {})
+									end
+									if i < 4 then
+										shroomling.aggroSound = "Tutorial.Shroomling.Aggro"
+									end
+								    shroomling:SetDeathXP(500)
+								    shroomling:SetMaximumGoldBounty(10)
+								    shroomling:SetMinimumGoldBounty(20)
+								    table.insert(hero.shroomling_table, shroomling)
+								end
+							end)
+						end)
+						Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_3f", 5, false)
+					end
+				end)
+				Timers:CreateTimer(15, function()
+					if speech_phase == hero.tutorial_speech_phase then
+						hero.master_is_talking = false
+						Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_3g", 5, false)
+						if hero.shroomling_table then
+							for i = 1, #hero.shroomling_table, 1 do
+								Dungeons:AggroUnit(hero.shroomling_table[i])
+							end
+						end
+					end
+				end)
+			elseif code2 == 1 and hero.active_challenge_progress == code2 then
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_3h", 5, false)
+				Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting1", ACT_DOTA_CAST_ABILITY_1, 1.0, 4.0)
+				hero.master_is_talking = false
+				Timers:CreateTimer(2, function()
+					Tutorial:ProgressUpdateOrNot(hero, 4, 3)
+					hero.active_challenge_progress = hero.active_challenge_progress + 1
+					hero.tutorial.active_challenge = nil
+					Tutorial:UpdateChallengeSummaryProgress(hero, 4, 3, 2, true)
+				end)
+			end
 		end
 	end
 end
@@ -1754,6 +1866,12 @@ function Tutorial:UnitDamage(attacker, victim, damage, damagetype, inflictor_ind
 			else
 				return 0
 			end
+		end
+	elseif victim.damage_code == 1 then
+		if damagetype == DAMAGE_TYPE_PHYSICAL then
+			return 0
+		else
+			return damage
 		end
 	end
 end

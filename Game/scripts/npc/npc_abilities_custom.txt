@@ -54128,6 +54128,31 @@
 			}
 		}
 	}
+
+
+	"tutorial_shroomling_ability2"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"tusk_snowball"
+		"MaxLevel"	"3"
+		"Modifiers"
+		{
+			"modifier_tutorial_enemy_passive"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/tutorial/tutorial_ai.lua"
+				"Function"		"shroomling_2_die"
+			}
+		}
+	}
 	
 
 	"oracle_ability"
