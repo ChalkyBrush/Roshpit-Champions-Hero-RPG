@@ -278,6 +278,15 @@ function Quests:DummyFromClient(msg)
 		local dummy = hero.targetDummy
 		hero:RemoveModifierByName("modifier_attacking_dummy")
 		dummy:RemoveModifierByName("modifier_dummy_active")
+		dummy:RemoveModifierByName("modifier_black_King_bar_immunity")
+		if dummy:HasAbility("redfall_mega_steadfast") then
+			dummy:RemoveAbility("redfall_mega_steadfast")
+			dummy:RemoveModifierByName("modifier_mega_steadfast")
+		end
+		if dummy:HasAbility("fire_temple_steadfast") then
+			dummy:RemoveAbility("fire_temple_steadfast")
+			dummy:RemoveModifierByName("modifier_steadfast")
+		end
 	elseif msg.timer then
 		local dummy = hero.targetDummy
 		local dummyAbility = dummy:FindAbilityByName("training_dummy_ability")
@@ -295,6 +304,44 @@ function Quests:DummyFromClient(msg)
 		print(msg.armor)
 		local dummy = hero.targetDummy
 		dummy:SetPhysicalArmorBaseValue(tonumber(msg.armor))
+		Tutorial:TutorialServerEvent(hero, "4_5", 2)
+	elseif msg.magic_immune then
+		local dummy = hero.targetDummy
+		local dummyAbility = dummy:FindAbilityByName("training_dummy_ability")
+		if dummy:HasModifier("modifier_black_King_bar_immunity") then
+			dummy:RemoveModifierByName("modifier_black_King_bar_immunity")
+		else
+			Tutorial:TutorialServerEvent(hero, "4_5", 3)
+			dummyAbility:ApplyDataDrivenModifier(dummy, dummy, "modifier_black_King_bar_immunity", {})
+		end
+	elseif msg.steadfast then
+		local dummy = hero.targetDummy
+		if (msg.steadfast == 1) then
+			if dummy:HasAbility("redfall_mega_steadfast") then
+				dummy:RemoveAbility("redfall_mega_steadfast")
+				dummy:RemoveModifierByName("modifier_mega_steadfast")
+			end
+			if dummy:HasAbility("fire_temple_steadfast") then
+				dummy:RemoveAbility("fire_temple_steadfast")
+				dummy:RemoveModifierByName("modifier_steadfast")
+			else
+				dummy:AddAbility("fire_temple_steadfast"):SetLevel(GameState:GetDifficultyFactor())
+				Tutorial:TutorialServerEvent(hero, "4_5", 4)
+			end
+
+		elseif (msg.steadfast == 2) then
+			if dummy:HasAbility("fire_temple_steadfast") then
+				dummy:RemoveAbility("fire_temple_steadfast")
+				dummy:RemoveModifierByName("modifier_steadfast")
+			end
+			if dummy:HasAbility("redfall_mega_steadfast") then
+				dummy:RemoveAbility("redfall_mega_steadfast")
+				dummy:RemoveModifierByName("modifier_mega_steadfast")
+			else
+				dummy:AddAbility("redfall_mega_steadfast"):SetLevel(GameState:GetDifficultyFactor())
+				Tutorial:TutorialServerEvent(hero, "4_5", 4)
+			end
+		end
 	end
 end
 

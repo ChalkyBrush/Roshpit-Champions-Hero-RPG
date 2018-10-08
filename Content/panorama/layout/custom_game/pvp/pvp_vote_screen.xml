@@ -150,6 +150,19 @@
 							<Button id="target-dummy-button-update-dummy-stats" class="dummy_option_button2" hittest="true">
 							  <Label text="arena_update_dummy" class="dummy_option_text"></Label>
 							</Button>
+							<Panel id="dummy-line-break"/>
+							<Button id="target-dummy-button-magic-immunity" class="dummy_option_button2" hittest="true">
+							  <Label text="dummy_add_magic_immunity" class="dummy_option_text" id="magic-immunity-label"></Label>
+							</Button>
+							<Label text="DOTA_Tooltip_ability_fire_temple_steadfast" class="dummy_steadfast_text"></Label>
+							<Panel id="steadfast-container">
+								<Button id="target-dummy-steadfast1" class="dummy_steadfast_button" hittest="true">
+									<Image class="dummy-steadfast" id="steadfast-image-1" src="file://{images}/spellicons/tutorial/steadfast-icon.png"/>
+								</Button>
+								<Button id="target-dummy-steadfast2" class="dummy_steadfast_button" hittest="true">
+									<Image class="dummy-steadfast" id="steadfast-image-2" src="file://{images}/spellicons/redfall/mega_steadfast.png"/>
+								</Button>
+							</Panel>
 						</Panel>
 					</Panel>
 					<Panel id="target-dummy-button-box">

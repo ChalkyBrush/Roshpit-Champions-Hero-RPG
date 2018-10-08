@@ -7,6 +7,15 @@ function target_dummy_take_damage(event)
 	end
 	if event.attacker:IsHero() then
 		bInit = true
+		if GameState:IsTutorial() then
+			if not event.attacker.dummy_lines_added then
+				event.attacker.dummy_lines_added = 0
+			end
+			event.attacker.dummy_lines_added = event.attacker.dummy_lines_added + 1
+			if event.attacker.dummy_lines_added == 8 then
+				Tutorial:TutorialServerEvent(event.attacker, "4_5", 1)
+			end
+		end
 	end
 	if event.attacker == Events.GameMaster then
 		return
@@ -38,6 +47,7 @@ function initTargetDummy(caster, ability, attacker)
 	attacker.targetDummy = caster
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_dummy_active", {})
 	CustomGameEventManager:Send_ServerToPlayer(attacker:GetPlayerOwner(), "updateTargetDummy", {})
+	Tutorial:TutorialServerEvent(attacker, "4_5", 0)
 end
 
 function target_dummy_rapid_think(event)

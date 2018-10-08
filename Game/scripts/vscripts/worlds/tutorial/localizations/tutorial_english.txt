@@ -437,3 +437,32 @@
 	"tutorial_master_dialogue_4_4j"										"Well ok. This lesson is done now."
 
 	"challens_elemental"												"Omnicrest Elemental"
+
+	"DOTA_Tooltip_ability_tutorial_elemental_ability"					"Omni Elemental"
+	"DOTA_Tooltip_ability_tutorial_elemental_ability_Description"		"Conjured entity of multiple elements."
+
+	"quest_4_challenge_5_desc"											"The training dummy is available near town on most maps. Dealing damage to it will open the Training Dummy window allowing you to view detailed breakdown of your damage."
+	"quest_4_challenge_5_sub_0_summary"									"Open the Training Dummy"
+	"quest_4_challenge_5_sub_1_summary"									"Add a few lines to the Dummy's log"
+	"quest_4_challenge_5_sub_2_summary"									"Change the Dummy's armor"
+	"quest_4_challenge_5_sub_3_summary"									"Give the Dummy Magic Immunity"
+	"quest_4_challenge_5_sub_4_summary"									"Give the Dummy Steadfast"
+
+	"tutorial_master_dialogue_4_5a"										"The Training Dummy is a helpful tool for measuring your hero's combat capability."
+	"tutorial_master_dialogue_4_5b"										"Go over to the training dummy and damage it to open the window!"
+
+	"tutorial_master_dialogue_4_5c"										"Very good. Now as you damage the dummy, precise damage figures will be displayed in the window."
+	"tutorial_master_dialogue_4_5d"										"Give the dummy a few attacks and get some feedback from the log!"
+
+	"tutorial_master_dialogue_4_5e"										"Ok, now let's try some of the configuration options."
+	"tutorial_master_dialogue_4_5f"										"You can change the dummy's armor value in order to test your physical damage. Go ahead and try it."
+
+	"tutorial_master_dialogue_4_5g"										"Yes, you can also give the dummy magic immunity to see how your damage stacks up against such defenses. Try it!"
+
+	"tutorial_master_dialogue_4_5h"										"Just one more thing. Many enemies in our world have an ability called 'Steadfast'"
+	"tutorial_master_dialogue_4_5i"										"Damage taken by enemies with steadfast is capped at a percentage of their max health."
+	"tutorial_master_dialogue_4_5j"										"We can give the Dummy steadfast so that we can test ourselves. Give the dummy steadfast!"
+	"tutorial_master_dialogue_4_5k"										"Great, now you should understand enough about the Training Dummy."
+
+	"dummy_add_magic_immunity"											"Add Magic Immunity"
+	"dummy_remove_magic_immunity"										"Remove Magic Immunity"

@@ -933,3 +933,52 @@
 	background-color: #BBBBBB;
 	box-shadow: 0px 0px 1px white;
 }
+
+#target-dummy-button-magic-immunity{
+}
+
+#dummy-line-break{
+	height:2px;
+	background-color:#222222;
+	margin-top:30px;
+	margin-bottom:30px;
+	width:100%;
+}
+
+.dummy-steadfast{
+	height:64px;
+	width:64px;
+}
+
+#steadfast-container{
+	flow-children:right;
+	horizontal-align:center;
+}
+
+.dummy_steadfast_text{
+	width:100%;
+	text-align: center;
+	text-shadow: 1px 1px 2px 3 #00000066;
+	text-transform:uppercase;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	color:white;
+	font-size:16px;
+	margin-top:8px;	
+}
+
+#target-dummy-steadfast1{
+	margin-right:10px;
+}
+
+.dummy_steadfast_button{
+	border-radius:6px;
+	box-shadow:1px 1px 1px black;
+}
+
+.dummy_steadfast_button:hover{
+	box-shadow:1px 1px 2px yellow;
+}
+
+.dummy_steadfast_button_active{
+	border: 2px solid yellow;
+}
