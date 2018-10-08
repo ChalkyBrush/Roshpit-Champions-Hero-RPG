@@ -16391,7 +16391,7 @@
 	"tutorial_quiz_wrong_4_2_2"											"I will accept an answer rounded up or down to the nearest whole number."
 
 	"tutorial_master_dialogue_4_2e"										"Yes that's right! Physical attacks can also be dodged by increasing your evasion stat."
-	"tutorial_master_dialogue_4_2f"										"Magic damage is reduced by the unit's Magical Armor. Each magic armor provides 1% magic damage reduction with diminishing returns."
+	"tutorial_master_dialogue_4_2f"										"Magic damage is reduced by the unit's Magic Armor. Each magic armor provides 1% magical damage reduction with diminishing returns."
 	"tutorial_master_dialogue_4_2g"										"Pure damage pierces magic immunity and is difficult to resist. Only some monsters and rare gears can offer pure resistance."	
 	"tutorial_master_dialogue_4_2h"										"Some special bonuses will reduce damage taken from a specific damage type."
 	"tutorial_master_dialogue_4_2i"										"Use your hero tooltip and tell me your damage type reduction."	
@@ -16428,7 +16428,7 @@
 	"tutorial_quiz_wrong_4_3_1"											"No, give me the green number next to your attack damage."
 	"tutorial_quiz_wrong_4_3_2"											"That is not your bonus attack value."
 
-	"tutorial_master_dialogue_4_3d"										"Right! Now remember, your abilities also have a 'Base Damage' which can be amplified by bonuses."
+	"tutorial_master_dialogue_4_3d"										"Right! Now remember, your abilities also have a 'Base Damage' which can be amplified by special bonuses."
 	"tutorial_master_dialogue_4_3e"										"Your base ability damage amplification total shows in your hero tooltip. I already asked you a question about it before."
 	"tutorial_master_dialogue_4_3f"										"Instead of a quiz, why don't you use your abilities to fight an army of shroomlings?"
 	"tutorial_master_dialogue_4_3g"										"These guys are immune to physical damage, so use your abilities to take them down!"
@@ -16439,6 +16439,37 @@
 
 	"DOTA_Tooltip_ability_tutorial_shroomling_ability2"					"Pulpy"
 	"DOTA_Tooltip_ability_tutorial_shroomling_ability2_Description"		"Immune to Physical damage."
+
+	"quest_4_challenge_4_desc"											"Most abilities have an elemental damage type. Elemental damage amplification can be seen on the hero tooltip."
+	"quest_4_challenge_4_sub_0_summary"									"Answer the question about elemental amplification"
+	"quest_4_challenge_4_sub_1_summary"									"Answer the question about your rune's element"
+	"quest_4_challenge_4_sub_2_summary"									"Defeat the Omnicrest Elemental"
+
+	"tutorial_master_dialogue_4_4a"										"Damage dealt by your abilities, runes and items usually have an elemental component."
+	"tutorial_master_dialogue_4_4b"										"Elemental amplification can be increased by several special bonuses."
+	"tutorial_master_dialogue_4_4c"										"Check the bottom part of your hero tooltip."
+
+	"tutorial_quiz_question_14"											"What is your @sub1 amplification value?"
+
+	"tutorial_quiz_wrong_4_4_1"											"That's wrong. Your elemental amplification can be found at the bottom of your hero tooltip."
+	"tutorial_quiz_wrong_4_4_2"											"That's just not right. Sorry."
+
+	"tutorial_master_dialogue_4_4d"										"That's right! Be sure to check your ability's elements so that you can take advantage of them."
+	"tutorial_master_dialogue_4_4e"										"Some abilities have dual elements which allow them to benefit from both types."
+	"tutorial_master_dialogue_4_4f"										"Now let's see if you can read your element names."
+
+	"tutorial_quiz_question_15"											"Name the primary the element of @sub1."
+
+	"tutorial_quiz_wrong_4_4_3"											"That's wrong. Find the ability or rune with that name and tell me its element."
+	"tutorial_quiz_wrong_4_4_4"											"Please read your rune description and tell me which element it has."
+
+	"tutorial_master_dialogue_4_4g"										"Right. That should be enough about elemental damage."
+	"tutorial_master_dialogue_4_4h"										"Except I want to introduce you to this elemental that I know how to summon."
+	"tutorial_master_dialogue_4_4i"										"Don't let him scare you!"
+
+	"tutorial_master_dialogue_4_4j"										"Well ok. This lesson is done now."
+
+	"challens_elemental"												"Omnicrest Elemental"
 
 		"winterblight_village"											"Winterblight Village"
 		"shrine_of_azalea"												"Shrine of Azalea"

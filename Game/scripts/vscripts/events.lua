@@ -1105,7 +1105,7 @@ function Events:CreateRuneUnits(heroEntity, playerID)
   heroEntity.runeUnit4 = runeUnit4
   CustomNetTables:SetTableValue("skill_tree", tostring(playerID).."rune_unit4", {runeUnit = runeUnit4:GetEntityIndex()})
   -- runeUnit4:AddAbility("town_unit"):SetLevel(1)
-
+  heroEntity.runeUnitTable = {runeUnit, runeUnit2, runeUnit3, runeUnit4}
   local glyphUnit = CreateUnitByName("rune_unit", RPCItems.DROP_LOCATION, true, heroEntity, player, heroEntity:GetTeamNumber())
   heroEntity.glyphUnit = glyphUnit
   glyphUnit.hero = heroEntity

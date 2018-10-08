@@ -54102,6 +54102,43 @@
 			{
 				"IsHidden"	"1"
 			}
+			"modifier_tutorial_summon_animation"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/tutorial/tutorial_ai.lua"
+						"Function"		"floating_think"
+						"target"        "TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/tutorial/tutorial_ai.lua"
+						"Function"		"floating_think_end"
+						"target"        "TARGET"
+					}
+				}
+			}
+			"modifier_tutorial_summon_drop"
+			{
+				"IsHidden"	"1"	
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/tutorial/tutorial_ai.lua"
+						"Function"		"floating_drop"
+						"target"        "TARGET"
+					}
+				}
+			}
 		}
 	}
 
@@ -54153,6 +54190,45 @@
 			}
 		}
 	}
+
+	"tutorial_elemental_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"tusk_snowball"
+		"MaxLevel"	"3"
+		"Modifiers"
+		{
+			"modifier_rainbow_effect"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"					"TARGET"
+						"EffectName"				"particles/econ/generic/generic_buff_1/rainbow_buff.vpcf"
+						"EffectAttachType"			"follow_overhead"
+						"EffectLifeDurationScale"	"1"
+						"EffectColorA"				"255 255 255"
+						"EffectAlphaScale"			"1"
+					}
+				}
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/tutorial/tutorial_ai.lua"
+				"Function"		"elemental_die"
+			}
+		}
+	}
+
+
 	
 
 	"oracle_ability"

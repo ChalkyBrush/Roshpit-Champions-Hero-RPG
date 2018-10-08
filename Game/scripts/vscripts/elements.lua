@@ -2,6 +2,8 @@ if Elements == nil then
   Elements = class({})
 end
 
+RPC_ELEMENT_COUNT = 18
+
 RPC_ELEMENT_NONE = -1
 RPC_ELEMENT_NORMAL = 1
 RPC_ELEMENT_FIRE = 2
