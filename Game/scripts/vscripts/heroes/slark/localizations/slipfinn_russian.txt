@@ -136,28 +136,28 @@
 		
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_1_1"		"(T1) Символ скольжения"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_1_1"		"(T1) Глиф скольжения"
 		"item_rpc_slipfinn_glyph_1_1_description" 				"Снижает трение о землю на @glyph_property1%."
 
-		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_2_1"		"(T2) Символ далеких прыжков"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_2_1"		"(T2) Глиф далеких прыжков"
 		"item_rpc_slipfinn_glyph_2_1_description" 				"Увеличивает подъемную силу при Дальнем прыжке на @glyph_property1."
 
-		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_3_1"		"(T3) Символ отскока"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_3_1"		"(T3) Глиф отскока"
 		"item_rpc_slipfinn_glyph_3_1_description" 				"Увеличивает базовую высоту отскока по приземлении на голову врагу на @glyph_property1."
 
-		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_4_1"		"(T4) Символ свободного падения"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_4_1"		"(T4) Глиф свободного падения"
 		"item_rpc_slipfinn_glyph_4_1_description" 				"Сокращает время на переворот и удар о землю на @glyph_property1%."
 
-		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_5_1"		"(T5) Символ пролома"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_5_1"		"(T5) Глиф пролома"
 		"item_rpc_slipfinn_glyph_5_1_description" 				"Увеличивает длительность оглушения от Ground Pound на @glyph_property1 сек."
 
-		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_6_1"		"(T6) Символ одержимости"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_6_1"		"(T6) Глиф одержимости"
 		"item_rpc_slipfinn_glyph_6_1_description" 				"Враги, которых пытается захватить герой с помощью (R) Possessive Bubble парализуются до конца прочтения. Время оглушения по высвобождению врага из пузыря увеличивается на @glyph_property1%."
 
-		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_7_1"		"(T7) Символ ускользающего беглеца"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_7_1"		"(T7) Глиф ускользающего беглеца"
 		"item_rpc_slipfinn_glyph_7_1_description" 				"Герой не может быть оглушен во время прыжков и бега в тени."
 
-		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_5_a"		"(Immortal) Символ прыгуна"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_5_a"		"(Immortal) Глиф прыгуна"
 		"item_rpc_slipfinn_glyph_5_a_description" 				"Радиус попадания по вражеским головам увеличен на @glyph_property1%."
 		
 		//Weapons

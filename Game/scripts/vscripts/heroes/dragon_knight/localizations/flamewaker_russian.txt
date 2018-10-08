@@ -238,31 +238,31 @@
 
 		
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_1_1"	"(T1) Символ алмазной кожи"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_1_1"	"(T1) Глиф алмазной кожи"
 		"item_rpc_flamewaker_glyph_1_1_description" 			"Враги, атакующие вас могут быть оглушены с шансом @glyph_property1% на @glyph_property2 сек."
 
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_2_1"	"(T2) Символ кратеров"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_2_1"	"(T2) Глиф кратеров"
 		"item_rpc_flamewaker_glyph_2_1_description" 			"Уменьшает время перезарядки (Q) Seismic Flare до @glyph_property1 сек."
 
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_3_1"	"(T3) Символ расплавления"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_3_1"	"(T3) Глиф расплавления"
 		"item_rpc_flamewaker_glyph_3_1_description" 			"На все цели попавшие под [W1] применяется [W3]."
 
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_4_1"	"(T4) Символ синего пламени"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_4_1"	"(T4) Глиф синего пламени"
 		"item_rpc_flamewaker_glyph_4_1_description" 			"(W) @Ability2 наносит дополнительный урон, равный (@glyph_property2% от суммы всех атрибутов плюс @glyph_property3% от общего урона героя)* текущий уровень (W) @Ability2. Дополнительно снижает скорость передвижения и атаки врагов на @glyph_property1."
 
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_1"	"(T5) Символ горячих сердец"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_1"	"(T5) Глиф горячих сердец"
 		"item_rpc_flamewaker_glyph_5_1_description" 			"Увеличивает длительность [R2] в <% FLAMEWAKER_T51_R2_DUR_MULTIPLY%> раза."
 
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_6_1"	"(T6) Символ горного массива"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_6_1"	"(T6) Глиф горного массива"
 		"item_rpc_flamewaker_glyph_6_1_description" 			"В течении @glyph_property2 сек. после прочтения (R) Cataclysm, основной урон будет увеличен на @glyph_property1%."
 
 		"DOTA_Tooltip_modifier_flamewaker_glyph_6_1_buff"		"Mountain's Core"
 		"DOTA_Tooltip_modifier_flamewaker_glyph_6_1_buff_Description"	"Урон увеличен на 100%%."
 
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_7_1"	"(T7) Символ пылающего океана"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_7_1"	"(T7) Глиф пылающего океана"
 		"item_rpc_flamewaker_glyph_7_1_description" 			"Оставляемый огненный след от руны [E1] шире в @glyph_property1 раз(а) и наносит в @glyph_property2 раз(а) больше урона."
 
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_a"	"(Immortal) Символ драконьей кожи"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_a"	"(Immortal) Глиф драконьей кожи"
 		"item_rpc_flamewaker_glyph_5_a_description" 			"Любой входящий урон не отнимет более @glyph_property1% от макс. здоровья. Если уровень здоровья ниже 50%, входящий урон не отнимет более @glyph_property2% от макс. здоровья."
 
 		//Weapons

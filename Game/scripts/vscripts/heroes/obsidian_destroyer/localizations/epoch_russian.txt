@@ -202,41 +202,41 @@
     	"DOTA_Tooltip_ability_epoch_rune_q_4_arcana1_suffix_two"				""
 
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_1_1"		"(T1) Символ разрушительных связей"
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_1_1"		"(T1) Глиф разрушительных связей"
 		"item_rpc_epoch_glyph_1_1_description" 				"Враги, находящиеся под действием (Q) Time Binder и [Q1] получат на @glyph_property1% больше урона из всех источников."
 
 		"DOTA_Tooltip_modifier_epoch_glyph_1_1_effect"		"Crumbling Bonds"
 		"DOTA_Tooltip_modifier_epoch_glyph_1_1_effect_Description"	"Получаемый урон из ВСЕХ источников увеличен"
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_2_1"		"(T2) Символ искаженного времени"
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_2_1"		"(T2) Глиф искаженного времени"
 		"item_rpc_epoch_glyph_2_1_description" 				"(E) Distortion Orb пролетает на @glyph_property1% дальше и движется на @glyph_property2% быстрее. Дополнительно, время связки врагов от (Q) Time Binder удваивается."
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_3_1"		"(T3) Символ разлома"
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_3_1"		"(T3) Глиф разлома"
 		"item_rpc_epoch_glyph_3_1_description" 				"(W) Genesis Orb наносит увеличенный урон в размере @glyph_property1% от значения текущей маны героя, умноженного на уровень основного умения."
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_4_1"		"(T4) Символ вечности"
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_4_1"		"(T4) Глиф вечности"
 		"item_rpc_epoch_glyph_4_1_description" 				"Атаки больше не поглощают заряды (W3) Ages of Wisdom (Бонус к интеллекту не пропадает, тогда как восстановление здоровья происходит в полной мере как раньше)."
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_1"		"(T5) Символ подмены времени"
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_1"		"(T5) Глиф подмены времени"
 		"item_rpc_epoch_glyph_5_1_description" 				"С каждой базовой атакой по одной цели, урон будет возрастать на @glyph_property1%. Максимум @glyph_property2 стаков. Бонус сбрасывается, если была атакована новая цель."
 
 		//"DOTA_Tooltip_modifier_epoch_glyph_5_1_effect"		"Substituted Time"
 		//"DOTA_Tooltip_modifier_epoch_glyph_5_1_effect_Description"	"Increasing attack damage while focusing the same target."
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_6_1"		"(T6) Символ неясного течения"
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_6_1"		"(T6) Глиф неясного течения"
 		"item_rpc_epoch_glyph_6_1_description" 				"Враги, находящиеся под действием (Q) Time Binds и [Q1] теряют @glyph_property1% своего основного урона. Дополнительно, эффекты от (Q2) Eon Channel усиливаются в 10 раз."
 
 		"DOTA_Tooltip_modifier_epoch_glyph_6_1_effect"		"Tangled Flow"
 		"DOTA_Tooltip_modifier_epoch_glyph_6_1_effect_Description"	"Базовый урон уменьшен"
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_7_1"		"(T7) Символ измерений"
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_7_1"		"(T7) Глиф измерений"
 		"item_rpc_epoch_glyph_7_1_description" 				"Пока летит (E) Distortion Orb, герой покидает это измерение, не позволяя ему ничего делать и уклоняясь от летящих заклинаний и атак."
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_a"		"(Immortal) Символ путешествия во времени"
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_a"		"(Immortal) Глиф путешествия во времени"
 		"item_rpc_epoch_glyph_5_a_description" 				"Позволяет герою выжить при получении смертельного урона, восстанавливая здоровье, ману и способности. Перезаряжается @glyph_property1 сек."
 
 		"DOTA_Tooltip_modifier_epoch_glyph_5_a_cooldown"	"Time Travel Cooldown"
-		"DOTA_Tooltip_modifier_epoch_glyph_5_a_little_shield"	"Невосприимчив к урону, Immortal символ путешествия во времени"
+		"DOTA_Tooltip_modifier_epoch_glyph_5_a_little_shield"	"Невосприимчив к урону, Immortal Глиф путешествия во времени"
 		
 		//Weapons
 		"epoch_weapon_01"			"Distortion Staff"

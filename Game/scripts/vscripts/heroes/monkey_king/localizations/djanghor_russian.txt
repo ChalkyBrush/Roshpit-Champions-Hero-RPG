@@ -231,7 +231,7 @@
     	"property_djanghor_arcana1_description"									"Заменяет (R) @Ability4 и все соответствующие руны на (R) Превращение: Годень."
 
     	"DOTA_Tooltip_ability_draghor_shapeshift_year_beast"					"Превращение: Годень"
-    	"DOTA_Tooltip_ability_draghor_shapeshift_year_beast_Description"						"Позволяет герою трансформироваться в Годня со своим набором способностей. Главный атрибут Годня зависит от выбранного символа: волк - ловкость, медведь - сила и ястреб - интеллект. Герой ежесекундно теряет 0.03% от макс. маны, пока находится в форме Годня."
+    	"DOTA_Tooltip_ability_draghor_shapeshift_year_beast_Description"						"Позволяет герою трансформироваться в Годня со своим набором способностей. Главный атрибут Годня зависит от выбранной Метки(Mark): Волк - Ловкость, Медведь - Сила и Ястреб - Интеллект. Герой ежесекундно теряет 0.03% от макс. маны, пока находится в форме Годня."
     	"DOTA_Tooltip_ability_draghor_shapeshift_year_beast_all_attributes_bonus"						"ДОП. АТРИБУТЫ В ФОРМЕ ГОДНЯ:"
 
     	"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar"									"Thunderous Roar"
@@ -291,37 +291,37 @@
 		
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_1_1"		"(T1) Символ леса"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_1_1"		"(T1) Глиф леса"
 		"item_rpc_djanghor_glyph_1_1_description" 				"Большой удар от (W) Jin'bo сбрасывает время перезарядки для (E) Monkey Leap."
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_2_1"		"(T2) Символ охоты"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_2_1"		"(T2) Глиф охоты"
 		"item_rpc_djanghor_glyph_2_1_description" 				"Пока герой находится в форме волка, атаки с @glyph_property1% шансом будут усилены на @glyph_property2%. Эффект продолжит действовать в течении 7 секунд после трансформации."
 
 		"DOTA_Tooltip_modifier_glyph_2_critical"				"Wolf Critical Strike"
 		"DOTA_Tooltip_modifier_glyph_2_critical_Description"	"Шанс на критическую атаку."
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_3_1"		"(T3) Символ уклонения"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_3_1"		"(T3) Глиф уклонения"
 		"item_rpc_djanghor_glyph_3_1_description" 				"@glyph_property1% уклонение в форме волка, @glyph_property2% уклонение в форме обезьяны."
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_4_1"		"(T4) Символ защищённого оборотня"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_4_1"		"(T4) Глиф защищённого оборотня"
 		"item_rpc_djanghor_glyph_4_1_description" 				"Завершение любой трансформации дарует герою @glyph_property1 заряда щита, полностью поглощающего урон. Длительность щита 12 секунд."
 
 		"DOTA_Tooltip_modifier_djanghor_4_1_shield"				"Shapeshifter's Shield"
 		"DOTA_Tooltip_modifier_djanghor_4_1_shield_Description"	"Каждый заряд полностью поглощает любой входящий урон"
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_5_1"		"(T5) Символ дикого зверя"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_5_1"		"(T5) Глиф дикого зверя"
 		"item_rpc_djanghor_glyph_5_1_description" 				"Снижает время перезарядки (Q) @Ability1 на @glyph_property1 сек."
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_6_1"		"(T6) Символ лесного пробуждения"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_6_1"		"(T6) Глиф лесного пробуждения"
 		"item_rpc_djanghor_glyph_6_1_description" 				"Снимает случайный негативный эффект каждые @glyph_property1 сек."
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_7_1"		"(T7) Символ терзаний"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_7_1"		"(T7) Глиф терзаний"
 		"item_rpc_djanghor_glyph_7_1_description" 				"С @glyph_property1% шансом атака в форме медведя может оглушить цель на @glyph_property3 сек. и нанести увеличенный на @glyph_property2% урон. Эффект продолжит действовать в течении 10 секунд после трансформации."
 
 		"DOTA_Tooltip_modifier_glyph_7_bash"					"Maul"
 		"DOTA_Tooltip_modifier_glyph_7_bash_Description"		"Шанс оглушить цель при атаке и нанести дополнительный урон."
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_5_a"		"(Immortal) Символ природной катастрофы"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_5_a"		"(Immortal) Глиф природной катастрофы"
 		"item_rpc_djanghor_glyph_5_a_description" 				"Ко всему урону, имеющему <font color=\"#DDDDDD\">Нормальную</font> основную стихию добавляется вторая стихия <font color=\"#69BC71\">Природы</font>."
 		
 	
