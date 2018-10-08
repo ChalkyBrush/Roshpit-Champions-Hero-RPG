@@ -351,7 +351,7 @@
 		"item_rpc_sorceress_glyph_7_2_description" 				"Увеличивает урон от (W) @Ability2 на @glyph_property1%, а к его текущей стоимости добавляется @glyph_property2% от макс. маны."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_book"	"Книга Глифов Sorceress"
-		"DOTA_Tooltip_ability_glyph_book_desc"					"Навсегда позволяет изучить рецепт создания @consumableProperty3 у Заклинателя."
+		"DOTA_Tooltip_ability_glyph_book_desc"					"Навсегда позволяет изучить рецепт создания @consumableProperty3 у Зачарователя Глифов."
 		
 		
 		//Weapons
