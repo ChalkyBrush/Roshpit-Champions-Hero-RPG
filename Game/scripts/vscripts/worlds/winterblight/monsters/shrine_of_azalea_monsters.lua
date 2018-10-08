@@ -196,6 +196,43 @@ function zefnar_die(event)
 			EmitSoundOnLocationWithCaster(Winterblight.AzaleaSwitchMathProp:GetAbsOrigin(), "Winterblight.Zefnar.SpawnMini", Events.GameMaster)
 			Winterblight.AzaleaSwitch1Dropped = true
 		end)
+		Timers:CreateTimer(1, function()
+			Timers:CreateTimer(3, function()
+				Winterblight:SpawnCup1()
+			end)
+			
+			Winterblight:RemoveBlockers(8.5, "AzaleaBridgeBlocker2", Vector(15104, -12480, 212+Winterblight.ZFLOAT), 5400)
+			for i = 1, 300, 1 do
+				Timers:CreateTimer(0.03*i, function()
+					if i %40 == 0 then
+						EmitSoundOnLocationWithCaster(Vector(15733, -11788, 78+Winterblight.ZFLOAT), "Winterblight.AzaleaBridge.Raise", Events.GameMaster)
+					end
+					Winterblight.AzaleaBridge2:SetAbsOrigin(Winterblight.AzaleaBridge2:GetAbsOrigin()+Vector(0,0,1500/300))
+				end)
+			end
+			Timers:CreateTimer(3, function()
+				local walls = Entities:FindAllByNameWithin("AzaleaWall2", Vector(15109, -12332, -4094+Winterblight.ZFLOAT), 2400)
+			    EmitSoundOnLocationWithCaster(Vector(15109, -12332), "Winterblight.WallOpen", Events.GameMaster)
+			    Winterblight:WallsTicks(false, walls, true, 5, 360, 0.1)
+			    Winterblight:RemoveBlockers(4, "AzaleaWallBlockers2", Vector(15104, -12480, 300+Winterblight.ZFLOAT), 1800)
+			    Winterblight:ShrineSpawn3()
+			end)
+			Timers:CreateTimer(9, function()
+				EmitSoundOnLocationWithCaster(Winterblight.AzaleaBridge2:GetAbsOrigin(), "Winterblight.AzaleaBridge.Finish", Winterblight.Master)
+				Timers:CreateTimer(0.1, function()
+					EmitSoundOnLocationWithCaster(Winterblight.AzaleaBridge2:GetAbsOrigin(), "Winterblight.Azalea.Win", Winterblight.Master)
+				end)
+				local positionTable = {Vector(14976, -12800), Vector(15085, -12800), Vector(15168, -12800), Vector(15226, -12064), Vector(15136, -12064), Vector(15050, -12064)}
+	            for i = 1, #positionTable, 1 do
+	              local pfx = ParticleManager:CreateParticle( "particles/econ/events/ti5/teleport_end_dust_ti5.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster )
+	              ParticleManager:SetParticleControl( pfx, 0, GetGroundPosition(positionTable[i], Events.GameMaster ))
+	              ParticleManager:SetParticleControl( pfx, 1, Vector(200, 200, 200) )
+	              Timers:CreateTimer(2, function()
+	                ParticleManager:DestroyParticle(pfx, false)
+	              end)
+	            end
+			end)	
+		end)
 	end
 end
 
