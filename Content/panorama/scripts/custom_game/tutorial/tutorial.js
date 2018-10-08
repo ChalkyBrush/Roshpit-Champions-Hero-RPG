@@ -276,6 +276,10 @@ function CallQuizBox(msg){
 function setup_quiz_answer_submit(answerButton, parent, msg, input)
 {
 	$.Msg(input)
+	if (msg.identifier == "4_3"){
+		var hero = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())
+		msg.verifier = Entities.GetDamageBonus(hero)
+	}
 	answerButton.SetPanelEvent('onactivate', function SubmitQuiz() {
 		setupQuizAnswerSubmit(parent, msg.identifier, msg.sequence, msg.verifier, msg.localize_verifier, msg.challenge_progress, input)
 	})	

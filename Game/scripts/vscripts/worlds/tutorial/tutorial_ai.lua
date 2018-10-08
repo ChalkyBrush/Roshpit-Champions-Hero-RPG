@@ -123,3 +123,13 @@ function shroomling_die(event)
 	hero.shroomling = nil
 	Events:TutorialServerEvent(hero, "4_1", 1)
 end
+
+function shroomling_2_die(event)
+	local caster = event.caster
+	local hero = caster.hero
+	hero.shrooms_slain = hero.shrooms_slain + 1
+	if hero.shrooms_slain == 10 then
+		Events:TutorialServerEvent(hero, "4_3", 1)
+	end
+end
+

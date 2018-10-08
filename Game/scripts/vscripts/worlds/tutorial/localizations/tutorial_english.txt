@@ -381,3 +381,28 @@
 	"tutorial_quiz_question_13_sub3"									"pierces magic immunity and has no attribute that reduces it"
 
 	"tutorial_master_dialogue_4_2l"										"Right! Ok then. You know enough about damage types now."
+
+	"quest_4_challenge_3_desc"											"Your base attack damage is the white damage number next to the sword on your UI. Buffs that increase attack damage by a % are shown in an additional value that is displayed in green. Your main abilities have the 'Base Ability' classification and can be amplified by special bonuses."
+	"quest_4_challenge_3_sub_0_summary"									"Answer the question about attack damage."
+	"quest_4_challenge_3_sub_1_summary"									"Defeat the shroomling army using your abilities."
+
+	"tutorial_master_dialogue_4_3a"										"Your Base Attack Damage is displayed on your hero summary next to the sword icon."
+	"tutorial_master_dialogue_4_3b"										"Any buff that increases attack damage by a percentage will show as a green bonus next to the attack damage."
+	"tutorial_master_dialogue_4_3c"										"Can you tell me what your bonus attack damage is? If you don't see it on your UI, check your hero tooltip."
+
+	"tutorial_quiz_question_14"											"What is your Bonus Attack Damage value?"
+
+	"tutorial_quiz_wrong_4_3_1"											"No, give me the green number next to your attack damage."
+	"tutorial_quiz_wrong_4_3_2"											"That is not your bonus attack value."
+
+	"tutorial_master_dialogue_4_3d"										"Right! Now remember, your abilities also have a 'Base Damage' which can be amplified by bonuses."
+	"tutorial_master_dialogue_4_3e"										"Your base ability damage amplification total shows in your hero tooltip. I already asked you a question about it before."
+	"tutorial_master_dialogue_4_3f"										"Instead of a quiz, why don't you use your abilities to fight an army of shroomlings?"
+	"tutorial_master_dialogue_4_3g"										"These guys are immune to physical damage, so use your abilities to take them down!"
+
+	"tutorial_master_dialogue_4_3h"										"Good! That concludes the lesson on Base Damage."
+
+	"tutorial_shroomling2"												"Shroomling"
+
+	"DOTA_Tooltip_ability_tutorial_shroomling_ability2"					"Pulpy"
+	"DOTA_Tooltip_ability_tutorial_shroomling_ability2_Description"		"Immune to Physical damage."
