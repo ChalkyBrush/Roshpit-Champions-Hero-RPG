@@ -466,3 +466,5 @@
 
 	"dummy_add_magic_immunity"											"Add Magic Immunity"
 	"dummy_remove_magic_immunity"										"Remove Magic Immunity"
+
+	"dummy_attack_inverval"												"Attack Inverval"

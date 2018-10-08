@@ -297,7 +297,8 @@ function InitDummmy(){
 
     board.FindChildTraverse('target-dummy-button-update-dummy-stats').SetPanelEvent('onactivate', function DummyModArmor() {
     	var armorInput = $.GetContextPanel().FindChildTraverse('armor-input').text
-    	GameEvents.SendCustomGameEventToServer( "arena_dialogue", {dummy: 1, armor: armorInput, playerID: Players.GetLocalPlayer()} );
+    	var attackInput = $.GetContextPanel().FindChildTraverse('attacks-input').text
+    	GameEvents.SendCustomGameEventToServer( "arena_dialogue", {dummy: 1, armor: armorInput, attack: attackInput, playerID: Players.GetLocalPlayer()} );
 	});
 	
     board.FindChildTraverse("target-dummy-button-magic-immunity").SetPanelEvent('onactivate', function DummyModMagicImmune() {

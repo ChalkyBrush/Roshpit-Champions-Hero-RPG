@@ -58047,6 +58047,20 @@
 					}
 				}
 			}
+			"modifier_dummy_attacking"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/arena/arena_ai/target_dummy"
+						"Function"		"target_dummy_attack_think"
+						"target"		"TARGET"
+					}
+				}
+			}
 		}
 	}
 

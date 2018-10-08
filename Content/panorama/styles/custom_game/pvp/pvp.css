@@ -547,7 +547,7 @@
 }
 
 #armor-input-title{
-	margin-top:70px;
+	margin-top:40px;
 }
 
 .dummy_info_text2{
@@ -561,7 +561,25 @@
 	height:30px;
 }
 
+#attacks-input-title{
+	margin-top:15px;
+}
+
 #armor-input{
+	width:50%;
+	text-shadow: 1px 1px 2px 3 #00000066;
+	text-transform:uppercase;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	color:white;
+	font-size:20px;	
+	background-color: gradient( linear, 0px 0%, 260px 0%, from( #000000 ), to( #121212 ) );
+	horizontal-align:center;
+	padding:5px;
+	border-radius:6px;
+	height:36px;
+}
+
+#attacks-input{
 	width:50%;
 	text-shadow: 1px 1px 2px 3 #00000066;
 	text-transform:uppercase;

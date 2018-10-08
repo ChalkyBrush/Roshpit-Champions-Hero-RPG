@@ -147,6 +147,9 @@
 							<Label id="armor-input-title" html="true" class="dummy_info_text2" text="arena_armor_title"/>
 							<TextEntry id="armor-input" maxchars="7"/>
 
+							<Label id="attacks-input-title" html="true" class="dummy_info_text2" text="dummy_attack_inverval"/>
+							<TextEntry id="attacks-input" maxchars="3"/>
+
 							<Button id="target-dummy-button-update-dummy-stats" class="dummy_option_button2" hittest="true">
 							  <Label text="arena_update_dummy" class="dummy_option_text"></Label>
 							</Button>
