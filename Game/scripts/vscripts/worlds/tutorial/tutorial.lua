@@ -405,6 +405,13 @@ function Tutorial:TutorialEvent(msg)
 				end
 				hero.shroomling_table = nil
 			end
+		elseif hero.tutorial.active_challenge == "4_4" then
+			Tutorial:UpdateChallengeSummaryProgress(hero, 4, 4, 0, false)
+			Tutorial:MasterSequenceWithLocks(hero, hero.tutorial.active_challenge)
+			if hero.elemental then
+				UTIL_Remove(hero.elemental)
+				hero.elemental = nil
+			end
 		end
 	elseif code == "reward_select" then
 		Tutorial:ClaimReward(msg)
@@ -936,6 +943,29 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 		end)
 		Timers:CreateTimer(15, function()
 			hero.master_is_talking = false
+		end)
+	elseif code == "4_4" then
+		hero.master_is_talking = true
+		Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_4a", 5, false)
+		Timers:CreateTimer(5, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_4b", 5, false)
+			end
+		end)
+		Timers:CreateTimer(10, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_4c", 5, false)
+				Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_1, 1.0, 4.0)
+				local random_element = RandomInt(1, RPC_ELEMENT_COUNT)
+				local damageDealt = 1000
+				local damageELEMENT = Filters:ElementalDamage(Events.GameMaster, hero, damageDealt*100, DAMAGE_TYPE_PURE, 0, random_element, RPC_ELEMENT_NONE, false)
+				local validator = math.floor(damageELEMENT/damageDealt)
+				local player = PlayerResource:GetPlayer(hero:GetPlayerOwnerID())
+				local question = "tutorial_quiz_question_14"
+				local sub1 = "rpc_element"..random_element
+				CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero=hero:GetEntityIndex(), identifier="4_4", quiz_question=question, sequence=0, gsub1 = sub1, verifier = validator, localize_verifier = 0, challenge_progress = 0} )
+				CustomGameEventManager:Send_ServerToPlayer(player, "quiz_sound", {sound = "Tutorial.Hint"} )
+			end
 		end)
 	end
 end
@@ -1612,6 +1642,112 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 					Tutorial:UpdateChallengeSummaryProgress(hero, 4, 3, 2, true)
 				end)
 			end
+		elseif code1 == "4_4" then
+			if code2 == 0 and hero.active_challenge_progress == code2 then
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_4d", 5, false)
+				EmitSoundOn("Tutorial.Master.Greeting1", hero)
+				hero.master_is_talking = false
+				local speech_phase = Tutorial:GetSpeechPhaseAndUpdate(hero)
+				Tutorial:UpdateChallengeSummaryProgress(hero, 4, 4, 1, false)
+				hero.active_challenge_progress = hero.active_challenge_progress + 1
+				Timers:CreateTimer(5, function()
+					if speech_phase == hero.tutorial_speech_phase then
+						Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_4e", 5, false)
+					end
+				end)
+				Timers:CreateTimer(10, function()
+					if speech_phase == hero.tutorial_speech_phase then
+						hero.master_is_talking = false
+						EmitSoundOn("Tutorial.Master.Talk", hero)
+						Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_4f", 5, false)
+						local runes_with_element = {}
+						for i = 0, 3, 1 do
+							for j = 1, 4, 1 do
+								local runeUnit = hero.runeUnitTable[j]
+								local rune = runeUnit:GetAbilityByIndex(i)
+								if rune:GetLevelSpecialValueFor("element_one", 1) > 0 then
+									table.insert(runes_with_element, rune)
+								end
+							end
+						end
+						local random_rune = runes_with_element[RandomInt(1, #runes_with_element)]
+						local sub1 = "DOTA_Tooltip_ability_"..random_rune:GetAbilityName()
+						local verifier = "rpc_element"..random_rune:GetLevelSpecialValueFor("element_one", 1)
+						local question = "tutorial_quiz_question_15"
+						local player = hero:GetPlayerOwner()
+						CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero=hero:GetEntityIndex(), identifier="4_4", quiz_question=question, sequence=1, gsub1 = sub1, verifier = verifier, localize_verifier = 1, challenge_progress = 1} )
+						CustomGameEventManager:Send_ServerToPlayer(player, "quiz_sound", {sound = "Tutorial.Hint"} )
+					end
+				end)
+			elseif code2 == 1 and hero.active_challenge_progress == code2 then
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_4g", 3.7, false)
+				EmitSoundOn("Tutorial.Master.Greeting1", hero)
+				hero.master_is_talking = false
+				hero.active_challenge_progress = hero.active_challenge_progress + 1
+				Tutorial:UpdateChallengeSummaryProgress(hero, 4, 4, 2, false)
+				local speech_phase = Tutorial:GetSpeechPhaseAndUpdate(hero)
+				Timers:CreateTimer(4.0 , function()
+					if speech_phase == hero.tutorial_speech_phase then
+						Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_4h", 5, false)
+						Tutorial:ApplyTutorialModifier("modifier_tutorial_summon_animation", Tutorial.Master, 5)
+						Tutorial.Master.floatPhase = 0
+						Timers:CreateTimer(1.5, function()
+							Tutorial.Master.floatPhase = 1
+						end)
+						Timers:CreateTimer(0.5, function()
+							EmitSoundOnLocationWithCaster(Vector(-576, 1984), "Tutorial.Elemental.SpawnStart", Tutorial.Master)
+						end)
+						Timers:CreateTimer(3, function()
+							Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_1, 1.0, 4.0)
+							Timers:CreateTimer(0.3, function()
+								local elemental = CreateUnitByName("challens_elemental", Vector(-576, 1984), false, nil, nil, DOTA_TEAM_NEUTRALS)
+								EmitSoundOn("Tutorial.Elemental.Spawn", elemental)
+								elemental:SetForwardVector(Vector(1,0))
+								CustomAbilities:QuickAttachParticle("particles/roshpit/zonik/speedball_explosion.vpcf", elemental, 5)
+								elemental.cantAggro = true
+								local particleName = "particles/roshpit/redfall/red_beam.vpcf"
+							    local pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
+							    ParticleManager:SetParticleControl(pfx,0,Tutorial.Master:GetAbsOrigin()+Vector(0,0,120))   
+							    ParticleManager:SetParticleControl(pfx,1,elemental:GetAbsOrigin()+Vector(0,0,60))
+								Timers:CreateTimer(3.5, function()
+									ParticleManager:DestroyParticle(pfx, false)
+								end)
+								AddFOWViewer(DOTA_TEAM_GOODGUYS, elemental:GetAbsOrigin(), 300, 180, false)
+								elemental.hero = hero
+								elemental.damage_code = 2
+								hero.elemental = elemental
+								Tutorial:ApplyTutorialModifier("modifier_tutorial_unit", elemental, 0)
+								local ability = elemental:FindAbilityByName("dungeon_creep")
+								if ability then
+									ability:SetLevel(1)
+									ability:ApplyDataDrivenModifier(elemental, elemental, "modifier_dungeon_thinker_creep", {})
+								end
+								elemental.aggroSound = "Tutorial.Elemental.Aggro"
+							    elemental:SetDeathXP(500)
+							    elemental:SetMaximumGoldBounty(10)
+							    elemental:SetMinimumGoldBounty(20)
+							    Timers:CreateTimer(3, function()
+							    	elemental.cantAggro = false
+							    	Dungeons:AggroUnit(elemental)
+							    end)
+							end)
+						end)
+					end
+				end)
+				Timers:CreateTimer(10.5 , function()
+					if speech_phase == hero.tutorial_speech_phase then
+						Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_4i", 5, false)
+					end
+				end)
+			elseif code2 == 2 and hero.active_challenge_progress == code2 then
+				local speech_phase = Tutorial:GetSpeechPhaseAndUpdate(hero)
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_4j", 3.7, false)
+				Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting1", ACT_DOTA_CAST_ABILITY_1, 1.0, 4.0)
+				hero.master_is_talking = false
+				Tutorial:ProgressUpdateOrNot(hero, 4, 4)
+				Tutorial:UpdateChallengeSummaryProgress(hero, 4, 4, 3, true)
+				hero.active_challenge = nil
+			end
 		end
 	end
 end
@@ -1873,5 +2009,7 @@ function Tutorial:UnitDamage(attacker, victim, damage, damagetype, inflictor_ind
 		else
 			return damage
 		end
+	elseif victim.damage_code == 2 then
+		return damage
 	end
 end

@@ -133,3 +133,57 @@ function shroomling_2_die(event)
 	end
 end
 
+function elemental_die(event)
+	local caster = event.caster
+	local hero = caster.hero
+	hero.elemental = nil
+	print("ELEMENTAL DIES")
+	Events:TutorialServerEvent(hero, "4_4", 2)
+end
+
+function floating_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster.floatPhase == 0 then
+		caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,5))
+	else
+		if not caster.interval then
+			caster.interval = 0
+		end
+		caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,6)*math.cos(2*math.pi*caster.interval/90))
+		caster.interval = caster.interval + 1
+
+		local rotatedFV = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi/90)
+		caster:SetForwardVector(rotatedFV)
+		if caster.interval == 90 then
+			caster.interval = 0 
+		end
+	end
+end
+
+function floating_think_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_tutorial_summon_drop", {duration = 3})
+	
+end
+
+function floating_drop(event)
+	local caster = event.caster
+	local ability = event.ability
+	caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,7))
+	if GetGroundHeight(caster:GetAbsOrigin(), caster) + 10 > caster:GetAbsOrigin().z then
+		caster:RemoveModifierByName("modifier_tutorial_summon_drop")
+		Timers:CreateTimer(0.1, function()
+			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+			local position = caster:GetAbsOrigin()
+			local pfx = ParticleManager:CreateParticle( "particles/econ/events/ti5/teleport_end_dust_ti5.vpcf", PATTACH_CUSTOMORIGIN, caster )
+			ParticleManager:SetParticleControl( pfx, 0, position )
+			ParticleManager:SetParticleControl( pfx, 1, Vector(200, 200, 200) )
+			Timers:CreateTimer(2, function()
+				ParticleManager:DestroyParticle(pfx, false)
+			end)
+			caster:MoveToPosition(caster:GetAbsOrigin()+Vector(1,0))
+		end)
+	end
+end
