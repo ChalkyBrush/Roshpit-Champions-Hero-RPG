@@ -54139,6 +54139,23 @@
 					}
 				}
 			}
+			"challen_postmit_buff"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"					"TARGET"
+						"EffectName"				"particles/econ/generic/generic_buff_1/charge_of_light_effect_buff.vpcf"
+						"EffectAttachType"			"attach_origin"
+						"EffectLifeDurationScale"	"1"
+						"EffectColorA"				"200 200 200"
+						"EffectAlphaScale"			"1"
+					}
+				}
+			}
 		}
 	}
 

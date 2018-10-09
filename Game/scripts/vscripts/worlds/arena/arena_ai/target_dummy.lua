@@ -15,6 +15,13 @@ function target_dummy_take_damage(event)
 			if event.attacker.dummy_lines_added == 8 then
 				Tutorial:TutorialServerEvent(event.attacker, "4_5", 1)
 			end
+			if caster:HasModifier("modifier_steadfast") then
+				if event.attacker:HasModifier("challen_postmit_buff") then
+					Tutorial:TutorialServerEvent(event.attacker, "4_6", 1)
+				else
+					Tutorial:TutorialServerEvent(event.attacker, "4_6", 0)
+				end
+			end
 		end
 	end
 	if event.attacker == Events.GameMaster then

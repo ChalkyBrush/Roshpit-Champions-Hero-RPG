@@ -2036,7 +2036,7 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_conjuror_glyph_5_a") or attacker:HasModifier("modifier_conjuror_glyph_5_a_summon") then
 		mult = mult + 2
 	end
-	if attacker:HasModifier("modifier_buzukis_finger_buff") then
+	if attacker:HasModifier("modifier_buzukis_finger_buff") or attacker:HasModifier("challen_postmit_buff") then
 		mult = mult + 5
 	end
 	if victim:HasModifier("modifier_swarm_effect") then

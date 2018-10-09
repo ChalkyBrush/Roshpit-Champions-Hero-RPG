@@ -27,7 +27,7 @@ end
 
 function Winterblight:SpawnCup1()
 	Timers:CreateTimer(1, function()
-		if Winterblight.MathPuzzleComplete then
+		if Winterblight.ZefnarDead then
 			if Winterblight:CupSpawnCondition(1) then
 				Winterblight:SpawnAzaleaCup(Vector(15910, -15831), Vector(-1,0), 1)
 			end

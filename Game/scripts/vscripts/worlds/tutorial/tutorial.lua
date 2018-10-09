@@ -363,6 +363,7 @@ function Tutorial:TutorialEvent(msg)
 			hero:RemoveModifierByName("modifier_tutorial_open")
 		end)
 	elseif code == "challenge_select" then
+		hero:RemoveModifierByName("challen_postmit_buff")
 		hero.tutorial.active_challenge = msg.category_index.."_"..msg.challenge_index
 		hero.active_challenge_progress = 0
 		local player = hero:GetPlayerOwner()
@@ -435,6 +436,10 @@ function Tutorial:TutorialEvent(msg)
 			end
 		elseif hero.tutorial.active_challenge == "4_5" then
 			Tutorial:UpdateChallengeSummaryProgress(hero, 4, 5, 0, false)
+			Tutorial:MasterSequenceWithLocks(hero, hero.tutorial.active_challenge)
+			Tutorial:SpawnTrainingDummyForHero(hero)
+		elseif hero.tutorial.active_challenge == "4_6" then
+			Tutorial:UpdateChallengeSummaryProgress(hero, 4, 6, 0, false)
 			Tutorial:MasterSequenceWithLocks(hero, hero.tutorial.active_challenge)
 			Tutorial:SpawnTrainingDummyForHero(hero)
 		end
@@ -1000,6 +1005,22 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 			hero.master_is_talking = false
 			if speech_phase == hero.tutorial_speech_phase then
 				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_5b", 5, false)
+			end
+		end)
+	elseif code == "4_6" then
+		hero.master_is_talking = true
+		Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_6a", 5, false)
+		local speech_phase = Tutorial:GetSpeechPhaseAndUpdate(hero)
+		Timers:CreateTimer(5, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_6b", 5, false)
+			end
+		end)
+		Timers:CreateTimer(10, function()
+			hero.master_is_talking = false
+			if speech_phase == hero.tutorial_speech_phase then
+				Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting2", ACT_DOTA_ATTACK, 0.9, 2.0)
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_6c", 5, false)
 			end
 		end)
 	end
@@ -1825,6 +1846,40 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 				Tutorial:ProgressUpdateOrNot(hero, 4, 5)
 				Tutorial:UpdateChallengeSummaryProgress(hero, 4, 5, 5, true)
 				hero.active_challenge = nil
+			end
+		elseif code1 == "4_6" then
+			if code2 == 0 and hero.active_challenge_progress == code2 then
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_6d", 5, false)
+				EmitSoundOn("Tutorial.Master.Greeting1", hero)
+				local speech_phase = Tutorial:GetSpeechPhaseAndUpdate(hero)
+				Tutorial:UpdateChallengeSummaryProgress(hero, 4, 6, 1, false)
+				hero.active_challenge_progress = hero.active_challenge_progress + 1
+				Timers:CreateTimer(5, function()
+					Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_6e", 5, false)
+					Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_1, 1.0, 4.0)
+					Timers:CreateTimer(0.3, function()
+						local particleName = "particles/roshpit/redfall/red_beam.vpcf"
+					    local pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
+					    ParticleManager:SetParticleControl(pfx,0,Tutorial.Master:GetAbsOrigin()+Vector(0,0,120))   
+					    ParticleManager:SetParticleControl(pfx,1,hero:GetAbsOrigin()+Vector(0,0,80))
+						Timers:CreateTimer(3.5, function()
+							ParticleManager:DestroyParticle(pfx, false)
+						end)
+						EmitSoundOn("Tutorial.PostmitBuff.Apply", hero)
+						Tutorial:ApplyTutorialModifier("challen_postmit_buff", hero, 0)
+					end)
+				end)
+			elseif code2 == 1 and hero.active_challenge_progress == code2 then
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_6f", 5, false)
+				local speech_phase = Tutorial:GetSpeechPhaseAndUpdate(hero)
+				hero.active_challenge_progress = hero.active_challenge_progress + 1
+				Timers:CreateTimer(5, function()
+					Tutorial:ProgressUpdateOrNot(hero, 4, 6)
+					Tutorial:UpdateChallengeSummaryProgress(hero, 4, 6, 2, true)
+					Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_4_6g", 5, false)
+					EmitSoundOn("Tutorial.Master.Talk", hero)
+					hero:RemoveModifierByName("challen_postmit_buff")
+				end)
 			end
 		end
 	end

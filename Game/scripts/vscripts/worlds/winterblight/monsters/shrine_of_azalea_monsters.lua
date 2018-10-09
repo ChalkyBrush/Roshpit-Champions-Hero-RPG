@@ -185,6 +185,7 @@ function zefnar_die(event)
 	end
 	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(15100, -11100), 1500, 900, false)
 	if caster.mainZefnar then
+		Winterblight.ZefnarDead = true
 		EmitSoundOn("Winterblight.Zefnar.Death", caster)
 		for i = 1, 50, 1 do
 			Timers:CreateTimer(0.03*i, function()
