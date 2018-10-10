@@ -1427,7 +1427,7 @@
 		 "boulderspine_firebat"						"Hellbat"
 
 		 "DOTA_Tooltip_ability_knockback_immunity"				"Knockback Immunity"
-		 "DOTA_Tooltip_ability_knockback_immunity_Description"	"Не может быть отброшен."
+		 "DOTA_Tooltip_ability_knockback_immunity_Description"	"Cannot be knocked back."
 
 		 "DOTA_Tooltip_ability_tanari_slithereen_crush"				"Slithereen Crush"
 		 "DOTA_Tooltip_ability_tanari_slithereen_crush_Description"	"Damages and stuns enemies near to the caster."
@@ -1447,6 +1447,7 @@
 
 		 "redfall_ancient_water_spirit"	"Ancient Water Spirit"
 		 
+		 "terrasic_doomguard"				"Terrasic Doomguard"
 		 "terrasic_volcanic_legion"			"Volcanic Legionnaire"
 		"terrasic_black_drake"				"Ashtongue Drake"
 		"terrasic_black_dragon"				"Ashtongue Broodwarden"
