@@ -40,7 +40,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_arbor_dragonfly"									"Arbor Dragonfly"
 		"item_property_arbor_dragonfly"				"Misty Wood's Blessing"
-		"property_arbor_dragonfly_description"		"Увеличивает длительность всех получаемых положительных усилений от умений, рун и символов на @special_property1%."
+		"property_arbor_dragonfly_description"		"Увеличивает длительность всех получаемых положительных усилений от Умений, Рун и Глифов на @special_property1%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gem_of_eternal_frost"							"Gem of Eternal Frost"

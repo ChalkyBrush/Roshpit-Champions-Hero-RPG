@@ -251,28 +251,28 @@
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_suffix_two"			""
 		
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_1_1"		"(T1) Символ шёпотов"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_1_1"		"(T1) Глиф шёпотов"
 		"item_rpc_chernobog_glyph_1_1_description" 				"Все тени атакуют <% CHERNOBOG_SHADOWS_INTERVALS_FOR_ATT/CHERNOBOG_GLYPH11_SHADOWS_INTERVALS_FOR_ATT %>x быстрее."
 
-		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_2_1"		"(T2) Символ ночного зрения"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_2_1"		"(T2) Глиф ночного зрения"
 		"item_rpc_chernobog_glyph_2_1_description" 				"Позволяет видеть всех врагов в радиусе @glyph_property1, пока активно умение (E) @Ability3."
 
-		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_3_1"		"(T3) Символ кошмарной хватки"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_3_1"		"(T3) Глиф кошмарной хватки"
 		"item_rpc_chernobog_glyph_3_1_description" 				"Каждый враг, задетый умением (Q) Charon's Claw снижает время перезарядки (R) Night's Procession на @glyph_property1 сек."
 
-		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_4_1"		"(T4) Символ разрыва"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_4_1"		"(T4) Глиф разрыва"
 		"item_rpc_chernobog_glyph_4_1_description" 				"Распространяет эффект руны [Q1] на движущихся врагов и снижает их броню на @glyph_property1x уровень руны."
 
-		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_1"		"(T5) Символ ночного охотника"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_1"		"(T5) Глиф ночного охотника"
 		"item_rpc_chernobog_glyph_5_1_description" 				"Shadow Hunt не снижает здоровье если показатель здоровья равен или меньше <% CHERNOBOG_GLYPH51_DRAIN_HP_CAP_PCT * 100 %>% от максимума. Уменьшает весь урон способностей, кроме @Ability3 на <% 1 / CHERNOBOG_GLYPH51_BAD_MULT_EXCEPT_E%>x."
 
-		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"		"(T6) Символ тёмных преломлений"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"		"(T6) Глиф тёмных преломлений"
 		"item_rpc_chernobog_glyph_6_1_description" 				"Sudden Strike накладывает метку на всех врагов в <% CHERNOBOG_GLYPH61_RADIUS %> радиусе от основной цели."
 
-		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_1"		"(T7) Символ неукротимости"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_1"		"(T7) Глиф неукротимости"
 		"item_rpc_chernobog_glyph_7_1_description" 				"Снимает эффекты оглушения каждые 0.2 секунды."
 
-		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_a"		"(Immortal) Символ высшего хищника"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_a"		"(Immortal) Глиф высшего хищника"
 		"item_rpc_chernobog_glyph_5_a_description" 				"Все бонусы рун от умения (W) @Ability2 работают при любом состоянии основного умения. Исцеление героя по прежнему невозможно, пока умение (W) @Ability2 активно."
 		
 		//Weapons

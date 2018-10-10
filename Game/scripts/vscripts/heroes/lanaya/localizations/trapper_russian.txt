@@ -213,55 +213,55 @@
     	"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_suffix"				"% за каждые 10 очков атрибутов."
 		
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_1"       "(T1) Символ скрытности"
+		"DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_1"       "(T1) Глиф скрытности"
         "item_rpc_trapper_glyph_1_1_description"                "Сокращает радиус обнаружения врагов на @glyph_property1%."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_2_1"       "(T2) Символ первой помощи"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_2_1"       "(T2) Глиф первой помощи"
         "item_rpc_trapper_glyph_2_1_description"                "Пока герой находится в облаке после прочтения (E) Vanish, каждые 0.1 секунды восстанавливается @glyph_property1% здоровья от максимума."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_1"       "(T3) Символ парализующей пыли"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_1"       "(T3) Глиф парализующей пыли"
         "item_rpc_trapper_glyph_3_1_description"                "Прочтение (E) @Ability3 парализует ближайших врагов на @glyph_property1 сек., запрещая совершать любые действия."
 
 		"DOTA_Tooltip_modifier_poison_trap_glyph_3_1"				"Crippling Poison"
 		"DOTA_Tooltip_modifier_poison_trap_glyph_3_1_Description"	"Базовый урон снижен"
 
-		"DOTA_Tooltip_ability_item_rpc_trapper_glyph_4_1"       "(T4) Символ убийства"
+		"DOTA_Tooltip_ability_item_rpc_trapper_glyph_4_1"       "(T4) Глиф убийства"
         "item_rpc_trapper_glyph_4_1_description"                "Применяя (R)Backstab на монстров парагона, будет нанесён увеличенный в @glyph_property1 раз(а) урон."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_1"       "(T5) Символ гренадёра"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_1"       "(T5) Глиф гренадёра"
         "item_rpc_trapper_glyph_5_1_description"                "Радиус действия (W) Explosive Bomb (Но не соответствующих рун или заменяемых умений) ежесекундно увеличивается на @glyph_property1%. Максимум 100%, который достигается спустя @glyph_property2 сек. Прочтение (W) Explosive Bomb потратит все накопленные заряды."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_1"       "(T6) Символ перековки"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_1"       "(T6) Глиф перековки"
         "item_rpc_trapper_glyph_6_1_description"                "Весь урон, напрямую наносимый предметами получает дополнительную <font color=\"#DDDDDD\">Нормальную</font> стихию. В обмен на этот бонус, урон <font color=\"#DDDDDD\">Нормальной</font> стихии снижается на @glyph_property1%"
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_1"       "(T7) Символ мастера ловушек"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_1"       "(T7) Глиф мастера ловушек"
         "item_rpc_trapper_glyph_7_1_description"                "Одновременно может существовать 2 (Q) Fulminating trap и 2 [Q1]."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_a"       "(Immortal) Символ смертельных ловушек"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_a"       "(Immortal) Глиф смертельных ловушек"
         "item_rpc_trapper_glyph_5_a_description"                "Все наносящие урон ловушки усилены в @glyph_property1 раз."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_2"       "(T1) Символ огненного лорда"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_2"       "(T1) Глиф огненного лорда"
         "item_rpc_trapper_glyph_1_2_description"                "Эффект от руны [Q3] удваивается."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_2_2"       "(T2) Символ когтей"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_2_2"       "(T2) Глиф когтей"
         "item_rpc_trapper_glyph_2_2_description"                "Урон от Psi Blades наносится и основной цели."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_2"       "(T3) Символ прибоя"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_2"       "(T3) Глиф прибоя"
         "item_rpc_trapper_glyph_3_2_description"                "Враги, поражённые потоком воды от Torrent Trap теряют @glyph_property1% своего исходящего урона на 1 секунду."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_4_2"       "(T4) Символ орхидеи"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_4_2"       "(T4) Глиф орхидеи"
         "item_rpc_trapper_glyph_4_2_description"                "Враги, на которых действует эффект (Q) Net Trap в дополнение к обездвиживанию получают безмолвие."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_2"       "(T5) Символ засады"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_2"       "(T5) Глиф засады"
         "item_rpc_trapper_glyph_5_2_description"                "Увеличивает максимальное количество зарядов [R2] на @glyph_property1."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_2"       "(T6) Символ вспыльчивости"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_2"       "(T6) Глиф вспыльчивости"
         "item_rpc_trapper_glyph_6_2_description"                "Иллюзия от руны Decoy уничтожается с @glyph_property1 удара(ов), но наносит на @glyph_property2% больше урона."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_2"       "(T7) Символ инстинктивного убийцы"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_2"       "(T7) Глиф инстинктивного убийцы"
         "item_rpc_trapper_glyph_7_2_description"                "[R3] становится пассивной способностью в невидимости."
 
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_book"		"Книга символов Trapper"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_book"		"Книга Глифов Trapper"
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_trapper_weapon_00"   "Basic Psi"
