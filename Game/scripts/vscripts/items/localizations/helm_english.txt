@@ -1,7 +1,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_basilisk_plague_helm"							"Basilisk Plague Helm"
 		"item_property_basilisk_plague"					"Depth Rot"
-		"property_basilisk_plague_description"				"A cloud of foul rot surrounds you, slowing the movement speed of nearby enemies by <% BASILISK_PLAGUE_MOVESPEED_REDUCE_PCT %>% and reducing their attack speed by <% BASILISK_PLAGUE_ATT_SPD_REDUCE %>. Enemies who are exposed to the rot for <% BASILISK_PLAGUE_TIME_BEFORE_STONE_FORM %> seconds are petrified for <% BASILISK_PLAGUE_STONE_FORM_DUR %> seconds, paralyzing them while granting Spell Immunity and a <% BASILISK_PLAGUE_PHYSICAL_POSTMIT * 100%> post-mitigation weakness to Physical damage."
+		"property_basilisk_plague_description"				"A cloud of foul rot surrounds you, slowing the movement speed of nearby enemies by <% BASILISK_PLAGUE_MOVESPEED_REDUCE_PCT %>% and reducing their attack speed by <% BASILISK_PLAGUE_ATT_SPD_REDUCE %>. Enemies who are exposed to the rot for <% BASILISK_PLAGUE_TIME_BEFORE_STONE_FORM %> seconds are petrified for <% BASILISK_PLAGUE_STONE_FORM_DUR %> seconds, paralyzing them while granting Spell Immunity and a <% BASILISK_PLAGUE_PHYSICAL_POSTMIT * 100%>% post-mitigation weakness to Physical damage."
         "DOTA_Tooltip_modifier_basilisk_plague_petrify"	"Depth Rot Petrify"
 		"DOTA_Tooltip_modifier_basilisk_plague_petrify_Description"	"Turned to stone. Spell Immune, vulnerable to Physical damage."
 

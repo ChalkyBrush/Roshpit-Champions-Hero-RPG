@@ -308,4 +308,4 @@
 
     	"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_3"			"Immortal Zetsabre"
     	"item_property_voltex_immortal_weapon3"								"Paralyzing Static"
-    	"property_voltex_immortal_weapon3_description"						"Enemies hit by @Ability4 are paralyzed for @special_property1 seconds."
+    	"property_voltex_immortal_weapon3_description"						"Enemies hit by sparks of @Ability4 are paralyzed for @special_property1 seconds."

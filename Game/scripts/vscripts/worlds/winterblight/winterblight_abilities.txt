@@ -3584,6 +3584,16 @@
 				"var_type"			"FIELD_INTEGER"
 				"duration"			"2 4 6"
 			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bounce_range"		"400 500 600"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"immun_duration"	"5"
+			}
 		}
 
 		"OnSpellStart"
@@ -3608,11 +3618,11 @@
 		"OnProjectileHitUnit"
 		{
 			"DeleteOnHit"	"1"
-			"ApplyModifier"
+			"RunScript"
 			{
-				"ModifierName"	"modifier_curse_of_azalea"
-				"Target" 		"TARGET"
-				"Duration"		"4"
+				"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+				"Function"		"azalea_curse_hit"
+				"target"		"TARGET"
 			}
 		}
 		"Modifiers"
@@ -3658,6 +3668,10 @@
 						"duration"		"%duration"
 					}
 				}
+			}
+			"modifier_curse_of_azalea_immune"
+			{
+				"IsHidden"	"1"
 			}
 			"modifier_curse_of_azalea_effect"
 			{

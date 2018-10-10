@@ -37,7 +37,6 @@ function begin_slice(event)
 	slice_think(event)
 	Filters:CastSkillArguments(3, caster)
 
-
 end
 
 function getUniqueValuesInTable(table)
@@ -109,7 +108,7 @@ function slice_think(event)
 	local position = casterOrigin + caster:GetForwardVector()*160
 	local radius = 180
 	local damage = event.damage
-	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), GetGroundPosition(position, caster), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), GetGroundPosition(position, caster), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 	local modifierKnockback =
 	{
 		center_x = casterOrigin.x,

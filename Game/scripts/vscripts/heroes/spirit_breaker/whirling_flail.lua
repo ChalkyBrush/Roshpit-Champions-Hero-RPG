@@ -15,9 +15,6 @@ function whirling_flail_start(event)
 		ability.pfx = ParticleManager:CreateParticle( particleName, PATTACH_POINT_FOLLOW, caster )
 		ParticleManager:SetParticleControlEnt(ability.pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
 	  end
-	  ability.pfxA = ParticleManager:CreateParticle("particles/roshpit/duskbringer/whirling_flail_base.vpcf", PATTACH_CUSTOMORIGIN, nil)
-	  ParticleManager:SetParticleControlEnt(ability.pfxA, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
-	  ParticleManager:SetParticleControl(ability.pfxA, 1, Vector(ability.radius, ability.radius, ability.radius))
 	  if ability.q_1_level > 0 then
 		  ability.pfxB = ParticleManager:CreateParticle("particles/units/heroes/hero_bloodseeker/duskbringer_b_d_vertical_spell_bloodbath_bubbles_.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		  ParticleManager:SetParticleControlEnt(ability.pfxB, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
@@ -45,6 +42,26 @@ function whirling_flail_start(event)
 	  end
 	  caster.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "duskbringer")
   	Filters:CastSkillArguments(1, caster)
+end
+
+function whirling_flail_particle(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not caster.whirling_flail_particle_main then
+		caster.whirling_flail_particle_main = ParticleManager:CreateParticle("particles/roshpit/duskbringer/whirling_flail_base.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		ParticleManager:SetParticleControl(caster.whirling_flail_particle_main, 0, caster:GetAbsOrigin() + WallPhysics:rotateVector(caster:GetForwardVector(), -math.pi/2)*120)
+		ParticleManager:SetParticleControl(caster.whirling_flail_particle_main, 1, Vector(ability.radius, ability.radius, ability.radius))
+	else
+		ParticleManager:SetParticleControl(caster.whirling_flail_particle_main, 0, caster:GetAbsOrigin() + WallPhysics:rotateVector(caster:GetForwardVector(), -math.pi/2)*120)
+	end
+end
+
+function whirling_flail_particle_end(event)
+	local caster = event.caster
+	if caster.whirling_flail_particle_main then
+		ParticleManager:DestroyParticle(caster.whirling_flail_particle_main, false)
+		caster.whirling_flail_particle_main = nil
+	end
 end
 
 function spectral_blade_init(caster, ability)
@@ -209,11 +226,6 @@ function whirling_flail_end(event)
 		ParticleManager:DestroyParticle( ability.pfx, false )
 		ParticleManager:ReleaseParticleIndex(ability.pfx)
 		ability.pfx = false
-	end
-	if ability.pfxA then
-		ParticleManager:DestroyParticle( ability.pfxA, false )
-		ParticleManager:ReleaseParticleIndex(ability.pfxA)
-		ability.pfxA = false
 	end
 	if ability.pfxB then
 		ParticleManager:DestroyParticle( ability.pfxB, false )

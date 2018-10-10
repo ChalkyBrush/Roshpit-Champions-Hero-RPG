@@ -31,6 +31,20 @@ function aspect_global_think(event)
 			ParticleManager:DestroyParticle( pfx2, false )
 		end)
 	end
+	if target:GetUnitName() == "shadow_aspect" then
+		local e_3_level = conjuror:GetRuneValue("e",3)
+		local ability = conjuror:FindAbilityByName("summon_shadow_aspect")
+		if e_3_level > 0 then
+			local totalStats = (conjuror:GetStrength() + conjuror:GetAgility() + conjuror:GetIntellect())*e_3_level*0.15
+			ability:ApplyDataDrivenModifier(conjuror, target, "modifier_conjuror_c_c_damage", {})
+			target:FindModifierByName("modifier_conjuror_c_c_damage"):SetStackCount(totalStats)
+			ability:ApplyDataDrivenModifier(conjuror, target, "modifier_conjuror_rune_e_3_range", {})
+			target:FindModifierByName("modifier_conjuror_c_c_damage"):SetStackCount(e_3_level)
+		else
+			target:RemoveModifierByName("modifier_conjuror_c_c_damage")
+			target:RemoveModifierByName("modifier_conjuror_rune_e_3_range")
+		end
+	end
 end
 
 function earth_aspect(event)
@@ -237,7 +251,7 @@ function shadow_aspect(event)
 	local c_c_level = get_c_c_level(caster)
 	if c_c_level > 0 then
 		local totalStats = caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()
-		local stacks = (totalStats/10)*c_c_level*0.15
+		local stacks = totalStats*c_c_level*0.15
 		ability:ApplyDataDrivenModifier(caster, caster.shadowAspect, "modifier_conjuror_c_c_damage", {})
 		caster.shadowAspect:SetModifierStackCount( "modifier_conjuror_c_c_damage", ability, stacks )
 		ability:ApplyDataDrivenModifier(caster, caster.shadowAspect, "modifier_conjuror_rune_e_3_range", {})
@@ -515,7 +529,7 @@ end
 function shadow_aspect_attack(event)
 	local caster = event.caster
 	local attacker = event.attacker
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)
 	local target = event.target
 	local ability = event.ability
 	ability.damage = damage

@@ -70,6 +70,8 @@ function charge_think(event)
   -- end
   if not blockUnit then
     caster:SetOrigin(newPosition)
+  else
+  	caster:RemoveModifierByName("modifier_light_charging")
   end
   if distance < 50 then caster:RemoveModifierByName("modifier_light_charging") end
   if caster:HasModifier("modifier_bahamut_glyph_2_1") then

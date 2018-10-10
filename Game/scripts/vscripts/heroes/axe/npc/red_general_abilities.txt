@@ -213,6 +213,14 @@
 					}
 				}
 			}
+			"modifier_whirlwind_attack_range"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "90"
+				}
+			}
 			"modifier_axe_rune_r_3_shield"
 			{
 				"IsHidden"	"0"
@@ -230,7 +238,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% E2_BONUS_DAMAGE_PERCENT %>"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "25"
 				}
 			}
 		}

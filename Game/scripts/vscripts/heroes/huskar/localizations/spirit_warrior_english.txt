@@ -179,7 +179,7 @@
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_Description"			"While Ancient Rain is on cooldown, Spirit Warrior has a new spell Waterheart Weapon. Waterheart Weapon is a targetable buff makes attacks deal additional pure damage based on attacker's current health. Additionally all post-mitigation damage is enhanced while the buff is active."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_property_one"		"Impact Damage"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_suffix"				"% of current health"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_property_two"		"Post-mitigation Magic Damage Amp"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_property_two"		"Post-mitigation Damage Amp"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_suffix_two"			"%"
 
     	"DOTA_Tooltip_ability_spirit_warrior_waterheart_weapon"					"Waterheart Weapon"
