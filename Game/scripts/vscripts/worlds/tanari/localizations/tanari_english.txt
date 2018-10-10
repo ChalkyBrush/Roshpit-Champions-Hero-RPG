@@ -1447,6 +1447,7 @@
 
 		 "redfall_ancient_water_spirit"	"Ancient Water Spirit"
 		 
+		 "terrasic_doomguard"				"Terrasic Doomguard"
 		 "terrasic_volcanic_legion"			"Volcanic Legionnaire"
 		"terrasic_black_drake"				"Ashtongue Drake"
 		"terrasic_black_dragon"				"Ashtongue Broodwarden"
