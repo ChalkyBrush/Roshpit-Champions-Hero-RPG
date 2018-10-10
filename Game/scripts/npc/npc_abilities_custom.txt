@@ -54139,6 +54139,23 @@
 					}
 				}
 			}
+			"challen_postmit_buff"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"					"TARGET"
+						"EffectName"				"particles/econ/generic/generic_buff_1/charge_of_light_effect_buff.vpcf"
+						"EffectAttachType"			"attach_origin"
+						"EffectLifeDurationScale"	"1"
+						"EffectColorA"				"200 200 200"
+						"EffectAlphaScale"			"1"
+					}
+				}
+			}
 		}
 	}
 
@@ -117763,6 +117780,39 @@
 			"modifier_dummy_timer"
 			{
 				"IsHidden"	"1"
+			}
+			"modifier_black_King_bar_immunity"
+			{
+				"Passive"	"0"
+				"IsHidden" "0"
+				"EffectName"	"particles/items_fx/black_king_bar_avatar.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Item.GiantHunterImmunity"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_dummy_attacking"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/arena/arena_ai/target_dummy"
+						"Function"		"target_dummy_attack_think"
+						"target"		"TARGET"
+					}
+				}
 			}
 		}
 	}

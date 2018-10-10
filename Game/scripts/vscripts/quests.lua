@@ -278,6 +278,17 @@ function Quests:DummyFromClient(msg)
 		local dummy = hero.targetDummy
 		hero:RemoveModifierByName("modifier_attacking_dummy")
 		dummy:RemoveModifierByName("modifier_dummy_active")
+		dummy:RemoveModifierByName("modifier_black_King_bar_immunity")
+		if dummy:HasAbility("redfall_mega_steadfast") then
+			dummy:RemoveAbility("redfall_mega_steadfast")
+			dummy:RemoveModifierByName("modifier_mega_steadfast")
+		end
+		if dummy:HasAbility("fire_temple_steadfast") then
+			dummy:RemoveAbility("fire_temple_steadfast")
+			dummy:RemoveModifierByName("modifier_steadfast")
+		end
+		dummy:SetAttackCapability(DOTA_UNIT_CAP_NO_ATTACK)
+		dummy:RemoveModifierByName("modifier_dummy_attacking")
 	elseif msg.timer then
 		local dummy = hero.targetDummy
 		local dummyAbility = dummy:FindAbilityByName("training_dummy_ability")
@@ -290,11 +301,64 @@ function Quests:DummyFromClient(msg)
 				CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "updateDPSLabel", {dps = DPS})
 			end)
 		end
-	elseif msg.armor then
-		print("UPDATE ARMOR")
-		print(msg.armor)
+	elseif msg.armor or msg.attack then
 		local dummy = hero.targetDummy
-		dummy:SetPhysicalArmorBaseValue(tonumber(msg.armor))
+		if tonumber(msg.armor) then
+			dummy:SetPhysicalArmorBaseValue(tonumber(msg.armor))
+			Tutorial:TutorialServerEvent(hero, "4_5", 2)
+		end
+		if tonumber(msg.attack) then
+			local dummyAbility = dummy:FindAbilityByName("training_dummy_ability")
+			if tonumber(msg.attack) >= 0 then
+				dummy:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
+				dummyAbility:ApplyDataDrivenModifier(dummy, dummy, "modifier_dummy_attacking", {})
+				dummy:SetRangedProjectileName("particles/econ/items/keeper_of_the_light/kotl_weapon_arcane_staff/keeper_base_attack_arcane_staff.vpcf")
+				dummy.attack_input = msg.attack
+			else
+				dummy:RemoveModifierByName("modifier_dummy_attacking")
+				dummy:SetAttackCapability(DOTA_UNIT_CAP_NO_ATTACK)
+			end
+		else
+			dummy:RemoveModifierByName("modifier_dummy_attacking")
+			dummy:SetAttackCapability(DOTA_UNIT_CAP_NO_ATTACK)
+		end
+	elseif msg.magic_immune then
+		local dummy = hero.targetDummy
+		local dummyAbility = dummy:FindAbilityByName("training_dummy_ability")
+		if dummy:HasModifier("modifier_black_King_bar_immunity") then
+			dummy:RemoveModifierByName("modifier_black_King_bar_immunity")
+		else
+			Tutorial:TutorialServerEvent(hero, "4_5", 3)
+			dummyAbility:ApplyDataDrivenModifier(dummy, dummy, "modifier_black_King_bar_immunity", {})
+		end
+	elseif msg.steadfast then
+		local dummy = hero.targetDummy
+		if (msg.steadfast == 1) then
+			if dummy:HasAbility("redfall_mega_steadfast") then
+				dummy:RemoveAbility("redfall_mega_steadfast")
+				dummy:RemoveModifierByName("modifier_mega_steadfast")
+			end
+			if dummy:HasAbility("fire_temple_steadfast") then
+				dummy:RemoveAbility("fire_temple_steadfast")
+				dummy:RemoveModifierByName("modifier_steadfast")
+			else
+				dummy:AddAbility("fire_temple_steadfast"):SetLevel(GameState:GetDifficultyFactor())
+				Tutorial:TutorialServerEvent(hero, "4_5", 4)
+			end
+
+		elseif (msg.steadfast == 2) then
+			if dummy:HasAbility("fire_temple_steadfast") then
+				dummy:RemoveAbility("fire_temple_steadfast")
+				dummy:RemoveModifierByName("modifier_steadfast")
+			end
+			if dummy:HasAbility("redfall_mega_steadfast") then
+				dummy:RemoveAbility("redfall_mega_steadfast")
+				dummy:RemoveModifierByName("modifier_mega_steadfast")
+			else
+				dummy:AddAbility("redfall_mega_steadfast"):SetLevel(GameState:GetDifficultyFactor())
+				Tutorial:TutorialServerEvent(hero, "4_5", 4)
+			end
+		end
 	end
 end
 

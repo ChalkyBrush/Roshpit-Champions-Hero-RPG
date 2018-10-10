@@ -16471,6 +16471,54 @@
 
 	"challens_elemental"												"Omnicrest Elemental"
 
+	"DOTA_Tooltip_ability_tutorial_elemental_ability"					"Omni Elemental"
+	"DOTA_Tooltip_ability_tutorial_elemental_ability_Description"		"Conjured entity of multiple elements."
+
+	"quest_4_challenge_5_desc"											"The training dummy is available near town on most maps. Dealing damage to it will open the Training Dummy window allowing you to view detailed breakdown of your damage."
+	"quest_4_challenge_5_sub_0_summary"									"Open the Training Dummy"
+	"quest_4_challenge_5_sub_1_summary"									"Add a few lines to the Dummy's log"
+	"quest_4_challenge_5_sub_2_summary"									"Change the Dummy's armor"
+	"quest_4_challenge_5_sub_3_summary"									"Give the Dummy Magic Immunity"
+	"quest_4_challenge_5_sub_4_summary"									"Give the Dummy Steadfast"
+
+	"tutorial_master_dialogue_4_5a"										"The Training Dummy is a helpful tool for measuring your hero's combat capability."
+	"tutorial_master_dialogue_4_5b"										"Go over to the training dummy and damage it to open the window!"
+
+	"tutorial_master_dialogue_4_5c"										"Very good. Now as you damage the dummy, precise damage figures will be displayed in the window."
+	"tutorial_master_dialogue_4_5d"										"Give the dummy a few attacks and get some feedback from the log!"
+
+	"tutorial_master_dialogue_4_5e"										"Ok, now let's try some of the configuration options."
+	"tutorial_master_dialogue_4_5f"										"You can change the dummy's armor value in order to test your physical damage. Go ahead and try it."
+
+	"tutorial_master_dialogue_4_5g"										"Yes, you can also give the dummy magic immunity to see how your damage stacks up against such defenses. Try it!"
+
+	"tutorial_master_dialogue_4_5h"										"Just one more thing. Many enemies in our world have an ability called 'Steadfast'"
+	"tutorial_master_dialogue_4_5i"										"Damage taken by enemies with steadfast is capped at a percentage of their max health."
+	"tutorial_master_dialogue_4_5j"										"We can give the Dummy steadfast so that we can test ourselves. Give the dummy steadfast!"
+	"tutorial_master_dialogue_4_5k"										"Great, now you should understand enough about the Training Dummy."
+
+	"dummy_add_magic_immunity"											"Add Magic Immunity"
+	"dummy_remove_magic_immunity"										"Remove Magic Immunity"
+
+	"dummy_attack_inverval"												"Attack Inverval"
+
+	"quest_4_challenge_6_desc"											"There is a common bonus provided by equipment and runes called Post-Mitigation damage. Post-mitigation damage amplifier takes place after all damage reduction effects are calculated (such as armor reduction and steadfast)."
+	"quest_4_challenge_6_sub_0_summary"									"Attack the Training Dummy with Steadfast active."
+	"quest_4_challenge_6_sub_1_summary"									"Attack the Training Dummy again with steadfast active, while carrying Challen's post-mitigation buff."
+
+	"tutorial_master_dialogue_4_6a"										"You will come across an important damage booster referred to as Post-Mitigation damage."
+	"tutorial_master_dialogue_4_6b"										"Post-Mitigation damage increases the damage dealt after all of the enemy's reductions have been calculated."
+	"tutorial_master_dialogue_4_6c"										"To demonstrate, please start off by attacking the training dummy with the Steadfast ability active."
+
+	"tutorial_master_dialogue_4_6d"										"Ok, take note of the damage dealt while recognizing that the training dummy has 1000 Health."
+	"tutorial_master_dialogue_4_6e"										"I have granted you a massive post-mitigation buff, attack the dummy again!"	
+
+	"tutorial_master_dialogue_4_6f"										"Can you see the difference? Your post-mitigation damage buff has applied after Steadfast's reduction!"
+	"tutorial_master_dialogue_4_6g"										"That concludes the lesson on post-mitigation damage."
+
+	"DOTA_Tooltip_challen_postmit_buff"					"Post-Mitigation Buff"
+	"DOTA_Tooltip_challen_postmit_buff_Description"		"Increased post-mitigation damage by 500%."
+
 		"winterblight_village"											"Winterblight Village"
 		"shrine_of_azalea"												"Shrine of Azalea"
 		"winterblight_mountain"											"Winterblight Mountain"

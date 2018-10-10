@@ -58028,6 +58028,39 @@
 			{
 				"IsHidden"	"1"
 			}
+			"modifier_black_King_bar_immunity"
+			{
+				"Passive"	"0"
+				"IsHidden" "0"
+				"EffectName"	"particles/items_fx/black_king_bar_avatar.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Item.GiantHunterImmunity"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_dummy_attacking"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/arena/arena_ai/target_dummy"
+						"Function"		"target_dummy_attack_think"
+						"target"		"TARGET"
+					}
+				}
+			}
 		}
 	}
 

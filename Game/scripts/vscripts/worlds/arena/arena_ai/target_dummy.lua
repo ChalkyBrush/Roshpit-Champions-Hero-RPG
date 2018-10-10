@@ -7,6 +7,22 @@ function target_dummy_take_damage(event)
 	end
 	if event.attacker:IsHero() then
 		bInit = true
+		if GameState:IsTutorial() then
+			if not event.attacker.dummy_lines_added then
+				event.attacker.dummy_lines_added = 0
+			end
+			event.attacker.dummy_lines_added = event.attacker.dummy_lines_added + 1
+			if event.attacker.dummy_lines_added == 8 then
+				Tutorial:TutorialServerEvent(event.attacker, "4_5", 1)
+			end
+			if caster:HasModifier("modifier_steadfast") then
+				if event.attacker:HasModifier("challen_postmit_buff") then
+					Tutorial:TutorialServerEvent(event.attacker, "4_6", 1)
+				else
+					Tutorial:TutorialServerEvent(event.attacker, "4_6", 0)
+				end
+			end
+		end
 	end
 	if event.attacker == Events.GameMaster then
 		return
@@ -30,6 +46,29 @@ function target_dummy_take_damage(event)
 	end
 end
 
+function target_dummy_attack_think(event)
+	local dummy = event.target
+	local hero = EntIndexToHScript(dummy.attackerIndex)
+	if IsValidEntity(hero) then
+		if not dummy.attackInterval then
+			dummy.attackInterval = 0
+		end
+		local modulos = 1
+		if dummy.attack_input/0.03 % 1 > 0.5 then
+			modulos = math.ceil(dummy.attack_input/0.03)
+		else
+			modulos = math.floor(dummy.attack_input/0.03)
+		end
+		dummy.attackInterval = dummy.attackInterval + 1
+		if dummy.attackInterval%modulos == 0 then
+			Filters:PerformAttackSpecial(dummy, hero, true, true, true, false, true, false, false)
+		end
+		if dummy.attackInterval >= 1000 then
+			dummy.attackInterval = 0
+		end
+	end
+end
+
 function initTargetDummy(caster, ability, attacker)
 	ability.moveMomentum = 0
 	ability.sway = 0
@@ -38,6 +77,7 @@ function initTargetDummy(caster, ability, attacker)
 	attacker.targetDummy = caster
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_dummy_active", {})
 	CustomGameEventManager:Send_ServerToPlayer(attacker:GetPlayerOwner(), "updateTargetDummy", {})
+	Tutorial:TutorialServerEvent(attacker, "4_5", 0)
 end
 
 function target_dummy_rapid_think(event)

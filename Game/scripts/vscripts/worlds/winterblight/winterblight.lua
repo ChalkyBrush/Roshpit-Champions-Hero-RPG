@@ -767,3 +767,58 @@ function Winterblight:MithrilReward(position, code)
         end
   end)
 end
+
+function Winterblight:MithrilRewardVariable(position, code, reward)
+  Timers:CreateTimer(5, function()
+        if code == "math" then
+          if GameState:GetDifficultyFactor() == 1 then
+            reward = reward*40
+          elseif GameState:GetDifficultyFactor() == 2 then
+            reward = reward*80
+          elseif GameState:GetDifficultyFactor() == 3 then
+            reward = reward*200
+          end
+        end
+
+
+        local mithrilReward = reward*Events.ResourceBonus*(Winterblight.Stones+1)
+        local crystal = CreateUnitByName("arcane_crystal", position+Vector(0,0,1000), false, nil, nil, DOTA_TEAM_GOODGUYS)
+        crystal:SetAbsOrigin(crystal:GetAbsOrigin()+Vector(0,0,1300))
+        local crystalAbility = crystal:AddAbility("mithril_shard_ability")
+        crystalAbility:SetLevel(1)
+        local fv = RandomVector(1)
+        crystal:SetOriginalModel("models/props_gameplay/rune_doubledamage01.vmdl")
+        crystal:SetModel("models/props_gameplay/rune_doubledamage01.vmdl")
+        crystal.reward = mithrilReward
+        crystal.reward = math.floor(crystal.reward*(1+GameState:GetPlayerPremiumStatusCount()*0.1))
+        crystal.distributed = 0
+        local baseModelSize = math.min(2.9, 1.2 + crystal.reward/200)
+        crystal.modelScale = baseModelSize
+        crystal:SetModelScale(baseModelSize)
+        crystal.fallVelocity = 45
+        crystal.falling = true
+        crystal.winnerTable = RPCItems:GetConnectedPlayerTable()
+        -- for i = 1, #MAIN_HERO_TABLE, 1 do
+        --   Stars:StarEventPlayer("pitoftrials", MAIN_HERO_TABLE[i])
+        -- end
+        -- local potentialWinnerTable = RPCItems:GetConnectedPlayerTable()
+        -- for i = 1, #potentialWinnerTable, 1 do
+        --  local completedTable = CustomNetTables:GetTableValue("player_stats", tostring(potentialWinnerTable[i]:GetPlayerOwnerID()).."-challenge")
+        --  local completed = completedTable.completed
+        --  if completed == 0 then
+        --    potentialWinnerTable[i].shardsPickedUp = 0
+        --    table.insert(crystal.winnerTable, potentialWinnerTable[i])
+        --  end
+        -- end
+
+
+      if #crystal.winnerTable > 0 then
+          -- for i = 1, #crystal.winnerTable, 1 do
+          --   crystal.winnerTable[i].shardsPickedUp = 0
+          -- end
+          Timers:CreateTimer(1.4, function()
+            EmitSoundOn("Resource.MithrilShardEnter", crystal)
+          end)
+        end
+  end)
+end

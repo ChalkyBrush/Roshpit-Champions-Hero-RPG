@@ -2036,7 +2036,7 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_conjuror_glyph_5_a") or attacker:HasModifier("modifier_conjuror_glyph_5_a_summon") then
 		mult = mult + 2
 	end
-	if attacker:HasModifier("modifier_buzukis_finger_buff") then
+	if attacker:HasModifier("modifier_buzukis_finger_buff") or attacker:HasModifier("challen_postmit_buff") then
 		mult = mult + 5
 	end
 	if victim:HasModifier("modifier_swarm_effect") then
@@ -3521,11 +3521,11 @@ function GameState:FilterDamage(filterTable)
 	-- 	filterTable["damage"] = filterTable["damage"]/GameState.PVP_REDUCTION
 	-- end
 	if Beacons.cheats then
-		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-			if victim:IsHero() then
-				-- filterTable["damage"] = 0
-			end
-		end
+		-- if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+		-- 	if victim:IsHero() then
+		-- 		filterTable["damage"] = 0
+		-- 	end
+		-- end
 		-- filterTable["damage"] = victim:GetHealth()-1
 		-- if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 		-- 	if attacker:IsHero() then
