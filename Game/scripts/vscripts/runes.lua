@@ -1082,7 +1082,7 @@ function Runes:EasyRevertArcanaSkills(hero, abilityIndex, origAbility, arcanaAbi
 	local runeLevel4 = hero.runeUnit4:GetAbilityByIndex(abilitySlot):GetLevel()
 	local modifiers = hero:FindAllModifiers()
 	for _,modifier in pairs(modifiers) do
-		if modifier:GetAbility() == origAbility then
+		if modifier:GetAbility() == existingAbility then
 			hero:RemoveModifierByName(modifier:GetName())
 		end
 	end
