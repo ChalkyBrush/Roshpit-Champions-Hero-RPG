@@ -1,6 +1,9 @@
 		//Abilities
 		"ekkan_corpse"														"Corpse"
 		"ekkan_familiar"													"Gargoyle Sentry"
+		"ekkan_skeleton_mage"												"Skeleton Mage"
+		"ekkan_skeleton_archer"												"Skeleton Archer"
+		"ekkan_supercharged_skeleton"										"Skeleton King"
 		
 		"notification_no_dominion"											"Can not be dominated"
     	"notification_raise_skeleton_fail"									"Must target a corpse"
