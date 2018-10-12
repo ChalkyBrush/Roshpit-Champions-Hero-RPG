@@ -242,6 +242,7 @@
 		"DOTA_Tooltip_ability_redfall_mist_assassin_passive_evasion"	"DODGE CHANCE %:"
 
 		"redfall_canyon_boss"										"Crimsyth Corruptor"
+		"redfall_canyon_boss_miniature"								"Crimsith Defiler"
 
 		"DOTA_Tooltip_ability_redfall_ash_tree_aura"				"Ash Aura"
 		"DOTA_Tooltip_ability_redfall_ash_tree_aura_Description"	"Reduces movespeed and vision range of nearby enemies."
@@ -377,6 +378,11 @@
 		"redfall_twisted_pumpkin"												"Twisted Pumpkin"
 		"redfall_chibi_bear"													"Chibi Bear"
 		"redfall_crymsith_duelist"												"Crimsyth Duelist"
+		"DOTA_Tooltip_ability_redfall_duelist_leap"								"Sweeping Lunge"
+		"DOTA_Tooltip_ability_redfall_duelist_leap_Description"					"Lunges to a target and strikes them. If the attack hits, a wave of Pure damage will wash over other nearby enemies."
+		"DOTA_Tooltip_ability_redfall_duelist_leap_bonus_pure_damage"			"PURE CLEAVE % OF ATTACK:"
+		"DOTA_Tooltip_ability_redfall_duelist_leap_landing_search_radius"		"RADIUS:"
+		
 		"redfall_crimsyth_bandit"												"Crimsyth Bandit"
 		"redfall_farmlands_crymsith_taskmaster"									"Crimsyth Taskmaster"
 		"redfall_crimsyth_recruiter"											"Crimsyth Recruiter"
