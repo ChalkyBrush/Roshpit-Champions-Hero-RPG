@@ -216,7 +216,7 @@
 		"DOTA_Tooltip_ability_ice_hulk_passive_damage"				"DAMAGE:"	
 
 		"DOTA_Tooltip_ability_winterblight_curse_of_azalea"			"Curse of Azalea"
-		"DOTA_Tooltip_ability_winterblight_curse_of_azalea_Description"	"Apply a curse that deals damage to an enemy for 4 seconds and give immunity to this curse for next 9 seconds..= If that enemy casts a spell, they are affected by a silence. If curse can't affect its target, it bounces to new closest target."
+		"DOTA_Tooltip_ability_winterblight_curse_of_azalea_Description"	"Apply a curse that deals damage to an enemy for 4 seconds and give immunity to this curse for next 9 seconds. If that enemy casts a spell, they are affected by a silence. If curse can't affect its target, it bounces to new closest target."
 		"DOTA_Tooltip_ability_winterblight_curse_of_azalea_duration"	"SILENCE DURATION:"
 		"DOTA_Tooltip_ability_winterblight_curse_of_azalea_damage"		"DAMAGE:"
 
