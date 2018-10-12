@@ -3,6 +3,19 @@ if CustomAbilities == nil then
   CustomAbilities = class({})
 end
 
+function CustomAbilities:AstralArcanaCloudMove(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster:HasModifier("modifier_star_blink_moving") then
+		return false
+	end
+	local platformStopPosition = Vector(caster:GetAbsOrigin().x, caster:GetAbsOrigin().y, ability.heroZ)
+	caster:SetAbsOrigin(platformStopPosition)
+	caster:RemoveModifierByName("modifier_astral_arcana_on_platform")
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_arcana_falling", {duration = 2})
+	ability.fallVelocity = 6
+end
+
 function CustomAbilities:StargazerSphereTakeDamage(caster,ability,unit,damage)
 	-- local caster = event.caster
 	local hero = caster.hero
@@ -357,9 +370,9 @@ function CustomAbilities:MegaSteadfast(damage, victim, thresholdMult)
 		thresh = 0.01
 	elseif GameState:GetDifficultyFactor() == 3 then
 		thresh = 0.005
-		if victim:GetUnitName() == "redfall_crimsyth_castle_boss" then
-			thresh = 0.003
-		end
+		-- if victim:GetUnitName() == "redfall_crimsyth_castle_boss" then
+		-- 	thresh = 0.003
+		-- end
 	end
 
 	thresh = thresh * thresholdMult
@@ -367,9 +380,9 @@ function CustomAbilities:MegaSteadfast(damage, victim, thresholdMult)
 	if damage > victim:GetMaxHealth()*thresh then
 		damage = victim:GetMaxHealth()*thresh
 	end
-	if Events.SpiritRealm then
-		damage = math.floor(damage/2)
-	end
+	-- if Events.SpiritRealm then
+	-- 	damage = math.floor(damage/2)
+	-- end
 	return damage
 end
 

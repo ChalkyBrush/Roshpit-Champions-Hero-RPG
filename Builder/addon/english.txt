@@ -514,6 +514,9 @@
 		"ui_runes"				"Runes"
 		"ui_future_patch"		"More Runes in future updates"
 		"ui_loading"			"Loading. Please Wait."
+		"ui_done"				"Done"
+		"ui_loading_items"		"Loading items..."
+		"ui_loading_units"		"Loading units..."
 
 		"ui_equipment"			"Equipment"
 		"ui_skills"				"Skills"

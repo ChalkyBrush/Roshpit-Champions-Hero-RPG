@@ -341,7 +341,9 @@ function Glyphs:ValidateGlyph(glyph, hero)
 	end
 end
 
-Glyphs.GLYPH_MODIFIER_TABLE = {}
+if not Glyphs.GLYPH_MODIFIER_TABLE then
+	Glyphs.GLYPH_MODIFIER_TABLE = {}
+end
 
 function Glyphs:CreateGlyphModifierTable()
 	if #Glyphs.GLYPH_MODIFIER_TABLE < 1 then

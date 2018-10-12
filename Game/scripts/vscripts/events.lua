@@ -29,6 +29,10 @@ require('worlds/events/descent_of_winterblight_dec_2017/descent_of_winterblight_
 
 Events.ResourceBonus = 1
 
+STARS_INCREASE_MITHRIL = true
+STARS_INCREASE_MITHRIL_ADDITIVE = false
+MITHRIL_INCREASE_PER_STAR_PCT = 0.08
+
 ROSHPIT_URL = "https://roshpit.herokuapp.com"
 
 

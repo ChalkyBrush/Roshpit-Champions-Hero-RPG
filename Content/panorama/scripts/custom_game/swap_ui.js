@@ -194,7 +194,7 @@ function TakeNew()
 
 function CloseSwapUI()
 {
-	if ($('#full_swap_container').GetAttributeInt( "closing", -1 ) == -1)
+	if ($('#full_swap_container').GetAttributeInt( "closing", -1 ) == -1 && !('#full_swap_container').BHasClass("invisible"))
 	{
 		$('#full_swap_container').SetAttributeInt( "closing", 1 );
 		$('#full_swap_container').AddClass('animateEaseOutClass');

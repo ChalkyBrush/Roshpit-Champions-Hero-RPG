@@ -1052,6 +1052,14 @@
 						"Function"		"a_d_field_thinker_think"
 					}
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/antimage/archon_form.lua"
+						"Function"		"a_d_field_thinker_think"
+					}
+				}
 				"OnDestroy"
 				{
 					"RunScript"

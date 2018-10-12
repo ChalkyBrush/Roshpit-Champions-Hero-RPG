@@ -1319,17 +1319,20 @@ function SaveLoad:PreviewAbilities(msg)
 	if player.previewHero then
 		UTIL_Remove(player.previewHero)
 	end
-	local previewHero = CreateUnitByName(heroName, RPCItems.DROP_LOCATION, true, nil, nil, DOTA_TEAM_GOODGUYS)
-	previewHero.preview = true
-	previewHero:SetDayTimeVisionRange(0)
-	previewHero:SetNightTimeVisionRange(0)
-	player.previewHero = previewHero
+	PrecacheUnitByNameAsync(heroName, function()
+		local previewHero = CreateUnitByName(heroName, RPCItems.DROP_LOCATION, true, nil, nil, DOTA_TEAM_GOODGUYS)
+		previewHero.preview = true
+		previewHero:SetDayTimeVisionRange(0)
+		previewHero:SetNightTimeVisionRange(0)
+		player.previewHero = previewHero
 
-	previewHero:AddNoDraw()
+		previewHero:AddNoDraw()
 
-	local abilityTable = {previewHero:GetAbilityByIndex(0):GetEntityIndex(), previewHero:GetAbilityByIndex(1):GetEntityIndex(), previewHero:GetAbilityByIndex(2):GetEntityIndex(), previewHero:GetAbilityByIndex(3):GetEntityIndex()}
-	print(EntIndexToHScript(abilityTable[1]):GetAbilityName())
-	CustomGameEventManager:Send_ServerToPlayer(player, "updateSkillPreview", {heroIndex = previewHero:GetEntityIndex()} )
+		local abilityTable = {previewHero:GetAbilityByIndex(0):GetEntityIndex(), previewHero:GetAbilityByIndex(1):GetEntityIndex(), previewHero:GetAbilityByIndex(2):GetEntityIndex(), previewHero:GetAbilityByIndex(3):GetEntityIndex()}
+		print(EntIndexToHScript(abilityTable[1]):GetAbilityName())
+		CustomGameEventManager:Send_ServerToPlayer(player, "updateSkillPreview", {heroIndex = previewHero:GetEntityIndex()} )
+	end)
+
 
 	-- local previewHeroTable = {playerID, previewHero:GetEntityIndex()}
 	-- table.insert(PREVIEW_HERO_TABLE, previewHeroTable)

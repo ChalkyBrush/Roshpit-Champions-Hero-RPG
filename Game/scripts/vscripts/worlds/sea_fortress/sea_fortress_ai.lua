@@ -3817,17 +3817,22 @@ end
 function sapphire_dragon_attack_start(event)
 	local attacker = event.attacker
 	local target = event.target
-	for i = 1, 6, 1 do
-		Timers:CreateTimer(i*0.1 + 0.1, function()
-			Filters:PerformAttackSpecial(attacker, target, true, true, true, false, true, false, false)
+	local ability = event.ability
+	if not ability.lock then
+		ability.lock = true
+		for i = 1, 6, 1 do
+			Timers:CreateTimer(i*0.1 + 0.1, function()
+				Filters:PerformAttackSpecial(attacker, target, true, true, true, false, true, false, false)
+				if i == 6 then ability.lock = false end
+			end)
+		end
+		Timers:CreateTimer(0.7, function()
+			local luck = RandomInt(1, 2)
+			if luck == 1 then
+				EmitSoundOn("Seafortress.DragonSpawn.Attack", attacker)
+			end
 		end)
 	end
-	Timers:CreateTimer(0.7, function()
-		local luck = RandomInt(1, 2)
-		if luck == 1 then
-			EmitSoundOn("Seafortress.DragonSpawn.Attack", attacker)
-		end
-	end)
 end
 
 function ice_shell(event)
@@ -4170,6 +4175,16 @@ function stalacorr_attack_land(event)
 	local punchFV = ((target:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 	WallPhysics:JumpWithBlocking(target, punchFV, 22, 24, 26, 1)
 
+end
+
+function stalacorr_created(event)
+	local caster = event.caster
+	local target = event.target
+	local ability = event.ability
+	if caster:IsHero() then
+	else
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_disable_player", {duration = 5})
+	end
 end
 
 function stalacor_stone_toss(event)
