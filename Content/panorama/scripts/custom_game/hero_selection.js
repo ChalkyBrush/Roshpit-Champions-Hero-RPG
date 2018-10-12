@@ -2,7 +2,6 @@ var heroPreviews = {};
 var previewLoadingQueue = [];
 var b_item_loading_done = false
 var b_unit_loading_done = false
-var $enterWorldButton = null;
 
 m_Selected_Hero = ""
 m_heroPanels = []
@@ -33,7 +32,6 @@ function HeroSelectInit(animation)
         }
     }
     $.Msg(localHero)
-
 
     var parent = $('#hero_select_content')
     var board = $.CreatePanel("Panel", parent, "dummy-box")
@@ -265,7 +263,6 @@ function setHeroSlotActivate(heroImage, heroName, heroPreviewBox, slot)
         nameLabel.RemoveClass("fadeInSmall")
         nameLabel.AddClass("fadeInSmall")
         var enterWorldButton = $.GetContextPanel().FindChildTraverse('enter-world-button')
-        $enterWorldButton = enterWorldButton
 
         enterWorldButton.RemoveClass('invisible')
         enterWorldButton.AddClass('fadeInSmall')
