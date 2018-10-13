@@ -16584,8 +16584,7 @@
 
 	"quest_5_challenge_1"												"A. Worlds"
 	"quest_5_challenge_2"												"B. Keys"
-	"quest_5_challenge_3"												"C. Paragons"
-	"quest_5_challenge_4"												"D. Bosses"
+	"quest_5_challenge_3"												"C. Bosses & Paragons"
 
 	"quest_5_challenge_1_desc"											"Before loading a Roshpit Champions game, you may select a map from the drop down list. Each map has its own objectives and difficulty system."
 	"quest_5_challenge_1_sub_0_summary"									"Answer the question about Roshpit's worlds"
@@ -16605,6 +16604,19 @@
 
 	"tutorial_master_dialogue_5_1g"										"Yes that's right! When you're ready to get the real game started, head to Redfall Ridge and choose Normal difficulty!"
 	"tutorial_master_dialogue_5_1h"										"That concludes the lesson on worlds."
+
+	"quest_5_challenge_2_desc"											"Most maps have their own set of key items which can be used across game sessions. The oracle has a key bank that allows you to store these items without using up stash space."
+	"quest_5_challenge_2_sub_0_summary"									"Open the Key Bank at The Oracle"
+
+	"tutorial_master_dialogue_5_2a"										"Sometimes you might need a key to proceed to a new area in a map. Keys are usually carried by bosses, or redeemed from the Quest Log on Redfall Ridge."
+	"tutorial_master_dialogue_5_2b"										"Most keys are magically tuned to activate specific portals, built on white stone circles like the portal on this map."
+	"tutorial_master_dialogue_5_2c"										"Spare keys can be stored in your Key Bank for later. The Oracle provides this service so you don't have to use your stash space to store them."				
+	"tutorial_master_dialogue_5_2d"										"Go and try opening the key bank!"	
+
+	"tutorial_master_dialogue_5_2e"										"That's it! This is where you store your keys. That ends the lesson."	
+
+	"quest_5_challenge_3_desc"											"Bosses are major enemies who reward mithril upon defeating them. Any monster has a chance to spawn as a golden Paragon unit with random affixes. Paragon enemies drop arcane crystals when slain."
+	"quest_5_challenge_3_sub_0_summary"									"Defeat the Paragon Shroomling"
 
 		"winterblight_village"											"Winterblight Village"
 		"shrine_of_azalea"												"Shrine of Azalea"
