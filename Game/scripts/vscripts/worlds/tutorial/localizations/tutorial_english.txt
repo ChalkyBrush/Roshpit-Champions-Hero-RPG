@@ -486,7 +486,7 @@
 	"DOTA_Tooltip_challen_postmit_buff"					"Post-Mitigation Buff"
 	"DOTA_Tooltip_challen_postmit_buff_Description"		"Increased post-mitigation damage by 500%."
 
-	"quest_4_challenge_7_desc"											"Buffs and debuffs show above your hero portrait and have either a green border or red border to distinguish between them. S"
+	"quest_4_challenge_7_desc"											"Buffs and debuffs show above your hero portrait and have either a green border or red border to distinguish between them. Enemies have built in stun immunity for 7 seconds after being stunned for 10 seconds."
 	"quest_4_challenge_7_sub_0_summary"									"Read the name of the buff that was applied to you"
 	"quest_4_challenge_7_sub_1_summary"									"Defeat Challen's angry Shroomling."
 
@@ -512,4 +512,33 @@
 	"tutorial_master_dialogue_4_7k"										"Now look! My stuns are no longer affecting him."
 	"tutorial_master_dialogue_4_7l"										"Well, it seems he is not happy with our lesson. Want to take care of this for me?"
 	"tutorial_master_dialogue_4_7m"										"Very good. That concludes this lesson."
+
+	"quest_4_reward_title"												"Training Dummy"       
+	"quest_4_reward_description"										"A Training Dummy will always spawn for you on the Tutorial Map."
 	
+	"quest_5_interface"													"5. Maps & Game"
+	"quest_5_interface_description"										"In this section we will cover miscellaneous game features."
+
+	"quest_5_challenge_1"												"A. Worlds"
+	"quest_5_challenge_2"												"B. Keys"
+	"quest_5_challenge_3"												"C. Paragons"
+	"quest_5_challenge_4"												"D. Bosses"
+
+	"quest_5_challenge_1_desc"											"Before loading a Roshpit Champions game, you may select a map from the drop down list. Each map has its own objectives and difficulty system."
+	"quest_5_challenge_1_sub_0_summary"									"Answer the question about Roshpit's worlds"
+
+	"tutorial_master_dialogue_5_1a"										"Each part of the world has different hazards to overcome, and different rewards."
+	"tutorial_master_dialogue_5_1b"										"I recommend Redfall Ridge on Normal difficulty for new heroes. The enemies of the forest there are not terribly threatening."
+	"tutorial_master_dialogue_5_1c"										"Redfall Ridge, Tanari Jungle, and Winterblight Mountain can be set to Normal, Elite, or Legend difficulty by the lobby host."
+	"tutorial_master_dialogue_5_1c1"									"The Battle of Serengaard is a small map with infinite waves. See how far you can make it compared to others!"
+	"tutorial_master_dialogue_5_1d"										"The Arena and faraway Sea Fortress are extremely challenging. Only the toughest heroes should dare set foot in those places!"
+	"tutorial_master_dialogue_5_1e"										"If you manage to gain entry into the Arena's Major League Lounge, bring some friends with you - there might be a secret dungeon entrance..."
+	"tutorial_master_dialogue_5_1f"										"Were you listening, which map did I recommend you should start on?"
+
+	"tutorial_quiz_question_17"											"What is the best map for first time players, on normal difficulty?"
+
+	"tutorial_quiz_wrong_5_1_1"											"No, that is not the map that I recommended you should play."
+	"tutorial_quiz_wrong_5_1_2"											"That's not right, that is not the easiest map."
+
+	"tutorial_master_dialogue_5_1g"										"Yes that's right! When you're ready to get the real game started, head to Redfall Ridge and choose Normal difficulty!"
+	"tutorial_master_dialogue_5_1h"										"That concludes the lesson on worlds."
