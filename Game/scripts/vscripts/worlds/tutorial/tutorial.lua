@@ -464,6 +464,9 @@ function Tutorial:TutorialEvent(msg)
 		elseif hero.tutorial.active_challenge == "5_2" then
 			Tutorial:UpdateChallengeSummaryProgress(hero, 5, 2, 0, false)
 			Tutorial:MasterSequenceWithLocks(hero, hero.tutorial.active_challenge)
+		elseif hero.tutorial.active_challenge == "5_3" then
+			Tutorial:UpdateChallengeSummaryProgress(hero, 5, 3, 0, false)
+			Tutorial:MasterSequenceWithLocks(hero, hero.tutorial.active_challenge)
 		end
 	elseif code == "reward_select" then
 		Tutorial:ClaimReward(msg)
@@ -1149,7 +1152,91 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_5_2d", 5, false)
 			end
 		end)
+	elseif code == "5_3" then
+		hero.master_is_talking = true
+		Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_5_3a", 5, false)
+		local speech_phase = Tutorial:GetSpeechPhaseAndUpdate(hero)
+		Timers:CreateTimer(5, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_5_3b", 5, false)
+			end
+		end)
+		Timers:CreateTimer(10, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting2", ACT_DOTA_ATTACK, 0.9, 2.0)
+				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_5_3c", 5, false)
+			end
+		end)
+		Timers:CreateTimer(15, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_5_3d", 5, false)
+			end
+		end)
+		Timers:CreateTimer(20, function()
+			hero.master_is_talking = false
+			if speech_phase == hero.tutorial_speech_phase then
+				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_5_3e", 5, false)
+				Timers:CreateTimer(1, function()
+					Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_1, 1.0, 2.0)
+					Timers:CreateTimer(0.3, function()
+						local shroomling = CreateUnitByName("tutorial_shroomling", Vector(-576, 1984), false, nil, nil, DOTA_TEAM_NEUTRALS)
+						EmitSoundOn("Tutorial.SpawnUnit", shroomling)
+						shroomling:SetForwardVector(Vector(1,0))
+						CustomAbilities:QuickParticleAtPoint("particles/roshpit/tutorial/tutorial_sprout.vpcf", shroomling:GetAbsOrigin(), 3)
+						shroomling.cantAggro = true
+						local particleName = "particles/roshpit/redfall/red_beam.vpcf"
+					    local pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
+					    ParticleManager:SetParticleControl(pfx,0,Tutorial.Master:GetAbsOrigin()+Vector(0,0,120))   
+					    ParticleManager:SetParticleControl(pfx,1,shroomling:GetAbsOrigin()+Vector(0,0,60))
+						Timers:CreateTimer(3.5, function()
+							ParticleManager:DestroyParticle(pfx, false)
+						end)
+						AddFOWViewer(DOTA_TEAM_GOODGUYS, shroomling:GetAbsOrigin(), 300, 180, false)
+						shroomling.hero = hero
+						shroomling.phase = 0
+						shroomling.damage_code = 4
+						hero.shroomling = shroomling
+						Tutorial:ApplyTutorialModifier("modifier_tutorial_unit", shroomling, 0)
+
+						local ability = shroomling:FindAbilityByName("dungeon_creep")
+						if ability then
+							ability:SetLevel(1)
+							ability:ApplyDataDrivenModifier(shroomling, shroomling, "modifier_dungeon_thinker_creep", {})
+						end
+						shroomling.aggroSound = "Tutorial.Shroomling.Aggro"
+					    shroomling:SetDeathXP(500)
+					    shroomling:SetMaximumGoldBounty(10)
+					    shroomling:SetMinimumGoldBounty(20)
+					end)
+				end)
+				Timers:CreateTimer(5, function()
+					if speech_phase == hero.tutorial_speech_phase then
+						Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_ATTACK, 1.0, 3.0)
+						Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_5_3f", 6, false)
+						Timers:CreateTimer(0.3, function()
+							Paragon:AddParagonUnit(hero.shroomling)
+							local particleName = "particles/roshpit/redfall/red_beam.vpcf"
+						    local pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
+						    ParticleManager:SetParticleControl(pfx,0,Tutorial.Master:GetAbsOrigin()+Vector(0,0,120))   
+						    ParticleManager:SetParticleControl(pfx,1,hero.shroomling:GetAbsOrigin()+Vector(0,0,60))
+						    EmitSoundOn("Tutorial.PostmitBuff.Apply", hero.shroomling)
+							Timers:CreateTimer(3.5, function()
+								ParticleManager:DestroyParticle(pfx, false)
+							end)
+							Timers:CreateTimer(2.5, function()
+								hero.shroomling.phase = 1
+								hero.shroomling.cantAggro = false
+								Dungeons:AggroUnit(hero.shroomling)
+								StartAnimation(hero.shroomling, {duration=1, activity=ACT_DOTA_SPAWN, rate=1.3})
+							end)
+						end)
+					end
+				end)
+			end
+		end)
 	end
+
+	
 end
 
 function Tutorial:TutorialServerEvent(hero, code1, code2)
@@ -2159,6 +2246,15 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 				Tutorial:ProgressUpdateOrNot(hero, 5, 2)
 				Tutorial:UpdateChallengeSummaryProgress(hero, 5, 2, 1, true)
 			end
+		elseif code1 == "5_3" then
+			if code2 == 0 and hero.active_challenge_progress == code2 then
+				Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_1, 1.0, 4.0)
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_5_3g", 5, false)
+				local speech_phase = Tutorial:GetSpeechPhaseAndUpdate(hero)
+				hero.active_challenge_progress = hero.active_challenge_progress + 1
+				Tutorial:ProgressUpdateOrNot(hero, 5, 3)
+				Tutorial:UpdateChallengeSummaryProgress(hero, 5, 3, 1, true)
+			end
 		end
 	end
 end
@@ -2300,6 +2396,8 @@ function Tutorial:UpdateRewardProgressOnWeb(hero, section_index)
 				RPCItems:GiveItemToHeroWithSlotCheck(hero, newItem)
 			elseif section_index == 4 then
 				Tutorial:SpawnTrainingDummyForHero(hero)
+			elseif section_index == 5 then
+				Tutorial:GetMithrilPrize(Tutorial.Master:GetAbsOrigin(), hero, 100000)
 			end
 		end
 	end )
@@ -2406,10 +2504,7 @@ function Tutorial:UnitDamage(attacker, victim, damage, damagetype, inflictor_ind
 			return 0
 		elseif victim.phase == 1 then
 			if not IsValidEntity(inflictor_ability) then
-				print("HERE1")
-				print(damagetype)
 				if damagetype == DAMAGE_TYPE_PHYSICAL then
-					print("HERE2")
 					return damage
 				else
 					return 0
@@ -2427,6 +2522,12 @@ function Tutorial:UnitDamage(attacker, victim, damage, damagetype, inflictor_ind
 	elseif victim.damage_code == 2 then
 		return damage
 	elseif victim.damage_code == 3 then
+		if victim.phase == 0 then
+			return 0
+		elseif victim.phase == 1 then
+			return damage
+		end	
+	elseif victim.damage_code == 4 then
 		if victim.phase == 0 then
 			return 0
 		elseif victim.phase == 1 then

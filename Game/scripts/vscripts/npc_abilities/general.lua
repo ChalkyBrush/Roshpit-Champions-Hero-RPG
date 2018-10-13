@@ -148,7 +148,15 @@ function mithril_shard_think(event)
 		if caster.interval%10 == 0 then
 			caster.interval = 0
 			local collectionAmount = 1
-			if caster.reward > 2000 then
+			if caster.reward > 50000 then
+				collectionAmount = 5000
+			elseif caster.reward > 20000 then
+				collectionAmount = 2000
+			elseif caster.reward > 10000 then
+				collectionAmount = 1000
+			elseif caster.reward > 5000 then
+				collectionAmount = 400
+			elseif caster.reward > 2000 then
 				collectionAmount = 200
 			elseif caster.reward > 800 then
 				collectionAmount = 100

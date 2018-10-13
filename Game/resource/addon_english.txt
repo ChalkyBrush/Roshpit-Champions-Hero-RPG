@@ -16618,6 +16618,18 @@
 	"quest_5_challenge_3_desc"											"Bosses are major enemies who reward mithril upon defeating them. Any monster has a chance to spawn as a golden Paragon unit with random affixes. Paragon enemies drop arcane crystals when slain."
 	"quest_5_challenge_3_sub_0_summary"									"Defeat the Paragon Shroomling"
 
+	"tutorial_master_dialogue_5_3a"										"Terrifying bosses dominate parts of the world. Defeating one will award Mithril Shards to all heroes in a game session."
+	"tutorial_master_dialogue_5_3b"										"Defeating many bosses on a map's highest difficulty setting might attract the attention of an even more intense foe..."
+	"tutorial_master_dialogue_5_3c"										"Some monsters spawn extra large with a cyan or gold color. These are Paragon monsters; elite leaders of their kind."
+	"tutorial_master_dialogue_5_3d"										"Paragon monsters spawn with a special set of affixes that boost their power. They grant better loot, more XP, and Arcane Crystals when defeated."				
+	"tutorial_master_dialogue_5_3e"										"Here is a shroomling. Watch as I convert him into a paragon creature!"
+
+	"tutorial_master_dialogue_5_3f"										"There it is! Now defeat it and collect the bounty!"
+	"tutorial_master_dialogue_5_3g"										"Down he goes! Collect those purple crystals now! That ends this lesson."
+
+	"quest_5_reward_title"												"100,000 Mithril Shards"       
+	"quest_5_reward_description"										"Gain 100,000 Mithril Shards! A significant sum."
+
 		"winterblight_village"											"Winterblight Village"
 		"shrine_of_azalea"												"Shrine of Azalea"
 		"winterblight_mountain"											"Winterblight Mountain"
