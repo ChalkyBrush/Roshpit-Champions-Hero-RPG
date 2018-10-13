@@ -28,13 +28,13 @@ function zap_field_modifier_start(event)
 	local caster = event.caster
 	local ability = event.ability
 
-	if not ability.pfx then
-		local pfx = ParticleManager:CreateParticle("particles/roshpit/arkimus/arcana_zap_field.vpcf", PATTACH_CUSTOMORIGIN, caster)
-		ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
-		ParticleManager:SetParticleControl(pfx, 1, Vector(500, 10, 500))
-		ParticleManager:SetParticleControl(pfx, 2, caster:GetAbsOrigin()+Vector(0,0,160))
-		ParticleManager:SetParticleControl(pfx, 5, caster:GetAbsOrigin())
-		ability.pfx = pfx
+	if not caster.arkimus_arcana1_pfx then
+		local arkimus_arcana1_pfx = ParticleManager:CreateParticle("particles/roshpit/arkimus/arcana_zap_field.vpcf", PATTACH_CUSTOMORIGIN, caster)
+		ParticleManager:SetParticleControl(arkimus_arcana1_pfx, 0, caster:GetAbsOrigin())
+		ParticleManager:SetParticleControl(arkimus_arcana1_pfx, 1, Vector(500, 10, 500))
+		ParticleManager:SetParticleControl(arkimus_arcana1_pfx, 2, caster:GetAbsOrigin()+Vector(0,0,160))
+		ParticleManager:SetParticleControl(arkimus_arcana1_pfx, 5, caster:GetAbsOrigin())
+		caster.arkimus_arcana1_pfx = arkimus_arcana1_pfx
 	end
 end
 
@@ -42,8 +42,9 @@ function zap_field_modifier_thinker(event)
 	local caster = event.caster
 	local ability = event.ability
 	if not ability then
-		if ability.pfx then
-			ParticleManager:DestroyParticle(ability.pfx, true)
+		if caster.arkimus_arcana1_pfx then
+			ParticleManager:DestroyParticle(caster.arkimus_arcana1_pfx, true)
+			caster.arkimus_arcana1_pfx = nil
 		end
 		caster:RemoveModifierByName("modifier_zap_field")
 		return false
@@ -76,18 +77,18 @@ function zap_field_modifier_thinker(event)
 	        end
 	    end 
 	end
-	ParticleManager:SetParticleControl(ability.pfx, 0, caster:GetAbsOrigin())
-	ParticleManager:SetParticleControl(ability.pfx, 2, caster:GetAbsOrigin()+Vector(0,0,160))
-	ParticleManager:SetParticleControl(ability.pfx, 5, caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(caster.arkimus_arcana1_pfx, 0, caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(caster.arkimus_arcana1_pfx, 2, caster:GetAbsOrigin()+Vector(0,0,160))
+	ParticleManager:SetParticleControl(caster.arkimus_arcana1_pfx, 5, caster:GetAbsOrigin())
 end
 
 function zap_field_modifier_end(event)
 	local caster = event.caster
 	local ability = event.ability
-	if ability.pfx then
-		ParticleManager:DestroyParticle(ability.pfx, false)
-		ParticleManager:ReleaseParticleIndex(ability.pfx)
-		ability.pfx = false
+	if caster.arkimus_arcana1_pfx then
+		ParticleManager:DestroyParticle(caster.arkimus_arcana1_pfx, false)
+		ParticleManager:ReleaseParticleIndex(caster.arkimus_arcana1_pfx)
+		caster.arkimus_arcana1_pfx = nil
 	end
 	caster:RemoveModifierByName("modifier_arkimus_arcana1_q4")
 end

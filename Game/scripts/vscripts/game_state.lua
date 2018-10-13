@@ -537,11 +537,15 @@ function GameState:OrderFilter(orderTable)
 				end
 			end
 		end
-		-- if orderTable.entindex_ability then
-		-- 	if EntIndexToHScript(orderTable.entindex_ability):GetName() == "flash_heal" then
-		-- 		CustomAbilities:AuriunFlashHeal(unit, orderTable)
-		-- 	end
-		-- end
+		if unit:HasModifier("modifier_astral_arcana_on_platform") then
+			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION or orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_TARGET then
+				if unit:FindAbilityByName("astral_arcana_ability") then
+					CustomAbilities:AstralArcanaCloudMove({caster = unit, ability = unit:FindAbilityByName("astral_arcana_ability")})
+				else
+					unit:RemoveModifierByName("modifier_astral_arcana_on_platform")
+				end
+			end
+		end
 		if unit:HasModifier("modifier_stormcloth_bracer") then
 			print(orderTable.order_type)
 			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_TARGET or orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION or orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
@@ -2529,7 +2533,7 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = filterTable["damage"] - filterTable["damage"]*reductionPercent
 	end
 
-	if victim:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+	if victim:GetTeamNumber() == DOTA_TEAM_NEUTRALS and victim:GetUnitName() ~= "arena_training_dummy" then
 		if GameState:GetDifficultyFactor() == 2 then
 			if victim.mainBoss then
 				filterTable["damage"] = filterTable["damage"]*0.4
@@ -2701,7 +2705,7 @@ function GameState:FilterDamage(filterTable)
 
 
 	if Events.SpiritRealm then
-      	if victim:GetTeamNumber() == DOTA_TEAM_NEUTRALS and not victim:GetUnitName() == "arena_training_dummy" then
+      	if victim:GetTeamNumber() == DOTA_TEAM_NEUTRALS and victim:GetUnitName() ~= "arena_training_dummy" then
       		filterTable["damage"] = filterTable["damage"]/6
       	end
       	if attacker:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
@@ -3310,7 +3314,15 @@ function GameState:FilterDamage(filterTable)
     if victim:HasModifier("modifier_recently_respawned") then
 		filterTable["damage"] = 0
 	end
-
+	if victim:HasModifier("modifier_seinaru_a_c_dbz") then
+		filterTable["damage"] = 0
+	end
+	if victim:HasModifier("modifier_paladin_rune_e_1_reviving") then
+		filterTable["damage"] = 0
+	end
+	if victim:HasModifier("modifier_paladin_rune_e_1_invulnerable") then
+		filterTable["damage"] = 0
+	end
 
 
 	--LETHAL CHECK
@@ -3452,7 +3464,7 @@ function GameState:FilterDamage(filterTable)
 			local heroOwner = CustomAbilities:getHeroFromUnit(attacker)
 			if heroOwner then
 				if victim.attackerIndex == attacker:GetEntityIndex() or victim.attackerIndex == heroOwner:GetEntityIndex() then
-					local dmgReport = math.floor(filterTable["damage"]/difficultyDamageReduce)
+					local dmgReport = math.floor(filterTable["damage"])
 					local element1 = attacker.element1
 					local element2 = attacker.element2
 					local inflictor = filterTable["entindex_inflictor_const"]

@@ -187,3 +187,11 @@ function floating_drop(event)
 		end)
 	end
 end
+
+function tutorial_unit_die(event)
+	local unit = event.unit
+	local hero = unit.hero
+	if unit.damage_code == 3 then
+		Events:TutorialServerEvent(hero, "4_7", 1)
+	end
+end

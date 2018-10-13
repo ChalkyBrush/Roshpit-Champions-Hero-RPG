@@ -94,7 +94,29 @@
 				</Panel>
 			</Panel>
 		</snippet>
+		<snippet name="unit_load_snippet">
+			<Panel class="unit_load_class">
+				<Label id="unit_load_label" class="load_lable_class">
+				</Label>
+				<Label id="unit_load_label_pct" class="load_lable_class">
+				</Label>
+			</Panel>
+		</snippet>
+		<snippet name="item_load_snippet">
+			<Panel class="item_load_class">
+				<Label id="item_load_label" class="load_lable_class">
+				</Label>
+				<Label id="item_load_label_pct" class="load_lable_class">
+				</Label>
+			</Panel>
+		</snippet>
+		<snippet name="load_hero_abilities_snippet">
+			<Panel class="load_hero_abilities_class">
+				<Label text="#ui_loading"/>
+			</Panel>
+		</snippet>
 	</snippets>
+
 	<Panel class="hero_selection_root" hittest="false">
 		<Panel id="hero_select_parent" hittest="false">
 <!-- 		<Button class="DOTAShowDashboardButton"/> -->

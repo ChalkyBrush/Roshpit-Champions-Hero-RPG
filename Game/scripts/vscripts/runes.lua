@@ -1028,6 +1028,12 @@ function Runes:EasySwapArcanaSkills(hero, abilityIndex, oldAbility, newAbility, 
 	if abilitySlot == DOTA_ULTIMATE_SLOT then
 		abilitySlot = 3
 	end
+	local modifiers = hero:FindAllModifiers()
+	for _,modifier in pairs(modifiers) do
+		if modifier:GetAbility() == origAbility then
+			hero:RemoveModifierByName(modifier:GetName())
+		end
+	end
 	local runeLevel1 = hero.runeUnit:GetAbilityByIndex(abilitySlot):GetLevel()
 	local runeLevel2 = hero.runeUnit2:GetAbilityByIndex(abilitySlot):GetLevel()
 	local runeLevel3 = hero.runeUnit3:GetAbilityByIndex(abilitySlot):GetLevel()
@@ -1074,6 +1080,12 @@ function Runes:EasyRevertArcanaSkills(hero, abilityIndex, origAbility, arcanaAbi
 	local runeLevel2 = hero.runeUnit2:GetAbilityByIndex(abilitySlot):GetLevel()
 	local runeLevel3 = hero.runeUnit3:GetAbilityByIndex(abilitySlot):GetLevel()
 	local runeLevel4 = hero.runeUnit4:GetAbilityByIndex(abilitySlot):GetLevel()
+	local modifiers = hero:FindAllModifiers()
+	for _,modifier in pairs(modifiers) do
+		if modifier:GetAbility() == existingAbility then
+			hero:RemoveModifierByName(modifier:GetName())
+		end
+	end
 	hero:RemoveAbility(arcanaAbility)
 	local newAbility = hero:AddAbility(origAbility)
 	newAbility:SetLevel(abilityLevel)

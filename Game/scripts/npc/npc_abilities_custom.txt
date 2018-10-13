@@ -1059,6 +1059,14 @@
 						"Function"		"a_d_field_thinker_think"
 					}
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/antimage/archon_form.lua"
+						"Function"		"a_d_field_thinker_think"
+					}
+				}
 				"OnDestroy"
 				{
 					"RunScript"
@@ -1923,234 +1931,227 @@
 	}
 
 "astral_arcana_ability"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"astral_ranger/astral_arcana_ability"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_datadriven"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+        "FightRecapLevel"               "1"
+        "AbilityTextureName"            "astral_ranger/astral_arcana_ability"
+        "RequiredLevel"                 "-5"
+        "LevelsBetweenUpgrades"         "10"
+        "MaxLevel"                      "7"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"
 
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-		"precache"
-		{
+        // Precache
+        //-------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
 
-		}
+        }
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3"
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"              "0.3"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"14"
-		"AbilityDuration"				"5"
+        // Time
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "14"
+        "AbilityDuration"               "5"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"		"5 5.5 6 6.5 7 7.5 8"
-			}
-		}
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"          "FIELD_FLOAT"
+                "duration"      "5 5.5 6 6.5 7 7.5 8"
+            }
+        }
 
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/moon_ranger/astral_arcana_ability.lua"
-				"Function"		"astral_arcana_start"
+        "OnSpellStart"
+        {
+            "RunScript"
+            {
+                "ScriptFile"    "heroes/moon_ranger/astral_arcana_ability.lua"
+                "Function"      "astral_arcana_start"
 
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_astral_arcana_lifting"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"OverrideAnimation"     "ACT_DOTA_FLAIL"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"					"TARGET"
-						"EffectName"				"particles/econ/generic/generic_buff_1/charge_of_light_effect_buff.vpcf"
-						"EffectAttachType"			"attach_origin"
-						"EffectLifeDurationScale"	"1"
-						"EffectColorA"				"120 40 200"
-						"EffectAlphaScale"			"1"
-					}
-				}
-				"ThinkInterval"  "0.03"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/moon_ranger/astral_arcana_ability.lua"
-						"Function"		"astral_arcana_lifting_think"
-						"duration"		"%duration"
-					}
-				}
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_DISARMED"
-				}
-			}
-			"modifier_astral_arcana_a_a_effect"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "12"
-				}
-			}
-			"modifier_astral_arcana_on_platform"
-			{
-				"IsHidden"	"0"
-				"States"
-				{
-					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BONUS_DAY_VISION" "800"
-				    "MODIFIER_PROPERTY_BONUS_NIGHT_VISION" "800"
-				}
-				"ThinkInterval"  "0.5"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/moon_ranger/astral_arcana_ability.lua"
-						"Function"		"on_cloud_think"
-					}
-				}
-				"OnUnitMoved"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/moon_ranger/astral_arcana_ability.lua"
-						"Function"		"arcana_platform_move"
-					}
-				}
-				"OnDeath"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/moon_ranger/astral_arcana_ability.lua"
-						"Function"		"arcana_platform_move"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/moon_ranger/astral_arcana_ability.lua"
-						"Function"		"arcana_platform_move"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_astral_arcana_a_a_effect"
-						"Target" 		"TARGET"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_astral_rune_q_3"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_astral_arcana_falling"
-			{
-				"IsHidden"	"1"
-				"OverrideAnimation"     "ACT_DOTA_FLAIL"
-				"ThinkInterval"  "0.03"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/moon_ranger/astral_arcana_ability.lua"
-						"Function"		"astral_arcana_falling_think"
-					}
-				}
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_DISARMED"
-				}
-			}
-			"modifier_astral_arcana_passive"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/moon_ranger/abilities/q/q2_biting_star.lua"
-						"Function"		"attackLand"
-						"attack_damage" "%attack_damage"
-					}
-				}
-				"ThinkInterval"  "0.5"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/moon_ranger/astral_arcana_ability.lua"
-						"Function"		"astral_arcana_passive_think"
-					}
-				}
-			}
-			"modifier_astral_b_a_arcana_armor_loss"
-			{
-				"IsHidden"	"0"
-				"Passive"	"0"
-				"IsDebuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-130"
-				}
-			}
-			"modifier_astral_rune_q_3"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"TextureName"		"astral_ranger/astral_rune_q_3"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "50"
-				}
-			}
-			"modifier_astral_rune_q_4"
-			{
-				"IsHidden"	"1"
-				"IsBuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
-				}
-			}
-		}
-	}
+            }
+        }
+        "Modifiers"
+        {
+            "modifier_astral_arcana_lifting"
+            {
+                "Passive"           "0"
+                "IsHidden"          "1"
+                "IsDebuff"          "0"
+                "OverrideAnimation"     "ACT_DOTA_FLAIL"
+                "OnCreated"
+                {
+                    "AttachEffect"
+                    {
+                        "Target"                    "TARGET"
+                        "EffectName"                "particles/econ/generic/generic_buff_1/charge_of_light_effect_buff.vpcf"
+                        "EffectAttachType"          "attach_origin"
+                        "EffectLifeDurationScale"   "1"
+                        "EffectColorA"              "120 40 200"
+                        "EffectAlphaScale"          "1"
+                    }
+                }
+                "ThinkInterval"  "0.03"
+                "OnIntervalThink"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/moon_ranger/astral_arcana_ability.lua"
+                        "Function"      "astral_arcana_lifting_think"
+                        "duration"      "%duration"
+                    }
+                }
+                "States"
+                {
+                    "MODIFIER_STATE_ROOTED"     "MODIFIER_STATE_VALUE_ENABLED"
+                    "MODIFIER_STATE_DISARMED"   "MODIFIER_STATE_DISARMED"
+                }
+            }
+            "modifier_astral_arcana_a_a_effect"
+            {
+                "IsHidden"  "1"
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "12"
+                }
+            }
+            "modifier_astral_arcana_on_platform"
+            {
+                "IsHidden"  "0"
+                "States"
+                {
+                    "MODIFIER_STATE_ATTACK_IMMUNE"      "MODIFIER_STATE_VALUE_ENABLED"
+                    "MODIFIER_STATE_ROOTED"             "MODIFIER_STATE_VALUE_ENABLED"
+                }
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_BONUS_DAY_VISION" "800"
+                    "MODIFIER_PROPERTY_BONUS_NIGHT_VISION" "800"
+                }
+                "ThinkInterval"  "0.5"
+                "OnIntervalThink"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/moon_ranger/astral_arcana_ability.lua"
+                        "Function"      "on_cloud_think"
+                    }
+                }
+                "OnDeath"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/moon_ranger/astral_arcana_ability.lua"
+                        "Function"      "arcana_platform_move"
+                    }
+                }
+                "OnDestroy"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/moon_ranger/astral_arcana_ability.lua"
+                        "Function"      "arcana_platform_move"
+                    }
+                    "RemoveModifier"
+                    {
+                        "ModifierName"  "modifier_astral_arcana_a_a_effect"
+                        "Target"        "TARGET"
+                    }
+                    "RemoveModifier"
+                    {
+                        "ModifierName"  "modifier_astral_rune_q_3"
+                        "Target"        "TARGET"
+                    }
+                }
+            }
+            "modifier_astral_arcana_falling"
+            {
+                "IsHidden"  "1"
+                "OverrideAnimation"     "ACT_DOTA_FLAIL"
+                "ThinkInterval"  "0.03"
+                "OnIntervalThink"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/moon_ranger/astral_arcana_ability.lua"
+                        "Function"      "astral_arcana_falling_think"
+                    }
+                }
+                "States"
+                {
+                    "MODIFIER_STATE_ROOTED"     "MODIFIER_STATE_VALUE_ENABLED"
+                    "MODIFIER_STATE_DISARMED"   "MODIFIER_STATE_DISARMED"
+                }
+            }
+            "modifier_astral_arcana_passive"
+            {
+                "Passive"   "1"
+                "IsHidden"  "1"
+                "Attributes"        "MODIFIER_ATTRIBUTE_PERMANENT"
+                "OnAttackLanded"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/moon_ranger/abilities/q/q2_biting_star.lua"
+                        "Function"      "attackLand"
+                        "attack_damage" "%attack_damage"
+                    }
+                }
+                "ThinkInterval"  "0.5"
+                "OnIntervalThink"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/moon_ranger/astral_arcana_ability.lua"
+                        "Function"      "astral_arcana_passive_think"
+                    }
+                }
+            }
+            "modifier_astral_b_a_arcana_armor_loss"
+            {
+                "IsHidden"  "0"
+                "Passive"   "0"
+                "IsDebuff"  "1"
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-130"
+                }
+            }
+            "modifier_astral_rune_q_3"
+            {
+                "Passive"           "0"
+                "IsHidden"          "1"
+                "IsDebuff"          "0"
+                "TextureName"       "astral_ranger/astral_rune_q_3"
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "50"
+                }
+            }
+            "modifier_astral_rune_q_4"
+            {
+                "IsHidden"  "1"
+                "IsBuff"    "1"
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+                }
+            }
+        }
+    }
 	"ranger_aoe_explosion"
     	{
     		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
@@ -5201,7 +5202,7 @@
 				"IsBuff"		"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "10"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
 				}
 			}
 			"modifier_conjuror_glyph_4_1_effect"
@@ -11454,6 +11455,12 @@
 				"ModifierName"	"modifier_whirling_flail"
 				"Duration"		"3.5"
 			}
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_whirling_flail_particle"
+				"Duration"		"3.5"
+			}
 
 		}
 
@@ -11464,6 +11471,11 @@
 				"Target"	"CASTER"
 				"ModifierName"	"modifier_whirling_flail"
 			}
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_whirling_flail_particle"
+			}
 		}
 
 		"OnChannelFinish"
@@ -11472,6 +11484,11 @@
 			{
 				"Target"	"CASTER"
 				"ModifierName"	"modifier_whirling_flail"
+			}
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_whirling_flail_particle"
 			}
 
 		}
@@ -11482,6 +11499,11 @@
 			{
 				"Target"	"CASTER"
 				"ModifierName"	"modifier_whirling_flail"
+			}
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_whirling_flail_particle"
 			}
 		}
 		"Modifiers"
@@ -11557,6 +11579,35 @@
 					}
 				}
 
+			}
+			"modifier_whirling_flail_particle"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/spirit_breaker/whirling_flail.lua"
+						"Function"		"whirling_flail_particle"
+					}
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/spirit_breaker/whirling_flail.lua"
+						"Function"		"whirling_flail_particle"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/spirit_breaker/whirling_flail.lua"
+						"Function"		"whirling_flail_particle_end"
+					}
+				}
 			}
 			"modifier_dusk_fire_flail"
 			{
@@ -23494,6 +23545,26 @@
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_INVULNERABLE" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/omniknight/paladin_runes.lua"
+						"Function"		"rune_e_1_reviving_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_paladin_rune_e_1_invulnerable"
+			{
+				"IsHidden" "0"
+				"IsDebuff"	"0"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 			"modifier_paladin_rune_e_1_revive_cooldown"
@@ -24359,6 +24430,14 @@
 						"ScriptFile"	"heroes/axe/abilities/e/e1_endurance.lua"
 						"Function"		"think"
 					}
+				}
+			}
+			"modifier_whirlwind_attack_range"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "90"
 				}
 			}
 			"modifier_axe_rune_r_3_shield"
@@ -46102,6 +46181,16 @@
 				"var_type"			"FIELD_INTEGER"
 				"duration"			"2 4 6"
 			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bounce_range"		"400 500 600"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"immun_duration"	"5"
+			}
 		}
 
 		"OnSpellStart"
@@ -46126,11 +46215,11 @@
 		"OnProjectileHitUnit"
 		{
 			"DeleteOnHit"	"1"
-			"ApplyModifier"
+			"RunScript"
 			{
-				"ModifierName"	"modifier_curse_of_azalea"
-				"Target" 		"TARGET"
-				"Duration"		"4"
+				"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+				"Function"		"azalea_curse_hit"
+				"target"		"TARGET"
 			}
 		}
 		"Modifiers"
@@ -46176,6 +46265,10 @@
 						"duration"		"%duration"
 					}
 				}
+			}
+			"modifier_curse_of_azalea_immune"
+			{
+				"IsHidden"	"1"
 			}
 			"modifier_curse_of_azalea_effect"
 			{
@@ -54101,6 +54194,14 @@
 			"modifier_tutorial_unit"
 			{
 				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/tutorial/tutorial_ai.lua"
+						"Function"		"tutorial_unit_die"
+					}
+				}
 			}
 			"modifier_tutorial_summon_animation"
 			{
@@ -54154,6 +54255,21 @@
 						"EffectColorA"				"200 200 200"
 						"EffectAlphaScale"			"1"
 					}
+				}
+			}
+			"modifier_challen_4_7_buff"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"redfall/autumn_summon"
+			}
+			"modifier_disable_player"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"	
 				}
 			}
 		}
@@ -58661,7 +58777,7 @@
 					"MODIFIER_STATE_MAGIC_IMMUNE"			"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_NO_HEALTH_BAR"			"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_DISARMED"				"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_STUNNED"				"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 		    "modifier_ascencion_cooldown"
@@ -60372,1119 +60488,6 @@
 
 
 	//mystic_assassin
-
-	"mountain_protector_shockwave"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"mountain_protector/mountain_protector_shockwave"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityCastRange"				"1200"
-		"AbilityDamage"					"800 3600 9000 30000 90000 150000 240000"
-		"precache"
-		{
-			"particle"		"particles/roshpit/mystic_assassin/mystic_wave.vpcf"
-			"particle"		"particles/econ/events/ti5/dagon_lvl2_ti5.vpcf"
-			"particle"		"particles/roshpit/mystic_assassin/generic_dazed.vpcf"
-		}
-
-		"AbilityCastPoint"				"0.4"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"4.0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"stun_duration"	"0.5"
-			}
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"range"		"800 840 880 920 960 1000 1040"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-        		"ScriptFile"	"heroes/legion_commander/mystic_wave.lua"
-        		"Function"		"begin_mystic_wave"
-        		"Target"			"POINT"
-        		"range"			"%range"
-			}
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"0"
-			"RunScript"
-			{
-        		"ScriptFile"	"heroes/legion_commander/mystic_wave.lua"
-        		"Function"		"mystic_wave_impact"
-        		"Target"		"TARGET"
-        		"damage"		"%AbilityDamage"
-			}
-		}
-        "Modifiers"
-        {
-        	"modifier_mystic_wave_flail"
-        	{
-        		"IsHidden"	"1"
-        		"OverrideAnimation"     "ACT_DOTA_FLAIL"
-        	}
-        	"modifier_mountain_protector_a_a_buff"
-        	{
-        		"IsHidden"	"0"
-        		"TextureName"	"mountain_protector/mountain_protector_c_a"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"					"TARGET"
-						"EffectName"				"particles/econ/generic/generic_buff_1/generic_buff_1.vpcf"
-						"EffectAttachType"			"follow_origin"
-						"EffectLifeDurationScale"	"1"
-						"EffectColorA"				"250 250 20"
-						"EffectAlphaScale"			"1"
-					}
-				}
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "5"
-				}
-        	}
-        	"modifier_mountain_protector_b_a_visible"
-        	{
-        		"IsHidden"	"0"
-        		"IsDebuff"	"1"
-        	}
-        	"modifier_mountain_protector_b_a_invisible"
-        	{
-        		"IsHidden"	"1"
-        		"IsDebuff"	"1"
-        	}
-        	"modifier_mountain_protector_c_a_daze"
-        	{
-        		"IsHidden"	"0"
-        		"IsDebuff"	"1"
-        		"TextureName"	"mountain_protector/mountain_protector_c_a"
-        		"EffectName"	"particles/roshpit/mystic_assassin/generic_dazed.vpcf"
-        		"EffectAttachType"	"follow_overhead"
-        		"Properties"
-        		{
-        			"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-6"
-        		}
-        	}
-        }
-	}
-
-	"mountain_protector_mountain_guardian"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"mountain_protector/mountain_protector_mountain_guardian"
-		"LevelsBetweenUpgrades"  "0"
-		"MaxLevel"				 "7"
-
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-			"particle"  "particles/roshpit/mystic_assasin/energy_channel.vpcf"
-			"soundfile"	"soundevents/game_sounds_mountain_protector.vsndevts"
-			"particle"	"particles/roshpit/mystic_assassin/mountain_a_b_glow.vpcf"
-			"particle"	"particles/roshpit/mystic_assassin/mountain_protector_c_b_shield.vpcf"
-		}
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0.10"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"armor"						"30 100 200 400 1000 3000 5000"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"magic_resist"				"47 50 53 56 59 62 65"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"mana_drain_per_second"		"60 120 200 400 600 900 1400"
-			}
-		}
-		"OnToggleOn"
-		{
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_energy_channel"
-				"Target" 		"CASTER"
-			}
-		}
-		"OnToggleOff"
-		{
-			"RemoveModifier"
-			{
-				"ModifierName"	"modifier_energy_channel"
-				"Target" 		"CASTER"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_energy_channel"
-			{
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/energy_channel.lua"
-						"Function"		"energy_shield_think"
-						"mana_drain"	"%mana_drain_per_second"
-					}
-				}
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/energy_channel.lua"
-						"Function"		"energy_shield_create"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/energy_channel.lua"
-						"Function"		"energy_shield_end"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_energy_channel_animating"
-						"Target" 		"TARGET"
-					}
-				}
-				"IsHidden"	"0"
-				"IsDebuff"	"0"
-				"EffectName"	"particles/roshpit/mystic_assasin/energy_channel.vpcf"
-				"EffectAttachType"	"attach_hitloc"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist"
-				}
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_energy_channel_no_cast_filter"
-			{
-				"IsHidden"	"1"
-			}
-			"modifier_energy_channel_animating"
-			{
-				"IsHidden"	"1"
-			}
-			"modifier_protector_rune_c_b_aura"
-			{
-				"EffectName"		"particles/roshpit/mystic_assassin/mountain_protector_c_b_shield.vpcf"
-				"EffectAttachType" 	"follow_origin"
-				"IsPurgable"			"0"
-				"Passive" 			"0"
-				"IsHidden" 			"1"
-				"IsBuff"			"1"
-				"Aura"					"modifier_protector_c_b_zap"
-				"Aura_Radius"			"500"
-				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-			}
-			"modifier_protector_c_b_zap"
-			{
-				"IsHidden"	"1"
-				"IsDebuff"	"1"
-				"ThinkInterval"  "0.8"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/energy_channel.lua"
-						"Function"		"protector_c_b_zap"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_protector_rune_d_b_aura"
-			{
-				"IsPurgable"			"0"
-				"Passive" 			"0"
-				"IsHidden" 			"1"
-				"IsBuff"			"1"
-				"Aura"					"modifier_protector_d_b_armor_aura_invisible"
-				"Aura_Radius"			"1000"
-				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-			}
-			"modifier_protector_d_b_armor_aura_invisible"
-			{
-				"IsHidden"	"1"
-				"IsDebuff"	"0"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/energy_channel.lua"
-						"Function"		"protector_d_b_aura_init"
-						"target"		"TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_protector_d_b_armor_aura_effect"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_protector_d_b_armor_aura_effect"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "150"
-				}
-			}
-		}
-
-	}
-
-	"mountain_protector_emberstone"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityTextureName"			"phoenix_launch_fire_spirit"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-		"AbilityCastRange"				"%range"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0 0 0 0"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"8.5 8.2 7.9 7.6 7.3 7.0 6.7"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0 0 0 0"
-
-		"precache"
-		{
-			"particle"  "particles/roshpit/mystic_assassin/mystic_strike.vpcf"
-			"model"		"models/props_nature/campfire_rocks001.vmdl"
-			"model"		"models/props_nature/campfire_rocks002.vmdl"
-			"model"		"models/props_nature/chipped_rocks005.vmdl"
-			"particle"	"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
-			"particle"	"particles/econ/events/ti5/teleport_end_dust_ti5.vpcf"
-			"particle"	"particles/roshpit/mystic_assassin/protector_shockwave_red.vpcf"
-			"particle"	"particles/roshpit/mountain_protector/unshakable_stone_dust.vpcf"
-		}
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"range"						"800 875 900 975 1050 1125 1200"
-			}
-		}
-
-		// Data driven
-		//-------------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-
-		}
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"heroes/legion_commander/mystic_strike.lua"
-				"Function"			"begin_mystic_strike"
-				"range"				"%range"
-				"Target"			"POINT"
-			}
-
-		}
-		"Modifiers"
-		{
-			"modifier_emberstone_wave"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-			}
-		}
-
-	}
-
-	"mountain_bomb_ability"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"rubick_empty1"
-		"MaxLevel"	"1"
-		"Modifiers"
-		{
-			"mountain_bomb_passive"
-			{
-				"Passive"	"1"
-				"States"
-				{
-					"MODIFIER_STATE_UNSELECTABLE"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NOT_ON_MINIMAP"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"mountain_bomb_fire_effect"
-			{
-				"IsHidden"	"1"
-				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
-				"EffectAttachType" 	"attach_origin"
-			}
-			"mountain_bomb_blue_fire_effect"
-			{
-				"IsHidden"	"1"
-				"EffectName"		"particles/roshpit/solunia/lunarang_ambient.vpcf"
-				"EffectAttachType" 	"attach_origin"
-			}
-			"mountain_bomb_motion"
-			{
-				"IsHidden"	"1"
-				"ThinkInterval"  "0.03"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/mystic_strike.lua"
-						"Function"		"rock_change_angle"
-					}
-				}
-			}
-		}
-	}
-
-	"mountain_protector_aeon_fracture"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
-		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"earthshaker_fissure_egset"
-		"AbilityCastPoint"	"0.0"
-		"AbilityCooldown"	"28.0"
-		"AbilityChannelTime"	"2.0"
-		"AbilityCastRange"				"600"
-		"AOERadius"						"650"
-		"AbilityCastAnimation"	"ACT_DOTA_VICTORY"
-		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-		"AbilityDamage"				"1400 6400 18000 45000 110000 240000 540000"
-		"precache"
-		{
-			"particle"			"particles/roshpit/mystic_assassin/grand_fissure_explosion.vpcf"
-			"particle"	"particles/roshpit/mystic_assassin/grand_fissure_channel_charge_iron.vpcf"
-			"particle"	"particles/units/heroes/hero_doom_bringer/doom_scorched_earth.vpcf"
-			"particle"	"particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red_coreglow.vpcf"
-		}
-
-		"AbilityManaCost"	"0"
-		"OnSpellStart"
-		{
-			"ApplyModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/legion_commander/grand_fissure.lua"
-				"Function"		"start_channel"
-			}
-
-		}
-
-		"OnChannelSucceeded"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/legion_commander/grand_fissure.lua"
-				"Function"		"channel_complete"
-				"Target"			"POINT"
-				"radius"		"%AOERadius"
-				"damage"		"%AbilityDamage"
-				"numExplosions"	"%explosions"
-			}
-		}
-
-		"OnChannelFinish"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-		}
-
-		"OnChannelInterrupted"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/legion_commander/grand_fissure.lua"
-				"Function"		"channel_interrupt"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_channel_start"
-			{
-				"IsHidden"	"1"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"	"particles/roshpit/mystic_assassin/grand_fissure_channel_charge_iron.vpcf"
-						"EffectAttachType"	"follow_origin"
-						"Target"	"CASTER"
-						"ControlPointEntities"
-						{
-							"CASTER"	"attach_origin"
-							"CASTER"	"attach_origin"
-							"CASTER"	"attach_origin"
-						}
-
-					}
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/util/channeling.lua"
-						"Function"		"beginChannel"
-					}
-
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/util/channeling.lua"
-						"Function"		"endChannel"
-					}
-				}
-
-			}
-			"modifier_protector_c_d_scorched_earth"
-			{
-				"IsBuff"			"1"
-				"IsPurgable"		"0"
-
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"		"particles/units/heroes/hero_doom_bringer/doom_scorched_earth.vpcf"
-						"EffectAttachType"	"follow_origin"
-						"Target"			"TARGET"
-
-						"ControlPoints"
-						{
-							"01"	"650 0 0"
-						}
-					}
-				}
-
-				"Aura"					"modifier_protector_c_d_scorch_aura"
-				"Aura_Radius"			"650"
-				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC"
-			}
-			"modifier_protector_c_d_scorch_aura"
-			{
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/grand_fissure.lua"
-						"Function"		"c_d_thinker_take_damage"
-						"target"		"TARGET"
-					}
-				}
-			}
-		}
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"stun_duration"	"1.5"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage"	"1000 3400 18000 45000 110000 240000 540000"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"explosions"	"24 26 28 30 32 34 36"
-			}
-
-		}
-
-	}
-
-	"mountain_protector_steelforge_stance"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"mountain_protector/steelforge_stance"
-		"LevelsBetweenUpgrades"  "0"
-		"MaxLevel"				 "7"
-
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-
-		}
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"1.1"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"armor"						"30 100 200 400 1000 3000 5000"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_resist"				"45 49 54 60 67 75 84"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"mana_drain_per_second"		"80 120 200 400 700 1000 1600"
-			}
-		}
-		"OnToggleOn"
-		{
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_steelforge_stance"
-				"Target" 		"CASTER"
-			}
-		}
-		"OnToggleOff"
-		{
-			"RemoveModifier"
-			{
-				"ModifierName"	"modifier_steelforge_stance"
-				"Target" 		"CASTER"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_steelforge_stance"
-			{
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/steelforge_stance.lua"
-						"Function"		"energy_shield_think"
-						"mana_drain"	"%mana_drain_per_second"
-					}
-				}
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/steelforge_stance.lua"
-						"Function"		"energy_shield_create"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/steelforge_stance.lua"
-						"Function"		"energy_shield_end"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_energy_channel_animating"
-						"Target" 		"TARGET"
-					}
-				}
-				"IsHidden"	"0"
-				"IsDebuff"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				}
-				"States"
-				{
-					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"StatusEffectName" 		"particles/roshpit/mountain_protector/status_steel.vpcf"
-				"StatusEffectPriority"  "50"
-			}
-			"modifier_steelforge_stone"
-			{
-				"IsHidden"	"1"
-				"StatusEffectName" 		"particles/roshpit/mountain_protector/status_steel.vpcf"
-				"StatusEffectPriority"  "100"
-			}
-			"modifier_energy_channel_no_cast_filter"
-			{
-				"IsHidden"	"1"
-			}
-			"modifier_energy_channel_animating"
-			{
-				"IsHidden"	"1"
-			}
-			"modifier_protector_rune_c_b_aura"
-			{
-				"EffectName"		"particles/roshpit/mystic_assassin/mountain_protector_c_b_shield.vpcf"
-				"EffectAttachType" 	"follow_origin"
-				"IsPurgable"			"0"
-				"Passive" 			"0"
-				"IsHidden" 			"1"
-				"IsBuff"			"1"
-				"Aura"					"modifier_protector_c_b_zap"
-				"Aura_Radius"			"500"
-				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-			}
-			"modifier_protector_c_b_zap"
-			{
-				"IsHidden"	"1"
-				"IsDebuff"	"1"
-				"ThinkInterval"  "0.8"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/energy_channel.lua"
-						"Function"		"protector_c_b_zap"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_steelforge_passive"
-			{
-				"Passive"			"1"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/steelforge_stance.lua"
-						"Function"		"steelforge_take_damage"
-					}
-				}
-
-			}
-		}
-
-	}
-
-	"mountain_protector_hailstorm"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
-		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"mountain_protector/hailstorm"
-		"AbilityCastPoint"	"0.0"
-		"AbilityCooldown"	"28.0"
-		"AbilityChannelTime"	"2.0"
-		"AbilityCastRange"				"600"
-		"AOERadius"						"780"
-		"AbilityCastAnimation"	"ACT_DOTA_VICTORY"
-		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-		"AbilityDamage"				"1400 6400 18000 45000 110000 240000 540000"
-		"precache"
-		{
-
-		}
-
-		"AbilityManaCost"	"0"
-		"OnSpellStart"
-		{
-			"ApplyModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/legion_commander/hailstorm.lua"
-				"Function"		"start_channel"
-			}
-
-		}
-
-		"OnChannelSucceeded"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/legion_commander/hailstorm.lua"
-				"Function"		"channel_complete"
-				"Target"			"POINT"
-				"radius"		"%AOERadius"
-				"damage"		"%AbilityDamage"
-				"numExplosions"	"%explosions"
-			}
-		}
-
-		"OnChannelFinish"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-		}
-
-		"OnChannelInterrupted"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/legion_commander/hailstorm.lua"
-				"Function"		"channel_interrupt"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_channel_start"
-			{
-				"IsHidden"	"1"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"					"TARGET"
-						"EffectName"				"particles/econ/generic/generic_buff_1/charge_of_light_effect_buff.vpcf"
-						"EffectAttachType"			"follow_origin"
-						"EffectLifeDurationScale"	"1"
-						"EffectColorA"				"100 140 255"
-						"EffectAlphaScale"			"1"
-					}
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/util/channeling.lua"
-						"Function"		"beginChannel"
-					}
-
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/util/channeling.lua"
-						"Function"		"endChannel"
-					}
-				}
-
-			}
-			"modifier_hailstorm_thinker"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				"ThinkInterval"  "0.3"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/hailstorm.lua"
-						"Function"		"hailstorm_thinker_think"
-						"target"		"TARGET"
-						"stun_duration"	"%stun_duration"
-						"damage"		"%damage"
-						"damage_from_strength"		"%damage_from_strength"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/hailstorm.lua"
-						"Function"		"thinker_end"
-						"target"		"TARGET"
-					}
-				}
-
-			}
-			"modifier_hailstorm_aura_friendly"
-			{
-				"Aura"          	"modifier_hailstorm_aura_effect"
-				"Aura_Radius"   	"800"
-				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO"
-				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
-				"Aura_ApplyToCaster" "1"
-			}
-			"modifier_hailstorm_thinker_enemy"
-			{
-				"IsHidden"	"1"
-				"Aura"          	"modifier_hailstorm_aura_enemy"
-				"Aura_Radius"   	"800"
-				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
-			}
-			"modifier_hailstorm_aura_enemy"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_slow"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%move_slow_percent"
-				}
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/hailstorm.lua"
-						"Function"		"hailstorm_enemy_aura_start"
-						"target"		"TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_hailstorm_enemy_amp"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_hailstorm_enemy_amp"
-			{
-				"IsHidden"	"1"
-				"IsDebuff"	"1"
-			}
-			"modifier_hailstorm_aura_effect"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/hailstorm.lua"
-						"Function"		"hailstorm_aura_apply"
-						"target"		"TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_hailstorm_strength"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_hailstorm_strength"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"	"mountain_protector/mountain_protector_rune_a_d_arcana2"
-			}
-			"modifier_hailstorm_passive"
-			{
-				"Passive"			"1"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-			}
-			"modifier_frozen_stand"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"	"mountain_protector/mountain_protector_rune_b_d_arcana2"
-				"Passive"	"0"
-				"EffectName"	"particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_buff.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"			"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-200"
-					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
-				}
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/hailstorm.lua"
-						"Function"		"frozen_stand_start"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/hailstorm.lua"
-						"Function"		"frozen_stand_end"
-					}
-				}
-			}
-			"modifier_frozen_stand_regen"
-			{
-				"IsHidden"	"1"
-				"IsBuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "1000"
-				    "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "500"
-				}
-			}
-			"modifier_hailstorm_ice_case_cooldown"
-			{
-				"TextureName"	"mountain_protector/mountain_protector_rune_b_d_arcana2"
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-			}
-		}
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"stun_duration"	"1.5"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage"	"5400 18000 45000 110000 240000 540000 900000"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage_from_strength"	"100 150 200 250 300 350 400"
-			}
-			"04"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"move_slow_percent"	"-24 -26 -28 -30 -32 -34 -36"
-			}
-			"05"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"attack_slow"	"-40 -50 -60 -70 -80 -90 -100"
-			}
-		}
-
-	}
 
 	//CHERNOBOG
 
@@ -121816,7 +120819,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"max_damage"				"3.5 1.0 0.5"
+				"max_damage"				"2.0 1.0 0.5"
 			}
 		}
 		"Modifiers"
@@ -134488,7 +133491,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"stun_duration"		"1.5 1.75 2.0"
+				"stun_duration"		"1.0"
 			}
 			"03"
 			{
@@ -136760,7 +135763,7 @@
 			{
 				"IsPurgable"			"0"
 				"Passive" 			"1"
-				"OnAttackStart"
+				"OnAttack"
 				{
 					"RunScript"
 					{
@@ -137399,12 +136402,11 @@
 					}
 				}
 				"OnCreated"
-				{
-					"ApplyModifier"
+				{	
+					"RunScript"
 					{
-						"ModifierName"	"modifier_disable_player"
-						"Target" 		"CASTER"
-						"Duration"		"5"
+						"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
+						"Function"		"stalacorr_created"
 					}
 				}
 				"Properties"

@@ -514,6 +514,9 @@
 		"ui_runes"				"Runes"
 		"ui_future_patch"		"More Runes in future updates"
 		"ui_loading"			"Loading. Please Wait."
+		"ui_done"				"Done"
+		"ui_loading_items"		"Loading items..."
+		"ui_loading_units"		"Loading units..."
 
 		"ui_equipment"			"Equipment"
 		"ui_skills"				"Skills"
@@ -3402,7 +3405,7 @@
 		"item_rpc_bahamut_glyph_5_1_description" 				"Increases the duration of Solitary Shell by @glyph_property1 seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_6_1"		"Glyph of Pride"
-		"item_rpc_bahamut_glyph_6_1_description" 				"Doubles the cooldown of Ascension, and Bahamut Pulse applies a @glyph_property1 second stun every 5th pulse."
+		"item_rpc_bahamut_glyph_6_1_description" 				"[E3] is passive and no longer slows. Also Bahamut Pulse applies a @glyph_property1 second stun every 5th pulse."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_7_1"		"Glyph of Barriers"
 		"item_rpc_bahamut_glyph_7_1_description" 				"Increases the duration of Wall of Impunity by @glyph_property1 seconds."
@@ -4944,6 +4947,9 @@
 		//Abilities
 		"ekkan_corpse"														"Corpse"
 		"ekkan_familiar"													"Gargoyle Sentry"
+		"ekkan_skeleton_mage"												"Skeleton Mage"
+		"ekkan_skeleton_archer"												"Skeleton Archer"
+		"ekkan_supercharged_skeleton"										"Skeleton King"
 		
 		"notification_no_dominion"											"Can not be dominated"
     	"notification_raise_skeleton_fail"									"Must target a corpse"
@@ -8765,7 +8771,7 @@
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_Description"			"While Ancient Rain is on cooldown, Spirit Warrior has a new spell Waterheart Weapon. Waterheart Weapon is a targetable buff makes attacks deal additional pure damage based on attacker's current health. Additionally all post-mitigation damage is enhanced while the buff is active."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_property_one"		"Impact Damage"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_suffix"				"% of current health"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_property_two"		"Post-mitigation Magic Damage Amp"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_property_two"		"Post-mitigation Damage Amp"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_suffix_two"			"%"
 
     	"DOTA_Tooltip_ability_spirit_warrior_waterheart_weapon"					"Waterheart Weapon"
@@ -9387,9 +9393,9 @@
     	"DOTA_Tooltip_ability_venom_reaper_slice_damage_mult"					"ATTACK POWER DAMAGE MULTIPLIER:"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1"						"[R1] Purgatory"
-    	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_Description"			"The slashes of a Phantasmal Killer sear the souls of their victims, dealing additional damage every 0.5 seconds for 3 seconds."
+    	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_Description"			"The slashes of @Ability4 sear the souls of their victims, dealing additional damage every 0.5 seconds for 3 seconds."
     	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_property_one"			"Damage Over Time"
-    	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_suffix"					"% of Phantasmal Killer"
+    	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_suffix"					"% of Reaper's Judgement"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1"						"[R2] Pandemic"
     	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_Description"			"Increases the target acquisition radius of Reaper's Judgement."
@@ -9397,7 +9403,7 @@
     	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_suffix"					""
 
   		"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1"						"[R3] Death's Embrace"
-    	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_Description"			"A portion of the damage dealt by a Phantasmal Killer's initial strike heals Venomort. Any overhealing applies a shield that absorbs incoming damage for 30 seconds."
+    	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_Description"			"A portion of the damage dealt by @Ability4's initial strike heals Venomort. Any overhealing applies a shield that absorbs incoming damage for 30 seconds."
     	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_property_one"			"Heal Amount"
     	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_suffix"					"% of damage"
     	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_property_two"			"Maximum Shield Capacity"
@@ -9853,7 +9859,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_3"			"Immortal Zetsabre"
     	"item_property_voltex_immortal_weapon3"								"Paralyzing Static"
-    	"property_voltex_immortal_weapon3_description"						"Enemies hit by @Ability4 are paralyzed for @special_property1 seconds."
+    	"property_voltex_immortal_weapon3_description"						"Enemies hit by sparks of @Ability4 are paralyzed for @special_property1 seconds."
 
 		//Abilities
 		"DOTA_Tooltip_ability_tachyon_shell"								"Tachyon Shell"
@@ -11090,7 +11096,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_basilisk_plague_helm"							"Basilisk Plague Helm"
 		"item_property_basilisk_plague"					"Depth Rot"
-		"property_basilisk_plague_description"				"A cloud of foul rot surrounds you, slowing the movement speed of nearby enemies by <font color='#ccff66'>50</font>% and reducing their attack speed by <font color='#ccff66'>240</font>. Enemies who are exposed to the rot for <font color='#ccff66'>2</font> seconds are petrified for <font color='#ccff66'>2</font> seconds, paralyzing them while granting Spell Immunity and a <font color='#ccff66'>1500</font> post-mitigation weakness to Physical damage."
+		"property_basilisk_plague_description"				"A cloud of foul rot surrounds you, slowing the movement speed of nearby enemies by <font color='#ccff66'>50</font>% and reducing their attack speed by <font color='#ccff66'>240</font>. Enemies who are exposed to the rot for <font color='#ccff66'>2</font> seconds are petrified for <font color='#ccff66'>2</font> seconds, paralyzing them while granting Spell Immunity and a <font color='#ccff66'>1500</font>% post-mitigation weakness to Physical damage."
         "DOTA_Tooltip_modifier_basilisk_plague_petrify"	"Depth Rot Petrify"
 		"DOTA_Tooltip_modifier_basilisk_plague_petrify_Description"	"Turned to stone. Spell Immune, vulnerable to Physical damage."
 
@@ -12883,6 +12889,7 @@
 		"DOTA_Tooltip_ability_redfall_mist_assassin_passive_evasion"	"DODGE CHANCE %:"
 
 		"redfall_canyon_boss"										"Crimsyth Corruptor"
+		"redfall_canyon_boss_miniature"								"Crimsith Defiler"
 
 		"DOTA_Tooltip_ability_redfall_ash_tree_aura"				"Ash Aura"
 		"DOTA_Tooltip_ability_redfall_ash_tree_aura_Description"	"Reduces movespeed and vision range of nearby enemies."
@@ -13018,6 +13025,11 @@
 		"redfall_twisted_pumpkin"												"Twisted Pumpkin"
 		"redfall_chibi_bear"													"Chibi Bear"
 		"redfall_crymsith_duelist"												"Crimsyth Duelist"
+		"DOTA_Tooltip_ability_redfall_duelist_leap"								"Sweeping Lunge"
+		"DOTA_Tooltip_ability_redfall_duelist_leap_Description"					"Lunges to a target and strikes them. If the attack hits, a wave of Pure damage will wash over other nearby enemies."
+		"DOTA_Tooltip_ability_redfall_duelist_leap_bonus_pure_damage"			"PURE CLEAVE % OF ATTACK:"
+		"DOTA_Tooltip_ability_redfall_duelist_leap_landing_search_radius"		"RADIUS:"
+		
 		"redfall_crimsyth_bandit"												"Crimsyth Bandit"
 		"redfall_farmlands_crymsith_taskmaster"									"Crimsyth Taskmaster"
 		"redfall_crimsyth_recruiter"											"Crimsyth Recruiter"
@@ -13644,6 +13656,23 @@
 
 		"DOTA_Tooltip_modifier_summon_leech_seed_debuff"				"Redfall Leech Seed"
 		"DOTA_Tooltip_modifier_summon_leech_seed_debuff_Description"	"Taking damage and healing the World Tree."
+		
+		"redfall_lava_room_ice_switch"					"Lava Switch"
+		"redfall_dragonkin"								"Redfall Dragonkin"
+		"redfall_soul_scar"								"Soul Scar"
+		"redfall_exploding_turtle"						"Dynamite Turtle"
+		"redfall_castle_mini_golem"						"Lesser Golem"
+		"redfall_castle_big_golem"						"Greater Golem"
+		"redfall_shipyard_crimsyth_knight_champ"		"Crimsyth Captain"
+		"shipyard_armored_bear_guard"					"Armored Bear"
+		"redfall_shipyard_pirate_gnoll"					"Pirate Gnoll"
+		"redfall_shipyard_basic_skeleton"				"Shipyard Skeleton"
+		"redfall_shipyard_boat_handler"					"Haunted Helmsman"
+		"crimsyth_raging_shaman"						"Raging Shaman"
+		"redfall_crimsyth_castle_boss_illusion"			"Corrupted Reflection"
+		"redfall_castle_avian_purifier"					"Avian Purifier"
+		"redfall_crimsyth_thug"							"Crimsyth Thug"
+		"prince_elthezun"								"Prince Elthezun"
 
 		"rpc_sea_fortress"									"Sea Fortress"
 		"sea_fortress_sea_queen"							"Saltwater Demoness"
@@ -15988,7 +16017,7 @@
 		 "boulderspine_firebat"						"Hellbat"
 
 		 "DOTA_Tooltip_ability_knockback_immunity"				"Knockback Immunity"
-		 "DOTA_Tooltip_ability_knockback_immunity_Description"	"Не может быть отброшен."
+		 "DOTA_Tooltip_ability_knockback_immunity_Description"	"Cannot be knocked back."
 
 		 "DOTA_Tooltip_ability_tanari_slithereen_crush"				"Slithereen Crush"
 		 "DOTA_Tooltip_ability_tanari_slithereen_crush_Description"	"Damages and stuns enemies near to the caster."
@@ -16008,6 +16037,7 @@
 
 		 "redfall_ancient_water_spirit"	"Ancient Water Spirit"
 		 
+		 "terrasic_doomguard"				"Terrasic Doomguard"
 		 "terrasic_volcanic_legion"			"Volcanic Legionnaire"
 		"terrasic_black_drake"				"Ashtongue Drake"
 		"terrasic_black_dragon"				"Ashtongue Broodwarden"
@@ -16519,6 +16549,34 @@
 	"DOTA_Tooltip_challen_postmit_buff"					"Post-Mitigation Buff"
 	"DOTA_Tooltip_challen_postmit_buff_Description"		"Increased post-mitigation damage by 500%."
 
+	"quest_4_challenge_7_desc"											"Buffs and debuffs show above your hero portrait and have either a green border or red border to distinguish between them. S"
+	"quest_4_challenge_7_sub_0_summary"									"Read the name of the buff that was applied to you"
+	"quest_4_challenge_7_sub_1_summary"									"Defeat Challen's angry Shroomling."
+
+	"tutorial_master_dialogue_4_7a"										"Buffs and debuffs are temporary effects that change your hero's capabilities."
+	"tutorial_master_dialogue_4_7b"										"Buffs are positive effects and have a green border on your bar. Debuffs impact your hero negatively and have a red border."
+	"tutorial_master_dialogue_4_7c"										"I've applied a buff on you. Check your buff bar and tell me what the name of it is?"
+
+	"tutorial_quiz_question_16"											"What is the name of the buff that was applied to you?"
+
+	"tutorial_quiz_wrong_4_7_1"											"No, check your buff bar again."
+	"tutorial_quiz_wrong_4_7_2"											"The buff I applied to you has the image of a red treant. Look again."
+
+	"DOTA_Tooltip_modifier_challen_4_7_buff"							"Verdant"
+	"DOTA_Tooltip_modifier_challen_4_7_buff_Description"				"The name of this buff is the answer to Callen's question."	
+
+	"tutorial_master_dialogue_4_7d"										"Right! Now let me explain to you how stuns work."
+	"tutorial_master_dialogue_4_7e"										"Enemies in Roshpit become immune to stuns after being stunned for a total of 10 seconds."	
+	"tutorial_master_dialogue_4_7f"										"After they have not received a stun for 7 seconds, their immunity timer is reset."
+	"tutorial_master_dialogue_4_7g"										"Now, let me prepare a demonstration so that you understand this properly."
+	"tutorial_master_dialogue_4_7h"										"I will stun this shroomling 15 times for 1 second each on 1 second intervals. Watch."
+	"tutorial_master_dialogue_4_7i"										"That's 4 seconds so far."	
+	"tutorial_master_dialogue_4_7j"										"Oh ho, he does not seem to like this."
+	"tutorial_master_dialogue_4_7k"										"Now look! My stuns are no longer affecting him."
+	"tutorial_master_dialogue_4_7l"										"Well, it seems he is not happy with our lesson. Want to take care of this for me?"
+	"tutorial_master_dialogue_4_7m"										"Very good. That concludes this lesson."
+	
+
 		"winterblight_village"											"Winterblight Village"
 		"shrine_of_azalea"												"Shrine of Azalea"
 		"winterblight_mountain"											"Winterblight Mountain"
@@ -16737,7 +16795,7 @@
 		"DOTA_Tooltip_ability_ice_hulk_passive_damage"				"DAMAGE:"	
 
 		"DOTA_Tooltip_ability_winterblight_curse_of_azalea"			"Curse of Azalea"
-		"DOTA_Tooltip_ability_winterblight_curse_of_azalea_Description"	"Apply a curse to an enemy for 4 seconds. If that enemy casts a spell, they are affected by a silence."
+		"DOTA_Tooltip_ability_winterblight_curse_of_azalea_Description"	"Apply a curse that deals damage to an enemy for 4 seconds and give immunity to this curse for next 9 seconds. If that enemy casts a spell, they are affected by a silence. If curse can't affect its target, it bounces to new closest target."
 		"DOTA_Tooltip_ability_winterblight_curse_of_azalea_duration"	"SILENCE DURATION:"
 		"DOTA_Tooltip_ability_winterblight_curse_of_azalea_damage"		"DAMAGE:"
 
@@ -16808,7 +16866,7 @@
 		"DOTA_Tooltip_ability_azalea_maiden_frostbite_duration"		"DURATION:"
 
 		"DOTA_Tooltip_ability_maiden_magic_shield"				"Azalea's Magic Shield"
-		"DOTA_Tooltip_ability_maiden_magic_shield_Description"	"Reduces magic damage taken by 100%. Each time magic damage is taken, remove a charge."
+		"DOTA_Tooltip_ability_maiden_magic_shield_Description"	"Reduces magic damage taken by 1% per charge, stacks additively. Each time magic damage is taken, remove a charge."
 		"DOTA_Tooltip_ability_maiden_magic_shield_charges"		"CHARGES:"
 
 		"DOTA_Tooltip_modifier_maiden_armor"				"Magic Shield"

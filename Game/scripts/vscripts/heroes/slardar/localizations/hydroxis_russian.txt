@@ -230,28 +230,28 @@
     	"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2_suffix_two"				"%"
 		
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_1_1"		"(T1) Символ земного разлома"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_1_1"		"(T1) Глиф земного разлома"
 		"item_rpc_hydroxis_glyph_1_1_description" 				"Спустя 2 секунды после прочтения (R) @Ability4, это умение применяется снова."
 
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_2_1"		"(T2) Символ фонтанов"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_2_1"		"(T2) Глиф фонтанов"
 		"item_rpc_hydroxis_glyph_2_1_description" 				"Во время движения (E) Slipstream, [E1] применяет (W) Water Bombs на @glyph_property1% чаще."
 
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_3_1"		"(T3) Символ исцеляющих вод"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_3_1"		"(T3) Глиф исцеляющих вод"
 		"item_rpc_hydroxis_glyph_3_1_description" 				"Исцеление от [Q2] происходит в 2 раза чаще."
 
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_4_1"		"(T4) Символ шторма"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_4_1"		"(T4) Глиф шторма"
 		"item_rpc_hydroxis_glyph_4_1_description" 				"Увеличивает урон [E2] в 3 раза."
 
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_5_1"		"(T5) Символ пара"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_5_1"		"(T5) Глиф пара"
 		"item_rpc_hydroxis_glyph_5_1_description" 				"С @glyph_property1% шансом атаки от [W1] нанесут дополнительный магический урон Воды, равный @glyph_property2% урона героя."
 
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_6_1"		"(T6) Символ погружения"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_6_1"		"(T6) Глиф погружения"
 		"item_rpc_hydroxis_glyph_6_1_description" 				"Увеличивает радиус Drowning Pool на @glyph_property1. Дополнительно убирает время прочтения для (R) Oceal Quake."
 
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_7_1"		"(T7) Символ морского бога"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_7_1"		"(T7) Глиф морского бога"
 		"item_rpc_hydroxis_glyph_7_1_description" 				"Увеличивает длительность Poseidon's Fury на @glyph_property1 сек."
 
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_5_a"		"(Immortal) Символ сверкающего моря"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_5_a"		"(Immortal) Глиф сверкающего моря"
 		"item_rpc_hydroxis_glyph_5_a_description" 				"Каждый заряд [Q2] способен поглотить любой входящий магический или чистый урон."
 		
 		//Weapons

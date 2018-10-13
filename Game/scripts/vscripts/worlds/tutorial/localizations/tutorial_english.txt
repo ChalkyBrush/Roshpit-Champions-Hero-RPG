@@ -485,3 +485,31 @@
 
 	"DOTA_Tooltip_challen_postmit_buff"					"Post-Mitigation Buff"
 	"DOTA_Tooltip_challen_postmit_buff_Description"		"Increased post-mitigation damage by 500%."
+
+	"quest_4_challenge_7_desc"											"Buffs and debuffs show above your hero portrait and have either a green border or red border to distinguish between them. S"
+	"quest_4_challenge_7_sub_0_summary"									"Read the name of the buff that was applied to you"
+	"quest_4_challenge_7_sub_1_summary"									"Defeat Challen's angry Shroomling."
+
+	"tutorial_master_dialogue_4_7a"										"Buffs and debuffs are temporary effects that change your hero's capabilities."
+	"tutorial_master_dialogue_4_7b"										"Buffs are positive effects and have a green border on your bar. Debuffs impact your hero negatively and have a red border."
+	"tutorial_master_dialogue_4_7c"										"I've applied a buff on you. Check your buff bar and tell me what the name of it is?"
+
+	"tutorial_quiz_question_16"											"What is the name of the buff that was applied to you?"
+
+	"tutorial_quiz_wrong_4_7_1"											"No, check your buff bar again."
+	"tutorial_quiz_wrong_4_7_2"											"The buff I applied to you has the image of a red treant. Look again."
+
+	"DOTA_Tooltip_modifier_challen_4_7_buff"							"Verdant"
+	"DOTA_Tooltip_modifier_challen_4_7_buff_Description"				"The name of this buff is the answer to Callen's question."	
+
+	"tutorial_master_dialogue_4_7d"										"Right! Now let me explain to you how stuns work."
+	"tutorial_master_dialogue_4_7e"										"Enemies in Roshpit become immune to stuns after being stunned for a total of 10 seconds."	
+	"tutorial_master_dialogue_4_7f"										"After they have not received a stun for 7 seconds, their immunity timer is reset."
+	"tutorial_master_dialogue_4_7g"										"Now, let me prepare a demonstration so that you understand this properly."
+	"tutorial_master_dialogue_4_7h"										"I will stun this shroomling 15 times for 1 second each on 1 second intervals. Watch."
+	"tutorial_master_dialogue_4_7i"										"That's 4 seconds so far."	
+	"tutorial_master_dialogue_4_7j"										"Oh ho, he does not seem to like this."
+	"tutorial_master_dialogue_4_7k"										"Now look! My stuns are no longer affecting him."
+	"tutorial_master_dialogue_4_7l"										"Well, it seems he is not happy with our lesson. Want to take care of this for me?"
+	"tutorial_master_dialogue_4_7m"										"Very good. That concludes this lesson."
+	

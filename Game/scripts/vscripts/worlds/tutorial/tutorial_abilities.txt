@@ -86,6 +86,14 @@
 			"modifier_tutorial_unit"
 			{
 				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/tutorial/tutorial_ai.lua"
+						"Function"		"tutorial_unit_die"
+					}
+				}
 			}
 			"modifier_tutorial_summon_animation"
 			{
@@ -139,6 +147,21 @@
 						"EffectColorA"				"200 200 200"
 						"EffectAlphaScale"			"1"
 					}
+				}
+			}
+			"modifier_challen_4_7_buff"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"redfall/autumn_summon"
+			}
+			"modifier_disable_player"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"	
 				}
 			}
 		}

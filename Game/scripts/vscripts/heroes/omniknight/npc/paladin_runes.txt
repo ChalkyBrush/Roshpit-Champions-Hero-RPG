@@ -118,6 +118,26 @@
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_INVULNERABLE" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/omniknight/paladin_runes.lua"
+						"Function"		"rune_e_1_reviving_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_paladin_rune_e_1_invulnerable"
+			{
+				"IsHidden" "0"
+				"IsDebuff"	"0"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 			"modifier_paladin_rune_e_1_revive_cooldown"

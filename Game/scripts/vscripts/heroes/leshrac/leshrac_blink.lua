@@ -12,11 +12,6 @@ function HideCaster( event )
     	ability:EndCooldown()
     	ability:StartCooldown(4.5)
     end
-    if caster:HasModifier("modifier_bahamut_glyph_6_1") then
-    	local cd = ability:GetCooldownTimeRemaining()
-    	ability:EndCooldown()
-    	ability:StartCooldown(cd*2)
-    end
 	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "bahamut")
     event.caster.newPosition =  event.target_points[1]
     -- local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_undying/undying_loadout.vpcf", PATTACH_ABSORIGIN, event.caster )
@@ -70,9 +65,11 @@ function HideCaster( event )
 		b_c_sequence(caster, position, fv, ability)
 	end
 	caster:RemoveModifierByName("modifier_pulse_slow")
-	caster:RemoveModifierByName("modifier_bahamut_pulse_on")
+	if not caster:HasModifier("modifier_bahamut_glyph_6_1") then
+		caster:RemoveModifierByName("modifier_bahamut_pulse_on")
+	end
 	ProjectileManager:ProjectileDodge(caster)
-
+	rune_e_3(caster, ability)
 end
 
 function b_c_sequence(caster, position, fv, ability)
@@ -140,8 +137,6 @@ function ShowCaster( event )
 	-- 	healAmount = math.floor(healAmount + 0.0005*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*ability.e_4_level*healAmount)
 	-- 	Filters:ApplyHeal(caster, caster, healAmount, true)
 	-- end
-	rune_e_3(caster, event.ability)
-
 end
 
 function leshrac_take_damage(event)
@@ -160,14 +155,62 @@ function leshrac_take_damage(event)
 	end
 end
 
-function rune_e_3(caster, ability)
-  local e_3_level = caster:GetRuneValue("e",3)
-  if e_3_level > 0 then
-  	local e_2_level = caster:GetRuneValue("e",2)
-  	local bahamut_pulse = caster:FindAbilityByName("bahamut_pulse")
+function update_bahamut_pulse(event)
+	local target = event.target
+	local ability = target:FindAbilityByName("bahamut_pulse")
+	local ability_base = target:FindAbilityByName("leshrac_blink")
+	if not ability_base then return end
+	local e_3_level = target:GetRuneValue("e",3)
+	if not ability then
+		if e_3_level > 0 then
+			ability = prepare_bahamut_pulse(target)
+			ability:SetHidden(true)
+			ability:SetActivated(false)
+			ability.active = true
+		else
+			return
+		end
+	end
+	ability:SetLevel(ability_base:GetLevel())
+	ability.e_3_damage = bahamut_pulse_calculate_damage(target)
+	target:RemoveModifierByName("modifier_pulse_slow")
+	if e_3_level > 0 then
+		if not target:HasModifier("modifier_bahamut_pulse_on") then
+			ability:ApplyDataDrivenModifier(target, target, "modifier_bahamut_pulse_on", {})
+			ability:ApplyDataDrivenModifier(target, target, "modifier_pulse_effect", {duration = 0.3})
+		end
+	else
+		remove_bahamut_pulse({target = target})
+	end
+end
+
+function remove_bahamut_pulse(event)
+	local target = event.target
+	target:RemoveModifierByName("modifier_bahamut_pulse_on")
+	target:RemoveModifierByName("modifier_pulse_effect")
+	local ability = target:FindAbilityByName("bahamut_pulse")
+	if ability then
+		ability.active = false
+	end
+end
+
+function prepare_bahamut_pulse(caster)
+	local ability = caster:FindAbilityByName("leshrac_blink")
+	if not ability then return end
+	local bahamut_pulse = caster:FindAbilityByName("bahamut_pulse")
   	if not bahamut_pulse then
   		bahamut_pulse = caster:AddAbility("bahamut_pulse")
   	end
+  	bahamut_pulse:SetLevel(ability:GetLevel())
+  	bahamut_pulse:SetAbilityIndex(2)
+  	bahamut_pulse.strikes = 0
+  	bahamut_pulse.e_3_damage = bahamut_pulse_calculate_damage(caster)
+  	return bahamut_pulse
+end
+
+function bahamut_pulse_calculate_damage(caster)
+	local e_2_level = caster:GetRuneValue("e",2)
+	local e_3_level = caster:GetRuneValue("e",3)
   	local modifiers = caster:FindAllModifiers()
   	local glyphs_level = 0
   	for _,modifier in pairs(modifiers) do
@@ -178,13 +221,17 @@ function rune_e_3(caster, ability)
   		end
   	end
   	local e_2_mult = 1 + (e_2_level*BAHAMUT_E2_MAX_DAMAGE_INCREASE_PCT/100*(math.min(caster:GetStrength(), caster:GetAgility(), caster:GetIntellect())/math.max(caster:GetStrength(), caster:GetAgility(), caster:GetIntellect())))
-  	print("e2", e_2_mult)
+  	return (e_3_level*BAHAMUT_E3_DAMAGE + BAHAMUT_E3_BASE_DAMAGE)*math.max(1,glyphs_level)*e_2_mult
+end
+
+function rune_e_3(caster, ability)
+  local e_3_level = caster:GetRuneValue("e",3)
+  if e_3_level > 0 and not caster:HasModifier("modifier_bahamut_glyph_6_1") then
+  	local e_2_level = caster:GetRuneValue("e",2)
+  	bahamut_pulse = prepare_bahamut_pulse(caster)
   	bahamut_pulse.active = true
+  	bahamut_pulse:SetActivated(true)
   	ability:ApplyDataDrivenModifier(caster, caster, "modifier_ascencion_cooldown", {duration = ability:GetCooldownTimeRemaining()})
-  	bahamut_pulse:SetLevel(ability:GetLevel())
-  	bahamut_pulse:SetAbilityIndex(2)
-  	bahamut_pulse.strikes = 0
-  	bahamut_pulse.e_3_damage = (e_3_level*BAHAMUT_E3_DAMAGE + BAHAMUT_E3_BASE_DAMAGE)*math.max(1,glyphs_level)*e_2_mult
   	caster:SwapAbilities("leshrac_blink", "bahamut_pulse", false, true)
   	caster.pulse = true
   end
@@ -196,7 +243,7 @@ function cooldownEnd(event)
 	local level = caster:FindAbilityByName("bahamut_pulse"):GetLevel()
   	ability:SetLevel(level)
   	local pulse = caster:FindAbilityByName("bahamut_pulse")
-  	if pulse:GetToggleState() then
+  	if pulse and pulse:GetToggleState() then
   		pulse:ToggleAbility()
   	end
   	caster.pulse = false

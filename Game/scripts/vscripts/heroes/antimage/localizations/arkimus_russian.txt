@@ -209,28 +209,28 @@
     	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_suffix"							"сек."
 		
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_1_1"		"(T1) Символ концентрированной энергии"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_1_1"		"(T1) Глиф концентрированной энергии"
 		"item_rpc_arkimus_glyph_1_1_description" 				"Энергосферы от (E) Energy Field появляются на минимально возможном радиусе."
 
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_2_1"		"(T2) Символ прилива маны"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_2_1"		"(T2) Глиф прилива маны"
 		"item_rpc_arkimus_glyph_2_1_description" 				"Увеличивает регенерацию маны на @glyph_property1."
 
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_3_1"		"(T3) Символ энергосфер"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_3_1"		"(T3) Глиф энергосфер"
 		"item_rpc_arkimus_glyph_3_1_description" 				"(R) Energy field дополнительно выпускает @glyph_property1 энергосфер(ы)."
 
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_4_1"		"(T4) Символ акробатики"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_4_1"		"(T4) Глиф акробатики"
 		"item_rpc_arkimus_glyph_4_1_description" 				"Увеличивает максимальное количество зарядов на свободное прочтение (E) Orbital Leap на @glyph_property1."
 
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_1"		"(T5) Символ магического щита"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_1"		"(T5) Глиф магического щита"
 		"item_rpc_arkimus_glyph_5_1_description" 				"@glyph_property1% от получаемого урона затратит ману, вместо здоровья. Получаемый магический урон снижен на @glyph_property2%."
 
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_6_1"		"(T6) Символ заряженного прыжка"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_6_1"		"(T6) Глиф заряженного прыжка"
 		"item_rpc_arkimus_glyph_6_1_description" 				"Увеличивает максимальное количество зарядов на свободное прочтение (Q) Dimension Coil на @glyph_property1."
 
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_7_1"		"(T7) Символ тайного электрошока"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_7_1"		"(T7) Глиф тайного электрошока"
 		"item_rpc_arkimus_glyph_7_1_description" 				"Увеличивает весь стихийный урон <font color=\"#5CCDF9\">Молнии</font> на @glyph_property1%."
 
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_a"		"(Immortal) Символ энергетического разделения"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_a"		"(Immortal) Глиф энергетического разделения"
 		"item_rpc_arkimus_glyph_5_a_description" 				"Активные энергосферы могут поглотить входящий магический или чистый урон. В случае поглощения энергосфера разрушается."
 
 

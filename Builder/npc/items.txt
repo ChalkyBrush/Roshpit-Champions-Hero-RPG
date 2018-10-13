@@ -41483,6 +41483,34 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/leshrac/leshrac_blink.lua"
+						"Function"		"update_bahamut_pulse"
+						"target"		"TARGET"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/leshrac/leshrac_blink.lua"
+						"Function"		"update_bahamut_pulse"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/leshrac/leshrac_blink.lua"
+						"Function"		"remove_bahamut_pulse"
+						"target"		"TARGET"
+					}
+				}
 			}
 		}
 		"AbilitySpecial"

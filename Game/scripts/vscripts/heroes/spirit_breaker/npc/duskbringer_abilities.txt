@@ -34,6 +34,12 @@
 				"ModifierName"	"modifier_whirling_flail"
 				"Duration"		"3.5"
 			}
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_whirling_flail_particle"
+				"Duration"		"3.5"
+			}
 
 		}
 
@@ -44,6 +50,11 @@
 				"Target"	"CASTER"
 				"ModifierName"	"modifier_whirling_flail"
 			}
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_whirling_flail_particle"
+			}
 		}
 
 		"OnChannelFinish"
@@ -52,6 +63,11 @@
 			{
 				"Target"	"CASTER"
 				"ModifierName"	"modifier_whirling_flail"
+			}
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_whirling_flail_particle"
 			}
 
 		}
@@ -62,6 +78,11 @@
 			{
 				"Target"	"CASTER"
 				"ModifierName"	"modifier_whirling_flail"
+			}
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_whirling_flail_particle"
 			}
 		}
 		"Modifiers"
@@ -137,6 +158,35 @@
 					}
 				}
 
+			}
+			"modifier_whirling_flail_particle"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/spirit_breaker/whirling_flail.lua"
+						"Function"		"whirling_flail_particle"
+					}
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/spirit_breaker/whirling_flail.lua"
+						"Function"		"whirling_flail_particle"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/spirit_breaker/whirling_flail.lua"
+						"Function"		"whirling_flail_particle_end"
+					}
+				}
 			}
 			"modifier_dusk_fire_flail"
 			{

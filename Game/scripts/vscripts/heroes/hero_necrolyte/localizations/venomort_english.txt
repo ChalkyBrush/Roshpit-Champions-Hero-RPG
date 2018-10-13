@@ -194,9 +194,9 @@
     	"DOTA_Tooltip_ability_venom_reaper_slice_damage_mult"					"ATTACK POWER DAMAGE MULTIPLIER:"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1"						"[R1] Purgatory"
-    	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_Description"			"The slashes of a Phantasmal Killer sear the souls of their victims, dealing additional damage every 0.5 seconds for 3 seconds."
+    	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_Description"			"The slashes of @Ability4 sear the souls of their victims, dealing additional damage every 0.5 seconds for 3 seconds."
     	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_property_one"			"Damage Over Time"
-    	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_suffix"					"% of Phantasmal Killer"
+    	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_suffix"					"% of Reaper's Judgement"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1"						"[R2] Pandemic"
     	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_Description"			"Increases the target acquisition radius of Reaper's Judgement."
@@ -204,7 +204,7 @@
     	"DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_suffix"					""
 
   		"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1"						"[R3] Death's Embrace"
-    	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_Description"			"A portion of the damage dealt by a Phantasmal Killer's initial strike heals Venomort. Any overhealing applies a shield that absorbs incoming damage for 30 seconds."
+    	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_Description"			"A portion of the damage dealt by @Ability4's initial strike heals Venomort. Any overhealing applies a shield that absorbs incoming damage for 30 seconds."
     	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_property_one"			"Heal Amount"
     	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_suffix"					"% of damage"
     	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_property_two"			"Maximum Shield Capacity"

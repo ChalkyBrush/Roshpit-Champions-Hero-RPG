@@ -1,5 +1,7 @@
 var heroPreviews = {};
 var previewLoadingQueue = [];
+var b_item_loading_done = false
+var b_unit_loading_done = false
 
 m_Selected_Hero = ""
 m_heroPanels = []
@@ -33,6 +35,16 @@ function HeroSelectInit(animation)
 
     var parent = $('#hero_select_content')
     var board = $.CreatePanel("Panel", parent, "dummy-box")
+    var item_load = $.CreatePanel("Panel", parent, "item_load_panel")
+    item_load.BLoadLayoutSnippet('item_load_snippet')
+    item_load.FindChildTraverse("item_load_label").text = $.Localize("#ui_loading_items")
+    if (b_item_loading_done){ item_load.FindChildTraverse("item_load_label_pct").text = $.Localize("#ui_done")}
+        else{ item_load.FindChildTraverse("item_load_label_pct").text = "0%" }
+    var unit_load = $.CreatePanel("Panel", parent, "unit_load_panel")
+    unit_load.BLoadLayoutSnippet('unit_load_snippet')
+    unit_load.FindChildTraverse("unit_load_label").text = $.Localize("#ui_loading_units")
+    if (b_unit_loading_done){ unit_load.FindChildTraverse("unit_load_label_pct").text = $.Localize("#ui_done")}
+        else{ unit_load.FindChildTraverse("unit_load_label_pct").text = "0%" }
     board.BLoadLayoutSnippet('new-or-load')
     if (animation =="frombottom"){
         board.AddClass('animateFromBottomEpic')
@@ -236,6 +248,7 @@ function setHeroSlotActivate(heroImage, heroName, heroPreviewBox, slot)
         if (Game.IsGamePaused()){
             return false
         }
+        $.GetContextPanel().selectLock = true
         Game.EmitSound("Roshpit.UI.ClickHero")
         m_Selected_Hero = heroName
         var heroPreviewScene = heroPreviewBox.FindChildTraverse('hero_preview_scene')
@@ -255,6 +268,9 @@ function setHeroSlotActivate(heroImage, heroName, heroPreviewBox, slot)
         enterWorldButton.AddClass('fadeInSmall')
         $('#ability-preview-row').RemoveAndDeleteChildren()
         $('#ability-preview-row').RemoveClass('fadeInSmall')
+        var load_hero_abilities = $.CreatePanel("Panel", $('#ability-preview-row'), "load_hero_abilities");
+        load_hero_abilities.BLoadLayoutSnippet("load_hero_abilities_snippet")
+        load_hero_abilities.AddClass("load_lable_class")
         GameEvents.SendCustomGameEventToServer( "hero_selection_event", {playerID: Players.GetLocalPlayer(), eventName: "previewAbility", heroName: heroName, muteMusic: m_MuteMusic} );
         
 
@@ -343,6 +359,7 @@ function updateSkillPreview(msg)
 {
     $.Msg(msg.abilityTable)
     var parent = $('#ability-preview-row')
+    parent.RemoveAndDeleteChildren()
     parent.AddClass('fadeInSmall')
     var queryUnit = msg.heroIndex
     $.Msg(msg)
@@ -362,6 +379,7 @@ function updateSkillPreview(msg)
         board.FindChildTraverse('AbilityImage').contextEntityIndex = ability;
         var abilityButton = board.FindChildTraverse('AbilityButton')
         setAbilityHoverEvents(abilityButton, ability, queryUnit, parent)
+        $.GetContextPanel().selectLock = false
     }
 
 }
@@ -548,9 +566,43 @@ function reloadHeroes(parent){
      });
 }
 
+function UpdatePrecahe(msg) {
+    if (!$("#hero_select_content")){return}
+    var item_panel = $("#hero_select_content").FindChildTraverse("item_load_panel")
+    var unit_panel = $("#hero_select_content").FindChildTraverse("unit_load_panel")
+    if (msg.units){
+        if (unit_panel){
+            unit_panel.FindChildTraverse("unit_load_label_pct").text = msg.pct+"%"
+        }
+    }else{
+        if (item_panel){
+            item_panel.FindChildTraverse("item_load_label_pct").text = msg.pct+"%"
+        }
+    }
+}
+
+function FinishPrecahe(msg) {
+    if (!$("#hero_select_content")){return}
+    var item_panel = $("#hero_select_content").FindChildTraverse("item_load_panel")
+    var unit_panel = $("#hero_select_content").FindChildTraverse("unit_load_panel")
+    if (msg.units){
+        if (unit_panel){
+            unit_panel.FindChildTraverse("unit_load_label_pct").text = $.Localize("#ui_done")
+        }
+        b_unit_loading_done = true
+    }else{
+        if (item_panel){
+            item_panel.FindChildTraverse("item_load_label_pct").text = $.Localize("#ui_done")
+        }
+        b_item_loading_done = true
+    }
+}
+
 (function()
 {	
 	HeroSelectInit("frombottom");
+    GameEvents.Subscribe( "update_precache", UpdatePrecahe );
+    GameEvents.Subscribe( "finish_precache", FinishPrecahe );
 	GameEvents.Subscribe( "hero_select", HeroSelectInit );
     GameEvents.Subscribe( "updateSkillPreview", updateSkillPreview );
     GameEvents.Subscribe( "load_characters_loaded", LoadCharactersLoaded );
