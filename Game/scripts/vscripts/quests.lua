@@ -305,7 +305,7 @@ function Quests:DummyFromClient(msg)
 		local dummy = hero.targetDummy
 		if tonumber(msg.armor) then
 			dummy:SetPhysicalArmorBaseValue(tonumber(msg.armor))
-			Tutorial:TutorialServerEvent(hero, "4_5", 2)
+			Events:TutorialServerEvent(hero, "4_5", 2)
 		end
 		if tonumber(msg.attack) then
 			local dummyAbility = dummy:FindAbilityByName("training_dummy_ability")
@@ -328,7 +328,7 @@ function Quests:DummyFromClient(msg)
 		if dummy:HasModifier("modifier_black_King_bar_immunity") then
 			dummy:RemoveModifierByName("modifier_black_King_bar_immunity")
 		else
-			Tutorial:TutorialServerEvent(hero, "4_5", 3)
+			Events:TutorialServerEvent(hero, "4_5", 3)
 			dummyAbility:ApplyDataDrivenModifier(dummy, dummy, "modifier_black_King_bar_immunity", {})
 		end
 	elseif msg.steadfast then
@@ -343,7 +343,7 @@ function Quests:DummyFromClient(msg)
 				dummy:RemoveModifierByName("modifier_steadfast")
 			else
 				dummy:AddAbility("fire_temple_steadfast"):SetLevel(GameState:GetDifficultyFactor())
-				Tutorial:TutorialServerEvent(hero, "4_5", 4)
+				Events:TutorialServerEvent(hero, "4_5", 4)
 			end
 
 		elseif (msg.steadfast == 2) then
@@ -356,7 +356,7 @@ function Quests:DummyFromClient(msg)
 				dummy:RemoveModifierByName("modifier_mega_steadfast")
 			else
 				dummy:AddAbility("redfall_mega_steadfast"):SetLevel(GameState:GetDifficultyFactor())
-				Tutorial:TutorialServerEvent(hero, "4_5", 4)
+				Events:TutorialServerEvent(hero, "4_5", 4)
 			end
 		end
 	end

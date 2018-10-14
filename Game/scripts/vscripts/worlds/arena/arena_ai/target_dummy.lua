@@ -13,13 +13,13 @@ function target_dummy_take_damage(event)
 			end
 			event.attacker.dummy_lines_added = event.attacker.dummy_lines_added + 1
 			if event.attacker.dummy_lines_added == 8 then
-				Tutorial:TutorialServerEvent(event.attacker, "4_5", 1)
+				Events:TutorialServerEvent(event.attacker, "4_5", 1)
 			end
 			if caster:HasModifier("modifier_steadfast") then
 				if event.attacker:HasModifier("challen_postmit_buff") then
-					Tutorial:TutorialServerEvent(event.attacker, "4_6", 1)
+					Events:TutorialServerEvent(event.attacker, "4_6", 1)
 				else
-					Tutorial:TutorialServerEvent(event.attacker, "4_6", 0)
+					Events:TutorialServerEvent(event.attacker, "4_6", 0)
 				end
 			end
 		end
@@ -77,7 +77,7 @@ function initTargetDummy(caster, ability, attacker)
 	attacker.targetDummy = caster
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_dummy_active", {})
 	CustomGameEventManager:Send_ServerToPlayer(attacker:GetPlayerOwner(), "updateTargetDummy", {})
-	Tutorial:TutorialServerEvent(attacker, "4_5", 0)
+	Events:TutorialServerEvent(attacker, "4_5", 0)
 end
 
 function target_dummy_rapid_think(event)

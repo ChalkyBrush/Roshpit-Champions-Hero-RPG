@@ -368,7 +368,7 @@ function Tutorial:GetFixedTutorialData(hero)
 		quest.header = "quest_6_interface"
 		quest.description = "quest_6_interface_description"
 		quest.reward = hero.tutorial.section6.reward
-		quest.challenges = 4
+		quest.challenges = 6
 		table.insert(categories, quest)
 	end
 	--
@@ -479,6 +479,9 @@ function Tutorial:TutorialEvent(msg)
 			Tutorial:MasterSequenceWithLocks(hero, hero.tutorial.active_challenge)
 		elseif hero.tutorial.active_challenge == "6_1" then
 			Tutorial:UpdateChallengeSummaryProgress(hero, 6, 1, 0, false)
+			Tutorial:MasterSequenceWithLocks(hero, hero.tutorial.active_challenge)
+		elseif hero.tutorial.active_challenge == "6_2" then
+			Tutorial:UpdateChallengeSummaryProgress(hero, 6, 2, 0, false)
 			Tutorial:MasterSequenceWithLocks(hero, hero.tutorial.active_challenge)
 		end
 	elseif code == "reward_select" then
@@ -1277,9 +1280,80 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 				CustomGameEventManager:Send_ServerToPlayer(player, "quiz_sound", {sound = "Tutorial.Hint"} )
 			end
 		end)
+	elseif code == "6_2" then
+		hero.master_is_talking = true
+		Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_2a", 5, false)
+		local speech_phase = Tutorial:GetSpeechPhaseAndUpdate(hero)
+		Timers:CreateTimer(5, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_2b", 5, false)
+			end
+		end)
+		Timers:CreateTimer(10, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting2", ACT_DOTA_ATTACK, 0.9, 2.0)
+				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_2c", 5, false)
+			end
+		end)
+		Timers:CreateTimer(15, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_2d", 5, false)
+				Tutorial:UpdateSpecialKeyOnWeb(hero, 1)
+			end
+		end)
+		Timers:CreateTimer(20, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_2e", 5, false)
+			end
+		end)
+		Timers:CreateTimer(25, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				hero.tutorial_polling_count = 0
+				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_2f", 5, false)
+				Timers:CreateTimer(0, function()
+					if speech_phase == hero.tutorial_speech_phase then
+						hero.tutorial_polling_count = hero.tutorial_polling_count + 1
+						Tutorial:CheckSpecialKeyAndLoop(hero)
+						if hero.special_key then
+							if hero.special_key == 1 then
+								if hero.tutorial_polling_count%8 == 0 then
+									Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting2", ACT_DOTA_ATTACK, 0.9, 2.0)
+									Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_2g", 5, false)
+								end
+								return 6
+							end
+							if hero.special_key == 2 then
+								Tutorial:TutorialServerEvent(hero, "6_2", 0)
+							end
+						else
+							return 6
+						end
+					end
+				end)
+			end
+		end)
 	end
+end
 
-	
+function Tutorial:CheckSpecialKeyAndLoop(hero)
+	local playerID = hero:GetPlayerOwnerID()
+	local steamID = PlayerResource:GetSteamAccountID(playerID)
+	local player = PlayerResource:GetPlayer(playerID)
+	local url = ROSHPIT_URL.."/champions/get_tutorial_status?"
+	url = url.."steam_id="..steamID
+	print(url)
+	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
+		if result.StatusCode == 200 then
+			local resultTable = {}
+			print( "GET response:\n" )
+			for k,v in pairs( result ) do
+				print( string.format( "%s : %s\n", k, v ) )
+			end
+			print( "Done." )
+			local resultTable = JSON:decode(result.Body)
+			hero.special_key = resultTable.special_key
+		end
+	end )
 end
 
 function Tutorial:TutorialServerEvent(hero, code1, code2)
@@ -2301,7 +2375,11 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 		elseif code1 == "6_1" then
 			if code2 == 0 and hero.active_challenge_progress == code2 then
 				Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_1, 1.0, 4.0)
-				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_6_1f", 5, false)
+				if GameState:GetPlayerPremiumStatus(hero:GetPlayerOwnerID()) then
+					Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_6_1f1", 5, false)
+				else
+					Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_6_1f", 5, false)
+				end
 				local speech_phase = Tutorial:GetSpeechPhaseAndUpdate(hero)
 				hero.active_challenge_progress = hero.active_challenge_progress + 1
 				Timers:CreateTimer(5, function()
@@ -2310,6 +2388,37 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 					Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_6_1g", 5, false)
 					EmitSoundOn("Tutorial.Master.Talk", hero)
 				end)
+			end
+		elseif code1 == "6_2" then
+			if code2 == 0 and hero.active_challenge_progress == code2 then
+				Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_1, 1.0, 4.0)
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_6_2h", 5, false)
+				local speech_phase = Tutorial:GetSpeechPhaseAndUpdate(hero)
+				hero.active_challenge_progress = hero.active_challenge_progress + 1
+				Tutorial:UpdateChallengeSummaryProgress(hero, 6, 2, 1, false)
+				Timers:CreateTimer(5, function()
+					if speech_phase == hero.tutorial_speech_phase then
+						Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_6_2i", 5, false)
+						EmitSoundOn("Tutorial.Master.Talk", hero)
+					end
+				end)
+				Timers:CreateTimer(10, function()
+					if speech_phase == hero.tutorial_speech_phase then
+						Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_6_2j", 5, false)
+					end
+				end)
+				Timers:CreateTimer(15, function()
+					if speech_phase == hero.tutorial_speech_phase then
+						Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_6_2k", 5, false)
+					end
+				end)
+			elseif code2 == 1 and hero.active_challenge_progress == code2 then
+				Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_1, 1.0, 4.0)
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_6_2l", 5, false)
+				local speech_phase = Tutorial:GetSpeechPhaseAndUpdate(hero)
+				hero.active_challenge_progress = hero.active_challenge_progress + 1
+				Tutorial:ProgressUpdateOrNot(hero, 6, 2)
+				Tutorial:UpdateChallengeSummaryProgress(hero, 6, 2, 2, true)
 			end
 		end
 	end
@@ -2442,6 +2551,7 @@ function Tutorial:UpdateRewardProgressOnWeb(hero, section_index)
 			Tutorial:LoadTutorialDataForHero(hero, resultTable)
 			if section_index == 1 then
 				Tutorial:ActivatePortal(true)
+				Stars:StarEventSolo("champleague", hero)
 			elseif section_index == 2 then
 				Tutorial:SpawnAllTownNPCs()
 			elseif section_index == 3 then
@@ -2454,7 +2564,34 @@ function Tutorial:UpdateRewardProgressOnWeb(hero, section_index)
 				Tutorial:SpawnTrainingDummyForHero(hero)
 			elseif section_index == 5 then
 				Tutorial:GetMithrilPrize(Tutorial.Master:GetAbsOrigin(), hero, 100000)
+			elseif section_index == 6 then
+				-- add 2 weeks web premium
+				Stars:StarEventSolo("champleague", hero)
 			end
+		end
+	end )
+end
+
+function Tutorial:UpdateSpecialKeyOnWeb(hero, special_key)
+	local playerID = hero:GetPlayerOwnerID()
+	local steamID = PlayerResource:GetSteamAccountID(playerID)
+	local player = PlayerResource:GetPlayer(playerID)
+	local url = ROSHPIT_URL.."/champions/update_tutorial?"
+	url = url.."steam_id="..steamID
+	url = url.."&type=".."special_key"
+	url = url.."&special_key="..special_key
+	url = url.."&key1="..GetDedicatedServerKey(SaveLoad.KeyVersion)
+	print(url)
+	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
+		if result.StatusCode == 200 then
+			local resultTable = {}
+			print( "GET response:\n" )
+			for k,v in pairs( result ) do
+				print( string.format( "%s : %s\n", k, v ) )
+			end
+			print( "Done." )
+			local resultTable = JSON:decode(result.Body)
+			local special_key = resultTable.special_key
 		end
 	end )
 end
