@@ -117,7 +117,7 @@
 	</snippets>
 
 	<Panel class="tutorial_content" hittest="false">
-<!-- 		<Image id="green_check" class="invisible" src="file://{images}/spellicons/tutorial/reward5.png"/> -->
+<!-- 		<Image id="green_check" class="invisible" src="file://{images}/spellicons/tutorial/reward6.png"/> -->
 		<Panel id="tutorial_container" hittest="false">
 		</Panel>
 		<Panel id="tutorial_challenge_summary_container" hittest="false">

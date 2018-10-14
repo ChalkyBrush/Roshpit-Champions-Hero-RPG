@@ -16061,7 +16061,7 @@
 		 "fire_temple_fireling"										"Fireling"
 		 "fire_temple_skeleton_archer"								"Skeleton Archer"
 
-	"rpc_tutorial"														"Roshpit Tutorial (Coming Soon)"
+	"rpc_tutorial"														"Roshpit Tutorial"
 
 	"tutorial_base_armor"												"Base Armor"
 
@@ -16711,6 +16711,9 @@
 
 	"tutorial_master_dialogue_6_5e"										"That's right! Now feel free to introduce yourself to the other players if you'd like."
 	"tutorial_master_dialogue_6_5f"										"That ends the lesson."
+
+	"quest_6_reward_title"												"2 Weeks of Web Premium"       
+	"quest_6_reward_description"										"Add 2 weeks of Web Premium to your roshpit.ca account! Claim this when you think you'll get the most value. You can only claim it once."
 
 		"winterblight_village"											"Winterblight Village"
 		"shrine_of_azalea"												"Shrine of Azalea"

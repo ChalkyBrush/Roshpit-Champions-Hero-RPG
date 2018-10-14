@@ -2714,7 +2714,17 @@ function Tutorial:UpdateRewardProgressOnWeb(hero, section_index)
 			elseif section_index == 5 then
 				Tutorial:GetMithrilPrize(Tutorial.Master:GetAbsOrigin(), hero, 100000)
 			elseif section_index == 6 then
-				-- add 2 weeks web premium
+				local particleName = "particles/roshpit/web/web_premium.vpcf"
+				local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, hero)
+				ParticleManager:SetParticleControl(pfx, 0, hero:GetAbsOrigin())
+				ParticleManager:SetParticleControl(pfx, 1, Vector(200, 200, 200))
+				Timers:CreateTimer(3, function()
+					ParticleManager:DestroyParticle(pfx, false)
+				end)
+				EmitSoundOn("RPC.WebPremium", hero)
+				CustomNetTables:SetTableValue("premium_pass", "web-"..tostring(playerID), {premium = 1} )
+				CustomGameEventManager:Send_ServerToAllClients("update_premium", {playerID = playerID} )
+				Notifications:Top(playerID, {text="Web Premium Added", duration=8, style={color="#A2EFEF"}, continue=true})
 				Stars:StarEventSolo("champleague", hero)
 			end
 		end
