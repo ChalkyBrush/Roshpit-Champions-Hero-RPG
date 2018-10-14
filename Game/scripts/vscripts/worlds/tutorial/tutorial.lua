@@ -489,6 +489,9 @@ function Tutorial:TutorialEvent(msg)
 		elseif hero.tutorial.active_challenge == "6_4" then
 			Tutorial:UpdateChallengeSummaryProgress(hero, 6, 4, 0, false)
 			Tutorial:MasterSequenceWithLocks(hero, hero.tutorial.active_challenge)
+		elseif hero.tutorial.active_challenge == "6_5" then
+			Tutorial:UpdateChallengeSummaryProgress(hero, 6, 5, 0, false)
+			Tutorial:MasterSequenceWithLocks(hero, hero.tutorial.active_challenge)
 		end
 	elseif code == "reward_select" then
 		Tutorial:ClaimReward(msg)
@@ -1420,6 +1423,31 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 						end
 					end
 				end)
+			end
+		end)
+	elseif code == "6_5" then
+		hero.master_is_talking = true
+		Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_5a", 5, false)
+		local speech_phase = Tutorial:GetSpeechPhaseAndUpdate(hero)
+		Timers:CreateTimer(5, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_5b", 5, false)
+			end
+		end)
+		Timers:CreateTimer(10, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting2", ACT_DOTA_ATTACK, 0.9, 2.0)
+				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_5c", 5, false)
+			end
+		end)
+		Timers:CreateTimer(15, function()
+			if speech_phase == hero.tutorial_speech_phase then
+				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_5d", 5, false)
+				local player = PlayerResource:GetPlayer(hero:GetPlayerOwnerID())
+				local question = "tutorial_quiz_question_19"
+				local verifier = "krjua5"
+				CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero=hero:GetEntityIndex(), identifier="6_5", quiz_question=question, sequence=0, verifier = verifier, localize_verifier = 1, challenge_progress = 0} )
+				CustomGameEventManager:Send_ServerToPlayer(player, "quiz_sound", {sound = "Tutorial.Hint"} )
 			end
 		end)
 	end
@@ -2527,6 +2555,19 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 				hero.active_challenge_progress = hero.active_challenge_progress + 1
 				Tutorial:ProgressUpdateOrNot(hero, 6, 4)
 				Tutorial:UpdateChallengeSummaryProgress(hero, 6, 4, 1, true)
+			end
+		elseif code1 == "6_5" then
+			if code2 == 0 and hero.active_challenge_progress == code2 then
+				Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_1, 1.0, 4.0)
+				Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_6_5e", 5, false)
+				local speech_phase = Tutorial:GetSpeechPhaseAndUpdate(hero)
+				hero.active_challenge_progress = hero.active_challenge_progress + 1
+				Timers:CreateTimer(5, function()
+					Tutorial:ProgressUpdateOrNot(hero, 6, 5)
+					Tutorial:UpdateChallengeSummaryProgress(hero, 6, 5, 1, true)
+					Quests:ShowDialogueText({hero}, Tutorial.Master,"tutorial_master_dialogue_6_5f", 5, false)
+					EmitSoundOn("Tutorial.Master.Talk", hero)
+				end)
 			end
 		end
 	end
