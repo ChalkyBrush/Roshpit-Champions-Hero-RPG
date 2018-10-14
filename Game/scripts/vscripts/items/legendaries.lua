@@ -8720,6 +8720,10 @@ function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, sl
     local isShop = false
     local giveBackOldItem = false
     local deathLocation = RPCItems.DROP_LOCATION
+    if GameState:IsTutorial() then
+        Events.DifficultyFactor = 3
+        Events.SpiritRealm = true
+    end
     RPCItems.LevelRoll = itemLevel
     newItem = RPCItems:RollImmortalByName(itemName, deathLocation)
     if newItem then
@@ -8741,56 +8745,56 @@ function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, sl
         end
     end
     RPCItems.LevelRoll = false
-    -- Timers:CreateTimer(1.5, function()
-        print("TIMER FUNCTION IN HERE")
-        print(giveBackOldItem)
-        if not newItem or giveBackOldItem or not IsValidEntity(newItem) then
-            -- RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
-            Notifications:Top(hero:GetPlayerOwnerID(), {text="This Item Can Not Be Rerolled", duration=5, style={color="red"}, continue=true})
-        else
-            newItem.pickedUp = true
-            newItem.minLevel = itemLevel
-            local itemInfo = CustomNetTables:GetTableValue("item_basics", tostring(newItem:GetEntityIndex()))
-            CustomNetTables:SetTableValue( "item_basics", tostring(newItem:GetEntityIndex()), {itemName = itemInfo.itemName, consumable = itemInfo.consumable, itemDescription = itemInfo.itemDescription, qualityColor = itemInfo.qualityColor, qualityName = itemInfo.qualityName, itemPrefix = itemInfo.itemPrefix, itemSuffix = itemInfo.itemSuffix, rarityFactor = itemInfo.rarityFactor, minLevel = newItem.minLevel } )
-            if slotLock1 == 1 then
-                RPCItems:HandleRerollPropertyLock(item, newItem, 1)
-            end
-            if slotLock2 == 1 then
-                RPCItems:HandleRerollPropertyLock(item, newItem, 2)
-            end
-            if slotLock3 == 1 then
-                RPCItems:HandleRerollPropertyLock(item, newItem, 3)
-            end
-            if slotLock4 == 1 then
-                RPCItems:HandleRerollPropertyLock(item, newItem, 4)
-            end
-            RPCItems:ReduceLevelRequirement(newItem)
-            if item then
-                if IsValidEntity(item:GetContainer()) then
-                    UTIL_Remove(item:GetContainer())
-                end
-            end
-            if newItem then
-                if IsValidEntity(newItem:GetContainer()) then
-                    UTIL_Remove(newItem:GetContainer())
-                end
-            else
-                RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
-                Notifications:Top(hero:GetPlayerOwnerID(), {text="This Item Can Not Be Rerolled", duration=5, style={color="red"}, continue=true})
-            end
-            
-            if item:GetAbilityName() == newItem:GetAbilityName() then
-                print("NEW ITEM IS ACCEPTABLE")
-                
-            end
-            if IsValidEntity(newItem) then
-                newItem.expiryTime = false
-            end
-            if IsValidEntity(item) then
-                item.expiryTime = false
+    if not newItem or giveBackOldItem or not IsValidEntity(newItem) then
+        -- RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
+        Notifications:Top(hero:GetPlayerOwnerID(), {text="This Item Can Not Be Rerolled", duration=5, style={color="red"}, continue=true})
+    else
+        newItem.pickedUp = true
+        newItem.minLevel = itemLevel
+        local itemInfo = CustomNetTables:GetTableValue("item_basics", tostring(newItem:GetEntityIndex()))
+        CustomNetTables:SetTableValue( "item_basics", tostring(newItem:GetEntityIndex()), {itemName = itemInfo.itemName, consumable = itemInfo.consumable, itemDescription = itemInfo.itemDescription, qualityColor = itemInfo.qualityColor, qualityName = itemInfo.qualityName, itemPrefix = itemInfo.itemPrefix, itemSuffix = itemInfo.itemSuffix, rarityFactor = itemInfo.rarityFactor, minLevel = newItem.minLevel } )
+        if slotLock1 == 1 then
+            RPCItems:HandleRerollPropertyLock(item, newItem, 1)
+        end
+        if slotLock2 == 1 then
+            RPCItems:HandleRerollPropertyLock(item, newItem, 2)
+        end
+        if slotLock3 == 1 then
+            RPCItems:HandleRerollPropertyLock(item, newItem, 3)
+        end
+        if slotLock4 == 1 then
+            RPCItems:HandleRerollPropertyLock(item, newItem, 4)
+        end
+        RPCItems:ReduceLevelRequirement(newItem)
+        if item then
+            if IsValidEntity(item:GetContainer()) then
+                UTIL_Remove(item:GetContainer())
             end
         end
-    -- end)
+        if newItem then
+            if IsValidEntity(newItem:GetContainer()) then
+                UTIL_Remove(newItem:GetContainer())
+            end
+        else
+            RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
+            Notifications:Top(hero:GetPlayerOwnerID(), {text="This Item Can Not Be Rerolled", duration=5, style={color="red"}, continue=true})
+        end
+        
+        if item:GetAbilityName() == newItem:GetAbilityName() then
+            print("NEW ITEM IS ACCEPTABLE")
+            
+        end
+        if IsValidEntity(newItem) then
+            newItem.expiryTime = false
+        end
+        if IsValidEntity(item) then
+            item.expiryTime = false
+        end
+    end
+    if GameState:IsTutorial() then
+        Events.DifficultyFactor = 1
+        Events.SpiritRealm = false
+    end
     return newItem
 end
 
