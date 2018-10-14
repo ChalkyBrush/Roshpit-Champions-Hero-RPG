@@ -18,8 +18,10 @@ function Tutorial:InitTutorialMap()
 end
 
 function Tutorial:SpawnOracle()
-	Tutorial.OracleSpawned = true
-	local oracle = Events:SpawnOracle(Vector(-2842, -1943), Vector(-0.3, -1))
+	if not Tutorial.OracleSpawned then
+		Tutorial.OracleSpawned = true
+		local oracle = Events:SpawnOracle(Vector(-2842, -1943), Vector(-0.3, -1))
+	end
 end
 
 function Tutorial:Debug()
@@ -1036,7 +1038,7 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 				local damageELEMENT = Filters:ElementalDamage(Events.GameMaster, hero, damageDealt*100, DAMAGE_TYPE_PURE, 0, random_element, RPC_ELEMENT_NONE, false)
 				local validator = math.floor(damageELEMENT/damageDealt)
 				local player = PlayerResource:GetPlayer(hero:GetPlayerOwnerID())
-				local question = "tutorial_quiz_question_14"
+				local question = "tutorial_quiz_question_14a"
 				local sub1 = "rpc_element"..random_element
 				CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero=hero:GetEntityIndex(), identifier="4_4", quiz_question=question, sequence=0, gsub1 = sub1, verifier = validator, localize_verifier = 0, challenge_progress = 0} )
 				CustomGameEventManager:Send_ServerToPlayer(player, "quiz_sound", {sound = "Tutorial.Hint"} )
@@ -1698,7 +1700,7 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 					hero.master_is_talking = false
 					local player = PlayerResource:GetPlayer(hero:GetPlayerOwnerID())
 					local question = "tutorial_quiz_question_5"
-					local choice = RandomInt(1,4)
+					local choice = RandomInt(1,3)
 					local baseDamage = 100000
 					local verifier = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, hero, baseDamage, DAMAGE_TYPE_PURE, choice, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
 					verifier = math.floor((verifier/baseDamage)*100)

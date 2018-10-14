@@ -15786,7 +15786,7 @@
 	"tutorial_master_dialogue_4_4b"										"Elemental amplification can be increased by several special bonuses."
 	"tutorial_master_dialogue_4_4c"										"Check the bottom part of your hero tooltip."
 
-	"tutorial_quiz_question_14"											"What is your @sub1 amplification value?"
+	"tutorial_quiz_question_14a"											"What is your @sub1 amplification value?"
 
 	"tutorial_quiz_wrong_4_4_1"											"That's wrong. Your elemental amplification can be found at the bottom of your hero tooltip."
 	"tutorial_quiz_wrong_4_4_2"											"That's just not right. Sorry."
